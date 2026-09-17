@@ -1,0 +1,13 @@
+PASS All 46 unrelated buildings retain baseline positions and rotations
+PASS House 1 absent
+PASS House southern inset 15.1m from old yard edge; moved 116.581m south
+PASS Yard horizontal area 9003.472 -> 2250.869 m2; ratio 0.25000; narrow access separate
+PASS Foundations floating corners=0, terrain above floors=0
+PASS All 11888 prior trees retained; 107 added; total 11995
+PASS Added tree yard/access conflicts=0, unsupported=0
+PASS Added trunk minimum center gap 6.803m; width .75m
+PASS 18 breakable assemblies, actual 18
+PASS All breakable collisions are trigger-only; no solid fragments or solver impulses
+PASS Terrain tile height/normal seam mismatches=0
+PASS Terrain collision matches visible mesh
+RESULT failures=0

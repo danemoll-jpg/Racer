@@ -1,0 +1,1 @@
+Completed existing mixed normal/shortcut laps, jump/bypass and race/input/HUD/reset regression harnesses. See raw reports; manually stepped PhysX, virtual input; not physical controller.

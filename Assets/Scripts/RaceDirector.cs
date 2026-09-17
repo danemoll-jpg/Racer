@@ -42,6 +42,7 @@ namespace Racer
         public void RestartRace()
         {
             respawn.ResetVehicle(); Progress.Restart();
+            BreakableProp.RestoreRace();
             ResetSampling(vehicle.Body.position, Time.timeAsDouble);
         }
         // Also used by manual PhysX validation; times are simulation seconds, not wall-clock time.

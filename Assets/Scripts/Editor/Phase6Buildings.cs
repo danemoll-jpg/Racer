@@ -14,7 +14,7 @@ public static class Phase6Buildings {
  public static readonly Vector3 Dan=new(352,0,105.6f),FormerOne=new(415.8f,0,-1.1f);
  static Material cream,blue,sage,brick,roof,trim,glass,wood,red,teal,ochre;
  static Mesh gable,hip;
- public static float YardDistance(Vector3 p){var a=Dan;var v=FormerOne-a;p.y=0;return (p-(a+v*Mathf.Clamp01(Vector3.Dot(p-a,v)/v.sqrMagnitude))).magnitude;}
+ public static float YardDistance(Vector3 p)=>CompactYard.Distance(p)-CompactYard.Radius+27;
  public static bool YardClear(Vector3 p)=>YardDistance(p)<27;
  static Material Mat(string name,Color color){string path=Folder+"/"+name+".mat";var m=AssetDatabase.LoadAssetAtPath<Material>(path);if(!m){m=new Material(Shader.Find("Universal Render Pipeline/Lit"));m.color=color;m.SetFloat("_Smoothness",.12f);AssetDatabase.CreateAsset(m,path);}return m;}
  static void Assets(){
@@ -145,4 +145,3 @@ public static class Phase6Buildings {
  }
 }
 }
-

@@ -1,0 +1,4 @@
+PASS 35 simultaneous yielded assemblies capped at 24
+PASS No additional rigidbodies
+PASS Oldest 11 visuals retired at cap
+PASS All moving debris retired after lifetime

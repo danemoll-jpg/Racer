@@ -1,0 +1,236 @@
+[
+  {
+    "name": "Original house 2 side fence 1",
+    "position": [
+      408.0823,
+      85.12532,
+      -38.7441978
+    ],
+    "size": [
+      4.0,
+      1.3,
+      0.3
+    ]
+  },
+  {
+    "name": "Friend across street - blue circle side fence 0",
+    "position": [
+      520.361938,
+      85.86269,
+      -52.7347069
+    ],
+    "size": [
+      4.0,
+      1.3,
+      0.3
+    ]
+  },
+  {
+    "name": "Original house 2 side fence 0",
+    "position": [
+      404.338745,
+      84.99164,
+      -40.6483
+    ],
+    "size": [
+      4.0,
+      1.3,
+      0.3
+    ]
+  },
+  {
+    "name": "Friend across street - blue circle side fence 2",
+    "position": [
+      512.1476,
+      86.15244,
+      -54.4909477
+    ],
+    "size": [
+      4.0,
+      1.3,
+      0.3
+    ]
+  },
+  {
+    "name": "Simple bend warning",
+    "position": [
+      500.652374,
+      83.6050339,
+      -129.80835
+    ],
+    "size": [
+      1.20208156,
+      2.40104079,
+      0.3
+    ]
+  },
+  {
+    "name": "Dan west yard fence 1",
+    "position": [
+      390.0,
+      83.27845,
+      -0.8000002
+    ],
+    "size": [
+      4.0,
+      1.3,
+      0.3
+    ]
+  },
+  {
+    "name": "Breakable - Jump approach sign",
+    "position": [
+      -634.5693,
+      7.58052349,
+      -146.1316
+    ],
+    "size": [
+      8.002197,
+      4.97174358,
+      0.368074536
+    ]
+  },
+  {
+    "name": "Mailbox - Friend across street - blue circle",
+    "position": [
+      486.848358,
+      87.72173,
+      -43.5383568
+    ],
+    "size": [
+      0.534999967,
+      1.52,
+      0.765
+    ]
+  },
+  {
+    "name": "Breakable - Shortcut direction sign",
+    "position": [
+      -610.9845,
+      6.23154974,
+      -468.5307
+    ],
+    "size": [
+      7.0,
+      4.50000048,
+      0.3
+    ]
+  },
+  {
+    "name": "Breakable - Shortcut direction sign",
+    "position": [
+      -532.098633,
+      6.553768,
+      -541.07196
+    ],
+    "size": [
+      0.3,
+      4.5,
+      7.0
+    ]
+  },
+  {
+    "name": "Friend across street - blue circle side fence 1",
+    "position": [
+      516.254761,
+      85.93083,
+      -53.61283
+    ],
+    "size": [
+      4.0,
+      1.3,
+      0.3
+    ]
+  },
+  {
+    "name": "Original house 2 side fence 2",
+    "position": [
+      411.8259,
+      85.21879,
+      -36.84009
+    ],
+    "size": [
+      4.0,
+      1.3,
+      0.3
+    ]
+  },
+  {
+    "name": "Mailbox - Original house 2",
+    "position": [
+      462.1243,
+      87.41538,
+      -42.6887856
+    ],
+    "size": [
+      0.534999967,
+      1.52,
+      0.765
+    ]
+  },
+  {
+    "name": "Dan west yard fence 2",
+    "position": [
+      390.0,
+      82.90393,
+      3.39999962
+    ],
+    "size": [
+      4.0,
+      1.3,
+      0.3
+    ]
+  },
+  {
+    "name": "Dan west yard fence 0",
+    "position": [
+      390.0,
+      83.599144,
+      -5.0
+    ],
+    "size": [
+      4.0,
+      1.3,
+      0.3
+    ]
+  },
+  {
+    "name": "Mailbox - Original house 3",
+    "position": [
+      494.7305,
+      85.97233,
+      -117.790718
+    ],
+    "size": [
+      0.534999967,
+      1.52,
+      0.765
+    ]
+  },
+  {
+    "name": "Mailbox - Dan - blue X",
+    "position": [
+      460.483337,
+      83.2087555,
+      -11.3010654
+    ],
+    "size": [
+      0.534999967,
+      1.52,
+      0.765
+    ]
+  },
+  {
+    "name": "Simple bend warning",
+    "position": [
+      309.105255,
+      71.1456451,
+      299.25946
+    ],
+    "size": [
+      1.20208156,
+      2.40104079,
+      0.3
+    ]
+  }
+]

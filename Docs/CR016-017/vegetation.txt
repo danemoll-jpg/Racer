@@ -1,0 +1,4 @@
+Authored trees 11995; crown variants broad/irregular/upright 3663/3351/4981. 90 spatial 160m combined batches, one shared vertex-color material. Crown radius 1.05..9.09m.
+Trunk vertices exactly match box-collider transforms. No leaf/ground collision or understory. Crown radius limits: CR-016 compact yard/access, road 16m, shortcut 7.6m, building sites 16m.
+Patch-coherent crown variants/color, deterministic individual rotation/height/width variation. No whole-environment rebuild. Three reusable crown meshes + trunk; no duplicate visible sources. Refresh is repeatable from authored colliders.
+

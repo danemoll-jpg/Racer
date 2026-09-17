@@ -1,0 +1,13 @@
+Raw successful retry log below. Initial attempt had already moved Dan from (349.7807,74.9703,103.5814) and added 97 trunks. The retry added 10 more; final total 107 additions. See baseline.json and geometry.txt for the full-batch comparison.
+
+Dan - blue X: (415.8000, 83.8196, -13.0000) -> (415.8000, 83.8196, -13.0000), delta (0.0000, 0.0000, 0.0000); floor 84.889, foundation bottom 82.708. Accepted prefab and rotation retained.
+Dan west yard fence 0 at (390.000, 83.599, -5.000)
+Dan west yard fence 1 at (390.000, 83.278, -0.800)
+Dan west yard fence 2 at (390.000, 82.904, 3.400)
+Original house 2 side fence 0 at (404.339, 84.992, -40.648)
+Original house 2 side fence 1 at (408.082, 85.125, -38.744)
+Original house 2 side fence 2 at (411.826, 85.219, -36.840)
+Friend across street - blue circle side fence 0 at (520.362, 85.863, -52.735)
+Friend across street - blue circle side fence 1 at (516.255, 85.931, -53.613)
+Friend across street - blue circle side fence 2 at (512.148, 86.152, -54.491)
+Yard 9003.472 -> 2250.869 square metres; southern boundary old=-28.1, new=-27.867; house south inset=15.1m. Separate narrow road access retained. Added 10 solid trunks; 3089 terrain color entries; zero terrain height edits.

@@ -1,0 +1,9 @@
+var scene=UnityEngine.SceneManagement.SceneManager.GetActiveScene();
+if(Application.isPlaying||scene.isDirty)throw new System.Exception("Saved edit mode required");
+var dir="Docs/CR016-017";
+var a=Racer.Editor.Phase6Buildings.Dan;var b=Racer.Editor.Phase6Buildings.FormerOne;
+var cam=Camera.main;var p=cam.transform.position;var q=cam.transform.rotation;bool o=cam.orthographic;float s=cam.orthographicSize;
+try {cam.orthographic=true;cam.orthographicSize=130;cam.transform.SetPositionAndRotation(new Vector3(390,700,53),Quaternion.LookRotation(Vector3.down,Vector3.forward));var rt=new RenderTexture(1200,1000,24);var old=cam.targetTexture;var active=RenderTexture.active;try{cam.targetTexture=rt;cam.Render();RenderTexture.active=rt;var t=new Texture2D(1200,1000,TextureFormat.RGB24,false);t.ReadPixels(new Rect(0,0,1200,1000),0,0);t.Apply();System.IO.File.WriteAllBytes(dir+"/before.png",t.EncodeToPNG());UnityEngine.Object.DestroyImmediate(t);}finally{cam.targetTexture=old;RenderTexture.active=active;UnityEngine.Object.DestroyImmediate(rt);}}finally{cam.transform.SetPositionAndRotation(p,q);cam.orthographic=o;cam.orthographicSize=s;}
+System.IO.File.WriteAllText(dir+"/baseline.json",Newtonsoft.Json.JsonConvert.SerializeObject(new { north="+Z; reference image north/up, StreetLoopBuilder pixel mapping", a=new[]{a.x,a.z},b=new[]{b.x,b.z},radius=27,area=2*27*Vector3.Distance(a,b)+Mathf.PI*27*27,sites=GameObject.Find(Racer.Editor.Phase6Review.Root).transform.Cast<Transform>().Select(t=>new {t.name,position=new[]{t.position.x,t.position.y,t.position.z},rotation=new[]{t.rotation.x,t.rotation.y,t.rotation.z,t.rotation.w}}),colliders=UnityEngine.Object.FindObjectsByType<Collider>(FindObjectsSortMode.None).Where(c=>c.name.Contains("Sign")||c.name.Contains("sign")).Select(c=>new{c.name,type=c.GetType().Name})},Newtonsoft.Json.Formatting.Indented));
+return System.IO.File.ReadAllText(dir+"/baseline.json");
+

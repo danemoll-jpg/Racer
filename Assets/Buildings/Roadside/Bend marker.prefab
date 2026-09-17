@@ -189,6 +189,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2936388861423275749}
+  - component: {fileID: 7549414448878320120}
+  - component: {fileID: 6149293113396941502}
   m_Layer: 0
   m_Name: Bend marker
   m_TagString: Untagged
@@ -215,6 +217,40 @@ Transform:
   - {fileID: 686713849192885237}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &7549414448878320120
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6943662399862211408}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.2020816, y: 2.4010408, z: 0.3}
+  m_Center: {x: 0, y: 1.2005204, z: 0.0024999976}
+--- !u!114 &6149293113396941502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6943662399862211408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b6549df4bd1a5145bcdeb23da9348db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Racer.BreakableProp
+  impactSpeed: 0.2
 --- !u!1 &7205031121233424227
 GameObject:
   m_ObjectHideFlags: 0

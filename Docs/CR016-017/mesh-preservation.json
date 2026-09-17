@@ -1,0 +1,15 @@
+{
+  "forest": {
+    "changed_geometry": [
+      "Forest_2_-1.asset",
+      "Forest_2_0.asset"
+    ],
+    "unchanged_geometry": 88,
+    "compared": "positions, normals, indices, colors"
+  },
+  "terrain": {
+    "changed_geometry": [],
+    "unchanged_geometry": 100,
+    "compared": "positions, normals, indices; excludes intentional ground colors"
+  }
+}

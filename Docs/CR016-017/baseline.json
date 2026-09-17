@@ -1,0 +1,674 @@
+{
+  "north": "+Z; reference image north/up, StreetLoopBuilder pixel mapping",
+  "a": [
+    352.0,
+    105.6
+  ],
+  "b": [
+    415.8,
+    -1.1
+  ],
+  "radius": 27,
+  "area": 9003.472,
+  "sites": [
+    {
+      "name": "Dan - blue X",
+      "position": [
+        349.7807,
+        74.97028,
+        103.581429
+      ],
+      "rotation": [
+        0.0,
+        0.4044378,
+        0.0,
+        0.9145655
+      ]
+    },
+    {
+      "name": "Original house 2",
+      "position": [
+        417.40918,
+        85.64656,
+        -55.31675
+      ],
+      "rotation": [
+        0.0,
+        0.522801042,
+        0.0,
+        0.8524547
+      ]
+    },
+    {
+      "name": "Original house 3",
+      "position": [
+        418.0,
+        32.75478,
+        -160.0
+      ],
+      "rotation": [
+        0.0,
+        0.555278063,
+        0.0,
+        0.831664741
+      ]
+    },
+    {
+      "name": "Friend across street - blue circle",
+      "position": [
+        511.5,
+        84.8655243,
+        -35.2
+      ],
+      "rotation": [
+        0.0,
+        -0.7775205,
+        0.0,
+        0.6288576
+      ]
+    },
+    {
+      "name": "Remembered house behind southern hairpin",
+      "position": [
+        484.0,
+        23.89902,
+        -596.2
+      ],
+      "rotation": [
+        0.0,
+        0.0296826772,
+        0.0,
+        0.9995594
+      ]
+    },
+    {
+      "name": "Approximate older residence",
+      "position": [
+        -665.5,
+        8.500742,
+        319.0
+      ],
+      "rotation": [
+        0.0,
+        0.7036212,
+        0.0,
+        0.710575342
+      ]
+    },
+    {
+      "name": "Approximate older residence",
+      "position": [
+        -590.7,
+        7.966263,
+        143.0
+      ],
+      "rotation": [
+        0.0,
+        -0.712729931,
+        0.0,
+        0.701438546
+      ]
+    },
+    {
+      "name": "Approximate older residence",
+      "position": [
+        -667.7,
+        7.61520863,
+        -71.5
+      ],
+      "rotation": [
+        0.0,
+        0.7015942,
+        0.0,
+        0.712576747
+      ]
+    },
+    {
+      "name": "Approximate older residence",
+      "position": [
+        -585.2,
+        7.3291316,
+        -198.0
+      ],
+      "rotation": [
+        0.0,
+        -0.7121779,
+        0.0,
+        0.701999068
+      ]
+    },
+    {
+      "name": "Approximate older residence",
+      "position": [
+        -667.7,
+        6.10028934,
+        -374.0
+      ],
+      "rotation": [
+        0.0,
+        0.7002006,
+        0.0,
+        0.713946164
+      ]
+    },
+    {
+      "name": "Approximate older residence",
+      "position": [
+        88.0,
+        39.2446632,
+        -341.0
+      ],
+      "rotation": [
+        0.0,
+        0.09675056,
+        0.0,
+        0.9953087
+      ]
+    },
+    {
+      "name": "Approximate older residence",
+      "position": [
+        44.0,
+        30.3811951,
+        -451.0
+      ],
+      "rotation": [
+        0.0,
+        -0.6794841,
+        0.0,
+        0.7336902
+      ]
+    },
+    {
+      "name": "Approximate older residence",
+      "position": [
+        -132.0,
+        29.8279972,
+        -540.100037
+      ],
+      "rotation": [
+        0.0,
+        0.9998059,
+        0.0,
+        0.0197016783
+      ]
+    },
+    {
+      "name": "Approximate older residence",
+      "position": [
+        -311.300018,
+        13.5941124,
+        -522.5
+      ],
+      "rotation": [
+        0.0,
+        0.996931553,
+        0.0,
+        -0.07827805
+      ]
+    },
+    {
+      "name": "Approximate older residence",
+      "position": [
+        -587.4,
+        8.71955,
+        247.5
+      ],
+      "rotation": [
+        0.0,
+        -0.7129891,
+        0.0,
+        0.7011751
+      ]
+    },
+    {
+      "name": "Approximate older residence",
+      "position": [
+        -668.8,
+        7.39487553,
+        66.0
+      ],
+      "rotation": [
+        0.0,
+        0.7006315,
+        0.0,
+        0.713523269
+      ]
+    },
+    {
+      "name": "Approximate older residence",
+      "position": [
+        -581.9,
+        7.155913,
+        -22.0
+      ],
+      "rotation": [
+        0.0,
+        -0.713312566,
+        0.0,
+        0.7008461
+      ]
+    },
+    {
+      "name": "Approximate older residence",
+      "position": [
+        -669.9,
+        7.226384,
+        -242.0
+      ],
+      "rotation": [
+        0.0,
+        0.701520443,
+        0.0,
+        0.712649345
+      ]
+    },
+    {
+      "name": "Approximate older residence",
+      "position": [
+        -576.4,
+        5.352605,
+        -440.0
+      ],
+      "rotation": [
+        0.0,
+        -0.7163149,
+        0.0,
+        0.6977772
+      ]
+    },
+    {
+      "name": "Approximate older residence",
+      "position": [
+        -61.6000023,
+        33.50142,
+        -511.5
+      ],
+      "rotation": [
+        0.0,
+        0.751367152,
+        0.0,
+        0.6598844
+      ]
+    },
+    {
+      "name": "Approximate older residence",
+      "position": [
+        -38.5,
+        36.11748,
+        -396.0
+      ],
+      "rotation": [
+        0.0,
+        0.749237359,
+        0.0,
+        0.66230166
+      ]
+    },
+    {
+      "name": "Approximate older residence",
+      "position": [
+        143.0,
+        38.2445641,
+        -242.0
+      ],
+      "rotation": [
+        0.0,
+        0.9909164,
+        0.0,
+        -0.134479582
+      ]
+    },
+    {
+      "name": "Approximate older residence",
+      "position": [
+        244.200012,
+        36.8532677,
+        -412.5
+      ],
+      "rotation": [
+        0.0,
+        0.286662638,
+        0.0,
+        0.9580316
+      ]
+    },
+    {
+      "name": "Approximate older residence",
+      "position": [
+        385.0,
+        32.1291237,
+        -506.0
+      ],
+      "rotation": [
+        0.0,
+        0.473128021,
+        0.0,
+        0.8809937
+      ]
+    },
+    {
+      "name": "Approximate older residence",
+      "position": [
+        583.0,
+        30.5054817,
+        -429.0
+      ],
+      "rotation": [
+        0.0,
+        -0.684184968,
+        0.0,
+        0.729308546
+      ]
+    },
+    {
+      "name": "Approximate main road business -1",
+      "position": [
+        -533.4266,
+        7.476062,
+        510.071564
+      ],
+      "rotation": [
+        0.0,
+        0.0327816159,
+        0.0,
+        0.999462545
+      ]
+    },
+    {
+      "name": "Approximate main road business 1",
+      "position": [
+        -533.4266,
+        7.427145,
+        571.028
+      ],
+      "rotation": [
+        0.0,
+        0.9994954,
+        0.0,
+        -0.0317657329
+      ]
+    },
+    {
+      "name": "Approximate main road business -1",
+      "position": [
+        -459.8823,
+        7.66029644,
+        504.046265
+      ],
+      "rotation": [
+        0.0,
+        0.0160671417,
+        0.0,
+        0.999870956
+      ]
+    },
+    {
+      "name": "Approximate main road business 1",
+      "position": [
+        -459.8823,
+        7.07667828,
+        571.6246
+      ],
+      "rotation": [
+        0.0,
+        0.9998744,
+        0.0,
+        -0.0158498865
+      ]
+    },
+    {
+      "name": "Approximate main road business -1",
+      "position": [
+        -386.298523,
+        8.066547,
+        502.560822
+      ],
+      "rotation": [
+        0.0,
+        0.0188261736,
+        0.0,
+        0.9998228
+      ]
+    },
+    {
+      "name": "Approximate main road business 1",
+      "position": [
+        -386.298523,
+        7.64821959,
+        571.4064
+      ],
+      "rotation": [
+        0.0,
+        0.999822259,
+        0.0,
+        -0.0188521985
+      ]
+    },
+    {
+      "name": "Approximate main road business -1",
+      "position": [
+        -312.6349,
+        8.556712,
+        499.6171
+      ],
+      "rotation": [
+        0.0,
+        0.0149782784,
+        0.0,
+        0.9998878
+      ]
+    },
+    {
+      "name": "Approximate main road business 1",
+      "position": [
+        -312.6349,
+        8.609652,
+        568.281433
+      ],
+      "rotation": [
+        0.0,
+        0.9998853,
+        0.0,
+        -0.015147347
+      ]
+    },
+    {
+      "name": "Approximate main road business -1",
+      "position": [
+        -238.812653,
+        8.548977,
+        497.687531
+      ],
+      "rotation": [
+        0.0,
+        0.006009441,
+        0.0,
+        0.99998194
+      ]
+    },
+    {
+      "name": "Approximate main road business 1",
+      "position": [
+        -238.812653,
+        8.544684,
+        566.2899
+      ],
+      "rotation": [
+        0.0,
+        0.99998194,
+        0.0,
+        -0.006009413
+      ]
+    },
+    {
+      "name": "Approximate main road business -1",
+      "position": [
+        -165.02478,
+        8.025417,
+        492.5158
+      ],
+      "rotation": [
+        0.0,
+        0.0012561162,
+        0.0,
+        0.9999992
+      ]
+    },
+    {
+      "name": "Approximate main road business 1",
+      "position": [
+        -165.02478,
+        7.85021639,
+        560.3385
+      ],
+      "rotation": [
+        0.0,
+        0.9999992,
+        0.0,
+        -0.00125601923
+      ]
+    },
+    {
+      "name": "Approximate main road business -1",
+      "position": [
+        -91.2981644,
+        7.44490671,
+        496.708557
+      ],
+      "rotation": [
+        0.0,
+        -9.26843641E-05,
+        0.0,
+        1.0
+      ]
+    },
+    {
+      "name": "Approximate main road business 1",
+      "position": [
+        -91.2981644,
+        7.60253429,
+        565.9373
+      ],
+      "rotation": [
+        0.0,
+        1.0,
+        0.0,
+        9.268157E-05
+      ]
+    },
+    {
+      "name": "Approximate main road business -1",
+      "position": [
+        -17.5716228,
+        7.483734,
+        491.732483
+      ],
+      "rotation": [
+        0.0,
+        -0.00139516371,
+        0.0,
+        0.999999046
+      ]
+    },
+    {
+      "name": "Approximate main road business 1",
+      "position": [
+        -17.5716228,
+        7.34903431,
+        560.5617
+      ],
+      "rotation": [
+        0.0,
+        0.999999046,
+        0.0,
+        0.00139518559
+      ]
+    },
+    {
+      "name": "Approximate main road business -1",
+      "position": [
+        56.98993,
+        7.764448,
+        503.920166
+      ],
+      "rotation": [
+        0.0,
+        -0.14257288,
+        0.0,
+        0.9897843
+      ]
+    },
+    {
+      "name": "Approximate main road business 1",
+      "position": [
+        56.98993,
+        8.295217,
+        567.975159
+      ],
+      "rotation": [
+        0.0,
+        0.990034044,
+        0.0,
+        0.140828386
+      ]
+    },
+    {
+      "name": "Approximate main road business -1",
+      "position": [
+        129.375168,
+        8.25539,
+        512.2281
+      ],
+      "rotation": [
+        0.0,
+        -0.02932962,
+        0.0,
+        0.999569833
+      ]
+    },
+    {
+      "name": "Approximate main road business 1",
+      "position": [
+        129.375168,
+        8.513268,
+        577.9132
+      ],
+      "rotation": [
+        0.0,
+        0.999549,
+        0.0,
+        0.0300324876
+      ]
+    },
+    {
+      "name": "Approximate main road business -1",
+      "position": [
+        201.30452,
+        8.210412,
+        518.3237
+      ],
+      "rotation": [
+        0.0,
+        -0.0729595,
+        0.0,
+        0.9973349
+      ]
+    },
+    {
+      "name": "Approximate main road business 1",
+      "position": [
+        201.30452,
+        8.070042,
+        586.503662
+      ],
+      "rotation": [
+        0.0,
+        0.997232437,
+        0.0,
+        0.07434733
+      ]
+    }
+  ],
+  "colliders": []
+}

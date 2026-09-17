@@ -1,0 +1,1 @@
+Triangle-centroid sampling on unchanged terrain (2m grid); boundary discretization approximation. Horizontal old=9012.0 new=2260.0 m2; sloped surface old=9070.2 new=2281.4 m2; surface ratio=25.15 %. Exact authored horizontal areas are 9003.472 and 2250.869 m2.

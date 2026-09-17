@@ -1,0 +1,65 @@
+Ordinary Update/FixedUpdate, real PhysX trigger contacts; virtual Gamepad. Initial pose and 3/30 m/s velocity injected. No physical-controller testing. 734x293
+PASS Mailbox - Dan - blue X; 3m/s center; broken=True, count delta=1; min speed=2.97, upright=0.982, peak vertical=0.51; gate 0->0; laps=0
+PASS Stable impact and no credited lap
+PASS Ordinary vehicle reset leaves prop broken
+PASS Mailbox - Dan - blue X; 3m/s glance; broken=True, count delta=1; min speed=3.00, upright=0.982, peak vertical=0.49; gate 0->0; laps=0
+PASS Stable impact and no credited lap
+PASS Mailbox - Dan - blue X; 30m/s center; broken=True, count delta=1; min speed=29.98, upright=0.978, peak vertical=2.23; gate 0->0; laps=0
+PASS Stable impact and no credited lap
+PASS Mailbox - Dan - blue X; 30m/s glance; broken=True, count delta=1; min speed=29.99, upright=0.978, peak vertical=2.28; gate 0->0; laps=0
+PASS Stable impact and no credited lap
+PASS Simple bend warning; 3m/s center; broken=True, count delta=1; min speed=3.00, upright=0.967, peak vertical=1.10; gate 0->0; laps=0
+PASS Stable impact and no credited lap
+PASS Ordinary vehicle reset leaves prop broken
+PASS Simple bend warning; 3m/s glance; broken=True, count delta=1; min speed=3.00, upright=0.968, peak vertical=1.08; gate 0->0; laps=0
+PASS Stable impact and no credited lap
+PASS Simple bend warning; 30m/s center; broken=True, count delta=1; min speed=27.84, upright=0.967, peak vertical=7.91; gate 0->0; laps=0
+PASS Stable impact and no credited lap
+PASS Simple bend warning; 30m/s glance; broken=True, count delta=1; min speed=27.89, upright=0.970, peak vertical=7.98; gate 0->0; laps=0
+PASS Stable impact and no credited lap
+PASS Dan west yard fence 1; 3m/s center; broken=True, count delta=1; min speed=3.00, upright=0.997, peak vertical=0.47; gate 0->0; laps=0
+PASS Stable impact and no credited lap
+PASS Ordinary vehicle reset leaves prop broken
+PASS Dan west yard fence 1; 3m/s glance; broken=True, count delta=1; min speed=2.98, upright=0.997, peak vertical=0.46; gate 0->0; laps=0
+PASS Stable impact and no credited lap
+PASS Dan west yard fence 1; 30m/s center; broken=True, count delta=1; min speed=30.00, upright=0.988, peak vertical=1.40; gate 0->0; laps=0
+PASS Stable impact and no credited lap
+PASS Dan west yard fence 1; 30m/s glance; broken=True, count delta=1; min speed=29.99, upright=0.989, peak vertical=1.27; gate 0->0; laps=0
+PASS Stable impact and no credited lap
+PASS Breakable - Shortcut direction sign; 3m/s center; broken=True, count delta=1; min speed=3.00, upright=0.999, peak vertical=0.46; gate 0->0; laps=0
+PASS Stable impact and no credited lap
+PASS Ordinary vehicle reset leaves prop broken
+PASS Breakable - Shortcut direction sign; 3m/s glance; broken=True, count delta=1; min speed=3.00, upright=0.999, peak vertical=0.46; gate 0->0; laps=0
+PASS Stable impact and no credited lap
+PASS Breakable - Shortcut direction sign; 30m/s center; broken=True, count delta=1; min speed=30.00, upright=0.998, peak vertical=2.48; gate 0->0; laps=0
+PASS Stable impact and no credited lap
+PASS Breakable - Shortcut direction sign; 30m/s glance; broken=True, count delta=1; min speed=30.00, upright=0.998, peak vertical=2.48; gate 0->0; laps=0
+PASS Stable impact and no credited lap
+PASS Breakable - Jump approach sign; 3m/s center; broken=True, count delta=1; min speed=3.00, upright=0.998, peak vertical=0.47; gate 0->0; laps=0
+PASS Stable impact and no credited lap
+PASS Ordinary vehicle reset leaves prop broken
+PASS Breakable - Jump approach sign; 3m/s glance; broken=True, count delta=1; min speed=2.98, upright=1.000, peak vertical=0.45; gate 0->0; laps=0
+PASS Stable impact and no credited lap
+PASS Breakable - Jump approach sign; 30m/s center; broken=True, count delta=1; min speed=29.99, upright=0.999, peak vertical=0.41; gate 0->0; laps=0
+PASS Stable impact and no credited lap
+PASS Breakable - Jump approach sign; 30m/s glance; broken=True, count delta=1; min speed=30.00, upright=1.000, peak vertical=0.40; gate 0->0; laps=0
+PASS Stable impact and no credited lap
+PASS Consecutive drive through all three Dan fence sections
+PASS Burst 0: all 18 break once; moving=18
+PASS Burst 1: all 18 break once; moving=18
+PASS Burst 2: all 18 break once; moving=18
+PASS Burst 3: all 18 break once; moving=18
+PASS Burst 4: all 18 break once; moving=18
+PASS Burst 5: all 18 break once; moving=18
+PASS Burst 6: all 18 break once; moving=18
+PASS Burst 7: all 18 break once; moving=18
+PASS Debris cleaned after lifetime; zero active fragments; no spawned rigidbodies
+PASS Restart 0: visual/sensor restoration and race at grid
+PASS Restart 1: visual/sensor restoration and race at grid
+PASS Restart 2: visual/sensor restoration and race at grid
+PASS Restart 3: visual/sensor restoration and race at grid
+PASS Restart 4: visual/sensor restoration and race at grid
+PASS Restoration deferred while car overlaps original prop bounds
+PASS Deferred prop restored only after car vacates
+PASS Impacts/resets credited no checkpoints or laps
+COMPLETE failures=0

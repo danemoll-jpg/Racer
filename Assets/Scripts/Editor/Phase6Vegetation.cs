@@ -13,7 +13,7 @@ namespace Racer.Editor {
 public static class Phase6Vegetation {
  const string Folder="Assets/Vegetation/Phase6";
  public static bool Reserved(Vector3 p,List<Vector3> road,List<Vector3> shortcut)=>
-  Phase6Buildings.YardDistance(p)<28 || StreetLoopBuilder.Nearest(p,road,out _)<StreetLoopRevision.ForestClearance || Phase5Setup.Distance(p,shortcut,out _)<10 || CR014Woodland.SiteReserved(p);
+  Phase6Buildings.YardDistance(p)<28 || CompactYard.AccessDistance(p)<6 || StreetLoopBuilder.Nearest(p,road,out _)<StreetLoopRevision.ForestClearance || Phase5Setup.Distance(p,shortcut,out _)<10 || CR014Woodland.SiteReserved(p);
  static Mesh Save(Mesh mesh,string name){string path=Folder+"/"+name+".asset";mesh.name=name;var old=AssetDatabase.LoadAssetAtPath<Mesh>(path);if(old){old.Clear();old.indexFormat=mesh.indexFormat;old.vertices=mesh.vertices;old.triangles=mesh.triangles;old.normals=mesh.normals;old.colors=mesh.colors;old.RecalculateBounds();old.UploadMeshData(false);Object.DestroyImmediate(mesh);EditorUtility.SetDirty(old);return old;}AssetDatabase.CreateAsset(mesh,path);return mesh;}
  // Indexed low-poly crowns: share ring vertices to keep forest vertex bandwidth low.
  static Mesh Crown(int variant){
@@ -52,8 +52,9 @@ public static class Phase6Vegetation {
    float radius=h*Mathf.Lerp(.27f,.34f,hash);
    // CR-014 mature woodland crowns overlap above generous trunk gaps.
    // Existing accepted trunk placements and their visual dimensions remain exact.
-   if(box.name.StartsWith("CR014 trunk "))radius*=1.35f;
+   if((box.name.StartsWith("CR014 trunk ") || box.name.StartsWith("CR016 trunk ")))radius*=1.35f;
    radius=Mathf.Min(radius,Mathf.Max(.1f,Phase6Buildings.YardDistance(p)-27),StreetLoopBuilder.Nearest(p,road,out _)-16,Phase5Setup.Distance(p,cut,out _)-7.6f);
+   if(CompactYard.OldDistance(p)<40)radius=Mathf.Min(radius,Mathf.Max(.1f,CompactYard.AccessDistance(p)-3.5f));
    foreach(var site in sites){var delta=site.position-p;delta.y=0;radius=Mathf.Min(radius,Mathf.Max(.1f,delta.magnitude-16));}
    minRadius=Mathf.Min(minRadius,radius);maxRadius=Mathf.Max(maxRadius,radius);
    var key=new Vector2Int(Mathf.FloorToInt(p.x/160),Mathf.FloorToInt(p.z/160));if(!batches.TryGetValue(key,out var batch))batches[key]=batch=new();
@@ -68,7 +69,7 @@ public static class Phase6Vegetation {
   foreach(var pair in batches){var mesh=new Mesh{indexFormat=UnityEngine.Rendering.IndexFormat.UInt32};mesh.CombineMeshes(pair.Value.ToArray(),true,true);mesh=Save(mesh,$"Forest_{pair.Key.x}_{pair.Key.y}");var go=new GameObject("Faceted forest batch",typeof(MeshFilter),typeof(MeshRenderer));go.transform.SetParent(woods,false);go.GetComponent<MeshFilter>().sharedMesh=mesh;go.GetComponent<MeshRenderer>().sharedMaterial=mat;}
   foreach(var mesh in temporary)Object.DestroyImmediate(mesh);
   AssetDatabase.SaveAssets();EditorSceneManager.MarkSceneDirty(scene);EditorSceneManager.SaveScene(scene);
-  File.WriteAllText(report,$"Authored trees {boxes.Length}; crown variants broad/irregular/upright {string.Join("/",counts)}. {batches.Count} spatial 160m combined batches, one shared vertex-color material. Crown radius {minRadius:F2}..{maxRadius:F2}m.\nTrunk vertices exactly match box-collider transforms. No leaf/ground collision or understory. Crown radius limits: yard 27m capsule, road 16m, shortcut 7.6m, building sites 16m.\nPatch-coherent crown variants/color, deterministic individual rotation/height/width variation. No whole-environment rebuild. Three reusable crown meshes + trunk; no duplicate visible sources. Refresh is repeatable from authored colliders.\n");
+  File.WriteAllText(report,$"Authored trees {boxes.Length}; crown variants broad/irregular/upright {string.Join("/",counts)}. {batches.Count} spatial 160m combined batches, one shared vertex-color material. Crown radius {minRadius:F2}..{maxRadius:F2}m.\nTrunk vertices exactly match box-collider transforms. No leaf/ground collision or understory. Crown radius limits: CR-016 compact yard/access, road 16m, shortcut 7.6m, building sites 16m.\nPatch-coherent crown variants/color, deterministic individual rotation/height/width variation. No whole-environment rebuild. Three reusable crown meshes + trunk; no duplicate visible sources. Refresh is repeatable from authored colliders.\n");
  }
 }
 }
