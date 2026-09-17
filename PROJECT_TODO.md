@@ -535,6 +535,8 @@ Replace the sterile prototype feeling with a playful environment.
 **Focused building batch:** ACCEPTED — Dan says it looks fine. Photo-based home accuracy is deferred to CR-013 and does not block further work. CR-012 removes House 1 and extends Dan's yard into its site; Houses 2/3 retain their labels and exact placement. All 25 retained residences and 22 businesses now use reusable low-poly architecture. Phases 2–5 remain accepted. This building batch is accepted; remaining Phase 6 categories are still pending. No Phase 7. Full evidence and limitations: `Docs/PHASE6_VALIDATION.md`.
 
 ## TODO
+- [ ] CR-015: Apply the three requested house-placement refinements alongside the next focused Phase 6 batch; see clarified across-street relationship in CR-015.
+- [ ] Next batch: modest mailboxes/signs/street furniture, coordinated with the corrected house locations; preserve drivable woodland and all gameplay corridors.
 - [x] CR-012 implementation: Remove only the house marked #1, its dedicated collision and obsolete house-specific props/access; expand Dan's yard naturally into its former site. Retain Houses #2/#3 without renumbering, and preserve their positions/elevations.
 - [x] Verify the expanded yard is continuous, grounded and free of invisible House #1 collisions; update relevant generation logic so House #1 does not return.
 - [x] Improve house/building silhouettes in this focused batch: 4 residential + 4 commercial reusable variants, grounded entrances and aligned simple collision.
@@ -542,7 +544,8 @@ Replace the sterile prototype feeling with a playful environment.
 - [x] Initial tree appearance pass: three reusable crown shapes, coherent variation, unchanged 6,102 placements/colliders and 90 visual batches. Historical report: Docs/VEGETATION_VALIDATION.md. CR-014 below expands this coverage.
 - [x] Implement CR-014 woodland expansion: 6,102 to 11,897 trees, connected canopy with explorable trunk spacing; protected accepted sites and gameplay retained. Awaiting Dan's review.
 - [x] Profile baseline, intermediate and full coverage in ordinary frames; repeat 1440x900 standalone comparisons and rendering-cost diagnostics. Results/variability/limits: Docs/CR014/VALIDATION.md.
-- [ ] Dan approves woodland coverage, off-road access and smoothness after CR-014; vegetation batch remains unaccepted and Phase 6 incomplete.
+- [x] Dan reports tree coverage is much better; retain the expanded woodland as the visual baseline.
+- [ ] Explicit off-road driveability/smoothness review remains unconfirmed; this is not a new failing test or a blocker to planning the next batch. Phase 6 remains incomplete.
 - [ ] Add fences.
 - [ ] Add mailboxes/signs/street furniture.
 - [ ] Add breakable lightweight props.
@@ -753,13 +756,21 @@ Use this for things that are not bugs but that Dan wants changed.
 **Result:** Not started; no new home reference photos supplied in this request.
 
 ### CR-014 — More extensively wooded neighborhood with drivable forest
-**Status:** IMPLEMENTED — AWAITING DAN'S REVIEW of forest coverage, driveability and smoothness. CR-014 remains open; vegetation batch unaccepted; Phase 6 incomplete.  
+**Status:** IMPLEMENTED — Dan reports coverage is much better; retain it. Explicit driveability/smoothness approval remains unconfirmed, so CR-014 is not marked fully closed. Phase 6 remains incomplete; plan CR-015 with the next batch.  
 **Baseline behavior:** The visual refresh kept 6,102 placements and added no trees. Dan says the neighborhood should be much more forested because much of it was woodland; he wants to drive through it and is concerned about frame rate.  
 **Requested change:** Substantially increase the area covered by connected woodland and improve its dense wooded appearance, not simply crown detail or uniform tree count. Keep navigable spaces between solid trunks, supported ground and ordinary off-road access. Avoid making the woods an impassable wall, a visual backdrop, or a set of narrow prescribed corridors. Natural obstacles and slopes may remain; not every gap must fit the car. Use canopy coverage and restrained non-colliding understory where useful.  
 **Preserve:** Expanded yard/former House 1 site, Houses 2/3, all accepted building sites, road/shoulder support, existing shortcut/jump clearances, vehicle tuning and race systems. Free off-road traversal does not authorize new named shortcuts or relaxed checkpoint validation.  
 **Performance:** Establish a comparable baseline, then profile increased coverage in stages. Measure ordinary-frame road and forest driving, multiple representative camera locations, frame-time spikes, CPU/GPU bottlenecks and memory where available. Use representative window/resolution settings and record them; the prior 734x293 samples and variable host timings do not establish performance at Dan's normal settings. Choose optimizations from measured bottlenecks; keep visual/collision consistency and safe collision availability during driving. Record actual results, hardware/settings and limits rather than promising a frame-rate target not yet supplied.  
 **Acceptance:** Dan judges the neighborhood substantially more wooded, can explore between trees and rejoin roads predictably, and finds performance acceptable. Compare before/after coverage and measured smoothness; test accepted gameplay and yard protections.  
 **Result:** Added 5,795 trees in two measured stages (8,999 then 11,897 total), retaining all original 6,102. Expanded central removed-subdivision land, eastern woods and southern woodland. Actual projected canopy coverage central/east/south rose 10.77/8.97/9.18% to 43.76/45.55/40.74%. New trunks are 0.75m wide with minimum 6.8m center spacing; mature overlapping crowns preserve protected clearances. Kept 90 shared-material spatial batches; forest triangles 416,952 to 810,312. Fixed stale GPU mesh buffers in the vegetation refresh. Every visible trunk aligns with solid collision; all accepted non-forest scene records unchanged. Three ordinary-frame slow forest drives each covered about 150m, plus contact/reverse/turn/reset, forest-road crossing, ordinary-frame jump/shortcut and existing race regressions. Repeated 1440x900 standalone measurements show a modest rendering cost with substantial host variation and unresolved spikes; player allocation approximately 253 to 292MiB. No universal frame-rate target, parity or speedup claimed. See Docs/CR014/VALIDATION.md for matched views, raw tests, settings, performance and limitations.
+
+### CR-015 — Refine the remembered house placements
+**Status:** PLANNED — combine with the next focused Phase 6 batch; no scene changes in this documentation update.  
+**Requested change:** Move Dan's childhood house only slightly farther back from the road. Move House #2 toward Dan's house. House #2 should be almost directly across the street from the friend's house. Move House #3 toward House #2 along the neighborhood, placing it just before the big downhill drop while retaining its low valley setting. Keep House #1 absent and do not renumber Houses #2/#3.  
+**Placement guidance:** Use the current scene and map to identify the houses and the second-circle/big drop. Treat directions relative to the approach from the main-road neighborhood entrance. Make conservative local changes, document offsets and provide an annotated overview. Keep the friend's house as the reference rather than moving it to manufacture alignment. Update foundations, related access/props, local tree clearances and generation exclusions as necessary; preserve the enlarged yard and broad new woodland coverage. These requested offsets supersede prior exact-position preservation rules only for the affected houses.  
+**Preserve:** Accepted building designs, House #3's valley elevation character, roads/hill profile, terrain support, accepted vehicle tuning, jump, shortcut and race systems. Do not run a legacy full rebuild.  
+**Acceptance:** Dan's setback change is small; House #2 is closer to Dan's house; across-street alignment matches the clarified reference; House #3 sits toward House #2 before the big drop and remains in the valley. All buildings are grounded with matching collision and clear local access. Dan reviews before/after views.  
+**Result:** Pending implementation.
 
 ---
 
@@ -800,11 +811,15 @@ Record choices we do not want to repeatedly reconsider.
 | 2026-09-17 | Revise vegetation for substantially more woodland and drivable forest (CR-014) | Dan recalls broad wooded areas and wants off-road exploration; measure performance rather than assuming added trees are affordable or prohibitive |
 | 2026-09-17 | Implement CR-014; keep vegetation awaiting Dan's review | 11,897 solid trees, broad woodland expansion, preserved accepted sites and gameplay; staged/standalone measurements and virtual driving recorded in Docs/CR014/VALIDATION.md |
 
+| 2026-09-17 | Retain improved woodland and schedule CR-015 with the next Phase 6 batch | Dan reports tree coverage is much better and requests small house-location corrections; House #2 should be almost directly across the street from the friend's house. |
+
 ---
 
 # SESSION HANDOFF
 
-**Current phase:** Phases 2–5 and the Phase 6 building batch remain ACCEPTED. CR-012 CLOSED; CR-013 OPTIONAL BACKLOG. CR-014 is implemented and AWAITING DAN'S REVIEW of coverage, driveability and smoothness. Vegetation remains unaccepted. Phase 6 is incomplete; Phase 7 and other environment categories were not started.
+**Latest placement correction:** CR-015 — slightly increase Dan's setback; bring House #2 toward Dan's house; House #2 should be almost directly across the street from the friend's house. Shift House #3 toward House #2/before the big drop while keeping it down in the valley. Combine with the next small roadside-prop batch. These requested changes override earlier exact placement preservation only for affected houses.
+
+**Current phase:** Phases 2–5 and the Phase 6 building batch remain ACCEPTED. CR-012 CLOSED; CR-013 OPTIONAL BACKLOG. CR-014 coverage received positive review (much better); explicit driveability/smoothness approval remains unconfirmed. Retain the woodland expansion. CR-015 house-placement corrections are scheduled with the next focused batch. Phase 6 is incomplete; Phase 7 and other environment categories were not started.
 
 **Safety checkpoint:** `fcd82ea507732b35f5b025ae842d7fbd3a991636`. Initial staging failed with permission denied creating `.git/index.lock`; the elevated retry succeeded before any project content changes. Completion commit is reported in the task response.
 
@@ -822,7 +837,7 @@ Record choices we do not want to repeatedly reconsider.
 
 **Build/Console:** Representative standalone testing completed using a build-only workaround that omits an already-disabled SSAO renderer feature whose stripped resources broke the first player. The accepted Editor feature list is restored. Initial hidden-player and failed-renderer timings are explicitly invalid. Final corrected build succeeded with 0 errors / 1 Pipeline runtime-configuration warning; final live Console 0 errors / 1 warning, compilation successful. Earlier tooling timeouts and renderer-restoration serialization errors are recorded; restoration now uses the feature-reference list and its verified build is clean. Player startup post-processing stripping warnings remain a limitation. Build-generated PC prefilter settings were restored; Unity serialized a default zero-intensity Bloom filter and its runtime-settings cache without intentional visual/quality changes.
 
-**Evidence and remaining review:** `Docs/CR014/VALIDATION.md` contains six matched before/after coverage pairs, staged canopy measurements, raw driving/performance reports, preservation evidence and reproducible tools. Stylized forest floor/crowns, distant terrain speckling and existing fast angled-jump limits remain. Not every gap or slope was tested; no physical controller, GPU capture, or controlled host-load benchmark. Dan should explore from ordinary shoulders, test turns/reverse/trunk contact/re-entry, check the expanded yard and Houses 2/3, drive a normal lap/shortcut/jump/bypass, and judge smoothness at normal settings. Keep CR-014 and vegetation awaiting his review; earlier approvals remain intact.
+**Evidence and remaining review:** `Docs/CR014/VALIDATION.md` contains six matched before/after coverage pairs, staged canopy measurements, raw driving/performance reports, preservation evidence and reproducible tools. Stylized forest floor/crowns, distant terrain speckling and existing fast angled-jump limits remain. Not every gap or slope was tested; no physical controller, GPU capture, or controlled host-load benchmark. Dan should explore from ordinary shoulders, test turns/reverse/trunk contact/re-entry, check the expanded yard and Houses 2/3, drive a normal lap/shortcut/jump/bypass, and judge smoothness at normal settings. Dan subsequently said coverage is much better. Explicit driveability/smoothness review is still unconfirmed; earlier approvals remain intact. Preserve this coverage during CR-015 and the next batch.
 
 ---
 # How Dan and ChatGPT Will Use This File
