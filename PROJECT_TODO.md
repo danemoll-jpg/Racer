@@ -418,21 +418,23 @@ Turn the already-built real closed road loop into a functioning race course by a
 
 # PHASE 4 — Jumps and Arcade Spectacle
 
+**Status:** IMPLEMENTED — awaiting Dan's Phase 4, CR-010 and CR-011 review. Phases 2 and 3 remain ACCEPTED. One jump only; no Phase 5 work. Detailed tuning, recovery, evidence and limitations: `Docs/PHASE4_VALIDATION.md`.
+
 ## Goal
 Make the course delightfully irresponsible.
 
 ## TODO
-- [ ] CR-011: Moderately increase forward top speed and acceleration alongside CR-010; use roughly 15–20% more top speed as an initial tuning target, subject to stability testing and Dan's approval.
-- [ ] Record actual original/revised speed, acceleration and handling values; validate the combined changes at representative racing speeds.
-- [ ] Include a small CR-010 follow-up to reduce mild floatiness, with an identifiable before/after comparison; do not delay starting Phase 4 for a separate handling overhaul.
-- [ ] Select first major jump location.
-- [ ] Build takeoff ramp naturally into environment.
-- [ ] Build safe landing zone.
-- [ ] Tune vehicle air control if needed.
-- [ ] Improve suspension/landing behavior if needed.
-- [ ] Add reset logic for failed jumps.
-- [ ] Add second stunt feature only after first works.
-- [ ] Test jumps at different speeds.
+- [x] CR-011: Forward speed parameter 38→44 m/s; acceleration 12→13.5 m/s². Technically tested; Dan's approval pending.
+- [x] Record original/revised tuning and compare at representative racing speeds.
+- [x] CR-010: Diagnose yaw, lateral slip and body motion; apply modest yaw/grip changes, leaving suspension and steering angles unchanged.
+- [x] Select first major jump: northbound western connector, between CP13 and CP14.
+- [x] Build one supported 24 m × 6 m takeoff, 3 m rise, with readable approach sign.
+- [x] Mark a 108 m × 15 m landing corridor on existing supported road/shoulders; retain ordinary road lane beside ramp.
+- [x] Assess air control: existing stability suffices in tested cases; no new control added.
+- [x] Assess suspension/landing: no changes needed for intended-speed tested landings.
+- [x] Reuse existing fixed-spawn reset; verify recovery cannot preserve skipped checkpoint credit.
+- [ ] Second stunt feature — explicitly deferred; NOT authorized in this session.
+- [x] Test slow, intended, fast, angled, undershoot, overshoot, bypass and recovery cases; document limits.
 
 ## Tell Astra/Codex
 
@@ -465,7 +467,7 @@ Make the course delightfully irresponsible.
 
 ## Acceptance Test
 - [ ] Dan approves the revised speed, acceleration and handling together.
-- [ ] Representative racing-speed tests cover sustained road driving, near-top-speed straights, corner-entry braking and revised-speed jump approaches; actual speeds and limitations are recorded.
+- [x] Representative racing-speed tests cover sustained road driving, near-top-speed straights, corner-entry braking and revised-speed jump approaches; actual speeds and limitations are recorded.
 - [ ] Faster performance preserves predictable steering, controllable braking, stable landings and valid race/reset behavior.
 - [ ] Jump is fun.
 - [ ] Successful landings feel satisfying.
@@ -474,8 +476,8 @@ Make the course delightfully irresponsible.
 - [ ] Lap logic remains valid.
 
 ### Jump Ideas / Notes
-- Jump #1:
-- Future jump:
+- Jump #1: Orange ramp after CP13; recommended 110–120 km/h (31–33 m/s). Intended 32 m/s centered takeoff measured 31.59 m/s, ~1.72 s air time, apex 6.31 m above road. Fast -3° approaches drift outside the marked landing corridor; see validation limits.
+- Future jump: Deferred pending Dan's review and separate authorization.
 - Ridiculous idea worth trying later:
 
 ---
@@ -708,24 +710,24 @@ Use this for things that are not bugs but that Dan wants changed.
 **Result:** Implemented in the reproducible environment revision. See the per-item implementation/elevation/setback table and actual verification in `Docs/PHASE2_REVISION.md`. Dan subsequently accepted the revised track overall; no separate per-item retest claim is implied.
 
 ### CR-010 — Slightly tighter steering during Phase 3
-**Status:** Initial adjustment implemented and technically tested; subjective improvement insufficient. OPEN as a non-blocking follow-up alongside the next phase.  
+**Status:** Phase 4 follow-up implemented and technically tested; OPEN awaiting Dan's combined handling/speed review.
 **Current behavior:** After Phase 3 testing, Dan barely noticed a handling difference. The car still feels a bit floaty, though not terrible. All other reported tests passed.  
 **Requested change:** Make a modest steering-response/precision adjustment using existing tuning where possible. Preserve progressive input and stable high-speed handling; avoid a physics overhaul or unrelated system changes. Record before/after values and test typical bends, hairpin, hills, faster sections and reverse with keyboard/controller inputs as available.  
 **Reason:** Improve driving feel without holding up the next phase.  
 **Phase affected:** Initial adjustment in Phase 3; carry a small follow-up into Phase 4 planning. Phases 2 and 3 remain accepted.  
 **Result:** StreetLoopGreybox car overrides: steering response 7→8/s; low-speed angle 32→33 degrees; high-speed angle remains 10 degrees. Other vehicle tuning/source is unchanged. Eighteen original/revised steering checks passed, including road bends, hairpin, hills, fast sections, reverse and fixed-input response. Original automated testing used virtual input only. Dan subsequently reported little perceived improvement and lingering mild floatiness; his input device was not specified. Revert those two instance values to 7 and 32 for comparison. See Docs/PHASE3_VALIDATION.md and Docs/CR010_TEST_RESULTS.txt.
 
-**Follow-up direction:** Compare the current car with a modest, reversible alternative on the same road bends. Diagnose whether floatiness comes from delayed steering/yaw response, lateral sliding, or suspension/body motion before choosing tuning changes. Do not assume a larger steering angle fixes every cause. Keep scope small, preserve predictable high-speed handling and accepted race systems, record before/after values, and leave feel approval to Dan. No handling changes were made by this documentation update.
+**Phase 4 follow-up result:** Actual baseline was steering 8/s, angles 33°/10°, yaw 8/s, grip 7/s capped at 22 m/s². Revised yaw 9/s, grip 8.5/s capped at 25 m/s²; steering response/angles and suspension remain unchanged. Identical-road comparisons reduced lateral peak 0.51→0.41 m/s on bends, 1.23→1.02 at the hairpin, and 1.63→1.32 on hills. At 25 m/s, a 0.3 steering step raised 100 ms yaw 0.487→0.590 rad/s; a 4 m/s slip disturbance left 0.437→0.266 m/s after 0.3 s. Body-roll settling was already quick. This supports a yaw/grip refinement, not a conclusive diagnosis of Dan's subjective feel. Paired 35/38 m/s straights, 20 m/s bends/hills, 9 m/s hairpin and -8 m/s reverse passed. Speed changes also shift the existing angle interpolation. No jump-specific physics changes. See `Docs/PHASE4_ROADS.txt` and `Docs/PHASE4_VALIDATION.md`; final approval remains Dan's.
 
 ### CR-011 — Faster car and representative racing-speed testing
-**Status:** Planned for Phase 4; not implemented in this documentation update.  
+**Status:** Implemented and technically tested in Phase 4; awaiting Dan's combined speed/handling approval.
 **Current behavior:** Dan wants more speed and considers slow-speed testing insufficient to judge driving feel.  
 **Requested change:** Inspect current limits/tuning, then moderately increase forward top speed and acceleration. Start with roughly 15–20% more top speed and a modest acceleration increase; revise as needed for stability. Tune jointly with CR-010 and size the first jump for the resulting performance. Keep original/revised values for comparison or reversal.  
 **Reason:** Evaluate and enjoy the car at representative racing speeds rather than relying mainly on conservative automated driving.  
 **Phase affected:** Phase 4; Phases 2 and 3 remain accepted.  
 **Validation:** Retain slow correctness checks, then test sustained racing-speed driving, near-top-speed straights, braking into corners and revised-speed jump approaches. Slow appropriately for tight turns. Report actual speeds reached, stability and track limitations; do not claim unperformed tests.  
 **Acceptance:** Dan approves the combined speed and handling; steering, braking, landing/recovery and race systems remain predictable and functional.  
-**Result:** Pending implementation and review.
+**Result:** Scene-instance speed parameter 38→44 m/s (+15.8%) and acceleration 12→13.5 m/s² (+12.5%). From rest on the same ~220 m stretch, reached 33.93→38.41 m/s. Revised main-road run reached 41.183 m/s (148.3 km/h) naturally, with 6.90 s above 40 m/s. Three actual continuous racing-speed laps passed: 552.36 s traversal, 25.47 m/s average, 39.71 m/s peak, all checkpoints/jumps valid. Braking 35→0.85 m/s stayed 1.40 s / 24.64 m. Existing reverse, camera, input and reset preserved; HUD adds speed. First jump recommended 110–120 km/h. Artificial high-speed stress tests are distinguished from naturally achieved speeds. Full values, landing limits, recovery and physical-controller limitations: `Docs/PHASE4_VALIDATION.md`.
 
 ---
 
@@ -758,22 +760,19 @@ Record choices we do not want to repeatedly reconsider.
 
 # SESSION HANDOFF
 
-**Current phase:** Phases 2 and 3 race systems ACCEPTED. Dan reports all tests passed. CR-010 remains a non-blocking handling follow-up; Phase 4 is next in the plan. This session updates documentation only; no Phase 4 implementation or vehicle tuning performed.
-**Safety checkpoint:** `1b6e7bcf816a3afdfe55a1ae4e42b9c07095f2ed` committed all saved changes before implementation. Completion commit contains this handoff; its ID is reported in the final task response.
-**Scene:** `Assets/Scenes/StreetLoopGreybox.unity`. Saved and reloaded; open and press Play. Existing north-entrance spawn is preserved.
-**Controls:** RT / W / Up accelerates; LT / S / Down brakes then reverses; left stick / A-D / arrows steer; Y / R retains fixed-spawn vehicle reset. Start (Menu) / Enter restarts the race. Click Game view for keyboard focus.
-**Race systems:** Checkered start/finish, 19 ordered required checkpoints, three-lap race, current/last/best lap and total timing, restart, minimal HUD and directed swept-gate validation. Skips, wrong-way and repeated finish crossings cannot award invalid laps. Invalid attempts restart at a forward start crossing. Vehicle reset abandons current-lap gate credit but preserves completed laps/total; race restart clears everything. Required gates are independent of paths between them, allowing later alternate routes; no shortcuts added.
-**CR-010:** Scene-instance steering response 7→8/s and low-speed angle 32→33 degrees; high-speed angle remains 10 degrees. Yaw response/cap, grip, braking, suspension, input, camera and reset physics are unchanged. Base prefab and PrototypeTrack retain original tuning. Revert the two scene overrides for comparison. Dan reports the improvement was barely noticeable and the car still feels mildly floaty; CR-010 remains open without blocking the next phase.
-**Preservation:** New separate Phase 3 scene root. All 20,054 pre-existing scene records retained; only car overrides and root-list records changed. Environment objects/assets and four existing vehicle/input/reset/camera scripts unchanged. No stunts, shortcuts, fences, major polish or Phase 4 work.
-**Actual race verification:** 37 final checks passed, zero failed. Three real PhysX laps with actual gates: 563.772 / 563.780 / 563.780 simulated seconds; total 1691.332s. Max centre error 2.845m, min upright 0.880; one initial ungrounded sample. Conservative targets 4.5/8m/s. Rules, restart, HUD, virtual Gamepad and keyboard, fall reset and camera snap checked. Initial two test-setup failures corrected and retained in a separate initial report.
-**Actual steering verification:** 18 checks passed, zero failed. Original/revised path following at ordinary bends, hairpin, hills, 25m/s road sections and -8m/s reverse; no airborne samples or flips. Identical full-stick steps increased yaw response at 100ms from 0.4762→0.5648rad/s at 10m/s, 0.7155→0.7568 at 25m/s, and -0.3982→-0.4730 in reverse. Automated follower compensates for angle changes; these tests do not establish human comfort.
-**Live smoke test:** Ordinary Update/FixedUpdate with virtual RT=0.65 started timing, advanced to CP2 and updated HUD/camera. Unsteered test eventually left road and stopped; it is not a complete manual lap. Temporary device/background settings restored.
-**Validation/limits:** Scene saved/reloaded/played and compilation checked. Current Console has zero errors/warnings; final evidence in Docs/PHASE3_CONSOLE.json. HUD and labels visually inspected. Virtual-controller testing is not physical-controller testing; physical hardware, maximum-speed sustained maneuvers, all collision/recovery cases, standalone build and subjective comfort remain unverified. Gates enforce sequence, not continuous road boundaries; minor cutting between gates remains possible.
-**Repeatability:** Racer > Validate Phase 3 (Play mode); Racer > Validate CR-010 (Play mode). One-time Add Phase 3 Race Systems refuses duplicates. Do not rebuild the accepted environment for race changes; edit race gates under their separate root.
-**Evidence:** Docs/PHASE3_VALIDATION.md, PHASE3_TEST_RESULTS.txt, CR010_TEST_RESULTS.txt, PHASE3_REALTIME_RESULTS.txt, PHASE3_HUD.png, PHASE3_PRESERVATION.txt and PHASE3_CONSOLE.json. Prior Phase 2 reports remain historical evidence.
-**Dan's latest review:** All tests passed. Handling still feels a bit floaty, though not terrible; little difference noticed from the initial steering adjustment. Test input device was not specified.
-**Next planned work:** Phase 4's first jump, CR-010 handling follow-up, and CR-011 moderate speed/acceleration increase. Use the commit-first Phase 4 prompt. Tune and test at representative racing speeds, record actual speeds and before/after values, and size the jump for the revised performance. Preserve the accepted track and race systems; leave final speed/handling approval to Dan.
-**Dan's next review:** Compare baseline/revised speed, acceleration and handling together on ordinary bends, suitable fast straights and braking approaches; then assess revised-speed jump takeoff/landing/recovery and unchanged lap/checkpoint behavior. Confirm the input device used; do not claim physical-controller coverage without confirmation.
+**Current phase:** Phases 2 and 3 ACCEPTED. Phase 4 implemented and technically tested; awaiting Dan's review of the single jump and combined CR-010/CR-011 tuning. Do not start Phase 5 or add further jumps.
+**Safety checkpoint:** `391168140bcbe4604b46c6a3cff28b9946c5a088`, committed before implementation after resolving Git write permission. Completion commit contains this handoff and is reported in the task's final response.
+**Scene and jump:** `Assets/Scenes/StreetLoopGreybox.unity`, saved/reloaded/played. Orange ramp after CP13, before CP14 on western connector, around (-628,8,-110). Hierarchy: `Phase 4 - Connector Jump`. Recommended 110–120 km/h (31–33 m/s); current speed shown on HUD. Takeoff 24 m × 6 m, 3 m rise, ~14° lip. Existing road and shoulders form the marked 108 m × 15 m landing corridor; right-hand 3 m lane preserves ordinary road travel.
+**Controls:** RT / W / Up accelerates; LT / S / Down brakes then reverses; left stick / A-D / arrows steer; Y / R resets vehicle; Start / Enter restarts race. Click Game view for keyboard focus.
+**Before/after tuning:** Speed parameter 38→44 m/s; acceleration 12→13.5 m/s²; yaw response 8→9/s; lateral grip 7→8.5/s; grip acceleration cap 22→25 m/s². Steering stays 8/s and 33°/10°. Braking 24 m/s², reverse 11 m/s and 7 m/s², suspension 0.8/65/8/45, upright 12/4, air stability 0.18 and COM (0,-0.35,0) unchanged. No jump-specific physics changes or air controls. Scene overrides only; base prefab and PrototypeTrack unchanged.
+**Handling evidence:** Twelve paired road cases passed at identical conditions, including 35/38 m/s straights, 20 m/s bends/hills, 9 m/s hairpin and -8 m/s reverse. Peak lateral motion reduced ~17–20% on bends/hairpin/hills. Fixed-input yaw and slip probes support a small yaw/grip refinement; body-roll settling was already quick. Subjective floatiness remains for Dan to judge.
+**Speed and laps:** Same ~220 m from-rest stretch reached 33.93→38.41 m/s. Revised ~600 m main-road run naturally reached 41.183 m/s (148.3 km/h), 6.90 s above 40 m/s. Three continuous valid PhysX laps: 552.36 s traversal, mean 25.47 m/s, peak 39.71 m/s, 179.94 s at ≥25 m/s; max centre error 3.21 m, min upright 0.880, airborne 5.26 s. Follower brakes before corners and slows for hairpin/hills. Braking 35→0.85 m/s remained 1.40 s / 24.64 m.
+**Jump results:** At intended 32 m/s, centered takeoff measured 31.59 m/s, ~1.72 s air time, apex 6.31 m above road, landing Z=-29.37. Twelve 12/32/42/46 m/s × 0/±3° runs landed upright; two fast -3° runs exceeded the marked corridor (8.46/9.33 m lateral offset). Crawl 6 m/s undershot safely onto continuous road. Artificial 60 m/s injection overshot markings to Z=68.64. A -8°/42 m/s approach missed the ramp and went off-road. These injected stress speeds are not naturally achieved top-speed claims.
+**Recovery:** Existing fixed-spawn Y/R reset clears motion and current-lap credit, preserves completed laps/time, and snaps camera. Enter/Start clears race. Overshoot/undershoot/missed-ramp endpoint resets followed by only remaining gates/finish awarded zero laps. Auto fall reset remains Y<-15; stuck cars above that height need Y/R. No gate movement, expansion or recovery exemption.
+**Preservation:** All 20,627 baseline scene records retained; only the car prefab override and scene root-list records changed. New jump root adds 99 records. Original loop/terrain/landmarks/gates and vehicle/input/reset/camera source preserved. RaceHud adds km/h only. No shortcuts, fence gameplay or broad polish.
+**Regression and limits:** Existing 37-check race/input/HUD/reset suite passed after test-only focus routing was corrected; initial ten virtual-input failures retained separately. Conservative laps supplement, rather than replace, the racing-speed evidence. Landing support samples had no missing surfaces; both-side 12 m/s re-entry clearance stayed positive; right lane passed at 6/30 m/s. Scene reload, compilation, Console and visual HUD/sign checks performed. Physical controller, subjective feel, exhaustive collision cases, standalone build and a new ordinary-frame real-time drive were not performed. Tests use virtual input/motor commands and manually stepped PhysX. Existing gate rules still permit minor cutting between gates.
+**Evidence and repeatability:** `Docs/PHASE4_VALIDATION.md`, `PHASE4_ROADS.txt`, `PHASE4_LAPS.txt`, `PHASE4_JUMP.txt`, `PHASE4_LIMITS.txt`, `PHASE4_RACE_REGRESSION.txt`, initial regression report, screenshots and final Console report. Racer menu has Phase 4 road/jump/racing-lap validation. `Phase4Validation.Run("limits")` and `RaceRegression()` run additional checks. Long Pipeline calls may time out while tests finish; inspect completed reports. Historical Phase 2/3 evidence retained.
+**Dan's next review:** Compare faster acceleration and top-speed straight driving, less-floaty cornering, braking/hairpin/hills/reverse; try centered 110–120 km/h jump and slightly angled/slower approaches; check landing/camera comfort, bypass and shoulder re-entry; test failed-jump Y/R recovery and Start/Enter restart; complete valid laps and verify HUD/gates cannot award skips. Confirm physical controller separately. Approve Phase 4, CR-010 and CR-011 before authorizing later work.
 
 ---
 # How Dan and ChatGPT Will Use This File

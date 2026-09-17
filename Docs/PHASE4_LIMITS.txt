@@ -1,0 +1,6 @@
+TOP SPEED from rest, main road ~600m: 17.58s; peak 41.183m/s (148.3km/h); >=40m/s for 6.90s; upright 1.000; end (50.06, 8.94, 533.62). No velocity injection.
+LIMIT injected 60m/s yaw 0: takeoff 56.75; flew=True; landed=True Z=68.64; min up 0.973; offset 1.53; failed/end position (-630.16, 9.03, 68.64); reset then remaining-gates/finish completed laps=0 (must be 0)
+LIMIT injected 42m/s yaw -8: takeoff 0.00; flew=False; landed=False Z=0.00; min up 0.998; offset 48.20; failed/end position (-679.47, 10.15, 196.50); reset then remaining-gates/finish completed laps=0 (must be 0)
+LIMIT injected 6m/s yaw 0: takeoff 6.38; flew=True; landed=True Z=-80.53; min up 0.919; offset 1.52; failed/end position (-628.08, 8.89, -80.53); reset then remaining-gates/finish completed laps=0 (must be 0)
+LANDING SUPPORT ray samples: missing=0, lowest surface Y=7.87; existing road/shoulders retained.
+Real PhysX 0.02s steps with virtual motor commands; injected initial velocities where stated. No physical controller or subjective approval.

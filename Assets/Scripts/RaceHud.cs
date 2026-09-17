@@ -12,7 +12,8 @@ namespace Racer
         {
             var p = race.Progress;
             string next = p.NextGate == 0 ? "START / FINISH" : $"CP {p.NextGate:00} / {p.CheckpointCount:00}";
-            return $"LAP {Mathf.Min(p.CompletedLaps + 1, p.TargetLaps)} / {p.TargetLaps}    Completed: {p.CompletedLaps}\n" +
+            float speed = race.vehicle ? Mathf.Abs(race.vehicle.ForwardSpeed) * 3.6f : 0;
+            return $"LAP {Mathf.Min(p.CompletedLaps + 1, p.TargetLaps)} / {p.TargetLaps}    Completed: {p.CompletedLaps}    {speed:0} km/h\n" +
                 $"Race  {FormatTime(p.RaceTime(race.Clock))}    Lap  {FormatTime(p.LapTime(race.Clock))}\n" +
                 $"Last  {FormatTime(p.LastLap)}    Best  {FormatTime(p.BestLap)}\n" +
                 $"Next: {next}\n{p.Status}\nEnter / Start: restart race    R / Y: reset car";

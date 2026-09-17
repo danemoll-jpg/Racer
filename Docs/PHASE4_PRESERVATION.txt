@@ -1,0 +1,7 @@
+Compared against safety checkpoint 391168140bcbe4604b46c6a3cff28b9946c5a088
+Baseline records: 20627
+Final records: 20726
+Missing old records: 0
+Changed old records: 9223372036854775807, 221369408
+221369408 = car prefab instance tuning overrides; 9223372036854775807 = scene root list
+All other baseline serialized records match after line-ending normalization.

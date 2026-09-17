@@ -1,0 +1,35 @@
+PASS BASELINE connector sustained: injected 35m/s; duration 6.02s; mean 34.62, peak 34.99m/s; error 1.90m; min up 1.000; lateral peak 0.03m/s; air steps 0
+PASS BASELINE main straight: injected 38m/s; duration 8.02s; mean 36.43, peak 37.98m/s; error 1.78m; min up 1.000; lateral peak 0.06m/s; air steps 0
+PASS BASELINE ordinary bends: injected 20m/s; duration 10.02s; mean 20.18, peak 20.34m/s; error 1.53m; min up 0.982; lateral peak 0.51m/s; air steps 0
+PASS BASELINE hairpin: injected 9m/s; duration 15.02s; mean 9.29, peak 9.36m/s; error 1.41m; min up 0.985; lateral peak 1.23m/s; air steps 0
+PASS BASELINE hills: injected 20m/s; duration 12.02s; mean 19.97, peak 20.33m/s; error 1.58m; min up 0.964; lateral peak 1.63m/s; air steps 0
+PASS BASELINE reverse: injected -8m/s; duration 8.02s; mean 8.26, peak 8.30m/s; error 1.19m; min up 1.000; lateral peak 0.00m/s; air steps 0
+BASELINE acceleration from rest on connector: peak 33.93m/s (122.2km/h), end (-625.61, 8.31, -149.52)
+BASELINE full braking 35 to 0.85m/s: 1.40s / 24.64m, upright 1.000
+DIAG BASELINE yaw t=0.10: yaw 0.487rad/s, slip -0.626m/s, up 1.0000, vertical 0.102m/s
+DIAG BASELINE yaw t=0.30: yaw 0.815rad/s, slip -2.229m/s, up 1.0000, vertical 0.101m/s
+DIAG BASELINE yaw t=1.00: yaw 0.878rad/s, slip -3.093m/s, up 1.0000, vertical 0.027m/s
+DIAG BASELINE slip t=0.10: yaw 0.000rad/s, slip 1.980m/s, up 1.0000, vertical 0.102m/s
+DIAG BASELINE slip t=0.30: yaw 0.000rad/s, slip 0.437m/s, up 1.0000, vertical 0.102m/s
+DIAG BASELINE slip t=1.00: yaw 0.000rad/s, slip 0.002m/s, up 1.0000, vertical 0.101m/s
+DIAG BASELINE body t=0.10: yaw -0.002rad/s, slip -0.083m/s, up 0.9936, vertical 0.072m/s
+DIAG BASELINE body t=0.30: yaw -0.001rad/s, slip -0.081m/s, up 0.9998, vertical 0.097m/s
+DIAG BASELINE body t=1.00: yaw 0.000rad/s, slip 0.001m/s, up 1.0000, vertical 0.100m/s
+PASS REVISED connector sustained: injected 35m/s; duration 6.02s; mean 35.10, peak 35.11m/s; error 1.84m; min up 1.000; lateral peak 0.02m/s; air steps 0
+PASS REVISED main straight: injected 38m/s; duration 8.02s; mean 37.91, peak 38.00m/s; error 1.80m; min up 1.000; lateral peak 0.05m/s; air steps 0
+PASS REVISED ordinary bends: injected 20m/s; duration 10.02s; mean 20.23, peak 20.34m/s; error 1.53m; min up 0.982; lateral peak 0.41m/s; air steps 0
+PASS REVISED hairpin: injected 9m/s; duration 15.02s; mean 9.29, peak 9.36m/s; error 1.38m; min up 0.985; lateral peak 1.02m/s; air steps 0
+PASS REVISED hills: injected 20m/s; duration 12.02s; mean 20.07, peak 20.34m/s; error 1.52m; min up 0.964; lateral peak 1.32m/s; air steps 0
+PASS REVISED reverse: injected -8m/s; duration 8.02s; mean 8.26, peak 8.30m/s; error 1.19m; min up 1.000; lateral peak 0.00m/s; air steps 0
+REVISED acceleration from rest on connector: peak 38.41m/s (138.3km/h), end (-625.61, 8.31, -149.35)
+REVISED full braking 35 to 0.85m/s: 1.40s / 24.64m, upright 1.000
+DIAG REVISED yaw t=0.10: yaw 0.590rad/s, slip -0.740m/s, up 1.0000, vertical 0.102m/s
+DIAG REVISED yaw t=0.30: yaw 0.937rad/s, slip -2.322m/s, up 1.0000, vertical 0.102m/s
+DIAG REVISED yaw t=1.00: yaw 0.988rad/s, slip -2.935m/s, up 1.0000, vertical -0.135m/s
+DIAG REVISED slip t=0.10: yaw 0.000rad/s, slip 1.718m/s, up 1.0000, vertical 0.102m/s
+DIAG REVISED slip t=0.30: yaw 0.000rad/s, slip 0.266m/s, up 1.0000, vertical 0.103m/s
+DIAG REVISED slip t=1.00: yaw 0.000rad/s, slip 0.000m/s, up 1.0000, vertical 0.104m/s
+DIAG REVISED body t=0.10: yaw -0.002rad/s, slip -0.080m/s, up 0.9936, vertical 0.072m/s
+DIAG REVISED body t=0.30: yaw -0.001rad/s, slip -0.066m/s, up 0.9998, vertical 0.098m/s
+DIAG REVISED body t=1.00: yaw 0.000rad/s, slip 0.001m/s, up 1.0000, vertical 0.103m/s
+Real PhysX 0.02s steps with virtual motor commands; injected initial velocities where stated. No physical controller or subjective approval.
