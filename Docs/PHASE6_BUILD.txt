@@ -1,0 +1,4 @@
+CR-012 verified map marker (1028,951), world XZ (415.8,-1.1). Removed Original house 1 and 3 dedicated colliders (foundation/wall/roof); no separate access or prop children existed.
+Replaced 47 buildings with 4 residential and 4 commercial reusable prefab variants; all surviving site transforms preserved.
+Yard: 3 terrain tiles, 3069 color vertices; ZERO terrain height/topology/normal changes. 15 local tree colliders and 30 crown/trunk cube blocks removed within 27m of Dan-to-former-House1 segment. Grass blends to 34m and excludes road/shoulders inside 16m. No shared asset deletion.
+Architecture and fictional shop names are approximations, not historical references. Retained foundation geometry/colliders, replaced wall/roof colliders, added ground-reaching entrance steps.

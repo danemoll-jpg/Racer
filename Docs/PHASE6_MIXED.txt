@@ -1,0 +1,4 @@
+LAP 1: 182.568s via shortcut
+LAP 2: 184.140s via normal
+LAP 3: 182.460s via shortcut
+PASS mixed: completed=3; valid=True; time=551.52s; mean=25.42m/s; peak=39.71m/s; max error=3.23m; min up=0.880

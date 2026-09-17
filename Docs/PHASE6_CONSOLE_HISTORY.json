@@ -1,0 +1,941 @@
+{
+  "success": true,
+  "command": "command console",
+  "data": {
+    "command": "console",
+    "parameters": {
+      "tail": "100"
+    },
+    "result": {
+      "entries": [
+        {
+          "seq": 246,
+          "timestampUtc": "2026-09-17T13:45:01.5877223Z",
+          "level": "error",
+          "logType": "Error",
+          "message": "Failed to handle /api/exec request: Main thread operation timed out after 5000ms",
+          "stackTrace": "UnityEngine.Debug:LogError (object)\nUnity.Pipeline.BasePipelineServer/<HandleExecRequest>d__115:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2071)\nSystem.Runtime.CompilerServices.AsyncTaskMethodBuilder:SetException (System.Exception)\nUnity.Pipeline.BasePipelineServer/<ExecuteGated>d__105:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:1403)\nSystem.Runtime.CompilerServices.AsyncTaskMethodBuilder:SetException (System.Exception)\nUnity.Pipeline.BasePipelineServer/<>c__DisplayClass115_0/<<HandleExecRequest>b__0>d:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2032)\nSystem.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<object>:SetException (System.Exception)\nUnity.Pipeline.BasePipelineServer/<ExecuteCommandByName>d__133:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2478)\nSystem.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<object>:SetException (System.Exception)\nUnity.Pipeline.BasePipelineServer/<ExecuteCommand>d__134:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2517)\nSystem.Threading._ThreadPoolWaitCallback:PerformWaitCallback ()\n",
+          "seeded": false
+        },
+        {
+          "seq": 247,
+          "timestampUtc": "2026-09-17T13:45:08.3280597Z",
+          "level": "log",
+          "logType": "Log",
+          "message": "PASS: Checkpoints cannot start race\nPASS: Wrong-way start cannot start race\nPASS: Skipped CP1 cannot award a lap\nPASS: Wrong-way gate invalidates lap even after recrossing forward\nPASS: Repeated checkpoint invalidates current lap\nPASS: Repeated finish crossings cannot award laps\nPASS: Three ordered laps: 60s splits, 180s frozen total\nPASS: Finished race ignores further crossings\nPASS: Restart clears all progress and timing\nPASS: Vehicle reset cannot preserve checkpoint credit\nPASS: Swept forward crossing and sub-step timing\nPASS: Swept reverse crossing\nPASS: Outside-width and above-gate bypasses rejected\nPASS: Standing on plane does not repeat crossing\nPASS: Director starts through physical gate geometry\nPASS: Director rejects wrong-way finish\nPASS: Reversing rear-first through start does not count\nPASS: Teleport over gate cannot start race\nPASS: Virtual gamepad progressive trigger and partial steering\nPASS: Virtual gamepad progressive larger steering\nPASS: Virtual LT brake/reverse\nPASS: Virtual Start restarts race\nPASS: Virtual keyboard W/D\nPASS: Virtual keyboard S/A\nPASS: Virtual keyboard arrows\nPASS: Virtual Enter clears race and timer\nPASS: Virtual Y retains fixed upright reset and abandons lap\nPASS: Chase camera snaps on reset\nPASS: Virtual R reset\nPASS: Automatic fall reset preserved\nPASS: HUD ready state\nPASS: HUD next checkpoint updates\nPASS: HUD invalid-lap warning\nPASS: HUD completed race\nLAP 1: 563.772s, total 563.782s\nLAP 2: 563.780s, total 1127.562s\nLAP 3: 563.780s, total 1691.332s\nPASS: Three real PhysX laps: 1694.70s, max centre error 2.845m, min upright 0.880, airborne steps 1; 4.5/8 m/s target; no teleport during traversal\nPASS: HUD reflects actual simulated finish\nPASS: Restart after actual race clears laps, last/best, total and HUD\nFailures: 0\nVirtual input and simulated driving only. Physical controller and subjective steering comfort require Dan.",
+          "stackTrace": "UnityEngine.Debug:Log (object)\nRacer.Editor.RaceValidation:Run () (at Assets/Scripts/Editor/RaceValidation.cs:123)\nPipelineEvaluation.PipelineEval_92b2f788:Execute ()\nSystem.Reflection.MethodBase:Invoke (object,object[])\nUnity.Pipeline.Compilation.EvalCodeCompiler:ExecuteCompiledAssembly (System.Reflection.Assembly) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Compilation/EvalCodeCompiler.cs:190)\nUnity.Pipeline.Compilation.EvalCodeCompiler:CompileAndExecuteOnMainThread (string,int,System.Diagnostics.Stopwatch) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Compilation/EvalCodeCompiler.cs:54)\nUnity.Pipeline.Runtime.Commands.CodeEvalCommand:EvaluateSource (string,int,string) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Commands/CodeEvalCommand.cs:112)\nUnity.Pipeline.Runtime.Commands.CodeEvalCommand:EvaluateCode (string,int) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Commands/CodeEvalCommand.cs:24)\nSystem.Reflection.MethodBase:Invoke (object,object[])\nUnity.Pipeline.BasePipelineServer:ExecuteCommandDirect (Unity.Pipeline.Commands.CommandInfo,object[]) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2634)\nUnity.Pipeline.BasePipelineServer/<>c__DisplayClass134_0:<ExecuteCommand>b__1 () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2508)\nUnity.Pipeline.Threading.Dispatcher/WorkItem`1<object>:ExecuteCore () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:284)\nUnity.Pipeline.Threading.Dispatcher/WorkItem:Execute () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:229)\nUnity.Pipeline.Threading.Dispatcher:ProcessWorkQueue (int) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:195)\nUnity.Pipeline.Threading.Dispatcher:ProcessWorkQueue () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:210)\nUnityEditor.EditorApplication:Internal_CallUpdateFunctions ()\n",
+          "seeded": false
+        },
+        {
+          "seq": 248,
+          "timestampUtc": "2026-09-17T13:47:20.1990719Z",
+          "level": "log",
+          "logType": "Log",
+          "message": "PASS: original 32/7 ordinary bend, target 10m/s, 8s; max error 1.048m, min upright 0.988, max angular 0.102, airborne steps 0\nPASS: original 32/7 hairpin, target 5m/s, 8s; max error 1.235m, min upright 0.996, max angular 0.535, airborne steps 0\nPASS: original 32/7 hills, target 10m/s, 8s; max error 1.038m, min upright 0.966, max angular 0.027, airborne steps 0\nPASS: original 32/7 fast connector, target 25m/s, 8s; max error 1.034m, min upright 1.000, max angular 0.002, airborne steps 0\nPASS: original 32/7 fast main, target 25m/s, 8s; max error 1.253m, min upright 1.000, max angular 0.008, airborne steps 0\nPASS: original 32/7 reverse, target -8m/s, 8s; max error 1.034m, min upright 1.000, max angular 0.001, airborne steps 0\nPASS: original identical full-lock step at 10m/s, yaw at 100ms 0.4762rad/s, minimum upright over 600ms 1.0000. Reverse changes yaw sign.\nPASS: original identical full-lock step at 25m/s, yaw at 100ms 0.7155rad/s, minimum upright over 600ms 1.0000. Reverse changes yaw sign.\nPASS: original identical full-lock step at -8m/s, yaw at 100ms -0.3982rad/s, minimum upright over 600ms 1.0000. Reverse changes yaw sign.\nPASS: revised 33/8 ordinary bend, target 10m/s, 8s; max error 1.048m, min upright 0.988, max angular 0.102, airborne steps 0\nPASS: revised 33/8 hairpin, target 5m/s, 8s; max error 1.235m, min upright 0.996, max angular 0.535, airborne steps 0\nPASS: revised 33/8 hills, target 10m/s, 8s; max error 1.038m, min upright 0.966, max angular 0.027, airborne steps 0\nPASS: revised 33/8 fast connector, target 25m/s, 8s; max error 1.034m, min upright 1.000, max angular 0.002, airborne steps 0\nPASS: revised 33/8 fast main, target 25m/s, 8s; max error 1.253m, min upright 1.000, max angular 0.008, airborne steps 0\nPASS: revised 33/8 reverse, target -8m/s, 8s; max error 1.034m, min upright 1.000, max angular 0.001, airborne steps 0\nPASS: revised identical full-lock step at 10m/s, yaw at 100ms 0.5648rad/s, minimum upright over 600ms 1.0000. Reverse changes yaw sign.\nPASS: revised identical full-lock step at 25m/s, yaw at 100ms 0.7568rad/s, minimum upright over 600ms 1.0000. Reverse changes yaw sign.\nPASS: revised identical full-lock step at -8m/s, yaw at 100ms -0.4730rad/s, minimum upright over 600ms 1.0000. Reverse changes yaw sign.\nFailures: 0\nAutomated steering commands through real PhysX. These are not physical-controller tests or subjective feel approval.",
+          "stackTrace": "UnityEngine.Debug:Log (object)\nRacer.Editor.SteeringValidation:Run () (at Assets/Scripts/Editor/SteeringValidation.cs:73)\nPipelineEvaluation.PipelineEval_e5858097:Execute ()\nSystem.Reflection.MethodBase:Invoke (object,object[])\nUnity.Pipeline.Compilation.EvalCodeCompiler:ExecuteCompiledAssembly (System.Reflection.Assembly) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Compilation/EvalCodeCompiler.cs:190)\nUnity.Pipeline.Compilation.EvalCodeCompiler:CompileAndExecuteOnMainThread (string,int,System.Diagnostics.Stopwatch) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Compilation/EvalCodeCompiler.cs:54)\nUnity.Pipeline.Runtime.Commands.CodeEvalCommand:EvaluateSource (string,int,string) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Commands/CodeEvalCommand.cs:112)\nUnity.Pipeline.Runtime.Commands.CodeEvalCommand:EvaluateCode (string,int) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Commands/CodeEvalCommand.cs:24)\nSystem.Reflection.MethodBase:Invoke (object,object[])\nUnity.Pipeline.BasePipelineServer:ExecuteCommandDirect (Unity.Pipeline.Commands.CommandInfo,object[]) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2634)\nUnity.Pipeline.BasePipelineServer/<>c__DisplayClass134_0:<ExecuteCommand>b__1 () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2508)\nUnity.Pipeline.Threading.Dispatcher/WorkItem`1<object>:ExecuteCore () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:284)\nUnity.Pipeline.Threading.Dispatcher/WorkItem:Execute () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:229)\nUnity.Pipeline.Threading.Dispatcher:ProcessWorkQueue (int) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:195)\nUnity.Pipeline.Threading.Dispatcher:ProcessWorkQueue () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:210)\nUnityEditor.EditorApplication:Internal_CallUpdateFunctions ()\n",
+          "seeded": false
+        },
+        {
+          "seq": 249,
+          "timestampUtc": "2026-09-17T15:12:31.7642214Z",
+          "level": "log",
+          "logType": "Log",
+          "message": "PASS BASELINE connector sustained: injected 35m/s; duration 6.02s; mean 34.62, peak 34.99m/s; error 1.90m; min up 1.000; lateral peak 0.03m/s; air steps 0\nPASS BASELINE main straight: injected 38m/s; duration 8.02s; mean 36.43, peak 37.98m/s; error 1.78m; min up 1.000; lateral peak 0.06m/s; air steps 0\nPASS BASELINE ordinary bends: injected 20m/s; duration 10.02s; mean 20.18, peak 20.34m/s; error 1.53m; min up 0.982; lateral peak 0.51m/s; air steps 0\nPASS BASELINE hairpin: injected 9m/s; duration 15.02s; mean 9.29, peak 9.36m/s; error 1.41m; min up 0.985; lateral peak 1.23m/s; air steps 0\nPASS BASELINE hills: injected 20m/s; duration 12.02s; mean 19.97, peak 20.33m/s; error 1.58m; min up 0.964; lateral peak 1.63m/s; air steps 0\nPASS BASELINE reverse: injected -8m/s; duration 8.02s; mean 8.26, peak 8.30m/s; error 1.19m; min up 1.000; lateral peak 0.00m/s; air steps 0\nBASELINE acceleration from rest on connector: peak 33.93m/s (122.2km/h), end (-625.61, 8.31, -149.52)\nBASELINE full braking 35 to 0.85m/s: 1.40s / 24.64m, upright 1.000\nDIAG BASELINE yaw t=0.10: yaw 0.487rad/s, slip -0.626m/s, up 1.0000, vertical 0.102m/s\nDIAG BASELINE yaw t=0.30: yaw 0.815rad/s, slip -2.229m/s, up 1.0000, vertical 0.101m/s\nDIAG BASELINE yaw t=1.00: yaw 0.878rad/s, slip -3.093m/s, up 1.0000, vertical 0.027m/s\nDIAG BASELINE slip t=0.10: yaw 0.000rad/s, slip 1.980m/s, up 1.0000, vertical 0.102m/s\nDIAG BASELINE slip t=0.30: yaw 0.000rad/s, slip 0.437m/s, up 1.0000, vertical 0.102m/s\nDIAG BASELINE slip t=1.00: yaw 0.000rad/s, slip 0.002m/s, up 1.0000, vertical 0.101m/s\nDIAG BASELINE body t=0.10: yaw -0.002rad/s, slip -0.083m/s, up 0.9936, vertical 0.072m/s\nDIAG BASELINE body t=0.30: yaw -0.001rad/s, slip -0.081m/s, up 0.9998, vertical 0.097m/s\nDIAG BASELINE body t=1.00: yaw 0.000rad/s, slip 0.001m/s, up 1.0000, vertical 0.100m/s\nPASS REVISED connector sustained: injected 35m/s; duration 6.02s; mean 35.10, peak 35.11m/s; error 1.84m; min up 1.000; lateral peak 0.02m/s; air steps 0\nPASS REVISED main straight: injected 38m/s; duration 8.02s; mean 37.91, peak 38.00m/s; error 1.80m; min up 1.000; lateral peak 0.05m/s; air steps 0\nPASS REVISED ordinary bends: injected 20m/s; duration 10.02s; mean 20.23, peak 20.34m/s; error 1.53m; min up 0.982; lateral peak 0.41m/s; air steps 0\nPASS REVISED hairpin: injected 9m/s; duration 15.02s; mean 9.29, peak 9.36m/s; error 1.38m; min up 0.985; lateral peak 1.02m/s; air steps 0\nPASS REVISED hills: injected 20m/s; duration 12.02s; mean 20.07, peak 20.34m/s; error 1.52m; min up 0.964; lateral peak 1.32m/s; air steps 0\nPASS REVISED reverse: injected -8m/s; duration 8.02s; mean 8.26, peak 8.30m/s; error 1.19m; min up 1.000; lateral peak 0.00m/s; air steps 0\nREVISED acceleration from rest on connector: peak 38.41m/s (138.3km/h), end (-625.61, 8.31, -149.35)\nREVISED full braking 35 to 0.85m/s: 1.40s / 24.64m, upright 1.000\nDIAG REVISED yaw t=0.10: yaw 0.590rad/s, slip -0.740m/s, up 1.0000, vertical 0.102m/s\nDIAG REVISED yaw t=0.30: yaw 0.937rad/s, slip -2.322m/s, up 1.0000, vertical 0.102m/s\nDIAG REVISED yaw t=1.00: yaw 0.988rad/s, slip -2.935m/s, up 1.0000, vertical -0.135m/s\nDIAG REVISED slip t=0.10: yaw 0.000rad/s, slip 1.718m/s, up 1.0000, vertical 0.102m/s\nDIAG REVISED slip t=0.30: yaw 0.000rad/s, slip 0.266m/s, up 1.0000, vertical 0.103m/s\nDIAG REVISED slip t=1.00: yaw 0.000rad/s, slip 0.000m/s, up 1.0000, vertical 0.104m/s\nDIAG REVISED body t=0.10: yaw -0.002rad/s, slip -0.080m/s, up 0.9936, vertical 0.072m/s\nDIAG REVISED body t=0.30: yaw -0.001rad/s, slip -0.066m/s, up 0.9998, vertical 0.098m/s\nDIAG REVISED body t=1.00: yaw 0.000rad/s, slip 0.001m/s, up 1.0000, vertical 0.103m/s\nReal PhysX 0.02s steps with virtual motor commands; injected initial velocities where stated. No physical controller or subjective approval.",
+          "stackTrace": "UnityEngine.Debug:Log (object)\nRacer.Editor.Phase4Validation:Run (string) (at Assets/Scripts/Editor/Phase4Validation.cs:69)\nRacer.Editor.Phase4Validation:Roads () (at Assets/Scripts/Editor/Phase4Validation.cs:51)\nPipelineEvaluation.PipelineEval_9ebf2f2e:Execute ()\nSystem.Reflection.MethodBase:Invoke (object,object[])\nUnity.Pipeline.Compilation.EvalCodeCompiler:ExecuteCompiledAssembly (System.Reflection.Assembly) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Compilation/EvalCodeCompiler.cs:190)\nUnity.Pipeline.Compilation.EvalCodeCompiler:CompileAndExecuteOnMainThread (string,int,System.Diagnostics.Stopwatch) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Compilation/EvalCodeCompiler.cs:54)\nUnity.Pipeline.Runtime.Commands.CodeEvalCommand:EvaluateSource (string,int,string) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Commands/CodeEvalCommand.cs:112)\nUnity.Pipeline.Runtime.Commands.CodeEvalCommand:EvaluateCode (string,int) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Commands/CodeEvalCommand.cs:24)\nSystem.Reflection.MethodBase:Invoke (object,object[])\nUnity.Pipeline.BasePipelineServer:ExecuteCommandDirect (Unity.Pipeline.Commands.CommandInfo,object[]) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2634)\nUnity.Pipeline.BasePipelineServer/<>c__DisplayClass134_0:<ExecuteCommand>b__1 () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2508)\nUnity.Pipeline.Threading.Dispatcher/WorkItem`1<object>:ExecuteCore () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:284)\nUnity.Pipeline.Threading.Dispatcher/WorkItem:Execute () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:229)\nUnity.Pipeline.Threading.Dispatcher:ProcessWorkQueue (int) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:195)\nUnity.Pipeline.Threading.Dispatcher:ProcessWorkQueue () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:210)\nUnityEditor.EditorApplication:Internal_CallUpdateFunctions ()\n",
+          "seeded": false
+        },
+        {
+          "seq": 250,
+          "timestampUtc": "2026-09-17T15:13:27.0755003Z",
+          "level": "log",
+          "logType": "Log",
+          "message": "PASS approach target/injected 12m/s yaw 0deg: takeoff 12.10m/s; landed=True, landing Z=-73.29; air 0.86s; apex above road 3.92m; min upright 0.976; max lateral offset 1.52m\nPASS approach target/injected 12m/s yaw 3deg: takeoff 11.75m/s; landed=True, landing Z=-74.11; air 1.08s; apex above road 3.65m; min upright 0.898; max lateral offset 2.48m\nPASS approach target/injected 12m/s yaw -3deg: takeoff 11.76m/s; landed=True, landing Z=-73.75; air 1.12s; apex above road 3.73m; min upright 0.938; max lateral offset 5.46m\nPASS approach target/injected 32m/s yaw 0deg: takeoff 31.59m/s; landed=True, landing Z=-29.37; air 1.72s; apex above road 6.31m; min upright 0.980; max lateral offset 1.52m\nPASS approach target/injected 32m/s yaw 3deg: takeoff 31.14m/s; landed=True, landing Z=-31.44; air 1.78s; apex above road 6.10m; min upright 0.906; max lateral offset 4.36m\nPASS approach target/injected 32m/s yaw -3deg: takeoff 31.20m/s; landed=True, landing Z=-31.45; air 1.78s; apex above road 6.14m; min upright 0.950; max lateral offset 7.13m\nPASS approach target/injected 42m/s yaw 0deg: takeoff 40.33m/s; landed=True, landing Z=-1.87; air 2.04s; apex above road 7.83m; min upright 0.979; max lateral offset 1.52m\nPASS approach target/injected 42m/s yaw 3deg: takeoff 39.83m/s; landed=True, landing Z=-3.73; air 2.10s; apex above road 7.75m; min upright 0.936; max lateral offset 5.86m\nLIMIT approach target/injected 42m/s yaw -3deg: takeoff 39.90m/s; landed=True, landing Z=-2.32; air 2.14s; apex above road 7.92m; min upright 0.972; max lateral offset 8.46m\nPASS approach target/injected 46m/s yaw 0deg: takeoff 43.52m/s; landed=True, landing Z=10.45; air 2.20s; apex above road 8.56m; min upright 0.977; max lateral offset 1.53m\nPASS approach target/injected 46m/s yaw 3deg: takeoff 42.96m/s; landed=True, landing Z=8.50; air 2.24s; apex above road 8.54m; min upright 0.948; max lateral offset 6.59m\nLIMIT approach target/injected 46m/s yaw -3deg: takeoff 43.07m/s; landed=True, landing Z=9.19; air 2.28s; apex above road 8.59m; min upright 0.973; max lateral offset 9.33m\nBYPASS 6m/s end Z -77.93; min upright 1.000; air steps 0\nBYPASS 30m/s end Z -59.50; min upright 1.000; air steps 0\nSHOULDER side -1 at landing, 12m/s: upright 0.998; clearance 0.645m; end (-628.84, 9.07, 47.69)\nSHOULDER side 1 at landing, 12m/s: upright 0.998; clearance 0.644m; end (-628.84, 9.07, 47.69)\nRECOVERY failed landing reset: lapActive=False; completed=0; speed=0; upright=1; nextGate=0\nReal PhysX 0.02s steps with virtual motor commands; injected initial velocities where stated. No physical controller or subjective approval.",
+          "stackTrace": "UnityEngine.Debug:Log (object)\nRacer.Editor.Phase4Validation:Run (string) (at Assets/Scripts/Editor/Phase4Validation.cs:69)\nRacer.Editor.Phase4Validation:Jump () (at Assets/Scripts/Editor/Phase4Validation.cs:53)\nPipelineEvaluation.PipelineEval_ff0be0fa:Execute ()\nSystem.Reflection.MethodBase:Invoke (object,object[])\nUnity.Pipeline.Compilation.EvalCodeCompiler:ExecuteCompiledAssembly (System.Reflection.Assembly) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Compilation/EvalCodeCompiler.cs:190)\nUnity.Pipeline.Compilation.EvalCodeCompiler:CompileAndExecuteOnMainThread (string,int,System.Diagnostics.Stopwatch) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Compilation/EvalCodeCompiler.cs:54)\nUnity.Pipeline.Runtime.Commands.CodeEvalCommand:EvaluateSource (string,int,string) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Commands/CodeEvalCommand.cs:112)\nUnity.Pipeline.Runtime.Commands.CodeEvalCommand:EvaluateCode (string,int) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Commands/CodeEvalCommand.cs:24)\nSystem.Reflection.MethodBase:Invoke (object,object[])\nUnity.Pipeline.BasePipelineServer:ExecuteCommandDirect (Unity.Pipeline.Commands.CommandInfo,object[]) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2634)\nUnity.Pipeline.BasePipelineServer/<>c__DisplayClass134_0:<ExecuteCommand>b__1 () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2508)\nUnity.Pipeline.Threading.Dispatcher/WorkItem`1<object>:ExecuteCore () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:284)\nUnity.Pipeline.Threading.Dispatcher/WorkItem:Execute () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:229)\nUnity.Pipeline.Threading.Dispatcher:ProcessWorkQueue (int) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:195)\nUnity.Pipeline.Threading.Dispatcher:ProcessWorkQueue () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:210)\nUnityEditor.EditorApplication:Internal_CallUpdateFunctions ()\n",
+          "seeded": false
+        },
+        {
+          "seq": 251,
+          "timestampUtc": "2026-09-17T15:13:47.2900417Z",
+          "level": "log",
+          "logType": "Log",
+          "message": "PROGRESS t=0.0s index=9 next=0 laps=0 valid=False speed=0.23\nPROGRESS t=100.0s index=1057 next=10 laps=0 valid=True speed=22.25\nPROGRESS t=200.0s index=174 next=2 laps=1 valid=True speed=20.99\nPROGRESS t=300.0s index=1288 next=12 laps=1 valid=True speed=29.87\nPROGRESS t=400.0s index=354 next=3 laps=2 valid=True speed=22.23\nPROGRESS t=500.0s index=1531 next=14 laps=2 valid=True speed=32.24\nPASS actual three-lap traversal: laps=3; next=0; valid=True; time=552.36s; peak=39.71m/s; mean=25.47; seconds>=25m/s=179.94; max error=3.21m; min upright=0.880; airborne seconds=5.26; last lap=183.300\nReal PhysX 0.02s steps with virtual motor commands; injected initial velocities where stated. No physical controller or subjective approval.",
+          "stackTrace": "UnityEngine.Debug:Log (object)\nRacer.Editor.Phase4Validation:Run (string) (at Assets/Scripts/Editor/Phase4Validation.cs:69)\nRacer.Editor.Phase4Validation:Laps () (at Assets/Scripts/Editor/Phase4Validation.cs:55)\nPipelineEvaluation.PipelineEval_ee2290eb:Execute ()\nSystem.Reflection.MethodBase:Invoke (object,object[])\nUnity.Pipeline.Compilation.EvalCodeCompiler:ExecuteCompiledAssembly (System.Reflection.Assembly) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Compilation/EvalCodeCompiler.cs:190)\nUnity.Pipeline.Compilation.EvalCodeCompiler:CompileAndExecuteOnMainThread (string,int,System.Diagnostics.Stopwatch) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Compilation/EvalCodeCompiler.cs:54)\nUnity.Pipeline.Runtime.Commands.CodeEvalCommand:EvaluateSource (string,int,string) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Commands/CodeEvalCommand.cs:112)\nUnity.Pipeline.Runtime.Commands.CodeEvalCommand:EvaluateCode (string,int) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Commands/CodeEvalCommand.cs:24)\nSystem.Reflection.MethodBase:Invoke (object,object[])\nUnity.Pipeline.BasePipelineServer:ExecuteCommandDirect (Unity.Pipeline.Commands.CommandInfo,object[]) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2634)\nUnity.Pipeline.BasePipelineServer/<>c__DisplayClass134_0:<ExecuteCommand>b__1 () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2508)\nUnity.Pipeline.Threading.Dispatcher/WorkItem`1<object>:ExecuteCore () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:284)\nUnity.Pipeline.Threading.Dispatcher/WorkItem:Execute () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:229)\nUnity.Pipeline.Threading.Dispatcher:ProcessWorkQueue (int) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:195)\nUnity.Pipeline.Threading.Dispatcher:ProcessWorkQueue () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:210)\nUnityEditor.EditorApplication:Internal_CallUpdateFunctions ()\n",
+          "seeded": false
+        },
+        {
+          "seq": 252,
+          "timestampUtc": "2026-09-17T15:14:33.4520655Z",
+          "level": "error",
+          "logType": "Error",
+          "message": "Failed to handle /api/exec request: Main thread operation timed out after 5000ms",
+          "stackTrace": "UnityEngine.Debug:LogError (object)\nUnity.Pipeline.BasePipelineServer/<HandleExecRequest>d__115:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2071)\nSystem.Runtime.CompilerServices.AsyncTaskMethodBuilder:SetException (System.Exception)\nUnity.Pipeline.BasePipelineServer/<ExecuteGated>d__105:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:1403)\nSystem.Runtime.CompilerServices.AsyncTaskMethodBuilder:SetException (System.Exception)\nUnity.Pipeline.BasePipelineServer/<>c__DisplayClass115_0/<<HandleExecRequest>b__0>d:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2032)\nSystem.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<object>:SetException (System.Exception)\nUnity.Pipeline.BasePipelineServer/<ExecuteCommandByName>d__133:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2478)\nSystem.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<object>:SetException (System.Exception)\nUnity.Pipeline.BasePipelineServer/<ExecuteCommand>d__134:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2517)\nSystem.Threading._ThreadPoolWaitCallback:PerformWaitCallback ()\n",
+          "seeded": false
+        },
+        {
+          "seq": 253,
+          "timestampUtc": "2026-09-17T15:14:40.1292807Z",
+          "level": "log",
+          "logType": "Log",
+          "message": "PASS: Checkpoints cannot start race\nPASS: Wrong-way start cannot start race\nPASS: Skipped CP1 cannot award a lap\nPASS: Wrong-way gate invalidates lap even after recrossing forward\nPASS: Repeated checkpoint invalidates current lap\nPASS: Repeated finish crossings cannot award laps\nPASS: Three ordered laps: 60s splits, 180s frozen total\nPASS: Finished race ignores further crossings\nPASS: Restart clears all progress and timing\nPASS: Vehicle reset cannot preserve checkpoint credit\nPASS: Swept forward crossing and sub-step timing\nPASS: Swept reverse crossing\nPASS: Outside-width and above-gate bypasses rejected\nPASS: Standing on plane does not repeat crossing\nPASS: Director starts through physical gate geometry\nPASS: Director rejects wrong-way finish\nPASS: Reversing rear-first through start does not count\nPASS: Teleport over gate cannot start race\nFAIL: Virtual gamepad progressive trigger and partial steering\nFAIL: Virtual gamepad progressive larger steering\nFAIL: Virtual LT brake/reverse\nFAIL: Virtual Start restarts race\nFAIL: Virtual keyboard W/D\nFAIL: Virtual keyboard S/A\nFAIL: Virtual keyboard arrows\nFAIL: Virtual Enter clears race and timer\nFAIL: Virtual Y retains fixed upright reset and abandons lap\nPASS: Chase camera snaps on reset\nFAIL: Virtual R reset\nPASS: Automatic fall reset preserved\nPASS: HUD ready state\nPASS: HUD next checkpoint updates\nPASS: HUD invalid-lap warning\nPASS: HUD completed race\nLAP 1: 562.681s, total 562.683s\nLAP 2: 562.673s, total 1125.363s\nLAP 3: 562.652s, total 1688.006s\nPASS: Three real PhysX laps: 1691.30s, max centre error 2.828m, min upright 0.880, airborne steps 112; 4.5/8 m/s target; no teleport during traversal\nPASS: HUD reflects actual simulated finish\nPASS: Restart after actual race clears laps, last/best, total and HUD\nFailures: 10\nVirtual input and simulated driving only. Physical controller and subjective steering comfort require Dan.",
+          "stackTrace": "UnityEngine.Debug:Log (object)\nRacer.Editor.RaceValidation:Run () (at Assets/Scripts/Editor/RaceValidation.cs:123)\nPipelineEvaluation.PipelineEval_ce3b5425:Execute ()\nSystem.Reflection.MethodBase:Invoke (object,object[])\nUnity.Pipeline.Compilation.EvalCodeCompiler:ExecuteCompiledAssembly (System.Reflection.Assembly) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Compilation/EvalCodeCompiler.cs:190)\nUnity.Pipeline.Compilation.EvalCodeCompiler:CompileAndExecuteOnMainThread (string,int,System.Diagnostics.Stopwatch) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Compilation/EvalCodeCompiler.cs:54)\nUnity.Pipeline.Runtime.Commands.CodeEvalCommand:EvaluateSource (string,int,string) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Commands/CodeEvalCommand.cs:112)\nUnity.Pipeline.Runtime.Commands.CodeEvalCommand:EvaluateCode (string,int) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Commands/CodeEvalCommand.cs:24)\nSystem.Reflection.MethodBase:Invoke (object,object[])\nUnity.Pipeline.BasePipelineServer:ExecuteCommandDirect (Unity.Pipeline.Commands.CommandInfo,object[]) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2634)\nUnity.Pipeline.BasePipelineServer/<>c__DisplayClass134_0:<ExecuteCommand>b__1 () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2508)\nUnity.Pipeline.Threading.Dispatcher/WorkItem`1<object>:ExecuteCore () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:284)\nUnity.Pipeline.Threading.Dispatcher/WorkItem:Execute () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:229)\nUnity.Pipeline.Threading.Dispatcher:ProcessWorkQueue (int) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:195)\nUnity.Pipeline.Threading.Dispatcher:ProcessWorkQueue () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:210)\nUnityEditor.EditorApplication:Internal_CallUpdateFunctions ()\n",
+          "seeded": false
+        },
+        {
+          "seq": 254,
+          "timestampUtc": "2026-09-17T15:18:18.0602331Z",
+          "level": "log",
+          "logType": "Log",
+          "message": "TOP SPEED from rest, main road ~600m: 17.58s; peak 41.183m/s (148.3km/h); >=40m/s for 6.90s; upright 1.000; end (50.06, 8.94, 533.62). No velocity injection.\nLIMIT injected 60m/s yaw 0: takeoff 56.75; flew=True; landed=True Z=68.64; min up 0.973; offset 1.53; failed/end position (-630.16, 9.03, 68.64); reset then remaining-gates/finish completed laps=0 (must be 0)\nLIMIT injected 42m/s yaw -8: takeoff 0.00; flew=False; landed=False Z=0.00; min up 0.998; offset 48.20; failed/end position (-679.47, 10.15, 196.50); reset then remaining-gates/finish completed laps=0 (must be 0)\nLIMIT injected 6m/s yaw 0: takeoff 6.38; flew=True; landed=True Z=-80.53; min up 0.919; offset 1.52; failed/end position (-628.08, 8.89, -80.53); reset then remaining-gates/finish completed laps=0 (must be 0)\nLANDING SUPPORT ray samples: missing=0, lowest surface Y=7.87; existing road/shoulders retained.\nReal PhysX 0.02s steps with virtual motor commands; injected initial velocities where stated. No physical controller or subjective approval.",
+          "stackTrace": "UnityEngine.Debug:Log (object)\nRacer.Editor.Phase4Validation:Run (string) (at Assets/Scripts/Editor/Phase4Validation.cs:69)\nPipelineEvaluation.PipelineEval_2423ce5a:Execute ()\nSystem.Reflection.MethodBase:Invoke (object,object[])\nUnity.Pipeline.Compilation.EvalCodeCompiler:ExecuteCompiledAssembly (System.Reflection.Assembly) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Compilation/EvalCodeCompiler.cs:190)\nUnity.Pipeline.Compilation.EvalCodeCompiler:CompileAndExecuteOnMainThread (string,int,System.Diagnostics.Stopwatch) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Compilation/EvalCodeCompiler.cs:54)\nUnity.Pipeline.Runtime.Commands.CodeEvalCommand:EvaluateSource (string,int,string) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Commands/CodeEvalCommand.cs:112)\nUnity.Pipeline.Runtime.Commands.CodeEvalCommand:EvaluateCode (string,int) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Commands/CodeEvalCommand.cs:24)\nSystem.Reflection.MethodBase:Invoke (object,object[])\nUnity.Pipeline.BasePipelineServer:ExecuteCommandDirect (Unity.Pipeline.Commands.CommandInfo,object[]) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2634)\nUnity.Pipeline.BasePipelineServer/<>c__DisplayClass134_0:<ExecuteCommand>b__1 () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2508)\nUnity.Pipeline.Threading.Dispatcher/WorkItem`1<object>:ExecuteCore () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:284)\nUnity.Pipeline.Threading.Dispatcher/WorkItem:Execute () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:229)\nUnity.Pipeline.Threading.Dispatcher:ProcessWorkQueue (int) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:195)\nUnity.Pipeline.Threading.Dispatcher:ProcessWorkQueue () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:210)\nUnityEditor.EditorApplication:Internal_CallUpdateFunctions ()\n",
+          "seeded": false
+        },
+        {
+          "seq": 255,
+          "timestampUtc": "2026-09-17T15:18:35.8187873Z",
+          "level": "log",
+          "logType": "Log",
+          "message": "PASS approach target/injected 12m/s yaw 0deg: takeoff 12.10m/s; landed=True, landing Z=-73.29; air 0.86s; apex above road 3.92m; min upright 0.976; max lateral offset 1.52m\nPASS approach target/injected 12m/s yaw 3deg: takeoff 11.75m/s; landed=True, landing Z=-74.11; air 1.08s; apex above road 3.65m; min upright 0.898; max lateral offset 2.48m\nPASS approach target/injected 12m/s yaw -3deg: takeoff 11.76m/s; landed=True, landing Z=-73.75; air 1.12s; apex above road 3.73m; min upright 0.938; max lateral offset 5.46m\nPASS approach target/injected 32m/s yaw 0deg: takeoff 31.59m/s; landed=True, landing Z=-29.37; air 1.72s; apex above road 6.31m; min upright 0.980; max lateral offset 1.52m\nPASS approach target/injected 32m/s yaw 3deg: takeoff 31.14m/s; landed=True, landing Z=-31.44; air 1.78s; apex above road 6.10m; min upright 0.906; max lateral offset 4.36m\nPASS approach target/injected 32m/s yaw -3deg: takeoff 31.20m/s; landed=True, landing Z=-31.45; air 1.78s; apex above road 6.14m; min upright 0.950; max lateral offset 7.13m\nPASS approach target/injected 42m/s yaw 0deg: takeoff 40.33m/s; landed=True, landing Z=-1.87; air 2.04s; apex above road 7.83m; min upright 0.979; max lateral offset 1.52m\nPASS approach target/injected 42m/s yaw 3deg: takeoff 39.83m/s; landed=True, landing Z=-3.73; air 2.10s; apex above road 7.75m; min upright 0.936; max lateral offset 5.86m\nLIMIT approach target/injected 42m/s yaw -3deg: takeoff 39.90m/s; landed=True, landing Z=-2.32; air 2.14s; apex above road 7.92m; min upright 0.972; max lateral offset 8.46m\nPASS approach target/injected 46m/s yaw 0deg: takeoff 43.52m/s; landed=True, landing Z=10.45; air 2.20s; apex above road 8.56m; min upright 0.977; max lateral offset 1.53m\nPASS approach target/injected 46m/s yaw 3deg: takeoff 42.96m/s; landed=True, landing Z=8.50; air 2.24s; apex above road 8.54m; min upright 0.948; max lateral offset 6.59m\nLIMIT approach target/injected 46m/s yaw -3deg: takeoff 43.07m/s; landed=True, landing Z=9.19; air 2.28s; apex above road 8.59m; min upright 0.973; max lateral offset 9.33m\nBYPASS 6m/s end Z -59.88; min upright 1.000; air steps 0\nBYPASS 30m/s end Z -59.50; min upright 1.000; air steps 0\nSHOULDER side -1 at landing, 12m/s: upright 0.998; clearance 0.645m; end (-628.84, 9.07, 47.69)\nSHOULDER side 1 at landing, 12m/s: upright 0.998; clearance 0.644m; end (-628.84, 9.07, 47.69)\nRECOVERY failed landing reset: lapActive=False; completed=0; speed=0; upright=1; nextGate=0\nReal PhysX 0.02s steps with virtual motor commands; injected initial velocities where stated. No physical controller or subjective approval.",
+          "stackTrace": "UnityEngine.Debug:Log (object)\nRacer.Editor.Phase4Validation:Run (string) (at Assets/Scripts/Editor/Phase4Validation.cs:69)\nRacer.Editor.Phase4Validation:Jump () (at Assets/Scripts/Editor/Phase4Validation.cs:53)\nPipelineEvaluation.PipelineEval_0d53f09b:Execute ()\nSystem.Reflection.MethodBase:Invoke (object,object[])\nUnity.Pipeline.Compilation.EvalCodeCompiler:ExecuteCompiledAssembly (System.Reflection.Assembly) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Compilation/EvalCodeCompiler.cs:190)\nUnity.Pipeline.Compilation.EvalCodeCompiler:CompileAndExecuteOnMainThread (string,int,System.Diagnostics.Stopwatch) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Compilation/EvalCodeCompiler.cs:54)\nUnity.Pipeline.Runtime.Commands.CodeEvalCommand:EvaluateSource (string,int,string) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Commands/CodeEvalCommand.cs:112)\nUnity.Pipeline.Runtime.Commands.CodeEvalCommand:EvaluateCode (string,int) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Commands/CodeEvalCommand.cs:24)\nSystem.Reflection.MethodBase:Invoke (object,object[])\nUnity.Pipeline.BasePipelineServer:ExecuteCommandDirect (Unity.Pipeline.Commands.CommandInfo,object[]) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2634)\nUnity.Pipeline.BasePipelineServer/<>c__DisplayClass134_0:<ExecuteCommand>b__1 () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2508)\nUnity.Pipeline.Threading.Dispatcher/WorkItem`1<object>:ExecuteCore () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:284)\nUnity.Pipeline.Threading.Dispatcher/WorkItem:Execute () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:229)\nUnity.Pipeline.Threading.Dispatcher:ProcessWorkQueue (int) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:195)\nUnity.Pipeline.Threading.Dispatcher:ProcessWorkQueue () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:210)\nUnityEditor.EditorApplication:Internal_CallUpdateFunctions ()\n",
+          "seeded": false
+        },
+        {
+          "seq": 256,
+          "timestampUtc": "2026-09-17T15:19:10.7599699Z",
+          "level": "error",
+          "logType": "Error",
+          "message": "Failed to handle /api/exec request: Main thread operation timed out after 5000ms",
+          "stackTrace": "UnityEngine.Debug:LogError (object)\nUnity.Pipeline.BasePipelineServer/<HandleExecRequest>d__115:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2071)\nSystem.Runtime.CompilerServices.AsyncTaskMethodBuilder:SetException (System.Exception)\nUnity.Pipeline.BasePipelineServer/<ExecuteGated>d__105:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:1403)\nSystem.Runtime.CompilerServices.AsyncTaskMethodBuilder:SetException (System.Exception)\nUnity.Pipeline.BasePipelineServer/<>c__DisplayClass115_0/<<HandleExecRequest>b__0>d:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2032)\nSystem.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<object>:SetException (System.Exception)\nUnity.Pipeline.BasePipelineServer/<ExecuteCommandByName>d__133:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2478)\nSystem.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<object>:SetException (System.Exception)\nUnity.Pipeline.BasePipelineServer/<ExecuteCommand>d__134:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2517)\nSystem.Threading._ThreadPoolWaitCallback:PerformWaitCallback ()\n",
+          "seeded": false
+        },
+        {
+          "seq": 257,
+          "timestampUtc": "2026-09-17T15:19:17.068952Z",
+          "level": "log",
+          "logType": "Log",
+          "message": "PASS: Checkpoints cannot start race\nPASS: Wrong-way start cannot start race\nPASS: Skipped CP1 cannot award a lap\nPASS: Wrong-way gate invalidates lap even after recrossing forward\nPASS: Repeated checkpoint invalidates current lap\nPASS: Repeated finish crossings cannot award laps\nPASS: Three ordered laps: 60s splits, 180s frozen total\nPASS: Finished race ignores further crossings\nPASS: Restart clears all progress and timing\nPASS: Vehicle reset cannot preserve checkpoint credit\nPASS: Swept forward crossing and sub-step timing\nPASS: Swept reverse crossing\nPASS: Outside-width and above-gate bypasses rejected\nPASS: Standing on plane does not repeat crossing\nPASS: Director starts through physical gate geometry\nPASS: Director rejects wrong-way finish\nPASS: Reversing rear-first through start does not count\nPASS: Teleport over gate cannot start race\nPASS: Virtual gamepad progressive trigger and partial steering\nPASS: Virtual gamepad progressive larger steering\nPASS: Virtual LT brake/reverse\nPASS: Virtual Start restarts race\nPASS: Virtual keyboard W/D\nPASS: Virtual keyboard S/A\nPASS: Virtual keyboard arrows\nPASS: Virtual Enter clears race and timer\nPASS: Virtual Y retains fixed upright reset and abandons lap\nPASS: Chase camera snaps on reset\nPASS: Virtual R reset\nPASS: Automatic fall reset preserved\nPASS: HUD ready state\nPASS: HUD next checkpoint updates\nPASS: HUD invalid-lap warning\nPASS: HUD completed race\nLAP 1: 562.681s, total 562.683s\nLAP 2: 562.673s, total 1125.363s\nLAP 3: 562.652s, total 1688.006s\nPASS: Three real PhysX laps: 1691.30s, max centre error 2.828m, min upright 0.880, airborne steps 112; 4.5/8 m/s target; no teleport during traversal\nPASS: HUD reflects actual simulated finish\nPASS: Restart after actual race clears laps, last/best, total and HUD\nFailures: 0\nVirtual input and simulated driving only. Physical controller and subjective steering comfort require Dan.",
+          "stackTrace": "UnityEngine.Debug:Log (object)\nRacer.Editor.RaceValidation:Run () (at Assets/Scripts/Editor/RaceValidation.cs:123)\nRacer.Editor.Phase4Validation:RaceRegression () (at Assets/Scripts/Editor/Phase4Validation.cs:198)\nPipelineEvaluation.PipelineEval_9664978c:Execute ()\nSystem.Reflection.MethodBase:Invoke (object,object[])\nUnity.Pipeline.Compilation.EvalCodeCompiler:ExecuteCompiledAssembly (System.Reflection.Assembly) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Compilation/EvalCodeCompiler.cs:190)\nUnity.Pipeline.Compilation.EvalCodeCompiler:CompileAndExecuteOnMainThread (string,int,System.Diagnostics.Stopwatch) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Compilation/EvalCodeCompiler.cs:54)\nUnity.Pipeline.Runtime.Commands.CodeEvalCommand:EvaluateSource (string,int,string) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Commands/CodeEvalCommand.cs:112)\nUnity.Pipeline.Runtime.Commands.CodeEvalCommand:EvaluateCode (string,int) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Commands/CodeEvalCommand.cs:24)\nSystem.Reflection.MethodBase:Invoke (object,object[])\nUnity.Pipeline.BasePipelineServer:ExecuteCommandDirect (Unity.Pipeline.Commands.CommandInfo,object[]) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2634)\nUnity.Pipeline.BasePipelineServer/<>c__DisplayClass134_0:<ExecuteCommand>b__1 () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2508)\nUnity.Pipeline.Threading.Dispatcher/WorkItem`1<object>:ExecuteCore () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:284)\nUnity.Pipeline.Threading.Dispatcher/WorkItem:Execute () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:229)\nUnity.Pipeline.Threading.Dispatcher:ProcessWorkQueue (int) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:195)\nUnity.Pipeline.Threading.Dispatcher:ProcessWorkQueue () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:210)\nUnityEditor.EditorApplication:Internal_CallUpdateFunctions ()\n",
+          "seeded": false
+        },
+        {
+          "seq": 258,
+          "timestampUtc": "2026-09-17T15:19:29.6773945Z",
+          "level": "log",
+          "logType": "Log",
+          "message": "PASS: Checkpoints cannot start race\nPASS: Wrong-way start cannot start race\nPASS: Skipped CP1 cannot award a lap\nPASS: Wrong-way gate invalidates lap even after recrossing forward\nPASS: Repeated checkpoint invalidates current lap\nPASS: Repeated finish crossings cannot award laps\nPASS: Three ordered laps: 60s splits, 180s frozen total\nPASS: Finished race ignores further crossings\nPASS: Restart clears all progress and timing\nPASS: Vehicle reset cannot preserve checkpoint credit\nPASS: Swept forward crossing and sub-step timing\nPASS: Swept reverse crossing\nPASS: Outside-width and above-gate bypasses rejected\nPASS: Standing on plane does not repeat crossing\nPASS: Director starts through physical gate geometry\nPASS: Director rejects wrong-way finish\nPASS: Reversing rear-first through start does not count\nPASS: Teleport over gate cannot start race\nPASS: Virtual gamepad progressive trigger and partial steering\nPASS: Virtual gamepad progressive larger steering\nPASS: Virtual LT brake/reverse\nPASS: Virtual Start restarts race\nPASS: Virtual keyboard W/D\nPASS: Virtual keyboard S/A\nPASS: Virtual keyboard arrows\nPASS: Virtual Enter clears race and timer\nPASS: Virtual Y retains fixed upright reset and abandons lap\nPASS: Chase camera snaps on reset\nPASS: Virtual R reset\nPASS: Automatic fall reset preserved\nPASS: HUD ready state\nPASS: HUD next checkpoint updates\nPASS: HUD invalid-lap warning\nPASS: HUD completed race\nLAP 1: 562.681s, total 562.683s\nLAP 2: 562.673s, total 1125.363s\nLAP 3: 562.652s, total 1688.006s\nPASS: Three real PhysX laps: 1691.30s, max centre error 2.828m, min upright 0.880, airborne steps 112; 4.5/8 m/s target; no teleport during traversal\nPASS: HUD reflects actual simulated finish\nPASS: Restart after actual race clears laps, last/best, total and HUD\nFailures: 0\nVirtual input and simulated driving only. Physical controller and subjective steering comfort require Dan.",
+          "stackTrace": "UnityEngine.Debug:Log (object)\nRacer.Editor.RaceValidation:Run () (at Assets/Scripts/Editor/RaceValidation.cs:123)\nRacer.Editor.Phase4Validation:RaceRegression () (at Assets/Scripts/Editor/Phase4Validation.cs:198)\nPipelineEvaluation.PipelineEval_05730b1a/<>c:<Execute>b__0_0 ()\nUnityEditor.EditorApplication:Internal_CallDelayFunctions ()\n",
+          "seeded": false
+        },
+        {
+          "seq": 259,
+          "timestampUtc": "2026-09-17T15:31:02.4146905Z",
+          "level": "log",
+          "logType": "Log",
+          "message": "PASS approach target/injected 12m/s yaw 0deg: takeoff 12.10m/s; landed=True, landing Z=-73.29; air 0.86s; apex above road 3.92m; min upright 0.976; max lateral offset 1.52m\nPASS approach target/injected 12m/s yaw 3deg: takeoff 11.75m/s; landed=True, landing Z=-74.11; air 1.08s; apex above road 3.65m; min upright 0.898; max lateral offset 2.48m\nPASS approach target/injected 12m/s yaw -3deg: takeoff 11.76m/s; landed=True, landing Z=-73.75; air 1.12s; apex above road 3.73m; min upright 0.938; max lateral offset 5.46m\nPASS approach target/injected 32m/s yaw 0deg: takeoff 31.59m/s; landed=True, landing Z=-29.37; air 1.72s; apex above road 6.31m; min upright 0.980; max lateral offset 1.52m\nPASS approach target/injected 32m/s yaw 3deg: takeoff 31.14m/s; landed=True, landing Z=-31.44; air 1.78s; apex above road 6.10m; min upright 0.906; max lateral offset 4.36m\nPASS approach target/injected 32m/s yaw -3deg: takeoff 31.20m/s; landed=True, landing Z=-31.45; air 1.78s; apex above road 6.14m; min upright 0.950; max lateral offset 7.13m\nPASS approach target/injected 42m/s yaw 0deg: takeoff 40.33m/s; landed=True, landing Z=-1.87; air 2.04s; apex above road 7.83m; min upright 0.979; max lateral offset 1.52m\nPASS approach target/injected 42m/s yaw 3deg: takeoff 39.83m/s; landed=True, landing Z=-3.73; air 2.10s; apex above road 7.75m; min upright 0.936; max lateral offset 5.86m\nLIMIT approach target/injected 42m/s yaw -3deg: takeoff 39.90m/s; landed=True, landing Z=-2.32; air 2.14s; apex above road 7.92m; min upright 0.972; max lateral offset 8.46m\nPASS approach target/injected 46m/s yaw 0deg: takeoff 43.52m/s; landed=True, landing Z=10.45; air 2.20s; apex above road 8.56m; min upright 0.977; max lateral offset 1.53m\nPASS approach target/injected 46m/s yaw 3deg: takeoff 42.96m/s; landed=True, landing Z=8.50; air 2.24s; apex above road 8.54m; min upright 0.948; max lateral offset 6.59m\nLIMIT approach target/injected 46m/s yaw -3deg: takeoff 43.07m/s; landed=True, landing Z=9.19; air 2.28s; apex above road 8.59m; min upright 0.973; max lateral offset 9.33m\nBYPASS 6m/s end Z -59.88; min upright 1.000; air steps 0\nBYPASS 30m/s end Z -59.50; min upright 1.000; air steps 0\nSHOULDER side -1 start Z=-145, 12m/s: upright 0.976; clearance 0.224m; end (-626.85, 8.62, -63.21)\nSHOULDER side 1 start Z=-145, 12m/s: upright 0.976; clearance 0.224m; end (-626.88, 8.62, -63.22)\nSHOULDER side -1 start Z=-35, 12m/s: upright 0.998; clearance 0.645m; end (-628.84, 9.07, 47.69)\nSHOULDER side 1 start Z=-35, 12m/s: upright 0.998; clearance 0.644m; end (-628.84, 9.07, 47.69)\nRECOVERY failed landing reset: lapActive=False; completed=0; speed=0; upright=1; nextGate=0\nReal PhysX 0.02s steps with virtual motor commands; injected initial velocities where stated. No physical controller or subjective approval.",
+          "stackTrace": "UnityEngine.Debug:Log (object)\nRacer.Editor.Phase4Validation:Run (string) (at Assets/Scripts/Editor/Phase4Validation.cs:69)\nRacer.Editor.Phase4Validation:Jump () (at Assets/Scripts/Editor/Phase4Validation.cs:53)\nPipelineEvaluation.PipelineEval_d6c169c2:Execute ()\nSystem.Reflection.MethodBase:Invoke (object,object[])\nUnity.Pipeline.Compilation.EvalCodeCompiler:ExecuteCompiledAssembly (System.Reflection.Assembly) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Compilation/EvalCodeCompiler.cs:190)\nUnity.Pipeline.Compilation.EvalCodeCompiler:CompileAndExecuteOnMainThread (string,int,System.Diagnostics.Stopwatch) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Compilation/EvalCodeCompiler.cs:54)\nUnity.Pipeline.Runtime.Commands.CodeEvalCommand:EvaluateSource (string,int,string) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Commands/CodeEvalCommand.cs:112)\nUnity.Pipeline.Runtime.Commands.CodeEvalCommand:EvaluateCode (string,int) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Commands/CodeEvalCommand.cs:24)\nSystem.Reflection.MethodBase:Invoke (object,object[])\nUnity.Pipeline.BasePipelineServer:ExecuteCommandDirect (Unity.Pipeline.Commands.CommandInfo,object[]) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2634)\nUnity.Pipeline.BasePipelineServer/<>c__DisplayClass134_0:<ExecuteCommand>b__1 () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2508)\nUnity.Pipeline.Threading.Dispatcher/WorkItem`1<object>:ExecuteCore () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:284)\nUnity.Pipeline.Threading.Dispatcher/WorkItem:Execute () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:229)\nUnity.Pipeline.Threading.Dispatcher:ProcessWorkQueue (int) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:195)\nUnity.Pipeline.Threading.Dispatcher:ProcessWorkQueue () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:210)\nUnityEditor.EditorApplication:Internal_CallUpdateFunctions ()\n",
+          "seeded": false
+        },
+        {
+          "seq": 260,
+          "timestampUtc": "2026-09-17T15:58:12.688909Z",
+          "level": "error",
+          "logType": "Error",
+          "message": "Failed to handle /api/exec request: Main thread operation timed out after 5000ms",
+          "stackTrace": "UnityEngine.Debug:LogError (object)\nUnity.Pipeline.BasePipelineServer/<HandleExecRequest>d__115:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2071)\nSystem.Runtime.CompilerServices.AsyncTaskMethodBuilder:SetException (System.Exception)\nUnity.Pipeline.BasePipelineServer/<ExecuteGated>d__105:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:1403)\nSystem.Runtime.CompilerServices.AsyncTaskMethodBuilder:SetException (System.Exception)\nUnity.Pipeline.BasePipelineServer/<>c__DisplayClass115_0/<<HandleExecRequest>b__0>d:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2032)\nSystem.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<object>:SetException (System.Exception)\nUnity.Pipeline.BasePipelineServer/<ExecuteCommandByName>d__133:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2478)\nSystem.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<object>:SetException (System.Exception)\nUnity.Pipeline.BasePipelineServer/<ExecuteCommand>d__134:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2517)\nSystem.Threading._ThreadPoolWaitCallback:PerformWaitCallback ()\n",
+          "seeded": false
+        },
+        {
+          "seq": 261,
+          "timestampUtc": "2026-09-17T16:02:17.0507335Z",
+          "level": "log",
+          "logType": "Log",
+          "message": "Phase5 timing complete; see Docs report. Virtual motor commands, manually stepped PhysX; no physical controller.",
+          "stackTrace": "UnityEngine.Debug:Log (object)\nRacer.Editor.Phase5Validation:Run (string) (at Assets/Scripts/Editor/Phase5Validation.cs:80)\nPipelineEvaluation.PipelineEval_1cfdb59c/<>c:<Execute>b__0_0 ()\nUnityEditor.EditorApplication:Internal_CallDelayFunctions ()\n",
+          "seeded": false
+        },
+        {
+          "seq": 262,
+          "timestampUtc": "2026-09-17T16:02:40.1962089Z",
+          "level": "log",
+          "logType": "Log",
+          "message": "Phase5 normal complete; see Docs report. Virtual motor commands, manually stepped PhysX; no physical controller.",
+          "stackTrace": "UnityEngine.Debug:Log (object)\nRacer.Editor.Phase5Validation:Run (string) (at Assets/Scripts/Editor/Phase5Validation.cs:80)\nPipelineEvaluation.PipelineEval_5b0dc00d/<>c:<Execute>b__0_0 ()\nUnityEditor.EditorApplication:Internal_CallDelayFunctions ()\n",
+          "seeded": false
+        },
+        {
+          "seq": 263,
+          "timestampUtc": "2026-09-17T16:02:44.2710623Z",
+          "level": "log",
+          "logType": "Log",
+          "message": "Phase5 shortcut complete; see Docs report. Virtual motor commands, manually stepped PhysX; no physical controller.",
+          "stackTrace": "UnityEngine.Debug:Log (object)\nRacer.Editor.Phase5Validation:Run (string) (at Assets/Scripts/Editor/Phase5Validation.cs:80)\nPipelineEvaluation.PipelineEval_5b0dc00d/<>c:<Execute>b__0_0 ()\nUnityEditor.EditorApplication:Internal_CallDelayFunctions ()\n",
+          "seeded": false
+        },
+        {
+          "seq": 264,
+          "timestampUtc": "2026-09-17T16:02:48.2485829Z",
+          "level": "log",
+          "logType": "Log",
+          "message": "Phase5 mixed complete; see Docs report. Virtual motor commands, manually stepped PhysX; no physical controller.",
+          "stackTrace": "UnityEngine.Debug:Log (object)\nRacer.Editor.Phase5Validation:Run (string) (at Assets/Scripts/Editor/Phase5Validation.cs:80)\nPipelineEvaluation.PipelineEval_5b0dc00d/<>c:<Execute>b__0_0 ()\nUnityEditor.EditorApplication:Internal_CallDelayFunctions ()\n",
+          "seeded": false
+        },
+        {
+          "seq": 265,
+          "timestampUtc": "2026-09-17T16:02:48.4850542Z",
+          "level": "log",
+          "logType": "Log",
+          "message": "Phase5 recovery complete; see Docs report. Virtual motor commands, manually stepped PhysX; no physical controller.",
+          "stackTrace": "UnityEngine.Debug:Log (object)\nRacer.Editor.Phase5Validation:Run (string) (at Assets/Scripts/Editor/Phase5Validation.cs:80)\nPipelineEvaluation.PipelineEval_5b0dc00d/<>c:<Execute>b__0_0 ()\nUnityEditor.EditorApplication:Internal_CallDelayFunctions ()\n",
+          "seeded": false
+        },
+        {
+          "seq": 266,
+          "timestampUtc": "2026-09-17T16:03:56.663211Z",
+          "level": "log",
+          "logType": "Log",
+          "message": "PASS approach target/injected 12m/s yaw 0deg: takeoff 12.10m/s; landed=True, landing Z=-73.29; air 0.86s; apex above road 3.92m; min upright 0.976; max lateral offset 1.52m\nPASS approach target/injected 12m/s yaw 3deg: takeoff 11.75m/s; landed=True, landing Z=-74.11; air 1.08s; apex above road 3.65m; min upright 0.898; max lateral offset 2.48m\nPASS approach target/injected 12m/s yaw -3deg: takeoff 11.76m/s; landed=True, landing Z=-73.75; air 1.12s; apex above road 3.73m; min upright 0.938; max lateral offset 5.46m\nPASS approach target/injected 32m/s yaw 0deg: takeoff 31.59m/s; landed=True, landing Z=-29.37; air 1.72s; apex above road 6.31m; min upright 0.980; max lateral offset 1.52m\nPASS approach target/injected 32m/s yaw 3deg: takeoff 31.14m/s; landed=True, landing Z=-31.44; air 1.78s; apex above road 6.10m; min upright 0.906; max lateral offset 4.36m\nPASS approach target/injected 32m/s yaw -3deg: takeoff 31.20m/s; landed=True, landing Z=-31.45; air 1.78s; apex above road 6.14m; min upright 0.950; max lateral offset 7.13m\nPASS approach target/injected 42m/s yaw 0deg: takeoff 40.33m/s; landed=True, landing Z=-1.87; air 2.04s; apex above road 7.83m; min upright 0.979; max lateral offset 1.52m\nPASS approach target/injected 42m/s yaw 3deg: takeoff 39.83m/s; landed=True, landing Z=-3.73; air 2.10s; apex above road 7.75m; min upright 0.936; max lateral offset 5.86m\nLIMIT approach target/injected 42m/s yaw -3deg: takeoff 39.90m/s; landed=True, landing Z=-2.32; air 2.14s; apex above road 7.92m; min upright 0.972; max lateral offset 8.46m\nPASS approach target/injected 46m/s yaw 0deg: takeoff 43.52m/s; landed=True, landing Z=10.45; air 2.20s; apex above road 8.56m; min upright 0.977; max lateral offset 1.53m\nPASS approach target/injected 46m/s yaw 3deg: takeoff 42.96m/s; landed=True, landing Z=8.50; air 2.24s; apex above road 8.54m; min upright 0.948; max lateral offset 6.59m\nLIMIT approach target/injected 46m/s yaw -3deg: takeoff 43.07m/s; landed=True, landing Z=9.19; air 2.28s; apex above road 8.59m; min upright 0.973; max lateral offset 9.33m\nBYPASS 6m/s end Z -59.88; min upright 1.000; air steps 0\nBYPASS 30m/s end Z -59.50; min upright 1.000; air steps 0\nSHOULDER side -1 start Z=-145, 12m/s: upright 0.976; clearance 0.224m; end (-626.85, 8.62, -63.21)\nSHOULDER side 1 start Z=-145, 12m/s: upright 0.976; clearance 0.224m; end (-626.88, 8.62, -63.22)\nSHOULDER side -1 start Z=-35, 12m/s: upright 0.998; clearance 0.645m; end (-628.84, 9.07, 47.69)\nSHOULDER side 1 start Z=-35, 12m/s: upright 0.998; clearance 0.644m; end (-628.84, 9.07, 47.69)\nRECOVERY failed landing reset: lapActive=False; completed=0; speed=0; upright=1; nextGate=0\nReal PhysX 0.02s steps with virtual motor commands; injected initial velocities where stated. No physical controller or subjective approval.",
+          "stackTrace": "UnityEngine.Debug:Log (object)\nRacer.Editor.Phase4Validation:Run (string) (at Assets/Scripts/Editor/Phase4Validation.cs:69)\nRacer.Editor.Phase4Validation:Jump () (at Assets/Scripts/Editor/Phase4Validation.cs:53)\nPipelineEvaluation.PipelineEval_86ee4a4a/<>c:<Execute>b__0_0 ()\nUnityEditor.EditorApplication:Internal_CallDelayFunctions ()\n",
+          "seeded": false
+        },
+        {
+          "seq": 267,
+          "timestampUtc": "2026-09-17T16:04:07.0672731Z",
+          "level": "log",
+          "logType": "Log",
+          "message": "PASS: Checkpoints cannot start race\nPASS: Wrong-way start cannot start race\nPASS: Skipped CP1 cannot award a lap\nPASS: Wrong-way gate invalidates lap even after recrossing forward\nPASS: Repeated checkpoint invalidates current lap\nPASS: Repeated finish crossings cannot award laps\nPASS: Three ordered laps: 60s splits, 180s frozen total\nPASS: Finished race ignores further crossings\nPASS: Restart clears all progress and timing\nPASS: Vehicle reset cannot preserve checkpoint credit\nPASS: Swept forward crossing and sub-step timing\nPASS: Swept reverse crossing\nPASS: Outside-width and above-gate bypasses rejected\nPASS: Standing on plane does not repeat crossing\nPASS: Director starts through physical gate geometry\nPASS: Director rejects wrong-way finish\nPASS: Reversing rear-first through start does not count\nPASS: Teleport over gate cannot start race\nFAIL: Virtual gamepad progressive trigger and partial steering\nFAIL: Virtual gamepad progressive larger steering\nFAIL: Virtual LT brake/reverse\nFAIL: Virtual Start restarts race\nFAIL: Virtual keyboard W/D\nFAIL: Virtual keyboard S/A\nFAIL: Virtual keyboard arrows\nFAIL: Virtual Enter clears race and timer\nFAIL: Virtual Y retains fixed upright reset and abandons lap\nPASS: Chase camera snaps on reset\nFAIL: Virtual R reset\nPASS: Automatic fall reset preserved\nPASS: HUD ready state\nPASS: HUD next checkpoint updates\nPASS: HUD invalid-lap warning\nPASS: HUD completed race\nLAP 1: 562.681s, total 562.683s\nLAP 2: 562.673s, total 1125.363s\nLAP 3: 562.652s, total 1688.006s\nPASS: Three real PhysX laps: 1691.30s, max centre error 2.828m, min upright 0.880, airborne steps 112; 4.5/8 m/s target; no teleport during traversal\nPASS: HUD reflects actual simulated finish\nPASS: Restart after actual race clears laps, last/best, total and HUD\nFailures: 10\nVirtual input and simulated driving only. Physical controller and subjective steering comfort require Dan.",
+          "stackTrace": "UnityEngine.Debug:Log (object)\nRacer.Editor.RaceValidation:Run () (at Assets/Scripts/Editor/RaceValidation.cs:123)\nRacer.Editor.Phase4Validation:RaceRegression () (at Assets/Scripts/Editor/Phase4Validation.cs:198)\nPipelineEvaluation.PipelineEval_86ee4a4a/<>c:<Execute>b__0_0 ()\nUnityEditor.EditorApplication:Internal_CallDelayFunctions ()\n",
+          "seeded": false
+        },
+        {
+          "seq": 268,
+          "timestampUtc": "2026-09-17T16:07:51.4542324Z",
+          "level": "error",
+          "logType": "Error",
+          "message": "Failed to handle /api/exec request: Main thread operation timed out after 5000ms",
+          "stackTrace": "UnityEngine.Debug:LogError (object)\nUnity.Pipeline.BasePipelineServer/<HandleExecRequest>d__115:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2071)\nSystem.Runtime.CompilerServices.AsyncTaskMethodBuilder:SetException (System.Exception)\nUnity.Pipeline.BasePipelineServer/<ExecuteGated>d__105:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:1403)\nSystem.Runtime.CompilerServices.AsyncTaskMethodBuilder:SetException (System.Exception)\nUnity.Pipeline.BasePipelineServer/<>c__DisplayClass115_0/<<HandleExecRequest>b__0>d:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2032)\nSystem.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<object>:SetException (System.Exception)\nUnity.Pipeline.BasePipelineServer/<ExecuteCommandByName>d__133:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2478)\nSystem.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<object>:SetException (System.Exception)\nUnity.Pipeline.BasePipelineServer/<ExecuteCommand>d__134:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2517)\nSystem.Threading._ThreadPoolWaitCallback:PerformWaitCallback ()\n",
+          "seeded": false
+        },
+        {
+          "seq": 269,
+          "timestampUtc": "2026-09-17T16:09:29.4182509Z",
+          "level": "log",
+          "logType": "Log",
+          "message": "Phase5 recovery complete; see Docs report. Virtual motor commands, manually stepped PhysX; no physical controller.",
+          "stackTrace": "UnityEngine.Debug:Log (object)\nRacer.Editor.Phase5Validation:Run (string) (at Assets/Scripts/Editor/Phase5Validation.cs:80)\nPipelineEvaluation.PipelineEval_8ae28d54:Execute ()\nSystem.Reflection.MethodBase:Invoke (object,object[])\nUnity.Pipeline.Compilation.EvalCodeCompiler:ExecuteCompiledAssembly (System.Reflection.Assembly) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Compilation/EvalCodeCompiler.cs:190)\nUnity.Pipeline.Compilation.EvalCodeCompiler:CompileAndExecuteOnMainThread (string,int,System.Diagnostics.Stopwatch) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Compilation/EvalCodeCompiler.cs:54)\nUnity.Pipeline.Runtime.Commands.CodeEvalCommand:EvaluateSource (string,int,string) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Commands/CodeEvalCommand.cs:112)\nUnity.Pipeline.Runtime.Commands.CodeEvalCommand:EvaluateCode (string,int) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Commands/CodeEvalCommand.cs:24)\nSystem.Reflection.MethodBase:Invoke (object,object[])\nUnity.Pipeline.BasePipelineServer:ExecuteCommandDirect (Unity.Pipeline.Commands.CommandInfo,object[]) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2634)\nUnity.Pipeline.BasePipelineServer/<>c__DisplayClass134_0:<ExecuteCommand>b__1 () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2508)\nUnity.Pipeline.Threading.Dispatcher/WorkItem`1<object>:ExecuteCore () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:284)\nUnity.Pipeline.Threading.Dispatcher/WorkItem:Execute () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:229)\nUnity.Pipeline.Threading.Dispatcher:ProcessWorkQueue (int) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:195)\nUnity.Pipeline.Threading.Dispatcher:ProcessWorkQueue () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:210)\nUnityEditor.EditorApplication:Internal_CallUpdateFunctions ()\n",
+          "seeded": false
+        },
+        {
+          "seq": 270,
+          "timestampUtc": "2026-09-17T16:09:48.187671Z",
+          "level": "error",
+          "logType": "Error",
+          "message": "Failed to handle /api/exec request: Main thread operation timed out after 5000ms",
+          "stackTrace": "UnityEngine.Debug:LogError (object)\nUnity.Pipeline.BasePipelineServer/<HandleExecRequest>d__115:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2071)\nSystem.Runtime.CompilerServices.AsyncTaskMethodBuilder:SetException (System.Exception)\nUnity.Pipeline.BasePipelineServer/<ExecuteGated>d__105:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:1403)\nSystem.Runtime.CompilerServices.AsyncTaskMethodBuilder:SetException (System.Exception)\nUnity.Pipeline.BasePipelineServer/<>c__DisplayClass115_0/<<HandleExecRequest>b__0>d:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2032)\nSystem.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<object>:SetException (System.Exception)\nUnity.Pipeline.BasePipelineServer/<ExecuteCommandByName>d__133:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2478)\nSystem.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<object>:SetException (System.Exception)\nUnity.Pipeline.BasePipelineServer/<ExecuteCommand>d__134:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2517)\nSystem.Threading._ThreadPoolWaitCallback:PerformWaitCallback ()\n",
+          "seeded": false
+        },
+        {
+          "seq": 271,
+          "timestampUtc": "2026-09-17T16:09:55.2622173Z",
+          "level": "log",
+          "logType": "Log",
+          "message": "PASS: Checkpoints cannot start race\nPASS: Wrong-way start cannot start race\nPASS: Skipped CP1 cannot award a lap\nPASS: Wrong-way gate invalidates lap even after recrossing forward\nPASS: Repeated checkpoint invalidates current lap\nPASS: Repeated finish crossings cannot award laps\nPASS: Three ordered laps: 60s splits, 180s frozen total\nPASS: Finished race ignores further crossings\nPASS: Restart clears all progress and timing\nPASS: Vehicle reset cannot preserve checkpoint credit\nPASS: Swept forward crossing and sub-step timing\nPASS: Swept reverse crossing\nPASS: Outside-width and above-gate bypasses rejected\nPASS: Standing on plane does not repeat crossing\nPASS: Director starts through physical gate geometry\nPASS: Director rejects wrong-way finish\nPASS: Reversing rear-first through start does not count\nPASS: Teleport over gate cannot start race\nPASS: Virtual gamepad progressive trigger and partial steering\nPASS: Virtual gamepad progressive larger steering\nPASS: Virtual LT brake/reverse\nPASS: Virtual Start restarts race\nPASS: Virtual keyboard W/D\nPASS: Virtual keyboard S/A\nPASS: Virtual keyboard arrows\nPASS: Virtual Enter clears race and timer\nPASS: Virtual Y retains fixed upright reset and abandons lap\nPASS: Chase camera snaps on reset\nPASS: Virtual R reset\nPASS: Automatic fall reset preserved\nPASS: HUD ready state\nPASS: HUD next checkpoint updates\nPASS: HUD invalid-lap warning\nPASS: HUD completed race\nLAP 1: 562.681s, total 562.683s\nLAP 2: 562.673s, total 1125.363s\nLAP 3: 562.652s, total 1688.006s\nPASS: Three real PhysX laps: 1691.30s, max centre error 2.828m, min upright 0.880, airborne steps 112; 4.5/8 m/s target; no teleport during traversal\nPASS: HUD reflects actual simulated finish\nPASS: Restart after actual race clears laps, last/best, total and HUD\nFailures: 0\nVirtual input and simulated driving only. Physical controller and subjective steering comfort require Dan.",
+          "stackTrace": "UnityEngine.Debug:Log (object)\nRacer.Editor.RaceValidation:Run () (at Assets/Scripts/Editor/RaceValidation.cs:123)\nRacer.Editor.Phase4Validation:RaceRegression () (at Assets/Scripts/Editor/Phase4Validation.cs:198)\nPipelineEvaluation.PipelineEval_50a8b405:Execute ()\nSystem.Reflection.MethodBase:Invoke (object,object[])\nUnity.Pipeline.Compilation.EvalCodeCompiler:ExecuteCompiledAssembly (System.Reflection.Assembly) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Compilation/EvalCodeCompiler.cs:190)\nUnity.Pipeline.Compilation.EvalCodeCompiler:CompileAndExecuteOnMainThread (string,int,System.Diagnostics.Stopwatch) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Compilation/EvalCodeCompiler.cs:54)\nUnity.Pipeline.Runtime.Commands.CodeEvalCommand:EvaluateSource (string,int,string) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Commands/CodeEvalCommand.cs:112)\nUnity.Pipeline.Runtime.Commands.CodeEvalCommand:EvaluateCode (string,int) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Commands/CodeEvalCommand.cs:24)\nSystem.Reflection.MethodBase:Invoke (object,object[])\nUnity.Pipeline.BasePipelineServer:ExecuteCommandDirect (Unity.Pipeline.Commands.CommandInfo,object[]) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2634)\nUnity.Pipeline.BasePipelineServer/<>c__DisplayClass134_0:<ExecuteCommand>b__1 () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2508)\nUnity.Pipeline.Threading.Dispatcher/WorkItem`1<object>:ExecuteCore () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:284)\nUnity.Pipeline.Threading.Dispatcher/WorkItem:Execute () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:229)\nUnity.Pipeline.Threading.Dispatcher:ProcessWorkQueue (int) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:195)\nUnity.Pipeline.Threading.Dispatcher:ProcessWorkQueue () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:210)\nUnityEditor.EditorApplication:Internal_CallUpdateFunctions ()\n",
+          "seeded": false
+        },
+        {
+          "seq": 272,
+          "timestampUtc": "2026-09-17T18:03:11.261956Z",
+          "level": "warn",
+          "logType": "Warning",
+          "message": "Assets\\Scripts\\Editor\\Phase6Review.cs(18,133): warning CS0618: 'FindObjectsSortMode' is obsolete: 'FindObjectsSortMode has been deprecated. Use the FindObjectsByType overloads that do not take a FindObjectsSortMode parameter.'",
+          "stackTrace": "",
+          "seeded": false
+        },
+        {
+          "seq": 273,
+          "timestampUtc": "2026-09-17T18:03:11.2634803Z",
+          "level": "warn",
+          "logType": "Warning",
+          "message": "Assets\\Scripts\\Editor\\Phase6Review.cs(18,98): warning CS0618: 'Object.FindObjectsByType<T>(FindObjectsSortMode)' is obsolete: 'FindObjectsByType with FindObjectsSortMode parameter has been deprecated. Use FindObjectsByType<T>() or FindObjectsByType<T>(FindObjectsInactive) instead. InstanceID will be replaced in the future with EntityId and previous sort order cannot be maintained.'",
+          "stackTrace": "",
+          "seeded": false
+        },
+        {
+          "seq": 274,
+          "timestampUtc": "2026-09-17T18:03:11.2634803Z",
+          "level": "warn",
+          "logType": "Warning",
+          "message": "Assets\\Scripts\\Editor\\Phase6Review.cs(18,214): warning CS0618: 'FindObjectsSortMode' is obsolete: 'FindObjectsSortMode has been deprecated. Use the FindObjectsByType overloads that do not take a FindObjectsSortMode parameter.'",
+          "stackTrace": "",
+          "seeded": false
+        },
+        {
+          "seq": 275,
+          "timestampUtc": "2026-09-17T18:03:11.2634803Z",
+          "level": "warn",
+          "logType": "Warning",
+          "message": "Assets\\Scripts\\Editor\\Phase6Review.cs(18,179): warning CS0618: 'Object.FindObjectsByType<T>(FindObjectsSortMode)' is obsolete: 'FindObjectsByType with FindObjectsSortMode parameter has been deprecated. Use FindObjectsByType<T>() or FindObjectsByType<T>(FindObjectsInactive) instead. InstanceID will be replaced in the future with EntityId and previous sort order cannot be maintained.'",
+          "stackTrace": "",
+          "seeded": false
+        },
+        {
+          "seq": 276,
+          "timestampUtc": "2026-09-17T18:03:11.2634803Z",
+          "level": "warn",
+          "logType": "Warning",
+          "message": "Assets\\Scripts\\Editor\\Phase6Review.cs(48,686): warning CS0618: 'FindObjectsSortMode' is obsolete: 'FindObjectsSortMode has been deprecated. Use the FindObjectsByType overloads that do not take a FindObjectsSortMode parameter.'",
+          "stackTrace": "",
+          "seeded": false
+        },
+        {
+          "seq": 277,
+          "timestampUtc": "2026-09-17T18:03:11.2634803Z",
+          "level": "warn",
+          "logType": "Warning",
+          "message": "Assets\\Scripts\\Editor\\Phase6Review.cs(48,651): warning CS0618: 'Object.FindObjectsByType<T>(FindObjectsSortMode)' is obsolete: 'FindObjectsByType with FindObjectsSortMode parameter has been deprecated. Use FindObjectsByType<T>() or FindObjectsByType<T>(FindObjectsInactive) instead. InstanceID will be replaced in the future with EntityId and previous sort order cannot be maintained.'",
+          "stackTrace": "",
+          "seeded": false
+        },
+        {
+          "seq": 278,
+          "timestampUtc": "2026-09-17T18:07:15.992944Z",
+          "level": "warn",
+          "logType": "Warning",
+          "message": "Assets\\Scripts\\Editor\\Phase6Review.cs(18,133): warning CS0618: 'FindObjectsSortMode' is obsolete: 'FindObjectsSortMode has been deprecated. Use the FindObjectsByType overloads that do not take a FindObjectsSortMode parameter.'",
+          "stackTrace": "",
+          "seeded": false
+        },
+        {
+          "seq": 279,
+          "timestampUtc": "2026-09-17T18:07:15.9934496Z",
+          "level": "warn",
+          "logType": "Warning",
+          "message": "Assets\\Scripts\\Editor\\Phase6Review.cs(18,98): warning CS0618: 'Object.FindObjectsByType<T>(FindObjectsSortMode)' is obsolete: 'FindObjectsByType with FindObjectsSortMode parameter has been deprecated. Use FindObjectsByType<T>() or FindObjectsByType<T>(FindObjectsInactive) instead. InstanceID will be replaced in the future with EntityId and previous sort order cannot be maintained.'",
+          "stackTrace": "",
+          "seeded": false
+        },
+        {
+          "seq": 280,
+          "timestampUtc": "2026-09-17T18:07:15.9934496Z",
+          "level": "warn",
+          "logType": "Warning",
+          "message": "Assets\\Scripts\\Editor\\Phase6Review.cs(18,214): warning CS0618: 'FindObjectsSortMode' is obsolete: 'FindObjectsSortMode has been deprecated. Use the FindObjectsByType overloads that do not take a FindObjectsSortMode parameter.'",
+          "stackTrace": "",
+          "seeded": false
+        },
+        {
+          "seq": 281,
+          "timestampUtc": "2026-09-17T18:07:15.9934496Z",
+          "level": "warn",
+          "logType": "Warning",
+          "message": "Assets\\Scripts\\Editor\\Phase6Review.cs(18,179): warning CS0618: 'Object.FindObjectsByType<T>(FindObjectsSortMode)' is obsolete: 'FindObjectsByType with FindObjectsSortMode parameter has been deprecated. Use FindObjectsByType<T>() or FindObjectsByType<T>(FindObjectsInactive) instead. InstanceID will be replaced in the future with EntityId and previous sort order cannot be maintained.'",
+          "stackTrace": "",
+          "seeded": false
+        },
+        {
+          "seq": 282,
+          "timestampUtc": "2026-09-17T18:07:15.9934496Z",
+          "level": "warn",
+          "logType": "Warning",
+          "message": "Assets\\Scripts\\Editor\\Phase6Review.cs(48,686): warning CS0618: 'FindObjectsSortMode' is obsolete: 'FindObjectsSortMode has been deprecated. Use the FindObjectsByType overloads that do not take a FindObjectsSortMode parameter.'",
+          "stackTrace": "",
+          "seeded": false
+        },
+        {
+          "seq": 283,
+          "timestampUtc": "2026-09-17T18:07:15.9934496Z",
+          "level": "warn",
+          "logType": "Warning",
+          "message": "Assets\\Scripts\\Editor\\Phase6Review.cs(48,651): warning CS0618: 'Object.FindObjectsByType<T>(FindObjectsSortMode)' is obsolete: 'FindObjectsByType with FindObjectsSortMode parameter has been deprecated. Use FindObjectsByType<T>() or FindObjectsByType<T>(FindObjectsInactive) instead. InstanceID will be replaced in the future with EntityId and previous sort order cannot be maintained.'",
+          "stackTrace": "",
+          "seeded": false
+        },
+        {
+          "seq": 284,
+          "timestampUtc": "2026-09-17T18:08:07.152419Z",
+          "level": "warn",
+          "logType": "Warning",
+          "message": "Assets\\Scripts\\Editor\\Phase6Review.cs(18,133): warning CS0618: 'FindObjectsSortMode' is obsolete: 'FindObjectsSortMode has been deprecated. Use the FindObjectsByType overloads that do not take a FindObjectsSortMode parameter.'",
+          "stackTrace": "",
+          "seeded": false
+        },
+        {
+          "seq": 285,
+          "timestampUtc": "2026-09-17T18:08:07.154519Z",
+          "level": "warn",
+          "logType": "Warning",
+          "message": "Assets\\Scripts\\Editor\\Phase6Review.cs(18,98): warning CS0618: 'Object.FindObjectsByType<T>(FindObjectsSortMode)' is obsolete: 'FindObjectsByType with FindObjectsSortMode parameter has been deprecated. Use FindObjectsByType<T>() or FindObjectsByType<T>(FindObjectsInactive) instead. InstanceID will be replaced in the future with EntityId and previous sort order cannot be maintained.'",
+          "stackTrace": "",
+          "seeded": false
+        },
+        {
+          "seq": 286,
+          "timestampUtc": "2026-09-17T18:08:07.1560342Z",
+          "level": "warn",
+          "logType": "Warning",
+          "message": "Assets\\Scripts\\Editor\\Phase6Review.cs(18,214): warning CS0618: 'FindObjectsSortMode' is obsolete: 'FindObjectsSortMode has been deprecated. Use the FindObjectsByType overloads that do not take a FindObjectsSortMode parameter.'",
+          "stackTrace": "",
+          "seeded": false
+        },
+        {
+          "seq": 287,
+          "timestampUtc": "2026-09-17T18:08:07.1565546Z",
+          "level": "warn",
+          "logType": "Warning",
+          "message": "Assets\\Scripts\\Editor\\Phase6Review.cs(18,179): warning CS0618: 'Object.FindObjectsByType<T>(FindObjectsSortMode)' is obsolete: 'FindObjectsByType with FindObjectsSortMode parameter has been deprecated. Use FindObjectsByType<T>() or FindObjectsByType<T>(FindObjectsInactive) instead. InstanceID will be replaced in the future with EntityId and previous sort order cannot be maintained.'",
+          "stackTrace": "",
+          "seeded": false
+        },
+        {
+          "seq": 288,
+          "timestampUtc": "2026-09-17T18:08:07.164124Z",
+          "level": "warn",
+          "logType": "Warning",
+          "message": "Assets\\Scripts\\Editor\\Phase6Review.cs(48,686): warning CS0618: 'FindObjectsSortMode' is obsolete: 'FindObjectsSortMode has been deprecated. Use the FindObjectsByType overloads that do not take a FindObjectsSortMode parameter.'",
+          "stackTrace": "",
+          "seeded": false
+        },
+        {
+          "seq": 289,
+          "timestampUtc": "2026-09-17T18:08:07.164124Z",
+          "level": "warn",
+          "logType": "Warning",
+          "message": "Assets\\Scripts\\Editor\\Phase6Review.cs(48,651): warning CS0618: 'Object.FindObjectsByType<T>(FindObjectsSortMode)' is obsolete: 'FindObjectsByType with FindObjectsSortMode parameter has been deprecated. Use FindObjectsByType<T>() or FindObjectsByType<T>(FindObjectsInactive) instead. InstanceID will be replaced in the future with EntityId and previous sort order cannot be maintained.'",
+          "stackTrace": "",
+          "seeded": false
+        },
+        {
+          "seq": 290,
+          "timestampUtc": "2026-09-17T18:08:07.164124Z",
+          "level": "warn",
+          "logType": "Warning",
+          "message": "Assets\\Scripts\\Editor\\StreetLoopRevision.cs(66,138): warning CS0618: 'FindObjectsSortMode' is obsolete: 'FindObjectsSortMode has been deprecated. Use the FindObjectsByType overloads that do not take a FindObjectsSortMode parameter.'",
+          "stackTrace": "",
+          "seeded": false
+        },
+        {
+          "seq": 291,
+          "timestampUtc": "2026-09-17T18:08:07.164124Z",
+          "level": "warn",
+          "logType": "Warning",
+          "message": "Assets\\Scripts\\Editor\\StreetLoopRevision.cs(66,90): warning CS0618: 'Object.FindObjectsByType<T>(FindObjectsSortMode)' is obsolete: 'FindObjectsByType with FindObjectsSortMode parameter has been deprecated. Use FindObjectsByType<T>() or FindObjectsByType<T>(FindObjectsInactive) instead. InstanceID will be replaced in the future with EntityId and previous sort order cannot be maintained.'",
+          "stackTrace": "",
+          "seeded": false
+        },
+        {
+          "seq": 292,
+          "timestampUtc": "2026-09-17T18:10:14.7777371Z",
+          "level": "warn",
+          "logType": "Warning",
+          "message": "Assets\\Scripts\\Editor\\Phase6Review.cs(18,133): warning CS0618: 'FindObjectsSortMode' is obsolete: 'FindObjectsSortMode has been deprecated. Use the FindObjectsByType overloads that do not take a FindObjectsSortMode parameter.'",
+          "stackTrace": "",
+          "seeded": false
+        },
+        {
+          "seq": 293,
+          "timestampUtc": "2026-09-17T18:10:14.7782508Z",
+          "level": "warn",
+          "logType": "Warning",
+          "message": "Assets\\Scripts\\Editor\\Phase6Review.cs(18,98): warning CS0618: 'Object.FindObjectsByType<T>(FindObjectsSortMode)' is obsolete: 'FindObjectsByType with FindObjectsSortMode parameter has been deprecated. Use FindObjectsByType<T>() or FindObjectsByType<T>(FindObjectsInactive) instead. InstanceID will be replaced in the future with EntityId and previous sort order cannot be maintained.'",
+          "stackTrace": "",
+          "seeded": false
+        },
+        {
+          "seq": 294,
+          "timestampUtc": "2026-09-17T18:10:14.7782508Z",
+          "level": "warn",
+          "logType": "Warning",
+          "message": "Assets\\Scripts\\Editor\\Phase6Review.cs(18,214): warning CS0618: 'FindObjectsSortMode' is obsolete: 'FindObjectsSortMode has been deprecated. Use the FindObjectsByType overloads that do not take a FindObjectsSortMode parameter.'",
+          "stackTrace": "",
+          "seeded": false
+        },
+        {
+          "seq": 295,
+          "timestampUtc": "2026-09-17T18:10:14.7782508Z",
+          "level": "warn",
+          "logType": "Warning",
+          "message": "Assets\\Scripts\\Editor\\Phase6Review.cs(18,179): warning CS0618: 'Object.FindObjectsByType<T>(FindObjectsSortMode)' is obsolete: 'FindObjectsByType with FindObjectsSortMode parameter has been deprecated. Use FindObjectsByType<T>() or FindObjectsByType<T>(FindObjectsInactive) instead. InstanceID will be replaced in the future with EntityId and previous sort order cannot be maintained.'",
+          "stackTrace": "",
+          "seeded": false
+        },
+        {
+          "seq": 296,
+          "timestampUtc": "2026-09-17T18:10:14.7782508Z",
+          "level": "warn",
+          "logType": "Warning",
+          "message": "Assets\\Scripts\\Editor\\Phase6Review.cs(48,686): warning CS0618: 'FindObjectsSortMode' is obsolete: 'FindObjectsSortMode has been deprecated. Use the FindObjectsByType overloads that do not take a FindObjectsSortMode parameter.'",
+          "stackTrace": "",
+          "seeded": false
+        },
+        {
+          "seq": 297,
+          "timestampUtc": "2026-09-17T18:10:14.7782508Z",
+          "level": "warn",
+          "logType": "Warning",
+          "message": "Assets\\Scripts\\Editor\\Phase6Review.cs(48,651): warning CS0618: 'Object.FindObjectsByType<T>(FindObjectsSortMode)' is obsolete: 'FindObjectsByType with FindObjectsSortMode parameter has been deprecated. Use FindObjectsByType<T>() or FindObjectsByType<T>(FindObjectsInactive) instead. InstanceID will be replaced in the future with EntityId and previous sort order cannot be maintained.'",
+          "stackTrace": "",
+          "seeded": false
+        },
+        {
+          "seq": 298,
+          "timestampUtc": "2026-09-17T18:10:14.7782508Z",
+          "level": "warn",
+          "logType": "Warning",
+          "message": "Assets\\Scripts\\Editor\\StreetLoopRevision.cs(66,138): warning CS0618: 'FindObjectsSortMode' is obsolete: 'FindObjectsSortMode has been deprecated. Use the FindObjectsByType overloads that do not take a FindObjectsSortMode parameter.'",
+          "stackTrace": "",
+          "seeded": false
+        },
+        {
+          "seq": 299,
+          "timestampUtc": "2026-09-17T18:10:14.7782508Z",
+          "level": "warn",
+          "logType": "Warning",
+          "message": "Assets\\Scripts\\Editor\\StreetLoopRevision.cs(66,90): warning CS0618: 'Object.FindObjectsByType<T>(FindObjectsSortMode)' is obsolete: 'FindObjectsByType with FindObjectsSortMode parameter has been deprecated. Use FindObjectsByType<T>() or FindObjectsByType<T>(FindObjectsInactive) instead. InstanceID will be replaced in the future with EntityId and previous sort order cannot be maintained.'",
+          "stackTrace": "",
+          "seeded": false
+        },
+        {
+          "seq": 300,
+          "timestampUtc": "2026-09-17T18:10:14.7782508Z",
+          "level": "warn",
+          "logType": "Warning",
+          "message": "Assets\\Scripts\\Editor\\Phase6Review.cs(18,133): warning CS0618: 'FindObjectsSortMode' is obsolete: 'FindObjectsSortMode has been deprecated. Use the FindObjectsByType overloads that do not take a FindObjectsSortMode parameter.'",
+          "stackTrace": "",
+          "seeded": false
+        },
+        {
+          "seq": 301,
+          "timestampUtc": "2026-09-17T18:10:14.7782508Z",
+          "level": "warn",
+          "logType": "Warning",
+          "message": "Assets\\Scripts\\Editor\\Phase6Review.cs(18,98): warning CS0618: 'Object.FindObjectsByType<T>(FindObjectsSortMode)' is obsolete: 'FindObjectsByType with FindObjectsSortMode parameter has been deprecated. Use FindObjectsByType<T>() or FindObjectsByType<T>(FindObjectsInactive) instead. InstanceID will be replaced in the future with EntityId and previous sort order cannot be maintained.'",
+          "stackTrace": "",
+          "seeded": false
+        },
+        {
+          "seq": 302,
+          "timestampUtc": "2026-09-17T18:10:14.7782508Z",
+          "level": "warn",
+          "logType": "Warning",
+          "message": "Assets\\Scripts\\Editor\\Phase6Review.cs(18,214): warning CS0618: 'FindObjectsSortMode' is obsolete: 'FindObjectsSortMode has been deprecated. Use the FindObjectsByType overloads that do not take a FindObjectsSortMode parameter.'",
+          "stackTrace": "",
+          "seeded": false
+        },
+        {
+          "seq": 303,
+          "timestampUtc": "2026-09-17T18:10:14.7792756Z",
+          "level": "warn",
+          "logType": "Warning",
+          "message": "Assets\\Scripts\\Editor\\Phase6Review.cs(18,179): warning CS0618: 'Object.FindObjectsByType<T>(FindObjectsSortMode)' is obsolete: 'FindObjectsByType with FindObjectsSortMode parameter has been deprecated. Use FindObjectsByType<T>() or FindObjectsByType<T>(FindObjectsInactive) instead. InstanceID will be replaced in the future with EntityId and previous sort order cannot be maintained.'",
+          "stackTrace": "",
+          "seeded": false
+        },
+        {
+          "seq": 304,
+          "timestampUtc": "2026-09-17T18:10:14.7792756Z",
+          "level": "warn",
+          "logType": "Warning",
+          "message": "Assets\\Scripts\\Editor\\Phase6Review.cs(48,686): warning CS0618: 'FindObjectsSortMode' is obsolete: 'FindObjectsSortMode has been deprecated. Use the FindObjectsByType overloads that do not take a FindObjectsSortMode parameter.'",
+          "stackTrace": "",
+          "seeded": false
+        },
+        {
+          "seq": 305,
+          "timestampUtc": "2026-09-17T18:10:14.7792756Z",
+          "level": "warn",
+          "logType": "Warning",
+          "message": "Assets\\Scripts\\Editor\\Phase6Review.cs(48,651): warning CS0618: 'Object.FindObjectsByType<T>(FindObjectsSortMode)' is obsolete: 'FindObjectsByType with FindObjectsSortMode parameter has been deprecated. Use FindObjectsByType<T>() or FindObjectsByType<T>(FindObjectsInactive) instead. InstanceID will be replaced in the future with EntityId and previous sort order cannot be maintained.'",
+          "stackTrace": "",
+          "seeded": false
+        },
+        {
+          "seq": 306,
+          "timestampUtc": "2026-09-17T18:10:14.7792756Z",
+          "level": "warn",
+          "logType": "Warning",
+          "message": "Assets\\Scripts\\Editor\\StreetLoopRevision.cs(66,138): warning CS0618: 'FindObjectsSortMode' is obsolete: 'FindObjectsSortMode has been deprecated. Use the FindObjectsByType overloads that do not take a FindObjectsSortMode parameter.'",
+          "stackTrace": "",
+          "seeded": false
+        },
+        {
+          "seq": 307,
+          "timestampUtc": "2026-09-17T18:10:14.7792756Z",
+          "level": "warn",
+          "logType": "Warning",
+          "message": "Assets\\Scripts\\Editor\\StreetLoopRevision.cs(66,90): warning CS0618: 'Object.FindObjectsByType<T>(FindObjectsSortMode)' is obsolete: 'FindObjectsByType with FindObjectsSortMode parameter has been deprecated. Use FindObjectsByType<T>() or FindObjectsByType<T>(FindObjectsInactive) instead. InstanceID will be replaced in the future with EntityId and previous sort order cannot be maintained.'",
+          "stackTrace": "",
+          "seeded": false
+        },
+        {
+          "seq": 308,
+          "timestampUtc": "2026-09-17T18:10:45.199013Z",
+          "level": "error",
+          "logType": "Error",
+          "message": "Failed to handle /api/exec request: Main thread operation timed out after 5000ms",
+          "stackTrace": "UnityEngine.Debug:LogError (object)\nUnity.Pipeline.BasePipelineServer/<HandleExecRequest>d__115:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2071)\nSystem.Runtime.CompilerServices.AsyncTaskMethodBuilder:SetException (System.Exception)\nUnity.Pipeline.BasePipelineServer/<ExecuteGated>d__105:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:1403)\nSystem.Runtime.CompilerServices.AsyncTaskMethodBuilder:SetException (System.Exception)\nUnity.Pipeline.BasePipelineServer/<>c__DisplayClass115_0/<<HandleExecRequest>b__0>d:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2032)\nSystem.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<object>:SetException (System.Exception)\nUnity.Pipeline.BasePipelineServer/<ExecuteCommandByName>d__133:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2478)\nSystem.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<object>:SetException (System.Exception)\nUnity.Pipeline.BasePipelineServer/<ExecuteCommand>d__134:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2517)\nSystem.Threading._ThreadPoolWaitCallback:PerformWaitCallback ()\n",
+          "seeded": false
+        },
+        {
+          "seq": 309,
+          "timestampUtc": "2026-09-17T18:11:46.1250893Z",
+          "level": "warn",
+          "logType": "Warning",
+          "message": "Assets\\Scripts\\Editor\\Phase6Review.cs(18,133): warning CS0618: 'FindObjectsSortMode' is obsolete: 'FindObjectsSortMode has been deprecated. Use the FindObjectsByType overloads that do not take a FindObjectsSortMode parameter.'",
+          "stackTrace": "",
+          "seeded": false
+        },
+        {
+          "seq": 310,
+          "timestampUtc": "2026-09-17T18:11:46.1271057Z",
+          "level": "warn",
+          "logType": "Warning",
+          "message": "Assets\\Scripts\\Editor\\Phase6Review.cs(18,98): warning CS0618: 'Object.FindObjectsByType<T>(FindObjectsSortMode)' is obsolete: 'FindObjectsByType with FindObjectsSortMode parameter has been deprecated. Use FindObjectsByType<T>() or FindObjectsByType<T>(FindObjectsInactive) instead. InstanceID will be replaced in the future with EntityId and previous sort order cannot be maintained.'",
+          "stackTrace": "",
+          "seeded": false
+        },
+        {
+          "seq": 311,
+          "timestampUtc": "2026-09-17T18:11:46.1271057Z",
+          "level": "warn",
+          "logType": "Warning",
+          "message": "Assets\\Scripts\\Editor\\Phase6Review.cs(18,214): warning CS0618: 'FindObjectsSortMode' is obsolete: 'FindObjectsSortMode has been deprecated. Use the FindObjectsByType overloads that do not take a FindObjectsSortMode parameter.'",
+          "stackTrace": "",
+          "seeded": false
+        },
+        {
+          "seq": 312,
+          "timestampUtc": "2026-09-17T18:11:46.1271057Z",
+          "level": "warn",
+          "logType": "Warning",
+          "message": "Assets\\Scripts\\Editor\\Phase6Review.cs(18,179): warning CS0618: 'Object.FindObjectsByType<T>(FindObjectsSortMode)' is obsolete: 'FindObjectsByType with FindObjectsSortMode parameter has been deprecated. Use FindObjectsByType<T>() or FindObjectsByType<T>(FindObjectsInactive) instead. InstanceID will be replaced in the future with EntityId and previous sort order cannot be maintained.'",
+          "stackTrace": "",
+          "seeded": false
+        },
+        {
+          "seq": 313,
+          "timestampUtc": "2026-09-17T18:11:46.1271057Z",
+          "level": "warn",
+          "logType": "Warning",
+          "message": "Assets\\Scripts\\Editor\\Phase6Review.cs(48,686): warning CS0618: 'FindObjectsSortMode' is obsolete: 'FindObjectsSortMode has been deprecated. Use the FindObjectsByType overloads that do not take a FindObjectsSortMode parameter.'",
+          "stackTrace": "",
+          "seeded": false
+        },
+        {
+          "seq": 314,
+          "timestampUtc": "2026-09-17T18:11:46.1271057Z",
+          "level": "warn",
+          "logType": "Warning",
+          "message": "Assets\\Scripts\\Editor\\Phase6Review.cs(48,651): warning CS0618: 'Object.FindObjectsByType<T>(FindObjectsSortMode)' is obsolete: 'FindObjectsByType with FindObjectsSortMode parameter has been deprecated. Use FindObjectsByType<T>() or FindObjectsByType<T>(FindObjectsInactive) instead. InstanceID will be replaced in the future with EntityId and previous sort order cannot be maintained.'",
+          "stackTrace": "",
+          "seeded": false
+        },
+        {
+          "seq": 315,
+          "timestampUtc": "2026-09-17T18:11:46.1281122Z",
+          "level": "warn",
+          "logType": "Warning",
+          "message": "Assets\\Scripts\\Editor\\StreetLoopRevision.cs(66,138): warning CS0618: 'FindObjectsSortMode' is obsolete: 'FindObjectsSortMode has been deprecated. Use the FindObjectsByType overloads that do not take a FindObjectsSortMode parameter.'",
+          "stackTrace": "",
+          "seeded": false
+        },
+        {
+          "seq": 316,
+          "timestampUtc": "2026-09-17T18:11:46.1281122Z",
+          "level": "warn",
+          "logType": "Warning",
+          "message": "Assets\\Scripts\\Editor\\StreetLoopRevision.cs(66,90): warning CS0618: 'Object.FindObjectsByType<T>(FindObjectsSortMode)' is obsolete: 'FindObjectsByType with FindObjectsSortMode parameter has been deprecated. Use FindObjectsByType<T>() or FindObjectsByType<T>(FindObjectsInactive) instead. InstanceID will be replaced in the future with EntityId and previous sort order cannot be maintained.'",
+          "stackTrace": "",
+          "seeded": false
+        },
+        {
+          "seq": 317,
+          "timestampUtc": "2026-09-17T18:13:46.6465835Z",
+          "level": "warn",
+          "logType": "Warning",
+          "message": "Assets\\Scripts\\Editor\\Phase6Review.cs(18,133): warning CS0618: 'FindObjectsSortMode' is obsolete: 'FindObjectsSortMode has been deprecated. Use the FindObjectsByType overloads that do not take a FindObjectsSortMode parameter.'",
+          "stackTrace": "",
+          "seeded": false
+        },
+        {
+          "seq": 318,
+          "timestampUtc": "2026-09-17T18:13:46.6482118Z",
+          "level": "warn",
+          "logType": "Warning",
+          "message": "Assets\\Scripts\\Editor\\Phase6Review.cs(18,98): warning CS0618: 'Object.FindObjectsByType<T>(FindObjectsSortMode)' is obsolete: 'FindObjectsByType with FindObjectsSortMode parameter has been deprecated. Use FindObjectsByType<T>() or FindObjectsByType<T>(FindObjectsInactive) instead. InstanceID will be replaced in the future with EntityId and previous sort order cannot be maintained.'",
+          "stackTrace": "",
+          "seeded": false
+        },
+        {
+          "seq": 319,
+          "timestampUtc": "2026-09-17T18:13:46.6482118Z",
+          "level": "warn",
+          "logType": "Warning",
+          "message": "Assets\\Scripts\\Editor\\Phase6Review.cs(18,214): warning CS0618: 'FindObjectsSortMode' is obsolete: 'FindObjectsSortMode has been deprecated. Use the FindObjectsByType overloads that do not take a FindObjectsSortMode parameter.'",
+          "stackTrace": "",
+          "seeded": false
+        },
+        {
+          "seq": 320,
+          "timestampUtc": "2026-09-17T18:13:46.6503744Z",
+          "level": "warn",
+          "logType": "Warning",
+          "message": "Assets\\Scripts\\Editor\\Phase6Review.cs(18,179): warning CS0618: 'Object.FindObjectsByType<T>(FindObjectsSortMode)' is obsolete: 'FindObjectsByType with FindObjectsSortMode parameter has been deprecated. Use FindObjectsByType<T>() or FindObjectsByType<T>(FindObjectsInactive) instead. InstanceID will be replaced in the future with EntityId and previous sort order cannot be maintained.'",
+          "stackTrace": "",
+          "seeded": false
+        },
+        {
+          "seq": 321,
+          "timestampUtc": "2026-09-17T18:13:46.6503744Z",
+          "level": "warn",
+          "logType": "Warning",
+          "message": "Assets\\Scripts\\Editor\\Phase6Review.cs(48,686): warning CS0618: 'FindObjectsSortMode' is obsolete: 'FindObjectsSortMode has been deprecated. Use the FindObjectsByType overloads that do not take a FindObjectsSortMode parameter.'",
+          "stackTrace": "",
+          "seeded": false
+        },
+        {
+          "seq": 322,
+          "timestampUtc": "2026-09-17T18:13:46.6503744Z",
+          "level": "warn",
+          "logType": "Warning",
+          "message": "Assets\\Scripts\\Editor\\Phase6Review.cs(48,651): warning CS0618: 'Object.FindObjectsByType<T>(FindObjectsSortMode)' is obsolete: 'FindObjectsByType with FindObjectsSortMode parameter has been deprecated. Use FindObjectsByType<T>() or FindObjectsByType<T>(FindObjectsInactive) instead. InstanceID will be replaced in the future with EntityId and previous sort order cannot be maintained.'",
+          "stackTrace": "",
+          "seeded": false
+        },
+        {
+          "seq": 323,
+          "timestampUtc": "2026-09-17T18:13:46.6503744Z",
+          "level": "warn",
+          "logType": "Warning",
+          "message": "Assets\\Scripts\\Editor\\StreetLoopRevision.cs(66,138): warning CS0618: 'FindObjectsSortMode' is obsolete: 'FindObjectsSortMode has been deprecated. Use the FindObjectsByType overloads that do not take a FindObjectsSortMode parameter.'",
+          "stackTrace": "",
+          "seeded": false
+        },
+        {
+          "seq": 324,
+          "timestampUtc": "2026-09-17T18:13:46.6503744Z",
+          "level": "warn",
+          "logType": "Warning",
+          "message": "Assets\\Scripts\\Editor\\StreetLoopRevision.cs(66,90): warning CS0618: 'Object.FindObjectsByType<T>(FindObjectsSortMode)' is obsolete: 'FindObjectsByType with FindObjectsSortMode parameter has been deprecated. Use FindObjectsByType<T>() or FindObjectsByType<T>(FindObjectsInactive) instead. InstanceID will be replaced in the future with EntityId and previous sort order cannot be maintained.'",
+          "stackTrace": "",
+          "seeded": false
+        },
+        {
+          "seq": 325,
+          "timestampUtc": "2026-09-17T18:14:26.4568545Z",
+          "level": "warn",
+          "logType": "Warning",
+          "message": "Assets\\Scripts\\Editor\\Phase6Review.cs(18,133): warning CS0618: 'FindObjectsSortMode' is obsolete: 'FindObjectsSortMode has been deprecated. Use the FindObjectsByType overloads that do not take a FindObjectsSortMode parameter.'",
+          "stackTrace": "",
+          "seeded": false
+        },
+        {
+          "seq": 326,
+          "timestampUtc": "2026-09-17T18:14:26.4573701Z",
+          "level": "warn",
+          "logType": "Warning",
+          "message": "Assets\\Scripts\\Editor\\Phase6Review.cs(18,98): warning CS0618: 'Object.FindObjectsByType<T>(FindObjectsSortMode)' is obsolete: 'FindObjectsByType with FindObjectsSortMode parameter has been deprecated. Use FindObjectsByType<T>() or FindObjectsByType<T>(FindObjectsInactive) instead. InstanceID will be replaced in the future with EntityId and previous sort order cannot be maintained.'",
+          "stackTrace": "",
+          "seeded": false
+        },
+        {
+          "seq": 327,
+          "timestampUtc": "2026-09-17T18:14:26.4573701Z",
+          "level": "warn",
+          "logType": "Warning",
+          "message": "Assets\\Scripts\\Editor\\Phase6Review.cs(18,214): warning CS0618: 'FindObjectsSortMode' is obsolete: 'FindObjectsSortMode has been deprecated. Use the FindObjectsByType overloads that do not take a FindObjectsSortMode parameter.'",
+          "stackTrace": "",
+          "seeded": false
+        },
+        {
+          "seq": 328,
+          "timestampUtc": "2026-09-17T18:14:26.4573701Z",
+          "level": "warn",
+          "logType": "Warning",
+          "message": "Assets\\Scripts\\Editor\\Phase6Review.cs(18,179): warning CS0618: 'Object.FindObjectsByType<T>(FindObjectsSortMode)' is obsolete: 'FindObjectsByType with FindObjectsSortMode parameter has been deprecated. Use FindObjectsByType<T>() or FindObjectsByType<T>(FindObjectsInactive) instead. InstanceID will be replaced in the future with EntityId and previous sort order cannot be maintained.'",
+          "stackTrace": "",
+          "seeded": false
+        },
+        {
+          "seq": 329,
+          "timestampUtc": "2026-09-17T18:14:26.4573701Z",
+          "level": "warn",
+          "logType": "Warning",
+          "message": "Assets\\Scripts\\Editor\\Phase6Review.cs(48,686): warning CS0618: 'FindObjectsSortMode' is obsolete: 'FindObjectsSortMode has been deprecated. Use the FindObjectsByType overloads that do not take a FindObjectsSortMode parameter.'",
+          "stackTrace": "",
+          "seeded": false
+        },
+        {
+          "seq": 330,
+          "timestampUtc": "2026-09-17T18:14:26.4573701Z",
+          "level": "warn",
+          "logType": "Warning",
+          "message": "Assets\\Scripts\\Editor\\Phase6Review.cs(48,651): warning CS0618: 'Object.FindObjectsByType<T>(FindObjectsSortMode)' is obsolete: 'FindObjectsByType with FindObjectsSortMode parameter has been deprecated. Use FindObjectsByType<T>() or FindObjectsByType<T>(FindObjectsInactive) instead. InstanceID will be replaced in the future with EntityId and previous sort order cannot be maintained.'",
+          "stackTrace": "",
+          "seeded": false
+        },
+        {
+          "seq": 331,
+          "timestampUtc": "2026-09-17T18:14:26.4573701Z",
+          "level": "warn",
+          "logType": "Warning",
+          "message": "Assets\\Scripts\\Editor\\StreetLoopRevision.cs(66,138): warning CS0618: 'FindObjectsSortMode' is obsolete: 'FindObjectsSortMode has been deprecated. Use the FindObjectsByType overloads that do not take a FindObjectsSortMode parameter.'",
+          "stackTrace": "",
+          "seeded": false
+        },
+        {
+          "seq": 332,
+          "timestampUtc": "2026-09-17T18:14:26.4573701Z",
+          "level": "warn",
+          "logType": "Warning",
+          "message": "Assets\\Scripts\\Editor\\StreetLoopRevision.cs(66,90): warning CS0618: 'Object.FindObjectsByType<T>(FindObjectsSortMode)' is obsolete: 'FindObjectsByType with FindObjectsSortMode parameter has been deprecated. Use FindObjectsByType<T>() or FindObjectsByType<T>(FindObjectsInactive) instead. InstanceID will be replaced in the future with EntityId and previous sort order cannot be maintained.'",
+          "stackTrace": "",
+          "seeded": false
+        },
+        {
+          "seq": 333,
+          "timestampUtc": "2026-09-17T18:14:49.4177644Z",
+          "level": "error",
+          "logType": "Error",
+          "message": "Failed to handle /api/exec request: Main thread operation timed out after 5000ms",
+          "stackTrace": "UnityEngine.Debug:LogError (object)\nUnity.Pipeline.BasePipelineServer/<HandleExecRequest>d__115:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2071)\nSystem.Runtime.CompilerServices.AsyncTaskMethodBuilder:SetException (System.Exception)\nUnity.Pipeline.BasePipelineServer/<ExecuteGated>d__105:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:1403)\nSystem.Runtime.CompilerServices.AsyncTaskMethodBuilder:SetException (System.Exception)\nUnity.Pipeline.BasePipelineServer/<>c__DisplayClass115_0/<<HandleExecRequest>b__0>d:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2032)\nSystem.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<object>:SetException (System.Exception)\nUnity.Pipeline.BasePipelineServer/<ExecuteCommandByName>d__133:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2478)\nSystem.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<object>:SetException (System.Exception)\nUnity.Pipeline.BasePipelineServer/<ExecuteCommand>d__134:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2517)\nSystem.Threading._ThreadPoolWaitCallback:PerformWaitCallback ()\n",
+          "seeded": false
+        },
+        {
+          "seq": 334,
+          "timestampUtc": "2026-09-17T18:16:52.5739716Z",
+          "level": "log",
+          "logType": "Log",
+          "message": "Phase5 mixed complete; see Docs report. Virtual motor commands, manually stepped PhysX; no physical controller.",
+          "stackTrace": "UnityEngine.Debug:Log (object)\nRacer.Editor.Phase5Validation:Run (string) (at Assets/Scripts/Editor/Phase5Validation.cs:80)\nPipelineEvaluation.PipelineEval_1c6eb416/<>c:<Execute>b__0_0 ()\nUnityEditor.EditorApplication:Internal_CallDelayFunctions ()\n",
+          "seeded": false
+        },
+        {
+          "seq": 335,
+          "timestampUtc": "2026-09-17T18:17:20.9886176Z",
+          "level": "log",
+          "logType": "Log",
+          "message": "PASS approach target/injected 12m/s yaw 0deg: takeoff 12.10m/s; landed=True, landing Z=-73.29; air 0.86s; apex above road 3.92m; min upright 0.976; max lateral offset 1.52m\nPASS approach target/injected 12m/s yaw 3deg: takeoff 11.75m/s; landed=True, landing Z=-74.11; air 1.08s; apex above road 3.65m; min upright 0.898; max lateral offset 2.48m\nPASS approach target/injected 12m/s yaw -3deg: takeoff 11.76m/s; landed=True, landing Z=-73.75; air 1.12s; apex above road 3.73m; min upright 0.938; max lateral offset 5.46m\nPASS approach target/injected 32m/s yaw 0deg: takeoff 31.59m/s; landed=True, landing Z=-29.37; air 1.72s; apex above road 6.31m; min upright 0.980; max lateral offset 1.52m\nPASS approach target/injected 32m/s yaw 3deg: takeoff 31.14m/s; landed=True, landing Z=-31.44; air 1.78s; apex above road 6.10m; min upright 0.906; max lateral offset 4.36m\nPASS approach target/injected 32m/s yaw -3deg: takeoff 31.20m/s; landed=True, landing Z=-31.45; air 1.78s; apex above road 6.14m; min upright 0.950; max lateral offset 7.13m\nPASS approach target/injected 42m/s yaw 0deg: takeoff 40.33m/s; landed=True, landing Z=-1.87; air 2.04s; apex above road 7.83m; min upright 0.979; max lateral offset 1.52m\nPASS approach target/injected 42m/s yaw 3deg: takeoff 39.83m/s; landed=True, landing Z=-3.73; air 2.10s; apex above road 7.75m; min upright 0.936; max lateral offset 5.86m\nLIMIT approach target/injected 42m/s yaw -3deg: takeoff 39.90m/s; landed=True, landing Z=-2.32; air 2.14s; apex above road 7.92m; min upright 0.972; max lateral offset 8.46m\nPASS approach target/injected 46m/s yaw 0deg: takeoff 43.52m/s; landed=True, landing Z=10.45; air 2.20s; apex above road 8.56m; min upright 0.977; max lateral offset 1.53m\nPASS approach target/injected 46m/s yaw 3deg: takeoff 42.96m/s; landed=True, landing Z=8.50; air 2.24s; apex above road 8.54m; min upright 0.948; max lateral offset 6.59m\nLIMIT approach target/injected 46m/s yaw -3deg: takeoff 43.07m/s; landed=True, landing Z=9.19; air 2.28s; apex above road 8.59m; min upright 0.973; max lateral offset 9.33m\nBYPASS 6m/s end Z -59.88; min upright 1.000; air steps 0\nBYPASS 30m/s end Z -59.50; min upright 1.000; air steps 0\nSHOULDER side -1 start Z=-145, 12m/s: upright 0.976; clearance 0.224m; end (-626.85, 8.62, -63.21)\nSHOULDER side 1 start Z=-145, 12m/s: upright 0.976; clearance 0.224m; end (-626.88, 8.62, -63.22)\nSHOULDER side -1 start Z=-35, 12m/s: upright 0.998; clearance 0.645m; end (-628.84, 9.07, 47.69)\nSHOULDER side 1 start Z=-35, 12m/s: upright 0.998; clearance 0.644m; end (-628.84, 9.07, 47.69)\nRECOVERY failed landing reset: lapActive=False; completed=0; speed=0; upright=1; nextGate=0\nReal PhysX 0.02s steps with virtual motor commands; injected initial velocities where stated. No physical controller or subjective approval.",
+          "stackTrace": "UnityEngine.Debug:Log (object)\nRacer.Editor.Phase4Validation:Run (string) (at Assets/Scripts/Editor/Phase4Validation.cs:69)\nPipelineEvaluation.PipelineEval_a4235c4d/<>c:<Execute>b__0_0 ()\nUnityEditor.EditorApplication:Internal_CallDelayFunctions ()\n",
+          "seeded": false
+        },
+        {
+          "seq": 336,
+          "timestampUtc": "2026-09-17T18:17:31.8092945Z",
+          "level": "log",
+          "logType": "Log",
+          "message": "PASS: Checkpoints cannot start race\nPASS: Wrong-way start cannot start race\nPASS: Skipped CP1 cannot award a lap\nPASS: Wrong-way gate invalidates lap even after recrossing forward\nPASS: Repeated checkpoint invalidates current lap\nPASS: Repeated finish crossings cannot award laps\nPASS: Three ordered laps: 60s splits, 180s frozen total\nPASS: Finished race ignores further crossings\nPASS: Restart clears all progress and timing\nPASS: Vehicle reset cannot preserve checkpoint credit\nPASS: Swept forward crossing and sub-step timing\nPASS: Swept reverse crossing\nPASS: Outside-width and above-gate bypasses rejected\nPASS: Standing on plane does not repeat crossing\nPASS: Director starts through physical gate geometry\nPASS: Director rejects wrong-way finish\nPASS: Reversing rear-first through start does not count\nPASS: Teleport over gate cannot start race\nFAIL: Virtual gamepad progressive trigger and partial steering\nFAIL: Virtual gamepad progressive larger steering\nFAIL: Virtual LT brake/reverse\nFAIL: Virtual Start restarts race\nFAIL: Virtual keyboard W/D\nFAIL: Virtual keyboard S/A\nFAIL: Virtual keyboard arrows\nFAIL: Virtual Enter clears race and timer\nFAIL: Virtual Y retains fixed upright reset and abandons lap\nPASS: Chase camera snaps on reset\nFAIL: Virtual R reset\nPASS: Automatic fall reset preserved\nPASS: HUD ready state\nPASS: HUD next checkpoint updates\nPASS: HUD invalid-lap warning\nPASS: HUD completed race\nLAP 1: 562.681s, total 562.683s\nLAP 2: 562.673s, total 1125.363s\nLAP 3: 562.652s, total 1688.006s\nPASS: Three real PhysX laps: 1691.30s, max centre error 2.828m, min upright 0.880, airborne steps 112; 4.5/8 m/s target; no teleport during traversal\nPASS: HUD reflects actual simulated finish\nPASS: Restart after actual race clears laps, last/best, total and HUD\nFailures: 10\nVirtual input and simulated driving only. Physical controller and subjective steering comfort require Dan.",
+          "stackTrace": "UnityEngine.Debug:Log (object)\nRacer.Editor.RaceValidation:Run () (at Assets/Scripts/Editor/RaceValidation.cs:123)\nRacer.Editor.Phase4Validation:RaceRegression () (at Assets/Scripts/Editor/Phase4Validation.cs:198)\nPipelineEvaluation.PipelineEval_a4235c4d/<>c:<Execute>b__0_0 ()\nUnityEditor.EditorApplication:Internal_CallDelayFunctions ()\n",
+          "seeded": false
+        },
+        {
+          "seq": 337,
+          "timestampUtc": "2026-09-17T18:18:13.817048Z",
+          "level": "warn",
+          "logType": "Warning",
+          "message": "Assets\\Scripts\\Editor\\Phase6Review.cs(18,133): warning CS0618: 'FindObjectsSortMode' is obsolete: 'FindObjectsSortMode has been deprecated. Use the FindObjectsByType overloads that do not take a FindObjectsSortMode parameter.'",
+          "stackTrace": "",
+          "seeded": false
+        },
+        {
+          "seq": 338,
+          "timestampUtc": "2026-09-17T18:18:13.817048Z",
+          "level": "warn",
+          "logType": "Warning",
+          "message": "Assets\\Scripts\\Editor\\Phase6Review.cs(18,98): warning CS0618: 'Object.FindObjectsByType<T>(FindObjectsSortMode)' is obsolete: 'FindObjectsByType with FindObjectsSortMode parameter has been deprecated. Use FindObjectsByType<T>() or FindObjectsByType<T>(FindObjectsInactive) instead. InstanceID will be replaced in the future with EntityId and previous sort order cannot be maintained.'",
+          "stackTrace": "",
+          "seeded": false
+        },
+        {
+          "seq": 339,
+          "timestampUtc": "2026-09-17T18:18:13.817048Z",
+          "level": "warn",
+          "logType": "Warning",
+          "message": "Assets\\Scripts\\Editor\\Phase6Review.cs(18,214): warning CS0618: 'FindObjectsSortMode' is obsolete: 'FindObjectsSortMode has been deprecated. Use the FindObjectsByType overloads that do not take a FindObjectsSortMode parameter.'",
+          "stackTrace": "",
+          "seeded": false
+        },
+        {
+          "seq": 340,
+          "timestampUtc": "2026-09-17T18:18:13.817048Z",
+          "level": "warn",
+          "logType": "Warning",
+          "message": "Assets\\Scripts\\Editor\\Phase6Review.cs(18,179): warning CS0618: 'Object.FindObjectsByType<T>(FindObjectsSortMode)' is obsolete: 'FindObjectsByType with FindObjectsSortMode parameter has been deprecated. Use FindObjectsByType<T>() or FindObjectsByType<T>(FindObjectsInactive) instead. InstanceID will be replaced in the future with EntityId and previous sort order cannot be maintained.'",
+          "stackTrace": "",
+          "seeded": false
+        },
+        {
+          "seq": 341,
+          "timestampUtc": "2026-09-17T18:18:13.817048Z",
+          "level": "warn",
+          "logType": "Warning",
+          "message": "Assets\\Scripts\\Editor\\Phase6Review.cs(48,686): warning CS0618: 'FindObjectsSortMode' is obsolete: 'FindObjectsSortMode has been deprecated. Use the FindObjectsByType overloads that do not take a FindObjectsSortMode parameter.'",
+          "stackTrace": "",
+          "seeded": false
+        },
+        {
+          "seq": 342,
+          "timestampUtc": "2026-09-17T18:18:13.817048Z",
+          "level": "warn",
+          "logType": "Warning",
+          "message": "Assets\\Scripts\\Editor\\Phase6Review.cs(48,651): warning CS0618: 'Object.FindObjectsByType<T>(FindObjectsSortMode)' is obsolete: 'FindObjectsByType with FindObjectsSortMode parameter has been deprecated. Use FindObjectsByType<T>() or FindObjectsByType<T>(FindObjectsInactive) instead. InstanceID will be replaced in the future with EntityId and previous sort order cannot be maintained.'",
+          "stackTrace": "",
+          "seeded": false
+        },
+        {
+          "seq": 343,
+          "timestampUtc": "2026-09-17T18:18:13.817048Z",
+          "level": "warn",
+          "logType": "Warning",
+          "message": "Assets\\Scripts\\Editor\\StreetLoopRevision.cs(66,138): warning CS0618: 'FindObjectsSortMode' is obsolete: 'FindObjectsSortMode has been deprecated. Use the FindObjectsByType overloads that do not take a FindObjectsSortMode parameter.'",
+          "stackTrace": "",
+          "seeded": false
+        },
+        {
+          "seq": 344,
+          "timestampUtc": "2026-09-17T18:18:13.817048Z",
+          "level": "warn",
+          "logType": "Warning",
+          "message": "Assets\\Scripts\\Editor\\StreetLoopRevision.cs(66,90): warning CS0618: 'Object.FindObjectsByType<T>(FindObjectsSortMode)' is obsolete: 'FindObjectsByType with FindObjectsSortMode parameter has been deprecated. Use FindObjectsByType<T>() or FindObjectsByType<T>(FindObjectsInactive) instead. InstanceID will be replaced in the future with EntityId and previous sort order cannot be maintained.'",
+          "stackTrace": "",
+          "seeded": false
+        },
+        {
+          "seq": 345,
+          "timestampUtc": "2026-09-17T18:19:52.3100522Z",
+          "level": "log",
+          "logType": "Log",
+          "message": "PASS: Checkpoints cannot start race\nPASS: Wrong-way start cannot start race\nPASS: Skipped CP1 cannot award a lap\nPASS: Wrong-way gate invalidates lap even after recrossing forward\nPASS: Repeated checkpoint invalidates current lap\nPASS: Repeated finish crossings cannot award laps\nPASS: Three ordered laps: 60s splits, 180s frozen total\nPASS: Finished race ignores further crossings\nPASS: Restart clears all progress and timing\nPASS: Vehicle reset cannot preserve checkpoint credit\nPASS: Swept forward crossing and sub-step timing\nPASS: Swept reverse crossing\nPASS: Outside-width and above-gate bypasses rejected\nPASS: Standing on plane does not repeat crossing\nPASS: Director starts through physical gate geometry\nPASS: Director rejects wrong-way finish\nPASS: Reversing rear-first through start does not count\nPASS: Teleport over gate cannot start race\nPASS: Virtual gamepad progressive trigger and partial steering\nPASS: Virtual gamepad progressive larger steering\nPASS: Virtual LT brake/reverse\nPASS: Virtual Start restarts race\nPASS: Virtual keyboard W/D\nPASS: Virtual keyboard S/A\nPASS: Virtual keyboard arrows\nPASS: Virtual Enter clears race and timer\nPASS: Virtual Y retains fixed upright reset and abandons lap\nPASS: Chase camera snaps on reset\nPASS: Virtual R reset\nPASS: Automatic fall reset preserved\nPASS: HUD ready state\nPASS: HUD next checkpoint updates\nPASS: HUD invalid-lap warning\nPASS: HUD completed race\nLAP 1: 562.681s, total 562.683s\nLAP 2: 562.673s, total 1125.363s\nLAP 3: 562.652s, total 1688.006s\nPASS: Three real PhysX laps: 1691.30s, max centre error 2.828m, min upright 0.880, airborne steps 112; 4.5/8 m/s target; no teleport during traversal\nPASS: HUD reflects actual simulated finish\nPASS: Restart after actual race clears laps, last/best, total and HUD\nFailures: 0\nVirtual input and simulated driving only. Physical controller and subjective steering comfort require Dan.",
+          "stackTrace": "UnityEngine.Debug:Log (object)\nRacer.Editor.RaceValidation:Run () (at Assets/Scripts/Editor/RaceValidation.cs:123)\nRacer.Editor.Phase4Validation:RaceRegression () (at Assets/Scripts/Editor/Phase4Validation.cs:198)\nPipelineEvaluation.PipelineEval_d96e5fbd/<>c:<Execute>b__0_0 ()\nUnityEditor.EditorApplication:Internal_CallDelayFunctions ()\n",
+          "seeded": false
+        }
+      ],
+      "cursor": 345,
+      "session": "49e75a7c8fb24c5bbc58d9174bcef8b7",
+      "returned": 100,
+      "dropped": false,
+      "reset": false,
+      "counts": {
+        "error": 17,
+        "warn": 68,
+        "log": 27
+      },
+      "groundTruth": {
+        "sampledUtc": "2026-09-17T18:22:18.3009552Z",
+        "ageMs": 163,
+        "compilationFailed": false,
+        "compiling": false,
+        "consoleErrors": 0,
+        "consoleWarnings": 0,
+        "consoleLogs": 1,
+        "seeded": true
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "C:\\Users\\danmo\\Racer"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

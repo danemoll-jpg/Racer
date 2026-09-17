@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using UnityEngine;
 using UnityEditor;
 using UnityEditor.SceneManagement;
@@ -62,6 +63,7 @@ public static class StreetLoopRevision {
  [MenuItem("Racer/Rebuild Phase 2 Feedback Environment")]
  public static void Rebuild(){
   if(Application.isPlaying || SceneManager.GetActiveScene().path!=StreetLoopBuilder.ScenePath || SceneManager.GetActiveScene().isDirty)throw new InvalidOperationException("Open saved StreetLoopGreybox and exit Play mode before regenerating environment.");
+  if(GameObject.Find(Phase5Setup.RootName) || GameObject.Find("Phase 6 architecture") || UnityEngine.Object.FindObjectsByType<Transform>(FindObjectsSortMode.None).Any(t=>t.name.StartsWith("Phase 4")))throw new InvalidOperationException("Legacy rebuild blocked: accepted local jump/shortcut/building work exists. Use the focused Phase 6 operation; never rebuild this environment wholesale.");
   Prepare();heights=new float[N,N];distances=new float[N,N];
   System.Threading.Tasks.Parallel.For(0,N,new System.Threading.Tasks.ParallelOptions { MaxDegreeOfParallelism=4 },z=>{for(int x=0;x<N;x++){var p=Origin+new Vector3(x*Cell,0,z*Cell);heights[x,z]=Height(p,out distances[x,z]);}});
   foreach(string name in new[]{"Memory loop - north is +Z","Remembered houses and approximate buildings","Woods replacing later subdivisions"}){var old=GameObject.Find(name);if(old)Object.DestroyImmediate(old);}
@@ -75,7 +77,7 @@ public static class StreetLoopRevision {
   Material M(string n)=>AssetDatabase.LoadAssetAtPath<Material>(Folder+"/"+n+".mat");
   void Cube(string name,Transform parent,Vector3 position,Vector3 size,Material material){var go=GameObject.CreatePrimitive(PrimitiveType.Cube);go.name=name;go.transform.SetParent(parent,false);go.transform.localPosition=position;go.transform.localScale=size;go.GetComponent<Renderer>().sharedMaterial=material;}
   void House(string name,Vector3 p,bool key=false,float width=13,float depth=10){p.y=Surface(p);Near(p,out var near);var t=new GameObject(name).transform;t.SetParent(buildings);t.position=p;t.rotation=Quaternion.LookRotation(Vector3.ProjectOnPlane(near-p,Vector3.up));float low=p.y,high=p.y;foreach(float x in new[]{-width/2,width/2})foreach(float z in new[]{-depth/2,depth/2}){float y=Surface(t.TransformPoint(new Vector3(x,0,z)));low=Mathf.Min(low,y);high=Mathf.Max(high,y);}float top=high-p.y+.5f;Cube("Foundation",t,new(0,(low-p.y+top)*.5f,0),new(width+1,top-(low-p.y)+.2f,depth+1),M("Shoulder"));Cube("House mass",t,new(0,top+2.5f,0),new(width,5,depth),M(key?"Landmark":"House"));Cube("Roof mass",t,new(0,top+5.4f,0),new(width+1,.8f,depth+1),M("Roof"));}
-  House("Dan - blue X",Map(970,854),true);House("Original house 1",Map(1028,951),true);House("Original house 2",Map(1049,1051),true);House("Original house 3",House3,true);House("Friend across street - blue circle",Friend,true);House("Remembered house behind southern hairpin",Map(1090,1492),true);
+  House("Dan - blue X",Map(970,854),true);House("Original house 2",Map(1049,1051),true);House("Original house 3",House3,true);House("Friend across street - blue circle",Friend,true);House("Remembered house behind southern hairpin",Map(1090,1492),true);
   var rng=new System.Random(1978);
   foreach(var p in new[]{new Vector2(45,660),new Vector2(113,820),new Vector2(43,1015),new Vector2(118,1130),new Vector2(43,1290),new Vector2(730,1260),new Vector2(690,1360),new Vector2(530,1441),new Vector2(367,1425),new Vector2(116,725),new Vector2(42,890),new Vector2(121,970),new Vector2(41,1170),new Vector2(126,1350),new Vector2(594,1415),new Vector2(615,1310),new Vector2(780,1170),new Vector2(872,1325),new Vector2(1000,1410),new Vector2(1180,1340)})House("Approximate older residence",Map(p.x,p.y),false,11+(float)rng.NextDouble()*5,9+(float)rng.NextDouble()*3);
   for(float x=165;x<=855;x+=67)foreach(int side in new[]{-1,1}){var p=Map(x,460);Near(p,out var road);p=road+Vector3.forward*side*(30+(float)rng.NextDouble()*8);House("Approximate main road business "+side,p,false,20+(float)rng.NextDouble()*11,15+(float)rng.NextDouble()*5);}
@@ -84,7 +86,7 @@ public static class StreetLoopRevision {
   var batches=new Dictionary<Vector2Int,List<CombineInstance>>();var primitive=GameObject.CreatePrimitive(PrimitiveType.Cube);var cube=primitive.GetComponent<MeshFilter>().sharedMesh;Object.DestroyImmediate(primitive);int count=0;
   for(int i=0;i<7000;i++){var p=new Vector3(Mathf.Lerp(-740,735,(float)rng.NextDouble()),0,Mathf.Lerp(-680,525,(float)rng.NextDouble()));if(Near(p,out _)<ForestClearance)continue;bool clear=false;foreach(Transform b in buildings)if(Vector2.Distance(new(p.x,p.z),new(b.position.x,b.position.z))<22){clear=true;break;}
    var sight=House3-house3Road;sight.y=0;var offset=p-house3Road;offset.y=0;float st=Mathf.Clamp01(Vector3.Dot(offset,sight)/sight.sqrMagnitude);if((offset-sight*st).magnitude<16)clear=true;
-   if(clear)continue;p.y=Surface(p);float h=9+(float)rng.NextDouble()*9;var key=new Vector2Int(Mathf.FloorToInt(p.x/160),Mathf.FloorToInt(p.z/160));if(!batches.TryGetValue(key,out var list))batches[key]=list=new();
+   if(clear || Phase6Buildings.YardClear(p))continue;p.y=Surface(p);float h=9+(float)rng.NextDouble()*9;var key=new Vector2Int(Mathf.FloorToInt(p.x/160),Mathf.FloorToInt(p.z/160));if(!batches.TryGetValue(key,out var list))batches[key]=list=new();
    list.Add(new CombineInstance{mesh=cube,transform=Matrix4x4.TRS(p+Vector3.up*h*.7f,Quaternion.Euler(0,(float)rng.NextDouble()*180,0),new Vector3(h*.55f,h*.65f,h*.55f))});
    list.Add(new CombineInstance{mesh=cube,transform=Matrix4x4.TRS(p+Vector3.up*h*.25f,Quaternion.identity,new Vector3(1,h*.5f,1))});
    var trunk=new GameObject("Tree trunk");trunk.transform.SetParent(woods);trunk.transform.position=p+Vector3.up*h*.25f;var box=trunk.AddComponent<BoxCollider>();box.size=new(1,h*.5f,1);count++;
@@ -97,10 +99,3 @@ public static class StreetLoopRevision {
  }
 }
 }
-
-
-
-
-
-
-

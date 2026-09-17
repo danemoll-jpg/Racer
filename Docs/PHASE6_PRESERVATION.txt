@@ -1,0 +1,118 @@
+Baseline cbe65fc; retained scene records changed: 99; removed: 532
+Changed retained records grouped by object name:
+: 1
+Approximate main road business -1: 11
+Approximate main road business 1: 11
+Approximate older residence: 20
+Dan - blue X: 1
+Foundation: 49
+Friend across street - blue circle: 1
+Original house 2: 1
+Original house 3: 1
+Remembered house behind southern hairpin: 1
+Remembered houses and approximate buildings: 1
+Woods replacing later subdivisions: 1
+Detailed retained changes:
+ | 9223372036854775807 | SceneRoots:
+Approximate main road business -1 | 1032057944 | Transform:
+Approximate main road business -1 | 1202329391 | Transform:
+Approximate main road business -1 | 1219466019 | Transform:
+Approximate main road business -1 | 1226865020 | Transform:
+Approximate main road business -1 | 130590634 | Transform:
+Approximate main road business -1 | 1667797173 | Transform:
+Approximate main road business -1 | 1742254981 | Transform:
+Approximate main road business -1 | 1781182996 | Transform:
+Approximate main road business -1 | 1805176593 | Transform:
+Approximate main road business -1 | 1930723513 | Transform:
+Approximate main road business -1 | 476355672 | Transform:
+Approximate main road business 1 | 1131673540 | Transform:
+Approximate main road business 1 | 1170309103 | Transform:
+Approximate main road business 1 | 1352848830 | Transform:
+Approximate main road business 1 | 1405925934 | Transform:
+Approximate main road business 1 | 1806682845 | Transform:
+Approximate main road business 1 | 202542892 | Transform:
+Approximate main road business 1 | 2128877235 | Transform:
+Approximate main road business 1 | 262059742 | Transform:
+Approximate main road business 1 | 274563944 | Transform:
+Approximate main road business 1 | 592453416 | Transform:
+Approximate main road business 1 | 604205048 | Transform:
+Approximate older residence | 1083677048 | Transform:
+Approximate older residence | 1207797927 | Transform:
+Approximate older residence | 1250156509 | Transform:
+Approximate older residence | 1511308394 | Transform:
+Approximate older residence | 1673336382 | Transform:
+Approximate older residence | 1698662989 | Transform:
+Approximate older residence | 1787580392 | Transform:
+Approximate older residence | 1806888586 | Transform:
+Approximate older residence | 1820356569 | Transform:
+Approximate older residence | 1876450783 | Transform:
+Approximate older residence | 1985197075 | Transform:
+Approximate older residence | 2000724007 | Transform:
+Approximate older residence | 2109804033 | Transform:
+Approximate older residence | 373715042 | Transform:
+Approximate older residence | 394244516 | Transform:
+Approximate older residence | 416691740 | Transform:
+Approximate older residence | 441822192 | Transform:
+Approximate older residence | 469855620 | Transform:
+Approximate older residence | 657632446 | Transform:
+Approximate older residence | 783906285 | Transform:
+Dan - blue X | 26823589 | Transform:
+Foundation | 1032862604 | MeshRenderer:
+Foundation | 1037400007 | MeshRenderer:
+Foundation | 1042614978 | MeshRenderer:
+Foundation | 1161819298 | MeshRenderer:
+Foundation | 1196530240 | MeshRenderer:
+Foundation | 1202108674 | MeshRenderer:
+Foundation | 1280778772 | MeshRenderer:
+Foundation | 1314015836 | MeshRenderer:
+Foundation | 1412055138 | MeshRenderer:
+Foundation | 142149401 | MeshRenderer:
+Foundation | 1438860789 | MeshRenderer:
+Foundation | 1480242217 | MeshRenderer:
+Foundation | 1496236053 | MeshRenderer:
+Foundation | 151539330 | MeshRenderer:
+Foundation | 1560324614 | MeshRenderer:
+Foundation | 1630122179 | MeshRenderer:
+Foundation | 1637166312 | MeshRenderer:
+Foundation | 1723103593 | MeshRenderer:
+Foundation | 1733165927 | MeshRenderer:
+Foundation | 1753264089 | MeshRenderer:
+Foundation | 1808175063 | MeshRenderer:
+Foundation | 1864837848 | Transform:
+Foundation | 1864837849 | MeshRenderer:
+Foundation | 1930437272 | MeshRenderer:
+Foundation | 1934552902 | MeshRenderer:
+Foundation | 1936424323 | MeshRenderer:
+Foundation | 1943743209 | MeshRenderer:
+Foundation | 1964545534 | MeshRenderer:
+Foundation | 1978988226 | MeshRenderer:
+Foundation | 24870402 | MeshRenderer:
+Foundation | 262652084 | MeshRenderer:
+Foundation | 266951176 | MeshRenderer:
+Foundation | 298998552 | MeshRenderer:
+Foundation | 302464088 | MeshRenderer:
+Foundation | 303646668 | MeshRenderer:
+Foundation | 305377690 | Transform:
+Foundation | 305377691 | MeshRenderer:
+Foundation | 335033081 | MeshRenderer:
+Foundation | 339649419 | MeshRenderer:
+Foundation | 428130274 | MeshRenderer:
+Foundation | 608316707 | MeshRenderer:
+Foundation | 665748021 | MeshRenderer:
+Foundation | 698910546 | MeshRenderer:
+Foundation | 758767835 | MeshRenderer:
+Foundation | 841240199 | MeshRenderer:
+Foundation | 874865573 | MeshRenderer:
+Foundation | 875314143 | MeshRenderer:
+Foundation | 979647902 | MeshRenderer:
+Foundation | 999353730 | MeshRenderer:
+Friend across street - blue circle | 632831532 | Transform:
+Original house 2 | 586463464 | Transform:
+Original house 3 | 1817454934 | Transform:
+Remembered house behind southern hairpin | 1734208136 | Transform:
+Remembered houses and approximate buildings | 183408644 | Transform:
+Woods replacing later subdivisions | 1471935858 | Transform:
+Assets/Track/StreetLoop/Ground_480_400.asset : 40-byte interleaved vertices; position/normal mismatches=0; changed colors=11; all other mesh fields (including index buffer) identical=True
+Assets/Track/StreetLoop/Ground_560_320.asset : 40-byte interleaved vertices; position/normal mismatches=0; changed colors=1488; all other mesh fields (including index buffer) identical=True
+Assets/Track/StreetLoop/Ground_560_400.asset : 40-byte interleaved vertices; position/normal mismatches=0; changed colors=1570; all other mesh fields (including index buffer) identical=True
+Runtime car/input/camera/reset/race source, vehicle prefabs, jump mesh, and all unrelated terrain/forest assets have no Git changes. Retained scene changes are building child lists, foundation rendering/two foundation bottoms, building/forest parents, and SceneRoots for the new visual batch root. Car, camera, race, checkpoint, jump and shortcut scene records are unchanged.

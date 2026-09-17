@@ -1,0 +1,58 @@
+PASS House 1 object, child foundation, wall and roof colliders absent
+PASS All 47 surviving building names, world positions, rotations and scales exactly match baseline (6 decimals); labels 2/3 retained
+PASS Expanded-yard 1579 vertical support/obstacle probes: missing 0, non-terrain hits 0; max slope 18.34 degrees
+PASS Terrain tile boundary duplicates: 0 height mismatches; continuous collision uses the same visible mesh
+PASS Every terrain tile renders and collides with the same mesh
+PASS Dan - blue X has reusable architecture
+PASS Original house 2 has reusable architecture
+PASS Original house 3 has reusable architecture
+PASS Friend across street - blue circle has reusable architecture
+PASS Remembered house behind southern hairpin has reusable architecture
+PASS Approximate older residence has reusable architecture
+PASS Approximate older residence has reusable architecture
+PASS Approximate older residence has reusable architecture
+PASS Approximate older residence has reusable architecture
+PASS Approximate older residence has reusable architecture
+PASS Approximate older residence has reusable architecture
+PASS Approximate older residence has reusable architecture
+PASS Approximate older residence has reusable architecture
+PASS Approximate older residence has reusable architecture
+PASS Approximate older residence has reusable architecture
+PASS Approximate older residence has reusable architecture
+PASS Approximate older residence has reusable architecture
+PASS Approximate older residence has reusable architecture
+PASS Approximate older residence has reusable architecture
+PASS Approximate older residence has reusable architecture
+PASS Approximate older residence has reusable architecture
+PASS Approximate older residence has reusable architecture
+PASS Approximate older residence has reusable architecture
+PASS Approximate older residence has reusable architecture
+PASS Approximate older residence has reusable architecture
+PASS Approximate main road business -1 has reusable architecture
+PASS Approximate main road business 1 has reusable architecture
+PASS Approximate main road business -1 has reusable architecture
+PASS Approximate main road business 1 has reusable architecture
+PASS Approximate main road business -1 has reusable architecture
+PASS Approximate main road business 1 has reusable architecture
+PASS Approximate main road business -1 has reusable architecture
+PASS Approximate main road business 1 has reusable architecture
+PASS Approximate main road business -1 has reusable architecture
+PASS Approximate main road business 1 has reusable architecture
+PASS Approximate main road business -1 has reusable architecture
+PASS Approximate main road business 1 has reusable architecture
+PASS Approximate main road business -1 has reusable architecture
+PASS Approximate main road business 1 has reusable architecture
+PASS Approximate main road business -1 has reusable architecture
+PASS Approximate main road business 1 has reusable architecture
+PASS Approximate main road business -1 has reusable architecture
+PASS Approximate main road business 1 has reusable architecture
+PASS Approximate main road business -1 has reusable architecture
+PASS Approximate main road business 1 has reusable architecture
+PASS Approximate main road business -1 has reusable architecture
+PASS Approximate main road business 1 has reusable architecture
+FAIL Foundation corner grounding: 1 corners >0.25m above terrain; maximum gap 0.309m
+PASS Minimum sampled building/step box-collider setback from road center 18.56m (9m road/shoulder envelope)
+PASS Simple convex roof collision present: 50 roofs; invalid 0
+PASS Accepted shortcut root retained
+Legacy rebuild guard inspected in source only; rebuild intentionally not invoked.
+RESULT: 1 failed checks. Geometric sampling is not an exhaustive collision proof; virtual driving and visual inspection recorded separately.

@@ -1,0 +1,2 @@
+Buildings 47; renderers 820; colliders 6514; building colliders 310
+Enabled renderers: 394. Total renderer count includes 426 disabled building source renderers.

@@ -1,0 +1,2 @@
+Original house 2 at (438.90, 85.37, -111.10): foundation bottom extended downward 0.071m; top and building transform unchanged; matching primitive collider extends with it.
+Approximate older residence at (-61.60, 33.50, -511.50): foundation bottom extended downward 0.359m; top and building transform unchanged; matching primitive collider extends with it.

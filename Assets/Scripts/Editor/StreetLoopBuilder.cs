@@ -91,7 +91,7 @@ namespace Racer.Editor
                 Cube("House mass",group,new(0,3,0),new(w,5,depth),key?landmark:walls);
                 Cube("Roof mass",group,new(0,5.8f,0),new(w+1,.8f,depth+1),roof);
             }
-            House("Dan - blue X",970,854,true); House("Original house 1",1028,951,true);
+            House("Dan - blue X",970,854,true); // CR-012: House 1 intentionally omitted.
             House("Original house 2",1049,1051,true); House("Original house 3",1080,1141,true);
             House("Friend across street - blue circle",1220,982,true);
             House("Remembered house behind southern hairpin",1090,1492,true);
@@ -102,7 +102,7 @@ namespace Racer.Editor
                 var p=new Vector3(Mathf.Lerp(-610,710,(float)rng.NextDouble()),0,Mathf.Lerp(-610,525,(float)rng.NextDouble()));
                 float distance=Nearest(p,r,out _); if(distance<22)continue;
                 bool clear=false;foreach(Transform b in buildings)if(Vector2.Distance(new(p.x,p.z),new(b.position.x,b.position.z))<27){clear=true;break;}
-                if(clear)continue;p.y=Ground(p,r); float h=7+(float)rng.NextDouble()*8;
+                if(clear || Phase6Buildings.YardClear(p))continue;p.y=Ground(p,r); float h=7+(float)rng.NextDouble()*8;
                 var tree=new GameObject("Tree mass").transform;tree.SetParent(woods);tree.position=p;
                 Cube("Trunk",tree,new(0,h*.3f,0),new(1.1f,h*.6f,1.1f),trunk);
                 var crown=GameObject.CreatePrimitive(PrimitiveType.Sphere);crown.name="Canopy";crown.transform.SetParent(tree,false);crown.transform.localPosition=new(0,h*.75f,0);crown.transform.localScale=new(h*.65f,h*.7f,h*.65f);crown.GetComponent<Renderer>().sharedMaterial=trees;Object.DestroyImmediate(crown.GetComponent<Collider>());
@@ -127,4 +127,3 @@ namespace Racer.Editor
         static void MeshObject(string name,Vector3[] vertices,int[] triangles,Material mat,Transform parent){var mesh=new Mesh{name=name,indexFormat=UnityEngine.Rendering.IndexFormat.UInt32};mesh.vertices=vertices;mesh.triangles=triangles;mesh.RecalculateNormals();mesh.RecalculateBounds();AssetDatabase.CreateAsset(mesh,Folder+"/"+name+".asset");var go=new GameObject(name,typeof(MeshFilter),typeof(MeshRenderer),typeof(MeshCollider));go.transform.SetParent(parent);go.GetComponent<MeshFilter>().sharedMesh=mesh;go.GetComponent<MeshCollider>().sharedMesh=mesh;go.GetComponent<Renderer>().sharedMaterial=mat;}
     }
 }
-

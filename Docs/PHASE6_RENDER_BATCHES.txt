@@ -1,0 +1,1 @@
+426 building geometry renderers replaced by 11 shared-material scene batches (19552 triangles). Original shaders/materials/geometry retained; text renderers remain separate. Prefab renderer instances disabled, collision retained unchanged. To edit a building or prefab, call RefreshVisualBatches afterward. This touches building visuals only.

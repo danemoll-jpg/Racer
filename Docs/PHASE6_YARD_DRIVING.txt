@@ -1,0 +1,2 @@
+PASS expanded-yard toward former House 1: reached=True; time=11.90s; peak=10.32m/s; min upright=0.986; max lateral error=0.234m. From rest, virtual motor input / manually stepped PhysX.
+PASS expanded-yard return toward Dan: reached=True; time=11.60s; peak=10.34m/s; min upright=0.986; max lateral error=0.172m. From rest, virtual motor input / manually stepped PhysX.

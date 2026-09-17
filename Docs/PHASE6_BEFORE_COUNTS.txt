@@ -1,0 +1,1 @@
+Buildings 48; renderers 505; colliders 6363; building colliders 144
