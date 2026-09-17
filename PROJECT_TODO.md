@@ -67,7 +67,7 @@ Create a clean Unity foundation before any actual game content is built.
 - [x] Create a simple README describing the project.
 - [x] Confirm the project opens and compiles with zero errors.
 - [x] Create an empty `PrototypeTrack` scene.
-- [ ] Save a known-good baseline commit.
+- [x] Save a known-good baseline commit.
 
 ## Tell Astra/Codex
 
@@ -93,7 +93,7 @@ Create a clean Unity foundation before any actual game content is built.
 - [x] `PrototypeTrack` scene loads.
 - [x] Console contains no compile errors.
 - [x] Folder structure is understandable.
-- [ ] Baseline has been preserved in Git.
+- [x] Baseline has been preserved in Git.
 
 ---
 
@@ -497,12 +497,12 @@ Record choices we do not want to repeatedly reconsider.
 Update this section before bringing the file back to ChatGPT.
 
 **Current phase:** Phase 0  
-**Last completed task:** None yet  
-**Current playable state:** Not started  
-**Astra's latest summary:**  
+**Last completed task:** Phase 0 setup and verification; baseline commit c7dc529  
+**Current playable state:** Empty PrototypeTrack scene; no gameplay implemented  
+**Astra's latest summary:** Created Unity 6000.6.1f1 project with lightweight URP 17.6.0, required folders, empty saved scene, text serialization, visible metadata, Unity .gitignore, and README. Official Unity Codex plugin available; CLI installed and Pipeline 0.7.0-exp.1 connected. Scene reload passed; final Console has zero errors and zero warnings. Local baseline committed; no push performed.  
 **New bugs:**  
 **Things Dan wants changed:**  
-**Questions/uncertainties:**  
+**Questions/uncertainties:** Pipeline is an experimental package. Phase 0 awaits user review; do not start Phase 1 without explicit instruction.  
 **Ready for next phase?:** No  
 
 ---
