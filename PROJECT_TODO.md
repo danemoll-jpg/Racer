@@ -1,4 +1,4 @@
-# Childhood Street Racing Project
+# Racer
 ## Project Management / TODO / Astra-Codex Handoff
 
 **Project concept:**  
@@ -103,18 +103,18 @@ Create a clean Unity foundation before any actual game content is built.
 Prove that driving feels fun before building the real street.
 
 ## TODO
-- [ ] Create a simple placeholder car.
-- [ ] Implement acceleration.
-- [ ] Implement braking/reverse.
-- [ ] Implement steering.
-- [ ] Implement basic traction/grip.
-- [ ] Implement arcade-friendly stability.
-- [ ] Create chase camera.
-- [ ] Add Xbox-style controller support.
-- [ ] Keep keyboard controls available for testing.
-- [ ] Add reset/respawn button.
-- [ ] Create a flat test area.
-- [ ] Add a few temporary turns/ramps to test handling.
+- [x] Create a simple placeholder car.
+- [x] Implement acceleration.
+- [x] Implement braking/reverse.
+- [x] Implement steering.
+- [x] Implement basic traction/grip.
+- [x] Implement arcade-friendly stability.
+- [x] Create chase camera.
+- [x] Add Xbox-style controller support.
+- [x] Keep keyboard controls available for testing.
+- [x] Add reset/respawn button.
+- [x] Create a flat test area.
+- [x] Add a few temporary turns/ramps to test handling.
 - [ ] Tune driving until approved.
 
 ## Tell Astra/Codex
@@ -144,19 +144,23 @@ Prove that driving feels fun before building the real street.
 ## Acceptance Test
 - [ ] Car is fun enough to drive for several minutes.
 - [ ] Controller works.
-- [ ] Camera behaves properly.
-- [ ] Reset works.
-- [ ] Car can use ramps without physics going berserk.
-- [ ] No compile errors.
+- [x] Camera behaves properly.
+- [x] Reset works.
+- [x] Car can use ramps without physics going berserk.
+- [x] No compile errors.
+
+Technical checks above passed automated testing and camera view inspection. Physical Xbox controller acceptance and subjective driving/camera feel remain for Dan; Phase 1 is not yet accepted.
 
 ### Tuning Notes
-Add observations here:
-- Handling:
-- Steering:
-- Braking:
-- Camera:
-- Jump behavior:
-- Bugs:
+- Handling: Four ray suspension probes, 1200 kg rigidbody, centre of mass (0, -0.35, 0). Acceleration 12 m/s²; forward speed target 38 m/s; reverse target 11 m/s. Grip response 7/s capped at 22 m/s². Full-lock 10-second cornering stayed upright; 7 m/s lateral slip recovered within one second. Dan must approve enjoyment and forgiveness.
+- Steering: 32° low-speed / 10° high-speed, response 7/s, yaw response 8/s, 2.6 m wheelbase; left-stick deadzone 0.12. Reverse steering follows the direction of travel.
+- Braking: 24 m/s², reverse acceleration 7 m/s². Hold LT/S through a stop to reverse. Tested 26.45 m/s after four seconds of acceleration, 2.16 m/s after one second braking, then -9.08 m/s after three more seconds holding reverse.
+- Camera: World-up chase view, offset (0, 3.6, -7.5), position smoothing 0.16 s, heading response 6/s, look-ahead 3 m, FOV 65°. Spherecast obstruction handling; camera snaps on respawn. Rendered view inspected and real-time follow checked. Camera comfort still requires Dan's feedback.
+- Jump behavior: Temporary 1.8 m / 5 m ramps tested at 15 and 25 m/s. All four runs jumped and landed upright, without inversion or runaway physics. Highest car position 7.48 m. Off-angle and maximum-speed impacts remain exploratory manual tests.
+- Reset: Y / R returns upright to fixed clear pad (0, 1.1, -45), clears linear/angular velocity and steering. Falling below y=-15 automatically resets. No checkpoints or nearest-road logic.
+- Controls: RT or W/Up accelerates; LT or S/Down brakes/reverses; left stick or A/D/Left/Right steers; Y or R resets. Click Game view while playing for keyboard focus. Xbox bindings verified using virtual Gamepad input; physical hardware unverified.
+- Verification: 20 repeatable checks passed via Racer > Validate Phase 1 (Play mode). Additional real-time input test drove about 29 m at 0.6 throttle, reaching 16.64 m/s with camera following. Compile succeeded. Detailed test record: Docs/PHASE1_VALIDATION.md.
+- Limitations: Placeholder wheels do not animate; suspension is intentionally approximate; collision/edge impacts can still flip the vehicle; reset is always to the starting pad. No known unresolved runtime errors from tested scenarios. No menus, race rules, final street, or Phase 2 work.
 
 ---
 
@@ -496,13 +500,13 @@ Record choices we do not want to repeatedly reconsider.
 
 Update this section before bringing the file back to ChatGPT.
 
-**Current phase:** Phase 0  
-**Last completed task:** Phase 0 setup and verification; baseline commit c7dc529  
-**Current playable state:** Empty PrototypeTrack scene; no gameplay implemented  
-**Astra's latest summary:** Created Unity 6000.6.1f1 project with lightweight URP 17.6.0, required folders, empty saved scene, text serialization, visible metadata, Unity .gitignore, and README. Official Unity Codex plugin available; CLI installed and Pipeline 0.7.0-exp.1 connected. Scene reload passed; final Console has zero errors and zero warnings. Local baseline committed; no push performed.  
-**New bugs:**  
-**Things Dan wants changed:**  
-**Questions/uncertainties:** Pipeline is an experimental package. Phase 0 awaits user review; do not start Phase 1 without explicit instruction.  
+**Current phase:** Phase 1 — implemented; awaiting Dan's driving review  
+**Last completed task:** Arcade prototype implementation and technical validation. Phase 0 accepted by Dan and preserved in pre-work commit 12b1dff (original foundation c7dc529, handoff c872572).  
+**Current playable state:** Open Assets/Scenes/PrototypeTrack.unity, press Play, and focus Game view. One placeholder car, open grey-box pad, turn islands/slalom, gentle and larger test ramps, controller/keyboard input, chase camera, manual/fall reset.  
+**Astra's latest summary:** Renamed this document's heading to Racer before gameplay work. Added modular vehicle/input/respawn/camera scripts, a saved car prefab, grey-box scene, placeholder materials/ramp meshes, and repeatable Editor validation. Twenty automated checks pass; real-time driving and rendered camera view checked. Saved scene reload has no missing scripts or broken references. Final actual Console: zero errors and zero warnings. No subjective enjoyment approval claimed. Phase 1 implementation is committed locally on completion; no push requested. See README.md and Docs/PHASE1_VALIDATION.md for tuning and verification details.  
+**New bugs:** None known from tested scenarios. Initial asset-extension diagnostic and obsolete test API warnings corrected.  
+**Things Dan wants changed:** Pending hands-on feedback about grip, steering, braking/reverse, jumps, and camera.  
+**Questions/uncertainties:** Physical Xbox hardware and several-minutes enjoyment test remain unverified. Hard/angled impacts and ramp edges may still flip the car; Y/R recovers. Pipeline remains experimental. Do not start Phase 2 until Dan explicitly accepts Phase 1 and authorizes it.  
 **Ready for next phase?:** No  
 
 ---
