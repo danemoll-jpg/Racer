@@ -172,6 +172,8 @@ Build a recognizable, drivable greybox of the **full real road loop** Dan rememb
 
 The loop itself is based on real roads. Phase 2 should include the full road loop, but **not** race systems such as laps, checkpoints, timers, HUD, or start/finish logic.
 
+**Status:** NOT ACCEPTED — Dan's latest playtest requires the focused revision pass below. Phase 1 remains accepted for driving feel; Phase 3 must not begin.
+
 ## Reference Images
 
 Place the map references in the project under:
@@ -201,12 +203,12 @@ The annotated image is the primary guide.
 This is **not a current-day reconstruction**. Prefer Dan's remembered older version of the area whenever modern map data conflicts with memory.
 
 - Remove/ignore newer subdivision roads and dense newer neighborhood build-out where marked.
-- Replace those newer developments mainly with woods/open land.
+- Replace those newer developments mainly with woods/open land; substantially increase trees so the area feels heavily forested.
 - The area around Dan's childhood house should be sparse: Dan's house, houses 1/2/3, the friend's house across the street, and plenty of wooded space.
-- Additional houses may be placed approximately/randomly in sensible locations where exact memory is unavailable.
+- Add more approximate/random houses in sensible residential locations where exact memory is unavailable, while preserving the sparse older settlement pattern.
 - There should be a placeholder house behind the hairpin turn for now because Dan remembers one there. A lake may be explored later as a gameplay change, but not in Phase 2.
 - The storage facility is not important and does not need to be preserved accurately.
-- The main road can have a reasonably busy commercial/business feel.
+- The main road should have businesses/stores along both sides throughout its relevant length, with plausible gaps and access.
 - The connecting road can have several houses along it.
 - The far/end portion of Dan's road can also have several houses.
 
@@ -216,13 +218,15 @@ Dan's street is a hilly/mountain road, although not an extreme high mountain.
 
 From the **first yellow circle to the last yellow circle** is the main hilly street section.
 
-- Coming from the main road onto Dan's street, there is a **fairly large uphill climb**.
-- After the initial climb, the road flattens somewhat but continues with **smaller rolling hills up and down** throughout the street.
-- The **second yellow circle** marks a **fairly large downhill drop**. Dan and his friend used to sled down this hill when it was icy.
-- The **last yellow circle** marks the end of Dan's street where the road descends more gradually; it is downhill but not especially steep.
+- Coming from the main road onto Dan's street, there is a **large uphill climb**; make it substantially bigger than the first Phase 2 implementation.
+- After the initial climb, include **more frequent, noticeable rolling hills up and down** throughout the street; the first implementation felt too flat overall.
+- The **second yellow circle** marks a **much deeper, faster downhill drop** than currently built. Shorten the descent distance and strengthen its fall while keeping it drivable. Dan and his friend used to sled down this hill when it was icy.
+- The **last yellow circle** marks the end of Dan's street. Dan's latest feedback requires a **shorter, more noticeable descent** than currently built. Keep it gentler than the second major drop, but not stretched out or barely perceptible; this refines the original gradual-descent direction.
 - The rest of the loop is relatively flatter than Dan's street.
 
-Elevation character is a major part of making the location recognizable and should not be reduced to a flat map.
+Elevation character is a major part of making the location recognizable and should not be reduced to a flat map. Revise road heights and supporting terrain together: continuous roadbed, blended shoulders, and matching collision surfaces must prevent a floating slab or under-road re-entry.
+
+House 3 must sit farther from the road and down a steep hill. The friend's house must be closer to the road but slightly downhill, still across the street.
 
 ## Phase 2 Inputs
 
@@ -257,162 +261,86 @@ Elevation character is a major part of making the location recognizable and shou
 - [x] Adjust road width/curve smoothness only as much as needed for comfortable driving.
 - [ ] Confirm the result is recognizable enough to Dan.
 
+## Focused Phase 2 Revision Pass — Dan's Latest Playtest
+
+**Status: pending implementation and retest; Phase 2 NOT ACCEPTED.** The checked original TODO items record the first implementation, not approval of its quality. Latest feedback overrides earlier assumptions where they conflict. Preserve the current full loop layout and all Phase 1 driving systems. Do not start Phase 3.
+
+- [ ] BUG-001: Fix floating road/terrain mismatch with continuous roadbed support, blended shoulders, and matching collision surfaces; verify plausible off-road re-entry without the car passing beneath the road.
+- [ ] CR-001: Make the initial neighborhood uphill substantially bigger.
+- [ ] CR-002: Make the second hill drop much deeper and faster over a shorter distance.
+- [ ] CR-003: Shorten and strengthen the final hill so its descent is noticeable, while gentler than the second drop.
+- [ ] CR-004: Add more frequent, perceptible rolling hills; the road currently feels too flat overall.
+- [ ] CR-005: Move House 3 farther from the road and down a steep hill.
+- [ ] CR-006: Move the friend's house closer to the road but slightly downhill.
+- [ ] CR-007: Add more approximate/random houses in appropriate residential areas.
+- [ ] CR-008: Add businesses/stores along both sides of the main street.
+- [ ] CR-009: Substantially increase trees and forest density throughout the remembered wooded areas.
+- [ ] Verify the entire revised loop and representative off-road re-entry locations with the unchanged Phase 1 car, in both directions.
+- [ ] Record actual technical results and Dan's subsequent retest; only Dan can accept the revised feel/recognizability.
+
 ## Tell Astra/Codex
 
-> **Before making any changes, inspect the current project state and create a Git commit of all current saved changes as a safety checkpoint. Do not modify anything until that commit succeeds.**
+### Current prompt — Phase 2 revision pass
+
+> Before making any modifications, inspect the current project state and create a Git commit of all current saved changes as a safety checkpoint. Do not modify anything until that commit succeeds. If the working tree is already clean, record the existing HEAD as the safety checkpoint and report that no saved changes needed committing; if a required commit fails, stop and report the blocker.
 >
-> We are continuing work on the Unity project **Racer**.
+> Continue the Unity project Racer with a focused Phase 2 revision pass only. Read PROJECT_TODO.md and inspect Docs/References/, especially the annotated map, plus the current StreetLoopGreybox scene and its generation workflow. Phase 1 driving is accepted for now. Phase 2 is NOT accepted: Dan tested it and reported BUG-001 and CR-001 through CR-009. Do not start Phase 3.
 >
-> First:
-> 1. Inspect the current Unity project.
-> 2. Read `PROJECT_TODO.md` in the project root and treat it as the source of truth.
-> 3. Inspect the map reference files in `Docs/References/` and use them as the primary visual references for Phase 2.
+> Preserve the existing full real loop layout, road connections, landmark sequence, and remembered older landscape. Work in Assets/Scenes/StreetLoopGreybox.unity and its supporting environment assets/tools. Preserve PrototypeTrack and the Phase 1 vehicle, handling/tuning, suspension, input/controller support, chase camera, and reset systems. Correct the environment rather than masking its faults with vehicle changes. Keep this a simple greybox.
 >
-> Dan has reviewed Phase 1 and says the car seems to drive fine, so we are cleared to begin **Phase 2 only**.
+> Implement all ten feedback items:
 >
-> ## Phase 2 Goal
-> Build a **drivable greybox version of the full real loop** Dan remembers from childhood.
+> 1. BUG-001 — Fix terrain-road blending and physical support first. The road sits too high above the terrain; when Dan drives off-road and tries to re-enter, most of the car stays beneath the road. Inspect both visible geometry and collision/suspension contact surfaces. Shape continuous supporting ground/roadbed beneath the road and blend it into traversable shoulders and surrounding slopes. Keep road and terrain colliders aligned with the visible surfaces, without gaps, exposed slab edges, abrupt collision lips, or overlapping surfaces that snag the car. The road must not remain a floating slab. At ordinary traversable shoulders, driving off-road and back onto the road must be physically plausible, with the car supported throughout and no passing under/through the road, clipping, falling through, or artificial launch. Do not hide the problem with teleporting, invisible walls, altered vehicle suspension, or merely thicker visible pavement. Steep natural slopes can remain steep; distinguish those from normal re-entry shoulders.
+> 2. CR-001 — Make the initial uphill into the neighborhood substantially bigger and more noticeable than the current implementation.
+> 3. CR-002 — Make the second hill/second yellow-circle descent a much deeper drop over a shorter distance: it must fall faster and feel clearly steeper, while remaining drivable.
+> 4. CR-003 — Shorten the last hill and make its descent more noticeable. The current version is too drawn-out and subtle. Keep it gentler than the second major drop, but clearly perceptible from the driving view. This updates the earlier gradual-descent guidance.
+> 5. CR-004 — Add more frequent, perceptible rolling hills to the road, especially throughout the neighborhood section. The loop currently feels too flat. Keep the other sections relatively flatter than the neighborhood without leaving the overall drive unnaturally flat.
+> 6. CR-005 — Move House 3 farther from the road and down a steep hill; shape the surrounding ground so its lower position and setback read clearly.
+> 7. CR-006 — Move the friend's house closer to the road, still across the street at the remembered location, but slightly downhill from it. Blend its site into the slope.
+> 8. CR-007 — Add more approximate/random placeholder houses in sensible residential locations, including the connecting road and far end of Dan's street. Preserve the key houses, hairpin house, and sparse older settlement pattern; do not recreate newer subdivisions.
+> 9. CR-008 — Add businesses/stores along both sides of the main street throughout its relevant length, rather than a few isolated blocks. Use simple varied building masses and plausible setbacks/access gaps; keep the driving corridor clear.
+> 10. CR-009 — Substantially increase tree coverage and density so the area feels heavily forested, especially around the childhood-house area and where newer subdivisions were removed. Use simple efficient placeholders, preserve road/shoulder clearance and useful sightlines, and check play-mode performance after the increase.
 >
-> This is not a current-day accurate map recreation. It should represent **Dan's remembered older version of the area**, not the modern built-up neighborhood layout.
+> Revise the road profile and its supporting terrain together. Preserve the horizontal loop layout; make only small local geometry adjustments needed for driveability, and report them. Do not invent exact surveyed heights or distances: use Dan's qualitative feedback and reference landmarks, expose practical tuning values where useful, and document the resulting elevation/setback changes and any guesses. Keep changes reproducible through any existing scene-generation workflow so rebuilding does not discard the revisions.
 >
-> ## High-level route guidance
-> Use the annotated map as the main guide.
+> Validate the revised scene with the unchanged Phase 1 car:
 >
-> - The **red route** shows the full loop to recreate.
-> - The loop is based on real roads; do not invent a separate connector road merely to close the circuit.
-> - The route includes the main road, the connecting road, Dan's neighborhood/mountain-road section, and the lower return section that completes the real loop.
+> - Drive the complete loop in both directions. Check uphill traction, crests, the deeper second drop, the shorter final descent, and rolling hills for grounding, smooth transitions, and unobstructed travel.
+> - Reproduce the original off-road re-entry bug before fixing it where possible, then test leaving and rejoining on both sides at representative flat sections, bends, hill approaches/crests/descents, and terrain joins. Test slow and ordinary driving speeds and shallow/oblique approaches. Verify visible and physical support agree; road-center sampling alone is not sufficient.
+> - Inspect House 3, the friend's house, additional houses, both sides of the commercial road, and forest coverage from the driving camera and an overview.
+> - Confirm scene save/reload, clean compilation, no new Console errors/warnings, and that keyboard controls, camera, and reset still behave as before. Report physical-controller testing separately; do not claim hardware verification unless performed.
+> - Check that added trees/buildings do not obstruct the road or intended shoulder transitions and do not introduce a material play-mode performance regression. Report observed results and any limits; do not claim tests that were not run.
 >
-> ## Annotated map guidance
-> - **Blue X** = Dan's childhood house.
-> - **Blue 1, 2, 3** = the other three original houses near Dan's house.
-> - **Blue circle across the street** = Dan's friend's house; preserve it.
-> - The other blue circle is not important.
-> - **Green-marked areas** should feel wooded/open instead of filled with newer subdivisions.
-> - **Black X marks** indicate modern roads/development to remove or ignore for this remembered version.
-> - **Yellow circles** identify important road/elevation areas described below.
+> Update PROJECT_TODO.md with actual work completed, BUG-001/CR-001–CR-009 implementation and verification results, revised acceptance notes, and SESSION HANDOFF. Preserve earlier validation as historical evidence; it did not establish safe off-road re-entry or Dan's subjective acceptance. Leave Phase 2 NOT ACCEPTED / awaiting Dan's retest even if technical checks pass. Do not check Dan's recognition/feel approval on his behalf.
 >
-> ## Environment and memory guidance
-> Prefer Dan's remembered version of the place whenever memory and the current map conflict.
+> Do not add start/finish, checkpoints, laps, timers, HUD, race restart systems, shortcuts, stunt ramps/jumps, breakable-fence gameplay, or a visual polish pass. Do not begin Phase 3 or later phases.
 >
-> - Remove or ignore newer subdivision roads and newer dense development where marked.
-> - Replace much of those removed areas with **woods/open land**.
-> - Around Dan's childhood house, preserve a sparse feel: Dan's house, houses 1/2/3, the friend's house across the street, and substantial wooded space.
-> - Add a few additional houses approximately/randomly in sensible locations where Dan does not remember exact placement.
-> - Put a simple placeholder house behind the hairpin turn for now.
-> - The storage facility is not important and does not need accurate recreation.
-> - The main road may have a reasonably busy commercial/business feel.
-> - The connecting road may have several houses along it.
-> - The far/end portion of Dan's road may also have several houses.
->
-> ## Terrain / elevation guidance
-> Dan's neighborhood street is a **hilly/mountain road**, though not an extreme mountain.
->
-> From the **first yellow circle to the last yellow circle** is the main hilly street section:
->
-> - coming from the main road onto Dan's street, there is a **fairly significant uphill climb**;
-> - after that, the road somewhat levels out but still has **multiple smaller rolling hills**;
-> - the **second yellow circle** marks a **fairly large downhill drop**;
-> - the **last yellow circle** marks the end of the street where it slopes downhill more gradually.
->
-> The rest of the loop is relatively flatter.
->
-> This elevation character is important and should be reflected in the greybox terrain and road profile.
->
-> ## Implementation requirements
-> Build a **simple greybox** only:
->
-> - simple road geometry
-> - simple terrain/ground shaping
-> - simple placeholder houses/building masses
-> - simple placeholder woods/trees if useful
-> - simple materials only
->
-> Preserve and reuse the existing Phase 1 vehicle so the loop can be driven immediately.
->
-> Create a **new scene** for this phase, preferably `StreetLoopGreybox`, while preserving `PrototypeTrack` for reference/testing.
->
-> ## Accuracy priorities
-> Prioritize in this order:
->
-> 1. Recognizable road layout and full real loop structure.
-> 2. Recognizable terrain/elevation feel.
-> 3. Dan's childhood house, houses 1/2/3, and the friend's house.
-> 4. A wooded, older, less-developed feeling.
-> 5. Driveability with the Phase 1 vehicle.
-> 6. Geographic precision is secondary.
->
-> If exact memory and current map data conflict, prefer **Dan's remembered version**.
->
-> If needed for playability, make only **small** adjustments to road width, curve smoothness, or spacing, and clearly report them.
->
-> ## Important scope limits
-> Do NOT add:
->
-> - start/finish line
-> - checkpoints
-> - lap system
-> - timer
-> - HUD
-> - shortcuts
-> - stunt ramps or jumps
-> - breakable-fence gameplay
-> - major visual polish
-> - formal circuit/race systems
->
-> Phase 2 includes the full real closed road loop, but it is still only a **memory-based drivable environment greybox**.
->
-> ## Testing
-> Test that:
->
-> - the new scene loads correctly,
-> - the Phase 1 car can drive the full loop,
-> - the major hill sections are traversable,
-> - there are no major collision/blocking problems,
-> - there are no compile errors,
-> - and the Console ends cleanly.
->
-> Update `PROJECT_TODO.md` for Phase 2 only where work is actually completed.
->
-> Update the `SESSION HANDOFF` section with:
-> - current playable state,
-> - what was added/changed,
-> - any known issues,
-> - any places where geometry had to be exaggerated or simplified,
-> - any areas where exact placement was guessed,
-> - and what Dan should test next.
->
-> When the work is stable, create a new Git commit for the completed Phase 2 implementation.
->
-> Do not begin Phase 3.
->
-> ## Final report
-> At the end, give me:
->
-> - the name of the scene to open,
-> - what roads/terrain/features were built,
-> - what landmarks were included,
-> - where you simplified or guessed,
-> - what files/scenes/prefabs/scripts were created or changed,
-> - whether the full loop is drivable,
-> - whether the Console has zero errors,
-> - and exactly what Dan should test manually.
+> When the revision work is stable, create a completion Git commit. Report the safety and completion commit IDs, scene to open, files changed, each feedback item's outcome, terrain-road support solution, elevation/placement changes and guesses, actual test results and remaining issues, and a focused checklist for Dan to retest all ten items before accepting Phase 2.
 
 ## Acceptance Test
 
 - [x] The full real road loop exists and is drivable.
 - [ ] Dan recognizes the road layout.
 - [ ] The initial uphill onto Dan's street feels significant.
-- [x] Smaller rolling hills are present along the street.
+- [ ] Rolling hills are frequent and noticeable enough to resolve the overly flat driving feel.
 - [ ] The larger downhill drop feels recognizable.
-- [ ] The gradual downhill at the road's end feels appropriate.
+- [ ] The final downhill is shorter and clearly noticeable, while gentler than the second drop.
 - [x] Dan's house and houses 1/2/3 are represented.
 - [x] Friend's house across the street is represented.
 - [x] Newer subdivisions are substantially removed/replaced with woods/open land.
 - [ ] Main road/commercial area feels appropriately more developed.
 - [ ] Connecting road has suitable residential development.
-- [x] Car can drive the complete loop without major collision problems.
+- [ ] Car can drive the complete revised loop without major collision problems.
+- [ ] Road has continuous terrain/roadbed support and blended shoulders; representative off-road exits/re-entries on both sides do not pass under/through the road or snag on slab edges.
+- [ ] House 3 is farther from the road and down a steep hill.
+- [ ] Friend's house is closer to the road and slightly downhill.
+- [ ] More random houses suit the remembered older residential areas.
+- [ ] Businesses/stores line both sides of the main street.
+- [ ] Substantially more trees make the area feel heavily forested.
 - [x] No compile errors.
 - [ ] Dan approves the greybox as recognizable enough to proceed.
+
+**Acceptance notes (2026-09-17):** Phase 2 is **NOT ACCEPTED** after Dan's hands-on test. The original full-loop and compilation results below/in SESSION HANDOFF are historical technical results only. Dan reported a road/terrain collision-support problem and requested nine environment revisions. Reopened checks require new evidence after implementation; all subjective hill, house-placement, commercial-density, forest-density, and overall recognition checks require Dan's retest. Phase 3 remains blocked.
 
 ### Street / Terrain Notes
 
@@ -420,8 +348,8 @@ Elevation character is a major part of making the location recognizable and shou
 - Things that must remain recognizable: full real road loop; hilly character of Dan's street; sparse wooded childhood-house area.
 - Things we can fictionalize/approximate: exact placement of less-important houses; details of businesses on main road; minor vegetation/building placement.
 - Possible later gameplay alteration: consider replacing the house behind the hairpin with a lake if that proves more fun, but **not during Phase 2**.
-- Bugs:
-- Dan's review notes:
+- Bugs: BUG-001 — road is elevated above surrounding terrain; off-road re-entry leaves much of the car below the road.
+- Dan's review notes: Initial hill too small; second drop too shallow/slow; final hill too drawn-out/subtle; too few rolling hills; House 3 needs greater setback and steep downhill placement; friend's house needs less setback and slight downhill placement; more random houses; businesses on both sides of main street; substantially more forest. See CR-001 through CR-009.
 
 ---
 
@@ -659,16 +587,16 @@ Use this section whenever something is wrong.
 
 ## Active Bugs
 
-### BUG-001
-**Status:**  
-**Phase introduced:**  
-**Description:**  
-**Steps to reproduce:**  
-**Expected behavior:**  
-**Actual behavior:**  
-**Screenshots/logs:**  
-**Astra fix attempt(s):**  
-**Result:**  
+### BUG-001 — Floating road / unsafe off-road re-entry
+**Status:** Open — reported by Dan; revision and retest required.  
+**Phase introduced:** Phase 2.  
+**Description:** Road sits too high above the terrain, with insufficient terrain-road blending/support.  
+**Steps to reproduce:** In StreetLoopGreybox, drive the Phase 1 car off the road onto nearby terrain, then attempt to return to the road. Dan did not specify an exact location; inspect representative shoulders throughout the loop.  
+**Expected behavior:** Continuous physical roadbed and blended traversable shoulders support the vehicle onto the road; collision and visible geometry agree. Road does not behave as a floating slab.  
+**Actual behavior:** Most of the car remains beneath the elevated road during attempted re-entry.  
+**Screenshots/logs:** Dan's latest written Phase 2 playtest feedback; no specific reproduction coordinates supplied. Earlier road-center validation did not establish safe off-road re-entry.  
+**Astra fix attempt(s):** Pending. Fix terrain/roadbed, shoulder transitions, and matching colliders together while preserving Phase 1 vehicle systems.  
+**Result:** Unresolved. Test both sides at flats, bends, hill transitions, and terrain joins, with slow/ordinary speeds and shallow/oblique approaches; record actual results before marking technically resolved. Dan's retest remains required for phase acceptance.
 
 ---
 
@@ -676,13 +604,77 @@ Use this section whenever something is wrong.
 
 Use this for things that are not bugs but that Dan wants changed.
 
-### CR-001
-**Status:**  
-**Current behavior:**  
-**Requested change:**  
-**Reason:**  
-**Phase affected:**  
-**Result:**  
+### CR-001 — Larger neighborhood entrance hill
+**Status:** Open — pending revision and Dan's retest.  
+**Current behavior:** Initial hill is too small.  
+**Requested change:** Make the initial climb substantially bigger and clearly noticeable from the driving view.  
+**Reason:** Restore the remembered significant uphill entrance.  
+**Phase affected:** Phase 2 only.  
+**Result:** Pending; do not mark Dan's acceptance before his review.
+
+### CR-002 — Deeper, faster second drop
+**Status:** Open — pending revision and Dan's retest.  
+**Current behavior:** Second hill does not drop quickly or deeply enough.  
+**Requested change:** Increase the vertical drop and shorten its descent distance while preserving driveability.  
+**Reason:** Restore the distinctive steep sledding hill.  
+**Phase affected:** Phase 2 only.  
+**Result:** Pending; do not mark Dan's acceptance before his review.
+
+### CR-003 — Shorter, noticeable final hill
+**Status:** Open — pending revision and Dan's retest.  
+**Current behavior:** Last hill is drawn out and barely perceptible.  
+**Requested change:** Shorten and strengthen this descent, keeping it gentler than the second major drop.  
+**Reason:** Refine the earlier gradual-descent direction to match Dan's test feedback.  
+**Phase affected:** Phase 2 only.  
+**Result:** Pending; do not mark Dan's acceptance before his review.
+
+### CR-004 — More frequent rolling hills
+**Status:** Open — pending revision and Dan's retest.  
+**Current behavior:** Road feels too flat overall with too few hills.  
+**Requested change:** Add more frequent, perceptible rolling crests and dips, especially throughout the neighborhood; other loop sections remain relatively flatter.  
+**Reason:** Restore the remembered hilly character.  
+**Phase affected:** Phase 2 only.  
+**Result:** Pending; do not mark Dan's acceptance before his review.
+
+### CR-005 — House 3 setback and downhill placement
+**Status:** Open — pending revision and Dan's retest.  
+**Current behavior:** House 3 is too close to the road and lacks the requested steep downhill separation.  
+**Requested change:** Place House 3 farther from the road and down a steep hill; reshape its supporting terrain.  
+**Reason:** Match the remembered house placement.  
+**Phase affected:** Phase 2 only.  
+**Result:** Pending; do not mark Dan's acceptance before his review.
+
+### CR-006 — Friend's house setback and elevation
+**Status:** Open — pending revision and Dan's retest.  
+**Current behavior:** Friend's house needs to be closer to the road and slightly lower.  
+**Requested change:** Move it closer to the road but slightly downhill, preserving its across-the-street location and blending its site into the slope.  
+**Reason:** Match the remembered house placement.  
+**Phase affected:** Phase 2 only.  
+**Result:** Pending; do not mark Dan's acceptance before his review.
+
+### CR-007 — Additional random houses
+**Status:** Open — pending revision and Dan's retest.  
+**Current behavior:** Too few additional houses are present.  
+**Requested change:** Add more approximate/random houses in sensible residential locations, including the connecting road and far neighborhood end; retain key landmarks and avoid newer subdivisions.  
+**Reason:** Give the older residential environment the intended population.  
+**Phase affected:** Phase 2 only.  
+**Result:** Pending; do not mark Dan's acceptance before his review.
+
+### CR-008 — Businesses along both sides of main street
+**Status:** Open — pending revision and Dan's retest.  
+**Current behavior:** Current commercial coverage is insufficient.  
+**Requested change:** Place simple businesses/stores along both sides of the main street throughout its relevant length, with plausible gaps/access and clear road space.  
+**Reason:** Match Dan's remembered commercial character.  
+**Phase affected:** Phase 2 only.  
+**Result:** Pending; do not mark Dan's acceptance before his review.
+
+### CR-009 — Substantially denser forest
+**Status:** Open — pending revision and Dan's retest.  
+**Current behavior:** There are far too few trees for the remembered heavily forested area.  
+**Requested change:** Substantially increase tree density/coverage, especially around the childhood houses and removed developments, using efficient placeholders and preserving road/shoulder clearance.  
+**Reason:** Restore the heavily wooded older landscape.  
+**Phase affected:** Phase 2 only.  
+**Result:** Pending; do not mark Dan's acceptance before his review.
 
 ---
 
@@ -700,20 +692,24 @@ Record choices we do not want to repeatedly reconsider.
 | 2026-09-17 | Phase 2 uses the full real road loop | The loop already exists in the real road layout; no fake connector is needed |
 | 2026-09-17 | Prefer remembered older landscape over current development | Newer subdivisions should be replaced largely with woods/open land where indicated |
 | 2026-09-17 | Commit before every Codex work session | Dan saves locally between sessions and wants a safety checkpoint before Astra changes anything |
+| 2026-09-17 | Phase 2 not accepted; run a focused revision pass before Phase 3 | Dan reported BUG-001 and nine environment changes after playtesting |
+| 2026-09-17 | Preserve current real loop layout and Phase 1 driving systems during revisions | Fix environment support, elevation, placement, and density without changing accepted driving behavior |
+| 2026-09-17 | Last descent must be shorter and more noticeable, still gentler than second drop | Latest playtest refines the earlier gradual-descent guidance |
 
 ---
 
 # SESSION HANDOFF
 
-**Current phase:** Phase 2 — implemented and tested; awaiting Dan's recognition/feel review. Phase 3 is not authorized or started.
-**Last completed task:** Built and saved StreetLoopGreybox; verified full-loop physics drives in both directions and scene reload.
+**Current phase:** Phase 2 — NOT ACCEPTED after Dan's playtest. Focused revision pass pending for BUG-001 and CR-001 through CR-009. Phase 3 is not authorized or started.
+**Last completed task:** Updated this plan from Dan's latest Phase 2 feedback; no Unity revisions performed in this documentation pass. Previous implementation built/saved StreetLoopGreybox and recorded full-loop drives and scene reload.
 **Current playable state:** Open `Assets/Scenes/StreetLoopGreybox.unity` and press Play. Existing Phase 1 car/input/camera/reset are reused. Spawn faces uphill at the northern neighborhood entrance. `PrototypeTrack` and `PrototypeCar.prefab` are unchanged.
-**Astra's latest summary:** Added the traced 4.65 km loop, significant entrance climb, rolling hills, steeper second-circle descent, gradual lower return, interpolated ground, Dan's house plus houses 1/2/3, friend's house, hairpin house, nine approximate residences, five main-road businesses, and simple woods/open land replacing later subdivisions. No race systems, HUD, shortcuts, ramps, or polish pass.
-**Validation:** Both full-loop drives passed with real Phase 1 physics at conservative speeds (about 560 simulated seconds each). Maximum road-centre error 2.84 m; minimum upright dot 0.971. Zero missing road-support samples or blocked corridor samples. Scripts compiled; saved scene reloaded and played. Final live Console: 0 errors, 0 warnings. See `Docs/PHASE2_VALIDATION.md` and `Docs/PHASE2_TEST_RESULTS.txt`.
-**Simplifications/guesses:** Uniform 9 m road plus wide soft shoulders; cubic-smoothed bends; junctions reduced to rounded loop turns with outside road extensions omitted. Approximate scale and elevations, not surveyed. Peak short grade 24.4%; Dan should judge whether this is too steep. House dimensions/setbacks and exact position within friend's blue circle are estimates. Other residences/businesses and tree placement are fictional approximations. Storage facility and unrelated blue circle omitted. Ground is a coarse interpolated mesh.
-**New bugs/known limits:** No unresolved compile/runtime or blocking issue in tested runs. Maximum-speed bends and all off-road collisions are not certified. An earlier faster automated driver cut onto a shoulder; the final cautious driver passed. R/Y still returns to one fixed spawn. Physical Xbox hardware still needs review. Pipeline transport timeouts during long operations were tooling deadlines; completed scene/tests were independently verified.
-**What Dan should test next:** Drive the whole loop both ways; compare layout/hairpin and house sequence to memory; judge the initial climb, rolling crests, sledding drop, and gentle final descent. Brake before tight bends. Check chase-camera comfort, shoulder re-entry, R/Y reset, keyboard and physical Xbox controls. Review sparse woods west of the house and whether houses/commercial blocks need moving.
-**Ready for next phase?:** No. Await Dan's explicit Phase 2 approval; subjective acceptance boxes remain unchecked.
+**Previous implementation summary (historical, before Dan's test):** Added the traced 4.65 km loop, significant entrance climb, rolling hills, steeper second-circle descent, gradual lower return, interpolated ground, Dan's house plus houses 1/2/3, friend's house, hairpin house, nine approximate residences, five main-road businesses, and simple woods/open land replacing later subdivisions. No race systems, HUD, shortcuts, ramps, or polish pass.
+**Previous validation (historical; not proof of off-road re-entry or current acceptance):** Both full-loop drives passed with real Phase 1 physics at conservative speeds (about 560 simulated seconds each). Maximum road-centre error 2.84 m; minimum upright dot 0.971. Zero missing road-support samples or blocked corridor samples. Scripts compiled; saved scene reloaded and played. Final live Console: 0 errors, 0 warnings. See `Docs/PHASE2_VALIDATION.md` and `Docs/PHASE2_TEST_RESULTS.txt`.
+**Simplifications/guesses:** Uniform 9 m road plus wide soft shoulders; cubic-smoothed bends; junctions reduced to rounded loop turns with outside road extensions omitted. Approximate scale and elevations, not surveyed. Previously reported peak short grade 24.4%; Dan nevertheless found the entrance too small, second descent insufficient, final descent too subtle, and overall road too flat. Retune profiles from his feedback rather than treating this prior peak as acceptance. House dimensions/setbacks and exact position within friend's blue circle are estimates. Other residences/businesses and tree placement are fictional approximations. Storage facility and unrelated blue circle omitted. Ground is a coarse interpolated mesh.
+**New bugs/known limits:** BUG-001 is open: road sits above terrain and the car passes beneath it when attempting off-road re-entry. Earlier conservative road-center drives missed this issue. CR-001–CR-009 are all pending. Current hill profiles, house placements, commercial coverage, and tree density are not accepted. R/Y still returns to one fixed spawn; physical Xbox hardware verification remains separate.
+**Next authorized work:** Commit all current saved project changes first, then use the current Phase 2 revision prompt above. Fix terrain-road support/blending and re-entry; revise all hill profiles; move House 3/friend's house; add houses, both-sided main-street businesses, and substantially more trees. Preserve the current loop layout, PrototypeTrack, and Phase 1 driving systems. Keep simple greybox scope.
+**What Dan should test next (after revisions):** Drive the full loop both ways and try leaving/rejoining both road edges at ordinary shoulders, bends, and hill transitions. Verify the larger entrance climb, faster/deeper second drop, shorter noticeable final descent, and more frequent rolling hills. Check House 3 farther away/down a steep hill and the friend's house closer/slightly downhill. Review additional random houses, businesses along both main-street sides, and much denser woods. Confirm familiar handling, camera, controls, and reset remain intact. Record remaining problems and explicitly accept or reject Phase 2.
+**Ready for next phase?:** No. Phase 2 is NOT ACCEPTED. Complete the revision pass and technical checks, then obtain Dan's explicit retest approval. Do not begin Phase 3.
 
 ---
 # How Dan and ChatGPT Will Use This File
