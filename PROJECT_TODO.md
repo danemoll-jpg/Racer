@@ -30,6 +30,7 @@ These rules apply throughout the project.
 - [ ] Keep systems modular so the street, vehicle, shortcuts, jumps, and gameplay rules can be changed independently.
 - [ ] Commit or otherwise preserve a known-good state before large changes.
 - [ ] Record bugs, change requests, and decisions in this file.
+- [ ] Every Astra/Codex work prompt must begin by committing all current saved changes as a safety checkpoint before making modifications.
 
 ---
 
@@ -115,7 +116,7 @@ Prove that driving feels fun before building the real street.
 - [x] Add reset/respawn button.
 - [x] Create a flat test area.
 - [x] Add a few temporary turns/ramps to test handling.
-- [ ] Tune driving until approved.
+- [x] Tune driving until approved.
 
 ## Tell Astra/Codex
 
@@ -142,14 +143,14 @@ Prove that driving feels fun before building the real street.
 > Report the controls, major tuning parameters, files changed, and anything you think I should test manually.
 
 ## Acceptance Test
-- [ ] Car is fun enough to drive for several minutes.
+- [x] Car is fun enough to drive for several minutes.
 - [ ] Controller works.
 - [x] Camera behaves properly.
 - [x] Reset works.
 - [x] Car can use ramps without physics going berserk.
 - [x] No compile errors.
 
-Technical checks above passed automated testing and camera view inspection. Physical Xbox controller acceptance and subjective driving/camera feel remain for Dan; Phase 1 is not yet accepted.
+Dan completed a hands-on driving review and reported that the car seems to drive fine. Handling, steering, braking/reverse, camera feel, and jump behavior are accepted for now. Physical Xbox controller acceptance remains separate unless Dan explicitly confirms testing it.
 
 ### Tuning Notes
 - Handling: Four ray suspension probes, 1200 kg rigidbody, centre of mass (0, -0.35, 0). Acceleration 12 m/s²; forward speed target 38 m/s; reverse target 11 m/s. Grip response 7/s capped at 22 m/s². Full-lock 10-second cornering stayed upright; 7 m/s lateral slip recovered within one second. Dan must approve enjoyment and forgiveness.
@@ -164,72 +165,274 @@ Technical checks above passed automated testing and camera view inspection. Phys
 
 ---
 
-# PHASE 2 — Childhood Street Greybox
+# PHASE 2 — Childhood Street / Real Loop Greybox
 
 ## Goal
-Build a recognizable but deliberately simplified version of the street.
+Build a recognizable, drivable greybox of the **full real road loop** Dan remembers from childhood, using the older remembered landscape rather than the current-day development pattern.
 
-## Inputs Dan Will Provide
-- [ ] Street/location information or map reference.
-- [ ] Approximate start/end points to recreate.
-- [ ] Important landmarks/houses/features worth recognizing.
-- [ ] Photos or screenshots if useful.
-- [ ] Notes about what can be fictionalized.
+The loop itself is based on real roads. Phase 2 should include the full road loop, but **not** race systems such as laps, checkpoints, timers, HUD, or start/finish logic.
+
+## Reference Images
+
+Place the map references in the project under:
+
+`Docs/References/`
+
+Recommended names:
+- `area_map_satellite.png`
+- `area_map_plain.png`
+- `area_map_annotated.jpg`
+
+The annotated image is the primary guide.
+
+## Annotated Map Legend / Memory Notes
+
+- **Red line** = the full real road loop to recreate.
+- **Blue X** = Dan's childhood house.
+- **Blue 1, 2, 3** = the other three original houses in the immediate area around Dan's house.
+- **Blue circle across the street** = Dan's friend's house; this still exists and should remain.
+- The other blue circle is not important.
+- **Green-marked areas** = areas that should feel wooded/open rather than filled with newer subdivisions.
+- **Black X marks** = modern roads/development that should be removed or ignored for the remembered version.
+- **Yellow circles** = important elevation/road-profile areas described below.
+
+## Environment / Era Direction
+
+This is **not a current-day reconstruction**. Prefer Dan's remembered older version of the area whenever modern map data conflicts with memory.
+
+- Remove/ignore newer subdivision roads and dense newer neighborhood build-out where marked.
+- Replace those newer developments mainly with woods/open land.
+- The area around Dan's childhood house should be sparse: Dan's house, houses 1/2/3, the friend's house across the street, and plenty of wooded space.
+- Additional houses may be placed approximately/randomly in sensible locations where exact memory is unavailable.
+- There should be a placeholder house behind the hairpin turn for now because Dan remembers one there. A lake may be explored later as a gameplay change, but not in Phase 2.
+- The storage facility is not important and does not need to be preserved accurately.
+- The main road can have a reasonably busy commercial/business feel.
+- The connecting road can have several houses along it.
+- The far/end portion of Dan's road can also have several houses.
+
+## Terrain / Elevation Direction
+
+Dan's street is a hilly/mountain road, although not an extreme high mountain.
+
+From the **first yellow circle to the last yellow circle** is the main hilly street section.
+
+- Coming from the main road onto Dan's street, there is a **fairly large uphill climb**.
+- After the initial climb, the road flattens somewhat but continues with **smaller rolling hills up and down** throughout the street.
+- The **second yellow circle** marks a **fairly large downhill drop**. Dan and his friend used to sled down this hill when it was icy.
+- The **last yellow circle** marks the end of Dan's street where the road descends more gradually; it is downhill but not especially steep.
+- The rest of the loop is relatively flatter than Dan's street.
+
+Elevation character is a major part of making the location recognizable and should not be reduced to a flat map.
+
+## Phase 2 Inputs
+
+- [x] Street / loop map references supplied.
+- [x] Full real loop identified in red.
+- [x] Childhood house identified.
+- [x] Three nearby original houses identified.
+- [x] Friend's house identified.
+- [x] Wooded areas / later development removals identified.
+- [x] Major elevation character described.
+- [x] Main-road / connecting-road development character described.
+- [x] Exact placement of less-important houses may be approximate.
 
 ## TODO
-- [ ] Create rough road alignment.
-- [ ] Establish approximate scale.
-- [ ] Add terrain/ground.
-- [ ] Add rough lots/building masses.
-- [ ] Add obvious landmarks as simple placeholder geometry.
-- [ ] Test entire street with the Phase 1 vehicle.
-- [ ] Adjust widths/turn radii for enjoyable driving.
-- [ ] Confirm the result feels recognizable enough.
+
+- [ ] Create the full rough road loop shown in red.
+- [ ] Establish approximate real-world scale suitable for driving.
+- [ ] Shape terrain to reflect the remembered hills and elevation changes.
+- [ ] Add the significant uphill entrance onto Dan's street.
+- [ ] Add rolling smaller hills along Dan's street.
+- [ ] Add the larger downhill drop at the second yellow circle.
+- [ ] Add the gradual downhill near the last yellow circle.
+- [ ] Add Dan's childhood house as a simple placeholder mass.
+- [ ] Add houses 1, 2, and 3 as simple placeholder masses.
+- [ ] Add the friend's house across the street.
+- [ ] Add the placeholder house behind the hairpin turn.
+- [ ] Replace marked newer subdivisions/development with wooded/open areas.
+- [ ] Add approximate/random houses where appropriate on the connecting road and other remembered residential areas.
+- [ ] Give the main road a basic commercial/business character.
+- [ ] Preserve `PrototypeTrack` and create a separate greybox scene for the real loop.
+- [ ] Test the entire loop with the Phase 1 vehicle.
+- [ ] Adjust road width/curve smoothness only as much as needed for comfortable driving.
+- [ ] Confirm the result is recognizable enough to Dan.
 
 ## Tell Astra/Codex
 
-> Begin Phase 2 only. We are creating a GREYBOX version of my childhood street from the references I provide.
+> **Before making any changes, inspect the current project state and create a Git commit of all current saved changes as a safety checkpoint. Do not modify anything until that commit succeeds.**
 >
-> Accuracy priority:
-> 1. Recognizable road layout and important landmarks.
-> 2. Good driving scale and sight lines.
-> 3. Geographic precision is secondary.
+> We are continuing work on the Unity project **Racer**.
 >
-> Build the street using simple geometry and placeholder materials. Do not spend time making houses beautiful yet.
+> First:
+> 1. Inspect the current Unity project.
+> 2. Read `PROJECT_TODO.md` in the project root and treat it as the source of truth.
+> 3. Inspect the map reference files in `Docs/References/` and use them as the primary visual references for Phase 2.
 >
-> Keep real-world inspiration separate from gameplay modifications wherever practical so we can alter the circuit later without rebuilding everything.
+> Dan has reviewed Phase 1 and says the car seems to drive fine, so we are cleared to begin **Phase 2 only**.
 >
-> The Phase 1 vehicle must remain playable.
+> ## Phase 2 Goal
+> Build a **drivable greybox version of the full real loop** Dan remembers from childhood.
 >
-> Do not yet close the road into a racing circuit, add formal checkpoints, decorate heavily, or build final jumps/shortcuts.
+> This is not a current-day accurate map recreation. It should represent **Dan's remembered older version of the area**, not the modern built-up neighborhood layout.
 >
-> At the end, test driving the entire greybox and report any places where the real geometry needed to be exaggerated for gameplay.
+> ## High-level route guidance
+> Use the annotated map as the main guide.
+>
+> - The **red route** shows the full loop to recreate.
+> - The loop is based on real roads; do not invent a separate connector road merely to close the circuit.
+> - The route includes the main road, the connecting road, Dan's neighborhood/mountain-road section, and the lower return section that completes the real loop.
+>
+> ## Annotated map guidance
+> - **Blue X** = Dan's childhood house.
+> - **Blue 1, 2, 3** = the other three original houses near Dan's house.
+> - **Blue circle across the street** = Dan's friend's house; preserve it.
+> - The other blue circle is not important.
+> - **Green-marked areas** should feel wooded/open instead of filled with newer subdivisions.
+> - **Black X marks** indicate modern roads/development to remove or ignore for this remembered version.
+> - **Yellow circles** identify important road/elevation areas described below.
+>
+> ## Environment and memory guidance
+> Prefer Dan's remembered version of the place whenever memory and the current map conflict.
+>
+> - Remove or ignore newer subdivision roads and newer dense development where marked.
+> - Replace much of those removed areas with **woods/open land**.
+> - Around Dan's childhood house, preserve a sparse feel: Dan's house, houses 1/2/3, the friend's house across the street, and substantial wooded space.
+> - Add a few additional houses approximately/randomly in sensible locations where Dan does not remember exact placement.
+> - Put a simple placeholder house behind the hairpin turn for now.
+> - The storage facility is not important and does not need accurate recreation.
+> - The main road may have a reasonably busy commercial/business feel.
+> - The connecting road may have several houses along it.
+> - The far/end portion of Dan's road may also have several houses.
+>
+> ## Terrain / elevation guidance
+> Dan's neighborhood street is a **hilly/mountain road**, though not an extreme mountain.
+>
+> From the **first yellow circle to the last yellow circle** is the main hilly street section:
+>
+> - coming from the main road onto Dan's street, there is a **fairly significant uphill climb**;
+> - after that, the road somewhat levels out but still has **multiple smaller rolling hills**;
+> - the **second yellow circle** marks a **fairly large downhill drop**;
+> - the **last yellow circle** marks the end of the street where it slopes downhill more gradually.
+>
+> The rest of the loop is relatively flatter.
+>
+> This elevation character is important and should be reflected in the greybox terrain and road profile.
+>
+> ## Implementation requirements
+> Build a **simple greybox** only:
+>
+> - simple road geometry
+> - simple terrain/ground shaping
+> - simple placeholder houses/building masses
+> - simple placeholder woods/trees if useful
+> - simple materials only
+>
+> Preserve and reuse the existing Phase 1 vehicle so the loop can be driven immediately.
+>
+> Create a **new scene** for this phase, preferably `StreetLoopGreybox`, while preserving `PrototypeTrack` for reference/testing.
+>
+> ## Accuracy priorities
+> Prioritize in this order:
+>
+> 1. Recognizable road layout and full real loop structure.
+> 2. Recognizable terrain/elevation feel.
+> 3. Dan's childhood house, houses 1/2/3, and the friend's house.
+> 4. A wooded, older, less-developed feeling.
+> 5. Driveability with the Phase 1 vehicle.
+> 6. Geographic precision is secondary.
+>
+> If exact memory and current map data conflict, prefer **Dan's remembered version**.
+>
+> If needed for playability, make only **small** adjustments to road width, curve smoothness, or spacing, and clearly report them.
+>
+> ## Important scope limits
+> Do NOT add:
+>
+> - start/finish line
+> - checkpoints
+> - lap system
+> - timer
+> - HUD
+> - shortcuts
+> - stunt ramps or jumps
+> - breakable-fence gameplay
+> - major visual polish
+> - formal circuit/race systems
+>
+> Phase 2 includes the full real closed road loop, but it is still only a **memory-based drivable environment greybox**.
+>
+> ## Testing
+> Test that:
+>
+> - the new scene loads correctly,
+> - the Phase 1 car can drive the full loop,
+> - the major hill sections are traversable,
+> - there are no major collision/blocking problems,
+> - there are no compile errors,
+> - and the Console ends cleanly.
+>
+> Update `PROJECT_TODO.md` for Phase 2 only where work is actually completed.
+>
+> Update the `SESSION HANDOFF` section with:
+> - current playable state,
+> - what was added/changed,
+> - any known issues,
+> - any places where geometry had to be exaggerated or simplified,
+> - any areas where exact placement was guessed,
+> - and what Dan should test next.
+>
+> When the work is stable, create a new Git commit for the completed Phase 2 implementation.
+>
+> Do not begin Phase 3.
+>
+> ## Final report
+> At the end, give me:
+>
+> - the name of the scene to open,
+> - what roads/terrain/features were built,
+> - what landmarks were included,
+> - where you simplified or guessed,
+> - what files/scenes/prefabs/scripts were created or changed,
+> - whether the full loop is drivable,
+> - whether the Console has zero errors,
+> - and exactly what Dan should test manually.
 
 ## Acceptance Test
-- [ ] Dan recognizes the street.
-- [ ] Road scale feels believable.
-- [ ] Car can drive the complete street.
-- [ ] No major collision problems.
-- [ ] Placeholder buildings/landmarks give enough visual orientation.
 
-### Street Notes
-- Key landmarks:
-- Things that must remain recognizable:
-- Things we can fictionalize:
-- Scale changes:
+- [ ] The full real road loop exists and is drivable.
+- [ ] Dan recognizes the road layout.
+- [ ] The initial uphill onto Dan's street feels significant.
+- [ ] Smaller rolling hills are present along the street.
+- [ ] The larger downhill drop feels recognizable.
+- [ ] The gradual downhill at the road's end feels appropriate.
+- [ ] Dan's house and houses 1/2/3 are represented.
+- [ ] Friend's house across the street is represented.
+- [ ] Newer subdivisions are substantially removed/replaced with woods/open land.
+- [ ] Main road/commercial area feels appropriately more developed.
+- [ ] Connecting road has suitable residential development.
+- [ ] Car can drive the complete loop without major collision problems.
+- [ ] No compile errors.
+- [ ] Dan approves the greybox as recognizable enough to proceed.
+
+### Street / Terrain Notes
+
+- Key landmarks: Dan's childhood house; houses 1/2/3; friend's house across the street; placeholder house behind hairpin.
+- Things that must remain recognizable: full real road loop; hilly character of Dan's street; sparse wooded childhood-house area.
+- Things we can fictionalize/approximate: exact placement of less-important houses; details of businesses on main road; minor vegetation/building placement.
+- Possible later gameplay alteration: consider replacing the house behind the hairpin with a lake if that proves more fun, but **not during Phase 2**.
 - Bugs:
+- Dan's review notes:
 
 ---
 
-# PHASE 3 — Turn the Street Into a Circuit
+# PHASE 3 — Add Race Systems to the Real Loop
 
 ## Goal
-Transform the street into a fun closed racing loop while retaining its identity.
+Turn the already-built real closed road loop into a functioning race course by adding race systems while preserving the Phase 2 environment.
 
 ## TODO
-- [ ] Decide how the ends connect.
-- [ ] Build fictional connecting road/route.
-- [ ] Ensure smooth circuit flow.
+- [ ] Confirm the Phase 2 real loop has suitable race flow.
+- [ ] Make only minor race-flow adjustments if necessary.
 - [ ] Establish start/finish area.
 - [ ] Add checkpoint system.
 - [ ] Add lap counting.
@@ -241,9 +444,9 @@ Transform the street into a fun closed racing loop while retaining its identity.
 
 ## Tell Astra/Codex
 
-> Begin Phase 3 only. Turn the existing childhood-street greybox into a CLOSED ARCADE RACING CIRCUIT.
+> Begin Phase 3 only. Add race systems to the existing real closed-loop greybox.
 >
-> Preserve the recognizable portion of the street where possible, but invent whatever connecting road or environment is necessary to make the route loop naturally.
+> Preserve the Phase 2 real road loop and remembered environment. Do not invent a new connector road because the loop already exists in the real road layout.
 >
 > Implement:
 > - Start/finish line.
@@ -493,6 +696,10 @@ Record choices we do not want to repeatedly reconsider.
 | TBD | Arcade handling over simulation | Matches the intended Forza Horizon-style experience |
 | TBD | One childhood street first | Small enough to actually finish |
 | TBD | Greybox before visual polish | Gameplay first |
+| 2026-09-17 | Phase 1 handling accepted | Dan tested the prototype and reported that it seems to drive fine |
+| 2026-09-17 | Phase 2 uses the full real road loop | The loop already exists in the real road layout; no fake connector is needed |
+| 2026-09-17 | Prefer remembered older landscape over current development | Newer subdivisions should be replaced largely with woods/open land where indicated |
+| 2026-09-17 | Commit before every Codex work session | Dan saves locally between sessions and wants a safety checkpoint before Astra changes anything |
 
 ---
 
@@ -500,18 +707,22 @@ Record choices we do not want to repeatedly reconsider.
 
 Update this section before bringing the file back to ChatGPT.
 
-**Current phase:** Phase 1 — implemented; awaiting Dan's driving review  
-**Last completed task:** Arcade prototype implementation and technical validation. Phase 0 accepted by Dan and preserved in pre-work commit 12b1dff (original foundation c7dc529, handoff c872572).  
-**Current playable state:** Open Assets/Scenes/PrototypeTrack.unity, press Play, and focus Game view. One placeholder car, open grey-box pad, turn islands/slalom, gentle and larger test ramps, controller/keyboard input, chase camera, manual/fall reset.  
-**Astra's latest summary:** Renamed this document's heading to Racer before gameplay work. Added modular vehicle/input/respawn/camera scripts, a saved car prefab, grey-box scene, placeholder materials/ramp meshes, and repeatable Editor validation. Twenty automated checks pass; real-time driving and rendered camera view checked. Saved scene reload has no missing scripts or broken references. Final actual Console: zero errors and zero warnings. No subjective enjoyment approval claimed. Phase 1 implementation is committed locally on completion; no push requested. See README.md and Docs/PHASE1_VALIDATION.md for tuning and verification details.  
-**New bugs:** None known from tested scenarios. Initial asset-extension diagnostic and obsolete test API warnings corrected.  
-**Things Dan wants changed:** Pending hands-on feedback about grip, steering, braking/reverse, jumps, and camera.  
-**Questions/uncertainties:** Physical Xbox hardware and several-minutes enjoyment test remain unverified. Hard/angled impacts and ramp edges may still flip the car; Y/R recovers. Pipeline remains experimental. Do not start Phase 2 until Dan explicitly accepts Phase 1 and authorizes it.  
-**Ready for next phase?:** No  
+**Current phase:** Phase 2 — ready to begin  
+**Last completed task:** Phase 1 hands-on review completed; Dan reports the car seems to drive fine. Phase 1 accepted for handling/camera/braking/jump feel.  
+**Current playable state:** `PrototypeTrack` remains playable with the Phase 1 placeholder car, keyboard/controller input, chase camera, ramps, and reset system.  
+**Astra's latest summary:** Phase 1 implementation and validation completed previously. Dan has now completed the required subjective driving review and accepted the current vehicle feel.  
+**New bugs:** None reported by Dan during the Phase 1 hands-on test.  
+**Things Dan wants changed:** Begin Phase 2 using the full real road loop from the annotated map. Recreate the older remembered environment rather than current-day subdivisions. Preserve the key houses and hilly terrain described in the Phase 2 section.  
+**Questions/uncertainties:** Exact placement of less-important houses can be approximate. The placeholder house behind the hairpin should remain for now; a possible lake there is a later gameplay idea. Physical Xbox controller acceptance remains unconfirmed unless Dan separately tests it.  
+**Ready for next phase?:** Yes — Phase 2 is authorized.  
 
 ---
 
 # How Dan and ChatGPT Will Use This File
+
+At the beginning of every Astra/Codex work session:
+
+1. Astra/Codex must inspect the current project and create a Git commit of all saved changes before modifying anything.
 
 At the end of an Astra/Codex work session:
 
@@ -519,8 +730,9 @@ At the end of an Astra/Codex work session:
 2. Paste Astra's final summary into `SESSION HANDOFF`.
 3. Add any bugs under `BUG TRACKER`.
 4. Add personal complaints/changes under `CHANGE REQUESTS`, even if they seem minor.
-5. Bring this `.md` file back to ChatGPT.
-6. ChatGPT will:
+5. Make a completion Git commit once the phase work is stable.
+6. Bring this `.md` file back to ChatGPT.
+7. ChatGPT will:
    - review what changed;
    - decide whether the current phase actually passes;
    - update priorities;
