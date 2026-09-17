@@ -48,8 +48,7 @@ public static class StreetLoopValidation {
     Check(progress>=route.Count && maxError<3.5f && minUp>.8f,$"Full loop direction {direction}: progress {progress}/{route.Count}, time {steps*.02f:F1}s, max centre error {maxError:F2}m, min upright {minUp:F3}, airborne steps {airborne}. Real Phase 1 forces; no teleport during traversal.");
    }
   } finally {Physics.simulationMode=oldMode;body.interpolation=oldInterpolation;car.enabled=oldEnabled;reset.enabled=oldReset;reset.ResetVehicle();}
-  report.Add("Failures: "+failures);File.WriteAllLines("Docs/PHASE2_TEST_RESULTS.txt",report);Debug.Log(string.Join("\n",report));
+  report.Add("Failures: "+failures);File.WriteAllLines("Docs/PHASE2_REVISION_LOOP_RESULTS.txt",report);Debug.Log(string.Join("\n",report));
  }
 }
 }
-

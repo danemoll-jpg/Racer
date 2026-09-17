@@ -31,10 +31,13 @@ namespace Racer.Editor
         };
         public static List<Vector3> Route()
         {
+            // Interpretive metres, not surveyed: same X/Z spline and landmark order.
+            float[] heights = {8,22,52,78,82,76,86,77,88,82,38,27,25,33,24,23,30,38,30,42,35,46,37,44,35,40,31,36,30,30,29,8,7,6,6,7,8,9,9,8,8,8,9,8,8,9,9,8,8};
             var dense = new List<Vector3>();
             for(int i=0;i<Knots.Length;i++) {
                 Vector3 a=Knots[(i+Knots.Length-1)%Knots.Length], b=Knots[i], c=Knots[(i+1)%Knots.Length], d=Knots[(i+2)%Knots.Length];
                 int steps=Mathf.CeilToInt(Vector3.Distance(b,c)/2);
+                a.y=heights[(i+Knots.Length-1)%Knots.Length]; b.y=heights[i]; c.y=heights[(i+1)%Knots.Length]; d.y=heights[(i+2)%Knots.Length];
                 for(int j=0;j<steps;j++) { float t=j/(float)steps;
                     dense.Add(0.5f*((2*b)+(-a+c)*t+(2*a-5*b+4*c-d)*t*t+(-a+3*b-3*c+d)*t*t*t));
                 }
@@ -60,9 +63,7 @@ namespace Racer.Editor
             return baseHeight-1.1f + blend*(Mathf.PerlinNoise((p.x+1000)/180,(p.z+1000)/180)*18-9);
         }
         public static void RefreshTerrain() {
-            var r=Route();var go=GameObject.Find("Rolling ground");var mesh=go.GetComponent<MeshFilter>().sharedMesh;var v=mesh.vertices;for(int i=0;i<v.Length;i++)v[i].y=Ground(v[i],r);mesh.vertices=v;mesh.RecalculateNormals();mesh.RecalculateBounds();go.GetComponent<MeshCollider>().sharedMesh=null;go.GetComponent<MeshCollider>().sharedMesh=mesh;EditorUtility.SetDirty(mesh);
-            foreach(string name in new[]{"Remembered houses and approximate buildings","Woods replacing later subdivisions"})foreach(Transform t in GameObject.Find(name).transform){var p=t.position;p.y=Ground(p,r);t.position=p;}
-            EditorSceneManager.SaveScene(SceneManager.GetActiveScene());AssetDatabase.SaveAssets();
+            StreetLoopRevision.Rebuild();
         }
         [MenuItem("Racer/Build Phase 2 Street Loop (new scene only)")]
         public static void Build() {
@@ -114,6 +115,7 @@ namespace Racer.Editor
             var sun=new GameObject("Sun").AddComponent<Light>();sun.type=LightType.Directional;sun.intensity=1.7f;sun.transform.rotation=Quaternion.Euler(50,-35,0);sun.shadows=LightShadows.Soft;
             RenderSettings.ambientMode=UnityEngine.Rendering.AmbientMode.Flat;RenderSettings.ambientLight=new Color(.6f,.62f,.65f);
             EditorSceneManager.SaveScene(scene,ScenePath);AssetDatabase.SaveAssets();
+            StreetLoopRevision.Rebuild();
         }
         static Material Mat(string name,Color c) {var m=new Material(Shader.Find("Universal Render Pipeline/Lit")){name=name,color=c};m.SetFloat("_Smoothness",.08f);AssetDatabase.CreateAsset(m,Folder+"/"+name+".mat");return m;}
         static void Cube(string name,Transform parent,Vector3 p,Vector3 size,Material m){var g=GameObject.CreatePrimitive(PrimitiveType.Cube);g.name=name;g.transform.SetParent(parent,false);g.transform.localPosition=p;g.transform.localScale=size;g.GetComponent<Renderer>().sharedMaterial=m;}

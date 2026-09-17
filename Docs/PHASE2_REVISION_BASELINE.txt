@@ -1,0 +1,2 @@
+Baseline lateral support scan: worst adjacent 0.25m height change=1.060762m at route index 700, offset -9; transitions >0.3m=467
+Baseline real-car perpendicular re-entry at route 700: surface above body=0.49646m, body-below-surface steps=264, under-two-wheel steps=0, end=(375.90, 31.97, -361.64)

@@ -1,0 +1,5 @@
+Original house 3: centre setback=113.5445m, ground=32.75478, road=60.75478, difference=-28
+Friend across street - blue circle: centre setback=37.85019m, ground=84.86552, road=87.86552, difference=-3
+Visible/collision mesh reference mismatches=0
+
+Road/shoulder props audit at seven offsets +/-16m every fifth route sample: blocking non-terrain overlaps=0

@@ -1,0 +1,7 @@
+PASS Virtual keyboard W/D
+PASS Virtual keyboard S/A
+PASS Virtual keyboard arrows
+PASS R resets to original fixed-spawn system with cleared momentum
+PASS Camera snaps on reset
+PASS Chase camera follow remains near car
+Virtual keyboard only; physical keyboard interaction and physical controller not exercised by this test.

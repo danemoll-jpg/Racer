@@ -1,0 +1,3 @@
+Terrain: 801x801 at 2m; 100 tiles, one shared visible/collision heightfield.
+Trees: 6118; forest renderer batches: 90; building sites: 48.
+House3: (429.00, 0.00, -220.00), ground 32.75; friend: (511.50, 0.00, -35.20), ground 84.87.

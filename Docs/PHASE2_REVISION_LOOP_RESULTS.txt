@@ -1,0 +1,6 @@
+PASS: Continuous road support across 6m driving corridor: missing=0
+PASS: Clear driving corridor: blocked=0
+Road length 4674.1m; max local grade 54.0%.
+PASS: Full loop direction 1: progress 2331/2331, time 564.1s, max centre error 2.82m, min upright 0.880, airborne steps 0. Real Phase 1 forces; no teleport during traversal.
+PASS: Full loop direction -1: progress 2331/2331, time 564.6s, max centre error 2.78m, min upright 0.880, airborne steps 0. Real Phase 1 forces; no teleport during traversal.
+Failures: 0

@@ -1,0 +1,4 @@
+Forest enabled spawn: 180 live Play frames, editor interval median 3.31ms, p95 4.31ms. Resolution 734x293; vSync 0; target -1.
+Forest disabled spawn: 180 live Play frames, editor interval median 3.22ms, p95 4.07ms. Resolution 734x293; vSync 0; target -1.
+Final dense forest enabled parked: 180 live Play frames, editor interval median 5.01ms, p95 14.31ms. Resolution 734x293; vSync 0; target -1.
+Final dense forest disabled parked: 180 live Play frames, editor interval median 7.07ms, p95 13.98ms. Resolution 734x293; vSync 0; target -1.
