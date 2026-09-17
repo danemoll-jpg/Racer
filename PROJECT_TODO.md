@@ -191,7 +191,7 @@ The annotated image is the primary guide.
 
 - **Red line** = the full real road loop to recreate.
 - **Blue X** = Dan's childhood house.
-- **Blue 1, 2, 3** = the other three original houses in the immediate area around Dan's house.
+- **Corrected memory:** Only two neighboring houses belong beside Dan's childhood house: retain the houses marked **2** and **3**, with their existing labels. Remove the house marked **1** and expand Dan's yard into its former site. This supersedes the original map interpretation and any older instructions to retain all three.
 - **Blue circle across the street** = Dan's friend's house; this still exists and should remain.
 - The other blue circle is not important.
 - **Green-marked areas** = areas that should feel wooded/open rather than filled with newer subdivisions.
@@ -204,7 +204,7 @@ This is **not a current-day reconstruction**. Prefer Dan's remembered older vers
 
 - Remove/ignore newer subdivision roads and dense newer neighborhood build-out where marked.
 - Replace those newer developments mainly with woods/open land; substantially increase trees so the area feels heavily forested.
-- The area around Dan's childhood house should be sparse: Dan's house, houses 1/2/3, the friend's house across the street, and plenty of wooded space.
+- The area around Dan's childhood house should be sparse: Dan's house with its expanded yard, houses 2/3, the friend's house across the street, and plenty of wooded space.
 - Add more approximate/random houses in sensible residential locations where exact memory is unavailable, while preserving the sparse older settlement pattern.
 - There should be a placeholder house behind the hairpin turn for now because Dan remembers one there. A lake may be explored later as a gameplay change, but not in Phase 2.
 - The storage facility is not important and does not need to be preserved accurately.
@@ -233,7 +233,7 @@ House 3 must sit farther from the road and down a steep hill. The friend's house
 - [x] Street / loop map references supplied.
 - [x] Full real loop identified in red.
 - [x] Childhood house identified.
-- [x] Three nearby original houses identified.
+- [x] Original house markers reviewed; corrected memory retains only neighboring Houses 2 and 3. House 1 removal is pending CR-012.
 - [x] Friend's house identified.
 - [x] Wooded areas / later development removals identified.
 - [x] Major elevation character described.
@@ -250,7 +250,7 @@ House 3 must sit farther from the road and down a steep hill. The friend's house
 - [x] Add the larger downhill drop at the second yellow circle.
 - [x] Add the gradual downhill near the last yellow circle.
 - [x] Add Dan's childhood house as a simple placeholder mass.
-- [x] Add houses 1, 2, and 3 as simple placeholder masses.
+- [x] Initial placeholders added (historical). CR-012 now removes House 1; retain Houses 2 and 3.
 - [x] Add the friend's house across the street.
 - [x] Add the placeholder house behind the hairpin turn.
 - [x] Replace marked newer subdivisions/development with wooded/open areas.
@@ -327,7 +327,7 @@ Historical instructions below applied before acceptance. For the next session, u
 - [ ] Rolling hills are frequent and noticeable enough to resolve the overly flat driving feel.
 - [ ] The larger downhill drop feels recognizable.
 - [ ] The final downhill is shorter and clearly noticeable, while gentler than the second drop.
-- [x] Dan's house and houses 1/2/3 are represented.
+- [x] Original house placeholders represented (historical); corrected arrangement is tracked under CR-012.
 - [x] Friend's house across the street is represented.
 - [x] Newer subdivisions are substantially removed/replaced with woods/open land.
 - [ ] Main road/commercial area feels appropriately more developed.
@@ -346,7 +346,7 @@ Historical instructions below applied before acceptance. For the next session, u
 
 ### Street / Terrain Notes
 
-- Key landmarks: Dan's childhood house; houses 1/2/3; friend's house across the street; placeholder house behind hairpin.
+- Key landmarks: Dan's childhood house with expanded yard; houses 2/3; friend's house across the street; placeholder house behind hairpin.
 - Things that must remain recognizable: full real road loop; hilly character of Dan's street; sparse wooded childhood-house area.
 - Things we can fictionalize/approximate: exact placement of less-important houses; details of businesses on main road; minor vegetation/building placement.
 - Possible later gameplay alteration: consider replacing the house behind the hairpin with a lake if that proves more fun, but **not during Phase 2**.
@@ -486,7 +486,7 @@ Make the course delightfully irresponsible.
 
 # PHASE 5 — Intentional Shortcut
 
-**Status:** IMPLEMENTED / AWAITING DAN'S APPROVAL. Phases 2, 3 and 4 remain ACCEPTED. Exactly one shortcut; no Phase 6, second shortcut or additional jump.
+**Status:** ACCEPTED — Dan confirmed the shortcut works and agreed to move on. Phases 2–4 remain accepted. Phase 6 is next; no new implementation in this documentation update.
 
 ## Goal
 Allow players to discover a faster, narrower alternative through the remembered woodland.
@@ -500,7 +500,7 @@ Allow players to discover a faster, narrower alternative through the remembered 
 - [x] Compare matched normal/shortcut runs including approach and re-entry; retain failed-attempt evidence.
 - [x] Test slow/intended/fast/misaligned driving, recovery, mixed laps, skipped/repeated/wrong-way gates, reset, restart, accepted jump, braking, HUD and virtual controls.
 - [x] Save/reload scene, compile and inspect Console and visual captures.
-- [ ] Dan approves usefulness, precision/risk, re-entry, recovery, camera/controller feel and lap progression.
+- [x] Dan accepts the shortcut overall and agrees to move on. Individual test/device coverage is not implied.
 - [ ] Second shortcut — deferred; not authorized.
 
 ## Shortcut and measured results
@@ -516,7 +516,9 @@ No vehicle tuning, camera/input/reset/race source, gate geometry, jump, road loo
 
 Full test conditions, raw-report links, limitations and manual checklist: **`Docs/PHASE5_VALIDATION.md`**. Completion commit is reported in the task's final response. Do not run the older Phase 2 environment rebuild over this local modification.
 
-## Acceptance Test — Dan's review pending
+## Acceptance Test — Overall phase accepted
+
+Dan confirmed the shortcut works and agreed to move on. Detailed unchecked items below do not imply individually verified manual/device coverage and do not block progression.
 - [ ] Entrance is recognizable and deliberately usable.
 - [ ] Clean shortcut runs feel usefully faster.
 - [ ] Narrower line supplies sufficient, manageable risk.
@@ -530,7 +532,11 @@ Full test conditions, raw-report links, limitations and manual checklist: **`Doc
 ## Goal
 Replace the sterile prototype feeling with a playful environment.
 
+**Next batch:** First apply CR-012: remove House 1 and extend Dan's yard into its site, keeping Houses 2 and 3. Then improve the remaining house/building silhouettes. Preserve locations, terrain support, road/shortcut/jump clearance and approved gameplay. Use simple cohesive low-poly forms; do not begin the other categories or Phase 7. Review this batch before choosing the next category.
+
 ## TODO
+- [ ] CR-012: Remove only the house marked #1, its dedicated collision and obsolete house-specific props/access; expand Dan's yard naturally into its former site. Retain Houses #2/#3 without renumbering, and preserve their positions/elevations.
+- [ ] Verify the expanded yard is continuous, grounded and free of invisible House #1 collisions; update relevant generation logic so House #1 does not return.
 - [ ] Improve house/building silhouettes.
 - [ ] Add trees/vegetation.
 - [ ] Add fences.
@@ -724,6 +730,15 @@ Use this for things that are not bugs but that Dan wants changed.
 **Acceptance:** Dan approves the combined speed and handling; steering, braking, landing/recovery and race systems remain predictable and functional.  
 **Result:** Scene-instance speed parameter 38→44 m/s (+15.8%) and acceleration 12→13.5 m/s² (+12.5%). From rest on the same ~220 m stretch, reached 33.93→38.41 m/s. Revised main-road run reached 41.183 m/s (148.3 km/h) naturally, with 6.90 s above 40 m/s. Three actual continuous racing-speed laps passed: 552.36 s traversal, 25.47 m/s average, 39.71 m/s peak, all checkpoints/jumps valid. Braking 35→0.85 m/s stayed 1.40 s / 24.64 m. Existing reverse, camera, input and reset preserved; HUD adds speed. First jump recommended 110–120 km/h. Artificial high-speed stress tests are distinguished from naturally achieved speeds. Full values, landing limits, recovery and physical-controller limitations: `Docs/PHASE4_VALIDATION.md`.
 
+### CR-012 — Correct neighboring house count and expand Dan's yard
+**Status:** Planned for the Phase 6 building pass; no scene changes made in this documentation update.  
+**Current behavior:** Earlier memory guidance included three neighboring houses labeled 1, 2 and 3.  
+**Requested change:** Dan corrected his memory: only two neighboring houses. Keep Houses 2 and 3 with their current labels and placement; remove House 1 and expand Dan's childhood-house yard into that space. Preserve Dan's house, the friend's house across the street and the hairpin house. Remove House 1's dedicated colliders and obsolete house-specific props/access without removing shared assets or unrelated objects. Blend the former footprint into a continuous yard; do not replace it with another structure or road.  
+**Reason:** Correct Dan's remembered landscape. Latest correction supersedes older map legends, prompts and preservation instructions referencing the three neighboring houses.  
+**Phase affected:** Phase 6 focused building batch; prior phase acceptance remains intact.  
+**Acceptance:** House 1 and its invisible collision are gone; Houses 2 and 3 are unchanged and not renumbered; Dan's house stays in place with a visibly larger, naturally blended yard. Roads/shoulders and accepted gameplay remain unaffected. Relevant generation logic preserves the correction. Dan reviews the result.  
+**Result:** Pending implementation.
+
 ---
 
 # DECISION LOG
@@ -753,11 +768,16 @@ Record choices we do not want to repeatedly reconsider.
 
 | 2026-09-17 | Accept Phase 4 and close CR-010/CR-011 | Dan replied "approved" to the completion report; physical-controller testing remains unconfirmed |
 
+| 2026-09-17 | Phase 5 accepted; move to Phase 6 in small batches | Dan confirmed the shortcut works and agreed to move on; begin with house/building silhouettes |
+
+| 2026-09-17 | Keep Houses 2 and 3; remove House 1 and expand Dan's yard | Dan corrected his memory to two neighboring houses; labels remain unchanged and older three-house directions are superseded |
+
 ---
 
 # SESSION HANDOFF
 
-**Current phase:** Phase 5 implemented; AWAITING DAN'S APPROVAL. Phases 2, 3 and 4 remain ACCEPTED, including the first jump and closed CR-010/CR-011. No Phase 6, second shortcut or additional jump.
+**Latest correction / next work:** CR-012 — remove House #1 and expand Dan's yard into its former site. Keep Houses #2/#3 unchanged without renumbering. Apply this before the remaining Phase 6 building silhouette work. Documentation updated only; scene change pending.
+**Current phase:** Phases 2–5 ACCEPTED. Phase 6 is next, beginning with one focused house/building silhouette pass. Accepted jump, shortcut and CR-010/CR-011 tuning remain intact. No implementation performed in this documentation update.
 **Safety checkpoint:** Working tree was clean at `64c122016a6efa7c142438835c88ff47770d38ed` before any modification. Completion commit contains this handoff and is reported in the task's final response.
 **Scene/directions:** `Assets/Scenes/StreetLoopGreybox.unity`. At the southwest bend, pass CP11 then bear right onto the brown path marked WOODLAND CUT. It rejoins the northbound road before CP12. Entry (-560.08,6.36,-551.35), exit (-620.04,6.39,-449.38); root `Phase 5 - Southwest woodland shortcut`. Existing orange jump remains farther ahead after CP13, before CP14.
 **Driving/risk:** Start at 80–90 km/h (22–25 m/s), steer smoothly along the narrower dirt line and straighten before rejoining. Sign allows up to 95 km/h with less margin. Missing the entrance leaves the road usable. High-speed attempts run wide into the shoulder/woods; brake/lift to recover or use R/Y. No extra dirt grip penalty or punitive track-boundary rule.
@@ -770,7 +790,7 @@ Record choices we do not want to repeatedly reconsider.
 **Ordinary frames:** One calibrated virtual Gamepad run used normal Update/FixedUpdate, reached the exit in 9.468 game seconds, peak 24.32 m/s, max line error 2.86 m, upright 1.000; camera followed, HUD 87 km/h. Initial velocity was injected. This segment deliberately did not start a full lap. It used the feathered dirt edge. Initial uncalibrated wide run and paused-input failures remain documented separately.
 **Verification/limitations:** Scene saved/reloaded/played; compilation and Console checked; overview and chase-camera approach inspected. Automated driving is virtual motor input/manually stepped PhysX except the documented ordinary-frame virtual Gamepad run. No physical controller, standalone build, exhaustive collision proof or human subjective review. Tool command timeouts/scratch evaluation errors are separated from gameplay results. Keep the older Phase 2 environment rebuild away from these incremental local terrain/forest edits.
 **Evidence:** `Docs/PHASE5_VALIDATION.md`, all `Docs/PHASE5_*.txt` reports, visual captures and final Console report. Reproduce with `Phase5Validation.Run("timing"/"normal"/"shortcut"/"mixed"/"recovery")` in Play mode; `Realtime()` requires unpaused Play mode. Existing Phase 4 validation tools supply regression checks. Long Pipeline calls may time out while their reports still finish; verify files before retrying.
-**Dan's review:** Recognize entrance; compare usefulness against normal bend; judge narrow-line risk and camera feel; try slightly wide entry/rejoin and off-road recovery; verify R/Y abandons current lap; complete normal/shortcut/mixed laps including jump; test Start/Enter and physical controller. Leave Phase 5 pending approval.
+**Dan's review:** Shortcut works; Dan agreed to move on after discussing its limited new behavior. Phase 5 accepted overall. Physical-controller and individual manual-test coverage remain unspecified.
 
 ---
 # How Dan and ChatGPT Will Use This File
