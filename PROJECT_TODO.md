@@ -540,7 +540,9 @@ Replace the sterile prototype feeling with a playful environment.
 - [x] Improve house/building silhouettes in this focused batch: 4 residential + 4 commercial reusable variants, grounded entrances and aligned simple collision.
 - [x] Dan visually approves this building batch and CR-012; physical-controller testing remains unconfirmed.
 - [x] Improve existing trees/vegetation: three reusable crown shapes, coherent variation, unchanged 6,102 tree placements/colliders and 90 visual batches. See Docs/VEGETATION_VALIDATION.md.
-- [ ] Dan visually approves the vegetation batch; Phase 6 remains incomplete.
+- [ ] CR-014: Substantially expand woodland coverage across the neighborhood while keeping the forest floor drivable between trees; preserve accepted yards, buildings and gameplay clearances.
+- [ ] Profile baseline and revised forest during ordinary-frame road and off-road driving at representative resolution; optimize measured bottlenecks and report frame-time/memory limits.
+- [ ] Dan approves woodland coverage, off-road access and smoothness after CR-014; vegetation batch remains unaccepted and Phase 6 incomplete.
 - [ ] Add fences.
 - [ ] Add mailboxes/signs/street furniture.
 - [ ] Add breakable lightweight props.
@@ -750,6 +752,15 @@ Use this for things that are not bugs but that Dan wants changed.
 **Acceptance:** Compare revised homes with the supplied references and obtain Dan's approval; retain simple reliable collision and reasonable performance.  
 **Result:** Not started; no new home reference photos supplied in this request.
 
+### CR-014 — More extensively wooded neighborhood with drivable forest
+**Status:** OPEN — Phase 6 vegetation revision required; current vegetation batch not accepted yet.  
+**Current behavior:** The visual refresh kept 6,102 placements and added no trees. Dan says the neighborhood should be much more forested because much of it was woodland; he wants to drive through it and is concerned about frame rate.  
+**Requested change:** Substantially increase the area covered by connected woodland and improve its dense wooded appearance, not simply crown detail or uniform tree count. Keep navigable spaces between solid trunks, supported ground and ordinary off-road access. Avoid making the woods an impassable wall, a visual backdrop, or a set of narrow prescribed corridors. Natural obstacles and slopes may remain; not every gap must fit the car. Use canopy coverage and restrained non-colliding understory where useful.  
+**Preserve:** Expanded yard/former House 1 site, Houses 2/3, all accepted building sites, road/shoulder support, existing shortcut/jump clearances, vehicle tuning and race systems. Free off-road traversal does not authorize new named shortcuts or relaxed checkpoint validation.  
+**Performance:** Establish a comparable baseline, then profile increased coverage in stages. Measure ordinary-frame road and forest driving, multiple representative camera locations, frame-time spikes, CPU/GPU bottlenecks and memory where available. Use representative window/resolution settings and record them; the prior 734x293 samples and variable host timings do not establish performance at Dan's normal settings. Choose optimizations from measured bottlenecks; keep visual/collision consistency and safe collision availability during driving. Record actual results, hardware/settings and limits rather than promising a frame-rate target not yet supplied.  
+**Acceptance:** Dan judges the neighborhood substantially more wooded, can explore between trees and rejoin roads predictably, and finds performance acceptable. Compare before/after coverage and measured smoothness; test accepted gameplay and yard protections.  
+**Result:** Pending implementation. No forest changes or new performance tests performed by this documentation update.
+
 ---
 
 # DECISION LOG
@@ -786,11 +797,13 @@ Record choices we do not want to repeatedly reconsider.
 | 2026-09-17 | Accept the Phase 6 building batch and close CR-012 | Dan says it looks fine; this does not complete all of Phase 6 |
 | 2026-09-17 | Backlog photo-based home accuracy as CR-013 | Dan may supply photos later; current progress must not wait for them |
 
+| 2026-09-17 | Revise vegetation for substantially more woodland and drivable forest (CR-014) | Dan recalls broad wooded areas and wants off-road exploration; measure performance rather than assuming added trees are affordable or prohibitive |
+
 ---
 
 # SESSION HANDOFF
 
-**Current phase:** Phases 2–5 and the Phase 6 building batch remain ACCEPTED. CR-012 CLOSED. The focused vegetation batch is implemented and technically checked, AWAITING DAN'S VISUAL APPROVAL. Phase 6 remains incomplete; Phase 7 has not started. CR-013 remains OPTIONAL BACKLOG for photos Dan may provide; no buildings were revised for imagined references.
+**Current phase:** Phases 2–5 and the Phase 6 building batch remain ACCEPTED. CR-012 CLOSED. The initial vegetation visual refresh is implemented; Dan requests CR-014 for substantially more woodland with drivable forest. Vegetation approval is pending this revision. Phase 6 remains incomplete; Phase 7 has not started. CR-013 remains OPTIONAL BACKLOG for photos Dan may provide; no buildings were revised for imagined references.
 
 **Safety checkpoint:** `c20f244a36f0779d1b9e1e7ed8713e1b10ebc8d9` captured the saved building-approval/backlog update. Initial Git staging failed creating `.git/index.lock`; authorized elevated retry succeeded before project content changed. Completion commit contains this handoff and is reported in the task response.
 
@@ -810,7 +823,7 @@ Record choices we do not want to repeatedly reconsider.
 
 **Evidence/remaining issues:** `Docs/VEGETATION_VALIDATION.md` links eight matched before/after camera pairs, raw geometry/preservation/driving/performance reports and reusable validation snippets. Static driving-camera captures and overview inspected. Stylized trees/ground remain approximate; no understory, wind or species accuracy pass. Existing terrain-edge speckling and known high-speed angled jump limits remain. Physical-controller feel, exhaustive off-road coverage, standalone performance and human visual approval remain unverified.
 
-**Dan's next review:** Assess crowns, greens and forest edges at racing speed; check enlarged yard and retained Houses 2/3; drive wooded bends, shortcut entry/re-entry, jump/bypass and shoulders; try physical controller and inspect frame smoothness. Approve this vegetation batch or request local changes. Building acceptance and optional CR-013 remain unchanged.
+**Dan's latest feedback / next work:** Much more of the neighborhood should be wooded, and the forested ground should remain drivable. Implement CR-014 as the next focused vegetation revision, preserving accepted sites and gameplay and measuring performance as coverage grows. Existing refresh improved shapes but retained every placement, so it did not address this coverage request. Keep the vegetation batch unaccepted until Dan reviews coverage, exploration and smoothness. Building acceptance and optional CR-013 remain unchanged.
 
 ---
 # How Dan and ChatGPT Will Use This File
