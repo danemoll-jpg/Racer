@@ -1,0 +1,4 @@
+LAP 1: 184.248s via normal
+LAP 2: 184.140s via normal
+LAP 3: 184.140s via normal
+PASS normal: completed=3; valid=True; time=554.88s; mean=25.35m/s; peak=39.71m/s; max error=3.23m; min up=0.880

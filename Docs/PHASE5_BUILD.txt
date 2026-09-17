@@ -1,0 +1,4 @@
+Entry (-560.08, 6.36, -551.35) route index 1292; rejoin (-620.04, 6.39, -449.38) index 1376.
+Local ground: 1 tiles, 548 vertices affected. Trees: 1 trunk colliders and 1 visible cubes cleared.
+One 5.2m dirt core, feathered to 7.6m; terrain blend to 12m. No gate, car, road-loop, jump, surface-physics or runtime source changes.
+Final clearing correction: also removed the cleared tree's remaining visual trunk cube. Total: one tree collider and two visual cubes (crown + trunk).

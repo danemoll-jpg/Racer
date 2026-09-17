@@ -1,0 +1,12 @@
+SUPPORT 273 samples: missing=0; obstructed=273; maximum neighboring height difference=0.029m (sample spacing varies).
+PASS failed shortcut reset point 20: no remaining-gate/finish credit; completed=0
+PASS failed shortcut reset point 45: no remaining-gate/finish credit; completed=0
+PASS failed shortcut reset point 75: no remaining-gate/finish credit; completed=0
+PASS failed shortcut reset point 90: no remaining-gate/finish credit; completed=0
+PASS skip: no lap awarded
+PASS repeat: no lap awarded
+PASS wrongway: no lap awarded
+RECOVERY transition index=1288, offset=-8m target=18m/s: end error=1.03m; up=0.999; clearance=0.632; speed=18.25
+RECOVERY transition index=1288, offset=8m target=18m/s: end error=0.35m; up=0.999; clearance=0.632; speed=18.26
+RECOVERY transition index=1378, offset=-8m target=18m/s: end error=0.44m; up=0.999; clearance=0.633; speed=18.24
+RECOVERY transition index=1378, offset=8m target=18m/s: end error=0.49m; up=0.999; clearance=0.638; speed=18.24

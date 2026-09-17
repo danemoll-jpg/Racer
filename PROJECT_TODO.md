@@ -418,7 +418,7 @@ Turn the already-built real closed road loop into a functioning race course by a
 
 # PHASE 4 — Jumps and Arcade Spectacle
 
-**Status:** ACCEPTED — Dan approved Phase 4 and the combined CR-010/CR-011 changes. Phases 2 and 3 remain ACCEPTED. One jump only; Phase 5 has not started. Detailed implementation evidence and limitations: `Docs/PHASE4_VALIDATION.md`.
+**Status:** ACCEPTED — Dan approved Phase 4 and the combined CR-010/CR-011 changes. Phases 2 and 3 remain ACCEPTED. One jump only; Phase 5 now has one shortcut awaiting approval. Detailed Phase 4 implementation evidence and limitations: `Docs/PHASE4_VALIDATION.md`.
 
 ## Goal
 Make the course delightfully irresponsible.
@@ -484,54 +484,47 @@ Make the course delightfully irresponsible.
 
 ---
 
-# PHASE 5 — Intentional Shortcuts and Alternate Routes
+# PHASE 5 — Intentional Shortcut
+
+**Status:** IMPLEMENTED / AWAITING DAN'S APPROVAL. Phases 2, 3 and 4 remain ACCEPTED. Exactly one shortcut; no Phase 6, second shortcut or additional jump.
 
 ## Goal
-Allow players to discover faster/riskier ways around parts of the circuit.
+Allow players to discover a faster, narrower alternative through the remembered woodland.
 
 ## TODO
-- [ ] Add first obvious-but-risky shortcut.
-- [ ] Add shortcut-aware checkpoint logic.
-- [ ] Add off-road surface behavior if useful.
-- [ ] Add breakable/lightweight barriers where appropriate.
-- [ ] Add shortcut re-entry that is safe and readable.
-- [ ] Measure whether shortcut saves time.
-- [ ] Add second shortcut only after first is fun.
-- [ ] Prevent unintended giant course cuts.
+- [x] Add one readable dirt shortcut inside the southwest bend, after CP11 and before CP12.
+- [x] Inspect ordered checkpoint logic; retain every gate unchanged. Both paths already fit between required gates, so no alternate-route code is needed.
+- [x] Assess off-road behavior and barriers: neither is necessary for this first passage. No grip changes or destruction system.
+- [x] Build supported entrance and re-entry using the existing continuous terrain/collision mesh.
+- [x] Make only local environment edits: one terrain tile, one tree cleared, signs and edge markers.
+- [x] Compare matched normal/shortcut runs including approach and re-entry; retain failed-attempt evidence.
+- [x] Test slow/intended/fast/misaligned driving, recovery, mixed laps, skipped/repeated/wrong-way gates, reset, restart, accepted jump, braking, HUD and virtual controls.
+- [x] Save/reload scene, compile and inspect Console and visual captures.
+- [ ] Dan approves usefulness, precision/risk, re-entry, recovery, camera/controller feel and lap progression.
+- [ ] Second shortcut — deferred; not authorized.
 
-## Tell Astra/Codex
+## Shortcut and measured results
+Follow the normal race to CP11 at the southwest bend. The yellow WOODLAND CUT sign appears just before the gate. Pass CP11, then bear right onto the brown inside path; rejoin northbound before CP12. Entrance **(-560.08,6.36,-551.35)**; rejoin **(-620.04,6.39,-449.38)**. Hierarchy: `Phase 5 - Southwest woodland shortcut`. Start around **80–90 km/h**; the sign's upper 95 km/h requires more precision. Straighten for re-entry; missing the entrance leaves the normal road available.
 
-> Begin Phase 5 only. Add ONE intentional shortcut to the existing circuit.
->
-> This game should reward exploration like an arcade open-world racer. A shortcut may go through a yard, dirt path, alley, field, construction area, or another invented path that fits the current map.
->
-> Requirements:
-> - It must be a deliberately valid route, not an exploit.
-> - It should save some time when driven well.
-> - It should carry some risk or require more skill than the standard road.
-> - Existing lap/checkpoint logic must recognize it as valid.
-> - Prevent unrelated massive course cutting.
-> - Use placeholder visuals if necessary.
-> - If barriers are needed, simple breakable fences/signs/objects are acceptable.
->
-> Implement and test ONE shortcut before adding others.
->
-> Tell me the normal-route time versus shortcut time from your testing if measurable.
+Three matched pairs, identical common start/end and paired injected starting speeds of 22/24/26 m/s: normal **11.506 / 11.445 / 11.385 s**, shortcut **9.528 / 9.487 / 9.459 s**. Mean saving **1.954 s (17.1%)**; no failures in those six paired runs. The conservative follower slowed to about 17 m/s at the shortcut entrance; separate sustained 24–26 m/s attempts verified faster entries. Stress matrix: six clean and eight failed core-corridor attempts; 34–42 m/s approaches ran wide, with a worst 11.48 m line error. All these stress attempts eventually recovered upright, so the risk is forgiving rather than a guaranteed crash.
 
-## Acceptance Test
-- [ ] Shortcut is clearly usable.
-- [ ] Shortcut is genuinely faster when executed well.
-- [ ] It does not invalidate lap logic.
-- [ ] Player can rejoin the circuit cleanly.
-- [ ] Unintentional cuts remain controlled.
+Nine racing-speed laps passed: three normal, three shortcut, and shortcut/normal/shortcut. Peak **39.71 m/s**, average **25.35–25.45 m/s**. Every existing gate and jump remained valid. Final 37-check race/input/HUD/reset regression passed; failed shortcut resets, unrelated skipped checkpoints, repeated and wrong-way crossings awarded no extra lap progress. Ground support passed 273 samples. Four 18 m/s off-road recoveries and ±5° entrance/re-entry tests at 24 m/s stayed supported and upright.
 
-### Shortcut Ideas / Notes
-- Shortcut #1:
-- Shortcut #2:
-- Shortcut #3:
+An ordinary-frame **virtual Gamepad** shortcut run also passed: 9.468 game seconds, 24.32 m/s peak, 2.86 m maximum line error, upright 1.000; camera followed and HUD displayed speed. It touched the feathered path edge. Physical-controller testing and subjective approval remain Dan's responsibility. Original failed test-harness runs and their corrections are retained rather than hidden.
+
+No vehicle tuning, camera/input/reset/race source, gate geometry, jump, road loop or landmarks changed. Local work: 548 terrain vertices affected within one tile; one tree collider plus crown/trunk visuals cleared; two signs and twelve edge markers. Same mesh provides visible and physical support. No new surface penalty, barrier or destruction code. Existing rules still permit minor cuts between gates.
+
+Full test conditions, raw-report links, limitations and manual checklist: **`Docs/PHASE5_VALIDATION.md`**. Completion commit is reported in the task's final response. Do not run the older Phase 2 environment rebuild over this local modification.
+
+## Acceptance Test — Dan's review pending
+- [ ] Entrance is recognizable and deliberately usable.
+- [ ] Clean shortcut runs feel usefully faster.
+- [ ] Narrower line supplies sufficient, manageable risk.
+- [ ] Re-entry and off-road recovery feel predictable.
+- [ ] Normal, shortcut and mixed laps progress correctly.
+- [ ] Physical controller and camera comfort reviewed.
 
 ---
-
 # PHASE 6 — Track Personality and Destructible Environment
 
 ## Goal
@@ -764,20 +757,20 @@ Record choices we do not want to repeatedly reconsider.
 
 # SESSION HANDOFF
 
-**Current phase:** Phases 2, 3 and 4 ACCEPTED. Dan approved the single jump and combined CR-010/CR-011 tuning; both change requests are closed. Phase 5 remains unstarted and requires a new implementation request.
-**Approval update checkpoint:** Working tree was clean at `b424864b8063b9f332935b055fda915eac882552`. This session records approval only; no gameplay changes or new tests.
-**Safety checkpoint:** `391168140bcbe4604b46c6a3cff28b9946c5a088`, committed before implementation after resolving Git write permission. Completion commit contains this handoff and is reported in the task's final response.
-**Scene and jump:** `Assets/Scenes/StreetLoopGreybox.unity`, saved/reloaded/played. Orange ramp after CP13, before CP14 on western connector, around (-628,8,-110). Hierarchy: `Phase 4 - Connector Jump`. Recommended 110–120 km/h (31–33 m/s); current speed shown on HUD. Takeoff 24 m × 6 m, 3 m rise, ~14° lip. Existing road and shoulders form the marked 108 m × 15 m landing corridor; right-hand 3 m lane preserves ordinary road travel.
-**Controls:** RT / W / Up accelerates; LT / S / Down brakes then reverses; left stick / A-D / arrows steer; Y / R resets vehicle; Start / Enter restarts race. Click Game view for keyboard focus.
-**Before/after tuning:** Speed parameter 38→44 m/s; acceleration 12→13.5 m/s²; yaw response 8→9/s; lateral grip 7→8.5/s; grip acceleration cap 22→25 m/s². Steering stays 8/s and 33°/10°. Braking 24 m/s², reverse 11 m/s and 7 m/s², suspension 0.8/65/8/45, upright 12/4, air stability 0.18 and COM (0,-0.35,0) unchanged. No jump-specific physics changes or air controls. Scene overrides only; base prefab and PrototypeTrack unchanged.
-**Handling evidence:** Twelve paired road cases passed at identical conditions, including 35/38 m/s straights, 20 m/s bends/hills, 9 m/s hairpin and -8 m/s reverse. Peak lateral motion reduced ~17–20% on bends/hairpin/hills. Fixed-input yaw and slip probes support a small yaw/grip refinement; body-roll settling was already quick. Subjective floatiness remains for Dan to judge.
-**Speed and laps:** Same ~220 m from-rest stretch reached 33.93→38.41 m/s. Revised ~600 m main-road run naturally reached 41.183 m/s (148.3 km/h), 6.90 s above 40 m/s. Three continuous valid PhysX laps: 552.36 s traversal, mean 25.47 m/s, peak 39.71 m/s, 179.94 s at ≥25 m/s; max centre error 3.21 m, min upright 0.880, airborne 5.26 s. Follower brakes before corners and slows for hairpin/hills. Braking 35→0.85 m/s remained 1.40 s / 24.64 m.
-**Jump results:** At intended 32 m/s, centered takeoff measured 31.59 m/s, ~1.72 s air time, apex 6.31 m above road, landing Z=-29.37. Twelve 12/32/42/46 m/s × 0/±3° runs landed upright; two fast -3° runs exceeded the marked corridor (8.46/9.33 m lateral offset). Crawl 6 m/s undershot safely onto continuous road. Artificial 60 m/s injection overshot markings to Z=68.64. A -8°/42 m/s approach missed the ramp and went off-road. These injected stress speeds are not naturally achieved top-speed claims.
-**Recovery:** Existing fixed-spawn Y/R reset clears motion and current-lap credit, preserves completed laps/time, and snaps camera. Enter/Start clears race. Overshoot/undershoot/missed-ramp endpoint resets followed by only remaining gates/finish awarded zero laps. Auto fall reset remains Y<-15; stuck cars above that height need Y/R. No gate movement, expansion or recovery exemption.
-**Preservation:** All 20,627 baseline scene records retained; only the car prefab override and scene root-list records changed. New jump root adds 99 records. Original loop/terrain/landmarks/gates and vehicle/input/reset/camera source preserved. RaceHud adds km/h only. No shortcuts, fence gameplay or broad polish.
-**Regression and limits:** Existing 37-check race/input/HUD/reset suite passed after test-only focus routing was corrected; initial ten virtual-input failures retained separately. Conservative laps supplement, rather than replace, the racing-speed evidence. Landing support samples had no missing surfaces; both-side 12 m/s re-entry clearance stayed positive; right lane passed at 6/30 m/s. Scene reload, compilation, Console and visual HUD/sign checks performed. Physical controller, subjective feel, exhaustive collision cases, standalone build and a new ordinary-frame real-time drive were not performed. Tests use virtual input/motor commands and manually stepped PhysX. Existing gate rules still permit minor cutting between gates.
-**Evidence and repeatability:** `Docs/PHASE4_VALIDATION.md`, `PHASE4_ROADS.txt`, `PHASE4_LAPS.txt`, `PHASE4_JUMP.txt`, `PHASE4_LIMITS.txt`, `PHASE4_RACE_REGRESSION.txt`, initial regression report, screenshots and final Console report. Racer menu has Phase 4 road/jump/racing-lap validation. `Phase4Validation.Run("limits")` and `RaceRegression()` run additional checks. Long Pipeline calls may time out while tests finish; inspect completed reports. Historical Phase 2/3 evidence retained.
-**Dan's latest review:** "approved" — Phase 4, CR-010 and CR-011 accepted. Input device and individual test coverage were not specified; existing technical limitations remain documented. Await the next implementation request before beginning Phase 5 or adding further jumps.
+**Current phase:** Phase 5 implemented; AWAITING DAN'S APPROVAL. Phases 2, 3 and 4 remain ACCEPTED, including the first jump and closed CR-010/CR-011. No Phase 6, second shortcut or additional jump.
+**Safety checkpoint:** Working tree was clean at `64c122016a6efa7c142438835c88ff47770d38ed` before any modification. Completion commit contains this handoff and is reported in the task's final response.
+**Scene/directions:** `Assets/Scenes/StreetLoopGreybox.unity`. At the southwest bend, pass CP11 then bear right onto the brown path marked WOODLAND CUT. It rejoins the northbound road before CP12. Entry (-560.08,6.36,-551.35), exit (-620.04,6.39,-449.38); root `Phase 5 - Southwest woodland shortcut`. Existing orange jump remains farther ahead after CP13, before CP14.
+**Driving/risk:** Start at 80–90 km/h (22–25 m/s), steer smoothly along the narrower dirt line and straighten before rejoining. Sign allows up to 95 km/h with less margin. Missing the entrance leaves the road usable. High-speed attempts run wide into the shoulder/woods; brake/lift to recover or use R/Y. No extra dirt grip penalty or punitive track-boundary rule.
+**Local changes:** One continuous terrain/collision tile with 548 affected vertices; 5.2 m dirt core feathered to 7.6 m, local terrain blend to 12 m. One tree collider and its crown/trunk visuals cleared from one forest batch. Two signs and twelve non-colliding markers. No barrier or destruction system. No gate movement/expansion, alternate-route logic or runtime behavior changes.
+**Preserved:** Road loop, important houses/landmarks, forest character, Phase 4 jump, vehicle tuning, camera, inputs, fixed-grid reset and race rules. Car still uses speed parameter 44 m/s, acceleration 13.5 m/s², steering 8/s and 33°/10°, yaw 9/s, grip 8.5/s capped at 25 m/s². Scene comparison changed only forest-parent/root lists among retained baseline records and removed the one tree object. Original driving/race source and prefab overrides unchanged.
+**Timing:** Same common points before divergence and after rejoin; matched injected initial speeds 22/24/26 m/s. Normal 11.506/11.445/11.385 s versus shortcut 9.528/9.487/9.459 s: mean saving 1.954 s (17.1%), six clean paired runs. Curvature-based follower conservatively slowed at the shortcut entrance; sustained intended-speed checks are separate. Fourteen stress attempts: six clean, eight outside the dirt-core criterion; all eventually recovered upright. Do not report their faster endpoint times as clean runs.
+**Laps/validity:** Nine racing-speed laps passed, including jump: normal x3, shortcut x3, shortcut/normal/shortcut. Peak 39.71 m/s, mean 25.35–25.45 m/s. Full-lap normal splits ~184.14 s, shortcut ~182.44–182.46 s after first lap. All 37 final race/input/HUD/reset checks passed. Four shortcut-failure reset probes lost current-lap credit and could not earn a lap using only remaining gates. Unrelated skip, repeated and wrong-way gate probes awarded no lap. Reset still preserves completed laps/time; restart clears the race. Existing minor between-gate cutting remains possible.
+**Support/recovery:** 273 sampled points had no missing or obstructed support; neighboring height difference at most 0.029 m. Four ±8 m road-side recoveries at 18 m/s ended within 1.03 m of road center, upright ≥0.999. Entrance/re-entry ±5° at 24 m/s stayed supported/upright. Overspeed 42 m/s trials reached up to 11.48 m line error: a limit, not a recommended speed.
+**Accepted-system checks:** Jump matrix reproduces prior intended 32 m/s result (31.59 m/s takeoff, ~1.72 s flight) and existing fast angled landing limits. Braking 35→0.85 m/s remains 1.40 s / 24.64 m; reverse -9.92 m/s after four more seconds. Virtual keyboard/gamepad, HUD and reset camera snap passed regression.
+**Ordinary frames:** One calibrated virtual Gamepad run used normal Update/FixedUpdate, reached the exit in 9.468 game seconds, peak 24.32 m/s, max line error 2.86 m, upright 1.000; camera followed, HUD 87 km/h. Initial velocity was injected. This segment deliberately did not start a full lap. It used the feathered dirt edge. Initial uncalibrated wide run and paused-input failures remain documented separately.
+**Verification/limitations:** Scene saved/reloaded/played; compilation and Console checked; overview and chase-camera approach inspected. Automated driving is virtual motor input/manually stepped PhysX except the documented ordinary-frame virtual Gamepad run. No physical controller, standalone build, exhaustive collision proof or human subjective review. Tool command timeouts/scratch evaluation errors are separated from gameplay results. Keep the older Phase 2 environment rebuild away from these incremental local terrain/forest edits.
+**Evidence:** `Docs/PHASE5_VALIDATION.md`, all `Docs/PHASE5_*.txt` reports, visual captures and final Console report. Reproduce with `Phase5Validation.Run("timing"/"normal"/"shortcut"/"mixed"/"recovery")` in Play mode; `Realtime()` requires unpaused Play mode. Existing Phase 4 validation tools supply regression checks. Long Pipeline calls may time out while their reports still finish; verify files before retrying.
+**Dan's review:** Recognize entrance; compare usefulness against normal bend; judge narrow-line risk and camera feel; try slightly wide entry/rejoin and off-road recovery; verify R/Y abandons current lap; complete normal/shortcut/mixed laps including jump; test Start/Enter and physical controller. Leave Phase 5 pending approval.
 
 ---
 # How Dan and ChatGPT Will Use This File

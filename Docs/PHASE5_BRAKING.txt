@@ -1,0 +1,3 @@
+Braking: injected 35m/s to 0.85m/s in 1.40s / 24.64m; upright 1.000.
+Continued brake/reverse for 4s: -9.92m/s; upright 1.000.
+Manual PhysX, virtual motor commands; approved tuning unchanged.

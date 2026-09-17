@@ -1,0 +1,69 @@
+{
+  "success": true,
+  "command": "command console",
+  "data": {
+    "command": "console",
+    "parameters": {
+      "since": "268",
+      "tail": "30"
+    },
+    "result": {
+      "entries": [
+        {
+          "seq": 269,
+          "timestampUtc": "2026-09-17T16:09:29.4182509Z",
+          "level": "log",
+          "logType": "Log",
+          "message": "Phase5 recovery complete; see Docs report. Virtual motor commands, manually stepped PhysX; no physical controller.",
+          "stackTrace": "UnityEngine.Debug:Log (object)\nRacer.Editor.Phase5Validation:Run (string) (at Assets/Scripts/Editor/Phase5Validation.cs:80)\nPipelineEvaluation.PipelineEval_8ae28d54:Execute ()\nSystem.Reflection.MethodBase:Invoke (object,object[])\nUnity.Pipeline.Compilation.EvalCodeCompiler:ExecuteCompiledAssembly (System.Reflection.Assembly) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Compilation/EvalCodeCompiler.cs:190)\nUnity.Pipeline.Compilation.EvalCodeCompiler:CompileAndExecuteOnMainThread (string,int,System.Diagnostics.Stopwatch) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Compilation/EvalCodeCompiler.cs:54)\nUnity.Pipeline.Runtime.Commands.CodeEvalCommand:EvaluateSource (string,int,string) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Commands/CodeEvalCommand.cs:112)\nUnity.Pipeline.Runtime.Commands.CodeEvalCommand:EvaluateCode (string,int) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Commands/CodeEvalCommand.cs:24)\nSystem.Reflection.MethodBase:Invoke (object,object[])\nUnity.Pipeline.BasePipelineServer:ExecuteCommandDirect (Unity.Pipeline.Commands.CommandInfo,object[]) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2634)\nUnity.Pipeline.BasePipelineServer/<>c__DisplayClass134_0:<ExecuteCommand>b__1 () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2508)\nUnity.Pipeline.Threading.Dispatcher/WorkItem`1<object>:ExecuteCore () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:284)\nUnity.Pipeline.Threading.Dispatcher/WorkItem:Execute () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:229)\nUnity.Pipeline.Threading.Dispatcher:ProcessWorkQueue (int) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:195)\nUnity.Pipeline.Threading.Dispatcher:ProcessWorkQueue () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:210)\nUnityEditor.EditorApplication:Internal_CallUpdateFunctions ()\n",
+          "seeded": false
+        },
+        {
+          "seq": 270,
+          "timestampUtc": "2026-09-17T16:09:48.187671Z",
+          "level": "error",
+          "logType": "Error",
+          "message": "Failed to handle /api/exec request: Main thread operation timed out after 5000ms",
+          "stackTrace": "UnityEngine.Debug:LogError (object)\nUnity.Pipeline.BasePipelineServer/<HandleExecRequest>d__115:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2071)\nSystem.Runtime.CompilerServices.AsyncTaskMethodBuilder:SetException (System.Exception)\nUnity.Pipeline.BasePipelineServer/<ExecuteGated>d__105:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:1403)\nSystem.Runtime.CompilerServices.AsyncTaskMethodBuilder:SetException (System.Exception)\nUnity.Pipeline.BasePipelineServer/<>c__DisplayClass115_0/<<HandleExecRequest>b__0>d:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2032)\nSystem.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<object>:SetException (System.Exception)\nUnity.Pipeline.BasePipelineServer/<ExecuteCommandByName>d__133:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2478)\nSystem.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<object>:SetException (System.Exception)\nUnity.Pipeline.BasePipelineServer/<ExecuteCommand>d__134:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2517)\nSystem.Threading._ThreadPoolWaitCallback:PerformWaitCallback ()\n",
+          "seeded": false
+        },
+        {
+          "seq": 271,
+          "timestampUtc": "2026-09-17T16:09:55.2622173Z",
+          "level": "log",
+          "logType": "Log",
+          "message": "PASS: Checkpoints cannot start race\nPASS: Wrong-way start cannot start race\nPASS: Skipped CP1 cannot award a lap\nPASS: Wrong-way gate invalidates lap even after recrossing forward\nPASS: Repeated checkpoint invalidates current lap\nPASS: Repeated finish crossings cannot award laps\nPASS: Three ordered laps: 60s splits, 180s frozen total\nPASS: Finished race ignores further crossings\nPASS: Restart clears all progress and timing\nPASS: Vehicle reset cannot preserve checkpoint credit\nPASS: Swept forward crossing and sub-step timing\nPASS: Swept reverse crossing\nPASS: Outside-width and above-gate bypasses rejected\nPASS: Standing on plane does not repeat crossing\nPASS: Director starts through physical gate geometry\nPASS: Director rejects wrong-way finish\nPASS: Reversing rear-first through start does not count\nPASS: Teleport over gate cannot start race\nPASS: Virtual gamepad progressive trigger and partial steering\nPASS: Virtual gamepad progressive larger steering\nPASS: Virtual LT brake/reverse\nPASS: Virtual Start restarts race\nPASS: Virtual keyboard W/D\nPASS: Virtual keyboard S/A\nPASS: Virtual keyboard arrows\nPASS: Virtual Enter clears race and timer\nPASS: Virtual Y retains fixed upright reset and abandons lap\nPASS: Chase camera snaps on reset\nPASS: Virtual R reset\nPASS: Automatic fall reset preserved\nPASS: HUD ready state\nPASS: HUD next checkpoint updates\nPASS: HUD invalid-lap warning\nPASS: HUD completed race\nLAP 1: 562.681s, total 562.683s\nLAP 2: 562.673s, total 1125.363s\nLAP 3: 562.652s, total 1688.006s\nPASS: Three real PhysX laps: 1691.30s, max centre error 2.828m, min upright 0.880, airborne steps 112; 4.5/8 m/s target; no teleport during traversal\nPASS: HUD reflects actual simulated finish\nPASS: Restart after actual race clears laps, last/best, total and HUD\nFailures: 0\nVirtual input and simulated driving only. Physical controller and subjective steering comfort require Dan.",
+          "stackTrace": "UnityEngine.Debug:Log (object)\nRacer.Editor.RaceValidation:Run () (at Assets/Scripts/Editor/RaceValidation.cs:123)\nRacer.Editor.Phase4Validation:RaceRegression () (at Assets/Scripts/Editor/Phase4Validation.cs:198)\nPipelineEvaluation.PipelineEval_50a8b405:Execute ()\nSystem.Reflection.MethodBase:Invoke (object,object[])\nUnity.Pipeline.Compilation.EvalCodeCompiler:ExecuteCompiledAssembly (System.Reflection.Assembly) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Compilation/EvalCodeCompiler.cs:190)\nUnity.Pipeline.Compilation.EvalCodeCompiler:CompileAndExecuteOnMainThread (string,int,System.Diagnostics.Stopwatch) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Compilation/EvalCodeCompiler.cs:54)\nUnity.Pipeline.Runtime.Commands.CodeEvalCommand:EvaluateSource (string,int,string) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Commands/CodeEvalCommand.cs:112)\nUnity.Pipeline.Runtime.Commands.CodeEvalCommand:EvaluateCode (string,int) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Commands/CodeEvalCommand.cs:24)\nSystem.Reflection.MethodBase:Invoke (object,object[])\nUnity.Pipeline.BasePipelineServer:ExecuteCommandDirect (Unity.Pipeline.Commands.CommandInfo,object[]) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2634)\nUnity.Pipeline.BasePipelineServer/<>c__DisplayClass134_0:<ExecuteCommand>b__1 () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2508)\nUnity.Pipeline.Threading.Dispatcher/WorkItem`1<object>:ExecuteCore () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:284)\nUnity.Pipeline.Threading.Dispatcher/WorkItem:Execute () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:229)\nUnity.Pipeline.Threading.Dispatcher:ProcessWorkQueue (int) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:195)\nUnity.Pipeline.Threading.Dispatcher:ProcessWorkQueue () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:210)\nUnityEditor.EditorApplication:Internal_CallUpdateFunctions ()\n",
+          "seeded": false
+        }
+      ],
+      "cursor": 271,
+      "session": "49e75a7c8fb24c5bbc58d9174bcef8b7",
+      "returned": 3,
+      "dropped": false,
+      "reset": false,
+      "counts": {
+        "error": 15,
+        "warn": 0,
+        "log": 23
+      },
+      "groundTruth": {
+        "sampledUtc": "2026-09-17T16:19:05.5979294Z",
+        "ageMs": 125,
+        "compilationFailed": false,
+        "compiling": false,
+        "consoleErrors": 0,
+        "consoleWarnings": 0,
+        "consoleLogs": 0,
+        "seeded": true
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "C:\\Users\\danmo\\Racer"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

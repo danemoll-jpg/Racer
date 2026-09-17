@@ -1,0 +1,20 @@
+PASS approach target/injected 12m/s yaw 0deg: takeoff 12.10m/s; landed=True, landing Z=-73.29; air 0.86s; apex above road 3.92m; min upright 0.976; max lateral offset 1.52m
+PASS approach target/injected 12m/s yaw 3deg: takeoff 11.75m/s; landed=True, landing Z=-74.11; air 1.08s; apex above road 3.65m; min upright 0.898; max lateral offset 2.48m
+PASS approach target/injected 12m/s yaw -3deg: takeoff 11.76m/s; landed=True, landing Z=-73.75; air 1.12s; apex above road 3.73m; min upright 0.938; max lateral offset 5.46m
+PASS approach target/injected 32m/s yaw 0deg: takeoff 31.59m/s; landed=True, landing Z=-29.37; air 1.72s; apex above road 6.31m; min upright 0.980; max lateral offset 1.52m
+PASS approach target/injected 32m/s yaw 3deg: takeoff 31.14m/s; landed=True, landing Z=-31.44; air 1.78s; apex above road 6.10m; min upright 0.906; max lateral offset 4.36m
+PASS approach target/injected 32m/s yaw -3deg: takeoff 31.20m/s; landed=True, landing Z=-31.45; air 1.78s; apex above road 6.14m; min upright 0.950; max lateral offset 7.13m
+PASS approach target/injected 42m/s yaw 0deg: takeoff 40.33m/s; landed=True, landing Z=-1.87; air 2.04s; apex above road 7.83m; min upright 0.979; max lateral offset 1.52m
+PASS approach target/injected 42m/s yaw 3deg: takeoff 39.83m/s; landed=True, landing Z=-3.73; air 2.10s; apex above road 7.75m; min upright 0.936; max lateral offset 5.86m
+LIMIT approach target/injected 42m/s yaw -3deg: takeoff 39.90m/s; landed=True, landing Z=-2.32; air 2.14s; apex above road 7.92m; min upright 0.972; max lateral offset 8.46m
+PASS approach target/injected 46m/s yaw 0deg: takeoff 43.52m/s; landed=True, landing Z=10.45; air 2.20s; apex above road 8.56m; min upright 0.977; max lateral offset 1.53m
+PASS approach target/injected 46m/s yaw 3deg: takeoff 42.96m/s; landed=True, landing Z=8.50; air 2.24s; apex above road 8.54m; min upright 0.948; max lateral offset 6.59m
+LIMIT approach target/injected 46m/s yaw -3deg: takeoff 43.07m/s; landed=True, landing Z=9.19; air 2.28s; apex above road 8.59m; min upright 0.973; max lateral offset 9.33m
+BYPASS 6m/s end Z -59.88; min upright 1.000; air steps 0
+BYPASS 30m/s end Z -59.50; min upright 1.000; air steps 0
+SHOULDER side -1 start Z=-145, 12m/s: upright 0.976; clearance 0.224m; end (-626.85, 8.62, -63.21)
+SHOULDER side 1 start Z=-145, 12m/s: upright 0.976; clearance 0.224m; end (-626.88, 8.62, -63.22)
+SHOULDER side -1 start Z=-35, 12m/s: upright 0.998; clearance 0.645m; end (-628.84, 9.07, 47.69)
+SHOULDER side 1 start Z=-35, 12m/s: upright 0.998; clearance 0.644m; end (-628.84, 9.07, 47.69)
+RECOVERY failed landing reset: lapActive=False; completed=0; speed=0; upright=1; nextGate=0
+Real PhysX 0.02s steps with virtual motor commands; injected initial velocities where stated. No physical controller or subjective approval.
