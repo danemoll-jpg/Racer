@@ -360,11 +360,11 @@ Historical instructions below applied before acceptance. For the next session, u
 ## Goal
 Turn the already-built real closed road loop into a functioning race course by adding race systems while preserving the Phase 2 environment.
 
-**Status:** IMPLEMENTED — awaiting Dan's Phase 3 and CR-010 review. Phase 2 remains ACCEPTED. No Phase 4 work. See Docs/PHASE3_VALIDATION.md for rules, controls, tuning and actual test coverage.
+**Status:** Phase 3 race systems ACCEPTED — Dan reports all tests passed. CR-010 remains open as a non-blocking handling refinement: improvement was barely noticeable and the car still feels a little floaty, though not terrible. Phase 2 remains ACCEPTED. Phase 4 is the next planned phase; no implementation started in this documentation update. See Docs/PHASE3_VALIDATION.md for prior technical evidence.
 
 ## TODO
-- [x] CR-010: Make steering a little tighter/more responsive during ordinary road driving, preserving predictable high-speed handling.
-- [x] Confirm the existing loop supports complete race laps (automated checks passed; enjoyable flow awaits Dan).
+- [x] Implement and technically test the initial CR-010 steering adjustment. Subjective improvement remains insufficient; follow-up is open and non-blocking.
+- [x] Confirm the existing loop supports complete race laps (technical checks and Dan's reported tests passed).
 - [x] Assess race-flow adjustments: none required; preserve the accepted layout.
 - [x] Establish start/finish area.
 - [x] Add checkpoint system.
@@ -376,6 +376,8 @@ Turn the already-built real closed road loop into a functioning race course by a
 - [x] Complete multiple test laps.
 
 ## Tell Astra/Codex
+
+**Historical implementation prompt:** Phase 3 race systems have now passed Dan's review. The earlier prohibition on Phase 4 below applied before that review; do not rerun completed race-system work.
 
 > Before making modifications, inspect the current project state and commit all current saved changes as a safety checkpoint. Do not modify anything until the commit succeeds. If already clean, record the existing HEAD as the checkpoint; if a required commit fails, stop and report it.
 >
@@ -405,10 +407,12 @@ Turn the already-built real closed road loop into a functioning race course by a
 - [x] Invalid lap skipping is reasonably prevented. (Technical tests; physical hardware remains untested.)
 - [x] Restart works. (Technical tests; physical hardware remains untested.)
 - [x] HUD works. (Technical tests; physical hardware remains untested.)
-- [ ] Circuit has enjoyable flow.
-- [ ] Original street is still recognizable.
-- [ ] Steering feels a little tighter to Dan without twitchiness or loss of predictable high-speed handling.
+- [x] Circuit is acceptable to proceed — Dan reports all tests passed; mild handling floatiness is tracked separately.
+- [x] Original street remains acceptable — previously accepted track retained; Dan reports tests passed.
+- [ ] Steering improvement is clearly noticeable to Dan without twitchiness or loss of stability — not yet satisfied; CR-010 remains a non-blocking follow-up.
 - [x] Steering changes preserve controller/keyboard input, reverse, braking, suspension, camera and reset behavior. (Technical tests; physical hardware remains untested.)
+
+**Dan's latest review:** All tests passed, but handling changed little and still feels a bit floaty, though not terrible. Accept the race systems and retain CR-010 as a mild follow-up rather than holding up progress. Input device was not specified; this does not establish physical-controller testing or new automated coverage.
 
 ---
 
@@ -418,6 +422,9 @@ Turn the already-built real closed road loop into a functioning race course by a
 Make the course delightfully irresponsible.
 
 ## TODO
+- [ ] CR-011: Moderately increase forward top speed and acceleration alongside CR-010; use roughly 15–20% more top speed as an initial tuning target, subject to stability testing and Dan's approval.
+- [ ] Record actual original/revised speed, acceleration and handling values; validate the combined changes at representative racing speeds.
+- [ ] Include a small CR-010 follow-up to reduce mild floatiness, with an identifiable before/after comparison; do not delay starting Phase 4 for a separate handling overhaul.
 - [ ] Select first major jump location.
 - [ ] Build takeoff ramp naturally into environment.
 - [ ] Build safe landing zone.
@@ -429,7 +436,17 @@ Make the course delightfully irresponsible.
 
 ## Tell Astra/Codex
 
-> Begin Phase 4 only. Add the first major Forza Horizon-style stunt jump to the existing circuit.
+> Before making modifications, inspect the project and commit all current saved changes as a safety checkpoint. Do not modify anything until the commit succeeds. If already clean, record HEAD as the checkpoint; if a required commit fails, stop and report it.
+>
+> Begin Phase 4 only. Phase 3 race-system tests passed Dan's review. Add the first major Forza Horizon-style stunt jump to the existing circuit.
+>
+> Include a small, non-blocking CR-010 follow-up: Dan barely noticed the steering change and still finds handling mildly floaty. Diagnose steering/yaw lag versus lateral sliding versus body/suspension motion before tuning. Compare a modest reversible adjustment on identical ordinary road sections, record original/revised values, and preserve stable high-speed driving, input support, camera, reset and race systems. Do not turn this into a vehicle overhaul. Leave subjective handling approval to Dan.
+>
+> CR-011 — Dan also wants the car a bit faster because slow testing does not give a representative driving feel. Inspect the current acceleration and speed limits first. Start with roughly a 15–20% increase in forward top speed and a modest acceleration increase. These are starting points to validate, not mandatory values if unstable. Keep the changes reversible and record original/revised values.
+>
+> Tune the tighter, less-floaty handling at the revised speeds. Preserve controllable braking, predictable steering, progressive input, and working race systems. Size the jump approach and landing area for the revised performance.
+>
+> Keep slow checks for basic correctness, but do not validate primarily with earlier conservative automated targets. Test sustained driving at representative racing speeds, near-top-speed travel on suitable straights, braking into corners, and jump approaches at the revised speeds. Slow appropriately for tight turns; do not expect every corner to work at full throttle. Report actual speeds reached, test conditions, stability/track limitations and any checks not performed. Leave final speed and handling approval to Dan.
 >
 > The jump should feel intentionally exaggerated and exciting rather than realistic.
 >
@@ -447,6 +464,9 @@ Make the course delightfully irresponsible.
 > After implementation, report recommended approach speed, tuning changes made to the car, and any physics compromises.
 
 ## Acceptance Test
+- [ ] Dan approves the revised speed, acceleration and handling together.
+- [ ] Representative racing-speed tests cover sustained road driving, near-top-speed straights, corner-entry braking and revised-speed jump approaches; actual speeds and limitations are recorded.
+- [ ] Faster performance preserves predictable steering, controllable braking, stable landings and valid race/reset behavior.
 - [ ] Jump is fun.
 - [ ] Successful landings feel satisfying.
 - [ ] Failed jumps do not ruin the race permanently.
@@ -688,12 +708,24 @@ Use this for things that are not bugs but that Dan wants changed.
 **Result:** Implemented in the reproducible environment revision. See the per-item implementation/elevation/setback table and actual verification in `Docs/PHASE2_REVISION.md`. Dan subsequently accepted the revised track overall; no separate per-item retest claim is implied.
 
 ### CR-010 — Slightly tighter steering during Phase 3
-**Status:** Implemented and technically tested — awaiting Dan's steering-feel approval during Phase 3 review.  
-**Current behavior:** Dan finds steering a little loose while driving the accepted roads.  
+**Status:** Initial adjustment implemented and technically tested; subjective improvement insufficient. OPEN as a non-blocking follow-up alongside the next phase.  
+**Current behavior:** After Phase 3 testing, Dan barely noticed a handling difference. The car still feels a bit floaty, though not terrible. All other reported tests passed.  
 **Requested change:** Make a modest steering-response/precision adjustment using existing tuning where possible. Preserve progressive input and stable high-speed handling; avoid a physics overhaul or unrelated system changes. Record before/after values and test typical bends, hairpin, hills, faster sections and reverse with keyboard/controller inputs as available.  
 **Reason:** Improve driving feel without holding up the next phase.  
-**Phase affected:** Phase 3; Phase 2 remains accepted.  
-**Result:** StreetLoopGreybox car overrides: steering response 7→8/s; low-speed angle 32→33 degrees; high-speed angle remains 10 degrees. Other vehicle tuning/source is unchanged. Eighteen original/revised steering checks passed, including road bends, hairpin, hills, fast sections, reverse and fixed-input response. Virtual input only; physical controller and subjective feel remain for Dan. Revert those two instance values to 7 and 32 for comparison. See Docs/PHASE3_VALIDATION.md and Docs/CR010_TEST_RESULTS.txt.
+**Phase affected:** Initial adjustment in Phase 3; carry a small follow-up into Phase 4 planning. Phases 2 and 3 remain accepted.  
+**Result:** StreetLoopGreybox car overrides: steering response 7→8/s; low-speed angle 32→33 degrees; high-speed angle remains 10 degrees. Other vehicle tuning/source is unchanged. Eighteen original/revised steering checks passed, including road bends, hairpin, hills, fast sections, reverse and fixed-input response. Original automated testing used virtual input only. Dan subsequently reported little perceived improvement and lingering mild floatiness; his input device was not specified. Revert those two instance values to 7 and 32 for comparison. See Docs/PHASE3_VALIDATION.md and Docs/CR010_TEST_RESULTS.txt.
+
+**Follow-up direction:** Compare the current car with a modest, reversible alternative on the same road bends. Diagnose whether floatiness comes from delayed steering/yaw response, lateral sliding, or suspension/body motion before choosing tuning changes. Do not assume a larger steering angle fixes every cause. Keep scope small, preserve predictable high-speed handling and accepted race systems, record before/after values, and leave feel approval to Dan. No handling changes were made by this documentation update.
+
+### CR-011 — Faster car and representative racing-speed testing
+**Status:** Planned for Phase 4; not implemented in this documentation update.  
+**Current behavior:** Dan wants more speed and considers slow-speed testing insufficient to judge driving feel.  
+**Requested change:** Inspect current limits/tuning, then moderately increase forward top speed and acceleration. Start with roughly 15–20% more top speed and a modest acceleration increase; revise as needed for stability. Tune jointly with CR-010 and size the first jump for the resulting performance. Keep original/revised values for comparison or reversal.  
+**Reason:** Evaluate and enjoy the car at representative racing speeds rather than relying mainly on conservative automated driving.  
+**Phase affected:** Phase 4; Phases 2 and 3 remain accepted.  
+**Validation:** Retain slow correctness checks, then test sustained racing-speed driving, near-top-speed straights, braking into corners and revised-speed jump approaches. Slow appropriately for tight turns. Report actual speeds reached, stability and track limitations; do not claim unperformed tests.  
+**Acceptance:** Dan approves the combined speed and handling; steering, braking, landing/recovery and race systems remain predictable and functional.  
+**Result:** Pending implementation and review.
 
 ---
 
@@ -718,16 +750,20 @@ Record choices we do not want to repeatedly reconsider.
 | 2026-09-17 | Phase 2 track accepted after Dan's playthrough | Dan reports the track seems fine; supersedes the earlier Phase 2 hold |
 | 2026-09-17 | Include slight steering tightening (CR-010) in Phase 3 | Improve road-driving feel without delaying race-system work |
 
+| 2026-09-17 | Accept Phase 3 race systems after Dan reports all tests passed | Mild floatiness remains a non-blocking CR-010 follow-up, not a reason to repeat the race-system phase |
+
+| 2026-09-17 | Include CR-011 speed/acceleration increase with Phase 4 handling work | Dan wants a faster car and testing at representative racing speeds; 15–20% top-speed increase is an initial target subject to validation |
+
 ---
 
 # SESSION HANDOFF
 
-**Current phase:** Phase 2 ACCEPTED; Phase 3 IMPLEMENTED and awaiting Dan's review, including CR-010. Phase 4 is not authorized or started.
+**Current phase:** Phases 2 and 3 race systems ACCEPTED. Dan reports all tests passed. CR-010 remains a non-blocking handling follow-up; Phase 4 is next in the plan. This session updates documentation only; no Phase 4 implementation or vehicle tuning performed.
 **Safety checkpoint:** `1b6e7bcf816a3afdfe55a1ae4e42b9c07095f2ed` committed all saved changes before implementation. Completion commit contains this handoff; its ID is reported in the final task response.
 **Scene:** `Assets/Scenes/StreetLoopGreybox.unity`. Saved and reloaded; open and press Play. Existing north-entrance spawn is preserved.
 **Controls:** RT / W / Up accelerates; LT / S / Down brakes then reverses; left stick / A-D / arrows steer; Y / R retains fixed-spawn vehicle reset. Start (Menu) / Enter restarts the race. Click Game view for keyboard focus.
 **Race systems:** Checkered start/finish, 19 ordered required checkpoints, three-lap race, current/last/best lap and total timing, restart, minimal HUD and directed swept-gate validation. Skips, wrong-way and repeated finish crossings cannot award invalid laps. Invalid attempts restart at a forward start crossing. Vehicle reset abandons current-lap gate credit but preserves completed laps/total; race restart clears everything. Required gates are independent of paths between them, allowing later alternate routes; no shortcuts added.
-**CR-010:** Scene-instance steering response 7→8/s and low-speed angle 32→33 degrees; high-speed angle remains 10 degrees. Yaw response/cap, grip, braking, suspension, input, camera and reset physics are unchanged. Base prefab and PrototypeTrack retain original tuning. Revert the two scene overrides for comparison. Final steering-feel approval belongs to Dan.
+**CR-010:** Scene-instance steering response 7→8/s and low-speed angle 32→33 degrees; high-speed angle remains 10 degrees. Yaw response/cap, grip, braking, suspension, input, camera and reset physics are unchanged. Base prefab and PrototypeTrack retain original tuning. Revert the two scene overrides for comparison. Dan reports the improvement was barely noticeable and the car still feels mildly floaty; CR-010 remains open without blocking the next phase.
 **Preservation:** New separate Phase 3 scene root. All 20,054 pre-existing scene records retained; only car overrides and root-list records changed. Environment objects/assets and four existing vehicle/input/reset/camera scripts unchanged. No stunts, shortcuts, fences, major polish or Phase 4 work.
 **Actual race verification:** 37 final checks passed, zero failed. Three real PhysX laps with actual gates: 563.772 / 563.780 / 563.780 simulated seconds; total 1691.332s. Max centre error 2.845m, min upright 0.880; one initial ungrounded sample. Conservative targets 4.5/8m/s. Rules, restart, HUD, virtual Gamepad and keyboard, fall reset and camera snap checked. Initial two test-setup failures corrected and retained in a separate initial report.
 **Actual steering verification:** 18 checks passed, zero failed. Original/revised path following at ordinary bends, hairpin, hills, 25m/s road sections and -8m/s reverse; no airborne samples or flips. Identical full-stick steps increased yaw response at 100ms from 0.4762→0.5648rad/s at 10m/s, 0.7155→0.7568 at 25m/s, and -0.3982→-0.4730 in reverse. Automated follower compensates for angle changes; these tests do not establish human comfort.
@@ -735,7 +771,9 @@ Record choices we do not want to repeatedly reconsider.
 **Validation/limits:** Scene saved/reloaded/played and compilation checked. Current Console has zero errors/warnings; final evidence in Docs/PHASE3_CONSOLE.json. HUD and labels visually inspected. Virtual-controller testing is not physical-controller testing; physical hardware, maximum-speed sustained maneuvers, all collision/recovery cases, standalone build and subjective comfort remain unverified. Gates enforce sequence, not continuous road boundaries; minor cutting between gates remains possible.
 **Repeatability:** Racer > Validate Phase 3 (Play mode); Racer > Validate CR-010 (Play mode). One-time Add Phase 3 Race Systems refuses duplicates. Do not rebuild the accepted environment for race changes; edit race gates under their separate root.
 **Evidence:** Docs/PHASE3_VALIDATION.md, PHASE3_TEST_RESULTS.txt, CR010_TEST_RESULTS.txt, PHASE3_REALTIME_RESULTS.txt, PHASE3_HUD.png, PHASE3_PRESERVATION.txt and PHASE3_CONSOLE.json. Prior Phase 2 reports remain historical evidence.
-**Dan's next tests:** Three valid laps; skip/wrong-way/repeated finish; race restart and car reset; HUD; ordinary bends/hairpin/hills/fast roads/reverse; physical controller; camera/braking/stability. Approve or request adjustments to Phase 3 and CR-010 before Phase 4.
+**Dan's latest review:** All tests passed. Handling still feels a bit floaty, though not terrible; little difference noticed from the initial steering adjustment. Test input device was not specified.
+**Next planned work:** Phase 4's first jump, CR-010 handling follow-up, and CR-011 moderate speed/acceleration increase. Use the commit-first Phase 4 prompt. Tune and test at representative racing speeds, record actual speeds and before/after values, and size the jump for the revised performance. Preserve the accepted track and race systems; leave final speed/handling approval to Dan.
+**Dan's next review:** Compare baseline/revised speed, acceleration and handling together on ordinary bends, suitable fast straights and braking approaches; then assess revised-speed jump takeoff/landing/recovery and unchanged lap/checkpoint behavior. Confirm the input device used; do not claim physical-controller coverage without confirmation.
 
 ---
 # How Dan and ChatGPT Will Use This File
