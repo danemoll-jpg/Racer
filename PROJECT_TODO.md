@@ -238,23 +238,23 @@ Elevation character is a major part of making the location recognizable and shou
 
 ## TODO
 
-- [ ] Create the full rough road loop shown in red.
-- [ ] Establish approximate real-world scale suitable for driving.
-- [ ] Shape terrain to reflect the remembered hills and elevation changes.
-- [ ] Add the significant uphill entrance onto Dan's street.
-- [ ] Add rolling smaller hills along Dan's street.
-- [ ] Add the larger downhill drop at the second yellow circle.
-- [ ] Add the gradual downhill near the last yellow circle.
-- [ ] Add Dan's childhood house as a simple placeholder mass.
-- [ ] Add houses 1, 2, and 3 as simple placeholder masses.
-- [ ] Add the friend's house across the street.
-- [ ] Add the placeholder house behind the hairpin turn.
-- [ ] Replace marked newer subdivisions/development with wooded/open areas.
-- [ ] Add approximate/random houses where appropriate on the connecting road and other remembered residential areas.
-- [ ] Give the main road a basic commercial/business character.
-- [ ] Preserve `PrototypeTrack` and create a separate greybox scene for the real loop.
-- [ ] Test the entire loop with the Phase 1 vehicle.
-- [ ] Adjust road width/curve smoothness only as much as needed for comfortable driving.
+- [x] Create the full rough road loop shown in red.
+- [x] Establish approximate real-world scale suitable for driving.
+- [x] Shape terrain to reflect the remembered hills and elevation changes.
+- [x] Add the significant uphill entrance onto Dan's street.
+- [x] Add rolling smaller hills along Dan's street.
+- [x] Add the larger downhill drop at the second yellow circle.
+- [x] Add the gradual downhill near the last yellow circle.
+- [x] Add Dan's childhood house as a simple placeholder mass.
+- [x] Add houses 1, 2, and 3 as simple placeholder masses.
+- [x] Add the friend's house across the street.
+- [x] Add the placeholder house behind the hairpin turn.
+- [x] Replace marked newer subdivisions/development with wooded/open areas.
+- [x] Add approximate/random houses where appropriate on the connecting road and other remembered residential areas.
+- [x] Give the main road a basic commercial/business character.
+- [x] Preserve `PrototypeTrack` and create a separate greybox scene for the real loop.
+- [x] Test the entire loop with the Phase 1 vehicle.
+- [x] Adjust road width/curve smoothness only as much as needed for comfortable driving.
 - [ ] Confirm the result is recognizable enough to Dan.
 
 ## Tell Astra/Codex
@@ -399,19 +399,19 @@ Elevation character is a major part of making the location recognizable and shou
 
 ## Acceptance Test
 
-- [ ] The full real road loop exists and is drivable.
+- [x] The full real road loop exists and is drivable.
 - [ ] Dan recognizes the road layout.
 - [ ] The initial uphill onto Dan's street feels significant.
-- [ ] Smaller rolling hills are present along the street.
+- [x] Smaller rolling hills are present along the street.
 - [ ] The larger downhill drop feels recognizable.
 - [ ] The gradual downhill at the road's end feels appropriate.
-- [ ] Dan's house and houses 1/2/3 are represented.
-- [ ] Friend's house across the street is represented.
-- [ ] Newer subdivisions are substantially removed/replaced with woods/open land.
+- [x] Dan's house and houses 1/2/3 are represented.
+- [x] Friend's house across the street is represented.
+- [x] Newer subdivisions are substantially removed/replaced with woods/open land.
 - [ ] Main road/commercial area feels appropriately more developed.
 - [ ] Connecting road has suitable residential development.
-- [ ] Car can drive the complete loop without major collision problems.
-- [ ] No compile errors.
+- [x] Car can drive the complete loop without major collision problems.
+- [x] No compile errors.
 - [ ] Dan approves the greybox as recognizable enough to proceed.
 
 ### Street / Terrain Notes
@@ -705,19 +705,17 @@ Record choices we do not want to repeatedly reconsider.
 
 # SESSION HANDOFF
 
-Update this section before bringing the file back to ChatGPT.
-
-**Current phase:** Phase 2 — ready to begin  
-**Last completed task:** Phase 1 hands-on review completed; Dan reports the car seems to drive fine. Phase 1 accepted for handling/camera/braking/jump feel.  
-**Current playable state:** `PrototypeTrack` remains playable with the Phase 1 placeholder car, keyboard/controller input, chase camera, ramps, and reset system.  
-**Astra's latest summary:** Phase 1 implementation and validation completed previously. Dan has now completed the required subjective driving review and accepted the current vehicle feel.  
-**New bugs:** None reported by Dan during the Phase 1 hands-on test.  
-**Things Dan wants changed:** Begin Phase 2 using the full real road loop from the annotated map. Recreate the older remembered environment rather than current-day subdivisions. Preserve the key houses and hilly terrain described in the Phase 2 section.  
-**Questions/uncertainties:** Exact placement of less-important houses can be approximate. The placeholder house behind the hairpin should remain for now; a possible lake there is a later gameplay idea. Physical Xbox controller acceptance remains unconfirmed unless Dan separately tests it.  
-**Ready for next phase?:** Yes — Phase 2 is authorized.  
+**Current phase:** Phase 2 — implemented and tested; awaiting Dan's recognition/feel review. Phase 3 is not authorized or started.
+**Last completed task:** Built and saved StreetLoopGreybox; verified full-loop physics drives in both directions and scene reload.
+**Current playable state:** Open `Assets/Scenes/StreetLoopGreybox.unity` and press Play. Existing Phase 1 car/input/camera/reset are reused. Spawn faces uphill at the northern neighborhood entrance. `PrototypeTrack` and `PrototypeCar.prefab` are unchanged.
+**Astra's latest summary:** Added the traced 4.65 km loop, significant entrance climb, rolling hills, steeper second-circle descent, gradual lower return, interpolated ground, Dan's house plus houses 1/2/3, friend's house, hairpin house, nine approximate residences, five main-road businesses, and simple woods/open land replacing later subdivisions. No race systems, HUD, shortcuts, ramps, or polish pass.
+**Validation:** Both full-loop drives passed with real Phase 1 physics at conservative speeds (about 560 simulated seconds each). Maximum road-centre error 2.84 m; minimum upright dot 0.971. Zero missing road-support samples or blocked corridor samples. Scripts compiled; saved scene reloaded and played. Final live Console: 0 errors, 0 warnings. See `Docs/PHASE2_VALIDATION.md` and `Docs/PHASE2_TEST_RESULTS.txt`.
+**Simplifications/guesses:** Uniform 9 m road plus wide soft shoulders; cubic-smoothed bends; junctions reduced to rounded loop turns with outside road extensions omitted. Approximate scale and elevations, not surveyed. Peak short grade 24.4%; Dan should judge whether this is too steep. House dimensions/setbacks and exact position within friend's blue circle are estimates. Other residences/businesses and tree placement are fictional approximations. Storage facility and unrelated blue circle omitted. Ground is a coarse interpolated mesh.
+**New bugs/known limits:** No unresolved compile/runtime or blocking issue in tested runs. Maximum-speed bends and all off-road collisions are not certified. An earlier faster automated driver cut onto a shoulder; the final cautious driver passed. R/Y still returns to one fixed spawn. Physical Xbox hardware still needs review. Pipeline transport timeouts during long operations were tooling deadlines; completed scene/tests were independently verified.
+**What Dan should test next:** Drive the whole loop both ways; compare layout/hairpin and house sequence to memory; judge the initial climb, rolling crests, sledding drop, and gentle final descent. Brake before tight bends. Check chase-camera comfort, shoulder re-entry, R/Y reset, keyboard and physical Xbox controls. Review sparse woods west of the house and whether houses/commercial blocks need moving.
+**Ready for next phase?:** No. Await Dan's explicit Phase 2 approval; subjective acceptance boxes remain unchecked.
 
 ---
-
 # How Dan and ChatGPT Will Use This File
 
 At the beginning of every Astra/Codex work session:
