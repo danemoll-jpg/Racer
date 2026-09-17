@@ -1,0 +1,1 @@
+PASS baked bark vertices versus authored collider corners, 1mm rounding: expected unique corners 95176, actual 95176; missing 0, extra 0; bark vertices 285528. Leaves have no colliders.

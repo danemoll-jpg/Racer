@@ -1,0 +1,1 @@
+Verifying corrected renderer feature-list restoration

@@ -1,0 +1,4 @@
+whole supported terrain: projected tree footprint 413052m2 / 2560000m2 = 16.13%
+central removed subdivisions: projected tree footprint 230716m2 / 824400m2 = 27.99%
+eastern woods: projected tree footprint 88768m2 / 313600m2 = 28.31%
+southern woods: projected tree footprint 69688m2 / 272800m2 = 25.55%

@@ -1,0 +1,8 @@
+PASS Expanded yard trunks=0
+PASS Added trunks violating 6.8m spacing=0
+PASS Added trunks not aligned with supported ground=0
+PASS Added trees in reserved sites/corridors=0
+PASS Minimum conservative trunk surface clearance road=22.30m shortcut=16.72m
+PASS Road/shoulder/shortcut forest obstacles=0, vehicle-volume probes=1458
+PASS All original 6102 trunks retained (full transform verification separate)
+RESULT failures=0; colliders always enabled, no distance activation or pass-through trees. No terrain modifications.

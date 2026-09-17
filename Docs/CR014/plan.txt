@@ -1,0 +1,1 @@
+Existing 6102; proposed additions 5795; minimum added trunk center spacing 6.8m (including existing trees). Added boxes 0.75m wide. Broad central, eastern and southern woodland; patch noise preserves glades. Plan routes avoid all proposed trunks; routes are test trajectories, not authored clearings or shortcuts. Terrain sampled from accepted live MeshColliders.

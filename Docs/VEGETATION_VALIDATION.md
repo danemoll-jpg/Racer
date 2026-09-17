@@ -1,4 +1,6 @@
-# Phase 6 vegetation batch — awaiting Dan's visual approval
+# Phase 6 initial vegetation refresh — historical validation
+
+CR-014 supersedes this initial shape-only pass with expanded woodland. See [CR-014 validation](CR014/VALIDATION.md). Vegetation approval remains pending Dan's review; the earlier phase and building approvals are unchanged.
 
 Safety checkpoint: `c20f244a36f0779d1b9e1e7ed8713e1b10ebc8d9`. The first staging attempt failed creating `.git/index.lock`; the authorized elevated retry committed the existing approval/backlog documentation. No project content changed before that checkpoint. Completion commit is reported in the task response.
 

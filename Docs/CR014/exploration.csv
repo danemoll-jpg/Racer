@@ -1,0 +1,6 @@
+CR-014 ordinary-frame virtual Gamepad; 6000.6.1f1; editor=True; 734x293; quality=PC; vSync=0; target=-1; CPU=Intel(R) Core(TM) i7-9700 CPU @ 3.00GHz; GPU=NVIDIA GeForce GTX 1660 Ti; RAM=65341MB; graphics=Direct3D11; shadowDistance=40; fixedDelta=0.01999999
+Recorder validity main=True, render=False, physics=True, draws=True, triangles=True. CPU markers include waits; no GPU timing claim. 3s warmup + 12s measured per section; repetitions=1; forestRenderingDisabled=False. Initial pose only is teleported, no manual physics stepping.
+run,route,n,median_ms,p95_ms,p99_ms,max_ms,over33ms,main_median_ms,render_median_ms,physics_median_ms,allocated_MB,reserved_MB,peak_mps,min_up,max_path_error_m,distance_m,end_index,physics_p95_ms,last_draws,last_triangles
+1,central-forest-slow,3116,12.076,18.736,25.064,73.291,4,12.128,-1.000,0.126,1644.9,3268.8,3.92,0.996,0.89,150.4,113,0.382,0,1252043
+1,southwest-forest-slow,4245,7.902,16.134,24.430,152.444,15,8.027,-1.000,0.000,1645.6,3268.8,4.04,0.996,0.98,150.2,111,0.308,0,1153481
+1,east-forest-slow,9852,3.578,5.172,7.078,29.415,0,3.571,-1.000,0.000,1645.4,3268.8,3.89,0.988,1.05,150.9,108,0.165,0,898811
