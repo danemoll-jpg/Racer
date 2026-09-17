@@ -1,0 +1,167 @@
+Assets/Buildings/Phase6/Scene buildings - Blue glass.asset
+Assets/Buildings/Phase6/Scene buildings - Charcoal roof.asset
+Assets/Buildings/Phase6/Scene buildings - Diner red.asset
+Assets/Buildings/Phase6/Scene buildings - Door timber.asset
+Assets/Buildings/Phase6/Scene buildings - Ivory trim.asset
+Assets/Buildings/Phase6/Scene buildings - Market teal.asset
+Assets/Buildings/Phase6/Scene buildings - Muted brick.asset
+Assets/Buildings/Phase6/Scene buildings - Sage siding.asset
+Assets/Buildings/Phase6/Scene buildings - Slate blue siding.asset
+Assets/Buildings/Phase6/Scene buildings - Warm plaster.asset
+Assets/Buildings/Phase6/Scene buildings - Workshop ochre.asset
+Assets/Buildings/Roadside.meta
+Assets/Buildings/Roadside/Bend marker.prefab
+Assets/Buildings/Roadside/Bend marker.prefab.meta
+Assets/Buildings/Roadside/House placements.json
+Assets/Buildings/Roadside/House placements.json.meta
+Assets/Buildings/Roadside/Mailbox.prefab
+Assets/Buildings/Roadside/Mailbox.prefab.meta
+Assets/Scenes/StreetLoopGreybox.unity
+Assets/Scripts/Editor/CR014Woodland.cs
+Assets/Scripts/Editor/CR015Neighborhood.cs
+Assets/Scripts/Editor/CR015Neighborhood.cs.meta
+Assets/Scripts/Editor/Phase6Buildings.cs
+Assets/Scripts/Editor/StreetLoopBuilder.cs
+Assets/Scripts/Editor/StreetLoopRevision.cs
+Assets/Track/StreetLoop/Ground_560_240.asset
+Assets/Vegetation/Phase6/Forest_-1_-1.asset
+Assets/Vegetation/Phase6/Forest_-1_-3.asset
+Assets/Vegetation/Phase6/Forest_-1_-4.asset
+Assets/Vegetation/Phase6/Forest_-1_-5.asset
+Assets/Vegetation/Phase6/Forest_-1_0.asset
+Assets/Vegetation/Phase6/Forest_-1_2.asset
+Assets/Vegetation/Phase6/Forest_-1_3.asset
+Assets/Vegetation/Phase6/Forest_-2_-2.asset
+Assets/Vegetation/Phase6/Forest_-2_-3.asset
+Assets/Vegetation/Phase6/Forest_-2_-5.asset
+Assets/Vegetation/Phase6/Forest_-2_0.asset
+Assets/Vegetation/Phase6/Forest_-2_1.asset
+Assets/Vegetation/Phase6/Forest_-2_2.asset
+Assets/Vegetation/Phase6/Forest_-2_3.asset
+Assets/Vegetation/Phase6/Forest_-3_-2.asset
+Assets/Vegetation/Phase6/Forest_-3_-4.asset
+Assets/Vegetation/Phase6/Forest_-3_-5.asset
+Assets/Vegetation/Phase6/Forest_-3_0.asset
+Assets/Vegetation/Phase6/Forest_-3_2.asset
+Assets/Vegetation/Phase6/Forest_-3_3.asset
+Assets/Vegetation/Phase6/Forest_-4_-1.asset
+Assets/Vegetation/Phase6/Forest_-4_-2.asset
+Assets/Vegetation/Phase6/Forest_-4_-3.asset
+Assets/Vegetation/Phase6/Forest_-4_-5.asset
+Assets/Vegetation/Phase6/Forest_-4_0.asset
+Assets/Vegetation/Phase6/Forest_-4_2.asset
+Assets/Vegetation/Phase6/Forest_-4_3.asset
+Assets/Vegetation/Phase6/Forest_-5_-1.asset
+Assets/Vegetation/Phase6/Forest_-5_-2.asset
+Assets/Vegetation/Phase6/Forest_-5_-3.asset
+Assets/Vegetation/Phase6/Forest_-5_-4.asset
+Assets/Vegetation/Phase6/Forest_-5_-5.asset
+Assets/Vegetation/Phase6/Forest_-5_0.asset
+Assets/Vegetation/Phase6/Forest_-5_1.asset
+Assets/Vegetation/Phase6/Forest_-5_2.asset
+Assets/Vegetation/Phase6/Forest_-5_3.asset
+Assets/Vegetation/Phase6/Forest_0_-1.asset
+Assets/Vegetation/Phase6/Forest_0_-2.asset
+Assets/Vegetation/Phase6/Forest_0_-3.asset
+Assets/Vegetation/Phase6/Forest_0_-5.asset
+Assets/Vegetation/Phase6/Forest_0_0.asset
+Assets/Vegetation/Phase6/Forest_0_1.asset
+Assets/Vegetation/Phase6/Forest_0_2.asset
+Assets/Vegetation/Phase6/Forest_0_3.asset
+Assets/Vegetation/Phase6/Forest_1_-2.asset
+Assets/Vegetation/Phase6/Forest_1_-3.asset
+Assets/Vegetation/Phase6/Forest_1_-4.asset
+Assets/Vegetation/Phase6/Forest_1_-5.asset
+Assets/Vegetation/Phase6/Forest_1_0.asset
+Assets/Vegetation/Phase6/Forest_1_1.asset
+Assets/Vegetation/Phase6/Forest_1_3.asset
+Assets/Vegetation/Phase6/Forest_2_-1.asset
+Assets/Vegetation/Phase6/Forest_2_-2.asset
+Assets/Vegetation/Phase6/Forest_2_-3.asset
+Assets/Vegetation/Phase6/Forest_2_-5.asset
+Assets/Vegetation/Phase6/Forest_2_0.asset
+Assets/Vegetation/Phase6/Forest_2_1.asset
+Assets/Vegetation/Phase6/Forest_2_3.asset
+Assets/Vegetation/Phase6/Forest_3_-1.asset
+Assets/Vegetation/Phase6/Forest_3_-3.asset
+Assets/Vegetation/Phase6/Forest_3_-4.asset
+Assets/Vegetation/Phase6/Forest_3_-5.asset
+Assets/Vegetation/Phase6/Forest_3_0.asset
+Assets/Vegetation/Phase6/Forest_3_1.asset
+Assets/Vegetation/Phase6/Forest_3_2.asset
+Assets/Vegetation/Phase6/Forest_3_3.asset
+Assets/Vegetation/Phase6/Forest_4_-1.asset
+Assets/Vegetation/Phase6/Forest_4_-2.asset
+Assets/Vegetation/Phase6/Forest_4_-4.asset
+Assets/Vegetation/Phase6/Forest_4_-5.asset
+Assets/Vegetation/Phase6/Forest_4_0.asset
+Assets/Vegetation/Phase6/Forest_4_1.asset
+Assets/Vegetation/Phase6/Forest_4_2.asset
+Assets/Vegetation/Phase6/Forest_4_3.asset
+Assets/Vegetation/Phase6/Trunk.asset
+Docs/CR015/access-driving.cs
+Docs/CR015/access-driving.csv
+Docs/CR015/access-inspect.cs
+Docs/CR015/access-routes.json
+Docs/CR015/after-annotated.png
+Docs/CR015/after-annotated.svg
+Docs/CR015/after-dan.png
+Docs/CR015/after-drive-dan.png
+Docs/CR015/after-drive-drop.png
+Docs/CR015/after-drive-north.png
+Docs/CR015/after-friend.png
+Docs/CR015/after-house2.png
+Docs/CR015/after-house3.png
+Docs/CR015/after-labels.json
+Docs/CR015/after-mailbox-driving-camera.png
+Docs/CR015/after-overview.png
+Docs/CR015/after-sites.json
+Docs/CR015/annotate.ps1
+Docs/CR015/before-annotated.png
+Docs/CR015/before-annotated.svg
+Docs/CR015/before-dan.png
+Docs/CR015/before-drive-dan.png
+Docs/CR015/before-drive-drop.png
+Docs/CR015/before-drive-north.png
+Docs/CR015/before-friend.png
+Docs/CR015/before-house2.png
+Docs/CR015/before-house3.png
+Docs/CR015/before-labels.json
+Docs/CR015/before-overview.png
+Docs/CR015/before-sites.json
+Docs/CR015/changes.txt
+Docs/CR015/compilation-final.json
+Docs/CR015/console-final.json
+Docs/CR015/console-history.json
+Docs/CR015/files-changed.txt
+Docs/CR015/final-adjustment.cs
+Docs/CR015/forest-geometry-preservation.json
+Docs/CR015/forest-preservation.py
+Docs/CR015/geometry.cs
+Docs/CR015/geometry.txt
+Docs/CR015/inspect.cs
+Docs/CR015/inspection.txt
+Docs/CR015/JUMP_TESTS.txt
+Docs/CR015/jump-ordinary-result.txt
+Docs/CR015/jump-realtime.cs
+Docs/CR015/jump-realtime.csv
+Docs/CR015/jump-routes.json
+Docs/CR015/mailbox-review.cs
+Docs/CR015/MIXED_LAPS.txt
+Docs/CR015/profile-after-repeat.csv
+Docs/CR015/profile-after.csv
+Docs/CR015/profile-before.csv
+Docs/CR015/profile-routes.json
+Docs/CR015/RACE_REGRESSION.txt
+Docs/CR015/RECOVERY.txt
+Docs/CR015/regression-tests.cs
+Docs/CR015/save-reload.json
+Docs/CR015/scene-preservation.ps1
+Docs/CR015/scene-preservation.txt
+Docs/CR015/shortcut-ordinary.cs
+Docs/CR015/shortcut-ordinary.txt
+Docs/CR015/site-clearance.cs
+Docs/CR015/TESTS_COMPLETE.txt
+Docs/CR015/VALIDATION.md
+Docs/CR015/vegetation.txt
+PROJECT_TODO.md

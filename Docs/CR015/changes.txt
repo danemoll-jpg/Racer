@@ -1,0 +1,22 @@
+Dan - blue X: (352.0000, 74.9864, 105.6000) -> (349.7807, 74.9703, 103.5814), delta (-2.2193, -0.0161, -2.0186); floor 76.040, foundation bottom 74.820. Accepted prefab and rotation retained.
+Original house 2: (438.9000, 85.3744, -111.1000) -> (417.4092, 85.6466, -55.3168), delta (-21.4908, 0.2722, 55.7833); floor 86.967, foundation bottom 85.022. Accepted prefab and rotation retained.
+Original house 3: (429.0000, 32.7548, -220.0000) -> (418.0000, 32.7548, -166.0000), delta (-11.0000, 0.0000, 54.0000); floor 33.255, foundation bottom 32.605. Accepted prefab and rotation retained.
+Valley extension: 1824 unique vertices, 1 tiles, maximum lowering 42.881m; no road/shoulder edits within 18m, no raised terrain or flattened hillside.
+Removed conflicting tree Tree trunk (407.90, 89.36, -52.39)
+Removed conflicting tree Tree trunk (414.57, 51.06, -177.59)
+Removed conflicting tree Tree trunk (421.52, 89.83, -43.79)
+Removed conflicting tree Tree trunk (416.41, 67.90, -164.71)
+Removed conflicting tree Tree trunk (428.06, 69.43, -165.18)
+Trees removed 5; terrain-local trunks regrounded 18. Remaining 11892.
+Mailbox - Dan - blue X at (402.596, 76.795, 155.675)
+Mailbox - Original house 2 at (462.124, 87.415, -42.689)
+Mailbox - Friend across street - blue circle at (486.848, 87.722, -43.538)
+Mailbox - Original house 3 at (497.975, 84.836, -124.214)
+Simple bend warning at (500.652, 83.605, -129.808)
+Simple bend warning at (309.105, 71.146, 299.260)
+4 reusable mailboxes + 2 simple bend signs. No names, addresses or historical claims. No colliders on small props; >=11m road-center clearance, outside ordinary shoulder.
+Original house 3: (418.0000, 32.7548, -166.0000) -> (418.0000, 32.7548, -160.0000), delta (0.0000, 0.0000, 6.0000); floor 33.255, foundation bottom 32.605. Accepted prefab and rotation retained.
+Final footprint/crown conflict removed: Tree trunk (430.05, 36.81, -165.95)
+Final footprint/crown conflict removed: Tree trunk (405.62, 87.79, -60.04)
+Final footprint/crown conflict removed: Tree trunk (403.49, 37.05, -160.69)
+Final footprint/crown conflict removed: Tree trunk (425.02, 90.42, -65.79)

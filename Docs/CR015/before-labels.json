@@ -1,0 +1,28 @@
+{
+  "marks": [
+    {
+      "name": "Dan - blue X",
+      "x": 520.000061,
+      "y": 156.4442
+    },
+    {
+      "name": "Original house 2",
+      "x": 713.1112,
+      "y": 637.9998
+    },
+    {
+      "name": "Friend across street - blue circle",
+      "x": 874.4445,
+      "y": 469.33316
+    },
+    {
+      "name": "Original house 3",
+      "x": 691.1111,
+      "y": 879.9998
+    }
+  ],
+  "drop": {
+    "x": 881.777832,
+    "y": 684.444336
+  }
+}

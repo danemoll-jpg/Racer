@@ -1,0 +1,6 @@
+var log=new System.Collections.Generic.List<string>();
+Racer.Editor.CR015Neighborhood.Move(GameObject.Find("Original house 3").transform,Racer.Editor.CR015Neighborhood.HouseThreeSite,log);
+var house=GameObject.Find("Original house 3").transform;var road=Racer.Editor.StreetLoopBuilder.Route();Racer.Editor.StreetLoopBuilder.Nearest(house.position,road,out var r);var side=Vector3.ProjectOnPlane(house.position-r,Vector3.up).normalized;var p=r+side*12+Vector3.Cross(Vector3.up,side)*3;p.y=Racer.Editor.Phase6Buildings.Ground(p);var mailbox=GameObject.Find("Mailbox - Original house 3").transform;mailbox.SetPositionAndRotation(p,Quaternion.LookRotation(-side));UnityEditor.PrefabUtility.RecordPrefabInstancePropertyModifications(mailbox);
+UnityEditor.SceneManagement.EditorSceneManager.MarkSceneDirty(UnityEngine.SceneManagement.SceneManager.GetActiveScene());UnityEditor.SceneManagement.EditorSceneManager.SaveScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene());
+var old=System.IO.File.ReadAllBytes("Docs/PHASE6_RENDER_BATCHES.txt");try{Racer.Editor.Phase6Buildings.RefreshVisualBatches();}finally{System.IO.File.WriteAllBytes("Docs/PHASE6_RENDER_BATCHES.txt",old);}
+Racer.Editor.CR015Neighborhood.SnapshotSites("after");System.IO.File.AppendAllLines("Docs/CR015/changes.txt",log);return log;

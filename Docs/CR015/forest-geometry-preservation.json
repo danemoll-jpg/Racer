@@ -1,0 +1,8 @@
+{
+  "forest_batches_with_changed_positions_normals_colors_or_indices": [
+    "Forest_2_-1.asset",
+    "Forest_2_-2.asset"
+  ],
+  "all_other_batches_geometry_colors_exact": 88,
+  "note": "Ignores unused tangent/UV channels; refresh serialization can change those buffers. All authored trunk preservation is separately checked in scene records."
+}

@@ -22,7 +22,7 @@ public static class StreetLoopRevision {
  static Dictionary<Vector2Int,List<int>> bins;
  static Vector4[] bounds;
  static Vector3 Map(float x,float y)=>new((x-650)*1.1f,0,(950-y)*1.1f);
- static readonly Vector3 House3=Map(1040,1150), Friend=Map(1115,982);
+ static Vector3 House3=>CR015Neighborhood.AuthoredPosition("Original house 3",Map(1040,1150)); static readonly Vector3 Friend=Map(1115,982);
  static void Prepare() {
   route=StreetLoopBuilder.Route(); bins=new();bounds=new Vector4[(route.Count+15)/16];
   for(int k=0;k<bounds.Length;k++){var b=new Vector4(float.MaxValue,float.MaxValue,float.MinValue,float.MinValue);for(int j=k*16;j<=Mathf.Min(route.Count,k*16+16);j++){var p=route[j%route.Count];b.x=Mathf.Min(b.x,p.x);b.y=Mathf.Min(b.y,p.z);b.z=Mathf.Max(b.z,p.x);b.w=Mathf.Max(b.w,p.z);}bounds[k]=b;}
@@ -76,7 +76,7 @@ public static class StreetLoopRevision {
   var buildings=new GameObject("Remembered houses and approximate buildings").transform;
   Material M(string n)=>AssetDatabase.LoadAssetAtPath<Material>(Folder+"/"+n+".mat");
   void Cube(string name,Transform parent,Vector3 position,Vector3 size,Material material){var go=GameObject.CreatePrimitive(PrimitiveType.Cube);go.name=name;go.transform.SetParent(parent,false);go.transform.localPosition=position;go.transform.localScale=size;go.GetComponent<Renderer>().sharedMaterial=material;}
-  void House(string name,Vector3 p,bool key=false,float width=13,float depth=10){p.y=Surface(p);Near(p,out var near);var t=new GameObject(name).transform;t.SetParent(buildings);t.position=p;t.rotation=Quaternion.LookRotation(Vector3.ProjectOnPlane(near-p,Vector3.up));float low=p.y,high=p.y;foreach(float x in new[]{-width/2,width/2})foreach(float z in new[]{-depth/2,depth/2}){float y=Surface(t.TransformPoint(new Vector3(x,0,z)));low=Mathf.Min(low,y);high=Mathf.Max(high,y);}float top=high-p.y+.5f;Cube("Foundation",t,new(0,(low-p.y+top)*.5f,0),new(width+1,top-(low-p.y)+.2f,depth+1),M("Shoulder"));Cube("House mass",t,new(0,top+2.5f,0),new(width,5,depth),M(key?"Landmark":"House"));Cube("Roof mass",t,new(0,top+5.4f,0),new(width+1,.8f,depth+1),M("Roof"));}
+  void House(string name,Vector3 p,bool key=false,float width=13,float depth=10){p=CR015Neighborhood.AuthoredPosition(name,p);p.y=Surface(p);p=CR015Neighborhood.AuthoredPosition(name,p);Near(p,out var near);var t=new GameObject(name).transform;t.SetParent(buildings);t.position=p;t.rotation=Quaternion.LookRotation(Vector3.ProjectOnPlane(near-p,Vector3.up));float low=p.y,high=p.y;foreach(float x in new[]{-width/2,width/2})foreach(float z in new[]{-depth/2,depth/2}){float y=Surface(t.TransformPoint(new Vector3(x,0,z)));low=Mathf.Min(low,y);high=Mathf.Max(high,y);}float top=high-p.y+.5f;Cube("Foundation",t,new(0,(low-p.y+top)*.5f,0),new(width+1,top-(low-p.y)+.2f,depth+1),M("Shoulder"));Cube("House mass",t,new(0,top+2.5f,0),new(width,5,depth),M(key?"Landmark":"House"));Cube("Roof mass",t,new(0,top+5.4f,0),new(width+1,.8f,depth+1),M("Roof"));}
   House("Dan - blue X",Map(970,854),true);House("Original house 2",Map(1049,1051),true);House("Original house 3",House3,true);House("Friend across street - blue circle",Friend,true);House("Remembered house behind southern hairpin",Map(1090,1492),true);
   var rng=new System.Random(1978);
   foreach(var p in new[]{new Vector2(45,660),new Vector2(113,820),new Vector2(43,1015),new Vector2(118,1130),new Vector2(43,1290),new Vector2(730,1260),new Vector2(690,1360),new Vector2(530,1441),new Vector2(367,1425),new Vector2(116,725),new Vector2(42,890),new Vector2(121,970),new Vector2(41,1170),new Vector2(126,1350),new Vector2(594,1415),new Vector2(615,1310),new Vector2(780,1170),new Vector2(872,1325),new Vector2(1000,1410),new Vector2(1180,1340)})House("Approximate older residence",Map(p.x,p.y),false,11+(float)rng.NextDouble()*5,9+(float)rng.NextDouble()*3);
@@ -99,3 +99,5 @@ public static class StreetLoopRevision {
  }
 }
 }
+
+

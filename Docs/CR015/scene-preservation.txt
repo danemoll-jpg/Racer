@@ -1,0 +1,34 @@
+Baseline a1212ec; retained scene records changed: 24; removed: 468
+Changed retained records grouped by object name:
+: 1
+Dan - blue X: 1
+Foundation: 3
+Original house 2: 1
+Original house 3: 1
+Tree trunk: 16
+Woods replacing later subdivisions: 1
+Detailed retained changes:
+ | 9223372036854775807 | SceneRoots:
+Dan - blue X | 26823589 | Transform:
+Foundation | 142149400 | Transform:
+Foundation | 1864837848 | Transform:
+Foundation | 665748020 | Transform:
+Original house 2 | 586463464 | Transform:
+Original house 3 | 1817454934 | Transform:
+Tree trunk | 1114701409 | Transform:
+Tree trunk | 114117398 | Transform:
+Tree trunk | 1153617396 | Transform:
+Tree trunk | 1259295625 | Transform:
+Tree trunk | 1565876302 | Transform:
+Tree trunk | 1806801474 | Transform:
+Tree trunk | 1888934197 | Transform:
+Tree trunk | 2086062439 | Transform:
+Tree trunk | 311658488 | Transform:
+Tree trunk | 331711976 | Transform:
+Tree trunk | 443518199 | Transform:
+Tree trunk | 49885118 | Transform:
+Tree trunk | 594805747 | Transform:
+Tree trunk | 656935202 | Transform:
+Tree trunk | 739892237 | Transform:
+Tree trunk | 77088693 | Transform:
+Woods replacing later subdivisions | 1471935858 | Transform:

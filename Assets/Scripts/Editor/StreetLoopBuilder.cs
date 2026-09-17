@@ -85,7 +85,7 @@ namespace Racer.Editor
             MeshObject("Rolling ground",v,tri.ToArray(),grass,root);
             var buildings=new GameObject("Remembered houses and approximate buildings").transform;
             void House(string name,float x,float y,bool key=false,float w=13,float depth=10) {
-                var p=P(x,y,0);p.y=Ground(p,r);var group=new GameObject(name).transform;group.SetParent(buildings);
+                var p=P(x,y,0);p.y=Ground(p,r);p=CR015Neighborhood.AuthoredPosition(name,p);var group=new GameObject(name).transform;group.SetParent(buildings);
                 Nearest(p,r,out var near); var facing=near-p;facing.y=0;group.position=p;group.rotation=Quaternion.LookRotation(facing);
                 Cube("Foundation",group,new(0,.5f,0),new(w+1,1,depth+1),shoulder);
                 Cube("House mass",group,new(0,3,0),new(w,5,depth),key?landmark:walls);
@@ -127,3 +127,4 @@ namespace Racer.Editor
         static void MeshObject(string name,Vector3[] vertices,int[] triangles,Material mat,Transform parent){var mesh=new Mesh{name=name,indexFormat=UnityEngine.Rendering.IndexFormat.UInt32};mesh.vertices=vertices;mesh.triangles=triangles;mesh.RecalculateNormals();mesh.RecalculateBounds();AssetDatabase.CreateAsset(mesh,Folder+"/"+name+".asset");var go=new GameObject(name,typeof(MeshFilter),typeof(MeshRenderer),typeof(MeshCollider));go.transform.SetParent(parent);go.GetComponent<MeshFilter>().sharedMesh=mesh;go.GetComponent<MeshCollider>().sharedMesh=mesh;go.GetComponent<Renderer>().sharedMaterial=mat;}
     }
 }
+

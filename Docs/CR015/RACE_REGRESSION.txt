@@ -1,0 +1,42 @@
+PASS: Checkpoints cannot start race
+PASS: Wrong-way start cannot start race
+PASS: Skipped CP1 cannot award a lap
+PASS: Wrong-way gate invalidates lap even after recrossing forward
+PASS: Repeated checkpoint invalidates current lap
+PASS: Repeated finish crossings cannot award laps
+PASS: Three ordered laps: 60s splits, 180s frozen total
+PASS: Finished race ignores further crossings
+PASS: Restart clears all progress and timing
+PASS: Vehicle reset cannot preserve checkpoint credit
+PASS: Swept forward crossing and sub-step timing
+PASS: Swept reverse crossing
+PASS: Outside-width and above-gate bypasses rejected
+PASS: Standing on plane does not repeat crossing
+PASS: Director starts through physical gate geometry
+PASS: Director rejects wrong-way finish
+PASS: Reversing rear-first through start does not count
+PASS: Teleport over gate cannot start race
+PASS: Virtual gamepad progressive trigger and partial steering
+PASS: Virtual gamepad progressive larger steering
+PASS: Virtual LT brake/reverse
+PASS: Virtual Start restarts race
+PASS: Virtual keyboard W/D
+PASS: Virtual keyboard S/A
+PASS: Virtual keyboard arrows
+PASS: Virtual Enter clears race and timer
+PASS: Virtual Y retains fixed upright reset and abandons lap
+PASS: Chase camera snaps on reset
+PASS: Virtual R reset
+PASS: Automatic fall reset preserved
+PASS: HUD ready state
+PASS: HUD next checkpoint updates
+PASS: HUD invalid-lap warning
+PASS: HUD completed race
+LAP 1: 562.681s, total 562.683s
+LAP 2: 562.673s, total 1125.363s
+LAP 3: 562.652s, total 1688.006s
+PASS: Three real PhysX laps: 1691.30s, max centre error 2.828m, min upright 0.880, airborne steps 112; 4.5/8 m/s target; no teleport during traversal
+PASS: HUD reflects actual simulated finish
+PASS: Restart after actual race clears laps, last/best, total and HUD
+Failures: 0
+Virtual input and simulated driving only. Physical controller and subjective steering comfort require Dan.

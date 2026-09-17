@@ -1,0 +1,15 @@
+PASS House #1 remains absent
+PASS Friend unchanged
+PASS House #2 opposite friend, cross-street line error 0.0000m; road projection separation 0.000m
+PASS House #2 closer to Dan
+PASS House #3 road projection Z -115.047 before big descent knot Z -132; ground 32.755, road 85.826, below road 53.071m
+PASS House #3 closer to House #2
+PASS All 47 foundations: floating corners=0, terrain above floor=0
+PASS Terrain seams: height mismatches 0, normal mismatches 0
+PASS Terrain rendering/collision meshes identical
+PASS Expanded yard 1499 support probes; missing/blocked 0
+PASS 4 mailboxes + 2 signs, no small snag/launch colliders
+PASS Prop minimum centerline distance 11.942m; ordinary 9m shoulder envelope clear
+PASS Broad expanded woodland retained
+PASS Local trees regrounded: unsupported=0
+RESULT failures=0. Geometric sampling only; dynamic driving separately.

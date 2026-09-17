@@ -1,0 +1,7 @@
+CR-014 ordinary-frame virtual Gamepad; 6000.6.1f1; editor=True; 734x293; quality=PC; vSync=0; target=-1; CPU=Intel(R) Core(TM) i7-9700 CPU @ 3.00GHz; GPU=NVIDIA GeForce GTX 1660 Ti; RAM=65341MB; graphics=Direct3D11; shadowDistance=40; fixedDelta=0.01999999
+Recorder validity main=True, render=False, physics=True, draws=True, triangles=True. CPU markers include waits; no GPU timing claim. 3s warmup + 27s measured per section; repetitions=1; forestRenderingDisabled=False. Initial pose only is teleported, no manual physics stepping.
+run,route,n,median_ms,p95_ms,p99_ms,max_ms,over33ms,main_median_ms,render_median_ms,physics_median_ms,allocated_MB,reserved_MB,peak_mps,min_up,max_path_error_m,distance_m,end_index,physics_p95_ms,last_draws,last_triangles
+1,expanded-yard,1987,8.983,37.766,63.723,176.278,140,9.437,-1.000,0.132,1743.6,3273.8,5.48,0.985,2.22,99.7,64,1.583,0,624171
+1,house2-access-reentry,1812,11.617,36.861,64.842,176.035,121,12.357,-1.000,0.142,1743.3,3273.8,4.50,0.946,2.86,60.6,40,1.620,0,457699
+1,valley-access,1491,17.031,35.503,52.413,114.788,107,17.420,-1.000,0.158,1743.5,3273.8,4.45,0.925,2.35,67.0,44,1.432,0,1248685
+1,valley-return,1592,14.456,34.975,59.705,265.856,99,14.829,-1.000,0.151,1744.2,3273.8,5.04,0.908,1.58,64.8,44,1.334,0,602631

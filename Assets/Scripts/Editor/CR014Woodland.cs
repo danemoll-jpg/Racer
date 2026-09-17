@@ -20,7 +20,7 @@ public static class CR014Woodland {
  public static bool SiteReserved(Vector3 p){
   var root=GameObject.Find(Phase6Review.Root);if(root)foreach(Transform t in root.transform){var d=p-t.position;d.y=0;if(d.magnitude<28)return true;}
   // Retain House 3's accepted downhill view/access across its sloped site.
-  var h3=new Vector3(429,0,-220);var road=StreetLoopBuilder.Route();StreetLoopBuilder.Nearest(h3,road,out var r);r.y=0;var v=h3-r;p.y=0;return (p-r-v*Mathf.Clamp01(Vector3.Dot(p-r,v)/v.sqrMagnitude)).magnitude<18;
+  var h3=CR015Neighborhood.AuthoredPosition("Original house 3",new Vector3(429,0,-220));var current=GameObject.Find("Original house 3");if(current)h3=current.transform.position;h3.y=0;var road=StreetLoopBuilder.Route();StreetLoopBuilder.Nearest(h3,road,out var r);r.y=0;var v=h3-r;p.y=0;return (p-r-v*Mathf.Clamp01(Vector3.Dot(p-r,v)/v.sqrMagnitude)).magnitude<18;
  }
  public static void Plan(){
   if(Application.isPlaying||SceneManager.GetActiveScene().isDirty)throw new Exception("Saved scene outside Play required");Physics.SyncTransforms();bins.Clear();
@@ -130,3 +130,4 @@ public static class CR014Woodland {
  }
 }
 }
+
