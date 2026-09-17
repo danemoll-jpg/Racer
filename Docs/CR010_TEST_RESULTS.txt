@@ -1,0 +1,20 @@
+PASS: original 32/7 ordinary bend, target 10m/s, 8s; max error 1.048m, min upright 0.988, max angular 0.102, airborne steps 0
+PASS: original 32/7 hairpin, target 5m/s, 8s; max error 1.235m, min upright 0.996, max angular 0.535, airborne steps 0
+PASS: original 32/7 hills, target 10m/s, 8s; max error 1.038m, min upright 0.966, max angular 0.027, airborne steps 0
+PASS: original 32/7 fast connector, target 25m/s, 8s; max error 1.034m, min upright 1.000, max angular 0.002, airborne steps 0
+PASS: original 32/7 fast main, target 25m/s, 8s; max error 1.253m, min upright 1.000, max angular 0.008, airborne steps 0
+PASS: original 32/7 reverse, target -8m/s, 8s; max error 1.034m, min upright 1.000, max angular 0.001, airborne steps 0
+PASS: original identical full-lock step at 10m/s, yaw at 100ms 0.4762rad/s, minimum upright over 600ms 1.0000. Reverse changes yaw sign.
+PASS: original identical full-lock step at 25m/s, yaw at 100ms 0.7155rad/s, minimum upright over 600ms 1.0000. Reverse changes yaw sign.
+PASS: original identical full-lock step at -8m/s, yaw at 100ms -0.3982rad/s, minimum upright over 600ms 1.0000. Reverse changes yaw sign.
+PASS: revised 33/8 ordinary bend, target 10m/s, 8s; max error 1.048m, min upright 0.988, max angular 0.102, airborne steps 0
+PASS: revised 33/8 hairpin, target 5m/s, 8s; max error 1.235m, min upright 0.996, max angular 0.535, airborne steps 0
+PASS: revised 33/8 hills, target 10m/s, 8s; max error 1.038m, min upright 0.966, max angular 0.027, airborne steps 0
+PASS: revised 33/8 fast connector, target 25m/s, 8s; max error 1.034m, min upright 1.000, max angular 0.002, airborne steps 0
+PASS: revised 33/8 fast main, target 25m/s, 8s; max error 1.253m, min upright 1.000, max angular 0.008, airborne steps 0
+PASS: revised 33/8 reverse, target -8m/s, 8s; max error 1.034m, min upright 1.000, max angular 0.001, airborne steps 0
+PASS: revised identical full-lock step at 10m/s, yaw at 100ms 0.5648rad/s, minimum upright over 600ms 1.0000. Reverse changes yaw sign.
+PASS: revised identical full-lock step at 25m/s, yaw at 100ms 0.7568rad/s, minimum upright over 600ms 1.0000. Reverse changes yaw sign.
+PASS: revised identical full-lock step at -8m/s, yaw at 100ms -0.4730rad/s, minimum upright over 600ms 1.0000. Reverse changes yaw sign.
+Failures: 0
+Automated steering commands through real PhysX. These are not physical-controller tests or subjective feel approval.

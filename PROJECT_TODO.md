@@ -360,20 +360,20 @@ Historical instructions below applied before acceptance. For the next session, u
 ## Goal
 Turn the already-built real closed road loop into a functioning race course by adding race systems while preserving the Phase 2 environment.
 
-**Status:** Ready to begin after Dan's Phase 2 acceptance. Include CR-010 as a small tuning task alongside race systems; do not delay Phase 3 for a separate handling phase.
+**Status:** IMPLEMENTED — awaiting Dan's Phase 3 and CR-010 review. Phase 2 remains ACCEPTED. No Phase 4 work. See Docs/PHASE3_VALIDATION.md for rules, controls, tuning and actual test coverage.
 
 ## TODO
-- [ ] CR-010: Make steering a little tighter/more responsive during ordinary road driving, preserving predictable high-speed handling.
-- [ ] Confirm the Phase 2 real loop has suitable race flow.
-- [ ] Make only minor race-flow adjustments if necessary.
-- [ ] Establish start/finish area.
-- [ ] Add checkpoint system.
-- [ ] Add lap counting.
-- [ ] Add race timer.
-- [ ] Add wrong-way/course validation where needed.
-- [ ] Add race restart.
-- [ ] Add basic HUD for lap/time/checkpoint status.
-- [ ] Complete multiple test laps.
+- [x] CR-010: Make steering a little tighter/more responsive during ordinary road driving, preserving predictable high-speed handling.
+- [x] Confirm the existing loop supports complete race laps (automated checks passed; enjoyable flow awaits Dan).
+- [x] Assess race-flow adjustments: none required; preserve the accepted layout.
+- [x] Establish start/finish area.
+- [x] Add checkpoint system.
+- [x] Add lap counting.
+- [x] Add race timer.
+- [x] Add wrong-way/course validation where needed.
+- [x] Add race restart.
+- [x] Add basic HUD for lap/time/checkpoint status.
+- [x] Complete multiple test laps.
 
 ## Tell Astra/Codex
 
@@ -401,14 +401,14 @@ Turn the already-built real closed road loop into a functioning race course by a
 > Test several complete laps, checkpoint order/invalid skipping, restart and HUD, alongside the steering checks. Resolve compile/runtime errors and report actual test coverage. Update Phase 3 checkboxes, CR-010 and SESSION HANDOFF only for work completed, then create a completion commit when stable. Report both checkpoint/completion commits, files changed, steering values before/after, and what Dan should test. Do not begin Phase 4.
 
 ## Acceptance Test
-- [ ] Player can repeatedly complete valid laps.
-- [ ] Invalid lap skipping is reasonably prevented.
-- [ ] Restart works.
-- [ ] HUD works.
+- [x] Player can repeatedly complete valid laps. (Technical tests; physical hardware remains untested.)
+- [x] Invalid lap skipping is reasonably prevented. (Technical tests; physical hardware remains untested.)
+- [x] Restart works. (Technical tests; physical hardware remains untested.)
+- [x] HUD works. (Technical tests; physical hardware remains untested.)
 - [ ] Circuit has enjoyable flow.
 - [ ] Original street is still recognizable.
 - [ ] Steering feels a little tighter to Dan without twitchiness or loss of predictable high-speed handling.
-- [ ] Steering changes preserve controller/keyboard input, reverse, braking, suspension, camera and reset behavior.
+- [x] Steering changes preserve controller/keyboard input, reverse, braking, suspension, camera and reset behavior. (Technical tests; physical hardware remains untested.)
 
 ---
 
@@ -688,12 +688,12 @@ Use this for things that are not bugs but that Dan wants changed.
 **Result:** Implemented in the reproducible environment revision. See the per-item implementation/elevation/setback table and actual verification in `Docs/PHASE2_REVISION.md`. Dan subsequently accepted the revised track overall; no separate per-item retest claim is implied.
 
 ### CR-010 — Slightly tighter steering during Phase 3
-**Status:** Planned — include alongside Phase 3 race systems; not a blocker to starting Phase 3.  
+**Status:** Implemented and technically tested — awaiting Dan's steering-feel approval during Phase 3 review.  
 **Current behavior:** Dan finds steering a little loose while driving the accepted roads.  
 **Requested change:** Make a modest steering-response/precision adjustment using existing tuning where possible. Preserve progressive input and stable high-speed handling; avoid a physics overhaul or unrelated system changes. Record before/after values and test typical bends, hairpin, hills, faster sections and reverse with keyboard/controller inputs as available.  
 **Reason:** Improve driving feel without holding up the next phase.  
 **Phase affected:** Phase 3; Phase 2 remains accepted.  
-**Result:** Not implemented in this documentation update. Dan will review steering feel with the Phase 3 build.
+**Result:** StreetLoopGreybox car overrides: steering response 7→8/s; low-speed angle 32→33 degrees; high-speed angle remains 10 degrees. Other vehicle tuning/source is unchanged. Eighteen original/revised steering checks passed, including road bends, hairpin, hills, fast sections, reverse and fixed-input response. Virtual input only; physical controller and subjective feel remain for Dan. Revert those two instance values to 7 and 32 for comparison. See Docs/PHASE3_VALIDATION.md and Docs/CR010_TEST_RESULTS.txt.
 
 ---
 
@@ -722,23 +722,20 @@ Record choices we do not want to repeatedly reconsider.
 
 # SESSION HANDOFF
 
-**Current phase:** Phase 2 ACCEPTED; Phase 3 ready to begin with race systems and CR-010 steering refinement. This update changes planning only; no Unity work performed.
-**Safety checkpoint:** `b8d7f62c37af9da718769d28295b417531ca118d` committed Dan's saved TODO before edits. Completion commit contains this handoff; its ID is reported in the task's final response.
-**Scene:** `Assets/Scenes/StreetLoopGreybox.unity`. Saved and reloaded. Open it and press Play. Fixed spawn remains at the northern entrance, adjusted vertically with the ground.
-**Completed work:** One continuous visible/collision heightfield replaces floating road/shoulder slabs. Same X/Z loop and landmark sequence. Initial hill approximately 8→82 m; second drop 82→27 m with stronger short descent (peak grade 54%); final 29→8 m descent concentrated into about 134 m; frequent neighborhood rolls. House 3 now 113.54 m from road centre and 28 m below it; friend 37.85 m away and 3 m below. Twenty approximate residences, 22 businesses (11 per main-road side), 6,118 low-poly trees in 90 batches. All measurements are interpretive estimates. House 3 has a deliberately steep hillside and locally blended outer shoulder; normal shoulders blend to 16 m from centre. No horizontal route changes.
-**Preserved:** PrototypeTrack, PrototypeCar.prefab, handling/tuning, suspension, input/controller bindings, chase camera and reset source are unchanged. No race systems, HUD, shortcuts, ramps, breakable fences or polish phase.
-**Rebuild:** From saved StreetLoopGreybox outside Play, use Racer > Rebuild Phase 2 Feedback Environment. This regenerates the three named environment roots. Change tuning in StreetLoopBuilder/StreetLoopRevision; generated-root hand edits are replaced. Racer > Validate Phase 2 (Play mode) tests the full loop; Racer > Validate Phase 2 Shoulders (Play mode) tests re-entry.
-**Actual verification:** Original unsafe re-entry reproduced. Final full-loop drives: 564.1/564.6 simulated seconds, maximum centre error 2.82/2.78 m, minimum upright 0.880, zero airborne steps. Final shoulder matrix 180/180 passed at 3/8/15 m/s, both sides and nominal 25/55-degree approaches; zero under-road or airborne steps. Full lateral support scan and sampled prop-clearance checks passed. Virtual keyboard, R reset and camera checks passed. Final reload/compilation/Console results are recorded in Docs/PHASE2_REVISION_CONSOLE.txt. Physical controller was NOT tested.
-**Visual/performance checks:** Reviewed overhead, chase-camera and road-height landmark captures. Final visible meshes and colliders share geometry, including refreshed GPU buffers. Live editor forest comparisons showed no material regression in short 180-frame samples; dense-forest on/off median 5.01/7.07 ms and p95 14.31/13.98 ms at 734x293. Noise and low resolution limit this finding; no standalone/full-resolution performance certification. Temporary test state restored.
-**Iteration history / limits:** Initial straight crossing tests left shoulder corridors on bends and reached trees/steep slopes; these exploratory failures are preserved separately. A curved-path upright failure near House 3 led to a local slope fix, then the final matrix passed. Strong 54% short grade, approximate placements and soft 2 m-grid road edges need Dan's judgment. Maximum-speed and arbitrary deep off-road trajectories remain unverified. Only Dan can accept feel/recognizability.
-**Full evidence and all-ten-item retest checklist:** `Docs/PHASE2_REVISION.md`, associated PHASE2_REVISION_*.txt and Revision_*.png. Earlier PHASE2_VALIDATION.md / PHASE2_TEST_RESULTS.txt remain historical evidence, not proof of safe re-entry or acceptance.
-**Dan's latest review:** Played through the track; it seems fine. Requests slightly tighter steering on roads during the next phase, without holding up progress.
-**Next authorized implementation scope:** Phase 3 race systems plus CR-010. Use the Phase 3 commit-first prompt. Preserve the accepted environment and keep steering changes small and reversible.
-**Dan's next tests:** After Phase 3 implementation, review laps/checkpoints/timer/HUD/restart and compare steering precision on ordinary bends, the hairpin and faster sections. Confirm stability, camera and reset remain comfortable; physical controller testing is still separate.
-**Ready for next phase?:** Yes. Dan has accepted Phase 2. Phase 3 is cleared to begin; Phase 4 remains out of scope.
-
-**Previous implementation summary (historical, before Dan's test):** Added the traced 4.65 km loop, significant entrance climb, rolling hills, steeper second-circle descent, gradual lower return, interpolated ground, Dan's house plus houses 1/2/3, friend's house, hairpin house, nine approximate residences, five main-road businesses, and simple woods/open land replacing later subdivisions. No race systems, HUD, shortcuts, ramps, or polish pass.
-**Previous validation (historical; not proof of off-road re-entry or current acceptance):** Both full-loop drives passed with real Phase 1 physics at conservative speeds (about 560 simulated seconds each). Maximum road-centre error 2.84 m; minimum upright dot 0.971. Zero missing road-support samples or blocked corridor samples. Scripts compiled; saved scene reloaded and played. Final live Console: 0 errors, 0 warnings. See `Docs/PHASE2_VALIDATION.md` and `Docs/PHASE2_TEST_RESULTS.txt`.
+**Current phase:** Phase 2 ACCEPTED; Phase 3 IMPLEMENTED and awaiting Dan's review, including CR-010. Phase 4 is not authorized or started.
+**Safety checkpoint:** `1b6e7bcf816a3afdfe55a1ae4e42b9c07095f2ed` committed all saved changes before implementation. Completion commit contains this handoff; its ID is reported in the final task response.
+**Scene:** `Assets/Scenes/StreetLoopGreybox.unity`. Saved and reloaded; open and press Play. Existing north-entrance spawn is preserved.
+**Controls:** RT / W / Up accelerates; LT / S / Down brakes then reverses; left stick / A-D / arrows steer; Y / R retains fixed-spawn vehicle reset. Start (Menu) / Enter restarts the race. Click Game view for keyboard focus.
+**Race systems:** Checkered start/finish, 19 ordered required checkpoints, three-lap race, current/last/best lap and total timing, restart, minimal HUD and directed swept-gate validation. Skips, wrong-way and repeated finish crossings cannot award invalid laps. Invalid attempts restart at a forward start crossing. Vehicle reset abandons current-lap gate credit but preserves completed laps/total; race restart clears everything. Required gates are independent of paths between them, allowing later alternate routes; no shortcuts added.
+**CR-010:** Scene-instance steering response 7→8/s and low-speed angle 32→33 degrees; high-speed angle remains 10 degrees. Yaw response/cap, grip, braking, suspension, input, camera and reset physics are unchanged. Base prefab and PrototypeTrack retain original tuning. Revert the two scene overrides for comparison. Final steering-feel approval belongs to Dan.
+**Preservation:** New separate Phase 3 scene root. All 20,054 pre-existing scene records retained; only car overrides and root-list records changed. Environment objects/assets and four existing vehicle/input/reset/camera scripts unchanged. No stunts, shortcuts, fences, major polish or Phase 4 work.
+**Actual race verification:** 37 final checks passed, zero failed. Three real PhysX laps with actual gates: 563.772 / 563.780 / 563.780 simulated seconds; total 1691.332s. Max centre error 2.845m, min upright 0.880; one initial ungrounded sample. Conservative targets 4.5/8m/s. Rules, restart, HUD, virtual Gamepad and keyboard, fall reset and camera snap checked. Initial two test-setup failures corrected and retained in a separate initial report.
+**Actual steering verification:** 18 checks passed, zero failed. Original/revised path following at ordinary bends, hairpin, hills, 25m/s road sections and -8m/s reverse; no airborne samples or flips. Identical full-stick steps increased yaw response at 100ms from 0.4762→0.5648rad/s at 10m/s, 0.7155→0.7568 at 25m/s, and -0.3982→-0.4730 in reverse. Automated follower compensates for angle changes; these tests do not establish human comfort.
+**Live smoke test:** Ordinary Update/FixedUpdate with virtual RT=0.65 started timing, advanced to CP2 and updated HUD/camera. Unsteered test eventually left road and stopped; it is not a complete manual lap. Temporary device/background settings restored.
+**Validation/limits:** Scene saved/reloaded/played and compilation checked. Current Console has zero errors/warnings; final evidence in Docs/PHASE3_CONSOLE.json. HUD and labels visually inspected. Virtual-controller testing is not physical-controller testing; physical hardware, maximum-speed sustained maneuvers, all collision/recovery cases, standalone build and subjective comfort remain unverified. Gates enforce sequence, not continuous road boundaries; minor cutting between gates remains possible.
+**Repeatability:** Racer > Validate Phase 3 (Play mode); Racer > Validate CR-010 (Play mode). One-time Add Phase 3 Race Systems refuses duplicates. Do not rebuild the accepted environment for race changes; edit race gates under their separate root.
+**Evidence:** Docs/PHASE3_VALIDATION.md, PHASE3_TEST_RESULTS.txt, CR010_TEST_RESULTS.txt, PHASE3_REALTIME_RESULTS.txt, PHASE3_HUD.png, PHASE3_PRESERVATION.txt and PHASE3_CONSOLE.json. Prior Phase 2 reports remain historical evidence.
+**Dan's next tests:** Three valid laps; skip/wrong-way/repeated finish; race restart and car reset; HUD; ordinary bends/hairpin/hills/fast roads/reverse; physical controller; camera/braking/stability. Approve or request adjustments to Phase 3 and CR-010 before Phase 4.
 
 ---
 # How Dan and ChatGPT Will Use This File
@@ -765,5 +762,3 @@ At the end of an Astra/Codex work session:
    - keep later phases from ballooning prematurely.
 
 The file is the project's source of truth. We do not casually rebuild the project plan from memory.
-
-

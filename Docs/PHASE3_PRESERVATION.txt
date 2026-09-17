@@ -1,0 +1,7 @@
+Checkpoint: 1b6e7bcf816a3afdfe55a1ae4e42b9c07095f2ed
+Existing serialized records: 20054; current: 20627; missing: 0; changed existing: 2
+Changed existing IDs: 9223372036854775807, 221369408
+221369408: only slowSteerAngle=33 and steeringResponse=8 prefab-instance overrides added.
+9223372036854775807: only new race root appended.
+All other existing scene records compare identically after CR/LF normalization.
+Protected environment assets, prefab, original scene and runtime scripts diff: 
