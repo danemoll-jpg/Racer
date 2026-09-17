@@ -532,13 +532,13 @@ Dan confirmed the shortcut works and agreed to move on. Detailed unchecked items
 ## Goal
 Replace the sterile prototype feeling with a playful environment.
 
-**Focused building batch:** IMPLEMENTED / AWAITING DAN'S VISUAL APPROVAL. CR-012 removes House 1 and extends Dan's yard into its site; Houses 2/3 retain their labels and exact placement. All 25 retained residences and 22 businesses now use reusable low-poly architecture. Phases 2–5 remain accepted. Review this batch before another category; no Phase 7. Full evidence and limitations: `Docs/PHASE6_VALIDATION.md`.
+**Focused building batch:** ACCEPTED — Dan says it looks fine. Photo-based home accuracy is deferred to CR-013 and does not block further work. CR-012 removes House 1 and extends Dan's yard into its site; Houses 2/3 retain their labels and exact placement. All 25 retained residences and 22 businesses now use reusable low-poly architecture. Phases 2–5 remain accepted. This building batch is accepted; remaining Phase 6 categories are still pending. No Phase 7. Full evidence and limitations: `Docs/PHASE6_VALIDATION.md`.
 
 ## TODO
 - [x] CR-012 implementation: Remove only the house marked #1, its dedicated collision and obsolete house-specific props/access; expand Dan's yard naturally into its former site. Retain Houses #2/#3 without renumbering, and preserve their positions/elevations.
 - [x] Verify the expanded yard is continuous, grounded and free of invisible House #1 collisions; update relevant generation logic so House #1 does not return.
 - [x] Improve house/building silhouettes in this focused batch: 4 residential + 4 commercial reusable variants, grounded entrances and aligned simple collision.
-- [ ] Dan visually approves this building batch and CR-012; physical-controller testing remains unconfirmed.
+- [x] Dan visually approves this building batch and CR-012; physical-controller testing remains unconfirmed.
 - [ ] Add trees/vegetation.
 - [ ] Add fences.
 - [ ] Add mailboxes/signs/street furniture.
@@ -582,6 +582,7 @@ Make the prototype feel like a game rather than a Unity demonstration.
 Improve appearance only after gameplay works.
 
 ## TODO
+- [ ] CR-013 (optional backlog): Refine homes from Dan's reference photos if he finds and supplies them; no photos required to continue current work.
 - [ ] Replace important placeholder assets.
 - [ ] Improve materials.
 - [ ] Improve vegetation.
@@ -732,13 +733,21 @@ Use this for things that are not bugs but that Dan wants changed.
 **Result:** Scene-instance speed parameter 38→44 m/s (+15.8%) and acceleration 12→13.5 m/s² (+12.5%). From rest on the same ~220 m stretch, reached 33.93→38.41 m/s. Revised main-road run reached 41.183 m/s (148.3 km/h) naturally, with 6.90 s above 40 m/s. Three actual continuous racing-speed laps passed: 552.36 s traversal, 25.47 m/s average, 39.71 m/s peak, all checkpoints/jumps valid. Braking 35→0.85 m/s stayed 1.40 s / 24.64 m. Existing reverse, camera, input and reset preserved; HUD adds speed. First jump recommended 110–120 km/h. Artificial high-speed stress tests are distinguished from naturally achieved speeds. Full values, landing limits, recovery and physical-controller limitations: `Docs/PHASE4_VALIDATION.md`.
 
 ### CR-012 — Correct neighboring house count and expand Dan's yard
-**Status:** IMPLEMENTED / AWAITING DAN'S VISUAL APPROVAL. Phases 2–5 remain accepted.
+**Status:** ACCEPTED / CLOSED — Dan says the building batch looks fine, including the house-count correction and expanded yard. Phases 2–5 remain accepted.
 **Current behavior:** Earlier memory guidance included three neighboring houses labeled 1, 2 and 3.  
 **Requested change:** Dan corrected his memory: only two neighboring houses. Keep Houses 2 and 3 with their current labels and placement; remove House 1 and expand Dan's childhood-house yard into that space. Preserve Dan's house, the friend's house across the street and the hairpin house. Remove House 1's dedicated colliders and obsolete house-specific props/access without removing shared assets or unrelated objects. Blend the former footprint into a continuous yard; do not replace it with another structure or road.  
 **Reason:** Correct Dan's remembered landscape. Latest correction supersedes older map legends, prompts and preservation instructions referencing the three neighboring houses.  
 **Phase affected:** Phase 6 focused building batch; prior phase acceptance remains intact.  
 **Acceptance:** House 1 and its invisible collision are gone; Houses 2 and 3 are unchanged and not renumbered; Dan's house stays in place with a visibly larger, naturally blended yard. Roads/shoulders and accepted gameplay remain unaffected. Relevant generation logic preserves the correction. Dan reviews the result.  
-**Result:** Confirmed map marker (1028,951) and scene `Original house 1` at (415.8,82.44644,-1.1); removed its full hierarchy and 3 dedicated colliders. Expanded Dan's yard by clearing 15 local trees/colliders and blending 3,069 terrain color entries across 3 tiles, with zero terrain position/normal/index changes. All 47 surviving site transforms and names match baseline, including Houses 2/3. 1,579 yard support/obstacle probes and two virtual PhysX yard traversals passed. Architecture is approximate. Two foundation bottoms extend locally (House 2 by 0.071m; one unrelated retained residence by 0.359m) without moving floors/buildings. Legacy generators omit House 1 and reserve the yard; full rebuild is guarded and was not run. See `Docs/PHASE6_VALIDATION.md` for images, generation workflow, collision details, tests and remaining approval.
+**Result:** Confirmed map marker (1028,951) and scene `Original house 1` at (415.8,82.44644,-1.1); removed its full hierarchy and 3 dedicated colliders. Expanded Dan's yard by clearing 15 local trees/colliders and blending 3,069 terrain color entries across 3 tiles, with zero terrain position/normal/index changes. All 47 surviving site transforms and names match baseline, including Houses 2/3. 1,579 yard support/obstacle probes and two virtual PhysX yard traversals passed. Architecture is approximate. Two foundation bottoms extend locally (House 2 by 0.071m; one unrelated retained residence by 0.359m) without moving floors/buildings. Legacy generators omit House 1 and reserve the yard; full rebuild is guarded and was not run. See `Docs/PHASE6_VALIDATION.md` for images, generation workflow, collision details, tests and technical limitations. Dan subsequently approved the visual result.
+
+### CR-013 — More accurate homes from future reference photos
+**Status:** BACKLOG / OPTIONAL — await reference photos if Dan finds and supplies them; not a blocker to current phases.  
+**Current behavior:** Dan approves the current building pass as visually fine. Architectural details remain approximations.  
+**Requested change:** When Dan supplies photos, identify which home each depicts and use visible evidence to refine its overall form, roof, facade, windows, entrances and materials. Prioritize the photographed homes Dan identifies. Confirm any unclear house identity or era before applying changes; do not infer unseen details as fact. Preserve remembered older features if modern photographs differ, using Dan's guidance.  
+**Scope:** A future focused visual-accuracy pass, tentatively under Phase 8. Do not collect photos, rebuild homes or pause current progress for this backlog item. Preserve the accepted two-neighbor arrangement (Houses 2/3), expanded yard, building placement/elevation, road support and gameplay unless Dan specifically requests a correction.  
+**Acceptance:** Compare revised homes with the supplied references and obtain Dan's approval; retain simple reliable collision and reasonable performance.  
+**Result:** Not started; no new home reference photos supplied in this request.
 
 ---
 
@@ -773,11 +782,14 @@ Record choices we do not want to repeatedly reconsider.
 
 | 2026-09-17 | Keep Houses 2 and 3; remove House 1 and expand Dan's yard | Dan corrected his memory to two neighboring houses; labels remain unchanged and older three-house directions are superseded |
 
+| 2026-09-17 | Accept the Phase 6 building batch and close CR-012 | Dan says it looks fine; this does not complete all of Phase 6 |
+| 2026-09-17 | Backlog photo-based home accuracy as CR-013 | Dan may supply photos later; current progress must not wait for them |
+
 ---
 
 # SESSION HANDOFF
 
-**Current phase:** Phases 2–5 ACCEPTED. Phase 6 focused buildings + CR-012 implemented, technically checked, and AWAITING DAN'S VISUAL APPROVAL. No other Phase 6 category or Phase 7 started.
+**Current phase:** Phases 2–5 ACCEPTED. Phase 6 focused building batch ACCEPTED and CR-012 CLOSED following Dan's visual approval. Other Phase 6 categories remain pending; Phase 7 has not started. CR-013 is optional future photo-based home refinement, not a blocker.
 **Safety checkpoint:** `cbe65fcf2c16ed7f4e1b0e1f59342fad210c8d65` captured all saved changes before implementation; elevated Git retry succeeded. Completion commit contains this handoff and is reported in the task response.
 **Scene:** `Assets/Scenes/StreetLoopGreybox.unity`, saved and reloaded, outside Play mode. House 1 no longer exists. Dan's yard connects naturally to its former footprint; Houses 2 and 3 keep their labels and exact placement/elevation, as do Dan, friend, hairpin and all other retained sites.
 **CR-012:** Matched blue map marker 1 at (1028,951) to `Original house 1`, world (415.8,82.44644,-1.1), before removal. Deleted its foundation/wall/roof and all 3 dedicated colliders; no separate obsolete access/props existed. Cleared only 15 local trees and corresponding 30 crown/trunk mesh blocks for the connecting yard. Three terrain tiles have 3,069 changed color entries. Verified zero terrain vertex-position, normal or index-buffer changes; road/shoulder support is preserved.
@@ -787,7 +799,7 @@ Record choices we do not want to repeatedly reconsider.
 **Validation:** Final geometry checks pass after save/reload. 1,579 yard probes: no missing ground or non-terrain obstacles; no terrain boundary-height mismatches. Foundation corner gap at most 0.002m; minimum sampled building collision setback 18.56m from road center. Yard driven both ways from rest, ~10.3m/s peak, upright >=0.986, no invisible obstacle. Three continuous racing-speed mixed laps passed (shortcut/normal/shortcut), 25.42m/s mean, 39.71m/s peak, valid finish and accepted jump. Jump matrix reproduces intended 31.59m/s takeoff / 1.72s flight and known fast angled limits. All 37 final race/input/HUD/reset checks passed unpaused; initial paused run's 10 input failures retained separately. Final compile/Console: zero errors/warnings.
 **Performance:** Same fixed commercial camera, 734x293 Game view, forest, vSync=0, target=-1, 45 warmup + 240 ordinary frames. Baseline median/p95 13.78/21.30ms; first unbatched architecture 18.12/31.28ms; final batched 3.46/4.48ms. Enabled renderers 505→394. Short editor samples, not a standalone benchmark or universal speedup claim. Source renderers remain disabled for authoring, so total component count is higher.
 **Evidence/limitations:** `Docs/PHASE6_VALIDATION.md`, `PHASE6_*` raw reports and matching before/after Dan/yard/business captures; `PHASE6_YARD_CHASE.png` uses the unchanged chase camera in Play mode. Close-ups and road-height comparison views inspected. Driving used virtual motor/input tests with manually stepped PhysX; no physical controller, standalone build, exhaustive collision proof or human visual approval. Tool timeout and initial paused-input failures are distinguished from final results. Auto-review rejected a test that would invoke the legacy rebuild; that call was removed and never run. Existing forest blocks and distant terrain edge speckling remain deferred.
-**Dan's next review:** Confirm the two-neighbor arrangement and yard size/forest boundary; drive through the former House 1 site; assess roof/window/entrance/storefront readability at racing speed; confirm House 3 downhill and friend's closer placement; drive normal/shortcut/jump laps and try the physical controller. Approve this focused batch or request local corrections before another Phase 6 category.
+**Dan's latest review:** Buildings look fine; focused batch and CR-012 accepted. Dan would like more accurate homes if he finds photos later; recorded as optional CR-013 backlog. This approval does not claim individual manual-test or physical-controller coverage. Continue remaining Phase 6 categories in small batches without waiting for photos. No scene changes or new tests were performed in this documentation update.
 
 ---
 # How Dan and ChatGPT Will Use This File
