@@ -1,0 +1,7 @@
+PASS ordinary-frame virtual Gamepad: reached=True; initial=24m/s; elapsed game=9.466s; wall=9.402s; editor updates=504; peak=24.32m/s; max center error=2.90m; upright=1.000; max camera distance=12.24m; HUD=LAP 1 / 3    Completed: 0    87 km/h
+Race  00:00.000    Lap  00:00.000
+Last  00:00.000    Best  00:00.000
+Next: START / FINISH
+Cross START before checkpoints
+Enter / Start: restart race    R / Y: reset car; exception=
+Uses Input System virtual Gamepad with normal Update/FixedUpdate, not manual PhysX stepping. Initial velocity injected. No physical controller.

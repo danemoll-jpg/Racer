@@ -1,0 +1,17 @@
+var filters=UnityEngine.GameObject.Find("Woods replacing later subdivisions").GetComponentsInChildren<UnityEngine.MeshFilter>();
+var final=filters.Select(f=>f.sharedMesh).ToArray();
+var original=final.Select(m=>UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.Mesh>("Assets/Track/StreetLoop/"+m.name+".asset")).ToArray();
+if(original.Any(m=>!m)||final.Any(m=>!m))throw new System.Exception("Missing comparison mesh");
+var oldMat=UnityEditor.AssetDatabase.LoadAssetAtPath<UnityEngine.Material>("Assets/Track/StreetLoop/Woods.mat");var newMat=filters[0].GetComponent<UnityEngine.Renderer>().sharedMaterial;
+var cam=UnityEngine.Camera.main;var cp=cam.transform.position;var cr=cam.transform.rotation;var chase=cam.GetComponent<Racer.ChaseCamera>();bool ce=chase.enabled;chase.enabled=false;
+cam.transform.position=new UnityEngine.Vector3(-260,23,531);cam.transform.LookAt(new UnityEngine.Vector3(-120,11,532));
+var samples=new System.Collections.Generic.List<double>();var lines=new System.Collections.Generic.List<string>();
+lines.Add("Alternating original/final forest, same Play session, fixed camera (-260,23,531) toward (-120,11,532). 90 warmup + 600 ordinary rendered frames per run. No camera or scene captures during sampling. Editor intervals include host overhead; no standalone GPU claim.");
+lines.Add($"Resolution {UnityEngine.Screen.width}x{UnityEngine.Screen.height}; vSync {UnityEngine.QualitySettings.vSyncCount}; target {UnityEngine.Application.targetFrameRate}");
+int phase=0,skip=90,lastFrame=UnityEngine.Time.frameCount;double last=UnityEditor.EditorApplication.timeSinceStartup;
+System.Action<bool> swap=(after)=>{for(int i=0;i<filters.Length;i++){filters[i].sharedMesh=after?final[i]:original[i];filters[i].GetComponent<UnityEngine.Renderer>().sharedMaterial=after?newMat:oldMat;}};
+swap(false);
+UnityEditor.EditorApplication.CallbackFunction tick=null;
+tick=()=>{if(UnityEngine.Time.frameCount==lastFrame)return;lastFrame=UnityEngine.Time.frameCount;double now=UnityEditor.EditorApplication.timeSinceStartup;double dt=(now-last)*1000;last=now;if(skip-->0)return;samples.Add(dt);if(samples.Count<600)return;samples.Sort();lines.Add($"Run {phase+1} {(phase%2==0?"BEFORE":"AFTER")}: median {samples[300]:F2}ms; p95 {samples[570]:F2}ms");phase++;if(phase==4){UnityEditor.EditorApplication.update-=tick;swap(true);cam.transform.SetPositionAndRotation(cp,cr);chase.enabled=ce;System.IO.File.WriteAllLines("Docs/VEGETATION_ALTERNATING_PERFORMANCE.txt",lines);return;}swap(phase%2==1);samples.Clear();skip=90;};
+UnityEditor.EditorApplication.update+=tick;
+return "Alternating performance comparison started";

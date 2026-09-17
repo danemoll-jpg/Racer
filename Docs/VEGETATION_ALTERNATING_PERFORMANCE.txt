@@ -1,0 +1,6 @@
+Alternating original/final forest, same Play session, fixed camera (-260,23,531) toward (-120,11,532). 90 warmup + 600 ordinary rendered frames per run. No camera or scene captures during sampling. Editor intervals include host overhead; no standalone GPU claim.
+Resolution 734x293; vSync 0; target -1
+Run 1 BEFORE: median 3.72ms; p95 5.38ms
+Run 2 AFTER: median 5.11ms; p95 19.34ms
+Run 3 BEFORE: median 14.59ms; p95 25.21ms
+Run 4 AFTER: median 15.36ms; p95 26.03ms

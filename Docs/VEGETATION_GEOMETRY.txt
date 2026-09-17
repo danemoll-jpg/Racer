@@ -1,0 +1,7 @@
+PASS All tree collider positions, rotation, scale, center and size unchanged
+PASS Expanded yard has 0 tree trunks
+PASS Minimum trunk surface setback from road center 22.40m; includes jump/bypass/landing
+PASS Minimum trunk surface setback from shortcut 16.72m
+PASS 1553 vehicle-volume road/shoulder/shortcut/re-entry probes; forest obstacles 0/0
+PASS Only active combined geometry exists; no duplicate source renderers
+RESULT 0 failures. Sampling is not exhaustive. Trunk meshes use exact collider center/size transforms; crowns have no colliders.

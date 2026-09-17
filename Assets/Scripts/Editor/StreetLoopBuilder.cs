@@ -97,12 +97,12 @@ namespace Racer.Editor
             House("Remembered house behind southern hairpin",1090,1492,true);
             foreach(var p in new[]{new Vector2(45,660),new Vector2(113,820),new Vector2(43,1015),new Vector2(118,1130),new Vector2(43,1290),new Vector2(730,1260),new Vector2(690,1360),new Vector2(530,1441),new Vector2(367,1425)}) House("Approximate older residence",p.x,p.y);
             foreach(float x in new[]{180f,330,490,670,805}) House("Approximate main road business",x,404,false,26,19);
-            var woods=new GameObject("Woods replacing later subdivisions").transform;var rng=new System.Random(1978);
+            var woods=new GameObject("Woods replacing later subdivisions").transform;var rng=new System.Random(1978);var reservedShortcut=Phase5Setup.Path();
             for(int i=0;i<1100;i++) {
                 var p=new Vector3(Mathf.Lerp(-610,710,(float)rng.NextDouble()),0,Mathf.Lerp(-610,525,(float)rng.NextDouble()));
                 float distance=Nearest(p,r,out _); if(distance<22)continue;
                 bool clear=false;foreach(Transform b in buildings)if(Vector2.Distance(new(p.x,p.z),new(b.position.x,b.position.z))<27){clear=true;break;}
-                if(clear || Phase6Buildings.YardClear(p))continue;p.y=Ground(p,r); float h=7+(float)rng.NextDouble()*8;
+                if(clear || Phase6Vegetation.Reserved(p,r,reservedShortcut))continue;p.y=Ground(p,r); float h=7+(float)rng.NextDouble()*8;
                 var tree=new GameObject("Tree mass").transform;tree.SetParent(woods);tree.position=p;
                 Cube("Trunk",tree,new(0,h*.3f,0),new(1.1f,h*.6f,1.1f),trunk);
                 var crown=GameObject.CreatePrimitive(PrimitiveType.Sphere);crown.name="Canopy";crown.transform.SetParent(tree,false);crown.transform.localPosition=new(0,h*.75f,0);crown.transform.localScale=new(h*.65f,h*.7f,h*.65f);crown.GetComponent<Renderer>().sharedMaterial=trees;Object.DestroyImmediate(crown.GetComponent<Collider>());
