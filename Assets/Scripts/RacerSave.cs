@@ -19,12 +19,19 @@ namespace Racer
             public float master = .8f, ambience = 1, feedback = .65f, vehicle = .75f;
             public int frameLimit = 60;
             public bool vsync = true;
+            public bool opponents = true, traffic = true;
         }
         public Records Best { get; private set; }
         public Options Settings { get; private set; }
         public string Error { get; private set; }
         public string DirectoryPath { get; }
-        readonly string course;
+        string course;
+        string recordFile = "records.json";
+        public void SelectRecords(string category)
+        {
+            course = category; recordFile = "records-" + category + ".json";
+            Best = Read<Records>(recordFile, r => r.version == 1 && r.course == course && Valid(r.lap) && Valid(r.race)) ?? new Records { course = course };
+        }
         public RacerSave(string directory, string courseId)
         {
             DirectoryPath = directory; course = courseId;
@@ -66,12 +73,12 @@ namespace Racer
         public bool RecordLap(double seconds)
         {
             if (!Valid(seconds) || seconds <= 0 || (Best.lap > 0 && seconds >= Best.lap)) return false;
-            Best.lap = seconds; Write("records.json", Best); return true;
+            Best.lap = seconds; Write(recordFile, Best); return true;
         }
         public bool RecordRace(double seconds)
         {
             if (!Valid(seconds) || seconds <= 0 || (Best.race > 0 && seconds >= Best.race)) return false;
-            Best.race = seconds; Write("records.json", Best); return true;
+            Best.race = seconds; Write(recordFile, Best); return true;
         }
         public void SaveSettings() => Write("settings.json", Settings);
         public void ApplySettings()

@@ -1,0 +1,9 @@
+Normal: finished=True, misses=0, penalties=0
+Single bypass: finished=True, misses=1, penalties=5
+Two bypasses: finished=True, misses=2, penalties=10
+Finish abuse: laps=0, penalties=0
+Large cut: finished=True, misses=19, driving=69.92, penalties=482.36, adjusted=552.29
+Approved shortcut: finished=True, misses=0, penalties=0
+Jump route replay: finished=True, misses=0, penalties=0
+Continuous wrong-way/repeated finish: laps=0, misses=0
+Teleport then forward: misses=0, lapActive=False

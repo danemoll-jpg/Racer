@@ -17,6 +17,20 @@ namespace Racer
         public double LastLap { get; private set; }
         public double BestLap { get; private set; }
         public string Status { get; private set; }
+        public double PenaltySeconds { get; private set; }
+        public int MissedGates { get; private set; }
+        public readonly List<string> Penalties = new();
+        double lapPenalty;
+        public double AdjustedTime(double now) => RaceTime(now) + PenaltySeconds;
+        public bool Miss(int gate, double seconds)
+        {
+            if (!LapActive || !LapValid || Finished || gate == 0 || gate != NextGate) return false;
+            seconds = Math.Max(0, seconds); PenaltySeconds += seconds; lapPenalty += seconds; MissedGates++;
+            Penalties.Add($"Lap {CompletedLaps + 1} CP {gate:00}: +{seconds:0.0}s");
+            NextGate = gate == CheckpointCount ? 0 : gate + 1;
+            Status = $"Checkpoint missed: +{seconds:0.0}s";
+            return true;
+        }
         readonly List<double> lapTimes = new();
         public IReadOnlyList<double> LapTimes => lapTimes;
         double raceStart, lapStart, finishTime;
@@ -26,12 +40,14 @@ namespace Racer
             if (checkpoints < 1 || laps < 1) throw new ArgumentOutOfRangeException();
             CheckpointCount = checkpoints; TargetLaps = laps; Restart();
         }
+        public void BeginTiming(double now) { if (!Started) { Started = true; raceStart = now; } }
         public double RaceTime(double now) => Started ? Math.Max(0, (Finished ? finishTime : now) - raceStart) : 0;
         public double LapTime(double now) => LapActive && !Finished ? Math.Max(0, now - lapStart) : 0;
         public void Restart()
         {
             CompletedLaps = NextGate = 0; Started = LapActive = LapValid = false;
             lapTimes.Clear();
+            Penalties.Clear(); PenaltySeconds = lapPenalty = 0; MissedGates = 0;
             LastLap = BestLap = raceStart = lapStart = finishTime = 0;
             Status = "Cross START in the arrow direction";
         }
@@ -49,24 +65,25 @@ namespace Racer
         public void Cross(int gate, bool forward, double now)
         {
             if (Finished || gate < 0 || gate > CheckpointCount) return;
-            if (!forward) { Invalidate("Wrong way"); return; }
+            if (!forward) { Status = "Wrong way - turn around"; return; }
             if (gate == 0)
             {
                 if (LapActive && LapValid && NextGate == 0 && now > lapStart)
                 {
-                    CompletedLaps++; LastLap = now - lapStart;
+                    CompletedLaps++; LastLap = now - lapStart + lapPenalty;
                     lapTimes.Add(LastLap);
                     if (BestLap == 0 || LastLap < BestLap) BestLap = LastLap;
                     if (Finished) { finishTime = now; LapActive = false; Status = "Race complete"; return; }
                 }
+                if (LapActive && NextGate != 0) { Status = "Continue to the required checkpoint"; return; }
                 if (!Started) { Started = true; raceStart = now; }
-                lapStart = now; LapActive = LapValid = true; NextGate = 1;
+                lapStart = now; lapPenalty = 0; LapActive = LapValid = true; NextGate = 1;
                 Status = "Follow the numbered gates";
                 return;
             }
             if (!LapActive) { Status = "Cross START before checkpoints"; return; }
             if (!LapValid) return;
-            if (gate != NextGate) { Invalidate("Checkpoint out of order"); return; }
+            if (gate != NextGate) return;
             NextGate = gate == CheckpointCount ? 0 : gate + 1;
             Status = NextGate == 0 ? "All checkpoints passed - cross FINISH" : "Checkpoint accepted";
         }

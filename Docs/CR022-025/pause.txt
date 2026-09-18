@@ -1,0 +1,1 @@
+All eight poses and race clock unchanged during pause: True; listener paused=True

@@ -1,0 +1,10 @@
+Ordinary-frame virtual Gamepad; one initial placement per scenario, no per-frame pose or velocity corrections. No physical controller claim.
+straight acceleration and braking: peak=45.60m/s (164.2km/h), minUp=0.999, longestAir=0.03s, finalGrounded=4, maxRoadDistance3D=7.44m, brakeStart=45.27, endSpeed=-5.52, position=(102.49, 9.75, 544.29)
+fast corner entry: peak=40.00m/s (144.0km/h), minUp=0.986, longestAir=0.00s, finalGrounded=4, maxRoadDistance3D=3.99m, brakeStart=0.00, endSpeed=12.69, position=(323.62, 9.47, 546.00)
+hills: peak=28.97m/s (104.3km/h), minUp=0.963, longestAir=0.00s, finalGrounded=4, maxRoadDistance3D=10.13m, brakeStart=0.00, endSpeed=28.84, position=(478.55, 78.00, 23.48)
+hairpin: peak=13.02m/s (46.9km/h), minUp=0.973, longestAir=0.00s, finalGrounded=4, maxRoadDistance3D=5.43m, brakeStart=0.00, endSpeed=12.91, position=(386.47, 32.28, -398.89)
+jump 33m/s target: peak=32.76m/s (117.9km/h), minUp=0.980, longestAir=1.80s, finalGrounded=4, maxRoadDistance3D=6.72m, brakeStart=0.00, endSpeed=32.76, position=(-633.53, 9.52, 163.92)
+jump 40m/s target: peak=39.52m/s (142.3km/h), minUp=0.979, longestAir=2.06s, finalGrounded=4, maxRoadDistance3D=7.91m, brakeStart=0.00, endSpeed=39.52, position=(-635.70, 9.77, 295.74)
+Mailbox physical impact: broken=True, debris=1
+Debris cleanup: moving=0
+Restart restoration: broken=False, pending=False, penalties=0, next=0

@@ -17,6 +17,7 @@ namespace Racer
         readonly List<UnityEngine.UI.Button> buttons = new();
         readonly Dictionary<RaceFlow.Stage, int> selections = new();
         RaceFlow.Stage shown;
+        int penaltyPage = -1;
         InputAction submit;
         InputActionAsset menuActions;
         InputActionReference submitReference;
@@ -45,7 +46,7 @@ namespace Racer
             Stretch(shade.GetComponent<RectTransform>(), 0, 0, 0, 0);
             shade.AddComponent<UnityEngine.UI.Image>().color = new Color(.015f, .025f, .04f, .78f);
             card = Rect("Race menu", shade.transform); card.anchorMin = card.anchorMax = card.pivot = new Vector2(.5f, .5f);
-            card.sizeDelta = new Vector2(620, 620);
+            card.sizeDelta = new Vector2(700, 680);
             card.gameObject.AddComponent<UnityEngine.UI.Image>().color = new Color(.035f, .065f, .085f, .98f);
             var layout = card.gameObject.AddComponent<UnityEngine.UI.VerticalLayoutGroup>();
             layout.padding = new RectOffset(28, 28, 20, 20); layout.spacing = 8;
@@ -96,6 +97,7 @@ namespace Racer
             int selected = buttons.FindIndex(b => EventSystem.current && EventSystem.current.currentSelectedGameObject == b.gameObject);
             if (selected >= 0) selections[shown] = selected;
             shown = flow.State; shade.SetActive(flow.MenuVisible);
+            if (shown != RaceFlow.Stage.Results) penaltyPage = -1;
             hudPanel.SetActive(!flow.MenuVisible);
             EventSystem.current.SetSelectedGameObject(null);
             if (!flow.MenuVisible) return;
@@ -104,8 +106,10 @@ namespace Racer
             if (shown == RaceFlow.Stage.Ready)
             {
                 title.text = "RACER / STREET LOOP";
-                details.text = "Three laps through the neighborhood.\nWait for GO, then cross START to begin timing.\n\nPersonal best lap   " + Record(flow.Save.Best.lap) + "\nPersonal best race  " + Record(flow.Save.Best.race);
+                details.text = "Three laps through the neighborhood.\nShared race clock starts at GO. Cross START to begin lap 1.\n\nPersonal best lap   " + Record(flow.Save.Best.lap) + "\nPersonal best race  " + Record(flow.Save.Best.race);
                 Action(0,"Start race",flow.StartRace); Action(1,"Settings",flow.OpenSettings); Action(2,"Quit",flow.Quit);
+                Action(3, flow.Race.opponents ? "Mode: Race vs 3 AI" : "Mode: Solo / time trial", flow.ToggleOpponents);
+                Action(4, "Traffic: " + (flow.Race.traffic ? "On" : "Off"), flow.ToggleTraffic);
             }
             else if (shown == RaceFlow.Stage.Paused)
             {
@@ -121,7 +125,16 @@ namespace Racer
                 for (int i = 0; i < p.LapTimes.Count; i++) text.AppendLine("Lap " + (i+1) + "   " + RaceHud.FormatTime(p.LapTimes[i]));
                 text.AppendLine("Best lap   " + RaceHud.FormatTime(p.BestLap) + (flow.NewLapRecord ? "   NEW PB" : ""));
                 details.text = text.ToString();
+                details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight = 190;
+                details.text = $"Driving {RaceHud.FormatTime(p.RaceTime(flow.Race.Clock))} + {p.PenaltySeconds:0.0}s penalties\nAdjusted {RaceHud.FormatTime(p.AdjustedTime(flow.Race.Clock))}\n" + flow.Race.Standings() + $"\nYour missed gates: {p.MissedGates}";
                 Action(0,"Race again",flow.StartRace); Action(1,"Settings",flow.OpenSettings); Action(2,"Quit",flow.Quit);
+                Action(3, flow.Race.opponents ? "Next race: 3 AI" : "Next race: Solo", flow.ToggleOpponents);
+                Action(4, "Next traffic: " + (flow.Race.traffic ? "On" : "Off"), flow.ToggleTraffic);
+                Action(5, "Penalty breakdown / standings", () => { penaltyPage++; if (penaltyPage * 6 >= p.Penalties.Count) penaltyPage = -1; Show(); });
+                if (penaltyPage >= 0) {
+                    details.text = $"YOUR PENALTIES  +{p.PenaltySeconds:0.0}s\n";
+                    for (int i = penaltyPage * 6; i < Mathf.Min(p.Penalties.Count, (penaltyPage + 1) * 6); i++) details.text += p.Penalties[i] + "\n";
+                }
             }
             else if (shown == RaceFlow.Stage.Settings)
             {
@@ -149,6 +162,8 @@ namespace Racer
             if (!flow || !banner) return;
             banner.gameObject.SetActive(!flow.MenuVisible);
             banner.text = flow.State == RaceFlow.Stage.Countdown ? "READY\n" + Mathf.CeilToInt(flow.CountdownRemaining) : flow.Notice ?? "";
+            if (flow.State == RaceFlow.Stage.Racing && flow.Race.Progress.Finished)
+                banner.text = "PROVISIONAL — waiting for finish / DNF\n" + flow.Race.Standings();
             if (flow.MenuVisible && EventSystem.current && !EventSystem.current.currentSelectedGameObject) EventSystem.current.SetSelectedGameObject(buttons[0].gameObject);
         }
         void OnDestroy() { if(menuActions) { menuActions.Disable(); Destroy(menuActions); } if(submitReference) Destroy(submitReference); }

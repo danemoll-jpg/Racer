@@ -22,7 +22,12 @@ namespace Racer
         RaceMenus menus;
         InputAction menu, back;
         AudioSource feedback;
-        AudioClip tick, go, finish, record, click;
+        AudioClip tick, go, finish, record, click, ding, buzz;
+        float nextBuzz;
+        float finishAt;
+        public int CheckpointDings { get; private set; }
+        public int CheckpointBuzzes { get; private set; }
+
         float noticeUntil;
         int lastTick;
         bool originalKinematic, locked;
@@ -39,11 +44,13 @@ namespace Racer
             var args = System.Environment.GetCommandLineArgs();
             for (int i = 0; i + 1 < args.Length; i++) if (args[i] == "-racerTestSave") root = Path.GetFullPath(args[i + 1]);
             Save = new RacerSave(root, "street-loop-gates-v1-laps" + Race.laps);
-            Save.ApplySettings();
+            Race.opponents = Save.Settings.opponents; Race.traffic = Save.Settings.traffic;
+            Save.SelectRecords(Race.Category); Save.ApplySettings();
             feedback = gameObject.AddComponent<AudioSource>();
             feedback.playOnAwake = false; feedback.spatialBlend = 0; feedback.ignoreListenerPause = true;
             tick = Tone("Countdown", 520, .09f); go = Tone("Go", 880, .22f);
             finish = Tone("Finish", 660, .32f); record = Tone("Personal best", 1100, .22f); click = Tone("Menu", 380, .035f);
+            ding = Tone("Checkpoint", 1040, .12f); buzz = Tone("Checkpoint missed", 145, .22f);
             menu = new InputAction("Pause", InputActionType.Button);
             menu.AddBinding("<Keyboard>/enter"); menu.AddBinding("<Keyboard>/escape"); menu.AddBinding("<Gamepad>/start"); menu.Enable();
             back = new InputAction("Back", InputActionType.Button);
@@ -54,6 +61,7 @@ namespace Racer
         void Update()
         {
             if (Save == null) return;
+            if (finishAt > 0 && State != Stage.Paused && State != Stage.Settings && Time.unscaledTime >= finishAt) { finishAt = 0; Sound(finish); }
             if (menu.WasPressedThisFrame())
             {
                 if (State == Stage.Racing || State == Stage.Countdown) Pause();
@@ -69,7 +77,7 @@ namespace Racer
                 if (CountdownRemaining <= 0)
                 {
                     LockVehicle(false); Race.ResetSampling(Race.vehicle.Body.position, Time.timeAsDouble);
-                    SetStage(Stage.Racing); Notify("GO!  Cross START to begin timing", 3); Sound(go);
+                    foreach (var racer in Race.Racers) racer.Progress.BeginTiming(Time.timeAsDouble); SetStage(Stage.Racing); Notify("GO!  Shared race clock started", 3); Sound(go);
                 }
             }
             if (Notice != null && Time.unscaledTime > noticeUntil) Notice = null;
@@ -78,10 +86,10 @@ namespace Racer
         {
             State = stage;
             bool stopped = stage == Stage.Paused || stage == Stage.Settings || stage == Stage.Ready || stage == Stage.Results;
-            Time.timeScale = stopped ? 0 : 1;
+            Time.timeScale = stopped ? 0 : 1; if (stopped && stage != Stage.Results && feedback) feedback.Stop();
             AudioListener.pause = stage == Stage.Paused || stage == Stage.Settings;
-            input.enabled = stage == Stage.Racing;
-            respawn.enabled = stage == Stage.Racing;
+            input.enabled = stage == Stage.Racing && !Race.Progress.Finished;
+            respawn.enabled = stage == Stage.Racing && !Race.Progress.Finished;
             Cursor.visible = MenuVisible; Cursor.lockState = CursorLockMode.None;
             menus?.Show();
         }
@@ -93,7 +101,19 @@ namespace Racer
             if (value) { Race.vehicle.Body.linearVelocity = Vector3.zero; Race.vehicle.Body.angularVelocity = Vector3.zero; }
             Race.vehicle.Body.isKinematic = value || originalKinematic;
         }
-        public void PrepareRestart() { LockVehicle(false); Notice = null; }
+        public void PrepareRestart() { LockVehicle(false); Notice = null; nextBuzz = finishAt = 0; CheckpointDings = CheckpointBuzzes = 0; feedback.Stop(); }
+        public void SelectRecords(string category)
+        {
+            Save.SelectRecords(category); menus?.Show();
+        }
+        public void ToggleOpponents() { Race.opponents = !Race.opponents; Save.Settings.opponents = Race.opponents; Save.SaveSettings(); SelectRecords(Race.Category); Click(); }
+        public void ToggleTraffic() { Race.traffic = !Race.traffic; Save.Settings.traffic = Race.traffic; Save.SaveSettings(); SelectRecords(Race.Category); Click(); }
+        public void CheckpointFeedback(bool accepted, double seconds, int count)
+        {
+            if (State != Stage.Racing) return;
+            if (accepted) { if (!Race.Progress.Finished) { CheckpointDings++; Sound(ding); } }
+            else { Notify($"Checkpoint missed{(count > 1 ? " x" + count : "")}  +{seconds:0.0}s", 4); if (Time.time >= nextBuzz) { CheckpointBuzzes++; Sound(buzz); nextBuzz = Time.time + .5f; } }
+        }
         public void BeginCountdown()
         {
             NewLapRecord = NewRaceRecord = false; CountdownRemaining = 3; lastTick = 3;
@@ -107,7 +127,7 @@ namespace Racer
         public void Back() { if (State == Stage.Settings) CloseSettings(); else if (State == Stage.Paused) Resume(); }
         public void ResetFeedback()
         {
-            if (State == Stage.Racing) { Notify("CAR RESET — current lap abandoned. Cross START again. Race clock continues.", 5); Click(); }
+            if (State == Stage.Racing) { feedback.Stop(); nextBuzz = Time.time + .5f; Notify("CAR RESET — current lap abandoned. Cross START again. Race clock continues.", 5); Click(); }
         }
         public void LapCompleted()
         {
@@ -115,12 +135,15 @@ namespace Racer
             bool best = Save.RecordLap(Race.Progress.LastLap); NewLapRecord |= best;
             if (Race.Progress.Finished)
             {
-                NewRaceRecord = Save.RecordRace(Race.Progress.RaceTime(Race.Clock));
-                LockVehicle(true); SetStage(Stage.Results); Sound(finish);
-                if (NewLapRecord || NewRaceRecord) feedback.PlayOneShot(record, Save.Settings.feedback * .18f);
+                NewRaceRecord = Save.RecordRace(Race.Progress.AdjustedTime(Race.Clock));
+                LockVehicle(true); input.enabled = respawn.enabled = false;
+                if (Time.time < nextBuzz) finishAt = Time.unscaledTime + .3f; else Sound(finish);
+                Notify("FINISHED — provisional standings; waiting up to 90s for opponents", 95);
+                if ((NewLapRecord || NewRaceRecord) && finishAt == 0) feedback.PlayOneShot(record, Save.Settings.feedback * .18f);
             }
             else if (best) { Notify("NEW PERSONAL BEST LAP  " + RaceHud.FormatTime(Race.Progress.LastLap), 4); Sound(record); }
         }
+        public void CompleteResults() { LockVehicle(true); SetStage(Stage.Results); }
         void Notify(string text, float duration) { Notice = text; noticeUntil = Time.unscaledTime + duration; }
         public void Click() => Sound(click);
 #if UNITY_EDITOR || DEBUG
@@ -128,7 +151,7 @@ namespace Racer
         {
             if (Race.Progress.Started) throw new System.InvalidOperationException("Validation storage must be selected before racing.");
             Save = new RacerSave(directory, "street-loop-gates-v1-laps" + Race.laps);
-            Save.ApplySettings(); menus.Show();
+            Save.SelectRecords(Race.Category); Save.ApplySettings(); menus.Show();
         }
 #endif
         void Sound(AudioClip clip) { if (feedback && clip) feedback.PlayOneShot(clip, Save.Settings.feedback * .22f); }
@@ -151,7 +174,7 @@ namespace Racer
         void OnDestroy()
         {
             menu?.Dispose(); back?.Dispose(); Time.timeScale = 1; AudioListener.pause = false;
-            foreach (var clip in new[] { tick, go, finish, record, click }) if (clip) Destroy(clip);
+            foreach (var clip in new[] { tick, go, finish, record, click, ding, buzz }) if (clip) Destroy(clip);
         }
     }
 }

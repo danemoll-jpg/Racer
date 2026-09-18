@@ -1,0 +1,6 @@
+Countdown suppresses cues: True
+Pause suppresses cues: True
+Authoritative next gate dings=1; repeated crossing suppressed=True
+Player miss buzzes=1; AI miss count=1, no player contamination=True
+Overlapping buzz suppressed=True; master mute=True
+Reset retains penalties, abandons lap=True; restart clears penalties/counters=True

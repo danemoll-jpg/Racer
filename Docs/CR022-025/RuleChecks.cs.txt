@@ -1,0 +1,12 @@
+var report = new System.Collections.Generic.List<string>();
+void Check(bool value,string name){report.Add((value?"PASS ":"FAIL ")+name);}
+var p=new Racer.RaceProgress(3,2);p.Cross(0,true,10);p.Cross(1,true,12);Check(p.NextGate==2,"ordered gate");
+p.Cross(1,true,13);Check(p.NextGate==2,"repeated gate no progress");p.Cross(2,false,14);Check(p.NextGate==2&&p.LapValid,"wrong-way no progress, recovery allowed");
+Check(p.Miss(2,5),"ordinary miss accepted");Check(!p.Miss(2,5)&&p.PenaltySeconds==5,"miss charged once");p.Cross(3,true,16);p.Cross(0,true,20);Check(p.CompletedLaps==1&&p.LastLap==15,"adjusted lap includes penalty");
+p.Miss(1,5);p.Miss(2,20);p.Cross(3,true,30);p.Cross(0,true,40);Check(p.Finished&&p.MissedGates==3&&p.PenaltySeconds==30,"multiple independent misses");Check(p.RaceTime(100)==30&&p.AdjustedTime(100)==60,"finish locks driving time; adjustment separate");
+p.Restart();Check(p.PenaltySeconds==0&&p.MissedGates==0&&p.Penalties.Count==0&&!p.Started,"restart clears penalties and progress");
+p.Cross(0,true,0);p.Miss(1,5);p.ResetToGrid();Check(p.NextGate==0&&!p.LapActive&&p.PenaltySeconds==5,"manual reset abandons lap, retains race penalty");p.Cross(0,true,20);Check(p.NextGate==1&&p.LapActive,"reset permits fresh lap");
+var q=new Racer.RaceProgress(3,1);q.Cross(0,true,0);q.Cross(3,true,2);Check(q.NextGate==1,"out of order alone cannot award progress");q.Cross(0,false,3);q.Cross(0,true,4);Check(q.CompletedLaps==0,"finish repetition cannot award free lap");
+var dir="Temp/CR022-025-rule-save-"+System.Guid.NewGuid().ToString("N");var save=new Racer.RacerSave(dir,"legacy");save.RecordRace(100);save.SelectRecords("new-solo");Check(save.Best.race==0,"new rule category isolated");save.RecordRace(150);save.SelectRecords("new-ai");Check(save.Best.race==0,"AI category isolated");save.SelectRecords("new-solo");Check(save.Best.race==150,"category record reloads");var old=new Racer.RacerSave(dir,"legacy");Check(old.Best.race==100,"legacy record preserved");
+System.IO.File.WriteAllLines("Docs/CR022-025/rules.txt",report);return string.Join("\n",report);
+

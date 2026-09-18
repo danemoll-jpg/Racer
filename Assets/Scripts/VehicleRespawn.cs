@@ -14,6 +14,7 @@ namespace Racer
         Quaternion initialRotation;
         ArcadeVehicle vehicle;
         VehicleInput input;
+        bool resetPending;
         void Awake()
         {
             vehicle = GetComponent<ArcadeVehicle>(); input = GetComponent<VehicleInput>();
@@ -22,10 +23,14 @@ namespace Racer
         }
         void FixedUpdate()
         {
-            if (input.ConsumeReset() || transform.position.y < fallResetHeight) ResetVehicle();
+            if (input.ConsumeReset() || resetPending || transform.position.y < fallResetHeight) ResetVehicle();
         }
         public void ResetVehicle()
         {
+            var destination = spawnPoint ? spawnPoint.position : initialPosition;
+            foreach (var other in FindObjectsByType<ArcadeVehicle>())
+                if (other != vehicle && Vector3.Distance(other.transform.position, destination) < 6) { resetPending = true; return; }
+            resetPending = false;
             var body = vehicle.Body;
             body.position = spawnPoint ? spawnPoint.position : initialPosition;
             body.rotation = spawnPoint ? Quaternion.Euler(0, spawnPoint.eulerAngles.y, 0) : initialRotation;

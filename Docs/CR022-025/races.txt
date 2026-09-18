@@ -1,0 +1,23 @@
+Ordinary-frame physics autopilot; no physical controller.
+Run 1: AI=True traffic=True final=True maxSpeed=41.33m/s frames=10316 median=16.72ms p95=23.48ms
+1. YOU  02:41.416  (+0.0s / 0 misses)
+2. EMBER  02:45.091  (+0.0s / 0 misses)
+3. BLUE  02:46.911  (+0.0s / 0 misses)
+4. GOLD  02:56.898  (+0.0s / 0 misses)
+YOU laps=1 next=0 recoveries=0 position=(321.08, 7.61, 561.70)
+EMBER laps=1 next=0 recoveries=0 position=(332.31, 12.40, 528.49)
+GOLD laps=1 next=0 recoveries=0 position=(319.24, 16.06, 512.40)
+BLUE laps=1 next=0 recoveries=0 position=(326.48, 11.68, 533.82)
+Run 2: AI=True traffic=True final=True maxSpeed=41.33m/s frames=10524 median=16.70ms p95=22.39ms
+1. YOU  02:41.419  (+0.0s / 0 misses)
+2. EMBER  02:45.095  (+0.0s / 0 misses)
+3. BLUE  02:46.915  (+0.0s / 0 misses)
+4. GOLD  02:57.034  (+0.0s / 0 misses)
+YOU laps=1 next=0 recoveries=0 position=(321.10, 7.61, 561.89)
+EMBER laps=1 next=0 recoveries=0 position=(333.22, 12.32, 528.58)
+GOLD laps=1 next=0 recoveries=0 position=(319.05, 16.01, 512.63)
+BLUE laps=1 next=0 recoveries=0 position=(326.08, 11.66, 533.97)
+Run 3: AI=False traffic=False final=True maxSpeed=41.33m/s frames=9602 median=16.67ms p95=21.42ms
+1. YOU  02:41.318  (+0.0s / 0 misses)
+YOU laps=1 next=0 recoveries=0 position=(317.98, 16.08, 512.32)
+DONE

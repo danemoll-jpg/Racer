@@ -1,0 +1,17 @@
+PASS ordered gate
+PASS repeated gate no progress
+PASS wrong-way no progress, recovery allowed
+PASS ordinary miss accepted
+PASS miss charged once
+PASS adjusted lap includes penalty
+PASS multiple independent misses
+PASS finish locks driving time; adjustment separate
+PASS restart clears penalties and progress
+PASS manual reset abandons lap, retains race penalty
+PASS reset permits fresh lap
+PASS out of order alone cannot award progress
+PASS finish repetition cannot award free lap
+PASS new rule category isolated
+PASS AI category isolated
+PASS category record reloads
+PASS legacy record preserved

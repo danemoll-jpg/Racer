@@ -1,0 +1,5 @@
+Adjusted classification beats physical finish order: True
+Bounded DNF/final classification: True
+1. adjusted winner  01:45.000  (+0.0s / 0 misses)
+2. physical first  02:00.000  (+20.0s / 1 misses)
+3. stuck  DNF  (+0.0s / 0 misses)

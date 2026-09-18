@@ -1,0 +1,9 @@
+Ordinary-frame virtual Gamepad; one initial placement per scenario, no per-frame pose or velocity corrections. No physical controller claim.
+straight acceleration and braking: peak=45.78m/s (164.8km/h), minUp=0.970, longestAir=0.38s, finalGrounded=4, maxRoadDistance3D=48.82m, brakeStart=28.97, endSpeed=-9.83, position=(363.90, 19.79, 494.32)
+hills: peak=28.98m/s (104.3km/h), minUp=0.963, longestAir=0.05s, finalGrounded=4, maxRoadDistance3D=10.23m, brakeStart=0.00, endSpeed=28.77, position=(478.53, 77.97, 23.80)
+hairpin: peak=13.02m/s (46.9km/h), minUp=0.973, longestAir=0.00s, finalGrounded=4, maxRoadDistance3D=5.43m, brakeStart=0.00, endSpeed=12.94, position=(386.61, 32.32, -399.03)
+jump 33m/s target: peak=32.76m/s (117.9km/h), minUp=0.980, longestAir=1.80s, finalGrounded=4, maxRoadDistance3D=6.72m, brakeStart=0.00, endSpeed=32.76, position=(-633.49, 9.52, 163.62)
+jump 40m/s target: peak=39.52m/s (142.3km/h), minUp=0.979, longestAir=2.06s, finalGrounded=4, maxRoadDistance3D=7.91m, brakeStart=0.00, endSpeed=39.52, position=(-635.70, 9.77, 295.38)
+Mailbox physical impact: broken=True, debris=1
+Debris cleanup: moving=0
+Restart restoration: broken=False, pending=False, penalties=0, next=0

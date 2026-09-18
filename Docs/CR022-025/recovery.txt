@@ -1,0 +1,2 @@
+Remote recovery safe=True; no gate/penalty gain=True; recovery near player blocked=True
+Grid minimum car-centre separation=8.78m; racers=4; traffic=4

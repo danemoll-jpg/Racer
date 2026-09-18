@@ -1,0 +1,66 @@
+[
+  {
+    "name": "BLUE",
+    "pos": "(-622.73, 8.42, -118.91)",
+    "speed": -0.004336139,
+    "target": 0.466841817,
+    "Direction": 1,
+    "stalled": 56.4211
+  },
+  {
+    "name": "GOLD",
+    "pos": "(-622.83, 8.44, -112.29)",
+    "speed": -0.00435212534,
+    "target": 0.0,
+    "Direction": 1,
+    "stalled": 57.4811249
+  },
+  {
+    "name": "EMBER",
+    "pos": "(-622.95, 8.47, -105.72)",
+    "speed": -0.356573433,
+    "target": 0.0,
+    "Direction": 1,
+    "stalled": 5.23999548
+  },
+  {
+    "name": "Traffic 2",
+    "pos": "(-624.59, 8.58, -74.01)",
+    "speed": 0.6275609,
+    "target": 0.0,
+    "Direction": -1,
+    "stalled": 0.11999996
+  },
+  {
+    "name": "Traffic 3",
+    "pos": "(-623.31, 8.53, -86.45)",
+    "speed": -0.004437589,
+    "target": 0.0,
+    "Direction": 1,
+    "stalled": 1.95999837
+  },
+  {
+    "name": "Traffic 1",
+    "pos": "(-623.21, 8.51, -92.84)",
+    "speed": -0.004071271,
+    "target": 0.0,
+    "Direction": 1,
+    "stalled": 0.9999992
+  },
+  {
+    "name": "PrototypeCar",
+    "pos": "(-623.07, 8.49, -99.39)",
+    "speed": 1.21982062,
+    "target": 0.0,
+    "Direction": 1,
+    "stalled": 0.0199999921
+  },
+  {
+    "name": "Traffic 4",
+    "pos": "(-623.48, 8.56, -80.42)",
+    "speed": 0.00446337042,
+    "target": 0.0,
+    "Direction": -1,
+    "stalled": 1.97999835
+  }
+]

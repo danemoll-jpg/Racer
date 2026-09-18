@@ -1,0 +1,9 @@
+var r=UnityEngine.Object.FindAnyObjectByType<Racer.RaceDirector>();var f=r.Flow;double now=r.Clock;
+void Cross(int g){var gate=r.gates[g];var a=gate.transform.position-gate.transform.forward*2;var b=gate.transform.position+gate.transform.forward*2;r.ResetSampling(a,now);now+=.1;r.Sample(b,gate.transform.forward,now);}
+Cross(0);Cross(1);int ding=f.CheckpointDings;Cross(1);bool duplicate=f.CheckpointDings==ding;Cross(3);int buzz=f.CheckpointBuzzes;int misses=r.Progress.MissedGates;
+var ai=r.Racers[1];ai.Progress.Cross(0,true,now);var gate4=r.gates[4];ai.Previous=gate4.transform.position-gate4.transform.forward*2;ai.PreviousTime=now;
+typeof(Racer.RaceDirector).GetMethod("SampleRacer",System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic).Invoke(r,new object[]{ai,gate4.transform.position+gate4.transform.forward*2,gate4.transform.forward,now+.1,false});
+bool isolated=f.CheckpointBuzzes==buzz&&r.Progress.MissedGates==misses;f.CheckpointFeedback(false,5,1);bool bounded=f.CheckpointBuzzes==buzz;
+f.Save.Settings.master=0;f.Save.ApplySettings();bool muted=UnityEngine.AudioListener.volume==0;f.Save.Settings.master=.8f;f.Save.ApplySettings();
+r.vehicle.GetComponent<Racer.VehicleRespawn>().ResetVehicle();bool reset=r.Progress.PenaltySeconds>0&&!r.Progress.LapActive;f.StartRace();bool restart=r.Progress.PenaltySeconds==0&&f.CheckpointDings==0&&f.CheckpointBuzzes==0;
+string result=$"Authoritative next gate dings={ding}; repeated crossing suppressed={duplicate}\nPlayer miss buzzes={buzz}; AI miss count={ai.Progress.MissedGates}, no player contamination={isolated}\nOverlapping buzz suppressed={bounded}; master mute={muted}\nReset retains penalties, abandons lap={reset}; restart clears penalties/counters={restart}\n";System.IO.File.AppendAllText("Docs/CR022-025/cues.txt",result);UnityEditor.EditorApplication.isPlaying=false;return result;
