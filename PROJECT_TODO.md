@@ -532,21 +532,21 @@ Dan confirmed the shortcut works and agreed to move on. Detailed unchecked items
 ## Goal
 Replace the sterile prototype feeling with a playful environment.
 
-**Focused building batch:** ACCEPTED — Dan says it looks fine. Photo-based home accuracy is deferred to CR-013 and does not block further work. CR-012 removes House 1 and extends Dan's yard into its site; Houses 2/3 retain their labels and exact placement. All 25 retained residences and 22 businesses now use reusable low-poly architecture. Phases 2–5 remain accepted. This building batch is accepted; remaining environment implementation is addressed, awaiting Dan's review. No Phase 7. Full evidence and limitations: `Docs/PHASE6_VALIDATION.md`.
+**Focused building batch:** ACCEPTED — Dan says it looks fine. Photo-based home accuracy is deferred to CR-013 and does not block further work. CR-012 removes House 1 and extends Dan's yard into its site; Houses 2/3 retain their labels and exact placement. All 25 retained residences and 22 businesses now use reusable low-poly architecture. Phases 2–5 remain accepted. This building batch is accepted; Phase 6 is now ACCEPTED after Dan's approval. Phase 7 is ready to begin. Full evidence and limitations: `Docs/PHASE6_VALIDATION.md`.
 
 ## TODO
 - [x] CR-016 implemented in the combined CR-016/CR-017 batch: Dan's house 116.581m south; yard 9003.472 to 2250.869m² (25%); 107 new trees. Accepted for now; exact house placement deferred under CR-018. Evidence in Docs/CR016-017/VALIDATION.md.
-- [x] Implement CR-015 house-placement corrections; grounded sites, persistent authoring data and annotated before/after evidence in Docs/CR015/VALIDATION.md. Awaiting Dan's visual approval.
+- [x] Implement CR-015 house-placement corrections; grounded sites, persistent authoring data and annotated before/after evidence in Docs/CR015/VALIDATION.md. Accepted as part of Dan's overall Phase 6 approval; individual test coverage is not implied.
 - [x] Four-mailbox/two-sign appearance accepted. Combined CR-016/CR-017 batch now adds yielding behavior, three gameplay signs and nine fence sections; behavior accepted by Dan.
 - [x] CR-012 implementation: Remove only the house marked #1, its dedicated collision and obsolete house-specific props/access; expand Dan's yard naturally into its former site. Retain Houses #2/#3 without renumbering, and preserve their positions/elevations.
 - [x] Verify the expanded yard is continuous, grounded and free of invisible House #1 collisions; update relevant generation logic so House #1 does not return.
 - [x] Improve house/building silhouettes in this focused batch: 4 residential + 4 commercial reusable variants, grounded entrances and aligned simple collision.
 - [x] Dan visually approves this building batch and CR-012; physical-controller testing remains unconfirmed.
 - [x] Initial tree appearance pass: three reusable crown shapes, coherent variation, unchanged 6,102 placements/colliders and 90 visual batches. Historical report: Docs/VEGETATION_VALIDATION.md. CR-014 below expands this coverage.
-- [x] Implement CR-014 woodland expansion: 6,102 to 11,897 trees, connected canopy with explorable trunk spacing; protected accepted sites and gameplay retained. Awaiting Dan's review.
+- [x] Implement CR-014 woodland expansion: 6,102 to 11,897 trees, connected canopy with explorable trunk spacing; protected accepted sites and gameplay retained. Accepted as part of Phase 6 overall.
 - [x] Profile baseline, intermediate and full coverage in ordinary frames; repeat 1440x900 standalone comparisons and rendering-cost diagnostics. Results/variability/limits: Docs/CR014/VALIDATION.md.
 - [x] Dan reports tree coverage is much better; retain the expanded woodland as the visual baseline.
-- [ ] Dan's subjective off-road/smoothness review remains pending. Phase 6 is implemented, awaiting Dan's review; forest-follower obstruction and frame-time variability are disclosed.
+- [x] Dan approves Phase 6 overall. This does not claim individual test/device coverage or erase documented forest-follower and frame-time limitations.
 - [x] Add nine restrained lightweight fence sections at Dan's yard, House #2 and the friend's property; integrated batch accepted by Dan.
 - [x] Dan approves the appearance of the four mailboxes and two signs. CR-017 behavior is implemented separately; Dan subsequently approved the combined CR-017 behavior batch.
 - [x] CR-017 implemented: 18 yielding assemblies, bounded debris, race-restart restoration; integrated tests passed; Dan approved the batch.
@@ -558,11 +558,13 @@ Replace the sterile prototype feeling with a playful environment.
 - [x] Complete matched visible-player profiling and gameplay validation. Host-dependent spikes remain; no universal smoothness guarantee.
 
 ## Astra Direction
-Dan prefers larger coherent deliveries. The CR-016/fences/CR-017 batch is accepted; exact home placement is deferred under CR-018. Complete remaining Phase 6 environment work together: road markings, selective sidewalks/curbs, local transition cleanup, basic lighting and environmental audio, plus performance checks. Assess each pending item; document justified not-applicable items rather than adding unnecessary urban features. Do not move houses or begin Phase 7. Leave overall Phase 6 acceptance to Dan.
+Phase 6 is ACCEPTED following Dan's overall approval. Preserve this environment while beginning a coherent Phase 7 game-flow delivery. CR-013 photo accuracy and CR-018 exact house placement stay deferred. Historical test limitations remain documented; approval does not imply new measurements.
 
 ---
 
 # PHASE 7 — Racing Game Feel
+
+**Status:** Ready to begin; deliver core race flow, persistent bests, pause/settings and controller-friendly UI together. Inspect existing lap/best/speed HUD behavior before adding duplicates. Optional stunt scoring and speed traps remain deferred.
 
 ## Goal
 Make the prototype feel like a game rather than a Unity demonstration.
@@ -570,9 +572,9 @@ Make the prototype feel like a game rather than a Unity demonstration.
 ## TODO
 - [ ] Countdown.
 - [ ] Finish/result screen.
-- [ ] Best lap tracking.
+- [ ] Review/reuse existing current-race best-lap tracking and integrate it with results/persistent personal bests.
 - [ ] Personal best saving.
-- [ ] Speed display.
+- [x] Speed display already exists from CR-011; preserve and integrate it with Phase 7 UI.
 - [ ] Better reset feedback.
 - [ ] Pause menu.
 - [ ] Settings.
@@ -844,11 +846,13 @@ Record choices we do not want to repeatedly reconsider.
 | 2026-09-17 | Accept combined CR-016/fences/CR-017 batch; defer exact home position as CR-018 | Dan approved and does not want more placement work now |
 | 2026-09-17 | Next delivery groups remaining Phase 6 environment work | Road markings, selective curbs, local terrain transitions, basic lighting/audio and performance checks; preserve gameplay and avoid another house-placement pass |
 
+| 2026-09-17 | Phase 6 accepted; proceed to Phase 7 core game flow | Dan approved the environment delivery; preserve current house placement and leave optional scoring/speed traps deferred |
+
 ---
 
 # SESSION HANDOFF
 
-**Current phase:** Phase 6 **implemented, awaiting Dan's review**. Required remaining-environment implementation is addressed as one delivery. Do not mark Phase 6 accepted or begin Phase 7. CR-016 accepted for now/closed; CR-017 accepted/closed. CR-013 photo accuracy and CR-018 exact house placement remain optional/deferred. Every current house and yard is preserved; House #1 remains absent.
+**Current phase:** Phase 6 ACCEPTED — Dan approved the completed delivery. Phase 7 is ready to begin as one coherent core game-flow/UI batch; no Phase 7 implementation in this documentation update. Preserve houses/yards and accepted gameplay/environment. CR-016 accepted for now/closed and CR-017 closed. CR-013 photo accuracy and CR-018 exact house placement remain optional/deferred. Approval does not claim new tests, physical-controller coverage or resolution of documented performance limits.
 
 **Safety checkpoint:** `442d7af0047a73625c7a4b4a29cff2d6bd74f74c`. Initial Git write-permission failure recovered by authorized elevated retry before changes. Completion commit is reported in the task response.
 
