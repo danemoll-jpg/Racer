@@ -1,0 +1,25 @@
+Checkpoint 3b2ffe31958b9216255e7b66a3477ecba7d524e7; removed records=0
+Landing edge | 1020675518
+Landing edge | 1020788127
+Landing edge | 103590301
+Landing edge | 1367822115
+Landing edge | 1444790381
+Landing edge | 1639834303
+Landing edge | 1726601433
+Landing edge | 1840846167
+Landing edge | 184346687
+Landing edge | 1853963798
+Landing edge | 1867032730
+Landing edge | 216299332
+Landing edge | 25112437
+Landing edge | 25910093
+Landing edge | 37932148
+Landing edge | 444840688
+Landing edge | 630052942
+Landing edge | 686072003
+Landing edge | 834185692
+Landing edge | 876797704
+Phase 3 - Race Systems | 1260633131
+Phase 3 - Race Systems | 1260633134
+Recommended speed | 276267785
+Takeoff - 24m x 6m, 3m rise | 542917464

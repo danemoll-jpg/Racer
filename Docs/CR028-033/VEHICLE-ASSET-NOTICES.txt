@@ -1,0 +1,7 @@
+Vehicle asset sources and licenses
+
+Street Classic: existing Racer low-poly car, retained from the repository.
+Longroof GT, Needle 600, Trail Four and rider silhouettes: original procedural
+geometry authored in Assets/Scripts/VehicleVisual.cs for this update.
+No third-party models, textures, animations or paid assets were imported.
+Existing synthesized audio and Unity runtime/package notices remain applicable.

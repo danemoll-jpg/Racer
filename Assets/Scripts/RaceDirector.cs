@@ -17,6 +17,8 @@ namespace Racer
         public float cutPenaltyMetresPerSecond = 10;
         public bool opponents = true, traffic = true;
         public int difficulty = 1;
+        public string[] opponentRoster = {"tourer","moto","atv"};
+        public string RosterLabel => string.Join(" / ",opponentRoster.Select(id=>VehicleProfile.Find(id).Name));
         public string DifficultyName => new[]{"Easy", "Normal", "Hard"}[Mathf.Clamp(difficulty,0,2)];
         public string ModeLabel => opponents ? "Race vs 3 AI / " + DifficultyName : "Solo / time trial";
         [Range(0, 6)]
@@ -32,7 +34,7 @@ namespace Racer
         public bool ClassificationFinal { get; private set; }
 
         public int PlayerPosition => Ordered(false).IndexOf(Racers[0]) + 1;
-        public string Category => $"street-v3-garage-{(vehicle.GetComponent<VehicleConfiguration>() ? vehicle.GetComponent<VehicleConfiguration>().profileId : "original")}-{(opponents ? "race4-d" + difficulty : "solo")}-{(traffic ? "traffic" : "clear")}-laps{laps}";
+        public string Category => $"street-v4-local-jump-{(vehicle.GetComponent<VehicleConfiguration>() ? vehicle.GetComponent<VehicleConfiguration>().profileId : "original")}-{(opponents ? "race4-d" + difficulty+"-"+string.Join("-",opponentRoster) : "solo")}-{(traffic ? "traffic" : "clear")}-laps{laps}";
         VehicleRespawn respawn;
         float origin;
         float[] gateS;
@@ -72,10 +74,8 @@ namespace Racer
 
         void OnRespawn()
         {
-            Progress.ResetToGrid();
-            Racers[0].Travel = 0;
-            Racers[0].VerifiedRoad = 0;
-            ResetSampling(vehicle.Body.position, Time.timeAsDouble);
+            // Recovery is neither a gate crossing nor a new lap; retain all earned progress.
+            Racers[0].SampleOrigin(Clock);
             if (Flow)
                 Flow.ResetFeedback();
         }
@@ -99,8 +99,9 @@ namespace Racer
 
             Drivers.Clear();
             Racers.RemoveRange(1, Racers.Count - 1);
-            respawn.ResetVehicle();
+            respawn.RestartAtStart();
             Progress.Restart();
+            Racers[0].Dnf=false; Racers[0].FinishArmed=false; Racers[0].RecoveryStart=float.NaN; Racers[0].Recoveries=0;
             if (road && opponents)
             {
                 var grid = road.At(origin - 32, out var direction);
@@ -131,6 +132,15 @@ namespace Racer
             }
         }
 
+        public void AbandonEvent()
+        {
+            foreach(var driver in Drivers) if(driver) { driver.gameObject.SetActive(false); Destroy(driver.gameObject); }
+            Drivers.Clear(); Racers.RemoveRange(1,Racers.Count-1);
+            if(gridVisual) { gridVisual.SetActive(false); Destroy(gridVisual); }
+            Progress.Restart(); Racers[0].Dnf=false; Racers[0].FinishArmed=false;
+            Clock=0; firstFinish=-1; ClassificationFinal=false;
+        }
+
         void CreateCars()
         {
             float spawn = road.Project(vehicle.transform.position, out _);
@@ -145,8 +155,9 @@ namespace Racer
                 var car = clone.GetComponent<ArcadeVehicle>();
                 var configuration = clone.GetComponent<VehicleConfiguration>();
                 if (!configuration) configuration = clone.AddComponent<VehicleConfiguration>();
-                // First delivery: car opponents; like-for-like when a car is selected.
-                configuration.Apply(racing && !VehicleProfile.Find(vehicle.GetComponent<VehicleConfiguration>().profileId).Small ? vehicle.GetComponent<VehicleConfiguration>().profileId : "original");
+                // Every opponent uses the resolved real physics/visual profile.
+                configuration.Apply(racing ? opponentRoster[n] : "original");
+                configuration.SetPaint(racing?colors[n]:new Color(.55f,.55f,.5f));
                 // Explicit test pilots must never be duplicated into opponents.
                 foreach (var inherited in clone.GetComponents<RoadDriver>()) { inherited.enabled = false; Destroy(inherited); }
                 clone.GetComponent<VehicleInput>().enabled = false;

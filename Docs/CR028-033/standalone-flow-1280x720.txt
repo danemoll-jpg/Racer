@@ -1,0 +1,120 @@
+Virtual keyboard/mouse/gamepad through Input System and uGUI; no physical-controller claim.
+PASS Mouse swatch original
+PASS Gamepad swatch original
+PASS Persistent per-profile color original
+PASS Body paint applied original
+PASS Trim/rider unchanged original
+PASS Mouse swatch tourer
+PASS Gamepad swatch tourer
+PASS Persistent per-profile color tourer
+PASS Body paint applied tourer
+PASS Trim/rider unchanged tourer
+PASS Mouse swatch moto
+PASS Gamepad swatch moto
+PASS Persistent per-profile color moto
+PASS Body paint applied moto
+PASS Trim/rider unchanged moto
+PASS Mouse swatch atv
+PASS Gamepad swatch atv
+PASS Persistent per-profile color atv
+PASS Body paint applied atv
+PASS Trim/rider unchanged atv
+PASS Resolved slot 1 / original
+PASS Resolved slot 1 / tourer
+PASS Resolved slot 1 / moto
+PASS Resolved slot 1 / atv
+PASS Resolved slot 1 / random
+PASS Resolved slot 1 / mixed
+PASS Resolved slot 2 / original
+PASS Resolved slot 2 / tourer
+PASS Resolved slot 2 / moto
+PASS Resolved slot 2 / atv
+PASS Resolved slot 2 / random
+PASS Resolved slot 2 / mixed
+PASS Resolved slot 3 / original
+PASS Resolved slot 3 / tourer
+PASS Resolved slot 3 / moto
+PASS Resolved slot 3 / atv
+PASS Resolved slot 3 / random
+PASS Resolved slot 3 / mixed
+PASS True mixed profiles before GO
+PASS Profile-sized grid no overlaps
+PASS Keyboard navigation reaches Quit Race
+PASS Keyboard Quit Race during countdown; no incomplete record
+PASS Gamepad navigation reaches Quit Race
+PASS Controller Pause / Quit Race during racing
+PASS Mouse Quit Race
+PASS Restart/rematch roster stable
+PASS Local original upright: recovered=True move=0.03 forward=0.004
+PASS Preserve progress/time/penalties original upright
+PASS No recovery gate credit/miss chain original upright
+PASS Local original flipped: recovered=True move=0.03 forward=0.004
+PASS Preserve progress/time/penalties original flipped
+PASS No recovery gate credit/miss chain original flipped
+PASS Local original slope: recovered=True move=1.51 forward=-1.492
+PASS Preserve progress/time/penalties original slope
+PASS No recovery gate credit/miss chain original slope
+PASS Local original tree: recovered=True move=3.94 forward=-0.416
+PASS Preserve progress/time/penalties original tree
+PASS No recovery gate credit/miss chain original tree
+PASS Local original moving-car: recovered=True move=5.02 forward=-4.848
+PASS Preserve progress/time/penalties original moving-car
+PASS No recovery gate credit/miss chain original moving-car
+PASS Local tourer upright: recovered=True move=0.06 forward=0.006
+PASS Preserve progress/time/penalties tourer upright
+PASS No recovery gate credit/miss chain tourer upright
+PASS Local tourer flipped: recovered=True move=0.06 forward=0.006
+PASS Preserve progress/time/penalties tourer flipped
+PASS No recovery gate credit/miss chain tourer flipped
+PASS Local tourer slope: recovered=True move=1.50 forward=-1.477
+PASS Preserve progress/time/penalties tourer slope
+PASS No recovery gate credit/miss chain tourer slope
+PASS Local tourer tree: recovered=True move=3.92 forward=-0.415
+PASS Preserve progress/time/penalties tourer tree
+PASS No recovery gate credit/miss chain tourer tree
+PASS Local tourer moving-car: recovered=True move=5.02 forward=-4.847
+PASS Preserve progress/time/penalties tourer moving-car
+PASS No recovery gate credit/miss chain tourer moving-car
+PASS Local moto upright: recovered=True move=0.18 forward=-0.019
+PASS Preserve progress/time/penalties moto upright
+PASS No recovery gate credit/miss chain moto upright
+PASS Local moto flipped: recovered=True move=0.18 forward=-0.019
+PASS Preserve progress/time/penalties moto flipped
+PASS No recovery gate credit/miss chain moto flipped
+PASS Local moto slope: recovered=True move=0.04 forward=-0.011
+PASS Preserve progress/time/penalties moto slope
+PASS No recovery gate credit/miss chain moto slope
+PASS Local moto tree: recovered=True move=4.12 forward=-1.192
+PASS Preserve progress/time/penalties moto tree
+PASS No recovery gate credit/miss chain moto tree
+PASS Local moto moving-car: recovered=True move=3.03 forward=-2.596
+PASS Preserve progress/time/penalties moto moving-car
+PASS No recovery gate credit/miss chain moto moving-car
+PASS Local atv upright: recovered=True move=0.18 forward=-0.019
+PASS Preserve progress/time/penalties atv upright
+PASS No recovery gate credit/miss chain atv upright
+PASS Local atv flipped: recovered=True move=0.18 forward=-0.019
+PASS Preserve progress/time/penalties atv flipped
+PASS No recovery gate credit/miss chain atv flipped
+PASS Local atv slope: recovered=True move=0.04 forward=-0.011
+PASS Preserve progress/time/penalties atv slope
+PASS No recovery gate credit/miss chain atv slope
+PASS Local atv tree: recovered=True move=4.12 forward=-1.192
+PASS Preserve progress/time/penalties atv tree
+PASS No recovery gate credit/miss chain atv tree
+PASS Local atv moving-car: recovered=True move=3.04 forward=-3.007
+PASS Preserve progress/time/penalties atv moving-car
+PASS No recovery gate credit/miss chain atv moving-car
+PASS One audio listener
+PASS Color survives profile switches and restarts
+PASS Repeated local recovery beside finish grants no lap/finish
+PASS No support/history: wait locally, never silently START
+PASS Settings and audio volumes retained across pause/settings
+PASS Checkpoint ding and cooldown-limited penalty notification
+PASS Temporary penalty notice expires
+PASS Pause stops simulation
+PASS Quit Race clears audio and listener pause
+PASS Physical mailbox breakage
+PASS Breakable debris cleanup
+PASS Explicit Restart Race restores props and clears event
+DONE

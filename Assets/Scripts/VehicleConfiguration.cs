@@ -20,10 +20,13 @@ namespace Racer
         ArcadeVehicle motor;
         readonly List<Transform> wheels = new();
         float roll, crashUntil;
-        float landingSpeed;
+        float overturned, upright;
+        Color? selectedPaint;
+        public void SetBodyColor(int index) { if(index>=0 && index<VehiclePaint.Colors.Length) SetPaint(VehiclePaint.Colors[index]); }
+        public void SetPaint(Color color) { selectedPaint=color; VehiclePaint.Apply(transform,color); }
         public bool WipedOut => Time.time < crashUntil;
         public int VehicleContactEvents { get; private set; }
-        public void Recover() { crashUntil=0; landingSpeed=0; }
+        public void Recover() { crashUntil=0; overturned=upright=0; }
         public void PrepareContacts()
         {
             if(!motor || Profile.Small) return;
@@ -50,6 +53,9 @@ namespace Racer
             }
             JsonUtility.FromJsonOverwrite(originalMotor, motor);
             profileId = VehicleProfile.Find(id).Id;
+            selectedPaint=null;
+            foreach(var renderer in GetComponentsInChildren<Renderer>(true))
+                if(renderer.sharedMaterial && renderer.sharedMaterial.name.Contains("Car")) renderer.SetPropertyBlock(null);
             var p = Profile;
             for(int i=0;i<originalVisuals.Length;i++) if(originalVisuals[i]) originalVisuals[i].gameObject.SetActive(profileId=="original" && originalEnabled[i]);
             // Clones carry the generated hierarchy but not runtime field references.
@@ -84,6 +90,7 @@ namespace Racer
             motor.Body.ResetInertiaTensor(); motor.ClearSteering(); roll=crashUntil=0;
             VehicleContactEvents=0;
             VehicleContact.Register(motor.Body, p.Small);
+            VehicleSurfaceContacts.Register(box);
             foreach(var c in GetComponentsInChildren<Collider>()) c.hasModifiableContacts=true;
             var camera=FindAnyObjectByType<ChaseCamera>();
             if(camera && camera.target==transform) { camera.offset=p.Camera; camera.Snap(); }
@@ -98,38 +105,37 @@ namespace Racer
         }
         public void BuildPreview(Transform parent)
         {
-            if(Profile.Id!="original") { VehicleVisual.Build(parent,Profile); return; }
+            if(Profile.Id!="original") { VehicleVisual.Build(parent,Profile); if(selectedPaint.HasValue) VehiclePaint.Apply(parent,selectedPaint.Value); return; }
             for(int i=0;i<originalVisuals.Length;i++) if(originalVisuals[i] && originalEnabled[i])
             {
                 var copy=Instantiate(originalVisuals[i].gameObject,parent,false);
                 foreach(var t in copy.GetComponentsInChildren<Transform>(true)) t.gameObject.layer=parent.gameObject.layer;
                 copy.SetActive(true);
             }
+            if(selectedPaint.HasValue) VehiclePaint.Apply(parent,selectedPaint.Value);
         }
         void OnCollisionEnter(Collision collision)
         {
             if(collision.rigidbody && collision.rigidbody.GetComponent<ArcadeVehicle>()) VehicleContactEvents++;
-            if(!Profile.Small || !motor) return;
-            float closing=0;
-            for(int i=0;i<collision.contactCount;i++) closing=Mathf.Max(closing,Mathf.Abs(Vector3.Dot(collision.relativeVelocity,collision.GetContact(i).normal)));
-            if(closing > (Profile.Id=="moto"?12:17)) Wipeout();
+            // Upright bumps and predicted CCD contacts are not a loss of control.
+            // A sustained overturned state below handles meaningful recovery feedback.
         }
         void FixedUpdate()
         {
             if(!motor || !Profile.Small || motor.Body.isKinematic) return;
-            if(motor.GroundedWheels<2) landingSpeed=Mathf.Max(landingSpeed,-motor.Body.linearVelocity.y);
-            else
-            {
-                if(landingSpeed>(Profile.Id=="moto"?13:17)) Wipeout();
-                landingSpeed=0;
-            }
+            bool needsHelp=transform.up.y<.35f && motor.Body.linearVelocity.magnitude<5;
+            overturned=needsHelp?overturned+Time.fixedDeltaTime:0;
+            upright=transform.up.y>.7f && motor.GroundedWheels>=2?upright+Time.fixedDeltaTime:0;
+            if(overturned>1.2f && !WipedOut) Wipeout();
+            if(upright>.35f && WipedOut) { Recover(); var flow=FindAnyObjectByType<RaceFlow>(); if(flow && flow.Race.vehicle==motor) flow.ClearRecoveryFeedback(); }
         }
         void Wipeout()
         {
-            crashUntil=Time.time+1.4f;
+            if(WipedOut) return;
+            crashUntil=float.PositiveInfinity;
             var flow=FindAnyObjectByType<RaceFlow>();
             if(flow && flow.Race.vehicle==motor) flow.WipeoutFeedback();
         }
-        void OnDestroy() { if(motor && motor.Body) VehicleContact.Unregister(motor.Body); }
+        void OnDestroy() { if(motor && motor.Body) VehicleContact.Unregister(motor.Body); var box=GetComponent<BoxCollider>(); if(box) VehicleSurfaceContacts.Unregister(box); }
     }
 }

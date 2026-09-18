@@ -1,0 +1,6 @@
+Difficulty=Easy; laps=3; traffic=4; shared capabilities; ordinary-frame motor commands. Reference pilot is NOT a human-competition acceptance test.
+Final=True; frames=15030; median=33.30ms; p95=33.46ms
+YOU reference pilot original: finished=True; DNF=False; laps=3; lapTimes=165.910/165.638/166.868; race=501.076; adjusted=501.076; peak=41.63m/s; mean=28.13m/s; brakeSeconds=72.74; recoveries=0; misses=0
+EMBER tourer: finished=True; DNF=False; laps=3; lapTimes=165.461/166.507/166.387; race=500.577; adjusted=500.577; peak=41.00m/s; mean=28.08m/s; brakeSeconds=80.06; recoveries=0; misses=0
+GOLD moto: finished=True; DNF=False; laps=3; lapTimes=150.701/150.920/150.240; race=453.468; adjusted=453.468; peak=47.55m/s; mean=30.96m/s; brakeSeconds=81.46; recoveries=0; misses=0
+BLUE atv: finished=True; DNF=False; laps=3; lapTimes=158.687/158.640/158.540; race=477.071; adjusted=477.071; peak=45.92m/s; mean=29.40m/s; brakeSeconds=85.22; recoveries=0; misses=0

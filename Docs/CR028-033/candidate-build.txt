@@ -1,0 +1,2 @@
+Succeeded; errors=0; warnings=1; bytes=207261244; duration=00:00:27.1048708
+Pipeline: No RuntimePipelineConfig asset found (Project Settings > Pipeline > Runtime). Pipeline will be disabled in Player builds.

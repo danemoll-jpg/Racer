@@ -7,7 +7,7 @@ namespace Racer
     [DisallowMultipleComponent]
     public sealed class RaceFlow : MonoBehaviour
     {
-        public enum Stage { Ready, Countdown, Racing, Paused, Results, Settings, Garage }
+        public enum Stage { Ready, Countdown, Racing, Paused, Results, Settings, Garage, Roster }
         public Stage State { get; private set; } = Stage.Ready;
         public RacerSave Save { get; private set; }
         public RaceDirector Race { get; private set; }
@@ -49,6 +49,8 @@ namespace Racer
             var configuration = Race.vehicle.GetComponent<VehicleConfiguration>();
             if (!configuration) configuration = Race.vehicle.gameObject.AddComponent<VehicleConfiguration>();
             configuration.Apply(Save.Settings.vehicleId);
+            RestoreChoices();
+            configuration.SetBodyColor(SelectedColor);
             Save.SelectRecords(Race.Category); Save.ApplySettings();
             feedback = gameObject.AddComponent<AudioSource>();
             feedback.playOnAwake = false; feedback.spatialBlend = 0; feedback.ignoreListenerPause = true;
@@ -72,6 +74,7 @@ namespace Racer
                 else if (State == Stage.Paused) Resume();
                 else if (State == Stage.Settings) CloseSettings();
                 else if (State == Stage.Garage) CloseGarage();
+                else if (State == Stage.Roster) CloseGarage();
             }
             else if (back.WasPressedThisFrame()) Back();
             if (State == Stage.Countdown)
@@ -90,7 +93,7 @@ namespace Racer
         void SetStage(Stage stage)
         {
             State = stage;
-            bool stopped = stage == Stage.Paused || stage == Stage.Settings || stage == Stage.Ready || stage == Stage.Results || stage == Stage.Garage;
+            bool stopped = stage == Stage.Paused || stage == Stage.Settings || stage == Stage.Ready || stage == Stage.Results || stage == Stage.Garage || stage == Stage.Roster;
             Time.timeScale = stopped ? 0 : 1; if (stopped && stage != Stage.Results && feedback) feedback.Stop();
             AudioListener.pause = stage == Stage.Paused || stage == Stage.Settings;
             input.enabled = stage == Stage.Racing && !Race.Progress.Finished;
@@ -106,7 +109,13 @@ namespace Racer
             if (value) { Race.vehicle.Body.linearVelocity = Vector3.zero; Race.vehicle.Body.angularVelocity = Vector3.zero; }
             Race.vehicle.Body.isKinematic = value || originalKinematic;
         }
-        public void PrepareRestart() { LockVehicle(false); Notice = null; nextBuzz = finishAt = 0; CheckpointDings = CheckpointBuzzes = 0; feedback.Stop(); }
+        public void PrepareRestart()
+        {
+            var runoff=Race.vehicle.GetComponent<RoadDriver>();
+            if(runoff) { runoff.enabled=false; Destroy(runoff); }
+            LockVehicle(false); Race.vehicle.enabled=true;
+            Notice = null; nextBuzz = finishAt = 0; CheckpointDings = CheckpointBuzzes = 0; feedback.Stop();
+        }
         public void SelectRecords(string category)
         {
             Save.SelectRecords(category); menus?.Show();
@@ -116,13 +125,61 @@ namespace Racer
         public void CycleDifficulty() { if(State!=Stage.Ready && State!=Stage.Results) return; Race.difficulty=(Race.difficulty+1)%3; Save.Settings.difficulty=Race.difficulty; Save.SaveSettings(); SelectRecords(Race.Category); Click(); }
         public void OpenGarage() { if(State!=Stage.Ready && State!=Stage.Results) return; SetStage(Stage.Garage); Click(); }
         public void CloseGarage() { SetStage(Stage.Ready); Click(); }
+        public void OpenRoster() { if(State!=Stage.Ready && State!=Stage.Results) return; SetStage(Stage.Roster); Click(); }
+        public int SelectedColor => Save.Settings.bodyColors[System.Array.FindIndex(VehicleProfile.All,p=>p.Id==Save.Settings.vehicleId)];
+        void RestoreChoices()
+        {
+            Save.Settings.vehicleId=VehicleProfile.Find(Save.Settings.vehicleId).Id;
+            if(Save.Settings.bodyColors==null || Save.Settings.bodyColors.Length!=4) Save.Settings.bodyColors=new[]{-1,-1,-1,-1};
+            if(Save.Settings.opponentChoices==null || Save.Settings.opponentChoices.Length!=3) Save.Settings.opponentChoices=new[]{"mixed","mixed","mixed"};
+            if(Save.Settings.opponentRoster==null || Save.Settings.opponentRoster.Length!=3) Save.Settings.opponentRoster=new[]{"tourer","moto","atv"};
+            Race.opponentRoster=(string[])Save.Settings.opponentRoster.Clone();
+            for(int i=0;i<3;i++) Race.opponentRoster[i]=VehicleProfile.Find(Race.opponentRoster[i]).Id;
+        }
+        public void SetColor(int color)
+        {
+            if(State!=Stage.Garage) return;
+            int i=System.Array.FindIndex(VehicleProfile.All,p=>p.Id==Save.Settings.vehicleId);
+            Save.Settings.bodyColors[i]=Mathf.Clamp(color,0,VehiclePaint.Colors.Length-1);
+            Race.vehicle.GetComponent<VehicleConfiguration>().SetBodyColor(SelectedColor);
+            Save.SaveSettings(); menus.Show(); Click();
+        }
+        public void CycleOpponent(int slot)
+        {
+            if(State!=Stage.Roster || slot<0 || slot>=3) return;
+            var choices=new[]{"original","tourer","moto","atv","random","mixed"};
+            int i=System.Array.IndexOf(choices,Save.Settings.opponentChoices[slot]);
+            Save.Settings.opponentChoices[slot]=choices[(i+1)%choices.Length]; ResolveRoster();
+        }
+        public void MixedRoster() { if(State!=Stage.Roster) return; Save.Settings.opponentChoices=new[]{"mixed","mixed","mixed"}; ResolveRoster(); }
+        public void ResolveRoster()
+        {
+            if(State!=Stage.Roster) return;
+            var used=new System.Collections.Generic.HashSet<string>();
+            for(int i=0;i<3;i++)
+            {
+                string choice=Save.Settings.opponentChoices[i];
+                if(choice!="random" && choice!="mixed") { Race.opponentRoster[i]=VehicleProfile.Find(choice).Id; used.Add(Race.opponentRoster[i]); }
+            }
+            for(int i=0;i<3;i++)
+            {
+                string choice=Save.Settings.opponentChoices[i]; if(choice!="random" && choice!="mixed") continue;
+                var candidates=new System.Collections.Generic.List<string>();
+                foreach(var p in VehicleProfile.All) if(choice=="random" || !used.Contains(p.Id)) candidates.Add(p.Id);
+                if(candidates.Count==0) foreach(var p in VehicleProfile.All) candidates.Add(p.Id);
+                Race.opponentRoster[i]=candidates[Random.Range(0,candidates.Count)]; used.Add(Race.opponentRoster[i]);
+            }
+            Save.Settings.opponentRoster=(string[])Race.opponentRoster.Clone(); Save.SaveSettings(); SelectRecords(Race.Category); Click();
+        }
         public void SelectVehicle(string id)
         {
             if(State!=Stage.Garage) return;
             Race.vehicle.GetComponent<VehicleConfiguration>().Apply(id);
             Save.Settings.vehicleId=VehicleProfile.Find(id).Id; Save.SaveSettings(); SelectRecords(Race.Category); Click();
+            Race.vehicle.GetComponent<VehicleConfiguration>().SetBodyColor(SelectedColor); menus.Show();
         }
-        public void WipeoutFeedback() { if(State==Stage.Racing) Notify("WIPEOUT — recover control or R / Y to reset. Reset abandons this lap; clock and penalties continue.",5); }
+        public void WipeoutFeedback() { if(State==Stage.Racing) Notify("R / Y: right vehicle locally",2); }
+        public void ClearRecoveryFeedback() { if(Notice=="R / Y: right vehicle locally") Notice=null; }
         public void CheckpointFeedback(bool accepted, double seconds, int count)
         {
             if (State != Stage.Racing) return;
@@ -139,10 +196,17 @@ namespace Racer
         public void Resume() { SetStage(pausedStage); Click(); }
         public void OpenSettings() { settingsReturn = State; SetStage(Stage.Settings); Click(); }
         public void CloseSettings() { Save.SaveSettings(); SetStage(settingsReturn); Click(); }
-        public void Back() { if (State == Stage.Settings) CloseSettings(); else if (State == Stage.Paused) Resume(); else if(State==Stage.Garage) CloseGarage(); }
+        public void Back() { if (State == Stage.Settings) CloseSettings(); else if (State == Stage.Paused) Resume(); else if(State==Stage.Garage || State==Stage.Roster) CloseGarage(); }
+        public void QuitRace()
+        {
+            if(State!=Stage.Paused && State!=Stage.Results && State!=Stage.Settings) return;
+            PrepareRestart(); Race.AbandonEvent(); respawn.CancelRecovery(); LockVehicle(true);
+            NewLapRecord=NewRaceRecord=false; Save.SaveSettings(); SetStage(Stage.Ready);
+            Race.vehicle.GetComponent<VehicleAudio>()?.Silence();
+        }
         public void ResetFeedback()
         {
-            if (State == Stage.Racing) { feedback.Stop(); nextBuzz = Time.time + .5f; Notify("CAR RESET — current lap abandoned. Cross START again. Race clock continues.", 5); Click(); }
+            if (State == Stage.Racing) { ClearRecoveryFeedback(); }
         }
         public void LapCompleted()
         {
@@ -151,7 +215,11 @@ namespace Racer
             if (Race.Progress.Finished)
             {
                 NewRaceRecord = Save.RecordRace(Race.Progress.AdjustedTime(Race.Clock));
-                LockVehicle(true); input.enabled = respawn.enabled = false;
+                input.enabled = respawn.enabled = false;
+                // Clear the finish with normal pedals/steering so following racers are not blocked.
+                var runoff=Race.vehicle.GetComponent<RoadDriver>();
+                if(!runoff) { runoff=Race.vehicle.gameObject.AddComponent<RoadDriver>(); runoff.Initialize(Race,Race.vehicle,true,1,1); }
+                runoff.Racer=Race.Racers[0];
                 if (Time.time < nextBuzz) finishAt = Time.unscaledTime + .3f; else Sound(finish);
                 Notify("FINISHED — provisional standings; waiting up to 90s for opponents", 95);
                 if ((NewLapRecord || NewRaceRecord) && finishAt == 0) feedback.PlayOneShot(record, Save.Settings.feedback * .18f);

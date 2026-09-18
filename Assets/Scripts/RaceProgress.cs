@@ -21,6 +21,7 @@ namespace Racer
         public int MissedGates { get; private set; }
         public readonly List<string> Penalties = new();
         double lapPenalty;
+        public double CurrentLapPenalty => lapPenalty;
         public double AdjustedTime(double now) => RaceTime(now) + PenaltySeconds;
         public bool Miss(int gate, double seconds)
         {

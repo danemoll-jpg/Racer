@@ -54,7 +54,7 @@ namespace Racer
             var configuration = GetComponent<VehicleConfiguration>();
             float pitch = configuration ? configuration.Profile.Pitch : 1;
             voices[0].pitch = rpm * pitch; voices[1].pitch = rpm * pitch * 1.005f;
-            bool engine = !flow || flow.State != RaceFlow.Stage.Results;
+            bool engine = !flow || flow.State == RaceFlow.Stage.Racing || flow.State == RaceFlow.Stage.Countdown;
             SetLevel(0, engine ? Mathf.Lerp(.17f, .10f, load) : 0, volume, dt);
             SetLevel(1, engine ? .16f * load : 0, volume, dt);
             Slip = grounded ? Mathf.Abs(Vector3.Dot(car.Body.linearVelocity, transform.right)) : 0;
@@ -86,6 +86,13 @@ namespace Racer
         {
             levels[index] = immediate ? 0 : Mathf.MoveTowards(levels[index], target, dt * .4f);
             voices[index].volume = levels[index] * volume;
+        }
+        public void Silence()
+        {
+            for(int i=0;i<levels.Length;i++) levels[i]=0;
+            foreach(var voice in voices) if(voice) voice.volume=0;
+            if(voices[5]) voices[5].Stop();
+            load=airborne=downward=0;
         }
         float SampleRoad()
         {

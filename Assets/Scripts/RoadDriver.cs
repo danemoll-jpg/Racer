@@ -14,9 +14,13 @@ namespace Racer
 
         public int RecoveryCount { get; private set; }
         public float StalledSeconds => stalled;
+        public float LastThrottle { get; private set; }
+        public float LastBrake { get; private set; }
+        public float BrakingSeconds { get; private set; }
 
-        bool racing;
-        float pace, stalled, safeS, lane, finishRunoff;
+        bool racing, finishParked;
+        static readonly float[] cornerUse={.36f,.52f,.65f}, brakeUse={.40f,.62f,.82f}, speedUse={.88f,.95f,.99f}, hillTargets={24,27,30};
+        float pace, stalled, safeS, lane, finishRunoff, nextRecovery;
         readonly RaycastHit[] hits = new RaycastHit[24];
         public void Initialize(RaceDirector race, ArcadeVehicle car, bool racer, int direction, float variation)
         {
@@ -53,21 +57,22 @@ namespace Racer
                 return;
             }
 
-            if (Car == Race.vehicle && Racer != null && (Racer.Progress.Finished || Racer.Dnf))
-            {
-                Car.Body.isKinematic = true;
-                return;
-            }
-
-            Car.Body.isKinematic = false;
             bool finished = Racer != null && (Racer.Progress.Finished || Racer.Dnf);
+            if(finished && finishParked) { Car.Body.isKinematic=true; return; }
+            Car.Body.isKinematic = false;
             if (finished && finishRunoff > 55)
             {
-                Car.Simulate(0, Car.ForwardSpeed > 1 ? 1 : 0, 0, Time.fixedDeltaTime);
+                if(Car.ForwardSpeed<.8f && Car.GroundedWheels>=2)
+                {
+                    Car.Body.linearVelocity=Car.Body.angularVelocity=Vector3.zero;
+                    Car.Body.isKinematic=true; finishParked=true;
+                }
+                else Car.Simulate(0,1,0,Time.fixedDeltaTime);
                 return;
             }
 
             float s = Race.road.Project(Car.Body.position, out float lateral);
+            Car.GetComponent<VehicleRespawn>().RecordSafePosition();
             float speed = Mathf.Abs(Car.ForwardSpeed);
             Race.road.At(s, out var tangent);
             float look = Mathf.Clamp(7 + speed * .48f, 8, 25);
@@ -111,9 +116,9 @@ namespace Racer
             float maxAngle = Mathf.Lerp(Car.slowSteerAngle, Car.fastSteerAngle, Mathf.Clamp01(speed / Car.topSpeed)) * Mathf.Deg2Rad;
             float steering = Mathf.Clamp(Mathf.Atan(2 * Car.wheelbase * Mathf.Sin(angle) / look) / maxAngle, -1, 1);
             int skill = racing ? Mathf.Clamp(Race.difficulty,0,2) : 0;
-            float cornerGrip = racing ? new[]{7.5f,11f,14f}[skill] : 7.5f;
-            float judgment = racing ? new[]{8f,12f,15f}[skill] : 8f;
-            TargetSpeed = (racing ? Car.topSpeed * .94f : 17) * pace;
+            float cornerGrip = racing ? Car.maxGripAcceleration*cornerUse[skill] : 7.5f;
+            float judgment = racing ? Car.braking*brakeUse[skill] : 8f;
+            TargetSpeed = (racing ? Car.topSpeed * speedUse[skill] : 17) * pace;
             if(finished) TargetSpeed=12;
             // Consistency costs time through early lifting, never extra vehicle capability.
             if (racing && skill < 2) TargetSpeed *= 1 - (2-skill)*.035f*(.5f+.5f*Mathf.Sin(Time.time*.19f+pace*31));
@@ -121,9 +126,12 @@ namespace Racer
             {
                 Race.road.At(s + Direction * d, out var f);
                 Race.road.At(s + Direction * (d + 8), out var next);
-                float curvature = Vector3.Angle(f, next) * Mathf.Deg2Rad / 8;
+                float curvature = Vector3.Angle(Vector3.ProjectOnPlane(f,Vector3.up),Vector3.ProjectOnPlane(next,Vector3.up)) * Mathf.Deg2Rad / 8;
                 float curveSpeed = Mathf.Sqrt(cornerGrip / Mathf.Max(.005f, curvature));
-                float hillSpeed = Mathf.Abs(f.y) > .18f ? 24 : 45;
+                float hillSpeed = Mathf.Abs(f.y) > .14f ? (racing?hillTargets[skill]:24) : Car.topSpeed;
+                // Without downforce, a convex crest cannot support v²/r greater than gravity.
+                float crest=Mathf.Max(0,Mathf.Asin(f.y)-Mathf.Asin(next.y))/8;
+                if(crest>.001f) hillSpeed=Mathf.Min(hillSpeed,Mathf.Sqrt(6.5f/crest));
                 TargetSpeed = Mathf.Min(TargetSpeed, Mathf.Sqrt(Mathf.Pow(Mathf.Min(curveSpeed, hillSpeed), 2) + 2 * judgment * Mathf.Max(0, d - 12)));
             }
 
@@ -131,13 +139,15 @@ namespace Racer
                 TargetSpeed = Mathf.Min(TargetSpeed, 10);
             // Bounded non-alloc obstacle query; includes other cars and solid roadside objects, excludes own body.
             float range = 6 + speed * 1.5f;
-            int count = Physics.SphereCastNonAlloc(Car.Body.position + Vector3.up * .35f, .75f, transform.forward, hits, range, ~0, QueryTriggerInteraction.Ignore);
+            float radius=Mathf.Min(.7f,Car.GetComponent<BoxCollider>().size.x*.5f+.12f);
+            int count = Physics.SphereCastNonAlloc(Car.Body.position + Vector3.up * .35f, radius, transform.forward, hits, range, ~0, QueryTriggerInteraction.Ignore);
             for (int i = 0; i < count; i++)
             {
                 var hit = hits[i];
                 if (hit.rigidbody == Car.Body || hit.normal.y > .55f)
                     continue;
-                float allowed = Mathf.Sqrt(Mathf.Max(0, 2 * 8 * (hit.distance - 4)));
+                float aheadSpeed=hit.rigidbody?Mathf.Max(0,Vector3.Dot(hit.rigidbody.linearVelocity,transform.forward)):0;
+                float allowed = Mathf.Sqrt(Mathf.Max(0,aheadSpeed*aheadSpeed+2*judgment*(hit.distance-4)));
                 TargetSpeed = Mathf.Min(TargetSpeed, allowed);
             }
 
@@ -160,18 +170,27 @@ namespace Racer
                 steering = -steering;
             }
 
-            if (stalled > 12 || lateral > 22 || Vector3.Dot(transform.up, Vector3.up) < .1f)
+            if (Time.time>=nextRecovery && (stalled > 12 || (lateral > 22 && stalled>5) || Vector3.Dot(transform.up, Vector3.up) < .1f))
             {
                 TryRecover(s);
             }
 
             if (lateral < 5 && speed > 4 && Vector3.Dot(transform.forward, tangent * Direction) > .6f)
                 safeS = s;
+            LastThrottle=throttle; LastBrake=brake; if(brake>.1f) BrakingSeconds+=Time.fixedDeltaTime;
             Car.Simulate(throttle, brake, steering, Time.fixedDeltaTime);
         }
 
         void TryRecover(float current)
         {
+            if(racing)
+            {
+                var recovery=Car.GetComponent<VehicleRespawn>();
+                if(!recovery.TryRecoverLocal(true)) return;
+                stalled=0; nextRecovery=Time.time+4; RecoveryCount++;
+                if(Racer!=null) { Racer.Recoveries++; Racer.SampleOrigin(Race.Clock); }
+                return;
+            }
             // Return behind the last stable sample, and never award progress. Wait if any vehicle occupies the pad.
             float destination = safeS - Direction * 8;
             float recoveryLane = Race.road.InBypass(destination) ? (Direction > 0 ? 3.2f : 6.2f) : lane;

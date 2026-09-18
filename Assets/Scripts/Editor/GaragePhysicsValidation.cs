@@ -12,7 +12,7 @@ namespace Racer.Editor
         static readonly List<string> rows=new();
         static PhysicsScene physics;
         static Scene scene;
-        public static void Run()
+        public static void Run(string outputDirectory="Docs/CR026-027")
         {
             if(!Application.isPlaying) throw new InvalidOperationException("Run in Play mode after RaceFlow initializes.");
             rows.Clear();
@@ -25,7 +25,7 @@ namespace Racer.Editor
                 foreach(var profile in VehicleProfile.All) Measure(profile.Id);
                 foreach(string small in new[]{"moto","atv"}) foreach(float speed in new[]{8f,25f,45f}) foreach(string contact in new[]{"rear","side","glance","stationary","sustained"}) foreach(bool smallInitiates in new[]{false,true}) Contact(small,speed,contact,smallInitiates);
                 SaveChecks();
-                Directory.CreateDirectory("Docs/CR026-027"); File.WriteAllLines("Docs/CR026-027/physics.txt",rows);
+                Directory.CreateDirectory(outputDirectory); File.WriteAllLines(Path.Combine(outputDirectory,"physics.txt"),rows);
             }
             finally { SceneManager.UnloadSceneAsync(scene); }
         }

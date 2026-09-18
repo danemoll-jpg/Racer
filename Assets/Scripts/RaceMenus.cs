@@ -27,6 +27,8 @@ namespace Racer
         Camera previewCamera;
         RenderTexture previewTexture;
         GameObject previewRoot;
+        RectTransform swatchRow;
+        readonly List<UnityEngine.UI.Button> swatches=new();
         public void Initialize(RaceFlow owner)
         {
             flow = owner; font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
@@ -77,6 +79,19 @@ namespace Racer
                 var text = Label("Label", rect, 21, 0); Stretch(text.rectTransform, 10, 0, -10, 0); text.alignment = TextAnchor.MiddleCenter;
                 buttons.Add(button);
             }
+            swatchRow=Rect("Body color swatches",card);
+            swatchRow.gameObject.AddComponent<UnityEngine.UI.LayoutElement>().preferredHeight=36;
+            var swatchLayout=swatchRow.gameObject.AddComponent<UnityEngine.UI.HorizontalLayoutGroup>(); swatchLayout.spacing=6; swatchLayout.childControlWidth=swatchLayout.childControlHeight=true; swatchLayout.childForceExpandWidth=true;
+            for(int i=0;i<VehiclePaint.Colors.Length;i++)
+            {
+                int choice=i; var rect=Rect(VehiclePaint.Names[i],swatchRow);
+                var img=rect.gameObject.AddComponent<UnityEngine.UI.Image>(); img.color=VehiclePaint.Colors[i];
+                var button=rect.gameObject.AddComponent<UnityEngine.UI.Button>(); button.targetGraphic=img;
+                var colors=button.colors; colors.selectedColor=colors.highlightedColor=Color.white; colors.normalColor=new Color(.72f,.72f,.72f); button.colors=colors;
+                button.onClick.AddListener(()=>flow.SetColor(choice));
+                var text=Label("Color",rect,17,0); Stretch(text.rectTransform,0,0,0,0); text.alignment=TextAnchor.MiddleCenter; text.text=VehiclePaint.Names[i]; text.color=(i==1 || i==3 || i==5)?Color.white:Color.black;
+                swatches.Add(button);
+            }
             var help = Label("Menu controls", card, 16, 38);
             help.text = "D-pad / stick / arrows: select     A / Space: confirm\nB / Esc: back     Enter / Start: pause or resume";
             banner = Label("Race feedback", canvas.transform, 26, 0);
@@ -108,11 +123,13 @@ namespace Racer
         {
             if (!shade) return;
             int selected = buttons.FindIndex(b => EventSystem.current && EventSystem.current.currentSelectedGameObject == b.gameObject);
+            if(selected<0) { int swatch=swatches.FindIndex(b=>EventSystem.current && EventSystem.current.currentSelectedGameObject==b.gameObject); if(swatch>=0) selected=buttons.Count+swatch; }
             if (selected >= 0) selections[shown] = selected;
             shown = flow.State; shade.SetActive(flow.MenuVisible);
             preview.gameObject.SetActive(shown==RaceFlow.Stage.Garage);
             previewCamera.enabled=shown==RaceFlow.Stage.Garage;
-            if (shown != RaceFlow.Stage.Results) penaltyPage = -1;
+            swatchRow.gameObject.SetActive(shown==RaceFlow.Stage.Garage);
+            if (shown != RaceFlow.Stage.Results && shown!=RaceFlow.Stage.Paused) penaltyPage = -1;
             hudPanel.SetActive(!flow.MenuVisible);
             EventSystem.current.SetSelectedGameObject(null);
             if (!flow.MenuVisible) return;
@@ -126,17 +143,24 @@ namespace Racer
             {
                 title.text = "RACER / STREET LOOP";
                 details.text = "Three laps through the neighborhood.\nShared race clock starts at GO. Cross START to begin lap 1.\n\nPersonal best lap   " + Record(flow.Save.Best.lap) + "\nPersonal best race  " + Record(flow.Save.Best.race);
-                Action(0,"Start race",flow.StartRace); Action(1,"Settings",flow.OpenSettings); Action(2,"Quit",flow.Quit);
+                Action(0,"Start race",flow.StartRace); Action(1,"Settings",flow.OpenSettings); Action(2,"Quit Game",flow.Quit);
                 Action(3, flow.Race.opponents ? "Mode: Race vs 3 AI" : "Mode: Solo / time trial", flow.ToggleOpponents);
                 Action(4, "Traffic: " + (flow.Race.traffic ? "On" : "Off"), flow.ToggleTraffic);
                 Action(5,"Difficulty: " + flow.Race.DifficultyName,flow.CycleDifficulty);
                 Action(6,"Garage: " + flow.Race.vehicle.GetComponent<VehicleConfiguration>().Profile.Name,flow.OpenGarage);
+                Action(7,"Opponent vehicles",flow.OpenRoster);
+                details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=125;
+                details.fontSize=18;
+                details.text=$"{flow.Race.laps} laps / clock starts at GO\n{(flow.Race.opponents?flow.Race.RosterLabel:"Solo time trial")}\nBest lap {Record(flow.Save.Best.lap)}  /  race {Record(flow.Save.Best.race)}\nTimes below are elapsed; penalties are added to results.";
             }
             else if (shown == RaceFlow.Stage.Paused)
             {
                 title.text = "PAUSED";
-                details.text = "The race and countdown are stopped.\nResume to continue exactly where you left off.\n\nRestart Race clears this race and restores props.\nR / Y while driving resets only the car and current lap.";
-                Action(0,"Resume",flow.Resume); Action(1,"Restart race",flow.StartRace); Action(2,"Settings",flow.OpenSettings); Action(3,"Quit",flow.Quit);
+                var p=flow.Race.Progress;
+                details.text=$"Elapsed {RaceHud.FormatTime(p.RaceTime(flow.Race.Clock))}  +{p.PenaltySeconds:0.0}s penalties\nAdjusted {RaceHud.FormatTime(p.AdjustedTime(flow.Race.Clock))}\nR / Y: recover locally; time and lap progress continue.\nRestart Race clears this event and restores props.";
+                Action(0,"Resume",flow.Resume); Action(1,"Restart Race",flow.StartRace); Action(2,"Settings",flow.OpenSettings); Action(3,"Quit Race / Return to Menu",flow.QuitRace); Action(4,"Quit Game",flow.Quit);
+                Action(5,"Penalty breakdown",()=>{ penaltyPage++; if(penaltyPage*6>=p.Penalties.Count) penaltyPage=-1; Show(); });
+                if(penaltyPage>=0) { details.text=$"PENALTIES +{p.PenaltySeconds:0.0}s\n"; for(int i=penaltyPage*6;i<Mathf.Min(p.Penalties.Count,(penaltyPage+1)*6);i++) details.text+=p.Penalties[i]+"\n"; }
             }
             else if (shown == RaceFlow.Stage.Results)
             {
@@ -146,14 +170,12 @@ namespace Racer
                 for (int i = 0; i < p.LapTimes.Count; i++) text.AppendLine("Lap " + (i+1) + "   " + RaceHud.FormatTime(p.LapTimes[i]));
                 text.AppendLine("Best lap   " + RaceHud.FormatTime(p.BestLap) + (flow.NewLapRecord ? "   NEW PB" : ""));
                 details.text = text.ToString();
-                details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight = 150;
+                details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight = 180;
                 details.text = $"Driving {RaceHud.FormatTime(p.RaceTime(flow.Race.Clock))} + {p.PenaltySeconds:0.0}s penalties\nAdjusted {RaceHud.FormatTime(p.AdjustedTime(flow.Race.Clock))}\n" + flow.Race.Standings() + $"\nYour missed gates: {p.MissedGates}";
-                Action(0,"Race again",flow.StartRace); Action(1,"Settings",flow.OpenSettings); Action(2,"Quit",flow.Quit);
-                Action(3, flow.Race.opponents ? "Next race: 3 AI" : "Next race: Solo", flow.ToggleOpponents);
-                Action(4, "Next traffic: " + (flow.Race.traffic ? "On" : "Off"), flow.ToggleTraffic);
-                Action(5, "Penalty breakdown / standings", () => { penaltyPage++; if (penaltyPage * 6 >= p.Penalties.Count) penaltyPage = -1; Show(); });
-                Action(6,"Next difficulty: " + flow.Race.DifficultyName,flow.CycleDifficulty);
-                Action(7,"Garage / next vehicle",flow.OpenGarage);
+                Action(0,"Race again",flow.StartRace); Action(1,"Settings",flow.OpenSettings); Action(2,"Return to Menu",flow.QuitRace);
+                Action(3, "Penalty breakdown / standings", () => { penaltyPage++; if (penaltyPage * 6 >= p.Penalties.Count) penaltyPage = -1; Show(); });
+                Action(4,"Garage / next vehicle",flow.OpenGarage);
+                Action(5,"Opponent vehicles",flow.OpenRoster);
                 if (penaltyPage >= 0) {
                     details.text = $"YOUR PENALTIES  +{p.PenaltySeconds:0.0}s\n";
                     for (int i = penaltyPage * 6; i < Mathf.Min(p.Penalties.Count, (penaltyPage + 1) * 6); i++) details.text += p.Penalties[i] + "\n";
@@ -163,14 +185,22 @@ namespace Racer
             {
                 var profile=flow.Race.vehicle.GetComponent<VehicleConfiguration>().Profile;
                 title.text=profile.Name + " / " + profile.Class;
-                details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=100;
+                details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=80;
                 details.fontSize=18;
-                details.text=$"{profile.Description}\nSpeed target {profile.Speed*3.6f:0} km/h | {(profile.Small?"Light contact class":"Heavy contact class")}\n{(profile.Small?"Cars have contact priority. AI drive slower Street Classics.":"AI use your car capabilities; difficulty changes driving judgment.")}\nHold S / LT through a stop to reverse; steer normally. R / Y resets.";
+                details.text=$"{profile.Description}\nAll four profiles available as opponents.\nBody color: choose a swatch below. R / Y recovers locally.";
                 if(previewRoot) { previewRoot.SetActive(false); Destroy(previewRoot); }
                 previewRoot=new GameObject("Garage display model"); previewRoot.layer=31; previewRoot.transform.position=new(10000,10000,10000); previewRoot.transform.rotation=Quaternion.Euler(0,-30,0);
                 flow.Race.vehicle.GetComponent<VehicleConfiguration>().BuildPreview(previewRoot.transform);
                 for(int i=0;i<VehicleProfile.All.Length;i++) { var choice=VehicleProfile.All[i]; Action(i,(profile.Id==choice.Id?"Selected: ":"Select: ")+choice.Name,()=>flow.SelectVehicle(choice.Id)); }
                 Action(4,"Done / ready",flow.CloseGarage);
+            }
+            else if(shown==RaceFlow.Stage.Roster)
+            {
+                title.text="OPPONENT VEHICLES";
+                details.text="Choose each slot. Random may repeat; Mixed fills distinct profiles.\nResolved roster stays fixed for restart/rematch.\n\n"+flow.Race.RosterLabel;
+                details.fontSize=18;
+                for(int i=0;i<3;i++) { int slot=i; string choice=flow.Save.Settings.opponentChoices[i]; Action(i,$"Slot {i+1}: {(choice=="random"?"Random":choice=="mixed"?"Mixed":VehicleProfile.Find(choice).Name)}  →  {VehicleProfile.Find(flow.Race.opponentRoster[i]).Name}",()=>flow.CycleOpponent(slot)); }
+                Action(3,"Use Mixed roster",flow.MixedRoster); Action(4,"Reroll Random / Mixed",flow.ResolveRoster); Action(5,"Done / ready",flow.CloseGarage);
             }
             else if (shown == RaceFlow.Stage.Settings)
             {
@@ -186,8 +216,11 @@ namespace Racer
                 Action(6,"Back",flow.CloseSettings);
             }
             var active = buttons.FindAll(b=>b.gameObject.activeSelf);
+            if(shown==RaceFlow.Stage.Garage) active.AddRange(swatches);
             for (int i=0;i<active.Count;i++) active[i].navigation = new UnityEngine.UI.Navigation { mode=UnityEngine.UI.Navigation.Mode.Explicit, selectOnUp=active[(i+active.Count-1)%active.Count], selectOnDown=active[(i+1)%active.Count] };
+            if(shown==RaceFlow.Stage.Garage) for(int i=0;i<swatches.Count;i++) { var nav=swatches[i].navigation; nav.selectOnLeft=swatches[(i+swatches.Count-1)%swatches.Count]; nav.selectOnRight=swatches[(i+1)%swatches.Count]; swatches[i].navigation=nav; }
             int focus = selections.TryGetValue(shown,out var prior)?prior:0;
+            if(shown==RaceFlow.Stage.Garage && focus>=buttons.Count && focus<buttons.Count+swatches.Count) { EventSystem.current.SetSelectedGameObject(swatches[focus-buttons.Count].gameObject); return; }
             if (focus >= buttons.Count || !buttons[focus].gameObject.activeSelf) focus=0;
             EventSystem.current.SetSelectedGameObject(buttons[focus].gameObject);
         }
@@ -197,9 +230,15 @@ namespace Racer
         {
             if (!flow || !banner) return;
             banner.gameObject.SetActive(!flow.MenuVisible);
-            banner.text = flow.State == RaceFlow.Stage.Countdown ? flow.Race.ModeLabel + "\n" + Mathf.CeilToInt(flow.CountdownRemaining) : flow.Notice ?? "";
+            bool countdown=flow.State==RaceFlow.Stage.Countdown;
+            banner.fontSize=countdown?26:20;
+            banner.rectTransform.anchorMin=countdown?new Vector2(.04f,.35f):new Vector2(.2f,.88f);
+            banner.rectTransform.anchorMax=countdown?new Vector2(.96f,.6f):new Vector2(.8f,.96f);
+            banner.text = countdown ? flow.Race.ModeLabel + "\n"+(flow.Race.opponents?flow.Race.RosterLabel+"\n":"")+Mathf.CeilToInt(flow.CountdownRemaining) : flow.Notice ?? "";
+            var recovery=flow.Race.vehicle.GetComponent<VehicleRespawn>();
+            if(!countdown && recovery.Pending) banner.text="Waiting for clear local support — race clock continues";
             if (flow.State == RaceFlow.Stage.Racing && flow.Race.Progress.Finished)
-                banner.text = "PROVISIONAL — waiting for finish / DNF\n" + flow.Race.Standings();
+                banner.text = "Finished — waiting for opponents. Details in Pause / Results.";
             if (flow.MenuVisible && EventSystem.current && !EventSystem.current.currentSelectedGameObject) EventSystem.current.SetSelectedGameObject(buttons[0].gameObject);
         }
         void OnDestroy() { if(menuActions) { menuActions.Disable(); Destroy(menuActions); } if(submitReference) Destroy(submitReference); if(previewRoot) Destroy(previewRoot); if(previewCamera) Destroy(previewCamera.gameObject); if(previewTexture) { previewTexture.Release(); Destroy(previewTexture); } }

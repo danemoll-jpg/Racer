@@ -1,0 +1,36 @@
+
+Scenario          Peak LargestFrameLoss WipeoutSamples BrakeSamples
+--------          ---- ---------------- -------------- ------------
+atv, hill-0      31.96            -0.31              0            0
+atv, hill-1      31.97            -0.31              0            0
+atv, ramp-0      35.80            -2.12              0            0
+atv, ramp-1      41.68            -2.80              0            0
+atv, road-0      51.46            -0.09              0            0
+atv, road-1      51.47            -0.09              0            0
+moto, hill-0     31.97            -0.28              0            0
+moto, hill-1     31.97            -0.29              0            0
+moto, ramp-0     35.83            -2.23              0            0
+moto, ramp-1     41.75            -2.49              0            0
+moto, road-0     55.82            -0.08              0            0
+moto, road-1     55.83            -0.08              0            0
+original, hill-0 31.97            -0.27              0            0
+original, hill-1 31.97            -0.27              0            0
+original, ramp-0 35.69            -2.73              0            0
+original, ramp-1 41.38            -3.16              0            0
+original, road-0 44.89             0.00              0            0
+original, road-1 44.90             0.00              0            0
+tourer, hill-0   31.97            -0.29              0            0
+tourer, hill-1   31.98            -0.28              0            0
+tourer, ramp-0   35.71            -5.30              0            0
+tourer, ramp-1   41.48            -5.89              0            0
+tourer, road-0   46.62             0.00              0            0
+tourer, road-1   46.62             0.00              0            0
+
+
+profile  scenario time   speed  throttle brake grounded wipeout x        z
+-------  -------- ----   -----  -------- ----- -------- ------- -        -
+tourer   ramp-1   12.316 33.802 1.000    0.000 4        False   -631.455 37.819
+tourer   ramp-0   12.638 29.501 1.000    0.000 4        False   -630.997 14.762
+original ramp-1   12.276 36.756 1.000    0.000 4        False   -631.458 38.048
+
+

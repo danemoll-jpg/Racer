@@ -1,0 +1,16 @@
+
+Scenario      Peak LargestFrameLoss WipeoutSamples BrakeSamples
+--------      ---- ---------------- -------------- ------------
+atv, hill-0  44.05            -0.65              0            0
+atv, hill-1  44.05            -0.65              0            0
+atv, ramp-0  51.62            -0.96              0            0
+atv, ramp-1  51.63            -0.96              0            0
+atv, road-0  51.46            -0.09              0            0
+atv, road-1  51.47            -0.09              0            0
+moto, hill-0 47.07            -1.92              0            0
+moto, hill-1 45.96            -1.27              0            0
+moto, ramp-0 52.11            -1.92             89            0
+moto, ramp-1 52.01            -1.92             89            0
+moto, road-0 55.83            -0.08              0            0
+moto, road-1 55.83            -0.08              0            0
+

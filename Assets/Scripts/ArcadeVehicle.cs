@@ -53,7 +53,7 @@ namespace Racer
         {
             var configuration = GetComponent<VehicleConfiguration>();
             if(configuration) configuration.PrepareContacts();
-            if (configuration && configuration.WipedOut) { throttle = 0; steering *= .25f; }
+            if (configuration && configuration.WipedOut && transform.up.y<.35f) { throttle = 0; steering *= .25f; }
             GroundedWheels = 0;
             Vector3 normal = Vector3.zero;
             foreach (Vector3 local in suspensionPoints)

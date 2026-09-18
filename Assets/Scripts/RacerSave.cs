@@ -22,6 +22,9 @@ namespace Racer
             public bool opponents = true, traffic = true;
             public string vehicleId = "original";
             public int difficulty = 1;
+            public string[] opponentChoices = {"mixed","mixed","mixed"};
+            public string[] opponentRoster = {"tourer","moto","atv"};
+            public int[] bodyColors = {-1,-1,-1,-1};
         }
         public Records Best { get; private set; }
         public Options Settings { get; private set; }
