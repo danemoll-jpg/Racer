@@ -77,7 +77,7 @@ No defensible render/GPU bottleneck was isolated with available counters. Retain
 
 The actual fresh Windows player was visibly inspected during countdown and ordinary moving-camera driving at 1920x1080. Road detail, car bodywork, shadows and world text render correctly. The same build also produced inspected 1280x720 HUD/menu captures.
 
-- [1080p clean run](Player1080Clean/validation-launch1.txt): 37 checks passed, zero failures.
+- [1080p clean run](validation-launch1.txt): 37 checks passed, zero failures.
 - [1080p independent second launch](Player1080Clean/validation.txt): 37 checks passed, zero failures; loaded previous isolated best lap 40, race 120 and master volume .7.
 - [720p run](Player720/validation.txt): 37 checks passed, zero failures.
 - Checks cover start/countdown, ordinary virtual driving, pause/resume, reset/restart, ordered synthetic finish/results, invalid race events, settings/navigation, isolated persistence/corrupt-save defaults, prop restoration and audio-source stability. Synthetic finishes are distinct from the separately recorded full mixed race.
