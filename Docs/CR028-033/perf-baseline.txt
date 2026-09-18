@@ -1,0 +1,12 @@
+Ordinary-frame RoadDriver autopilot; not human pace or physical controller testing.
+Difficulty=Normal; grid viewport: EMBER (0.64, 0.60, 15.29); GOLD (0.52, 0.69, 21.93); BLUE (0.60, 0.73, 27.64)
+Normal: final=False; median=8.33ms p95=8.35ms
+1. BLUE  racing  (+0.0s / 0 misses)
+2. GOLD  racing  (+0.0s / 0 misses)
+3. EMBER  racing  (+0.0s / 0 misses)
+4. YOU  racing  (+0.0s / 0 misses)
+YOU laps=0 recovery=0 misses=0
+EMBER laps=0 recovery=0 misses=0
+GOLD laps=0 recovery=0 misses=0
+BLUE laps=0 recovery=0 misses=0
+DONE

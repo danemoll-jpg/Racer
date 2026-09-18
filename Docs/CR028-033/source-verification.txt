@@ -1,0 +1,6 @@
+Source=c57b6cce912b256de15da74a0e7ef19495bf8b48
+Assets/Packages/ProjectSettings match committed source.
+Scene=Assets/Scenes/StreetLoopGreybox.unity; saved and not dirty.
+Release flow137PASS/0FAIL; virtual input only.
+Package229files match stage/fresh extraction/Latest.
+No upload/distribution.

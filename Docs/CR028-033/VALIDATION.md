@@ -1,6 +1,6 @@
 # Racer 0.5.0-review1 integrated revision
 
-Status: validation in progress; awaiting Dan's approval. This document records the current implementation and evidence, including unsuccessful trials. Prior 0.4.0 tests are historical and do not establish acceptance of this revision.
+Status: implemented, integrated validation and local packaging complete; awaiting Dan's approval. This document records the current implementation and evidence, including unsuccessful trials. Prior 0.4.0 tests are historical and do not establish acceptance of this revision.
 
 Safety checkpoint: `3b2ffe31958b9216255e7b66a3477ecba7d524e7`. The initial Git staging operation could not create `.git/index.lock`; the authorized elevated retry succeeded before content edits.
 
@@ -50,4 +50,22 @@ AI results are actual three-lap times, speeds, braking duration, misses and reco
 
 Flow fixtures exercise virtual keyboard/mouse/gamepad navigation, every profile/swatch, persistent settings, every slot choice, stable random roster, safe grid, Quit during countdown/racing, local recovery upright/flipped/tree/slope/moving-car, completed/current-lap preservation, finish-plane abuse, unsupported fallback, checkpoint ding/miss buzz cooldown, temporary notices, prop breakage/cleanup/restart and finish runoff. Controlled pose/gate fixtures isolate state invariants; they are distinguished from ordinary driving/racing probes.
 
-No CR-013 photo/CR-018 placement work, multiplayer, upload or distribution. New record categories preserve older records. Tests use explicit isolated save directories. Performance comparison and final release/package verification are recorded below when complete.
+No CR-013 photo/CR-018 placement work, multiplayer, upload or distribution. New record categories preserve older records. Tests use explicit isolated save directories.
+
+## Final integrated results
+
+- Editor137/137 and actual committed-source Windows release137/137 flow checks pass, including physical-capability assertions for all four opponent choices, profile-sized grids and actual virtual R/Y input for every player profile. `release-flow.txt` is the final standalone report. Earlier108/118/120/121-check suites cover progressively expanded tests and1024×768,1280×720,1680×720 layouts. None imply physical-controller coverage.
+- Standalone driving24/24 scenarios and8/8 repeated jumps: no wipeout samples; no severe phantom ramp braking. `JUMPS.md` gives per-profile entry/takeoff/flight measurements. Landing lateral coordinate stays−2.76 to−2.85m inside the marked±12m corridor, only about1.3m from the−1.5m approach lane; landing up.y≥0.999. Ramp-case collision logs contain only intended ground/takeoff/landing surfaces, no obstacle collision. `landing-clearance.txt` records support/pose; landing speed losses remain disclosed.
+- Final three-lap mixed Windows races:12/12 racer finishes,9/9 opponents, zero DNFs. Easy0recoveries/0misses; Normal0recoveries/2ATV misses (+10s retained); Hard1ATV recovery/0misses. Full lap/mean/peak/braking data in `AI-RACES.md`. Hard tourer laps140.261–141.914s, motorcycle128.419–129.033s, ATV141.346–146.144s. Human competitiveness remains unaccepted.
+- Matched single-instance1280×720 / VSync-off /120fps-cap comparison: baseline and release both8.33ms median /8.35ms p95. Peak working set435.44→467.57MiB (+32.13MiB). `PERFORMANCE.md` states hardware, settings and limitations; no uncapped-throughput claim.
+- No C# exceptions/assertions/errors found in final standalone test logs. The existing stripped optional post-processing shader warnings remain; those passes are unused. Build succeeds with0errors and one intentional RuntimePipelineConfig warning.
+
+## Release and package
+
+Executable source commit: `c57b6cce912b256de15da74a0e7ef19495bf8b48`. Build used a verified clean source tree. Subsequent changes are documentation/evidence only; final `git diff` against this source is empty for Assets, Packages and ProjectSettings. Unity6000.6.1f1, Windows x64, non-development, no debugging/profiler/runtime Pipeline. Build report: `release-build.txt`.
+
+Open `Assets/Scenes/StreetLoopGreybox.unity`, or run `Play-Racer.cmd` / `Builds/Latest/Racer.exe`. Versioned runtime: `Builds/Racer-0.5.0-review1-Windows`. All229 staged files verified by SHA256 after fresh ZIP extraction and in Latest. Previous Latest preserved at `Builds/Latest-before-0.5.0-review1`. Launcher now displays VERSION metadata before opening Latest. The verified Latest player was opened normally after isolated tests.
+
+Local ZIP: `Builds/Racer-0.5.0-review1-Windows.zip`,76,355,002bytes, SHA256 `55DA6EFCFD373C95646145A22A4672277ED9705021701EA770373A9432D869EE`. `VERSION.txt` records the actual source commit. Manifest/package verification JSON and reproducible packaging scripts are in this folder. No upload/distribution performed. The completion commit contains the final documentation/evidence; its ID is reported in the delivery response and Git history rather than embedded self-referentially here.
+
+Remaining review limits: Dan's physical-controller navigation, subjective bike/ATV feel, jump satisfaction, listening and human Hard competition; wider multi-body traffic/pinch cases and hardware/endurance coverage. Normal ATV penalties and Hard ATV local recovery remain real racecraft costs. Successful automated routes do not establish subjective acceptance.

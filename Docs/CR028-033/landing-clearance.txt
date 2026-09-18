@@ -1,0 +1,12 @@
+
+Profile  Approach LandingLateralMetres Grounded Up    WipedOut
+-------  -------- -------------------- -------- --    --------
+original ramp-0                  -2.77 4        0.999 False
+original ramp-1                  -2.85 4        1.000 False
+tourer   ramp-0                  -2.77 2        0.999 False
+tourer   ramp-1                  -2.85 4        1.000 False
+moto     ramp-0                  -2.77 4        1.000 False
+moto     ramp-1                  -2.84 4        1.000 False
+atv      ramp-0                  -2.76 4        1.000 False
+atv      ramp-1                  -2.84 4        1.000 False
+

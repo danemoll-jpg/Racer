@@ -12,3 +12,5 @@ Ordinary-frame virtual gamepad, from rest; no injected speed/launch. Two approac
 | moto 1 | 41.74 | 40.86 | 2.83 | 111.05 | 36.89 | 0.958 |
 | atv 0 | 35.80 | 35.17 | 2.54 | 85.54 | 33.24 | 0.962 |
 | atv 1 | 41.67 | 40.88 | 2.86 | 111.04 | 37.48 | 0.959 |
+
+Landing lateral position was−2.76 to−2.85m within the±12m corridor, roughly1.3m from the−1.5m approach lane. Landing body up.y≥0.999, with2–4 supports on first landing sample. No unintended obstacle contacts occurred in the ramp fixtures. See `landing-clearance.txt` and raw telemetry. These are stable measured trajectories, not a substitute for Dan's feel assessment.
