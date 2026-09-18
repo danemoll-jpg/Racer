@@ -1,0 +1,14 @@
+{
+  "Settings": "Single visible player;1280x720;VSync off;120fps cap;original roster;traffic on;60-second ordinary-frame sample",
+  "Release": {
+    "PeakWorkingSetBytes": 503377920,
+    "MedianMs": 8.33,
+    "P95Ms": 8.38
+  },
+  "Baseline": {
+    "PeakWorkingSetBytes": 488009728,
+    "MedianMs": 8.33,
+    "P95Ms": 8.35
+  },
+  "SourceCommit": "a4eaa16dd86e96a300cfc16a54c342e1ec043763"
+}

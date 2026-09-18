@@ -16,10 +16,11 @@ Get-ChildItem -LiteralPath $buildRoot -Recurse -File | ForEach-Object {
  }
 }
 Copy-Item -LiteralPath (Join-Path $PSScriptRoot 'README-player.txt') -Destination (Join-Path $stageRoot 'README.txt')
+Copy-Item -LiteralPath (Join-Path $PSScriptRoot 'annotated-overview.svg') -Destination (Join-Path $stageRoot 'Woodland-map.svg')
 $licenses=Join-Path $stageRoot 'LICENSES'
 New-Item -ItemType Directory -Force $licenses | Out-Null
 foreach($name in @('AUDIO-ASSET-NOTICES.txt','Unity-Windows-Mono-Notices.pdf','PackageNotices')){Copy-Item -LiteralPath (Join-Path $PSScriptRoot "../CR020-021/$name") -Destination $licenses -Recurse}
-Copy-Item -LiteralPath (Join-Path $PSScriptRoot 'VEHICLE-ASSET-NOTICES.txt') -Destination $licenses
+Copy-Item -LiteralPath (Join-Path $PSScriptRoot '../CR028-033/VEHICLE-ASSET-NOTICES.txt') -Destination $licenses
 Copy-Item -LiteralPath (Join-Path $PSScriptRoot 'AUDIO-SOURCES.md') -Destination $licenses
 $manifest=Get-ChildItem -LiteralPath $stageRoot -Recurse -File | ForEach-Object {[pscustomobject]@{Path=[IO.Path]::GetRelativePath($stageRoot,$_.FullName);Bytes=$_.Length;SHA256=(Get-FileHash -LiteralPath $_.FullName -Algorithm SHA256).Hash}}
 $manifest | ConvertTo-Json -Depth 3 | Set-Content (Join-Path $PSScriptRoot 'package-files.json')

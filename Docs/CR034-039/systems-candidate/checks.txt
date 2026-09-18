@@ -24,10 +24,10 @@ PASS Sign yields once and cannot block car
 PASS All material debris cleaned after lifetime
 PASS All material props restored
 PASS Traffic 0 traverses highway and both transitions
-PASS Traffic 0: highway peak=27.41m/s laneError=1.73m lowSpeed=0.15s
+PASS Traffic 0: highway peak=27.41m/s laneError=1.71m lowSpeed=0.17s
 PASS Traffic 1 traverses highway and both transitions
-PASS Traffic 1: highway peak=27.40m/s laneError=0.85m lowSpeed=0.13s
+PASS Traffic 1: highway peak=27.40m/s laneError=0.84m lowSpeed=0.15s
 PASS Traffic 2 traverses highway and both transitions
-PASS Traffic 2: highway peak=28.85m/s laneError=0.78m lowSpeed=0.15s
+PASS Traffic 2: highway peak=28.85m/s laneError=0.78m lowSpeed=0.17s
 PASS Traffic 3 traverses highway and both transitions
-PASS Traffic 3: highway peak=28.83m/s laneError=0.74m lowSpeed=0.13s
+PASS Traffic 3: highway peak=28.83m/s laneError=0.74m lowSpeed=0.15s

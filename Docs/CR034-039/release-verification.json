@@ -1,0 +1,21 @@
+{
+  "Source": "a4eaa16dd86e96a300cfc16a54c342e1ec043763",
+  "Version": "0.6.0-review1",
+  "RouteChecks": 77,
+  "FlowChecks": 137,
+  "SystemChecks": 33,
+  "FailedChecks": 0,
+  "MotorcycleCleanSeconds": [
+    14.133,
+    13.9
+  ],
+  "MotorcycleRecoverySeconds": 16.199,
+  "MotorcycleRoadSeconds": [
+    21.197,
+    21.17
+  ],
+  "Launcher": "Play-Racer.cmd",
+  "LaunchedProcess": "C:\\Users\\danmo\\Racer\\Builds\\Latest\\Racer.exe",
+  "LauncherResponding": true,
+  "VerifiedAt": "2026-09-18T18:25:15.7610893-04:00"
+}

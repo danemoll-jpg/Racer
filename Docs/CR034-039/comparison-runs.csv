@@ -54,8 +54,8 @@ tourer,Fox Gully,1,False,True,19.169,25.384,25.131,5.940,0.963,0.301,0,0.000,1,0
 tourer,Fox Gully,2,False,True,21.559,23.580,25.012,6.011,0.963,0.443,0,0.000,1,1,candidate5-tourer
 tourer,Fox Gully,0,True,True,19.936,29.811,37.025,0.000,0.963,0.000,0,0.000,0,0,candidate5-tourer
 tourer,Fox Gully,1,True,True,19.895,29.810,37.325,0.000,0.963,0.000,0,0.000,0,0,candidate5-tourer
-moto,Creek Leap,0,False,True,14.111,33.688,25.841,9.870,0.950,2.797,0,0.000,1,0,editor-final-moto-creek
-moto,Creek Leap,1,False,True,13.900,35.133,25.915,10.864,0.951,2.804,0,0.000,1,0,editor-final-moto-creek
-moto,Creek Leap,2,False,True,16.120,33.681,26.013,10.262,0.941,2.548,0,0.000,1,1,editor-final-moto-creek
-moto,Creek Leap,0,True,True,21.067,29.273,29.524,0.000,0.950,0.100,1,25.601,0,0,editor-final-moto-creek
-moto,Creek Leap,1,True,True,21.096,28.630,29.710,0.000,0.950,0.101,1,25.601,0,0,editor-final-moto-creek
+moto,Creek Leap,0,False,True,14.133,33.571,25.304,9.353,0.950,2.800,0,0.000,1,0,release-moto-creek
+moto,Creek Leap,1,False,True,13.900,35.212,25.911,10.713,0.951,2.867,0,0.000,1,0,release-moto-creek
+moto,Creek Leap,2,False,True,16.199,33.574,25.259,10.365,0.891,2.468,0,0.000,1,1,release-moto-creek
+moto,Creek Leap,0,True,True,21.197,28.065,29.959,0.000,0.950,0.100,0,0.000,0,0,release-moto-creek
+moto,Creek Leap,1,True,True,21.170,28.260,29.559,0.000,0.950,0.100,0,0.000,0,0,release-moto-creek

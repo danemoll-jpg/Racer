@@ -31,6 +31,7 @@ Woodland routes (forward race direction):
 - Fox Gully: amber entrance before CP7, off Jamerson Rd; rejoins after CP9.
 - Pine Ridge: amber entrance before CP10; rejoins the western return after CP12.
 The old southwest cut remains. Follow the brown trail and edge markers.
+Open Woodland-map.svg in a browser for the annotated overhead map and gate numbers.
 Clean verified exits legally bypass the listed gates: no miss buzz, time or cut charge.
 Entry alone gives no gate credit. Leaving the trail freezes earned progress; recover
 locally with R/Y and continue from supported ground at or behind your earned point.
