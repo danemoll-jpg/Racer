@@ -73,7 +73,7 @@ namespace Racer
                 motor.centreOfMass=new(0,p.Small?-.28f:-.35f,0);
                 generated=VehicleVisual.Build(transform,p,wheels);
             }
-            else foreach(var t in originalVisuals) if(t && t.name.Contains("wheel")) wheels.Add(t);
+            else foreach(var t in originalVisuals) if(t && t.name.Contains("wheel")) { wheels.Add(t); VehicleVisual.WheelDetail(t); }
             box.size=profileId=="original"?originalSize:p.Size;
             box.center=profileId=="original"?originalCenter:new Vector3(0,.05f,0);
             motor.Body.mass=profileId=="original"?originalMass:p.Mass;

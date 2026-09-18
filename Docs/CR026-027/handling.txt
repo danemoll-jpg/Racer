@@ -1,42 +1,42 @@
 Ordinary-frame virtual Gamepad; one initial placement per scenario, no per-frame pose or velocity corrections. No physical controller claim.
 VEHICLE original
-straight acceleration/braking/reverse: peak=45.60m/s (164.2km/h), minUp=0.999, longestAir=0.02s, finalGrounded=4, maxRoadDistance3D=7.42m, brakeStart=45.23, endSpeed=-5.28, position=(195.04, 9.36, 556.70)
-fast corner entry: peak=40.00m/s (144.0km/h), minUp=0.986, longestAir=0.00s, finalGrounded=4, maxRoadDistance3D=3.98m, brakeStart=0.00, endSpeed=12.69, position=(323.58, 9.44, 546.18)
-hills: peak=28.97m/s (104.3km/h), minUp=0.963, longestAir=0.00s, finalGrounded=4, maxRoadDistance3D=10.14m, brakeStart=0.00, endSpeed=28.84, position=(478.54, 77.93, 24.15)
-hairpin: peak=13.02m/s (46.9km/h), minUp=0.973, longestAir=0.00s, finalGrounded=4, maxRoadDistance3D=5.43m, brakeStart=0.00, endSpeed=12.86, position=(386.39, 32.25, -398.81)
-off-road and re-entry: peak=14.93m/s (53.7km/h), minUp=0.999, longestAir=0.08s, finalGrounded=4, maxRoadDistance3D=8.27m, brakeStart=0.00, endSpeed=14.91, position=(-252.88, 9.62, 533.83)
-jump 33m/s target: peak=32.76m/s (117.9km/h), minUp=0.980, longestAir=1.80s, finalGrounded=4, maxRoadDistance3D=6.72m, brakeStart=0.00, endSpeed=32.76, position=(-633.51, 9.52, 164.09)
-jump 40m/s target: peak=39.52m/s (142.3km/h), minUp=0.979, longestAir=2.03s, finalGrounded=4, maxRoadDistance3D=7.91m, brakeStart=0.00, endSpeed=39.52, position=(-635.69, 9.77, 295.02)
+straight acceleration/braking/reverse: peak=45.63m/s (164.3km/h), minUp=1.000, longestAir=0.03s, finalGrounded=4, maxRoadDistance3D=4.23m, brakeStart=45.23, endSpeed=-5.34, position=(196.09, 9.36, 552.09)
+fast corner entry: peak=40.00m/s (144.0km/h), minUp=0.985, longestAir=0.00s, finalGrounded=4, maxRoadDistance3D=2.74m, brakeStart=0.00, endSpeed=12.68, position=(322.52, 9.79, 544.06)
+hills: peak=28.97m/s (104.3km/h), minUp=0.963, longestAir=0.08s, finalGrounded=4, maxRoadDistance3D=6.62m, brakeStart=0.00, endSpeed=28.74, position=(475.55, 78.58, 18.38)
+hairpin: peak=13.02m/s (46.9km/h), minUp=0.972, longestAir=0.00s, finalGrounded=4, maxRoadDistance3D=3.72m, brakeStart=0.00, endSpeed=12.89, position=(382.79, 31.62, -398.12)
+off-road and re-entry: peak=14.93m/s (53.7km/h), minUp=0.999, longestAir=0.08s, finalGrounded=4, maxRoadDistance3D=8.27m, brakeStart=0.00, endSpeed=14.82, position=(-253.19, 9.62, 531.11)
+jump 33m/s target: peak=32.76m/s (117.9km/h), minUp=0.980, longestAir=1.80s, finalGrounded=4, maxRoadDistance3D=6.72m, brakeStart=0.00, endSpeed=32.76, position=(-633.51, 9.52, 164.17)
+jump 40m/s target: peak=39.52m/s (142.3km/h), minUp=0.979, longestAir=2.03s, finalGrounded=4, maxRoadDistance3D=7.91m, brakeStart=0.00, endSpeed=39.52, position=(-635.70, 9.77, 295.65)
 Pause holds=True; audio sources=6; listeners=1; selected=original
 Restart retained=True; penalty=0; race voices=6
 VEHICLE tourer
-straight acceleration/braking/reverse: peak=47.70m/s (171.7km/h), minUp=1.000, longestAir=0.03s, finalGrounded=4, maxRoadDistance3D=6.35m, brakeStart=47.40, endSpeed=-5.05, position=(218.59, 9.07, 555.42)
-fast corner entry: peak=40.00m/s (144.0km/h), minUp=0.985, longestAir=0.00s, finalGrounded=4, maxRoadDistance3D=3.22m, brakeStart=0.00, endSpeed=12.67, position=(322.90, 9.58, 545.27)
-hills: peak=28.97m/s (104.3km/h), minUp=0.964, longestAir=0.00s, finalGrounded=4, maxRoadDistance3D=8.56m, brakeStart=0.00, endSpeed=28.85, position=(477.26, 77.81, 25.74)
-hairpin: peak=13.01m/s (46.9km/h), minUp=0.973, longestAir=0.00s, finalGrounded=4, maxRoadDistance3D=4.70m, brakeStart=0.00, endSpeed=12.86, position=(385.13, 32.05, -398.73)
-off-road and re-entry: peak=14.92m/s (53.7km/h), minUp=0.999, longestAir=0.08s, finalGrounded=4, maxRoadDistance3D=8.28m, brakeStart=0.00, endSpeed=14.73, position=(-253.78, 9.62, 532.82)
-jump 33m/s target: peak=32.77m/s (118.0km/h), minUp=0.979, longestAir=1.73s, finalGrounded=4, maxRoadDistance3D=6.50m, brakeStart=0.00, endSpeed=32.77, position=(-633.39, 9.52, 161.57)
-jump 40m/s target: peak=39.59m/s (142.5km/h), minUp=0.977, longestAir=2.03s, finalGrounded=4, maxRoadDistance3D=7.90m, brakeStart=0.00, endSpeed=39.59, position=(-637.19, 9.77, 292.58)
+straight acceleration/braking/reverse: peak=47.73m/s (171.8km/h), minUp=1.000, longestAir=0.02s, finalGrounded=4, maxRoadDistance3D=3.98m, brakeStart=47.32, endSpeed=-5.03, position=(217.83, 9.09, 552.91)
+fast corner entry: peak=40.00m/s (144.0km/h), minUp=0.985, longestAir=0.00s, finalGrounded=4, maxRoadDistance3D=2.49m, brakeStart=0.00, endSpeed=12.66, position=(322.30, 9.87, 543.59)
+hills: peak=28.97m/s (104.3km/h), minUp=0.964, longestAir=0.03s, finalGrounded=4, maxRoadDistance3D=5.99m, brakeStart=0.00, endSpeed=28.78, position=(474.99, 78.23, 21.31)
+hairpin: peak=13.02m/s (46.9km/h), minUp=0.972, longestAir=0.00s, finalGrounded=4, maxRoadDistance3D=3.41m, brakeStart=0.00, endSpeed=12.90, position=(382.28, 31.56, -398.14)
+off-road and re-entry: peak=14.92m/s (53.7km/h), minUp=0.999, longestAir=0.08s, finalGrounded=4, maxRoadDistance3D=8.29m, brakeStart=0.00, endSpeed=14.88, position=(-253.60, 9.62, 530.42)
+jump 33m/s target: peak=32.77m/s (118.0km/h), minUp=0.979, longestAir=1.73s, finalGrounded=4, maxRoadDistance3D=6.50m, brakeStart=0.00, endSpeed=32.77, position=(-633.38, 9.51, 161.05)
+jump 40m/s target: peak=39.59m/s (142.5km/h), minUp=0.977, longestAir=2.03s, finalGrounded=4, maxRoadDistance3D=7.90m, brakeStart=0.00, endSpeed=39.59, position=(-637.19, 9.77, 292.61)
 Pause holds=True; audio sources=6; listeners=1; selected=tourer
 Restart retained=True; penalty=0; race voices=6
 VEHICLE moto
-straight acceleration/braking/reverse: peak=56.83m/s (204.6km/h), minUp=0.992, longestAir=0.48s, finalGrounded=4, maxRoadDistance3D=49.21m, brakeStart=47.49, endSpeed=-6.94, position=(363.27, 8.49, 561.56)
-fast corner entry: peak=40.00m/s (144.0km/h), minUp=0.990, longestAir=0.17s, finalGrounded=4, maxRoadDistance3D=5.90m, brakeStart=0.00, endSpeed=3.41, position=(324.28, 8.20, 553.18)
-hills: peak=28.98m/s (104.3km/h), minUp=0.962, longestAir=0.00s, finalGrounded=4, maxRoadDistance3D=22.24m, brakeStart=0.00, endSpeed=9.29, position=(483.56, 78.02, 50.91)
-hairpin: peak=13.03m/s (46.9km/h), minUp=0.973, longestAir=0.10s, finalGrounded=4, maxRoadDistance3D=7.73m, brakeStart=0.00, endSpeed=13.00, position=(391.81, 33.20, -400.74)
-off-road and re-entry: peak=14.93m/s (53.8km/h), minUp=0.999, longestAir=0.20s, finalGrounded=4, maxRoadDistance3D=8.19m, brakeStart=0.00, endSpeed=14.90, position=(-252.28, 9.47, 526.08)
-jump 33m/s target: peak=32.86m/s (118.3km/h), minUp=0.977, longestAir=1.42s, finalGrounded=4, maxRoadDistance3D=16.74m, brakeStart=0.00, endSpeed=32.86, position=(-647.08, 8.81, 131.62)
-jump 40m/s target: peak=39.78m/s (143.2km/h), minUp=0.976, longestAir=1.48s, finalGrounded=4, maxRoadDistance3D=19.00m, brakeStart=0.00, endSpeed=39.78, position=(-650.84, 9.14, 256.83)
+straight acceleration/braking/reverse: peak=56.31m/s (202.7km/h), minUp=1.000, longestAir=0.18s, finalGrounded=4, maxRoadDistance3D=6.46m, brakeStart=56.10, endSpeed=-4.88, position=(98.51, 9.59, 544.13)
+fast corner entry: peak=40.00m/s (144.0km/h), minUp=0.985, longestAir=0.18s, finalGrounded=4, maxRoadDistance3D=3.43m, brakeStart=0.00, endSpeed=12.77, position=(323.38, 9.95, 542.35)
+hills: peak=28.97m/s (104.3km/h), minUp=0.962, longestAir=0.20s, finalGrounded=4, maxRoadDistance3D=9.60m, brakeStart=0.00, endSpeed=1.20, position=(474.56, 78.55, 50.24)
+hairpin: peak=13.02m/s (46.9km/h), minUp=0.973, longestAir=0.10s, finalGrounded=4, maxRoadDistance3D=4.58m, brakeStart=0.00, endSpeed=12.92, position=(384.15, 31.65, -398.03)
+off-road and re-entry: peak=14.93m/s (53.8km/h), minUp=0.999, longestAir=0.20s, finalGrounded=4, maxRoadDistance3D=8.19m, brakeStart=0.00, endSpeed=14.85, position=(-252.68, 9.47, 532.75)
+jump 33m/s target: peak=32.86m/s (118.3km/h), minUp=0.976, longestAir=1.42s, finalGrounded=4, maxRoadDistance3D=8.36m, brakeStart=0.00, endSpeed=32.86, position=(-625.74, 9.25, 129.45)
+jump 40m/s target: peak=39.78m/s (143.2km/h), minUp=0.976, longestAir=1.48s, finalGrounded=4, maxRoadDistance3D=8.27m, brakeStart=0.00, endSpeed=39.78, position=(-627.38, 9.58, 256.02)
 Pause holds=True; audio sources=6; listeners=1; selected=moto
 Restart retained=True; penalty=0; race voices=6
 VEHICLE atv
-straight acceleration/braking/reverse: peak=52.32m/s (188.3km/h), minUp=0.996, longestAir=0.20s, finalGrounded=4, maxRoadDistance3D=11.95m, brakeStart=52.32, endSpeed=-4.93, position=(303.92, 8.22, 571.78)
-fast corner entry: peak=40.00m/s (144.0km/h), minUp=0.987, longestAir=0.17s, finalGrounded=4, maxRoadDistance3D=6.02m, brakeStart=0.00, endSpeed=12.75, position=(325.91, 9.76, 543.58)
-hills: peak=28.98m/s (104.3km/h), minUp=0.961, longestAir=0.00s, finalGrounded=4, maxRoadDistance3D=21.00m, brakeStart=0.00, endSpeed=21.26, position=(483.85, 77.16, 40.70)
-hairpin: peak=13.03m/s (46.9km/h), minUp=0.974, longestAir=0.10s, finalGrounded=4, maxRoadDistance3D=7.59m, brakeStart=0.00, endSpeed=12.93, position=(391.69, 33.20, -400.82)
-off-road and re-entry: peak=14.93m/s (53.7km/h), minUp=0.999, longestAir=0.20s, finalGrounded=4, maxRoadDistance3D=8.20m, brakeStart=0.00, endSpeed=14.67, position=(-252.20, 9.47, 526.81)
-jump 33m/s target: peak=32.84m/s (118.2km/h), minUp=0.978, longestAir=1.30s, finalGrounded=4, maxRoadDistance3D=14.96m, brakeStart=0.00, endSpeed=32.83, position=(-644.94, 8.76, 111.11)
-jump 40m/s target: peak=39.72m/s (143.0km/h), minUp=0.904, longestAir=1.25s, finalGrounded=4, maxRoadDistance3D=15.84m, brakeStart=0.00, endSpeed=39.72, position=(-641.30, 9.53, 285.26)
+straight acceleration/braking/reverse: peak=52.01m/s (187.2km/h), minUp=1.000, longestAir=0.20s, finalGrounded=4, maxRoadDistance3D=6.31m, brakeStart=52.01, endSpeed=-5.47, position=(47.57, 8.74, 527.69)
+fast corner entry: peak=40.00m/s (144.0km/h), minUp=0.985, longestAir=0.18s, finalGrounded=4, maxRoadDistance3D=3.51m, brakeStart=0.00, endSpeed=12.74, position=(323.47, 9.97, 542.25)
+hills: peak=28.98m/s (104.3km/h), minUp=0.961, longestAir=0.18s, finalGrounded=4, maxRoadDistance3D=9.15m, brakeStart=0.00, endSpeed=19.17, position=(475.33, 78.21, 21.38)
+hairpin: peak=13.03m/s (46.9km/h), minUp=0.973, longestAir=0.10s, finalGrounded=4, maxRoadDistance3D=4.54m, brakeStart=0.00, endSpeed=12.89, position=(384.38, 31.71, -398.28)
+off-road and re-entry: peak=14.93m/s (53.7km/h), minUp=0.999, longestAir=0.20s, finalGrounded=4, maxRoadDistance3D=8.20m, brakeStart=0.00, endSpeed=14.89, position=(-253.06, 9.47, 532.68)
+jump 33m/s target: peak=32.84m/s (118.2km/h), minUp=0.977, longestAir=1.33s, finalGrounded=4, maxRoadDistance3D=7.32m, brakeStart=0.00, endSpeed=32.83, position=(-637.38, 9.20, 122.77)
+jump 40m/s target: peak=39.73m/s (143.0km/h), minUp=0.955, longestAir=1.03s, finalGrounded=4, maxRoadDistance3D=25.74m, brakeStart=0.00, endSpeed=39.73, position=(-631.02, 9.56, 239.20)
 Pause holds=True; audio sources=6; listeners=1; selected=atv
 Restart retained=True; penalty=0; race voices=6
 Mailbox physical impact: broken=True, debris=1

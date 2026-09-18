@@ -14,6 +14,12 @@ namespace Racer
         readonly List<string> rows=new();
         Gamepad pad; Keyboard keys; Mouse mouse;
         RaceFlow flow;
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
+        static void Boot()
+        {
+            var args=System.Environment.GetCommandLineArgs();
+            if(System.Array.IndexOf(args,"-racerGarageFlowTest")>=0 && System.Array.IndexOf(args,"-racerTestSave")>=0) Launch();
+        }
         public static void Launch()=>new GameObject("Garage flow validation").AddComponent<GarageFlowValidation>();
         void Check(bool pass,string label)=>rows.Add((pass?"PASS ":"FAIL ")+label);
         IEnumerator Press(Key key) { InputSystem.QueueStateEvent(keys,new KeyboardState(key)); yield return new WaitForSecondsRealtime(.12f); InputSystem.QueueStateEvent(keys,new KeyboardState()); yield return new WaitForSecondsRealtime(.12f); }

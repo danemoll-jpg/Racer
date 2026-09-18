@@ -39,9 +39,15 @@ namespace Racer
             {
                 var wheel=Part(root,"Wheel",new(x,-.2f,z),new(.66f,p.Id=="moto"?.1f:.18f,.66f),rubber,PrimitiveType.Cylinder);
                 wheel.localRotation=Quaternion.Euler(0,0,90); wheels?.Add(wheel);
-                Part(wheel,"Spoke",new(0,1.01f,0),new(.8f,.025f,.09f),metal);
+                WheelDetail(wheel);
             }
             return root;
+        }
+        public static void WheelDetail(Transform wheel)
+        {
+            if(wheel.Find("Wheel motion marker")) return;
+            if(!metal) metal=Mat("Garage metal",new(.65f,.72f,.74f));
+            foreach(float side in new[]{-1f,1f}) Part(wheel,"Wheel motion marker",new(0,side*1.01f,0),new(.8f,.025f,.09f),metal);
         }
         static Transform Part(Transform parent,string name,Vector3 position,Vector3 size,Material material,PrimitiveType shape=PrimitiveType.Cube)
         {

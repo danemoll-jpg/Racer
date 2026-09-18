@@ -1,0 +1,32 @@
+Ordinary-frame RoadDriver autopilot; not human pace or physical controller testing.
+Difficulty=Easy; grid viewport: EMBER (0.64, 0.60, 15.29); GOLD (0.52, 0.69, 21.93); BLUE (0.60, 0.73, 27.64)
+Easy: final=True; median=33.30ms p95=33.37ms
+1. BLUE  02:48.779  (+0.0s / 0 misses)
+2. GOLD  02:50.803  (+0.0s / 0 misses)
+3. EMBER  02:52.827  (+0.0s / 0 misses)
+4. YOU  02:54.931  (+0.0s / 0 misses)
+YOU laps=1 recovery=0 misses=0
+EMBER laps=1 recovery=0 misses=0
+GOLD laps=1 recovery=0 misses=0
+BLUE laps=1 recovery=0 misses=0
+Difficulty=Normal; grid viewport: EMBER (0.64, 0.60, 15.29); GOLD (0.52, 0.69, 21.93); BLUE (0.60, 0.73, 27.64)
+Normal: final=True; median=33.33ms p95=33.37ms
+1. BLUE  02:34.826  (+0.0s / 0 misses)
+2. GOLD  02:37.426  (+0.0s / 0 misses)
+3. EMBER  02:40.887  (+0.0s / 0 misses)
+4. YOU  02:42.734  (+0.0s / 0 misses)
+YOU laps=1 recovery=0 misses=0
+EMBER laps=1 recovery=0 misses=0
+GOLD laps=1 recovery=0 misses=0
+BLUE laps=1 recovery=0 misses=0
+Difficulty=Hard; grid viewport: EMBER (0.64, 0.60, 15.29); GOLD (0.52, 0.69, 21.93); BLUE (0.60, 0.73, 27.64)
+Hard: final=True; median=33.33ms p95=33.37ms
+1. BLUE  02:30.138  (+0.0s / 0 misses)
+2. GOLD  02:32.635  (+0.0s / 0 misses)
+3. EMBER  02:35.188  (+0.0s / 0 misses)
+4. YOU  02:36.938  (+0.0s / 0 misses)
+YOU laps=1 recovery=0 misses=0
+EMBER laps=1 recovery=0 misses=0
+GOLD laps=1 recovery=0 misses=0
+BLUE laps=1 recovery=0 misses=0
+DONE
