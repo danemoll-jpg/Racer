@@ -17,6 +17,8 @@ A small single-player arcade racing game inspired by *Forza Horizon*, built arou
 
 These rules apply throughout the project.
 
+**Consistent testing entry point:** Dan launches `Play-Racer.cmd` at the project root, or `Builds/Latest/Racer.exe`. After each new validated playable build, update the complete `Builds/Latest` runtime folder (including VERSION.txt); never replace only its executable. Keep older versioned builds separately. Current Latest is 0.2.0-review1, source 72f037ea9d5f80a527e5172c6bb27f6a9e82bfed. A source commit alone does not update a compiled player.
+
 - [ ] Keep the game **single-player only** unless this document is deliberately changed later.
 - [ ] Prioritize **fun arcade handling** over realistic simulation.
 - [ ] Build and verify **one phase at a time**.

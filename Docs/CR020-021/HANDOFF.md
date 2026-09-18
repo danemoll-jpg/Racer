@@ -17,3 +17,5 @@
 **Preservation:** Scene/prefabs/environment/road/houses/store layout/forest/jump/shortcut/vehicle tuning/camera/packages unchanged from checkpoint. Build Settings now target StreetLoopGreybox instead of PrototypeTrack; product version updated. Personal saves untouched; standalone checks use the separate Temp/Racer-CR021-visible-save directory.
 
 **Dan/friend review:** Extract complete Windows ZIP; finish a race; listen through idle/acceleration/coast/brake/reverse, ordinary turns/skids, off-road and jump/landing/props; test four volume controls, pause/reset/restart/results, relaunch persistence and a physical controller. Report hardware, audio device and any harsh/missing/repetitive sounds or stalls. Both CRs await review.
+
+**Consistent testing launcher (follow-up):** Use Play-Racer.cmd at the project root or Builds/Latest/Racer.exe. Latest contains the complete verified 0.2.0-review1 package (228 files hash-checked). Update this entire folder after future validated builds; older versioned folders remain archives. Safety checkpoint for this follow-up: f1fb68c243543d0e42dbae973f0cbb4bea86d6f5 (clean tree).
