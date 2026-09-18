@@ -616,6 +616,8 @@ Improve appearance only after gameplay works.
 
 # CORE FOLLOW-UP — Vehicle Audio and Friend Playtest Package
 
+- [ ] CR-022: Bundle checkpoint ding and missed-checkpoint buzz with the next authorized feature batch.
+
 - [x] CR-020: Vehicle audio and persistent Vehicle Volume implemented; subjective review pending.
 - [x] CR-021: Complete local Windows ZIP built; extracted launch/settings persistence checked. Manual driving/flow and listening review remain.
 - [ ] Dan reviews audio and a friend tests the extracted package on a compatible PC; do not infer success from local testing.
@@ -634,8 +636,8 @@ These are NOT required for the first game.
 - [ ] Larger neighborhood.
 - [ ] More stunt areas.
 - [ ] Free-roam mode.
-- [ ] AI traffic.
-- [ ] AI racers.
+- [ ] CR-023: Light configurable two-way AI traffic, integrated with race opponents and CR-022.
+- [ ] CR-023: First three AI race opponents, independent progress, standings and results; retain solo/time-trial mode.
 - [ ] Collectibles.
 - [ ] Speed traps.
 - [ ] Danger signs / jump-distance challenges.
@@ -824,16 +826,47 @@ Use this for things that are not bugs but that Dan wants changed.
 **Actual validation:** Save/reload and repeat apply pass with identical site inventory and zero repeat paint changes; batched vertices match sources. Both ordinary-frame virtual-Gamepad drives pass at ~32m/s with braking to ~12.7m/s, >11m shoulder excursion/re-entry and zero non-terrain contacts. Six final countdown/pause/restart smoke checks pass using isolated test storage. Houses, terrain shape/markings and breakable placements unchanged. Matched 734x293 Editor sample, VSync1/cap60: before median/p95 16.74/20.21ms, after 16.74/20.83ms; not standalone or 1080p parity. Compilation succeeds; final Console 0 errors/warnings after historical/tool messages archived. Full settings, recovered test/tool failures, limitations and before/after evidence: `Docs/CR019/VALIDATION.md`, `Docs/CR019/review.html`. Dan subsequently reported this batch passed; the remaining Phase 8 delivery is implemented and awaiting review in Docs/Phase8/VALIDATION.md.
 
 ### CR-020 — Missing vehicle audio
-**Status:** IMPLEMENTED, AWAITING REVIEW — original procedural vehicle audio and persistent Vehicle Volume added; subjective listening review remains.  
+**Status:** ACCEPTED FOR NOW / CLOSED — Dan reports the sounds are working. No exhaustive listening/device coverage inferred; additional checkpoint feedback is tracked separately as CR-022.  
 **Requested change:** Add coherent engine idle/acceleration/coasting/reverse audio, tire slip and road/off-road rolling feedback, plus restrained impact/landing/prop feedback. Use existing vehicle state; audio-only simulated RPM/gears are allowed without changing approved physics. Avoid constant squeal or repeated impact sounds. Preserve pause/countdown/reset/results audio behavior and integrate a persistent vehicle-volume setting with master mute. Use redistributable licensed or original assets, document sources and quality limits.  
 **Acceptance:** Dan can hear responsive car behavior without clipping, abrupt loop seams, excessive repetition or ambience/UI masking. Virtual technical tests do not establish subjective sound quality.  
 **Result:** Six bounded voices: layered engine idle/load with smoothed audio-only revs, reverse load, actual lateral-slip tires, vertex-color road/off-road rolling, shared cooldown for impacts/landings/props. Physics/tuning unchanged. Legacy settings default Vehicle Volume to 75%. Audio checks 24/24 and flow regression 37/37 pass in Editor using virtual input and isolated saves. Details: Docs/CR020-021/VALIDATION.md.
 
 ### CR-021 — Shareable solo Windows package
-**Status:** PACKAGED, AWAITING REVIEW — Windows x64 solo 0.2.0-review1.
+**Status:** PACKAGED, USER TEST DEFERRED — Windows x64 solo 0.2.0-review1. Dan cannot test the download yet; retain existing technical evidence and limitations. Not a blocker to further development.
 **Requested change:** Produce a clean standalone Windows build and versioned ZIP containing all required runtime files, controls/readme and audio/asset license notices. No Unity Editor needed to play. Do not send only the executable. Exclude repository/source, development back-up/debug artifacts and personal/test saves; preserve every required runtime dependency. Launch an extracted copy outside the project and validate core flow and offline solo use.  
 **Distribution:** Prepare the archive locally. Do not upload, publish, email or send it without an explicit destination/request. Include size, checksum and version/commit information. Other operating systems require their own builds.  
 **Result:** Builds/Racer-0.2.0-review1-Windows.zip, 76,284,958 bytes; SHA-256 A2124C11721AC816B60957C1AAF94D05FFB91857C3ED5997423736CF7E4D8303. Source 72f037ea9d5f80a527e5172c6bb27f6a9e82bfed. Non-development build succeeds, complete runtime/licenses/README included; 228 extracted files verified. Visible launch, mouse menus/countdown and volume persistence pass outside project with isolated saves. Keyboard automation did not reliably reach release; extracted driving/pause/restart/results and subjective audition remain manual review. See Docs/CR020-021/VALIDATION.md.
+
+### CR-022 — Checkpoint success and missed-checkpoint audio
+**Status:** PLANNED — include with CR-023/CR-024/CR-025; buzz accompanies missed-gate penalty and continuation. No separate sound-only delivery.  
+**Requested change:** Play a short pleasant ding when the next required checkpoint is validly credited, and a distinct brief buzz when a checkpoint is missed. Route both through existing race/UI volume and master mute, not Vehicle Volume. Match existing audio style with original or redistributable assets.  
+**Rules:** Inspect current checkpoint progression and invalidation. Trigger the ding exactly once from authoritative race progress, not every collider contact. For misses, use existing invalidation where appropriate and inspect whether a gate can be physically bypassed without an immediate error. If needed, add feedback-only route-aware detection when the player passes beyond the expected checkpoint without credit, respecting road direction/curves and valid shortcut paths. Do not make wall-clock timeout or a simple world-axis comparison the definition of a miss. Do not alter gate geometry, accepted race validity, timing or recovery rules merely for sound.  
+**Edge cases:** Avoid repeated buzzing each frame, ping-pong gate crossings, wrong-way/repeated-gate success dings, paused/countdown/results sounds and false misses after reset/restart/teleport. Rearm cues with appropriate race/lap/expected-gate state. If a missed gate can still be recovered under existing rules, preserve recovery. Coordinate finish/lap cues to avoid overlapping success sounds.  
+**Acceptance:** Correct next gate produces one audible ding; skipping the expected gate produces a prompt single buzz for that missed-gate episode. Normal, shortcut and jump routes remain valid without false buzzes. Pause/reset/restart and mute/settings behave correctly, with bounded audio sources and no record/settings corruption. Dan reviews volume and clarity.  
+**Result:** Not implemented. Main delivery is CR-023 AI racers/traffic plus CR-024 speed and CR-025 penalty continuation. CR-025 supersedes prior unchanged-invalidation guidance.
+
+### CR-023 — First AI opponents and light traffic
+**Status:** PLANNED — substantial next delivery with CR-022; single-player only.  
+**Scope:** Start with three AI race opponents and a small configurable traffic population (initially about four vehicles, reduce if congestion/performance requires it). Reuse existing vehicle assets with readable visual differences. Race AI follows the existing circuit with per-car progress, recoverable driving, safe start positions, player-relative standings and finish results. Traffic follows simple two-way lanes at sensible speeds and never participates in race progress. Support a traffic toggle; retain the approved solo/time-trial experience with AI disabled and keep record categories separate when rules differ.  
+**Driving:** Slow for bends/hairpin/hills, avoid other cars and static obstacles, brake/yield, and recover from stalls without teleporting onto the player or granting progress. Do not hardcode world-axis lane directions or require frame-by-frame teleporting. Preserve player physics and race validity. Initially let AI racers use the normal road/bypass; shortcut and jump remain available to the player. No new roads, full city simulation, police, public networking or adaptive rubber-banding.  
+**Integration:** Audit single-player assumptions in race progress, lap gates, reset, camera/audio, HUD, saves and breakable-prop detection before adding cars. Each racer gets independent valid progress; traffic cannot credit a race. Preserve countdown/pause/restart/results semantics and bound pooled traffic/recovery behavior. Keep vehicle audio and collision cost controlled.  
+**Acceptance:** Complete races with three opponents, sensible position updates and finish results; traffic traverses both directions without persistent blockages. Test density/congestion/performance, safe recoveries and reset/restart, independent gate credit, passing/collisions and CR-022 cues. Technical runs are not Dan's acceptance.  
+**Result:** Not implemented; integrate with CR-022 in one delivery.
+
+### CR-024 — Further player-car speed increase
+**Status:** PLANNED — combine with CR-023 AI/traffic and CR-022 checkpoint sounds.  
+**Requested change:** Make the player car faster again. Inspect actual approved speed/acceleration first (last reported 44m/s and 13.5m/s²). Try a further roughly 10–15% forward-speed increase with a modest acceleration improvement; treat as provisional tuning, not a required unstable target. Preserve controllable steering/braking, validate hills/corners/jump/traffic at actual achieved speeds and report before/after values. AI opponents should remain reasonably competitive without hidden speed cheats.  
+**Acceptance:** Dan approves increased pace and controllability; accepted race/AI/traffic/jump/recovery still function. Do not silently retune unrelated physics or move accepted scenery.  
+**Result:** Pending.
+
+### CR-025 — Missed-checkpoint time penalties instead of forced restart
+**Status:** PLANNED — integrated with CR-022/CR-023/CR-024. Supersedes earlier missed-gate lap invalidation requirements for this new ruleset.  
+**Requested change:** A missed expected checkpoint produces one buzz, a clear HUD penalty notification and a time penalty; the racer continues toward the next checkpoint without restarting the lap/race. Use configurable per-gate penalties, initially around five seconds for an ordinary miss, increased where measured shortcut savings demand it. Each genuinely skipped gate is charged exactly once. Normal, approved shortcut/jump paths receive no penalty.  
+**Rules:** Use route-aware detection and distinguish misses from pause, intentional reversing, stationary play, reset/teleport and harmless off-road driving. Preserve existing manual reset semantics unless explicitly required and documented; do not interpret teleport as many missed gates. Wrong-way/repeated crossings cannot award free laps. Require normal forward start/finish crossing to complete laps; multi-gate cuts must incur all relevant penalties and cannot create a faster winning exploit. Existing unlimited giant-cut prevention must be reconciled with penalty continuation, not silently disabled.  
+**Timing/results:** Keep driving elapsed time and accumulated penalties separate; show adjusted total and penalty breakdown. Apply equivalent missed-gate rules to AI racers. Track position is physical valid/penalized route progress, not a guaranteed final ranking: standings/results must communicate penalty-adjusted order, wait for remaining racers only within a bounded finish policy, and distinguish DNF/provisional places rather than declaring the earliest physical finisher automatically the winner.  
+**Records:** Version/save records by speed/rules/mode so changed car performance and penalty rules do not corrupt old personal bests. Penalized laps may qualify only in the appropriate new category using adjusted time. Preserve old records, including aborted-race valid-lap policy where compatible.  
+**Acceptance:** Missing one/multiple gates gives one clear cue per miss episode, accurate per-gate penalty and continued race progress; no forced restart due solely to missing a checkpoint. Repeated crossings, deliberate cuts, reset/restart/pause and AI events cannot duplicate/avoid penalties or spam player audio. New results and saved records use correct adjusted times. Dan reviews penalty feel.  
+**Result:** Pending.
 
 ---
 
@@ -897,11 +930,17 @@ Record choices we do not want to repeatedly reconsider.
 
 | 2026-09-18 | Add missing vehicle audio and prepare solo friend package as the next delivery | Ambience/UI cues did not cover the car; online two-player is possible future work, not part of this build |
 
+| 2026-09-18 | Vehicle sounds accepted for now; download test deferred; bundle CR-022 next | Dan reports sounds working, cannot test package yet, and requests checkpoint ding/miss buzz alongside the next feature |
+
+| 2026-09-18 | Bundle CR-022 with CR-023 AI racers and light traffic | Dan does not want a two-sound-only update; preserve single-player scope and deliver a meaningful racing update |
+
+| 2026-09-18 | Add more speed and missed-checkpoint penalties to AI/traffic delivery | Dan wants faster driving and continuation after missing gates, not restarting; reconcile results/records and old invalidation rules |
+
 ---
 
 # SESSION HANDOFF
 
-**Current delivery:** CR-020 vehicle audio and CR-021 Windows solo package IMPLEMENTED, AWAITING REVIEW. Phase 8 remains accepted for now. CR-013/CR-018 remain deferred. No multiplayer/networking or environment expansion.
+**Current delivery:** CR-020 vehicle audio ACCEPTED FOR NOW; Dan reports sounds working. CR-021 packaged but Dan's download/extracted-player test is deferred and does not block development. CR-023 AI racers/traffic, CR-024 faster player car and CR-025 missed-checkpoint time penalties form the next combined delivery, including CR-022 success/miss cues. New penalty/speed rules explicitly supersede older preservation instructions where they conflict; retain unrelated accepted behavior. Phase 8 remains accepted for now; CR-013/CR-018 deferred. Do not infer multiplayer authorization.
 
 **Safety checkpoint:** 3dbe2b606fbd4a17a87dc118c295d4ab30dc1cae. Initial index.lock permission failure recovered by elevated retry before edits.
 
@@ -917,7 +956,7 @@ Record choices we do not want to repeatedly reconsider.
 
 **Preservation:** Scene/prefabs/environment/road/houses/store layout/forest/jump/shortcut/vehicle tuning/camera/packages unchanged from checkpoint. Build Settings now target StreetLoopGreybox instead of PrototypeTrack; product version updated. Personal saves untouched; standalone checks use the separate Temp/Racer-CR021-visible-save directory.
 
-**Dan/friend review:** Extract complete Windows ZIP; finish a race; listen through idle/acceleration/coast/brake/reverse, ordinary turns/skids, off-road and jump/landing/props; test four volume controls, pause/reset/restart/results, relaunch persistence and a physical controller. Report hardware, audio device and any harsh/missing/repetitive sounds or stalls. Both CRs await review.
+**Dan/friend review:** Extract complete Windows ZIP; finish a race; listen through idle/acceleration/coast/brake/reverse, ordinary turns/skids, off-road and jump/landing/props; test four volume controls, pause/reset/restart/results, relaunch persistence and a physical controller. Report hardware, audio device and any harsh/missing/repetitive sounds or stalls. Dan subsequently confirmed sounds work; CR-020 accepted for now. CR-021 download testing remains deferred. Bundle CR-022 with the next chosen feature.
 
 ---
 
