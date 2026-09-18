@@ -587,15 +587,17 @@ Make the prototype feel like a game rather than a Unity demonstration.
 
 # PHASE 8 — Visual Polish
 
-**Status:** First commercial-street batch implemented and technically validated; **awaiting Dan's visual review**. CR-019 retains 22 stores with independent order/spacing, coordinated frontage and restrained material variation. This does not complete Phase 8. Evidence and limits: `Docs/CR019/VALIDATION.md`; annotated comparisons: `Docs/CR019/review.html`.
+**Status:** First commercial-street batch ACCEPTED — Dan reports it passed. CR-019 retains 22 stores with independent order/spacing, coordinated frontage and restrained material variation. This does not complete Phase 8. Evidence and limits: `Docs/CR019/VALIDATION.md`; annotated comparisons: `Docs/CR019/review.html`.
 
 ## Goal
 Improve appearance only after gameplay works.
 
+**Next delivery:** Complete a coherent visual/performance pass: prioritize visible remaining placeholder/material/road/vegetation issues, refine existing daytime lighting only where useful, assess optional subtle post-processing and measured shadow/LOD/culling improvements, fix popping/collision mismatches, and produce an up-to-date playable build. Evaluate conditional items and document justified deferrals; do not change approved layouts or begin Phase 9. CR-013/CR-018 remain deferred.
+
 ## TODO
-- [x] Implement CR-019: independent storefront order, longitudinal positions, gaps and modest setbacks; retain 22 businesses. Awaiting Dan's visual acceptance.
+- [x] Implement CR-019: independent storefront order, longitudinal positions, gaps and modest setbacks; retain 22 businesses. Accepted by Dan.
 - [x] Coordinate commercial frontage paving, access, restrained material variation and collision; preserve road/shoulder access and profile the changed area.
-- [ ] Dan's visual review of CR-019 and this commercial-street batch.
+- [x] Dan reports the CR-019 commercial-street batch passed; visually accepted.
 - [ ] CR-018 (optional backlog): Revisit exact childhood-house placement only when Dan wants to; preserve current placement during ongoing work.
 - [ ] CR-013 (optional backlog): Refine homes from Dan's reference photos if he finds and supplies them; no photos required to continue current work.
 - [ ] Replace important placeholder assets.
@@ -802,13 +804,13 @@ Use this for things that are not bugs but that Dan wants changed.
 **Result:** Deferred; no new placement instructions supplied.
 
 ### CR-019 — Remove mirrored commercial layout and uniform spacing
-**Status:** IMPLEMENTED / AWAITING DAN'S VISUAL REVIEW — first coherent Phase 8 commercial-street polish batch.  
+**Status:** ACCEPTED / CLOSED — Dan reports the first Phase 8 commercial-street batch passed.  
 **Reported behavior:** Dan sees the same stores directly opposite one another, with identical spacing on both sides of the main street. Repeated stores are acceptable; mirrored pairs and uniform placement are not.  
 **Requested change:** Vary store order and positions independently on each side. Stagger opposing buildings along the road, use varied realistic gaps and modest setbacks, and avoid matching storefronts directly opposite each other or repeating the same spacing sequence. Reuse existing stores and retain the current commercial coverage/count where feasible; no need to make every store unique. Use intentional, reproducible layout rather than randomizing every load.  
 **Coordination:** Move building visuals, colliders, foundations, shop text/signs, frontage paving and access as coherent sites. Update authored placement and relevant visual batching/generation so refreshes preserve the arrangement. Preserve road/hill geometry, driveable shoulders, woodland access, houses/yards, jump/shortcut, breakable behavior and accepted vehicle/race/UI/save systems. No legacy whole-environment rebuild.  
 **Acceptance:** Before/after overhead views and drives in both directions show no obvious mirrored store pairs or identical spacing rhythm. Buildings remain grounded, separated and accessible, and repeated assets are distributed naturally. Performance and local clearance remain acceptable; Dan reviews the result.  
 **Result:** All 22 existing sites retained, 11 per side. West-to-east South: M-A-D-M-G-A-D-M-G-A-D; North: D-M-G-A-D-M-G-A-D-M-A (Market/Diner/Auto/General). Independent center spacing ~47–121m South, ~50–117m North; road-normal setbacks 29–34m. Matching opposite footprint intervals separated by at least 58.60m; smallest same-row footprint gap 21.40m. Sites move as complete prefab/sign/collider assemblies, with refitted foundations/steps, relocated flush paving and gravel access and muted existing-palette material overrides. Nine conflicting trunks removed; remaining 11,986 trunks preserved, no terrain-height edits. Explicit slot tables, stable site IDs, shared generation rules and synchronized visual/frontage refresh prevent mirrored regeneration; legacy whole-environment rebuild not run.  
-**Actual validation:** Save/reload and repeat apply pass with identical site inventory and zero repeat paint changes; batched vertices match sources. Both ordinary-frame virtual-Gamepad drives pass at ~32m/s with braking to ~12.7m/s, >11m shoulder excursion/re-entry and zero non-terrain contacts. Six final countdown/pause/restart smoke checks pass using isolated test storage. Houses, terrain shape/markings and breakable placements unchanged. Matched 734x293 Editor sample, VSync1/cap60: before median/p95 16.74/20.21ms, after 16.74/20.83ms; not standalone or 1080p parity. Compilation succeeds; final Console 0 errors/warnings after historical/tool messages archived. Full settings, recovered test/tool failures, limitations and before/after evidence: `Docs/CR019/VALIDATION.md`, `Docs/CR019/review.html`. Dan's review remains required; Phase 8 is not complete.
+**Actual validation:** Save/reload and repeat apply pass with identical site inventory and zero repeat paint changes; batched vertices match sources. Both ordinary-frame virtual-Gamepad drives pass at ~32m/s with braking to ~12.7m/s, >11m shoulder excursion/re-entry and zero non-terrain contacts. Six final countdown/pause/restart smoke checks pass using isolated test storage. Houses, terrain shape/markings and breakable placements unchanged. Matched 734x293 Editor sample, VSync1/cap60: before median/p95 16.74/20.21ms, after 16.74/20.83ms; not standalone or 1080p parity. Compilation succeeds; final Console 0 errors/warnings after historical/tool messages archived. Full settings, recovered test/tool failures, limitations and before/after evidence: `Docs/CR019/VALIDATION.md`, `Docs/CR019/review.html`. Dan subsequently reported this batch passed; Phase 8 as a whole is not complete.
 
 ---
 
@@ -866,11 +868,13 @@ Record choices we do not want to repeatedly reconsider.
 | 2026-09-17 | Phase 7 accepted after Dan reports all checklist items passed | Device-specific coverage is not inferred; preserve delivered game flow |
 | 2026-09-17 | CR-019: remove mirrored stores and uniform main-road spacing | Repeated stores are fine, but opposite sides should have independent order and spacing |
 | 2026-09-17 | Deliver first Phase 8 commercial polish batch; await Dan's visual review | Retain 22 stores with independent authored rows, coordinated frontage, local tree clearance and preserved accepted systems |
+| 2026-09-17 | CR-019 commercial-street batch accepted | Dan reports passed; preserve independent store layout and proceed with remaining Phase 8 polish/performance together |
+
 ---
 
 # SESSION HANDOFF
 
-**Current phase:** Phase 7 ACCEPTED — Dan answered yes to all checklist items; input device unspecified. First Phase 8 commercial-street batch implemented and technically validated, **awaiting Dan's visual review**. CR-019 remains open for acceptance; Phase 8 is not complete. CR-013/CR-018 remain optional deferred backlog.
+**Current phase:** Phase 7 ACCEPTED — Dan answered yes to all checklist items; input device unspecified. First Phase 8 commercial-street batch ACCEPTED; CR-019 CLOSED after Dan reported it passed. Phase 8 is not complete. Next delivery combines remaining visual polish and measured performance work. CR-013/CR-018 remain optional deferred backlog.
 
 **Safety checkpoint:** `f94c8f864fb7480a31a4d08ef7e4551d3fa9c1d5`. Initial Git staging/commit permission failures recovered with elevated retries before edits. Completion commit is reported in the task response and Git history.
 
@@ -886,7 +890,7 @@ Record choices we do not want to repeatedly reconsider.
 
 **Performance/limits:** Fixed-camera 240-frame sample after 45 warmup, 734x293 Editor, VSync1/cap60: before median/p95 16.74/20.21ms; after 16.74/20.83ms. Renderers 885 -> 886, architecture material batches remain 11. Driving p95 ~21ms. Low-resolution capped Editor results are not standalone/GPU/1080p parity. Automated driving, no new human or physical-device coverage. Compilation succeeded; final saved reload Console 0 errors/warnings. Earlier tool timeouts, recovered naming error and first insufficiently waited countdown sample remain documented; simulation-aware retest passed. Existing editor deprecation warnings remain in compile history.
 
-**Dan's short review:** Drive both directions and approve store order/gaps; check signs/foundations/paving/access; approve muted variation and woodland character. Leave CR-019 and this Phase 8 batch awaiting that review.
+**Dan's latest review:** Passed — CR-019 commercial-street batch accepted. Continue with a combined Phase 8 visual/performance pass while preserving approved layouts and gameplay. No individual device coverage or new performance measurements inferred; no Unity changes in this documentation update.
 
 ---
 
