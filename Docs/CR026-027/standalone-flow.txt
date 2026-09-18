@@ -1,0 +1,24 @@
+PASS Keyboard navigation and virtual gamepad confirm select Longroof
+PASS Virtual D-pad navigation and A confirmation
+PASS Applied original
+PASS Persisted original
+PASS Applied tourer
+PASS Persisted tourer
+PASS Applied moto
+PASS Persisted moto
+PASS Applied atv
+PASS Persisted atv
+PASS Virtual mouse garage selection through uGUI raycast
+PASS Escape returns garage to Ready
+PASS Countdown suppresses checkpoint cue
+PASS Pause holds countdown
+PASS Three opponents and four traffic
+PASS AI and traffic own no engine sources
+PASS One listener and six player voices after repeated selection
+PASS Driving rejects vehicle switch
+PASS Player checkpoint cue
+PASS Miss cue cooldown
+PASS Independent AI progress and player cue ownership
+PASS Master mute preserved
+PASS Restart clears cues and race penalties
+PASS Results / garage / race again retains volumes
