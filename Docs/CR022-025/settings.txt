@@ -1,0 +1,2 @@
+Legacy settings preserve old values and initialize new defaults: True
+Mode/traffic/vehicle volume persist without losing old settings: True

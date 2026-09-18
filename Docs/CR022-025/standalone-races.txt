@@ -1,0 +1,11 @@
+Ordinary-frame physics autopilot; no physical controller.
+Run 1: AI=True traffic=True final=True maxSpeed=41.33m/s frames=15307 median=33.33ms p95=33.37ms
+1. YOU  08:01.793  (+0.0s / 0 misses)
+2. EMBER  08:06.893  (+0.0s / 0 misses)
+3. BLUE  08:09.203  (+0.0s / 0 misses)
+4. GOLD  08:30.308  (+0.0s / 0 misses)
+YOU laps=3 next=0 recoveries=0 position=(317.98, 16.08, 512.33)
+EMBER laps=3 next=0 recoveries=0 position=(323.67, 7.45, 564.27)
+GOLD laps=3 next=0 recoveries=0 position=(320.04, 16.02, 512.60)
+BLUE laps=3 next=0 recoveries=0 position=(324.10, 7.28, 567.95)
+DONE

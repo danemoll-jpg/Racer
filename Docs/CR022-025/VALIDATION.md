@@ -1,4 +1,4 @@
-# CR-022–CR-025 validation log (in progress)
+# CR-022–CR-025 validation log
 
 Safety checkpoint: 30b82438708dc62754ff304528cf484069b94593. The first staging attempt failed with index.lock permission denied; elevated staging/commit succeeded before project edits.
 
@@ -19,7 +19,7 @@ Evidence so far:
 
 The AI/traffic population uses zero additional audio sources; the scene remains at nine sources. Driver acceleration/top-speed are copied from the player motor, with lower desired pace and no rubber-banding.
 
-Further runs, handling tests and Windows build evidence will be added before completion. No friend-PC or physical-controller validation is claimed.
+No friend-PC or physical-controller validation is claimed. Final Windows and package evidence follows below.
 
 Final Editor follow-up:
 - Second AI/traffic run: all three AI finish, zero recoveries/misses; median/p95 16.70/22.39ms. Solo/no-traffic: 161.318s, zero misses; median/p95 16.67/21.42ms. Conditions: i7-9700, GTX 1660 Ti, 734x293 Game view, VSync1/cap60. The two AI runs have p95 about 1.0–2.1ms above baseline; this is capped Editor timing, not a pure CPU benchmark.
@@ -34,3 +34,12 @@ Final Editor follow-up:
 - One rerun waited at Ready because the unfocused Editor had runInBackground=false; explicitly enabling ordinary background frames resumed the harness. No simulation result inferred during the wait.
 
 The repeated record-isolation test initially reused its own saved new-category record and failed an empty-category assertion. The fixture now uses a new GUID directory per run; all 17 checks pass. This was test isolation, not loss or mixing of records.
+
+## Windows release and package
+
+- Build 0.3.0-review1, Windows x64, Unity 6000.6.1f1, source de84d067cb14773d08309cf697037aca30522fac. Non-development, no debugger/profiler connection or runtime Pipeline. Build succeeded with zero errors and one expected missing RuntimePipelineConfig warning. Player logs contain stripped unused depth-of-field/Panini shader warnings, with no runtime exception in the race run.
+- Visible 1280x720 standalone three-lap race, physics autopilot, four racers/four traffic: YOU 481.793s, EMBER 486.893s, BLUE 489.203s, GOLD 510.308s. All finished three laps; zero misses and zero recoveries for all racers. Peak player speed 41.33m/s. 15,307 sampled frames, median33.33ms / p9533.37ms. This was a capped/background-capable visible window and is not an uncapped CPU benchmark. Compare AI cost using the matched Editor baseline above, not across resolutions or frame pacing. Screenshot standalone-results.png shows final adjusted standings and mode controls.
+- Total ordinary-frame race evidence: two one-lap Editor races plus one three-lap Windows race, 9/9 AI finishes; one completed solo/off Editor baseline. Rule-cut/ranking/recovery fixtures are synthetic and are not mislabeled as complete human-driven races.
+- Visible standalone virtual-Gamepad handling, solo/traffic off: peak45.60m/s; brake from45.24m/s through stop to-5.45m/s after3s. Corner fixture starts40m/s and ends12.69m/s, max3D road distance3.95m. Hills peak29.01m/s and road distance10.12m; hairpin13.12m/s. Jump peaks32.76/39.52m/s, airborne1.80/2.06s, both end four wheels grounded and minimum upright0.980. Mailbox breaks with one moving debris body, settles to zero, then restart restores it and clears penalties/progress. See standalone-handling.txt. No runtime exceptions observed in this run.
+- ZIP: Builds/Racer-0.3.0-review1-Windows.zip, 76,322,288 bytes, SHA256 EAE1BE01EA588EBBABD5039E79C3DE539AEFED282C9F49A18EDBB496FF11A429. Fresh extraction and complete Builds/Latest both match all 228 manifest file hashes. Old Latest retained at Builds/Latest-before-0.3.0-review1. Runtime, notices, README and exact-source VERSION.txt included; test evidence/debug artifacts excluded. No upload/distribution.
+- Remaining review limits: no physical gamepad or subjective sound evaluation; no friend PC/download test; no sustained adversarial multi-car pileup coverage. AI can make shoulder excursions, and congestion/recovery behavior remains a review area. Forward-speed parameter49m/s is not a claim that49m/s was reached. Final speed, handling and penalty feel await Dan.

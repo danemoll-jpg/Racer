@@ -1,0 +1,1 @@
+Verified ZIP extraction and complete Latest: 228 files, SHA256 matches. Previous Latest preserved at C:\Users\danmo\Racer\Builds\Latest-before-0.3.0-review1
