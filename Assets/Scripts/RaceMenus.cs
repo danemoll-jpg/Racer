@@ -89,7 +89,7 @@ namespace Racer
                 var button=rect.gameObject.AddComponent<UnityEngine.UI.Button>(); button.targetGraphic=img;
                 var colors=button.colors; colors.selectedColor=colors.highlightedColor=Color.white; colors.normalColor=new Color(.72f,.72f,.72f); button.colors=colors;
                 button.onClick.AddListener(()=>flow.SetColor(choice));
-                var text=Label("Color",rect,17,0); Stretch(text.rectTransform,0,0,0,0); text.alignment=TextAnchor.MiddleCenter; text.text=VehiclePaint.Names[i]; text.color=(i==1 || i==3 || i==5)?Color.white:Color.black;
+                var text=Label("Color",rect,17,0); Stretch(text.rectTransform,0,0,0,0); text.alignment=TextAnchor.MiddleCenter; text.text=VehiclePaint.Names[i]; text.color=(i==1 || i==3 || i==5 || i==6)?Color.white:Color.black;
                 swatches.Add(button);
             }
             var help = Label("Menu controls", card, 16, 38);

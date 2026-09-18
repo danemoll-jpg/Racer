@@ -1,0 +1,6 @@
+profile,route,attempt,road,finished,seconds,entry_mps,exit_mps,max_lateral,min_up,air_seconds,misses,penalty,branch_exits,recoveries
+moto,Creek Leap,0,False,True,14.111,33.688,25.841,9.870,0.950,2.797,0,0.000,1,0
+moto,Creek Leap,1,False,True,13.900,35.133,25.915,10.864,0.951,2.804,0,0.000,1,0
+moto,Creek Leap,2,False,True,16.120,33.681,26.013,10.262,0.941,2.548,0,0.000,1,1
+moto,Creek Leap,0,True,True,21.067,29.273,29.524,0.000,0.950,0.100,1,25.601,0,0
+moto,Creek Leap,1,True,True,21.096,28.630,29.710,0.000,0.950,0.101,1,25.601,0,0

@@ -12,6 +12,7 @@ namespace Racer
         public double PreviousTime;
         public float RoadPosition, Travel, VerifiedRoad;
         public int Recoveries;
+        public readonly BranchProgress Branch=new();
         public float RecoveryStart = float.NaN;
         public RacerState(string name, ArcadeVehicle car, int gates, int laps)
         {

@@ -1,0 +1,1 @@
+Three-second full-brake mistake at CP8; local recovery=True; clock=72.500; player position=4

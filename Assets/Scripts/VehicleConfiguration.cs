@@ -55,7 +55,7 @@ namespace Racer
             profileId = VehicleProfile.Find(id).Id;
             selectedPaint=null;
             foreach(var renderer in GetComponentsInChildren<Renderer>(true))
-                if(renderer.sharedMaterial && renderer.sharedMaterial.name.Contains("Car")) renderer.SetPropertyBlock(null);
+                if(VehiclePaint.IsBodyPaint(renderer.sharedMaterial)) renderer.SetPropertyBlock(null);
             var p = Profile;
             for(int i=0;i<originalVisuals.Length;i++) if(originalVisuals[i]) originalVisuals[i].gameObject.SetActive(profileId=="original" && originalEnabled[i]);
             // Clones carry the generated hierarchy but not runtime field references.

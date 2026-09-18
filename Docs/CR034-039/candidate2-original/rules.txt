@@ -1,0 +1,65 @@
+PASS Creek Leap contiguous clean exit earns evidence
+PASS Creek Leap entrance-to-exit teleport rejected
+PASS Creek Leap unobserved progress rejected
+PASS Creek Leap reversing lowers standing without new credit
+PASS Creek Leap backward local recovery
+PASS Creek Leap forward recovery rejected
+PASS Creek Leap integrated legal bypass no penalties / correct next gate
+PASS Creek Leap early finish still refused
+PASS Creek Leap teleport cannot finish lap
+PASS Pine Ridge contiguous clean exit earns evidence
+PASS Pine Ridge entrance-to-exit teleport rejected
+PASS Pine Ridge unobserved progress rejected
+PASS Pine Ridge reversing lowers standing without new credit
+PASS Pine Ridge backward local recovery
+PASS Pine Ridge forward recovery rejected
+PASS Pine Ridge integrated legal bypass no penalties / correct next gate
+PASS Pine Ridge early finish still refused
+PASS Pine Ridge teleport cannot finish lap
+PASS Fox Gully contiguous clean exit earns evidence
+PASS Fox Gully entrance-to-exit teleport rejected
+PASS Fox Gully unobserved progress rejected
+PASS Fox Gully reversing lowers standing without new credit
+PASS Fox Gully backward local recovery
+PASS Fox Gully forward recovery rejected
+PASS Fox Gully integrated legal bypass no penalties / correct next gate
+PASS Fox Gully early finish still refused
+PASS Fox Gully teleport cannot finish lap
+PASS Existing Southwest Cut contiguous clean exit earns evidence
+PASS Existing Southwest Cut entrance-to-exit teleport rejected
+PASS Existing Southwest Cut unobserved progress rejected
+PASS Existing Southwest Cut reversing lowers standing without new credit
+PASS Existing Southwest Cut backward local recovery
+PASS Existing Southwest Cut forward recovery rejected
+PASS Existing Southwest Cut integrated legal bypass no penalties / correct next gate
+PASS Existing Southwest Cut early finish still refused
+PASS Existing Southwest Cut teleport cannot finish lap
+PASS Black body original
+PASS Unpainted trim/glass/rider original
+PASS Black body tourer
+PASS Unpainted trim/glass/rider tourer
+PASS Black body moto
+PASS Unpainted trim/glass/rider moto
+PASS Black body atv
+PASS Unpainted trim/glass/rider atv
+PASS Versioned course records
+PASS Stable appended black swatch index
+PASS Creek Leap explicitly bypasses multiple gates
+PASS Pine Ridge explicitly bypasses multiple gates
+PASS Fox Gully explicitly bypasses multiple gates
+PASS Highway outer lane supported envelope 3800 -1
+PASS Highway outer lane supported envelope 3800 1
+PASS Highway outer lane supported envelope 3900 -1
+PASS Highway outer lane supported envelope 3900 1
+PASS Highway outer lane supported envelope 4000 -1
+PASS Highway outer lane supported envelope 4000 1
+PASS Highway outer lane supported envelope 4100 -1
+PASS Highway outer lane supported envelope 4100 1
+PASS Highway outer lane supported envelope 4200 -1
+PASS Highway outer lane supported envelope 4200 1
+PASS Highway outer lane supported envelope 4300 -1
+PASS Highway outer lane supported envelope 4300 1
+PASS Highway outer lane supported envelope 4400 -1
+PASS Highway outer lane supported envelope 4400 1
+PASS Highway outer lane supported envelope 4500 -1
+PASS Highway outer lane supported envelope 4500 1

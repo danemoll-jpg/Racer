@@ -46,7 +46,7 @@ public static class Phase6Vegetation {
   Directory.CreateDirectory(Folder);AssetDatabase.Refresh();var shapes=new[]{Crown(0),Crown(1),Crown(2)};
   var primitive=GameObject.CreatePrimitive(PrimitiveType.Cube);var trunk=Object.Instantiate(primitive.GetComponent<MeshFilter>().sharedMesh);Object.DestroyImmediate(primitive);trunk.colors=Enumerable.Repeat(Color.white,trunk.vertexCount).ToArray();trunk=Save(trunk,"Trunk");
   var mat=AssetDatabase.LoadAssetAtPath<Material>(Folder+"/Forest.mat");if(!mat){mat=new Material(Shader.Find("Racer/GreyboxGround")){name="Forest muted vertex colors",enableInstancing=true};AssetDatabase.CreateAsset(mat,Folder+"/Forest.mat");}
-  var road=StreetLoopBuilder.Route();var cut=Phase5Setup.Path();var sites=GameObject.Find(Phase6Review.Root).transform.Cast<Transform>().ToArray();
+  var road=StreetLoopBuilder.Route();var cut=Phase5Setup.Path();var branches=Object.FindObjectsByType<WoodlandRoute>();var sites=GameObject.Find(Phase6Review.Root).transform.Cast<Transform>().ToArray();
   var batches=new Dictionary<Vector2Int,List<CombineInstance>>();var temporary=new List<Mesh>();int[] counts=new int[3];float minRadius=999,maxRadius=0;
   foreach(var box in boxes){
    var bounds=box.bounds;var p=new Vector3(bounds.center.x,bounds.min.y,bounds.center.z);float h=bounds.size.y*2;
@@ -59,6 +59,7 @@ public static class Phase6Vegetation {
    radius=Mathf.Min(radius,Mathf.Max(.1f,Phase6Buildings.YardDistance(p)-27),StreetLoopBuilder.Nearest(p,road,out _)-16,Phase5Setup.Distance(p,cut,out _)-7.6f);
    if(CompactYard.OldDistance(p)<40)radius=Mathf.Min(radius,Mathf.Max(.1f,CompactYard.AccessDistance(p)-3.5f));
    foreach(var site in sites){var delta=site.position-p;delta.y=0;radius=Mathf.Min(radius,Mathf.Max(.1f,delta.magnitude-16));}
+   foreach(var branch in branches) { branch.Project(p,out float clearance); radius=Mathf.Min(radius,Mathf.Max(.1f,clearance-10)); }
    minRadius=Mathf.Min(minRadius,radius);maxRadius=Mathf.Max(maxRadius,radius);
    var key=new Vector2Int(Mathf.FloorToInt(p.x/160),Mathf.FloorToInt(p.z/160));if(!batches.TryGetValue(key,out var batch))batches[key]=batch=new();
    Color tint=Color.Lerp(new Color(.24f,.34f,.19f),new Color(.39f,.46f,.25f),Mathf.Clamp01(patch*.8f+hash*.2f));

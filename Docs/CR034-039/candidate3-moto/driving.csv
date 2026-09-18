@@ -1,0 +1,16 @@
+profile,route,attempt,road,finished,seconds,entry_mps,exit_mps,max_lateral,min_up,air_seconds,misses,penalty,branch_exits,recoveries
+moto,Creek Leap,0,False,False,19.914,33.823,0.000,48.232,0.949,4.313,0,0.000,0,0
+moto,Creek Leap,1,False,False,27.400,35.222,0.001,278.337,0.951,4.300,0,0.000,0,0
+moto,Creek Leap,2,False,False,22.080,33.819,0.004,45.576,0.923,4.120,0,0.000,0,1
+moto,Creek Leap,0,True,True,21.019,29.272,30.034,0.000,0.950,0.100,0,0.000,0,0
+moto,Creek Leap,1,True,True,21.045,29.304,30.048,0.000,0.950,0.094,1,25.601,0,0
+moto,Fox Gully,0,False,False,55.000,24.622,27.567,13.151,0.917,5.286,2,50.818,0,0
+moto,Fox Gully,1,False,False,55.000,25.400,31.865,13.206,0.950,5.732,2,50.821,0,0
+moto,Fox Gully,2,False,True,20.193,24.621,28.555,10.460,0.954,3.276,0,0.000,1,1
+moto,Fox Gully,0,True,True,19.241,30.772,43.598,0.000,0.965,0.120,0,0.000,0,0
+moto,Fox Gully,1,True,True,19.217,30.771,43.669,0.000,0.965,0.085,0,0.000,0,0
+moto,Pine Ridge,0,False,True,17.179,35.138,28.265,6.759,0.981,3.561,0,0.000,1,0
+moto,Pine Ridge,1,False,True,16.600,35.792,28.242,6.823,0.980,3.712,0,0.000,1,0
+moto,Pine Ridge,2,False,True,18.679,35.138,28.263,6.590,0.981,1.220,0,0.000,1,1
+moto,Pine Ridge,0,True,True,21.300,40.965,53.784,0.000,0.982,0.100,0,0.000,0,0
+moto,Pine Ridge,1,True,True,21.300,40.965,53.784,0.000,0.982,0.100,0,0.000,0,0

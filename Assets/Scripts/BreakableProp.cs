@@ -14,6 +14,7 @@ namespace Racer
         public bool IsBroken { get; private set; }
         public bool PendingRestore { get; private set; }
         public int BreakCount { get; private set; }
+        public SmashAudio.Surface surface;
         static readonly List<BreakableProp> all = new();
         static readonly List<BreakableProp> moving = new();
         public static int MovingDebrisCount => moving.Count;
@@ -50,7 +51,7 @@ namespace Racer
             if (vehicle && vehicle.Body.linearVelocity.magnitude >= impactSpeed)
             {
                 Yield(vehicle.Body.linearVelocity);
-                vehicle.GetComponent<VehicleAudio>()?.Impact(vehicle.Body.linearVelocity.magnitude, true);
+                SmashAudio.Play(initialPosition,vehicle.Body.linearVelocity.magnitude,surface);
             }
         }
         void Yield(Vector3 velocity)

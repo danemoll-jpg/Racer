@@ -1,0 +1,16 @@
+profile,route,attempt,road,finished,seconds,entry_mps,exit_mps,max_lateral,min_up,air_seconds,misses,penalty,branch_exits,recoveries
+tourer,Pine Ridge,0,False,True,18.154,35.348,24.384,5.711,0.984,3.036,0,0.000,1,0
+tourer,Pine Ridge,1,False,True,17.756,36.526,24.465,5.636,0.984,3.019,0,0.000,1,0
+tourer,Pine Ridge,2,False,True,20.225,35.853,24.419,5.711,0.984,0.717,0,0.000,1,1
+tourer,Pine Ridge,0,True,True,23.658,40.311,45.682,0.000,0.982,0.000,0,0.000,0,0
+tourer,Pine Ridge,1,True,True,23.659,40.657,45.682,0.000,0.982,0.000,0,0.000,0,0
+tourer,Creek Leap,0,False,True,14.860,33.000,22.456,7.517,0.951,2.118,0,0.000,1,0
+tourer,Creek Leap,1,False,True,14.849,33.103,22.434,7.543,0.951,2.134,0,0.000,1,0
+tourer,Creek Leap,2,False,True,17.582,32.746,22.550,5.786,0.950,1.835,0,0.000,1,1
+tourer,Creek Leap,0,True,True,22.623,28.850,29.249,0.000,0.950,0.000,0,0.000,0,0
+tourer,Creek Leap,1,True,True,22.597,28.753,29.267,0.000,0.950,0.000,0,0.000,0,0
+tourer,Fox Gully,0,False,True,19.540,24.067,25.034,6.012,0.963,0.300,0,0.000,1,0
+tourer,Fox Gully,1,False,True,19.169,25.384,25.131,5.940,0.963,0.301,0,0.000,1,0
+tourer,Fox Gully,2,False,True,21.559,23.580,25.012,6.011,0.963,0.443,0,0.000,1,1
+tourer,Fox Gully,0,True,True,19.936,29.811,37.025,0.000,0.963,0.000,0,0.000,0,0
+tourer,Fox Gully,1,True,True,19.895,29.810,37.325,0.000,0.963,0.000,0,0.000,0,0

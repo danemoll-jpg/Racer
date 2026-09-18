@@ -1,0 +1,1702 @@
+run,name,lap,toward_gate,observed_seconds,arrival_time,misses,recoveries
+standalone-race-0-clean-traffic,BLUE,0,0,1.246,4.260,0,0
+standalone-race-0-clean-traffic,GOLD,0,0,1.746,4.760,0,0
+standalone-race-0-clean-traffic,EMBER,0,0,2.246,5.260,0,0
+standalone-race-0-clean-traffic,YOU reference pilot,0,0,2.746,5.760,0,0
+standalone-race-0-clean-traffic,BLUE,0,1,9.500,13.760,0,0
+standalone-race-0-clean-traffic,GOLD,0,1,9.260,14.020,0,0
+standalone-race-0-clean-traffic,EMBER,0,1,9.520,14.780,0,0
+standalone-race-0-clean-traffic,YOU reference pilot,0,1,9.260,15.020,0,0
+standalone-race-0-clean-traffic,BLUE,0,2,9.020,22.780,0,0
+standalone-race-0-clean-traffic,GOLD,0,2,9.000,23.020,0,0
+standalone-race-0-clean-traffic,EMBER,0,2,9.240,24.020,0,0
+standalone-race-0-clean-traffic,YOU reference pilot,0,2,9.260,24.280,0,0
+standalone-race-0-clean-traffic,GOLD,0,3,8.260,31.280,0,0
+standalone-race-0-clean-traffic,BLUE,0,3,8.740,31.520,0,0
+standalone-race-0-clean-traffic,EMBER,0,3,8.260,32.280,0,0
+standalone-race-0-clean-traffic,YOU reference pilot,0,3,8.500,32.780,0,0
+standalone-race-0-clean-traffic,GOLD,0,4,8.500,39.780,0,0
+standalone-race-0-clean-traffic,BLUE,0,4,9.020,40.540,0,0
+standalone-race-0-clean-traffic,EMBER,0,4,9.000,41.280,0,0
+standalone-race-0-clean-traffic,YOU reference pilot,0,4,9.000,41.780,0,0
+standalone-race-0-clean-traffic,GOLD,0,5,7.020,46.800,0,0
+standalone-race-0-clean-traffic,BLUE,0,5,7.520,48.060,0,0
+standalone-race-0-clean-traffic,EMBER,0,5,7.520,48.800,0,0
+standalone-race-0-clean-traffic,YOU reference pilot,0,5,7.780,49.560,0,0
+standalone-race-0-clean-traffic,GOLD,0,6,9.520,56.320,0,0
+standalone-race-0-clean-traffic,BLUE,0,6,10.000,58.060,0,0
+standalone-race-0-clean-traffic,EMBER,0,6,10.760,59.560,0,0
+standalone-race-0-clean-traffic,YOU reference pilot,0,6,10.520,60.080,0,0
+standalone-race-0-clean-traffic,GOLD,0,7,9.260,65.580,0,0
+standalone-race-0-clean-traffic,BLUE,0,7,10.020,68.080,0,0
+standalone-race-0-clean-traffic,EMBER,0,7,9.520,69.080,0,0
+standalone-race-0-clean-traffic,YOU reference pilot,0,7,9.500,69.580,0,0
+standalone-race-0-clean-traffic,GOLD,0,8,8.500,74.080,0,0
+standalone-race-0-clean-traffic,EMBER,0,8,8.740,77.820,0,0
+standalone-race-0-clean-traffic,BLUE,0,8,9.740,77.820,0,0
+standalone-race-0-clean-traffic,YOU reference pilot,0,8,8.740,78.320,0,0
+standalone-race-0-clean-traffic,GOLD,0,9,7.500,81.580,0,0
+standalone-race-0-clean-traffic,EMBER,0,9,8.260,86.080,0,0
+standalone-race-0-clean-traffic,BLUE,0,9,8.500,86.320,0,0
+standalone-race-0-clean-traffic,YOU reference pilot,0,9,8.500,86.820,0,0
+standalone-race-0-clean-traffic,GOLD,0,10,7.000,88.580,0,0
+standalone-race-0-clean-traffic,EMBER,0,10,7.500,93.580,0,0
+standalone-race-0-clean-traffic,BLUE,0,10,7.260,93.580,0,0
+standalone-race-0-clean-traffic,YOU reference pilot,0,10,7.500,94.320,0,0
+standalone-race-0-clean-traffic,GOLD,0,11,6.240,94.820,0,0
+standalone-race-0-clean-traffic,EMBER,0,11,7.000,100.580,0,0
+standalone-race-0-clean-traffic,YOU reference pilot,0,11,6.760,101.080,0,0
+standalone-race-0-clean-traffic,BLUE,0,11,7.500,101.080,0,0
+standalone-race-0-clean-traffic,GOLD,0,12,8.500,103.320,0,0
+standalone-race-0-clean-traffic,GOLD,0,13,4.500,107.820,0,0
+standalone-race-0-clean-traffic,EMBER,0,12,9.740,110.320,0,0
+standalone-race-0-clean-traffic,BLUE,0,12,9.500,110.580,0,0
+standalone-race-0-clean-traffic,YOU reference pilot,0,12,10.240,111.320,0,0
+standalone-race-0-clean-traffic,GOLD,0,14,4.520,112.340,0,0
+standalone-race-0-clean-traffic,EMBER,0,13,5.520,115.840,0,0
+standalone-race-0-clean-traffic,BLUE,0,13,5.260,115.840,0,0
+standalone-race-0-clean-traffic,YOU reference pilot,0,13,5.760,117.080,0,0
+standalone-race-0-clean-traffic,GOLD,0,15,4.740,117.080,0,0
+standalone-race-0-clean-traffic,BLUE,0,14,5.000,120.840,0,0
+standalone-race-0-clean-traffic,EMBER,0,14,5.740,121.580,0,0
+standalone-race-0-clean-traffic,YOU reference pilot,0,14,5.500,122.580,0,0
+standalone-race-0-clean-traffic,GOLD,0,16,6.000,123.080,0,0
+standalone-race-0-clean-traffic,BLUE,0,15,4.740,125.580,0,0
+standalone-race-0-clean-traffic,EMBER,0,15,5.500,127.080,0,0
+standalone-race-0-clean-traffic,YOU reference pilot,0,15,5.260,127.840,0,0
+standalone-race-0-clean-traffic,GOLD,0,17,6.260,129.340,0,0
+standalone-race-0-clean-traffic,BLUE,0,16,6.260,131.840,0,0
+standalone-race-0-clean-traffic,GOLD,0,18,4.500,133.840,0,0
+standalone-race-0-clean-traffic,EMBER,0,16,7.000,134.080,0,0
+standalone-race-0-clean-traffic,YOU reference pilot,0,16,7.240,135.080,0,0
+standalone-race-0-clean-traffic,BLUE,0,17,6.500,138.340,0,0
+standalone-race-0-clean-traffic,GOLD,0,19,5.000,138.840,0,0
+standalone-race-0-clean-traffic,EMBER,0,17,7.260,141.340,0,0
+standalone-race-0-clean-traffic,YOU reference pilot,0,17,7.260,142.340,0,0
+standalone-race-0-clean-traffic,BLUE,0,18,5.000,143.340,0,0
+standalone-race-0-clean-traffic,EMBER,0,18,5.500,146.840,0,0
+standalone-race-0-clean-traffic,YOU reference pilot,0,18,5.740,148.080,0,0
+standalone-race-0-clean-traffic,GOLD,0,0,9.240,148.080,0,0
+standalone-race-0-clean-traffic,BLUE,0,19,5.500,148.840,0,0
+standalone-race-0-clean-traffic,EMBER,0,19,6.320,153.160,0,0
+standalone-race-0-clean-traffic,YOU reference pilot,0,19,6.080,154.160,0,0
+standalone-race-0-clean-traffic,GOLD,1,1,9.080,157.160,0,0
+standalone-race-0-clean-traffic,BLUE,0,0,9.580,158.420,0,0
+standalone-race-0-clean-traffic,EMBER,0,0,10.500,163.660,0,0
+standalone-race-0-clean-traffic,YOU reference pilot,0,0,11.000,165.160,0,0
+standalone-race-0-clean-traffic,GOLD,1,2,8.760,165.920,0,0
+standalone-race-0-clean-traffic,BLUE,1,1,9.260,167.680,0,0
+standalone-race-0-clean-traffic,EMBER,1,1,9.260,172.920,0,0
+standalone-race-0-clean-traffic,GOLD,1,3,8.000,173.920,0,0
+standalone-race-0-clean-traffic,YOU reference pilot,1,1,9.020,174.180,0,0
+standalone-race-0-clean-traffic,BLUE,1,2,9.000,176.680,0,0
+standalone-race-0-clean-traffic,EMBER,1,2,9.260,182.180,0,0
+standalone-race-0-clean-traffic,GOLD,1,4,8.760,182.680,0,0
+standalone-race-0-clean-traffic,YOU reference pilot,1,2,9.260,183.440,0,0
+standalone-race-0-clean-traffic,BLUE,1,3,8.760,185.440,0,0
+standalone-race-0-clean-traffic,GOLD,1,5,7.000,189.680,0,0
+standalone-race-0-clean-traffic,EMBER,1,3,8.260,190.440,0,0
+standalone-race-0-clean-traffic,YOU reference pilot,1,3,8.500,191.940,0,0
+standalone-race-0-clean-traffic,BLUE,1,4,8.740,194.180,0,0
+standalone-race-0-clean-traffic,GOLD,1,6,9.260,198.940,0,0
+standalone-race-0-clean-traffic,EMBER,1,4,9.000,199.440,0,0
+standalone-race-0-clean-traffic,YOU reference pilot,1,4,8.740,200.680,0,0
+standalone-race-0-clean-traffic,BLUE,1,5,7.520,201.700,0,0
+standalone-race-0-clean-traffic,EMBER,1,5,7.500,206.940,0,0
+standalone-race-0-clean-traffic,YOU reference pilot,1,5,7.520,208.200,0,0
+standalone-race-0-clean-traffic,GOLD,1,7,9.260,208.200,0,0
+standalone-race-0-clean-traffic,BLUE,1,6,10.240,211.940,0,0
+standalone-race-0-clean-traffic,GOLD,1,8,8.780,216.980,0,0
+standalone-race-0-clean-traffic,EMBER,1,6,10.540,217.480,0,0
+standalone-race-0-clean-traffic,YOU reference pilot,1,6,10.280,218.480,0,0
+standalone-race-0-clean-traffic,BLUE,1,7,9.800,221.740,0,0
+standalone-race-0-clean-traffic,GOLD,1,9,7.500,224.480,0,0
+standalone-race-0-clean-traffic,EMBER,1,7,9.500,226.980,0,0
+standalone-race-0-clean-traffic,YOU reference pilot,1,7,9.500,227.980,0,0
+standalone-race-0-clean-traffic,GOLD,1,10,7.020,231.500,0,0
+standalone-race-0-clean-traffic,BLUE,1,8,9.760,231.500,0,0
+standalone-race-0-clean-traffic,EMBER,1,8,8.760,235.740,0,0
+standalone-race-0-clean-traffic,YOU reference pilot,1,8,9.020,237.000,0,0
+standalone-race-0-clean-traffic,GOLD,1,11,6.240,237.740,0,0
+standalone-race-0-clean-traffic,BLUE,1,9,8.500,240.000,0,0
+standalone-race-0-clean-traffic,EMBER,1,9,8.540,244.280,0,0
+standalone-race-0-clean-traffic,YOU reference pilot,1,9,8.280,245.280,0,0
+standalone-race-0-clean-traffic,GOLD,1,12,8.300,246.040,0,0
+standalone-race-0-clean-traffic,BLUE,1,10,7.300,247.300,0,0
+standalone-race-0-clean-traffic,GOLD,1,13,4.760,250.800,0,0
+standalone-race-0-clean-traffic,EMBER,1,10,7.280,251.560,0,0
+standalone-race-0-clean-traffic,YOU reference pilot,1,10,7.280,252.560,0,0
+standalone-race-0-clean-traffic,BLUE,1,11,6.520,253.820,0,0
+standalone-race-0-clean-traffic,GOLD,1,14,4.520,255.320,0,0
+standalone-race-0-clean-traffic,EMBER,1,11,6.780,258.340,0,0
+standalone-race-0-clean-traffic,YOU reference pilot,1,11,6.780,259.340,0,0
+standalone-race-0-clean-traffic,GOLD,1,15,4.520,259.840,0,0
+standalone-race-0-clean-traffic,BLUE,1,12,8.540,262.360,0,0
+standalone-race-0-clean-traffic,GOLD,1,16,6.040,265.880,0,0
+standalone-race-0-clean-traffic,BLUE,1,13,4.860,267.220,0,0
+standalone-race-0-clean-traffic,EMBER,1,12,9.380,267.720,0,0
+standalone-race-0-clean-traffic,YOU reference pilot,1,12,9.660,269.000,0,0
+standalone-race-0-clean-traffic,GOLD,1,17,6.140,272.020,0,0
+standalone-race-0-clean-traffic,BLUE,1,14,4.800,272.020,0,0
+standalone-race-0-clean-traffic,EMBER,1,13,5.560,273.280,0,0
+standalone-race-0-clean-traffic,YOU reference pilot,1,13,5.540,274.540,0,0
+standalone-race-0-clean-traffic,GOLD,1,18,4.780,276.800,0,0
+standalone-race-0-clean-traffic,BLUE,1,15,5.040,277.060,0,0
+standalone-race-0-clean-traffic,EMBER,1,14,5.280,278.560,0,0
+standalone-race-0-clean-traffic,YOU reference pilot,1,14,5.760,280.300,0,0
+standalone-race-0-clean-traffic,GOLD,1,19,5.260,282.060,0,0
+standalone-race-0-clean-traffic,BLUE,1,16,6.500,283.560,0,0
+standalone-race-0-clean-traffic,EMBER,1,15,5.780,284.340,0,0
+standalone-race-0-clean-traffic,YOU reference pilot,1,15,5.540,285.840,0,0
+standalone-race-0-clean-traffic,BLUE,1,17,6.540,290.100,0,0
+standalone-race-0-clean-traffic,GOLD,1,0,9.040,291.100,0,0
+standalone-race-0-clean-traffic,EMBER,1,16,7.020,291.360,0,0
+standalone-race-0-clean-traffic,YOU reference pilot,1,16,6.760,292.600,0,0
+standalone-race-0-clean-traffic,BLUE,1,18,4.760,294.860,0,0
+standalone-race-0-clean-traffic,EMBER,1,17,7.500,298.860,0,0
+standalone-race-0-clean-traffic,YOU reference pilot,1,17,7.260,299.860,0,0
+standalone-race-0-clean-traffic,BLUE,1,19,5.240,300.100,0,0
+standalone-race-0-clean-traffic,GOLD,2,1,9.260,300.360,0,0
+standalone-race-0-clean-traffic,EMBER,1,18,5.260,304.120,0,0
+standalone-race-0-clean-traffic,YOU reference pilot,1,18,5.760,305.620,0,0
+standalone-race-0-clean-traffic,GOLD,2,2,8.500,308.860,0,0
+standalone-race-0-clean-traffic,BLUE,1,0,9.780,309.880,0,0
+standalone-race-0-clean-traffic,EMBER,1,19,6.000,310.120,0,0
+standalone-race-0-clean-traffic,YOU reference pilot,1,19,6.000,311.620,0,0
+standalone-race-0-clean-traffic,GOLD,2,3,8.020,316.880,0,0
+standalone-race-0-clean-traffic,BLUE,2,1,9.000,318.880,0,0
+standalone-race-0-clean-traffic,EMBER,1,0,10.500,320.620,0,0
+standalone-race-0-clean-traffic,YOU reference pilot,1,0,10.780,322.400,0,0
+standalone-race-0-clean-traffic,GOLD,2,4,9.580,326.460,0,0
+standalone-race-0-clean-traffic,BLUE,2,2,9.080,327.960,0,0
+standalone-race-0-clean-traffic,EMBER,2,1,9.200,329.820,0,0
+standalone-race-0-clean-traffic,YOU reference pilot,2,1,9.160,331.560,0,0
+standalone-race-0-clean-traffic,GOLD,2,5,7.160,333.620,0,0
+standalone-race-0-clean-traffic,BLUE,2,3,8.680,336.640,0,0
+standalone-race-0-clean-traffic,EMBER,2,2,9.380,339.200,0,0
+standalone-race-0-clean-traffic,YOU reference pilot,2,2,9.160,340.720,0,0
+standalone-race-0-clean-traffic,GOLD,2,6,9.380,343.000,0,0
+standalone-race-0-clean-traffic,BLUE,2,4,8.880,345.520,0,0
+standalone-race-0-clean-traffic,EMBER,2,3,8.320,347.520,0,0
+standalone-race-0-clean-traffic,YOU reference pilot,2,3,8.320,349.040,0,0
+standalone-race-0-clean-traffic,GOLD,2,7,9.300,352.300,0,0
+standalone-race-0-clean-traffic,BLUE,2,5,7.520,353.040,0,0
+standalone-race-0-clean-traffic,EMBER,2,4,8.800,356.320,0,0
+standalone-race-0-clean-traffic,YOU reference pilot,2,4,8.800,357.840,0,0
+standalone-race-0-clean-traffic,GOLD,2,8,8.560,360.860,0,0
+standalone-race-0-clean-traffic,BLUE,2,6,10.120,363.160,0,0
+standalone-race-0-clean-traffic,EMBER,2,5,7.600,363.920,0,0
+standalone-race-0-clean-traffic,YOU reference pilot,2,5,7.620,365.460,0,0
+standalone-race-0-clean-traffic,GOLD,2,9,7.400,368.260,0,0
+standalone-race-0-clean-traffic,BLUE,2,7,9.900,373.060,0,0
+standalone-race-0-clean-traffic,EMBER,2,6,10.400,374.320,0,0
+standalone-race-0-clean-traffic,GOLD,2,10,7.060,375.320,0,0
+standalone-race-0-clean-traffic,YOU reference pilot,2,6,10.360,375.820,0,0
+standalone-race-0-clean-traffic,GOLD,2,11,6.280,381.600,0,0
+standalone-race-0-clean-traffic,BLUE,2,8,9.780,382.840,0,0
+standalone-race-0-clean-traffic,EMBER,2,7,9.540,383.860,0,0
+standalone-race-0-clean-traffic,YOU reference pilot,2,7,9.320,385.140,0,0
+standalone-race-0-clean-traffic,GOLD,2,12,8.300,389.900,0,0
+standalone-race-0-clean-traffic,BLUE,2,9,8.560,391.400,0,0
+standalone-race-0-clean-traffic,EMBER,2,8,9.040,392.900,0,0
+standalone-race-0-clean-traffic,YOU reference pilot,2,8,9.020,394.160,0,0
+standalone-race-0-clean-traffic,GOLD,2,13,4.500,394.400,0,0
+standalone-race-0-clean-traffic,BLUE,2,10,7.280,398.680,0,0
+standalone-race-0-clean-traffic,GOLD,2,14,4.520,398.920,0,0
+standalone-race-0-clean-traffic,EMBER,2,9,8.280,401.180,0,0
+standalone-race-0-clean-traffic,YOU reference pilot,2,9,8.020,402.180,0,0
+standalone-race-0-clean-traffic,GOLD,2,15,4.280,403.200,0,0
+standalone-race-0-clean-traffic,BLUE,2,11,6.280,404.960,0,0
+standalone-race-0-clean-traffic,EMBER,2,10,7.300,408.480,0,0
+standalone-race-0-clean-traffic,GOLD,2,16,6.040,409.240,0,0
+standalone-race-0-clean-traffic,YOU reference pilot,2,10,7.560,409.740,0,0
+standalone-race-0-clean-traffic,BLUE,2,12,8.780,413.740,0,0
+standalone-race-0-clean-traffic,EMBER,2,11,6.780,415.260,0,0
+standalone-race-0-clean-traffic,GOLD,2,17,6.280,415.520,0,0
+standalone-race-0-clean-traffic,YOU reference pilot,2,11,6.540,416.280,0,0
+standalone-race-0-clean-traffic,BLUE,2,13,4.800,418.540,0,0
+standalone-race-0-clean-traffic,GOLD,2,18,4.760,420.280,0,0
+standalone-race-0-clean-traffic,BLUE,2,14,4.780,423.320,0,0
+standalone-race-0-clean-traffic,EMBER,2,12,9.560,424.820,0,0
+standalone-race-0-clean-traffic,GOLD,2,19,5.040,425.320,0,0
+standalone-race-0-clean-traffic,YOU reference pilot,2,12,9.800,426.080,0,0
+standalone-race-0-clean-traffic,BLUE,2,15,4.760,428.080,0,0
+standalone-race-0-clean-traffic,EMBER,2,13,5.280,430.100,0,0
+standalone-race-0-clean-traffic,YOU reference pilot,2,13,5.520,431.600,0,0
+standalone-race-0-clean-traffic,BLUE,2,16,6.280,434.360,0,0
+standalone-race-0-clean-traffic,GOLD,2,0,9.300,434.620,0,0
+standalone-race-0-clean-traffic,YOU reference pilot,2,14,6.860,438.460,0,0
+standalone-race-0-clean-traffic,BLUE,2,17,6.600,440.960,0,0
+standalone-race-0-clean-traffic,EMBER,2,14,14.380,444.480,0,0
+standalone-race-0-clean-traffic,YOU reference pilot,2,15,6.780,445.240,0,0
+standalone-race-0-clean-traffic,BLUE,2,18,4.780,445.740,0,0
+standalone-race-0-clean-traffic,EMBER,2,15,5.760,450.240,0,0
+standalone-race-0-clean-traffic,BLUE,2,19,5.500,451.240,0,0
+standalone-race-0-clean-traffic,YOU reference pilot,2,16,7.000,452.240,0,0
+standalone-race-0-clean-traffic,EMBER,2,16,7.260,457.500,0,0
+standalone-race-0-clean-traffic,YOU reference pilot,2,17,7.280,459.520,0,0
+standalone-race-0-clean-traffic,BLUE,2,0,9.780,461.020,0,0
+standalone-race-0-clean-traffic,YOU reference pilot,2,18,5.260,464.780,0,0
+standalone-race-0-clean-traffic,EMBER,2,17,7.280,464.780,0,0
+standalone-race-0-clean-traffic,EMBER,2,18,5.260,470.040,0,0
+standalone-race-0-clean-traffic,YOU reference pilot,2,19,6.000,470.780,0,0
+standalone-race-0-clean-traffic,EMBER,2,19,6.000,476.040,0,0
+standalone-race-0-clean-traffic,YOU reference pilot,2,0,10.760,481.540,0,0
+standalone-race-0-mistake-traffic,BLUE,0,0,1.258,4.260,0,0
+standalone-race-0-mistake-traffic,GOLD,0,0,1.758,4.760,0,0
+standalone-race-0-mistake-traffic,EMBER,0,0,2.258,5.260,0,0
+standalone-race-0-mistake-traffic,YOU reference pilot,0,0,2.758,5.760,0,0
+standalone-race-0-mistake-traffic,BLUE,0,1,9.500,13.760,0,0
+standalone-race-0-mistake-traffic,GOLD,0,1,9.240,14.000,0,0
+standalone-race-0-mistake-traffic,EMBER,0,1,9.500,14.760,0,0
+standalone-race-0-mistake-traffic,YOU reference pilot,0,1,9.260,15.020,0,0
+standalone-race-0-mistake-traffic,BLUE,0,2,9.020,22.780,0,0
+standalone-race-0-mistake-traffic,GOLD,0,2,9.020,23.020,0,0
+standalone-race-0-mistake-traffic,EMBER,0,2,9.280,24.040,0,0
+standalone-race-0-mistake-traffic,YOU reference pilot,0,2,9.260,24.280,0,0
+standalone-race-0-mistake-traffic,GOLD,0,3,8.060,31.080,0,0
+standalone-race-0-mistake-traffic,BLUE,0,3,8.560,31.340,0,0
+standalone-race-0-mistake-traffic,EMBER,0,3,8.300,32.340,0,0
+standalone-race-0-mistake-traffic,YOU reference pilot,0,3,8.560,32.840,0,0
+standalone-race-0-mistake-traffic,GOLD,0,4,8.760,39.840,0,0
+standalone-race-0-mistake-traffic,BLUE,0,4,9.000,40.340,0,0
+standalone-race-0-mistake-traffic,EMBER,0,4,9.000,41.340,0,0
+standalone-race-0-mistake-traffic,YOU reference pilot,0,4,8.760,41.600,0,0
+standalone-race-0-mistake-traffic,GOLD,0,5,7.060,46.900,0,0
+standalone-race-0-mistake-traffic,BLUE,0,5,7.560,47.900,0,0
+standalone-race-0-mistake-traffic,EMBER,0,5,7.600,48.940,0,0
+standalone-race-0-mistake-traffic,YOU reference pilot,0,5,7.840,49.440,0,0
+standalone-race-0-mistake-traffic,GOLD,0,6,9.360,56.260,0,0
+standalone-race-0-mistake-traffic,BLUE,0,6,10.120,58.020,0,0
+standalone-race-0-mistake-traffic,EMBER,0,6,10.580,59.520,0,0
+standalone-race-0-mistake-traffic,YOU reference pilot,0,6,10.600,60.040,0,0
+standalone-race-0-mistake-traffic,GOLD,0,7,9.280,65.540,0,0
+standalone-race-0-mistake-traffic,BLUE,0,7,10.020,68.040,0,0
+standalone-race-0-mistake-traffic,EMBER,0,7,9.520,69.040,0,0
+standalone-race-0-mistake-traffic,YOU reference pilot,0,7,12.460,72.500,0,0
+standalone-race-0-mistake-traffic,GOLD,0,8,8.460,74.000,0,0
+standalone-race-0-mistake-traffic,EMBER,0,8,8.720,77.760,0,0
+standalone-race-0-mistake-traffic,BLUE,0,8,9.720,77.760,0,0
+standalone-race-0-mistake-traffic,GOLD,0,9,7.760,81.760,0,0
+standalone-race-0-mistake-traffic,YOU reference pilot,0,8,10.000,82.500,0,0
+standalone-race-0-mistake-traffic,EMBER,0,9,8.500,86.260,0,0
+standalone-race-0-mistake-traffic,BLUE,0,9,8.500,86.260,0,0
+standalone-race-0-mistake-traffic,GOLD,0,10,6.760,88.520,0,0
+standalone-race-0-mistake-traffic,YOU reference pilot,0,9,8.260,90.760,0,0
+standalone-race-0-mistake-traffic,EMBER,0,10,7.260,93.520,0,0
+standalone-race-0-mistake-traffic,BLUE,0,10,7.260,93.520,0,0
+standalone-race-0-mistake-traffic,GOLD,0,11,6.260,94.780,0,0
+standalone-race-0-mistake-traffic,YOU reference pilot,0,10,7.520,98.280,0,0
+standalone-race-0-mistake-traffic,EMBER,0,11,7.260,100.780,0,0
+standalone-race-0-mistake-traffic,BLUE,0,11,7.500,101.020,0,0
+standalone-race-0-mistake-traffic,GOLD,0,12,8.500,103.280,0,0
+standalone-race-0-mistake-traffic,YOU reference pilot,0,11,6.540,104.820,0,0
+standalone-race-0-mistake-traffic,GOLD,0,13,4.540,107.820,0,0
+standalone-race-0-mistake-traffic,EMBER,0,12,9.560,110.340,0,0
+standalone-race-0-mistake-traffic,BLUE,0,12,9.320,110.340,0,0
+standalone-race-0-mistake-traffic,GOLD,0,14,4.580,112.400,0,0
+standalone-race-0-mistake-traffic,YOU reference pilot,0,12,9.700,114.520,0,0
+standalone-race-0-mistake-traffic,EMBER,0,13,5.460,115.800,0,0
+standalone-race-0-mistake-traffic,BLUE,0,13,5.460,115.800,0,0
+standalone-race-0-mistake-traffic,GOLD,0,15,4.680,117.080,0,0
+standalone-race-0-mistake-traffic,YOU reference pilot,0,13,5.560,120.080,0,0
+standalone-race-0-mistake-traffic,BLUE,0,14,5.540,121.340,0,0
+standalone-race-0-mistake-traffic,EMBER,0,14,6.060,121.860,0,0
+standalone-race-0-mistake-traffic,GOLD,0,16,6.060,123.140,0,0
+standalone-race-0-mistake-traffic,YOU reference pilot,0,14,5.320,125.400,0,0
+standalone-race-0-mistake-traffic,BLUE,0,15,4.840,126.180,0,0
+standalone-race-0-mistake-traffic,EMBER,0,15,5.580,127.440,0,0
+standalone-race-0-mistake-traffic,GOLD,0,17,6.320,129.460,0,0
+standalone-race-0-mistake-traffic,YOU reference pilot,0,15,5.320,130.720,0,0
+standalone-race-0-mistake-traffic,BLUE,0,16,6.280,132.460,0,0
+standalone-race-0-mistake-traffic,GOLD,0,18,4.260,133.720,0,0
+standalone-race-0-mistake-traffic,EMBER,0,16,7.020,134.460,0,0
+standalone-race-0-mistake-traffic,YOU reference pilot,0,16,7.000,137.720,0,0
+standalone-race-0-mistake-traffic,GOLD,0,19,5.260,138.980,0,0
+standalone-race-0-mistake-traffic,BLUE,0,17,6.520,138.980,0,0
+standalone-race-0-mistake-traffic,EMBER,0,17,7.280,141.740,0,0
+standalone-race-0-mistake-traffic,BLUE,0,18,4.840,143.820,0,0
+standalone-race-0-mistake-traffic,YOU reference pilot,0,17,7.400,145.120,0,0
+standalone-race-0-mistake-traffic,EMBER,0,18,5.660,147.400,0,0
+standalone-race-0-mistake-traffic,GOLD,0,0,9.200,148.180,0,0
+standalone-race-0-mistake-traffic,BLUE,0,19,5.640,149.460,0,0
+standalone-race-0-mistake-traffic,YOU reference pilot,0,18,5.580,150.700,0,0
+standalone-race-0-mistake-traffic,EMBER,0,19,6.120,153.520,0,0
+standalone-race-0-mistake-traffic,YOU reference pilot,0,19,6.120,156.820,0,0
+standalone-race-0-mistake-traffic,GOLD,1,1,9.140,157.320,0,0
+standalone-race-0-mistake-traffic,BLUE,0,0,9.600,159.060,0,0
+standalone-race-0-mistake-traffic,EMBER,0,0,10.580,164.100,0,0
+standalone-race-0-mistake-traffic,GOLD,1,2,8.520,165.840,0,0
+standalone-race-0-mistake-traffic,YOU reference pilot,0,0,10.580,167.400,0,0
+standalone-race-0-mistake-traffic,BLUE,1,1,9.100,168.160,0,0
+standalone-race-0-mistake-traffic,EMBER,1,1,9.320,173.420,0,0
+standalone-race-0-mistake-traffic,GOLD,1,3,8.080,173.920,0,0
+standalone-race-0-mistake-traffic,YOU reference pilot,1,1,9.040,176.440,0,0
+standalone-race-0-mistake-traffic,BLUE,1,2,9.280,177.440,0,0
+standalone-race-0-mistake-traffic,EMBER,1,2,9.280,182.700,0,0
+standalone-race-0-mistake-traffic,GOLD,1,4,8.780,182.700,0,0
+standalone-race-0-mistake-traffic,YOU reference pilot,1,2,9.320,185.760,0,0
+standalone-race-0-mistake-traffic,BLUE,1,3,8.580,186.020,0,0
+standalone-race-0-mistake-traffic,GOLD,1,5,6.840,189.540,0,0
+standalone-race-0-mistake-traffic,EMBER,1,3,8.340,191.040,0,0
+standalone-race-0-mistake-traffic,YOU reference pilot,1,3,8.320,194.080,0,0
+standalone-race-0-mistake-traffic,BLUE,1,4,8.820,194.840,0,0
+standalone-race-0-mistake-traffic,GOLD,1,6,9.560,199.100,0,0
+standalone-race-0-mistake-traffic,EMBER,1,4,8.800,199.840,0,0
+standalone-race-0-mistake-traffic,BLUE,1,5,7.520,202.360,0,0
+standalone-race-0-mistake-traffic,YOU reference pilot,1,4,8.780,202.860,0,0
+standalone-race-0-mistake-traffic,EMBER,1,5,7.280,207.120,0,0
+standalone-race-0-mistake-traffic,GOLD,1,7,9.280,208.380,0,0
+standalone-race-0-mistake-traffic,YOU reference pilot,1,5,7.520,210.380,0,0
+standalone-race-0-mistake-traffic,BLUE,1,6,10.020,212.380,0,0
+standalone-race-0-mistake-traffic,GOLD,1,8,8.520,216.900,0,0
+standalone-race-0-mistake-traffic,EMBER,1,6,10.800,217.920,0,0
+standalone-race-0-mistake-traffic,YOU reference pilot,1,6,10.380,220.760,0,0
+standalone-race-0-mistake-traffic,BLUE,1,7,10.140,222.520,0,0
+standalone-race-0-mistake-traffic,GOLD,1,9,7.620,224.520,0,0
+standalone-race-0-mistake-traffic,EMBER,1,7,9.380,227.300,0,0
+standalone-race-0-mistake-traffic,YOU reference pilot,1,7,9.560,230.320,0,0
+standalone-race-0-mistake-traffic,GOLD,1,10,7.040,231.560,0,0
+standalone-race-0-mistake-traffic,BLUE,1,8,9.800,232.320,0,0
+standalone-race-0-mistake-traffic,EMBER,1,8,9.020,236.320,0,0
+standalone-race-0-mistake-traffic,GOLD,1,11,6.000,237.560,0,0
+standalone-race-0-mistake-traffic,YOU reference pilot,1,8,8.740,239.060,0,0
+standalone-race-0-mistake-traffic,BLUE,1,9,8.500,240.820,0,0
+standalone-race-0-mistake-traffic,EMBER,1,9,8.260,244.580,0,0
+standalone-race-0-mistake-traffic,GOLD,1,12,8.520,246.080,0,0
+standalone-race-0-mistake-traffic,YOU reference pilot,1,9,8.280,247.340,0,0
+standalone-race-0-mistake-traffic,BLUE,1,10,7.260,248.080,0,0
+standalone-race-0-mistake-traffic,GOLD,1,13,4.760,250.840,0,0
+standalone-race-0-mistake-traffic,EMBER,1,10,7.500,252.080,0,0
+standalone-race-0-mistake-traffic,BLUE,1,11,6.260,254.340,0,0
+standalone-race-0-mistake-traffic,GOLD,1,14,4.500,255.340,0,0
+standalone-race-0-mistake-traffic,YOU reference pilot,1,10,9.000,256.340,0,0
+standalone-race-0-mistake-traffic,EMBER,1,11,6.500,258.580,0,0
+standalone-race-0-mistake-traffic,GOLD,1,15,4.500,259.840,0,0
+standalone-race-0-mistake-traffic,YOU reference pilot,1,11,6.520,262.860,0,0
+standalone-race-0-mistake-traffic,BLUE,1,12,8.780,263.120,0,0
+standalone-race-0-mistake-traffic,GOLD,1,16,6.040,265.880,0,0
+standalone-race-0-mistake-traffic,BLUE,1,13,4.760,267.880,0,0
+standalone-race-0-mistake-traffic,EMBER,1,12,9.540,268.120,0,0
+standalone-race-0-mistake-traffic,GOLD,1,17,6.260,272.140,0,0
+standalone-race-0-mistake-traffic,YOU reference pilot,1,12,9.520,272.380,0,0
+standalone-race-0-mistake-traffic,BLUE,1,14,5.000,272.880,0,0
+standalone-race-0-mistake-traffic,EMBER,1,13,5.520,273.640,0,0
+standalone-race-0-mistake-traffic,GOLD,1,18,4.540,276.680,0,0
+standalone-race-0-mistake-traffic,YOU reference pilot,1,13,5.540,277.920,0,0
+standalone-race-0-mistake-traffic,BLUE,1,15,5.040,277.920,0,0
+standalone-race-0-mistake-traffic,GOLD,1,19,5.260,281.940,0,0
+standalone-race-0-mistake-traffic,EMBER,1,14,9.040,282.680,0,0
+standalone-race-0-mistake-traffic,YOU reference pilot,1,14,5.760,283.680,0,0
+standalone-race-0-mistake-traffic,BLUE,1,16,6.260,284.180,0,0
+standalone-race-0-mistake-traffic,EMBER,1,15,5.500,288.180,0,0
+standalone-race-0-mistake-traffic,YOU reference pilot,1,15,5.500,289.180,0,0
+standalone-race-0-mistake-traffic,BLUE,1,17,6.500,290.680,0,0
+standalone-race-0-mistake-traffic,GOLD,1,0,9.260,291.200,0,0
+standalone-race-0-mistake-traffic,EMBER,1,16,7.280,295.460,0,0
+standalone-race-0-mistake-traffic,BLUE,1,18,4.780,295.460,0,0
+standalone-race-0-mistake-traffic,YOU reference pilot,1,16,6.780,295.960,0,0
+standalone-race-0-mistake-traffic,GOLD,2,1,9.020,300.220,0,0
+standalone-race-0-mistake-traffic,BLUE,1,19,5.260,300.720,0,0
+standalone-race-0-mistake-traffic,EMBER,1,17,7.260,302.720,0,0
+standalone-race-0-mistake-traffic,YOU reference pilot,1,17,7.500,303.460,0,0
+standalone-race-0-mistake-traffic,EMBER,1,18,5.260,307.980,0,0
+standalone-race-0-mistake-traffic,YOU reference pilot,1,18,5.520,308.980,0,0
+standalone-race-0-mistake-traffic,GOLD,2,2,8.760,308.980,0,0
+standalone-race-0-mistake-traffic,BLUE,1,0,9.760,310.480,0,0
+standalone-race-0-mistake-traffic,EMBER,1,19,6.260,314.240,0,0
+standalone-race-0-mistake-traffic,YOU reference pilot,1,19,6.260,315.240,0,0
+standalone-race-0-mistake-traffic,GOLD,2,3,8.000,316.980,0,0
+standalone-race-0-mistake-traffic,BLUE,2,1,9.260,319.740,0,0
+standalone-race-0-mistake-traffic,EMBER,1,0,10.500,324.740,0,0
+standalone-race-0-mistake-traffic,YOU reference pilot,1,0,10.740,325.980,0,0
+standalone-race-0-mistake-traffic,GOLD,2,4,9.520,326.500,0,0
+standalone-race-0-mistake-traffic,BLUE,2,2,9.000,328.740,0,0
+standalone-race-0-mistake-traffic,GOLD,2,5,7.020,333.520,0,0
+standalone-race-0-mistake-traffic,EMBER,2,1,9.280,334.020,0,0
+standalone-race-0-mistake-traffic,YOU reference pilot,2,1,9.280,335.260,0,0
+standalone-race-0-mistake-traffic,BLUE,2,3,8.520,337.260,0,0
+standalone-race-0-mistake-traffic,GOLD,2,6,9.500,343.020,0,0
+standalone-race-0-mistake-traffic,EMBER,2,2,9.240,343.260,0,0
+standalone-race-0-mistake-traffic,YOU reference pilot,2,2,9.260,344.520,0,0
+standalone-race-0-mistake-traffic,BLUE,2,4,9.020,346.280,0,0
+standalone-race-0-mistake-traffic,EMBER,2,3,8.320,351.580,0,0
+standalone-race-0-mistake-traffic,GOLD,2,7,9.060,352.080,0,0
+standalone-race-0-mistake-traffic,YOU reference pilot,2,3,8.300,352.820,0,0
+standalone-race-0-mistake-traffic,BLUE,2,5,7.540,353.820,0,0
+standalone-race-0-mistake-traffic,EMBER,2,4,8.980,360.560,0,0
+standalone-race-0-mistake-traffic,GOLD,2,8,8.720,360.800,0,0
+standalone-race-0-mistake-traffic,YOU reference pilot,2,4,8.800,361.620,0,0
+standalone-race-0-mistake-traffic,BLUE,2,6,10.080,363.900,0,0
+standalone-race-0-mistake-traffic,EMBER,2,5,7.420,367.980,0,0
+standalone-race-0-mistake-traffic,GOLD,2,9,7.700,368.500,0,0
+standalone-race-0-mistake-traffic,YOU reference pilot,2,5,7.620,369.240,0,0
+standalone-race-0-mistake-traffic,BLUE,2,7,11.160,375.060,0,0
+standalone-race-0-mistake-traffic,GOLD,2,10,6.820,375.320,0,0
+standalone-race-0-mistake-traffic,EMBER,2,6,10.620,378.600,0,0
+standalone-race-0-mistake-traffic,YOU reference pilot,2,6,10.360,379.600,0,0
+standalone-race-0-mistake-traffic,GOLD,2,11,6.300,381.620,0,0
+standalone-race-0-mistake-traffic,BLUE,2,8,9.840,384.900,0,0
+standalone-race-0-mistake-traffic,EMBER,2,7,9.340,387.940,0,0
+standalone-race-0-mistake-traffic,YOU reference pilot,2,7,9.600,389.200,0,0
+standalone-race-0-mistake-traffic,GOLD,2,12,8.340,389.960,0,0
+standalone-race-0-mistake-traffic,BLUE,2,9,8.580,393.480,0,0
+standalone-race-0-mistake-traffic,GOLD,2,13,4.540,394.500,0,0
+standalone-race-0-mistake-traffic,EMBER,2,8,8.840,396.780,0,0
+standalone-race-0-mistake-traffic,YOU reference pilot,2,8,8.840,398.040,0,0
+standalone-race-0-mistake-traffic,GOLD,2,14,4.300,398.800,0,0
+standalone-race-0-mistake-traffic,BLUE,2,10,7.320,400.800,0,0
+standalone-race-0-mistake-traffic,GOLD,2,15,4.520,403.320,0,0
+standalone-race-0-mistake-traffic,EMBER,2,9,8.400,405.180,0,0
+standalone-race-0-mistake-traffic,YOU reference pilot,2,9,8.400,406.440,0,0
+standalone-race-0-mistake-traffic,BLUE,2,11,6.160,406.960,0,0
+standalone-race-0-mistake-traffic,GOLD,2,16,5.960,409.280,0,0
+standalone-race-0-mistake-traffic,EMBER,2,10,7.420,412.600,0,0
+standalone-race-0-mistake-traffic,YOU reference pilot,2,10,7.420,413.860,0,0
+standalone-race-0-mistake-traffic,GOLD,2,17,6.380,415.660,0,0
+standalone-race-0-mistake-traffic,BLUE,2,12,8.700,415.660,0,0
+standalone-race-0-mistake-traffic,EMBER,2,11,6.660,419.260,0,0
+standalone-race-0-mistake-traffic,GOLD,2,18,4.600,420.260,0,0
+standalone-race-0-mistake-traffic,YOU reference pilot,2,11,6.660,420.520,0,0
+standalone-race-0-mistake-traffic,BLUE,2,13,4.860,420.520,0,0
+standalone-race-0-mistake-traffic,GOLD,2,19,5.060,425.320,0,0
+standalone-race-0-mistake-traffic,BLUE,2,14,4.800,425.320,0,0
+standalone-race-0-mistake-traffic,EMBER,2,12,9.640,428.900,0,0
+standalone-race-0-mistake-traffic,BLUE,2,15,4.600,429.920,0,0
+standalone-race-0-mistake-traffic,YOU reference pilot,2,12,9.680,430.200,0,0
+standalone-race-0-mistake-traffic,EMBER,2,13,5.380,434.280,0,0
+standalone-race-0-mistake-traffic,GOLD,2,0,9.200,434.520,0,0
+standalone-race-0-mistake-traffic,YOU reference pilot,2,13,5.600,435.800,0,0
+standalone-race-0-mistake-traffic,BLUE,2,16,6.380,436.300,0,0
+standalone-race-0-mistake-traffic,EMBER,2,14,5.560,439.840,0,0
+standalone-race-0-mistake-traffic,YOU reference pilot,2,14,5.540,441.340,0,0
+standalone-race-0-mistake-traffic,BLUE,2,17,6.560,442.860,0,0
+standalone-race-0-mistake-traffic,EMBER,2,15,5.520,445.360,0,0
+standalone-race-0-mistake-traffic,YOU reference pilot,2,15,5.520,446.860,0,0
+standalone-race-0-mistake-traffic,BLUE,2,18,5.000,447.860,0,0
+standalone-race-0-mistake-traffic,EMBER,2,16,7.260,452.620,0,0
+standalone-race-0-mistake-traffic,BLUE,2,19,5.260,453.120,0,0
+standalone-race-0-mistake-traffic,YOU reference pilot,2,16,7.000,453.860,0,0
+standalone-race-0-mistake-traffic,EMBER,2,17,7.280,459.900,0,0
+standalone-race-0-mistake-traffic,YOU reference pilot,2,17,7.280,461.140,0,0
+standalone-race-0-mistake-traffic,BLUE,2,0,9.780,462.900,0,0
+standalone-race-0-mistake-traffic,EMBER,2,18,5.260,465.160,0,0
+standalone-race-0-mistake-traffic,YOU reference pilot,2,18,5.520,466.660,0,0
+standalone-race-0-mistake-traffic,EMBER,2,19,6.060,471.220,0,0
+standalone-race-0-mistake-traffic,YOU reference pilot,2,19,6.080,472.740,0,0
+standalone-race-0-mistake-traffic,EMBER,2,0,10.660,481.880,0,0
+standalone-race-1-clean-traffic,BLUE,0,0,1.259,4.260,0,0
+standalone-race-1-clean-traffic,GOLD,0,0,1.759,4.760,0,0
+standalone-race-1-clean-traffic,EMBER,0,0,2.259,5.260,0,0
+standalone-race-1-clean-traffic,YOU reference pilot,0,0,2.759,5.760,0,0
+standalone-race-1-clean-traffic,BLUE,0,1,8.740,13.000,0,0
+standalone-race-1-clean-traffic,GOLD,0,1,8.500,13.260,0,0
+standalone-race-1-clean-traffic,EMBER,0,1,8.740,14.000,0,0
+standalone-race-1-clean-traffic,YOU reference pilot,0,1,8.500,14.260,0,0
+standalone-race-1-clean-traffic,BLUE,0,2,8.280,21.280,0,0
+standalone-race-1-clean-traffic,GOLD,0,2,8.260,21.520,0,0
+standalone-race-1-clean-traffic,EMBER,0,2,8.280,22.280,0,0
+standalone-race-1-clean-traffic,YOU reference pilot,0,2,8.260,22.520,0,0
+standalone-race-1-clean-traffic,GOLD,0,3,7.500,29.020,0,0
+standalone-race-1-clean-traffic,BLUE,0,3,8.240,29.520,0,0
+standalone-race-1-clean-traffic,EMBER,0,3,7.740,30.020,0,0
+standalone-race-1-clean-traffic,YOU reference pilot,0,3,7.760,30.280,0,0
+standalone-race-1-clean-traffic,GOLD,0,4,8.020,37.040,0,0
+standalone-race-1-clean-traffic,BLUE,0,4,8.520,38.040,0,0
+standalone-race-1-clean-traffic,EMBER,0,4,8.260,38.280,0,0
+standalone-race-1-clean-traffic,YOU reference pilot,0,4,8.260,38.540,0,0
+standalone-race-1-clean-traffic,GOLD,0,5,6.520,43.560,0,0
+standalone-race-1-clean-traffic,BLUE,0,5,7.020,45.060,0,0
+standalone-race-1-clean-traffic,EMBER,0,5,7.020,45.300,0,0
+standalone-race-1-clean-traffic,YOU reference pilot,0,5,7.260,45.800,0,0
+standalone-race-1-clean-traffic,GOLD,0,6,8.520,52.080,0,0
+standalone-race-1-clean-traffic,BLUE,0,6,9.520,54.580,0,0
+standalone-race-1-clean-traffic,EMBER,0,6,9.780,55.080,0,0
+standalone-race-1-clean-traffic,YOU reference pilot,0,6,9.780,55.580,0,0
+standalone-race-1-clean-traffic,GOLD,0,7,8.740,60.820,0,0
+standalone-race-1-clean-traffic,BLUE,0,7,9.500,64.080,0,0
+standalone-race-1-clean-traffic,EMBER,0,7,9.240,64.320,0,0
+standalone-race-1-clean-traffic,YOU reference pilot,0,7,9.240,64.820,0,0
+standalone-race-1-clean-traffic,GOLD,0,8,8.000,68.820,0,0
+standalone-race-1-clean-traffic,EMBER,0,8,8.500,72.820,0,0
+standalone-race-1-clean-traffic,YOU reference pilot,0,8,8.260,73.080,0,0
+standalone-race-1-clean-traffic,BLUE,0,8,9.500,73.580,0,0
+standalone-race-1-clean-traffic,GOLD,0,9,7.000,75.820,0,0
+standalone-race-1-clean-traffic,EMBER,0,9,7.520,80.340,0,0
+standalone-race-1-clean-traffic,YOU reference pilot,0,9,7.500,80.580,0,0
+standalone-race-1-clean-traffic,BLUE,0,9,8.000,81.580,0,0
+standalone-race-1-clean-traffic,GOLD,0,10,6.520,82.340,0,0
+standalone-race-1-clean-traffic,EMBER,0,10,6.500,86.840,0,0
+standalone-race-1-clean-traffic,YOU reference pilot,0,10,6.760,87.340,0,0
+standalone-race-1-clean-traffic,GOLD,0,11,5.500,87.840,0,0
+standalone-race-1-clean-traffic,BLUE,0,10,6.760,88.340,0,0
+standalone-race-1-clean-traffic,EMBER,0,11,6.240,93.080,0,0
+standalone-race-1-clean-traffic,YOU reference pilot,0,11,6.500,93.840,0,0
+standalone-race-1-clean-traffic,BLUE,0,11,5.740,94.080,0,0
+standalone-race-1-clean-traffic,GOLD,0,12,7.740,95.580,0,0
+standalone-race-1-clean-traffic,GOLD,0,13,4.500,100.080,0,0
+standalone-race-1-clean-traffic,EMBER,0,12,9.000,102.080,0,0
+standalone-race-1-clean-traffic,YOU reference pilot,0,12,8.740,102.580,0,0
+standalone-race-1-clean-traffic,BLUE,0,12,8.760,102.840,0,0
+standalone-race-1-clean-traffic,GOLD,0,14,4.260,104.340,0,0
+standalone-race-1-clean-traffic,EMBER,0,13,5.260,107.340,0,0
+standalone-race-1-clean-traffic,YOU reference pilot,0,13,5.500,108.080,0,0
+standalone-race-1-clean-traffic,BLUE,0,13,5.240,108.080,0,0
+standalone-race-1-clean-traffic,GOLD,0,15,4.240,108.580,0,0
+standalone-race-1-clean-traffic,EMBER,0,14,5.000,112.340,0,0
+standalone-race-1-clean-traffic,GOLD,0,16,5.260,113.840,0,0
+standalone-race-1-clean-traffic,YOU reference pilot,0,14,9.020,117.100,0,0
+standalone-race-1-clean-traffic,BLUE,0,14,9.020,117.100,0,0
+standalone-race-1-clean-traffic,EMBER,0,15,5.000,117.340,0,0
+standalone-race-1-clean-traffic,GOLD,0,17,6.000,119.840,0,0
+standalone-race-1-clean-traffic,YOU reference pilot,0,15,5.240,122.340,0,0
+standalone-race-1-clean-traffic,BLUE,0,15,5.240,122.340,0,0
+standalone-race-1-clean-traffic,EMBER,0,16,6.260,123.600,0,0
+standalone-race-1-clean-traffic,GOLD,0,18,4.260,124.100,0,0
+standalone-race-1-clean-traffic,GOLD,0,19,4.740,128.840,0,0
+standalone-race-1-clean-traffic,YOU reference pilot,0,16,6.760,129.100,0,0
+standalone-race-1-clean-traffic,BLUE,0,16,7.260,129.600,0,0
+standalone-race-1-clean-traffic,EMBER,0,17,7.240,130.840,0,0
+standalone-race-1-clean-traffic,EMBER,0,18,5.000,135.840,0,0
+standalone-race-1-clean-traffic,YOU reference pilot,0,17,7.240,136.340,0,0
+standalone-race-1-clean-traffic,BLUE,0,17,6.740,136.340,0,0
+standalone-race-1-clean-traffic,GOLD,0,0,8.260,137.100,0,0
+standalone-race-1-clean-traffic,EMBER,0,19,5.260,141.100,0,0
+standalone-race-1-clean-traffic,YOU reference pilot,0,18,5.760,142.100,0,0
+standalone-race-1-clean-traffic,BLUE,0,18,6.000,142.340,0,0
+standalone-race-1-clean-traffic,GOLD,1,1,8.000,145.100,0,0
+standalone-race-1-clean-traffic,YOU reference pilot,0,19,5.740,147.840,0,0
+standalone-race-1-clean-traffic,BLUE,0,19,6.000,148.340,1,0
+standalone-race-1-clean-traffic,EMBER,0,0,9.800,150.900,0,0
+standalone-race-1-clean-traffic,GOLD,1,2,7.800,152.900,0,0
+standalone-race-1-clean-traffic,YOU reference pilot,0,0,10.080,157.920,0,0
+standalone-race-1-clean-traffic,EMBER,1,1,8.280,159.180,0,0
+standalone-race-1-clean-traffic,BLUE,0,0,10.840,159.180,1,0
+standalone-race-1-clean-traffic,GOLD,1,3,7.520,160.420,0,0
+standalone-race-1-clean-traffic,YOU reference pilot,1,1,8.260,166.180,0,0
+standalone-race-1-clean-traffic,EMBER,1,2,8.240,167.420,0,0
+standalone-race-1-clean-traffic,BLUE,1,1,8.240,167.420,1,0
+standalone-race-1-clean-traffic,GOLD,1,4,7.760,168.180,0,0
+standalone-race-1-clean-traffic,YOU reference pilot,1,2,8.240,174.420,0,0
+standalone-race-1-clean-traffic,EMBER,1,3,7.500,174.920,0,0
+standalone-race-1-clean-traffic,GOLD,1,5,6.740,174.920,0,0
+standalone-race-1-clean-traffic,BLUE,1,2,8.260,175.680,1,0
+standalone-race-1-clean-traffic,YOU reference pilot,1,3,7.760,182.180,0,0
+standalone-race-1-clean-traffic,EMBER,1,4,8.020,182.940,0,0
+standalone-race-1-clean-traffic,GOLD,1,6,8.520,183.440,0,0
+standalone-race-1-clean-traffic,BLUE,1,3,8.020,183.700,1,0
+standalone-race-1-clean-traffic,EMBER,1,5,7.000,189.940,0,0
+standalone-race-1-clean-traffic,YOU reference pilot,1,4,8.020,190.200,0,0
+standalone-race-1-clean-traffic,GOLD,1,7,8.760,192.200,0,0
+standalone-race-1-clean-traffic,BLUE,1,4,8.500,192.200,1,0
+standalone-race-1-clean-traffic,YOU reference pilot,1,5,7.000,197.200,0,0
+standalone-race-1-clean-traffic,BLUE,1,5,7.000,199.200,1,0
+standalone-race-1-clean-traffic,EMBER,1,6,9.780,199.720,0,0
+standalone-race-1-clean-traffic,GOLD,1,8,8.020,200.220,0,0
+standalone-race-1-clean-traffic,YOU reference pilot,1,6,9.520,206.720,0,0
+standalone-race-1-clean-traffic,GOLD,1,9,7.000,207.220,0,0
+standalone-race-1-clean-traffic,EMBER,1,7,9.000,208.720,0,0
+standalone-race-1-clean-traffic,BLUE,1,6,9.780,208.980,1,0
+standalone-race-1-clean-traffic,GOLD,1,10,6.300,213.520,0,0
+standalone-race-1-clean-traffic,YOU reference pilot,1,7,8.800,215.520,0,0
+standalone-race-1-clean-traffic,EMBER,1,8,8.300,217.020,0,0
+standalone-race-1-clean-traffic,BLUE,1,7,9.300,218.280,1,0
+standalone-race-1-clean-traffic,GOLD,1,11,5.760,219.280,0,0
+standalone-race-1-clean-traffic,YOU reference pilot,1,8,8.500,224.020,0,0
+standalone-race-1-clean-traffic,EMBER,1,9,7.500,224.520,0,0
+standalone-race-1-clean-traffic,GOLD,1,12,7.740,227.020,0,0
+standalone-race-1-clean-traffic,BLUE,1,8,9.500,227.780,1,0
+standalone-race-1-clean-traffic,EMBER,1,10,6.760,231.280,0,0
+standalone-race-1-clean-traffic,YOU reference pilot,1,9,7.500,231.520,0,0
+standalone-race-1-clean-traffic,GOLD,1,13,4.500,231.520,0,0
+standalone-race-1-clean-traffic,GOLD,1,14,4.020,235.540,0,0
+standalone-race-1-clean-traffic,BLUE,1,9,8.000,235.780,1,0
+standalone-race-1-clean-traffic,EMBER,1,11,6.260,237.540,0,0
+standalone-race-1-clean-traffic,YOU reference pilot,1,10,6.760,238.280,0,0
+standalone-race-1-clean-traffic,GOLD,1,15,4.240,239.780,0,0
+standalone-race-1-clean-traffic,BLUE,1,10,6.780,242.560,1,0
+standalone-race-1-clean-traffic,YOU reference pilot,1,11,6.300,244.580,0,0
+standalone-race-1-clean-traffic,GOLD,1,16,5.300,245.080,0,0
+standalone-race-1-clean-traffic,EMBER,1,12,8.800,246.340,0,0
+standalone-race-1-clean-traffic,BLUE,1,11,5.780,248.340,1,0
+standalone-race-1-clean-traffic,GOLD,1,17,6.000,251.080,0,0
+standalone-race-1-clean-traffic,EMBER,1,13,5.260,251.600,0,0
+standalone-race-1-clean-traffic,YOU reference pilot,1,12,8.760,253.340,0,0
+standalone-race-1-clean-traffic,GOLD,1,18,4.280,255.360,0,0
+standalone-race-1-clean-traffic,BLUE,1,12,8.020,256.360,1,0
+standalone-race-1-clean-traffic,EMBER,1,14,5.000,256.600,0,0
+standalone-race-1-clean-traffic,YOU reference pilot,1,13,5.520,258.860,0,0
+standalone-race-1-clean-traffic,GOLD,1,19,4.760,260.120,0,0
+standalone-race-1-clean-traffic,BLUE,1,13,4.760,261.120,1,0
+standalone-race-1-clean-traffic,EMBER,1,15,5.280,261.880,0,0
+standalone-race-1-clean-traffic,YOU reference pilot,1,14,5.020,263.880,0,0
+standalone-race-1-clean-traffic,BLUE,1,14,6.580,267.700,1,0
+standalone-race-1-clean-traffic,EMBER,1,16,6.060,267.940,0,0
+standalone-race-1-clean-traffic,GOLD,1,0,8.580,268.700,0,0
+standalone-race-1-clean-traffic,YOU reference pilot,1,15,5.080,268.960,0,0
+standalone-race-1-clean-traffic,BLUE,1,15,4.780,272.480,1,0
+standalone-race-1-clean-traffic,EMBER,1,17,7.060,275.000,0,0
+standalone-race-1-clean-traffic,YOU reference pilot,1,16,6.280,275.240,0,0
+standalone-race-1-clean-traffic,GOLD,2,1,8.300,277.000,0,0
+standalone-race-1-clean-traffic,BLUE,1,16,5.520,278.000,1,0
+standalone-race-1-clean-traffic,EMBER,1,18,5.260,280.260,0,0
+standalone-race-1-clean-traffic,YOU reference pilot,1,17,7.020,282.260,0,0
+standalone-race-1-clean-traffic,GOLD,2,2,7.520,284.520,0,0
+standalone-race-1-clean-traffic,BLUE,1,17,6.520,284.520,1,0
+standalone-race-1-clean-traffic,EMBER,1,19,5.260,285.520,0,0
+standalone-race-1-clean-traffic,YOU reference pilot,1,18,5.260,287.520,0,0
+standalone-race-1-clean-traffic,BLUE,1,18,4.740,289.260,1,0
+standalone-race-1-clean-traffic,GOLD,2,3,7.500,292.020,0,0
+standalone-race-1-clean-traffic,YOU reference pilot,1,19,5.520,293.040,0,0
+standalone-race-1-clean-traffic,BLUE,1,19,4.780,294.040,1,0
+standalone-race-1-clean-traffic,EMBER,1,0,9.760,295.280,0,0
+standalone-race-1-clean-traffic,GOLD,2,4,8.020,300.040,0,0
+standalone-race-1-clean-traffic,YOU reference pilot,1,0,9.500,302.540,0,0
+standalone-race-1-clean-traffic,BLUE,1,0,9.240,303.280,1,0
+standalone-race-1-clean-traffic,EMBER,2,1,8.260,303.540,0,0
+standalone-race-1-clean-traffic,GOLD,2,5,6.520,306.560,0,0
+standalone-race-1-clean-traffic,YOU reference pilot,2,1,8.260,310.800,0,0
+standalone-race-1-clean-traffic,BLUE,2,1,8.020,311.300,1,0
+standalone-race-1-clean-traffic,EMBER,2,2,8.260,311.800,0,0
+standalone-race-1-clean-traffic,GOLD,2,6,8.500,315.060,0,0
+standalone-race-1-clean-traffic,YOU reference pilot,2,2,8.260,319.060,0,0
+standalone-race-1-clean-traffic,EMBER,2,3,7.760,319.560,0,0
+standalone-race-1-clean-traffic,BLUE,2,2,8.520,319.820,1,0
+standalone-race-1-clean-traffic,GOLD,2,7,8.780,323.840,0,0
+standalone-race-1-clean-traffic,YOU reference pilot,2,3,7.800,326.860,0,0
+standalone-race-1-clean-traffic,EMBER,2,4,8.060,327.620,0,0
+standalone-race-1-clean-traffic,BLUE,2,3,8.040,327.860,1,0
+standalone-race-1-clean-traffic,GOLD,2,8,8.040,331.880,0,0
+standalone-race-1-clean-traffic,EMBER,2,5,6.800,334.420,0,0
+standalone-race-1-clean-traffic,YOU reference pilot,2,4,7.820,334.680,0,0
+standalone-race-1-clean-traffic,BLUE,2,4,8.580,336.440,1,0
+standalone-race-1-clean-traffic,GOLD,2,9,7.080,338.960,0,0
+standalone-race-1-clean-traffic,YOU reference pilot,2,5,7.080,341.760,0,0
+standalone-race-1-clean-traffic,BLUE,2,5,7.100,343.540,1,0
+standalone-race-1-clean-traffic,EMBER,2,6,9.880,344.300,0,0
+standalone-race-1-clean-traffic,GOLD,2,10,6.340,345.300,0,0
+standalone-race-1-clean-traffic,GOLD,2,11,5.540,350.840,0,0
+standalone-race-1-clean-traffic,YOU reference pilot,2,6,9.580,351.340,0,0
+standalone-race-1-clean-traffic,BLUE,2,6,9.300,352.840,1,0
+standalone-race-1-clean-traffic,EMBER,2,7,8.800,353.100,0,0
+standalone-race-1-clean-traffic,GOLD,2,12,7.760,358.600,0,0
+standalone-race-1-clean-traffic,YOU reference pilot,2,7,8.800,360.140,0,0
+standalone-race-1-clean-traffic,EMBER,2,8,8.300,361.400,0,0
+standalone-race-1-clean-traffic,BLUE,2,7,9.580,362.420,1,0
+standalone-race-1-clean-traffic,GOLD,2,13,4.600,363.200,0,0
+standalone-race-1-clean-traffic,GOLD,2,14,4.060,367.260,0,0
+standalone-race-1-clean-traffic,YOU reference pilot,2,8,8.400,368.540,0,0
+standalone-race-1-clean-traffic,EMBER,2,9,7.680,369.080,0,0
+standalone-race-1-clean-traffic,GOLD,2,15,4.100,371.360,0,0
+standalone-race-1-clean-traffic,BLUE,2,8,9.200,371.620,1,0
+standalone-race-1-clean-traffic,EMBER,2,10,6.560,375.640,0,0
+standalone-race-1-clean-traffic,YOU reference pilot,2,9,7.600,376.140,0,0
+standalone-race-1-clean-traffic,GOLD,2,16,5.280,376.640,0,0
+standalone-race-1-clean-traffic,BLUE,2,9,8.060,379.680,1,0
+standalone-race-1-clean-traffic,EMBER,2,11,6.280,381.920,0,0
+standalone-race-1-clean-traffic,YOU reference pilot,2,10,6.780,382.920,0,0
+standalone-race-1-clean-traffic,GOLD,2,17,6.280,382.920,0,0
+standalone-race-1-clean-traffic,BLUE,2,10,6.520,386.200,1,0
+standalone-race-1-clean-traffic,GOLD,2,18,4.300,387.220,0,0
+standalone-race-1-clean-traffic,YOU reference pilot,2,11,6.300,389.220,0,0
+standalone-race-1-clean-traffic,EMBER,2,12,8.800,390.720,0,0
+standalone-race-1-clean-traffic,GOLD,2,19,4.500,391.720,0,0
+standalone-race-1-clean-traffic,BLUE,2,11,6.020,392.220,1,0
+standalone-race-1-clean-traffic,EMBER,2,13,5.260,395.980,0,0
+standalone-race-1-clean-traffic,YOU reference pilot,2,12,8.760,397.980,0,0
+standalone-race-1-clean-traffic,GOLD,2,0,8.260,399.980,0,0
+standalone-race-1-clean-traffic,BLUE,2,12,8.020,400.240,1,0
+standalone-race-1-clean-traffic,EMBER,2,14,5.000,400.980,0,0
+standalone-race-1-clean-traffic,YOU reference pilot,2,13,5.280,403.260,0,0
+standalone-race-1-clean-traffic,BLUE,2,13,4.780,405.020,1,0
+standalone-race-1-clean-traffic,EMBER,2,15,5.060,406.040,0,0
+standalone-race-1-clean-traffic,YOU reference pilot,2,14,5.280,408.540,0,0
+standalone-race-1-clean-traffic,BLUE,2,14,4.520,409.540,1,0
+standalone-race-1-clean-traffic,EMBER,2,16,6.280,412.320,0,0
+standalone-race-1-clean-traffic,YOU reference pilot,2,15,5.020,413.560,0,0
+standalone-race-1-clean-traffic,BLUE,2,15,4.520,414.060,1,0
+standalone-race-1-clean-traffic,EMBER,2,17,7.020,419.340,0,0
+standalone-race-1-clean-traffic,YOU reference pilot,2,16,6.280,419.840,0,0
+standalone-race-1-clean-traffic,BLUE,2,16,5.780,419.840,1,0
+standalone-race-1-clean-traffic,EMBER,2,18,5.260,424.600,0,0
+standalone-race-1-clean-traffic,YOU reference pilot,2,17,7.020,426.860,0,0
+standalone-race-1-clean-traffic,BLUE,2,17,7.020,426.860,1,0
+standalone-race-1-clean-traffic,EMBER,2,19,5.280,429.880,0,0
+standalone-race-1-clean-traffic,YOU reference pilot,2,18,5.760,432.620,0,0
+standalone-race-1-clean-traffic,BLUE,2,18,6.020,432.880,1,0
+standalone-race-1-clean-traffic,YOU reference pilot,2,19,5.820,438.440,0,0
+standalone-race-1-clean-traffic,BLUE,2,19,5.560,438.440,1,0
+standalone-race-1-clean-traffic,EMBER,2,0,9.560,439.440,0,0
+standalone-race-1-clean-traffic,YOU reference pilot,2,0,10.540,448.980,0,0
+standalone-race-1-mistake-traffic,BLUE,0,0,1.246,4.260,0,0
+standalone-race-1-mistake-traffic,GOLD,0,0,1.746,4.760,0,0
+standalone-race-1-mistake-traffic,EMBER,0,0,2.246,5.260,0,0
+standalone-race-1-mistake-traffic,YOU reference pilot,0,0,2.746,5.760,0,0
+standalone-race-1-mistake-traffic,BLUE,0,1,8.760,13.020,0,0
+standalone-race-1-mistake-traffic,GOLD,0,1,8.520,13.280,0,0
+standalone-race-1-mistake-traffic,EMBER,0,1,8.780,14.040,0,0
+standalone-race-1-mistake-traffic,YOU reference pilot,0,1,8.520,14.280,0,0
+standalone-race-1-mistake-traffic,BLUE,0,2,8.260,21.280,0,0
+standalone-race-1-mistake-traffic,GOLD,0,2,8.260,21.540,0,0
+standalone-race-1-mistake-traffic,EMBER,0,2,8.260,22.300,0,0
+standalone-race-1-mistake-traffic,YOU reference pilot,0,2,8.260,22.540,0,0
+standalone-race-1-mistake-traffic,GOLD,0,3,7.560,29.100,0,0
+standalone-race-1-mistake-traffic,BLUE,0,3,8.320,29.600,0,0
+standalone-race-1-mistake-traffic,EMBER,0,3,7.560,29.860,0,0
+standalone-race-1-mistake-traffic,YOU reference pilot,0,3,7.820,30.360,0,0
+standalone-race-1-mistake-traffic,GOLD,0,4,7.780,36.880,0,0
+standalone-race-1-mistake-traffic,BLUE,0,4,8.280,37.880,0,0
+standalone-race-1-mistake-traffic,EMBER,0,4,8.520,38.380,0,0
+standalone-race-1-mistake-traffic,YOU reference pilot,0,4,8.260,38.620,0,0
+standalone-race-1-mistake-traffic,GOLD,0,5,6.520,43.400,0,0
+standalone-race-1-mistake-traffic,BLUE,0,5,7.020,44.900,0,0
+standalone-race-1-mistake-traffic,EMBER,0,5,7.020,45.400,0,0
+standalone-race-1-mistake-traffic,YOU reference pilot,0,5,7.280,45.900,0,0
+standalone-race-1-mistake-traffic,GOLD,0,6,8.640,52.040,0,0
+standalone-race-1-mistake-traffic,BLUE,0,6,9.660,54.560,0,0
+standalone-race-1-mistake-traffic,EMBER,0,6,9.660,55.060,0,0
+standalone-race-1-mistake-traffic,YOU reference pilot,0,6,9.660,55.560,0,0
+standalone-race-1-mistake-traffic,GOLD,0,7,8.800,60.840,0,0
+standalone-race-1-mistake-traffic,BLUE,0,7,9.520,64.080,0,0
+standalone-race-1-mistake-traffic,EMBER,0,7,9.280,64.340,0,0
+standalone-race-1-mistake-traffic,YOU reference pilot,0,7,12.120,67.680,0,0
+standalone-race-1-mistake-traffic,GOLD,0,8,8.100,68.940,0,0
+standalone-race-1-mistake-traffic,EMBER,0,8,8.340,72.680,0,0
+standalone-race-1-mistake-traffic,BLUE,0,8,9.600,73.680,0,0
+standalone-race-1-mistake-traffic,GOLD,0,9,7.000,75.940,0,0
+standalone-race-1-mistake-traffic,YOU reference pilot,0,8,9.520,77.200,0,0
+standalone-race-1-mistake-traffic,EMBER,0,9,7.520,80.200,0,0
+standalone-race-1-mistake-traffic,BLUE,0,9,8.020,81.700,0,0
+standalone-race-1-mistake-traffic,GOLD,0,10,6.260,82.200,0,0
+standalone-race-1-mistake-traffic,YOU reference pilot,0,9,7.500,84.700,0,0
+standalone-race-1-mistake-traffic,EMBER,0,10,6.760,86.960,0,0
+standalone-race-1-mistake-traffic,GOLD,0,11,5.760,87.960,0,0
+standalone-race-1-mistake-traffic,BLUE,0,10,6.520,88.220,0,0
+standalone-race-1-mistake-traffic,YOU reference pilot,0,10,6.760,91.460,0,0
+standalone-race-1-mistake-traffic,EMBER,0,11,6.260,93.220,0,0
+standalone-race-1-mistake-traffic,BLUE,0,11,6.000,94.220,0,0
+standalone-race-1-mistake-traffic,GOLD,0,12,7.760,95.720,0,0
+standalone-race-1-mistake-traffic,YOU reference pilot,0,11,6.260,97.720,0,0
+standalone-race-1-mistake-traffic,GOLD,0,13,4.500,100.220,0,0
+standalone-race-1-mistake-traffic,EMBER,0,12,8.760,101.980,0,0
+standalone-race-1-mistake-traffic,BLUE,0,12,8.000,102.220,0,0
+standalone-race-1-mistake-traffic,GOLD,0,14,4.040,104.260,0,0
+standalone-race-1-mistake-traffic,YOU reference pilot,0,12,8.780,106.500,0,0
+standalone-race-1-mistake-traffic,EMBER,0,13,5.280,107.260,0,0
+standalone-race-1-mistake-traffic,BLUE,0,13,5.040,107.260,0,0
+standalone-race-1-mistake-traffic,GOLD,0,15,4.280,108.540,0,0
+standalone-race-1-mistake-traffic,YOU reference pilot,0,13,5.360,111.860,0,0
+standalone-race-1-mistake-traffic,EMBER,0,14,5.660,112.920,0,0
+standalone-race-1-mistake-traffic,BLUE,0,14,6.160,113.420,0,0
+standalone-race-1-mistake-traffic,GOLD,0,16,5.160,113.700,0,0
+standalone-race-1-mistake-traffic,YOU reference pilot,0,14,5.260,117.120,0,0
+standalone-race-1-mistake-traffic,EMBER,0,15,5.200,118.120,0,0
+standalone-race-1-mistake-traffic,BLUE,0,15,4.960,118.380,0,0
+standalone-race-1-mistake-traffic,GOLD,0,17,6.180,119.880,0,0
+standalone-race-1-mistake-traffic,YOU reference pilot,0,15,5.040,122.160,0,0
+standalone-race-1-mistake-traffic,GOLD,0,18,4.300,124.180,0,0
+standalone-race-1-mistake-traffic,BLUE,0,16,5.800,124.180,0,0
+standalone-race-1-mistake-traffic,EMBER,0,16,6.320,124.440,0,0
+standalone-race-1-mistake-traffic,YOU reference pilot,0,16,6.060,128.220,0,0
+standalone-race-1-mistake-traffic,GOLD,0,19,4.540,128.720,0,0
+standalone-race-1-mistake-traffic,BLUE,0,17,6.300,130.480,0,0
+standalone-race-1-mistake-traffic,EMBER,0,17,7.300,131.740,0,0
+standalone-race-1-mistake-traffic,BLUE,0,18,4.520,135.000,0,0
+standalone-race-1-mistake-traffic,YOU reference pilot,0,17,7.280,135.500,0,0
+standalone-race-1-mistake-traffic,EMBER,0,18,5.020,136.760,0,0
+standalone-race-1-mistake-traffic,GOLD,0,0,8.280,137.000,0,0
+standalone-race-1-mistake-traffic,BLUE,0,19,4.780,139.780,0,0
+standalone-race-1-mistake-traffic,YOU reference pilot,0,18,5.040,140.540,0,0
+standalone-race-1-mistake-traffic,EMBER,0,19,5.540,142.300,0,0
+standalone-race-1-mistake-traffic,GOLD,1,1,8.100,145.100,0,0
+standalone-race-1-mistake-traffic,YOU reference pilot,0,19,5.580,146.120,0,0
+standalone-race-1-mistake-traffic,BLUE,0,0,9.120,148.900,0,0
+standalone-race-1-mistake-traffic,EMBER,0,0,9.660,151.960,0,0
+standalone-race-1-mistake-traffic,GOLD,1,2,7.880,152.980,0,0
+standalone-race-1-mistake-traffic,YOU reference pilot,0,0,9.660,155.780,0,0
+standalone-race-1-mistake-traffic,BLUE,1,1,8.140,157.040,0,0
+standalone-race-1-mistake-traffic,EMBER,1,1,8.340,160.300,0,0
+standalone-race-1-mistake-traffic,GOLD,1,3,7.320,160.300,0,0
+standalone-race-1-mistake-traffic,YOU reference pilot,1,1,8.300,164.080,0,0
+standalone-race-1-mistake-traffic,BLUE,1,2,8.300,165.340,0,0
+standalone-race-1-mistake-traffic,EMBER,1,2,8.080,168.380,0,0
+standalone-race-1-mistake-traffic,GOLD,1,4,8.080,168.380,0,0
+standalone-race-1-mistake-traffic,YOU reference pilot,1,2,8.060,172.140,0,0
+standalone-race-1-mistake-traffic,BLUE,1,3,8.040,173.380,0,0
+standalone-race-1-mistake-traffic,GOLD,1,5,6.500,174.880,0,0
+standalone-race-1-mistake-traffic,EMBER,1,3,7.760,176.140,0,0
+standalone-race-1-mistake-traffic,YOU reference pilot,1,3,7.760,179.900,0,0
+standalone-race-1-mistake-traffic,BLUE,1,4,8.540,181.920,0,0
+standalone-race-1-mistake-traffic,GOLD,1,6,8.540,183.420,0,0
+standalone-race-1-mistake-traffic,EMBER,1,4,8.020,184.160,0,0
+standalone-race-1-mistake-traffic,YOU reference pilot,1,4,8.060,187.960,0,0
+standalone-race-1-mistake-traffic,BLUE,1,5,7.060,188.980,0,0
+standalone-race-1-mistake-traffic,EMBER,1,5,6.820,190.980,0,0
+standalone-race-1-mistake-traffic,GOLD,1,7,8.840,192.260,0,0
+standalone-race-1-mistake-traffic,YOU reference pilot,1,5,7.040,195.000,0,0
+standalone-race-1-mistake-traffic,BLUE,1,6,9.560,198.540,0,0
+standalone-race-1-mistake-traffic,GOLD,1,8,8.040,200.300,0,0
+standalone-race-1-mistake-traffic,EMBER,1,6,10.080,201.060,0,0
+standalone-race-1-mistake-traffic,YOU reference pilot,1,6,9.580,204.580,0,0
+standalone-race-1-mistake-traffic,GOLD,1,9,7.040,207.340,0,0
+standalone-race-1-mistake-traffic,BLUE,1,7,9.540,208.080,0,0
+standalone-race-1-mistake-traffic,EMBER,1,7,8.780,209.840,0,0
+standalone-race-1-mistake-traffic,YOU reference pilot,1,7,8.760,213.340,0,0
+standalone-race-1-mistake-traffic,GOLD,1,10,6.260,213.600,0,0
+standalone-race-1-mistake-traffic,BLUE,1,8,9.300,217.380,0,0
+standalone-race-1-mistake-traffic,EMBER,1,8,8.280,218.120,0,0
+standalone-race-1-mistake-traffic,GOLD,1,11,5.520,219.120,0,0
+standalone-race-1-mistake-traffic,YOU reference pilot,1,8,8.580,221.920,0,0
+standalone-race-1-mistake-traffic,BLUE,1,9,8.100,225.480,0,0
+standalone-race-1-mistake-traffic,EMBER,1,9,7.600,225.720,0,0
+standalone-race-1-mistake-traffic,GOLD,1,12,7.860,226.980,0,0
+standalone-race-1-mistake-traffic,YOU reference pilot,1,9,7.320,229.240,0,0
+standalone-race-1-mistake-traffic,GOLD,1,13,4.500,231.480,0,0
+standalone-race-1-mistake-traffic,BLUE,1,10,6.500,231.980,0,0
+standalone-race-1-mistake-traffic,EMBER,1,10,6.760,232.480,0,0
+standalone-race-1-mistake-traffic,GOLD,1,14,4.260,235.740,0,0
+standalone-race-1-mistake-traffic,YOU reference pilot,1,10,6.740,235.980,0,0
+standalone-race-1-mistake-traffic,BLUE,1,11,6.020,238.000,0,0
+standalone-race-1-mistake-traffic,EMBER,1,11,6.260,238.740,0,0
+standalone-race-1-mistake-traffic,GOLD,1,15,4.000,239.740,0,0
+standalone-race-1-mistake-traffic,YOU reference pilot,1,11,6.320,242.300,0,0
+standalone-race-1-mistake-traffic,GOLD,1,16,5.300,245.040,0,0
+standalone-race-1-mistake-traffic,BLUE,1,12,8.060,246.060,0,0
+standalone-race-1-mistake-traffic,EMBER,1,12,8.820,247.560,0,0
+standalone-race-1-mistake-traffic,BLUE,1,13,4.740,250.800,0,0
+standalone-race-1-mistake-traffic,YOU reference pilot,1,12,8.760,251.060,0,0
+standalone-race-1-mistake-traffic,GOLD,1,17,6.020,251.060,0,0
+standalone-race-1-mistake-traffic,EMBER,1,13,5.240,252.800,0,0
+standalone-race-1-mistake-traffic,BLUE,1,14,4.500,255.300,0,0
+standalone-race-1-mistake-traffic,GOLD,1,18,4.500,255.560,0,0
+standalone-race-1-mistake-traffic,YOU reference pilot,1,13,5.500,256.560,0,0
+standalone-race-1-mistake-traffic,EMBER,1,14,5.260,258.060,0,0
+standalone-race-1-mistake-traffic,BLUE,1,15,4.520,259.820,0,0
+standalone-race-1-mistake-traffic,GOLD,1,19,4.500,260.060,0,0
+standalone-race-1-mistake-traffic,YOU reference pilot,1,14,5.000,261.560,0,0
+standalone-race-1-mistake-traffic,EMBER,1,15,5.020,263.080,0,0
+standalone-race-1-mistake-traffic,BLUE,1,16,5.520,265.340,0,0
+standalone-race-1-mistake-traffic,YOU reference pilot,1,15,5.020,266.580,0,0
+standalone-race-1-mistake-traffic,GOLD,1,0,8.540,268.600,0,0
+standalone-race-1-mistake-traffic,EMBER,1,16,6.020,269.100,0,0
+standalone-race-1-mistake-traffic,BLUE,1,17,6.260,271.600,0,0
+standalone-race-1-mistake-traffic,YOU reference pilot,1,16,6.520,273.100,0,0
+standalone-race-1-mistake-traffic,EMBER,1,17,7.280,276.380,0,0
+standalone-race-1-mistake-traffic,BLUE,1,18,4.780,276.380,0,0
+standalone-race-1-mistake-traffic,GOLD,2,1,8.280,276.880,0,0
+standalone-race-1-mistake-traffic,YOU reference pilot,1,17,7.020,280.120,0,0
+standalone-race-1-mistake-traffic,BLUE,1,19,4.760,281.140,0,0
+standalone-race-1-mistake-traffic,EMBER,1,18,5.000,281.380,0,0
+standalone-race-1-mistake-traffic,GOLD,2,2,7.760,284.640,0,0
+standalone-race-1-mistake-traffic,YOU reference pilot,1,18,5.260,285.380,0,0
+standalone-race-1-mistake-traffic,EMBER,1,19,5.500,286.880,0,0
+standalone-race-1-mistake-traffic,BLUE,1,0,9.000,290.140,0,0
+standalone-race-1-mistake-traffic,YOU reference pilot,1,19,5.500,290.880,0,0
+standalone-race-1-mistake-traffic,GOLD,2,3,7.500,292.140,0,0
+standalone-race-1-mistake-traffic,EMBER,1,0,9.560,296.440,0,0
+standalone-race-1-mistake-traffic,BLUE,2,1,8.040,298.180,0,0
+standalone-race-1-mistake-traffic,GOLD,2,4,7.800,299.940,0,0
+standalone-race-1-mistake-traffic,YOU reference pilot,1,0,9.560,300.440,0,0
+standalone-race-1-mistake-traffic,EMBER,2,1,8.260,304.700,0,0
+standalone-race-1-mistake-traffic,GOLD,2,5,6.500,306.440,0,0
+standalone-race-1-mistake-traffic,BLUE,2,2,8.260,306.440,0,0
+standalone-race-1-mistake-traffic,YOU reference pilot,2,1,8.260,308.700,0,0
+standalone-race-1-mistake-traffic,EMBER,2,2,8.260,312.960,0,0
+standalone-race-1-mistake-traffic,BLUE,2,3,8.520,314.960,0,0
+standalone-race-1-mistake-traffic,GOLD,2,6,8.760,315.200,0,0
+standalone-race-1-mistake-traffic,YOU reference pilot,2,2,8.260,316.960,0,0
+standalone-race-1-mistake-traffic,EMBER,2,3,7.760,320.720,0,0
+standalone-race-1-mistake-traffic,BLUE,2,4,8.280,323.240,0,0
+standalone-race-1-mistake-traffic,GOLD,2,7,8.540,323.740,0,0
+standalone-race-1-mistake-traffic,YOU reference pilot,2,3,7.520,324.480,0,0
+standalone-race-1-mistake-traffic,EMBER,2,4,8.020,328.740,0,0
+standalone-race-1-mistake-traffic,BLUE,2,5,7.260,330.500,0,0
+standalone-race-1-mistake-traffic,GOLD,2,8,8.000,331.740,0,0
+standalone-race-1-mistake-traffic,YOU reference pilot,2,4,8.020,332.500,0,0
+standalone-race-1-mistake-traffic,EMBER,2,5,7.020,335.760,0,0
+standalone-race-1-mistake-traffic,GOLD,2,9,7.020,338.760,0,0
+standalone-race-1-mistake-traffic,YOU reference pilot,2,5,7.260,339.760,0,0
+standalone-race-1-mistake-traffic,BLUE,2,6,9.500,340.000,0,0
+standalone-race-1-mistake-traffic,GOLD,2,10,6.500,345.260,0,0
+standalone-race-1-mistake-traffic,EMBER,2,6,9.740,345.500,0,0
+standalone-race-1-mistake-traffic,YOU reference pilot,2,6,9.560,349.320,0,0
+standalone-race-1-mistake-traffic,BLUE,2,7,9.320,349.320,0,0
+standalone-race-1-mistake-traffic,GOLD,2,11,5.560,350.820,0,0
+standalone-race-1-mistake-traffic,EMBER,2,7,8.840,354.340,0,0
+standalone-race-1-mistake-traffic,YOU reference pilot,2,7,8.820,358.140,0,0
+standalone-race-1-mistake-traffic,GOLD,2,12,7.820,358.640,0,0
+standalone-race-1-mistake-traffic,BLUE,2,8,9.640,358.960,0,0
+standalone-race-1-mistake-traffic,EMBER,2,8,8.220,362.560,0,0
+standalone-race-1-mistake-traffic,GOLD,2,13,4.440,363.080,0,0
+standalone-race-1-mistake-traffic,YOU reference pilot,2,8,8.240,366.380,0,0
+standalone-race-1-mistake-traffic,BLUE,2,9,7.920,366.880,0,0
+standalone-race-1-mistake-traffic,GOLD,2,14,4.060,367.140,0,0
+standalone-race-1-mistake-traffic,EMBER,2,9,7.620,370.180,0,0
+standalone-race-1-mistake-traffic,GOLD,2,15,4.320,371.460,0,0
+standalone-race-1-mistake-traffic,BLUE,2,10,6.600,373.480,0,0
+standalone-race-1-mistake-traffic,YOU reference pilot,2,9,7.600,373.980,0,0
+standalone-race-1-mistake-traffic,EMBER,2,10,6.580,376.760,0,0
+standalone-race-1-mistake-traffic,GOLD,2,16,5.300,376.760,0,0
+standalone-race-1-mistake-traffic,BLUE,2,11,6.040,379.520,0,0
+standalone-race-1-mistake-traffic,YOU reference pilot,2,10,6.800,380.780,0,0
+standalone-race-1-mistake-traffic,GOLD,2,17,6.020,382.780,0,0
+standalone-race-1-mistake-traffic,EMBER,2,11,6.280,383.040,0,0
+standalone-race-1-mistake-traffic,YOU reference pilot,2,11,6.280,387.060,0,0
+standalone-race-1-mistake-traffic,GOLD,2,18,4.280,387.060,0,0
+standalone-race-1-mistake-traffic,BLUE,2,12,8.040,387.560,0,0
+standalone-race-1-mistake-traffic,GOLD,2,19,4.580,391.640,0,0
+standalone-race-1-mistake-traffic,EMBER,2,12,8.860,391.900,0,0
+standalone-race-1-mistake-traffic,BLUE,2,13,4.840,392.400,0,0
+standalone-race-1-mistake-traffic,YOU reference pilot,2,12,8.620,395.680,0,0
+standalone-race-1-mistake-traffic,BLUE,2,14,4.560,396.960,0,0
+standalone-race-1-mistake-traffic,EMBER,2,13,5.300,397.200,0,0
+standalone-race-1-mistake-traffic,GOLD,2,0,8.320,399.960,0,0
+standalone-race-1-mistake-traffic,YOU reference pilot,2,13,5.520,401.200,0,0
+standalone-race-1-mistake-traffic,BLUE,2,15,4.240,401.200,0,0
+standalone-race-1-mistake-traffic,EMBER,2,14,5.020,402.220,0,0
+standalone-race-1-mistake-traffic,YOU reference pilot,2,14,5.160,406.360,0,0
+standalone-race-1-mistake-traffic,BLUE,2,16,5.680,406.880,0,0
+standalone-race-1-mistake-traffic,EMBER,2,15,4.940,407.160,0,0
+standalone-race-1-mistake-traffic,YOU reference pilot,2,15,5.140,411.500,0,0
+standalone-race-1-mistake-traffic,BLUE,2,17,6.400,413.280,0,0
+standalone-race-1-mistake-traffic,EMBER,2,16,6.380,413.540,0,0
+standalone-race-1-mistake-traffic,YOU reference pilot,2,16,6.180,417.680,0,0
+standalone-race-1-mistake-traffic,BLUE,2,18,4.640,417.920,0,0
+standalone-race-1-mistake-traffic,EMBER,2,17,7.160,420.700,0,0
+standalone-race-1-mistake-traffic,BLUE,2,19,4.800,422.720,0,0
+standalone-race-1-mistake-traffic,YOU reference pilot,2,17,7.060,424.740,0,0
+standalone-race-1-mistake-traffic,EMBER,2,18,5.060,425.760,0,0
+standalone-race-1-mistake-traffic,YOU reference pilot,2,18,5.400,430.140,0,0
+standalone-race-1-mistake-traffic,EMBER,2,19,5.380,431.140,0,0
+standalone-race-1-mistake-traffic,BLUE,2,0,8.920,431.640,0,0
+standalone-race-1-mistake-traffic,YOU reference pilot,2,19,5.320,435.460,0,0
+standalone-race-1-mistake-traffic,EMBER,2,0,9.640,440.780,0,0
+standalone-race-2-clean-clear,BLUE,0,0,1.258,4.280,0,0
+standalone-race-2-clean-clear,GOLD,0,0,1.778,4.800,0,0
+standalone-race-2-clean-clear,EMBER,0,0,2.278,5.300,0,0
+standalone-race-2-clean-clear,YOU reference pilot,0,0,2.778,5.800,0,0
+standalone-race-2-clean-clear,BLUE,0,1,8.200,12.480,0,0
+standalone-race-2-clean-clear,GOLD,0,1,7.940,12.740,0,0
+standalone-race-2-clean-clear,EMBER,0,1,8.200,13.500,0,0
+standalone-race-2-clean-clear,YOU reference pilot,0,1,7.940,13.740,0,0
+standalone-race-2-clean-clear,GOLD,0,2,7.340,20.080,0,0
+standalone-race-2-clean-clear,BLUE,0,2,7.880,20.360,0,0
+standalone-race-2-clean-clear,EMBER,0,2,7.880,21.380,0,0
+standalone-race-2-clean-clear,YOU reference pilot,0,2,7.880,21.620,0,0
+standalone-race-2-clean-clear,GOLD,0,3,7.380,27.460,0,0
+standalone-race-2-clean-clear,BLUE,0,3,8.100,28.460,0,0
+standalone-race-2-clean-clear,EMBER,0,3,7.340,28.720,0,0
+standalone-race-2-clean-clear,YOU reference pilot,0,3,7.340,28.960,0,0
+standalone-race-2-clean-clear,GOLD,0,4,7.320,34.780,0,0
+standalone-race-2-clean-clear,EMBER,0,4,7.820,36.540,0,0
+standalone-race-2-clean-clear,BLUE,0,4,8.080,36.540,0,0
+standalone-race-2-clean-clear,YOU reference pilot,0,4,8.080,37.040,0,0
+standalone-race-2-clean-clear,GOLD,0,5,6.260,41.040,0,0
+standalone-race-2-clean-clear,EMBER,0,5,7.020,43.560,0,0
+standalone-race-2-clean-clear,YOU reference pilot,0,5,6.760,43.800,0,0
+standalone-race-2-clean-clear,BLUE,0,5,7.760,44.300,0,0
+standalone-race-2-clean-clear,GOLD,0,6,8.280,49.320,0,0
+standalone-race-2-clean-clear,EMBER,0,6,9.280,52.840,0,0
+standalone-race-2-clean-clear,YOU reference pilot,0,6,9.300,53.100,0,0
+standalone-race-2-clean-clear,BLUE,0,6,9.800,54.100,0,0
+standalone-race-2-clean-clear,GOLD,0,7,8.540,57.860,0,0
+standalone-race-2-clean-clear,EMBER,0,7,8.800,61.640,0,0
+standalone-race-2-clean-clear,YOU reference pilot,0,7,8.780,61.880,0,0
+standalone-race-2-clean-clear,BLUE,0,7,9.300,63.400,0,0
+standalone-race-2-clean-clear,GOLD,0,8,7.580,65.440,0,0
+standalone-race-2-clean-clear,EMBER,0,8,7.880,69.520,0,0
+standalone-race-2-clean-clear,YOU reference pilot,0,8,8.140,70.020,0,0
+standalone-race-2-clean-clear,GOLD,0,9,6.840,72.280,0,0
+standalone-race-2-clean-clear,BLUE,0,8,9.140,72.540,0,0
+standalone-race-2-clean-clear,EMBER,0,9,7.060,76.580,0,0
+standalone-race-2-clean-clear,YOU reference pilot,0,9,7.060,77.080,0,0
+standalone-race-2-clean-clear,GOLD,0,10,5.800,78.080,0,0
+standalone-race-2-clean-clear,BLUE,0,9,7.800,80.340,0,0
+standalone-race-2-clean-clear,EMBER,0,10,6.540,83.120,0,0
+standalone-race-2-clean-clear,YOU reference pilot,0,10,6.540,83.620,0,0
+standalone-race-2-clean-clear,GOLD,0,11,5.540,83.620,0,0
+standalone-race-2-clean-clear,BLUE,0,10,6.280,86.620,0,0
+standalone-race-2-clean-clear,EMBER,0,11,6.000,89.120,0,0
+standalone-race-2-clean-clear,YOU reference pilot,0,11,6.240,89.860,0,0
+standalone-race-2-clean-clear,GOLD,0,12,7.500,91.120,0,0
+standalone-race-2-clean-clear,BLUE,0,11,5.740,92.360,0,0
+standalone-race-2-clean-clear,GOLD,0,13,4.500,95.620,0,0
+standalone-race-2-clean-clear,EMBER,0,12,8.260,97.380,0,0
+standalone-race-2-clean-clear,YOU reference pilot,0,12,8.260,98.120,0,0
+standalone-race-2-clean-clear,GOLD,0,14,4.000,99.620,0,0
+standalone-race-2-clean-clear,BLUE,0,12,7.520,99.880,0,0
+standalone-race-2-clean-clear,EMBER,0,13,5.500,102.880,0,0
+standalone-race-2-clean-clear,YOU reference pilot,0,13,5.500,103.620,0,0
+standalone-race-2-clean-clear,GOLD,0,15,4.260,103.880,0,0
+standalone-race-2-clean-clear,BLUE,0,13,4.740,104.620,0,0
+standalone-race-2-clean-clear,EMBER,0,14,4.760,107.640,0,0
+standalone-race-2-clean-clear,YOU reference pilot,0,14,5.020,108.640,0,0
+standalone-race-2-clean-clear,GOLD,0,16,4.760,108.640,0,0
+standalone-race-2-clean-clear,BLUE,0,14,4.520,109.140,0,0
+standalone-race-2-clean-clear,EMBER,0,15,5.000,112.640,0,0
+standalone-race-2-clean-clear,YOU reference pilot,0,15,5.240,113.880,0,0
+standalone-race-2-clean-clear,BLUE,0,15,4.740,113.880,0,0
+standalone-race-2-clean-clear,GOLD,0,17,6.000,114.640,0,0
+standalone-race-2-clean-clear,EMBER,0,16,5.740,118.380,0,0
+standalone-race-2-clean-clear,GOLD,0,18,4.260,118.900,0,0
+standalone-race-2-clean-clear,YOU reference pilot,0,16,6.020,119.900,0,0
+standalone-race-2-clean-clear,BLUE,0,16,6.520,120.400,0,0
+standalone-race-2-clean-clear,GOLD,0,19,4.500,123.400,0,0
+standalone-race-2-clean-clear,EMBER,0,17,7.040,125.420,0,0
+standalone-race-2-clean-clear,YOU reference pilot,0,17,7.020,126.920,0,0
+standalone-race-2-clean-clear,BLUE,0,17,6.520,126.920,0,0
+standalone-race-2-clean-clear,EMBER,0,18,5.020,130.440,0,0
+standalone-race-2-clean-clear,GOLD,0,0,7.780,131.180,0,0
+standalone-race-2-clean-clear,YOU reference pilot,0,18,6.020,132.940,0,0
+standalone-race-2-clean-clear,BLUE,0,18,6.020,132.940,0,0
+standalone-race-2-clean-clear,EMBER,0,19,5.000,135.440,0,0
+standalone-race-2-clean-clear,YOU reference pilot,0,19,5.260,138.200,0,0
+standalone-race-2-clean-clear,BLUE,0,19,5.260,138.200,0,0
+standalone-race-2-clean-clear,GOLD,1,1,7.520,138.700,0,0
+standalone-race-2-clean-clear,EMBER,0,0,9.000,144.440,0,0
+standalone-race-2-clean-clear,GOLD,1,2,7.260,145.960,0,0
+standalone-race-2-clean-clear,YOU reference pilot,0,0,10.520,148.720,0,0
+standalone-race-2-clean-clear,BLUE,0,0,11.520,149.720,0,0
+standalone-race-2-clean-clear,EMBER,1,1,8.060,152.500,0,0
+standalone-race-2-clean-clear,GOLD,1,3,7.280,153.240,0,0
+standalone-race-2-clean-clear,YOU reference pilot,1,1,7.800,156.520,0,0
+standalone-race-2-clean-clear,BLUE,1,1,7.800,157.520,0,0
+standalone-race-2-clean-clear,EMBER,1,2,7.520,160.020,0,0
+standalone-race-2-clean-clear,GOLD,1,4,7.540,160.780,0,0
+standalone-race-2-clean-clear,YOU reference pilot,1,2,7.800,164.320,0,0
+standalone-race-2-clean-clear,BLUE,1,2,7.820,165.340,0,0
+standalone-race-2-clean-clear,GOLD,1,5,6.300,167.080,0,0
+standalone-race-2-clean-clear,EMBER,1,3,7.320,167.340,0,0
+standalone-race-2-clean-clear,YOU reference pilot,1,3,7.320,171.640,0,0
+standalone-race-2-clean-clear,BLUE,1,3,8.060,173.400,0,0
+standalone-race-2-clean-clear,EMBER,1,4,7.580,174.920,0,0
+standalone-race-2-clean-clear,GOLD,1,6,8.100,175.180,0,0
+standalone-race-2-clean-clear,YOU reference pilot,1,4,7.540,179.180,0,0
+standalone-race-2-clean-clear,BLUE,1,4,8.040,181.440,0,0
+standalone-race-2-clean-clear,EMBER,1,5,6.780,181.700,0,0
+standalone-race-2-clean-clear,GOLD,1,7,8.520,183.700,0,0
+standalone-race-2-clean-clear,YOU reference pilot,1,5,6.780,185.960,0,0
+standalone-race-2-clean-clear,BLUE,1,5,6.760,188.200,0,0
+standalone-race-2-clean-clear,EMBER,1,6,9.280,190.980,0,0
+standalone-race-2-clean-clear,GOLD,1,8,7.780,191.480,0,0
+standalone-race-2-clean-clear,YOU reference pilot,1,6,9.020,194.980,0,0
+standalone-race-2-clean-clear,BLUE,1,6,9.300,197.500,0,0
+standalone-race-2-clean-clear,GOLD,1,9,6.520,198.000,0,0
+standalone-race-2-clean-clear,EMBER,1,7,8.780,199.760,0,0
+standalone-race-2-clean-clear,YOU reference pilot,1,7,8.580,203.560,0,0
+standalone-race-2-clean-clear,GOLD,1,10,6.060,204.060,0,0
+standalone-race-2-clean-clear,BLUE,1,7,9.580,207.080,0,0
+standalone-race-2-clean-clear,EMBER,1,8,7.820,207.580,0,0
+standalone-race-2-clean-clear,GOLD,1,11,5.520,209.580,0,0
+standalone-race-2-clean-clear,YOU reference pilot,1,8,8.300,211.860,0,0
+standalone-race-2-clean-clear,EMBER,1,9,7.280,214.860,0,0
+standalone-race-2-clean-clear,BLUE,1,8,9.040,216.120,0,0
+standalone-race-2-clean-clear,GOLD,1,12,7.280,216.860,0,0
+standalone-race-2-clean-clear,YOU reference pilot,1,9,7.260,219.120,0,0
+standalone-race-2-clean-clear,EMBER,1,10,6.260,221.120,0,0
+standalone-race-2-clean-clear,GOLD,1,13,4.520,221.380,0,0
+standalone-race-2-clean-clear,BLUE,1,9,7.780,223.900,0,0
+standalone-race-2-clean-clear,YOU reference pilot,1,10,6.280,225.400,0,0
+standalone-race-2-clean-clear,GOLD,1,14,4.280,225.660,0,0
+standalone-race-2-clean-clear,EMBER,1,11,6.040,227.160,0,0
+standalone-race-2-clean-clear,GOLD,1,15,4.000,229.660,0,0
+standalone-race-2-clean-clear,BLUE,1,10,6.260,230.160,0,0
+standalone-race-2-clean-clear,YOU reference pilot,1,11,6.000,231.400,0,0
+standalone-race-2-clean-clear,GOLD,1,16,4.760,234.420,0,0
+standalone-race-2-clean-clear,EMBER,1,12,8.500,235.660,0,0
+standalone-race-2-clean-clear,BLUE,1,11,5.760,235.920,0,0
+standalone-race-2-clean-clear,YOU reference pilot,1,12,8.520,239.920,0,0
+standalone-race-2-clean-clear,GOLD,1,17,6.000,240.420,0,0
+standalone-race-2-clean-clear,EMBER,1,13,5.260,240.920,0,0
+standalone-race-2-clean-clear,BLUE,1,12,7.760,243.680,0,0
+standalone-race-2-clean-clear,GOLD,1,18,4.500,244.920,0,0
+standalone-race-2-clean-clear,YOU reference pilot,1,13,5.260,245.180,0,0
+standalone-race-2-clean-clear,EMBER,1,14,5.000,245.920,0,0
+standalone-race-2-clean-clear,BLUE,1,13,4.740,248.420,0,0
+standalone-race-2-clean-clear,GOLD,1,19,4.260,249.180,0,0
+standalone-race-2-clean-clear,YOU reference pilot,1,14,5.260,250.440,0,0
+standalone-race-2-clean-clear,EMBER,1,15,4.760,250.680,0,0
+standalone-race-2-clean-clear,BLUE,1,14,5.760,254.180,0,0
+standalone-race-2-clean-clear,YOU reference pilot,1,15,5.000,255.440,0,0
+standalone-race-2-clean-clear,EMBER,1,16,5.760,256.440,0,0
+standalone-race-2-clean-clear,GOLD,1,0,7.760,256.940,0,0
+standalone-race-2-clean-clear,BLUE,1,15,4.760,258.940,0,0
+standalone-race-2-clean-clear,YOU reference pilot,1,16,5.760,261.200,0,0
+standalone-race-2-clean-clear,EMBER,1,17,7.020,263.460,0,0
+standalone-race-2-clean-clear,BLUE,1,16,5.280,264.220,0,0
+standalone-race-2-clean-clear,GOLD,2,1,7.780,264.720,0,0
+standalone-race-2-clean-clear,YOU reference pilot,1,17,7.060,268.260,0,0
+standalone-race-2-clean-clear,EMBER,1,18,5.060,268.520,0,0
+standalone-race-2-clean-clear,BLUE,1,17,6.300,270.520,0,0
+standalone-race-2-clean-clear,GOLD,2,2,7.320,272.040,0,0
+standalone-race-2-clean-clear,YOU reference pilot,1,18,5.300,273.560,0,0
+standalone-race-2-clean-clear,EMBER,1,19,5.300,273.820,0,0
+standalone-race-2-clean-clear,BLUE,1,18,4.560,275.080,0,0
+standalone-race-2-clean-clear,YOU reference pilot,1,19,5.300,278.860,0,0
+standalone-race-2-clean-clear,GOLD,2,3,7.080,279.120,0,0
+standalone-race-2-clean-clear,BLUE,1,19,4.780,279.860,0,0
+standalone-race-2-clean-clear,EMBER,1,0,8.800,282.620,0,0
+standalone-race-2-clean-clear,GOLD,2,4,7.520,286.640,0,0
+standalone-race-2-clean-clear,YOU reference pilot,1,0,9.040,287.900,0,0
+standalone-race-2-clean-clear,BLUE,1,0,8.540,288.400,0,0
+standalone-race-2-clean-clear,EMBER,2,1,8.060,290.680,0,0
+standalone-race-2-clean-clear,GOLD,2,5,6.280,292.920,0,0
+standalone-race-2-clean-clear,YOU reference pilot,2,1,7.780,295.680,0,0
+standalone-race-2-clean-clear,BLUE,2,1,7.800,296.200,0,0
+standalone-race-2-clean-clear,EMBER,2,2,7.520,298.200,0,0
+standalone-race-2-clean-clear,GOLD,2,6,8.280,301.200,0,0
+standalone-race-2-clean-clear,YOU reference pilot,2,2,7.780,303.460,0,0
+standalone-race-2-clean-clear,BLUE,2,2,7.760,303.960,0,0
+standalone-race-2-clean-clear,EMBER,2,3,7.500,305.700,0,0
+standalone-race-2-clean-clear,GOLD,2,7,8.280,309.480,0,0
+standalone-race-2-clean-clear,YOU reference pilot,2,3,7.260,310.720,0,0
+standalone-race-2-clean-clear,BLUE,2,3,8.020,311.980,0,0
+standalone-race-2-clean-clear,EMBER,2,4,7.520,313.220,0,0
+standalone-race-2-clean-clear,GOLD,2,8,7.740,317.220,0,0
+standalone-race-2-clean-clear,YOU reference pilot,2,4,7.500,318.220,0,0
+standalone-race-2-clean-clear,EMBER,2,5,6.760,319.980,0,0
+standalone-race-2-clean-clear,BLUE,2,4,8.240,320.220,0,0
+standalone-race-2-clean-clear,GOLD,2,9,6.760,323.980,0,0
+standalone-race-2-clean-clear,YOU reference pilot,2,5,6.760,324.980,0,0
+standalone-race-2-clean-clear,BLUE,2,5,6.760,326.980,0,0
+standalone-race-2-clean-clear,EMBER,2,6,9.260,329.240,0,0
+standalone-race-2-clean-clear,GOLD,2,10,6.020,330.000,0,0
+standalone-race-2-clean-clear,YOU reference pilot,2,6,9.280,334.260,0,0
+standalone-race-2-clean-clear,GOLD,2,11,5.520,335.520,0,0
+standalone-race-2-clean-clear,BLUE,2,6,9.280,336.260,0,0
+standalone-race-2-clean-clear,EMBER,2,7,8.520,337.760,0,0
+standalone-race-2-clean-clear,YOU reference pilot,2,7,8.520,342.780,0,0
+standalone-race-2-clean-clear,GOLD,2,12,7.260,342.780,0,0
+standalone-race-2-clean-clear,EMBER,2,8,8.020,345.780,0,0
+standalone-race-2-clean-clear,BLUE,2,7,9.520,345.780,0,0
+standalone-race-2-clean-clear,GOLD,2,13,4.500,347.280,0,0
+standalone-race-2-clean-clear,YOU reference pilot,2,8,8.240,351.020,0,0
+standalone-race-2-clean-clear,GOLD,2,14,4.240,351.520,0,0
+standalone-race-2-clean-clear,EMBER,2,9,7.240,353.020,0,0
+standalone-race-2-clean-clear,BLUE,2,8,9.000,354.780,0,0
+standalone-race-2-clean-clear,GOLD,2,15,4.000,355.520,0,0
+standalone-race-2-clean-clear,YOU reference pilot,2,9,7.260,358.280,0,0
+standalone-race-2-clean-clear,EMBER,2,10,6.260,359.280,0,0
+standalone-race-2-clean-clear,GOLD,2,16,4.760,360.280,0,0
+standalone-race-2-clean-clear,BLUE,2,9,8.000,362.780,0,0
+standalone-race-2-clean-clear,YOU reference pilot,2,10,6.280,364.560,0,0
+standalone-race-2-clean-clear,EMBER,2,11,6.020,365.300,0,0
+standalone-race-2-clean-clear,GOLD,2,17,6.020,366.300,0,0
+standalone-race-2-clean-clear,BLUE,2,10,6.280,369.060,0,0
+standalone-race-2-clean-clear,YOU reference pilot,2,11,6.000,370.560,0,0
+standalone-race-2-clean-clear,GOLD,2,18,4.500,370.800,0,0
+standalone-race-2-clean-clear,EMBER,2,12,8.520,373.820,0,0
+standalone-race-2-clean-clear,BLUE,2,11,5.500,374.560,0,0
+standalone-race-2-clean-clear,GOLD,2,19,4.260,375.060,0,0
+standalone-race-2-clean-clear,YOU reference pilot,2,12,8.500,379.060,0,0
+standalone-race-2-clean-clear,EMBER,2,13,5.240,379.060,0,0
+standalone-race-2-clean-clear,BLUE,2,12,7.760,382.320,0,0
+standalone-race-2-clean-clear,GOLD,2,0,7.760,382.820,0,0
+standalone-race-2-clean-clear,EMBER,2,14,5.020,384.080,0,0
+standalone-race-2-clean-clear,YOU reference pilot,2,13,5.520,384.580,0,0
+standalone-race-2-clean-clear,BLUE,2,13,4.760,387.080,0,0
+standalone-race-2-clean-clear,EMBER,2,15,4.740,388.820,0,0
+standalone-race-2-clean-clear,YOU reference pilot,2,14,5.000,389.580,0,0
+standalone-race-2-clean-clear,BLUE,2,14,4.500,391.580,0,0
+standalone-race-2-clean-clear,YOU reference pilot,2,15,5.020,394.600,0,0
+standalone-race-2-clean-clear,EMBER,2,16,5.780,394.600,0,0
+standalone-race-2-clean-clear,BLUE,2,15,4.520,396.100,0,0
+standalone-race-2-clean-clear,YOU reference pilot,2,16,6.000,400.600,0,0
+standalone-race-2-clean-clear,BLUE,2,16,5.240,401.340,0,0
+standalone-race-2-clean-clear,EMBER,2,17,7.000,401.600,0,0
+standalone-race-2-clean-clear,EMBER,2,18,5.260,406.860,0,0
+standalone-race-2-clean-clear,YOU reference pilot,2,17,7.000,407.600,0,0
+standalone-race-2-clean-clear,BLUE,2,17,6.260,407.600,0,0
+standalone-race-2-clean-clear,EMBER,2,19,5.000,411.860,0,0
+standalone-race-2-clean-clear,YOU reference pilot,2,18,5.760,413.360,0,0
+standalone-race-2-clean-clear,BLUE,2,18,6.020,413.620,0,0
+standalone-race-2-clean-clear,YOU reference pilot,2,19,5.500,418.860,0,0
+standalone-race-2-clean-clear,BLUE,2,19,5.240,418.860,0,0
+standalone-race-2-clean-clear,EMBER,2,0,9.000,420.860,0,0
+standalone-race-2-clean-clear,YOU reference pilot,2,0,9.760,428.620,0,0
+standalone-race-2-clean-traffic,BLUE,0,0,1.244,4.260,0,0
+standalone-race-2-clean-traffic,GOLD,0,0,1.744,4.760,0,0
+standalone-race-2-clean-traffic,EMBER,0,0,2.244,5.260,0,0
+standalone-race-2-clean-traffic,YOU reference pilot,0,0,2.744,5.760,0,0
+standalone-race-2-clean-traffic,BLUE,0,1,8.260,12.520,0,0
+standalone-race-2-clean-traffic,GOLD,0,1,8.000,12.760,0,0
+standalone-race-2-clean-traffic,EMBER,0,1,8.260,13.520,0,0
+standalone-race-2-clean-traffic,YOU reference pilot,0,1,8.000,13.760,0,0
+standalone-race-2-clean-traffic,BLUE,0,2,8.240,20.760,0,0
+standalone-race-2-clean-traffic,GOLD,0,2,8.280,21.040,0,0
+standalone-race-2-clean-traffic,EMBER,0,2,7.760,21.280,0,0
+standalone-race-2-clean-traffic,YOU reference pilot,0,2,7.780,21.540,0,0
+standalone-race-2-clean-traffic,GOLD,0,3,7.000,28.040,0,0
+standalone-race-2-clean-traffic,EMBER,0,3,7.500,28.780,0,0
+standalone-race-2-clean-traffic,BLUE,0,3,8.020,28.780,0,0
+standalone-race-2-clean-traffic,YOU reference pilot,0,3,7.500,29.040,0,0
+standalone-race-2-clean-traffic,GOLD,0,4,7.500,35.540,0,0
+standalone-race-2-clean-traffic,EMBER,0,4,7.520,36.300,0,0
+standalone-race-2-clean-traffic,YOU reference pilot,0,4,7.500,36.540,0,0
+standalone-race-2-clean-traffic,BLUE,0,4,8.020,36.800,0,0
+standalone-race-2-clean-traffic,GOLD,0,5,6.260,41.800,0,0
+standalone-race-2-clean-traffic,EMBER,0,5,6.740,43.040,0,0
+standalone-race-2-clean-traffic,YOU reference pilot,0,5,7.000,43.540,0,0
+standalone-race-2-clean-traffic,BLUE,0,5,7.240,44.040,0,0
+standalone-race-2-clean-traffic,GOLD,0,6,8.260,50.060,0,0
+standalone-race-2-clean-traffic,EMBER,0,6,9.280,52.320,0,0
+standalone-race-2-clean-traffic,YOU reference pilot,0,6,9.520,53.060,0,0
+standalone-race-2-clean-traffic,BLUE,0,6,9.280,53.320,0,0
+standalone-race-2-clean-traffic,GOLD,0,7,8.500,58.560,0,0
+standalone-race-2-clean-traffic,EMBER,0,7,8.740,61.060,0,0
+standalone-race-2-clean-traffic,YOU reference pilot,0,7,8.500,61.560,0,0
+standalone-race-2-clean-traffic,BLUE,0,7,9.500,62.820,0,0
+standalone-race-2-clean-traffic,GOLD,0,8,7.760,66.320,0,0
+standalone-race-2-clean-traffic,EMBER,0,8,8.000,69.060,0,0
+standalone-race-2-clean-traffic,YOU reference pilot,0,8,8.260,69.820,0,0
+standalone-race-2-clean-traffic,BLUE,0,8,9.240,72.060,0,0
+standalone-race-2-clean-traffic,GOLD,0,9,6.740,73.060,0,0
+standalone-race-2-clean-traffic,EMBER,0,9,7.020,76.080,0,0
+standalone-race-2-clean-traffic,YOU reference pilot,0,9,7.000,76.820,0,0
+standalone-race-2-clean-traffic,GOLD,0,10,6.020,79.080,0,0
+standalone-race-2-clean-traffic,BLUE,0,9,7.760,79.820,0,0
+standalone-race-2-clean-traffic,EMBER,0,10,6.240,82.320,0,0
+standalone-race-2-clean-traffic,YOU reference pilot,0,10,6.500,83.320,0,0
+standalone-race-2-clean-traffic,GOLD,0,11,5.500,84.580,0,0
+standalone-race-2-clean-traffic,BLUE,0,10,6.260,86.080,0,0
+standalone-race-2-clean-traffic,EMBER,0,11,6.260,88.580,0,0
+standalone-race-2-clean-traffic,YOU reference pilot,0,11,6.000,89.320,0,0
+standalone-race-2-clean-traffic,GOLD,0,12,7.240,91.820,0,0
+standalone-race-2-clean-traffic,BLUE,0,11,5.740,91.820,0,0
+standalone-race-2-clean-traffic,GOLD,0,13,4.500,96.320,0,0
+standalone-race-2-clean-traffic,EMBER,0,12,8.240,96.820,0,0
+standalone-race-2-clean-traffic,YOU reference pilot,0,12,8.500,97.820,0,0
+standalone-race-2-clean-traffic,BLUE,0,12,7.500,99.320,0,0
+standalone-race-2-clean-traffic,GOLD,0,14,4.260,100.580,0,0
+standalone-race-2-clean-traffic,EMBER,0,13,5.500,102.320,0,0
+standalone-race-2-clean-traffic,YOU reference pilot,0,13,5.260,103.080,0,0
+standalone-race-2-clean-traffic,BLUE,0,13,4.760,104.080,0,0
+standalone-race-2-clean-traffic,GOLD,0,15,4.000,104.580,0,0
+standalone-race-2-clean-traffic,EMBER,0,14,4.760,107.080,0,0
+standalone-race-2-clean-traffic,YOU reference pilot,0,14,5.240,108.320,0,0
+standalone-race-2-clean-traffic,BLUE,0,14,4.500,108.580,0,0
+standalone-race-2-clean-traffic,GOLD,0,16,5.000,109.580,0,0
+standalone-race-2-clean-traffic,EMBER,0,15,5.000,112.080,0,0
+standalone-race-2-clean-traffic,YOU reference pilot,0,15,5.000,113.320,0,0
+standalone-race-2-clean-traffic,BLUE,0,15,4.740,113.320,0,0
+standalone-race-2-clean-traffic,GOLD,0,17,6.000,115.580,0,0
+standalone-race-2-clean-traffic,EMBER,0,16,5.740,117.820,0,0
+standalone-race-2-clean-traffic,YOU reference pilot,0,16,6.500,119.820,0,0
+standalone-race-2-clean-traffic,GOLD,0,18,4.240,119.820,0,0
+standalone-race-2-clean-traffic,BLUE,0,16,6.760,120.080,0,0
+standalone-race-2-clean-traffic,GOLD,0,19,4.260,124.080,0,0
+standalone-race-2-clean-traffic,EMBER,0,17,7.020,124.840,0,0
+standalone-race-2-clean-traffic,YOU reference pilot,0,17,7.020,126.840,0,0
+standalone-race-2-clean-traffic,BLUE,0,17,6.760,126.840,0,0
+standalone-race-2-clean-traffic,EMBER,0,18,5.000,129.840,0,0
+standalone-race-2-clean-traffic,GOLD,0,0,7.760,131.840,0,0
+standalone-race-2-clean-traffic,YOU reference pilot,0,18,5.740,132.580,0,0
+standalone-race-2-clean-traffic,BLUE,0,18,6.000,132.840,0,0
+standalone-race-2-clean-traffic,EMBER,0,19,5.240,135.080,0,0
+standalone-race-2-clean-traffic,YOU reference pilot,0,19,5.500,138.080,0,0
+standalone-race-2-clean-traffic,BLUE,0,19,5.240,138.080,0,0
+standalone-race-2-clean-traffic,GOLD,1,1,7.740,139.580,0,0
+standalone-race-2-clean-traffic,EMBER,0,0,9.000,144.080,0,0
+standalone-race-2-clean-traffic,BLUE,0,0,8.500,146.580,0,0
+standalone-race-2-clean-traffic,GOLD,1,2,7.260,146.840,0,0
+standalone-race-2-clean-traffic,YOU reference pilot,0,0,9.500,147.580,0,0
+standalone-race-2-clean-traffic,EMBER,1,1,7.780,151.860,0,0
+standalone-race-2-clean-traffic,GOLD,1,3,7.300,154.140,0,0
+standalone-race-2-clean-traffic,BLUE,1,1,7.800,154.380,0,0
+standalone-race-2-clean-traffic,YOU reference pilot,1,1,7.800,155.380,0,0
+standalone-race-2-clean-traffic,EMBER,1,2,7.800,159.660,0,0
+standalone-race-2-clean-traffic,GOLD,1,4,7.260,161.400,0,0
+standalone-race-2-clean-traffic,BLUE,1,2,7.780,162.160,0,0
+standalone-race-2-clean-traffic,YOU reference pilot,1,2,7.780,163.160,0,0
+standalone-race-2-clean-traffic,EMBER,1,3,7.260,166.920,0,0
+standalone-race-2-clean-traffic,GOLD,1,5,6.260,167.660,0,0
+standalone-race-2-clean-traffic,BLUE,1,3,8.000,170.160,0,0
+standalone-race-2-clean-traffic,YOU reference pilot,1,3,7.500,170.660,0,0
+standalone-race-2-clean-traffic,EMBER,1,4,7.500,174.420,0,0
+standalone-race-2-clean-traffic,GOLD,1,6,8.260,175.920,0,0
+standalone-race-2-clean-traffic,BLUE,1,4,8.260,178.420,0,0
+standalone-race-2-clean-traffic,YOU reference pilot,1,4,8.020,178.680,0,0
+standalone-race-2-clean-traffic,EMBER,1,5,6.760,181.180,0,0
+standalone-race-2-clean-traffic,GOLD,1,7,8.520,184.440,0,0
+standalone-race-2-clean-traffic,BLUE,1,5,6.760,185.180,0,0
+standalone-race-2-clean-traffic,YOU reference pilot,1,5,7.760,186.440,0,0
+standalone-race-2-clean-traffic,EMBER,1,6,9.260,190.440,0,0
+standalone-race-2-clean-traffic,GOLD,1,8,7.740,192.180,0,0
+standalone-race-2-clean-traffic,BLUE,1,6,9.260,194.440,0,0
+standalone-race-2-clean-traffic,YOU reference pilot,1,6,9.000,195.440,0,0
+standalone-race-2-clean-traffic,GOLD,1,9,6.760,198.940,0,0
+standalone-race-2-clean-traffic,EMBER,1,7,8.740,199.180,0,0
+standalone-race-2-clean-traffic,BLUE,1,7,9.260,203.700,0,0
+standalone-race-2-clean-traffic,YOU reference pilot,1,7,8.760,204.200,0,0
+standalone-race-2-clean-traffic,GOLD,1,10,6.000,204.940,0,0
+standalone-race-2-clean-traffic,EMBER,1,8,8.020,207.200,0,0
+standalone-race-2-clean-traffic,GOLD,1,11,5.500,210.440,0,0
+standalone-race-2-clean-traffic,YOU reference pilot,1,8,8.300,212.500,0,0
+standalone-race-2-clean-traffic,BLUE,1,8,9.300,213.000,0,0
+standalone-race-2-clean-traffic,EMBER,1,9,7.060,214.260,0,0
+standalone-race-2-clean-traffic,GOLD,1,12,7.320,217.760,0,0
+standalone-race-2-clean-traffic,YOU reference pilot,1,9,7.020,219.520,0,0
+standalone-race-2-clean-traffic,EMBER,1,10,6.260,220.520,0,0
+standalone-race-2-clean-traffic,BLUE,1,9,7.780,220.780,0,0
+standalone-race-2-clean-traffic,GOLD,1,13,4.520,222.280,0,0
+standalone-race-2-clean-traffic,YOU reference pilot,1,10,6.500,226.020,0,0
+standalone-race-2-clean-traffic,GOLD,1,14,4.000,226.280,0,0
+standalone-race-2-clean-traffic,EMBER,1,11,6.000,226.520,0,0
+standalone-race-2-clean-traffic,BLUE,1,10,6.240,227.020,0,0
+standalone-race-2-clean-traffic,GOLD,1,15,4.280,230.560,0,0
+standalone-race-2-clean-traffic,YOU reference pilot,1,11,6.040,232.060,0,0
+standalone-race-2-clean-traffic,BLUE,1,11,5.780,232.800,0,0
+standalone-race-2-clean-traffic,EMBER,1,12,8.540,235.060,0,0
+standalone-race-2-clean-traffic,GOLD,1,16,4.740,235.300,0,0
+standalone-race-2-clean-traffic,YOU reference pilot,1,12,8.260,240.320,0,0
+standalone-race-2-clean-traffic,EMBER,1,13,5.260,240.320,0,0
+standalone-race-2-clean-traffic,BLUE,1,12,7.520,240.320,0,0
+standalone-race-2-clean-traffic,GOLD,1,17,6.020,241.320,0,0
+standalone-race-2-clean-traffic,EMBER,1,14,4.800,245.120,0,0
+standalone-race-2-clean-traffic,GOLD,1,18,4.300,245.620,0,0
+standalone-race-2-clean-traffic,YOU reference pilot,1,13,6.300,246.620,0,0
+standalone-race-2-clean-traffic,BLUE,1,13,6.800,247.120,0,0
+standalone-race-2-clean-traffic,GOLD,1,19,4.260,249.880,0,0
+standalone-race-2-clean-traffic,EMBER,1,15,5.000,250.120,0,0
+standalone-race-2-clean-traffic,YOU reference pilot,1,14,5.500,252.120,0,0
+standalone-race-2-clean-traffic,BLUE,1,14,5.260,252.380,0,0
+standalone-race-2-clean-traffic,EMBER,1,16,5.760,255.880,0,0
+standalone-race-2-clean-traffic,YOU reference pilot,1,15,5.260,257.380,0,0
+standalone-race-2-clean-traffic,BLUE,1,15,5.000,257.380,0,0
+standalone-race-2-clean-traffic,GOLD,1,0,7.760,257.640,0,0
+standalone-race-2-clean-traffic,EMBER,1,17,7.060,262.940,0,0
+standalone-race-2-clean-traffic,YOU reference pilot,1,16,6.300,263.680,0,0
+standalone-race-2-clean-traffic,BLUE,1,16,6.800,264.180,0,0
+standalone-race-2-clean-traffic,GOLD,2,1,7.820,265.460,0,0
+standalone-race-2-clean-traffic,EMBER,1,18,5.100,268.040,0,0
+standalone-race-2-clean-traffic,YOU reference pilot,1,17,7.380,271.060,0,0
+standalone-race-2-clean-traffic,BLUE,1,17,6.880,271.060,0,0
+standalone-race-2-clean-traffic,GOLD,2,2,7.360,272.820,0,0
+standalone-race-2-clean-traffic,EMBER,1,19,5.040,273.080,0,0
+standalone-race-2-clean-traffic,YOU reference pilot,1,18,5.780,276.840,0,0
+standalone-race-2-clean-traffic,BLUE,1,18,6.040,277.100,0,0
+standalone-race-2-clean-traffic,GOLD,2,3,7.020,279.840,0,0
+standalone-race-2-clean-traffic,EMBER,1,0,9.020,282.100,0,0
+standalone-race-2-clean-traffic,BLUE,1,19,5.000,282.100,0,0
+standalone-race-2-clean-traffic,YOU reference pilot,1,19,5.500,282.340,0,0
+standalone-race-2-clean-traffic,GOLD,2,4,7.520,287.360,0,0
+standalone-race-2-clean-traffic,EMBER,2,1,7.780,289.880,0,0
+standalone-race-2-clean-traffic,YOU reference pilot,1,0,10.300,292.640,0,0
+standalone-race-2-clean-traffic,GOLD,2,5,6.280,293.640,0,0
+standalone-race-2-clean-traffic,BLUE,1,0,11.540,293.640,0,0
+standalone-race-2-clean-traffic,EMBER,2,2,7.760,297.640,0,0
+standalone-race-2-clean-traffic,YOU reference pilot,2,1,7.740,300.380,0,0
+standalone-race-2-clean-traffic,BLUE,2,1,7.740,301.380,0,0
+standalone-race-2-clean-traffic,GOLD,2,6,8.240,301.880,0,0
+standalone-race-2-clean-traffic,EMBER,2,3,7.260,304.900,0,0
+standalone-race-2-clean-traffic,YOU reference pilot,2,2,7.760,308.140,0,0
+standalone-race-2-clean-traffic,BLUE,2,2,8.020,309.400,0,0
+standalone-race-2-clean-traffic,GOLD,2,7,8.260,310.140,0,0
+standalone-race-2-clean-traffic,EMBER,2,4,7.760,312.660,0,0
+standalone-race-2-clean-traffic,YOU reference pilot,2,3,7.520,315.660,0,0
+standalone-race-2-clean-traffic,BLUE,2,3,8.000,317.400,0,0
+standalone-race-2-clean-traffic,GOLD,2,8,8.020,318.160,0,0
+standalone-race-2-clean-traffic,EMBER,2,5,6.500,319.160,0,0
+standalone-race-2-clean-traffic,YOU reference pilot,2,4,7.520,323.180,0,0
+standalone-race-2-clean-traffic,GOLD,2,9,6.540,324.700,0,0
+standalone-race-2-clean-traffic,BLUE,2,4,9.060,326.460,0,0
+standalone-race-2-clean-traffic,EMBER,2,6,9.460,328.620,0,0
+standalone-race-2-clean-traffic,YOU reference pilot,2,5,6.720,329.900,0,0
+standalone-race-2-clean-traffic,GOLD,2,10,5.960,330.660,0,0
+standalone-race-2-clean-traffic,BLUE,2,5,6.720,333.180,0,0
+standalone-race-2-clean-traffic,GOLD,2,11,5.520,336.180,0,0
+standalone-race-2-clean-traffic,EMBER,2,7,8.580,337.200,0,0
+standalone-race-2-clean-traffic,YOU reference pilot,2,6,9.160,339.060,0,0
+standalone-race-2-clean-traffic,BLUE,2,6,9.240,342.420,0,0
+standalone-race-2-clean-traffic,GOLD,2,12,7.520,343.700,0,0
+standalone-race-2-clean-traffic,EMBER,2,8,8.000,345.200,0,0
+standalone-race-2-clean-traffic,YOU reference pilot,2,7,8.640,347.700,0,0
+standalone-race-2-clean-traffic,GOLD,2,13,4.280,347.980,0,0
+standalone-race-2-clean-traffic,BLUE,2,7,9.560,351.980,0,0
+standalone-race-2-clean-traffic,EMBER,2,9,7.040,352.240,0,0
+standalone-race-2-clean-traffic,GOLD,2,14,4.260,352.240,0,0
+standalone-race-2-clean-traffic,YOU reference pilot,2,8,8.300,356.000,0,0
+standalone-race-2-clean-traffic,GOLD,2,15,4.020,356.260,0,0
+standalone-race-2-clean-traffic,EMBER,2,10,6.540,358.780,0,0
+standalone-race-2-clean-traffic,BLUE,2,8,9.080,361.060,0,0
+standalone-race-2-clean-traffic,GOLD,2,16,5.040,361.300,0,0
+standalone-race-2-clean-traffic,YOU reference pilot,2,9,7.080,363.080,0,0
+standalone-race-2-clean-traffic,EMBER,2,11,5.820,364.600,0,0
+standalone-race-2-clean-traffic,GOLD,2,17,5.840,367.140,0,0
+standalone-race-2-clean-traffic,BLUE,2,9,7.880,368.940,0,0
+standalone-race-2-clean-traffic,YOU reference pilot,2,10,6.360,369.440,0,0
+standalone-race-2-clean-traffic,GOLD,2,18,4.340,371.480,0,0
+standalone-race-2-clean-traffic,EMBER,2,12,8.640,373.240,0,0
+standalone-race-2-clean-traffic,BLUE,2,10,6.040,374.980,0,0
+standalone-race-2-clean-traffic,YOU reference pilot,2,11,6.040,375.480,0,0
+standalone-race-2-clean-traffic,GOLD,2,19,4.260,375.740,0,0
+standalone-race-2-clean-traffic,EMBER,2,13,5.280,378.520,0,0
+standalone-race-2-clean-traffic,BLUE,2,11,5.800,380.780,0,0
+standalone-race-2-clean-traffic,EMBER,2,14,4.780,383.300,0,0
+standalone-race-2-clean-traffic,GOLD,2,0,7.820,383.560,0,0
+standalone-race-2-clean-traffic,YOU reference pilot,2,12,8.580,384.060,0,0
+standalone-race-2-clean-traffic,EMBER,2,15,5.040,388.340,0,0
+standalone-race-2-clean-traffic,BLUE,2,12,7.560,388.340,0,0
+standalone-race-2-clean-traffic,YOU reference pilot,2,13,5.280,389.340,0,0
+standalone-race-2-clean-traffic,BLUE,2,13,4.760,393.100,0,0
+standalone-race-2-clean-traffic,EMBER,2,16,5.760,394.100,0,0
+standalone-race-2-clean-traffic,YOU reference pilot,2,14,5.260,394.600,0,0
+standalone-race-2-clean-traffic,BLUE,2,14,4.500,397.600,0,0
+standalone-race-2-clean-traffic,YOU reference pilot,2,15,5.020,399.620,0,0
+standalone-race-2-clean-traffic,EMBER,2,17,7.020,401.120,0,0
+standalone-race-2-clean-traffic,BLUE,2,15,4.540,402.140,0,0
+standalone-race-2-clean-traffic,YOU reference pilot,2,16,5.780,405.400,0,0
+standalone-race-2-clean-traffic,EMBER,2,18,5.040,406.160,0,0
+standalone-race-2-clean-traffic,BLUE,2,16,5.280,407.420,0,0
+standalone-race-2-clean-traffic,EMBER,2,19,5.020,411.180,0,0
+standalone-race-2-clean-traffic,YOU reference pilot,2,17,7.040,412.440,0,0
+standalone-race-2-clean-traffic,BLUE,2,17,6.280,413.700,0,0
+standalone-race-2-clean-traffic,YOU reference pilot,2,18,5.260,417.700,0,0
+standalone-race-2-clean-traffic,BLUE,2,18,4.500,418.200,0,0
+standalone-race-2-clean-traffic,EMBER,2,0,9.040,420.220,0,0
+standalone-race-2-clean-traffic,YOU reference pilot,2,19,5.300,423.000,0,0
+standalone-race-2-clean-traffic,BLUE,2,19,4.800,423.000,0,0
+standalone-race-2-clean-traffic,YOU reference pilot,2,0,9.280,432.280,0,0
+standalone-race-2-mistake-traffic,BLUE,0,0,1.250,4.260,0,0
+standalone-race-2-mistake-traffic,GOLD,0,0,1.750,4.760,0,0
+standalone-race-2-mistake-traffic,EMBER,0,0,2.250,5.260,0,0
+standalone-race-2-mistake-traffic,YOU reference pilot,0,0,2.750,5.760,0,0
+standalone-race-2-mistake-traffic,BLUE,0,1,8.240,12.500,0,0
+standalone-race-2-mistake-traffic,GOLD,0,1,8.000,12.760,0,0
+standalone-race-2-mistake-traffic,EMBER,0,1,8.240,13.500,0,0
+standalone-race-2-mistake-traffic,YOU reference pilot,0,1,8.000,13.760,0,0
+standalone-race-2-mistake-traffic,BLUE,0,2,8.260,20.760,0,0
+standalone-race-2-mistake-traffic,GOLD,0,2,8.260,21.020,0,0
+standalone-race-2-mistake-traffic,EMBER,0,2,7.760,21.260,0,0
+standalone-race-2-mistake-traffic,YOU reference pilot,0,2,7.760,21.520,0,0
+standalone-race-2-mistake-traffic,GOLD,0,3,7.060,28.080,0,0
+standalone-race-2-mistake-traffic,EMBER,0,3,7.320,28.580,0,0
+standalone-race-2-mistake-traffic,BLUE,0,3,7.820,28.580,0,0
+standalone-race-2-mistake-traffic,YOU reference pilot,0,3,7.560,29.080,0,0
+standalone-race-2-mistake-traffic,GOLD,0,4,7.500,35.580,0,0
+standalone-race-2-mistake-traffic,EMBER,0,4,7.760,36.340,0,0
+standalone-race-2-mistake-traffic,YOU reference pilot,0,4,7.520,36.600,0,0
+standalone-race-2-mistake-traffic,BLUE,0,4,8.280,36.860,0,0
+standalone-race-2-mistake-traffic,GOLD,0,5,6.280,41.860,0,0
+standalone-race-2-mistake-traffic,EMBER,0,5,6.780,43.120,0,0
+standalone-race-2-mistake-traffic,YOU reference pilot,0,5,7.020,43.620,0,0
+standalone-race-2-mistake-traffic,BLUE,0,5,7.260,44.120,0,0
+standalone-race-2-mistake-traffic,GOLD,0,6,8.340,50.200,0,0
+standalone-race-2-mistake-traffic,EMBER,0,6,9.360,52.480,0,0
+standalone-race-2-mistake-traffic,YOU reference pilot,0,6,9.360,52.980,0,0
+standalone-race-2-mistake-traffic,BLUE,0,6,9.120,53.240,0,0
+standalone-race-2-mistake-traffic,GOLD,0,7,8.320,58.520,0,0
+standalone-race-2-mistake-traffic,EMBER,0,7,8.560,61.040,0,0
+standalone-race-2-mistake-traffic,YOU reference pilot,0,7,11.560,64.540,0,0
+standalone-race-2-mistake-traffic,BLUE,0,7,11.300,64.540,0,0
+standalone-race-2-mistake-traffic,GOLD,0,8,7.760,66.280,0,0
+standalone-race-2-mistake-traffic,EMBER,0,8,8.000,69.040,0,0
+standalone-race-2-mistake-traffic,GOLD,0,9,6.780,73.060,0,0
+standalone-race-2-mistake-traffic,YOU reference pilot,0,8,9.520,74.060,0,0
+standalone-race-2-mistake-traffic,BLUE,0,8,10.520,75.060,0,0
+standalone-race-2-mistake-traffic,EMBER,0,9,7.020,76.060,0,0
+standalone-race-2-mistake-traffic,GOLD,0,10,6.000,79.060,0,0
+standalone-race-2-mistake-traffic,YOU reference pilot,0,9,7.000,81.060,0,0
+standalone-race-2-mistake-traffic,EMBER,0,10,6.260,82.320,0,0
+standalone-race-2-mistake-traffic,BLUE,0,9,7.760,82.820,0,0
+standalone-race-2-mistake-traffic,GOLD,0,11,5.520,84.580,0,0
+standalone-race-2-mistake-traffic,YOU reference pilot,0,10,6.280,87.340,0,0
+standalone-race-2-mistake-traffic,EMBER,0,11,6.260,88.580,0,0
+standalone-race-2-mistake-traffic,BLUE,0,10,6.260,89.080,0,0
+standalone-race-2-mistake-traffic,GOLD,0,12,7.260,91.840,0,0
+standalone-race-2-mistake-traffic,YOU reference pilot,0,11,6.240,93.580,0,0
+standalone-race-2-mistake-traffic,BLUE,0,11,5.760,94.840,0,0
+standalone-race-2-mistake-traffic,GOLD,0,13,4.500,96.340,0,0
+standalone-race-2-mistake-traffic,EMBER,0,12,8.260,96.840,0,0
+standalone-race-2-mistake-traffic,GOLD,0,14,4.240,100.580,0,0
+standalone-race-2-mistake-traffic,YOU reference pilot,0,12,8.260,101.840,0,0
+standalone-race-2-mistake-traffic,EMBER,0,13,5.500,102.340,0,0
+standalone-race-2-mistake-traffic,BLUE,0,12,7.500,102.340,0,0
+standalone-race-2-mistake-traffic,GOLD,0,15,4.020,104.600,0,0
+standalone-race-2-mistake-traffic,EMBER,0,14,4.780,107.120,0,0
+standalone-race-2-mistake-traffic,YOU reference pilot,0,13,5.540,107.380,0,0
+standalone-race-2-mistake-traffic,BLUE,0,13,5.040,107.380,0,0
+standalone-race-2-mistake-traffic,GOLD,0,16,4.800,109.400,0,0
+standalone-race-2-mistake-traffic,EMBER,0,15,4.940,112.060,0,0
+standalone-race-2-mistake-traffic,YOU reference pilot,0,14,6.880,114.260,0,0
+standalone-race-2-mistake-traffic,GOLD,0,17,6.220,115.620,0,0
+standalone-race-2-mistake-traffic,BLUE,0,14,8.500,115.880,0,0
+standalone-race-2-mistake-traffic,EMBER,0,16,5.640,117.700,0,0
+standalone-race-2-mistake-traffic,YOU reference pilot,0,15,5.200,119.460,0,0
+standalone-race-2-mistake-traffic,GOLD,0,18,4.100,119.720,0,0
+standalone-race-2-mistake-traffic,BLUE,0,15,4.860,120.740,0,0
+standalone-race-2-mistake-traffic,GOLD,0,19,4.300,124.020,0,0
+standalone-race-2-mistake-traffic,EMBER,0,17,7.080,124.780,0,0
+standalone-race-2-mistake-traffic,YOU reference pilot,0,16,6.080,125.540,0,0
+standalone-race-2-mistake-traffic,BLUE,0,16,5.300,126.040,0,0
+standalone-race-2-mistake-traffic,EMBER,0,18,5.040,129.820,0,0
+standalone-race-2-mistake-traffic,GOLD,0,0,7.800,131.820,0,0
+standalone-race-2-mistake-traffic,YOU reference pilot,0,17,7.040,132.580,0,0
+standalone-race-2-mistake-traffic,BLUE,0,17,6.540,132.580,0,0
+standalone-race-2-mistake-traffic,EMBER,0,19,5.260,135.080,0,0
+standalone-race-2-mistake-traffic,YOU reference pilot,0,18,5.780,138.360,0,0
+standalone-race-2-mistake-traffic,BLUE,0,18,6.280,138.860,0,0
+standalone-race-2-mistake-traffic,GOLD,1,1,7.540,139.360,0,0
+standalone-race-2-mistake-traffic,YOU reference pilot,0,19,5.540,143.900,0,0
+standalone-race-2-mistake-traffic,EMBER,0,0,8.820,143.900,0,0
+standalone-race-2-mistake-traffic,BLUE,0,19,5.040,143.900,0,0
+standalone-race-2-mistake-traffic,GOLD,1,2,7.580,146.940,0,0
+standalone-race-2-mistake-traffic,EMBER,1,1,7.860,151.760,0,0
+standalone-race-2-mistake-traffic,YOU reference pilot,0,0,9.640,153.540,0,0
+standalone-race-2-mistake-traffic,GOLD,1,3,7.100,154.040,0,0
+standalone-race-2-mistake-traffic,BLUE,0,0,10.140,154.040,0,0
+standalone-race-2-mistake-traffic,EMBER,1,2,7.800,159.560,0,0
+standalone-race-2-mistake-traffic,YOU reference pilot,1,1,7.800,161.340,0,0
+standalone-race-2-mistake-traffic,GOLD,1,4,7.300,161.340,0,0
+standalone-race-2-mistake-traffic,BLUE,1,1,7.800,161.840,0,0
+standalone-race-2-mistake-traffic,EMBER,1,3,7.320,166.880,0,0
+standalone-race-2-mistake-traffic,GOLD,1,5,6.320,167.660,0,0
+standalone-race-2-mistake-traffic,YOU reference pilot,1,2,7.820,169.160,0,0
+standalone-race-2-mistake-traffic,BLUE,1,2,7.820,169.660,0,0
+standalone-race-2-mistake-traffic,EMBER,1,4,7.540,174.420,0,0
+standalone-race-2-mistake-traffic,GOLD,1,6,8.260,175.920,0,0
+standalone-race-2-mistake-traffic,YOU reference pilot,1,3,7.260,176.420,0,0
+standalone-race-2-mistake-traffic,BLUE,1,3,8.020,177.680,0,0
+standalone-race-2-mistake-traffic,EMBER,1,5,6.780,181.200,0,0
+standalone-race-2-mistake-traffic,YOU reference pilot,1,4,7.540,183.960,0,0
+standalone-race-2-mistake-traffic,GOLD,1,7,8.540,184.460,0,0
+standalone-race-2-mistake-traffic,BLUE,1,4,8.080,185.760,0,0
+standalone-race-2-mistake-traffic,EMBER,1,6,9.340,190.540,0,0
+standalone-race-2-mistake-traffic,YOU reference pilot,1,5,6.820,190.780,0,0
+standalone-race-2-mistake-traffic,GOLD,1,8,7.600,192.060,0,0
+standalone-race-2-mistake-traffic,BLUE,1,5,6.800,192.560,0,0
+standalone-race-2-mistake-traffic,GOLD,1,9,6.780,198.840,0,0
+standalone-race-2-mistake-traffic,EMBER,1,7,8.540,199.080,0,0
+standalone-race-2-mistake-traffic,YOU reference pilot,1,6,9.300,200.080,0,0
+standalone-race-2-mistake-traffic,BLUE,1,6,9.020,201.580,0,0
+standalone-race-2-mistake-traffic,GOLD,1,10,6.020,204.860,0,0
+standalone-race-2-mistake-traffic,EMBER,1,8,8.040,207.120,0,0
+standalone-race-2-mistake-traffic,YOU reference pilot,1,7,8.540,208.620,0,0
+standalone-race-2-mistake-traffic,GOLD,1,11,5.520,210.380,0,0
+standalone-race-2-mistake-traffic,BLUE,1,7,9.300,210.880,0,0
+standalone-race-2-mistake-traffic,EMBER,1,9,7.020,214.140,0,0
+standalone-race-2-mistake-traffic,YOU reference pilot,1,8,8.280,216.900,0,0
+standalone-race-2-mistake-traffic,GOLD,1,12,7.280,217.660,0,0
+standalone-race-2-mistake-traffic,BLUE,1,8,9.340,220.220,0,0
+standalone-race-2-mistake-traffic,EMBER,1,10,6.320,220.460,0,0
+standalone-race-2-mistake-traffic,GOLD,1,13,4.560,222.220,0,0
+standalone-race-2-mistake-traffic,YOU reference pilot,1,9,7.080,223.980,0,0
+standalone-race-2-mistake-traffic,GOLD,1,14,4.020,226.240,0,0
+standalone-race-2-mistake-traffic,EMBER,1,11,6.040,226.500,0,0
+standalone-race-2-mistake-traffic,BLUE,1,9,7.780,228.000,0,0
+standalone-race-2-mistake-traffic,YOU reference pilot,1,10,6.280,230.260,0,0
+standalone-race-2-mistake-traffic,GOLD,1,15,4.260,230.500,0,0
+standalone-race-2-mistake-traffic,BLUE,1,10,6.260,234.260,0,0
+standalone-race-2-mistake-traffic,EMBER,1,12,8.500,235.000,0,0
+standalone-race-2-mistake-traffic,GOLD,1,16,4.760,235.260,0,0
+standalone-race-2-mistake-traffic,YOU reference pilot,1,11,6.240,236.500,0,0
+standalone-race-2-mistake-traffic,BLUE,1,11,5.740,240.000,0,0
+standalone-race-2-mistake-traffic,EMBER,1,13,5.260,240.260,0,0
+standalone-race-2-mistake-traffic,GOLD,1,17,6.000,241.260,0,0
+standalone-race-2-mistake-traffic,YOU reference pilot,1,12,8.280,244.780,0,0
+standalone-race-2-mistake-traffic,EMBER,1,14,5.020,245.280,0,0
+standalone-race-2-mistake-traffic,GOLD,1,18,4.260,245.520,0,0
+standalone-race-2-mistake-traffic,BLUE,1,12,7.540,247.540,0,0
+standalone-race-2-mistake-traffic,EMBER,1,15,4.760,250.040,0,0
+standalone-race-2-mistake-traffic,GOLD,1,19,4.520,250.040,0,0
+standalone-race-2-mistake-traffic,YOU reference pilot,1,13,5.500,250.280,0,0
+standalone-race-2-mistake-traffic,BLUE,1,13,5.000,252.540,0,0
+standalone-race-2-mistake-traffic,YOU reference pilot,1,14,5.000,255.280,0,0
+standalone-race-2-mistake-traffic,EMBER,1,16,5.740,255.780,0,0
+standalone-race-2-mistake-traffic,GOLD,1,0,7.760,257.800,0,0
+standalone-race-2-mistake-traffic,BLUE,1,14,5.520,258.060,0,0
+standalone-race-2-mistake-traffic,YOU reference pilot,1,15,5.280,260.560,0,0
+standalone-race-2-mistake-traffic,EMBER,1,17,7.040,262.820,0,0
+standalone-race-2-mistake-traffic,BLUE,1,15,4.760,262.820,0,0
+standalone-race-2-mistake-traffic,GOLD,2,1,7.520,265.320,0,0
+standalone-race-2-mistake-traffic,YOU reference pilot,1,16,5.760,266.320,0,0
+standalone-race-2-mistake-traffic,EMBER,1,18,5.240,268.060,0,0
+standalone-race-2-mistake-traffic,BLUE,1,16,5.240,268.060,0,0
+standalone-race-2-mistake-traffic,GOLD,2,2,7.260,272.580,0,0
+standalone-race-2-mistake-traffic,EMBER,1,19,5.020,273.080,0,0
+standalone-race-2-mistake-traffic,YOU reference pilot,1,17,7.000,273.320,0,0
+standalone-race-2-mistake-traffic,BLUE,1,17,6.520,274.580,0,0
+standalone-race-2-mistake-traffic,YOU reference pilot,1,18,5.260,278.580,0,0
+standalone-race-2-mistake-traffic,BLUE,1,18,4.500,279.080,0,0
+standalone-race-2-mistake-traffic,GOLD,2,3,7.260,279.840,0,0
+standalone-race-2-mistake-traffic,EMBER,1,0,9.000,282.080,0,0
+standalone-race-2-mistake-traffic,YOU reference pilot,1,19,5.260,283.840,0,0
+standalone-race-2-mistake-traffic,BLUE,1,19,4.760,283.840,0,0
+standalone-race-2-mistake-traffic,GOLD,2,4,7.500,287.340,0,0
+standalone-race-2-mistake-traffic,EMBER,2,1,8.020,290.100,0,0
+standalone-race-2-mistake-traffic,YOU reference pilot,1,0,9.760,293.600,0,0
+standalone-race-2-mistake-traffic,GOLD,2,5,6.260,293.600,0,0
+standalone-race-2-mistake-traffic,BLUE,1,0,10.020,293.860,0,0
+standalone-race-2-mistake-traffic,EMBER,2,2,7.520,297.620,0,0
+standalone-race-2-mistake-traffic,YOU reference pilot,2,1,7.780,301.380,0,0
+standalone-race-2-mistake-traffic,BLUE,2,1,7.780,301.640,0,0
+standalone-race-2-mistake-traffic,GOLD,2,6,8.280,301.880,0,0
+standalone-race-2-mistake-traffic,EMBER,2,3,7.260,304.880,0,0
+standalone-race-2-mistake-traffic,YOU reference pilot,2,2,7.500,308.880,0,0
+standalone-race-2-mistake-traffic,BLUE,2,2,8.000,309.640,0,0
+standalone-race-2-mistake-traffic,GOLD,2,7,8.260,310.140,0,0
+standalone-race-2-mistake-traffic,EMBER,2,4,7.760,312.640,0,0
+standalone-race-2-mistake-traffic,YOU reference pilot,2,3,7.500,316.380,0,0
+standalone-race-2-mistake-traffic,BLUE,2,3,8.020,317.660,0,0
+standalone-race-2-mistake-traffic,GOLD,2,8,8.020,318.160,0,0
+standalone-race-2-mistake-traffic,EMBER,2,5,6.520,319.160,0,0
+standalone-race-2-mistake-traffic,YOU reference pilot,2,4,7.520,323.900,0,0
+standalone-race-2-mistake-traffic,GOLD,2,9,6.500,324.660,0,0
+standalone-race-2-mistake-traffic,BLUE,2,4,8.760,326.420,0,0
+standalone-race-2-mistake-traffic,EMBER,2,6,9.520,328.680,0,0
+standalone-race-2-mistake-traffic,YOU reference pilot,2,5,6.780,330.680,0,0
+standalone-race-2-mistake-traffic,GOLD,2,10,6.020,330.680,0,0
+standalone-race-2-mistake-traffic,BLUE,2,5,6.760,333.180,0,0
+standalone-race-2-mistake-traffic,GOLD,2,11,5.500,336.180,0,0
+standalone-race-2-mistake-traffic,EMBER,2,7,8.500,337.180,0,0
+standalone-race-2-mistake-traffic,YOU reference pilot,2,6,9.260,339.940,0,0
+standalone-race-2-mistake-traffic,BLUE,2,6,9.260,342.440,0,0
+standalone-race-2-mistake-traffic,GOLD,2,12,7.500,343.680,0,0
+standalone-race-2-mistake-traffic,EMBER,2,8,8.000,345.180,0,0
+standalone-race-2-mistake-traffic,GOLD,2,13,4.300,347.980,0,0
+standalone-race-2-mistake-traffic,YOU reference pilot,2,7,8.540,348.480,0,0
+standalone-race-2-mistake-traffic,BLUE,2,7,9.300,351.740,0,0
+standalone-race-2-mistake-traffic,EMBER,2,9,7.060,352.240,0,0
+standalone-race-2-mistake-traffic,GOLD,2,14,4.260,352.240,0,0
+standalone-race-2-mistake-traffic,GOLD,2,15,4.040,356.280,0,0
+standalone-race-2-mistake-traffic,YOU reference pilot,2,8,8.300,356.780,0,0
+standalone-race-2-mistake-traffic,EMBER,2,10,6.500,358.740,0,0
+standalone-race-2-mistake-traffic,BLUE,2,8,9.200,360.940,0,0
+standalone-race-2-mistake-traffic,GOLD,2,16,4.920,361.200,0,0
+standalone-race-2-mistake-traffic,YOU reference pilot,2,9,7.240,364.020,0,0
+standalone-race-2-mistake-traffic,EMBER,2,11,6.040,364.780,0,0
+standalone-race-2-mistake-traffic,GOLD,2,17,6.120,367.320,0,0
+standalone-race-2-mistake-traffic,BLUE,2,9,7.900,368.840,0,0
+standalone-race-2-mistake-traffic,YOU reference pilot,2,10,6.340,370.360,0,0
+standalone-race-2-mistake-traffic,GOLD,2,18,4.300,371.620,0,0
+standalone-race-2-mistake-traffic,EMBER,2,12,8.340,373.120,0,0
+standalone-race-2-mistake-traffic,BLUE,2,10,6.300,375.140,0,0
+standalone-race-2-mistake-traffic,GOLD,2,19,4.280,375.900,0,0
+standalone-race-2-mistake-traffic,YOU reference pilot,2,11,6.300,376.660,0,0
+standalone-race-2-mistake-traffic,EMBER,2,13,5.300,378.420,0,0
+standalone-race-2-mistake-traffic,BLUE,2,11,5.780,380.920,0,0
+standalone-race-2-mistake-traffic,EMBER,2,14,4.800,383.220,0,0
+standalone-race-2-mistake-traffic,GOLD,2,0,7.820,383.720,0,0
+standalone-race-2-mistake-traffic,YOU reference pilot,2,12,8.320,384.980,0,0
+standalone-race-2-mistake-traffic,EMBER,2,15,5.040,388.260,0,0
+standalone-race-2-mistake-traffic,BLUE,2,12,7.580,388.500,0,0
+standalone-race-2-mistake-traffic,YOU reference pilot,2,13,5.300,390.280,0,0
+standalone-race-2-mistake-traffic,BLUE,2,13,4.800,393.300,0,0
+standalone-race-2-mistake-traffic,EMBER,2,16,5.800,394.060,0,0
+standalone-race-2-mistake-traffic,YOU reference pilot,2,14,5.300,395.580,0,0
+standalone-race-2-mistake-traffic,BLUE,2,14,5.540,398.840,0,0
+standalone-race-2-mistake-traffic,YOU reference pilot,2,15,5.020,400.600,0,0
+standalone-race-2-mistake-traffic,EMBER,2,17,7.040,401.100,0,0
+standalone-race-2-mistake-traffic,BLUE,2,15,4.800,403.640,0,0
+standalone-race-2-mistake-traffic,EMBER,2,18,4.920,406.020,0,0
+standalone-race-2-mistake-traffic,YOU reference pilot,2,16,5.680,406.280,0,0
+standalone-race-2-mistake-traffic,BLUE,2,16,5.220,408.860,0,0
+standalone-race-2-mistake-traffic,EMBER,2,19,5.120,411.140,0,0
+standalone-race-2-mistake-traffic,YOU reference pilot,2,17,7.140,413.420,0,0
+standalone-race-2-mistake-traffic,BLUE,2,17,6.400,415.260,0,0
+standalone-race-2-mistake-traffic,YOU reference pilot,2,18,5.180,418.600,0,0
+standalone-race-2-mistake-traffic,BLUE,2,18,4.600,419.860,0,0
+standalone-race-2-mistake-traffic,EMBER,2,0,8.980,420.120,0,0
+standalone-race-2-mistake-traffic,YOU reference pilot,2,19,5.300,423.900,0,0
+standalone-race-2-mistake-traffic,BLUE,2,19,4.800,424.660,0,0
+standalone-race-2-mistake-traffic,YOU reference pilot,2,0,9.180,433.080,0,0

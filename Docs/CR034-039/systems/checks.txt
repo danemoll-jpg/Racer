@@ -1,0 +1,33 @@
+PASS Wood PCM finite/headroom variant 0
+PASS Wood PCM finite/headroom variant 1
+PASS Wood PCM finite/headroom variant 2
+PASS Wood distinct variants
+PASS ChainLink PCM finite/headroom variant 0
+PASS ChainLink PCM finite/headroom variant 1
+PASS ChainLink PCM finite/headroom variant 2
+PASS ChainLink distinct variants
+PASS Mailbox PCM finite/headroom variant 0
+PASS Mailbox PCM finite/headroom variant 1
+PASS Mailbox PCM finite/headroom variant 2
+PASS Mailbox distinct variants
+PASS Sign PCM finite/headroom variant 0
+PASS Sign PCM finite/headroom variant 1
+PASS Sign PCM finite/headroom variant 2
+PASS Sign distinct variants
+PASS Burst cooldown rejects 100 duplicate onsets
+PASS Exactly four shared voices after repeated impacts
+PASS Vehicle volume mutes active smash voices
+PASS Wood yields once and cannot block car
+PASS ChainLink yields once and cannot block car
+PASS Mailbox yields once and cannot block car
+PASS Sign yields once and cannot block car
+PASS All material debris cleaned after lifetime
+PASS All material props restored
+PASS Traffic 0 traverses highway and both transitions
+PASS Traffic 0: highway peak=27.41m/s laneError=1.71m lowSpeed=0.17s
+PASS Traffic 1 traverses highway and both transitions
+PASS Traffic 1: highway peak=27.40m/s laneError=0.84m lowSpeed=0.15s
+PASS Traffic 2 traverses highway and both transitions
+PASS Traffic 2: highway peak=28.85m/s laneError=0.78m lowSpeed=0.17s
+PASS Traffic 3 traverses highway and both transitions
+PASS Traffic 3: highway peak=28.83m/s laneError=0.74m lowSpeed=0.15s

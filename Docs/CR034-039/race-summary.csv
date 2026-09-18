@@ -1,0 +1,29 @@
+run,name,finished,DNF,laps,lapTimes,race,adjusted,peak,mean,brakeSeconds,recoveries,misses
+standalone-race-0-clean-traffic,YOU reference pilot original,True,False,3,159.281/157.258/159.158,478.336,478.336,43.29m/s,29.44m/s,64.30,0,0
+standalone-race-0-clean-traffic,EMBER tourer,True,False,3,158.362/156.982/166.040,483.594,483.594,43.67m/s,29.20m/s,66.92,0,0
+standalone-race-0-clean-traffic,GOLD moto,True,False,3,143.383/143.035/143.429,431.438,431.438,52.71m/s,32.53m/s,70.74,0,0
+standalone-race-0-clean-traffic,BLUE atv,True,False,3,154.207/151.280/151.200,457.881,457.881,49.47m/s,30.67m/s,71.88,0,0
+standalone-race-0-mistake-traffic,YOU reference pilot original,True,False,3,161.537/158.770/157.297,480.256,480.256,43.45m/s,29.44m/s,61.66,0,0
+standalone-race-0-mistake-traffic,EMBER tourer,True,False,3,158.763/160.700/157.040,478.725,478.725,43.69m/s,29.35m/s,68.02,0,0
+standalone-race-0-mistake-traffic,GOLD moto,True,False,3,143.383/143.044/143.420,431.450,431.450,52.71m/s,32.48m/s,70.82,0,0
+standalone-race-0-mistake-traffic,BLUE atv,True,False,3,154.747/151.440/152.400,459.793,459.793,49.45m/s,30.49m/s,73.72,0,0
+standalone-race-1-clean-traffic,YOU reference pilot original,True,False,3,152.184/144.622/146.438,445.884,445.884,45.72m/s,31.52m/s,59.16,0,0
+standalone-race-1-clean-traffic,EMBER tourer,True,False,3,145.447/144.465/144.277,436.412,436.412,46.61m/s,32.22m/s,58.38,0,0
+standalone-race-1-clean-traffic,GOLD moto,True,False,3,132.298/131.684/131.296,396.873,396.873,55.92m/s,35.38m/s,60.70,0,0
+standalone-race-1-clean-traffic,BLUE atv,True,False,3,159.760/144.104/146.202,446.272,451.272,52.15m/s,31.51m/s,68.66,0,1
+standalone-race-1-mistake-traffic,YOU reference pilot original,True,False,3,149.944/144.699/144.722,441.993,441.993,45.78m/s,31.96m/s,54.24,0,0
+standalone-race-1-mistake-traffic,EMBER tourer,True,False,3,146.530/144.579/144.318,437.637,437.637,46.60m/s,32.13m/s,58.96,0,0
+standalone-race-1-mistake-traffic,GOLD moto,True,False,3,132.278/131.661/131.259,396.780,396.780,55.93m/s,35.36m/s,60.82,0,0
+standalone-race-1-mistake-traffic,BLUE atv,True,False,3,144.450/141.232/141.547,428.423,428.423,52.37m/s,32.78m/s,65.72,0,0
+standalone-race-2-clean-clear,YOU reference pilot original,True,False,3,142.998/139.174/140.685,425.406,425.406,45.83m/s,33.08m/s,52.08,0,0
+standalone-race-2-clean-clear,EMBER tourer,True,False,3,139.172/138.163/138.159,417.725,417.725,47.32m/s,33.67m/s,53.54,0,0
+standalone-race-2-clean-clear,GOLD moto,True,False,3,126.377/125.860/125.820,379.623,379.623,56.92m/s,37.02m/s,55.56,0,0
+standalone-race-2-clean-clear,BLUE atv,True,False,3,145.359/138.700/141.519,426.784,426.784,52.44m/s,32.95m/s,63.00,0,0
+standalone-race-2-clean-traffic,YOU reference pilot original,True,False,3,141.731/145.138/139.723,429.212,429.212,45.83m/s,32.82m/s,54.66,0,0
+standalone-race-2-clean-traffic,EMBER tourer,True,False,3,138.642/138.141/138.101,417.092,417.092,47.32m/s,33.71m/s,53.42,0,0
+standalone-race-2-clean-traffic,GOLD moto,True,False,3,127.126/125.879/125.902,380.484,380.484,56.92m/s,36.93m/s,55.18,0,0
+standalone-race-2-clean-traffic,BLUE atv,True,False,3,142.274/147.072/139.129,429.666,429.666,52.42m/s,32.72m/s,63.14,0,0
+standalone-race-2-mistake-traffic,YOU reference pilot original,True,False,3,147.794/139.935/139.457,429.813,429.813,45.83m/s,32.86m/s,51.82,0,0
+standalone-race-2-mistake-traffic,EMBER tourer,True,False,3,138.642/138.142/138.099,417.098,417.098,47.32m/s,33.71m/s,53.10,0,0
+standalone-race-2-mistake-traffic,GOLD moto,True,False,3,127.106/125.885/125.953,380.527,380.527,56.92m/s,36.90m/s,55.54,0,0
+standalone-race-2-mistake-traffic,BLUE atv,True,False,3,149.674/139.948/139.575,430.395,430.395,51.87m/s,32.73m/s,65.34,0,0

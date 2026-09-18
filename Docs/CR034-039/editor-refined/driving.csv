@@ -1,0 +1,2 @@
+profile,route,attempt,road,finished,seconds,entry_mps,exit_mps,max_lateral,min_up,air_seconds,misses,penalty,branch_exits,recoveries
+original,Fox Gully,0,False,False,55.004,23.941,0.000,9.696,0.304,1.291,0,0.000,0,0

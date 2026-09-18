@@ -1,0 +1,4 @@
+Creek Leap: road 900.0 -> 1500.0; road distance 600.0m; branch 368.4m; bypass CP 4,5,6; entrance (558.37, 30.09, -252.13); exit (285.74, 35.40, -378.58); target 122km/h
+Fox Gully: road 1580.0 -> 2150.0; road distance 570.0m; branch 469.6m; bypass CP 7,8,9; entrance (220.82, 44.43, -333.13); exit (-110.03, 30.01, -580.70); target 108km/h
+Pine Ridge: road 2220.0 -> 3000.0; road distance 780.0m; branch 608.4m; bypass CP 10,11,12; entrance (-179.99, 30.88, -582.56); exit (-624.83, 7.47, -204.56); target 144km/h
+Existing Southwest Cut: road 2603.9 -> 2755.1; road distance 151.3m; branch 127.1m; bypass CP ; entrance (-560.08, 6.36, -551.35); exit (-620.04, 6.39, -449.38); target 86km/h

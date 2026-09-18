@@ -1,0 +1,2 @@
+profile,route,attempt,road,finished,seconds,entry_mps,exit_mps,max_lateral,min_up,air_seconds,misses,penalty,branch_exits,recoveries
+original,Pine Ridge,0,False,False,55.003,35.146,0.002,23.791,0.666,3.959,0,0.000,0,0

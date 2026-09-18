@@ -1,0 +1,1 @@
+Local terrain: 26 tiles / 17060 vertices; 115 trunks removed within 12m branch corridors. Houses, yards and shops unchanged. Highway 16.4m asphalt, 4x4.1m lanes, blended 70m merges. No legacy rebuild.

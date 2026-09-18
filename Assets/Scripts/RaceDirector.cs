@@ -34,10 +34,12 @@ namespace Racer
         public bool ClassificationFinal { get; private set; }
 
         public int PlayerPosition => Ordered(false).IndexOf(Racers[0]) + 1;
-        public string Category => $"street-v4-local-jump-{(vehicle.GetComponent<VehicleConfiguration>() ? vehicle.GetComponent<VehicleConfiguration>().profileId : "original")}-{(opponents ? "race4-d" + difficulty+"-"+string.Join("-",opponentRoster) : "solo")}-{(traffic ? "traffic" : "clear")}-laps{laps}";
+        public string Category => $"street-v5-woodland-{(vehicle.GetComponent<VehicleConfiguration>() ? vehicle.GetComponent<VehicleConfiguration>().profileId : "original")}-{(opponents ? "race4-d" + difficulty+"-"+string.Join("-",opponentRoster) : "solo")}-{(traffic ? "traffic" : "clear")}-laps{laps}";
         VehicleRespawn respawn;
         float origin;
         float[] gateS;
+        public WoodlandRoute[] Branches { get; private set; }
+        public float Origin => origin;
         double startedAt, firstFinish = -1;
         GameObject gridVisual;
         static Material gridPaint;
@@ -55,6 +57,7 @@ namespace Racer
             if (road)
             {
                 road.Initialize();
+                Branches = FindObjectsByType<WoodlandRoute>();
                 origin = road.Project(gates[0].transform.position, out _);
                 gateS = gates.Select(g => road.Relative(road.Project(g.transform.position, out _), origin)).ToArray();
             }
@@ -76,6 +79,7 @@ namespace Racer
         {
             // Recovery is neither a gate crossing nor a new lap; retain all earned progress.
             Racers[0].SampleOrigin(Clock);
+            Racers[0].Branch.Recovered(vehicle.Body.position);
             if (Flow)
                 Flow.ResetFeedback();
         }
@@ -118,12 +122,14 @@ namespace Racer
                 r.SampleOrigin(Time.timeAsDouble);
                 r.Travel = 0;
                 r.VerifiedRoad = 0;
+                r.Branch.Clear();
             }
 
             firstFinish = -1;
             ClassificationFinal = false;
             startedAt = Time.timeAsDouble + 3;
             BreakableProp.RestoreRace();
+            SmashAudio.Prepare();
             ResetSampling(vehicle.Body.position, Time.timeAsDouble);
             if (Flow)
             {
@@ -137,7 +143,7 @@ namespace Racer
             foreach(var driver in Drivers) if(driver) { driver.gameObject.SetActive(false); Destroy(driver.gameObject); }
             Drivers.Clear(); Racers.RemoveRange(1,Racers.Count-1);
             if(gridVisual) { gridVisual.SetActive(false); Destroy(gridVisual); }
-            Progress.Restart(); Racers[0].Dnf=false; Racers[0].FinishArmed=false;
+            Progress.Restart(); Racers[0].Branch.Clear(); Racers[0].Dnf=false; Racers[0].FinishArmed=false;
             Clock=0; firstFinish=-1; ClassificationFinal=false;
         }
 
@@ -172,7 +178,7 @@ namespace Racer
                 foreach (var source in clone.GetComponents<AudioSource>())
                     Destroy(source);
                 foreach (var renderer in clone.GetComponentsInChildren<Renderer>())
-                    if (renderer.sharedMaterial && renderer.sharedMaterial.name.Contains("Car"))
+                    if (VehiclePaint.IsBodyPaint(renderer.sharedMaterial))
                     {
                         var block = new MaterialPropertyBlock();
                         block.SetColor("_BaseColor", racing ? colors[n] : new Color(.55f, .55f, .5f));
@@ -253,6 +259,7 @@ namespace Racer
                 r.FinishArmed = false;
                 r.Travel = 0;
                 r.VerifiedRoad = 0;
+                r.Branch.Clear();
                 r.SampleOrigin(now);
                 return;
             } // Teleports do not create missed-gate chains.
@@ -273,6 +280,51 @@ namespace Racer
             float lateral = 0;
             if (road)
                 r.RoadPosition = road.Relative(road.Project(position, out lateral), origin);
+            if (road && p.LapActive && p.LapValid && Branches != null)
+            {
+                if (!r.Branch.Route)
+                    foreach (var branch in Branches)
+                    {
+                        int expected = System.Array.FindIndex(gateS, s => s > road.Relative(branch.entryRoad,origin));
+                        if (expected <= 0 || p.NextGate != expected || !branch.Enter(r.Previous,position,heading)) continue;
+                        r.Branch.Begin(branch); break;
+                    }
+                if (r.Branch.Route)
+                {
+                    var branch = r.Branch.Route;
+                    bool exited = r.Branch.Advance(r.Previous,position,heading);
+                    branch.Project(position,out float branchLateral);
+                    // A partial main-road rejoin or reversing out of the entrance abandons this attempt.
+                    // No gate credit has been issued, so ordinary road rules resume exactly once.
+                    bool abandoned = !exited && ((lateral < 9 && branchLateral > branch.halfWidth+4)
+                        || (branch.Project(position,out _) < 2 && Vector3.Dot(position-branch.points[0],branch.points[1]-branch.points[0]) < -1));
+                    if(exited)
+                    {
+                        foreach(int gate in branch.bypassedGates)
+                            if(p.NextGate==gate) p.Cross(gate,true,now);
+                        r.RoadPosition=road.Relative(branch.exitRoad,origin);
+                        int last=p.NextGate==0?gates.Length-1:p.NextGate-1;
+                        r.Travel=Mathf.Max(0,r.RoadPosition-gateS[last]);
+                        r.VerifiedRoad=r.RoadPosition;
+                        r.Branch.Clear();
+                    }
+                    else if(abandoned) r.Branch.Clear();
+                    else
+                    {
+                        // Shared entrance pavement may contain a real gate. Main-road drivers
+                        // must not lose that physical crossing while a branch is provisionally active.
+                        foreach(int gate in branch.bypassedGates)
+                            if(p.NextGate==gate && gates[gate].TryCross(r.Previous,position,out bool gateForward,out float crossing)
+                                && gateForward && Vector3.Dot(heading,gates[gate].transform.forward)>.25f)
+                                p.Cross(gate,true,r.PreviousTime+(now-r.PreviousTime)*crossing);
+                        r.RoadPosition=road.Relative(r.Branch.RoadPosition,origin);
+                        if(r.RoadPosition>road.Length*.35f && r.RoadPosition<road.Length*.8f) r.FinishArmed=true;
+                        r.Previous=position; r.PreviousTime=now;
+                        if(player) Clock=now;
+                        return;
+                    }
+                }
+            }
             // Only new forward road distance counts against the cut charge. Driving circles,
             // reversing or accumulating an off-road odometer cannot buy away a skipped sector.
             if (road && p.LapActive)

@@ -19,7 +19,8 @@ namespace Racer
         public float BrakingSeconds { get; private set; }
 
         bool racing, finishParked;
-        static readonly float[] cornerUse={.36f,.52f,.65f}, brakeUse={.40f,.62f,.82f}, speedUse={.88f,.95f,.99f}, hillTargets={24,27,30};
+        WoodlandRoute plannedBranch;
+        static readonly float[] cornerUse={.46f,.65f,.82f}, brakeUse={.55f,.78f,.94f}, speedUse={.91f,.98f,1f}, hillTargets={26,29,31};
         float pace, stalled, safeS, lane, finishRunoff, nextRecovery;
         readonly RaycastHit[] hits = new RaycastHit[24];
         public void Initialize(RaceDirector race, ArcadeVehicle car, bool racer, int direction, float variation)
@@ -76,7 +77,7 @@ namespace Racer
             float speed = Mathf.Abs(Car.ForwardSpeed);
             Race.road.At(s, out var tangent);
             float look = Mathf.Clamp(7 + speed * .48f, 8, 25);
-            float desiredLane = lane;
+            float desiredLane = racing ? Mathf.Lerp(lane,2.05f,Race.road.HighwayBlend(s)) : Race.road.TrafficLane(s,Direction,pace>.975f);
             if(finished) { finishRunoff += speed*Time.fixedDeltaTime; desiredLane=4.7f; }
             // The connector ramp occupies the left six metres; both traffic directions use its ground bypass.
             bool bypass = Race.road.InBypass(s);
@@ -105,11 +106,25 @@ namespace Racer
                         slowerAhead = true;
                 }
 
-                if (slowerAhead && !oncoming)
-                    desiredLane = -2.3f;
+                if (slowerAhead && (!oncoming || Race.road.HighwayBlend(s)>.95f))
+                    desiredLane = Race.road.HighwayBlend(s)>.95f ? 6.15f : -2.3f;
             }
 
-            var target = Race.road.At(s + Direction * look, out var ahead);
+            if(racing && !finished && Racer!=null && Race.difficulty>0)
+            {
+                if(plannedBranch && s>plannedBranch.exitRoad+15) plannedBranch=null;
+                if(!plannedBranch && Race.Branches!=null)
+                    foreach(var branch in Race.Branches)
+                        if(branch.aiValidated && s>=branch.entryRoad-55 && s<branch.entryRoad &&
+                            (Race.difficulty==2 || Car.GetComponent<VehicleConfiguration>().Profile.Small)) { plannedBranch=branch; break; }
+            }
+            var activeBranch=plannedBranch && Racer?.Branch.Route==plannedBranch ? plannedBranch : null;
+            if(!activeBranch && plannedBranch && s>=plannedBranch.entryRoad-2) activeBranch=plannedBranch;
+            float branchS=activeBranch?activeBranch.Project(Car.Body.position,out _):0;
+            if(plannedBranch || activeBranch) desiredLane=0;
+            var target = activeBranch ? activeBranch.At(branchS+look,out _) : Race.road.At(s + Direction * look, out _);
+            var ahead = tangent;
+            if(activeBranch) activeBranch.At(branchS+look,out ahead); else Race.road.At(s+Direction*look,out ahead);
             target += Vector3.Cross(Vector3.up, ahead).normalized * desiredLane;
             var local = transform.InverseTransformPoint(target);
             float angle = Mathf.Atan2(local.x, local.z);
@@ -118,20 +133,22 @@ namespace Racer
             int skill = racing ? Mathf.Clamp(Race.difficulty,0,2) : 0;
             float cornerGrip = racing ? Car.maxGripAcceleration*cornerUse[skill] : 7.5f;
             float judgment = racing ? Car.braking*brakeUse[skill] : 8f;
-            TargetSpeed = (racing ? Car.topSpeed * speedUse[skill] : 17) * pace;
+            TargetSpeed = (racing ? Car.topSpeed * speedUse[skill] : Mathf.Lerp(17,29,Race.road.HighwayBlend(s))) * pace;
             if(finished) TargetSpeed=12;
             // Consistency costs time through early lifting, never extra vehicle capability.
             if (racing && skill < 2) TargetSpeed *= 1 - (2-skill)*.035f*(.5f+.5f*Mathf.Sin(Time.time*.19f+pace*31));
-            for (float d = 8; d <= 100; d += 8)
+            if(activeBranch) TargetSpeed=Mathf.Min(TargetSpeed,activeBranch.recommendedSpeed);
+            for (float d = 0; d <= 100; d += 8)
             {
-                Race.road.At(s + Direction * d, out var f);
-                Race.road.At(s + Direction * (d + 8), out var next);
+                Vector3 f,next;
+                if(activeBranch) {activeBranch.At(branchS+d,out f);activeBranch.At(branchS+d+8,out next);}
+                else {Race.road.At(s + Direction * d, out f);Race.road.At(s + Direction * (d + 8), out next);}
                 float curvature = Vector3.Angle(Vector3.ProjectOnPlane(f,Vector3.up),Vector3.ProjectOnPlane(next,Vector3.up)) * Mathf.Deg2Rad / 8;
-                float curveSpeed = Mathf.Sqrt(cornerGrip / Mathf.Max(.005f, curvature));
+                float curveSpeed = Mathf.Sqrt(cornerGrip / Mathf.Max(.00015f, curvature));
                 float hillSpeed = Mathf.Abs(f.y) > .14f ? (racing?hillTargets[skill]:24) : Car.topSpeed;
                 // Without downforce, a convex crest cannot support v²/r greater than gravity.
                 float crest=Mathf.Max(0,Mathf.Asin(f.y)-Mathf.Asin(next.y))/8;
-                if(crest>.001f) hillSpeed=Mathf.Min(hillSpeed,Mathf.Sqrt(6.5f/crest));
+                if(!activeBranch && crest>.001f) hillSpeed=Mathf.Min(hillSpeed,Mathf.Sqrt(6.5f/crest));
                 TargetSpeed = Mathf.Min(TargetSpeed, Mathf.Sqrt(Mathf.Pow(Mathf.Min(curveSpeed, hillSpeed), 2) + 2 * judgment * Mathf.Max(0, d - 12)));
             }
 
@@ -188,12 +205,12 @@ namespace Racer
                 var recovery=Car.GetComponent<VehicleRespawn>();
                 if(!recovery.TryRecoverLocal(true)) return;
                 stalled=0; nextRecovery=Time.time+4; RecoveryCount++;
-                if(Racer!=null) { Racer.Recoveries++; Racer.SampleOrigin(Race.Clock); }
+                if(Racer!=null) { Racer.Recoveries++; Racer.Branch.Recovered(Car.Body.position); Racer.SampleOrigin(Race.Clock); }
                 return;
             }
             // Return behind the last stable sample, and never award progress. Wait if any vehicle occupies the pad.
             float destination = safeS - Direction * 8;
-            float recoveryLane = Race.road.InBypass(destination) ? (Direction > 0 ? 3.2f : 6.2f) : lane;
+            float recoveryLane = Race.road.InBypass(destination) ? (Direction > 0 ? 3.2f : 6.2f) : Race.road.TrafficLane(destination,Direction,pace>.975f);
             var p = Race.road.At(destination, out var f) + Vector3.Cross(Vector3.up, f).normalized * recoveryLane + Vector3.up;
             if (Vector3.Distance(p, Race.vehicle.transform.position) < 40)
                 return;

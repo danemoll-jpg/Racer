@@ -1,0 +1,16 @@
+profile,route,attempt,road,finished,seconds,entry_mps,exit_mps,max_lateral,min_up,air_seconds,misses,penalty,branch_exits,recoveries
+atv,Creek Leap,0,False,False,24.468,33.647,0.002,146.361,0.950,4.641,0,0.000,0,0
+atv,Creek Leap,1,False,False,19.698,35.204,-0.001,43.307,0.950,4.261,0,0.000,0,0
+atv,Creek Leap,2,False,False,31.220,33.647,0.000,246.309,0.949,5.047,3,76.905,0,1
+atv,Creek Leap,0,True,True,21.420,29.578,29.762,0.000,0.950,0.100,0,0.000,0,0
+atv,Creek Leap,1,True,True,21.439,29.579,29.999,0.000,0.950,0.100,0,0.000,0,0
+atv,Pine Ridge,0,False,True,17.340,35.123,27.150,5.742,0.984,3.586,0,0.000,1,0
+atv,Pine Ridge,1,False,True,16.779,35.713,27.143,5.949,0.983,3.742,0,0.000,1,0
+atv,Pine Ridge,2,False,True,19.008,35.123,27.154,5.645,0.984,1.219,0,0.000,1,1
+atv,Pine Ridge,0,True,True,22.051,40.704,50.094,0.000,0.982,0.100,0,0.000,0,0
+atv,Pine Ridge,1,True,True,22.058,40.704,50.093,0.000,0.982,0.100,0,0.000,0,0
+atv,Fox Gully,0,False,True,17.787,24.260,27.441,9.402,0.964,3.100,0,0.000,1,0
+atv,Fox Gully,1,False,True,17.176,25.096,27.479,9.386,0.964,3.182,0,0.000,1,0
+atv,Fox Gully,2,False,True,19.456,24.260,27.531,9.412,0.964,3.119,0,0.000,1,1
+atv,Fox Gully,0,True,True,19.399,30.641,41.498,0.000,0.965,0.227,0,0.000,0,0
+atv,Fox Gully,1,True,True,19.392,30.639,41.515,0.000,0.965,0.219,0,0.000,0,0

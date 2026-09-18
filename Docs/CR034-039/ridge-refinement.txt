@@ -1,0 +1,1 @@
+Initial approach produced an unintended crest at road-support blend. Ridge now descends gradually from entry to exit, with its authored 46m/6m takeoff moved to 150m, after the entry bend. Target 122km/h. Repeat driving required.

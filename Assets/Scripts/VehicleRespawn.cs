@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Racer
@@ -59,8 +60,16 @@ namespace Racer
             if(forward.sqrMagnitude<.5f) forward=Vector3.forward;
             float currentS=race && race.road?race.road.Project(from,out _):0;
             if(race && race.road) { race.road.At(currentS,out var tangent); forward=Vector3.ProjectOnPlane(tangent,Vector3.up).normalized; }
+            var state=race?race.Racers.FirstOrDefault(r=>r.Car==vehicle):null;
+            var branch=state?.Branch.Route;
             var candidates=new List<Vector3>();
-            if(preferRoad && race && race.road)
+            if(branch)
+            {
+                float at=Mathf.Min(state.Branch.Position,state.Branch.Earned);
+                branch.At(at,out forward); forward=Vector3.ProjectOnPlane(forward,Vector3.up).normalized;
+                foreach(float back in new[]{2f,5f,9f,15f,24f,35f,48f}) candidates.Add(branch.At(Mathf.Max(0,at-back),out _));
+            }
+            if(!branch && preferRoad && race && race.road)
                 foreach(float back in new[]{1f,3f,6f,10f,16f,24f})
                 {
                     var roadPoint=race.road.At(currentS-back,out var direction);
@@ -74,16 +83,23 @@ namespace Racer
                     candidates.Add(from+offset*radius);
             // Bounded local history; no silent fallback to START.
             foreach(var point in history) if(Vector3.Distance(point,from)<60) candidates.Add(point);
-            if(!preferRoad) candidates.Sort((a,b)=>(a-from).sqrMagnitude.CompareTo((b-from).sqrMagnitude));
+            if(!branch && !preferRoad) candidates.Sort((a,b)=>(a-from).sqrMagnitude.CompareTo((b-from).sqrMagnitude));
             foreach(var candidate in candidates)
             {
-                if(race && race.road)
+                if(!branch && race && race.road)
                 {
                     float delta=Mathf.Repeat(race.road.Project(candidate,out _)-currentS+race.road.Length*.5f,race.road.Length)-race.road.Length*.5f;
                     if(delta>.05f || delta < -60) continue;
                 }
+                if(branch)
+                {
+                    float bs=branch.Project(candidate,out float bl);
+                    if(bl>branch.halfWidth || bs>state.Branch.Position+.05f || bs<state.Branch.Position-60) continue;
+                    branch.At(bs,out forward); forward=Vector3.ProjectOnPlane(forward,Vector3.up).normalized;
+                }
                 if(!Supported(candidate,forward,out var position,out var rotation) || !Clear(position,rotation)) continue;
-                if(race && race.road)
+                if(branch && branch.Project(position,out _)>state.Branch.Position+.05f) continue;
+                if(!branch && race && race.road)
                 {
                     float delta=Mathf.Repeat(race.road.Project(position,out _)-currentS+race.road.Length*.5f,race.road.Length)-race.road.Length*.5f;
                     if(delta>.05f) continue;
@@ -92,6 +108,7 @@ namespace Racer
                     if(crossed) continue;
                 }
                 Place(position,rotation); Pending=false;
+                state?.Branch.Recovered(position); state?.SampleOrigin(race.Clock);
                 LastRecovery=Vector3.Distance(position,from)<2?"Righted locally":"Recovered to nearby support";
                 Respawned?.Invoke(); return true;
             }

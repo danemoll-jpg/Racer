@@ -60,10 +60,10 @@ namespace Racer
                 int i=System.Array.IndexOf(VehicleProfile.All,profile);
                 Check(load.Settings.bodyColors[i]==3,"Persistent per-profile color "+profile.Id);
                 var renderers=race.vehicle.GetComponentsInChildren<Renderer>();
-                var painted=renderers.Where(r=>r.sharedMaterial && r.sharedMaterial.name.Contains("Car")).ToArray();
+                var painted=renderers.Where(r=>VehiclePaint.IsBodyPaint(r.sharedMaterial)).ToArray();
                 var block=new MaterialPropertyBlock();
                 Check(painted.Length>0 && painted.All(r=>{r.GetPropertyBlock(block);return block.GetColor("_BaseColor")==VehiclePaint.Colors[3];}),"Body paint applied "+profile.Id);
-                Check(renderers.Where(r=>r.sharedMaterial && !r.sharedMaterial.name.Contains("Car")).All(r=>{r.GetPropertyBlock(block);return block.isEmpty;}),"Trim/rider unchanged "+profile.Id);
+                Check(renderers.Where(r=>r.sharedMaterial && !VehiclePaint.IsBodyPaint(r.sharedMaterial)).All(r=>{r.GetPropertyBlock(block);return block.isEmpty;}),"Trim/rider unchanged "+profile.Id);
                 ScreenCapture.CaptureScreenshot(Path.GetFullPath("Docs/CR028-033/garage-"+profile.Id+"-"+(Application.isEditor?"editor":"standalone")+".png"));
                 yield return new WaitForSecondsRealtime(.15f); flow.CloseGarage();
             }
