@@ -564,7 +564,7 @@ Phase 6 is ACCEPTED following Dan's overall approval. Preserve this environment 
 
 # PHASE 7 — Racing Game Feel
 
-**Status:** Implemented, awaiting Dan's review. Core countdown/results/persistent bests/pause/settings/navigation/audio delivered together. Phase 6 remains accepted. Evidence and limits: `Docs/Phase7/VALIDATION.md`; controls, timing, save/settings and audio rules: `Docs/Phase7/RULES.md`. Optional stunt scoring/speed traps remain deferred; no Phase 8.
+**Status:** ACCEPTED — Dan answered yes to the full Phase 7 review checklist. Core countdown/results/persistent bests/pause/settings/navigation/audio accepted; input device was not specified. Phase 6 remains accepted. Evidence and limits: `Docs/Phase7/VALIDATION.md`; controls, timing, save/settings and audio rules: `Docs/Phase7/RULES.md`. Optional stunt scoring/speed traps remain deferred; Phase 8 is next, starting with CR-019 commercial layout and coordinated frontage polish.
 
 ## Goal
 Make the prototype feel like a game rather than a Unity demonstration.
@@ -591,6 +591,8 @@ Make the prototype feel like a game rather than a Unity demonstration.
 Improve appearance only after gameplay works.
 
 ## TODO
+- [ ] CR-019: Break mirrored main-street storefront pairs and identical spacing; vary store order, longitudinal positions, gaps and modest setbacks independently on each side while retaining commercial density.
+- [ ] Coordinate commercial frontage paving, access, materials/sign variation and collision with the new layout; preserve road/shoulder access and profile the changed area.
 - [ ] CR-018 (optional backlog): Revisit exact childhood-house placement only when Dan wants to; preserve current placement during ongoing work.
 - [ ] CR-013 (optional backlog): Refine homes from Dan's reference photos if he finds and supplies them; no photos required to continue current work.
 - [ ] Replace important placeholder assets.
@@ -796,6 +798,14 @@ Use this for things that are not bugs but that Dan wants changed.
 **Scope:** Do not move the house, change its yard or reopen CR-016 during current Phase 6 work. No assumed new coordinates or automatic relocation.  
 **Result:** Deferred; no new placement instructions supplied.
 
+### CR-019 — Remove mirrored commercial layout and uniform spacing
+**Status:** OPEN — prioritize with the next coherent Phase 8 commercial-street polish batch.  
+**Reported behavior:** Dan sees the same stores directly opposite one another, with identical spacing on both sides of the main street. Repeated stores are acceptable; mirrored pairs and uniform placement are not.  
+**Requested change:** Vary store order and positions independently on each side. Stagger opposing buildings along the road, use varied realistic gaps and modest setbacks, and avoid matching storefronts directly opposite each other or repeating the same spacing sequence. Reuse existing stores and retain the current commercial coverage/count where feasible; no need to make every store unique. Use intentional, reproducible layout rather than randomizing every load.  
+**Coordination:** Move building visuals, colliders, foundations, shop text/signs, frontage paving and access as coherent sites. Update authored placement and relevant visual batching/generation so refreshes preserve the arrangement. Preserve road/hill geometry, driveable shoulders, woodland access, houses/yards, jump/shortcut, breakable behavior and accepted vehicle/race/UI/save systems. No legacy whole-environment rebuild.  
+**Acceptance:** Before/after overhead views and drives in both directions show no obvious mirrored store pairs or identical spacing rhythm. Buildings remain grounded, separated and accessible, and repeated assets are distributed naturally. Performance and local clearance remain acceptable; Dan reviews the result.  
+**Result:** Pending implementation; no scene edits in this documentation update.
+
 ---
 
 # DECISION LOG
@@ -848,11 +858,14 @@ Record choices we do not want to repeatedly reconsider.
 
 | 2026-09-17 | Phase 6 accepted; proceed to Phase 7 core game flow | Dan approved the environment delivery; preserve current house placement and leave optional scoring/speed traps deferred |
 
+
+| 2026-09-17 | Phase 7 accepted after Dan reports all checklist items passed | Device-specific coverage is not inferred; preserve delivered game flow |
+| 2026-09-17 | CR-019: remove mirrored stores and uniform main-road spacing | Repeated stores are fine, but opposite sides should have independent order and spacing |
 ---
 
 # SESSION HANDOFF
 
-**Current phase:** Phase 7 **implemented, awaiting Dan's review** as one coherent delivery. Phase 6 remains ACCEPTED. Preserve accepted houses/yards, forest, roads, jump, shortcut, breakable props and car tuning. CR-013/CR-018 remain deferred. No optional stunt scoring, speed traps or Phase 8.
+**Current phase:** Phase 7 ACCEPTED — Dan reports yes on all review checklist items. Phase 8 is next: CR-019 main-street store layout plus coordinated commercial frontage polish. Preserve current houses/yards and accepted environment, gameplay, UI, records/settings and vehicle tuning. CR-013/CR-018 remain deferred. No Phase 8 implementation in this documentation update.
 
 **Safety checkpoint:** `46f0e8b6fc19d5002f8260810ee0d0cddec61e11`. Initial Git index write denial recovered with the authorized elevated retry before modifications. Completion commit is reported in the task response.
 
@@ -868,7 +881,7 @@ Record choices we do not want to repeatedly reconsider.
 
 **Limits:** Ordinary-frame uncorrected 32m/s jump probe flew/landed but failed upright threshold (.788 vs .8) and timed out at 12.01s; accepted tuning/ramp remain untouched. No human-driven ordinary-frame full race, physical-controller test or subjective listening approval. Full jump-edge and prop-impact stress matrices were not repeated. Final 16:9 idle frame sample at 60fps: median16.67/p95 16.73/max17.14ms; not course-wide performance parity. Existing forest/frame-time limitations remain. Final build warning is absent optional runtime Pipeline config; player retains stripped unused postprocess shader messages. A build command bridge timeout is counted in the successful build report.
 
-**Dan's short review:** Start and pause during countdown; resume, drive/reset, then restart; complete three laps using normal/shortcut/jump routes; inspect results, race again, adjust settings, quit/relaunch and verify PB/settings. Review physical-controller focus, audio balance and jump landing. Do not mark Phase 7 accepted until Dan reviews it.
+**Dan's latest review:** Yes on all Phase 7 checklist items; Phase 7 approved. New issue: main-street stores mirror one another across the road and use identical spacing. Repeated assets are fine, but the order/placement/gaps must vary independently. Track as CR-019 for the next delivery. Input device was not specified; no new technical tests performed here.
 
 ---
 
