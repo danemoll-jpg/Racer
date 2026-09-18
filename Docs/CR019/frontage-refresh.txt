@@ -1,0 +1,1 @@
+Changed color entries 0. Terrain vertices, indices, normals, road marking UVs and colliders unchanged. Flush gravel access stops outside 10m road corridor.

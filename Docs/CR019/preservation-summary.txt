@@ -1,0 +1,4 @@
+Preservation audit: houses (all child transforms), terrain positions/normals/triangles/road-marking UVs and breakable placements unchanged.
+Only differences: 9 local tree removals; all remaining trunk transforms unchanged.
+Repeat authored apply inventory identical to first after inventory: True
+Repeated frontage refresh changed 0 vertex colors.

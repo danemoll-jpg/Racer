@@ -1,0 +1,46 @@
+PASS 22 businesses retained
+PASS 11 sites per side
+PASS Matching opposite storefront projected footprints separated by at least 58.60m along X
+Closest opposing center stagger=14.35m.
+South center spacing(m): 47.30, 100.49, 59.06, 49.26, 102.65, 54.12, 56.88, 121.05, 62.90, 90.16
+North center spacing(m): 80.97, 55.18, 104.31, 51.67, 64.81, 117.11, 50.44, 63.34, 80.07, 68.29
+PASS Smallest same-row building footprint gap 21.40m
+PASS CR019 S01 business: attached sign and prefab colliders
+PASS CR019 N01 business: attached sign and prefab colliders
+PASS CR019 S02 business: attached sign and prefab colliders
+PASS CR019 N02 business: attached sign and prefab colliders
+PASS CR019 S03 business: attached sign and prefab colliders
+PASS CR019 N03 business: attached sign and prefab colliders
+PASS CR019 S04 business: attached sign and prefab colliders
+PASS CR019 N04 business: attached sign and prefab colliders
+PASS CR019 S05 business: attached sign and prefab colliders
+PASS CR019 N05 business: attached sign and prefab colliders
+PASS CR019 S06 business: attached sign and prefab colliders
+PASS CR019 N06 business: attached sign and prefab colliders
+PASS CR019 S07 business: attached sign and prefab colliders
+PASS CR019 N07 business: attached sign and prefab colliders
+PASS CR019 S08 business: attached sign and prefab colliders
+PASS CR019 N08 business: attached sign and prefab colliders
+PASS CR019 S09 business: attached sign and prefab colliders
+PASS CR019 N09 business: attached sign and prefab colliders
+PASS CR019 S10 business: attached sign and prefab colliders
+PASS CR019 N10 business: attached sign and prefab colliders
+PASS CR019 S11 business: attached sign and prefab colliders
+PASS CR019 N11 business: attached sign and prefab colliders
+PASS Site foundation overlaps=0
+PASS Foundation bottom maximum gap=0.000m
+PASS Minimum building foundation clearance from road center=19.56m
+PASS Central driveway corridor obstacle samples=0
+PASS Source renderers disabled; batched visuals only
+PASS Batched world vertices match sources: Warm plaster
+PASS Batched world vertices match sources: Slate blue siding
+PASS Batched world vertices match sources: Ivory trim
+PASS Batched world vertices match sources: Charcoal roof
+PASS Batched world vertices match sources: Door timber
+PASS Batched world vertices match sources: Blue glass
+PASS Batched world vertices match sources: Sage siding
+PASS Batched world vertices match sources: Muted brick
+PASS Batched world vertices match sources: Market teal
+PASS Batched world vertices match sources: Diner red
+PASS Batched world vertices match sources: Workshop ochre
+RESULT failures=0; 11 architectural material batches; 886 scene renderers.

@@ -1,0 +1,4 @@
+Ordinary-frame virtual Gamepad; unmodified vehicle; fixedDeltaTime=0.01999999; 734x293; VSync=1; cap=60; isolated save=C:\Users\danmo\Racer\Docs\CR019\test-save. No human/physical-device claim.
+PASS eastbound entire commercial road: 30.56s, start=(-558.00, 8.61, 541.37), end=(250.19, 8.69, 558.71), peak=32.00m/s, brake minimum=12.66m/s, min upright=0.998, max shoulder offset=11.29m, end road error=1.83m, non-terrain contacts=0 []. Median/p95 editor intervals=16.65/21.62ms; samples=1753.
+PASS westbound entire commercial road: 30.50s, start=(254.00, 8.66, 560.90), end=(-552.35, 8.60, 542.84), peak=32.01m/s, brake minimum=12.67m/s, min upright=0.998, max shoulder offset=11.32m, end road error=1.67m, non-terrain contacts=0 []. Median/p95 editor intervals=16.70/20.73ms; samples=1746.
+Completed two directions; gentle road bends, brake/reaccelerate, south shoulder departure and re-entry. No race completion or player-data write.

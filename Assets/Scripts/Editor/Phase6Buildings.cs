@@ -87,7 +87,7 @@ public static class Phase6Buildings {
    if(t.Find("Phase 6 architecture"))continue;
    var mass=t.Find("House mass");var oldRoof=t.Find("Roof mass");if(!mass||!oldRoof)throw new Exception("Unexpected building layout: "+t.name);
    bool shop=t.name.Contains("business");float w=mass.localScale.x,d=mass.localScale.z,baseY=mass.localPosition.y-mass.localScale.y*.5f;
-   int variant=shop?(shopIndex++/2)%4:(houseIndex++)%4;
+   int variant=shop?CR019Commercial.PrefabVariant(t.name,shopIndex++):(houseIndex++)%4;
    if(t.name.StartsWith("Dan"))variant=0;if(t.name=="Original house 2")variant=1;if(t.name=="Original house 3")variant=2;if(t.name.StartsWith("Friend"))variant=3;
    var detail=(GameObject)PrefabUtility.InstantiatePrefab(shop?shops[variant]:houses[variant],t);detail.name="Phase 6 architecture";detail.transform.localPosition=new(0,baseY,0);detail.transform.localScale=new(w/(shop?24:13),1,d/(shop?17:10));PrefabUtility.RecordPrefabInstancePropertyModifications(detail.transform);
    Object.DestroyImmediate(mass.gameObject);Object.DestroyImmediate(oldRoof.gameObject);
@@ -105,6 +105,7 @@ public static class Phase6Buildings {
  }
  public static void RefreshVisualBatches(){
   if(Application.isPlaying)throw new InvalidOperationException("Edit mode only");
+  CR019Commercial.RefreshFrontage(); // Current authored commercial sites own their paving/access.
   const string batchRoot="Phase 6 - architectural render batches";var oldRoot=GameObject.Find(batchRoot);if(oldRoot)Object.DestroyImmediate(oldRoot);
   var root=new GameObject(batchRoot).transform;var filters=GameObject.Find(Phase6Review.Root).GetComponentsInChildren<MeshFilter>();int tris=0;
   foreach(var group in filters.GroupBy(f=>f.GetComponent<Renderer>().sharedMaterial)){

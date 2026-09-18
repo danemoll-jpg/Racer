@@ -1,0 +1,6 @@
+PASS Restart locked countdown
+PASS Countdown pause
+PASS Countdown remains frozen during pause
+PASS Countdown finishes and unlocks vehicle after simulation advances
+PASS Racing pause
+PASS Racing resume

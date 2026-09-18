@@ -14,7 +14,10 @@ public static class Phase6Vegetation {
  const string Folder="Assets/Vegetation/Phase6";
  public static bool Reserved(Vector3 p,List<Vector3> road,List<Vector3> shortcut)=>
   Phase6Buildings.YardDistance(p)<28 || CompactYard.AccessDistance(p)<6 || StreetLoopBuilder.Nearest(p,road,out _)<StreetLoopRevision.ForestClearance || Phase5Setup.Distance(p,shortcut,out _)<10 || CR014Woodland.SiteReserved(p);
- static Mesh Save(Mesh mesh,string name){string path=Folder+"/"+name+".asset";mesh.name=name;var old=AssetDatabase.LoadAssetAtPath<Mesh>(path);if(old){old.Clear();old.indexFormat=mesh.indexFormat;old.vertices=mesh.vertices;old.triangles=mesh.triangles;old.normals=mesh.normals;old.colors=mesh.colors;old.RecalculateBounds();old.UploadMeshData(false);Object.DestroyImmediate(mesh);EditorUtility.SetDirty(old);return old;}AssetDatabase.CreateAsset(mesh,path);return mesh;}
+ static Mesh Save(Mesh mesh,string name){string path=Folder+"/"+name+".asset";mesh.name=name;var old=AssetDatabase.LoadAssetAtPath<Mesh>(path);if(old){
+  // Do not rewrite untouched forest cells or retain unused buffer channels on changed cells.
+  if(old.vertices.SequenceEqual(mesh.vertices)&&old.normals.SequenceEqual(mesh.normals)&&old.colors.SequenceEqual(mesh.colors)&&old.triangles.SequenceEqual(mesh.triangles)){Object.DestroyImmediate(mesh);return old;}
+  old.Clear(false);old.indexFormat=mesh.indexFormat;old.vertices=mesh.vertices;old.triangles=mesh.triangles;old.normals=mesh.normals;old.colors=mesh.colors;old.RecalculateBounds();old.UploadMeshData(false);Object.DestroyImmediate(mesh);EditorUtility.SetDirty(old);return old;}AssetDatabase.CreateAsset(mesh,path);return mesh;}
  // Indexed low-poly crowns: share ring vertices to keep forest vertex bandwidth low.
  static Mesh Crown(int variant){
   var v=new List<Vector3>();var t=new List<int>();var c=new List<Color>();

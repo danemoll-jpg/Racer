@@ -1,0 +1,3 @@
+240 ordinary Play frames after 45 warmup; fixed commercial camera (-260,23,531) toward (-120,11,532); forest enabled.
+Median editor interval 16.74ms; p95 20.83ms; resolution 734x293; vSync 1; target 60; renderers 886.
+Editor timing includes editor/host overhead; not standalone GPU timings.

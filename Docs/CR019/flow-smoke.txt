@@ -1,0 +1,6 @@
+PASS pause after drive
+PASS resume racing
+PASS restart enters locked countdown
+PASS pause countdown
+PASS resume countdown
+FAIL countdown completes and unlocks vehicle

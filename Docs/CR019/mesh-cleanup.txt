@@ -1,0 +1,1 @@
+Restored 37 semantically identical forest meshes from the safety checkpoint through Unity asset APIs; verified positions/normals/colors/indices before copying. No visible woodland changes outside six commercial cells.

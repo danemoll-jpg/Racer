@@ -1,0 +1,95 @@
+Assets/Buildings/Phase6/Scene buildings - Blue glass.asset
+Assets/Buildings/Phase6/Scene buildings - Charcoal roof.asset
+Assets/Buildings/Phase6/Scene buildings - Diner red.asset
+Assets/Buildings/Phase6/Scene buildings - Ivory trim.asset
+Assets/Buildings/Phase6/Scene buildings - Market teal.asset
+Assets/Buildings/Phase6/Scene buildings - Muted brick.asset
+Assets/Buildings/Phase6/Scene buildings - Sage siding.asset
+Assets/Buildings/Phase6/Scene buildings - Slate blue siding.asset
+Assets/Buildings/Phase6/Scene buildings - Warm plaster.asset
+Assets/Buildings/Phase6/Scene buildings - Workshop ochre.asset
+Assets/Scenes/StreetLoopGreybox.unity
+Assets/Scripts/Editor/CR019Commercial.cs
+Assets/Scripts/Editor/CR019Commercial.cs.meta
+Assets/Scripts/Editor/CR019Driving.cs
+Assets/Scripts/Editor/CR019Driving.cs.meta
+Assets/Scripts/Editor/CR019Validation.cs
+Assets/Scripts/Editor/CR019Validation.cs.meta
+Assets/Scripts/Editor/Phase6Buildings.cs
+Assets/Scripts/Editor/Phase6Vegetation.cs
+Assets/Scripts/Editor/StreetLoopRevision.cs
+Assets/Track/StreetLoop/Ground_160_560.asset
+Assets/Track/StreetLoop/Ground_160_640.asset
+Assets/Track/StreetLoop/Ground_240_560.asset
+Assets/Track/StreetLoop/Ground_240_640.asset
+Assets/Track/StreetLoop/Ground_320_560.asset
+Assets/Track/StreetLoop/Ground_320_640.asset
+Assets/Track/StreetLoop/Ground_400_560.asset
+Assets/Track/StreetLoop/Ground_400_640.asset
+Assets/Track/StreetLoop/Ground_480_560.asset
+Assets/Track/StreetLoop/Ground_480_640.asset
+Assets/Track/StreetLoop/Ground_80_560.asset
+Assets/Track/StreetLoop/Ground_80_640.asset
+Assets/Vegetation/Phase6/Forest_-1_3.asset
+Assets/Vegetation/Phase6/Forest_-2_2.asset
+Assets/Vegetation/Phase6/Forest_-2_3.asset
+Assets/Vegetation/Phase6/Forest_-3_3.asset
+Assets/Vegetation/Phase6/Forest_-4_3.asset
+Assets/Vegetation/Phase6/Forest_0_3.asset
+Docs/CR019/after-overhead--160.png
+Docs/CR019/after-overhead--460.png
+Docs/CR019/after-overhead-140.png
+Docs/CR019/after-overhead.png
+Docs/CR019/after-preservation.txt
+Docs/CR019/after-road--160--1.png
+Docs/CR019/after-road--160-1.png
+Docs/CR019/after-road--460--1.png
+Docs/CR019/after-road--460-1.png
+Docs/CR019/after-road-140--1.png
+Docs/CR019/after-road-140-1.png
+Docs/CR019/after-sites.csv
+Docs/CR019/after-validation.txt
+Docs/CR019/annotated-overview.svg
+Docs/CR019/annotated-road.svg
+Docs/CR019/apply-result.txt
+Docs/CR019/before-overhead--160.png
+Docs/CR019/before-overhead--460.png
+Docs/CR019/before-overhead-140.png
+Docs/CR019/before-overhead.png
+Docs/CR019/before-preservation.txt
+Docs/CR019/before-road--160--1.png
+Docs/CR019/before-road--160-1.png
+Docs/CR019/before-road--460--1.png
+Docs/CR019/before-road--460-1.png
+Docs/CR019/before-road-140--1.png
+Docs/CR019/before-road-140-1.png
+Docs/CR019/before-sites.csv
+Docs/CR019/console-final.json
+Docs/CR019/console-history.json
+Docs/CR019/console-smoke.json
+Docs/CR019/driving.txt
+Docs/CR019/FILES_CHANGED.txt
+Docs/CR019/flow-smoke-final.txt
+Docs/CR019/flow-smoke.txt
+Docs/CR019/forest-geometry-audit.txt
+Docs/CR019/frontage-refresh.txt
+Docs/CR019/GenerateReview.ps1
+Docs/CR019/HANDOFF.md
+Docs/CR019/last-frontages.json
+Docs/CR019/local-tree-clearance.txt
+Docs/CR019/mesh-cleanup.txt
+Docs/CR019/original-frontages.json
+Docs/CR019/preservation-summary.txt
+Docs/CR019/reload-preservation.txt
+Docs/CR019/reload-validation.txt
+Docs/CR019/repeat-result.txt
+Docs/CR019/repeat-sites.csv
+Docs/CR019/repeat-validation.txt
+Docs/CR019/review.html
+Docs/CR019/VALIDATION.md
+Docs/CR019/vegetation-refresh.txt
+Docs/PHASE6_CR019_AFTER_PERFORMANCE.txt
+Docs/PHASE6_CR019_BEFORE_PERFORMANCE.txt
+Docs/PHASE6_RENDER_BATCHES.txt
+Docs/Phase7/HANDOFF.md
+PROJECT_TODO.md

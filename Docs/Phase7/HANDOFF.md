@@ -1,4 +1,6 @@
-**Current phase:** Phase 7 **implemented, awaiting Dan's review** as one coherent delivery. Phase 6 remains ACCEPTED. Preserve accepted houses/yards, forest, roads, jump, shortcut, breakable props and car tuning. CR-013/CR-018 remain deferred. No optional stunt scoring, speed traps or Phase 8.
+**Acceptance update (2026-09-17):** Phase 7 ACCEPTED. Dan answered yes to all review checklist items; his input device was not specified. Current work has advanced to the first Phase 8 commercial batch, awaiting visual review; see ../CR019/VALIDATION.md and PROJECT_TODO.md. The implementation/test record below is historical.
+
+**Historical delivery:** Phase 7 implemented as one coherent delivery; subsequently accepted by Dan. Phase 6 remains ACCEPTED. Preserve accepted houses/yards, forest, roads, jump, shortcut, breakable props and car tuning. CR-013/CR-018 remain deferred. No optional stunt scoring, speed traps or Phase 8.
 
 **Safety checkpoint:** `46f0e8b6fc19d5002f8260810ee0d0cddec61e11`. Initial Git index write denial recovered with the authorized elevated retry before modifications. Completion commit is reported in the task response.
 
@@ -14,4 +16,4 @@
 
 **Limits:** Ordinary-frame uncorrected 32m/s jump probe flew/landed but failed upright threshold (.788 vs .8) and timed out at 12.01s; accepted tuning/ramp remain untouched. No human-driven ordinary-frame full race, physical-controller test or subjective listening approval. Full jump-edge and prop-impact stress matrices were not repeated. Final 16:9 idle frame sample at 60fps: median16.67/p95 16.73/max17.14ms; not course-wide performance parity. Existing forest/frame-time limitations remain. Final build warning is absent optional runtime Pipeline config; player retains stripped unused postprocess shader messages. A build command bridge timeout is counted in the successful build report.
 
-**Dan's short review:** Start and pause during countdown; resume, drive/reset, then restart; complete three laps using normal/shortcut/jump routes; inspect results, race again, adjust settings, quit/relaunch and verify PB/settings. Review physical-controller focus, audio balance and jump landing. Do not mark Phase 7 accepted until Dan reviews it.
+**Dan's short review:** Start and pause during countdown; resume, drive/reset, then restart; complete three laps using normal/shortcut/jump routes; inspect results, race again, adjust settings, quit/relaunch and verify PB/settings. Review physical-controller focus, audio balance and jump landing. Dan subsequently answered yes to every checklist item; Phase 7 is accepted without inferring an input device.
