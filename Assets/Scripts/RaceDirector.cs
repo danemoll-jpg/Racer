@@ -16,6 +16,9 @@ namespace Racer
         [Min(1)]
         public float cutPenaltyMetresPerSecond = 10;
         public bool opponents = true, traffic = true;
+        public int difficulty = 1;
+        public string DifficultyName => new[]{"Easy", "Normal", "Hard"}[Mathf.Clamp(difficulty,0,2)];
+        public string ModeLabel => opponents ? "Race vs 3 AI / " + DifficultyName : "Solo / time trial";
         [Range(0, 6)]
         public int trafficCount = 4;
         public float finishGraceSeconds = 90, maximumRaceSeconds = 1200;
@@ -29,11 +32,13 @@ namespace Racer
         public bool ClassificationFinal { get; private set; }
 
         public int PlayerPosition => Ordered(false).IndexOf(Racers[0]) + 1;
-        public string Category => $"street-v2-speed49-penalties-{(opponents ? "race4" : "solo")}-{(traffic ? "traffic" : "clear")}-laps{laps}";
+        public string Category => $"street-v3-garage-{(vehicle.GetComponent<VehicleConfiguration>() ? vehicle.GetComponent<VehicleConfiguration>().profileId : "original")}-{(opponents ? "race4-d" + difficulty : "solo")}-{(traffic ? "traffic" : "clear")}-laps{laps}";
         VehicleRespawn respawn;
         float origin;
         float[] gateS;
         double startedAt, firstFinish = -1;
+        GameObject gridVisual;
+        static Material gridPaint;
         void Awake()
         {
             if (!vehicle || gates == null || gates.Length < 2)
@@ -96,8 +101,17 @@ namespace Racer
             Racers.RemoveRange(1, Racers.Count - 1);
             respawn.ResetVehicle();
             Progress.Restart();
+            if (road && opponents)
+            {
+                var grid = road.At(origin - 32, out var direction);
+                vehicle.Body.position = grid - Vector3.Cross(Vector3.up,direction).normalized * 2.2f + Vector3.up * Mathf.Max(.4f,vehicle.suspensionLength-Physics.gravity.magnitude/vehicle.springStrength);
+                vehicle.Body.rotation = Quaternion.LookRotation(Vector3.ProjectOnPlane(direction,Vector3.up));
+                vehicle.transform.SetPositionAndRotation(vehicle.Body.position,vehicle.Body.rotation);
+                FindAnyObjectByType<ChaseCamera>()?.Snap();
+            }
             if (road)
                 CreateCars();
+            ShowGrid();
             foreach (var r in Racers)
             {
                 r.SampleOrigin(Time.timeAsDouble);
@@ -129,6 +143,10 @@ namespace Racer
                 var clone = Instantiate(vehicle.gameObject);
                 clone.name = racing ? new[]{"EMBER", "GOLD", "BLUE"}[n] : "Traffic " + (n + 1);
                 var car = clone.GetComponent<ArcadeVehicle>();
+                var configuration = clone.GetComponent<VehicleConfiguration>();
+                if (!configuration) configuration = clone.AddComponent<VehicleConfiguration>();
+                // First delivery: car opponents; like-for-like when a car is selected.
+                configuration.Apply(racing && !VehicleProfile.Find(vehicle.GetComponent<VehicleConfiguration>().profileId).Small ? vehicle.GetComponent<VehicleConfiguration>().profileId : "original");
                 // Explicit test pilots must never be duplicated into opponents.
                 foreach (var inherited in clone.GetComponents<RoadDriver>()) { inherited.enabled = false; Destroy(inherited); }
                 clone.GetComponent<VehicleInput>().enabled = false;
@@ -162,7 +180,28 @@ namespace Racer
                     driver.Racer = state;
                 }
 
-                driver.Place(racing ? spawn - 9 - n * 9 : spawn + 200 + n * road.Length / Mathf.Max(1, population), racing ? (n % 2 == 0 ? 2.2f : -2.2f) : 2.6f * driver.Direction);
+                driver.Place(racing ? spawn + 8 + n * 7 : spawn + 200 + n * road.Length / Mathf.Max(1, population), racing ? (n % 2 == 0 ? 2.2f : -2.2f) : 2.6f * driver.Direction);
+            }
+        }
+
+        void ShowGrid()
+        {
+            if(gridVisual) { gridVisual.SetActive(false); Destroy(gridVisual); }
+            if(!opponents || !road) return;
+            if(!gridPaint) gridPaint=new Material(Shader.Find("Universal Render Pipeline/Lit")){color=new Color(.88f,.87f,.68f)};
+            gridVisual=new GameObject("Starting grid paint");
+            foreach(var racer in Racers)
+            {
+                float s=road.Project(racer.Car.transform.position,out _);
+                var center=road.At(s,out var forward);
+                var right=Vector3.Cross(Vector3.up,forward).normalized;
+                center+=right*Vector3.Dot(racer.Car.transform.position-center,right)+Vector3.up*.04f;
+                foreach(float side in new[]{-1.2f,1.2f})
+                {
+                    var bar=GameObject.CreatePrimitive(PrimitiveType.Cube); bar.name="Grid stripe"; bar.transform.SetParent(gridVisual.transform);
+                    bar.transform.SetPositionAndRotation(center+right*side,Quaternion.LookRotation(forward)); bar.transform.localScale=new(.09f,.015f,5.2f);
+                    bar.GetComponent<Collider>().enabled=false; Destroy(bar.GetComponent<Collider>()); bar.GetComponent<Renderer>().sharedMaterial=gridPaint;
+                }
             }
         }
 

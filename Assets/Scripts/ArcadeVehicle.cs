@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Racer
 {
@@ -36,6 +37,7 @@ namespace Racer
         public Rigidbody Body { get; private set; }
         VehicleInput input;
         float steer;
+        public float VisualSteering => steer;
 
         void Awake()
         {
@@ -49,12 +51,15 @@ namespace Racer
         // Public step supports deterministic physics checks without coupling the motor to input devices.
         public void Simulate(float throttle, float brakeReverse, float steering, float dt)
         {
+            var configuration = GetComponent<VehicleConfiguration>();
+            if(configuration) configuration.PrepareContacts();
+            if (configuration && configuration.WipedOut) { throttle = 0; steering *= .25f; }
             GroundedWheels = 0;
             Vector3 normal = Vector3.zero;
             foreach (Vector3 local in suspensionPoints)
             {
                 Vector3 origin = transform.TransformPoint(local);
-                if (!Physics.Raycast(origin, -transform.up, out RaycastHit hit, suspensionLength, groundMask, QueryTriggerInteraction.Ignore)) continue;
+                if (!gameObject.scene.GetPhysicsScene().Raycast(origin, -transform.up, out RaycastHit hit, suspensionLength, groundMask, QueryTriggerInteraction.Ignore)) continue;
                 if (Vector3.Dot(hit.normal, Vector3.up) < 0.35f) continue;
                 GroundedWheels++;
                 normal += hit.normal;
@@ -92,7 +97,7 @@ namespace Racer
             Body.AddTorque((tilt * uprightStrength - tiltVelocity * uprightDamping) * (grounded ? 1 : airStability), ForceMode.Acceleration);
         }
 
-        public void ClearSteering() => steer = 0;
+        public void ClearSteering() { steer = 0; GetComponent<VehicleConfiguration>()?.Recover(); }
         void OnDrawGizmosSelected()
         {
             Gizmos.color = Color.cyan;

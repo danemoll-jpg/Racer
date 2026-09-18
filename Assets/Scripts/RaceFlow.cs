@@ -7,7 +7,7 @@ namespace Racer
     [DisallowMultipleComponent]
     public sealed class RaceFlow : MonoBehaviour
     {
-        public enum Stage { Ready, Countdown, Racing, Paused, Results, Settings }
+        public enum Stage { Ready, Countdown, Racing, Paused, Results, Settings, Garage }
         public Stage State { get; private set; } = Stage.Ready;
         public RacerSave Save { get; private set; }
         public RaceDirector Race { get; private set; }
@@ -45,6 +45,10 @@ namespace Racer
             for (int i = 0; i + 1 < args.Length; i++) if (args[i] == "-racerTestSave") root = Path.GetFullPath(args[i + 1]);
             Save = new RacerSave(root, "street-loop-gates-v1-laps" + Race.laps);
             Race.opponents = Save.Settings.opponents; Race.traffic = Save.Settings.traffic;
+            Race.difficulty = Mathf.Clamp(Save.Settings.difficulty,0,2);
+            var configuration = Race.vehicle.GetComponent<VehicleConfiguration>();
+            if (!configuration) configuration = Race.vehicle.gameObject.AddComponent<VehicleConfiguration>();
+            configuration.Apply(Save.Settings.vehicleId);
             Save.SelectRecords(Race.Category); Save.ApplySettings();
             feedback = gameObject.AddComponent<AudioSource>();
             feedback.playOnAwake = false; feedback.spatialBlend = 0; feedback.ignoreListenerPause = true;
@@ -67,6 +71,7 @@ namespace Racer
                 if (State == Stage.Racing || State == Stage.Countdown) Pause();
                 else if (State == Stage.Paused) Resume();
                 else if (State == Stage.Settings) CloseSettings();
+                else if (State == Stage.Garage) CloseGarage();
             }
             else if (back.WasPressedThisFrame()) Back();
             if (State == Stage.Countdown)
@@ -85,7 +90,7 @@ namespace Racer
         void SetStage(Stage stage)
         {
             State = stage;
-            bool stopped = stage == Stage.Paused || stage == Stage.Settings || stage == Stage.Ready || stage == Stage.Results;
+            bool stopped = stage == Stage.Paused || stage == Stage.Settings || stage == Stage.Ready || stage == Stage.Results || stage == Stage.Garage;
             Time.timeScale = stopped ? 0 : 1; if (stopped && stage != Stage.Results && feedback) feedback.Stop();
             AudioListener.pause = stage == Stage.Paused || stage == Stage.Settings;
             input.enabled = stage == Stage.Racing && !Race.Progress.Finished;
@@ -108,6 +113,16 @@ namespace Racer
         }
         public void ToggleOpponents() { Race.opponents = !Race.opponents; Save.Settings.opponents = Race.opponents; Save.SaveSettings(); SelectRecords(Race.Category); Click(); }
         public void ToggleTraffic() { Race.traffic = !Race.traffic; Save.Settings.traffic = Race.traffic; Save.SaveSettings(); SelectRecords(Race.Category); Click(); }
+        public void CycleDifficulty() { if(State!=Stage.Ready && State!=Stage.Results) return; Race.difficulty=(Race.difficulty+1)%3; Save.Settings.difficulty=Race.difficulty; Save.SaveSettings(); SelectRecords(Race.Category); Click(); }
+        public void OpenGarage() { if(State!=Stage.Ready && State!=Stage.Results) return; SetStage(Stage.Garage); Click(); }
+        public void CloseGarage() { SetStage(Stage.Ready); Click(); }
+        public void SelectVehicle(string id)
+        {
+            if(State!=Stage.Garage) return;
+            Race.vehicle.GetComponent<VehicleConfiguration>().Apply(id);
+            Save.Settings.vehicleId=VehicleProfile.Find(id).Id; Save.SaveSettings(); SelectRecords(Race.Category); Click();
+        }
+        public void WipeoutFeedback() { if(State==Stage.Racing) Notify("WIPEOUT — recover control or R / Y to reset. Reset abandons this lap; clock and penalties continue.",5); }
         public void CheckpointFeedback(bool accepted, double seconds, int count)
         {
             if (State != Stage.Racing) return;
@@ -124,7 +139,7 @@ namespace Racer
         public void Resume() { SetStage(pausedStage); Click(); }
         public void OpenSettings() { settingsReturn = State; SetStage(Stage.Settings); Click(); }
         public void CloseSettings() { Save.SaveSettings(); SetStage(settingsReturn); Click(); }
-        public void Back() { if (State == Stage.Settings) CloseSettings(); else if (State == Stage.Paused) Resume(); }
+        public void Back() { if (State == Stage.Settings) CloseSettings(); else if (State == Stage.Paused) Resume(); else if(State==Stage.Garage) CloseGarage(); }
         public void ResetFeedback()
         {
             if (State == Stage.Racing) { feedback.Stop(); nextBuzz = Time.time + .5f; Notify("CAR RESET — current lap abandoned. Cross START again. Race clock continues.", 5); Click(); }

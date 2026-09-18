@@ -20,6 +20,8 @@ namespace Racer
             public int frameLimit = 60;
             public bool vsync = true;
             public bool opponents = true, traffic = true;
+            public string vehicleId = "original";
+            public int difficulty = 1;
         }
         public Records Best { get; private set; }
         public Options Settings { get; private set; }

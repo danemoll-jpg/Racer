@@ -51,7 +51,9 @@ namespace Racer
             // Audio-only rev estimate; no forces, gear changes or motor edits.
             float revs = .82f + Mathf.Sqrt(Mathf.Clamp01(speed / car.topSpeed)) * 1.25f + load * .22f;
             rpm = Mathf.MoveTowards(rpm, revs, dt * (pedal > .05f ? 1.25f : .65f));
-            voices[0].pitch = rpm; voices[1].pitch = rpm * 1.005f;
+            var configuration = GetComponent<VehicleConfiguration>();
+            float pitch = configuration ? configuration.Profile.Pitch : 1;
+            voices[0].pitch = rpm * pitch; voices[1].pitch = rpm * pitch * 1.005f;
             bool engine = !flow || flow.State != RaceFlow.Stage.Results;
             SetLevel(0, engine ? Mathf.Lerp(.17f, .10f, load) : 0, volume, dt);
             SetLevel(1, engine ? .16f * load : 0, volume, dt);

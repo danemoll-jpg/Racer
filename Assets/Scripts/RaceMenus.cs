@@ -23,6 +23,10 @@ namespace Racer
         InputActionReference submitReference;
         Font font;
         GameObject hudPanel;
+        UnityEngine.UI.RawImage preview;
+        Camera previewCamera;
+        RenderTexture previewTexture;
+        GameObject previewRoot;
         public void Initialize(RaceFlow owner)
         {
             flow = owner; font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
@@ -53,7 +57,16 @@ namespace Racer
             layout.childControlWidth = layout.childControlHeight = true; layout.childForceExpandHeight = false;
             title = Label("Title", card, 32, 48); title.color = new Color(.3f, .95f, .81f);
             details = Label("Details", card, 20, 160);
-            for (int i = 0; i < 7; i++)
+            var previewRect = Rect("Vehicle preview",card);
+            previewRect.gameObject.AddComponent<UnityEngine.UI.LayoutElement>().preferredHeight=130;
+            preview=previewRect.gameObject.AddComponent<UnityEngine.UI.RawImage>(); preview.raycastTarget=false;
+            previewTexture=new RenderTexture(640,130,16); preview.texture=previewTexture;
+            previewCamera=new GameObject("Garage preview camera").AddComponent<Camera>();
+            previewCamera.cullingMask=1<<31; previewCamera.clearFlags=CameraClearFlags.SolidColor;
+            previewCamera.backgroundColor=new Color(.06f,.1f,.13f); previewCamera.targetTexture=previewTexture;
+            previewCamera.transform.position=new Vector3(10000,10003,9994); previewCamera.transform.LookAt(new Vector3(10000,10000.5f,10000));
+            previewCamera.fieldOfView=36; previewCamera.farClipPlane=30;
+            for (int i = 0; i < 8; i++)
             {
                 var rect = Rect("Action " + i, card);
                 rect.gameObject.AddComponent<UnityEngine.UI.LayoutElement>().preferredHeight = 44;
@@ -97,12 +110,18 @@ namespace Racer
             int selected = buttons.FindIndex(b => EventSystem.current && EventSystem.current.currentSelectedGameObject == b.gameObject);
             if (selected >= 0) selections[shown] = selected;
             shown = flow.State; shade.SetActive(flow.MenuVisible);
+            preview.gameObject.SetActive(shown==RaceFlow.Stage.Garage);
+            previewCamera.enabled=shown==RaceFlow.Stage.Garage;
             if (shown != RaceFlow.Stage.Results) penaltyPage = -1;
             hudPanel.SetActive(!flow.MenuVisible);
             EventSystem.current.SetSelectedGameObject(null);
             if (!flow.MenuVisible) return;
             foreach (var b in buttons) b.gameObject.SetActive(false);
+            card.GetComponent<UnityEngine.UI.VerticalLayoutGroup>().spacing=shown==RaceFlow.Stage.Garage?5:8;
+            title.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=shown==RaceFlow.Stage.Garage?42:48;
+            foreach(var b in buttons) b.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=(shown==RaceFlow.Stage.Garage || shown==RaceFlow.Stage.Results)?38:44;
             details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight = 160;
+            details.fontSize=20;
             if (shown == RaceFlow.Stage.Ready)
             {
                 title.text = "RACER / STREET LOOP";
@@ -110,6 +129,8 @@ namespace Racer
                 Action(0,"Start race",flow.StartRace); Action(1,"Settings",flow.OpenSettings); Action(2,"Quit",flow.Quit);
                 Action(3, flow.Race.opponents ? "Mode: Race vs 3 AI" : "Mode: Solo / time trial", flow.ToggleOpponents);
                 Action(4, "Traffic: " + (flow.Race.traffic ? "On" : "Off"), flow.ToggleTraffic);
+                Action(5,"Difficulty: " + flow.Race.DifficultyName,flow.CycleDifficulty);
+                Action(6,"Garage: " + flow.Race.vehicle.GetComponent<VehicleConfiguration>().Profile.Name,flow.OpenGarage);
             }
             else if (shown == RaceFlow.Stage.Paused)
             {
@@ -125,16 +146,31 @@ namespace Racer
                 for (int i = 0; i < p.LapTimes.Count; i++) text.AppendLine("Lap " + (i+1) + "   " + RaceHud.FormatTime(p.LapTimes[i]));
                 text.AppendLine("Best lap   " + RaceHud.FormatTime(p.BestLap) + (flow.NewLapRecord ? "   NEW PB" : ""));
                 details.text = text.ToString();
-                details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight = 190;
+                details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight = 150;
                 details.text = $"Driving {RaceHud.FormatTime(p.RaceTime(flow.Race.Clock))} + {p.PenaltySeconds:0.0}s penalties\nAdjusted {RaceHud.FormatTime(p.AdjustedTime(flow.Race.Clock))}\n" + flow.Race.Standings() + $"\nYour missed gates: {p.MissedGates}";
                 Action(0,"Race again",flow.StartRace); Action(1,"Settings",flow.OpenSettings); Action(2,"Quit",flow.Quit);
                 Action(3, flow.Race.opponents ? "Next race: 3 AI" : "Next race: Solo", flow.ToggleOpponents);
                 Action(4, "Next traffic: " + (flow.Race.traffic ? "On" : "Off"), flow.ToggleTraffic);
                 Action(5, "Penalty breakdown / standings", () => { penaltyPage++; if (penaltyPage * 6 >= p.Penalties.Count) penaltyPage = -1; Show(); });
+                Action(6,"Next difficulty: " + flow.Race.DifficultyName,flow.CycleDifficulty);
+                Action(7,"Garage / next vehicle",flow.OpenGarage);
                 if (penaltyPage >= 0) {
                     details.text = $"YOUR PENALTIES  +{p.PenaltySeconds:0.0}s\n";
                     for (int i = penaltyPage * 6; i < Mathf.Min(p.Penalties.Count, (penaltyPage + 1) * 6); i++) details.text += p.Penalties[i] + "\n";
                 }
+            }
+            else if (shown == RaceFlow.Stage.Garage)
+            {
+                var profile=flow.Race.vehicle.GetComponent<VehicleConfiguration>().Profile;
+                title.text=profile.Name + " / " + profile.Class;
+                details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=100;
+                details.fontSize=18;
+                details.text=$"{profile.Description}\nSpeed target {profile.Speed*3.6f:0} km/h | {(profile.Small?"Light contact class":"Heavy contact class")}\n{(profile.Small?"Cars have contact priority. AI drive slower Street Classics.":"AI use your car capabilities; difficulty changes driving judgment.")}\nHold S / LT through a stop to reverse; steer normally. R / Y resets.";
+                if(previewRoot) { previewRoot.SetActive(false); Destroy(previewRoot); }
+                previewRoot=new GameObject("Garage display model"); previewRoot.layer=31; previewRoot.transform.position=new(10000,10000,10000); previewRoot.transform.rotation=Quaternion.Euler(0,-30,0);
+                flow.Race.vehicle.GetComponent<VehicleConfiguration>().BuildPreview(previewRoot.transform);
+                for(int i=0;i<VehicleProfile.All.Length;i++) { var choice=VehicleProfile.All[i]; Action(i,(profile.Id==choice.Id?"Selected: ":"Select: ")+choice.Name,()=>flow.SelectVehicle(choice.Id)); }
+                Action(4,"Done / ready",flow.CloseGarage);
             }
             else if (shown == RaceFlow.Stage.Settings)
             {
@@ -161,11 +197,11 @@ namespace Racer
         {
             if (!flow || !banner) return;
             banner.gameObject.SetActive(!flow.MenuVisible);
-            banner.text = flow.State == RaceFlow.Stage.Countdown ? "READY\n" + Mathf.CeilToInt(flow.CountdownRemaining) : flow.Notice ?? "";
+            banner.text = flow.State == RaceFlow.Stage.Countdown ? flow.Race.ModeLabel + "\n" + Mathf.CeilToInt(flow.CountdownRemaining) : flow.Notice ?? "";
             if (flow.State == RaceFlow.Stage.Racing && flow.Race.Progress.Finished)
                 banner.text = "PROVISIONAL — waiting for finish / DNF\n" + flow.Race.Standings();
             if (flow.MenuVisible && EventSystem.current && !EventSystem.current.currentSelectedGameObject) EventSystem.current.SetSelectedGameObject(buttons[0].gameObject);
         }
-        void OnDestroy() { if(menuActions) { menuActions.Disable(); Destroy(menuActions); } if(submitReference) Destroy(submitReference); }
+        void OnDestroy() { if(menuActions) { menuActions.Disable(); Destroy(menuActions); } if(submitReference) Destroy(submitReference); if(previewRoot) Destroy(previewRoot); if(previewCamera) Destroy(previewCamera.gameObject); if(previewTexture) { previewTexture.Release(); Destroy(previewTexture); } }
     }
 }
