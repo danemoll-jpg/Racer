@@ -135,12 +135,12 @@ namespace Racer
             race.RestartRace(); yield return null; Check(!prop.PendingRestore,"Restart moves vehicle before restoring overlapped prop");
             yield return Wait(3.2f);
             flow.Save.Settings.ambience=0; yield return Wait(.1f);
-            Check(FindObjectsByType<AudioSource>().Where(a=>!a.ignoreListenerPause).All(a=>a.volume==0),"Ambience slider mutes both environmental voices");
+            Check(FindAnyObjectByType<WoodlandAmbience>().GetComponentsInChildren<AudioSource>().All(a=>a.volume==0),"Ambience slider mutes both environmental voices");
             flow.Save.Settings.ambience=1;
             var frames=new List<float>(); float until=Time.unscaledTime+3;
             while(Time.unscaledTime<until){frames.Add(Time.unscaledDeltaTime*1000);yield return null;}
             frames.Sort(); rows.Add($"Ordinary idle frames n={frames.Count}, median={frames[frames.Count/2]:F2}ms p95={frames[(int)(frames.Count*.95f)]:F2}ms max={frames.Last():F2}ms; no performance parity claim.");
-            Check(FindObjectsByType<AudioSource>().Length==3,"Repeated transitions retain exactly three audio sources");
+            Check(FindObjectsByType<AudioSource>().Length==9,"Repeated transitions retain three ambience/UI plus six vehicle sources");
             rows.Add("COMPLETE failures="+failures); File.WriteAllLines(Path.Combine(output,"validation.txt"),rows);
             race.RestartRace();
             if(quitWhenDone)Application.Quit(); else Destroy(gameObject);

@@ -1,0 +1,137 @@
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace Racer
+{
+    [DisallowMultipleComponent, RequireComponent(typeof(ArcadeVehicle))]
+    public sealed class VehicleAudio : MonoBehaviour
+    {
+        ArcadeVehicle car;
+        VehicleInput input;
+        VehicleRespawn respawn;
+        RaceFlow flow;
+        readonly AudioSource[] voices = new AudioSource[6];
+        readonly AudioClip[] clips = new AudioClip[7];
+        readonly float[] levels = new float[5];
+        readonly Dictionary<Mesh, (int[] indices, Color[] colors)> surfaces = new();
+        float rpm = .85f, load, road, nextImpact, airborne, downward, impactGain;
+        bool wasGrounded;
+        public float Slip { get; private set; }
+        public float RoadWeight => road;
+        public int ImpactCount { get; private set; }
+
+        void Start()
+        {
+            car = GetComponent<ArcadeVehicle>(); input = GetComponent<VehicleInput>();
+            respawn = GetComponent<VehicleRespawn>(); flow = FindAnyObjectByType<RaceFlow>();
+            if (respawn) respawn.Respawned += ResetAudio;
+            string[] names = { "Engine idle", "Engine load", "Road rolling", "Loose ground", "Tire slip", "Body impact", "Prop clatter" };
+            for (int i = 0; i < clips.Length; i++) clips[i] = VehicleSoundSynthesis.Create(names[i], i);
+            for (int i = 0; i < voices.Length; i++)
+            {
+                var source = gameObject.AddComponent<AudioSource>(); voices[i] = source;
+                source.playOnAwake = false; source.spatialBlend = 0; source.dopplerLevel = 0;
+                source.priority = i < 2 ? 100 : 150; source.volume = 0;
+                if (i < 5) { source.clip = clips[i]; source.loop = true; source.Play(); }
+            }
+            ResetAudio();
+        }
+        bool Racing => !flow || flow.State == RaceFlow.Stage.Racing;
+        void Update()
+        {
+            if (!car || !car.Body) return;
+            float dt = Mathf.Min(Time.unscaledDeltaTime, .05f);
+            float volume = flow && flow.Save != null ? flow.Save.Settings.vehicle : .75f;
+            bool paused = flow && (flow.State == RaceFlow.Stage.Paused || flow.State == RaceFlow.Stage.Settings);
+            if (paused) return; // Listener pauses all six voices, preserving playback position.
+            float speed = Racing ? Mathf.Abs(car.ForwardSpeed) : 0;
+            bool grounded = Racing && car.GroundedWheels >= 2;
+            float pedal = Racing ? (car.ForwardSpeed < -.6f ? input.BrakeReverse : input.Throttle) : 0;
+            load = Mathf.MoveTowards(load, pedal, dt * 3);
+            // Audio-only rev estimate; no forces, gear changes or motor edits.
+            float revs = .82f + Mathf.Sqrt(Mathf.Clamp01(speed / car.topSpeed)) * 1.25f + load * .22f;
+            rpm = Mathf.MoveTowards(rpm, revs, dt * (pedal > .05f ? 1.25f : .65f));
+            voices[0].pitch = rpm; voices[1].pitch = rpm * 1.005f;
+            bool engine = !flow || flow.State != RaceFlow.Stage.Results;
+            SetLevel(0, engine ? Mathf.Lerp(.17f, .10f, load) : 0, volume, dt);
+            SetLevel(1, engine ? .16f * load : 0, volume, dt);
+            Slip = grounded ? Mathf.Abs(Vector3.Dot(car.Body.linearVelocity, transform.right)) : 0;
+            float slipLevel = Mathf.SmoothStep(0, 1, Mathf.InverseLerp(2.8f, 8, Slip)) * Mathf.InverseLerp(4, 12, speed);
+            if (grounded) road = Mathf.MoveTowards(road, SampleRoad(), dt * 4);
+            float rolling = grounded ? Mathf.InverseLerp(1, 30, speed) : 0;
+            SetLevel(2, .07f * rolling * road, volume, dt, !grounded);
+            SetLevel(3, .10f * rolling * (1 - road), volume, dt, !grounded);
+            SetLevel(4, .13f * slipLevel * Mathf.Lerp(.4f, 1, road), volume, dt, !grounded);
+            voices[2].pitch = Mathf.Lerp(.7f, 1.3f, rolling);
+            voices[3].pitch = Mathf.Lerp(.8f, 1.2f, rolling);
+            voices[4].pitch = Mathf.Lerp(.92f, 1.08f, slipLevel);
+            voices[5].volume = volume * impactGain;
+            if (!Racing) { airborne = downward = 0; wasGrounded = false; voices[5].Stop(); }
+        }
+        void FixedUpdate()
+        {
+            if (!car || !Racing) return;
+            bool grounded = car.GroundedWheels >= 2;
+            if (!grounded) { airborne += Time.fixedDeltaTime; downward = Mathf.Max(downward, -car.Body.linearVelocity.y); }
+            else
+            {
+                if (!wasGrounded && airborne > .12f && downward > 2) Impact(downward, false);
+                airborne = downward = 0;
+            }
+            wasGrounded = grounded;
+        }
+        void SetLevel(int index, float target, float volume, float dt, bool immediate = false)
+        {
+            levels[index] = immediate ? 0 : Mathf.MoveTowards(levels[index], target, dt * .4f);
+            voices[index].volume = levels[index] * volume;
+        }
+        float SampleRoad()
+        {
+            if (!Physics.Raycast(transform.position, -transform.up, out var hit, car.suspensionLength + .3f, car.groundMask, QueryTriggerInteraction.Ignore)) return road;
+            if (hit.collider is MeshCollider mc && mc.sharedMesh && mc.sharedMesh.isReadable && mc.sharedMesh.name.StartsWith("Ground_"))
+            {
+                var mesh = mc.sharedMesh;
+                if (!surfaces.TryGetValue(mesh, out var data)) surfaces[mesh] = data = (mesh.triangles, mesh.colors);
+                int k = hit.triangleIndex * 3;
+                if (k >= 0 && k + 2 < data.indices.Length && data.colors.Length == mesh.vertexCount)
+                {
+                    var b = hit.barycentricCoordinate;
+                    Color c = data.colors[data.indices[k]] * b.x + data.colors[data.indices[k + 1]] * b.y + data.colors[data.indices[k + 2]] * b.z;
+                    return 1 - Mathf.SmoothStep(0, 1, Mathf.InverseLerp(.28f, .36f, c.r));
+                }
+            }
+            // Authored ramps and concrete are hard surfaces; unknown terrain stays restrained.
+            return hit.collider.name.Contains("Ramp") || hit.collider.name.Contains("Road") ? 1 : 0;
+        }
+        void OnCollisionEnter(Collision collision)
+        {
+            if (collision.collider.GetComponentInParent<BreakableProp>()) return;
+            float closing = 0;
+            for (int i = 0; i < collision.contactCount; i++) closing = Mathf.Max(closing, Mathf.Abs(Vector3.Dot(collision.relativeVelocity, collision.GetContact(i).normal)));
+            if (closing > 2.5f) Impact(closing, false);
+        }
+        public void Impact(float strength, bool prop)
+        {
+            if (!Racing || voices[5] == null || Time.time < nextImpact) return;
+            nextImpact = Time.time + .22f; ImpactCount++;
+            voices[5].Stop(); voices[5].pitch = Random.Range(.92f, 1.08f);
+            voices[5].clip = clips[prop ? 6 : 5];
+            impactGain = Mathf.Lerp(.09f, .22f, Mathf.InverseLerp(2, 18, strength));
+            voices[5].volume = (flow && flow.Save != null ? flow.Save.Settings.vehicle : .75f) * impactGain;
+            voices[5].Play();
+        }
+        void ResetAudio()
+        {
+            airborne = downward = load = Slip = 0; wasGrounded = false;
+            nextImpact = Time.time + .3f;
+            if (voices[5]) voices[5].Stop();
+            for (int i = 2; i < 5; i++) { levels[i] = 0; if (voices[i]) voices[i].volume = 0; }
+        }
+        void OnDestroy()
+        {
+            if (respawn) respawn.Respawned -= ResetAudio;
+            foreach (var source in voices) if (source) Destroy(source);
+            foreach (var clip in clips) if (clip) Destroy(clip);
+        }
+    }
+}

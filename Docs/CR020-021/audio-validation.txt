@@ -1,0 +1,25 @@
+PASS Ready idle plays
+PASS Engine idle: peak=0.6500, boundary delta=0.000000, seconds=3.95
+PASS Engine load: peak=0.6500, boundary delta=0.000000, seconds=3.95
+PASS Road rolling: peak=0.6500, boundary delta=0.000000, seconds=3.95
+PASS Loose ground: peak=0.6500, boundary delta=0.000000, seconds=3.95
+PASS Tire slip: peak=0.6500, boundary delta=0.000000, seconds=3.95
+PASS Countdown idle, no rolling
+PASS Acceleration speed=19.59, pitch=1.87
+PASS Road color sampling weight=1.00
+PASS Coast reduces engine load, retains rolling
+PASS Brake through stop into reverse speed=-9.35
+PASS Reset clears transient/skid sound
+PASS Ordinary corner slip=0.00, skid gain=0.0000
+PASS Actual lateral-velocity skid slip=6.99
+PASS Off-road rolling weight=0.04
+PASS Airborne suppresses rolling and tires immediately
+PASS Physical drop/landing emits impact
+PASS Shared impact cooldown suppresses overlapping collision/landing/prop chatter
+PASS Pause freezes audio playback position
+PASS Vehicle mute affects all six voices
+PASS Master mute applies globally
+PASS Vehicle and master settings persist
+PASS Legacy settings retain values and default vehicle to 75%
+PASS Four restart/pause/resume cycles retain exactly nine sources and one VehicleAudio
+COMPLETE failures=0; virtual input and measured samples only; not a subjective audition or physical-controller test.

@@ -32,6 +32,7 @@ namespace Racer
             Race = GetComponent<RaceDirector>();
             input = Race.vehicle.GetComponent<VehicleInput>();
             respawn = Race.vehicle.GetComponent<VehicleRespawn>();
+            if (!Race.vehicle.GetComponent<VehicleAudio>()) Race.vehicle.gameObject.AddComponent<VehicleAudio>();
             originalKinematic = Race.vehicle.Body.isKinematic;
             string root = Path.Combine(Application.persistentDataPath, "Phase7", "street-loop-gates-v1-laps" + Race.laps);
             // Editor/standalone validation uses a separate directory, never the player's records.

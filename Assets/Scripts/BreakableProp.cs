@@ -47,7 +47,11 @@ namespace Racer
         {
             if (IsBroken || PendingRestore) return;
             var vehicle = other.attachedRigidbody ? other.attachedRigidbody.GetComponent<ArcadeVehicle>() : null;
-            if (vehicle && vehicle.Body.linearVelocity.magnitude >= impactSpeed) Yield(vehicle.Body.linearVelocity);
+            if (vehicle && vehicle.Body.linearVelocity.magnitude >= impactSpeed)
+            {
+                Yield(vehicle.Body.linearVelocity);
+                vehicle.GetComponent<VehicleAudio>()?.Impact(vehicle.Body.linearVelocity.magnitude, true);
+            }
         }
         void Yield(Vector3 velocity)
         {

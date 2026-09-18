@@ -1,0 +1,24 @@
+Racer asset and audio notices
+
+Vehicle audio: original deterministic procedural synthesis created for Racer,
+2026-09-18, implemented in VehicleSoundSynthesis.cs. No recordings, downloads,
+third-party samples or purchased assets. Generated audio is dedicated under
+CC0 1.0 Universal: https://creativecommons.org/publicdomain/zero/1.0/
+This includes engine idle/load, road/loose-ground rolling, tire slip, body
+impact and prop clatter. No attribution is required for this generated audio.
+
+Existing ambience: original Phase6Environment.GenerateAudio synthesis, seed
+6018; wind and three bird clips, CC0 1.0 Universal. Existing countdown, menu,
+finish and personal-best cues: original RaceFlow sine synthesis, CC0.
+
+Project car/building/terrain/vegetation geometry and surface textures are
+project-authored procedural assets. No external art pack or music was added.
+This notice dedicates the generated audio only, not the whole game or Unity.
+
+Unity runtime and bundled components retain their respective licenses.
+Package license notices and Unity-Windows-Mono-Notices.pdf are included.
+Official engine-notice source (Windows Mono 6000.6.1f1):
+https://unity.com/releases/editor/whats-new/6000.6.1f1
+The PDF also contains engine dependency and font notices. Package notices
+are retained conservatively, including some Editor-only packages; their
+presence does not mean those packages run in the player.

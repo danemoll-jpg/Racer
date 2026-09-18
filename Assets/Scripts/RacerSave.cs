@@ -16,7 +16,7 @@ namespace Racer
         [Serializable] public sealed class Options
         {
             public int version = 1;
-            public float master = .8f, ambience = 1, feedback = .65f;
+            public float master = .8f, ambience = 1, feedback = .65f, vehicle = .75f;
             public int frameLimit = 60;
             public bool vsync = true;
         }
@@ -29,7 +29,7 @@ namespace Racer
         {
             DirectoryPath = directory; course = courseId;
             Best = Read<Records>("records.json", r => r.version == 1 && r.course == course && Valid(r.lap) && Valid(r.race)) ?? new Records { course = course };
-            Settings = Read<Options>("settings.json", s => s.version == 1 && Volume(s.master) && Volume(s.ambience) && Volume(s.feedback) && (s.frameLimit == 30 || s.frameLimit == 60 || s.frameLimit == 120)) ?? new Options();
+            Settings = Read<Options>("settings.json", s => s.version == 1 && Volume(s.master) && Volume(s.ambience) && Volume(s.feedback) && Volume(s.vehicle) && (s.frameLimit == 30 || s.frameLimit == 60 || s.frameLimit == 120)) ?? new Options();
         }
         static bool Valid(double n) => !double.IsNaN(n) && !double.IsInfinity(n) && n >= 0 && n < 31536000;
         static bool Volume(float n) => !float.IsNaN(n) && n >= 0 && n <= 1;
@@ -39,7 +39,9 @@ namespace Racer
             if (!File.Exists(path)) return null;
             try
             {
-                var data = JsonUtility.FromJson<T>(File.ReadAllText(path));
+                // Populate initialized defaults so pre-vehicle settings retain all old values.
+                var data = Activator.CreateInstance<T>();
+                JsonUtility.FromJsonOverwrite(File.ReadAllText(path), data);
                 if (data != null && validate(data)) return data;
                 Error = "Saved data was incompatible; defaults loaded.";
             }

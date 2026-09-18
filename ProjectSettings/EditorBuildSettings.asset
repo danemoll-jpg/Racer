@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/PrototypeTrack.unity
-    guid: 0dfa6c676117e3f4ba38e5168afec3ef
+    path: Assets/Scenes/StreetLoopGreybox.unity
+    guid: 1a35afc7f342d424bb8ec551ce79ae1c
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}

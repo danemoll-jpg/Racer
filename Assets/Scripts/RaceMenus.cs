@@ -52,7 +52,7 @@ namespace Racer
             layout.childControlWidth = layout.childControlHeight = true; layout.childForceExpandHeight = false;
             title = Label("Title", card, 32, 48); title.color = new Color(.3f, .95f, .81f);
             details = Label("Details", card, 20, 160);
-            for (int i = 0; i < 6; i++)
+            for (int i = 0; i < 7; i++)
             {
                 var rect = Rect("Action " + i, card);
                 rect.gameObject.AddComponent<UnityEngine.UI.LayoutElement>().preferredHeight = 44;
@@ -131,9 +131,10 @@ namespace Racer
                 Action(0,$"Master volume   {s.master:P0}",()=>Adjust(()=>s.master=NextVolume(s.master)));
                 Action(1,$"Ambience volume   {s.ambience:P0}",()=>Adjust(()=>s.ambience=NextVolume(s.ambience)));
                 Action(2,$"Race / UI volume   {s.feedback:P0}",()=>Adjust(()=>s.feedback=NextVolume(s.feedback)));
-                Action(3,"VSync   " + (s.vsync?"On":"Off"),()=>Adjust(()=>s.vsync=!s.vsync));
-                Action(4,"Frame limit   " + s.frameLimit + " fps",()=>Adjust(()=>s.frameLimit=s.frameLimit==30?60:s.frameLimit==60?120:30));
-                Action(5,"Back",flow.CloseSettings);
+                Action(3,$"Vehicle volume   {s.vehicle:P0}",()=>Adjust(()=>s.vehicle=NextVolume(s.vehicle)));
+                Action(4,"VSync   " + (s.vsync?"On":"Off"),()=>Adjust(()=>s.vsync=!s.vsync));
+                Action(5,"Frame limit   " + s.frameLimit + " fps",()=>Adjust(()=>s.frameLimit=s.frameLimit==30?60:s.frameLimit==60?120:30));
+                Action(6,"Back",flow.CloseSettings);
             }
             var active = buttons.FindAll(b=>b.gameObject.activeSelf);
             for (int i=0;i<active.Count;i++) active[i].navigation = new UnityEngine.UI.Navigation { mode=UnityEngine.UI.Navigation.Mode.Explicit, selectOnUp=active[(i+active.Count-1)%active.Count], selectOnDown=active[(i+1)%active.Count] };
