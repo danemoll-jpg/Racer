@@ -614,8 +614,8 @@ Improve appearance only after gameplay works.
 
 # CORE FOLLOW-UP — Vehicle Audio and Friend Playtest Package
 
-- [ ] CR-020: Add the missing car audio and persistent vehicle-volume control without changing approved handling.
-- [ ] CR-021: Build and test a complete shareable solo Windows ZIP with controls and license notices.
+- [x] CR-020: Vehicle audio and persistent Vehicle Volume implemented; subjective review pending.
+- [x] CR-021: Complete local Windows ZIP built; extracted launch/settings persistence checked. Manual driving/flow and listening review remain.
 - [ ] Dan reviews audio and a friend tests the extracted package on a compatible PC; do not infer success from local testing.
 
 ---
@@ -828,10 +828,10 @@ Use this for things that are not bugs but that Dan wants changed.
 **Result:** Six bounded voices: layered engine idle/load with smoothed audio-only revs, reverse load, actual lateral-slip tires, vertex-color road/off-road rolling, shared cooldown for impacts/landings/props. Physics/tuning unchanged. Legacy settings default Vehicle Volume to 75%. Audio checks 24/24 and flow regression 37/37 pass in Editor using virtual input and isolated saves. Details: Docs/CR020-021/VALIDATION.md.
 
 ### CR-021 — Shareable solo Windows package
-**Status:** IN DELIVERY — Windows x64 solo 0.2.0-review1; non-development build and extracted-copy validation pending.  
+**Status:** PACKAGED, AWAITING REVIEW — Windows x64 solo 0.2.0-review1.
 **Requested change:** Produce a clean standalone Windows build and versioned ZIP containing all required runtime files, controls/readme and audio/asset license notices. No Unity Editor needed to play. Do not send only the executable. Exclude repository/source, development back-up/debug artifacts and personal/test saves; preserve every required runtime dependency. Launch an extracted copy outside the project and validate core flow and offline solo use.  
 **Distribution:** Prepare the archive locally. Do not upload, publish, email or send it without an explicit destination/request. Include size, checksum and version/commit information. Other operating systems require their own builds.  
-**Result:** Not packaged by this documentation update; existing Phase8 build is a development review player.
+**Result:** Builds/Racer-0.2.0-review1-Windows.zip, 76,284,958 bytes; SHA-256 A2124C11721AC816B60957C1AAF94D05FFB91857C3ED5997423736CF7E4D8303. Source 72f037ea9d5f80a527e5172c6bb27f6a9e82bfed. Non-development build succeeds, complete runtime/licenses/README included; 228 extracted files verified. Visible launch, mouse menus/countdown and volume persistence pass outside project with isolated saves. Keyboard automation did not reliably reach release; extracted driving/pause/restart/results and subjective audition remain manual review. See Docs/CR020-021/VALIDATION.md.
 
 ---
 
@@ -899,25 +899,23 @@ Record choices we do not want to repeatedly reconsider.
 
 # SESSION HANDOFF
 
-**Current phase:** Phase 8 accepted for now. New core-completeness follow-up: CR-020 vehicle audio and CR-021 shareable solo Windows package. These are not implemented yet. Online two-player interest is recorded for later feasibility, not authorized implementation. CR-013/CR-018 remain deferred; preserve current solo game and personal records.
+**Current delivery:** CR-020 vehicle audio and CR-021 Windows solo package IMPLEMENTED, AWAITING REVIEW. Phase 8 remains accepted for now. CR-013/CR-018 remain deferred. No multiplayer/networking or environment expansion.
 
-**Safety checkpoint:** c17fd0afa2c77512184066db036702250d7450a5. Initial Git permission failure recovered through the elevated approval mechanism before modifications. Completion commit is recorded in Git history and the task response.
+**Safety checkpoint:** 3dbe2b606fbd4a17a87dc118c295d4ab30dc1cae. Initial index.lock permission failure recovered by elevated retry before edits.
 
-**Scene/build:** Assets/Scenes/StreetLoopGreybox.unity, saved/reloaded in Edit mode. Fresh Windows development review player: Builds/Phase8/Racer.exe, including accepted CR-019. Matched baseline: Builds/Phase8Baseline/Racer.exe. Evidence: Docs/Phase8/VALIDATION.md; side-by-side driving-camera gallery: Docs/Phase8/review.html (1080p and matching 720p images available).
+**Committed player source:** 72f037ea9d5f80a527e5172c6bb27f6a9e82bfed. VERSION.txt inside the package records this exact commit. The later completion commit records packaging and validation documentation; its ID is in Git history and the final task response.
 
-**Visible changes:** Low-poly chamfered car body and glazed cabin with decorative lamps/trim; subdued asphalt grain; road/ground receives existing daylight shadows; more legible crown shading; depth-tested world lettering removes text through terrain; terrain-aligned direction arrows. Reused accepted homes, storefronts, woodland forms and shoulder transitions. Focused Phase8Polish authoring only; no legacy rebuild.
+**Audio/settings:** Original CC0 layered engine idle/load, smoothed audio-only revs, reverse, actual-slip tires, road/off-road rolling using existing terrain colors, restrained collision/landing/prop feedback with shared cooldown. Six fixed vehicle sources; nine including ambience/UI. Persistent Vehicle Volume defaults to 75% for existing saves. Master, ambience and race/UI controls preserved. No accepted vehicle physics/tuning changed. Procedural arcade/placeholder timbre still requires listening review.
 
-**Preservation:** Exact before/after match for 100 terrain fingerprints, 12,418 collider snapshots and 47 building sites. All 11,986 trees remain. Houses/yards, absent House #1, approved non-mirrored 22-store arrangement, road profile, shortcut/jump/landing, props, tuning/camera/controls/audio and game flow remain intact.
+**Windows package:** 0.2.0-review1, non-development x64. Builds/Racer-0.2.0-review1-Windows.zip; 76,284,958 bytes (72.75 MiB). SHA-256 A2124C11721AC816B60957C1AAF94D05FFB91857C3ED5997423736CF7E4D8303. Extract the complete archive, then launch Racer.exe inside its folder. Includes full runtime, README, VERSION, original-audio notices, package notices and official Unity Windows Mono notices. No upload or sending performed; other operating systems require separate builds.
 
-**Validation:** Geometry/seams/grounding pass; three mixed full laps (shortcut/normal/shortcut) pass using manually stepped PhysX. Separate ordinary-frame jump from rest lands upright, real mailbox impact breaks once/restores, clear forest-edge crossing passes. Fresh visible standalone: 37/37 flow checks at 1080p twice and 720p once, isolated save reload verified. All input virtual; no physical-controller or human driving claim. Historical obstructed forest follower and fast-angle jump limits remain. Initial Firewall-obscured settings check failed, clean retries passed. Player data tests use isolated storage.
+**Actual validation:** 24/24 audio checks and 37/37 race-flow checks passed in visible Editor Game view with ordinary frames, virtual input and isolated saves. Build succeeded with zero errors/two existing warnings. 228 extracted files hash-match. Visible extracted player launches outside project; mouse settings/start/countdown work; all four changed volume values survive close/relaunch. Zero TCP/UDP endpoints observed. Detailed tests, source licenses, paths, logs and screenshot: Docs/CR020-021/VALIDATION.md.
 
-**Performance:** Matched 1920x1080 D3D11, i7-9700/GTX1660Ti, PC quality, 2x MSAA, scale1, VSync0/unlimited. Clean two-repeat road/commercial/forest/shortcut medians before 1.166–1.491 ms, after 3.235–3.504 ms; p95 before 6.047–8.279, after 8.117–8.795 ms. Before max92.713 ms/16 frames >33; after max13.288/zero. Earlier longer visible pair shows reversed typical pacing and after spikes up to211.745ms, so no speedup, stable parity or causal stall claim. Host variability and unavailable GPU timing prevent isolating a rendering bottleneck. See raw per-route p99/max/counts in report. Short shortcut runs include stationary endpoint frames.
+**Limits:** No subjective listening feed, physical controller or friend's-PC testing. Desktop keyboard injection did not reliably reach the release; extracted-copy driving, pause/reset/restart/results still need manual validation despite passing Editor regression. No physically disconnected-network test or clean PC without Unity test. No mixed-output clipping measurement; loop/sample bounds are objective only. Existing stripped DOF/Panini player warnings and collision-prebake build warning remain; rendering was not altered to hide them.
 
-**Conditional items:** No new LOD/culling, forest thinning or shadow-distance reduction without measured need. Existing daytime setup retained; optional post-processing/day-night not introduced. Photo homes/exact placement remain deferred. Wheel animation remains outside this polish pass.
+**Preservation:** Scene/prefabs/environment/road/houses/store layout/forest/jump/shortcut/vehicle tuning/camera/packages unchanged from checkpoint. Build Settings now target StreetLoopGreybox instead of PrototypeTrack; product version updated. Personal saves untouched; standalone checks use the separate Temp/Racer-CR021-visible-save directory.
 
-**Warnings:** Build succeeded. Two actual warnings: future collision prebaking for103meshes and optional RuntimePipelineConfig absent. Unused stripped DOF/Panini shader messages persist in player logs; effects disabled. One final BuildReport error is the bridge's five-second timeout while the successful build continued. Final current Console zero errors/warnings, compilation succeeded; historical messages retained.
-
-**Dan review:** Pretty sure all is ok — overall acceptance for now. No specific new defect reported; no individual test/device results inferred. Preserve the current playable build. Next task is documentation/status reconciliation and a concise first-playable handoff, without new features or another polish pass.
+**Dan/friend review:** Extract complete Windows ZIP; finish a race; listen through idle/acceleration/coast/brake/reverse, ordinary turns/skids, off-road and jump/landing/props; test four volume controls, pause/reset/restart/results, relaunch persistence and a physical controller. Report hardware, audio device and any harsh/missing/repetitive sounds or stalls. Both CRs await review.
 
 ---
 
