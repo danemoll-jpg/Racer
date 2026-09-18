@@ -630,14 +630,14 @@ These are NOT required for the first game.
 
 - [ ] Optional feasibility follow-up: private online play for Dan and a friend. Not authorized for implementation yet; preserve solo-first scope. Need shared car/race/prop state, latency/disconnect handling and two-PC testing; choose platform/join/host behavior before implementation.
 
-- [ ] Additional cars.
-- [ ] Car selection.
+- [ ] CR-027: Initial four-vehicle roster: existing car, one additional car, motorcycle and four-wheeler/ATV.
+- [ ] CR-027: Persistent garage/vehicle selection, profiles and vehicle-separated records.
 - [ ] More circuits.
 - [ ] Larger neighborhood.
 - [ ] More stunt areas.
 - [ ] Free-roam mode.
 - [x] CR-023: Light configurable two-way traffic implemented; awaiting review.
-- [x] CR-023: Three AI opponents, independent progress and adjusted standings; solo retained; awaiting review.
+- [x] CR-023 initial three-opponent implementation; Dan reports opponents not visible/competitive enough. CR-026 revises grid, visibility and difficulty with CR-027.
 - [ ] Collectibles.
 - [ ] Speed traps.
 - [ ] Danger signs / jump-distance challenges.
@@ -846,7 +846,7 @@ Use this for things that are not bugs but that Dan wants changed.
 **Result:** Authoritative player ding and missed-gate buzz implemented with a 0.5s buzz cooldown, Race/UI volume and master mute. AI/traffic do not play player cues. Countdown/pause/reset/restart suppression and finish coordination verified; subjective sound review remains with Dan. See Docs/CR022-025/VALIDATION.md.
 
 ### CR-023 — First AI opponents and light traffic
-**Status:** IMPLEMENTED — integrated 0.3.0-review1; validated locally, awaiting Dan's review.
+**Status:** IMPLEMENTED / REVISION REQUESTED — CR-026 adds clearly visible grid starts and genuinely competitive difficulty; Dan does not yet see meaningful AI competition.
 **Scope:** Start with three AI race opponents and a small configurable traffic population (initially about four vehicles, reduce if congestion/performance requires it). Reuse existing vehicle assets with readable visual differences. Race AI follows the existing circuit with per-car progress, recoverable driving, safe start positions, player-relative standings and finish results. Traffic follows simple two-way lanes at sensible speeds and never participates in race progress. Support a traffic toggle; retain the approved solo/time-trial experience with AI disabled and keep record categories separate when rules differ.  
 **Driving:** Slow for bends/hairpin/hills, avoid other cars and static obstacles, brake/yield, and recover from stalls without teleporting onto the player or granting progress. Do not hardcode world-axis lane directions or require frame-by-frame teleporting. Preserve player physics and race validity. Initially let AI racers use the normal road/bypass; shortcut and jump remain available to the player. No new roads, full city simulation, police, public networking or adaptive rubber-banding.  
 **Integration:** Audit single-player assumptions in race progress, lap gates, reset, camera/audio, HUD, saves and breakable-prop detection before adding cars. Each racer gets independent valid progress; traffic cannot credit a race. Preserve countdown/pause/restart/results semantics and bound pooled traffic/recovery behavior. Keep vehicle audio and collision cost controlled.  
@@ -867,6 +867,23 @@ Use this for things that are not bugs but that Dan wants changed.
 **Records:** Version/save records by speed/rules/mode so changed car performance and penalty rules do not corrupt old personal bests. Penalized laps may qualify only in the appropriate new category using adjusted time. Preserve old records, including aborted-race valid-lap policy where compatible.  
 **Acceptance:** Missing one/multiple gates gives one clear cue per miss episode, accurate per-gate penalty and continued race progress; no forced restart due solely to missing a checkpoint. Repeated crossings, deliberate cuts, reset/restart/pause and AI events cannot duplicate/avoid penalties or spam player audio. New results and saved records use correct adjusted times. Dan reviews penalty feel.  
 **Result:** Misses continue racing: base 5s per gate plus max(0, sector length minus verified new forward road travel minus 25m)/10 for cuts. Road-relative direction/progress resolves gates 18m beyond them or at a later forward gate. Ordinary misses cost 5/10s; large-cut replay costs 482.36s. Proper forward finish and mid-course witness prevent line abuse. Manual reset abandons the current lap, retaining race clock/penalties; occupied pad waits. Adjusted standings use bounded finish/DNF policy and provisional display. Versioned speed/rules/mode/traffic/lap records preserve old records/settings. See Docs/CR022-025/VALIDATION.md.
+
+### CR-026 — Visible starting grid and competitive AI difficulty
+**Status:** OPEN — combine with CR-027 vehicle selection.  
+**Feedback:** Dan knows AI is present but does not see opponents and wants nearby competition, a proper shared grid and skill levels. Current reports say AI copies player tuning; that is not proof of visible or competitive human racing.  
+**Requested change:** Diagnose actual starting placement/rendering/mode selection and AI pace. Build a readable safe grid with opponents visible during countdown. Add Easy/Normal/Hard based mainly on braking, cornering, consistency and racecraft; equal-class AI gets the same underlying vehicle capabilities as the player. Do not secretly boost speed or teleport to keep up. Show selected mode/difficulty clearly. Benchmark full races and visible interaction, not just completion counts.  
+**Integration:** AI behavior follows chosen vehicle profiles; compare like-for-like where possible and make class differences explicit. Keep three opponents initially; do not require AI riding bikes/ATVs for the first roster if that compromises reliability. Records must distinguish relevant vehicle/class/difficulty rules.  
+**Result:** Pending; CR-023 initial implementation retained but not subjectively accepted as competitive.
+
+### CR-027 — Vehicle garage with cars, motorcycle and four-wheeler
+**Status:** PLANNED — next substantial single-player update together with CR-026.  
+**First roster:** Preserve original car; add one distinctly different car, one motorcycle and one four-wheeler/ATV (four selectable vehicles total). Reusable profiles and garage flow allow later expansion without making the first delivery unbounded.  
+**Requested behavior:** Motorcycle and ATV are faster and tighter/more responsive than the baseline car, with more risk. Cars can shove and destabilize them; bikes/ATVs cannot meaningfully shove cars or act as battering rams. This is deliberate arcade asymmetric vehicle contact, not a claim of realistic physics. Specify/test both initiator directions, glancing/sustained contact, speeds and reset cases. Do not obtain asymmetry by making small vehicles intangible or globally disabling collisions.  
+**Driving:** Distinct grounded handling appropriate to two/four wheels, visible steering/rolling and restrained bike lean; no requirement for a ragdoll or full motorbike simulation. Use a simple rider silhouette for readability. Bike/ATV share the small-vehicle contact disadvantage; bike can be less stable than the ATV. More risk must not mean ordinary normal-speed turns randomly fail. Clear wipeout/reset feedback using accepted race-reset semantics, safe spawn/grid, per-vehicle camera and audio defaults, and ground/jump/reverse-or-low-speed-maneuver behavior that is explicit. Do not reduce existing car quality to make new vehicles feel better.  
+**Selection:** Preview, names/classes, intelligible speed/handling/stability/contact-strength differences, persistent selection, keyboard/mouse/controller navigation. Apply selection before races with safe countdown/restart; preserve selected-vehicle-specific resets and player input/audio ownership. Separate compatible records by stable vehicle/profile identity and game rules without deleting legacy records.  
+**Preserve:** Current map/props/forest, accepted game flow, penalties/cues, traffic options, audio volumes/settings and downloadable build workflow. No networking or paid assets.  
+**Acceptance:** All four vehicles are selectable and distinct; bike/ATV beat baseline car in straight-speed and controlled responsiveness comparisons, while car-vs-small-vehicle contact visibly favors the car without explosive physics or penetration. Full race, grid/AI, traffic/collision, jump, reset, pause/restart/results, records and package validation with honest test limits. Dan approves feel and competition.  
+**Result:** Pending implementation.
 
 ---
 
@@ -936,11 +953,13 @@ Record choices we do not want to repeatedly reconsider.
 
 | 2026-09-18 | Add more speed and missed-checkpoint penalties to AI/traffic delivery | Dan wants faster driving and continuation after missing gates, not restarting; reconcile results/records and old invalidation rules |
 
+| 2026-09-18 | Combine garage/cars/bike/ATV with competitive AI grid/difficulty | Dan wants more vehicle types; bikes/ATVs faster and tighter but vulnerable to cars and unable to meaningfully shove them |
+
 ---
 
 # SESSION HANDOFF
 
-**Current delivery:** CR-022–CR-025 integrated single-player update implemented; Windows 0.3.0-review1 built, tested and packaged locally; awaiting Dan's review. Final speed/handling, penalty feel and audio approval remain with Dan. CR-013/CR-018 remain deferred. Existing environment, shortcut, jump, camera and breakable scenery retained. No multiplayer.
+**Current delivery:** Next authorized batch is CR-026 visible grid/competitive AI difficulty plus CR-027 garage with original car, new car, motorcycle and ATV. Small vehicles faster/tighter but vulnerable in asymmetric car contact. Existing CR-022–025 implementation and technical evidence retained; do not infer all were accepted. CR-021 user package test remains deferred. CR-013/CR-018 remain deferred. No networking; no implementation or new tests in this documentation update.
 
 **Safety checkpoint:** 30b82438708dc62754ff304528cf484069b94593. Initial index.lock permission denial recovered through elevated Git before edits.
 
