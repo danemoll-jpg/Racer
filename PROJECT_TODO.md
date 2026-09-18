@@ -626,15 +626,17 @@ Improve appearance only after gameplay works.
 
 # PHASE 9 — Optional Expansion
 
+**Next authorized expansion:** CR-034–039 as one coordinated woodland arcade-racing delivery: black paint, destruction/fences, difficulty balance, four-lane Hwy 92/faster traffic, road-name signs, and three varied woodland stunt shortcuts. CR-040 separate lake/woods circuit remains future backlog. Latest scope explicitly permits these local road/terrain/fence changes over older preservation directions, while keeping houses/yards fixed.
+
 These are NOT required for the first game.
 
 - [ ] Optional feasibility follow-up: private online play for Dan and a friend. Not authorized for implementation yet; preserve solo-first scope. Need shared car/race/prop state, latency/disconnect handling and two-PC testing; choose platform/join/host behavior before implementation.
 
 - [x] CR-027: Initial four-vehicle roster implemented: existing car, Longroof GT, Needle 600 motorcycle and Trail Four ATV; awaiting Dan review.
 - [x] CR-027: Persistent garage, reusable profiles and vehicle-separated records; technical checks pass, awaiting Dan review.
-- [ ] More circuits.
+- [ ] CR-040: Future separate lake/woodland circuit near the friend's house; not part of this delivery.
 - [ ] Larger neighborhood.
-- [ ] More stunt areas.
+- [ ] CR-039: Three varied woodland stunt shortcuts (stream leap, gully route, ridge/woodland jump), integrated with legal race progress.
 - [ ] Free-roam mode.
 - [x] CR-023: Light configurable two-way traffic implemented; awaiting review.
 - [x] CR-023 initial three-opponent implementation; Dan reports opponents not visible/competitive enough. CR-026 revises grid, visibility and difficulty with CR-027.
@@ -882,7 +884,7 @@ Use this for things that are not bugs but that Dan wants changed.
 **Result:** Misses continue racing: base 5s per gate plus max(0, sector length minus verified new forward road travel minus 25m)/10 for cuts. Road-relative direction/progress resolves gates 18m beyond them or at a later forward gate. Ordinary misses cost 5/10s; large-cut replay costs 482.36s. Proper forward finish and mid-course witness prevent line abuse. Manual reset abandons the current lap, retaining race clock/penalties; occupied pad waits. Adjusted standings use bounded finish/DNF policy and provisional display. Versioned speed/rules/mode/traffic/lap records preserve old records/settings. See Docs/CR022-025/VALIDATION.md.
 
 ### CR-026 — Visible starting grid and competitive AI difficulty
-**Status:** IMPLEMENTED / AWAITING DAN APPROVAL — combined revision validated and locally packaged.
+**Status:** REVISION REQUIRED — Dan still finds all difficulty levels too easy; CR-036 defines the new Easy/Normal/Hard targets. Prior completion/timing results remain evidence, not human acceptance.
 **0.5.0 evidence:** Per-profile corner/braking/crest planning and relative-velocity obstacle response; Easy/Normal/Hard use identical underlying player capabilities. Full three-lap mixed Windows races measure actual pace, braking, misses and recoveries. Initial aggressive tuning and finished-vehicle rollback failures retained; corrected finish parking passed repeated full races:12/12 racers finished,0DNFs; Normal ATV2misses and Hard ATV1recovery remain disclosed. Human competitiveness still requires Dan.
 **Feedback:** Dan knows AI is present but does not see opponents and wants nearby competition, a proper shared grid and skill levels. Current reports say AI copies player tuning; that is not proof of visible or competitive human racing.  
 **Requested change:** Diagnose actual starting placement/rendering/mode selection and AI pace. Build a readable safe grid with opponents visible during countdown. Add Easy/Normal/Hard based mainly on braking, cornering, consistency and racecraft; equal-class AI gets the same underlying vehicle capabilities as the player. Do not secretly boost speed or teleport to keep up. Show selected mode/difficulty clearly. Benchmark full races and visible interaction, not just completion counts.  
@@ -934,6 +936,49 @@ Use this for things that are not bugs but that Dan wants changed.
 **0.5.0 evidence:** Six body swatches for all four profiles; immediate preview and persistent per-profile choice. MaterialPropertyBlock isolates body panels from trim/tires/riders/shared assets/opponents. Keyboard/mouse/virtual-gamepad access and persistence checks; physical controller remains untested.
 **Requested change:** Add simple body-color swatches in garage for all four profiles with immediate preview, persistent per-profile color and identical appearance in race/results. Keep trim/tires/rider materials separate, avoid changing shared material assets or AI colors unintentionally, keep source/batched rendering consistent and use keyboard/mouse/controller navigation.  
 **Result:** Implemented in the combined0.5.0 review; current evidence and limits: Docs/CR028-033/VALIDATION.md. Awaiting Dan's review.
+
+### CR-034 — Black vehicle paint
+**Status:** PLANNED — include in the next combined woodland expansion.  
+**Requested change:** Add a clearly black paint swatch, especially for the player's car. Integrate with existing per-profile preview, selection and persistence; permit black body paint on all supported vehicles without tinting tires, trim, riders, glass or shared opponent materials. Preserve readable highlights so black still has shape.  
+**Result:** Pending implementation.
+
+### CR-035 — Satisfying destruction audio and remembered property fences
+**Status:** PLANNED — next combined delivery.  
+**Requested change:** Improve impact/break sounds so smashing lightweight objects is satisfying, with material-appropriate wood crack/splinter, metal/chain-link rattle/clatter and relevant sign/mailbox feedback. Strength should respond to impact intensity with bounded overlapping voices, variation and cooldowns. Add chain-link fencing around appropriate portions of Dan's childhood property and white wooden crossbuck fencing (large X shapes) for Houses #2/#3. Treat placement/extents as approximate; keep driveways/access open and do not move houses/yards. Add additional selected smashable props along suitable approaches, not everywhere. Use existing yielding/breakable architecture, not a heavyweight destruction simulator.  
+**Preserve:** Local reset, bounded debris, safe vehicle-class contact, master/vehicle/UI volume semantics, race-restart restoration and traversable woodland. Use original or redistributable audio with documented licenses.  
+**Acceptance:** Visible and audible break reactions agree, sounds are punchy without clipping or repetitive chatter, and repeated impacts/restoration remain performant and cannot trap/launch vehicles. Dan reviews the sound and fence appearance.  
+**Result:** Pending.
+
+### CR-036 — Player-defined difficulty balance
+**Status:** OPEN — supersedes prior CR-026 subjective pace target; no current difficulty acceptance implied.  
+**Requested change:** Easy should be comfortably winnable with ordinary competent driving. Normal should be somewhat challenging with a good chance to win. Hard should punish mistakes through lost position/time and require a strong run. Dan finds all current levels too easy. Tune skill/pace per vehicle using actual route/profile constraints, not just beating a conservative automated reference driver. Preserve fair profile capabilities, visible grid, mixed/selected roster and absence of hidden speed boosts/teleport catch-up.  
+**Validation:** Compare comparable clean runs and deliberate error/recovery runs; report lap/sector times, gaps, excessive braking, AI errors and traffic influence across all vehicle classes. Human difficulty remains Dan's judgment. Optional authored shortcuts should be usable by qualified AI with difficulty-appropriate choice, with safe main-road fallback; distinguish racecraft from unfair physics.  
+**Result:** Pending revision of CR-026/CR-032 driving profiles.
+
+### CR-037 — Four-lane Hwy 92 and faster highway traffic
+**Status:** PLANNED — deliberate local geography change in next batch.  
+**Requested change:** Make the existing main-road/Hwy 92 corridor a broad four-lane road (two lanes in each direction). Preserve its general route and continuity with the neighborhood roads; add supported width, appropriate markings/shoulders and clear lane transitions. Traffic should normally travel faster here than on South Cherokee Lane and Jamerson Rd, subject to curves, junctions, spacing and braking. Do not use a global traffic speed increase.  
+**Coordination:** Inspect physical carriageway widths and route identity before editing. Preserve buildings and their accepted non-mirrored order where possible; move commercial frontage/sites only minimally if needed to avoid the wider carriageway and document offsets. Keep houses/yards fixed. Update road/terrain/render/collision, lane graphs, AI obstacle queries/passing/grid as affected, frontage access, race gate span and route-progress detection together. No false misses, lane discontinuities, floating edges or restored mirrored shops. No extra highway segments or recreation of present-day subdivisions.  
+**Result:** Pending; supersedes earlier immutable-road-width restrictions for this corridor only.
+
+### CR-038 — Smashable road-name signs
+**Status:** PLANNED — next batch.  
+**Requested change:** Add legible road-name signs using exactly Hwy 92, South Cherokee Lane and Jamerson Rd. Identify the existing main/neighborhood/connecting road mapping from authored references; if a junction/segment mapping is ambiguous, resolve it rather than invent a different road. Place signs sensibly at relevant junctions and use the accepted breakable/restore system. Signs may break but route identity must not depend on an intact physical sign. Preserve access and sightlines.  
+**Result:** Pending.
+
+### CR-039 — Varied woodland stunt shortcuts
+**Status:** PLANNED — core of the next substantial single-player expansion.  
+**Direction:** Dan wants San Francisco Rush-inspired shortcuts: challenging, discoverable, varied and fun, with large jumps. Fun takes precedence over strict geographic realism. Start with THREE authored routes in the existing footprint, retaining the existing shortcut: a creek/stream leap, a gully traversal, and a distinct ridge/woodland jump route. Use original designs/art, not copied courses.  
+**Requirements:** Each route has a readable entrance, different driving challenge, supported drivable ground, well-tested approach/landing/rejoin and a meaningful risk/reward versus the main road. Preserve dense woods outside the necessary corridor; car-width routes still demand more precision than roads. Bike/ATV should excel without making cars categorically unusable. Fit creek/gully terrain locally without moving accepted homes, damaging the highway or breaking terrain seams; simple water treatment with explicit recovery rules, not a large water simulation.  
+**Race integration (latest clarification):** Designated shortcuts MAY bypass multiple existing checkpoints without missed-gate penalties, cut charges or warning buzzes. Their time saving is the reward; failure already costs time through driving/recovery, so do not add an arbitrary shortcut penalty. Author entry/progress/exit tracking and an explicit bypassed-gate list for each route; suspend those gate penalties during legitimate branch travel, resolve appropriate progress on verified exit/rejoin and continue normal race tracking. A shortcut need not fit between adjacent existing gates. Normal penalties remain for unrelated course cuts. Entry contact alone must not authorize skipping the course; retain forward finish/lap validity and consistent branch-aware standings. Define abandonment/reversing/partial rejoin and local-reset behavior without retroactive penalty chains for gates legitimately bypassed. Local recovery stays on safe nearby route support without unearned forward progress. Apply the same rules to AI. Compare common entry/exit timings across multiple clean and failed attempts, with no false gate warnings on legal routes. This supersedes older requirements to pass every original required gate or confine shortcuts between existing gates.  
+**Performance/authoring:** Reproducible focused route/terrain/forest edits, bounded geometry/collision/audio costs, no legacy whole-world rebuild. Refresh affected generation data. Reuse route definitions later without rebuilding the race architecture now.  
+**Acceptance:** Three distinct fun paths, clean legal runs save useful time or offer an explicitly explained reward, forgiving local recovery, all profiles tested, no false penalty/position behavior, unchanged core race/records/UI, measured before/after performance. Dan reviews fun/difficulty.  
+**Result:** Pending.
+
+### CR-040 — Future lake/woodland circuit behind friend's house
+**Status:** BACKLOG — later track, not an additional deliverable in the current woodland batch.  
+**Concept:** Separate circuit beginning near the friend's house, using the lake behind it, passing Dan's house and continuing through existing woods with jumps, gullies and creeks. Prioritize fun over realism. Lake position/size and exact route need authoring review when this item starts; do not move homes or construct the lake automatically now. Reuse validated woodland sections where useful while keeping distinct start/gates/records per course.  
+**Result:** Deferred; preserve room and avoid unnecessary architectural coupling, but do not implement a track editor or second full circuit now.
 
 ---
 
@@ -1008,11 +1053,18 @@ Record choices we do not want to repeatedly reconsider.
 | 2026-09-18 | Combine nine-item vehicle/racing playtest revision | Fix bike/ATV phantom braking, quiet reset feedback, local recovery, quit-to-menu, compact HUD, bigger jump, competitive mixed AI and garage colors |
 | 2026-09-18 | Local recovery supersedes start-line/lap-abandon reset | Dan wants to continue after wipeouts; retain time/progress/penalties without granting forward gate credit |
 
+| 2026-09-18 | Combine CR-034–039 into the next woodland arcade update | Dan requests black paint, satisfying smashing/property fences, stronger difficulty, four-lane Hwy 92, named breakable signs and varied woodland jumps/shortcuts |
+| 2026-09-18 | Backlog separate lake/woods circuit as CR-040 | Future track starts near friend, passes Dan's house and enters woods; fun above exact realism |
+
+| 2026-09-18 | Designated shortcuts may bypass multiple checkpoints penalty-free | Closely spaced gates must not constrain fun routes; clean shortcut time saving is the reward, failures cost time naturally, unrelated cuts still incur penalties |
+
 ---
 
 # SESSION HANDOFF
 
-**Current delivery:** 0.5.0-review1 combined revision, implementation, integrated validation and local packaging complete. Awaiting Dan's approval; no automated test establishes subjective driving feel or human Hard difficulty. BUG-002/003, CR-026 and CR-028–033 are implemented together. CR-013 home-photo accuracy and CR-018 exact house position remain deferred. No multiplayer, unrelated scenery changes or uploads.
+**Current delivery:** 0.5.0-review1 works well overall per Dan, with new actionable feedback. Next combined delivery is CR-034–039: black paint, richer smash audio and remembered fences, revised difficulty, four-lane Hwy 92 with faster traffic, smashable road-name signs, and three varied woodland stunt shortcuts. CR-040 is a future separate lake/woods track, not current implementation. Keep houses/yards fixed; CR-013/CR-018 remain deferred. New local road/terrain changes are authorized only within this scope. No new implementation or tests in this documentation update.
+
+**Latest shortcut rule:** CR-039 designated routes may bypass multiple original checkpoints without penalties/buzzes. Track legitimate entry/progress/rejoin and recovery; do not require every gate or restrict routes to adjacent gates. Entry alone is not blanket course-skip permission. Preserve normal penalties outside authorized route bypasses. Use this clarification over older checkpoint-preservation instructions.
 
 Safety checkpoint: 3b2ffe31958b9216255e7b66a3477ecba7d524e7. Initial index.lock permission denial recovered with the supported elevated Git retry before content edits. Executable source: c57b6cce912b256de15da74a0e7ef19495bf8b48. Completion commit is the final documentation/evidence commit in Git history and the delivery response; package VERSION.txt records its actual executable source. Scene: Assets/Scenes/StreetLoopGreybox.unity. Launcher: Play-Racer.cmd; verified updated runtime: Builds/Latest and Builds/Racer-0.5.0-review1-Windows.
 
@@ -1028,7 +1080,7 @@ AI uses profile capability with difficulty-specific braking/corner/crest judgmen
 
 Final Editor and actual committed-source Windows release virtual-input suites each137/137 passed, including all opponent capabilities and actual virtual R/Y for every profile. Earlier1024x768/1280x720/1680x720 suites and screenshots retained. Tests cover progress/penalties, finish exploit, no-support fallback, pause/settings/volumes, records, cue cooldown, props/cleanup/restart, local recovery near trees/slopes/moving cars, profile/color/roster persistence and finish runoff. All saves isolated. No physical-controller or subjective listening/feel acceptance claim.
 
-Records now use street-v4-local-jump plus player profile, resolved roster/difficulty, traffic/mode/laps. Old records and settings preserved. Docs/CR028-033/VALIDATION.md contains diagnosis, fixtures, raw logs, failures and remaining limits. No package distributed; leave the entire combined revision awaiting Dan's approval.
+Records now use street-v4-local-jump plus player profile, resolved roster/difficulty, traffic/mode/laps. Old records and settings preserved. Docs/CR028-033/VALIDATION.md contains diagnosis, fixtures, raw logs, failures and remaining limits. No package distributed. Dan later reported the build works well overall, with CR-034–039 as the next feedback/expansion batch. Specific unresolved limitations remain documented.
 
 Release build0errors,1intentional disabled-Runtime-Pipeline warning. ZIP Builds/Racer-0.5.0-review1-Windows.zip:76,355,002bytes; SHA25655DA6EFCFD373C95646145A22A4672277ED9705021701EA770373A9432D869EE. All229file hashes match fresh extraction and Builds/Latest. Previous Latest preserved at Builds/Latest-before-0.5.0-review1. Launcher displays VERSION metadata; verified Latest opened normally after isolated testing. HUD screenshots: Docs/CR028-033/hud-release-driving.png and hud-1024x768.png / hud-1280x720.png / hud-1680x720.png.
 
