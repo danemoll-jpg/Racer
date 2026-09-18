@@ -535,9 +535,9 @@ Replace the sterile prototype feeling with a playful environment.
 **Focused building batch:** ACCEPTED — Dan says it looks fine. Photo-based home accuracy is deferred to CR-013 and does not block further work. CR-012 removes House 1 and extends Dan's yard into its site; Houses 2/3 retain their labels and exact placement. All 25 retained residences and 22 businesses now use reusable low-poly architecture. Phases 2–5 remain accepted. This building batch is accepted; remaining Phase 6 categories are still pending. No Phase 7. Full evidence and limitations: `Docs/PHASE6_VALIDATION.md`.
 
 ## TODO
-- [x] CR-016 implemented in the combined CR-016/CR-017 batch: Dan's house 116.581m south; yard 9003.472 to 2250.869m² (25%); 107 new trees. Awaiting Dan's review; evidence in Docs/CR016-017/VALIDATION.md.
+- [x] CR-016 implemented in the combined CR-016/CR-017 batch: Dan's house 116.581m south; yard 9003.472 to 2250.869m² (25%); 107 new trees. Accepted for now; exact house placement deferred under CR-018. Evidence in Docs/CR016-017/VALIDATION.md.
 - [x] Implement CR-015 house-placement corrections; grounded sites, persistent authoring data and annotated before/after evidence in Docs/CR015/VALIDATION.md. Awaiting Dan's visual approval.
-- [x] Four-mailbox/two-sign appearance accepted. Combined CR-016/CR-017 batch now adds yielding behavior, three gameplay signs and nine fence sections; awaiting behavior review.
+- [x] Four-mailbox/two-sign appearance accepted. Combined CR-016/CR-017 batch now adds yielding behavior, three gameplay signs and nine fence sections; behavior accepted by Dan.
 - [x] CR-012 implementation: Remove only the house marked #1, its dedicated collision and obsolete house-specific props/access; expand Dan's yard naturally into its former site. Retain Houses #2/#3 without renumbering, and preserve their positions/elevations.
 - [x] Verify the expanded yard is continuous, grounded and free of invisible House #1 collisions; update relevant generation logic so House #1 does not return.
 - [x] Improve house/building silhouettes in this focused batch: 4 residential + 4 commercial reusable variants, grounded entrances and aligned simple collision.
@@ -547,9 +547,9 @@ Replace the sterile prototype feeling with a playful environment.
 - [x] Profile baseline, intermediate and full coverage in ordinary frames; repeat 1440x900 standalone comparisons and rendering-cost diagnostics. Results/variability/limits: Docs/CR014/VALIDATION.md.
 - [x] Dan reports tree coverage is much better; retain the expanded woodland as the visual baseline.
 - [ ] Explicit off-road driveability/smoothness review remains unconfirmed; this is not a new failing test or a blocker to planning the next batch. Phase 6 remains incomplete.
-- [x] Add nine restrained lightweight fence sections at Dan's yard, House #2 and the friend's property; integrated batch awaiting review.
-- [x] Dan approves the appearance of the four mailboxes and two signs. CR-017 behavior is implemented separately; visual approval does not imply behavior approval.
-- [x] CR-017 implemented: 18 yielding assemblies, bounded debris, race-restart restoration; integrated tests passed. Awaiting Dan's review.
+- [x] Add nine restrained lightweight fence sections at Dan's yard, House #2 and the friend's property; integrated batch accepted by Dan.
+- [x] Dan approves the appearance of the four mailboxes and two signs. CR-017 behavior is implemented separately; Dan subsequently approved the combined CR-017 behavior batch.
+- [x] CR-017 implemented: 18 yielding assemblies, bounded debris, race-restart restoration; integrated tests passed; Dan approved the batch.
 - [ ] Add road markings.
 - [ ] Add sidewalks/curbs where useful.
 - [ ] Improve terrain transitions.
@@ -558,7 +558,7 @@ Replace the sterile prototype feeling with a playful environment.
 - [ ] Preserve frame rate.
 
 ## Astra Direction
-Dan prefers larger, coherent Phase 6 deliveries. The combined CR-016 house/yard correction, restrained fences and CR-017 breakable props supersedes the earlier CR-016-only and one-category-per-request restrictions for this batch. Preserve accepted gameplay and keep Phase 6 incomplete until remaining work and review are complete; do not begin Phase 7.
+Dan prefers larger coherent deliveries. The CR-016/fences/CR-017 batch is accepted; exact home placement is deferred under CR-018. Complete remaining Phase 6 environment work together: road markings, selective sidewalks/curbs, local transition cleanup, basic lighting and environmental audio, plus performance checks. Assess each pending item; document justified not-applicable items rather than adding unnecessary urban features. Do not move houses or begin Phase 7. Leave overall Phase 6 acceptance to Dan.
 
 ---
 
@@ -589,6 +589,7 @@ Make the prototype feel like a game rather than a Unity demonstration.
 Improve appearance only after gameplay works.
 
 ## TODO
+- [ ] CR-018 (optional backlog): Revisit exact childhood-house placement only when Dan wants to; preserve current placement during ongoing work.
 - [ ] CR-013 (optional backlog): Refine homes from Dan's reference photos if he finds and supplies them; no photos required to continue current work.
 - [ ] Replace important placeholder assets.
 - [ ] Improve materials.
@@ -774,7 +775,7 @@ Use this for things that are not bugs but that Dan wants changed.
 **Result:** Dan moves (-2.219,-0.016,-2.019)m, exactly +3m horizontal setback. House #2 moves (-21.491,+0.272,+55.783)m toward Dan onto the perpendicular through the fixed friend's road projection; across-street error <0.001m and original 58.367m centerline setback retained. House #3 moves (-11,0,+60)m to (418,32.755,-160); nearest road Z=-115.047 lies before the big descent at Z=-132, and the home remains 53.071m below the crest road. Designs/rotations, House #1 removal, expanded yard and unrelated landmarks remain intact. One terrain tile locally extends the valley (1,824 vertices; max lowering 42.881m; no road/shoulder edits within 18m); foundations/steps regrounded. Nine conflicting original trees removed, 16 surviving local trunks regrounded; 11,888 trees retained. Four reusable mailboxes and two simple signs have no small collision snag surfaces. Authored placement JSON and generation exclusions updated; stale building GPU buffers fixed. No legacy full rebuild. All placement/foundation/seam/yard checks pass, four local access drives and road runs complete upright, three mixed laps and race/jump/shortcut regressions pass within prior angled-jump limits. Final compile succeeds, saved scene reloads cleanly, Console 0 errors/0 warnings. Editor timings remain variable with spikes up to 253ms; no physical-controller or new standalone-performance claim. Annotated views, offsets, assets, exact tests, caveats and review checklist: `Docs/CR015/VALIDATION.md`. CR-015 and roadside batch await Dan's visual review.
 
 ### CR-016 — Move Dan's house south and substantially shrink its yard
-**Status:** IMPLEMENTED — AWAITING DAN'S REVIEW as one integrated CR-016/fences/CR-017 delivery.  
+**Status:** ACCEPTED FOR NOW / CLOSED — Dan approved the integrated batch. House placement is not exact, but further adjustment is deferred to optional CR-018 and must not block progress.  
 **Requested change:** Move Dan's childhood house much farther south, near but not at the southernmost point of the current yard. Reduce the yard to approximately one quarter of its current ground area and restore trees across the released area. Interpret one quarter as area, not one quarter of both dimensions. Capture the current yard outline and establish map south before editing; do not infer compass direction solely from a Unity axis.  
 **Implementation guidance:** Make a compact natural yard around the relocated home with a modest boundary margin and usable road access. Preserve accepted architecture and orientation unless necessary local grounding requires adjustment. Blend foundations/steps and access naturally; avoid large terrain excavation. Update yard/house authoring data, tree-placement exclusions and render/collision batches so the previous oversized clearing is not recreated. Reforest with the current efficient, drivable woodland style; keep the remaining yard and access clear. Relocate only this house's associated mailbox/access if needed.  
 **Supersedes:** Earlier small-setback-only direction and enlarged-yard preservation for Dan's site. House #1 remains absent; keep House #2, House #3 and the friend's house in their current positions, without inferring their explicit approval from this feedback. Preserve roads, hill profiles, accepted gameplay and unrelated clearances.  
@@ -782,10 +783,16 @@ Use this for things that are not bugs but that Dan wants changed.
 **Result:** House moves (349.7807,74.9703,103.5814) to (415.8,83.8196,-13), 116.581m south and 15.1m inside the old southern edge. Accepted design/rotation retained; foundation/steps regrounded without terrain height edits. Yard horizontal area 9003.472→2250.869m² (25.000%); sampled sloped surface 9070.2→2281.4m² (~25.15%). Narrow road access retained and Dan's mailbox relocated. Added 107 solid trunks, minimum center spacing 6.803m; all 11888 prior trees retained. Only two local forest batches change visible geometry; 88 remain exact. Placement JSON, compact-yard/access exclusions and crown limits updated. House #1 absent; all 46 other buildings fixed; all 100 terrain meshes retain heights/normals/topology. Annotated before/after views and full tests: Docs/CR016-017/VALIDATION.md. Local virtual-input drives cover 119.8m of new woodland and access both ways; upright >=0.979. Access follower stopping overshoot 6–7m and a 1.7s Editor stall are disclosed. Not physical-controller or subjective approval.
 
 ### CR-017 — Breakable mailboxes, signs and lightweight fences
-**Status:** IMPLEMENTED — AWAITING DAN'S REVIEW in the combined CR-016/fences/CR-017 batch.  
+**Status:** ACCEPTED / CLOSED — Dan approved the integrated house/yard, fences and breakable-prop batch. Approval does not imply unreported device/test coverage.  
 **Requested change:** Preserve accepted mailbox/sign appearance and make lightweight roadside scenery yield on vehicle impact, with bounded cleanup and predictable restart behavior. Dan authorized this together with the house/yard correction and fences.  
 **Result:** Reusable `BreakableProp` on four mailboxes, two bend signs, the jump sign, two shortcut direction signs and nine timber fence sections. Fences sit beside Dan's west yard edge (~390,-1 XZ), House #2 (~408,-39) and the friend's property (~516,-54); approaches remain open. Simple box triggers, 0.2m/s threshold, original assembly knocked aside once per cycle; no solid solver impulse, cloned fragments or debris rigidbodies. Maximum 24 moving assemblies; four-second cleanup. Race restart first resets car/progress, then restores props, deferring any original bounds overlapping a vehicle. Scene reload restores authored state. Ordinary vehicle reset leaves destruction unchanged and preserves existing race invalidation. Vehicle tuning, camera, HUD and checkpoint logic remain unchanged.  
 **Validation:** 20 ordinary-frame virtual Gamepad cases at 3/30m/s, centered/glancing across five prop types; all broke once and remained upright. Consecutive three-fence drive passed. Eight 18-prop contact bursts, five repeated race restarts, cleanup and overlap deferral passed. 35-piece stress capped at 24, retired oldest 11, created no rigidbodies and cleaned fully. Three mixed laps and race/input/HUD/reset regressions passed; jump/bypass checks retain prior angled-jump limitations. Same-view destruction profiling: intact median/p95 11.39/18.87ms; 30 bursts 10.05/19.29ms, max115.2ms, one rigidbody. No controlled-host speedup or physical-controller claim. Exact locations, raw checks, before/after views and review checklist: Docs/CR016-017/VALIDATION.md.
+
+### CR-018 — Optional later refinement of Dan's house position
+**Status:** BACKLOG / NON-BLOCKING — current house/yard accepted for now.  
+**Requested change:** Dan says the house is not perfectly placed but explicitly does not want to worry about it now. Revisit only when he supplies further placement guidance or asks to resume this item; optionally coordinate with CR-013 photo references.  
+**Scope:** Do not move the house, change its yard or reopen CR-016 during current Phase 6 work. No assumed new coordinates or automatic relocation.  
+**Result:** Deferred; no new placement instructions supplied.
 
 ---
 
@@ -834,11 +841,14 @@ Record choices we do not want to repeatedly reconsider.
 
 | 2026-09-17 | Deliver CR-016, restrained fences and CR-017 together | Larger coherent Phase 6 batches preferred; implementation and integrated validation complete, awaiting Dan's review |
 
+| 2026-09-17 | Accept combined CR-016/fences/CR-017 batch; defer exact home position as CR-018 | Dan approved and does not want more placement work now |
+| 2026-09-17 | Next delivery groups remaining Phase 6 environment work | Road markings, selective curbs, local terrain transitions, basic lighting/audio and performance checks; preserve gameplay and avoid another house-placement pass |
+
 ---
 
 # SESSION HANDOFF
 
-**Current phase:** Phase 6 incomplete. Prior gameplay/building approvals remain intact. CR-016 house/yard correction, restrained fences and CR-017 breakable props are IMPLEMENTED as one integrated batch, AWAITING DAN'S REVIEW. CR-013 remains optional. Houses #2/#3/friend stayed fixed; no new approval inferred. No Phase 7, new jump/shortcut, lighting or audio pass.
+**Current phase:** Combined CR-016 house/yard, fences and CR-017 breakable-prop batch ACCEPTED by Dan. CR-016 closed as accepted for now; CR-017 closed. Exact house position is imperfect but deferred under optional CR-018; do not move it further. CR-013 photo accuracy remains optional. Phase 6 remains incomplete; prepare one combined remaining-environment delivery, not Phase 7.
 
 **Batch preference:** Dan wants larger coherent Phase 6 deliveries. This combined batch explicitly supersedes the earlier CR-016-only and one-category restrictions. Review it as one delivery.
 
@@ -854,7 +864,7 @@ Record choices we do not want to repeatedly reconsider.
 
 **Performance/remaining issues:** Matched 734×293 Editor road medians before 7.31/10.58 ms, p95 25.29/24.87; after 7.97/7.17 ms, p95 25.69/17.81. Static burst comparison: intact median 11.39 ms versus 10.05 ms during 30 bursts; p95 about 19 ms, maximum 115.2 ms, one rigidbody. Timings remain host-dependent. The local access run had a 1.7 s stall and follower stopping overshoot of 6–7 m. No performance parity/speedup or universal frame-rate claim. Full-resolution rendered performance and controller comfort remain review items.
 
-**Review:** Inspect the relocated house and quarter-size yard, drive the reforested gaps and access, hit mailboxes/signs and consecutive fences at low/high speeds, test race restart and ordinary reset, then drive a normal lap/shortcut/jump at usual settings. Keep the integrated batch awaiting Dan's review and Phase 6 incomplete.
+**Latest review / next work:** Dan approved the integrated batch and deferred exact house placement. Preserve all current houses and yards. Next grouped Phase 6 work: road markings, curbs/sidewalks only where useful, local terrain-transition cleanup, basic lighting and environmental audio, with coordinated gameplay/performance validation. Leave the new delivery awaiting review. No new tests or Unity changes in this documentation update.
 
 ---
 # How Dan and ChatGPT Will Use This File
