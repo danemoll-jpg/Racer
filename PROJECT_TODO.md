@@ -587,7 +587,7 @@ Make the prototype feel like a game rather than a Unity demonstration.
 
 # PHASE 8 — Visual Polish
 
-**Status:** IMPLEMENTED, AWAITING DAN'S REVIEW — not accepted. CR-019 commercial revision is ACCEPTED/CLOSED. Combined visual/performance delivery and fresh Windows build complete. Evidence, measurements and limitations: Docs/Phase8/VALIDATION.md; matched views: Docs/Phase8/review.html.
+**Status:** ACCEPTED FOR NOW — Dan reports "pretty sure all is ok." This records overall provisional acceptance, not confirmation of every test/device or resolution of known limits. CR-019 commercial revision is ACCEPTED/CLOSED. Combined visual/performance delivery and fresh Windows build complete. Evidence, measurements and limitations: Docs/Phase8/VALIDATION.md; matched views: Docs/Phase8/review.html.
 
 ## Goal
 Improve appearance only after gameplay works.
@@ -604,7 +604,7 @@ Improve appearance only after gameplay works.
 - [x] Profile ordinary-frame standalone road/commercial/forest/gameplay views twice, matched settings, frame distributions/spikes recorded.
 - [x] Fix text visible through terrain and align arrows to slopes; verify seams, grounding, near/far rendering and exact collision preservation.
 - [x] Integrated traversal, mixed full race, jump, props, flow/settings/save reload and fresh visible Windows build validation.
-- [ ] Dan accepts Phase 8 visuals and smoothness on his normal setup; physical-controller check remains unverified.
+- [x] Dan accepts Phase 8 overall for now ("pretty sure all is ok"); exact setup, individual test coverage and physical-controller testing remain unspecified.
 - [ ] CR-018 deferred optional backlog: exact childhood-house placement only when Dan requests it.
 - [ ] CR-013 deferred optional backlog: home refinements only from Dan's supplied reference photos.
 
@@ -612,9 +612,19 @@ Improve appearance only after gameplay works.
 
 ---
 
+# CORE FOLLOW-UP — Vehicle Audio and Friend Playtest Package
+
+- [ ] CR-020: Add the missing car audio and persistent vehicle-volume control without changing approved handling.
+- [ ] CR-021: Build and test a complete shareable solo Windows ZIP with controls and license notices.
+- [ ] Dan reviews audio and a friend tests the extracted package on a compatible PC; do not infer success from local testing.
+
+---
+
 # PHASE 9 — Optional Expansion
 
 These are NOT required for the first game.
+
+- [ ] Optional feasibility follow-up: private online play for Dan and a friend. Not authorized for implementation yet; preserve solo-first scope. Need shared car/race/prop state, latency/disconnect handling and two-PC testing; choose platform/join/host behavior before implementation.
 
 - [ ] Additional cars.
 - [ ] Car selection.
@@ -811,6 +821,18 @@ Use this for things that are not bugs but that Dan wants changed.
 **Result:** All 22 existing sites retained, 11 per side. West-to-east South: M-A-D-M-G-A-D-M-G-A-D; North: D-M-G-A-D-M-G-A-D-M-A (Market/Diner/Auto/General). Independent center spacing ~47–121m South, ~50–117m North; road-normal setbacks 29–34m. Matching opposite footprint intervals separated by at least 58.60m; smallest same-row footprint gap 21.40m. Sites move as complete prefab/sign/collider assemblies, with refitted foundations/steps, relocated flush paving and gravel access and muted existing-palette material overrides. Nine conflicting trunks removed; remaining 11,986 trunks preserved, no terrain-height edits. Explicit slot tables, stable site IDs, shared generation rules and synchronized visual/frontage refresh prevent mirrored regeneration; legacy whole-environment rebuild not run.  
 **Actual validation:** Save/reload and repeat apply pass with identical site inventory and zero repeat paint changes; batched vertices match sources. Both ordinary-frame virtual-Gamepad drives pass at ~32m/s with braking to ~12.7m/s, >11m shoulder excursion/re-entry and zero non-terrain contacts. Six final countdown/pause/restart smoke checks pass using isolated test storage. Houses, terrain shape/markings and breakable placements unchanged. Matched 734x293 Editor sample, VSync1/cap60: before median/p95 16.74/20.21ms, after 16.74/20.83ms; not standalone or 1080p parity. Compilation succeeds; final Console 0 errors/warnings after historical/tool messages archived. Full settings, recovered test/tool failures, limitations and before/after evidence: `Docs/CR019/VALIDATION.md`, `Docs/CR019/review.html`. Dan subsequently reported this batch passed; the remaining Phase 8 delivery is implemented and awaiting review in Docs/Phase8/VALIDATION.md.
 
+### CR-020 — Missing vehicle audio
+**Status:** OPEN — next core-completeness follow-up; previous ambience/UI audio did not cover the car.  
+**Requested change:** Add coherent engine idle/acceleration/coasting/reverse audio, tire slip and road/off-road rolling feedback, plus restrained impact/landing/prop feedback. Use existing vehicle state; audio-only simulated RPM/gears are allowed without changing approved physics. Avoid constant squeal or repeated impact sounds. Preserve pause/countdown/reset/results audio behavior and integrate a persistent vehicle-volume setting with master mute. Use redistributable licensed or original assets, document sources and quality limits.  
+**Acceptance:** Dan can hear responsive car behavior without clipping, abrupt loop seams, excessive repetition or ambience/UI masking. Virtual technical tests do not establish subjective sound quality.  
+**Result:** Not implemented.
+
+### CR-021 — Shareable solo Windows package
+**Status:** PLANNED — pair with CR-020 for a friend-playtest delivery; Windows is the current build target, friend's OS not yet confirmed.  
+**Requested change:** Produce a clean standalone Windows build and versioned ZIP containing all required runtime files, controls/readme and audio/asset license notices. No Unity Editor needed to play. Do not send only the executable. Exclude repository/source, development back-up/debug artifacts and personal/test saves; preserve every required runtime dependency. Launch an extracted copy outside the project and validate core flow and offline solo use.  
+**Distribution:** Prepare the archive locally. Do not upload, publish, email or send it without an explicit destination/request. Include size, checksum and version/commit information. Other operating systems require their own builds.  
+**Result:** Not packaged by this documentation update; existing Phase8 build is a development review player.
+
 ---
 
 # DECISION LOG
@@ -869,11 +891,15 @@ Record choices we do not want to repeatedly reconsider.
 | 2026-09-17 | Deliver first Phase 8 commercial polish batch; await Dan's visual review | Retain 22 stores with independent authored rows, coordinated frontage, local tree clearance and preserved accepted systems |
 | 2026-09-17 | CR-019 commercial-street batch accepted | Dan reports passed; preserve independent store layout and proceed with remaining Phase 8 polish/performance together |
 
+| 2026-09-18 | Phase 8 accepted for now; stop automatic phase expansion | Dan reports pretty sure all is ok; retain known limitations and optional backlog, prepare first-playable handoff |
+
+| 2026-09-18 | Add missing vehicle audio and prepare solo friend package as the next delivery | Ambience/UI cues did not cover the car; online two-player is possible future work, not part of this build |
+
 ---
 
 # SESSION HANDOFF
 
-**Current phase:** Phase 8 IMPLEMENTED, AWAITING DAN'S REVIEW; not accepted. CR-019 ACCEPTED/CLOSED. CR-013/CR-018 remain deferred; Phase 9 not started.
+**Current phase:** Phase 8 accepted for now. New core-completeness follow-up: CR-020 vehicle audio and CR-021 shareable solo Windows package. These are not implemented yet. Online two-player interest is recorded for later feasibility, not authorized implementation. CR-013/CR-018 remain deferred; preserve current solo game and personal records.
 
 **Safety checkpoint:** c17fd0afa2c77512184066db036702250d7450a5. Initial Git permission failure recovered through the elevated approval mechanism before modifications. Completion commit is recorded in Git history and the task response.
 
@@ -891,7 +917,7 @@ Record choices we do not want to repeatedly reconsider.
 
 **Warnings:** Build succeeded. Two actual warnings: future collision prebaking for103meshes and optional RuntimePipelineConfig absent. Unused stripped DOF/Panini shader messages persist in player logs; effects disabled. One final BuildReport error is the bridge's five-second timeout while the successful build continued. Final current Console zero errors/warnings, compilation succeeded; historical messages retained.
 
-**Dan review:** Launch Builds/Phase8/Racer.exe; inspect car/road/wooded contrast and sign readability while driving; complete a normal/shortcut/jump race with a prop impact and pause/restart; judge smoothness at preferred resolution and try the physical controller. Report noticeable shadow transitions, readability problems or stalls before accepting Phase 8.
+**Dan review:** Pretty sure all is ok — overall acceptance for now. No specific new defect reported; no individual test/device results inferred. Preserve the current playable build. Next task is documentation/status reconciliation and a concise first-playable handoff, without new features or another polish pass.
 
 ---
 
