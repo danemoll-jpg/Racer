@@ -1,0 +1,1 @@
+PASS ordinary-frame virtual Gamepad jump from rest 240m before ramp: takeoff=31.76m/s, air=1.72s, landed=True, landingZ=-30.97, upright=0.981. No manual Physics.Simulate or injected velocity.

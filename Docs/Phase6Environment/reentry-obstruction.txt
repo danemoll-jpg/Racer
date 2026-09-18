@@ -1,0 +1,1 @@
+Follower stalled at (-597.08, 7.24, -316.85); nearby colliders=Tree trunk, Ground_80_160, PrototypeCar. Preserved forest; not a new collider. No claim this route completed.

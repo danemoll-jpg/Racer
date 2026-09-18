@@ -1,0 +1,446 @@
+{
+  "success": true,
+  "command": "command console",
+  "data": {
+    "command": "console",
+    "parameters": {
+      "tail": "200"
+    },
+    "result": {
+      "entries": [
+        {
+          "seq": 658,
+          "timestampUtc": "2026-09-18T00:12:41.6373404Z",
+          "level": "warn",
+          "logType": "Warning",
+          "message": "There are inconsistent line endings in the 'Assets/Track/StreetLoop/GreyboxGround.shader' script. Some are Mac OS X (UNIX) and some are Windows.\nThis might lead to incorrect line numbers in stacktraces and compiler errors. Many text editors can fix this using Convert Line Endings menu commands.",
+          "stackTrace": "UnityEditor.AssetDatabase:Refresh ()\nPipelineEvaluation.PipelineEval_0dfa6720:Execute ()\nSystem.Reflection.MethodBase:Invoke (object,object[])\nUnity.Pipeline.Compilation.EvalCodeCompiler:ExecuteCompiledAssembly (System.Reflection.Assembly) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Compilation/EvalCodeCompiler.cs:190)\nUnity.Pipeline.Compilation.EvalCodeCompiler:CompileAndExecuteOnMainThread (string,int,System.Diagnostics.Stopwatch) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Compilation/EvalCodeCompiler.cs:54)\nUnity.Pipeline.Runtime.Commands.CodeEvalCommand:EvaluateSource (string,int,string) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Commands/CodeEvalCommand.cs:112)\nUnity.Pipeline.Runtime.Commands.CodeEvalCommand:EvaluateCode (string,int) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Commands/CodeEvalCommand.cs:24)\nSystem.Reflection.MethodBase:Invoke (object,object[])\nUnity.Pipeline.BasePipelineServer:ExecuteCommandDirect (Unity.Pipeline.Commands.CommandInfo,object[]) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2634)\nUnity.Pipeline.BasePipelineServer/<>c__DisplayClass134_0:<ExecuteCommand>b__1 () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2508)\nUnity.Pipeline.Threading.Dispatcher/WorkItem`1<object>:ExecuteCore () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:284)\nUnity.Pipeline.Threading.Dispatcher/WorkItem:Execute () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:229)\nUnity.Pipeline.Threading.Dispatcher:ProcessWorkQueue (int) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:195)\nUnity.Pipeline.Threading.Dispatcher:ProcessWorkQueue () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:210)\nUnityEditor.EditorApplication:Internal_CallUpdateFunctions ()\n",
+          "seeded": false
+        },
+        {
+          "seq": 659,
+          "timestampUtc": "2026-09-18T00:12:56.3173342Z",
+          "level": "warn",
+          "logType": "Warning",
+          "message": "Assets\\Scripts\\Editor\\Phase6Review.cs(18,133): warning CS0618: 'FindObjectsSortMode' is obsolete: 'FindObjectsSortMode has been deprecated. Use the FindObjectsByType overloads that do not take a FindObjectsSortMode parameter.'",
+          "stackTrace": "",
+          "seeded": false
+        },
+        {
+          "seq": 660,
+          "timestampUtc": "2026-09-18T00:12:56.3173342Z",
+          "level": "warn",
+          "logType": "Warning",
+          "message": "Assets\\Scripts\\Editor\\Phase6Review.cs(18,98): warning CS0618: 'Object.FindObjectsByType<T>(FindObjectsSortMode)' is obsolete: 'FindObjectsByType with FindObjectsSortMode parameter has been deprecated. Use FindObjectsByType<T>() or FindObjectsByType<T>(FindObjectsInactive) instead. InstanceID will be replaced in the future with EntityId and previous sort order cannot be maintained.'",
+          "stackTrace": "",
+          "seeded": false
+        },
+        {
+          "seq": 661,
+          "timestampUtc": "2026-09-18T00:12:56.3173342Z",
+          "level": "warn",
+          "logType": "Warning",
+          "message": "Assets\\Scripts\\Editor\\Phase6Review.cs(18,214): warning CS0618: 'FindObjectsSortMode' is obsolete: 'FindObjectsSortMode has been deprecated. Use the FindObjectsByType overloads that do not take a FindObjectsSortMode parameter.'",
+          "stackTrace": "",
+          "seeded": false
+        },
+        {
+          "seq": 662,
+          "timestampUtc": "2026-09-18T00:12:56.3173342Z",
+          "level": "warn",
+          "logType": "Warning",
+          "message": "Assets\\Scripts\\Editor\\Phase6Review.cs(18,179): warning CS0618: 'Object.FindObjectsByType<T>(FindObjectsSortMode)' is obsolete: 'FindObjectsByType with FindObjectsSortMode parameter has been deprecated. Use FindObjectsByType<T>() or FindObjectsByType<T>(FindObjectsInactive) instead. InstanceID will be replaced in the future with EntityId and previous sort order cannot be maintained.'",
+          "stackTrace": "",
+          "seeded": false
+        },
+        {
+          "seq": 663,
+          "timestampUtc": "2026-09-18T00:12:56.3173342Z",
+          "level": "warn",
+          "logType": "Warning",
+          "message": "Assets\\Scripts\\Editor\\Phase6Review.cs(48,686): warning CS0618: 'FindObjectsSortMode' is obsolete: 'FindObjectsSortMode has been deprecated. Use the FindObjectsByType overloads that do not take a FindObjectsSortMode parameter.'",
+          "stackTrace": "",
+          "seeded": false
+        },
+        {
+          "seq": 664,
+          "timestampUtc": "2026-09-18T00:12:56.3173342Z",
+          "level": "warn",
+          "logType": "Warning",
+          "message": "Assets\\Scripts\\Editor\\Phase6Review.cs(48,651): warning CS0618: 'Object.FindObjectsByType<T>(FindObjectsSortMode)' is obsolete: 'FindObjectsByType with FindObjectsSortMode parameter has been deprecated. Use FindObjectsByType<T>() or FindObjectsByType<T>(FindObjectsInactive) instead. InstanceID will be replaced in the future with EntityId and previous sort order cannot be maintained.'",
+          "stackTrace": "",
+          "seeded": false
+        },
+        {
+          "seq": 665,
+          "timestampUtc": "2026-09-18T00:12:56.3173342Z",
+          "level": "warn",
+          "logType": "Warning",
+          "message": "Assets\\Scripts\\Editor\\StreetLoopRevision.cs(66,138): warning CS0618: 'FindObjectsSortMode' is obsolete: 'FindObjectsSortMode has been deprecated. Use the FindObjectsByType overloads that do not take a FindObjectsSortMode parameter.'",
+          "stackTrace": "",
+          "seeded": false
+        },
+        {
+          "seq": 666,
+          "timestampUtc": "2026-09-18T00:12:56.3173342Z",
+          "level": "warn",
+          "logType": "Warning",
+          "message": "Assets\\Scripts\\Editor\\StreetLoopRevision.cs(66,90): warning CS0618: 'Object.FindObjectsByType<T>(FindObjectsSortMode)' is obsolete: 'FindObjectsByType with FindObjectsSortMode parameter has been deprecated. Use FindObjectsByType<T>() or FindObjectsByType<T>(FindObjectsInactive) instead. InstanceID will be replaced in the future with EntityId and previous sort order cannot be maintained.'",
+          "stackTrace": "",
+          "seeded": false
+        },
+        {
+          "seq": 667,
+          "timestampUtc": "2026-09-18T00:13:55.2413936Z",
+          "level": "error",
+          "logType": "Error",
+          "message": "Failed to handle /api/exec request: Main thread operation timed out after 5000ms",
+          "stackTrace": "UnityEngine.Debug:LogError (object)\nUnity.Pipeline.BasePipelineServer/<HandleExecRequest>d__115:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2071)\nSystem.Runtime.CompilerServices.AsyncTaskMethodBuilder:SetException (System.Exception)\nUnity.Pipeline.BasePipelineServer/<ExecuteGated>d__105:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:1403)\nSystem.Runtime.CompilerServices.AsyncTaskMethodBuilder:SetException (System.Exception)\nUnity.Pipeline.BasePipelineServer/<>c__DisplayClass115_0/<<HandleExecRequest>b__0>d:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2032)\nSystem.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<object>:SetException (System.Exception)\nUnity.Pipeline.BasePipelineServer/<ExecuteCommandByName>d__133:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2478)\nSystem.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<object>:SetException (System.Exception)\nUnity.Pipeline.BasePipelineServer/<ExecuteCommand>d__134:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2517)\nSystem.Threading._ThreadPoolWaitCallback:PerformWaitCallback ()\n",
+          "seeded": false
+        },
+        {
+          "seq": 668,
+          "timestampUtc": "2026-09-18T00:14:14.0540884Z",
+          "level": "error",
+          "logType": "Error",
+          "message": "Failed to handle /api/exec request: Main thread operation timed out after 5000ms",
+          "stackTrace": "UnityEngine.Debug:LogError (object)\nUnity.Pipeline.BasePipelineServer/<HandleExecRequest>d__115:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2071)\nSystem.Runtime.CompilerServices.AsyncTaskMethodBuilder:SetException (System.Exception)\nUnity.Pipeline.BasePipelineServer/<ExecuteGated>d__105:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:1403)\nSystem.Runtime.CompilerServices.AsyncTaskMethodBuilder:SetException (System.Exception)\nUnity.Pipeline.BasePipelineServer/<>c__DisplayClass115_0/<<HandleExecRequest>b__0>d:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2032)\nSystem.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<object>:SetException (System.Exception)\nUnity.Pipeline.BasePipelineServer/<ExecuteCommandByName>d__133:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2478)\nSystem.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<object>:SetException (System.Exception)\nUnity.Pipeline.BasePipelineServer/<ExecuteCommand>d__134:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2517)\nSystem.Threading._ThreadPoolWaitCallback:PerformWaitCallback ()\n",
+          "seeded": false
+        },
+        {
+          "seq": 669,
+          "timestampUtc": "2026-09-18T00:15:18.1741558Z",
+          "level": "warn",
+          "logType": "Warning",
+          "message": "Assets\\Scripts\\Editor\\Phase6Review.cs(18,133): warning CS0618: 'FindObjectsSortMode' is obsolete: 'FindObjectsSortMode has been deprecated. Use the FindObjectsByType overloads that do not take a FindObjectsSortMode parameter.'",
+          "stackTrace": "",
+          "seeded": false
+        },
+        {
+          "seq": 670,
+          "timestampUtc": "2026-09-18T00:15:18.1776714Z",
+          "level": "warn",
+          "logType": "Warning",
+          "message": "Assets\\Scripts\\Editor\\Phase6Review.cs(18,98): warning CS0618: 'Object.FindObjectsByType<T>(FindObjectsSortMode)' is obsolete: 'FindObjectsByType with FindObjectsSortMode parameter has been deprecated. Use FindObjectsByType<T>() or FindObjectsByType<T>(FindObjectsInactive) instead. InstanceID will be replaced in the future with EntityId and previous sort order cannot be maintained.'",
+          "stackTrace": "",
+          "seeded": false
+        },
+        {
+          "seq": 671,
+          "timestampUtc": "2026-09-18T00:15:18.1776714Z",
+          "level": "warn",
+          "logType": "Warning",
+          "message": "Assets\\Scripts\\Editor\\Phase6Review.cs(18,214): warning CS0618: 'FindObjectsSortMode' is obsolete: 'FindObjectsSortMode has been deprecated. Use the FindObjectsByType overloads that do not take a FindObjectsSortMode parameter.'",
+          "stackTrace": "",
+          "seeded": false
+        },
+        {
+          "seq": 672,
+          "timestampUtc": "2026-09-18T00:15:18.1776714Z",
+          "level": "warn",
+          "logType": "Warning",
+          "message": "Assets\\Scripts\\Editor\\Phase6Review.cs(18,179): warning CS0618: 'Object.FindObjectsByType<T>(FindObjectsSortMode)' is obsolete: 'FindObjectsByType with FindObjectsSortMode parameter has been deprecated. Use FindObjectsByType<T>() or FindObjectsByType<T>(FindObjectsInactive) instead. InstanceID will be replaced in the future with EntityId and previous sort order cannot be maintained.'",
+          "stackTrace": "",
+          "seeded": false
+        },
+        {
+          "seq": 673,
+          "timestampUtc": "2026-09-18T00:15:18.1776714Z",
+          "level": "warn",
+          "logType": "Warning",
+          "message": "Assets\\Scripts\\Editor\\StreetLoopRevision.cs(66,138): warning CS0618: 'FindObjectsSortMode' is obsolete: 'FindObjectsSortMode has been deprecated. Use the FindObjectsByType overloads that do not take a FindObjectsSortMode parameter.'",
+          "stackTrace": "",
+          "seeded": false
+        },
+        {
+          "seq": 674,
+          "timestampUtc": "2026-09-18T00:15:18.1776714Z",
+          "level": "warn",
+          "logType": "Warning",
+          "message": "Assets\\Scripts\\Editor\\StreetLoopRevision.cs(66,90): warning CS0618: 'Object.FindObjectsByType<T>(FindObjectsSortMode)' is obsolete: 'FindObjectsByType with FindObjectsSortMode parameter has been deprecated. Use FindObjectsByType<T>() or FindObjectsByType<T>(FindObjectsInactive) instead. InstanceID will be replaced in the future with EntityId and previous sort order cannot be maintained.'",
+          "stackTrace": "",
+          "seeded": false
+        },
+        {
+          "seq": 675,
+          "timestampUtc": "2026-09-18T00:15:18.1776714Z",
+          "level": "warn",
+          "logType": "Warning",
+          "message": "Assets\\Scripts\\Editor\\Phase6Review.cs(48,686): warning CS0618: 'FindObjectsSortMode' is obsolete: 'FindObjectsSortMode has been deprecated. Use the FindObjectsByType overloads that do not take a FindObjectsSortMode parameter.'",
+          "stackTrace": "",
+          "seeded": false
+        },
+        {
+          "seq": 676,
+          "timestampUtc": "2026-09-18T00:15:18.1776714Z",
+          "level": "warn",
+          "logType": "Warning",
+          "message": "Assets\\Scripts\\Editor\\Phase6Review.cs(48,651): warning CS0618: 'Object.FindObjectsByType<T>(FindObjectsSortMode)' is obsolete: 'FindObjectsByType with FindObjectsSortMode parameter has been deprecated. Use FindObjectsByType<T>() or FindObjectsByType<T>(FindObjectsInactive) instead. InstanceID will be replaced in the future with EntityId and previous sort order cannot be maintained.'",
+          "stackTrace": "",
+          "seeded": false
+        },
+        {
+          "seq": 677,
+          "timestampUtc": "2026-09-18T00:15:33.2116253Z",
+          "level": "error",
+          "logType": "Error",
+          "message": "Failed to handle /api/exec request: Main thread operation timed out after 5000ms",
+          "stackTrace": "UnityEngine.Debug:LogError (object)\nUnity.Pipeline.BasePipelineServer/<HandleExecRequest>d__115:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2071)\nSystem.Runtime.CompilerServices.AsyncTaskMethodBuilder:SetException (System.Exception)\nUnity.Pipeline.BasePipelineServer/<ExecuteGated>d__105:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:1403)\nSystem.Runtime.CompilerServices.AsyncTaskMethodBuilder:SetException (System.Exception)\nUnity.Pipeline.BasePipelineServer/<>c__DisplayClass115_0/<<HandleExecRequest>b__0>d:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2032)\nSystem.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<object>:SetException (System.Exception)\nUnity.Pipeline.BasePipelineServer/<ExecuteCommandByName>d__133:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2478)\nSystem.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<object>:SetException (System.Exception)\nUnity.Pipeline.BasePipelineServer/<ExecuteCommand>d__134:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2517)\nSystem.Threading._ThreadPoolWaitCallback:PerformWaitCallback ()\n",
+          "seeded": false
+        },
+        {
+          "seq": 678,
+          "timestampUtc": "2026-09-18T00:16:00.5771865Z",
+          "level": "error",
+          "logType": "Error",
+          "message": "Failed to handle /api/exec request: Main thread operation timed out after 5000ms",
+          "stackTrace": "UnityEngine.Debug:LogError (object)\nUnity.Pipeline.BasePipelineServer/<HandleExecRequest>d__115:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2071)\nSystem.Runtime.CompilerServices.AsyncTaskMethodBuilder:SetException (System.Exception)\nUnity.Pipeline.BasePipelineServer/<ExecuteGated>d__105:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:1403)\nSystem.Runtime.CompilerServices.AsyncTaskMethodBuilder:SetException (System.Exception)\nUnity.Pipeline.BasePipelineServer/<>c__DisplayClass115_0/<<HandleExecRequest>b__0>d:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2032)\nSystem.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<object>:SetException (System.Exception)\nUnity.Pipeline.BasePipelineServer/<ExecuteCommandByName>d__133:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2478)\nSystem.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<object>:SetException (System.Exception)\nUnity.Pipeline.BasePipelineServer/<ExecuteCommand>d__134:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2517)\nSystem.Threading._ThreadPoolWaitCallback:PerformWaitCallback ()\n",
+          "seeded": false
+        },
+        {
+          "seq": 679,
+          "timestampUtc": "2026-09-18T00:17:54.2490016Z",
+          "level": "log",
+          "logType": "Log",
+          "message": "1 URP assets included in build\r\n- PC_RPAsset - Assets/Settings/PC_RPAsset.asset\r\n\t - PC_Renderer - Assets/Settings/PC_Renderer.asset - UnityEngine.Rendering.Universal.UniversalRendererData\r\n",
+          "stackTrace": "UnityEditor.BuildPipeline:BuildPlayer (UnityEditor.BuildPlayerOptions)\nRacer.Editor.Phase6Environment:Build () (at Assets/Scripts/Editor/Phase6Environment.cs:75)\nPipelineEvaluation.PipelineEval_8e83a3b5:Execute ()\nSystem.Reflection.MethodBase:Invoke (object,object[])\nUnity.Pipeline.Compilation.EvalCodeCompiler:ExecuteCompiledAssembly (System.Reflection.Assembly) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Compilation/EvalCodeCompiler.cs:190)\nUnity.Pipeline.Compilation.EvalCodeCompiler:CompileAndExecuteOnMainThread (string,int,System.Diagnostics.Stopwatch) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Compilation/EvalCodeCompiler.cs:54)\nUnity.Pipeline.Runtime.Commands.CodeEvalCommand:EvaluateSource (string,int,string) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Commands/CodeEvalCommand.cs:112)\nUnity.Pipeline.Runtime.Commands.CodeEvalCommand:EvaluateCode (string,int) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Commands/CodeEvalCommand.cs:24)\nSystem.Reflection.MethodBase:Invoke (object,object[])\nUnity.Pipeline.BasePipelineServer:ExecuteCommandDirect (Unity.Pipeline.Commands.CommandInfo,object[]) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2634)\nUnity.Pipeline.BasePipelineServer/<>c__DisplayClass134_0:<ExecuteCommand>b__1 () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2508)\nUnity.Pipeline.Threading.Dispatcher/WorkItem`1<object>:ExecuteCore () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:284)\nUnity.Pipeline.Threading.Dispatcher/WorkItem:Execute () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:229)\nUnity.Pipeline.Threading.Dispatcher:ProcessWorkQueue (int) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:195)\nUnity.Pipeline.Threading.Dispatcher:ProcessWorkQueue () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:210)\nUnityEditor.EditorApplication:Internal_CallUpdateFunctions ()\n",
+          "seeded": false
+        },
+        {
+          "seq": 680,
+          "timestampUtc": "2026-09-18T00:17:54.7062426Z",
+          "level": "log",
+          "logType": "Log",
+          "message": "[TestRunBuilder] Creating new file 'Assets/Resources/PerformanceTestRunInfo.json' (3064 bytes)",
+          "stackTrace": "UnityEngine.Debug:Log (object)\nUnity.PerformanceTesting.Editor.TestRunBuilder:SaveToStorage (object,string) (at ./Library/PackageCache/com.unity.test-framework.performance@0a60b857a52e/Editor/TestRunBuilder.cs:242)\nUnity.PerformanceTesting.Editor.TestRunBuilder:OnPreprocessBuild (UnityEditor.Build.Reporting.BuildReport) (at ./Library/PackageCache/com.unity.test-framework.performance@0a60b857a52e/Editor/TestRunBuilder.cs:35)\nUnityEditor.BuildPipeline:BuildPlayer (UnityEditor.BuildPlayerOptions)\nRacer.Editor.Phase6Environment:Build () (at Assets/Scripts/Editor/Phase6Environment.cs:75)\nPipelineEvaluation.PipelineEval_8e83a3b5:Execute ()\nSystem.Reflection.MethodBase:Invoke (object,object[])\nUnity.Pipeline.Compilation.EvalCodeCompiler:ExecuteCompiledAssembly (System.Reflection.Assembly) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Compilation/EvalCodeCompiler.cs:190)\nUnity.Pipeline.Compilation.EvalCodeCompiler:CompileAndExecuteOnMainThread (string,int,System.Diagnostics.Stopwatch) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Compilation/EvalCodeCompiler.cs:54)\nUnity.Pipeline.Runtime.Commands.CodeEvalCommand:EvaluateSource (string,int,string) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Commands/CodeEvalCommand.cs:112)\nUnity.Pipeline.Runtime.Commands.CodeEvalCommand:EvaluateCode (string,int) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Commands/CodeEvalCommand.cs:24)\nSystem.Reflection.MethodBase:Invoke (object,object[])\nUnity.Pipeline.BasePipelineServer:ExecuteCommandDirect (Unity.Pipeline.Commands.CommandInfo,object[]) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2634)\nUnity.Pipeline.BasePipelineServer/<>c__DisplayClass134_0:<ExecuteCommand>b__1 () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2508)\nUnity.Pipeline.Threading.Dispatcher/WorkItem`1<object>:ExecuteCore () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:284)\nUnity.Pipeline.Threading.Dispatcher/WorkItem:Execute () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:229)\nUnity.Pipeline.Threading.Dispatcher:ProcessWorkQueue (int) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:195)\nUnity.Pipeline.Threading.Dispatcher:ProcessWorkQueue () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:210)\nUnityEditor.EditorApplication:Internal_CallUpdateFunctions ()\n",
+          "seeded": false
+        },
+        {
+          "seq": 681,
+          "timestampUtc": "2026-09-18T00:17:54.711279Z",
+          "level": "log",
+          "logType": "Log",
+          "message": "[TestRunBuilder] Creating new file 'Assets/Resources/PerformanceTestRunSettings.json' (23 bytes)",
+          "stackTrace": "UnityEngine.Debug:Log (object)\nUnity.PerformanceTesting.Editor.TestRunBuilder:SaveToStorage (object,string) (at ./Library/PackageCache/com.unity.test-framework.performance@0a60b857a52e/Editor/TestRunBuilder.cs:242)\nUnity.PerformanceTesting.Editor.TestRunBuilder:OnPreprocessBuild (UnityEditor.Build.Reporting.BuildReport) (at ./Library/PackageCache/com.unity.test-framework.performance@0a60b857a52e/Editor/TestRunBuilder.cs:38)\nUnityEditor.BuildPipeline:BuildPlayer (UnityEditor.BuildPlayerOptions)\nRacer.Editor.Phase6Environment:Build () (at Assets/Scripts/Editor/Phase6Environment.cs:75)\nPipelineEvaluation.PipelineEval_8e83a3b5:Execute ()\nSystem.Reflection.MethodBase:Invoke (object,object[])\nUnity.Pipeline.Compilation.EvalCodeCompiler:ExecuteCompiledAssembly (System.Reflection.Assembly) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Compilation/EvalCodeCompiler.cs:190)\nUnity.Pipeline.Compilation.EvalCodeCompiler:CompileAndExecuteOnMainThread (string,int,System.Diagnostics.Stopwatch) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Compilation/EvalCodeCompiler.cs:54)\nUnity.Pipeline.Runtime.Commands.CodeEvalCommand:EvaluateSource (string,int,string) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Commands/CodeEvalCommand.cs:112)\nUnity.Pipeline.Runtime.Commands.CodeEvalCommand:EvaluateCode (string,int) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Commands/CodeEvalCommand.cs:24)\nSystem.Reflection.MethodBase:Invoke (object,object[])\nUnity.Pipeline.BasePipelineServer:ExecuteCommandDirect (Unity.Pipeline.Commands.CommandInfo,object[]) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2634)\nUnity.Pipeline.BasePipelineServer/<>c__DisplayClass134_0:<ExecuteCommand>b__1 () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2508)\nUnity.Pipeline.Threading.Dispatcher/WorkItem`1<object>:ExecuteCore () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:284)\nUnity.Pipeline.Threading.Dispatcher/WorkItem:Execute () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:229)\nUnity.Pipeline.Threading.Dispatcher:ProcessWorkQueue (int) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:195)\nUnity.Pipeline.Threading.Dispatcher:ProcessWorkQueue () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:210)\nUnityEditor.EditorApplication:Internal_CallUpdateFunctions ()\n",
+          "seeded": false
+        },
+        {
+          "seq": 682,
+          "timestampUtc": "2026-09-18T00:17:55.2207287Z",
+          "level": "warn",
+          "logType": "Warning",
+          "message": "Pipeline: No RuntimePipelineConfig asset found (Project Settings > Pipeline > Runtime). Pipeline will be disabled in Player builds.",
+          "stackTrace": "UnityEngine.Debug:LogWarning (object)\nUnity.Pipeline.Editor.BuildProcessors.PipelineRuntimeBuildProcessor:OnPreprocessBuild (UnityEditor.Build.BuildCallbackContext) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Editor/BuildProcessors/PipelineRuntimeBuildProcessor.cs:73)\nUnityEditor.BuildPipeline:BuildPlayer (UnityEditor.BuildPlayerOptions)\nRacer.Editor.Phase6Environment:Build () (at Assets/Scripts/Editor/Phase6Environment.cs:75)\nPipelineEvaluation.PipelineEval_8e83a3b5:Execute ()\nSystem.Reflection.MethodBase:Invoke (object,object[])\nUnity.Pipeline.Compilation.EvalCodeCompiler:ExecuteCompiledAssembly (System.Reflection.Assembly) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Compilation/EvalCodeCompiler.cs:190)\nUnity.Pipeline.Compilation.EvalCodeCompiler:CompileAndExecuteOnMainThread (string,int,System.Diagnostics.Stopwatch) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Compilation/EvalCodeCompiler.cs:54)\nUnity.Pipeline.Runtime.Commands.CodeEvalCommand:EvaluateSource (string,int,string) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Commands/CodeEvalCommand.cs:112)\nUnity.Pipeline.Runtime.Commands.CodeEvalCommand:EvaluateCode (string,int) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Commands/CodeEvalCommand.cs:24)\nSystem.Reflection.MethodBase:Invoke (object,object[])\nUnity.Pipeline.BasePipelineServer:ExecuteCommandDirect (Unity.Pipeline.Commands.CommandInfo,object[]) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2634)\nUnity.Pipeline.BasePipelineServer/<>c__DisplayClass134_0:<ExecuteCommand>b__1 () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2508)\nUnity.Pipeline.Threading.Dispatcher/WorkItem`1<object>:ExecuteCore () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:284)\nUnity.Pipeline.Threading.Dispatcher/WorkItem:Execute () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:229)\nUnity.Pipeline.Threading.Dispatcher:ProcessWorkQueue (int) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:195)\nUnity.Pipeline.Threading.Dispatcher:ProcessWorkQueue () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:210)\nUnityEditor.EditorApplication:Internal_CallUpdateFunctions ()\n",
+          "seeded": false
+        },
+        {
+          "seq": 683,
+          "timestampUtc": "2026-09-18T00:17:58.7281011Z",
+          "level": "error",
+          "logType": "Error",
+          "message": "Failed to handle /api/exec request: Main thread operation timed out after 5000ms",
+          "stackTrace": "UnityEngine.Debug:LogError (object)\nUnity.Pipeline.BasePipelineServer/<HandleExecRequest>d__115:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2071)\nSystem.Runtime.CompilerServices.AsyncTaskMethodBuilder:SetException (System.Exception)\nUnity.Pipeline.BasePipelineServer/<ExecuteGated>d__105:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:1403)\nSystem.Runtime.CompilerServices.AsyncTaskMethodBuilder:SetException (System.Exception)\nUnity.Pipeline.BasePipelineServer/<>c__DisplayClass115_0/<<HandleExecRequest>b__0>d:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2032)\nSystem.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<object>:SetException (System.Exception)\nUnity.Pipeline.BasePipelineServer/<ExecuteCommandByName>d__133:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2478)\nSystem.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<object>:SetException (System.Exception)\nUnity.Pipeline.BasePipelineServer/<ExecuteCommand>d__134:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2517)\nSystem.Threading._ThreadPoolWaitCallback:PerformWaitCallback ()\n",
+          "seeded": false
+        },
+        {
+          "seq": 684,
+          "timestampUtc": "2026-09-18T00:18:44.3808784Z",
+          "level": "warn",
+          "logType": "Warning",
+          "message": "Pre-baked collision is disabled on 103 mesh(es) referenced by Mesh Collider components in this build. In future versions of Unity, the build process will no longer automatically pre-bake collision for these meshes; enable pre-baked collision in the Mesh import settings. Use Project Auditor (Window > Analysis > Project Auditor > Game Objects) to find and fix similar issues across the project. Affected meshes:\n - 'Ground_480_560' (triangle collision is disabled)\n - 'Ground_160_320' (triangle collision is disabled)\n - 'Ground_720_160' (triangle collision is disabled)\n - 'Ground_640_320' (triangle collision is disabled)\n - 'Ground_480_160' (triangle collision is disabled)\n - 'Ground_80_480' (triangle collision is disabled)\n - 'Ground_400_320' (triangle collision is disabled)\n - 'Ground_240_160' (triangle collision is disabled)\n - 'Ground_160_480' (triangle collision is disabled)\n - 'Ground_160_0' (triangle collision is disabled)\n - 'Ground_400_640' (triangle collision is disabled)\n - 'Ground_480_720' (triangle collision is disabled)\n - 'Ground_640_240' (triangle collision is disabled)\n - 'Ground_240_400' (triangle collision is disabled)\n - 'Ground_560_400' (triangle collision is disabled)\n - 'Ground_480_80' (triangle collision is disabled)\n - 'Phase4Takeoff' (triangle collision is disabled)\n - 'Ground_640_480' (triangle collision is disabled)\n - 'Ground_320_720' (triangle collision is disabled)\n - 'Ground_720_480' (triangle collision is disabled)\n - 'Ground_560_0' (triangle collision is disabled)\n - 'Ground_560_320' (triangle collision is disabled)\n - 'Ground_400_240' (triangle collision is disabled)\n - 'Ground_720_0' (triangle collision is disabled)\n - 'Ground_640_560' (triangle collision is disabled)\n - 'Ground_720_720' (triangle collision is disabled)\n - 'Ground_640_80' (triangle collision is disabled)\n - 'Ground_720_80' (triangle collision is disabled)\n - 'Ground_560_560' (triangle collision is disabled)\n - 'Ground_80_320' (triangle collision is disabled)\n - 'Ground_480_240' (triangle collision is disabled)\n - 'Ground_560_480' (triangle collision is disabled)\n - 'Ground_80_160' (triangle collision is disabled)\n - 'Ground_400_400' (triangle collision is disabled)\n - 'Ground_400_0' (triangle collision is disabled)\n - 'Ground_240_80' (triangle collision is disabled)\n - 'Ground_560_720' (triangle collision is disabled)\n - 'Ground_320_320' (triangle collision is disabled)\n - 'Ground_0_720' (triangle collision is disabled)\n - 'Ground_560_80' (triangle collision is disabled)\n - 'Ground_720_560' (triangle collision is disabled)\n - 'Ground_80_0' (triangle collision is disabled)\n - 'Ground_80_400' (triangle collision is disabled)\n - 'Ground_720_240' (triangle collision is disabled)\n - 'Ground_560_640' (triangle collision is disabled)\n - 'Ground_240_480' (triangle collision is disabled)\n - 'Ground_80_560' (triangle collision is disabled)\n - 'Ground_720_640' (triangle collision is disabled)\n - 'Ground_320_640' (triangle collision is disabled)\n - 'Ground_0_400' (triangle collision is disabled)\n - ...and 53 more (showing the first 50). See Project Auditor for the full list.",
+          "stackTrace": "",
+          "seeded": false
+        },
+        {
+          "seq": 685,
+          "timestampUtc": "2026-09-18T00:18:53.1653255Z",
+          "level": "log",
+          "logType": "Log",
+          "message": "Pipeline: generated code-reload host-binding link.xml at C:\\Users\\danmo\\Racer\\Temp\\UnityTempFile-81694252747898543a5626dff737cc25-hostbindings.link.xml — 41 host-binding type(s) and 0 reloadable target type(s) across 3 assembly(ies); target assemblies: none; 93 assembly(ies) preserved wholesale for demand-time auto-bind",
+          "stackTrace": "UnityEngine.Debug:Log (object)\nUnity.Pipeline.Editor.BuildProcessors.CodeReloadLinkXmlGenerator:GenerateAdditionalLinkXmlFile (UnityEditor.Build.Reporting.BuildReport,UnityEditor.UnityLinker.UnityLinkerBuildPipelineData) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Editor/BuildProcessors/CodeReloadLinkXmlGenerator.cs:66)\nUnityEditorInternal.AssemblyStripper:ProcessBuildPipelineGenerateAdditionalLinkXmlFiles (UnityEditor.Modules.BuildPostProcessArgs)\nUnityEditorInternal.AssemblyStripper:GetLinkXmlFiles (UnityEditor.Modules.BuildPostProcessArgs,NiceIO.NPath)\nSystem.Linq.Enumerable/WhereEnumerableIterator`1<object>:MoveNext ()\nBee.BeeDriver.BeeDriver:WriteDataForBuildProgram (Bee.BeeDriver.InternalState,System.Threading.Tasks.TaskCompletionSource`1<int>)\nBee.BeeDriver.BeeDriver/<>c__DisplayClass0_0:<BuildAsync>g__WriteData|0 ()\nBee.BeeDriver.BeeDriver:BuildAsync (Bee.BeeDriver.BuildRequest,System.Threading.CancellationToken)\nUnityEditor.BuildPipeline:BuildPlayer (UnityEditor.BuildPlayerOptions)\nRacer.Editor.Phase6Environment:Build () (at Assets/Scripts/Editor/Phase6Environment.cs:75)\nPipelineEvaluation.PipelineEval_8e83a3b5:Execute ()\nSystem.Reflection.MethodBase:Invoke (object,object[])\nUnity.Pipeline.Compilation.EvalCodeCompiler:ExecuteCompiledAssembly (System.Reflection.Assembly) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Compilation/EvalCodeCompiler.cs:190)\nUnity.Pipeline.Compilation.EvalCodeCompiler:CompileAndExecuteOnMainThread (string,int,System.Diagnostics.Stopwatch) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Compilation/EvalCodeCompiler.cs:54)\nUnity.Pipeline.Runtime.Commands.CodeEvalCommand:EvaluateSource (string,int,string) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Commands/CodeEvalCommand.cs:112)\nUnity.Pipeline.Runtime.Commands.CodeEvalCommand:EvaluateCode (string,int) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Commands/CodeEvalCommand.cs:24)\nSystem.Reflection.MethodBase:Invoke (object,object[])\nUnity.Pipeline.BasePipelineServer:ExecuteCommandDirect (Unity.Pipeline.Commands.CommandInfo,object[]) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2634)\nUnity.Pipeline.BasePipelineServer/<>c__DisplayClass134_0:<ExecuteCommand>b__1 () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2508)\nUnity.Pipeline.Threading.Dispatcher/WorkItem`1<object>:ExecuteCore () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:284)\nUnity.Pipeline.Threading.Dispatcher/WorkItem:Execute () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:229)\nUnity.Pipeline.Threading.Dispatcher:ProcessWorkQueue (int) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:195)\nUnity.Pipeline.Threading.Dispatcher:ProcessWorkQueue () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:210)\nUnityEditor.EditorApplication:Internal_CallUpdateFunctions ()\n",
+          "seeded": false
+        },
+        {
+          "seq": 686,
+          "timestampUtc": "2026-09-18T00:19:09.5161187Z",
+          "level": "error",
+          "logType": "Error",
+          "message": "Failed to handle /api/exec request: Main thread operation timed out after 5000ms",
+          "stackTrace": "UnityEngine.Debug:LogError (object)\nUnity.Pipeline.BasePipelineServer/<HandleExecRequest>d__115:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2071)\nSystem.Runtime.CompilerServices.AsyncTaskMethodBuilder:SetException (System.Exception)\nUnity.Pipeline.BasePipelineServer/<ExecuteGated>d__105:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:1403)\nSystem.Runtime.CompilerServices.AsyncTaskMethodBuilder:SetException (System.Exception)\nUnity.Pipeline.BasePipelineServer/<>c__DisplayClass115_0/<<HandleExecRequest>b__0>d:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2032)\nSystem.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<object>:SetException (System.Exception)\nUnity.Pipeline.BasePipelineServer/<ExecuteCommandByName>d__133:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2478)\nSystem.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<object>:SetException (System.Exception)\nUnity.Pipeline.BasePipelineServer/<ExecuteCommand>d__134:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2517)\nSystem.Threading._ThreadPoolWaitCallback:PerformWaitCallback ()\n",
+          "seeded": false
+        },
+        {
+          "seq": 687,
+          "timestampUtc": "2026-09-18T00:22:12.1308445Z",
+          "level": "error",
+          "logType": "Error",
+          "message": "Failed to handle /api/exec request: Main thread operation timed out after 5000ms",
+          "stackTrace": "UnityEngine.Debug:LogError (object)\nUnity.Pipeline.BasePipelineServer/<HandleExecRequest>d__115:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2071)\nSystem.Runtime.CompilerServices.AsyncTaskMethodBuilder:SetException (System.Exception)\nUnity.Pipeline.BasePipelineServer/<ExecuteGated>d__105:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:1403)\nSystem.Runtime.CompilerServices.AsyncTaskMethodBuilder:SetException (System.Exception)\nUnity.Pipeline.BasePipelineServer/<>c__DisplayClass115_0/<<HandleExecRequest>b__0>d:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2032)\nSystem.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<object>:SetException (System.Exception)\nUnity.Pipeline.BasePipelineServer/<ExecuteCommandByName>d__133:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2478)\nSystem.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<object>:SetException (System.Exception)\nUnity.Pipeline.BasePipelineServer/<ExecuteCommand>d__134:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2517)\nSystem.Threading._ThreadPoolWaitCallback:PerformWaitCallback ()\n",
+          "seeded": false
+        },
+        {
+          "seq": 688,
+          "timestampUtc": "2026-09-18T00:22:14.4119782Z",
+          "level": "log",
+          "logType": "Log",
+          "message": "Phase5 mixed complete; see Docs report. Virtual motor commands, manually stepped PhysX; no physical controller.",
+          "stackTrace": "UnityEngine.Debug:Log (object)\nRacer.Editor.Phase5Validation:Run (string) (at Assets/Scripts/Editor/Phase5Validation.cs:80)\nPipelineEvaluation.PipelineEval_afca1807:Execute ()\nSystem.Reflection.MethodBase:Invoke (object,object[])\nUnity.Pipeline.Compilation.EvalCodeCompiler:ExecuteCompiledAssembly (System.Reflection.Assembly) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Compilation/EvalCodeCompiler.cs:190)\nUnity.Pipeline.Compilation.EvalCodeCompiler:CompileAndExecuteOnMainThread (string,int,System.Diagnostics.Stopwatch) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Compilation/EvalCodeCompiler.cs:54)\nUnity.Pipeline.Runtime.Commands.CodeEvalCommand:EvaluateSource (string,int,string) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Commands/CodeEvalCommand.cs:112)\nUnity.Pipeline.Runtime.Commands.CodeEvalCommand:EvaluateFile (string,int) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Commands/CodeEvalCommand.cs:54)\nSystem.Reflection.MethodBase:Invoke (object,object[])\nUnity.Pipeline.BasePipelineServer:ExecuteCommandDirect (Unity.Pipeline.Commands.CommandInfo,object[]) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2634)\nUnity.Pipeline.BasePipelineServer/<>c__DisplayClass134_0:<ExecuteCommand>b__1 () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2508)\nUnity.Pipeline.Threading.Dispatcher/WorkItem`1<object>:ExecuteCore () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:284)\nUnity.Pipeline.Threading.Dispatcher/WorkItem:Execute () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:229)\nUnity.Pipeline.Threading.Dispatcher:ProcessWorkQueue (int) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:195)\nUnity.Pipeline.Threading.Dispatcher:ProcessWorkQueue () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:210)\nUnityEditor.EditorApplication:Internal_CallUpdateFunctions ()\n",
+          "seeded": false
+        },
+        {
+          "seq": 689,
+          "timestampUtc": "2026-09-18T00:22:15.2355727Z",
+          "level": "log",
+          "logType": "Log",
+          "message": "Phase5 recovery complete; see Docs report. Virtual motor commands, manually stepped PhysX; no physical controller.",
+          "stackTrace": "UnityEngine.Debug:Log (object)\nRacer.Editor.Phase5Validation:Run (string) (at Assets/Scripts/Editor/Phase5Validation.cs:80)\nPipelineEvaluation.PipelineEval_afca1807:Execute ()\nSystem.Reflection.MethodBase:Invoke (object,object[])\nUnity.Pipeline.Compilation.EvalCodeCompiler:ExecuteCompiledAssembly (System.Reflection.Assembly) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Compilation/EvalCodeCompiler.cs:190)\nUnity.Pipeline.Compilation.EvalCodeCompiler:CompileAndExecuteOnMainThread (string,int,System.Diagnostics.Stopwatch) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Compilation/EvalCodeCompiler.cs:54)\nUnity.Pipeline.Runtime.Commands.CodeEvalCommand:EvaluateSource (string,int,string) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Commands/CodeEvalCommand.cs:112)\nUnity.Pipeline.Runtime.Commands.CodeEvalCommand:EvaluateFile (string,int) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Commands/CodeEvalCommand.cs:54)\nSystem.Reflection.MethodBase:Invoke (object,object[])\nUnity.Pipeline.BasePipelineServer:ExecuteCommandDirect (Unity.Pipeline.Commands.CommandInfo,object[]) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2634)\nUnity.Pipeline.BasePipelineServer/<>c__DisplayClass134_0:<ExecuteCommand>b__1 () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2508)\nUnity.Pipeline.Threading.Dispatcher/WorkItem`1<object>:ExecuteCore () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:284)\nUnity.Pipeline.Threading.Dispatcher/WorkItem:Execute () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:229)\nUnity.Pipeline.Threading.Dispatcher:ProcessWorkQueue (int) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:195)\nUnity.Pipeline.Threading.Dispatcher:ProcessWorkQueue () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:210)\nUnityEditor.EditorApplication:Internal_CallUpdateFunctions ()\n",
+          "seeded": false
+        },
+        {
+          "seq": 690,
+          "timestampUtc": "2026-09-18T00:22:16.7531891Z",
+          "level": "log",
+          "logType": "Log",
+          "message": "PASS approach target/injected 12m/s yaw 0deg: takeoff 12.10m/s; landed=True, landing Z=-73.29; air 0.86s; apex above road 3.92m; min upright 0.976; max lateral offset 1.52m\nPASS approach target/injected 12m/s yaw 3deg: takeoff 11.75m/s; landed=True, landing Z=-74.11; air 1.08s; apex above road 3.65m; min upright 0.898; max lateral offset 2.48m\nPASS approach target/injected 12m/s yaw -3deg: takeoff 11.76m/s; landed=True, landing Z=-73.75; air 1.12s; apex above road 3.73m; min upright 0.938; max lateral offset 5.46m\nPASS approach target/injected 32m/s yaw 0deg: takeoff 31.59m/s; landed=True, landing Z=-29.37; air 1.72s; apex above road 6.31m; min upright 0.980; max lateral offset 1.52m\nPASS approach target/injected 32m/s yaw 3deg: takeoff 31.14m/s; landed=True, landing Z=-31.44; air 1.78s; apex above road 6.10m; min upright 0.906; max lateral offset 4.36m\nPASS approach target/injected 32m/s yaw -3deg: takeoff 31.20m/s; landed=True, landing Z=-31.45; air 1.78s; apex above road 6.14m; min upright 0.950; max lateral offset 7.13m\nPASS approach target/injected 42m/s yaw 0deg: takeoff 40.33m/s; landed=True, landing Z=-1.87; air 2.04s; apex above road 7.83m; min upright 0.979; max lateral offset 1.52m\nPASS approach target/injected 42m/s yaw 3deg: takeoff 39.83m/s; landed=True, landing Z=-3.73; air 2.10s; apex above road 7.75m; min upright 0.936; max lateral offset 5.86m\nLIMIT approach target/injected 42m/s yaw -3deg: takeoff 39.90m/s; landed=True, landing Z=-2.32; air 2.14s; apex above road 7.92m; min upright 0.972; max lateral offset 8.46m\nPASS approach target/injected 46m/s yaw 0deg: takeoff 43.52m/s; landed=True, landing Z=10.45; air 2.20s; apex above road 8.56m; min upright 0.977; max lateral offset 1.53m\nPASS approach target/injected 46m/s yaw 3deg: takeoff 42.96m/s; landed=True, landing Z=8.50; air 2.24s; apex above road 8.54m; min upright 0.948; max lateral offset 6.59m\nLIMIT approach target/injected 46m/s yaw -3deg: takeoff 43.07m/s; landed=True, landing Z=9.19; air 2.28s; apex above road 8.59m; min upright 0.973; max lateral offset 9.33m\nBYPASS 6m/s end Z -59.88; min upright 1.000; air steps 0\nBYPASS 30m/s end Z -59.50; min upright 1.000; air steps 0\nSHOULDER side -1 start Z=-145, 12m/s: upright 0.976; clearance 0.224m; end (-626.85, 8.62, -63.21)\nSHOULDER side 1 start Z=-145, 12m/s: upright 0.976; clearance 0.224m; end (-626.88, 8.62, -63.22)\nSHOULDER side -1 start Z=-35, 12m/s: upright 0.998; clearance 0.645m; end (-628.84, 9.07, 47.69)\nSHOULDER side 1 start Z=-35, 12m/s: upright 0.998; clearance 0.644m; end (-628.84, 9.07, 47.69)\nRECOVERY failed landing reset: lapActive=False; completed=0; speed=0; upright=1; nextGate=0\nReal PhysX 0.02s steps with virtual motor commands; injected initial velocities where stated. No physical controller or subjective approval.",
+          "stackTrace": "UnityEngine.Debug:Log (object)\nRacer.Editor.Phase4Validation:Run (string) (at Assets/Scripts/Editor/Phase4Validation.cs:69)\nRacer.Editor.Phase4Validation:Jump () (at Assets/Scripts/Editor/Phase4Validation.cs:53)\nPipelineEvaluation.PipelineEval_afca1807:Execute ()\nSystem.Reflection.MethodBase:Invoke (object,object[])\nUnity.Pipeline.Compilation.EvalCodeCompiler:ExecuteCompiledAssembly (System.Reflection.Assembly) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Compilation/EvalCodeCompiler.cs:190)\nUnity.Pipeline.Compilation.EvalCodeCompiler:CompileAndExecuteOnMainThread (string,int,System.Diagnostics.Stopwatch) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Compilation/EvalCodeCompiler.cs:54)\nUnity.Pipeline.Runtime.Commands.CodeEvalCommand:EvaluateSource (string,int,string) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Commands/CodeEvalCommand.cs:112)\nUnity.Pipeline.Runtime.Commands.CodeEvalCommand:EvaluateFile (string,int) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Commands/CodeEvalCommand.cs:54)\nSystem.Reflection.MethodBase:Invoke (object,object[])\nUnity.Pipeline.BasePipelineServer:ExecuteCommandDirect (Unity.Pipeline.Commands.CommandInfo,object[]) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2634)\nUnity.Pipeline.BasePipelineServer/<>c__DisplayClass134_0:<ExecuteCommand>b__1 () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2508)\nUnity.Pipeline.Threading.Dispatcher/WorkItem`1<object>:ExecuteCore () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:284)\nUnity.Pipeline.Threading.Dispatcher/WorkItem:Execute () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:229)\nUnity.Pipeline.Threading.Dispatcher:ProcessWorkQueue (int) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:195)\nUnity.Pipeline.Threading.Dispatcher:ProcessWorkQueue () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:210)\nUnityEditor.EditorApplication:Internal_CallUpdateFunctions ()\n",
+          "seeded": false
+        },
+        {
+          "seq": 691,
+          "timestampUtc": "2026-09-18T00:22:35.3506284Z",
+          "level": "log",
+          "logType": "Log",
+          "message": "PASS: Checkpoints cannot start race\nPASS: Wrong-way start cannot start race\nPASS: Skipped CP1 cannot award a lap\nPASS: Wrong-way gate invalidates lap even after recrossing forward\nPASS: Repeated checkpoint invalidates current lap\nPASS: Repeated finish crossings cannot award laps\nPASS: Three ordered laps: 60s splits, 180s frozen total\nPASS: Finished race ignores further crossings\nPASS: Restart clears all progress and timing\nPASS: Vehicle reset cannot preserve checkpoint credit\nPASS: Swept forward crossing and sub-step timing\nPASS: Swept reverse crossing\nPASS: Outside-width and above-gate bypasses rejected\nPASS: Standing on plane does not repeat crossing\nPASS: Director starts through physical gate geometry\nPASS: Director rejects wrong-way finish\nPASS: Reversing rear-first through start does not count\nPASS: Teleport over gate cannot start race\nPASS: Virtual gamepad progressive trigger and partial steering\nPASS: Virtual gamepad progressive larger steering\nPASS: Virtual LT brake/reverse\nPASS: Virtual Start restarts race\nPASS: Virtual keyboard W/D\nPASS: Virtual keyboard S/A\nPASS: Virtual keyboard arrows\nPASS: Virtual Enter clears race and timer\nPASS: Virtual Y retains fixed upright reset and abandons lap\nPASS: Chase camera snaps on reset\nPASS: Virtual R reset\nPASS: Automatic fall reset preserved\nPASS: HUD ready state\nPASS: HUD next checkpoint updates\nPASS: HUD invalid-lap warning\nPASS: HUD completed race\nLAP 1: 562.681s, total 562.683s\nLAP 2: 562.673s, total 1125.363s\nLAP 3: 562.652s, total 1688.006s\nPASS: Three real PhysX laps: 1691.30s, max centre error 2.828m, min upright 0.880, airborne steps 112; 4.5/8 m/s target; no teleport during traversal\nPASS: HUD reflects actual simulated finish\nPASS: Restart after actual race clears laps, last/best, total and HUD\nFailures: 0\nVirtual input and simulated driving only. Physical controller and subjective steering comfort require Dan.",
+          "stackTrace": "UnityEngine.Debug:Log (object)\nRacer.Editor.RaceValidation:Run () (at Assets/Scripts/Editor/RaceValidation.cs:123)\nRacer.Editor.Phase4Validation:RaceRegression () (at Assets/Scripts/Editor/Phase4Validation.cs:198)\nPipelineEvaluation.PipelineEval_afca1807:Execute ()\nSystem.Reflection.MethodBase:Invoke (object,object[])\nUnity.Pipeline.Compilation.EvalCodeCompiler:ExecuteCompiledAssembly (System.Reflection.Assembly) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Compilation/EvalCodeCompiler.cs:190)\nUnity.Pipeline.Compilation.EvalCodeCompiler:CompileAndExecuteOnMainThread (string,int,System.Diagnostics.Stopwatch) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Compilation/EvalCodeCompiler.cs:54)\nUnity.Pipeline.Runtime.Commands.CodeEvalCommand:EvaluateSource (string,int,string) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Commands/CodeEvalCommand.cs:112)\nUnity.Pipeline.Runtime.Commands.CodeEvalCommand:EvaluateFile (string,int) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Commands/CodeEvalCommand.cs:54)\nSystem.Reflection.MethodBase:Invoke (object,object[])\nUnity.Pipeline.BasePipelineServer:ExecuteCommandDirect (Unity.Pipeline.Commands.CommandInfo,object[]) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2634)\nUnity.Pipeline.BasePipelineServer/<>c__DisplayClass134_0:<ExecuteCommand>b__1 () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2508)\nUnity.Pipeline.Threading.Dispatcher/WorkItem`1<object>:ExecuteCore () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:284)\nUnity.Pipeline.Threading.Dispatcher/WorkItem:Execute () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:229)\nUnity.Pipeline.Threading.Dispatcher:ProcessWorkQueue (int) (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:195)\nUnity.Pipeline.Threading.Dispatcher:ProcessWorkQueue () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/Dispatcher.cs:210)\nUnityEditor.EditorApplication:Internal_CallUpdateFunctions ()\n",
+          "seeded": false
+        },
+        {
+          "seq": 692,
+          "timestampUtc": "2026-09-18T00:22:35.5845Z",
+          "level": "error",
+          "logType": "Exception",
+          "message": "Exception: Open saved StreetLoopGreybox in edit mode",
+          "stackTrace": "Racer.Editor.Phase6Environment.Guard () (at Assets/Scripts/Editor/Phase6Environment.cs:18)\nRacer.Editor.Phase6Environment.Build () (at Assets/Scripts/Editor/Phase6Environment.cs:74)\nPipelineEvaluation.PipelineEval_59bb6108+<>c.<Execute>b__0_0 () (at <5668cfc0bffb49f2b4595d346fa875a7>:0)\nUnityEditor.EditorApplication.Internal_CallDelayFunctions () (at <d3386a5b246b4c92adb8d270fa9e6d17>:0)\nUnityEngine.StackTraceUtility:ExtractStringFromExceptionInternal(Object, String&, String&)\n",
+          "seeded": false
+        },
+        {
+          "seq": 693,
+          "timestampUtc": "2026-09-18T00:32:09.5167749Z",
+          "level": "error",
+          "logType": "Error",
+          "message": "Failed to handle /api/exec request: Main thread operation timed out after 5000ms",
+          "stackTrace": "UnityEngine.Debug:LogError (object)\nUnity.Pipeline.BasePipelineServer/<HandleExecRequest>d__115:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2071)\nSystem.Runtime.CompilerServices.AsyncTaskMethodBuilder:SetException (System.Exception)\nUnity.Pipeline.BasePipelineServer/<ExecuteGated>d__105:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:1403)\nSystem.Runtime.CompilerServices.AsyncTaskMethodBuilder:SetException (System.Exception)\nUnity.Pipeline.BasePipelineServer/<>c__DisplayClass115_0/<<HandleExecRequest>b__0>d:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2032)\nSystem.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<object>:SetException (System.Exception)\nUnity.Pipeline.BasePipelineServer/<ExecuteCommandByName>d__133:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2478)\nSystem.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<object>:SetException (System.Exception)\nUnity.Pipeline.BasePipelineServer/<ExecuteCommand>d__134:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2517)\nSystem.Threading._ThreadPoolWaitCallback:PerformWaitCallback ()\n",
+          "seeded": false
+        },
+        {
+          "seq": 694,
+          "timestampUtc": "2026-09-18T00:33:08.9234633Z",
+          "level": "warn",
+          "logType": "Warning",
+          "message": "Assets\\Scripts\\Editor\\Phase6Review.cs(18,133): warning CS0618: 'FindObjectsSortMode' is obsolete: 'FindObjectsSortMode has been deprecated. Use the FindObjectsByType overloads that do not take a FindObjectsSortMode parameter.'",
+          "stackTrace": "",
+          "seeded": false
+        },
+        {
+          "seq": 695,
+          "timestampUtc": "2026-09-18T00:33:08.9234633Z",
+          "level": "warn",
+          "logType": "Warning",
+          "message": "Assets\\Scripts\\Editor\\Phase6Review.cs(18,98): warning CS0618: 'Object.FindObjectsByType<T>(FindObjectsSortMode)' is obsolete: 'FindObjectsByType with FindObjectsSortMode parameter has been deprecated. Use FindObjectsByType<T>() or FindObjectsByType<T>(FindObjectsInactive) instead. InstanceID will be replaced in the future with EntityId and previous sort order cannot be maintained.'",
+          "stackTrace": "",
+          "seeded": false
+        },
+        {
+          "seq": 696,
+          "timestampUtc": "2026-09-18T00:33:08.9239675Z",
+          "level": "warn",
+          "logType": "Warning",
+          "message": "Assets\\Scripts\\Editor\\Phase6Review.cs(18,214): warning CS0618: 'FindObjectsSortMode' is obsolete: 'FindObjectsSortMode has been deprecated. Use the FindObjectsByType overloads that do not take a FindObjectsSortMode parameter.'",
+          "stackTrace": "",
+          "seeded": false
+        },
+        {
+          "seq": 697,
+          "timestampUtc": "2026-09-18T00:33:08.9239675Z",
+          "level": "warn",
+          "logType": "Warning",
+          "message": "Assets\\Scripts\\Editor\\Phase6Review.cs(18,179): warning CS0618: 'Object.FindObjectsByType<T>(FindObjectsSortMode)' is obsolete: 'FindObjectsByType with FindObjectsSortMode parameter has been deprecated. Use FindObjectsByType<T>() or FindObjectsByType<T>(FindObjectsInactive) instead. InstanceID will be replaced in the future with EntityId and previous sort order cannot be maintained.'",
+          "stackTrace": "",
+          "seeded": false
+        },
+        {
+          "seq": 698,
+          "timestampUtc": "2026-09-18T00:33:08.9239675Z",
+          "level": "warn",
+          "logType": "Warning",
+          "message": "Assets\\Scripts\\Editor\\Phase6Review.cs(48,686): warning CS0618: 'FindObjectsSortMode' is obsolete: 'FindObjectsSortMode has been deprecated. Use the FindObjectsByType overloads that do not take a FindObjectsSortMode parameter.'",
+          "stackTrace": "",
+          "seeded": false
+        },
+        {
+          "seq": 699,
+          "timestampUtc": "2026-09-18T00:33:08.9239675Z",
+          "level": "warn",
+          "logType": "Warning",
+          "message": "Assets\\Scripts\\Editor\\Phase6Review.cs(48,651): warning CS0618: 'Object.FindObjectsByType<T>(FindObjectsSortMode)' is obsolete: 'FindObjectsByType with FindObjectsSortMode parameter has been deprecated. Use FindObjectsByType<T>() or FindObjectsByType<T>(FindObjectsInactive) instead. InstanceID will be replaced in the future with EntityId and previous sort order cannot be maintained.'",
+          "stackTrace": "",
+          "seeded": false
+        },
+        {
+          "seq": 700,
+          "timestampUtc": "2026-09-18T00:33:08.9239675Z",
+          "level": "warn",
+          "logType": "Warning",
+          "message": "Assets\\Scripts\\Editor\\StreetLoopRevision.cs(66,138): warning CS0618: 'FindObjectsSortMode' is obsolete: 'FindObjectsSortMode has been deprecated. Use the FindObjectsByType overloads that do not take a FindObjectsSortMode parameter.'",
+          "stackTrace": "",
+          "seeded": false
+        },
+        {
+          "seq": 701,
+          "timestampUtc": "2026-09-18T00:33:08.9239675Z",
+          "level": "warn",
+          "logType": "Warning",
+          "message": "Assets\\Scripts\\Editor\\StreetLoopRevision.cs(66,90): warning CS0618: 'Object.FindObjectsByType<T>(FindObjectsSortMode)' is obsolete: 'FindObjectsByType with FindObjectsSortMode parameter has been deprecated. Use FindObjectsByType<T>() or FindObjectsByType<T>(FindObjectsInactive) instead. InstanceID will be replaced in the future with EntityId and previous sort order cannot be maintained.'",
+          "stackTrace": "",
+          "seeded": false
+        },
+        {
+          "seq": 702,
+          "timestampUtc": "2026-09-18T00:33:25.9481175Z",
+          "level": "error",
+          "logType": "Error",
+          "message": "Failed to handle /api/exec request: Main thread operation timed out after 5000ms",
+          "stackTrace": "UnityEngine.Debug:LogError (object)\nUnity.Pipeline.BasePipelineServer/<HandleExecRequest>d__115:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2071)\nSystem.Runtime.CompilerServices.AsyncTaskMethodBuilder:SetException (System.Exception)\nUnity.Pipeline.BasePipelineServer/<ExecuteGated>d__105:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:1403)\nSystem.Runtime.CompilerServices.AsyncTaskMethodBuilder:SetException (System.Exception)\nUnity.Pipeline.BasePipelineServer/<>c__DisplayClass115_0/<<HandleExecRequest>b__0>d:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2032)\nSystem.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<object>:SetException (System.Exception)\nUnity.Pipeline.BasePipelineServer/<ExecuteCommandByName>d__133:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2478)\nSystem.Runtime.CompilerServices.AsyncTaskMethodBuilder`1<object>:SetException (System.Exception)\nUnity.Pipeline.BasePipelineServer/<ExecuteCommand>d__134:MoveNext () (at ./Library/PackageCache/com.unity.pipeline@ab05e9cd7f74/Runtime/Common/BasePipelineServer.cs:2517)\nSystem.Threading._ThreadPoolWaitCallback:PerformWaitCallback ()\n",
+          "seeded": false
+        }
+      ],
+      "cursor": 702,
+      "session": "49e75a7c8fb24c5bbc58d9174bcef8b7",
+      "returned": 45,
+      "dropped": false,
+      "reset": false,
+      "counts": {
+        "error": 10,
+        "warn": 27,
+        "log": 8
+      },
+      "groundTruth": {
+        "sampledUtc": "2026-09-18T00:38:35.5619917Z",
+        "ageMs": 123,
+        "compilationFailed": false,
+        "compiling": false,
+        "consoleErrors": 4,
+        "consoleWarnings": 8,
+        "consoleLogs": 4,
+        "seeded": true
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "C:\\Users\\danmo\\Racer"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

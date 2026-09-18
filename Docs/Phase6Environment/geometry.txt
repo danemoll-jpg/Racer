@@ -1,0 +1,13 @@
+PASS All 47 building positions and rotations match checkpoint
+PASS House 1 remains absent
+PASS Foundation corners: floating=0, above floor=0; no foundation adjustment necessary
+PASS Terrain boundary height/normal mismatches=0
+PASS Terrain boundary color mismatches=0
+PASS Road paint UV boundary mismatches=0
+PASS Every visible terrain mesh is also its collision mesh
+PASS 11995 solid trees retained
+PASS Compact yard boundary unchanged
+PASS 18 breakable props retained
+PASS One daytime directional light
+PASS No enabled or dormant PC renderer features requiring build-only stripping
+RESULT failures=0

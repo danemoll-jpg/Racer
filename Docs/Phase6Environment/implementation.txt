@@ -1,0 +1,2 @@
+Marked terrain tiles=22; commercial sites=10; transition color entries=737; paving core vertices=176. Zero new mesh renderers, lights or colliders. Terrain positions/normals/indices unchanged. Flush paving is surface color on collision terrain; no raised curb.
+Single sun 1.7 -> 1.25, warm neutral, pitch 50 -> 58, yaw -35 -> -28. Flat ambient -> tri-light. Ground/forest now respond to ambient/main-light color. No shadow sampling or new postprocessing in custom shader. Disabled SSAO reference permanently removed from PC renderer; no build-only feature edits.

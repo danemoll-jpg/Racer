@@ -1,0 +1,116 @@
+Assets/Scenes/StreetLoopGreybox.unity
+Assets/Settings/PC_RPAsset.asset
+Assets/Settings/PC_Renderer.asset
+Assets/Track/StreetLoop/GreyboxGround.shader
+Assets/Track/StreetLoop/Ground_160_560.asset
+Assets/Track/StreetLoop/Ground_160_640.asset
+Assets/Track/StreetLoop/Ground_240_560.asset
+Assets/Track/StreetLoop/Ground_240_640.asset
+Assets/Track/StreetLoop/Ground_320_560.asset
+Assets/Track/StreetLoop/Ground_320_640.asset
+Assets/Track/StreetLoop/Ground_400_560.asset
+Assets/Track/StreetLoop/Ground_400_640.asset
+Assets/Track/StreetLoop/Ground_480_480.asset
+Assets/Track/StreetLoop/Ground_480_560.asset
+Assets/Track/StreetLoop/Ground_480_640.asset
+Assets/Track/StreetLoop/Ground_560_320.asset
+Assets/Track/StreetLoop/Ground_560_400.asset
+Assets/Track/StreetLoop/Ground_560_480.asset
+Assets/Track/StreetLoop/Ground_560_560.asset
+Assets/Track/StreetLoop/Ground_560_640.asset
+Assets/Track/StreetLoop/Ground_640_160.asset
+Assets/Track/StreetLoop/Ground_640_240.asset
+Assets/Track/StreetLoop/Ground_640_320.asset
+Assets/Track/StreetLoop/Ground_640_400.asset
+Assets/Track/StreetLoop/Ground_80_560.asset
+Assets/Track/StreetLoop/Ground_80_640.asset
+PROJECT_TODO.md
+Assets/Environment.meta
+Assets/Environment/Phase6.meta
+Assets/Environment/Phase6/AUDIO_SOURCES.md
+Assets/Environment/Phase6/AUDIO_SOURCES.md.meta
+Assets/Environment/Phase6/Bird 0.wav
+Assets/Environment/Phase6/Bird 0.wav.meta
+Assets/Environment/Phase6/Bird 1.wav
+Assets/Environment/Phase6/Bird 1.wav.meta
+Assets/Environment/Phase6/Bird 2.wav
+Assets/Environment/Phase6/Bird 2.wav.meta
+Assets/Environment/Phase6/Marked ground.mat
+Assets/Environment/Phase6/Marked ground.mat.meta
+Assets/Environment/Phase6/Soft leaves.wav
+Assets/Environment/Phase6/Soft leaves.wav.meta
+Assets/Scripts/Editor/Phase6Environment.cs
+Assets/Scripts/Editor/Phase6Environment.cs.meta
+Assets/Scripts/WoodlandAmbience.cs
+Assets/Scripts/WoodlandAmbience.cs.meta
+Assets/Track/StreetLoop/MarkedGround.shader
+Assets/Track/StreetLoop/MarkedGround.shader.meta
+Docs/Phase6Environment/HANDOFF.md
+Docs/Phase6Environment/JUMP_TESTS.txt
+Docs/Phase6Environment/MIXED_LAPS.txt
+Docs/Phase6Environment/RACE_REGRESSION.txt
+Docs/Phase6Environment/RECOVERY.txt
+Docs/Phase6Environment/TESTS_COMPLETE.txt
+Docs/Phase6Environment/VALIDATION.md
+Docs/Phase6Environment/after_business.png
+Docs/Phase6Environment/after_commercial_drive.png
+Docs/Phase6Environment/after_dan.png
+Docs/Phase6Environment/after_friend.png
+Docs/Phase6Environment/after_hairpin.png
+Docs/Phase6Environment/after_house2.png
+Docs/Phase6Environment/after_house3.png
+Docs/Phase6Environment/after_neighborhood_drive.png
+Docs/Phase6Environment/after_yard.png
+Docs/Phase6Environment/audio.cs
+Docs/Phase6Environment/audio.txt
+Docs/Phase6Environment/baseline.cs
+Docs/Phase6Environment/before_business.png
+Docs/Phase6Environment/before_commercial_drive.png
+Docs/Phase6Environment/before_dan.png
+Docs/Phase6Environment/before_friend.png
+Docs/Phase6Environment/before_hairpin.png
+Docs/Phase6Environment/before_house2.png
+Docs/Phase6Environment/before_house3.png
+Docs/Phase6Environment/before_neighborhood_drive.png
+Docs/Phase6Environment/before_yard.png
+Docs/Phase6Environment/build.txt
+Docs/Phase6Environment/colliders-after.txt
+Docs/Phase6Environment/colliders-before.txt
+Docs/Phase6Environment/console-final.json
+Docs/Phase6Environment/console-history.json
+Docs/Phase6Environment/files-changed.txt
+Docs/Phase6Environment/geometry.cs
+Docs/Phase6Environment/geometry.txt
+Docs/Phase6Environment/impacts.txt
+Docs/Phase6Environment/implementation.txt
+Docs/Phase6Environment/jump-ordinary-result.txt
+Docs/Phase6Environment/jump-realtime.cs
+Docs/Phase6Environment/jump-realtime.csv
+Docs/Phase6Environment/jump-routes.json
+Docs/Phase6Environment/local-driving.csv
+Docs/Phase6Environment/moving-woodland.png
+Docs/Phase6Environment/player-after-repeat.csv
+Docs/Phase6Environment/player-after.csv
+Docs/Phase6Environment/player-before-repeat.csv
+Docs/Phase6Environment/player-before.csv
+Docs/Phase6Environment/preservation.txt
+Docs/Phase6Environment/preserve-after.cs
+Docs/Phase6Environment/preserve-before.cs
+Docs/Phase6Environment/previous-impacts.txt
+Docs/Phase6Environment/reentry-final-routes.json
+Docs/Phase6Environment/reentry-final.csv
+Docs/Phase6Environment/reentry-obstruction.txt
+Docs/Phase6Environment/reentry-routes.json
+Docs/Phase6Environment/reentry.cs
+Docs/Phase6Environment/reentry.csv
+Docs/Phase6Environment/regression.cs
+Docs/Phase6Environment/rendering-final.json
+Docs/Phase6Environment/routes.json
+Docs/Phase6Environment/save-reload.json
+Docs/Phase6Environment/scene-preservation.ps1
+Docs/Phase6Environment/scene-preservation.txt
+Docs/Phase6Environment/shoulder-routes.json
+Docs/Phase6Environment/shoulder.csv
+Docs/Phase6Environment/sites-before.txt
+Docs/Phase6Environment/terrain-after.txt
+Docs/Phase6Environment/terrain-before.txt

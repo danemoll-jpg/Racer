@@ -1,0 +1,3 @@
+Terrain geometry: 100 meshes; differences=0
+Collider snapshots: 12426; differences=0
+Scene record comparison: no removed records; retained changes only 22 terrain material references, Sun light/rotation, RenderSettings and SceneRoots.

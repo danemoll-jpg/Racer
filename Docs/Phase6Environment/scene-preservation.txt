@@ -1,0 +1,53 @@
+Baseline 442d7af; retained scene records changed: 26; removed: 0
+Changed retained records grouped by object name:
+: 2
+Ground_160_560: 1
+Ground_160_640: 1
+Ground_240_560: 1
+Ground_240_640: 1
+Ground_320_560: 1
+Ground_320_640: 1
+Ground_400_560: 1
+Ground_400_640: 1
+Ground_480_480: 1
+Ground_480_560: 1
+Ground_480_640: 1
+Ground_560_320: 1
+Ground_560_400: 1
+Ground_560_480: 1
+Ground_560_560: 1
+Ground_560_640: 1
+Ground_640_160: 1
+Ground_640_240: 1
+Ground_640_320: 1
+Ground_640_400: 1
+Ground_80_560: 1
+Ground_80_640: 1
+Sun: 2
+Detailed retained changes:
+ | 2 | RenderSettings:
+ | 9223372036854775807 | SceneRoots:
+Ground_160_560 | 1374326094 | MeshRenderer:
+Ground_160_640 | 2129476619 | MeshRenderer:
+Ground_240_560 | 1314122873 | MeshRenderer:
+Ground_240_640 | 1717961850 | MeshRenderer:
+Ground_320_560 | 1199496932 | MeshRenderer:
+Ground_320_640 | 1160555436 | MeshRenderer:
+Ground_400_560 | 2033032969 | MeshRenderer:
+Ground_400_640 | 327444091 | MeshRenderer:
+Ground_480_480 | 1384139261 | MeshRenderer:
+Ground_480_560 | 51611324 | MeshRenderer:
+Ground_480_640 | 1680836503 | MeshRenderer:
+Ground_560_320 | 673152229 | MeshRenderer:
+Ground_560_400 | 520879468 | MeshRenderer:
+Ground_560_480 | 841079828 | MeshRenderer:
+Ground_560_560 | 811019881 | MeshRenderer:
+Ground_560_640 | 1079797432 | MeshRenderer:
+Ground_640_160 | 1354520562 | MeshRenderer:
+Ground_640_240 | 425291870 | MeshRenderer:
+Ground_640_320 | 68608449 | MeshRenderer:
+Ground_640_400 | 1316227791 | MeshRenderer:
+Ground_80_560 | 1143664098 | MeshRenderer:
+Ground_80_640 | 1323971086 | MeshRenderer:
+Sun | 242642893 | Light:
+Sun | 242642894 | Transform:

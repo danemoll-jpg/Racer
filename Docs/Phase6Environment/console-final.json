@@ -1,0 +1,42 @@
+{
+  "success": true,
+  "command": "command console",
+  "data": {
+    "command": "console",
+    "parameters": {
+      "since": "702",
+      "since_session": "49e75a7c8fb24c5bbc58d9174bcef8b7",
+      "tail": "20"
+    },
+    "result": {
+      "entries": [],
+      "cursor": 702,
+      "session": "49e75a7c8fb24c5bbc58d9174bcef8b7",
+      "returned": 0,
+      "dropped": false,
+      "reset": false,
+      "counts": {
+        "error": 10,
+        "warn": 27,
+        "log": 8
+      },
+      "groundTruth": {
+        "sampledUtc": "2026-09-18T00:39:42.6973544Z",
+        "ageMs": 279,
+        "compilationFailed": false,
+        "compiling": false,
+        "consoleErrors": 0,
+        "consoleWarnings": 0,
+        "consoleLogs": 0,
+        "seeded": true
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "C:\\Users\\danmo\\Racer"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

@@ -1,0 +1,13 @@
+{
+  "scene": "Assets/Scenes/StreetLoopGreybox.unity",
+  "dirty": false,
+  "playing": false,
+  "compiling": false,
+  "compilationFailed": false,
+  "trees": 11995,
+  "props": 18,
+  "ambienceComponents": 1,
+  "wind": "Soft leaves",
+  "birds": 3,
+  "testBenchmarks": 0
+}

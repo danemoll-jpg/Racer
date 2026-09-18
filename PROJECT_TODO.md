@@ -532,7 +532,7 @@ Dan confirmed the shortcut works and agreed to move on. Detailed unchecked items
 ## Goal
 Replace the sterile prototype feeling with a playful environment.
 
-**Focused building batch:** ACCEPTED — Dan says it looks fine. Photo-based home accuracy is deferred to CR-013 and does not block further work. CR-012 removes House 1 and extends Dan's yard into its site; Houses 2/3 retain their labels and exact placement. All 25 retained residences and 22 businesses now use reusable low-poly architecture. Phases 2–5 remain accepted. This building batch is accepted; remaining Phase 6 categories are still pending. No Phase 7. Full evidence and limitations: `Docs/PHASE6_VALIDATION.md`.
+**Focused building batch:** ACCEPTED — Dan says it looks fine. Photo-based home accuracy is deferred to CR-013 and does not block further work. CR-012 removes House 1 and extends Dan's yard into its site; Houses 2/3 retain their labels and exact placement. All 25 retained residences and 22 businesses now use reusable low-poly architecture. Phases 2–5 remain accepted. This building batch is accepted; remaining environment implementation is addressed, awaiting Dan's review. No Phase 7. Full evidence and limitations: `Docs/PHASE6_VALIDATION.md`.
 
 ## TODO
 - [x] CR-016 implemented in the combined CR-016/CR-017 batch: Dan's house 116.581m south; yard 9003.472 to 2250.869m² (25%); 107 new trees. Accepted for now; exact house placement deferred under CR-018. Evidence in Docs/CR016-017/VALIDATION.md.
@@ -546,16 +546,16 @@ Replace the sterile prototype feeling with a playful environment.
 - [x] Implement CR-014 woodland expansion: 6,102 to 11,897 trees, connected canopy with explorable trunk spacing; protected accepted sites and gameplay retained. Awaiting Dan's review.
 - [x] Profile baseline, intermediate and full coverage in ordinary frames; repeat 1440x900 standalone comparisons and rendering-cost diagnostics. Results/variability/limits: Docs/CR014/VALIDATION.md.
 - [x] Dan reports tree coverage is much better; retain the expanded woodland as the visual baseline.
-- [ ] Explicit off-road driveability/smoothness review remains unconfirmed; this is not a new failing test or a blocker to planning the next batch. Phase 6 remains incomplete.
+- [ ] Dan's subjective off-road/smoothness review remains pending. Phase 6 is implemented, awaiting Dan's review; forest-follower obstruction and frame-time variability are disclosed.
 - [x] Add nine restrained lightweight fence sections at Dan's yard, House #2 and the friend's property; integrated batch accepted by Dan.
 - [x] Dan approves the appearance of the four mailboxes and two signs. CR-017 behavior is implemented separately; Dan subsequently approved the combined CR-017 behavior batch.
 - [x] CR-017 implemented: 18 yielding assemblies, bounded debris, race-restart restoration; integrated tests passed; Dan approved the batch.
-- [ ] Add road markings.
-- [ ] Add sidewalks/curbs where useful.
-- [ ] Improve terrain transitions.
-- [ ] Improve lighting.
-- [ ] Add basic environmental audio.
-- [ ] Preserve frame rate.
+- [x] Add restrained surface-following road markings: main-road edge lines and sparse center dashes; neighborhood center dashes only.
+- [x] Ten central commercial frontages receive flush paving and blended gravel. Raised curbs/continuous residential sidewalks are unnecessary; preserve open shoulders.
+- [x] Blend local commercial joins; verify foundations and terrain seams. Terrain geometry, houses and yards preserved.
+- [x] Improve daytime lighting with the existing sun, tri-light ambient and consistent terrain/forest shading; verify visible player rendering.
+- [x] Add restrained generated wind/leaves and occasional birds; two sources, documented CC0 assets and playback/loop/restart checks.
+- [x] Complete matched visible-player profiling and gameplay validation. Host-dependent spikes remain; no universal smoothness guarantee.
 
 ## Astra Direction
 Dan prefers larger coherent deliveries. The CR-016/fences/CR-017 batch is accepted; exact home placement is deferred under CR-018. Complete remaining Phase 6 environment work together: road markings, selective sidewalks/curbs, local transition cleanup, basic lighting and environmental audio, plus performance checks. Assess each pending item; document justified not-applicable items rather than adding unnecessary urban features. Do not move houses or begin Phase 7. Leave overall Phase 6 acceptance to Dan.
@@ -848,25 +848,22 @@ Record choices we do not want to repeatedly reconsider.
 
 # SESSION HANDOFF
 
-**Current phase:** Combined CR-016 house/yard, fences and CR-017 breakable-prop batch ACCEPTED by Dan. CR-016 closed as accepted for now; CR-017 closed. Exact house position is imperfect but deferred under optional CR-018; do not move it further. CR-013 photo accuracy remains optional. Phase 6 remains incomplete; prepare one combined remaining-environment delivery, not Phase 7.
+**Current phase:** Phase 6 **implemented, awaiting Dan's review**. Required remaining-environment implementation is addressed as one delivery. Do not mark Phase 6 accepted or begin Phase 7. CR-016 accepted for now/closed; CR-017 accepted/closed. CR-013 photo accuracy and CR-018 exact house placement remain optional/deferred. Every current house and yard is preserved; House #1 remains absent.
 
-**Batch preference:** Dan wants larger coherent Phase 6 deliveries. This combined batch explicitly supersedes the earlier CR-016-only and one-category restrictions. Review it as one delivery.
+**Safety checkpoint:** `442d7af0047a73625c7a4b4a29cff2d6bd74f74c`. Initial Git write-permission failure recovered by authorized elevated retry before changes. Completion commit is reported in the task response.
 
-**Safety checkpoint:** `1f90aedb9db6bf6a053f2dc540682689a411e53a`. Initial staging permission failure was recovered with the supported elevated retry before edits. Completion commit is reported in the task response.
+**Scene/build:** `Assets/Scenes/StreetLoopGreybox.unity`; local visible Windows player `Builds/Phase6Environment/Racer.exe`. Development build succeeded. Build error counters include command-bridge timeouts, not compiler failures. Warnings concern future collision prebaking and the optional runtime Pipeline bridge. Full evidence: `Docs/Phase6Environment/VALIDATION.md`.
 
-**Scene/build:** `Assets/Scenes/StreetLoopGreybox.unity`; local Windows review player `Builds/CR016-017/Racer.exe`. Build succeeded. Its one error entry is the command bridge's five-second timeout, not a compiler/player failure; two warnings concern future mesh prebaking and the optional player Pipeline bridge. Two hidden-player road smoke runs completed without runtime errors; hidden rendering makes their frame timings unsuitable for performance claims. Full evidence: `Docs/CR016-017/VALIDATION.md`.
+**Environment:** 22 existing terrain tiles carry sparse center dashes; main road also has edge lines. Neighborhood remains rural. Ten central businesses get short flush frontage paving and blended gravel; raised curbs are unnecessary. One existing sun plus tri-light ambient; terrain/forest shading now responds to ambient and light color. Two-source generated wind/leaves and occasional birds; original synthesis, CC0, no downloaded/paid audio. Road/terrain heights, valley, houses/yards, forest, jump/bypass/shortcut, vehicle, camera, input, HUD and race systems are preserved.
 
-**House/yard:** Dan moved 116.581 m south to (415.8,83.8196,-13), 15.1 m north of the old yard's southern end. Yard 9,003.472→2,250.869 m² (25% horizontal); sampled sloped surface ratio 25.15%. Foundation/steps grounded without excavation. Dan's mailbox moved to (460.483,83.209,-11.301). Compact-yard/access exclusions and authored placement data updated. Added 107 trunks, total 11,995, minimum center gap 6.803 m. All prior trees retained; all 46 other buildings fixed; House #1 absent. Two local forest batches change visible geometry; the other 88 remain exact. All 100 terrain meshes preserve positions/normals/indices. No legacy whole rebuild.
+**Rendering:** Dormant SSAO reference permanently removed from saved PC renderer, eliminating prior build-only removal. Driving-camera postprocessing is disabled; no scene Volumes. Marked-ground shader has no compiler messages. Player retains unused stripped DOF/Panini shader warnings. Build-generated URP prefilter cache changes are documented; no build-only lighting configuration.
 
-**Breakable scenery:** Four mailboxes, five roadside/gameplay signs, nine fence sections beside Dan's west yard, House #2 and the friend. Box-trigger impacts above 0.2 m/s knock the original visual aside once, without solver impulses or debris rigidbodies. At most 24 moving assemblies; four-second cleanup. Race restart restores after resetting the car and defers overlaps; scene reload restores intact state; ordinary reset does not restore destruction. Only the restart restoration hook changes in the accepted race implementation.
+**Preservation/validation:** All 100 terrain position/normal/index fingerprints and 12,426 collider snapshots match; all 47 building transforms fixed. Zero foundation grounding, terrain height/normal/color seam or paint-UV seam failures; 11,995 trees and 18 props retained. Mixed laps, checkpoint/HUD/timing/reset regressions, jump/bypass/shoulders and 20 ordinary-frame prop-impact cases pass within prior angled-jump limits. Cleanup/restart restoration passes. Audio loop/output/transition/reset checks pass with two sources. Local woodland and house-access drives and ordinary-frame jump complete upright. Clear shoulder crossing completes; longer western forest follower route stalls at a retained tree, explicitly not a completed re-entry. Virtual input only; physical controller and subjective audio balance remain for Dan.
 
-**Actual validation:** Geometry, save/reload, 20 slow/fast centered/glancing impact cases, consecutive fences, eight bursts, five race restarts, overlap deferral and the 35-piece cap/cleanup test passed. Ordinary virtual-input drives covered 119.8 m of new woodland and access both ways; affected road runs covered about 447 m each. Three mixed laps and race/input/HUD/reset regressions passed. Jump/bypass retains previous off-angle LIMIT cases. No physical-controller test. Exact settings and raw results accompany the validation report.
-
-**Performance/remaining issues:** Matched 734×293 Editor road medians before 7.31/10.58 ms, p95 25.29/24.87; after 7.97/7.17 ms, p95 25.69/17.81. Static burst comparison: intact median 11.39 ms versus 10.05 ms during 30 bursts; p95 about 19 ms, maximum 115.2 ms, one rigidbody. Timings remain host-dependent. The local access run had a 1.7 s stall and follower stopping overshoot of 6–7 m. No performance parity/speedup or universal frame-rate claim. Full-resolution rendered performance and controller comfort remain review items.
-
-**Latest review / next work:** Dan approved the integrated batch and deferred exact house placement. Preserve all current houses and yards. Next grouped Phase 6 work: road markings, curbs/sidewalks only where useful, local terrain-transition cleanup, basic lighting and environmental audio, with coordinated gameplay/performance validation. Leave the new delivery awaiting review. No new tests or Unity changes in this documentation update.
+**Performance/review:** Matched visible 1440x900 ordinary-frame standalone runs and a repeat pair are recorded in the report. Screen-capture-disturbed results retained separately. Host-dependent spikes prevent a parity/universal-smoothness guarantee. Local Editor tests retain follower stopping overshoot and stalls. Review the complete delivery using the report's short checklist; do not reopen house placement without Dan's request.
 
 ---
+
 # How Dan and ChatGPT Will Use This File
 
 At the beginning of every Astra/Codex work session:
@@ -891,4 +888,3 @@ At the end of an Astra/Codex work session:
    - keep later phases from ballooning prematurely.
 
 The file is the project's source of truth. We do not casually rebuild the project plan from memory.
-

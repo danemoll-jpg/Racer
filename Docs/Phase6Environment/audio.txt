@@ -1,0 +1,11 @@
+PASS Soft leaves: duration=31s peak=0.3435364 RMS=0.063846381567591 loop seam=0.02328491 max adjacent=0.1321411
+PASS Bird 0: duration=1.7s peak=0.3286133 RMS=0.0741488054089294 loop seam=0 max adjacent=0.2884827
+PASS Bird 1: duration=1.7s peak=0.3285828 RMS=0.0945156233021038 loop seam=0 max adjacent=0.3240356
+PASS Bird 2: duration=1.7s peak=0.3285828 RMS=0.0889011987916924 loop seam=0 max adjacent=0.3583679
+PASS Race restart preserves wind playback position and two sources
+PASS Vehicle reset preserves ambient playback
+PASS 31-second wind loop continues; observed wraps=2
+PASS Smooth commercial/woodland gain transition; largest frame step=0.001819998
+PASS Measured source output peak=0.03306752
+PASS Still two sources after restarts and transitions; bird starts observed=2
+Objective audio checks only; speaker/headphone listening balance requires Dan. No physical controller.
