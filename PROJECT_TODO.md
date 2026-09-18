@@ -664,6 +664,17 @@ Use this section whenever something is wrong.
 **Astra fix attempt(s):** Reproduced up to 0.496 m body-below-surface re-entry and a 1.061 m edge height change. Replaced stacked ribbons/coarse ground with a single continuous visible/collision heightfield, blended shoulders and terrain. Fixed stale GPU mesh buffers during rebuild; all Phase 1 systems preserved.  
 **Result:** Final 180/180 curved shoulder traversals passed at 3/8/15 m/s, both sides and nominal 25/55-degree approaches; zero under-road or airborne steps. Whole-loop drives passed both ways. Lateral +/-16 m sampling found no missing/stacked support; visible/collision meshes match. Earlier unsuccessful exploratory paths and one corrected steep site transition are retained in reports. Tests do not certify arbitrary steep slopes or top-speed recovery. Dan subsequently accepted the track overall; detailed technical coverage remains limited to the recorded scenarios.
 
+### BUG-002 — Unexplained motorcycle/ATV braking and failed ramp approaches
+**Status:** OPEN — priority blocker for the next integrated revision.  
+**Reported:** Bike/ATV intermittently slow as if hitting something without visible contact. Dan reports every attempted ramp approach slowed so much the jump was impossible.  
+**Investigation:** Reproduce ordinary-frame driving with real player inputs before tuning; inspect contacts/CCD, suspension and grounding, body/ramp geometry, throttle/brake requests, stability/traction limits, surface resistance and wipeout state. Existing evidence of sharp bike slowdown and wide ATV landing is not a clean pass. Fix the cause without globally disabling collisions, adding a ramp speed boost or weakening cars to hide it.  
+**Acceptance:** Repeated bike/ATV road/hill/ramp approaches preserve appropriate momentum without phantom braking; verify approach/takeoff speeds and grounded/airborne behavior, then retest class contact asymmetry and landings. Preserve disclosed failed cases.
+
+### BUG-003 — Excessive reset/wipeout notifications
+**Status:** OPEN.  
+**Reported:** Reset message appears too frequently and annoys Dan.  
+**Requested fix:** Identify repeat-triggering and misleading wipeout detection, emit only meaningful state-transition feedback, keep recovery help compact and dismissible/short-lived, and avoid prompts during normal driving, normal landings, recoverable bumps or menus. No per-frame message recreation or repeated sound spam. Validate together with CR-029.
+
 ---
 
 # CHANGE REQUESTS
@@ -869,14 +880,14 @@ Use this for things that are not bugs but that Dan wants changed.
 **Result:** Misses continue racing: base 5s per gate plus max(0, sector length minus verified new forward road travel minus 25m)/10 for cuts. Road-relative direction/progress resolves gates 18m beyond them or at a later forward gate. Ordinary misses cost 5/10s; large-cut replay costs 482.36s. Proper forward finish and mid-course witness prevent line abuse. Manual reset abandons the current lap, retaining race clock/penalties; occupied pad waits. Adjusted standings use bounded finish/DNF policy and provisional display. Versioned speed/rules/mode/traffic/lap records preserve old records/settings. See Docs/CR022-025/VALIDATION.md.
 
 ### CR-026 — Visible starting grid and competitive AI difficulty
-**Status:** IMPLEMENTED / TECHNICALLY VALIDATED — integrated 0.4.0-review1 delivered; awaiting Dan's approval with CR-027.
+**Status:** REVISION REQUIRED — Dan still finds Hard AI too slow. Retain grid improvements but retune per-profile driving and prove competition in ordinary-frame full races; automated conservative follower comparisons do not establish human difficulty. Combine with CR-032 mixed/selectable roster.
 **Feedback:** Dan knows AI is present but does not see opponents and wants nearby competition, a proper shared grid and skill levels. Current reports say AI copies player tuning; that is not proof of visible or competitive human racing.  
 **Requested change:** Diagnose actual starting placement/rendering/mode selection and AI pace. Build a readable safe grid with opponents visible during countdown. Add Easy/Normal/Hard based mainly on braking, cornering, consistency and racecraft; equal-class AI gets the same underlying vehicle capabilities as the player. Do not secretly boost speed or teleport to keep up. Show selected mode/difficulty clearly. Benchmark full races and visible interaction, not just completion counts.  
 **Integration:** AI behavior follows chosen vehicle profiles; compare like-for-like where possible and make class differences explicit. Keep three opponents initially; do not require AI riding bikes/ATVs for the first roster if that compromises reliability. Records must distinguish relevant vehicle/class/difficulty rules.  
 **Result:** Visible forward grid, Easy/Normal/Hard driver judgment, three car opponents and same-capability car profiles implemented. Final Windows one-lap series: 12/12 racer finishes, zero misses/recoveries. AI ranges Easy 2:48.779-2:52.827, Normal 2:34.826-2:40.887, Hard 2:30.138-2:35.188; reference player 2:54.931/2:42.734/2:36.938. Initial Normal player DNF fixed by finish runoff and retained as evidence. See Docs/CR026-027/VALIDATION.md for final evidence and review limitations.
 
 ### CR-027 — Vehicle garage with cars, motorcycle and four-wheeler
-**Status:** IMPLEMENTED / TECHNICALLY VALIDATED — four profiles and garage in 0.4.0-review1; awaiting Dan's approval with CR-026.
+**Status:** REVISION REQUIRED — Dan reports BUG-002/003 and requests local recovery, compact HUD, larger jumps, AI roster choice and colors. Existing technical results remain historical, not approval.
 **First roster:** Preserve original car; add one distinctly different car, one motorcycle and one four-wheeler/ATV (four selectable vehicles total). Reusable profiles and garage flow allow later expansion without making the first delivery unbounded.  
 **Requested behavior:** Motorcycle and ATV are faster and tighter/more responsive than the baseline car, with more risk. Cars can shove and destabilize them; bikes/ATVs cannot meaningfully shove cars or act as battering rams. This is deliberate arcade asymmetric vehicle contact, not a claim of realistic physics. Specify/test both initiator directions, glancing/sustained contact, speeds and reset cases. Do not obtain asymmetry by making small vehicles intangible or globally disabling collisions.  
 **Driving:** Distinct grounded handling appropriate to two/four wheels, visible steering/rolling and restrained bike lean; no requirement for a ragdoll or full motorbike simulation. Use a simple rider silhouette for readability. Bike/ATV share the small-vehicle contact disadvantage; bike can be less stable than the ATV. More risk must not mean ordinary normal-speed turns randomly fail. Clear wipeout/reset feedback using accepted race-reset semantics, safe spawn/grid, per-vehicle camera and audio defaults, and ground/jump/reverse-or-low-speed-maneuver behavior that is explicit. Do not reduce existing car quality to make new vehicles feel better.  
@@ -884,6 +895,36 @@ Use this for things that are not bugs but that Dan wants changed.
 **Preserve:** Current map/props/forest, accepted game flow, penalties/cues, traffic options, audio volumes/settings and downloadable build workflow. No networking or paid assets.  
 **Acceptance:** All four vehicles are selectable and distinct; bike/ATV beat baseline car in straight-speed and controlled responsiveness comparisons, while car-vs-small-vehicle contact visibly favors the car without explosive physics or penetration. Full race, grid/AI, traffic/collision, jump, reset, pause/restart/results, records and package validation with honest test limits. Dan approves feel and competition.  
 **Result:** Four stable profiles, pre-race garage/preview, persistent selection, profile/rules/mode/difficulty records, wheels/lean, class contact rules and per-vehicle camera/audio defaults implemented. Bike +24.5% straight speed / +54.4% turn response; ATV +14.5% / +51.0% versus unchanged baseline. Solid asymmetric contact: 60/60 fixtures pass, maximum overlap 3mm, no measured car shove. All four road suites remain upright; ATV fast jump runs wide and bike hill pursuit slows sharply. Final standalone flow 24/24 passes; isolated records/migration and ownership verified. See Docs/CR026-027/VALIDATION.md for measurements, limitations and local package.
+
+### CR-028 — Quit race without quitting the game
+**Status:** PLANNED — next integrated nine-item playtest revision; not a separate mini-pass.  
+**Requested change:** Pause menu needs Quit Race / Return to Menu. Abandon the active event and return to Ready/garage without exiting the app. Stop AI/race/audio state safely, preserve saved records/settings and do not award an incomplete race record. Keep Quit Game distinct; navigation and new-race setup remain functional.  
+**Result:** Pending implementation and Dan's review.
+
+### CR-029 — Local wipeout recovery without lap loss
+**Status:** PLANNED — next integrated nine-item playtest revision; not a separate mini-pass.  
+**Requested change:** R/Y should right the vehicle at its current supported position, or the closest safe local position if blocked/unsupported. Clear unstable motion and protect against overlap with traffic, scenery or other racers. Never send ordinary wipeouts to START or silently abandon current lap. Preserve elapsed clock, completed/current valid gate progress and existing penalties; add no reset penalty or checkpoint-miss chain solely for recovery. Do not move forward across unearned gates or finish credit. Wipeout itself and elapsed time are the punishment. Race Restart remains the explicit full restart. Update HUD/rules/save compatibility for this deliberate supersession.  
+**Result:** Pending implementation and Dan's review.
+
+### CR-030 — Compact driving HUD
+**Status:** PLANNED — next integrated nine-item playtest revision; not a separate mini-pass.  
+**Requested change:** Replace the oversized driving overlay with a small readable speedometer plus current-lap and race elapsed/adjusted timing, position as rank/field fraction and lap as current/total fraction. Include speed units and make penalties understandable using compact temporary feedback/details in pause/results; do not leave debug tables, long help text or persistent banners across the road view. Respect safe areas/aspect ratios and use concise labels or icons; solo mode sensible. Keep garage/results readable separately.  
+**Result:** Pending implementation and Dan's review.
+
+### CR-031 — Bigger usable jumps
+**Status:** PLANNED — next integrated nine-item playtest revision; not a separate mini-pass.  
+**Requested change:** After fixing BUG-002, enlarge the existing principal jump for a clearly bigger and satisfying flight, especially motorcycle/ATV. Tune smooth takeoff geometry, flight/landing clearance and supported landing zone for all four vehicles at documented speeds; preserve the bypass and gate validity. No hidden launch impulse or automatic speed injection to mask braking. Favor one well-tested larger jump over many untested ramps.  
+**Result:** Pending implementation and Dan's review.
+
+### CR-032 — Selectable and mixed AI vehicle roster
+**Status:** PLANNED — next integrated nine-item playtest revision; not a separate mini-pass.  
+**Requested change:** Pre-race opponent slots let Dan choose from all four profiles, or choose Random/Mixed. Resolve and show random roster before GO, retain it for restart/rematch unless rerolled. AI motorcycle/ATV must genuinely drive their class, not car visuals reskinned. Tune per-profile road/traffic/jump-bypass control and collision vulnerability; safe profile-sized grid, independent audio/progress and bounded recovery. Remove previous car-only limitation. Include vehicle roster/rules in record categories where fairness requires.  
+**Result:** Pending implementation and Dan's review.
+
+### CR-033 — Player vehicle color selection
+**Status:** PLANNED — next integrated nine-item playtest revision; not a separate mini-pass.  
+**Requested change:** Add simple body-color swatches in garage for all four profiles with immediate preview, persistent per-profile color and identical appearance in race/results. Keep trim/tires/rider materials separate, avoid changing shared material assets or AI colors unintentionally, keep source/batched rendering consistent and use keyboard/mouse/controller navigation.  
+**Result:** Pending implementation and Dan's review.
 
 ---
 
@@ -955,11 +996,14 @@ Record choices we do not want to repeatedly reconsider.
 
 | 2026-09-18 | Combine garage/cars/bike/ATV with competitive AI grid/difficulty | Dan wants more vehicle types; bikes/ATVs faster and tighter but vulnerable to cars and unable to meaningfully shove them |
 
+| 2026-09-18 | Combine nine-item vehicle/racing playtest revision | Fix bike/ATV phantom braking, quiet reset feedback, local recovery, quit-to-menu, compact HUD, bigger jump, competitive mixed AI and garage colors |
+| 2026-09-18 | Local recovery supersedes start-line/lap-abandon reset | Dan wants to continue after wipeouts; retain time/progress/penalties without granting forward gate credit |
+
 ---
 
 # SESSION HANDOFF
 
-Status: one integrated implementation and local Windows review package, awaiting Dan's approval. Do not infer subjective acceptance or start unrelated expansion.
+**Current delivery:** 0.4.0-review1 NEEDS REVISION after Dan's nine-item playtest. Next combined batch: BUG-002 phantom braking, BUG-003 excessive reset messages, CR-028 quit race, CR-029 local recovery, CR-030 compact HUD, CR-031 bigger jump, CR-026 competitive Hard AI, CR-032 selectable/mixed AI vehicles and CR-033 player colors. Diagnose bike/ATV speed loss before jump/AI tuning. Explicit local-reset and new jump requests supersede prior preservation instructions where they conflict. Preserve unrelated accepted environment/solo features and package workflow. No new Unity changes/tests in this documentation update.
 
 Safety checkpoint: 5435e3219c2df43491d35a9f4864d60313af4031. Initial Git index.lock permission error recovered through supported elevated retry before edits. Final executable source: 7a06eaa81ac6130e8b487ad54ce285ec9f2e3656. Completion commit is the final documentation/evidence commit in Git history and the delivery response; package VERSION.txt deliberately records its actual code source.
 
