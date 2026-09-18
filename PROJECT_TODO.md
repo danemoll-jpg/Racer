@@ -564,22 +564,22 @@ Phase 6 is ACCEPTED following Dan's overall approval. Preserve this environment 
 
 # PHASE 7 — Racing Game Feel
 
-**Status:** Ready to begin; deliver core race flow, persistent bests, pause/settings and controller-friendly UI together. Inspect existing lap/best/speed HUD behavior before adding duplicates. Optional stunt scoring and speed traps remain deferred.
+**Status:** Implemented, awaiting Dan's review. Core countdown/results/persistent bests/pause/settings/navigation/audio delivered together. Phase 6 remains accepted. Evidence and limits: `Docs/Phase7/VALIDATION.md`; controls, timing, save/settings and audio rules: `Docs/Phase7/RULES.md`. Optional stunt scoring/speed traps remain deferred; no Phase 8.
 
 ## Goal
 Make the prototype feel like a game rather than a Unity demonstration.
 
 ## TODO
-- [ ] Countdown.
-- [ ] Finish/result screen.
-- [ ] Review/reuse existing current-race best-lap tracking and integrate it with results/persistent personal bests.
-- [ ] Personal best saving.
+- [x] Countdown.
+- [x] Finish/result screen.
+- [x] Review/reuse existing current-race best-lap tracking and integrate it with results/persistent personal bests.
+- [x] Personal best saving.
 - [x] Speed display already exists from CR-011; preserve and integrate it with Phase 7 UI.
-- [ ] Better reset feedback.
-- [ ] Pause menu.
-- [ ] Settings.
-- [ ] Controller-friendly UI navigation.
-- [ ] Audio feedback.
+- [x] Better reset feedback.
+- [x] Pause menu.
+- [x] Settings.
+- [x] Controller-friendly UI navigation.
+- [x] Audio feedback.
 - [ ] Optional stunt scoring exploration.
 - [ ] Optional speed traps exploration.
 
@@ -852,19 +852,23 @@ Record choices we do not want to repeatedly reconsider.
 
 # SESSION HANDOFF
 
-**Current phase:** Phase 6 ACCEPTED — Dan approved the completed delivery. Phase 7 is ready to begin as one coherent core game-flow/UI batch; no Phase 7 implementation in this documentation update. Preserve houses/yards and accepted gameplay/environment. CR-016 accepted for now/closed and CR-017 closed. CR-013 photo accuracy and CR-018 exact house placement remain optional/deferred. Approval does not claim new tests, physical-controller coverage or resolution of documented performance limits.
+**Current phase:** Phase 7 **implemented, awaiting Dan's review** as one coherent delivery. Phase 6 remains ACCEPTED. Preserve accepted houses/yards, forest, roads, jump, shortcut, breakable props and car tuning. CR-013/CR-018 remain deferred. No optional stunt scoring, speed traps or Phase 8.
 
-**Safety checkpoint:** `442d7af0047a73625c7a4b4a29cff2d6bd74f74c`. Initial Git write-permission failure recovered by authorized elevated retry before changes. Completion commit is reported in the task response.
+**Safety checkpoint:** `46f0e8b6fc19d5002f8260810ee0d0cddec61e11`. Initial Git index write denial recovered with the authorized elevated retry before modifications. Completion commit is reported in the task response.
 
-**Scene/build:** `Assets/Scenes/StreetLoopGreybox.unity`; local visible Windows player `Builds/Phase6Environment/Racer.exe`. Development build succeeded. Build error counters include command-bridge timeouts, not compiler failures. Warnings concern future collision prebaking and the optional runtime Pipeline bridge. Full evidence: `Docs/Phase6Environment/VALIDATION.md`.
+**Open:** `Assets/Scenes/StreetLoopGreybox.unity` or local visible Windows development build `Builds/Phase7/Racer.exe`. Full report/screenshots: `Docs/Phase7/VALIDATION.md`; rules/audio/save details: `Docs/Phase7/RULES.md`.
 
-**Environment:** 22 existing terrain tiles carry sparse center dashes; main road also has edge lines. Neighborhood remains rural. Ten central businesses get short flush frontage paving and blended gravel; raised curbs are unnecessary. One existing sun plus tri-light ambient; terrain/forest shading now responds to ambient and light color. Two-source generated wind/leaves and occasional birds; original synthesis, CC0, no downloaded/paid audio. Road/terrain heights, valley, houses/yards, forest, jump/bypass/shortcut, vehicle, camera, input, HUD and race systems are preserved.
+**Implemented:** Ready screen; three-second locked countdown; results with total, valid splits, current best and new personal-best labels; persistent lap/race records; clear car reset feedback; pause/settings; controller/keyboard/mouse navigation and restored focus; five restrained generated audio cues integrated with original ambience. Existing race validation/HUD/reset/prop restoration reused. Scene changes only attach flow and resize/scale HUD; environment and vehicle/camera tuning unchanged.
 
-**Rendering:** Dormant SSAO reference permanently removed from saved PC renderer, eliminating prior build-only removal. Driving-camera postprocessing is disabled; no scene Volumes. Marked-ground shader has no compiler messages. Player retains unused stripped DOF/Panini shader warnings. Build-generated URP prefilter cache changes are documented; no build-only lighting configuration.
+**Controls/rules:** A/Space/click starts and confirms; D-pad/stick/arrows navigate; Enter/Escape/Start pause/resume (no longer immediate restart); B backs from Settings/Pause. Full restart lives in Pause or Results > Race again, restores car/props and clears current race before a fresh countdown. Y/R during racing resets the car and abandons only the current lap, preserving completed laps and ongoing race clock. Countdown cannot move the car or consume race time. Timing starts at the forward START crossing after GO. Pause stops simulation/race/countdown time; UI remains responsive. Final valid finish immediately freezes scoring and the vehicle. Three valid laps remain required; checkpoint ordering/wrong-way/shortcut rules unchanged.
 
-**Preservation/validation:** All 100 terrain position/normal/index fingerprints and 12,426 collider snapshots match; all 47 building transforms fixed. Zero foundation grounding, terrain height/normal/color seam or paint-UV seam failures; 11,995 trees and 18 props retained. Mixed laps, checkpoint/HUD/timing/reset regressions, jump/bypass/shoulders and 20 ordinary-frame prop-impact cases pass within prior angled-jump limits. Cleanup/restart restoration passes. Audio loop/output/transition/reset checks pass with two sources. Local woodland and house-access drives and ordinary-frame jump complete upright. Clear shoulder crossing completes; longer western forest follower route stalls at a retained tree, explicitly not a completed re-entry. Virtual input only; physical controller and subjective audio balance remain for Dan.
+**Saves/settings:** Valid completed laps qualify immediately even if that race is later abandoned; only completed races qualify for race PB. Invalid/reset-abandoned laps and incomplete races cannot create those records. Current race state is separate from JSON records/settings under `Application.persistentDataPath/Phase7/street-loop-gates-v1-laps3` (Windows LocalLow/DefaultCompany/Racer). Version/course validation, sensible defaults, malformed-data recovery and atomic replacement with backup. Master/ambience/UI volumes, VSync and 30/60/120 frame cap persist; no disruptive display or tuning controls. All synthetic tests used isolated Docs saves, never legitimate player data. Audio is original smooth sine synthesis, CC0, plus retained original generated Phase 6 wind/birds.
 
-**Performance/review:** Matched visible 1440x900 ordinary-frame standalone runs and a repeat pair are recorded in the report. Screen-capture-disturbed results retained separately. Host-dependent spikes prevent a parity/universal-smoothness guarantee. Local Editor tests retain follower stopping overshoot and stalls. Review the complete delivery using the report's short checklist; do not reopen house placement without Dan's request.
+**Actual validation:** Final visible 1280x720 and 1680x720 players each passed 37 checks; prior 1024x768 navigation/layout also passed. Two independent launches loaded the same isolated lap/race PB and settings correctly. Keyboard/controller/mouse were virtual. Existing manually stepped PhysX follower completed shortcut/normal/shortcut three-lap race in 551.52s, min upright .880, max center error 3.23m. Prop contact/restoration/overlap, invalid gates, repeated transitions, pause/reset, save eligibility, malformed/missing data, audio mute/source count and focus passed. Final compile/build succeeded; saved scene reload is clean, current Console 0 errors/0 warnings. Historical tool/UI initialization errors are archived, not hidden.
+
+**Limits:** Ordinary-frame uncorrected 32m/s jump probe flew/landed but failed upright threshold (.788 vs .8) and timed out at 12.01s; accepted tuning/ramp remain untouched. No human-driven ordinary-frame full race, physical-controller test or subjective listening approval. Full jump-edge and prop-impact stress matrices were not repeated. Final 16:9 idle frame sample at 60fps: median16.67/p95 16.73/max17.14ms; not course-wide performance parity. Existing forest/frame-time limitations remain. Final build warning is absent optional runtime Pipeline config; player retains stripped unused postprocess shader messages. A build command bridge timeout is counted in the successful build report.
+
+**Dan's short review:** Start and pause during countdown; resume, drive/reset, then restart; complete three laps using normal/shortcut/jump routes; inspect results, race again, adjust settings, quit/relaunch and verify PB/settings. Review physical-controller focus, audio balance and jump landing. Do not mark Phase 7 accepted until Dan reviews it.
 
 ---
 

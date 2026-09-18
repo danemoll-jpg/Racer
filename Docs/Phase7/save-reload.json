@@ -1,0 +1,33 @@
+{
+  "success": true,
+  "command": "command eval",
+  "data": {
+    "command": "eval",
+    "parameters": {
+      "code": "var r=UnityEngine.Object.FindAnyObjectByType<Racer.RaceDirector>();var s=UnityEngine.SceneManagement.SceneManager.GetActiveScene();return new{scene=s.path,dirty=s.isDirty,playing=UnityEditor.EditorApplication.isPlaying,compiling=UnityEditor.EditorApplication.isCompiling,flow=r.GetComponent<Racer.RaceFlow>()!=null,laps=r.laps,gates=r.gates.Length,props=UnityEngine.Object.FindObjectsByType<Racer.BreakableProp>().Length,validationRunners=UnityEngine.Object.FindObjectsByType<Racer.Phase7Validation>().Length};"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "scene": "Assets/Scenes/StreetLoopGreybox.unity",
+        "dirty": false,
+        "playing": false,
+        "compiling": false,
+        "flow": true,
+        "laps": 3,
+        "gates": 20,
+        "props": 18,
+        "validationRunners": 0
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "C:\\Users\\danmo\\Racer"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

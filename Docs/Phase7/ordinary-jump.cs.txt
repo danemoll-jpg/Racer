@@ -1,0 +1,17 @@
+var flow=UnityEngine.Object.FindAnyObjectByType<Racer.RaceFlow>();
+if(flow.State!=Racer.RaceFlow.Stage.Racing) throw new System.Exception("Wait for GO");
+var car=flow.Race.vehicle; var body=car.Body; var route=Racer.Editor.StreetLoopBuilder.Route();
+int index=Enumerable.Range(0,route.Count).OrderBy(i=>(route[i]-new UnityEngine.Vector3(-627,0,-138)).sqrMagnitude).First();
+var forward=UnityEngine.Vector3.ProjectOnPlane(route[index+1]-route[index],UnityEngine.Vector3.up).normalized;
+var position=route[index]-UnityEngine.Vector3.Cross(UnityEngine.Vector3.up,forward)*1.5f;
+UnityEngine.Physics.Raycast(position+UnityEngine.Vector3.up*30,UnityEngine.Vector3.down,out var hit,80,1);
+body.position=hit.point+UnityEngine.Vector3.up*.65f;body.rotation=UnityEngine.Quaternion.LookRotation(forward);car.transform.SetPositionAndRotation(body.position,body.rotation);body.linearVelocity=forward*32;body.angularVelocity=UnityEngine.Vector3.zero;car.ClearSteering();UnityEngine.Physics.SyncTransforms();flow.Race.ResetSampling(body.position,UnityEngine.Time.timeAsDouble);UnityEngine.Object.FindAnyObjectByType<Racer.ChaseCamera>().Snap();
+var pad=UnityEngine.InputSystem.InputSystem.AddDevice<UnityEngine.InputSystem.Gamepad>();
+UnityEngine.Application.runInBackground=true;
+UnityEngine.InputSystem.InputSystem.settings.editorInputBehaviorInPlayMode=UnityEngine.InputSystem.InputSettings.EditorInputBehaviorInPlayMode.AllDeviceInputAlwaysGoesToGameView;
+float start=UnityEngine.Time.time,minUp=1,air=0,landing=0;int airborne=0,lastFrame=-1;bool flew=false,landed=false;
+UnityEditor.EditorApplication.CallbackFunction tick=null;
+tick=()=>{ if(lastFrame==UnityEngine.Time.frameCount)return;lastFrame=UnityEngine.Time.frameCount; minUp=UnityEngine.Mathf.Min(minUp,car.transform.up.y);if(car.GroundedWheels<2&&body.position.z>-112){airborne++;if(airborne>3)flew=true;if(flew)air+=UnityEngine.Time.deltaTime;}else if(flew&&!landed){landed=true;landing=body.position.z;}
+if(UnityEngine.Time.time-start<12 && !(landed&&body.position.z>landing+35)){UnityEngine.InputSystem.InputSystem.QueueStateEvent(pad,new UnityEngine.InputSystem.LowLevel.GamepadState{rightTrigger=.35f});return;}
+UnityEditor.EditorApplication.update-=tick;UnityEngine.InputSystem.InputSystem.RemoveDevice(pad);System.IO.File.WriteAllText("Docs/Phase7/ordinary-jump.txt",$"{(flew&&landed&&minUp>.8f?"PASS":"FAIL")} ordinary-frame virtual Gamepad jump; initial velocity injected 32m/s; flew={flew}; landed={landed}; minimum upright={minUp:F3}; landing Z={landing:F2}; elapsed={UnityEngine.Time.time-start:F2}s; frame-sampled airborne duration={air:F2}s. No manual PhysX stepping; no physical-controller claim.");flow.Race.RestartRace();};
+UnityEditor.EditorApplication.update+=tick;return "Ordinary-frame jump running";

@@ -1,0 +1,41 @@
+Synthetic validation only; isolated save: C:\Users\danmo\Racer\Docs\Phase7\Standalone\isolated-save
+Loaded previous launch best lap=0, race=0, master=0.8
+PASS Launch ready, physics locked
+PASS Virtual A starts selected race action
+PASS Countdown prevents head start and timing
+PASS Virtual Start pauses countdown without consuming it
+PASS Keyboard Enter resumes without restarting
+PASS Keyboard Escape pauses
+PASS Keyboard arrows/Space open selected Settings
+PASS Setting changes and retains focus
+PASS Virtual B returns settings to pause
+PASS Back restores prior menu focus
+PASS Virtual mouse clicks Resume through Canvas raycast
+PASS Resume completes countdown and restores driving
+PASS Ordinary-frame virtual trigger drives car
+PASS Pause freezes physics/timer and pauses environmental audio
+PASS Menu Y does not reset vehicle
+PASS Virtual Y abandons current lap and shows reset feedback
+PASS Skipped checkpoint awards no lap/record
+PASS Repeated checkpoint invalidates
+PASS Wrong-way checkpoint invalidates
+PASS Repeated finish awards no laps
+PASS Restart clears race then completes fresh countdown
+PASS Ordered synthetic gate finish produces results and stops car
+PASS Results reuse all valid lap splits and current-race best
+PASS Finish repeated after results cannot award duplicate laps/records
+PASS Settings returns to results
+PASS Isolated bests/settings deserialize correctly
+PASS Malformed/invalid isolated data loads defaults
+PASS Missing data defaults
+PASS Repeated paused/results restart 0 preserves PB
+PASS Repeated paused/results restart 1 preserves PB
+PASS Repeated paused/results restart 2 preserves PB
+PASS Prop contact still breaks once
+PASS Race restart restores prop safely
+PASS Prop restoration defers while vehicle overlaps
+PASS Restart moves vehicle before restoring overlapped prop
+PASS Ambience slider mutes both environmental voices
+Ordinary idle frames n=180, median=16.67ms p95=16.71ms max=17.21ms; no performance parity claim.
+PASS Repeated transitions retain exactly three audio sources
+COMPLETE failures=0

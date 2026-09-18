@@ -16,7 +16,8 @@ namespace Racer
             return $"LAP {Mathf.Min(p.CompletedLaps + 1, p.TargetLaps)} / {p.TargetLaps}    Completed: {p.CompletedLaps}    {speed:0} km/h\n" +
                 $"Race  {FormatTime(p.RaceTime(race.Clock))}    Lap  {FormatTime(p.LapTime(race.Clock))}\n" +
                 $"Last  {FormatTime(p.LastLap)}    Best  {FormatTime(p.BestLap)}\n" +
-                $"Next: {next}\n{p.Status}\nEnter / Start: restart race    R / Y: reset car";
+                $"Next: {next}\n{p.Status}\nEnter / Esc / Start: pause    R / Y: reset car" +
+                (race.Flow && race.Flow.Save != null ? $"\nPersonal best  {FormatTime(race.Flow.Save.Best.lap)}    {race.Flow.Save.Error}" : "");
         }
         void LateUpdate() { if (race && race.Progress != null && display) display.text = BuildText(); }
     }

@@ -1,0 +1,1 @@
+FAIL ordinary-frame virtual Gamepad jump; initial velocity injected 32m/s; flew=True; landed=True; minimum upright=0.788; landing Z=-82.88; elapsed=12.01s; frame-sampled airborne duration=0.37s. No manual PhysX stepping; no physical-controller claim.

@@ -1,0 +1,32 @@
+Synthetic validation only; isolated save: C:\Users\danmo\Racer\Docs\Phase7\isolated-save
+Loaded previous launch best lap=0, race=0, master=0.8
+FAIL Launch ready, physics locked
+FAIL Virtual A starts selected race action
+FAIL Countdown prevents head start and timing
+FAIL Virtual Start pauses countdown without consuming it
+FAIL Virtual B returns settings to pause
+FAIL Resume completes countdown and restores driving
+PASS Ordinary-frame virtual trigger drives car
+PASS Pause freezes physics/timer and pauses environmental audio
+PASS Menu Y does not reset vehicle
+FAIL Virtual Y abandons current lap and shows reset feedback
+PASS Skipped checkpoint awards no lap/record
+PASS Repeated checkpoint invalidates
+PASS Wrong-way checkpoint invalidates
+PASS Repeated finish awards no laps
+PASS Restart clears race then completes fresh countdown
+PASS Ordered synthetic gate finish produces results and stops car
+PASS Results reuse all valid lap splits and current-race best
+PASS Finish repeated after results cannot award duplicate laps/records
+PASS Settings returns to results
+PASS Isolated bests/settings deserialize correctly
+PASS Malformed/invalid isolated data loads defaults
+PASS Missing data defaults
+PASS Repeated paused/results restart 0 preserves PB
+PASS Repeated paused/results restart 1 preserves PB
+PASS Repeated paused/results restart 2 preserves PB
+PASS Prop contact still breaks once
+PASS Race restart restores prop safely
+Ordinary idle frames n=179, median=16.60ms p95=24.85ms max=39.08ms; no performance parity claim.
+PASS Repeated transitions retain exactly three audio sources
+COMPLETE failures=7

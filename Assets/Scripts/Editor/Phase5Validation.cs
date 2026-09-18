@@ -110,9 +110,20 @@ namespace Racer.Editor
             bool clean=reached&&minUp>.8f&&maxError<(shortcut?2.6f:4.5f)&&minClear>0;
             log.Add($"{(clean?"PASS":"FAIL")} {(stress?"STRESS":"PAIRED")} {(shortcut?"SHORTCUT":"NORMAL")} initial={speed:F1}m/s offset={lateral:F1}m yaw={yaw:F1}: reached={reached}; time={time:F3}s; mean={sum/Mathf.Max(1,steps+1):F2}; peak={peak:F2}; entry={entrySpeed:F2}; rejoin={rejoinSpeed:F2}m/s; max center error={maxError:F2}m; up={minUp:F3}; min clearance={minClear:F3}m; airborne={air*Dt:F2}s; end={body.position}");
         }
-        static void Laps(string mode)
+        public static void ValidatePhase7Mixed()
         {
-            race.RestartRace();var path=mode=="normal"?road:cut;var limits=Limits(path);int index=10;Place(path,index,0);race.ResetSampling(body.position,0);
+            car=Object.FindAnyObjectByType<ArcadeVehicle>(); body=car.Body; race=Object.FindAnyObjectByType<RaceDirector>();
+            string isolatedRoot=System.IO.Path.GetFullPath("Docs/Phase7")+System.IO.Path.DirectorySeparatorChar;
+            if(!Application.isPlaying || race.Flow.State!=RaceFlow.Stage.Racing || race.Progress.Started || !System.IO.Path.GetFullPath(race.Flow.Save.DirectoryPath).StartsWith(isolatedRoot,StringComparison.OrdinalIgnoreCase))
+                throw new Exception("Start a fresh race with isolated Phase7 validation storage and wait for countdown.");
+            road=StreetLoopBuilder.Route();cut=MakeCut();log=new();
+            var reset=car.GetComponent<VehicleRespawn>();var mode=Physics.simulationMode;var interp=body.interpolation;
+            try { Physics.simulationMode=SimulationMode.Script;body.interpolation=RigidbodyInterpolation.None;car.enabled=false;reset.enabled=false;Laps("mixed",false); }
+            finally { Physics.simulationMode=mode;body.interpolation=interp;race.RestartRace();File.WriteAllLines("Docs/Phase7/mixed-laps.txt",log); }
+        }
+        static void Laps(string mode, bool restart=true)
+        {
+            if(restart)race.RestartRace();var path=mode=="normal"?road:cut;var limits=Limits(path);int index=10;Place(path,index,0);race.ResetSampling(body.position,0);
             float peak=0,sum=0,error=0,up=1;int steps=0;
             for(;steps<90000&&!race.Progress.Finished;steps++)
             {

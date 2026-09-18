@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace Racer
 {
@@ -16,6 +17,8 @@ namespace Racer
         public double LastLap { get; private set; }
         public double BestLap { get; private set; }
         public string Status { get; private set; }
+        readonly List<double> lapTimes = new();
+        public IReadOnlyList<double> LapTimes => lapTimes;
         double raceStart, lapStart, finishTime;
 
         public RaceProgress(int checkpoints, int laps)
@@ -28,6 +31,7 @@ namespace Racer
         public void Restart()
         {
             CompletedLaps = NextGate = 0; Started = LapActive = LapValid = false;
+            lapTimes.Clear();
             LastLap = BestLap = raceStart = lapStart = finishTime = 0;
             Status = "Cross START in the arrow direction";
         }
@@ -51,8 +55,9 @@ namespace Racer
                 if (LapActive && LapValid && NextGate == 0 && now > lapStart)
                 {
                     CompletedLaps++; LastLap = now - lapStart;
+                    lapTimes.Add(LastLap);
                     if (BestLap == 0 || LastLap < BestLap) BestLap = LastLap;
-                    if (Finished) { finishTime = now; LapActive = false; Status = "Race complete - Enter / Start to restart"; return; }
+                    if (Finished) { finishTime = now; LapActive = false; Status = "Race complete"; return; }
                 }
                 if (!Started) { Started = true; raceStart = now; }
                 lapStart = now; LapActive = LapValid = true; NextGate = 1;

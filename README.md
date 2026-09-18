@@ -5,10 +5,11 @@ A small single-player PC arcade racing game inspired by a childhood street.
 
 ## Current scope
 
-Phases 1 and 2 are accepted. Phase 3 adds a three-lap race, 19 ordered checkpoints,
-timing, restart and a minimal HUD to the accepted street loop, plus a small steering
-adjustment (CR-010). Phase 3 and steering feel await Dan's review. Physical controller
-acceptance remains separate. No Phase 4 stunts or intentional shortcuts are included.
+Phases 1–6 are accepted. Phase 7 implements countdown, results, persistent personal
+bests, pause/settings, controller-friendly menus and restrained audio, awaiting Dan's
+review. The accepted environment, jump, shortcut, breakable props and car tuning remain.
+CR-013/CR-018, optional scoring and speed traps are deferred. Phase 8 has not begun.
+Current rules and review checklist: [Phase 7](Docs/Phase7/RULES.md).
 
 ## Open
 
@@ -16,6 +17,8 @@ Use Unity **6000.6.1f1** (Unity 6). Add this repository root to Unity Hub,
 open it, allow package restoration/import to finish, then open
 `Assets/Scenes/StreetLoopGreybox.unity`. Press Play, then click the Game view for
 keyboard focus. The Editor may suspend play while in the background.
+The visible Windows review build is `Builds/Phase7/Racer.exe` (local, excluded from Git).
+Choose Start race, wait for GO, then cross START to begin timing.
 
 ## Controls
 
@@ -25,15 +28,23 @@ keyboard focus. The Editor may suspend play while in the background.
 | Brake, then reverse when held | LT | S / Down |
 | Steer | Left stick | A/D / Left/Right |
 | Reset to starting pad | Y | R |
-| Restart race (StreetLoopGreybox) | Start / Menu | Enter |
+| Pause / resume | Start / Menu | Enter / Escape |
+| Confirm menu selection | A | Space |
+| Back from Settings / Pause | B | Escape |
+| Restart whole race | Pause > Restart race | Pause > Restart race |
+
+Menus also accept mouse clicks, D-pad/stick and arrow navigation. Restart restores
+props and starts a new countdown; Y/R resets only the vehicle and current lap.
 
 RT also brakes when moving backward. There is no separate handbrake in this phase.
 Unity Input System actions support controller connection/disconnection and keyboard
 fallback. Physical gamepad hardware still needs Dan's test.
 
-## Vehicle tuning
+## Historical Phase 3 vehicle tuning
 
-Select **PrototypeCar** in StreetLoopGreybox. CR-010 is a scene-only override;
+The table below is historical. Current accepted Phase 4 tuning is in PROJECT_TODO.md
+and the saved **PrototypeCar** in StreetLoopGreybox; Phase 7 does not alter it.
+CR-010 is a scene-only override;
 the base prefab and PrototypeTrack retain their original values.
 Values are exposed on ArcadeVehicle unless noted. Speeds use metres/second.
 
@@ -70,7 +81,7 @@ angular velocity and steering smoothing, and snaps the camera. Falling below y=-
 also resets automatically. A prefab without a scene spawn reference uses its initial
 position and heading. Reset is fixed-pad recovery, not checkpoint recovery.
 During a race it discards the current lap's checkpoint credit, retaining completed laps
-and total time. Cross START to begin another attempt. Enter / Start clears the entire race.
+and total time. Cross START to begin another attempt. Restart the entire race from Pause.
 
 ChaseCamera follows in LateUpdate using position smoothing (0.16 s) and heading
 smoothing (6/s), a (0, 3.6, -7.5) m offset, 3 m look-ahead and 65° field of view.
@@ -82,11 +93,13 @@ shortens the camera arm around geometry and checks the smoothed position too.
 StreetLoopGreybox uses three laps through the numbered gates. Timing starts at the
 first forward START crossing. Wrong-way or skipped gates invalidate the current lap;
 finish crossings cannot award a lap without all checkpoints in order. Required gates
-allow independent future routes between them. No alternate routes are implemented.
+allow the accepted shortcut and normal route between them.
 
-Run **Racer > Validate Phase 3 (Play mode)** and **Racer > Validate CR-010 (Play mode)**
-in StreetLoopGreybox. See `Docs/PHASE3_VALIDATION.md` for results, limitations and Dan's
-checklist. These are automated PhysX/virtual-input tests, not physical-controller testing.
+Use `Docs/Phase7/VALIDATION.md` for current tests. Older Phase 3/4/5 full-race harnesses
+predate countdown and changed bindings; do not use them as Phase 7 acceptance tests.
+Phase7Validation runs with isolated records in a development player using
+`-racerValidate <absolute-output-directory>`. It creates virtual input devices and
+synthetic gate results; it is not a physical-controller or human driving test.
 The original PrototypeTrack remains available for the Phase 1 tests described below.
 
 The pad is 220 x 260 m with two turn islands and five slalom blocks. Facing forward
@@ -100,7 +113,7 @@ driving. See `Docs/PHASE1_VALIDATION.md` for recorded results and remaining test
 
 Placeholder wheels do not animate. Hard impacts, ramp edges and awkward landings
 can still flip the car; use reset. Enjoyment, camera comfort and physical controller
-operation require hands-on acceptance. No standalone player build was tested.
+operation require hands-on acceptance. Phase 7 includes visible standalone validation.
 
 Rendering uses Universal Render Pipeline (URP) 17.6.0 with a lightweight forward
 renderer. Package versions are recorded in `Packages/manifest.json` and

@@ -1,0 +1,8 @@
+{
+    "version": 1,
+    "master": 0.8999999761581421,
+    "ambience": 1.0,
+    "feedback": 0.6499999761581421,
+    "frameLimit": 60,
+    "vsync": true
+}

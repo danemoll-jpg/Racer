@@ -1,0 +1,1 @@
+PASS Valid completed lap immediately eligible; saved lap=40, race record=0; restart abandons incomplete race without clearing lap record. Synthetic gate crossings, isolated AbandonSave.
