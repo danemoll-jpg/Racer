@@ -1,0 +1,1 @@
+PASS Ordinary-frame virtual Gamepad mailbox impact, initial 6m/s approach; brokenOnce=True, restored=True, minimumUpright=0.981. Production restart restores prop; no physical-controller test.

@@ -1,0 +1,30 @@
+{
+  "success": true,
+  "command": "command eval",
+  "data": {
+    "command": "eval",
+    "parameters": {
+      "code": "UnityEditor.SceneManagement.EditorSceneManager.OpenScene(Racer.Editor.StreetLoopBuilder.ScenePath); return new {scene=UnityEngine.SceneManagement.SceneManager.GetActiveScene().path,dirty=UnityEngine.SceneManagement.SceneManager.GetActiveScene().isDirty,playing=Application.isPlaying,trees=GameObject.Find(\"Woods replacing later subdivisions\").GetComponentsInChildren<BoxCollider>().Length,benchmarks=UnityEngine.Object.FindObjectsByType<Racer.WoodlandBenchmark>().Length,postProcessing=Camera.main.GetComponent<UnityEngine.Rendering.Universal.UniversalAdditionalCameraData>()?.renderPostProcessing};"
+    },
+    "result": {
+      "output": null,
+      "diagnostics": [],
+      "success": true,
+      "result": {
+        "scene": "Assets/Scenes/StreetLoopGreybox.unity",
+        "dirty": false,
+        "playing": false,
+        "trees": 11986,
+        "benchmarks": 0,
+        "postProcessing": null
+      }
+    },
+    "target": {
+      "host": "127.0.0.1",
+      "port": 7800,
+      "projectPath": "C:\\Users\\danmo\\Racer"
+    }
+  },
+  "errors": [],
+  "warnings": []
+}

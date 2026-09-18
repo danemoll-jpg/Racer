@@ -1,3 +1,5 @@
+**Acceptance update (2026-09-18):** Dan reports CR-019 passed; ACCEPTED / CLOSED. Preserve this layout. The report below records the historical commercial delivery; current combined Phase 8 work is documented in ../Phase8/VALIDATION.md.
+
 # CR-019 commercial street — Phase 8 review batch
 
 Status: implemented and technically checked; **awaiting Dan's visual review**. Phase 8 is not complete. Phase 7 is accepted because Dan answered yes to every checklist item; his input device was not specified.

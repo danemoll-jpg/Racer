@@ -1,0 +1,116 @@
+{
+  "scene": "Assets/Scenes/StreetLoopGreybox.unity",
+  "name": "PC_RPAsset",
+  "shadowDistance": 40.0,
+  "mainLightShadowmapResolution": 2048,
+  "shadowCascadeCount": 4,
+  "supportsSoftShadows": true,
+  "msaaSampleCount": 2,
+  "renderScale": 1.0,
+  "renderers": [
+    {
+      "shader": "Racer/GreyboxGround",
+      "count": 168,
+      "triangles": 1815000
+    },
+    {
+      "shader": "Universal Render Pipeline/Unlit",
+      "count": 84,
+      "triangles": 1008
+    },
+    {
+      "shader": "Universal Render Pipeline/Lit",
+      "count": 121,
+      "triangles": 21566
+    },
+    {
+      "shader": "Racer/MarkedGround",
+      "count": 22,
+      "triangles": 281600
+    },
+    {
+      "shader": "Racer/WorldText",
+      "count": 65,
+      "triangles": 0
+    }
+  ],
+  "lights": [
+    {
+      "name": "Sun",
+      "intensity": 1.25,
+      "shadows": 2
+    }
+  ],
+  "car": [
+    {
+      "name": "PrototypeCar",
+      "position": "(320.21, 11.70, 536.04)",
+      "scale": "(1.00, 1.00, 1.00)"
+    },
+    {
+      "name": "Body",
+      "position": "(0.00, 0.05, 0.00)",
+      "scale": "(1.85, 0.65, 3.70)"
+    },
+    {
+      "name": "Cabin",
+      "position": "(0.00, 0.60, -0.30)",
+      "scale": "(1.50, 0.60, 1.80)"
+    },
+    {
+      "name": "Front direction stripe",
+      "position": "(0.00, 0.39, 1.25)",
+      "scale": "(1.30, 0.04, 0.35)"
+    },
+    {
+      "name": "Placeholder wheel",
+      "position": "(-0.95, -0.20, -1.30)",
+      "scale": "(0.65, 0.16, 0.65)"
+    },
+    {
+      "name": "Placeholder wheel",
+      "position": "(-0.95, -0.20, 1.30)",
+      "scale": "(0.65, 0.16, 0.65)"
+    },
+    {
+      "name": "Placeholder wheel",
+      "position": "(0.95, -0.20, -1.30)",
+      "scale": "(0.65, 0.16, 0.65)"
+    },
+    {
+      "name": "Placeholder wheel",
+      "position": "(0.95, -0.20, 1.30)",
+      "scale": "(0.65, 0.16, 0.65)"
+    },
+    {
+      "name": "Phase 8 car visuals",
+      "position": "(0.00, 0.00, 0.00)",
+      "scale": "(1.00, 1.00, 1.00)"
+    },
+    {
+      "name": "Paint",
+      "position": "(0.00, 0.00, 0.00)",
+      "scale": "(1.00, 1.00, 1.00)"
+    },
+    {
+      "name": "Glass",
+      "position": "(0.00, 0.00, 0.00)",
+      "scale": "(1.00, 1.00, 1.00)"
+    },
+    {
+      "name": "Bumpers and grille",
+      "position": "(0.00, 0.00, 0.00)",
+      "scale": "(1.00, 1.00, 1.00)"
+    },
+    {
+      "name": "Tail lamps",
+      "position": "(0.00, 0.00, 0.00)",
+      "scale": "(1.00, 1.00, 1.00)"
+    },
+    {
+      "name": "Headlamps and plate",
+      "position": "(0.00, 0.00, 0.00)",
+      "scale": "(1.00, 1.00, 1.00)"
+    }
+  ]
+}

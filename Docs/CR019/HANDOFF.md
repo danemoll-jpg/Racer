@@ -1,3 +1,5 @@
+**Acceptance update (2026-09-18):** Dan reports CR-019 passed; ACCEPTED / CLOSED. Preserve this layout. The report below records the historical commercial delivery; current combined Phase 8 work is documented in ../Phase8/VALIDATION.md.
+
 **Current phase:** Phase 7 ACCEPTED — Dan answered yes to all checklist items; input device unspecified. First Phase 8 commercial-street batch implemented and technically validated, **awaiting Dan's visual review**. CR-019 remains open for acceptance; Phase 8 is not complete. CR-013/CR-018 remain optional deferred backlog.
 
 **Safety checkpoint:** `f94c8f864fb7480a31a4d08ef7e4551d3fa9c1d5`. Initial Git staging/commit permission failures recovered with elevated retries before edits. Completion commit is reported in the task response and Git history.

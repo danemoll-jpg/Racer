@@ -1,0 +1,11 @@
+CR-014 ordinary-frame virtual Gamepad; 6000.6.1f1; editor=False; 1920x1080; quality=PC; vSync=0; target=-1; CPU=Intel(R) Core(TM) i7-9700 CPU @ 3.00GHz; GPU=NVIDIA GeForce GTX 1660 Ti; RAM=65341MB; graphics=Direct3D11; shadowDistance=40; fixedDelta=0.01999999
+Recorder validity main=True, render=False, physics=True, draws=True, triangles=True. CPU markers include waits; no GPU timing claim. 3s warmup + 12s measured per section; repetitions=2; forestRenderingDisabled=False. Initial pose only is teleported, no manual physics stepping.
+run,route,n,median_ms,p95_ms,p99_ms,max_ms,over33ms,main_median_ms,render_median_ms,physics_median_ms,allocated_MB,reserved_MB,peak_mps,min_up,max_path_error_m,distance_m,end_index,physics_p95_ms,last_draws,last_triangles
+1,road,3030,3.356,8.450,9.664,13.136,0,3.350,-1.000,0.000,299.0,800.2,18.39,0.880,1.80,258.5,124,0.197,0,368323
+1,commercial,2879,3.504,8.739,10.021,13.288,0,3.498,-1.000,0.000,299.1,800.2,18.31,1.000,1.48,259.4,125,0.192,0,865359
+1,forest,3036,3.338,8.593,9.971,12.788,0,3.336,-1.000,0.000,299.4,800.2,18.36,0.949,1.83,260.7,130,0.200,0,1249053
+1,shortcut,2883,3.488,8.795,10.112,12.572,0,3.482,-1.000,0.000,299.5,800.2,14.32,0.999,0.93,128.8,90,0.192,0,1860021
+2,road,2956,3.449,8.670,9.823,12.879,0,3.444,-1.000,0.000,299.6,800.2,18.39,0.880,1.80,258.9,125,0.199,0,368323
+2,commercial,3018,3.386,8.343,9.916,12.150,0,3.381,-1.000,0.000,299.6,800.2,18.31,1.000,1.49,259.4,125,0.188,0,865359
+2,forest,3139,3.235,8.117,9.725,13.112,0,3.232,-1.000,0.000,299.6,800.2,18.36,0.949,1.82,261.0,130,0.206,0,1249053
+2,shortcut,3116,3.264,8.290,9.737,12.256,0,3.260,-1.000,0.000,299.6,800.2,14.32,0.999,0.94,128.8,90,0.193,0,1860021
