@@ -141,3 +141,5 @@ Empty content folders have `.gitkeep` files so a fresh clone retains the layout.
 Accepted Phase 0 is preserved in commit `12b1dff`, with the original foundation
 at `c7dc529`. Phase 1 has its own local implementation commit. An existing GitHub
 `origin` is configured; no commits were pushed.
+
+Latest review: **0.6.3-review1 / CR-050–053**, awaiting Dan. Launch Play-Racer.cmd. For portable songs put chosen audio in BundleMusic and run Package-Racer.cmd; no Unity recompile is required. Read Docs/CR050-053/RADIO.md for recursive sources, explicit limits and preserving/migrating music from old Latest builds. Future packages must use Tools/Package-Racer.ps1 so previous Latest/Music is preserved. Validation and playtest checklist: Docs/CR050-053/VALIDATION.md.

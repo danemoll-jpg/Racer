@@ -52,7 +52,7 @@ namespace Racer
                 Check(renderers.Where(r=>VehiclePaint.IsBodyPaint(r.sharedMaterial)).All(r=>{r.GetPropertyBlock(block);return block.GetColor("_BaseColor")==VehiclePaint.Colors[6];}),"Black body "+profile.Id);
                 Check(renderers.Where(r=>!VehiclePaint.IsBodyPaint(r.sharedMaterial)).All(r=>{r.GetPropertyBlock(block);return block.isEmpty;}),"Unpainted trim/glass/rider "+profile.Id);
             }
-            Check(race.Category.StartsWith("street-v7-entitlement"),"Versioned course records");
+            Check(race.Category.StartsWith("street-v8-landings"),"Versioned course records");
             Check(VehiclePaint.Names[6]=="Black","Stable appended black swatch index");
             foreach(var branch in race.Branches.Where(b=>b.title!="Existing Southwest Cut"))
                 Check(branch.bypassedGates.Length>=2,branch.title+" explicitly bypasses multiple gates");
@@ -142,7 +142,7 @@ namespace Racer
             while(Time.time-begin<55)
             {
                 float roadS=race.road.Project(body.position,out _);float s=branch.Project(body.position,out float lateral);var current=branch.At(s,out var tangent);
-                bool onBranch=!mainRoad && (r.Branch.Route || roadS>=branch.entryRoad-6&&roadS<branch.exitRoad);
+                bool onBranch=!mainRoad && r.Branch.Exits==exits && (r.Branch.Route==branch || roadS>=branch.entryRoad-6&&roadS<branch.exitRoad);
                 float look=Mathf.Clamp(6+Mathf.Abs(car.ForwardSpeed)*.4f,8,23);
                 var target=onBranch?branch.At(s+look,out _):race.road.At(roadS+look,out _);
                 // A repeat uses imperfect entrance/shoulder lines, then returns to the house aperture.
@@ -186,7 +186,8 @@ namespace Racer
                 stalled=car.ForwardSpeed<2?stalled+Time.deltaTime:0; if(stalled>6)break;
                 minUp=Mathf.Min(minUp,car.transform.up.y);if(onBranch)maxLat=Mathf.Max(maxLat,lateral);if(car.GroundedWheels<2)air+=Time.deltaTime;
                 if(Time.time>=nextLog){nextLog=Time.time+.1f;trace.WriteLine($"{Time.time-begin:F3},{body.position.x:F3},{body.position.y:F3},{body.position.z:F3},{car.ForwardSpeed:F3},{desired:F3},{car.GroundedWheels},{r.Branch.Position:F3},{r.Branch.Earned:F3},{race.Progress.MissedGates}");}
-                if((mainRoad && roadS>=branch.exitRoad && roadS<branch.exitRoad+30) || (!mainRoad && r.Branch.Exits>exits)) {finished=true;break;}
+                float nextStation=race.gates.Select(g=>race.road.Project(g.transform.position,out _)).Where(st=>st>branch.exitRoad+1).DefaultIfEmpty(branch.exitRoad+180).Min();
+                if(roadS>nextStation+30 && roadS<nextStation+90 && (mainRoad || r.Branch.Exits>exits)) {finished=true;break;}
                 if(attempt==0 && Time.time-begin>3 && Time.time-begin<3.1f) ScreenCapture.CaptureScreenshot(Path.GetFullPath(Dir+"/drive-"+branch.title.Replace(' ','-')+"-"+car.GetComponent<VehicleConfiguration>().profileId+".png"));
                 yield return null;
             }

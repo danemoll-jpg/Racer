@@ -1,0 +1,14 @@
+Original transforms=14305
+Changed surviving transforms=3: CP 06, CP 10, Phase 3 - Race Systems
+Removed gate-group transforms=12
+ArcadeVehicle.cs unchanged=True
+VehicleProfile.cs unchanged=True
+VehicleRespawn.cs unchanged=True
+VehicleConfiguration.cs unchanged=True
+VehicleAudio.cs unchanged=True
+VehicleSoundSynthesis.cs unchanged=True
+BreakableProp.cs unchanged=True
+WoodlandRoute.cs unchanged=True
+RaceRoad.cs unchanged=True
+RaceProgress.cs unchanged=True
+RacerState.cs unchanged=True

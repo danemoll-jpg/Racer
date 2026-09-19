@@ -1,0 +1,25 @@
+profile,route,attempt,road,finished,seconds,entry_mps,exit_mps,max_lateral,min_up,air_seconds,misses,penalty,branch_exits,recoveries
+original,Existing Southwest Cut,0,False,True,10.467,21.886,23.883,5.364,0.999,0.030,0,0.000,1,0
+original,Existing Southwest Cut,1,False,True,9.763,22.054,25.863,5.548,1.000,0.000,0,0.000,1,0
+original,Existing Southwest Cut,2,False,True,12.277,21.896,23.883,5.802,1.000,0.000,0,0.000,1,1
+original,Existing Southwest Cut,3,False,True,13.459,21.768,23.883,5.802,1.000,0.000,0,0.000,1,1
+original,Existing Southwest Cut,0,True,True,9.958,27.123,41.382,0.000,1.000,0.000,0,0.000,0,0
+original,Existing Southwest Cut,1,True,True,9.966,27.123,41.382,0.000,1.000,0.000,0,0.000,0,0
+tourer,Existing Southwest Cut,0,False,True,10.473,21.407,23.880,5.802,1.000,0.000,0,0.000,1,0
+tourer,Existing Southwest Cut,1,False,True,9.740,21.580,25.862,5.550,1.000,0.000,0,0.000,1,0
+tourer,Existing Southwest Cut,2,False,True,12.405,21.426,23.879,5.802,1.000,0.000,0,0.000,1,1
+tourer,Existing Southwest Cut,3,False,True,13.487,21.389,23.880,5.802,1.000,0.000,0,0.000,1,1
+tourer,Existing Southwest Cut,0,True,True,10.030,27.091,42.170,0.000,1.000,0.000,0,0.000,0,0
+tourer,Existing Southwest Cut,1,True,True,10.008,26.773,42.168,0.000,1.000,0.000,0,0.000,0,0
+moto,Existing Southwest Cut,0,False,True,10.460,23.788,23.489,5.793,0.999,0.102,0,0.000,1,0
+moto,Existing Southwest Cut,1,False,True,9.698,24.687,25.909,5.638,1.000,0.101,0,0.000,1,0
+moto,Existing Southwest Cut,2,False,True,12.078,23.716,23.886,5.793,1.000,0.015,0,0.000,1,1
+moto,Existing Southwest Cut,3,False,True,13.180,23.787,23.908,5.793,1.000,0.115,0,0.000,1,1
+moto,Existing Southwest Cut,0,True,True,8.838,27.728,49.342,0.000,1.000,0.096,0,0.000,0,0
+moto,Existing Southwest Cut,1,True,True,8.842,27.728,49.366,0.000,1.000,0.097,0,0.000,0,0
+atv,Existing Southwest Cut,0,False,True,10.436,23.916,23.910,5.794,0.999,0.100,0,0.000,1,0
+atv,Existing Southwest Cut,1,False,True,9.695,23.924,25.897,5.650,1.000,0.093,0,0.000,1,0
+atv,Existing Southwest Cut,2,False,True,12.142,23.916,23.910,5.794,1.000,0.101,0,0.000,1,1
+atv,Existing Southwest Cut,3,False,True,13.259,23.916,23.910,5.794,1.000,0.099,0,0.000,1,1
+atv,Existing Southwest Cut,0,True,True,9.179,27.292,46.384,0.000,1.000,0.099,0,0.000,0,0
+atv,Existing Southwest Cut,1,True,True,9.189,27.292,46.389,0.000,1.000,0.099,0,0.000,0,0

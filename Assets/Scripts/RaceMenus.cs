@@ -15,6 +15,7 @@ namespace Racer
         RectTransform card;
         UnityEngine.UI.Text title, details, banner, songBanner;
         bool musicPage;
+        bool musicCollectionPage;
         readonly List<UnityEngine.UI.Button> buttons = new();
         readonly Dictionary<RaceFlow.Stage, int> selections = new();
         RaceFlow.Stage shown;
@@ -220,7 +221,7 @@ namespace Racer
             else if (shown == RaceFlow.Stage.Settings)
             {
                 card.GetComponent<UnityEngine.UI.VerticalLayoutGroup>().spacing=6;
-                foreach(var b in buttons)b.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=musicPage?36:38;
+                foreach(var b in buttons)b.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=musicPage?32:38;
                 title.text = "SETTINGS"; details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight = 96;
                 details.text = "Select a setting to cycle its value. Changes apply now.\nVSync uses your display refresh; frame limit applies with VSync off.\nVolume steps: 0–100% in 10% increments.";
                 var s = flow.Save.Settings;
@@ -235,14 +236,26 @@ namespace Racer
                 if(musicPage)
                 {
                     var radio=flow.Radio; title.text="LOCAL MUSIC";
-                    details.fontSize=17;details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=108;
-                    details.text=radio.Song+"\n"+radio.Status+"\n"+radio.Folder+"\nDriving: D-pad →/←/↑/↓ or ] / [ / I / M";
+                    details.fontSize=16;details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=150;
+                    details.text=MusicDetails();
                     Action(0,$"Music volume {s.music:P0}",()=>Adjust(()=>s.music=NextVolume(s.music)));
                     Action(1,"Radio: "+(s.radioOn?"On":"Off"),()=>{radio.Toggle();Show();});
                     Action(2,"Next track",()=>{radio.Next();Show();});
                     Action(3,"Previous track",()=>{radio.Previous();Show();});
                     Action(4,"Open Music folder",radio.OpenFolder);Action(5,"Rescan Music folder",()=>{radio.Rescan();Show();});
-                    Action(6,"Choose local music folder",radio.ChooseFolder);Action(7,"Back to settings",()=>{musicPage=false;Show();});
+                    Action(6,"Music source / collection setup",()=>{musicCollectionPage=true;Show();});Action(7,"Back to settings",()=>{musicPage=false;musicCollectionPage=false;Show();});
+                    if(musicCollectionPage)
+                    {
+                        title.text="MUSIC COLLECTION";
+                        Action(0,"Source: "+(radio.Bundled?"Bundled music":"Custom folder")+" (switch)",()=>{radio.SetSource(!radio.Bundled);Show();});
+                        Action(1,"Include subfolders: "+(radio.IncludeSubfolders?"On":"Off"),()=>{radio.SetRecursive(!radio.IncludeSubfolders);Show();});
+                        Action(2,"Choose custom folder",radio.ChooseFolder);
+                        Action(3,"Open selected folder",radio.OpenFolder);
+                        Action(4,"Rescan collection",()=>{radio.Rescan();Show();});
+                        Action(5,"Cancel scan",()=>{radio.CancelScan();Show();});
+                        Action(6,"Back to music controls",()=>{musicCollectionPage=false;Show();});
+                        buttons[7].gameObject.SetActive(false);
+                    }
                 }
             }
             var active = buttons.FindAll(b=>b.gameObject.activeSelf);
@@ -255,6 +268,11 @@ namespace Racer
             EventSystem.current.SetSelectedGameObject(buttons[focus].gameObject);
         }
         static float NextVolume(float value) => value >= .99f ? 0 : Mathf.Min(1, (Mathf.Floor(value*10+.01f)+1)/10);
+        string MusicDetails()
+        {
+            var radio=flow.Radio;
+            return radio.Song+"\n"+radio.Status+"\n"+radio.ScanStatus+"\n"+(radio.Bundled?"Bundled: ":"Custom: ")+radio.Folder+"\n"+(musicCollectionPage?"Add songs here, then Rescan. ZIP setup: RADIO.md beside game.":"Driving: D-pad →/←/↑/↓ or ] / [ / I / M");
+        }
         void Adjust(System.Action action) { action(); flow.Save.ApplySettings(); flow.Save.SaveSettings(); flow.Click(); Show(); }
         void LateUpdate()
         {
@@ -263,7 +281,7 @@ namespace Racer
             {
                 nextMusicRefresh=Time.unscaledTime+.25f;
                 var radio=flow.Radio;
-                details.text=radio.Song+"\n"+radio.Status+"\n"+radio.Folder+"\nDriving: D-pad →/←/↑/↓ or ] / [ / I / M";
+                details.text=MusicDetails();
             }
             banner.gameObject.SetActive(!flow.MenuVisible);
             bool countdown=flow.State==RaceFlow.Stage.Countdown;

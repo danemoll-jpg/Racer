@@ -1,0 +1,22 @@
+ID 0 | START FINISH  > | road=38.31 | position=(319.67, 16.81, 512.81) | span=12 height=0
+ID 1 | CP 01  > | road=270.16 | position=(321.97, 75.61, 288.66) | span=12 height=0
+ID 2 | CP 02  > | road=501.26 | position=(449.82, 87.12, 112.71) | span=12 height=0
+ID 3 | CP 03  > | road=732.20 | position=(502.45, 88.54, -106.62) | span=12 height=0
+ID 4 | CP 04  > | road=964.10 | position=(556.32, 26.57, -315.48) | span=12 height=0
+ID 5 | CP 05  > | road=1196.32 | position=(502.74, 24.05, -536.44) | span=12 height=0
+ID 6 | CP 06  > | road=1680.02 | position=(130.11, 38.61, -293.96) | span=12 height=24
+ID 7 | CP 07  > | road=1889.01 | position=(1.30, 39.02, -398.93) | span=12 height=0
+ID 8 | CP 08  > | road=2329.70 | position=(-288.51, 20.50, -572.54) | span=12 height=24
+ID 9 | CP 09  > | road=2544.99 | position=(-501.25, 8.55, -549.75) | span=12 height=24
+ID 10 | CP 10  > | road=2830.01 | position=(-621.67, 8.39, -374.52) | span=12 height=24
+ID 11 | CP 11  > | road=3080.01 | position=(-625.96, 9.35, -124.56) | span=12 height=24
+ID 12 | CP 12  > | road=3275.43 | position=(-629.27, 10.02, 70.83) | span=12 height=24
+ID 13 | CP 13  > | road=3507.44 | position=(-632.88, 10.62, 302.81) | span=12 height=0
+ID 14 | CP 14  > | road=3738.45 | position=(-604.65, 9.46, 530.50) | span=14.27069 height=0
+ID 15 | CP 15  > | road=3970.12 | position=(-376.24, 10.08, 533.35) | span=20.4 height=0
+ID 16 | CP 16  > | road=4200.45 | position=(-145.94, 9.84, 529.10) | span=20.4 height=0
+ID 17 | CP 17  > | road=4432.10 | position=(84.03, 10.53, 542.90) | span=20.4 height=0
+Creek Leap: 900..1500; bypass=4,5
+Fox Gully: 1580..2150; bypass=6,7
+Existing Southwest Cut: 2603.875..2755.128; bypass=
+Pine Ridge: 2220..3000; bypass=8,9,10

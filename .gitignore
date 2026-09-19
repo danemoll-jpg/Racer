@@ -113,4 +113,6 @@ InitTestScene*.unity*
 /.phase0-tools/
 /Music/
 /Music.meta
+/BundleMusic/
+/BundleMusic.meta
 

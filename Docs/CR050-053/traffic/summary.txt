@@ -1,0 +1,1 @@
+samples=860; visible appearance changes=0; minimum same-direction near-lane centre distance=2.52m; bodies=4; paints=9

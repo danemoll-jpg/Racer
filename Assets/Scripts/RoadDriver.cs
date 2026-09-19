@@ -250,6 +250,7 @@ namespace Racer
                 }
             }
 
+            if(!racing)GetComponent<AmbientVehicle>()?.Recycle(p);
             Place(destination, recoveryLane);
             stalled = 0;
             RecoveryCount++;
@@ -283,6 +284,7 @@ namespace Racer
             MinimumRecyclePlayerDistance=Mathf.Min(MinimumRecyclePlayerDistance,
                 Vector3.Distance(p,Race.vehicle.transform.position),Vector3.Distance(transform.position,Race.vehicle.transform.position));
             HighwayRecycles++;
+            GetComponent<AmbientVehicle>()?.Recycle(p);
             Place(destination,side);
             // Only pooled ambient traffic enters at cruising pace; racers never use this path.
             Car.Body.linearVelocity=f*Direction*Mathf.Min(25,Car.topSpeed*.6f);

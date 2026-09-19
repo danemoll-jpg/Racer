@@ -32,7 +32,7 @@ namespace Racer
         public bool ClassificationFinal { get; private set; }
 
         public int PlayerPosition => Ordered(false).IndexOf(Racers[0]) + 1;
-        public string Category => $"street-v7-entitlement-{(vehicle.GetComponent<VehicleConfiguration>() ? vehicle.GetComponent<VehicleConfiguration>().profileId : "original")}-{(opponents ? "race4-d" + difficulty+"-"+string.Join("-",opponentRoster) : "solo")}-{(traffic ? "traffic" : "clear")}-laps{laps}";
+        public string Category => $"street-v8-landings-{(vehicle.GetComponent<VehicleConfiguration>() ? vehicle.GetComponent<VehicleConfiguration>().profileId : "original")}-{(opponents ? "race4-d" + difficulty+"-"+string.Join("-",opponentRoster) : "solo")}-{(traffic ? "traffic" : "clear")}-laps{laps}";
         VehicleRespawn respawn;
         float origin;
         float[] gateS;
@@ -184,6 +184,7 @@ namespace Racer
                         renderer.SetPropertyBlock(block);
                     }
 
+                if(!racing)clone.AddComponent<AmbientVehicle>().Initialize();
                 car.enabled = false;
                 car.Body.isKinematic = false;
                 var driver = clone.AddComponent<RoadDriver>();

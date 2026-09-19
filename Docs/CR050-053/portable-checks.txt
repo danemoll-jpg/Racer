@@ -1,0 +1,4 @@
+PASS Scan worker completed
+PASS Bundled resolved beside running installation: C:\Users\danmo\Racer\Builds\PackageWork\20260919-020552-186-47b572\extracted\Racer-0.6.3-music-test-Windows\Music
+PASS Nested bundled tracks discovered after extraction
+PASS Nested/flat WAV decoded DSP output (not subjective listening)

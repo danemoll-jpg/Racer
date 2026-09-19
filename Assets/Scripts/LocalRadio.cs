@@ -20,7 +20,12 @@ namespace Racer
         AudioClip clip;
         UnityWebRequest request;
         Coroutine loading;
-        Task<string[]> scan;
+        Task<MusicCollection.Result> scan;
+        CancellationTokenSource scanCancellation;
+        MusicCollection.Progress scanProgress;
+        int scanRevision, activeScanRevision;
+        bool rescanPending;
+        string scanSummary="Not scanned";
         Task<string> metadata, picker;
         readonly List<string> library=new(), bag=new(), history=new();
         readonly HashSet<string> failed=new(StringComparer.OrdinalIgnoreCase);
@@ -32,7 +37,12 @@ namespace Racer
         public string Status { get; private set; }="Empty library";
         public string Song=>song;
         public string Toast=>Time.unscaledTime<toastUntil?song:null;
-        public string Folder=>flow.Save.Settings.musicFolder;
+        public static string BundledFolder=>Path.GetFullPath(Path.Combine(Application.dataPath,"..","Music"));
+        public bool Bundled=>flow.Save.Settings.musicSource=="bundled";
+        public bool IncludeSubfolders=>flow.Save.Settings.musicRecursive;
+        public string Folder=>Bundled?BundledFolder:flow.Save.Settings.musicFolder;
+        public bool Scanning=>scan!=null;
+        public string ScanStatus=>Scanning?$"Scanning… {Volatile.Read(ref scanProgress.Tracks):N0} tracks / {Volatile.Read(ref scanProgress.Entries):N0} entries (Cancel available)":scanSummary+(failed.Count>0?$" · {failed.Count} playback skips":"");
         public int Count=>library.Count;
         public bool Loading=>loading!=null;
         public bool Playing=>source && source.isPlaying;
@@ -41,41 +51,58 @@ namespace Racer
             flow=owner;
             source=gameObject.AddComponent<AudioSource>(); source.playOnAwake=false;
             source.spatialBlend=0; source.ignoreListenerPause=true; source.priority=180;
-            if(string.IsNullOrWhiteSpace(Folder)) flow.Save.Settings.musicFolder=Path.Combine(Application.persistentDataPath,"Music");
+            if(string.IsNullOrEmpty(flow.Save.Settings.musicSource))flow.Save.Settings.musicSource=string.IsNullOrEmpty(flow.Save.Settings.musicFolder)?"bundled":"custom";
+            if(string.IsNullOrWhiteSpace(flow.Save.Settings.musicFolder)) flow.Save.Settings.musicFolder=Path.Combine(Application.persistentDataPath,"Music");
+            flow.Save.SaveSettings();
             EnsureDefault(); Rescan();
         }
         void EnsureDefault()
         {
             try
             {
-                if(Folder!=Path.Combine(Application.persistentDataPath,"Music"))return;
+                if(!Bundled&&Folder!=Path.Combine(Application.persistentDataPath,"Music"))return;
                 Directory.CreateDirectory(Folder);
                 var readme=Path.Combine(Folder,"README-Racer.txt");
-                if(!File.Exists(readme))File.WriteAllText(readme,"Add your own DRM-free MP3, PCM WAV or Ogg Vorbis files here, then choose Settings / Music / Rescan. No songs are included. Subfolders are not scanned. Files remain local and are never modified. Gameplay: D-pad right/left/up/down = next/previous/show/toggle; keyboard ] / [ / I / M. Music continues through pause, menus and race restart; toggle it off independently. Limits: 2048 files, MP3/Ogg 256 MiB, PCM WAV 64 MiB. See RADIO.md in the game folder.");
+                if(!File.Exists(readme))File.WriteAllText(readme,"Add DRM-free MP3, PCM WAV or Ogg Vorbis files, including artist/album subfolders, then Rescan. Files stay local and are never modified. See RADIO.md beside the game for staging and portable ZIP instructions. Limits: 100,000 tracks / 250,000 entries / 20,000 folders / 30 seconds per scan; MP3/Ogg 256 MiB, WAV 64 MiB. Limits and skipped entries are shown in Music settings.");
             }
             catch(Exception e) when(e is IOException||e is UnauthorizedAccessException){Status="Music folder unavailable; choose another folder";}
         }
         public static bool LocalFolder(string path)=>!string.IsNullOrWhiteSpace(path)&&Path.IsPathRooted(path)&&!path.StartsWith(@"\\")&&!path.Contains("://");
         public void Rescan()
         {
+            scanRevision++;scanCancellation?.Cancel();rescanPending=true;
             if(scan!=null)return;
+            BeginScan();
+        }
+        void BeginScan()
+        {
+            rescanPending=false;
             var folder=Folder; scanFolder=folder;
             if(!LocalFolder(folder)){Status="Choose a local folder";return;}
             Status="Scanning…";
-            scan=Task.Run(()=>
-            {
-                try { return Directory.EnumerateFiles(folder).Where(p=>Type(p)!=AudioType.UNKNOWN).Take(2048).ToArray(); }
-                catch(Exception e) when(e is IOException||e is UnauthorizedAccessException||e is ArgumentException){return Array.Empty<string>();}
-            });
+            activeScanRevision=scanRevision;scanCancellation=new CancellationTokenSource();
+            scanProgress=new MusicCollection.Progress();var token=scanCancellation.Token;var progress=scanProgress;bool recursive=IncludeSubfolders;
+            scan=Task.Run(()=>MusicCollection.Scan(folder,recursive,token,progress));
+        }
+        public void CancelScan(){scanRevision++;rescanPending=false;scanCancellation?.Cancel();scanSummary="Scan cancelled; previous collection retained";}
+        public void SetRecursive(bool recursive){flow.Save.Settings.musicRecursive=recursive;flow.Save.SaveSettings();Rescan();}
+        public void SetSource(bool bundled)
+        {
+            flow.Save.Settings.musicSource=bundled?"bundled":"custom";flow.Save.SaveSettings();
+            ClearCollection();EnsureDefault();Rescan();
+        }
+        void ClearCollection()
+        {
+            StopLoad(); source.Stop(); if(clip)Destroy(clip);clip=null;current=null;
+            history.Clear(); library.Clear();bag.Clear();failed.Clear();lastPlayed=null;
+            song="Radio: no track playing";
         }
         public void SetFolder(string path)
         {
             if(!LocalFolder(path)){Status="Choose a local folder";return;}
-            StopLoad(); source.Stop(); if(clip)Destroy(clip);clip=null;current=null;
-            history.Clear(); library.Clear();bag.Clear();failed.Clear();lastPlayed=null;
+            ClearCollection();flow.Save.Settings.musicSource="custom";
             flow.Save.Settings.musicFolder=Path.GetFullPath(path);flow.Save.SaveSettings();
-            // An older scan is allowed to finish, but never installs results from the old folder.
-            if(scan==null)Rescan();
+            Rescan();
         }
         public void OpenFolder()
         {
@@ -156,9 +183,11 @@ namespace Racer
             source.volume=flow.Save.Settings.music*.32f;
             if(scan!=null&&scan.IsCompleted)
             {
-                var result=scan.IsCompletedSuccessfully?scan.Result:Array.Empty<string>();scan=null;
-                if(scanFolder!=Folder){Rescan();return;}
-                library.Clear();library.AddRange(result);bag.Clear();failed.Clear();retryAt=0;
+                var result=scan.IsCompletedSuccessfully?scan.Result:new MusicCollection.Result{Error="Scan failed; try another folder"};scan=null;
+                scanCancellation.Dispose();scanCancellation=null;
+                if(activeScanRevision!=scanRevision||scanFolder!=Folder){if(rescanPending)BeginScan();return;}
+                scanSummary=result.Summary;
+                library.Clear();library.AddRange(result.Paths);bag.Clear();failed.Clear();retryAt=0;
                 Status=library.Count==0?"No audio found. Open Music folder, add songs, then Rescan":library.Count+" tracks";
                 if(current!=null&&!library.Contains(current)){StopLoad();source.Stop();if(clip)Destroy(clip);clip=null;current=null;}
                 if(!clip&&loading==null&&flow.Save.Settings.radioOn&&library.Count>0)Next();
@@ -196,7 +225,7 @@ namespace Racer
             public override int Read(byte[] b,int o,int c){if((remaining-=c)<0)throw new IOException("Metadata read budget");return base.Read(b,o,c);}
             public override int Read(Span<byte> b){if((remaining-=b.Length)<0)throw new IOException("Metadata read budget");return base.Read(b);}
         }
-        void OnDestroy(){StopLoad();if(clip)Destroy(clip);}
+        void OnDestroy(){scanCancellation?.Cancel();StopLoad();if(clip)Destroy(clip);}
     }
     static class WindowsFolder
     {

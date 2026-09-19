@@ -1,0 +1,4 @@
+original Fox Gully: speed before recovery=-6.961m/s; lateral=6.307m; grounded=4; up=0.987; misses=0; seconds=0
+tourer Fox Gully: speed before recovery=-6.158m/s; lateral=6.050m; grounded=4; up=0.988; misses=0; seconds=0
+moto Fox Gully: speed before recovery=-0.872m/s; lateral=17.627m; grounded=2; up=0.982; misses=0; seconds=0
+atv Fox Gully: speed before recovery=-7.855m/s; lateral=7.346m; grounded=4; up=0.988; misses=0; seconds=0

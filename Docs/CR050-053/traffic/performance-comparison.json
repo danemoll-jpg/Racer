@@ -1,0 +1,18 @@
+[
+  {
+    "Period": "before",
+    "MedianMs": "8.33",
+    "P95Ms": "8.35",
+    "PeakMiB": 502.1,
+    "Settings": "One visible standalone at a time; 1280x720; VSync off; 120fps cap; Normal one lap; mixed roster; 20 traffic",
+    "Result": "Difficulty=Normal; laps=1; traffic=True; local=4; highway=16; shared capabilities; ordinary-frame motor commands. Reference pilot is NOT a human-competition acceptance test.\r\nFinal=True; frames=17577; median=8.33ms; p95=8.35ms\r\nYOU reference pilot original: finished=True; DNF=False; laps=1; lapTimes=144.976; race=147.518; adjusted=147.518; peak=45.73m/s; mean=31.99m/s; brakeSeconds=18.20; recoveries=0; misses=0\r\nEMBER tourer: finished=True; DNF=False; laps=1; lapTimes=144.089; race=146.312; adjusted=146.312; peak=47.74m/s; mean=32.16m/s; brakeSeconds=18.86; recoveries=0; misses=0\r\nGOLD moto: finished=True; DNF=False; laps=1; lapTimes=135.686; race=137.245; adjusted=137.245; peak=56.94m/s; mean=34.38m/s; brakeSeconds=21.14; recoveries=0; misses=0\r\nBLUE atv: finished=True; DNF=False; laps=1; lapTimes=137.832; race=139.039; adjusted=139.039; peak=52.42m/s; mean=33.73m/s; brakeSeconds=22.36; recoveries=0; misses=0\r\n"
+  },
+  {
+    "Period": "after",
+    "MedianMs": "8.33",
+    "P95Ms": "8.40",
+    "PeakMiB": 513.2,
+    "Settings": "One visible standalone at a time; 1280x720; VSync off; 120fps cap; Normal one lap; mixed roster; 20 traffic",
+    "Result": "Difficulty=Normal; laps=1; traffic=True; local=4; highway=16; shared capabilities; ordinary-frame motor commands. Reference pilot is NOT a human-competition acceptance test.\r\nFinal=True; frames=17287; median=8.33ms; p95=8.40ms\r\nYOU reference pilot original: finished=True; DNF=False; laps=1; lapTimes=145.075; race=147.614; adjusted=147.614; peak=45.74m/s; mean=31.94m/s; brakeSeconds=18.80; recoveries=0; misses=0\r\nEMBER tourer: finished=True; DNF=False; laps=1; lapTimes=144.526; race=146.745; adjusted=146.745; peak=47.75m/s; mean=32.13m/s; brakeSeconds=19.38; recoveries=0; misses=0\r\nGOLD moto: finished=True; DNF=False; laps=1; lapTimes=135.166; race=136.722; adjusted=136.722; peak=56.94m/s; mean=34.57m/s; brakeSeconds=20.80; recoveries=0; misses=0\r\nBLUE atv: finished=True; DNF=False; laps=1; lapTimes=139.769; race=140.972; adjusted=140.972; peak=52.42m/s; mean=33.31m/s; brakeSeconds=23.78; recoveries=0; misses=0\r\n"
+  }
+]

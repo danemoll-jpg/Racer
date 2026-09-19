@@ -1,0 +1,4 @@
+original Existing Southwest Cut: speed before recovery=-5.697m/s; lateral=2.036m; grounded=4; up=1.000; misses=0; seconds=0
+tourer Existing Southwest Cut: speed before recovery=-5.685m/s; lateral=1.823m; grounded=4; up=1.000; misses=0; seconds=0
+moto Existing Southwest Cut: speed before recovery=-5.380m/s; lateral=3.793m; grounded=4; up=0.999; misses=0; seconds=0
+atv Existing Southwest Cut: speed before recovery=-5.543m/s; lateral=2.900m; grounded=4; up=1.000; misses=0; seconds=0

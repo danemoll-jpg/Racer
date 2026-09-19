@@ -1,0 +1,111 @@
+PASS original Existing Southwest Cut swept shoulder=0 backward/air=False: zero charge/buzz verified exit
+PASS original Existing Southwest Cut swept shoulder=0 backward/air=True: zero charge/buzz verified exit
+PASS original Existing Southwest Cut swept shoulder=5.8 backward/air=False: zero charge/buzz verified exit
+PASS original Existing Southwest Cut swept shoulder=5.8 backward/air=True: zero charge/buzz verified exit
+PASS original Fox Gully swept shoulder=0 backward/air=False: zero charge/buzz verified exit
+PASS original Fox Gully swept shoulder=0 backward/air=True: zero charge/buzz verified exit
+PASS original Fox Gully swept shoulder=11 backward/air=False: zero charge/buzz verified exit
+PASS original Fox Gully swept shoulder=11 backward/air=True: zero charge/buzz verified exit
+PASS original Creek Leap swept shoulder=0 backward/air=False: zero charge/buzz verified exit
+PASS original Creek Leap swept shoulder=0 backward/air=True: zero charge/buzz verified exit
+PASS original Creek Leap swept shoulder=11 backward/air=False: zero charge/buzz verified exit
+PASS original Creek Leap swept shoulder=11 backward/air=True: zero charge/buzz verified exit
+PASS original Pine Ridge swept shoulder=0 backward/air=False: zero charge/buzz verified exit
+PASS original Pine Ridge swept shoulder=0 backward/air=True: zero charge/buzz verified exit
+PASS original Pine Ridge swept shoulder=11 backward/air=False: zero charge/buzz verified exit
+PASS original Pine Ridge swept shoulder=11 backward/air=True: zero charge/buzz verified exit
+PASS tourer Existing Southwest Cut swept shoulder=0 backward/air=False: zero charge/buzz verified exit
+PASS tourer Existing Southwest Cut swept shoulder=0 backward/air=True: zero charge/buzz verified exit
+PASS tourer Existing Southwest Cut swept shoulder=5.8 backward/air=False: zero charge/buzz verified exit
+PASS tourer Existing Southwest Cut swept shoulder=5.8 backward/air=True: zero charge/buzz verified exit
+PASS tourer Fox Gully swept shoulder=0 backward/air=False: zero charge/buzz verified exit
+PASS tourer Fox Gully swept shoulder=0 backward/air=True: zero charge/buzz verified exit
+PASS tourer Fox Gully swept shoulder=11 backward/air=False: zero charge/buzz verified exit
+PASS tourer Fox Gully swept shoulder=11 backward/air=True: zero charge/buzz verified exit
+PASS tourer Creek Leap swept shoulder=0 backward/air=False: zero charge/buzz verified exit
+PASS tourer Creek Leap swept shoulder=0 backward/air=True: zero charge/buzz verified exit
+PASS tourer Creek Leap swept shoulder=11 backward/air=False: zero charge/buzz verified exit
+PASS tourer Creek Leap swept shoulder=11 backward/air=True: zero charge/buzz verified exit
+PASS tourer Pine Ridge swept shoulder=0 backward/air=False: zero charge/buzz verified exit
+PASS tourer Pine Ridge swept shoulder=0 backward/air=True: zero charge/buzz verified exit
+PASS tourer Pine Ridge swept shoulder=11 backward/air=False: zero charge/buzz verified exit
+PASS tourer Pine Ridge swept shoulder=11 backward/air=True: zero charge/buzz verified exit
+PASS moto Existing Southwest Cut swept shoulder=0 backward/air=False: zero charge/buzz verified exit
+PASS moto Existing Southwest Cut swept shoulder=0 backward/air=True: zero charge/buzz verified exit
+PASS moto Existing Southwest Cut swept shoulder=5.8 backward/air=False: zero charge/buzz verified exit
+PASS moto Existing Southwest Cut swept shoulder=5.8 backward/air=True: zero charge/buzz verified exit
+PASS moto Fox Gully swept shoulder=0 backward/air=False: zero charge/buzz verified exit
+PASS moto Fox Gully swept shoulder=0 backward/air=True: zero charge/buzz verified exit
+PASS moto Fox Gully swept shoulder=11 backward/air=False: zero charge/buzz verified exit
+PASS moto Fox Gully swept shoulder=11 backward/air=True: zero charge/buzz verified exit
+PASS moto Creek Leap swept shoulder=0 backward/air=False: zero charge/buzz verified exit
+PASS moto Creek Leap swept shoulder=0 backward/air=True: zero charge/buzz verified exit
+PASS moto Creek Leap swept shoulder=11 backward/air=False: zero charge/buzz verified exit
+PASS moto Creek Leap swept shoulder=11 backward/air=True: zero charge/buzz verified exit
+PASS moto Pine Ridge swept shoulder=0 backward/air=False: zero charge/buzz verified exit
+PASS moto Pine Ridge swept shoulder=0 backward/air=True: zero charge/buzz verified exit
+PASS moto Pine Ridge swept shoulder=11 backward/air=False: zero charge/buzz verified exit
+PASS moto Pine Ridge swept shoulder=11 backward/air=True: zero charge/buzz verified exit
+PASS atv Existing Southwest Cut swept shoulder=0 backward/air=False: zero charge/buzz verified exit
+PASS atv Existing Southwest Cut swept shoulder=0 backward/air=True: zero charge/buzz verified exit
+PASS atv Existing Southwest Cut swept shoulder=5.8 backward/air=False: zero charge/buzz verified exit
+PASS atv Existing Southwest Cut swept shoulder=5.8 backward/air=True: zero charge/buzz verified exit
+PASS atv Fox Gully swept shoulder=0 backward/air=False: zero charge/buzz verified exit
+PASS atv Fox Gully swept shoulder=0 backward/air=True: zero charge/buzz verified exit
+PASS atv Fox Gully swept shoulder=11 backward/air=False: zero charge/buzz verified exit
+PASS atv Fox Gully swept shoulder=11 backward/air=True: zero charge/buzz verified exit
+PASS atv Creek Leap swept shoulder=0 backward/air=False: zero charge/buzz verified exit
+PASS atv Creek Leap swept shoulder=0 backward/air=True: zero charge/buzz verified exit
+PASS atv Creek Leap swept shoulder=11 backward/air=False: zero charge/buzz verified exit
+PASS atv Creek Leap swept shoulder=11 backward/air=True: zero charge/buzz verified exit
+PASS atv Pine Ridge swept shoulder=0 backward/air=False: zero charge/buzz verified exit
+PASS atv Pine Ridge swept shoulder=0 backward/air=True: zero charge/buzz verified exit
+PASS atv Pine Ridge swept shoulder=11 backward/air=False: zero charge/buzz verified exit
+PASS atv Pine Ridge swept shoulder=11 backward/air=True: zero charge/buzz verified exit
+PASS Backwards body forward passage CP1
+PASS Duplicate passage CP1
+PASS Wrong travel rejected CP1
+PASS Teleport rejected CP1
+PASS Backwards body forward passage CP12
+PASS Duplicate passage CP12
+PASS Wrong travel rejected CP12
+PASS Teleport rejected CP12
+PASS Existing Southwest Cut reversing retains witnessed gates and branch
+PASS Existing Southwest Cut reverse then full re-traversal exits without a penalty chain
+PASS Existing Southwest Cut sustained partial road rejoin keeps earned credit; remaining misses flat five
+PASS Existing Southwest Cut AI shares backwards-body forward branch credit
+PASS Fox Gully reversing retains witnessed gates and branch
+PASS Fox Gully reverse then full re-traversal exits without a penalty chain
+PASS Fox Gully sustained partial road rejoin keeps earned credit; remaining misses flat five
+PASS Fox Gully AI shares backwards-body forward branch credit
+PASS Creek Leap reversing retains witnessed gates and branch
+PASS Creek Leap reverse then full re-traversal exits without a penalty chain
+PASS Creek Leap sustained partial road rejoin keeps earned credit; remaining misses flat five
+PASS Creek Leap AI shares backwards-body forward branch credit
+PASS Pine Ridge reversing retains witnessed gates and branch
+PASS Pine Ridge reverse then full re-traversal exits without a penalty chain
+PASS Pine Ridge sustained partial road rejoin keeps earned credit; remaining misses flat five
+PASS Pine Ridge AI shares backwards-body forward branch credit
+PASS Jamerson 16m airborne backwards-facing forward crossing
+PASS Other gate does not have unlimited jump volume
+PASS Three genuine misses exactly fifteen seconds
+PASS Unarmed finish rejected
+PASS New rules category preserves older records
+PASS Retained partial-rejoin context cannot hide a physically crossed unrelated expected gate
+PASS Historical record remains readable
+PASS Flat-five category does not compete against old rules
+PASS Writing new records leaves historical bytes intact
+PASS Fractional adjusted totals persist in new category
+PASS Record migration preserves saved volume values
+PASS original physical FixedUpdate backwards-body forward crossing
+PASS original physical FixedUpdate high spinning forward crossing
+PASS original physical FixedUpdate genuine reverse crossing
+PASS tourer physical FixedUpdate backwards-body forward crossing
+PASS tourer physical FixedUpdate high spinning forward crossing
+PASS tourer physical FixedUpdate genuine reverse crossing
+PASS moto physical FixedUpdate backwards-body forward crossing
+PASS moto physical FixedUpdate high spinning forward crossing
+PASS moto physical FixedUpdate genuine reverse crossing
+PASS atv physical FixedUpdate backwards-body forward crossing
+PASS atv physical FixedUpdate high spinning forward crossing
+PASS atv physical FixedUpdate genuine reverse crossing

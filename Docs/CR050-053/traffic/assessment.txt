@@ -1,0 +1,6 @@
+Final mixed three-lap race: four finishes, zero misses/penalties, zero racer recoveries.
+Traffic recycles=148
+Traffic recoveries=0
+Observed paints=9
+Observed bodies=4
+The 2.52m proximity minimum is a moving near-lane centre-distance diagnostic, not a collider-penetration measurement. Traffic contacts remain possible. No observed appearance popping. See representative renders and race comparison.

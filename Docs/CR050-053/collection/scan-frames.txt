@@ -1,0 +1,2 @@
+12,000-file discovery while standalone driving/playback: frames=2308; max=27.32ms; mean=1.03ms. Background window measurements, not subjective hitch acceptance.
+Full radio large-root scan/install frames=3248; max=43.19ms; first full-collection shuffle request=6.32ms. Synthetic path files are deliberately not playable audio.

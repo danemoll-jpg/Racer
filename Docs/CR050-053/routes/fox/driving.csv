@@ -1,0 +1,25 @@
+profile,route,attempt,road,finished,seconds,entry_mps,exit_mps,max_lateral,min_up,air_seconds,misses,penalty,branch_exits,recoveries
+original,Fox Gully,0,False,True,26.230,23.687,29.906,6.004,0.972,1.671,0,0.000,1,0
+original,Fox Gully,1,False,True,25.440,25.182,31.746,5.859,0.972,1.498,0,0.000,1,0
+original,Fox Gully,2,False,True,29.244,23.833,29.913,5.957,0.956,1.397,0,0.000,1,1
+original,Fox Gully,3,False,True,29.495,23.833,29.906,5.957,0.972,1.856,0,0.000,1,1
+original,Fox Gully,0,True,True,25.979,30.129,28.854,0.000,0.963,0.000,0,0.000,0,0
+original,Fox Gully,1,True,True,25.980,30.129,28.918,0.000,0.963,0.000,0,0.000,0,0
+tourer,Fox Gully,0,False,True,26.366,23.713,29.864,5.967,0.972,1.343,0,0.000,1,0
+tourer,Fox Gully,1,False,True,25.555,25.121,31.937,5.868,0.972,1.425,0,0.000,1,0
+tourer,Fox Gully,2,False,True,29.539,23.714,29.723,5.967,0.952,1.337,0,0.000,1,1
+tourer,Fox Gully,3,False,True,29.698,23.714,29.723,5.967,0.972,1.480,0,0.000,1,1
+tourer,Fox Gully,0,True,True,26.020,30.081,28.818,0.000,0.963,0.000,0,0.000,0,0
+tourer,Fox Gully,1,True,True,25.965,29.624,28.780,0.000,0.963,0.000,0,0.000,0,0
+moto,Fox Gully,0,False,True,25.580,24.621,29.945,5.948,0.970,1.859,0,0.000,1,0
+moto,Fox Gully,1,False,True,24.534,25.412,31.679,7.474,0.970,2.061,0,0.000,1,0
+moto,Fox Gully,2,False,True,28.068,24.622,29.797,5.948,0.965,1.720,0,0.000,1,1
+moto,Fox Gully,3,False,True,28.168,24.110,29.947,5.985,0.971,1.871,0,0.000,1,1
+moto,Fox Gully,0,True,True,24.978,30.773,28.855,0.000,0.965,0.078,0,0.000,0,0
+moto,Fox Gully,1,True,True,24.981,30.630,28.858,0.000,0.965,0.081,0,0.000,0,0
+atv,Fox Gully,0,False,True,25.710,23.556,29.792,5.992,0.973,1.928,0,0.000,1,0
+atv,Fox Gully,1,False,True,24.845,25.090,31.778,7.151,0.973,1.760,0,0.000,1,0
+atv,Fox Gully,2,False,True,28.368,24.218,29.780,5.992,0.963,1.546,0,0.000,1,1
+atv,Fox Gully,3,False,True,28.740,24.261,29.783,5.953,0.973,1.977,0,0.000,1,1
+atv,Fox Gully,0,True,True,25.281,30.640,28.835,0.000,0.965,0.222,0,0.000,0,0
+atv,Fox Gully,1,True,True,25.218,30.640,28.791,0.000,0.965,0.220,0,0.000,0,0

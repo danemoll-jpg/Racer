@@ -1,0 +1,4 @@
+original Creek Leap: speed before recovery=-5.369m/s; lateral=3.439m; grounded=4; up=1.000; misses=0; seconds=0
+tourer Creek Leap: speed before recovery=-5.356m/s; lateral=2.938m; grounded=4; up=1.000; misses=0; seconds=0
+moto Creek Leap: speed before recovery=-5.248m/s; lateral=5.097m; grounded=4; up=1.000; misses=0; seconds=0
+atv Creek Leap: speed before recovery=-5.408m/s; lateral=4.273m; grounded=4; up=1.000; misses=0; seconds=0

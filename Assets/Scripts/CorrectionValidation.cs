@@ -58,7 +58,7 @@ namespace Racer
                         $"{profile.Id} {branch.title} swept shoulder={shoulder} backward/air={backward}: zero charge/buzz verified exit");
                 }
             }
-            foreach(int index in new[]{1,14})
+            foreach(int index in new[]{1,12})
             {
                 var gate=race.gates[index]; Seed(index);
                 var p=gate.transform.position; var f=gate.transform.forward;
@@ -104,9 +104,9 @@ namespace Racer
                     branch.title+" AI shares backwards-body forward branch credit");
             }
             {
-                int index=14;var gate=race.gates[index];var f=gate.transform.forward;
+                int index=12;var gate=race.gates[index];var f=gate.transform.forward;
                 Seed(index);var p=gate.transform.position+Vector3.up*16;race.ResetSampling(p-f,clock);Sample(p+f,-f);
-                Check(race.Progress.NextGate==15,"Jamerson 16m airborne backwards-facing forward crossing");
+                Check(race.Progress.NextGate==13,"Jamerson 16m airborne backwards-facing forward crossing");
                 Seed(1);var ordinary=race.gates[1];p=ordinary.transform.position+Vector3.up*16;f=ordinary.transform.forward;
                 race.ResetSampling(p-f,clock);Sample(p+f,f);Check(race.Progress.NextGate==1,"Other gate does not have unlimited jump volume");
                 Seed(1);gate=race.gates[4];f=gate.transform.forward;p=gate.transform.position;
@@ -115,7 +115,7 @@ namespace Racer
                 Seed(1);gate=race.gates[0];p=gate.transform.position;f=gate.transform.forward;race.ResetSampling(p-f,clock);Sample(p+f,f);
                 Check(race.Progress.CompletedLaps==0,"Unarmed finish rejected");
             }
-            Check(race.Category.StartsWith("street-v6-flat5-"),"New rules category preserves older records");
+            Check(race.Category.StartsWith("street-v8-landings-"),"New rules category preserves older records");
             {
                 var branch=race.Branches.First(b=>b.title=="Existing Southwest Cut");
                 int expected=Array.FindIndex(race.gates,g=>race.road.Project(g.transform.position,out _)>branch.exitRoad);
@@ -142,7 +142,7 @@ namespace Racer
             foreach(int scenario in new[]{0,1,2})
             {
                 race.vehicle.GetComponent<VehicleConfiguration>().Apply(profile.Id);
-                int gateIndex=scenario==1?14:1;Seed(gateIndex);
+                int gateIndex=scenario==1?12:1;Seed(gateIndex);
                 var gate=race.gates[gateIndex];var forward=gate.transform.forward;
                 var position=gate.transform.position+forward*(scenario==2?8:-8)+Vector3.up*(scenario==1?16:2);
                 var body=race.vehicle.Body;body.isKinematic=false;body.position=position;body.rotation=Quaternion.LookRotation(-forward);

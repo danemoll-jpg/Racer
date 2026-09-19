@@ -1,0 +1,4 @@
+original Pine Ridge: speed before recovery=-32.910m/s; lateral=25.524m; grounded=0; up=0.999; misses=0; seconds=0
+tourer Pine Ridge: speed before recovery=-32.374m/s; lateral=25.966m; grounded=0; up=1.000; misses=0; seconds=0
+moto Pine Ridge: speed before recovery=-16.263m/s; lateral=35.239m; grounded=0; up=0.996; misses=0; seconds=0
+atv Pine Ridge: speed before recovery=-29.664m/s; lateral=32.377m; grounded=0; up=1.000; misses=0; seconds=0

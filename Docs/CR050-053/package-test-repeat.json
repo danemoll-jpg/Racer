@@ -1,0 +1,14 @@
+{
+  "Version": "0.6.3-music-test",
+  "PackagedAt": "2026-09-19T02:08:47.3605864-04:00",
+  "Songs": 2,
+  "Files": 240,
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\Racer-0.6.3-music-test-Windows",
+  "Latest": "C:\\Users\\danmo\\Racer\\Builds\\Latest",
+  "ZIP": "C:\\Users\\danmo\\Racer\\Builds\\Racer-0.6.3-music-test-Windows.zip",
+  "ZipSHA256": "2C120CFB75022F1A66118A61D85157ED03366A06EBF767CDA9CA269F11A11D0D",
+  "Preserved": "C:\\Users\\danmo\\Racer\\Builds\\Preserved\\20260919-020732-714-79c2cf",
+  "Extracted": "C:\\Users\\danmo\\Racer\\Builds\\PackageWork\\20260919-020732-714-79c2cf\\extracted\\Racer-0.6.3-music-test-Windows",
+  "Verified": "All extracted ZIP, versioned runtime and Latest files match SHA256",
+  "ExternalCollections": "Not read or copied"
+}

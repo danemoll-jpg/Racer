@@ -34,6 +34,13 @@ namespace Racer
         public Transform[] cars;
         public float[] heights;
         public float start=-150,step=5;
+        AmbientVehicle[] appearances;
+        float[] previous;
+        void Start()
+        {
+            appearances=new AmbientVehicle[cars.Length];previous=new float[cars.Length];
+            for(int i=0;i<cars.Length;i++){appearances[i]=cars[i].gameObject.AddComponent<AmbientVehicle>();appearances[i].Initialize();previous[i]=Mathf.Repeat(Time.time*15+i*85,340);}
+        }
         public float Height(float z)
         {if(heights==null||heights.Length<2)return 0;float index=Mathf.Clamp((z-start)/step,0,heights.Length-1);int i=Mathf.Min((int)index,heights.Length-2);return Mathf.Lerp(heights[i],heights[i+1],index-i);}
         void Update()
@@ -43,7 +50,10 @@ namespace Racer
                 float s=Mathf.Repeat(Time.time*15+i*85,340);
                 bool reverse=i%2==1;
                 float z=65+(reverse?340-s:s);
-                cars[i].localPosition=new(reverse?-3:3,Height(z)+1,z);
+                if(appearances!=null&&s<previous[i])appearances[i].Recycle(transform.TransformPoint(new Vector3(reverse?-3:3,Height(z)+.55f,z)));
+                if(previous!=null)previous[i]=s;
+                // The shared art's wheel bottom is 0.55m below its origin.
+                cars[i].localPosition=new(reverse?-3:3,Height(z)+.55f,z);
                 cars[i].localRotation=Quaternion.LookRotation(new Vector3(0,Height(z+1)-Height(z-1),2)*(reverse?-1:1));
             }
         }

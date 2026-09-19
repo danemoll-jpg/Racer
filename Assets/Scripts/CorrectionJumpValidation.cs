@@ -16,7 +16,7 @@ namespace Racer
         {
             yield return null;Directory.CreateDirectory(Dir);var race=FindAnyObjectByType<RaceDirector>();
             var pad=InputSystem.AddDevice<Gamepad>();InputSystem.settings.backgroundBehavior=InputSettings.BackgroundBehavior.IgnoreFocus;
-            File.WriteAllText(Dir+"/results.csv","profile,attempt,entry,apexAboveBase,airSeconds,landed,gate14Credited,misses,penalty,finalUp\n");
+            File.WriteAllText(Dir+"/results.csv","profile,attempt,entry,apexAboveBase,airSeconds,landed,gate12Credited,misses,penalty,finalUp\n");
             foreach(var profile in VehicleProfile.All)
             {
                 race.Flow.OpenGarage();race.Flow.SelectVehicle(profile.Id);race.Flow.CloseGarage();race.opponents=race.traffic=false;race.Flow.StartRace();while(race.Flow.State!=RaceFlow.Stage.Racing)yield return null;
@@ -24,7 +24,7 @@ namespace Racer
                 {
                     var car=race.vehicle;float station=race.road.Project(new Vector3(-627,0,-360),out _);var p=race.road.At(station,out var f)+Vector3.Cross(Vector3.up,f).normalized*-1.5f+Vector3.up*.7f;
                     car.Body.position=p;car.Body.rotation=Quaternion.LookRotation(Vector3.ProjectOnPlane(f,Vector3.up));car.transform.SetPositionAndRotation(p,car.Body.rotation);car.Body.linearVelocity=car.Body.angularVelocity=Vector3.zero;car.ClearSteering();Physics.SyncTransforms();race.ResetSampling(p,Time.timeAsDouble);FindAnyObjectByType<ChaseCamera>().Snap();
-                    race.Progress.Restart();race.Progress.Cross(0,true,0);for(int i=1;i<=12;i++)race.Progress.Cross(i,true,i);
+                    race.Progress.Restart();race.Progress.Cross(0,true,0);for(int i=1;i<=10;i++)race.Progress.Cross(i,true,i);
                     race.Racers[0].Branch.Clear();var ramp=GameObject.Find("Phase 4 - Connector Jump").transform;
                     float start=Time.time,air=0,apex=0,entry=0;bool airborne=false,landed=false;
                     using(var trace=new StreamWriter(Dir+"/"+profile.Id+"-"+attempt+".csv"))
@@ -41,7 +41,7 @@ namespace Racer
                             yield return null;
                         }
                     }
-                    File.AppendAllText(Dir+"/results.csv",$"{profile.Id},{attempt},{entry:F3},{apex:F3},{air:F3},{landed},{race.Progress.NextGate>=15},{race.Progress.MissedGates},{race.Progress.PenaltySeconds},{car.transform.up.y:F3}\n");
+                    File.AppendAllText(Dir+"/results.csv",$"{profile.Id},{attempt},{entry:F3},{apex:F3},{air:F3},{landed},{race.Progress.NextGate>=13},{race.Progress.MissedGates},{race.Progress.PenaltySeconds},{car.transform.up.y:F3}\n");
                     InputSystem.QueueStateEvent(pad,new GamepadState());yield return new WaitForSeconds(.2f);
                 }
                 race.Flow.Pause();race.Flow.QuitRace();

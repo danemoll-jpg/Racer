@@ -1,0 +1,41 @@
+PASS Generated nested fixtures
+PASS Scan worker completed
+PASS Collection root includes all artists/albums
+PASS Nested/flat WAV decoded DSP output (not subjective listening)
+PASS Scan worker completed
+PASS Artist root includes both albums
+PASS Scan worker completed
+PASS Recursion Off excludes album subfolders
+PASS Scan worker completed
+PASS Recursion On rediscovers albums
+PASS Scan worker completed
+PASS Flat folder supported
+PASS Nested/flat WAV decoded DSP output (not subjective listening)
+PASS Scan worker completed
+PASS Rescan discovers addition
+PASS Scan worker completed
+PASS Rescan removes deleted path
+PASS Root, recursion and source persist through new save instance
+PASS Generated 12,000-path synthetic library
+PASS 12,000 tracks found without old 2,048 truncation
+PASS Full radio Rescan installs all 12,000 paths while driving
+PASS Scan worker completed
+PASS Nested/flat WAV decoded DSP output (not subjective listening)
+PASS Cancelled scan terminates without discovery
+PASS Scan worker completed
+PASS Changing root cancels old scan; no stale result installation
+PASS Scan worker completed
+PASS Cancel retains previous collection
+PASS Nested/flat WAV decoded DSP output (not subjective listening)
+PASS Nested/flat WAV decoded DSP output (not subjective listening)
+PASS Shuffle bag includes all artists without replacement
+PASS Scan worker completed
+PASS Missing folder reports scan counts
+PASS Scan worker completed
+PASS Empty collection works
+PASS Scan worker completed
+PASS Bundled path uses installation, not current directory
+PASS Standalone traffic has four body types
+PASS Standalone traffic has varied paints
+PASS Traffic density retained (16 highway + 4 local)
+PASS All traffic collision widths fit local and highway lanes
