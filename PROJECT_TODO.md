@@ -1008,7 +1008,7 @@ Use this for things that are not bugs but that Dan wants changed.
 **Result:** Creek Leap900→1500m bypassesCP4–6; Fox Gully1580→2150 bypassesCP7–9; Pine Ridge2220→3000 bypassesCP10–12. Existing southwest cut retained. Per-racer directed entry, contiguous horizontal evidence, supported shoulder/airborne envelope, branch standings, backward safe recovery and verified exit grant only earned gate credit. Clean branches incur no miss/cut/buzz penalties; unrelated cuts/early abandonment retain ordinary rules. All four vehicles have repeated clean passes;77/77 rule fixtures include complete laps, reversing, off-route/recovery and teleport/finish abuse.60 comparison attempts plus retained failed iterations documented in ROUTE-TIMINGS.md. Gully's conservative gain is modest; fun remains Dan's review.26 local terrain tiles/17,060 vertices,115 corridor trees; no house/yard moves or legacy rebuild.
 
 ### CR-040 — Lake/woodland circuit behind friend's house
-**Status:** IMPLEMENTED IN 0.7.0-review1 — automated validation recorded; awaiting Dan review.
+**Status:** REVISION REQUIRED — Dan reports seven substantial design/physics issues in 0.7.0-review1; CR-056 supersedes the all-four-vehicles requirement for this forest course.
 **Concept:** A selectable second circuit starting near the friend's house/lake, passing Dan's house and continuing through the woods with varied large jumps, gullies and creek crossings. Fun above geographic realism. Author the lake and route as needed without moving accepted homes/yards or breaking the original course. Reuse suitable existing terrain/routes but make this a distinct playable race. All four vehicles and AI must complete it; include readable approaches, supported landings, sensible local recovery and optional risk/reward shortcuts with explicit penalty-free bypass credit. Gates must be clear of shortcut mouths/landing zones. Preserve existing difficulty tuning while authoring suitable AI lines/speeds for this course.
 **Acceptance:** Track selection, starting grid, AI race completion, independent gate/lap/finish state, recovery, results and records work on both tracks. Inactive-course gates do not trigger. Compare performance and test all vehicle profiles, shortcuts and multi-lap races in the standalone build. No track editor, multiplayer or exact house relocation.
 **Result:** Separate selectable 1.91 km Lake & Woods scene; accepted houses and original scene preserved. Seven active gates, independent course version, three supported jumps/creeks and explicit Birch Hollow CP03 bypass. Both courses completed two laps with all four profiles/AI and zero misses; 24 lake route attempts and 12 jump runs passed. See Docs/CR040-054-055/VALIDATION.md for the failed first candidate, fixes and limits.
@@ -1105,12 +1105,28 @@ Difficulty retuning, exact house placement and photo-based home accuracy remain 
 
 ---
 
+### CR-056 — Forest Loop arcade trail redesign
+**Status:** AUTHORIZED — next combined revision; CR-040 is not accepted in its current form.
+**Latest feedback:** Dan likes the overall progress but reports an unclear/missing lake, wrong start location, recurring jump slowdowns, an easy straight shortcut, too few jumps, civilian traffic offroad and paths that feel like wide roads.
+**Scope:**
+- Rename the second course Forest Loop across track selection, HUD/results, records labels and documentation; preserve internal save identifiers or migrate safely.
+- Position the start behind the existing friend's house by a clearly visible lake. Inspect whether prior lake geometry exists but is hidden/misplaced before replacing it. Provide an unmistakable shoreline/water feature visible from the grid and opening route; preserve house placement and original course.
+- Audit every launch/landing and trail transition. Diagnose speed losses with input, speed, contact and suspension/stability telemetry, correct abrupt ramp tangents/seams/overlaps and collision defects, and retain intentional physical effects. Do not mask defects with hidden launch boosts or globally disabled collisions. Recheck the original house/road jump regressions.
+- Replace the wide straight shortcut with a genuine optional cave route: rock enclosure, readable tight bends, a jump/gap and supported landing. It must reward skilled clean traversal, cost time naturally on failure, remain recoverable, and preserve penalty-free authorized gate bypasses. Avoid blind unavoidable impacts, narrow snagging or checkpoint requirements inside flight zones.
+- Make jumps central to the whole lap. Author at least six distinct intentional main-route jump opportunities, including a visible creek/river crossing, deep gully leap, varied elevation/drop and linked smaller jumps, plus the cave jump. Treat this as a design target, not six copies of one ramp. Supply a labeled route map with each takeoff/landing and compare total jump count to the prior build. Arcade spectacle and variety over straight travel; credible visible terrain support and readable lines still required.
+- Restrict civilian traffic to actual street routes, including spawns, waypoints, avoidance and recovery. Only race opponents may drive forest/cave trails. Street crossings can retain legitimate road traffic. Wildlife is an optional future ambience idea, not required for this pass and not a substitute for requested work.
+- Narrow trails into dense forest paths with varied bends/elevation, close trees/undergrowth/rocks, dirt/ruts and no suburban-road appearance. Use motorcycle/ATV-only eligibility for Forest Loop, as Dan permits, to avoid widening trails for cars. Match usable width to their swept clearance at bends/speed; allow deliberate passing pockets and grid space rather than an impassable single-file corridor. Apply eligibility consistently to player selection, AI roster, saved selections and records with clear UI feedback. Original street course retains all vehicles.
+**Validation:** Motorcycle/ATV human-like driving and AI full races through the revised route/cave; every jump tested at intended speeds plus imperfect approaches, local recovery and multi-lap gate/penalty checks. Show before/after speeds and contact findings for recurring slowdown. Demonstrate lake/start and visible jump/cave layout from gameplay views, not only overhead or automated success. Ensure no ambient car spawns, paths or recovers onto trails. Measure performance with dense foliage. Increment revised course record version while preserving historical boards; preserve current radio channels/bundled music, top-ten boards, difficulty constants and original course. Await Dan review; do not claim fun or physical controller acceptance from automated tests.
+
+---
+
 # DECISION LOG
 
 Record choices we do not want to repeatedly reconsider.
 
 | Date | Decision | Reason |
 |---|---|---|
+| 2026-09-19 | Revise second track as Forest Loop under CR-056 | Visible lake/start behind friend, smooth frequent jumps, challenging cave, narrow motorcycle/ATV trails and street-only civilian traffic; wildlife deferred |
 | 2026-09-19 | Deliver omitted CR-040/054 plus CR-055 radio channels | Bundled Music becomes default; immediate child folder names label recursive channels; one button cycles channels and Off |
 | 2026-09-19 | Authorize CR-040 second lake/woods track and CR-054 top-ten lap/race records alongside CR-050 through CR-053 | Dan agrees to recommended next track and requests both record lists; later approval supersedes previous CR-040 backlog restriction |
 | 2026-09-19 | Initial request: bundle CR-050 through CR-053; feature choice initially pending | Dan reports shortcut gate placement, identical traffic, nested library and portable music needs; explicitly permits selected music in friend package, without authorizing upload |
@@ -1193,6 +1209,11 @@ Record choices we do not want to repeatedly reconsider.
 ---
 
 # SESSION HANDOFF
+
+**Current next delivery:** CR-056 Forest Loop redesign addresses all seven latest comments. CR-040 is not accepted yet. Forest Loop uses motorcycle/ATV-only eligibility; the original street course retains all vehicles. Wildlife is deferred. Preserve radio and record systems; no blanket acceptance of their outstanding checks is inferred. This is a planning update only.
+
+**Prior implementation evidence follows; earlier completion claims do not validate the latest feedback:**
+
 
 **Current delivery — 0.7.0-review1: CR-040, CR-054 and CR-055 implemented together, awaiting Dan review.** CR-050 through CR-053 remain preserved. Safety checkpoint: `522917554b0bbc7c8eebf664790b2c8573d0a88f`; completion commit is reported in the delivery response and runtime VERSION.txt. See Docs/CR040-054-055/VALIDATION.md for actual evidence and limitations. Earlier exclusions below are historical.
 
