@@ -209,7 +209,7 @@ namespace Racer
                 Drivers.Add(driver);
                 if (racing)
                 {
-                    var state = new RacerState(clone.name, car, gates.Length - 1, laps);
+                    var state = new RacerState(clone.name, car, gates.Length - 1, laps, true);
                     Racers.Add(state);
                     driver.Racer = state;
                 }
@@ -250,13 +250,17 @@ namespace Racer
             Sample(vehicle.Body.position, vehicle.transform.forward, Clock);
             for (int i = 1; i < Racers.Count; i++)
                 SampleRacer(Racers[i], Racers[i].Car.Body.position, Racers[i].Car.transform.forward, Clock, false);
+            foreach(var r in Racers)
+                if(r.IsAi && !r.Classified && !r.Dnf)
+                    r.Estimate.Sample(Clock,RemainingDistance(r),r.Car.GetComponent<VehicleConfiguration>().Profile.Speed,!float.IsNaN(r.RecoveryStart));
+            if(Progress.Finished && Flow && Flow.Save.Settings.estimateAiFinishes) FinalizeUnfinishedAi();
             if (Racers.Any(r => r.Progress.Finished) && firstFinish < 0)
                 firstFinish = Clock;
             if (Clock - startedAt >= maximumRaceSeconds || (firstFinish >= 0 && Clock - firstFinish >= finishGraceSeconds))
                 foreach (var r in Racers)
-                    if (!r.Progress.Finished)
+                    if (!r.Classified)
                         r.Dnf = true;
-            if (!ClassificationFinal && Racers.All(r => r.Progress.Finished || r.Dnf))
+            if (!ClassificationFinal && Racers.All(r => r.Classified || r.Dnf))
             {
                 ClassificationFinal = true;
                 Flow?.CompleteResults();
@@ -266,7 +270,7 @@ namespace Racer
         public void Sample(Vector3 position, Vector3 heading, double now) => SampleRacer(Racers[0], position, heading, now, true);
         void SampleRacer(RacerState r, Vector3 position, Vector3 heading, double now, bool player)
         {
-            if ((Flow && Flow.State != RaceFlow.Stage.Racing) || r.Progress.Finished || r.Dnf)
+            if ((Flow && Flow.State != RaceFlow.Stage.Racing) || r.Classified || r.Dnf)
                 return;
             var p = r.Progress;
             int completed = p.CompletedLaps, misses = p.MissedGates;
@@ -433,8 +437,48 @@ namespace Racer
             }
         }
 
-        public List<RacerState> Ordered(bool final) => final ? Racers.OrderBy(r => !r.Progress.Finished).ThenBy(r => r.Progress.Finished ? r.Progress.AdjustedTime(Clock) : -Score(r)).ToList() : Racers.OrderByDescending(Score).ThenBy(r => r.Progress.Finished ? r.Progress.RaceTime(Clock) : 0).ToList();
+        public float RemainingDistance(RacerState r)
+        {
+            float length=road?road.Length:4000;
+            var p=r.Progress;
+            float current=length;
+            if(p.LapActive && p.LapValid && road)
+            {
+                if(r.Branch.Route)
+                {
+                    var branch=r.Branch.Route;
+                    current=Mathf.Max(0,branch.Length-r.Branch.Position)+length-road.Relative(branch.exitRoad,origin);
+                }
+                else
+                {
+                    int last=p.NextGate==0?gateS.Length-1:Mathf.Max(0,p.NextGate-1);
+                    float end=p.NextGate==0?length:gateS[p.NextGate];
+                    road.Project(r.Car.Body.position,out float lateral);
+                    // Outside the supported corridor retain only earned gate progress.
+                    float station=lateral<=18?r.RoadPosition:gateS[last];
+                    current=length-Mathf.Clamp(station,gateS[last],end);
+                }
+            }
+            return Mathf.Max(0,(p.TargetLaps-p.CompletedLaps-1)*length+current);
+        }
+        public void FinalizeUnfinishedAi()
+        {
+            if(!Progress.Finished || ClassificationFinal) return;
+            foreach(var r in Racers)
+            {
+                if(!r.IsAi || r.Classified || r.Dnf) continue;
+                var profile=r.Car.GetComponent<VehicleConfiguration>().Profile;
+                if(r.FinalizeEstimate(Clock,r.Estimate.Duration(Clock,RemainingDistance(r),profile,Forest,difficulty)))
+                {
+                    // Freeze in place and remove contact participation; no gate or transform changes.
+                    if(!r.Car.Body.isKinematic) r.Car.Body.linearVelocity=r.Car.Body.angularVelocity=Vector3.zero;
+                    r.Car.Body.isKinematic=true; r.Car.Body.detectCollisions=false;
+                }
+            }
+            if(Racers.All(r=>r.Classified||r.Dnf)) { ClassificationFinal=true; Flow?.CompleteResults(); }
+        }
+        public List<RacerState> Ordered(bool final) => final ? Racers.OrderBy(r => !r.Classified).ThenBy(r => r.Classified ? r.ClassifiedTime(Clock) : -Score(r)).ToList() : Racers.OrderByDescending(Score).ThenBy(r => r.Classified ? r.ClassifiedTime(Clock) : 0).ToList();
         float Score(RacerState r) => r.Progress.Finished ? laps * (road ? road.Length : 4000) : r.Progress.CompletedLaps * (road ? road.Length : 4000) + (r.Progress.LapActive ? r.RoadPosition : -1);
-        public string Standings() => string.Join("\n", Ordered(true).Select((r, i) => $"{i + 1}. {r.Name}  {(r.Dnf ? "DNF" : r.Progress.Finished ? RaceHud.FormatTime(r.Progress.AdjustedTime(Clock)) : "racing")}  (+{r.Progress.PenaltySeconds:0.0}s / {r.Progress.MissedGates} misses)"));
+        public string Standings() => string.Join("\n", Ordered(true).Select((r, i) => $"{i + 1}. {r.Name}  {(r.Dnf ? "DNF" : r.Classified ? (r.Estimated?"~ ":"")+RaceHud.FormatTime(r.ClassifiedTime(Clock))+(r.Estimated?" Estimated":"") : "racing")}  (+{r.Progress.PenaltySeconds:0.0}s / {r.Progress.MissedGates} misses)"));
     }
 }

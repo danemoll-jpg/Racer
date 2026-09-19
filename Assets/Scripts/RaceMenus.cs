@@ -108,7 +108,9 @@ namespace Racer
             shown = RaceFlow.Stage.Ready;
             songBanner=Label("Current song",canvas.transform,18,0);
             songBanner.alignment=TextAnchor.MiddleCenter;
-            songBanner.rectTransform.anchorMin=new Vector2(.15f,.035f);songBanner.rectTransform.anchorMax=new Vector2(.85f,.09f);
+            songBanner.rectTransform.anchorMin=new Vector2(.12f,.035f);songBanner.rectTransform.anchorMax=new Vector2(.80f,.10f);
+            songBanner.horizontalOverflow=HorizontalWrapMode.Overflow;
+            songBanner.resizeTextForBestFit=true; songBanner.resizeTextMinSize=14; songBanner.resizeTextMaxSize=18;
             songBanner.rectTransform.offsetMin=songBanner.rectTransform.offsetMax=Vector2.zero;
             songBanner.gameObject.AddComponent<UnityEngine.UI.Outline>();
         }
@@ -184,6 +186,7 @@ namespace Racer
                 details.text=$"Elapsed {RaceHud.FormatTime(p.RaceTime(flow.Race.Clock))}  +{p.PenaltySeconds:0.0}s penalties\nAdjusted {RaceHud.FormatTime(p.AdjustedTime(flow.Race.Clock))}\nR / Y: recover locally; time and lap progress continue.\nRestart Race clears this event and restores props.";
                 Action(0,"Resume",flow.Resume); Action(1,"Restart Race",flow.StartRace); Action(2,"Settings",flow.OpenSettings); Action(3,"Quit Race / Return to Menu",flow.QuitRace); Action(4,"Quit Game",flow.Quit);
                 Action(5,"Penalty breakdown / next page",()=>{ penaltyPage++; if(penaltyPage*4>=p.Penalties.Count) penaltyPage=-1; Show(); });
+                if(p.Finished && !flow.Race.ClassificationFinal) Action(6,"Skip waiting / estimate remaining AI",flow.Race.FinalizeUnfinishedAi);
                 if(penaltyPage>=0) PenaltyDetails(p);
             }
             else if (shown == RaceFlow.Stage.Results)
@@ -273,6 +276,7 @@ namespace Racer
                 Action(5,"Frame limit   " + s.frameLimit + " fps",()=>Adjust(()=>s.frameLimit=s.frameLimit==30?60:s.frameLimit==60?120:30));
                 Action(6,"Back",flow.CloseSettings);
                 Action(7,"Music / local radio",()=>{musicPage=true;Show();});
+                if(!musicPage) Action(8,"Estimate AI at your finish: "+(s.estimateAiFinishes?"On":"Off"),()=>Adjust(()=>s.estimateAiFinishes=!s.estimateAiFinishes));
                 if(musicPage)
                 {
                     var radio=flow.Radio; title.text="LOCAL MUSIC";
@@ -339,7 +343,7 @@ namespace Racer
             var recovery=flow.Race.vehicle.GetComponent<VehicleRespawn>();
             if(!countdown && recovery.Pending) banner.text="Waiting for clear local support — race clock continues";
             if (flow.State == RaceFlow.Stage.Racing && flow.Race.Progress.Finished)
-                banner.text = "Finished — waiting for opponents. Details in Pause / Results.";
+                banner.text = "Finished — AI are racing. Pause to skip waiting / estimate AI.";
             if(!countdown && flow.PenaltyNotice!=null)banner.text=flow.PenaltyNotice;
             if (flow.MenuVisible && EventSystem.current && !EventSystem.current.currentSelectedGameObject) EventSystem.current.SetSelectedGameObject(buttons[0].gameObject);
         }

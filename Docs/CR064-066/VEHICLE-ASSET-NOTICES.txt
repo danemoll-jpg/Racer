@@ -1,0 +1,9 @@
+Vehicle asset sources and licenses - Racer 0.10.0-review1
+
+Street Classic, Longroof GT, Needle 600, Trail Four and their seated drivers/riders:
+original procedural geometry authored in Assets/Scripts/VehicleVisual.cs.
+Meshes, rims, frames, fenders, glass, lamps and poses are project-authored.
+Existing traffic silhouettes remain project-authored and unchanged.
+No third-party models, textures, animations, paid assets or external art services were used.
+Unity primitive meshes/shaders and runtime/package notices remain applicable.
+Wildlife audio has separate CC0 notices in Wildlife-CC0.txt.

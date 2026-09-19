@@ -1,0 +1,30 @@
+[
+  {
+    "Name": "normal-ai-street",
+    "Exit": 0,
+    "CompletedFixture": false,
+    "Arguments": "-threeFeatureTest drive -course StreetLoopGreybox -vehicle original -laps 2 -testSpeed 6",
+    "Finished": "2026-09-19T14:13:49.0141898-04:00"
+  },
+  {
+    "Name": "normal-ai-forest",
+    "Exit": 0,
+    "CompletedFixture": false,
+    "Arguments": "-threeFeatureTest drive -course LakeWoods -vehicle moto -laps 2 -testSpeed 6",
+    "Finished": "2026-09-19T14:14:29.6090207-04:00"
+  },
+  {
+    "Name": "preservation-forest-jumps",
+    "Exit": 0,
+    "CompletedFixture": false,
+    "Arguments": "-forestProbe -nominal -forestEvidence Docs/CR064-066/preservation-forest-jumps",
+    "Finished": "2026-09-19T14:15:38.7173775-04:00"
+  },
+  {
+    "Name": "preservation-street-jump",
+    "Exit": 0,
+    "CompletedFixture": false,
+    "Arguments": "-correctionJump -jumpEvidence Docs/CR064-066/preservation-street-jump",
+    "Finished": "2026-09-19T14:18:30.2455937-04:00"
+  }
+]

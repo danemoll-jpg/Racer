@@ -57,7 +57,7 @@ namespace Racer
             foreach(var renderer in GetComponentsInChildren<Renderer>(true))
                 if(VehiclePaint.IsBodyPaint(renderer.sharedMaterial)) renderer.SetPropertyBlock(null);
             var p = Profile;
-            for(int i=0;i<originalVisuals.Length;i++) if(originalVisuals[i]) originalVisuals[i].gameObject.SetActive(profileId=="original" && originalEnabled[i]);
+            for(int i=0;i<originalVisuals.Length;i++) if(originalVisuals[i]) originalVisuals[i].gameObject.SetActive(false);
             // Clones carry the generated hierarchy but not runtime field references.
             var old = transform.Find("Vehicle visual");
             if (old) { old.name="Retired visual"; old.gameObject.SetActive(false); Destroy(old.gameObject); }
@@ -77,9 +77,8 @@ namespace Racer
                 motor.uprightDamping=p.Small?6:5;
                 motor.airStability=p.Id=="moto"?.1f:.18f;
                 motor.centreOfMass=new(0,p.Small?-.28f:-.35f,0);
-                generated=VehicleVisual.Build(transform,p,wheels);
             }
-            else foreach(var t in originalVisuals) if(t && t.name.Contains("wheel")) { wheels.Add(t); VehicleVisual.WheelDetail(t); }
+            generated=VehicleVisual.Build(transform,p,wheels);
             box.size=profileId=="original"?originalSize:p.Size;
             box.center=profileId=="original"?originalCenter:new Vector3(0,.05f,0);
             motor.Body.mass=profileId=="original"?originalMass:p.Mass;
@@ -105,13 +104,7 @@ namespace Racer
         }
         public void BuildPreview(Transform parent)
         {
-            if(Profile.Id!="original") { VehicleVisual.Build(parent,Profile); if(selectedPaint.HasValue) VehiclePaint.Apply(parent,selectedPaint.Value); return; }
-            for(int i=0;i<originalVisuals.Length;i++) if(originalVisuals[i] && originalEnabled[i])
-            {
-                var copy=Instantiate(originalVisuals[i].gameObject,parent,false);
-                foreach(var t in copy.GetComponentsInChildren<Transform>(true)) t.gameObject.layer=parent.gameObject.layer;
-                copy.SetActive(true);
-            }
+            VehicleVisual.Build(parent,Profile);
             if(selectedPaint.HasValue) VehiclePaint.Apply(parent,selectedPaint.Value);
         }
         void OnCollisionEnter(Collision collision)

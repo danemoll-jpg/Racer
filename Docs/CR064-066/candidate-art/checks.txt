@@ -1,0 +1,32 @@
+PASS Body paint original0
+FAIL Trim/rider unchanged original0
+PASS Visual/color leaves physics invariant original0
+PASS No visual colliders original0
+PASS Body paint original6
+FAIL Trim/rider unchanged original6
+PASS Visual/color leaves physics invariant original6
+PASS No visual colliders original6
+PASS Body paint tourer0
+FAIL Trim/rider unchanged tourer0
+PASS Visual/color leaves physics invariant tourer0
+PASS No visual colliders tourer0
+PASS Body paint tourer6
+FAIL Trim/rider unchanged tourer6
+PASS Visual/color leaves physics invariant tourer6
+PASS No visual colliders tourer6
+PASS Body paint moto0
+FAIL Trim/rider unchanged moto0
+PASS Visual/color leaves physics invariant moto0
+PASS No visual colliders moto0
+PASS Body paint moto6
+FAIL Trim/rider unchanged moto6
+PASS Visual/color leaves physics invariant moto6
+PASS No visual colliders moto6
+PASS Body paint atv0
+FAIL Trim/rider unchanged atv0
+PASS Visual/color leaves physics invariant atv0
+PASS No visual colliders atv0
+PASS Body paint atv6
+FAIL Trim/rider unchanged atv6
+PASS Visual/color leaves physics invariant atv6
+PASS No visual colliders atv6

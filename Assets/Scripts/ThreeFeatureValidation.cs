@@ -80,6 +80,9 @@ namespace Racer
         public static void CaptureUi(string file)
         {
             var camera=Camera.main;var canvas=FindAnyObjectByType<RaceHud>().GetComponent<Canvas>();var mode=canvas.renderMode;var oldCamera=canvas.worldCamera;float plane=canvas.planeDistance;
+            // Hidden standalone windows don't automatically render secondary cameras.
+            // Populate the real garage RenderTexture before capturing its RawImage.
+            foreach(var auxiliary in Camera.allCameras)if(auxiliary!=camera&&auxiliary.enabled&&auxiliary.targetTexture)auxiliary.Render();
             var rt=new RenderTexture(1280,720,24);var previous=camera.targetTexture;var active=RenderTexture.active;
             canvas.renderMode=RenderMode.ScreenSpaceCamera;canvas.worldCamera=camera;canvas.planeDistance=2;camera.targetTexture=rt;Canvas.ForceUpdateCanvases();camera.Render();RenderTexture.active=rt;
             var image=new Texture2D(1280,720,TextureFormat.RGB24,false);image.ReadPixels(new Rect(0,0,1280,720),0,0);image.Apply();File.WriteAllBytes(file,image.EncodeToPNG());

@@ -40,10 +40,14 @@ namespace Racer
         string metadataPath;
         string current, lastPlayed, song="Radio: add MP3, WAV or Ogg files in Settings / Music", scanFolder;
         float toastUntil, retryAt;
+        float stationUntil;
+        string stationToast;
+        int metadataRevision;
         int revision;
         public string Status { get; private set; }="Empty library";
-        public string Song=>ChannelName=="Off"?"Radio Off":ChannelName+" / "+song;
-        public string Toast=>Time.unscaledTime<toastUntil?Song:null;
+        public string Song=>ChannelName=="Off"?"Radio Off":song;
+        public string Toast=>Time.unscaledTime<stationUntil?stationToast:Time.unscaledTime<toastUntil?Song:null;
+        void SongToast(float seconds=5) { toastUntil=Mathf.Max(Time.unscaledTime,stationUntil)+seconds; }
         public static string BundledFolder=>Path.GetFullPath(Path.Combine(Application.dataPath,"..","Music"));
         public bool Bundled=>flow.Save.Settings.musicSource=="bundled";
         public bool IncludeSubfolders=>flow.Save.Settings.musicRecursive;
@@ -101,6 +105,7 @@ namespace Racer
         }
         void ClearCollection()
         {
+            stationUntil=toastUntil=0;
             StopLoad(); source.Stop(); if(clip)Destroy(clip);clip=null;current=null;
             history.Clear(); library.Clear();bag.Clear();failed.Clear();lastPlayed=null;
             channels=Array.Empty<MusicCollection.Channel>();channelIndex=-1;channelHistory.Clear();channelLast.Clear();
@@ -131,7 +136,7 @@ namespace Racer
             while(next<channels.Length&&!channels[next].Paths.Any(p=>!failed.Contains(p)))next++;
             SelectChannel(next<channels.Length?next:-1);
         }
-        void SelectChannel(int index)
+        void SelectChannel(int index,bool announce=true)
         {
             if(channelIndex>=0)
             {
@@ -149,9 +154,14 @@ namespace Racer
                 flow.Save.Settings.radioChannel=channel.Id;retryAt=0;Next();
             }
             else {song=Status=channels.Length==0?"Off / no playable channels. Add music, then Rescan.":"Radio Off";flow.Save.Settings.radioChannel="off:";}
-            flow.Save.SaveSettings();ShowSong();
+            flow.Save.SaveSettings();
+            if(announce)
+            {
+                stationToast=index<0?"Radio Off":Plain(channels[index].Name,48)+" Radio";
+                stationUntil=Time.unscaledTime+2.5f; toastUntil=stationUntil;
+            }
         }
-        public void ShowSong(){toastUntil=Time.unscaledTime+5; if(!clip&&loading==null)song=Status;}
+        public void ShowSong(){SongToast(); if(!clip&&loading==null)song=Status;}
         public void Next()
         {
             if(!flow.Save.Settings.radioOn||Scanning)return;
@@ -177,7 +187,7 @@ namespace Racer
         {
             if(remember&&current!=null&&clip){if(history.Count==32)history.RemoveAt(0);history.Add(current);}
             StopLoad();source.Stop();if(clip)Destroy(clip);clip=null;
-            current=path;Status="Loading…";song=Plain(Path.GetFileNameWithoutExtension(path));
+            current=path;Status="Loading…";song=FormatSong(null,null,path);
             if(metadata==null)metadataPath=null;
 
             loading=StartCoroutine(Load(path,revision));
@@ -211,9 +221,9 @@ namespace Racer
             source.clip=clip;source.volume=flow.Save.Settings.music*.32f;
             if(flow.Save.Settings.radioOn)source.Play();
             retryAt=Time.unscaledTime+1.5f; // Give a newly opened streaming voice time to start.
-            loading=null;Status="Ready / "+library.Count+" tracks";toastUntil=Time.unscaledTime+5;
+            loading=null;Status="Ready / "+library.Count+" tracks";SongToast();
         }
-        void Fail(string path){failed.Add(path);loading=null;Status="Skipped unreadable or oversized audio";song=Status;toastUntil=Time.unscaledTime+4;retryAt=Time.unscaledTime+.5f;}
+        void Fail(string path){failed.Add(path);loading=null;Status="Skipped unreadable or oversized audio";song=Status;SongToast(4);retryAt=Time.unscaledTime+.5f;}
         void StopLoad(){revision++;if(request!=null){request.Abort();request.Dispose();request=null;}if(loading!=null){StopCoroutine(loading);loading=null;}}
         void Update()
         {
@@ -225,16 +235,16 @@ namespace Racer
                 scanCancellation.Dispose();scanCancellation=null;
                 if(activeScanRevision!=scanRevision||scanFolder!=Folder){if(rescanPending)BeginScan();return;}
                 scanSummary=result.Summary;
-                bool on=flow.Save.Settings.radioOn;string selected=flow.Save.Settings.radioChannel;
+                bool on=flow.Save.Settings.radioOn;string selected=flow.Save.Settings.radioChannel;string previousChannel=ChannelName;
                 if(channelIndex>=0){channelHistory[channels[channelIndex].Id]=new List<string>(history);channelLast[channels[channelIndex].Id]=lastPlayed;}
                 channels=result.Channels;channelIndex=-1;failed.Clear();
                 int index=Array.FindIndex(channels,c=>string.Equals(c.Id,selected,StringComparison.OrdinalIgnoreCase));
                 if(index<0&&channels.Length>0)index=0;
-                SelectChannel(on?index:-1);
+                SelectChannel(on?index:-1,previousChannel!=(on&&index>=0?channels[index].Name:"Off"));
                 Status=channels.Length==0?"No playable channels. Add music, then Rescan":channels.Length+" channels / "+result.Paths.Count+" tracks";
             }
-            if(metadata!=null&&metadata.IsCompleted){if(metadata.IsCompletedSuccessfully&&clip&&metadataPath==current){song=metadata.Result;toastUntil=Time.unscaledTime+5;}metadata=null;}
-            if(metadata==null&&clip&&metadataPath!=current){metadataPath=current;var path=current;metadata=Task.Run(()=>ReadTitle(path));}
+            if(metadata!=null&&metadata.IsCompleted){if(metadata.IsCompletedSuccessfully&&clip&&metadataPath==current&&metadataRevision==revision){song=metadata.Result;SongToast();}metadata=null;}
+            if(metadata==null&&clip&&(metadataPath!=current||metadataRevision!=revision)){metadataPath=current;metadataRevision=revision;var path=current;metadata=Task.Run(()=>ReadTitle(path));}
             if(picker!=null&&picker.IsCompleted){var path=picker.Result;picker=null;if(path!=null)SetFolder(path);}
             if(!Scanning&&flow.Save.Settings.radioOn&&loading==null&&!source.isPlaying&&library.Count>0&&Time.unscaledTime>=retryAt){retryAt=Time.unscaledTime+1;Next();}
             if(flow.State!=RaceFlow.Stage.Racing)return;
@@ -245,7 +255,14 @@ namespace Racer
             if(k?.mKey.wasPressedThisFrame==true||g?.dpad.down.wasPressedThisFrame==true)Toggle();
         }
         static AudioType Type(string p)=>Path.GetExtension(p).ToLowerInvariant() switch {".mp3"=>AudioType.MPEG,".wav"=>AudioType.WAV,".ogg"=>AudioType.OGGVORBIS,_=>AudioType.UNKNOWN};
-        static string Plain(string value)=>new string((value??"").Where(c=>!char.IsControl(c)).Take(120).ToArray());
+        static string Plain(string value,int limit=48)
+        {
+            var clean=new string((value??"").Where(c=>!char.IsControl(c)).ToArray());
+            var elements=System.Globalization.StringInfo.GetTextElementEnumerator(clean);var result=new System.Text.StringBuilder();int count=0;
+            while(elements.MoveNext()){if(count++==limit){result.Append('…');break;}result.Append(elements.GetTextElement());}
+            return result.ToString();
+        }
+        public static string FormatSong(string artist,string title,string path) => "Artist: "+Plain(string.IsNullOrWhiteSpace(artist)?"Unknown Artist":artist)+"\nSong: "+Plain(string.IsNullOrWhiteSpace(title)?Path.GetFileNameWithoutExtension(path):title);
         static string ReadTitle(string path)
         {
             try
@@ -254,9 +271,9 @@ namespace Racer
                 ATL.Settings.ReadAllMetaFrames=false;
                 var track=new ATL.Track(stream,Path.GetExtension(path));
                 string title=string.IsNullOrWhiteSpace(track.Title)?Path.GetFileNameWithoutExtension(path):track.Title;
-                return Plain(string.IsNullOrWhiteSpace(track.Artist)?title:track.Artist+" — "+title);
+                return FormatSong(track.Artist,title,path);
             }
-            catch {return Plain(Path.GetFileNameWithoutExtension(path));}
+            catch {return FormatSong(null,null,path);}
         }
         sealed class MetadataStream:FileStream
         {

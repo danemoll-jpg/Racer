@@ -10,3 +10,7 @@ Street restored=0 catalog=39
 Forest restored=0 catalog=39
 Street restored=0 catalog=39
 Forest restored=0 catalog=39
+Street restored=0 catalog=39
+Forest restored=0 catalog=39
+Street restored=0 catalog=39
+Forest restored=0 catalog=39

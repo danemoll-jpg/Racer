@@ -1,0 +1,58 @@
+[
+  {
+    "Name": "preservation-forest",
+    "Exit": 0,
+    "CompletedFixture": false,
+    "Arguments": "-forestChecks",
+    "Finished": "2026-09-19T13:57:48.2038009-04:00"
+  },
+  {
+    "Name": "preservation-records",
+    "Exit": 0,
+    "CompletedFixture": false,
+    "Arguments": "-threeFeatureTest rules",
+    "Finished": "2026-09-19T13:57:54.4348041-04:00"
+  },
+  {
+    "Name": "preservation-radio",
+    "Exit": 0,
+    "CompletedFixture": false,
+    "Arguments": "-threeFeatureTest radio",
+    "Finished": "2026-09-19T13:58:04.6992178-04:00"
+  },
+  {
+    "Name": "preservation-jumps",
+    "Exit": 0,
+    "CompletedFixture": false,
+    "Arguments": "-threeFeatureTest jumps",
+    "Finished": "2026-09-19T13:59:12.4058029-04:00"
+  },
+  {
+    "Name": "preservation-signs-street",
+    "Exit": 0,
+    "CompletedFixture": false,
+    "Arguments": "-signWildlifeTest signs -course StreetLoopGreybox",
+    "Finished": "2026-09-19T14:00:09.2965026-04:00"
+  },
+  {
+    "Name": "preservation-signs-forest",
+    "Exit": 0,
+    "CompletedFixture": false,
+    "Arguments": "-signWildlifeTest signs -course LakeWoods",
+    "Finished": "2026-09-19T14:01:14.9225166-04:00"
+  },
+  {
+    "Name": "performance-street",
+    "Exit": 0,
+    "CompletedFixture": false,
+    "Arguments": "-signWildlifeTest drive -course StreetLoopGreybox",
+    "Finished": "2026-09-19T14:03:54.1050817-04:00"
+  },
+  {
+    "Name": "performance-forest",
+    "Exit": 0,
+    "CompletedFixture": false,
+    "Arguments": "-signWildlifeTest drive -course LakeWoods",
+    "Finished": "2026-09-19T14:06:35.5068875-04:00"
+  }
+]

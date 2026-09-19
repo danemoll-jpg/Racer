@@ -52,6 +52,7 @@ namespace Racer
             foreach(var profile in VehicleProfile.All)
             {
                 flow.OpenGarage(); flow.SelectVehicle(profile.Id); yield return null;
+                var unpaintedBefore=VehiclePaint.UnpaintedSnapshot(race.vehicle.transform);
                 yield return MouseClick(Button("Red"));
                 Check(flow.SelectedColor==1,"Mouse swatch "+profile.Id);
                 EventSystem.current.SetSelectedGameObject(Button("Blue").gameObject); yield return Pad(GamepadButton.South);
@@ -63,7 +64,7 @@ namespace Racer
                 var painted=renderers.Where(r=>VehiclePaint.IsBodyPaint(r.sharedMaterial)).ToArray();
                 var block=new MaterialPropertyBlock();
                 Check(painted.Length>0 && painted.All(r=>{r.GetPropertyBlock(block);return block.GetColor("_BaseColor")==VehiclePaint.Colors[3];}),"Body paint applied "+profile.Id);
-                Check(renderers.Where(r=>r.sharedMaterial && !VehiclePaint.IsBodyPaint(r.sharedMaterial)).All(r=>{r.GetPropertyBlock(block);return block.isEmpty;}),"Trim/rider unchanged "+profile.Id);
+                Check(VehiclePaint.UnpaintedUnchanged(race.vehicle.transform,unpaintedBefore),"Trim/rider unchanged "+profile.Id);
                 ScreenCapture.CaptureScreenshot(Path.GetFullPath("Docs/CR028-033/garage-"+profile.Id+"-"+(Application.isEditor?"editor":"standalone")+".png"));
                 yield return new WaitForSecondsRealtime(.15f); flow.CloseGarage();
             }

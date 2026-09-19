@@ -1,0 +1,28 @@
+PASS Forest name and version
+PASS Forest eligible player / AI pool
+PASS Ineligible saved/manual vehicle coerced to motorcycle
+PASS Fixed/random/mixed AI choices remain eligible
+PASS New Forest category rejects car entries
+PASS Historical v1 car boards retained
+PASS Historical record labeling is explicit
+PASS Six distinct main jumps authored
+PASS Cave grants explicit bypass entitlement
+PASS Cave distance is shorter than bypassed main section
+PASS Mandatory gates outside launch/landing and cave mouths
+PASS Independent preserved street route for ambient traffic
+PASS Spawned Forest roster contains motorcycles / ATVs only
+PASS Every spawned civilian selects street route
+PASS Civilian placement uses actual street: Traffic 1
+PASS Civilian placement uses actual street: Traffic 2
+PASS Civilian placement uses actual street: Traffic 3
+PASS Civilian placement uses actual street: Traffic 4
+PASS Civilian guarded local recovery stays on street: Traffic 1
+PASS Civilian guarded highway recycling stays on street: Traffic 1
+PASS Civilian guarded local recovery stays on street: Traffic 2
+PASS Civilian guarded highway recycling stays on street: Traffic 2
+PASS Civilian guarded local recovery stays on street: Traffic 3
+PASS Civilian guarded highway recycling stays on street: Traffic 3
+PASS Civilian guarded local recovery stays on street: Traffic 4
+PASS Civilian guarded highway recycling stays on street: Traffic 4
+PASS moto physical cave topple fixture recovers locally without new credit or penalty
+PASS atv physical cave topple fixture recovers locally without new credit or penalty

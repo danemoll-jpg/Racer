@@ -1,0 +1,91 @@
+PASS Unfinished future human cannot be finalized
+PASS Physical >= snapshot and already incurred penalty exactly once
+PASS Repeated finalization idempotent; no synthetic gates/laps
+PASS Existing DNF retained
+PASS Measured finish retained
+PASS Estimated state rejected by measured race/lap boards
+PASS Finite course/vehicle/difficulty fallback original/False/0
+PASS One crash sample does not dominate originalFalse0
+PASS Stationary uses documented fallback originalFalse0
+PASS Finite course/vehicle/difficulty fallback original/False/1
+PASS One crash sample does not dominate originalFalse1
+PASS Stationary uses documented fallback originalFalse1
+PASS Finite course/vehicle/difficulty fallback original/False/2
+PASS One crash sample does not dominate originalFalse2
+PASS Stationary uses documented fallback originalFalse2
+PASS Finite course/vehicle/difficulty fallback original/True/0
+PASS One crash sample does not dominate originalTrue0
+PASS Stationary uses documented fallback originalTrue0
+PASS Finite course/vehicle/difficulty fallback original/True/1
+PASS One crash sample does not dominate originalTrue1
+PASS Stationary uses documented fallback originalTrue1
+PASS Finite course/vehicle/difficulty fallback original/True/2
+PASS One crash sample does not dominate originalTrue2
+PASS Stationary uses documented fallback originalTrue2
+PASS Finite course/vehicle/difficulty fallback tourer/False/0
+PASS One crash sample does not dominate tourerFalse0
+PASS Stationary uses documented fallback tourerFalse0
+PASS Finite course/vehicle/difficulty fallback tourer/False/1
+PASS One crash sample does not dominate tourerFalse1
+PASS Stationary uses documented fallback tourerFalse1
+PASS Finite course/vehicle/difficulty fallback tourer/False/2
+PASS One crash sample does not dominate tourerFalse2
+PASS Stationary uses documented fallback tourerFalse2
+PASS Finite course/vehicle/difficulty fallback tourer/True/0
+PASS One crash sample does not dominate tourerTrue0
+PASS Stationary uses documented fallback tourerTrue0
+PASS Finite course/vehicle/difficulty fallback tourer/True/1
+PASS One crash sample does not dominate tourerTrue1
+PASS Stationary uses documented fallback tourerTrue1
+PASS Finite course/vehicle/difficulty fallback tourer/True/2
+PASS One crash sample does not dominate tourerTrue2
+PASS Stationary uses documented fallback tourerTrue2
+PASS Finite course/vehicle/difficulty fallback moto/False/0
+PASS One crash sample does not dominate motoFalse0
+PASS Stationary uses documented fallback motoFalse0
+PASS Finite course/vehicle/difficulty fallback moto/False/1
+PASS One crash sample does not dominate motoFalse1
+PASS Stationary uses documented fallback motoFalse1
+PASS Finite course/vehicle/difficulty fallback moto/False/2
+PASS One crash sample does not dominate motoFalse2
+PASS Stationary uses documented fallback motoFalse2
+PASS Finite course/vehicle/difficulty fallback moto/True/0
+PASS One crash sample does not dominate motoTrue0
+PASS Stationary uses documented fallback motoTrue0
+PASS Finite course/vehicle/difficulty fallback moto/True/1
+PASS One crash sample does not dominate motoTrue1
+PASS Stationary uses documented fallback motoTrue1
+PASS Finite course/vehicle/difficulty fallback moto/True/2
+PASS One crash sample does not dominate motoTrue2
+PASS Stationary uses documented fallback motoTrue2
+PASS Finite course/vehicle/difficulty fallback atv/False/0
+PASS One crash sample does not dominate atvFalse0
+PASS Stationary uses documented fallback atvFalse0
+PASS Finite course/vehicle/difficulty fallback atv/False/1
+PASS One crash sample does not dominate atvFalse1
+PASS Stationary uses documented fallback atvFalse1
+PASS Finite course/vehicle/difficulty fallback atv/False/2
+PASS One crash sample does not dominate atvFalse2
+PASS Stationary uses documented fallback atvFalse2
+PASS Finite course/vehicle/difficulty fallback atv/True/0
+PASS One crash sample does not dominate atvTrue0
+PASS Stationary uses documented fallback atvTrue0
+PASS Finite course/vehicle/difficulty fallback atv/True/1
+PASS One crash sample does not dominate atvTrue1
+PASS Stationary uses documented fallback atvTrue1
+PASS Finite course/vehicle/difficulty fallback atv/True/2
+PASS One crash sample does not dominate atvTrue2
+PASS Stationary uses documented fallback atvTrue2
+PASS Option true persists
+PASS Option false persists
+PASS Near finish and multiple laps remaining use route lengths
+PASS Shortcut uses remaining branch geometry plus road/laps
+PASS Local branch recovery never invents forward progress
+PASS Action before human finish is a no-op
+PASS Only unfinished AI projected; existing DNF retained
+PASS Repeated action preserves one incurred penalty
+PASS Human actual finish unchanged
+PASS Finalization does not teleport and removes AI contact participation
+PASS Classification clearly labels estimates
+FAIL Restart restores normal AI simulation and contacts
+PASS Enabled option finalizes at human finish without waiting

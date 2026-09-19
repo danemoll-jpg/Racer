@@ -60,6 +60,7 @@ namespace Racer
             if (!Race || !Car)
                 return;
             Car.enabled = false;
+            if(Racer!=null && Racer.Estimated) { Car.Body.isKinematic=true; return; }
             if (Race.Flow.State != RaceFlow.Stage.Racing)
             {
                 Car.Body.isKinematic = true;

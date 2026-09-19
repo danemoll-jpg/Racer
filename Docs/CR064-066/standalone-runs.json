@@ -1,0 +1,30 @@
+[
+  {
+    "Name": "release-art",
+    "Exit": 0,
+    "CompletedFixture": false,
+    "Arguments": "-review6466 art",
+    "Finished": "2026-09-19T13:53:52.6359084-04:00"
+  },
+  {
+    "Name": "release-ai-forest",
+    "Exit": 0,
+    "CompletedFixture": false,
+    "Arguments": "-review6466 rules -course LakeWoods",
+    "Finished": "2026-09-19T13:54:07.5234867-04:00"
+  },
+  {
+    "Name": "release-ai-street",
+    "Exit": 0,
+    "CompletedFixture": false,
+    "Arguments": "-review6466 rules",
+    "Finished": "2026-09-19T13:54:20.4269190-04:00"
+  },
+  {
+    "Name": "release-radio",
+    "Exit": 0,
+    "CompletedFixture": false,
+    "Arguments": "-review6466 radio",
+    "Finished": "2026-09-19T13:54:50.1859242-04:00"
+  }
+]

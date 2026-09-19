@@ -26,6 +26,7 @@ namespace Racer
             public int frameLimit = 60;
             public bool vsync = true;
             public bool opponents = true, traffic = true;
+            public bool estimateAiFinishes = false;
             public string vehicleId = "original";
             public int difficulty = 1;
             public string[] opponentChoices = {"mixed","mixed","mixed"};
