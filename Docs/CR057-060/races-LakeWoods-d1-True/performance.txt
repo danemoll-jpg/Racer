@@ -1,0 +1,3 @@
+seed=101 frames=60 median=439.596 p95=540.439 timescale=0 peakMiB=0.0
+seed=102 frames=62 median=440.750 p95=647.201 timescale=0 peakMiB=0.0
+seed=103 frames=59 median=464.912 p95=609.549 timescale=0 peakMiB=0.0

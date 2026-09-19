@@ -1,0 +1,6 @@
+seed=101 frames=76 median=1112.810 p95=1672.975 timescale=0 peakMiB=0.0
+explicitRender=False resolution=1280x720 traffic=20 population=26 swarms=0 radioCount=0 playing=False channel=Off
+seed=102 frames=89 median=961.396 p95=1263.447 timescale=0 peakMiB=0.0
+explicitRender=False resolution=1280x720 traffic=20 population=22 swarms=0 radioCount=0 playing=False channel=Off
+seed=103 frames=86 median=1268.350 p95=1584.126 timescale=0 peakMiB=0.0
+explicitRender=False resolution=1280x720 traffic=20 population=22 swarms=0 radioCount=0 playing=False channel=Off

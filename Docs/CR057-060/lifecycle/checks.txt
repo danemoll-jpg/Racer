@@ -1,0 +1,68 @@
+FAIL AI shares actual immersion, resistance and feedback
+PASS Supported entry from dry shore moto0
+PASS Entry sound dispatched moto0
+PASS Immersed steering changes heading moto0
+PASS Stop and reverse from immersed motion moto0
+FAIL Reverse out removes resistance moto0
+FAIL Exit sound dispatched moto0
+PASS Recovery cleanup stops all water feedback moto0
+PASS Supported entry from dry shore moto1
+PASS Entry sound dispatched moto1
+PASS Immersed steering changes heading moto1
+PASS Stop and reverse from immersed motion moto1
+FAIL Reverse out removes resistance moto1
+FAIL Exit sound dispatched moto1
+PASS Recovery cleanup stops all water feedback moto1
+PASS Supported entry from dry shore moto2
+PASS Entry sound dispatched moto2
+PASS Immersed steering changes heading moto2
+PASS Stop and reverse from immersed motion moto2
+FAIL Reverse out removes resistance moto2
+FAIL Exit sound dispatched moto2
+PASS Recovery cleanup stops all water feedback moto2
+PASS Supported entry from dry shore moto3
+PASS Entry sound dispatched moto3
+PASS Immersed steering changes heading moto3
+PASS Stop and reverse from immersed motion moto3
+FAIL Reverse out removes resistance moto3
+FAIL Exit sound dispatched moto3
+PASS Recovery cleanup stops all water feedback moto3
+PASS Supported entry from dry shore atv0
+PASS Entry sound dispatched atv0
+PASS Immersed steering changes heading atv0
+PASS Stop and reverse from immersed motion atv0
+FAIL Reverse out removes resistance atv0
+FAIL Exit sound dispatched atv0
+PASS Recovery cleanup stops all water feedback atv0
+PASS Supported entry from dry shore atv1
+PASS Entry sound dispatched atv1
+PASS Immersed steering changes heading atv1
+PASS Stop and reverse from immersed motion atv1
+FAIL Reverse out removes resistance atv1
+FAIL Exit sound dispatched atv1
+PASS Recovery cleanup stops all water feedback atv1
+PASS Supported entry from dry shore atv2
+PASS Entry sound dispatched atv2
+PASS Immersed steering changes heading atv2
+PASS Stop and reverse from immersed motion atv2
+FAIL Reverse out removes resistance atv2
+FAIL Exit sound dispatched atv2
+PASS Recovery cleanup stops all water feedback atv2
+PASS Supported entry from dry shore atv3
+PASS Entry sound dispatched atv3
+PASS Immersed steering changes heading atv3
+PASS Stop and reverse from immersed motion atv3
+FAIL Reverse out removes resistance atv3
+FAIL Exit sound dispatched atv3
+PASS Recovery cleanup stops all water feedback atv3
+PASS Pause keeps occupancy stable
+PASS Local recovery keeps occupancy stable
+PASS Nearby AI does not trigger bats
+PASS ATV approach triggers pooled bats
+PASS Bat flutter/chirp source starts
+PASS Bat clip has nonzero synthesized samples (not listening)
+PASS Lingering beyond cooldown does not retrigger
+PASS Leaving for 12 seconds rearms after cooldown
+PASS Restart clears water feedback
+PASS Track change removes old water volumes
+PASS Track change does not duplicate ambient pools

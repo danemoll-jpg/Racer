@@ -1,0 +1,50 @@
+[
+  {
+    "Run": "final-LakeWoods-d0-False",
+    "Finish": "9/9",
+    "MeanSeconds": 159.509,
+    "Mistakes": 41.0,
+    "Recoveries": 1.0,
+    "Misses": 0.0
+  },
+  {
+    "Run": "final-LakeWoods-d0-True",
+    "Finish": "9/9",
+    "MeanSeconds": 155.278,
+    "Mistakes": 0.0,
+    "Recoveries": 0.0,
+    "Misses": 0.0
+  },
+  {
+    "Run": "final-LakeWoods-d1-False",
+    "Finish": "9/9",
+    "MeanSeconds": 159.577,
+    "Mistakes": 32.0,
+    "Recoveries": 1.0,
+    "Misses": 0.0
+  },
+  {
+    "Run": "final-LakeWoods-d1-True",
+    "Finish": "9/9",
+    "MeanSeconds": 156.737,
+    "Mistakes": 0.0,
+    "Recoveries": 4.0,
+    "Misses": 0.0
+  },
+  {
+    "Run": "final-StreetLoopGreybox-d1-False",
+    "Finish": "9/9",
+    "MeanSeconds": 279.744,
+    "Mistakes": 54.0,
+    "Recoveries": 0.0,
+    "Misses": 1.0
+  },
+  {
+    "Run": "final-StreetLoopGreybox-d1-True",
+    "Finish": "9/9",
+    "MeanSeconds": 281.015,
+    "Mistakes": 0.0,
+    "Recoveries": 0.0,
+    "Misses": 0.0
+  }
+]

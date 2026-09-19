@@ -1,0 +1,2 @@
+seed=101 frames=20556 median=8.334 p95=10.488 timescale=1 peakMiB=0.0
+explicitRender=True resolution=1280x720 traffic=20 population=26 swarms=0 radioCount=34 playing=True channel=Groove

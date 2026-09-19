@@ -9,6 +9,7 @@ namespace Racer
         public static string Label="before";
         public static float[] Stations={620,1020,1390};
         public static bool Nominal;
+        static string EvidenceRoot="Docs/CR056";
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
         static void Boot()
         {
@@ -16,6 +17,7 @@ namespace Racer
             if(FindAnyObjectByType<ForestProbe>())return;
             var g=new GameObject("Forest standalone probe");DontDestroyOnLoad(g);g.AddComponent<ForestProbe>();Label="after";Stations=new float[]{340,610,900,1020,1310,1540};
             Nominal=System.Array.IndexOf(args,"-nominal")>=0;if(Nominal)Label="nominal";
+            int evidence=System.Array.IndexOf(args,"-forestEvidence");if(evidence>=0&&evidence+1<args.Length)EvidenceRoot=args[evidence+1];
             if(System.Array.IndexOf(args,"-creekView")>=0){Stations=new float[]{340};Label="creek-view";}
         }
         RaceDirector race; StreamWriter log; string contact=""; float impulse;
@@ -27,8 +29,8 @@ namespace Racer
 #if UNITY_EDITOR
             race.Flow.UseValidationSave(Path.GetFullPath("Temp/forest-probe-save"));
 #endif
-            Application.runInBackground=true;Directory.CreateDirectory("Docs/CR056/"+Label);
-            log=new StreamWriter("Docs/CR056/"+Label+"/telemetry.csv");
+            Application.runInBackground=true;Directory.CreateDirectory(EvidenceRoot+"/"+Label);
+            log=new StreamWriter(EvidenceRoot+"/"+Label+"/telemetry.csv");
             log.WriteLine("vehicle,jump,time,station,speed,throttle,brake,steer,grounded,up,angularSpeed,contact,impulse,suspensionLift,alignmentTorque");
             race.opponents=race.traffic=false;
             foreach(string id in new[]{"moto","atv"}) foreach(float station in Stations)
@@ -52,15 +54,15 @@ namespace Racer
                     if(s>=station&&car.GroundedWheels<2){if(!flew)takeoff=speed;flew=true;air+=Time.fixedDeltaTime;}
                     else if(flew&&air>.15f&&landing==0)landing=speed;
                     log.WriteLine($"{id},{station},{Time.time-start:F3},{s:F3},{speed:F3},{throttle:F3},{brake:F3},{steer:F3},{car.GroundedWheels},{car.transform.up.y:F3},{car.Body.angularVelocity.magnitude:F3},{contact},{impulse:F3},{car.SuspensionLift:F3},{car.AlignmentTorque:F3}");contact="";impulse=0;
-                    if(Nominal&&!captured&&id=="moto"&&s>station+55&&car.GroundedWheels<2){ThreeFeatureValidation.CaptureUi("Docs/CR056/nominal/jump-"+station+".png");captured=true;}
-                    if(Nominal&&id=="moto"&&station==340&&creekFrame<4&&s>station+36+creekFrame*4){FindAnyObjectByType<ChaseCamera>().Snap();ThreeFeatureValidation.CaptureUi("Docs/CR056/"+Label+"/creek-"+creekFrame+++".png");}
+                    if(Nominal&&!captured&&id=="moto"&&s>station+55&&car.GroundedWheels<2){ThreeFeatureValidation.CaptureUi(EvidenceRoot+"/nominal/jump-"+station+".png");captured=true;}
+                    if(Nominal&&id=="moto"&&station==340&&creekFrame<4&&s>station+36+creekFrame*4){FindAnyObjectByType<ChaseCamera>().Snap();ThreeFeatureValidation.CaptureUi(EvidenceRoot+"/"+Label+"/creek-"+creekFrame+++".png");}
                     if(s>station+150&&car.GroundedWheels>=2){completed=true;break;}
                     yield return new WaitForFixedUpdate();
                 }
-                File.AppendAllText("Docs/CR056/"+Label+"/summary.txt",$"{id} {station}: initial=32 minLaunch={min:F2} takeoff={takeoff:F2} landing={landing:F2} airtime={air:F2} up={car.transform.up.y:F2} completed={completed}\n");
+                File.AppendAllText(EvidenceRoot+"/"+Label+"/summary.txt",$"{id} {station}: initial=32 minLaunch={min:F2} takeoff={takeoff:F2} landing={landing:F2} airtime={air:F2} up={car.transform.up.y:F2} completed={completed}\n");
                 log.Flush();Destroy(observer);
             }
-            log.Dispose();race.Flow.Pause();File.WriteAllText("Docs/CR056/"+Label+"/done.txt","Complete; physical scripted pedal test, not human acceptance.");
+            log.Dispose();race.Flow.Pause();File.WriteAllText(EvidenceRoot+"/"+Label+"/done.txt","Complete; physical scripted pedal test, not human acceptance.");
             if(!Application.isEditor)Application.Quit();
         }
         public void Contact(Collision c){contact=c.collider.name.Replace(',',' ');impulse=Mathf.Max(impulse,c.impulse.magnitude);}

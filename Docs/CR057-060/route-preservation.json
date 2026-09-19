@@ -1,0 +1,60 @@
+[
+  {
+    "Scene": "Assets/Scenes/StreetLoopGreybox.unity",
+    "Component": "8886da0676b11914e9796cc6c7e267fd",
+    "Before": 1,
+    "After": 1,
+    "Identical": false,
+    "Difference": "Only newly serialized pre-existing defaults: forestTrail=0; entryInset=0; entryMargin=7. Route points and gate data unchanged."
+  },
+  {
+    "Scene": "Assets/Scenes/StreetLoopGreybox.unity",
+    "Component": "d78c764adeeb70047ad85237491d6da3",
+    "Before": 4,
+    "After": 4,
+    "Identical": false,
+    "Difference": "Only newly serialized pre-existing defaults: forestTrail=0; entryInset=0; entryMargin=7. Route points and gate data unchanged."
+  },
+  {
+    "Scene": "Assets/Scenes/StreetLoopGreybox.unity",
+    "Component": "afdd0dba1cc55e4478b495affbd59113",
+    "Before": 0,
+    "After": 0,
+    "Identical": true
+  },
+  {
+    "Scene": "Assets/Scenes/StreetLoopGreybox.unity",
+    "Component": "494e2ba90f5e2df4da2ab711f8d9f837",
+    "Before": 18,
+    "After": 18,
+    "Identical": true
+  },
+  {
+    "Scene": "Assets/Scenes/LakeWoods.unity",
+    "Component": "8886da0676b11914e9796cc6c7e267fd",
+    "Before": 2,
+    "After": 2,
+    "Identical": true
+  },
+  {
+    "Scene": "Assets/Scenes/LakeWoods.unity",
+    "Component": "d78c764adeeb70047ad85237491d6da3",
+    "Before": 1,
+    "After": 1,
+    "Identical": true
+  },
+  {
+    "Scene": "Assets/Scenes/LakeWoods.unity",
+    "Component": "afdd0dba1cc55e4478b495affbd59113",
+    "Before": 1,
+    "After": 1,
+    "Identical": true
+  },
+  {
+    "Scene": "Assets/Scenes/LakeWoods.unity",
+    "Component": "494e2ba90f5e2df4da2ab711f8d9f837",
+    "Before": 23,
+    "After": 23,
+    "Identical": true
+  }
+]

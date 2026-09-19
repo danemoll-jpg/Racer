@@ -1,0 +1,13 @@
+seed,difficulty,baseline,driver,finished,dnf,laps,time,misses,recoveries,errors,brakeSeconds
+101,0,False,Reference,True,False,2,332.953,0,1,10,48.841
+101,0,False,EMBER,True,False,2,349.052,0,0,10,50.801
+101,0,False,GOLD,True,False,2,295.014,0,0,10,48.901
+101,0,False,BLUE,True,False,2,314.720,0,0,8,47.641
+102,0,False,Reference,True,False,2,332.883,0,1,11,48.961
+102,0,False,EMBER,True,False,2,352.179,0,0,9,50.341
+102,0,False,GOLD,True,False,2,314.099,0,1,11,55.041
+102,0,False,BLUE,True,False,2,313.668,0,0,9,47.261
+103,0,False,Reference,False,True,1,383.961,0,0,8,61.281
+103,0,False,EMBER,True,False,2,333.308,0,1,10,48.981
+103,0,False,GOLD,True,False,2,293.931,0,0,8,46.081
+103,0,False,BLUE,True,False,2,346.501,0,2,9,60.161

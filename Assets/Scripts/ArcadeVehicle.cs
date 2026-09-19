@@ -40,12 +40,15 @@ namespace Racer
         VehicleInput input;
         float steer;
         public float VisualSteering => steer;
+        public float WaterImmersion { get; private set; }
+        public float WaterSurface { get; private set; }
 
         void Awake()
         {
             Body = GetComponent<Rigidbody>(); input = GetComponent<VehicleInput>();
             Body.centerOfMass = centreOfMass;
             Body.maxAngularVelocity = 5;
+            if(!GetComponent<WaterFeedback>())gameObject.AddComponent<WaterFeedback>();
         }
 
         void FixedUpdate() => Simulate(input.Throttle, input.BrakeReverse, input.Steering, Time.fixedDeltaTime);
@@ -73,6 +76,9 @@ namespace Racer
                 Body.AddForceAtPosition(transform.up * (lift / suspensionPoints.Length), origin, ForceMode.Acceleration);
             }
             bool grounded = GroundedWheels >= 2;
+            float immersed=ShallowWater.Sample(this,out float surface);
+            WaterSurface=surface;
+            WaterImmersion=immersed<=0?0:Mathf.MoveTowards(WaterImmersion,immersed,dt*2.5f);
             Vector3 up = grounded ? normal.normalized : Vector3.up;
             Vector3 forward = Vector3.ProjectOnPlane(transform.forward, up).normalized;
             Vector3 right = Vector3.Cross(up, forward);
@@ -87,7 +93,9 @@ namespace Racer
                 else drive = throttle * acceleration * Mathf.Clamp01(1 - Mathf.Max(0, speedForward) / topSpeed)
                            - brakeReverse * reverseAcceleration * Mathf.Clamp01(1 - Mathf.Max(0, -speedForward) / reverseSpeed);
                 if (throttle < 0.05f && brakeReverse < 0.05f) drive -= speedForward * coastingDrag;
+                drive *= Mathf.Lerp(1,.48f,WaterImmersion);
                 Body.AddForce(forward * drive, ForceMode.Acceleration);
+                Body.AddForce(-Vector3.ProjectOnPlane(Body.linearVelocity,up)*(.95f*WaterImmersion),ForceMode.Acceleration);
                 float sideways = Vector3.Dot(Body.linearVelocity, right);
                 Body.AddForce(-right * Mathf.Clamp(sideways * lateralGrip, -maxGripAcceleration, maxGripAcceleration), ForceMode.Acceleration);
                 float angle = Mathf.Lerp(slowSteerAngle, fastSteerAngle, Mathf.Clamp01(Mathf.Abs(speedForward) / topSpeed));
@@ -102,7 +110,7 @@ namespace Racer
             Body.AddTorque((tilt * uprightStrength - tiltVelocity * uprightDamping) * (grounded ? 1 : airStability), ForceMode.Acceleration);
         }
 
-        public void ClearSteering() { steer = 0; GetComponent<VehicleConfiguration>()?.Recover(); }
+        public void ClearSteering() { steer = 0; WaterImmersion=0; WaterSurface=0; GetComponent<WaterFeedback>()?.Clear(); GetComponent<VehicleConfiguration>()?.Recover(); }
         void OnDrawGizmosSelected()
         {
             Gizmos.color = Color.cyan;

@@ -1,0 +1,3 @@
+seed=101 frames=2376 median=8.334 p95=8.367 timescale=1 peakMiB=0.0
+explicitRender=True resolution=1280x720 traffic=4 population=26 swarms=1 radioCount=34 playing=True channel=Groove
+batFixture=true maxSimultaneousBats=8; deliberately positioned cave fixture, not race-completion evidence

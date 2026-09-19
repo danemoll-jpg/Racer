@@ -12,7 +12,7 @@ namespace Racer
         public int laps = 3;
         public RaceRoad road;
         public RaceRoad ambientRoad;
-        public bool Forest => courseId=="lake-v2-forest";
+        public bool Forest => courseId=="lake-v2-forest" || courseId=="lake-v3-shallows";
         public VehicleProfile[] EligibleVehicles => Forest ? VehicleProfile.All.Where(p=>p.Small).ToArray() : VehicleProfile.All;
         public string EligibleVehicle(string id)=>Forest&&!VehicleProfile.Find(id).Small?"moto":VehicleProfile.Find(id).Id;
         public string courseId="street-v8-landings";
@@ -96,6 +96,8 @@ namespace Racer
 
         public void RestartRace()
         {
+            DriverVariation.Seed=AmbientLife.ForcedSeed!=0?AmbientLife.ForcedSeed:System.Environment.TickCount;
+            GetComponent<AmbientLife>()?.SelectScenes();
             if(Forest)
             {
                 var configuration=vehicle.GetComponent<VehicleConfiguration>();

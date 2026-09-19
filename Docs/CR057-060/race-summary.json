@@ -1,0 +1,122 @@
+[
+  {
+    "Run": "final-LakeWoods-d0-False",
+    "AIRiders": 9,
+    "AIFinished": 9,
+    "MeanSeconds": 159.509,
+    "Mistakes": 41.0,
+    "Recoveries": 1.0,
+    "Misses": 0.0,
+    "ReferenceFinished": 3
+  },
+  {
+    "Run": "final-LakeWoods-d0-True",
+    "AIRiders": 9,
+    "AIFinished": 9,
+    "MeanSeconds": 155.278,
+    "Mistakes": 0.0,
+    "Recoveries": 0.0,
+    "Misses": 0.0,
+    "ReferenceFinished": 3
+  },
+  {
+    "Run": "final-LakeWoods-d1-False",
+    "AIRiders": 9,
+    "AIFinished": 9,
+    "MeanSeconds": 159.577,
+    "Mistakes": 32.0,
+    "Recoveries": 1.0,
+    "Misses": 0.0,
+    "ReferenceFinished": 3
+  },
+  {
+    "Run": "final-LakeWoods-d1-True",
+    "AIRiders": 9,
+    "AIFinished": 9,
+    "MeanSeconds": 156.737,
+    "Mistakes": 0.0,
+    "Recoveries": 4.0,
+    "Misses": 0.0,
+    "ReferenceFinished": 3
+  },
+  {
+    "Run": "final-LakeWoods-d2-False",
+    "AIRiders": 9,
+    "AIFinished": 9,
+    "MeanSeconds": 154.937,
+    "Mistakes": 22.0,
+    "Recoveries": 1.0,
+    "Misses": 0.0,
+    "ReferenceFinished": 3
+  },
+  {
+    "Run": "final-LakeWoods-d2-True",
+    "AIRiders": 9,
+    "AIFinished": 9,
+    "MeanSeconds": 160.482,
+    "Mistakes": 0.0,
+    "Recoveries": 0.0,
+    "Misses": 0.0,
+    "ReferenceFinished": 3
+  },
+  {
+    "Run": "final-StreetLoopGreybox-d0-False",
+    "AIRiders": 9,
+    "AIFinished": 9,
+    "MeanSeconds": 323.608,
+    "Mistakes": 84.0,
+    "Recoveries": 4.0,
+    "Misses": 0.0,
+    "ReferenceFinished": 2
+  },
+  {
+    "Run": "final-StreetLoopGreybox-d0-True",
+    "AIRiders": 9,
+    "AIFinished": 9,
+    "MeanSeconds": 319.817,
+    "Mistakes": 0.0,
+    "Recoveries": 2.0,
+    "Misses": 0.0,
+    "ReferenceFinished": 3
+  },
+  {
+    "Run": "final-StreetLoopGreybox-d1-False",
+    "AIRiders": 9,
+    "AIFinished": 9,
+    "MeanSeconds": 279.744,
+    "Mistakes": 54.0,
+    "Recoveries": 0.0,
+    "Misses": 1.0,
+    "ReferenceFinished": 3
+  },
+  {
+    "Run": "final-StreetLoopGreybox-d1-True",
+    "AIRiders": 9,
+    "AIFinished": 9,
+    "MeanSeconds": 281.015,
+    "Mistakes": 0.0,
+    "Recoveries": 0.0,
+    "Misses": 0.0,
+    "ReferenceFinished": 3
+  },
+  {
+    "Run": "final-StreetLoopGreybox-d2-False",
+    "AIRiders": 9,
+    "AIFinished": 9,
+    "MeanSeconds": 282.015,
+    "Mistakes": 39.0,
+    "Recoveries": 1.0,
+    "Misses": 0.0,
+    "ReferenceFinished": 3
+  },
+  {
+    "Run": "final-StreetLoopGreybox-d2-True",
+    "AIRiders": 9,
+    "AIFinished": 9,
+    "MeanSeconds": 273.497,
+    "Mistakes": 0.0,
+    "Recoveries": 0.0,
+    "Misses": 0.0,
+    "ReferenceFinished": 3
+  }
+]

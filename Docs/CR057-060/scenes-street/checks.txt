@@ -1,0 +1,157 @@
+PASS All football endpoints and connecting flights inside accepted rectangular fence
+PASS Coffee group outside front fence and beyond traffic lane
+PASS Pedestrian slot outside traffic lane
+PASS Pedestrian slot outside traffic lane
+PASS Pedestrian slot outside traffic lane
+PASS Pedestrian slot outside traffic lane
+PASS Pedestrian slot outside traffic lane
+PASS Pedestrian slot outside traffic lane
+PASS Pedestrian slot outside traffic lane
+PASS Pedestrian slot outside traffic lane
+PASS Pedestrian slot outside traffic lane
+PASS Pedestrian slot outside traffic lane
+PASS Pedestrian slot outside traffic lane
+PASS Pedestrian slot outside traffic lane
+PASS Pedestrian slot outside traffic lane
+PASS Pedestrian slot outside traffic lane
+PASS Pedestrian slot outside traffic lane
+PASS Pedestrian slot outside traffic lane
+PASS Pedestrian slot outside traffic lane
+PASS Pedestrian slot outside traffic lane
+PASS Pedestrian slot outside traffic lane
+PASS Pedestrian slot outside traffic lane
+PASS Pedestrian slot outside traffic lane
+PASS Pedestrian slot outside traffic lane
+PASS Pedestrian slot outside traffic lane
+PASS Pedestrian slot outside traffic lane
+PASS Pedestrian slot outside traffic lane
+PASS Pedestrian slot outside traffic lane
+PASS Pedestrian slot outside traffic lane
+PASS Pedestrian slot outside traffic lane
+PASS Supported feet seed=1 (431.00, 82.30, -4.00)
+PASS Supported feet seed=1 (429.00, 81.75, 0.00)
+PASS Supported feet seed=1 (436.00, 81.82, -2.00)
+PASS Supported feet seed=1 (502.14, 84.89, -39.25)
+PASS Supported feet seed=1 (500.74, 84.89, -37.50)
+PASS Supported feet seed=1 (-589.32, 7.58, 557.72)
+PASS Supported feet seed=1 (-586.96, 7.57, 558.15)
+PASS Supported feet seed=1 (-580.46, 7.57, 522.74)
+PASS Supported feet seed=1 (-445.67, 7.69, 553.94)
+PASS Supported feet seed=1 (-443.27, 7.70, 553.86)
+PASS Supported feet seed=1 (-444.51, 7.71, 517.88)
+PASS Supported feet seed=1 (-305.87, 8.52, 548.97)
+PASS Supported feet seed=1 (-306.90, 8.52, 512.98)
+PASS Supported feet seed=1 (-303.47, 8.53, 548.90)
+PASS Supported feet seed=1 (-166.35, 8.06, 547.14)
+PASS Supported feet seed=1 (-166.45, 8.07, 511.14)
+PASS Supported feet seed=1 (-163.95, 8.05, 547.13)
+PASS Supported feet seed=1 (-164.05, 8.05, 511.13)
+PASS Supported feet seed=1 (-24.05, 7.45, 510.82)
+PASS Supported feet seed=1 (110.75, 8.69, 563.53)
+PASS Supported feet seed=1 (112.94, 8.69, 527.17)
+PASS Supported feet seed=1 (115.33, 8.70, 527.91)
+PASS Supported feet seed=3 (431.00, 82.30, -4.00)
+PASS Supported feet seed=3 (429.00, 81.75, 0.00)
+PASS Supported feet seed=3 (436.00, 81.82, -2.00)
+PASS Supported feet seed=3 (-582.82, 7.57, 522.31)
+PASS Supported feet seed=3 (-586.96, 7.57, 558.15)
+PASS Supported feet seed=3 (-580.46, 7.57, 522.74)
+PASS Supported feet seed=3 (-445.67, 7.69, 553.94)
+PASS Supported feet seed=3 (-443.27, 7.70, 553.86)
+PASS Supported feet seed=3 (-444.51, 7.71, 517.88)
+PASS Supported feet seed=3 (-305.87, 8.52, 548.97)
+PASS Supported feet seed=3 (-303.47, 8.53, 548.90)
+PASS Supported feet seed=3 (-304.50, 8.53, 512.92)
+PASS Supported feet seed=3 (-166.35, 8.06, 547.14)
+PASS Supported feet seed=3 (-163.95, 8.05, 547.13)
+PASS Supported feet seed=3 (-26.45, 7.45, 510.83)
+PASS Supported feet seed=3 (-23.97, 7.45, 546.82)
+PASS Supported feet seed=3 (-24.05, 7.45, 510.82)
+PASS Supported feet seed=3 (110.75, 8.69, 563.63)
+PASS Supported feet seed=3 (112.94, 8.69, 527.17)
+PASS Supported feet seed=3 (115.33, 8.69, 527.83)
+PASS Supported feet seed=9 (464.21, 81.90, -3.37)
+PASS Supported feet seed=9 (464.27, 81.45, -1.07)
+PASS Supported feet seed=9 (502.14, 84.89, -39.25)
+PASS Supported feet seed=9 (500.74, 84.89, -37.50)
+PASS Supported feet seed=9 (-589.32, 7.58, 557.72)
+PASS Supported feet seed=9 (-582.82, 7.57, 522.31)
+PASS Supported feet seed=9 (-586.96, 7.57, 558.15)
+PASS Supported feet seed=9 (-580.46, 7.57, 522.74)
+PASS Supported feet seed=9 (-443.27, 7.70, 553.86)
+PASS Supported feet seed=9 (-444.51, 7.71, 517.88)
+PASS Supported feet seed=9 (-306.90, 8.52, 512.98)
+PASS Supported feet seed=9 (-304.50, 8.53, 512.92)
+PASS Supported feet seed=9 (-166.35, 8.06, 547.14)
+PASS Supported feet seed=9 (-166.45, 8.07, 511.14)
+PASS Supported feet seed=9 (-163.95, 8.05, 547.13)
+PASS Supported feet seed=9 (-164.05, 8.05, 511.13)
+PASS Supported feet seed=9 (-23.97, 7.45, 546.82)
+PASS Supported feet seed=9 (-24.05, 7.45, 510.82)
+PASS Supported feet seed=9 (110.75, 8.69, 563.72)
+PASS Supported feet seed=9 (112.94, 8.69, 527.17)
+PASS Supported feet seed=9 (113.15, 8.69, 563.25)
+PASS Supported feet seed=9 (115.33, 8.69, 527.72)
+PASS Supported feet seed=9 (532.12, 25.00, -347.03)
+PASS Supported feet seed=9 (331.75, 39.48, -378.72)
+PASS Supported feet seed=13 (464.21, 81.90, -3.37)
+PASS Supported feet seed=13 (464.27, 81.45, -1.07)
+PASS Supported feet seed=13 (-582.82, 7.57, 522.31)
+PASS Supported feet seed=13 (-586.96, 7.57, 558.15)
+PASS Supported feet seed=13 (-443.27, 7.70, 553.86)
+PASS Supported feet seed=13 (-444.51, 7.71, 517.88)
+PASS Supported feet seed=13 (-306.90, 8.52, 512.98)
+PASS Supported feet seed=13 (-303.47, 8.53, 548.90)
+PASS Supported feet seed=13 (-304.50, 8.53, 512.92)
+PASS Supported feet seed=13 (-166.35, 8.06, 547.14)
+PASS Supported feet seed=13 (-166.45, 8.07, 511.14)
+PASS Supported feet seed=13 (-163.95, 8.05, 547.13)
+PASS Supported feet seed=13 (-164.05, 8.05, 511.13)
+PASS Supported feet seed=13 (-26.37, 7.45, 546.83)
+PASS Supported feet seed=13 (-26.45, 7.45, 510.83)
+PASS Supported feet seed=13 (-23.97, 7.45, 546.82)
+PASS Supported feet seed=13 (-24.05, 7.45, 510.82)
+PASS Supported feet seed=13 (110.75, 8.69, 563.77)
+PASS Supported feet seed=13 (112.94, 8.69, 527.17)
+PASS Supported feet seed=13 (304.65, 69.08, 307.07)
+PASS Supported feet seed=13 (331.75, 39.48, -378.72)
+PASS Supported feet seed=2 (502.14, 84.89, -39.25)
+PASS Supported feet seed=2 (500.74, 84.89, -37.50)
+PASS Supported feet seed=2 (-589.32, 7.58, 557.72)
+PASS Supported feet seed=2 (-586.96, 7.57, 558.15)
+PASS Supported feet seed=2 (-580.46, 7.57, 522.74)
+PASS Supported feet seed=2 (-446.91, 7.70, 517.96)
+PASS Supported feet seed=2 (-443.27, 7.70, 553.86)
+PASS Supported feet seed=2 (-444.51, 7.71, 517.88)
+PASS Supported feet seed=2 (-306.90, 8.52, 512.98)
+PASS Supported feet seed=2 (-303.47, 8.53, 548.90)
+PASS Supported feet seed=2 (-304.50, 8.53, 512.92)
+PASS Supported feet seed=2 (-166.35, 8.06, 547.14)
+PASS Supported feet seed=2 (-166.45, 8.07, 511.14)
+PASS Supported feet seed=2 (-164.05, 8.05, 511.13)
+PASS Supported feet seed=2 (-26.45, 7.45, 510.83)
+PASS Supported feet seed=2 (-23.97, 7.45, 546.82)
+PASS Supported feet seed=2 (-24.05, 7.45, 510.82)
+PASS Supported feet seed=2 (110.75, 8.69, 563.80)
+PASS Supported feet seed=2 (331.75, 39.48, -378.72)
+PASS Supported feet seed=4 (-589.32, 7.58, 557.72)
+PASS Supported feet seed=4 (-582.82, 7.57, 522.31)
+PASS Supported feet seed=4 (-586.96, 7.57, 558.15)
+PASS Supported feet seed=4 (-580.46, 7.57, 522.74)
+PASS Supported feet seed=4 (-445.67, 7.69, 553.94)
+PASS Supported feet seed=4 (-446.91, 7.70, 517.96)
+PASS Supported feet seed=4 (-443.27, 7.70, 553.86)
+PASS Supported feet seed=4 (-305.87, 8.52, 548.97)
+PASS Supported feet seed=4 (-306.90, 8.52, 512.98)
+PASS Supported feet seed=4 (-303.47, 8.53, 548.90)
+PASS Supported feet seed=4 (-304.50, 8.53, 512.92)
+PASS Supported feet seed=4 (-166.45, 8.07, 511.14)
+PASS Supported feet seed=4 (-163.95, 8.05, 547.13)
+PASS Supported feet seed=4 (-164.05, 8.05, 511.13)
+PASS Supported feet seed=4 (-23.97, 7.45, 546.82)
+PASS Supported feet seed=4 (110.75, 8.69, 563.80)
+PASS Supported feet seed=4 (112.94, 8.69, 527.17)
+PASS Supported feet seed=4 (113.15, 8.69, 563.25)
+PASS Supported feet seed=4 (115.33, 8.69, 527.32)
+PASS Supported feet seed=4 (532.12, 25.00, -347.03)
+PASS No floating world text in final scene

@@ -1,0 +1,85 @@
+PASS No floating TextMesh; mounted storefront lettering only
+PASS HUD and checkpoint components retained
+PASS All six independent household combinations across 30 seeds
+PASS Hwy 92 has substantially more supported slots
+PASS moto grounded immersion Creek surface0
+PASS Reverse available motoCreek surface0
+PASS Drive out motoCreek surface0
+PASS moto grounded immersion Creek surface1
+PASS Reverse available motoCreek surface1
+PASS Drive out motoCreek surface1
+PASS moto grounded immersion Creek surface2
+PASS Reverse available motoCreek surface2
+PASS Drive out motoCreek surface2
+PASS moto grounded immersion Creek surface3
+FAIL Reverse available motoCreek surface3
+PASS Drive out motoCreek surface3
+PASS Airborne water crossing unaffected Creek surface
+PASS moto grounded immersion J1 flowing creek0
+PASS Reverse available motoJ1 flowing creek0
+PASS Drive out motoJ1 flowing creek0
+PASS moto grounded immersion J1 flowing creek1
+PASS Reverse available motoJ1 flowing creek1
+PASS Drive out motoJ1 flowing creek1
+PASS moto grounded immersion J1 flowing creek2
+PASS Reverse available motoJ1 flowing creek2
+PASS Drive out motoJ1 flowing creek2
+PASS moto grounded immersion J1 flowing creek3
+PASS Reverse available motoJ1 flowing creek3
+FAIL Drive out motoJ1 flowing creek3
+PASS Airborne water crossing unaffected J1 flowing creek
+PASS moto grounded immersion Friend's lake - visible shoreline0
+PASS Reverse available motoFriend's lake - visible shoreline0
+PASS Drive out motoFriend's lake - visible shoreline0
+PASS moto grounded immersion Friend's lake - visible shoreline1
+PASS Reverse available motoFriend's lake - visible shoreline1
+FAIL Drive out motoFriend's lake - visible shoreline1
+PASS moto grounded immersion Friend's lake - visible shoreline2
+PASS Reverse available motoFriend's lake - visible shoreline2
+PASS Drive out motoFriend's lake - visible shoreline2
+PASS moto grounded immersion Friend's lake - visible shoreline3
+PASS Reverse available motoFriend's lake - visible shoreline3
+FAIL Drive out motoFriend's lake - visible shoreline3
+PASS Airborne water crossing unaffected Friend's lake - visible shoreline
+PASS atv grounded immersion Creek surface0
+PASS Reverse available atvCreek surface0
+FAIL Drive out atvCreek surface0
+PASS atv grounded immersion Creek surface1
+PASS Reverse available atvCreek surface1
+PASS Drive out atvCreek surface1
+PASS atv grounded immersion Creek surface2
+PASS Reverse available atvCreek surface2
+PASS Drive out atvCreek surface2
+PASS atv grounded immersion Creek surface3
+FAIL Reverse available atvCreek surface3
+PASS Drive out atvCreek surface3
+PASS Airborne water crossing unaffected Creek surface
+PASS atv grounded immersion J1 flowing creek0
+PASS Reverse available atvJ1 flowing creek0
+PASS Drive out atvJ1 flowing creek0
+PASS atv grounded immersion J1 flowing creek1
+PASS Reverse available atvJ1 flowing creek1
+PASS Drive out atvJ1 flowing creek1
+PASS atv grounded immersion J1 flowing creek2
+PASS Reverse available atvJ1 flowing creek2
+PASS Drive out atvJ1 flowing creek2
+PASS atv grounded immersion J1 flowing creek3
+PASS Reverse available atvJ1 flowing creek3
+PASS Drive out atvJ1 flowing creek3
+PASS Airborne water crossing unaffected J1 flowing creek
+PASS atv grounded immersion Friend's lake - visible shoreline0
+PASS Reverse available atvFriend's lake - visible shoreline0
+PASS Drive out atvFriend's lake - visible shoreline0
+PASS atv grounded immersion Friend's lake - visible shoreline1
+PASS Reverse available atvFriend's lake - visible shoreline1
+FAIL Drive out atvFriend's lake - visible shoreline1
+PASS atv grounded immersion Friend's lake - visible shoreline2
+PASS Reverse available atvFriend's lake - visible shoreline2
+PASS Drive out atvFriend's lake - visible shoreline2
+PASS atv grounded immersion Friend's lake - visible shoreline3
+PASS Reverse available atvFriend's lake - visible shoreline3
+FAIL Drive out atvFriend's lake - visible shoreline3
+PASS Airborne water crossing unaffected Friend's lake - visible shoreline
+PASS Recovery clears immersion immediately
+PASS Approaching rider triggers one bat swarm
+PASS Near-entry repeat remains disarmed

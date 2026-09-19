@@ -1,0 +1,6 @@
+Assets/Scenes/StreetLoopGreybox.unity water Creek surface surface=20.63787 supported tiles=1
+Assets/Scenes/StreetLoopGreybox.unity removed text=0 highway slots=24 sparse slots=4 waters=1
+Assets/Scenes/LakeWoods.unity water Creek surface surface=20.63787 supported tiles=1
+Assets/Scenes/LakeWoods.unity water Friend's lake - visible shoreline surface=78.0175 supported tiles=4
+Assets/Scenes/LakeWoods.unity water J1 flowing creek surface=73.8953 supported tiles=0
+Assets/Scenes/LakeWoods.unity removed text=0 highway slots=24 sparse slots=4 waters=3

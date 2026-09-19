@@ -11,6 +11,7 @@ namespace Racer
         public RacerState Racer;
         public int Direction { get; private set; } = 1;
         public float TargetSpeed { get; private set; }
+        public DriverVariation Variation { get; } = new();
 
         public int RecoveryCount { get; private set; }
         public float StalledSeconds => stalled;
@@ -37,6 +38,7 @@ namespace Racer
             Direction = direction;
             pace = variation;
             lane = racer ? 1.7f : 2.6f * direction;
+            Variation.Initialize(DriverVariation.Seed,race.Drivers.Count+Mathf.RoundToInt(variation*1000));
         }
 
         public void Place(float s, float side)
@@ -137,6 +139,9 @@ namespace Racer
             if(plannedBranch || activeBranch) desiredLane=0;
             // Commit to the readable central launch line; pass in the intervening pockets.
             if(racing&&forestLayout&&forestLayout.Approach(s))desiredLane=0;
+            bool jumpApproach=racing&&forestLayout&&forestLayout.Approach(s)&&!forestLayout.IsLaunch(s);
+            Variation.Step(this,s,speed,!racing||finished||plannedBranch||activeBranch||bypass||lateral>2.5f||Car.transform.up.y<.9f|| (forestLayout&&forestLayout.IsLaunch(s)),jumpApproach);
+            if(Variation.Line!=0)desiredLane=Mathf.Clamp(desiredLane+Variation.Line,-DriveRoad.HalfWidth(s)+1.6f,DriveRoad.HalfWidth(s)-1.6f);
             var target = activeBranch ? activeBranch.At(branchS+look,out _) : DriveRoad.At(s + Direction * look, out _);
             var ahead = tangent;
             if(activeBranch) activeBranch.At(branchS+look,out ahead); else DriveRoad.At(s+Direction*look,out ahead);
@@ -148,6 +153,7 @@ namespace Racer
             int skill = racing ? Mathf.Clamp(Race.difficulty,0,2) : 0;
             float cornerGrip = racing ? Car.maxGripAcceleration*cornerUse[skill] : 7.5f;
             float judgment = racing ? Car.braking*brakeUse[skill] : 8f;
+            judgment*=Variation.Judgment;
             TargetSpeed = (racing ? Car.topSpeed * speedUse[skill] : Mathf.Lerp(17,29,DriveRoad.HighwayBlend(s))) * pace;
             if(finished) TargetSpeed=12;
             // Consistency costs time through early lifting, never extra vehicle capability.

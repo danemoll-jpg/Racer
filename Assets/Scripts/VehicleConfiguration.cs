@@ -47,7 +47,7 @@ namespace Racer
                 originalMotor = JsonUtility.ToJson(motor);
                 originalSize = box.size; originalCenter = box.center; originalMass = motor.Body.mass;
                 var children = new List<Transform>();
-                foreach (Transform child in transform) children.Add(child);
+                foreach (Transform child in transform) if(child.name!="Water feedback"&&child.name!="Water ripple") children.Add(child);
                 originalVisuals = children.ToArray();
                 originalEnabled = children.ConvertAll(t=>t.gameObject.activeSelf).ToArray();
             }

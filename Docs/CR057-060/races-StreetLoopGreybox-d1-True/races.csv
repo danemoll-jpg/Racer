@@ -1,0 +1,5 @@
+seed,difficulty,baseline,driver,finished,dnf,laps,time,misses,recoveries,errors,brakeSeconds
+101,1,True,Reference,False,False,0,641.861,0,0,0,131.971
+101,1,True,EMBER,False,False,0,641.861,0,1,0,132.772
+101,1,True,GOLD,False,False,0,641.861,0,1,0,136.512
+101,1,True,BLUE,False,False,0,641.861,0,0,0,136.872

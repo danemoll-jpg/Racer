@@ -8,8 +8,11 @@ namespace Racer
         RaceDirector race;
         public bool Outside(Vector3 p)
         {
+            if(!race)race=FindAnyObjectByType<RaceDirector>();
             var q=transform.InverseTransformPoint(p);
-            return q.z>26 && Mathf.Abs(q.x)<Mathf.Max(90,q.z*2);
+            // Forest extends beside the old closures. Keep the actual closed street corridor
+            // protected, instead of projecting an infinite widening plane through the lake.
+            return q.z>26 && Mathf.Abs(q.x)<(race&&race.Forest?22:Mathf.Max(90,q.z*2));
         }
         public static bool Allowed(Vector3 p)
         {
