@@ -17,7 +17,7 @@ A small single-player arcade racing game inspired by *Forza Horizon*, built arou
 
 These rules apply throughout the project.
 
-**Consistent testing entry point:** Dan launches `Play-Racer.cmd` at the project root, or `Builds/Latest/Racer.exe`. After each new validated playable build, update the complete `Builds/Latest` runtime folder (including VERSION.txt); never replace only its executable. Keep older versioned builds separately. Current integrated correction is 0.6.1-review2; Builds/Latest/VERSION.txt records the executable source. The complete Latest runtime and extracted ZIP are hash-verified; combined revision awaits Dan approval. A source commit alone does not update a compiled player.
+**Consistent testing entry point:** Dan launches `Play-Racer.cmd` at the project root, or `Builds/Latest/Racer.exe`. After each new validated playable build, update the complete `Builds/Latest` runtime folder (including VERSION.txt); never replace only its executable. Keep older versioned builds separately. Current integrated correction is 0.6.1-review2; Builds/Latest/VERSION.txt records the executable source. The complete Latest runtime and extracted ZIP are hash-verified; Dan accepts this revision for the most part; shortcut penalty accounting and motorcycle house-jump momentum remain unresolved. See CR-046 through CR-049 and BUG-008 for the next combined pass. A source commit alone does not update a compiled player.
 
 - [ ] Keep the game **single-player only** unless this document is deliberately changed later.
 - [ ] Prioritize **fun arcade handling** over realistic simulation.
@@ -680,7 +680,7 @@ Use this section whenever something is wrong.
 **Requested fix:** Identify repeat-triggering and misleading wipeout detection, emit only meaningful state-transition feedback, keep recovery help compact and dismissible/short-lived, and avoid prompts during normal driving, normal landings, recoverable bumps or menus. No per-frame message recreation or repeated sound spam. Validate together with CR-029.
 
 ### BUG-004 — Designated shortcuts wrongly charge bypassed gates
-**Status:** IMPLEMENTED IN 0.6.1-review2 — integrated validation recorded; awaiting Dan's approval. See Docs/CR041-045/VALIDATION.md and AI-RACES.md for actual results and limitations.
+**Status:** REOPENED — Dan still accumulates unexplained shortcut misses; CR-046 is the next required fix. Human report supersedes automated passes.
 **Reported:** Dan received checkpoint penalties while using authored shortcuts despite explicit penalty-free bypass rules. Reproduce player-like imperfect entries/airborne travel/rejoins in actual Latest, confirm package source, log per-racer branch/gate/penalty state, and fix recognition and exit/abandonment handling without requiring a perfect centerline. Authorized bypass gates must never receive miss/cut charges or buzzes on a legitimate traversal. Local recovery must preserve earned branch context without allowing entry-touch giant-cut exploits.  
 **Acceptance:** Repeated human-like runs of every shortcut/all profiles including recovery/reverse/edge/airborne cases finish with zero bypassed-gate charges; unrelated ordinary misses still work.
 **Result:** 80/80 ordinary-frame route/road attempts, 48 verified branch exits and16 local recoveries: zero misses, charges or buzzes. Swept guards cover reversal, abandonment, entrance-touch exploits and shared AI rules. Exact old user incident was not reproduced; source recognition/context defects were corrected.
@@ -701,6 +701,11 @@ Use this section whenever something is wrong.
 **Status:** IMPLEMENTED IN 0.6.1-review2 — integrated validation recorded; awaiting Dan's approval. See Docs/CR041-045/VALIDATION.md and AI-RACES.md for actual results and limitations.
 **Requested resolution:** CR-041 authorizes grounding and locally converting this specific house into a drive-through stunt. Other houses remain fixed. No unexplained floating slab or hidden solid collider across the route.
 **Result:** Only the identified floating Fox Gully residence was adapted into the supported glass-entry/ramp/upper-window stunt. All12 final gully branch attempts crossed both panes. All46 unrelated building transforms unchanged.
+
+### BUG-008 — Motorcycle loses momentum at gully-house jump
+**Status:** OPEN — reproduce before tuning.  
+**Reported:** Motorcycle slows again at the house jump, similar to the earlier ramp issue. Inspect actual input/velocity/contact normals/separation, panes/debris/restoration, internal floor seams, suspension/stability/wipeout and collision filtering. Re-test the prior scoped CCD fix rather than assume the same cause. No compensating launch boost or globally disabled collision.  
+**Acceptance:** Repeated ordinary-frame runs retain appropriate momentum through glass/interior/lip and land safely within intended speeds; all profiles/class-contact rules remain functional. Report stage-by-stage speeds and failed cases.
 
 ---
 
@@ -973,7 +978,7 @@ Use this for things that are not bugs but that Dan wants changed.
 **Result:** Original material-specific wood/chain-link/mailbox/sign synthesis, three timbres/five pitches, four spatial voices, 75ms onset cooldown and prewarming. Chain-link at Dan's property; white large-X side/front fences at Houses 2/3; central access remains open. Material overrides are saved on prefab instances. Existing yielding/24-piece cleanup/restoration preserved; 33/33 combined audio/highway checks pass. No third-party samples. Sound satisfaction awaits Dan.
 
 ### CR-036 — Player-defined difficulty balance
-**Status:** IMPLEMENTED IN 0.6.1-review2 — integrated validation recorded; awaiting Dan's approval. See Docs/CR041-045/VALIDATION.md and AI-RACES.md for actual results and limitations.
+**Status:** ACCEPTABLE FOR NOW / REVISIT AFTER MORE PLAY — Dan may reassess difficulty; no AI pace retuning in the next delivery.
 **Requested change:** Easy should be comfortably winnable with ordinary competent driving. Normal should be somewhat challenging with a good chance to win. Hard should punish mistakes through lost position/time and require a strong run. Dan finds all current levels too easy. Tune skill/pace per vehicle using actual route/profile constraints, not just beating a conservative automated reference driver. Preserve fair profile capabilities, visible grid, mixed/selected roster and absence of hidden speed boosts/teleport catch-up.  
 **Validation:** Compare comparable clean runs and deliberate error/recovery runs; report lap/sector times, gaps, excessive braking, AI errors and traffic influence across all vehicle classes. Human difficulty remains Dan's judgment. Optional authored shortcuts should be usable by qualified AI with difficulty-appropriate choice, with safe main-road fallback; distinguish racecraft from unfair physics.  
 **Result:** Normal/Hard driver pace strengthened with unchanged player motors/capabilities and Easy constants. Both20-traffic three-lap races finished4/4 with zero misses/recoveries. All profiles improved best laps, but Hard tourer/motorcycle total races slowed in congestion. Exact laps, sectors, gaps, braking and Easy/mistake results are in Docs/CR041-045/AI-RACES.md; no human difficulty acceptance claimed.
@@ -1029,6 +1034,26 @@ Use this for things that are not bugs but that Dan wants changed.
 **Status:** IMPLEMENTED IN 0.6.1-review2 — integrated validation recorded; awaiting Dan's approval. See Docs/CR041-045/VALIDATION.md and AI-RACES.md for actual results and limitations.
 **Requested change:** Replace the arbitrary freestanding ramp with a readable environmental launch feature on Jamerson: e.g. roadworks with a supported raised pavement/graded approach. Choose one coherent original design, explain it and preserve a bypass. It should appear to belong to the road environment while still offering a large satisfying intentional gameplay jump. Coordinate collision/approach/landing/checkpoint envelope and all-profile tests, including fast motorcycle flights. No magic boost or new unrelated course segment.  
 **Result:** Jamerson raised-pavement roadworks with supported takeoff, graded shoulder, breakable markers and open-right bypass.8/8 flights landed and credited CP14; fast motorcycle51.224m/s,17.430m apex,3.263s airtime. Fast ATV later CP15 miss retained as genuine+5.
+
+### CR-046 — Reliable latched shortcut credit and complete penalty accounting
+**Status:** PLANNED — next integrated fixes/world-continuity/personal-radio delivery.  
+**Requested change:** BUG-004 remains unresolved in human play: Dan saw about six notices but accumulated fourteen misses; exact causes not yet known. Relocate ambiguous approach/exit gates clearly before shortcut entrances and clearly after rejoins, with spacing for speed/flight. Once a legitimate shortcut entry is earned, latch its explicit bypass entitlement across lateral deviations, falls, stopping, reversing and local recovery until verified exit or deliberate main-road rejoin/abandonment. Do not require perfect path adherence or retroactively charge authorized bypassed gates. Distinguish earned protected gates from unrelated later-course skipping; finish/anti-teleport validity remains. Audit every mutation of player miss/penalty totals; no silent charges with suppressed notification. Add compact +5 or aggregated Nx+5 notices and a pause/results ledger containing lap, gate, cause, amount and branch context; ledger/count/sum must reconcile. Log position/time/route transitions for optional reproducible review, not a permanent debug HUD. True misses exactly5s, authorized bypasses0. Test human-like excursions, close gate ordering, loading/reset/restart and all vehicles. Prior fixtures are not proof of resolving Dan's incident.  
+**Result:** Pending implementation and Dan review.
+
+### CR-047 — More audible tire squeal
+**Status:** PLANNED — next integrated fixes/world-continuity/personal-radio delivery.  
+**Requested change:** Increase useful tire-slip/braking feedback for actual sliding and hard cornering. Inspect slip/ground/surface thresholds, mixing and attenuation; no constant squeal on every ordinary turn or while airborne. Apply appropriate road/off-road distinctions and per-profile behavior; preserve vehicle/master volume and radio balance. Verify audible output under engine/music, not just trigger counts.  
+**Result:** Pending implementation and Dan review.
+
+### CR-048 — Decorative road continuations beyond circuit turns
+**Status:** PLANNED — next integrated fixes/world-continuity/personal-radio delivery.  
+**Requested change:** Extend each relevant existing road beyond the loop-turn junctions so Hwy92, South Cherokee Lane and Jamerson Rd read as roads into a wider area. These are scenery/traffic connections, not a new playable course. Clearly communicate and physically enforce a player boundary that cannot be smashed or jumped through during supported play, while traffic can enter/leave without blockage. Use a visually coherent closure/controlled access or separate traffic passage; no cars visibly phasing through a solid closed wall. Preserve lane continuity, supported terrain, safe recycling and frame budget. Prevent following traffic out, local reset bypass and false gates/penalties. Keep houses/yards and playable race loop fixed; inspect all junctions rather than blindly extending every polyline corner.  
+**Result:** Pending implementation and Dan review.
+
+### CR-049 — Personal local-music radio
+**Status:** PLANNED — next integrated fixes/world-continuity/personal-radio delivery.  
+**Requested change:** Add persistent user-owned music library via Settings with a default writable Music folder and Open Folder/Rescan actions, plus choosing another folder. Players drag files into that folder in Explorer; literal OS file-drop into game is optional only if reliable. No Unity reimport/rebuild for new songs. Support and test common DRM-free local audio formats (prioritize MP3, WAV and Ogg; document verified limitations). Read artist/title tags where available with a maintained license-compatible metadata reader; use safe filename fallback, never claim AudioClip.name is artist metadata. Shuffle without immediate repeats where possible, next/previous history, play/pause or on/off, brief artist-title toast on track change and on demand. Gameplay-only D-pad Right=next, Left=previous, Up=show track, Down=toggle; inspect bindings and preserve D-pad menu navigation, with keyboard/settings alternatives. Add independent persistent Music volume under Master; keep race/smash/tire cues audible. Bounded async loading/streaming/cache, safe corrupt/missing/removed files and empty library, no main-thread stalls or full-library decoding. Define pause/menu/restart/quit behavior consistently. No network, DRM service integration, uploads, original-file edits, or packaging/git inclusion of user music/local library manifests. Use generated or redistributable test clips/tags; ship empty library instructions, not personal songs. Metadata displayed as text, not interpreted markup.  
+**Result:** Pending implementation and Dan review.
 
 ---
 
@@ -1111,11 +1136,16 @@ Record choices we do not want to repeatedly reconsider.
 | 2026-09-18 | Revise 0.6.0 from Dan's ten-item playtest | Legal shortcut penalties, airborne/backwards-facing credit, hidden distance surcharge, floating house, inaudible impacts, fence extent, traffic density, Normal/Hard pace and Jamerson jump appearance need work |
 | 2026-09-18 | Use zero for authorized bypasses and flat five seconds per true missed gate | Remove confusing hidden fractional distance charges; keep explicit route/finish validation and version records |
 
+| 2026-09-18 | Accept 0.6.1 overall except stated follow-ups; defer difficulty retuning | Dan approves for the most part but shortcut charges and motorcycle house-jump momentum remain issues |
+| 2026-09-18 | Bundle CR-046–049 and BUG-008 | Reliable penalty accounting/shortcut states, more tire sound, road continuations and personal local radio; no other expansion |
+
 ---
 
 # SESSION HANDOFF
 
-**Current delivery:** 0.6.1-review2 integrated correction, awaiting Dan's approval. BUG-004–007, CR-041–045 and further CR-036 are implemented. No separate lake circuit, multiplayer, legacy environment rebuild or unrelated expansion.
+**Current delivery:** Dan approves 0.6.1 for the most part, excluding unresolved shortcut penalties (BUG-004/CR-046) and motorcycle house-jump momentum (BUG-008). Difficulty is acceptable for now pending more playthroughs; do not retune it automatically. Next combined batch adds CR-047 tire squeal, CR-048 decorative traffic road continuations/player boundaries, and CR-049 personal local radio. This is not blanket closure of all bugs or test/device confirmation. No implementation or new tests in this documentation update.
+
+**Previous implementation evidence (0.6.1-review2):** The following records describe the prior build, not validation of the newly requested work. The latest user report supersedes the apparent shortcut-test success; BUG-004 remains open. These historical commit IDs do not replace the required safety checkpoint for the next session.
 
 Safety checkpoint: 88064bd196d68e40bfb624f2d5879613d962dbf5, verified before changes. Git permission failures were safely retried through supported elevation. No changes discarded, hooks/signing bypassed or history rewritten. Executable source:566b4180fa633d182deb7559ae31c025f36ab52f. The completion commit is reported in the delivery response; it contains final evidence/documentation for this source.
 
@@ -1133,7 +1163,7 @@ Traffic:16 dedicated Hwy92 +4 local cars, about22 passes/minute, mean11.5–11.7
 
 Comparable foreground performance:one visible standalone,1280x720, VSync off,120fps cap, one Normal lap, same mixed roster. Old4-traffic median/p95=8.33/8.35ms, peak working set482.2MiB. New20-traffic median/p95=8.33/8.34ms, peak480.6MiB. This is a capped local comparison, not a worst-case FPS guarantee. Build:zero errors; existing future collision-prebake warning and intentionally absent optional Runtime Pipeline warning retained.
 
-Dan's ten-item checklist is in Docs/CR041-045/VALIDATION.md:shortcut legality; airborne/backwards credit; flat penalties; Normal/Hard/Easy feel; gully stunt/recovery; property perimeters/access; audible impacts/mute; busy four-lane traffic; environmental Jamerson jump/bypass; preserved garage/menu/recovery/results/records. CR-040 remains backlog. Stop expansion and await combined approval.
+Dan's ten-item checklist is in Docs/CR041-045/VALIDATION.md:shortcut legality; airborne/backwards credit; flat penalties; Normal/Hard/Easy feel; gully stunt/recovery; property perimeters/access; audible impacts/mute; busy four-lane traffic; environmental Jamerson jump/bypass; preserved garage/menu/recovery/results/records. CR-040 remains backlog. That checklist is historical; proceed only with the newly requested combined pass above and await review of its build.
 
 ---
 # How Dan and ChatGPT Will Use This File
