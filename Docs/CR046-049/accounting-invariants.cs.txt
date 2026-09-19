@@ -1,0 +1,27 @@
+var lines=new System.Collections.Generic.List<string>();
+void Check(bool ok,string text){lines.Add((ok?"PASS ":"FAIL ")+text);}
+foreach(var vehicle in Racer.VehicleProfile.All)
+{
+ var p=new Racer.RaceProgress(19,3);p.Cross(0,true,0);
+ for(int lap=1;lap<=3;lap++)
+ {
+  for(int gate=1;gate<=19;gate++)
+  {
+   if(gate%4==0){Check(p.Miss(gate,99,"ordinary road miss","none",lap*100+gate),vehicle.Id+" accepts genuine miss");Check(!p.Miss(gate,5),"duplicate cannot charge");}
+   else p.Cross(gate,true,lap*100+gate);
+  }
+  p.Cross(0,true,lap*200);
+ }
+ Check(p.Finished && p.MissedGates==12 && p.PenaltySeconds==60 && p.Ledger.Sum(e=>e.Seconds)==60 && p.Ledger.Count==p.Penalties.Count,vehicle.Id+" three-lap ledger reconciliation, fixed five seconds");
+}
+foreach(var branch in UnityEngine.Object.FindObjectsByType<Racer.WoodlandRoute>())
+{
+ var tracker=new Racer.BranchProgress();tracker.Begin(branch);
+ var p=branch.At(10,out var f);tracker.Advance(p-f,p,f);
+ var earned=tracker.Earned;tracker.Advance(p,p+Vector3.right*2+Vector3.down*2,-f);
+ Check(tracker.Route==branch,branch.title+" fall/deviation retains entitlement context");
+ tracker.Recovered(branch.At(2,out _));Check(tracker.Route==branch,branch.title+" local recovery retains context");
+}
+foreach(var boundary in UnityEngine.Object.FindObjectsByType<Racer.CircuitBoundary>())
+{Check(boundary.Outside(boundary.transform.TransformPoint(new Vector3(0,500,30))),boundary.name+" airborne boundary");Check(!Racer.CircuitBoundary.Allowed(boundary.transform.TransformPoint(new Vector3(0,0,40))),boundary.name+" rejects outside recovery");}
+System.IO.Directory.CreateDirectory("Docs/CR046-049");System.IO.File.WriteAllLines("Docs/CR046-049/accounting-unit.txt",lines);return lines;

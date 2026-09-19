@@ -1,0 +1,24 @@
+moto Creek Leap attempt=0 road=False glassBroken=0/2 smashEvents=0 buzzes=0
+moto Creek Leap attempt=1 road=False glassBroken=0/2 smashEvents=0 buzzes=0
+moto Creek Leap attempt=2 road=False glassBroken=0/2 smashEvents=0 buzzes=0
+moto Creek Leap attempt=3 road=False glassBroken=0/2 smashEvents=0 buzzes=0
+moto Creek Leap attempt=0 road=True glassBroken=0/2 smashEvents=0 buzzes=0
+moto Creek Leap attempt=1 road=True glassBroken=0/2 smashEvents=0 buzzes=0
+moto Fox Gully attempt=0 road=False glassBroken=2/2 smashEvents=2 buzzes=0
+moto Fox Gully attempt=1 road=False glassBroken=2/2 smashEvents=2 buzzes=0
+moto Fox Gully attempt=2 road=False glassBroken=2/2 smashEvents=2 buzzes=0
+moto Fox Gully attempt=3 road=False glassBroken=2/2 smashEvents=2 buzzes=0
+moto Fox Gully attempt=0 road=True glassBroken=0/2 smashEvents=0 buzzes=0
+moto Fox Gully attempt=1 road=True glassBroken=0/2 smashEvents=0 buzzes=0
+moto Pine Ridge attempt=0 road=False glassBroken=0/2 smashEvents=0 buzzes=0
+moto Pine Ridge attempt=1 road=False glassBroken=0/2 smashEvents=0 buzzes=0
+moto Pine Ridge attempt=2 road=False glassBroken=0/2 smashEvents=0 buzzes=0
+moto Pine Ridge attempt=3 road=False glassBroken=0/2 smashEvents=0 buzzes=0
+moto Pine Ridge attempt=0 road=True glassBroken=0/2 smashEvents=0 buzzes=0
+moto Pine Ridge attempt=1 road=True glassBroken=0/2 smashEvents=0 buzzes=0
+moto Existing Southwest Cut attempt=0 road=False glassBroken=0/2 smashEvents=0 buzzes=0
+moto Existing Southwest Cut attempt=1 road=False glassBroken=0/2 smashEvents=0 buzzes=0
+moto Existing Southwest Cut attempt=2 road=False glassBroken=0/2 smashEvents=0 buzzes=0
+moto Existing Southwest Cut attempt=3 road=False glassBroken=0/2 smashEvents=0 buzzes=0
+moto Existing Southwest Cut attempt=0 road=True glassBroken=0/2 smashEvents=0 buzzes=0
+moto Existing Southwest Cut attempt=1 road=True glassBroken=0/2 smashEvents=0 buzzes=0

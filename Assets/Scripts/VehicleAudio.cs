@@ -58,15 +58,17 @@ namespace Racer
             SetLevel(0, engine ? Mathf.Lerp(.17f, .10f, load) : 0, volume, dt);
             SetLevel(1, engine ? .16f * load : 0, volume, dt);
             Slip = grounded ? Mathf.Abs(Vector3.Dot(car.Body.linearVelocity, transform.right)) : 0;
-            float slipLevel = Mathf.SmoothStep(0, 1, Mathf.InverseLerp(2.8f, 8, Slip)) * Mathf.InverseLerp(4, 12, speed);
+            float slipLevel = Mathf.SmoothStep(0, 1, Mathf.InverseLerp(1.4f, 5.5f, Slip)) * Mathf.InverseLerp(5, 14, speed);
+            float brakingSlip=grounded&&car.ForwardSpeed>.6f?Mathf.InverseLerp(.5f,1,input.BrakeReverse)*Mathf.InverseLerp(9,24,speed):0;
+            slipLevel=Mathf.Max(slipLevel,brakingSlip*.85f);
             if (grounded) road = Mathf.MoveTowards(road, SampleRoad(), dt * 4);
             float rolling = grounded ? Mathf.InverseLerp(1, 30, speed) : 0;
             SetLevel(2, .07f * rolling * road, volume, dt, !grounded);
-            SetLevel(3, .10f * rolling * (1 - road), volume, dt, !grounded);
-            SetLevel(4, .13f * slipLevel * Mathf.Lerp(.4f, 1, road), volume, dt, !grounded);
+            SetLevel(3, (.10f * rolling + .07f * slipLevel) * (1 - road), volume, dt, !grounded);
+            SetLevel(4, .25f * slipLevel * Mathf.Lerp(.12f, 1, road), volume, dt, !grounded);
             voices[2].pitch = Mathf.Lerp(.7f, 1.3f, rolling);
             voices[3].pitch = Mathf.Lerp(.8f, 1.2f, rolling);
-            voices[4].pitch = Mathf.Lerp(.92f, 1.08f, slipLevel);
+            voices[4].pitch = Mathf.Lerp(.92f, 1.08f, slipLevel)*(configuration&&configuration.Profile.Small?1.13f:1);
             voices[5].volume = volume * impactGain;
             if (!Racing) { airborne = downward = 0; wasGrounded = false; voices[5].Stop(); }
         }

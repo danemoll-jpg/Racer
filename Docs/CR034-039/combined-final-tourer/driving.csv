@@ -1,0 +1,25 @@
+profile,route,attempt,road,finished,seconds,entry_mps,exit_mps,max_lateral,min_up,air_seconds,misses,penalty,branch_exits,recoveries
+tourer,Existing Southwest Cut,0,False,True,5.849,21.407,23.694,5.802,1.000,0.000,0,0.000,1,0
+tourer,Existing Southwest Cut,1,False,True,5.496,21.605,25.770,5.550,1.000,0.000,0,0.000,1,0
+tourer,Existing Southwest Cut,2,False,True,7.738,21.407,23.692,5.802,1.000,0.000,0,0.000,1,1
+tourer,Existing Southwest Cut,3,False,True,8.880,21.407,23.690,5.802,1.000,0.000,0,0.000,1,1
+tourer,Existing Southwest Cut,0,True,True,7.359,27.091,35.585,0.000,1.000,0.000,0,0.000,0,0
+tourer,Existing Southwest Cut,1,True,True,7.339,27.091,35.542,0.000,1.000,0.000,0,0.000,0,0
+tourer,Pine Ridge,0,False,True,18.019,35.645,24.257,5.663,0.984,3.009,0,0.000,1,0
+tourer,Pine Ridge,1,False,True,17.639,36.389,24.256,5.569,0.983,3.080,0,0.000,1,0
+tourer,Pine Ridge,2,False,True,20.200,35.645,24.256,5.663,0.984,0.796,0,0.000,1,1
+tourer,Pine Ridge,3,False,True,20.460,35.645,24.265,5.663,0.989,0.729,0,0.000,1,1
+tourer,Pine Ridge,0,True,True,23.580,40.657,45.677,0.000,0.982,0.000,0,0.000,0,0
+tourer,Pine Ridge,1,True,True,23.579,40.657,45.677,0.000,0.982,0.000,0,0.000,0,0
+tourer,Creek Leap,0,False,True,14.700,32.940,22.390,7.604,0.950,2.120,0,0.000,1,0
+tourer,Creek Leap,1,False,True,14.597,33.022,22.391,8.092,0.950,2.140,0,0.000,1,0
+tourer,Creek Leap,2,False,True,17.399,32.940,22.436,5.767,0.950,1.799,0,0.000,1,1
+tourer,Creek Leap,3,False,True,18.556,32.942,22.490,5.767,0.950,1.816,0,0.000,1,1
+tourer,Creek Leap,0,True,True,22.538,29.109,29.424,0.000,0.950,0.000,0,0.000,0,0
+tourer,Creek Leap,1,True,True,22.560,29.109,29.437,0.000,0.950,0.000,0,0.000,0,0
+tourer,Fox Gully,0,False,True,18.978,23.712,24.849,5.968,0.972,1.361,0,0.000,1,0
+tourer,Fox Gully,1,False,True,18.521,25.122,24.875,5.867,0.972,1.417,0,0.000,1,0
+tourer,Fox Gully,2,False,True,22.158,23.713,24.805,5.967,0.950,1.340,0,0.000,1,1
+tourer,Fox Gully,3,False,True,22.298,23.712,24.896,5.968,0.972,1.520,0,0.000,1,1
+tourer,Fox Gully,0,True,True,19.900,30.081,37.271,0.000,0.963,0.000,0,0.000,0,0
+tourer,Fox Gully,1,True,True,19.839,30.080,37.351,0.000,0.963,0.000,0,0.000,0,0

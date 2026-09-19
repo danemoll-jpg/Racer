@@ -163,9 +163,9 @@ namespace Racer
             Check(Mathf.Approximately(AudioListener.volume,.4f) && new RacerSave(flow.Save.DirectoryPath,"legacy").Settings.vehicle==.3f,"Settings and audio volumes retained across pause/settings");
             int dings=flow.CheckpointDings,buzzes=flow.CheckpointBuzzes;
             flow.CheckpointFeedback(true,0,0); flow.CheckpointFeedback(false,5,1); flow.CheckpointFeedback(false,5,1);
-            Check(flow.CheckpointDings==dings+1 && flow.CheckpointBuzzes==buzzes+1 && flow.Notice.Contains("+5.0s"),"Checkpoint ding and cooldown-limited penalty notification");
-            yield return new WaitForSecondsRealtime(4.2f);
-            Check(flow.Notice==null,"Temporary penalty notice expires");
+            Check(flow.CheckpointDings==dings+1 && flow.CheckpointBuzzes==buzzes+1 && flow.PenaltyNotice.Contains("2 gates  +10s"),"Checkpoint ding; throttled buzz retains both visible five-second charges");
+            yield return new WaitForSecondsRealtime(5.2f);
+            Check(flow.PenaltyNotice==null,"Temporary penalty notice expires");
             ScreenCapture.CaptureScreenshot(Path.GetFullPath("Docs/CR041-045/flow/hud-"+Screen.width+"x"+Screen.height+".png"));
             yield return new WaitForSecondsRealtime(.3f);
             flow.Pause(); Check(Time.timeScale==0,"Pause stops simulation");

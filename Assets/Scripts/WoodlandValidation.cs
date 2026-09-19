@@ -14,6 +14,7 @@ namespace Racer
     {
         public static string Label="editor";
         public static bool Drive=true;
+        public static bool ExcursionOnly;
         public static string ProfileFilter="", RouteFilter="";
         RaceDirector race;
         Gamepad pad;
@@ -27,6 +28,7 @@ namespace Racer
             var args=Environment.GetCommandLineArgs(); if(Array.IndexOf(args,"-woodlandTest")<0 || Array.IndexOf(args,"-racerTestSave")<0)return;
             Label="standalone"; int i=Array.IndexOf(args,"-woodlandLabel"); if(i>=0&&i+1<args.Length)Label=args[i+1];
             Drive=Array.IndexOf(args,"-woodlandRulesOnly")<0;
+            ExcursionOnly=Array.IndexOf(args,"-woodlandExcursionOnly")>=0;
             i=Array.IndexOf(args,"-woodlandProfile"); if(i>=0&&i+1<args.Length)ProfileFilter=args[i+1];
             i=Array.IndexOf(args,"-woodlandRoute"); if(i>=0&&i+1<args.Length)RouteFilter=args[i+1];
             Application.runInBackground=true; Launch();
@@ -50,7 +52,7 @@ namespace Racer
                 Check(renderers.Where(r=>VehiclePaint.IsBodyPaint(r.sharedMaterial)).All(r=>{r.GetPropertyBlock(block);return block.GetColor("_BaseColor")==VehiclePaint.Colors[6];}),"Black body "+profile.Id);
                 Check(renderers.Where(r=>!VehiclePaint.IsBodyPaint(r.sharedMaterial)).All(r=>{r.GetPropertyBlock(block);return block.isEmpty;}),"Unpainted trim/glass/rider "+profile.Id);
             }
-            Check(race.Category.StartsWith("street-v6-flat5"),"Versioned course records");
+            Check(race.Category.StartsWith("street-v7-entitlement"),"Versioned course records");
             Check(VehiclePaint.Names[6]=="Black","Stable appended black swatch index");
             foreach(var branch in race.Branches.Where(b=>b.title!="Existing Southwest Cut"))
                 Check(branch.bypassedGates.Length>=2,branch.title+" explicitly bypasses multiple gates");
@@ -69,9 +71,9 @@ namespace Racer
                     while(race.Flow.State!=RaceFlow.Stage.Racing)yield return null;
                     foreach(var branch in race.Branches.Where(b=>RouteFilter==""||b.title==RouteFilter))
                     {
-                        for(int repeat=0;repeat<2;repeat++) yield return Attempt(branch,repeat,false);
-                        yield return Attempt(branch,2,false);
-                        for(int repeat=0;repeat<2;repeat++) yield return Attempt(branch,repeat,true);
+                        if(!ExcursionOnly){for(int repeat=0;repeat<2;repeat++) yield return Attempt(branch,repeat,false);yield return Attempt(branch,2,false);}
+                        yield return Attempt(branch,3,false);
+                        if(!ExcursionOnly)for(int repeat=0;repeat<2;repeat++) yield return Attempt(branch,repeat,true);
                     }
                 }
             }
@@ -164,6 +166,21 @@ namespace Racer
                 }
                 if(!mainRoad && attempt==2 && !failed && s>branch.Length*(branch.title=="Fox Gully"?.55f:.32f))
                 { failed=true; InputSystem.QueueStateEvent(pad,new GamepadState{leftTrigger=1});yield return new WaitForSeconds(1.2f);bool ok=car.GetComponent<VehicleRespawn>().TryRecoverLocal();if(ok)recoveries++; }
+                if(!mainRoad && attempt==3 && !failed && s>branch.Length*.28f)
+                {
+                    failed=true;
+                    // Real pedal/stick excursion, then braking through zero into reverse.
+                    // No pose/velocity edits: an imperfect line must retain its earned gates.
+                    InputSystem.QueueStateEvent(pad,new GamepadState{rightTrigger=.6f,leftStick=new(.9f,0)});
+                    yield return new WaitForSeconds(.65f);
+                    InputSystem.QueueStateEvent(pad,new GamepadState{leftTrigger=1});
+                    yield return new WaitForSeconds(2.1f);
+                    float reverseDeadline=Time.time+3;
+                    while(car.ForwardSpeed>-.8f&&Time.time<reverseDeadline)yield return new WaitForFixedUpdate();
+                    branch.Project(body.position,out float departureLateral);
+                    File.AppendAllText(Dir+"/excursions.txt",$"{car.GetComponent<VehicleConfiguration>().profileId} {branch.title}: speed before recovery={car.ForwardSpeed:F3}m/s; lateral={departureLateral:F3}m; grounded={car.GroundedWheels}; up={car.transform.up.y:F3}; misses={race.Progress.MissedGates}; seconds={race.Progress.PenaltySeconds}\n");
+                    bool ok=car.GetComponent<VehicleRespawn>().TryRecoverLocal();if(ok)recoveries++;
+                }
                 InputSystem.QueueStateEvent(pad,new GamepadState{rightTrigger=Mathf.Clamp01((desired-car.ForwardSpeed)*.6f),leftTrigger=car.ForwardSpeed>desired+1?Mathf.Clamp01((car.ForwardSpeed-desired)*.3f):0,leftStick=new(Mathf.Abs(steer)<.001f?0:Mathf.Sign(steer)*(.12f+Mathf.Abs(steer)*.83f),0)});
                 if(entry==0 && roadS>=branch.entryRoad) entry=car.ForwardSpeed;
                 stalled=car.ForwardSpeed<2?stalled+Time.deltaTime:0; if(stalled>6)break;

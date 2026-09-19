@@ -1,0 +1,25 @@
+profile,route,attempt,road,finished,seconds,entry_mps,exit_mps,max_lateral,min_up,air_seconds,misses,penalty,branch_exits,recoveries
+atv,Fox Gully,0,False,True,18.437,24.260,27.524,5.953,0.973,1.995,0,0.000,1,0
+atv,Fox Gully,1,False,True,17.961,25.089,27.459,7.063,0.973,1.759,0,0.000,1,0
+atv,Fox Gully,2,False,True,21.061,24.217,27.430,5.993,0.962,1.560,0,0.000,1,1
+atv,Fox Gully,3,False,True,21.319,24.260,27.512,5.953,0.972,2.000,0,0.000,1,1
+atv,Fox Gully,0,True,True,19.402,30.365,41.498,0.000,0.965,0.200,0,0.000,0,0
+atv,Fox Gully,1,True,True,19.377,30.639,41.499,0.000,0.965,0.215,0,0.000,0,0
+atv,Pine Ridge,0,False,True,17.560,35.123,27.004,5.757,0.984,3.366,0,0.000,1,0
+atv,Pine Ridge,1,False,True,17.039,35.713,27.059,7.112,0.983,3.460,0,0.000,1,0
+atv,Pine Ridge,2,False,True,19.160,35.123,27.072,5.666,0.983,0.999,0,0.000,1,1
+atv,Pine Ridge,3,False,True,19.680,35.123,27.067,5.661,0.984,0.990,0,0.000,1,1
+atv,Pine Ridge,0,True,True,22.059,40.704,50.046,0.000,0.982,0.100,0,0.000,0,0
+atv,Pine Ridge,1,True,True,22.105,40.704,50.064,0.000,0.982,0.100,0,0.000,0,0
+atv,Existing Southwest Cut,0,False,True,5.855,23.916,23.819,5.794,0.999,0.113,0,0.000,1,0
+atv,Existing Southwest Cut,1,False,True,5.480,23.925,25.793,5.650,1.000,0.100,0,0.000,1,0
+atv,Existing Southwest Cut,2,False,True,7.540,23.916,23.821,5.794,1.000,0.100,0,0.000,1,1
+atv,Existing Southwest Cut,3,False,True,8.658,23.916,23.823,5.794,1.000,0.100,0,0.000,1,1
+atv,Existing Southwest Cut,0,True,True,6.759,27.292,39.202,0.000,1.000,0.100,0,0.000,0,0
+atv,Existing Southwest Cut,1,True,True,6.759,27.292,39.282,0.000,1.000,0.100,0,0.000,0,0
+atv,Creek Leap,0,False,True,14.059,33.837,25.161,9.100,0.950,2.779,0,0.000,1,0
+atv,Creek Leap,1,False,True,13.760,35.205,24.980,9.370,0.950,2.820,0,0.000,1,0
+atv,Creek Leap,2,False,True,16.301,33.836,25.147,9.129,0.950,2.518,0,0.000,1,1
+atv,Creek Leap,3,False,True,17.557,33.837,25.086,9.716,0.950,2.647,0,0.000,1,1
+atv,Creek Leap,0,True,True,21.439,29.550,29.586,0.000,0.950,0.111,0,0.000,0,0
+atv,Creek Leap,1,True,True,21.400,29.579,29.585,0.000,0.950,0.098,0,0.000,0,0

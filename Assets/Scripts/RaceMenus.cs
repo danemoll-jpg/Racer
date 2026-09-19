@@ -13,11 +13,13 @@ namespace Racer
         RaceFlow flow;
         GameObject shade;
         RectTransform card;
-        UnityEngine.UI.Text title, details, banner;
+        UnityEngine.UI.Text title, details, banner, songBanner;
+        bool musicPage;
         readonly List<UnityEngine.UI.Button> buttons = new();
         readonly Dictionary<RaceFlow.Stage, int> selections = new();
         RaceFlow.Stage shown;
         int penaltyPage = -1;
+        float nextMusicRefresh;
         InputAction submit;
         InputActionAsset menuActions;
         InputActionReference submitReference;
@@ -100,6 +102,11 @@ namespace Racer
             banner.rectTransform.offsetMin = banner.rectTransform.offsetMax = Vector2.zero;
             var outline = banner.gameObject.AddComponent<UnityEngine.UI.Outline>(); outline.effectColor = new Color(0,0,0,.85f); outline.effectDistance = new Vector2(2,-2);
             shown = RaceFlow.Stage.Ready;
+            songBanner=Label("Current song",canvas.transform,18,0);
+            songBanner.alignment=TextAnchor.MiddleCenter;
+            songBanner.rectTransform.anchorMin=new Vector2(.15f,.035f);songBanner.rectTransform.anchorMax=new Vector2(.85f,.09f);
+            songBanner.rectTransform.offsetMin=songBanner.rectTransform.offsetMax=Vector2.zero;
+            songBanner.gameObject.AddComponent<UnityEngine.UI.Outline>();
         }
         static RectTransform Rect(string name, Transform parent)
         { var rect = new GameObject(name, typeof(RectTransform)).GetComponent<RectTransform>(); rect.SetParent(parent, false); return rect; }
@@ -109,6 +116,7 @@ namespace Racer
         {
             var rect = Rect(name, parent); var text = rect.gameObject.AddComponent<UnityEngine.UI.Text>();
             text.font = font; text.fontSize = size; text.color = Color.white; text.raycastTarget = false;
+            text.supportRichText=false;
             text.horizontalOverflow = HorizontalWrapMode.Wrap; text.verticalOverflow = VerticalWrapMode.Truncate;
             if (height > 0) rect.gameObject.AddComponent<UnityEngine.UI.LayoutElement>().preferredHeight = height;
             return text;
@@ -119,6 +127,13 @@ namespace Racer
             b.onClick.RemoveAllListeners(); b.onClick.AddListener(action);
         }
         string Record(double seconds) => seconds > 0 ? RaceHud.FormatTime(seconds) : "—";
+        void PenaltyDetails(RaceProgress p)
+        {
+            details.fontSize=16;
+            details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=200;
+            details.text=$"{p.MissedGates} MISSED GATES / +{p.PenaltySeconds:0}s / page {penaltyPage+1} of {(p.Penalties.Count+3)/4}\n";
+            for(int i=penaltyPage*4;i<Mathf.Min(p.Penalties.Count,(penaltyPage+1)*4);i++) details.text+=p.Penalties[i]+"\n";
+        }
         public void Show()
         {
             if (!shade) return;
@@ -126,6 +141,7 @@ namespace Racer
             if(selected<0) { int swatch=swatches.FindIndex(b=>EventSystem.current && EventSystem.current.currentSelectedGameObject==b.gameObject); if(swatch>=0) selected=buttons.Count+swatch; }
             if (selected >= 0) selections[shown] = selected;
             shown = flow.State; shade.SetActive(flow.MenuVisible);
+            if(shown!=RaceFlow.Stage.Settings)musicPage=false;
             preview.gameObject.SetActive(shown==RaceFlow.Stage.Garage);
             previewCamera.enabled=shown==RaceFlow.Stage.Garage;
             swatchRow.gameObject.SetActive(shown==RaceFlow.Stage.Garage);
@@ -159,8 +175,8 @@ namespace Racer
                 var p=flow.Race.Progress;
                 details.text=$"Elapsed {RaceHud.FormatTime(p.RaceTime(flow.Race.Clock))}  +{p.PenaltySeconds:0.0}s penalties\nAdjusted {RaceHud.FormatTime(p.AdjustedTime(flow.Race.Clock))}\nR / Y: recover locally; time and lap progress continue.\nRestart Race clears this event and restores props.";
                 Action(0,"Resume",flow.Resume); Action(1,"Restart Race",flow.StartRace); Action(2,"Settings",flow.OpenSettings); Action(3,"Quit Race / Return to Menu",flow.QuitRace); Action(4,"Quit Game",flow.Quit);
-                Action(5,"Penalty breakdown",()=>{ penaltyPage++; if(penaltyPage*6>=p.Penalties.Count) penaltyPage=-1; Show(); });
-                if(penaltyPage>=0) { details.text=$"PENALTIES +{p.PenaltySeconds:0.0}s\n"; for(int i=penaltyPage*6;i<Mathf.Min(p.Penalties.Count,(penaltyPage+1)*6);i++) details.text+=p.Penalties[i]+"\n"; }
+                Action(5,"Penalty breakdown / next page",()=>{ penaltyPage++; if(penaltyPage*4>=p.Penalties.Count) penaltyPage=-1; Show(); });
+                if(penaltyPage>=0) PenaltyDetails(p);
             }
             else if (shown == RaceFlow.Stage.Results)
             {
@@ -173,12 +189,11 @@ namespace Racer
                 details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight = 180;
                 details.text = $"Driving {RaceHud.FormatTime(p.RaceTime(flow.Race.Clock))} + {p.PenaltySeconds:0.0}s penalties\nAdjusted {RaceHud.FormatTime(p.AdjustedTime(flow.Race.Clock))}\n" + flow.Race.Standings() + $"\nYour missed gates: {p.MissedGates}";
                 Action(0,"Race again",flow.StartRace); Action(1,"Settings",flow.OpenSettings); Action(2,"Return to Menu",flow.QuitRace);
-                Action(3, "Penalty breakdown / standings", () => { penaltyPage++; if (penaltyPage * 6 >= p.Penalties.Count) penaltyPage = -1; Show(); });
+                Action(3, "Penalty breakdown / next page", () => { penaltyPage++; if (penaltyPage * 4 >= p.Penalties.Count) penaltyPage = -1; Show(); });
                 Action(4,"Garage / next vehicle",flow.OpenGarage);
                 Action(5,"Opponent vehicles",flow.OpenRoster);
                 if (penaltyPage >= 0) {
-                    details.text = $"YOUR PENALTIES  +{p.PenaltySeconds:0.0}s\n";
-                    for (int i = penaltyPage * 6; i < Mathf.Min(p.Penalties.Count, (penaltyPage + 1) * 6); i++) details.text += p.Penalties[i] + "\n";
+                    PenaltyDetails(p);
                 }
             }
             else if (shown == RaceFlow.Stage.Garage)
@@ -204,6 +219,8 @@ namespace Racer
             }
             else if (shown == RaceFlow.Stage.Settings)
             {
+                card.GetComponent<UnityEngine.UI.VerticalLayoutGroup>().spacing=6;
+                foreach(var b in buttons)b.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=musicPage?36:38;
                 title.text = "SETTINGS"; details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight = 96;
                 details.text = "Select a setting to cycle its value. Changes apply now.\nVSync uses your display refresh; frame limit applies with VSync off.\nVolume steps: 0–100% in 10% increments.";
                 var s = flow.Save.Settings;
@@ -214,6 +231,19 @@ namespace Racer
                 Action(4,"VSync   " + (s.vsync?"On":"Off"),()=>Adjust(()=>s.vsync=!s.vsync));
                 Action(5,"Frame limit   " + s.frameLimit + " fps",()=>Adjust(()=>s.frameLimit=s.frameLimit==30?60:s.frameLimit==60?120:30));
                 Action(6,"Back",flow.CloseSettings);
+                Action(7,"Music / local radio",()=>{musicPage=true;Show();});
+                if(musicPage)
+                {
+                    var radio=flow.Radio; title.text="LOCAL MUSIC";
+                    details.fontSize=17;details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=108;
+                    details.text=radio.Song+"\n"+radio.Status+"\n"+radio.Folder+"\nDriving: D-pad →/←/↑/↓ or ] / [ / I / M";
+                    Action(0,$"Music volume {s.music:P0}",()=>Adjust(()=>s.music=NextVolume(s.music)));
+                    Action(1,"Radio: "+(s.radioOn?"On":"Off"),()=>{radio.Toggle();Show();});
+                    Action(2,"Next track",()=>{radio.Next();Show();});
+                    Action(3,"Previous track",()=>{radio.Previous();Show();});
+                    Action(4,"Open Music folder",radio.OpenFolder);Action(5,"Rescan Music folder",()=>{radio.Rescan();Show();});
+                    Action(6,"Choose local music folder",radio.ChooseFolder);Action(7,"Back to settings",()=>{musicPage=false;Show();});
+                }
             }
             var active = buttons.FindAll(b=>b.gameObject.activeSelf);
             if(shown==RaceFlow.Stage.Garage) active.AddRange(swatches);
@@ -229,16 +259,25 @@ namespace Racer
         void LateUpdate()
         {
             if (!flow || !banner) return;
+            if(musicPage&&flow.State==RaceFlow.Stage.Settings&&flow.Radio&&Time.unscaledTime>=nextMusicRefresh)
+            {
+                nextMusicRefresh=Time.unscaledTime+.25f;
+                var radio=flow.Radio;
+                details.text=radio.Song+"\n"+radio.Status+"\n"+radio.Folder+"\nDriving: D-pad →/←/↑/↓ or ] / [ / I / M";
+            }
             banner.gameObject.SetActive(!flow.MenuVisible);
             bool countdown=flow.State==RaceFlow.Stage.Countdown;
             banner.fontSize=countdown?26:20;
             banner.rectTransform.anchorMin=countdown?new Vector2(.04f,.35f):new Vector2(.2f,.88f);
             banner.rectTransform.anchorMax=countdown?new Vector2(.96f,.6f):new Vector2(.8f,.96f);
             banner.text = countdown ? flow.Race.ModeLabel + "\n"+(flow.Race.opponents?flow.Race.RosterLabel+"\n":"")+Mathf.CeilToInt(flow.CountdownRemaining) : flow.Notice ?? "";
+            if(!countdown && flow.PenaltyNotice!=null)banner.text=flow.PenaltyNotice;
+            songBanner.gameObject.SetActive(!flow.MenuVisible);songBanner.text=flow.Radio?.Toast??"";
             var recovery=flow.Race.vehicle.GetComponent<VehicleRespawn>();
             if(!countdown && recovery.Pending) banner.text="Waiting for clear local support — race clock continues";
             if (flow.State == RaceFlow.Stage.Racing && flow.Race.Progress.Finished)
                 banner.text = "Finished — waiting for opponents. Details in Pause / Results.";
+            if(!countdown && flow.PenaltyNotice!=null)banner.text=flow.PenaltyNotice;
             if (flow.MenuVisible && EventSystem.current && !EventSystem.current.currentSelectedGameObject) EventSystem.current.SetSelectedGameObject(buttons[0].gameObject);
         }
         void OnDestroy() { if(menuActions) { menuActions.Disable(); Destroy(menuActions); } if(submitReference) Destroy(submitReference); if(previewRoot) Destroy(previewRoot); if(previewCamera) Destroy(previewCamera.gameObject); if(previewTexture) { previewTexture.Release(); Destroy(previewTexture); } }

@@ -86,6 +86,7 @@ namespace Racer
             if(!branch && !preferRoad) candidates.Sort((a,b)=>(a-from).sqrMagnitude.CompareTo((b-from).sqrMagnitude));
             foreach(var candidate in candidates)
             {
+                if(!CircuitBoundary.Allowed(candidate))continue;
                 if(!branch && race && race.road)
                 {
                     float delta=Mathf.Repeat(race.road.Project(candidate,out _)-currentS+race.road.Length*.5f,race.road.Length)-race.road.Length*.5f;
@@ -126,7 +127,7 @@ namespace Racer
                 if(!Physics.Raycast(origin,Vector3.down,out var hit,12,vehicle.groundMask,QueryTriggerInteraction.Ignore)
                     || hit.rigidbody || hit.normal.y<.65f) return false;
                 string support=hit.collider.name;
-                if(!support.StartsWith("Ground_") && !support.StartsWith("Takeoff -") && !support.StartsWith("Landing -") && !support.StartsWith("Gully supported ramp")) return false;
+                if(!support.StartsWith("Ground_") && !support.StartsWith("Takeoff -") && !support.StartsWith("Landing -") && !support.StartsWith("Gully supported ramp") && !support.StartsWith("Decorative Road pavement")) return false;
                 normal+=hit.normal; top=Mathf.Max(top,hit.point.y); low=Mathf.Min(low,hit.point.y);
             }
             normal.Normalize();

@@ -1,0 +1,99 @@
+PASS Every original course centreline sample remains inside boundaries
+PASS original / Creek Leap wide/fall/stop/reverse retains bypass fixture
+PASS original / Creek Leap airborne completion zero charges fixture
+PASS original / Creek Leap unrelated later gate still charges exactly five
+PASS original / Fox Gully wide/fall/stop/reverse retains bypass fixture
+PASS original / Fox Gully airborne completion zero charges fixture
+PASS original / Fox Gully unrelated later gate still charges exactly five
+PASS original / Pine Ridge wide/fall/stop/reverse retains bypass fixture
+PASS original / Pine Ridge airborne completion zero charges fixture
+PASS original / Pine Ridge unrelated later gate still charges exactly five
+PASS original / Existing Southwest Cut wide/fall/stop/reverse retains bypass fixture
+PASS original / Existing Southwest Cut airborne completion zero charges fixture
+PASS original / Existing Southwest Cut unrelated later gate still charges exactly five
+PASS tourer / Creek Leap wide/fall/stop/reverse retains bypass fixture
+PASS tourer / Creek Leap airborne completion zero charges fixture
+PASS tourer / Creek Leap unrelated later gate still charges exactly five
+PASS tourer / Fox Gully wide/fall/stop/reverse retains bypass fixture
+PASS tourer / Fox Gully airborne completion zero charges fixture
+PASS tourer / Fox Gully unrelated later gate still charges exactly five
+PASS tourer / Pine Ridge wide/fall/stop/reverse retains bypass fixture
+PASS tourer / Pine Ridge airborne completion zero charges fixture
+PASS tourer / Pine Ridge unrelated later gate still charges exactly five
+PASS tourer / Existing Southwest Cut wide/fall/stop/reverse retains bypass fixture
+PASS tourer / Existing Southwest Cut airborne completion zero charges fixture
+PASS tourer / Existing Southwest Cut unrelated later gate still charges exactly five
+PASS moto / Creek Leap wide/fall/stop/reverse retains bypass fixture
+PASS moto / Creek Leap airborne completion zero charges fixture
+PASS moto / Creek Leap unrelated later gate still charges exactly five
+PASS moto / Fox Gully wide/fall/stop/reverse retains bypass fixture
+PASS moto / Fox Gully airborne completion zero charges fixture
+PASS moto / Fox Gully unrelated later gate still charges exactly five
+PASS moto / Pine Ridge wide/fall/stop/reverse retains bypass fixture
+PASS moto / Pine Ridge airborne completion zero charges fixture
+PASS moto / Pine Ridge unrelated later gate still charges exactly five
+PASS moto / Existing Southwest Cut wide/fall/stop/reverse retains bypass fixture
+PASS moto / Existing Southwest Cut airborne completion zero charges fixture
+PASS moto / Existing Southwest Cut unrelated later gate still charges exactly five
+PASS atv / Creek Leap wide/fall/stop/reverse retains bypass fixture
+PASS atv / Creek Leap airborne completion zero charges fixture
+PASS atv / Creek Leap unrelated later gate still charges exactly five
+PASS atv / Fox Gully wide/fall/stop/reverse retains bypass fixture
+PASS atv / Fox Gully airborne completion zero charges fixture
+PASS atv / Fox Gully unrelated later gate still charges exactly five
+PASS atv / Pine Ridge wide/fall/stop/reverse retains bypass fixture
+PASS atv / Pine Ridge airborne completion zero charges fixture
+PASS atv / Pine Ridge unrelated later gate still charges exactly five
+PASS atv / Existing Southwest Cut wide/fall/stop/reverse retains bypass fixture
+PASS atv / Existing Southwest Cut airborne completion zero charges fixture
+PASS atv / Existing Southwest Cut unrelated later gate still charges exactly five
+PASS original real FixedUpdate backward-body crossing
+PASS original real FixedUpdate road miss
+PASS original flying boundary Jamerson Rd west
+PASS original flying boundary Hwy 92 west
+PASS original flying boundary South Cherokee Lane south
+PASS original flying boundary Hwy 92 east
+PASS tourer real FixedUpdate backward-body crossing
+PASS tourer real FixedUpdate road miss
+PASS tourer flying boundary Jamerson Rd west
+PASS tourer flying boundary Hwy 92 west
+PASS tourer flying boundary South Cherokee Lane south
+PASS tourer flying boundary Hwy 92 east
+PASS moto real FixedUpdate backward-body crossing
+PASS moto real FixedUpdate road miss
+PASS moto flying boundary Jamerson Rd west
+PASS moto flying boundary Hwy 92 west
+PASS moto flying boundary South Cherokee Lane south
+PASS moto flying boundary Hwy 92 east
+PASS atv real FixedUpdate backward-body crossing
+PASS atv real FixedUpdate road miss
+PASS atv flying boundary Jamerson Rd west
+PASS atv flying boundary Hwy 92 west
+PASS atv flying boundary South Cherokee Lane south
+PASS atv flying boundary Hwy 92 east
+PASS mp3 standalone actual decoded playback peak=0.03800961 playing=True loading=False status=Ready / 4 tracks clip= state=Loaded length=12.277 volume=0.192 master=0.8 time=1.237324 virtual=False
+PASS mp3 metadata / filename fallback: Racer Test Artist — <b>Generated title</b>
+PASS wav standalone actual decoded playback peak=0.03475229 playing=True loading=False status=Ready / 4 tracks clip= state=Loaded length=12 volume=0.192 master=0.8 time=1.237324 virtual=False
+PASS wav metadata / filename fallback: generated
+PASS ogg standalone actual decoded playback peak=0.03064799 playing=True loading=False status=Ready / 4 tracks clip= state=Loaded length=12 volume=0.192 master=0.8 time=1.279977 virtual=False
+PASS ogg metadata / filename fallback: Racer Test Artist — Forest test
+PASS wav standalone actual decoded playback peak=0.03475229 playing=True loading=False status=Ready / 4 tracks clip= state=Loaded length=12 volume=0.192 master=0.8 time=1.237324 virtual=False
+PASS wav metadata / filename fallback: generated
+PASS Radio off pauses source
+PASS Radio resumes
+PASS Radio continues consistently through pause
+PASS Virtual D-pad right selects another song: before=generated.wav after=generated.ogg status=Ready / 4 tracks
+PASS Virtual D-pad left returns through history
+PASS Virtual D-pad down toggles off
+PASS Menu D-pad does not toggle radio
+PASS Virtual D-pad up shows current song
+PASS Actual tire voice output while engine and radio run: peak=0.02596943
+PASS Listener DSP capture contains samples: samples=288768, peak=0.119068, rms=0.030406, clipped=0
+PASS Straight normal driving does not continuously squeal
+PASS Airborne tire voice is silent
+PASS Folder persists in settings
+PASS Pause ledger count and seconds reconcile
+PASS Corrupt file skipped without crashing
+PASS Empty folder remains usable
+PASS Missing folder remains usable
+PASS File removed during playback reconciles on rescan

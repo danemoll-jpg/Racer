@@ -11,6 +11,7 @@ namespace Racer
         public Stage State { get; private set; } = Stage.Ready;
         public RacerSave Save { get; private set; }
         public RaceDirector Race { get; private set; }
+        public LocalRadio Radio { get; private set; }
         public float CountdownRemaining { get; private set; }
         public string Notice { get; private set; }
         public bool NewLapRecord { get; private set; }
@@ -24,6 +25,9 @@ namespace Racer
         AudioSource feedback;
         AudioClip tick, go, finish, record, click, ding, buzz;
         float nextBuzz;
+        public string PenaltyNotice => Time.unscaledTime<penaltyUntil && pendingMisses>0 ? $"Missed {pendingMisses} gate{(pendingMisses==1?"":"s")}  +{pendingMisses*5}s (5s each)" : null;
+        int pendingMisses;
+        float penaltyUntil;
         float finishAt;
         public int CheckpointDings { get; private set; }
         public int CheckpointBuzzes { get; private set; }
@@ -52,6 +56,8 @@ namespace Racer
             RestoreChoices();
             configuration.SetBodyColor(SelectedColor);
             Save.SelectRecords(Race.Category); Save.ApplySettings();
+            Radio=gameObject.AddComponent<LocalRadio>();Radio.Initialize(this);
+            var listener=FindAnyObjectByType<AudioListener>();if(listener&&!listener.GetComponent<AudioCeiling>())listener.gameObject.AddComponent<AudioCeiling>();
             feedback = gameObject.AddComponent<AudioSource>();
             feedback.playOnAwake = false; feedback.spatialBlend = 0; feedback.ignoreListenerPause = true;
             tick = Tone("Countdown", 520, .09f); go = Tone("Go", 880, .22f);
@@ -114,7 +120,7 @@ namespace Racer
             var runoff=Race.vehicle.GetComponent<RoadDriver>();
             if(runoff) { runoff.enabled=false; Destroy(runoff); }
             LockVehicle(false); Race.vehicle.enabled=true;
-            Notice = null; nextBuzz = finishAt = 0; CheckpointDings = CheckpointBuzzes = 0; feedback.Stop();
+            Notice = null; nextBuzz = finishAt = penaltyUntil = 0; pendingMisses=0; CheckpointDings = CheckpointBuzzes = 0; feedback.Stop();
         }
         public void SelectRecords(string category)
         {
@@ -184,7 +190,7 @@ namespace Racer
         {
             if (State != Stage.Racing) return;
             if (accepted) { if (!Race.Progress.Finished) { CheckpointDings++; Sound(ding); } }
-            else { Notify($"Checkpoint missed{(count > 1 ? " x" + count : "")}  +{seconds:0.0}s", 4); if (Time.time >= nextBuzz) { CheckpointBuzzes++; Sound(buzz); nextBuzz = Time.time + .5f; } }
+            else { if(Time.unscaledTime>=penaltyUntil) pendingMisses=0; pendingMisses+=count; penaltyUntil=Time.unscaledTime+5; if (Time.time >= nextBuzz) { CheckpointBuzzes++; Sound(buzz); nextBuzz = Time.time + .5f; } }
         }
         public void BeginCountdown()
         {

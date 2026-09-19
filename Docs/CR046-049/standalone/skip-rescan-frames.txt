@@ -1,0 +1,1 @@
+Driving with four skips/rescans: frames=22719; mean=0.26ms; max=41.54ms; frames>50ms=0. Device/perceptual acceptance remains separate.

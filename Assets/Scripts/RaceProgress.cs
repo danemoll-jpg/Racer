@@ -19,15 +19,26 @@ namespace Racer
         public string Status { get; private set; }
         public double PenaltySeconds { get; private set; }
         public int MissedGates { get; private set; }
-        public readonly List<string> Penalties = new();
+        readonly List<string> penalties = new();
+        public IReadOnlyList<string> Penalties => penalties;
+        public sealed class PenaltyEntry
+        {
+            public int Lap, Checkpoint;
+            public string Reason, Branch;
+            public double Seconds, Time;
+        }
+        readonly List<PenaltyEntry> ledger = new();
+        public IReadOnlyList<PenaltyEntry> Ledger => ledger;
         double lapPenalty;
         public double CurrentLapPenalty => lapPenalty;
         public double AdjustedTime(double now) => RaceTime(now) + PenaltySeconds;
-        public bool Miss(int gate, double seconds)
+        public bool Miss(int gate, double seconds, string reason="missed gate", string branch="none", double time=0)
         {
             if (!LapActive || !LapValid || Finished || gate == 0 || gate != NextGate) return false;
-            seconds = Math.Max(0, seconds); PenaltySeconds += seconds; lapPenalty += seconds; MissedGates++;
-            Penalties.Add($"Lap {CompletedLaps + 1} CP {gate:00}: +{seconds:0.0}s");
+            seconds = 5; // One authoritative charge per ordered gate, regardless of caller.
+            ledger.Add(new PenaltyEntry { Lap=CompletedLaps+1, Checkpoint=gate, Reason=reason, Branch=branch, Seconds=seconds, Time=time });
+            PenaltySeconds += seconds; lapPenalty += seconds; MissedGates=ledger.Count;
+            penalties.Add($"L{CompletedLaps + 1} CP{gate:00} +5s / {reason}"+(branch=="none"?"":" / "+branch));
             NextGate = gate == CheckpointCount ? 0 : gate + 1;
             Status = $"Checkpoint missed: +{seconds:0.0}s";
             return true;
@@ -48,7 +59,7 @@ namespace Racer
         {
             CompletedLaps = NextGate = 0; Started = LapActive = LapValid = false;
             lapTimes.Clear();
-            Penalties.Clear(); PenaltySeconds = lapPenalty = 0; MissedGates = 0;
+            penalties.Clear(); ledger.Clear(); PenaltySeconds = lapPenalty = 0; MissedGates = 0;
             LastLap = BestLap = raceStart = lapStart = finishTime = 0;
             Status = "Cross START in the arrow direction";
         }

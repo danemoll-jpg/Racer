@@ -1,0 +1,116 @@
+PASS original accepts genuine miss
+PASS duplicate cannot charge
+PASS original accepts genuine miss
+PASS duplicate cannot charge
+PASS original accepts genuine miss
+PASS duplicate cannot charge
+PASS original accepts genuine miss
+PASS duplicate cannot charge
+PASS original accepts genuine miss
+PASS duplicate cannot charge
+PASS original accepts genuine miss
+PASS duplicate cannot charge
+PASS original accepts genuine miss
+PASS duplicate cannot charge
+PASS original accepts genuine miss
+PASS duplicate cannot charge
+PASS original accepts genuine miss
+PASS duplicate cannot charge
+PASS original accepts genuine miss
+PASS duplicate cannot charge
+PASS original accepts genuine miss
+PASS duplicate cannot charge
+PASS original accepts genuine miss
+PASS duplicate cannot charge
+PASS original three-lap ledger reconciliation, fixed five seconds
+PASS tourer accepts genuine miss
+PASS duplicate cannot charge
+PASS tourer accepts genuine miss
+PASS duplicate cannot charge
+PASS tourer accepts genuine miss
+PASS duplicate cannot charge
+PASS tourer accepts genuine miss
+PASS duplicate cannot charge
+PASS tourer accepts genuine miss
+PASS duplicate cannot charge
+PASS tourer accepts genuine miss
+PASS duplicate cannot charge
+PASS tourer accepts genuine miss
+PASS duplicate cannot charge
+PASS tourer accepts genuine miss
+PASS duplicate cannot charge
+PASS tourer accepts genuine miss
+PASS duplicate cannot charge
+PASS tourer accepts genuine miss
+PASS duplicate cannot charge
+PASS tourer accepts genuine miss
+PASS duplicate cannot charge
+PASS tourer accepts genuine miss
+PASS duplicate cannot charge
+PASS tourer three-lap ledger reconciliation, fixed five seconds
+PASS moto accepts genuine miss
+PASS duplicate cannot charge
+PASS moto accepts genuine miss
+PASS duplicate cannot charge
+PASS moto accepts genuine miss
+PASS duplicate cannot charge
+PASS moto accepts genuine miss
+PASS duplicate cannot charge
+PASS moto accepts genuine miss
+PASS duplicate cannot charge
+PASS moto accepts genuine miss
+PASS duplicate cannot charge
+PASS moto accepts genuine miss
+PASS duplicate cannot charge
+PASS moto accepts genuine miss
+PASS duplicate cannot charge
+PASS moto accepts genuine miss
+PASS duplicate cannot charge
+PASS moto accepts genuine miss
+PASS duplicate cannot charge
+PASS moto accepts genuine miss
+PASS duplicate cannot charge
+PASS moto accepts genuine miss
+PASS duplicate cannot charge
+PASS moto three-lap ledger reconciliation, fixed five seconds
+PASS atv accepts genuine miss
+PASS duplicate cannot charge
+PASS atv accepts genuine miss
+PASS duplicate cannot charge
+PASS atv accepts genuine miss
+PASS duplicate cannot charge
+PASS atv accepts genuine miss
+PASS duplicate cannot charge
+PASS atv accepts genuine miss
+PASS duplicate cannot charge
+PASS atv accepts genuine miss
+PASS duplicate cannot charge
+PASS atv accepts genuine miss
+PASS duplicate cannot charge
+PASS atv accepts genuine miss
+PASS duplicate cannot charge
+PASS atv accepts genuine miss
+PASS duplicate cannot charge
+PASS atv accepts genuine miss
+PASS duplicate cannot charge
+PASS atv accepts genuine miss
+PASS duplicate cannot charge
+PASS atv accepts genuine miss
+PASS duplicate cannot charge
+PASS atv three-lap ledger reconciliation, fixed five seconds
+PASS Pine Ridge fall/deviation retains entitlement context
+PASS Pine Ridge local recovery retains context
+PASS Creek Leap fall/deviation retains entitlement context
+PASS Creek Leap local recovery retains context
+PASS Fox Gully fall/deviation retains entitlement context
+PASS Fox Gully local recovery retains context
+PASS Existing Southwest Cut fall/deviation retains entitlement context
+PASS Existing Southwest Cut local recovery retains context
+PASS Hwy 92 east airborne boundary
+PASS Hwy 92 east rejects outside recovery
+PASS Hwy 92 west airborne boundary
+PASS Hwy 92 west rejects outside recovery
+PASS South Cherokee Lane south airborne boundary
+PASS South Cherokee Lane south rejects outside recovery
+PASS Jamerson Rd west airborne boundary
+PASS Jamerson Rd west rejects outside recovery

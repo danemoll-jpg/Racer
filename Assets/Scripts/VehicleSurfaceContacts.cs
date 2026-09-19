@@ -28,7 +28,7 @@ namespace Racer
                 foreach(var mesh in Object.FindObjectsByType<MeshCollider>())
                 {
                     if(mesh.attachedRigidbody || !mesh.sharedMesh || !mesh.sharedMesh.isReadable) continue;
-                    if(!mesh.name.StartsWith("Ground_") && !mesh.name.StartsWith("Takeoff -") && !mesh.name.StartsWith("Landing -")) continue;
+                    if(!mesh.name.StartsWith("Ground_") && !mesh.name.StartsWith("Takeoff -") && !mesh.name.StartsWith("Landing -") && !mesh.name.StartsWith("Gully supported ramp")) continue;
                     var vertices=mesh.sharedMesh.vertices; var indices=mesh.sharedMesh.triangles;
                     var faces=new Face[indices.Length/3];
                     for(int i=0;i<faces.Length;i++)

@@ -1,0 +1,12 @@
+# Generated test tones only. Run with Python and pass a local ffmpeg executable path.
+# No fixture is included in the player package.
+import array, math, pathlib, subprocess, sys, wave
+root=pathlib.Path('Temp/radio-fixtures');root.mkdir(parents=True,exist_ok=True)
+rate=44100
+samples=array.array('h',(int(32767*.32*(math.sin(2*math.pi*220*i/rate)+.35*math.sin(2*math.pi*330*i/rate))*(.65+.35*math.sin(2*math.pi*2*i/rate)**2)) for i in range(rate*12)))
+with wave.open(str(root/'generated.wav'),'wb') as w:
+    w.setparams((1,2,rate,0,'NONE','not compressed'));w.writeframes(samples.tobytes())
+for ext,title in [('mp3','<b>Generated title</b>'),('ogg','Forest test')]:
+    subprocess.run([sys.argv[1],'-y','-v','error','-i',str(root/'generated.wav'),'-metadata','artist=Racer Test Artist','-metadata','title='+title,str(root/('generated.'+ext))],check=True)
+(root/'corrupt.mp3').write_bytes(b'not an audio stream')
+(root/'unsupported.txt').write_text('ignored')

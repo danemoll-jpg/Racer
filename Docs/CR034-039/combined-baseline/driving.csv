@@ -1,0 +1,5 @@
+profile,route,attempt,road,finished,seconds,entry_mps,exit_mps,max_lateral,min_up,air_seconds,misses,penalty,branch_exits,recoveries
+moto,Fox Gully,0,False,True,20.308,24.485,28.688,7.199,0.965,1.734,0,0.000,1,0
+moto,Fox Gully,1,False,True,19.261,25.578,28.606,7.525,0.972,1.627,0,0.000,1,0
+moto,Fox Gully,2,False,True,21.725,24.645,28.475,5.983,0.970,1.910,0,0.000,1,1
+moto,Fox Gully,0,True,True,19.260,30.775,43.674,0.000,0.965,0.051,0,0.000,0,0

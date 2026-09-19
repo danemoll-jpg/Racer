@@ -1,0 +1,17 @@
+profile,route,attempt,road,finished,seconds,entry_mps,exit_mps,max_lateral,min_up,air_seconds,misses,penalty,branch_exits,recoveries
+original,Existing Southwest Cut,3,False,True,8.850,21.886,23.661,5.837,1.000,0.000,0,0.000,1,1
+original,Fox Gully,3,False,True,22.159,23.834,25.118,5.957,0.972,1.880,0,0.000,1,1
+original,Creek Leap,3,False,True,18.520,33.382,22.844,5.957,0.950,2.103,0,0.000,1,1
+original,Pine Ridge,3,False,True,20.440,35.632,24.671,5.664,0.989,0.790,0,0.000,1,1
+tourer,Existing Southwest Cut,3,False,True,8.879,21.407,23.691,5.802,1.000,0.000,0,0.000,1,1
+tourer,Fox Gully,3,False,True,22.300,23.712,24.921,5.968,0.972,1.480,0,0.000,1,1
+tourer,Creek Leap,3,False,True,18.560,32.940,22.444,5.767,0.950,1.838,0,0.000,1,1
+tourer,Pine Ridge,3,False,True,20.519,35.645,24.248,5.663,0.989,0.701,0,0.000,1,1
+moto,Existing Southwest Cut,3,False,True,8.580,23.787,23.834,5.793,1.000,0.100,0,0.000,1,1
+moto,Fox Gully,3,False,True,20.359,24.623,28.602,5.948,0.970,1.930,0,0.000,1,1
+moto,Creek Leap,3,False,True,17.199,33.820,25.990,10.462,0.932,2.637,0,0.000,1,1
+moto,Pine Ridge,3,False,True,19.500,35.138,28.078,6.593,0.982,1.010,0,0.000,1,1
+atv,Existing Southwest Cut,3,False,True,8.660,23.916,23.822,5.794,1.000,0.100,0,0.000,1,1
+atv,Fox Gully,3,False,True,21.399,24.260,27.509,5.953,0.973,1.820,0,0.000,1,1
+atv,Creek Leap,3,False,True,17.459,33.835,24.979,9.708,0.950,2.601,0,0.000,1,1
+atv,Pine Ridge,3,False,True,19.739,35.123,27.008,5.632,0.984,0.989,0,0.000,1,1

@@ -1,0 +1,6 @@
+Racer 0.6.2-review1
+203 complete runtime files: versioned = Latest = extracted ZIP, byte-for-byte SHA256 verified.
+Payload matches the tested Temp/CombinedPackage candidate.
+Final completion commit is stamped into VERSION.txt after committing; the ZIP is then regenerated, extracted and reverified. Final archive and payload hashes are in Builds/Racer-0.6.2-review1-PACKAGE-VERIFICATION.txt and the ZIP .sha256 sidecar.
+Source manifest SHA256: 6af2b77f70ed6e86fb537c63635d045334c167ece90624bc9c033c877774854f
+Executable assembly SHA256: a50f84412fa47b98578a6e5d534907cd146ecf2e7bcf03dae75108d81d04dfdc

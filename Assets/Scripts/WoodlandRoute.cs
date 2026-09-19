@@ -44,14 +44,14 @@ namespace Racer
             float a=Vector3.Dot(from-points[0],f),b=Vector3.Dot(to-points[0],f);
             // Bounded entrance apron catches late/shoulder entries as well as plane crossings.
             float s=Project(to,out float lateral);
-            if(b<0 || s>24 || lateral>halfWidth+3) return false;
+            if(b<0 || s>30 || lateral>halfWidth+7) return false;
             var support=At(s,out _);
             return to.y>support.y-3 && to.y<support.y+12;
         }
     }
 
-    // Each racer owns its evidence. Entry alone grants nothing; contiguous in-corridor travel
-    // earns witnesses. Off-route motion freezes evidence; recovery cannot advance it.
+    // Entry grants the explicit gate entitlement in RaceDirector. Position is only for
+    // standings/recovery; a deviation can never revoke gates already credited.
     public sealed class BranchProgress
     {
         public WoodlandRoute Route { get; private set; }
@@ -70,15 +70,14 @@ namespace Racer
             // Jump arcs can rise above the centreline, but the projected driving corridor stays bounded.
             // A ballistic landing may briefly overhang a bend before returning to supported trail.
             // Ground travel includes the supported three-metre shoulder; recovery stays in the core.
-            float corridor=route.halfWidth+(to.y>support.y+2.5f?4:3);
-            bool valid=lateral<=corridor && to.y>support.y-6 && to.y<support.y+22 && step<=10;
-            bool entrance=Earned==0 && s<=24;
-            if(valid && (entrance || s<=Earned+step*1.4f+3 && Mathf.Abs(s-Position)<=step*1.5f+3))
+            float corridor=route.halfWidth+24;
+            bool valid=lateral<=corridor && to.y>support.y-30 && to.y<support.y+45 && step<=10;
+            if(valid)
             {
                 Position=s;
                 if(Vector3.Dot(to-from,f)>0) Earned=Mathf.Max(Earned,s);
             }
-            if(valid && s>route.Length-3 && Earned>route.Length-4 && Vector3.Dot(to-from,f)>0)
+            if(valid && s>route.Length-5 && Vector3.Dot(to-from,f)>0)
             { Exits++; return true; }
             return false;
         }

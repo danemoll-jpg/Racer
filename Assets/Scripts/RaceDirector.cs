@@ -32,7 +32,7 @@ namespace Racer
         public bool ClassificationFinal { get; private set; }
 
         public int PlayerPosition => Ordered(false).IndexOf(Racers[0]) + 1;
-        public string Category => $"street-v6-flat5-{(vehicle.GetComponent<VehicleConfiguration>() ? vehicle.GetComponent<VehicleConfiguration>().profileId : "original")}-{(opponents ? "race4-d" + difficulty+"-"+string.Join("-",opponentRoster) : "solo")}-{(traffic ? "traffic" : "clear")}-laps{laps}";
+        public string Category => $"street-v7-entitlement-{(vehicle.GetComponent<VehicleConfiguration>() ? vehicle.GetComponent<VehicleConfiguration>().profileId : "original")}-{(opponents ? "race4-d" + difficulty+"-"+string.Join("-",opponentRoster) : "solo")}-{(traffic ? "traffic" : "clear")}-laps{laps}";
         VehicleRespawn respawn;
         float origin;
         float[] gateS;
@@ -290,7 +290,13 @@ namespace Racer
                     {
                         int expected = System.Array.FindIndex(gateS, s => s > road.Relative(branch.entryRoad,origin));
                         if (expected <= 0 || p.NextGate < expected || p.NextGate > expected+1 || !branch.Enter(r.Previous,position,heading)) continue;
-                        r.Branch.Begin(branch); break;
+                        r.Branch.Begin(branch);
+                        // A recognized entry grants only this route's authored bypass list.
+                        // Ordered Cross cannot consume an unrelated gate or a future lap.
+                        foreach(int gate in branch.bypassedGates)
+                            if(p.NextGate==gate) p.Cross(gate,true,now);
+                        Trace(r,"entry entitlement",position,now);
+                        break;
                     }
                 if (r.Branch.Route)
                 {
@@ -303,12 +309,9 @@ namespace Racer
                     bool separatedRoad = lateral < 9 && branchLateral > branch.halfWidth+10
                         && Vector3.Dot(position-r.Previous,roadForward)>.01f;
                     r.Branch.RejoinSeconds = separatedRoad ? r.Branch.RejoinSeconds+(float)(now-r.PreviousTime) : 0;
-                    bool abandoned = !exited && r.Branch.RejoinSeconds > 1.5f;
-                    // Witnessed partial travel is final credit. Abandonment cannot charge it
-                    // again; an entrance touch has no witnesses beyond the entrance.
-                    float earnedRoad=road.Relative(Mathf.Lerp(branch.entryRoad,branch.exitRoad,r.Branch.Earned/branch.Length),origin);
-                    foreach(int gate in branch.bypassedGates)
-                        if(p.NextGate==gate && (exited || earnedRoad>=gateS[gate]+12)) p.Cross(gate,true,now);
+                    bool beyondExit = r.RoadPosition > road.Relative(branch.exitRoad,origin)+40 && lateral<18;
+                    bool abandoned = !exited && (r.Branch.RejoinSeconds > 1.5f || beyondExit);
+                    // Entry credit is already final. Completion/abandonment only ends context.
                     if(exited)
                     {
                         foreach(int gate in branch.bypassedGates)
@@ -317,9 +320,9 @@ namespace Racer
                         int last=p.NextGate==0?gates.Length-1:p.NextGate-1;
                         r.Travel=Mathf.Max(0,r.RoadPosition-gateS[last]);
                         r.VerifiedRoad=r.RoadPosition;
-                        r.Branch.Clear();
+                        Trace(r,"completed",position,now); r.Branch.Clear();
                     }
-                    else if(abandoned) r.Branch.Clear();
+                    else if(abandoned) { Trace(r,"deliberate road rejoin; credit retained",position,now); r.Branch.Clear(); }
                     else
                     {
                         // Retained context must never hide a real expected road-gate crossing,
@@ -353,7 +356,7 @@ namespace Racer
                 if (i == 0 && p.LapActive && !r.FinishArmed)
                     continue;
                 if (p.LapActive && p.NextGate > 0 && (i == 0 || i > p.NextGate))
-                    ResolveMisses(r, i == 0 ? gates.Length : i);
+                    ResolveMisses(r, i == 0 ? gates.Length : i, i==0?"finish reconciliation":"later gate crossed");
                 int expected = p.NextGate;
                 p.Cross(i, true, r.PreviousTime + (now - r.PreviousTime) * fraction);
                 if (i > 0 && i == expected && p.NextGate != expected)
@@ -375,7 +378,7 @@ namespace Racer
                 road.At(origin + r.RoadPosition, out var direction);
                 if (Vector3.Dot(position - r.Previous, direction) > .001f)
                     while (p.NextGate > 0 && r.RoadPosition > gateS[p.NextGate] + 18 && r.RoadPosition < road.Length - 20)
-                        ResolveMisses(r, p.NextGate + 1);
+                        ResolveMisses(r, p.NextGate + 1,"road gate passed outside span");
             }
 
             r.Previous = position;
@@ -392,7 +395,12 @@ namespace Racer
             }
         }
 
-        void ResolveMisses(RacerState r, int until)
+        void Trace(RacerState r,string reason,Vector3 position,double now)
+        {
+            if(System.Array.IndexOf(System.Environment.GetCommandLineArgs(),"-raceTrace")>=0)
+                Debug.Log($"RACE_TRANSITION lap={r.Progress.CompletedLaps+1} racer={r.Name} reason={reason} branch={r.Branch.Route?.title??"none"} position={position} time={now:F3} next={r.Progress.NextGate} misses={r.Progress.MissedGates} seconds={r.Progress.PenaltySeconds}");
+        }
+        void ResolveMisses(RacerState r, int until, string reason="missed gate")
         {
             var p = r.Progress;
             while (p.NextGate > 0 && p.NextGate < until)
@@ -400,7 +408,7 @@ namespace Racer
                 int gate = p.NextGate;
                 float sector = road ? gateS[gate] - gateS[gate - 1] : 230;
                 const double penalty = OrdinaryMissPenalty;
-                if (!p.Miss(gate, penalty))
+                if (!p.Miss(gate, penalty, reason, r.Branch.Route?.title??"none",Clock))
                     break;
                 if(System.Array.IndexOf(System.Environment.GetCommandLineArgs(),"-raceTrace")>=0)
                     Debug.Log($"RACE_PENALTY racer={r.Name} source=ordinary-missed-gate gate={gate} seconds=5 road={r.RoadPosition:F3} branch={r.Branch.Route?.title??"none"} earned={r.Branch.Earned:F3}");

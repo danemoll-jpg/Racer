@@ -1,0 +1,6 @@
+profile,route,attempt,road,finished,seconds,entry_mps,exit_mps,max_lateral,min_up,air_seconds,misses,penalty,branch_exits,recoveries
+atv,Fox Gully,0,False,True,18.429,24.213,27.450,5.996,0.973,1.982,0,0.000,1,0
+atv,Fox Gully,1,False,True,17.879,25.089,27.447,7.059,0.973,2.140,0,0.000,1,0
+atv,Fox Gully,2,False,True,21.100,24.260,27.458,5.953,0.963,1.580,0,0.000,1,1
+atv,Fox Gully,0,True,True,19.419,30.639,41.397,0.000,0.965,0.220,0,0.000,0,0
+atv,Fox Gully,1,True,True,19.400,30.639,41.594,0.000,0.965,0.220,0,0.000,0,0

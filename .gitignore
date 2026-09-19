@@ -111,4 +111,6 @@ InitTestScene*.unity*
 # Local setup scratch files
 /.phase0-staging/
 /.phase0-tools/
+/Music/
+/Music.meta
 

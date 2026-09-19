@@ -17,6 +17,9 @@ namespace Racer
         {
             public int version = 1;
             public float master = .8f, ambience = 1, feedback = .65f, vehicle = .75f;
+            public float music = .6f;
+            public bool radioOn=true;
+            public string musicFolder="";
             public int frameLimit = 60;
             public bool vsync = true;
             public bool opponents = true, traffic = true;
@@ -42,6 +45,7 @@ namespace Racer
             DirectoryPath = directory; course = courseId;
             Best = Read<Records>("records.json", r => r.version == 1 && r.course == course && Valid(r.lap) && Valid(r.race)) ?? new Records { course = course };
             Settings = Read<Options>("settings.json", s => s.version == 1 && Volume(s.master) && Volume(s.ambience) && Volume(s.feedback) && Volume(s.vehicle) && (s.frameLimit == 30 || s.frameLimit == 60 || s.frameLimit == 120)) ?? new Options();
+            if(!Volume(Settings.music))Settings.music=.6f;
         }
         static bool Valid(double n) => !double.IsNaN(n) && !double.IsInfinity(n) && n >= 0 && n < 31536000;
         static bool Volume(float n) => !float.IsNaN(n) && n >= 0 && n <= 1;

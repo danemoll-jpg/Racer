@@ -1,0 +1,4 @@
+moto Fox Gully attempt=0 road=False glassBroken=2/2 smashEvents=2 buzzes=0
+moto Fox Gully attempt=1 road=False glassBroken=2/2 smashEvents=2 buzzes=0
+moto Fox Gully attempt=2 road=False glassBroken=2/2 smashEvents=2 buzzes=0
+moto Fox Gully attempt=0 road=True glassBroken=0/2 smashEvents=0 buzzes=0
