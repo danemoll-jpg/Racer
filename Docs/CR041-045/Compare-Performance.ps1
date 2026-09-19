@@ -4,7 +4,7 @@ $results=@()
 foreach($period in @('before','after')){
  $folder=if($period -eq 'before'){'Racer-0.6.0-review1-Windows'}else{'Latest'}
  $build=Join-Path $root "Builds/$folder"
- $expected=if($period -eq 'before'){'0.6.0-review1'}else{'0.6.1-review1'}
+ $expected=if($period -eq 'before'){'0.6.0-review1'}else{'0.6.1-review2'}
  if(!(Get-Content "$build/VERSION.txt" -Raw).Contains($expected)){throw "Wrong $period build"}
  $work=Join-Path $root "Temp/correction-performance-$period"
  if(Test-Path $work){throw "Evidence directory exists: $work"}
@@ -27,3 +27,4 @@ foreach($period in @('before','after')){
  $results | ConvertTo-Json -Depth 4 | Set-Content (Join-Path $PSScriptRoot 'performance-comparison.json')
 }
 $results | Format-Table Period,Version,PeakWorkingSetMiB,MedianMs,P95Ms
+

@@ -8,7 +8,7 @@ namespace Racer.Editor
 {
     public static class CorrectionReleaseBuild
     {
-        public const string Version="0.6.1-review1";
+        public const string Version="0.6.1-review2";
         public static void Candidate()=>Build("Temp/CorrectionPlayer",false);
         public static void Candidate2()=>Build("Temp/CorrectionPlayer2",false);
         public static void Candidate3()=>Build("Temp/CorrectionPlayer3",false);

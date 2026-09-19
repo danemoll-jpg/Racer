@@ -1,4 +1,4 @@
-param([string]$Version='0.6.1-review1')
+param([string]$Version='0.6.1-review2')
 $ErrorActionPreference='Stop'
 $projectRoot=[IO.Path]::GetFullPath((Join-Path $PSScriptRoot '../..'))
 $name="Racer-$Version-Windows"
@@ -28,6 +28,7 @@ Add-Type -AssemblyName System.IO.Compression.FileSystem
 [IO.Compression.ZipFile]::CreateFromDirectory($stageRoot,$archive,[IO.Compression.CompressionLevel]::Optimal,$true)
 @{Archive=$archive;Bytes=(Get-Item -LiteralPath $archive).Length;SHA256=(Get-FileHash -LiteralPath $archive -Algorithm SHA256).Hash;Files=$manifest.Count}|ConvertTo-Json|Set-Content (Join-Path $PSScriptRoot 'package.json')
 Get-Content (Join-Path $PSScriptRoot 'package.json')
+
 
 
 

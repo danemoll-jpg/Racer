@@ -322,9 +322,9 @@ namespace Racer
                     else if(abandoned) r.Branch.Clear();
                     else
                     {
-                        // Shared entrance pavement may contain a real gate. Main-road drivers
-                        // must not lose that physical crossing while a branch is provisionally active.
-                        foreach(int gate in branch.bypassedGates)
+                        // Retained context must never hide a real expected road-gate crossing,
+                        // including a slow partial rejoin. Finish still requires branch resolution.
+                        for(int gate=1;gate<gates.Length;gate++)
                             if(p.NextGate==gate && gates[gate].TryCross(r.Previous,position,out bool gateForward,out float crossing)
                                 && gateForward)
                                 p.Cross(gate,true,r.PreviousTime+(now-r.PreviousTime)*crossing);

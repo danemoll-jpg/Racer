@@ -1,0 +1,5 @@
+Unrelated building sites verified unchanged: 46/46
+Mismatches: 
+Property chain-link sections: 48
+Property white-X sections: 121
+House breakable panes: 2

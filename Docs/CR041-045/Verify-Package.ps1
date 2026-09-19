@@ -1,4 +1,4 @@
-param([string]$Version='0.6.1-review1')
+param([string]$Version='0.6.1-review2')
 $ErrorActionPreference='Stop'
 $root=[IO.Path]::GetFullPath((Join-Path $PSScriptRoot '../..'))
 $builds=[IO.Path]::GetFullPath((Join-Path $root 'Builds'))
@@ -33,4 +33,5 @@ Get-ChildItem -LiteralPath $stage | ForEach-Object {Copy-Item -LiteralPath $_.Fu
 Verify-Files $latest
 @{Source=$source;Files=$manifest.Count;ExtractedVerified=$true;LatestVerified=$true;PreviousLatest=$previous;ZipSHA256=(Get-FileHash -LiteralPath $zip -Algorithm SHA256).Hash} | ConvertTo-Json | Set-Content (Join-Path $PSScriptRoot 'package-verification.json')
 Get-Content (Join-Path $PSScriptRoot 'package-verification.json')
+
 

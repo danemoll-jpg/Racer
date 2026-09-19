@@ -22,7 +22,7 @@ CP14 alone has an above-road 24m envelope, retaining its six-metre lateral half-
 
 **Penalty policy:** each genuine missed gate is exactly +5 seconds; three misses are +15; authorized shortcut gates are zero. No distance surcharge or replacement punishment. Elapsed/adjusted totals still have fractional seconds. `street-v6-flat5-*` separates new records; historical files and settings remain intact. Broad-cut tradeoff: a long cut can save more than its five-second-per-missed-gate cost. That is an explicit consequence of the requested simple policy, not secretly offset by a surcharge or forced restart.
 
-98/98 expanded swept/record checks passed. These include all profiles/routes, shoulders, airborne/backwards bodies, wrong-way, duplicates, teleports, finish rejection, reverse/re-traverse, sustained partial rejoin, shared AI credit and byte-preserving record migration. These are fixtures, distinct from the physical driving runs.
+110/110 final desktop checks passed: 98 swept/record fixtures plus 12 actual dynamic-body FixedUpdate crossings. Every profile crossed with a backwards-facing body while moving forward, crossed high while spinning, and rejected genuine reverse travel. Other cases include shoulders, duplicates, teleports, finish rejection, reverse/re-traverse, sustained partial rejoin, shared AI credit and byte-preserving record migration. The dynamic tests set an initial pose/velocity and let normal physics/RaceDirector updates run; they do not manually invoke Sample during travel.
 
 ## House, fences and jump
 
@@ -30,9 +30,9 @@ The floating structure was the exact `Approximate older residence` at (44,30.38,
 
 Failures retained: the initial 10m aperture caught motorcycle/ATV lines. A 20m widening alone still failed motorcycle runs because redundant solid crossbeams overlapped the continuous ramp surface. Removing those 12 embedded beam colliders preserved visible support and eliminated the repeated interior impacts. Final motorcycle clean/varied/recovery runs: 20.496/18.670/21.725s, both panes broken in each, zero charges/buzzes, minimum up .961/.970/.971. Road comparisons: 19.404/19.347s. The stunt is fun-oriented; the cautious clean run is slower than the road, while the quicker varied run saves about .7s.
 
-The property layout has 169 breakable sections: Dan's chain-link and Houses #2/#3's white large-X fencing. Each has front/side/rear runs, a 12m front access opening and a 6m woodland opening. Front runs are 11m from the local road centre, beyond live lanes/shoulder. House transforms remain fixed. Original oriented sensor overlap now controls restoration; a broad AABB had incorrectly suppressed wide diagonal glass restoration while the car was outside the doorway. Debris remains capped at 24 moving props and four seconds.
+The property layout has 169 breakable sections (48 chain-link, 121 white-X): Dan's chain-link and Houses #2/#3's white large-X fencing. Each has front/side/rear runs, a 12m front access opening and a 6m woodland opening. Front runs are 11m from the local road centre, beyond live lanes/shoulder. All46 unrelated building sites were compared with the checkpoint scene: positions, rotations and scales are unchanged. Player motor/profile/configuration source and all StreetLoop terrain assets have no changes from the checkpoint. Original oriented sensor overlap now controls restoration; a broad AABB had incorrectly suppressed wide diagonal glass restoration while the car was outside the doorway. Debris remains capped at 24 moving props and four seconds.
 
-Jamerson is raised pavement works: existing supported 40m/6.2m takeoff, asphalt surface, graded aggregate shoulder, orange breakable work markers and an open-right-lane sign/bypass. Collision retains the tested continuous takeoff. Eight ordinary-frame flights (two/profile) credited CP14 and landed. Motorcycle fast approach 51.224m/s, apex17.430m above ramp base, air3.268s. A full-speed ATV drifted about6.4m left at **later CP15**, outside its six-metre half-width: a genuine +5 miss, retained rather than counted as a clean run.
+Jamerson is raised pavement works: existing supported 40m/6.2m takeoff, asphalt surface, graded aggregate shoulder, orange breakable work markers and an open-right-lane sign/bypass. Collision retains the tested continuous takeoff. Eight ordinary-frame flights (two/profile) credited CP14 and landed. Motorcycle fast approach 51.224m/s, apex17.531m above ramp base, air3.297s. A full-speed ATV drifted about6.4m left at **later CP15**, outside its six-metre half-width: a genuine +5 miss, retained rather than counted as a clean run.
 
 | View | Before | After |
 |---|---|---|
@@ -80,3 +80,5 @@ Review checklist (ten feedback items):
 10. Check garage/colors, pause/settings, local reset, restart, Quit Race, results and old/new records; lake circuit remains backlog.
 
 Build/package identity, final flow checks, completed race measurements and completion commit are added to SESSION HANDOFF and the final delivery report. No upload or distribution is authorized or performed.
+
+

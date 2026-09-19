@@ -1111,7 +1111,7 @@ Record choices we do not want to repeatedly reconsider.
 
 # SESSION HANDOFF
 
-**Current delivery:** 0.6.1-review1 integrated correction in final verification, NOT YET APPROVED. Covers BUG-004–007, CR-041–045 and further CR-036. No separate lake circuit, multiplayer or unrelated expansion.
+**Current delivery:** 0.6.1-review2 integrated correction in final verification, NOT YET APPROVED. Covers BUG-004–007, CR-041–045 and further CR-036. No separate lake circuit, multiplayer or unrelated expansion.
 
 Safety checkpoint: 88064bd196d68e40bfb624f2d5879613d962dbf5, verified before changes. Initial Git write denials recovered with authorized elevated retries. No discarded changes, hook/signing bypass or history rewrite.
 
@@ -1152,4 +1152,5 @@ At the end of an Astra/Codex work session:
    - keep later phases from ballooning prematurely.
 
 The file is the project's source of truth. We do not casually rebuild the project plan from memory.
+
 

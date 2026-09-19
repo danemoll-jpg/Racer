@@ -1,4 +1,4 @@
-RACER 0.6.1-review1 - Windows x64 single-player review
+RACER 0.6.1-review2 - Windows x64 single-player review
 Awaiting Dan's approval. Extract the complete ZIP and run Racer.exe.
 
 Ready: choose Solo or Race vs 3 AI, traffic On/Off and Easy/Normal/Hard.
@@ -49,4 +49,5 @@ Virtual-input tests do not establish physical-controller coverage or Dan's accep
 Traffic contacts and AI recovery can still cost time; subjective Hard difficulty needs review.
 No multiplayer, online services or paid vehicle assets. Nothing uploaded/distributed.
 See VERSION.txt for the exact committed executable source and LICENSES for notices.
+
 

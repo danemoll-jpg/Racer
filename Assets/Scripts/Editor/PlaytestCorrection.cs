@@ -50,7 +50,7 @@ namespace Racer.Editor
             var race=Object.FindAnyObjectByType<RaceDirector>();race.highwayTrafficCount=16;race.trafficCount=4;
             race.gates[14].halfHeight=3;race.gates[14].upperHeight=24; // Jamerson's launch corridor only; no below-road enlargement.
             House(root);Fences(root,race);Jamerson(root);
-            PlayerSettings.bundleVersion="0.6.1-review1";
+            PlayerSettings.bundleVersion="0.6.1-review2";
             Phase6Buildings.RefreshVisualBatches(false);
             Physics.SyncTransforms();EditorSceneManager.MarkSceneDirty(scene);EditorSceneManager.SaveScene(scene);AssetDatabase.SaveAssets();Capture("after");
         }

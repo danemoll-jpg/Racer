@@ -116,6 +116,14 @@ namespace Racer
                 Check(race.Progress.CompletedLaps==0,"Unarmed finish rejected");
             }
             Check(race.Category.StartsWith("street-v6-flat5-"),"New rules category preserves older records");
+            {
+                var branch=race.Branches.First(b=>b.title=="Existing Southwest Cut");
+                int expected=Array.FindIndex(race.gates,g=>race.road.Project(g.transform.position,out _)>branch.exitRoad);
+                Seed(expected);race.Racers[0].Branch.Begin(branch);var gate=race.gates[expected];var f=gate.transform.forward;
+                race.ResetSampling(gate.transform.position-f,clock);Sample(gate.transform.position+f,-f);
+                Check(race.Progress.NextGate==expected+1 && race.Progress.PenaltySeconds==0,
+                    "Retained partial-rejoin context cannot hide a physically crossed unrelated expected gate");
+            }
             string migration=Path.Combine(race.Flow.Save.DirectoryPath,"migration-fixture");Directory.CreateDirectory(migration);
             string oldCategory="street-v5-woodland-original-solo-1",oldFile=Path.Combine(migration,"records-"+oldCategory+".json");
             string oldJson=JsonUtility.ToJson(new RacerSave.Records{course=oldCategory,lap=123.45,race=380.25});File.WriteAllText(oldFile,oldJson);

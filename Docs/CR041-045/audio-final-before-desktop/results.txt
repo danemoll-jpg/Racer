@@ -1,0 +1,16 @@
+Listener enabled=True; rate=48000; DSP mix capture before OS endpoint, no subjective listening claimed.
+Wood prop=Property white X master=0.8 broken=True events=1 samples=241664, peak=0.168891, rms=0.021759, clipped=0
+ChainLink prop=Property chain-link master=0.8 broken=True events=3 samples=239616, peak=0.189743, rms=0.024578, clipped=0
+Mailbox prop=Mailbox - Original house 3 master=0.8 broken=True events=2 samples=243712, peak=0.175948, rms=0.022511, clipped=0
+Sign prop=Breakable sign - Pine Ridge  > 144 km/h master=0.8 broken=True events=1 samples=241664, peak=0.120362, rms=0.021002, clipped=0
+Glass prop=Breakable sliding glass doors master=0.8 broken=True events=2 samples=241664, peak=0.195726, rms=0.024134, clipped=0
+Wood prop=Property white X master=0.25 broken=True events=1 samples=239616, peak=0.056655, rms=0.007081, clipped=0
+ChainLink prop=Property chain-link master=0.25 broken=True events=3 samples=243712, peak=0.068500, rms=0.007613, clipped=0
+Mailbox prop=Mailbox - Original house 3 master=0.25 broken=True events=2 samples=243712, peak=0.063125, rms=0.007361, clipped=0
+Sign prop=Breakable sign - Pine Ridge  > 144 km/h master=0.25 broken=True events=1 samples=241664, peak=0.030734, rms=0.006582, clipped=0
+Glass prop=Breakable sliding glass doors master=0.25 broken=True events=2 samples=243712, peak=0.063829, rms=0.007083, clipped=0
+Wood prop=Property white X master=0 broken=True events=1 samples=239616, peak=0.000000, rms=0.000000, clipped=0
+ChainLink prop=Property chain-link master=0 broken=True events=3 samples=243712, peak=0.000000, rms=0.000000, clipped=0
+Mailbox prop=Mailbox - Original house 3 master=0 broken=True events=2 samples=239616, peak=0.000000, rms=0.000000, clipped=0
+Sign prop=Breakable sign - Pine Ridge  > 144 km/h master=0 broken=True events=1 samples=243712, peak=0.000000, rms=0.000000, clipped=0
+Glass prop=Breakable sliding glass doors master=0 broken=True events=2 samples=241664, peak=0.000000, rms=0.000000, clipped=0

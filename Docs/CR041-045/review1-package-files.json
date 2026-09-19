@@ -1,0 +1,1157 @@
+[
+  {
+    "Path": "dstorage.dll",
+    "Bytes": 206904,
+    "SHA256": "CAE65787F61514BEC6F012F44546E68B19E39D8854A9AB52AF813370D44B272A"
+  },
+  {
+    "Path": "dstoragecore.dll",
+    "Bytes": 1482784,
+    "SHA256": "CF85B19A92A8276F8BACA0DB9BBCD60735BAD50768DEB303D310E84D5F4FDD11"
+  },
+  {
+    "Path": "Racer.exe",
+    "Bytes": 667136,
+    "SHA256": "07534CC5839D2C89C4FE45EC272C91B046FF3D64F14AB3F0A32221121E0FFFF2"
+  },
+  {
+    "Path": "README.txt",
+    "Bytes": 3711,
+    "SHA256": "41F927AFE27019485217EEA80BF49544E6A025642F5283A958BE185E64FD400D"
+  },
+  {
+    "Path": "UnityCrashHandler64.exe",
+    "Bytes": 1772968,
+    "SHA256": "CC40FE198452A2A8812EBBCC05044AD499290FDD3DA62DAE1FDC00505265ACEA"
+  },
+  {
+    "Path": "UnityPlayer.dll",
+    "Bytes": 38677416,
+    "SHA256": "2E66078BF2D21DEB55CA53B96144884FC98F209949C3F99C845F16EF05B42AD5"
+  },
+  {
+    "Path": "VERSION.txt",
+    "Bytes": 205,
+    "SHA256": "BBEA49D16E3EE129D13E842133A493868F32F9695769A5FC300CE56A42927335"
+  },
+  {
+    "Path": "Woodland-map.svg",
+    "Bytes": 3104757,
+    "SHA256": "C5BBCA45B17CB835BEEA80E61C79BE746472CCD820F261B42B3306BE19E8885E"
+  },
+  {
+    "Path": "D3D12\\D3D12Core.dll",
+    "Bytes": 4725304,
+    "SHA256": "625BD40005B1C3708695D5256ECF230D278E6B8EDBA5A88AF70F3D91324F3052"
+  },
+  {
+    "Path": "LICENSES\\AUDIO-ASSET-NOTICES.txt",
+    "Bytes": 1401,
+    "SHA256": "607FD7C9F7F8A7803558E40BF3083690A2B31909ABE8DB38DB0E7E0F9A321ADF"
+  },
+  {
+    "Path": "LICENSES\\AUDIO-SOURCES.md",
+    "Bytes": 1425,
+    "SHA256": "AAAF0219B78E9E2B94DF3E93B9100D68C022DF17B1479E603D34B050E1F53286"
+  },
+  {
+    "Path": "LICENSES\\Unity-Windows-Mono-Notices.pdf",
+    "Bytes": 132943,
+    "SHA256": "255ABD2071826AD63325A53C25A89C08FD6A98F13F58A2666374CF44E99E2B9A"
+  },
+  {
+    "Path": "LICENSES\\VEHICLE-ASSET-NOTICES.txt",
+    "Bytes": 415,
+    "SHA256": "F258FED51F049F7BEE1E9520360AABBB5306DA42770C08BB6B86D0DD494305A7"
+  },
+  {
+    "Path": "LICENSES\\PackageNotices\\com.unity.ai.navigation@134dd6a3b97b-LICENSE.md",
+    "Bytes": 453,
+    "SHA256": "2B2113E0522B3EAA9E701D70956F9AFFACCAC7E79D99B6029903BCEC7139590E"
+  },
+  {
+    "Path": "LICENSES\\PackageNotices\\com.unity.collab-proxy@4628d2ba6ea4-LICENSE.md",
+    "Bytes": 438,
+    "SHA256": "5DF34C3570740990614C70DB227189636BAFDD43D5486E49E5FC5F0482FD07FA"
+  },
+  {
+    "Path": "LICENSES\\PackageNotices\\com.unity.collab-proxy@4628d2ba6ea4-Third Party Notices.md",
+    "Bytes": 16902,
+    "SHA256": "8E044F986EB0FB51B93452C5C350B41677C4E132DFEB9B0B278A4B9B9615A895"
+  },
+  {
+    "Path": "LICENSES\\PackageNotices\\com.unity.collections@10fff0607388-LICENSE.md",
+    "Bytes": 448,
+    "SHA256": "4947F647C031B0FEC440237F8136386A606DD998089BB1DF67316EE693F568F5"
+  },
+  {
+    "Path": "LICENSES\\PackageNotices\\com.unity.ext.nunit@0198eae3b53e-LICENSE.md",
+    "Bytes": 433,
+    "SHA256": "3622D79BB4DE21087D36BA91BCC84816E6FC2ACE098E17EB431B9E1DFB6DDE32"
+  },
+  {
+    "Path": "LICENSES\\PackageNotices\\com.unity.ext.nunit@0198eae3b53e-Third Party Notices.md",
+    "Bytes": 1249,
+    "SHA256": "EF37B1CCBAE5E9B641482CBD77A74EE96193A39D232CC8D856B9044F37DB9244"
+  },
+  {
+    "Path": "LICENSES\\PackageNotices\\com.unity.ide.rider@1f60b3138684-LICENSE.md",
+    "Bytes": 1193,
+    "SHA256": "49D8E39C5BA9FA2E7B8403D994162FFC49DC7A366B0691FDFA4C06BBAADC4D81"
+  },
+  {
+    "Path": "LICENSES\\PackageNotices\\com.unity.ide.visualstudio@a99d56dec63f-LICENSE.md",
+    "Bytes": 1178,
+    "SHA256": "AF294E2812515C3569252D3CA7E2CB2519D82572DF764529AC45CA72359E4995"
+  },
+  {
+    "Path": "LICENSES\\PackageNotices\\com.unity.inputsystem@7a4e1a2a8194-LICENSE.md",
+    "Bytes": 510,
+    "SHA256": "419718E59CD6C1F9C3ED80BD004394504BED368C23AD8665CCE1792A33C8A02C"
+  },
+  {
+    "Path": "LICENSES\\PackageNotices\\com.unity.nuget.mono-cecil@ecb9724e46ff-LICENSE.md",
+    "Bytes": 486,
+    "SHA256": "76101254034FBEA9AFC4169E98CE15382B0F130E3BF15E7DA1CA599D940E1CDA"
+  },
+  {
+    "Path": "LICENSES\\PackageNotices\\com.unity.nuget.mono-cecil@ecb9724e46ff-Third Party Notices.md",
+    "Bytes": 1277,
+    "SHA256": "99966D24B32096A2A1963D9CCEC993CF1C729FAFD359179EE727762B2DD2B4BA"
+  },
+  {
+    "Path": "LICENSES\\PackageNotices\\com.unity.nuget.newtonsoft-json@4dfd81071c64-LICENSE.md",
+    "Bytes": 481,
+    "SHA256": "A5177BFECFEA04D225E4A26A631DB86721A03B4080350867847E71DC26B44F85"
+  },
+  {
+    "Path": "LICENSES\\PackageNotices\\com.unity.nuget.newtonsoft-json@4dfd81071c64-Third Party Notices.md",
+    "Bytes": 4719,
+    "SHA256": "F07D2EA4AF53FD1C9800B345BB4FBFA3AB0181D8C87625D6C265CD65142DF097"
+  },
+  {
+    "Path": "LICENSES\\PackageNotices\\com.unity.pipeline@ab05e9cd7f74-LICENSE.md",
+    "Bytes": 442,
+    "SHA256": "1EE36628B5FB54DE51A6E6E9B2254A5C52CD9A797E1F2CBDD8A2A0CD1493F43B"
+  },
+  {
+    "Path": "LICENSES\\PackageNotices\\com.unity.pipeline@ab05e9cd7f74-Third Party Notices.md",
+    "Bytes": 6892,
+    "SHA256": "EDB1F62B93337299B1C1F94282026D36B7DA976F3201588BD772E6B0E7F2B3DD"
+  },
+  {
+    "Path": "LICENSES\\PackageNotices\\com.unity.profiling.core@8a49f7027d06-LICENSE.md",
+    "Bytes": 485,
+    "SHA256": "33197414E7362AE534AEEAB9AB6A9DFE0B5CA74B04F304805F592BCF667A5A99"
+  },
+  {
+    "Path": "LICENSES\\PackageNotices\\com.unity.render-pipelines.core@2d66c71e606e-LICENSE.md",
+    "Bytes": 491,
+    "SHA256": "39691ADC5FDAF614D951F53637E22501BAF46FCC535A69AB8A21EBAA8B9E9CB4"
+  },
+  {
+    "Path": "LICENSES\\PackageNotices\\com.unity.render-pipelines.core@2d66c71e606e-THIRD PARTY NOTICES.md",
+    "Bytes": 3587,
+    "SHA256": "FDFACC9A242BDA05B26EACE324033B467B7D70E83A2761CD03337B612AFFC339"
+  },
+  {
+    "Path": "LICENSES\\PackageNotices\\com.unity.render-pipelines.universal-config@561422b74439-LICENSE.md",
+    "Bytes": 503,
+    "SHA256": "FA2DCBC8FF967F49342C6C61854909BA4BBCC70B27F07D25538B8EAF7BE5BE3C"
+  },
+  {
+    "Path": "LICENSES\\PackageNotices\\com.unity.render-pipelines.universal@e178ec6338de-LICENSE.md",
+    "Bytes": 496,
+    "SHA256": "4BE520A425E06C8DE56FA8AEE1CE957CFE610406456278172A2D18B7C388C2CF"
+  },
+  {
+    "Path": "LICENSES\\PackageNotices\\com.unity.render-pipelines.universal@e178ec6338de-Third Party Notices.md",
+    "Bytes": 1794,
+    "SHA256": "0652509DFC81A1A3D9E037E59BD047B305155FC5C4ABEEF69E2FC078488035FD"
+  },
+  {
+    "Path": "LICENSES\\PackageNotices\\com.unity.searcher@a463122f2c00-LICENSE.md",
+    "Bytes": 5842,
+    "SHA256": "73E67AA49BE44B2B1E37D4244224BF111A82B79235324457BCC82AC4FB339F61"
+  },
+  {
+    "Path": "LICENSES\\PackageNotices\\com.unity.shadergraph@7e60a14be593-LICENSE.md",
+    "Bytes": 481,
+    "SHA256": "364B0C08B7FE15B70C4777DCCB26FC21D02AE831C2F707DBE29879AC15ECE353"
+  },
+  {
+    "Path": "LICENSES\\PackageNotices\\com.unity.test-framework.performance@0a60b857a52e-LICENSE.md",
+    "Bytes": 496,
+    "SHA256": "202ADFFAC8B9D21D3B148A294D241894F3BCEF85724C01B6A0BD52269A3798C8"
+  },
+  {
+    "Path": "LICENSES\\PackageNotices\\com.unity.test-framework.performance@0a60b857a52e-Third Party Notices.md",
+    "Bytes": 1317,
+    "SHA256": "361CDB83B8F7C4868AD5C61D8014AB423D9229919219F77BAE1EB36084E0227A"
+  },
+  {
+    "Path": "LICENSES\\PackageNotices\\com.unity.test-framework@7a3849e09bd0-LICENSE.md",
+    "Bytes": 475,
+    "SHA256": "D3B09E9683AFBC8D468A83000308F18E7133EAF7879AF870747000A66E3C0693"
+  },
+  {
+    "Path": "LICENSES\\PackageNotices\\com.unity.timeline@c56d56b0070b-LICENSE.md",
+    "Bytes": 464,
+    "SHA256": "73111EF76BD8A502C29B167865620DE787AF612B5F0BA6B3A517ADE3B9519853"
+  },
+  {
+    "Path": "LICENSES\\PackageNotices\\com.unity.ugui@fa62679cc16a-LICENSE.md",
+    "Bytes": 431,
+    "SHA256": "3F8833F9736C0B5DB5076663BA5ABB0A33606712FA9128456AC834FC9D43FDD6"
+  },
+  {
+    "Path": "LICENSES\\PackageNotices\\com.unity.visualscripting@4edfcc09512f-LICENSE.md",
+    "Bytes": 446,
+    "SHA256": "38110F8F09A9B7828467D10BA992C3FFB8E3819FEB23BD37D8BD342CC78A478F"
+  },
+  {
+    "Path": "LICENSES\\PackageNotices\\com.unity.visualscripting@4edfcc09512f-Third Party Notices.md",
+    "Bytes": 33791,
+    "SHA256": "76DADC7D5862B0C6A3A8741658C2667A535877A73DCF76DB2AB03A9915ADFC7D"
+  },
+  {
+    "Path": "MonoBleedingEdge\\EmbedRuntime\\mono-2.0-bdwgc.dll",
+    "Bytes": 7834544,
+    "SHA256": "56E9602A5FD6D4685375F95469F05D9348877F6E13135B8EC8EB8AC1A18F068C"
+  },
+  {
+    "Path": "MonoBleedingEdge\\EmbedRuntime\\MonoPosixHelper.dll",
+    "Bytes": 611240,
+    "SHA256": "EB4B98B4150614AD0D52FD5DC4D4034A618C8F2D4F18DC1FCDD8C8239AB59FF8"
+  },
+  {
+    "Path": "MonoBleedingEdge\\etc\\mono\\browscap.ini",
+    "Bytes": 311984,
+    "SHA256": "4DDD50F31FB968F30BEDEFC253A46DC3F2890192D05CDAA9E0A64A056EEE807E"
+  },
+  {
+    "Path": "MonoBleedingEdge\\etc\\mono\\config",
+    "Bytes": 3815,
+    "SHA256": "5776169973A26A387B8B3E5C0F2301A7AB9A6DD7C7D3EFA22A96ABC47FBF8662"
+  },
+  {
+    "Path": "MonoBleedingEdge\\etc\\mono\\2.0\\DefaultWsdlHelpGenerator.aspx",
+    "Bytes": 60575,
+    "SHA256": "751861040B69EA63A3827507B7C8DA9C7F549DC181C1C8AF4B7CA78CC97D710A"
+  },
+  {
+    "Path": "MonoBleedingEdge\\etc\\mono\\2.0\\machine.config",
+    "Bytes": 29066,
+    "SHA256": "E91782A27FA39FC6C1D6EE8B08529F5D35052310D0006034B878EB04B8F2AF30"
+  },
+  {
+    "Path": "MonoBleedingEdge\\etc\\mono\\2.0\\settings.map",
+    "Bytes": 2622,
+    "SHA256": "49C6160F9D54AF4270A3B4E997FC4A8301F79B9E2070118FA46DDBCBBC44F9A2"
+  },
+  {
+    "Path": "MonoBleedingEdge\\etc\\mono\\2.0\\web.config",
+    "Bytes": 11635,
+    "SHA256": "CF2B54339E069B9E42F7D6795EECBF562C50C1011F4CA8F65F578FE52D97FF92"
+  },
+  {
+    "Path": "MonoBleedingEdge\\etc\\mono\\2.0\\Browsers\\Compat.browser",
+    "Bytes": 1605,
+    "SHA256": "8A1082057AC5681DCD4E9C227ED7FB8EB42AC1618963B5DE3B65739DD77E2741"
+  },
+  {
+    "Path": "MonoBleedingEdge\\etc\\mono\\4.0\\DefaultWsdlHelpGenerator.aspx",
+    "Bytes": 60575,
+    "SHA256": "751861040B69EA63A3827507B7C8DA9C7F549DC181C1C8AF4B7CA78CC97D710A"
+  },
+  {
+    "Path": "MonoBleedingEdge\\etc\\mono\\4.0\\machine.config",
+    "Bytes": 33598,
+    "SHA256": "E60AEC2C5115D65B3ACB3C55EA21576DBD770F579166C017125571E46AE560ED"
+  },
+  {
+    "Path": "MonoBleedingEdge\\etc\\mono\\4.0\\settings.map",
+    "Bytes": 2622,
+    "SHA256": "CE1DB1AD8A9512073164E3ECCDC193F7EDA036E1A9733CAEC4635DE21B2865C8"
+  },
+  {
+    "Path": "MonoBleedingEdge\\etc\\mono\\4.0\\web.config",
+    "Bytes": 18802,
+    "SHA256": "E38BB8CC68FE5B4EDECDFD288D094B9E8CED7629039B2A347682ABA0D8BD7492"
+  },
+  {
+    "Path": "MonoBleedingEdge\\etc\\mono\\4.0\\Browsers\\Compat.browser",
+    "Bytes": 1605,
+    "SHA256": "8A1082057AC5681DCD4E9C227ED7FB8EB42AC1618963B5DE3B65739DD77E2741"
+  },
+  {
+    "Path": "MonoBleedingEdge\\etc\\mono\\4.5\\DefaultWsdlHelpGenerator.aspx",
+    "Bytes": 60575,
+    "SHA256": "751861040B69EA63A3827507B7C8DA9C7F549DC181C1C8AF4B7CA78CC97D710A"
+  },
+  {
+    "Path": "MonoBleedingEdge\\etc\\mono\\4.5\\machine.config",
+    "Bytes": 34056,
+    "SHA256": "EE950004B576FB28DC85F4B0435ED04BF96612DE2E8B53BE84D07AFE85A0DE6C"
+  },
+  {
+    "Path": "MonoBleedingEdge\\etc\\mono\\4.5\\settings.map",
+    "Bytes": 2622,
+    "SHA256": "CE1DB1AD8A9512073164E3ECCDC193F7EDA036E1A9733CAEC4635DE21B2865C8"
+  },
+  {
+    "Path": "MonoBleedingEdge\\etc\\mono\\4.5\\web.config",
+    "Bytes": 18811,
+    "SHA256": "C4CBDDD4FD9347B58CC5A72B36DC4BA1AD2BB699E65869D05CD3FB9865F0D824"
+  },
+  {
+    "Path": "MonoBleedingEdge\\etc\\mono\\4.5\\Browsers\\Compat.browser",
+    "Bytes": 1605,
+    "SHA256": "8A1082057AC5681DCD4E9C227ED7FB8EB42AC1618963B5DE3B65739DD77E2741"
+  },
+  {
+    "Path": "MonoBleedingEdge\\etc\\mono\\mconfig\\config.xml",
+    "Bytes": 25817,
+    "SHA256": "0C56E34C69124510FA8C19E7B4C2CA6C1C4FF460AE19F798DD0CA035809E396D"
+  },
+  {
+    "Path": "Racer_Data\\app.info",
+    "Bytes": 20,
+    "SHA256": "C46D44B57E125652652CC7068FCE47491EB0A9DD7CF8F073E16AEC131D5B320F"
+  },
+  {
+    "Path": "Racer_Data\\boot.config",
+    "Bytes": 156,
+    "SHA256": "BD3828B6E9D32E2D2FCEE51331DB4D2AABD7924DD2250EB0033EF7BABEA64389"
+  },
+  {
+    "Path": "Racer_Data\\globalgamemanagers",
+    "Bytes": 123268,
+    "SHA256": "D683A1C3EA293822D44867C270364BA426C33E613D9B753FB71293DE1B4C846F"
+  },
+  {
+    "Path": "Racer_Data\\globalgamemanagers.assets",
+    "Bytes": 1035080,
+    "SHA256": "B7887D3290B42611FDD57F79A017CA2424B595AF7FD507C0E673409E57ECAB7D"
+  },
+  {
+    "Path": "Racer_Data\\globalgamemanagers.assets.resS",
+    "Bytes": 3094752,
+    "SHA256": "7119117CED695768BC8FEBF118107B55C0EA319D7E7BE34292CFD53C955C3DE2"
+  },
+  {
+    "Path": "Racer_Data\\level0",
+    "Bytes": 4792856,
+    "SHA256": "23A3C753C252BA25953DF388E0C135D3CD0ABEA5EED32F016CF7497CB64A7C54"
+  },
+  {
+    "Path": "Racer_Data\\resources.assets",
+    "Bytes": 3320,
+    "SHA256": "35B4D5CE978FA1DDE6BA8739D11DCBCCF9C65BC02D20CDEFB471B79F11359F0F"
+  },
+  {
+    "Path": "Racer_Data\\RuntimeInitializeOnLoads.json",
+    "Bytes": 8319,
+    "SHA256": "669A4F52296959412BAE72FB38C8DC9B011CED26C627A04AF4D7C182CEF92769"
+  },
+  {
+    "Path": "Racer_Data\\ScriptingAssemblies.json",
+    "Bytes": 4986,
+    "SHA256": "FEBF8C1EA1C222A774581DC54CAC4B49BE3FF55FC38FDA43567B731AA8E1D137"
+  },
+  {
+    "Path": "Racer_Data\\sharedassets0.assets",
+    "Bytes": 96491752,
+    "SHA256": "5EF9EC211F22C093F65B88910037E45A9F1487C0FEF0A9782C1BB36B1EDD9618"
+  },
+  {
+    "Path": "Racer_Data\\sharedassets0.assets.resS",
+    "Bytes": 524288,
+    "SHA256": "393EFE6399536384AA91BDFC4E64F244B4D3E1FBB6A4FF145C483FFEE64CCB36"
+  },
+  {
+    "Path": "Racer_Data\\sharedassets0.resource",
+    "Bytes": 1592544,
+    "SHA256": "2B7F301C1B9A19AF8CE43F461DF4A52C872B1B34B3D8A2FC4D0FC4CA50E19321"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\Assembly-CSharp.dll",
+    "Bytes": 238080,
+    "SHA256": "9E0617A35456DCA013BB0A41714224D4EFACE0D054EEDE0CA721D8BB44E76B58"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\Mono.Security.dll",
+    "Bytes": 241152,
+    "SHA256": "A7128A85C5CE748CFCC64BE97B7FAB4119F4636C917A0303BFA2582F86282ED8"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\mscorlib.dll",
+    "Bytes": 4632064,
+    "SHA256": "ACBFA8295DA5B5E5A2C68C7B2DBC9CD7A5829C0AE031AF22BE4F6A49FD626F8F"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\netstandard.dll",
+    "Bytes": 90112,
+    "SHA256": "6AE62E082DC494A2433984177F60CA4DB5FAE69B1F360A8B33754172B310B8C5"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\Newtonsoft.Json.dll",
+    "Bytes": 691712,
+    "SHA256": "A56146202232958F46BD6A28B5A7DA166AEA123EE0D646735A46E5C341DFBF1F"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\System.Buffers.dll",
+    "Bytes": 4608,
+    "SHA256": "762F8FDBE975E05B76BE5FE996C53CE7C75E4A2830F2F50B02A5948EF6BA0AEB"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\System.Collections.Immutable.dll",
+    "Bytes": 252680,
+    "SHA256": "5B1B1C83BA3D135C2FDFE425842FBE9C7432878B7E468623ACB554C69B4C130F"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\System.ComponentModel.Composition.dll",
+    "Bytes": 257024,
+    "SHA256": "D949BD6214C26B38A190E66FE976038E3845AEA6C6980D3EB58E78B75EDF98A5"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\System.Configuration.dll",
+    "Bytes": 124928,
+    "SHA256": "7170A8FA3363A8EBD59E8B9931509F595DF009F11E1885707A3C3BC0A3FF5648"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\System.Core.dll",
+    "Bytes": 1113088,
+    "SHA256": "15081EAC9F71FD7817A7D42A963651C89C666A4C21499F2076FB3AB7AACD9B9A"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\System.Data.DataSetExtensions.dll",
+    "Bytes": 29696,
+    "SHA256": "DA75CEEBBEF879968AAA721090DF162E7A6FE1C7BA32F4BB5D05523385C53E8C"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\System.Data.dll",
+    "Bytes": 2125312,
+    "SHA256": "557BD378CAA400C4DE52BD73225A948F1A1E41586C52E307AAA042F77B33D648"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\System.dll",
+    "Bytes": 2641920,
+    "SHA256": "0C49D192FC91F2EADE9C12C3960D8B90161560507D96EBCC9D878A2390A2CAC6"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\System.Drawing.dll",
+    "Bytes": 489984,
+    "SHA256": "1657E6EB247364CD232FC6C80DF1AB6804732B6644639F18C80E48AF1174FD63"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\System.EnterpriseServices.dll",
+    "Bytes": 44544,
+    "SHA256": "7FCC7078F244AB3A5E8549A8ACD2905B71AA8A31DDA917AB60817C5B13924D64"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\System.IO.Compression.dll",
+    "Bytes": 114688,
+    "SHA256": "35242DDC40F673D10767E3AB3381718864170CFFBC710501374E911DF700FDA0"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\System.IO.Compression.FileSystem.dll",
+    "Bytes": 18432,
+    "SHA256": "E7F2784C57088326F8DE52A79426102A2250C2F31922030E9FED0CB64740E242"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\System.Memory.dll",
+    "Bytes": 4608,
+    "SHA256": "C4F030A2CBA7DA7CDCF493257C24560E203D355904AEE490D645A935842F834A"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\System.Net.Http.dll",
+    "Bytes": 122880,
+    "SHA256": "A6227DE2834BC7019A10E69A7CA0BB0908D5092B8BC279ED428B27ECF583A681"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\System.Numerics.dll",
+    "Bytes": 119296,
+    "SHA256": "711616207139CFBF471F4F344A32ADE842077314F03C19A0846A98ECACE3FC5D"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\System.Reflection.Metadata.dll",
+    "Bytes": 487584,
+    "SHA256": "AFCFD6C166FE0D59F45CC6363082806F6A7EA8CEED9DC6C75EEC9FD79CCB5717"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\System.Runtime.CompilerServices.Unsafe.dll",
+    "Bytes": 19256,
+    "SHA256": "FD67ABC4C4AF10AFFBCD42FD68A2A7BC361B26714AFE6965D4D0D139459D8297"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\System.Runtime.Serialization.dll",
+    "Bytes": 934400,
+    "SHA256": "AA96283B3009B39C4ED8DFCDE146B0E0BCAFA09F9BE24A959D0C16DD6F54AE8A"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\System.Security.dll",
+    "Bytes": 320000,
+    "SHA256": "21C2CC73F1CECC8B5BFC42171A22412DFD8E04AC42978DE90C00ECB507583D62"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\System.ServiceModel.Internals.dll",
+    "Bytes": 215040,
+    "SHA256": "C90168F6F28B2355C6C11D38EE39FA18F44EA839C877CCCE8934BEE50E7FB479"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\System.Transactions.dll",
+    "Bytes": 35328,
+    "SHA256": "E5FF61CC9163810AA4C1FD9A00E929070E6733ECA6D6669B7ECE5169EC3739EF"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\System.Xml.dll",
+    "Bytes": 3160064,
+    "SHA256": "EE620F038A3A2589A118F0E7A030FE398B082015FBF83AC1474FB55B521D0BD7"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\System.Xml.Linq.dll",
+    "Bytes": 136704,
+    "SHA256": "638F8C5F44AAB1FD5755FDF2873683F3CA0F0FB0A3AAECFDBF1D2C2280C5983E"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\Unity.AI.Navigation.dll",
+    "Bytes": 23040,
+    "SHA256": "64A4634845225EAC7A523AC84084FBAF7DD9C2B50C35B3B4A6BF87B4DDD6FAE1"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\Unity.Burst.dll",
+    "Bytes": 5120,
+    "SHA256": "C3CE975C624AD81B7A8BB28A9C03A09B40F10B4FDC50F80C967B77650F722F95"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\Unity.Collections.dll",
+    "Bytes": 442368,
+    "SHA256": "D0B6D064BD08CF57AE38BA669D7BEAD9155B5D8D13B8DD0C46667466DCB9E599"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\Unity.Collections.LowLevel.ILSupport.dll",
+    "Bytes": 5120,
+    "SHA256": "FF50383F807F9692E4913B97E47D86FEFCB8FAA33D6D48CD3E3FD6FC7FFB448D"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\Unity.Collections.Tests.CoreCLR.InternalJobNestedPrivate.dll",
+    "Bytes": 4608,
+    "SHA256": "6AED567AEC526B4F21733997BE5A2FEC9A281A9DF1FB6C1AD0E458FE4B4FB4EE"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\Unity.Collections.Tests.CoreCLR.PrivateJobNested.dll",
+    "Bytes": 4096,
+    "SHA256": "C080D6A76BFF15ED59F50F7C699F09AE495833807B0FA8567002B63B3D12FF26"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\Unity.Collections.Tests.CoreCLR.ProtectedJobNested.dll",
+    "Bytes": 4096,
+    "SHA256": "2F80B10597E15F2EA07B8C6570FEC50726AE10DF1229A97E415C0E425894BBD1"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\Unity.Collections.Tests.CoreCLR.PublicJobPrivateGeneric.dll",
+    "Bytes": 4608,
+    "SHA256": "F3B35509F95DB7D41CEDC6906C52406989519BE5262687174B520A638C03A1E3"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\Unity.InputSystem.dll",
+    "Bytes": 1094656,
+    "SHA256": "C1768253391D94CF8266D6AA719F3AFEB9AAAC46E1CE85B86F1FADE58FC2A597"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\Unity.InputSystem.ForUI.dll",
+    "Bytes": 15360,
+    "SHA256": "54D5CB9658B04259C3EA5BE870713249F43BBD3BBFFB9A503968EBC21D3C3F99"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\Unity.InternalAPIEngineBridge.004.dll",
+    "Bytes": 4096,
+    "SHA256": "BC6AA56538B25EE7196BED966455B99260E9FD7A456AFA0A8FE56BBA2DBA6B77"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\Unity.InternalAPIEngineBridge.ObjectDispatcher.Runtime.dll",
+    "Bytes": 5632,
+    "SHA256": "F6617E744A0DAD8D2D9A994A5CBFF0FC89574D3593937983ED5086620623141D"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\Unity.InternalAPIEngineBridge.RenderPipelines.Core.Runtime.Shared.dll",
+    "Bytes": 3584,
+    "SHA256": "866CE700A94DC6D403FAB34D87D4AB9F8964135AAECFC4C67FB979E381697261"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\Unity.PathTracing.Runtime.dll",
+    "Bytes": 152576,
+    "SHA256": "8F18B9E0A683A0D1F08E8F128D8571BB16354A7D91AA630662CC1B5B181EF9AF"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\Unity.Pipeline.Attributes.dll",
+    "Bytes": 4608,
+    "SHA256": "91BAC834BED38804ABD9D83986FFB5FA3A19D02A49BF4D8B08264FDF1624AE08"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\Unity.Profiling.Core.dll",
+    "Bytes": 8192,
+    "SHA256": "0BD0ACF8CC5314444D2033EC9A716F0762D210AC7BB06BC75814E5DEBD88D20F"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\Unity.RenderPipeline.Universal.ShaderLibrary.dll",
+    "Bytes": 7680,
+    "SHA256": "F03B52B7C19CDEE0161D40CE7550256D1FA7008B8E755F009382A24BB3929FE6"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\Unity.RenderPipelines.Core.Runtime.dll",
+    "Bytes": 1084928,
+    "SHA256": "B65C29756BDACCB062E7836906C9D7AA8642047A6C0B0A5AA38B5D1A7A774015"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\Unity.RenderPipelines.Core.Runtime.Shared.dll",
+    "Bytes": 11264,
+    "SHA256": "B303D4EAC1047215BD5B6920D8B09038B25A111587DC85D5E8697C7AD3201FE0"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\Unity.RenderPipelines.Core.ShaderLibrary.dll",
+    "Bytes": 3584,
+    "SHA256": "546B79C168F73D9AA896A9612630074D6BC823AD00F8AA3E6B23798A1C13C4E5"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\Unity.RenderPipelines.GPUDriven.Runtime.dll",
+    "Bytes": 274944,
+    "SHA256": "CE11BFF2C14B82A3984E9FC2CC3AFF38DB02C8DA39ED28AE1EC5C23458BBC99E"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll",
+    "Bytes": 3584,
+    "SHA256": "179DAA887AC5123578EC1445B2AF0EA8F150FA7F89A7B9C1696A4B23EC7504B5"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\Unity.RenderPipelines.Universal.2D.Runtime.dll",
+    "Bytes": 214528,
+    "SHA256": "14B2A38E95687FDAF272761EA6A164711517C4A0E642CEE2C5EAEA0E97461069"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\Unity.RenderPipelines.Universal.Config.Runtime.dll",
+    "Bytes": 4096,
+    "SHA256": "32721320E84D5BE78CFCCAFF997D4A96F37149C20CD4776F097E45D45A3A22F7"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\Unity.RenderPipelines.Universal.Runtime.dll",
+    "Bytes": 752128,
+    "SHA256": "6E92C6A02CA0A5F2B124A6AB12E90212327CFF4E22AF3FBCD8FFB324AD6DC158"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\Unity.RenderPipelines.Universal.Shaders.dll",
+    "Bytes": 3584,
+    "SHA256": "D9EABADA17BD08CD4C69B3E8BE5699710C8930F6972945FC8465093154061F88"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\Unity.Scripting.dll",
+    "Bytes": 70568,
+    "SHA256": "F85C3F5C4E4830C5CB7E2A8E9E6D23845C9B84B11862B2236BEAD8C39DD27186"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\Unity.SurfaceCache.Runtime.dll",
+    "Bytes": 35840,
+    "SHA256": "EE3EECE35526C89CBCA5A44046543C51044429EA095E8974C7DB54A20A9879AD"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\Unity.TextMeshPro.dll",
+    "Bytes": 438784,
+    "SHA256": "107F8C4038F6E646863D7EA8B61E47935F5CDCE8E060EE6D5FE81CB97D51C145"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\Unity.Timeline.dll",
+    "Bytes": 120832,
+    "SHA256": "62CCC6072C717763DAF899D3CD5FB984465FF1AC5EE742C525325FD63A56A74B"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\Unity.UnifiedRayTracing.Runtime.dll",
+    "Bytes": 101376,
+    "SHA256": "137BD518169EED393574ED4171507442AC427C2D2BEF95F84EEB204363300F53"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\Unity.VisualScripting.Antlr3.Runtime.dll",
+    "Bytes": 86016,
+    "SHA256": "ED7CE205F66EAFE39BBB5D084D42E7FE11CB4B386FF208E5D5110891BE0B7B37"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\Unity.VisualScripting.Core.dll",
+    "Bytes": 550400,
+    "SHA256": "7B8815134FF2B91652943C0C12B10D11EF101B29F00184F984C129D424A15BE7"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\Unity.VisualScripting.DocCodeExamples.dll",
+    "Bytes": 6144,
+    "SHA256": "061047D1A548CC25C73B039CD8F66CE3FB390AD5309DDBF18962079C4DE7FBBC"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\Unity.VisualScripting.Flow.dll",
+    "Bytes": 335872,
+    "SHA256": "BDC8BE48ED42C94B057A070F052862CD7C6EC75599ABEAC4379F4D7A7F1B3236"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\Unity.VisualScripting.State.dll",
+    "Bytes": 27136,
+    "SHA256": "B3BD70381E413F7B6E47E80EE0667407CE96518355ECC928D6B52BBEAFC74F2F"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\UnityEngine.AccessibilityModule.dll",
+    "Bytes": 49576,
+    "SHA256": "5517E769AFF90828ACEC61C24CFA0520764582120FA9694F4C2070B18510B618"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\UnityEngine.AdaptivePerformanceModule.dll",
+    "Bytes": 122288,
+    "SHA256": "3DA0009318D88E3D699E3374477B7A4AE5360B5A9F43F4D1D2943C93D090ED06"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\UnityEngine.AIModule.dll",
+    "Bytes": 87472,
+    "SHA256": "0C3D40062004208D1AEE4E1D7343A50B36D7761945898503742ED5791A189735"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\UnityEngine.AMDModule.dll",
+    "Bytes": 21936,
+    "SHA256": "F85D649CEEB282A49DE0A124AFFC786E236293968C92CDA0B9900FBC4BC8A071"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\UnityEngine.AndroidJNIModule.dll",
+    "Bytes": 121256,
+    "SHA256": "29627BBB77A30E0FF711D6FC3BC69415A65E2966D7B56B9D3F28E7863B58B861"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\UnityEngine.AnimationModule.dll",
+    "Bytes": 218024,
+    "SHA256": "D71D34369110241D0843F9A84D30518B9C4DB46E849DA17E6453269D07F256F7"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\UnityEngine.ARModule.dll",
+    "Bytes": 27560,
+    "SHA256": "32CF82325DC19ABDCED7598B2301E70FCB854ECD72516B5919BB07D7D4C939ED"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\UnityEngine.AssetBundleModule.dll",
+    "Bytes": 42920,
+    "SHA256": "6B0B2E3DBA846D01D509A7A81871E885B4FB6A75216D472D7FE6A9A29626A799"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\UnityEngine.AudioModule.dll",
+    "Bytes": 142248,
+    "SHA256": "0BE72DE49CD4F70DDF7E92489D188D9229EE582B89591A4AD46CD4DA39E7AA41"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\UnityEngine.BurstModule.dll",
+    "Bytes": 337832,
+    "SHA256": "6AF6CA2B0F4C6D2257EBBA113B4839C8DF39C75A64BC70948ECE9599818C725A"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\UnityEngine.ClothModule.dll",
+    "Bytes": 38320,
+    "SHA256": "2FF7A525341B0D20FC9DA3ABAA1EEBBBA63C135ECB43DD598E4B55EF5625AE2E"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\UnityEngine.ClusterInputModule.dll",
+    "Bytes": 30128,
+    "SHA256": "19BB9DBAD3B02042ACF00A27E82DF3087AABBD88A2D2A0D6DBDD54A4BF80BF41"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\UnityEngine.ClusterRendererModule.dll",
+    "Bytes": 28584,
+    "SHA256": "A79FEB2406241AD5E709B8BDB75DE4F35D18533AB5B394C9871FCED1E09CB19D"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\UnityEngine.ContentLoadModule.dll",
+    "Bytes": 56240,
+    "SHA256": "123C6E2BE672E0570180E9F07C9B325BFE944969EB70E134AB21D301C2918BBC"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\UnityEngine.CoreModule.dll",
+    "Bytes": 2026920,
+    "SHA256": "C3537BA8697BC6F68A4CF80ECF7BF329B1CD95BB1715F6D0AB5EA96535E65B2E"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\UnityEngine.CrashReportingModule.dll",
+    "Bytes": 28592,
+    "SHA256": "DE047E1E8CD4562F0EA43E8F1F12B83F21F3FCAA7BDC16F1C7F0804CA6D752D6"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\UnityEngine.DirectorModule.dll",
+    "Bytes": 42920,
+    "SHA256": "3EDB3DDC06320A0B5C7B2C7B90353E5C00EA86D2792D7B66255EF5C7A359A153"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\UnityEngine.dll",
+    "Bytes": 225704,
+    "SHA256": "6735744224449DE8A926C5586B3B1445EFCE97B1DC5E3716A6F99643EFDF8B76"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\UnityEngine.DSPGraphModule.dll",
+    "Bytes": 33192,
+    "SHA256": "D0733716E9E6B72A07C33922A3BCE7FBC5E3A68859377999CFB2F3D4D60A66FD"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\UnityEngine.GameCenterModule.dll",
+    "Bytes": 46512,
+    "SHA256": "2F97957E92C20717EF4FA8E68697E19703CE17FAD696D06C1B62E45F0DDC93A9"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\UnityEngine.GIModule.dll",
+    "Bytes": 26032,
+    "SHA256": "2724A5DB80FC76CE37D62950787B7CB6B2AA5F865B99778289A4704C0662B51A"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\UnityEngine.GraphicsStateCollectionSerializerModule.dll",
+    "Bytes": 14248,
+    "SHA256": "1659584A20E4E91C3AB13FF4FD4EB09D9F6ABD0AFC6EDCDA173E1C5C4484CD57"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\UnityEngine.GridModule.dll",
+    "Bytes": 32680,
+    "SHA256": "43234AD746A8C30A466AEB9CB99534C51AA77AE0B3B5419CFCD643EEE7EB89D3"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\UnityEngine.HierarchyCoreModule.dll",
+    "Bytes": 111536,
+    "SHA256": "3AAAE4297A4AA78A845403441E17C26039C3B3957D1EC10696B43C378E6D9525"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\UnityEngine.HierarchyModule.dll",
+    "Bytes": 113584,
+    "SHA256": "65D6BBF0337645DDC2D98EC7FEBE876D82F39677405C9991ED8B6FED78683775"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\UnityEngine.HotReloadModule.dll",
+    "Bytes": 26024,
+    "SHA256": "6F956B6F5B4BA850288F2B4036419DDFB79B37A7FD9967BACADD600F5B56A0B1"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\UnityEngine.IdentifiersModule.dll",
+    "Bytes": 16808,
+    "SHA256": "D32A89CAB36898D0311658C449938466B5D8D0FA060891C59BAE1079B048EB92"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\UnityEngine.ImageConversionModule.dll",
+    "Bytes": 34216,
+    "SHA256": "4891B8F2AE055FC8C61CBB20C448B7DA9398CB292592927B970869506C323556"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\UnityEngine.IMGUIModule.dll",
+    "Bytes": 190888,
+    "SHA256": "6B6F90009A5EFA91FCA4252CEE38D9A07C29A3223D94B9A2B4CF472805B07826"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\UnityEngine.InputForUIModule.dll",
+    "Bytes": 56752,
+    "SHA256": "29818BD943B26D591459E0CC80E42FA9C7BD9D99E80DC595C79C71F68272957A"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\UnityEngine.InputLegacyModule.dll",
+    "Bytes": 42920,
+    "SHA256": "609FD3DC83B8163EFE301A80890F0B7F372327FFF1F6A8238EF3C563D08AFC55"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\UnityEngine.InputModule.dll",
+    "Bytes": 32680,
+    "SHA256": "876C1D877842291925795F2363DFF00785272B5684CA93DF3144E417A802E2D1"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\UnityEngine.InsightsModule.dll",
+    "Bytes": 15784,
+    "SHA256": "E2545224830685DC5EF9A4C56039D35F3D23C6D3EBF21745B438C12B163DCBEA"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\UnityEngine.JSONSerializeModule.dll",
+    "Bytes": 29096,
+    "SHA256": "30019B88B95A2975C7832307E8FDDAA748E3BECF8FAE6AB9D0D13A9A789A8DEA"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\UnityEngine.LocalizationModule.dll",
+    "Bytes": 29104,
+    "SHA256": "356C581DF113F1E0F86C379C1DE17288049FE1D1FA836A88FAE63F3980FF783B"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\UnityEngine.ManagedKernelModule.dll",
+    "Bytes": 14248,
+    "SHA256": "84225B5E15FC4A782ABEEB6463D80EF55C63BDFD9A10B7935A4E2E5DB8B34F14"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\UnityEngine.MarshallingModule.dll",
+    "Bytes": 100784,
+    "SHA256": "33404FBA37E1CF4F8339431B37851E110F2AE7FE4D12122E6B37D99D70459E57"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\UnityEngine.MathematicsModule.dll",
+    "Bytes": 740784,
+    "SHA256": "994951611087CF9121D75582BD03CD9400BCF79C84359C77613E1737BC90E691"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\UnityEngine.MultiplayerModule.dll",
+    "Bytes": 18352,
+    "SHA256": "75423AA7AA24121D2AFE762E667798425D434316AC54AA6E1122BC1699BAE580"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\UnityEngine.NVIDIAModule.dll",
+    "Bytes": 41392,
+    "SHA256": "9AE141CC0840A2F9309E1320F8A0DACF2EA0C4DF321BFE854635B845E94129F4"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\UnityEngine.ParticleSystemModule.dll",
+    "Bytes": 169392,
+    "SHA256": "DD0FFF9636BB59DA71D5ABAC96B2A64EA1209A8A4EB4D23A922D47A0CA1DA361"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\UnityEngine.PerformanceReportingModule.dll",
+    "Bytes": 27048,
+    "SHA256": "220922DF311E900B11070F33A63EAE4C6ED728D7E04F8688D12E37CE8B8D32B9"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\UnityEngine.Physics2DModule.dll",
+    "Bytes": 222632,
+    "SHA256": "9CE50ED438C3402CB694A63EA914A0E90368FBCD998CD4D954914DDEFB3CEE63"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\UnityEngine.PhysicsBackendPhysXModule.dll",
+    "Bytes": 14256,
+    "SHA256": "32479A8578D0923364F18CAFDC6C4A76391610844544E086D862D8B6146D3AAB"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\UnityEngine.PhysicsCore2DModule.dll",
+    "Bytes": 482728,
+    "SHA256": "BB0F8219F02D52073199204F828E2109ADD4822782AFED3DE513953549634D2E"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\UnityEngine.PhysicsModule.dll",
+    "Bytes": 181672,
+    "SHA256": "9EDB23A374C6FEDEAE36426ACF36E812C95C8EDB860AED495DE3BA3BD7A6B205"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\UnityEngine.PropertiesModule.dll",
+    "Bytes": 124848,
+    "SHA256": "204199D45E84D978EFEDE79547376D229EDDB9F0DD63506D2B627BC7356D5E3C"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\UnityEngine.RenderAs2DModule.dll",
+    "Bytes": 27568,
+    "SHA256": "D829047158855492D87DA18A309249341BD33CC9A3E18873DA4FF4E2DE6C4ED1"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\UnityEngine.RuntimeInitializeOnLoadManagerInitializerModule.dll",
+    "Bytes": 26024,
+    "SHA256": "813D792E68ABF232699A147C95C913CD30C752276A68D5D7246FFE8EED57C172"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\UnityEngine.ScreenCaptureModule.dll",
+    "Bytes": 28080,
+    "SHA256": "AFDEECD9AEAA4C0948999596A74D0C392777479950998D3280982DBD9ACC016D"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\UnityEngine.ScriptingModule.dll",
+    "Bytes": 65960,
+    "SHA256": "41B9A222E633599E963DBD6A66646F93C4588346A0230DCE71CBD1A3B12FD254"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\UnityEngine.ShaderVariantAnalyticsModule.dll",
+    "Bytes": 26024,
+    "SHA256": "9FA4782035FE8ADF4A76ECCCE27501CF380A7AAD005E0CCA3AF57832C18BA17D"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\UnityEngine.SpriteMaskModule.dll",
+    "Bytes": 30632,
+    "SHA256": "87A3C2B2C87723DC5A17120031AAE226CE1923DE0329FD688693507E3EADE3BF"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\UnityEngine.SpriteShapeModule.dll",
+    "Bytes": 34216,
+    "SHA256": "062E9FE6F6B98743EA54B203FB62C236E8A438B8A8DD00646B52057080DEAE1C"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\UnityEngine.StreamingModule.dll",
+    "Bytes": 28080,
+    "SHA256": "01F813D191A33FA39D2F60481C64F46B7946A9ED5CFA5560A3F0A550B9F6F474"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\UnityEngine.SubstanceModule.dll",
+    "Bytes": 31152,
+    "SHA256": "C8F6CBE3EA91EF9C3E097BFC956D154D43FAA536B4852B533C6C6B1DCF3A90A4"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\UnityEngine.SubsystemsModule.dll",
+    "Bytes": 42928,
+    "SHA256": "CA249FB647B5D108E5983C5ADF4166A3C8BFF60A1DAD4C0CAFEF72B5019F5A9F"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\UnityEngine.TerrainModule.dll",
+    "Bytes": 132528,
+    "SHA256": "CF84AAD3AAE12A48B8D1AF4122F56400806E5A243EC82465085DDBDCBE250112"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\UnityEngine.TerrainPhysicsModule.dll",
+    "Bytes": 27568,
+    "SHA256": "B496DF93BAC83238AA18CDFE3FF47D0636AECC7DE3BB3B1E42B4F138772D9A94"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\UnityEngine.TetgenModule.dll",
+    "Bytes": 26024,
+    "SHA256": "7F417AAB6ADB1EC2AB8A013FE22B5C54975392554E043807E1F3C51312B59082"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\UnityEngine.TextCoreFontEngineModule.dll",
+    "Bytes": 86440,
+    "SHA256": "DF6CA54EE524F61291F5DA09F1733F3AD050A38722F5342F73207525F9F92F83"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\UnityEngine.TextCoreTextEngineModule.dll",
+    "Bytes": 313776,
+    "SHA256": "65AD5B68034A51B411CFEB6D4801AFDC0E17D7EE29B0225C95E794674D901BB8"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\UnityEngine.TextRenderingModule.dll",
+    "Bytes": 39344,
+    "SHA256": "B92EC4CFF392867CC758FD7F3AB27C28E85630253DA196F37D5607CACE4ACA22"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\UnityEngine.TilemapModule.dll",
+    "Bytes": 75688,
+    "SHA256": "FEE561FC7A0A8BED93FCD2E6EB1CB818B651FBDF89960AB5DBF48C9736EE228C"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\UnityEngine.TimelineFoundationModule.dll",
+    "Bytes": 167344,
+    "SHA256": "5A28DF1B2467A30BBABAE9701A6C70C62A7BD3AA6C960B4806E189083340096E"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\UnityEngine.TLSModule.dll",
+    "Bytes": 34224,
+    "SHA256": "24825194E44710B9172CC6B14CACF8EDDF0B0D2CCB7B935C76182A0B7EAB5BC7"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\UnityEngine.U2DRuntimeModule.dll",
+    "Bytes": 73648,
+    "SHA256": "4E3FF6E0E331432EA4DE69B16E8BE1EC53251C4108E209B9152DBA421C175261"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\UnityEngine.UI.dll",
+    "Bytes": 269312,
+    "SHA256": "8A3C0EA41548E0C2F6371CC4A0C76E04E1FCA7D2439DEBDD675FAC0455A1E57A"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\UnityEngine.UIElementsModule.dll",
+    "Bytes": 2532272,
+    "SHA256": "7B8BD64088856F2EBC9B9587E1794491A24A6A848CF60CFB191A40F013623617"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\UnityEngine.UIModule.dll",
+    "Bytes": 56744,
+    "SHA256": "B893A6024F6C3546732F4D9774AB9F09D3C789DA72EF8FBE5E6A996B72DF71F5"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\UnityEngine.UmbraModule.dll",
+    "Bytes": 26032,
+    "SHA256": "49EB1C47C3AD7AFAAD35FDFAACE17E528FA465E76F06ABF15FCDB8C338ECF14D"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\UnityEngine.UnityAnalyticsCommonModule.dll",
+    "Bytes": 36784,
+    "SHA256": "39CF0CC6DF4ADFC72F380ACF6CC003288D21171EAC4E0A41C7B85F34EEE4A5EF"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\UnityEngine.UnityAnalyticsModule.dll",
+    "Bytes": 61872,
+    "SHA256": "792DBBD056C5DF4D62BFD8D542E79D41AC7EF96163039174D50C3B793D4401C9"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\UnityEngine.UnityConnectModule.dll",
+    "Bytes": 29608,
+    "SHA256": "5AAE8C6980EBCD581BE9841AD6C2ECB19BF2460C9676DB3D7783FBB371F5BC2D"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\UnityEngine.UnityConsentModule.dll",
+    "Bytes": 16296,
+    "SHA256": "40FB0E497629F7335919378913E725B97490466597E2FC3F4E770311B23880EA"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\UnityEngine.UnityCurlModule.dll",
+    "Bytes": 28072,
+    "SHA256": "5866DCDFFAF0511143921593099649C425FE6F54B7A6227677D6C5F8A9B7BC80"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\UnityEngine.UnityWebRequestAssetBundleModule.dll",
+    "Bytes": 30640,
+    "SHA256": "D1EFF8A3EB9766BDE5E126963C153FFCC2D87966FEA478EBF75E1627C364FBF7"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\UnityEngine.UnityWebRequestAudioModule.dll",
+    "Bytes": 30632,
+    "SHA256": "4C3096EBDE27F65E9A4E55A05F0643D3DAC42B84F4B8FE2EB2288FDF7136C20C"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\UnityEngine.UnityWebRequestModule.dll",
+    "Bytes": 80816,
+    "SHA256": "F73E22199227C13E3506DA1CD8C981E63E7236D4DA56402B5840244717D61CF3"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\UnityEngine.UnityWebRequestTextureModule.dll",
+    "Bytes": 29608,
+    "SHA256": "41549534A3B4814B03D1A21BDD042389027ABA48146E72A3A965261102A1EA04"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\UnityEngine.UnityWebRequestWWWModule.dll",
+    "Bytes": 35240,
+    "SHA256": "EF770DF77C1CA8F87FECD581833DC4E2D627EBFEE67D7873FC621324A7B44172"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\UnityEngine.VectorGraphicsModule.dll",
+    "Bytes": 229288,
+    "SHA256": "04926DB46288DC88DCACD0C908739CDE3044C76FEDD3A3AF9A7EA43DB2580612"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\UnityEngine.VehiclesModule.dll",
+    "Bytes": 33192,
+    "SHA256": "12478CB869BDB70418CB49AD46A44656A6084BF47D1B6B2AE83C17D8B6A53FCF"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\UnityEngine.VFXModule.dll",
+    "Bytes": 82344,
+    "SHA256": "2B979CFE9C286E9339CDE2D4B1D6974F0E9EC8733B758C91EA20FF4AE8EA1748"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\UnityEngine.VideoModule.dll",
+    "Bytes": 48552,
+    "SHA256": "4117697EC43053CA957A49C0045ED133252C1874B0B1F90F6F2D59A00A25B23E"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\UnityEngine.VirtualTexturingModule.dll",
+    "Bytes": 43944,
+    "SHA256": "C56FD4CEC990350A71F6C78A985E1249899312D76007558801826B24969698BB"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\UnityEngine.WindModule.dll",
+    "Bytes": 28592,
+    "SHA256": "320328FCDE98BA23B89E5A9E22877453FFFA282B24D8194E7E2E6780CBA812D0"
+  },
+  {
+    "Path": "Racer_Data\\Managed\\UnityEngine.XRModule.dll",
+    "Bytes": 96168,
+    "SHA256": "2D7412AFA12E326442D6FE7C389FCF66E50FB793F024744EF0E2FE9AF7B0D292"
+  },
+  {
+    "Path": "Racer_Data\\Plugins\\x86_64\\lib_burst_generated.dll",
+    "Bytes": 530944,
+    "SHA256": "1F0F4C2AD60BDDA5CF740D2BD1B15CC682BCB7E66EE0FE3AE70150B9895644C2"
+  },
+  {
+    "Path": "Racer_Data\\Plugins\\x86_64\\libonigwrap.dll",
+    "Bytes": 551336,
+    "SHA256": "C22DB1E7BE04C50EB47E67362BF705830BB95DF30C02C22DD7ADD835EE777583"
+  },
+  {
+    "Path": "Racer_Data\\Resources\\unity default resources",
+    "Bytes": 5919584,
+    "SHA256": "696B9AFAEE02B5D45978634F1450EF18423C19177933B997FD8EE364D70CDD61"
+  },
+  {
+    "Path": "Racer_Data\\Resources\\unity_builtin_extra",
+    "Bytes": 527988,
+    "SHA256": "9EDC8960299CC8B93DB8EE7B81AEE8E769A8132CAAE2FF83224B8E69F35998AE"
+  }
+]
