@@ -1,0 +1,20 @@
+[
+  {
+    "Period": "before",
+    "Version": "0.6.0-review1",
+    "PeakWorkingSetMiB": 482.2,
+    "MedianMs": 8.33,
+    "P95Ms": 8.35,
+    "AssemblySHA256": "96A25B35B8B085EC0C8213FCCA6CB5CE9740C7E1B0CB5317512F3A872AC74BD7",
+    "Settings": "One visible standalone, 1280x720, VSync off, 120fps cap, Normal, original player and tourer/moto/ATV, one full lap, traffic on (4 before / 20 after)"
+  },
+  {
+    "Period": "after",
+    "Version": "0.6.1-review2",
+    "PeakWorkingSetMiB": 480.6,
+    "MedianMs": 8.33,
+    "P95Ms": 8.34,
+    "AssemblySHA256": "9C5258E8273EDE4BDBD8FE4CAE4FE8EC44CFFC42DDF353B366A8C7BADAC0FD84",
+    "Settings": "One visible standalone, 1280x720, VSync off, 120fps cap, Normal, original player and tourer/moto/ATV, one full lap, traffic on (4 before / 20 after)"
+  }
+]

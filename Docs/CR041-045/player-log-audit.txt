@@ -1,0 +1,10 @@
+No exception/error/failure markers in the final reviewed player logs.
+Files:
+Temp/desktop-release-routes.log
+Temp/desktop-normal-race.log
+Temp/desktop-hard-race.log
+Temp/desktop-release-audio.log
+Temp/desktop-release-jump.log
+Temp/desktop-release-flow.log
+Temp/desktop-easy-race.log
+Temp/desktop-hard-mistake.log

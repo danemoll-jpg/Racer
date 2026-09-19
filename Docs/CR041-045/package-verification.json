@@ -1,8 +1,8 @@
 {
-  "ExtractedVerified": true,
-  "Source": "47c686a0136c374c405422c8a7aaa28794efd9e8",
-  "LatestVerified": true,
-  "ZipSHA256": "04B3E10702F95B92BABF104EDE6AAC8856CDAB71370753075A8DD2BBAB6E3E45",
+  "ZipSHA256": "443232DC867FEF225CF0DFCD052A033707E6C8308F644BCF6E13D45550F1362A",
+  "PreviousLatest": "C:\\Users\\danmo\\Racer\\Builds\\Latest-before-0.6.1-review2",
   "Files": 231,
-  "PreviousLatest": "C:\\Users\\danmo\\Racer\\Builds\\Latest-before-0.6.1-review1"
+  "Source": "566b4180fa633d182deb7559ae31c025f36ab52f",
+  "LatestVerified": true,
+  "ExtractedVerified": true
 }

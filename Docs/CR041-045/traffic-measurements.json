@@ -1,35 +1,78 @@
-{
-  "Difficulty": 1,
-  "TrafficCars": 20,
-  "DedicatedHighway": 16,
-  "SampleSeconds": 140.45999999999998,
-  "HighwayCarsMean": 12.384760112888053,
-  "HighwayCarsMin": 7.0,
-  "HighwayCarsMax": 17.0,
-  "HighwaySpeedMeanMps": 26.726924420812495,
-  "HighwaySpeedPeakMps": 28.686,
-  "LaneSamples": [
-    {
-      "Name": "east-inner",
-      "Count": 3432
-    },
-    {
-      "Name": "east-outer",
-      "Count": 3380
-    },
-    {
-      "Name": "west-inner",
-      "Count": 3037
-    },
-    {
-      "Name": "west-outer",
-      "Count": 3316
-    }
-  ],
-  "Station4100Passes": 56,
-  "PassesPerMinute": 23.92140111063648,
-  "Recoveries": 0.0,
-  "Recycles": 50.0,
-  "MinimumRecycleDistance": 220.1,
-  "HighwayStoppedSamplePercent": 0.04557538928978352
-}
+[
+  {
+    "Difficulty": 1,
+    "TrafficCars": 20,
+    "DedicatedHighway": 16,
+    "SampleSeconds": 438.15999999999997,
+    "HighwayCarsMean": 11.49110642146518,
+    "HighwayCarsMin": 2.0,
+    "HighwayCarsMax": 17.0,
+    "HighwaySpeedMeanMps": 26.722699260153853,
+    "HighwaySpeedPeakMps": 28.686,
+    "LaneSamples": [
+      {
+        "Name": "east-inner",
+        "Count": 9556
+      },
+      {
+        "Name": "east-outer",
+        "Count": 9641
+      },
+      {
+        "Name": "west-inner",
+        "Count": 9161
+      },
+      {
+        "Name": "west-outer",
+        "Count": 9758
+      }
+    ],
+    "Station4100Passes": 160,
+    "PassesPerMinute": 21.909804637575316,
+    "Recoveries": 0.0,
+    "Recycles": 150.0,
+    "MinimumRecycleDistance": 220.0,
+    "HighwayStoppedSamplePercent": 0.034106412005457026,
+    "MinimumSameDirectionLaneCentreGapM": 26.454000000000633,
+    "CloseFollowingSamplesUnder5M": 0,
+    "SameLanePairSamples": 27642
+  },
+  {
+    "Difficulty": 2,
+    "TrafficCars": 20,
+    "DedicatedHighway": 16,
+    "SampleSeconds": 414.34,
+    "HighwayCarsMean": 11.67982176957352,
+    "HighwayCarsMin": 2.0,
+    "HighwayCarsMax": 17.0,
+    "HighwaySpeedMeanMps": 26.663130661071857,
+    "HighwaySpeedPeakMps": 28.686,
+    "LaneSamples": [
+      {
+        "Name": "east-inner",
+        "Count": 9233
+      },
+      {
+        "Name": "east-outer",
+        "Count": 9160
+      },
+      {
+        "Name": "west-inner",
+        "Count": 9025
+      },
+      {
+        "Name": "west-outer",
+        "Count": 9280
+      }
+    ],
+    "Station4100Passes": 154,
+    "PassesPerMinute": 22.30052613795434,
+    "Recoveries": 0.0,
+    "Recycles": 144.0,
+    "MinimumRecycleDistance": 220.0,
+    "HighwayStoppedSamplePercent": 0.06539865932748379,
+    "MinimumSameDirectionLaneCentreGapM": 24.515000000000327,
+    "CloseFollowingSamplesUnder5M": 0,
+    "SameLanePairSamples": 27000
+  }
+]

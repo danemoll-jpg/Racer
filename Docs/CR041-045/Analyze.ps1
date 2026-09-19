@@ -13,6 +13,14 @@ foreach($difficulty in @(1,2)) {
  foreach($car in $cars){$previous=$null;foreach($row in $car.Group){if($previous -and [Math]::Abs([double]$row.station-[double]$previous.station) -lt 30 -and (([double]$previous.station-4100)*([double]$row.station-4100)) -lt 0){$crossings++};$previous=$row}}
  $end=@($cars | ForEach-Object {$_.Group[-1]})
  $duration=([double]$rows[-1].time-[double]$rows[0].time)
+ $minimumGap=[double]::MaxValue;$closePairs=0;$pairSamples=0
+ foreach($frame in ($rows|Group-Object time)){
+  $core=@($frame.Group|Where-Object {[double]$_.station -ge 3850 -and [double]$_.station -le 4500})
+  for($i=0;$i -lt $core.Count;$i++){for($j=$i+1;$j -lt $core.Count;$j++){
+   if($core[$i].name -eq $core[$j].name -or $core[$i].direction -ne $core[$j].direction -or [Math]::Abs([double]$core[$i].lateral-[double]$core[$j].lateral) -gt 2.4){continue}
+   $gap=[Math]::Abs([double]$core[$i].station-[double]$core[$j].station);$minimumGap=[Math]::Min($minimumGap,$gap);$pairSamples++;if($gap -lt 5){$closePairs++}
+  }}
+ }
  $summary += [pscustomobject]@{
   Difficulty=$difficulty;TrafficCars=$cars.Count;DedicatedHighway=@($end | Where-Object highwayPool -eq 'True').Count
   SampleSeconds=$duration;HighwayCarsMean=($occupancy|Measure-Object -Average).Average;HighwayCarsMin=($occupancy|Measure-Object -Minimum).Minimum;HighwayCarsMax=($occupancy|Measure-Object -Maximum).Maximum
@@ -22,6 +30,7 @@ foreach($difficulty in @(1,2)) {
   Recoveries=($end|Measure-Object recoveries -Sum).Sum;Recycles=($end|Measure-Object recycles -Sum).Sum
   MinimumRecycleDistance=($end|Where-Object {[int]$_.recycles -gt 0}|Measure-Object minRecycleDistance -Minimum).Minimum
   HighwayStoppedSamplePercent=100*@($highway|Where-Object {[double]$_.speed -lt 2}).Count/[Math]::Max(1,$highway.Count)
+  MinimumSameDirectionLaneCentreGapM=$minimumGap;CloseFollowingSamplesUnder5M=$closePairs;SameLanePairSamples=$pairSamples
  }
 }
 $summary | ConvertTo-Json -Depth 6 | Set-Content (Join-Path $PSScriptRoot 'traffic-measurements.json')

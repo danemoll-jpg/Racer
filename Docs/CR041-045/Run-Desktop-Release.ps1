@@ -22,7 +22,7 @@ if($Lane -eq 'Routes'){
 @{Source=$source;AssemblySHA256=(Get-FileHash "$build/Racer_Data/Managed/Assembly-CSharp.dll").Hash;Launch='Elevated desktop launch, windowed real-time player; no batchmode or manual physics stepping';Lane=$Lane} | ConvertTo-Json | Set-Content "$PSScriptRoot/desktop-$Lane-identity.json"
 foreach($case in $cases){
  $name=$case.Name
- $arguments="-screen-fullscreen 0 -screen-width 1280 -screen-height 720 $($case.Args) -racerTestSave Temp/desktop-$name-save -raceTrace Docs/CR041-045/$name-trace.csv -logFile Temp/desktop-$name.log"
+ $arguments="-screen-fullscreen 0 -screen-width 1280 -screen-height 720 $($case.Args) -racerTestSave Temp/desktop-review2-$name-save -raceTrace Docs/CR041-045/$name-trace.csv -logFile Temp/desktop-$name.log"
  "Start $name $(Get-Date -Format o)" | Tee-Object "$PSScriptRoot/desktop-$Lane-runs.txt" -Append
  # The user explicitly requested a visible standalone; execute this script on the user desktop.
  $process=Start-Process "$build/Racer.exe" -WorkingDirectory $root -ArgumentList $arguments -PassThru
@@ -30,4 +30,3 @@ foreach($case in $cases){
  "Exit $name code=$($process.ExitCode) $(Get-Date -Format o)" | Tee-Object "$PSScriptRoot/desktop-$Lane-runs.txt" -Append
  if($process.ExitCode -ne 0){throw "Failed process $name"}
 }
-

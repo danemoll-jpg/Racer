@@ -1,0 +1,28 @@
+{
+  "Attempts": 80,
+  "Finished": 80,
+  "Misses": 0.0,
+  "PenaltySeconds": 0.0,
+  "BranchExits": 48.0,
+  "Recoveries": 16.0,
+  "WarningBuzzes": 0.0,
+  "GullyBothPanesBroken": 12,
+  "ProfileCounts": [
+    {
+      "Name": "atv",
+      "Count": 20
+    },
+    {
+      "Name": "moto",
+      "Count": 20
+    },
+    {
+      "Name": "original",
+      "Count": 20
+    },
+    {
+      "Name": "tourer",
+      "Count": 20
+    }
+  ]
+}

@@ -1,9 +1,9 @@
 profile,attempt,entry,apexAboveBase,airSeconds,landed,gate14Credited,misses,penalty,finalUp
-original,0,35.684,12.109,2.498,True,True,0,0,1.000
-original,1,42.604,14.546,2.866,True,True,0,0,1.000
-tourer,0,35.705,12.078,2.503,True,True,0,0,1.000
-tourer,1,43.629,14.724,2.864,True,True,0,0,1.000
-moto,0,35.831,12.320,2.532,True,True,0,0,1.000
-moto,1,51.224,17.531,3.297,True,True,0,0,1.000
-atv,0,35.796,12.193,2.538,True,True,0,0,1.000
-atv,1,47.975,16.467,3.130,True,True,1,5,1.000
+original,0,35.683,12.111,2.500,True,True,0,0,1.000
+original,1,42.584,14.554,2.870,True,True,0,0,1.000
+tourer,0,35.705,12.078,2.504,True,True,0,0,1.000
+tourer,1,43.629,14.722,2.869,True,True,0,0,1.000
+moto,0,35.831,12.320,2.531,True,True,0,0,1.000
+moto,1,51.224,17.430,3.263,True,True,0,0,1.000
+atv,0,35.796,12.193,2.536,True,True,0,0,1.000
+atv,1,47.975,16.465,3.168,True,True,1,5,1.000

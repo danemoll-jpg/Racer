@@ -1,21 +1,29 @@
 {
-  "master": 0.800000011920929,
-  "ambience": 1.0,
-  "feedback": 1.0,
-  "vehicle": 0.75,
-  "frameLimit": 60,
-  "vsync": true,
-  "vehicleId": "moto",
-  "difficulty": 2,
-  "opponentRoster": [
-    "moto",
-    "atv",
-    "atv"
-  ],
-  "bodyColors": [
-    -1,
-    1,
-    6,
-    2
-  ]
+    "version": 1,
+    "master": 0.800000011920929,
+    "ambience": 1.0,
+    "feedback": 1.0,
+    "vehicle": 0.75,
+    "frameLimit": 60,
+    "vsync": true,
+    "opponents": true,
+    "traffic": true,
+    "vehicleId": "moto",
+    "difficulty": 2,
+    "opponentChoices": [
+        "moto",
+        "atv",
+        "atv"
+    ],
+    "opponentRoster": [
+        "moto",
+        "atv",
+        "atv"
+    ],
+    "bodyColors": [
+        -1,
+        1,
+        6,
+        2
+    ]
 }
