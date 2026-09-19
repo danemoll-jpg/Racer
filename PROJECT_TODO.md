@@ -1106,7 +1106,7 @@ Difficulty retuning, exact house placement and photo-based home accuracy remain 
 ---
 
 ### CR-056 — Forest Loop arcade trail redesign
-**Status:** IMPLEMENTED — 0.8.0-review1, awaiting Dan's review. CR-040/056 are not accepted by automated completion.
+**Status:** POSITIVE HUMAN REVIEW — Dan says much better; retain Forest Loop direction and address CR-057 through CR-059. This is not blanket closure of all individual checks.
 **Latest feedback:** Dan likes the overall progress but reports an unclear/missing lake, wrong start location, recurring jump slowdowns, an easy straight shortcut, too few jumps, civilian traffic offroad and paths that feel like wide roads.
 **Scope:**
 - Rename the second course Forest Loop across track selection, HUD/results, records labels and documentation; preserve internal save identifiers or migrate safely.
@@ -1135,12 +1135,46 @@ Final evidence: 12/12 main jump runs; 8/8 riders finish two-lap races with zero 
 
 ---
 
+### CR-057 — Shallow driveable lake with water resistance
+**Status:** AUTHORIZED — next combined pass.
+**Feedback:** Player falls beneath a blue water circle onto deep dry-looking ground. Dan wants shallow water with part of the vehicle submerged, still driveable at substantially reduced speed until reaching shore.
+**Requested change:** Shape a shallow supported lakebed and continuous drive-out shoreline; align actual water surface/rendering and physical depth. Keep wheels grounded and vehicle partly submerged at typical lake positions, without an overhead blue-disc appearance or immediate forced reset. Detect actual overlap/submersion, not simply horizontal lake bounds: jumping over water must not trigger braking in the air. Smoothly apply strong water drag/reduced propulsion while immersed and remove it on exit, respecting existing vehicle settings; retain enough steering/traction to drive out. Apply equivalent physical effects to AI. Add restrained splash/ripple and water-entry/exit audio as feedback. Do not add a boating/buoyancy simulation, hidden launch boost, extra time penalty or new engine-failure mechanic. Local recovery remains available. Check accessible creek crossings for the same depth/trigger defects without making airborne jumps sticky.
+**Acceptance:** Motorcycle/ATV can enter, stop, turn, reverse and exit at multiple shore points; visible partial immersion matches depth, slowing is clear and temporary, no stranded pits or stale drag after recovery/restart/track changes. Verify airborne crossings and dry ramps keep momentum. Version affected course records if timing comparability changes; preserve history.
+
+### CR-058 — Remove floating world labels
+**Status:** AUTHORIZED — next combined pass on both tracks.
+**Requested change:** Remove floating location, jump, cave, route and development text labels. Retain necessary compact screen HUD, menu text, race countdown/results, radio toast and functional checkpoint markers; replace necessary world-space checkpoint text with physically mounted signage if needed. Do not remove detection volumes or route logic with labels. Most scenery labels need no replacement. Optional single physical cave sign may use the name Deadwood Hollow; keep readable, clear of the racing line and consistent with existing breakable-sign behavior. Essential direction signage must remain useful after destruction/reset. Debug labels remain off in normal releases.
+**Acceptance:** Both tracks have no floating world text in normal play; navigation, gate visibility, timing, radio and HUD remain usable. Inspect driving views, not just hierarchy counts.
+
+### CR-059 — Occasional believable AI driving mistakes
+**Status:** AUTHORIZED — next combined pass, both tracks.
+**Feedback:** Forest Loop is harder than Street Loop, which Dan accepts, but opponents look too perfect. Prior automated recoveries do not prove visible believable variation in Dan's races.
+**Requested change:** Add bounded, context-aware driver variation in line choice, braking timing and corner/jump approach. Errors should arise through normal driving inputs and physics, such as a wide corner, overbraking or an imperfect landing, with natural time loss and recovery. Avoid arbitrary pauses, random forced crashes, teleporting, fake slowdowns, synchronized incidents, or scripted errors because the player is behind. Preserve fair gate/shortcut/water rules. Easy drivers make more/larger errors; Normal occasionally; Hard rarely but not never. Use per-driver variation/cooldowns and reproducible seeds for diagnostics without replaying identical incidents every race. Do not broadly nerf base pace or make difficult cave jumps routinely impossible. Monitor stuck/recovery behavior to preserve competitive finishes and motorcycle/ATV-only forest rosters.
+**Acceptance:** Compare several full races/seeds at each difficulty on both tracks; report actual error events, natural lap/time costs, recovery/finish rates and representative replay/log evidence. Include an errors-disabled baseline. No requirement that every driver crashes each race. Keep parameters tunable for Dan review; update record categories when rules change.
+
+### Next optional addition — awaiting selection
+Recommended: optional stunt challenges using existing jumps (airtime/distance medals and smash targets) with compact screen feedback, no floating labels and no forced effect on race timing. Personal-best ghost time trials remain another proposal. Stunt challenges and ghosts are not authorized implementation in this pass; wildlife and people are now authorized under CR-060. Photo-based home accuracy CR-013 and exact house placement CR-018 remain deferred.
+
+---
+
+### CR-060 — Cave bats, wildlife and varied neighborhood life
+**Status:** AUTHORIZED — bundle with CR-057 through CR-059. Stunt challenges and ghost mode remain unselected.
+**Cave bats:** Trigger a small animated bat swarm flying toward and then around/past the approaching rider at the cave entrance, with flutter/chirp audio. Establish a believable roost/departure path; no static bat sprites or mere particle dots as final presentation. Keep silhouettes readable but brief, do not obscure the turn/jump, push/brake the vehicle or cause physical damage. Use cooldown/rearm after leaving the area so lingering, reversing, recovery and AI entrants do not spam swarms or sounds. Pool/cull and verify motorcycle/ATV and race/restart behavior. Small ambient birds are an optional complement within wildlife scope; no large ecosystem simulation or roaming road hazards required.
+**Neighborhood vignettes:** On suitable runs, choose one of three states at Dan's property: three kids playing a simple looping game of catch with a football in the front yard; two adult men just outside the yard fence chatting/drinking coffee; or nobody. At the friend's house independently choose two adult men smoking/chatting out front, or nobody. Use simple stylized figures, recognizable held props and animations (throw/catch/turn, sip, restrained smoke/hand gesture); not photorealistic likenesses. Keep the ball in the yard, figures on supported ground and preserve accepted house/fence placements. Do not request personal photos or move houses for this feature.
+**Other people:** Add occasional sidewalk walkers and small idle groups at homes/storefronts with more density on Hwy 92 and sparse occupancy on South Cherokee Lane. Match people to actual supported sidewalk/frontage space; no standing in traffic lanes, water or forest racing trails. Restrained clothes/body/animation variation; avoid identical crowds or synchronized loops. Generic background ambience optional, no dialogue system.
+**Variation/lifecycle:** Choose weighted scene occupancy at race/world setup with some empty visits; hold selections stable while visible and vary between races. Refresh only out of view when appropriate, never pop people in/out as the player passes. Persist selection through local recovery/pause; restart may reseed. Use reproducible seeds for testing. Population caps, pooling, distance culling and simple animation budgets; no extensive pedestrian simulation. These are ambient figures, not collision obstacles, smash targets or ragdolls; if necessary use brief avoidance reactions without adding racing penalties or impacts. Preserve driving/camera visibility and do not add floating labels.
+**Acceptance:** Show all requested vignettes plus empty states using forced test seeds, and demonstrate variation over ordinary runs. Verify supported feet/props, in-yard football, correct regional density, no visible spawning, no vehicle snags and no gate/race interference. Test bat timing/cooldown/audio and all restart/recovery transitions. Measure performance with people, wildlife, traffic and music active; disclose art/animation limitations honestly. Await Dan review.
+
+---
+
 # DECISION LOG
 
 Record choices we do not want to repeatedly reconsider.
 
 | Date | Decision | Reason |
 |---|---|---|
+| 2026-09-19 | Add CR-060 to pending water/labels/AI pass | Cave-entry bats, variable football/coffee/smoking scenes and street pedestrians, dense on Hwy 92 and sparse on South Cherokee; simple stylized ambience |
+| 2026-09-19 | Bundle CR-057 through CR-059 after positive Forest Loop review | Shallow slow driveable lake, physical signs instead of floating labels, occasional fair AI mistakes; optional larger additions await selection |
 | 2026-09-19 | Revise second track as Forest Loop under CR-056 | Visible lake/start behind friend, smooth frequent jumps, challenging cave, narrow motorcycle/ATV trails and street-only civilian traffic; wildlife deferred |
 | 2026-09-19 | Deliver omitted CR-040/054 plus CR-055 radio channels | Bundled Music becomes default; immediate child folder names label recursive channels; one button cycles channels and Off |
 | 2026-09-19 | Authorize CR-040 second lake/woods track and CR-054 top-ten lap/race records alongside CR-050 through CR-053 | Dan agrees to recommended next track and requests both record lists; later approval supersedes previous CR-040 backlog restriction |
@@ -1225,7 +1259,10 @@ Record choices we do not want to repeatedly reconsider.
 
 # SESSION HANDOFF
 
-**Current delivery:** 0.8.0-review1 implements CR-056 Forest Loop and awaits Dan's review. Launch Play-Racer.cmd / Builds/Latest/Racer.exe. Read Docs/CR056/VALIDATION.md for final evidence, limitations, route map and seven-comment checklist. CR-040 remains unaccepted; original street/radio/records are preserved and wildlife is deferred.
+**Current next delivery:** Bundle CR-057 shallow driveable water, CR-058 removal of floating world labels, CR-059 believable occasional AI mistakes, and CR-060 cave bats/wildlife/varied neighborhood people. Preserve Forest Loop direction, jumps/cave, bike/ATV eligibility and original street course. Stunt challenges and ghost mode remain unselected. This update records plans only; prior build/test evidence is historical.
+
+
+**Previous delivery:** 0.8.0-review1 implements CR-056 Forest Loop and awaits Dan's review. Launch Play-Racer.cmd / Builds/Latest/Racer.exe. Read Docs/CR056/VALIDATION.md for final evidence, limitations, route map and seven-comment checklist. CR-040 remains unaccepted; original street/radio/records are preserved and wildlife is deferred.
 
 **Prior implementation evidence follows; earlier completion claims do not validate the latest feedback:**
 
