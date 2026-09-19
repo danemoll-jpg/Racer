@@ -39,7 +39,7 @@ namespace Racer
         void Start()
         {
             appearances=new AmbientVehicle[cars.Length];previous=new float[cars.Length];
-            for(int i=0;i<cars.Length;i++){appearances[i]=cars[i].gameObject.AddComponent<AmbientVehicle>();appearances[i].Initialize();previous[i]=Mathf.Repeat(Time.time*15+i*85,340);}
+            for(int i=0;i<cars.Length;i++){if(!cars[i])continue;appearances[i]=cars[i].gameObject.AddComponent<AmbientVehicle>();appearances[i].Initialize();previous[i]=Mathf.Repeat(Time.time*15+i*85,340);}
         }
         public float Height(float z)
         {if(heights==null||heights.Length<2)return 0;float index=Mathf.Clamp((z-start)/step,0,heights.Length-1);int i=Mathf.Min((int)index,heights.Length-2);return Mathf.Lerp(heights[i],heights[i+1],index-i);}
@@ -47,6 +47,7 @@ namespace Racer
         {
             for(int i=0;i<cars.Length;i++)
             {
+                if(!cars[i])continue;
                 float s=Mathf.Repeat(Time.time*15+i*85,340);
                 bool reverse=i%2==1;
                 float z=65+(reverse?340-s:s);

@@ -1,0 +1,1 @@
+atv Echo Cave: speed before recovery=-5.571m/s; lateral=1.896m; grounded=4; up=0.998; misses=0; seconds=0

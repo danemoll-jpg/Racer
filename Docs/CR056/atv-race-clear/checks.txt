@@ -1,0 +1,6 @@
+PASS Local recovery preserves gate progress and penalties
+FAIL lake-v2-forest atv completed 0/2 laps; misses=0; recoveries=1; adjusted=269.699857
+PASS lake-v2-forest moto completed 2/2 laps; misses=0; recoveries=2; adjusted=179.661762
+PASS lake-v2-forest moto completed 2/2 laps; misses=0; recoveries=2; adjusted=184.339584
+PASS lake-v2-forest moto completed 2/2 laps; misses=0; recoveries=3; adjusted=181.123036
+FAIL Completed player race creates one total entry

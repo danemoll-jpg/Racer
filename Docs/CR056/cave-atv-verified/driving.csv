@@ -1,0 +1,7 @@
+profile,route,attempt,road,finished,seconds,entry_mps,exit_mps,max_lateral,min_up,air_seconds,misses,penalty,branch_exits,recoveries
+atv,Echo Cave,0,False,False,11.367,21.760,0.000,25.905,-0.140,2.560,0,0.000,0,0
+atv,Echo Cave,1,False,False,55.019,21.971,28.304,50.275,-0.047,15.560,1,5.000,0,0
+atv,Echo Cave,2,False,False,11.379,21.760,0.000,25.905,-0.140,2.560,0,0.000,0,0
+atv,Echo Cave,3,False,False,11.375,21.760,0.000,25.905,-0.140,2.560,0,0.000,0,0
+atv,Echo Cave,0,True,False,13.058,30.016,0.054,0.000,0.789,3.260,0,0.000,0,0
+atv,Echo Cave,1,True,False,13.059,30.016,0.054,0.000,0.789,3.260,0,0.000,0,0

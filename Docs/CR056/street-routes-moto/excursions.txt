@@ -1,0 +1,4 @@
+moto Existing Southwest Cut: speed before recovery=-5.419m/s; lateral=3.633m; grounded=4; up=0.999; misses=0; seconds=0
+moto Pine Ridge: speed before recovery=-13.347m/s; lateral=34.460m; grounded=0; up=0.997; misses=0; seconds=0
+moto Creek Leap: speed before recovery=-5.252m/s; lateral=4.859m; grounded=4; up=1.000; misses=0; seconds=0
+moto Fox Gully: speed before recovery=-7.444m/s; lateral=10.116m; grounded=4; up=0.955; misses=0; seconds=0

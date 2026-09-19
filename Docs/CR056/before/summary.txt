@@ -1,0 +1,6 @@
+moto 620: initial=32 minLaunch=40.52 takeoff=42.24 landing=18.99 airtime=2.76 up=1.00
+moto 1020: initial=32 minLaunch=40.19 takeoff=43.17 landing=36.91 airtime=2.54 up=0.85
+moto 1390: initial=32 minLaunch=38.99 takeoff=41.33 landing=37.14 airtime=2.72 up=0.98
+atv 620: initial=32 minLaunch=39.51 takeoff=41.16 landing=42.81 airtime=4.18 up=1.00
+atv 1020: initial=32 minLaunch=38.96 takeoff=41.89 landing=35.35 airtime=2.52 up=0.91
+atv 1390: initial=32 minLaunch=37.85 takeoff=39.92 landing=37.02 airtime=2.70 up=0.98

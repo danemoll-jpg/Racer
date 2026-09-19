@@ -21,7 +21,9 @@ namespace Racer
         public int HighwayRecycles { get; private set; }
         public float MinimumRecyclePlayerDistance { get; private set; } = float.MaxValue;
 
+        public RaceRoad DriveRoad => !racing && Race.ambientRoad ? Race.ambientRoad : Race.road;
         bool racing, finishParked;
+        ForestLayout forestLayout;
         WoodlandRoute plannedBranch;
         static readonly float[] cornerUse={.46f,.76f,.90f}, brakeUse={.55f,.88f,.98f}, speedUse={.91f,1f,1f}, hillTargets={26,32,35};
         float pace, stalled, safeS, lane, finishRunoff, nextRecovery;
@@ -29,6 +31,7 @@ namespace Racer
         public void Initialize(RaceDirector race, ArcadeVehicle car, bool racer, int direction, float variation)
         {
             Race = race;
+            forestLayout=race.Forest?FindAnyObjectByType<ForestLayout>():null;
             Car = car;
             racing = racer;
             Direction = direction;
@@ -38,7 +41,7 @@ namespace Racer
 
         public void Place(float s, float side)
         {
-            var p = Race.road.At(s, out var f);
+            var p = DriveRoad.At(s, out var f);
             var right = Vector3.Cross(Vector3.up, f).normalized;
             p += right * side + Vector3.up * Mathf.Max(.4f,Car.suspensionLength-Physics.gravity.magnitude/Car.springStrength);
             Car.Body.position = p;
@@ -75,17 +78,18 @@ namespace Racer
                 return;
             }
 
-            float s = Race.road.Project(Car.Body.position, out float lateral);
+            float s = DriveRoad.Project(Car.Body.position, out float lateral);
             if(HighwayTraffic && (Direction>0?s>4680 || s<3650:s<3650 || s>4680))
-            { TryRecycleHighway(); s=Race.road.Project(Car.Body.position,out lateral); }
+            { TryRecycleHighway(); s=DriveRoad.Project(Car.Body.position,out lateral); }
             Car.GetComponent<VehicleRespawn>().RecordSafePosition();
             float speed = Mathf.Abs(Car.ForwardSpeed);
-            Race.road.At(s, out var tangent);
+            DriveRoad.At(s, out var tangent);
             float look = Mathf.Clamp(7 + speed * .48f, 8, 25);
-            float desiredLane = racing ? Mathf.Lerp(lane,2.05f,Race.road.HighwayBlend(s)) : Race.road.TrafficLane(s,Direction,pace>.955f);
+            float desiredLane = racing ? Mathf.Lerp(lane,2.05f,DriveRoad.HighwayBlend(s)) : DriveRoad.TrafficLane(s,Direction,pace>.955f);
+            if(racing&&forestLayout)desiredLane=.55f;
             if(finished) { finishRunoff += speed*Time.fixedDeltaTime; desiredLane=4.7f; }
             // The connector ramp occupies the left six metres; both traffic directions use its ground bypass.
-            bool bypass = Race.road.InBypass(s);
+            bool bypass = DriveRoad.InBypass(s);
             if (bypass)
                 desiredLane = Direction > 0 ? 3.2f : 6.2f;
             if (racing && !bypass && !finished)
@@ -111,12 +115,12 @@ namespace Racer
                         slowerAhead = true;
                 }
 
-                if (slowerAhead && (!oncoming || Race.road.HighwayBlend(s)>.95f))
-                    desiredLane = Race.road.HighwayBlend(s)>.95f ? 6.15f : -2.3f;
+                if (slowerAhead && (!forestLayout || DriveRoad.HalfWidth(s)>=4.9f) && (!oncoming || DriveRoad.HighwayBlend(s)>.95f))
+                    desiredLane = DriveRoad.HighwayBlend(s)>.95f ? 6.15f : -2.3f;
                 // Commit to a pass only when its destination lane has room alongside and ahead.
-                float currentLane=Vector3.Dot(Car.Body.position-Race.road.At(s,out _),Vector3.Cross(Vector3.up,tangent).normalized);
+                float currentLane=Vector3.Dot(Car.Body.position-DriveRoad.At(s,out _),Vector3.Cross(Vector3.up,tangent).normalized);
                 if(Mathf.Abs(desiredLane-currentLane)>1 && !LaneClear(s,desiredLane,speed))
-                    desiredLane=Mathf.Clamp(currentLane,-Race.road.HalfWidth(s)+1.2f,Race.road.HalfWidth(s)-1.2f);
+                    desiredLane=Mathf.Clamp(currentLane,-DriveRoad.HalfWidth(s)+1.2f,DriveRoad.HalfWidth(s)-1.2f);
             }
 
             if(racing && !finished && Racer!=null && Race.difficulty>0)
@@ -131,9 +135,11 @@ namespace Racer
             if(!activeBranch && plannedBranch && s>=plannedBranch.entryRoad-2) activeBranch=plannedBranch;
             float branchS=activeBranch?activeBranch.Project(Car.Body.position,out _):0;
             if(plannedBranch || activeBranch) desiredLane=0;
-            var target = activeBranch ? activeBranch.At(branchS+look,out _) : Race.road.At(s + Direction * look, out _);
+            // Commit to the readable central launch line; pass in the intervening pockets.
+            if(racing&&forestLayout&&forestLayout.Approach(s))desiredLane=0;
+            var target = activeBranch ? activeBranch.At(branchS+look,out _) : DriveRoad.At(s + Direction * look, out _);
             var ahead = tangent;
-            if(activeBranch) activeBranch.At(branchS+look,out ahead); else Race.road.At(s+Direction*look,out ahead);
+            if(activeBranch) activeBranch.At(branchS+look,out ahead); else DriveRoad.At(s+Direction*look,out ahead);
             target += Vector3.Cross(Vector3.up, ahead).normalized * desiredLane;
             var local = transform.InverseTransformPoint(target);
             float angle = Mathf.Atan2(local.x, local.z);
@@ -142,12 +148,13 @@ namespace Racer
             int skill = racing ? Mathf.Clamp(Race.difficulty,0,2) : 0;
             float cornerGrip = racing ? Car.maxGripAcceleration*cornerUse[skill] : 7.5f;
             float judgment = racing ? Car.braking*brakeUse[skill] : 8f;
-            TargetSpeed = (racing ? Car.topSpeed * speedUse[skill] : Mathf.Lerp(17,29,Race.road.HighwayBlend(s))) * pace;
+            TargetSpeed = (racing ? Car.topSpeed * speedUse[skill] : Mathf.Lerp(17,29,DriveRoad.HighwayBlend(s))) * pace;
             if(finished) TargetSpeed=12;
             // Consistency costs time through early lifting, never extra vehicle capability.
             if (racing && skill < 2) TargetSpeed *= 1 - (skill==0?.07f:.012f)*(.5f+.5f*Mathf.Sin(Time.time*.19f+pace*31));
             if(activeBranch) TargetSpeed=Mathf.Min(TargetSpeed,activeBranch.recommendedSpeed);
-            if(!racing && pace>.955f && Race.road.HighwayBlend(s)>.01f && Race.road.HighwayBlend(s)<.85f)
+            if(racing&&forestLayout&&forestLayout.Approach(s))TargetSpeed=Mathf.Min(TargetSpeed,32);
+            if(!racing && pace>.955f && DriveRoad.HighwayBlend(s)>.01f && DriveRoad.HighwayBlend(s)<.85f)
                 foreach(var other in Race.Drivers)
                     if(other&&other!=this&&other.Direction==Direction)
                     {
@@ -159,13 +166,14 @@ namespace Racer
             {
                 Vector3 f,next;
                 if(activeBranch) {activeBranch.At(branchS+d,out f);activeBranch.At(branchS+d+8,out next);}
-                else {Race.road.At(s + Direction * d, out f);Race.road.At(s + Direction * (d + 8), out next);}
+                else {DriveRoad.At(s + Direction * d, out f);DriveRoad.At(s + Direction * (d + 8), out next);}
                 float curvature = Vector3.Angle(Vector3.ProjectOnPlane(f,Vector3.up),Vector3.ProjectOnPlane(next,Vector3.up)) * Mathf.Deg2Rad / 8;
                 float curveSpeed = Mathf.Sqrt(cornerGrip / Mathf.Max(.00015f, curvature));
                 float hillSpeed = Mathf.Abs(f.y) > .14f ? (racing?hillTargets[skill]:24) : Car.topSpeed;
                 // Without downforce, a convex crest cannot support v²/r greater than gravity.
                 float crest=Mathf.Max(0,Mathf.Asin(f.y)-Mathf.Asin(next.y))/8;
-                if(!activeBranch && crest>.001f) hillSpeed=Mathf.Min(hillSpeed,Mathf.Sqrt((racing&&skill>0?(skill==2?8.2f:7.6f):6.5f)/crest));
+                bool authoredFlight=racing&&forestLayout&&forestLayout.IsLaunch(s+Direction*d);
+                if(!activeBranch && !authoredFlight && crest>.001f) hillSpeed=Mathf.Min(hillSpeed,Mathf.Sqrt((racing&&skill>0?(skill==2?8.2f:7.6f):6.5f)/crest));
                 TargetSpeed = Mathf.Min(TargetSpeed, Mathf.Sqrt(Mathf.Pow(Mathf.Min(curveSpeed, hillSpeed), 2) + 2 * judgment * Mathf.Max(0, d - 12)));
             }
 
@@ -227,8 +235,8 @@ namespace Racer
             }
             // Return behind the last stable sample, and never award progress. Wait if any vehicle occupies the pad.
             float destination = safeS - Direction * 8;
-            float recoveryLane = Race.road.InBypass(destination) ? (Direction > 0 ? 3.2f : 6.2f) : Race.road.TrafficLane(destination,Direction,pace>.955f);
-            var p = Race.road.At(destination, out var f) + Vector3.Cross(Vector3.up, f).normalized * recoveryLane + Vector3.up;
+            float recoveryLane = DriveRoad.InBypass(destination) ? (Direction > 0 ? 3.2f : 6.2f) : DriveRoad.TrafficLane(destination,Direction,pace>.955f);
+            var p = DriveRoad.At(destination, out var f) + Vector3.Cross(Vector3.up, f).normalized * recoveryLane + Vector3.up;
             if (Vector3.Distance(p, Race.vehicle.transform.position) < 40)
                 return;
             foreach (var driver in Race.Drivers)
@@ -258,14 +266,14 @@ namespace Racer
             {
                 Racer.Recoveries++;
                 Racer.Travel = 0;
-                Racer.RecoveryStart = Race.road.Project(Car.Body.position, out _);
+                Racer.RecoveryStart = DriveRoad.Project(Car.Body.position, out _);
             }
         }
         void TryRecycleHighway()
         {
             float destination=Direction>0?3760:4600;
-            float side=Race.road.TrafficLane(destination,Direction,pace>.955f);
-            var p=Race.road.At(destination,out var f)+Vector3.Cross(Vector3.up,f).normalized*side;
+            float side=DriveRoad.TrafficLane(destination,Direction,pace>.955f);
+            var p=DriveRoad.At(destination,out var f)+Vector3.Cross(Vector3.up,f).normalized*side;
             var camera=Camera.main;
             foreach(var point in new[]{p,transform.position})
             {
@@ -291,7 +299,7 @@ namespace Racer
         }
         bool LaneClear(float s,float targetLane,float speed)
         {
-            var center=Race.road.At(s,out var forward);var right=Vector3.Cross(Vector3.up,forward).normalized;
+            var center=DriveRoad.At(s,out var forward);var right=Vector3.Cross(Vector3.up,forward).normalized;
             bool Blocks(ArcadeVehicle other)
             {
                 var delta=other.Body.position-Car.Body.position;float along=Vector3.Dot(delta,forward);
@@ -304,3 +312,5 @@ namespace Racer
         }
     }
 }
+
+

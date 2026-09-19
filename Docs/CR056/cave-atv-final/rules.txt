@@ -1,0 +1,23 @@
+PASS Echo Cave contiguous clean exit earns evidence
+PASS Echo Cave entrance-to-exit teleport rejected
+PASS Echo Cave unobserved progress rejected
+PASS Echo Cave reversing lowers standing without new credit
+PASS Echo Cave backward local recovery
+PASS Echo Cave forward recovery rejected
+PASS Echo Cave off-corridor excursion earns no progress
+PASS Echo Cave failed excursion followed by backward recovery can complete
+PASS Echo Cave integrated legal bypass no penalties / correct next gate
+PASS Echo Cave early finish still refused
+PASS Echo Cave teleport cannot finish lap
+PASS Echo Cave complete forward lap after legal bypass
+PASS Black body original
+PASS Unpainted trim/glass/rider original
+PASS Black body tourer
+PASS Unpainted trim/glass/rider tourer
+PASS Black body moto
+PASS Unpainted trim/glass/rider moto
+PASS Black body atv
+PASS Unpainted trim/glass/rider atv
+PASS Versioned course records
+PASS Stable appended black swatch index
+PASS Echo Cave explicitly bypasses authored gates

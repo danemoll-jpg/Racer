@@ -13,20 +13,24 @@ namespace Racer
         static volatile Dictionary<EntityId, Face[]> surfaces = new();
         static volatile Dictionary<EntityId, Box> vehicles = new();
         static bool initialized;
+        static UnityEngine.SceneManagement.Scene registeredScene;
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
         static void Reset()
         {
-            surfaces=new(); vehicles=new(); initialized=false;
+            surfaces=new(); vehicles=new(); initialized=false;registeredScene=default;
             Physics.ContactModifyEvent-=Correct;
             Physics.ContactModifyEvent+=Correct;
         }
         public static void Register(BoxCollider box)
         {
-            if(!initialized)
+            // A course selection loads a different scene without resetting static runtime state.
+            // Rebuild the face cache for that scene; old collider entity IDs cannot support it.
+            if(!initialized || registeredScene!=box.gameObject.scene)
             {
                 var next=new Dictionary<EntityId,Face[]>();
                 foreach(var mesh in Object.FindObjectsByType<MeshCollider>())
                 {
+                    if(mesh.gameObject.scene!=box.gameObject.scene)continue;
                     if(mesh.attachedRigidbody || !mesh.sharedMesh || !mesh.sharedMesh.isReadable) continue;
                     if(!mesh.name.StartsWith("Ground_") && !mesh.name.StartsWith("Takeoff -") && !mesh.name.StartsWith("Landing -") && !mesh.name.StartsWith("Gully supported ramp")) continue;
                     var vertices=mesh.sharedMesh.vertices; var indices=mesh.sharedMesh.triangles;
@@ -40,7 +44,7 @@ namespace Racer
                     }
                     next[mesh.GetEntityId()]=faces;
                 }
-                surfaces=next; initialized=true;
+                surfaces=next; initialized=true;registeredScene=box.gameObject.scene;
             }
             var copy=new Dictionary<EntityId,Box>(vehicles);
             copy[box.GetEntityId()]=new Box{Center=Vector3.Scale(box.center,box.transform.lossyScale),Half=Vector3.Scale(box.size*.5f,box.transform.lossyScale)};

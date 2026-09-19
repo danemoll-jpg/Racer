@@ -55,7 +55,7 @@ namespace Racer
             Check(race.Category.StartsWith(race.courseId+"-"),"Versioned course records");
             Check(VehiclePaint.Names[6]=="Black","Stable appended black swatch index");
             foreach(var branch in race.Branches.Where(b=>b.title!="Existing Southwest Cut"))
-                Check(branch.bypassedGates.Length>=(race.courseId=="lake-v1"?1:2),branch.title+" explicitly bypasses authored gates");
+                Check(branch.bypassedGates.Length>=(race.courseId=="lake-v1"||race.Forest?1:2),branch.title+" explicitly bypasses authored gates");
             for(float s=3800;s<Mathf.Min(4540,race.road.Length);s+=100)
                 foreach(int dir in new[]{-1,1})
                 {
@@ -131,14 +131,19 @@ namespace Racer
         IEnumerator Attempt(WoodlandRoute branch,int attempt,bool mainRoad)
         {
             var car=race.vehicle;var body=car.Body;Seed(branch);var r=race.Racers[0];
-            float startS=branch.entryRoad-12;var p=race.road.At(startS,out var f)+Vector3.up*.7f;
+            // Forest physics probes run at the motor's fixed cadence. At accelerated time,
+            // render-frame virtual input can otherwise persist through several physics ticks.
+            if(race.Forest)car.enabled=false;
+            var contact=race.Forest?car.gameObject.AddComponent<CaveContactTrace>():null;
+            float startS=branch.entryRoad-(race.Forest?40:12);var p=race.road.At(startS,out var f)+Vector3.up*.7f;
             body.position=p;body.rotation=Quaternion.LookRotation(Vector3.ProjectOnPlane(f,Vector3.up));car.transform.SetPositionAndRotation(p,body.rotation);
             body.linearVelocity=f*branch.recommendedSpeed;body.angularVelocity=Vector3.zero;car.ClearSteering();Physics.SyncTransforms();race.ResetSampling(p,Time.timeAsDouble);FindAnyObjectByType<ChaseCamera>().Snap();
             BreakableProp.RestoreRace();
             int audioBefore=FindAnyObjectByType<SmashAudio>()?.Events??0, buzzBefore=race.Flow.CheckpointBuzzes;
-            float begin=Time.time,entry=0,air=0,minUp=1,maxLat=0;bool finished=false,failed=false;int recoveries=0,exits=r.Branch.Exits;float nextLog=0,stalled=0;
+            float begin=Time.time,entry=0,air=0,minUp=1,maxLat=0;bool finished=false,failed=false;int recoveries=0,exits=r.Branch.Exits,view=0;float nextLog=0,stalled=0;
+            var forestLayout=race.Forest?FindAnyObjectByType<ForestLayout>():null;
             using var trace=new StreamWriter(Dir+"/"+car.GetComponent<VehicleConfiguration>().profileId+"-"+branch.title.Replace(' ','-')+"-"+(mainRoad?"road":"branch")+"-"+attempt+".csv");
-            trace.WriteLine("time,x,y,z,speed,target,grounded,branchS,earned,misses");
+            trace.WriteLine("time,x,y,z,speed,target,grounded,branchS,earned,misses,contact,impulse,throttle,brake,steer,suspension,alignment");
             while(Time.time-begin<55)
             {
                 float roadS=race.road.Project(body.position,out _);float s=branch.Project(body.position,out float lateral);var current=branch.At(s,out var tangent);
@@ -150,52 +155,73 @@ namespace Racer
                 var local=car.transform.InverseTransformPoint(target);float curvature=2*local.x/Mathf.Max(1,local.x*local.x+local.z*local.z);
                 float angle=Mathf.Lerp(car.slowSteerAngle,car.fastSteerAngle,Mathf.Clamp01(Mathf.Abs(car.ForwardSpeed)/car.topSpeed));
                 float steer=Mathf.Clamp(Mathf.Atan(curvature*car.wheelbase)*Mathf.Rad2Deg/angle,-1,1);
-                float desired=mainRoad?car.topSpeed*.95f:branch.recommendedSpeed+(attempt==1?2:0);
+                float desired=race.Forest&&!onBranch?32:mainRoad?car.topSpeed*.95f:branch.recommendedSpeed+(attempt==1?2:0);
+                if(race.Forest&&!mainRoad&&((onBranch&&(s<75||s>branch.Length-65))||(!onBranch&&roadS<branch.entryRoad)))desired=Mathf.Min(desired,18);
                 for(float d=0;d<90;d+=6)
                 {
                     Vector3 a,b;
                     if(onBranch) { branch.At(s+d,out a);branch.At(s+d+8,out b); }else {race.road.At(roadS+d,out a);race.road.At(roadS+d+8,out b);}
                     float curve=Vector3.Angle(Vector3.ProjectOnPlane(a,Vector3.up),Vector3.ProjectOnPlane(b,Vector3.up))*Mathf.Deg2Rad/8;
-                    float cap=Mathf.Sqrt(car.maxGripAcceleration*.7f/Mathf.Max(.0001f,curve));
+                    float cap=Mathf.Sqrt(car.maxGripAcceleration*(race.Forest?.46f:.7f)/Mathf.Max(.0001f,curve));
                     if(mainRoad && Mathf.Abs(a.y)>.14f)cap=Mathf.Min(cap,29);
                     float crest=Mathf.Max(0,Mathf.Asin(a.y)-Mathf.Asin(b.y))/8;
                     // Keep the authored stunt airborne, but brake for natural entry/rejoin crests.
                     bool intentionalJump=!mainRoad && (branch.title=="Fox Gully" ? s+d>=210 && s+d<=335 : s+d>=110 && s+d<=255);
+                    if(onBranch&&branch.title=="Echo Cave")intentionalJump=s+d>=350&&s+d<=490;
+                    if(race.Forest&&!onBranch)intentionalJump=forestLayout.IsLaunch(roadS+d);
                     if(!intentionalJump && crest>.001f) cap=Mathf.Min(cap,Mathf.Sqrt(6.5f/crest));
                     desired=Mathf.Min(desired,Mathf.Sqrt(cap*cap+2*car.braking*.75f*Mathf.Max(0,d-10)));
                 }
                 if(!mainRoad && attempt==2 && !failed && s>branch.Length*(branch.title=="Fox Gully"?.55f:.32f))
-                { failed=true; InputSystem.QueueStateEvent(pad,new GamepadState{leftTrigger=1});yield return new WaitForSeconds(1.2f);bool ok=car.GetComponent<VehicleRespawn>().TryRecoverLocal();if(ok)recoveries++; }
+                { failed=true; yield return Maneuver(car,1.2f,0,1,0);bool ok=car.GetComponent<VehicleRespawn>().TryRecoverLocal();if(ok)recoveries++; }
                 if(!mainRoad && attempt==3 && !failed && s>branch.Length*.28f)
                 {
                     failed=true;
                     // Real pedal/stick excursion, then braking through zero into reverse.
                     // No pose/velocity edits: an imperfect line must retain its earned gates.
-                    InputSystem.QueueStateEvent(pad,new GamepadState{rightTrigger=.6f,leftStick=new(.9f,0)});
-                    yield return new WaitForSeconds(.65f);
-                    InputSystem.QueueStateEvent(pad,new GamepadState{leftTrigger=1});
-                    yield return new WaitForSeconds(2.1f);
+                    yield return Maneuver(car,.65f,.6f,0,.9f);
+                    yield return Maneuver(car,2.1f,0,1,0);
                     float reverseDeadline=Time.time+3;
-                    while(car.ForwardSpeed>-.8f&&Time.time<reverseDeadline)yield return new WaitForFixedUpdate();
+                    while(car.ForwardSpeed>-.8f&&Time.time<reverseDeadline){if(race.Forest)car.Simulate(0,1,0,Time.fixedDeltaTime);yield return new WaitForFixedUpdate();}
                     branch.Project(body.position,out float departureLateral);
                     File.AppendAllText(Dir+"/excursions.txt",$"{car.GetComponent<VehicleConfiguration>().profileId} {branch.title}: speed before recovery={car.ForwardSpeed:F3}m/s; lateral={departureLateral:F3}m; grounded={car.GroundedWheels}; up={car.transform.up.y:F3}; misses={race.Progress.MissedGates}; seconds={race.Progress.PenaltySeconds}\n");
                     bool ok=car.GetComponent<VehicleRespawn>().TryRecoverLocal();if(ok)recoveries++;
                 }
-                InputSystem.QueueStateEvent(pad,new GamepadState{rightTrigger=Mathf.Clamp01((desired-car.ForwardSpeed)*.6f),leftTrigger=car.ForwardSpeed>desired+1?Mathf.Clamp01((car.ForwardSpeed-desired)*.3f):0,leftStick=new(Mathf.Abs(steer)<.001f?0:Mathf.Sign(steer)*(.12f+Mathf.Abs(steer)*.83f),0)});
+                float throttle=Mathf.Clamp01((desired-car.ForwardSpeed)*.6f),brake=car.ForwardSpeed>desired+1?Mathf.Clamp01((car.ForwardSpeed-desired)*.3f):0;
+                if(race.Forest)car.Simulate(throttle,brake,steer,Time.fixedDeltaTime);
+                else InputSystem.QueueStateEvent(pad,new GamepadState{rightTrigger=throttle,leftTrigger=brake,leftStick=new(Mathf.Abs(steer)<.001f?0:Mathf.Sign(steer)*(.12f+Mathf.Abs(steer)*.83f),0)});
                 if(entry==0 && roadS>=branch.entryRoad) entry=car.ForwardSpeed;
+                if(race.Forest&&!mainRoad&&attempt==0&&view<3&&s>new[]{75,390,445}[view]){ThreeFeatureValidation.CaptureUi(Dir+"/cave-gameplay-"+view+".png");view++;}
                 stalled=car.ForwardSpeed<2?stalled+Time.deltaTime:0; if(stalled>6)break;
                 minUp=Mathf.Min(minUp,car.transform.up.y);if(onBranch)maxLat=Mathf.Max(maxLat,lateral);if(car.GroundedWheels<2)air+=Time.deltaTime;
-                if(Time.time>=nextLog){nextLog=Time.time+.1f;trace.WriteLine($"{Time.time-begin:F3},{body.position.x:F3},{body.position.y:F3},{body.position.z:F3},{car.ForwardSpeed:F3},{desired:F3},{car.GroundedWheels},{r.Branch.Position:F3},{r.Branch.Earned:F3},{race.Progress.MissedGates}");}
+                if(Time.time>=nextLog){nextLog=Time.time+.1f;trace.WriteLine($"{Time.time-begin:F3},{body.position.x:F3},{body.position.y:F3},{body.position.z:F3},{car.ForwardSpeed:F3},{desired:F3},{car.GroundedWheels},{r.Branch.Position:F3},{r.Branch.Earned:F3},{race.Progress.MissedGates},{contact?.Last},{contact?.Impulse:F3},{throttle:F3},{brake:F3},{steer:F3},{car.SuspensionLift:F3},{car.AlignmentTorque:F3}");if(contact){contact.Last="";contact.Impulse=0;}}
                 float nextStation=race.gates.Select(g=>race.road.Project(g.transform.position,out _)).Where(st=>st>branch.exitRoad+1).DefaultIfEmpty(branch.exitRoad+180).Min();
                 if(roadS>nextStation+30 && roadS<nextStation+90 && (mainRoad || r.Branch.Exits>exits)) {finished=true;break;}
                 if(attempt==0 && Time.time-begin>3 && Time.time-begin<3.1f) ScreenCapture.CaptureScreenshot(Path.GetFullPath(Dir+"/drive-"+branch.title.Replace(' ','-')+"-"+car.GetComponent<VehicleConfiguration>().profileId+".png"));
-                yield return null;
+                if(race.Forest)yield return new WaitForFixedUpdate();else yield return null;
             }
             File.AppendAllText(Dir+"/driving.csv",$"{car.GetComponent<VehicleConfiguration>().profileId},{branch.title},{attempt},{mainRoad},{finished},{Time.time-begin:F3},{entry:F3},{car.ForwardSpeed:F3},{maxLat:F3},{minUp:F3},{air:F3},{race.Progress.MissedGates},{race.Progress.PenaltySeconds:F3},{r.Branch.Exits-exits},{recoveries}\n");
             var glass=FindObjectsByType<BreakableProp>().Where(prop=>prop.surface==SmashAudio.Surface.Glass).ToArray();
             File.AppendAllText(Dir+"/physical-objects.txt",$"{car.GetComponent<VehicleConfiguration>().profileId} {branch.title} attempt={attempt} road={mainRoad} glassBroken={glass.Count(prop=>prop.IsBroken)}/{glass.Length} smashEvents={(FindAnyObjectByType<SmashAudio>()?.Events??0)-audioBefore} buzzes={race.Flow.CheckpointBuzzes-buzzBefore}\n");
             InputSystem.QueueStateEvent(pad,new GamepadState()); yield return new WaitForSeconds(.2f);
+            if(contact)Destroy(contact);
+        }
+        IEnumerator Maneuver(ArcadeVehicle car,float seconds,float throttle,float brake,float steer)
+        {
+            if(!race.Forest){InputSystem.QueueStateEvent(pad,new GamepadState{rightTrigger=throttle,leftTrigger=brake,leftStick=new(steer,0)});yield return new WaitForSeconds(seconds);yield break;}
+            float end=Time.time+seconds;
+            while(Time.time<end){car.Simulate(throttle,brake,steer,Time.fixedDeltaTime);yield return new WaitForFixedUpdate();}
         }
         void OnDestroy(){if(pad!=null&&pad.added)InputSystem.RemoveDevice(pad);}
     }
+    public sealed class CaveContactTrace:MonoBehaviour
+    {
+        public string Last="";public float Impulse;
+        void OnCollisionEnter(Collision c)=>Record(c);
+        void OnCollisionStay(Collision c)=>Record(c);
+        void Record(Collision c){Last=c.collider.name.Replace(',',' ');Impulse=Mathf.Max(Impulse,c.impulse.magnitude);}
+    }
 }
+
+
+

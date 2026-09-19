@@ -77,7 +77,7 @@ namespace Racer
             Check(File.ReadAllText(file)==bytes&&board.Categories(false).Length==1,"Legacy source retained; incompatible history not relabeled");
             var race=FindAnyObjectByType<RaceDirector>();Check(race.gates.All(g=>g.gameObject.activeInHierarchy),"Director references only active course gates");
         }
-        static void CaptureUi(string file)
+        public static void CaptureUi(string file)
         {
             var camera=Camera.main;var canvas=FindAnyObjectByType<RaceHud>().GetComponent<Canvas>();var mode=canvas.renderMode;var oldCamera=canvas.worldCamera;float plane=canvas.planeDistance;
             var rt=new RenderTexture(1280,720,24);var previous=camera.targetTexture;var active=RenderTexture.active;
@@ -164,13 +164,16 @@ namespace Racer
                 performanceTarget=new RenderTexture(1280,720,24);renderCamera=Camera.main;renderCamera.targetTexture=performanceTarget;
                 QualitySettings.vSyncCount=0;Application.targetFrameRate=120;
             }
-            var frames=new List<float>();float start=Time.realtimeSinceStartup,next=0;bool recovered=false;
+            var frames=new List<float>();float start=Time.realtimeSinceStartup,next=0;bool recovered=false; int view=0;
+            using var ambient=new StreamWriter(dir+"/ambient.csv");ambient.WriteLine("time,name,streetDistance,routeIsStreet,recoveries,x,y,z");
             using var log=new StreamWriter(dir+"/driving.csv");log.WriteLine("time,vehicle,lap,gate,speed,recoveries,misses,x,y,z");
             while(!race.ClassificationFinal&&Time.realtimeSinceStartup-start<900)
             {
                 yield return null;if(flow.State!=RaceFlow.Stage.Racing)continue;Time.timeScale=float.Parse(Arg("-testSpeed","1"));frames.Add(Time.unscaledDeltaTime*1000);
                 if(!recovered&&race.Progress.LapActive&&race.Progress.NextGate>=3){int gate=race.Progress.NextGate;double penalty=race.Progress.PenaltySeconds;race.vehicle.GetComponent<VehicleRespawn>().TryRecoverLocal(true);Check(race.Progress.NextGate==gate&&race.Progress.PenaltySeconds==penalty,"Local recovery preserves gate progress and penalties");recovered=true;}
                 if(Time.time<next)continue;next=Time.time+1;
+                if(view<8&&Time.time-start>view*7){CaptureUi(dir+"/gameplay-"+view+++".png");}
+                foreach(var d in race.Drivers.Where(d=>d.GetComponent<AmbientVehicle>())){d.DriveRoad.Project(d.transform.position,out float lateral);var at=d.transform.position;ambient.WriteLine($"{race.Clock:F2},{d.name},{lateral:F3},{d.DriveRoad!=race.road||!race.Forest},{d.RecoveryCount},{at.x:F2},{at.y:F2},{at.z:F2}");}ambient.Flush();
                 foreach(var state in race.Racers){var p=state.Car.Body.position;log.WriteLine($"{race.Clock:F3},{state.Car.GetComponent<VehicleConfiguration>().profileId},{state.Progress.CompletedLaps},{state.Progress.NextGate},{state.Car.ForwardSpeed:F2},{state.Recoveries},{state.Progress.MissedGates},{p.x:F2},{p.y:F2},{p.z:F2}");}log.Flush();
             }
             foreach(var state in race.Racers)Check(state.Progress.Finished&&!state.Dnf,$"{race.courseId} {state.Car.GetComponent<VehicleConfiguration>().profileId} completed {state.Progress.CompletedLaps}/{laps} laps; misses={state.Progress.MissedGates}; recoveries={state.Recoveries}; adjusted={state.Progress.AdjustedTime(race.Clock):F6}");
@@ -180,3 +183,4 @@ namespace Racer
         }
     }
 }
+

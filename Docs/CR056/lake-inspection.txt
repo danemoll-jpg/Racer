@@ -1,0 +1,1 @@
+Existing water (642.00, 78.00, -20.00), scale (126.00, 0.04, 126.00); grid (511.47, 84.91, -124.63). Retain lake centre and water elevation; open shoreline and move grid behind friend.

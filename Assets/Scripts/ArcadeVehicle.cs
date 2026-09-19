@@ -33,6 +33,8 @@ namespace Racer
         [Range(0, 1)] public float airStability = 0.18f;
         public Vector3 centreOfMass = new(0, -0.35f, 0);
         public int GroundedWheels { get; private set; }
+        public float SuspensionLift { get; private set; }
+        public float AlignmentTorque { get; private set; }
         public float ForwardSpeed => Vector3.Dot(Body.linearVelocity, transform.forward);
         public Rigidbody Body { get; private set; }
         VehicleInput input;
@@ -55,6 +57,7 @@ namespace Racer
             if(configuration) configuration.PrepareContacts();
             if (configuration && configuration.WipedOut && transform.up.y<.35f) { throttle = 0; steering *= .25f; }
             GroundedWheels = 0;
+            SuspensionLift = 0;
             Vector3 normal = Vector3.zero;
             foreach (Vector3 local in suspensionPoints)
             {
@@ -66,6 +69,7 @@ namespace Racer
                 float compression = suspensionLength - hit.distance;
                 float speed = Vector3.Dot(Body.GetPointVelocity(origin), transform.up);
                 float lift = Mathf.Clamp(compression * springStrength - speed * suspensionDamping, 0, maxSuspensionAcceleration);
+                SuspensionLift += lift / suspensionPoints.Length;
                 Body.AddForceAtPosition(transform.up * (lift / suspensionPoints.Length), origin, ForceMode.Acceleration);
             }
             bool grounded = GroundedWheels >= 2;
@@ -94,6 +98,7 @@ namespace Racer
             // Damped alignment resists roll, follows ramp slope, and gently settles attitude in flight.
             Vector3 tilt = Vector3.Cross(transform.up, up);
             Vector3 tiltVelocity = Vector3.ProjectOnPlane(Body.angularVelocity, up);
+            AlignmentTorque = ((tilt * uprightStrength - tiltVelocity * uprightDamping) * (grounded ? 1 : airStability)).magnitude;
             Body.AddTorque((tilt * uprightStrength - tiltVelocity * uprightDamping) * (grounded ? 1 : airStability), ForceMode.Acceleration);
         }
 

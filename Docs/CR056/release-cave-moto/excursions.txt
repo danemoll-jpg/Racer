@@ -1,0 +1,1 @@
+moto Echo Cave: speed before recovery=-5.060m/s; lateral=5.546m; grounded=4; up=0.952; misses=0; seconds=0

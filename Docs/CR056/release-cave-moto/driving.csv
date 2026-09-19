@@ -1,0 +1,7 @@
+profile,route,attempt,road,finished,seconds,entry_mps,exit_mps,max_lateral,min_up,air_seconds,misses,penalty,branch_exits,recoveries
+moto,Echo Cave,0,False,True,35.578,20.637,26.827,5.501,0.917,4.720,0,0.000,1,0
+moto,Echo Cave,1,False,True,35.817,21.164,28.809,11.551,0.558,6.040,0,0.000,1,0
+moto,Echo Cave,2,False,True,37.079,20.637,26.827,5.501,0.935,4.620,0,0.000,1,1
+moto,Echo Cave,3,False,True,38.300,20.637,26.827,5.501,0.918,4.700,0,0.000,1,1
+moto,Echo Cave,0,True,True,32.157,30.264,31.775,0.000,0.806,8.040,0,0.000,0,0
+moto,Echo Cave,1,True,True,32.158,30.264,31.775,0.000,0.806,8.040,0,0.000,0,0

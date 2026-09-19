@@ -1,0 +1,1 @@
+Main samples=1059; false cave entries=0; cave/main swept-box obstructions=0; maximum terrain/route height difference=2.98214m; main length=2119.4m; cave=533.4959m

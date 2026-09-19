@@ -1,4 +1,4 @@
-param([ValidatePattern('^[0-9]+\.[0-9]+\.[0-9]+(?:-[A-Za-z0-9-]+)?$')][string]$Version='0.7.0-review1')
+param([ValidatePattern('^[0-9]+\.[0-9]+\.[0-9]+(?:-[A-Za-z0-9-]+)?$')][string]$Version='0.8.0-review1')
 $ErrorActionPreference='Stop'
 $projectRoot=[IO.Path]::GetFullPath((Join-Path $PSScriptRoot '..'))
 $builds=Join-Path $projectRoot 'Builds'
@@ -48,7 +48,7 @@ foreach($song in $stagedSongs){
 }
 Copy-Item -LiteralPath "$projectRoot/Docs/CR040-054-055/RADIO.md" -Destination "$stage/RADIO.md" -Force
 'Each immediate folder is a radio channel; nested artist/album folders belong to that channel. Root songs form General. Add MP3, PCM WAV or Ogg Vorbis, then Rescan. See RADIO.md beside Racer.exe. Stage selected songs in project BundleMusic before repackaging.' | Set-Content -LiteralPath "$stage/Music/README-Racer.txt"
-(Get-Content -LiteralPath "$projectRoot/Docs/CR040-054-055/README-player.txt" -Raw).Replace("0.7.0-review1",$Version) | Set-Content -LiteralPath "$stage/README.txt"
+(Get-Content -LiteralPath "$projectRoot/Docs/CR056/README-player.txt" -Raw).Replace("0.8.0-review1",$Version) | Set-Content -LiteralPath "$stage/README.txt"
 $licenses=Join-Path $stage 'Licenses';New-Item -ItemType Directory -Force $licenses | Out-Null
 foreach($notice in @('AUDIO-ASSET-NOTICES.txt','Unity-Windows-Mono-Notices.pdf','PackageNotices')){Copy-Item -LiteralPath "$projectRoot/Docs/CR020-021/$notice" -Destination $licenses -Recurse -Force}
 Copy-Item -LiteralPath "$projectRoot/Docs/CR028-033/VEHICLE-ASSET-NOTICES.txt" -Destination $licenses -Force
@@ -89,3 +89,4 @@ $report | ConvertTo-Json | Set-Content -LiteralPath "$builds/PACKAGE-LATEST.json
 $report | ConvertTo-Json
 if(!$stagedSongs.Count){Write-Host 'No songs are staged in BundleMusic; the shareable Music folder is empty except instructions.'}
 Write-Host 'To migrate chosen songs from preserved Latest/Music, copy them to BundleMusic and run this command again.'
+

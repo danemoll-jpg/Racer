@@ -1,0 +1,1 @@
+PASS No cave enclosure intersects swept motorcycle/ATV boxes at 2m intervals across three main-route lanes.

@@ -1,0 +1,12 @@
+moto 340: initial=32 minLaunch=28.31 takeoff=30.19 landing=27.96 airtime=4.30 up=1.00 completed=True
+moto 610: initial=32 minLaunch=30.76 takeoff=31.51 landing=33.83 airtime=2.36 up=1.00 completed=True
+moto 900: initial=32 minLaunch=30.77 takeoff=31.36 landing=29.87 airtime=1.68 up=0.99 completed=True
+moto 1020: initial=32 minLaunch=30.82 takeoff=31.49 landing=27.43 airtime=1.66 up=1.00 completed=True
+moto 1310: initial=32 minLaunch=31.18 takeoff=31.02 landing=29.97 airtime=2.44 up=0.99 completed=True
+moto 1640: initial=32 minLaunch=31.48 takeoff=31.18 landing=34.41 airtime=3.56 up=1.00 completed=True
+atv 340: initial=32 minLaunch=27.02 takeoff=29.50 landing=27.10 airtime=3.84 up=0.97 completed=True
+atv 610: initial=32 minLaunch=30.74 takeoff=31.50 landing=33.94 airtime=2.54 up=0.98 completed=True
+atv 900: initial=32 minLaunch=30.78 takeoff=31.42 landing=30.57 airtime=1.70 up=1.00 completed=True
+atv 1020: initial=32 minLaunch=30.81 takeoff=31.49 landing=30.07 airtime=1.62 up=1.00 completed=True
+atv 1310: initial=32 minLaunch=31.17 takeoff=31.06 landing=30.11 airtime=2.40 up=0.99 completed=True
+atv 1640: initial=32 minLaunch=31.48 takeoff=31.15 landing=18.80 airtime=3.60 up=0.94 completed=True

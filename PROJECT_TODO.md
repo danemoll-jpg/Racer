@@ -17,7 +17,7 @@ A small single-player arcade racing game inspired by *Forza Horizon*, built arou
 
 These rules apply throughout the project.
 
-**Consistent testing entry point:** Dan launches `Play-Racer.cmd` at the project root, or `Builds/Latest/Racer.exe`. After each new validated playable build, update the complete `Builds/Latest` runtime folder (including VERSION.txt); never replace only its executable. Keep older versioned builds separately. Current combined review build is 0.7.0-review1; Builds/Latest/VERSION.txt records its source. BUG-004/008 and CR-046–049 are implemented awaiting Dan review; technical validation does not close the earlier human reports. See Docs/CR040-054-055/VALIDATION.md for this delivery and Docs/CR046-049/VALIDATION.md for the earlier combined checklist. A source commit alone does not update a compiled player.
+**Consistent testing entry point:** Dan launches `Play-Racer.cmd` at the project root, or `Builds/Latest/Racer.exe`. After each new validated playable build, update the complete `Builds/Latest` runtime folder (including VERSION.txt); never replace only its executable. Keep older versioned builds separately. Current combined review build is 0.8.0-review1; Builds/Latest/VERSION.txt records its source. BUG-004/008 and CR-046–049 are implemented awaiting Dan review; technical validation does not close the earlier human reports. See Docs/CR056/VALIDATION.md for this delivery and Docs/CR040-054-055/VALIDATION.md for the prior delivery and Docs/CR046-049/VALIDATION.md for the earlier combined checklist. A source commit alone does not update a compiled player.
 
 - [ ] Keep the game **single-player only** unless this document is deliberately changed later.
 - [ ] Prioritize **fun arcade handling** over realistic simulation.
@@ -1106,7 +1106,7 @@ Difficulty retuning, exact house placement and photo-based home accuracy remain 
 ---
 
 ### CR-056 — Forest Loop arcade trail redesign
-**Status:** AUTHORIZED — next combined revision; CR-040 is not accepted in its current form.
+**Status:** IMPLEMENTED — 0.8.0-review1, awaiting Dan's review. CR-040/056 are not accepted by automated completion.
 **Latest feedback:** Dan likes the overall progress but reports an unclear/missing lake, wrong start location, recurring jump slowdowns, an easy straight shortcut, too few jumps, civilian traffic offroad and paths that feel like wide roads.
 **Scope:**
 - Rename the second course Forest Loop across track selection, HUD/results, records labels and documentation; preserve internal save identifiers or migrate safely.
@@ -1117,6 +1117,21 @@ Difficulty retuning, exact house placement and photo-based home accuracy remain 
 - Restrict civilian traffic to actual street routes, including spawns, waypoints, avoidance and recovery. Only race opponents may drive forest/cave trails. Street crossings can retain legitimate road traffic. Wildlife is an optional future ambience idea, not required for this pass and not a substitute for requested work.
 - Narrow trails into dense forest paths with varied bends/elevation, close trees/undergrowth/rocks, dirt/ruts and no suburban-road appearance. Use motorcycle/ATV-only eligibility for Forest Loop, as Dan permits, to avoid widening trails for cars. Match usable width to their swept clearance at bends/speed; allow deliberate passing pockets and grid space rather than an impassable single-file corridor. Apply eligibility consistently to player selection, AI roster, saved selections and records with clear UI feedback. Original street course retains all vehicles.
 **Validation:** Motorcycle/ATV human-like driving and AI full races through the revised route/cave; every jump tested at intended speeds plus imperfect approaches, local recovery and multi-lap gate/penalty checks. Show before/after speeds and contact findings for recurring slowdown. Demonstrate lake/start and visible jump/cave layout from gameplay views, not only overhead or automated success. Ensure no ambient car spawns, paths or recovers onto trails. Measure performance with dense foliage. Increment revised course record version while preserving historical boards; preserve current radio channels/bundled music, top-ten boards, difficulty constants and original course. Await Dan review; do not claim fun or physical controller acceptance from automated tests.
+
+**Actual implementation / evidence:** Forest Loop is a 2.12 km motorcycle/ATV course with six main jumps (previously three), a 533.5 m enclosed Echo Cave route, matched fork surfaces, a graded street crossing, close forest vegetation and passing pockets. Original street scene, accepted house poses, handling/difficulty constants, radio, saved IDs and historical boards remain preserved. New records use `lake-v2-forest`. Checkpoint: `a4c7825042eefbac16bba13d3b2592fb15d7dc8d`; completion source is recorded in the delivery response/runtime VERSION.txt.
+
+Final evidence: 12/12 main jump runs; 8/8 riders finish two-lap races with zero misses; 12/12 cave/comparison attempts with zero penalty and four successful cave recoveries; 28/28 eligibility/traffic/fall checks; 29/29 record checks. Civilian routing stays on streets in 1,320 race samples plus explicit recovery/recycle tests. Original street route suite passes 24/24 attempts and 77/77 invariants; all eight road-jump flights land, with one fastest-ATV later missed gate retained as a real five-second miss. Detailed contact/suspension traces, before/after measurements, gameplay views and the labeled route map are in Docs/CR056/VALIDATION.md.
+
+**Dan's seven-comment review checklist (still open):**
+- [ ] Forest Loop naming and versioned records; historical boards remain available.
+- [ ] Lake/shoreline visible from the grid behind the existing friend's house and opening route.
+- [ ] All launches/transitions feel free of unintended braking; recheck original house/road jumps.
+- [ ] Cave bends/gap feel challenging; clean riding saves time, falls recover locally and bypass credit survives mistakes.
+- [ ] Six distinct main jumps plus the cave jump; creek, gully, linked jumps and drop read clearly in gameplay.
+- [ ] Civilian traffic remains on real streets through spawning, avoidance, recycling and recovery.
+- [ ] Motorcycle/ATV eligibility, narrow forest paths, passing space, visibility and performance feel right.
+
+**Remaining limitations:** Cave savings are modest (0.53–0.77 s clean baseline, up to 1.36 s faster repeat); mistakes erase them naturally. Two AI riders each needed one automatic recovery in the final ATV-led two-lap race. Overspeed and large off-line impacts remain physical risks. Low-poly art, subjective fun, Dan's display/hardware and physical-controller acceptance still require human review. Wildlife is deferred. Rendered 1280×720 test: median 8.334 ms / p95 8.336 ms at the 120 FPS cap, about 758 MiB observed peak working memory. Packaging verifies all 428 runtime files and 187 staged songs across ZIP/versioned/Latest; the completion source ID is stamped through the same packaging workflow. See the validation report and Builds/PACKAGE-LATEST.json; nothing is uploaded externally.
 
 ---
 
@@ -1210,7 +1225,7 @@ Record choices we do not want to repeatedly reconsider.
 
 # SESSION HANDOFF
 
-**Current next delivery:** CR-056 Forest Loop redesign addresses all seven latest comments. CR-040 is not accepted yet. Forest Loop uses motorcycle/ATV-only eligibility; the original street course retains all vehicles. Wildlife is deferred. Preserve radio and record systems; no blanket acceptance of their outstanding checks is inferred. This is a planning update only.
+**Current delivery:** 0.8.0-review1 implements CR-056 Forest Loop and awaits Dan's review. Launch Play-Racer.cmd / Builds/Latest/Racer.exe. Read Docs/CR056/VALIDATION.md for final evidence, limitations, route map and seven-comment checklist. CR-040 remains unaccepted; original street/radio/records are preserved and wildlife is deferred.
 
 **Prior implementation evidence follows; earlier completion claims do not validate the latest feedback:**
 

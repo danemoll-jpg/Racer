@@ -188,7 +188,7 @@ namespace Racer
             }
             else if (shown == RaceFlow.Stage.Results)
             {
-                title.text = "RACE COMPLETE";
+                title.text = flow.Race.Forest?"FOREST LOOP / RACE COMPLETE":"RACE COMPLETE";
                 var p = flow.Race.Progress; var text = new StringBuilder();
                 text.AppendLine("Total   " + RaceHud.FormatTime(p.RaceTime(flow.Race.Clock)) + (flow.NewRaceRecord ? "   NEW PB" : ""));
                 for (int i = 0; i < p.LapTimes.Count; i++) text.AppendLine("Lap " + (i+1) + "   " + RaceHud.FormatTime(p.LapTimes[i]));
@@ -209,9 +209,9 @@ namespace Racer
             else if(shown==RaceFlow.Stage.Courses)
             {
                 title.text="SELECT TRACK";
-                details.text="Street Loop: the original neighborhood circuit.\nLake & Woods: start by the friend’s house, pass Dan’s, then head into the woods.\nIndependent gates, laps and record categories.";
+                details.text="Street Loop: the original neighborhood circuit.\nForest Loop: lakeside start behind the friend house.\nMotorcycles / ATVs only, including AI.\nIndependent gates, laps and record categories.";
                 Action(0,"Street Loop",()=>flow.SelectCourse(false));
-                Action(1,"Lake & Woods",()=>flow.SelectCourse(true));
+                Action(1,"Forest Loop",()=>flow.SelectCourse(true));
                 Action(2,"Back",flow.CloseGarage);
             }
             else if(shown==RaceFlow.Stage.Boards)
@@ -243,17 +243,17 @@ namespace Racer
                 title.text=profile.Name + " / " + profile.Class;
                 details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=80;
                 details.fontSize=18;
-                details.text=$"{profile.Description}\nAll four profiles available as opponents.\nBody color: choose a swatch below. R / Y recovers locally.";
+                details.text=$"{profile.Description}\n{(flow.Race.Forest?"Forest Loop: motorcycles / ATVs only (player and AI).":"Street Loop: all four profiles available.")}\nBody color: choose a swatch below. R / Y recovers locally.";
                 if(previewRoot) { previewRoot.SetActive(false); Destroy(previewRoot); }
                 previewRoot=new GameObject("Garage display model"); previewRoot.layer=31; previewRoot.transform.position=new(10000,10000,10000); previewRoot.transform.rotation=Quaternion.Euler(0,-30,0);
                 flow.Race.vehicle.GetComponent<VehicleConfiguration>().BuildPreview(previewRoot.transform);
-                for(int i=0;i<VehicleProfile.All.Length;i++) { var choice=VehicleProfile.All[i]; Action(i,(profile.Id==choice.Id?"Selected: ":"Select: ")+choice.Name,()=>flow.SelectVehicle(choice.Id)); }
+                for(int i=0;i<flow.Race.EligibleVehicles.Length;i++) { var choice=flow.Race.EligibleVehicles[i]; Action(i,(profile.Id==choice.Id?"Selected: ":"Select: ")+choice.Name,()=>flow.SelectVehicle(choice.Id)); }
                 Action(4,"Done / ready",flow.CloseGarage);
             }
             else if(shown==RaceFlow.Stage.Roster)
             {
                 title.text="OPPONENT VEHICLES";
-                details.text="Choose each slot. Random may repeat; Mixed fills distinct profiles.\nResolved roster stays fixed for restart/rematch.\n\n"+flow.Race.RosterLabel;
+                details.text="Choose each slot. Random may repeat; Mixed uses eligible profiles before repeating.\nResolved roster stays fixed for restart/rematch.\n\n"+flow.Race.RosterLabel;
                 details.fontSize=18;
                 for(int i=0;i<3;i++) { int slot=i; string choice=flow.Save.Settings.opponentChoices[i]; Action(i,$"Slot {i+1}: {(choice=="random"?"Random":choice=="mixed"?"Mixed":VehicleProfile.Find(choice).Name)}  →  {VehicleProfile.Find(flow.Race.opponentRoster[i]).Name}",()=>flow.CycleOpponent(slot)); }
                 Action(3,"Use Mixed roster",flow.MixedRoster); Action(4,"Reroll Random / Mixed",flow.ResolveRoster); Action(5,"Done / ready",flow.CloseGarage);
@@ -346,3 +346,6 @@ namespace Racer
         void OnDestroy() { if(menuActions) { menuActions.Disable(); Destroy(menuActions); } if(submitReference) Destroy(submitReference); if(previewRoot) Destroy(previewRoot); if(previewCamera) Destroy(previewCamera.gameObject); if(previewTexture) { previewTexture.Release(); Destroy(previewTexture); } }
     }
 }
+
+
+

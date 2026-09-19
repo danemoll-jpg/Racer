@@ -1,0 +1,7 @@
+Forest Loop 2119.4m; six main jumps (previously three), one cave jump. Terrain tiles 35. Cave 533.5m versus main 685m; bypass 2
+J1 Creek crossing approach 340, run 34, height 4, gap 16, landing +75m; (402.08, 73.97, 215.72)
+J2 Deep gully approach 610, run 42, height 6, gap 23, landing +75m; (161.09, 46.71, 287.92)
+J3 Root roller approach 900, run 24, height 2.5, gap 9, landing +75m; (-80.98, 23.36, 150.17)
+J4 Linked kicker approach 1020, run 28, height 3, gap 12, landing +75m; (-123.64, 20.12, 43.45)
+J5 Ridge drop approach 1310, run 36, height 6, gap 24, landing +75m; (43.29, 30.25, -138.33)
+J6 Homeward leap approach 1540, run 38, height 4.5, gap 18, landing +75m; (252.17, 47.17, -206.18)

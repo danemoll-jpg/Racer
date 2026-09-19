@@ -9,7 +9,7 @@ namespace Racer
 {
     public sealed class CorrectionJumpValidation:MonoBehaviour
     {
-        const string Dir="Docs/CR041-045/jamerson";
+        static string Dir { get {var args=Environment.GetCommandLineArgs();int i=Array.IndexOf(args,"-jumpEvidence");return i>=0&&i+1<args.Length?args[i+1]:"Docs/CR041-045/jamerson";} }
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
         static void Boot(){var a=Environment.GetCommandLineArgs();if(a.Contains("-correctionJump")&&a.Contains("-racerTestSave")){Application.runInBackground=true;new GameObject("Jamerson real frame flights").AddComponent<CorrectionJumpValidation>();}}
         IEnumerator Start()

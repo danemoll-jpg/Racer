@@ -57,7 +57,7 @@ namespace Racer
             Race.difficulty = Mathf.Clamp(Save.Settings.difficulty,0,2);
             var configuration = Race.vehicle.GetComponent<VehicleConfiguration>();
             if (!configuration) configuration = Race.vehicle.gameObject.AddComponent<VehicleConfiguration>();
-            configuration.Apply(Save.Settings.vehicleId);
+            configuration.Apply(Race.EligibleVehicle(Save.Settings.vehicleId));
             RestoreChoices();
             configuration.SetBodyColor(SelectedColor);
             Save.SelectRecords(Race.Category); Save.ApplySettings();
@@ -148,12 +148,12 @@ namespace Racer
         public int SelectedColor => Save.Settings.bodyColors[System.Array.FindIndex(VehicleProfile.All,p=>p.Id==Save.Settings.vehicleId)];
         void RestoreChoices()
         {
-            Save.Settings.vehicleId=VehicleProfile.Find(Save.Settings.vehicleId).Id;
+            Save.Settings.vehicleId=Race.EligibleVehicle(Save.Settings.vehicleId);
             if(Save.Settings.bodyColors==null || Save.Settings.bodyColors.Length!=4) Save.Settings.bodyColors=new[]{-1,-1,-1,-1};
             if(Save.Settings.opponentChoices==null || Save.Settings.opponentChoices.Length!=3) Save.Settings.opponentChoices=new[]{"mixed","mixed","mixed"};
             if(Save.Settings.opponentRoster==null || Save.Settings.opponentRoster.Length!=3) Save.Settings.opponentRoster=new[]{"tourer","moto","atv"};
             Race.opponentRoster=(string[])Save.Settings.opponentRoster.Clone();
-            for(int i=0;i<3;i++) Race.opponentRoster[i]=VehicleProfile.Find(Race.opponentRoster[i]).Id;
+            for(int i=0;i<3;i++) Race.opponentRoster[i]=Race.EligibleVehicle(Race.opponentRoster[i]);
         }
         public void SetColor(int color)
         {
@@ -166,7 +166,7 @@ namespace Racer
         public void CycleOpponent(int slot)
         {
             if(State!=Stage.Roster || slot<0 || slot>=3) return;
-            var choices=new[]{"original","tourer","moto","atv","random","mixed"};
+            var choices=Race.Forest?new[]{"moto","atv","random","mixed"}:new[]{"original","tourer","moto","atv","random","mixed"};
             int i=System.Array.IndexOf(choices,Save.Settings.opponentChoices[slot]);
             Save.Settings.opponentChoices[slot]=choices[(i+1)%choices.Length]; ResolveRoster();
         }
@@ -178,14 +178,14 @@ namespace Racer
             for(int i=0;i<3;i++)
             {
                 string choice=Save.Settings.opponentChoices[i];
-                if(choice!="random" && choice!="mixed") { Race.opponentRoster[i]=VehicleProfile.Find(choice).Id; used.Add(Race.opponentRoster[i]); }
+                if(choice!="random" && choice!="mixed") { Race.opponentRoster[i]=Race.EligibleVehicle(choice); used.Add(Race.opponentRoster[i]); }
             }
             for(int i=0;i<3;i++)
             {
                 string choice=Save.Settings.opponentChoices[i]; if(choice!="random" && choice!="mixed") continue;
                 var candidates=new System.Collections.Generic.List<string>();
-                foreach(var p in VehicleProfile.All) if(choice=="random" || !used.Contains(p.Id)) candidates.Add(p.Id);
-                if(candidates.Count==0) foreach(var p in VehicleProfile.All) candidates.Add(p.Id);
+                foreach(var p in Race.EligibleVehicles) if(choice=="random" || !used.Contains(p.Id)) candidates.Add(p.Id);
+                if(candidates.Count==0) foreach(var p in Race.EligibleVehicles) candidates.Add(p.Id);
                 Race.opponentRoster[i]=candidates[Random.Range(0,candidates.Count)]; used.Add(Race.opponentRoster[i]);
             }
             Save.Settings.opponentRoster=(string[])Race.opponentRoster.Clone(); Save.SaveSettings(); SelectRecords(Race.Category); Click();
@@ -193,6 +193,7 @@ namespace Racer
         public void SelectVehicle(string id)
         {
             if(State!=Stage.Garage) return;
+            id=Race.EligibleVehicle(id);
             Race.vehicle.GetComponent<VehicleConfiguration>().Apply(id);
             Save.Settings.vehicleId=VehicleProfile.Find(id).Id; Save.SaveSettings(); SelectRecords(Race.Category); Click();
             Race.vehicle.GetComponent<VehicleConfiguration>().SetBodyColor(SelectedColor); menus.Show();
@@ -287,3 +288,4 @@ namespace Racer
         }
     }
 }
+

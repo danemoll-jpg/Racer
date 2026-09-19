@@ -1,0 +1,2 @@
+moto 340: initial=32 minLaunch=28.31 takeoff=30.19 landing=27.96 airtime=4.30 up=1.00 completed=True
+atv 340: initial=32 minLaunch=27.02 takeoff=29.50 landing=27.10 airtime=3.84 up=0.97 completed=True

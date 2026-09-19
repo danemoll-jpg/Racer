@@ -11,6 +11,10 @@ namespace Racer
         [Min(1)]
         public int laps = 3;
         public RaceRoad road;
+        public RaceRoad ambientRoad;
+        public bool Forest => courseId=="lake-v2-forest";
+        public VehicleProfile[] EligibleVehicles => Forest ? VehicleProfile.All.Where(p=>p.Small).ToArray() : VehicleProfile.All;
+        public string EligibleVehicle(string id)=>Forest&&!VehicleProfile.Find(id).Small?"moto":VehicleProfile.Find(id).Id;
         public string courseId="street-v8-landings";
         public string courseName="Street Loop";
         public const double OrdinaryMissPenalty = 5;
@@ -92,6 +96,12 @@ namespace Racer
 
         public void RestartRace()
         {
+            if(Forest)
+            {
+                var configuration=vehicle.GetComponent<VehicleConfiguration>();
+                if(!configuration.Profile.Small)configuration.Apply(EligibleVehicle(configuration.profileId));
+                for(int i=0;i<opponentRoster.Length;i++)opponentRoster[i]=EligibleVehicle(opponentRoster[i]);
+            }
             if (Flow)
                 Flow.PrepareRestart();
             foreach (var d in Drivers)
@@ -202,8 +212,9 @@ namespace Racer
                 }
 
                 int h=n-localPopulation;
-                float station=driver.HighwayTraffic?3800+(h/4)*175+(h%4)*22:spawn+200+n*road.Length/Mathf.Max(1,localPopulation);
-                driver.Place(racing ? spawn + 8 + n * 7 : station, racing ? (n % 2 == 0 ? 2.2f : -2.2f) : road.TrafficLane(station,driver.Direction,n%4>=2));
+                var driveRoad=!racing&&ambientRoad?ambientRoad:road;
+                float station=driver.HighwayTraffic?3800+(h/4)*175+(h%4)*22:(!racing&&ambientRoad?driveRoad.Project(vehicle.transform.position,out _):spawn)+200+n*driveRoad.Length/Mathf.Max(1,localPopulation);
+                driver.Place(racing ? spawn + 8 + n * 7 : station, racing ? (n % 2 == 0 ? 2.2f : -2.2f) : driveRoad.TrafficLane(station,driver.Direction,n%4>=2));
             }
         }
 

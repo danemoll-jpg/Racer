@@ -1,0 +1,6 @@
+moto Echo Cave attempt=0 road=False glassBroken=0/2 smashEvents=0 buzzes=0
+moto Echo Cave attempt=1 road=False glassBroken=0/2 smashEvents=0 buzzes=0
+moto Echo Cave attempt=2 road=False glassBroken=0/2 smashEvents=0 buzzes=0
+moto Echo Cave attempt=3 road=False glassBroken=0/2 smashEvents=0 buzzes=0
+moto Echo Cave attempt=0 road=True glassBroken=0/2 smashEvents=0 buzzes=0
+moto Echo Cave attempt=1 road=True glassBroken=0/2 smashEvents=0 buzzes=0

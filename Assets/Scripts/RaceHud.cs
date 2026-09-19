@@ -12,7 +12,7 @@ namespace Racer
         {
             var panel=(RectTransform)display.transform.parent;
             panel.anchorMin=panel.anchorMax=panel.pivot=new Vector2(0,1);
-            panel.anchoredPosition=new(18,-18); panel.sizeDelta=new(300,108);
+            panel.anchoredPosition=new(18,-18); panel.sizeDelta=new(300,race.Forest?132:108);
             display.fontSize=21; display.alignment=TextAnchor.UpperLeft;
             display.rectTransform.offsetMin=new(12,8); display.rectTransform.offsetMax=new(-10,-8);
             speedPanel=new GameObject("Speedometer",typeof(RectTransform),typeof(UnityEngine.UI.Image));
@@ -28,7 +28,7 @@ namespace Racer
         public string BuildText()
         {
             var p = race.Progress;
-            return $"LAP {Mathf.Min(p.CompletedLaps+1,p.TargetLaps)}/{p.TargetLaps}    {(race.opponents?$"POS {race.PlayerPosition}/{race.Racers.Count}":"SOLO 1/1")}\n"
+            return (race.Forest?"FOREST LOOP\n":"")+$"LAP {Mathf.Min(p.CompletedLaps+1,p.TargetLaps)}/{p.TargetLaps}    {(race.opponents?$"POS {race.PlayerPosition}/{race.Racers.Count}":"SOLO 1/1")}\n"
                 +$"Lap    {FormatTime(p.Finished?p.LastLap-p.CurrentLapPenalty:p.LapTime(race.Clock))}\nRace  {FormatTime(p.RaceTime(race.Clock))}";
         }
         void LateUpdate()

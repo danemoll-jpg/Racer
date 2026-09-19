@@ -1,0 +1,1 @@
+Main-route false entries: 0; cave entry samples recognized: 30; inset 65; margin 2

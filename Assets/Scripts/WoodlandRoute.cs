@@ -10,6 +10,7 @@ namespace Racer
         public float entryRoad, exitRoad, halfWidth=5, recommendedSpeed=32;
         public int[] bypassedGates;
         public bool aiValidated;
+        public float entryInset, entryMargin=7;
         float[] lengths;
         public float Length { get { Initialize(); return lengths[^1]; } }
         public void Initialize()
@@ -39,12 +40,12 @@ namespace Racer
         }
         public bool Enter(Vector3 from,Vector3 to,Vector3 heading)
         {
-            At(0,out var f); f.y=0; f.Normalize();
+            var entrance=At(entryInset,out var f); f.y=0; f.Normalize();
             if(Vector3.Distance(from,to)>10 || Vector3.Dot(to-from,f)<=.001f) return false;
-            float a=Vector3.Dot(from-points[0],f),b=Vector3.Dot(to-points[0],f);
+            float a=Vector3.Dot(from-entrance,f),b=Vector3.Dot(to-entrance,f);
             // Bounded entrance apron catches late/shoulder entries as well as plane crossings.
             float s=Project(to,out float lateral);
-            if(b<0 || s>30 || lateral>halfWidth+7) return false;
+            if(b<0 || s<entryInset || s>entryInset+30 || lateral>halfWidth+entryMargin) return false;
             var support=At(s,out _);
             return to.y>support.y-3 && to.y<support.y+12;
         }

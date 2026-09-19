@@ -5,12 +5,13 @@ namespace Racer
     public sealed class RaceRoad : MonoBehaviour
     {
         public Vector3[] points;
+        public bool forestTrail;
         public float bypassStart, bypassEnd;
         public bool InBypass(float s) => Relative(s, bypassStart) < Relative(bypassEnd, bypassStart);
         // The northern commercial corridor, with 70 m merge zones at both ends.
         public float HighwayBlend(float s) => Mathf.SmoothStep(0,1,Mathf.InverseLerp(3720,3790,s))*
             (1-Mathf.SmoothStep(0,1,Mathf.InverseLerp(4560,4630,s)));
-        public float HalfWidth(float s) => Mathf.Lerp(4.5f,8.2f,HighwayBlend(s));
+        public float HalfWidth(float s) => forestTrail?(s<110?6:Mathf.Repeat(s,260)<42?5:3.6f):Mathf.Lerp(4.5f,8.2f,HighwayBlend(s));
         public float TrafficLane(float s,int direction,bool inner=false) => direction*Mathf.Lerp(2.6f,inner?2.05f:6.15f,HighwayBlend(s));
         float[] distance;
         public float Length { get; private set; }
