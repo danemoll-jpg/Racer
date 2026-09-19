@@ -1,0 +1,44 @@
+PASS Radio actually playing at normal saved-default volumes
+PASS All 39 historical faces plus Forest warning, no extra labels
+PASS Every world text has a physical sign marker; no floating labels
+PASS Physical vehicle trigger breaks Breakable sign - Hwy 92 South Cherokee Lane
+PASS Lettering stays on moving panel Breakable sign - Hwy 92 South Cherokee Lane
+PASS Debris lettering hides Breakable sign - Hwy 92 South Cherokee Lane
+PASS Panel and lettering restore together Breakable sign - Hwy 92 South Cherokee Lane
+PASS Physical vehicle trigger breaks Breakable sign - South Cherokee Lane Jamerson Rd
+PASS Lettering stays on moving panel Breakable sign - South Cherokee Lane Jamerson Rd
+PASS Debris lettering hides Breakable sign - South Cherokee Lane Jamerson Rd
+PASS Panel and lettering restore together Breakable sign - South Cherokee Lane Jamerson Rd
+PASS Physical vehicle trigger breaks Breakable sign - Hwy 92
+PASS Lettering stays on moving panel Breakable sign - Hwy 92
+PASS Debris lettering hides Breakable sign - Hwy 92
+PASS Panel and lettering restore together Breakable sign - Hwy 92
+PASS Physical vehicle trigger breaks Breakable sign - Pine Ridge  > 144 km/h
+PASS Lettering stays on moving panel Breakable sign - Pine Ridge  > 144 km/h
+PASS Debris lettering hides Breakable sign - Pine Ridge  > 144 km/h
+PASS Panel and lettering restore together Breakable sign - Pine Ridge  > 144 km/h
+PASS Physical vehicle trigger breaks Breakable sign - Creek Leap  > 122 km/h
+PASS Lettering stays on moving panel Breakable sign - Creek Leap  > 122 km/h
+PASS Debris lettering hides Breakable sign - Creek Leap  > 122 km/h
+PASS Panel and lettering restore together Breakable sign - Creek Leap  > 122 km/h
+PASS Physical vehicle trigger breaks Breakable sign - Fox Gully  > 108 km/h
+PASS Lettering stays on moving panel Breakable sign - Fox Gully  > 108 km/h
+PASS Debris lettering hides Breakable sign - Fox Gully  > 108 km/h
+PASS Panel and lettering restore together Breakable sign - Fox Gully  > 108 km/h
+PASS Physical vehicle trigger breaks Breakable - Jump approach sign
+PASS Lettering stays on moving panel Breakable - Jump approach sign
+PASS Debris lettering hides Breakable - Jump approach sign
+PASS Panel and lettering restore together Breakable - Jump approach sign
+PASS Physical vehicle trigger breaks Breakable - Shortcut direction sign
+PASS Lettering stays on moving panel Breakable - Shortcut direction sign
+PASS Debris lettering hides Breakable - Shortcut direction sign
+PASS Panel and lettering restore together Breakable - Shortcut direction sign
+PASS Physical vehicle trigger breaks Breakable - Shortcut direction sign
+PASS Lettering stays on moving panel Breakable - Shortcut direction sign
+PASS Debris lettering hides Breakable - Shortcut direction sign
+PASS Panel and lettering restore together Breakable - Shortcut direction sign
+PASS Physical vehicle trigger breaks Breakable sign - Jamerson Rd
+PASS Lettering stays on moving panel Breakable sign - Jamerson Rd
+PASS Debris lettering hides Breakable sign - Jamerson Rd
+PASS Panel and lettering restore together Breakable sign - Jamerson Rd
+PASS Race restart retains all mounted lettering

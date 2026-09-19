@@ -1,0 +1,42 @@
+FAIL Radio actually playing at normal saved-default volumes
+PASS Bird, squirrel and frog habitats present
+PASS Wildlife pool has no vehicle colliders
+PASS Population capped seed=1
+PASS Population capped seed=2
+PASS Population capped seed=3
+PASS Population capped seed=4
+PASS Population capped seed=5
+PASS Population capped seed=6
+PASS Population capped seed=7
+PASS Population capped seed=8
+PASS Population capped seed=9
+PASS Population capped seed=10
+PASS Population capped seed=11
+PASS Population capped seed=12
+PASS Population capped seed=13
+PASS Population capped seed=14
+PASS Population capped seed=15
+PASS Population capped seed=16
+PASS Population capped seed=17
+PASS Population capped seed=18
+PASS Population capped seed=19
+PASS Population capped seed=20
+PASS Population capped seed=21
+PASS Population capped seed=22
+PASS Population capped seed=23
+PASS Population capped seed=24
+PASS Population capped seed=25
+PASS Population capped seed=26
+PASS Population capped seed=27
+PASS Population capped seed=28
+PASS Population capped seed=29
+PASS Population capped seed=30
+PASS Bird proximity movement/flee
+PASS Bird reproducible visible fixture
+PASS Squirrel proximity movement/flee
+PASS Squirrel reproducible visible fixture
+PASS Frog proximity movement/flee
+PASS Frog reproducible visible fixture
+PASS Local recovery retains wildlife selection
+PASS Pause retains selection
+PASS Restart keeps one pool

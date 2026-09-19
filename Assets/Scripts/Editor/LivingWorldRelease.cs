@@ -18,9 +18,9 @@ namespace Racer.Editor
             foreach(var scene in new[]{StreetLoopBuilder.ScenePath,LakeCourseBuild.ScenePath})
             {
                 EditorSceneManager.OpenScene(scene);var race=Object.FindAnyObjectByType<RaceDirector>();bool forest=race.Forest;race.courseId=forest?"lake-v3-shallows":"street-v9-life";
-                // Mounted storefront lettering stays. All free-standing route/development/gate text goes.
+                // Preserve mounted and unknown text; remove only known unmounted authoring labels.
                 int removed=0;foreach(var t in Object.FindObjectsByType<TextMesh>(FindObjectsInactive.Include).ToArray())
-                {if(t.name=="Fictional storefront identity")continue;Object.DestroyImmediate(t.gameObject);removed++;}
+                {if(!SceneryText.IsFloating(t))continue;Object.DestroyImmediate(t.gameObject);removed++;}
                 foreach(var canvas in Object.FindObjectsByType<Canvas>())if(canvas.renderMode==RenderMode.WorldSpace)log.Add("World canvas requires review: "+canvas.name);
                 var waters=Object.FindObjectsByType<MeshRenderer>().Where(r=>r.name=="Friend's lake"||r.name=="Friend's lake - visible shoreline"||r.name=="J1 flowing creek"||r.name=="Creek surface").ToArray();
                 foreach(var renderer in waters)

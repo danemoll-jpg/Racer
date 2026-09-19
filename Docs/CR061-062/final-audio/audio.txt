@@ -1,0 +1,6 @@
+Listener enabled=True; listeners=1; sampleRate=48000; master=0.8; vehicle=0.75; music=0.6; ambience=1; radio=True
+Bird clip=bird-1 pitch=0.9771628 distance=17.45338 samples=268288, peak=0.461573, rms=0.057205, clipped=0
+Squirrel clip=squirrel-1 pitch=1.018917 distance=13.16055 samples=268288, peak=0.496807, rms=0.058069, clipped=0
+Frog clip=frog-2 pitch=0.9738185 distance=58.76052 samples=270336, peak=0.150559, rms=0.033327, clipped=0
+Bats samples=307200, peak=0.473742, rms=0.076310, clipped=0
+Muted samples=94208, peak=0.000000, rms=0.000000, clipped=0

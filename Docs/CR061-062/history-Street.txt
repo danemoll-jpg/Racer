@@ -1,0 +1,79 @@
+MOUNTED Remembered houses and approximate buildings/CR019 S01 business/Phase 6 architecture/Fictional storefront identity | CORNER MARKET
+MOUNTED Remembered houses and approximate buildings/CR019 N01 business/Phase 6 architecture/Fictional storefront identity | CORNER MARKET
+MOUNTED Remembered houses and approximate buildings/CR019 S02 business/Phase 6 architecture/Fictional storefront identity | HILLTOP DINER
+MOUNTED Remembered houses and approximate buildings/CR019 N02 business/Phase 6 architecture/Fictional storefront identity | HILLTOP DINER
+MOUNTED Remembered houses and approximate buildings/CR019 S03 business/Phase 6 architecture/Fictional storefront identity | AUTO SERVICE
+MOUNTED Remembered houses and approximate buildings/CR019 N03 business/Phase 6 architecture/Fictional storefront identity | AUTO SERVICE
+MOUNTED Remembered houses and approximate buildings/CR019 S04 business/Phase 6 architecture/Fictional storefront identity | GENERAL STORE
+MOUNTED Remembered houses and approximate buildings/CR019 N04 business/Phase 6 architecture/Fictional storefront identity | GENERAL STORE
+MOUNTED Remembered houses and approximate buildings/CR019 S05 business/Phase 6 architecture/Fictional storefront identity | CORNER MARKET
+MOUNTED Remembered houses and approximate buildings/CR019 N05 business/Phase 6 architecture/Fictional storefront identity | CORNER MARKET
+MOUNTED Remembered houses and approximate buildings/CR019 S06 business/Phase 6 architecture/Fictional storefront identity | HILLTOP DINER
+MOUNTED Remembered houses and approximate buildings/CR019 N06 business/Phase 6 architecture/Fictional storefront identity | HILLTOP DINER
+MOUNTED Remembered houses and approximate buildings/CR019 S07 business/Phase 6 architecture/Fictional storefront identity | AUTO SERVICE
+MOUNTED Remembered houses and approximate buildings/CR019 N07 business/Phase 6 architecture/Fictional storefront identity | AUTO SERVICE
+MOUNTED Remembered houses and approximate buildings/CR019 S08 business/Phase 6 architecture/Fictional storefront identity | GENERAL STORE
+MOUNTED Remembered houses and approximate buildings/CR019 N08 business/Phase 6 architecture/Fictional storefront identity | GENERAL STORE
+MOUNTED Remembered houses and approximate buildings/CR019 S09 business/Phase 6 architecture/Fictional storefront identity | CORNER MARKET
+MOUNTED Remembered houses and approximate buildings/CR019 N09 business/Phase 6 architecture/Fictional storefront identity | CORNER MARKET
+MOUNTED Remembered houses and approximate buildings/CR019 S10 business/Phase 6 architecture/Fictional storefront identity | HILLTOP DINER
+MOUNTED Remembered houses and approximate buildings/CR019 N10 business/Phase 6 architecture/Fictional storefront identity | HILLTOP DINER
+MOUNTED Remembered houses and approximate buildings/CR019 S11 business/Phase 6 architecture/Fictional storefront identity | AUTO SERVICE
+MOUNTED Remembered houses and approximate buildings/CR019 N11 business/Phase 6 architecture/Fictional storefront identity | AUTO SERVICE
+UNMOUNTED Phase 3 - Race Systems/START FINISH/Gate label | START FINISH  >
+UNMOUNTED Phase 3 - Race Systems/START FINISH/Direction arrow | ^
+UNMOUNTED Phase 3 - Race Systems/CP 01/Gate label | CP 01  >
+UNMOUNTED Phase 3 - Race Systems/CP 01/Direction arrow | ^
+UNMOUNTED Phase 3 - Race Systems/CP 02/Gate label | CP 02  >
+UNMOUNTED Phase 3 - Race Systems/CP 02/Direction arrow | ^
+UNMOUNTED Phase 3 - Race Systems/CP 03/Gate label | CP 03  >
+UNMOUNTED Phase 3 - Race Systems/CP 03/Direction arrow | ^
+UNMOUNTED Phase 3 - Race Systems/CP 04/Gate label | CP 04  >
+UNMOUNTED Phase 3 - Race Systems/CP 04/Direction arrow | ^
+UNMOUNTED Phase 3 - Race Systems/CP 05/Gate label | CP 05  >
+UNMOUNTED Phase 3 - Race Systems/CP 05/Direction arrow | ^
+UNMOUNTED Phase 3 - Race Systems/CP 06/Gate label | CP 06  >
+UNMOUNTED Phase 3 - Race Systems/CP 06/Direction arrow | ^
+UNMOUNTED Phase 3 - Race Systems/CP 07/Gate label | CP 07  >
+UNMOUNTED Phase 3 - Race Systems/CP 07/Direction arrow | ^
+UNMOUNTED Phase 3 - Race Systems/CP 08/Gate label | CP 08  >
+UNMOUNTED Phase 3 - Race Systems/CP 08/Direction arrow | ^
+UNMOUNTED Phase 3 - Race Systems/CP 09/Gate label | CP 09  >
+UNMOUNTED Phase 3 - Race Systems/CP 09/Direction arrow | ^
+UNMOUNTED Phase 3 - Race Systems/CP 10/Gate label | CP 10  >
+UNMOUNTED Phase 3 - Race Systems/CP 10/Direction arrow | ^
+UNMOUNTED Phase 3 - Race Systems/CP 11/Gate label | CP 11  >
+UNMOUNTED Phase 3 - Race Systems/CP 11/Direction arrow | ^
+UNMOUNTED Phase 3 - Race Systems/CP 12/Gate label | CP 12  >
+UNMOUNTED Phase 3 - Race Systems/CP 12/Direction arrow | ^
+UNMOUNTED Phase 3 - Race Systems/CP 13/Gate label | CP 13  >
+UNMOUNTED Phase 3 - Race Systems/CP 13/Direction arrow | ^
+UNMOUNTED Phase 3 - Race Systems/CP 14/Gate label | CP 14  >
+UNMOUNTED Phase 3 - Race Systems/CP 14/Direction arrow | ^
+UNMOUNTED Phase 3 - Race Systems/CP 15/Gate label | CP 15  >
+UNMOUNTED Phase 3 - Race Systems/CP 15/Direction arrow | ^
+UNMOUNTED Phase 3 - Race Systems/CP 16/Gate label | CP 16  >
+UNMOUNTED Phase 3 - Race Systems/CP 16/Direction arrow | ^
+UNMOUNTED Phase 3 - Race Systems/CP 17/Gate label | CP 17  >
+UNMOUNTED Phase 3 - Race Systems/CP 17/Direction arrow | ^
+MOUNTED Phase 4 - Connector Jump/Breakable - Jump approach sign/Recommended speed | RAISED PAVEMENT WORKS|JUMP 125 - 155 km/h|OPEN LANE ON RIGHT
+MOUNTED Phase 5 - Southwest woodland shortcut/Breakable - Shortcut direction sign/Shortcut advice | WOODLAND CUT  >|NARROW DIRT PATH|80 - 95 km/h
+MOUNTED Phase 5 - Southwest woodland shortcut/Breakable - Shortcut direction sign/Shortcut advice | REJOIN ROAD|STRAIGHTEN UP
+MOUNTED CR034-039 Woodland routes/Breakable sign - Hwy 92 South Cherokee Lane/Road lettering | Hwy 92|South Cherokee Lane
+MOUNTED CR034-039 Woodland routes/Breakable sign - Hwy 92 South Cherokee Lane/Road lettering | Hwy 92|South Cherokee Lane
+MOUNTED CR034-039 Woodland routes/Breakable sign - South Cherokee Lane Jamerson Rd/Road lettering | South Cherokee Lane|Jamerson Rd
+MOUNTED CR034-039 Woodland routes/Breakable sign - South Cherokee Lane Jamerson Rd/Road lettering | South Cherokee Lane|Jamerson Rd
+MOUNTED CR034-039 Woodland routes/Breakable sign - Hwy 92/Road lettering | Hwy 92
+MOUNTED CR034-039 Woodland routes/Breakable sign - Hwy 92/Road lettering | Hwy 92
+MOUNTED CR034-039 Woodland routes/Breakable sign - Jamerson Rd/Road lettering | Jamerson Rd
+MOUNTED CR034-039 Woodland routes/Breakable sign - Jamerson Rd/Road lettering | Jamerson Rd
+MOUNTED CR034-039 Woodland routes/Breakable sign - Creek Leap  > 122 km/h/Road lettering | Creek Leap  >|122 km/h
+MOUNTED CR034-039 Woodland routes/Breakable sign - Creek Leap  > 122 km/h/Road lettering | Creek Leap  >|122 km/h
+MOUNTED CR034-039 Woodland routes/Breakable sign - Fox Gully  > 108 km/h/Road lettering | Fox Gully  >|108 km/h
+MOUNTED CR034-039 Woodland routes/Breakable sign - Fox Gully  > 108 km/h/Road lettering | Fox Gully  >|108 km/h
+MOUNTED CR034-039 Woodland routes/Breakable sign - Pine Ridge  > 144 km/h/Road lettering | Pine Ridge  >|144 km/h
+MOUNTED CR034-039 Woodland routes/Breakable sign - Pine Ridge  > 144 km/h/Road lettering | Pine Ridge  >|144 km/h
+UNMOUNTED Decorative road continuations/Hwy 92 east/Race boundary sign | RACE ROUTE CLOSED|FOLLOW CIRCUIT ARROWS
+UNMOUNTED Decorative road continuations/Hwy 92 west/Race boundary sign | RACE ROUTE CLOSED|FOLLOW CIRCUIT ARROWS
+UNMOUNTED Decorative road continuations/South Cherokee Lane south/Race boundary sign | RACE ROUTE CLOSED|FOLLOW CIRCUIT ARROWS
+UNMOUNTED Decorative road continuations/Jamerson Rd west/Race boundary sign | RACE ROUTE CLOSED|FOLLOW CIRCUIT ARROWS

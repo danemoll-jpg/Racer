@@ -1,0 +1,1486 @@
+{
+    "letters": [
+        {
+            "parent": "Remembered houses and approximate buildings/CR019 S01 business/Phase 6 architecture",
+            "name": "Fictional storefront identity",
+            "text": "CORNER MARKET",
+            "material": "Assets/Environment/Phase8/Depth tested world lettering 0.mat",
+            "position": {
+                "x": 0.0,
+                "y": 4.449999809265137,
+                "z": 8.989999771118164
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "parentWorld": {
+                "x": -539.8837280273438,
+                "y": 7.817589282989502,
+                "z": 509.4783020019531
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 1.0,
+                "z": 0.0,
+                "w": -4.371138828673793e-8
+            },
+            "size": 0.20000000298023224,
+            "line": 1.0,
+            "fontSize": 64,
+            "anchor": 4,
+            "alignment": 1,
+            "color": {
+                "r": 0.9803921580314636,
+                "g": 0.9411764740943909,
+                "b": 0.8117647171020508,
+                "a": 1.0
+            }
+        },
+        {
+            "parent": "Remembered houses and approximate buildings/CR019 N01 business/Phase 6 architecture",
+            "name": "Fictional storefront identity",
+            "text": "CORNER MARKET",
+            "material": "Assets/Environment/Phase8/Depth tested world lettering 0.mat",
+            "position": {
+                "x": 0.0,
+                "y": 4.449999809265137,
+                "z": 8.989999771118164
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "parentWorld": {
+                "x": -428.90673828125,
+                "y": 8.11851978302002,
+                "z": 565.3511962890625
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 1.0,
+                "z": 0.0,
+                "w": -4.371138828673793e-8
+            },
+            "size": 0.20000000298023224,
+            "line": 1.0,
+            "fontSize": 64,
+            "anchor": 4,
+            "alignment": 1,
+            "color": {
+                "r": 0.9803921580314636,
+                "g": 0.9411764740943909,
+                "b": 0.8117647171020508,
+                "a": 1.0
+            }
+        },
+        {
+            "parent": "Remembered houses and approximate buildings/CR019 S02 business/Phase 6 architecture",
+            "name": "Fictional storefront identity",
+            "text": "HILLTOP DINER",
+            "material": "Assets/Environment/Phase8/Depth tested world lettering 0.mat",
+            "position": {
+                "x": 0.0,
+                "y": 4.449999809265137,
+                "z": 8.989999771118164
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "parentWorld": {
+                "x": -392.0965576171875,
+                "y": 8.443097114562988,
+                "z": 504.9288330078125
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 1.0,
+                "z": 0.0,
+                "w": -4.371138828673793e-8
+            },
+            "size": 0.20000000298023224,
+            "line": 1.0,
+            "fontSize": 64,
+            "anchor": 4,
+            "alignment": 1,
+            "color": {
+                "r": 0.9803921580314636,
+                "g": 0.9411764740943909,
+                "b": 0.8117647171020508,
+                "a": 1.0
+            }
+        },
+        {
+            "parent": "Remembered houses and approximate buildings/CR019 N02 business/Phase 6 architecture",
+            "name": "Fictional storefront identity",
+            "text": "HILLTOP DINER",
+            "material": "Assets/Environment/Phase8/Depth tested world lettering 0.mat",
+            "position": {
+                "x": 0.0,
+                "y": 4.449999809265137,
+                "z": 8.989999771118164
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "parentWorld": {
+                "x": -509.87457275390625,
+                "y": 7.723086833953857,
+                "z": 571.6482543945313
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 1.0,
+                "z": 0.0,
+                "w": -4.371138828673793e-8
+            },
+            "size": 0.20000000298023224,
+            "line": 1.0,
+            "fontSize": 64,
+            "anchor": 4,
+            "alignment": 1,
+            "color": {
+                "r": 0.9803921580314636,
+                "g": 0.9411764740943909,
+                "b": 0.8117647171020508,
+                "a": 1.0
+            }
+        },
+        {
+            "parent": "Remembered houses and approximate buildings/CR019 S03 business/Phase 6 architecture",
+            "name": "Fictional storefront identity",
+            "text": "AUTO SERVICE",
+            "material": "Assets/Environment/Phase8/Depth tested world lettering 0.mat",
+            "position": {
+                "x": 0.0,
+                "y": 4.449999809265137,
+                "z": 8.989999771118164
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "parentWorld": {
+                "x": -492.584228515625,
+                "y": 8.082293510437012,
+                "z": 504.5408630371094
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 1.0,
+                "z": 0.0,
+                "w": -4.371138828673793e-8
+            },
+            "size": 0.20000000298023224,
+            "line": 1.0,
+            "fontSize": 64,
+            "anchor": 4,
+            "alignment": 1,
+            "color": {
+                "r": 0.9803921580314636,
+                "g": 0.9411764740943909,
+                "b": 0.8117647171020508,
+                "a": 1.0
+            }
+        },
+        {
+            "parent": "Remembered houses and approximate buildings/CR019 N03 business/Phase 6 architecture",
+            "name": "Fictional storefront identity",
+            "text": "AUTO SERVICE",
+            "material": "Assets/Environment/Phase8/Depth tested world lettering 0.mat",
+            "position": {
+                "x": 0.0,
+                "y": 4.449999809265137,
+                "z": 8.989999771118164
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "parentWorld": {
+                "x": -269.42303466796875,
+                "y": 9.176770210266113,
+                "z": 561.0980224609375
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 1.0,
+                "z": 0.0,
+                "w": -4.371138828673793e-8
+            },
+            "size": 0.20000000298023224,
+            "line": 1.0,
+            "fontSize": 64,
+            "anchor": 4,
+            "alignment": 1,
+            "color": {
+                "r": 0.9803921580314636,
+                "g": 0.9411764740943909,
+                "b": 0.8117647171020508,
+                "a": 1.0
+            }
+        },
+        {
+            "parent": "Remembered houses and approximate buildings/CR019 S04 business/Phase 6 architecture",
+            "name": "Fictional storefront identity",
+            "text": "GENERAL STORE",
+            "material": "Assets/Environment/Phase8/Depth tested world lettering 0.mat",
+            "position": {
+                "x": 0.0,
+                "y": 4.449999809265137,
+                "z": 8.989999771118164
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "parentWorld": {
+                "x": -283.7779541015625,
+                "y": 9.085003852844238,
+                "z": 496.37994384765625
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 1.0,
+                "z": 0.0,
+                "w": -4.371138828673793e-8
+            },
+            "size": 0.20000000298023224,
+            "line": 1.0,
+            "fontSize": 64,
+            "anchor": 4,
+            "alignment": 1,
+            "color": {
+                "r": 0.9803921580314636,
+                "g": 0.9411764740943909,
+                "b": 0.8117647171020508,
+                "a": 1.0
+            }
+        },
+        {
+            "parent": "Remembered houses and approximate buildings/CR019 N04 business/Phase 6 architecture",
+            "name": "Fictional storefront identity",
+            "text": "GENERAL STORE",
+            "material": "Assets/Environment/Phase8/Depth tested world lettering 0.mat",
+            "position": {
+                "x": 0.0,
+                "y": 4.449999809265137,
+                "z": 8.989999771118164
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "parentWorld": {
+                "x": -373.72991943359375,
+                "y": 8.476223945617676,
+                "z": 567.2830200195313
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 1.0,
+                "z": 0.0,
+                "w": -4.371138828673793e-8
+            },
+            "size": 0.20000000298023224,
+            "line": 1.0,
+            "fontSize": 64,
+            "anchor": 4,
+            "alignment": 1,
+            "color": {
+                "r": 0.9803921580314636,
+                "g": 0.9411764740943909,
+                "b": 0.8117647171020508,
+                "a": 1.0
+            }
+        },
+        {
+            "parent": "Remembered houses and approximate buildings/CR019 S05 business/Phase 6 architecture",
+            "name": "Fictional storefront identity",
+            "text": "CORNER MARKET",
+            "material": "Assets/Environment/Phase8/Depth tested world lettering 0.mat",
+            "position": {
+                "x": 0.0,
+                "y": 4.449999809265137,
+                "z": 8.989999771118164
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "parentWorld": {
+                "x": -333.0352783203125,
+                "y": 8.866337776184082,
+                "z": 500.7933654785156
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 1.0,
+                "z": 0.0,
+                "w": -4.371138828673793e-8
+            },
+            "size": 0.20000000298023224,
+            "line": 1.0,
+            "fontSize": 64,
+            "anchor": 4,
+            "alignment": 1,
+            "color": {
+                "r": 0.9803921580314636,
+                "g": 0.9411764740943909,
+                "b": 0.8117647171020508,
+                "a": 1.0
+            }
+        },
+        {
+            "parent": "Remembered houses and approximate buildings/CR019 N05 business/Phase 6 architecture",
+            "name": "Fictional storefront identity",
+            "text": "CORNER MARKET",
+            "material": "Assets/Environment/Phase8/Depth tested world lettering 0.mat",
+            "position": {
+                "x": 0.0,
+                "y": 4.449999809265137,
+                "z": 8.989999771118164
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "parentWorld": {
+                "x": -152.9462890625,
+                "y": 8.258435249328613,
+                "z": 561.110595703125
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 1.0,
+                "z": 0.0,
+                "w": -4.371138828673793e-8
+            },
+            "size": 0.20000000298023224,
+            "line": 1.0,
+            "fontSize": 64,
+            "anchor": 4,
+            "alignment": 1,
+            "color": {
+                "r": 0.9803921580314636,
+                "g": 0.9411764740943909,
+                "b": 0.8117647171020508,
+                "a": 1.0
+            }
+        },
+        {
+            "parent": "Remembered houses and approximate buildings/CR019 S06 business/Phase 6 architecture",
+            "name": "Fictional storefront identity",
+            "text": "HILLTOP DINER",
+            "material": "Assets/Environment/Phase8/Depth tested world lettering 0.mat",
+            "position": {
+                "x": 0.0,
+                "y": 4.449999809265137,
+                "z": 8.989999771118164
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "parentWorld": {
+                "x": -127.00503540039063,
+                "y": 8.124946594238281,
+                "z": 496.0911865234375
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 1.0,
+                "z": 0.0,
+                "w": -4.371138828673793e-8
+            },
+            "size": 0.20000000298023224,
+            "line": 1.0,
+            "fontSize": 64,
+            "anchor": 4,
+            "alignment": 1,
+            "color": {
+                "r": 0.9803921580314636,
+                "g": 0.9411764740943909,
+                "b": 0.8117647171020508,
+                "a": 1.0
+            }
+        },
+        {
+            "parent": "Remembered houses and approximate buildings/CR019 N06 business/Phase 6 architecture",
+            "name": "Fictional storefront identity",
+            "text": "HILLTOP DINER",
+            "material": "Assets/Environment/Phase8/Depth tested world lettering 0.mat",
+            "position": {
+                "x": 0.0,
+                "y": 4.449999809265137,
+                "z": 8.989999771118164
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "parentWorld": {
+                "x": -217.752197265625,
+                "y": 8.71445369720459,
+                "z": 558.413818359375
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 1.0,
+                "z": 0.0,
+                "w": -4.371138828673793e-8
+            },
+            "size": 0.20000000298023224,
+            "line": 1.0,
+            "fontSize": 64,
+            "anchor": 4,
+            "alignment": 1,
+            "color": {
+                "r": 0.9803921580314636,
+                "g": 0.9411764740943909,
+                "b": 0.8117647171020508,
+                "a": 1.0
+            }
+        },
+        {
+            "parent": "Remembered houses and approximate buildings/CR019 S07 business/Phase 6 architecture",
+            "name": "Fictional storefront identity",
+            "text": "AUTO SERVICE",
+            "material": "Assets/Environment/Phase8/Depth tested world lettering 0.mat",
+            "position": {
+                "x": 0.0,
+                "y": 4.449999809265137,
+                "z": 8.989999771118164
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "parentWorld": {
+                "x": -181.12359619140625,
+                "y": 8.586762428283691,
+                "z": 499.18658447265625
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 1.0,
+                "z": 0.0,
+                "w": -4.371138828673793e-8
+            },
+            "size": 0.20000000298023224,
+            "line": 1.0,
+            "fontSize": 64,
+            "anchor": 4,
+            "alignment": 1,
+            "color": {
+                "r": 0.9803921580314636,
+                "g": 0.9411764740943909,
+                "b": 0.8117647171020508,
+                "a": 1.0
+            }
+        },
+        {
+            "parent": "Remembered houses and approximate buildings/CR019 N07 business/Phase 6 architecture",
+            "name": "Fictional storefront identity",
+            "text": "AUTO SERVICE",
+            "material": "Assets/Environment/Phase8/Depth tested world lettering 0.mat",
+            "position": {
+                "x": 0.0,
+                "y": 4.449999809265137,
+                "z": 8.989999771118164
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "parentWorld": {
+                "x": 14.596206665039063,
+                "y": 7.832877159118652,
+                "z": 559.4605102539063
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 1.0,
+                "z": 0.0,
+                "w": -4.371138828673793e-8
+            },
+            "size": 0.20000000298023224,
+            "line": 1.0,
+            "fontSize": 64,
+            "anchor": 4,
+            "alignment": 1,
+            "color": {
+                "r": 0.9803921580314636,
+                "g": 0.9411764740943909,
+                "b": 0.8117647171020508,
+                "a": 1.0
+            }
+        },
+        {
+            "parent": "Remembered houses and approximate buildings/CR019 S08 business/Phase 6 architecture",
+            "name": "Fictional storefront identity",
+            "text": "GENERAL STORE",
+            "material": "Assets/Environment/Phase8/Depth tested world lettering 0.mat",
+            "position": {
+                "x": 0.0,
+                "y": 4.449999809265137,
+                "z": 8.989999771118164
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "parentWorld": {
+                "x": 50.92196273803711,
+                "y": 8.23868465423584,
+                "z": 501.31793212890625
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 1.0,
+                "z": 0.0,
+                "w": -4.371138828673793e-8
+            },
+            "size": 0.20000000298023224,
+            "line": 1.0,
+            "fontSize": 64,
+            "anchor": 4,
+            "alignment": 1,
+            "color": {
+                "r": 0.9803921580314636,
+                "g": 0.9411764740943909,
+                "b": 0.8117647171020508,
+                "a": 1.0
+            }
+        },
+        {
+            "parent": "Remembered houses and approximate buildings/CR019 N08 business/Phase 6 architecture",
+            "name": "Fictional storefront identity",
+            "text": "GENERAL STORE",
+            "material": "Assets/Environment/Phase8/Depth tested world lettering 0.mat",
+            "position": {
+                "x": 0.0,
+                "y": 4.449999809265137,
+                "z": 8.989999771118164
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "parentWorld": {
+                "x": -35.839176177978516,
+                "y": 7.749302387237549,
+                "z": 562.8644409179688
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 1.0,
+                "z": 0.0,
+                "w": -4.371138828673793e-8
+            },
+            "size": 0.20000000298023224,
+            "line": 1.0,
+            "fontSize": 64,
+            "anchor": 4,
+            "alignment": 1,
+            "color": {
+                "r": 0.9803921580314636,
+                "g": 0.9411764740943909,
+                "b": 0.8117647171020508,
+                "a": 1.0
+            }
+        },
+        {
+            "parent": "Remembered houses and approximate buildings/CR019 S09 business/Phase 6 architecture",
+            "name": "Fictional storefront identity",
+            "text": "CORNER MARKET",
+            "material": "Assets/Environment/Phase8/Depth tested world lettering 0.mat",
+            "position": {
+                "x": 0.0,
+                "y": 4.449999809265137,
+                "z": 8.989999771118164
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "parentWorld": {
+                "x": -70.12832641601563,
+                "y": 7.807948589324951,
+                "z": 500.0585632324219
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 1.0,
+                "z": 0.0,
+                "w": -4.371138828673793e-8
+            },
+            "size": 0.20000000298023224,
+            "line": 1.0,
+            "fontSize": 64,
+            "anchor": 4,
+            "alignment": 1,
+            "color": {
+                "r": 0.9803921580314636,
+                "g": 0.9411764740943909,
+                "b": 0.8117647171020508,
+                "a": 1.0
+            }
+        },
+        {
+            "parent": "Remembered houses and approximate buildings/CR019 N09 business/Phase 6 architecture",
+            "name": "Fictional storefront identity",
+            "text": "CORNER MARKET",
+            "material": "Assets/Environment/Phase8/Depth tested world lettering 0.mat",
+            "position": {
+                "x": 0.0,
+                "y": 4.449999809265137,
+                "z": 8.989999771118164
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "parentWorld": {
+                "x": 158.0009307861328,
+                "y": 8.871776580810547,
+                "z": 579.3485717773438
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 1.0,
+                "z": 0.0,
+                "w": -4.371138828673793e-8
+            },
+            "size": 0.20000000298023224,
+            "line": 1.0,
+            "fontSize": 64,
+            "anchor": 4,
+            "alignment": 1,
+            "color": {
+                "r": 0.9803921580314636,
+                "g": 0.9411764740943909,
+                "b": 0.8117647171020508,
+                "a": 1.0
+            }
+        },
+        {
+            "parent": "Remembered houses and approximate buildings/CR019 S10 business/Phase 6 architecture",
+            "name": "Fictional storefront identity",
+            "text": "HILLTOP DINER",
+            "material": "Assets/Environment/Phase8/Depth tested world lettering 0.mat",
+            "position": {
+                "x": 0.0,
+                "y": 4.449999809265137,
+                "z": 8.989999771118164
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "parentWorld": {
+                "x": 203.9781951904297,
+                "y": 8.70645523071289,
+                "z": 519.7754516601563
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 1.0,
+                "z": 0.0,
+                "w": -4.371138828673793e-8
+            },
+            "size": 0.20000000298023224,
+            "line": 1.0,
+            "fontSize": 64,
+            "anchor": 4,
+            "alignment": 1,
+            "color": {
+                "r": 0.9803921580314636,
+                "g": 0.9411764740943909,
+                "b": 0.8117647171020508,
+                "a": 1.0
+            }
+        },
+        {
+            "parent": "Remembered houses and approximate buildings/CR019 N10 business/Phase 6 architecture",
+            "name": "Fictional storefront identity",
+            "text": "HILLTOP DINER",
+            "material": "Assets/Environment/Phase8/Depth tested world lettering 0.mat",
+            "position": {
+                "x": 0.0,
+                "y": 4.449999809265137,
+                "z": 8.989999771118164
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "parentWorld": {
+                "x": 77.93238067626953,
+                "y": 8.911999702453613,
+                "z": 575.4083862304688
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 1.0,
+                "z": 0.0,
+                "w": -4.371138828673793e-8
+            },
+            "size": 0.20000000298023224,
+            "line": 1.0,
+            "fontSize": 64,
+            "anchor": 4,
+            "alignment": 1,
+            "color": {
+                "r": 0.9803921580314636,
+                "g": 0.9411764740943909,
+                "b": 0.8117647171020508,
+                "a": 1.0
+            }
+        },
+        {
+            "parent": "Remembered houses and approximate buildings/CR019 S11 business/Phase 6 architecture",
+            "name": "Fictional storefront identity",
+            "text": "AUTO SERVICE",
+            "material": "Assets/Environment/Phase8/Depth tested world lettering 0.mat",
+            "position": {
+                "x": 0.0,
+                "y": 4.449999809265137,
+                "z": 8.989999771118164
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "parentWorld": {
+                "x": 113.82312774658203,
+                "y": 8.909761428833008,
+                "z": 515.19775390625
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 1.0,
+                "z": 0.0,
+                "w": -4.371138828673793e-8
+            },
+            "size": 0.20000000298023224,
+            "line": 1.0,
+            "fontSize": 64,
+            "anchor": 4,
+            "alignment": 1,
+            "color": {
+                "r": 0.9803921580314636,
+                "g": 0.9411764740943909,
+                "b": 0.8117647171020508,
+                "a": 1.0
+            }
+        },
+        {
+            "parent": "Remembered houses and approximate buildings/CR019 N11 business/Phase 6 architecture",
+            "name": "Fictional storefront identity",
+            "text": "AUTO SERVICE",
+            "material": "Assets/Environment/Phase8/Depth tested world lettering 0.mat",
+            "position": {
+                "x": 0.0,
+                "y": 4.449999809265137,
+                "z": 8.989999771118164
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "parentWorld": {
+                "x": 226.29348754882813,
+                "y": 8.358057975769043,
+                "z": 591.8177490234375
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 1.0,
+                "z": 0.0,
+                "w": -4.371138828673793e-8
+            },
+            "size": 0.20000000298023224,
+            "line": 1.0,
+            "fontSize": 64,
+            "anchor": 4,
+            "alignment": 1,
+            "color": {
+                "r": 0.9803921580314636,
+                "g": 0.9411764740943909,
+                "b": 0.8117647171020508,
+                "a": 1.0
+            }
+        },
+        {
+            "parent": "Phase 4 - Connector Jump/Breakable - Jump approach sign",
+            "name": "Recommended speed",
+            "text": "RAISED PAVEMENT WORKS\nJUMP 125 - 155 km/h\nOPEN LANE ON RIGHT",
+            "material": "Assets/Environment/Phase8/Depth tested world lettering 0.mat",
+            "position": {
+                "x": 0.0024411887861788273,
+                "y": 3.221743583679199,
+                "z": -0.1499740332365036
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "parentWorld": {
+                "x": -634.5692749023438,
+                "y": 7.580523490905762,
+                "z": -146.13160705566406
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": -0.008249158039689064,
+                "z": 0.0,
+                "w": 0.9999659657478333
+            },
+            "size": 0.09000000357627869,
+            "line": 1.0,
+            "fontSize": 64,
+            "anchor": 4,
+            "alignment": 1,
+            "color": {
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
+                "a": 1.0
+            }
+        },
+        {
+            "parent": "Phase 5 - Southwest woodland shortcut/Breakable - Shortcut direction sign",
+            "name": "Shortcut advice",
+            "text": "WOODLAND CUT  >\nNARROW DIRT PATH\n80 - 95 km/h",
+            "material": "Assets/Environment/Phase8/Depth tested world lettering 0.mat",
+            "position": {
+                "x": 0.1199951171875,
+                "y": 3.0,
+                "z": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "parentWorld": {
+                "x": -532.0986328125,
+                "y": 6.553768157958984,
+                "z": -541.0719604492188
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": -0.7071068286895752,
+                "z": 0.0,
+                "w": 0.7071068286895752
+            },
+            "size": 0.10499999672174454,
+            "line": 1.0,
+            "fontSize": 64,
+            "anchor": 4,
+            "alignment": 1,
+            "color": {
+                "r": 0.0,
+                "g": 0.0,
+                "b": 0.0,
+                "a": 1.0
+            }
+        },
+        {
+            "parent": "Phase 5 - Southwest woodland shortcut/Breakable - Shortcut direction sign",
+            "name": "Shortcut advice",
+            "text": "REJOIN ROAD\nSTRAIGHTEN UP",
+            "material": "Assets/Environment/Phase8/Depth tested world lettering 0.mat",
+            "position": {
+                "x": 0.0,
+                "y": 3.000000476837158,
+                "z": -0.1199951171875
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "parentWorld": {
+                "x": -610.9844970703125,
+                "y": 6.2315497398376465,
+                "z": -468.53070068359375
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "size": 0.10499999672174454,
+            "line": 1.0,
+            "fontSize": 64,
+            "anchor": 4,
+            "alignment": 1,
+            "color": {
+                "r": 0.0,
+                "g": 0.0,
+                "b": 0.0,
+                "a": 1.0
+            }
+        },
+        {
+            "parent": "CR034-039 Woodland routes/Breakable sign - Hwy 92 South Cherokee Lane",
+            "name": "Road lettering",
+            "text": "Hwy 92\nSouth Cherokee Lane",
+            "material": "Assets/Track/Woodland/Lettering.mat",
+            "position": {
+                "x": 0.0,
+                "y": 2.5999999046325684,
+                "z": -0.07500000298023224
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "parentWorld": {
+                "x": 292.0664367675781,
+                "y": 7.567224979400635,
+                "z": 575.3328857421875
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "size": 0.10000000149011612,
+            "line": 1.0,
+            "fontSize": 64,
+            "anchor": 4,
+            "alignment": 1,
+            "color": {
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
+                "a": 1.0
+            }
+        },
+        {
+            "parent": "CR034-039 Woodland routes/Breakable sign - Hwy 92 South Cherokee Lane",
+            "name": "Road lettering",
+            "text": "Hwy 92\nSouth Cherokee Lane",
+            "material": "Assets/Track/Woodland/Lettering.mat",
+            "position": {
+                "x": 0.0,
+                "y": 2.5999999046325684,
+                "z": 0.07500000298023224
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "parentWorld": {
+                "x": 292.0664367675781,
+                "y": 7.567224979400635,
+                "z": 575.3328857421875
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 1.0,
+                "z": 0.0,
+                "w": -4.371138828673793e-8
+            },
+            "size": 0.10000000149011612,
+            "line": 1.0,
+            "fontSize": 64,
+            "anchor": 4,
+            "alignment": 1,
+            "color": {
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
+                "a": 1.0
+            }
+        },
+        {
+            "parent": "CR034-039 Woodland routes/Breakable sign - South Cherokee Lane Jamerson Rd",
+            "name": "Road lettering",
+            "text": "South Cherokee Lane\nJamerson Rd",
+            "material": "Assets/Track/Woodland/Lettering.mat",
+            "position": {
+                "x": 0.0,
+                "y": 2.5999999046325684,
+                "z": -0.07500000298023224
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "parentWorld": {
+                "x": 457.6206359863281,
+                "y": 25.14406967163086,
+                "z": -535.2249145507813
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "size": 0.10000000149011612,
+            "line": 1.0,
+            "fontSize": 64,
+            "anchor": 4,
+            "alignment": 1,
+            "color": {
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
+                "a": 1.0
+            }
+        },
+        {
+            "parent": "CR034-039 Woodland routes/Breakable sign - South Cherokee Lane Jamerson Rd",
+            "name": "Road lettering",
+            "text": "South Cherokee Lane\nJamerson Rd",
+            "material": "Assets/Track/Woodland/Lettering.mat",
+            "position": {
+                "x": 0.0,
+                "y": 2.5999999046325684,
+                "z": 0.07500000298023224
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "parentWorld": {
+                "x": 457.6206359863281,
+                "y": 25.14406967163086,
+                "z": -535.2249145507813
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 1.0,
+                "z": 0.0,
+                "w": -4.371138828673793e-8
+            },
+            "size": 0.10000000149011612,
+            "line": 1.0,
+            "fontSize": 64,
+            "anchor": 4,
+            "alignment": 1,
+            "color": {
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
+                "a": 1.0
+            }
+        },
+        {
+            "parent": "CR034-039 Woodland routes/Breakable sign - Hwy 92",
+            "name": "Road lettering",
+            "text": "Hwy 92",
+            "material": "Assets/Track/Woodland/Lettering.mat",
+            "position": {
+                "x": 0.0,
+                "y": 2.5999999046325684,
+                "z": -0.07500000298023224
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "parentWorld": {
+                "x": -626.6170654296875,
+                "y": 7.735675811767578,
+                "z": 492.5294189453125
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "size": 0.10000000149011612,
+            "line": 1.0,
+            "fontSize": 64,
+            "anchor": 4,
+            "alignment": 1,
+            "color": {
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
+                "a": 1.0
+            }
+        },
+        {
+            "parent": "CR034-039 Woodland routes/Breakable sign - Hwy 92",
+            "name": "Road lettering",
+            "text": "Hwy 92",
+            "material": "Assets/Track/Woodland/Lettering.mat",
+            "position": {
+                "x": 0.0,
+                "y": 2.5999999046325684,
+                "z": 0.07500000298023224
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "parentWorld": {
+                "x": -626.6170654296875,
+                "y": 7.735675811767578,
+                "z": 492.5294189453125
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 1.0,
+                "z": 0.0,
+                "w": -4.371138828673793e-8
+            },
+            "size": 0.10000000149011612,
+            "line": 1.0,
+            "fontSize": 64,
+            "anchor": 4,
+            "alignment": 1,
+            "color": {
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
+                "a": 1.0
+            }
+        },
+        {
+            "parent": "CR034-039 Woodland routes/Breakable sign - Jamerson Rd",
+            "name": "Road lettering",
+            "text": "Jamerson Rd",
+            "material": "Assets/Track/Woodland/Lettering.mat",
+            "position": {
+                "x": 0.0,
+                "y": 2.5999999046325684,
+                "z": -0.07500000298023224
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "parentWorld": {
+                "x": -599.1062622070313,
+                "y": 5.600105285644531,
+                "z": -563.6954956054688
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "size": 0.10000000149011612,
+            "line": 1.0,
+            "fontSize": 64,
+            "anchor": 4,
+            "alignment": 1,
+            "color": {
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
+                "a": 1.0
+            }
+        },
+        {
+            "parent": "CR034-039 Woodland routes/Breakable sign - Jamerson Rd",
+            "name": "Road lettering",
+            "text": "Jamerson Rd",
+            "material": "Assets/Track/Woodland/Lettering.mat",
+            "position": {
+                "x": 0.0,
+                "y": 2.5999999046325684,
+                "z": 0.07500000298023224
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "parentWorld": {
+                "x": -599.1062622070313,
+                "y": 5.600105285644531,
+                "z": -563.6954956054688
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 1.0,
+                "z": 0.0,
+                "w": -4.371138828673793e-8
+            },
+            "size": 0.10000000149011612,
+            "line": 1.0,
+            "fontSize": 64,
+            "anchor": 4,
+            "alignment": 1,
+            "color": {
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
+                "a": 1.0
+            }
+        },
+        {
+            "parent": "CR034-039 Woodland routes/Breakable sign - Creek Leap  > 122 km/h",
+            "name": "Road lettering",
+            "text": "Creek Leap  >\n122 km/h",
+            "material": "Assets/Track/Woodland/Lettering.mat",
+            "position": {
+                "x": 0.0,
+                "y": 2.5999999046325684,
+                "z": -0.07500000298023224
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "parentWorld": {
+                "x": 567.1331176757813,
+                "y": 30.05498695373535,
+                "z": -250.08343505859375
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "size": 0.10000000149011612,
+            "line": 1.0,
+            "fontSize": 64,
+            "anchor": 4,
+            "alignment": 1,
+            "color": {
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
+                "a": 1.0
+            }
+        },
+        {
+            "parent": "CR034-039 Woodland routes/Breakable sign - Creek Leap  > 122 km/h",
+            "name": "Road lettering",
+            "text": "Creek Leap  >\n122 km/h",
+            "material": "Assets/Track/Woodland/Lettering.mat",
+            "position": {
+                "x": 0.0,
+                "y": 2.5999999046325684,
+                "z": 0.07500000298023224
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "parentWorld": {
+                "x": 567.1331176757813,
+                "y": 30.05498695373535,
+                "z": -250.08343505859375
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 1.0,
+                "z": 0.0,
+                "w": -4.371138828673793e-8
+            },
+            "size": 0.10000000149011612,
+            "line": 1.0,
+            "fontSize": 64,
+            "anchor": 4,
+            "alignment": 1,
+            "color": {
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
+                "a": 1.0
+            }
+        },
+        {
+            "parent": "CR034-039 Woodland routes/Breakable sign - Fox Gully  > 108 km/h",
+            "name": "Road lettering",
+            "text": "Fox Gully  >\n108 km/h",
+            "material": "Assets/Track/Woodland/Lettering.mat",
+            "position": {
+                "x": 0.0,
+                "y": 2.5999999046325684,
+                "z": -0.07500000298023224
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "parentWorld": {
+                "x": 215.0880126953125,
+                "y": 44.451820373535156,
+                "z": -340.06890869140625
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "size": 0.10000000149011612,
+            "line": 1.0,
+            "fontSize": 64,
+            "anchor": 4,
+            "alignment": 1,
+            "color": {
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
+                "a": 1.0
+            }
+        },
+        {
+            "parent": "CR034-039 Woodland routes/Breakable sign - Fox Gully  > 108 km/h",
+            "name": "Road lettering",
+            "text": "Fox Gully  >\n108 km/h",
+            "material": "Assets/Track/Woodland/Lettering.mat",
+            "position": {
+                "x": 0.0,
+                "y": 2.5999999046325684,
+                "z": 0.07500000298023224
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "parentWorld": {
+                "x": 215.0880126953125,
+                "y": 44.451820373535156,
+                "z": -340.06890869140625
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 1.0,
+                "z": 0.0,
+                "w": -4.371138828673793e-8
+            },
+            "size": 0.10000000149011612,
+            "line": 1.0,
+            "fontSize": 64,
+            "anchor": 4,
+            "alignment": 1,
+            "color": {
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
+                "a": 1.0
+            }
+        },
+        {
+            "parent": "CR034-039 Woodland routes/Breakable sign - Pine Ridge  > 144 km/h",
+            "name": "Road lettering",
+            "text": "Pine Ridge  >\n144 km/h",
+            "material": "Assets/Track/Woodland/Lettering.mat",
+            "position": {
+                "x": 0.0,
+                "y": 2.5999999046325684,
+                "z": -0.07500000298023224
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "parentWorld": {
+                "x": -179.0050506591797,
+                "y": 30.828641891479492,
+                "z": -591.5015258789063
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "size": 0.10000000149011612,
+            "line": 1.0,
+            "fontSize": 64,
+            "anchor": 4,
+            "alignment": 1,
+            "color": {
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
+                "a": 1.0
+            }
+        },
+        {
+            "parent": "CR034-039 Woodland routes/Breakable sign - Pine Ridge  > 144 km/h",
+            "name": "Road lettering",
+            "text": "Pine Ridge  >\n144 km/h",
+            "material": "Assets/Track/Woodland/Lettering.mat",
+            "position": {
+                "x": 0.0,
+                "y": 2.5999999046325684,
+                "z": 0.07500000298023224
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            },
+            "parentWorld": {
+                "x": -179.0050506591797,
+                "y": 30.828641891479492,
+                "z": -591.5015258789063
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 1.0,
+                "z": 0.0,
+                "w": -4.371138828673793e-8
+            },
+            "size": 0.10000000149011612,
+            "line": 1.0,
+            "fontSize": 64,
+            "anchor": 4,
+            "alignment": 1,
+            "color": {
+                "r": 1.0,
+                "g": 1.0,
+                "b": 1.0,
+                "a": 1.0
+            }
+        }
+    ]
+}

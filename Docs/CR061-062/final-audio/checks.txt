@@ -1,0 +1,13 @@
+PASS Radio actually playing at normal saved-default volumes
+PASS Bird spatial recording dispatched with normal engine/radio
+PASS Ambience mute updates active Bird voice
+PASS Squirrel spatial recording dispatched with normal engine/radio
+PASS Ambience mute updates active Squirrel voice
+PASS Frog spatial recording dispatched with normal engine/radio
+PASS Ambience mute updates active Frog voice
+PASS Natural approach triggers bat flight
+PASS Immediate repeat/recovery cannot spam bats
+PASS Lingering beyond 45 second cooldown stays disarmed
+PASS Leave 12 seconds rearms bats after cooldown
+PASS Master mute actual listener output is zero
+PASS Restart retains sound assets

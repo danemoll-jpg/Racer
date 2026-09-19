@@ -1,0 +1,3 @@
+System.Exception: Insufficient dry shoreline frog habitat StreetLoopGreybox
+  at Racer.Editor.SignWildlifeRelease.ApplyWildlife () [0x00478] in C:\Users\danmo\Racer\Assets\Scripts\Editor\SignWildlifeRelease.cs:128 
+  at PipelineEvaluation.PipelineEval_88d13b7b+<>c.<Execute>b__0_0 () [0x00002] in <9e5857902e464aef87e5c8b7d5ab31af>:0 

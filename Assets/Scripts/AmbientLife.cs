@@ -58,7 +58,8 @@ namespace Racer
                 leftWings[i]=Wing(root,-1);rightWings[i]=Wing(root,1);root.gameObject.SetActive(false);
             }
             var soundObject=new GameObject("Cave flutter source");soundObject.transform.SetParent(transform,false);audioSource=soundObject.AddComponent<AudioSource>();audioSource.playOnAwake=false;audioSource.spatialBlend=1;audioSource.minDistance=8;audioSource.maxDistance=65;audioSource.dopplerLevel=0;
-            chirps=Sound("Brief flutter and chirps",1.4f,60160,true);audioSource.clip=chirps;
+            audioSource.rolloffMode=AudioRolloffMode.Linear;audioSource.minDistance=18;audioSource.maxDistance=90;audioSource.priority=70;
+            audioSource.clip=GetComponent<Wildlife>()?.batFlight;
             SelectScenes();
         }
         Transform Wing(Transform parent,int side)
@@ -105,10 +106,13 @@ namespace Racer
             {
                 armed=false;batStart=Time.time;nextBat=Time.time+45;Swarms++;passTarget=player+Vector3.up*3;
                 audioSource.transform.position=batRoost;
-                audioSource.volume=.16f*(race.Flow.Save?.Settings.ambience??1);audioSource.Play();
+                GetComponent<Wildlife>()?.ReserveBatSound();audioSource.volume=.85f*(race.Flow.Save?.Settings.ambience??1);audioSource.Play();
                 for(int i=0;i<bats.Length;i++){flightStarts[i]=batRoost+new Vector3((i%3-1)*.65f,(i%2)*.4f,i*.17f);bats[i].gameObject.SetActive(true);}
             }
             float age=Time.time-batStart;
+            audioSource.volume=.85f*(race.Flow.Save?.Settings.ambience??1);
+            if(age>=0&&age<3&&bats.Length>0)audioSource.transform.position=bats[0].position;
+            if(!racing&&audioSource.isPlaying)audioSource.Stop();
             for(int i=0;i<bats.Length;i++)
             {
                 if(age>3.0f||!racing){bats[i].gameObject.SetActive(false);continue;}

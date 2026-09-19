@@ -17,7 +17,7 @@ A small single-player arcade racing game inspired by *Forza Horizon*, built arou
 
 These rules apply throughout the project.
 
-**Consistent testing entry point:** Dan launches `Play-Racer.cmd` at the project root, or `Builds/Latest/Racer.exe`. After each new validated playable build, update the complete `Builds/Latest` runtime folder (including VERSION.txt); never replace only its executable. Keep older versioned builds separately. Current combined review build is 0.9.0-review1; Builds/Latest/VERSION.txt records its source. CR-057–060 are implemented awaiting Dan review. BUG-004/008 and CR-046–049 remain awaiting Dan review; technical validation does not close earlier human reports. See Docs/CR057-060/VALIDATION.md for this delivery and Docs/CR056/VALIDATION.md for the prior Forest revision. A source commit alone does not update a compiled player.
+**Consistent testing entry point:** Dan launches `Play-Racer.cmd` at the project root, or `Builds/Latest/Racer.exe`. After each new validated playable build, update the complete `Builds/Latest` runtime folder (including VERSION.txt); never replace only its executable. Keep older versioned builds separately. Current combined review build is 0.9.1-review1; Builds/Latest/VERSION.txt records its source. CR-061/062 are implemented awaiting Dan review; CR-057–060 and earlier reports remain awaiting review. BUG-004/008 and CR-046–049 remain awaiting Dan review; technical validation does not close earlier human reports. See Docs/CR061-062/VALIDATION.md for this delivery and Docs/CR057-060/VALIDATION.md for the prior combined revision. A source commit alone does not update a compiled player.
 
 - [ ] Keep the game **single-player only** unless this document is deliberately changed later.
 - [ ] Prioritize **fun arcade handling** over realistic simulation.
@@ -1168,13 +1168,13 @@ Recommended: optional stunt challenges using existing jumps (airtime/distance me
 ---
 
 ### CR-061 — Restore physical sign lettering; remove only floating labels
-**Status:** AUTHORIZED — regression correction for CR-058.
+**Status:** IMPLEMENTED — awaiting Dan review in 0.9.1-review1; regression correction for CR-058.
 **Feedback:** Floating text removal also removed text attached to every physical sign. Dan intended only unmounted world labels to disappear.
 **Requested change:** Restore existing physical sign text on both tracks from pre-regression source/assets/history, preserving original wording, positions and breakable behavior. This includes road names, storefront signs and other physical signage, not only cave signs. Inspect the removal/generation logic so sign text survives scene generation/rebuild/restoration; do not globally disable TextMesh/world-space text. Keep free-floating location/debug/jump text removed. Add a physical sign before the Forest cave with exactly: "Warning: Cave Ahead Enter at your Own Risk". Line breaks may improve legibility without changing words/capitalization. Place it early enough to read on approach and outside the racing line. This warning supersedes the optional cave-name sign requirement.
 **Acceptance:** Before/after inventory and driving-view checks of existing signs on both tracks; exact cave warning readable, mounted and lit; no restored floating labels, altered gate logic or blocked route. Break/destroy/restore/restart/build tests confirm lettering follows its sign lifecycle.
 
 ### CR-062 — Modest varied wildlife with audible animal sounds
-**Status:** AUTHORIZED — expand CR-060 and fix inaudible bats.
+**Status:** IMPLEMENTED — awaiting Dan review in 0.9.1-review1; expands CR-060 and repairs bat audio.
 **Feedback:** Dan saw only bats and heard no bat sounds. Additional wildlife was optional in the prior scope; it is required now.
 **Requested change:** Add a modest population with at least three recognizable non-bat animal types, such as birds, squirrels and frogs, distributed appropriately across woodland, lake/creek margins and neighborhood edges. Occasional sightings with idle/move/flee animation, varied locations/occupancy and empty periods; not a crowd at every bend. Each type has suitable audible calls/movement sounds, including occasional quiet species sounds while nearby. Repair cave bats with audible flutter/chirps on approach/scatter and retained cooldown. Prior sound-dispatch counts alone do not establish audibility.
 **Audio:** Diagnose actual clip output, gain, listener/routing, attenuation, masking by engine/radio and cooldown. Use recognizable quality audio compatible with project licensing; avoid claiming generic synthetic tones are convincing animal calls. Preserve mute and existing audio preferences. Bounded spatial voices, distance attenuation and sensible intervals; no constant simultaneous calls. Verify real output with default engine/music settings and distinguish capture evidence from subjective listening.
@@ -1279,7 +1279,28 @@ Record choices we do not want to repeatedly reconsider.
 
 # SESSION HANDOFF
 
-**Current next delivery:** CR-061 restores text mounted on physical signs and adds the exact cave warning; CR-062 adds required varied wildlife and audible species/bat audio. CR-058 label removal has a reported regression; prior tests are not acceptance of that behavior. CR-063 split screen is a feasibility discussion only, not authorized implementation. Preserve prior water/AI/people/radio/records and course work without inferring blanket acceptance. This update changes planning only.
+**Current delivery:** 0.9.1-review1 implements CR-061/062 together and awaits Dan's review. Safety checkpoint: `0553614da30e2bbcd0fe4619ee5ba1aa302aba97`. Git's sandbox staging denial was recovered through the supported elevated retry before edits. Completion source is recorded in Builds/Latest/VERSION.txt.
+
+Recovered historical lettering from `8fee1f5475e6c2b9ee0a9eb646cd2e61e40c4664`: 17 restored plus 22 retained storefront faces on each track. Physical road names, jump/shortcut advice and stores survive generation/build and break/restore/restart; only known unmounted labels are removed. Forest adds the exact physical warning `Warning: Cave Ahead Enter at your Own Risk`, readable in the captured chase approach. All 28,539 existing scene transforms retain their poses.
+
+Added blue songbirds, squirrels and frogs, with a fixed pool, at most eight selected, varied idle/flee motion and offscreen activation. CC0 recorded calls and wing foley replace weak synthetic bat chirps. Final 48 kHz listener captures with actual radio playback and normal engine/music settings establish all four sound waveforms in the mix, no clipped samples, and exact zero output under Master mute. Frog placement was brought nearer the trail after initial masking evidence. Bat linger/rearm cooldown, ambience mute, local recovery and restart are tested. Captures are before the OS endpoint: no subjective listening or speaker/headphone acceptance is claimed.
+
+Read Docs/CR061-062/VALIDATION.md and its release evidence for results and limitations. Art remains simple procedural shapes and short animations. Prior water/AI/people/traffic/garage/colors/records/radio systems and Play-Racer.cmd are retained. Existing packaging preserves staged music and replaces the whole Latest runtime; no external upload. CR-063 remains discussion only; networking, stunts and ghosts are not implemented.
+
+Current delivery technical results: physical signs 49/49 Forest and 44/44 Street; audio 13/13; corrected wildlife fixtures 42/42; Forest preservation 28/28. Existing full flow suite is 133/137: four non-body trim/rider property-block assertions also fail in the previous 0.9.0 player. These are retained pre-existing limitations, not passing claims; saved colors/audio settings and recovery checks pass. The first ordinary run exposed a culling defect, corrected by preparing the bounded pool offscreen before approach and skipping distant animation. See final ordinary captures/results in Docs/CR061-062 for varied sightings/empty periods and the camera-frustum counting limitation. Final build has zero errors and one existing optional Runtime Pipeline warning.
+
+Final ordinary runs: Forest 15 occupied / 135 empty one-second samples, Street 12 / 138; seven distinct runtime sighting events each, natural seeds and normal time scale. With radio/people/traffic active, 1280x720 offscreen p95 was 8.335 ms Forest and 9.361 ms Street at a 120 fps cap. Samples are camera-frustum based, not occlusion-aware or subjective recognition. Both final ordinary checks pass 4/4. Source manifest: 2,488 files; package retains 187 staged songs.
+
+Concise sign/wildlife playtest:
+
+- [ ] Drive both tracks and read road/storefront/shortcut signs; confirm no floating labels returned.
+- [ ] Read the exact cave warning on approach; hit a sign and check lettering follows destruction/restoration/restart.
+- [ ] Look for birds, squirrels and frogs across several races, with varied sightings and empty stretches; assess animation and no visible popping/snags.
+- [ ] Listen to species and bats over normal engine/radio; mute/unmute Ambience/Master and reopen to check saved settings.
+- [ ] Linger/recover/revisit cave to assess cooldown, brief flight and clear turns/jumps.
+- [ ] Check combined performance, neighborhood people/street traffic, water, eligibility, recovery, garage/colors and historical top-ten records.
+
+New work and all earlier unresolved human reports remain awaiting Dan's review.
 
 **Prior delivery evidence:**
 

@@ -98,6 +98,7 @@ namespace Racer
         {
             DriverVariation.Seed=AmbientLife.ForcedSeed!=0?AmbientLife.ForcedSeed:System.Environment.TickCount;
             GetComponent<AmbientLife>()?.SelectScenes();
+            GetComponent<Wildlife>()?.SelectPopulation();
             if(Forest)
             {
                 var configuration=vehicle.GetComponent<VehicleConfiguration>();

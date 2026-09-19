@@ -1,0 +1,3 @@
+Bird: lifeSeed=1, habitat=0, position=(574.792, 79.021, 104.207)
+Squirrel: lifeSeed=1, habitat=6, position=(-79.360, 37.363, -69.378)
+Frog: lifeSeed=1, habitat=12, position=(614.447, 78.151, 46.519)
