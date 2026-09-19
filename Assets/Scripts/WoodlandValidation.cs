@@ -50,7 +50,7 @@ namespace Racer
                 Check(renderers.Where(r=>VehiclePaint.IsBodyPaint(r.sharedMaterial)).All(r=>{r.GetPropertyBlock(block);return block.GetColor("_BaseColor")==VehiclePaint.Colors[6];}),"Black body "+profile.Id);
                 Check(renderers.Where(r=>!VehiclePaint.IsBodyPaint(r.sharedMaterial)).All(r=>{r.GetPropertyBlock(block);return block.isEmpty;}),"Unpainted trim/glass/rider "+profile.Id);
             }
-            Check(race.Category.StartsWith("street-v5-woodland"),"Versioned course records");
+            Check(race.Category.StartsWith("street-v6-flat5"),"Versioned course records");
             Check(VehiclePaint.Names[6]=="Black","Stable appended black swatch index");
             foreach(var branch in race.Branches.Where(b=>b.title!="Existing Southwest Cut"))
                 Check(branch.bypassedGates.Length>=2,branch.title+" explicitly bypasses multiple gates");
@@ -67,7 +67,7 @@ namespace Racer
                 {
                     race.Flow.Pause();race.Flow.QuitRace();race.Flow.OpenGarage();race.Flow.SelectVehicle(profile.Id);race.Flow.CloseGarage();race.opponents=race.traffic=false;race.Flow.StartRace();
                     while(race.Flow.State!=RaceFlow.Stage.Racing)yield return null;
-                    foreach(var branch in race.Branches.Where(b=>b.title!="Existing Southwest Cut"&&(RouteFilter==""||b.title==RouteFilter)))
+                    foreach(var branch in race.Branches.Where(b=>RouteFilter==""||b.title==RouteFilter))
                     {
                         for(int repeat=0;repeat<2;repeat++) yield return Attempt(branch,repeat,false);
                         yield return Attempt(branch,2,false);
@@ -132,6 +132,8 @@ namespace Racer
             float startS=branch.entryRoad-12;var p=race.road.At(startS,out var f)+Vector3.up*.7f;
             body.position=p;body.rotation=Quaternion.LookRotation(Vector3.ProjectOnPlane(f,Vector3.up));car.transform.SetPositionAndRotation(p,body.rotation);
             body.linearVelocity=f*branch.recommendedSpeed;body.angularVelocity=Vector3.zero;car.ClearSteering();Physics.SyncTransforms();race.ResetSampling(p,Time.timeAsDouble);FindAnyObjectByType<ChaseCamera>().Snap();
+            BreakableProp.RestoreRace();
+            int audioBefore=FindAnyObjectByType<SmashAudio>()?.Events??0, buzzBefore=race.Flow.CheckpointBuzzes;
             float begin=Time.time,entry=0,air=0,minUp=1,maxLat=0;bool finished=false,failed=false;int recoveries=0,exits=r.Branch.Exits;float nextLog=0,stalled=0;
             using var trace=new StreamWriter(Dir+"/"+car.GetComponent<VehicleConfiguration>().profileId+"-"+branch.title.Replace(' ','-')+"-"+(mainRoad?"road":"branch")+"-"+attempt+".csv");
             trace.WriteLine("time,x,y,z,speed,target,grounded,branchS,earned,misses");
@@ -141,6 +143,8 @@ namespace Racer
                 bool onBranch=!mainRoad && (r.Branch.Route || roadS>=branch.entryRoad-6&&roadS<branch.exitRoad);
                 float look=Mathf.Clamp(6+Mathf.Abs(car.ForwardSpeed)*.4f,8,23);
                 var target=onBranch?branch.At(s+look,out _):race.road.At(roadS+look,out _);
+                // A repeat uses imperfect entrance/shoulder lines, then returns to the house aperture.
+                if(onBranch && attempt==1 && s<100) target+=Vector3.Cross(Vector3.up,tangent).normalized*(2.5f*Mathf.Sin(s*.045f));
                 var local=car.transform.InverseTransformPoint(target);float curvature=2*local.x/Mathf.Max(1,local.x*local.x+local.z*local.z);
                 float angle=Mathf.Lerp(car.slowSteerAngle,car.fastSteerAngle,Mathf.Clamp01(Mathf.Abs(car.ForwardSpeed)/car.topSpeed));
                 float steer=Mathf.Clamp(Mathf.Atan(curvature*car.wheelbase)*Mathf.Rad2Deg/angle,-1,1);
@@ -154,11 +158,11 @@ namespace Racer
                     if(mainRoad && Mathf.Abs(a.y)>.14f)cap=Mathf.Min(cap,29);
                     float crest=Mathf.Max(0,Mathf.Asin(a.y)-Mathf.Asin(b.y))/8;
                     // Keep the authored stunt airborne, but brake for natural entry/rejoin crests.
-                    bool intentionalJump=!mainRoad && branch.title!="Fox Gully" && s+d>=110 && s+d<=255;
+                    bool intentionalJump=!mainRoad && (branch.title=="Fox Gully" ? s+d>=210 && s+d<=335 : s+d>=110 && s+d<=255);
                     if(!intentionalJump && crest>.001f) cap=Mathf.Min(cap,Mathf.Sqrt(6.5f/crest));
                     desired=Mathf.Min(desired,Mathf.Sqrt(cap*cap+2*car.braking*.75f*Mathf.Max(0,d-10)));
                 }
-                if(!mainRoad && attempt==2 && !failed && s>branch.Length*.32f)
+                if(!mainRoad && attempt==2 && !failed && s>branch.Length*(branch.title=="Fox Gully"?.55f:.32f))
                 { failed=true; InputSystem.QueueStateEvent(pad,new GamepadState{leftTrigger=1});yield return new WaitForSeconds(1.2f);bool ok=car.GetComponent<VehicleRespawn>().TryRecoverLocal();if(ok)recoveries++; }
                 InputSystem.QueueStateEvent(pad,new GamepadState{rightTrigger=Mathf.Clamp01((desired-car.ForwardSpeed)*.6f),leftTrigger=car.ForwardSpeed>desired+1?Mathf.Clamp01((car.ForwardSpeed-desired)*.3f):0,leftStick=new(Mathf.Abs(steer)<.001f?0:Mathf.Sign(steer)*(.12f+Mathf.Abs(steer)*.83f),0)});
                 if(entry==0 && roadS>=branch.entryRoad) entry=car.ForwardSpeed;
@@ -170,6 +174,8 @@ namespace Racer
                 yield return null;
             }
             File.AppendAllText(Dir+"/driving.csv",$"{car.GetComponent<VehicleConfiguration>().profileId},{branch.title},{attempt},{mainRoad},{finished},{Time.time-begin:F3},{entry:F3},{car.ForwardSpeed:F3},{maxLat:F3},{minUp:F3},{air:F3},{race.Progress.MissedGates},{race.Progress.PenaltySeconds:F3},{r.Branch.Exits-exits},{recoveries}\n");
+            var glass=FindObjectsByType<BreakableProp>().Where(prop=>prop.surface==SmashAudio.Surface.Glass).ToArray();
+            File.AppendAllText(Dir+"/physical-objects.txt",$"{car.GetComponent<VehicleConfiguration>().profileId} {branch.title} attempt={attempt} road={mainRoad} glassBroken={glass.Count(prop=>prop.IsBroken)}/{glass.Length} smashEvents={(FindAnyObjectByType<SmashAudio>()?.Events??0)-audioBefore} buzzes={race.Flow.CheckpointBuzzes-buzzBefore}\n");
             InputSystem.QueueStateEvent(pad,new GamepadState()); yield return new WaitForSeconds(.2f);
         }
         void OnDestroy(){if(pad!=null&&pad.added)InputSystem.RemoveDevice(pad);}

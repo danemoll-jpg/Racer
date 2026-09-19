@@ -40,10 +40,13 @@ namespace Racer
         public bool Enter(Vector3 from,Vector3 to,Vector3 heading)
         {
             At(0,out var f); f.y=0; f.Normalize();
+            if(Vector3.Distance(from,to)>10 || Vector3.Dot(to-from,f)<=.001f) return false;
             float a=Vector3.Dot(from-points[0],f),b=Vector3.Dot(to-points[0],f);
-            if(a>=0 || b<0 || Vector3.Dot(heading,f)<.4f) return false;
-            var p=Vector3.Lerp(from,to,-a/(b-a))-points[0];
-            return Mathf.Abs(Vector3.Dot(p,Vector3.Cross(Vector3.up,f)))<halfWidth && Mathf.Abs(p.y)<4;
+            // Bounded entrance apron catches late/shoulder entries as well as plane crossings.
+            float s=Project(to,out float lateral);
+            if(b<0 || s>24 || lateral>halfWidth+3) return false;
+            var support=At(s,out _);
+            return to.y>support.y-3 && to.y<support.y+12;
         }
     }
 
@@ -55,8 +58,9 @@ namespace Racer
         public float Position { get; private set; }
         public float Earned { get; private set; }
         public int Exits { get; private set; }
-        public void Clear() { Route=null; Position=Earned=0; }
-        public void Begin(WoodlandRoute route) { Route=route; Position=Earned=0; }
+        public float RejoinSeconds;
+        public void Clear() { Route=null; Position=Earned=RejoinSeconds=0; }
+        public void Begin(WoodlandRoute route) { Route=route; Position=Earned=RejoinSeconds=0; }
         public bool Advance(Vector3 from,Vector3 to,Vector3 heading)
         {
             var route=Route; if(!route) return false;
@@ -68,12 +72,13 @@ namespace Racer
             // Ground travel includes the supported three-metre shoulder; recovery stays in the core.
             float corridor=route.halfWidth+(to.y>support.y+2.5f?4:3);
             bool valid=lateral<=corridor && to.y>support.y-6 && to.y<support.y+22 && step<=10;
-            if(valid && s<=Earned+step*1.4f+1 && Mathf.Abs(s-Position)<=step*1.5f+1)
+            bool entrance=Earned==0 && s<=24;
+            if(valid && (entrance || s<=Earned+step*1.4f+3 && Mathf.Abs(s-Position)<=step*1.5f+3))
             {
                 Position=s;
                 if(Vector3.Dot(to-from,f)>0) Earned=Mathf.Max(Earned,s);
             }
-            if(valid && s>route.Length-3 && Earned>route.Length-4 && Vector3.Dot(heading,f)>.5f && Vector3.Dot(to-from,f)>0)
+            if(valid && s>route.Length-3 && Earned>route.Length-4 && Vector3.Dot(to-from,f)>0)
             { Exits++; return true; }
             return false;
         }

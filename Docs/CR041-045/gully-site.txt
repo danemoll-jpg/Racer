@@ -1,0 +1,4 @@
+Approximate older residence original position=(44.00, 30.38, -451.00) rotation=(0.00, 274.39, 0.00)
+New position=(39.77, 24.59, -447.34); yaw=(0.00, 220.84, 0.00); route span=237.23..281.23; clear width=10m; rise=6m; run=44.00m. Terrain landing remains original supported gully.
+Physical motorcycle failure retained: original 10m aperture caught 6.9–7.5m lateral drift. Revised supported floor and openings to 20m; exterior walls/piers/roof moved consistently. No vehicle tuning or launch force change.
+Removed 12 redundant solid crossbeam colliders beneath the continuous closed ramp mesh after retained motorcycle interior impacts. Visible beams remain.

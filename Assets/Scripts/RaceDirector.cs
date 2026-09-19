@@ -11,10 +11,7 @@ namespace Racer
         [Min(1)]
         public int laps = 3;
         public RaceRoad road;
-        [Min(0)]
-        public float ordinaryPenalty = 5;
-        [Min(1)]
-        public float cutPenaltyMetresPerSecond = 10;
+        public const double OrdinaryMissPenalty = 5;
         public bool opponents = true, traffic = true;
         public int difficulty = 1;
         public string[] opponentRoster = {"tourer","moto","atv"};
@@ -23,6 +20,7 @@ namespace Racer
         public string ModeLabel => opponents ? "Race vs 3 AI / " + DifficultyName : "Solo / time trial";
         [Range(0, 6)]
         public int trafficCount = 4;
+        [Range(0,24)] public int highwayTrafficCount = 16;
         public float finishGraceSeconds = 90, maximumRaceSeconds = 1200;
         public List<RacerState> Racers { get; } = new();
         public List<RoadDriver> Drivers { get; } = new();
@@ -34,7 +32,7 @@ namespace Racer
         public bool ClassificationFinal { get; private set; }
 
         public int PlayerPosition => Ordered(false).IndexOf(Racers[0]) + 1;
-        public string Category => $"street-v5-woodland-{(vehicle.GetComponent<VehicleConfiguration>() ? vehicle.GetComponent<VehicleConfiguration>().profileId : "original")}-{(opponents ? "race4-d" + difficulty+"-"+string.Join("-",opponentRoster) : "solo")}-{(traffic ? "traffic" : "clear")}-laps{laps}";
+        public string Category => $"street-v6-flat5-{(vehicle.GetComponent<VehicleConfiguration>() ? vehicle.GetComponent<VehicleConfiguration>().profileId : "original")}-{(opponents ? "race4-d" + difficulty+"-"+string.Join("-",opponentRoster) : "solo")}-{(traffic ? "traffic" : "clear")}-laps{laps}";
         VehicleRespawn respawn;
         float origin;
         float[] gateS;
@@ -150,7 +148,8 @@ namespace Racer
         void CreateCars()
         {
             float spawn = road.Project(vehicle.transform.position, out _);
-            int population = Mathf.Clamp(trafficCount, 0, 6);
+            int localPopulation = Mathf.Clamp(trafficCount, 0, 6);
+            int population = localPopulation + Mathf.Clamp(highwayTrafficCount,0,24);
             Color[] colors = {new(.95f, .25f, .12f), new(.95f, .75f, .1f), new(.2f, .55f, 1)};
             for (int i = 0; i < (opponents ? 3 : 0) + (traffic ? population : 0); i++)
             {
@@ -189,6 +188,8 @@ namespace Racer
                 car.Body.isKinematic = false;
                 var driver = clone.AddComponent<RoadDriver>();
                 driver.Initialize(this, car, racing, racing ? 1 : (n % 2 == 0 ? 1 : -1), .94f + n * .025f);
+                if(!racing) driver.Initialize(this,car,false,n%2==0?1:-1,.92f+(n%4)*.025f);
+                driver.HighwayTraffic=!racing && n>=localPopulation;
                 Drivers.Add(driver);
                 if (racing)
                 {
@@ -197,7 +198,9 @@ namespace Racer
                     driver.Racer = state;
                 }
 
-                driver.Place(racing ? spawn + 8 + n * 7 : spawn + 200 + n * road.Length / Mathf.Max(1, population), racing ? (n % 2 == 0 ? 2.2f : -2.2f) : 2.6f * driver.Direction);
+                int h=n-localPopulation;
+                float station=driver.HighwayTraffic?3800+(h/4)*175+(h%4)*22:spawn+200+n*road.Length/Mathf.Max(1,localPopulation);
+                driver.Place(racing ? spawn + 8 + n * 7 : station, racing ? (n % 2 == 0 ? 2.2f : -2.2f) : road.TrafficLane(station,driver.Direction,n%4>=2));
             }
         }
 
@@ -286,7 +289,7 @@ namespace Racer
                     foreach (var branch in Branches)
                     {
                         int expected = System.Array.FindIndex(gateS, s => s > road.Relative(branch.entryRoad,origin));
-                        if (expected <= 0 || p.NextGate != expected || !branch.Enter(r.Previous,position,heading)) continue;
+                        if (expected <= 0 || p.NextGate < expected || p.NextGate > expected+1 || !branch.Enter(r.Previous,position,heading)) continue;
                         r.Branch.Begin(branch); break;
                     }
                 if (r.Branch.Route)
@@ -294,10 +297,18 @@ namespace Racer
                     var branch = r.Branch.Route;
                     bool exited = r.Branch.Advance(r.Previous,position,heading);
                     branch.Project(position,out float branchLateral);
-                    // A partial main-road rejoin or reversing out of the entrance abandons this attempt.
-                    // No gate credit has been issued, so ordinary road rules resume exactly once.
-                    bool abandoned = !exited && ((lateral < 9 && branchLateral > branch.halfWidth+4)
-                        || (branch.Project(position,out _) < 2 && Vector3.Dot(position-branch.points[0],branch.points[1]-branch.points[0]) < -1));
+                    // A brief shoulder excursion or reverse is recoverable. Only sustained
+                    // forward travel on a separated road relinquishes branch tracking.
+                    road.At(origin+r.RoadPosition,out var roadForward);
+                    bool separatedRoad = lateral < 9 && branchLateral > branch.halfWidth+10
+                        && Vector3.Dot(position-r.Previous,roadForward)>.01f;
+                    r.Branch.RejoinSeconds = separatedRoad ? r.Branch.RejoinSeconds+(float)(now-r.PreviousTime) : 0;
+                    bool abandoned = !exited && r.Branch.RejoinSeconds > 1.5f;
+                    // Witnessed partial travel is final credit. Abandonment cannot charge it
+                    // again; an entrance touch has no witnesses beyond the entrance.
+                    float earnedRoad=road.Relative(Mathf.Lerp(branch.entryRoad,branch.exitRoad,r.Branch.Earned/branch.Length),origin);
+                    foreach(int gate in branch.bypassedGates)
+                        if(p.NextGate==gate && (exited || earnedRoad>=gateS[gate]+12)) p.Cross(gate,true,now);
                     if(exited)
                     {
                         foreach(int gate in branch.bypassedGates)
@@ -315,7 +326,7 @@ namespace Racer
                         // must not lose that physical crossing while a branch is provisionally active.
                         foreach(int gate in branch.bypassedGates)
                             if(p.NextGate==gate && gates[gate].TryCross(r.Previous,position,out bool gateForward,out float crossing)
-                                && gateForward && Vector3.Dot(heading,gates[gate].transform.forward)>.25f)
+                                && gateForward)
                                 p.Cross(gate,true,r.PreviousTime+(now-r.PreviousTime)*crossing);
                         r.RoadPosition=road.Relative(r.Branch.RoadPosition,origin);
                         if(r.RoadPosition>road.Length*.35f && r.RoadPosition<road.Length*.8f) r.FinishArmed=true;
@@ -325,8 +336,7 @@ namespace Racer
                     }
                 }
             }
-            // Only new forward road distance counts against the cut charge. Driving circles,
-            // reversing or accumulating an off-road odometer cannot buy away a skipped sector.
+            // Retain observed forward progress for diagnostics; it never changes penalty size.
             if (road && p.LapActive)
             {
                 if (lateral < 18) r.Travel += Mathf.Min(step, Mathf.Max(0, r.RoadPosition - r.VerifiedRoad));
@@ -338,7 +348,6 @@ namespace Racer
             {
                 if (!gates[i].TryCross(r.Previous, position, out bool forward, out float fraction))
                     continue;
-                forward &= Vector3.Dot(heading, gates[i].transform.forward) > .25f;
                 if (!forward)
                     continue;
                 if (i == 0 && p.LapActive && !r.FinishArmed)
@@ -364,7 +373,7 @@ namespace Racer
             if (road && p.LapActive && p.NextGate > 0 && lateral < 18 && step > .005f)
             {
                 road.At(origin + r.RoadPosition, out var direction);
-                if (Vector3.Dot(position - r.Previous, direction) > .001f && Vector3.Dot(heading, direction) > .25f)
+                if (Vector3.Dot(position - r.Previous, direction) > .001f)
                     while (p.NextGate > 0 && r.RoadPosition > gateS[p.NextGate] + 18 && r.RoadPosition < road.Length - 20)
                         ResolveMisses(r, p.NextGate + 1);
             }
@@ -390,9 +399,11 @@ namespace Racer
             {
                 int gate = p.NextGate;
                 float sector = road ? gateS[gate] - gateS[gate - 1] : 230;
-                double penalty = ordinaryPenalty + Mathf.Max(0, sector - r.Travel - 25) / cutPenaltyMetresPerSecond;
+                const double penalty = OrdinaryMissPenalty;
                 if (!p.Miss(gate, penalty))
                     break;
+                if(System.Array.IndexOf(System.Environment.GetCommandLineArgs(),"-raceTrace")>=0)
+                    Debug.Log($"RACE_PENALTY racer={r.Name} source=ordinary-missed-gate gate={gate} seconds=5 road={r.RoadPosition:F3} branch={r.Branch.Route?.title??"none"} earned={r.Branch.Earned:F3}");
                 r.Travel = Mathf.Max(0, r.Travel - sector);
             }
         }

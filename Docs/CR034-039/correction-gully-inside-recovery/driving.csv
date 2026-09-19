@@ -1,0 +1,21 @@
+profile,route,attempt,road,finished,seconds,entry_mps,exit_mps,max_lateral,min_up,air_seconds,misses,penalty,branch_exits,recoveries
+original,Fox Gully,0,False,True,20.699,23.639,25.101,6.003,0.971,1.672,0,0.000,1,0
+original,Fox Gully,1,False,True,20.399,25.159,25.065,5.998,0.971,1.465,0,0.000,1,0
+original,Fox Gully,2,False,True,22.163,25.033,25.190,4.873,0.961,1.375,0,0.000,1,1
+original,Fox Gully,0,True,True,19.936,29.574,37.214,0.000,0.963,0.000,0,0.000,0,0
+original,Fox Gully,1,True,True,19.969,29.618,37.014,0.000,0.964,0.000,0,0.000,0,0
+tourer,Fox Gully,0,False,True,20.865,25.452,24.914,4.892,0.971,1.399,0,0.000,1,0
+tourer,Fox Gully,1,False,True,22.287,25.101,25.136,6.007,0.970,3.896,0,0.000,1,0
+tourer,Fox Gully,2,False,True,23.711,25.452,25.230,4.892,0.960,1.565,0,0.000,1,1
+tourer,Fox Gully,0,True,True,19.926,29.485,37.291,0.000,0.963,0.000,0,0.000,0,0
+tourer,Fox Gully,1,True,True,19.909,29.485,37.330,0.000,0.963,0.000,0,0.000,0,0
+moto,Fox Gully,0,False,False,22.003,24.654,0.003,12.071,0.397,2.970,0,0.000,0,0
+moto,Fox Gully,1,False,False,29.316,25.302,0.294,12.155,-0.089,9.963,0,0.000,0,0
+moto,Fox Gully,2,False,True,22.718,25.214,28.704,5.718,0.434,3.064,0,0.000,1,1
+moto,Fox Gully,0,True,True,19.359,30.191,43.269,0.000,0.965,0.067,0,0.000,0,0
+moto,Fox Gully,1,True,True,19.373,30.328,43.445,0.000,0.965,0.033,0,0.000,0,0
+atv,Fox Gully,0,False,True,20.493,23.711,27.612,7.260,0.828,2.564,0,0.000,1,0
+atv,Fox Gully,1,False,True,20.409,24.934,27.563,9.263,0.876,2.071,0,0.000,1,0
+atv,Fox Gully,2,False,True,21.795,24.562,27.843,5.119,0.916,1.565,0,0.000,1,1
+atv,Fox Gully,0,True,True,19.563,30.183,41.349,0.000,0.965,0.233,0,0.000,0,0
+atv,Fox Gully,1,True,True,19.573,30.061,40.864,0.000,0.965,0.233,0,0.000,0,0

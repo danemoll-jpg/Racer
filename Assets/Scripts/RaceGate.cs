@@ -7,6 +7,7 @@ namespace Racer
     {
         public float halfWidth = 6;
         public float halfHeight = 3;
+        public float upperHeight;
         public bool TryCross(Vector3 from, Vector3 to, out bool forward, out float fraction)
         {
             var a = transform.InverseTransformPoint(from); var b = transform.InverseTransformPoint(to);
@@ -15,7 +16,7 @@ namespace Racer
             if (!forward && !(a.z > 0 && b.z <= 0)) return false;
             fraction = -a.z / (b.z - a.z);
             var hit = Vector3.Lerp(a, b, fraction);
-            return Mathf.Abs(hit.x) <= halfWidth && Mathf.Abs(hit.y) <= halfHeight;
+            return Mathf.Abs(hit.x) <= halfWidth && hit.y >= -halfHeight && hit.y <= Mathf.Max(halfHeight,upperHeight);
         }
         void OnDrawGizmosSelected()
         {

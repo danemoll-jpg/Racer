@@ -680,22 +680,22 @@ Use this section whenever something is wrong.
 **Requested fix:** Identify repeat-triggering and misleading wipeout detection, emit only meaningful state-transition feedback, keep recovery help compact and dismissible/short-lived, and avoid prompts during normal driving, normal landings, recoverable bumps or menus. No per-frame message recreation or repeated sound spam. Validate together with CR-029.
 
 ### BUG-004 — Designated shortcuts wrongly charge bypassed gates
-**Status:** OPEN / HIGH PRIORITY — user reproduction supersedes passing route fixtures.  
+**Status:** IMPLEMENTED IN 0.6.1 CANDIDATE — integrated standalone verification in progress; awaiting Dan's approval. See Docs/CR041-045/VALIDATION.md for retained failures and actual evidence.  
 **Reported:** Dan received checkpoint penalties while using authored shortcuts despite explicit penalty-free bypass rules. Reproduce player-like imperfect entries/airborne travel/rejoins in actual Latest, confirm package source, log per-racer branch/gate/penalty state, and fix recognition and exit/abandonment handling without requiring a perfect centerline. Authorized bypass gates must never receive miss/cut charges or buzzes on a legitimate traversal. Local recovery must preserve earned branch context without allowing entry-touch giant-cut exploits.  
 **Acceptance:** Repeated human-like runs of every shortcut/all profiles including recovery/reverse/edge/airborne cases finish with zero bypassed-gate charges; unrelated ordinary misses still work.
 
 ### BUG-005 — Airborne or backwards-facing valid crossings denied
-**Status:** OPEN.  
+**Status:** IMPLEMENTED IN 0.6.1 CANDIDATE — integrated standalone verification in progress; awaiting Dan's approval. See Docs/CR041-045/VALIDATION.md for retained failures and actual evidence.  
 **Reported:** Motorcycle can jump above the Jamerson checkpoint without credit; landing backwards-facing through a gate center is treated as a miss. Existing RaceDirector uses body heading as well as crossing direction. Determine valid forward passage from swept movement/route progress, not nose orientation or grounded state. Give supported intended jump trajectories an explicit suitable vertical gate envelope or landing/progress resolution; no globally unbounded gate volume. Keep physically wrong-direction crossings, repeated crossing, teleport and finish exploits rejected.  
 **Acceptance:** Forward travel through/above a gate on an intended jump earns one credit even if airborne or facing backwards; truly wrong-way travel does not. Test all profiles/representative trajectories and compound shortcut crossings.
 
 ### BUG-006 — Smash audio not audible in play
-**Status:** OPEN — technical event checks did not establish audible feedback.  
+**Status:** IMPLEMENTED IN 0.6.1 CANDIDATE — integrated standalone verification in progress; awaiting Dan's approval. See Docs/CR041-045/VALIDATION.md for retained failures and actual evidence.  
 **Reported:** Dan heard no effects on impacts. Reproduce with persisted user volume settings and actual release without overwriting them; inspect event delivery, listener/routing, attenuation, cooldown/pooling, generation/loading and engine/ambience masking. Verify captured audible output and material differences, not merely an AudioSource call. No force-overriding mute.  
 **Acceptance:** With relevant levels enabled, wood/chain-link/sign/mailbox/house-glass hits are clearly audible, balanced, repeatable and not clipped/spammed in a visible standalone player.
 
 ### BUG-007 — Floating house over Fox Gully
-**Status:** OPEN — current structure unsupported after route terrain edits.  
+**Status:** IMPLEMENTED IN 0.6.1 CANDIDATE — integrated standalone verification in progress; awaiting Dan's approval. See Docs/CR041-045/VALIDATION.md for retained failures and actual evidence.  
 **Requested resolution:** CR-041 authorizes grounding and locally converting this specific house into a drive-through stunt. Other houses remain fixed. No unexplained floating slab or hidden solid collider across the route.
 
 ---
@@ -969,7 +969,7 @@ Use this for things that are not bugs but that Dan wants changed.
 **Result:** Original material-specific wood/chain-link/mailbox/sign synthesis, three timbres/five pitches, four spatial voices, 75ms onset cooldown and prewarming. Chain-link at Dan's property; white large-X side/front fences at Houses 2/3; central access remains open. Material overrides are saved on prefab instances. Existing yielding/24-piece cleanup/restoration preserved; 33/33 combined audio/highway checks pass. No third-party samples. Sound satisfaction awaits Dan.
 
 ### CR-036 — Player-defined difficulty balance
-**Status:** REVISION REQUIRED — latest ten-item playtest feedback supersedes previous technical passes; see BUG-004–007 and CR-041–045.
+**Status:** IMPLEMENTED IN 0.6.1 CANDIDATE — integrated standalone verification in progress; awaiting Dan's approval. See Docs/CR041-045/VALIDATION.md for retained failures and actual evidence.  
 **Requested change:** Easy should be comfortably winnable with ordinary competent driving. Normal should be somewhat challenging with a good chance to win. Hard should punish mistakes through lost position/time and require a strong run. Dan finds all current levels too easy. Tune skill/pace per vehicle using actual route/profile constraints, not just beating a conservative automated reference driver. Preserve fair profile capabilities, visible grid, mixed/selected roster and absence of hidden speed boosts/teleport catch-up.  
 **Validation:** Compare comparable clean runs and deliberate error/recovery runs; report lap/sector times, gaps, excessive braking, AI errors and traffic influence across all vehicle classes. Human difficulty remains Dan's judgment. Optional authored shortcuts should be usable by qualified AI with difficulty-appropriate choice, with safe main-road fallback; distinguish racecraft from unfair physics.  
 **Result:** Fair driver policies strengthened: corner46/65/82%, brake55/78/94%, speed91/98/100%, steep-hill26/29/31m/s; vehicle physics unchanged. Six mixed three-lap clean/mistake traffic runs finished24/24, zero DNFs/AI recoveries, one Normal ATV miss (+5s). Hard traffic-off finished4/4 clean. Hard mistake costs about6s on lap1, but later traffic can change final gaps; no human difficulty acceptance claimed. AI-RACES.md contains all laps, sectors, speeds, braking and limitations. AI uses safe main-road fallback; autonomous stunt flags remain false.
@@ -1002,27 +1002,27 @@ Use this for things that are not bugs but that Dan wants changed.
 **Result:** Deferred; preserve room and avoid unnecessary architectural coupling, but do not implement a track editor or second full circuit now.
 
 ### CR-041 — Grounded drive-through gully house
-**Status:** PLANNED — next combined 0.6.0 playtest correction.  
+**Status:** IMPLEMENTED IN 0.6.1 CANDIDATE — integrated standalone verification in progress; awaiting Dan's approval. See Docs/CR041-045/VALIDATION.md for retained failures and actual evidence.  
 **Requested change:** Identify the specific floating house over Fox Gully. Ground/support it and build a deliberately fun stunt: enter through breakable sliding glass doors, follow a visibly supported interior rise/ramp to the second floor and launch through a breakable second-story window to a tested landing/rejoin. Make the two-story path physically legible without teleport/hidden launch boost; preserve route legality/local recovery. Allow all four vehicles with adequate clearance. Only this house/site may be adapted or repositioned as needed; document identity and before/after changes. This is not a reopening of unrelated home-placement/photo backlog.  
 **Result:** Pending implementation and Dan's review.
 
 ### CR-042 — Predictable five-second checkpoint penalties
-**Status:** PLANNED — next combined 0.6.0 playtest correction.  
+**Status:** IMPLEMENTED IN 0.6.1 CANDIDATE — integrated standalone verification in progress; awaiting Dan's approval. See Docs/CR041-045/VALIDATION.md for retained failures and actual evidence.  
 **Requested change:** Genuine ordinary missed gates cost exactly 5 seconds each; designated legal shortcut bypasses cost zero. Remove the hidden distance surcharge currently added by RaceDirector.ResolveMisses: ordinaryPenalty + max(0, sector - verifiedTravel - 25)/cutPenaltyMetresPerSecond. Multiple real misses total clear multiples of five; adjusted elapsed totals can still have fractional race seconds. Keep route-order/finish/anti-teleport validation rather than covertly adding fractional charges. Any broad-cut tradeoff must be explicit; do not impose a new hidden punishment or force normal missed-gate restarts. Version rules/records and preserve legacy results.  
 **Result:** Pending implementation and Dan's review.
 
 ### CR-043 — Surround properties with remembered fences
-**Status:** PLANNED — next combined 0.6.0 playtest correction.  
+**Status:** IMPLEMENTED IN 0.6.1 CANDIDATE — integrated standalone verification in progress; awaiting Dan's approval. See Docs/CR041-045/VALIDATION.md for retained failures and actual evidence.  
 **Requested change:** Dan wants perimeter fencing around the houses, with the front run near the street: chain-link for his home and white large-X wooden crossbuck fences for Houses #2/#3. Add side/rear continuity, leaving sensible driveway/pedestrian access and shoulder sightlines. Keep house positions/yards except explicit CR-041 stunt site. Near-street means appropriate setback, not within the live lane/re-entry corridor. Retain breakability, clear collision and restart restoration.  
 **Result:** Pending implementation and Dan's review.
 
 ### CR-044 — Much busier Hwy 92 traffic
-**Status:** PLANNED — next combined 0.6.0 playtest correction.  
+**Status:** IMPLEMENTED IN 0.6.1 CANDIDATE — integrated standalone verification in progress; awaiting Dan's approval. See Docs/CR041-045/VALIDATION.md for retained failures and actual evidence.  
 **Requested change:** Increase highway-specific population/coverage substantially above the sparse current scene; fill all four lanes with believable gaps and varied vehicle spacing, avoiding a convoy or a jam. Preserve faster highway vs local-road speed behavior; keep lower density elsewhere. Use bounded scalable spawning/pooling, safe following/lane transitions, no near-player pop-in and configurable density. Determine counts from measured congestion/performance and report them, not simply speed up four cars.  
 **Result:** Pending implementation and Dan's review.
 
 ### CR-045 — Make the Jamerson jump part of believable roadside scenery
-**Status:** PLANNED — next combined 0.6.0 playtest correction.  
+**Status:** IMPLEMENTED IN 0.6.1 CANDIDATE — integrated standalone verification in progress; awaiting Dan's approval. See Docs/CR041-045/VALIDATION.md for retained failures and actual evidence.  
 **Requested change:** Replace the arbitrary freestanding ramp with a readable environmental launch feature on Jamerson: e.g. roadworks with a supported raised pavement/graded approach. Choose one coherent original design, explain it and preserve a bypass. It should appear to belong to the road environment while still offering a large satisfying intentional gameplay jump. Coordinate collision/approach/landing/checkpoint envelope and all-profile tests, including fast motorcycle flights. No magic boost or new unrelated course segment.  
 **Result:** Pending implementation and Dan's review.
 
@@ -1111,24 +1111,23 @@ Record choices we do not want to repeatedly reconsider.
 
 # SESSION HANDOFF
 
-**Current delivery:** 0.6.0-review1 NOT ACCEPTED after Dan's ten-item review. Next integrated correction is BUG-004–007, CR-041–045 and further CR-036 Normal/Hard pace tuning. Priority: legal shortcut and airborne/backwards-facing gate credit, transparent five-second misses, audibly working smash effects; also grounded gully-house stunt, proper perimeter fences, denser Hwy92 traffic and environmental Jamerson jump. CR-040 separate circuit remains backlog; no unrelated expansion. Historical automated passes do not override user failures. No new implementation/tests in this documentation update.
+**Current delivery:** 0.6.1-review1 integrated correction in final verification, NOT YET APPROVED. Covers BUG-004–007, CR-041–045 and further CR-036. No separate lake circuit, multiplayer or unrelated expansion.
 
-Safety checkpoint: 1cf4d6f0f3d3ab9da5e87ec331a704fea169f694, verified before implementation. Git permission failure recovered through elevated retry. A later stale empty index lock was preserved only after checking process ownership/exclusive access; targeted generated-asset regenerations preserved SHA256-verified backups under Temp. No history rewrite or hook bypass.
+Safety checkpoint: 88064bd196d68e40bfb624f2d5879613d962dbf5, verified before changes. Initial Git write denials recovered with authorized elevated retries. No discarded changes, hook/signing bypass or history rewrite.
 
-Scene: Assets/Scenes/StreetLoopGreybox.unity. Launcher: Play-Racer.cmd. Review build: Builds/Racer-0.6.0-review1-Windows; Builds/Latest and Builds/Racer-0.6.0-review1-Windows.zip are complete and hash-verified across all 231 packaged files. The launcher was executed and opened the responding Latest player. Previous Latest is preserved in Builds/Latest-before-0.6.0-review1. VERSION.txt identifies executable source a4eaa16dd86e96a300cfc16a54c342e1ec043763; package-verification.json records file hashes. ZIP SHA256: B969D104DF46A80F335ED79C301DB3DC5F4D8317461726473D1AB1ECFBAF8957 (78,596,925 bytes). Completion commit is the final documentation/evidence commit in Git history and the delivery response. Nothing is uploaded or distributed.
+Current source fixes: bounded swept shortcut entry, persistent earned branch/recovery context and partial rejoin policy; movement-based checkpoint direction; CP14-only upper jump envelope; exactly +5 seconds per genuine miss and zero authorized bypass charges; street-v6-flat5 record separation. Existing saves/settings preserved. Original Latest identity verified, but Dan's exact old false-penalty/silent-impact combination was not reproduced by its limited existing harness.
 
-Routes: Creek Leap before CP4 (CP4–6 bypass; road900→1500), Fox Gully before CP7 (CP7–9;1580→2150), Pine Ridge before CP10 (CP10–12;2220→3000). Old southwest cut retained. Amber signs and brown trails show entrances. Annotated map: Docs/CR034-039/map.html. Grounding, height blending at existing road crossings, jump/landing alignment and narrow tree clearance were iterated from actual failed runs. Core path plus supported shoulders earns contiguous progress; a slightly wider bounded airborne envelope handles landing arcs. Only verified exits resolve bypassed gates. Off-route progress freezes; safe R/Y recovery goes at/behind earned branch progress. Early main-road abandonment resumes ordinary missed-gate rules. Complete forward lap/anti-teleport rules remain. Category street-v5-woodland preserves old records/settings.
+The exact floating gully residence is now a supported 44m drive-through rise with glass entry/upper exit. Failed 10m and widened-but-overlapping-collider runs are retained. Final 20m opening plus removal of 12 embedded crossbeam colliders passes motorcycle clean/varied/recovery runs with both panes broken and zero charges/buzzes. Other profiles passed widened-house runs; final whole-build verification follows. Property fences now surround Dan and Houses2/3; no other houses moved. Jamerson has supported pavement roadworks, graded shoulder, breakable work markers and a safe bypass. All eight jump flights credited CP14; a fast ATV later genuinely missed CP15 (+5).
 
-77/77 route/body/lane fixtures,137/137 visible standalone virtual-input flow checks,33/33 material/highway checks. All four vehicles have two successful clean approaches on each route; final motorcycle shoulder and recovery cases passed in both the Editor and committed-source player. Final standalone Creek: clean14.133/13.900s, recovery16.199s, road21.197/21.170s; all finished with zero misses/penalties. Final release repeated77/77 rules,137/137 flow and33/33 systems checks with zero failures. Raw60-run comparison tables retain failures and identify superseding reruns. Creek saves roughly7–8s; Ridge4–6s; conservative Gully about0.4–1.0s, with faster riskier car passes around2s. Speeds/directions and every attempt: ROUTE-TIMINGS.md.
+Audio: physical authored-prop impacts recorded at the listener DSP mix with the engine running. All15 material/volume cases broke intended props; default/lowered mixes nonzero, master mute exactly zero, no clipped samples. No OS-endpoint or subjective listening claim. Wide diagonal glass restoration required an oriented sensor-overlap fix. Four voices and24 moving props remain bounded.
 
-Six full mixed three-lap Easy/Normal/Hard clean/mistake traffic races:24/24 finished, no DNFs/AI recoveries, one Normal ATV gate miss (+5s). Additional Hard traffic-off:4/4 clean. Hard AI tourer laps about138s, motorcycle126s; no boosted capabilities or rubber-banding. The injected mistake costs the reference player about6s on lap1, while later traffic changes final gaps. AI uses safe main-road fallback rather than unvalidated stunts. See AI-RACES.md for actual lap/sector/gap and traffic data; human difficulty still needs Dan.
+Highway population is16 dedicated plus4 local cars. First recycling implementation dispersed cars onto local roads; failure trace and interrupted race retained. Revised per-lane clearance and bounded far-distance recycling now maintain highway coverage; complete Normal/Hard pace/traffic measurements are running. Easy tuning constants and all player vehicle capabilities remain unchanged. Automated pilot gaps are not proof of human difficulty.
 
-Hwy92 has4x4.1m lanes and70m transitions. Four traffic lane/direction traversals passed both merges, peaks27.4–28.85m/s; neighborhood base speed unchanged. All four smash materials use bounded original synthesis, obey volume controls and restore after yielding. Black body properties leave trim/riders/glass/opponent materials intact. Standalone performance baseline:1280x720,VSync off,120fps cap,8.33ms median/8.35ms p95,465.4MiB peak working set. Final matched standalone performance:8.33ms median/8.38ms p95,480.1MiB peak working set (+14.7MiB,3.1%). Both samples have zero misses/recoveries. Capped measurements are not uncapped throughput. Final highway maximum lane error1.73m; no stalls beyond initial acceleration. Zero build errors; future Unity mesh pre-bake and intentionally absent Runtime Pipeline warnings retained, alongside baseline stripped optional post-process shader warnings. Evidence: Docs/CR034-039/VALIDATION.md and release-verification.json.
+98/98 expanded rule/AI/rejoin/record-migration fixtures passed. Early standalone diagnostic processes were windowed on a restricted desktop; a corrected player was subsequently verified on Dan's actual desktop via Computer Use. Final user-desktop verification/package identity will be recorded before completion. Earlier0.6.0 handoff/evidence remains in Docs/CR034-039 and Git history.
 
-Detailed implementation, failures, remaining limits and one combined review checklist: Docs/CR034-039/VALIDATION.md. Physical controller feel, human competitiveness, subjective sound and fun await Dan; conservative Gully reward is small and excessive approach speed can spoil a landing or miss a real road gate. Stop automatic expansion after this combined delivery.
+Build/package and completion commit are pending final verification. Preserve historical results. See Docs/CR041-045/VALIDATION.md for root causes, views, retained failures and the ten-item review checklist. Stop expansion after this combined delivery; await Dan's approval.
 
 ---
-
 # How Dan and ChatGPT Will Use This File
 
 At the beginning of every Astra/Codex work session:
@@ -1153,3 +1152,4 @@ At the end of an Astra/Codex work session:
    - keep later phases from ballooning prematurely.
 
 The file is the project's source of truth. We do not casually rebuild the project plan from memory.
+

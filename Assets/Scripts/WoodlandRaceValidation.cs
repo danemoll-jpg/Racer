@@ -30,7 +30,7 @@ namespace Racer
 #if UNITY_EDITOR
             race.Flow.UseValidationSave(Path.GetFullPath("Temp/woodland-race-"+Difficulty));
 #endif
-            string root="Docs/CR034-039/"+(Application.isEditor?"editor":"standalone")+"-race-"+Difficulty+(Mistake?"-mistake":"-clean")+(Traffic?"-traffic":"-clear");
+            string root="Docs/CR041-045/"+(Application.isEditor?"editor":"standalone")+"-race-"+Difficulty+(Mistake?"-mistake":"-clean")+(Traffic?"-traffic":"-clear");
             Directory.CreateDirectory(root);
             race.Flow.OpenGarage(); race.Flow.SelectVehicle("original"); race.Flow.CloseGarage();
             race.opponents=true; race.traffic=Traffic; race.difficulty=Mathf.Clamp(Difficulty,0,2); race.laps=Laps;
@@ -73,7 +73,7 @@ namespace Racer
                     log.Flush();
                 }
             }
-            frames.Sort(); var rows=new List<string>{$"Difficulty={race.DifficultyName}; laps={Laps}; traffic={Traffic}; shared capabilities; ordinary-frame motor commands. Reference pilot is NOT a human-competition acceptance test.",$"Final={race.ClassificationFinal}; frames={frames.Count}; median={frames[frames.Count/2]:F2}ms; p95={frames[(int)(frames.Count*.95f)]:F2}ms"};
+            frames.Sort(); File.WriteAllText(root+"/performance.txt",$"{Screen.width}x{Screen.height}; vsync={QualitySettings.vSyncCount}; cap={Application.targetFrameRate}; peakWorkingSetMiB={System.Diagnostics.Process.GetCurrentProcess().PeakWorkingSet64/1048576.0:F1}; traffic={race.trafficCount+race.highwayTrafficCount}; CPU={SystemInfo.processorType}; GPU={SystemInfo.graphicsDeviceName}"); var rows=new List<string>{$"Difficulty={race.DifficultyName}; laps={Laps}; traffic={Traffic}; local={race.trafficCount}; highway={race.highwayTrafficCount}; shared capabilities; ordinary-frame motor commands. Reference pilot is NOT a human-competition acceptance test.",$"Final={race.ClassificationFinal}; frames={frames.Count}; median={frames[frames.Count/2]:F2}ms; p95={frames[(int)(frames.Count*.95f)]:F2}ms"};
             for(int i=0;i<4;i++)
             {
                 var r=race.Racers[i]; var d=r.Car.GetComponent<RoadDriver>();

@@ -7,5 +7,6 @@ if not exist "%RACER_LATEST%\Racer.exe" (
   exit /b 1
 )
 if exist "%RACER_LATEST%\VERSION.txt" type "%RACER_LATEST%\VERSION.txt"
-echo Starting the latest Racer woodland review...
+echo Starting the latest Racer integrated playtest correction...
 start "" /D "%RACER_LATEST%" "%RACER_LATEST%\Racer.exe"
+

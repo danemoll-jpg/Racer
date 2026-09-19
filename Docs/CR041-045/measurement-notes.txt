@@ -1,0 +1,1 @@
+Sector transitions are sampled at approximately 0.25 seconds; use exact lap totals in results.txt. Traffic flow counts exclude recycle jumps.

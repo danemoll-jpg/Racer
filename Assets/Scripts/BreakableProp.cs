@@ -22,7 +22,8 @@ namespace Racer
         Renderer[] visuals;
         Vector3 initialPosition, initialScale, flight, spinAxis;
         Quaternion initialRotation;
-        Bounds initialBounds;
+        Vector3 initialSensorCenter, initialSensorHalf;
+        readonly Collider[] restoreOverlaps = new Collider[32];
         float age, floor;
         bool initialized;
 
@@ -33,7 +34,9 @@ namespace Racer
             sensor = GetComponent<BoxCollider>(); sensor.isTrigger = true;
             visuals = GetComponentsInChildren<Renderer>();
             initialPosition = transform.position; initialRotation = transform.rotation;
-            initialScale = transform.localScale; initialBounds = sensor.bounds;
+            initialScale = transform.localScale;
+            initialSensorCenter = transform.TransformPoint(sensor.center);
+            initialSensorHalf = Vector3.Scale(sensor.size * .5f, transform.lossyScale);
             floor = initialPosition.y;
             foreach (var hit in Physics.RaycastAll(initialPosition + Vector3.up * 12, Vector3.down, 80, 1, QueryTriggerInteraction.Ignore))
                 if (hit.collider is MeshCollider && hit.point.y <= initialPosition.y + .3f)
@@ -86,9 +89,14 @@ namespace Racer
         }
         bool VehicleOverlaps()
         {
-            foreach (var vehicle in FindObjectsByType<ArcadeVehicle>())
-                foreach (var c in vehicle.GetComponentsInChildren<Collider>())
-                    if (c.enabled && !c.isTrigger && initialBounds.Intersects(c.bounds)) return true;
+            // Use the original oriented sensor, not its broad AABB: diagonal wide glass
+            // otherwise stays hidden while a car is still metres outside the doorway.
+            int count = Physics.OverlapBoxNonAlloc(initialSensorCenter, initialSensorHalf,
+                restoreOverlaps, initialRotation, ~0, QueryTriggerInteraction.Ignore);
+            if (count == restoreOverlaps.Length) return true;
+            for (int i=0; i<count; i++)
+                if (restoreOverlaps[i].attachedRigidbody &&
+                    restoreOverlaps[i].attachedRigidbody.GetComponent<ArcadeVehicle>()) return true;
             return false;
         }
         void TryRestore()

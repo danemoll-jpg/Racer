@@ -126,7 +126,7 @@ namespace Racer
                 if(!Physics.Raycast(origin,Vector3.down,out var hit,12,vehicle.groundMask,QueryTriggerInteraction.Ignore)
                     || hit.rigidbody || hit.normal.y<.65f) return false;
                 string support=hit.collider.name;
-                if(!support.StartsWith("Ground_") && !support.StartsWith("Takeoff -") && !support.StartsWith("Landing -")) return false;
+                if(!support.StartsWith("Ground_") && !support.StartsWith("Takeoff -") && !support.StartsWith("Landing -") && !support.StartsWith("Gully supported ramp")) return false;
                 normal+=hit.normal; top=Mathf.Max(top,hit.point.y); low=Mathf.Min(low,hit.point.y);
             }
             normal.Normalize();

@@ -16,7 +16,7 @@ namespace Racer
         Gamepad pad; Keyboard keys; Mouse mouse;
         readonly List<string> rows=new();
         public static void Launch()=>new GameObject("Revision flow validation").AddComponent<WoodlandFlowValidation>();
-        string Output=>"Docs/CR034-039/flow/"+(Application.isEditor?"editor":"standalone")+"-flow.txt";
+        string Output=>"Docs/CR041-045/flow/"+(Application.isEditor?"editor":"standalone")+"-flow.txt";
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
         static void Boot() { var args=System.Environment.GetCommandLineArgs(); if(System.Array.IndexOf(args,"-woodlandFlow")>=0 && System.Array.IndexOf(args,"-racerTestSave")>=0) { Application.runInBackground=true; Launch(); } }
         void Check(bool pass,string label) { rows.Add((pass?"PASS ":"FAIL ")+label); File.WriteAllLines(Output,rows); }
@@ -41,7 +41,7 @@ namespace Racer
         IEnumerator Start()
         {
             yield return null; flow=FindAnyObjectByType<RaceFlow>(); race=flow.Race;
-            Application.runInBackground=true; Directory.CreateDirectory("Docs/CR034-039/flow");
+            Application.runInBackground=true; Directory.CreateDirectory("Docs/CR041-045/flow");
 #if UNITY_EDITOR
             flow.UseValidationSave(Path.GetFullPath("Temp/woodland-flow-"+System.Guid.NewGuid().ToString("N")));
             InputSystem.settings.editorInputBehaviorInPlayMode=InputSettings.EditorInputBehaviorInPlayMode.AllDeviceInputAlwaysGoesToGameView;
@@ -64,7 +64,7 @@ namespace Racer
                 var block=new MaterialPropertyBlock();
                 Check(painted.Length>0 && painted.All(r=>{r.GetPropertyBlock(block);return block.GetColor("_BaseColor")==VehiclePaint.Colors[6];}),"Body paint applied "+profile.Id);
                 Check(renderers.Where(r=>r.sharedMaterial && !VehiclePaint.IsBodyPaint(r.sharedMaterial)).All(r=>{r.GetPropertyBlock(block);return block.isEmpty;}),"Trim/rider unchanged "+profile.Id);
-                ScreenCapture.CaptureScreenshot(Path.GetFullPath("Docs/CR034-039/flow/garage-"+profile.Id+"-"+(Application.isEditor?"editor":"standalone")+".png"));
+                ScreenCapture.CaptureScreenshot(Path.GetFullPath("Docs/CR041-045/flow/garage-"+profile.Id+"-"+(Application.isEditor?"editor":"standalone")+".png"));
                 yield return new WaitForSecondsRealtime(.15f); flow.CloseGarage();
             }
             flow.OpenRoster();
@@ -166,7 +166,7 @@ namespace Racer
             Check(flow.CheckpointDings==dings+1 && flow.CheckpointBuzzes==buzzes+1 && flow.Notice.Contains("+5.0s"),"Checkpoint ding and cooldown-limited penalty notification");
             yield return new WaitForSecondsRealtime(4.2f);
             Check(flow.Notice==null,"Temporary penalty notice expires");
-            ScreenCapture.CaptureScreenshot(Path.GetFullPath("Docs/CR034-039/flow/hud-"+Screen.width+"x"+Screen.height+".png"));
+            ScreenCapture.CaptureScreenshot(Path.GetFullPath("Docs/CR041-045/flow/hud-"+Screen.width+"x"+Screen.height+".png"));
             yield return new WaitForSecondsRealtime(.3f);
             flow.Pause(); Check(Time.timeScale==0,"Pause stops simulation");
             flow.QuitRace(); Check(!AudioListener.pause && race.vehicle.GetComponents<AudioSource>().All(s=>s.volume==0),"Quit Race clears audio and listener pause");

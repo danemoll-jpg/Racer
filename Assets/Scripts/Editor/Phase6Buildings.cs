@@ -103,18 +103,18 @@ public static class Phase6Buildings {
   GroundFoundations();var report=ExpandYard();RefreshVisualBatches();Physics.SyncTransforms();EditorSceneManager.MarkSceneDirty(scene);EditorSceneManager.SaveScene(scene);AssetDatabase.SaveAssets();
   File.WriteAllText("Docs/PHASE6_BUILD.txt",$"CR-012 verified map marker (1028,951), world XZ (415.8,-1.1). Removed Original house 1 and {removed} dedicated colliders (foundation/wall/roof); no separate access or prop children existed.\nReplaced {changed} buildings with 4 residential and 4 commercial reusable prefab variants; all surviving site transforms preserved.\n{report}\nArchitecture and fictional shop names are approximations, not historical references. Retained foundation geometry/colliders, replaced wall/roof colliders, added ground-reaching entrance steps.\n");
  }
- public static void RefreshVisualBatches(){
+ public static void RefreshVisualBatches(bool refreshFrontage=true){
   if(Application.isPlaying)throw new InvalidOperationException("Edit mode only");
-  CR019Commercial.RefreshFrontage(); // Current authored commercial sites own their paving/access.
+  if(refreshFrontage)CR019Commercial.RefreshFrontage(); // Building-only corrections preserve accepted frontage paint.
   const string batchRoot="Phase 6 - architectural render batches";var oldRoot=GameObject.Find(batchRoot);if(oldRoot)Object.DestroyImmediate(oldRoot);
-  var root=new GameObject(batchRoot).transform;var filters=GameObject.Find(Phase6Review.Root).GetComponentsInChildren<MeshFilter>();int tris=0;
+  var root=new GameObject(batchRoot).transform;var filters=GameObject.Find(Phase6Review.Root).GetComponentsInChildren<MeshFilter>().Where(f=>!f.GetComponentInParent<BreakableProp>()).ToArray();int tris=0;
   foreach(var group in filters.GroupBy(f=>f.GetComponent<Renderer>().sharedMaterial)){
    var mesh=new Mesh{name="Scene buildings - "+group.Key.name,indexFormat=UnityEngine.Rendering.IndexFormat.UInt32};mesh.CombineMeshes(group.Select(f=>new CombineInstance{mesh=f.sharedMesh,transform=f.transform.localToWorldMatrix}).ToArray(),true,true);tris+=mesh.triangles.Length/3;
    string path=Folder+"/"+mesh.name+".asset";var existing=AssetDatabase.LoadAssetAtPath<Mesh>(path);if(existing){existing.Clear(false);existing.indexFormat=mesh.indexFormat;existing.vertices=mesh.vertices;existing.triangles=mesh.triangles;existing.normals=mesh.normals;existing.uv=mesh.uv;existing.RecalculateBounds();existing.UploadMeshData(false);Object.DestroyImmediate(mesh);mesh=existing;EditorUtility.SetDirty(existing);}else AssetDatabase.CreateAsset(mesh,path);
    var go=new GameObject(group.Key.name,typeof(MeshFilter),typeof(MeshRenderer));go.transform.SetParent(root,false);go.GetComponent<MeshFilter>().sharedMesh=mesh;go.GetComponent<Renderer>().sharedMaterial=group.Key;
   }
   foreach(var f in filters){var r=f.GetComponent<Renderer>();r.enabled=false;PrefabUtility.RecordPrefabInstancePropertyModifications(r);}
-  File.WriteAllText("Docs/PHASE6_RENDER_BATCHES.txt",$"{filters.Length} building geometry renderers replaced by {root.childCount} shared-material scene batches ({tris} triangles). Original shaders/materials/geometry retained; text renderers remain separate. Prefab renderer instances disabled, collision retained unchanged. To edit a building or prefab, call RefreshVisualBatches afterward. This touches building visuals only.\n");
+  File.WriteAllText(refreshFrontage?"Docs/PHASE6_RENDER_BATCHES.txt":"Docs/CR041-045/render-batches.txt",$"{filters.Length} building geometry renderers replaced by {root.childCount} shared-material scene batches ({tris} triangles). Original shaders/materials/geometry retained; text renderers remain separate. Prefab renderer instances disabled, collision retained unchanged. To edit a building or prefab, call RefreshVisualBatches afterward. This touches building visuals only.\n");
   EditorSceneManager.MarkSceneDirty(SceneManager.GetActiveScene());EditorSceneManager.SaveScene(SceneManager.GetActiveScene());AssetDatabase.SaveAssets();
  }
 

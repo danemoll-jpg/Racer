@@ -1,0 +1,16 @@
+Listener enabled=True; rate=48000; DSP mix capture before OS endpoint, no subjective listening claimed.
+Wood master=0.8 broken=True events=1 samples=243712, peak=0.144213, rms=0.024243, clipped=0
+ChainLink master=0.8 broken=True events=1 samples=241664, peak=0.110089, rms=0.022819, clipped=0
+Mailbox master=0.8 broken=True events=1 samples=243712, peak=0.126533, rms=0.022739, clipped=0
+Sign master=0.8 broken=True events=1 samples=241664, peak=0.112534, rms=0.023004, clipped=0
+Glass master=0.8 broken=True events=1 samples=243712, peak=0.182971, rms=0.023302, clipped=0
+Wood master=0.25 broken=True events=1 samples=243712, peak=0.055471, rms=0.007337, clipped=0
+ChainLink master=0.25 broken=True events=1 samples=245760, peak=0.036715, rms=0.007160, clipped=0
+Mailbox master=0.25 broken=True events=1 samples=241664, peak=0.035686, rms=0.007099, clipped=0
+Sign master=0.25 broken=True events=1 samples=243712, peak=0.037505, rms=0.007117, clipped=0
+Glass master=0.25 broken=True events=1 samples=241664, peak=0.050384, rms=0.007238, clipped=0
+Wood master=0 broken=True events=1 samples=241664, peak=0.010266, rms=0.000134, clipped=0
+ChainLink master=0 broken=True events=1 samples=243712, peak=0.000000, rms=0.000000, clipped=0
+Mailbox master=0 broken=True events=1 samples=241664, peak=0.000000, rms=0.000000, clipped=0
+Sign master=0 broken=True events=1 samples=245760, peak=0.000000, rms=0.000000, clipped=0
+Glass master=0 broken=True events=1 samples=241664, peak=0.000000, rms=0.000000, clipped=0

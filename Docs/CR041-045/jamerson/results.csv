@@ -1,0 +1,9 @@
+profile,attempt,entry,apexAboveBase,airSeconds,landed,gate14Credited,misses,penalty,finalUp
+original,0,35.684,12.109,2.498,True,True,0,0,1.000
+original,1,42.584,14.548,2.902,True,True,0,0,1.000
+tourer,0,35.705,12.077,2.464,True,True,0,0,1.000
+tourer,1,43.604,14.723,2.869,True,True,0,0,1.000
+moto,0,35.831,12.322,2.564,True,True,0,0,1.000
+moto,1,51.224,17.430,3.268,True,True,0,0,1.000
+atv,0,35.796,12.194,2.533,True,True,0,0,1.000
+atv,1,47.975,16.465,3.163,True,True,1,5,1.000
