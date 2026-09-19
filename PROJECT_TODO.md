@@ -1204,12 +1204,32 @@ Recommended: optional stunt challenges using existing jumps (airtime/distance me
 
 ---
 
+### CR-067 — Restore hairpin clearance and wooded house rear
+**Status:** AUTHORIZED — reported geometry regression; next combined pass.
+**Feedback:** A house driveway extends onto and covers the hairpin; an unwanted additional road and bridge behind the house should be removed, leaving the house and woods.
+**Requested change:** Identify the exact hairpin/property and geometry from the current scene/generator and historical versions before editing. Do not assume it is Dan's house or the gully stunt residence. Shorten/reshape the offending driveway to meet the street naturally without covering the turn; remove the unwanted rear road/bridge meshes, colliders and their generating logic. Restore supported terrain/woods, with no hidden road collider or floating remnants. Preserve the house pose, legitimate access, intended hairpin profile, accepted course routes, lake/cave/jumps and unrelated street continuations. Inspect route/AI/traffic/recovery references before removing geometry; if identification remains ambiguous, document candidate views and obtain the missing location rather than deleting multiple sites.
+**Acceptance:** Before/after driving and overhead views identify the corrected property. Every Street-eligible vehicle and AI traverses the hairpin without overlap, snagging or new slowdown; offroad reentry and restart/regeneration are clean. The house rear visibly contains woods, not a road/bridge. Both course routes remain valid and unrelated scenery unchanged.
+
+### CR-068 — Visible, reliable household scene variation
+**Status:** AUTHORIZED — CR-060 follow-up; Dan consistently sees only coffee.
+**Requested change:** Diagnose ordinary-release scene selection and visibility across launch/restart/track changes, persisted seeds/defaults, pool reuse, culling, occlusion and player approach. Forced-seed fixtures do not establish ordinary variation. Preserve location intent: coffee or football or empty at Dan's property; smokers or empty at friend's property. Do not relocate smokers to Dan's yard merely to create three exclusive states. Use a shuffled/weighted schedule with repetition control across new races so coffee cannot dominate indefinitely, while retaining empty visits and independent friend-house occupancy. Keep each selection stable while visible and through pause/local recovery; choose a new arrangement on a new race, not each lap. Preserve enough session/relaunch history to avoid a fixed startup coffee pattern. Ensure football/smoking gestures, props and positions are recognizable from a normal pass without intrusive labels. People remain ambient and do not obstruct vehicles.
+**Acceptance:** Test ordinary unforced launch/new-race sequences, including relaunch and both tracks; record selections and actual visible occupants from driving views. Demonstrate football, coffee, smokers and empty states in a small representative sequence (target up to eight new races), plus forced checks only for diagnosis. No popping, stale pooled coffee figures, missing football props or culling that hides the alternate scenes. Document selection behavior and limits.
+
+### CR-069 — Delayed wrong-way arrow and local-reset hint
+**Status:** AUTHORIZED — next combined pass, both tracks.
+**Requested change:** After about three continuous seconds of meaningful wrong-way driving, show a compact screen-space directional arrow toward the correct local course direction and a wrong-way/local-reset hint. Use actual signed travel relative to valid local course/active shortcut progression, not vehicle nose direction alone or straight-line direction toward a distant checkpoint. Gate/lap seams and hairpins require continuous local route tracking. The arrow should guide turning back, not point across terrain toward the next gate. Respect input device and actual binding: default keyboard R / controller Y, with correct glyph or action label when available. Keep this a screen HUD hint, not floating world text.
+**Behavior:** Brief spins, airborne rotation, backwards-facing valid landings, local maneuvering/reverse to escape, stationary vehicles and valid shortcuts must not trigger it spuriously. Use speed threshold, delay and hysteresis; clear promptly after correct travel/recovery and on finish, menus/restart/track change. Pause must not advance the timer. No forced reset, added time penalty, repeated popup spam or return to start. Existing local recovery preserves race progress/time/penalties. Keep normal HUD compact; any future per-player adaptation is not split-screen implementation now.
+**Acceptance:** Sustained wrong-way travel displays arrow/hint; correct travel clears it. Test both courses, hairpin, lap seam, cave/shortcuts, airborne spins/backwards landings, stopping, brief reverse, recovery, pause/restart and keyboard/controller prompts. Validate state behavior and visual readability; distinguish emulated input from physical-controller tests.
+
+---
+
 # DECISION LOG
 
 Record choices we do not want to repeatedly reconsider.
 
 | Date | Decision | Reason |
 |---|---|---|
+| 2026-09-19 | Bundle CR-067 through CR-069 | Restore hairpin/property woods, fix repeated coffee scene, and show wrong-way direction/local-reset hint only after sustained wrong travel |
 | 2026-09-19 | Bundle CR-064 through CR-066 | Optional projected AI finishes, clearer cartoony vehicles/drivers and requested radio formatting; split screen still estimate only |
 | 2026-09-19 | Correct sign text and require wildlife audio under CR-061/062 | Only unmounted labels should disappear; cave warning exact wording, varied animals with sounds; split screen CR-063 remains discussion |
 | 2026-09-19 | Add CR-060 to pending water/labels/AI pass | Cave-entry bats, variable football/coffee/smoking scenes and street pedestrians, dense on Hwy 92 and sparse on South Cherokee; simple stylized ambience |
@@ -1298,7 +1318,12 @@ Record choices we do not want to repeatedly reconsider.
 
 # SESSION HANDOFF
 
-**Current delivery:** 0.10.0-review1 implements CR-064–066 together; all remain awaiting Dan review. Safety checkpoint: `1192d22080a6439968ade7ee5aad9fa0ff96ce21` (saved TODO changes committed before edits after supported elevated Git retry). Completion source is recorded in Builds/Latest/VERSION.txt. See Docs/CR064-066/VALIDATION.md for methods, evidence, limitations and full review checklist. Earlier human reports remain pending; CR-063 split screen remains feasibility discussion only.
+**Current next delivery:** CR-067 hairpin driveway/rear road-bridge correction, CR-068 reliable visible household variation, and CR-069 delayed wrong-way arrow with local-reset instructions. Preserve prior work and do not infer blanket acceptance from this feedback. Split screen remains unselected. This planning update makes no game changes or new test claims.
+
+**Previous implementation evidence follows:**
+
+
+**Previous delivery:** 0.10.0-review1 implements CR-064–066 together; all remain awaiting Dan review. Safety checkpoint: `1192d22080a6439968ade7ee5aad9fa0ff96ce21` (saved TODO changes committed before edits after supported elevated Git retry). Completion source is recorded in Builds/Latest/VERSION.txt. See Docs/CR064-066/VALIDATION.md for methods, evidence, limitations and full review checklist. Earlier human reports remain pending; CR-063 split screen remains feasibility discussion only.
 
 - [x] Persisted Estimate AI at your finish option (default Off), plus post-finish Pause > Skip waiting; explicit AI-only classification, route/branch/lap distance, robust moving median or documented course/profile/difficulty fallback, penalties once, Estimated labels, no fabricated records, idempotence and restart. Standalone checks: 96/96 per course.
 - [x] Revised four original cartoony models: coherent bodies, arches, detailed wheels, glazing, lights/bumpers, motorcycle/ATV mechanics, seated helmeted occupants and steering/lean. Seven paints and physics/clone isolation: 116/116. Renderers bounded at 20/20/14/20 and 6–7 used shared materials. Front/side/chase and garage captures include black. Physics, colliders and handling remain unchanged.
