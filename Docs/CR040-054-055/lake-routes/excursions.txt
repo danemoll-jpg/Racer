@@ -1,0 +1,4 @@
+original Birch Hollow: speed before recovery=-5.213m/s; lateral=1.860m; grounded=4; up=0.998; misses=0; seconds=0
+tourer Birch Hollow: speed before recovery=-5.269m/s; lateral=1.583m; grounded=4; up=0.998; misses=0; seconds=0
+moto Birch Hollow: speed before recovery=-5.246m/s; lateral=5.903m; grounded=4; up=0.998; misses=0; seconds=0
+atv Birch Hollow: speed before recovery=-5.277m/s; lateral=4.080m; grounded=4; up=0.998; misses=0; seconds=0

@@ -1,0 +1,25 @@
+profile,route,attempt,road,finished,seconds,entry_mps,exit_mps,max_lateral,min_up,air_seconds,misses,penalty,branch_exits,recoveries
+moto,Pine Ridge,0,False,True,20.580,34.364,39.222,6.879,0.838,3.390,0,0.000,1,0
+moto,Pine Ridge,1,False,True,20.012,35.793,41.728,8.479,0.980,3.448,0,0.000,1,0
+moto,Pine Ridge,2,False,True,22.058,33.476,39.777,6.771,0.981,0.995,0,0.000,1,1
+moto,Pine Ridge,3,False,True,22.778,35.138,29.629,6.707,0.147,1.157,0,0.000,1,1
+moto,Pine Ridge,0,True,True,23.413,40.965,54.305,0.000,0.982,0.108,0,0.000,0,0
+moto,Pine Ridge,1,True,True,23.370,40.965,54.289,0.000,0.982,0.087,0,0.000,0,0
+moto,Fox Gully,0,False,True,25.599,24.426,29.928,5.989,0.970,1.850,0,0.000,1,0
+moto,Fox Gully,1,False,True,24.575,25.273,31.936,7.580,0.970,2.073,0,0.000,1,0
+moto,Fox Gully,2,False,True,28.099,24.474,29.947,5.989,0.963,1.600,0,0.000,1,1
+moto,Fox Gully,3,False,True,27.913,24.842,29.791,5.988,0.971,1.887,0,0.000,1,1
+moto,Fox Gully,0,True,True,24.983,30.774,28.706,0.000,0.965,0.077,0,0.000,0,0
+moto,Fox Gully,1,True,True,24.995,30.626,28.756,0.000,0.965,0.162,0,0.000,0,0
+moto,Creek Leap,0,False,True,20.802,33.667,33.619,10.074,0.949,2.859,0,0.000,1,0
+moto,Creek Leap,1,False,True,20.217,35.096,35.159,10.485,0.951,2.773,0,0.000,1,0
+moto,Creek Leap,2,False,True,22.767,33.484,33.625,11.053,0.773,2.537,0,0.000,1,1
+moto,Creek Leap,3,False,True,24.030,33.499,33.607,10.678,0.907,2.545,0,0.000,1,1
+moto,Creek Leap,0,True,True,28.302,28.054,28.697,0.000,0.950,0.109,0,0.000,0,0
+moto,Creek Leap,1,True,True,28.190,29.462,28.667,0.000,0.950,0.097,0,0.000,0,0
+moto,Existing Southwest Cut,0,False,True,10.474,23.768,23.849,5.793,0.999,0.091,0,0.000,1,0
+moto,Existing Southwest Cut,1,False,True,9.704,24.781,25.909,5.635,1.000,0.103,0,0.000,1,0
+moto,Existing Southwest Cut,2,False,True,12.073,23.920,23.856,5.343,1.000,0.066,0,0.000,1,1
+moto,Existing Southwest Cut,3,False,True,13.224,23.767,23.913,5.793,1.000,0.109,0,0.000,1,1
+moto,Existing Southwest Cut,0,True,True,8.872,27.728,49.336,0.000,1.000,0.095,0,0.000,0,0
+moto,Existing Southwest Cut,1,True,True,8.858,28.470,49.379,0.000,1.000,0.113,0,0.000,0,0

@@ -1,0 +1,25 @@
+profile,route,attempt,road,finished,seconds,entry_mps,exit_mps,max_lateral,min_up,air_seconds,misses,penalty,branch_exits,recoveries
+atv,Fox Gully,0,False,True,25.738,23.976,29.700,5.606,0.972,1.842,0,0.000,1,0
+atv,Fox Gully,1,False,True,24.795,24.924,32.031,7.260,0.973,1.769,0,0.000,1,0
+atv,Fox Gully,2,False,True,28.358,24.367,29.695,5.993,0.963,1.599,0,0.000,1,1
+atv,Fox Gully,3,False,True,28.933,24.298,29.837,5.448,0.973,1.619,0,0.000,1,1
+atv,Fox Gully,0,True,True,25.304,30.266,28.853,0.000,0.965,0.222,0,0.000,0,0
+atv,Fox Gully,1,True,True,25.311,29.683,28.796,0.000,0.965,0.231,0,0.000,0,0
+atv,Creek Leap,0,False,True,20.921,33.648,33.587,9.438,0.950,2.802,0,0.000,1,0
+atv,Creek Leap,1,False,True,20.361,34.989,34.487,9.758,0.950,2.846,0,0.000,1,0
+atv,Creek Leap,2,False,True,23.179,33.643,33.584,9.518,0.950,2.546,0,0.000,1,1
+atv,Creek Leap,3,False,True,24.296,33.650,33.585,10.010,0.947,2.611,0,0.000,1,1
+atv,Creek Leap,0,True,True,28.573,29.525,28.633,0.000,0.950,0.103,0,0.000,0,0
+atv,Creek Leap,1,True,True,28.561,29.596,28.645,0.000,0.950,0.103,0,0.000,0,0
+atv,Pine Ridge,0,False,True,21.403,35.123,15.707,6.126,0.984,3.383,0,0.000,1,0
+atv,Pine Ridge,1,False,True,20.340,35.713,40.927,7.513,0.983,3.441,0,0.000,1,0
+atv,Pine Ridge,2,False,True,22.938,35.123,28.922,5.898,0.966,1.219,0,0.000,1,1
+atv,Pine Ridge,3,False,True,22.858,35.330,39.438,5.990,0.986,1.080,0,0.000,1,1
+atv,Pine Ridge,0,True,True,24.322,40.704,50.572,0.000,0.982,0.110,0,0.000,0,0
+atv,Pine Ridge,1,True,True,24.284,40.704,50.571,0.000,0.982,0.109,0,0.000,0,0
+atv,Existing Southwest Cut,0,False,True,10.452,23.922,23.910,5.793,0.999,0.101,0,0.000,1,0
+atv,Existing Southwest Cut,1,False,True,9.692,23.812,25.897,5.309,1.000,0.101,0,0.000,1,0
+atv,Existing Southwest Cut,2,False,True,12.144,23.917,23.910,5.794,1.000,0.104,0,0.000,1,1
+atv,Existing Southwest Cut,3,False,True,13.258,23.902,23.910,5.817,1.000,0.105,0,0.000,1,1
+atv,Existing Southwest Cut,0,True,True,9.275,27.292,46.335,0.000,1.000,0.104,0,0.000,0,0
+atv,Existing Southwest Cut,1,True,True,9.195,27.292,46.369,0.000,1.000,0.103,0,0.000,0,0

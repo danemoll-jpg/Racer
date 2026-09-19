@@ -52,11 +52,11 @@ namespace Racer
                 Check(renderers.Where(r=>VehiclePaint.IsBodyPaint(r.sharedMaterial)).All(r=>{r.GetPropertyBlock(block);return block.GetColor("_BaseColor")==VehiclePaint.Colors[6];}),"Black body "+profile.Id);
                 Check(renderers.Where(r=>!VehiclePaint.IsBodyPaint(r.sharedMaterial)).All(r=>{r.GetPropertyBlock(block);return block.isEmpty;}),"Unpainted trim/glass/rider "+profile.Id);
             }
-            Check(race.Category.StartsWith("street-v8-landings"),"Versioned course records");
+            Check(race.Category.StartsWith(race.courseId+"-"),"Versioned course records");
             Check(VehiclePaint.Names[6]=="Black","Stable appended black swatch index");
             foreach(var branch in race.Branches.Where(b=>b.title!="Existing Southwest Cut"))
-                Check(branch.bypassedGates.Length>=2,branch.title+" explicitly bypasses multiple gates");
-            for(float s=3800;s<4540;s+=100)
+                Check(branch.bypassedGates.Length>=(race.courseId=="lake-v1"?1:2),branch.title+" explicitly bypasses authored gates");
+            for(float s=3800;s<Mathf.Min(4540,race.road.Length);s+=100)
                 foreach(int dir in new[]{-1,1})
                 {
                     float lane=race.road.TrafficLane(s,dir); Check(Mathf.Abs(lane)>5&&Mathf.Abs(lane)<race.road.HalfWidth(s),"Highway outer lane supported envelope "+s+" "+dir);

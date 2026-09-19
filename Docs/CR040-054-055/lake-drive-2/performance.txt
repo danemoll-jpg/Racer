@@ -1,0 +1,1 @@
+Automated physical pilot; timeScale=3; frames=116061; median=0.321ms; p95=1.651ms; peak working set=0.0 MiB

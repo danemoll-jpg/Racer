@@ -11,6 +11,8 @@ namespace Racer
         [Min(1)]
         public int laps = 3;
         public RaceRoad road;
+        public string courseId="street-v8-landings";
+        public string courseName="Street Loop";
         public const double OrdinaryMissPenalty = 5;
         public bool opponents = true, traffic = true;
         public int difficulty = 1;
@@ -32,7 +34,7 @@ namespace Racer
         public bool ClassificationFinal { get; private set; }
 
         public int PlayerPosition => Ordered(false).IndexOf(Racers[0]) + 1;
-        public string Category => $"street-v8-landings-{(vehicle.GetComponent<VehicleConfiguration>() ? vehicle.GetComponent<VehicleConfiguration>().profileId : "original")}-{(opponents ? "race4-d" + difficulty+"-"+string.Join("-",opponentRoster) : "solo")}-{(traffic ? "traffic" : "clear")}-laps{laps}";
+        public string Category => $"{courseId}-{(vehicle.GetComponent<VehicleConfiguration>() ? vehicle.GetComponent<VehicleConfiguration>().profileId : "original")}-{(opponents ? "race4-d" + difficulty+"-"+string.Join("-",opponentRoster) : "solo")}-{(traffic ? "traffic" : "clear")}-laps{laps}";
         VehicleRespawn respawn;
         float origin;
         float[] gateS;

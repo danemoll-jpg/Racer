@@ -1,0 +1,4 @@
+tourer Existing Southwest Cut: speed before recovery=-5.690m/s; lateral=1.797m; grounded=4; up=1.000; misses=0; seconds=0
+tourer Pine Ridge: speed before recovery=-31.482m/s; lateral=25.769m; grounded=0; up=0.998; misses=0; seconds=0
+tourer Fox Gully: speed before recovery=-6.227m/s; lateral=5.986m; grounded=4; up=0.988; misses=0; seconds=0
+tourer Creek Leap: speed before recovery=-5.371m/s; lateral=2.924m; grounded=4; up=1.000; misses=0; seconds=0

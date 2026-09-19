@@ -1,0 +1,25 @@
+profile,route,attempt,road,finished,seconds,entry_mps,exit_mps,max_lateral,min_up,air_seconds,misses,penalty,branch_exits,recoveries
+tourer,Existing Southwest Cut,0,False,True,10.489,21.441,23.880,5.951,1.000,0.000,0,0.000,1,0
+tourer,Existing Southwest Cut,1,False,True,9.759,21.447,25.862,5.693,1.000,0.000,0,0.000,1,0
+tourer,Existing Southwest Cut,2,False,True,12.376,21.385,23.880,5.837,1.000,0.000,0,0.000,1,1
+tourer,Existing Southwest Cut,3,False,True,13.525,21.451,23.880,5.837,1.000,0.000,0,0.000,1,1
+tourer,Existing Southwest Cut,0,True,True,10.074,26.579,42.168,0.000,1.000,0.000,0,0.000,0,0
+tourer,Existing Southwest Cut,1,True,True,10.026,26.773,42.158,0.000,1.000,0.000,0,0.000,0,0
+tourer,Pine Ridge,0,False,True,21.817,35.852,37.586,5.711,0.984,3.001,0,0.000,1,0
+tourer,Pine Ridge,1,False,True,21.456,35.985,37.609,5.636,0.984,3.167,0,0.000,1,0
+tourer,Pine Ridge,2,False,True,24.040,35.347,37.330,5.711,0.984,0.741,0,0.000,1,1
+tourer,Pine Ridge,3,False,True,24.257,35.358,37.601,5.709,0.989,0.717,0,0.000,1,1
+tourer,Pine Ridge,0,True,True,26.005,40.311,46.414,0.000,0.982,0.000,0,0.000,0,0
+tourer,Pine Ridge,1,True,True,25.993,40.311,46.396,0.000,0.982,0.000,0,0.000,0,0
+tourer,Fox Gully,0,False,True,26.444,23.567,29.778,6.013,0.972,1.364,0,0.000,1,0
+tourer,Fox Gully,1,False,True,25.542,25.973,31.551,5.338,0.973,1.404,0,0.000,1,0
+tourer,Fox Gully,2,False,True,29.592,23.576,29.821,6.011,0.952,1.336,0,0.000,1,1
+tourer,Fox Gully,3,False,True,29.825,23.570,29.832,6.012,0.972,1.508,0,0.000,1,1
+tourer,Fox Gully,0,True,True,25.982,29.807,28.855,0.000,0.963,0.000,0,0.000,0,0
+tourer,Fox Gully,1,True,True,26.368,30.083,29.900,0.000,0.963,0.000,0,0.000,0,0
+tourer,Creek Leap,0,False,True,21.900,32.274,33.450,8.054,0.951,2.149,0,0.000,1,0
+tourer,Creek Leap,1,False,True,21.736,32.834,33.685,8.136,0.951,2.135,0,0.000,1,0
+tourer,Creek Leap,2,False,True,24.662,32.981,33.102,5.788,0.950,1.843,0,0.000,1,1
+tourer,Creek Leap,3,False,True,25.932,33.001,33.116,5.784,0.950,1.873,0,0.000,1,1
+tourer,Creek Leap,0,True,True,29.740,28.994,28.485,0.000,0.950,0.000,0,0.000,0,0
+tourer,Creek Leap,1,True,True,29.777,29.008,28.305,0.000,0.950,0.000,0,0.000,0,0

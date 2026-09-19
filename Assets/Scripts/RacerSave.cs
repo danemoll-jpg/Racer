@@ -22,6 +22,7 @@ namespace Racer
             public string musicFolder="";
             public string musicSource="";
             public bool musicRecursive=true;
+            public string radioChannel="";
             public int frameLimit = 60;
             public bool vsync = true;
             public bool opponents = true, traffic = true;

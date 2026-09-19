@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Threading;
+using System.Linq;
 
 namespace Racer
 {
@@ -13,11 +14,26 @@ namespace Racer
         public sealed class Result
         {
             public readonly List<string> Paths=new();
+            public Channel[] Channels=Array.Empty<Channel>();
             public int Entries, Folders, Unsupported, Links, Inaccessible, Oversized;
             public bool Limited, Cancelled;
             public string Error;
             public string Summary => $"{Paths.Count:N0} tracks · skipped {Unsupported:N0} other, {Links:N0} links, {Inaccessible:N0} inaccessible, {Oversized:N0} size"
                 +(Cancelled?" · cancelled":Limited?" · LIMIT reached; unvisited files not counted. Choose a smaller root.":Error!=null?" · "+Error:"");
+        }
+        public sealed class Channel
+        {
+            public string Id, Name;
+            public string[] Paths;
+        }
+        public static Channel[] Group(string root,IEnumerable<string> paths)
+        {
+            return paths.GroupBy(path=>{
+                string relative=Path.GetRelativePath(root,path);
+                int split=relative.IndexOfAny(new[]{Path.DirectorySeparatorChar,Path.AltDirectorySeparatorChar});
+                return split<0?"":relative.Substring(0,split);
+            },StringComparer.OrdinalIgnoreCase).OrderBy(g=>g.Key,StringComparer.OrdinalIgnoreCase)
+              .ThenBy(g=>g.Key,StringComparer.Ordinal).Select(g=>new Channel{Id=g.Key==""?"root:":"folder:"+g.Key,Name=g.Key==""?"General":g.Key,Paths=g.OrderBy(p=>p,StringComparer.OrdinalIgnoreCase).ToArray()}).ToArray();
         }
         public sealed class Progress { public int Tracks, Entries, Folders; }
         public static bool Supported(string path)
@@ -61,6 +77,7 @@ namespace Racer
                 }
                 catch(Exception e) when(e is IOException||e is UnauthorizedAccessException||e is System.Security.SecurityException){result.Inaccessible++;}
             }
+            result.Channels=Group(root,result.Paths);
             return result;
         }
     }

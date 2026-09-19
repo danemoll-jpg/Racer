@@ -1,0 +1,4 @@
+PASS Fresh save defaults to portable bundled Music beside executable
+PASS Extracted folder names are Country and Rock; nested album is not a channel
+FAIL Extracted portable generated tone produces nonzero decoded DSP output (not human listening)
+PASS Nested album plays in Rock after one cycle

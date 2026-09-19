@@ -1,0 +1,23 @@
+PASS Birch Hollow contiguous clean exit earns evidence
+PASS Birch Hollow entrance-to-exit teleport rejected
+PASS Birch Hollow unobserved progress rejected
+PASS Birch Hollow reversing lowers standing without new credit
+PASS Birch Hollow backward local recovery
+PASS Birch Hollow forward recovery rejected
+PASS Birch Hollow off-corridor excursion earns no progress
+PASS Birch Hollow failed excursion followed by backward recovery can complete
+PASS Birch Hollow integrated legal bypass no penalties / correct next gate
+PASS Birch Hollow early finish still refused
+PASS Birch Hollow teleport cannot finish lap
+PASS Birch Hollow complete forward lap after legal bypass
+PASS Black body original
+PASS Unpainted trim/glass/rider original
+PASS Black body tourer
+PASS Unpainted trim/glass/rider tourer
+PASS Black body moto
+PASS Unpainted trim/glass/rider moto
+PASS Black body atv
+PASS Unpainted trim/glass/rider atv
+PASS Versioned course records
+PASS Stable appended black swatch index
+PASS Birch Hollow explicitly bypasses authored gates

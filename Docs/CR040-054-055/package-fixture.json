@@ -1,0 +1,9 @@
+{
+  "Songs": 2,
+  "AllFilesVerified": "All extracted ZIP, versioned runtime and Latest files match SHA256",
+  "UnstagedPreserved": true,
+  "UnstagedExcluded": true,
+  "RockHierarchy": true,
+  "CountryHierarchy": true,
+  "ExeUnchanged": true
+}

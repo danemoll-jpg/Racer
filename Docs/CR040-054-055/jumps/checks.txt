@@ -1,0 +1,12 @@
+PASS original jump at 620: landed=True, airtime=3.04s, peak above route=11.28m
+PASS original jump at 1020: landed=True, airtime=2.16s, peak above route=12.56m
+PASS original jump at 1390: landed=True, airtime=3.10s, peak above route=11.23m
+PASS tourer jump at 620: landed=True, airtime=2.42s, peak above route=11.13m
+PASS tourer jump at 1020: landed=True, airtime=2.12s, peak above route=12.37m
+PASS tourer jump at 1390: landed=True, airtime=2.88s, peak above route=11.11m
+PASS moto jump at 620: landed=True, airtime=2.72s, peak above route=11.29m
+PASS moto jump at 1020: landed=True, airtime=2.08s, peak above route=11.60m
+PASS moto jump at 1390: landed=True, airtime=1.48s, peak above route=7.08m
+PASS atv jump at 620: landed=True, airtime=1.80s, peak above route=8.37m
+PASS atv jump at 1020: landed=True, airtime=2.08s, peak above route=11.58m
+PASS atv jump at 1390: landed=True, airtime=1.98s, peak above route=10.11m

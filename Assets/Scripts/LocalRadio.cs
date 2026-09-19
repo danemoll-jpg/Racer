@@ -30,13 +30,20 @@ namespace Racer
         readonly List<string> library=new(), bag=new(), history=new();
         readonly HashSet<string> failed=new(StringComparer.OrdinalIgnoreCase);
         readonly System.Random random=new();
+        MusicCollection.Channel[] channels=Array.Empty<MusicCollection.Channel>();
+        readonly Dictionary<string,List<string>> channelHistory=new(StringComparer.OrdinalIgnoreCase);
+        readonly Dictionary<string,string> channelLast=new(StringComparer.OrdinalIgnoreCase);
+        int channelIndex=-1;
+        public string ChannelName=>flow.Save.Settings.radioOn&&channelIndex>=0?channels[channelIndex].Name:"Off";
+        public string[] ChannelNames=>channels.Where(c=>c.Paths.Any(p=>!failed.Contains(p))).Select(c=>c.Name).ToArray();
+        public string CurrentPath=>current;
         string metadataPath;
         string current, lastPlayed, song="Radio: add MP3, WAV or Ogg files in Settings / Music", scanFolder;
         float toastUntil, retryAt;
         int revision;
         public string Status { get; private set; }="Empty library";
-        public string Song=>song;
-        public string Toast=>Time.unscaledTime<toastUntil?song:null;
+        public string Song=>ChannelName=="Off"?"Radio Off":ChannelName+" / "+song;
+        public string Toast=>Time.unscaledTime<toastUntil?Song:null;
         public static string BundledFolder=>Path.GetFullPath(Path.Combine(Application.dataPath,"..","Music"));
         public bool Bundled=>flow.Save.Settings.musicSource=="bundled";
         public bool IncludeSubfolders=>flow.Save.Settings.musicRecursive;
@@ -70,6 +77,7 @@ namespace Racer
         public static bool LocalFolder(string path)=>!string.IsNullOrWhiteSpace(path)&&Path.IsPathRooted(path)&&!path.StartsWith(@"\\")&&!path.Contains("://");
         public void Rescan()
         {
+            StopLoad();source.Stop();if(clip)Destroy(clip);clip=null;current=null;
             scanRevision++;scanCancellation?.Cancel();rescanPending=true;
             if(scan!=null)return;
             BeginScan();
@@ -81,7 +89,7 @@ namespace Racer
             if(!LocalFolder(folder)){Status="Choose a local folder";return;}
             Status="Scanning…";
             activeScanRevision=scanRevision;scanCancellation=new CancellationTokenSource();
-            scanProgress=new MusicCollection.Progress();var token=scanCancellation.Token;var progress=scanProgress;bool recursive=IncludeSubfolders;
+            scanProgress=new MusicCollection.Progress();var token=scanCancellation.Token;var progress=scanProgress;bool recursive=true;
             scan=Task.Run(()=>MusicCollection.Scan(folder,recursive,token,progress));
         }
         public void CancelScan(){scanRevision++;rescanPending=false;scanCancellation?.Cancel();scanSummary="Scan cancelled; previous collection retained";}
@@ -95,6 +103,7 @@ namespace Racer
         {
             StopLoad(); source.Stop(); if(clip)Destroy(clip);clip=null;current=null;
             history.Clear(); library.Clear();bag.Clear();failed.Clear();lastPlayed=null;
+            channels=Array.Empty<MusicCollection.Channel>();channelIndex=-1;channelHistory.Clear();channelLast.Clear();
             song="Radio: no track playing";
         }
         public void SetFolder(string path)
@@ -118,14 +127,34 @@ namespace Racer
         }
         public void Toggle()
         {
-            flow.Save.Settings.radioOn=!flow.Save.Settings.radioOn;flow.Save.SaveSettings();
-            if(!flow.Save.Settings.radioOn)source.Pause();
-            else if(clip){source.UnPause();if(!source.isPlaying)source.Play();}else Next();
-            ShowSong();
+            int next=flow.Save.Settings.radioOn?channelIndex+1:0;
+            while(next<channels.Length&&!channels[next].Paths.Any(p=>!failed.Contains(p)))next++;
+            SelectChannel(next<channels.Length?next:-1);
+        }
+        void SelectChannel(int index)
+        {
+            if(channelIndex>=0)
+            {
+                channelHistory[channels[channelIndex].Id]=new List<string>(history);
+                channelLast[channels[channelIndex].Id]=lastPlayed;
+            }
+            StopLoad();source.Stop();source.clip=null;if(clip)Destroy(clip);clip=null;current=null;
+            library.Clear();bag.Clear();history.Clear();lastPlayed=null;channelIndex=index;
+            flow.Save.Settings.radioOn=index>=0;
+            if(index>=0)
+            {
+                var channel=channels[index];library.AddRange(channel.Paths);
+                if(channelHistory.TryGetValue(channel.Id,out var prior))history.AddRange(prior.Where(p=>library.Contains(p)));
+                channelLast.TryGetValue(channel.Id,out lastPlayed);
+                flow.Save.Settings.radioChannel=channel.Id;retryAt=0;Next();
+            }
+            else {song=Status=channels.Length==0?"Off / no playable channels. Add music, then Rescan.":"Radio Off";flow.Save.Settings.radioChannel="off:";}
+            flow.Save.SaveSettings();ShowSong();
         }
         public void ShowSong(){toastUntil=Time.unscaledTime+5; if(!clip&&loading==null)song=Status;}
         public void Next()
         {
+            if(!flow.Save.Settings.radioOn||Scanning)return;
             if(library.Count==0){Status="No playable files. Settings / Music / Open folder, then Rescan";ShowSong();return;}
             if(bag.Count==0)
             {
@@ -133,13 +162,14 @@ namespace Racer
                 for(int i=bag.Count-1;i>0;i--){int j=random.Next(i+1);(bag[i],bag[j])=(bag[j],bag[i]);}
                 if(bag.Count>1&&bag[^1]==lastPlayed)(bag[0],bag[^1])=(bag[^1],bag[0]);
             }
-            if(bag.Count==0){Status="No readable audio. Check files and Rescan";retryAt=float.PositiveInfinity;ShowSong();return;}
+            if(bag.Count==0){Status="Channel has no readable audio; skipping";Toggle();return;}
             if(bag[^1]==lastPlayed&&library.Count(p=>!failed.Contains(p))>1)
             {bag.RemoveAt(bag.Count-1);if(bag.Count==0){Next();return;}}
             var path=bag[^1];bag.RemoveAt(bag.Count-1);Play(path,true);
         }
         public void Previous()
         {
+            if(!flow.Save.Settings.radioOn||Scanning)return;
             while(history.Count>0){var path=history[^1];history.RemoveAt(history.Count-1);if(library.Contains(path)&&!failed.Contains(path)){Play(path,false);return;}}
             ShowSong();
         }
@@ -156,14 +186,22 @@ namespace Racer
         {
             yield return null;
             bool valid=false;
-            try{var info=new FileInfo(path);valid=info.Exists&&info.Length>0&&info.Length<=(Type(path)==AudioType.WAV?64L:256L)*1024*1024;}catch{}
+            try
+            {
+                var info=new FileInfo(path);valid=info.Exists&&info.Length>=12&&info.Length<=(Type(path)==AudioType.WAV?64L:256L)*1024*1024;
+                if(valid&&Type(path)==AudioType.WAV)
+                {
+                    using var stream=File.OpenRead(path);var header=new byte[12];valid=stream.Read(header,0,12)==12&&System.Text.Encoding.ASCII.GetString(header,0,4)=="RIFF"&&System.Text.Encoding.ASCII.GetString(header,8,4)=="WAVE";
+                }
+            }catch{}
             if(!valid){Fail(path);yield break;}
             request=UnityWebRequestMultimedia.GetAudioClip(new Uri(path).AbsoluteUri,Type(path));request.timeout=15;
             ((DownloadHandlerAudioClip)request.downloadHandler).streamAudio=true;
             yield return request.SendWebRequest();
             if(token!=revision)yield break;
             if(request.result!=UnityWebRequest.Result.Success){request.Dispose();request=null;Fail(path);yield break;}
-            clip=DownloadHandlerAudioClip.GetContent(request);request.Dispose();request=null;
+            try{clip=DownloadHandlerAudioClip.GetContent(request);}catch{clip=null;}
+            request.Dispose();request=null;
             if(!clip||clip.length<=0){Fail(path);yield break;}
             StartClip();
         }
@@ -187,15 +225,18 @@ namespace Racer
                 scanCancellation.Dispose();scanCancellation=null;
                 if(activeScanRevision!=scanRevision||scanFolder!=Folder){if(rescanPending)BeginScan();return;}
                 scanSummary=result.Summary;
-                library.Clear();library.AddRange(result.Paths);bag.Clear();failed.Clear();retryAt=0;
-                Status=library.Count==0?"No audio found. Open Music folder, add songs, then Rescan":library.Count+" tracks";
-                if(current!=null&&!library.Contains(current)){StopLoad();source.Stop();if(clip)Destroy(clip);clip=null;current=null;}
-                if(!clip&&loading==null&&flow.Save.Settings.radioOn&&library.Count>0)Next();
+                bool on=flow.Save.Settings.radioOn;string selected=flow.Save.Settings.radioChannel;
+                if(channelIndex>=0){channelHistory[channels[channelIndex].Id]=new List<string>(history);channelLast[channels[channelIndex].Id]=lastPlayed;}
+                channels=result.Channels;channelIndex=-1;failed.Clear();
+                int index=Array.FindIndex(channels,c=>string.Equals(c.Id,selected,StringComparison.OrdinalIgnoreCase));
+                if(index<0&&channels.Length>0)index=0;
+                SelectChannel(on?index:-1);
+                Status=channels.Length==0?"No playable channels. Add music, then Rescan":channels.Length+" channels / "+result.Paths.Count+" tracks";
             }
             if(metadata!=null&&metadata.IsCompleted){if(metadata.IsCompletedSuccessfully&&clip&&metadataPath==current){song=metadata.Result;toastUntil=Time.unscaledTime+5;}metadata=null;}
             if(metadata==null&&clip&&metadataPath!=current){metadataPath=current;var path=current;metadata=Task.Run(()=>ReadTitle(path));}
             if(picker!=null&&picker.IsCompleted){var path=picker.Result;picker=null;if(path!=null)SetFolder(path);}
-            if(flow.Save.Settings.radioOn&&loading==null&&!source.isPlaying&&library.Count>0&&Time.unscaledTime>=retryAt){retryAt=Time.unscaledTime+1;Next();}
+            if(!Scanning&&flow.Save.Settings.radioOn&&loading==null&&!source.isPlaying&&library.Count>0&&Time.unscaledTime>=retryAt){retryAt=Time.unscaledTime+1;Next();}
             if(flow.State!=RaceFlow.Stage.Racing)return;
             var k=Keyboard.current;var g=Gamepad.current;
             if(k?.rightBracketKey.wasPressedThisFrame==true||g?.dpad.right.wasPressedThisFrame==true)Next();

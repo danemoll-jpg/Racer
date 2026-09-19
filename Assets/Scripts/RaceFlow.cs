@@ -7,11 +7,15 @@ namespace Racer
     [DisallowMultipleComponent]
     public sealed class RaceFlow : MonoBehaviour
     {
-        public enum Stage { Ready, Countdown, Racing, Paused, Results, Settings, Garage, Roster }
+        public enum Stage { Ready, Countdown, Racing, Paused, Results, Settings, Garage, Roster, Boards, Courses }
         public Stage State { get; private set; } = Stage.Ready;
         public RacerSave Save { get; private set; }
         public RaceDirector Race { get; private set; }
         public LocalRadio Radio { get; private set; }
+        public RecordBoards Boards { get; private set; }
+        public int LapRank { get; private set; }
+        public int RaceRank { get; private set; }
+        string attempt;
         public float CountdownRemaining { get; private set; }
         public string Notice { get; private set; }
         public bool NewLapRecord { get; private set; }
@@ -48,6 +52,7 @@ namespace Racer
             var args = System.Environment.GetCommandLineArgs();
             for (int i = 0; i + 1 < args.Length; i++) if (args[i] == "-racerTestSave") root = Path.GetFullPath(args[i + 1]);
             Save = new RacerSave(root, "street-loop-gates-v1-laps" + Race.laps);
+            Boards = new RecordBoards(root);
             Race.opponents = Save.Settings.opponents; Race.traffic = Save.Settings.traffic;
             Race.difficulty = Mathf.Clamp(Save.Settings.difficulty,0,2);
             var configuration = Race.vehicle.GetComponent<VehicleConfiguration>();
@@ -99,7 +104,7 @@ namespace Racer
         void SetStage(Stage stage)
         {
             State = stage;
-            bool stopped = stage == Stage.Paused || stage == Stage.Settings || stage == Stage.Ready || stage == Stage.Results || stage == Stage.Garage || stage == Stage.Roster;
+            bool stopped = stage != Stage.Racing && stage != Stage.Countdown;
             Time.timeScale = stopped ? 0 : 1; if (stopped && stage != Stage.Results && feedback) feedback.Stop();
             AudioListener.pause = stage == Stage.Paused || stage == Stage.Settings;
             input.enabled = stage == Stage.Racing && !Race.Progress.Finished;
@@ -132,6 +137,14 @@ namespace Racer
         public void OpenGarage() { if(State!=Stage.Ready && State!=Stage.Results) return; SetStage(Stage.Garage); Click(); }
         public void CloseGarage() { SetStage(Stage.Ready); Click(); }
         public void OpenRoster() { if(State!=Stage.Ready && State!=Stage.Results) return; SetStage(Stage.Roster); Click(); }
+        public void OpenBoards() { SetStage(Stage.Boards); Click(); }
+        public void OpenCourses() { SetStage(Stage.Courses); Click(); }
+        public void SelectCourse(bool lake)
+        {
+            if(State!=Stage.Courses)return;
+            Save.SaveSettings(); Time.timeScale=1; AudioListener.pause=false;
+            UnityEngine.SceneManagement.SceneManager.LoadScene(lake?"LakeWoods":"StreetLoopGreybox");
+        }
         public int SelectedColor => Save.Settings.bodyColors[System.Array.FindIndex(VehicleProfile.All,p=>p.Id==Save.Settings.vehicleId)];
         void RestoreChoices()
         {
@@ -194,6 +207,7 @@ namespace Racer
         }
         public void BeginCountdown()
         {
+            attempt=System.Guid.NewGuid().ToString("N");LapRank=RaceRank=0;Boards.BeginAttempt();
             NewLapRecord = NewRaceRecord = false; CountdownRemaining = 3; lastTick = 3;
             Notice = null; LockVehicle(true); SetStage(Stage.Countdown); Sound(tick);
         }
@@ -202,7 +216,7 @@ namespace Racer
         public void Resume() { SetStage(pausedStage); Click(); }
         public void OpenSettings() { settingsReturn = State; SetStage(Stage.Settings); Click(); }
         public void CloseSettings() { Save.SaveSettings(); SetStage(settingsReturn); Click(); }
-        public void Back() { if (State == Stage.Settings) CloseSettings(); else if (State == Stage.Paused) Resume(); else if(State==Stage.Garage || State==Stage.Roster) CloseGarage(); }
+        public void Back() { if (State == Stage.Settings) CloseSettings(); else if (State == Stage.Paused) Resume(); else if(State==Stage.Garage || State==Stage.Roster || State==Stage.Boards || State==Stage.Courses) CloseGarage(); }
         public void QuitRace()
         {
             if(State!=Stage.Paused && State!=Stage.Results && State!=Stage.Settings) return;
@@ -217,10 +231,14 @@ namespace Racer
         public void LapCompleted()
         {
             if (State != Stage.Racing) return;
+            if(string.IsNullOrEmpty(attempt)||Race.Progress.CompletedLaps<=0)return;
+            string profile=Race.vehicle.GetComponent<VehicleConfiguration>().profileId;
+            LapRank=Boards.CompletedLap(attempt,Race.Category,profile,Race.Progress);
             bool best = Save.RecordLap(Race.Progress.LastLap); NewLapRecord |= best;
             if (Race.Progress.Finished)
             {
                 NewRaceRecord = Save.RecordRace(Race.Progress.AdjustedTime(Race.Clock));
+                RaceRank=Boards.CompletedRace(attempt,Race.Category,profile,Race.Progress,Race.Clock);
                 input.enabled = respawn.enabled = false;
                 // Clear the finish with normal pedals/steering so following racers are not blocked.
                 var runoff=Race.vehicle.GetComponent<RoadDriver>();
@@ -231,6 +249,7 @@ namespace Racer
                 if ((NewLapRecord || NewRaceRecord) && finishAt == 0) feedback.PlayOneShot(record, Save.Settings.feedback * .18f);
             }
             else if (best) { Notify("NEW PERSONAL BEST LAP  " + RaceHud.FormatTime(Race.Progress.LastLap), 4); Sound(record); }
+            else if(LapRank>0)Notify("TOP 10 LAP / #"+LapRank+"  "+RaceHud.FormatTime(Race.Progress.LastLap),4);
         }
         public void CompleteResults() { LockVehicle(true); SetStage(Stage.Results); }
         void Notify(string text, float duration) { Notice = text; noticeUntil = Time.unscaledTime + duration; }
@@ -240,6 +259,7 @@ namespace Racer
         {
             if (Race.Progress.Started) throw new System.InvalidOperationException("Validation storage must be selected before racing.");
             Save = new RacerSave(directory, "street-loop-gates-v1-laps" + Race.laps);
+            Boards = new RecordBoards(directory);
             Save.SelectRecords(Race.Category); Save.ApplySettings(); menus.Show();
         }
 #endif

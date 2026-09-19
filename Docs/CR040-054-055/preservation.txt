@@ -1,0 +1,1 @@
+PASS: original scene, StreetLoop/Woodland assets, handling profiles, difficulty/AI driver, progress/penalty rules, shortcut entitlement, recovery, traffic art, vehicle colors, destructibles, HUD and Play-Racer.cmd match checkpoint 522917554b0bbc7c8eebf664790b2c8573d0a88f.

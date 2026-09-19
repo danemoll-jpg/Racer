@@ -1,0 +1,16 @@
+PASS Fresh save defaults to portable bundled Music beside executable
+PASS Immediate folder channels include nested albums and exclude empty folders
+PASS One action cycles playable General/Country/Rock/Off and skips corrupt channel
+PASS Shuffle avoids immediate repeat and stays in channel
+PASS Previous returns channel-specific history
+PASS Rapid switching produces at most one playing source on radio host
+PASS Repeated rescans complete without hanging
+PASS Removed file skipped while channel retains another playable track
+PASS Rescan handles renamed channel without stale paths
+PASS Source, channel/Off and independent volume persist
+PASS Menu D-pad Down does not change radio channel
+PASS Gameplay D-pad Down cycles channel
+PASS Single root-track channel plays
+PASS Single channel cycles to Off and stops playback
+PASS Off cycles back to single channel
+PASS Zero channels stays clearly Off

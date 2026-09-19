@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -16,6 +17,8 @@ namespace Racer
         UnityEngine.UI.Text title, details, banner, songBanner;
         bool musicPage;
         bool musicCollectionPage;
+        bool raceBoard;
+        string boardCategory;
         readonly List<UnityEngine.UI.Button> buttons = new();
         readonly Dictionary<RaceFlow.Stage, int> selections = new();
         RaceFlow.Stage shown;
@@ -71,7 +74,7 @@ namespace Racer
             previewCamera.backgroundColor=new Color(.06f,.1f,.13f); previewCamera.targetTexture=previewTexture;
             previewCamera.transform.position=new Vector3(10000,10003,9994); previewCamera.transform.LookAt(new Vector3(10000,10000.5f,10000));
             previewCamera.fieldOfView=36; previewCamera.farClipPlane=30;
-            for (int i = 0; i < 8; i++)
+            for (int i = 0; i < 10; i++)
             {
                 var rect = Rect("Action " + i, card);
                 rect.gameObject.AddComponent<UnityEngine.UI.LayoutElement>().preferredHeight = 44;
@@ -156,9 +159,10 @@ namespace Racer
             foreach(var b in buttons) b.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=(shown==RaceFlow.Stage.Garage || shown==RaceFlow.Stage.Results)?38:44;
             details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight = 160;
             details.fontSize=20;
+            details.supportRichText=shown==RaceFlow.Stage.Boards;
             if (shown == RaceFlow.Stage.Ready)
             {
-                title.text = "RACER / STREET LOOP";
+                title.text = "RACER / "+flow.Race.courseName.ToUpperInvariant();
                 details.text = "Three laps through the neighborhood.\nShared race clock starts at GO. Cross START to begin lap 1.\n\nPersonal best lap   " + Record(flow.Save.Best.lap) + "\nPersonal best race  " + Record(flow.Save.Best.race);
                 Action(0,"Start race",flow.StartRace); Action(1,"Settings",flow.OpenSettings); Action(2,"Quit Game",flow.Quit);
                 Action(3, flow.Race.opponents ? "Mode: Race vs 3 AI" : "Mode: Solo / time trial", flow.ToggleOpponents);
@@ -166,6 +170,9 @@ namespace Racer
                 Action(5,"Difficulty: " + flow.Race.DifficultyName,flow.CycleDifficulty);
                 Action(6,"Garage: " + flow.Race.vehicle.GetComponent<VehicleConfiguration>().Profile.Name,flow.OpenGarage);
                 Action(7,"Opponent vehicles",flow.OpenRoster);
+                Action(8,"Track: "+flow.Race.courseName,flow.OpenCourses);
+                Action(9,"Records / Top 10",()=>{boardCategory=null;flow.OpenBoards();});
+                foreach(var b in buttons)b.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=36;
                 details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=125;
                 details.fontSize=18;
                 details.text=$"{flow.Race.laps} laps / clock starts at GO\n{(flow.Race.opponents?flow.Race.RosterLabel:"Solo time trial")}\nBest lap {Record(flow.Save.Best.lap)}  /  race {Record(flow.Save.Best.race)}\nTimes below are elapsed; penalties are added to results.";
@@ -193,9 +200,42 @@ namespace Racer
                 Action(3, "Penalty breakdown / next page", () => { penaltyPage++; if (penaltyPage * 4 >= p.Penalties.Count) penaltyPage = -1; Show(); });
                 Action(4,"Garage / next vehicle",flow.OpenGarage);
                 Action(5,"Opponent vehicles",flow.OpenRoster);
+                Action(6,"Records / Top 10",()=>{boardCategory=null;flow.OpenBoards();});
+                details.text+=$"\nLap {(flow.NewLapRecord?"NEW PB / ":"")}{(flow.LapRank>0?"TOP 10 #"+flow.LapRank:"")}  Race {(flow.NewRaceRecord?"NEW PB / ":"")}{(flow.RaceRank>0?"TOP 10 #"+flow.RaceRank:"")}";
                 if (penaltyPage >= 0) {
                     PenaltyDetails(p);
                 }
+            }
+            else if(shown==RaceFlow.Stage.Courses)
+            {
+                title.text="SELECT TRACK";
+                details.text="Street Loop: the original neighborhood circuit.\nLake & Woods: start by the friend’s house, pass Dan’s, then head into the woods.\nIndependent gates, laps and record categories.";
+                Action(0,"Street Loop",()=>flow.SelectCourse(false));
+                Action(1,"Lake & Woods",()=>flow.SelectCourse(true));
+                Action(2,"Back",flow.CloseGarage);
+            }
+            else if(shown==RaceFlow.Stage.Boards)
+            {
+                title.text=raceBoard?"TOP 10 / TOTAL RACE":"TOP 10 / LAP";
+                if(boardCategory==null)boardCategory=raceBoard?flow.Race.Category:RecordBoards.LapCategory(flow.Race.Category);
+                details.fontSize=16;details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=340;
+                var entries=flow.Boards.Board(boardCategory,raceBoard);
+                details.text=RecordBoards.Describe(boardCategory)+"\nRank    Adjusted time       Vehicle       Date (UTC)\n";
+                for(int i=0;i<entries.Count;i++)
+                {
+                    var e=entries[i];bool recent=flow.Boards.IsNew(e.id);
+                    string row=$"{i+1,2}.  {RaceHud.FormatTime(e.seconds)}  {VehicleProfile.Find(e.vehicle).Name}  {(string.IsNullOrEmpty(e.date)||e.date.Length<10?"Unknown (legacy)":e.date.Substring(0,10))}";
+                    details.text+=(recent?"<color=#57F5C3>"+row+(i==0?"  PB":"  NEW")+"</color>":row)+"\n";
+                }
+                if(entries.Count==0)details.text+="No eligible completed attempts in this category.\n";
+                details.text+="\nFull-precision ordering; ties keep attempt order.\n"+(flow.Boards.Error??"");
+                foreach(var b in buttons)b.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=30;
+                Action(0,(raceBoard?"":"Selected: ")+"Lap",()=>{raceBoard=false;boardCategory=null;Show();});
+                Action(1,(raceBoard?"Selected: ":"")+"Race",()=>{raceBoard=true;boardCategory=null;Show();});
+                Action(2,"Previous saved category",()=>CycleBoard(-1));
+                Action(3,"Next saved category",()=>CycleBoard(1));
+                Action(4,"Current track / vehicle / race configuration",()=>{boardCategory=null;Show();});
+                Action(5,"Back to menu",flow.CloseGarage);
             }
             else if (shown == RaceFlow.Stage.Garage)
             {
@@ -239,7 +279,7 @@ namespace Racer
                     details.fontSize=16;details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=150;
                     details.text=MusicDetails();
                     Action(0,$"Music volume {s.music:P0}",()=>Adjust(()=>s.music=NextVolume(s.music)));
-                    Action(1,"Radio: "+(s.radioOn?"On":"Off"),()=>{radio.Toggle();Show();});
+                    Action(1,"Channel: "+radio.ChannelName+" / next channel or Off",()=>{radio.Toggle();Show();});
                     Action(2,"Next track",()=>{radio.Next();Show();});
                     Action(3,"Previous track",()=>{radio.Previous();Show();});
                     Action(4,"Open Music folder",radio.OpenFolder);Action(5,"Rescan Music folder",()=>{radio.Rescan();Show();});
@@ -248,7 +288,7 @@ namespace Racer
                     {
                         title.text="MUSIC COLLECTION";
                         Action(0,"Source: "+(radio.Bundled?"Bundled music":"Custom folder")+" (switch)",()=>{radio.SetSource(!radio.Bundled);Show();});
-                        Action(1,"Include subfolders: "+(radio.IncludeSubfolders?"On":"Off"),()=>{radio.SetRecursive(!radio.IncludeSubfolders);Show();});
+                        Action(1,"Folder channels / nested albums included",()=>{radio.ShowSong();Show();});
                         Action(2,"Choose custom folder",radio.ChooseFolder);
                         Action(3,"Open selected folder",radio.OpenFolder);
                         Action(4,"Rescan collection",()=>{radio.Rescan();Show();});
@@ -268,6 +308,11 @@ namespace Racer
             EventSystem.current.SetSelectedGameObject(buttons[focus].gameObject);
         }
         static float NextVolume(float value) => value >= .99f ? 0 : Mathf.Min(1, (Mathf.Floor(value*10+.01f)+1)/10);
+        void CycleBoard(int direction)
+        {
+            var categories=flow.Boards.Categories(raceBoard).Append(raceBoard?flow.Race.Category:RecordBoards.LapCategory(flow.Race.Category)).Distinct().OrderBy(c=>c,System.StringComparer.Ordinal).ToArray();
+            int i=System.Array.IndexOf(categories,boardCategory);boardCategory=categories[(i+direction+categories.Length)%categories.Length];Show();
+        }
         string MusicDetails()
         {
             var radio=flow.Radio;

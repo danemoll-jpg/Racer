@@ -1,0 +1,33 @@
+{
+    "version": 1,
+    "sequence": 2,
+    "entries": [
+        {
+            "id": "legacy/records-street-v8-landings-original-race4-d1-tourer-moto-atv-traffic-laps3.json/lap",
+            "category": "street-v8-landings-original-race4-d1-tourer-moto-atv-traffic",
+            "vehicle": "original",
+            "date": "",
+            "race": false,
+            "legacy": true,
+            "seconds": 50.0,
+            "order": 1
+        },
+        {
+            "id": "legacy/records-street-v8-landings-original-race4-d1-tourer-moto-atv-traffic-laps3.json/race",
+            "category": "street-v8-landings-original-race4-d1-tourer-moto-atv-traffic-laps3",
+            "vehicle": "original",
+            "date": "",
+            "race": true,
+            "legacy": true,
+            "seconds": 150.0,
+            "order": 2
+        }
+    ],
+    "received": [
+        "legacy/records-street-v8-landings-original-race4-d1-tourer-moto-atv-traffic-laps3.json/lap",
+        "legacy/records-street-v8-landings-original-race4-d1-tourer-moto-atv-traffic-laps3.json/race"
+    ],
+    "migrations": [
+        "records-street-v8-landings-original-race4-d1-tourer-moto-atv-traffic-laps3.json"
+    ]
+}

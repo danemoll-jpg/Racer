@@ -1,4 +1,4 @@
-param([ValidatePattern('^[0-9]+\.[0-9]+\.[0-9]+(?:-[A-Za-z0-9-]+)?$')][string]$Version='0.6.3-review1')
+param([ValidatePattern('^[0-9]+\.[0-9]+\.[0-9]+(?:-[A-Za-z0-9-]+)?$')][string]$Version='0.7.0-review1')
 $ErrorActionPreference='Stop'
 $projectRoot=[IO.Path]::GetFullPath((Join-Path $PSScriptRoot '..'))
 $builds=Join-Path $projectRoot 'Builds'
@@ -46,9 +46,9 @@ foreach($song in $stagedSongs){
  Copy-Item -LiteralPath $song.FullName -Destination $destination
  if((Get-FileHash -LiteralPath $song.FullName).Hash -ne (Get-FileHash -LiteralPath $destination).Hash){throw 'Staged music verification failed'}
 }
-Copy-Item -LiteralPath "$projectRoot/Docs/CR050-053/RADIO.md" -Destination "$stage/RADIO.md" -Force
-'Add MP3, PCM WAV or Ogg Vorbis songs (subfolders supported), then Rescan in Music settings. See RADIO.md beside Racer.exe. For future ZIPs, keep selected songs in the project BundleMusic staging folder.' | Set-Content -LiteralPath "$stage/Music/README-Racer.txt"
-(Get-Content -LiteralPath "$projectRoot/Docs/CR041-045/README-player.txt" -Raw).Replace("0.6.1-review2",$Version).Replace("street-v6-flat5","street-v8-landings") + "`nMusic: Settings > Music / local radio. Read RADIO.md for portable bundled songs and recursive custom collections.`n" | Set-Content -LiteralPath "$stage/README.txt"
+Copy-Item -LiteralPath "$projectRoot/Docs/CR040-054-055/RADIO.md" -Destination "$stage/RADIO.md" -Force
+'Each immediate folder is a radio channel; nested artist/album folders belong to that channel. Root songs form General. Add MP3, PCM WAV or Ogg Vorbis, then Rescan. See RADIO.md beside Racer.exe. Stage selected songs in project BundleMusic before repackaging.' | Set-Content -LiteralPath "$stage/Music/README-Racer.txt"
+(Get-Content -LiteralPath "$projectRoot/Docs/CR040-054-055/README-player.txt" -Raw).Replace("0.7.0-review1",$Version) | Set-Content -LiteralPath "$stage/README.txt"
 $licenses=Join-Path $stage 'Licenses';New-Item -ItemType Directory -Force $licenses | Out-Null
 foreach($notice in @('AUDIO-ASSET-NOTICES.txt','Unity-Windows-Mono-Notices.pdf','PackageNotices')){Copy-Item -LiteralPath "$projectRoot/Docs/CR020-021/$notice" -Destination $licenses -Recurse -Force}
 Copy-Item -LiteralPath "$projectRoot/Docs/CR028-033/VEHICLE-ASSET-NOTICES.txt" -Destination $licenses -Force

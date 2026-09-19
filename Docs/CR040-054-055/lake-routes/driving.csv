@@ -1,0 +1,25 @@
+profile,route,attempt,road,finished,seconds,entry_mps,exit_mps,max_lateral,min_up,air_seconds,misses,penalty,branch_exits,recoveries
+original,Birch Hollow,0,False,True,25.523,22.984,27.263,5.636,0.988,0.000,0,0.000,1,0
+original,Birch Hollow,1,False,True,24.639,24.821,28.221,5.939,0.989,0.060,0,0.000,1,0
+original,Birch Hollow,2,False,True,27.458,23.641,27.263,5.579,0.988,0.000,0,0.000,1,1
+original,Birch Hollow,3,False,True,28.597,23.642,27.263,5.579,0.988,0.000,0,0.000,1,1
+original,Birch Hollow,0,True,True,22.721,31.310,27.873,0.000,0.886,1.220,0,0.000,0,0
+original,Birch Hollow,1,True,True,22.579,31.310,27.880,0.000,0.878,1.201,0,0.000,0,0
+tourer,Birch Hollow,0,False,True,25.698,23.639,27.242,5.580,0.988,0.000,0,0.000,1,0
+tourer,Birch Hollow,1,False,True,24.740,24.829,28.402,5.449,0.989,0.000,0,0.000,1,0
+tourer,Birch Hollow,2,False,True,27.659,23.640,27.240,5.580,0.988,0.000,0,0.000,1,1
+tourer,Birch Hollow,3,False,True,28.819,23.641,27.242,5.580,0.988,0.000,0,0.000,1,1
+tourer,Birch Hollow,0,True,True,22.959,31.349,28.097,0.000,0.904,2.000,0,0.000,0,0
+tourer,Birch Hollow,1,True,True,22.917,31.349,28.123,0.000,0.907,1.881,0,0.000,0,0
+moto,Birch Hollow,0,False,True,24.698,23.572,28.686,5.595,0.986,0.438,0,0.000,1,0
+moto,Birch Hollow,1,False,True,23.840,24.512,28.816,7.836,0.989,0.782,0,0.000,1,0
+moto,Birch Hollow,2,False,True,26.781,23.573,28.686,5.595,0.986,0.205,0,0.000,1,1
+moto,Birch Hollow,3,False,True,27.698,23.572,28.686,7.427,0.983,0.739,0,0.000,1,1
+moto,Birch Hollow,0,True,True,23.681,31.551,28.409,0.000,0.912,2.360,0,0.000,0,0
+moto,Birch Hollow,1,True,True,24.267,31.134,28.685,0.000,0.447,4.503,0,0.000,0,0
+atv,Birch Hollow,0,False,True,24.840,23.554,28.639,5.596,0.990,0.299,0,0.000,1,0
+atv,Birch Hollow,1,False,True,23.917,24.409,28.771,7.957,0.990,0.711,0,0.000,1,0
+atv,Birch Hollow,2,False,True,26.599,23.555,28.640,5.596,0.990,0.301,0,0.000,1,1
+atv,Birch Hollow,3,False,True,27.762,23.554,28.639,5.596,0.990,0.300,0,0.000,1,1
+atv,Birch Hollow,0,True,True,25.192,30.837,28.626,0.000,0.752,4.081,0,0.000,0,0
+atv,Birch Hollow,1,True,True,24.102,31.229,28.824,0.000,0.928,2.761,0,0.000,0,0

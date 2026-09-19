@@ -1,0 +1,5 @@
+{
+  "ExitCode": 0,
+  "Measurement": "Host process monitor, sequential offscreen rendered race",
+  "PeakWorkingSetMiB": 528.54
+}

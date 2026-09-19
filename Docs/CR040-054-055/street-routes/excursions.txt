@@ -1,0 +1,5 @@
+original Existing Southwest Cut: speed before recovery=-5.696m/s; lateral=2.004m; grounded=4; up=1.000; misses=0; seconds=0
+original Pine Ridge: speed before recovery=-31.118m/s; lateral=25.789m; grounded=0; up=0.997; misses=0; seconds=0
+original Fox Gully: speed before recovery=-7.036m/s; lateral=6.108m; grounded=4; up=0.988; misses=0; seconds=0
+original Creek Leap: speed before recovery=-5.379m/s; lateral=3.355m; grounded=4; up=1.000; misses=0; seconds=0
+tourer Existing Southwest Cut: speed before recovery=-5.682m/s; lateral=1.928m; grounded=4; up=1.000; misses=0; seconds=0

@@ -1,0 +1,10 @@
+{
+  "OriginalAttempts": 96,
+  "OriginalCompleted": 96,
+  "OriginalMisses": 0.0,
+  "OriginalRecoveryAttempts": 32.0,
+  "LakeAttempts": 24,
+  "LakeCompleted": 24,
+  "LakeMisses": 0.0,
+  "LakeRecoveryAttempts": 8.0
+}

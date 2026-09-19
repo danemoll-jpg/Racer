@@ -1,0 +1,4 @@
+atv Fox Gully: speed before recovery=-6.841m/s; lateral=9.269m; grounded=0; up=0.940; misses=0; seconds=0
+atv Creek Leap: speed before recovery=-5.430m/s; lateral=4.173m; grounded=4; up=1.000; misses=0; seconds=0
+atv Pine Ridge: speed before recovery=-33.681m/s; lateral=31.836m; grounded=0; up=1.000; misses=0; seconds=0
+atv Existing Southwest Cut: speed before recovery=-5.725m/s; lateral=1.703m; grounded=4; up=1.000; misses=0; seconds=0
