@@ -1094,12 +1094,22 @@ Use this for things that are not bugs but that Dan wants changed.
 Difficulty retuning, exact house placement and photo-based home accuracy remain deferred. CR-040 is now authorized; these other options are not.
 ---
 
+### CR-055 — Default bundled music and folder-named radio channels
+**Status:** AUTHORIZED — bundle with unfinished CR-040 lake/woods track and CR-054 top-ten lap/race records.
+**Requested change:** Use the portable Music folder beside the installed game as the default music source on a fresh setup; retain explicit custom-folder selection and saved preferences. Each immediate child folder is a channel named after that folder. Recursively include its artist/album subfolders within the same channel, rather than turning every nested folder into a channel. Supported tracks directly in the Music root form a General channel when present. Apply the same channel interpretation when a custom collection root is explicitly selected. Empty/unplayable channels are skipped; no music means a clear Off/empty state.
+**Controls:** Replace the gameplay radio toggle with one cyclic action: channel 1 -> channel 2 -> ... -> Off -> channel 1. Use the existing D-pad Down and keyboard M bindings unless inspection reveals a conflict. Keep D-pad Left/Right for previous/next song within the current channel and Up for current channel/artist/title; preserve menu navigation. Expose equivalent Settings controls. Show a compact channel/track toast on switch and an Off confirmation. Order channels predictably; shuffle tracks within each channel without immediate repeats when possible. Persist chosen source/channel/off state and independent music volume. Rescans, renamed/removed folders and rapid switching must not cause stale audio, overlap, hangs or errors.
+**Packaging:** Preserve CR-053 staging in BundleMusic, recursive portable Music output, and Package-Racer.cmd repackaging without Unity compilation. Preserve folder names/hierarchy in ZIP and future builds. Never automatically copy custom collections; only explicitly staged tracks ship. Personal audio stays out of Git and nothing is uploaded by this task.
+**Acceptance:** Fresh extracted build defaults to bundled Music; generated channel folders with nested albums play under the correct folder-named channel. One repeated button action visits each playable channel and Off reliably, including zero/one/multiple-channel cases. Verify track skip/history stay in-channel, recursive playback, rapid switches, rescans/removal, persistence, volumes and gameplay/menu input isolation. All three unfinished/new deliverables remain awaiting Dan review after implementation.
+
+---
+
 # DECISION LOG
 
 Record choices we do not want to repeatedly reconsider.
 
 | Date | Decision | Reason |
 |---|---|---|
+| 2026-09-19 | Deliver omitted CR-040/054 plus CR-055 radio channels | Bundled Music becomes default; immediate child folder names label recursive channels; one button cycles channels and Off |
 | 2026-09-19 | Authorize CR-040 second lake/woods track and CR-054 top-ten lap/race records alongside CR-050 through CR-053 | Dan agrees to recommended next track and requests both record lists; later approval supersedes previous CR-040 backlog restriction |
 | 2026-09-19 | Initial request: bundle CR-050 through CR-053; feature choice initially pending | Dan reports shortcut gate placement, identical traffic, nested library and portable music needs; explicitly permits selected music in friend package, without authorizing upload |
 | TBD | Single-player first | Keep scope manageable |
@@ -1181,7 +1191,11 @@ Record choices we do not want to repeatedly reconsider.
 ---
 
 # SESSION HANDOFF
-**Current delivery — CR-050 through CR-053 only: 0.6.3-review1, awaiting Dan review.** The current task explicitly excludes starting lake/woods, stunt challenges, ghosts or multiplayer. CR-054 records boards were also outside this task. Earlier saved planning notes below are retained as history, not blanket authorization or acceptance for this pass. Difficulty/handling constants and house/road/shortcut geometry are unchanged. BUG-004 and earlier outstanding human checks remain open.
+
+**Current authorized next delivery:** Complete CR-040 lake/woods track and CR-054 top-ten lap/total-race boards omitted from 0.6.3-review1, together with CR-055 default bundled folder and folder-named radio channels using one channel/Off cycle button. Earlier exclusions below describe the prior task only and do not override this authorization. Preserve delivered CR-050 through CR-053 and existing difficulty/handling. This planning update does not claim implementation or new testing.
+
+**Previous delivery evidence follows:**
+**Previous delivery — CR-050 through CR-053 only: 0.6.3-review1, awaiting Dan review.** The current task explicitly excludes starting lake/woods, stunt challenges, ghosts or multiplayer. CR-054 records boards were also outside this task. Earlier saved planning notes below are retained as history, not blanket authorization or acceptance for this pass. Difficulty/handling constants and house/road/shortcut geometry are unchanged. BUG-004 and earlier outstanding human checks remain open.
 
 Safety checkpoint: `04447830beeb1563ab94f71c60bfec3bb1ce4520`. Git permission denials were safely retried with supported elevation. Completion commit is reported in the delivery response and runtime VERSION.txt. Launch `Play-Racer.cmd`; complete runtime is `Builds/Latest`, versioned runtime/ZIP is `Builds/Racer-0.6.3-review1-Windows`. No upload/distribution occurred.
 
