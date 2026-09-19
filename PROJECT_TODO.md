@@ -1186,12 +1186,31 @@ Recommended: optional stunt challenges using existing jumps (airtime/distance me
 
 ---
 
+### CR-064 — Optional estimated AI finish classification
+**Status:** AUTHORIZED — next combined pass.
+**Requested change:** Add a persisted option to finish remaining AI immediately when the human completes the race, plus an end-of-race action to skip waiting if the option is off. Existing full simulation remains available. This applies only to unfinished AI; never advance or finalize another human, including future split screen. Already finished AI retain measured results; existing DNFs remain DNFs.
+**Estimation:** Snapshot each AI's valid multi-lap route/branch progress and recent representative moving/sector/lap pace; estimate remaining duration, using a documented vehicle/course/difficulty fallback for stationary or insufficient samples. Account for remaining laps and valid shortcut geometry; do not infer progress from straight-line distance or heading. Do not divide by near-zero current speed, let a single crash dominate the estimate, or invent future gate misses. Add already incurred penalties exactly once. An unfinished AI's projected physical finish cannot precede the snapshot; final adjusted ordering still follows the normal timing rules. Label projected totals Estimated or ~, distinguish measured finishes, and make finalization idempotent. No teleport-through-gates simulation, fabricated lap records or estimated times in measured top-ten boards. Freeze/settle AI safely after finalization and restore normal behavior on restart.
+**Acceptance:** Near/far finishers, multiple laps behind, shortcut/water/stuck/recovering AI, ties, existing penalties/DNF/finished entries, repeated clicks, option persistence and restart. Human results remain measured, only AI projected, no wait required when enabled. Keep estimation/classification separate from legitimate gate progression.
+
+### CR-065 — More recognizable stylized vehicles and drivers
+**Status:** AUTHORIZED — next combined visual pass.
+**Requested change:** Preserve cartoony art direction but replace overly abstract player/AI racer shapes with coherent stylized models across both cars, motorcycle and ATV. Improve body silhouette/proportions, wheel arches/tires/rims, windows, lights, bumpers and material separation; add recognizable bike/ATV frame, seat, bars and mechanical details without excessive geometry. Riders/drivers should have readable head/helmet, torso, arms/hands and legs, appropriate seated posture with hands on steering/handlebars and feet on controls. Visible car occupants should fit cabin/window geometry; no need to model hidden interiors. Simple pose/lean/steering response should follow existing driving animation without changing handling. Reuse licensed suitable assets or improve project art; no paid purchases without authorization.
+**Preservation:** Keep physics/collider dimensions, center of mass, vehicle profiles/speed, paint selections and eligibility stable unless an actual existing defect requires a documented fix. Visual polish must not regress ramps, camera clearance or collision asymmetry. Fix genuine existing trim/rider property-block failures reported in 0.9.1 rather than changing tests to hide them. Inspect lit chase, side/front and garage views for all profiles/colors including black. Keep ambient traffic stylistically compatible without automatically rebuilding people/wildlife. Bound draw calls/materials and compare runtime performance. Human art review remains pending.
+
+### CR-066 — Station-change name and two-line radio metadata
+**Status:** AUTHORIZED — next combined pass.
+**Requested change:** On station changes show the actual channel folder display name followed by Radio, e.g. Classic Punk Radio. This station announcement is for channel changes only; do not prefix normal song information or rename folders on disk. Off remains Radio Off. A virtual General channel uses General Radio. Preserve current triggers/duration for song information (track changes/on-demand and existing metadata refresh behavior); format it as exactly two labeled lines: Artist: The Blahs followed by Song: BlahBlahBlah. Use Unknown Artist and filename-based song fallback for missing metadata; plain-text handling, Unicode support within available font, readable wrapping/truncation and compact layout. Ensure station toast remains visible long enough to read when async track metadata arrives, then show song text; no stale information from a previous channel. Keep radio controls, folder hierarchy, scanning, shuffle/history, music volume and bundled packaging unchanged.
+**Acceptance:** Folder names with spaces/Unicode, tagged/untagged tracks, rapid switches, on-demand display, natural next-track playback, Off, empty library and failed track cases; no station suffix on song display and no new song-popup frequency. Verify in standalone with saved library/preferences intact.
+
+---
+
 # DECISION LOG
 
 Record choices we do not want to repeatedly reconsider.
 
 | Date | Decision | Reason |
 |---|---|---|
+| 2026-09-19 | Bundle CR-064 through CR-066 | Optional projected AI finishes, clearer cartoony vehicles/drivers and requested radio formatting; split screen still estimate only |
 | 2026-09-19 | Correct sign text and require wildlife audio under CR-061/062 | Only unmounted labels should disappear; cave warning exact wording, varied animals with sounds; split screen CR-063 remains discussion |
 | 2026-09-19 | Add CR-060 to pending water/labels/AI pass | Cave-entry bats, variable football/coffee/smoking scenes and street pedestrians, dense on Hwy 92 and sparse on South Cherokee; simple stylized ambience |
 | 2026-09-19 | Bundle CR-057 through CR-059 after positive Forest Loop review | Shallow slow driveable lake, physical signs instead of floating labels, occasional fair AI mistakes; optional larger additions await selection |
@@ -1279,7 +1298,12 @@ Record choices we do not want to repeatedly reconsider.
 
 # SESSION HANDOFF
 
-**Current delivery:** 0.9.1-review1 implements CR-061/062 together and awaits Dan's review. Safety checkpoint: `0553614da30e2bbcd0fe4619ee5ba1aa302aba97`. Git's sandbox staging denial was recovered through the supported elevated retry before edits. Completion source is recorded in Builds/Latest/VERSION.txt.
+**Current next delivery:** Implement CR-064 optional AI-only estimated finish classification, CR-065 recognizable cartoony vehicles/drivers, and CR-066 station-change and two-line song display. Preserve CR-061/062 sign/wildlife work without inferring blanket human acceptance. CR-063 local split screen remains feasibility/estimate only; not authorized to implement. This documentation update performs no game changes or new validation.
+
+**Previous implementation evidence follows:**
+
+
+**Previous delivery:** 0.9.1-review1 implements CR-061/062 together and awaits Dan's review. Safety checkpoint: `0553614da30e2bbcd0fe4619ee5ba1aa302aba97`. Git's sandbox staging denial was recovered through the supported elevated retry before edits. Completion source is recorded in Builds/Latest/VERSION.txt.
 
 Recovered historical lettering from `8fee1f5475e6c2b9ee0a9eb646cd2e61e40c4664`: 17 restored plus 22 retained storefront faces on each track. Physical road names, jump/shortcut advice and stores survive generation/build and break/restore/restart; only known unmounted labels are removed. Forest adds the exact physical warning `Warning: Cave Ahead Enter at your Own Risk`, readable in the captured chase approach. All 28,539 existing scene transforms retain their poses.
 
