@@ -1,0 +1,6 @@
+Assets/Scenes/StreetLoopGreybox.unity removed 25 extension colliders; house=(484.00, 23.90, -596.20) rotation=(0.00000, 0.02968, 0.00000, 0.99956)
+Assets/Scenes/StreetLoopGreybox.unity supported rear trees=6
+Assets/Scenes/StreetLoopGreybox.unity driveway color vertices=70; all terrain heights and route arrays unchanged; remaining continuations=Hwy 92 east,Jamerson Rd west,Hwy 92 west
+Assets/Scenes/LakeWoods.unity removed 25 extension colliders; house=(484.00, 23.90, -596.20) rotation=(0.00000, 0.02968, 0.00000, 0.99956)
+Assets/Scenes/LakeWoods.unity supported rear trees=6
+Assets/Scenes/LakeWoods.unity driveway color vertices=70; all terrain heights and route arrays unchanged; remaining continuations=Hwy 92 east,Jamerson Rd west,Hwy 92 west

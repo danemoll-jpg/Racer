@@ -1,0 +1,4 @@
+Assets/Scenes/StreetLoopGreybox.unity supported rear trees=6
+Assets/Scenes/StreetLoopGreybox.unity driveway color vertices=0; all terrain heights and route arrays unchanged; remaining continuations=Hwy 92 west,Jamerson Rd west,Hwy 92 east
+Assets/Scenes/LakeWoods.unity supported rear trees=6
+Assets/Scenes/LakeWoods.unity driveway color vertices=0; all terrain heights and route arrays unchanged; remaining continuations=Jamerson Rd west,Hwy 92 east,Hwy 92 west

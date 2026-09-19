@@ -104,6 +104,8 @@ namespace Racer
         void SetStage(Stage stage)
         {
             State = stage;
+            if(stage!=Stage.Racing&&stage!=Stage.Paused&&stage!=Stage.Settings)
+                Race?.GetComponent<WrongWayGuidance>()?.Clear();
             bool stopped = stage != Stage.Racing && stage != Stage.Countdown;
             Time.timeScale = stopped ? 0 : 1; if (stopped && stage != Stage.Results && feedback) feedback.Stop();
             AudioListener.pause = stage == Stage.Paused || stage == Stage.Settings;

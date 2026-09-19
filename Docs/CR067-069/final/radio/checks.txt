@@ -1,0 +1,24 @@
+PASS Tagged two-line exact labels
+PASS Untagged filename and artist fallback
+PASS Unicode and literal plain text preserved
+PASS Folder-based station announcement
+PASS Async load and metadata do not erase station announcement
+PASS Loaded song has no station prefix
+PASS Rapid channel switch 0
+PASS Rapid channel switch 1
+PASS Rapid channel switch 2
+PASS Rapid channel switch 3
+PASS Rapid channel switch 4
+PASS Rapid channel switch 5
+PASS Off cancels previous channel
+PASS Late metadata cannot replace Off
+PASS Virtual root channel announcement
+PASS Track change only shows song info
+PASS Natural next track preserves song trigger
+PASS No periodic popup frequency increase
+PASS On-demand info retains two lines
+PASS Tagged metadata completion retains station announcement
+PASS Actual tagged WAV metadata decoded by ATL
+PASS Long metadata keeps two logical labels with bounded truncation
+PASS Empty library remains safe
+PASS Failed track safely skips to Off

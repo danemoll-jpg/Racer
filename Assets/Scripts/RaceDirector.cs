@@ -56,6 +56,7 @@ namespace Racer
             }
 
             Flow = GetComponent<RaceFlow>();
+            if(!GetComponent<WrongWayGuidance>())gameObject.AddComponent<WrongWayGuidance>();
             respawn = vehicle.GetComponent<VehicleRespawn>();
             Racers.Add(new RacerState("YOU", vehicle, gates.Length - 1, laps));
             if (road)
@@ -81,6 +82,7 @@ namespace Racer
 
         void OnRespawn()
         {
+            GetComponent<WrongWayGuidance>()?.Clear();
             // Recovery is neither a gate crossing nor a new lap; retain all earned progress.
             Racers[0].SampleOrigin(Clock);
             Racers[0].Branch.Recovered(vehicle.Body.position);
@@ -96,6 +98,7 @@ namespace Racer
 
         public void RestartRace()
         {
+            GetComponent<WrongWayGuidance>()?.Clear();
             DriverVariation.Seed=AmbientLife.ForcedSeed!=0?AmbientLife.ForcedSeed:System.Environment.TickCount;
             GetComponent<AmbientLife>()?.SelectScenes();
             GetComponent<Wildlife>()?.SelectPopulation();

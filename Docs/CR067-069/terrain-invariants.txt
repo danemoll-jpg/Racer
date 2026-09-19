@@ -1,0 +1,2 @@
+Street vertices=True normals=True triangles=True
+Forest vertices=True normals=True triangles=True

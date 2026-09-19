@@ -11,6 +11,17 @@ namespace Racer
         public float Steering { get; private set; }
         bool resetRequested;
         InputAction throttle, brake, steering, reset;
+        public bool UsingGamepad { get; private set; }
+        public string ResetControlLabel
+        {
+            get
+            {
+                if(!UsingGamepad)return reset.GetBindingDisplayString(1);
+                string label=Gamepad.current?.buttonNorth.displayName;
+                return string.IsNullOrEmpty(label)||label=="Button North"?"Y":label;
+            }
+        }
+        void Used(InputAction.CallbackContext context) { UsingGamepad=context.control.device is Gamepad; }
 
         void Awake()
         {
@@ -29,6 +40,7 @@ namespace Racer
             reset = new InputAction("Reset", InputActionType.Button);
             reset.AddBinding("<Gamepad>/buttonNorth");
             reset.AddBinding("<Keyboard>/r");
+            throttle.performed+=Used; brake.performed+=Used; steering.performed+=Used; reset.performed+=Used;
         }
 
         void OnEnable() { throttle.Enable(); brake.Enable(); steering.Enable(); reset.Enable(); }

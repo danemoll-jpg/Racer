@@ -1,0 +1,10 @@
+StreetLoopGreybox existing transforms compared=14201 changed=1 ids=900821222
+StreetLoopGreybox RaceRoad components unchanged=1/1
+StreetLoopGreybox WoodlandRoute components unchanged=4/4
+StreetLoopGreybox ForestLayout components unchanged=0/0
+StreetLoopGreybox ShallowWater components unchanged=1/1
+LakeWoods existing transforms compared=14273 changed=1 ids=900821222
+LakeWoods RaceRoad components unchanged=2/2
+LakeWoods WoodlandRoute components unchanged=1/1
+LakeWoods ForestLayout components unchanged=1/1
+LakeWoods ShallowWater components unchanged=3/3

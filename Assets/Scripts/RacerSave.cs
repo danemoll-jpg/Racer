@@ -32,6 +32,7 @@ namespace Racer
             public string[] opponentChoices = {"mixed","mixed","mixed"};
             public string[] opponentRoster = {"tourer","moto","atv"};
             public int[] bodyColors = {-1,-1,-1,-1};
+            public HouseholdSchedule streetHouseholds = new(), forestHouseholds = new();
         }
         public Records Best { get; private set; }
         public Options Settings { get; private set; }

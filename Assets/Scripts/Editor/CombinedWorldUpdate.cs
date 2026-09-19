@@ -32,7 +32,8 @@ namespace Racer.Editor
                 // junction, Jamerson westward. No arbitrary bend extensions.
                 Extension(root,"Hwy 92 east",road.At(4640,out _),Vector3.right,16.4f);
                 Extension(root,"Hwy 92 west",road.At(3755,out _),Vector3.left,16.4f);
-                Extension(root,"South Cherokee Lane south",road.At(1195,out _),Vector3.back,9);
+                // CR-067: southern hairpin ends in the remembered house and woods.
+                // No decorative road/tunnel may be generated through this property.
                 Extension(root,"Jamerson Rd west",road.At(2640,out _),Vector3.left,9);
             }
             EditorSceneManager.MarkSceneDirty(race.gameObject.scene);EditorSceneManager.SaveScene(race.gameObject.scene);AssetDatabase.SaveAssets();

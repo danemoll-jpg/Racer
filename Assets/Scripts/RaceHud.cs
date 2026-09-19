@@ -8,6 +8,8 @@ namespace Racer
         public UnityEngine.UI.Text display;
         UnityEngine.UI.Text speedometer;
         GameObject speedPanel;
+        GameObject wrongPanel;
+        UnityEngine.UI.Text wrongText,wrongArrow;
         void Start()
         {
             var panel=(RectTransform)display.transform.parent;
@@ -22,6 +24,13 @@ namespace Racer
             var label=new GameObject("Speed",typeof(RectTransform),typeof(UnityEngine.UI.Text)); label.transform.SetParent(rect,false);
             speedometer=label.GetComponent<UnityEngine.UI.Text>(); speedometer.font=display.font; speedometer.fontSize=30; speedometer.color=Color.white; speedometer.alignment=TextAnchor.MiddleCenter; speedometer.raycastTarget=false;
             speedometer.rectTransform.anchorMin=Vector2.zero; speedometer.rectTransform.anchorMax=Vector2.one; speedometer.rectTransform.offsetMin=speedometer.rectTransform.offsetMax=Vector2.zero;
+            wrongPanel=new GameObject("Wrong way guidance",typeof(RectTransform),typeof(UnityEngine.UI.Image));
+            var wr=wrongPanel.GetComponent<RectTransform>();wr.SetParent(transform,false);wr.anchorMin=wr.anchorMax=wr.pivot=new(.5f,1);wr.anchoredPosition=new(0,-92);wr.sizeDelta=new(270,72);
+            wrongPanel.GetComponent<UnityEngine.UI.Image>().color=new(.025f,.055f,.07f,.9f);
+            UnityEngine.UI.Text Label(string name,Vector2 position,Vector2 dimensions,int fontSize)
+            {var t=new GameObject(name,typeof(RectTransform),typeof(UnityEngine.UI.Text)).GetComponent<UnityEngine.UI.Text>();t.transform.SetParent(wr,false);t.font=display.font;t.fontSize=fontSize;t.color=new(1,.84f,.35f);t.alignment=TextAnchor.MiddleCenter;t.raycastTarget=false;t.rectTransform.anchoredPosition=position;t.rectTransform.sizeDelta=dimensions;return t;}
+            wrongArrow=Label("Local course direction",new(-101,0),new(48,48),38);wrongArrow.text="↑";
+            wrongText=Label("Wrong way and local reset",new(25,0),new(210,66),20);wrongPanel.SetActive(false);
         }
         public static string FormatTime(double seconds)
         { int ms = (int)(seconds * 1000); return $"{ms / 60000:00}:{ms / 1000 % 60:00}.{ms % 1000:000}"; }
@@ -35,6 +44,17 @@ namespace Racer
         {
             if(!race || race.Progress==null || !display) return;
             display.text=BuildText();
+            var guidance=race.GetComponent<WrongWayGuidance>();
+            if(wrongPanel)
+            {
+                wrongPanel.SetActive(guidance&&guidance.Visible&&!race.Flow.MenuVisible&&!race.Progress.Finished);
+                if(wrongPanel.activeSelf)
+                {
+                    wrongText.text="Wrong Way\n"+race.vehicle.GetComponent<VehicleInput>().ResetControlLabel+": reset locally";
+                    var cam=Camera.main;var forward=Vector3.ProjectOnPlane(cam.transform.forward,Vector3.up).normalized;
+                    wrongArrow.rectTransform.localRotation=Quaternion.Euler(0,0,-Vector3.SignedAngle(forward,guidance.Direction,Vector3.up));
+                }
+            }
             if(speedPanel) { speedPanel.SetActive(!race.Flow.MenuVisible); speedometer.text=$"{Mathf.Abs(race.vehicle.ForwardSpeed)*3.6f:0} <size=17>km/h</size>"; }
         }
     }

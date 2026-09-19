@@ -68,5 +68,20 @@ namespace Racer
         }
 
         public float Relative(float s, float origin) => Mathf.Repeat(s - origin, Length);
+        public float ProjectNear(Vector3 p,float previous,float window,out float lateral)
+        {
+            Initialize(); float best=float.MaxValue,result=previous;
+            for(int i=0;i<points.Length;i++)
+            {
+                var a=points[i];var v=points[(i+1)%points.Length]-a;
+                float t=Mathf.Clamp01(Vector3.Dot(p-a,v)/Mathf.Max(.001f,v.sqrMagnitude));
+                float s=distance[i]+t*(distance[i+1]-distance[i]);
+                float delta=Mathf.Repeat(s-previous+Length*.5f,Length)-Length*.5f;
+                if(Mathf.Abs(delta)>window)continue;
+                float d=(p-a-v*t).sqrMagnitude;
+                if(d<best){best=d;result=s;}
+            }
+            lateral=Mathf.Sqrt(best);return result;
+        }
     }
 }

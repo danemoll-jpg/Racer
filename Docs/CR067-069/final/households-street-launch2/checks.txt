@@ -1,0 +1,22 @@
+PASS Ordinary unforced release selection
+PASS No stale household figures visit 0
+PASS Normal street approach shows dan, state=0/True, visible=3/3
+PASS Normal street approach shows friend, state=0/True, visible=2/2
+PASS Ball only during football
+PASS Occupancy stable through pass/pause/local recovery
+PASS No stale household figures visit 1
+PASS Normal street approach shows dan, state=2/False, visible=0/0
+PASS Normal street approach shows friend, state=2/False, visible=0/0
+PASS Ball only during football
+PASS Occupancy stable through pass/pause/local recovery
+PASS No stale household figures visit 2
+PASS Normal street approach shows dan, state=1/True, visible=2/2
+PASS Normal street approach shows friend, state=1/True, visible=2/2
+PASS Ball only during football
+PASS Occupancy stable through pass/pause/local recovery
+PASS No stale household figures visit 3
+PASS Normal street approach shows dan, state=0/False, visible=3/3
+PASS Normal street approach shows friend, state=0/False, visible=0/0
+PASS Ball only during football
+PASS Occupancy stable through pass/pause/local recovery
+PASS Final visit persisted for next application launch

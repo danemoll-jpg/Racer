@@ -5,20 +5,22 @@ A small single-player PC arcade racing game inspired by a childhood street.
 
 ## Current scope
 
-Phases 1–6 are accepted. Phase 7 implements countdown, results, persistent personal
-bests, pause/settings, controller-friendly menus and restrained audio, awaiting Dan's
-review. The accepted environment, jump, shortcut, breakable props and car tuning remain.
-CR-013/CR-018, optional scoring and speed traps are deferred. Phase 8 has not begun.
-Current rules and review checklist: [Phase 7](Docs/Phase7/RULES.md).
+Single-player Street Loop and Forest Loop. The current review delivery is
+**0.11.0-review1 (CR-067–069)**: the southern hairpin/property correction, saved
+household variety, and delayed wrong-way guidance. New work awaits Dan's review;
+technical checks do not close earlier human reports. See
+[the current validation report](Docs/CR067-069/VALIDATION.md).
 
+The earlier phase-specific tuning and reset descriptions below are historical.
+Current local recovery uses R / Xbox-style Y and preserves race progress.
 ## Open
 
 Use Unity **6000.6.1f1** (Unity 6). Add this repository root to Unity Hub,
 open it, allow package restoration/import to finish, then open
 `Assets/Scenes/StreetLoopGreybox.unity`. Press Play, then click the Game view for
 keyboard focus. The Editor may suspend play while in the background.
-The visible Windows review build is `Builds/Phase7/Racer.exe` (local, excluded from Git).
-Choose Start race, wait for GO, then cross START to begin timing.
+The visible Windows review build is `Builds/Latest/Racer.exe` (local, excluded from Git).
+Choose Start race and wait for GO; R/Y performs local recovery.
 
 ## Controls
 
@@ -27,14 +29,14 @@ Choose Start race, wait for GO, then cross START to begin timing.
 | Accelerate | RT | W / Up |
 | Brake, then reverse when held | LT | S / Down |
 | Steer | Left stick | A/D / Left/Right |
-| Reset to starting pad | Y | R |
+| Reset locally | Y | R |
 | Pause / resume | Start / Menu | Enter / Escape |
 | Confirm menu selection | A | Space |
 | Back from Settings / Pause | B | Escape |
 | Restart whole race | Pause > Restart race | Pause > Restart race |
 
 Menus also accept mouse clicks, D-pad/stick and arrow navigation. Restart restores
-props and starts a new countdown; Y/R resets only the vehicle and current lap.
+props and starts a new countdown; Y/R resets the vehicle locally while preserving race progress.
 
 RT also brakes when moving backward. There is no separate handbrake in this phase.
 Unity Input System actions support controller connection/disconnection and keyboard
@@ -73,7 +75,7 @@ at the centre of mass; damped upright assistance resists roll and follows slopes
 Airborne assistance is weaker. This is an arcade model, not tire simulation.
 The car uses Ignore Raycast layer so ground/camera probes cannot hit its own body.
 
-## Reset and camera
+## Historical Phase 7 reset and camera
 
 Reset returns the car upright to the existing **north-entrance spawn** in StreetLoopGreybox
 (PrototypeTrack still uses Respawn Pad at (0, 1.1, -45)), clears velocity,
@@ -142,4 +144,6 @@ Accepted Phase 0 is preserved in commit `12b1dff`, with the original foundation
 at `c7dc529`. Phase 1 has its own local implementation commit. An existing GitHub
 `origin` is configured; no commits were pushed.
 
-Latest review: **0.6.3-review1 / CR-050–053**, awaiting Dan. Launch Play-Racer.cmd. For portable songs put chosen audio in BundleMusic and run Package-Racer.cmd; no Unity recompile is required. Read Docs/CR050-053/RADIO.md for recursive sources, explicit limits and preserving/migrating music from old Latest builds. Future packages must use Tools/Package-Racer.ps1 so previous Latest/Music is preserved. Validation and playtest checklist: Docs/CR050-053/VALIDATION.md.
+Latest review: **0.11.0-review1 / CR-067–069**, awaiting Dan. Launch `Play-Racer.cmd` or the complete `Builds/Latest/Racer.exe` runtime. The southern hairpin/property correction, persisted household variety and delayed wrong-way guidance are documented in [validation and review checklist](Docs/CR067-069/VALIDATION.md). Current reset is local: keyboard R / Xbox-style controller Y. Earlier phase descriptions above are historical.
+
+For portable music, put deliberately chosen songs in BundleMusic and run Package-Racer.cmd. Packaging preserves the previous complete Latest and verifies runtime/ZIP hashes. No external upload. The original household locations remain beside the neighborhood street in both scenes; the Forest racing line does not pass them.

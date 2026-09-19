@@ -1,0 +1,196 @@
+NONBODY original Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY original Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY original Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY original Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY original Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY original Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+original paint=0: activeRenderers=20; materials=7; triangles=8044; colliders=1; size=(1.85, 0.65, 3.70); center=(0.00, 0.05, 0.00); mass=1200; com=(0.00, -0.35, 0.00)
+NONBODY original Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY original Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY original Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY original Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY original Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY original Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+original paint=1: activeRenderers=20; materials=7; triangles=8044; colliders=1; size=(1.85, 0.65, 3.70); center=(0.00, 0.05, 0.00); mass=1200; com=(0.00, -0.35, 0.00)
+NONBODY original Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY original Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY original Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY original Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY original Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY original Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+original paint=2: activeRenderers=20; materials=7; triangles=8044; colliders=1; size=(1.85, 0.65, 3.70); center=(0.00, 0.05, 0.00); mass=1200; com=(0.00, -0.35, 0.00)
+NONBODY original Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY original Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY original Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY original Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY original Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY original Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+original paint=3: activeRenderers=20; materials=7; triangles=8044; colliders=1; size=(1.85, 0.65, 3.70); center=(0.00, 0.05, 0.00); mass=1200; com=(0.00, -0.35, 0.00)
+NONBODY original Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY original Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY original Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY original Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY original Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY original Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+original paint=4: activeRenderers=20; materials=7; triangles=8044; colliders=1; size=(1.85, 0.65, 3.70); center=(0.00, 0.05, 0.00); mass=1200; com=(0.00, -0.35, 0.00)
+NONBODY original Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY original Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY original Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY original Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY original Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY original Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+original paint=5: activeRenderers=20; materials=7; triangles=8044; colliders=1; size=(1.85, 0.65, 3.70); center=(0.00, 0.05, 0.00); mass=1200; com=(0.00, -0.35, 0.00)
+NONBODY original Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY original Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY original Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY original Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY original Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY original Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+original paint=6: activeRenderers=20; materials=7; triangles=8044; colliders=1; size=(1.85, 0.65, 3.70); center=(0.00, 0.05, 0.00); mass=1200; com=(0.00, -0.35, 0.00)
+NONBODY tourer Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY tourer Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY tourer Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY tourer Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY tourer Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY tourer Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+tourer paint=0: activeRenderers=20; materials=7; triangles=8044; colliders=1; size=(2.00, 0.80, 4.50); center=(0.00, 0.05, 0.00); mass=1500; com=(0.00, -0.35, 0.00)
+NONBODY tourer Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY tourer Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY tourer Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY tourer Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY tourer Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY tourer Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+tourer paint=1: activeRenderers=20; materials=7; triangles=8044; colliders=1; size=(2.00, 0.80, 4.50); center=(0.00, 0.05, 0.00); mass=1500; com=(0.00, -0.35, 0.00)
+NONBODY tourer Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY tourer Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY tourer Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY tourer Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY tourer Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY tourer Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+tourer paint=2: activeRenderers=20; materials=7; triangles=8044; colliders=1; size=(2.00, 0.80, 4.50); center=(0.00, 0.05, 0.00); mass=1500; com=(0.00, -0.35, 0.00)
+NONBODY tourer Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY tourer Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY tourer Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY tourer Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY tourer Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY tourer Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+tourer paint=3: activeRenderers=20; materials=7; triangles=8044; colliders=1; size=(2.00, 0.80, 4.50); center=(0.00, 0.05, 0.00); mass=1500; com=(0.00, -0.35, 0.00)
+NONBODY tourer Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY tourer Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY tourer Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY tourer Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY tourer Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY tourer Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+tourer paint=4: activeRenderers=20; materials=7; triangles=8044; colliders=1; size=(2.00, 0.80, 4.50); center=(0.00, 0.05, 0.00); mass=1500; com=(0.00, -0.35, 0.00)
+NONBODY tourer Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY tourer Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY tourer Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY tourer Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY tourer Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY tourer Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+tourer paint=5: activeRenderers=20; materials=7; triangles=8044; colliders=1; size=(2.00, 0.80, 4.50); center=(0.00, 0.05, 0.00); mass=1500; com=(0.00, -0.35, 0.00)
+NONBODY tourer Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY tourer Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY tourer Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY tourer Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY tourer Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY tourer Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+tourer paint=6: activeRenderers=20; materials=7; triangles=8044; colliders=1; size=(2.00, 0.80, 4.50); center=(0.00, 0.05, 0.00); mass=1500; com=(0.00, -0.35, 0.00)
+NONBODY moto Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY moto Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY moto Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY moto Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY moto Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY moto Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+moto paint=0: activeRenderers=14; materials=6; triangles=7996; colliders=1; size=(0.65, 0.80, 2.25); center=(0.00, 0.05, 0.00); mass=220; com=(0.00, -0.35, 0.00)
+NONBODY moto Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY moto Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY moto Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY moto Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY moto Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY moto Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+moto paint=1: activeRenderers=14; materials=6; triangles=7996; colliders=1; size=(0.65, 0.80, 2.25); center=(0.00, 0.05, 0.00); mass=220; com=(0.00, -0.35, 0.00)
+NONBODY moto Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY moto Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY moto Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY moto Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY moto Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY moto Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+moto paint=2: activeRenderers=14; materials=6; triangles=7996; colliders=1; size=(0.65, 0.80, 2.25); center=(0.00, 0.05, 0.00); mass=220; com=(0.00, -0.35, 0.00)
+NONBODY moto Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY moto Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY moto Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY moto Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY moto Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY moto Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+moto paint=3: activeRenderers=14; materials=6; triangles=7996; colliders=1; size=(0.65, 0.80, 2.25); center=(0.00, 0.05, 0.00); mass=220; com=(0.00, -0.35, 0.00)
+NONBODY moto Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY moto Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY moto Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY moto Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY moto Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY moto Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+moto paint=4: activeRenderers=14; materials=6; triangles=7996; colliders=1; size=(0.65, 0.80, 2.25); center=(0.00, 0.05, 0.00); mass=220; com=(0.00, -0.35, 0.00)
+NONBODY moto Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY moto Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY moto Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY moto Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY moto Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY moto Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+moto paint=5: activeRenderers=14; materials=6; triangles=7996; colliders=1; size=(0.65, 0.80, 2.25); center=(0.00, 0.05, 0.00); mass=220; com=(0.00, -0.35, 0.00)
+NONBODY moto Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY moto Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY moto Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY moto Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY moto Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY moto Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+moto paint=6: activeRenderers=14; materials=6; triangles=7996; colliders=1; size=(0.65, 0.80, 2.25); center=(0.00, 0.05, 0.00); mass=220; com=(0.00, -0.35, 0.00)
+NONBODY atv Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY atv Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY atv Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY atv Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY atv Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY atv Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+atv paint=0: activeRenderers=20; materials=6; triangles=8820; colliders=1; size=(1.45, 0.65, 2.35); center=(0.00, 0.05, 0.00); mass=340; com=(0.00, -0.28, 0.00)
+NONBODY atv Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY atv Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY atv Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY atv Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY atv Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY atv Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+atv paint=1: activeRenderers=20; materials=6; triangles=8820; colliders=1; size=(1.45, 0.65, 2.35); center=(0.00, 0.05, 0.00); mass=340; com=(0.00, -0.28, 0.00)
+NONBODY atv Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY atv Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY atv Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY atv Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY atv Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY atv Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+atv paint=2: activeRenderers=20; materials=6; triangles=8820; colliders=1; size=(1.45, 0.65, 2.35); center=(0.00, 0.05, 0.00); mass=340; com=(0.00, -0.28, 0.00)
+NONBODY atv Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY atv Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY atv Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY atv Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY atv Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY atv Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+atv paint=3: activeRenderers=20; materials=6; triangles=8820; colliders=1; size=(1.45, 0.65, 2.35); center=(0.00, 0.05, 0.00); mass=340; com=(0.00, -0.28, 0.00)
+NONBODY atv Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY atv Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY atv Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY atv Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY atv Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY atv Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+atv paint=4: activeRenderers=20; materials=6; triangles=8820; colliders=1; size=(1.45, 0.65, 2.35); center=(0.00, 0.05, 0.00); mass=340; com=(0.00, -0.28, 0.00)
+NONBODY atv Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY atv Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY atv Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY atv Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY atv Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY atv Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+atv paint=5: activeRenderers=20; materials=6; triangles=8820; colliders=1; size=(1.45, 0.65, 2.35); center=(0.00, 0.05, 0.00); mass=340; com=(0.00, -0.28, 0.00)
+NONBODY atv Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY atv Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY atv Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY atv Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY atv Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+NONBODY atv Water ripple LineRenderer material=Universal Render Pipeline/Unlit base=RGBA(0.000, 0.000, 0.000, 0.000) color=RGBA(0.000, 0.000, 0.000, 0.000) has=True
+atv paint=6: activeRenderers=20; materials=6; triangles=8820; colliders=1; size=(1.45, 0.65, 2.35); center=(0.00, 0.05, 0.00); mass=340; com=(0.00, -0.28, 0.00)

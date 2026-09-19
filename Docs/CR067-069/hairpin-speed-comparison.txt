@@ -1,0 +1,9 @@
+Hairpin full-race samples: x>450, -570<z<-470. Historical vs current seeds/traffic differ; descriptive comparison, not controlled attribution.
+Docs/CR064-066/normal-ai-street atv n=7 min=17.96 average=25.8971428571429 max=32.3
+Docs/CR064-066/normal-ai-street moto n=6 min=18.09 average=26.58 max=34.62
+Docs/CR064-066/normal-ai-street original n=6 min=14.58 average=22.27 max=31.68
+Docs/CR064-066/normal-ai-street tourer n=7 min=14.14 average=23.3285714285714 max=33.03
+Docs/CR067-069/ai-street atv n=6 min=19.37 average=25.9466666666667 max=32.96
+Docs/CR067-069/ai-street moto n=6 min=17 average=28.0216666666667 max=35.43
+Docs/CR067-069/ai-street original n=7 min=14.47 average=25.1171428571429 max=32.71
+Docs/CR067-069/ai-street tourer n=6 min=14.06 average=23.3816666666667 max=32.41

@@ -1,0 +1,6 @@
+PASS Physical wrong-direction pilot triggers delayed warning after 3.299478 seconds
+PASS Physical pause freezes wrong-way timer
+PASS Emulated R local recovery event=True, clear=True, distance=0.05, gate=0/0, penalty=0/0
+PASS Emulated Y performs local recovery and clears guidance
+PASS Physical correct travel remains clear
+PASS Quit clears guidance

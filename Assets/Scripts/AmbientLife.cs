@@ -42,12 +42,12 @@ namespace Racer
         {
             race=GetComponent<RaceDirector>();skin=Mat(new(.62f,.40f,.26f));hair=Mat(new(.12f,.08f,.05f));trousers=Mat(new(.16f,.20f,.26f));propMat=Mat(new(.83f,.79f,.67f));batMat=Mat(new(.08f,.065f,.075f));
             shirts=new[]{Mat(new(.5f,.18f,.12f)),Mat(new(.17f,.32f,.47f)),Mat(new(.56f,.49f,.19f)),Mat(new(.28f,.39f,.24f))};
-            foreach(var p in football)Create(p,0,.72f);
+            foreach(var p in football)Create(p,0,1);
             foreach(var p in coffee)Create(p,1,1);
             foreach(var p in smoking)Create(p,2,1);
             foreach(var p in highway)Create(p,3,1);
             foreach(var p in residential)Create(p,4,1);
-            ball=Part(transform,"Football",PrimitiveType.Sphere,Vector3.zero,new(.28f,.16f,.16f),shirts[0]);ball.gameObject.SetActive(false);
+            ball=Part(transform,"Football",PrimitiveType.Sphere,Vector3.zero,new(.36f,.21f,.21f),shirts[0]);ball.gameObject.SetActive(false);
             bats=new Transform[8];leftWings=new Transform[8];rightWings=new Transform[8];flightStarts=new Vector3[8];
             for(int i=0;i<bats.Length;i++)
             {
@@ -60,7 +60,8 @@ namespace Racer
             var soundObject=new GameObject("Cave flutter source");soundObject.transform.SetParent(transform,false);audioSource=soundObject.AddComponent<AudioSource>();audioSource.playOnAwake=false;audioSource.spatialBlend=1;audioSource.minDistance=8;audioSource.maxDistance=65;audioSource.dopplerLevel=0;
             audioSource.rolloffMode=AudioRolloffMode.Linear;audioSource.minDistance=18;audioSource.maxDistance=90;audioSource.priority=70;
             audioSource.clip=GetComponent<Wildlife>()?.batFlight;
-            SelectScenes();
+            // Ready/menu construction must not consume a saved race visit.
+            foreach(var p in people)p.root.gameObject.SetActive(false);
         }
         Transform Wing(Transform parent,int side)
         {
@@ -89,8 +90,15 @@ namespace Racer
         }
         public void SelectScenes()
         {
-            Seed=ForcedSeed!=0?ForcedSeed:Environment.TickCount;var rng=new System.Random(Seed);
+            Seed=ForcedSeed!=0?ForcedSeed:Guid.NewGuid().GetHashCode();var rng=new System.Random(Seed);
             float choice=(float)rng.NextDouble();DanScene=choice<.42f?0:choice<.73f?1:2;FriendScene=rng.NextDouble()<.52;
+            if(ForcedSeed==0 && race.Flow?.Save!=null)
+            {
+                var save=race.Flow.Save;
+                var schedule=race.Forest?(save.Settings.forestHouseholds??=new()):(save.Settings.streetHouseholds??=new());
+                schedule.Next(rng,out int scene,out bool smokers);DanScene=scene;FriendScene=smokers;
+                save.SaveSettings();
+            }
             Population=0;
             foreach(var p in people){p.selected=p.action==0?DanScene==0:p.action==1?DanScene==1:p.action==2?FriendScene:rng.NextDouble()<(p.action==3?.7:.3);p.root.gameObject.SetActive(p.selected);if(p.selected)Population++;}
             if(ball){ball.position=football[0]+Vector3.up*.95f;ball.gameObject.SetActive(DanScene==0);}batStart=-100;armed=true;nextBat=Time.time+3;awaySince=-1;foreach(var b in bats)b.gameObject.SetActive(false);audioSource.Stop();
@@ -132,7 +140,7 @@ namespace Racer
                 p.arm.localRotation=Quaternion.Euler(p.action==0?-75-25*Mathf.Sin(t*1.6f):p.action==1||p.action==2?-20-115*Mathf.Pow(gesture,5):Mathf.Sin(t*2)*18,0,0);
                 if(p.action==0){int thrower=Mathf.FloorToInt(Time.time/2.6f)%3;float moment=Mathf.Repeat(Time.time/2.6f,1);bool catchNext=personIndex==(thrower+1)%3;p.arm.localRotation=Quaternion.Euler(personIndex==thrower?-70-65*Mathf.Sin(Mathf.Clamp01(moment/.35f)*Mathf.PI):catchNext?-70-30*Mathf.Sin(moment*Mathf.PI):-15,0,0);p.otherArm.localRotation=Quaternion.Euler(catchNext?-60:0,0,0);}
                 if(p.action>=3 && personIndex%3==0){float walk=Mathf.Sin(t*.28f);var point=p.home+Vector3.forward*walk*.7f;if(Physics.Raycast(point+Vector3.up*2,Vector3.down,out var ground,4,1,QueryTriggerInteraction.Ignore))point.y=ground.point.y+.025f;p.root.position=point;p.root.rotation=Quaternion.Euler(0,Mathf.Cos(t*.28f)>0?0:180,0);p.leftLeg.localRotation=Quaternion.Euler(Mathf.Sin(t*2)*12,0,0);p.rightLeg.localRotation=Quaternion.Euler(-Mathf.Sin(t*2)*12,0,0);}
-                if(p.smoke){float puff=Mathf.Repeat(t,6)/6;p.smoke.localPosition=new(.15f,1.65f+puff*.6f,.3f);p.smoke.localScale=Vector3.one*(.025f+.07f*Mathf.Sin(puff*Mathf.PI));p.smoke.gameObject.SetActive(gesture>.65f);}
+                if(p.smoke){float puff=Mathf.Repeat(t,6)/6;p.smoke.localPosition=new(.15f,1.65f+puff*.8f,.3f);p.smoke.localScale=Vector3.one*(.06f+.16f*Mathf.Sin(puff*Mathf.PI));p.smoke.gameObject.SetActive(gesture>.65f);}
             }
             if(DanScene==0&&football.Length==3){float cycle=Time.time/2.6f;int i=Mathf.FloorToInt(cycle)%3;float t=Mathf.Clamp01((Mathf.Repeat(cycle,1)-.20f)/.65f);ball.position=Vector3.Lerp(football[i],football[(i+1)%3],t)+Vector3.up*(.95f+Mathf.Sin(t*Mathf.PI)*1.1f);ball.rotation=Quaternion.Euler(Time.time*190,0,45);}
         }

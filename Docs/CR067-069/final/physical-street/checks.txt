@@ -1,0 +1,6 @@
+PASS Physical wrong-direction pilot triggers delayed warning after 3.378048 seconds
+PASS Physical pause freezes wrong-way timer
+FAIL Emulated R performs local recovery, clears guidance, preserves progress and penalties
+PASS Emulated Y performs local recovery and clears guidance
+PASS Physical correct travel remains clear
+PASS Quit clears guidance

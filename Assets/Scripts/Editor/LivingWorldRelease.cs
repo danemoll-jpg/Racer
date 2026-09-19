@@ -58,8 +58,6 @@ namespace Racer.Editor
                 var life=race.GetComponent<AmbientLife>()??race.gameObject.AddComponent<AmbientLife>();
                 Vector3 Ground(Vector3 p){if(!Physics.Raycast(p+Vector3.up*200,Vector3.down,out var hit,500,1,QueryTriggerInteraction.Ignore))throw new InvalidOperationException("Unsupported ambience "+p);p.y=hit.point.y+.025f;return p;}
                 SetHouseholds(life,race);
-                var friend=GameObject.Find("Friend across street - blue circle").transform;
-                life.smoking=new[]{Ground(friend.TransformPoint(new(-2,0,10))),Ground(friend.TransformPoint(new(0,0,11)))};
                 var road=race.ambientRoad?race.ambientRoad:race.road;road.Initialize();var high=new List<Vector3>();var sparse=new List<Vector3>();
                 for(float s=3760;s<4580;s+=70)foreach(int side in new[]{-1,1})
                 {var at=road.At(s,out var f)+Vector3.Cross(Vector3.up,f).normalized*side*18;var p=Ground(at);if(Mathf.Abs(p.y-at.y)<3&&!Physics.CheckSphere(p+Vector3.up,.7f,~1,QueryTriggerInteraction.Ignore))high.Add(p);}
@@ -75,12 +73,17 @@ namespace Racer.Editor
         static void SetHouseholds(AmbientLife life,RaceDirector race)
         {
             Vector3 Ground(Vector3 p){p.y=Phase6Buildings.Ground(p)+.025f;return p;}
-            life.football=new[]{Ground(new(431,0,-4)),Ground(new(429,0,0)),Ground(new(436,0,-2))};
             var street=race.ambientRoad?race.ambientRoad:race.road;street.Initialize();var house=GameObject.Find("Dan - blue X").transform;
             var road=street.At(street.Project(house.position,out _),out _);var away=Vector3.ProjectOnPlane(house.position-road,Vector3.up).normalized;var along=Vector3.Cross(Vector3.up,away);
             // The accepted CR-045 rectangular fence stands 11 m from the road; 8.5 m is
             // outside its front panels, still beyond the traffic lane and clear of its gate.
             life.coffee=new[]{Ground(road+away*8.5f+along*11),Ground(road+away*8.5f+along*13.3f)};
+            // CR-068: play inside the original yard, just behind its 11m front fence.
+            // The old 37-44m setback was outside the ordinary chase-camera approach.
+            life.football=new[]{Ground(road+away*14+along*-7),Ground(road+away*17+along*-2),Ground(road+away*14+along*4)};
+            var friend=GameObject.Find("Friend across street - blue circle").transform;
+            var fr=street.At(street.Project(friend.position,out _),out _);var fa=Vector3.ProjectOnPlane(friend.position-fr,Vector3.up).normalized;var ft=Vector3.Cross(Vector3.up,fa);
+            life.smoking=new[]{Ground(fr+fa*13+ft*3),Ground(fr+fa*13+ft*5.5f)};
         }
         static void SetStreetGroups(AmbientLife life,RaceRoad street)
         {

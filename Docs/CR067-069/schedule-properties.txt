@@ -1,0 +1,1 @@
+600 serialized/reloaded visits; immediate repeats=0; five-visit windows missing a Dan state=0. Supplemental deterministic property check, not ordinary-run evidence.

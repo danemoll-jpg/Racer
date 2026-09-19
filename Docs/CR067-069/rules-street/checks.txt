@@ -1,0 +1,66 @@
+PASS Stationary/slow maneuver speed=0
+PASS Stationary/slow maneuver speed=-2
+PASS Brief reverse under three seconds suppressed
+PASS Continuous reverse beyond three seconds warns
+PASS Correct movement clears within 160ms
+PASS Airborne spin cannot accumulate
+PASS Invalid offroad segment cannot accumulate
+PASS lap-seam no premature warning reverse=False
+PASS lap-seam signed travel despite backwards-facing body reverse=False
+PASS lap-seam no premature warning reverse=True
+PASS lap-seam signed travel despite backwards-facing body reverse=True
+FAIL Emulated Gamepad prompt uses actual Y binding
+PASS Emulated keyboard prompt uses actual R binding
+PASS Pause does not advance timer
+FAIL Actual local recovery clears warning
+PASS ordinary no premature warning reverse=False
+PASS ordinary signed travel despite backwards-facing body reverse=False
+PASS ordinary no premature warning reverse=True
+PASS ordinary signed travel despite backwards-facing body reverse=True
+FAIL Emulated Gamepad prompt uses actual Y binding
+PASS Emulated keyboard prompt uses actual R binding
+PASS Pause does not advance timer
+FAIL Actual local recovery clears warning
+PASS hairpin no premature warning reverse=False
+PASS hairpin signed travel despite backwards-facing body reverse=False
+PASS hairpin no premature warning reverse=True
+PASS hairpin signed travel despite backwards-facing body reverse=True
+FAIL Emulated Gamepad prompt uses actual Y binding
+PASS Emulated keyboard prompt uses actual R binding
+PASS Pause does not advance timer
+FAIL Actual local recovery clears warning
+PASS Creek Leap no premature warning reverse=False
+PASS Creek Leap signed travel despite backwards-facing body reverse=False
+PASS Creek Leap no premature warning reverse=True
+PASS Creek Leap signed travel despite backwards-facing body reverse=True
+FAIL Emulated Gamepad prompt uses actual Y binding
+PASS Emulated keyboard prompt uses actual R binding
+PASS Pause does not advance timer
+FAIL Actual local recovery clears warning
+PASS Pine Ridge no premature warning reverse=False
+PASS Pine Ridge signed travel despite backwards-facing body reverse=False
+PASS Pine Ridge no premature warning reverse=True
+PASS Pine Ridge signed travel despite backwards-facing body reverse=True
+FAIL Emulated Gamepad prompt uses actual Y binding
+PASS Emulated keyboard prompt uses actual R binding
+PASS Pause does not advance timer
+FAIL Actual local recovery clears warning
+PASS Fox Gully no premature warning reverse=False
+PASS Fox Gully signed travel despite backwards-facing body reverse=False
+PASS Fox Gully no premature warning reverse=True
+PASS Fox Gully signed travel despite backwards-facing body reverse=True
+FAIL Emulated Gamepad prompt uses actual Y binding
+PASS Emulated keyboard prompt uses actual R binding
+PASS Pause does not advance timer
+FAIL Actual local recovery clears warning
+PASS Existing Southwest Cut no premature warning reverse=False
+PASS Existing Southwest Cut signed travel despite backwards-facing body reverse=False
+PASS Existing Southwest Cut no premature warning reverse=True
+PASS Existing Southwest Cut signed travel despite backwards-facing body reverse=True
+FAIL Emulated Gamepad prompt uses actual Y binding
+PASS Emulated keyboard prompt uses actual R binding
+PASS Pause does not advance timer
+FAIL Actual local recovery clears warning
+PASS Restart clears guidance
+PASS Removed extension absent including inactive colliders
+PASS Three unrelated continuations preserved
