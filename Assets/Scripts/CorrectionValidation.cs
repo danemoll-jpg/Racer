@@ -128,6 +128,23 @@ namespace Racer
             var reloaded=new RacerSave(migration,"street-loop-gates-v1-laps3");reloaded.SelectRecords(race.Category);
             Check(reloaded.Best.lap==132.789 && reloaded.Best.race==400.123,"Fractional adjusted totals persist in new category");
             Check(reloaded.Settings.master==.27f && reloaded.Settings.vehicle==.43f,"Record migration preserves saved volume values");
+            // Actual dynamic-body / ordinary FixedUpdate crossings complement swept fixtures.
+            // Initial poses/velocities are test setup; no manual Sample calls during travel.
+            foreach(var profile in VehicleProfile.All)
+            foreach(int scenario in new[]{0,1,2})
+            {
+                race.vehicle.GetComponent<VehicleConfiguration>().Apply(profile.Id);
+                int gateIndex=scenario==1?14:1;Seed(gateIndex);
+                var gate=race.gates[gateIndex];var forward=gate.transform.forward;
+                var position=gate.transform.position+forward*(scenario==2?8:-8)+Vector3.up*(scenario==1?16:2);
+                var body=race.vehicle.Body;body.isKinematic=false;body.position=position;body.rotation=Quaternion.LookRotation(-forward);
+                race.vehicle.transform.SetPositionAndRotation(position,body.rotation);body.linearVelocity=forward*(scenario==2?-18:18);body.angularVelocity=scenario==1?Vector3.up*8:Vector3.zero;
+                Physics.SyncTransforms();race.ResetSampling(position,Time.timeAsDouble);int buzz=race.Flow.CheckpointBuzzes;
+                yield return new WaitForSeconds(.8f);
+                Check(race.Progress.NextGate==(scenario==2?gateIndex:gateIndex+1) && race.Progress.MissedGates==0 && race.Flow.CheckpointBuzzes==buzz,
+                    $"{profile.Id} physical FixedUpdate {(scenario==0?"backwards-body forward":scenario==1?"high spinning forward":"genuine reverse")} crossing");
+                body.isKinematic=true;yield return null;
+            }
             File.WriteAllText(Dir+"/done.txt",$"{checks.Count(x=>x.StartsWith("PASS"))}/{checks.Count} explicit swept fixtures; not ordinary-frame driving proof.");
             race.Flow.Pause(); if(!Application.isEditor)Application.Quit();
         }
