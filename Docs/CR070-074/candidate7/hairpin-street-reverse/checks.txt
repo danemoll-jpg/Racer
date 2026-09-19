@@ -1,0 +1,17 @@
+PASS Street hairpin physical matrix
+PASS original physical hairpin completed offroad=False
+PASS original no false wrong-way warning at hairpin
+PASS original physical hairpin completed offroad=True
+PASS original no false wrong-way warning at hairpin
+PASS tourer physical hairpin completed offroad=False
+PASS tourer no false wrong-way warning at hairpin
+PASS tourer physical hairpin completed offroad=True
+PASS tourer no false wrong-way warning at hairpin
+PASS moto physical hairpin completed offroad=False
+PASS moto no false wrong-way warning at hairpin
+PASS moto physical hairpin completed offroad=True
+PASS moto no false wrong-way warning at hairpin
+PASS atv physical hairpin completed offroad=False
+PASS atv no false wrong-way warning at hairpin
+PASS atv physical hairpin completed offroad=True
+PASS atv no false wrong-way warning at hairpin

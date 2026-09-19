@@ -116,3 +116,6 @@ InitTestScene*.unity*
 /BundleMusic/
 /BundleMusic.meta
 
+
+# Listener diagnostics include staged radio music; retain these local captures only.
+/Docs/CR070-074/**/audio/*.wav

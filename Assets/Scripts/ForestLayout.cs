@@ -5,9 +5,10 @@ namespace Racer
     {
         public float[] jumpStarts,jumpEnds;
         public string[] jumpNames;
+        public float approachLead=65;
         public bool IsLaunch(float station)
         {for(int i=0;i<jumpStarts.Length;i++)if(station>=jumpStarts[i]-10&&station<=jumpEnds[i])return true;return false;}
         public bool Approach(float station)
-        {for(int i=0;i<jumpStarts.Length;i++)if(station>=jumpStarts[i]-65&&station<=jumpEnds[i])return true;return false;}
+        {for(int i=0;i<jumpStarts.Length;i++)if(station>=jumpStarts[i]-approachLead&&station<=jumpEnds[i])return true;return false;}
     }
 }

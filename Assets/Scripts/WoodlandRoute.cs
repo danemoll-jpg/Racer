@@ -10,6 +10,8 @@ namespace Racer
         public float entryRoad, exitRoad, halfWidth=5, recommendedSpeed=32;
         public int[] bypassedGates;
         public bool aiValidated;
+        public float entrySpeed,entrySpeedDistance;
+        public float SpeedAt(float station)=>entrySpeed>0&&station<entrySpeedDistance?entrySpeed:recommendedSpeed;
         public float entryInset, entryMargin=7;
         float[] lengths;
         public float Length { get { Initialize(); return lengths[^1]; } }

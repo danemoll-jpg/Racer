@@ -1,0 +1,74 @@
+[
+  {
+    "species": "Bird",
+    "clip": "bird-1",
+    "pitch": 1.056684,
+    "correlation": 0.7642150919526927,
+    "matchedRms": 0.027771875362125123,
+    "residualRms": 0.02343815196638128,
+    "matchedToResidualDb": 1.4736368347400859,
+    "peak": 0.26376501814677167,
+    "matchAtSeconds": 0.23658333333333334,
+    "interpretation": "Waveform evidence at listener before OS endpoint; not human audibility or listening acceptance"
+  },
+  {
+    "species": "Squirrel",
+    "clip": "squirrel-1",
+    "pitch": 1.005575,
+    "correlation": 0.8717896619608461,
+    "matchedRms": 0.04273991066116087,
+    "residualRms": 0.02401662296293796,
+    "matchedToResidualDb": 5.006433397883354,
+    "peak": 0.296626843850721,
+    "matchAtSeconds": 0.24860416666666665,
+    "interpretation": "Waveform evidence at listener before OS endpoint; not human audibility or listening acceptance"
+  },
+  {
+    "species": "Frog",
+    "clip": "frog-1",
+    "pitch": 1.001913,
+    "correlation": 0.9065864112504424,
+    "matchedRms": 0.03971937437007128,
+    "residualRms": 0.0184895554427878,
+    "matchedToResidualDb": 6.641518599074072,
+    "peak": 0.32141169951162263,
+    "matchAtSeconds": 0.2708541666666667,
+    "interpretation": "Waveform evidence at listener before OS endpoint; not human audibility or listening acceptance"
+  },
+  {
+    "species": "Deer",
+    "clip": "Deer-original-2",
+    "pitch": 1.018785,
+    "correlation": 0.6409449600062044,
+    "matchedRms": 0.018714886897442433,
+    "residualRms": 0.022412690335051007,
+    "matchedToResidualDb": -1.5661356784127047,
+    "peak": 0.32124277039338617,
+    "matchAtSeconds": 0.24539583333333334,
+    "interpretation": "Waveform evidence at listener before OS endpoint; not human audibility or listening acceptance"
+  },
+  {
+    "species": "Coyote",
+    "clip": "Coyote-original-1",
+    "pitch": 1.015824,
+    "correlation": 0.9818591562952934,
+    "matchedRms": 0.12557116755209666,
+    "residualRms": 0.024249672203540386,
+    "matchedToResidualDb": 14.283681198724384,
+    "peak": 0.360947856058677,
+    "matchAtSeconds": 0.24610416666666668,
+    "interpretation": "Waveform evidence at listener before OS endpoint; not human audibility or listening acceptance"
+  },
+  {
+    "species": "Bats",
+    "clip": "bat-flight",
+    "pitch": 1,
+    "correlation": 0.9649045366934588,
+    "matchedRms": 0.09108710965796166,
+    "residualRms": 0.024789558426815003,
+    "matchedToResidualDb": 11.303762612368793,
+    "peak": 0.46103727907542413,
+    "matchAtSeconds": 0.25,
+    "interpretation": "Waveform evidence at listener before OS endpoint; not human audibility or listening acceptance"
+  }
+]

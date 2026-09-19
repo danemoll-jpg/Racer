@@ -1,0 +1,32 @@
+PASS original Granite Creek Cut normal #0 completes in 31.96s; recovery=0; misses=0
+PASS original Granite Creek Cut clean #0 completes in 30.55s; recovery=0; misses=0
+PASS original clean branch has actual entry, no penalty/recovery Granite Creek Cut
+PASS original Granite Creek Cut imperfect #0 completes in 32.24s; recovery=0; misses=0
+PASS original Laurel Switchbacks normal #0 completes in 35.60s; recovery=0; misses=0
+PASS original Laurel Switchbacks clean #0 completes in 31.03s; recovery=0; misses=0
+PASS original clean branch has actual entry, no penalty/recovery Laurel Switchbacks
+PASS original Laurel Switchbacks imperfect #0 completes in 31.04s; recovery=0; misses=0
+PASS tourer Granite Creek Cut normal #0 completes in 31.45s; recovery=0; misses=0
+PASS tourer Granite Creek Cut clean #0 completes in 30.58s; recovery=0; misses=0
+PASS tourer clean branch has actual entry, no penalty/recovery Granite Creek Cut
+PASS tourer Granite Creek Cut imperfect #0 completes in 32.08s; recovery=0; misses=0
+PASS tourer Laurel Switchbacks normal #0 completes in 35.74s; recovery=0; misses=0
+PASS tourer Laurel Switchbacks clean #0 completes in 29.63s; recovery=0; misses=0
+PASS tourer clean branch has actual entry, no penalty/recovery Laurel Switchbacks
+PASS tourer Laurel Switchbacks imperfect #0 completes in 30.93s; recovery=0; misses=0
+PASS moto Granite Creek Cut normal #0 completes in 27.81s; recovery=0; misses=0
+PASS moto Granite Creek Cut clean #0 completes in 28.42s; recovery=0; misses=0
+PASS moto clean branch has actual entry, no penalty/recovery Granite Creek Cut
+PASS moto Granite Creek Cut imperfect #0 completes in 30.25s; recovery=0; misses=0
+PASS moto Laurel Switchbacks normal #0 completes in 33.29s; recovery=0; misses=0
+PASS moto Laurel Switchbacks clean #0 completes in 26.95s; recovery=0; misses=0
+PASS moto clean branch has actual entry, no penalty/recovery Laurel Switchbacks
+PASS moto Laurel Switchbacks imperfect #0 completes in 40.82s; recovery=1; misses=0
+PASS atv Granite Creek Cut normal #0 completes in 28.73s; recovery=0; misses=0
+PASS atv Granite Creek Cut clean #0 completes in 29.75s; recovery=0; misses=0
+PASS atv clean branch has actual entry, no penalty/recovery Granite Creek Cut
+PASS atv Granite Creek Cut imperfect #0 completes in 31.61s; recovery=0; misses=0
+PASS atv Laurel Switchbacks normal #0 completes in 37.19s; recovery=0; misses=0
+PASS atv Laurel Switchbacks clean #0 completes in 32.47s; recovery=0; misses=0
+PASS atv clean branch has actual entry, no penalty/recovery Laurel Switchbacks
+PASS atv Laurel Switchbacks imperfect #0 completes in 31.93s; recovery=1; misses=0

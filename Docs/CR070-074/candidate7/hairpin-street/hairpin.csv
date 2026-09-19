@@ -1,0 +1,9 @@
+vehicle,mode,elapsed,station,lateral,minUpright,recoveries,warnings
+original,AI pilot,10.337,1350.442,1.813,0.985,0,0
+original,reentry,10.417,1350.495,1.810,0.984,0,0
+tourer,AI pilot,10.505,1350.413,1.819,0.985,0,0
+tourer,reentry,10.577,1350.354,1.822,0.984,0,0
+moto,AI pilot,9.142,1350.375,1.736,0.985,0,0
+moto,reentry,9.202,1350.308,1.736,0.984,0,0
+atv,AI pilot,9.542,1350.285,1.735,0.985,0,0
+atv,reentry,9.666,1350.377,1.736,0.984,0,0

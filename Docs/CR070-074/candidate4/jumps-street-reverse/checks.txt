@@ -1,0 +1,8 @@
+PASS original jump 0 imperfect=False supported landing; air=1.40; recovery=0
+PASS original jump 0 imperfect=True supported landing; air=1.40; recovery=0
+PASS tourer jump 0 imperfect=False supported landing; air=1.38; recovery=0
+PASS tourer jump 0 imperfect=True supported landing; air=1.38; recovery=0
+PASS moto jump 0 imperfect=False supported landing; air=0.62; recovery=0
+PASS moto jump 0 imperfect=True supported landing; air=1.22; recovery=0
+PASS atv jump 0 imperfect=False supported landing; air=0.86; recovery=0
+PASS atv jump 0 imperfect=True supported landing; air=1.30; recovery=0

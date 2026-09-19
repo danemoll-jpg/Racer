@@ -1,0 +1,30 @@
+[
+  {
+    "Name": "rules-street-reverse",
+    "Exit": 0,
+    "PeakWorkingSetMiB": 739.3,
+    "Flags": "-review7074 rules -course StreetLoopReverse",
+    "Finished": "2026-09-19T19:42:10.6497077-04:00"
+  },
+  {
+    "Name": "rules-forest-reverse",
+    "Exit": 0,
+    "PeakWorkingSetMiB": 818.02,
+    "Flags": "-review7074 rules -course ForestLoopReverse",
+    "Finished": "2026-09-19T19:42:29.2333920-04:00"
+  },
+  {
+    "Name": "layout-street",
+    "Exit": 0,
+    "PeakWorkingSetMiB": 489.19,
+    "Flags": "-reverseReview rules -course StreetLoopReverse",
+    "Finished": "2026-09-19T19:42:37.0866652-04:00"
+  },
+  {
+    "Name": "layout-forest",
+    "Exit": 0,
+    "PeakWorkingSetMiB": 697.16,
+    "Flags": "-reverseReview rules -course ForestLoopReverse",
+    "Finished": "2026-09-19T19:42:47.5336134-04:00"
+  }
+]

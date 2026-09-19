@@ -1,0 +1,5 @@
+Bird: lifeSeed=1, habitat=0, position=(574.792, 79.021, 104.207)
+Squirrel: lifeSeed=1, habitat=8, position=(171.035, 40.263, -153.311)
+Frog: lifeSeed=1, habitat=11, position=(575.481, 79.751, 7.553)
+Deer: lifeSeed=2, habitat=14, position=(553.810, 79.276, 133.193)
+Coyote: lifeSeed=3, habitat=18, position=(475.021, 39.671, -259.965)

@@ -1,0 +1,8 @@
+Street roadworks: reverse approach +90m to +20m, 42m quadratic run / 3.2m rise; original takeoff collider/render disabled only in reverse scene. Ground lane remains viable.
+Street Loop Reverse / Laurel Switchbacks: entry 3064.113 exit 3964.113 normal 900.0002 branch 475.2367 bypass=12,13
+Street Loop Reverse / Granite Creek Cut: entry 404.1206 exit 1444.115 normal 1039.995 branch 774.3768 bypass=1,2,3,4
+Street reverse terrain: 14 copied tiles, 9164 height vertices, 96 scoped corridor trunks; properties protected within 25m.
+Forest Loop Reverse / Fern Gully: entry 637.0195 exit 1358.205 normal 721.1853 branch 506.1991 bypass=2,3
+Forest Loop Reverse / Granite Saddle: entry 139.4001 exit 637.0195 normal 497.6194 branch 426.6087 bypass=1
+Forest reverse terrain: 16 copied tiles, 53902 height vertices, 150 scoped corridor trunks; properties protected within 25m.
+Fern reverse transverse grotto: 51 wall triangles opened below 5.2m headroom; 2 intersecting buttresses removed; roof retained.

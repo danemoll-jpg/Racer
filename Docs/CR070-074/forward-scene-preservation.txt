@@ -1,0 +1,152 @@
+Assets/Scenes/StreetLoopGreybox.unity removed blocks=22 changed existing=4
+ removed 1303864585 Road lettering
+ removed 1303864586 Transform:
+ removed 1303864587 
+ removed 1303864588 TextMesh:
+ removed 1303864589 MeshRenderer:
+ removed 1435947589 Board
+ removed 1435947590 Transform:
+ removed 1435947591 MeshRenderer:
+ removed 1435947592 MeshFilter:
+ removed 1848293365 Road lettering
+ removed 1848293366 Transform:
+ removed 1848293367 
+ removed 1848293368 TextMesh:
+ removed 1848293369 MeshRenderer:
+ removed 288557346 Breakable sign - South Cherokee Lane Jamerson Rd
+ removed 288557347 Transform:
+ removed 288557348 
+ removed 288557349 BoxCollider:
+ removed 681166339 Post
+ removed 681166340 Transform:
+ removed 681166341 MeshRenderer:
+ removed 681166342 MeshFilter:
+ changed 1260633131 MonoBehaviour:
+@@ -35,2 +35,3 @@
+
+   ambientRoad: {fileID: 0}
++  reverseCourse: 0
+   courseId: street-v10-hairpin
+ changed 1260633134 MonoBehaviour:
+@@ -2345,2 +2345,4 @@
+
+   forestTrail: 0
++  geometryStations: []
++  geometryLength: 0
+   bypassStart: 2999.5784
+ changed 1260633136 MonoBehaviour:
+@@ -58,2 +58,20 @@
+
+     escape: {x: -0.8477524, y: 0, z: 0.5303922}
++  - species: 3
++    position: {x: 447.2541, y: 85.3942, z: 91.215065}
++    escape: {x: -0.9200749, y: 0, z: -0.39174256}
++  - species: 4
++    position: {x: 546.98474, y: 57.657547, z: -176.80592}
++    escape: {x: 0.92604613, y: -0, z: 0.37741032}
++  - species: 3
++    position: {x: 530.205, y: 30.600096, z: -419.02927}
++    escape: {x: -0.9986751, y: 0, z: 0.051458884}
++  - species: 4
++    position: {x: 331.6286, y: 40.324524, z: -406.72235}
++    escape: {x: -0.0044478206, y: 0, z: -0.9999901}
++  - species: 3
++    position: {x: -90.3766, y: 29.727478, z: -568.07}
++    escape: {x: -0.027983245, y: 0, z: 0.9996084}
++  - species: 4
++    position: {x: -378.00613, y: 6.6119976, z: -572.0127}
++    escape: {x: -0.107639104, y: 0, z: -0.99419004}
+   birdCalls:
+@@ -68 +86,7 @@
+
+   batFlight: {fileID: 8300000, guid: 550605d5b1ddd424fb5005c4bb456665, type: 3}
++  deerCalls:
++  - {fileID: 8300000, guid: 15f562af251e62841834770d52bfc4b9, type: 3}
++  - {fileID: 8300000, guid: 8874a6baff4f8634d891ea1b8d372bc1, type: 3}
++  coyoteCalls:
++  - {fileID: 8300000, guid: aa3da04fa550c1b4abede1d322205924, type: 3}
++  - {fileID: 8300000, guid: 0a4042fd5f352f3459cfa3f555c6cf78, type: 3}
+ changed 2002020965 Transform:
+@@ -764,3 +764,2 @@
+
+   - {fileID: 1747898476}
+-  - {fileID: 288557347}
+   - {fileID: 1746058249}
+Assets/Scenes/LakeWoods.unity removed blocks=22 changed existing=5
+ removed 1238705109 Road lettering
+ removed 1238705110 Transform:
+ removed 1238705111 
+ removed 1238705112 TextMesh:
+ removed 1238705113 MeshRenderer:
+ removed 1329981437 Road lettering
+ removed 1329981438 Transform:
+ removed 1329981439 
+ removed 1329981440 TextMesh:
+ removed 1329981441 MeshRenderer:
+ removed 1435947589 Board
+ removed 1435947590 Transform:
+ removed 1435947591 MeshRenderer:
+ removed 1435947592 MeshFilter:
+ removed 288557346 Breakable sign - South Cherokee Lane Jamerson Rd
+ removed 288557347 Transform:
+ removed 288557348 
+ removed 288557349 BoxCollider:
+ removed 681166339 Post
+ removed 681166340 Transform:
+ removed 681166341 MeshRenderer:
+ removed 681166342 MeshFilter:
+ changed 1260633131 MonoBehaviour:
+@@ -22,2 +22,3 @@
+
+   ambientRoad: {fileID: 1260633134}
++  reverseCourse: 0
+   courseId: lake-v3-shallows
+ changed 1260633134 MonoBehaviour:
+@@ -2345,2 +2345,4 @@
+
+   forestTrail: 0
++  geometryStations: []
++  geometryLength: 0
+   bypassStart: 2999.5784
+ changed 1260633136 MonoBehaviour:
+@@ -55,2 +55,17 @@
+
+     escape: {x: -0.86602527, y: 0, z: -0.5000002}
++  - species: 3
++    position: {x: 553.81, y: 79.27636, z: 133.19315}
++    escape: {x: 0.72387123, y: -0, z: 0.68993515}
++  - species: 4
++    position: {x: 237.59778, y: 67.755646, z: 276.24777}
++    escape: {x: -0.13610071, y: 0, z: -0.990695}
++  - species: 3
++    position: {x: -29.004553, y: 27.786589, z: 213.31403}
++    escape: {x: -0.5858652, y: 0, z: 0.81040853}
++  - species: 3
++    position: {x: 212.72769, y: 43.290905, z: -194.863}
++    escape: {x: -0.49516025, y: 0, z: -0.86880165}
++  - species: 4
++    position: {x: 475.0206, y: 39.67064, z: -259.96484}
++    escape: {x: -0.34962565, y: -0, z: 0.93688947}
+   birdCalls:
+@@ -65 +80,7 @@
+
+   batFlight: {fileID: 8300000, guid: 550605d5b1ddd424fb5005c4bb456665, type: 3}
++  deerCalls:
++  - {fileID: 8300000, guid: 15f562af251e62841834770d52bfc4b9, type: 3}
++  - {fileID: 8300000, guid: 8874a6baff4f8634d891ea1b8d372bc1, type: 3}
++  coyoteCalls:
++  - {fileID: 8300000, guid: aa3da04fa550c1b4abede1d322205924, type: 3}
++  - {fileID: 8300000, guid: 0a4042fd5f352f3459cfa3f555c6cf78, type: 3}
+ changed 1849436296 MonoBehaviour:
+@@ -2071,2 +2071,4 @@
+
+   forestTrail: 1
++  geometryStations: []
++  geometryLength: 0
+   bypassStart: 0
+ changed 2002020965 Transform:
+@@ -764,3 +764,2 @@
+
+   - {fileID: 1747898476}
+-  - {fileID: 288557347}
+   - {fileID: 1746058249}

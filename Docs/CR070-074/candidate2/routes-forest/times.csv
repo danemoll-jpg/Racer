@@ -1,0 +1,13 @@
+course,vehicle,route,mode,repeat,seconds,recoveries,misses,maxLateral,minUpright,finished
+Forest Loop Reverse,moto,Granite Saddle,normal,0,24.086,0,0,0.000,0.830,True
+Forest Loop Reverse,moto,Granite Saddle,clean,0,40.596,1,0,14.429,0.166,True
+Forest Loop Reverse,moto,Granite Saddle,imperfect,0,30.148,1,0,20.368,0.117,True
+Forest Loop Reverse,moto,Fern Gully,normal,0,23.849,2,0,0.000,0.127,True
+Forest Loop Reverse,moto,Fern Gully,clean,0,23.954,0,0,3.756,0.322,True
+Forest Loop Reverse,moto,Fern Gully,imperfect,0,24.995,0,0,3.779,0.344,True
+Forest Loop Reverse,atv,Granite Saddle,normal,0,25.919,0,0,0.000,0.802,True
+Forest Loop Reverse,atv,Granite Saddle,clean,0,150.002,1,0,8.828,0.326,False
+Forest Loop Reverse,atv,Granite Saddle,imperfect,0,150.025,1,0,8.472,0.329,False
+Forest Loop Reverse,atv,Fern Gully,normal,0,24.422,2,0,0.000,0.101,True
+Forest Loop Reverse,atv,Fern Gully,clean,0,69.668,0,0,3.907,0.190,True
+Forest Loop Reverse,atv,Fern Gully,imperfect,0,62.050,0,0,3.884,0.370,True

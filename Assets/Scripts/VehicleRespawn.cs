@@ -127,7 +127,7 @@ namespace Racer
                 if(!Physics.Raycast(origin,Vector3.down,out var hit,12,vehicle.groundMask,QueryTriggerInteraction.Ignore)
                     || hit.rigidbody || hit.normal.y<.65f) return false;
                 string support=hit.collider.name;
-                if(!support.StartsWith("Ground_") && !support.StartsWith("Takeoff -") && !support.StartsWith("Landing -") && !support.StartsWith("Gully supported ramp") && !support.StartsWith("Decorative Road pavement")) return false;
+                if(!support.StartsWith("Ground_") && !support.StartsWith("Takeoff -") && !support.StartsWith("Landing -") && !support.StartsWith("Gully supported ramp") && !support.StartsWith("Decorative Road pavement") && support!="Reverse supported roadworks transition" && support!="Reverse flush west pavement apron") return false;
                 normal+=hit.normal; top=Mathf.Max(top,hit.point.y); low=Mathf.Min(low,hit.point.y);
             }
             normal.Normalize();

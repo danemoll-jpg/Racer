@@ -1,0 +1,25 @@
+course,vehicle,route,mode,repeat,seconds,recoveries,misses,maxLateral,minUpright,finished
+Street Loop Reverse,original,Granite Creek Cut,normal,0,31.872,0,0,0.000,0.999,True
+Street Loop Reverse,original,Granite Creek Cut,clean,0,30.455,0,0,3.042,0.983,True
+Street Loop Reverse,original,Granite Creek Cut,imperfect,0,35.247,0,0,2.731,0.982,True
+Street Loop Reverse,original,Laurel Switchbacks,normal,0,35.640,0,0,0.000,0.880,True
+Street Loop Reverse,original,Laurel Switchbacks,clean,0,31.022,0,0,9.445,0.778,True
+Street Loop Reverse,original,Laurel Switchbacks,imperfect,0,34.425,0,0,15.799,0.824,True
+Street Loop Reverse,tourer,Granite Creek Cut,normal,0,31.447,0,0,0.000,0.999,True
+Street Loop Reverse,tourer,Granite Creek Cut,clean,0,30.420,0,0,3.085,0.984,True
+Street Loop Reverse,tourer,Granite Creek Cut,imperfect,0,35.279,0,0,2.825,0.983,True
+Street Loop Reverse,tourer,Laurel Switchbacks,normal,0,35.749,0,0,0.000,0.880,True
+Street Loop Reverse,tourer,Laurel Switchbacks,clean,0,29.652,0,0,7.873,0.840,True
+Street Loop Reverse,tourer,Laurel Switchbacks,imperfect,0,33.703,0,0,18.398,0.841,True
+Street Loop Reverse,moto,Granite Creek Cut,normal,0,27.832,0,0,0.000,0.986,True
+Street Loop Reverse,moto,Granite Creek Cut,clean,0,27.469,0,0,3.113,0.982,True
+Street Loop Reverse,moto,Granite Creek Cut,imperfect,0,32.105,0,0,3.939,0.985,True
+Street Loop Reverse,moto,Laurel Switchbacks,normal,0,33.340,0,0,0.000,0.881,True
+Street Loop Reverse,moto,Laurel Switchbacks,clean,0,26.866,0,0,7.398,0.751,True
+Street Loop Reverse,moto,Laurel Switchbacks,imperfect,0,33.716,0,0,19.208,0.509,True
+Street Loop Reverse,atv,Granite Creek Cut,normal,0,28.771,0,0,0.000,0.998,True
+Street Loop Reverse,atv,Granite Creek Cut,clean,0,29.261,0,0,3.055,0.981,True
+Street Loop Reverse,atv,Granite Creek Cut,imperfect,0,33.725,0,0,4.275,0.979,True
+Street Loop Reverse,atv,Laurel Switchbacks,normal,0,37.230,0,0,0.000,0.880,True
+Street Loop Reverse,atv,Laurel Switchbacks,clean,0,33.194,1,0,12.119,0.748,True
+Street Loop Reverse,atv,Laurel Switchbacks,imperfect,0,31.166,0,0,17.758,0.822,True

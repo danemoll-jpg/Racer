@@ -1,0 +1,9 @@
+PASS original Granite Creek Cut normal #0 completes in 32.54s; recovery=0; misses=0
+FAIL original Granite Creek Cut clean #0 completes in 150.02s; recovery=1; misses=0
+FAIL original clean branch has actual entry, no penalty/recovery Granite Creek Cut
+FAIL original Granite Creek Cut imperfect #0 completes in 150.01s; recovery=1; misses=0
+PASS original Laurel Switchbacks normal #0 completes in 35.60s; recovery=0; misses=0
+FAIL original Laurel Switchbacks clean #0 completes in 150.01s; recovery=0; misses=0
+PASS original clean branch has actual entry, no penalty/recovery Laurel Switchbacks
+FAIL original Laurel Switchbacks imperfect #0 completes in 150.00s; recovery=0; misses=0
+PASS tourer Granite Creek Cut normal #0 completes in 32.07s; recovery=0; misses=0

@@ -1,0 +1,86 @@
+[
+  {
+    "Name": "rules-street",
+    "Exit": 0,
+    "PeakWorkingSetMiB": 836.66,
+    "Flags": "-review7074 rules",
+    "Finished": "2026-09-19T18:59:18.5682975-04:00"
+  },
+  {
+    "Name": "rules-forest",
+    "Exit": 0,
+    "PeakWorkingSetMiB": 900.0,
+    "Flags": "-review7074 rules -course LakeWoods",
+    "Finished": "2026-09-19T18:59:38.6292711-04:00"
+  },
+  {
+    "Name": "rules-street-reverse",
+    "Exit": 0,
+    "PeakWorkingSetMiB": 824.25,
+    "Flags": "-review7074 rules -course StreetLoopReverse",
+    "Finished": "2026-09-19T19:00:00.1513288-04:00"
+  },
+  {
+    "Name": "rules-forest-reverse",
+    "Exit": 0,
+    "PeakWorkingSetMiB": 857.32,
+    "Flags": "-review7074 rules -course ForestLoopReverse",
+    "Finished": "2026-09-19T19:00:24.1194841-04:00"
+  },
+  {
+    "Name": "physical-street",
+    "Exit": 0,
+    "PeakWorkingSetMiB": 466.21,
+    "Flags": "-review7074 physical",
+    "Finished": "2026-09-19T19:00:52.5418167-04:00"
+  },
+  {
+    "Name": "physical-forest",
+    "Exit": 2,
+    "PeakWorkingSetMiB": 750.52,
+    "Flags": "-review7074 physical -course LakeWoods",
+    "Finished": "2026-09-19T19:01:23.6690007-04:00"
+  },
+  {
+    "Name": "physical-street-reverse",
+    "Exit": 0,
+    "PeakWorkingSetMiB": 524.25,
+    "Flags": "-review7074 physical -course StreetLoopReverse",
+    "Finished": "2026-09-19T19:01:53.4522669-04:00"
+  },
+  {
+    "Name": "physical-forest-reverse",
+    "Exit": 0,
+    "PeakWorkingSetMiB": 713.95,
+    "Flags": "-review7074 physical -course ForestLoopReverse",
+    "Finished": "2026-09-19T19:02:25.3885720-04:00"
+  },
+  {
+    "Name": "hairpin-street",
+    "Exit": 0,
+    "PeakWorkingSetMiB": 481.19,
+    "Flags": "-review7074 hairpin",
+    "Finished": "2026-09-19T19:04:03.5719512-04:00"
+  },
+  {
+    "Name": "hairpin-street-reverse",
+    "Exit": 0,
+    "PeakWorkingSetMiB": 593.88,
+    "Flags": "-review7074 hairpin -course StreetLoopReverse",
+    "Finished": "2026-09-19T19:05:44.3843648-04:00"
+  },
+  {
+    "Name": "layout-street",
+    "Exit": 0,
+    "PeakWorkingSetMiB": 489.54,
+    "Flags": "-reverseReview rules -course StreetLoopReverse",
+    "Finished": "2026-09-19T19:05:52.1816452-04:00"
+  },
+  {
+    "Name": "layout-forest",
+    "Exit": 0,
+    "PeakWorkingSetMiB": 695.37,
+    "Flags": "-reverseReview rules -course ForestLoopReverse",
+    "Finished": "2026-09-19T19:06:02.1019275-04:00"
+  }
+]

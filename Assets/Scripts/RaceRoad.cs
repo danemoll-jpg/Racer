@@ -6,12 +6,23 @@ namespace Racer
     {
         public Vector3[] points;
         public bool forestTrail;
+        public float[] geometryStations;
+        public float geometryLength;
         public float bypassStart, bypassEnd;
         public bool InBypass(float s) => Relative(s, bypassStart) < Relative(bypassEnd, bypassStart);
         // The northern commercial corridor, with 70 m merge zones at both ends.
-        public float HighwayBlend(float s) => Mathf.SmoothStep(0,1,Mathf.InverseLerp(3720,3790,s))*
-            (1-Mathf.SmoothStep(0,1,Mathf.InverseLerp(4560,4630,s)));
-        public float HalfWidth(float s) => forestTrail?(s<110?6:Mathf.Repeat(s,260)<42?5:3.6f):Mathf.Lerp(4.5f,8.2f,HighwayBlend(s));
+        public float HighwayBlend(float s) {s=GeometryStation(s);return Mathf.SmoothStep(0,1,Mathf.InverseLerp(3720,3790,s))*
+            (1-Mathf.SmoothStep(0,1,Mathf.InverseLerp(4560,4630,s)));}
+        public float HalfWidth(float s) => forestTrail?(GeometryStation(s)<110?6:Mathf.Repeat(GeometryStation(s),260)<42?5:3.6f):Mathf.Lerp(4.5f,8.2f,HighwayBlend(s));
+        float GeometryStation(float s)
+        {
+            if(geometryStations==null||geometryStations.Length!=points.Length||geometryLength<=0)return s;
+            Initialize();s=Mathf.Repeat(s,Length);int lo=0,hi=points.Length;
+            while(lo+1<hi){int mid=(lo+hi)/2;if(distance[mid]<=s)lo=mid;else hi=mid;}
+            float a=geometryStations[lo],b=geometryStations[(lo+1)%points.Length];
+            float d=Mathf.Repeat(b-a+geometryLength*.5f,geometryLength)-geometryLength*.5f;
+            return Mathf.Repeat(a+d*Mathf.InverseLerp(distance[lo],distance[lo+1],s),geometryLength);
+        }
         public float TrafficLane(float s,int direction,bool inner=false) => direction*Mathf.Lerp(2.6f,inner?2.05f:6.15f,HighwayBlend(s));
         float[] distance;
         public float Length { get; private set; }

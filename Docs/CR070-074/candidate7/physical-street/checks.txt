@@ -1,0 +1,6 @@
+PASS Visible HUD onset after meaningful wrong travel=5.062558s; launch-to-HUD=5.318592s
+PASS Physical pause freezes wrong-way timer
+PASS Emulated R local recovery event=True, clear=True, distance=0.49, gate=0/0, penalty=0/0
+PASS Emulated Y performs local recovery and clears guidance
+PASS Physical correct travel remains clear
+PASS Quit clears guidance

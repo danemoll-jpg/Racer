@@ -1,0 +1,26 @@
+[
+  {
+    "Name": "rules-street",
+    "Exit": 0,
+    "Flags": "-review7074 rules",
+    "Finished": "2026-09-19T18:45:43.4036683-04:00"
+  },
+  {
+    "Name": "rules-forest",
+    "Exit": 0,
+    "Flags": "-review7074 rules -course LakeWoods",
+    "Finished": "2026-09-19T18:46:04.6150259-04:00"
+  },
+  {
+    "Name": "rules-street-reverse",
+    "Exit": 0,
+    "Flags": "-review7074 rules -course StreetLoopReverse",
+    "Finished": "2026-09-19T18:46:25.7524735-04:00"
+  },
+  {
+    "Name": "rules-forest-reverse",
+    "Exit": 0,
+    "Flags": "-review7074 rules -course ForestLoopReverse",
+    "Finished": "2026-09-19T18:46:46.5587751-04:00"
+  }
+]

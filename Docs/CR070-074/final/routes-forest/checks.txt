@@ -1,0 +1,56 @@
+PASS moto Granite Saddle normal #0 completes in 22.62s; recovery=0; misses=0
+PASS moto Granite Saddle normal #1 completes in 22.60s; recovery=0; misses=0
+PASS moto Granite Saddle clean #0 completes in 21.30s; recovery=0; misses=0
+PASS moto clean branch has actual entry, no penalty/recovery Granite Saddle
+PASS moto Granite Saddle clean #1 completes in 21.27s; recovery=0; misses=0
+PASS moto clean branch has actual entry, no penalty/recovery Granite Saddle
+PASS moto Granite Saddle imperfect #0 completes in 26.41s; recovery=0; misses=0
+PASS moto Granite Saddle imperfect #1 completes in 24.44s; recovery=0; misses=0
+PASS moto actual local recovery preserves bypass entitlement Granite Saddle
+PASS moto Granite Saddle recovery #0 completes in 20.71s; recovery=0; misses=0
+PASS moto recovered branch finishes penalty-free Granite Saddle
+PASS moto actual local recovery preserves bypass entitlement Granite Saddle
+PASS moto Granite Saddle recovery #1 completes in 20.52s; recovery=0; misses=0
+PASS moto recovered branch finishes penalty-free Granite Saddle
+PASS moto Fern Gully normal #0 completes in 27.64s; recovery=0; misses=0
+PASS moto Fern Gully normal #1 completes in 27.59s; recovery=0; misses=0
+PASS moto Fern Gully clean #0 completes in 21.86s; recovery=0; misses=0
+PASS moto clean branch has actual entry, no penalty/recovery Fern Gully
+PASS moto Fern Gully clean #1 completes in 21.83s; recovery=0; misses=0
+PASS moto clean branch has actual entry, no penalty/recovery Fern Gully
+PASS moto Fern Gully imperfect #0 completes in 26.00s; recovery=0; misses=0
+PASS moto Fern Gully imperfect #1 completes in 25.97s; recovery=0; misses=0
+PASS moto actual local recovery preserves bypass entitlement Fern Gully
+PASS moto Fern Gully recovery #0 completes in 23.02s; recovery=0; misses=0
+PASS moto recovered branch finishes penalty-free Fern Gully
+PASS moto actual local recovery preserves bypass entitlement Fern Gully
+PASS moto Fern Gully recovery #1 completes in 23.04s; recovery=0; misses=0
+PASS moto recovered branch finishes penalty-free Fern Gully
+PASS atv Granite Saddle normal #0 completes in 24.27s; recovery=0; misses=0
+PASS atv Granite Saddle normal #1 completes in 24.26s; recovery=0; misses=0
+PASS atv Granite Saddle clean #0 completes in 22.93s; recovery=0; misses=0
+PASS atv clean branch has actual entry, no penalty/recovery Granite Saddle
+PASS atv Granite Saddle clean #1 completes in 23.19s; recovery=0; misses=0
+PASS atv clean branch has actual entry, no penalty/recovery Granite Saddle
+PASS atv Granite Saddle imperfect #0 completes in 31.10s; recovery=0; misses=0
+PASS atv Granite Saddle imperfect #1 completes in 26.78s; recovery=0; misses=0
+PASS atv actual local recovery preserves bypass entitlement Granite Saddle
+PASS atv Granite Saddle recovery #0 completes in 23.11s; recovery=0; misses=0
+PASS atv recovered branch finishes penalty-free Granite Saddle
+PASS atv actual local recovery preserves bypass entitlement Granite Saddle
+PASS atv Granite Saddle recovery #1 completes in 23.21s; recovery=0; misses=0
+PASS atv recovered branch finishes penalty-free Granite Saddle
+PASS atv Fern Gully normal #0 completes in 27.95s; recovery=0; misses=0
+PASS atv Fern Gully normal #1 completes in 27.95s; recovery=0; misses=0
+PASS atv Fern Gully clean #0 completes in 22.17s; recovery=0; misses=0
+PASS atv clean branch has actual entry, no penalty/recovery Fern Gully
+PASS atv Fern Gully clean #1 completes in 22.15s; recovery=0; misses=0
+PASS atv clean branch has actual entry, no penalty/recovery Fern Gully
+PASS atv Fern Gully imperfect #0 completes in 26.51s; recovery=0; misses=0
+PASS atv Fern Gully imperfect #1 completes in 26.46s; recovery=0; misses=0
+PASS atv actual local recovery preserves bypass entitlement Fern Gully
+PASS atv Fern Gully recovery #0 completes in 23.41s; recovery=0; misses=0
+PASS atv recovered branch finishes penalty-free Fern Gully
+PASS atv actual local recovery preserves bypass entitlement Fern Gully
+PASS atv Fern Gully recovery #1 completes in 23.42s; recovery=0; misses=0
+PASS atv recovered branch finishes penalty-free Fern Gully

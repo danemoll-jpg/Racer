@@ -14,7 +14,7 @@ namespace Racer
         {
             var panel=(RectTransform)display.transform.parent;
             panel.anchorMin=panel.anchorMax=panel.pivot=new Vector2(0,1);
-            panel.anchoredPosition=new(18,-18); panel.sizeDelta=new(300,race.Forest?132:108);
+            panel.anchoredPosition=new(18,-18); panel.sizeDelta=new(300,race.Forest||race.reverseCourse?132:108);
             display.fontSize=21; display.alignment=TextAnchor.UpperLeft;
             display.rectTransform.offsetMin=new(12,8); display.rectTransform.offsetMax=new(-10,-8);
             speedPanel=new GameObject("Speedometer",typeof(RectTransform),typeof(UnityEngine.UI.Image));
@@ -25,19 +25,19 @@ namespace Racer
             speedometer=label.GetComponent<UnityEngine.UI.Text>(); speedometer.font=display.font; speedometer.fontSize=30; speedometer.color=Color.white; speedometer.alignment=TextAnchor.MiddleCenter; speedometer.raycastTarget=false;
             speedometer.rectTransform.anchorMin=Vector2.zero; speedometer.rectTransform.anchorMax=Vector2.one; speedometer.rectTransform.offsetMin=speedometer.rectTransform.offsetMax=Vector2.zero;
             wrongPanel=new GameObject("Wrong way guidance",typeof(RectTransform),typeof(UnityEngine.UI.Image));
-            var wr=wrongPanel.GetComponent<RectTransform>();wr.SetParent(transform,false);wr.anchorMin=wr.anchorMax=wr.pivot=new(.5f,1);wr.anchoredPosition=new(0,-92);wr.sizeDelta=new(270,72);
-            wrongPanel.GetComponent<UnityEngine.UI.Image>().color=new(.025f,.055f,.07f,.9f);
+            var wr=wrongPanel.GetComponent<RectTransform>();wr.SetParent(transform,false);wr.anchorMin=wr.anchorMax=wr.pivot=new(.5f,1);wr.anchoredPosition=new(0,-24);wr.sizeDelta=new(480,116);
+            wrongPanel.GetComponent<UnityEngine.UI.Image>().color=new(.37f,.015f,.018f,.98f);
             UnityEngine.UI.Text Label(string name,Vector2 position,Vector2 dimensions,int fontSize)
             {var t=new GameObject(name,typeof(RectTransform),typeof(UnityEngine.UI.Text)).GetComponent<UnityEngine.UI.Text>();t.transform.SetParent(wr,false);t.font=display.font;t.fontSize=fontSize;t.color=new(1,.84f,.35f);t.alignment=TextAnchor.MiddleCenter;t.raycastTarget=false;t.rectTransform.anchoredPosition=position;t.rectTransform.sizeDelta=dimensions;return t;}
-            wrongArrow=Label("Local course direction",new(-101,0),new(48,48),38);wrongArrow.text="↑";
-            wrongText=Label("Wrong way and local reset",new(25,0),new(210,66),20);wrongPanel.SetActive(false);
+            wrongArrow=Label("Local course direction",new(-184,0),new(88,88),68);wrongArrow.text="↑";
+            wrongText=Label("Wrong way and local reset",new(48,0),new(366,108),38);wrongText.color=Color.white;wrongText.supportRichText=true;wrongPanel.SetActive(false);
         }
         public static string FormatTime(double seconds)
         { int ms = (int)(seconds * 1000); return $"{ms / 60000:00}:{ms / 1000 % 60:00}.{ms % 1000:000}"; }
         public string BuildText()
         {
             var p = race.Progress;
-            return (race.Forest?"FOREST LOOP\n":"")+$"LAP {Mathf.Min(p.CompletedLaps+1,p.TargetLaps)}/{p.TargetLaps}    {(race.opponents?$"POS {race.PlayerPosition}/{race.Racers.Count}":"SOLO 1/1")}\n"
+            return (race.reverseCourse?race.courseName.ToUpperInvariant()+"\n":race.Forest?"FOREST LOOP\n":"")+$"LAP {Mathf.Min(p.CompletedLaps+1,p.TargetLaps)}/{p.TargetLaps}    {(race.opponents?$"POS {race.PlayerPosition}/{race.Racers.Count}":"SOLO 1/1")}\n"
                 +$"Lap    {FormatTime(p.Finished?p.LastLap-p.CurrentLapPenalty:p.LapTime(race.Clock))}\nRace  {FormatTime(p.RaceTime(race.Clock))}";
         }
         void LateUpdate()
@@ -50,7 +50,7 @@ namespace Racer
                 wrongPanel.SetActive(guidance&&guidance.Visible&&!race.Flow.MenuVisible&&!race.Progress.Finished);
                 if(wrongPanel.activeSelf)
                 {
-                    wrongText.text="Wrong Way\n"+race.vehicle.GetComponent<VehicleInput>().ResetControlLabel+": reset locally";
+                    wrongText.text="<b>WRONG WAY</b>\n<size=23>"+race.vehicle.GetComponent<VehicleInput>().ResetControlLabel+": reset locally</size>";
                     var cam=Camera.main;var forward=Vector3.ProjectOnPlane(cam.transform.forward,Vector3.up).normalized;
                     wrongArrow.rectTransform.localRotation=Quaternion.Euler(0,0,-Vector3.SignedAngle(forward,guidance.Direction,Vector3.up));
                 }

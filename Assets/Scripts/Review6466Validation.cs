@@ -111,6 +111,7 @@ namespace Racer
                     Check(VehiclePaint.UnpaintedUnchanged(race.vehicle.transform,unpaintedBefore),"Trim/rider unchanged "+profile.Id+paint);
                     var t=race.vehicle.transform;var at=t.position;
                     if(paint==0||paint==6)foreach(var view in new[]{("front",new Vector3(4,2.4f,6)),("side",new Vector3(6,1.9f,0)),("chase",new Vector3(2,2.5f,-6))})LivingWorldValidation.Capture(root+"/"+profile.Id+"-"+paint+"-"+view.Item1+".png",at+t.TransformDirection(view.Item2),at+Vector3.up*.35f);
+                    if(paint==0||paint==6)LivingWorldValidation.Capture(root+"/face-"+profile.Id+"-"+paint+".png",at+t.TransformDirection(new Vector3(1.3f,1.25f,2.1f)),at+t.TransformDirection(new Vector3(-.2f,.8f,0)));
                     var active=rs.Where(r=>r.enabled).ToArray();report.Add($"{profile.Id} paint={paint}: activeRenderers={active.Length}; materials={active.Select(r=>r.sharedMaterial).Distinct().Count()}; triangles={active.OfType<MeshRenderer>().Sum(r=>r.GetComponent<MeshFilter>().sharedMesh.triangles.Length/3)}; colliders={race.vehicle.GetComponentsInChildren<Collider>().Length}; size={box.size}; center={box.center}; mass={mass}; com={com}");
                     Check(box.size==size&&box.center==center&&race.vehicle.Body.mass==mass&&race.vehicle.Body.centerOfMass==com,"Visual/color leaves physics invariant "+profile.Id+paint);
                     Check(race.vehicle.GetComponentsInChildren<Collider>().Length==1,"No visual colliders "+profile.Id+paint);
@@ -161,5 +162,3 @@ namespace Racer
         }
     }
 }
-
-

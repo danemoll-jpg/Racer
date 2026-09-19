@@ -236,7 +236,7 @@ namespace Racer.Editor
                     if(child.localScale.x>10 && child.localScale.y<1) { var scale=child.localScale; scale.x=gate.halfWidth*2; child.localScale=scale; }
                 }
             }
-            foreach(var item in new[]{(s:4640f,label:"Hwy 92\nSouth Cherokee Lane"),(s:1240f,label:"South Cherokee Lane\nJamerson Rd"),(s:3695f,label:"Hwy 92"),(s:2640f,label:"Jamerson Rd")})
+            foreach(var item in new[]{(s:4640f,label:"Hwy 92\nSouth Cherokee Lane"),(s:3695f,label:"Hwy 92"),(s:2640f,label:"Jamerson Rd")})
             { var p=race.road.At(item.s,out var f); Sign(root,p-Vector3.Cross(Vector3.up,f).normalized*14,f,item.label,green); }
         }
         static void Fence(Transform root,Vector3 a,Vector3 b,bool chain)

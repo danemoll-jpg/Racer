@@ -1,0 +1,6 @@
+{
+  "Name": "routes-street",
+  "Exit": 0,
+  "Flags": "-reverseReview routes -course StreetLoopReverse -repeats 2 -testSpeed 6",
+  "Finished": "2026-09-19T18:54:05.5978738-04:00"
+}

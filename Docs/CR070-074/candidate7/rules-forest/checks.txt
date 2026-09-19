@@ -1,0 +1,48 @@
+PASS All four course choices visible in selection menu
+PASS Stationary/slow maneuver speed=0
+PASS Stationary/slow maneuver speed=-2
+PASS Brief reverse under five seconds suppressed
+PASS Continuous reverse beyond five seconds warns
+PASS Correct movement clears within 200ms
+PASS Brief projection noise cannot continually erase sustained travel
+PASS Single noisy forward samples do not restart detection
+PASS Brief escape reverse followed by stop clears evidence
+PASS Airborne spin cannot accumulate
+PASS Invalid offroad segment cannot accumulate
+PASS lap-seam no premature warning reverse=False
+PASS lap-seam signed travel despite backwards-facing body reverse=False
+PASS lap-seam no premature warning reverse=True
+PASS lap-seam signed travel despite backwards-facing body reverse=True
+PASS Emulated Gamepad prompt uses actual Y binding
+PASS Emulated keyboard prompt uses actual R binding
+PASS Pause does not advance timer
+PASS Actual local recovery clears warning recovered=True
+PASS ordinary no premature warning reverse=False
+PASS ordinary signed travel despite backwards-facing body reverse=False
+PASS ordinary no premature warning reverse=True
+PASS ordinary signed travel despite backwards-facing body reverse=True
+PASS Emulated Gamepad prompt uses actual Y binding
+PASS Emulated keyboard prompt uses actual R binding
+PASS Pause does not advance timer
+PASS Actual local recovery clears warning recovered=True
+PASS bounded-reacquisition no premature warning reverse=False
+PASS bounded-reacquisition signed travel despite backwards-facing body reverse=False
+PASS bounded-reacquisition no premature warning reverse=True
+PASS bounded-reacquisition signed travel despite backwards-facing body reverse=True
+PASS Emulated Gamepad prompt uses actual Y binding
+PASS Emulated keyboard prompt uses actual R binding
+PASS Pause does not advance timer
+PASS Actual local recovery clears warning recovered=True
+PASS Echo Cave no premature warning reverse=False
+PASS Echo Cave signed travel despite backwards-facing body reverse=False
+PASS Echo Cave no premature warning reverse=True
+PASS Echo Cave signed travel despite backwards-facing body reverse=True
+PASS Emulated Gamepad prompt uses actual Y binding
+PASS Emulated keyboard prompt uses actual R binding
+PASS Pause does not advance timer
+PASS Actual local recovery clears warning recovered=True
+PASS Restart clears guidance
+PASS Removed extension absent including inactive colliders
+PASS Three unrelated continuations preserved
+PASS Finish clears warning
+PASS Track change creates one clear guidance instance

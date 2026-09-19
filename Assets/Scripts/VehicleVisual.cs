@@ -8,6 +8,7 @@ namespace Racer
     public static class VehicleVisual
     {
         static Material paint,rubber,glass,rider,metal,lamps,tail,skin;
+        static Material[] hair;
         static Material Mat(string name,Color color,float smooth=.3f)
         {var m=new Material(Shader.Find("Universal Render Pipeline/Lit")){name=name,color=color,enableInstancing=true};m.SetFloat("_Smoothness",smooth);return m;}
         static void Materials()
@@ -18,6 +19,7 @@ namespace Racer
             glass.SetFloat("_Surface",1);glass.SetFloat("_SrcBlend",5);glass.SetFloat("_DstBlend",10);glass.SetFloat("_ZWrite",0);glass.EnableKeyword("_SURFACE_TYPE_TRANSPARENT");glass.renderQueue=3000;
             rider=Mat("Garage jacket",new(.88f,.40f,.12f));metal=Mat("Garage alloy",new(.48f,.56f,.60f),.65f);
             lamps=Mat("Garage headlamps",new(.95f,.91f,.7f));tail=Mat("Garage tail lamps",new(.65f,.025f,.028f));skin=Mat("Garage face",new(.67f,.40f,.25f));
+            hair=new[]{Mat("Driver hair chestnut",new(.18f,.065f,.028f)),Mat("Driver hair charcoal",new(.035f,.029f,.025f)),Mat("Driver hair gold",new(.62f,.36f,.09f))};
         }
         public static Transform Build(Transform parent,VehicleProfile p,List<Transform> wheels=null)
         {
@@ -46,7 +48,7 @@ namespace Racer
             Part(root,"Rear glass",new(0,.68f,rear-.03f),new(w*.8f,.48f,.045f),glass).localRotation=Quaternion.Euler(-12,0,0);
             foreach(float side in new[]{-1f,1f})
             {
-                foreach(float z in new[]{front,rear,(front+rear)*.5f})Part(root,"Window pillar",new(side*w*.415f,.7f,z),new(.065f,.57f,.085f),paint);
+                foreach(float z in new[]{front,rear,wagon?-.65f:-.5f})Part(root,"Window pillar",new(side*w*.415f,.7f,z),new(.065f,.57f,.085f),paint);
                 Part(root,"Window sill",new(side*w*.46f,.4f,(front+rear)*.5f),new(.08f,.08f,front-rear+.15f),metal);
                 Part(root,"Mirror",new(side*(w*.5f+.06f),.57f,.65f),new(.19f,.14f,.24f),paint);
                 Part(root,"Door handle",new(side*(w*.5f+.006f),.22f,-.18f),new(.025f,.045f,.21f),metal);
@@ -57,9 +59,9 @@ namespace Racer
             Part(root,"Grille",new(0,.06f,l*.5f+.006f),new(w*.42f,.14f,.04f),rubber);
             Part(root,"Rear plate",new(0,.1f,-l*.5f-.009f),new(.35f,.14f,.035f),metal);
             // Window openings expose a compact seated occupant, fully below the roof.
-            Part(root,"Seat back",new(-.37f,.46f,-.39f),new(.42f,.49f,.16f),rubber);
-            Person(root,new(-.37f,.36f,-.25f),.57f,false);
-            Part(root,"Dashboard",new(0,.42f,.53f),new(w*.8f,.13f,.25f),rubber);
+            Part(root,"Seat back",new(-.37f,.46f,.01f),new(.42f,.49f,.16f),rubber);
+            Person(root,new(-.37f,.36f,.15f),.57f,false);
+            Part(root,"Dashboard",new(0,.36f,.53f),new(w*.8f,.11f,.25f),rubber);
         }
         static void Bike(Transform root,VehicleProfile p)
         {
@@ -96,8 +98,36 @@ namespace Racer
             Vector3 P(float x,float y,float z)=>hip+new Vector3(x,y,z)*scale;
             Part(root,"Seated hips",P(0,0,0),new Vector3(.42f,.22f,.3f)*scale,rubber,PrimitiveType.Sphere);
             Part(root,"Jacket torso",P(0,.31f,.09f),new Vector3(.49f,.59f,.34f)*scale,rider,PrimitiveType.Sphere).localRotation=Quaternion.Euler(bike?15:0,0,0);
-            Part(root,"Helmet",P(0,.74f,.17f),new Vector3(.39f,.43f,.43f)*scale,rider,PrimitiveType.Sphere);
-            Part(root,"Visor",P(0,.77f,.355f),new Vector3(.31f,.15f,.055f)*scale,rubber,PrimitiveType.Sphere);
+            int identity=0;foreach(char c in root.root.name)identity+=c;
+            var hairColor=hair[identity%hair.Length];
+            Part(root,"Face and head",P(0,.735f,.18f),new Vector3(.33f,.36f,.32f)*scale,skin,PrimitiveType.Sphere);
+            Part(root,"Neck",P(0,.53f,.13f),new Vector3(.15f,.16f,.16f)*scale,skin,PrimitiveType.Sphere);
+            if(bike)
+            {
+                // Open-face shell surrounds a real exposed face. No opaque visor or
+                // hair laid over the helmet: only a short nape below its rear edge.
+                Part(root,"Helmet crown",P(0,.875f,.14f),new Vector3(.41f,.19f,.40f)*scale,rider,PrimitiveType.Sphere);
+                Part(root,"Helmet rear",P(0,.73f,.025f),new Vector3(.40f,.32f,.18f)*scale,rider,PrimitiveType.Sphere);
+                foreach(float side in new[]{-1f,1f})
+                    Part(root,"Helmet cheek guard",P(side*.18f,.70f,.14f),new Vector3(.065f,.27f,.25f)*scale,rider,PrimitiveType.Sphere);
+                Part(root,"Helmet chin strap",P(0,.57f,.20f),new Vector3(.27f,.04f,.18f)*scale,rubber,PrimitiveType.Sphere);
+                Part(root,"Exposed nape hair",P(0,.545f,.015f),new Vector3(.19f,.06f,.08f)*scale,hairColor,PrimitiveType.Sphere);
+            }
+            else
+            {
+                Part(root,"Hair cap",P(0,.876f,.15f),new Vector3(.35f,.13f,.32f)*scale,hairColor,PrimitiveType.Sphere);
+                Part(root,"Swept fringe",P(-.055f,.835f,.297f),new Vector3(.24f,.105f,.07f)*scale,hairColor,PrimitiveType.Sphere).localRotation=Quaternion.Euler(0,0,-14);
+                Part(root,"Hair back",P(0,.765f,.04f),new Vector3(.31f,.24f,.085f)*scale,hairColor,PrimitiveType.Sphere);
+                foreach(float side in new[]{-1f,1f})Part(root,"Ear",P(side*.165f,.735f,.17f),new Vector3(.05f,.09f,.07f)*scale,skin,PrimitiveType.Sphere);
+            }
+            foreach(float side in new[]{-1f,1f})
+            {
+                Part(root,"Eye white",P(side*.073f,.774f,.321f),new Vector3(.080f,.055f,.032f)*scale,lamps,PrimitiveType.Sphere);
+                Part(root,"Eye pupil",P(side*.073f,.774f,.338f),new Vector3(.031f,.039f,.014f)*scale,rubber,PrimitiveType.Sphere);
+                Part(root,"Expressive brow",P(side*.073f,.816f,.313f),new Vector3(.091f,.022f,.026f)*scale,hairColor).localRotation=Quaternion.Euler(0,0,side*9);
+            }
+            Part(root,"Rounded nose",P(0,.725f,.344f),new Vector3(.057f,.079f,.067f)*scale,skin,PrimitiveType.Sphere);
+            Part(root,"Smile",P(0,.670f,.322f),new Vector3(.103f,.022f,.023f)*scale,rubber,PrimitiveType.Sphere);
             foreach(float side in new[]{-1f,1f})
             {
                 var shoulder=P(side*.24f,.46f,.09f);var elbow=P(side*.31f,.23f,.43f);
@@ -108,7 +138,15 @@ namespace Racer
                 Link(root,"Thigh",P(side*.17f,0,0),knee,.18f*scale,rubber);Link(root,"Shin",knee,foot,.15f*scale,rubber);
                 Part(root,"Boot",foot+Vector3.forward*.06f*scale,new Vector3(.17f,.12f,.3f)*scale,rubber);
             }
-            if(!bike)Part(root,"Steering wheel",P(0,.27f,.68f),new Vector3(.62f,.065f,.62f)*scale,rubber,PrimitiveType.Cylinder).localRotation=Quaternion.Euler(65,0,0);
+            if(!bike)
+            {
+                // Open rim preserves the hands/control location and the face sightline.
+                var vertices=new List<Vector3>();var triangles=new List<int>();var rotation=Quaternion.Euler(65,0,0);var center=P(0,.27f,.68f);
+                for(int i=0;i<16;i++)for(int side=0;side<4;side++){float a=i*Mathf.PI/8,r=side<2?.31f:.265f,y=side==0||side==3?-.025f:.025f;vertices.Add(center+rotation*new Vector3(Mathf.Cos(a)*r,y,Mathf.Sin(a)*r)*scale);}
+                for(int i=0;i<16;i++)for(int side=0;side<4;side++){int a=i*4+side,b=i*4+(side+1)%4,c=(i+1)%16*4+side,d=(i+1)%16*4+(side+1)%4;triangles.AddRange(new[]{a,c,b,b,c,d});}
+                MeshPart(root,"Open steering wheel rim",vertices,triangles,rubber);
+                foreach(float angle in new[]{0f,120f,240f}){float a=angle*Mathf.Deg2Rad;Link(root,"Steering spoke",center,center+rotation*new Vector3(Mathf.Cos(a)*.27f,0,Mathf.Sin(a)*.27f)*scale,.027f*scale,rubber);}
+            }
             Merge(root);
         }
         static void Arch(Transform root,float x,float z,float radius)

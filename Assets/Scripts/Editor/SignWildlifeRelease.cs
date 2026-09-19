@@ -27,19 +27,20 @@ namespace Racer.Editor
                 var history=EditorSceneManager.OpenScene("Assets/SignHistoryTemp/"+key+".unity",OpenSceneMode.Additive);
                 var texts=history.GetRootGameObjects().SelectMany(g=>g.GetComponentsInChildren<TextMesh>(true)).ToArray();
                 File.WriteAllLines(Evidence+"/history-"+key+".txt",texts.Select(t=>(HistoricalSign(t)?"MOUNTED ":"UNMOUNTED ")+PathOf(t.transform)+" | "+t.text.Replace('\n','|')));
-                var catalog=new Catalog{letters=texts.Where(HistoricalSign).Select(t=>new Letter{parent=PathOf(t.transform.parent),parentWorld=t.transform.parent.position,name=t.name,text=t.text,position=t.transform.localPosition,rotation=t.transform.localRotation,scale=t.transform.localScale,size=t.characterSize,line=t.lineSpacing,fontSize=t.fontSize,anchor=(int)t.anchor,alignment=(int)t.alignment,color=t.color,material=AssetDatabase.GetAssetPath(t.GetComponent<Renderer>().sharedMaterial)}).ToArray()};
+                var catalog=new Catalog{letters=texts.Where(t=>HistoricalSign(t)&&!SceneryText.RetiredHairpin(t.text,t.transform.parent.position)).Select(t=>new Letter{parent=PathOf(t.transform.parent),parentWorld=t.transform.parent.position,name=t.name,text=t.text,position=t.transform.localPosition,rotation=t.transform.localRotation,scale=t.transform.localScale,size=t.characterSize,line=t.lineSpacing,fontSize=t.fontSize,anchor=(int)t.anchor,alignment=(int)t.alignment,color=t.color,material=AssetDatabase.GetAssetPath(t.GetComponent<Renderer>().sharedMaterial)}).ToArray()};
                 File.WriteAllText("Assets/Track/Signs/"+key+".json",JsonUtility.ToJson(catalog,true));EditorSceneManager.CloseScene(history,true);
             }
             AssetDatabase.DeleteAsset("Assets/SignHistoryTemp");AssetDatabase.Refresh();ApplySigns();
         }
         public static void Restore(Scene scene)
         {
-            string key=scene.path==LakeCourseBuild.ScenePath?"Forest":"Street";
+            string key=scene.name=="LakeWoods"||scene.name=="ForestLoopReverse"?"Forest":"Street";
             var asset=AssetDatabase.LoadAssetAtPath<TextAsset>("Assets/Track/Signs/"+key+".json");if(!asset)return;
             var all=scene.GetRootGameObjects().SelectMany(g=>g.GetComponentsInChildren<Transform>(true)).ToArray();
             int restored=0;
             foreach(var row in JsonUtility.FromJson<Catalog>(asset.text).letters)
             {
+                if(SceneryText.RetiredHairpin(row.text,row.parentWorld))continue;
                 var parent=all.Where(t=>PathOf(t)==row.parent).OrderBy(t=>Vector3.Distance(t.position,row.parentWorld)).FirstOrDefault();if(!parent)throw new Exception("Missing historic sign parent "+row.parent);
                 // Match by position as several parents have two identically named faces/advice signs.
                 var text=parent.GetComponentsInChildren<TextMesh>(true).FirstOrDefault(t=>t.name==row.name&&t.text==row.text&&Vector3.Distance(parent.InverseTransformPoint(t.transform.position),row.position)<.01f);
@@ -153,9 +154,3 @@ namespace Racer.Editor
         public void OnProcessScene(Scene scene,BuildReport report){if(scene.path==StreetLoopBuilder.ScenePath||scene.path==LakeCourseBuild.ScenePath)SignWildlifeRelease.Restore(scene);}
     }
 }
-
-
-
-
-
-

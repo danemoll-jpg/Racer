@@ -8,5 +8,14 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/StreetLoopGreybox.unity
     guid: 1a35afc7f342d424bb8ec551ce79ae1c
+  - enabled: 1
+    path: Assets/Scenes/LakeWoods.unity
+    guid: cfb29c2e6096c634fa5089f4c9b89d22
+  - enabled: 1
+    path: Assets/Scenes/StreetLoopReverse.unity
+    guid: 29415132502941d41bbc16da504fa914
+  - enabled: 1
+    path: Assets/Scenes/ForestLoopReverse.unity
+    guid: 7451e063286fca045a890f889635d2da
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}

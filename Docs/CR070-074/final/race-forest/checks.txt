@@ -1,0 +1,6 @@
+PASS Local recovery preserves gate progress and penalties
+PASS lake-v3-shallows moto completed 2/2 laps; misses=0; recoveries=1; adjusted=159.728964
+PASS lake-v3-shallows moto completed 2/2 laps; misses=0; recoveries=1; adjusted=169.049053
+PASS lake-v3-shallows moto completed 2/2 laps; misses=0; recoveries=0; adjusted=148.692125
+PASS lake-v3-shallows atv completed 2/2 laps; misses=0; recoveries=0; adjusted=161.455402
+FAIL Completed player race creates one total entry

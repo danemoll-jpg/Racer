@@ -1,22 +1,24 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 namespace Racer
 {
     // A small fixed pool, seeded per race. No physics bodies, agents or road crossings.
     public sealed class Wildlife : MonoBehaviour
     {
-        public enum Species { Bird, Squirrel, Frog }
+        public enum Species { Bird, Squirrel, Frog, Deer, Coyote }
         [Serializable] public struct Habitat { public Species species; public Vector3 position, escape; }
         public Habitat[] habitats=Array.Empty<Habitat>();
         public AudioClip[] birdCalls, squirrelCalls, frogCalls;
         public AudioClip batFlight;
+        public AudioClip[] deerCalls,coyoteCalls;
         public int Seed {get;private set;}
         public int Sightings {get;private set;}
         public int Calls {get;private set;}
         public int SelectedCount {get;private set;}
         public static float QuietUntil;
-        sealed class Animal { public Transform root,head,tail,left,right; public Habitat site; public bool selected,retired,seen; public float phase,flee=-100,nextCall; public Vector3 start; }
+        sealed class Animal { public Transform root,head,tail,left,right; public Transform[] legs; public Habitat site; public bool selected,retired,seen; public float phase,flee=-100,nextCall; public Vector3 start; }
         readonly List<Animal> animals=new(); readonly List<Material> materials=new();
         RaceDirector race; Camera cameraView; AudioSource voice; System.Random rng; float nextThink,nextVoice;
         public AudioSource Voice=>voice;
@@ -28,7 +30,7 @@ namespace Racer
         void Awake()
         {
             race=GetComponent<RaceDirector>();cameraView=Camera.main;QuietUntil=0;
-            var blue=Mat(new(.12f,.30f,.48f));var chest=Mat(new(.75f,.40f,.19f));var brown=Mat(new(.36f,.19f,.09f));var tail=Mat(new(.48f,.27f,.13f));var green=Mat(new(.25f,.42f,.10f));var cream=Mat(new(.77f,.76f,.44f));var black=Mat(new(.015f,.02f,.015f));var beak=Mat(new(.68f,.51f,.15f));
+            var blue=Mat(new(.12f,.30f,.48f));var chest=Mat(new(.75f,.40f,.19f));var brown=Mat(new(.36f,.19f,.09f));var tail=Mat(new(.48f,.27f,.13f));var green=Mat(new(.25f,.42f,.10f));var cream=Mat(new(.77f,.76f,.44f));var black=Mat(new(.015f,.02f,.015f));var beak=Mat(new(.68f,.51f,.15f));var coyoteFur=Mat(new(.43f,.40f,.31f));
             foreach(var site in habitats)
             {
                 var a=new Animal{site=site,root=new GameObject("Wildlife "+site.species).transform,phase=animals.Count*2.39996f};a.root.SetParent(transform,false);a.root.position=site.position;
@@ -52,6 +54,32 @@ namespace Racer
                     foreach(int side in new[]{-1,1}){Part(a.root,"Upright ear",new(side*.095f,.78f,.11f),new(.09f,.17f,.09f),brown);Part(a.root,"Dark eye",new(side*.119f,.65f,.23f),Vector3.one*.055f,black);Part(a.root,"Hind paw",new(side*.17f,.055f,.04f),new(.12f,.10f,.27f),brown);}
                     a.left=Part(a.root,"Foraging paw",new(-.13f,.36f,.24f),new(.085f,.19f,.09f),brown);a.right=Part(a.root,"Other paw",new(.13f,.36f,.24f),new(.085f,.19f,.09f),brown);
                 }
+                else if(site.species==Species.Deer||site.species==Species.Coyote)
+                {
+                    bool deer=site.species==Species.Deer;float h=deer?1.02f:.63f;var fur=deer?tail:coyoteFur;
+                    Part(a.root,"Lean woodland body",new(0,h,0),new(deer?.46f:.35f,deer?.58f:.39f,deer?1.20f:1.05f),fur);
+                    Part(a.root,"Light chest",new(0,h-.12f,.40f),new(.29f,.36f,.19f),cream);
+                    a.head=new GameObject(deer?"Deer head":"Coyote head").transform;a.head.SetParent(a.root,false);a.head.localPosition=new(0,h+(deer?.51f:.17f),.58f);
+                    Part(a.root,"Sloped neck",new(0,h+.22f,.43f),new(.26f,deer?.72f:.32f,.31f),fur).localRotation=Quaternion.Euler(-24,0,0);
+                    Part(a.head,"Long head",Vector3.zero,new(.25f,.30f,.36f),fur);
+                    Part(a.head,"Pointed muzzle",new(0,-.065f,.22f),new(.17f,.14f,.30f),fur);
+                    Part(a.head,"Dark nose",new(0,-.06f,.37f),new(.095f,.075f,.075f),black);
+                    foreach(int side in new[]{-1,1})
+                    {
+                        Part(a.head,"Upright woodland ear",new(side*.14f,.25f,-.025f),new(.13f,deer?.34f:.25f,.10f),fur).localRotation=Quaternion.Euler(-12,0,-side*22);
+                        Part(a.head,"Ear lining",new(side*.15f,.25f,.024f),new(.075f,deer?.23f:.15f,.022f),cream).localRotation=Quaternion.Euler(-12,0,-side*22);
+                        Part(a.head,"Alert eye",new(side*.119f,.037f,.115f),Vector3.one*.047f,black);
+                    }
+                    a.tail=Part(a.root,deer?"Short white flag tail":"Bushy low coyote tail",new(0,h-.04f,-.65f),new(deer?.14f:.19f,deer?.25f:.24f,deer?.20f:.61f),deer?cream:fur);a.tail.localRotation=Quaternion.Euler(deer?-25:-35,0,0);
+                    var legs=new List<Transform>();
+                    foreach(int side in new[]{-1,1})foreach(float z in new[]{-.40f,.36f})
+                    {
+                        var leg=new GameObject("Walking leg pivot").transform;leg.SetParent(a.root,false);leg.localPosition=new(side*.16f,h-.13f,z);
+                        float length=h-.16f;Part(leg,"Slender leg",new(0,-length*.5f,0),new(deer?.075f:.11f,length,deer?.09f:.13f),fur);
+                        Part(leg,deer?"Cloven hoof":"Paw",new(0,-length,.035f),new(.105f,.075f,.15f),deer?black:fur);legs.Add(leg);
+                    }
+                    a.legs=legs.ToArray();a.left=a.legs[0];a.right=a.legs[1];
+                }
                 else
                 {
                     Part(a.root,"Frog body",new(0,.18f,-.04f),new(.43f,.27f,.46f),green);a.head=Part(a.root,"Broad frog head",new(0,.26f,.17f),new(.43f,.23f,.26f),green);a.tail=Part(a.root,"Calling throat",new(0,.18f,.27f),new(.26f,.16f,.13f),cream);
@@ -60,7 +88,7 @@ namespace Racer
                     foreach(int side in new[]{-1,1}){Part(a.root,"Raised eye",new(side*.145f,.38f,.18f),Vector3.one*.14f,green);Part(a.root,"Frog pupil",new(side*.145f,.40f,.24f),new(.085f,.06f,.045f),black);Part(a.root,"Webbed front foot",new(side*.22f,.025f,.29f),new(.17f,.045f,.16f),green);Part(a.root,"Long back foot",new(side*.34f,.025f,-.13f),new(.15f,.045f,.26f),green);}
                 }
                 var facial=new List<Transform>();foreach(Transform child in a.root)if(child!=a.head&&(child.name.Contains("eye")||child.name=="Eye"||child.name.Contains("pupil")||child.name.Contains("ear")||child.name=="Muzzle"||child.name=="Nose"||child.name=="Pointed beak"))facial.Add(child);foreach(var child in facial)child.SetParent(a.head,true);
-                a.root.localScale=Vector3.one*(site.species==Species.Frog?1.4f:1.25f);animals.Add(a);a.root.gameObject.SetActive(false);
+                a.root.localScale=Vector3.one*(site.species==Species.Frog?1.4f:site.species>=Species.Deer?1:1.25f);animals.Add(a);a.root.gameObject.SetActive(false);
             }
             voice=new GameObject("Wildlife spatial voice").AddComponent<AudioSource>();voice.transform.SetParent(transform,false);voice.playOnAwake=false;voice.spatialBlend=1;voice.rolloffMode=AudioRolloffMode.Linear;voice.minDistance=12;voice.maxDistance=65;voice.dopplerLevel=0;voice.priority=80;
             SelectPopulation();
@@ -75,7 +103,8 @@ namespace Racer
             // Reserve visible retained animals first so later slots cannot push a restart over the cap.
             foreach(var a in animals)if(a.selected&&a.root.gameObject.activeSelf&&InView(a.root.position))SelectedCount++;
             // Preserve a visible individual through restart; make new selections only beyond view.
-            foreach(var a in animals)
+            // Shuffle the candidate order so appended species are not starved by the cap.
+            foreach(var a in animals.OrderBy(_=>rng.Next()).ToArray())
             {
                 if(a.root.gameObject.activeSelf&&InView(a.root.position))continue;
                 a.selected=SelectedCount<8&&rng.NextDouble()<.40;a.retired=false;a.seen=false;a.flee=-100;a.nextCall=Time.time+Range(1,12);
@@ -87,7 +116,7 @@ namespace Racer
         public bool Call(Species species,Vector3 at)
         {
             if(Time.time<QuietUntil||voice.isPlaying||Time.time<nextVoice)return false;
-            var clips=species==Species.Bird?birdCalls:species==Species.Squirrel?squirrelCalls:frogCalls;if(clips==null||clips.Length==0)return false;
+            var clips=species==Species.Bird?birdCalls:species==Species.Squirrel?squirrelCalls:species==Species.Deer?deerCalls:species==Species.Coyote?coyoteCalls:frogCalls;if(clips==null||clips.Length==0)return false;
             voice.transform.position=at;voice.clip=clips[rng.Next(clips.Length)];voice.pitch=Range(.94f,1.06f);voice.volume=.72f*(race.Flow.Save?.Settings.ambience??1);voice.Play();Calls++;nextVoice=Time.time+Range(7,14);return true;
         }
         void Update()
@@ -107,6 +136,14 @@ namespace Racer
                 if(distance>160)continue;
                 if(visible&&distance<65&&!a.seen){a.seen=true;Sightings++;}
                 float t=Time.time+a.phase;
+                if(a.legs!=null)
+                {
+                    bool walk=a.flee>=0||Mathf.Sin(t*.31f)>.2f;
+                    float swing=walk?Mathf.Sin(t*(a.flee>=0?12:3))* (a.flee>=0?30:14):0;
+                    for(int leg=0;leg<a.legs.Length;leg++)a.legs[leg].localRotation=Quaternion.Euler(swing*(leg==0||leg==3?1:-1),0,0);
+                    a.tail.localRotation=Quaternion.Euler(-30,Mathf.Sin(t)*9,0);
+                    if(a.flee<0&&walk){var p=a.site.position+a.site.escape*(1+Mathf.Sin(t*.31f))*1.1f;if(Physics.Raycast(p+Vector3.up*5,Vector3.down,out var hit,12,1,QueryTriggerInteraction.Ignore))p.y=hit.point.y+.03f;a.root.SetPositionAndRotation(p,Quaternion.LookRotation(a.site.escape));}
+                }
                 a.head.localRotation=Quaternion.Euler(Mathf.Sin(t*1.2f)*9,Mathf.Sin(t*.7f)*22,0);
                 if(a.site.species==Species.Squirrel)a.tail.localRotation=Quaternion.Euler(Mathf.Sin(t*1.7f)*8,Mathf.Sin(t*.8f)*12,0);
                 if(a.site.species==Species.Frog)a.tail.localScale=new Vector3(.26f,.16f,.13f)*(1+.12f*Mathf.Sin(t*2.2f));
@@ -114,7 +151,7 @@ namespace Racer
                 if(a.flee<0&&distance<(a.site.species==Species.Bird?22:15)&&race.vehicle.Body.linearVelocity.magnitude>2){a.flee=Time.time;a.start=a.root.position;}
                 if(a.flee>=0)
                 {
-                    float age=Time.time-a.flee;var direction=a.site.escape.normalized;float length=a.site.species==Species.Bird?Mathf.Min(age*5,55):Mathf.Min(age*1.5f,5);
+                    float age=Time.time-a.flee;var direction=a.site.escape.normalized;float length=a.site.species==Species.Bird?Mathf.Min(age*5,55):a.legs!=null?Mathf.Min(age*4.5f,24):Mathf.Min(age*1.5f,5);
                     var p=a.start+direction*length;
                     if(a.site.species==Species.Bird){p.y+=Mathf.Min(age*3,30);float flap=Mathf.Sin(t*31)*65;a.left.localRotation=Quaternion.Euler(0,0,flap);a.right.localRotation=Quaternion.Euler(0,0,-flap);}
                     else{if(Physics.Raycast(p+Vector3.up*8,Vector3.down,out var ground,20,1,QueryTriggerInteraction.Ignore))p.y=ground.point.y+.03f;p.y+=age<3.3f?Mathf.Abs(Mathf.Sin(age*(a.site.species==Species.Frog?5:13)))*(a.site.species==Species.Frog?.45f:.12f):0;a.left.localRotation=Quaternion.Euler(Mathf.Sin(t*13)*22,0,0);a.right.localRotation=Quaternion.Euler(-Mathf.Sin(t*13)*22,0,0);}

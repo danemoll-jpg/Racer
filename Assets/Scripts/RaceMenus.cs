@@ -191,7 +191,7 @@ namespace Racer
             }
             else if (shown == RaceFlow.Stage.Results)
             {
-                title.text = flow.Race.Forest?"FOREST LOOP / RACE COMPLETE":"RACE COMPLETE";
+                title.text = flow.Race.courseName.ToUpperInvariant()+" / RACE COMPLETE";
                 var p = flow.Race.Progress; var text = new StringBuilder();
                 text.AppendLine("Total   " + RaceHud.FormatTime(p.RaceTime(flow.Race.Clock)) + (flow.NewRaceRecord ? "   NEW PB" : ""));
                 for (int i = 0; i < p.LapTimes.Count; i++) text.AppendLine("Lap " + (i+1) + "   " + RaceHud.FormatTime(p.LapTimes[i]));
@@ -212,10 +212,12 @@ namespace Racer
             else if(shown==RaceFlow.Stage.Courses)
             {
                 title.text="SELECT TRACK";
-                details.text="Street Loop: the original neighborhood circuit.\nForest Loop: lakeside start behind the friend house.\nMotorcycles / ATVs only, including AI.\nIndependent gates, laps and record categories.";
+                details.text="Street: all four vehicles. Forest: motorcycles / ATVs.\nReverse courses have their own jumps and optional shortcuts.\nSeparate direction, rules and record categories.";
                 Action(0,"Street Loop",()=>flow.SelectCourse(false));
                 Action(1,"Forest Loop",()=>flow.SelectCourse(true));
-                Action(2,"Back",flow.CloseGarage);
+                Action(2,"Street Loop Reverse",()=>flow.SelectCourse(false,true));
+                Action(3,"Forest Loop Reverse",()=>flow.SelectCourse(true,true));
+                Action(4,"Back",flow.CloseGarage);
             }
             else if(shown==RaceFlow.Stage.Boards)
             {
@@ -350,6 +352,3 @@ namespace Racer
         void OnDestroy() { if(menuActions) { menuActions.Disable(); Destroy(menuActions); } if(submitReference) Destroy(submitReference); if(previewRoot) Destroy(previewRoot); if(previewCamera) Destroy(previewCamera.gameObject); if(previewTexture) { previewTexture.Release(); Destroy(previewTexture); } }
     }
 }
-
-
-

@@ -25,7 +25,8 @@ namespace Racer
         public RaceRoad DriveRoad => !racing && Race.ambientRoad ? Race.ambientRoad : Race.road;
         bool racing, finishParked;
         ForestLayout forestLayout;
-        WoodlandRoute plannedBranch;
+        WoodlandRoute plannedBranch, progressBranch;
+        float branchBest, branchStuck;
         static readonly float[] cornerUse={.46f,.76f,.90f}, brakeUse={.55f,.88f,.98f}, speedUse={.91f,1f,1f}, hillTargets={26,32,35};
         float pace, stalled, safeS, lane, finishRunoff, nextRecovery;
         readonly RaycastHit[] hits = new RaycastHit[24];
@@ -104,9 +105,10 @@ namespace Racer
                         var delta = other.transform.position - transform.position;
                         float along = Vector3.Dot(delta, tangent);
                         float side = Mathf.Abs(Vector3.Dot(delta, Vector3.Cross(Vector3.up, tangent)));
-                        if (other.Direction < 0 && along > -10 && along < 110)
+                        float relativeDirection=Race.reverseCourse?Vector3.Dot(other.transform.forward,tangent):other.Direction;
+                        if (relativeDirection < 0 && along > -10 && along < 110)
                             oncoming = true;
-                        if (other.Direction > 0 && along > 4 && along < 50 && side < 3.5f && other.Car.ForwardSpeed < speed + 2)
+                        if (relativeDirection > 0 && along > 4 && along < 50 && side < 3.5f && other.Car.ForwardSpeed < speed + 2)
                             slowerAhead = true;
                     }
 
@@ -126,17 +128,19 @@ namespace Racer
                     desiredLane=Mathf.Clamp(currentLane,-DriveRoad.HalfWidth(s)+1.2f,DriveRoad.HalfWidth(s)-1.2f);
             }
 
+            if(plannedBranch && (s>plannedBranch.exitRoad+15 || (plannedBranch.Project(Car.Body.position,out float exitLateral)>=plannedBranch.Length-7 && exitLateral<plannedBranch.halfWidth+7 && Racer?.Branch.Route==null))) plannedBranch=null;
             if(racing && !finished && Racer!=null && Race.difficulty>0)
             {
-                if(plannedBranch && s>plannedBranch.exitRoad+15) plannedBranch=null;
                 if(!plannedBranch && Race.Branches!=null)
                     foreach(var branch in Race.Branches)
                         if(branch.aiValidated && s>=branch.entryRoad-55 && s<branch.entryRoad &&
                             (Race.difficulty==2 || Car.GetComponent<VehicleConfiguration>().Profile.Small)) { plannedBranch=branch; break; }
             }
             var activeBranch=plannedBranch && Racer?.Branch.Route==plannedBranch ? plannedBranch : null;
-            if(!activeBranch && plannedBranch && s>=plannedBranch.entryRoad-2) activeBranch=plannedBranch;
+            if(!activeBranch && plannedBranch && s>=plannedBranch.entryRoad-(Race.reverseCourse?look:2)) activeBranch=plannedBranch;
             float branchS=activeBranch?activeBranch.Project(Car.Body.position,out _):0;
+            if(activeBranch!=progressBranch){progressBranch=activeBranch;branchBest=branchS;branchStuck=0;}
+            if(activeBranch&&Race.reverseCourse&&Direction>0){if(branchS>branchBest+2){branchBest=branchS;branchStuck=0;}else branchStuck+=Time.fixedDeltaTime;}else branchStuck=0;
             if(plannedBranch || activeBranch) desiredLane=0;
             // Commit to the readable central launch line; pass in the intervening pockets.
             if(racing&&forestLayout&&forestLayout.Approach(s))desiredLane=0;
@@ -159,8 +163,9 @@ namespace Racer
             if(finished) TargetSpeed=12;
             // Consistency costs time through early lifting, never extra vehicle capability.
             if (racing && skill < 2) TargetSpeed *= 1 - (skill==0?.07f:.012f)*(.5f+.5f*Mathf.Sin(Time.time*.19f+pace*31));
-            if(activeBranch) TargetSpeed=Mathf.Min(TargetSpeed,activeBranch.recommendedSpeed);
-            if(racing&&forestLayout&&forestLayout.Approach(s))TargetSpeed=Mathf.Min(TargetSpeed,32);
+            if(activeBranch) TargetSpeed=Mathf.Min(TargetSpeed,activeBranch.SpeedAt(branchS));
+            else if(plannedBranch&&plannedBranch.entrySpeed>0)TargetSpeed=Mathf.Min(TargetSpeed,Mathf.Sqrt(plannedBranch.entrySpeed*plannedBranch.entrySpeed+2*judgment*Mathf.Max(0,plannedBranch.entryRoad-s-12)));
+            if(racing&&!activeBranch&&forestLayout&&forestLayout.Approach(s))TargetSpeed=Mathf.Min(TargetSpeed,32);
             if(!racing && pace>.955f && DriveRoad.HighwayBlend(s)>.01f && DriveRoad.HighwayBlend(s)<.85f)
                 foreach(var other in Race.Drivers)
                     if(other&&other!=this&&other.Direction==Direction)
@@ -176,7 +181,7 @@ namespace Racer
                 else {DriveRoad.At(s + Direction * d, out f);DriveRoad.At(s + Direction * (d + 8), out next);}
                 float curvature = Vector3.Angle(Vector3.ProjectOnPlane(f,Vector3.up),Vector3.ProjectOnPlane(next,Vector3.up)) * Mathf.Deg2Rad / 8;
                 float curveSpeed = Mathf.Sqrt(cornerGrip / Mathf.Max(.00015f, curvature));
-                float hillSpeed = Mathf.Abs(f.y) > .14f ? (racing?hillTargets[skill]:24) : Car.topSpeed;
+                float hillSpeed = Mathf.Abs(f.y) > .14f ? (activeBranch && Race.reverseCourse ? activeBranch.SpeedAt(branchS+d) : racing?hillTargets[skill]:24) : Car.topSpeed;
                 // Without downforce, a convex crest cannot support v²/r greater than gravity.
                 float crest=Mathf.Max(0,Mathf.Asin(f.y)-Mathf.Asin(next.y))/8;
                 bool authoredFlight=racing&&forestLayout&&forestLayout.IsLaunch(s+Direction*d);
@@ -219,7 +224,7 @@ namespace Racer
                 steering = -steering;
             }
 
-            if (Time.time>=nextRecovery && (stalled > 12 || (lateral > 22 && stalled>5) || Vector3.Dot(transform.up, Vector3.up) < .1f))
+            if (Time.time>=nextRecovery && (stalled > 12 || branchStuck>10 || (lateral > 22 && stalled>5) || Vector3.Dot(transform.up, Vector3.up) < .1f))
             {
                 TryRecover(s);
             }
@@ -236,7 +241,7 @@ namespace Racer
             {
                 var recovery=Car.GetComponent<VehicleRespawn>();
                 if(!recovery.TryRecoverLocal(true)) return;
-                stalled=0; nextRecovery=Time.time+4; RecoveryCount++;
+                stalled=branchStuck=0;branchBest=Racer?.Branch.Position??0; nextRecovery=Time.time+4; RecoveryCount++;
                 if(Racer!=null) { Racer.Recoveries++; Racer.Branch.Recovered(Car.Body.position); Racer.SampleOrigin(Race.Clock); }
                 return;
             }
@@ -319,5 +324,3 @@ namespace Racer
         }
     }
 }
-
-

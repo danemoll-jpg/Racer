@@ -37,7 +37,7 @@ namespace Racer
         void Shot(string name){var c=cam.transform;LivingWorldValidation.Capture(root+"/"+name+".png",c.position,c.position+c.forward*40);}
         IEnumerator Signs()
         {
-            var texts=FindObjectsByType<TextMesh>(FindObjectsInactive.Include);Check(texts.Length==(race.Forest?40:39),"All 39 historical faces plus Forest warning, no extra labels");
+            int expected=(race.Forest?38:37)+(race.reverseCourse?(race.Forest?6:5):0);var texts=FindObjectsByType<TextMesh>(FindObjectsInactive.Include);Check(texts.Length==expected,"Preserved physical sign faces plus authored reverse navigation");Check(!texts.Any(t=>SceneryText.RetiredHairpin(t.text,t.transform.parent.position)),"Exact retired hairpin sign absent");
             Check(texts.All(t=>t.GetComponentInParent<PhysicalSign>()&&!SceneryText.IsFloating(t)),"Every world text has a physical sign marker; no floating labels");
             File.WriteAllLines(root+"/signs.txt",texts.Select(t=>$"{t.name} | {t.text.Replace('\n','|')} | {t.transform.position:F4} | breakable={!!t.GetComponentInParent<BreakableProp>()}"));
             foreach(string name in new[]{"Road lettering","Road names","Fictional storefront identity","Recommended speed","Shortcut advice","Cave warning lettering"})
@@ -59,11 +59,11 @@ namespace Racer
                 yield return new WaitForSeconds(4.1f);Check(children.All(t=>!t.GetComponent<Renderer>().enabled),"Debris lettering hides "+prop.name);
                 BreakableProp.RestoreRace();yield return null;Check(!prop.IsBroken&&Vector3.Distance(origin,prop.transform.position)<.001f&&Quaternion.Angle(rotation,prop.transform.rotation)<.01f&&children.All(t=>t.GetComponent<Renderer>().enabled),"Panel and lettering restore together "+prop.name);
             }
-            race.RestartRace();yield return null;Check(FindObjectsByType<TextMesh>().Length==(race.Forest?40:39),"Race restart retains all mounted lettering");
+            race.RestartRace();yield return null;Check(FindObjectsByType<TextMesh>().Length==expected,"Race restart retains all other mounted lettering");Check(!FindObjectsByType<TextMesh>().Any(t=>SceneryText.RetiredHairpin(t.text,t.transform.parent.position)),"Restart cannot restore retired sign");
         }
         IEnumerator Animals()
         {
-            Check(wildlife.habitats.Select(h=>h.species).Distinct().Count()==3,"Bird, squirrel and frog habitats present");
+            Check(Enum.GetValues(typeof(Wildlife.Species)).Cast<Wildlife.Species>().All(s=>wildlife.habitats.Any(h=>h.species==s)),"All five wildlife habitats present");
             Check(wildlife.GetComponentsInChildren<Collider>(true).Length==0,"Wildlife pool has no vehicle colliders");
             using(var log=new StreamWriter(root+"/occupancy.csv"))
             {
@@ -119,13 +119,14 @@ namespace Racer
         IEnumerator Drive()
         {
             // Ordinary route following, without teleporting to wildlife or forcing occupancy.
-            var pilot=race.vehicle.gameObject.AddComponent<RoadDriver>();pilot.Initialize(race,race.vehicle,true,1,1);pilot.Racer=race.Racers[0];float until=Time.time+150;int occupied=0,empty=0;float next=0;
+            var pilot=race.vehicle.gameObject.AddComponent<RoadDriver>();pilot.Initialize(race,race.vehicle,true,1,1);pilot.Racer=race.Racers[0];float until=Time.time+150;int occupied=0,empty=0;float next=0;var seen=new HashSet<string>();
             using var log=new StreamWriter(root+"/ordinary.csv");log.WriteLine("time,station,active,visible,sightings,calls");
             while(Time.time<until&&!race.ClassificationFinal)
             {
-                yield return null;if(Time.time<next)continue;next=Time.time+1;int visible=wildlife.GetComponentsInChildren<Transform>().Count(t=>(t.name=="Wildlife Bird"||t.name=="Wildlife Squirrel"||t.name=="Wildlife Frog")&&InFrame(t.position));if(visible>0)occupied++;else empty++;
+                yield return null;if(Time.time<next)continue;next=Time.time+1;int visible=wildlife.GetComponentsInChildren<Transform>().Count(t=>(t.name=="Wildlife Bird"||t.name=="Wildlife Squirrel"||t.name=="Wildlife Frog"||t.name=="Wildlife Deer"||t.name=="Wildlife Coyote")&&InFrame(t.position));if(visible>0)occupied++;else empty++;
+                foreach(var animal in wildlife.GetComponentsInChildren<Transform>().Where(t=>(t.name=="Wildlife Deer"||t.name=="Wildlife Coyote")&&InFrame(t.position)&&cam.WorldToViewportPoint(t.position).x>.12f&&cam.WorldToViewportPoint(t.position).x<.88f))if(seen.Add(animal.name)){Shot("ordinary-"+animal.name);File.AppendAllText(root+"/ordinary-species.txt",animal.name+" time="+race.Clock+" seed="+wildlife.Seed+"\n");}
                 log.WriteLine($"{race.Clock:F2},{race.road.Project(race.vehicle.transform.position,out _):F1},{wildlife.ActiveCount},{visible},{wildlife.Sightings},{wildlife.Calls}");if(visible>0&&occupied<4)Shot("ordinary-sighting-"+occupied);
-                if((occupied+empty)%20==1){Shot("ordinary-route-"+(occupied+empty));File.AppendAllText(root+"/viewport.txt",$"time={race.Clock} car={race.vehicle.transform.position} cam={cam.transform.position} forward={cam.transform.forward} aspect={cam.aspect}\n"+string.Join("\n",wildlife.GetComponentsInChildren<Transform>().Where(t=>(t.name=="Wildlife Bird"||t.name=="Wildlife Squirrel"||t.name=="Wildlife Frog")).Select(t=>$"{t.name} pos={t.position} vp={cam.WorldToViewportPoint(t.position)}"))+"\n");}
+                if((occupied+empty)%20==1){Shot("ordinary-route-"+(occupied+empty));File.AppendAllText(root+"/viewport.txt",$"time={race.Clock} car={race.vehicle.transform.position} cam={cam.transform.position} forward={cam.transform.forward} aspect={cam.aspect}\n"+string.Join("\n",wildlife.GetComponentsInChildren<Transform>().Where(t=>(t.name=="Wildlife Bird"||t.name=="Wildlife Squirrel"||t.name=="Wildlife Frog"||t.name=="Wildlife Deer"||t.name=="Wildlife Coyote")).Select(t=>$"{t.name} pos={t.position} vp={cam.WorldToViewportPoint(t.position)}"))+"\n");}
             }
             Check(occupied>0,"Ordinary run includes wildlife sightings");Check(empty>occupied,"Ordinary run has more empty periods than sightings");Check(race.Flow.Radio.Playing,"Radio continues during combined run");
             File.WriteAllText(root+"/ordinary-summary.txt",$"seed={wildlife.Seed} selected={wildlife.SelectedCount} occupiedSeconds={occupied} emptySeconds={empty} sightings={wildlife.Sightings} calls={wildlife.Calls}\n");
@@ -133,5 +134,3 @@ namespace Racer
         bool InFrame(Vector3 p){var v=cam.WorldToViewportPoint(p);return v.z>0&&v.z<65&&v.x>0&&v.x<1&&v.y>0&&v.y<1;}
     }
 }
-
-

@@ -141,11 +141,12 @@ namespace Racer
         public void OpenRoster() { if(State!=Stage.Ready && State!=Stage.Results) return; SetStage(Stage.Roster); Click(); }
         public void OpenBoards() { SetStage(Stage.Boards); Click(); }
         public void OpenCourses() { SetStage(Stage.Courses); Click(); }
-        public void SelectCourse(bool lake)
+        public void SelectCourse(bool lake)=>SelectCourse(lake,false);
+        public void SelectCourse(bool lake,bool reverse)
         {
             if(State!=Stage.Courses)return;
             Save.SaveSettings(); Time.timeScale=1; AudioListener.pause=false;
-            UnityEngine.SceneManagement.SceneManager.LoadScene(lake?"LakeWoods":"StreetLoopGreybox");
+            UnityEngine.SceneManagement.SceneManager.LoadScene(reverse?(lake?"ForestLoopReverse":"StreetLoopReverse"):(lake?"LakeWoods":"StreetLoopGreybox"));
         }
         public int SelectedColor => Save.Settings.bodyColors[System.Array.FindIndex(VehicleProfile.All,p=>p.Id==Save.Settings.vehicleId)];
         void RestoreChoices()
@@ -290,4 +291,3 @@ namespace Racer
         }
     }
 }
-

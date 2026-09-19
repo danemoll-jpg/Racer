@@ -1,0 +1,17 @@
+PASS Distinct reverse course flag
+PASS At least two authored optional branches
+PASS Vehicle eligibility
+PASS Civilian route remains original street
+PASS Specific sign absent
+PASS Course/direction record namespaces distinct
+PASS Laurel Switchbacks ordered entry/rejoin
+PASS Laurel Switchbacks shorter physical route
+PASS Laurel Switchbacks explicit bypass excludes finish
+PASS Laurel Switchbacks required gates separated from mouths/rejoins
+PASS Laurel Switchbacks explicit bypass is penalty-free
+PASS Granite Creek Cut ordered entry/rejoin
+PASS Granite Creek Cut shorter physical route
+PASS Granite Creek Cut explicit bypass excludes finish
+PASS Granite Creek Cut required gates separated from mouths/rejoins
+PASS Granite Creek Cut explicit bypass is penalty-free
+PASS Main route matches supported ground; worst=1.082908

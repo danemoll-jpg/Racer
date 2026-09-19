@@ -1,0 +1,62 @@
+[
+    {
+        "Name":  "rules-street",
+        "Exit":  0,
+        "Flags":  "-review7074 rules",
+        "Finished":  "2026-09-19T17:26:03.7877181-04:00"
+    },
+    {
+        "Name":  "rules-forest",
+        "Exit":  0,
+        "Flags":  "-review7074 rules -course LakeWoods",
+        "Finished":  "2026-09-19T17:26:21.2689616-04:00"
+    },
+    {
+        "Name":  "rules-street-reverse",
+        "Exit":  0,
+        "Flags":  "-review7074 rules -course StreetLoopReverse",
+        "Finished":  "2026-09-19T17:26:38.6854772-04:00"
+    },
+    {
+        "Name":  "rules-forest-reverse",
+        "Exit":  0,
+        "Flags":  "-review7074 rules -course ForestLoopReverse",
+        "Finished":  "2026-09-19T17:26:55.5895846-04:00"
+    },
+    {
+        "Name":  "physical-street",
+        "Exit":  0,
+        "Flags":  "-review7074 physical",
+        "Finished":  "2026-09-19T17:27:22.7774739-04:00"
+    },
+    {
+        "Name":  "physical-forest",
+        "Exit":  0,
+        "Flags":  "-review7074 physical -course LakeWoods",
+        "Finished":  "2026-09-19T17:27:52.5059752-04:00"
+    },
+    {
+        "Name":  "physical-street-reverse",
+        "Exit":  0,
+        "Flags":  "-review7074 physical -course StreetLoopReverse",
+        "Finished":  "2026-09-19T17:28:21.1686331-04:00"
+    },
+    {
+        "Name":  "physical-forest-reverse",
+        "Exit":  0,
+        "Flags":  "-review7074 physical -course ForestLoopReverse",
+        "Finished":  "2026-09-19T17:28:51.3399945-04:00"
+    },
+    {
+        "Name":  "layout-street",
+        "Exit":  0,
+        "Flags":  "-reverseReview rules -course StreetLoopReverse",
+        "Finished":  "2026-09-19T17:29:01.0931265-04:00"
+    },
+    {
+        "Name":  "layout-forest",
+        "Exit":  2,
+        "Flags":  "-reverseReview rules -course ForestLoopReverse",
+        "Finished":  "2026-09-19T17:29:12.8928826-04:00"
+    }
+]

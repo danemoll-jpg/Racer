@@ -12,7 +12,8 @@ namespace Racer
         public int laps = 3;
         public RaceRoad road;
         public RaceRoad ambientRoad;
-        public bool Forest => courseId=="lake-v2-forest" || courseId=="lake-v3-shallows";
+        public bool reverseCourse;
+        public bool Forest => (road&&road.forestTrail)||courseId=="lake-v2-forest" || courseId=="lake-v3-shallows";
         public VehicleProfile[] EligibleVehicles => Forest ? VehicleProfile.All.Where(p=>p.Small).ToArray() : VehicleProfile.All;
         public string EligibleVehicle(string id)=>Forest&&!VehicleProfile.Find(id).Small?"moto":VehicleProfile.Find(id).Id;
         public string courseId="street-v8-landings";

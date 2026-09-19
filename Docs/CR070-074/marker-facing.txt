@@ -1,0 +1,11 @@
+StreetLoopReverse Granite Creek Cut / OPTIONAL approach dot=0.999913
+StreetLoopReverse GAP / STRAIGHT LANDING approach dot=0.9958887
+StreetLoopReverse Laurel Switchbacks / OPTIONAL approach dot=0.9995092
+StreetLoopReverse REJOIN / Street Loop Reverse approach dot=0.9950767
+StreetLoopReverse REJOIN / Street Loop Reverse approach dot=0.9999948
+ForestLoopReverse GAP / STRAIGHT LANDING approach dot=0.994947
+ForestLoopReverse REJOIN / Forest Loop Reverse approach dot=0.9988351
+ForestLoopReverse FERN GROTTO / THROUGH PASSAGE approach dot=0.9997483
+ForestLoopReverse REJOIN / Forest Loop Reverse approach dot=0.9973911
+ForestLoopReverse Fern Gully / OPTIONAL approach dot=0.9961339
+ForestLoopReverse Granite Saddle / OPTIONAL approach dot=0.9046774

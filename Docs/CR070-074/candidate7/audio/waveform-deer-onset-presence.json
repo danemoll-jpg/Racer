@@ -1,0 +1,98 @@
+[
+  {
+    "species": "Bird",
+    "clip": "bird-1",
+    "pitch": 0.9949948,
+    "sourceWindowSeconds": [
+      0.25,
+      1.9
+    ],
+    "correlation": 0.7526028521844795,
+    "matchedRms": 0.027502311263264977,
+    "residualRms": 0.024062593500846306,
+    "matchedToResidualDb": 1.1605351714852539,
+    "peak": 0.28036201835581753,
+    "matchAtSeconds": 0.27258333333333334,
+    "interpretation": "Waveform evidence at listener before OS endpoint; not human audibility or listening acceptance"
+  },
+  {
+    "species": "Squirrel",
+    "clip": "squirrel-1",
+    "pitch": 1.035281,
+    "sourceWindowSeconds": [
+      0.25,
+      1.9
+    ],
+    "correlation": 0.9054945178828363,
+    "matchedRms": 0.04311493474516635,
+    "residualRms": 0.020205716750341107,
+    "matchedToResidualDb": 6.58306945000139,
+    "peak": 0.3029337384258256,
+    "matchAtSeconds": 0.2628125,
+    "interpretation": "Waveform evidence at listener before OS endpoint; not human audibility or listening acceptance"
+  },
+  {
+    "species": "Frog",
+    "clip": "frog-1",
+    "pitch": 0.9794285,
+    "sourceWindowSeconds": [
+      0.25,
+      1.9
+    ],
+    "correlation": 0.9014535081105721,
+    "matchedRms": 0.039630828792315685,
+    "residualRms": 0.01903063419764127,
+    "matchedToResidualDb": 6.371597866376096,
+    "peak": 0.3325997821929801,
+    "matchAtSeconds": 0.25525,
+    "interpretation": "Waveform evidence at listener before OS endpoint; not human audibility or listening acceptance"
+  },
+  {
+    "species": "Deer",
+    "clip": "Deer-original-2",
+    "pitch": 0.9897724,
+    "sourceWindowSeconds": [
+      0.04,
+      0.45
+    ],
+    "correlation": 0.8944575636436082,
+    "matchedRms": 0.06625121294931906,
+    "residualRms": 0.033119981945205414,
+    "matchedToResidualDb": 6.022074850506001,
+    "peak": 0.30417405734911107,
+    "matchAtSeconds": 0.04041666666666666,
+    "interpretation": "Waveform evidence at listener before OS endpoint; not human audibility or listening acceptance"
+  },
+  {
+    "species": "Coyote",
+    "clip": "Coyote-original-2",
+    "pitch": 0.9661759,
+    "sourceWindowSeconds": [
+      0.25,
+      1.9
+    ],
+    "correlation": 0.9794788523614906,
+    "matchedRms": 0.12469021682805119,
+    "residualRms": 0.025657454774756925,
+    "matchedToResidualDb": 13.732376161646954,
+    "peak": 0.2924826716193716,
+    "matchAtSeconds": 0.25875,
+    "interpretation": "Waveform evidence at listener before OS endpoint; not human audibility or listening acceptance"
+  },
+  {
+    "species": "Bats",
+    "clip": "bat-flight",
+    "pitch": 1,
+    "sourceWindowSeconds": [
+      0.25,
+      1.9
+    ],
+    "correlation": 0.9707345640349294,
+    "matchedRms": 0.09114971477816176,
+    "residualRms": 0.022549991705834584,
+    "matchedToResidualDb": 12.13217855084067,
+    "peak": 0.3721118786931038,
+    "matchAtSeconds": 0.2713333333333333,
+    "interpretation": "Waveform evidence at listener before OS endpoint; not human audibility or listening acceptance"
+  }
+]

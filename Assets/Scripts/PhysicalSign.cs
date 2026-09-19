@@ -5,6 +5,12 @@ namespace Racer
     public sealed class PhysicalSign : MonoBehaviour { }
     public static class SceneryText
     {
+        public static bool RetiredHairpin(string text,Vector3 position)
+        {
+            string value=(text??"").Replace("\r","").Replace("\n"," ").Replace("Road","Rd").Trim();
+            return value=="South Cherokee Lane Jamerson Rd" &&
+                Vector2.Distance(new(position.x,position.z),new(457.8f,-535.5f))<6;
+        }
         public static bool IsFloating(TextMesh text)
         {
             if (text.GetComponentInParent<PhysicalSign>()) return false;
@@ -17,4 +23,3 @@ namespace Racer
         }
     }
 }
-

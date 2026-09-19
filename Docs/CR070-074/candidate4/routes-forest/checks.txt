@@ -1,0 +1,16 @@
+PASS moto Granite Saddle normal #0 completes in 22.60s; recovery=0; misses=0
+PASS moto Granite Saddle clean #0 completes in 23.00s; recovery=0; misses=0
+PASS moto clean branch has actual entry, no penalty/recovery Granite Saddle
+PASS moto Granite Saddle imperfect #0 completes in 28.76s; recovery=1; misses=0
+PASS moto Fern Gully normal #0 completes in 27.61s; recovery=0; misses=0
+PASS moto Fern Gully clean #0 completes in 21.65s; recovery=0; misses=0
+PASS moto clean branch has actual entry, no penalty/recovery Fern Gully
+PASS moto Fern Gully imperfect #0 completes in 25.78s; recovery=0; misses=0
+PASS atv Granite Saddle normal #0 completes in 24.23s; recovery=0; misses=0
+PASS atv Granite Saddle clean #0 completes in 57.78s; recovery=1; misses=0
+FAIL atv clean branch has actual entry, no penalty/recovery Granite Saddle
+PASS atv Granite Saddle imperfect #0 completes in 34.89s; recovery=0; misses=0
+PASS atv Fern Gully normal #0 completes in 27.99s; recovery=0; misses=0
+PASS atv Fern Gully clean #0 completes in 22.00s; recovery=0; misses=0
+PASS atv clean branch has actual entry, no penalty/recovery Fern Gully
+PASS atv Fern Gully imperfect #0 completes in 26.39s; recovery=0; misses=0

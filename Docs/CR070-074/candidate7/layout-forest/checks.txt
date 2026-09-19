@@ -1,0 +1,21 @@
+PASS Distinct reverse course flag
+PASS At least two authored optional branches
+PASS Vehicle eligibility
+PASS Civilian route remains original street
+PASS Specific sign absent
+PASS Course/direction record namespaces distinct
+PASS Granite Saddle ordered entry/rejoin
+PASS Granite Saddle normal trail does not grant shortcut credit
+PASS Granite Saddle separated entrance grants actual directional entry
+PASS Granite Saddle shorter physical route
+PASS Granite Saddle explicit bypass excludes finish
+PASS Granite Saddle required gates separated from mouths/rejoins
+PASS Granite Saddle explicit bypass is penalty-free
+PASS Fern Gully ordered entry/rejoin
+PASS Fern Gully normal trail does not grant shortcut credit
+PASS Fern Gully separated entrance grants actual directional entry
+PASS Fern Gully shorter physical route
+PASS Fern Gully explicit bypass excludes finish
+PASS Fern Gully required gates separated from mouths/rejoins
+PASS Fern Gully explicit bypass is penalty-free
+PASS Main route matches supported ground; worst=0.2537498

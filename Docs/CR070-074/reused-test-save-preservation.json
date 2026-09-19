@@ -1,0 +1,26 @@
+[
+  {
+    "Course": "street",
+    "Races": 2,
+    "Laps": 4,
+    "DistinctRaceIds": 2
+  },
+  {
+    "Course": "forest",
+    "Races": 2,
+    "Laps": 4,
+    "DistinctRaceIds": 2
+  },
+  {
+    "Course": "street-reverse",
+    "Races": 2,
+    "Laps": 4,
+    "DistinctRaceIds": 2
+  },
+  {
+    "Course": "forest-reverse",
+    "Races": 2,
+    "Laps": 4,
+    "DistinctRaceIds": 2
+  }
+]

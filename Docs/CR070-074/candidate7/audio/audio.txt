@@ -1,0 +1,8 @@
+Listener enabled=True; listeners=1; sampleRate=48000; master=0.8; vehicle=0.75; music=0.6; ambience=1; radio=True
+Bird clip=bird-1 pitch=0.9949948 distance=17.45338 samples=270336, peak=0.471967, rms=0.054543, clipped=0
+Squirrel clip=squirrel-1 pitch=1.035281 distance=13.16055 samples=270336, peak=0.477936, rms=0.051618, clipped=0
+Frog clip=frog-1 pitch=0.9794285 distance=12.45755 samples=268288, peak=0.494675, rms=0.060133, clipped=0
+Deer clip=Deer-original-2 pitch=0.9897724 distance=14.57763 samples=270336, peak=0.488766, rms=0.039465, clipped=0
+Coyote clip=Coyote-original-2 pitch=0.9661759 distance=21.52828 samples=268288, peak=0.462084, rms=0.142113, clipped=0
+Bats samples=307200, peak=0.459937, rms=0.072643, clipped=0
+Muted samples=96256, peak=0.000000, rms=0.000000, clipped=0

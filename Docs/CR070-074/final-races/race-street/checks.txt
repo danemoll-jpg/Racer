@@ -1,0 +1,6 @@
+PASS Local recovery preserves gate progress and penalties
+PASS street-v10-hairpin original completed 2/2 laps; misses=0; recoveries=0; adjusted=302.351360
+PASS street-v10-hairpin tourer completed 2/2 laps; misses=0; recoveries=0; adjusted=280.953229
+PASS street-v10-hairpin moto completed 2/2 laps; misses=0; recoveries=0; adjusted=272.256634
+PASS street-v10-hairpin atv completed 2/2 laps; misses=0; recoveries=1; adjusted=301.260355
+PASS Completed player race creates one total entry
