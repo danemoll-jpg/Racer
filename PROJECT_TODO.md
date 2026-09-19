@@ -1142,7 +1142,7 @@ Final evidence: 12/12 main jump runs; 8/8 riders finish two-lap races with zero 
 **Acceptance:** Motorcycle/ATV can enter, stop, turn, reverse and exit at multiple shore points; visible partial immersion matches depth, slowing is clear and temporary, no stranded pits or stale drag after recovery/restart/track changes. Verify airborne crossings and dry ramps keep momentum. Version affected course records if timing comparability changes; preserve history.
 
 ### CR-058 — Remove floating world labels
-**Status:** IMPLEMENTED — awaiting Dan review in 0.9.0-review1. Floating labels removed on both tracks; HUD, gates and mounted storefront lettering retained.
+**Status:** REGRESSION REPORTED — sign-mounted text was removed too; correct under CR-061 while retaining floating-label removal.
 **Requested change:** Remove floating location, jump, cave, route and development text labels. Retain necessary compact screen HUD, menu text, race countdown/results, radio toast and functional checkpoint markers; replace necessary world-space checkpoint text with physically mounted signage if needed. Do not remove detection volumes or route logic with labels. Most scenery labels need no replacement. Optional single physical cave sign may use the name Deadwood Hollow; keep readable, clear of the racing line and consistent with existing breakable-sign behavior. Essential direction signage must remain useful after destruction/reset. Debug labels remain off in normal releases.
 **Acceptance:** Both tracks have no floating world text in normal play; navigation, gate visibility, timing, radio and HUD remain usable. Inspect driving views, not just hierarchy counts.
 
@@ -1167,12 +1167,32 @@ Recommended: optional stunt challenges using existing jumps (airtime/distance me
 
 ---
 
+### CR-061 — Restore physical sign lettering; remove only floating labels
+**Status:** AUTHORIZED — regression correction for CR-058.
+**Feedback:** Floating text removal also removed text attached to every physical sign. Dan intended only unmounted world labels to disappear.
+**Requested change:** Restore existing physical sign text on both tracks from pre-regression source/assets/history, preserving original wording, positions and breakable behavior. This includes road names, storefront signs and other physical signage, not only cave signs. Inspect the removal/generation logic so sign text survives scene generation/rebuild/restoration; do not globally disable TextMesh/world-space text. Keep free-floating location/debug/jump text removed. Add a physical sign before the Forest cave with exactly: "Warning: Cave Ahead Enter at your Own Risk". Line breaks may improve legibility without changing words/capitalization. Place it early enough to read on approach and outside the racing line. This warning supersedes the optional cave-name sign requirement.
+**Acceptance:** Before/after inventory and driving-view checks of existing signs on both tracks; exact cave warning readable, mounted and lit; no restored floating labels, altered gate logic or blocked route. Break/destroy/restore/restart/build tests confirm lettering follows its sign lifecycle.
+
+### CR-062 — Modest varied wildlife with audible animal sounds
+**Status:** AUTHORIZED — expand CR-060 and fix inaudible bats.
+**Feedback:** Dan saw only bats and heard no bat sounds. Additional wildlife was optional in the prior scope; it is required now.
+**Requested change:** Add a modest population with at least three recognizable non-bat animal types, such as birds, squirrels and frogs, distributed appropriately across woodland, lake/creek margins and neighborhood edges. Occasional sightings with idle/move/flee animation, varied locations/occupancy and empty periods; not a crowd at every bend. Each type has suitable audible calls/movement sounds, including occasional quiet species sounds while nearby. Repair cave bats with audible flutter/chirps on approach/scatter and retained cooldown. Prior sound-dispatch counts alone do not establish audibility.
+**Audio:** Diagnose actual clip output, gain, listener/routing, attenuation, masking by engine/radio and cooldown. Use recognizable quality audio compatible with project licensing; avoid claiming generic synthetic tones are convincing animal calls. Preserve mute and existing audio preferences. Bounded spatial voices, distance attenuation and sensible intervals; no constant simultaneous calls. Verify real output with default engine/music settings and distinguish capture evidence from subjective listening.
+**Lifecycle:** Pool/cull with offscreen placement and seeded test scenarios; no visible pop-in, synchronized loops, vehicle collision/slowdown or obstructed jump/cave view. Preserve people scenes and current course/traffic rules. Show every species using test seeds and ordinary varied drives, then measure combined wildlife/people/traffic/audio performance. Await Dan review.
+
+### CR-063 — Two-player local split-screen feasibility / proposed future pass
+**Status:** DISCUSSION ONLY — user asks feasibility, implementation not authorized yet.
+**Assessment:** Feasible as a substantial feature pass, not a camera-only toggle. Current VehicleInput has unrestricted Gamepad bindings, RaceDirector initializes one human YOU racer, RaceHud references a single race/player, and RaceFlow uses shared pause/audio state. Existing RacerState/multi-racer progress and target-based ChaseCamera provide useful starting points. Needs paired device input, two human entries/vehicle selections, cameras and viewport HUDs, independent recovery/progress/results/record identity, shared-world pause/quit/finish policies, controller disconnect handling and intentional shared radio/audio ownership. Two-view rendering and ambience culling must be measured on target hardware; no fixed FPS promise. Proposed initial scope: two local controllers on one PC/screen, both existing tracks with their eligibility rules, shared audio and optional AI. No online networking/hosting. Do not change the current single-player rule or start implementation until selected.
+
+---
+
 # DECISION LOG
 
 Record choices we do not want to repeatedly reconsider.
 
 | Date | Decision | Reason |
 |---|---|---|
+| 2026-09-19 | Correct sign text and require wildlife audio under CR-061/062 | Only unmounted labels should disappear; cave warning exact wording, varied animals with sounds; split screen CR-063 remains discussion |
 | 2026-09-19 | Add CR-060 to pending water/labels/AI pass | Cave-entry bats, variable football/coffee/smoking scenes and street pedestrians, dense on Hwy 92 and sparse on South Cherokee; simple stylized ambience |
 | 2026-09-19 | Bundle CR-057 through CR-059 after positive Forest Loop review | Shallow slow driveable lake, physical signs instead of floating labels, occasional fair AI mistakes; optional larger additions await selection |
 | 2026-09-19 | Revise second track as Forest Loop under CR-056 | Visible lake/start behind friend, smooth frequent jumps, challenging cave, narrow motorcycle/ATV trails and street-only civilian traffic; wildlife deferred |
@@ -1259,7 +1279,12 @@ Record choices we do not want to repeatedly reconsider.
 
 # SESSION HANDOFF
 
-**Current delivery:** 0.9.0-review1 combines CR-057–060 and awaits Dan's review. Shallow supported water and drive-out shores, depth-based shared player/AI resistance, removal of floating labels, seeded AI judgment errors, pooled cave bats and variable football/coffee/smoking/pedestrian scenes. The accepted Forest layout, jumps/cave, motorcycle/ATV eligibility and Street course are retained. Stunts and ghosts remain unselected. Read Docs/CR057-060/VALIDATION.md for authoritative tests and the combined checklist.
+**Current next delivery:** CR-061 restores text mounted on physical signs and adds the exact cave warning; CR-062 adds required varied wildlife and audible species/bat audio. CR-058 label removal has a reported regression; prior tests are not acceptance of that behavior. CR-063 split screen is a feasibility discussion only, not authorized implementation. Preserve prior water/AI/people/radio/records and course work without inferring blanket acceptance. This update changes planning only.
+
+**Prior delivery evidence:**
+
+
+**Previous delivery:** 0.9.0-review1 combines CR-057–060 and awaits Dan's review. Shallow supported water and drive-out shores, depth-based shared player/AI resistance, removal of floating labels, seeded AI judgment errors, pooled cave bats and variable football/coffee/smoking/pedestrian scenes. The accepted Forest layout, jumps/cave, motorcycle/ATV eligibility and Street course are retained. Stunts and ghosts remain unselected. Read Docs/CR057-060/VALIDATION.md for authoritative tests and the combined checklist.
 
 Safety checkpoint: `8fee1f5475e6c2b9ee0a9eb646cd2e61e40c4664`. Both Git permission failures were recovered through successful elevated retries before edits.
 
