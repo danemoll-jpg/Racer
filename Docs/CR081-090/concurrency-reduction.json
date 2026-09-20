@@ -1,0 +1,22 @@
+[
+  {
+    "ProcessId": 25524,
+    "CommandLine": "\"C:\\Users\\danmo\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe\" -NoProfile -File Tools/Run-CR081-Matrix.ps1 -Group ramps-StreetLoopGreybox -Tag final"
+  },
+  {
+    "ProcessId": 29484,
+    "CommandLine": "\"C:\\Users\\danmo\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe\" -NoProfile -File Tools/Run-CR081-Matrix.ps1 -Group ramps-LakeWoods -Tag final"
+  },
+  {
+    "ProcessId": 33800,
+    "CommandLine": "\"C:\\Users\\danmo\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe\" -NoProfile -File Tools/Run-CR081-Matrix.ps1 -Group ramps-StreetLoopReverse -Tag final"
+  },
+  {
+    "ProcessId": 102000,
+    "CommandLine": "\"C:\\Users\\danmo\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe\" -NoProfile -File Tools/Run-CR081-Matrix.ps1 -Group ramps-ForestLoopReverse -Tag final"
+  },
+  {
+    "ProcessId": 94788,
+    "CommandLine": "\"C:\\Users\\danmo\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\native\\powershell\\pwsh.exe\" -Command \"try { [Console]::OutputEncoding=[System.Text.Encoding]::UTF8 } catch {}\n$owned=Get-CimInstance Win32_Process | Where-Object {($_.Name -eq 'pwsh.exe' -and $_.CommandLine -match 'Run-CR081-Matrix.ps1 -Group ramps-') -or ($_.Name -eq 'pwsh.exe' -and $_.CommandLine -match 'Run-CR081-Check.ps1' -and $_.CommandLine -match '-Name mountain-')};$owned | Select-Object ProcessId,CommandLine | ConvertTo-Json | Set-Content Docs/CR081-090/concurrency-reduction.json;foreach($p in $owned){Stop-Process -Id $p.ProcessId -ErrorAction SilentlyContinue};$players=Get-CimInstance Win32_Process | Where-Object {$_.Name -eq 'Racer.exe' -and $_.CommandLine -match '-racerTestSave' -and $_.CommandLine -match 'CR081-090/final/mountain-'};foreach($p in $players){Stop-Process -Id $p.ProcessId -ErrorAction SilentlyContinue};'Stopped only owned mountain matrix processes; partial traces retained.'\""
+  }
+]

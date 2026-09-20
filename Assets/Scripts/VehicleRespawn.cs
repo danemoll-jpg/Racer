@@ -167,6 +167,8 @@ namespace Racer
                 var supportHits=Physics.RaycastAll(origin,Vector3.down,30,vehicle.groundMask,QueryTriggerInteraction.Ignore)
                     .Where(h=>!h.rigidbody&&h.normal.y>=.65f&&IsCourseSupport(h.collider.name)).OrderBy(h=>h.distance).ToArray();
                 if(supportHits.Length==0)return false;var hit=supportHits[0];
+                foreach(var water in ShallowWater.Active)
+                    if(water&&water.gameObject.scene==gameObject.scene&&water.Contains(hit.point)&&hit.point.y<water.Surface+.1f)return false;
                 normal+=hit.normal; top=Mathf.Max(top,hit.point.y); low=Mathf.Min(low,hit.point.y);
             }
             normal.Normalize();

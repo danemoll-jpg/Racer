@@ -41,8 +41,9 @@ namespace Racer
             foreach(float speed in float.TryParse(Arg("-rampSpeed",""),System.Globalization.NumberStyles.Float,System.Globalization.CultureInfo.InvariantCulture,out float chosenSpeed)?new[]{chosenSpeed}:Arg("-arcadeRamp","")=="high"?new[]{43f}:guardMode?new[]{28f}:activityMode?new[]{18f,28f,38f}:full?new[]{12f,24f,36f}:new[]{12f})
             foreach(float line in float.TryParse(Arg("-rampLine",""),System.Globalization.NumberStyles.Float,System.Globalization.CultureInfo.InvariantCulture,out float chosenLine)?new[]{chosenLine}:activityMode?new[]{-1.5f}:lines??(full?new[]{-1.5f,-3f,0f,-4.7f,1.7f}:new[]{-1.5f,1.7f}))
             {
-                if(flow.State!=RaceFlow.Stage.Ready){flow.Pause();flow.QuitRace();}flow.OpenGarage();flow.SelectVehicle(profile.Id);flow.CloseGarage();race.opponents=race.traffic=false;if(roaming||activityMode||race.Forest)flow.StartFreeRoam();else flow.StartRace();
+                if(flow.State!=RaceFlow.Stage.Ready){flow.Pause();flow.QuitRace();}flow.OpenGarage();flow.SelectVehicle(profile.Id);flow.CloseGarage();race.opponents=race.traffic=false;if(Arg("-raceActivities","")!="yes"&&(roaming||activityMode||race.Forest))flow.StartFreeRoam();else flow.StartRace();
                 while(flow.State!=RaceFlow.Stage.Racing)yield return null;
+                Time.timeScale=float.Parse(Arg("-testSpeed","1"),System.Globalization.CultureInfo.InvariantCulture);
                 car.enabled=false;car.GetComponent<VehicleInput>().enabled=false;
                 var f=root.forward*(reversedRamp?-1:1);var start=root.TransformPoint(new Vector3(line,0,reversedRamp?125:-40));
                 if(Physics.Raycast(start+Vector3.up*20,Vector3.down,out var ground,50,1))start.y=ground.point.y+car.suspensionLength-.12f;

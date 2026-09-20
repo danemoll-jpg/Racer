@@ -1,0 +1,6 @@
+PASS Local recovery preserves gate progress and penalties
+PASS lake-v6-exploration moto completed 3/3 laps; misses=0; recoveries=1; adjusted=257.110458
+PASS lake-v6-exploration moto completed 3/3 laps; misses=0; recoveries=4; adjusted=264.283996
+PASS lake-v6-exploration moto completed 3/3 laps; misses=0; recoveries=1; adjusted=256.348357
+PASS lake-v6-exploration atv completed 3/3 laps; misses=0; recoveries=2; adjusted=279.102840
+PASS Completed player race creates one total entry

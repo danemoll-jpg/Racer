@@ -119,3 +119,9 @@ InitTestScene*.unity*
 
 # Listener diagnostics include staged radio music; retain these local captures only.
 /Docs/CR070-074/**/audio/*.wav
+
+# Local checkpoint scene copies and Unity-generated build test metadata
+/Assets/ValidationBaseline/
+/Assets/ValidationBaseline.meta
+/Assets/Resources/PerformanceTestRunInfo.json*
+/Assets/Resources/PerformanceTestRunSettings.json*

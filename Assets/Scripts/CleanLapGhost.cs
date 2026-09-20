@@ -91,7 +91,8 @@ namespace Racer
             var a=poses[cursor];var b=poses[Mathf.Min(cursor+1,poses.Count-1)];float u=Mathf.InverseLerp(a.t,b.t,t);
             visual.gameObject.SetActive(t<=best.seconds);visual.SetPositionAndRotation(Vector3.Lerp(a.p,b.p,u),Quaternion.Slerp(a.q,b.q,u));
         }
-        void OnDestroy(){if(race)race.vehicle.GetComponent<VehicleRespawn>().Respawned-=Invalidate;if(visual)Destroy(visual.gameObject);if(material)Destroy(material);}
+        void OnDestroy(){if(race&&race.vehicle&&race.vehicle.TryGetComponent<VehicleRespawn>(out var respawn))respawn.Respawned-=Invalidate;if(visual)Destroy(visual.gameObject);if(material)Destroy(material);}
     }
 }
+
 

@@ -1,0 +1,1 @@
+Restored 508 changed terrain vertices to safety-checkpoint support near all race/ambient roads and legal shortcut corridors; largest prior displacement=28.429m. Route arrays, gates and ramp meshes unchanged.

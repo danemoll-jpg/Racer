@@ -1,0 +1,10 @@
+{
+  "Name": "ai-ForestLoopReverse",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\Racer-0.15.0-review1-Windows\\Racer.exe",
+  "RuntimeAssemblySHA256": "6754469721E25140346919521C182780D9E48487F32BB4E01A1D2FC332EB37C1",
+  "Flags": "-batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr081-bbee47da1f424f8595367ccde4513626\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR081-090\\final\\ai-ForestLoopReverse\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr081-final-ai-ForestLoopReverse.log\" -arcadeTest ai -course ForestLoopReverse -raceActivities yes -lifeSeed 82089",
+  "PID": 58872,
+  "Timeout": false,
+  "Exit": 0,
+  "CompletedUtc": "2026-09-20T09:30:45.6423088Z"
+}

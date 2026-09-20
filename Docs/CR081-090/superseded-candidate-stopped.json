@@ -1,0 +1,14 @@
+[
+  {
+    "ProcessId": 84696,
+    "CommandLine": "\"C:\\Users\\danmo\\Racer\\Builds\\Racer-0.15.0-review1-Windows\\Racer.exe\" -batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr081-6dc331f3f9d44309a4f441d4ba73cfac\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR081-090\\final\\connected-trails\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr081-final-connected-trails.log\" -explorationCheck trails"
+  },
+  {
+    "ProcessId": 12532,
+    "CommandLine": "\"C:\\Users\\danmo\\Racer\\Builds\\Racer-0.15.0-review1-Windows\\Racer.exe\" -batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr081-15b5985bb68f4025b76a72b47d662aea\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR081-090\\final\\ghost-race-StreetLoopGreybox-moto\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr081-final-ghost-race-StreetLoopGreybox-moto.log\" -threeFeatureTest drive -course StreetLoopGreybox -vehicle moto -laps 3 -testSpeed 6 -ghostValidation yes -lifeSeed 82089"
+  },
+  {
+    "ProcessId": 85960,
+    "CommandLine": "\"C:\\Users\\danmo\\Racer\\Builds\\Racer-0.15.0-review1-Windows\\Racer.exe\" -batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr081-9cf397b7420d4e628ad34c22d1beccd2\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR081-090\\final\\ghost-race-StreetLoopReverse-moto\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr081-final-ghost-race-StreetLoopReverse-moto.log\" -threeFeatureTest drive -course StreetLoopReverse -vehicle moto -laps 3 -testSpeed 6 -ghostValidation yes -lifeSeed 82089"
+  }
+]

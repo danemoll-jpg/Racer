@@ -1,0 +1,2 @@
+Terrain-painted Kyle/lake connection, shore return clear of water; descending House 3 approach and Dan's downhill garage access. Existing childhood fence assets retained; no hairpin road restored. Household positions regrounded, exclusive schedule unchanged.
+Mouth=(472.33, 85.49, -22.74); shore=797.091m; mountain=1110.88m

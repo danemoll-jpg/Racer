@@ -1,0 +1,12 @@
+YOU automated / L2 CP01 +5s / road gate passed outside span
+YOU automated / L2 CP02 +5s / road gate passed outside span
+YOU automated / L2 CP03 +5s / road gate passed outside span
+YOU automated / L2 CP04 +5s / road gate passed outside span
+EMBER / L2 CP01 +5s / road gate passed outside span
+EMBER / L2 CP02 +5s / road gate passed outside span
+EMBER / L2 CP03 +5s / road gate passed outside span
+EMBER / L2 CP04 +5s / road gate passed outside span
+GOLD / L2 CP01 +5s / road gate passed outside span
+GOLD / L2 CP02 +5s / road gate passed outside span
+GOLD / L2 CP03 +5s / road gate passed outside span
+GOLD / L2 CP04 +5s / road gate passed outside span

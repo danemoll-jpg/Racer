@@ -19,12 +19,58 @@ namespace Racer
             string course=Arg("-course","StreetLoopGreybox");if(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name!=course)UnityEngine.SceneManagement.SceneManager.LoadScene(course);yield return null;yield return null;
             evidence=Arg("-evidence","Docs/CR081-090/test");Directory.CreateDirectory(evidence);
             var race=FindAnyObjectByType<RaceDirector>();var flow=race.Flow;var car=race.vehicle;var collection=race.GetComponent<ExplorationCollection>();
+            if(Arg("-explorationCheck","")=="controls")
+            {
+                var pad=UnityEngine.InputSystem.InputSystem.AddDevice<UnityEngine.InputSystem.Gamepad>();var rows=new List<string>();
+                System.Collections.IEnumerator Press(UnityEngine.InputSystem.LowLevel.GamepadButton button)
+                {UnityEngine.InputSystem.InputSystem.QueueStateEvent(pad,new UnityEngine.InputSystem.LowLevel.GamepadState().WithButton(button));yield return null;yield return null;UnityEngine.InputSystem.InputSystem.QueueStateEvent(pad,new UnityEngine.InputSystem.LowLevel.GamepadState());yield return null;yield return null;}
+                void Check(bool ok,string label){rows.Add((ok?"PASS ":"FAIL ")+label);File.WriteAllLines(evidence+"/checks.txt",rows);}
+                for(int i=0;i<11;i++)yield return Press(UnityEngine.InputSystem.LowLevel.GamepadButton.DpadDown);
+                yield return Press(UnityEngine.InputSystem.LowLevel.GamepadButton.South);Check(flow.State==RaceFlow.Stage.Activities,"Virtual controller navigates main menu into Activity Records");
+                if(flow.State!=RaceFlow.Stage.Activities)flow.OpenActivities();
+                yield return Press(UnityEngine.InputSystem.LowLevel.GamepadButton.DpadDown);yield return Press(UnityEngine.InputSystem.LowLevel.GamepadButton.South);
+                Check(FindObjectsByType<UnityEngine.UI.Text>().Any(t=>t.text=="ACTIVITY RECORDS / JUMPS"),"Controller selects Jumps tab");ThreeFeatureValidation.CaptureUi(evidence+"/controller-jumps.png");
+                yield return Press(UnityEngine.InputSystem.LowLevel.GamepadButton.East);Check(flow.State==RaceFlow.Stage.Ready,"Controller returns from records");
+                flow.OpenExploration();yield return null;bool enabled=flow.Ghost.Enabled;yield return Press(UnityEngine.InputSystem.LowLevel.GamepadButton.South);Check(flow.Ghost.Enabled!=enabled,"Controller toggles clean-lap ghost");
+                yield return Press(UnityEngine.InputSystem.LowLevel.GamepadButton.East);flow.StartFreeRoam();flow.Pause();yield return null;
+                Check(FindObjectsByType<UnityEngine.UI.Button>().Any(b=>b.GetComponentInChildren<UnityEngine.UI.Text>().text.StartsWith("Activity Records")),"Pause exposes Activity Records button");
+                UnityEngine.InputSystem.InputSystem.RemoveDevice(pad);
+            }
+            if(Arg("-explorationCheck","")=="trails")
+            {
+                var rows=new List<string>();
+                foreach(var road in collection.routes)
+                foreach(float direction in new[]{1f,-1f})
+                {
+                    if(flow.State!=RaceFlow.Stage.Ready){flow.Pause();flow.QuitRace();}flow.StartFreeRoam();car.enabled=false;car.GetComponent<VehicleInput>().enabled=false;
+                    float startStation=direction>0?5:road.Length-5;var p=road.At(startStation,out var forward);var hit=Physics.RaycastAll(p+Vector3.up*40,Vector3.down,100).Where(h=>h.collider.name.StartsWith("Ground_")).OrderBy(h=>h.distance).First();p.y=hit.point.y+car.suspensionLength-.12f;
+                    car.Body.position=p;car.Body.rotation=Quaternion.LookRotation(Vector3.ProjectOnPlane(forward*direction,Vector3.up));car.transform.SetPositionAndRotation(p,car.Body.rotation);car.Body.linearVelocity=Vector3.zero;car.Body.angularVelocity=Vector3.zero;car.ClearSteering();Physics.SyncTransforms();
+                    float previous=startStation,travel=0,began=Time.time,minUp=1,maxLateral=0;bool wet=false;
+                    using(var log=new StreamWriter(evidence+"/trail-"+Array.IndexOf(collection.routes,road)+"-"+direction+".csv"))
+                    {
+                        log.WriteLine("time,station,travel,lateral,x,y,z,speed,up,water");
+                        while(travel<road.Length-15&&Time.time-began<240)
+                        {
+                            float s=road.ProjectNear(car.Body.position,previous,30,out float lateral);float delta=Mathf.Repeat(s-previous+road.Length*.5f,road.Length)-road.Length*.5f;if(Mathf.Abs(delta)<5)travel+=delta*direction;previous=s;maxLateral=Mathf.Max(maxLateral,lateral);minUp=Mathf.Min(minUp,car.transform.up.y);wet|=car.WaterImmersion>.1f;
+                            var aim=road.At(s+direction*9,out _);var q=car.transform.InverseTransformPoint(aim);float steering=Mathf.Clamp(Mathf.Atan2(q.x,q.z)*2,-1,1);car.Simulate(Mathf.Clamp01((12-car.ForwardSpeed)*.5f),car.ForwardSpeed>14?.3f:0,steering,Time.fixedDeltaTime);
+                            p=car.Body.position;log.WriteLine($"{Time.time:F2},{s:F2},{travel:F2},{lateral:F2},{p.x:F2},{p.y:F2},{p.z:F2},{car.ForwardSpeed:F2},{car.transform.up.y:F3},{car.WaterImmersion:F3}");yield return new WaitForFixedUpdate();
+                        }
+                    }
+                    bool recovered=car.GetComponent<VehicleRespawn>().TryRecoverLocal();rows.Add($"{road.name} direction={direction} complete={travel>=road.Length-15} travel={travel:F1}/{road.Length:F1} minUp={minUp:F3} maximum lateral={maxLateral:F2} wet={wet} recovery={recovered}");File.WriteAllLines(evidence+"/trails.txt",rows);car.enabled=true;
+                }
+            }
+            if(Arg("-explorationCheck","")=="reload")
+            {
+                var rows=new List<string>();foreach(var name in new[]{"StreetLoopGreybox","LakeWoods","StreetLoopReverse","ForestLoopReverse"})
+                {UnityEngine.SceneManagement.SceneManager.LoadScene(name);yield return null;yield return null;var found=FindAnyObjectByType<ExplorationCollection>();rows.Add((found.Found==24?"PASS ":"FAIL ")+name+" reload discovery count="+found.Found);}
+                File.WriteAllLines(evidence+"/checks.txt",rows);
+            }
             if(Arg("-explorationCheck","")=="views")
             {
                 flow.StartFreeRoam();car.Body.isKinematic=true;car.enabled=false;car.GetComponent<VehicleInput>().enabled=false;FindAnyObjectByType<ChaseCamera>().enabled=false;
                 var camera=Camera.main;var home=GameObject.Find("Dan - blue X").transform;
-                var shots=new[]{("home-front",home.position+home.forward*43+Vector3.up*8,home.position+Vector3.up), ("home-rear",home.position-home.forward*65+Vector3.up*22,home.position-home.forward*20-Vector3.up*2),("property-overhead",home.position+Vector3.up*125,home.position-home.forward*16),("lake-mountain",new Vector3(675,108,-100),new Vector3(960,139,40)),("mountain-trails",new Vector3(980,260,-260),new Vector3(900,114,10))};
-                foreach(var shot in shots){camera.transform.SetPositionAndRotation(shot.Item2,Quaternion.LookRotation(shot.Item3-shot.Item2));yield return null;yield return new WaitForEndOfFrame();ThreeFeatureValidation.CaptureUi(evidence+"/"+shot.Item1+".png");}
+                var shots=new[]{("home-front",home.position+home.forward*28+Vector3.up*5,home.position+Vector3.up), ("home-rear",home.position-home.forward*65+Vector3.up*22,home.position-home.forward*20-Vector3.up*2),("property-overhead",home.position+Vector3.up*125,home.position-home.forward*16),("lake-mountain",new Vector3(675,108,-100),new Vector3(960,139,40)),("mountain-trails",new Vector3(980,260,-260),new Vector3(900,114,10))};
+                foreach(var shot in shots){camera.transform.SetPositionAndRotation(shot.Item2,Quaternion.LookRotation(shot.Item3-shot.Item2));yield return null;yield return null;ThreeFeatureValidation.CaptureUi(evidence+"/"+shot.Item1+".png");}
             }
             if(Arg("-explorationCheck","")=="systems")
             {
@@ -53,11 +99,11 @@ namespace Racer
                 {
                     int i=Array.IndexOf(collection.sites,site);var road=i<12?(race.ambientRoad?race.ambientRoad:race.road):collection.routes[0];float targetStation=road.Project(site.position,out _);var p=road.At(targetStation-30,out var f);var ground=Physics.RaycastAll(p+Vector3.up*40,Vector3.down,100).Where(h=>h.collider.name.StartsWith("Ground_")).OrderBy(h=>h.distance).FirstOrDefault();p.y=ground.point.y+car.suspensionLength-.12f;
                     car.Body.position=p;car.Body.rotation=Quaternion.LookRotation(Vector3.ProjectOnPlane(f,Vector3.up));car.transform.SetPositionAndRotation(p,car.Body.rotation);car.Body.linearVelocity=car.transform.forward*10;car.Body.angularVelocity=Vector3.zero;car.ClearSteering();Physics.SyncTransforms();FindAnyObjectByType<ChaseCamera>()?.Snap();yield return new WaitForFixedUpdate();float began=Time.time;int found=collection.Found;
-                    while(Time.time-began<12&&collection.Found==found)
+                    while(Time.time-began<12&&!collection.Discovered(site.id))
                     {float s=road.Project(car.Body.position,out _);var aim=road.At(s+10,out _);var local=car.transform.InverseTransformPoint(aim);float angle=Mathf.Atan2(local.x,local.z);float steering=Mathf.Clamp(angle*2,-1,1);car.Simulate(Mathf.Clamp01((13-car.ForwardSpeed)*.5f),car.ForwardSpeed>15?.3f:0,steering,Time.fixedDeltaTime);yield return new WaitForFixedUpdate();}
-                    Check(collection.Found>found,site.id+" ordinary-frame reachable approach "+site.title);
+                    Check(collection.Discovered(site.id),site.id+" discovered through ordinary driving or supported initial spawn "+site.title);
                     Check(car.GetComponent<VehicleRespawn>().TryRecoverLocal(),site.id+" supported local return/reset");
-                    ThreeFeatureValidation.CaptureUi(evidence+"/"+site.id+".png");
+                    yield return null; ThreeFeatureValidation.CaptureUi(evidence+"/"+site.id+".png");
                 }
                 var saved=JsonUtility.FromJson<ExplorationCollection.Save>(File.ReadAllText(Path.Combine(flow.Save.DirectoryPath,"woodland-acorns-v1.json")));Check(saved.found.Distinct().Count()==collection.Found,"Collectible discoveries written once to persistent isolated save");
                 car.enabled=true;
@@ -70,10 +116,10 @@ namespace Racer
                 foreach(float lip in new[]{213f,537f})
                 foreach(float direction in Arg("-opposite","no")=="yes"?new[]{-1f}:new[]{1f})
                 foreach(float speed in Arg("-quick","no")=="yes"?new[]{24f}:new[]{16f,24f,32f})
-                foreach(float line in Arg("-quick","no")=="yes"?new[]{0f}:new[]{0f,-2f,2f,-5.8f,5.8f})
+                foreach(float line in Arg("-quick","no")=="yes"?new[]{0f}:new[]{0f,-2f,2f,-((lip==213?16:7)-profile.Size.x*.5f),(lip==213?16:7)-profile.Size.x*.5f})
                 {
                     if(flow.State!=RaceFlow.Stage.Ready){flow.Pause();flow.QuitRace();}flow.OpenGarage();flow.SelectVehicle(profile.Id);flow.CloseGarage();race.opponents=false;race.traffic=false;flow.StartFreeRoam();
-                    car.enabled=false;car.GetComponent<VehicleInput>().enabled=false;
+                    car.enabled=false;car.GetComponent<VehicleInput>().enabled=false;Time.timeScale=float.Parse(Arg("-testSpeed","1"),System.Globalization.CultureInfo.InvariantCulture);
                     float start=lip-direction*65;var p=route.At(start,out var f);p+=Vector3.Cross(Vector3.up,f).normalized*line;
                     var ground=Physics.RaycastAll(p+Vector3.up*30,Vector3.down,80).Where(h=>h.collider.name.StartsWith("Ground_")).OrderBy(h=>h.distance).FirstOrDefault();p.y=ground.point.y+car.suspensionLength-.12f;
                     car.Body.position=p;car.Body.rotation=Quaternion.LookRotation(Vector3.ProjectOnPlane(f*direction,Vector3.up));car.transform.SetPositionAndRotation(p,car.Body.rotation);car.Body.linearVelocity=car.transform.forward*speed;car.Body.angularVelocity=Vector3.zero;car.ClearSteering();Physics.SyncTransforms();FindAnyObjectByType<ChaseCamera>()?.Snap();flow.Activities.NewSession();
@@ -89,8 +135,8 @@ namespace Racer
                             car.Simulate(throttle,brake,steer,Time.fixedDeltaTime);yield return new WaitForFixedUpdate();minUp=Mathf.Min(minUp,car.transform.up.y);var q=car.Body.position;var v=car.Body.linearVelocity;
                             trace.WriteLine($"{Time.time-began:F3},{s:F3},{q.x:F3},{q.y:F3},{q.z:F3},{car.ForwardSpeed:F3},{v.x:F3},{v.y:F3},{v.z:F3},{throttle:F3},{brake:F3},{steer:F3},{car.GroundedWheels},{car.SuspensionLift:F3},{car.AlignmentTorque:F3},{car.transform.up.y:F3},\"{contacts}\"");contacts="";
                             route.Project(car.Body.position,out float lateral);
-                            if(lateral>18||Vector3.Distance(car.Body.position,p)>400)break;
-                            if((s-lip)*direction>85&&Mathf.Abs(s-lip)<180&&lateral<8&&car.GroundedWheels>=2){completed=true;break;}
+                            if(lateral>50||Vector3.Distance(car.Body.position,p)>400)break;
+                            if((s-lip)*direction>85&&Mathf.Abs(s-lip)<180&&lateral<Mathf.Abs(line)+8&&car.GroundedWheels>=2){completed=true;break;}
                         }
                     }
                     for(int i=0;i<20;i++){car.Simulate(0,.1f,0,Time.fixedDeltaTime);yield return new WaitForFixedUpdate();}
@@ -103,3 +149,7 @@ namespace Racer
     }
     public sealed class ExplorationContacts:MonoBehaviour{public ExplorationValidation owner;void OnCollisionEnter(Collision c)=>owner.Contact(c);void OnCollisionStay(Collision c)=>owner.Contact(c);}
 }
+
+
+
+

@@ -1,0 +1,1 @@
+Restored 323 changed terrain vertices to safety-checkpoint support near all race/ambient roads and legal shortcut corridors; largest prior displacement=13.520m. Route arrays, gates and ramp meshes unchanged.

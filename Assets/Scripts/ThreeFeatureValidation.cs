@@ -162,7 +162,8 @@ namespace Racer
             // Optional diagnostic window; normal gameplay retains its authored 90 seconds.
             race.finishGraceSeconds=float.Parse(Arg("-finishGrace",race.finishGraceSeconds.ToString(System.Globalization.CultureInfo.InvariantCulture)),System.Globalization.CultureInfo.InvariantCulture);
             flow.OpenGarage();flow.SelectVehicle(vehicle);flow.CloseGarage();race.opponents=true;race.traffic=true;race.laps=laps;race.opponentRoster=VehicleProfile.All.Where(p=>p.Id!=vehicle).Select(p=>p.Id).ToArray();race.Racers[0]=new RacerState("YOU automated",race.vehicle,race.gates.Length-1,laps);
-            flow.StartRace();var pilot=race.vehicle.gameObject.AddComponent<RoadDriver>();pilot.Initialize(race,race.vehicle,true,1,1);pilot.Racer=race.Racers[0];
+            bool ghostSolo=Arg("-ghostSolo","no")=="yes";if(ghostSolo)race.opponents=race.traffic=false;
+            flow.StartRace();var pilot=race.vehicle.gameObject.AddComponent<RoadDriver>();pilot.Initialize(race,race.vehicle,true,1,ghostSolo?.65f:1);pilot.Racer=race.Racers[0];
             if(mode=="performance")
             {
                 // Hidden windows suspend presentation. Render explicitly into a fixed-size target
@@ -170,7 +171,7 @@ namespace Racer
                 performanceTarget=new RenderTexture(1280,720,24);renderCamera=Camera.main;renderCamera.targetTexture=performanceTarget;
                 QualitySettings.vSyncCount=0;Application.targetFrameRate=120;
             }
-            var frames=new List<float>();float start=Time.realtimeSinceStartup,next=0;bool recovered=false; int view=0;
+            var frames=new List<float>();float start=Time.realtimeSinceStartup,next=0;bool recovered=ghostSolo; int view=0;
             using var ambient=new StreamWriter(dir+"/ambient.csv");ambient.WriteLine("time,name,streetDistance,routeIsStreet,recoveries,x,y,z");
             using var log=new StreamWriter(dir+"/driving.csv");log.WriteLine("time,vehicle,lap,gate,speed,recoveries,misses,x,y,z");
             while(!race.ClassificationFinal&&Time.realtimeSinceStartup-start<900)

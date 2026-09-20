@@ -270,8 +270,8 @@ namespace Racer
                 details.text="Clean-lap ghosts: actual recorded poses, local only.\nNo resets, teleports or missed gates; legal shortcuts qualify.\n"+flow.Ghost.Status+"\n\n"+(flow.GetComponent<ExplorationCollection>()?.Summary??"Collection loading");
                 details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=340;details.fontSize=18;
                 Action(0,"Clean-lap ghost: "+(flow.Ghost.Enabled?"ON":"OFF"),flow.ToggleGhost);
-                Action(1,"Ghost runs during races and solo time trials",()=>{});
-                Action(2,"Back",flow.CloseExtras);
+                
+                Action(1,"Back",flow.CloseExtras);
             }
             else if(shown==RaceFlow.Stage.Courses)
             {
@@ -416,3 +416,4 @@ namespace Racer
         void OnDestroy() { if(menuActions) { menuActions.Disable(); Destroy(menuActions); } if(submitReference) Destroy(submitReference); if(previewRoot) Destroy(previewRoot); if(previewCamera) Destroy(previewCamera.gameObject); if(previewTexture) { previewTexture.Release(); Destroy(previewTexture); } }
     }
 }
+

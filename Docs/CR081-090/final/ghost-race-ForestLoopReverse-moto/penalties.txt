@@ -1,0 +1,8 @@
+BLUE / L2 CP01 +5s / road gate passed outside span
+BLUE / L2 CP02 +5s / road gate passed outside span
+BLUE / L2 CP03 +5s / road gate passed outside span
+BLUE / L2 CP04 +5s / road gate passed outside span
+BLUE / L3 CP01 +5s / road gate passed outside span
+BLUE / L3 CP02 +5s / road gate passed outside span
+BLUE / L3 CP03 +5s / road gate passed outside span
+BLUE / L3 CP04 +5s / road gate passed outside span

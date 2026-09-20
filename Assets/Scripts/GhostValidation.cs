@@ -18,13 +18,21 @@ namespace Racer
             if(!enabledGhost){if(!flow.Ghost.Enabled)flow.Ghost.Toggle();enabledGhost=true;}
             var p=flow.Race.Progress;
             if(p.CompletedLaps!=lap){lap=p.CompletedLaps;File.AppendAllText(path+"/ghost-events.txt",$"Lap={lap} misses={p.MissedGates} {flow.Ghost.Status}\n");}
-            if(!captured&&GameObject.Find("Personal best clean-lap ghost / visual only")){captured=true;ThreeFeatureValidation.CaptureUi(path+"/ghost-replay.png");}
+            var visual=GameObject.Find("Personal best clean-lap ghost / visual only");
+            if(!captured&&visual){captured=true;ThreeFeatureValidation.CaptureUi(path+"/ghost-replay.png");StartCoroutine(PauseCheck(visual));}
             var dir=Path.Combine(flow.Save.DirectoryPath,"CleanLapGhosts");
             if(Time.unscaledTime>=nextStorage&&Directory.Exists(dir))
             {
                 nextStorage=Time.unscaledTime+1;
                 var files=Directory.GetFiles(dir,"*.json");if(files.Length>0)File.WriteAllLines(path+"/ghost-storage.txt",files.Select(f=>{var data=JsonUtility.FromJson<CleanLapGhost.Lap>(File.ReadAllText(f));return data.key+" seconds="+data.seconds+" samples="+data.poses.Count+" first="+data.poses[0].t+" last="+data.poses[^1].t+" bytes="+new FileInfo(f).Length;}));
             }
+        }
+        System.Collections.IEnumerator PauseCheck(GameObject visual)
+        {
+            var before=visual.transform.position;double time=Time.timeAsDouble;flow.Pause();yield return new WaitForSecondsRealtime(.15f);
+            bool frozen=System.Math.Abs(Time.timeAsDouble-time)<.0001&&(visual.transform.position-before).sqrMagnitude<.000001f;
+            File.WriteAllText(path+"/ghost-replay-checks.txt",(frozen?"PASS ":"FAIL ")+"Pause freezes lap time and ghost pose\n"+(visual.GetComponentsInChildren<Collider>().Length==0&&visual.GetComponentsInChildren<Rigidbody>().Length==0?"PASS ":"FAIL ")+"Ghost has no colliders or rigidbodies\n");
+            flow.Resume();
         }
     }
 }

@@ -52,3 +52,13 @@ Street restored=8 catalog=37
 Forest restored=8 catalog=37
 Street restored=8 catalog=37
 Forest restored=8 catalog=37
+Street restored=8 catalog=37
+Forest restored=8 catalog=37
+Street restored=10 catalog=37
+Forest restored=10 catalog=37
+Street restored=10 catalog=37
+Forest restored=10 catalog=37
+Street restored=10 catalog=37
+Forest restored=10 catalog=37
+Street restored=10 catalog=37
+Forest restored=10 catalog=37

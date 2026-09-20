@@ -75,7 +75,7 @@ namespace Racer.Editor
                 collection.sites=collected.ToArray();
                 // Names are corrected by physical location, not a global text replacement.
                 foreach(var label in Object.FindObjectsByType<TextMesh>())
-                {var p=label.transform.position;if(label.text.IndexOf("Jamerson",StringComparison.OrdinalIgnoreCase)>=0&&p.x<-450)label.text=label.text.Replace("Jamerson","Trickum");}
+                {var p=label.transform.position;if(label.text.IndexOf("Jamerson",StringComparison.OrdinalIgnoreCase)>=0&&p.x<-450&&!label.text.StartsWith("TO ",StringComparison.OrdinalIgnoreCase))label.text=label.text.Replace("Jamerson","Trickum");}
                 race.courseId=scene.name switch{"StreetLoopGreybox"=>"street-v13-exploration","LakeWoods"=>"lake-v6-exploration","StreetLoopReverse"=>"street-reverse-v4-exploration",_=>"forest-reverse-v4-exploration"};
                 File.WriteAllText(Evidence+"/home-"+scene.name+".txt","Reference-informed approximate geometry, no image textures or likenesses. Home front "+house.position+" rotation="+house.eulerAngles+"; rear deck; pool; downhill garage and left pool house. 24 stable collectible locations. Rules="+race.courseId);
                 EditorSceneManager.MarkSceneDirty(scene);EditorSceneManager.SaveScene(scene);
@@ -84,3 +84,4 @@ namespace Racer.Editor
         }
     }
 }
+

@@ -1,0 +1,10 @@
+{
+  "Name": "recovery-LakeWoods",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\Racer-0.15.0-review1-Windows\\Racer.exe",
+  "RuntimeAssemblySHA256": "6754469721E25140346919521C182780D9E48487F32BB4E01A1D2FC332EB37C1",
+  "Flags": "-batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr081-acc75ff6443e49dc9469cebfc92e7d80\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR081-090\\final\\recovery-LakeWoods\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr081-final-recovery-LakeWoods.log\" -arcadeTest recovery -course LakeWoods -raceActivities yes -lifeSeed 82089",
+  "PID": 100468,
+  "Timeout": false,
+  "Exit": 0,
+  "CompletedUtc": "2026-09-20T09:26:59.0565351Z"
+}

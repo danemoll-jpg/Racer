@@ -12,7 +12,9 @@ namespace Racer
         public Site[] sites=Array.Empty<Site>();
         public RaceRoad[] routes=Array.Empty<RaceRoad>();
         Save data=new();string path,error;RaceDirector race;Transform[] tokens;Vector3 previous;bool sampled;float feedbackUntil;string feedback;
+        Material goldMaterial,capMaterial;
         public int Found=>data.found.Count(id=>sites.Any(s=>s.id==id));
+        public bool Discovered(string id)=>data.found.Contains(id);
         public string Hud=>Time.time<feedbackUntil?feedback:$"WOODLAND ACORNS {Found}/{sites.Length} / progress in pause menu";
         public string Summary=>$"Woodland acorns: {Found}/{sites.Length} found\n"+string.Join("\n",sites.GroupBy(s=>s.approach).Select(g=>$"{g.Key}: {g.Count(s=>data.found.Contains(s.id))}/{g.Count()}"))+"\n"+(error??"Discoveries persist across tracks and relaunch.");
         public void Initialize(RaceDirector owner,string root)
@@ -22,6 +24,7 @@ namespace Racer
             tokens=new Transform[sites.Length];
             var gold=new Material(Shader.Find("Universal Render Pipeline/Lit")){color=new Color(1,.63f,.13f),enableInstancing=true};
             var cap=new Material(gold){color=new Color(.32f,.12f,.025f)};
+            goldMaterial=gold;capMaterial=cap;
             for(int i=0;i<sites.Length;i++)
             {
                 var rootToken=new GameObject("Acorn / "+sites[i].id+" / "+sites[i].title).transform;rootToken.SetParent(transform);rootToken.position=sites[i].position;tokens[i]=rootToken;
@@ -53,5 +56,6 @@ namespace Racer
             for(int i=0;i<tokens.Length;i++)
             {bool visible=race.FreeRoam&&!data.found.Contains(sites[i].id)&&(race.vehicle.transform.position-sites[i].position).sqrMagnitude<180*180;tokens[i].gameObject.SetActive(visible);if(visible){tokens[i].position=sites[i].position+Vector3.up*(Mathf.Sin(Time.time*2+i)*.16f);tokens[i].Rotate(0,Time.deltaTime*40,0);}}
         }
+        void OnDestroy(){if(goldMaterial)Destroy(goldMaterial);if(capMaterial)Destroy(capMaterial);}
     }
 }

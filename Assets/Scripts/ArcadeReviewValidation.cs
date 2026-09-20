@@ -148,7 +148,7 @@ namespace Racer
                 Check(activity.LastSpeed>5&&activity.LastSpeed<=profile.Speed+2,profile.Id+" plausible measured speed");
                 ThreeFeatureValidation.CaptureUi(root+"/"+profile.Id+"-"+direction+"-"+trapIndex+"-trap.png");
                 int counted=activity.Awards;Place(trap.transform.position+f, f);yield return new WaitForFixedUpdate();Place(trap.transform.position-f,f);yield return new WaitForFixedUpdate();Check(activity.Awards==counted,"Teleport/reset cannot award a crossing");car.enabled=true;
-                if(stress&&repeat==13){Check(activity.Records.Board(activity.Key(trap)).Count==10,"Fourteen actual crossings retain top ten attempts");flow.Pause();flow.OpenActivities();yield return null;yield return new WaitForEndOfFrame();ThreeFeatureValidation.CaptureUi(root+"/top-ten-after-driving.png");flow.CloseExtras();flow.Resume();}
+                if(stress&&repeat==13){Check(activity.Records.Board(activity.Key(trap)).Count==10,"Fourteen actual crossings retain top ten attempts");flow.Pause();flow.OpenActivities();yield return null;yield return null;ThreeFeatureValidation.CaptureUi(root+"/top-ten-after-driving.png");flow.CloseExtras();flow.Resume();}
             }
         }
         IEnumerator SmashDrive()
@@ -228,3 +228,4 @@ namespace Racer
         }
     }
 }
+

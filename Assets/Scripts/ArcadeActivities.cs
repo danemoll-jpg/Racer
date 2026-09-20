@@ -17,6 +17,7 @@ namespace Racer
         public bool AttemptActive {get;private set;}
         public string Feedback {get;private set;}
         public int Awards {get;private set;}
+        public GameObject PlayerObject=>car?car.gameObject:null;
         public float LastDistance {get;private set;}
         public float LastAirtime {get;private set;}
         public float LastSpeed {get;private set;}
@@ -105,7 +106,10 @@ namespace Racer
                     }
                 }
             }
-            if(warm>=.5f&&!flying)
+            // A bump or valid airborne crossing must not disable a speed camera.
+            // Reset warmup, swept position/velocity agreement, direction and rearming
+            // already reject discontinuities and repeated parked crossings.
+            if(!configuration.WipedOut)
             foreach(var site in Sites.Where(s=>s.kind==ActivitySite.Kind.Speed))
             {
                 var f=site.forward.normalized;float a=Vector3.Dot(previous-site.transform.position,f),b=Vector3.Dot(p-site.transform.position,f);
@@ -131,7 +135,7 @@ namespace Racer
             try{AtomicSave.Write(path,JsonUtility.ToJson(Results,true));}catch(Exception e){Message("Activity result could not be saved: "+e.Message,6);}
         }
         void Message(string value,float seconds){Feedback=value;feedbackUntil=Time.time+seconds;}
-        void OnDestroy(){BreakableProp.BrokenByVehicle-=Smash;if(car)car.GetComponent<VehicleRespawn>().Respawned-=Recovered;}
+        void OnDestroy(){BreakableProp.BrokenByVehicle-=Smash;if(car&&car.TryGetComponent<VehicleRespawn>(out var respawn))respawn.Respawned-=Recovered;}
     }
-    public sealed class ActivityLandingContact:MonoBehaviour {public ArcadeActivities activities;void OnCollisionEnter(Collision c){foreach(var contact in c.contacts)activities.SolidContact(contact.normal,Mathf.Abs(Vector3.Dot(c.relativeVelocity,contact.normal)));}}
+    public sealed class ActivityLandingContact:MonoBehaviour {public ArcadeActivities activities;void OnCollisionEnter(Collision c){if(!activities||activities.PlayerObject!=gameObject)return;foreach(var contact in c.contacts)activities.SolidContact(contact.normal,Mathf.Abs(Vector3.Dot(c.relativeVelocity,contact.normal)));}}
 }

@@ -1,0 +1,43 @@
+PASS original trap=0 direction=1 physical speed crossing awarded once; measured=39.41 m/s
+PASS original plausible measured speed
+PASS Teleport/reset cannot award a crossing
+PASS original trap=0 direction=1 physical speed crossing awarded once; measured=39.41 m/s
+PASS original plausible measured speed
+PASS Teleport/reset cannot award a crossing
+PASS original trap=0 direction=1 physical speed crossing awarded once; measured=39.41 m/s
+PASS original plausible measured speed
+PASS Teleport/reset cannot award a crossing
+PASS original trap=0 direction=1 physical speed crossing awarded once; measured=39.41 m/s
+PASS original plausible measured speed
+PASS Teleport/reset cannot award a crossing
+PASS original trap=0 direction=1 physical speed crossing awarded once; measured=39.41 m/s
+PASS original plausible measured speed
+PASS Teleport/reset cannot award a crossing
+PASS original trap=0 direction=1 physical speed crossing awarded once; measured=39.41 m/s
+PASS original plausible measured speed
+PASS Teleport/reset cannot award a crossing
+PASS original trap=0 direction=1 physical speed crossing awarded once; measured=39.41 m/s
+PASS original plausible measured speed
+PASS Teleport/reset cannot award a crossing
+PASS original trap=0 direction=1 physical speed crossing awarded once; measured=39.41 m/s
+PASS original plausible measured speed
+PASS Teleport/reset cannot award a crossing
+PASS original trap=0 direction=1 physical speed crossing awarded once; measured=39.41 m/s
+PASS original plausible measured speed
+PASS Teleport/reset cannot award a crossing
+PASS original trap=0 direction=1 physical speed crossing awarded once; measured=39.41 m/s
+PASS original plausible measured speed
+PASS Teleport/reset cannot award a crossing
+PASS original trap=0 direction=1 physical speed crossing awarded once; measured=39.41 m/s
+PASS original plausible measured speed
+PASS Teleport/reset cannot award a crossing
+PASS original trap=0 direction=1 physical speed crossing awarded once; measured=39.41 m/s
+PASS original plausible measured speed
+PASS Teleport/reset cannot award a crossing
+PASS original trap=0 direction=1 physical speed crossing awarded once; measured=39.41 m/s
+PASS original plausible measured speed
+PASS Teleport/reset cannot award a crossing
+PASS original trap=0 direction=1 physical speed crossing awarded once; measured=39.41 m/s
+PASS original plausible measured speed
+PASS Teleport/reset cannot award a crossing
+PASS Fourteen actual crossings retain top ten attempts

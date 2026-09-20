@@ -1,0 +1,10 @@
+{
+  "Name": "race-jump-LakeWoods",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\Racer-0.15.0-review1-Windows\\Racer.exe",
+  "RuntimeAssemblySHA256": "6754469721E25140346919521C182780D9E48487F32BB4E01A1D2FC332EB37C1",
+  "Flags": "-batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr081-3fc153d4904e4df7b6ad712cc13596a6\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR081-090\\final\\race-jump-LakeWoods\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr081-final-race-jump-LakeWoods.log\" -arcadeRamp activities -raceActivities yes -course LakeWoods",
+  "PID": 89488,
+  "Timeout": false,
+  "Exit": 0,
+  "CompletedUtc": "2026-09-20T09:38:24.7619151Z"
+}

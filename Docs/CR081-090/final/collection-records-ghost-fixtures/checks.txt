@@ -1,0 +1,60 @@
+PASS One historical best migrated, date unknown
+PASS Migration remains exactly once after reopen
+PASS Top ten of fourteen, full precision and distinct ties
+PASS Reopening or duplicate attempt ID cannot add an entry
+PASS Restart preserves tied ordering and top ten
+PASS Ghost storage fixture accepts completed clean sample sequence
+PASS Reset/teleport invalidation cannot replace ghost
+PASS Slower compatible lap cannot replace ghost
+PASS Faster valid compatible lap replaces ghost
+PASS Changed layout cannot play historical ghost
+PASS 24 stable unique collectible IDs
+PASS woodland-01 ordinary-frame reachable approach Dan's fence
+PASS woodland-01 supported local return/reset
+PASS woodland-02 ordinary-frame reachable approach Kyle's turning
+PASS woodland-02 supported local return/reset
+PASS woodland-03 ordinary-frame reachable approach House 2 approach
+PASS woodland-03 supported local return/reset
+PASS woodland-04 ordinary-frame reachable approach Wooded descent
+PASS woodland-04 supported local return/reset
+PASS woodland-05 ordinary-frame reachable approach North bend
+PASS woodland-05 supported local return/reset
+PASS woodland-06 ordinary-frame reachable approach Pine shoulder
+PASS woodland-06 supported local return/reset
+PASS woodland-07 ordinary-frame reachable approach Hilltop
+PASS woodland-07 supported local return/reset
+FAIL woodland-08 ordinary-frame reachable approach Market verge
+PASS woodland-08 supported local return/reset
+PASS woodland-09 ordinary-frame reachable approach Old highway
+PASS woodland-09 supported local return/reset
+PASS woodland-10 ordinary-frame reachable approach Western woods
+PASS woodland-10 supported local return/reset
+PASS woodland-11 ordinary-frame reachable approach Trickum approach
+PASS woodland-11 supported local return/reset
+PASS woodland-12 ordinary-frame reachable approach Southern return
+PASS woodland-12 supported local return/reset
+PASS woodland-13 ordinary-frame reachable approach Lake gateway
+PASS woodland-13 supported local return/reset
+PASS woodland-14 ordinary-frame reachable approach Creek approach
+PASS woodland-14 supported local return/reset
+PASS woodland-15 ordinary-frame reachable approach Fern landing
+PASS woodland-15 supported local return/reset
+PASS woodland-16 ordinary-frame reachable approach Pine climb
+PASS woodland-16 supported local return/reset
+PASS woodland-17 ordinary-frame reachable approach High clearing
+PASS woodland-17 supported local return/reset
+PASS woodland-18 ordinary-frame reachable approach Ridge lip
+PASS woodland-18 supported local return/reset
+PASS woodland-19 ordinary-frame reachable approach Summit overlook
+PASS woodland-19 supported local return/reset
+PASS woodland-20 ordinary-frame reachable approach North saddle
+PASS woodland-20 supported local return/reset
+PASS woodland-21 ordinary-frame reachable approach Switchback
+PASS woodland-21 supported local return/reset
+PASS woodland-22 ordinary-frame reachable approach Laurel descent
+PASS woodland-22 supported local return/reset
+PASS woodland-23 ordinary-frame reachable approach Lake view
+PASS woodland-23 supported local return/reset
+FAIL woodland-24 ordinary-frame reachable approach Homeward woods
+PASS woodland-24 supported local return/reset
+PASS Collectible discoveries written once to persistent isolated save

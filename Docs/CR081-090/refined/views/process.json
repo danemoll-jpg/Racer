@@ -1,0 +1,10 @@
+{
+  "Name": "views",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\CR081-refined\\Racer.exe",
+  "RuntimeAssemblySHA256": "DA9ED233D0477602EF8C426527D835FB7318F8DCFF380C096C45E79F78DD4F3B",
+  "Flags": "-batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr081-61b7614a97ca42549367e3787830522c\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR081-090\\refined\\views\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr081-refined-views.log\" -explorationCheck views -course StreetLoopGreybox",
+  "PID": 37512,
+  "Timeout": false,
+  "Exit": 0,
+  "CompletedUtc": "2026-09-20T09:07:50.0100881Z"
+}

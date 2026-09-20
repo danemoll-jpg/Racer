@@ -1,0 +1,10 @@
+{
+  "Name": "guidance-ForestLoopReverse",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\Racer-0.15.0-review1-Windows\\Racer.exe",
+  "RuntimeAssemblySHA256": "6754469721E25140346919521C182780D9E48487F32BB4E01A1D2FC332EB37C1",
+  "Flags": "-batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr081-577cde082aab48e88600d258e1d64c1f\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR081-090\\final\\guidance-ForestLoopReverse\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr081-final-guidance-ForestLoopReverse.log\" -review7074 physical -course ForestLoopReverse",
+  "PID": 101048,
+  "Timeout": false,
+  "Exit": 0,
+  "CompletedUtc": "2026-09-20T09:34:47.2670014Z"
+}

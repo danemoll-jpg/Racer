@@ -1,0 +1,10 @@
+{
+  "Name": "views",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\CR081-inspection\\Racer.exe",
+  "RuntimeAssemblySHA256": "3B4A4E49261ECA46CA1713EAA0B62441592B4AC28DE6C67DE6E8E8C74825E670",
+  "Flags": "-batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr081-b06f58b702734250bfe5d6485d813335\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR081-090\\inspection\\views\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr081-inspection-views.log\" -explorationCheck views",
+  "PID": 41612,
+  "Timeout": false,
+  "Exit": 0,
+  "CompletedUtc": "2026-09-20T09:16:10.6303141Z"
+}

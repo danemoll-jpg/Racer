@@ -1,0 +1,10 @@
+{
+  "Name": "records",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\CR081-inspection\\Racer.exe",
+  "RuntimeAssemblySHA256": "3B4A4E49261ECA46CA1713EAA0B62441592B4AC28DE6C67DE6E8E8C74825E670",
+  "Flags": "-batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr081-04261b08ea9748609465b40c262fb718\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR081-090\\inspection\\records\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr081-inspection-records.log\" -arcadeTest speed -raceActivities yes -recordsStress yes",
+  "PID": 5452,
+  "Timeout": false,
+  "Exit": 0,
+  "CompletedUtc": "2026-09-20T09:17:31.0077512Z"
+}

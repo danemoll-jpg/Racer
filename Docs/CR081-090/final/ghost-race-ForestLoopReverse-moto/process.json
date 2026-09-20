@@ -1,0 +1,10 @@
+{
+  "Name": "ghost-race-ForestLoopReverse-moto",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\Racer-0.15.0-review1-Windows\\Racer.exe",
+  "RuntimeAssemblySHA256": "6754469721E25140346919521C182780D9E48487F32BB4E01A1D2FC332EB37C1",
+  "Flags": "-batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr081-151e6a185ab94ee498c4a60b1809ac32\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR081-090\\final\\ghost-race-ForestLoopReverse-moto\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr081-final-ghost-race-ForestLoopReverse-moto.log\" -threeFeatureTest drive -course ForestLoopReverse -vehicle moto -laps 3 -testSpeed 6 -ghostValidation yes -lifeSeed 82089",
+  "PID": 47524,
+  "Timeout": false,
+  "Exit": 0,
+  "CompletedUtc": "2026-09-20T09:32:35.9934433Z"
+}

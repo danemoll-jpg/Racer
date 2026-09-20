@@ -1,7 +1,9 @@
 @echo off
 pushd "%~dp0"
-pwsh -NoProfile -File "%~dp0Tools\Package-Racer.ps1" -Version 0.14.0-review2
+pwsh -NoProfile -File "%~dp0Tools\Package-Racer.ps1" -Version 0.15.0-review2
 if errorlevel 1 echo Packaging failed. Previous files have been preserved; see the error above.
 pause
 popd
+
+
 
