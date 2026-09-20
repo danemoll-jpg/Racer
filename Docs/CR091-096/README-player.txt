@@ -68,7 +68,7 @@ Docs\CR081-090 and Docs\CR082-089. Physical controller, human driving and
 listening acceptance are separate from automated checks.
 
 Safety checkpoint: a89577e9b0d3dfb4bf61652dd6ea71bae39bcdd1
-Completion checkpoint: pending validation and packaging metadata.
+Completion checkpoint: 87d53b7d609b77f1a5e24106845fb183a57a9d1d
 
 
 

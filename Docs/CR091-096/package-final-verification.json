@@ -1,15 +1,25 @@
 {
   "Version": "0.16.0-review3",
-  "PackagedAt": "2026-09-20T14:51:50.4004238-04:00",
+  "PackagedAt": "2026-09-20T14:58:42.8493479-04:00",
   "Songs": 187,
   "PreservedOriginalAudio": 2,
-  "Files": 437,
+  "Files": 438,
   "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\Racer-0.16.0-review3-Windows",
   "Latest": "C:\\Users\\danmo\\Racer\\Builds\\Latest",
   "ZIP": "C:\\Users\\danmo\\Racer\\Builds\\Racer-0.16.0-review3-Windows.zip",
-  "ZipSHA256": "587442F765CFC8639C8E6E0561B409BA802BE8F0B17E06FB87A9BF0A3F5F4042",
-  "Preserved": "C:\\Users\\danmo\\Racer\\Builds\\Preserved\\20260920-144721-335-126e3d",
-  "Extracted": "C:\\Users\\danmo\\Racer\\Builds\\PackageWork\\20260920-144721-335-126e3d\\extracted\\Racer-0.16.0-review3-Windows",
+  "ZipSHA256": "8181509139E3265A7F5C31CD1647423409FCC0B2966A0E6FF732BEEDC88C609E",
+  "Preserved": "C:\\Users\\danmo\\Racer\\Builds\\Preserved\\20260920-145555-633-735c4b",
+  "Extracted": "C:\\Users\\danmo\\Racer\\Builds\\PackageWork\\20260920-145555-633-735c4b\\extracted\\Racer-0.16.0-review3-Windows",
   "Verified": "All extracted ZIP, versioned runtime and Latest files match SHA256",
-  "ExternalCollections": "Not read or copied"
+  "ExternalCollections": "Not read or copied",
+  "SafetyCheckpoint": "a89577e9b0d3dfb4bf61652dd6ea71bae39bcdd1",
+  "CompletionCommit": "87d53b7d609b77f1a5e24106845fb183a57a9d1d",
+  "PackagedLatestSmoke": {
+    "Exit": 0,
+    "Fail": 0,
+    "Timeout": false,
+    "Evidence": "packaged/map-smoke",
+    "Pass": 52
+  },
+  "LatestFilesAfterSmoke": 438
 }
