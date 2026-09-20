@@ -1,6 +1,8 @@
 # Woodstock Rush
 ## Project Management / TODO / Astra-Codex Handoff
 
+**CURRENT AUTHORIZATION — next correction/exploration pass:** Dan approves CR-091–096 together: finish-gate lap recovery, property/fence/sign cleanup, permanent campsite, summit jump, hidden collectibles and persistent exploration map with safe free-roam fast travel. This supersedes earlier scope statements. Mountain race remains future backlog. No new game implementation or tests are claimed by this planning update.
+
 **CURRENT AUTHORIZATION — 2026-09-20:** Dan requests one combined delivery: CR-081 plus CR-090, including automatic activity feedback/top-ten boards, personal-best ghosts, collectibles, wooded neighborhood expansion and reference-based home reconstruction. Earlier queued/deferred/excluded wording for these items is superseded. Work through internal implementation/testing checkpoints without waiting for another feature selection. Multiplayer/split screen remain excluded.
 
 **CURRENT DELIVERY — combined review build:** CR-081 and CR-090 source/content are implemented together in **0.15.0-review3**. Launch `C:\Users\danmo\Racer\Play-Racer.cmd` or `C:\Users\danmo\Racer\Builds\Latest\Racer.exe`. Full Windows ZIP: `Builds/Racer-0.15.0-review3-Windows.zip`. All 437 packaged files match the extracted ZIP, versioned runtime and Latest; 187 playable songs plus two staged M4A originals are preserved. Safety checkpoint `8419e9194985955bb56a41854f1b5dce7968b270` succeeded before edits. Internal checkpoints: `38fb5906e81b26f3a5cc615be8834227af72b15a`, `f1719c6448800607b0eb7bc613245878eb2ebe3f`, and shore-boundary correction `f3d732d676ef4f7f7ae57b329855cad4f4729a4e`. Completion commit: `7e70659cc41c41d3f124fc949f601443f17ba5c3`. Final metadata/package verification is recorded in Docs/CR081-090/package-final-verification.json. Final tests: 1,500 ramp traversals with retained failures; twelve eligible player/course races completed; all twelve clean-ghost categories saved; all 24 acorns and four-course/cold persistence checked. No test timeout; no human/controller/listening acceptance claimed. See [implementation](Docs/CR081-090/IMPLEMENTATION.md), [validation and retained failures](Docs/CR081-090/VALIDATION.md), and [controls, trail guide and combined checklist](Docs/CR081-090/README-player.txt).
@@ -1366,6 +1368,53 @@ Actual case counts, failed cases, authored ramp IDs, before/after evidence and p
 
 ---
 
+### CR-091 — Missed start/finish must not discard a completed lap
+**Status:** AUTHORIZED / NOT IMPLEMENTED — Dan reports missing the start/finish opening silently loses the whole lap.
+Count a legitimately completed circuit when the driver passes the finish region outside its gate, add exactly one +5-second missed-gate penalty and obvious feedback, and finish the race on the final lap. Use validated route/lap progress and swept finish-region crossing, not merely proximity or vehicle heading. Legal shortcut progress remains valid. Prevent duplicate laps/charges from lingering, reversing, reset/teleport, restart or crossing at the initial start. Preserve other genuine-miss accounting. Penalized laps are ineligible for clean-lap ghosts. Test all four variants, ordinary/airborne/edge crossings, final lap, shortcuts and anti-duplicate cases.
+
+### CR-092 — Property spacing, continuous grounded fences and entrance sign
+**Status:** AUTHORIZED / NOT IMPLEMENTED.
+Dan's front and House 2's front must run parallel to their local street alignment. Move House 2 and its fencing at least roughly 200 feet farther ALONG the street away from Dan's house, not just farther back from the road. Extend Dan's roadside fencing through the added separation. Coordinate House 2/House 3 fence boundaries: House 2's fence reaches the second neighbor's fence, which starts earlier on the approach.
+Continuous roadside fencing across Dan, House 2 and House 3, interrupted ONLY at driveway gates. Dan has TWO driveway gate openings, one on either side of his house. House 1 remains absent. Ground every post/panel to the terrain; relocation alone is not a floating-fence fix. Mainly wood fencing behind the pool; remove misplaced rear chain-link, retaining appropriate roadside/property fencing.
+Lower Kyle's house/property so the roof is approximately at road elevation; a genuinely descending driveway must remain driveable and terrain-supported.
+Place exact text "Rocky Way Acres" on a physical sign spanning above House 3's descending driveway between tall supports, matching C:/Users/danmo/Downloads/Rocky Way Acres.png. House 3 is the SECOND neighbor, not House 2. Provide vehicle clearance and contained readable lettering; retain breakable-prop behavior. Preserve supported architecture, deck/pool/outbuildings, hairpin clearance and race routes. Use previously supplied references; do not invent exact surveyed dimensions.
+
+### CR-093 — Fit text to physical signs across the world
+**Status:** AUTHORIZED / NOT IMPLEMENTED.
+Audit all four course variants and free-roam signage. Fit/wrap lettering with margins within the actual sign face; enlarge boards appropriately when necessary rather than make text unreadably tiny. Preserve exact names/warnings, physical mounting, directional correctness and destruction/restoration behavior. No floating text or blanket deletion of sign lettering.
+
+### CR-094 — Permanent mountainside campsite and summit launch
+**Status:** AUTHORIZED / NOT IMPLEMENTED.
+Add two recognizable stylized guys seated at a campfire a few feet from a small round pop-up tent on the mountainside. This campsite may always exist and is independent of the exclusive coffee/football/smoking neighborhood rotation; do not multiply those neighborhood scenes. Keep tent/people/fire grounded with safe trail clearance and bounded animation/audio cost.
+Add a large summit ramp aimed back toward the houses, with spectacular airtime, a deliberate supported landing area and return route. Do not aim the landing into homes/fences or manufacture momentum through hidden collision steps. Make approach, direction and risk understandable; integrate a compatible authored jump activity/result/record. Test at the FIRST playable geometry and after final changes across eligible cars/bike/ATV, intended speeds, center/off-center/edge approaches and applicable modes/directions. No claim reverse scoring is required, but return approaches must be safe/readable. Retain all existing unresolved ramp evidence.
+A mountain race is FUTURE BACKLOG, not authorized for implementation this pass. Preserve the existing mountain trails and four race variants.
+
+### CR-095 — Hidden exploration collectibles instead of roadside giveaways
+**Status:** AUTHORIZED / NOT IMPLEMENTED.
+Keep 24 collectibles but redistribute MOST off the ordinary race/road line throughout woods, gullies, lakeside pockets, behind landmarks and optional trails/skill locations. A few visible introductory finds are fine. Hide fairly with visual clues, reachable approaches and safe exit/reset; none inside colliders or requiring impossible jumps. Maintain a placement inventory and physically verify every location.
+Preserve existing found IDs/progress through relocation by default; provide an explicit confirmed collectibles-only restart for Dan to search the revised layout. Do not silently erase discoveries, race records, settings, ghosts or map exploration. State clearly how relocated previously collected items behave. Validate partial/full progress and relaunch.
+
+### CR-096 — Entire-area exploration map with persistent fog and safe fast travel
+**Status:** AUTHORIZED / NOT IMPLEMENTED.
+Create an accurate map from actual world coordinates for the entire playable area, with player position/heading, controller and mouse navigation, pan/zoom and waypoint placement. Show a discoverable outline/extent without leaking unrevealed terrain detail. Driving locally reveals fog; exploration persists and revealed areas stay revealed across tracks/relaunch. Expose no hidden collectible coordinates automatically. Discovered landmarks and collected-item locations can appear; regional found/total counts support searching without claiming every revealed patch has been exhaustively searched.
+Fast travel is FREE-ROAM ONLY to discovered safe destinations selectable by mouse/controller. Snap destinations to validated supported ground with vehicle clearance; show unavailable destinations clearly. Teleport must not reveal intervening terrain, award race laps/gates, trigger speed/jump records, collect items en route or create a valid ghost. Cancel in-progress stunt attempts and reset relevant movement histories safely. A race map may show route information, but race fast travel is disabled.
+Test map/world alignment, lake/mountain elevation relationships, reveal radius/edge cases, persistence, controller navigation, waypoint behavior and safe arrival for each eligible vehicle. Bound fog-save/render cost. Version world/map data without silently wiping saves.
+
+### Combined review / delivery — CR-091–096
+Dan accepts the general house representation and mountain paths as a basis, with the explicit revisions above. This is NOT blanket acceptance of 0.15.0-review3 or unreviewed ghosts/activity boards. Preserve its documented ramp/shortcut/AI/performance limitations and address regressions introduced by this pass.
+- [ ] Missing a finish gate completes a legitimate lap with one +5s penalty; final lap finishes; no reset/reverse farming.
+- [ ] House 2 separation, parallel fronts, two Dan gates, continuous grounded frontage, rear wood fence, lowered Kyle and House 3 overhead sign reviewed.
+- [ ] Sign lettering fits/readable in race and roam; no lost text.
+- [ ] Permanent campsite, summit jump/landing/return and first-geometry/final ramp evidence delivered.
+- [ ] Hidden collectibles have all 24 reachable locations, preserved progress and optional collection-only restart.
+- [ ] Whole-world map, saved fog, regional counts, waypoint and safe discovered-destination free-roam travel function.
+- [ ] Four-course race/shortcut/recovery/AI, ghosts/boards, radio/menu, destruction and save regressions checked; performance measured.
+- [ ] Ordinary tests temporarily muted. Briefly unmute only for necessary audio checks, then remute; saved preferences and shipped audio unchanged.
+- [ ] Complete Windows runtime/ZIP, previous builds/music preserved, version/commit evidence and concise new playtest guide delivered.
+- [ ] Dan reviews new build. Mountain race, multiplayer and split screen remain future work.
+
+---
+
 # DECISION LOG
 
 Record choices we do not want to repeatedly reconsider.
@@ -1464,6 +1513,8 @@ Record choices we do not want to repeatedly reconsider.
 ---
 
 # SESSION HANDOFF
+
+**CURRENT AUTHORIZATION — next correction/exploration pass:** Dan approves CR-091–096 together: finish-gate lap recovery, property/fence/sign cleanup, permanent campsite, summit jump, hidden collectibles and persistent exploration map with safe free-roam fast travel. This supersedes earlier scope statements. Mountain race remains future backlog. No new game implementation or tests are claimed by this planning update.
 
 **CURRENT COMBINED SCOPE — 2026-09-20:** Implement CR-081 and CR-090 together. All following statements that still queue CR-081 describe prior scope and are superseded. Preserve the 0.14.0-review2 acceptance and its documented technical limitations, especially CR-087; do not claim new implementation/testing in this planning update.
 
