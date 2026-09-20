@@ -1,0 +1,27 @@
+PASS moto missed finish side=-1 height=0
+PASS No reverse/linger duplicate
+PASS moto missed finish side=1 height=0
+PASS No reverse/linger duplicate
+PASS moto missed finish side=-1 height=28
+PASS No reverse/linger duplicate
+PASS moto missed finish side=1 height=28
+PASS No reverse/linger duplicate
+PASS Final lap completes with five seconds / moto
+PASS Teleport cannot finish / moto
+PASS Initial outside crossing does not award / moto
+PASS moto sampled legal shortcut then airborne missed finish / Granite Saddle
+PASS moto sampled legal shortcut then airborne missed finish / Fern Gully
+PASS atv missed finish side=-1 height=0
+PASS No reverse/linger duplicate
+PASS atv missed finish side=1 height=0
+PASS No reverse/linger duplicate
+PASS atv missed finish side=-1 height=28
+PASS No reverse/linger duplicate
+PASS atv missed finish side=1 height=28
+PASS No reverse/linger duplicate
+PASS Final lap completes with five seconds / atv
+PASS Teleport cannot finish / atv
+PASS Initial outside crossing does not award / atv
+PASS atv sampled legal shortcut then airborne missed finish / Granite Saddle
+PASS atv sampled legal shortcut then airborne missed finish / Fern Gully
+PASS Final-lap HUD presents exactly one five-second penalty

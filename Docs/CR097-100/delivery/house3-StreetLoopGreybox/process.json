@@ -1,0 +1,11 @@
+{
+  "Name": "house3-StreetLoopGreybox",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\CR097-build-delivery\\Racer.exe",
+  "RuntimeAssemblySHA256": "4EE76FA63FF7DAEB90756F03E3008280B09B1619A0571CCBB448058E47C0CC47",
+  "Flags": "-racerSkipTitle -batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr097-6bc4367189bc4e3584e7b7430ab55094\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR097-100\\delivery\\house3-StreetLoopGreybox\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr097-delivery-house3-StreetLoopGreybox.log\" -propertyCheck driveway -course StreetLoopGreybox -testSpeed 1",
+  "PID": 45544,
+  "Timeout": false,
+  "Exit": 0,
+  "PeakWorkingSetMiB": 525.94,
+  "CompletedUtc": "2026-09-20T21:42:17.5672055Z"
+}

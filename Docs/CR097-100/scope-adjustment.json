@@ -1,0 +1,13 @@
+{
+  "reason": "User narrowed tests to actual changes; stop pending broad suites",
+  "stoppedParentPids": [
+    52572,
+    59136
+  ],
+  "termination": "taskkill process-tree after Stop-Process API error",
+  "partialEvidence": [
+    "release broad regression",
+    "portable-runtime pending map/finish"
+  ],
+  "retained": "All completed and partial output retained; partial runs are not claimed complete"
+}

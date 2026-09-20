@@ -148,7 +148,7 @@ namespace Racer
             int selected = buttons.FindIndex(b => EventSystem.current && EventSystem.current.currentSelectedGameObject == b.gameObject);
             if(selected<0) { int swatch=swatches.FindIndex(b=>EventSystem.current && EventSystem.current.currentSelectedGameObject==b.gameObject); if(swatch>=0) selected=buttons.Count+swatch; }
             if (selected >= 0) selections[shown] = selected;
-            shown = flow.State; shade.SetActive(flow.MenuVisible);
+            shown = flow.State; shade.SetActive(flow.MenuVisible && shown!=RaceFlow.Stage.Title);
             if(shown!=RaceFlow.Stage.Settings)musicPage=false;
             preview.gameObject.SetActive(shown==RaceFlow.Stage.Garage);
             previewCamera.enabled=shown==RaceFlow.Stage.Garage;
@@ -156,7 +156,7 @@ namespace Racer
             if (shown != RaceFlow.Stage.Results && shown!=RaceFlow.Stage.Paused) penaltyPage = -1;
             hudPanel.SetActive(!flow.MenuVisible);
             EventSystem.current.SetSelectedGameObject(null);
-            if (!flow.MenuVisible) return;
+            if (!flow.MenuVisible || shown==RaceFlow.Stage.Title) return;
             foreach (var b in buttons) b.gameObject.SetActive(false);
             card.GetComponent<UnityEngine.UI.VerticalLayoutGroup>().spacing=shown==RaceFlow.Stage.Garage?5:8;
             title.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=shown==RaceFlow.Stage.Garage?42:48;
@@ -415,7 +415,7 @@ namespace Racer
             if (flow.State == RaceFlow.Stage.Racing && flow.Race.Progress.Finished)
                 banner.text = "Finished — AI are racing. Pause to skip waiting / estimate AI.";
             if(!countdown && flow.PenaltyNotice!=null)banner.text=flow.PenaltyNotice;
-            if (flow.MenuVisible && flow.GetComponent<ExplorationMap>()?.OwnsInput!=true && EventSystem.current && !EventSystem.current.currentSelectedGameObject) EventSystem.current.SetSelectedGameObject(buttons[0].gameObject);
+            if (flow.MenuVisible && flow.State!=RaceFlow.Stage.Title && flow.GetComponent<ExplorationMap>()?.OwnsInput!=true && EventSystem.current && !EventSystem.current.currentSelectedGameObject) EventSystem.current.SetSelectedGameObject(buttons[0].gameObject);
         }
         void OnDestroy() { if(menuActions) { menuActions.Disable(); Destroy(menuActions); } if(submitReference) Destroy(submitReference); if(previewRoot) Destroy(previewRoot); if(previewCamera) Destroy(previewCamera.gameObject); if(previewTexture) { previewTexture.Release(); Destroy(previewTexture); } }
     }

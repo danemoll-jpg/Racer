@@ -1,0 +1,62 @@
+[
+  {
+    "Source": "C:\\Users\\danmo\\Racer\\Temp\\cr091-7d13afc3af414505ae2c928290f09032\\CleanLapGhosts\\forest-reverse-v5-discovery_reverse_atv_clean-lap-v1_handling-cr087-v1.json",
+    "Name": "forest-reverse-v5-discovery_reverse_atv_clean-lap-v1_handling-cr087-v1.json",
+    "SHA256": "9164377329420EB54E293C2BFB58ACDE0DA0C45AC801AF53A6A5D212E03E095B"
+  },
+  {
+    "Source": "C:\\Users\\danmo\\Racer\\Temp\\cr091-b35e4e3ea0c74121bc35f2be5a5f398a\\CleanLapGhosts\\forest-reverse-v5-discovery_reverse_moto_clean-lap-v1_handling-cr087-v1.json",
+    "Name": "forest-reverse-v5-discovery_reverse_moto_clean-lap-v1_handling-cr087-v1.json",
+    "SHA256": "92330ABEE60D5B9E7895C7E781A5F725F5BB79A3CA3CD036CF74E603A5A5F671"
+  },
+  {
+    "Source": "C:\\Users\\danmo\\Racer\\Temp\\cr091-de7484954d5449c88f8aaa5b15bec911\\CleanLapGhosts\\lake-v7-discovery_forward_atv_clean-lap-v1_handling-cr087-v1.json",
+    "Name": "lake-v7-discovery_forward_atv_clean-lap-v1_handling-cr087-v1.json",
+    "SHA256": "1F7AF0D8F85606AEAE19AAE20C8FBB593857A770B48C87ED29A173971C623E94"
+  },
+  {
+    "Source": "C:\\Users\\danmo\\Racer\\Temp\\cr091-54e7517fdfd940dd96edfe787e3772ba\\CleanLapGhosts\\lake-v7-discovery_forward_moto_clean-lap-v1_handling-cr087-v1.json",
+    "Name": "lake-v7-discovery_forward_moto_clean-lap-v1_handling-cr087-v1.json",
+    "SHA256": "1F173362677F8EC4BCF94E273474F1150FCC577B4E7933FD8F04313C00587DCB"
+  },
+  {
+    "Source": "C:\\Users\\danmo\\Racer\\Temp\\cr091-5c18f2f4d6294e09913afd0fe7010524\\CleanLapGhosts\\street-reverse-v5-discovery_reverse_atv_clean-lap-v1_handling-cr087-v1.json",
+    "Name": "street-reverse-v5-discovery_reverse_atv_clean-lap-v1_handling-cr087-v1.json",
+    "SHA256": "BA12E514F5C2B28C9BAB94EB133516F8B854511B6E0E0CFD75390BCB0D6E738D"
+  },
+  {
+    "Source": "C:\\Users\\danmo\\Racer\\Temp\\cr091-457af527e3c64580aa8a20c857c61510\\CleanLapGhosts\\street-reverse-v5-discovery_reverse_moto_clean-lap-v1_handling-cr087-v1.json",
+    "Name": "street-reverse-v5-discovery_reverse_moto_clean-lap-v1_handling-cr087-v1.json",
+    "SHA256": "4F277CB06BCB9031FE5CC45875621328D0C3CF26FCFAE78D41CC8AFC291681A6"
+  },
+  {
+    "Source": "C:\\Users\\danmo\\Racer\\Temp\\cr091-912f2641b4c34e43bfe5a2629158cad0\\CleanLapGhosts\\street-reverse-v5-discovery_reverse_original_clean-lap-v1_handling-cr087-v1.json",
+    "Name": "street-reverse-v5-discovery_reverse_original_clean-lap-v1_handling-cr087-v1.json",
+    "SHA256": "791F143A3E2F83796C3C91165482B3D1502C99EF1941EFD5B276A2E2FF1145F9"
+  },
+  {
+    "Source": "C:\\Users\\danmo\\Racer\\Temp\\cr091-d3aa8342934d4dbbb385ccaf3c8af7a7\\CleanLapGhosts\\street-reverse-v5-discovery_reverse_tourer_clean-lap-v1_handling-cr087-v1.json",
+    "Name": "street-reverse-v5-discovery_reverse_tourer_clean-lap-v1_handling-cr087-v1.json",
+    "SHA256": "BC61AFD04B1A5C2B2735FC433824AD41BE13282848603F57FD594CC73C450AE9"
+  },
+  {
+    "Source": "C:\\Users\\danmo\\Racer\\Temp\\cr091-e706b73117634bdf86ac3b27db1b7354\\CleanLapGhosts\\street-v14-discovery_forward_atv_clean-lap-v1_handling-cr087-v1.json",
+    "Name": "street-v14-discovery_forward_atv_clean-lap-v1_handling-cr087-v1.json",
+    "SHA256": "8D8EDBD7071D8FF117DF3DDB756A8D5972CEAB95922A08AEBF8A5F8801B12936"
+  },
+  {
+    "Source": "C:\\Users\\danmo\\Racer\\Temp\\cr091-7bb0bb1730e9445196c8486d0b0d071f\\CleanLapGhosts\\street-v14-discovery_forward_moto_clean-lap-v1_handling-cr087-v1.json",
+    "Name": "street-v14-discovery_forward_moto_clean-lap-v1_handling-cr087-v1.json",
+    "SHA256": "2C520BA20AB5223A5735E470030D4F3769F49585A77D259288C0462D058FA6C9"
+  },
+  {
+    "Source": "C:\\Users\\danmo\\Racer\\Temp\\cr091-e656d0819f004bdc8fb2d5c4671574d6\\CleanLapGhosts\\street-v14-discovery_forward_original_clean-lap-v1_handling-cr087-v1.json",
+    "Name": "street-v14-discovery_forward_original_clean-lap-v1_handling-cr087-v1.json",
+    "SHA256": "22258EE599FCCE6BEE32C2B0669E579D0808C4AC552DA611168E3B1A45907611"
+  },
+  {
+    "Source": "C:\\Users\\danmo\\Racer\\Temp\\cr091-6a2d772ce74a4f4a944fc69cfbd09dca\\CleanLapGhosts\\street-v14-discovery_forward_tourer_clean-lap-v1_handling-cr087-v1.json",
+    "Name": "street-v14-discovery_forward_tourer_clean-lap-v1_handling-cr087-v1.json",
+    "SHA256": "1B0949D736FC9ACE91B77E32C7E692F90BE62DA55FB9B5584A3190493B426139"
+  }
+]

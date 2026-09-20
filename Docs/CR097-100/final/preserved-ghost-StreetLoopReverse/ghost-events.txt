@@ -1,0 +1,2 @@
+Lap=0 misses=0 Clean-lap PB ghost / 02:37.609
+Lap=1 misses=0 Lap excluded from clean-lap ghosts: reset, teleport, missed gate or recording limit.

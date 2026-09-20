@@ -1,0 +1,18 @@
+PASS Cold startup owns screen before menu
+PASS Saved Master volume applied before title audio
+PASS No radio object or playback before menu
+PASS Exactly one enabled listener
+PASS Entire artwork contained at 1280x720
+PASS Artwork exact aspect ratio
+PASS Dismissal promptly stops both title sources
+PASS Held dismissal cannot submit menu
+PASS One transition to main menu; no accidental activation
+PASS Radio attaches only at menu; controller focus restored
+PASS No stale delayed title source after skip
+PASS Saved volume and radio On/Off preserved
+PASS Saved station selection preserved
+PASS Saved Radio Off stays silent at menu
+PASS Pause and Quit Race do not replay title
+PASS Countdown/race return does not replay title
+PASS Track change does not replay title
+PASS One radio after scene transition

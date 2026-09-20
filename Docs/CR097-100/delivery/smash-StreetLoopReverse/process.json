@@ -1,0 +1,11 @@
+{
+  "Name": "smash-StreetLoopReverse",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\CR097-build-delivery\\Racer.exe",
+  "RuntimeAssemblySHA256": "4EE76FA63FF7DAEB90756F03E3008280B09B1619A0571CCBB448058E47C0CC47",
+  "Flags": "-racerSkipTitle -batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr097-fee67f99ac2c477d807a71a7b11547b2\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR097-100\\delivery\\smash-StreetLoopReverse\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr097-delivery-smash-StreetLoopReverse.log\" -arcadeTest smash -course StreetLoopReverse",
+  "PID": 72740,
+  "Timeout": false,
+  "Exit": 0,
+  "PeakWorkingSetMiB": 650.96,
+  "CompletedUtc": "2026-09-20T21:55:05.1842099Z"
+}

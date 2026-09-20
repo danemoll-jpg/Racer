@@ -1,0 +1,11 @@
+{
+  "Name": "title-on-retry",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\CR097-integrate\\Racer.exe",
+  "RuntimeAssemblySHA256": "84839380A843D5DFEE0B73E16A2E9026ED10135666ABC8158B77AA6A7B15C902",
+  "Flags": " -batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr097-title-on\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR097-100\\candidate1\\title-on-retry\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr097-candidate1-title-on-retry.log\" -titleCheck early -held yes",
+  "PID": 11260,
+  "Timeout": false,
+  "Exit": 0,
+  "PeakWorkingSetMiB": 888.99,
+  "CompletedUtc": "2026-09-20T20:11:12.7867608Z"
+}

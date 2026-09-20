@@ -1,0 +1,11 @@
+{
+  "Name": "rules-LakeWoods",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\CR097-build-delivery\\Racer.exe",
+  "RuntimeAssemblySHA256": "4EE76FA63FF7DAEB90756F03E3008280B09B1619A0571CCBB448058E47C0CC47",
+  "Flags": "-racerSkipTitle -batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr097-f39db259209347578689bde962dcc592\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR097-100\\delivery\\rules-LakeWoods\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr097-delivery-rules-LakeWoods.log\" -arcadeTest rules -course LakeWoods",
+  "PID": 98636,
+  "Timeout": false,
+  "Exit": 0,
+  "PeakWorkingSetMiB": 839.73,
+  "CompletedUtc": "2026-09-20T21:46:54.6182657Z"
+}

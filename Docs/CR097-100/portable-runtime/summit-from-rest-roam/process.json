@@ -1,0 +1,11 @@
+{
+  "Name": "summit-from-rest-roam",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\CR097-build-portable\\Racer.exe",
+  "RuntimeAssemblySHA256": "3118C2702EC5EF37BD83C4DBA8279B9F04192237F593DB16941BD6B7EA36F8B3",
+  "Flags": "-racerSkipTitle -batchmode -screen-width 1280 -screen-height 800 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr097-9ebc8d969b754ce6831ae86de1697907\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR097-100\\portable-runtime\\summit-from-rest-roam\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr097-portable-runtime-summit-from-rest-roam.log\" -discoveryCheck summit -quick yes -fromRest yes -mode roam -testSpeed 1",
+  "PID": 54952,
+  "Timeout": false,
+  "Exit": 0,
+  "PeakWorkingSetMiB": 532.52,
+  "CompletedUtc": "2026-09-20T21:40:52.9114820Z"
+}

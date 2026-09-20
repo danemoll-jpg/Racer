@@ -1,0 +1,24 @@
+PASS Free roam enters directly without countdown
+PASS No AI race opponents; ambient traffic retained
+PASS Normal ambient traffic active
+PASS No race/lap clock in roam
+PASS Race gate renderers hidden
+PASS Authored jump, smash and two speed traps present
+PASS Roam crossings cannot advance gates/laps/penalties or write race records
+PASS Wrong-way guidance suppressed in roam
+PASS Deliberate challenge start
+PASS Pause freezes attempt time
+PASS Recovery cancels challenge without an award
+PASS RULE: repeated same eligible prop counts once per attempt
+PASS RULE: unrelated props cannot score
+PASS Deliberate retry clears distinct-prop set
+FAIL RULE: gold awarded only for distinct eligible prop target
+FAIL Activity PB/medal persisted under course/rules/vehicle category
+PASS RULE: airborne side impact invalidates a landing
+PASS RULE: retry midair requires a new grounded launch
+PASS Spawn/teleport drop does not earn an activity award
+PASS Vehicle categories separated
+PASS Roam to race restores countdown and clears activity state
+PASS Race AI/timer restored without stale warning
+PASS Race markers restored
+PASS Eligibility preserved

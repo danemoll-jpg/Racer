@@ -21,7 +21,7 @@ namespace Racer.Editor
             foreach(var mf in GameObject.Find("Memory loop - north is +Z").GetComponentsInChildren<MeshFilter>()){
                 var v=mf.sharedMesh.vertices;bool changed=false;
                 for(int i=0;i<v.Length;i++){var p=mf.transform.TransformPoint(v[i]);var q=adjust(p);if((p-q).sqrMagnitude>.000001f){v[i]=mf.transform.InverseTransformPoint(q);changed=true;}}
-                if(!changed)continue;var m=Object.Instantiate(mf.sharedMesh);m.vertices=v;m.RecalculateNormals();m.RecalculateBounds();mf.sharedMesh=MeshAsset(m,UnityEngine.SceneManagement.SceneManager.GetActiveScene().name+"-"+suffix+"-"+mf.name);mf.GetComponent<MeshCollider>().sharedMesh=mf.sharedMesh;
+                if(!changed)continue;var m=Object.Instantiate(mf.sharedMesh);m.vertices=v;m.RecalculateNormals();m.RecalculateBounds();mf.sharedMesh=MeshAsset(m,UnityEngine.SceneManagement.SceneManager.GetActiveScene().name+"-"+suffix+"-"+mf.name);var collider=mf.GetComponent<MeshCollider>();collider.sharedMesh=null;collider.sharedMesh=mf.sharedMesh;
             }Physics.SyncTransforms();
         }
         static void Save(){var scene=UnityEngine.SceneManagement.SceneManager.GetActiveScene();EditorSceneManager.MarkSceneDirty(scene);EditorSceneManager.SaveScene(scene);AssetDatabase.SaveAssets();}
@@ -49,6 +49,8 @@ namespace Racer.Editor
                 ClearTrees(p=>p.x>780&&p.x<1110&&p.z>148&&p.z<222);
                 File.WriteAllText(Evidence+"/first-geometry-"+race.gameObject.scene.name+".txt","Author origin (1070,145,190), west-facing lip (970,168.6,190), 24m width, supported landing x=810..948 z=178..202; approach from summit east; return via (794,115,129). Unpolished before ordinary-frame testing.");Save();
             }
+            // Fresh generation finishes with the corrected, tested geometry.
+            RefineSummit();
         }
         static void ClearTrees(Func<Vector3,bool> remove)
         {

@@ -1,0 +1,22 @@
+PASS Dan and House 2 fronts parallel without changing positions
+PASS Kyle has no remaining named fence
+PASS Dome tent and two seated campers retained
+PASS 22 hidden collectible clue cairns preserved
+FAIL Every repaired/retained fence endpoint grounded; endpoints=336 maxGap=0.5195313
+PASS Neighbor fencing retained across Kyle's street
+PASS original-in physically drove Summit approach and safe return; target=5/5 minUp=0.9196196 maxGap=1.186111
+PASS original-in safe local reset
+PASS original-out physically drove Summit approach and safe return; target=5/5 minUp=0.9235581 maxGap=0.8955994
+PASS original-out safe local reset
+PASS tourer-in physically drove Summit approach and safe return; target=5/5 minUp=0.9306263 maxGap=1.098358
+PASS tourer-in safe local reset
+PASS tourer-out physically drove Summit approach and safe return; target=5/5 minUp=0.929669 maxGap=0.9530182
+PASS tourer-out safe local reset
+PASS moto-in physically drove Summit approach and safe return; target=5/5 minUp=0.9679555 maxGap=1.377411
+PASS moto-in safe local reset
+PASS moto-out physically drove Summit approach and safe return; target=5/5 minUp=0.7793404 maxGap=1.201431
+PASS moto-out safe local reset
+PASS atv-in physically drove Summit approach and safe return; target=5/5 minUp=0.9549885 maxGap=1.200531
+PASS atv-in safe local reset
+PASS atv-out physically drove Summit approach and safe return; target=5/5 minUp=0.8507887 maxGap=1.12413
+PASS atv-out safe local reset

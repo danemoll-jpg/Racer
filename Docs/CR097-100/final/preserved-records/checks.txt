@@ -1,0 +1,1 @@
+PASS Cold relaunch retains real scored summit attempts and exact categories

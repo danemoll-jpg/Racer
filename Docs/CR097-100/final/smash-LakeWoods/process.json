@@ -1,0 +1,11 @@
+{
+  "Name": "smash-LakeWoods",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\CR097-build-final\\Racer.exe",
+  "RuntimeAssemblySHA256": "4EE76FA63FF7DAEB90756F03E3008280B09B1619A0571CCBB448058E47C0CC47",
+  "Flags": "-racerSkipTitle -batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr097-fd9618df68034bfea0a4002ed53c38f0\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR097-100\\final\\smash-LakeWoods\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr097-final-smash-LakeWoods.log\" -arcadeTest smash -course LakeWoods",
+  "PID": 76104,
+  "Timeout": false,
+  "Exit": 2,
+  "PeakWorkingSetMiB": 818.38,
+  "CompletedUtc": "2026-09-20T21:23:38.7946980Z"
+}

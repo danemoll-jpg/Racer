@@ -1,0 +1,30 @@
+PASS Dan and House 2 fronts parallel without changing positions
+PASS Kyle has no remaining named fence
+PASS Dome tent and two seated campers retained
+PASS 22 hidden collectible clue cairns preserved
+PASS Every repaired/retained fence endpoint grounded; endpoints=336 maxGap=0
+PASS Neighbor fencing retained across Kyle's street
+PASS original-in physically drove House 3 valley driveway; target=223/223 minUp=0.950143 maxGap=0.8380814
+PASS original-in driveway clear of fencing; broken=
+PASS original-in safe local reset
+PASS original-out physically drove House 3 valley driveway; target=223/223 minUp=0.9511271 maxGap=0.8733292
+PASS original-out driveway clear of fencing; broken=
+PASS original-out safe local reset
+PASS tourer-in physically drove House 3 valley driveway; target=223/223 minUp=0.950965 maxGap=0.9627991
+PASS tourer-in driveway clear of fencing; broken=
+PASS tourer-in safe local reset
+PASS tourer-out physically drove House 3 valley driveway; target=223/223 minUp=0.9530402 maxGap=0.9044418
+PASS tourer-out driveway clear of fencing; broken=
+PASS tourer-out safe local reset
+PASS moto-in physically drove House 3 valley driveway; target=223/223 minUp=0.9234248 maxGap=0.7839127
+PASS moto-in driveway clear of fencing; broken=
+PASS moto-in safe local reset
+PASS moto-out physically drove House 3 valley driveway; target=223/223 minUp=0.9470717 maxGap=0.800621
+PASS moto-out driveway clear of fencing; broken=
+PASS moto-out safe local reset
+PASS atv-in physically drove House 3 valley driveway; target=223/223 minUp=0.9269496 maxGap=0.8305435
+PASS atv-in driveway clear of fencing; broken=
+PASS atv-in safe local reset
+PASS atv-out physically drove House 3 valley driveway; target=223/223 minUp=0.9477946 maxGap=0.8186874
+PASS atv-out driveway clear of fencing; broken=
+PASS atv-out safe local reset

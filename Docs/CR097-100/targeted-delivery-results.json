@@ -1,0 +1,123 @@
+{
+  "title": [
+    {
+      "evidence": "portable-runtime/on-keyboard-720",
+      "passed": 21,
+      "failures": [],
+      "completed": true
+    },
+    {
+      "evidence": "portable-runtime/off-held-gamepad-800",
+      "passed": 22,
+      "failures": [],
+      "completed": true
+    },
+    {
+      "evidence": "portable-runtime/early-mouse-delayed-800",
+      "passed": 18,
+      "failures": [],
+      "completed": true
+    },
+    {
+      "evidence": "portable-runtime/targeted-audio-720",
+      "passed": 18,
+      "failures": [],
+      "completed": true
+    }
+  ],
+  "extractedTitle": [
+    {
+      "evidence": "extracted/title-720",
+      "passed": 22,
+      "failures": [],
+      "completed": true
+    },
+    {
+      "evidence": "extracted/title-800",
+      "passed": 22,
+      "failures": [],
+      "completed": true
+    }
+  ],
+  "changedProperties": [
+    {
+      "evidence": "delivery/house3-StreetLoopGreybox",
+      "passed": 30,
+      "failures": [],
+      "completed": true
+    },
+    {
+      "evidence": "delivery/rules-StreetLoopGreybox",
+      "passed": 24,
+      "failures": [],
+      "completed": true
+    },
+    {
+      "evidence": "delivery/smash-StreetLoopGreybox",
+      "passed": 8,
+      "failures": [],
+      "completed": true
+    },
+    {
+      "evidence": "delivery/house3-LakeWoods",
+      "passed": 18,
+      "failures": [],
+      "completed": true
+    },
+    {
+      "evidence": "delivery/rules-LakeWoods",
+      "passed": 24,
+      "failures": [],
+      "completed": true
+    },
+    {
+      "evidence": "delivery/smash-LakeWoods",
+      "passed": 4,
+      "failures": [],
+      "completed": true
+    },
+    {
+      "evidence": "delivery/house3-StreetLoopReverse",
+      "passed": 30,
+      "failures": [],
+      "completed": true
+    },
+    {
+      "evidence": "delivery/rules-StreetLoopReverse",
+      "passed": 24,
+      "failures": [],
+      "completed": true
+    },
+    {
+      "evidence": "delivery/smash-StreetLoopReverse",
+      "passed": 8,
+      "failures": [],
+      "completed": true
+    },
+    {
+      "evidence": "delivery/house3-ForestLoopReverse",
+      "passed": 18,
+      "failures": [],
+      "completed": true
+    },
+    {
+      "evidence": "delivery/rules-ForestLoopReverse",
+      "passed": 24,
+      "failures": [],
+      "completed": true
+    },
+    {
+      "evidence": "delivery/smash-ForestLoopReverse",
+      "passed": 4,
+      "failures": [],
+      "completed": true
+    }
+  ],
+  "finalFromRest": {
+    "cases": 8,
+    "completed": 8,
+    "safeReset": 8,
+    "nonScoringHardLandings": 8
+  },
+  "acceptance": "Physical driveway/startup assertions must complete; summit hard-landing score failure remains explicitly open. Not blanket system acceptance."
+}

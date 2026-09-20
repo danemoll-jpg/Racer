@@ -1,0 +1,18 @@
+{
+  "StreetLoopGreybox": {
+    "collectibleSitesByteIdenticalToSafety": true,
+    "characters": 4499
+  },
+  "LakeWoods": {
+    "collectibleSitesByteIdenticalToSafety": true,
+    "characters": 4503
+  },
+  "StreetLoopReverse": {
+    "collectibleSitesByteIdenticalToSafety": true,
+    "characters": 4499
+  },
+  "ForestLoopReverse": {
+    "collectibleSitesByteIdenticalToSafety": true,
+    "characters": 4505
+  }
+}

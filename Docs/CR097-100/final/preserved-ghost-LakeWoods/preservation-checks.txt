@@ -1,0 +1,12 @@
+PASS Original compatible ghost retained as active or backup: forest-reverse-v5-discovery_reverse_atv_clean-lap-v1_handling-cr087-v1.json
+PASS Original compatible ghost retained as active or backup: forest-reverse-v5-discovery_reverse_moto_clean-lap-v1_handling-cr087-v1.json
+PASS Original compatible ghost retained as active or backup: lake-v7-discovery_forward_atv_clean-lap-v1_handling-cr087-v1.json
+PASS Original compatible ghost retained as active or backup: lake-v7-discovery_forward_moto_clean-lap-v1_handling-cr087-v1.json
+PASS Original compatible ghost retained as active or backup: street-reverse-v5-discovery_reverse_atv_clean-lap-v1_handling-cr087-v1.json
+PASS Original compatible ghost retained as active or backup: street-reverse-v5-discovery_reverse_moto_clean-lap-v1_handling-cr087-v1.json
+PASS Original compatible ghost retained as active or backup: street-reverse-v5-discovery_reverse_original_clean-lap-v1_handling-cr087-v1.json
+PASS Original compatible ghost retained as active or backup: street-reverse-v5-discovery_reverse_tourer_clean-lap-v1_handling-cr087-v1.json
+PASS Original compatible ghost retained as active or backup: street-v14-discovery_forward_atv_clean-lap-v1_handling-cr087-v1.json
+PASS Original compatible ghost retained as active or backup: street-v14-discovery_forward_moto_clean-lap-v1_handling-cr087-v1.json
+PASS Original compatible ghost retained as active or backup: street-v14-discovery_forward_original_clean-lap-v1_handling-cr087-v1.json
+PASS Original compatible ghost retained as active or backup: street-v14-discovery_forward_tourer_clean-lap-v1_handling-cr087-v1.json

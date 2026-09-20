@@ -1,0 +1,5 @@
+course,mode,vehicle,speed,line,direction,travel,air,minUp,recovered,awards,completed
+Street Loop,roam,original,32,0,1,215.11,4.86,0.795,True,0,True
+Street Loop,roam,tourer,32,0,1,214.57,4.88,0.795,True,0,True
+Street Loop,roam,moto,32,0,1,218.44,4.98,0.794,True,0,True
+Street Loop,roam,atv,32,0,1,217.33,4.96,0.797,True,0,True

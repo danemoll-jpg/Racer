@@ -1,0 +1,11 @@
+{
+  "Name": "title-loop-800",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\CR097-integrate\\Racer.exe",
+  "RuntimeAssemblySHA256": "84839380A843D5DFEE0B73E16A2E9026ED10135666ABC8158B77AA6A7B15C902",
+  "Flags": " -batchmode -screen-width 1280 -screen-height 800 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr097-title-loop\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR097-100\\candidate1\\title-loop-800\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr097-candidate1-title-loop-800.log\" -titleCheck loops -titleInput gamepad -held yes",
+  "PID": 60972,
+  "Timeout": false,
+  "Exit": 0,
+  "PeakWorkingSetMiB": 894.25,
+  "CompletedUtc": "2026-09-20T20:14:21.2991625Z"
+}

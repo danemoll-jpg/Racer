@@ -1,0 +1,3 @@
+PASS original Granite Creek Cut normal #0 completes in 31.88s; recovery=0; misses=0
+PASS original Granite Creek Cut clean #0 completes in 27.89s; recovery=0; misses=0
+PASS original clean branch has actual entry, no penalty/recovery Granite Creek Cut

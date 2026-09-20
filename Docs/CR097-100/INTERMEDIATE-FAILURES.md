@@ -1,0 +1,20 @@
+# CR-097–100 validation
+
+IN PROGRESS — do not treat this working report as final delivery or acceptance.
+
+Reviewed baseline: 0.16.0-review3. Baseline ordinary-frame summit center runs are preserved in `Docs/CR091-096/cr097-baseline`: four vehicles, about 3 seconds airborne, local resets successful. That harness did not prove crest clearance or a clean giant-jump landing.
+
+The preliminary player `CR097-first-geometry` was built before the queued scene mutation completed; it is **not** corrected-geometry evidence. `CR097-corrected-first` contains the first corrected geometry. Its `first-playable` evidence records ordinary fixed-update driving at timeScale=1, with takeoff/crest/first-contact positions, speed/contact traces, uninterrupted airtime and gameplay views. The first center pass measured 4.86–4.98 seconds continuous flight, crest underside clearance 35.84–36.75m, stable eventual support and successful local resets. The activity system rejects these as hard landings; those zero-score results are failures, not erased by the physical crest clearance.
+
+All ordinary checks use temporary mute in isolated project Temp saves. Automated virtual input is not a physical controller or Steam Deck test. DSP samples are before the OS endpoint and do not constitute subjective listening.
+
+Retained baseline reports: CR-087 ramp/edge failures, Creek Leap/Granite Saddle shortcut failures, AI finish-grace/timing failures and neighborhood performance spikes remain open unless explicitly reproduced and fixed here. Earlier reports and raw evidence remain in their original folders. Map/exploration remains awaiting Dan's further testing.
+
+Intermediate fixture limitations: candidate1 title-on used an explicit skip-title flag and correctly exited with a failed startup check; the runner was corrected. Reused title-save fixtures were initially overwritten by the generic muted-save initialization, so the first loop test did not actually establish Radio Off behavior. The runner now preserves supplied isolated settings. The earlier 800px screen test captured through a 720px-only helper; final captures use the actual requested dimensions. Candidate1 House 3 collided with the house at the last bend in all eight in/out runs; every local reset succeeded. The route is being corrected, and these failures remain recorded.
+
+
+Intermediate candidate2 retained failures: its driveway crossed an upper segment near (465,34,-194), putting another drive surface about 31m overhead. All eight in/out traversals failed and all local resets passed. The final route was changed to a noncrossing southern approach. Twelve fence endpoints differed from the actual upper driveway surface by up to 0.520m; the grounding helper now samples the highest Ground_* collider, followed by another compiled audit. Candidate2 summit access passed all eight in/out vehicle tests. Its genuine Radio Off/Master 0, held virtual gamepad, three-loop 1280x800 title test passed all 22 assertions; full art was visually inspected in the 1280x800 capture.
+
+Reviewed baseline ordinary-trail reproduction completed separately in reviewed-baseline/ordinary-trail-approaches. Mountain/lakeshore routes completed both ways. Summit access/return completed both ways, but reverse minimum up was 0.576. Kyle downhill completed with minimum up 0.386; reverse did not complete (36.9/98.1m). All eight local resets succeeded. This later baseline run does not retroactively establish that the user's ordinary summit-discovery problem was reproduced before edits: the pre-edit baseline evidence was the narrower ramp-centered fixture.
+
+Candidate3 House 3: all eight physical in/out runs and all resets passed (minimum up 0.928 or better). Visual review caught a raised road-apron edge and the fence audit still found six endpoints above the 0.3m threshold (maximum 0.384m). These prompted a road-conforming apron and explicit collision-mesh recooking in the terrain generator. The sign-centered gate opening and a no-fence-break traversal assertion were added before final release validation. None of these intermediate candidates replaced Builds/Latest.

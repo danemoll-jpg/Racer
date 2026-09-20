@@ -11,11 +11,13 @@ namespace Racer.Editor
     public static partial class DiscoveryAuthoring
     {
         static Transform worldRoot;static RaceRoad street;static RaceDirector owner;static int piece;
-        static Vector3 Ground(Vector3 p){p.y=Phase6Buildings.Ground(p);return p;}
+        static Vector3 Ground(Vector3 p){p.y=Physics.RaycastAll(new Vector3(p.x,300,p.z),Vector3.down,600).Where(h=>h.collider.name.StartsWith("Ground_")).Select(h=>h.point.y).Append(Phase6Buildings.Ground(p)).Max();return p;}
         static void Beam(Transform root,string name,Vector3 a,Vector3 b,float width,Material mat){var t=Part(root,name,(a+b)*.5f,new(width,width,Vector3.Distance(a,b)),mat);t.localRotation=Quaternion.LookRotation(b-a);}
         static void Fence(Vector3 a,Vector3 b,bool chain)
         {
             a=Ground(a);b=Ground(b);var r=new GameObject(chain?"Grounded roadside chain-link":"Grounded wood crossbuck").transform;r.SetParent(worldRoot);r.position=a;
+            var endpointA=new GameObject("Fence endpoint A").transform;endpointA.SetParent(r,false);
+            var endpointB=new GameObject("Fence endpoint B").transform;endpointB.SetParent(r,false);endpointB.localPosition=b-a;
             var m=Mat(chain?"Fence galvanized":"Fence white wood",chain?new(.47f,.52f,.51f):new(.87f,.85f,.77f));var q=b-a;
             foreach(var p in new[]{Vector3.zero,q})Part(r,"Terrain seated post",p+Vector3.up*.8f,new(.14f,1.7f,.14f),m);
             foreach(float h in new[]{.25f,1.4f})Beam(r,"Terrain following rail",Vector3.up*h,q+Vector3.up*h,.09f,m);
@@ -92,6 +94,8 @@ namespace Racer.Editor
                 Properties();Campsite();Collectibles();Signs();Map();
                 owner.courseId=owner.gameObject.scene.name switch{"StreetLoopGreybox"=>"street-v14-discovery","LakeWoods"=>"lake-v7-discovery","StreetLoopReverse"=>"street-reverse-v5-discovery",_=>"forest-reverse-v5-discovery"};Save();
             }
+            CorrectPropertiesAndProps();
+            CorrectGuidanceAndMap();
         }
     }
 }

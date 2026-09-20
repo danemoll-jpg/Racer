@@ -1,0 +1,65 @@
+course,vehicle,route,mode,repeat,seconds,recoveries,misses,maxLateral,minUpright,finished
+Street Loop,original,Creek Leap,normal,0,26.286,0,0,0.000,0.888,True
+Street Loop,original,Creek Leap,clean,0,26.064,1,0,27.153,0.881,True
+Street Loop,original,Creek Leap,imperfect,0,30.706,1,0,27.098,0.879,True
+Street Loop,original,Creek Leap,recovery,0,27.795,1,0,27.201,0.881,True
+Street Loop,original,Fox Gully,normal,0,23.462,0,0,0.000,0.961,True
+Street Loop,original,Fox Gully,clean,0,23.673,0,0,6.764,0.972,True
+Street Loop,original,Fox Gully,imperfect,0,28.196,0,0,6.386,0.973,True
+Street Loop,original,Fox Gully,recovery,0,25.030,0,0,6.604,0.972,True
+Street Loop,original,Pine Ridge,normal,0,27.814,0,0,0.000,0.982,True
+Street Loop,original,Pine Ridge,clean,0,24.213,0,0,2.792,0.984,True
+Street Loop,original,Pine Ridge,imperfect,0,28.412,0,0,1.774,0.984,True
+Street Loop,original,Pine Ridge,recovery,0,25.749,0,0,2.807,0.984,True
+Street Loop,original,Existing Southwest Cut,normal,0,11.758,0,0,0.000,0.999,True
+Street Loop,original,Existing Southwest Cut,clean,0,11.004,0,0,2.243,1.000,True
+Street Loop,original,Existing Southwest Cut,imperfect,0,15.264,0,0,4.577,1.000,True
+Street Loop,original,Existing Southwest Cut,recovery,0,12.150,0,0,2.245,1.000,True
+Street Loop,tourer,Creek Leap,normal,0,26.526,0,0,0.000,0.882,True
+Street Loop,tourer,Creek Leap,clean,0,22.698,0,0,25.893,0.882,True
+Street Loop,tourer,Creek Leap,imperfect,0,27.867,0,0,26.464,0.881,True
+Street Loop,tourer,Creek Leap,recovery,0,24.029,0,0,26.466,0.882,True
+Street Loop,tourer,Fox Gully,normal,0,23.643,0,0,0.000,0.961,True
+Street Loop,tourer,Fox Gully,clean,0,23.604,0,0,5.377,0.972,True
+Street Loop,tourer,Fox Gully,imperfect,0,28.288,0,0,5.723,0.972,True
+Street Loop,tourer,Fox Gully,recovery,0,24.979,0,0,5.603,0.972,True
+Street Loop,tourer,Pine Ridge,normal,0,27.705,0,0,0.000,0.982,True
+Street Loop,tourer,Pine Ridge,clean,0,24.155,0,0,2.823,0.984,True
+Street Loop,tourer,Pine Ridge,imperfect,0,28.598,0,0,1.991,0.984,True
+Street Loop,tourer,Pine Ridge,recovery,0,25.918,0,0,2.823,0.984,True
+Street Loop,tourer,Existing Southwest Cut,normal,0,11.857,0,0,0.000,1.000,True
+Street Loop,tourer,Existing Southwest Cut,clean,0,11.123,0,0,2.343,1.000,True
+Street Loop,tourer,Existing Southwest Cut,imperfect,0,15.315,0,0,4.343,1.000,True
+Street Loop,tourer,Existing Southwest Cut,recovery,0,12.280,0,0,2.344,1.000,True
+Street Loop,moto,Creek Leap,normal,0,24.432,0,0,0.000,0.878,True
+Street Loop,moto,Creek Leap,clean,0,21.275,0,0,36.983,0.878,True
+Street Loop,moto,Creek Leap,imperfect,0,25.028,0,0,34.343,0.877,True
+Street Loop,moto,Creek Leap,recovery,0,22.632,0,0,35.534,0.878,True
+Street Loop,moto,Fox Gully,normal,0,21.945,0,0,0.000,0.958,True
+Street Loop,moto,Fox Gully,clean,0,21.736,0,0,10.646,0.919,True
+Street Loop,moto,Fox Gully,imperfect,0,25.988,0,0,10.634,0.909,True
+Street Loop,moto,Fox Gully,recovery,0,22.857,0,0,10.622,0.863,True
+Street Loop,moto,Pine Ridge,normal,0,24.565,0,0,0.000,0.982,True
+Street Loop,moto,Pine Ridge,clean,0,22.357,0,0,2.948,0.982,True
+Street Loop,moto,Pine Ridge,imperfect,0,26.382,0,0,2.450,0.982,True
+Street Loop,moto,Pine Ridge,recovery,0,23.617,0,0,2.941,0.982,True
+Street Loop,moto,Existing Southwest Cut,normal,0,10.245,0,0,0.000,1.000,True
+Street Loop,moto,Existing Southwest Cut,clean,0,10.321,0,0,1.836,1.000,True
+Street Loop,moto,Existing Southwest Cut,imperfect,0,14.209,0,0,4.086,1.000,True
+Street Loop,moto,Existing Southwest Cut,recovery,0,11.189,0,0,1.836,1.000,True
+Street Loop,atv,Creek Leap,normal,0,27.727,0,0,0.000,0.877,True
+Street Loop,atv,Creek Leap,clean,0,27.244,1,0,26.589,0.877,True
+Street Loop,atv,Creek Leap,imperfect,0,31.990,1,0,27.130,0.876,True
+Street Loop,atv,Creek Leap,recovery,0,29.000,1,0,27.226,0.877,True
+Street Loop,atv,Fox Gully,normal,0,24.880,0,0,0.000,0.959,True
+Street Loop,atv,Fox Gully,clean,0,23.488,0,0,2.462,0.972,True
+Street Loop,atv,Fox Gully,imperfect,0,27.652,0,0,5.429,0.972,True
+Street Loop,atv,Fox Gully,recovery,0,24.418,0,0,2.462,0.975,True
+Street Loop,atv,Pine Ridge,normal,0,25.507,0,0,0.000,0.982,True
+Street Loop,atv,Pine Ridge,clean,0,24.324,0,0,2.891,0.983,True
+Street Loop,atv,Pine Ridge,imperfect,0,28.563,0,0,1.668,0.983,True
+Street Loop,atv,Pine Ridge,recovery,0,25.678,0,0,2.893,0.982,True
+Street Loop,atv,Existing Southwest Cut,normal,0,10.671,0,0,0.000,1.000,True
+Street Loop,atv,Existing Southwest Cut,clean,0,10.533,0,0,1.791,1.000,True
+Street Loop,atv,Existing Southwest Cut,imperfect,0,14.585,0,0,4.469,1.000,True
+Street Loop,atv,Existing Southwest Cut,recovery,0,11.467,0,0,1.793,1.000,True

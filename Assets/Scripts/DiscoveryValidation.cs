@@ -26,6 +26,7 @@ namespace Racer
         {
             var root=GameObject.Find("CR094 summit launch").transform;var touch=car.gameObject.AddComponent<DiscoveryContacts>();touch.owner=this;
             File.WriteAllText(dir+"/ramps.csv","course,mode,vehicle,speed,line,direction,travel,air,minUp,recovered,awards,completed\n");
+            File.WriteAllText(dir+"/flight.csv","vehicle,speed,line,launchX,launchY,launchZ,launchSpeed,crestX,crestY,crestZ,crestGround,crestClearance,landingX,landingY,landingZ,landingSpeed,longestFlight,peakY\n");
             foreach(var profile in race.EligibleVehicles)
             foreach(float speed in Arg("-quick")=="yes"?new[]{32f}:new[]{24f,32f,40f})
             foreach(float line in Arg("-quick")=="yes"?new[]{0f}:new[]{0f,-6f,6f,-(12-profile.Size.x*.5f),12-profile.Size.x*.5f})
@@ -35,16 +36,21 @@ namespace Racer
                 Time.timeScale=float.TryParse(Arg("-testSpeed","1"),out var rate)?rate:1;
                 car.enabled=false;car.GetComponent<VehicleInput>().enabled=false;bool reverse=Arg("-opposite")=="yes";var f=root.forward*(reverse?-1:1);float z=reverse?245:5;
                 var p=root.TransformPoint(new Vector3(line,0,z));var hits=Physics.RaycastAll(p+Vector3.up*100,Vector3.down,200).Where(h=>h.collider.name.StartsWith("Ground_")).OrderBy(h=>h.distance).ToArray();p.y=hits[0].point.y+car.suspensionLength-.12f;
-                car.Body.position=p;car.Body.rotation=Quaternion.LookRotation(f);car.transform.SetPositionAndRotation(p,car.Body.rotation);car.Body.linearVelocity=f*speed;car.Body.angularVelocity=Vector3.zero;car.ClearSteering();Physics.SyncTransforms();FindAnyObjectByType<ChaseCamera>()?.Snap();flow.Activities.NewSession();race.ResetSampling(p,Time.timeAsDouble);
-                float began=Time.time,minUp=1,air=0,travel=0;int awards=flow.Activities.Awards;bool complete=false;string id=profile.Id+"-"+speed+"-"+line;int settled=0;
+                car.Body.position=p;car.Body.rotation=Quaternion.LookRotation(f);car.transform.SetPositionAndRotation(p,car.Body.rotation);car.Body.linearVelocity=f*(Arg("-fromRest")=="yes"?0:speed);car.Body.angularVelocity=Vector3.zero;car.ClearSteering();Physics.SyncTransforms();FindAnyObjectByType<ChaseCamera>()?.Snap();flow.Activities.NewSession();race.ResetSampling(p,Time.timeAsDouble);
+                float began=Time.time,minUp=1,air=0,travel=0,continuousAir=0,longestAir=0,peakY=p.y,launchSpeed=0,landingSpeed=0,crestGround=0,crestClearance=0;Vector3 launch=Vector3.zero,crest=Vector3.zero,landing=Vector3.zero;bool launched=false,crested=false,landed=false;int awards=flow.Activities.Awards;bool complete=false;string id=profile.Id+"-"+speed+"-"+line;int settled=0;
                 using(var trace=new StreamWriter(dir+"/"+id+".csv")){
                     trace.WriteLine("time,x,y,z,speed,vx,vy,vz,throttle,brake,steer,wheels,suspension,alignment,up,contact");
                     while(Time.time-began<22){var local=root.InverseTransformPoint(car.Body.position);float yaw=Vector3.SignedAngle(Vector3.ProjectOnPlane(car.transform.forward,Vector3.up),f,Vector3.up);float steer=Mathf.Clamp(yaw*.045f+(line-local.x)*(reverse?-.10f:.10f),-.5f,.5f);float throttle=Mathf.Clamp01((speed-car.ForwardSpeed)*.5f),brake=car.ForwardSpeed>speed+1?.2f:0;
                         car.Simulate(throttle,brake,steer,Time.fixedDeltaTime);yield return new WaitForFixedUpdate();var q=car.Body.position;var v=car.Body.linearVelocity;minUp=Mathf.Min(minUp,car.transform.up.y);if(car.GroundedWheels<2)air+=Time.fixedDeltaTime;travel=Vector3.Dot(q-p,f);
                         trace.WriteLine($"{Time.time-began:F3},{q.x:F3},{q.y:F3},{q.z:F3},{car.ForwardSpeed:F3},{v.x:F3},{v.y:F3},{v.z:F3},{throttle:F3},{brake:F3},{steer:F3},{car.GroundedWheels},{car.SuspensionLift:F3},{car.AlignmentTorque:F3},{car.transform.up.y:F3},\"{contacts}\"");contacts="";
+                        peakY=Mathf.Max(peakY,q.y);continuousAir=car.GroundedWheels<2?continuousAir+Time.fixedDeltaTime:0;longestAir=Mathf.Max(longestAir,continuousAir);
+                        if(!reverse&&!launched&&local.z>98&&car.GroundedWheels<2){launched=true;launch=q;launchSpeed=car.ForwardSpeed;if(line==0)ThreeFeatureValidation.CaptureUi(dir+"/"+id+"-launch.png");}
+                        if(launched&&!crested&&local.z>=125){crested=true;crest=q;var ground=Physics.RaycastAll(q+Vector3.up*150,Vector3.down,400).Where(h=>h.collider.name.StartsWith("Ground_")).OrderBy(h=>h.distance).First();crestGround=ground.point.y;crestClearance=car.GetComponent<Collider>().bounds.min.y-crestGround;if(line==0)ThreeFeatureValidation.CaptureUi(dir+"/"+id+"-crest.png");}
+                        if(launched&&!landed&&local.z>132&&longestAir>1&&car.GroundedWheels>=2){landed=true;landing=q;landingSpeed=car.ForwardSpeed;if(line==0)ThreeFeatureValidation.CaptureUi(dir+"/"+id+"-landing.png");}
                         if(travel>200&&car.GroundedWheels>=2&&car.transform.up.y>.7f)settled++;else settled=0;if(settled>=20){complete=true;break;}if(Mathf.Abs(local.x)>45)break;
                     }
                 }
+                File.AppendAllText(dir+"/flight.csv",$"{profile.Id},{speed},{line},{launch.x:F3},{launch.y:F3},{launch.z:F3},{launchSpeed:F3},{crest.x:F3},{crest.y:F3},{crest.z:F3},{crestGround:F3},{crestClearance:F3},{landing.x:F3},{landing.y:F3},{landing.z:F3},{landingSpeed:F3},{longestAir:F3},{peakY:F3}\n");
                 ThreeFeatureValidation.CaptureUi(dir+"/"+id+".png");bool recovered=car.GetComponent<VehicleRespawn>().TryRecoverLocal();File.AppendAllText(dir+"/ramps.csv",$"{race.courseName},{(racing?"race":"roam")},{profile.Id},{speed},{line},{(reverse?-1:1)},{travel:F2},{air:F2},{minUp:F3},{recovered},{flow.Activities.Awards-awards},{complete}\n");car.enabled=true;
             }
         }

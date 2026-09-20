@@ -1,0 +1,206 @@
+{
+  "tag": "final",
+  "assertions": 348,
+  "passed": 317,
+  "failures": [
+    {
+      "file": "final\\preserved-ghost-ForestLoopReverse\\checks.txt",
+      "text": "FAIL forest-reverse-v5-discovery moto completed 0/1 laps; misses=0; recoveries=100; adjusted=1200.004567"
+    },
+    {
+      "file": "final\\preserved-ghost-ForestLoopReverse\\checks.txt",
+      "text": "FAIL forest-reverse-v5-discovery moto completed 0/1 laps; misses=0; recoveries=100; adjusted=1200.004567"
+    },
+    {
+      "file": "final\\preserved-ghost-ForestLoopReverse\\checks.txt",
+      "text": "FAIL forest-reverse-v5-discovery moto completed 0/1 laps; misses=0; recoveries=96; adjusted=1200.004567"
+    },
+    {
+      "file": "final\\preserved-ghost-ForestLoopReverse\\checks.txt",
+      "text": "FAIL forest-reverse-v5-discovery atv completed 0/1 laps; misses=0; recoveries=88; adjusted=1200.004567"
+    },
+    {
+      "file": "final\\preserved-ghost-ForestLoopReverse\\checks.txt",
+      "text": "FAIL Completed player race creates one total entry"
+    },
+    {
+      "file": "final\\preserved-ghost-StreetLoopReverse\\checks.txt",
+      "text": "FAIL street-reverse-v5-discovery moto completed 0/1 laps; misses=0; recoveries=10; adjusted=230.204891"
+    },
+    {
+      "file": "final\\preserved-ghost-StreetLoopReverse\\checks.txt",
+      "text": "FAIL street-reverse-v5-discovery atv completed 0/1 laps; misses=0; recoveries=8; adjusted=230.204891"
+    },
+    {
+      "file": "final\\smash-ForestLoopReverse\\checks.txt",
+      "text": "FAIL moto PHYSICAL distinct fence contacts; count=0 elapsed=8.04"
+    },
+    {
+      "file": "final\\smash-ForestLoopReverse\\checks.txt",
+      "text": "FAIL moto retry preserves PB and clears count"
+    },
+    {
+      "file": "final\\smash-ForestLoopReverse\\checks.txt",
+      "text": "FAIL atv PHYSICAL distinct fence contacts; count=0 elapsed=8.03"
+    },
+    {
+      "file": "final\\smash-ForestLoopReverse\\checks.txt",
+      "text": "FAIL atv retry preserves PB and clears count"
+    },
+    {
+      "file": "final\\smash-LakeWoods\\checks.txt",
+      "text": "FAIL moto PHYSICAL distinct fence contacts; count=0 elapsed=8.03"
+    },
+    {
+      "file": "final\\smash-LakeWoods\\checks.txt",
+      "text": "FAIL moto retry preserves PB and clears count"
+    },
+    {
+      "file": "final\\smash-LakeWoods\\checks.txt",
+      "text": "FAIL atv PHYSICAL distinct fence contacts; count=0 elapsed=8.03"
+    },
+    {
+      "file": "final\\smash-LakeWoods\\checks.txt",
+      "text": "FAIL atv retry preserves PB and clears count"
+    },
+    {
+      "file": "final\\smash-StreetLoopGreybox\\checks.txt",
+      "text": "FAIL original PHYSICAL distinct fence contacts; count=0 elapsed=8.01"
+    },
+    {
+      "file": "final\\smash-StreetLoopGreybox\\checks.txt",
+      "text": "FAIL original retry preserves PB and clears count"
+    },
+    {
+      "file": "final\\smash-StreetLoopGreybox\\checks.txt",
+      "text": "FAIL tourer PHYSICAL distinct fence contacts; count=0 elapsed=8.05"
+    },
+    {
+      "file": "final\\smash-StreetLoopGreybox\\checks.txt",
+      "text": "FAIL tourer retry preserves PB and clears count"
+    },
+    {
+      "file": "final\\smash-StreetLoopGreybox\\checks.txt",
+      "text": "FAIL moto PHYSICAL distinct fence contacts; count=0 elapsed=8.02"
+    },
+    {
+      "file": "final\\smash-StreetLoopGreybox\\checks.txt",
+      "text": "FAIL moto retry preserves PB and clears count"
+    },
+    {
+      "file": "final\\smash-StreetLoopGreybox\\checks.txt",
+      "text": "FAIL atv PHYSICAL distinct fence contacts; count=0 elapsed=8.04"
+    },
+    {
+      "file": "final\\smash-StreetLoopGreybox\\checks.txt",
+      "text": "FAIL atv retry preserves PB and clears count"
+    },
+    {
+      "file": "final\\smash-StreetLoopReverse\\checks.txt",
+      "text": "FAIL original PHYSICAL distinct fence contacts; count=0 elapsed=8.05"
+    },
+    {
+      "file": "final\\smash-StreetLoopReverse\\checks.txt",
+      "text": "FAIL original retry preserves PB and clears count"
+    },
+    {
+      "file": "final\\smash-StreetLoopReverse\\checks.txt",
+      "text": "FAIL tourer PHYSICAL distinct fence contacts; count=0 elapsed=8.04"
+    },
+    {
+      "file": "final\\smash-StreetLoopReverse\\checks.txt",
+      "text": "FAIL tourer retry preserves PB and clears count"
+    },
+    {
+      "file": "final\\smash-StreetLoopReverse\\checks.txt",
+      "text": "FAIL moto PHYSICAL distinct fence contacts; count=0 elapsed=8.05"
+    },
+    {
+      "file": "final\\smash-StreetLoopReverse\\checks.txt",
+      "text": "FAIL moto retry preserves PB and clears count"
+    },
+    {
+      "file": "final\\smash-StreetLoopReverse\\checks.txt",
+      "text": "FAIL atv PHYSICAL distinct fence contacts; count=0 elapsed=8.03"
+    },
+    {
+      "file": "final\\smash-StreetLoopReverse\\checks.txt",
+      "text": "FAIL atv retry preserves PB and clears count"
+    }
+  ],
+  "processes": 31,
+  "incompleteProcesses": [
+    {
+      "Name": "smash-ForestLoopReverse",
+      "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\CR097-build-final\\Racer.exe",
+      "RuntimeAssemblySHA256": "4EE76FA63FF7DAEB90756F03E3008280B09B1619A0571CCBB448058E47C0CC47",
+      "Flags": "-racerSkipTitle -batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr097-fcb351c8323f4345b06977a3d564e4aa\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR097-100\\final\\smash-ForestLoopReverse\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr097-final-smash-ForestLoopReverse.log\" -arcadeTest smash -course ForestLoopReverse",
+      "PID": 95896,
+      "Timeout": false,
+      "Exit": 2,
+      "PeakWorkingSetMiB": 839.01,
+      "CompletedUtc": "2026-09-20T21:28:57.0356669Z",
+      "evidence": "final\\smash-ForestLoopReverse"
+    },
+    {
+      "Name": "smash-LakeWoods",
+      "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\CR097-build-final\\Racer.exe",
+      "RuntimeAssemblySHA256": "4EE76FA63FF7DAEB90756F03E3008280B09B1619A0571CCBB448058E47C0CC47",
+      "Flags": "-racerSkipTitle -batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr097-fd9618df68034bfea0a4002ed53c38f0\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR097-100\\final\\smash-LakeWoods\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr097-final-smash-LakeWoods.log\" -arcadeTest smash -course LakeWoods",
+      "PID": 76104,
+      "Timeout": false,
+      "Exit": 2,
+      "PeakWorkingSetMiB": 818.38,
+      "CompletedUtc": "2026-09-20T21:23:38.7946980Z",
+      "evidence": "final\\smash-LakeWoods"
+    },
+    {
+      "Name": "smash-StreetLoopGreybox",
+      "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\CR097-build-final\\Racer.exe",
+      "RuntimeAssemblySHA256": "4EE76FA63FF7DAEB90756F03E3008280B09B1619A0571CCBB448058E47C0CC47",
+      "Flags": "-racerSkipTitle -batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr097-40d9a7b7749344e18faa28aac6a81228\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR097-100\\final\\smash-StreetLoopGreybox\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr097-final-smash-StreetLoopGreybox.log\" -arcadeTest smash -course StreetLoopGreybox",
+      "PID": 102080,
+      "Timeout": false,
+      "Exit": 2,
+      "PeakWorkingSetMiB": 590.12,
+      "CompletedUtc": "2026-09-20T21:21:33.6555869Z",
+      "evidence": "final\\smash-StreetLoopGreybox"
+    },
+    {
+      "Name": "smash-StreetLoopReverse",
+      "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\CR097-build-final\\Racer.exe",
+      "RuntimeAssemblySHA256": "4EE76FA63FF7DAEB90756F03E3008280B09B1619A0571CCBB448058E47C0CC47",
+      "Flags": "-racerSkipTitle -batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr097-82b0bee8e73d4c8eaafda920a8932064\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR097-100\\final\\smash-StreetLoopReverse\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr097-final-smash-StreetLoopReverse.log\" -arcadeTest smash -course StreetLoopReverse",
+      "PID": 67644,
+      "Timeout": false,
+      "Exit": 2,
+      "PeakWorkingSetMiB": 650.03,
+      "CompletedUtc": "2026-09-20T21:26:46.0098683Z",
+      "evidence": "final\\smash-StreetLoopReverse"
+    }
+  ],
+  "summitCases": 376,
+  "forwardCases": 364,
+  "summitNonScoring": 364,
+  "summitFailedCompletion": [],
+  "summitFailedReset": [],
+  "summitInstability": [],
+  "flightRanges": {
+    "longestFlight": [
+      4.0,
+      5.74
+    ],
+    "crestClearance": [
+      31.084,
+      38.938
+    ],
+    "launchSpeed": [
+      22.223,
+      37.972
+    ],
+    "landingSpeed": [
+      16.874,
+      28.342
+    ]
+  }
+}

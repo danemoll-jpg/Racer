@@ -1,0 +1,11 @@
+{
+  "Name": "shortcuts-LakeWoods",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\Racer-0.17.0-review1-Windows\\Racer.exe",
+  "RuntimeAssemblySHA256": "4EE76FA63FF7DAEB90756F03E3008280B09B1619A0571CCBB448058E47C0CC47",
+  "Flags": "-racerSkipTitle -batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr097-12b1dd10a5be486eabbd048d5182349c\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR097-100\\release\\shortcuts-LakeWoods\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr097-release-shortcuts-LakeWoods.log\" -reverseReview routes -course LakeWoods -repeats 1 -testSpeed 6",
+  "PID": 102156,
+  "Timeout": false,
+  "Exit": 0,
+  "PeakWorkingSetMiB": 813.51,
+  "CompletedUtc": "2026-09-20T21:31:29.2646280Z"
+}

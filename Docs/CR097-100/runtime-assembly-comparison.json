@@ -1,0 +1,14 @@
+{
+  "Racer-0.17.0-review1-Windows": {
+    "sha256": "4ee76fa63ff7daeb90756f03e3008280b09b1619a0571ccbb448058e47c0cc47",
+    "fromRestFixturePresent": false
+  },
+  "CR097-build-final": {
+    "sha256": "4ee76fa63ff7daeb90756f03e3008280b09b1619a0571ccbb448058e47c0cc47",
+    "fromRestFixturePresent": false
+  },
+  "CR097-build-delivery": {
+    "sha256": "4ee76fa63ff7daeb90756f03e3008280b09b1619a0571ccbb448058e47c0cc47",
+    "fromRestFixturePresent": false
+  }
+}

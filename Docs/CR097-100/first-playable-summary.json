@@ -1,0 +1,30 @@
+{
+  "Cases": 60,
+  "ContinuousFlightSeconds": {
+    "Count": 60,
+    "Average": null,
+    "Sum": null,
+    "Maximum": 5.74,
+    "Minimum": 4.0,
+    "StandardDeviation": null,
+    "Property": null
+  },
+  "CrestClearanceMetres": {
+    "Count": 60,
+    "Average": null,
+    "Sum": null,
+    "Maximum": 38.938,
+    "Minimum": 31.084,
+    "StandardDeviation": null,
+    "Property": null
+  },
+  "PeakHeightMetres": {
+    "Count": 60,
+    "Average": null,
+    "Sum": null,
+    "Maximum": 207.331,
+    "Minimum": 189.048,
+    "StandardDeviation": null,
+    "Property": null
+  }
+}

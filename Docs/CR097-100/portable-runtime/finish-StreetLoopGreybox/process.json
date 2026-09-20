@@ -1,0 +1,11 @@
+{
+  "Name": "finish-StreetLoopGreybox",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\CR097-build-portable\\Racer.exe",
+  "RuntimeAssemblySHA256": "3118C2702EC5EF37BD83C4DBA8279B9F04192237F593DB16941BD6B7EA36F8B3",
+  "Flags": "-racerSkipTitle -batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr097-aed1e45b314a4b88bf0f0bee492b476e\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR097-100\\portable-runtime\\finish-StreetLoopGreybox\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr097-portable-runtime-finish-StreetLoopGreybox.log\" -discoveryCheck finish -course StreetLoopGreybox",
+  "PID": 29800,
+  "Timeout": false,
+  "Exit": 0,
+  "PeakWorkingSetMiB": 506.36,
+  "CompletedUtc": "2026-09-20T21:46:54.2735186Z"
+}

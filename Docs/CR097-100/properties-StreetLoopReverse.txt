@@ -1,0 +1,1 @@
+CR097: house poses retained; House 2 front parallel to Dan (1.00, 0.00, -0.03); full frontage plus both side/rear boundaries, two Dan gate openings. Kyle named fence generators disabled and all three remaining Kyle sections removed. House 3 grade route authored below sign; 3m segmented grounded fence.

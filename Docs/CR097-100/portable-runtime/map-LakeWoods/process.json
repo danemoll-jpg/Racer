@@ -1,0 +1,11 @@
+{
+  "Name": "map-LakeWoods",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\CR097-build-portable\\Racer.exe",
+  "RuntimeAssemblySHA256": "3118C2702EC5EF37BD83C4DBA8279B9F04192237F593DB16941BD6B7EA36F8B3",
+  "Flags": "-racerSkipTitle -batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr097-67687c398d9a4fbe8f941ad4883977da\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR097-100\\portable-runtime\\map-LakeWoods\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr097-portable-runtime-map-LakeWoods.log\" -discoverySystems map -course LakeWoods",
+  "PID": 29016,
+  "Timeout": false,
+  "Exit": 0,
+  "PeakWorkingSetMiB": 816.61,
+  "CompletedUtc": "2026-09-20T21:47:10.1269585Z"
+}

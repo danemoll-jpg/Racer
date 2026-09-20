@@ -1,0 +1,11 @@
+{
+  "Name": "on-keyboard-720",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\CR097-build-portable\\Racer.exe",
+  "RuntimeAssemblySHA256": "3118C2702EC5EF37BD83C4DBA8279B9F04192237F593DB16941BD6B7EA36F8B3",
+  "Flags": " -batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr097-title-7477719b30934a76bf673a16b839dafb\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR097-100\\portable-runtime\\on-keyboard-720\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr097-portable-runtime-on-keyboard-720.log\" -titleCheck loops -titleInput keyboard",
+  "PID": 49936,
+  "Timeout": false,
+  "Exit": 0,
+  "PeakWorkingSetMiB": 914.77,
+  "CompletedUtc": "2026-09-20T21:43:46.9193180Z"
+}

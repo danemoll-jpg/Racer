@@ -78,17 +78,17 @@ namespace Racer
             var race=FindAnyObjectByType<RaceDirector>();Check(race.gates.All(g=>g.gameObject.activeInHierarchy),"Director references only active course gates");
             File.WriteAllText(dir+"/save-retries.txt",$"Atomic save retries={AtomicSave.Retries}; last failure={AtomicSave.LastFailure}; final board error={board.Error}");
         }
-        public static void CaptureUi(string file)
+        public static void CaptureUi(string file,int width=1280,int height=720)
         {
             var camera=Camera.main;var canvases=FindObjectsByType<Canvas>(FindObjectsSortMode.None).Where(c=>c.isRootCanvas&&c.renderMode==RenderMode.ScreenSpaceOverlay).ToArray();
             var states=canvases.Select(c=>(canvas:c,mode:c.renderMode,camera:c.worldCamera,plane:c.planeDistance)).ToArray();
             // Hidden standalone windows don't automatically render secondary cameras.
             // Populate the real garage RenderTexture before capturing its RawImage.
             foreach(var auxiliary in Camera.allCameras)if(auxiliary!=camera&&auxiliary.enabled&&auxiliary.targetTexture)auxiliary.Render();
-            var rt=new RenderTexture(1280,720,24);var previous=camera.targetTexture;var active=RenderTexture.active;
+            var rt=new RenderTexture(width,height,24);var previous=camera.targetTexture;var active=RenderTexture.active;
             foreach(var canvas in canvases){canvas.renderMode=RenderMode.ScreenSpaceCamera;canvas.worldCamera=camera;canvas.planeDistance=2;}camera.targetTexture=rt;Canvas.ForceUpdateCanvases();camera.Render();RenderTexture.active=rt;
-            var image=new Texture2D(1280,720,TextureFormat.RGB24,false);image.ReadPixels(new Rect(0,0,1280,720),0,0);image.Apply();File.WriteAllBytes(file,image.EncodeToPNG());
-            camera.targetTexture=previous;RenderTexture.active=active;foreach(var state in states){state.canvas.renderMode=state.mode;state.canvas.worldCamera=state.camera;state.canvas.planeDistance=state.plane;}Destroy(image);Destroy(rt);
+            var image=new Texture2D(width,height,TextureFormat.RGB24,false);image.ReadPixels(new Rect(0,0,width,height),0,0);image.Apply();File.WriteAllBytes(file,image.EncodeToPNG());
+            camera.targetTexture=previous;RenderTexture.active=active;foreach(var state in states){state.canvas.renderMode=state.mode;state.canvas.worldCamera=state.camera;state.canvas.planeDistance=state.plane;}Canvas.ForceUpdateCanvases();Destroy(image);Destroy(rt);
         }
         IEnumerator Jumps()
         {

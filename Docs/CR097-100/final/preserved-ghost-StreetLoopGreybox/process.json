@@ -1,0 +1,11 @@
+{
+  "Name": "preserved-ghost-StreetLoopGreybox",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\CR097-build-final\\Racer.exe",
+  "RuntimeAssemblySHA256": "4EE76FA63FF7DAEB90756F03E3008280B09B1619A0571CCBB448058E47C0CC47",
+  "Flags": "-racerSkipTitle -batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr097-preserved-ghost-929fd3936e8a410c9f5d363c667d4e68\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR097-100\\final\\preserved-ghost-StreetLoopGreybox\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr097-final-preserved-ghost-StreetLoopGreybox.log\" -threeFeatureTest drive -course StreetLoopGreybox -vehicle original -laps 1 -testSpeed 6 -ghostValidation yes -lifeSeed 82089",
+  "PID": 29072,
+  "Timeout": false,
+  "Exit": 0,
+  "PeakWorkingSetMiB": 567.91,
+  "CompletedUtc": "2026-09-20T21:31:37.4502381Z"
+}

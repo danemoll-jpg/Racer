@@ -1,0 +1,8 @@
+Mountain return trails / exploration only direction=1 complete=True travel=1095.9/1110.7 minUp=0.888 maximum lateral=4.03 wet=False recovery=True
+Mountain return trails / exploration only direction=-1 complete=True travel=1095.8/1110.7 minUp=0.783 maximum lateral=3.49 wet=False recovery=True
+Lake shore connection direction=1 complete=True travel=783.8/798.7 minUp=0.819 maximum lateral=1.89 wet=False recovery=True
+Lake shore connection direction=-1 complete=True travel=783.8/798.7 minUp=0.818 maximum lateral=1.67 wet=False recovery=True
+Summit approach and safe return direction=1 complete=True travel=728.2/743.1 minUp=0.748 maximum lateral=5.40 wet=False recovery=True
+Summit approach and safe return direction=-1 complete=True travel=728.1/743.1 minUp=0.576 maximum lateral=5.80 wet=False recovery=True
+Kyle descending driveway direction=1 complete=True travel=83.1/98.1 minUp=0.386 maximum lateral=9.20 wet=False recovery=True
+Kyle descending driveway direction=-1 complete=False travel=36.9/98.1 minUp=0.926 maximum lateral=7.65 wet=False recovery=True

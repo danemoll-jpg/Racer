@@ -1,0 +1,8 @@
+FAIL StreetLoopGreybox cold/track reload keeps all found IDs
+PASS StreetLoopGreybox cold/track reload retains same fog
+FAIL LakeWoods cold/track reload keeps all found IDs
+PASS LakeWoods cold/track reload retains same fog
+FAIL StreetLoopReverse cold/track reload keeps all found IDs
+PASS StreetLoopReverse cold/track reload retains same fog
+FAIL ForestLoopReverse cold/track reload keeps all found IDs
+PASS ForestLoopReverse cold/track reload retains same fog

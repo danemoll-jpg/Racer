@@ -1,0 +1,11 @@
+{
+  "Name": "summit-StreetLoopGreybox-roam",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\CR097-build-final\\Racer.exe",
+  "RuntimeAssemblySHA256": "4EE76FA63FF7DAEB90756F03E3008280B09B1619A0571CCBB448058E47C0CC47",
+  "Flags": "-racerSkipTitle -batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr097-d6893e6b96c7415ebdc5600ea7d05f77\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR097-100\\final\\summit-StreetLoopGreybox-roam\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr097-final-summit-StreetLoopGreybox-roam.log\" -discoveryCheck summit -course StreetLoopGreybox -mode roam -testSpeed 4",
+  "PID": 92704,
+  "Timeout": false,
+  "Exit": 0,
+  "PeakWorkingSetMiB": 549.51,
+  "CompletedUtc": "2026-09-20T21:21:04.8466431Z"
+}

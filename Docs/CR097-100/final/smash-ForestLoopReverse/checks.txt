@@ -1,0 +1,4 @@
+FAIL moto PHYSICAL distinct fence contacts; count=0 elapsed=8.04
+FAIL moto retry preserves PB and clears count
+FAIL atv PHYSICAL distinct fence contacts; count=0 elapsed=8.03
+FAIL atv retry preserves PB and clears count

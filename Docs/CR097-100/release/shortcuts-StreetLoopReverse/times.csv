@@ -1,0 +1,3 @@
+course,vehicle,route,mode,repeat,seconds,recoveries,misses,maxLateral,minUpright,finished
+Street Loop Reverse,original,Granite Creek Cut,normal,0,31.877,0,0,0.000,0.999,True
+Street Loop Reverse,original,Granite Creek Cut,clean,0,27.895,0,0,2.807,0.979,True

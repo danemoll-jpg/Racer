@@ -1,0 +1,11 @@
+{
+  "Name": "house3",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\CR097-integrate\\Racer.exe",
+  "RuntimeAssemblySHA256": "84839380A843D5DFEE0B73E16A2E9026ED10135666ABC8158B77AA6A7B15C902",
+  "Flags": "-racerSkipTitle -batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr097-cdeb5edd17e24a7897512693b280801c\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR097-100\\candidate1\\house3\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr097-candidate1-house3.log\" -propertyCheck driveway -testSpeed 4",
+  "PID": 73824,
+  "Timeout": false,
+  "Exit": 0,
+  "PeakWorkingSetMiB": 498.61,
+  "CompletedUtc": "2026-09-20T20:14:01.3674903Z"
+}

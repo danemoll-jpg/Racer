@@ -1,0 +1,11 @@
+{
+  "Name": "summit-center",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\CR097-corrected-first\\Racer.exe",
+  "RuntimeAssemblySHA256": "EA0265C8FDCAE93A20BE6AB99B46DBC69F2F05EF89830710527483D65F7E5EAC",
+  "Flags": "-racerSkipTitle -batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr097-4f00875cab384bee8977f6c1ac3739a6\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR097-100\\first-playable\\summit-center\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr097-first-playable-summit-center.log\" -discoveryCheck summit -quick yes",
+  "PID": 46580,
+  "Timeout": false,
+  "Exit": 0,
+  "PeakWorkingSetMiB": 509.05,
+  "CompletedUtc": "2026-09-20T19:57:04.0325415Z"
+}

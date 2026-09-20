@@ -1,0 +1,11 @@
+{
+  "Name": "title-800",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\PackageWork\\CR097-portable-proof\\extracted\\CR097-build-portable\\Racer.exe",
+  "RuntimeAssemblySHA256": "3118C2702EC5EF37BD83C4DBA8279B9F04192237F593DB16941BD6B7EA36F8B3",
+  "Flags": " -batchmode -screen-width 1280 -screen-height 800 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr097-portable-800\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR097-100\\extracted\\title-800\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr097-extracted-title-800.log\" -titleCheck loops -titleInput gamepad -held yes",
+  "PID": 35700,
+  "Timeout": false,
+  "Exit": 0,
+  "PeakWorkingSetMiB": 893.76,
+  "CompletedUtc": "2026-09-20T21:47:15.6678368Z"
+}

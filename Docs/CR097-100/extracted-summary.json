@@ -1,0 +1,15 @@
+{
+  "tag": "extracted",
+  "assertions": 44,
+  "passed": 44,
+  "failures": [],
+  "processes": 2,
+  "incompleteProcesses": [],
+  "summitCases": 0,
+  "forwardCases": 0,
+  "summitNonScoring": 0,
+  "summitFailedCompletion": [],
+  "summitFailedReset": [],
+  "summitInstability": [],
+  "flightRanges": {}
+}

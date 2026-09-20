@@ -1,0 +1,13 @@
+{
+  "sampleRate": 48000,
+  "voiceSeconds": 1.7502083333333334,
+  "sourceThemeSeconds": 31.6,
+  "loopSeconds": 31.36,
+  "overlapSeconds": 0.24,
+  "boundaryMaxStep": 0.013735592365264893,
+  "sourceHashes": {
+    "Woodstock Rush Spoken.mp3": "a01fffbd63fec95d762a46f775746798c51317358d129ac139673d34041446c6",
+    "Woodstock Rush.mp3": "5d552b12c63deec7b4a7928b81ffd641798c385f973b8d3423c4808e2aab12c5"
+  },
+  "method": "MP3 encoder delay honored by FFmpeg; PCM full tune with 240ms circular linear tail/head overlap; subjective musical/listening review remains open"
+}

@@ -7,7 +7,7 @@ namespace Racer
     [DisallowMultipleComponent]
     public sealed class RaceFlow : MonoBehaviour
     {
-        public enum Stage { Ready, Countdown, Racing, Paused, Results, Settings, Garage, Roster, Boards, Courses, Activities, Exploration }
+        public enum Stage { Ready, Countdown, Racing, Paused, Results, Settings, Garage, Roster, Boards, Courses, Activities, Exploration, Title }
         public Stage State { get; private set; } = Stage.Ready;
         public RacerSave Save { get; private set; }
         public RaceDirector Race { get; private set; }
@@ -64,7 +64,6 @@ namespace Racer
             RestoreChoices();
             configuration.SetBodyColor(SelectedColor);
             Save.SelectRecords(Race.Category); Save.ApplySettings();
-            Radio=LocalRadio.Attach(this);
             var listener=FindAnyObjectByType<AudioListener>();if(listener&&!listener.GetComponent<AudioCeiling>())listener.gameObject.AddComponent<AudioCeiling>();
             feedback = gameObject.AddComponent<AudioSource>();
             feedback.playOnAwake = false; feedback.spatialBlend = 0; feedback.ignoreListenerPause = true;
@@ -80,11 +79,13 @@ namespace Racer
             Ghost=gameObject.AddComponent<CleanLapGhost>();Ghost.Initialize(Race,root);
             GetComponent<ExplorationCollection>()?.Initialize(Race,root);
             GetComponent<ExplorationMap>()?.Initialize(Race,root);
-            LockVehicle(true); SetStage(Stage.Ready);
+            LockVehicle(true);
+            if(StartupTitle.Begin(this))SetStage(Stage.Title);else EnterMenuAfterTitle();
         }
+        public void EnterMenuAfterTitle(){Radio=LocalRadio.Attach(this);SetStage(Stage.Ready);}
         void Update()
         {
-            if (Save == null) return;
+            if (Save == null || State==Stage.Title) return;
             if(GetComponent<ExplorationMap>()?.OwnsInput==true)return;
             if (finishAt > 0 && State != Stage.Paused && State != Stage.Settings && Time.unscaledTime >= finishAt) { finishAt = 0; Sound(finish); }
             if (menu.WasPressedThisFrame())

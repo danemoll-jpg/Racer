@@ -1,0 +1,11 @@
+{
+  "Name": "map-StreetLoopReverse",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\CR097-build-portable\\Racer.exe",
+  "RuntimeAssemblySHA256": "3118C2702EC5EF37BD83C4DBA8279B9F04192237F593DB16941BD6B7EA36F8B3",
+  "Flags": "-racerSkipTitle -batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr097-5cee4b76d12f438cbe1ae9278505133c\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR097-100\\portable-runtime\\map-StreetLoopReverse\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr097-portable-runtime-map-StreetLoopReverse.log\" -discoverySystems map -course StreetLoopReverse",
+  "PID": 27212,
+  "Timeout": false,
+  "Exit": 0,
+  "PeakWorkingSetMiB": 601.35,
+  "CompletedUtc": "2026-09-20T21:47:42.7948927Z"
+}

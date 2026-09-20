@@ -1,0 +1,5 @@
+FAIL forest-reverse-v5-discovery moto completed 0/1 laps; misses=0; recoveries=100; adjusted=1200.004567
+FAIL forest-reverse-v5-discovery moto completed 0/1 laps; misses=0; recoveries=100; adjusted=1200.004567
+FAIL forest-reverse-v5-discovery moto completed 0/1 laps; misses=0; recoveries=96; adjusted=1200.004567
+FAIL forest-reverse-v5-discovery atv completed 0/1 laps; misses=0; recoveries=88; adjusted=1200.004567
+FAIL Completed player race creates one total entry

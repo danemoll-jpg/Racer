@@ -1,0 +1,25 @@
+{
+  "Voice": {
+    "frames": 84010,
+    "rate": 48000,
+    "seconds": 1.7502083333333334,
+    "peak": 0.5638427734375,
+    "leadingSilenceMs": 25.083333333333332,
+    "trailingSilenceMs": 6.895833333333334,
+    "boundaryStep": 0.0,
+    "largestInternalStep": 0.1756591796875,
+    "boundary200msRms": 0.0002948771678646914
+  },
+  "ThemeLoop": {
+    "frames": 1505280,
+    "rate": 48000,
+    "seconds": 31.36,
+    "peak": 0.548370361328125,
+    "leadingSilenceMs": 0.0,
+    "trailingSilenceMs": 0.0,
+    "boundaryStep": 0.01373291015625,
+    "largestInternalStep": 0.288543701171875,
+    "boundary200msRms": 0.07986855473352082
+  },
+  "qualification": "Numerical padding and PCM continuity checks, not subjective listening or a beat/phrase acceptance claim."
+}

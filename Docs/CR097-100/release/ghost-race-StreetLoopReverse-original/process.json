@@ -1,0 +1,11 @@
+{
+  "Name": "ghost-race-StreetLoopReverse-original",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\Racer-0.17.0-review1-Windows\\Racer.exe",
+  "RuntimeAssemblySHA256": "4EE76FA63FF7DAEB90756F03E3008280B09B1619A0571CCBB448058E47C0CC47",
+  "Flags": "-racerSkipTitle -batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr097-b9904c0a64ed4a22a21bfe43225a4979\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR097-100\\release\\ghost-race-StreetLoopReverse-original\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr097-release-ghost-race-StreetLoopReverse-original.log\" -threeFeatureTest drive -course StreetLoopReverse -vehicle original -laps 2 -testSpeed 6 -ghostValidation yes -lifeSeed 82089",
+  "PID": 33200,
+  "Timeout": false,
+  "Exit": 0,
+  "PeakWorkingSetMiB": 638.88,
+  "CompletedUtc": "2026-09-20T21:39:49.9077569Z"
+}

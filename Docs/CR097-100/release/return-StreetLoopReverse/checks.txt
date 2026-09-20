@@ -1,0 +1,16 @@
+PASS original physically drove summit return / reached=7 minUp=0.9991816
+PASS original return local reset
+PASS original Kyle driveway down minUp=0.9836028
+PASS original Kyle driveway up minUp=0.9829959
+PASS tourer physically drove summit return / reached=7 minUp=0.9991823
+PASS tourer return local reset
+PASS tourer Kyle driveway down minUp=0.9838486
+PASS tourer Kyle driveway up minUp=0.9836416
+PASS moto physically drove summit return / reached=7 minUp=0.999164
+PASS moto return local reset
+PASS moto Kyle driveway down minUp=0.9743413
+PASS moto Kyle driveway up minUp=0.9689176
+PASS atv physically drove summit return / reached=7 minUp=0.999167
+PASS atv return local reset
+PASS atv Kyle driveway down minUp=0.9831154
+PASS atv Kyle driveway up minUp=0.9831946

@@ -1,0 +1,11 @@
+{
+  "Name": "roam-recovery-LakeWoods",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\Racer-0.17.0-review1-Windows\\Racer.exe",
+  "RuntimeAssemblySHA256": "4EE76FA63FF7DAEB90756F03E3008280B09B1619A0571CCBB448058E47C0CC47",
+  "Flags": "-racerSkipTitle -batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr097-b94b61318a0b49f197dd4b23ff069f9c\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR097-100\\release\\roam-recovery-LakeWoods\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr097-release-roam-recovery-LakeWoods.log\" -arcadeTest roam-recovery -course LakeWoods -raceActivities yes -lifeSeed 82089",
+  "PID": 94640,
+  "Timeout": false,
+  "Exit": 0,
+  "PeakWorkingSetMiB": 789.27,
+  "CompletedUtc": "2026-09-20T21:26:39.6458160Z"
+}

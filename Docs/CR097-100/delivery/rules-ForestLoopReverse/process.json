@@ -1,0 +1,11 @@
+{
+  "Name": "rules-ForestLoopReverse",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\CR097-build-delivery\\Racer.exe",
+  "RuntimeAssemblySHA256": "4EE76FA63FF7DAEB90756F03E3008280B09B1619A0571CCBB448058E47C0CC47",
+  "Flags": "-racerSkipTitle -batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr097-92dd3a11967042dc985c8bfe7e7fbc0d\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR097-100\\delivery\\rules-ForestLoopReverse\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr097-delivery-rules-ForestLoopReverse.log\" -arcadeTest rules -course ForestLoopReverse",
+  "PID": 94048,
+  "Timeout": false,
+  "Exit": 0,
+  "PeakWorkingSetMiB": 835.62,
+  "CompletedUtc": "2026-09-20T21:58:42.4661414Z"
+}

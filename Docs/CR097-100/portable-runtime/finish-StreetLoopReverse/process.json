@@ -1,0 +1,11 @@
+{
+  "Name": "finish-StreetLoopReverse",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\CR097-build-portable\\Racer.exe",
+  "RuntimeAssemblySHA256": "3118C2702EC5EF37BD83C4DBA8279B9F04192237F593DB16941BD6B7EA36F8B3",
+  "Flags": "-racerSkipTitle -batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr097-b8179d69ec4f4662a7b1abb0e46b10d8\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR097-100\\portable-runtime\\finish-StreetLoopReverse\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr097-portable-runtime-finish-StreetLoopReverse.log\" -discoveryCheck finish -course StreetLoopReverse",
+  "PID": 52124,
+  "Timeout": false,
+  "Exit": 0,
+  "PeakWorkingSetMiB": 606.34,
+  "CompletedUtc": "2026-09-20T21:48:05.9797044Z"
+}

@@ -1,0 +1,32 @@
+[
+  {
+    "Algorithm": "SHA256",
+    "Hash": "2070F4D996567CD3ACE865C52FD30E8EDCBCC34F519DE80C677BAF2AED0C32B4",
+    "Path": "C:\\Users\\danmo\\Racer\\Assets\\Resources\\Title\\Artwork.png"
+  },
+  {
+    "Algorithm": "SHA256",
+    "Hash": "2070F4D996567CD3ACE865C52FD30E8EDCBCC34F519DE80C677BAF2AED0C32B4",
+    "Path": "C:\\Users\\danmo\\Documents\\Codex\\2026-09-17\\referenced-chatgpt-conversation-this-is-an\\outputs\\WOODSTOCK_RUSH_TITLE.png"
+  },
+  {
+    "Algorithm": "SHA256",
+    "Hash": "A01FFFBD63FEC95D762A46F775746798C51317358D129AC139673D34041446C6",
+    "Path": "C:\\Users\\danmo\\Racer\\Assets\\TitleSource\\Woodstock Rush Spoken.mp3"
+  },
+  {
+    "Algorithm": "SHA256",
+    "Hash": "A01FFFBD63FEC95D762A46F775746798C51317358D129AC139673D34041446C6",
+    "Path": "C:\\Users\\danmo\\Downloads\\Woodstock Rush Spoken.mp3"
+  },
+  {
+    "Algorithm": "SHA256",
+    "Hash": "5D552B12C63DEEC7B4A7928B81FFD641798C385F973B8D3423C4808E2AAB12C5",
+    "Path": "C:\\Users\\danmo\\Racer\\Assets\\TitleSource\\Woodstock Rush.mp3"
+  },
+  {
+    "Algorithm": "SHA256",
+    "Hash": "5D552B12C63DEEC7B4A7928B81FFD641798C385F973B8D3423C4808E2AAB12C5",
+    "Path": "C:\\Users\\danmo\\Downloads\\Woodstock Rush.mp3"
+  }
+]

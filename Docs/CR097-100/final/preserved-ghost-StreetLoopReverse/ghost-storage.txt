@@ -1,0 +1,12 @@
+forest-reverse-v5-discovery/reverse/atv/clean-lap-v1/handling-cr087-v1 seconds=61.4494513483573 samples=1027 first=0 last=61.44945 bytes=207213
+forest-reverse-v5-discovery/reverse/moto/clean-lap-v1/handling-cr087-v1 seconds=60.998011763029 samples=1019 first=0 last=60.99801 bytes=205496
+lake-v7-discovery/forward/atv/clean-lap-v1/handling-cr087-v1 seconds=76.9606776611111 samples=1285 first=0 last=76.96068 bytes=257974
+lake-v7-discovery/forward/moto/clean-lap-v1/handling-cr087-v1 seconds=68.9659453047071 samples=1152 first=0 last=68.96594 bytes=231802
+street-reverse-v5-discovery/reverse/atv/clean-lap-v1/handling-cr087-v1 seconds=130.89733935449 samples=2184 first=0 last=130.8973 bytes=440187
+street-reverse-v5-discovery/reverse/moto/clean-lap-v1/handling-cr087-v1 seconds=114.486966805096 samples=1910 first=0 last=114.487 bytes=387028
+street-reverse-v5-discovery/reverse/original/clean-lap-v1/handling-cr087-v1 seconds=138.670485807036 samples=2313 first=0 last=138.6705 bytes=466497
+street-reverse-v5-discovery/reverse/tourer/clean-lap-v1/handling-cr087-v1 seconds=139.110497811079 samples=2321 first=0 last=139.1105 bytes=467726
+street-v14-discovery/forward/atv/clean-lap-v1/handling-cr087-v1 seconds=144.049523910241 samples=2403 first=0 last=144.0495 bytes=484968
+street-v14-discovery/forward/moto/clean-lap-v1/handling-cr087-v1 seconds=135.273824157142 samples=2257 first=0 last=135.2738 bytes=456688
+street-v14-discovery/forward/original/clean-lap-v1/handling-cr087-v1 seconds=157.609972820722 samples=2629 first=0 last=157.61 bytes=532793
+street-v14-discovery/forward/tourer/clean-lap-v1/handling-cr087-v1 seconds=152.763814810035 samples=2549 first=0 last=152.7638 bytes=516261

@@ -1,0 +1,11 @@
+{
+  "Name": "off-held-gamepad-800",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\Racer-0.17.0-review1-Windows\\Racer.exe",
+  "RuntimeAssemblySHA256": "4EE76FA63FF7DAEB90756F03E3008280B09B1619A0571CCBB448058E47C0CC47",
+  "Flags": " -batchmode -screen-width 1280 -screen-height 800 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr097-title-4398f3ac68db49d591ec9cc46e56be7c\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR097-100\\release\\off-held-gamepad-800\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr097-release-off-held-gamepad-800.log\" -titleCheck loops -titleInput gamepad -held yes",
+  "PID": 17312,
+  "Timeout": false,
+  "Exit": 0,
+  "PeakWorkingSetMiB": 892.71,
+  "CompletedUtc": "2026-09-20T21:07:06.9902514Z"
+}

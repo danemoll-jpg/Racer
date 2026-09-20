@@ -1,0 +1,11 @@
+{
+  "Name": "title-off-800",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\CR097-build-candidate2\\Racer.exe",
+  "RuntimeAssemblySHA256": "4B140586C2A593FFFB0DD6510A187A7029D41FC733F42503F96A2ED6C39B5372",
+  "Flags": " -batchmode -screen-width 1280 -screen-height 800 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr097-title-off-actual\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR097-100\\candidate2\\title-off-800\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr097-candidate2-title-off-800.log\" -titleCheck loops -titleInput gamepad -held yes",
+  "PID": 57140,
+  "Timeout": false,
+  "Exit": 0,
+  "PeakWorkingSetMiB": 889.69,
+  "CompletedUtc": "2026-09-20T20:30:24.9692912Z"
+}

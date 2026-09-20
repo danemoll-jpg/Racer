@@ -1,0 +1,32 @@
+{
+  "tag": "portable-runtime",
+  "assertions": 374,
+  "passed": 374,
+  "failures": [],
+  "processes": 12,
+  "incompleteProcesses": [],
+  "summitCases": 8,
+  "forwardCases": 8,
+  "summitNonScoring": 8,
+  "summitFailedCompletion": [],
+  "summitFailedReset": [],
+  "summitInstability": [],
+  "flightRanges": {
+    "longestFlight": [
+      4.74,
+      4.98
+    ],
+    "crestClearance": [
+      34.933,
+      36.955
+    ],
+    "launchSpeed": [
+      28.442,
+      30.462
+    ],
+    "landingSpeed": [
+      21.285,
+      25.909
+    ]
+  }
+}

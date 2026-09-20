@@ -1,0 +1,11 @@
+{
+  "Name": "approach-StreetLoopReverse",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\Racer-0.17.0-review1-Windows\\Racer.exe",
+  "RuntimeAssemblySHA256": "4EE76FA63FF7DAEB90756F03E3008280B09B1619A0571CCBB448058E47C0CC47",
+  "Flags": "-racerSkipTitle -batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr097-853604900c9d491093c55770afabcfb4\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR097-100\\release\\approach-StreetLoopReverse\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr097-release-approach-StreetLoopReverse.log\" -propertyCheck approach -course StreetLoopReverse -testSpeed 4",
+  "PID": 65848,
+  "Timeout": false,
+  "Exit": 0,
+  "PeakWorkingSetMiB": 598.66,
+  "CompletedUtc": "2026-09-20T21:15:51.8597595Z"
+}

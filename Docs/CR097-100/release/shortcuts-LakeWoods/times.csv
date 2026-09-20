@@ -1,0 +1,9 @@
+course,vehicle,route,mode,repeat,seconds,recoveries,misses,maxLateral,minUpright,finished
+Forest Loop,moto,Echo Cave,normal,0,28.595,0,0,0.000,0.255,True
+Forest Loop,moto,Echo Cave,clean,0,24.216,0,0,3.051,0.975,True
+Forest Loop,moto,Echo Cave,imperfect,0,28.297,0,0,3.049,0.976,True
+Forest Loop,moto,Echo Cave,recovery,0,25.354,0,0,3.070,0.976,True
+Forest Loop,atv,Echo Cave,normal,0,29.357,0,0,0.000,0.975,True
+Forest Loop,atv,Echo Cave,clean,0,25.155,0,0,2.799,0.985,True
+Forest Loop,atv,Echo Cave,imperfect,0,29.414,0,0,2.775,0.984,True
+Forest Loop,atv,Echo Cave,recovery,0,26.388,0,0,2.792,0.979,True
