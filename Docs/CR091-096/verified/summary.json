@@ -1,0 +1,141 @@
+{
+  "Tag": "verified",
+  "GeneratedUtc": "2026-09-20T18:20:13.1351411Z",
+  "Checks": [
+    {
+      "Test": "collections",
+      "Pass": 50,
+      "Fail": 2,
+      "Failures": [
+        "FAIL woodland-24 ordinary-frame approach / atv minUp=0.4634094",
+        "FAIL All 24 found in isolated save"
+      ]
+    },
+    {
+      "Test": "collections-cold-reload",
+      "Pass": 4,
+      "Fail": 4,
+      "Failures": [
+        "FAIL StreetLoopGreybox cold/track reload keeps all found IDs",
+        "FAIL LakeWoods cold/track reload keeps all found IDs",
+        "FAIL StreetLoopReverse cold/track reload keeps all found IDs",
+        "FAIL ForestLoopReverse cold/track reload keeps all found IDs"
+      ]
+    },
+    {
+      "Test": "collections-ForestLoopReverse",
+      "Pass": 22,
+      "Fail": 0,
+      "Failures": []
+    },
+    {
+      "Test": "collections-LakeWoods",
+      "Pass": 52,
+      "Fail": 0,
+      "Failures": []
+    },
+    {
+      "Test": "collections-StreetLoopReverse",
+      "Pass": 52,
+      "Fail": 0,
+      "Failures": []
+    },
+    {
+      "Test": "finish-ForestLoopReverse",
+      "Pass": 27,
+      "Fail": 0,
+      "Failures": []
+    },
+    {
+      "Test": "finish-LakeWoods",
+      "Pass": 25,
+      "Fail": 0,
+      "Failures": []
+    },
+    {
+      "Test": "finish-StreetLoopGreybox",
+      "Pass": 61,
+      "Fail": 0,
+      "Failures": []
+    },
+    {
+      "Test": "finish-StreetLoopReverse",
+      "Pass": 53,
+      "Fail": 0,
+      "Failures": []
+    },
+    {
+      "Test": "map-ForestLoopReverse",
+      "Pass": 32,
+      "Fail": 0,
+      "Failures": []
+    },
+    {
+      "Test": "map-LakeWoods",
+      "Pass": 32,
+      "Fail": 0,
+      "Failures": []
+    },
+    {
+      "Test": "map-StreetLoopGreybox",
+      "Pass": 52,
+      "Fail": 0,
+      "Failures": []
+    },
+    {
+      "Test": "map-StreetLoopReverse",
+      "Pass": 52,
+      "Fail": 0,
+      "Failures": []
+    },
+    {
+      "Test": "return-driveway",
+      "Pass": 16,
+      "Fail": 0,
+      "Failures": []
+    },
+    {
+      "Test": "smash",
+      "Pass": 8,
+      "Fail": 0,
+      "Failures": []
+    },
+    {
+      "Test": "views-ForestLoopReverse",
+      "Pass": 1,
+      "Fail": 0,
+      "Failures": []
+    },
+    {
+      "Test": "views-LakeWoods",
+      "Pass": 1,
+      "Fail": 0,
+      "Failures": []
+    },
+    {
+      "Test": "views-StreetLoopGreybox",
+      "Pass": 1,
+      "Fail": 0,
+      "Failures": []
+    },
+    {
+      "Test": "views-StreetLoopReverse",
+      "Pass": 1,
+      "Fail": 0,
+      "Failures": []
+    }
+  ],
+  "Ramps": [
+    {
+      "Test": "summit-StreetLoopGreybox-race",
+      "Cases": 36,
+      "Incomplete": 0,
+      "LowUpright": 0,
+      "NoAward": 4,
+      "RecoveryFailures": 0
+    }
+  ],
+  "Processes": 18,
+  "Timeouts": 0,
+  "NonzeroExits": []
+}

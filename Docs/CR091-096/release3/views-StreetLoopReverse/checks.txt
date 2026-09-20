@@ -1,0 +1,1 @@
+PASS Destruction restoration preserves authored lettering visibility

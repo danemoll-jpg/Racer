@@ -1,0 +1,11 @@
+{
+  "Name": "summit-LakeWoods-return-face",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\CR091-inspection2\\Racer.exe",
+  "RuntimeAssemblySHA256": "368D27F9064DDA02F4225429E86946AD434803AC94317012DF24349754B6630A",
+  "Flags": "-batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr091-c5cead2e563e48b09282e36a334beafa\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR091-096\\inspection2-matrix\\summit-LakeWoods-return-face\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr091-inspection2-matrix-summit-LakeWoods-return-face.log\" -discoveryCheck summit -course LakeWoods -opposite yes -quick yes -testSpeed 4",
+  "PID": 93272,
+  "Timeout": false,
+  "Exit": 0,
+  "PeakWorkingSetMiB": 832.83,
+  "CompletedUtc": "2026-09-20T17:28:37.5069837Z"
+}

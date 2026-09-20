@@ -1,0 +1,11 @@
+{
+  "Name": "summit-centered",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\CR091-first-geometry\\Racer.exe",
+  "RuntimeAssemblySHA256": "264D472E833BB23AB67A92FE75A248157E10A611E98E25695E6D350A427A3983",
+  "Flags": "-batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr091-0bb1164fd06142c7b791b4429493c4f4\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR091-096\\first-geometry\\summit-centered\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr091-first-geometry-summit-centered.log\" -discoveryCheck summit -quick yes",
+  "PID": 37844,
+  "Timeout": false,
+  "Exit": 0,
+  "PeakWorkingSetMiB": 499.38,
+  "CompletedUtc": "2026-09-20T16:36:47.7472636Z"
+}

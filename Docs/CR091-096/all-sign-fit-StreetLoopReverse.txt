@@ -1,0 +1,55 @@
+Fictional storefront identity|AUTO SERVICE|backing=Workshop ochre|available=(24.25, 0.85, 0.50)|scale=0.09087276
+Fictional storefront identity|HILLTOP DINER|backing=Diner red|available=(24.35, 1.61, 1.61)|scale=0.1715891
+Direction lettering|KYLE'S WOODED DRIVE/LAKE / MOUNTAIN TRAILS|backing=Trail sign board|available=(6.26, 1.53, 0.16)|scale=0.0882
+Reverse physical sign text|REJOIN / Street Loop Reverse|backing=Cube|available=(5.50, 1.10, 0.12)|scale=0.05267526
+Fictional storefront identity|CORNER MARKET|backing=Market teal|available=(24.35, 1.61, 1.61)|scale=0.171589
+Mounted lettering|REVERSE/SHORTCUT|backing=Cube|available=(6.00, 2.00, 0.18)|scale=0.1053663
+Physical lettering|RETURN VIA RIDGE TRAIL/DO NOT CLIMB LAUNCH FACE|backing=Sign board|available=(9.76, 2.93, 0.18)|scale=0.0882
+Fictional storefront identity|AUTO SERVICE|backing=Workshop ochre|available=(24.25, 0.85, 0.50)|scale=0.09087276
+Mounted lettering|EXIT ONLY/NO REVERSE ROUTE|backing=Cube|available=(6.00, 2.00, 0.18)|scale=0.07627063
+Fictional storefront identity|CORNER MARKET|backing=Market teal|available=(24.35, 1.61, 1.61)|scale=0.1715891
+Fictional storefront identity|AUTO SERVICE|backing=Workshop ochre|available=(24.25, 0.85, 0.50)|scale=0.09087276
+Fictional storefront identity|AUTO SERVICE|backing=Workshop ochre|available=(24.25, 0.85, 0.50)|scale=0.09087276
+Mounted direction lettering|SPEED CAMERA/BOTH DIRECTIONS|backing=Cube|available=(7.00, 1.60, 0.14)|scale=0.0842931
+Mounted lettering|OPTIONAL/SHORTCUT  <|backing=Cube|available=(6.00, 2.00, 0.18)|scale=0.1053666
+Fictional storefront identity|HILLTOP DINER|backing=Diner red|available=(24.35, 1.61, 1.61)|scale=0.1715891
+Mounted lettering|^|backing=Cube|available=(6.00, 2.00, 0.18)|scale=0.2138181
+Road lettering|South Cherokee Lane/JUNCTION: Hwy 92|backing=Board|available=(7.11, 1.63, 0.12)|scale=0.0856684
+Direction lettering|LAKE SHORE/BOTH TRAILS RETURN HOME|backing=Trail sign board|available=(6.96, 1.70, 0.16)|scale=0.08560938
+Mounted direction lettering|JUMP CHALLENGE/LAND CLEAN / PAUSE FOR TARGETS|backing=Cube|available=(7.00, 1.60, 0.14)|scale=0.05
+Fictional storefront identity|GENERAL STORE|backing=Slate blue siding|available=(24.35, 1.61, 1.61)|scale=0.1715891
+Direction lettering|Fern Creek Leap/35 - 55 mph|backing=Trail sign board|available=(5.01, 1.22, 0.16)|scale=0.08599442
+Road lettering|TO Jamerson Road|backing=Board|available=(7.00, 1.60, 0.12)|scale=0.1
+Mounted lettering|MAIN ROUTE/STRAIGHT|backing=Cube|available=(6.00, 2.00, 0.18)|scale=0.1053663
+Direction lettering|SUMMIT/Both trails return to lake|backing=Trail sign board|available=(5.26, 1.29, 0.16)|scale=0.08820001
+Mounted direction lettering|SPEED CAMERA/BOTH DIRECTIONS|backing=Cube|available=(7.00, 1.60, 0.14)|scale=0.08429305
+Physical lettering|SUMMIT HOMEWARD FLIGHT/55–90 mph / HIGH RISK/LAND STRAIGHT / BRAKE AFTER|backing=Sign board|available=(10.60, 3.18, 0.18)|scale=0.0882
+Reverse physical sign text|REJOIN / Street Loop Reverse|backing=Cube|available=(5.50, 1.10, 0.12)|scale=0.05267541
+Reverse physical sign text|Laurel Switchbacks / OPTIONAL|backing=Cube|available=(5.50, 1.10, 0.12)|scale=0.0496828
+Mounted lettering|REVERSE/SHORTCUT|backing=Cube|available=(6.00, 2.00, 0.18)|scale=0.1053666
+Mounted direction lettering|SPEED CAMERA/BOTH DIRECTIONS|backing=Cube|available=(7.00, 1.60, 0.14)|scale=0.0842931
+Fictional storefront identity|GENERAL STORE|backing=Slate blue siding|available=(24.35, 1.61, 1.61)|scale=0.171589
+Rocky Way Acres lettering|Rocky Way Acres|backing=Rocky Way Acres board|available=(12.80, 1.15, 0.35)|scale=0.1229456
+Fictional storefront identity|AUTO SERVICE|backing=Workshop ochre|available=(24.25, 0.85, 0.50)|scale=0.09087276
+Fictional storefront identity|CORNER MARKET|backing=Market teal|available=(24.35, 1.61, 1.61)|scale=0.1715891
+Reverse physical sign text|Granite Creek Cut / OPTIONAL|backing=Cube|available=(5.50, 1.10, 0.12)|scale=0.05167678
+Mounted direction lettering|FENCE LINE SMASH/3 / 6 / 10 PROPS IN 8 s|backing=Cube|available=(7.00, 1.60, 0.14)|scale=0.06521739
+Fictional storefront identity|HILLTOP DINER|backing=Diner red|available=(24.35, 1.61, 1.61)|scale=0.1715891
+Reverse physical sign text|GAP / STRAIGHT LANDING|backing=Cube|available=(5.50, 1.10, 0.12)|scale=0.05673704
+Fictional storefront identity|GENERAL STORE|backing=Slate blue siding|available=(24.35, 1.61, 1.61)|scale=0.1715891
+Road lettering|Trickum Road|backing=Board|available=(7.00, 1.60, 0.12)|scale=0.1
+Direction lettering|MOUNTAIN TRAILS/Creek ascent / Ridge return|backing=Trail sign board|available=(5.99, 1.47, 0.16)|scale=0.08576955
+Fictional storefront identity|AUTO SERVICE|backing=Workshop ochre|available=(24.25, 0.85, 0.50)|scale=0.09087276
+Fictional storefront identity|CORNER MARKET|backing=Market teal|available=(24.35, 1.61, 1.61)|scale=0.171589
+Fictional storefront identity|CORNER MARKET|backing=Market teal|available=(24.35, 1.61, 1.61)|scale=0.1715891
+Mounted direction lettering|SPEED CAMERA/BOTH DIRECTIONS|backing=Cube|available=(7.00, 1.60, 0.14)|scale=0.08429305
+Mounted lettering|^|backing=Cube|available=(6.00, 2.00, 0.18)|scale=0.2138181
+Direction lettering|RIDGE RETURN/Lake / Neighborhood|backing=Trail sign board|available=(5.01, 1.22, 0.16)|scale=0.08599442
+Physical lettering|SUMMIT CAMP/Look for the cairns|backing=Sign board|available=(6.00, 1.80, 0.18)|scale=0.09541132
+Fictional storefront identity|HILLTOP DINER|backing=Diner red|available=(24.35, 1.61, 1.61)|scale=0.171589
+Fictional storefront identity|HILLTOP DINER|backing=Diner red|available=(24.35, 1.61, 1.61)|scale=0.1715891
+Direction lettering|High Ridge Drop/35 - 55 mph|backing=Trail sign board|available=(5.01, 1.22, 0.16)|scale=0.08599496
+Fictional storefront identity|GENERAL STORE|backing=Slate blue siding|available=(24.35, 1.61, 1.61)|scale=0.1715891
+Mounted lettering|OPTIONAL/SHORTCUT  <|backing=Cube|available=(6.00, 2.00, 0.18)|scale=0.1053663
+Fictional storefront identity|HILLTOP DINER|backing=Diner red|available=(24.35, 1.61, 1.61)|scale=0.171589
+Fictional storefront identity|CORNER MARKET|backing=Market teal|available=(24.35, 1.61, 1.61)|scale=0.1715891

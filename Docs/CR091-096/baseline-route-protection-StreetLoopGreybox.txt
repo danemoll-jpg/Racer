@@ -1,0 +1,1 @@
+Restored 756 terrain vertices around original race/ambient/shortcut/mountain routes from a89577e9. Maximum prior change 10.3766m. Original gate/branch/ramp object geometry unchanged. Optional pockets blend outside protected corridors.

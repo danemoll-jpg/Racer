@@ -1,0 +1,50 @@
+PASS Invalid destination rejected
+PASS Undiscovered destination rejected
+PASS original supported/clear arrival Dan's neighborhood
+PASS Teleport has no path reveal/collection/award, cancels attempt
+PASS original supported/clear arrival Lake gateway
+PASS Teleport has no path reveal/collection/award, cancels attempt
+PASS original supported/clear arrival Ridge overlook
+PASS Teleport has no path reveal/collection/award, cancels attempt
+PASS original supported/clear arrival Highway market
+PASS Teleport has no path reveal/collection/award, cancels attempt
+PASS original supported/clear arrival Trickum woods
+PASS Teleport has no path reveal/collection/award, cancels attempt
+PASS tourer supported/clear arrival Dan's neighborhood
+PASS Teleport has no path reveal/collection/award, cancels attempt
+PASS tourer supported/clear arrival Lake gateway
+PASS Teleport has no path reveal/collection/award, cancels attempt
+PASS tourer supported/clear arrival Ridge overlook
+PASS Teleport has no path reveal/collection/award, cancels attempt
+PASS tourer supported/clear arrival Highway market
+PASS Teleport has no path reveal/collection/award, cancels attempt
+PASS tourer supported/clear arrival Trickum woods
+PASS Teleport has no path reveal/collection/award, cancels attempt
+PASS moto supported/clear arrival Dan's neighborhood
+PASS Teleport has no path reveal/collection/award, cancels attempt
+PASS moto supported/clear arrival Lake gateway
+PASS Teleport has no path reveal/collection/award, cancels attempt
+PASS moto supported/clear arrival Ridge overlook
+PASS Teleport has no path reveal/collection/award, cancels attempt
+PASS moto supported/clear arrival Highway market
+PASS Teleport has no path reveal/collection/award, cancels attempt
+PASS moto supported/clear arrival Trickum woods
+PASS Teleport has no path reveal/collection/award, cancels attempt
+PASS atv supported/clear arrival Dan's neighborhood
+PASS Teleport has no path reveal/collection/award, cancels attempt
+PASS atv supported/clear arrival Lake gateway
+PASS Teleport has no path reveal/collection/award, cancels attempt
+PASS atv supported/clear arrival Ridge overlook
+PASS Teleport has no path reveal/collection/award, cancels attempt
+PASS atv supported/clear arrival Highway market
+PASS Teleport has no path reveal/collection/award, cancels attempt
+PASS atv supported/clear arrival Trickum woods
+PASS Teleport has no path reveal/collection/award, cancels attempt
+PASS Race travel rejected
+PASS Virtual controller opens map
+PASS Virtual controller places waypoint
+PASS Map controller actions do not activate underlying menus
+PASS Virtual controller closes/resumes map
+PASS Unconfirmed collectibles restart rejected
+PASS Explicit confirmed collectibles-only restart
+PASS Restart preserves fog and settings

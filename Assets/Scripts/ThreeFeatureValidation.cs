@@ -80,14 +80,15 @@ namespace Racer
         }
         public static void CaptureUi(string file)
         {
-            var camera=Camera.main;var canvas=FindAnyObjectByType<RaceHud>().GetComponent<Canvas>();var mode=canvas.renderMode;var oldCamera=canvas.worldCamera;float plane=canvas.planeDistance;
+            var camera=Camera.main;var canvases=FindObjectsByType<Canvas>(FindObjectsSortMode.None).Where(c=>c.isRootCanvas&&c.renderMode==RenderMode.ScreenSpaceOverlay).ToArray();
+            var states=canvases.Select(c=>(canvas:c,mode:c.renderMode,camera:c.worldCamera,plane:c.planeDistance)).ToArray();
             // Hidden standalone windows don't automatically render secondary cameras.
             // Populate the real garage RenderTexture before capturing its RawImage.
             foreach(var auxiliary in Camera.allCameras)if(auxiliary!=camera&&auxiliary.enabled&&auxiliary.targetTexture)auxiliary.Render();
             var rt=new RenderTexture(1280,720,24);var previous=camera.targetTexture;var active=RenderTexture.active;
-            canvas.renderMode=RenderMode.ScreenSpaceCamera;canvas.worldCamera=camera;canvas.planeDistance=2;camera.targetTexture=rt;Canvas.ForceUpdateCanvases();camera.Render();RenderTexture.active=rt;
+            foreach(var canvas in canvases){canvas.renderMode=RenderMode.ScreenSpaceCamera;canvas.worldCamera=camera;canvas.planeDistance=2;}camera.targetTexture=rt;Canvas.ForceUpdateCanvases();camera.Render();RenderTexture.active=rt;
             var image=new Texture2D(1280,720,TextureFormat.RGB24,false);image.ReadPixels(new Rect(0,0,1280,720),0,0);image.Apply();File.WriteAllBytes(file,image.EncodeToPNG());
-            camera.targetTexture=previous;RenderTexture.active=active;canvas.renderMode=mode;canvas.worldCamera=oldCamera;canvas.planeDistance=plane;Destroy(image);Destroy(rt);
+            camera.targetTexture=previous;RenderTexture.active=active;foreach(var state in states){state.canvas.renderMode=state.mode;state.canvas.worldCamera=state.camera;state.canvas.planeDistance=state.plane;}Destroy(image);Destroy(rt);
         }
         IEnumerator Jumps()
         {
@@ -173,7 +174,7 @@ namespace Racer
             }
             var frames=new List<float>();float start=Time.realtimeSinceStartup,next=0;bool recovered=ghostSolo; int view=0;
             using var ambient=new StreamWriter(dir+"/ambient.csv");ambient.WriteLine("time,name,streetDistance,routeIsStreet,recoveries,x,y,z");
-            using var log=new StreamWriter(dir+"/driving.csv");log.WriteLine("time,vehicle,lap,gate,speed,recoveries,misses,x,y,z");
+            using var log=new StreamWriter(dir+"/driving.csv");log.WriteLine("time,vehicle,lap,gate,speed,recoveries,misses,x,y,z,verified,finishArmed,roadPosition");
             while(!race.ClassificationFinal&&Time.realtimeSinceStartup-start<900)
             {
                 yield return null;if(flow.State!=RaceFlow.Stage.Racing)continue;Time.timeScale=float.Parse(Arg("-testSpeed","1"));frames.Add(Time.unscaledDeltaTime*1000);
@@ -181,7 +182,7 @@ namespace Racer
                 if(Time.time<next)continue;next=Time.time+1;
                 if(view<8&&Time.time-start>view*7){CaptureUi(dir+"/gameplay-"+view+++".png");}
                 foreach(var d in race.Drivers.Where(d=>d.GetComponent<AmbientVehicle>())){d.DriveRoad.Project(d.transform.position,out float lateral);var at=d.transform.position;ambient.WriteLine($"{race.Clock:F2},{d.name},{lateral:F3},{d.DriveRoad!=race.road||!race.Forest},{d.RecoveryCount},{at.x:F2},{at.y:F2},{at.z:F2}");}ambient.Flush();
-                foreach(var state in race.Racers){var p=state.Car.Body.position;log.WriteLine($"{race.Clock:F3},{state.Car.GetComponent<VehicleConfiguration>().profileId},{state.Progress.CompletedLaps},{state.Progress.NextGate},{state.Car.ForwardSpeed:F2},{state.Recoveries},{state.Progress.MissedGates},{p.x:F2},{p.y:F2},{p.z:F2}");}log.Flush();
+                foreach(var state in race.Racers){var p=state.Car.Body.position;log.WriteLine($"{race.Clock:F3},{state.Car.GetComponent<VehicleConfiguration>().profileId},{state.Progress.CompletedLaps},{state.Progress.NextGate},{state.Car.ForwardSpeed:F2},{state.Recoveries},{state.Progress.MissedGates},{p.x:F2},{p.y:F2},{p.z:F2},{state.VerifiedRoad:F3},{state.FinishArmed},{state.RoadPosition:F3}");}log.Flush();
             }
             foreach(var state in race.Racers)Check(state.Progress.Finished&&!state.Dnf,$"{race.courseId} {state.Car.GetComponent<VehicleConfiguration>().profileId} completed {state.Progress.CompletedLaps}/{laps} laps; misses={state.Progress.MissedGates}; recoveries={state.Recoveries}; adjusted={state.Progress.AdjustedTime(race.Clock):F6}");
             File.WriteAllLines(dir+"/penalties.txt",race.Racers.SelectMany(state=>state.Progress.Penalties.Select(p=>state.Name+" / "+p.ToString())));

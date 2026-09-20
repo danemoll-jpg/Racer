@@ -1,0 +1,44 @@
+PASS original missed finish side=-1 height=0
+FAIL No reverse/linger duplicate
+PASS original missed finish side=1 height=0
+FAIL No reverse/linger duplicate
+PASS original missed finish side=-1 height=28
+PASS No reverse/linger duplicate
+PASS original missed finish side=1 height=28
+PASS No reverse/linger duplicate
+PASS Final lap completes with five seconds / original
+PASS Teleport cannot finish / original
+PASS Initial outside crossing does not award / original
+PASS tourer missed finish side=-1 height=0
+FAIL No reverse/linger duplicate
+PASS tourer missed finish side=1 height=0
+FAIL No reverse/linger duplicate
+PASS tourer missed finish side=-1 height=28
+PASS No reverse/linger duplicate
+PASS tourer missed finish side=1 height=28
+PASS No reverse/linger duplicate
+PASS Final lap completes with five seconds / tourer
+PASS Teleport cannot finish / tourer
+PASS Initial outside crossing does not award / tourer
+PASS moto missed finish side=-1 height=0
+FAIL No reverse/linger duplicate
+PASS moto missed finish side=1 height=0
+FAIL No reverse/linger duplicate
+PASS moto missed finish side=-1 height=28
+PASS No reverse/linger duplicate
+PASS moto missed finish side=1 height=28
+PASS No reverse/linger duplicate
+PASS Final lap completes with five seconds / moto
+PASS Teleport cannot finish / moto
+PASS Initial outside crossing does not award / moto
+PASS atv missed finish side=-1 height=0
+FAIL No reverse/linger duplicate
+PASS atv missed finish side=1 height=0
+FAIL No reverse/linger duplicate
+PASS atv missed finish side=-1 height=28
+PASS No reverse/linger duplicate
+PASS atv missed finish side=1 height=28
+PASS No reverse/linger duplicate
+PASS Final lap completes with five seconds / atv
+PASS Teleport cannot finish / atv
+PASS Initial outside crossing does not award / atv

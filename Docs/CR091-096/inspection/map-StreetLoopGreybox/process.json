@@ -1,0 +1,11 @@
+{
+  "Name": "map-StreetLoopGreybox",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\CR091-inspection\\Racer.exe",
+  "RuntimeAssemblySHA256": "F6E32982D895248EF553CB6755A6090FC6712DFD625DC34ED25CE9FEE9B10FA7",
+  "Flags": "-batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr091-1e8012cfa05c4a35b2f1d4e01c16bc02\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR091-096\\inspection\\map-StreetLoopGreybox\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr091-inspection-map-StreetLoopGreybox.log\" -discoverySystems map",
+  "PID": 82836,
+  "Timeout": false,
+  "Exit": 0,
+  "PeakWorkingSetMiB": 501.99,
+  "CompletedUtc": "2026-09-20T17:02:13.0146392Z"
+}

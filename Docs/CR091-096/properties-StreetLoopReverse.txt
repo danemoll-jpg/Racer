@@ -1,0 +1,1 @@
+House 2 moved 65m (213.3ft) ALONG street: (417.41, 85.65, -55.32) -> (448.62, 82.27, -129.66); Dan front (1.00, 0.00, -0.03); House2 front (0.88, 0.00, 0.47); Kyle base 78.66718, roof target 87.85719; gates 613.7584,653.7584,727.572,761.9932; frontage sections 101; House3 overhead board bottom 5.625m above entry. Each fence endpoint sampled separately.

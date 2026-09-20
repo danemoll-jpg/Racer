@@ -1,0 +1,293 @@
+{
+  "Tag": "release3",
+  "GeneratedUtc": "2026-09-20T18:47:21.2235794Z",
+  "Checks": [
+    {
+      "Test": "boards",
+      "Pass": 29,
+      "Fail": 0,
+      "Failures": []
+    },
+    {
+      "Test": "clean-ghost-original",
+      "Pass": 2,
+      "Fail": 0,
+      "Failures": []
+    },
+    {
+      "Test": "clean-ghost-tourer",
+      "Pass": 2,
+      "Fail": 0,
+      "Failures": []
+    },
+    {
+      "Test": "collections",
+      "Pass": 52,
+      "Fail": 0,
+      "Failures": []
+    },
+    {
+      "Test": "collections-cold-reload",
+      "Pass": 8,
+      "Fail": 0,
+      "Failures": []
+    },
+    {
+      "Test": "collections-ForestLoopReverse",
+      "Pass": 52,
+      "Fail": 0,
+      "Failures": []
+    },
+    {
+      "Test": "collections-LakeWoods",
+      "Pass": 52,
+      "Fail": 0,
+      "Failures": []
+    },
+    {
+      "Test": "collections-StreetLoopReverse",
+      "Pass": 52,
+      "Fail": 0,
+      "Failures": []
+    },
+    {
+      "Test": "confirmed-restart-after-reload",
+      "Pass": 52,
+      "Fail": 0,
+      "Failures": []
+    },
+    {
+      "Test": "finish-ForestLoopReverse",
+      "Pass": 27,
+      "Fail": 0,
+      "Failures": []
+    },
+    {
+      "Test": "finish-LakeWoods",
+      "Pass": 25,
+      "Fail": 0,
+      "Failures": []
+    },
+    {
+      "Test": "finish-StreetLoopGreybox",
+      "Pass": 61,
+      "Fail": 0,
+      "Failures": []
+    },
+    {
+      "Test": "finish-StreetLoopReverse",
+      "Pass": 53,
+      "Fail": 0,
+      "Failures": []
+    },
+    {
+      "Test": "households",
+      "Pass": 474,
+      "Fail": 0,
+      "Failures": []
+    },
+    {
+      "Test": "map-ForestLoopReverse",
+      "Pass": 32,
+      "Fail": 0,
+      "Failures": []
+    },
+    {
+      "Test": "map-LakeWoods",
+      "Pass": 32,
+      "Fail": 0,
+      "Failures": []
+    },
+    {
+      "Test": "map-StreetLoopGreybox",
+      "Pass": 52,
+      "Fail": 0,
+      "Failures": []
+    },
+    {
+      "Test": "map-StreetLoopReverse",
+      "Pass": 52,
+      "Fail": 0,
+      "Failures": []
+    },
+    {
+      "Test": "race-smoke-ForestLoopReverse",
+      "Pass": 6,
+      "Fail": 0,
+      "Failures": []
+    },
+    {
+      "Test": "race-smoke-LakeWoods",
+      "Pass": 6,
+      "Fail": 0,
+      "Failures": []
+    },
+    {
+      "Test": "race-smoke-StreetLoopGreybox",
+      "Pass": 6,
+      "Fail": 0,
+      "Failures": []
+    },
+    {
+      "Test": "race-smoke-StreetLoopReverse",
+      "Pass": 6,
+      "Fail": 0,
+      "Failures": []
+    },
+    {
+      "Test": "radio",
+      "Pass": 41,
+      "Fail": 0,
+      "Failures": []
+    },
+    {
+      "Test": "records-cold-reload",
+      "Pass": 1,
+      "Fail": 0,
+      "Failures": []
+    },
+    {
+      "Test": "return-driveway",
+      "Pass": 16,
+      "Fail": 0,
+      "Failures": []
+    },
+    {
+      "Test": "smash",
+      "Pass": 8,
+      "Fail": 0,
+      "Failures": []
+    },
+    {
+      "Test": "top-ten",
+      "Pass": 43,
+      "Fail": 0,
+      "Failures": []
+    },
+    {
+      "Test": "views-ForestLoopReverse",
+      "Pass": 1,
+      "Fail": 0,
+      "Failures": []
+    },
+    {
+      "Test": "views-LakeWoods",
+      "Pass": 1,
+      "Fail": 0,
+      "Failures": []
+    },
+    {
+      "Test": "views-StreetLoopGreybox",
+      "Pass": 1,
+      "Fail": 0,
+      "Failures": []
+    },
+    {
+      "Test": "views-StreetLoopReverse",
+      "Pass": 1,
+      "Fail": 0,
+      "Failures": []
+    }
+  ],
+  "Ramps": [
+    {
+      "Test": "summit-ForestLoopReverse-race",
+      "Cases": 30,
+      "Incomplete": 0,
+      "LowUpright": 2,
+      "NoAward": 2,
+      "RecoveryFailures": 0
+    },
+    {
+      "Test": "summit-ForestLoopReverse-return-face",
+      "Cases": 2,
+      "Incomplete": 0,
+      "LowUpright": 0,
+      "NoAward": 2,
+      "RecoveryFailures": 0
+    },
+    {
+      "Test": "summit-ForestLoopReverse-roam",
+      "Cases": 30,
+      "Incomplete": 0,
+      "LowUpright": 2,
+      "NoAward": 2,
+      "RecoveryFailures": 0
+    },
+    {
+      "Test": "summit-LakeWoods-race",
+      "Cases": 30,
+      "Incomplete": 0,
+      "LowUpright": 2,
+      "NoAward": 2,
+      "RecoveryFailures": 0
+    },
+    {
+      "Test": "summit-LakeWoods-return-face",
+      "Cases": 2,
+      "Incomplete": 0,
+      "LowUpright": 0,
+      "NoAward": 2,
+      "RecoveryFailures": 0
+    },
+    {
+      "Test": "summit-LakeWoods-roam",
+      "Cases": 30,
+      "Incomplete": 0,
+      "LowUpright": 2,
+      "NoAward": 2,
+      "RecoveryFailures": 0
+    },
+    {
+      "Test": "summit-StreetLoopGreybox-race",
+      "Cases": 60,
+      "Incomplete": 0,
+      "LowUpright": 1,
+      "NoAward": 2,
+      "RecoveryFailures": 0
+    },
+    {
+      "Test": "summit-StreetLoopGreybox-return-face",
+      "Cases": 4,
+      "Incomplete": 0,
+      "LowUpright": 0,
+      "NoAward": 4,
+      "RecoveryFailures": 0
+    },
+    {
+      "Test": "summit-StreetLoopGreybox-roam",
+      "Cases": 60,
+      "Incomplete": 0,
+      "LowUpright": 1,
+      "NoAward": 2,
+      "RecoveryFailures": 0
+    },
+    {
+      "Test": "summit-StreetLoopReverse-race",
+      "Cases": 60,
+      "Incomplete": 0,
+      "LowUpright": 1,
+      "NoAward": 2,
+      "RecoveryFailures": 0
+    },
+    {
+      "Test": "summit-StreetLoopReverse-return-face",
+      "Cases": 4,
+      "Incomplete": 0,
+      "LowUpright": 0,
+      "NoAward": 4,
+      "RecoveryFailures": 0
+    },
+    {
+      "Test": "summit-StreetLoopReverse-roam",
+      "Cases": 60,
+      "Incomplete": 0,
+      "LowUpright": 1,
+      "NoAward": 2,
+      "RecoveryFailures": 0
+    }
+  ],
+  "Processes": 45,
+  "Timeouts": 0,
+  "NonzeroExits": []
+}

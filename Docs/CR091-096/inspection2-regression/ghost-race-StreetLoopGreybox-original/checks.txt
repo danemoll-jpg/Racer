@@ -1,0 +1,6 @@
+PASS Local recovery preserves gate progress and penalties
+PASS street-v14-discovery original completed 3/3 laps; misses=0; recoveries=0; adjusted=454.873115
+PASS street-v14-discovery tourer completed 3/3 laps; misses=0; recoveries=2; adjusted=474.798520
+PASS street-v14-discovery moto completed 3/3 laps; misses=0; recoveries=3; adjusted=482.152881
+PASS street-v14-discovery atv completed 3/3 laps; misses=0; recoveries=2; adjusted=530.501243
+PASS Completed player race creates one total entry

@@ -1,0 +1,3 @@
+course,mode,vehicle,speed,line,direction,travel,air,minUp,recovered,awards,completed
+Forest Loop Reverse,roam,moto,32,0,-1,220.66,3.84,0.937,True,0,True
+Forest Loop Reverse,roam,atv,32,0,-1,221.19,4.04,0.909,True,0,True

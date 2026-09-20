@@ -151,6 +151,11 @@ namespace Racer.Editor
     public sealed class PreservePhysicalSigns : IProcessSceneWithReport
     {
         public int callbackOrder=>100;
-        public void OnProcessScene(Scene scene,BuildReport report){if(scene.path==StreetLoopBuilder.ScenePath||scene.path==LakeCourseBuild.ScenePath)SignWildlifeRelease.Restore(scene);}
+        public void OnProcessScene(Scene scene,BuildReport report){
+            // CR091 scenes already contain the audited physical lettering. The old
+            // recovery catalog would recreate superseded, overlapping metric labels.
+            if(scene.GetRootGameObjects().Any(g=>g.GetComponentInChildren<ExplorationMap>(true)))return;
+            if(scene.path==StreetLoopBuilder.ScenePath||scene.path==LakeCourseBuild.ScenePath)SignWildlifeRelease.Restore(scene);
+        }
     }
 }

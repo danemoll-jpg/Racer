@@ -1,0 +1,11 @@
+{
+  "Name": "summit-StreetLoopReverse-return-face",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\CR091-inspection2\\Racer.exe",
+  "RuntimeAssemblySHA256": "368D27F9064DDA02F4225429E86946AD434803AC94317012DF24349754B6630A",
+  "Flags": "-batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr091-e52a01c2092e45e3b7a8bc9888054247\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR091-096\\inspection2-matrix\\summit-StreetLoopReverse-return-face\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr091-inspection2-matrix-summit-StreetLoopReverse-return-face.log\" -discoveryCheck summit -course StreetLoopReverse -opposite yes -quick yes -testSpeed 4",
+  "PID": 43924,
+  "Timeout": false,
+  "Exit": 0,
+  "PeakWorkingSetMiB": 596.46,
+  "CompletedUtc": "2026-09-20T17:36:39.8375902Z"
+}

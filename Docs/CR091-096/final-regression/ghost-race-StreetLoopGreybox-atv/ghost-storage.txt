@@ -1,0 +1,1 @@
+street-v14-discovery/forward/atv/clean-lap-v1/handling-cr087-v1 seconds=144.049523910241 samples=2403 first=0 last=144.0495 bytes=484968

@@ -1,0 +1,6 @@
+PASS Local recovery preserves gate progress and penalties
+PASS forest-reverse-v5-discovery atv completed 3/3 laps; misses=0; recoveries=0; adjusted=187.218911
+PASS forest-reverse-v5-discovery moto completed 3/3 laps; misses=0; recoveries=1; adjusted=184.351190
+PASS forest-reverse-v5-discovery moto completed 3/3 laps; misses=0; recoveries=0; adjusted=176.812218
+PASS forest-reverse-v5-discovery moto completed 3/3 laps; misses=0; recoveries=0; adjusted=176.149595
+PASS Completed player race creates one total entry

@@ -1,0 +1,135 @@
+{
+  "Tag": "verified-regression",
+  "GeneratedUtc": "2026-09-20T18:28:28.3396327Z",
+  "Checks": [
+    {
+      "Test": "ai-ForestLoopReverse",
+      "Pass": 6,
+      "Fail": 0,
+      "Failures": []
+    },
+    {
+      "Test": "ai-LakeWoods",
+      "Pass": 6,
+      "Fail": 0,
+      "Failures": []
+    },
+    {
+      "Test": "ghost-race-ForestLoopReverse-atv",
+      "Pass": 6,
+      "Fail": 0,
+      "Failures": []
+    },
+    {
+      "Test": "ghost-race-ForestLoopReverse-moto",
+      "Pass": 6,
+      "Fail": 0,
+      "Failures": []
+    },
+    {
+      "Test": "ghost-race-LakeWoods-atv",
+      "Pass": 6,
+      "Fail": 0,
+      "Failures": []
+    },
+    {
+      "Test": "ghost-race-LakeWoods-moto",
+      "Pass": 6,
+      "Fail": 0,
+      "Failures": []
+    },
+    {
+      "Test": "guidance-ForestLoopReverse",
+      "Pass": 6,
+      "Fail": 0,
+      "Failures": []
+    },
+    {
+      "Test": "guidance-LakeWoods",
+      "Pass": 6,
+      "Fail": 0,
+      "Failures": []
+    },
+    {
+      "Test": "recovery-ForestLoopReverse",
+      "Pass": 46,
+      "Fail": 0,
+      "Failures": []
+    },
+    {
+      "Test": "recovery-LakeWoods",
+      "Pass": 44,
+      "Fail": 0,
+      "Failures": []
+    },
+    {
+      "Test": "roam-recovery-ForestLoopReverse",
+      "Pass": 16,
+      "Fail": 0,
+      "Failures": []
+    },
+    {
+      "Test": "roam-recovery-LakeWoods",
+      "Pass": 16,
+      "Fail": 0,
+      "Failures": []
+    },
+    {
+      "Test": "rules-ForestLoopReverse",
+      "Pass": 24,
+      "Fail": 0,
+      "Failures": []
+    },
+    {
+      "Test": "rules-LakeWoods",
+      "Pass": 24,
+      "Fail": 0,
+      "Failures": []
+    },
+    {
+      "Test": "shortcuts-ForestLoopReverse",
+      "Pass": 28,
+      "Fail": 0,
+      "Failures": []
+    },
+    {
+      "Test": "shortcuts-LakeWoods",
+      "Pass": 14,
+      "Fail": 0,
+      "Failures": []
+    },
+    {
+      "Test": "speed-ForestLoopReverse",
+      "Pass": 24,
+      "Fail": 0,
+      "Failures": []
+    },
+    {
+      "Test": "speed-LakeWoods",
+      "Pass": 24,
+      "Fail": 0,
+      "Failures": []
+    }
+  ],
+  "Ramps": [
+    {
+      "Test": "race-jump-ForestLoopReverse",
+      "Cases": 6,
+      "Incomplete": 0,
+      "LowUpright": 0,
+      "NoAward": 6,
+      "RecoveryFailures": 0
+    },
+    {
+      "Test": "race-jump-LakeWoods",
+      "Cases": 6,
+      "Incomplete": 0,
+      "LowUpright": 0,
+      "NoAward": 6,
+      "RecoveryFailures": 0
+    }
+  ],
+  "Processes": 20,
+  "Timeouts": 0,
+  "NonzeroExits": []
+}

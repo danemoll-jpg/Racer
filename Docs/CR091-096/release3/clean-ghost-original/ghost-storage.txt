@@ -1,0 +1,1 @@
+street-v14-discovery/forward/original/clean-lap-v1/handling-cr087-v1 seconds=157.915236538816 samples=2634 first=0 last=157.9152 bytes=533121

@@ -1,0 +1,11 @@
+{
+  "Name": "ghost-race-LakeWoods-moto",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\CR091-inspection2\\Racer.exe",
+  "RuntimeAssemblySHA256": "368D27F9064DDA02F4225429E86946AD434803AC94317012DF24349754B6630A",
+  "Flags": "-batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr091-f74ecc016a824d97b124962d371622cf\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR091-096\\inspection2-regression\\ghost-race-LakeWoods-moto\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr091-inspection2-regression-ghost-race-LakeWoods-moto.log\" -threeFeatureTest drive -course LakeWoods -vehicle moto -laps 3 -testSpeed 6 -ghostValidation yes -lifeSeed 82089",
+  "PID": 69516,
+  "Timeout": false,
+  "Exit": 0,
+  "PeakWorkingSetMiB": 819.07,
+  "CompletedUtc": "2026-09-20T17:42:10.2273073Z"
+}

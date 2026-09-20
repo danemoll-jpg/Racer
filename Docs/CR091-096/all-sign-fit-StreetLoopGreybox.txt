@@ -1,0 +1,50 @@
+Road lettering|Fox Gully  >/67 mph|backing=Board|available=(7.00, 1.60, 0.12)|scale=0.08429326
+Fictional storefront identity|AUTO SERVICE|backing=Workshop ochre|available=(24.25, 0.85, 0.50)|scale=0.09087276
+Direction lettering|MOUNTAIN TRAILS/Creek ascent / Ridge return|backing=Trail sign board|available=(5.99, 1.47, 0.16)|scale=0.08576955
+Fictional storefront identity|AUTO SERVICE|backing=Workshop ochre|available=(24.25, 0.85, 0.50)|scale=0.09087276
+Fictional storefront identity|CORNER MARKET|backing=Market teal|available=(24.35, 1.61, 1.61)|scale=0.171589
+Fictional storefront identity|HILLTOP DINER|backing=Diner red|available=(24.35, 1.61, 1.61)|scale=0.1715891
+Mounted direction lettering|Creek Leap >/OPTIONAL / FORWARD|backing=Cube|available=(7.00, 1.60, 0.14)|scale=0.08333334
+Direction lettering|RIDGE RETURN/Lake / Neighborhood|backing=Trail sign board|available=(5.01, 1.22, 0.16)|scale=0.08599442
+Mounted direction lettering|SPEED CAMERA/BOTH DIRECTIONS|backing=Cube|available=(7.00, 1.60, 0.14)|scale=0.0842931
+Fictional storefront identity|HILLTOP DINER|backing=Diner red|available=(24.35, 1.61, 1.61)|scale=0.1715891
+Fictional storefront identity|AUTO SERVICE|backing=Workshop ochre|available=(24.25, 0.85, 0.50)|scale=0.09087276
+Rocky Way Acres lettering|Rocky Way Acres|backing=Rocky Way Acres board|available=(12.80, 1.15, 0.35)|scale=0.1229456
+Fictional storefront identity|HILLTOP DINER|backing=Diner red|available=(24.35, 1.61, 1.61)|scale=0.1715891
+Mounted direction lettering|Fox Gully >/OPTIONAL / FORWARD|backing=Cube|available=(7.00, 1.60, 0.14)|scale=0.08333334
+Mounted direction lettering|SPEED CAMERA/BOTH DIRECTIONS|backing=Cube|available=(7.00, 1.60, 0.14)|scale=0.0842931
+Mounted direction lettering|Pine Ridge </OPTIONAL / FORWARD|backing=Cube|available=(7.00, 1.60, 0.14)|scale=0.08333334
+Fictional storefront identity|GENERAL STORE|backing=Slate blue siding|available=(24.35, 1.61, 1.61)|scale=0.171589
+Mounted direction lettering|JUMP CHALLENGE/LAND CLEAN / PAUSE FOR TARGETS|backing=Cube|available=(7.00, 1.60, 0.14)|scale=0.05
+Fictional storefront identity|GENERAL STORE|backing=Slate blue siding|available=(24.35, 1.61, 1.61)|scale=0.1715891
+Fictional storefront identity|CORNER MARKET|backing=Market teal|available=(24.35, 1.61, 1.61)|scale=0.1715891
+Fictional storefront identity|GENERAL STORE|backing=Slate blue siding|available=(24.35, 1.61, 1.61)|scale=0.1715891
+Fictional storefront identity|CORNER MARKET|backing=Market teal|available=(24.35, 1.61, 1.61)|scale=0.1715891
+Direction lettering|KYLE'S WOODED DRIVE/LAKE / MOUNTAIN TRAILS|backing=Trail sign board|available=(6.26, 1.53, 0.16)|scale=0.0882
+Road lettering|Creek Leap  >/76 mph|backing=Board|available=(7.00, 1.60, 0.12)|scale=0.08429319
+Road lettering|South Cherokee Lane/JUNCTION: Hwy 92|backing=Board|available=(7.11, 1.63, 0.12)|scale=0.0856684
+Direction lettering|Fern Creek Leap/35 - 55 mph|backing=Trail sign board|available=(5.01, 1.22, 0.16)|scale=0.08599442
+Fictional storefront identity|CORNER MARKET|backing=Market teal|available=(24.35, 1.61, 1.61)|scale=0.1715891
+Mounted direction lettering|SPEED CAMERA/BOTH DIRECTIONS|backing=Cube|available=(7.00, 1.60, 0.14)|scale=0.08429305
+Recommended speed|RAISED PAVEMENT WORKS/JUMP 78 - 96 mph/OPEN LANE ON RIGHT|backing=Jump approach sign|available=(8.00, 3.50, 0.20)|scale=0.07749879
+Physical lettering|SUMMIT HOMEWARD FLIGHT/55–90 mph / HIGH RISK/LAND STRAIGHT / BRAKE AFTER|backing=Sign board|available=(10.60, 3.18, 0.18)|scale=0.0882
+Mounted direction lettering|FENCE LINE SMASH/3 / 6 / 10 PROPS IN 8 s|backing=Cube|available=(7.00, 1.60, 0.14)|scale=0.06521739
+Direction lettering|SUMMIT/Both trails return to lake|backing=Trail sign board|available=(5.26, 1.29, 0.16)|scale=0.08820001
+Physical lettering|SUMMIT CAMP/Look for the cairns|backing=Sign board|available=(6.00, 1.80, 0.18)|scale=0.09541132
+Fictional storefront identity|AUTO SERVICE|backing=Workshop ochre|available=(24.25, 0.85, 0.50)|scale=0.09087276
+Mounted direction lettering|SPEED CAMERA/BOTH DIRECTIONS|backing=Cube|available=(7.00, 1.60, 0.14)|scale=0.0842931
+Fictional storefront identity|HILLTOP DINER|backing=Diner red|available=(24.35, 1.61, 1.61)|scale=0.171589
+Fictional storefront identity|HILLTOP DINER|backing=Diner red|available=(24.35, 1.61, 1.61)|scale=0.171589
+Road lettering|TO Jamerson Road|backing=Board|available=(7.00, 1.60, 0.12)|scale=0.1
+Physical lettering|RETURN VIA RIDGE TRAIL/DO NOT CLIMB LAUNCH FACE|backing=Sign board|available=(9.76, 2.93, 0.18)|scale=0.0882
+Fictional storefront identity|HILLTOP DINER|backing=Diner red|available=(24.35, 1.61, 1.61)|scale=0.1715891
+Fictional storefront identity|GENERAL STORE|backing=Slate blue siding|available=(24.35, 1.61, 1.61)|scale=0.1715891
+Direction lettering|High Ridge Drop/35 - 55 mph|backing=Trail sign board|available=(5.01, 1.22, 0.16)|scale=0.08599496
+Direction lettering|LAKE SHORE/BOTH TRAILS RETURN HOME|backing=Trail sign board|available=(6.96, 1.70, 0.16)|scale=0.08560938
+Fictional storefront identity|AUTO SERVICE|backing=Workshop ochre|available=(24.25, 0.85, 0.50)|scale=0.09087276
+Fictional storefront identity|AUTO SERVICE|backing=Workshop ochre|available=(24.25, 0.85, 0.50)|scale=0.09087276
+Fictional storefront identity|CORNER MARKET|backing=Market teal|available=(24.35, 1.61, 1.61)|scale=0.1715891
+Road lettering|Pine Ridge  >/89 mph|backing=Board|available=(7.11, 1.63, 0.12)|scale=0.08566476
+Mounted direction lettering|Existing Southwest Cut >/OPTIONAL / FORWARD|backing=Cube|available=(7.00, 1.60, 0.14)|scale=0.0625
+Road lettering|Trickum Road|backing=Board|available=(7.00, 1.60, 0.12)|scale=0.1
+Fictional storefront identity|CORNER MARKET|backing=Market teal|available=(24.35, 1.61, 1.61)|scale=0.171589

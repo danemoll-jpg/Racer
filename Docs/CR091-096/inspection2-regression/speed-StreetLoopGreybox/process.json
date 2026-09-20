@@ -1,0 +1,11 @@
+{
+  "Name": "speed-StreetLoopGreybox",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\CR091-inspection2\\Racer.exe",
+  "RuntimeAssemblySHA256": "368D27F9064DDA02F4225429E86946AD434803AC94317012DF24349754B6630A",
+  "Flags": "-batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr091-e49146ddccb344f0a46d7c271222aee3\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR091-096\\inspection2-regression\\speed-StreetLoopGreybox\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr091-inspection2-regression-speed-StreetLoopGreybox.log\" -arcadeTest speed -course StreetLoopGreybox -raceActivities yes -lifeSeed 82089",
+  "PID": 85652,
+  "Timeout": false,
+  "Exit": 0,
+  "PeakWorkingSetMiB": 596.12,
+  "CompletedUtc": "2026-09-20T17:18:59.1215467Z"
+}

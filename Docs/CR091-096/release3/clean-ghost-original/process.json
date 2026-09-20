@@ -1,0 +1,11 @@
+{
+  "Name": "clean-ghost-original",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\Racer-0.16.0-review3-Windows\\Racer.exe",
+  "RuntimeAssemblySHA256": "0A6FC5337906C24D217C583BB3203E97A3FED0E4C9B7589B8C893E7A49FF33A5",
+  "Flags": "-batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr091-e656d0819f004bdc8fb2d5c4671574d6\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR091-096\\release3\\clean-ghost-original\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr091-release3-clean-ghost-original.log\" -threeFeatureTest drive -vehicle original -laps 2 -ghostSolo yes -ghostValidation yes -testSpeed 6",
+  "PID": 100468,
+  "Timeout": false,
+  "Exit": 0,
+  "PeakWorkingSetMiB": 521.5,
+  "CompletedUtc": "2026-09-20T18:33:36.8832789Z"
+}

@@ -1,0 +1,112 @@
+PASS original Creek Leap normal #0 completes in 26.28s; recovery=0; misses=0
+PASS original Creek Leap clean #0 completes in 26.04s; recovery=1; misses=0
+FAIL original clean branch has actual entry, no penalty/recovery Creek Leap
+PASS original Creek Leap imperfect #0 completes in 30.61s; recovery=1; misses=0
+PASS original actual local recovery preserves bypass entitlement Creek Leap
+PASS original Creek Leap recovery #0 completes in 28.02s; recovery=1; misses=0
+PASS original recovered branch finishes penalty-free Creek Leap
+PASS original Fox Gully normal #0 completes in 23.47s; recovery=0; misses=0
+PASS original Fox Gully clean #0 completes in 23.67s; recovery=0; misses=0
+PASS original clean branch has actual entry, no penalty/recovery Fox Gully
+PASS original Fox Gully imperfect #0 completes in 28.19s; recovery=0; misses=0
+PASS original actual local recovery preserves bypass entitlement Fox Gully
+PASS original Fox Gully recovery #0 completes in 24.98s; recovery=0; misses=0
+PASS original recovered branch finishes penalty-free Fox Gully
+PASS original Pine Ridge normal #0 completes in 27.83s; recovery=0; misses=0
+PASS original Pine Ridge clean #0 completes in 24.21s; recovery=0; misses=0
+PASS original clean branch has actual entry, no penalty/recovery Pine Ridge
+PASS original Pine Ridge imperfect #0 completes in 28.51s; recovery=0; misses=0
+PASS original actual local recovery preserves bypass entitlement Pine Ridge
+PASS original Pine Ridge recovery #0 completes in 26.33s; recovery=0; misses=0
+PASS original recovered branch finishes penalty-free Pine Ridge
+PASS original Existing Southwest Cut normal #0 completes in 11.76s; recovery=0; misses=0
+PASS original Existing Southwest Cut clean #0 completes in 11.04s; recovery=0; misses=0
+PASS original clean branch has actual entry, no penalty/recovery Existing Southwest Cut
+PASS original Existing Southwest Cut imperfect #0 completes in 15.23s; recovery=0; misses=0
+PASS original actual local recovery preserves bypass entitlement Existing Southwest Cut
+PASS original Existing Southwest Cut recovery #0 completes in 12.19s; recovery=0; misses=0
+PASS original recovered branch finishes penalty-free Existing Southwest Cut
+PASS tourer Creek Leap normal #0 completes in 26.86s; recovery=0; misses=0
+PASS tourer Creek Leap clean #0 completes in 26.33s; recovery=1; misses=0
+FAIL tourer clean branch has actual entry, no penalty/recovery Creek Leap
+PASS tourer Creek Leap imperfect #0 completes in 27.08s; recovery=0; misses=0
+PASS tourer actual local recovery preserves bypass entitlement Creek Leap
+PASS tourer Creek Leap recovery #0 completes in 24.01s; recovery=0; misses=0
+PASS tourer recovered branch finishes penalty-free Creek Leap
+PASS tourer Fox Gully normal #0 completes in 23.48s; recovery=0; misses=0
+PASS tourer Fox Gully clean #0 completes in 23.63s; recovery=0; misses=0
+PASS tourer clean branch has actual entry, no penalty/recovery Fox Gully
+PASS tourer Fox Gully imperfect #0 completes in 28.20s; recovery=0; misses=0
+PASS tourer actual local recovery preserves bypass entitlement Fox Gully
+PASS tourer Fox Gully recovery #0 completes in 24.97s; recovery=0; misses=0
+PASS tourer recovered branch finishes penalty-free Fox Gully
+PASS tourer Pine Ridge normal #0 completes in 27.72s; recovery=0; misses=0
+PASS tourer Pine Ridge clean #0 completes in 24.18s; recovery=0; misses=0
+PASS tourer clean branch has actual entry, no penalty/recovery Pine Ridge
+PASS tourer Pine Ridge imperfect #0 completes in 28.54s; recovery=0; misses=0
+PASS tourer actual local recovery preserves bypass entitlement Pine Ridge
+PASS tourer Pine Ridge recovery #0 completes in 25.90s; recovery=0; misses=0
+PASS tourer recovered branch finishes penalty-free Pine Ridge
+PASS tourer Existing Southwest Cut normal #0 completes in 11.89s; recovery=0; misses=0
+PASS tourer Existing Southwest Cut clean #0 completes in 11.14s; recovery=0; misses=0
+PASS tourer clean branch has actual entry, no penalty/recovery Existing Southwest Cut
+PASS tourer Existing Southwest Cut imperfect #0 completes in 15.31s; recovery=0; misses=0
+PASS tourer actual local recovery preserves bypass entitlement Existing Southwest Cut
+PASS tourer Existing Southwest Cut recovery #0 completes in 12.28s; recovery=0; misses=0
+PASS tourer recovered branch finishes penalty-free Existing Southwest Cut
+PASS moto Creek Leap normal #0 completes in 24.45s; recovery=0; misses=0
+PASS moto Creek Leap clean #0 completes in 21.39s; recovery=0; misses=0
+PASS moto clean branch has actual entry, no penalty/recovery Creek Leap
+PASS moto Creek Leap imperfect #0 completes in 25.75s; recovery=0; misses=0
+PASS moto actual local recovery preserves bypass entitlement Creek Leap
+PASS moto Creek Leap recovery #0 completes in 22.55s; recovery=0; misses=0
+PASS moto recovered branch finishes penalty-free Creek Leap
+PASS moto Fox Gully normal #0 completes in 21.92s; recovery=0; misses=0
+PASS moto Fox Gully clean #0 completes in 21.76s; recovery=0; misses=0
+PASS moto clean branch has actual entry, no penalty/recovery Fox Gully
+PASS moto Fox Gully imperfect #0 completes in 25.98s; recovery=0; misses=0
+PASS moto actual local recovery preserves bypass entitlement Fox Gully
+PASS moto Fox Gully recovery #0 completes in 22.79s; recovery=0; misses=0
+PASS moto recovered branch finishes penalty-free Fox Gully
+PASS moto Pine Ridge normal #0 completes in 24.57s; recovery=0; misses=0
+PASS moto Pine Ridge clean #0 completes in 22.37s; recovery=0; misses=0
+PASS moto clean branch has actual entry, no penalty/recovery Pine Ridge
+PASS moto Pine Ridge imperfect #0 completes in 26.44s; recovery=0; misses=0
+PASS moto actual local recovery preserves bypass entitlement Pine Ridge
+PASS moto Pine Ridge recovery #0 completes in 23.62s; recovery=0; misses=0
+PASS moto recovered branch finishes penalty-free Pine Ridge
+PASS moto Existing Southwest Cut normal #0 completes in 10.22s; recovery=0; misses=0
+PASS moto Existing Southwest Cut clean #0 completes in 10.34s; recovery=0; misses=0
+PASS moto clean branch has actual entry, no penalty/recovery Existing Southwest Cut
+PASS moto Existing Southwest Cut imperfect #0 completes in 14.19s; recovery=0; misses=0
+PASS moto actual local recovery preserves bypass entitlement Existing Southwest Cut
+PASS moto Existing Southwest Cut recovery #0 completes in 11.21s; recovery=0; misses=0
+PASS moto recovered branch finishes penalty-free Existing Southwest Cut
+PASS atv Creek Leap normal #0 completes in 27.75s; recovery=0; misses=0
+PASS atv Creek Leap clean #0 completes in 27.26s; recovery=1; misses=0
+FAIL atv clean branch has actual entry, no penalty/recovery Creek Leap
+PASS atv Creek Leap imperfect #0 completes in 31.76s; recovery=1; misses=0
+PASS atv actual local recovery preserves bypass entitlement Creek Leap
+PASS atv Creek Leap recovery #0 completes in 29.01s; recovery=1; misses=0
+PASS atv recovered branch finishes penalty-free Creek Leap
+PASS atv Fox Gully normal #0 completes in 24.85s; recovery=0; misses=0
+PASS atv Fox Gully clean #0 completes in 23.39s; recovery=0; misses=0
+PASS atv clean branch has actual entry, no penalty/recovery Fox Gully
+PASS atv Fox Gully imperfect #0 completes in 27.72s; recovery=0; misses=0
+PASS atv actual local recovery preserves bypass entitlement Fox Gully
+PASS atv Fox Gully recovery #0 completes in 24.44s; recovery=0; misses=0
+PASS atv recovered branch finishes penalty-free Fox Gully
+PASS atv Pine Ridge normal #0 completes in 25.52s; recovery=0; misses=0
+PASS atv Pine Ridge clean #0 completes in 24.29s; recovery=0; misses=0
+PASS atv clean branch has actual entry, no penalty/recovery Pine Ridge
+PASS atv Pine Ridge imperfect #0 completes in 28.67s; recovery=0; misses=0
+PASS atv actual local recovery preserves bypass entitlement Pine Ridge
+PASS atv Pine Ridge recovery #0 completes in 25.61s; recovery=0; misses=0
+PASS atv recovered branch finishes penalty-free Pine Ridge
+PASS atv Existing Southwest Cut normal #0 completes in 10.69s; recovery=0; misses=0
+PASS atv Existing Southwest Cut clean #0 completes in 10.53s; recovery=0; misses=0
+PASS atv clean branch has actual entry, no penalty/recovery Existing Southwest Cut
+PASS atv Existing Southwest Cut imperfect #0 completes in 14.59s; recovery=0; misses=0
+PASS atv actual local recovery preserves bypass entitlement Existing Southwest Cut
+PASS atv Existing Southwest Cut recovery #0 completes in 11.47s; recovery=0; misses=0
+PASS atv recovered branch finishes penalty-free Existing Southwest Cut

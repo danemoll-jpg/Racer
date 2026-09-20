@@ -1,0 +1,11 @@
+{
+  "Name": "return",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\CR091-inspection3\\Racer.exe",
+  "RuntimeAssemblySHA256": "AF3B1AB1D5F1051BD7293D7BFD083AB3746FA8CDA27652F1A2F0549440C3B0E5",
+  "Flags": "-batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr091-6d690e70cf5945e68bcc437b45e88e0d\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR091-096\\inspection3\\return\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr091-inspection3-return.log\" -discoverySystems return",
+  "PID": 15604,
+  "Timeout": false,
+  "Exit": 0,
+  "PeakWorkingSetMiB": 490.87,
+  "CompletedUtc": "2026-09-20T17:22:51.7259187Z"
+}

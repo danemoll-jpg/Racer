@@ -7,7 +7,7 @@ namespace Racer
 {
     public sealed class ExplorationCollection:MonoBehaviour
     {
-        [Serializable] public sealed class Site {public string id,title,approach;public Vector3 position;}
+        [Serializable] public sealed class Site {public string id,title,approach;public Vector3 position,access;}
         [Serializable] public sealed class Save {public int version=1;public List<string> found=new();}
         public Site[] sites=Array.Empty<Site>();
         public RaceRoad[] routes=Array.Empty<RaceRoad>();
@@ -15,6 +15,14 @@ namespace Racer
         Material goldMaterial,capMaterial;
         public int Found=>data.found.Count(id=>sites.Any(s=>s.id==id));
         public bool Discovered(string id)=>data.found.Contains(id);
+        public void ResetMovement(){sampled=false;}
+        public bool RestartCollection(bool confirmed)
+        {
+            if(!confirmed||error!=null)return false;
+            var fresh=new Save();
+            try{AtomicSave.Write(path,JsonUtility.ToJson(fresh,true));data=fresh;sampled=false;feedback="Acorn hunt restarted / other saves preserved";feedbackUntil=Time.time+5;return true;}
+            catch(Exception e){error="Collection could not restart: "+e.Message;return false;}
+        }
         public string Hud=>Time.time<feedbackUntil?feedback:$"WOODLAND ACORNS {Found}/{sites.Length} / progress in pause menu";
         public string Summary=>$"Woodland acorns: {Found}/{sites.Length} found\n"+string.Join("\n",sites.GroupBy(s=>s.approach).Select(g=>$"{g.Key}: {g.Count(s=>data.found.Contains(s.id))}/{g.Count()}"))+"\n"+(error??"Discoveries persist across tracks and relaunch.");
         public void Initialize(RaceDirector owner,string root)

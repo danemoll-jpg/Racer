@@ -1,0 +1,1 @@
+lake-v7-discovery/forward/moto/clean-lap-v1/handling-cr087-v1 seconds=68.9659453047071 samples=1152 first=0 last=68.96594 bytes=231802

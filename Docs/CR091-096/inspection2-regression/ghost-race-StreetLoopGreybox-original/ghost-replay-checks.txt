@@ -1,0 +1,2 @@
+PASS Pause freezes lap time and ghost pose
+PASS Ghost has no colliders or rigidbodies

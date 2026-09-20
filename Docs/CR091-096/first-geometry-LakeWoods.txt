@@ -1,0 +1,1 @@
+Author origin (1070,145,190), west-facing lip (970,168.6,190), 24m width, supported landing x=810..948 z=178..202; approach from summit east; return via (794,115,129). Unpolished before ordinary-frame testing.

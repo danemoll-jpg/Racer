@@ -239,7 +239,9 @@ namespace Racer
                 steering = -steering;
             }
 
-            if (Time.time>=nextRecovery && (stalled > 12 || routeStuck>16 || branchStuck>10 || (lateral > 22 && stalled>5) || Vector3.Dot(transform.up, Vector3.up) < .1f))
+            // A repeated obstruction has already exhausted the first long recovery
+            // window. Retry sooner, still using the same supported, non-forward pad.
+            if (Time.time>=nextRecovery && (stalled > (RecoveryCount>0?9:12) || routeStuck>(RecoveryCount>0?12:16) || branchStuck>10 || (lateral > 22 && stalled>5) || Vector3.Dot(transform.up, Vector3.up) < .1f))
             {
                 TryRecover(s);
             }

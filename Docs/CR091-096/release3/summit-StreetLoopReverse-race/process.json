@@ -1,0 +1,11 @@
+{
+  "Name": "summit-StreetLoopReverse-race",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\Racer-0.16.0-review3-Windows\\Racer.exe",
+  "RuntimeAssemblySHA256": "0A6FC5337906C24D217C583BB3203E97A3FED0E4C9B7589B8C893E7A49FF33A5",
+  "Flags": "-batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr091-18f38d0d258243eabe5552de04ba98c7\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR091-096\\release3\\summit-StreetLoopReverse-race\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr091-release3-summit-StreetLoopReverse-race.log\" -discoveryCheck summit -course StreetLoopReverse -mode race -testSpeed 4",
+  "PID": 61448,
+  "Timeout": false,
+  "Exit": 0,
+  "PeakWorkingSetMiB": 611.38,
+  "CompletedUtc": "2026-09-20T18:37:37.7653268Z"
+}

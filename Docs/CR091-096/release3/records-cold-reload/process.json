@@ -1,0 +1,11 @@
+{
+  "Name": "records-cold-reload",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\Racer-0.16.0-review3-Windows\\Racer.exe",
+  "RuntimeAssemblySHA256": "0A6FC5337906C24D217C583BB3203E97A3FED0E4C9B7589B8C893E7A49FF33A5",
+  "Flags": "-batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr091-2be299d6b617484cb7d357c56a2a3e57\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR091-096\\release3\\records-cold-reload\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr091-release3-records-cold-reload.log\" -discoverySystems records",
+  "PID": 31296,
+  "Timeout": false,
+  "Exit": 0,
+  "PeakWorkingSetMiB": 489.17,
+  "CompletedUtc": "2026-09-20T18:38:36.4318833Z"
+}

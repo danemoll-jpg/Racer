@@ -1,0 +1,11 @@
+{
+  "Name": "return-driveway",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\Racer-0.16.0-review3-Windows\\Racer.exe",
+  "RuntimeAssemblySHA256": "0A6FC5337906C24D217C583BB3203E97A3FED0E4C9B7589B8C893E7A49FF33A5",
+  "Flags": "-batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr091-b030932f61b04386a65a178079867c9c\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR091-096\\release3\\return-driveway\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr091-release3-return-driveway.log\" -discoverySystems return",
+  "PID": 80980,
+  "Timeout": false,
+  "Exit": 0,
+  "PeakWorkingSetMiB": 494.74,
+  "CompletedUtc": "2026-09-20T18:33:28.6300514Z"
+}

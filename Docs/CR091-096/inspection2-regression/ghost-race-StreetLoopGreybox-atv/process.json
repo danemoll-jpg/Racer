@@ -1,0 +1,11 @@
+{
+  "Name": "ghost-race-StreetLoopGreybox-atv",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\CR091-inspection2\\Racer.exe",
+  "RuntimeAssemblySHA256": "368D27F9064DDA02F4225429E86946AD434803AC94317012DF24349754B6630A",
+  "Flags": "-batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr091-05ce2d97c8994fa4a089fffb5a48b2d1\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR091-096\\inspection2-regression\\ghost-race-StreetLoopGreybox-atv\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr091-inspection2-regression-ghost-race-StreetLoopGreybox-atv.log\" -threeFeatureTest drive -course StreetLoopGreybox -vehicle atv -laps 3 -testSpeed 6 -ghostValidation yes -lifeSeed 82089",
+  "PID": 33188,
+  "Timeout": false,
+  "Exit": 0,
+  "PeakWorkingSetMiB": 575.45,
+  "CompletedUtc": "2026-09-20T17:34:14.1118806Z"
+}

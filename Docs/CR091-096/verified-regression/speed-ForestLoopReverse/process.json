@@ -1,0 +1,11 @@
+{
+  "Name": "speed-ForestLoopReverse",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\Racer-0.16.0-review2-Windows\\Racer.exe",
+  "RuntimeAssemblySHA256": "0A6FC5337906C24D217C583BB3203E97A3FED0E4C9B7589B8C893E7A49FF33A5",
+  "Flags": "-batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr091-8c373fc762704a248a8682337123b3a9\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR091-096\\verified-regression\\speed-ForestLoopReverse\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr091-verified-regression-speed-ForestLoopReverse.log\" -arcadeTest speed -course ForestLoopReverse -raceActivities yes -lifeSeed 82089",
+  "PID": 41704,
+  "Timeout": false,
+  "Exit": 0,
+  "PeakWorkingSetMiB": 815.6,
+  "CompletedUtc": "2026-09-20T18:17:01.2167754Z"
+}

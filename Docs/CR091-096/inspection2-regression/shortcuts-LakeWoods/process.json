@@ -1,0 +1,11 @@
+{
+  "Name": "shortcuts-LakeWoods",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\CR091-inspection2\\Racer.exe",
+  "RuntimeAssemblySHA256": "368D27F9064DDA02F4225429E86946AD434803AC94317012DF24349754B6630A",
+  "Flags": "-batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr091-67e3dbe95e524276ac3b9618083ef900\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR091-096\\inspection2-regression\\shortcuts-LakeWoods\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr091-inspection2-regression-shortcuts-LakeWoods.log\" -review7074 physical -course LakeWoods",
+  "PID": 71012,
+  "Timeout": false,
+  "Exit": 0,
+  "PeakWorkingSetMiB": 799.1,
+  "CompletedUtc": "2026-09-20T17:46:26.1266710Z"
+}

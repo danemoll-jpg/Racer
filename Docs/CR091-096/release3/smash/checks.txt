@@ -1,0 +1,8 @@
+PASS original PHYSICAL distinct fence contacts; count=10 elapsed=3.52
+PASS original retry preserves PB and clears count
+PASS tourer PHYSICAL distinct fence contacts; count=10 elapsed=3.51
+PASS tourer retry preserves PB and clears count
+PASS moto PHYSICAL distinct fence contacts; count=10 elapsed=3.50
+PASS moto retry preserves PB and clears count
+PASS atv PHYSICAL distinct fence contacts; count=10 elapsed=3.51
+PASS atv retry preserves PB and clears count

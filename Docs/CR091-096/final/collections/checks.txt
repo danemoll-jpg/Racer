@@ -1,0 +1,52 @@
+PASS 24 unique preserved IDs
+PASS Most items off ordinary race roads: 22
+PASS woodland-01 ordinary-frame approach / original minUp=0.9958633
+PASS woodland-01 supported local reset/return
+PASS woodland-02 ordinary-frame approach / tourer minUp=1
+PASS woodland-02 supported local reset/return
+PASS woodland-03 ordinary-frame approach / moto minUp=0.9975778
+PASS woodland-03 supported local reset/return
+PASS woodland-04 ordinary-frame approach / atv minUp=0.8730273
+PASS woodland-04 supported local reset/return
+PASS woodland-05 ordinary-frame approach / original minUp=0.9791107
+PASS woodland-05 supported local reset/return
+PASS woodland-06 ordinary-frame approach / tourer minUp=0.9857771
+PASS woodland-06 supported local reset/return
+PASS woodland-07 ordinary-frame approach / moto minUp=0.9459104
+PASS woodland-07 supported local reset/return
+PASS woodland-08 ordinary-frame approach / atv minUp=0.9322059
+PASS woodland-08 supported local reset/return
+PASS woodland-09 ordinary-frame approach / original minUp=0.9965215
+PASS woodland-09 supported local reset/return
+PASS woodland-10 ordinary-frame approach / tourer minUp=0.9967732
+PASS woodland-10 supported local reset/return
+PASS woodland-11 ordinary-frame approach / moto minUp=0.9979472
+PASS woodland-11 supported local reset/return
+PASS woodland-12 ordinary-frame approach / atv minUp=0.996154
+PASS woodland-12 supported local reset/return
+PASS woodland-13 ordinary-frame approach / original minUp=0.9189056
+PASS woodland-13 supported local reset/return
+PASS woodland-14 ordinary-frame approach / tourer minUp=0.8080313
+PASS woodland-14 supported local reset/return
+PASS woodland-15 ordinary-frame approach / moto minUp=0.8733507
+PASS woodland-15 supported local reset/return
+PASS woodland-16 ordinary-frame approach / atv minUp=0.9319546
+PASS woodland-16 supported local reset/return
+PASS woodland-17 ordinary-frame approach / original minUp=0.8201013
+PASS woodland-17 supported local reset/return
+PASS woodland-18 ordinary-frame approach / tourer minUp=0.814449
+PASS woodland-18 supported local reset/return
+PASS woodland-19 ordinary-frame approach / moto minUp=0.9484527
+PASS woodland-19 supported local reset/return
+PASS woodland-20 ordinary-frame approach / atv minUp=0.9134233
+PASS woodland-20 supported local reset/return
+PASS woodland-21 ordinary-frame approach / original minUp=0.8375641
+PASS woodland-21 supported local reset/return
+PASS woodland-22 ordinary-frame approach / tourer minUp=0.8951553
+PASS woodland-22 supported local reset/return
+PASS woodland-23 ordinary-frame approach / moto minUp=0.8911285
+PASS woodland-23 supported local reset/return
+FAIL woodland-24 ordinary-frame approach / atv minUp=0.3133824
+PASS woodland-24 supported local reset/return
+FAIL All 24 found in isolated save
+PASS Physical exploration saved fog

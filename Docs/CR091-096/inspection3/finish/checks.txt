@@ -1,0 +1,60 @@
+PASS original missed finish side=-1 height=0
+PASS No reverse/linger duplicate
+PASS original missed finish side=1 height=0
+PASS No reverse/linger duplicate
+PASS original missed finish side=-1 height=28
+PASS No reverse/linger duplicate
+PASS original missed finish side=1 height=28
+PASS No reverse/linger duplicate
+PASS Final lap completes with five seconds / original
+PASS Teleport cannot finish / original
+PASS Initial outside crossing does not award / original
+PASS original sampled legal shortcut then airborne missed finish / Pine Ridge
+PASS original sampled legal shortcut then airborne missed finish / Creek Leap
+PASS original sampled legal shortcut then airborne missed finish / Fox Gully
+PASS original sampled legal shortcut then airborne missed finish / Existing Southwest Cut
+PASS tourer missed finish side=-1 height=0
+PASS No reverse/linger duplicate
+PASS tourer missed finish side=1 height=0
+PASS No reverse/linger duplicate
+PASS tourer missed finish side=-1 height=28
+PASS No reverse/linger duplicate
+PASS tourer missed finish side=1 height=28
+PASS No reverse/linger duplicate
+PASS Final lap completes with five seconds / tourer
+PASS Teleport cannot finish / tourer
+PASS Initial outside crossing does not award / tourer
+PASS tourer sampled legal shortcut then airborne missed finish / Pine Ridge
+PASS tourer sampled legal shortcut then airborne missed finish / Creek Leap
+PASS tourer sampled legal shortcut then airborne missed finish / Fox Gully
+PASS tourer sampled legal shortcut then airborne missed finish / Existing Southwest Cut
+PASS moto missed finish side=-1 height=0
+PASS No reverse/linger duplicate
+PASS moto missed finish side=1 height=0
+PASS No reverse/linger duplicate
+PASS moto missed finish side=-1 height=28
+PASS No reverse/linger duplicate
+PASS moto missed finish side=1 height=28
+PASS No reverse/linger duplicate
+PASS Final lap completes with five seconds / moto
+PASS Teleport cannot finish / moto
+PASS Initial outside crossing does not award / moto
+PASS moto sampled legal shortcut then airborne missed finish / Pine Ridge
+PASS moto sampled legal shortcut then airborne missed finish / Creek Leap
+PASS moto sampled legal shortcut then airborne missed finish / Fox Gully
+PASS moto sampled legal shortcut then airborne missed finish / Existing Southwest Cut
+PASS atv missed finish side=-1 height=0
+PASS No reverse/linger duplicate
+PASS atv missed finish side=1 height=0
+PASS No reverse/linger duplicate
+PASS atv missed finish side=-1 height=28
+PASS No reverse/linger duplicate
+PASS atv missed finish side=1 height=28
+PASS No reverse/linger duplicate
+PASS Final lap completes with five seconds / atv
+PASS Teleport cannot finish / atv
+PASS Initial outside crossing does not award / atv
+PASS atv sampled legal shortcut then airborne missed finish / Pine Ridge
+PASS atv sampled legal shortcut then airborne missed finish / Creek Leap
+PASS atv sampled legal shortcut then airborne missed finish / Fox Gully
+PASS atv sampled legal shortcut then airborne missed finish / Existing Southwest Cut

@@ -1,0 +1,11 @@
+{
+  "Name": "collections-cold-reload",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\CR091-inspection\\Racer.exe",
+  "RuntimeAssemblySHA256": "F6E32982D895248EF553CB6755A6090FC6712DFD625DC34ED25CE9FEE9B10FA7",
+  "Flags": "-batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr091-5e4908e7193a4c728f8a8ccd417bc4be\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR091-096\\inspection\\collections-cold-reload\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr091-inspection-collections-cold-reload.log\" -discoverySystems reload",
+  "PID": 68332,
+  "Timeout": false,
+  "Exit": 0,
+  "PeakWorkingSetMiB": 888.91,
+  "CompletedUtc": "2026-09-20T17:09:00.4666041Z"
+}

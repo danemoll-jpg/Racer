@@ -1,0 +1,4 @@
+Lap=0 misses=0 No compatible clean-lap ghost. Historical files are preserved.
+Lap=1 misses=0 Lap excluded from clean-lap ghosts: reset, teleport, missed gate or recording limit.
+Lap=2 misses=0 NEW CLEAN-LAP GHOST / 02:19.110
+Lap=3 misses=0 NEW CLEAN-LAP GHOST / 02:19.110

@@ -1,0 +1,57 @@
+object|text|width|height|characterSize|fit
+Direction lettering|Fern Creek Leap/35 - 55 mph|4.460056|0.9793829|0.08820001|contained by measured text/board bounds
+Road lettering|TO Jamerson Road|6.068153|1.300939|0.1|contained by measured text/board bounds
+Fictional storefront identity|HILLTOP DINER|existing composite backing; manual rendered audit required
+Direction lettering|RIDGE RETURN/Lake / Neighborhood|4.311848|0.9793829|0.08820001|contained by measured text/board bounds
+Road lettering|Creek Leap  >/76 mph|6.145495|1.63166|0.1|contained by measured text/board bounds
+Rocky Way Acres lettering|Rocky Way Acres|11.1557|0.9199951|0.1260972|contained by measured text/board bounds
+Fictional storefront identity|AUTO SERVICE|existing composite backing; manual rendered audit required
+Fictional storefront identity|CORNER MARKET|existing composite backing; manual rendered audit required
+Fictional storefront identity|CORNER MARKET|existing composite backing; manual rendered audit required
+Fictional storefront identity|HILLTOP DINER|existing composite backing; manual rendered audit required
+Mounted direction lettering|SPEED CAMERA/BOTH DIRECTIONS|existing composite backing; manual rendered audit required
+Fictional storefront identity|HILLTOP DINER|existing composite backing; manual rendered audit required
+Fictional storefront identity|AUTO SERVICE|existing composite backing; manual rendered audit required
+Direction lettering|SUMMIT/Both trails return to lake|4.572001|1.028781|0.08820001|contained by measured text/board bounds
+Fictional storefront identity|AUTO SERVICE|existing composite backing; manual rendered audit required
+Fictional storefront identity|CORNER MARKET|existing composite backing; manual rendered audit required
+Fictional storefront identity|GENERAL STORE|existing composite backing; manual rendered audit required
+Road lettering|Pine Ridge  >/89 mph|6.141735|1.305844|0.0882|contained by measured text/board bounds
+Mounted direction lettering|Pine Ridge </OPTIONAL / FORWARD|existing composite backing; manual rendered audit required
+Mounted direction lettering|FENCE LINE SMASH/3 / 6 / 10 PROPS IN 8 s|existing composite backing; manual rendered audit required
+Fictional storefront identity|HILLTOP DINER|existing composite backing; manual rendered audit required
+Fictional storefront identity|HILLTOP DINER|existing composite backing; manual rendered audit required
+Recommended speed|RAISED PAVEMENT WORKS/JUMP 78 - 96 mph/OPEN LANE ON RIGHT|existing composite backing; manual rendered audit required
+Fictional storefront identity|CORNER MARKET|existing composite backing; manual rendered audit required
+Physical lettering|RETURN VIA RIDGE TRAIL/DO NOT CLIMB LAUNCH FACE|8.396999|2.343352|0.0882|contained by measured text/board bounds
+Direction lettering|LAKE SHORE/BOTH TRAILS RETURN HOME|6.165|1.360687|0.08820001|contained by measured text/board bounds
+Road lettering|Trickum Road|6.09059|1.321454|0.1|contained by measured text/board bounds
+Direction lettering|MOUNTAIN TRAILS/Creek ascent / Ridge return|5.301|1.172188|0.0882|contained by measured text/board bounds
+Mounted direction lettering|Existing Southwest Cut >/OPTIONAL / FORWARD|existing composite backing; manual rendered audit required
+Road lettering|TO Jamerson Road|6.068153|1.300939|0.1|contained by measured text/board bounds
+Fictional storefront identity|GENERAL STORE|existing composite backing; manual rendered audit required
+Road lettering|Fox Gully  >/67 mph|6.28546|1.974109|0.1|contained by measured text/board bounds
+Mounted direction lettering|SPEED CAMERA/BOTH DIRECTIONS|existing composite backing; manual rendered audit required
+Fictional storefront identity|GENERAL STORE|existing composite backing; manual rendered audit required
+Fictional storefront identity|AUTO SERVICE|existing composite backing; manual rendered audit required
+Mounted direction lettering|SPEED CAMERA/BOTH DIRECTIONS|existing composite backing; manual rendered audit required
+Mounted direction lettering|Creek Leap >/OPTIONAL / FORWARD|existing composite backing; manual rendered audit required
+Mounted direction lettering|Fox Gully >/OPTIONAL / FORWARD|existing composite backing; manual rendered audit required
+Road lettering|South Cherokee Lane/JUNCTION: Hwy 92|6.137518|1.305844|0.0882|contained by measured text/board bounds
+Mounted direction lettering|JUMP CHALLENGE/LAND CLEAN / PAUSE FOR TARGETS|existing composite backing; manual rendered audit required
+Physical lettering|SUMMIT CAMP/Look for the cairns|5.16|1.43999|0.09541132|contained by measured text/board bounds
+Mounted direction lettering|SPEED CAMERA/BOTH DIRECTIONS|existing composite backing; manual rendered audit required
+Road lettering|Pine Ridge  >/89 mph|6.141508|1.305844|0.0882|contained by measured text/board bounds
+Road lettering|South Cherokee Lane/JUNCTION: Hwy 92|6.137234|1.305844|0.0882|contained by measured text/board bounds
+Direction lettering|KYLE'S WOODED DRIVE/LAKE / MOUNTAIN TRAILS|5.391|1.224431|0.0882|contained by measured text/board bounds
+Fictional storefront identity|AUTO SERVICE|existing composite backing; manual rendered audit required
+Physical lettering|SUMMIT HOMEWARD FLIGHT/55–90 mph / HIGH RISK/LAND STRAIGHT / BRAKE AFTER|9.117001|2.544262|0.0882|contained by measured text/board bounds
+Road lettering|Creek Leap  >/76 mph|6.145495|1.63166|0.1|contained by measured text/board bounds
+Fictional storefront identity|AUTO SERVICE|existing composite backing; manual rendered audit required
+Fictional storefront identity|GENERAL STORE|existing composite backing; manual rendered audit required
+Road lettering|Fox Gully  >/67 mph|6.28546|1.974109|0.1|contained by measured text/board bounds
+Road lettering|Trickum Road|6.09059|1.321454|0.1|contained by measured text/board bounds
+Fictional storefront identity|CORNER MARKET|existing composite backing; manual rendered audit required
+Fictional storefront identity|CORNER MARKET|existing composite backing; manual rendered audit required
+Direction lettering|High Ridge Drop/35 - 55 mph|4.438341|0.9793829|0.08820001|contained by measured text/board bounds
+Fictional storefront identity|HILLTOP DINER|existing composite backing; manual rendered audit required

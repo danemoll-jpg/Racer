@@ -1,0 +1,11 @@
+{
+  "Name": "rules-StreetLoopGreybox",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\Racer-0.16.0-review1-Windows\\Racer.exe",
+  "RuntimeAssemblySHA256": "0A6FC5337906C24D217C583BB3203E97A3FED0E4C9B7589B8C893E7A49FF33A5",
+  "Flags": "-batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr091-f1460dcc003e40368819d9ddb891981f\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR091-096\\final-regression\\rules-StreetLoopGreybox\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr091-final-regression-rules-StreetLoopGreybox.log\" -arcadeTest rules -course StreetLoopGreybox -raceActivities yes -lifeSeed 82089",
+  "PID": 69908,
+  "Timeout": false,
+  "Exit": 0,
+  "PeakWorkingSetMiB": 573.28,
+  "CompletedUtc": "2026-09-20T17:50:29.7777915Z"
+}

@@ -22,6 +22,7 @@ namespace Racer
         public Vector3 Previous;
         public double PreviousTime;
         public float RoadPosition, Travel, VerifiedRoad;
+        public float FinishApproach;
         public int Recoveries;
         public readonly BranchProgress Branch=new();
         public float RecoveryStart = float.NaN;

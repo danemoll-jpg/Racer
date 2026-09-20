@@ -9,6 +9,15 @@ namespace Racer
         public float halfHeight = 3;
         public float upperHeight;
         public const float EdgeTolerance=.20f; // 7.9 inches beyond the rendered opening.
+        // A finite swept region, used only after route progress arms the finish.
+        public bool TryFinishRegion(Vector3 from, Vector3 to, out float fraction)
+        {
+            var a=transform.InverseTransformPoint(from);var b=transform.InverseTransformPoint(to);
+            fraction=0;
+            if(a.z>=0 || b.z<0) return false;
+            fraction=-a.z/(b.z-a.z);var hit=Vector3.Lerp(a,b,fraction);
+            return Mathf.Abs(hit.x)<=60 && hit.y>=-12 && hit.y<=120;
+        }
         public bool TryCross(Vector3 from, Vector3 to, out bool forward, out float fraction)
             => TryCross(from,to,null,out forward,out fraction);
         public bool TryCross(Vector3 from,Vector3 to,BoxCollider vehicle,out bool forward,out float fraction)

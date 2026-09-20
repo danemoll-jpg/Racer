@@ -32,6 +32,14 @@ namespace Racer
         double lapPenalty;
         public double CurrentLapPenalty => lapPenalty;
         public double AdjustedTime(double now) => RaceTime(now) + PenaltySeconds;
+        public bool MissFinish(double now)
+        {
+            if (!LapActive || !LapValid || Finished || NextGate != 0 || now <= lapStart) return false;
+            ledger.Add(new PenaltyEntry { Lap=CompletedLaps+1, Checkpoint=0, Reason="missed finish gate", Branch="none", Seconds=5, Time=now });
+            PenaltySeconds += 5; lapPenalty += 5; MissedGates=ledger.Count;
+            penalties.Add($"L{CompletedLaps+1} FINISH +5s / missed finish gate");
+            return true;
+        }
         public bool Miss(int gate, double seconds, string reason="missed gate", string branch="none", double time=0)
         {
             if (!LapActive || !LapValid || Finished || gate == 0 || gate != NextGate) return false;

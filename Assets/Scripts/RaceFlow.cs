@@ -79,11 +79,13 @@ namespace Racer
             Activities=gameObject.AddComponent<ArcadeActivities>();Activities.Initialize(Race,root);
             Ghost=gameObject.AddComponent<CleanLapGhost>();Ghost.Initialize(Race,root);
             GetComponent<ExplorationCollection>()?.Initialize(Race,root);
+            GetComponent<ExplorationMap>()?.Initialize(Race,root);
             LockVehicle(true); SetStage(Stage.Ready);
         }
         void Update()
         {
             if (Save == null) return;
+            if(GetComponent<ExplorationMap>()?.OwnsInput==true)return;
             if (finishAt > 0 && State != Stage.Paused && State != Stage.Settings && Time.unscaledTime >= finishAt) { finishAt = 0; Sound(finish); }
             if (menu.WasPressedThisFrame())
             {

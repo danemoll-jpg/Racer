@@ -1,0 +1,11 @@
+{
+  "Name": "finish",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\CR091-inspection3\\Racer.exe",
+  "RuntimeAssemblySHA256": "AF3B1AB1D5F1051BD7293D7BFD083AB3746FA8CDA27652F1A2F0549440C3B0E5",
+  "Flags": "-batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr091-1ea0ffca365a44339e4dc7f9e0b8afaa\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR091-096\\inspection3\\finish\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr091-inspection3-finish.log\" -discoveryCheck finish",
+  "PID": 63116,
+  "Timeout": false,
+  "Exit": 0,
+  "PeakWorkingSetMiB": 487.63,
+  "CompletedUtc": "2026-09-20T17:23:04.8131682Z"
+}

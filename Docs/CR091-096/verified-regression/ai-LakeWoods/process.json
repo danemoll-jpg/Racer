@@ -1,0 +1,11 @@
+{
+  "Name": "ai-LakeWoods",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\Racer-0.16.0-review2-Windows\\Racer.exe",
+  "RuntimeAssemblySHA256": "0A6FC5337906C24D217C583BB3203E97A3FED0E4C9B7589B8C893E7A49FF33A5",
+  "Flags": "-batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr091-46661e3b103f4406aade83349850f370\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR091-096\\verified-regression\\ai-LakeWoods\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr091-verified-regression-ai-LakeWoods.log\" -arcadeTest ai -course LakeWoods -raceActivities yes -lifeSeed 82089",
+  "PID": 77896,
+  "Timeout": false,
+  "Exit": 0,
+  "PeakWorkingSetMiB": 782.89,
+  "CompletedUtc": "2026-09-20T18:21:50.6800711Z"
+}

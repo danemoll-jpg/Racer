@@ -21,6 +21,7 @@ namespace Racer
         public static int MovingDebrisCount => moving.Count;
         BoxCollider sensor;
         Renderer[] visuals;
+        bool[] initialVisualEnabled;
         Vector3 initialPosition, initialScale, flight, spinAxis;
         Quaternion initialRotation;
         Vector3 initialSensorCenter, initialSensorHalf;
@@ -34,6 +35,8 @@ namespace Racer
         {
             sensor = GetComponent<BoxCollider>(); sensor.isTrigger = true;
             visuals = GetComponentsInChildren<Renderer>();
+            initialVisualEnabled = new bool[visuals.Length];
+            for(int i=0;i<visuals.Length;i++)initialVisualEnabled[i]=visuals[i].enabled;
             initialPosition = transform.position; initialRotation = transform.rotation;
             initialScale = transform.localScale;
             initialSensorCenter = transform.TransformPoint(sensor.center);
@@ -106,7 +109,7 @@ namespace Racer
             if (VehicleOverlaps()) return;
             transform.SetPositionAndRotation(initialPosition, initialRotation);
             transform.localScale = initialScale;
-            foreach (var visual in visuals) visual.enabled = true;
+            for(int i=0;i<visuals.Length;i++)visuals[i].enabled=initialVisualEnabled[i];
             sensor.enabled = true; IsBroken = false; PendingRestore = false; age = 0;
         }
         public static void RestoreRace()

@@ -1,0 +1,11 @@
+{
+  "Name": "race-smoke-StreetLoopGreybox",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\Racer-0.16.0-review3-Windows\\Racer.exe",
+  "RuntimeAssemblySHA256": "0A6FC5337906C24D217C583BB3203E97A3FED0E4C9B7589B8C893E7A49FF33A5",
+  "Flags": "-batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr091-8b334062ea5c48dc80e08c96f6a9e8eb\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR091-096\\release3\\race-smoke-StreetLoopGreybox\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr091-release3-race-smoke-StreetLoopGreybox.log\" -threeFeatureTest drive -course StreetLoopGreybox -vehicle original -laps 1 -testSpeed 6",
+  "PID": 63304,
+  "Timeout": false,
+  "Exit": 0,
+  "PeakWorkingSetMiB": 562.89,
+  "CompletedUtc": "2026-09-20T18:35:52.1103605Z"
+}

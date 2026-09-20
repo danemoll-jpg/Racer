@@ -87,6 +87,7 @@ namespace Racer
             GetComponent<WrongWayGuidance>()?.Clear();
             // Recovery is neither a gate crossing nor a new lap; retain all earned progress.
             Racers[0].SampleOrigin(Clock);
+            Racers[0].FinishApproach=0;
             Racers[0].Branch.Recovered(vehicle.Body.position);
             if (Flow)
                 Flow.ResetFeedback();
@@ -140,6 +141,7 @@ namespace Racer
                 r.SampleOrigin(Time.timeAsDouble);
                 r.Travel = 0;
                 r.VerifiedRoad = 0;
+                r.FinishApproach = 0;
                 r.Branch.Clear();
             }
 
@@ -291,6 +293,7 @@ namespace Racer
                 if(player)Flow?.Ghost?.Invalidate();
                 p.ResetToGrid();
                 r.FinishArmed = false;
+                r.FinishApproach = 0;
                 r.Travel = 0;
                 r.VerifiedRoad = 0;
                 r.Branch.Clear();
@@ -377,13 +380,27 @@ namespace Racer
             if (road && p.LapActive)
             {
                 if (lateral < 18) r.Travel += Mathf.Min(step, Mathf.Max(0, r.RoadPosition - r.VerifiedRoad));
-                r.VerifiedRoad = Mathf.Max(r.VerifiedRoad, r.RoadPosition);
+                // A wrap caused by reversing across START is not a new circuit's
+                // witnessed forward road progress. Branch exits seed this frontier.
+                if(r.RoadPosition<=r.VerifiedRoad+Mathf.Min(12,step*2+1))
+                    r.VerifiedRoad = Mathf.Max(r.VerifiedRoad, r.RoadPosition);
             }
-            if (road && p.LapActive && r.RoadPosition > road.Length * .35f && r.RoadPosition < road.Length * .8f)
+            if (road && p.LapActive && r.VerifiedRoad > road.Length * .35f && r.RoadPosition > road.Length * .35f && r.RoadPosition < road.Length * .8f)
                 r.FinishArmed = true;
+            if(road && p.LapActive && p.LapValid && r.FinishArmed && r.RoadPosition>road.Length-160 && lateral<60)
+            {
+                road.At(origin+r.RoadPosition,out var approachDirection);
+                r.FinishApproach+=Mathf.Clamp(Vector3.Dot(position-r.Previous,approachDirection),-step,step);
+                r.FinishApproach=Mathf.Clamp(r.FinishApproach,0,160);
+            }
             for (int i = 0; i < gates.Length; i++)
             {
-                if (!gates[i].TryCross(r.Previous, position,r.Car.GetComponent<BoxCollider>(), out bool forward, out float fraction))
+                bool opening=gates[i].TryCross(r.Previous, position,r.Car.GetComponent<BoxCollider>(), out bool forward, out float fraction);
+                bool missedFinish=!opening && i==0 && road && p.LapActive && p.LapValid && r.FinishArmed
+                    && r.FinishApproach>=20 && r.Branch.Route==null
+                    && gates[0].TryFinishRegion(r.Previous,position,out fraction);
+                if(missedFinish)forward=true;
+                if (!opening && !missedFinish)
                     continue;
                 if (!forward)
                     continue;
@@ -394,6 +411,7 @@ namespace Racer
                 int expected = p.NextGate;
                 int beforeLaps=p.CompletedLaps;bool beforeActive=p.LapActive;
                 double crossTime=r.PreviousTime + (now - r.PreviousTime) * fraction;
+                if(missedFinish && p.MissFinish(crossTime) && player)Flow?.Ghost?.Invalidate();
                 p.Cross(i, true, crossTime);
                 if(player&&i==0&&(p.CompletedLaps>beforeLaps||(!beforeActive&&p.LapActive)))
                     Flow?.Ghost?.Boundary(crossTime,Vector3.Lerp(r.Previous,position,fraction),Flow.Ghost.CrossingRotation(fraction,r.Car.Body.rotation),p.CompletedLaps>beforeLaps,p.Finished);
@@ -401,13 +419,17 @@ namespace Racer
                 {
                     credited = true;
                     r.Travel = 0;
+                    // A witnessed ordered gate is an authoritative route anchor,
+                    // including Forest's offset start-plane projection.
+                    if(road)r.VerifiedRoad=Mathf.Max(r.VerifiedRoad,gateS[i]);
                 }
 
                 if (i == 0)
                 {
                     r.Travel = 0;
                     r.FinishArmed = false;
-                    r.VerifiedRoad = 0;
+                    r.FinishApproach = 0;
+                    r.VerifiedRoad = road&&r.RoadPosition<30?r.RoadPosition:0;
                 }
             }
 
@@ -415,7 +437,7 @@ namespace Racer
             {
                 road.At(origin + r.RoadPosition, out var direction);
                 if (Vector3.Dot(position - r.Previous, direction) > .001f)
-                    while (p.NextGate > 0 && r.RoadPosition > gateS[p.NextGate] + 18 && r.RoadPosition < road.Length - 20)
+                    while (p.NextGate > 0 && r.VerifiedRoad > gateS[p.NextGate] + 18 && r.RoadPosition > gateS[p.NextGate] + 18 && r.RoadPosition < road.Length - 20)
                         ResolveMisses(r, p.NextGate + 1,"road gate passed outside span");
             }
 

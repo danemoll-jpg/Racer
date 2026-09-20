@@ -82,6 +82,14 @@ namespace Racer
             Place(spawnPoint?spawnPoint.position:initialPosition,spawnPoint?Quaternion.Euler(0,spawnPoint.eulerAngles.y,0):initialRotation);
         }
         public void CancelRecovery(){Pending=false;history.Clear();anchored=false;tracking=false;safeBranch=null;roamValid=false;}
+        public bool TryFastTravel(Vector3 candidate,Quaternion facing)
+        {
+            if(!race)race=FindAnyObjectByType<RaceDirector>();
+            if(!race||!race.FreeRoam)return false;
+            MeasureClearance();
+            if(!Supported(candidate,facing*Vector3.forward,out var position,out var rotation)||!Clear(position,rotation))return false;
+            CancelRecovery();Place(position,rotation);RecordRoaming();Respawned?.Invoke();return true;
+        }
         public void ResetVehicle()=>TryRecoverLocal();
         public bool TryRecoverLocal(bool preferRoad=false)
         {

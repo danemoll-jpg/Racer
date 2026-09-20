@@ -18,6 +18,7 @@ namespace Racer
         bool musicPage;
         bool musicCollectionPage;
         bool raceBoard;
+        bool confirmCollectionRestart;
         bool jumpRecords,historyActivities;int activitySite,activityCategory;
         string boardCategory;
         readonly List<UnityEngine.UI.Button> buttons = new();
@@ -268,10 +269,13 @@ namespace Racer
                 title.text="EXPLORATION / PERSONAL BEST";
                 flow.Ghost.Refresh();
                 details.text="Clean-lap ghosts: actual recorded poses, local only.\nNo resets, teleports or missed gates; legal shortcuts qualify.\n"+flow.Ghost.Status+"\n\n"+(flow.GetComponent<ExplorationCollection>()?.Summary??"Collection loading");
-                details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=340;details.fontSize=18;
+                details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=280;details.fontSize=18;
                 Action(0,"Clean-lap ghost: "+(flow.Ghost.Enabled?"ON":"OFF"),flow.ToggleGhost);
                 
-                Action(1,"Back",flow.CloseExtras);
+                Action(1,"Whole-area map / discovered fast travel",()=>flow.GetComponent<ExplorationMap>()?.Open());
+                Action(2,confirmCollectionRestart?"CONFIRM: restart ONLY the 24 acorns":"Restart relocated acorn hunt...",()=>{if(confirmCollectionRestart){flow.GetComponent<ExplorationCollection>()?.RestartCollection(true);confirmCollectionRestart=false;}else confirmCollectionRestart=true;Show();});
+                Action(3,"Back / cancel restart",()=>{confirmCollectionRestart=false;flow.CloseExtras();});
+                details.text+="\nRelocated found IDs stay collected unless you restart.\nRestart preserves map, records, ghosts and settings.";
             }
             else if(shown==RaceFlow.Stage.Courses)
             {
@@ -411,7 +415,7 @@ namespace Racer
             if (flow.State == RaceFlow.Stage.Racing && flow.Race.Progress.Finished)
                 banner.text = "Finished — AI are racing. Pause to skip waiting / estimate AI.";
             if(!countdown && flow.PenaltyNotice!=null)banner.text=flow.PenaltyNotice;
-            if (flow.MenuVisible && EventSystem.current && !EventSystem.current.currentSelectedGameObject) EventSystem.current.SetSelectedGameObject(buttons[0].gameObject);
+            if (flow.MenuVisible && flow.GetComponent<ExplorationMap>()?.OwnsInput!=true && EventSystem.current && !EventSystem.current.currentSelectedGameObject) EventSystem.current.SetSelectedGameObject(buttons[0].gameObject);
         }
         void OnDestroy() { if(menuActions) { menuActions.Disable(); Destroy(menuActions); } if(submitReference) Destroy(submitReference); if(previewRoot) Destroy(previewRoot); if(previewCamera) Destroy(previewCamera.gameObject); if(previewTexture) { previewTexture.Release(); Destroy(previewTexture); } }
     }

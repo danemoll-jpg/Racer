@@ -5,11 +5,14 @@ A small single-player PC arcade racing game inspired by a childhood street.
 
 ## Current scope
 
-Single-player Street Loop and Forest Loop. The current review delivery is
-**0.11.0-review1 (CR-067–069)**: the southern hairpin/property correction, saved
-household variety, and delayed wrong-way guidance. New work awaits Dan's review;
-technical checks do not close earlier human reports. See
-[the current validation report](Docs/CR067-069/VALIDATION.md).
+Single-player Street and Forest races in both directions, plus free roam.
+The CR-091–096 pass adds missed-finish lap recovery, revised properties and
+physical signs, a permanent campsite and summit jump, relocated acorns, and a
+saved exploration map with safe free-roam travel. See the
+[validation report](Docs/CR091-096/VALIDATION.md) and
+[player guide and review checklist](Docs/CR091-096/README-player.txt).
+This builds on 0.15.0-review3; its unresolved ramp, shortcut, AI and performance
+limitations remain documented. Technical checks do not close human reports.
 
 The earlier phase-specific tuning and reset descriptions below are historical.
 Current local recovery uses R / Xbox-style Y and preserves race progress.
@@ -34,6 +37,13 @@ Choose Start race and wait for GO; R/Y performs local recovery.
 | Confirm menu selection | A | Space |
 | Back from Settings / Pause | B | Escape |
 | Restart whole race | Pause > Restart race | Pause > Restart race |
+| Exploration map | View | M |
+
+On the map: stick/WASD or mouse drag pans, triggers/wheel zoom, A/Space or
+click places a waypoint, D-pad cycles destinations, and X or the Travel button
+travels to a discovered safe destination in free roam. B/Esc closes the map.
+The Exploration menu offers a separately confirmed acorn-only restart; existing
+found IDs remain collected after relocation unless you choose that restart.
 
 Menus also accept mouse clicks, D-pad/stick and arrow navigation. Restart restores
 props and starts a new countdown; Y/R resets the vehicle locally while preserving race progress.

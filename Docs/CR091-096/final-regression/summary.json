@@ -1,0 +1,170 @@
+{
+  "Tag": "final-regression",
+  "GeneratedUtc": "2026-09-20T18:28:28.2067190Z",
+  "Checks": [
+    {
+      "Test": "ai-StreetLoopGreybox",
+      "Pass": 12,
+      "Fail": 0,
+      "Failures": []
+    },
+    {
+      "Test": "ai-StreetLoopReverse",
+      "Pass": 12,
+      "Fail": 0,
+      "Failures": []
+    },
+    {
+      "Test": "ghost-race-StreetLoopGreybox-atv",
+      "Pass": 6,
+      "Fail": 0,
+      "Failures": []
+    },
+    {
+      "Test": "ghost-race-StreetLoopGreybox-moto",
+      "Pass": 6,
+      "Fail": 0,
+      "Failures": []
+    },
+    {
+      "Test": "ghost-race-StreetLoopGreybox-original",
+      "Pass": 6,
+      "Fail": 0,
+      "Failures": []
+    },
+    {
+      "Test": "ghost-race-StreetLoopGreybox-tourer",
+      "Pass": 5,
+      "Fail": 1,
+      "Failures": [
+        "FAIL street-v14-discovery original completed 2/3 laps; misses=0; recoveries=2; adjusted=517.473086"
+      ]
+    },
+    {
+      "Test": "ghost-race-StreetLoopReverse-atv",
+      "Pass": 6,
+      "Fail": 0,
+      "Failures": []
+    },
+    {
+      "Test": "ghost-race-StreetLoopReverse-moto",
+      "Pass": 6,
+      "Fail": 0,
+      "Failures": []
+    },
+    {
+      "Test": "ghost-race-StreetLoopReverse-original",
+      "Pass": 6,
+      "Fail": 0,
+      "Failures": []
+    },
+    {
+      "Test": "ghost-race-StreetLoopReverse-tourer",
+      "Pass": 6,
+      "Fail": 0,
+      "Failures": []
+    },
+    {
+      "Test": "guidance-StreetLoopGreybox",
+      "Pass": 6,
+      "Fail": 0,
+      "Failures": []
+    },
+    {
+      "Test": "guidance-StreetLoopReverse",
+      "Pass": 6,
+      "Fail": 0,
+      "Failures": []
+    },
+    {
+      "Test": "recovery-StreetLoopGreybox",
+      "Pass": 100,
+      "Fail": 0,
+      "Failures": []
+    },
+    {
+      "Test": "recovery-StreetLoopReverse",
+      "Pass": 92,
+      "Fail": 0,
+      "Failures": []
+    },
+    {
+      "Test": "roam-recovery-StreetLoopGreybox",
+      "Pass": 16,
+      "Fail": 0,
+      "Failures": []
+    },
+    {
+      "Test": "roam-recovery-StreetLoopReverse",
+      "Pass": 32,
+      "Fail": 0,
+      "Failures": []
+    },
+    {
+      "Test": "rules-StreetLoopGreybox",
+      "Pass": 24,
+      "Fail": 0,
+      "Failures": []
+    },
+    {
+      "Test": "rules-StreetLoopReverse",
+      "Pass": 24,
+      "Fail": 0,
+      "Failures": []
+    },
+    {
+      "Test": "shortcuts-StreetLoopGreybox",
+      "Pass": 109,
+      "Fail": 3,
+      "Failures": [
+        "FAIL original clean branch has actual entry, no penalty/recovery Creek Leap",
+        "FAIL tourer clean branch has actual entry, no penalty/recovery Creek Leap",
+        "FAIL atv clean branch has actual entry, no penalty/recovery Creek Leap"
+      ]
+    },
+    {
+      "Test": "shortcuts-StreetLoopReverse",
+      "Pass": 56,
+      "Fail": 0,
+      "Failures": []
+    },
+    {
+      "Test": "speed-StreetLoopGreybox",
+      "Pass": 48,
+      "Fail": 0,
+      "Failures": []
+    },
+    {
+      "Test": "speed-StreetLoopReverse",
+      "Pass": 48,
+      "Fail": 0,
+      "Failures": []
+    }
+  ],
+  "Ramps": [
+    {
+      "Test": "race-jump-StreetLoopGreybox",
+      "Cases": 12,
+      "Incomplete": 0,
+      "LowUpright": 0,
+      "NoAward": 0,
+      "RecoveryFailures": 0
+    },
+    {
+      "Test": "race-jump-StreetLoopReverse",
+      "Cases": 12,
+      "Incomplete": 0,
+      "LowUpright": 0,
+      "NoAward": 0,
+      "RecoveryFailures": 0
+    }
+  ],
+  "Processes": 24,
+  "Timeouts": 0,
+  "NonzeroExits": [
+    {
+      "Name": "shortcuts-StreetLoopGreybox",
+      "Exit": 2
+    }
+  ]
+}

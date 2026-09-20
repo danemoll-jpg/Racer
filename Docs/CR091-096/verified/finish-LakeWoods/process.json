@@ -1,0 +1,11 @@
+{
+  "Name": "finish-LakeWoods",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\Racer-0.16.0-review2-Windows\\Racer.exe",
+  "RuntimeAssemblySHA256": "0A6FC5337906C24D217C583BB3203E97A3FED0E4C9B7589B8C893E7A49FF33A5",
+  "Flags": "-batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr091-6b39566fa4b849c2b9781360916ce553\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR091-096\\verified\\finish-LakeWoods\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr091-verified-finish-LakeWoods.log\" -discoveryCheck finish -course LakeWoods",
+  "PID": 79856,
+  "Timeout": false,
+  "Exit": 0,
+  "PeakWorkingSetMiB": 812.22,
+  "CompletedUtc": "2026-09-20T18:15:16.4180906Z"
+}
