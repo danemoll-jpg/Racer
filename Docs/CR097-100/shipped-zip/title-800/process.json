@@ -1,0 +1,11 @@
+{
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\PackageWork\\20260920-180108-302-24125d\\extracted\\Racer-0.17.0-review1-Windows",
+  "WorkingDirectory": "C:\\Users\\danmo\\Racer\\Builds\\PackageWork\\20260920-180108-302-24125d\\extracted\\Racer-0.17.0-review1-Windows",
+  "RuntimeAssemblySHA256": "3118C2702EC5EF37BD83C4DBA8279B9F04192237F593DB16941BD6B7EA36F8B3",
+  "PID": 44584,
+  "Timeout": false,
+  "Exit": 0,
+  "CompletedUtc": "2026-09-20T22:06:06.1478707Z",
+  "Input": "Virtual gamepad, held launch; 3 theme loops; isolated Master mute/Radio Off",
+  "ExternalAssetDependency": "Title loads embedded Resources; launch working directory is the extracted portable runtime"
+}

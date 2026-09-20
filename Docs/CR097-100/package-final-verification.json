@@ -1,0 +1,33 @@
+{
+  "Version": "0.17.0-review1",
+  "PackagedAt": "2026-09-20T18:04:59.1847187-04:00",
+  "Songs": 187,
+  "PreservedOriginalAudio": 2,
+  "Files": 440,
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\Racer-0.17.0-review1-Windows",
+  "Latest": "C:\\Users\\danmo\\Racer\\Builds\\Latest",
+  "ZIP": "C:\\Users\\danmo\\Racer\\Builds\\Racer-0.17.0-review1-Windows.zip",
+  "ZipSHA256": "8850BF28F645BC529840860041734D485DA938A392A64B8B38E6D8D8F5259992",
+  "Preserved": "C:\\Users\\danmo\\Racer\\Builds\\Preserved\\20260920-180108-302-24125d",
+  "Extracted": "C:\\Users\\danmo\\Racer\\Builds\\PackageWork\\20260920-180108-302-24125d\\extracted\\Racer-0.17.0-review1-Windows",
+  "Verified": "All extracted ZIP, versioned runtime and Latest files match SHA256",
+  "ExternalCollections": "Not read or copied",
+  "SafetyCheckpoint": "acafa41ce76c410e4b970dbbd7c9cf14e487fc8e",
+  "ImplementationCompletion": "14240a16f9018c8f42e1a2943ef2473de6268a62",
+  "RuntimeAssemblySHA256": "3118C2702EC5EF37BD83C4DBA8279B9F04192237F593DB16941BD6B7EA36F8B3",
+  "FinalExtractedStartup": {
+    "passed": 21,
+    "failed": 0,
+    "workingDirectory": "C:\\Users\\danmo\\Racer\\Builds\\PackageWork\\20260920-180108-302-24125d\\extracted\\Racer-0.17.0-review1-Windows",
+    "completedUtc": "2026-09-20T22:06:06.1478707Z",
+    "aspect": "1280x800",
+    "input": "Virtual held gamepad, three loops, Master mute/Radio Off"
+  },
+  "OtherAspectProof": "extracted/title-720: 22 passed, same scene/resource/assembly hashes",
+  "ReviewStatus": "Awaiting Dan review; summit hard landings do not score; map/exploration pending; no physical Deck/controller/listening claim",
+  "MatchingMetadata": [
+    "VERSION.txt",
+    "README.txt",
+    "VALIDATION.md"
+  ]
+}
