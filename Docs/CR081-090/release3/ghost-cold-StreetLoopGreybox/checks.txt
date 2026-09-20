@@ -1,0 +1,2 @@
+PASS street-v13-exploration original completed 1/1 laps; misses=0; recoveries=0; adjusted=160.166684
+PASS Completed player race creates one total entry

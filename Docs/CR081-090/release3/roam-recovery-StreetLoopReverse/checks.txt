@@ -1,0 +1,32 @@
+PASS original roam Reverse main route direction=1 recent supported local recovery
+PASS original roam support and race isolation after recovery
+PASS original roam Phase 3 - Race Systems direction=1 recent supported local recovery
+PASS original roam support and race isolation after recovery
+PASS original roam Reverse main route direction=-1 recent supported local recovery
+PASS original roam support and race isolation after recovery
+PASS original roam Phase 3 - Race Systems direction=-1 recent supported local recovery
+PASS original roam support and race isolation after recovery
+PASS tourer roam Reverse main route direction=1 recent supported local recovery
+PASS tourer roam support and race isolation after recovery
+PASS tourer roam Phase 3 - Race Systems direction=1 recent supported local recovery
+PASS tourer roam support and race isolation after recovery
+PASS tourer roam Reverse main route direction=-1 recent supported local recovery
+PASS tourer roam support and race isolation after recovery
+PASS tourer roam Phase 3 - Race Systems direction=-1 recent supported local recovery
+PASS tourer roam support and race isolation after recovery
+PASS moto roam Reverse main route direction=1 recent supported local recovery
+PASS moto roam support and race isolation after recovery
+PASS moto roam Phase 3 - Race Systems direction=1 recent supported local recovery
+PASS moto roam support and race isolation after recovery
+PASS moto roam Reverse main route direction=-1 recent supported local recovery
+PASS moto roam support and race isolation after recovery
+PASS moto roam Phase 3 - Race Systems direction=-1 recent supported local recovery
+PASS moto roam support and race isolation after recovery
+PASS atv roam Reverse main route direction=1 recent supported local recovery
+PASS atv roam support and race isolation after recovery
+PASS atv roam Phase 3 - Race Systems direction=1 recent supported local recovery
+PASS atv roam support and race isolation after recovery
+PASS atv roam Reverse main route direction=-1 recent supported local recovery
+PASS atv roam support and race isolation after recovery
+PASS atv roam Phase 3 - Race Systems direction=-1 recent supported local recovery
+PASS atv roam support and race isolation after recovery

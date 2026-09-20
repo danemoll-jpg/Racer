@@ -1,0 +1,56 @@
+PASS original Granite Creek Cut normal #0 completes in 31.91s; recovery=0; misses=0
+PASS original Granite Creek Cut clean #0 completes in 28.46s; recovery=0; misses=0
+PASS original clean branch has actual entry, no penalty/recovery Granite Creek Cut
+PASS original Granite Creek Cut imperfect #0 completes in 32.71s; recovery=0; misses=0
+PASS original actual local recovery preserves bypass entitlement Granite Creek Cut
+PASS original Granite Creek Cut recovery #0 completes in 29.98s; recovery=0; misses=0
+PASS original recovered branch finishes penalty-free Granite Creek Cut
+PASS original Laurel Switchbacks normal #0 completes in 35.62s; recovery=0; misses=0
+PASS original Laurel Switchbacks clean #0 completes in 28.39s; recovery=0; misses=0
+PASS original clean branch has actual entry, no penalty/recovery Laurel Switchbacks
+PASS original Laurel Switchbacks imperfect #0 completes in 32.54s; recovery=0; misses=0
+PASS original actual local recovery preserves bypass entitlement Laurel Switchbacks
+PASS original Laurel Switchbacks recovery #0 completes in 29.17s; recovery=0; misses=0
+PASS original recovered branch finishes penalty-free Laurel Switchbacks
+PASS tourer Granite Creek Cut normal #0 completes in 31.43s; recovery=0; misses=0
+PASS tourer Granite Creek Cut clean #0 completes in 27.86s; recovery=0; misses=0
+PASS tourer clean branch has actual entry, no penalty/recovery Granite Creek Cut
+PASS tourer Granite Creek Cut imperfect #0 completes in 32.69s; recovery=0; misses=0
+PASS tourer actual local recovery preserves bypass entitlement Granite Creek Cut
+PASS tourer Granite Creek Cut recovery #0 completes in 30.06s; recovery=0; misses=0
+PASS tourer recovered branch finishes penalty-free Granite Creek Cut
+PASS tourer Laurel Switchbacks normal #0 completes in 35.76s; recovery=0; misses=0
+PASS tourer Laurel Switchbacks clean #0 completes in 28.86s; recovery=0; misses=0
+PASS tourer clean branch has actual entry, no penalty/recovery Laurel Switchbacks
+PASS tourer Laurel Switchbacks imperfect #0 completes in 33.07s; recovery=0; misses=0
+PASS tourer actual local recovery preserves bypass entitlement Laurel Switchbacks
+PASS tourer Laurel Switchbacks recovery #0 completes in 29.71s; recovery=0; misses=0
+PASS tourer recovered branch finishes penalty-free Laurel Switchbacks
+PASS moto Granite Creek Cut normal #0 completes in 26.88s; recovery=0; misses=0
+PASS moto Granite Creek Cut clean #0 completes in 23.48s; recovery=0; misses=0
+PASS moto clean branch has actual entry, no penalty/recovery Granite Creek Cut
+PASS moto Granite Creek Cut imperfect #0 completes in 27.66s; recovery=0; misses=0
+PASS moto actual local recovery preserves bypass entitlement Granite Creek Cut
+PASS moto Granite Creek Cut recovery #0 completes in 24.89s; recovery=0; misses=0
+PASS moto recovered branch finishes penalty-free Granite Creek Cut
+PASS moto Laurel Switchbacks normal #0 completes in 33.28s; recovery=0; misses=0
+PASS moto Laurel Switchbacks clean #0 completes in 25.71s; recovery=0; misses=0
+PASS moto clean branch has actual entry, no penalty/recovery Laurel Switchbacks
+PASS moto Laurel Switchbacks imperfect #0 completes in 30.55s; recovery=0; misses=0
+PASS moto actual local recovery preserves bypass entitlement Laurel Switchbacks
+PASS moto Laurel Switchbacks recovery #0 completes in 26.65s; recovery=0; misses=0
+PASS moto recovered branch finishes penalty-free Laurel Switchbacks
+PASS atv Granite Creek Cut normal #0 completes in 29.16s; recovery=0; misses=0
+PASS atv Granite Creek Cut clean #0 completes in 27.19s; recovery=0; misses=0
+PASS atv clean branch has actual entry, no penalty/recovery Granite Creek Cut
+PASS atv Granite Creek Cut imperfect #0 completes in 31.09s; recovery=0; misses=0
+PASS atv actual local recovery preserves bypass entitlement Granite Creek Cut
+PASS atv Granite Creek Cut recovery #0 completes in 28.41s; recovery=0; misses=0
+PASS atv recovered branch finishes penalty-free Granite Creek Cut
+PASS atv Laurel Switchbacks normal #0 completes in 37.23s; recovery=0; misses=0
+PASS atv Laurel Switchbacks clean #0 completes in 26.25s; recovery=0; misses=0
+PASS atv clean branch has actual entry, no penalty/recovery Laurel Switchbacks
+PASS atv Laurel Switchbacks imperfect #0 completes in 31.25s; recovery=0; misses=0
+PASS atv actual local recovery preserves bypass entitlement Laurel Switchbacks
+PASS atv Laurel Switchbacks recovery #0 completes in 27.30s; recovery=0; misses=0
+PASS atv recovered branch finishes penalty-free Laurel Switchbacks

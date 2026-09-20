@@ -1,0 +1,11 @@
+{
+  "Name": "rules-LakeWoods",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\Racer-0.15.0-review3-Windows\\Racer.exe",
+  "RuntimeAssemblySHA256": "EE44F9706AC6E2274DFC6A9C27973EC8FB19118E9BC1C3A76D2FF7A6A6FB94B9",
+  "Flags": "-batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr081-40c453b5afa44f38ab604c45bda2acd1\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR081-090\\release3\\rules-LakeWoods\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr081-release3-rules-LakeWoods.log\" -arcadeTest rules -course LakeWoods -raceActivities yes -lifeSeed 82089",
+  "PID": 79420,
+  "Timeout": false,
+  "Exit": 0,
+  "PeakWorkingSetMiB": 1027.52,
+  "CompletedUtc": "2026-09-20T11:07:59.1237085Z"
+}

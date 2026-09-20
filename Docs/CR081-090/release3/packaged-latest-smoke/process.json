@@ -1,0 +1,11 @@
+{
+  "Name": "packaged-latest-smoke",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\Latest\\Racer.exe",
+  "RuntimeAssemblySHA256": "EE44F9706AC6E2274DFC6A9C27973EC8FB19118E9BC1C3A76D2FF7A6A6FB94B9",
+  "Flags": "-batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr081-1893bcf794124a6494e99d5a55a16f7f\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR081-090\\release3\\packaged-latest-smoke\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr081-release3-packaged-latest-smoke.log\" -explorationCheck controls",
+  "PID": 5696,
+  "Timeout": false,
+  "Exit": 0,
+  "PeakWorkingSetMiB": 535.04,
+  "CompletedUtc": "2026-09-20T12:04:24.0276842Z"
+}

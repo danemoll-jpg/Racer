@@ -1,0 +1,2 @@
+Lap=0 misses=0 No compatible clean-lap ghost. Historical files are preserved.
+Lap=1 misses=0 Clean-lap PB ghost / 01:15.298

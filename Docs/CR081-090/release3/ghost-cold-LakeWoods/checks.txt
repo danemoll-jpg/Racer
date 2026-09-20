@@ -1,0 +1,2 @@
+PASS lake-v6-exploration moto completed 1/1 laps; misses=0; recoveries=0; adjusted=80.057048
+PASS Completed player race creates one total entry

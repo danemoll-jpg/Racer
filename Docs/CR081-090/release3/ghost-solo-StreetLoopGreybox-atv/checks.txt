@@ -1,0 +1,2 @@
+PASS street-v13-exploration atv completed 4/4 laps; misses=0; recoveries=2; adjusted=710.242552
+PASS Completed player race creates one total entry

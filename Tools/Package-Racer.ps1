@@ -30,6 +30,9 @@ if(!(Get-Content -LiteralPath "$runtime/VERSION.txt" -Raw).Contains("Racer $Vers
 New-Item -ItemType Directory -Force $music,$stage,$preserved | Out-Null
 # Read only the deliberate staging folder, never preferences or a selected custom collection.
 $stagedSongs=@(Files-NoLinks $music | Where-Object Extension -in @('.mp3','.wav','.ogg'))
+# Preserve deliberately staged original audio even when the radio cannot decode it.
+# Only the supported files above contribute to the playable-song count.
+$stagedOriginals=@(Files-NoLinks $music | Where-Object Extension -in @('.flac','.m4a','.aac','.wma','.opus','.aif','.aiff'))
 $runtimeFiles=@(Files-NoLinks $runtime)
 foreach($file in $runtimeFiles){
  $relative=[IO.Path]::GetRelativePath($runtime,$file.FullName)
@@ -41,13 +44,13 @@ foreach($file in $runtimeFiles){
  Copy-Item -LiteralPath $file.FullName -Destination $destination
 }
 New-Item -ItemType Directory -Force "$stage/Music" | Out-Null
-foreach($song in $stagedSongs){
+foreach($song in @($stagedSongs)+@($stagedOriginals)){
  $destination=Join-Path "$stage/Music" ([IO.Path]::GetRelativePath($music,$song.FullName));New-Item -ItemType Directory -Force ([IO.Path]::GetDirectoryName($destination)) | Out-Null
  Copy-Item -LiteralPath $song.FullName -Destination $destination
  if((Get-FileHash -LiteralPath $song.FullName).Hash -ne (Get-FileHash -LiteralPath $destination).Hash){throw 'Staged music verification failed'}
 }
 Copy-Item -LiteralPath "$projectRoot/Docs/CR040-054-055/RADIO.md" -Destination "$stage/RADIO.md" -Force
-'Each immediate folder is a radio channel; nested artist/album folders belong to that channel. Root songs form General. Add MP3, PCM WAV or Ogg Vorbis, then Rescan. See RADIO.md beside Racer.exe. Stage selected songs in project BundleMusic before repackaging.' | Set-Content -LiteralPath "$stage/Music/README-Racer.txt"
+'Each immediate folder is a radio channel; nested artist/album folders belong to that channel. Root songs form General. Radio playback supports MP3, PCM WAV and Ogg Vorbis. Deliberately staged originals in other audio formats are preserved beside them but are not playable by this radio. See RADIO.md beside Racer.exe. Stage selected songs in project BundleMusic before repackaging.' | Set-Content -LiteralPath "$stage/Music/README-Racer.txt"
 if($Version -like "0.15.0-*"){Copy-Item -LiteralPath "$projectRoot/Docs/CR081-090/README-player.txt" -Destination "$stage/README.txt"}elseif($Version -like "0.14.0-*"){Copy-Item -LiteralPath "$projectRoot/Docs/CR082-089/README-player.txt" -Destination "$stage/README.txt"}elseif($Version -like "0.13.0-*"){Copy-Item -LiteralPath "$projectRoot/Docs/CR075-080/README-player.txt" -Destination "$stage/README.txt"}elseif($Version -eq "0.12.0-review1"){Copy-Item -LiteralPath "$projectRoot/Docs/CR070-074/README-player.txt" -Destination "$stage/README.txt"}elseif($Version -eq "0.11.0-review1"){Copy-Item -LiteralPath "$projectRoot/Docs/CR067-069/README-player.txt" -Destination "$stage/README.txt"}elseif($Version -eq "0.10.0-review1"){Copy-Item -LiteralPath "$projectRoot/Docs/CR064-066/README-player.txt" -Destination "$stage/README.txt"}else{(Get-Content -LiteralPath "$projectRoot/Docs/CR061-062/README-player.txt" -Raw).Replace("0.9.1-review1",$Version) | Set-Content -LiteralPath "$stage/README.txt"}
 $licenses=Join-Path $stage 'Licenses';New-Item -ItemType Directory -Force $licenses | Out-Null
 foreach($notice in @('AUDIO-ASSET-NOTICES.txt','Unity-Windows-Mono-Notices.pdf','PackageNotices')){Copy-Item -LiteralPath "$projectRoot/Docs/CR020-021/$notice" -Destination $licenses -Recurse -Force}
@@ -84,7 +87,7 @@ try {
  throw
 }
 $manifest | ConvertTo-Json -Depth 3 | Set-Content -LiteralPath "$preserved/package-files.json"
-$report=[ordered]@{Version=$Version;PackagedAt=(Get-Date -Format o);Songs=$stagedSongs.Count;Files=$manifest.Count;Runtime=$runtime;Latest=$latest;ZIP=$archive;ZipSHA256=(Get-FileHash -LiteralPath $archive).Hash;Preserved=$preserved;Extracted=$extracted;Verified='All extracted ZIP, versioned runtime and Latest files match SHA256';ExternalCollections='Not read or copied'}
+$report=[ordered]@{Version=$Version;PackagedAt=(Get-Date -Format o);Songs=$stagedSongs.Count;PreservedOriginalAudio=$stagedOriginals.Count;Files=$manifest.Count;Runtime=$runtime;Latest=$latest;ZIP=$archive;ZipSHA256=(Get-FileHash -LiteralPath $archive).Hash;Preserved=$preserved;Extracted=$extracted;Verified='All extracted ZIP, versioned runtime and Latest files match SHA256';ExternalCollections='Not read or copied'}
 $report | ConvertTo-Json | Set-Content -LiteralPath "$builds/PACKAGE-LATEST.json"
 $report | ConvertTo-Json
 if(!$stagedSongs.Count){Write-Host 'No songs are staged in BundleMusic; the shareable Music folder is empty except instructions.'}

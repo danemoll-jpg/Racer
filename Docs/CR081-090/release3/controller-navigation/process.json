@@ -1,0 +1,11 @@
+{
+  "Name": "controller-navigation",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\Racer-0.15.0-review3-Windows\\Racer.exe",
+  "RuntimeAssemblySHA256": "EE44F9706AC6E2274DFC6A9C27973EC8FB19118E9BC1C3A76D2FF7A6A6FB94B9",
+  "Flags": "-batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr081-b53eae900718400ba4b094bb3d8a8de9\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR081-090\\release3\\controller-navigation\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr081-release3-controller-navigation.log\" -explorationCheck controls",
+  "PID": 89796,
+  "Timeout": false,
+  "Exit": 0,
+  "PeakWorkingSetMiB": 632.82,
+  "CompletedUtc": "2026-09-20T10:42:23.3443497Z"
+}

@@ -1,0 +1,5 @@
+PASS Virtual controller navigates main menu into Activity Records
+PASS Controller selects Jumps tab
+PASS Controller returns from records
+PASS Controller toggles clean-lap ghost
+PASS Pause exposes Activity Records button

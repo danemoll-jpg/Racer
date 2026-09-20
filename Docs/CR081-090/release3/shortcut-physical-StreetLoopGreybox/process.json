@@ -1,0 +1,11 @@
+{
+  "Name": "shortcut-physical-StreetLoopGreybox",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\Racer-0.15.0-review3-Windows\\Racer.exe",
+  "RuntimeAssemblySHA256": "EE44F9706AC6E2274DFC6A9C27973EC8FB19118E9BC1C3A76D2FF7A6A6FB94B9",
+  "Flags": "-batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr081-f2640245a1e04663bdc4a17604c00328\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR081-090\\release3\\shortcut-physical-StreetLoopGreybox\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr081-release3-shortcut-physical-StreetLoopGreybox.log\" -reverseReview routes -course StreetLoopGreybox -repeats 1 -testSpeed 6",
+  "PID": 68192,
+  "Timeout": false,
+  "Exit": 2,
+  "PeakWorkingSetMiB": 652.65,
+  "CompletedUtc": "2026-09-20T11:27:13.3161094Z"
+}

@@ -1,0 +1,11 @@
+{
+  "Name": "property-views",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\Racer-0.15.0-review3-Windows\\Racer.exe",
+  "RuntimeAssemblySHA256": "EE44F9706AC6E2274DFC6A9C27973EC8FB19118E9BC1C3A76D2FF7A6A6FB94B9",
+  "Flags": "-batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr081-7cdf57cd8754462ba1740f3f355c0b13\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR081-090\\release3\\property-views\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr081-release3-property-views.log\" -explorationCheck views",
+  "PID": 32008,
+  "Timeout": false,
+  "Exit": 0,
+  "PeakWorkingSetMiB": 584.14,
+  "CompletedUtc": "2026-09-20T10:47:51.6661993Z"
+}

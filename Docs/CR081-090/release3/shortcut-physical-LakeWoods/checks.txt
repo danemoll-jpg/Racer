@@ -1,0 +1,14 @@
+PASS moto Echo Cave normal #0 completes in 28.61s; recovery=0; misses=0
+PASS moto Echo Cave clean #0 completes in 24.23s; recovery=0; misses=0
+PASS moto clean branch has actual entry, no penalty/recovery Echo Cave
+PASS moto Echo Cave imperfect #0 completes in 28.46s; recovery=0; misses=0
+PASS moto actual local recovery preserves bypass entitlement Echo Cave
+PASS moto Echo Cave recovery #0 completes in 25.33s; recovery=0; misses=0
+PASS moto recovered branch finishes penalty-free Echo Cave
+PASS atv Echo Cave normal #0 completes in 30.01s; recovery=0; misses=0
+PASS atv Echo Cave clean #0 completes in 25.15s; recovery=0; misses=0
+PASS atv clean branch has actual entry, no penalty/recovery Echo Cave
+PASS atv Echo Cave imperfect #0 completes in 29.30s; recovery=0; misses=0
+PASS atv actual local recovery preserves bypass entitlement Echo Cave
+PASS atv Echo Cave recovery #0 completes in 26.41s; recovery=0; misses=0
+PASS atv recovered branch finishes penalty-free Echo Cave

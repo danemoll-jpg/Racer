@@ -1,0 +1,11 @@
+{
+  "Name": "trickum-StreetLoopReverse-roam",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\Racer-0.15.0-review3-Windows\\Racer.exe",
+  "RuntimeAssemblySHA256": "EE44F9706AC6E2274DFC6A9C27973EC8FB19118E9BC1C3A76D2FF7A6A6FB94B9",
+  "Flags": "-batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr081-b4e04e1ffc144e9f894c27b6351fa8dd\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR081-090\\release3\\trickum-StreetLoopReverse-roam\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr081-release3-trickum-StreetLoopReverse-roam.log\" -arcadeRamp full -testSpeed 4 -course StreetLoopReverse -rampRoam yes",
+  "PID": 90552,
+  "Timeout": false,
+  "Exit": 0,
+  "PeakWorkingSetMiB": 704.71,
+  "CompletedUtc": "2026-09-20T11:40:57.7496900Z"
+}

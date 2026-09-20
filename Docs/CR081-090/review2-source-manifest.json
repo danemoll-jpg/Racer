@@ -1,0 +1,656 @@
+{
+  "Version": "0.15.0-review2",
+  "SourceCommit": "f1719c6448800607b0eb7bc613245878eb2ebe3f",
+  "SafetyCommit": "8419e9194985955bb56a41854f1b5dce7968b270",
+  "RuntimeAssemblySHA256": "7527452DDE0DFEF63EB8A9BFE3426622521A2EE8F14DFF6EEA222D5F5DFDEDC3",
+  "Files": [
+    {
+      "Path": "Assets\\Scenes\\ForestLoopReverse.unity",
+      "SHA256": "33631EEACD5523CEB6DDE2E1CFE95C2594974375CEEFAD19A7451302DA102249"
+    },
+    {
+      "Path": "Assets\\Scenes\\LakeWoods.unity",
+      "SHA256": "9BAA37FC2AE54845D3BF6216AF1EEFCB99AB1E5B16F9F04F262FE916F2CF2C45"
+    },
+    {
+      "Path": "Assets\\Scenes\\StreetLoopGreybox.unity",
+      "SHA256": "12DABF29C1CC641A67271D45FA7F787272B5959A7E96698D1B84B4F28D3CF196"
+    },
+    {
+      "Path": "Assets\\Scenes\\StreetLoopReverse.unity",
+      "SHA256": "7DE99843E7D0FF80993988B275720C834058129839468C603085A313AA9E7EC8"
+    },
+    {
+      "Path": "Assets\\Scripts\\ActivityRecords.cs",
+      "SHA256": "6D4B72CB6C05384A1FB19DA5D388C9D0A17177D30A39DE6A1A712B6094599546"
+    },
+    {
+      "Path": "Assets\\Scripts\\ActivitySite.cs",
+      "SHA256": "B5356633FF85806E9404BC449E237E37C89F8F89ACA0C7BC6713E5DD945BC4D5"
+    },
+    {
+      "Path": "Assets\\Scripts\\AiFinishEstimate.cs",
+      "SHA256": "72500ACA6EDBBE5987389665AD25509920FC55918950D031B41C6CF65D139291"
+    },
+    {
+      "Path": "Assets\\Scripts\\AmbientGalleryValidation.cs",
+      "SHA256": "3FA685A851B8BCCAA6B0BF6A86CD2B096D8AE2464C790487925D22C6A5B7287E"
+    },
+    {
+      "Path": "Assets\\Scripts\\AmbientLife.cs",
+      "SHA256": "4D4E3AE6151215FC95B287BF3465B5498828FC456B4AA40F21972C61487A8881"
+    },
+    {
+      "Path": "Assets\\Scripts\\AmbientTrafficAudit.cs",
+      "SHA256": "7499909E8AEB544BB6DFBF7B6944C756437FF1E08C2423BBE030C4A01234B2F3"
+    },
+    {
+      "Path": "Assets\\Scripts\\AmbientVehicle.cs",
+      "SHA256": "C9EFC9832C4CEA571E5A0335C65839CC92FCF6C4BD2BC110D9CE82DDE2DE29ED"
+    },
+    {
+      "Path": "Assets\\Scripts\\ArcadeActivities.cs",
+      "SHA256": "CBFF4F53D393112B0CC524911CF15A87CFE732A21A0B53EA5340FD2B317A9E80"
+    },
+    {
+      "Path": "Assets\\Scripts\\ArcadeRampProbe.cs",
+      "SHA256": "3E73F6BB86246AFCE4108386DA7D54C5D8733E934F0FFFB4BF5ED6B3625CF88B"
+    },
+    {
+      "Path": "Assets\\Scripts\\ArcadeReviewValidation.cs",
+      "SHA256": "4ADAC21A0F7E49714F054F394A40395CFAD0438DFB406BE02851D5281AC6FFAD"
+    },
+    {
+      "Path": "Assets\\Scripts\\ArcadeVehicle.cs",
+      "SHA256": "A23006A4BF837E81EFD466ADBACF893C96E4E57D62CF5CC1A6571437F58471B8"
+    },
+    {
+      "Path": "Assets\\Scripts\\AtomicSave.cs",
+      "SHA256": "1246C0FDD868FB7CABF0C6C3357C4A1F14E1352F5DE3C35963A4E501BE17E2BA"
+    },
+    {
+      "Path": "Assets\\Scripts\\AudioCeiling.cs",
+      "SHA256": "351EE7B4E67B0F6EAE6BF5168D31254B398C82E8757910F624A4FDFC50A78C21"
+    },
+    {
+      "Path": "Assets\\Scripts\\BreakableProp.cs",
+      "SHA256": "E46065E434B7E404A39BB3770AE1C1FE4D152D6B1410FB4D55432BAF9F94753F"
+    },
+    {
+      "Path": "Assets\\Scripts\\ChaseCamera.cs",
+      "SHA256": "168D24518C659D4F1EB0B4FA55CEDA5F1B6E62AE7CDC5711480FD558156EFE2C"
+    },
+    {
+      "Path": "Assets\\Scripts\\CircuitBoundary.cs",
+      "SHA256": "3F53FF453DBC3AC118C9275EBAC844B56C3153453D454D96D7E52EF61A1C4A9F"
+    },
+    {
+      "Path": "Assets\\Scripts\\CleanLapGhost.cs",
+      "SHA256": "E7F12780D60910DCAB8DF676CBF4BD12D50A35E88F7F25F4284C406DB7362288"
+    },
+    {
+      "Path": "Assets\\Scripts\\CollectionValidation.cs",
+      "SHA256": "8F667A38805782D2B38E593668FE8B8C4A0AECF8021014BA3DCA02A1D91BB050"
+    },
+    {
+      "Path": "Assets\\Scripts\\CombinedReviewValidation.cs",
+      "SHA256": "FEDB86FE4A2319BDA513432150D157907FBE3AA0F35148E89CE1AAE38525B782"
+    },
+    {
+      "Path": "Assets\\Scripts\\CorrectionAudioValidation.cs",
+      "SHA256": "030C1F67539F206D55902C474E5B97E3A71F2F82FD1475B4711A9B50E5A5105D"
+    },
+    {
+      "Path": "Assets\\Scripts\\CorrectionJumpValidation.cs",
+      "SHA256": "208509AE52332E6443256FF6AD79F899AB8C7BDB284EA55BB5865C66BD2DF581"
+    },
+    {
+      "Path": "Assets\\Scripts\\CorrectionPassValidation.cs",
+      "SHA256": "11D3C109AC6055935D85CECECD06C56DCCCA42E1CA880EBDA2EE3C0F481AAF9E"
+    },
+    {
+      "Path": "Assets\\Scripts\\CorrectionTrace.cs",
+      "SHA256": "4CD3C7F036399691DF4C882D8EDD4D5D59B4BC8AF45C482914B80B10ADFDFCCF"
+    },
+    {
+      "Path": "Assets\\Scripts\\CorrectionValidation.cs",
+      "SHA256": "09F4EC8091E34A999DEAE3A1801822F137EC58E725C5704A03558BF3A970304A"
+    },
+    {
+      "Path": "Assets\\Scripts\\DisplayUnits.cs",
+      "SHA256": "A0A9048FC127DAFB7103F9A2205E8CE75BA9A12154B2817254CF778EF863415A"
+    },
+    {
+      "Path": "Assets\\Scripts\\DriverVariation.cs",
+      "SHA256": "AA7CA74B40C4CD5DB02660988FADF8F448B1BD7DDF6209606714026F02D21A3B"
+    },
+    {
+      "Path": "Assets\\Scripts\\Editor\\ArcadeReviewRelease.cs",
+      "SHA256": "1F02072701794CC7C89F66504658A0EE5C2AFCCFBDC9200CD09C4685BDE0D4E5"
+    },
+    {
+      "Path": "Assets\\Scripts\\Editor\\CollectionCourseUpdate.cs",
+      "SHA256": "A18AB41023664F32EB2875F55DBF18929E396F734DA311FDA66DFE6F3D1F668A"
+    },
+    {
+      "Path": "Assets\\Scripts\\Editor\\CollectionReleaseBuild.cs",
+      "SHA256": "C6C41861248DAC03EB50B9EB5B20C098D01128567E061390386B7059BF37B342"
+    },
+    {
+      "Path": "Assets\\Scripts\\Editor\\CombinedReleaseBuild.cs",
+      "SHA256": "63D44E74333E2F2046F1CCAAB15E3B6BA322EBF6304FA5A8904DA2B82D22C64A"
+    },
+    {
+      "Path": "Assets\\Scripts\\Editor\\CombinedWorldUpdate.cs",
+      "SHA256": "084C9B39623A5A321EF600413045A4B74B38868F87DA3C30D671CFFD7D073D07"
+    },
+    {
+      "Path": "Assets\\Scripts\\Editor\\CompactYard.cs",
+      "SHA256": "F27F148B9EE5FF691703642090391EEA386B5631EA247912D47442D5C2C38BE0"
+    },
+    {
+      "Path": "Assets\\Scripts\\Editor\\ContinuationTerrain.cs",
+      "SHA256": "8990FC507FFD01E1BE242F2740F7BA3300F9693EC070E72784132027063604F2"
+    },
+    {
+      "Path": "Assets\\Scripts\\Editor\\CorrectionPassAuthoring.cs",
+      "SHA256": "E6A32B2579E385E37328F7EFA92AA2433D2BEA53E5C629486B472710766667C3"
+    },
+    {
+      "Path": "Assets\\Scripts\\Editor\\CorrectionPassRelease.cs",
+      "SHA256": "673E314F00E4D8F94B95677607F84966A541412BA31111AABEF86C77481004E2"
+    },
+    {
+      "Path": "Assets\\Scripts\\Editor\\CorrectionReleaseBuild.cs",
+      "SHA256": "A7A08609F9B03C7846570E2526E2C2F7AA21C51A223699FDB2371DACDDC6F49A"
+    },
+    {
+      "Path": "Assets\\Scripts\\Editor\\CR014Driving.cs",
+      "SHA256": "74B68E94C456860AFF3B0170C3BD60719FCC86BB2663F0F217DCFBE5004C1863"
+    },
+    {
+      "Path": "Assets\\Scripts\\Editor\\CR014Woodland.cs",
+      "SHA256": "8C7284B3A8E17BC14FCC08541B2DDEC7CAFD8E235A4D7A3E8F72265CA4E9C42D"
+    },
+    {
+      "Path": "Assets\\Scripts\\Editor\\CR015Neighborhood.cs",
+      "SHA256": "93F0AB5504F5DE7E03C450FBAC92F9D753FE95CD220985BF0C4300B4175716D0"
+    },
+    {
+      "Path": "Assets\\Scripts\\Editor\\CR019Commercial.cs",
+      "SHA256": "2A4DDA9D776DA926977E0179CEEC12DBCCED71D8D8E4C9981E351BEC5A646224"
+    },
+    {
+      "Path": "Assets\\Scripts\\Editor\\CR019Driving.cs",
+      "SHA256": "51C37552C26486194723130BDCC51269434F99E343E763469CD1491494E74762"
+    },
+    {
+      "Path": "Assets\\Scripts\\Editor\\CR019Validation.cs",
+      "SHA256": "A14075DE896D9B3BCB0CB05BD2968FAECDBA736EFCB3C7456E3038A0109D3056"
+    },
+    {
+      "Path": "Assets\\Scripts\\Editor\\ExplorationAuthoring.cs",
+      "SHA256": "9D94AF650C2EFF3797F2D00AB5964FF71DFE4CE310962885FC7620BD0BF2B6E3"
+    },
+    {
+      "Path": "Assets\\Scripts\\Editor\\ExplorationConnections.cs",
+      "SHA256": "074EB68985B1B350CB1E5B5444C5228BAD4E4C76E5F04BEC7F7EB8C07C09CBF5"
+    },
+    {
+      "Path": "Assets\\Scripts\\Editor\\ExplorationHome.cs",
+      "SHA256": "76E52247A0C160DCE8F70D3C268A1846B4644DED187D96BDDDC87943349E9656"
+    },
+    {
+      "Path": "Assets\\Scripts\\Editor\\ExplorationRefinement.cs",
+      "SHA256": "F73F1C84DE999A18EF16620E74DE2C006FF8E0FE18BABD576D671A70A3C4D6F7"
+    },
+    {
+      "Path": "Assets\\Scripts\\Editor\\ExplorationRelease.cs",
+      "SHA256": "C6EA0E72FAAADCC2BE8BC09165DA6CC652686674D9EF0C3207CB4B44F914ED8C"
+    },
+    {
+      "Path": "Assets\\Scripts\\Editor\\ExplorationRouteProtection.cs",
+      "SHA256": "0501B970990C2344AE5A5921B04320443E562D9583DA5B9CA5FAA86232601ECC"
+    },
+    {
+      "Path": "Assets\\Scripts\\Editor\\ExplorationTrees.cs",
+      "SHA256": "0334190A07787DCB2C028BB526B7CFFF990ADA1EBEDEB7959A6C940138F2C58D"
+    },
+    {
+      "Path": "Assets\\Scripts\\Editor\\ForestCourseBuild.cs",
+      "SHA256": "2918340FBBD412A21B9D5A879EC1BC6F558B12F0FAE512FC92917A399E2CB033"
+    },
+    {
+      "Path": "Assets\\Scripts\\Editor\\ForestRelease.cs",
+      "SHA256": "27EE731A7FD21758164B6DB43A590D42C3AB6B61557678333A7DA817E66ED1DE"
+    },
+    {
+      "Path": "Assets\\Scripts\\Editor\\GaragePhysicsValidation.cs",
+      "SHA256": "0EC3D11D9C5E7C15500DF0F391B23736D96217AD7E2107E375232952E5C93114"
+    },
+    {
+      "Path": "Assets\\Scripts\\Editor\\GarageReleaseBuild.cs",
+      "SHA256": "ED6CFFA40B95EF71C75E63F8D7B143BBC843C9624B53DD25FF4D1CBE22CBB71E"
+    },
+    {
+      "Path": "Assets\\Scripts\\Editor\\IntegratedRaceSetup.cs",
+      "SHA256": "7D69301A55D91717DCCADD7C776042A227A3E4998F9F87430353CE4A0605F429"
+    },
+    {
+      "Path": "Assets\\Scripts\\Editor\\IntegratedReleaseBuild.cs",
+      "SHA256": "6BF23E76BF1EA61FF0330A1EDEA217F9F1D83FA9C75952F900F32811666BD89E"
+    },
+    {
+      "Path": "Assets\\Scripts\\Editor\\LakeCourseBuild.cs",
+      "SHA256": "13A1963F439BE27B10E8FEC8F331EC7FF979AB0CBF36B27740FC7F7BD34B62E1"
+    },
+    {
+      "Path": "Assets\\Scripts\\Editor\\LivingWorldRelease.cs",
+      "SHA256": "2A499BA1DDD4D8AAB7D29654C57668285FDA3C16D979E76F6FE999E0F71DA02E"
+    },
+    {
+      "Path": "Assets\\Scripts\\Editor\\NeighborhoodBatch.cs",
+      "SHA256": "94E59E2FEC5F3CD2273B79976437FDAF8BFA67BBEF0D8B68A409DE588E2EC2EC"
+    },
+    {
+      "Path": "Assets\\Scripts\\Editor\\Phase4Setup.cs",
+      "SHA256": "2513F15A9EDAA0B5B4FCF6812C12277414700BA989D66D150D107819A2C461BB"
+    },
+    {
+      "Path": "Assets\\Scripts\\Editor\\Phase4Validation.cs",
+      "SHA256": "6A3108401360A996F303A3D1079158FDD64D720A71C8520B909B01C2CF21A714"
+    },
+    {
+      "Path": "Assets\\Scripts\\Editor\\Phase5Setup.cs",
+      "SHA256": "CA6E9376E6BF64846C03849F8D86FBE22076CE214F2340A0AFEA2D26E1507941"
+    },
+    {
+      "Path": "Assets\\Scripts\\Editor\\Phase5Validation.cs",
+      "SHA256": "538517CDDEF86C38F6BE04399BE6D7524D1A7431994A01B4702B54C9AE3203AE"
+    },
+    {
+      "Path": "Assets\\Scripts\\Editor\\Phase6Buildings.cs",
+      "SHA256": "D14D0638AC6E5B8589E0C0BA36FABBA0A17793794A32DB819D9520998C115B67"
+    },
+    {
+      "Path": "Assets\\Scripts\\Editor\\Phase6Environment.cs",
+      "SHA256": "8410BBCB84F6C16A1F14B0AC808A6030752AB340462A360706EBE93607AC87C1"
+    },
+    {
+      "Path": "Assets\\Scripts\\Editor\\Phase6Review.cs",
+      "SHA256": "93A6880C1D2C3DF4DD73248260F1074F66C6DF803810E6EA58F4B2EBA7B2B8AE"
+    },
+    {
+      "Path": "Assets\\Scripts\\Editor\\Phase6Validation.cs",
+      "SHA256": "99327D6ABEBEEA1559BC103D9E6C8327810E36E1CB13AB2C6BECDF9801218943"
+    },
+    {
+      "Path": "Assets\\Scripts\\Editor\\Phase6Vegetation.cs",
+      "SHA256": "7B04F9C0E5B3F6896561C69AE9AD7647B83E9D8AE2CC462D229DD10070387E1B"
+    },
+    {
+      "Path": "Assets\\Scripts\\Editor\\Phase7Build.cs",
+      "SHA256": "15A2A79CF5ABD2B04A8CCD2FF0724592961FB3DBB7BBE1A45920F66536AF2ED8"
+    },
+    {
+      "Path": "Assets\\Scripts\\Editor\\Phase8Polish.cs",
+      "SHA256": "287A4AEB49591B01DB7F5A615F09E9214EBB3730BD45397E6F14115FF3E757BF"
+    },
+    {
+      "Path": "Assets\\Scripts\\Editor\\Phase8Review.cs",
+      "SHA256": "F2F650A45F57C55F635971C8234A4F158F4CD49338E15D27EFC6FE5A8BEB75BE"
+    },
+    {
+      "Path": "Assets\\Scripts\\Editor\\PlaytestCorrection.cs",
+      "SHA256": "C73C9108E264853DF2587CC133EE7F1ED59AF78D91849824A96ED26FA8DB762F"
+    },
+    {
+      "Path": "Assets\\Scripts\\Editor\\PrototypeBuilder.cs",
+      "SHA256": "2E92BAF32A965E4FA479BA50237A1523ABC6F72FB8AE33093FB71B1DD408307A"
+    },
+    {
+      "Path": "Assets\\Scripts\\Editor\\PrototypeValidation.cs",
+      "SHA256": "B11347F151325260D85F078821AA02A2F4C51352C17E3CCD552426DA5C2B58B5"
+    },
+    {
+      "Path": "Assets\\Scripts\\Editor\\RaceSetup.cs",
+      "SHA256": "820629C9A02A42939BCBAB2CAD1F560E7A839811B862FFD132D072E78857954D"
+    },
+    {
+      "Path": "Assets\\Scripts\\Editor\\RaceValidation.cs",
+      "SHA256": "DC4B7547E4322C7D45F491C20531C1B4461362FF9A0DDA5053D7F18D8F1C4AEF"
+    },
+    {
+      "Path": "Assets\\Scripts\\Editor\\ReverseCourseAuthoring.cs",
+      "SHA256": "57B1FC78948D21693E1821A31B69DA539414A113DFD8EC954335AC9B31E40B65"
+    },
+    {
+      "Path": "Assets\\Scripts\\Editor\\ReverseReviewDelivery.cs",
+      "SHA256": "5ABEDBABD207335FC3BBFA19AA80A0B2C3B8EE6E9F84AF52014020440413B324"
+    },
+    {
+      "Path": "Assets\\Scripts\\Editor\\ReverseReviewRelease.cs",
+      "SHA256": "558A334FA9C4B1D542AA8A75DE0AB7C69B64905E1BF94C63B023C3DCBFA51C34"
+    },
+    {
+      "Path": "Assets\\Scripts\\Editor\\Review6466Release.cs",
+      "SHA256": "71AB29438B5DB91F273AC3B508E704D1B3D8052E55AC3A421E648B789FFA5F31"
+    },
+    {
+      "Path": "Assets\\Scripts\\Editor\\Review6769Release.cs",
+      "SHA256": "0EBDF4A420468EE38E326E7FACEA646B3010C567F85C2BE34ABB7532A8115E7F"
+    },
+    {
+      "Path": "Assets\\Scripts\\Editor\\RevisionJump.cs",
+      "SHA256": "4CB8E28249FA7D66E356B092F15BF1D1980C233A8F55278D7F1E859DBDD52727"
+    },
+    {
+      "Path": "Assets\\Scripts\\Editor\\RevisionReleaseBuild.cs",
+      "SHA256": "8F5ACD9C8D2D7691C227B311554BED7D58E9A7F9EE8CF1B19C0FA72D5DE21457"
+    },
+    {
+      "Path": "Assets\\Scripts\\Editor\\SignWildlifeRelease.cs",
+      "SHA256": "CF5209A96E791C60B65058F733FD8831CBF8B05036BE5B41E9565E4BC643487A"
+    },
+    {
+      "Path": "Assets\\Scripts\\Editor\\SoloReleaseBuild.cs",
+      "SHA256": "D7ECC7A8B6EAC2F3EB534F809A0BF0038368112BA0F3053D794C3F4D7C83861E"
+    },
+    {
+      "Path": "Assets\\Scripts\\Editor\\SteeringValidation.cs",
+      "SHA256": "0B76F06662E8094E310598650135C047BA930648D96D0C5492BD49ED6B4F2964"
+    },
+    {
+      "Path": "Assets\\Scripts\\Editor\\StreetLoopBuilder.cs",
+      "SHA256": "D109E87148EF85F89580323DF4C6AB6D479DDBACE2940A682F0393AC1271DD6A"
+    },
+    {
+      "Path": "Assets\\Scripts\\Editor\\StreetLoopPerformance.cs",
+      "SHA256": "57EEE40F32C9CD46295E763228E554EAE3AF1F3753294A609E60B97B4D59E62B"
+    },
+    {
+      "Path": "Assets\\Scripts\\Editor\\StreetLoopRevision.cs",
+      "SHA256": "6D37ACCAEC9A9FBA819E9D1FE92A757A1C0E9F97C9492DE0BBFFC79B2D782FB8"
+    },
+    {
+      "Path": "Assets\\Scripts\\Editor\\StreetLoopRevisionValidation.cs",
+      "SHA256": "197A59874A3DEFC2B625C50524430EC4C932BB22C2C1B2F690C8E62C370D422F"
+    },
+    {
+      "Path": "Assets\\Scripts\\Editor\\StreetLoopValidation.cs",
+      "SHA256": "ECE658F85213F64A49E2A95A6F89CF00381B38A801ABF01593AA4164D8163F53"
+    },
+    {
+      "Path": "Assets\\Scripts\\Editor\\ThreeFeatureRelease.cs",
+      "SHA256": "4AA684D70085F6794BF01B1EE172CB78BBD3CBD64916167CB0140BBD5146E493"
+    },
+    {
+      "Path": "Assets\\Scripts\\Editor\\VegetationReview.cs",
+      "SHA256": "005C711808D53CB9BB9E8A26E6E6683D409FD6790B9793BF787ED812B15BE624"
+    },
+    {
+      "Path": "Assets\\Scripts\\Editor\\WoodlandReleaseBuild.cs",
+      "SHA256": "6E4633F2AB41F92196F04C7AC95B7BDCD02E433A5511FA750B4FA85D94159C73"
+    },
+    {
+      "Path": "Assets\\Scripts\\Editor\\WoodlandUpdate.cs",
+      "SHA256": "B5C39ADD5EFFAF13B239387D1C35B74966551F5347C4D668358546B43AC90C57"
+    },
+    {
+      "Path": "Assets\\Scripts\\ExplorationCollection.cs",
+      "SHA256": "CE29BE7DC2A5F926CE972F6FDD1A1FD2EF9BCF31BE9A0796FCAC10EB9ED34013"
+    },
+    {
+      "Path": "Assets\\Scripts\\ExplorationPerformance.cs",
+      "SHA256": "05CAA74597D497F8C44401D1FD876CCA7DE559E2A8259821C945B7619ECD0C62"
+    },
+    {
+      "Path": "Assets\\Scripts\\ExplorationValidation.cs",
+      "SHA256": "FE5C5AD5C1F3D9DAC878D10B0E75B427A40D1824DAB79E0493AF1773DAD6CD53"
+    },
+    {
+      "Path": "Assets\\Scripts\\ForestChecks.cs",
+      "SHA256": "6EC95E09BA1BDC240FD867378A9C062EA8F3C4354CEF6A4C3487099B2E132481"
+    },
+    {
+      "Path": "Assets\\Scripts\\ForestLayout.cs",
+      "SHA256": "3CC4964CC23DD8A2FEFBC92B75829254ECA59E6385BE4F7F15CCD58ECE330005"
+    },
+    {
+      "Path": "Assets\\Scripts\\ForestProbe.cs",
+      "SHA256": "0C174C3357609140EF92951D7E919F84A3FB040992F80A10BFB01080A41FFE27"
+    },
+    {
+      "Path": "Assets\\Scripts\\GarageFlowValidation.cs",
+      "SHA256": "2C3E70766D94E96D6FC990112D3317C773E25AD6BBF026DC910013B28A55CB6B"
+    },
+    {
+      "Path": "Assets\\Scripts\\GarageHandlingValidation.cs",
+      "SHA256": "F520C4BB70B74C888B9F39D4F3192C6F624EF926CF0AED4CCFC8F3EBE5BBCC1C"
+    },
+    {
+      "Path": "Assets\\Scripts\\GarageValidation.cs",
+      "SHA256": "AB78ED66BD7DF03AE7F42E83DEEC782EB8A9DE10145EFCC35779A4668B85DEDC"
+    },
+    {
+      "Path": "Assets\\Scripts\\GhostValidation.cs",
+      "SHA256": "E76E816E42C378A61B95CF9F5524BFA0AA80615CA6819B38244084D1236C460F"
+    },
+    {
+      "Path": "Assets\\Scripts\\GullyTelemetry.cs",
+      "SHA256": "B2EED65DCB9475394C9F0CBE57E7454034712F0E1617A739F770E7B559C47CC8"
+    },
+    {
+      "Path": "Assets\\Scripts\\HouseholdSchedule.cs",
+      "SHA256": "122EC2C99CC00BE73D7B088CFE440556B97C6FAFCA04972BAEC7D0BDC57EFB5E"
+    },
+    {
+      "Path": "Assets\\Scripts\\IntegratedHandlingValidation.cs",
+      "SHA256": "6FCC252647986D8E506B417F5684BEDA4501B435E695CEB0FA9C9097A421C17E"
+    },
+    {
+      "Path": "Assets\\Scripts\\IntegratedRaceValidation.cs",
+      "SHA256": "B0C7D000F4C93D2578B66BB5A1605C0B65D749AD23036B3658A26387967F063A"
+    },
+    {
+      "Path": "Assets\\Scripts\\LivingWorldValidation.cs",
+      "SHA256": "9B4C93818D5A34D0683AA7FF351A699934A5083C5C77E0AE4513647DE64B8080"
+    },
+    {
+      "Path": "Assets\\Scripts\\LocalRadio.cs",
+      "SHA256": "253F360560DF3985949F5B3FBF91D5E6A12D51B06C3E5358826A0490185DB5F9"
+    },
+    {
+      "Path": "Assets\\Scripts\\MusicCollection.cs",
+      "SHA256": "7A4CC66EC03E32DF89FFC775735BB0687A0665627333CA4E18597065FEB5CD58"
+    },
+    {
+      "Path": "Assets\\Scripts\\NeighborhoodImpactValidation.cs",
+      "SHA256": "076CA8E3C9FF071CB1FD33035CDF82ECD7978260E67A19FCFECD406F1561CF22"
+    },
+    {
+      "Path": "Assets\\Scripts\\Phase7Validation.cs",
+      "SHA256": "5D6C7FF529081DD1D48D716500D600F794297FCAB0451C38B214BEC41DD21DA9"
+    },
+    {
+      "Path": "Assets\\Scripts\\Phase8BenchmarkBoot.cs",
+      "SHA256": "4E0D070206D072E4E7B871CF2EBDE7FED96BA72E4766B0F54B63ED090A533B62"
+    },
+    {
+      "Path": "Assets\\Scripts\\PhysicalSign.cs",
+      "SHA256": "650A50A7ABBFFE670F7C1F1A7D3F766889A1F1D0CA35987EC7823460704EE6BA"
+    },
+    {
+      "Path": "Assets\\Scripts\\RaceDirector.cs",
+      "SHA256": "91B42D512E293339D38B18C840EE4C1CBE825D42FCF1DEC423654EEE4754A960"
+    },
+    {
+      "Path": "Assets\\Scripts\\RaceFlow.cs",
+      "SHA256": "A1FB74BCEBAE1F68E9814453457755FB2A8C6432C355786D7778962B53B6CE6B"
+    },
+    {
+      "Path": "Assets\\Scripts\\RaceGate.cs",
+      "SHA256": "352F552F2751FB591A35FE94E0C40AFDF70B73617747C7033D5A421E42B57A59"
+    },
+    {
+      "Path": "Assets\\Scripts\\RaceHud.cs",
+      "SHA256": "D06C46FB8069E97E4FA68918618BC9102D5999DB1CDF13A148CA3B9A9C70C025"
+    },
+    {
+      "Path": "Assets\\Scripts\\RaceMenus.cs",
+      "SHA256": "2953C75EFBB4C9D7671E1B9D52E59A1F20781A0FCA4610FF6F9EF3CF6525B05E"
+    },
+    {
+      "Path": "Assets\\Scripts\\RaceProgress.cs",
+      "SHA256": "2BBE9D714F577ACA3B794B951683691151292E5B814E2E02472E849CD7D9F4EF"
+    },
+    {
+      "Path": "Assets\\Scripts\\RaceRoad.cs",
+      "SHA256": "8FCC5C7D8EF9755E4B08F947AE6BE97AD68ABED1C0845C3B615B264F583B238C"
+    },
+    {
+      "Path": "Assets\\Scripts\\RacerSave.cs",
+      "SHA256": "B2FF0A72EEEB6E6CB8F13F17B6FD6DBA8AEFC1C957E41BDAA96CA92247C7B34D"
+    },
+    {
+      "Path": "Assets\\Scripts\\RacerState.cs",
+      "SHA256": "D95C46FCE19206E06AEAF7BC580FF483398C008B09EB8C444664220A7DF00AD5"
+    },
+    {
+      "Path": "Assets\\Scripts\\RecordBoards.cs",
+      "SHA256": "6F4AE6270C63BAACECD298CC7EFF9D52409BA645AAF30DCD69B93C2E2A0D5E43"
+    },
+    {
+      "Path": "Assets\\Scripts\\ReverseCourseValidation.cs",
+      "SHA256": "27E413CC757A839E9BAB309F4FD7ED9B762EEE8BFAA6F1FD082060C85ED8B0F7"
+    },
+    {
+      "Path": "Assets\\Scripts\\Review6466Validation.cs",
+      "SHA256": "35BFE2361DA46A7142C87A9E19CE20F0DD9FF5202C3D27AB62A28EB68901138E"
+    },
+    {
+      "Path": "Assets\\Scripts\\Review6769Validation.cs",
+      "SHA256": "9D73BD6A0547807B51C3DD4972E4BF5F0A2ED1CD9642FF662B8977A45989E5BC"
+    },
+    {
+      "Path": "Assets\\Scripts\\Review7074Validation.cs",
+      "SHA256": "29C5F86759C7A14278E78D84AEF6DC2697FBF40F3C3C06D2773FB0A3FA992E9D"
+    },
+    {
+      "Path": "Assets\\Scripts\\RevisionDrivingProbe.cs",
+      "SHA256": "346E0BA2438631188785B7FF61D6E51545933633E613995007A3C4BFE1A145E0"
+    },
+    {
+      "Path": "Assets\\Scripts\\RevisionFlowValidation.cs",
+      "SHA256": "360231F792F4A19A619AFC2A176595BB2780D972625D0E48C1B0DE1B7D6C0D9D"
+    },
+    {
+      "Path": "Assets\\Scripts\\RevisionRaceValidation.cs",
+      "SHA256": "BC845B51825C6618ABFFE43F8E9294CE9E9352ED78E05D7F2919EABDC0ED3941"
+    },
+    {
+      "Path": "Assets\\Scripts\\RoadDriver.cs",
+      "SHA256": "C289607C677F7193C30B9D237C0A88E331D2F1FBF4813D2A5C68D8F0D98F2890"
+    },
+    {
+      "Path": "Assets\\Scripts\\ShallowWater.cs",
+      "SHA256": "65926536175FA047CCCCCD433BD35470081B648444B9E5028B2CCBDDAAC80ED7"
+    },
+    {
+      "Path": "Assets\\Scripts\\SignWildlifeValidation.cs",
+      "SHA256": "8696B99224E1A0368D368DA032173F2687758A1C19658ED82C4A8B666ACBAA74"
+    },
+    {
+      "Path": "Assets\\Scripts\\SmashAudio.cs",
+      "SHA256": "537699962CD083A3D2DFD4F75760D42C0466CD06C3F4460CCB92CD92D06A9C8C"
+    },
+    {
+      "Path": "Assets\\Scripts\\TestAudioMute.cs",
+      "SHA256": "8B25BF69BFF80BDD70203659AB948DDE78D4D398108F06F8493128D10192989C"
+    },
+    {
+      "Path": "Assets\\Scripts\\ThreeFeatureValidation.cs",
+      "SHA256": "404C6FE879B488E6FA1C8E0B47932F817A7D7C5C9ECC0E822CEE32A82AAA2E4F"
+    },
+    {
+      "Path": "Assets\\Scripts\\VehicleAudio.cs",
+      "SHA256": "EA81A38FDE6C425601D27DA4DF3240D7B4249BBB027E7F1DF909C83D058509F9"
+    },
+    {
+      "Path": "Assets\\Scripts\\VehicleAudioValidation.cs",
+      "SHA256": "E74565E6B1ABF9F8B7B2EDCC6EA8C9D481F75B2F1227DEBBDB4E170F8C196C2C"
+    },
+    {
+      "Path": "Assets\\Scripts\\VehicleConfiguration.cs",
+      "SHA256": "EC1B285EBA5D90AEA0BBB71B516139FAB2CE5A5561F3B2DEC777D11F8FD00170"
+    },
+    {
+      "Path": "Assets\\Scripts\\VehicleContact.cs",
+      "SHA256": "FE8D33B4839F1079AA6A326D318D42E339FF41859F18ECCE75C442A4B2F3280D"
+    },
+    {
+      "Path": "Assets\\Scripts\\VehicleInput.cs",
+      "SHA256": "3D8E84BEF335A2A29AE3DF5B8313E4D56D728AFA8A32A46AE5B80C6EE14FDE1E"
+    },
+    {
+      "Path": "Assets\\Scripts\\VehiclePaint.cs",
+      "SHA256": "63ADDFAE07804FB2D752972B56A3D4EF685AD9F1C1C62797D342D39E02A9C6E2"
+    },
+    {
+      "Path": "Assets\\Scripts\\VehicleProfile.cs",
+      "SHA256": "60258C1FF47A0B4961C65D2821CF8DE5056086B454C3261569671116FA82BA57"
+    },
+    {
+      "Path": "Assets\\Scripts\\VehicleRespawn.cs",
+      "SHA256": "C4082B379319EFCED13F6270266FD3A4397E844CAAE204EFC1A05DAF7A623A53"
+    },
+    {
+      "Path": "Assets\\Scripts\\VehicleSoundSynthesis.cs",
+      "SHA256": "79D5850941587EEA4935C56EDACDFBB015B0DDE762A2C3C3045EE178E945730D"
+    },
+    {
+      "Path": "Assets\\Scripts\\VehicleSurfaceContacts.cs",
+      "SHA256": "FA47F5CF3B146776F8196953C34422C626088051DD040A390B54F8A18B80DF0F"
+    },
+    {
+      "Path": "Assets\\Scripts\\VehicleVisual.cs",
+      "SHA256": "A697BA95DCDC3111A353B8555C2EDCE75038A674823202AE5B9496CC86F72556"
+    },
+    {
+      "Path": "Assets\\Scripts\\Wildlife.cs",
+      "SHA256": "6ED9CD46ED7B9EF3C477C741969F1743DDE41E5454B2B97C99964F1A7954ACC8"
+    },
+    {
+      "Path": "Assets\\Scripts\\WoodlandAmbience.cs",
+      "SHA256": "E72D8CE69A9B04C7557CF7170FD7344D5878C5967D3C18A0A99C9D7F9C362600"
+    },
+    {
+      "Path": "Assets\\Scripts\\WoodlandBenchmark.cs",
+      "SHA256": "7B55BE04508D1A8D0C1EA0272A31D3A1BB59F2AFD0D4E5E676721DE2823F1CC2"
+    },
+    {
+      "Path": "Assets\\Scripts\\WoodlandFlowValidation.cs",
+      "SHA256": "5E0DD394B92FA3A70A9575FE0CBF69AF5E139C973231529E07F29D1F34157570"
+    },
+    {
+      "Path": "Assets\\Scripts\\WoodlandRaceValidation.cs",
+      "SHA256": "61961D390B7B2FD8D4C289706A90C1BBE6066E4DB2CC89FEAD11CD396B54F388"
+    },
+    {
+      "Path": "Assets\\Scripts\\WoodlandRoute.cs",
+      "SHA256": "C331052B31CF69EB4C8D9C997AD2EB9FB33E1A8EE78655D93F314C5E812B3639"
+    },
+    {
+      "Path": "Assets\\Scripts\\WoodlandSystemsValidation.cs",
+      "SHA256": "0F31136C179B97C25D826550D51428751EBC3CE989C5DE4B8553D5AC4B0EB440"
+    },
+    {
+      "Path": "Assets\\Scripts\\WoodlandValidation.cs",
+      "SHA256": "6851BE0DFEAED9978FC0B20F0DD067B4CD48EF732C181D603AA6371665714B5A"
+    },
+    {
+      "Path": "Assets\\Scripts\\WrongWayGuidance.cs",
+      "SHA256": "335F1A3EEEC68AA3FA48960C03E9702134C5DE9807E75913C713FEA4BE142291"
+    }
+  ]
+}

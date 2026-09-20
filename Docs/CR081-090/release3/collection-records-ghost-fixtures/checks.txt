@@ -1,0 +1,60 @@
+PASS One historical best migrated, date unknown
+PASS Migration remains exactly once after reopen
+PASS Top ten of fourteen, full precision and distinct ties
+PASS Reopening or duplicate attempt ID cannot add an entry
+PASS Restart preserves tied ordering and top ten
+PASS Ghost storage fixture accepts completed clean sample sequence
+PASS Reset/teleport invalidation cannot replace ghost
+PASS Slower compatible lap cannot replace ghost
+PASS Faster valid compatible lap replaces ghost
+PASS Changed layout cannot play historical ghost
+PASS 24 stable unique collectible IDs
+PASS woodland-01 discovered through ordinary driving or supported initial spawn Dan's fence
+PASS woodland-01 supported local return/reset
+PASS woodland-02 discovered through ordinary driving or supported initial spawn Kyle's turning
+PASS woodland-02 supported local return/reset
+PASS woodland-03 discovered through ordinary driving or supported initial spawn House 2 approach
+PASS woodland-03 supported local return/reset
+PASS woodland-04 discovered through ordinary driving or supported initial spawn Wooded descent
+PASS woodland-04 supported local return/reset
+PASS woodland-05 discovered through ordinary driving or supported initial spawn North bend
+PASS woodland-05 supported local return/reset
+PASS woodland-06 discovered through ordinary driving or supported initial spawn Pine shoulder
+PASS woodland-06 supported local return/reset
+PASS woodland-07 discovered through ordinary driving or supported initial spawn Hilltop
+PASS woodland-07 supported local return/reset
+PASS woodland-08 discovered through ordinary driving or supported initial spawn Market verge
+PASS woodland-08 supported local return/reset
+PASS woodland-09 discovered through ordinary driving or supported initial spawn Old highway
+PASS woodland-09 supported local return/reset
+PASS woodland-10 discovered through ordinary driving or supported initial spawn Western woods
+PASS woodland-10 supported local return/reset
+PASS woodland-11 discovered through ordinary driving or supported initial spawn Trickum approach
+PASS woodland-11 supported local return/reset
+PASS woodland-12 discovered through ordinary driving or supported initial spawn Southern return
+PASS woodland-12 supported local return/reset
+PASS woodland-13 discovered through ordinary driving or supported initial spawn Lake gateway
+PASS woodland-13 supported local return/reset
+PASS woodland-14 discovered through ordinary driving or supported initial spawn Creek approach
+PASS woodland-14 supported local return/reset
+PASS woodland-15 discovered through ordinary driving or supported initial spawn Fern landing
+PASS woodland-15 supported local return/reset
+PASS woodland-16 discovered through ordinary driving or supported initial spawn Pine climb
+PASS woodland-16 supported local return/reset
+PASS woodland-17 discovered through ordinary driving or supported initial spawn High clearing
+PASS woodland-17 supported local return/reset
+PASS woodland-18 discovered through ordinary driving or supported initial spawn Ridge lip
+PASS woodland-18 supported local return/reset
+PASS woodland-19 discovered through ordinary driving or supported initial spawn Summit overlook
+PASS woodland-19 supported local return/reset
+PASS woodland-20 discovered through ordinary driving or supported initial spawn North saddle
+PASS woodland-20 supported local return/reset
+PASS woodland-21 discovered through ordinary driving or supported initial spawn Switchback
+PASS woodland-21 supported local return/reset
+PASS woodland-22 discovered through ordinary driving or supported initial spawn Laurel descent
+PASS woodland-22 supported local return/reset
+PASS woodland-23 discovered through ordinary driving or supported initial spawn Lake view
+PASS woodland-23 supported local return/reset
+PASS woodland-24 discovered through ordinary driving or supported initial spawn Homeward woods
+PASS woodland-24 supported local return/reset
+PASS Collectible discoveries written once to persistent isolated save

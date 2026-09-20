@@ -1,8 +1,8 @@
 {
-  "Version": "0.15.0-review2",
-  "SourceCommit": "f1719c6448800607b0eb7bc613245878eb2ebe3f",
+  "Version": "0.15.0-review3",
+  "SourceCommit": "f3d732d676ef4f7f7ae57b329855cad4f4729a4e",
   "SafetyCommit": "8419e9194985955bb56a41854f1b5dce7968b270",
-  "RuntimeAssemblySHA256": "7527452DDE0DFEF63EB8A9BFE3426622521A2EE8F14DFF6EEA222D5F5DFDEDC3",
+  "RuntimeAssemblySHA256": "EE44F9706AC6E2274DFC6A9C27973EC8FB19118E9BC1C3A76D2FF7A6A6FB94B9",
   "Files": [
     {
       "Path": "Assets\\Scenes\\ForestLoopReverse.unity",
@@ -82,7 +82,7 @@
     },
     {
       "Path": "Assets\\Scripts\\CircuitBoundary.cs",
-      "SHA256": "3F53FF453DBC3AC118C9275EBAC844B56C3153453D454D96D7E52EF61A1C4A9F"
+      "SHA256": "C7A733F9184D4C6D86534D10121CCB1DF091E16DD54A5D34A7C723AE5D3357BC"
     },
     {
       "Path": "Assets\\Scripts\\CleanLapGhost.cs",
@@ -206,7 +206,7 @@
     },
     {
       "Path": "Assets\\Scripts\\Editor\\ExplorationRelease.cs",
-      "SHA256": "C6EA0E72FAAADCC2BE8BC09165DA6CC652686674D9EF0C3207CB4B44F914ED8C"
+      "SHA256": "CC1FEB8DBCEDF737DDB9612FDE487C9144CB90DDF4A620A0563C4D33081BC43D"
     },
     {
       "Path": "Assets\\Scripts\\Editor\\ExplorationRouteProtection.cs",
@@ -406,7 +406,7 @@
     },
     {
       "Path": "Assets\\Scripts\\ExplorationValidation.cs",
-      "SHA256": "FE5C5AD5C1F3D9DAC878D10B0E75B427A40D1824DAB79E0493AF1773DAD6CD53"
+      "SHA256": "5726B2B321140E34AFE50292DD325E9306152E10EEC92600B980F1D79B99E698"
     },
     {
       "Path": "Assets\\Scripts\\ForestChecks.cs",

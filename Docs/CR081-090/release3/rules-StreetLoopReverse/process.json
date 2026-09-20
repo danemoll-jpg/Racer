@@ -1,0 +1,11 @@
+{
+  "Name": "rules-StreetLoopReverse",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\Racer-0.15.0-review3-Windows\\Racer.exe",
+  "RuntimeAssemblySHA256": "EE44F9706AC6E2274DFC6A9C27973EC8FB19118E9BC1C3A76D2FF7A6A6FB94B9",
+  "Flags": "-batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr081-887d427f08d9475d8637a72ad875b823\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR081-090\\release3\\rules-StreetLoopReverse\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr081-release3-rules-StreetLoopReverse.log\" -arcadeTest rules -course StreetLoopReverse -raceActivities yes -lifeSeed 82089",
+  "PID": 48284,
+  "Timeout": false,
+  "Exit": 0,
+  "PeakWorkingSetMiB": 789.0,
+  "CompletedUtc": "2026-09-20T10:42:58.3289262Z"
+}

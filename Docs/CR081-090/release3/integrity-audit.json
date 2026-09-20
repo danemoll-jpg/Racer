@@ -1,0 +1,7 @@
+{
+  "Logs": 107,
+  "ExceptionMatches": 0,
+  "Patterns": "NullReference, InvalidOperation, Argument, IndexOutOfRange, OutOfMemory, StackOverflow",
+  "SourceAuditFiles": 162,
+  "SourceAuditMismatches": 0
+}

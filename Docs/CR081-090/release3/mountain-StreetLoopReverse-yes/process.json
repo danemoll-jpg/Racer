@@ -1,0 +1,11 @@
+{
+  "Name": "mountain-StreetLoopReverse-yes",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\Racer-0.15.0-review3-Windows\\Racer.exe",
+  "RuntimeAssemblySHA256": "EE44F9706AC6E2274DFC6A9C27973EC8FB19118E9BC1C3A76D2FF7A6A6FB94B9",
+  "Flags": "-batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr081-e7fe41e91915415a8f5d58cf60155ae2\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR081-090\\release3\\mountain-StreetLoopReverse-yes\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr081-release3-mountain-StreetLoopReverse-yes.log\" -explorationCheck ramps -testSpeed 4 -course StreetLoopReverse -opposite yes",
+  "PID": 33548,
+  "Timeout": false,
+  "Exit": 0,
+  "PeakWorkingSetMiB": 832.34,
+  "CompletedUtc": "2026-09-20T11:29:59.6810348Z"
+}

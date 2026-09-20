@@ -1,0 +1,2 @@
+PASS forest-reverse-v4-exploration moto completed 1/1 laps; misses=0; recoveries=0; adjusted=61.335587
+PASS Completed player race creates one total entry

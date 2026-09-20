@@ -1,0 +1,11 @@
+{
+  "Name": "trickum-high-ForestLoopReverse-opposite",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\Racer-0.15.0-review3-Windows\\Racer.exe",
+  "RuntimeAssemblySHA256": "EE44F9706AC6E2274DFC6A9C27973EC8FB19118E9BC1C3A76D2FF7A6A6FB94B9",
+  "Flags": "-batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr081-2931c24643144b45bab3cc5cb95f1c09\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR081-090\\release3\\trickum-high-ForestLoopReverse-opposite\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr081-release3-trickum-high-ForestLoopReverse-opposite.log\" -arcadeRamp high -testSpeed 4 -course ForestLoopReverse -rampRoam yes -rampOpposite yes",
+  "PID": 94624,
+  "Timeout": false,
+  "Exit": 0,
+  "PeakWorkingSetMiB": 878.71,
+  "CompletedUtc": "2026-09-20T11:22:06.0541172Z"
+}

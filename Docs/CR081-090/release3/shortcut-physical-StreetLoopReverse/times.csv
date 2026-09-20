@@ -1,0 +1,33 @@
+course,vehicle,route,mode,repeat,seconds,recoveries,misses,maxLateral,minUpright,finished
+Street Loop Reverse,original,Granite Creek Cut,normal,0,31.905,0,0,0.000,0.999,True
+Street Loop Reverse,original,Granite Creek Cut,clean,0,28.462,0,0,2.807,0.979,True
+Street Loop Reverse,original,Granite Creek Cut,imperfect,0,32.709,0,0,1.247,0.980,True
+Street Loop Reverse,original,Granite Creek Cut,recovery,0,29.976,0,0,2.809,0.981,True
+Street Loop Reverse,original,Laurel Switchbacks,normal,0,35.620,0,0,0.000,0.880,True
+Street Loop Reverse,original,Laurel Switchbacks,clean,0,28.387,0,0,3.392,0.979,True
+Street Loop Reverse,original,Laurel Switchbacks,imperfect,0,32.544,0,0,4.476,0.979,True
+Street Loop Reverse,original,Laurel Switchbacks,recovery,0,29.173,0,0,3.392,0.979,True
+Street Loop Reverse,tourer,Granite Creek Cut,normal,0,31.432,0,0,0.000,0.999,True
+Street Loop Reverse,tourer,Granite Creek Cut,clean,0,27.855,0,0,2.867,0.981,True
+Street Loop Reverse,tourer,Granite Creek Cut,imperfect,0,32.695,0,0,0.964,0.981,True
+Street Loop Reverse,tourer,Granite Creek Cut,recovery,0,30.058,0,0,2.866,0.981,True
+Street Loop Reverse,tourer,Laurel Switchbacks,normal,0,35.758,0,0,0.000,0.880,True
+Street Loop Reverse,tourer,Laurel Switchbacks,clean,0,28.864,0,0,3.471,0.979,True
+Street Loop Reverse,tourer,Laurel Switchbacks,imperfect,0,33.075,0,0,4.874,0.979,True
+Street Loop Reverse,tourer,Laurel Switchbacks,recovery,0,29.712,0,0,3.470,0.979,True
+Street Loop Reverse,moto,Granite Creek Cut,normal,0,26.880,0,0,0.000,0.996,True
+Street Loop Reverse,moto,Granite Creek Cut,clean,0,23.482,0,0,3.855,0.944,True
+Street Loop Reverse,moto,Granite Creek Cut,imperfect,0,27.658,0,0,1.617,0.975,True
+Street Loop Reverse,moto,Granite Creek Cut,recovery,0,24.891,0,0,3.000,0.980,True
+Street Loop Reverse,moto,Laurel Switchbacks,normal,0,33.284,0,0,0.000,0.882,True
+Street Loop Reverse,moto,Laurel Switchbacks,clean,0,25.706,0,0,3.359,0.979,True
+Street Loop Reverse,moto,Laurel Switchbacks,imperfect,0,30.554,0,0,7.158,0.979,True
+Street Loop Reverse,moto,Laurel Switchbacks,recovery,0,26.651,0,0,3.359,0.979,True
+Street Loop Reverse,atv,Granite Creek Cut,normal,0,29.163,0,0,0.000,0.996,True
+Street Loop Reverse,atv,Granite Creek Cut,clean,0,27.187,0,0,2.612,0.979,True
+Street Loop Reverse,atv,Granite Creek Cut,imperfect,0,31.088,0,0,1.645,0.976,True
+Street Loop Reverse,atv,Granite Creek Cut,recovery,0,28.406,0,0,2.313,0.981,True
+Street Loop Reverse,atv,Laurel Switchbacks,normal,0,37.227,0,0,0.000,0.880,True
+Street Loop Reverse,atv,Laurel Switchbacks,clean,0,26.253,0,0,3.148,0.979,True
+Street Loop Reverse,atv,Laurel Switchbacks,imperfect,0,31.252,0,0,7.231,0.972,True
+Street Loop Reverse,atv,Laurel Switchbacks,recovery,0,27.297,0,0,3.149,0.979,True

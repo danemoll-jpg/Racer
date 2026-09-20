@@ -1,0 +1,11 @@
+{
+  "Name": "trickum-high-StreetLoopReverse-opposite",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\Racer-0.15.0-review3-Windows\\Racer.exe",
+  "RuntimeAssemblySHA256": "EE44F9706AC6E2274DFC6A9C27973EC8FB19118E9BC1C3A76D2FF7A6A6FB94B9",
+  "Flags": "-batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr081-c97dfa1b3b354e61b030e1d4765f63c2\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR081-090\\release3\\trickum-high-StreetLoopReverse-opposite\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr081-release3-trickum-high-StreetLoopReverse-opposite.log\" -arcadeRamp high -testSpeed 4 -course StreetLoopReverse -rampRoam yes -rampOpposite yes",
+  "PID": 76452,
+  "Timeout": false,
+  "Exit": 0,
+  "PeakWorkingSetMiB": 612.04,
+  "CompletedUtc": "2026-09-20T11:46:13.4318903Z"
+}

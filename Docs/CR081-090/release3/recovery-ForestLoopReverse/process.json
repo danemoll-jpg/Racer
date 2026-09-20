@@ -1,0 +1,11 @@
+{
+  "Name": "recovery-ForestLoopReverse",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\Racer-0.15.0-review3-Windows\\Racer.exe",
+  "RuntimeAssemblySHA256": "EE44F9706AC6E2274DFC6A9C27973EC8FB19118E9BC1C3A76D2FF7A6A6FB94B9",
+  "Flags": "-batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr081-ad1520fcb4474e4c8911cd4dfec0958b\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR081-090\\release3\\recovery-ForestLoopReverse\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr081-release3-recovery-ForestLoopReverse.log\" -arcadeTest recovery -course ForestLoopReverse -raceActivities yes -lifeSeed 82089",
+  "PID": 32952,
+  "Timeout": false,
+  "Exit": 2,
+  "PeakWorkingSetMiB": 937.34,
+  "CompletedUtc": "2026-09-20T10:44:45.1026451Z"
+}

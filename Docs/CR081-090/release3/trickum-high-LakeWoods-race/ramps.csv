@@ -1,0 +1,11 @@
+course,vehicle,speed,line,seconds,travel,air,minUp,recovered,outcome,scoredDistance,scoredAirtime,awards,contactCorrections
+Forest Loop,moto,43,-1.5,5.437,193.263,2.840,0.957,True,completed,111.193,2.840,0,220
+Forest Loop,moto,43,-3,5.427,193.384,2.840,0.957,True,completed,111.261,2.840,0,216
+Forest Loop,moto,43,0,5.458,194.123,2.860,0.957,True,completed,111.983,2.860,0,211
+Forest Loop,moto,43,-4.7,4.909,171.851,2.700,-0.839,True,cleared / unstable landing,0.000,0.000,0,133
+Forest Loop,moto,43,1.7,5.139,176.225,2.960,-0.921,True,completed,0.000,0.000,0,157
+Forest Loop,atv,43,-1.5,5.452,193.627,2.860,0.959,True,completed,111.533,2.860,0,207
+Forest Loop,atv,43,-3,5.441,193.204,2.860,0.960,True,completed,111.336,2.860,0,187
+Forest Loop,atv,43,0,5.447,193.257,2.860,0.960,True,completed,111.383,2.860,0,205
+Forest Loop,atv,43,-4.7,4.303,150.140,2.000,0.529,True,completed,80.285,2.000,0,79
+Forest Loop,atv,43,1.7,4.927,172.939,2.540,-0.866,True,completed,98.987,2.540,0,118

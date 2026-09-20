@@ -1,0 +1,15 @@
+{
+  "Version": "0.15.0-review3",
+  "PackagedAt": "2026-09-20T08:02:01.7245360-04:00",
+  "Songs": 187,
+  "PreservedOriginalAudio": 2,
+  "Files": 437,
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\Racer-0.15.0-review3-Windows",
+  "Latest": "C:\\Users\\danmo\\Racer\\Builds\\Latest",
+  "ZIP": "C:\\Users\\danmo\\Racer\\Builds\\Racer-0.15.0-review3-Windows.zip",
+  "ZipSHA256": "45919E6AEC2BEA4204C5CAD3FDC19E37AC1DDDA7BC33823A507E35DEF58E81AC",
+  "Preserved": "C:\\Users\\danmo\\Racer\\Builds\\Preserved\\20260920-075429-225-5693ef",
+  "Extracted": "C:\\Users\\danmo\\Racer\\Builds\\PackageWork\\20260920-075429-225-5693ef\\extracted\\Racer-0.15.0-review3-Windows",
+  "Verified": "All extracted ZIP, versioned runtime and Latest files match SHA256",
+  "ExternalCollections": "Not read or copied"
+}

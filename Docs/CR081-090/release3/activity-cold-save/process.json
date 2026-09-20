@@ -1,0 +1,11 @@
+{
+  "Name": "activity-cold-save",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\Racer-0.15.0-review3-Windows\\Racer.exe",
+  "RuntimeAssemblySHA256": "EE44F9706AC6E2274DFC6A9C27973EC8FB19118E9BC1C3A76D2FF7A6A6FB94B9",
+  "Flags": "-batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr081-d0aead1093754e49b7df980380aff1fc\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR081-090\\release3\\activity-cold-save\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr081-release3-activity-cold-save.log\" -arcadeTest persistence",
+  "PID": 58748,
+  "Timeout": false,
+  "Exit": 0,
+  "PeakWorkingSetMiB": 467.06,
+  "CompletedUtc": "2026-09-20T11:53:21.5605410Z"
+}

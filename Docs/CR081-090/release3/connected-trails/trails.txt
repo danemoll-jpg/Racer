@@ -1,0 +1,4 @@
+Mountain return trails / exploration only direction=1 complete=True travel=1095.9/1110.7 minUp=0.903 maximum lateral=4.03 wet=False recovery=True
+Mountain return trails / exploration only direction=-1 complete=True travel=1095.8/1110.7 minUp=0.837 maximum lateral=3.49 wet=False recovery=True
+Lake shore connection direction=1 complete=True travel=783.8/798.7 minUp=0.819 maximum lateral=1.00 wet=False recovery=True
+Lake shore connection direction=-1 complete=True travel=784.0/798.7 minUp=0.818 maximum lateral=1.01 wet=False recovery=True

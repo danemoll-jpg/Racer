@@ -1,0 +1,12 @@
+PASS original sustained main-route stall recovers within 22s; elapsed=12.09
+PASS original resumes ordinary route progress without a recovery loop; metres=202.9
+PASS original persistent partial obstruction cleared without recovery loop; recoveries=1 seconds=19.94
+PASS tourer sustained main-route stall recovers within 22s; elapsed=12.05
+PASS tourer resumes ordinary route progress without a recovery loop; metres=191.3
+PASS tourer persistent partial obstruction cleared without recovery loop; recoveries=1 seconds=20.59
+PASS moto sustained main-route stall recovers within 22s; elapsed=12.19
+PASS moto resumes ordinary route progress without a recovery loop; metres=224.7
+PASS moto persistent partial obstruction cleared without recovery loop; recoveries=0 seconds=14.96
+PASS atv sustained main-route stall recovers within 22s; elapsed=12.17
+PASS atv resumes ordinary route progress without a recovery loop; metres=221.0
+PASS atv persistent partial obstruction cleared without recovery loop; recoveries=1 seconds=19.72

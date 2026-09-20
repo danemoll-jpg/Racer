@@ -1,0 +1,1 @@
+lake-v6-exploration/forward/atv/clean-lap-v1/handling-cr087-v1 seconds=77.9399790788033 samples=1301 first=0 last=77.93998 bytes=261836

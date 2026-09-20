@@ -1,0 +1,28 @@
+PASS original Creek Leap normal #0 completes in 26.29s; recovery=0; misses=0
+PASS original Creek Leap clean #0 completes in 26.03s; recovery=1; misses=0
+FAIL original clean branch has actual entry, no penalty/recovery Creek Leap
+PASS original Creek Leap imperfect #0 completes in 30.62s; recovery=1; misses=0
+PASS original actual local recovery preserves bypass entitlement Creek Leap
+PASS original Creek Leap recovery #0 completes in 27.92s; recovery=1; misses=0
+PASS original recovered branch finishes penalty-free Creek Leap
+PASS original Fox Gully normal #0 completes in 23.46s; recovery=0; misses=0
+PASS original Fox Gully clean #0 completes in 23.64s; recovery=0; misses=0
+PASS original clean branch has actual entry, no penalty/recovery Fox Gully
+PASS original Fox Gully imperfect #0 completes in 28.29s; recovery=0; misses=0
+PASS original actual local recovery preserves bypass entitlement Fox Gully
+PASS original Fox Gully recovery #0 completes in 24.99s; recovery=0; misses=0
+PASS original recovered branch finishes penalty-free Fox Gully
+PASS original Pine Ridge normal #0 completes in 28.24s; recovery=0; misses=0
+PASS original Pine Ridge clean #0 completes in 24.23s; recovery=0; misses=0
+PASS original clean branch has actual entry, no penalty/recovery Pine Ridge
+PASS original Pine Ridge imperfect #0 completes in 28.36s; recovery=0; misses=0
+PASS original actual local recovery preserves bypass entitlement Pine Ridge
+PASS original Pine Ridge recovery #0 completes in 25.74s; recovery=0; misses=0
+PASS original recovered branch finishes penalty-free Pine Ridge
+PASS original Existing Southwest Cut normal #0 completes in 11.73s; recovery=0; misses=0
+PASS original Existing Southwest Cut clean #0 completes in 11.07s; recovery=0; misses=0
+PASS original clean branch has actual entry, no penalty/recovery Existing Southwest Cut
+PASS original Existing Southwest Cut imperfect #0 completes in 15.28s; recovery=0; misses=0
+PASS original actual local recovery preserves bypass entitlement Existing Southwest Cut
+PASS original Existing Southwest Cut recovery #0 completes in 12.13s; recovery=0; misses=0
+PASS original recovered branch finishes penalty-free Existing Southwest Cut

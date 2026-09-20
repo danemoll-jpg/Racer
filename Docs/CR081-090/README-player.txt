@@ -45,7 +45,10 @@ Continue around either shore of the lake to the adjoining wooded mountain.
 Creek ascent climbs toward Fern Creek Leap and the ridge. The other side
 returns through the northern saddle and laurel descent. Both trails connect
 back to the lake. Approach challenging jumps centered and at the posted
-speed; exploratory opposite/edge approaches can be unstable (see report).
+speed. The marked forward center and nearby lines are the intended launches.
+Opposite approaches do not score; fast reverse and shoulder-edge approaches
+can roll or leave the landing trail. Slow down when returning against a jump's
+marked direction. Reset returns to supported route terrain (see test report).
 Trickum is the western connecting road. Jamerson is the separate road at
 South Cherokee Lane's southern end; these names are not interchangeable.
 
@@ -53,6 +56,8 @@ CONTROLS: D-pad/stick or arrows to select; A/Space to confirm; B/Esc back.
 Start/Esc pauses/resumes. Existing driving and radio controls are retained.
 Track-menu changes should preserve the current song. Music subfolders are
 channels; nested folders remain part of their parent channel. See RADIO.md.
+The package preserves all 187 playable staged songs plus two original M4A
+files. The M4A originals remain in Music but are not supported by the radio.
 
 REVIEW CHECKLIST
 1. Drive a speed trap in race and roam; read site, mph, medal and PB.
@@ -68,4 +73,8 @@ This is a review build. Automated driving and rendered captures do not
 constitute human/controller acceptance. CR-087 unresolved ramp cases are
 retained; consult Docs/CR081-090/VALIDATION.md in the saved project for the
 actual test results and any additional unresolved cases.
+Known limits include reverse/edge ramp instability, retained Creek Leap and
+Granite Saddle shortcut-test failures, occasional AI finish/recovery failures,
+and neighborhood frame-time spikes. See the report before treating the
+automated results as broad acceptance.
 
