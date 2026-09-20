@@ -1,0 +1,10 @@
+{
+  "Name": "ramp-ForestLoopReverse-roam-yes",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\Racer-0.14.0-review2-Windows\\Racer.exe",
+  "RuntimeAssemblySHA256": "4C3CEB98C70F971631096357E788866D770CD9C2A75AF08C4166F3F3F5E83012",
+  "Flags": "-batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr082-5d79ef0a45f743c8931c71b4ea9b8035\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR082-089\\cr081-baseline\\ramp-ForestLoopReverse-roam-yes\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr082-cr081-baseline-ramp-ForestLoopReverse-roam-yes.log\" -arcadeRamp full -course ForestLoopReverse -rampOpposite yes -rampRoam yes",
+  "PID": 51280,
+  "Timeout": false,
+  "Exit": 0,
+  "CompletedUtc": "2026-09-20T08:23:13.8702485Z"
+}

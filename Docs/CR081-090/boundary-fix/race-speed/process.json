@@ -1,0 +1,10 @@
+{
+  "Name": "race-speed",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\CR081-boundary-fix\\Racer.exe",
+  "RuntimeAssemblySHA256": "05FD8B613824A7CD8065BB3F3B4A0B9D16B50371F309516BE94967B01FD29E56",
+  "Flags": "-batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr081-3dd54f3a7ec247efa8cd08b3131f06b6\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR081-090\\boundary-fix\\race-speed\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr081-boundary-fix-race-speed.log\" -arcadeTest speed -raceActivities yes -course StreetLoopGreybox",
+  "PID": 14800,
+  "Timeout": false,
+  "Exit": 0,
+  "CompletedUtc": "2026-09-20T08:56:08.2512300Z"
+}

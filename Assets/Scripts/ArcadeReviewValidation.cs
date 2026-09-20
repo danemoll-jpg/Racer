@@ -131,11 +131,13 @@ namespace Racer
         }
         IEnumerator Speed()
         {
-            foreach(var profile in race.EligibleVehicles)
-            foreach(int direction in new[]{1,-1})
-            foreach(int trapIndex in new[]{0,1})
+            bool stress=Arg("-recordsStress","no")=="yes";
+            foreach(var profile in stress?race.EligibleVehicles.Take(1):race.EligibleVehicles)
+            foreach(int direction in stress?new[]{1}:new[]{1,-1})
+            foreach(int trapIndex in stress?new[]{0}:new[]{0,1})
+            for(int repeat=0;repeat<(stress?14:1);repeat++)
             {
-                yield return Begin(profile.Id,true);var activity=flow.Activities;var trap=activity.Sites.Where(s=>s.kind==ActivitySite.Kind.Speed).ElementAt(trapIndex);var f=trap.forward*direction;car.enabled=false;float target=race.Forest?28:40;
+                yield return Begin(profile.Id,Arg("-raceActivities","no")!="yes");var activity=flow.Activities;var trap=activity.Sites.Where(s=>s.kind==ActivitySite.Kind.Speed).ElementAt(trapIndex);var f=trap.forward*direction;car.enabled=false;float target=race.Forest?28:40;
                 float trapS=race.road.Project(trap.transform.position,out _);var p=race.road.At(trapS-direction*85,out var startForward)+Vector3.up*(car.suspensionLength-.1f);Place(p,startForward*direction,target);activity.NewSession();int awards=activity.Awards;float start=Time.time;
                 while(Time.time-start<9&&Vector3.Dot(car.Body.position-trap.transform.position,f)<35)
                 {
@@ -146,6 +148,7 @@ namespace Racer
                 Check(activity.LastSpeed>5&&activity.LastSpeed<=profile.Speed+2,profile.Id+" plausible measured speed");
                 ThreeFeatureValidation.CaptureUi(root+"/"+profile.Id+"-"+direction+"-"+trapIndex+"-trap.png");
                 int counted=activity.Awards;Place(trap.transform.position+f, f);yield return new WaitForFixedUpdate();Place(trap.transform.position-f,f);yield return new WaitForFixedUpdate();Check(activity.Awards==counted,"Teleport/reset cannot award a crossing");car.enabled=true;
+                if(stress&&repeat==13){Check(activity.Records.Board(activity.Key(trap)).Count==10,"Fourteen actual crossings retain top ten attempts");flow.Pause();flow.OpenActivities();yield return null;yield return new WaitForEndOfFrame();ThreeFeatureValidation.CaptureUi(root+"/top-ten-after-driving.png");flow.CloseExtras();flow.Resume();}
             }
         }
         IEnumerator SmashDrive()

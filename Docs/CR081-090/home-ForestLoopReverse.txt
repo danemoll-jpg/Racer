@@ -1,0 +1,1 @@
+Reference-informed approximate geometry, no image textures or likenesses. Home front (415.80, 83.82, -13.00) rotation=(0.00, 47.71, 0.00); rear deck; pool; downhill garage and left pool house. 24 stable collectible locations. Rules=forest-reverse-v4-exploration

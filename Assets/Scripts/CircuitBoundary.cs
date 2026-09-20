@@ -9,6 +9,9 @@ namespace Racer
         public bool Outside(Vector3 p)
         {
             if(!race)race=FindAnyObjectByType<RaceDirector>();
+            // The adjoining mountain is outside the closed street continuation.
+            // Its presence does not grant any race gate or shortcut entitlement.
+            if(race&&race.GetComponent<ExplorationCollection>()&&p.x>680&&p.x<1210&&p.z>-270&&p.z<330)return false;
             var q=transform.InverseTransformPoint(p);
             // Forest extends beside the old closures. Keep the actual closed street corridor
             // protected, instead of projecting an infinite widening plane through the lake.

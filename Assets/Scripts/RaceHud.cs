@@ -49,6 +49,7 @@ namespace Racer
             display.text=BuildText();
             display.transform.parent.gameObject.SetActive(!race.FreeRoam&&!race.Flow.MenuVisible);
             if(activities)activities.text=race.Flow.MenuVisible?"":race.Flow.Activities?.Hud;
+            if(activities&&!race.Flow.MenuVisible&&race.FreeRoam&&race.GetComponent<ExplorationCollection>() is ExplorationCollection collection){activities.rectTransform.sizeDelta=new(700,110);activities.text+="\n"+collection.Hud;}
             var guidance=race.GetComponent<WrongWayGuidance>();
             if(wrongPanel)
             {

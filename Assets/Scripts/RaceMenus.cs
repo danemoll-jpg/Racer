@@ -18,6 +18,7 @@ namespace Racer
         bool musicPage;
         bool musicCollectionPage;
         bool raceBoard;
+        bool jumpRecords,historyActivities;int activitySite,activityCategory;
         string boardCategory;
         readonly List<UnityEngine.UI.Button> buttons = new();
         readonly Dictionary<RaceFlow.Stage, int> selections = new();
@@ -74,7 +75,7 @@ namespace Racer
             previewCamera.backgroundColor=new Color(.06f,.1f,.13f); previewCamera.targetTexture=previewTexture;
             previewCamera.transform.position=new Vector3(10000,10003,9994); previewCamera.transform.LookAt(new Vector3(10000,10000.5f,10000));
             previewCamera.fieldOfView=36; previewCamera.farClipPlane=30;
-            for (int i = 0; i < 11; i++)
+            for (int i = 0; i < 13; i++)
             {
                 var rect = Rect("Action " + i, card);
                 rect.gameObject.AddComponent<UnityEngine.UI.LayoutElement>().preferredHeight = 44;
@@ -175,8 +176,11 @@ namespace Racer
                 Action(8,"Track: "+flow.Race.courseName,flow.OpenCourses);
                 Action(9,"Records / Top 10",()=>{boardCategory=null;flow.OpenBoards();});
                 Action(10,"Free Roam / explore + arcade activities",flow.StartFreeRoam);
-                foreach(var b in buttons)b.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=32;
-                details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=125;
+                Action(11,"Activity Records / Speed Traps and Jumps",flow.OpenActivities);
+                Action(12,"Exploration / clean-lap ghosts",flow.OpenExploration);
+                foreach(var b in buttons)b.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=29;
+                details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=86;
+                card.GetComponent<UnityEngine.UI.VerticalLayoutGroup>().spacing=5;
                 details.fontSize=18;
                 details.text=$"{flow.Race.laps} laps / clock starts at GO\n{(flow.Race.opponents?flow.Race.RosterLabel:"Solo time trial")}\nBest lap {Record(flow.Save.Best.lap)}  /  race {Record(flow.Save.Best.race)}\nTimes below are elapsed; penalties are added to results.";
             }
@@ -193,7 +197,7 @@ namespace Racer
                 {
                     title.text="FREE ROAM / PAUSED";
                     var site=flow.Activities.Selected;var best=site?flow.Activities.PersonalBest(site):null;
-                    details.text="Explore roads and trails. Speed traps show mph; jumps show feet.\nR / Y: local reset. Drive to the activity before starting.\n"+(site?$"{site.title} / {flow.Activities.Location}\n{flow.Activities.Targets} / PB {ArcadeActivities.Measurement(site,best?.value??0)}":"");
+                    details.text="Traps and authored jumps score automatically while driving.\nR / Y: local reset. Only smash challenges need activation.\n"+(site?$"{site.title} / {flow.Activities.Location}\n{flow.Activities.Targets} / PB {ArcadeActivities.Measurement(site,best?.value??0)}":"");
                     foreach(var button in buttons)button.gameObject.SetActive(false);
                     Action(0,"Resume exploring",flow.Resume);
                     Action(1,"Activity: "+(site?site.title:"none"),()=>{flow.Activities.Cycle();Show();});
@@ -203,6 +207,9 @@ namespace Racer
                     Action(5,"Return to menu / choose race",flow.QuitRace);
                     Action(6,"Quit Game",flow.Quit);
                 }
+                Action(7,"Activity Records / Speed Traps and Jumps",flow.OpenActivities);
+                Action(8,"Exploration / clean-lap ghosts",flow.OpenExploration);
+                foreach(var b in buttons)b.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=32;
             }
             else if (shown == RaceFlow.Stage.Results)
             {
@@ -219,10 +226,52 @@ namespace Racer
                 Action(4,"Garage / next vehicle",flow.OpenGarage);
                 Action(5,"Opponent vehicles",flow.OpenRoster);
                 Action(6,"Records / Top 10",()=>{boardCategory=null;flow.OpenBoards();});
+                Action(7,"Activity Records / Speed Traps and Jumps",flow.OpenActivities);
+                Action(8,"Exploration / clean-lap ghosts",flow.OpenExploration);
+                foreach(var b in buttons)b.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=30;
                 details.text+=$"\nLap {(flow.NewLapRecord?"NEW PB / ":"")}{(flow.LapRank>0?"TOP 10 #"+flow.LapRank:"")}  Race {(flow.NewRaceRecord?"NEW PB / ":"")}{(flow.RaceRank>0?"TOP 10 #"+flow.RaceRank:"")}";
                 if (penaltyPage >= 0) {
                     PenaltyDetails(p);
                 }
+            }
+            else if(shown==RaceFlow.Stage.Activities)
+            {
+                var sites=flow.Activities.Sites.Where(s=>s.kind==(jumpRecords?ActivitySite.Kind.Jump:ActivitySite.Kind.Speed)).ToArray();
+                activitySite=Mathf.Clamp(activitySite,0,Mathf.Max(0,sites.Length-1));
+                title.text="ACTIVITY RECORDS / "+(jumpRecords?"JUMPS":"SPEED TRAPS");
+                details.fontSize=16;details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=335;
+                details.text="No authored sites on this track.";
+                if(sites.Length>0)
+                {
+                    var site=sites[activitySite];string current=flow.Activities.Key(site);
+                    var categories=flow.Activities.Records.Archive.entries.Where(e=>e.site==site.id).Select(e=>e.key).Append(current).Distinct().OrderBy(x=>x).ToArray();
+                    activityCategory=(activityCategory+categories.Length)%categories.Length;string key=historyActivities?categories[activityCategory]:current;
+                    var entries=flow.Activities.Records.Board(key);
+                    var pieces=key.Split('/');string layout=key==current?"Current layout":"Historical layout "+pieces[1];string vehicleId=pieces.Length>3?pieces[3]:flow.Race.vehicle.GetComponent<VehicleConfiguration>().profileId;
+                    details.text=site.title+"\n"+layout+" / "+VehicleProfile.Find(vehicleId).Name+" / "+(key.EndsWith("/opposite")?"opposite travel":"forward travel")+"\nRank   Result   Vehicle   Date (UTC)   Medal\n";
+                    for(int i=0;i<entries.Count;i++){var e=entries[i];details.text+=$"{i+1}. {ArcadeActivities.Measurement(site,e.value)}  {VehicleProfile.Find(e.vehicle).Name}  {(string.IsNullOrEmpty(e.date)?"Unknown (legacy)":e.date.Substring(0,10))}  {new[]{"—","Bronze","Silver","Gold"}[Mathf.Clamp(e.medal,0,3)]}\n";}
+                    details.text+=entries.Count==0?"No valid attempts yet. Drive through a trap or land an authored jump.\n":"PB: "+ArcadeActivities.Measurement(site,entries[0].value)+"\n";
+                    details.text+=flow.Activities.Records.Error??"Distinct ties retain attempt order. Historical categories remain separate.";
+                }
+                foreach(var b in buttons)b.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=25;
+                card.GetComponent<UnityEngine.UI.VerticalLayoutGroup>().spacing=4;title.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=42;
+                Action(0,(jumpRecords?"":"Selected: ")+"Speed Traps",()=>{jumpRecords=false;activitySite=activityCategory=0;Show();});
+                Action(1,(jumpRecords?"Selected: ":"")+"Jumps",()=>{jumpRecords=true;activitySite=activityCategory=0;Show();});
+                Action(2,"Previous site",()=>{activitySite=(activitySite+sites.Length-1)%Mathf.Max(1,sites.Length);activityCategory=0;Show();});
+                Action(3,"Next site",()=>{activitySite=(activitySite+1)%Mathf.Max(1,sites.Length);activityCategory=0;Show();});
+                Action(4,historyActivities?"Use current compatible category":"Browse saved / historical categories",()=>{historyActivities=!historyActivities;Show();});
+                Action(5,"Next saved category",()=>{historyActivities=true;activityCategory++;Show();});
+                Action(6,"Back",flow.CloseExtras);
+            }
+            else if(shown==RaceFlow.Stage.Exploration)
+            {
+                title.text="EXPLORATION / PERSONAL BEST";
+                flow.Ghost.Refresh();
+                details.text="Clean-lap ghosts: actual recorded poses, local only.\nNo resets, teleports or missed gates; legal shortcuts qualify.\n"+flow.Ghost.Status+"\n\n"+(flow.GetComponent<ExplorationCollection>()?.Summary??"Collection loading");
+                details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=340;details.fontSize=18;
+                Action(0,"Clean-lap ghost: "+(flow.Ghost.Enabled?"ON":"OFF"),flow.ToggleGhost);
+                Action(1,"Ghost runs during races and solo time trials",()=>{});
+                Action(2,"Back",flow.CloseExtras);
             }
             else if(shown==RaceFlow.Stage.Courses)
             {

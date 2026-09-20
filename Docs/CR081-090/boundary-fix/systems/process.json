@@ -1,0 +1,10 @@
+{
+  "Name": "systems",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\CR081-boundary-fix\\Racer.exe",
+  "RuntimeAssemblySHA256": "05FD8B613824A7CD8065BB3F3B4A0B9D16B50371F309516BE94967B01FD29E56",
+  "Flags": "-batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr081-700fdcf6c01041bb9dcae05fe973c6af\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR081-090\\boundary-fix\\systems\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr081-boundary-fix-systems.log\" -explorationCheck systems -course StreetLoopGreybox",
+  "PID": 56108,
+  "Timeout": false,
+  "Exit": 0,
+  "CompletedUtc": "2026-09-20T08:55:23.6413506Z"
+}

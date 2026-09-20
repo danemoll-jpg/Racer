@@ -1,0 +1,10 @@
+{
+  "Name": "mountain-no",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\CR081-first-geometry\\Racer.exe",
+  "RuntimeAssemblySHA256": "7476D1EEA0064F5B7DCCCC13C2FA17BE01454DD627BBEF2ED1F27946D7BAE618",
+  "Flags": "-batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr081-836a0facd67745edbb63fb17cb4274a5\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR081-090\\first-geometry\\mountain-no\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr081-first-geometry-mountain-no.log\" -explorationCheck ramps -quick yes -opposite no -course StreetLoopGreybox",
+  "PID": 95560,
+  "Timeout": false,
+  "Exit": 0,
+  "CompletedUtc": "2026-09-20T08:49:49.0743006Z"
+}

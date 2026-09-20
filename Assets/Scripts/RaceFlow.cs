@@ -7,13 +7,15 @@ namespace Racer
     [DisallowMultipleComponent]
     public sealed class RaceFlow : MonoBehaviour
     {
-        public enum Stage { Ready, Countdown, Racing, Paused, Results, Settings, Garage, Roster, Boards, Courses }
+        public enum Stage { Ready, Countdown, Racing, Paused, Results, Settings, Garage, Roster, Boards, Courses, Activities, Exploration }
         public Stage State { get; private set; } = Stage.Ready;
         public RacerSave Save { get; private set; }
         public RaceDirector Race { get; private set; }
         public LocalRadio Radio { get; private set; }
         public RecordBoards Boards { get; private set; }
         public ArcadeActivities Activities {get;private set;}
+        public CleanLapGhost Ghost {get;private set;}
+        Stage extrasReturn;
         public int LapRank { get; private set; }
         public int RaceRank { get; private set; }
         string attempt;
@@ -75,6 +77,8 @@ namespace Racer
             back.AddBinding("<Gamepad>/buttonEast"); back.Enable();
             menus = gameObject.AddComponent<RaceMenus>(); menus.Initialize(this);
             Activities=gameObject.AddComponent<ArcadeActivities>();Activities.Initialize(Race,root);
+            Ghost=gameObject.AddComponent<CleanLapGhost>();Ghost.Initialize(Race,root);
+            GetComponent<ExplorationCollection>()?.Initialize(Race,root);
             LockVehicle(true); SetStage(Stage.Ready);
         }
         void Update()
@@ -88,6 +92,7 @@ namespace Racer
                 else if (State == Stage.Settings) CloseSettings();
                 else if (State == Stage.Garage) CloseGarage();
                 else if (State == Stage.Roster) CloseGarage();
+                else if (State == Stage.Activities || State == Stage.Exploration) CloseExtras();
             }
             else if (back.WasPressedThisFrame()) Back();
             if (State == Stage.Countdown)
@@ -127,6 +132,7 @@ namespace Racer
         public void PrepareRestart()
         {
             Activities?.NewSession();
+            Ghost?.ResetSession();
             var runoff=Race.vehicle.GetComponent<RoadDriver>();
             if(runoff) { runoff.enabled=false; Destroy(runoff); }
             LockVehicle(false); Race.vehicle.enabled=true;
@@ -143,6 +149,10 @@ namespace Racer
         public void CloseGarage() { SetStage(Stage.Ready); Click(); }
         public void OpenRoster() { if(State!=Stage.Ready && State!=Stage.Results) return; SetStage(Stage.Roster); Click(); }
         public void OpenBoards() { SetStage(Stage.Boards); Click(); }
+        public void OpenActivities(){extrasReturn=State;SetStage(Stage.Activities);Click();}
+        public void OpenExploration(){extrasReturn=State;SetStage(Stage.Exploration);Click();}
+        public void CloseExtras(){SetStage(extrasReturn);Click();}
+        public void ToggleGhost(){Ghost.Toggle();menus.Show();Click();}
         public void OpenCourses() { SetStage(Stage.Courses); Click(); }
         public void SelectCourse(bool lake)=>SelectCourse(lake,false);
         public void SelectCourse(bool lake,bool reverse)
@@ -226,7 +236,7 @@ namespace Racer
         public void Resume() { SetStage(pausedStage); Click(); }
         public void OpenSettings() { settingsReturn = State; SetStage(Stage.Settings); Click(); }
         public void CloseSettings() { Save.SaveSettings(); SetStage(settingsReturn); Click(); }
-        public void Back() { if (State == Stage.Settings) CloseSettings(); else if (State == Stage.Paused) Resume(); else if(State==Stage.Garage || State==Stage.Roster || State==Stage.Boards || State==Stage.Courses) CloseGarage(); }
+        public void Back() { if(State==Stage.Activities||State==Stage.Exploration)CloseExtras();else if (State == Stage.Settings) CloseSettings(); else if (State == Stage.Paused) Resume(); else if(State==Stage.Garage || State==Stage.Roster || State==Stage.Boards || State==Stage.Courses) CloseGarage(); }
         public void QuitRace()
         {
             if(State!=Stage.Paused && State!=Stage.Results && State!=Stage.Settings) return;

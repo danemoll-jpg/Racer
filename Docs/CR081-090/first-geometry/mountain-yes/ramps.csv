@@ -1,0 +1,9 @@
+course,vehicle,lip,direction,target,line,completed,minUp,recovered,awards
+StreetLoopGreybox,original,213,-1,24,0,True,0.878,True,0
+StreetLoopGreybox,original,537,-1,24,0,False,0.985,True,0
+StreetLoopGreybox,tourer,213,-1,24,0,True,0.912,True,0
+StreetLoopGreybox,tourer,537,-1,24,0,False,0.985,True,0
+StreetLoopGreybox,moto,213,-1,24,0,True,0.972,True,0
+StreetLoopGreybox,moto,537,-1,24,0,False,0.986,True,0
+StreetLoopGreybox,atv,213,-1,24,0,True,0.972,True,0
+StreetLoopGreybox,atv,537,-1,24,0,False,0.710,True,0

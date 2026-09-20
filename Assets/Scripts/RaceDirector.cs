@@ -288,6 +288,7 @@ namespace Racer
             float step = Vector3.Distance(position, r.Previous);
             if (step > 10)
             {
+                if(player)Flow?.Ghost?.Invalidate();
                 p.ResetToGrid();
                 r.FinishArmed = false;
                 r.Travel = 0;
@@ -391,7 +392,11 @@ namespace Racer
                 if (p.LapActive && p.NextGate > 0 && (i == 0 || i > p.NextGate))
                     ResolveMisses(r, i == 0 ? gates.Length : i, i==0?"finish reconciliation":"later gate crossed");
                 int expected = p.NextGate;
-                p.Cross(i, true, r.PreviousTime + (now - r.PreviousTime) * fraction);
+                int beforeLaps=p.CompletedLaps;bool beforeActive=p.LapActive;
+                double crossTime=r.PreviousTime + (now - r.PreviousTime) * fraction;
+                p.Cross(i, true, crossTime);
+                if(player&&i==0&&(p.CompletedLaps>beforeLaps||(!beforeActive&&p.LapActive)))
+                    Flow?.Ghost?.Boundary(crossTime,Vector3.Lerp(r.Previous,position,fraction),Flow.Ghost.CrossingRotation(fraction,r.Car.Body.rotation),p.CompletedLaps>beforeLaps,p.Finished);
                 if (i > 0 && i == expected && p.NextGate != expected)
                 {
                     credited = true;

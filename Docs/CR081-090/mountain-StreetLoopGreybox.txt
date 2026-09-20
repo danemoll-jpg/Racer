@@ -1,0 +1,1 @@
+Changed terrain vertices=14350; trail length=1083.392; geometry profile starts=185/505; lips=213/537; no race gate or traffic assignment changed.

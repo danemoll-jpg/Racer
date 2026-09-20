@@ -1,0 +1,10 @@
+{
+  "Name": "mountain-yes",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\CR081-first-geometry\\Racer.exe",
+  "RuntimeAssemblySHA256": "7476D1EEA0064F5B7DCCCC13C2FA17BE01454DD627BBEF2ED1F27946D7BAE618",
+  "Flags": "-batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr081-a3743f1e62a14f6885712f1d94e608d4\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR081-090\\first-geometry\\mountain-yes\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr081-first-geometry-mountain-yes.log\" -explorationCheck ramps -quick yes -opposite yes -course StreetLoopGreybox",
+  "PID": 81824,
+  "Timeout": false,
+  "Exit": 0,
+  "CompletedUtc": "2026-09-20T08:50:46.6577931Z"
+}

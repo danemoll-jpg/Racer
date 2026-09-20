@@ -134,6 +134,8 @@ namespace Racer
         {
             var p=vehicle.Body.position;float best=float.MaxValue,station=0;RaceRoad road=null;WoodlandRoute branch=null;
             foreach(var candidate in new[]{race.road,race.ambientRoad})if(candidate){float s=candidate.Project(p,out float d);if(d<best){best=d;road=candidate;station=s;}}
+            var exploration=race.GetComponent<ExplorationCollection>();
+            if(exploration)foreach(var candidate in exploration.routes)if(candidate){float s=candidate.Project(p,out float d);if(d<best){best=d;road=candidate;station=s;}}
             foreach(var candidate in race.Branches){float s=candidate.Project(p,out float d);d=Vector3.Distance(p,candidate.At(s,out _));if(d<best){best=d;branch=candidate;road=null;station=s;}}
             float width=branch?branch.halfWidth:road.HalfWidth(station);var point=branch?branch.At(station,out var f):road.At(station,out f);
             if(Vector3.ProjectOnPlane(p-point,Vector3.up).magnitude>width-box.size.x*.5f || Mathf.Abs(p.y-point.y)>8)return;
