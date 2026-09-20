@@ -1,0 +1,2 @@
+Mountain return trails / exploration only direction=1 complete=True travel=1095.9/1110.7 minUp=0.903 maximum lateral=4.03 wet=False recovery=True
+Mountain return trails / exploration only direction=-1 complete=True travel=1095.8/1110.7 minUp=0.837 maximum lateral=3.49 wet=False recovery=True

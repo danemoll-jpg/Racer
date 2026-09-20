@@ -5,13 +5,27 @@ namespace Racer
     [DefaultExecutionOrder(-200)]
     public sealed class CircuitBoundary : MonoBehaviour
     {
-        RaceDirector race;
+        RaceDirector race; ExplorationCollection exploration;
         public bool Outside(Vector3 p)
         {
             if(!race)race=FindAnyObjectByType<RaceDirector>();
             // The adjoining mountain is outside the closed street continuation.
             // Its presence does not grant any race gate or shortcut entitlement.
-            if(race&&race.GetComponent<ExplorationCollection>()&&p.x>680&&p.x<1210&&p.z>-270&&p.z<330)return false;
+            if(race&&!exploration)exploration=race.GetComponent<ExplorationCollection>();
+            if(exploration)
+            {
+                if(p.x>680&&p.x<1210&&p.z>-270&&p.z<330)return false;
+                // Both lake returns cross the old closure's projected plane before
+                // reaching the mountain. Exempt their authored corridor as well.
+                // This changes physical access only, never gate/shortcut credit.
+                if(p.x>460&&p.x<750&&p.z>-170&&p.z<180&&exploration.routes!=null)
+                    foreach(var route in exploration.routes)
+                    {
+                        if(!route)continue;
+                        route.Project(p,out float distance);
+                        if(distance<30)return false;
+                    }
+            }
             var q=transform.InverseTransformPoint(p);
             // Forest extends beside the old closures. Keep the actual closed street corridor
             // protected, instead of projecting an infinite widening plane through the lake.

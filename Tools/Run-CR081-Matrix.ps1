@@ -1,4 +1,4 @@
-param([string]$Group='StreetLoopGreybox',[string]$Tag='release2',[string]$Runtime='Builds/Racer-0.15.0-review2-Windows/Racer.exe')
+param([string]$Group='StreetLoopGreybox',[string]$Tag='release3',[string]$Runtime='Builds/Racer-0.15.0-review3-Windows/Racer.exe')
 $ErrorActionPreference='Stop'
 function Run([string]$name,[string]$flags,[int]$limit=1200){& "$PSScriptRoot/Run-CR081-Check.ps1" -Runtime $Runtime -Tag $Tag -Name $name -Flags $flags -Limit $limit}
 if($Group -eq 'systems'){

@@ -1,0 +1,11 @@
+{
+  "Name": "ghost-race-ForestLoopReverse-atv",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\Racer-0.15.0-review2-Windows\\Racer.exe",
+  "RuntimeAssemblySHA256": "7527452DDE0DFEF63EB8A9BFE3426622521A2EE8F14DFF6EEA222D5F5DFDEDC3",
+  "Flags": "-batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr081-a5c8ea8c76c942ba9e26510d9bc532f3\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR081-090\\release2\\ghost-race-ForestLoopReverse-atv\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr081-release2-ghost-race-ForestLoopReverse-atv.log\" -threeFeatureTest drive -course ForestLoopReverse -vehicle atv -laps 3 -testSpeed 6 -ghostValidation yes -lifeSeed 82089",
+  "PID": 79660,
+  "Timeout": false,
+  "Exit": 0,
+  "PeakWorkingSetMiB": 926.47,
+  "CompletedUtc": "2026-09-20T10:31:34.0467220Z"
+}

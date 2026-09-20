@@ -1,0 +1,11 @@
+{
+  "Name": "roam-recovery-StreetLoopReverse",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\Racer-0.15.0-review2-Windows\\Racer.exe",
+  "RuntimeAssemblySHA256": "7527452DDE0DFEF63EB8A9BFE3426622521A2EE8F14DFF6EEA222D5F5DFDEDC3",
+  "Flags": "-batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr081-284150a891f7494c8d850bcd7e8e7c14\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR081-090\\release2\\roam-recovery-StreetLoopReverse\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr081-release2-roam-recovery-StreetLoopReverse.log\" -arcadeTest roam-recovery -course StreetLoopReverse -raceActivities yes -lifeSeed 82089",
+  "PID": 36380,
+  "Timeout": false,
+  "Exit": 0,
+  "PeakWorkingSetMiB": 697.26,
+  "CompletedUtc": "2026-09-20T10:27:00.4156663Z"
+}

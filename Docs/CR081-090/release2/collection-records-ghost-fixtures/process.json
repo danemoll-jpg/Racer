@@ -1,0 +1,11 @@
+{
+  "Name": "collection-records-ghost-fixtures",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\Racer-0.15.0-review2-Windows\\Racer.exe",
+  "RuntimeAssemblySHA256": "7527452DDE0DFEF63EB8A9BFE3426622521A2EE8F14DFF6EEA222D5F5DFDEDC3",
+  "Flags": "-batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr081-8d5f6e9236544126b9016e943f3b6fcb\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR081-090\\release2\\collection-records-ghost-fixtures\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr081-release2-collection-records-ghost-fixtures.log\" -explorationCheck systems",
+  "PID": 90392,
+  "Timeout": false,
+  "Exit": 0,
+  "PeakWorkingSetMiB": 693.57,
+  "CompletedUtc": "2026-09-20T10:26:12.8556169Z"
+}

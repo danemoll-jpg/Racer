@@ -6,7 +6,7 @@ namespace Racer.Editor
 {
     [InitializeOnLoad] public static class ExplorationRelease
     {
-        public const string Version="0.15.0-review2";
+        public const string Version="0.15.0-review3";
         static string job;static double due;static bool working;
         static ExplorationRelease(){var pending=SessionState.GetString("CR081.Job","");if(pending!="")Queue(pending);}
         public static void Queue(string task){job=task;SessionState.SetString("CR081.Job",task);due=EditorApplication.timeSinceStartup+2;EditorApplication.update-=Work;EditorApplication.update+=Work;}

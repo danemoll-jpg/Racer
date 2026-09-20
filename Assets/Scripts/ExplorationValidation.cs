@@ -51,7 +51,7 @@ namespace Racer
                         log.WriteLine("time,station,travel,lateral,x,y,z,speed,up,water");
                         while(travel<road.Length-15&&Time.time-began<240)
                         {
-                            float s=road.ProjectNear(car.Body.position,previous,30,out float lateral);float delta=Mathf.Repeat(s-previous+road.Length*.5f,road.Length)-road.Length*.5f;if(Mathf.Abs(delta)<5)travel+=delta*direction;previous=s;maxLateral=Mathf.Max(maxLateral,lateral);minUp=Mathf.Min(minUp,car.transform.up.y);wet|=car.WaterImmersion>.1f;
+                            float s=road.ProjectNear(car.Body.position,previous,4,out float lateral);float delta=Mathf.Repeat(s-previous+road.Length*.5f,road.Length)-road.Length*.5f;if(Mathf.Abs(delta)<5)travel+=delta*direction;previous=s;maxLateral=Mathf.Max(maxLateral,lateral);minUp=Mathf.Min(minUp,car.transform.up.y);wet|=car.WaterImmersion>.1f;
                             var aim=road.At(s+direction*9,out _);var q=car.transform.InverseTransformPoint(aim);float steering=Mathf.Clamp(Mathf.Atan2(q.x,q.z)*2,-1,1);car.Simulate(Mathf.Clamp01((12-car.ForwardSpeed)*.5f),car.ForwardSpeed>14?.3f:0,steering,Time.fixedDeltaTime);
                             p=car.Body.position;log.WriteLine($"{Time.time:F2},{s:F2},{travel:F2},{lateral:F2},{p.x:F2},{p.y:F2},{p.z:F2},{car.ForwardSpeed:F2},{car.transform.up.y:F3},{car.WaterImmersion:F3}");yield return new WaitForFixedUpdate();
                         }

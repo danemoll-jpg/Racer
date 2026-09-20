@@ -1,0 +1,14 @@
+{
+  "StoppedUtc": "2026-09-20T10:36:16.4070919Z",
+  "Reason": "Continuous shore trace exposed old street boundary teleport at x approximately 680. Completed checks retained; incomplete runs superseded. Rebuild boundary exclusion for the connected exploration routes.",
+  "ProcessIds": [
+    19792,
+    101084,
+    83656,
+    8352,
+    42240,
+    47840,
+    51064,
+    101264
+  ]
+}
