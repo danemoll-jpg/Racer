@@ -1,17 +1,19 @@
 using System;
 namespace Racer
 {
-    // Saved independently for each course. Only a new race consumes a visit.
+    // One shared visit across both properties and all course variants.
     [Serializable]
     public sealed class HouseholdSchedule
     {
         public int[] dan = Array.Empty<int>(), friend = Array.Empty<int>();
         public int lastDan = -1, lastFriend = -1;
+        // Old independent bags stay serialized for lossless preference migration.
+        public int[] visits = Array.Empty<int>();
+        public int lastVisit = -1;
         public void Next(Random random, out int scene, out bool smokers)
         {
-            scene = Take(ref dan, 3, lastDan, random);
-            int visit = Take(ref friend, 2, lastFriend, random);
-            lastDan = scene; lastFriend = visit; smokers = visit == 1;
+            int visit=Take(ref visits,4,lastVisit,random);lastVisit=visit;
+            scene=visit<2?visit:2;smokers=visit==2;
         }
         static int Take(ref int[] bag, int count, int previous, Random random)
         {

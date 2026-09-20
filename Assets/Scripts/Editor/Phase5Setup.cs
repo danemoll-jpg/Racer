@@ -108,7 +108,7 @@ namespace Racer.Editor
                 foreach(int side in new[]{-1,1})Marker(root,"Non-colliding path edge",path[i]+right*side*3.6f,new Vector3(.25f,.7f,.25f),mat);
             }
             var approach=route[Mathf.Max(0,EntryIndex-13)];
-            Sign(root,approach+new Vector3(0,0,9),Quaternion.LookRotation(Vector3.left),"WOODLAND CUT  >\nNARROW DIRT PATH\n80 - 95 km/h",mat);
+            Sign(root,approach+new Vector3(0,0,9),Quaternion.LookRotation(Vector3.left),"WOODLAND CUT  >\nNARROW DIRT PATH\n50 - 59 mph",mat);
             Sign(root,path[77]+new Vector3(7,0,0),Quaternion.LookRotation(Vector3.forward),"REJOIN ROAD\nSTRAIGHTEN UP",mat);
             EditorSceneManager.MarkSceneDirty(scene);EditorSceneManager.SaveScene(scene);AssetDatabase.SaveAssets();
             File.WriteAllText("Docs/PHASE5_BUILD.txt",$"Entry {path[0]} route index {EntryIndex}; rejoin {path[90]} index {ExitIndex}.\nLocal ground: {tiles} tiles, {vertices} vertices affected. Trees: {trees} trunk colliders and {cubes} visible cubes cleared.\nOne 5.2m dirt core, feathered to 7.6m; terrain blend to 12m. No gate, car, road-loop, jump, surface-physics or runtime source changes.\n");

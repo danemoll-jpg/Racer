@@ -1,0 +1,117 @@
+origin=242.0058 roadLength=4674.111
+spawn=(319.00, 23.37, 481.35) forward=(0.00, 0.00, 1.00) station=4603.633
+road0=(319.00, 8.00, 550.00)
+GATE 0 name=Street Loop Reverse CP 1 station=242.0058 relative=0 position=(84.04, 10.63, 542.90) forward=(-0.99, 0.00, -0.11) width=10.2 scale=(1.00, 1.00, 1.00)
+GATE VISUAL Non-colliding gate marking local=(-10.20, 0.50, 0.00) size=(0.25, 4.00, 0.25)
+GATE VISUAL Non-colliding gate marking local=(10.20, 0.50, 0.00) size=(0.25, 4.00, 0.25)
+GATE VISUAL Non-colliding gate marking local=(0.00, 2.50, 0.00) size=(20.40, 0.25, 0.25)
+GATE 1 name=Street Loop Reverse CP 2 station=473.6833 relative=231.6776 position=(-145.96, 9.94, 529.10) forward=(-1.00, 0.00, 0.00) width=10.2 scale=(1.00, 1.00, 1.00)
+GATE 2 name=Street Loop Reverse CP 3 station=703.9913 relative=461.9856 position=(-376.23, 10.18, 533.35) forward=(-1.00, 0.00, 0.04) width=10.2 scale=(1.00, 1.00, 1.00)
+GATE 3 name=Street Loop Reverse CP 4 station=935.6616 relative=693.6559 position=(-604.65, 9.56, 530.50) forward=(-0.52, 0.00, -0.86) width=7.135346 scale=(1.00, 1.00, 1.00)
+GATE 4 name=Street Loop Reverse CP 5 station=1166.676 relative=924.6703 position=(-632.88, 10.72, 302.81) forward=(0.01, 0.00, -1.00) width=6 scale=(1.00, 1.00, 1.00)
+GATE 5 name=Street Loop Reverse CP 6 station=1524.109 relative=1282.103 position=(-627.01, 9.60, -54.57) forward=(0.02, 0.00, -1.00) width=6 scale=(1.00, 1.00, 1.00)
+GATE 6 name=Street Loop Reverse CP 7 station=1594.104 relative=1352.098 position=(-625.96, 9.35, -124.56) forward=(0.01, 0.00, -1.00) width=6 scale=(1.00, 1.00, 1.00)
+GATE 7 name=Street Loop Reverse CP 8 station=1844.1 relative=1602.094 position=(-621.67, 8.39, -374.52) forward=(0.02, 0.00, -1.00) width=6 scale=(1.00, 1.00, 1.00)
+GATE 8 name=Street Loop Reverse CP 9 station=2129.143 relative=1887.137 position=(-501.24, 8.55, -549.75) forward=(1.00, 0.00, -0.03) width=6 scale=(1.00, 1.00, 1.00)
+GATE 9 name=Street Loop Reverse CP 10 station=2344.713 relative=2102.707 position=(-288.22, 20.56, -572.59) forward=(0.99, 0.00, -0.16) width=6 scale=(1.00, 1.00, 1.00)
+GATE 10 name=Street Loop Reverse CP 11 station=2785.328 relative=2543.322 position=(1.33, 39.15, -398.72) forward=(0.13, 0.00, 0.99) width=6 scale=(1.00, 1.00, 1.00)
+GATE 11 name=Street Loop Reverse CP 12 station=2994.067 relative=2752.062 position=(130.09, 38.61, -293.96) forward=(0.96, 0.00, -0.27) width=6 scale=(1.00, 1.00, 1.00)
+GATE 12 name=Street Loop Reverse CP 13 station=3477.842 relative=3235.836 position=(502.78, 24.16, -536.41) forward=(0.69, 0.00, 0.73) width=6 scale=(1.00, 1.00, 1.00)
+GATE 13 name=Street Loop Reverse CP 14 station=3710.08 relative=3468.074 position=(556.33, 26.67, -315.42) forward=(0.23, 0.00, 0.97) width=6 scale=(1.00, 1.00, 1.00)
+GATE 14 name=Street Loop Reverse CP 15 station=4043.808 relative=3801.802 position=(472.53, 84.93, -10.92) forward=(0.04, 0.00, 1.00) width=6 scale=(1.00, 1.00, 1.00)
+GATE 15 name=Street Loop Reverse CP 16 station=4172.752 relative=3930.746 position=(449.86, 87.23, 112.62) forward=(-0.50, 0.00, 0.87) width=6 scale=(1.00, 1.00, 1.00)
+GATE 16 name=Street Loop Reverse CP 17 station=4403.607 relative=4161.602 position=(322.01, 75.78, 288.34) forward=(-0.10, 0.00, 1.00) width=6 scale=(1.00, 1.00, 1.00)
+GATE 17 name=Street Loop Reverse START FINISH station=4635.467 relative=4393.461 position=(319.65, 16.98, 512.50) forward=(0.04, 0.00, 1.00) width=6 scale=(1.00, 1.00, 1.00)
+BRANCH Granite Creek Cut entry=404.1206 exit=1444.115 inset=24 entrypos=(-76.41, 7.96, 529.08) exitpos=(-628.42, 8.32, 25.41) bypass=1,2,3,4
+BRANCH Laurel Switchbacks entry=3064.113 exit=3964.113 inset=38 entrypos=(195.09, 45.76, -317.91) exitpos=(492.07, 88.50, -86.88) bypass=12,13
+TREE BATCH Faceted forest batch mesh=Assets/Vegetation/Phase6/Forest_-4_3.asset vertices=308
+TREE BATCH Faceted forest batch mesh=Assets/Vegetation/Phase6/Forest_-1_-1.asset vertices=10888
+TREE BATCH Faceted forest batch mesh=Assets/Vegetation/Phase6/Forest_-1_1.asset vertices=10084
+TREE BATCH Faceted forest batch mesh=Assets/Vegetation/Phase6/Forest_-3_-5.asset vertices=2616
+TREE BATCH Faceted forest batch mesh=Assets/Vegetation/Phase6/Forest_3_-4.asset vertices=11496
+TREE BATCH Faceted forest batch mesh=Assets/Vegetation/Phase6/Forest_3_3.asset vertices=2040
+TREE BATCH Faceted forest batch mesh=Assets/Vegetation/Phase6/Forest_4_2.asset vertices=9048
+TREE BATCH Faceted forest batch mesh=Assets/Vegetation/Phase6/Forest_-2_0.asset vertices=9980
+TREE BATCH Faceted forest batch mesh=Assets/Vegetation/Phase6/Forest_-5_3.asset vertices=1228
+TREE BATCH Faceted forest batch mesh=Assets/Vegetation/Phase6/Forest_3_-1.asset vertices=10248
+TREE BATCH Faceted forest batch mesh=Assets/Vegetation/Phase6/Forest_-5_2.asset vertices=2240
+TREE BATCH Faceted forest batch mesh=Assets/Vegetation/Phase6/Forest_-2_3.asset vertices=264
+TREE BATCH Faceted forest batch mesh=Assets/Vegetation/Phase6/Forest_-2_-5.asset vertices=3484
+TREE BATCH Faceted forest batch mesh=Assets/Vegetation/Phase6/Forest_-1_-2.asset vertices=12708
+TREE BATCH Faceted forest batch mesh=Assets/Track/ReverseReview/Street-Scoped-tree-clearance-6.asset vertices=10960
+TREE BATCH Faceted forest batch mesh=Assets/Vegetation/Phase6/Forest_3_2.asset vertices=13788
+TREE BATCH Faceted forest batch mesh=Assets/Track/ReverseReview/Street-Scoped-tree-clearance-3.asset vertices=8944
+TREE BATCH Faceted forest batch mesh=Assets/Vegetation/Phase6/Forest_2_-4.asset vertices=9540
+TREE BATCH Faceted forest batch mesh=Assets/Vegetation/Phase6/Forest_-2_-1.asset vertices=11140
+TREE BATCH Faceted forest batch mesh=Assets/Vegetation/Phase6/Forest_-1_-4.asset vertices=5752
+TREE BATCH Faceted forest batch mesh=Assets/Vegetation/Phase6/Forest_-4_-1.asset vertices=6712
+TREE BATCH Faceted forest batch mesh=Assets/Vegetation/Phase6/Forest_-3_2.asset vertices=10476
+TREE BATCH Faceted forest batch mesh=Assets/Vegetation/Phase6/Forest_-5_-1.asset vertices=3052
+TREE BATCH Faceted forest batch mesh=Assets/Vegetation/Phase6/Forest_0_-1.asset vertices=14172
+TREE BATCH Faceted forest batch mesh=Assets/Vegetation/Phase6/Forest_4_1.asset vertices=9452
+TREE BATCH Faceted forest batch mesh=Assets/Vegetation/Phase6/Forest_-3_-1.asset vertices=12024
+TREE BATCH Faceted forest batch mesh=Assets/Vegetation/Phase6/Forest_-2_-4.asset vertices=7944
+TREE BATCH Faceted forest batch mesh=Assets/Vegetation/Phase6/Forest_0_-4.asset vertices=12112
+TREE BATCH Faceted forest batch mesh=Assets/Vegetation/Phase6/Forest_4_-3.asset vertices=8904
+TREE BATCH Faceted forest batch mesh=Assets/Vegetation/Phase6/Forest_3_-3.asset vertices=7844
+TREE BATCH Faceted forest batch mesh=Assets/Vegetation/Phase6/Forest_-1_-5.asset vertices=2484
+TREE BATCH Faceted forest batch mesh=Assets/Track/ReverseReview/Street-Scoped-tree-clearance-7.asset vertices=13156
+TREE BATCH Faceted forest batch mesh=Assets/Vegetation/Phase6/Forest_-1_-3.asset vertices=7408
+TREE BATCH Faceted forest batch mesh=Assets/Vegetation/Phase6/Forest_3_-2.asset vertices=8576
+TREE BATCH Faceted forest batch mesh=Assets/Track/ReverseReview/Street-Scoped-tree-clearance-2.asset vertices=7188
+TREE BATCH Faceted forest batch mesh=Assets/Vegetation/Phase6/Forest_2_0.asset vertices=9712
+TREE BATCH Faceted forest batch mesh=Assets/Vegetation/Phase6/Forest_-4_-5.asset vertices=1276
+TREE BATCH Faceted forest batch mesh=Assets/Vegetation/Phase6/Forest_2_-3.asset vertices=4496
+TREE BATCH Faceted forest batch mesh=Assets/Vegetation/Phase6/Forest_-5_-2.asset vertices=3216
+TREE BATCH Faceted forest batch mesh=Assets/Vegetation/Phase6/Forest_1_2.asset vertices=8876
+TREE BATCH Faceted forest batch mesh=Assets/Vegetation/Phase6/Forest_-4_-4.asset vertices=7296
+TREE BATCH Faceted forest batch mesh=Assets/Vegetation/Phase6/Forest_1_0.asset vertices=10212
+TREE BATCH Faceted forest batch mesh=Assets/Vegetation/Phase6/Forest_4_-4.asset vertices=8812
+TREE BATCH Faceted forest batch mesh=Assets/Vegetation/Phase6/Forest_2_1.asset vertices=4560
+TREE BATCH Faceted forest batch mesh=Assets/Vegetation/Phase6/Forest_-5_-4.asset vertices=3288
+TREE BATCH Faceted forest batch mesh=Assets/Vegetation/Phase6/Forest_-2_-2.asset vertices=10316
+TREE BATCH Faceted forest batch mesh=Assets/Vegetation/Phase6/Forest_3_-5.asset vertices=2156
+TREE BATCH Faceted forest batch mesh=Assets/Vegetation/Phase6/Forest_0_2.asset vertices=9556
+TREE BATCH Faceted forest batch mesh=Assets/Vegetation/Phase6/Forest_4_-5.asset vertices=1352
+TREE BATCH Faceted forest batch mesh=Assets/Vegetation/Phase6/Forest_1_-5.asset vertices=2732
+TREE BATCH Faceted forest batch mesh=Assets/Vegetation/Phase6/Forest_-4_1.asset vertices=7972
+TREE BATCH Faceted forest batch mesh=Assets/Vegetation/Phase6/Forest_1_-4.asset vertices=11520
+TREE BATCH Faceted forest batch mesh=Assets/Track/ReverseReview/Street-Scoped-tree-clearance-0.asset vertices=9456
+TREE BATCH Hairpin restored rear woodland mesh=Assets/Track/HairpinReview/Street-RearWoods.asset vertices=264
+TREE BATCH Faceted forest batch mesh=Assets/Vegetation/Phase6/Forest_0_0.asset vertices=13764
+TREE BATCH Faceted forest batch mesh=Assets/Vegetation/Phase6/Forest_-5_1.asset vertices=3204
+TREE BATCH Faceted forest batch mesh=Assets/Vegetation/Phase6/Forest_4_-1.asset vertices=9880
+TREE BATCH Faceted forest batch mesh=Assets/Vegetation/Phase6/Forest_4_0.asset vertices=9820
+TREE BATCH Faceted forest batch mesh=Assets/Vegetation/Phase6/Forest_2_-5.asset vertices=2432
+TREE BATCH Faceted forest batch mesh=Assets/Track/ReverseReview/Street-Scoped-tree-clearance-4.asset vertices=14120
+TREE BATCH Faceted forest batch mesh=Assets/Vegetation/Phase6/Forest_1_-3.asset vertices=6672
+TREE BATCH Faceted forest batch mesh=Assets/Vegetation/Phase6/Forest_3_0.asset vertices=10628
+TREE BATCH Faceted forest batch mesh=Assets/Vegetation/Phase6/Forest_0_-2.asset vertices=7800
+TREE BATCH Faceted forest batch mesh=Assets/Vegetation/Phase6/Forest_0_3.asset vertices=812
+TREE BATCH Faceted forest batch mesh=Assets/Vegetation/Phase6/Forest_-1_3.asset vertices=88
+TREE BATCH Faceted forest batch mesh=Assets/Vegetation/Phase6/Forest_-3_-4.asset vertices=8616
+TREE BATCH Faceted forest batch mesh=Assets/Track/ReverseReview/Street-Scoped-tree-clearance-1.asset vertices=13808
+TREE BATCH Faceted forest batch mesh=Assets/Vegetation/Phase6/Forest_1_-1.asset vertices=12292
+TREE BATCH Faceted forest batch mesh=Assets/Vegetation/Phase6/Forest_-3_-3.asset vertices=6408
+TREE BATCH Faceted forest batch mesh=Assets/Vegetation/Phase6/Forest_4_-2.asset vertices=6396
+TREE BATCH Faceted forest batch mesh=Assets/Track/ReverseReview/Street-Scoped-tree-clearance-5.asset vertices=13484
+TREE BATCH Faceted forest batch mesh=Assets/Vegetation/Phase6/Forest_3_1.asset vertices=10144
+TREE BATCH Faceted forest batch mesh=Assets/Vegetation/Phase6/Forest_-3_-2.asset vertices=11336
+TREE BATCH Faceted forest batch mesh=Assets/Vegetation/Phase6/Forest_2_2.asset vertices=6308
+TREE BATCH Faceted forest batch mesh=Assets/Vegetation/Phase6/Forest_-2_-3.asset vertices=13560
+TREE BATCH Faceted forest batch mesh=Assets/Vegetation/Phase6/Forest_-4_-3.asset vertices=7952
+TREE BATCH Faceted forest batch mesh=Assets/Vegetation/Phase6/Forest_2_3.asset vertices=1756
+TREE BATCH Faceted forest batch mesh=Assets/Vegetation/Phase6/Forest_-4_2.asset vertices=8900
+TREE BATCH Faceted forest batch mesh=Assets/Vegetation/Phase6/Forest_0_-5.asset vertices=2152
+TREE BATCH Faceted forest batch mesh=Assets/Vegetation/Phase6/Forest_-5_0.asset vertices=2520
+TREE BATCH Faceted forest batch mesh=Assets/Vegetation/Phase6/Forest_-3_3.asset vertices=868
+TREE BATCH Faceted forest batch mesh=Assets/Vegetation/Phase6/Forest_-5_-5.asset vertices=528
+TREE BATCH Faceted forest batch mesh=Assets/Vegetation/Phase6/Forest_1_1.asset vertices=10400
+TREE BATCH Faceted forest batch mesh=Assets/Vegetation/Phase6/Forest_-5_-3.asset vertices=3232
+TREE BATCH Faceted forest batch mesh=Assets/Vegetation/Phase6/Forest_0_-3.asset vertices=6156
+TREE BATCH Faceted forest batch mesh=Assets/Vegetation/Phase6/Forest_1_3.asset vertices=1228
+TREE BATCH Faceted forest batch mesh=Assets/Vegetation/Phase6/Forest_2_-1.asset vertices=3992
+TREE BATCH Faceted forest batch mesh=Assets/Vegetation/Phase6/Forest_4_3.asset vertices=2120
+TREE BATCH Faceted forest batch mesh=Assets/Vegetation/Phase6/Forest_-4_-2.asset vertices=4460
+TREE BATCH Faceted forest batch mesh=Assets/Vegetation/Phase6/Forest_-1_0.asset vertices=12840
+TREE BATCH Faceted forest batch mesh=Assets/Vegetation/Phase6/Forest_0_1.asset vertices=9944

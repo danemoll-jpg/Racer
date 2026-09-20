@@ -1,0 +1,2 @@
+course,vehicle,speed,line,seconds,travel,air,minUp,recovered,outcome,scoredDistance,scoredAirtime,awards,contactCorrections
+Street Loop Reverse,moto,12,-3,13.320,150.223,0.380,0.980,True,completed,4.761,0.380,0,10

@@ -1,0 +1,9 @@
+Forest Reverse start moved to supported station 101.4001; grid 32m before it, facing main route; physical main-course boards follow bend
+Grid (589.21, 81.49, -102.23); timing/visible START FINISH index 0 @ (607.95, 79.75, -127.54); origin=101.2284
+GATE 0 station=101.2284 opening=16 tolerance=0.2
+GATE 1 station=218.9346 opening=16 tolerance=0.2
+GATE 2 station=716.6976 opening=16 tolerance=0.2
+GATE 3 station=1258.434 opening=16 tolerance=0.2
+GATE 4 station=1843.461 opening=16 tolerance=0.2
+BRANCH Granite Saddle bypass=1
+BRANCH Fern Gully bypass=2,3

@@ -15,6 +15,23 @@ namespace Racer
     // Local files only. One streaming clip, one cancellable request, bounded path/history lists.
     public sealed class LocalRadio : MonoBehaviour
     {
+        static LocalRadio persistent;
+        string saveRoot;
+        public float PlaybackSeconds=>source&&source.clip?source.time:0;
+        // Course selection loads a scene. Own the streaming voice outside that scene
+        // and bind its controls to the new menu without rescanning or choosing a song.
+        public static LocalRadio Attach(RaceFlow owner)
+        {
+            if(persistent&&persistent.saveRoot==owner.Save.DirectoryPath)
+            {
+                persistent.flow=owner;
+                return persistent;
+            }
+            if(persistent){persistent.gameObject.SetActive(false);Destroy(persistent.gameObject);}
+            var go=new GameObject("Continuous local radio");DontDestroyOnLoad(go);
+            persistent=go.AddComponent<LocalRadio>();persistent.saveRoot=owner.Save.DirectoryPath;
+            persistent.Initialize(owner);return persistent;
+        }
         RaceFlow flow;
         AudioSource source;
         AudioClip clip;
@@ -227,7 +244,7 @@ namespace Racer
         void StopLoad(){revision++;if(request!=null){request.Abort();request.Dispose();request=null;}if(loading!=null){StopCoroutine(loading);loading=null;}}
         void Update()
         {
-            if(flow?.Save==null)return;
+            if(!flow||flow.Save==null)return;
             source.volume=flow.Save.Settings.music*.32f;
             if(scan!=null&&scan.IsCompleted)
             {
@@ -283,7 +300,7 @@ namespace Racer
             public override int Read(byte[] b,int o,int c){if((remaining-=c)<0)throw new IOException("Metadata read budget");return base.Read(b,o,c);}
             public override int Read(Span<byte> b){if((remaining-=b.Length)<0)throw new IOException("Metadata read budget");return base.Read(b);}
         }
-        void OnDestroy(){scanCancellation?.Cancel();StopLoad();if(clip)Destroy(clip);}
+        void OnDestroy(){if(persistent==this)persistent=null;scanCancellation?.Cancel();StopLoad();if(clip)Destroy(clip);}
     }
     static class WindowsFolder
     {

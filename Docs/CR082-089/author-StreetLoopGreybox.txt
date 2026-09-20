@@ -1,0 +1,22 @@
+GATE 0 station=38.30616 opening=12 tolerance=0.2
+GATE 1 station=270.1555 opening=12 tolerance=0.2
+GATE 2 station=501.2561 opening=12 tolerance=0.2
+GATE 3 station=732.1996 opening=12 tolerance=0.2
+GATE 4 station=964.0973 opening=12 tolerance=0.2
+GATE 5 station=1196.321 opening=12 tolerance=0.2
+GATE 6 station=1680.023 opening=12 tolerance=0.2
+GATE 7 station=1889.014 opening=12 tolerance=0.2
+GATE 8 station=2329.701 opening=12 tolerance=0.2
+GATE 9 station=2544.986 opening=12 tolerance=0.2
+GATE 10 station=2830.008 opening=12 tolerance=0.2
+GATE 11 station=3080.006 opening=12 tolerance=0.2
+GATE 12 station=3275.431 opening=12 tolerance=0.2
+GATE 13 station=3507.438 opening=12 tolerance=0.2
+GATE 14 station=3738.446 opening=14.27069 tolerance=0.2
+GATE 15 station=3970.115 opening=20.4 tolerance=0.2
+GATE 16 station=4200.448 opening=20.4 tolerance=0.2
+GATE 17 station=4432.104 opening=20.4 tolerance=0.2
+BRANCH Fox Gully bypass=6,7
+BRANCH Existing Southwest Cut bypass=
+BRANCH Pine Ridge bypass=8,9,10
+BRANCH Creek Leap bypass=4,5

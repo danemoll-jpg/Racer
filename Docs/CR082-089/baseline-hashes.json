@@ -1,0 +1,42 @@
+[
+  {
+    "Path": "C:\\Users\\danmo\\Racer\\Assets\\Scripts\\ArcadeVehicle.cs",
+    "Hash": "A23006A4BF837E81EFD466ADBACF893C96E4E57D62CF5CC1A6571437F58471B8"
+  },
+  {
+    "Path": "C:\\Users\\danmo\\Racer\\Assets\\Scripts\\VehicleSurfaceContacts.cs",
+    "Hash": "63063637DE6204336691828D7200E0F2637A721124520472B7A623A52E7EFFD6"
+  },
+  {
+    "Path": "C:\\Users\\danmo\\Racer\\Assets\\Scripts\\VehicleConfiguration.cs",
+    "Hash": "EC1B285EBA5D90AEA0BBB71B516139FAB2CE5A5561F3B2DEC777D11F8FD00170"
+  },
+  {
+    "Path": "C:\\Users\\danmo\\Racer\\Assets\\Scripts\\RaceFlow.cs",
+    "Hash": "1FB4B24C0B23D7C3D5A79B31D1BE965D71DC622D3E7E8ACCD0FAAAB5C12E7223"
+  },
+  {
+    "Path": "C:\\Users\\danmo\\Racer\\Assets\\Scenes\\StreetLoopGreybox.unity",
+    "Hash": "374E1E0FDD48F94989973D975ADD76FC6415A40C3C419BDF6B1872E0E42A26BA"
+  },
+  {
+    "Path": "C:\\Users\\danmo\\Racer\\Assets\\Scenes\\StreetLoopReverse.unity",
+    "Hash": "087372E6E283AB19971EF51B6164987F0B5150935E1D8A062893566DAA210410"
+  },
+  {
+    "Path": "C:\\Users\\danmo\\Racer\\Assets\\Scenes\\LakeWoods.unity",
+    "Hash": "077DFE94BF3F6CECB68AAA181481F752512C1A8D98F1C43B027673DB7153ACA7"
+  },
+  {
+    "Path": "C:\\Users\\danmo\\Racer\\Assets\\Scenes\\ForestLoopReverse.unity",
+    "Hash": "50871E3419A8FC659A119828CF89CF3F397EECD224E9A209E845202B333DDBA3"
+  },
+  {
+    "Path": "C:\\Users\\danmo\\Racer\\Builds\\Latest\\Racer_Data\\Managed\\Assembly-CSharp.dll",
+    "Hash": "E91AFFF94CAED415A03E9F5841051D07D87B01E656AE69BE6F272A350EEECA6E"
+  },
+  {
+    "Path": "C:\\Users\\danmo\\Racer\\Builds\\CR087-baseline-instrumented\\Racer_Data\\Managed\\Assembly-CSharp.dll",
+    "Hash": "5AAA2F703C656AB8624905C7D9599DB664552A9BF07CA874CD2FE94C1AE5C66D"
+  }
+]

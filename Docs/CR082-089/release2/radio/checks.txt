@@ -1,0 +1,41 @@
+PASS Long local WAV playback established
+PASS Course navigation preserves voice/clip/channel/song 0
+PASS Playback position never resets on course selection 0 3.2 -> 4.82125
+PASS Synthetic keyboard/controller menu navigation does not skip 0
+PASS Course navigation preserves voice/clip/channel/song 1
+PASS Playback position never resets on course selection 1 4.906625 -> 9.152
+PASS Synthetic keyboard/controller menu navigation does not skip 1
+PASS Course navigation preserves voice/clip/channel/song 2
+PASS Playback position never resets on course selection 2 9.23725 -> 12.288
+PASS Synthetic keyboard/controller menu navigation does not skip 2
+PASS Course navigation preserves voice/clip/channel/song 3
+PASS Playback position never resets on course selection 3 12.33062 -> 15.72262
+PASS Synthetic keyboard/controller menu navigation does not skip 3
+PASS Course navigation preserves voice/clip/channel/song 4
+PASS Playback position never resets on course selection 4 15.78662 -> 18.98663
+PASS Synthetic keyboard/controller menu navigation does not skip 4
+PASS Course navigation preserves voice/clip/channel/song 5
+PASS Playback position never resets on course selection 5 19.02925 -> 24.27725
+PASS Synthetic keyboard/controller menu navigation does not skip 5
+PASS Course navigation preserves voice/clip/channel/song 6
+PASS Playback position never resets on course selection 6 24.384 -> 26.41063
+PASS Synthetic keyboard/controller menu navigation does not skip 6
+PASS Course navigation preserves voice/clip/channel/song 7
+PASS Playback position never resets on course selection 7 26.45325 -> 31.31725
+PASS Synthetic keyboard/controller menu navigation does not skip 7
+PASS Course navigation preserves voice/clip/channel/song 8
+PASS Playback position never resets on course selection 8 31.36 -> 34.58125
+PASS Synthetic keyboard/controller menu navigation does not skip 8
+PASS Course navigation preserves voice/clip/channel/song 9
+PASS Playback position never resets on course selection 9 34.64525 -> 38.4
+PASS Synthetic keyboard/controller menu navigation does not skip 9
+PASS Course navigation preserves voice/clip/channel/song 10
+PASS Playback position never resets on course selection 10 38.44262 -> 40.17062
+PASS Synthetic keyboard/controller menu navigation does not skip 10
+PASS Course navigation preserves voice/clip/channel/song 11
+PASS Playback position never resets on course selection 11 40.40525 -> 43.84
+PASS Synthetic keyboard/controller menu navigation does not skip 11
+PASS Returning to menu preserves song
+PASS Explicit next still advances
+PASS Music preference survives course changes and save reload
+PASS Natural completion still advances

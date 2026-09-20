@@ -1,0 +1,6 @@
+GATE 0 station=64.99645 opening=16 tolerance=0.2
+GATE 1 station=259.926 opening=16 tolerance=0.2
+GATE 2 station=849.8879 opening=16 tolerance=0.2
+GATE 3 station=1490.097 opening=16 tolerance=0.2
+GATE 4 station=1900.233 opening=16 tolerance=0.2
+BRANCH Echo Cave bypass=2

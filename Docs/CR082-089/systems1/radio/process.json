@@ -1,0 +1,10 @@
+{
+  "Name": "radio",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\CR087-systems\\Racer.exe",
+  "RuntimeAssemblySHA256": "1F4766B0EBF3723AE2E8C32A1A00C6C2C6E625302C5F70B27959C00EC61DE43E",
+  "Flags": "-batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr082-f4771742bc5747b0aca14e9969a94662\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR082-089\\systems1\\radio\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr082-systems1-radio.log\" -correctionPass radio",
+  "PID": 43532,
+  "Timeout": false,
+  "Exit": 0,
+  "CompletedUtc": "2026-09-20T06:16:42.9847454Z"
+}

@@ -1,0 +1,10 @@
+{
+  "Name": "recovery-StreetLoopGreybox",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\Racer-0.14.0-review2-Windows\\Racer.exe",
+  "RuntimeAssemblySHA256": "4C3CEB98C70F971631096357E788866D770CD9C2A75AF08C4166F3F3F5E83012",
+  "Flags": "-batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr082-1faf67c9f1ac48099ae97f939ab36cf2\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR082-089\\release2\\recovery-StreetLoopGreybox\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr082-release2-recovery-StreetLoopGreybox.log\" -arcadeTest recovery -course StreetLoopGreybox -lifeSeed 82089",
+  "PID": 91824,
+  "Timeout": false,
+  "Exit": 0,
+  "CompletedUtc": "2026-09-20T06:56:50.5113539Z"
+}

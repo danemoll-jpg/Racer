@@ -106,7 +106,7 @@ namespace Racer.Editor
             var frame=GameObject.Find(Phase4Setup.RootName).transform;
             var ramp=reverse?GameObject.Find("Reverse supported roadworks transition"):frame.GetComponentsInChildren<MeshCollider>().First(c=>c.name.StartsWith("Takeoff -")).gameObject;
             foreach(var c in Object.FindObjectsByType<Collider>().Where(c=>c.name=="Graded aggregate shoulder")){c.gameObject.SetActive(false);}
-            var vertices=new List<Vector3>();var triangles=new List<int>();float[] sides={-6.5f,-4.5f,1.5f,3.5f};
+            var vertices=new List<Vector3>();var triangles=new List<int>();float[] sides=reverse?new[]{-10.5f,-4.5f,1.5f,7.5f}:new[]{-6.5f,-4.5f,1.5f,3.5f};
             for(int i=0;i<=180;i++)
             {
                 float x=i*.5f,z=reverse?100-x:x-10;float u=x-10;

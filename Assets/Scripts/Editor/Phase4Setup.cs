@@ -82,7 +82,8 @@ namespace Racer.Editor
             var board=Mark(root,"Jump approach sign",new Vector3(-9,3,-36),new Vector3(8,3.5f,.2f),mat);
             var text=new GameObject("Recommended speed").AddComponent<TextMesh>();text.transform.SetParent(root,false);
             text.transform.localPosition=board.localPosition+new Vector3(0,0,-.15f);
-            text.text="JUMP\n110 - 120 km/h\nROAD LANE ON RIGHT";text.anchor=TextAnchor.MiddleCenter;text.alignment=TextAlignment.Center;text.fontSize=64;text.characterSize=.09f;text.color=Color.white;
+            text.text="JUMP\n68 - 75 mph\nROAD LANE ON RIGHT";text.anchor=TextAnchor.MiddleCenter;text.alignment=TextAlignment.Center;text.fontSize=64;text.characterSize=.09f;text.color=Color.white;
         }
     }
 }
+

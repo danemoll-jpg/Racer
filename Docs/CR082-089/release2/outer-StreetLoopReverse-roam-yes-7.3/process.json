@@ -1,0 +1,10 @@
+{
+  "Name": "outer-StreetLoopReverse-roam-yes-7.3",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\Racer-0.14.0-review2-Windows\\Racer.exe",
+  "RuntimeAssemblySHA256": "4C3CEB98C70F971631096357E788866D770CD9C2A75AF08C4166F3F3F5E83012",
+  "Flags": "-batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr082-c9c010a567394d43b8d617d064e76df3\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR082-089\\release2\\outer-StreetLoopReverse-roam-yes-7.3\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr082-release2-outer-StreetLoopReverse-roam-yes-7.3.log\" -arcadeRamp case -rampSpeed 24 -rampLine 7.3 -course StreetLoopReverse -rampOpposite yes -rampRoam yes",
+  "PID": 28800,
+  "Timeout": false,
+  "Exit": 0,
+  "CompletedUtc": "2026-09-20T07:04:26.0351513Z"
+}

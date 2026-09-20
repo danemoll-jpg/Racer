@@ -1,0 +1,266 @@
+origin=2038.321 roadLength=2103.313
+spawn=(565.19, 82.61, 56.92) forward=(0.02, 0.00, -1.00) station=2006.321
+road0=(566.00, 82.00, -40.00)
+GATE 0 name=Forest Loop Reverse START FINISH station=2038.321 relative=0 position=(566.81, 83.66, 24.97) forward=(0.02, 0.00, -1.00) width=8 scale=(1.00, 1.00, 1.00)
+GATE VISUAL Non-colliding gate marking local=(-6.00, 0.50, 0.00) size=(0.25, 4.00, 0.25)
+GATE VISUAL Non-colliding gate marking local=(6.00, 0.50, 0.00) size=(0.25, 4.00, 0.25)
+GATE VISUAL Non-colliding gate marking local=(0.00, 2.50, 0.00) size=(12.00, 0.25, 0.25)
+GATE 1 name=Forest Loop Reverse CP 1 station=218.9346 relative=283.927 position=(562.42, 37.36, -223.65) forward=(-0.67, 0.00, -0.74) width=8 scale=(1.00, 1.00, 1.00)
+GATE 2 name=Forest Loop Reverse CP 2 station=716.6976 relative=781.6899 position=(124.28, 40.64, -154.28) forward=(-0.98, 0.00, 0.19) width=8 scale=(1.00, 1.00, 1.00)
+GATE 3 name=Forest Loop Reverse CP 3 station=1258.434 relative=1323.426 position=(-45.53, 28.17, 185.33) forward=(0.77, 0.00, 0.64) width=8 scale=(1.00, 1.00, 1.00)
+GATE 4 name=Forest Loop Reverse CP 4 station=1843.461 relative=1908.453 position=(471.42, 79.39, 175.89) forward=(0.86, 0.00, -0.51) width=8 scale=(1.00, 1.00, 1.00)
+BRANCH Fern Gully entry=637.0195 exit=1358.205 inset=38 entrypos=(200.89, 44.07, -175.39) exitpos=(37.07, 34.29, 240.69) bypass=2,3
+BRANCH Granite Saddle entry=139.4001 exit=637.0195 inset=56 entrypos=(600.57, 66.58, -161.74) exitpos=(200.89, 44.07, -175.39) bypass=1
+TREE BATCH Forest detail batch mesh=Assets/Track/ReverseReview/Forest-Scoped-tree-clearance-6.asset vertices=7224
+TREE BATCH Forest detail batch mesh=Assets/Track/ReverseReview/Forest-Scoped-tree-clearance-13.asset vertices=3864
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -1 4.asset vertices=5628
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 5 -6.asset vertices=1848
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -5 -3.asset vertices=6216
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 0 -8.asset vertices=3276
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 2 -7.asset vertices=6048
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 5 1.asset vertices=6636
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 5 4.asset vertices=5544
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 7 -2.asset vertices=5964
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 7 2.asset vertices=6132
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 0 -7.asset vertices=5880
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 2 -1.asset vertices=6132
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 6 -1.asset vertices=3024
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -3 -7.asset vertices=3108
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 8 -4.asset vertices=924
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -2 -4.asset vertices=6384
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 2 -6.asset vertices=6300
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -3 -3.asset vertices=4956
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 3 -4.asset vertices=4956
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -7 4.asset vertices=2856
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -4 5.asset vertices=1344
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -8 -2.asset vertices=2184
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 7 -4.asset vertices=5040
+TREE BATCH Forest detail batch mesh=Assets/Track/ReverseReview/Forest-Scoped-tree-clearance-9.asset vertices=7308
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 8 4.asset vertices=2100
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 8 -2.asset vertices=2436
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -9 1.asset vertices=588
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -2 -3.asset vertices=5544
+TREE BATCH Hairpin restored rear woodland mesh=Assets/Track/HairpinReview/Forest-RearWoods.asset vertices=264
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 4 3.asset vertices=3444
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 4 0.asset vertices=6384
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 5 5.asset vertices=3528
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 6 -7.asset vertices=6972
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -5 4.asset vertices=4452
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -5 -8.asset vertices=3108
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -8 -4.asset vertices=2352
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 8 -3.asset vertices=924
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 8 -8.asset vertices=420
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -8 -5.asset vertices=1848
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -3 -1.asset vertices=5880
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -7 1.asset vertices=2520
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 3 -1.asset vertices=5712
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -8 3.asset vertices=1764
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 8 -1.asset vertices=2520
+TREE BATCH Forest detail batch mesh=Assets/Track/ReverseReview/Forest-Scoped-tree-clearance-1.asset vertices=6048
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -4 -2.asset vertices=5628
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 3 0.asset vertices=6804
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -5 1.asset vertices=6048
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 3 1.asset vertices=5628
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -1 -4.asset vertices=6300
+TREE BATCH Forest detail batch mesh=Assets/Track/ReverseReview/Forest-Scoped-tree-clearance-15.asset vertices=2772
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -4 3.asset vertices=6300
+TREE BATCH Forest detail batch mesh=Assets/Track/ReverseReview/Forest-Scoped-tree-clearance-3.asset vertices=3780
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -6 0.asset vertices=6720
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -8 5.asset vertices=2100
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 8 2.asset vertices=1932
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 5 -3.asset vertices=2436
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 2 -4.asset vertices=3612
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 4 4.asset vertices=2856
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 8 0.asset vertices=2436
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -4 -5.asset vertices=4536
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 0 4.asset vertices=5796
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -3 -6.asset vertices=6216
+TREE BATCH Forest detail batch mesh=Assets/Track/ReverseReview/Forest-Scoped-tree-clearance-7.asset vertices=7644
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 4 -7.asset vertices=6216
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 2 1.asset vertices=6132
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -9 -2.asset vertices=756
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -7 2.asset vertices=2604
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -5 5.asset vertices=1596
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 6 -6.asset vertices=5880
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -3 -2.asset vertices=6384
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 7 5.asset vertices=4116
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 2 -5.asset vertices=2436
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -9 0.asset vertices=336
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 7 3.asset vertices=6468
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 6 3.asset vertices=6300
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -3 2.asset vertices=6720
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -3 -4.asset vertices=4956
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -6 5.asset vertices=1092
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -8 -3.asset vertices=2100
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -5 3.asset vertices=6048
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 1 4.asset vertices=5712
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -7 -4.asset vertices=1932
+TREE BATCH Forest detail batch mesh=Assets/Track/ReverseReview/Forest-Scoped-tree-clearance-12.asset vertices=5376
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -4 2.asset vertices=7392
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 2 0.asset vertices=5040
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -8 2.asset vertices=2604
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 8 3.asset vertices=2184
+TREE BATCH Forest detail batch mesh=Assets/Track/ReverseReview/Forest-Scoped-tree-clearance-17.asset vertices=6972
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -4 -4.asset vertices=6132
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 8 5.asset vertices=756
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -4 -7.asset vertices=1596
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -5 0.asset vertices=6720
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -1 3.asset vertices=3528
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 0 -5.asset vertices=3192
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -8 0.asset vertices=1260
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -9 -7.asset vertices=336
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -4 -6.asset vertices=3612
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 6 1.asset vertices=3612
+TREE BATCH Forest detail batch mesh=Assets/Track/ReverseReview/Forest-Scoped-tree-clearance-5.asset vertices=8064
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 1 -6.asset vertices=6132
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -9 -5.asset vertices=1092
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 0 5.asset vertices=840
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -5 -6.asset vertices=5292
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -4 -3.asset vertices=6384
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 3 -8.asset vertices=3192
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -6 4.asset vertices=5964
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -1 -1.asset vertices=1932
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -2 1.asset vertices=6804
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -1 0.asset vertices=5460
+TREE BATCH Forest detail batch mesh=Assets/Track/ReverseReview/Forest-Scoped-tree-clearance-16.asset vertices=4368
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 1 1.asset vertices=3948
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -2 -5.asset vertices=4788
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 7 -5.asset vertices=6048
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -6 -2.asset vertices=5880
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 1 0.asset vertices=3864
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -5 -4.asset vertices=4452
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 4 5.asset vertices=2604
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 6 -4.asset vertices=3948
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 8 -7.asset vertices=2436
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 4 -2.asset vertices=1176
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 6 2.asset vertices=4368
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 4 1.asset vertices=1596
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -4 -8.asset vertices=3024
+TREE BATCH Forest detail batch mesh=Assets/Track/ReverseReview/Forest-Scoped-tree-clearance-0.asset vertices=4872
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 7 -8.asset vertices=2772
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -6 -1.asset vertices=6720
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -6 -5.asset vertices=6216
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -9 -1.asset vertices=588
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 5 -7.asset vertices=3360
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 1 5.asset vertices=1764
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 0 -6.asset vertices=4032
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 2 -8.asset vertices=2688
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -7 -5.asset vertices=2772
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -5 -2.asset vertices=6636
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -2 4.asset vertices=6384
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -2 2.asset vertices=6216
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -6 -3.asset vertices=5460
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -7 -2.asset vertices=1680
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -1 -3.asset vertices=6300
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 8 -5.asset vertices=2352
+TREE BATCH Forest detail batch mesh=Assets/Track/ReverseReview/Forest-Scoped-tree-clearance-2.asset vertices=7140
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -7 -3.asset vertices=1512
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -9 5.asset vertices=168
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -6 -4.asset vertices=1932
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -9 -3.asset vertices=756
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 6 0.asset vertices=3528
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 3 5.asset vertices=924
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 7 -1.asset vertices=924
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 1 -3.asset vertices=3864
+TREE BATCH Forest detail batch mesh=Assets/Track/ReverseReview/Forest-Scoped-tree-clearance-14.asset vertices=6384
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 4 -4.asset vertices=2940
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -4 4.asset vertices=5796
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 5 3.asset vertices=6300
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 3 2.asset vertices=504
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 3 -5.asset vertices=2436
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -6 1.asset vertices=6552
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -8 -7.asset vertices=2520
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 5 -1.asset vertices=1428
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 7 -6.asset vertices=6300
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -9 -6.asset vertices=420
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 7 0.asset vertices=3696
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 7 1.asset vertices=5796
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 6 -8.asset vertices=2856
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 7 -3.asset vertices=5544
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -2 -7.asset vertices=2604
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 4 -6.asset vertices=2604
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 8 -6.asset vertices=2688
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -9 -8.asset vertices=336
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 2 3.asset vertices=5712
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -7 3.asset vertices=3528
+TREE BATCH Forest detail batch mesh=Assets/Track/ReverseReview/Forest-Scoped-tree-clearance-4.asset vertices=4032
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 1 -7.asset vertices=5460
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -8 -8.asset vertices=1176
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -1 -6.asset vertices=2184
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -7 5.asset vertices=1092
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -3 3.asset vertices=5460
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -6 2.asset vertices=6804
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 6 4.asset vertices=6300
+TREE BATCH Forest detail batch mesh=Assets/Track/ReverseReview/Forest-Scoped-tree-clearance-10.asset vertices=2604
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 5 -8.asset vertices=2688
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 7 4.asset vertices=6552
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 6 -5.asset vertices=3192
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -5 -5.asset vertices=1680
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -9 2.asset vertices=672
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 1 -4.asset vertices=1680
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -5 -1.asset vertices=6132
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 0 -3.asset vertices=6552
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -6 -7.asset vertices=3948
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -1 5.asset vertices=504
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -9 -4.asset vertices=840
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 3 -6.asset vertices=6636
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 1 -5.asset vertices=3528
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -3 1.asset vertices=5376
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 2 4.asset vertices=5124
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -7 -1.asset vertices=1680
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 2 2.asset vertices=4200
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -4 1.asset vertices=6048
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -7 -8.asset vertices=1428
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 3 -2.asset vertices=4368
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 3 4.asset vertices=2604
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 4 -8.asset vertices=2772
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 2 -2.asset vertices=5376
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -3 -5.asset vertices=6132
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 8 1.asset vertices=2688
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 4 -3.asset vertices=1008
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 3 -7.asset vertices=6468
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -3 0.asset vertices=6132
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -2 5.asset vertices=672
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 6 -2.asset vertices=8400
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -1 -2.asset vertices=4116
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -4 0.asset vertices=4452
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -7 -7.asset vertices=2352
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -1 -5.asset vertices=1848
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -4 -1.asset vertices=5208
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -6 3.asset vertices=6552
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -3 4.asset vertices=5460
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -7 0.asset vertices=2688
+TREE BATCH Forest detail batch mesh=Assets/Track/ReverseReview/Forest-Scoped-tree-clearance-11.asset vertices=4956
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 4 -1.asset vertices=2016
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -8 4.asset vertices=1680
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 5 2.asset vertices=6720
+TREE BATCH Forest detail batch mesh=Assets/Track/ReverseReview/Forest-Scoped-tree-clearance-8.asset vertices=4284
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -3 -8.asset vertices=3360
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -8 1.asset vertices=2436
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 1 -8.asset vertices=1176
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -5 2.asset vertices=6300
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 3 3.asset vertices=1428
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 4 -5.asset vertices=1176
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 0 -4.asset vertices=1428
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 5 -4.asset vertices=5628
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -7 -6.asset vertices=1512
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -6 -8.asset vertices=2604
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -6 -6.asset vertices=4872
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 7 -7.asset vertices=5880
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -5 -7.asset vertices=3612
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 5 -5.asset vertices=3444
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 5 0.asset vertices=3276
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -1 -8.asset vertices=2856
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -9 4.asset vertices=252
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -2 3.asset vertices=2940
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -1 -7.asset vertices=2940
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -9 3.asset vertices=336
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 6 5.asset vertices=2772
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -2 -2.asset vertices=3444
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 5 -2.asset vertices=1428
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest 2 5.asset vertices=1764
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -8 -1.asset vertices=1512
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -2 -6.asset vertices=4200
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -8 -6.asset vertices=2604
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -2 -8.asset vertices=2940
+TREE BATCH Forest detail batch mesh=Assets/Track/ForestLoop/Close forest -3 5.asset vertices=1512

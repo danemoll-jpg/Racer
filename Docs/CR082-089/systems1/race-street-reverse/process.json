@@ -1,0 +1,10 @@
+{
+  "Name": "race-street-reverse",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\CR087-systems\\Racer.exe",
+  "RuntimeAssemblySHA256": "1F4766B0EBF3723AE2E8C32A1A00C6C2C6E625302C5F70B27959C00EC61DE43E",
+  "Flags": "-batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr082-b250c2509b674555a4c7c4e20af0fbc3\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR082-089\\systems1\\race-street-reverse\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr082-systems1-race-street-reverse.log\" -threeFeatureTest drive -course StreetLoopReverse -vehicle original -laps 3 -testSpeed 6",
+  "PID": 38556,
+  "Timeout": false,
+  "Exit": 0,
+  "CompletedUtc": "2026-09-20T06:25:31.7592526Z"
+}

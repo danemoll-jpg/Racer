@@ -1,0 +1,18 @@
+[
+    {
+        "Version":  "0.13.0-review7",
+        "Name":  "ramps-StreetLoopReverse",
+        "Exit":  0,
+        "Timeout":  false,
+        "PeakMiB":  604.94,
+        "Flags":  "-arcadeRamp full -course StreetLoopReverse"
+    },
+    {
+        "Version":  "0.13.0-review7",
+        "Name":  "ramps-StreetLoopGreybox",
+        "Exit":  0,
+        "Timeout":  false,
+        "PeakMiB":  647.49,
+        "Flags":  "-arcadeRamp full -course StreetLoopGreybox"
+    }
+]

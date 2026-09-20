@@ -1,0 +1,10 @@
+{
+  "Name": "outer-StreetLoopReverse-race-no--10.3",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\Racer-0.14.0-review1-Windows\\Racer.exe",
+  "RuntimeAssemblySHA256": "4C3CEB98C70F971631096357E788866D770CD9C2A75AF08C4166F3F3F5E83012",
+  "Flags": "-batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr082-b351e029749b47db91bf7d6a1cc762a0\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR082-089\\final\\outer-StreetLoopReverse-race-no--10.3\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr082-final-outer-StreetLoopReverse-race-no--10.3.log\" -arcadeRamp case -rampSpeed 24 -rampLine -10.3 -course StreetLoopReverse -rampOpposite no",
+  "PID": 87032,
+  "Timeout": false,
+  "Exit": 0,
+  "CompletedUtc": "2026-09-20T06:56:36.5061674Z"
+}

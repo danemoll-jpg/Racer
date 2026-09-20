@@ -62,7 +62,7 @@ namespace Racer
             RestoreChoices();
             configuration.SetBodyColor(SelectedColor);
             Save.SelectRecords(Race.Category); Save.ApplySettings();
-            Radio=gameObject.AddComponent<LocalRadio>();Radio.Initialize(this);
+            Radio=LocalRadio.Attach(this);
             var listener=FindAnyObjectByType<AudioListener>();if(listener&&!listener.GetComponent<AudioCeiling>())listener.gameObject.AddComponent<AudioCeiling>();
             feedback = gameObject.AddComponent<AudioSource>();
             feedback.playOnAwake = false; feedback.spatialBlend = 0; feedback.ignoreListenerPause = true;

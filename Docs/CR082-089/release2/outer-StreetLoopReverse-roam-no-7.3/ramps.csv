@@ -1,0 +1,5 @@
+course,vehicle,speed,line,seconds,travel,air,minUp,recovered,outcome,scoredDistance,scoredAirtime,awards,contactCorrections
+Street Loop Reverse,original,24,7.3,6.920,150.358,0.000,0.951,True,completed,0.000,0.000,0,0
+Street Loop Reverse,tourer,24,7.3,6.920,150.343,0.000,0.955,True,completed,0.000,0.000,0,0
+Street Loop Reverse,moto,24,7.3,6.920,150.161,0.000,0.901,True,completed,0.000,0.000,0,73
+Street Loop Reverse,atv,24,7.3,6.920,150.191,0.140,0.858,True,completed,0.000,0.000,0,53

@@ -1,0 +1,1 @@
+Runtime image correction: new boards reduced to 65% (3.9m x 1.3m); removes their intrusion into the driving opening. Repeated MAIN boards use directional chevrons. Superseded CR075 direction sign groups inactive on both reverse variants. Road/ramp/gate geometry unchanged.

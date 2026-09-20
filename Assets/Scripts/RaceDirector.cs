@@ -361,7 +361,7 @@ namespace Racer
                         // Retained context must never hide a real expected road-gate crossing,
                         // including a slow partial rejoin. Finish still requires branch resolution.
                         for(int gate=1;gate<gates.Length;gate++)
-                            if(p.NextGate==gate && gates[gate].TryCross(r.Previous,position,out bool gateForward,out float crossing)
+                            if(p.NextGate==gate && gates[gate].TryCross(r.Previous,position,r.Car.GetComponent<BoxCollider>(),out bool gateForward,out float crossing)
                                 && gateForward)
                                 p.Cross(gate,true,r.PreviousTime+(now-r.PreviousTime)*crossing);
                         r.RoadPosition=road.Relative(r.Branch.RoadPosition,origin);
@@ -382,7 +382,7 @@ namespace Racer
                 r.FinishArmed = true;
             for (int i = 0; i < gates.Length; i++)
             {
-                if (!gates[i].TryCross(r.Previous, position, out bool forward, out float fraction))
+                if (!gates[i].TryCross(r.Previous, position,r.Car.GetComponent<BoxCollider>(), out bool forward, out float fraction))
                     continue;
                 if (!forward)
                     continue;

@@ -1,0 +1,10 @@
+{
+  "Name": "speed-StreetLoopGreybox",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\Racer-0.14.0-review2-Windows\\Racer.exe",
+  "RuntimeAssemblySHA256": "4C3CEB98C70F971631096357E788866D770CD9C2A75AF08C4166F3F3F5E83012",
+  "Flags": "-batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr082-89dd82e5e4f240dab845b175e00c7905\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR082-089\\release2\\speed-StreetLoopGreybox\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr082-release2-speed-StreetLoopGreybox.log\" -arcadeTest speed -course StreetLoopGreybox -lifeSeed 82089",
+  "PID": 88848,
+  "Timeout": false,
+  "Exit": 0,
+  "CompletedUtc": "2026-09-20T06:59:02.3409115Z"
+}

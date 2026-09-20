@@ -1,0 +1,10 @@
+{
+  "Name": "wildlife-radio",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\Latest\\Racer.exe",
+  "RuntimeAssemblySHA256": "4C3CEB98C70F971631096357E788866D770CD9C2A75AF08C4166F3F3F5E83012",
+  "Flags": "-batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr082-6c702d3f783b42b1afc33321163c643b\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR082-089\\packaged\\wildlife-radio\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr082-packaged-wildlife-radio.log\" -signWildlifeTest drive -course StreetLoopReverse -lifeSeed 82089",
+  "PID": 58288,
+  "Timeout": false,
+  "Exit": 0,
+  "CompletedUtc": "2026-09-20T07:20:42.4774650Z"
+}

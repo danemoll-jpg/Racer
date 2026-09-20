@@ -237,7 +237,8 @@ namespace Racer.Editor
             {
                 var barrel=Cube(work,"Breakable roadworks marker",new(-5.6f,.65f,z),new(.65f,1.3f,.65f),orange,true);barrel.gameObject.AddComponent<BreakableProp>().surface=SmashAudio.Surface.Sign;barrel.GetComponent<BoxCollider>().isTrigger=true;
             }
-            var label=ramp.GetComponentsInChildren<TextMesh>(true).FirstOrDefault(t=>t.name=="Recommended speed");if(label)label.text="RAISED PAVEMENT WORKS\nJUMP 125 - 155 km/h\nOPEN LANE ON RIGHT";
+            var label=ramp.GetComponentsInChildren<TextMesh>(true).FirstOrDefault(t=>t.name=="Recommended speed");if(label)label.text="RAISED PAVEMENT WORKS\nJUMP 78 - 96 mph\nOPEN LANE ON RIGHT";
         }
     }
 }
+

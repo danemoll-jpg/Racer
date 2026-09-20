@@ -1,0 +1,10 @@
+{
+  "Name": "reverse-full",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\CR087-shoulder\\Racer.exe",
+  "RuntimeAssemblySHA256": "5D394E7010201F6119BB5F99367E8856435397ED5BFD02D9BC78C24013F277FD",
+  "Flags": "-batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr082-f912ee744e1043be8808de2cab8110fd\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR082-089\\shoulder1\\reverse-full\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr082-shoulder1-reverse-full.log\" -arcadeRamp full -course StreetLoopReverse",
+  "PID": 91200,
+  "Timeout": false,
+  "Exit": 0,
+  "CompletedUtc": "2026-09-20T06:36:18.1029626Z"
+}

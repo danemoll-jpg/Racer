@@ -1,0 +1,34 @@
+[
+    {
+        "Name":  "StreetLoopGreybox-roam-opposite-no",
+        "PID":  62628,
+        "Executable":  "C:\\Users\\danmo\\Racer\\Builds\\CR087-baseline-instrumented\\Racer.exe",
+        "Flags":  "-batchmode -screen-width 960 -screen-height 540 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr087-7d58b58db29447618ad4fceaea8f3797\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR082-089\\baseline-instrumented\\StreetLoopGreybox-roam-opposite-no\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr087-StreetLoopGreybox-roam-opposite-no.log\" -arcadeRamp full -course StreetLoopGreybox -rampRoam yes -rampOpposite no",
+        "Evidence":  "C:\\Users\\danmo\\Racer\\Docs\\CR082-089\\baseline-instrumented\\StreetLoopGreybox-roam-opposite-no",
+        "StartedUtc":  "2026-09-20T05:34:37.7110509Z"
+    },
+    {
+        "Name":  "StreetLoopGreybox-roam-opposite-yes",
+        "PID":  98680,
+        "Executable":  "C:\\Users\\danmo\\Racer\\Builds\\CR087-baseline-instrumented\\Racer.exe",
+        "Flags":  "-batchmode -screen-width 960 -screen-height 540 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr087-63e312a4bc454e768e52fdb1549a3b49\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR082-089\\baseline-instrumented\\StreetLoopGreybox-roam-opposite-yes\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr087-StreetLoopGreybox-roam-opposite-yes.log\" -arcadeRamp full -course StreetLoopGreybox -rampRoam yes -rampOpposite yes",
+        "Evidence":  "C:\\Users\\danmo\\Racer\\Docs\\CR082-089\\baseline-instrumented\\StreetLoopGreybox-roam-opposite-yes",
+        "StartedUtc":  "2026-09-20T05:34:37.7548002Z"
+    },
+    {
+        "Name":  "StreetLoopReverse-roam-opposite-no",
+        "PID":  99340,
+        "Executable":  "C:\\Users\\danmo\\Racer\\Builds\\CR087-baseline-instrumented\\Racer.exe",
+        "Flags":  "-batchmode -screen-width 960 -screen-height 540 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr087-a6742a14a35647abb4d11c78c97677df\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR082-089\\baseline-instrumented\\StreetLoopReverse-roam-opposite-no\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr087-StreetLoopReverse-roam-opposite-no.log\" -arcadeRamp full -course StreetLoopReverse -rampRoam yes -rampOpposite no",
+        "Evidence":  "C:\\Users\\danmo\\Racer\\Docs\\CR082-089\\baseline-instrumented\\StreetLoopReverse-roam-opposite-no",
+        "StartedUtc":  "2026-09-20T05:34:37.7919846Z"
+    },
+    {
+        "Name":  "StreetLoopReverse-roam-opposite-yes",
+        "PID":  54168,
+        "Executable":  "C:\\Users\\danmo\\Racer\\Builds\\CR087-baseline-instrumented\\Racer.exe",
+        "Flags":  "-batchmode -screen-width 960 -screen-height 540 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr087-4ce72cb065da463c98f00f2ac1bb3f83\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR082-089\\baseline-instrumented\\StreetLoopReverse-roam-opposite-yes\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr087-StreetLoopReverse-roam-opposite-yes.log\" -arcadeRamp full -course StreetLoopReverse -rampRoam yes -rampOpposite yes",
+        "Evidence":  "C:\\Users\\danmo\\Racer\\Docs\\CR082-089\\baseline-instrumented\\StreetLoopReverse-roam-opposite-yes",
+        "StartedUtc":  "2026-09-20T05:34:37.8321867Z"
+    }
+]

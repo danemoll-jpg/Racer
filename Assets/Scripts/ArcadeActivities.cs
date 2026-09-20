@@ -21,7 +21,7 @@ namespace Racer
         public float LastSpeed {get;private set;}
         public float LastJumpAward {get;private set;}
         public int SmashCount=>smashed.Count;
-        public string Location {get{if(!Selected||!car)return "";var delta=Selected.transform.position-car.Body.position;int compass=Mathf.RoundToInt(Mathf.Repeat(Mathf.Atan2(delta.x,delta.z)*Mathf.Rad2Deg,360)/45)%8;return $"{Vector3.ProjectOnPlane(delta,Vector3.up).magnitude:0} m {new[]{"N","NE","E","SE","S","SW","W","NW"}[compass]}";}}
+        public string Location {get{if(!Selected||!car)return "";var delta=Selected.transform.position-car.Body.position;int compass=Mathf.RoundToInt(Mathf.Repeat(Mathf.Atan2(delta.x,delta.z)*Mathf.Rad2Deg,360)/45)%8;return $"{DisplayUnits.Distance(Vector3.ProjectOnPlane(delta,Vector3.up).magnitude)} {new[]{"N","NE","E","SE","S","SW","W","NW"}[compass]}";}}
         public string Hud=>Time.time<feedbackUntil?Feedback:AttemptActive?$"{Selected.title} / {Mathf.Max(0,deadline-Time.time):0}s / {Location}\n{(Selected.kind==ActivitySite.Kind.Smash?SmashCount+" distinct props":"Land a clean jump in the marked area")}":race.FreeRoam?$"FREE ROAM / {Selected?.title} / {Location}\nEsc or Start: activities, retry, menu":"";
         RaceDirector race;ArcadeVehicle car;VehicleConfiguration configuration;
         readonly HashSet<BreakableProp> smashed=new();readonly Dictionary<ActivitySite,bool> armed=new();
@@ -35,9 +35,15 @@ namespace Racer
             car.GetComponent<VehicleRespawn>().Respawned+=Recovered;BreakableProp.BrokenByVehicle+=Smash;
             var contacts=car.gameObject.AddComponent<ActivityLandingContact>();contacts.activities=this;
         }
-        public string Key(ActivitySite s)=>s.id+"/"+race.courseId+"/activities-v1/"+configuration.profileId;
+        // Timing-gate revisions do not invalidate untouched stunt/speed records.
+        // Reverse Street's changed ramp shoulder gets a new activity category.
+        public static string ActivityCourse(string course)=>course switch{
+            "street-v12-corrections"=>"street-v11-arcade", "lake-v5-corrections"=>"lake-v4-arcade",
+            "forest-reverse-v3-corrections"=>"forest-reverse-v2-arcade", _=>course};
+        public string Key(ActivitySite s)=>s.id+"/"+ActivityCourse(race.courseId)+"/activities-v1/"+configuration.profileId;
         public Best PersonalBest(ActivitySite s)=>Results.results.FirstOrDefault(b=>b.key==Key(s));
-        public string Targets{get{if(!Selected)return "";Selected.Targets(configuration.profileId,out float b,out float s,out float g);return $"Bronze {b:0} / silver {s:0} / gold {g:0} "+(Selected.kind==ActivitySite.Kind.Jump?"m":"props / "+Selected.Seconds.ToString("0")+"s");}}
+        public static string Measurement(ActivitySite site,float value)=>site.kind==ActivitySite.Kind.Speed?DisplayUnits.Speed(value):site.kind==ActivitySite.Kind.Jump?DisplayUnits.Jump(value):value.ToString("0")+" props";
+        public string Targets{get{if(!Selected)return "";Selected.Targets(configuration.profileId,out float b,out float s,out float g);return Selected.kind==ActivitySite.Kind.Jump?$"Bronze {DisplayUnits.Target(b)} / silver {DisplayUnits.Target(s)} / gold {DisplayUnits.Target(g)}":$"Bronze {Measurement(Selected,b)} / silver {Measurement(Selected,s)} / gold {Measurement(Selected,g)} / {Selected.Seconds:0}s";}}
         public void Cycle(){var choices=Sites.Where(s=>s.kind!=ActivitySite.Kind.Speed).ToArray();if(choices.Length==0)return;Cancel();Selected=choices[(Array.IndexOf(choices,Selected)+1)%choices.Length];}
         public void BeginAttempt()
         {
@@ -87,7 +93,7 @@ namespace Racer
                         float distance=Vector3.ProjectOnPlane(landing-takeoff,Vector3.up).magnitude;
                         if(!invalid&&air>=.25f&&air<12&&distance>=3&&distance<250)
                         {
-                            LastDistance=distance;LastAirtime=air;Message($"CLEAN JUMP / {distance:0.0} m / {air:0.00} s / {Mathf.RoundToInt(distance*10+air*100)} pts",4);
+                            LastDistance=distance;LastAirtime=air;Message($"CLEAN JUMP / {DisplayUnits.Jump(distance)} / {air:0.00} s / {Mathf.RoundToInt(distance*10+air*100)} pts",4);
                             if(jumpSite&&race.FreeRoam){AttemptActive=false;Award(jumpSite,distance,"m");}
                         }
                         else if(jumpSite){AttemptActive=false;Message("Jump not scored / unstable, wet or hard landing",4);}
@@ -114,7 +120,7 @@ namespace Racer
             if(!race.FreeRoam||!float.IsFinite(value)||value<0)return;int medal=site.Medal(value,configuration.profileId);var best=PersonalBest(site);
             if(site.kind==ActivitySite.Kind.Jump)LastJumpAward=value;
             if(best==null){best=new Best{key=Key(site)};Results.results.Add(best);}best.value=Mathf.Max(best.value,value);best.medal=Mathf.Max(best.medal,medal);Awards++;
-            string measurement=site.kind==ActivitySite.Kind.Speed?$"{value*3.6f:0.0} km/h / PB {best.value*3.6f:0.0}":$"{value:0.0} {units} / PB {best.value:0.0}";
+            string measurement=Measurement(site,value)+" / PB "+Measurement(site,best.value);
             Message(site.title+" / "+measurement+"\n"+new[]{"No medal yet","BRONZE","SILVER","GOLD"}[medal],5);
             try{AtomicSave.Write(path,JsonUtility.ToJson(Results,true));}catch(Exception e){Message("Activity result could not be saved: "+e.Message,6);}
         }

@@ -91,16 +91,18 @@ namespace Racer
         public void SelectScenes()
         {
             Seed=ForcedSeed!=0?ForcedSeed:Guid.NewGuid().GetHashCode();var rng=new System.Random(Seed);
-            float choice=(float)rng.NextDouble();DanScene=choice<.42f?0:choice<.73f?1:2;FriendScene=rng.NextDouble()<.52;
+            int visit=rng.Next(4);DanScene=visit<2?visit:2;FriendScene=visit==2;
             if(ForcedSeed==0 && race.Flow?.Save!=null)
             {
                 var save=race.Flow.Save;
-                var schedule=race.Forest?(save.Settings.forestHouseholds??=new()):(save.Settings.streetHouseholds??=new());
+                var schedule=save.Settings.households??=new();
                 schedule.Next(rng,out int scene,out bool smokers);DanScene=scene;FriendScene=smokers;
                 save.SaveSettings();
             }
             Population=0;
-            foreach(var p in people){p.selected=p.action==0?DanScene==0:p.action==1?DanScene==1:p.action==2?FriendScene:rng.NextDouble()<(p.action==3?.7:.3);p.root.gameObject.SetActive(p.selected);if(p.selected)Population++;}
+            // Retire every pooled household member before activating the new visit.
+            foreach(var p in people){p.root.gameObject.SetActive(false);p.selected=false;if(p.smoke)p.smoke.gameObject.SetActive(false);}
+            foreach(var p in people){p.selected=p.action==0?DanScene==0:p.action==1?DanScene==1:p.action==2?FriendScene:rng.NextDouble()<(p.action==3?.7:.3);p.root.position=p.home;p.root.gameObject.SetActive(p.selected);if(p.selected)Population++;}
             if(ball){ball.position=football[0]+Vector3.up*.95f;ball.gameObject.SetActive(DanScene==0);}batStart=-100;armed=true;nextBat=Time.time+3;awaySince=-1;foreach(var b in bats)b.gameObject.SetActive(false);audioSource.Stop();
         }
         void Update()

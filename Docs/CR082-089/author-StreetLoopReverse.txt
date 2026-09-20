@@ -1,0 +1,23 @@
+Retired launch gate Street Loop Reverse CP 6 @ (-627.01, 9.60, -54.57)
+Post-landing gate station 1690; no required crossing on Trickum launch
+Rebuilt coherent complete crowns/trunks from 11736 remaining authored trees into 90 reverse-only batches; removed 39 whole entrance trees. Replaces orphan lobe fragments from earlier centroid trimming. No tree LOD/billboard generators on this root.
+Grid (319.00, 23.45, 481.02); timing/visible START FINISH index 0 @ (319.65, 16.98, 512.50); origin=4635.467
+GATE 0 station=4635.467 opening=12 tolerance=0.2
+GATE 1 station=242.0058 opening=20.4 tolerance=0.2
+GATE 2 station=473.6833 opening=20.4 tolerance=0.2
+GATE 3 station=703.9913 opening=20.4 tolerance=0.2
+GATE 4 station=935.6616 opening=14.27069 tolerance=0.2
+GATE 5 station=1166.676 opening=12 tolerance=0.2
+GATE 6 station=1689.994 opening=12 tolerance=0.2
+GATE 7 station=1844.1 opening=12 tolerance=0.2
+GATE 8 station=2129.143 opening=12 tolerance=0.2
+GATE 9 station=2344.713 opening=12 tolerance=0.2
+GATE 10 station=2785.328 opening=12 tolerance=0.2
+GATE 11 station=2994.067 opening=12 tolerance=0.2
+GATE 12 station=3477.842 opening=12 tolerance=0.2
+GATE 13 station=3710.08 opening=12 tolerance=0.2
+GATE 14 station=4043.808 opening=12 tolerance=0.2
+GATE 15 station=4172.752 opening=12 tolerance=0.2
+GATE 16 station=4403.607 opening=12 tolerance=0.2
+BRANCH Granite Creek Cut bypass=2,3,4,5
+BRANCH Laurel Switchbacks bypass=12,13

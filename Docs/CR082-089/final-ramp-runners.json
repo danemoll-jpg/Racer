@@ -1,0 +1,44 @@
+[
+  {
+    "Course": "StreetLoopGreybox",
+    "Mode": "race",
+    "Opposite": "no",
+    "RunnerPID": 7708,
+    "StartedUtc": "2026-09-20T06:39:55.4071625Z"
+  },
+  {
+    "Course": "StreetLoopGreybox",
+    "Mode": "roam",
+    "Opposite": "no",
+    "RunnerPID": 4688,
+    "StartedUtc": "2026-09-20T06:39:57.0529058Z"
+  },
+  {
+    "Course": "StreetLoopGreybox",
+    "Mode": "roam",
+    "Opposite": "yes",
+    "RunnerPID": 56552,
+    "StartedUtc": "2026-09-20T06:39:58.7219962Z"
+  },
+  {
+    "Course": "StreetLoopReverse",
+    "Mode": "race",
+    "Opposite": "no",
+    "RunnerPID": 69376,
+    "StartedUtc": "2026-09-20T06:40:00.3678186Z"
+  },
+  {
+    "Course": "StreetLoopReverse",
+    "Mode": "roam",
+    "Opposite": "no",
+    "RunnerPID": 33816,
+    "StartedUtc": "2026-09-20T06:40:04.1953662Z"
+  },
+  {
+    "Course": "StreetLoopReverse",
+    "Mode": "roam",
+    "Opposite": "yes",
+    "RunnerPID": 35844,
+    "StartedUtc": "2026-09-20T06:40:05.7914654Z"
+  }
+]

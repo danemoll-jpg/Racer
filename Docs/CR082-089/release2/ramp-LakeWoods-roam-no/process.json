@@ -1,0 +1,10 @@
+{
+  "Name": "ramp-LakeWoods-roam-no",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\Racer-0.14.0-review2-Windows\\Racer.exe",
+  "RuntimeAssemblySHA256": "4C3CEB98C70F971631096357E788866D770CD9C2A75AF08C4166F3F3F5E83012",
+  "Flags": "-batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr082-85c4c629cad34467ab0035592744c42e\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR082-089\\release2\\ramp-LakeWoods-roam-no\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr082-release2-ramp-LakeWoods-roam-no.log\" -arcadeRamp full -course LakeWoods -rampOpposite no -rampRoam yes",
+  "PID": 75492,
+  "Timeout": false,
+  "Exit": 0,
+  "CompletedUtc": "2026-09-20T07:09:07.1016291Z"
+}

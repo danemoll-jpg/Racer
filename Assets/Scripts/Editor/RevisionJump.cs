@@ -37,7 +37,7 @@ namespace Racer.Editor
             var mesh=ramp.sharedMesh; mesh.Clear(); mesh.SetVertices(vertices); mesh.SetTriangles(triangles,0); mesh.RecalculateNormals(); mesh.RecalculateBounds();
             ramp.sharedMesh=null; ramp.sharedMesh=mesh; ramp.GetComponent<MeshFilter>().sharedMesh=mesh;
             ramp.name="Takeoff - 40m x 6m, 6.2m rise";
-            var sign=root.GetComponentsInChildren<TextMesh>(true).First(t=>t.name=="Recommended speed"); sign.text="JUMP\n125 - 155 km/h\nROAD LANE ON RIGHT";
+            var sign=root.GetComponentsInChildren<TextMesh>(true).First(t=>t.name=="Recommended speed"); sign.text="JUMP\n78 - 96 mph\nROAD LANE ON RIGHT";
             // Existing continuous terrain is supported across both shoulders; mark a wider landing corridor.
             foreach(Transform child in root)
                 if(child.name=="Landing edge")
@@ -53,3 +53,4 @@ namespace Racer.Editor
         }
     }
 }
+

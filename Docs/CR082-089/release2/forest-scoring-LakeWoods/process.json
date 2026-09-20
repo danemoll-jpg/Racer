@@ -1,0 +1,10 @@
+{
+  "Name": "forest-scoring-LakeWoods",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\Racer-0.14.0-review2-Windows\\Racer.exe",
+  "RuntimeAssemblySHA256": "4C3CEB98C70F971631096357E788866D770CD9C2A75AF08C4166F3F3F5E83012",
+  "Flags": "-batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr082-d93018f3e7fd4248b4336990cdd151f9\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR082-089\\release2\\forest-scoring-LakeWoods\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr082-release2-forest-scoring-LakeWoods.log\" -arcadeTest forest-jump -course LakeWoods",
+  "PID": 98548,
+  "Timeout": false,
+  "Exit": 0,
+  "CompletedUtc": "2026-09-20T07:02:48.7918080Z"
+}

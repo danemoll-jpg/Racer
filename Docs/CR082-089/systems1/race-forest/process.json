@@ -1,0 +1,10 @@
+{
+  "Name": "race-forest",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\CR087-systems\\Racer.exe",
+  "RuntimeAssemblySHA256": "1F4766B0EBF3723AE2E8C32A1A00C6C2C6E625302C5F70B27959C00EC61DE43E",
+  "Flags": "-batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr082-cd584ce90f214256af91ae46a1598da7\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR082-089\\systems1\\race-forest\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr082-systems1-race-forest.log\" -threeFeatureTest drive -course LakeWoods -vehicle moto -laps 3 -testSpeed 6",
+  "PID": 69028,
+  "Timeout": false,
+  "Exit": 0,
+  "CompletedUtc": "2026-09-20T06:23:14.7077613Z"
+}

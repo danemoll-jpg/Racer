@@ -12,42 +12,54 @@ namespace Racer
         public bool full;
         public float[] lines;
         public bool Done {get;private set;}
+        // Diagnostic overrides; never active during ordinary play.
+        public bool forceRoam, oppositeDirection;
         static string Arg(string key,string fallback){var args=Environment.GetCommandLineArgs();int n=Array.IndexOf(args,key);return n>=0&&n+1<args.Length?args[n+1]:fallback;}
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
         static void Boot(){var args=Environment.GetCommandLineArgs();if(!Array.Exists(args,a=>a=="-arcadeRamp")||!Array.Exists(args,a=>a=="-racerTestSave")||FindAnyObjectByType<ArcadeRampProbe>())return;var go=new GameObject("Arcade ramp matrix");DontDestroyOnLoad(go);var probe=go.AddComponent<ArcadeRampProbe>();probe.full=true;probe.evidence=Arg("-evidence","Docs/CR075-080/ramp-matrix");}
         string contact="";
-        public void Contact(Collision c){if(c.contactCount>0)contact=c.collider.name+":"+c.GetContact(0).normal.ToString("F2");}
+        public void Contact(Collision c)
+        {
+            for(int i=0;i<c.contactCount;i++)
+            {
+                var point=c.GetContact(i);
+                contact+=c.collider.name+":"+point.normal.ToString("F3")+" separation="+point.separation.ToString("F4")+" impulse="+c.impulse.magnitude.ToString("F3")+";";
+            }
+        }
         IEnumerator Start()
         {
             if(Array.Exists(Environment.GetCommandLineArgs(),a=>a=="-arcadeRamp")){string scene=Arg("-course","StreetLoopReverse");if(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name!=scene)UnityEngine.SceneManagement.SceneManager.LoadScene(scene);yield return null;yield return null;Application.runInBackground=true;QualitySettings.vSyncCount=0;Application.targetFrameRate=120;}
             Directory.CreateDirectory(evidence);var race=FindAnyObjectByType<RaceDirector>();var flow=race.Flow;var car=race.vehicle;
             var probe=car.gameObject.AddComponent<RampContacts>();probe.owner=this;
             var root=GameObject.Find("Phase 4 - Connector Jump").transform;
-            bool reversedRamp=race.reverseCourse&&!race.Forest;
+            bool reversedRamp=(race.reverseCourse&&!race.Forest)^oppositeDirection^(Arg("-rampOpposite","")=="yes");
+            bool roaming=forceRoam||Arg("-rampRoam","")=="yes";
             bool guardMode=Arg("-arcadeRamp","")=="recovery";
             bool activityMode=Arg("-arcadeRamp","")=="activities"||guardMode;
-            var rows=new List<string>{"course,vehicle,speed,line,seconds,travel,air,minUp,recovered,outcome,scoredDistance,scoredAirtime,awards"};
+            var rows=new List<string>{"course,vehicle,speed,line,seconds,travel,air,minUp,recovered,outcome,scoredDistance,scoredAirtime,awards,contactCorrections"};
             foreach(var profile in Array.FindAll(race.EligibleVehicles,p=>Arg("-rampVehicle","")==""||p.Id==Arg("-rampVehicle","")))
             foreach(float speed in float.TryParse(Arg("-rampSpeed",""),System.Globalization.NumberStyles.Float,System.Globalization.CultureInfo.InvariantCulture,out float chosenSpeed)?new[]{chosenSpeed}:Arg("-arcadeRamp","")=="high"?new[]{43f}:guardMode?new[]{28f}:activityMode?new[]{18f,28f,38f}:full?new[]{12f,24f,36f}:new[]{12f})
             foreach(float line in float.TryParse(Arg("-rampLine",""),System.Globalization.NumberStyles.Float,System.Globalization.CultureInfo.InvariantCulture,out float chosenLine)?new[]{chosenLine}:activityMode?new[]{-1.5f}:lines??(full?new[]{-1.5f,-3f,0f,-4.7f,1.7f}:new[]{-1.5f,1.7f}))
             {
-                if(flow.State!=RaceFlow.Stage.Ready){flow.Pause();flow.QuitRace();}flow.OpenGarage();flow.SelectVehicle(profile.Id);flow.CloseGarage();race.opponents=race.traffic=false;if(activityMode||race.Forest)flow.StartFreeRoam();else flow.StartRace();
+                if(flow.State!=RaceFlow.Stage.Ready){flow.Pause();flow.QuitRace();}flow.OpenGarage();flow.SelectVehicle(profile.Id);flow.CloseGarage();race.opponents=race.traffic=false;if(roaming||activityMode||race.Forest)flow.StartFreeRoam();else flow.StartRace();
                 while(flow.State!=RaceFlow.Stage.Racing)yield return null;
                 car.enabled=false;car.GetComponent<VehicleInput>().enabled=false;
                 var f=root.forward*(reversedRamp?-1:1);var start=root.TransformPoint(new Vector3(line,0,reversedRamp?125:-40));
                 if(Physics.Raycast(start+Vector3.up*20,Vector3.down,out var ground,50,1))start.y=ground.point.y+car.suspensionLength-.12f;
                 car.Body.position=start;car.Body.rotation=Quaternion.LookRotation(f);car.transform.SetPositionAndRotation(start,car.Body.rotation);car.Body.linearVelocity=f*speed;car.Body.angularVelocity=Vector3.zero;car.ClearSteering();Physics.SyncTransforms();race.ResetSampling(start,race.Clock);
                 FindAnyObjectByType<ChaseCamera>()?.Snap();float begin=Time.time,air=0,minUp=1,travel=0;bool passed=false;
+                long corrections=VehicleSurfaceContacts.RampCorrections;
                 int awards=flow.Activities.Awards;if(activityMode){flow.Activities.NewSession();flow.Activities.BeginAttempt();}
                 using(var trace=new StreamWriter(evidence+"/"+profile.Id+"-"+speed+"-"+line+".csv"))
                 {
-                    trace.WriteLine("time,speed,travel,x,y,z,grounded,lift,torque,contact");
+                    trace.WriteLine("time,speed,travel,x,y,z,grounded,lift,torque,contact,throttle,brake,steering,velocity,water,up,localZ,vx,vy,vz,yaw,angularSpeed");
                     while(Time.time-begin<22)
                     {
                         float lateral=Vector3.Dot(car.Body.position-start,root.right);float yaw=Vector3.SignedAngle(car.transform.forward,f,Vector3.up);
-                        car.Simulate(Mathf.Clamp01((speed-car.ForwardSpeed)*.5f),car.ForwardSpeed>speed+1?.2f:0,Mathf.Clamp(yaw*.045f-lateral*(reversedRamp?-.10f:.10f),-.5f,.5f),Time.fixedDeltaTime);
+                        float throttle=Mathf.Clamp01((speed-car.ForwardSpeed)*.5f),brake=car.ForwardSpeed>speed+1?.2f:0,steering=Mathf.Clamp(yaw*.045f-lateral*(reversedRamp?-.10f:.10f),-.5f,.5f);
+                        car.Simulate(throttle,brake,steering,Time.fixedDeltaTime);
                         yield return new WaitForFixedUpdate();travel=Vector3.Dot(car.Body.position-start,f);if(car.GroundedWheels<2)air+=Time.fixedDeltaTime;minUp=Mathf.Min(minUp,car.transform.up.y);
-                        var p=car.Body.position;trace.WriteLine($"{Time.time-begin:F3},{car.ForwardSpeed:F3},{travel:F3},{p.x:F3},{p.y:F3},{p.z:F3},{car.GroundedWheels},{car.SuspensionLift:F3},{car.AlignmentTorque:F3},\"{contact}\"");contact="";
+                        var p=car.Body.position;var velocity=car.Body.linearVelocity;trace.WriteLine($"{Time.time-begin:F3},{car.ForwardSpeed:F3},{travel:F3},{p.x:F3},{p.y:F3},{p.z:F3},{car.GroundedWheels},{car.SuspensionLift:F3},{car.AlignmentTorque:F3},\"{contact}\",{throttle:F3},{brake:F3},{steering:F3},{velocity.magnitude:F3},{car.WaterImmersion:F3},{car.transform.up.y:F3},{root.InverseTransformPoint(p).z:F3},{velocity.x:F3},{velocity.y:F3},{velocity.z:F3},{yaw:F3},{car.Body.angularVelocity.magnitude:F3}");contact="";
                         if(guardMode&&air>.35f&&car.GroundedWheels==0){passed=car.GetComponent<VehicleRespawn>().TryRecoverLocal();break;}
                         if(travel>150&&car.GroundedWheels>=2){passed=true;break;}
                     }
@@ -62,12 +74,12 @@ namespace Racer
                 ThreeFeatureValidation.CaptureUi(evidence+"/"+profile.Id+"-"+speed+"-"+line+".png");
                 if(guardMode)passed&=!flow.Activities.AttemptActive&&flow.Activities.Awards==awards;
                 string outcome=!passed?"stalled/crashed":guardMode?"midair reset excluded":supported<15?"cleared / unstable landing":"completed";
-                bool recovered=car.GetComponent<VehicleRespawn>().TryRecoverLocal();rows.Add($"{race.courseName},{profile.Id},{speed},{line},{Time.time-begin:F3},{travel:F3},{air:F3},{minUp:F3},{recovered},{outcome},{flow.Activities.LastDistance:F3},{flow.Activities.LastAirtime:F3},{flow.Activities.Awards-awards}");File.WriteAllLines(evidence+"/ramps.csv",rows);
+                bool recovered=car.GetComponent<VehicleRespawn>().TryRecoverLocal();rows.Add($"{race.courseName},{profile.Id},{speed},{line},{Time.time-begin:F3},{travel:F3},{air:F3},{minUp:F3},{recovered},{outcome},{flow.Activities.LastDistance:F3},{flow.Activities.LastAirtime:F3},{flow.Activities.Awards-awards},{VehicleSurfaceContacts.RampCorrections-corrections}");File.WriteAllLines(evidence+"/ramps.csv",rows);
                 car.enabled=true;
             }
             Done=true;File.WriteAllText(evidence+"/done.txt","Completed; inspect failures in ramps.csv");flow.Pause();
             if(Array.Exists(Environment.GetCommandLineArgs(),a=>a=="-arcadeRamp"))Application.Quit();
         }
     }
-    public sealed class RampContacts:MonoBehaviour {public ArcadeRampProbe owner;void OnCollisionStay(Collision c)=>owner.Contact(c);}
+    public sealed class RampContacts:MonoBehaviour {public ArcadeRampProbe owner;void OnCollisionEnter(Collision c)=>owner.Contact(c);void OnCollisionStay(Collision c)=>owner.Contact(c);}
 }

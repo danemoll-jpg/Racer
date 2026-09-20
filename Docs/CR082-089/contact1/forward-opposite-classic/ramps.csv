@@ -1,0 +1,2 @@
+course,vehicle,speed,line,seconds,travel,air,minUp,recovered,outcome,scoredDistance,scoredAirtime,awards,contactCorrections
+Street Loop,original,24,-1.5,7.280,150.422,2.060,0.937,True,completed,44.470,2.060,0,0

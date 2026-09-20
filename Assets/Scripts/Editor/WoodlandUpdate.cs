@@ -181,7 +181,7 @@ namespace Racer.Editor
             }
             foreach(var branch in branches)
             {
-                var a=branch.At(0,out var f); Sign(root,a-Vector3.Cross(Vector3.up,f).normalized*9,f,branch.title+"  >\n"+(branch.recommendedSpeed*3.6f).ToString("0")+" km/h",amber);
+                var a=branch.At(0,out var f); Sign(root,a-Vector3.Cross(Vector3.up,f).normalized*9,f,branch.title+"  >\n"+DisplayUnits.Speed(branch.recommendedSpeed),amber);
                 for(float s=20;s<branch.Length-15;s+=25)
                 {
                     var p=branch.At(s,out var forward); var right=Vector3.Cross(Vector3.up,forward).normalized;

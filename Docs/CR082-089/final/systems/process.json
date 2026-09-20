@@ -1,0 +1,10 @@
+{
+  "Name": "systems",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\Racer-0.14.0-review1-Windows\\Racer.exe",
+  "RuntimeAssemblySHA256": "4C3CEB98C70F971631096357E788866D770CD9C2A75AF08C4166F3F3F5E83012",
+  "Flags": "-batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr082-1b85752bb5754afe9a69da0c0f1f4ed8\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR082-089\\final\\systems\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr082-final-systems.log\" -correctionPass systems",
+  "PID": 64288,
+  "Timeout": false,
+  "Exit": 0,
+  "CompletedUtc": "2026-09-20T06:41:03.9378453Z"
+}

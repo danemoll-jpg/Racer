@@ -1,0 +1,708 @@
+Scene=Assets/Scenes/StreetLoopReverse.unity
+Ramp frame=(-626.16, 7.80, -109.99) rotation=(0.00000, -0.00825, 0.00000, 0.99997)
+COLLIDER Woods replacing later subdivisions/Tree trunk enabled=True active=True trigger=False bounds=Center: (-659.52, 11.27, -5.25), Extents: (0.50, 3.71, 0.50) mesh=box/other readable=False
+COLLIDER CR041-045 authored correction/Jamerson raised pavement works/Breakable roadworks marker enabled=True active=True trigger=True bounds=Center: (-631.96, 8.45, -98.08), Extents: (0.33, 0.65, 0.33) mesh=box/other readable=False
+COLLIDER CR041-045 authored correction/Jamerson raised pavement works/Graded aggregate shoulder enabled=True active=False trigger=False bounds=Center: (-631.67, 10.45, -73.07), Extents: (0.00, 0.00, 0.00) mesh=box/other readable=False
+COLLIDER CR041-045 authored correction/Jamerson raised pavement works/Breakable roadworks marker enabled=True active=True trigger=True bounds=Center: (-631.76, 8.45, -110.08), Extents: (0.33, 0.65, 0.33) mesh=box/other readable=False
+COLLIDER CR041-045 authored correction/Jamerson raised pavement works/Graded aggregate shoulder enabled=True active=False trigger=False bounds=Center: (-631.44, 8.83, -87.07), Extents: (0.00, 0.00, 0.00) mesh=box/other readable=False
+COLLIDER Woods replacing later subdivisions/Tree trunk enabled=True active=True trigger=False bounds=Center: (-660.23, 10.32, 22.69), Extents: (0.50, 2.79, 0.50) mesh=box/other readable=False
+COLLIDER Phase 4 - Connector Jump/Breakable - Jump approach sign enabled=True active=True trigger=True bounds=Center: (-634.57, 10.07, -146.15), Extents: (4.00, 2.49, 0.18) mesh=box/other readable=False
+COLLIDER Woods replacing later subdivisions/Tree trunk enabled=True active=True trigger=False bounds=Center: (-657.50, 11.47, -145.84), Extents: (0.50, 4.34, 0.50) mesh=box/other readable=False
+COLLIDER Woods replacing later subdivisions/Tree trunk enabled=True active=True trigger=False bounds=Center: (-595.83, 11.22, 36.68), Extents: (0.50, 3.47, 0.50) mesh=box/other readable=False
+COLLIDER CR041-045 authored correction/Jamerson raised pavement works/Graded aggregate shoulder enabled=True active=False trigger=False bounds=Center: (-631.21, 7.96, -101.07), Extents: (0.00, 0.00, 0.00) mesh=box/other readable=False
+COLLIDER CR041-045 authored correction/Jamerson raised pavement works/Graded aggregate shoulder enabled=True active=False trigger=False bounds=Center: (-631.38, 8.50, -91.07), Extents: (0.00, 0.00, 0.00) mesh=box/other readable=False
+COLLIDER Woods replacing later subdivisions/Tree trunk enabled=True active=True trigger=False bounds=Center: (-657.77, 11.56, -117.34), Extents: (0.50, 4.26, 0.50) mesh=box/other readable=False
+COLLIDER CR041-045 authored correction/Jamerson raised pavement works/Graded aggregate shoulder enabled=True active=False trigger=False bounds=Center: (-631.34, 8.36, -93.07), Extents: (0.00, 0.00, 0.00) mesh=box/other readable=False
+COLLIDER CR041-045 authored correction/Jamerson raised pavement works/Graded aggregate shoulder enabled=True active=False trigger=False bounds=Center: (-631.28, 8.13, -97.07), Extents: (0.00, 0.00, 0.00) mesh=box/other readable=False
+COLLIDER Woods replacing later subdivisions/Tree trunk enabled=True active=True trigger=False bounds=Center: (-599.86, 10.53, -157.44), Extents: (0.50, 3.34, 0.50) mesh=box/other readable=False
+COLLIDER Woods replacing later subdivisions/Tree trunk enabled=True active=True trigger=False bounds=Center: (-658.70, 10.38, -142.96), Extents: (0.50, 3.25, 0.50) mesh=box/other readable=False
+COLLIDER CR041-045 authored correction/Jamerson raised pavement works/Graded aggregate shoulder enabled=True active=False trigger=False bounds=Center: (-631.25, 8.04, -99.07), Extents: (0.00, 0.00, 0.00) mesh=box/other readable=False
+COLLIDER Woods replacing later subdivisions/Tree trunk enabled=True active=True trigger=False bounds=Center: (-601.41, 10.27, 4.34), Extents: (0.50, 2.58, 0.50) mesh=box/other readable=False
+COLLIDER CR041-045 authored correction/Jamerson raised pavement works/Breakable roadworks marker enabled=True active=True trigger=True bounds=Center: (-631.43, 8.45, -130.08), Extents: (0.33, 0.65, 0.33) mesh=box/other readable=False
+COLLIDER CR041-045 authored correction/Jamerson raised pavement works/Graded aggregate shoulder enabled=True active=False trigger=False bounds=Center: (-631.64, 10.18, -75.07), Extents: (0.00, 0.00, 0.00) mesh=box/other readable=False
+COLLIDER CR041-045 authored correction/Jamerson raised pavement works/Graded aggregate shoulder enabled=True active=False trigger=False bounds=Center: (-631.18, 7.90, -103.07), Extents: (0.00, 0.00, 0.00) mesh=box/other readable=False
+COLLIDER Woods replacing later subdivisions/Tree trunk enabled=True active=True trigger=False bounds=Center: (-654.64, 10.81, -172.20), Extents: (0.50, 3.74, 0.50) mesh=box/other readable=False
+COLLIDER CR041-045 authored correction/Jamerson raised pavement works/Graded aggregate shoulder enabled=True active=False trigger=False bounds=Center: (-631.15, 7.85, -105.07), Extents: (0.00, 0.00, 0.00) mesh=box/other readable=False
+COLLIDER CR041-045 authored correction/Jamerson raised pavement works/Graded aggregate shoulder enabled=True active=False trigger=False bounds=Center: (-631.51, 9.21, -83.07), Extents: (0.00, 0.00, 0.00) mesh=box/other readable=False
+COLLIDER CR041-045 authored correction/Jamerson raised pavement works/Breakable roadworks marker enabled=True active=True trigger=True bounds=Center: (-632.36, 8.45, -74.09), Extents: (0.33, 0.65, 0.33) mesh=box/other readable=False
+COLLIDER CR041-045 authored correction/Jamerson raised pavement works/Graded aggregate shoulder enabled=True active=False trigger=False bounds=Center: (-631.71, 10.75, -71.07), Extents: (0.00, 0.00, 0.00) mesh=box/other readable=False
+COLLIDER Woods replacing later subdivisions/Tree trunk enabled=True active=True trigger=False bounds=Center: (-591.68, 9.58, -156.47), Extents: (0.50, 2.37, 0.50) mesh=box/other readable=False
+COLLIDER CR041-045 authored correction/Jamerson raised pavement works/Graded aggregate shoulder enabled=True active=False trigger=False bounds=Center: (-631.08, 7.80, -109.07), Extents: (0.00, 0.00, 0.00) mesh=box/other readable=False
+COLLIDER Woods replacing later subdivisions/Tree trunk enabled=True active=True trigger=False bounds=Center: (-653.08, 9.99, 4.87), Extents: (0.50, 2.29, 0.50) mesh=box/other readable=False
+COLLIDER CR041-045 authored correction/Jamerson raised pavement works/Graded aggregate shoulder enabled=True active=False trigger=False bounds=Center: (-631.54, 9.43, -81.07), Extents: (0.00, 0.00, 0.00) mesh=box/other readable=False
+COLLIDER CR041-045 authored correction/Jamerson raised pavement works/Breakable roadworks marker enabled=True active=True trigger=True bounds=Center: (-632.16, 8.45, -86.08), Extents: (0.33, 0.65, 0.33) mesh=box/other readable=False
+COLLIDER Woods replacing later subdivisions/Tree trunk enabled=True active=True trigger=False bounds=Center: (-658.54, 9.62, -107.79), Extents: (0.50, 2.26, 0.50) mesh=box/other readable=False
+COLLIDER CR041-045 authored correction/Jamerson raised pavement works/Breakable roadworks marker enabled=True active=True trigger=True bounds=Center: (-631.60, 8.45, -120.08), Extents: (0.33, 0.65, 0.33) mesh=box/other readable=False
+COLLIDER CR041-045 authored correction/Jamerson raised pavement works/Graded aggregate shoulder enabled=True active=False trigger=False bounds=Center: (-631.41, 8.66, -89.07), Extents: (0.00, 0.00, 0.00) mesh=box/other readable=False
+COLLIDER CR041-045 authored correction/Jamerson raised pavement works/Graded aggregate shoulder enabled=True active=False trigger=False bounds=Center: (-631.58, 9.66, -79.07), Extents: (0.00, 0.00, 0.00) mesh=box/other readable=False
+COLLIDER Remembered houses and approximate buildings/Approximate older residence/Entrance step 3 enabled=True active=True trigger=False bounds=Center: (-661.46, 7.62, -71.40), Extents: (0.34, 0.12, 1.05) mesh=box/other readable=False
+COLLIDER CR041-045 authored correction/Jamerson raised pavement works/Graded aggregate shoulder enabled=True active=False trigger=False bounds=Center: (-631.31, 8.24, -95.07), Extents: (0.00, 0.00, 0.00) mesh=box/other readable=False
+COLLIDER CR041-045 authored correction/Jamerson raised pavement works/Graded aggregate shoulder enabled=True active=False trigger=False bounds=Center: (-631.61, 9.91, -77.07), Extents: (0.00, 0.00, 0.00) mesh=box/other readable=False
+COLLIDER CR041-045 authored correction/Jamerson raised pavement works/Graded aggregate shoulder enabled=True active=False trigger=False bounds=Center: (-631.11, 7.82, -107.07), Extents: (0.00, 0.00, 0.00) mesh=box/other readable=False
+COLLIDER CR041-045 authored correction/Jamerson raised pavement works/Graded aggregate shoulder enabled=True active=False trigger=False bounds=Center: (-631.48, 9.01, -85.07), Extents: (0.00, 0.00, 0.00) mesh=box/other readable=False
+COLLIDER Woods replacing later subdivisions/Tree trunk enabled=True active=True trigger=False bounds=Center: (-654.22, 11.59, -93.77), Extents: (0.50, 4.17, 0.50) mesh=box/other readable=False
+COLLIDER Phase 4 - Connector Jump/Takeoff - 40m x 6m, 6.2m rise enabled=False active=True trigger=False bounds=Center: (-626.16, 7.80, -109.99), Extents: (0.00, 0.00, 0.00) mesh=Assets/Track/Phase4Takeoff.asset readable=True
+COLLIDER Decorative road continuations/Hwy 92 east/Profile shoulders enabled=True active=True trigger=False bounds=Center: (505.84, 24.18, 561.39), Extents: (295.00, 17.69, 14.20) mesh=Assets/Track/CombinedReview/Hwy 92 east shoulders.asset readable=True
+COLLIDER Decorative road continuations/Hwy 92 west/Profile shoulders enabled=True active=True trigger=False bounds=Center: (-795.95, 5.90, 538.93), Extents: (295.00, 2.17, 14.20) mesh=Assets/Track/CombinedReview/Hwy 92 west shoulders.asset readable=True
+COLLIDER Decorative road continuations/Jamerson Rd west/Profile shoulders enabled=True active=True trigger=False bounds=Center: (-811.09, 5.37, -550.02), Extents: (225.00, 1.75, 10.50) mesh=Assets/Track/CombinedReview/Jamerson Rd west shoulders.asset readable=True
+COLLIDER Reverse course authoring/Reverse supported roadworks transition enabled=True active=True trigger=False bounds=Center: (-628.57, 9.52, -55.02), Extents: (5.74, 1.67, 45.08) mesh=Assets/Track/ArcadeReview/TrickumReverse.asset readable=True
+SUPPORT x=-4.7 z=-40 hit=Ground_80_240 y=7.6628 normal=(-0.0010, 1.0000, -0.0035) face=9449 trigger=False
+SUPPORT x=-3 z=-40 hit=Ground_80_240 y=7.6631 normal=(0.0000, 1.0000, -0.0035) face=9451 trigger=False
+SUPPORT x=-1.5 z=-40 hit=Ground_80_240 y=7.6631 normal=(0.0000, 1.0000, -0.0035) face=9453 trigger=False
+SUPPORT x=0 z=-40 hit=Ground_80_240 y=7.6631 normal=(0.0000, 1.0000, -0.0035) face=9614 trigger=False
+SUPPORT x=1.7 z=-40 hit=Ground_80_240 y=7.6631 normal=(0.0000, 1.0000, -0.0035) face=9616 trigger=False
+SUPPORT x=-4.7 z=-38 hit=Ground_80_240 y=7.6697 normal=(-0.0009, 1.0000, -0.0035) face=9609 trigger=False
+SUPPORT x=-3 z=-38 hit=Ground_80_240 y=7.6700 normal=(0.0000, 1.0000, -0.0035) face=9611 trigger=False
+SUPPORT x=-1.5 z=-38 hit=Ground_80_240 y=7.6700 normal=(0.0000, 1.0000, -0.0035) face=9613 trigger=False
+SUPPORT x=0 z=-38 hit=Ground_80_240 y=7.6700 normal=(0.0000, 1.0000, -0.0035) face=9774 trigger=False
+SUPPORT x=1.7 z=-38 hit=Ground_80_240 y=7.6700 normal=(0.0000, 1.0000, -0.0035) face=9776 trigger=False
+SUPPORT x=-4.7 z=-36 hit=Ground_80_240 y=7.6767 normal=(-0.0007, 1.0000, -0.0035) face=9769 trigger=False
+SUPPORT x=-3 z=-36 hit=Ground_80_240 y=7.6769 normal=(0.0000, 1.0000, -0.0035) face=9771 trigger=False
+SUPPORT x=-1.5 z=-36 hit=Ground_80_240 y=7.6769 normal=(0.0000, 1.0000, -0.0035) face=9773 trigger=False
+SUPPORT x=0 z=-36 hit=Ground_80_240 y=7.6769 normal=(0.0000, 1.0000, -0.0035) face=9934 trigger=False
+SUPPORT x=1.7 z=-36 hit=Ground_80_240 y=7.6769 normal=(0.0000, 1.0000, -0.0035) face=9936 trigger=False
+SUPPORT x=-4.7 z=-34 hit=Ground_80_240 y=7.6836 normal=(-0.0006, 1.0000, -0.0035) face=9929 trigger=False
+SUPPORT x=-3 z=-34 hit=Ground_80_240 y=7.6838 normal=(0.0000, 1.0000, -0.0035) face=9931 trigger=False
+SUPPORT x=-1.5 z=-34 hit=Ground_80_240 y=7.6838 normal=(0.0000, 1.0000, -0.0035) face=9933 trigger=False
+SUPPORT x=0 z=-34 hit=Ground_80_240 y=7.6839 normal=(0.0000, 1.0000, -0.0035) face=10094 trigger=False
+SUPPORT x=1.7 z=-34 hit=Ground_80_240 y=7.6839 normal=(0.0000, 1.0000, -0.0035) face=10096 trigger=False
+SUPPORT x=-4.7 z=-32 hit=Ground_80_240 y=7.6906 normal=(-0.0005, 1.0000, -0.0035) face=10089 trigger=False
+SUPPORT x=-3 z=-32 hit=Ground_80_240 y=7.6908 normal=(0.0000, 1.0000, -0.0035) face=10091 trigger=False
+SUPPORT x=-1.5 z=-32 hit=Ground_80_240 y=7.6908 normal=(0.0000, 1.0000, -0.0035) face=10093 trigger=False
+SUPPORT x=0 z=-32 hit=Ground_80_240 y=7.6908 normal=(0.0000, 1.0000, -0.0035) face=10254 trigger=False
+SUPPORT x=1.7 z=-32 hit=Ground_80_240 y=7.6908 normal=(0.0000, 1.0000, -0.0035) face=10256 trigger=False
+SUPPORT x=-4.7 z=-30 hit=Ground_80_240 y=7.6975 normal=(-0.0004, 1.0000, -0.0035) face=10249 trigger=False
+SUPPORT x=-3 z=-30 hit=Ground_80_240 y=7.6977 normal=(0.0000, 1.0000, -0.0035) face=10251 trigger=False
+SUPPORT x=-1.5 z=-30 hit=Ground_80_240 y=7.6977 normal=(0.0000, 1.0000, -0.0035) face=10253 trigger=False
+SUPPORT x=0 z=-30 hit=Ground_80_240 y=7.6977 normal=(0.0000, 1.0000, -0.0035) face=10414 trigger=False
+SUPPORT x=1.7 z=-30 hit=Ground_80_240 y=7.6977 normal=(0.0000, 1.0000, -0.0035) face=10416 trigger=False
+SUPPORT x=-4.7 z=-28 hit=Ground_80_240 y=7.7045 normal=(-0.0003, 1.0000, -0.0035) face=10409 trigger=False
+SUPPORT x=-3 z=-28 hit=Ground_80_240 y=7.7046 normal=(0.0000, 1.0000, -0.0035) face=10411 trigger=False
+SUPPORT x=-1.5 z=-28 hit=Ground_80_240 y=7.7046 normal=(0.0000, 1.0000, -0.0035) face=10413 trigger=False
+SUPPORT x=0 z=-28 hit=Ground_80_240 y=7.7046 normal=(0.0000, 1.0000, -0.0035) face=10574 trigger=False
+SUPPORT x=1.7 z=-28 hit=Ground_80_240 y=7.7047 normal=(0.0000, 1.0000, -0.0035) face=10575 trigger=False
+SUPPORT x=-4.7 z=-26 hit=Ground_80_240 y=7.7114 normal=(-0.0002, 1.0000, -0.0035) face=10569 trigger=False
+SUPPORT x=-3 z=-26 hit=Ground_80_240 y=7.7116 normal=(0.0000, 1.0000, -0.0035) face=10571 trigger=False
+SUPPORT x=-1.5 z=-26 hit=Ground_80_240 y=7.7116 normal=(0.0000, 1.0000, -0.0035) face=10573 trigger=False
+SUPPORT x=0 z=-26 hit=Ground_80_240 y=7.7116 normal=(0.0000, 1.0000, -0.0035) face=10734 trigger=False
+SUPPORT x=1.7 z=-26 hit=Ground_80_240 y=7.7116 normal=(0.0000, 1.0000, -0.0035) face=10735 trigger=False
+SUPPORT x=-4.7 z=-24 hit=Ground_80_240 y=7.7184 normal=(-0.0002, 1.0000, -0.0035) face=10729 trigger=False
+SUPPORT x=-3 z=-24 hit=Ground_80_240 y=7.7185 normal=(0.0000, 1.0000, -0.0035) face=10731 trigger=False
+SUPPORT x=-1.5 z=-24 hit=Ground_80_240 y=7.7185 normal=(0.0000, 1.0000, -0.0035) face=10733 trigger=False
+SUPPORT x=0 z=-24 hit=Ground_80_240 y=7.7185 normal=(0.0000, 1.0000, -0.0035) face=10894 trigger=False
+SUPPORT x=1.7 z=-24 hit=Ground_80_240 y=7.7185 normal=(0.0000, 1.0000, -0.0035) face=10894 trigger=False
+SUPPORT x=-4.7 z=-22 hit=Ground_80_240 y=7.7254 normal=(-0.0001, 1.0000, -0.0035) face=10889 trigger=False
+SUPPORT x=-3 z=-22 hit=Ground_80_240 y=7.7254 normal=(0.0000, 1.0000, -0.0035) face=10891 trigger=False
+SUPPORT x=-1.5 z=-22 hit=Ground_80_240 y=7.7255 normal=(0.0000, 1.0000, -0.0035) face=10893 trigger=False
+SUPPORT x=0 z=-22 hit=Ground_80_240 y=7.7255 normal=(0.0000, 1.0000, -0.0035) face=11054 trigger=False
+SUPPORT x=1.7 z=-22 hit=Ground_80_240 y=7.7255 normal=(0.0000, 1.0000, -0.0035) face=11054 trigger=False
+SUPPORT x=-4.7 z=-20 hit=Ground_80_240 y=7.7323 normal=(0.0000, 1.0000, -0.0035) face=11049 trigger=False
+SUPPORT x=-3 z=-20 hit=Ground_80_240 y=7.7324 normal=(0.0000, 1.0000, -0.0035) face=11051 trigger=False
+SUPPORT x=-1.5 z=-20 hit=Ground_80_240 y=7.7324 normal=(0.0000, 1.0000, -0.0035) face=11053 trigger=False
+SUPPORT x=0 z=-20 hit=Ground_80_240 y=7.7324 normal=(0.0000, 1.0000, -0.0035) face=11214 trigger=False
+SUPPORT x=1.7 z=-20 hit=Ground_80_240 y=7.7324 normal=(0.0000, 1.0000, -0.0035) face=11214 trigger=False
+SUPPORT x=-4.7 z=-18 hit=Ground_80_240 y=7.7393 normal=(0.0000, 1.0000, -0.0035) face=11209 trigger=False
+SUPPORT x=-3 z=-18 hit=Ground_80_240 y=7.7394 normal=(0.0000, 1.0000, -0.0035) face=11211 trigger=False
+SUPPORT x=-1.5 z=-18 hit=Ground_80_240 y=7.7394 normal=(0.0000, 1.0000, -0.0035) face=11213 trigger=False
+SUPPORT x=0 z=-18 hit=Ground_80_240 y=7.7394 normal=(0.0000, 1.0000, -0.0035) face=11374 trigger=False
+SUPPORT x=1.7 z=-18 hit=Ground_80_240 y=7.7394 normal=(0.0000, 1.0000, -0.0035) face=11374 trigger=False
+SUPPORT x=-4.7 z=-16 hit=Ground_80_240 y=7.7463 normal=(0.0000, 1.0000, -0.0035) face=11369 trigger=False
+SUPPORT x=-3 z=-16 hit=Ground_80_240 y=7.7463 normal=(0.0001, 1.0000, -0.0035) face=11371 trigger=False
+SUPPORT x=-1.5 z=-16 hit=Ground_80_240 y=7.7463 normal=(0.0000, 1.0000, -0.0035) face=11373 trigger=False
+SUPPORT x=0 z=-16 hit=Ground_80_240 y=7.7463 normal=(0.0000, 1.0000, -0.0035) face=11534 trigger=False
+SUPPORT x=1.7 z=-16 hit=Ground_80_240 y=7.7464 normal=(0.0000, 1.0000, -0.0035) face=11534 trigger=False
+SUPPORT x=-4.7 z=-14 hit=Ground_80_240 y=7.7533 normal=(0.0000, 1.0000, -0.0035) face=11529 trigger=False
+SUPPORT x=-3 z=-14 hit=Ground_80_240 y=7.7533 normal=(0.0000, 1.0000, -0.0035) face=11531 trigger=False
+SUPPORT x=-1.5 z=-14 hit=Ground_80_240 y=7.7533 normal=(0.0000, 1.0000, -0.0035) face=11533 trigger=False
+SUPPORT x=0 z=-14 hit=Ground_80_240 y=7.7533 normal=(0.0000, 1.0000, -0.0035) face=11694 trigger=False
+SUPPORT x=1.7 z=-14 hit=Ground_80_240 y=7.7533 normal=(0.0000, 1.0000, -0.0035) face=11694 trigger=False
+SUPPORT x=-4.7 z=-12 hit=Ground_80_240 y=7.7602 normal=(0.0000, 1.0000, -0.0035) face=11689 trigger=False
+SUPPORT x=-3 z=-12 hit=Ground_80_240 y=7.7603 normal=(0.0000, 1.0000, -0.0035) face=11691 trigger=False
+SUPPORT x=-1.5 z=-12 hit=Ground_80_240 y=7.7603 normal=(0.0000, 1.0000, -0.0035) face=11693 trigger=False
+SUPPORT x=0 z=-12 hit=Ground_80_240 y=7.7603 normal=(0.0000, 1.0000, -0.0035) face=11854 trigger=False
+SUPPORT x=1.7 z=-12 hit=Ground_80_240 y=7.7603 normal=(0.0000, 1.0000, -0.0035) face=11854 trigger=False
+SUPPORT x=-4.7 z=-10 hit=Ground_80_240 y=7.7672 normal=(0.0000, 1.0000, -0.0035) face=11849 trigger=False
+SUPPORT x=-3 z=-10 hit=Ground_80_240 y=7.7672 normal=(0.0000, 1.0000, -0.0035) face=11851 trigger=False
+SUPPORT x=-1.5 z=-10 hit=Ground_80_240 y=7.7672 normal=(0.0000, 1.0000, -0.0035) face=11853 trigger=False
+SUPPORT x=0 z=-10 hit=Ground_80_240 y=7.7673 normal=(0.0000, 1.0000, -0.0035) face=12014 trigger=False
+SUPPORT x=1.7 z=-10 hit=Ground_80_240 y=7.7673 normal=(0.0000, 1.0000, -0.0035) face=12014 trigger=False
+SUPPORT x=-4.7 z=-8 hit=Ground_80_240 y=7.7742 normal=(0.0000, 1.0000, -0.0035) face=12009 trigger=False
+SUPPORT x=-3 z=-8 hit=Ground_80_240 y=7.7742 normal=(0.0000, 1.0000, -0.0035) face=12011 trigger=False
+SUPPORT x=-1.5 z=-8 hit=Ground_80_240 y=7.7742 normal=(0.0000, 1.0000, -0.0035) face=12013 trigger=False
+SUPPORT x=0 z=-8 hit=Ground_80_240 y=7.7742 normal=(0.0000, 1.0000, -0.0035) face=12172 trigger=False
+SUPPORT x=1.7 z=-8 hit=Ground_80_240 y=7.7743 normal=(0.0000, 1.0000, -0.0035) face=12174 trigger=False
+SUPPORT x=-4.7 z=-6 hit=Ground_80_240 y=7.7812 normal=(0.0000, 1.0000, -0.0035) face=12169 trigger=False
+SUPPORT x=-3 z=-6 hit=Ground_80_240 y=7.7812 normal=(0.0000, 1.0000, -0.0035) face=12171 trigger=False
+SUPPORT x=-1.5 z=-6 hit=Ground_80_240 y=7.7812 normal=(0.0000, 1.0000, -0.0035) face=12173 trigger=False
+SUPPORT x=0 z=-6 hit=Ground_80_240 y=7.7812 normal=(0.0000, 1.0000, -0.0035) face=12332 trigger=False
+SUPPORT x=1.7 z=-6 hit=Ground_80_240 y=7.7813 normal=(0.0000, 1.0000, -0.0035) face=12334 trigger=False
+SUPPORT x=-4.7 z=-4 hit=Ground_80_240 y=7.7882 normal=(0.0001, 1.0000, -0.0035) face=12329 trigger=False
+SUPPORT x=-3 z=-4 hit=Ground_80_240 y=7.7882 normal=(0.0000, 1.0000, -0.0035) face=12331 trigger=False
+SUPPORT x=-1.5 z=-4 hit=Ground_80_240 y=7.7882 normal=(0.0001, 1.0000, -0.0035) face=12333 trigger=False
+SUPPORT x=0 z=-4 hit=Ground_80_240 y=7.7882 normal=(0.0001, 1.0000, -0.0035) face=12492 trigger=False
+SUPPORT x=1.7 z=-4 hit=Ground_80_240 y=7.7883 normal=(0.0001, 1.0000, -0.0035) face=12494 trigger=False
+SUPPORT x=-4.7 z=-2 hit=Ground_80_240 y=7.7952 normal=(0.0001, 1.0000, -0.0035) face=12489 trigger=False
+SUPPORT x=-3 z=-2 hit=Ground_80_240 y=7.7952 normal=(0.0001, 1.0000, -0.0035) face=12491 trigger=False
+SUPPORT x=-1.5 z=-2 hit=Ground_80_240 y=7.7952 normal=(0.0001, 1.0000, -0.0035) face=12493 trigger=False
+SUPPORT x=0 z=-2 hit=Ground_80_240 y=7.7953 normal=(0.0001, 1.0000, -0.0035) face=12652 trigger=False
+SUPPORT x=1.7 z=-2 hit=Ground_80_240 y=7.7953 normal=(0.0001, 1.0000, -0.0035) face=12654 trigger=False
+SUPPORT x=-4.7 z=0 hit=Ground_80_240 y=7.8022 normal=(0.0001, 1.0000, -0.0035) face=12649 trigger=False
+SUPPORT x=-3 z=0 hit=Ground_80_240 y=7.8022 normal=(0.0001, 1.0000, -0.0035) face=12651 trigger=False
+SUPPORT x=-1.5 z=0 hit=Ground_80_240 y=7.8023 normal=(0.0001, 1.0000, -0.0035) face=12653 trigger=False
+SUPPORT x=0 z=0 hit=Ground_80_320 y=7.8023 normal=(0.0001, 1.0000, -0.0035) face=12 trigger=False
+SUPPORT x=1.7 z=0 hit=Ground_80_320 y=7.8023 normal=(0.0001, 1.0000, -0.0035) face=14 trigger=False
+SUPPORT x=-4.7 z=2 hit=Ground_80_320 y=7.8093 normal=(0.0001, 1.0000, -0.0035) face=9 trigger=False
+SUPPORT x=-3 z=2 hit=Ground_80_320 y=7.8093 normal=(0.0001, 1.0000, -0.0035) face=11 trigger=False
+SUPPORT x=-1.5 z=2 hit=Ground_80_320 y=7.8093 normal=(0.0001, 1.0000, -0.0035) face=13 trigger=False
+SUPPORT x=0 z=2 hit=Ground_80_320 y=7.8093 normal=(0.0001, 1.0000, -0.0035) face=172 trigger=False
+SUPPORT x=1.7 z=2 hit=Ground_80_320 y=7.8093 normal=(0.0001, 1.0000, -0.0035) face=174 trigger=False
+SUPPORT x=-4.7 z=4 hit=Ground_80_320 y=7.8163 normal=(0.0001, 1.0000, -0.0035) face=169 trigger=False
+SUPPORT x=-3 z=4 hit=Ground_80_320 y=7.8163 normal=(0.0001, 1.0000, -0.0035) face=171 trigger=False
+SUPPORT x=-1.5 z=4 hit=Ground_80_320 y=7.8163 normal=(0.0001, 1.0000, -0.0035) face=173 trigger=False
+SUPPORT x=0 z=4 hit=Ground_80_320 y=7.8163 normal=(0.0001, 1.0000, -0.0035) face=332 trigger=False
+SUPPORT x=1.7 z=4 hit=Ground_80_320 y=7.8163 normal=(0.0001, 1.0000, -0.0035) face=334 trigger=False
+SUPPORT x=-4.7 z=6 hit=Ground_80_320 y=7.8233 normal=(0.0001, 1.0000, -0.0035) face=329 trigger=False
+SUPPORT x=-3 z=6 hit=Ground_80_320 y=7.8233 normal=(0.0001, 1.0000, -0.0035) face=331 trigger=False
+SUPPORT x=-1.5 z=6 hit=Ground_80_320 y=7.8234 normal=(0.0001, 1.0000, -0.0035) face=333 trigger=False
+SUPPORT x=0 z=6 hit=Ground_80_320 y=7.8234 normal=(0.0001, 1.0000, -0.0035) face=492 trigger=False
+SUPPORT x=1.7 z=6 hit=Ground_80_320 y=7.8234 normal=(0.0001, 1.0000, -0.0035) face=494 trigger=False
+SUPPORT x=-4.7 z=8 hit=Ground_80_320 y=7.8304 normal=(0.0001, 1.0000, -0.0035) face=489 trigger=False
+SUPPORT x=-3 z=8 hit=Ground_80_320 y=7.8304 normal=(0.0001, 1.0000, -0.0035) face=491 trigger=False
+SUPPORT x=-1.5 z=8 hit=Ground_80_320 y=7.8304 normal=(0.0001, 1.0000, -0.0035) face=493 trigger=False
+SUPPORT x=0 z=8 hit=Ground_80_320 y=7.8304 normal=(0.0001, 1.0000, -0.0035) face=652 trigger=False
+SUPPORT x=1.7 z=8 hit=Ground_80_320 y=7.8304 normal=(0.0001, 1.0000, -0.0035) face=654 trigger=False
+SUPPORT x=-4.7 z=10 hit=Ground_80_320 y=7.8375 normal=(0.0001, 1.0000, -0.0035) face=649 trigger=False
+SUPPORT x=-4.7 z=10 hit=Reverse supported roadworks transition y=7.8555 normal=(0.0001, 1.0000, -0.0035) face=1075 trigger=False
+SUPPORT x=-3 z=10 hit=Ground_80_320 y=7.8375 normal=(0.0001, 1.0000, -0.0035) face=651 trigger=False
+SUPPORT x=-3 z=10 hit=Reverse supported roadworks transition y=7.8555 normal=(0.0001, 1.0000, -0.0035) face=1077 trigger=False
+SUPPORT x=-1.5 z=10 hit=Ground_80_320 y=7.8375 normal=(0.0001, 1.0000, -0.0035) face=653 trigger=False
+SUPPORT x=-1.5 z=10 hit=Reverse supported roadworks transition y=7.8555 normal=(0.0001, 1.0000, -0.0035) face=1077 trigger=False
+SUPPORT x=0 z=10 hit=Ground_80_320 y=7.8375 normal=(0.0001, 1.0000, -0.0035) face=812 trigger=False
+SUPPORT x=0 z=10 hit=Reverse supported roadworks transition y=7.8555 normal=(0.0001, 1.0000, -0.0035) face=1077 trigger=False
+SUPPORT x=1.7 z=10 hit=Ground_80_320 y=7.8375 normal=(0.0001, 1.0000, -0.0035) face=814 trigger=False
+SUPPORT x=1.7 z=10 hit=Reverse supported roadworks transition y=7.8555 normal=(0.0001, 1.0000, -0.0035) face=1079 trigger=False
+SUPPORT x=-4.7 z=12 hit=Ground_80_320 y=7.8445 normal=(0.0001, 1.0000, -0.0035) face=809 trigger=False
+SUPPORT x=-4.7 z=12 hit=Reverse supported roadworks transition y=7.8625 normal=(0.0001, 1.0000, -0.0035) face=1056 trigger=False
+SUPPORT x=-3 z=12 hit=Ground_80_320 y=7.8445 normal=(0.0001, 1.0000, -0.0035) face=811 trigger=False
+SUPPORT x=-3 z=12 hit=Reverse supported roadworks transition y=7.8625 normal=(0.0001, 1.0000, -0.0035) face=1053 trigger=False
+SUPPORT x=-1.5 z=12 hit=Ground_80_320 y=7.8446 normal=(0.0001, 1.0000, -0.0035) face=813 trigger=False
+SUPPORT x=-1.5 z=12 hit=Reverse supported roadworks transition y=7.8626 normal=(0.0001, 1.0000, -0.0035) face=1053 trigger=False
+SUPPORT x=0 z=12 hit=Ground_80_320 y=7.8446 normal=(0.0001, 1.0000, -0.0035) face=972 trigger=False
+SUPPORT x=0 z=12 hit=Reverse supported roadworks transition y=7.8626 normal=(0.0001, 1.0000, -0.0035) face=1053 trigger=False
+SUPPORT x=1.7 z=12 hit=Ground_80_320 y=7.8446 normal=(0.0001, 1.0000, -0.0035) face=974 trigger=False
+SUPPORT x=1.7 z=12 hit=Reverse supported roadworks transition y=7.8626 normal=(0.0001, 1.0000, -0.0035) face=1055 trigger=False
+SUPPORT x=-4.7 z=14 hit=Ground_80_320 y=7.8516 normal=(0.0001, 1.0000, -0.0035) face=969 trigger=False
+SUPPORT x=-4.7 z=14 hit=Reverse supported roadworks transition y=7.8696 normal=(0.0001, 1.0000, -0.0035) face=1032 trigger=False
+SUPPORT x=-3 z=14 hit=Ground_80_320 y=7.8516 normal=(0.0001, 1.0000, -0.0035) face=971 trigger=False
+SUPPORT x=-3 z=14 hit=Reverse supported roadworks transition y=7.8696 normal=(0.0001, 1.0000, -0.0035) face=1029 trigger=False
+SUPPORT x=-1.5 z=14 hit=Ground_80_320 y=7.8516 normal=(0.0001, 1.0000, -0.0035) face=973 trigger=False
+SUPPORT x=-1.5 z=14 hit=Reverse supported roadworks transition y=7.8696 normal=(0.0001, 1.0000, -0.0035) face=1029 trigger=False
+SUPPORT x=0 z=14 hit=Ground_80_320 y=7.8516 normal=(0.0001, 1.0000, -0.0035) face=1132 trigger=False
+SUPPORT x=0 z=14 hit=Reverse supported roadworks transition y=7.8696 normal=(0.0001, 1.0000, -0.0035) face=1034 trigger=False
+SUPPORT x=1.7 z=14 hit=Ground_80_320 y=7.8517 normal=(0.0001, 1.0000, -0.0035) face=1134 trigger=False
+SUPPORT x=1.7 z=14 hit=Reverse supported roadworks transition y=7.8697 normal=(0.0001, 1.0000, -0.0035) face=1031 trigger=False
+SUPPORT x=-4.7 z=16 hit=Ground_80_320 y=7.8587 normal=(0.0001, 1.0000, -0.0035) face=1129 trigger=False
+SUPPORT x=-4.7 z=16 hit=Reverse supported roadworks transition y=7.8767 normal=(0.0001, 1.0000, -0.0036) face=1008 trigger=False
+SUPPORT x=-3 z=16 hit=Ground_80_320 y=7.8587 normal=(0.0001, 1.0000, -0.0035) face=1131 trigger=False
+SUPPORT x=-3 z=16 hit=Reverse supported roadworks transition y=7.8767 normal=(0.0001, 1.0000, -0.0036) face=1005 trigger=False
+SUPPORT x=-1.5 z=16 hit=Ground_80_320 y=7.8587 normal=(0.0001, 1.0000, -0.0035) face=1133 trigger=False
+SUPPORT x=-1.5 z=16 hit=Reverse supported roadworks transition y=7.8767 normal=(0.0001, 1.0000, -0.0036) face=1005 trigger=False
+SUPPORT x=0 z=16 hit=Ground_80_320 y=7.8587 normal=(0.0001, 1.0000, -0.0036) face=1292 trigger=False
+SUPPORT x=0 z=16 hit=Reverse supported roadworks transition y=7.8767 normal=(0.0001, 1.0000, -0.0036) face=1005 trigger=False
+SUPPORT x=1.7 z=16 hit=Ground_80_320 y=7.8588 normal=(0.0001, 1.0000, -0.0036) face=1294 trigger=False
+SUPPORT x=1.7 z=16 hit=Reverse supported roadworks transition y=7.8768 normal=(0.0001, 1.0000, -0.0036) face=1007 trigger=False
+SUPPORT x=-4.7 z=18 hit=Ground_80_320 y=7.8658 normal=(0.0001, 1.0000, -0.0036) face=1289 trigger=False
+SUPPORT x=-4.7 z=18 hit=Reverse supported roadworks transition y=7.8838 normal=(0.0001, 1.0000, -0.0036) face=979 trigger=False
+SUPPORT x=-3 z=18 hit=Ground_80_320 y=7.8658 normal=(0.0001, 1.0000, -0.0036) face=1291 trigger=False
+SUPPORT x=-3 z=18 hit=Reverse supported roadworks transition y=7.8838 normal=(0.0001, 1.0000, -0.0036) face=986 trigger=False
+SUPPORT x=-1.5 z=18 hit=Ground_80_320 y=7.8658 normal=(0.0001, 1.0000, -0.0036) face=1293 trigger=False
+SUPPORT x=-1.5 z=18 hit=Reverse supported roadworks transition y=7.8838 normal=(0.0001, 1.0000, -0.0036) face=986 trigger=False
+SUPPORT x=0 z=18 hit=Ground_80_320 y=7.8659 normal=(0.0001, 1.0000, -0.0036) face=1452 trigger=False
+SUPPORT x=0 z=18 hit=Reverse supported roadworks transition y=7.8838 normal=(0.0001, 1.0000, -0.0036) face=986 trigger=False
+SUPPORT x=1.7 z=18 hit=Ground_80_320 y=7.8659 normal=(0.0001, 1.0000, -0.0036) face=1454 trigger=False
+SUPPORT x=1.7 z=18 hit=Reverse supported roadworks transition y=7.8839 normal=(0.0001, 1.0000, -0.0036) face=983 trigger=False
+SUPPORT x=-4.7 z=20 hit=Ground_80_320 y=7.8729 normal=(0.0001, 1.0000, -0.0036) face=1449 trigger=False
+SUPPORT x=-4.7 z=20 hit=Reverse supported roadworks transition y=7.8909 normal=(0.0001, 1.0000, -0.0036) face=955 trigger=False
+SUPPORT x=-3 z=20 hit=Ground_80_320 y=7.8730 normal=(0.0001, 1.0000, -0.0036) face=1451 trigger=False
+SUPPORT x=-3 z=20 hit=Reverse supported roadworks transition y=7.8910 normal=(0.0001, 1.0000, -0.0036) face=957 trigger=False
+SUPPORT x=-1.5 z=20 hit=Ground_80_320 y=7.8730 normal=(0.0001, 1.0000, -0.0036) face=1452 trigger=False
+SUPPORT x=-1.5 z=20 hit=Reverse supported roadworks transition y=7.8910 normal=(0.0001, 1.0000, -0.0036) face=957 trigger=False
+SUPPORT x=0 z=20 hit=Ground_80_320 y=7.8730 normal=(0.0001, 1.0000, -0.0036) face=1612 trigger=False
+SUPPORT x=0 z=20 hit=Reverse supported roadworks transition y=7.8910 normal=(0.0001, 1.0000, -0.0036) face=957 trigger=False
+SUPPORT x=1.7 z=20 hit=Ground_80_320 y=7.8730 normal=(0.0001, 1.0000, -0.0036) face=1614 trigger=False
+SUPPORT x=1.7 z=20 hit=Reverse supported roadworks transition y=7.8910 normal=(0.0001, 1.0000, -0.0036) face=959 trigger=False
+SUPPORT x=-4.7 z=22 hit=Ground_80_320 y=7.8801 normal=(0.0001, 1.0000, -0.0036) face=1609 trigger=False
+SUPPORT x=-4.7 z=22 hit=Reverse supported roadworks transition y=7.8981 normal=(0.0001, 1.0000, -0.0036) face=936 trigger=False
+SUPPORT x=-3 z=22 hit=Ground_80_320 y=7.8801 normal=(0.0001, 1.0000, -0.0036) face=1611 trigger=False
+SUPPORT x=-3 z=22 hit=Reverse supported roadworks transition y=7.8981 normal=(0.0001, 1.0000, -0.0036) face=933 trigger=False
+SUPPORT x=-1.5 z=22 hit=Ground_80_320 y=7.8801 normal=(0.0001, 1.0000, -0.0036) face=1611 trigger=False
+SUPPORT x=-1.5 z=22 hit=Reverse supported roadworks transition y=7.8981 normal=(0.0001, 1.0000, -0.0036) face=933 trigger=False
+SUPPORT x=0 z=22 hit=Ground_80_320 y=7.8801 normal=(0.0001, 1.0000, -0.0036) face=1772 trigger=False
+SUPPORT x=0 z=22 hit=Reverse supported roadworks transition y=7.8981 normal=(0.0001, 1.0000, -0.0036) face=933 trigger=False
+SUPPORT x=1.7 z=22 hit=Ground_80_320 y=7.8801 normal=(0.0001, 1.0000, -0.0036) face=1774 trigger=False
+SUPPORT x=1.7 z=22 hit=Reverse supported roadworks transition y=7.8981 normal=(0.0001, 1.0000, -0.0036) face=940 trigger=False
+SUPPORT x=-4.7 z=24 hit=Ground_80_320 y=7.8872 normal=(0.0001, 1.0000, -0.0036) face=1769 trigger=False
+SUPPORT x=-4.7 z=24 hit=Reverse supported roadworks transition y=7.9052 normal=(0.0001, 1.0000, -0.0036) face=912 trigger=False
+SUPPORT x=-3 z=24 hit=Ground_80_320 y=7.8872 normal=(0.0001, 1.0000, -0.0036) face=1771 trigger=False
+SUPPORT x=-3 z=24 hit=Reverse supported roadworks transition y=7.9052 normal=(0.0002, 0.9999, -0.0118) face=909 trigger=False
+SUPPORT x=-1.5 z=24 hit=Ground_80_320 y=7.8872 normal=(0.0001, 1.0000, -0.0036) face=1771 trigger=False
+SUPPORT x=-1.5 z=24 hit=Reverse supported roadworks transition y=7.9052 normal=(0.0002, 0.9999, -0.0118) face=909 trigger=False
+SUPPORT x=0 z=24 hit=Ground_80_320 y=7.8872 normal=(0.0001, 1.0000, -0.0036) face=1932 trigger=False
+SUPPORT x=0 z=24 hit=Reverse supported roadworks transition y=7.9052 normal=(0.0002, 0.9999, -0.0118) face=909 trigger=False
+SUPPORT x=1.7 z=24 hit=Ground_80_320 y=7.8873 normal=(0.0001, 1.0000, -0.0036) face=1934 trigger=False
+SUPPORT x=1.7 z=24 hit=Reverse supported roadworks transition y=7.9053 normal=(0.0001, 1.0000, -0.0036) face=911 trigger=False
+SUPPORT x=-4.7 z=26 hit=Ground_80_320 y=7.8944 normal=(0.0001, 1.0000, -0.0036) face=1929 trigger=False
+SUPPORT x=-4.7 z=26 hit=Reverse supported roadworks transition y=7.9690 normal=(-0.0302, 0.9970, -0.0718) face=883 trigger=False
+SUPPORT x=-3 z=26 hit=Ground_80_320 y=7.8944 normal=(0.0001, 1.0000, -0.0036) face=1931 trigger=False
+SUPPORT x=-3 z=26 hit=Reverse supported roadworks transition y=7.9754 normal=(0.0009, 0.9983, -0.0575) face=890 trigger=False
+SUPPORT x=-1.5 z=26 hit=Ground_80_320 y=7.8944 normal=(0.0001, 1.0000, -0.0036) face=1931 trigger=False
+SUPPORT x=-1.5 z=26 hit=Reverse supported roadworks transition y=7.9754 normal=(0.0012, 0.9975, -0.0713) face=885 trigger=False
+SUPPORT x=0 z=26 hit=Ground_80_320 y=7.8944 normal=(0.0001, 1.0000, -0.0036) face=2092 trigger=False
+SUPPORT x=0 z=26 hit=Reverse supported roadworks transition y=7.9754 normal=(0.0009, 0.9983, -0.0575) face=890 trigger=False
+SUPPORT x=1.7 z=26 hit=Ground_80_320 y=7.8944 normal=(0.0001, 1.0000, -0.0036) face=2094 trigger=False
+SUPPORT x=1.7 z=26 hit=Reverse supported roadworks transition y=7.9691 normal=(0.0315, 0.9995, -0.0031) face=887 trigger=False
+SUPPORT x=-4.7 z=28 hit=Ground_80_320 y=7.9016 normal=(0.0001, 1.0000, -0.0036) face=2089 trigger=False
+SUPPORT x=-4.7 z=28 hit=Reverse supported roadworks transition y=8.1329 normal=(-0.1176, 0.9930, -0.0055) face=864 trigger=False
+SUPPORT x=-3 z=28 hit=Ground_80_320 y=7.9016 normal=(0.0001, 1.0000, -0.0036) face=2091 trigger=False
+SUPPORT x=-3 z=28 hit=Reverse supported roadworks transition y=8.1566 normal=(0.0020, 0.9929, -0.1193) face=861 trigger=False
+SUPPORT x=-1.5 z=28 hit=Ground_80_320 y=7.9016 normal=(0.0001, 1.0000, -0.0036) face=2091 trigger=False
+SUPPORT x=-1.5 z=28 hit=Reverse supported roadworks transition y=8.1566 normal=(0.0020, 0.9929, -0.1193) face=861 trigger=False
+SUPPORT x=0 z=28 hit=Ground_80_320 y=7.9016 normal=(0.0001, 1.0000, -0.0036) face=2252 trigger=False
+SUPPORT x=0 z=28 hit=Reverse supported roadworks transition y=8.1566 normal=(0.0020, 0.9929, -0.1193) face=861 trigger=False
+SUPPORT x=1.7 z=28 hit=Ground_80_320 y=7.9016 normal=(0.0001, 1.0000, -0.0036) face=2254 trigger=False
+SUPPORT x=1.7 z=28 hit=Reverse supported roadworks transition y=8.1329 normal=(0.1188, 0.9873, -0.1057) face=868 trigger=False
+SUPPORT x=-4.7 z=30 hit=Ground_80_320 y=7.9087 normal=(0.0001, 1.0000, -0.0036) face=2249 trigger=False
+SUPPORT x=-4.7 z=30 hit=Reverse supported roadworks transition y=8.3767 normal=(-0.2372, 0.9590, -0.1551) face=835 trigger=False
+SUPPORT x=-3 z=30 hit=Ground_80_320 y=7.9088 normal=(0.0001, 1.0000, -0.0036) face=2251 trigger=False
+SUPPORT x=-3 z=30 hit=Reverse supported roadworks transition y=8.4268 normal=(0.0026, 0.9878, -0.1557) face=837 trigger=False
+SUPPORT x=-1.5 z=30 hit=Ground_80_320 y=7.9088 normal=(0.0001, 1.0000, -0.0036) face=2251 trigger=False
+SUPPORT x=-1.5 z=30 hit=Reverse supported roadworks transition y=8.4268 normal=(0.0024, 0.9890, -0.1477) face=842 trigger=False
+SUPPORT x=0 z=30 hit=Ground_80_320 y=7.9088 normal=(0.0001, 1.0000, -0.0036) face=2412 trigger=False
+SUPPORT x=0 z=30 hit=Reverse supported roadworks transition y=8.4268 normal=(0.0026, 0.9878, -0.1557) face=837 trigger=False
+SUPPORT x=1.7 z=30 hit=Ground_80_320 y=7.9088 normal=(0.0001, 1.0000, -0.0036) face=2414 trigger=False
+SUPPORT x=1.7 z=30 hit=Reverse supported roadworks transition y=8.3768 normal=(0.2426, 0.9701, 0.0005) face=839 trigger=False
+SUPPORT x=-4.7 z=32 hit=Ground_80_320 y=7.9160 normal=(0.0001, 1.0000, -0.0036) face=2409 trigger=False
+SUPPORT x=-4.7 z=32 hit=Reverse supported roadworks transition y=8.6806 normal=(-0.3831, 0.9237, -0.0096) face=816 trigger=False
+SUPPORT x=-3 z=32 hit=Ground_80_320 y=7.9160 normal=(0.0001, 1.0000, -0.0036) face=2411 trigger=False
+SUPPORT x=-3 z=32 hit=Reverse supported roadworks transition y=8.7636 normal=(0.0030, 0.9835, -0.1810) face=813 trigger=False
+SUPPORT x=-1.5 z=32 hit=Ground_80_320 y=7.9160 normal=(0.0001, 1.0000, -0.0036) face=2411 trigger=False
+SUPPORT x=-1.5 z=32 hit=Reverse supported roadworks transition y=8.7636 normal=(0.0029, 0.9844, -0.1757) face=818 trigger=False
+SUPPORT x=0 z=32 hit=Ground_80_320 y=7.9160 normal=(0.0001, 1.0000, -0.0036) face=2572 trigger=False
+SUPPORT x=0 z=32 hit=Reverse supported roadworks transition y=8.7636 normal=(0.0029, 0.9844, -0.1757) face=818 trigger=False
+SUPPORT x=1.7 z=32 hit=Ground_80_320 y=7.9160 normal=(0.0001, 1.0000, -0.0036) face=2574 trigger=False
+SUPPORT x=1.7 z=32 hit=Reverse supported roadworks transition y=8.6807 normal=(0.3831, 0.9237, 0.0030) face=815 trigger=False
+SUPPORT x=-4.7 z=34 hit=Ground_80_320 y=7.9232 normal=(0.0001, 1.0000, -0.0036) face=2569 trigger=False
+SUPPORT x=-4.7 z=34 hit=Reverse supported roadworks transition y=9.0245 normal=(-0.5055, 0.8446, -0.1767) face=787 trigger=False
+SUPPORT x=-3 z=34 hit=Ground_80_320 y=7.9232 normal=(0.0001, 1.0000, -0.0036) face=2571 trigger=False
+SUPPORT x=-3 z=34 hit=Reverse supported roadworks transition y=9.1449 normal=(0.0032, 0.9812, -0.1928) face=794 trigger=False
+SUPPORT x=-1.5 z=34 hit=Ground_80_320 y=7.9232 normal=(0.0001, 1.0000, -0.0036) face=2571 trigger=False
+SUPPORT x=-1.5 z=34 hit=Reverse supported roadworks transition y=9.1449 normal=(0.0032, 0.9812, -0.1928) face=794 trigger=False
+SUPPORT x=0 z=34 hit=Ground_80_320 y=7.9232 normal=(0.0001, 1.0000, -0.0036) face=2732 trigger=False
+SUPPORT x=0 z=34 hit=Reverse supported roadworks transition y=9.1449 normal=(0.0032, 0.9812, -0.1928) face=794 trigger=False
+SUPPORT x=1.7 z=34 hit=Ground_80_320 y=7.9232 normal=(0.0001, 1.0000, -0.0036) face=2734 trigger=False
+SUPPORT x=1.7 z=34 hit=Reverse supported roadworks transition y=9.0245 normal=(0.5112, 0.8449, -0.1576) face=796 trigger=False
+SUPPORT x=-4.7 z=36 hit=Ground_80_320 y=7.9304 normal=(0.0001, 1.0000, -0.0036) face=2729 trigger=False
+SUPPORT x=-4.7 z=36 hit=Reverse supported roadworks transition y=9.3884 normal=(-0.6246, 0.7809, -0.0131) face=768 trigger=False
+SUPPORT x=-3 z=36 hit=Ground_80_320 y=7.9304 normal=(0.0001, 1.0000, -0.0036) face=2731 trigger=False
+SUPPORT x=-3 z=36 hit=Reverse supported roadworks transition y=9.5484 normal=(0.0033, 0.9799, -0.1994) face=770 trigger=False
+SUPPORT x=-1.5 z=36 hit=Ground_80_320 y=7.9304 normal=(0.0001, 1.0000, -0.0036) face=2731 trigger=False
+SUPPORT x=-1.5 z=36 hit=Reverse supported roadworks transition y=9.5484 normal=(0.0033, 0.9799, -0.1994) face=765 trigger=False
+SUPPORT x=0 z=36 hit=Ground_80_320 y=7.9304 normal=(0.0001, 1.0000, -0.0036) face=2892 trigger=False
+SUPPORT x=0 z=36 hit=Reverse supported roadworks transition y=9.5484 normal=(0.0033, 0.9799, -0.1994) face=765 trigger=False
+SUPPORT x=1.7 z=36 hit=Ground_80_320 y=7.9304 normal=(0.0001, 1.0000, -0.0036) face=2894 trigger=False
+SUPPORT x=1.7 z=36 hit=Reverse supported roadworks transition y=9.3884 normal=(0.6195, 0.7712, -0.1467) face=772 trigger=False
+SUPPORT x=-4.7 z=38 hit=Ground_80_320 y=7.9377 normal=(0.0001, 1.0000, -0.0036) face=2889 trigger=False
+SUPPORT x=-4.7 z=38 hit=Reverse supported roadworks transition y=9.7523 normal=(-0.6973, 0.7010, -0.1493) face=739 trigger=False
+SUPPORT x=-3 z=38 hit=Ground_80_320 y=7.9377 normal=(0.0001, 1.0000, -0.0036) face=2891 trigger=False
+SUPPORT x=-3 z=38 hit=Reverse supported roadworks transition y=9.9520 normal=(0.0032, 0.9812, -0.1929) face=741 trigger=False
+SUPPORT x=-1.5 z=38 hit=Ground_80_320 y=7.9377 normal=(0.0001, 1.0000, -0.0036) face=2891 trigger=False
+SUPPORT x=-1.5 z=38 hit=Reverse supported roadworks transition y=9.9520 normal=(0.0032, 0.9812, -0.1929) face=741 trigger=False
+SUPPORT x=0 z=38 hit=Ground_80_320 y=7.9377 normal=(0.0001, 1.0000, -0.0036) face=3052 trigger=False
+SUPPORT x=0 z=38 hit=Reverse supported roadworks transition y=9.9520 normal=(0.0032, 0.9812, -0.1929) face=741 trigger=False
+SUPPORT x=1.7 z=38 hit=Ground_80_320 y=7.9377 normal=(0.0001, 1.0000, -0.0036) face=3054 trigger=False
+SUPPORT x=1.7 z=38 hit=Reverse supported roadworks transition y=9.7523 normal=(0.7064, 0.7078, 0.0091) face=743 trigger=False
+SUPPORT x=-4.7 z=40 hit=Ground_80_320 y=7.9449 normal=(0.0001, 1.0000, -0.0036) face=3049 trigger=False
+SUPPORT x=-4.7 z=40 hit=Reverse supported roadworks transition y=10.0963 normal=(-0.7642, 0.6449, -0.0149) face=720 trigger=False
+SUPPORT x=-3 z=40 hit=Ground_80_320 y=7.9449 normal=(0.0001, 1.0000, -0.0036) face=3051 trigger=False
+SUPPORT x=-3 z=40 hit=Reverse supported roadworks transition y=10.3333 normal=(0.0029, 0.9844, -0.1757) face=717 trigger=False
+SUPPORT x=-1.5 z=40 hit=Ground_80_320 y=7.9449 normal=(0.0001, 1.0000, -0.0036) face=3051 trigger=False
+SUPPORT x=-1.5 z=40 hit=Reverse supported roadworks transition y=10.3333 normal=(0.0030, 0.9835, -0.1810) face=722 trigger=False
+SUPPORT x=0 z=40 hit=Ground_80_320 y=7.9449 normal=(0.0001, 1.0000, -0.0036) face=3212 trigger=False
+SUPPORT x=0 z=40 hit=Reverse supported roadworks transition y=10.3333 normal=(0.0029, 0.9844, -0.1757) face=717 trigger=False
+SUPPORT x=1.7 z=40 hit=Ground_80_320 y=7.9449 normal=(0.0001, 1.0000, -0.0036) face=3214 trigger=False
+SUPPORT x=1.7 z=40 hit=Reverse supported roadworks transition y=10.0963 normal=(0.7642, 0.6449, 0.0102) face=719 trigger=False
+SUPPORT x=-4.7 z=42 hit=Ground_80_320 y=7.9522 normal=(0.0001, 1.0000, -0.0036) face=3209 trigger=False
+SUPPORT x=-4.7 z=42 hit=Reverse supported roadworks transition y=10.4002 normal=(-0.8034, 0.5952, -0.0154) face=696 trigger=False
+SUPPORT x=-3 z=42 hit=Ground_80_320 y=7.9522 normal=(0.0001, 1.0000, -0.0036) face=3211 trigger=False
+SUPPORT x=-3 z=42 hit=Reverse supported roadworks transition y=10.6702 normal=(0.0024, 0.9890, -0.1477) face=693 trigger=False
+SUPPORT x=-1.5 z=42 hit=Ground_80_320 y=7.9522 normal=(0.0001, 1.0000, -0.0036) face=3211 trigger=False
+SUPPORT x=-1.5 z=42 hit=Reverse supported roadworks transition y=10.6702 normal=(0.0024, 0.9890, -0.1477) face=693 trigger=False
+SUPPORT x=0 z=42 hit=Ground_80_320 y=7.9522 normal=(0.0001, 1.0000, -0.0037) face=3372 trigger=False
+SUPPORT x=0 z=42 hit=Reverse supported roadworks transition y=10.6702 normal=(0.0026, 0.9878, -0.1557) face=698 trigger=False
+SUPPORT x=1.7 z=42 hit=Ground_80_320 y=7.9522 normal=(0.0001, 1.0000, -0.0037) face=3374 trigger=False
+SUPPORT x=1.7 z=42 hit=Reverse supported roadworks transition y=10.4003 normal=(0.8015, 0.5926, -0.0803) face=700 trigger=False
+SUPPORT x=-4.7 z=44 hit=Ground_80_320 y=7.9595 normal=(0.0001, 1.0000, -0.0037) face=3369 trigger=False
+SUPPORT x=-4.7 z=44 hit=Reverse supported roadworks transition y=10.6442 normal=(-0.8287, 0.5595, -0.0157) face=672 trigger=False
+SUPPORT x=-3 z=44 hit=Ground_80_320 y=7.9595 normal=(0.0001, 1.0000, -0.0037) face=3371 trigger=False
+SUPPORT x=-3 z=44 hit=Reverse supported roadworks transition y=10.9405 normal=(0.0020, 0.9929, -0.1193) face=674 trigger=False
+SUPPORT x=-1.5 z=44 hit=Ground_80_320 y=7.9595 normal=(0.0001, 1.0000, -0.0037) face=3371 trigger=False
+SUPPORT x=-1.5 z=44 hit=Reverse supported roadworks transition y=10.9405 normal=(0.0020, 0.9929, -0.1193) face=674 trigger=False
+SUPPORT x=0 z=44 hit=Ground_80_320 y=7.9595 normal=(0.0001, 1.0000, -0.0037) face=3532 trigger=False
+SUPPORT x=0 z=44 hit=Reverse supported roadworks transition y=10.9405 normal=(0.0018, 0.9941, -0.1084) face=669 trigger=False
+SUPPORT x=1.7 z=44 hit=Ground_80_320 y=7.9595 normal=(0.0001, 1.0000, -0.0037) face=3534 trigger=False
+SUPPORT x=1.7 z=44 hit=Reverse supported roadworks transition y=10.6441 normal=(0.8280, 0.5582, -0.0534) face=676 trigger=False
+SUPPORT x=-4.7 z=46 hit=Ground_80_320 y=7.9668 normal=(0.0001, 1.0000, -0.0037) face=3529 trigger=False
+SUPPORT x=-4.7 z=46 hit=Reverse supported roadworks transition y=10.8082 normal=(-0.8431, 0.5376, -0.0159) face=648 trigger=False
+SUPPORT x=-3 z=46 hit=Ground_80_320 y=7.9668 normal=(0.0001, 1.0000, -0.0037) face=3531 trigger=False
+SUPPORT x=-3 z=46 hit=Reverse supported roadworks transition y=11.1219 normal=(0.0009, 0.9983, -0.0576) face=645 trigger=False
+SUPPORT x=-1.5 z=46 hit=Ground_80_320 y=7.9668 normal=(0.0001, 1.0000, -0.0037) face=3531 trigger=False
+SUPPORT x=-1.5 z=46 hit=Reverse supported roadworks transition y=11.1219 normal=(0.0009, 0.9983, -0.0576) face=645 trigger=False
+SUPPORT x=0 z=46 hit=Ground_80_320 y=7.9668 normal=(0.0001, 1.0000, -0.0037) face=3692 trigger=False
+SUPPORT x=0 z=46 hit=Reverse supported roadworks transition y=11.1219 normal=(0.0009, 0.9983, -0.0576) face=645 trigger=False
+SUPPORT x=1.7 z=46 hit=Ground_80_320 y=7.9668 normal=(0.0001, 1.0000, -0.0037) face=3694 trigger=False
+SUPPORT x=1.7 z=46 hit=Reverse supported roadworks transition y=10.8082 normal=(0.8431, 0.5372, -0.0246) face=652 trigger=False
+SUPPORT x=-4.7 z=48 hit=Ground_80_320 y=7.9742 normal=(0.0001, 1.0000, -0.0037) face=3689 trigger=False
+SUPPORT x=-4.7 z=48 hit=Reverse supported roadworks transition y=10.8721 normal=(-0.8466, 0.5284, 0.0642) face=619 trigger=False
+SUPPORT x=-3 z=48 hit=Ground_80_320 y=7.9742 normal=(0.0001, 1.0000, -0.0037) face=3690 trigger=False
+SUPPORT x=-3 z=48 hit=Reverse supported roadworks transition y=11.1922 normal=(0.0002, 0.9999, -0.0119) face=626 trigger=False
+SUPPORT x=-1.5 z=48 hit=Ground_80_320 y=7.9742 normal=(0.0001, 1.0000, -0.0037) face=3691 trigger=False
+SUPPORT x=-1.5 z=48 hit=Reverse supported roadworks transition y=11.1922 normal=(0.0002, 0.9999, -0.0119) face=626 trigger=False
+SUPPORT x=0 z=48 hit=Ground_80_320 y=7.9742 normal=(0.0001, 1.0000, -0.0037) face=3852 trigger=False
+SUPPORT x=0 z=48 hit=Reverse supported roadworks transition y=11.1922 normal=(-0.0024, 0.9893, 0.1462) face=621 trigger=False
+SUPPORT x=1.7 z=48 hit=Ground_80_320 y=7.9742 normal=(0.0001, 1.0000, -0.0037) face=3854 trigger=False
+SUPPORT x=1.7 z=48 hit=Reverse supported roadworks transition y=10.8721 normal=(0.8480, 0.5300, 0.0077) face=628 trigger=False
+SUPPORT x=-4.7 z=50 hit=Ground_80_320 y=7.9815 normal=(0.0001, 1.0000, -0.0037) face=3849 trigger=False
+SUPPORT x=-4.7 z=50 hit=Reverse supported roadworks transition y=10.6118 normal=(-0.8220, 0.5656, 0.0659) face=595 trigger=False
+SUPPORT x=-3 z=50 hit=Ground_80_320 y=7.9815 normal=(0.0001, 1.0000, -0.0037) face=3850 trigger=False
+SUPPORT x=-3 z=50 hit=Reverse supported roadworks transition y=10.9020 normal=(-0.0023, 0.9903, 0.1391) face=597 trigger=False
+SUPPORT x=-1.5 z=50 hit=Ground_80_320 y=7.9815 normal=(0.0001, 1.0000, -0.0037) face=3851 trigger=False
+SUPPORT x=-1.5 z=50 hit=Reverse supported roadworks transition y=10.9020 normal=(-0.0023, 0.9903, 0.1391) face=597 trigger=False
+SUPPORT x=0 z=50 hit=Ground_80_320 y=7.9815 normal=(0.0001, 1.0000, -0.0037) face=4012 trigger=False
+SUPPORT x=0 z=50 hit=Reverse supported roadworks transition y=10.9020 normal=(-0.0023, 0.9903, 0.1391) face=597 trigger=False
+SUPPORT x=1.7 z=50 hit=Ground_80_320 y=7.9815 normal=(0.0001, 1.0000, -0.0037) face=4014 trigger=False
+SUPPORT x=1.7 z=50 hit=Reverse supported roadworks transition y=10.6118 normal=(0.8234, 0.5674, 0.0115) face=599 trigger=False
+SUPPORT x=-4.7 z=52 hit=Ground_80_320 y=7.9889 normal=(0.0001, 1.0000, -0.0037) face=4009 trigger=False
+SUPPORT x=-4.7 z=52 hit=Reverse supported roadworks transition y=10.3645 normal=(-0.7935, 0.6049, 0.0675) face=571 trigger=False
+SUPPORT x=-3 z=52 hit=Ground_80_320 y=7.9889 normal=(0.0001, 1.0000, -0.0037) face=4009 trigger=False
+SUPPORT x=-3 z=52 hit=Reverse supported roadworks transition y=10.6264 normal=(-0.0022, 0.9910, 0.1338) face=578 trigger=False
+SUPPORT x=-1.5 z=52 hit=Ground_80_320 y=7.9889 normal=(0.0001, 1.0000, -0.0037) face=4011 trigger=False
+SUPPORT x=-1.5 z=52 hit=Reverse supported roadworks transition y=10.6264 normal=(-0.0022, 0.9910, 0.1338) face=578 trigger=False
+SUPPORT x=0 z=52 hit=Ground_80_320 y=7.9889 normal=(0.0001, 1.0000, -0.0037) face=4172 trigger=False
+SUPPORT x=0 z=52 hit=Reverse supported roadworks transition y=10.6264 normal=(-0.0022, 0.9912, 0.1321) face=573 trigger=False
+SUPPORT x=1.7 z=52 hit=Ground_80_320 y=7.9889 normal=(0.0001, 1.0000, -0.0037) face=4174 trigger=False
+SUPPORT x=1.7 z=52 hit=Reverse supported roadworks transition y=10.3645 normal=(0.7907, 0.6048, 0.0947) face=580 trigger=False
+SUPPORT x=-4.7 z=54 hit=Ground_80_320 y=7.9963 normal=(0.0001, 1.0000, -0.0037) face=4169 trigger=False
+SUPPORT x=-4.7 z=54 hit=Reverse supported roadworks transition y=10.1303 normal=(-0.7604, 0.6458, 0.0689) face=547 trigger=False
+SUPPORT x=-3 z=54 hit=Ground_80_320 y=7.9963 normal=(0.0001, 1.0000, -0.0037) face=4169 trigger=False
+SUPPORT x=-3 z=54 hit=Reverse supported roadworks transition y=10.3653 normal=(-0.0021, 0.9922, 0.1250) face=549 trigger=False
+SUPPORT x=-1.5 z=54 hit=Ground_80_320 y=7.9963 normal=(0.0001, 1.0000, -0.0037) face=4171 trigger=False
+SUPPORT x=-1.5 z=54 hit=Reverse supported roadworks transition y=10.3653 normal=(-0.0021, 0.9922, 0.1250) face=549 trigger=False
+SUPPORT x=0 z=54 hit=Ground_80_320 y=7.9963 normal=(0.0001, 1.0000, -0.0037) face=4332 trigger=False
+SUPPORT x=0 z=54 hit=Reverse supported roadworks transition y=10.3653 normal=(-0.0021, 0.9922, 0.1250) face=549 trigger=False
+SUPPORT x=1.7 z=54 hit=Ground_80_320 y=7.9963 normal=(0.0001, 1.0000, -0.0037) face=4334 trigger=False
+SUPPORT x=1.7 z=54 hit=Reverse supported roadworks transition y=10.1302 normal=(0.7576, 0.6457, 0.0951) face=556 trigger=False
+SUPPORT x=-4.7 z=56 hit=Ground_80_320 y=8.0037 normal=(0.0001, 1.0000, -0.0037) face=4329 trigger=False
+SUPPORT x=-4.7 z=56 hit=Reverse supported roadworks transition y=9.9091 normal=(-0.7235, 0.6902, -0.0145) face=528 trigger=False
+SUPPORT x=-3 z=56 hit=Ground_80_320 y=8.0037 normal=(0.0001, 1.0000, -0.0037) face=4329 trigger=False
+SUPPORT x=-3 z=56 hit=Reverse supported roadworks transition y=10.1188 normal=(-0.0019, 0.9930, 0.1179) face=525 trigger=False
+SUPPORT x=-1.5 z=56 hit=Ground_80_320 y=8.0037 normal=(0.0001, 1.0000, -0.0037) face=4331 trigger=False
+SUPPORT x=-1.5 z=56 hit=Reverse supported roadworks transition y=10.1188 normal=(-0.0019, 0.9930, 0.1179) face=525 trigger=False
+SUPPORT x=0 z=56 hit=Ground_80_320 y=8.0037 normal=(0.0001, 1.0000, -0.0037) face=4492 trigger=False
+SUPPORT x=0 z=56 hit=Reverse supported roadworks transition y=10.1188 normal=(-0.0019, 0.9930, 0.1179) face=525 trigger=False
+SUPPORT x=1.7 z=56 hit=Ground_80_320 y=8.0037 normal=(0.0001, 1.0000, -0.0037) face=4494 trigger=False
+SUPPORT x=1.7 z=56 hit=Reverse supported roadworks transition y=9.9091 normal=(0.7197, 0.6878, 0.0948) face=532 trigger=False
+SUPPORT x=-4.7 z=58 hit=Ground_80_320 y=8.0112 normal=(0.0001, 1.0000, -0.0037) face=4489 trigger=False
+SUPPORT x=-4.7 z=58 hit=Reverse supported roadworks transition y=9.7010 normal=(-0.6795, 0.7303, 0.0702) face=499 trigger=False
+SUPPORT x=-3 z=58 hit=Ground_80_320 y=8.0112 normal=(0.0001, 1.0000, -0.0037) face=4489 trigger=False
+SUPPORT x=-3 z=58 hit=Reverse supported roadworks transition y=9.8868 normal=(-0.0018, 0.9938, 0.1107) face=501 trigger=False
+SUPPORT x=-1.5 z=58 hit=Ground_80_320 y=8.0112 normal=(0.0001, 1.0000, -0.0037) face=4491 trigger=False
+SUPPORT x=-1.5 z=58 hit=Reverse supported roadworks transition y=9.8868 normal=(-0.0018, 0.9938, 0.1107) face=501 trigger=False
+SUPPORT x=0 z=58 hit=Ground_80_320 y=8.0112 normal=(0.0001, 1.0000, -0.0038) face=4652 trigger=False
+SUPPORT x=0 z=58 hit=Reverse supported roadworks transition y=9.8868 normal=(-0.0018, 0.9938, 0.1107) face=501 trigger=False
+SUPPORT x=1.7 z=58 hit=Ground_80_320 y=8.0112 normal=(0.0001, 1.0000, -0.0038) face=4654 trigger=False
+SUPPORT x=1.7 z=58 hit=Reverse supported roadworks transition y=9.7010 normal=(0.6767, 0.7302, 0.0939) face=508 trigger=False
+SUPPORT x=-4.7 z=60 hit=Ground_80_320 y=8.0187 normal=(0.0001, 1.0000, -0.0038) face=4649 trigger=False
+SUPPORT x=-4.7 z=60 hit=Reverse supported roadworks transition y=9.5061 normal=(-0.6322, 0.7747, -0.0133) face=480 trigger=False
+SUPPORT x=-3 z=60 hit=Ground_80_320 y=8.0187 normal=(0.0001, 1.0000, -0.0038) face=4649 trigger=False
+SUPPORT x=-3 z=60 hit=Reverse supported roadworks transition y=9.6694 normal=(-0.0017, 0.9946, 0.1036) face=477 trigger=False
+SUPPORT x=-1.5 z=60 hit=Ground_80_320 y=8.0187 normal=(0.0001, 1.0000, -0.0038) face=4651 trigger=False
+SUPPORT x=-1.5 z=60 hit=Reverse supported roadworks transition y=9.6694 normal=(-0.0017, 0.9946, 0.1036) face=477 trigger=False
+SUPPORT x=0 z=60 hit=Ground_80_320 y=8.0187 normal=(0.0001, 1.0000, -0.0038) face=4812 trigger=False
+SUPPORT x=0 z=60 hit=Reverse supported roadworks transition y=9.6694 normal=(-0.0017, 0.9946, 0.1036) face=477 trigger=False
+SUPPORT x=1.7 z=60 hit=Ground_80_320 y=8.0187 normal=(0.0001, 1.0000, -0.0038) face=4814 trigger=False
+SUPPORT x=1.7 z=60 hit=Reverse supported roadworks transition y=9.5061 normal=(0.6323, 0.7747, 0.0075) face=479 trigger=False
+SUPPORT x=-4.7 z=62 hit=Ground_80_320 y=8.0263 normal=(0.0001, 1.0000, -0.0038) face=4809 trigger=False
+SUPPORT x=-4.7 z=62 hit=Reverse supported roadworks transition y=9.3243 normal=(-0.5790, 0.8124, 0.0692) face=451 trigger=False
+SUPPORT x=-3 z=62 hit=Ground_80_320 y=8.0263 normal=(0.0001, 1.0000, -0.0038) face=4809 trigger=False
+SUPPORT x=-3 z=62 hit=Reverse supported roadworks transition y=9.4665 normal=(-0.0016, 0.9953, 0.0964) face=453 trigger=False
+SUPPORT x=-1.5 z=62 hit=Ground_80_320 y=8.0263 normal=(0.0001, 1.0000, -0.0038) face=4811 trigger=False
+SUPPORT x=-1.5 z=62 hit=Reverse supported roadworks transition y=9.4665 normal=(-0.0016, 0.9953, 0.0964) face=453 trigger=False
+SUPPORT x=0 z=62 hit=Ground_80_320 y=8.0263 normal=(0.0001, 1.0000, -0.0038) face=4972 trigger=False
+SUPPORT x=0 z=62 hit=Reverse supported roadworks transition y=9.4665 normal=(-0.0016, 0.9953, 0.0964) face=453 trigger=False
+SUPPORT x=1.7 z=62 hit=Ground_80_320 y=8.0263 normal=(0.0001, 1.0000, -0.0038) face=4974 trigger=False
+SUPPORT x=1.7 z=62 hit=Reverse supported roadworks transition y=9.3243 normal=(0.5763, 0.8123, 0.0897) face=460 trigger=False
+SUPPORT x=-4.7 z=64 hit=Ground_80_320 y=8.0339 normal=(0.0001, 1.0000, -0.0038) face=4969 trigger=False
+SUPPORT x=-4.7 z=64 hit=Reverse supported roadworks transition y=9.1555 normal=(-0.5226, 0.8525, -0.0119) face=432 trigger=False
+SUPPORT x=-3 z=64 hit=Ground_80_320 y=8.0339 normal=(0.0001, 1.0000, -0.0038) face=4969 trigger=False
+SUPPORT x=-3 z=64 hit=Reverse supported roadworks transition y=9.2782 normal=(-0.0015, 0.9958, 0.0910) face=434 trigger=False
+SUPPORT x=-1.5 z=64 hit=Ground_80_320 y=8.0339 normal=(0.0001, 1.0000, -0.0038) face=4971 trigger=False
+SUPPORT x=-1.5 z=64 hit=Reverse supported roadworks transition y=9.2782 normal=(-0.0015, 0.9958, 0.0910) face=434 trigger=False
+SUPPORT x=0 z=64 hit=Ground_80_320 y=8.0339 normal=(0.0001, 1.0000, -0.0038) face=5132 trigger=False
+SUPPORT x=0 z=64 hit=Reverse supported roadworks transition y=9.2782 normal=(-0.0015, 0.9960, 0.0892) face=429 trigger=False
+SUPPORT x=1.7 z=64 hit=Ground_80_320 y=8.0339 normal=(0.0001, 1.0000, -0.0038) face=5134 trigger=False
+SUPPORT x=1.7 z=64 hit=Reverse supported roadworks transition y=9.1555 normal=(0.5198, 0.8499, 0.0863) face=436 trigger=False
+SUPPORT x=-4.7 z=66 hit=Ground_80_320 y=8.0415 normal=(0.0001, 1.0000, -0.0038) face=5128 trigger=False
+SUPPORT x=-4.7 z=66 hit=Reverse supported roadworks transition y=8.9999 normal=(-0.4629, 0.8863, -0.0110) face=408 trigger=False
+SUPPORT x=-3 z=66 hit=Ground_80_320 y=8.0415 normal=(0.0001, 1.0000, -0.0038) face=5129 trigger=False
+SUPPORT x=-3 z=66 hit=Reverse supported roadworks transition y=9.1044 normal=(-0.0014, 0.9966, 0.0820) face=405 trigger=False
+SUPPORT x=-1.5 z=66 hit=Ground_80_320 y=8.0415 normal=(0.0001, 1.0000, -0.0038) face=5131 trigger=False
+SUPPORT x=-1.5 z=66 hit=Reverse supported roadworks transition y=9.1044 normal=(-0.0014, 0.9966, 0.0820) face=405 trigger=False
+SUPPORT x=0 z=66 hit=Ground_80_320 y=8.0415 normal=(0.0001, 1.0000, -0.0038) face=5292 trigger=False
+SUPPORT x=0 z=66 hit=Reverse supported roadworks transition y=9.1044 normal=(-0.0014, 0.9966, 0.0820) face=405 trigger=False
+SUPPORT x=1.7 z=66 hit=Ground_80_320 y=8.0415 normal=(0.0001, 1.0000, -0.0038) face=5294 trigger=False
+SUPPORT x=1.7 z=66 hit=Reverse supported roadworks transition y=8.9999 normal=(0.4605, 0.8839, 0.0820) face=412 trigger=False
+SUPPORT x=-4.7 z=68 hit=Ground_80_320 y=8.0492 normal=(0.0001, 1.0000, -0.0038) face=5288 trigger=False
+SUPPORT x=-4.7 z=68 hit=Reverse supported roadworks transition y=8.8574 normal=(-0.4019, 0.9156, -0.0101) face=384 trigger=False
+SUPPORT x=-3 z=68 hit=Ground_80_320 y=8.0492 normal=(0.0001, 1.0000, -0.0038) face=5289 trigger=False
+SUPPORT x=-3 z=68 hit=Reverse supported roadworks transition y=8.9452 normal=(-0.0012, 0.9972, 0.0748) face=381 trigger=False
+SUPPORT x=-1.5 z=68 hit=Ground_80_320 y=8.0492 normal=(0.0001, 1.0000, -0.0038) face=5291 trigger=False
+SUPPORT x=-1.5 z=68 hit=Reverse supported roadworks transition y=8.9452 normal=(-0.0012, 0.9972, 0.0748) face=381 trigger=False
+SUPPORT x=0 z=68 hit=Ground_80_320 y=8.0492 normal=(0.0001, 1.0000, -0.0039) face=5452 trigger=False
+SUPPORT x=0 z=68 hit=Reverse supported roadworks transition y=8.9452 normal=(-0.0012, 0.9972, 0.0748) face=381 trigger=False
+SUPPORT x=1.7 z=68 hit=Ground_80_320 y=8.0492 normal=(0.0001, 1.0000, -0.0039) face=5454 trigger=False
+SUPPORT x=1.7 z=68 hit=Reverse supported roadworks transition y=8.8573 normal=(0.4020, 0.9156, 0.0031) face=383 trigger=False
+SUPPORT x=-4.7 z=70 hit=Ground_80_320 y=8.0568 normal=(-0.0035, 1.0000, -0.0039) face=5447 trigger=False
+SUPPORT x=-4.7 z=70 hit=Reverse supported roadworks transition y=8.7279 normal=(-0.3410, 0.9400, -0.0093) face=360 trigger=False
+SUPPORT x=-3 z=70 hit=Ground_80_320 y=8.0569 normal=(0.0001, 1.0000, -0.0039) face=5449 trigger=False
+SUPPORT x=-3 z=70 hit=Reverse supported roadworks transition y=8.8005 normal=(-0.0011, 0.9976, 0.0694) face=362 trigger=False
+SUPPORT x=-1.5 z=70 hit=Ground_80_320 y=8.0569 normal=(0.0001, 1.0000, -0.0039) face=5451 trigger=False
+SUPPORT x=-1.5 z=70 hit=Reverse supported roadworks transition y=8.8005 normal=(-0.0011, 0.9976, 0.0694) face=362 trigger=False
+SUPPORT x=0 z=70 hit=Ground_80_320 y=8.0569 normal=(0.0001, 1.0000, -0.0039) face=5612 trigger=False
+SUPPORT x=0 z=70 hit=Reverse supported roadworks transition y=8.8005 normal=(-0.0011, 0.9977, 0.0676) face=357 trigger=False
+SUPPORT x=1.7 z=70 hit=Ground_80_320 y=8.0569 normal=(0.0001, 1.0000, -0.0039) face=5614 trigger=False
+SUPPORT x=1.7 z=70 hit=Reverse supported roadworks transition y=8.7279 normal=(0.3392, 0.9380, 0.0709) face=364 trigger=False
+SUPPORT x=-4.7 z=72 hit=Ground_80_320 y=8.0645 normal=(-0.0032, 1.0000, -0.0039) face=5607 trigger=False
+SUPPORT x=-4.7 z=72 hit=Reverse supported roadworks transition y=8.6116 normal=(-0.2819, 0.9594, -0.0084) face=336 trigger=False
+SUPPORT x=-3 z=72 hit=Ground_80_320 y=8.0646 normal=(0.0001, 1.0000, -0.0039) face=5609 trigger=False
+SUPPORT x=-3 z=72 hit=Reverse supported roadworks transition y=8.6704 normal=(-0.0010, 0.9982, 0.0604) face=333 trigger=False
+SUPPORT x=-1.5 z=72 hit=Ground_80_320 y=8.0646 normal=(0.0001, 1.0000, -0.0039) face=5611 trigger=False
+SUPPORT x=-1.5 z=72 hit=Reverse supported roadworks transition y=8.6704 normal=(-0.0010, 0.9982, 0.0604) face=333 trigger=False
+SUPPORT x=0 z=72 hit=Ground_80_320 y=8.0646 normal=(0.0001, 1.0000, -0.0039) face=5772 trigger=False
+SUPPORT x=0 z=72 hit=Reverse supported roadworks transition y=8.6704 normal=(-0.0010, 0.9982, 0.0604) face=333 trigger=False
+SUPPORT x=1.7 z=72 hit=Ground_80_320 y=8.0646 normal=(0.0001, 1.0000, -0.0039) face=5774 trigger=False
+SUPPORT x=1.7 z=72 hit=Reverse supported roadworks transition y=8.6116 normal=(0.2804, 0.9577, 0.0643) face=340 trigger=False
+SUPPORT x=-4.7 z=74 hit=Ground_80_320 y=8.0722 normal=(-0.0029, 1.0000, -0.0039) face=5767 trigger=False
+SUPPORT x=-4.7 z=74 hit=Reverse supported roadworks transition y=8.5084 normal=(-0.2261, 0.9741, -0.0076) face=312 trigger=False
+SUPPORT x=-3 z=74 hit=Ground_80_320 y=8.0724 normal=(0.0001, 1.0000, -0.0039) face=5769 trigger=False
+SUPPORT x=-3 z=74 hit=Reverse supported roadworks transition y=8.5548 normal=(-0.0009, 0.9985, 0.0550) face=314 trigger=False
+SUPPORT x=-1.5 z=74 hit=Ground_80_320 y=8.0724 normal=(0.0001, 1.0000, -0.0039) face=5771 trigger=False
+SUPPORT x=-1.5 z=74 hit=Reverse supported roadworks transition y=8.5548 normal=(-0.0009, 0.9985, 0.0550) face=314 trigger=False
+SUPPORT x=0 z=74 hit=Ground_80_320 y=8.0724 normal=(0.0001, 1.0000, -0.0039) face=5932 trigger=False
+SUPPORT x=0 z=74 hit=Reverse supported roadworks transition y=8.5548 normal=(-0.0009, 0.9985, 0.0550) face=314 trigger=False
+SUPPORT x=1.7 z=74 hit=Ground_80_320 y=8.0724 normal=(0.0001, 1.0000, -0.0039) face=5934 trigger=False
+SUPPORT x=1.7 z=74 hit=Reverse supported roadworks transition y=8.5084 normal=(0.2262, 0.9741, -0.0001) face=311 trigger=False
+SUPPORT x=-4.7 z=76 hit=Ground_80_320 y=8.0799 normal=(-0.0026, 1.0000, -0.0039) face=5927 trigger=False
+SUPPORT x=-4.7 z=76 hit=Reverse supported roadworks transition y=8.4182 normal=(-0.1749, 0.9846, -0.0067) face=288 trigger=False
+SUPPORT x=-3 z=76 hit=Ground_80_320 y=8.0802 normal=(0.0001, 1.0000, -0.0039) face=5929 trigger=False
+SUPPORT x=-3 z=76 hit=Reverse supported roadworks transition y=8.4538 normal=(-0.0008, 0.9989, 0.0477) face=290 trigger=False
+SUPPORT x=-1.5 z=76 hit=Ground_80_320 y=8.0802 normal=(0.0001, 1.0000, -0.0039) face=5931 trigger=False
+SUPPORT x=-1.5 z=76 hit=Reverse supported roadworks transition y=8.4538 normal=(-0.0008, 0.9989, 0.0477) face=290 trigger=False
+SUPPORT x=0 z=76 hit=Ground_80_320 y=8.0802 normal=(0.0001, 1.0000, -0.0039) face=6092 trigger=False
+SUPPORT x=0 z=76 hit=Reverse supported roadworks transition y=8.4538 normal=(-0.0008, 0.9989, 0.0459) face=285 trigger=False
+SUPPORT x=1.7 z=76 hit=Ground_80_320 y=8.0802 normal=(0.0001, 1.0000, -0.0039) face=6094 trigger=False
+SUPPORT x=1.7 z=76 hit=Reverse supported roadworks transition y=8.4182 normal=(0.1740, 0.9835, 0.0499) face=292 trigger=False
+SUPPORT x=-4.7 z=78 hit=Ground_80_320 y=8.0877 normal=(-0.0024, 1.0000, -0.0039) face=6087 trigger=False
+SUPPORT x=-4.7 z=78 hit=Reverse supported roadworks transition y=8.3412 normal=(-0.1294, 0.9916, -0.0060) face=264 trigger=False
+SUPPORT x=-3 z=78 hit=Ground_80_320 y=8.0881 normal=(0.0001, 1.0000, -0.0039) face=6089 trigger=False
+SUPPORT x=-3 z=78 hit=Reverse supported roadworks transition y=8.3673 normal=(-0.0006, 0.9993, 0.0387) face=261 trigger=False
+SUPPORT x=-1.5 z=78 hit=Ground_80_320 y=8.0881 normal=(0.0001, 1.0000, -0.0039) face=6091 trigger=False
+SUPPORT x=-1.5 z=78 hit=Reverse supported roadworks transition y=8.3673 normal=(-0.0006, 0.9993, 0.0387) face=261 trigger=False
+SUPPORT x=0 z=78 hit=Ground_80_320 y=8.0881 normal=(0.0001, 1.0000, -0.0039) face=6252 trigger=False
+SUPPORT x=0 z=78 hit=Reverse supported roadworks transition y=8.3673 normal=(-0.0006, 0.9993, 0.0387) face=261 trigger=False
+SUPPORT x=1.7 z=78 hit=Ground_80_320 y=8.0881 normal=(0.0001, 1.0000, -0.0039) face=6254 trigger=False
+SUPPORT x=1.7 z=78 hit=Reverse supported roadworks transition y=8.3412 normal=(0.1287, 0.9908, 0.0423) face=268 trigger=False
+SUPPORT x=-4.7 z=80 hit=Ground_80_320 y=8.0956 normal=(-0.0021, 1.0000, -0.0039) face=6247 trigger=False
+SUPPORT x=-4.7 z=80 hit=Reverse supported roadworks transition y=8.2772 normal=(-0.0903, 0.9959, -0.0054) face=240 trigger=False
+SUPPORT x=-3 z=80 hit=Ground_80_320 y=8.0960 normal=(0.0001, 1.0000, -0.0039) face=6249 trigger=False
+SUPPORT x=-3 z=80 hit=Reverse supported roadworks transition y=8.2954 normal=(-0.0005, 0.9994, 0.0332) face=242 trigger=False
+SUPPORT x=-1.5 z=80 hit=Ground_80_320 y=8.0960 normal=(0.0001, 1.0000, -0.0039) face=6251 trigger=False
+SUPPORT x=-1.5 z=80 hit=Reverse supported roadworks transition y=8.2954 normal=(-0.0005, 0.9994, 0.0332) face=242 trigger=False
+SUPPORT x=0 z=80 hit=Ground_80_320 y=8.0959 normal=(0.0001, 1.0000, -0.0040) face=6412 trigger=False
+SUPPORT x=0 z=80 hit=Reverse supported roadworks transition y=8.2954 normal=(-0.0005, 0.9995, 0.0314) face=237 trigger=False
+SUPPORT x=1.7 z=80 hit=Ground_80_320 y=8.0959 normal=(0.0001, 1.0000, -0.0040) face=6414 trigger=False
+SUPPORT x=1.7 z=80 hit=Reverse supported roadworks transition y=8.2772 normal=(0.0897, 0.9954, 0.0346) face=244 trigger=False
+SUPPORT x=-4.7 z=82 hit=Ground_80_320 y=8.1035 normal=(-0.0018, 1.0000, -0.0040) face=6407 trigger=False
+SUPPORT x=-4.7 z=82 hit=Reverse supported roadworks transition y=8.2264 normal=(-0.0579, 0.9983, -0.0049) face=216 trigger=False
+SUPPORT x=-3 z=82 hit=Ground_80_320 y=8.1039 normal=(0.0001, 1.0000, -0.0040) face=6409 trigger=False
+SUPPORT x=-3 z=82 hit=Reverse supported roadworks transition y=8.2380 normal=(-0.0004, 0.9997, 0.0241) face=213 trigger=False
+SUPPORT x=-1.5 z=82 hit=Ground_80_320 y=8.1039 normal=(0.0001, 1.0000, -0.0040) face=6411 trigger=False
+SUPPORT x=-1.5 z=82 hit=Reverse supported roadworks transition y=8.2380 normal=(-0.0004, 0.9997, 0.0241) face=213 trigger=False
+SUPPORT x=0 z=82 hit=Ground_80_320 y=8.1039 normal=(0.0001, 1.0000, -0.0040) face=6572 trigger=False
+SUPPORT x=0 z=82 hit=Reverse supported roadworks transition y=8.2380 normal=(-0.0004, 0.9997, 0.0241) face=213 trigger=False
+SUPPORT x=1.7 z=82 hit=Ground_80_320 y=8.1039 normal=(0.0001, 1.0000, -0.0040) face=6574 trigger=False
+SUPPORT x=1.7 z=82 hit=Reverse supported roadworks transition y=8.2263 normal=(0.0580, 0.9983, -0.0030) face=215 trigger=False
+SUPPORT x=-4.7 z=84 hit=Ground_80_320 y=8.1114 normal=(-0.0016, 1.0000, -0.0040) face=6567 trigger=False
+SUPPORT x=-4.7 z=84 hit=Reverse supported roadworks transition y=8.1886 normal=(-0.0326, 0.9995, -0.0045) face=192 trigger=False
+SUPPORT x=-3 z=84 hit=Ground_80_320 y=8.1118 normal=(0.0001, 1.0000, -0.0040) face=6569 trigger=False
+SUPPORT x=-3 z=84 hit=Reverse supported roadworks transition y=8.1951 normal=(-0.0003, 0.9998, 0.0187) face=194 trigger=False
+SUPPORT x=-1.5 z=84 hit=Ground_80_320 y=8.1118 normal=(0.0001, 1.0000, -0.0040) face=6571 trigger=False
+SUPPORT x=-1.5 z=84 hit=Reverse supported roadworks transition y=8.1951 normal=(-0.0003, 0.9998, 0.0187) face=194 trigger=False
+SUPPORT x=0 z=84 hit=Ground_80_320 y=8.1118 normal=(0.0001, 1.0000, -0.0040) face=6732 trigger=False
+SUPPORT x=0 z=84 hit=Reverse supported roadworks transition y=8.1951 normal=(-0.0003, 0.9999, 0.0169) face=189 trigger=False
+SUPPORT x=1.7 z=84 hit=Ground_80_320 y=8.1118 normal=(0.0001, 1.0000, -0.0040) face=6734 trigger=False
+SUPPORT x=1.7 z=84 hit=Reverse supported roadworks transition y=8.1886 normal=(0.0327, 0.9995, -0.0034) face=191 trigger=False
+SUPPORT x=-4.7 z=86 hit=Ground_80_320 y=8.1194 normal=(-0.0014, 1.0000, -0.0040) face=6727 trigger=False
+SUPPORT x=-4.7 z=86 hit=Reverse supported roadworks transition y=8.1639 normal=(-0.0144, 0.9999, -0.0042) face=168 trigger=False
+SUPPORT x=-3 z=86 hit=Ground_80_320 y=8.1198 normal=(0.0001, 1.0000, -0.0040) face=6729 trigger=False
+SUPPORT x=-3 z=86 hit=Reverse supported roadworks transition y=8.1668 normal=(-0.0002, 1.0000, 0.0096) face=165 trigger=False
+SUPPORT x=-1.5 z=86 hit=Ground_80_320 y=8.1198 normal=(0.0001, 1.0000, -0.0040) face=6731 trigger=False
+SUPPORT x=-1.5 z=86 hit=Reverse supported roadworks transition y=8.1668 normal=(-0.0002, 1.0000, 0.0096) face=165 trigger=False
+SUPPORT x=0 z=86 hit=Ground_80_320 y=8.1198 normal=(0.0001, 1.0000, -0.0040) face=6733 trigger=False
+SUPPORT x=0 z=86 hit=Reverse supported roadworks transition y=8.1668 normal=(-0.0002, 1.0000, 0.0096) face=165 trigger=False
+SUPPORT x=1.7 z=86 hit=Ground_80_320 y=8.1198 normal=(0.0001, 1.0000, -0.0040) face=6894 trigger=False
+SUPPORT x=1.7 z=86 hit=Reverse supported roadworks transition y=8.1639 normal=(0.0146, 0.9999, -0.0038) face=167 trigger=False
+SUPPORT x=-4.7 z=88 hit=Ground_80_320 y=8.1274 normal=(-0.0012, 1.0000, -0.0040) face=6887 trigger=False
+SUPPORT x=-4.7 z=88 hit=Reverse supported roadworks transition y=8.1523 normal=(-0.0037, 1.0000, 0.0023) face=139 trigger=False
+SUPPORT x=-3 z=88 hit=Ground_80_320 y=8.1278 normal=(0.0001, 1.0000, -0.0040) face=6889 trigger=False
+SUPPORT x=-3 z=88 hit=Reverse supported roadworks transition y=8.1531 normal=(-0.0001, 1.0000, 0.0042) face=146 trigger=False
+SUPPORT x=-1.5 z=88 hit=Ground_80_320 y=8.1278 normal=(0.0001, 1.0000, -0.0040) face=6891 trigger=False
+SUPPORT x=-1.5 z=88 hit=Reverse supported roadworks transition y=8.1531 normal=(0.0000, 1.0000, 0.0023) face=141 trigger=False
+SUPPORT x=0 z=88 hit=Ground_80_320 y=8.1278 normal=(0.0001, 1.0000, -0.0040) face=6893 trigger=False
+SUPPORT x=0 z=88 hit=Reverse supported roadworks transition y=8.1530 normal=(0.0000, 1.0000, 0.0023) face=141 trigger=False
+SUPPORT x=1.7 z=88 hit=Ground_80_320 y=8.1278 normal=(0.0001, 1.0000, -0.0040) face=7054 trigger=False
+SUPPORT x=1.7 z=88 hit=Reverse supported roadworks transition y=8.1523 normal=(0.0036, 1.0000, 0.0042) face=148 trigger=False
+SUPPORT x=-4.7 z=90 hit=Ground_80_320 y=8.1355 normal=(-0.0010, 1.0000, -0.0040) face=7047 trigger=False
+SUPPORT x=-4.7 z=90 hit=Reverse supported roadworks transition y=8.1538 normal=(0.0001, 1.0000, -0.0040) face=120 trigger=False
+SUPPORT x=-3 z=90 hit=Ground_80_320 y=8.1358 normal=(0.0001, 1.0000, -0.0040) face=7049 trigger=False
+SUPPORT x=-3 z=90 hit=Reverse supported roadworks transition y=8.1538 normal=(0.0001, 1.0000, -0.0031) face=122 trigger=False
+SUPPORT x=-1.5 z=90 hit=Ground_80_320 y=8.1358 normal=(0.0001, 1.0000, -0.0040) face=7051 trigger=False
+SUPPORT x=-1.5 z=90 hit=Reverse supported roadworks transition y=8.1538 normal=(0.0001, 1.0000, -0.0031) face=122 trigger=False
+SUPPORT x=0 z=90 hit=Ground_80_320 y=8.1358 normal=(0.0001, 1.0000, -0.0040) face=7053 trigger=False
+SUPPORT x=0 z=90 hit=Reverse supported roadworks transition y=8.1538 normal=(0.0001, 1.0000, -0.0031) face=122 trigger=False
+SUPPORT x=1.7 z=90 hit=Ground_80_320 y=8.1358 normal=(0.0001, 1.0000, -0.0040) face=7214 trigger=False
+SUPPORT x=1.7 z=90 hit=Reverse supported roadworks transition y=8.1538 normal=(0.0001, 1.0000, -0.0031) face=124 trigger=False
+SUPPORT x=-4.7 z=92 hit=Ground_80_320 y=8.1436 normal=(-0.0008, 1.0000, -0.0040) face=7207 trigger=False
+SUPPORT x=-4.7 z=92 hit=Reverse supported roadworks transition y=8.1619 normal=(0.0001, 1.0000, -0.0040) face=96 trigger=False
+SUPPORT x=-3 z=92 hit=Ground_80_320 y=8.1439 normal=(0.0001, 1.0000, -0.0040) face=7209 trigger=False
+SUPPORT x=-3 z=92 hit=Reverse supported roadworks transition y=8.1619 normal=(0.0001, 1.0000, -0.0040) face=93 trigger=False
+SUPPORT x=-1.5 z=92 hit=Ground_80_320 y=8.1439 normal=(0.0001, 1.0000, -0.0040) face=7211 trigger=False
+SUPPORT x=-1.5 z=92 hit=Reverse supported roadworks transition y=8.1619 normal=(0.0001, 1.0000, -0.0040) face=93 trigger=False
+SUPPORT x=0 z=92 hit=Ground_80_320 y=8.1439 normal=(0.0001, 1.0000, -0.0040) face=7213 trigger=False
+SUPPORT x=0 z=92 hit=Reverse supported roadworks transition y=8.1619 normal=(0.0001, 1.0000, -0.0040) face=93 trigger=False
+SUPPORT x=1.7 z=92 hit=Ground_80_320 y=8.1439 normal=(0.0001, 1.0000, -0.0040) face=7374 trigger=False
+SUPPORT x=1.7 z=92 hit=Reverse supported roadworks transition y=8.1619 normal=(0.0001, 1.0000, -0.0040) face=95 trigger=False
+SUPPORT x=-4.7 z=94 hit=Ground_80_320 y=8.1517 normal=(-0.0006, 1.0000, -0.0040) face=7367 trigger=False
+SUPPORT x=-4.7 z=94 hit=Reverse supported roadworks transition y=8.1700 normal=(0.0001, 1.0000, -0.0041) face=67 trigger=False
+SUPPORT x=-3 z=94 hit=Ground_80_320 y=8.1520 normal=(0.0001, 1.0000, -0.0040) face=7369 trigger=False
+SUPPORT x=-3 z=94 hit=Reverse supported roadworks transition y=8.1700 normal=(0.0001, 1.0000, -0.0041) face=69 trigger=False
+SUPPORT x=-1.5 z=94 hit=Ground_80_320 y=8.1520 normal=(0.0001, 1.0000, -0.0040) face=7371 trigger=False
+SUPPORT x=-1.5 z=94 hit=Reverse supported roadworks transition y=8.1700 normal=(0.0001, 1.0000, -0.0040) face=74 trigger=False
+SUPPORT x=0 z=94 hit=Ground_80_320 y=8.1520 normal=(0.0001, 1.0000, -0.0040) face=7373 trigger=False
+SUPPORT x=0 z=94 hit=Reverse supported roadworks transition y=8.1700 normal=(0.0001, 1.0000, -0.0040) face=74 trigger=False
+SUPPORT x=1.7 z=94 hit=Ground_80_320 y=8.1520 normal=(0.0001, 1.0000, -0.0041) face=7533 trigger=False
+SUPPORT x=1.7 z=94 hit=Reverse supported roadworks transition y=8.1700 normal=(0.0001, 1.0000, -0.0041) face=71 trigger=False
+SUPPORT x=-4.7 z=96 hit=Ground_80_320 y=8.1599 normal=(-0.0005, 1.0000, -0.0041) face=7527 trigger=False
+SUPPORT x=-4.7 z=96 hit=Reverse supported roadworks transition y=8.1781 normal=(0.0001, 1.0000, -0.0041) face=48 trigger=False
+SUPPORT x=-3 z=96 hit=Ground_80_320 y=8.1601 normal=(0.0001, 1.0000, -0.0041) face=7529 trigger=False
+SUPPORT x=-3 z=96 hit=Reverse supported roadworks transition y=8.1781 normal=(0.0001, 1.0000, -0.0041) face=45 trigger=False
+SUPPORT x=-1.5 z=96 hit=Ground_80_320 y=8.1601 normal=(0.0001, 1.0000, -0.0041) face=7531 trigger=False
+SUPPORT x=-1.5 z=96 hit=Reverse supported roadworks transition y=8.1781 normal=(0.0001, 1.0000, -0.0041) face=50 trigger=False
+SUPPORT x=0 z=96 hit=Ground_80_320 y=8.1601 normal=(0.0001, 1.0000, -0.0041) face=7533 trigger=False
+SUPPORT x=0 z=96 hit=Reverse supported roadworks transition y=8.1781 normal=(0.0001, 1.0000, -0.0041) face=45 trigger=False
+SUPPORT x=1.7 z=96 hit=Ground_80_320 y=8.1601 normal=(0.0001, 1.0000, -0.0041) face=7692 trigger=False
+SUPPORT x=1.7 z=96 hit=Reverse supported roadworks transition y=8.1781 normal=(0.0001, 1.0000, -0.0041) face=52 trigger=False
+SUPPORT x=-4.7 z=98 hit=Ground_80_320 y=8.1680 normal=(-0.0004, 1.0000, -0.0041) face=7687 trigger=False
+SUPPORT x=-4.7 z=98 hit=Reverse supported roadworks transition y=8.1863 normal=(0.0001, 1.0000, -0.0041) face=24 trigger=False
+SUPPORT x=-3 z=98 hit=Ground_80_320 y=8.1682 normal=(0.0001, 1.0000, -0.0041) face=7689 trigger=False
+SUPPORT x=-3 z=98 hit=Reverse supported roadworks transition y=8.1862 normal=(0.0001, 1.0000, -0.0041) face=21 trigger=False
+SUPPORT x=-1.5 z=98 hit=Ground_80_320 y=8.1682 normal=(0.0001, 1.0000, -0.0041) face=7691 trigger=False
+SUPPORT x=-1.5 z=98 hit=Reverse supported roadworks transition y=8.1862 normal=(0.0001, 1.0000, -0.0041) face=26 trigger=False
+SUPPORT x=0 z=98 hit=Ground_80_320 y=8.1682 normal=(0.0001, 1.0000, -0.0041) face=7693 trigger=False
+SUPPORT x=0 z=98 hit=Reverse supported roadworks transition y=8.1862 normal=(0.0001, 1.0000, -0.0041) face=26 trigger=False
+SUPPORT x=1.7 z=98 hit=Ground_80_320 y=8.1682 normal=(0.0001, 1.0000, -0.0041) face=7852 trigger=False
+SUPPORT x=1.7 z=98 hit=Reverse supported roadworks transition y=8.1862 normal=(0.0001, 1.0000, -0.0041) face=28 trigger=False
+SUPPORT x=-4.7 z=100 hit=Ground_80_320 y=8.1763 normal=(-0.0003, 1.0000, -0.0041) face=7847 trigger=False
+SUPPORT x=-4.7 z=100 hit=Reverse supported roadworks transition y=8.1944 normal=(0.0001, 1.0000, -0.0041) face=0 trigger=False
+SUPPORT x=-3 z=100 hit=Ground_80_320 y=8.1764 normal=(0.0001, 1.0000, -0.0041) face=7849 trigger=False
+SUPPORT x=-3 z=100 hit=Reverse supported roadworks transition y=8.1944 normal=(0.0001, 1.0000, -0.0041) face=2 trigger=False
+SUPPORT x=-1.5 z=100 hit=Ground_80_320 y=8.1764 normal=(0.0001, 1.0000, -0.0041) face=7851 trigger=False
+SUPPORT x=-1.5 z=100 hit=Reverse supported roadworks transition y=8.1944 normal=(0.0001, 1.0000, -0.0041) face=2 trigger=False
+SUPPORT x=0 z=100 hit=Ground_80_320 y=8.1764 normal=(0.0001, 1.0000, -0.0041) face=7853 trigger=False
+SUPPORT x=0 z=100 hit=Reverse supported roadworks transition y=8.1944 normal=(0.0001, 1.0000, -0.0041) face=2 trigger=False
+SUPPORT x=1.7 z=100 hit=Ground_80_320 y=8.1764 normal=(0.0001, 1.0000, -0.0041) face=8012 trigger=False
+SUPPORT x=1.7 z=100 hit=Reverse supported roadworks transition y=8.1944 normal=(0.0001, 1.0000, -0.0041) face=4 trigger=False
+SUPPORT x=-4.7 z=102 hit=Ground_80_320 y=8.1845 normal=(-0.0002, 1.0000, -0.0041) face=8007 trigger=False
+SUPPORT x=-3 z=102 hit=Ground_80_320 y=8.1846 normal=(0.0001, 1.0000, -0.0041) face=8009 trigger=False
+SUPPORT x=-1.5 z=102 hit=Ground_80_320 y=8.1846 normal=(0.0001, 1.0000, -0.0041) face=8011 trigger=False
+SUPPORT x=0 z=102 hit=Ground_80_320 y=8.1846 normal=(0.0001, 1.0000, -0.0041) face=8013 trigger=False
+SUPPORT x=1.7 z=102 hit=Ground_80_320 y=8.1846 normal=(0.0001, 1.0000, -0.0041) face=8172 trigger=False
+SUPPORT x=-4.7 z=104 hit=Ground_80_320 y=8.1927 normal=(-0.0001, 1.0000, -0.0041) face=8167 trigger=False
+SUPPORT x=-3 z=104 hit=Ground_80_320 y=8.1928 normal=(0.0001, 1.0000, -0.0041) face=8169 trigger=False
+SUPPORT x=-1.5 z=104 hit=Ground_80_320 y=8.1928 normal=(0.0001, 1.0000, -0.0041) face=8171 trigger=False
+SUPPORT x=0 z=104 hit=Ground_80_320 y=8.1928 normal=(0.0001, 1.0000, -0.0041) face=8173 trigger=False
+SUPPORT x=1.7 z=104 hit=Ground_80_320 y=8.1928 normal=(0.0001, 1.0000, -0.0041) face=8332 trigger=False
+SUPPORT x=-4.7 z=106 hit=Ground_80_320 y=8.2010 normal=(0.0000, 1.0000, -0.0041) face=8327 trigger=False
+SUPPORT x=-3 z=106 hit=Ground_80_320 y=8.2010 normal=(0.0001, 1.0000, -0.0041) face=8329 trigger=False
+SUPPORT x=-1.5 z=106 hit=Ground_80_320 y=8.2010 normal=(0.0001, 1.0000, -0.0041) face=8331 trigger=False
+SUPPORT x=0 z=106 hit=Ground_80_320 y=8.2010 normal=(0.0001, 1.0000, -0.0041) face=8333 trigger=False
+SUPPORT x=1.7 z=106 hit=Ground_80_320 y=8.2010 normal=(0.0001, 1.0000, -0.0041) face=8492 trigger=False
+SUPPORT x=-4.7 z=108 hit=Ground_80_320 y=8.2093 normal=(0.0000, 1.0000, -0.0041) face=8487 trigger=False
+SUPPORT x=-3 z=108 hit=Ground_80_320 y=8.2093 normal=(0.0001, 1.0000, -0.0041) face=8489 trigger=False
+SUPPORT x=-1.5 z=108 hit=Ground_80_320 y=8.2093 normal=(0.0001, 1.0000, -0.0041) face=8491 trigger=False
+SUPPORT x=0 z=108 hit=Ground_80_320 y=8.2093 normal=(0.0001, 1.0000, -0.0041) face=8493 trigger=False
+SUPPORT x=1.7 z=108 hit=Ground_80_320 y=8.2092 normal=(0.0001, 1.0000, -0.0041) face=8652 trigger=False
+SUPPORT x=-4.7 z=110 hit=Ground_80_320 y=8.2175 normal=(0.0001, 1.0000, -0.0041) face=8647 trigger=False
+SUPPORT x=-3 z=110 hit=Ground_80_320 y=8.2175 normal=(0.0001, 1.0000, -0.0041) face=8649 trigger=False
+SUPPORT x=-1.5 z=110 hit=Ground_80_320 y=8.2175 normal=(0.0001, 1.0000, -0.0041) face=8651 trigger=False
+SUPPORT x=0 z=110 hit=Ground_80_320 y=8.2175 normal=(0.0001, 1.0000, -0.0041) face=8653 trigger=False
+SUPPORT x=1.7 z=110 hit=Ground_80_320 y=8.2175 normal=(0.0001, 1.0000, -0.0041) face=8812 trigger=False
+SUPPORT x=-4.7 z=112 hit=Ground_80_320 y=8.2258 normal=(0.0001, 1.0000, -0.0041) face=8807 trigger=False
+SUPPORT x=-3 z=112 hit=Ground_80_320 y=8.2258 normal=(0.0001, 1.0000, -0.0041) face=8809 trigger=False
+SUPPORT x=-1.5 z=112 hit=Ground_80_320 y=8.2258 normal=(0.0001, 1.0000, -0.0041) face=8811 trigger=False
+SUPPORT x=0 z=112 hit=Ground_80_320 y=8.2258 normal=(0.0001, 1.0000, -0.0041) face=8811 trigger=False
+SUPPORT x=1.7 z=112 hit=Ground_80_320 y=8.2258 normal=(0.0001, 1.0000, -0.0041) face=8972 trigger=False
+SUPPORT x=-4.7 z=114 hit=Ground_80_320 y=8.2341 normal=(0.0001, 1.0000, -0.0041) face=8967 trigger=False
+SUPPORT x=-3 z=114 hit=Ground_80_320 y=8.2341 normal=(0.0001, 1.0000, -0.0041) face=8969 trigger=False
+SUPPORT x=-1.5 z=114 hit=Ground_80_320 y=8.2341 normal=(0.0001, 1.0000, -0.0041) face=8971 trigger=False
+SUPPORT x=0 z=114 hit=Ground_80_320 y=8.2341 normal=(0.0001, 1.0000, -0.0041) face=8971 trigger=False
+SUPPORT x=1.7 z=114 hit=Ground_80_320 y=8.2341 normal=(0.0001, 1.0000, -0.0042) face=9132 trigger=False
+SUPPORT x=-4.7 z=116 hit=Ground_80_320 y=8.2425 normal=(0.0001, 1.0000, -0.0042) face=9127 trigger=False
+SUPPORT x=-3 z=116 hit=Ground_80_320 y=8.2424 normal=(0.0001, 1.0000, -0.0042) face=9129 trigger=False
+SUPPORT x=-1.5 z=116 hit=Ground_80_320 y=8.2424 normal=(0.0001, 1.0000, -0.0042) face=9131 trigger=False
+SUPPORT x=0 z=116 hit=Ground_80_320 y=8.2424 normal=(0.0001, 1.0000, -0.0042) face=9131 trigger=False
+SUPPORT x=1.7 z=116 hit=Ground_80_320 y=8.2424 normal=(0.0001, 1.0000, -0.0042) face=9292 trigger=False
+SUPPORT x=-4.7 z=118 hit=Ground_80_320 y=8.2508 normal=(0.0001, 1.0000, -0.0042) face=9287 trigger=False
+SUPPORT x=-3 z=118 hit=Ground_80_320 y=8.2508 normal=(0.0001, 1.0000, -0.0042) face=9289 trigger=False
+SUPPORT x=-1.5 z=118 hit=Ground_80_320 y=8.2508 normal=(0.0001, 1.0000, -0.0042) face=9291 trigger=False
+SUPPORT x=0 z=118 hit=Ground_80_320 y=8.2508 normal=(0.0001, 1.0000, -0.0042) face=9291 trigger=False
+SUPPORT x=1.7 z=118 hit=Ground_80_320 y=8.2507 normal=(0.0001, 1.0000, -0.0042) face=9452 trigger=False
+SUPPORT x=-4.7 z=120 hit=Ground_80_320 y=8.2591 normal=(0.0001, 1.0000, -0.0042) face=9447 trigger=False
+SUPPORT x=-3 z=120 hit=Ground_80_320 y=8.2591 normal=(0.0001, 1.0000, -0.0042) face=9449 trigger=False
+SUPPORT x=-1.5 z=120 hit=Ground_80_320 y=8.2591 normal=(0.0001, 1.0000, -0.0042) face=9451 trigger=False
+SUPPORT x=0 z=120 hit=Ground_80_320 y=8.2591 normal=(0.0001, 1.0000, -0.0042) face=9451 trigger=False
+SUPPORT x=1.7 z=120 hit=Ground_80_320 y=8.2591 normal=(0.0001, 1.0000, -0.0042) face=9612 trigger=False
+SUPPORT x=-4.7 z=122 hit=Ground_80_320 y=8.2675 normal=(0.0001, 1.0000, -0.0042) face=9607 trigger=False
+SUPPORT x=-3 z=122 hit=Ground_80_320 y=8.2675 normal=(0.0001, 1.0000, -0.0042) face=9609 trigger=False
+SUPPORT x=-1.5 z=122 hit=Ground_80_320 y=8.2675 normal=(0.0001, 1.0000, -0.0042) face=9611 trigger=False
+SUPPORT x=0 z=122 hit=Ground_80_320 y=8.2675 normal=(0.0001, 1.0000, -0.0042) face=9611 trigger=False
+SUPPORT x=1.7 z=122 hit=Ground_80_320 y=8.2674 normal=(0.0001, 1.0000, -0.0042) face=9772 trigger=False
+SUPPORT x=-4.7 z=124 hit=Ground_80_320 y=8.2759 normal=(0.0001, 1.0000, -0.0042) face=9767 trigger=False
+SUPPORT x=-3 z=124 hit=Ground_80_320 y=8.2759 normal=(0.0001, 1.0000, -0.0042) face=9769 trigger=False
+SUPPORT x=-1.5 z=124 hit=Ground_80_320 y=8.2758 normal=(0.0001, 1.0000, -0.0042) face=9771 trigger=False
+SUPPORT x=0 z=124 hit=Ground_80_320 y=8.2758 normal=(0.0001, 1.0000, -0.0042) face=9771 trigger=False
+SUPPORT x=1.7 z=124 hit=Ground_80_320 y=8.2758 normal=(0.0001, 1.0000, -0.0042) face=9932 trigger=False
+SUPPORT x=-4.7 z=126 hit=Ground_80_320 y=8.2843 normal=(0.0001, 1.0000, -0.0042) face=9927 trigger=False
+SUPPORT x=-3 z=126 hit=Ground_80_320 y=8.2842 normal=(0.0001, 1.0000, -0.0042) face=9929 trigger=False
+SUPPORT x=-1.5 z=126 hit=Ground_80_320 y=8.2842 normal=(0.0001, 1.0000, -0.0042) face=9931 trigger=False
+SUPPORT x=0 z=126 hit=Ground_80_320 y=8.2842 normal=(0.0001, 1.0000, -0.0042) face=9931 trigger=False
+SUPPORT x=1.7 z=126 hit=Ground_80_320 y=8.2842 normal=(0.0001, 1.0000, -0.0042) face=10092 trigger=False
+SUPPORT x=-4.7 z=128 hit=Ground_80_320 y=8.2927 normal=(0.0001, 1.0000, -0.0042) face=10087 trigger=False
+SUPPORT x=-3 z=128 hit=Ground_80_320 y=8.2926 normal=(0.0001, 1.0000, -0.0042) face=10089 trigger=False
+SUPPORT x=-1.5 z=128 hit=Ground_80_320 y=8.2926 normal=(0.0001, 1.0000, -0.0042) face=10091 trigger=False
+SUPPORT x=0 z=128 hit=Ground_80_320 y=8.2926 normal=(0.0001, 1.0000, -0.0042) face=10091 trigger=False
+SUPPORT x=1.7 z=128 hit=Ground_80_320 y=8.2926 normal=(0.0001, 1.0000, -0.0042) face=10252 trigger=False
+SUPPORT x=-4.7 z=130 hit=Ground_80_320 y=8.3011 normal=(0.0001, 1.0000, -0.0042) face=10247 trigger=False
+SUPPORT x=-3 z=130 hit=Ground_80_320 y=8.3010 normal=(0.0001, 1.0000, -0.0042) face=10249 trigger=False
+SUPPORT x=-1.5 z=130 hit=Ground_80_320 y=8.3010 normal=(0.0001, 1.0000, -0.0042) face=10251 trigger=False
+SUPPORT x=0 z=130 hit=Ground_80_320 y=8.3010 normal=(0.0001, 1.0000, -0.0042) face=10251 trigger=False
+SUPPORT x=1.7 z=130 hit=Ground_80_320 y=8.3010 normal=(0.0001, 1.0000, -0.0042) face=10412 trigger=False

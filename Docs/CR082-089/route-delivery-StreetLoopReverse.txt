@@ -1,0 +1,140 @@
+origin=4635.467 roadLength=4674.111
+spawn=(319.00, 23.45, 481.02) forward=(0.00, 0.00, 1.00) station=4603.295
+road0=(319.00, 8.00, 550.00)
+GATE 0 name=Street Loop Reverse START FINISH station=4635.467 relative=0 position=(319.65, 16.98, 512.50) forward=(0.04, 0.00, 1.00) width=6 scale=(1.00, 1.00, 1.00)
+GATE VISUAL Non-colliding gate marking local=(-6.13, 0.50, 0.00) size=(0.25, 4.00, 0.25)
+GATE VISUAL Non-colliding gate marking local=(6.13, 0.50, 0.00) size=(0.25, 4.00, 0.25)
+GATE VISUAL Non-colliding gate marking local=(0.00, 2.50, 0.00) size=(12.50, 0.25, 0.25)
+GATE VISUAL Non-colliding gate marking local=(-5.50, -1.43, -0.72) size=(1.00, 0.03, 0.80)
+GATE VISUAL Non-colliding gate marking local=(-4.50, -1.43, -0.72) size=(1.00, 0.03, 0.80)
+GATE VISUAL Non-colliding gate marking local=(-3.50, -1.43, -0.71) size=(1.00, 0.03, 0.80)
+GATE VISUAL Non-colliding gate marking local=(-2.50, -1.43, -0.71) size=(1.00, 0.03, 0.80)
+GATE VISUAL Non-colliding gate marking local=(-1.50, -1.43, -0.71) size=(1.00, 0.03, 0.80)
+GATE VISUAL Non-colliding gate marking local=(-0.50, -1.43, -0.71) size=(1.00, 0.03, 0.80)
+GATE VISUAL Non-colliding gate marking local=(0.50, -1.43, -0.71) size=(1.00, 0.03, 0.80)
+GATE VISUAL Non-colliding gate marking local=(1.50, -1.43, -0.71) size=(1.00, 0.03, 0.80)
+GATE VISUAL Non-colliding gate marking local=(2.50, -1.43, -0.71) size=(1.00, 0.03, 0.80)
+GATE VISUAL Non-colliding gate marking local=(3.50, -1.43, -0.71) size=(1.00, 0.03, 0.80)
+GATE VISUAL Non-colliding gate marking local=(4.50, -1.43, -0.71) size=(1.00, 0.03, 0.80)
+GATE VISUAL Non-colliding gate marking local=(5.50, -1.43, -0.71) size=(1.00, 0.03, 0.80)
+GATE VISUAL Non-colliding gate marking local=(-5.50, -1.43, 0.08) size=(1.00, 0.03, 0.80)
+GATE VISUAL Non-colliding gate marking local=(-4.50, -1.43, 0.08) size=(1.00, 0.03, 0.80)
+GATE VISUAL Non-colliding gate marking local=(-3.50, -1.43, 0.08) size=(1.00, 0.03, 0.80)
+GATE VISUAL Non-colliding gate marking local=(-2.50, -1.43, 0.08) size=(1.00, 0.03, 0.80)
+GATE VISUAL Non-colliding gate marking local=(-1.50, -1.43, 0.08) size=(1.00, 0.03, 0.80)
+GATE VISUAL Non-colliding gate marking local=(-0.50, -1.43, 0.08) size=(1.00, 0.03, 0.80)
+GATE VISUAL Non-colliding gate marking local=(0.50, -1.43, 0.08) size=(1.00, 0.03, 0.80)
+GATE VISUAL Non-colliding gate marking local=(1.50, -1.43, 0.09) size=(1.00, 0.03, 0.80)
+GATE VISUAL Non-colliding gate marking local=(2.50, -1.43, 0.09) size=(1.00, 0.03, 0.80)
+GATE VISUAL Non-colliding gate marking local=(3.50, -1.43, 0.09) size=(1.00, 0.03, 0.80)
+GATE VISUAL Non-colliding gate marking local=(4.50, -1.43, 0.08) size=(1.00, 0.03, 0.80)
+GATE VISUAL Non-colliding gate marking local=(5.50, -1.43, 0.08) size=(1.00, 0.03, 0.80)
+GATE 1 name=Street Loop Reverse CP 1 station=242.0058 relative=280.6499 position=(84.04, 10.63, 542.90) forward=(-0.99, 0.00, -0.11) width=10.2 scale=(1.00, 1.00, 1.00)
+GATE 2 name=Street Loop Reverse CP 2 station=473.6833 relative=512.3271 position=(-145.96, 9.94, 529.10) forward=(-1.00, 0.00, 0.00) width=10.2 scale=(1.00, 1.00, 1.00)
+GATE 3 name=Street Loop Reverse CP 3 station=703.9913 relative=742.6353 position=(-376.23, 10.18, 533.35) forward=(-1.00, 0.00, 0.04) width=10.2 scale=(1.00, 1.00, 1.00)
+GATE 4 name=Street Loop Reverse CP 4 station=935.6616 relative=974.3057 position=(-604.65, 9.56, 530.50) forward=(-0.52, 0.00, -0.86) width=7.135346 scale=(1.00, 1.00, 1.00)
+GATE 5 name=Street Loop Reverse CP 5 station=1166.676 relative=1205.32 position=(-632.88, 10.72, 302.81) forward=(0.01, 0.00, -1.00) width=6 scale=(1.00, 1.00, 1.00)
+GATE 6 name=Street Loop Reverse CP 6 station=1689.994 relative=1728.638 position=(-624.59, 9.02, -220.44) forward=(0.02, 0.00, -1.00) width=6 scale=(1.00, 1.00, 1.00)
+GATE 7 name=Street Loop Reverse CP 7 station=1844.1 relative=1882.744 position=(-621.67, 8.39, -374.52) forward=(0.02, 0.00, -1.00) width=6 scale=(1.00, 1.00, 1.00)
+GATE 8 name=Street Loop Reverse CP 8 station=2129.143 relative=2167.787 position=(-501.24, 8.55, -549.75) forward=(1.00, 0.00, -0.03) width=6 scale=(1.00, 1.00, 1.00)
+GATE 9 name=Street Loop Reverse CP 9 station=2344.713 relative=2383.357 position=(-288.22, 20.56, -572.59) forward=(0.99, 0.00, -0.16) width=6 scale=(1.00, 1.00, 1.00)
+GATE 10 name=Street Loop Reverse CP 10 station=2785.328 relative=2823.972 position=(1.33, 39.15, -398.72) forward=(0.13, 0.00, 0.99) width=6 scale=(1.00, 1.00, 1.00)
+GATE 11 name=Street Loop Reverse CP 11 station=2994.067 relative=3032.711 position=(130.09, 38.61, -293.96) forward=(0.96, 0.00, -0.27) width=6 scale=(1.00, 1.00, 1.00)
+GATE 12 name=Street Loop Reverse CP 12 station=3477.842 relative=3516.486 position=(502.78, 24.16, -536.41) forward=(0.69, 0.00, 0.73) width=6 scale=(1.00, 1.00, 1.00)
+GATE 13 name=Street Loop Reverse CP 13 station=3710.08 relative=3748.724 position=(556.33, 26.67, -315.42) forward=(0.23, 0.00, 0.97) width=6 scale=(1.00, 1.00, 1.00)
+GATE 14 name=Street Loop Reverse CP 14 station=4043.808 relative=4082.452 position=(472.53, 84.93, -10.92) forward=(0.04, 0.00, 1.00) width=6 scale=(1.00, 1.00, 1.00)
+GATE 15 name=Street Loop Reverse CP 15 station=4172.752 relative=4211.396 position=(449.86, 87.23, 112.62) forward=(-0.50, 0.00, 0.87) width=6 scale=(1.00, 1.00, 1.00)
+GATE 16 name=Street Loop Reverse CP 16 station=4403.607 relative=4442.251 position=(322.01, 75.78, 288.34) forward=(-0.10, 0.00, 1.00) width=6 scale=(1.00, 1.00, 1.00)
+BRANCH Laurel Switchbacks entry=3064.113 exit=3964.113 inset=38 entrypos=(195.09, 45.76, -317.91) exitpos=(492.07, 88.50, -86.88) bypass=12,13
+BRANCH Granite Creek Cut entry=404.1206 exit=1444.115 inset=24 entrypos=(-76.41, 7.96, 529.08) exitpos=(-628.42, 8.32, 25.41) bypass=2,3,4,5
+TREE BATCH Complete authored trees mesh=Assets/Track/CorrectionPass/StreetReverseTrees-2-3.asset vertices=1756
+TREE BATCH Complete authored trees mesh=Assets/Track/CorrectionPass/StreetReverseTrees--3--1.asset vertices=12024
+TREE BATCH Hairpin restored rear woodland mesh=Assets/Track/HairpinReview/Street-RearWoods.asset vertices=264
+TREE BATCH Complete authored trees mesh=Assets/Track/CorrectionPass/StreetReverseTrees--3-0.asset vertices=13312
+TREE BATCH Complete authored trees mesh=Assets/Track/CorrectionPass/StreetReverseTrees--1-2.asset vertices=8156
+TREE BATCH Complete authored trees mesh=Assets/Track/CorrectionPass/StreetReverseTrees-4-2.asset vertices=9048
+TREE BATCH Complete authored trees mesh=Assets/Track/CorrectionPass/StreetReverseTrees--2-1.asset vertices=12880
+TREE BATCH Complete authored trees mesh=Assets/Track/CorrectionPass/StreetReverseTrees--3--2.asset vertices=11336
+TREE BATCH Complete authored trees mesh=Assets/Track/CorrectionPass/StreetReverseTrees--2--2.asset vertices=10316
+TREE BATCH Complete authored trees mesh=Assets/Track/CorrectionPass/StreetReverseTrees--4--5.asset vertices=1276
+TREE BATCH Complete authored trees mesh=Assets/Track/CorrectionPass/StreetReverseTrees--1--5.asset vertices=2484
+TREE BATCH Complete authored trees mesh=Assets/Track/CorrectionPass/StreetReverseTrees-0--4.asset vertices=12112
+TREE BATCH Complete authored trees mesh=Assets/Track/CorrectionPass/StreetReverseTrees--4--1.asset vertices=6712
+TREE BATCH Complete authored trees mesh=Assets/Track/CorrectionPass/StreetReverseTrees-3--3.asset vertices=7844
+TREE BATCH Complete authored trees mesh=Assets/Track/CorrectionPass/StreetReverseTrees--5-3.asset vertices=1228
+TREE BATCH Complete authored trees mesh=Assets/Track/CorrectionPass/StreetReverseTrees-3--1.asset vertices=10248
+TREE BATCH Complete authored trees mesh=Assets/Track/CorrectionPass/StreetReverseTrees--3-3.asset vertices=868
+TREE BATCH Complete authored trees mesh=Assets/Track/CorrectionPass/StreetReverseTrees--5-1.asset vertices=3204
+TREE BATCH Complete authored trees mesh=Assets/Track/CorrectionPass/StreetReverseTrees--5--1.asset vertices=3052
+TREE BATCH Complete authored trees mesh=Assets/Track/CorrectionPass/StreetReverseTrees-2-2.asset vertices=6308
+TREE BATCH Complete authored trees mesh=Assets/Track/CorrectionPass/StreetReverseTrees--1--1.asset vertices=10888
+TREE BATCH Complete authored trees mesh=Assets/Track/CorrectionPass/StreetReverseTrees-0-0.asset vertices=13764
+TREE BATCH Complete authored trees mesh=Assets/Track/CorrectionPass/StreetReverseTrees-1--3.asset vertices=6672
+TREE BATCH Complete authored trees mesh=Assets/Track/CorrectionPass/StreetReverseTrees--4-3.asset vertices=308
+TREE BATCH Complete authored trees mesh=Assets/Track/CorrectionPass/StreetReverseTrees--4-2.asset vertices=8900
+TREE BATCH Complete authored trees mesh=Assets/Track/CorrectionPass/StreetReverseTrees-4--5.asset vertices=1352
+TREE BATCH Complete authored trees mesh=Assets/Track/CorrectionPass/StreetReverseTrees-4-1.asset vertices=9452
+TREE BATCH Complete authored trees mesh=Assets/Track/CorrectionPass/StreetReverseTrees--4--4.asset vertices=7296
+TREE BATCH Complete authored trees mesh=Assets/Track/CorrectionPass/StreetReverseTrees-0-3.asset vertices=812
+TREE BATCH Complete authored trees mesh=Assets/Track/CorrectionPass/StreetReverseTrees-0-2.asset vertices=9556
+TREE BATCH Complete authored trees mesh=Assets/Track/CorrectionPass/StreetReverseTrees-4--4.asset vertices=8812
+TREE BATCH Complete authored trees mesh=Assets/Track/CorrectionPass/StreetReverseTrees--2--1.asset vertices=11140
+TREE BATCH Complete authored trees mesh=Assets/Track/CorrectionPass/StreetReverseTrees--2--3.asset vertices=13560
+TREE BATCH Complete authored trees mesh=Assets/Track/CorrectionPass/StreetReverseTrees-1--4.asset vertices=11520
+TREE BATCH Complete authored trees mesh=Assets/Track/CorrectionPass/StreetReverseTrees--2--5.asset vertices=3484
+TREE BATCH Complete authored trees mesh=Assets/Track/CorrectionPass/StreetReverseTrees--1-3.asset vertices=88
+TREE BATCH Complete authored trees mesh=Assets/Track/CorrectionPass/StreetReverseTrees--2-2.asset vertices=10576
+TREE BATCH Complete authored trees mesh=Assets/Track/CorrectionPass/StreetReverseTrees-2-1.asset vertices=4560
+TREE BATCH Complete authored trees mesh=Assets/Track/CorrectionPass/StreetReverseTrees-3--5.asset vertices=2156
+TREE BATCH Complete authored trees mesh=Assets/Track/CorrectionPass/StreetReverseTrees--2--4.asset vertices=7944
+TREE BATCH Complete authored trees mesh=Assets/Track/CorrectionPass/StreetReverseTrees-1--2.asset vertices=10760
+TREE BATCH Complete authored trees mesh=Assets/Track/CorrectionPass/StreetReverseTrees--3-2.asset vertices=10476
+TREE BATCH Complete authored trees mesh=Assets/Track/CorrectionPass/StreetReverseTrees-3-1.asset vertices=10144
+TREE BATCH Complete authored trees mesh=Assets/Track/CorrectionPass/StreetReverseTrees--5--3.asset vertices=3232
+TREE BATCH Complete authored trees mesh=Assets/Track/CorrectionPass/StreetReverseTrees--1--2.asset vertices=12708
+TREE BATCH Complete authored trees mesh=Assets/Track/CorrectionPass/StreetReverseTrees-0-1.asset vertices=9944
+TREE BATCH Complete authored trees mesh=Assets/Track/CorrectionPass/StreetReverseTrees-1--5.asset vertices=2732
+TREE BATCH Complete authored trees mesh=Assets/Track/CorrectionPass/StreetReverseTrees--5--4.asset vertices=3288
+TREE BATCH Complete authored trees mesh=Assets/Track/CorrectionPass/StreetReverseTrees-0--5.asset vertices=2152
+TREE BATCH Complete authored trees mesh=Assets/Track/CorrectionPass/StreetReverseTrees-1-1.asset vertices=10400
+TREE BATCH Complete authored trees mesh=Assets/Track/CorrectionPass/StreetReverseTrees-3--4.asset vertices=11496
+TREE BATCH Complete authored trees mesh=Assets/Track/CorrectionPass/StreetReverseTrees-2--1.asset vertices=3992
+TREE BATCH Complete authored trees mesh=Assets/Track/CorrectionPass/StreetReverseTrees-3--2.asset vertices=8576
+TREE BATCH Complete authored trees mesh=Assets/Track/CorrectionPass/StreetReverseTrees-4--3.asset vertices=8904
+TREE BATCH Complete authored trees mesh=Assets/Track/CorrectionPass/StreetReverseTrees-4--1.asset vertices=9880
+TREE BATCH Complete authored trees mesh=Assets/Track/CorrectionPass/StreetReverseTrees--3--4.asset vertices=8616
+TREE BATCH Complete authored trees mesh=Assets/Track/CorrectionPass/StreetReverseTrees--4--3.asset vertices=7952
+TREE BATCH Complete authored trees mesh=Assets/Track/CorrectionPass/StreetReverseTrees-2-0.asset vertices=9712
+TREE BATCH Complete authored trees mesh=Assets/Track/CorrectionPass/StreetReverseTrees-2--4.asset vertices=9540
+TREE BATCH Complete authored trees mesh=Assets/Track/CorrectionPass/StreetReverseTrees--3--5.asset vertices=2616
+TREE BATCH Complete authored trees mesh=Assets/Track/CorrectionPass/StreetReverseTrees-2--5.asset vertices=2432
+TREE BATCH Complete authored trees mesh=Assets/Track/CorrectionPass/StreetReverseTrees--3-1.asset vertices=12796
+TREE BATCH Complete authored trees mesh=Assets/Track/CorrectionPass/StreetReverseTrees-1--1.asset vertices=12292
+TREE BATCH Complete authored trees mesh=Assets/Track/CorrectionPass/StreetReverseTrees--4--2.asset vertices=4460
+TREE BATCH Complete authored trees mesh=Assets/Track/CorrectionPass/StreetReverseTrees-1-2.asset vertices=8876
+TREE BATCH Complete authored trees mesh=Assets/Track/CorrectionPass/StreetReverseTrees-2--2.asset vertices=6368
+TREE BATCH Complete authored trees mesh=Assets/Track/CorrectionPass/StreetReverseTrees--4-1.asset vertices=7972
+TREE BATCH Complete authored trees mesh=Assets/Track/CorrectionPass/StreetReverseTrees--5-2.asset vertices=2240
+TREE BATCH Complete authored trees mesh=Assets/Track/CorrectionPass/StreetReverseTrees--5--5.asset vertices=528
+TREE BATCH Complete authored trees mesh=Assets/Track/CorrectionPass/StreetReverseTrees-3-0.asset vertices=10628
+TREE BATCH Complete authored trees mesh=Assets/Track/CorrectionPass/StreetReverseTrees--5-0.asset vertices=2520
+TREE BATCH Complete authored trees mesh=Assets/Track/CorrectionPass/StreetReverseTrees-4-3.asset vertices=2120
+TREE BATCH Complete authored trees mesh=Assets/Track/CorrectionPass/StreetReverseTrees-0--3.asset vertices=6156
+TREE BATCH Complete authored trees mesh=Assets/Track/CorrectionPass/StreetReverseTrees-3-2.asset vertices=13788
+TREE BATCH Complete authored trees mesh=Assets/Track/CorrectionPass/StreetReverseTrees--2-3.asset vertices=264
+TREE BATCH Complete authored trees mesh=Assets/Track/CorrectionPass/StreetReverseTrees-2--3.asset vertices=4496
+TREE BATCH Complete authored trees mesh=Assets/Track/CorrectionPass/StreetReverseTrees--1--3.asset vertices=7408
+TREE BATCH Complete authored trees mesh=Assets/Track/CorrectionPass/StreetReverseTrees-4--2.asset vertices=6396
+TREE BATCH Complete authored trees mesh=Assets/Track/CorrectionPass/StreetReverseTrees--1-0.asset vertices=12840
+TREE BATCH Complete authored trees mesh=Assets/Track/CorrectionPass/StreetReverseTrees--1-1.asset vertices=10084
+TREE BATCH Complete authored trees mesh=Assets/Track/CorrectionPass/StreetReverseTrees-1-3.asset vertices=1228
+TREE BATCH Complete authored trees mesh=Assets/Track/CorrectionPass/StreetReverseTrees-1-0.asset vertices=10212
+TREE BATCH Complete authored trees mesh=Assets/Track/CorrectionPass/StreetReverseTrees-3-3.asset vertices=2040
+TREE BATCH Complete authored trees mesh=Assets/Track/CorrectionPass/StreetReverseTrees-0--2.asset vertices=7800
+TREE BATCH Complete authored trees mesh=Assets/Track/CorrectionPass/StreetReverseTrees--3--3.asset vertices=6408
+TREE BATCH Complete authored trees mesh=Assets/Track/CorrectionPass/StreetReverseTrees--4-0.asset vertices=8008
+TREE BATCH Complete authored trees mesh=Assets/Track/CorrectionPass/StreetReverseTrees--1--4.asset vertices=5752
+TREE BATCH Complete authored trees mesh=Assets/Track/CorrectionPass/StreetReverseTrees-4-0.asset vertices=9820
+TREE BATCH Complete authored trees mesh=Assets/Track/CorrectionPass/StreetReverseTrees--2-0.asset vertices=9980
+TREE BATCH Complete authored trees mesh=Assets/Track/CorrectionPass/StreetReverseTrees-0--1.asset vertices=14172
+TREE BATCH Complete authored trees mesh=Assets/Track/CorrectionPass/StreetReverseTrees--5--2.asset vertices=3216

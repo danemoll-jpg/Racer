@@ -33,6 +33,8 @@ namespace Racer
             public string[] opponentRoster = {"tourer","moto","atv"};
             public int[] bodyColors = {-1,-1,-1,-1};
             public HouseholdSchedule streetHouseholds = new(), forestHouseholds = new();
+            public HouseholdSchedule households = new();
+            public string displayUnits="imperial";
         }
         public Records Best { get; private set; }
         public Options Settings { get; private set; }
@@ -51,6 +53,8 @@ namespace Racer
             Best = Read<Records>("records.json", r => r.version == 1 && r.course == course && Valid(r.lap) && Valid(r.race)) ?? new Records { course = course };
             Settings = Read<Options>("settings.json", s => s.version == 1 && Volume(s.master) && Volume(s.ambience) && Volume(s.feedback) && Volume(s.vehicle) && (s.frameLimit == 30 || s.frameLimit == 60 || s.frameLimit == 120)) ?? new Options();
             if(!Volume(Settings.music))Settings.music=.6f;
+            // No canonical value is converted during migration; only presentation changes.
+            Settings.displayUnits="imperial";
         }
         static bool Valid(double n) => !double.IsNaN(n) && !double.IsInfinity(n) && n >= 0 && n < 31536000;
         static bool Volume(float n) => !float.IsNaN(n) && n >= 0 && n <= 1;

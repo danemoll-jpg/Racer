@@ -164,7 +164,7 @@ namespace Racer
             details.supportRichText=shown==RaceFlow.Stage.Boards;
             if (shown == RaceFlow.Stage.Ready)
             {
-                title.text = "RACER / "+flow.Race.courseName.ToUpperInvariant();
+                title.text = "WOODSTOCK RUSH / "+flow.Race.courseName.ToUpperInvariant();
                 details.text = "Three laps through the neighborhood.\nShared race clock starts at GO. Cross START to begin lap 1.\n\nPersonal best lap   " + Record(flow.Save.Best.lap) + "\nPersonal best race  " + Record(flow.Save.Best.race);
                 Action(0,"Start race",flow.StartRace); Action(1,"Settings",flow.OpenSettings); Action(2,"Quit Game",flow.Quit);
                 Action(3, flow.Race.opponents ? "Mode: Race vs 3 AI" : "Mode: Solo / time trial", flow.ToggleOpponents);
@@ -193,7 +193,7 @@ namespace Racer
                 {
                     title.text="FREE ROAM / PAUSED";
                     var site=flow.Activities.Selected;var best=site?flow.Activities.PersonalBest(site):null;
-                    details.text="Explore roads and trails. Speed traps are automatic.\nR / Y: local reset. Drive to the activity before starting.\n"+(site?$"{site.title} / {flow.Activities.Location}\n{flow.Activities.Targets} / PB {best?.value??0:0.0}":"");
+                    details.text="Explore roads and trails. Speed traps show mph; jumps show feet.\nR / Y: local reset. Drive to the activity before starting.\n"+(site?$"{site.title} / {flow.Activities.Location}\n{flow.Activities.Targets} / PB {ArcadeActivities.Measurement(site,best?.value??0)}":"");
                     foreach(var button in buttons)button.gameObject.SetActive(false);
                     Action(0,"Resume exploring",flow.Resume);
                     Action(1,"Activity: "+(site?site.title:"none"),()=>{flow.Activities.Cycle();Show();});

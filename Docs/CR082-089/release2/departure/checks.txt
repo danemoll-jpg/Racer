@@ -1,0 +1,12 @@
+PASS moto actual departure chooses main route
+PASS moto departure legitimate route choice penalty-free False
+PASS Household stable while driving departure motoFalse
+PASS moto actual departure chooses optional shortcut
+PASS moto departure legitimate route choice penalty-free True
+PASS Household stable while driving departure motoTrue
+PASS atv actual departure chooses main route
+PASS atv departure legitimate route choice penalty-free False
+PASS Household stable while driving departure atvFalse
+PASS atv actual departure chooses optional shortcut
+PASS atv departure legitimate route choice penalty-free True
+PASS Household stable while driving departure atvTrue

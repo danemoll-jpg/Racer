@@ -1,0 +1,10 @@
+{
+  "Name": "ramp-StreetLoopGreybox-roam-no",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\Racer-0.14.0-review1-Windows\\Racer.exe",
+  "RuntimeAssemblySHA256": "4C3CEB98C70F971631096357E788866D770CD9C2A75AF08C4166F3F3F5E83012",
+  "Flags": "-batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr082-6d38bc57effe4c46adb58d356c847172\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR082-089\\final\\ramp-StreetLoopGreybox-roam-no\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr082-final-ramp-StreetLoopGreybox-roam-no.log\" -arcadeRamp full -course StreetLoopGreybox -rampOpposite no -rampRoam yes",
+  "PID": 55284,
+  "Timeout": false,
+  "Exit": 0,
+  "CompletedUtc": "2026-09-20T06:50:00.4852325Z"
+}

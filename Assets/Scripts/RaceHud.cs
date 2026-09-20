@@ -60,7 +60,7 @@ namespace Racer
                     wrongArrow.rectTransform.localRotation=Quaternion.Euler(0,0,-Vector3.SignedAngle(forward,guidance.Direction,Vector3.up));
                 }
             }
-            if(speedPanel) { speedPanel.SetActive(!race.Flow.MenuVisible); speedometer.text=$"{Mathf.Abs(race.vehicle.ForwardSpeed)*3.6f:0} <size=17>km/h</size>"; }
+            if(speedPanel) { speedPanel.SetActive(!race.Flow.MenuVisible); speedometer.text=$"{DisplayUnits.Mph(Mathf.Abs(race.vehicle.ForwardSpeed)):0} <size=17>mph</size>"; }
         }
     }
 }
