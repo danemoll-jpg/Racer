@@ -1,4 +1,4 @@
-# Racer
+# Woodstock Rush
 ## Project Management / TODO / Astra-Codex Handoff
 
 **Project concept:**  
@@ -1293,12 +1293,50 @@ Recommended: optional stunt challenges using existing jumps (airtime/distance me
 
 ---
 
+### CR-082 — Recognizable helmet-free human drivers
+**Status:** AUTHORIZED — latest human art feedback supersedes helmet preservation in CR-065/072.
+**Requested change:** All player/AI drivers should read as stylized people, not uniform orange robots. Remove helmets; provide visible hair, faces with eyes/brows/nose/mouth, natural head/limb proportions and seated posture. Distinguish skin, hair, shirts, trousers and shoes with coherent varied colors; vehicle paint must never recolor occupants wholesale. Inspect shared materials/property blocks and runtime prefab generation for orange overrides. No photorealistic likeness requirement. Show actual garage/front/side/chase screenshots of all vehicle occupants before claiming completion; preserve vehicle handling, colliders, colors and budgets.
+
+### CR-083 — Globally exclusive household scenarios
+**Status:** AUTHORIZED — supersedes independent friend-house occupancy in CR-060/068.
+**Requested change:** Select at most ONE vignette across both properties per race/roam session: two adults drinking coffee at Dan's fence OR three kids playing football at Dan's yard OR two adults smoking at Kyle's frontage OR nobody. These represent Dan/Kyle (plus brother in the three-person scene), so simultaneous scenes duplicate people. Do not infer identifiable likenesses from this explanation. Keep locations and repetition-controlled variation, but use one shared selection and clear pooled state across both sites. Stable through laps/pause/local reset, reseed on new session without visible swaps. Unrelated generic pedestrians may remain. Test all forced/ordinary states across track/mode/relaunch; count global active groups, no pooled duplicates.
+
+### CR-084 — Track-menu changes must not skip radio songs
+**Status:** AUTHORIZED — regression diagnosis.
+**Requested change:** Changing selected course/variant in menu must not issue next-song/channel input or restart playback. Inspect shared bindings/action maps, button event propagation, menu focus and radio object lifecycle; determine rather than assume cause. Retain current song/channel and playback position during selection, except natural track ending or explicit radio action. Test keyboard/controller navigation, rapid selection, menu return and all four courses with unchanged library/settings. Preserve explicit radio controls and song-change UI timing.
+
+### CR-085 — Forgiving visible checkpoint edges
+**Status:** AUTHORIZED — reported inside-edge crossing was penalized.
+**Requested change:** Reconcile rendered gate opening with trigger/swept detection and eligible vehicle extents. Accept legitimate edge overlap within a small documented tolerance so a vehicle visibly passing inside is credited; do not require only center-point passage. Use continuous/swept checks at speed and correct vertical jump coverage; prevent double credit/repeated backward exploits and keep true misses outside tolerance. Apply to all courses/start-finish gates, preserve authorized shortcuts and +5 true misses once. Test left/right edges, airborne/tall/fast profiles and outside negatives; show geometry overlays only in diagnostic evidence. Preserve race integrity and historical record categories.
+
+### CR-086 — Imperial display units
+**Status:** AUTHORIZED — use mph, miles and feet as default presentation throughout.
+**Requested change:** Convert speedometer, speed traps, menus/help, stunt/jump distances, challenge targets/results and records display consistently. Keep canonical physics/save units; migrate display preferences safely without multiplying stored values or breaking old scores/medals. Label units, sensible rounding, preserve precision for comparisons. No change to handling, distances, timing or difficulty. Test conversion and persisted legacy/new data across race/free roam. No unsolicited metric-first default.
+
+### CR-087 — Trickum ramp failure: test first in races AND free roam
+**Status:** AUTHORIZED — recurring regression, blocking prerequisite before other implementation.
+**Feedback:** Reverse Street ramp still slows Dan; same jump slows in BOTH directions in free roam although forward racing seemed fine. Current matrix success does not supersede this observation.
+**Required first work after safety commit:** Reproduce baseline in current compiled player for forward/reverse racing and both free-roam directions, all eligible vehicles with emphasis on reported bike/ATV history. Inspect mode-specific geometry/duplicate colliders, loaded variant overlays, ramp/gate overlap, water/surface regions, contacts, suspension, stability/braking/input and speed before/at/after transition. Actual driving, no teleport-only proof. Record fails before fixes; if not reproduced, keep report unresolved and document precise coverage rather than declaring solved. Correct root cause without hidden boost or disabled collisions. Gate placement is coordinated with CR-088.
+**Standing requirement:** Any new/modified ramp must be tested at the BEGINNING of its authoring work (existing baseline or first playable geometry) and after changes, in all applicable race/free-roam direction variants, every eligible vehicle, centered/off-center/side-edge lines and intended speed range. No building a whole pass on untested ramps. Keep failure evidence, AI approaches/stuck recovery and actual authored IDs/positions; report abrupt speed losses and contact cause separately from expected climbing speed changes. Recheck final compiled package.
+
+### CR-088 — Reverse Street entrance, vegetation and gate corrections
+**Status:** AUTHORIZED — five related layout complaints.
+**Requested change:** (1) Make first reverse shortcut visible with clear active-direction physical signage and approach sightlines. (2) Remove/fix entire offending trees including canopy/LOD/billboards and generator references; no floating branches left after trunk clearing. Preserve coherent supported trees framing route. (3) Forward third-shortcut exit must not advertise/visually read as reverse entrance: use active-direction cues/appropriate scenic shaping without blocking its forward exit. (4) Align reverse start/finish visual gate and logical timing/grid crossing with actual reverse start location, not inherited forward location; prevent lap-zero/duplicate finish credit. (5) Remove/consolidate or relocate redundant ramp-area gates; no mandatory gate in launch ramp or tightly adjacent gate about ten feet away. Place clear required crossing after landing/rejoin or before committed approach with adequate speed spacing; update ordering, bypass sets, AI, HUD, wrong-way/reset references and record versioning together. No regression to forward course or hairpin woods/sign removals.
+**Acceptance:** Map and ordinary driving views verify both reverse entrances, valid forward exit, complete trees, distinct reverse grid/finish and sensible ramp gate spacing. Full multi-lap races all eligible profiles with edge/airborne credit, normal misses and shortcut entitlement.
+
+### CR-089 — Forest Reverse start makes main route clear
+**Status:** AUTHORIZED — route readability correction.
+**Requested change:** First shortcut currently reads as natural straight-ahead course from grid while required main route is awkward/off to side. Reorient grid/initial lead-in or locally reshape junction so normal route is the obvious continuation and shortcut a deliberate optional risk/reward branch. Use physical signs/chevrons and supported terrain, not floating text or wholesale course replacement. Preserve challenging shortcut, required lake/Kyle setting and motorcycle/ATV eligibility. Coordinate first gate/grid/AI/recovery/wrong-way guidance and independent timing categories. Verify first-time driving view and both choices without debug overlays; test race and roam, preserve other variants.
+
+---
+
 # DECISION LOG
 
 Record choices we do not want to repeatedly reconsider.
 
 | Date | Decision | Reason |
 |---|---|---|
+| 2026-09-20 | Prioritize CR-082–089 correction pass | Test Trickum first in race/roam both directions; human drivers without helmets, globally exclusive vignettes, menu radio isolation, gate tolerance, imperial display and reverse layout corrections; approved CR-081 stays queued |
 | 2026-09-19 | Approve route fixes + arcade challenges now, world/ghost/collectibles next | CR-075–080 current; CR-081 approved queue includes corrected Trickum/Jamerson geography and supplied home references; earlier feature exclusions superseded |
 | 2026-09-19 | Bundle CR-070 through CR-074 | Remove exact hairpin sign, visible five-second wrong-way cue, faces/hair, reverse tracks with risk/reward shortcuts, and deer/coyotes |
 | 2026-09-19 | Bundle CR-067 through CR-069 | Restore hairpin/property woods, fix repeated coffee scene, and show wrong-way direction/local-reset hint only after sustained wrong travel |
@@ -1390,7 +1428,12 @@ Record choices we do not want to repeatedly reconsider.
 
 # SESSION HANDOFF
 
-**CURRENT AUTHORIZED DELIVERY — Route fixes + arcade challenges:** Dan approves CR-075–080 together: direction-aware signage/shortcut discovery and wrong-way reliability, safe on-course player reset/stalled-AI recovery, reverse Trickum ramp and standing ramp tests, free roam, stunt scoring/challenges, speed traps. Fix and validate routes/recovery/ramps first, then integrate activities in the same delivery. CR-081 records approved following-pass ghosts, collectibles, larger neighborhood and photo-informed home work; do not omit or ask for reauthorization, but do not implement these queued features now. Previous exclusions of stunts/free roam etc. are superseded. Split screen/networking remain outside this pass. The combined implementation, retained failures, automated evidence and review boundaries are recorded in Docs/CR075-080/VALIDATION.md. Earlier document-only status is superseded; no human acceptance is claimed.
+**CURRENT NEXT DELIVERY — Woodstock Rush correction pass:** CR-082–089 cover every latest General/Reverse Road/Reverse Forest/Free Roam report. After safety commit, test Trickum baseline first across modes/directions before other implementation. Previous all-helmet and independent household rules are superseded; use helmet-free people and one global vignette at most. Imperial display is requested. CR-081 ghosts/collectibles/neighborhood/home work remains APPROVED and queued after these corrections, not canceled or awaiting reauthorization. Game name is Woodstock Rush; internal Racer paths remain unchanged. No game edits/tests in this planning update and no blanket user acceptance inferred.
+
+**Prior implementation and authorization history follows:**
+
+
+**PREVIOUS DELIVERY SCOPE — Route fixes + arcade challenges:** Dan approves CR-075–080 together: direction-aware signage/shortcut discovery and wrong-way reliability, safe on-course player reset/stalled-AI recovery, reverse Trickum ramp and standing ramp tests, free roam, stunt scoring/challenges, speed traps. Fix and validate routes/recovery/ramps first, then integrate activities in the same delivery. CR-081 records approved following-pass ghosts, collectibles, larger neighborhood and photo-informed home work; do not omit or ask for reauthorization, but do not implement these queued features now. Previous exclusions of stunts/free roam etc. are superseded. Split screen/networking remain outside this pass. The combined implementation, retained failures, automated evidence and review boundaries are recorded in Docs/CR075-080/VALIDATION.md. Earlier document-only status is superseded; no human acceptance is claimed.
 
 **Historical implementation evidence follows; latest human reports supersede apparent reverse-route/ramp test success:**
 
