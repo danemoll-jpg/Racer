@@ -1,6 +1,8 @@
 # Woodstock Rush
 ## Project Management / TODO / Astra-Codex Handoff
 
+**LATEST REVIEW / CURRENT AUTHORIZATION — CR-097–100:** Dan reports missing boundary fencing, broken House 3 driveway/pit, unclear stone props, ineffective/unclear summit launch, spherical tent and unwanted floating Kyle fence. Correct these and integrate the approved title art plus supplied spoken MP3 and looping theme; radio starts only at menu. Map and other new systems remain awaiting further testing. This planning update makes no new implementation/testing claim.
+
 **CURRENT AUTHORIZATION — CR-091–096:** Implemented in 0.16.0-review3 with compiled-player validation; full runtime/ZIP delivery is recorded below. Includes finish-gate lap recovery, property/fence/sign cleanup, permanent campsite, summit jump, relocated collectibles and persistent exploration map with safe free-roam travel. Mountain race remains future backlog. See Docs/CR091-096/VALIDATION.md for actual results and retained limitations; this is not blanket acceptance.
 
 **BASELINE AUTHORIZATION — 2026-09-20:** Dan requests one combined delivery: CR-081 plus CR-090, including automatic activity feedback/top-ten boards, personal-best ghosts, collectibles, wooded neighborhood expansion and reference-based home reconstruction. Earlier queued/deferred/excluded wording for these items is superseded. Work through internal implementation/testing checkpoints without waiting for another feature selection. Multiplayer/split screen remain excluded.
@@ -1418,6 +1420,37 @@ Technical detail: 372 final summit cases; 216/216 center/normal-offset runs scor
 
 ---
 
+### CR-097 — Restore property fences and House 3 driveway; remove Kyle's fence
+**Status:** AUTHORIZED / REVISION REQUIRED after 0.16.0-review3.
+Dan reports the fence between his house and House 2 is missing. Restore the connecting roadside run AND the property-separating fence between the homes, using references rather than substituting only an unrelated frontage section. Preserve the agreed spacing, parallel fronts, continuous three-property roadside fencing and Dan's two driveway gates. Ground every panel/post.
+House 3 (the second neighbor, Rocky Way Acres entrance) no longer has a supported driveway: entering drops the player into a pit. Restore a continuous physically supported, smoothly graded drive from the road, beneath the overhead sign, down to its house. Remove holes/collider seams; do not flatten the intended valley or move the overhead sign to hide the fault. Verify driving in and back out with every vehicle and safe recovery after failed approaches.
+Kyle has NO fence. Remove all fencing belonging to his property, including the floating fence. Keep neighboring fences across the street, his lowered house and descending driveway intact. Inspect all relevant course/free-roam scene variants and source generation so rebuilds retain the fixes.
+
+### CR-098 — Summit jump, recognizable stone clues and domed tent
+**Status:** AUTHORIZED / REVISION REQUIRED.
+Dan cannot clear the mountain top with the apparent summit launch, or cannot identify the intended launch. First locate/reproduce from ordinary player approaches, then provide unmistakable physical approach guidance and map/landmark identification consistent with discovery rules. Test from first playable corrected geometry. Ensure the intended summit jump launches past the mountain crest toward the neighborhood with dramatic airtime and a deliberate reachable supported landing/return; a nominal airborne frame or scoring event is not success. Record actual launch/crest/landing clearance and speed, vehicle, route, camera views and failed cases. Cover eligible vehicles, ordinary and fast speeds, center/off-center/edge approaches and applicable modes; no hidden impulse used to conceal a snag.
+Replace spherical/ball campsite tent with a small recognizable DOME tent: flat base on terrain, arched fabric roof, visible poles/seams and entrance flap. Preserve two seated guys, campfire and its independence from household vignette exclusivity.
+The screenshot C:/Users/danmo/Downloads/whats this.png shows clue cairns: DiscoveryDetails.cs builds three smooth brown spheres under "Acorn clue / <id>" using "Cairn stone". Explain purpose in handoff; improve recognition using irregular angular gray/weathered stones and modest varied placement, not repeated smooth brown blobs. Keep collectibles hidden and preserve IDs/progress; don't silently remove a gameplay clue system or expose every pickup.
+All current tests/retained failures remain historical, not proof this user report is fixed.
+
+### CR-099 — Approved startup artwork, spoken title and looping theme
+**Status:** AUTHORIZED / NOT IMPLEMENTED.
+Use the EXACT approved Woodstock Rush artwork, not regenerated art. Durable handoff asset: outputs/WOODSTOCK_RUSH_TITLE.png beside this planning copy; original C:/Users/danmo/.codex/generated_images/01a0ae2c-3129-7bd2-974a-13c76f7df420/exec-e11df3f6-6adb-410e-bcb5-2699f1d55fc6.png.
+Source audio exists locally: C:/Users/danmo/Downloads/Woodstock Rush Spoken.mp3 and C:/Users/danmo/Downloads/Woodstock Rush.mp3. Handoff copies are under outputs/TitleAssets. Import explicit title assets into project/package, never require Downloads at runtime and never add them automatically to radio channels.
+On fresh application startup show the artwork before the main menu. Play Spoken once, with theme starting quietly underneath and ducked for intelligibility; theme continues seamlessly looping until a fresh deliberate keyboard/controller/mouse button press. No timed auto-advance. Add a modest "Press any button" prompt without obscuring artwork.
+On advance stop/fade title audio promptly, consume the input (do not also activate a menu item), then show main menu and only then permit radio playback according to existing station/Off/volume preferences. NO radio during splash, even for persisted radio objects/preferences. Do not replay spoken/title on ordinary track changes, pause, Quit Race or scene reload; replay only on new application start unless a future explicit replay feature is requested.
+Honor Master mute/volume; separate startup audio from radio state so Radio Off doesn't accidentally disable the title theme. Choose/document reasonable music/voice routing without altering saved preferences. Stop loops/one-shots cleanly on skip/quit/restart; no duplicate audio/listeners. Use provided recording, not TTS.
+Preserve artwork aspect ratio and full logo/vehicles at 16:9 and Steam Deck 1280x800 (16:10), using deliberate matte/letterbox if needed rather than stretching/cropping title. Support resizing and controller focus. Verify MP3 encoder padding/end gaps and loop at a clean musical boundary; keep source originals unchanged.
+Test cold start with radio On/Off, Master muted, delayed audio loading, early skip, held input at startup, keyboard/controller/mouse, theme wrapping multiple times, transition once, and menu/race return. Ordinary tests muted; only brief targeted audio checks then remute. Never ship a diagnostic mute.
+
+### CR-100 — Map/exploration follow-up validation and combined review
+**Status:** OPEN / AWAITING FURTHER TESTING. Dan says the map and other new systems need more testing, not acceptance.
+Recheck map/world alignment, saved fog/waypoints/regional counts, safe discovered-destination free-roam travel, collectible persistence, and updated property/summit destinations after terrain changes. Travel cannot place vehicles in the repaired pit, inside fences or on invalid mountain surfaces. Keep race fast travel disabled and preserve save/ghost/record integrity.
+Keep prior known ramp/shortcut/AI/performance limitations open unless reproduced and actually fixed. Preserve missed-finish +5s lap completion behavior. No mountain race/multiplayer/split screen in this pass.
+Combined human checklist: boundary fence/two gates/frontage; House 3 drive in/out beneath Rocky Way Acres; no Kyle fence; clear summit approach and full crest clearance/landing; dome tent and readable rock clues; title speech once/theme loop/skip/no premature radio at 16:9 and Deck ratio; map/fog/travel/save regression. Build and validate complete Windows package; preserve previous builds, staged radio music and user settings. Update actual evidence, failures, version/source IDs and completion commit; await Dan review.
+
+---
+
 # DECISION LOG
 
 Record choices we do not want to repeatedly reconsider.
@@ -1516,6 +1549,8 @@ Record choices we do not want to repeatedly reconsider.
 ---
 
 # SESSION HANDOFF
+
+**LATEST REVIEW / CURRENT AUTHORIZATION — CR-097–100:** Dan reports missing boundary fencing, broken House 3 driveway/pit, unclear stone props, ineffective/unclear summit launch, spherical tent and unwanted floating Kyle fence. Correct these and integrate the approved title art plus supplied spoken MP3 and looping theme; radio starts only at menu. Map and other new systems remain awaiting further testing. This planning update makes no new implementation/testing claim.
 
 **CURRENT AUTHORIZATION — CR-091–096:** Implemented in 0.16.0-review3 with compiled-player validation; full runtime/ZIP delivery is recorded below. Includes finish-gate lap recovery, property/fence/sign cleanup, permanent campsite, summit jump, relocated collectibles and persistent exploration map with safe free-roam travel. Mountain race remains future backlog. See Docs/CR091-096/VALIDATION.md for actual results and retained limitations; this is not blanket acceptance.
 
