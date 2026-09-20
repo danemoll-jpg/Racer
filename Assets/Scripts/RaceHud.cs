@@ -10,6 +10,7 @@ namespace Racer
         GameObject speedPanel;
         GameObject wrongPanel;
         UnityEngine.UI.Text wrongText,wrongArrow;
+        UnityEngine.UI.Text activities;
         void Start()
         {
             var panel=(RectTransform)display.transform.parent;
@@ -31,11 +32,13 @@ namespace Racer
             {var t=new GameObject(name,typeof(RectTransform),typeof(UnityEngine.UI.Text)).GetComponent<UnityEngine.UI.Text>();t.transform.SetParent(wr,false);t.font=display.font;t.fontSize=fontSize;t.color=new(1,.84f,.35f);t.alignment=TextAnchor.MiddleCenter;t.raycastTarget=false;t.rectTransform.anchoredPosition=position;t.rectTransform.sizeDelta=dimensions;return t;}
             wrongArrow=Label("Local course direction",new(-184,0),new(88,88),68);wrongArrow.text="↑";
             wrongText=Label("Wrong way and local reset",new(48,0),new(366,108),38);wrongText.color=Color.white;wrongText.supportRichText=true;wrongPanel.SetActive(false);
+            var feedback=new GameObject("Arcade activity feedback",typeof(RectTransform),typeof(UnityEngine.UI.Text));feedback.transform.SetParent(transform,false);activities=feedback.GetComponent<UnityEngine.UI.Text>();activities.font=display.font;activities.fontSize=21;activities.color=new Color(1,.9f,.5f);activities.raycastTarget=false;activities.alignment=TextAnchor.LowerLeft;activities.rectTransform.anchorMin=activities.rectTransform.anchorMax=activities.rectTransform.pivot=Vector2.zero;activities.rectTransform.anchoredPosition=new(22,78);activities.rectTransform.sizeDelta=new(700,80);feedback.AddComponent<UnityEngine.UI.Outline>();
         }
         public static string FormatTime(double seconds)
         { int ms = (int)(seconds * 1000); return $"{ms / 60000:00}:{ms / 1000 % 60:00}.{ms % 1000:000}"; }
         public string BuildText()
         {
+            if(race.FreeRoam)return "";
             var p = race.Progress;
             return (race.reverseCourse?race.courseName.ToUpperInvariant()+"\n":race.Forest?"FOREST LOOP\n":"")+$"LAP {Mathf.Min(p.CompletedLaps+1,p.TargetLaps)}/{p.TargetLaps}    {(race.opponents?$"POS {race.PlayerPosition}/{race.Racers.Count}":"SOLO 1/1")}\n"
                 +$"Lap    {FormatTime(p.Finished?p.LastLap-p.CurrentLapPenalty:p.LapTime(race.Clock))}\nRace  {FormatTime(p.RaceTime(race.Clock))}";
@@ -44,6 +47,8 @@ namespace Racer
         {
             if(!race || race.Progress==null || !display) return;
             display.text=BuildText();
+            display.transform.parent.gameObject.SetActive(!race.FreeRoam&&!race.Flow.MenuVisible);
+            if(activities)activities.text=race.Flow.MenuVisible?"":race.Flow.Activities?.Hud;
             var guidance=race.GetComponent<WrongWayGuidance>();
             if(wrongPanel)
             {

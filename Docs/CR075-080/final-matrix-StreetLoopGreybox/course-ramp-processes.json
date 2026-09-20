@@ -1,0 +1,16 @@
+[
+  {
+    "Name": "ramps-StreetLoopGreybox",
+    "Exit": 0,
+    "Timeout": false,
+    "PeakMiB": 672.3,
+    "Flags": "-arcadeRamp full -course StreetLoopGreybox"
+  },
+  {
+    "Name": "high-StreetLoopGreybox",
+    "Exit": 0,
+    "Timeout": false,
+    "PeakMiB": 606.49,
+    "Flags": "-arcadeRamp high -course StreetLoopGreybox"
+  }
+]

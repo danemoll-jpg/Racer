@@ -1,0 +1,12 @@
+PASS moto direction=1 physical speed crossing awarded once; measured=21.81 m/s
+PASS moto plausible measured speed
+PASS Teleport/reset cannot award a crossing
+PASS moto direction=-1 physical speed crossing awarded once; measured=21.87 m/s
+PASS moto plausible measured speed
+PASS Teleport/reset cannot award a crossing
+FAIL atv direction=1 physical speed crossing awarded once; measured=21.87 m/s
+PASS atv plausible measured speed
+PASS Teleport/reset cannot award a crossing
+FAIL atv direction=-1 physical speed crossing awarded once; measured=21.87 m/s
+PASS atv plausible measured speed
+PASS Teleport/reset cannot award a crossing

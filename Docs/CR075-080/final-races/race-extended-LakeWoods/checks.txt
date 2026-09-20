@@ -1,0 +1,6 @@
+PASS Local recovery preserves gate progress and penalties
+PASS lake-v4-arcade moto completed 3/3 laps; misses=0; recoveries=1; adjusted=244.540870
+PASS lake-v4-arcade moto completed 3/3 laps; misses=0; recoveries=0; adjusted=234.725209
+PASS lake-v4-arcade moto completed 3/3 laps; misses=0; recoveries=1; adjusted=255.769719
+PASS lake-v4-arcade atv completed 3/3 laps; misses=0; recoveries=1; adjusted=237.672157
+PASS Completed player race creates one total entry

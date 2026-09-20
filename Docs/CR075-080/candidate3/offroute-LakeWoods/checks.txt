@@ -1,0 +1,2 @@
+PASS moto ordinary street driving outside forest corridor produces warning after 5.28s; route distance=570.7
+PASS atv ordinary street driving outside forest corridor produces warning after 5.28s; route distance=590.9

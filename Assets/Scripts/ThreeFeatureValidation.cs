@@ -76,6 +76,7 @@ namespace Racer
             board=new RecordBoards(legacy);Check(board.Board(category,false).Count==1&&board.Board(category,true).Count==1,"Legacy migration occurs once across reloads");
             Check(File.ReadAllText(file)==bytes&&board.Categories(false).Length==1,"Legacy source retained; incompatible history not relabeled");
             var race=FindAnyObjectByType<RaceDirector>();Check(race.gates.All(g=>g.gameObject.activeInHierarchy),"Director references only active course gates");
+            File.WriteAllText(dir+"/save-retries.txt",$"Atomic save retries={AtomicSave.Retries}; last failure={AtomicSave.LastFailure}; final board error={board.Error}");
         }
         public static void CaptureUi(string file)
         {
@@ -158,6 +159,8 @@ namespace Racer
         IEnumerator Drive()
         {
             var race=FindAnyObjectByType<RaceDirector>();var flow=race.Flow;string vehicle=Arg("-vehicle","original");int laps=int.Parse(Arg("-laps","2"));
+            // Optional diagnostic window; normal gameplay retains its authored 90 seconds.
+            race.finishGraceSeconds=float.Parse(Arg("-finishGrace",race.finishGraceSeconds.ToString(System.Globalization.CultureInfo.InvariantCulture)),System.Globalization.CultureInfo.InvariantCulture);
             flow.OpenGarage();flow.SelectVehicle(vehicle);flow.CloseGarage();race.opponents=true;race.traffic=true;race.laps=laps;race.opponentRoster=VehicleProfile.All.Where(p=>p.Id!=vehicle).Select(p=>p.Id).ToArray();race.Racers[0]=new RacerState("YOU automated",race.vehicle,race.gates.Length-1,laps);
             flow.StartRace();var pilot=race.vehicle.gameObject.AddComponent<RoadDriver>();pilot.Initialize(race,race.vehicle,true,1,1);pilot.Racer=race.Racers[0];
             if(mode=="performance")
@@ -180,6 +183,7 @@ namespace Racer
                 foreach(var state in race.Racers){var p=state.Car.Body.position;log.WriteLine($"{race.Clock:F3},{state.Car.GetComponent<VehicleConfiguration>().profileId},{state.Progress.CompletedLaps},{state.Progress.NextGate},{state.Car.ForwardSpeed:F2},{state.Recoveries},{state.Progress.MissedGates},{p.x:F2},{p.y:F2},{p.z:F2}");}log.Flush();
             }
             foreach(var state in race.Racers)Check(state.Progress.Finished&&!state.Dnf,$"{race.courseId} {state.Car.GetComponent<VehicleConfiguration>().profileId} completed {state.Progress.CompletedLaps}/{laps} laps; misses={state.Progress.MissedGates}; recoveries={state.Recoveries}; adjusted={state.Progress.AdjustedTime(race.Clock):F6}");
+            File.WriteAllLines(dir+"/penalties.txt",race.Racers.SelectMany(state=>state.Progress.Penalties.Select(p=>state.Name+" / "+p.ToString())));
             frames.Sort();File.WriteAllText(dir+"/performance.txt",$"Automated physical pilot; explicit offscreen rendering={mode=="performance"}; timeScale={Arg("-testSpeed","1")}; frames={frames.Count}; median={frames[frames.Count/2]:F3}ms; p95={frames[(int)(frames.Count*.95)]:F3}ms; peak memory measured separately by host process monitor. Hidden-window update-only timings are NOT render/FPS measurements.");
             Check(flow.Boards.Board(race.Category,true).Count==1,"Completed player race creates one total entry");
             ScreenCapture.CaptureScreenshot(dir+"/results.png");yield return null;

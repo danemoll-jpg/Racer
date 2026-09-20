@@ -1,0 +1,6 @@
+PASS moto pace=0.3 actual authored Forest jump scoring / awarded distance=25.71 latest airborne time=0.88
+PASS moto pace=0.45 actual authored Forest jump scoring / awarded distance=40.67 latest airborne time=1.62
+PASS moto pace=0.6 actual authored Forest jump scoring / awarded distance=114.52 latest airborne time=3.90
+PASS atv pace=0.3 actual authored Forest jump scoring / awarded distance=22.03 latest airborne time=1.42
+PASS atv pace=0.45 actual authored Forest jump scoring / awarded distance=30.94 latest airborne time=1.58
+PASS atv pace=0.6 actual authored Forest jump scoring / awarded distance=38.62 latest airborne time=0.28

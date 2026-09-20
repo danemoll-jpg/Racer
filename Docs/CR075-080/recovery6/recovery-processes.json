@@ -1,0 +1,30 @@
+[
+  {
+    "Name": "recovery-StreetLoopGreybox",
+    "Exit": 0,
+    "Timeout": false,
+    "PeakMiB": 580.38,
+    "Flags": "-arcadeTest recovery -course StreetLoopGreybox"
+  },
+  {
+    "Name": "recovery-LakeWoods",
+    "Exit": 0,
+    "Timeout": false,
+    "PeakMiB": 938.89,
+    "Flags": "-arcadeTest recovery -course LakeWoods"
+  },
+  {
+    "Name": "recovery-StreetLoopReverse",
+    "Exit": 0,
+    "Timeout": false,
+    "PeakMiB": 629.18,
+    "Flags": "-arcadeTest recovery -course StreetLoopReverse"
+  },
+  {
+    "Name": "recovery-ForestLoopReverse",
+    "Exit": 0,
+    "Timeout": false,
+    "PeakMiB": 902.93,
+    "Flags": "-arcadeTest recovery -course ForestLoopReverse"
+  }
+]

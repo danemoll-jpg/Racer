@@ -1,0 +1,58 @@
+[
+  {
+    "Name": "guidance-StreetLoopGreybox",
+    "Exit": 0,
+    "Timeout": false,
+    "PeakMiB": 470.71,
+    "Flags": "-review7074 physical -course StreetLoopGreybox"
+  },
+  {
+    "Name": "rules-StreetLoopGreybox",
+    "Exit": 0,
+    "Timeout": false,
+    "PeakMiB": 809.73,
+    "Flags": "-review7074 rules -course StreetLoopGreybox"
+  },
+  {
+    "Name": "guidance-LakeWoods",
+    "Exit": 0,
+    "Timeout": false,
+    "PeakMiB": 863.08,
+    "Flags": "-review7074 physical -course LakeWoods"
+  },
+  {
+    "Name": "rules-LakeWoods",
+    "Exit": 0,
+    "Timeout": false,
+    "PeakMiB": 982.61,
+    "Flags": "-review7074 rules -course LakeWoods"
+  },
+  {
+    "Name": "guidance-StreetLoopReverse",
+    "Exit": 0,
+    "Timeout": false,
+    "PeakMiB": 581.02,
+    "Flags": "-review7074 physical -course StreetLoopReverse"
+  },
+  {
+    "Name": "rules-StreetLoopReverse",
+    "Exit": 0,
+    "Timeout": false,
+    "PeakMiB": 784.69,
+    "Flags": "-review7074 rules -course StreetLoopReverse"
+  },
+  {
+    "Name": "guidance-ForestLoopReverse",
+    "Exit": 0,
+    "Timeout": false,
+    "PeakMiB": 877.61,
+    "Flags": "-review7074 physical -course ForestLoopReverse"
+  },
+  {
+    "Name": "rules-ForestLoopReverse",
+    "Exit": 0,
+    "Timeout": false,
+    "PeakMiB": 1104.47,
+    "Flags": "-review7074 rules -course ForestLoopReverse"
+  }
+]

@@ -1,0 +1,8 @@
+PASS original sustained main-route stall recovers within 22s; elapsed=12.11
+PASS original resumes ordinary route progress without a recovery loop; metres=221.6
+PASS tourer sustained main-route stall recovers within 22s; elapsed=12.07
+PASS tourer resumes ordinary route progress without a recovery loop; metres=219.2
+PASS moto sustained main-route stall recovers within 22s; elapsed=12.15
+PASS moto resumes ordinary route progress without a recovery loop; metres=227.1
+PASS atv sustained main-route stall recovers within 22s; elapsed=12.16
+PASS atv resumes ordinary route progress without a recovery loop; metres=91.9

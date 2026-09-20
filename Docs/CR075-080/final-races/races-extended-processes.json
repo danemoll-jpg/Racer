@@ -1,0 +1,30 @@
+[
+  {
+    "Name": "race-extended-StreetLoopGreybox",
+    "Exit": 0,
+    "Timeout": false,
+    "PeakMiB": 582.21,
+    "Flags": "-threeFeatureTest drive -course StreetLoopGreybox -vehicle original -laps 3 -testSpeed 6 -finishGrace 300"
+  },
+  {
+    "Name": "race-extended-LakeWoods",
+    "Exit": 0,
+    "Timeout": false,
+    "PeakMiB": 819.04,
+    "Flags": "-threeFeatureTest drive -course LakeWoods -vehicle moto -laps 3 -testSpeed 6 -finishGrace 300"
+  },
+  {
+    "Name": "race-extended-StreetLoopReverse",
+    "Exit": 0,
+    "Timeout": false,
+    "PeakMiB": 618.19,
+    "Flags": "-threeFeatureTest drive -course StreetLoopReverse -vehicle original -laps 3 -testSpeed 6 -finishGrace 300"
+  },
+  {
+    "Name": "race-extended-ForestLoopReverse",
+    "Exit": 0,
+    "Timeout": false,
+    "PeakMiB": 770.58,
+    "Flags": "-threeFeatureTest drive -course ForestLoopReverse -vehicle moto -laps 3 -testSpeed 6 -finishGrace 300"
+  }
+]

@@ -236,8 +236,10 @@ namespace Racer.Editor
                     if(child.localScale.x>10 && child.localScale.y<1) { var scale=child.localScale; scale.x=gate.halfWidth*2; child.localScale=scale; }
                 }
             }
-            foreach(var item in new[]{(s:4640f,label:"Hwy 92\nSouth Cherokee Lane"),(s:3695f,label:"Hwy 92"),(s:2640f,label:"Jamerson Rd")})
-            { var p=race.road.At(item.s,out var f); Sign(root,p-Vector3.Cross(Vector3.up,f).normalized*14,f,item.label,green); }
+            // Retain historical object identities for restoration catalogs; displayed
+            // road roles are explicit and do not rename separate Jamerson geometry.
+            foreach(var item in new[]{(s:4640f,label:"Hwy 92\nSouth Cherokee Lane",display:"South Cherokee Lane\nJUNCTION: Hwy 92"),(s:3695f,label:"Hwy 92",display:"Trickum Road"),(s:2640f,label:"Jamerson Rd",display:"TO Jamerson Road")})
+            { var p=race.road.At(item.s,out var f); Sign(root,p-Vector3.Cross(Vector3.up,f).normalized*14,f,item.label,green);foreach(var lettering in root.GetComponentsInChildren<TextMesh>().Where(t=>t.text==item.label))lettering.text=item.display; }
         }
         static void Fence(Transform root,Vector3 a,Vector3 b,bool chain)
         {

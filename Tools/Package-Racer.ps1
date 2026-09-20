@@ -1,4 +1,4 @@
-param([ValidatePattern('^[0-9]+\.[0-9]+\.[0-9]+(?:-[A-Za-z0-9-]+)?$')][string]$Version='0.12.0-review1')
+param([ValidatePattern('^[0-9]+\.[0-9]+\.[0-9]+(?:-[A-Za-z0-9-]+)?$')][string]$Version='0.13.0-review7')
 $ErrorActionPreference='Stop'
 $projectRoot=[IO.Path]::GetFullPath((Join-Path $PSScriptRoot '..'))
 $builds=Join-Path $projectRoot 'Builds'
@@ -48,10 +48,10 @@ foreach($song in $stagedSongs){
 }
 Copy-Item -LiteralPath "$projectRoot/Docs/CR040-054-055/RADIO.md" -Destination "$stage/RADIO.md" -Force
 'Each immediate folder is a radio channel; nested artist/album folders belong to that channel. Root songs form General. Add MP3, PCM WAV or Ogg Vorbis, then Rescan. See RADIO.md beside Racer.exe. Stage selected songs in project BundleMusic before repackaging.' | Set-Content -LiteralPath "$stage/Music/README-Racer.txt"
-if($Version -eq "0.12.0-review1"){Copy-Item -LiteralPath "$projectRoot/Docs/CR070-074/README-player.txt" -Destination "$stage/README.txt"}elseif($Version -eq "0.11.0-review1"){Copy-Item -LiteralPath "$projectRoot/Docs/CR067-069/README-player.txt" -Destination "$stage/README.txt"}elseif($Version -eq "0.10.0-review1"){Copy-Item -LiteralPath "$projectRoot/Docs/CR064-066/README-player.txt" -Destination "$stage/README.txt"}else{(Get-Content -LiteralPath "$projectRoot/Docs/CR061-062/README-player.txt" -Raw).Replace("0.9.1-review1",$Version) | Set-Content -LiteralPath "$stage/README.txt"}
+if($Version -like "0.13.0-*"){Copy-Item -LiteralPath "$projectRoot/Docs/CR075-080/README-player.txt" -Destination "$stage/README.txt"}elseif($Version -eq "0.12.0-review1"){Copy-Item -LiteralPath "$projectRoot/Docs/CR070-074/README-player.txt" -Destination "$stage/README.txt"}elseif($Version -eq "0.11.0-review1"){Copy-Item -LiteralPath "$projectRoot/Docs/CR067-069/README-player.txt" -Destination "$stage/README.txt"}elseif($Version -eq "0.10.0-review1"){Copy-Item -LiteralPath "$projectRoot/Docs/CR064-066/README-player.txt" -Destination "$stage/README.txt"}else{(Get-Content -LiteralPath "$projectRoot/Docs/CR061-062/README-player.txt" -Raw).Replace("0.9.1-review1",$Version) | Set-Content -LiteralPath "$stage/README.txt"}
 $licenses=Join-Path $stage 'Licenses';New-Item -ItemType Directory -Force $licenses | Out-Null
 foreach($notice in @('AUDIO-ASSET-NOTICES.txt','Unity-Windows-Mono-Notices.pdf','PackageNotices')){Copy-Item -LiteralPath "$projectRoot/Docs/CR020-021/$notice" -Destination $licenses -Recurse -Force}
-if($Version -in @("0.10.0-review1","0.11.0-review1","0.12.0-review1")){Copy-Item -LiteralPath "$projectRoot/Docs/CR064-066/VEHICLE-ASSET-NOTICES.txt" -Destination $licenses -Force}else{Copy-Item -LiteralPath "$projectRoot/Docs/CR028-033/VEHICLE-ASSET-NOTICES.txt" -Destination $licenses -Force}
+if($Version -like "0.13.0-*" -or $Version -in @("0.10.0-review1","0.11.0-review1","0.12.0-review1")){Copy-Item -LiteralPath "$projectRoot/Docs/CR064-066/VEHICLE-ASSET-NOTICES.txt" -Destination $licenses -Force}else{Copy-Item -LiteralPath "$projectRoot/Docs/CR028-033/VEHICLE-ASSET-NOTICES.txt" -Destination $licenses -Force}
 $manifest=@(Files-NoLinks $stage | ForEach-Object {[pscustomobject]@{Path=[IO.Path]::GetRelativePath($stage,$_.FullName);Bytes=$_.Length;SHA256=(Get-FileHash -LiteralPath $_.FullName).Hash}})
 $newZip=Join-Path $builds "PackageWork/$stamp/package.zip"
 Add-Type -AssemblyName System.IO.Compression.FileSystem

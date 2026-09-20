@@ -1,0 +1,4 @@
+PASS moto sustained main-route stall recovers within 22s; elapsed=12.16
+PASS moto resumes ordinary route progress without a recovery loop; metres=225.8
+PASS atv sustained main-route stall recovers within 22s; elapsed=12.15
+PASS atv resumes ordinary route progress without a recovery loop; metres=202.1

@@ -1,0 +1,29 @@
+PASS Fastest ten of 25 sorted by full precision
+PASS Distinct tied attempts retained in stable order; unrounded near-tie follows
+PASS Duplicate identity rejected even with changed time
+PASS Reload preserves order and duplicate protection
+PASS Total-race board also retains fastest ten of 25 attempts
+FAIL Total-race ties and sub-millisecond order persist
+PASS Lap penalty finalized on correct lap exactly once
+PASS Incomplete race cannot create total-race entry
+FAIL Completed eligible lap persists before race completion/abandonment
+PASS Final total uses frozen finish plus both penalties once
+PASS Stored race agrees with authoritative adjusted timing
+PASS Repeated completion/results cannot duplicate lap or total
+FAIL Reload does not re-import newly written compatibility bests as duplicate legacy attempts
+PASS Race category isolated: lake-v1-original-race4-d1-tourer-moto-atv-traffic-laps3
+PASS Race category isolated: street-v8-landings-moto-race4-d1-tourer-moto-atv-traffic-laps3
+PASS Race category isolated: street-v8-landings-original-race4-d2-tourer-moto-atv-traffic-laps3
+PASS Race category isolated: street-v8-landings-original-race4-d1-atv-tourer-moto-traffic-laps3
+PASS Race category isolated: street-v8-landings-original-race4-d1-tourer-moto-atv-clear-laps3
+PASS Race category isolated: street-v8-landings-original-race4-d1-tourer-moto-atv-traffic-laps2
+FAIL Original race board isolated from all alternatives
+PASS Lap boards comparable across lap counts
+PASS Invalid time rejected -1
+PASS Invalid time rejected 0
+PASS Invalid time rejected NaN
+PASS Invalid time rejected Infinity
+PASS Known legacy best migrates with date explicitly unknown
+PASS Legacy migration occurs once across reloads
+PASS Legacy source retained; incompatible history not relabeled
+PASS Director references only active course gates

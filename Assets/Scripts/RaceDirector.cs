@@ -20,6 +20,7 @@ namespace Racer
         public string courseName="Street Loop";
         public const double OrdinaryMissPenalty = 5;
         public bool opponents = true, traffic = true;
+        public bool FreeRoam {get;set;}
         public int difficulty = 1;
         public string[] opponentRoster = {"tourer","moto","atv"};
         public string RosterLabel => string.Join(" / ",opponentRoster.Select(id=>VehicleProfile.Find(id).Name));
@@ -123,7 +124,7 @@ namespace Racer
             respawn.RestartAtStart();
             Progress.Restart();
             Racers[0].Dnf=false; Racers[0].FinishArmed=false; Racers[0].RecoveryStart=float.NaN; Racers[0].Recoveries=0;
-            if (road && opponents)
+            if (road && opponents && !FreeRoam)
             {
                 var grid = road.At(origin - 32, out var direction);
                 vehicle.Body.position = grid - Vector3.Cross(Vector3.up,direction).normalized * 2.2f + Vector3.up * Mathf.Max(.4f,vehicle.suspensionLength-Physics.gravity.magnitude/vehicle.springStrength);
@@ -151,7 +152,7 @@ namespace Racer
             if (Flow)
             {
                 Flow.SelectRecords(Category);
-                Flow.BeginCountdown();
+                if(FreeRoam)Flow.BeginRoaming();else Flow.BeginCountdown();
             }
         }
 
@@ -166,6 +167,7 @@ namespace Racer
 
         void CreateCars()
         {
+            bool savedOpponents=opponents;if(FreeRoam)opponents=false;
             float spawn = road.Project(vehicle.transform.position, out _);
             int localPopulation = Mathf.Clamp(trafficCount, 0, 6);
             int population = localPopulation + Mathf.Clamp(highwayTrafficCount,0,24);
@@ -177,6 +179,7 @@ namespace Racer
                 var clone = Instantiate(vehicle.gameObject);
                 clone.name = racing ? new[]{"EMBER", "GOLD", "BLUE"}[n] : "Traffic " + (n + 1);
                 var car = clone.GetComponent<ArcadeVehicle>();
+                foreach(var activityContact in clone.GetComponents<ActivityLandingContact>())Destroy(activityContact);
                 var configuration = clone.GetComponent<VehicleConfiguration>();
                 if (!configuration) configuration = clone.AddComponent<VehicleConfiguration>();
                 // Every opponent uses the resolved real physics/visual profile.
@@ -223,12 +226,13 @@ namespace Racer
                 float station=driver.HighwayTraffic?3800+(h/4)*175+(h%4)*22:(!racing&&ambientRoad?driveRoad.Project(vehicle.transform.position,out _):spawn)+200+n*driveRoad.Length/Mathf.Max(1,localPopulation);
                 driver.Place(racing ? spawn + 8 + n * 7 : station, racing ? (n % 2 == 0 ? 2.2f : -2.2f) : driveRoad.TrafficLane(station,driver.Direction,n%4>=2));
             }
+            opponents=savedOpponents;
         }
 
         void ShowGrid()
         {
             if(gridVisual) { gridVisual.SetActive(false); Destroy(gridVisual); }
-            if(!opponents || !road) return;
+            if(!opponents || !road || FreeRoam) return;
             if(!gridPaint) gridPaint=new Material(Shader.Find("Universal Render Pipeline/Lit")){color=new Color(.88f,.87f,.68f)};
             gridVisual=new GameObject("Starting grid paint");
             foreach(var racer in Racers)
@@ -251,6 +255,7 @@ namespace Racer
             if (Flow && Flow.State != RaceFlow.Stage.Racing)
                 return;
             Clock = Time.fixedTimeAsDouble;
+            if(FreeRoam)return;
             Sample(vehicle.Body.position, vehicle.transform.forward, Clock);
             for (int i = 1; i < Racers.Count; i++)
                 SampleRacer(Racers[i], Racers[i].Car.Body.position, Racers[i].Car.transform.forward, Clock, false);
@@ -274,7 +279,7 @@ namespace Racer
         public void Sample(Vector3 position, Vector3 heading, double now) => SampleRacer(Racers[0], position, heading, now, true);
         void SampleRacer(RacerState r, Vector3 position, Vector3 heading, double now, bool player)
         {
-            if ((Flow && Flow.State != RaceFlow.Stage.Racing) || r.Classified || r.Dnf)
+            if (FreeRoam || (Flow && Flow.State != RaceFlow.Stage.Racing) || r.Classified || r.Dnf)
                 return;
             var p = r.Progress;
             int completed = p.CompletedLaps, misses = p.MissedGates;
@@ -346,6 +351,9 @@ namespace Racer
                         r.Travel=Mathf.Max(0,r.RoadPosition-gateS[last]);
                         r.VerifiedRoad=r.RoadPosition;
                         Trace(r,"completed",position,now); r.Branch.Clear();
+                        // A verified exit earns this road position even if reset is
+                        // pressed before the next supported-history sample.
+                        r.Car.GetComponent<VehicleRespawn>()?.SeedCoursePosition(position);
                     }
                     else if(abandoned) { Trace(r,"deliberate road rejoin; credit retained",position,now); r.Branch.Clear(); }
                     else

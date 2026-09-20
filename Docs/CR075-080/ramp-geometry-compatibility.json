@@ -1,0 +1,22 @@
+[
+  {
+    "Path": "C:\\Users\\danmo\\Racer\\Assets\\Scripts\\ArcadeVehicle.cs",
+    "SameHash": true
+  },
+  {
+    "Path": "C:\\Users\\danmo\\Racer\\Assets\\Track\\ArcadeReview\\TrickumForestLoopReverse.asset",
+    "SameHash": false
+  },
+  {
+    "Path": "C:\\Users\\danmo\\Racer\\Assets\\Track\\ArcadeReview\\TrickumForward.asset",
+    "SameHash": true
+  },
+  {
+    "Path": "C:\\Users\\danmo\\Racer\\Assets\\Track\\ArcadeReview\\TrickumLakeWoods.asset",
+    "SameHash": false
+  },
+  {
+    "Path": "C:\\Users\\danmo\\Racer\\Assets\\Track\\ArcadeReview\\TrickumReverse.asset",
+    "SameHash": true
+  }
+]

@@ -22,7 +22,7 @@ namespace Racer
             Application.runInBackground=true;root=Arg("-evidence","Docs/CR061-062/test");Directory.CreateDirectory(root);
             string scene=Arg("-course","LakeWoods");if(SceneManager.GetActiveScene().name!=scene)SceneManager.LoadScene(scene);yield return null;yield return null;
             race=FindAnyObjectByType<RaceDirector>();wildlife=race.GetComponent<Wildlife>();cam=Camera.main;target=new RenderTexture(1280,720,24);cam.targetTexture=target;QualitySettings.vSyncCount=0;Application.targetFrameRate=120;
-            race.Flow.OpenGarage();race.Flow.SelectVehicle(race.Forest?"moto":"original");race.Flow.CloseGarage();race.traffic=true;race.opponents=true;race.Flow.StartRace();while(race.Flow.State!=RaceFlow.Stage.Racing)yield return null;
+            race.Flow.OpenGarage();race.Flow.SelectVehicle(race.Forest?"moto":"original");race.Flow.CloseGarage();race.traffic=true;race.opponents=true;if(Environment.GetCommandLineArgs().Contains("-roamPerformance"))race.Flow.StartFreeRoam();else race.Flow.StartRace();while(race.Flow.State!=RaceFlow.Stage.Racing)yield return null;
             race.Flow.Radio.SetFolder(Path.GetFullPath("BundleMusic"));float until=Time.realtimeSinceStartup+15;while(race.Flow.Radio.Scanning&&Time.realtimeSinceStartup<until)yield return null;if(!race.Flow.Save.Settings.radioOn)race.Flow.Radio.Toggle();while(!race.Flow.Radio.Playing&&Time.realtimeSinceStartup<until)yield return null;QualitySettings.vSyncCount=0;Application.targetFrameRate=120;
             Check(race.Flow.Radio.Playing,"Radio actually playing at normal saved-default volumes");
             string mode=Arg("-signWildlifeTest","signs");

@@ -37,7 +37,7 @@ namespace Racer
         {
             var match=Regex.Match(category,@"^(.*?)-(original|tourer|moto|atv)-(.*)$");if(!match.Success)return category;
             var bits=match.Groups[3].Value.Split('-');string course=match.Groups[1].Value;
-            string track=course=="street-reverse-v1"?"Street Loop Reverse / v1":course=="forest-reverse-v1"?"Forest Loop Reverse / v1":course=="street-v10-hairpin"?"Street Loop / v10":course=="lake-v3-shallows"?"Forest Loop / v3 shallows":course=="street-v9-life"?"Street Loop / v9":course=="lake-v2-forest"?"Forest Loop / historical v2":course=="lake-v1"?"Forest Loop / historical v1":course=="street-v8-landings"?"Street Loop / historical v8 landings":course;
+            string track=course=="street-v11-arcade"?"Street Loop / v11":course=="lake-v4-arcade"?"Forest Loop / v4":course=="street-reverse-v2-arcade"?"Street Loop Reverse / v2":course=="forest-reverse-v2-arcade"?"Forest Loop Reverse / v2":course=="street-reverse-v1"?"Street Loop Reverse / v1":course=="forest-reverse-v1"?"Forest Loop Reverse / v1":course=="street-v10-hairpin"?"Street Loop / v10":course=="lake-v3-shallows"?"Forest Loop / v3 shallows":course=="street-v9-life"?"Street Loop / v9":course=="lake-v2-forest"?"Forest Loop / historical v2":course=="lake-v1"?"Forest Loop / historical v1":course=="street-v8-landings"?"Street Loop / historical v8 landings":course;
             string mode=bits[0]=="solo"?"Solo":bits.Length>=5?"3 AI / "+new[]{"Easy","Normal","Hard"}[Mathf.Clamp(bits[1].Last()-'0',0,2)]:"Legacy race";
             string roster=bits[0]=="race4"&&bits.Length>=5?"\nAI: "+string.Join(" / ",bits.Skip(2).Take(3).Select(id=>VehicleProfile.Find(id).Name)):"";
             return track+" / "+VehicleProfile.Find(match.Groups[2].Value).Name+"\n"+mode+" / "+(bits.Contains("traffic")?"Traffic":"Clear")+(bits.Last().StartsWith("laps")?" / "+bits.Last().Substring(4)+" laps":" / completed laps")+roster;
@@ -66,7 +66,7 @@ namespace Racer
         public int Add(string id,string category,bool race,double seconds,string vehicle,string date=null,bool legacy=false)
         {
             if(readFailed||string.IsNullOrEmpty(id)||!Valid(seconds))return 0;
-            if((category.StartsWith("lake-v2-forest-")||category.StartsWith("lake-v3-shallows-")||category.StartsWith("forest-reverse-v1-"))&&(!VehicleProfile.Find(vehicle).Small||category.Split('-').Any(p=>p=="original"||p=="tourer")))return 0;
+            if((category.StartsWith("lake-v2-forest-")||category.StartsWith("lake-v3-shallows-")||category.StartsWith("forest-reverse-v1-")||category.StartsWith("lake-v4-arcade-")||category.StartsWith("forest-reverse-v2-arcade-"))&&(!VehicleProfile.Find(vehicle).Small||category.Split('-').Any(p=>p=="original"||p=="tourer")))return 0;
             string legacyFile="records-"+category+".json";
             if(!race)category=LapCategory(category);
             if(data.received.Contains(id))return 0;
@@ -118,9 +118,7 @@ namespace Racer
             if(readFailed)return;
             try
             {
-                Directory.CreateDirectory(Path.GetDirectoryName(path));string temp=path+".tmp";
-                File.WriteAllText(temp,JsonUtility.ToJson(data,true));
-                if(File.Exists(path))File.Replace(temp,path,path+".bak");else File.Move(temp,path);
+                AtomicSave.Write(path,JsonUtility.ToJson(data,true));
                 Error=null;
             }
             catch(Exception e) when(e is IOException||e is UnauthorizedAccessException){Error="Could not save record boards; retained in memory.";}

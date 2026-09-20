@@ -13,6 +13,7 @@ namespace Racer
         public RaceDirector Race { get; private set; }
         public LocalRadio Radio { get; private set; }
         public RecordBoards Boards { get; private set; }
+        public ArcadeActivities Activities {get;private set;}
         public int LapRank { get; private set; }
         public int RaceRank { get; private set; }
         string attempt;
@@ -73,6 +74,7 @@ namespace Racer
             back = new InputAction("Back", InputActionType.Button);
             back.AddBinding("<Gamepad>/buttonEast"); back.Enable();
             menus = gameObject.AddComponent<RaceMenus>(); menus.Initialize(this);
+            Activities=gameObject.AddComponent<ArcadeActivities>();Activities.Initialize(Race,root);
             LockVehicle(true); SetStage(Stage.Ready);
         }
         void Update()
@@ -124,6 +126,7 @@ namespace Racer
         }
         public void PrepareRestart()
         {
+            Activities?.NewSession();
             var runoff=Race.vehicle.GetComponent<RoadDriver>();
             if(runoff) { runoff.enabled=false; Destroy(runoff); }
             LockVehicle(false); Race.vehicle.enabled=true;
@@ -215,7 +218,10 @@ namespace Racer
             NewLapRecord = NewRaceRecord = false; CountdownRemaining = 3; lastTick = 3;
             Notice = null; LockVehicle(true); SetStage(Stage.Countdown); Sound(tick);
         }
-        public void StartRace() { Click(); Race.RestartRace(); }
+        public void StartRace() { Race.FreeRoam=false;SetGateVisibility(true);Click(); Race.RestartRace(); }
+        public void StartFreeRoam(){Race.FreeRoam=true;SetGateVisibility(false);Click();Race.RestartRace();}
+        public void BeginRoaming(){attempt=null;CountdownRemaining=0;LapRank=RaceRank=0;NewLapRecord=NewRaceRecord=false;LockVehicle(false);Race.GetComponent<WrongWayGuidance>()?.Clear();SetStage(Stage.Racing);}
+        void SetGateVisibility(bool visible){foreach(var gate in Race.gates)foreach(var renderer in gate.GetComponentsInChildren<Renderer>(true))renderer.enabled=visible;}
         public void Pause() { pausedStage = State; SetStage(Stage.Paused); Click(); }
         public void Resume() { SetStage(pausedStage); Click(); }
         public void OpenSettings() { settingsReturn = State; SetStage(Stage.Settings); Click(); }
@@ -225,6 +231,7 @@ namespace Racer
         {
             if(State!=Stage.Paused && State!=Stage.Results && State!=Stage.Settings) return;
             PrepareRestart(); Race.AbandonEvent(); respawn.CancelRecovery(); LockVehicle(true);
+            Race.FreeRoam=false;SetGateVisibility(true);
             NewLapRecord=NewRaceRecord=false; Save.SaveSettings(); SetStage(Stage.Ready);
             Race.vehicle.GetComponent<VehicleAudio>()?.Silence();
         }
@@ -234,7 +241,7 @@ namespace Racer
         }
         public void LapCompleted()
         {
-            if (State != Stage.Racing) return;
+            if (State != Stage.Racing || Race.FreeRoam) return;
             if(string.IsNullOrEmpty(attempt)||Race.Progress.CompletedLaps<=0)return;
             string profile=Race.vehicle.GetComponent<VehicleConfiguration>().profileId;
             LapRank=Boards.CompletedLap(attempt,Race.Category,profile,Race.Progress);

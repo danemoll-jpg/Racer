@@ -1,0 +1,9 @@
+course,vehicle,speed,line,seconds,travel,air,minUp,recovered,outcome
+Street Loop Reverse,original,12,-1.5,12.693,150.052,0.760,0.967,True,completed
+Street Loop Reverse,original,12,1.7,12.647,150.099,0.260,0.749,True,completed
+Street Loop Reverse,tourer,12,-1.5,12.689,150.030,0.740,0.974,True,completed
+Street Loop Reverse,tourer,12,1.7,12.687,150.188,0.620,0.864,True,completed
+Street Loop Reverse,moto,12,-1.5,12.697,150.117,0.880,0.974,True,completed
+Street Loop Reverse,moto,12,1.7,13.411,150.084,0.600,0.544,True,completed
+Street Loop Reverse,atv,12,-1.5,12.694,150.094,0.860,0.980,True,completed
+Street Loop Reverse,atv,12,1.7,13.033,150.222,0.900,0.755,True,completed

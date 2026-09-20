@@ -74,7 +74,7 @@ namespace Racer
             previewCamera.backgroundColor=new Color(.06f,.1f,.13f); previewCamera.targetTexture=previewTexture;
             previewCamera.transform.position=new Vector3(10000,10003,9994); previewCamera.transform.LookAt(new Vector3(10000,10000.5f,10000));
             previewCamera.fieldOfView=36; previewCamera.farClipPlane=30;
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 11; i++)
             {
                 var rect = Rect("Action " + i, card);
                 rect.gameObject.AddComponent<UnityEngine.UI.LayoutElement>().preferredHeight = 44;
@@ -174,7 +174,8 @@ namespace Racer
                 Action(7,"Opponent vehicles",flow.OpenRoster);
                 Action(8,"Track: "+flow.Race.courseName,flow.OpenCourses);
                 Action(9,"Records / Top 10",()=>{boardCategory=null;flow.OpenBoards();});
-                foreach(var b in buttons)b.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=36;
+                Action(10,"Free Roam / explore + arcade activities",flow.StartFreeRoam);
+                foreach(var b in buttons)b.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=32;
                 details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=125;
                 details.fontSize=18;
                 details.text=$"{flow.Race.laps} laps / clock starts at GO\n{(flow.Race.opponents?flow.Race.RosterLabel:"Solo time trial")}\nBest lap {Record(flow.Save.Best.lap)}  /  race {Record(flow.Save.Best.race)}\nTimes below are elapsed; penalties are added to results.";
@@ -188,6 +189,20 @@ namespace Racer
                 Action(5,"Penalty breakdown / next page",()=>{ penaltyPage++; if(penaltyPage*4>=p.Penalties.Count) penaltyPage=-1; Show(); });
                 if(p.Finished && !flow.Race.ClassificationFinal) Action(6,"Skip waiting / estimate remaining AI",flow.Race.FinalizeUnfinishedAi);
                 if(penaltyPage>=0) PenaltyDetails(p);
+                if(flow.Race.FreeRoam)
+                {
+                    title.text="FREE ROAM / PAUSED";
+                    var site=flow.Activities.Selected;var best=site?flow.Activities.PersonalBest(site):null;
+                    details.text="Explore roads and trails. Speed traps are automatic.\nR / Y: local reset. Drive to the activity before starting.\n"+(site?$"{site.title} / {flow.Activities.Location}\n{flow.Activities.Targets} / PB {best?.value??0:0.0}":"");
+                    foreach(var button in buttons)button.gameObject.SetActive(false);
+                    Action(0,"Resume exploring",flow.Resume);
+                    Action(1,"Activity: "+(site?site.title:"none"),()=>{flow.Activities.Cycle();Show();});
+                    Action(2,"Start / retry selected activity",()=>{flow.Activities.BeginAttempt();flow.Resume();});
+                    Action(3,"Cancel activity",()=>{flow.Activities.Cancel();flow.Resume();});
+                    Action(4,"Settings / music",flow.OpenSettings);
+                    Action(5,"Return to menu / choose race",flow.QuitRace);
+                    Action(6,"Quit Game",flow.Quit);
+                }
             }
             else if (shown == RaceFlow.Stage.Results)
             {

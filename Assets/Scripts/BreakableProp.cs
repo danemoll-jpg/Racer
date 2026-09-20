@@ -8,6 +8,7 @@ namespace Racer
     [RequireComponent(typeof(BoxCollider))]
     public sealed class BreakableProp : MonoBehaviour
     {
+        public static event System.Action<BreakableProp,ArcadeVehicle> BrokenByVehicle;
         public const int MaximumMovingDebris = 24;
         public const float DebrisLifetime = 4f;
         [Min(0.01f)] public float impactSpeed = .2f;
@@ -28,7 +29,7 @@ namespace Racer
         bool initialized;
 
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
-        static void ClearRegistry() { all.Clear(); moving.Clear(); }
+        static void ClearRegistry() { all.Clear(); moving.Clear(); BrokenByVehicle=null; }
         void Awake()
         {
             sensor = GetComponent<BoxCollider>(); sensor.isTrigger = true;
@@ -54,6 +55,7 @@ namespace Racer
             if (vehicle && vehicle.Body.linearVelocity.magnitude >= impactSpeed)
             {
                 Yield(vehicle.Body.linearVelocity);
+                BrokenByVehicle?.Invoke(this,vehicle);
                 SmashAudio.Play(initialPosition,vehicle.Body.linearVelocity.magnitude,surface);
             }
         }

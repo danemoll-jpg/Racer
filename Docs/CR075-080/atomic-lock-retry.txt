@@ -1,0 +1,1 @@
+new value=replacement; preserved backup=original; retries=1; last failure=IOException / -2147023721 / Unable to remove the file to be replaced

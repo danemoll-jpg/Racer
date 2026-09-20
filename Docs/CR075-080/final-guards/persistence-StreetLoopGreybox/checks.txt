@@ -1,0 +1,2 @@
+FAIL Existing isolated activity save present on cold process start
+PASS Cold activity load does not create race progress

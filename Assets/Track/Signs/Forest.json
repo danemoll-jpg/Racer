@@ -953,7 +953,7 @@
         {
             "parent": "CR034-039 Woodland routes/Breakable sign - Hwy 92 South Cherokee Lane",
             "name": "Road lettering",
-            "text": "Hwy 92\nSouth Cherokee Lane",
+            "text": "South Cherokee Lane\nJUNCTION: Hwy 92",
             "material": "Assets/Track/Woodland/Lettering.mat",
             "position": {
                 "x": 0.0,
@@ -991,7 +991,7 @@
         {
             "parent": "CR034-039 Woodland routes/Breakable sign - Hwy 92 South Cherokee Lane",
             "name": "Road lettering",
-            "text": "Hwy 92\nSouth Cherokee Lane",
+            "text": "South Cherokee Lane\nJUNCTION: Hwy 92",
             "material": "Assets/Track/Woodland/Lettering.mat",
             "position": {
                 "x": 0.0,
@@ -1029,7 +1029,7 @@
         {
             "parent": "CR034-039 Woodland routes/Breakable sign - Hwy 92",
             "name": "Road lettering",
-            "text": "Hwy 92",
+            "text": "Trickum Road",
             "material": "Assets/Track/Woodland/Lettering.mat",
             "position": {
                 "x": 0.0,
@@ -1067,7 +1067,7 @@
         {
             "parent": "CR034-039 Woodland routes/Breakable sign - Hwy 92",
             "name": "Road lettering",
-            "text": "Hwy 92",
+            "text": "Trickum Road",
             "material": "Assets/Track/Woodland/Lettering.mat",
             "position": {
                 "x": 0.0,
@@ -1105,7 +1105,7 @@
         {
             "parent": "CR034-039 Woodland routes/Breakable sign - Jamerson Rd",
             "name": "Road lettering",
-            "text": "Jamerson Rd",
+            "text": "TO Jamerson Road",
             "material": "Assets/Track/Woodland/Lettering.mat",
             "position": {
                 "x": 0.0,
@@ -1143,7 +1143,7 @@
         {
             "parent": "CR034-039 Woodland routes/Breakable sign - Jamerson Rd",
             "name": "Road lettering",
-            "text": "Jamerson Rd",
+            "text": "TO Jamerson Road",
             "material": "Assets/Track/Woodland/Lettering.mat",
             "position": {
                 "x": 0.0,

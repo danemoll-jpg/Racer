@@ -1,0 +1,5 @@
+course,vehicle,speed,line,seconds,travel,air,minUp,recovered,outcome,scoredDistance,scoredAirtime,awards
+Street Loop,original,28,-1.5,3.980,91.537,0.360,0.961,True,midair reset excluded,0.000,0.000,0
+Street Loop,tourer,28,-1.5,3.980,91.527,0.360,0.961,True,midair reset excluded,0.000,0.000,0
+Street Loop,moto,28,-1.5,3.960,91.307,0.360,0.952,True,midair reset excluded,0.000,0.000,0
+Street Loop,atv,28,-1.5,3.960,91.260,0.360,0.955,True,midair reset excluded,0.000,0.000,0

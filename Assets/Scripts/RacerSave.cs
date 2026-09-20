@@ -74,11 +74,7 @@ namespace Racer
         {
             try
             {
-                Directory.CreateDirectory(DirectoryPath);
-                string path = Path.Combine(DirectoryPath, name), temp = path + ".tmp";
-                File.WriteAllText(temp, JsonUtility.ToJson(value, true));
-                if (File.Exists(path)) File.Replace(temp, path, path + ".bak");
-                else File.Move(temp, path);
+                AtomicSave.Write(Path.Combine(DirectoryPath,name),JsonUtility.ToJson(value,true));
                 Error = null; return true;
             }
             catch (Exception e) when (e is IOException || e is UnauthorizedAccessException)

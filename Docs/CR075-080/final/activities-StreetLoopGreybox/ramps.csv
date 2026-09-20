@@ -1,0 +1,13 @@
+course,vehicle,speed,line,seconds,travel,air,minUp,recovered,outcome,scoredDistance,scoredAirtime,awards
+Street Loop,original,18,-1.5,9.800,150.132,1.620,0.961,True,completed,27.348,1.620,1
+Street Loop,original,28,-1.5,8.200,150.168,2.100,0.963,True,completed,54.175,2.100,1
+Street Loop,original,38,-1.5,5.460,171.723,2.600,0.966,True,completed,89.747,2.600,1
+Street Loop,tourer,18,-1.5,9.900,150.109,1.580,0.962,True,completed,26.785,1.580,1
+Street Loop,tourer,28,-1.5,6.480,150.380,2.080,0.964,True,completed,53.661,2.080,1
+Street Loop,tourer,38,-1.5,5.420,170.502,2.560,0.964,True,completed,88.399,2.560,1
+Street Loop,moto,18,-1.5,10.820,150.332,1.800,0.906,True,completed,29.865,1.800,1
+Street Loop,moto,28,-1.5,8.220,150.392,2.160,0.952,True,completed,56.022,2.160,1
+Street Loop,moto,38,-1.5,5.480,173.642,2.640,0.958,True,completed,91.962,2.640,1
+Street Loop,atv,18,-1.5,9.500,150.174,1.800,0.905,True,completed,29.767,1.800,1
+Street Loop,atv,28,-1.5,6.380,150.430,2.180,0.955,True,completed,56.327,2.180,1
+Street Loop,atv,38,-1.5,5.480,173.256,2.640,0.961,True,completed,91.655,2.640,1

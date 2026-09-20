@@ -1,0 +1,1 @@
+frames=15231 median=8.339 p95=16.328 ms; 1280x720 offscreen explicitly rendered, cap=120; people=19; wildlife=8; traffic=20; radio=True; normalTimeScale=1

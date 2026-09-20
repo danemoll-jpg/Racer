@@ -1,0 +1,116 @@
+PASS Body paint original0
+PASS Trim/rider unchanged original0
+PASS Visual/color leaves physics invariant original0
+PASS No visual colliders original0
+PASS Body paint original1
+PASS Trim/rider unchanged original1
+PASS Visual/color leaves physics invariant original1
+PASS No visual colliders original1
+PASS Body paint original2
+PASS Trim/rider unchanged original2
+PASS Visual/color leaves physics invariant original2
+PASS No visual colliders original2
+PASS Body paint original3
+PASS Trim/rider unchanged original3
+PASS Visual/color leaves physics invariant original3
+PASS No visual colliders original3
+PASS Body paint original4
+PASS Trim/rider unchanged original4
+PASS Visual/color leaves physics invariant original4
+PASS No visual colliders original4
+PASS Body paint original5
+PASS Trim/rider unchanged original5
+PASS Visual/color leaves physics invariant original5
+PASS No visual colliders original5
+PASS Body paint original6
+PASS Trim/rider unchanged original6
+PASS Visual/color leaves physics invariant original6
+PASS No visual colliders original6
+PASS Player and opponent meshes survive clone retirement original
+PASS Body paint tourer0
+PASS Trim/rider unchanged tourer0
+PASS Visual/color leaves physics invariant tourer0
+PASS No visual colliders tourer0
+PASS Body paint tourer1
+PASS Trim/rider unchanged tourer1
+PASS Visual/color leaves physics invariant tourer1
+PASS No visual colliders tourer1
+PASS Body paint tourer2
+PASS Trim/rider unchanged tourer2
+PASS Visual/color leaves physics invariant tourer2
+PASS No visual colliders tourer2
+PASS Body paint tourer3
+PASS Trim/rider unchanged tourer3
+PASS Visual/color leaves physics invariant tourer3
+PASS No visual colliders tourer3
+PASS Body paint tourer4
+PASS Trim/rider unchanged tourer4
+PASS Visual/color leaves physics invariant tourer4
+PASS No visual colliders tourer4
+PASS Body paint tourer5
+PASS Trim/rider unchanged tourer5
+PASS Visual/color leaves physics invariant tourer5
+PASS No visual colliders tourer5
+PASS Body paint tourer6
+PASS Trim/rider unchanged tourer6
+PASS Visual/color leaves physics invariant tourer6
+PASS No visual colliders tourer6
+PASS Player and opponent meshes survive clone retirement tourer
+PASS Body paint moto0
+PASS Trim/rider unchanged moto0
+PASS Visual/color leaves physics invariant moto0
+PASS No visual colliders moto0
+PASS Body paint moto1
+PASS Trim/rider unchanged moto1
+PASS Visual/color leaves physics invariant moto1
+PASS No visual colliders moto1
+PASS Body paint moto2
+PASS Trim/rider unchanged moto2
+PASS Visual/color leaves physics invariant moto2
+PASS No visual colliders moto2
+PASS Body paint moto3
+PASS Trim/rider unchanged moto3
+PASS Visual/color leaves physics invariant moto3
+PASS No visual colliders moto3
+PASS Body paint moto4
+PASS Trim/rider unchanged moto4
+PASS Visual/color leaves physics invariant moto4
+PASS No visual colliders moto4
+PASS Body paint moto5
+PASS Trim/rider unchanged moto5
+PASS Visual/color leaves physics invariant moto5
+PASS No visual colliders moto5
+PASS Body paint moto6
+PASS Trim/rider unchanged moto6
+PASS Visual/color leaves physics invariant moto6
+PASS No visual colliders moto6
+PASS Player and opponent meshes survive clone retirement moto
+PASS Body paint atv0
+PASS Trim/rider unchanged atv0
+PASS Visual/color leaves physics invariant atv0
+PASS No visual colliders atv0
+PASS Body paint atv1
+PASS Trim/rider unchanged atv1
+PASS Visual/color leaves physics invariant atv1
+PASS No visual colliders atv1
+PASS Body paint atv2
+PASS Trim/rider unchanged atv2
+PASS Visual/color leaves physics invariant atv2
+PASS No visual colliders atv2
+PASS Body paint atv3
+PASS Trim/rider unchanged atv3
+PASS Visual/color leaves physics invariant atv3
+PASS No visual colliders atv3
+PASS Body paint atv4
+PASS Trim/rider unchanged atv4
+PASS Visual/color leaves physics invariant atv4
+PASS No visual colliders atv4
+PASS Body paint atv5
+PASS Trim/rider unchanged atv5
+PASS Visual/color leaves physics invariant atv5
+PASS No visual colliders atv5
+PASS Body paint atv6
+PASS Trim/rider unchanged atv6
+PASS Visual/color leaves physics invariant atv6
+PASS No visual colliders atv6
+PASS Player and opponent meshes survive clone retirement atv

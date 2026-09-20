@@ -1,0 +1,16 @@
+[
+  {
+    "Name": "scoring-LakeWoods",
+    "Exit": 0,
+    "Timeout": false,
+    "PeakMiB": 883.41,
+    "Flags": "-arcadeTest forest-jump -course LakeWoods"
+  },
+  {
+    "Name": "scoring-ForestLoopReverse",
+    "Exit": 0,
+    "Timeout": false,
+    "PeakMiB": 814.85,
+    "Flags": "-arcadeTest forest-jump -course ForestLoopReverse"
+  }
+]

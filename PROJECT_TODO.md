@@ -19,7 +19,7 @@ A small single-player arcade racing game inspired by *Forza Horizon*, built arou
 
 These rules apply throughout the project.
 
-**Consistent testing entry point:** Dan launches `Play-Racer.cmd` at the project root, or `Builds/Latest/Racer.exe`. After each new validated playable build, update the complete `Builds/Latest` runtime folder (including VERSION.txt); never replace only its executable. Keep older versioned builds separately. Current combined review build is 0.12.0-review1; Builds/Latest/VERSION.txt records its source. CR-061/062 are implemented awaiting Dan review; CR-057–060 and earlier reports remain awaiting review. BUG-004/008 and CR-046–049 remain awaiting Dan review; technical validation does not close earlier human reports. See Docs/CR070-074/VALIDATION.md for this delivery, Docs/CR067-069/VALIDATION.md for the preceding delivery, Docs/CR064-066/VALIDATION.md for the prior delivery, Docs/CR061-062/VALIDATION.md and Docs/CR057-060/VALIDATION.md for earlier revisions. A source commit alone does not update a compiled player.
+**Consistent testing entry point:** Dan launches `Play-Racer.cmd` at the project root, or `Builds/Latest/Racer.exe`. After each new validated playable build, update the complete `Builds/Latest` runtime folder (including VERSION.txt); never replace only its executable. Keep older versioned builds separately. Current combined review build is 0.13.0-review7; Builds/Latest/VERSION.txt records its source. CR-061/062 are implemented awaiting Dan review; CR-057–060 and earlier reports remain awaiting review. BUG-004/008 and CR-046–049 remain awaiting Dan review; technical validation does not close earlier human reports. See Docs/CR075-080/VALIDATION.md for this delivery, Docs/CR070-074/VALIDATION.md for the preceding route delivery, Docs/CR067-069/VALIDATION.md for the preceding delivery, Docs/CR064-066/VALIDATION.md for the prior delivery, Docs/CR061-062/VALIDATION.md and Docs/CR057-060/VALIDATION.md for earlier revisions. A source commit alone does not update a compiled player.
 
 - [ ] Keep the game **single-player only** unless this document is deliberately changed later.
 - [ ] Prioritize **fun arcade handling** over realistic simulation.
@@ -568,7 +568,7 @@ Phase 6 is ACCEPTED following Dan's overall approval. Preserve this environment 
 
 # PHASE 7 — Racing Game Feel
 
-**Status:** ACCEPTED — Dan answered yes to the full Phase 7 review checklist. Core countdown/results/persistent bests/pause/settings/navigation/audio accepted; input device was not specified. Phase 6 remains accepted. Evidence and limits: `Docs/Phase7/VALIDATION.md`; controls, timing, save/settings and audio rules: `Docs/Phase7/RULES.md`. Optional stunt scoring/speed traps remain deferred; Phase 8 is next, starting with CR-019 commercial layout and coordinated frontage polish.
+**Status:** ACCEPTED — Dan answered yes to the full Phase 7 review checklist. Core countdown/results/persistent bests/pause/settings/navigation/audio accepted; input device was not specified. Phase 6 remains accepted. Evidence and limits: `Docs/Phase7/VALIDATION.md`; controls, timing, save/settings and audio rules: `Docs/Phase7/RULES.md`. At that historical checkpoint optional stunt scoring/speed traps were deferred (superseded by implemented CR-079/080, awaiting review); Phase 8 was next, starting with CR-019 commercial layout and coordinated frontage polish.
 
 ## Goal
 Make the prototype feel like a game rather than a Unity demonstration.
@@ -584,8 +584,8 @@ Make the prototype feel like a game rather than a Unity demonstration.
 - [x] Settings.
 - [x] Controller-friendly UI navigation.
 - [x] Audio feedback.
-- [ ] Optional stunt scoring exploration.
-- [ ] Optional speed traps exploration.
+- [x] Stunt scoring implemented under CR-079; awaiting Dan review.
+- [x] Speed traps implemented under CR-080; awaiting Dan review.
 
 ---
 
@@ -637,14 +637,14 @@ Historical optional-expansion list below is superseded by current CR-075–081 a
 - [x] CR-027: Initial four-vehicle roster implemented: existing car, Longroof GT, Needle 600 motorcycle and Trail Four ATV; awaiting Dan review.
 - [x] CR-027: Persistent garage, reusable profiles and vehicle-separated records; technical checks pass, awaiting Dan review.
 - [ ] CR-040: Future separate lake/woodland circuit near the friend's house; not part of this delivery.
-- [ ] Larger neighborhood.
+- [ ] Larger neighborhood — approved and queued under CR-081.
 - [ ] CR-039: Three varied woodland stunt shortcuts (stream leap, gully route, ridge/woodland jump), integrated with legal race progress.
-- [ ] Free-roam mode.
+- [x] Free-roam mode implemented under CR-078; awaiting Dan review.
 - [x] CR-023: Light configurable two-way traffic implemented; awaiting review.
 - [x] CR-023 initial three-opponent implementation; Dan reports opponents not visible/competitive enough. CR-026 revises grid, visibility and difficulty with CR-027.
-- [ ] Collectibles.
-- [ ] Speed traps.
-- [ ] Danger signs / jump-distance challenges.
+- [ ] Collectibles — approved and queued under CR-081.
+- [x] Speed traps implemented under CR-080; awaiting Dan review.
+- [x] Physical jump challenges and medals implemented under CR-079; awaiting Dan review.
 - [ ] Larger real-world map import pipeline.
 - [ ] OpenStreetMap-assisted generation.
 - [ ] Automated world-generation tools.
@@ -1091,10 +1091,10 @@ Use this for things that are not bugs but that Dan wants changed.
 **Acceptance:** More than ten eligible attempts produce the correct fastest ten in each board, persist through restart, remain isolated between tracks/configurations, and reconcile with penalties. Test ties, repeated results/save loads, faster/slower attempts, incomplete races, lap attribution, and legacy migration. No online leaderboard required.
 **Result:** Separate persistent Lap/Race top-ten boards, full-precision stable ties, attempt-based deduplication, authoritative finalized penalties and category isolation. Known v8 bests migrate once with unknown dates; historical files preserved. 29/29 standalone checks; rendered boards inspected. Main menu or Results > Records / Top 10. See Docs/CR040-054-055/VALIDATION.md.
 
-### Other substantial feature options — not authorized in this pass
+### Historical feature options — superseded by CR-075–081 approval
 - Stunt challenges on the existing map: jump distance/airtime, smash targets and optional medals.
 - Personal-best ghost time trial: race a saved best run to learn faster lines.
-Difficulty retuning, exact house placement and photo-based home accuracy remain deferred. CR-040 is now authorized; these other options are not.
+This was the earlier scope boundary. Stunt challenges are now implemented under CR-079 awaiting review; ghosts and photo-informed home/placement work are approved and queued under CR-081. Difficulty retuning remains outside this delivery.
 ---
 
 ### CR-055 — Default bundled music and folder-named radio channels
@@ -1154,8 +1154,8 @@ Final evidence: 12/12 main jump runs; 8/8 riders finish two-lap races with zero 
 **Requested change:** Add bounded, context-aware driver variation in line choice, braking timing and corner/jump approach. Errors should arise through normal driving inputs and physics, such as a wide corner, overbraking or an imperfect landing, with natural time loss and recovery. Avoid arbitrary pauses, random forced crashes, teleporting, fake slowdowns, synchronized incidents, or scripted errors because the player is behind. Preserve fair gate/shortcut/water rules. Easy drivers make more/larger errors; Normal occasionally; Hard rarely but not never. Use per-driver variation/cooldowns and reproducible seeds for diagnostics without replaying identical incidents every race. Do not broadly nerf base pace or make difficult cave jumps routinely impossible. Monitor stuck/recovery behavior to preserve competitive finishes and motorcycle/ATV-only forest rosters.
 **Acceptance:** Compare several full races/seeds at each difficulty on both tracks; report actual error events, natural lap/time costs, recovery/finish rates and representative replay/log evidence. Include an errors-disabled baseline. No requirement that every driver crashes each race. Keep parameters tunable for Dan review; update record categories when rules change.
 
-### Next optional addition — awaiting selection
-Recommended: optional stunt challenges using existing jumps (airtime/distance medals and smash targets) with compact screen feedback, no floating labels and no forced effect on race timing. Personal-best ghost time trials remain another proposal. Stunt challenges and ghosts are not authorized implementation in this pass; wildlife and people are now authorized under CR-060. Photo-based home accuracy CR-013 and exact house placement CR-018 remain deferred.
+### Historical optional-addition proposal — superseded by CR-079 and CR-081
+Recommended: optional stunt challenges using existing jumps (airtime/distance medals and smash targets) with compact screen feedback, no floating labels and no forced effect on race timing. Personal-best ghost time trials remain another proposal. That earlier selection boundary is superseded: CR-079 stunt challenges are implemented awaiting review; CR-081 ghosts and photo-informed home/placement work are approved and queued for the following pass.
 
 ---
 
@@ -1252,34 +1252,34 @@ Recommended: optional stunt challenges using existing jumps (airtime/distance me
 ---
 
 ### CR-075 — Direction-aware signs, shortcut discovery and route guidance
-**Status:** AUTHORIZED — next pass, fixes first.
+**Status:** IMPLEMENTED — combined CR-075–080 delivery awaiting Dan review. See Docs/CR075-080/VALIDATION.md.
 **Feedback:** Dan found only one shortcut per reverse track; opposite-direction signs mislead him. Forest Reverse led him onto a street going the wrong way without warning. A Hwy 92 sign on Trickum is misleading immediately after leaving 92.
 **Requested change:** Audit all four variants together. Distinguish physical road identity from destination directions: modeled connector is Trickum Road, not Jamerson; South Cherokee Lane ends at separate Jamerson Road. Correct affected current signage/catalog text with a verified road-role mapping, not a global string replacement or new road build. Directional/shortcut arrows and entrances must match active variant; physical road-name signs remain accurate whichever way approached. Preserve lettering and removed hairpin-sign exclusion. Make both authored shortcuts per reverse track visible/readable from normal approaches using physical signs and terrain sightlines; do not add floating labels. Clarify Forest Reverse junctions/continuation and wrong-way detection after leaving the trail onto a street. Reacquire a valid local route using route/branch history; do not suppress indefinitely outside a corridor or falsely flag legitimate shortcuts. Visible wrong-way cue at about five seconds remains required in races. Free roam has no wrong-way warnings.
 **Acceptance:** Driving-view sign/entrance inventory and map for four variants, both reverse shortcuts found without debug overlays, deliberate wrong-street excursion triggers useful warning, valid cave/jump/shortcut cases do not. Preserve gates, true +5s misses and authorized zero-penalty bypasses.
 
 ### CR-076 — Safe on-course local player reset and stalled-AI recovery
-**Status:** AUTHORIZED — next pass.
+**Status:** IMPLEMENTED — combined CR-075–080 delivery awaiting Dan review.
 **Requested change:** Reset player onto clear, supported active road or forest trail facing correct local direction; never strand behind a tree, at hill bottom or beside a ramp. Resolve from last valid earned main/branch progress; do not grant forward gates/laps or return to the start line. Validate ground normal/support, full vehicle clearance, overhead space and traffic/other racer occupancy. Use bounded alternate candidates and a known-safe prior course location if nearest candidate is blocked. Keep penalty/elapsed/progress state; no added punishment. Forest resets onto trail, not a nearby unrelated paved street. Free roam uses recent safe supported road/trail recovery without imposing race direction/progress.
 **AI:** Monitor route progress over time, distinguish a brief intentional stop/traffic wait from being wedged, attempt bounded unsticking then recover to a safe earned route position. No lap-long stationary racer, recovery loop or forward progress cheat. Preserve measured/estimated finish distinctions. Test tree/hill/ramp side/underside/water/cave cases, traffic occupancy, all eligible profiles and four variants.
 
 ### CR-077 — Reverse Trickum ramp fix and mandatory ramp regression coverage
-**Status:** AUTHORIZED — next pass; standing requirement thereafter.
+**Status:** IMPLEMENTED — combined delivery awaiting Dan review; standing ramp matrix in Docs/CR075-080/RAMP-TESTING.md.
 **Feedback:** Player stuck on reverse Trickum ramp; AI wedged at its side for a full lap. Previous nominal scripted passes did not cover this behavior.
 **Requested change:** Reproduce in current release with vehicle/input/speed/contact/suspension evidence. Correct geometry seams, side edges, approaches/launch tangents, collider overlaps or false braking/stability behavior rather than hiding with boosts or disabling collisions. Verify current authored ramps, not obsolete test coordinates. Every new/modified ramp requires ordinary-frame dynamic driving with every eligible vehicle: centered and moderately off-center entries, intended low/normal/high approach speeds, side-edge contacts, launch/landing and recovery. Distinguish expected major off-line crashes from routine snagging; retain failed trials. AI must approach, clear or recover from edges. Keep original courses' ramps passing.
 **Evidence:** Inventory actual ramp IDs/course/profile/approach/speed/outcome, pre/post velocity/contact findings and gameplay views. Do not equate code assertions, teleport-through fixtures or one nominal pilot with robust ramp testing. This rule applies to future authoring prompts too.
 
 ### CR-078 — Free roam
-**Status:** AUTHORIZED — next pass after route fixes.
+**Status:** IMPLEMENTED — combined delivery awaiting Dan review.
 **Requested change:** Add explicit Free Roam mode for exploring existing Street/Forest areas and their usable routes/shortcuts without race countdown, opponents, lap/finish requirements, checkpoint penalties or wrong-way warnings. Preserve traffic only on streets, scenery/people/wildlife, water, radio, destructibles, vehicle choices appropriate to the selected environment and reliable local reset. Hide race-only HUD/markers while retaining speed and optional activity feedback. Reuse course variants where direction-specific geometry requires it; no new world rebuild. Provide clear return-to-menu and race selection; isolate saves/records so roaming never produces race/lap times. Do not silently widen Forest for cars.
 **Acceptance:** Explore/turn around/leave route/recover without race alerts or penalties, enter/exit mode repeatedly, physics/audio/ambient lifecycle preserved, race modes still work. No AI racers in free roam unless separately selected in future.
 
 ### CR-079 — Stunt scoring and jump/smash challenges
-**Status:** AUTHORIZED — next pass. Dan's earlier approval is explicit; supersedes every old unselected/deferred statement.
+**Status:** IMPLEMENTED — combined delivery awaiting Dan review. Dan's explicit approval supersedes old unselected/deferred statements.
 **Requested change:** Add earned airtime/jump-distance scoring and optional authored jump/smash challenges with bronze/silver/gold targets, compact feedback and persistent personal bests/medals. Reuse existing jumps and breakable props, not people/wildlife. Measure actual takeoff-to-landing travel and airborne time; exclude reset/teleport, spawn drops, jitter and invalid/wipeout landings from successful awards. Define readable scoring/landing rules. Smash targets score unique eligible props per attempt, not debris or instant repeat restoration. Allow deliberate replay through an explicit retry. Keep points separate from race times/penalties, no hidden speed boosts or race gate exemptions. Optional race stunt feedback may coexist without changing classification; full challenges available in free roam. No mandatory challenge entry during races. Use physical markers only if needed, not restored floating scenery labels; results/HUD text is screen-space.
 **Acceptance:** Before/after bests persist; valid/failed jumps, recovery midair, repeated props/attempts, pause/restart and course/rules/vehicle categories behave correctly. Tune medals using measured eligible-vehicle runs so reachable and challenging; do not award gold automatically. Bound/cap score exploits and avoid HUD clutter. Human fun review pending.
 
 ### CR-080 — Speed traps with saved bests
-**Status:** AUTHORIZED — next pass.
+**Status:** IMPLEMENTED — combined CR-075–080 delivery awaiting Dan review.
 **Requested change:** Place a modest set of readable speed-trap activities on suitable existing road/trail stretches; show measured crossing speed, personal best and medals with compact optional feedback. Validate crossing direction/volume and real vehicle speed; no repeated awards while lingering, teleport/reset credit or automatic best from wrong mode/category. Maintain deliberate repeat attempts, store activity/course/rules/vehicle categories and define direction handling. Use discreet physical signs/camera props if needed; avoid blocking lanes or new floating labels. Free-roam results and race-time records remain separate; traps never create checkpoint penalties or alter classification. Test all eligible vehicles, repeated passes, reverse variants, unit formatting and persistence.
 
 ### CR-081 — Approved following pass: ghosts, collectibles and neighborhood/home expansion
@@ -1390,11 +1390,24 @@ Record choices we do not want to repeatedly reconsider.
 
 # SESSION HANDOFF
 
-**CURRENT AUTHORIZED DELIVERY — Route fixes + arcade challenges:** Dan approves CR-075–080 together: direction-aware signage/shortcut discovery and wrong-way reliability, safe on-course player reset/stalled-AI recovery, reverse Trickum ramp and standing ramp tests, free roam, stunt scoring/challenges, speed traps. Fix and validate routes/recovery/ramps first, then integrate activities in the same delivery. CR-081 records approved following-pass ghosts, collectibles, larger neighborhood and photo-informed home work; do not omit or ask for reauthorization, but do not implement these queued features now. Previous exclusions of stunts/free roam etc. are superseded. Split screen/networking remain outside this pass. This document update makes no game edits or new validation claims.
+**CURRENT AUTHORIZED DELIVERY — Route fixes + arcade challenges:** Dan approves CR-075–080 together: direction-aware signage/shortcut discovery and wrong-way reliability, safe on-course player reset/stalled-AI recovery, reverse Trickum ramp and standing ramp tests, free roam, stunt scoring/challenges, speed traps. Fix and validate routes/recovery/ramps first, then integrate activities in the same delivery. CR-081 records approved following-pass ghosts, collectibles, larger neighborhood and photo-informed home work; do not omit or ask for reauthorization, but do not implement these queued features now. Previous exclusions of stunts/free roam etc. are superseded. Split screen/networking remain outside this pass. The combined implementation, retained failures, automated evidence and review boundaries are recorded in Docs/CR075-080/VALIDATION.md. Earlier document-only status is superseded; no human acceptance is claimed.
 
 **Historical implementation evidence follows; latest human reports supersede apparent reverse-route/ramp test success:**
 
 
+**Combined CR-075–080 review checklist (0.13.0-review7):**
+- [x] Scoped Trickum / Hwy 92 / destination Jamerson roles; direction-specific shortcut boards, all-four route inventories and automated approach captures; retired hairpin exclusion retained.
+- [x] Five-second grounded wrong-way guidance with bounded local reacquisition, including Forest street excursions.
+- [x] Earned local supported recovery, complete vehicle/rider clearance, occupied-pad alternatives and bounded AI recovery; integrated race follow-up documented in the validation report.
+- [x] Reproduced reverse shoulder snag; continuous collidable bevel/rollout on current authored Trickum ramps; ordinary-frame all-vehicle speed/line matrix and future standing requirement recorded.
+- [x] Explicit Free Roam; race-only state/HUD suppressed, local reset and clean return to races; eligibility and ambient systems retained.
+- [x] Independent jump airtime/distance points, physical jump/smash challenges, deliberate retry, saved compatible bests/medals and two-way speed traps.
+- [x] Historical records retained under prior course categories; changed timing categories versioned. Atomic save replacement retry verified with isolated saves.
+- [ ] Dan's driving/readability/fun, physical-controller and listening review. Automated checks do not close this item.
+
+**Build and automated evidence:** 0.13.0-review7 Windows package and complete Builds/Latest verified through the existing workflow: 436 matching runtime/ZIP files, 187 staged songs, 2,690 source hashes; Play-Racer.cmd unchanged. Final source/commit metadata is in VERSION.txt and Builds/PACKAGE-LATEST.json. Final-build hazard recovery 282/282, roaming recovery 80/80, lifecycle rules 96/96, physical navigation 24/24 and shortcut rules 280/280. AI obstruction assertions 35/36; the retained timing failure shows an escaping tourer at 23.32m/s, not an indefinite stall. Eight serial 150-second race/roam performance runs passed with world systems/radio active; median 8.33–8.58ms, p95 8.57–17.91ms on this machine. Full multi-lap outcomes, ordinary finish-window DNFs, extended diagnostic finishes and ramp failures are documented in Docs/CR075-080/VALIDATION.md. No external upload.
+
+**Known retained limits:** extreme high-speed motorcycle ramp-edge crashes; three failed assertions on unchanged forward Forest trail jumps, with exact conditions and successful local recovery in the evidence. Earlier candidate race DNFs/recovery loops and failed test fixtures are retained and distinguished from later follow-up runs. No subjective acceptance is claimed. CR-081 remains approved and queued below/above with all provided geography/home/photo references intact.
 **Previous delivery — 0.12.0-review1: CR-070 through CR-074 implemented together, awaiting Dan review.** Safety checkpoint: `90abc69769528600ad652df1c3dbad985ae482d8`, verified before edits after supported elevated Git retry. Completion ID is reported in the delivery response and packaged VERSION.txt. Launch with the preserved `Play-Racer.cmd`; the complete `Builds/Latest` and versioned Windows runtime are delivered through `Tools/Package-Racer.ps1`. No external upload. Full evidence and limitations: `Docs/CR070-074/VALIDATION.md`; route maps and repeated timing table are linked there.
 
 Implementation checklist (technical delivery, not Dan's acceptance):

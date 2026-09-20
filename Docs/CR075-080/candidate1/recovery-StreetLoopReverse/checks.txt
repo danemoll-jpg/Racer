@@ -1,0 +1,56 @@
+PASS original hill-bottom supported earned-route recovery; delta=-1.99
+PASS original hill-bottom progress/time/penalty preserved
+PASS original tree supported earned-route recovery; delta=-2.00
+PASS original tree progress/time/penalty preserved
+PASS original ramp-side supported earned-route recovery; delta=-2.01
+PASS original ramp-side progress/time/penalty preserved
+PASS original water supported earned-route recovery; delta=-1.99
+PASS original water progress/time/penalty preserved
+PASS original occupied supported earned-route recovery; delta=-8.92
+PASS original occupied progress/time/penalty preserved
+PASS original overhead supported earned-route recovery; delta=-8.92
+PASS original overhead progress/time/penalty preserved
+PASS original Granite Creek Cut branch/cave recovery retains earned station and gate entitlement
+PASS original Laurel Switchbacks branch/cave recovery retains earned station and gate entitlement
+PASS tourer hill-bottom supported earned-route recovery; delta=-1.99
+PASS tourer hill-bottom progress/time/penalty preserved
+PASS tourer tree supported earned-route recovery; delta=-2.00
+PASS tourer tree progress/time/penalty preserved
+PASS tourer ramp-side supported earned-route recovery; delta=-2.01
+PASS tourer ramp-side progress/time/penalty preserved
+PASS tourer water supported earned-route recovery; delta=-1.99
+PASS tourer water progress/time/penalty preserved
+PASS tourer occupied supported earned-route recovery; delta=-8.92
+PASS tourer occupied progress/time/penalty preserved
+PASS tourer overhead supported earned-route recovery; delta=-8.92
+PASS tourer overhead progress/time/penalty preserved
+PASS tourer Granite Creek Cut branch/cave recovery retains earned station and gate entitlement
+PASS tourer Laurel Switchbacks branch/cave recovery retains earned station and gate entitlement
+PASS moto hill-bottom supported earned-route recovery; delta=-1.99
+PASS moto hill-bottom progress/time/penalty preserved
+PASS moto tree supported earned-route recovery; delta=-2.00
+PASS moto tree progress/time/penalty preserved
+PASS moto ramp-side supported earned-route recovery; delta=-2.01
+PASS moto ramp-side progress/time/penalty preserved
+PASS moto water supported earned-route recovery; delta=-1.99
+PASS moto water progress/time/penalty preserved
+PASS moto occupied supported earned-route recovery; delta=-4.97
+PASS moto occupied progress/time/penalty preserved
+PASS moto overhead supported earned-route recovery; delta=-4.97
+PASS moto overhead progress/time/penalty preserved
+PASS moto Granite Creek Cut branch/cave recovery retains earned station and gate entitlement
+PASS moto Laurel Switchbacks branch/cave recovery retains earned station and gate entitlement
+PASS atv hill-bottom supported earned-route recovery; delta=-1.99
+PASS atv hill-bottom progress/time/penalty preserved
+PASS atv tree supported earned-route recovery; delta=-2.00
+PASS atv tree progress/time/penalty preserved
+PASS atv ramp-side supported earned-route recovery; delta=-2.01
+PASS atv ramp-side progress/time/penalty preserved
+PASS atv water supported earned-route recovery; delta=-1.99
+PASS atv water progress/time/penalty preserved
+PASS atv occupied supported earned-route recovery; delta=-4.97
+PASS atv occupied progress/time/penalty preserved
+PASS atv overhead supported earned-route recovery; delta=-4.97
+PASS atv overhead progress/time/penalty preserved
+PASS atv Granite Creek Cut branch/cave recovery retains earned station and gate entitlement
+PASS atv Laurel Switchbacks branch/cave recovery retains earned station and gate entitlement

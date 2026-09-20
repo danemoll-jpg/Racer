@@ -12,6 +12,7 @@ namespace Racer
         public const float Delay = 5f;
         RaceDirector race; Vector3 previous; float station,correctSeconds,uncertainSeconds,lostSeconds; bool sampled;
         WoodlandRoute branch; bool lastFallback;
+        Vector3 lastRouteSupport,lastRouteForward;
         void Awake(){race=GetComponent<RaceDirector>();}
         public void Clear(){Visible=false;WrongSeconds=correctSeconds=uncertainSeconds=lostSeconds=0;sampled=false;branch=null;lastFallback=false;SignedSpeed=0;SampleValid=false;}
         public void Observe(float signedSpeed,bool grounded,bool valid,float dt)
@@ -32,13 +33,14 @@ namespace Racer
         {
             if(!race||!race.Flow||!race.road)return;
             if(race.Flow.State==RaceFlow.Stage.Paused)return;
-            if(race.Flow.State!=RaceFlow.Stage.Racing||race.Progress.Finished){Clear();return;}
+            if(race.FreeRoam||race.Flow.State!=RaceFlow.Stage.Racing||race.Progress.Finished){Clear();return;}
             var car=race.vehicle;var respawn=car.GetComponent<VehicleRespawn>();
             if(respawn.Pending){Clear();return;}
             var p=car.Body.position;var active=race.Racers[0].Branch.Route;
             if(!sampled||Vector3.Distance(p,previous)>12)
             {
                 Clear();branch=active;station=branch?branch.Project(p,out _):race.road.Project(p,out _);
+                lastRouteSupport=branch?branch.At(station,out lastRouteForward):race.road.At(station,out lastRouteForward);
                 previous=p;sampled=true;return;
             }
             if(active!=branch)
@@ -70,18 +72,38 @@ namespace Racer
                 {
                     // Reacquire spatially after a bounded search failure. Do not derive
                     // speed from the potentially large station jump on this frame.
-                    current=race.road.Project(p,out lateral);
+                    float local=race.road.ProjectNear(p,station,240,out float localLateral);
+                    float nearest=race.road.Project(p,out float nearestLateral);
+                    current=localLateral<=nearestLateral+25?local:nearest;
+                    lateral=Mathf.Min(localLateral,nearestLateral+25);
                 }
             }
             else lostSeconds=0;
             bool branchSample=branch&&!fallbackMain;
             var support=branchSample?branch.At(current,out var f):race.road.At(current,out f);
+            bool streetFallback=false;
+            float coreWidth=branchSample?branch.halfWidth:race.road.HalfWidth(current);
+            if(lateral<=coreWidth+3&&Mathf.Abs(p.y-support.y)<6){lastRouteSupport=support;lastRouteForward=f;}
+            else if(race.Forest&&race.ambientRoad&&lostSeconds>=.25f)
+            {
+                float street=race.ambientRoad.Project(p,out float streetLateral);
+                if(streetLateral<=race.ambientRoad.HalfWidth(street)+4)
+                {
+                    support=race.ambientRoad.At(street,out f);
+                    float toward=Vector3.Dot(lastRouteSupport-p,f);
+                    if(Mathf.Abs(toward)<5)toward=Vector3.Dot(lastRouteForward,f);
+                    if(toward<0)f=-f;streetFallback=true;
+                }
+            }
             Direction=Vector3.ProjectOnPlane(f,Vector3.up).normalized;
             float delta=current-station;
             if(!branchSample)delta=Mathf.Repeat(delta+race.road.Length*.5f,race.road.Length)-race.road.Length*.5f;
             float movement=Vector3.Dot(p-previous,Direction)/Time.fixedDeltaTime;
-            float speed=lostSeconds>=.25f||lastFallback!=fallbackMain?movement:delta/Time.fixedDeltaTime;
-            bool valid=lateral<=(branchSample?branch.halfWidth+(lostSeconds>=.25f?24:7):race.road.HalfWidth(current)+(lostSeconds>=.25f?22:7)) && Mathf.Abs(p.y-support.y)<6;
+            float speed=streetFallback||lostSeconds>=.25f||lastFallback!=fallbackMain?movement:delta/Time.fixedDeltaTime;
+            // After a bounded off-course interval, keep the last locally associated
+            // route direction usable on adjacent streets. Distance alone must not
+            // permanently silence wrong-way guidance. No progress is awarded here.
+            bool valid=(streetFallback || lostSeconds>=1 || lateral<=(branchSample?branch.halfWidth+24:race.road.HalfWidth(current)+22)) && Mathf.Abs(p.y-support.y)<60;
             // Both projection and real displacement must agree; nose orientation is irrelevant.
             if(Vector3.Dot(p-previous,Direction)*speed<0)valid=false;
             SignedSpeed=speed;SampleValid=valid;

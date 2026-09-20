@@ -1,0 +1,23 @@
+[
+  {
+    "Name": "records",
+    "Exit": 0,
+    "Timeout": false,
+    "PeakMiB": 432.11,
+    "Flags": "-threeFeatureTest rules"
+  },
+  {
+    "Name": "estimates",
+    "Exit": 0,
+    "Timeout": false,
+    "PeakMiB": 482.45,
+    "Flags": "-review6466 rules"
+  },
+  {
+    "Name": "art",
+    "Exit": 0,
+    "Timeout": false,
+    "PeakMiB": 659.44,
+    "Flags": "-review6466 art"
+  }
+]

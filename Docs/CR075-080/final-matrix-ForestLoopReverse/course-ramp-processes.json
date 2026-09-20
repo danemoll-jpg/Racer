@@ -1,0 +1,16 @@
+[
+  {
+    "Name": "ramps-ForestLoopReverse",
+    "Exit": 0,
+    "Timeout": false,
+    "PeakMiB": 1039.41,
+    "Flags": "-arcadeRamp full -course ForestLoopReverse"
+  },
+  {
+    "Name": "high-ForestLoopReverse",
+    "Exit": 0,
+    "Timeout": false,
+    "PeakMiB": 884.41,
+    "Flags": "-arcadeRamp high -course ForestLoopReverse"
+  }
+]

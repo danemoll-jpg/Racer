@@ -1,0 +1,16 @@
+[
+  {
+    "Name": "ramps-LakeWoods",
+    "Exit": 0,
+    "Timeout": false,
+    "PeakMiB": 1004.92,
+    "Flags": "-arcadeRamp full -course LakeWoods"
+  },
+  {
+    "Name": "high-LakeWoods",
+    "Exit": 0,
+    "Timeout": false,
+    "PeakMiB": 771.09,
+    "Flags": "-arcadeRamp high -course LakeWoods"
+  }
+]

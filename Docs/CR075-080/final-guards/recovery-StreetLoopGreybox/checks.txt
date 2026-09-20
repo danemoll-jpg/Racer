@@ -1,0 +1,100 @@
+PASS original hill-bottom supported earned-route recovery; delta=-1.93
+PASS original hill-bottom progress/time/penalty preserved
+PASS original hill-bottom remains supported after ordinary physics frames
+PASS original tree supported earned-route recovery; delta=-1.90
+PASS original tree progress/time/penalty preserved
+PASS original tree remains supported after ordinary physics frames
+PASS original ramp-side supported earned-route recovery; delta=-4.98
+PASS original ramp-side progress/time/penalty preserved
+PASS original ramp-side remains supported after ordinary physics frames
+PASS original ramp-underside supported earned-route recovery; delta=-4.98
+PASS original ramp-underside progress/time/penalty preserved
+PASS original ramp-underside remains supported after ordinary physics frames
+PASS original water supported earned-route recovery; delta=-2.17
+PASS original water progress/time/penalty preserved
+PASS original water remains supported after ordinary physics frames
+PASS original occupied supported earned-route recovery; delta=-9.00
+PASS original occupied progress/time/penalty preserved
+PASS original occupied remains supported after ordinary physics frames
+PASS original overhead supported earned-route recovery; delta=-9.00
+PASS original overhead progress/time/penalty preserved
+PASS original overhead remains supported after ordinary physics frames
+PASS original Existing Southwest Cut branch/cave recovery retains earned station and gate entitlement
+PASS original Pine Ridge branch/cave recovery retains earned station and gate entitlement
+PASS original Creek Leap branch/cave recovery retains earned station and gate entitlement
+PASS original Fox Gully branch/cave recovery retains earned station and gate entitlement
+PASS tourer hill-bottom supported earned-route recovery; delta=-1.93
+PASS tourer hill-bottom progress/time/penalty preserved
+PASS tourer hill-bottom remains supported after ordinary physics frames
+PASS tourer tree supported earned-route recovery; delta=-1.90
+PASS tourer tree progress/time/penalty preserved
+PASS tourer tree remains supported after ordinary physics frames
+PASS tourer ramp-side supported earned-route recovery; delta=-4.98
+PASS tourer ramp-side progress/time/penalty preserved
+PASS tourer ramp-side remains supported after ordinary physics frames
+PASS tourer ramp-underside supported earned-route recovery; delta=-4.98
+PASS tourer ramp-underside progress/time/penalty preserved
+PASS tourer ramp-underside remains supported after ordinary physics frames
+PASS tourer water supported earned-route recovery; delta=-2.18
+PASS tourer water progress/time/penalty preserved
+PASS tourer water remains supported after ordinary physics frames
+PASS tourer occupied supported earned-route recovery; delta=-9.00
+PASS tourer occupied progress/time/penalty preserved
+PASS tourer occupied remains supported after ordinary physics frames
+PASS tourer overhead supported earned-route recovery; delta=-9.00
+PASS tourer overhead progress/time/penalty preserved
+PASS tourer overhead remains supported after ordinary physics frames
+PASS tourer Existing Southwest Cut branch/cave recovery retains earned station and gate entitlement
+PASS tourer Pine Ridge branch/cave recovery retains earned station and gate entitlement
+PASS tourer Creek Leap branch/cave recovery retains earned station and gate entitlement
+PASS tourer Fox Gully branch/cave recovery retains earned station and gate entitlement
+PASS moto hill-bottom supported earned-route recovery; delta=-1.95
+PASS moto hill-bottom progress/time/penalty preserved
+PASS moto hill-bottom remains supported after ordinary physics frames
+PASS moto tree supported earned-route recovery; delta=-1.93
+PASS moto tree progress/time/penalty preserved
+PASS moto tree remains supported after ordinary physics frames
+PASS moto ramp-side supported earned-route recovery; delta=-1.98
+PASS moto ramp-side progress/time/penalty preserved
+PASS moto ramp-side remains supported after ordinary physics frames
+PASS moto ramp-underside supported earned-route recovery; delta=-1.98
+PASS moto ramp-underside progress/time/penalty preserved
+PASS moto ramp-underside remains supported after ordinary physics frames
+PASS moto water supported earned-route recovery; delta=-2.13
+PASS moto water progress/time/penalty preserved
+PASS moto water remains supported after ordinary physics frames
+PASS moto occupied supported earned-route recovery; delta=-2.00
+PASS moto occupied progress/time/penalty preserved
+PASS moto occupied remains supported after ordinary physics frames
+PASS moto overhead supported earned-route recovery; delta=-2.00
+PASS moto overhead progress/time/penalty preserved
+PASS moto overhead remains supported after ordinary physics frames
+PASS moto Existing Southwest Cut branch/cave recovery retains earned station and gate entitlement
+PASS moto Pine Ridge branch/cave recovery retains earned station and gate entitlement
+PASS moto Creek Leap branch/cave recovery retains earned station and gate entitlement
+PASS moto Fox Gully branch/cave recovery retains earned station and gate entitlement
+PASS atv hill-bottom supported earned-route recovery; delta=-1.95
+PASS atv hill-bottom progress/time/penalty preserved
+PASS atv hill-bottom remains supported after ordinary physics frames
+PASS atv tree supported earned-route recovery; delta=-1.93
+PASS atv tree progress/time/penalty preserved
+PASS atv tree remains supported after ordinary physics frames
+PASS atv ramp-side supported earned-route recovery; delta=-1.98
+PASS atv ramp-side progress/time/penalty preserved
+PASS atv ramp-side remains supported after ordinary physics frames
+PASS atv ramp-underside supported earned-route recovery; delta=-1.98
+PASS atv ramp-underside progress/time/penalty preserved
+PASS atv ramp-underside remains supported after ordinary physics frames
+PASS atv water supported earned-route recovery; delta=-2.13
+PASS atv water progress/time/penalty preserved
+PASS atv water remains supported after ordinary physics frames
+PASS atv occupied supported earned-route recovery; delta=-9.00
+PASS atv occupied progress/time/penalty preserved
+PASS atv occupied remains supported after ordinary physics frames
+PASS atv overhead supported earned-route recovery; delta=-9.00
+PASS atv overhead progress/time/penalty preserved
+PASS atv overhead remains supported after ordinary physics frames
+PASS atv Existing Southwest Cut branch/cave recovery retains earned station and gate entitlement
+PASS atv Pine Ridge branch/cave recovery retains earned station and gate entitlement
+PASS atv Creek Leap branch/cave recovery retains earned station and gate entitlement
+PASS atv Fox Gully branch/cave recovery retains earned station and gate entitlement

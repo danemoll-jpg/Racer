@@ -1,0 +1,3 @@
+PASS Existing isolated activity save present on cold process start
+PASS All persisted category/PB/medal values loaded in a fresh process
+PASS Cold activity load does not create race progress

@@ -1,0 +1,6 @@
+PASS moto pace=0.6 actual authored Forest jump scoring / distance=114.52 airtime=3.90
+PASS moto pace=0.85 actual authored Forest jump scoring / distance=115.85 airtime=3.90
+PASS moto pace=1 actual authored Forest jump scoring / distance=114.53 airtime=3.90
+PASS atv pace=0.6 actual authored Forest jump scoring / distance=6.32 airtime=0.28
+PASS atv pace=0.85 actual authored Forest jump scoring / distance=6.32 airtime=0.28
+PASS atv pace=1 actual authored Forest jump scoring / distance=6.32 airtime=0.28

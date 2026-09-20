@@ -1,0 +1,30 @@
+[
+  {
+    "Name": "persistence-StreetLoopGreybox",
+    "Exit": 0,
+    "Timeout": false,
+    "PeakMiB": 428.11,
+    "Flags": "-arcadeTest persistence -course StreetLoopGreybox -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr7580-a982c625938d4607978e4991d8058972-rules-StreetLoopGreybox\""
+  },
+  {
+    "Name": "persistence-LakeWoods",
+    "Exit": 0,
+    "Timeout": false,
+    "PeakMiB": 675.56,
+    "Flags": "-arcadeTest persistence -course LakeWoods -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr7580-a982c625938d4607978e4991d8058972-rules-LakeWoods\""
+  },
+  {
+    "Name": "persistence-StreetLoopReverse",
+    "Exit": 0,
+    "Timeout": false,
+    "PeakMiB": 489.21,
+    "Flags": "-arcadeTest persistence -course StreetLoopReverse -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr7580-a982c625938d4607978e4991d8058972-rules-StreetLoopReverse\""
+  },
+  {
+    "Name": "persistence-ForestLoopReverse",
+    "Exit": 0,
+    "Timeout": false,
+    "PeakMiB": 737.79,
+    "Flags": "-arcadeTest persistence -course ForestLoopReverse -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr7580-a982c625938d4607978e4991d8058972-rules-ForestLoopReverse\""
+  }
+]

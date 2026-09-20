@@ -1,0 +1,1 @@
+Automated physical pilot; explicit offscreen rendering=False; timeScale=6; frames=222; median=857.253ms; p95=1118.014ms; peak memory measured separately by host process monitor. Hidden-window update-only timings are NOT render/FPS measurements.

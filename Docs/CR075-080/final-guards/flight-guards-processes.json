@@ -1,0 +1,16 @@
+[
+  {
+    "Name": "flight-guards-StreetLoopReverse",
+    "Exit": 0,
+    "Timeout": false,
+    "PeakMiB": 607.46,
+    "Flags": "-arcadeRamp recovery -course StreetLoopReverse"
+  },
+  {
+    "Name": "flight-guards-StreetLoopGreybox",
+    "Exit": 0,
+    "Timeout": false,
+    "PeakMiB": 533.3,
+    "Flags": "-arcadeRamp recovery -course StreetLoopGreybox"
+  }
+]

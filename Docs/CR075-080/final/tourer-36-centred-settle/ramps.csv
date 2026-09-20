@@ -1,0 +1,2 @@
+course,vehicle,speed,line,seconds,travel,air,minUp,recovered,outcome,scoredDistance,scoredAirtime,awards
+Street Loop,tourer,36,0,6.833,162.725,2.460,0.964,True,completed,80.659,2.460,0

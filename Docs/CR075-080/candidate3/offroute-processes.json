@@ -1,0 +1,16 @@
+[
+  {
+    "Name": "offroute-LakeWoods",
+    "Exit": 0,
+    "Timeout": false,
+    "PeakMiB": 745.11,
+    "Flags": "-arcadeTest offroute -course LakeWoods"
+  },
+  {
+    "Name": "offroute-ForestLoopReverse",
+    "Exit": 0,
+    "Timeout": false,
+    "PeakMiB": 727.78,
+    "Flags": "-arcadeTest offroute -course ForestLoopReverse"
+  }
+]

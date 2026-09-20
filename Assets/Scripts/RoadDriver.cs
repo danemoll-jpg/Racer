@@ -27,8 +27,11 @@ namespace Racer
         ForestLayout forestLayout;
         WoodlandRoute plannedBranch, progressBranch;
         float branchBest, branchStuck;
+        float routeStuck, progressStation;
+        bool progressSample;
         static readonly float[] cornerUse={.46f,.76f,.90f}, brakeUse={.55f,.88f,.98f}, speedUse={.91f,1f,1f}, hillTargets={26,32,35};
         float pace, stalled, safeS, lane, finishRunoff, nextRecovery;
+        float departureLane,recoveryDepartureStation,recoveryDepartureUntil;
         readonly RaycastHit[] hits = new RaycastHit[24];
         public void Initialize(RaceDirector race, ArcadeVehicle car, bool racer, int direction, float variation)
         {
@@ -53,6 +56,7 @@ namespace Racer
             Car.Body.linearVelocity = Car.Body.angularVelocity = Vector3.zero;
             Car.ClearSteering();
             safeS = s;
+            if(racing)Car.GetComponent<VehicleRespawn>().SeedCoursePosition(p);
             Racer?.SampleOrigin(Time.timeAsDouble);
         }
 
@@ -83,6 +87,13 @@ namespace Racer
             }
 
             float s = DriveRoad.Project(Car.Body.position, out float lateral);
+            if(racing&&!finished&&Racer?.Branch.Route==null)
+            {
+                float delta=progressSample?Mathf.Repeat(s-progressStation+DriveRoad.Length*.5f,DriveRoad.Length)-DriveRoad.Length*.5f:3;
+                if(delta>2){progressStation=s;routeStuck=0;progressSample=true;}
+                else routeStuck+=Time.fixedDeltaTime;
+            }
+            else routeStuck=0;
             if(HighwayTraffic && (Direction>0?s>4680 || s<3650:s<3650 || s>4680))
             { TryRecycleHighway(); s=DriveRoad.Project(Car.Body.position,out lateral); }
             Car.GetComponent<VehicleRespawn>().RecordSafePosition();
@@ -90,7 +101,7 @@ namespace Racer
             DriveRoad.At(s, out var tangent);
             float look = Mathf.Clamp(7 + speed * .48f, 8, 25);
             float desiredLane = racing ? Mathf.Lerp(lane,2.05f,DriveRoad.HighwayBlend(s)) : DriveRoad.TrafficLane(s,Direction,pace>.955f);
-            if(racing&&forestLayout)desiredLane=.55f;
+            if(racing&&forestLayout)desiredLane=Mathf.Sign(lane)*.55f;
             if(finished) { finishRunoff += speed*Time.fixedDeltaTime; desiredLane=4.7f; }
             // The connector ramp occupies the left six metres; both traffic directions use its ground bypass.
             bool bypass = DriveRoad.InBypass(s);
@@ -140,8 +151,11 @@ namespace Racer
             if(!activeBranch && plannedBranch && s>=plannedBranch.entryRoad-(Race.reverseCourse?look:2)) activeBranch=plannedBranch;
             float branchS=activeBranch?activeBranch.Project(Car.Body.position,out _):0;
             if(activeBranch!=progressBranch){progressBranch=activeBranch;branchBest=branchS;branchStuck=0;}
-            if(activeBranch&&Race.reverseCourse&&Direction>0){if(branchS>branchBest+2){branchBest=branchS;branchStuck=0;}else branchStuck+=Time.fixedDeltaTime;}else branchStuck=0;
+            if(activeBranch&&Direction>0){if(branchS>branchBest+2){branchBest=branchS;branchStuck=0;}else branchStuck+=Time.fixedDeltaTime;}else branchStuck=0;
             if(plannedBranch || activeBranch) desiredLane=0;
+            float departureDistance=Mathf.Repeat(s-recoveryDepartureStation+DriveRoad.Length*.5f,DriveRoad.Length)-DriveRoad.Length*.5f;
+            bool departing=racing&&Time.time<recoveryDepartureUntil&&departureDistance<60&&!plannedBranch&&!activeBranch&&!(forestLayout&&forestLayout.Approach(s));
+            if(departing)desiredLane=Mathf.Clamp(departureLane,-DriveRoad.HalfWidth(s)+Car.GetComponent<BoxCollider>().size.x*.5f+.5f,DriveRoad.HalfWidth(s)-Car.GetComponent<BoxCollider>().size.x*.5f-.5f);
             // Commit to the readable central launch line; pass in the intervening pockets.
             if(racing&&forestLayout&&forestLayout.Approach(s))desiredLane=0;
             bool jumpApproach=racing&&forestLayout&&forestLayout.Approach(s)&&!forestLayout.IsLaunch(s);
@@ -160,6 +174,7 @@ namespace Racer
             float judgment = racing ? Car.braking*brakeUse[skill] : 8f;
             judgment*=Variation.Judgment;
             TargetSpeed = (racing ? Car.topSpeed * speedUse[skill] : Mathf.Lerp(17,29,DriveRoad.HighwayBlend(s))) * pace;
+            if(departing)TargetSpeed=Mathf.Min(TargetSpeed,26);
             if(finished) TargetSpeed=12;
             // Consistency costs time through early lifting, never extra vehicle capability.
             if (racing && skill < 2) TargetSpeed *= 1 - (skill==0?.07f:.012f)*(.5f+.5f*Mathf.Sin(Time.time*.19f+pace*31));
@@ -217,14 +232,14 @@ namespace Racer
                 stalled += Time.fixedDeltaTime;
             else
                 stalled = 0;
-            if (stalled > 5 && stalled < 8)
+            if ((stalled > 5 && stalled < 8) || (routeStuck>8 && routeStuck<11))
             {
                 throttle = 0;
                 brake = .45f;
                 steering = -steering;
             }
 
-            if (Time.time>=nextRecovery && (stalled > 12 || branchStuck>10 || (lateral > 22 && stalled>5) || Vector3.Dot(transform.up, Vector3.up) < .1f))
+            if (Time.time>=nextRecovery && (stalled > 12 || routeStuck>16 || branchStuck>10 || (lateral > 22 && stalled>5) || Vector3.Dot(transform.up, Vector3.up) < .1f))
             {
                 TryRecover(s);
             }
@@ -240,8 +255,12 @@ namespace Racer
             if(racing)
             {
                 var recovery=Car.GetComponent<VehicleRespawn>();
+                nextRecovery=Time.time+1;
                 if(!recovery.TryRecoverLocal(true)) return;
-                stalled=branchStuck=0;branchBest=Racer?.Branch.Position??0; nextRecovery=Time.time+4; RecoveryCount++;
+                stalled=branchStuck=routeStuck=0;progressStation=DriveRoad.Project(Car.Body.position,out _);progressSample=true;branchBest=Racer?.Branch.Position??0; nextRecovery=Time.time+4; RecoveryCount++;
+                recoveryDepartureStation=progressStation;recoveryDepartureUntil=Time.time+8;
+                var support=DriveRoad.At(progressStation,out var departureForward);departureLane=Vector3.Dot(Car.Body.position-support,Vector3.Cross(Vector3.up,departureForward).normalized);
+                if(Racer==null || !Racer.Branch.Route)lane=forestLayout?(lane>0?-.55f:.55f):(lane>0?-1.7f:1.7f);
                 if(Racer!=null) { Racer.Recoveries++; Racer.Branch.Recovered(Car.Body.position); Racer.SampleOrigin(Race.Clock); }
                 return;
             }

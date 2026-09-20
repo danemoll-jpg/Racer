@@ -1,0 +1,30 @@
+[
+  {
+    "Name": "smash-StreetLoopGreybox",
+    "Exit": 0,
+    "Timeout": false,
+    "PeakMiB": 681.8,
+    "Flags": "-arcadeTest smash -course StreetLoopGreybox"
+  },
+  {
+    "Name": "smash-LakeWoods",
+    "Exit": 0,
+    "Timeout": false,
+    "PeakMiB": 980.77,
+    "Flags": "-arcadeTest smash -course LakeWoods"
+  },
+  {
+    "Name": "smash-StreetLoopReverse",
+    "Exit": 0,
+    "Timeout": false,
+    "PeakMiB": 690.25,
+    "Flags": "-arcadeTest smash -course StreetLoopReverse"
+  },
+  {
+    "Name": "smash-ForestLoopReverse",
+    "Exit": 0,
+    "Timeout": false,
+    "PeakMiB": 934.88,
+    "Flags": "-arcadeTest smash -course ForestLoopReverse"
+  }
+]

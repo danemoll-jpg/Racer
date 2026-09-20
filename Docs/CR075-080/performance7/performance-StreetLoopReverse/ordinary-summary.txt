@@ -1,0 +1,1 @@
+seed=148459921 selected=8 occupiedSeconds=10 emptySeconds=140 sightings=6 calls=5

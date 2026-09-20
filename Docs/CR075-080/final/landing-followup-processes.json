@@ -1,0 +1,7 @@
+{
+  "Name": "tourer-36-centred-settle",
+  "Exit": 0,
+  "Timeout": false,
+  "PeakMiB": 494.84,
+  "Flags": "-arcadeRamp case -course StreetLoopGreybox -rampVehicle tourer -rampSpeed 36 -rampLine 0 -rampSettle 2"
+}

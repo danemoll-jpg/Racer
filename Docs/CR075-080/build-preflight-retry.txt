@@ -1,0 +1,3 @@
+System.Exception: Build failed
+  at Racer.Editor.ArcadeReviewRelease.Build () [0x00241] in C:\Users\danmo\Racer\Assets\Scripts\Editor\ArcadeReviewRelease.cs:160 
+  at Racer.Editor.ArcadeReviewRelease.Work () [0x00068] in C:\Users\danmo\Racer\Assets\Scripts\Editor\ArcadeReviewRelease.cs:18 

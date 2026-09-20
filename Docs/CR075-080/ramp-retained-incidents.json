@@ -1,0 +1,52 @@
+[
+  {
+    "course": "Forest Loop Reverse",
+    "vehicle": "moto",
+    "speed": "43",
+    "line": "1.7",
+    "travel": "122.166",
+    "minUp": "-0.980",
+    "outcome": "stalled/crashed",
+    "recovered": "True"
+  },
+  {
+    "course": "Forest Loop",
+    "vehicle": "moto",
+    "speed": "36",
+    "line": "1.7",
+    "travel": "90.878",
+    "minUp": "-1.000",
+    "outcome": "stalled/crashed",
+    "recovered": "True"
+  },
+  {
+    "course": "Street Loop",
+    "vehicle": "moto",
+    "speed": "43",
+    "line": "-4.7",
+    "travel": "148.383",
+    "minUp": "-0.954",
+    "outcome": "stalled/crashed",
+    "recovered": "True"
+  },
+  {
+    "course": "Street Loop",
+    "vehicle": "moto",
+    "speed": "43",
+    "line": "1.7",
+    "travel": "412.255",
+    "minUp": "-0.925",
+    "outcome": "stalled/crashed",
+    "recovered": "True"
+  },
+  {
+    "course": "Street Loop",
+    "vehicle": "tourer",
+    "speed": "36",
+    "line": "0",
+    "travel": "162.725",
+    "minUp": "0.964",
+    "outcome": "cleared / unstable landing",
+    "recovered": "True"
+  }
+]

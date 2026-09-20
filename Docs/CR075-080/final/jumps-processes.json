@@ -1,0 +1,16 @@
+[
+  {
+    "Name": "activities-StreetLoopReverse",
+    "Exit": 0,
+    "Timeout": false,
+    "PeakMiB": 556.09,
+    "Flags": "-arcadeRamp activities -course StreetLoopReverse"
+  },
+  {
+    "Name": "activities-StreetLoopGreybox",
+    "Exit": 0,
+    "Timeout": false,
+    "PeakMiB": 552.61,
+    "Flags": "-arcadeRamp activities -course StreetLoopGreybox"
+  }
+]

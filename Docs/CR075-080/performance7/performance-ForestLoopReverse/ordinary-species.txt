@@ -1,0 +1,2 @@
+Wildlife Deer time=46.8999833829365 seed=148624000
+Wildlife Coyote time=83.079970564059 seed=148624000

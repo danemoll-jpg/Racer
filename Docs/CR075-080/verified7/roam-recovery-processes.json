@@ -1,0 +1,34 @@
+[
+  {
+    "Version": "0.13.0-review7",
+    "Name": "roam-recovery-StreetLoopGreybox",
+    "Exit": 0,
+    "Timeout": false,
+    "PeakMiB": 504.34,
+    "Flags": "-arcadeTest roam-recovery -course StreetLoopGreybox"
+  },
+  {
+    "Version": "0.13.0-review7",
+    "Name": "roam-recovery-LakeWoods",
+    "Exit": 0,
+    "Timeout": false,
+    "PeakMiB": 714.32,
+    "Flags": "-arcadeTest roam-recovery -course LakeWoods"
+  },
+  {
+    "Version": "0.13.0-review7",
+    "Name": "roam-recovery-StreetLoopReverse",
+    "Exit": 0,
+    "Timeout": false,
+    "PeakMiB": 560.22,
+    "Flags": "-arcadeTest roam-recovery -course StreetLoopReverse"
+  },
+  {
+    "Version": "0.13.0-review7",
+    "Name": "roam-recovery-ForestLoopReverse",
+    "Exit": 0,
+    "Timeout": false,
+    "PeakMiB": 735.29,
+    "Flags": "-arcadeTest roam-recovery -course ForestLoopReverse"
+  }
+]

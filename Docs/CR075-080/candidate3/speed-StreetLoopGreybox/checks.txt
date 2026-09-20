@@ -1,0 +1,24 @@
+PASS original direction=1 physical speed crossing awarded once; measured=31.73 m/s
+PASS original plausible measured speed
+PASS Teleport/reset cannot award a crossing
+PASS original direction=-1 physical speed crossing awarded once; measured=31.77 m/s
+PASS original plausible measured speed
+PASS Teleport/reset cannot award a crossing
+PASS tourer direction=1 physical speed crossing awarded once; measured=31.73 m/s
+PASS tourer plausible measured speed
+PASS Teleport/reset cannot award a crossing
+PASS tourer direction=-1 physical speed crossing awarded once; measured=31.78 m/s
+PASS tourer plausible measured speed
+PASS Teleport/reset cannot award a crossing
+PASS moto direction=1 physical speed crossing awarded once; measured=31.84 m/s
+PASS moto plausible measured speed
+PASS Teleport/reset cannot award a crossing
+PASS moto direction=-1 physical speed crossing awarded once; measured=31.87 m/s
+PASS moto plausible measured speed
+PASS Teleport/reset cannot award a crossing
+PASS atv direction=1 physical speed crossing awarded once; measured=31.81 m/s
+PASS atv plausible measured speed
+PASS Teleport/reset cannot award a crossing
+PASS atv direction=-1 physical speed crossing awarded once; measured=31.84 m/s
+PASS atv plausible measured speed
+PASS Teleport/reset cannot award a crossing
