@@ -1,6 +1,8 @@
 # Woodstock Rush
 ## Project Management / TODO / Astra-Codex Handoff
 
+**LATEST AUTHORIZED PASS — CR-101–104:** Only house/kennel layout per new drawing, summit sign fit/orientation, supported run-up and whole-mountain flight toward Dan's house, and clipped spoken title. Strictly targeted testing/stop conditions below supersede older broad regression instructions. Planning update only; no new implementation/testing claimed.
+
 **CURRENT DELIVERY — CR-097–100 / 0.17.0-review1:** Property/driveway repairs, summit guidance/geometry, dome tent/stone cairns and dedicated approved title art/audio are implemented for Dan review. Safety checkpoint `acafa41ce76c410e4b970dbbd7c9cf14e487fc8e`. Launch `Play-Racer.cmd` or `Builds/Latest/Racer.exe`; full ZIP `Builds/Racer-0.17.0-review1-Windows.zip`. Implementation completion `14240a16f9018c8f42e1a2943ef2473de6268a62`. All 440 runtime/Latest/extracted ZIP files match SHA256; 187 playable staged songs and two original M4A files are preserved. Final extracted startup: 21 assertions passed from the portable directory. Package identity is in VERSION.txt and Docs/CR097-100/package-final-verification.json. See [actual validation and failures](Docs/CR097-100/VALIDATION.md), [implementation](Docs/CR097-100/IMPLEMENTATION.md), and [concise Dan checklist](Docs/CR097-100/README-player.txt). Summit flights clear the crest for 4.00–5.74 seconds but still receive zero score for hard landings. Map/exploration and other unreviewed systems remain awaiting further testing. No physical Deck/controller or subjective listening claim.
 
 **CURRENT AUTHORIZATION — CR-091–096:** Implemented in 0.16.0-review3 with compiled-player validation; full runtime/ZIP delivery is recorded below. Includes finish-gate lap recovery, property/fence/sign cleanup, permanent campsite, summit jump, relocated collectibles and persistent exploration map with safe free-roam travel. Mountain race remains future backlog. See Docs/CR091-096/VALIDATION.md for actual results and retained limitations; this is not blanket acceptance.
@@ -1456,6 +1458,30 @@ Combined human checklist: boundary fence/two gates/frontage; House 3 drive in/ou
 
 ---
 
+### CR-101 — Correct kennel/garage placement from Dan's drawing
+**Status:** REVISION REQUIRED / AUTHORIZED. Drawing 2026-09-20 22_43_54-C__Users_danmo_Racer and 1 more tab - File Explorer.png in Downloads supersedes earlier inferred layout.
+House parallel to road, pool behind house, pool house beside pool near Driveway 1. Kennel/garage ACROSS Driveway 1 from house/pool, not behind the pool. Driveway 1 enters beside house between buildings; Driveway 2 stays on opposite side. Preserve slope and other agreed property details. Test only top-down/driveway-side views and any changed drive surface.
+
+### CR-102 — Summit sign overflow and wrong-facing boards
+**Status:** REVISION REQUIRED / AUTHORIZED. Three 2026-09-20 Racer screenshots (22_30_11, 22_29_30, 22_29_06) show oversized out-of-board mirrored lettering and inaccessible facing direction.
+Fix summit approach/launch/landing/return signs at actual world scale. Readable text fits backing with margins and faces real driver approaches. No floating/mirrored reverse lettering. Compiled approach/rear views of affected signs only; one unaffected sign if a shared implementation changes.
+
+### CR-103 — Usable giant jump completely clears mountain toward Dan's house
+**Status:** REVISION REQUIRED / AUTHORIZED. Dan reports wrong heading, insufficient straight run-up, approach pit and failure to clear mountain. Prior scripted airtime/crest claims do not establish human-requested trajectory.
+Use actual Dan-house/summit coordinates to align launch toward neighborhood. Long supported straight acceleration approach connected to trails; remove local pit. Reach launch speed from rest using normal inputs. Entire vehicle flight must clear all intervening mountaintop terrain, then reach supported driveable neighborhood-side landing clear of homes/fences, with safe return.
+Testing: one motorcycle baseline; first-playable revised tests before polish; one centered and one modest off-center run per eligible profile from rest (eight for four profiles), plus one aborted-approach reset. Record attained speed, run-up length, direction, swept clearance/path and landing with chase/side/overhead evidence. Rerun failed/affected cases only. Final player centered motorcycle/ATV. Check distinct geometry variants only where different; no full races or giant matrices. Local moved activity/destination alignment check only if directly changed.
+
+### CR-104 — Spoken title cuts off 'Rush'
+**Status:** REVISION REQUIRED / AUTHORIZED.
+Compare original Woodstock Rush Spoken.mp3, imported clip and actual startup output. Preserve complete phrase/tail; diagnose source/import/playback/transition before fixing. No invented replacement voice. If source itself lacks ending, report and request replacement. One no-input full-phrase listening/output check and one deliberate skip/clean menu transition check; skip may intentionally interrupt speech. Preserve theme/art and radio start policy. Tests otherwise muted; no saved preference changes.
+
+### Standing testing scope — Dan's explicit preference
+Test only new/changed features and specifically reported problems. Every prompt names checks and pass/stop conditions. Untested/unmentioned features do not trigger broad regression suites. Only a directly changed dependency or observed caused failure justifies an additional named narrow check.
+Current pass CR-101–104 ONLY: property views/local changed drive; affected summit signs; defined summit run-up/flight/landing tests; two targeted title checks; build and one portable startup. No collectible/fog/map/ghost/record/AI/full-course/performance/unrelated-ramp suites. Preserve unreviewed statuses and old failure evidence without spending time reopening them. Package once specified checks pass. This user preference supersedes earlier broad-test requirements for this pass.
+Dan has not checked everything in 0.17.0-review1. These reports are not blanket approval or rejection of other systems.
+
+---
+
 # DECISION LOG
 
 Record choices we do not want to repeatedly reconsider.
@@ -1554,6 +1580,8 @@ Record choices we do not want to repeatedly reconsider.
 ---
 
 # SESSION HANDOFF
+
+**LATEST AUTHORIZED PASS — CR-101–104:** Only house/kennel layout per new drawing, summit sign fit/orientation, supported run-up and whole-mountain flight toward Dan's house, and clipped spoken title. Strictly targeted testing/stop conditions below supersede older broad regression instructions. Planning update only; no new implementation/testing claimed.
 
 **CURRENT DELIVERY — CR-097–100 / 0.17.0-review1:** Property/driveway repairs, summit guidance/geometry, dome tent/stone cairns and dedicated approved title art/audio are implemented for Dan review. Safety checkpoint `acafa41ce76c410e4b970dbbd7c9cf14e487fc8e`. Launch `Play-Racer.cmd` or `Builds/Latest/Racer.exe`; full ZIP `Builds/Racer-0.17.0-review1-Windows.zip`. Implementation completion `14240a16f9018c8f42e1a2943ef2473de6268a62`. All 440 runtime/Latest/extracted ZIP files match SHA256; 187 playable staged songs and two original M4A files are preserved. Final extracted startup: 21 assertions passed from the portable directory. Package identity is in VERSION.txt and Docs/CR097-100/package-final-verification.json. See [actual validation and failures](Docs/CR097-100/VALIDATION.md), [implementation](Docs/CR097-100/IMPLEMENTATION.md), and [concise Dan checklist](Docs/CR097-100/README-player.txt). Summit flights clear the crest for 4.00–5.74 seconds but still receive zero score for hard landings. Map/exploration and other unreviewed systems remain awaiting further testing. No physical Deck/controller or subjective listening claim.
 
