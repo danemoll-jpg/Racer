@@ -1,6 +1,8 @@
 # Woodstock Rush
 ## Project Management / TODO / Astra-Codex Handoff
 
+**LATEST REVIEW — CR-112–118:** Dan reports missing household scenes, highway/frontage mesh defects, unseen turkeys, requests keyboard playlist naming and overall points/winner summary, and REJECTS both mountain races for unclear routes/missing big jumps/leftover canopy. The spoken Woodstock Rush title is also clipped again (CR-118), reopening that specific regression. Only these items and named direct dependencies are authorized for targeted testing. Ghosts were accepted on 2026-09-21. This is a planning/code-inspection handoff, not new implementation or runtime test evidence.
+
 **CURRENT AUTHORIZATION — 2026-09-21 / CR-105–111:** Road-boundary/through-traffic and mailbox fixes; selectable 1–5 laps and solo Unlimited; saved race playlists; fast-travel confirmation/arrival/map closure; Mountain Loop plus reverse with big jumps and alternates; occasional Kyle-property wild turkeys. Ghost human review stays pending. Vehicle/stat/unlock/driver customization ideas are backlog only. Strict new-feature/reported-issue testing limits below supersede older broad-test instructions. Implemented and targeted checks complete in 0.19.0-review3; packaging/portable verification is recorded in Docs/CR105-111. New work awaits Dan review.
 
 **CURRENT DELIVERY — CR-105–111 / 0.19.0-review3:** Implemented and targeted checks complete; new work awaits Dan review. Safety checkpoint 542a61629c4a8ea0ef0763064b7c01c9c8d2c33f; implementation a74119641fcd0fe81916ea47176ccbd566b97486. Launch Play-Racer.cmd or Builds/Latest/Racer.exe; full ZIP Builds/Racer-0.19.0-review3-Windows.zip. All 447 files match runtime/Latest/extracted ZIP; 187 playable songs and two originals preserved. Approved WoodstockRush-Cover.png included beside Racer.exe and permanently added to packaging. One muted extracted-folder startup passed (exit 0). See [delivery](Docs/CR105-111/DELIVERY.md), [actual targeted results and retained failures](Docs/CR105-111/VALIDATION.md), [package identity](Docs/CR105-111/package-final-verification.json), and [short NEW-work Dan checklist](Docs/CR105-111/README-player.txt). No physical Deck/controller or subjective acceptance claim. Ghost HUMAN testing remains pending and its rules are unchanged.
@@ -1551,6 +1553,40 @@ Deliver complete Windows runtime/ZIP/Latest, preserve prior builds and staged mu
 
 ---
 
+### CR-112 — Missing household scenes after campsite addition
+**Status:** REPORTED / AUTHORIZED INVESTIGATION AND FIX.
+Code: campsite is separate permanent authoring; AmbientLife/HouseholdSchedule still select football, coffee, smoking or empty. No direct camp replacement found. Check actual initialization, schedule, moved-house coordinates, terrain/parents and street visibility. Restore original groups at intended properties; keep at most one household group and independent permanent campers. Verify only three groups plus empty and one normal unforced selection sequence with street views.
+
+### CR-113 — Highway end seams and stray frontage road mesh
+**Status:** REPORTED / AUTHORIZED.
+Hwy 92 must stay smooth four-lane at both continuations. Inspect source geometry, width/markings/collision, overlaps and hardcoded through-road join stations; cause not established from source alone. Fix small stray road mesh near Dan's frontage while preserving legitimate driveways. Test only two highway ends and reported local patch, plus directly affected through-traffic. No walls/full race suite.
+
+### CR-114 — Turkeys not observed
+**Status:** NOT YET VERIFIED BY DAN / AUTHORIZED TARGETED CHECK.
+Code contains three Kyle habitats and 35% group selection; this does not prove actual visible sightings. Check current-house position, occlusion, grounding and offscreen activation/lifecycle. Retain occasional presence/absence; use bounded shuffled visits if needed to prevent excessive unlucky absence. Show one natural visible group and an absent visit, not only forced diagnostics. No other wildlife tests.
+
+### CR-115 — Type playlist names with keyboard
+**Status:** NEW / AUTHORIZED.
+Primary naming uses focused text entry with typing, spaces, editing, paste, Enter save, Escape cancel and no menu/gameplay shortcut leakage. Maintain controller/Deck keyboard usability, sensible validation and save persistence. Test one edited/pasted saved name/reload and one cancel only.
+
+### CR-116 — Playlist championship summary and winner
+**Status:** NEW / AUTHORIZED; supersedes prior no-championship restriction.
+Stable racer identities across entries; per-event standings, final times/penalties, measured/estimated flags and DNF; final all-event summary plus overall standings/winner banner.
+Default points 10/6/4/2 for current four finishers, DNF 0. Visible rules; ties by wins then seconds then thirds, then joint winners. No dissimilar-course total-time tiebreak. No duplicate points on results/Next; restart replaces entry result; partial quit not a championship win. Solo gets completion summary. One 3-event playlist/restart/idempotence/quit exercise; small tie/DNF fixtures, not race matrices.
+
+### CR-117 — Mountain Loop and Reverse rejected: big main-route jumps and clear navigation
+**Status:** NOT ACCEPTED / REDESIGN REQUIRED.
+Dan found both unfun/confusing, no big jumps, only one recognizable difficult early forward branch, and leftover treetops over start/finish. Code places spectacular flights on optional branches of a smooth supported main loop.
+Design target: at least TWO BIG main-line jumps encountered normally in EACH direction, plus TWO clearly indicated optional risk/reward alternates per direction. Reuse accepted free-roam terrain/jump where appropriate; reverse gets valid takeoff/landing, not reversed one-way geometry. Attainable run-ups, full terrain clearance, supported landings/returns and distinct summit/creek/gully-style flights.
+Obvious main route through junctions with fitted physical directional arrows/visible gates; distinct optional signs and clean rejoins; no wrong-direction guidance or unauthorized shortcut penalties. Remove complete obstructing canopy/batched mesh, not trunks alone. Show route diagrams and actual chase flights, not just scoring assertions.
+Tests bounded: first-playable geometry; four normal-input main-line player laps (bike/ATV both directions), remaining alternate segments locally, centered+modest-off-center each changed jump/profile reusing lap coverage, one recovery/direction, one AI event/direction shared with playlist runs. Repeat only failed/affected cases; final-player evidence. No old-course/ghost/collectible/map/whole-game suites. Human fun acceptance remains Dan's.
+
+### Latest acceptance and test-scope reconciliation — 2026-09-21
+Ghost playback is ACCEPTED by Dan; stale pending ghost statuses are superseded. CR-112–118 is current scope; older passing/implemented mountain assertions do not override rejection. Previously listed accepted features stay accepted except newly reported defects. Backlog vehicle/stat/unlock/driver options remain backlog.
+All ordinary tests muted, including relaunches. Brief unmute only for the reported spoken-title regression checks or changed turkey audio, then remute. Specific feature checks above are stop conditions; don't broaden tests for unmentioned systems. Final deliverable retains packaged cover image, music and old saves/builds, verifies complete package and one portable startup. No new game changes/tests are claimed by this document update.
+
+---
+
 # DECISION LOG
 
 Record choices we do not want to repeatedly reconsider.
@@ -1649,6 +1685,8 @@ Record choices we do not want to repeatedly reconsider.
 ---
 
 # SESSION HANDOFF
+
+**LATEST REVIEW — CR-112–118:** Dan reports missing household scenes, highway/frontage mesh defects, unseen turkeys, requests keyboard playlist naming and overall points/winner summary, and REJECTS both mountain races for unclear routes/missing big jumps/leftover canopy. The spoken Woodstock Rush title is also clipped again (CR-118), reopening that specific regression. Only these items and named direct dependencies are authorized for targeted testing. Ghosts were accepted on 2026-09-21. This is a planning/code-inspection handoff, not new implementation or runtime test evidence.
 
 **CURRENT AUTHORIZATION — 2026-09-21 / CR-105–111:** Road-boundary/through-traffic and mailbox fixes; selectable 1–5 laps and solo Unlimited; saved race playlists; fast-travel confirmation/arrival/map closure; Mountain Loop plus reverse with big jumps and alternates; occasional Kyle-property wild turkeys. Ghost human review stays pending. Vehicle/stat/unlock/driver customization ideas are backlog only. Strict new-feature/reported-issue testing limits below supersede older broad-test instructions. Implemented and targeted checks complete in 0.19.0-review3; packaging/portable verification is recorded in Docs/CR105-111. New work awaits Dan review.
 
@@ -1914,3 +1952,9 @@ The file is the project's source of truth. We do not casually rebuild the projec
 Delivery performance evidence: sequential 1280x720 offscreen normal-speed races passed both courses with all four vehicles; p95 8.441 ms Street / 8.350 ms Lake at a 120 Hz cap, peak working sets 528.54 / 555.17 MiB. Foreground presentation, human driving/listening and physical controller review remain pending. Final records regression suite: 29/29.
 
 Release package verified: 428 matching runtime/Latest/extracted ZIP files and 187 deliberately staged tracks; BundleMusic hashes unchanged, prior complete Latest preserved. Final metadata-stamped report: Builds/PACKAGE-LATEST.json. No external upload or personal audio in Git.
+
+## CR-118 — Spoken Woodstock Rush title clipped again
+- [ ] Reopened by Dan: the spoken title was complete in the previous version but is cut off again. Fix the actual source/import/loading/playback/transition cause while retaining the original recording, title art and looping theme.
+- [ ] Full phrase plays once at ordinary startup; advancing to the menu during speech preserves its remaining ending without restart/overlap or radio masking. Radio remains absent until menu.
+- [ ] Targeted verification only: brief original-reference listen, one untouched final-player startup and one advance-during-speech startup. Reuse portable startup; capture actual audible ending, disclose limitations. No general audio/radio regression suite. Mute all other testing and remute immediately after these short checks.
+Status: newly reported regression, pending implementation and Dan review. Added to the same CR-112–118 handoff; no game fix or runtime verification performed in this planning task.
