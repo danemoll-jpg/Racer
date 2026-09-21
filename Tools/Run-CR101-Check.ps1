@@ -11,7 +11,7 @@ New-Item -ItemType Directory -Force -Path $save | Out-Null
 if(!$ReuseSave -and $Flags -notmatch '-racerAudioCheck'){'{"version":1,"master":0,"frameLimit":60}' | Set-Content -LiteralPath (Join-Path $save 'settings.json')}
 $titleFlag=if($Flags -match '-titleCheck|-voiceCheck'){''}else{'-racerSkipTitle'}
 $arguments="$titleFlag -batchmode -screen-width $Width -screen-height $Height -racerTestSave `"$save`" -evidence `"$evidence`" -logFile `"$project/Logs/cr101-$Tag-$Name.log`" $Flags"
-$p=Start-Process -FilePath $exe -ArgumentList $arguments -WorkingDirectory $project -WindowStyle Hidden -PassThru
+$p=Start-Process -FilePath $exe -ArgumentList $arguments -WorkingDirectory ([IO.Path]::GetDirectoryName($exe)) -WindowStyle Hidden -PassThru
 $peak=0L; $end=(Get-Date).AddSeconds($Limit)
 while(!$p.HasExited -and (Get-Date) -lt $end){$peak=[math]::Max($peak,$p.PeakWorkingSet64);Start-Sleep -Milliseconds 500;$p.Refresh()}
 $timeout=!$p.HasExited;if($timeout){$p.Kill();$p.WaitForExit()}

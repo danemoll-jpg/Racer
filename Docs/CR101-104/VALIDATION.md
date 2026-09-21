@@ -1,4 +1,4 @@
-# CR-101–104 correction evidence (in progress)
+# CR-101-104 correction evidence / 0.18.0-review1
 
 Safety checkpoint: `a4dfebb23ba65d2e5d9227b2b5c18d0cbaea578b`.
 Git staging initially failed with sandbox `.git/index.lock` permission denied; the supported elevated retry and commit succeeded. No lock was removed, hook bypassed, or history rewritten.
@@ -30,9 +30,9 @@ The first candidate used a flag already owned by the old correction harness. Tha
 
 `first-playable-isolated/eight-flights` contains the actual eight first-playable runs, before property/sign detail work. Launch speeds were 36.44–42.84 m/s from rest. All went toward the house. The original landing generated poor touchdown/rollout behavior, particularly both cars and the offset ATV; centered ATV did not settle in the corridor. All failures are retained.
 
-After the catch-slope correction, `corrected/eight-flights` passed both Tourer, motorcycle and ATV lines. Original-car world-up readings near 0.59–0.62 tripped the initial vertical-up threshold. A ground-relative alignment check is being added to distinguish pitch on a 0.75-grade descent from instability; this does not alter vehicle physics. Touchdown is now separated from airborne clearance rather than counting suspension/body contact at the intended landing as an in-flight strike. The first-contact location must be beyond the summit, and any earlier contact fails the flight.
+After the catch-slope correction, `corrected/eight-flights` passed both Tourer, motorcycle and ATV lines. Original-car world-up readings near 0.59–0.62 tripped the initial vertical-up threshold. A ground-relative alignment check was added to distinguish pitch on a 0.75-grade descent from instability; this does not alter vehicle physics. Touchdown is now separated from airborne clearance rather than counting suspension/body contact at the intended landing as an in-flight strike. The first-contact location must be beyond the summit, and any earlier contact fails the flight.
 
-The changed Driveway 1 traversal passed from the road through the moved-building area (minimum up 0.888). The moved summit destination and activity lip checks passed. The single aborted-approach reset passed. The natural connector and return failed and are being repaired; these failures are preserved in `corrected/local-driving`. No repeat of the passing driveway/reset is required.
+The changed Driveway 1 traversal passed from the road through the moved-building area (minimum up 0.888). The moved summit destination and activity lip checks passed. The single aborted-approach reset passed. The natural connector and return initially failed and were later repaired; these failures are preserved in `corrected/local-driving`. No repeat of the passing driveway/reset is required.
 
 ## Complete voice output and skip
 
@@ -82,3 +82,6 @@ The original offset diagnostic logged its worst alignment at station 354.29, fir
 `build-delivery-build.txt`: successful Windows build, zero errors, three warnings. It contains the unchanged tested geometry/audio plus the corrected settling diagnostic. `delivery/original-offset` passes with minimum post-settling support alignment 0.99039 and 66 consecutive stable grounded frames; its pre-settling touchdown is still documented above. The original centered run already passed the stricter earlier support test, so it was not repeated again. Together with the corrected Tourer/bike/ATV pairs, all eight requested lines cleared the mountain and completed supported landings. The final centered bike and ATV checks use this delivery binary.
 
 No subjective listening or physical-controller/Deck validation was performed. Dan confirmed the original full word; the complete actual DSP output and intentional skip are verified. The source, imported recording and StartupTitle behavior are unchanged between the audio-verified candidate and delivery build. Existing jump awards remain zero in the final original/bike/ATV runs; this is retained as a residual rather than changing unrelated scoring rules.
+
+Final delivery motorcycle: 42.83624 m/s, 7.519993 s, landing (759.6459,109.3765,85.34798), PASS. Final LakeWoods ATV: 40.91123 m/s, 7.019994 s, landing (782.8103,121.6925,90.95414), PASS. Runtime assembly SHA256: F9DB15DF86530B8AAD7DA49E4164F9C7B8FB66460EA438155428221A38ADBB12. Implementation commit: 752ca2f19c04cdc180b943f46c79634cca0bc880. Final staging recovered a stale zero-byte index.lock by verifying no Git writer, confirming exclusive access and preserving it under a dated name; no lock was deleted or hook bypassed.
+

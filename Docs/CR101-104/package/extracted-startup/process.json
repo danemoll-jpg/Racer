@@ -1,0 +1,11 @@
+{
+  "Name": "extracted-startup",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\PackageWork\\20260921-002120-391-30b563\\extracted\\Racer-0.18.0-review1-Windows\\Racer.exe",
+  "RuntimeAssemblySHA256": "F9DB15DF86530B8AAD7DA49E4164F9C7B8FB66460EA438155428221A38ADBB12",
+  "Flags": "-racerSkipTitle -batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr101-a5abf22ab1cd486585129141b74d488f\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR101-104\\package\\extracted-startup\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr101-package-extracted-startup.log\" -cr101Check startup",
+  "PID": 101248,
+  "Timeout": false,
+  "Exit": 0,
+  "PeakWorkingSetMiB": 498.22,
+  "CompletedUtc": "2026-09-21T04:25:29.1335337Z"
+}

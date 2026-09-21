@@ -1,4 +1,4 @@
-Racer 0.18.0-review1 — Woodstock Rush / CR-101–104
+Racer 0.18.0-review1 - Woodstock Rush / CR-101-104
 
 Launch Racer.exe beside this file, or Play-Racer.cmd from the project.
 Keep the complete folder together. The ZIP includes the Windows runtime,
