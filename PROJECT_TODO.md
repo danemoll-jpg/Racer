@@ -1,6 +1,8 @@
 # Woodstock Rush
 ## Project Management / TODO / Astra-Codex Handoff
 
+**CURRENT AUTHORIZATION — 2026-09-21 / CR-105–111:** Road-boundary/through-traffic and mailbox fixes; selectable 1–5 laps and solo Unlimited; saved race playlists; fast-travel confirmation/arrival/map closure; Mountain Loop plus reverse with big jumps and alternates; occasional Kyle-property wild turkeys. Ghost human review stays pending. Vehicle/stat/unlock/driver customization ideas are backlog only. Strict new-feature/reported-issue testing limits below supersede older broad-test instructions. Planning only, not implementation evidence.
+
 **LATEST AUTHORIZED PASS — CR-101–104:** Only house/kennel layout per new drawing, summit sign fit/orientation, supported run-up and whole-mountain flight toward Dan's house, and clipped spoken title. Strictly targeted testing/stop conditions below supersede older broad regression instructions. Implemented for review; measured outcomes and residuals are in Docs/CR101-104/VALIDATION.md.
 
 **CURRENT DELIVERY - CR-101-104 / 0.18.0-review1:** Property relationship, all five summit signs, supported homeward summit run-up/landing/return and complete captured spoken-title output are implemented for Dan review. Safety checkpoint `a4dfebb23ba65d2e5d9227b2b5c18d0cbaea578b`; implementation `752ca2f19c04cdc180b943f46c79634cca0bc880`. Launch `Play-Racer.cmd` or `Builds/Latest/Racer.exe`; complete ZIP `Builds/Racer-0.18.0-review1-Windows.zip`. See [actual checks and retained failures](Docs/CR101-104/VALIDATION.md), [package identity](Docs/CR101-104/package-final-verification.json), and [player guide](Docs/CR101-104/README-player.txt). Both lines for four profiles cleared the mountain and settled; final compiled centered motorcycle/ATV passed. The original off-center first-contact alignment flag was diagnosed and a settling-aware check passed without geometry/physics changes. Existing jump awards remain zero. Audio source/import/output have the full sample tail, but subjective listening remains pending. Baseline did not reproduce the pit or include a flight. Other feature acceptance states are unchanged; no physical Deck/controller claim. Package identity: 440 files match across runtime/Latest/extracted ZIP; 187 playable songs and two originals preserved. One extracted-folder startup passed. See Docs/CR101-104/DELIVERY.md and package-final-verification.json.
@@ -1492,6 +1494,61 @@ Dan has not checked everything in 0.17.0-review1. These reports are not blanket 
 
 ---
 
+### Review reconciliation — 2026-09-21
+Dan approves the previously listed house/property/sign/physical summit jump/title audio/campsite/finish-gate/map/collectible/activity-board features, except clean-lap ghosts. Ghost testing remains OPEN: Dan may not yet have completed a lap without resetting. Do not retest ghosts automatically or change clean-lap rules. Historical awaiting-review statuses for approved features are superseded; human approval is not invented test coverage.
+Known summit zero-award defect remains recorded separately from physical jump acceptance. CR-105/106 are newly reported corrections included below.
+
+### CR-105 — Remove physical road-end boundaries; restore through-traffic
+**Status:** AUTHORIZED NOW.
+No physical road barriers on roads continuing beyond the playable area. Diagnose traffic being forced onto South Cherokee Lane; through-traffic must continue naturally. Remove blocking collision and correct affected routing as needed. Any necessary player world limit must not act as a road wall or redirect traffic. Check only affected continuation/collision points and observed junction flow, not a general AI or race suite.
+
+### CR-106 — Mailboxes outside roadside fences
+**Status:** AUTHORIZED NOW.
+Move mailboxes for Dan/House 2/House 3 outside their fences, grounded beside appropriate access and clear of roadway/gates. Preserve breakability. Verify these three placements visually; no destruction-system suite.
+
+### CR-107 — Selectable laps and unlimited solo time trial
+**Status:** AUTHORIZED NOW.
+Menu lap selector 1–5 for ordinary races and finite solo runs, plus Unlimited ONLY with AI opponents OFF. Show current lap and elapsed/lap time in unlimited mode without a fake finite denominator. Completed laps continue indefinitely until Quit Race/End Session; no artificial finish or total-race record for an unfinished infinite session. Preserve valid lap recording under existing rules; do not change clean-lap ghost eligibility. Unlimited-to-AI mode change must visibly revert to a legal finite value (remember last finite selection). Persist preferred settings and remove hardcoded three-lap menu text.
+Finite race totals remain separated by lap count; historical boards preserved. Tests limited to selector bounds/mode conversion/persistence, one 1-lap and one 5-lap event, and one solo session beyond five laps then clean exit. Verify only directly affected finish/record categorization; no records/ghost regression suites.
+
+### CR-108 — Local race playlists
+**Status:** AUTHORIZED NOW.
+Create/save/name a local ordered playlist of races. Add, remove and reorder entries; choose course/direction and finite 1–5 lap count per entry. Duplicates allowed. Include existing courses and both new mountain variants. Keep roster/difficulty/vehicle chosen through existing setup; validate vehicle eligibility for each entry with a clear compatible choice, never silently substitute a vehicle.
+Start playlist; after results provide Next Race with next event title, playlist position and current-entry restart. Quit Playlist returns to menu without deleting saved definition. No championship points, unlock economy or online system. Unlimited solo remains a standalone session rather than an entry that prevents playlist completion. Save definitions across app restart; mid-event resume not required.
+Test one short three-entry playlist with mixed direction/lap selections; edit/reorder/remove/add, restart current entry, next transition, last-entry completion, quit, reload definition and one incompatible vehicle case. Reuse those events for lap-selector/new-track checks where possible; no all-course playlist combinations.
+
+### CR-109 — Confirm fast travel, show arrival and close map
+**Status:** AUTHORIZED NOW.
+Selecting a discovered valid destination opens a controller/mouse Yes/No confirmation naming destination. No travel before Yes. No/Back returns to map unchanged. Yes validates destination again, performs one safe existing free-roam teleport, closes the map and confirmation, resumes driving and briefly displays arrival/location feedback. Consume confirmation input so it cannot activate another menu/action. If arrival fails, remain in map with explanation and no false success. Existing discovery/free-roam restrictions and travel safety remain.
+Test Yes, No/Back and one now-invalid/unavailable destination; confirm one teleport, map closure, arrival message and returned driving focus. No map-reveal/collectible persistence suite.
+
+### CR-110 — Mountain Loop and Mountain Loop Reverse
+**Status:** AUTHORIZED NOW; supersedes prior future-only mountain-race restriction.
+Build a forward and reverse mountain race using existing lake/mountain trails and return paths as much as possible. Each needs a coherent complete circuit, readable direction, reasonable overtaking areas and spectacular BIG jumps. Use motorcycle/ATV eligibility consistent with narrow Forest courses; leave Street cars unchanged. Both variants appear in track selector and playlists.
+Each direction has two optional meaningful shortcut/alternate-route choices with risk/reward: tighter lines, gully/creek leaps or ambitious jump lines. Reuse terrain but don't simply reverse one-way ramps. Provide direction-appropriate takeoff, adequate normally attainable run-up, complete clearance and supported landing/return. Use accepted giant homeward summit jump where it fits, with a raceable return connection. Reverse must have its own valid spectacular launch rather than driving up the landing face.
+Checkpoints clearly before branches/after rejoins; authorized alternates bypass their intended gates without penalties. Finish gate/missed-finish +5s behavior follows existing accepted rules. Directional signs for active variant only. AI traverses these NEW courses and recovers if stuck; no unrelated difficulty retuning.
+New course identity and existing compatible category plumbing for lap/race/activity records; no changes to old boards/ghost rules. If using the summit jump activity, directly investigate/fix its zero-award defect for valid settled landings rather than blindly relaxing all jump validity rules.
+Bounded tests: first-playable run-up/jump geometry before polish; one full normal-input run of each new course on bike and ATV, exercising an alternate route in each (four full runs), then traverse remaining alternate branches locally. Each new/changed launch gets one centered and one modest off-center traversal per eligible profile, counting coverage already obtained in full runs. Confirm actual full obstacle clearance, reachable speed, stable supported landing/return; one local recovery per course. One short AI race per new direction (can share player runs) verifies navigation/finish; no many-seed/difficulty matrices. Verify new selector/playlist entries/category IDs. Retest only failed/affected cases and confirm changed geometry in final player, not old tracks.
+
+### CR-111 — Occasional wild turkeys near Kyle's house
+**Status:** AUTHORIZED NOW.
+Add a small occasional group of recognizable wild turkeys near Kyle's property/wooded yard. Not present every visit. Plausible pecking/walking/startle behavior and brief spatial turkey sounds using existing ambience controls; safe non-blocking wildlife consistent with other species. Keep away from launch/driveway obstruction. Independent wildlife presence does not break household scene exclusivity. Modest pooled population; do not rewrite existing wildlife.
+Test one present and one absent state, recognizable ground placement/movement, one brief audio/mute check and no driveway obstruction. No full species/performance suite.
+
+### Future backlog — not implementation scope of this pass
+- More vehicle choices.
+- Visible measurable vehicle stats (e.g. top speed, nimbleness/handling and weight), grounded in actual profiles; imperial speed/weight units.
+- Explore collectible completion unlocking a special vehicle with best-in-game stats. This is a tentative idea; decide balance/unlock rule later. Do not implement now or retroactively erase progress.
+- Selectable drivers including women and diverse racial appearances, with selectable clothing colors.
+Multiplayer/split screen remain backlog. Ghost human test remains pending.
+
+### Required scope discipline / delivery
+Test only CR-105–111 and their explicitly named directly changed dependencies above. Reuse runs across checks. No blanket old-track/collectible/fog/ghost/leaderboard/startup/property/wildlife suites. Passing checks are a stop condition: package rather than keep testing. Further checks only for an observed caused failure and explain the narrow reason. Don't convert untested old systems into work items.
+Ordinary tests temporarily muted; unmute briefly only for new turkey sound checks then remute, preserving player preferences and normal shipped audio.
+Deliver complete Windows runtime/ZIP/Latest, preserve prior builds and staged music, verify package identity and one extracted startup. Update actual outcomes and concise new-feature checklist, safety/completion commits; no external upload or unsupported physical Deck/controller acceptance claims.
+
+---
+
 # DECISION LOG
 
 Record choices we do not want to repeatedly reconsider.
@@ -1590,6 +1647,8 @@ Record choices we do not want to repeatedly reconsider.
 ---
 
 # SESSION HANDOFF
+
+**CURRENT AUTHORIZATION — 2026-09-21 / CR-105–111:** Road-boundary/through-traffic and mailbox fixes; selectable 1–5 laps and solo Unlimited; saved race playlists; fast-travel confirmation/arrival/map closure; Mountain Loop plus reverse with big jumps and alternates; occasional Kyle-property wild turkeys. Ghost human review stays pending. Vehicle/stat/unlock/driver customization ideas are backlog only. Strict new-feature/reported-issue testing limits below supersede older broad-test instructions. Planning only, not implementation evidence.
 
 **LATEST AUTHORIZED PASS — CR-101–104:** Only house/kennel layout per new drawing, summit sign fit/orientation, supported run-up and whole-mountain flight toward Dan's house, and clipped spoken title. Strictly targeted testing/stop conditions below supersede older broad regression instructions. Planning update only; no new implementation/testing claimed.
 
