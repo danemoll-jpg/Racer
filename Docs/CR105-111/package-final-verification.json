@@ -1,0 +1,46 @@
+{
+  "Version": "0.19.0-review3",
+  "SafetyCheckpoint": "542a61629c4a8ea0ef0763064b7c01c9c8d2c33f",
+  "ImplementationCommit": "a74119641fcd0fe81916ea47176ccbd566b97486",
+  "Package": {
+    "Version": "0.19.0-review3",
+    "PackagedAt": "2026-09-21T03:33:56.5451657-04:00",
+    "Songs": 187,
+    "PreservedOriginalAudio": 2,
+    "Files": 447,
+    "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\Racer-0.19.0-review3-Windows",
+    "Latest": "C:\\Users\\danmo\\Racer\\Builds\\Latest",
+    "ZIP": "C:\\Users\\danmo\\Racer\\Builds\\Racer-0.19.0-review3-Windows.zip",
+    "ZipSHA256": "C1C09EEEFEDAA4ED8EC16DC101263CC08B5B789DF1087B86716F6B6AE4AECBD3",
+    "Preserved": "C:\\Users\\danmo\\Racer\\Builds\\Preserved\\20260921-033119-027-a75956",
+    "Extracted": "C:\\Users\\danmo\\Racer\\Builds\\PackageWork\\20260921-033119-027-a75956\\extracted\\Racer-0.19.0-review3-Windows",
+    "Verified": "All extracted ZIP, versioned runtime and Latest files match SHA256",
+    "ExternalCollections": "Not read or copied"
+  },
+  "ApprovedCover": {
+    "Name": "WoodstockRush-Cover.png",
+    "SHA256": "2070F4D996567CD3ACE865C52FD30E8EDCBCC34F519DE80C677BAF2AED0C32B4",
+    "ZipEntry": "Racer-0.19.0-review3-Windows/WoodstockRush-Cover.png",
+    "VerifiedBesideExecutable": [
+      "C:\\Users\\danmo\\Racer\\Builds\\Racer-0.19.0-review3-Windows",
+      "C:\\Users\\danmo\\Racer\\Builds\\Latest",
+      "C:\\Users\\danmo\\Racer\\Builds\\PackageWork\\20260921-033119-027-a75956\\extracted\\Racer-0.19.0-review3-Windows"
+    ],
+    "PermanentPackaging": true
+  },
+  "PortableStartup": {
+    "Name": "portable-startup",
+    "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\PackageWork\\20260921-033119-027-a75956\\extracted\\Racer-0.19.0-review3-Windows\\Racer.exe",
+    "AssemblySHA256": "C0E21EF8E43D64A96FBE9C0BF10B90F87A30ADBB177213DD9DAECA127FF3EDC7",
+    "Flags": "-racerSkipTitle -batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr105-8098de0eddea49a9b739eb21513078bb\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR105-111\\final\\portable-startup\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr105-final-portable-startup.log\" -cr105Check startup",
+    "Save": "C:\\Users\\danmo\\Racer\\Temp\\cr105-8098de0eddea49a9b739eb21513078bb",
+    "PID": 81956,
+    "Timeout": false,
+    "Exit": 0,
+    "CompletedUtc": "2026-09-21T07:34:18.8572243Z"
+  },
+  "StartupChecks": "PASS Portable menu startup",
+  "PersonalPreferences": "Untouched; isolated Temp test save and temporary listener mute",
+  "Upload": "None",
+  "GhostHumanReview": "Pending; no ghost tests or rules changed"
+}
