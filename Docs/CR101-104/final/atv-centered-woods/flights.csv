@@ -1,0 +1,2 @@
+vehicle,line,startX,startY,startZ,runup,launchX,launchY,launchZ,speed,landingX,landingY,landingZ,minClearance,air,headingDot,minUp
+atv,0,1187.208,152.53,205.9821,215,979.2296,179.3003,147.0025,40.91123,782.8103,121.6925,90.95414,0.4473724,7.019994,0.9999992,0.7716199

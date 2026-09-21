@@ -1,0 +1,3 @@
+PASS Moved summit destination is supported at run-up
+PASS Local jump activity follows new lip
+PASS landing-return reached=131/131 minUp=0.892195

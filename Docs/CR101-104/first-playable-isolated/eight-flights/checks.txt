@@ -1,0 +1,8 @@
+FAIL original-0 supported from rest, terrain clearance, homeward landing; clearance=-0.391571 air=6.879994 stable=66
+FAIL original-3 supported from rest, terrain clearance, homeward landing; clearance=-0.391243 air=6.879994 stable=66
+FAIL tourer-0 supported from rest, terrain clearance, homeward landing; clearance=-0.3277969 air=6.979994 stable=66
+FAIL tourer-3 supported from rest, terrain clearance, homeward landing; clearance=-0.7044144 air=6.879994 stable=66
+FAIL moto-0 supported from rest, terrain clearance, homeward landing; clearance=-0.2740097 air=7.679993 stable=66
+FAIL moto-3 supported from rest, terrain clearance, homeward landing; clearance=-0.3009491 air=7.679993 stable=66
+FAIL atv-0 supported from rest, terrain clearance, homeward landing; clearance=-0.7838745 air=8.360001 stable=0
+FAIL atv-3 supported from rest, terrain clearance, homeward landing; clearance=-1.360214 air=7.499993 stable=66

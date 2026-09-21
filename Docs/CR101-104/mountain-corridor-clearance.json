@@ -1,0 +1,45 @@
+{
+  "surfaceRunup": 221.7947052732533,
+  "flights": [
+    {
+      "case": "atv-0",
+      "mountainCorridorMinBottomClearance": 19.41397,
+      "samples": 166
+    },
+    {
+      "case": "atv-3",
+      "mountainCorridorMinBottomClearance": 19.39612,
+      "samples": 166
+    },
+    {
+      "case": "moto-0",
+      "mountainCorridorMinBottomClearance": 22.67259,
+      "samples": 159
+    },
+    {
+      "case": "moto-3",
+      "mountainCorridorMinBottomClearance": 23.66948,
+      "samples": 158
+    },
+    {
+      "case": "original-0",
+      "mountainCorridorMinBottomClearance": 3.559647,
+      "samples": 188
+    },
+    {
+      "case": "original-3",
+      "mountainCorridorMinBottomClearance": 3.501068,
+      "samples": 188
+    },
+    {
+      "case": "tourer-0",
+      "mountainCorridorMinBottomClearance": 4.902298,
+      "samples": 186
+    },
+    {
+      "case": "tourer-3",
+      "mountainCorridorMinBottomClearance": 4.876984,
+      "samples": 186
+    }
+  ]
+}

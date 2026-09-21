@@ -1,0 +1,11 @@
+{
+  "Name": "full-phrase",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\CR101-build-review-candidate\\Racer.exe",
+  "RuntimeAssemblySHA256": "07A50CB6A2094D0260B3A0B6757237E971E71040DEB3B92F78FD48E21CA657DF",
+  "Flags": " -batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr101-0263c1fcca7f450580de959e8d2d82b3\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR101-104\\corrected-audio\\full-phrase\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr101-corrected-audio-full-phrase.log\" -voiceCheck full -racerAudioCheck yes",
+  "PID": 74984,
+  "Timeout": false,
+  "Exit": 0,
+  "PeakWorkingSetMiB": 521.67,
+  "CompletedUtc": "2026-09-21T03:49:58.2369998Z"
+}

@@ -1,0 +1,1 @@
+House (415.800, 83.820, -13.000); summit reference (990.000, 0.000, 150.000); heading (-0.961990, 0.000000, -0.273083); origin (1192.018, 152.000, 207.348); lip (980.380, 177.920, 147.269); 220m runway / stationary start at s5; no motor changes.

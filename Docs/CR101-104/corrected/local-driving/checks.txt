@@ -1,0 +1,6 @@
+PASS changed-driveway1 reached=10/10 minUp=0.8880816
+FAIL natural-runup-connection reached=174/197 minUp=0.9704026
+PASS Moved summit destination is supported at run-up
+PASS Local jump activity follows new lip
+PASS Single aborted approach reset is supported
+FAIL landing-return reached=104/125 minUp=0.5482901

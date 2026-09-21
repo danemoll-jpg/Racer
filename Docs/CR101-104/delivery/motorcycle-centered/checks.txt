@@ -1,0 +1,1 @@
+PASS moto-0 supported from rest, terrain clearance, homeward landing; clearance=0.6731491 air=7.519993 stable=66 worldUp=0.7624711 surfaceUp=0.965794

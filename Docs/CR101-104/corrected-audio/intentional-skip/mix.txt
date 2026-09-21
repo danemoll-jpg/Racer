@@ -1,0 +1,3 @@
+samples=131072, peak=0.311523, rms=0.029656, clipped=0
+maxObservedVoiceSample=32416 clipSamples=84010
+No-input stayed on title=True radio absent=True

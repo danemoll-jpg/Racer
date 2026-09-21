@@ -70,8 +70,17 @@ namespace Racer
             if(Voice.clip)Voice.clip.LoadAudioData();if(Theme.clip)Theme.clip.LoadAudioData();
             while((Voice.clip&&Voice.clip.loadState==AudioDataLoadState.Loading)||(Theme.clip&&Theme.clip.loadState==AudioDataLoadState.Loading))yield return null;
             if(Advancing)yield break;
-            if(Voice.clip){Voice.Play();VoiceStarts++;}if(Theme.clip)Theme.Play();
-            while(Voice.isPlaying)yield return null;
+            // Give the supplied speech its complete audible tail before music enters.
+            // The quiet final consonant was masked by the concurrent theme. Use the
+            // decoded sample duration on the DSP clock, not a frame timeout or isPlaying.
+            if(Voice.clip){
+                double start=AudioSettings.dspTime+.05;
+                double end=start+(double)Voice.clip.samples/Voice.clip.frequency+.2;
+                Voice.PlayScheduled(start);VoiceStarts++;
+                while(!Advancing&&AudioSettings.dspTime<end)yield return null;
+            }
+            if(Advancing)yield break;
+            if(Theme.clip)Theme.Play();
             while(!Advancing){Theme.volume=Mathf.MoveTowards(Theme.volume,.27f,Time.unscaledDeltaTime*.2f);yield return null;}
         }
         static System.Collections.Generic.IEnumerable<ButtonControl> Buttons()=>InputSystem.devices.Where(d=>d is Keyboard || d is Gamepad || d is Mouse).SelectMany(d=>d.allControls.OfType<ButtonControl>()).Where(b=>!b.synthetic&&!(b.parent is StickControl));

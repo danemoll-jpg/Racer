@@ -1,0 +1,11 @@
+{
+  "Name": "connection",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\CR101-build-followup\\Racer.exe",
+  "RuntimeAssemblySHA256": "B7F0E14DFDEED36182DE0CB75E46BF72CB28DA50921BF4F3483664CAD1A4AC03",
+  "Flags": "-racerSkipTitle -batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr101-5b74af9082234c149a02d4a4eeb925ec\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR101-104\\followup\\connection\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr101-followup-connection.log\" -cr101Check local-drive -localPart connection",
+  "PID": 93756,
+  "Timeout": false,
+  "Exit": 0,
+  "PeakWorkingSetMiB": 486.87,
+  "CompletedUtc": "2026-09-21T04:02:54.5614134Z"
+}

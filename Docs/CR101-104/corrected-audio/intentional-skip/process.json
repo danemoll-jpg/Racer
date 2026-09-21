@@ -1,0 +1,11 @@
+{
+  "Name": "intentional-skip",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\CR101-build-review-candidate\\Racer.exe",
+  "RuntimeAssemblySHA256": "07A50CB6A2094D0260B3A0B6757237E971E71040DEB3B92F78FD48E21CA657DF",
+  "Flags": " -batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr101-feaeaf2545d34d69b418f53b6aef0093\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR101-104\\corrected-audio\\intentional-skip\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr101-corrected-audio-intentional-skip.log\" -voiceCheck skip -racerAudioCheck yes",
+  "PID": 53376,
+  "Timeout": false,
+  "Exit": 0,
+  "PeakWorkingSetMiB": 516.55,
+  "CompletedUtc": "2026-09-21T03:50:06.3150346Z"
+}

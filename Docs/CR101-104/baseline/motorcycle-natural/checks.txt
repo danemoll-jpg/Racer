@@ -1,0 +1,1 @@
+PASS baseline-motorcycle-natural-approach reached=5/5 minUp=0.9734669

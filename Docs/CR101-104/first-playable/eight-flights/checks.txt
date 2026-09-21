@@ -1,0 +1,474 @@
+PASS One mph conversion; canonical metres/second untouched
+PASS Feet and miles presentation
+PASS Preference migration changes presentation only, preserving historical record bytes and precision
+PASS Unchanged activity categories keep existing PBs
+PASS Shared visit exclusive and no immediate repeat 0
+PASS Shared visit exclusive and no immediate repeat 1
+PASS Shared visit exclusive and no immediate repeat 2
+PASS Shared visit exclusive and no immediate repeat 3
+PASS Complete four-state shuffle bag 3
+PASS Shared visit exclusive and no immediate repeat 4
+PASS Shared visit exclusive and no immediate repeat 5
+PASS Shared visit exclusive and no immediate repeat 6
+PASS Shared visit exclusive and no immediate repeat 7
+PASS Complete four-state shuffle bag 7
+PASS Shared visit exclusive and no immediate repeat 8
+PASS Shared visit exclusive and no immediate repeat 9
+PASS Shared visit exclusive and no immediate repeat 10
+PASS Shared visit exclusive and no immediate repeat 11
+PASS Complete four-state shuffle bag 11
+PASS Shared visit exclusive and no immediate repeat 12
+PASS Shared visit exclusive and no immediate repeat 13
+PASS Shared visit exclusive and no immediate repeat 14
+PASS Shared visit exclusive and no immediate repeat 15
+PASS Complete four-state shuffle bag 15
+PASS Shared visit exclusive and no immediate repeat 16
+PASS Shared visit exclusive and no immediate repeat 17
+PASS Shared visit exclusive and no immediate repeat 18
+PASS Shared visit exclusive and no immediate repeat 19
+PASS Complete four-state shuffle bag 19
+PASS Shared visit exclusive and no immediate repeat 20
+PASS Shared visit exclusive and no immediate repeat 21
+PASS Shared visit exclusive and no immediate repeat 22
+PASS Shared visit exclusive and no immediate repeat 23
+PASS Complete four-state shuffle bag 23
+PASS Shared visit exclusive and no immediate repeat 24
+PASS Shared visit exclusive and no immediate repeat 25
+PASS Shared visit exclusive and no immediate repeat 26
+PASS Shared visit exclusive and no immediate repeat 27
+PASS Complete four-state shuffle bag 27
+PASS Shared visit exclusive and no immediate repeat 28
+PASS Shared visit exclusive and no immediate repeat 29
+PASS Shared visit exclusive and no immediate repeat 30
+PASS Shared visit exclusive and no immediate repeat 31
+PASS Complete four-state shuffle bag 31
+PASS Shared visit exclusive and no immediate repeat 32
+PASS Shared visit exclusive and no immediate repeat 33
+PASS Shared visit exclusive and no immediate repeat 34
+PASS Shared visit exclusive and no immediate repeat 35
+PASS Complete four-state shuffle bag 35
+PASS Shared visit exclusive and no immediate repeat 36
+PASS Shared visit exclusive and no immediate repeat 37
+PASS Shared visit exclusive and no immediate repeat 38
+PASS Shared visit exclusive and no immediate repeat 39
+PASS Complete four-state shuffle bag 39
+PASS Street Loop true finish index zero
+PASS Street Loop grid behind timing start
+PASS Actual gate-test profile selected original
+PASS Street Loop/original/Street Loop START FINISH edge=-1 airborne=0 beyond-body=-0.1 swept 12m
+PASS Street Loop/original/Street Loop START FINISH edge=-1 airborne=0 beyond-body=0.15 swept 12m
+PASS Street Loop/original/Street Loop START FINISH edge=-1 airborne=0 beyond-body=0.3 swept 12m
+PASS Street Loop/original/Street Loop START FINISH edge=-1 airborne=3 beyond-body=-0.1 swept 12m
+PASS Street Loop/original/Street Loop START FINISH edge=-1 airborne=3 beyond-body=0.15 swept 12m
+PASS Street Loop/original/Street Loop START FINISH edge=-1 airborne=3 beyond-body=0.3 swept 12m
+PASS Street Loop/original/Street Loop START FINISH edge=1 airborne=0 beyond-body=-0.1 swept 12m
+PASS Street Loop/original/Street Loop START FINISH edge=1 airborne=0 beyond-body=0.15 swept 12m
+PASS Street Loop/original/Street Loop START FINISH edge=1 airborne=0 beyond-body=0.3 swept 12m
+PASS Street Loop/original/Street Loop START FINISH edge=1 airborne=3 beyond-body=-0.1 swept 12m
+PASS Street Loop/original/Street Loop START FINISH edge=1 airborne=3 beyond-body=0.15 swept 12m
+PASS Street Loop/original/Street Loop START FINISH edge=1 airborne=3 beyond-body=0.3 swept 12m
+PASS Street Loop/original/Street Loop CP 1 edge=-1 airborne=0 beyond-body=-0.1 swept 12m
+PASS Street Loop/original/Street Loop CP 1 edge=-1 airborne=0 beyond-body=0.15 swept 12m
+PASS Street Loop/original/Street Loop CP 1 edge=-1 airborne=0 beyond-body=0.3 swept 12m
+PASS Street Loop/original/Street Loop CP 1 edge=-1 airborne=3 beyond-body=-0.1 swept 12m
+PASS Street Loop/original/Street Loop CP 1 edge=-1 airborne=3 beyond-body=0.15 swept 12m
+PASS Street Loop/original/Street Loop CP 1 edge=-1 airborne=3 beyond-body=0.3 swept 12m
+PASS Street Loop/original/Street Loop CP 1 edge=1 airborne=0 beyond-body=-0.1 swept 12m
+PASS Street Loop/original/Street Loop CP 1 edge=1 airborne=0 beyond-body=0.15 swept 12m
+PASS Street Loop/original/Street Loop CP 1 edge=1 airborne=0 beyond-body=0.3 swept 12m
+PASS Street Loop/original/Street Loop CP 1 edge=1 airborne=3 beyond-body=-0.1 swept 12m
+PASS Street Loop/original/Street Loop CP 1 edge=1 airborne=3 beyond-body=0.15 swept 12m
+PASS Street Loop/original/Street Loop CP 1 edge=1 airborne=3 beyond-body=0.3 swept 12m
+PASS Actual gate-test profile selected tourer
+PASS Street Loop/tourer/Street Loop START FINISH edge=-1 airborne=0 beyond-body=-0.1 swept 12m
+PASS Street Loop/tourer/Street Loop START FINISH edge=-1 airborne=0 beyond-body=0.15 swept 12m
+PASS Street Loop/tourer/Street Loop START FINISH edge=-1 airborne=0 beyond-body=0.3 swept 12m
+PASS Street Loop/tourer/Street Loop START FINISH edge=-1 airborne=3 beyond-body=-0.1 swept 12m
+PASS Street Loop/tourer/Street Loop START FINISH edge=-1 airborne=3 beyond-body=0.15 swept 12m
+PASS Street Loop/tourer/Street Loop START FINISH edge=-1 airborne=3 beyond-body=0.3 swept 12m
+PASS Street Loop/tourer/Street Loop START FINISH edge=1 airborne=0 beyond-body=-0.1 swept 12m
+PASS Street Loop/tourer/Street Loop START FINISH edge=1 airborne=0 beyond-body=0.15 swept 12m
+PASS Street Loop/tourer/Street Loop START FINISH edge=1 airborne=0 beyond-body=0.3 swept 12m
+PASS Street Loop/tourer/Street Loop START FINISH edge=1 airborne=3 beyond-body=-0.1 swept 12m
+PASS Street Loop/tourer/Street Loop START FINISH edge=1 airborne=3 beyond-body=0.15 swept 12m
+PASS Street Loop/tourer/Street Loop START FINISH edge=1 airborne=3 beyond-body=0.3 swept 12m
+PASS Street Loop/tourer/Street Loop CP 1 edge=-1 airborne=0 beyond-body=-0.1 swept 12m
+PASS Street Loop/tourer/Street Loop CP 1 edge=-1 airborne=0 beyond-body=0.15 swept 12m
+PASS Street Loop/tourer/Street Loop CP 1 edge=-1 airborne=0 beyond-body=0.3 swept 12m
+PASS Street Loop/tourer/Street Loop CP 1 edge=-1 airborne=3 beyond-body=-0.1 swept 12m
+PASS Street Loop/tourer/Street Loop CP 1 edge=-1 airborne=3 beyond-body=0.15 swept 12m
+PASS Street Loop/tourer/Street Loop CP 1 edge=-1 airborne=3 beyond-body=0.3 swept 12m
+PASS Street Loop/tourer/Street Loop CP 1 edge=1 airborne=0 beyond-body=-0.1 swept 12m
+PASS Street Loop/tourer/Street Loop CP 1 edge=1 airborne=0 beyond-body=0.15 swept 12m
+PASS Street Loop/tourer/Street Loop CP 1 edge=1 airborne=0 beyond-body=0.3 swept 12m
+PASS Street Loop/tourer/Street Loop CP 1 edge=1 airborne=3 beyond-body=-0.1 swept 12m
+PASS Street Loop/tourer/Street Loop CP 1 edge=1 airborne=3 beyond-body=0.15 swept 12m
+PASS Street Loop/tourer/Street Loop CP 1 edge=1 airborne=3 beyond-body=0.3 swept 12m
+PASS Actual gate-test profile selected moto
+PASS Street Loop/moto/Street Loop START FINISH edge=-1 airborne=0 beyond-body=-0.1 swept 12m
+PASS Street Loop/moto/Street Loop START FINISH edge=-1 airborne=0 beyond-body=0.15 swept 12m
+PASS Street Loop/moto/Street Loop START FINISH edge=-1 airborne=0 beyond-body=0.3 swept 12m
+PASS Street Loop/moto/Street Loop START FINISH edge=-1 airborne=3 beyond-body=-0.1 swept 12m
+PASS Street Loop/moto/Street Loop START FINISH edge=-1 airborne=3 beyond-body=0.15 swept 12m
+PASS Street Loop/moto/Street Loop START FINISH edge=-1 airborne=3 beyond-body=0.3 swept 12m
+PASS Street Loop/moto/Street Loop START FINISH edge=1 airborne=0 beyond-body=-0.1 swept 12m
+PASS Street Loop/moto/Street Loop START FINISH edge=1 airborne=0 beyond-body=0.15 swept 12m
+PASS Street Loop/moto/Street Loop START FINISH edge=1 airborne=0 beyond-body=0.3 swept 12m
+PASS Street Loop/moto/Street Loop START FINISH edge=1 airborne=3 beyond-body=-0.1 swept 12m
+PASS Street Loop/moto/Street Loop START FINISH edge=1 airborne=3 beyond-body=0.15 swept 12m
+PASS Street Loop/moto/Street Loop START FINISH edge=1 airborne=3 beyond-body=0.3 swept 12m
+PASS Street Loop/moto/Street Loop CP 1 edge=-1 airborne=0 beyond-body=-0.1 swept 12m
+PASS Street Loop/moto/Street Loop CP 1 edge=-1 airborne=0 beyond-body=0.15 swept 12m
+PASS Street Loop/moto/Street Loop CP 1 edge=-1 airborne=0 beyond-body=0.3 swept 12m
+PASS Street Loop/moto/Street Loop CP 1 edge=-1 airborne=3 beyond-body=-0.1 swept 12m
+PASS Street Loop/moto/Street Loop CP 1 edge=-1 airborne=3 beyond-body=0.15 swept 12m
+PASS Street Loop/moto/Street Loop CP 1 edge=-1 airborne=3 beyond-body=0.3 swept 12m
+PASS Street Loop/moto/Street Loop CP 1 edge=1 airborne=0 beyond-body=-0.1 swept 12m
+PASS Street Loop/moto/Street Loop CP 1 edge=1 airborne=0 beyond-body=0.15 swept 12m
+PASS Street Loop/moto/Street Loop CP 1 edge=1 airborne=0 beyond-body=0.3 swept 12m
+PASS Street Loop/moto/Street Loop CP 1 edge=1 airborne=3 beyond-body=-0.1 swept 12m
+PASS Street Loop/moto/Street Loop CP 1 edge=1 airborne=3 beyond-body=0.15 swept 12m
+PASS Street Loop/moto/Street Loop CP 1 edge=1 airborne=3 beyond-body=0.3 swept 12m
+PASS Actual gate-test profile selected atv
+PASS Street Loop/atv/Street Loop START FINISH edge=-1 airborne=0 beyond-body=-0.1 swept 12m
+PASS Street Loop/atv/Street Loop START FINISH edge=-1 airborne=0 beyond-body=0.15 swept 12m
+PASS Street Loop/atv/Street Loop START FINISH edge=-1 airborne=0 beyond-body=0.3 swept 12m
+PASS Street Loop/atv/Street Loop START FINISH edge=-1 airborne=3 beyond-body=-0.1 swept 12m
+PASS Street Loop/atv/Street Loop START FINISH edge=-1 airborne=3 beyond-body=0.15 swept 12m
+PASS Street Loop/atv/Street Loop START FINISH edge=-1 airborne=3 beyond-body=0.3 swept 12m
+PASS Street Loop/atv/Street Loop START FINISH edge=1 airborne=0 beyond-body=-0.1 swept 12m
+PASS Street Loop/atv/Street Loop START FINISH edge=1 airborne=0 beyond-body=0.15 swept 12m
+PASS Street Loop/atv/Street Loop START FINISH edge=1 airborne=0 beyond-body=0.3 swept 12m
+PASS Street Loop/atv/Street Loop START FINISH edge=1 airborne=3 beyond-body=-0.1 swept 12m
+PASS Street Loop/atv/Street Loop START FINISH edge=1 airborne=3 beyond-body=0.15 swept 12m
+PASS Street Loop/atv/Street Loop START FINISH edge=1 airborne=3 beyond-body=0.3 swept 12m
+PASS Street Loop/atv/Street Loop CP 1 edge=-1 airborne=0 beyond-body=-0.1 swept 12m
+PASS Street Loop/atv/Street Loop CP 1 edge=-1 airborne=0 beyond-body=0.15 swept 12m
+PASS Street Loop/atv/Street Loop CP 1 edge=-1 airborne=0 beyond-body=0.3 swept 12m
+PASS Street Loop/atv/Street Loop CP 1 edge=-1 airborne=3 beyond-body=-0.1 swept 12m
+PASS Street Loop/atv/Street Loop CP 1 edge=-1 airborne=3 beyond-body=0.15 swept 12m
+PASS Street Loop/atv/Street Loop CP 1 edge=-1 airborne=3 beyond-body=0.3 swept 12m
+PASS Street Loop/atv/Street Loop CP 1 edge=1 airborne=0 beyond-body=-0.1 swept 12m
+PASS Street Loop/atv/Street Loop CP 1 edge=1 airborne=0 beyond-body=0.15 swept 12m
+PASS Street Loop/atv/Street Loop CP 1 edge=1 airborne=0 beyond-body=0.3 swept 12m
+PASS Street Loop/atv/Street Loop CP 1 edge=1 airborne=3 beyond-body=-0.1 swept 12m
+PASS Street Loop/atv/Street Loop CP 1 edge=1 airborne=3 beyond-body=0.15 swept 12m
+PASS Street Loop/atv/Street Loop CP 1 edge=1 airborne=3 beyond-body=0.3 swept 12m
+PASS Start arms once 0
+PASS Genuine miss +5 once 0
+PASS Global household state 0/0/3
+PASS No stale pooled household group 0/0
+PASS Selection stable through pause/local recovery 0/0
+PASS Global household state 0/1/1
+PASS No stale pooled household group 0/1
+PASS Selection stable through pause/local recovery 0/1
+PASS Global household state 0/2/2
+PASS No stale pooled household group 0/2
+PASS Selection stable through pause/local recovery 0/2
+PASS Global household state 0/3/1
+PASS No stale pooled household group 0/3
+PASS Selection stable through pause/local recovery 0/3
+PASS Global household state 0/4/0
+PASS No stale pooled household group 0/4
+PASS Selection stable through pause/local recovery 0/4
+PASS Global household state 0/5/2
+PASS No stale pooled household group 0/5
+PASS Selection stable through pause/local recovery 0/5
+PASS Global household state 0/6/3
+PASS No stale pooled household group 0/6
+PASS Selection stable through pause/local recovery 0/6
+PASS Global household state 0/7/0
+PASS No stale pooled household group 0/7
+PASS Selection stable through pause/local recovery 0/7
+PASS All household states reached on course 0
+PASS Shared visit persisted across save reload 0
+PASS Forest Loop true finish index zero
+PASS Forest Loop grid behind timing start
+PASS Actual gate-test profile selected moto
+PASS Forest Loop/moto/Forest Loop START FINISH edge=-1 airborne=0 beyond-body=-0.1 swept 12m
+PASS Forest Loop/moto/Forest Loop START FINISH edge=-1 airborne=0 beyond-body=0.15 swept 12m
+PASS Forest Loop/moto/Forest Loop START FINISH edge=-1 airborne=0 beyond-body=0.3 swept 12m
+PASS Forest Loop/moto/Forest Loop START FINISH edge=-1 airborne=3 beyond-body=-0.1 swept 12m
+PASS Forest Loop/moto/Forest Loop START FINISH edge=-1 airborne=3 beyond-body=0.15 swept 12m
+PASS Forest Loop/moto/Forest Loop START FINISH edge=-1 airborne=3 beyond-body=0.3 swept 12m
+PASS Forest Loop/moto/Forest Loop START FINISH edge=1 airborne=0 beyond-body=-0.1 swept 12m
+PASS Forest Loop/moto/Forest Loop START FINISH edge=1 airborne=0 beyond-body=0.15 swept 12m
+PASS Forest Loop/moto/Forest Loop START FINISH edge=1 airborne=0 beyond-body=0.3 swept 12m
+PASS Forest Loop/moto/Forest Loop START FINISH edge=1 airborne=3 beyond-body=-0.1 swept 12m
+PASS Forest Loop/moto/Forest Loop START FINISH edge=1 airborne=3 beyond-body=0.15 swept 12m
+PASS Forest Loop/moto/Forest Loop START FINISH edge=1 airborne=3 beyond-body=0.3 swept 12m
+PASS Forest Loop/moto/Forest Loop CP 1 edge=-1 airborne=0 beyond-body=-0.1 swept 12m
+PASS Forest Loop/moto/Forest Loop CP 1 edge=-1 airborne=0 beyond-body=0.15 swept 12m
+PASS Forest Loop/moto/Forest Loop CP 1 edge=-1 airborne=0 beyond-body=0.3 swept 12m
+PASS Forest Loop/moto/Forest Loop CP 1 edge=-1 airborne=3 beyond-body=-0.1 swept 12m
+PASS Forest Loop/moto/Forest Loop CP 1 edge=-1 airborne=3 beyond-body=0.15 swept 12m
+PASS Forest Loop/moto/Forest Loop CP 1 edge=-1 airborne=3 beyond-body=0.3 swept 12m
+PASS Forest Loop/moto/Forest Loop CP 1 edge=1 airborne=0 beyond-body=-0.1 swept 12m
+PASS Forest Loop/moto/Forest Loop CP 1 edge=1 airborne=0 beyond-body=0.15 swept 12m
+PASS Forest Loop/moto/Forest Loop CP 1 edge=1 airborne=0 beyond-body=0.3 swept 12m
+PASS Forest Loop/moto/Forest Loop CP 1 edge=1 airborne=3 beyond-body=-0.1 swept 12m
+PASS Forest Loop/moto/Forest Loop CP 1 edge=1 airborne=3 beyond-body=0.15 swept 12m
+PASS Forest Loop/moto/Forest Loop CP 1 edge=1 airborne=3 beyond-body=0.3 swept 12m
+PASS Actual gate-test profile selected atv
+PASS Forest Loop/atv/Forest Loop START FINISH edge=-1 airborne=0 beyond-body=-0.1 swept 12m
+PASS Forest Loop/atv/Forest Loop START FINISH edge=-1 airborne=0 beyond-body=0.15 swept 12m
+PASS Forest Loop/atv/Forest Loop START FINISH edge=-1 airborne=0 beyond-body=0.3 swept 12m
+PASS Forest Loop/atv/Forest Loop START FINISH edge=-1 airborne=3 beyond-body=-0.1 swept 12m
+PASS Forest Loop/atv/Forest Loop START FINISH edge=-1 airborne=3 beyond-body=0.15 swept 12m
+PASS Forest Loop/atv/Forest Loop START FINISH edge=-1 airborne=3 beyond-body=0.3 swept 12m
+PASS Forest Loop/atv/Forest Loop START FINISH edge=1 airborne=0 beyond-body=-0.1 swept 12m
+PASS Forest Loop/atv/Forest Loop START FINISH edge=1 airborne=0 beyond-body=0.15 swept 12m
+PASS Forest Loop/atv/Forest Loop START FINISH edge=1 airborne=0 beyond-body=0.3 swept 12m
+PASS Forest Loop/atv/Forest Loop START FINISH edge=1 airborne=3 beyond-body=-0.1 swept 12m
+PASS Forest Loop/atv/Forest Loop START FINISH edge=1 airborne=3 beyond-body=0.15 swept 12m
+PASS Forest Loop/atv/Forest Loop START FINISH edge=1 airborne=3 beyond-body=0.3 swept 12m
+PASS Forest Loop/atv/Forest Loop CP 1 edge=-1 airborne=0 beyond-body=-0.1 swept 12m
+PASS Forest Loop/atv/Forest Loop CP 1 edge=-1 airborne=0 beyond-body=0.15 swept 12m
+PASS Forest Loop/atv/Forest Loop CP 1 edge=-1 airborne=0 beyond-body=0.3 swept 12m
+PASS Forest Loop/atv/Forest Loop CP 1 edge=-1 airborne=3 beyond-body=-0.1 swept 12m
+PASS Forest Loop/atv/Forest Loop CP 1 edge=-1 airborne=3 beyond-body=0.15 swept 12m
+PASS Forest Loop/atv/Forest Loop CP 1 edge=-1 airborne=3 beyond-body=0.3 swept 12m
+PASS Forest Loop/atv/Forest Loop CP 1 edge=1 airborne=0 beyond-body=-0.1 swept 12m
+PASS Forest Loop/atv/Forest Loop CP 1 edge=1 airborne=0 beyond-body=0.15 swept 12m
+PASS Forest Loop/atv/Forest Loop CP 1 edge=1 airborne=0 beyond-body=0.3 swept 12m
+PASS Forest Loop/atv/Forest Loop CP 1 edge=1 airborne=3 beyond-body=-0.1 swept 12m
+PASS Forest Loop/atv/Forest Loop CP 1 edge=1 airborne=3 beyond-body=0.15 swept 12m
+PASS Forest Loop/atv/Forest Loop CP 1 edge=1 airborne=3 beyond-body=0.3 swept 12m
+PASS Start arms once 1
+PASS Genuine miss +5 once 1
+PASS Global household state 1/0/1
+PASS No stale pooled household group 1/0
+PASS Selection stable through pause/local recovery 1/0
+PASS Global household state 1/1/2
+PASS No stale pooled household group 1/1
+PASS Selection stable through pause/local recovery 1/1
+PASS Global household state 1/2/3
+PASS No stale pooled household group 1/2
+PASS Selection stable through pause/local recovery 1/2
+PASS Global household state 1/3/0
+PASS No stale pooled household group 1/3
+PASS Selection stable through pause/local recovery 1/3
+PASS Global household state 1/4/3
+PASS No stale pooled household group 1/4
+PASS Selection stable through pause/local recovery 1/4
+PASS Global household state 1/5/2
+PASS No stale pooled household group 1/5
+PASS Selection stable through pause/local recovery 1/5
+PASS Global household state 1/6/1
+PASS No stale pooled household group 1/6
+PASS Selection stable through pause/local recovery 1/6
+PASS Global household state 1/7/0
+PASS No stale pooled household group 1/7
+PASS Selection stable through pause/local recovery 1/7
+PASS All household states reached on course 1
+PASS Shared visit persisted across save reload 1
+PASS Street Loop Reverse true finish index zero
+PASS Street Loop Reverse grid behind timing start
+PASS Actual gate-test profile selected original
+PASS Street Loop Reverse/original/Street Loop Reverse START FINISH edge=-1 airborne=0 beyond-body=-0.1 swept 12m
+PASS Street Loop Reverse/original/Street Loop Reverse START FINISH edge=-1 airborne=0 beyond-body=0.15 swept 12m
+PASS Street Loop Reverse/original/Street Loop Reverse START FINISH edge=-1 airborne=0 beyond-body=0.3 swept 12m
+PASS Street Loop Reverse/original/Street Loop Reverse START FINISH edge=-1 airborne=3 beyond-body=-0.1 swept 12m
+PASS Street Loop Reverse/original/Street Loop Reverse START FINISH edge=-1 airborne=3 beyond-body=0.15 swept 12m
+PASS Street Loop Reverse/original/Street Loop Reverse START FINISH edge=-1 airborne=3 beyond-body=0.3 swept 12m
+PASS Street Loop Reverse/original/Street Loop Reverse START FINISH edge=1 airborne=0 beyond-body=-0.1 swept 12m
+PASS Street Loop Reverse/original/Street Loop Reverse START FINISH edge=1 airborne=0 beyond-body=0.15 swept 12m
+PASS Street Loop Reverse/original/Street Loop Reverse START FINISH edge=1 airborne=0 beyond-body=0.3 swept 12m
+PASS Street Loop Reverse/original/Street Loop Reverse START FINISH edge=1 airborne=3 beyond-body=-0.1 swept 12m
+PASS Street Loop Reverse/original/Street Loop Reverse START FINISH edge=1 airborne=3 beyond-body=0.15 swept 12m
+PASS Street Loop Reverse/original/Street Loop Reverse START FINISH edge=1 airborne=3 beyond-body=0.3 swept 12m
+PASS Street Loop Reverse/original/Street Loop Reverse CP 1 edge=-1 airborne=0 beyond-body=-0.1 swept 12m
+PASS Street Loop Reverse/original/Street Loop Reverse CP 1 edge=-1 airborne=0 beyond-body=0.15 swept 12m
+PASS Street Loop Reverse/original/Street Loop Reverse CP 1 edge=-1 airborne=0 beyond-body=0.3 swept 12m
+PASS Street Loop Reverse/original/Street Loop Reverse CP 1 edge=-1 airborne=3 beyond-body=-0.1 swept 12m
+PASS Street Loop Reverse/original/Street Loop Reverse CP 1 edge=-1 airborne=3 beyond-body=0.15 swept 12m
+PASS Street Loop Reverse/original/Street Loop Reverse CP 1 edge=-1 airborne=3 beyond-body=0.3 swept 12m
+PASS Street Loop Reverse/original/Street Loop Reverse CP 1 edge=1 airborne=0 beyond-body=-0.1 swept 12m
+PASS Street Loop Reverse/original/Street Loop Reverse CP 1 edge=1 airborne=0 beyond-body=0.15 swept 12m
+PASS Street Loop Reverse/original/Street Loop Reverse CP 1 edge=1 airborne=0 beyond-body=0.3 swept 12m
+PASS Street Loop Reverse/original/Street Loop Reverse CP 1 edge=1 airborne=3 beyond-body=-0.1 swept 12m
+PASS Street Loop Reverse/original/Street Loop Reverse CP 1 edge=1 airborne=3 beyond-body=0.15 swept 12m
+PASS Street Loop Reverse/original/Street Loop Reverse CP 1 edge=1 airborne=3 beyond-body=0.3 swept 12m
+PASS Actual gate-test profile selected tourer
+PASS Street Loop Reverse/tourer/Street Loop Reverse START FINISH edge=-1 airborne=0 beyond-body=-0.1 swept 12m
+PASS Street Loop Reverse/tourer/Street Loop Reverse START FINISH edge=-1 airborne=0 beyond-body=0.15 swept 12m
+PASS Street Loop Reverse/tourer/Street Loop Reverse START FINISH edge=-1 airborne=0 beyond-body=0.3 swept 12m
+PASS Street Loop Reverse/tourer/Street Loop Reverse START FINISH edge=-1 airborne=3 beyond-body=-0.1 swept 12m
+PASS Street Loop Reverse/tourer/Street Loop Reverse START FINISH edge=-1 airborne=3 beyond-body=0.15 swept 12m
+PASS Street Loop Reverse/tourer/Street Loop Reverse START FINISH edge=-1 airborne=3 beyond-body=0.3 swept 12m
+PASS Street Loop Reverse/tourer/Street Loop Reverse START FINISH edge=1 airborne=0 beyond-body=-0.1 swept 12m
+PASS Street Loop Reverse/tourer/Street Loop Reverse START FINISH edge=1 airborne=0 beyond-body=0.15 swept 12m
+PASS Street Loop Reverse/tourer/Street Loop Reverse START FINISH edge=1 airborne=0 beyond-body=0.3 swept 12m
+PASS Street Loop Reverse/tourer/Street Loop Reverse START FINISH edge=1 airborne=3 beyond-body=-0.1 swept 12m
+PASS Street Loop Reverse/tourer/Street Loop Reverse START FINISH edge=1 airborne=3 beyond-body=0.15 swept 12m
+PASS Street Loop Reverse/tourer/Street Loop Reverse START FINISH edge=1 airborne=3 beyond-body=0.3 swept 12m
+PASS Street Loop Reverse/tourer/Street Loop Reverse CP 1 edge=-1 airborne=0 beyond-body=-0.1 swept 12m
+PASS Street Loop Reverse/tourer/Street Loop Reverse CP 1 edge=-1 airborne=0 beyond-body=0.15 swept 12m
+PASS Street Loop Reverse/tourer/Street Loop Reverse CP 1 edge=-1 airborne=0 beyond-body=0.3 swept 12m
+PASS Street Loop Reverse/tourer/Street Loop Reverse CP 1 edge=-1 airborne=3 beyond-body=-0.1 swept 12m
+PASS Street Loop Reverse/tourer/Street Loop Reverse CP 1 edge=-1 airborne=3 beyond-body=0.15 swept 12m
+PASS Street Loop Reverse/tourer/Street Loop Reverse CP 1 edge=-1 airborne=3 beyond-body=0.3 swept 12m
+PASS Street Loop Reverse/tourer/Street Loop Reverse CP 1 edge=1 airborne=0 beyond-body=-0.1 swept 12m
+PASS Street Loop Reverse/tourer/Street Loop Reverse CP 1 edge=1 airborne=0 beyond-body=0.15 swept 12m
+PASS Street Loop Reverse/tourer/Street Loop Reverse CP 1 edge=1 airborne=0 beyond-body=0.3 swept 12m
+PASS Street Loop Reverse/tourer/Street Loop Reverse CP 1 edge=1 airborne=3 beyond-body=-0.1 swept 12m
+PASS Street Loop Reverse/tourer/Street Loop Reverse CP 1 edge=1 airborne=3 beyond-body=0.15 swept 12m
+PASS Street Loop Reverse/tourer/Street Loop Reverse CP 1 edge=1 airborne=3 beyond-body=0.3 swept 12m
+PASS Actual gate-test profile selected moto
+PASS Street Loop Reverse/moto/Street Loop Reverse START FINISH edge=-1 airborne=0 beyond-body=-0.1 swept 12m
+PASS Street Loop Reverse/moto/Street Loop Reverse START FINISH edge=-1 airborne=0 beyond-body=0.15 swept 12m
+PASS Street Loop Reverse/moto/Street Loop Reverse START FINISH edge=-1 airborne=0 beyond-body=0.3 swept 12m
+PASS Street Loop Reverse/moto/Street Loop Reverse START FINISH edge=-1 airborne=3 beyond-body=-0.1 swept 12m
+PASS Street Loop Reverse/moto/Street Loop Reverse START FINISH edge=-1 airborne=3 beyond-body=0.15 swept 12m
+PASS Street Loop Reverse/moto/Street Loop Reverse START FINISH edge=-1 airborne=3 beyond-body=0.3 swept 12m
+PASS Street Loop Reverse/moto/Street Loop Reverse START FINISH edge=1 airborne=0 beyond-body=-0.1 swept 12m
+PASS Street Loop Reverse/moto/Street Loop Reverse START FINISH edge=1 airborne=0 beyond-body=0.15 swept 12m
+PASS Street Loop Reverse/moto/Street Loop Reverse START FINISH edge=1 airborne=0 beyond-body=0.3 swept 12m
+PASS Street Loop Reverse/moto/Street Loop Reverse START FINISH edge=1 airborne=3 beyond-body=-0.1 swept 12m
+PASS Street Loop Reverse/moto/Street Loop Reverse START FINISH edge=1 airborne=3 beyond-body=0.15 swept 12m
+PASS Street Loop Reverse/moto/Street Loop Reverse START FINISH edge=1 airborne=3 beyond-body=0.3 swept 12m
+PASS Street Loop Reverse/moto/Street Loop Reverse CP 1 edge=-1 airborne=0 beyond-body=-0.1 swept 12m
+PASS Street Loop Reverse/moto/Street Loop Reverse CP 1 edge=-1 airborne=0 beyond-body=0.15 swept 12m
+PASS Street Loop Reverse/moto/Street Loop Reverse CP 1 edge=-1 airborne=0 beyond-body=0.3 swept 12m
+PASS Street Loop Reverse/moto/Street Loop Reverse CP 1 edge=-1 airborne=3 beyond-body=-0.1 swept 12m
+PASS Street Loop Reverse/moto/Street Loop Reverse CP 1 edge=-1 airborne=3 beyond-body=0.15 swept 12m
+PASS Street Loop Reverse/moto/Street Loop Reverse CP 1 edge=-1 airborne=3 beyond-body=0.3 swept 12m
+PASS Street Loop Reverse/moto/Street Loop Reverse CP 1 edge=1 airborne=0 beyond-body=-0.1 swept 12m
+PASS Street Loop Reverse/moto/Street Loop Reverse CP 1 edge=1 airborne=0 beyond-body=0.15 swept 12m
+PASS Street Loop Reverse/moto/Street Loop Reverse CP 1 edge=1 airborne=0 beyond-body=0.3 swept 12m
+PASS Street Loop Reverse/moto/Street Loop Reverse CP 1 edge=1 airborne=3 beyond-body=-0.1 swept 12m
+PASS Street Loop Reverse/moto/Street Loop Reverse CP 1 edge=1 airborne=3 beyond-body=0.15 swept 12m
+PASS Street Loop Reverse/moto/Street Loop Reverse CP 1 edge=1 airborne=3 beyond-body=0.3 swept 12m
+PASS Actual gate-test profile selected atv
+PASS Street Loop Reverse/atv/Street Loop Reverse START FINISH edge=-1 airborne=0 beyond-body=-0.1 swept 12m
+PASS Street Loop Reverse/atv/Street Loop Reverse START FINISH edge=-1 airborne=0 beyond-body=0.15 swept 12m
+PASS Street Loop Reverse/atv/Street Loop Reverse START FINISH edge=-1 airborne=0 beyond-body=0.3 swept 12m
+PASS Street Loop Reverse/atv/Street Loop Reverse START FINISH edge=-1 airborne=3 beyond-body=-0.1 swept 12m
+PASS Street Loop Reverse/atv/Street Loop Reverse START FINISH edge=-1 airborne=3 beyond-body=0.15 swept 12m
+PASS Street Loop Reverse/atv/Street Loop Reverse START FINISH edge=-1 airborne=3 beyond-body=0.3 swept 12m
+PASS Street Loop Reverse/atv/Street Loop Reverse START FINISH edge=1 airborne=0 beyond-body=-0.1 swept 12m
+PASS Street Loop Reverse/atv/Street Loop Reverse START FINISH edge=1 airborne=0 beyond-body=0.15 swept 12m
+PASS Street Loop Reverse/atv/Street Loop Reverse START FINISH edge=1 airborne=0 beyond-body=0.3 swept 12m
+PASS Street Loop Reverse/atv/Street Loop Reverse START FINISH edge=1 airborne=3 beyond-body=-0.1 swept 12m
+PASS Street Loop Reverse/atv/Street Loop Reverse START FINISH edge=1 airborne=3 beyond-body=0.15 swept 12m
+PASS Street Loop Reverse/atv/Street Loop Reverse START FINISH edge=1 airborne=3 beyond-body=0.3 swept 12m
+PASS Street Loop Reverse/atv/Street Loop Reverse CP 1 edge=-1 airborne=0 beyond-body=-0.1 swept 12m
+PASS Street Loop Reverse/atv/Street Loop Reverse CP 1 edge=-1 airborne=0 beyond-body=0.15 swept 12m
+PASS Street Loop Reverse/atv/Street Loop Reverse CP 1 edge=-1 airborne=0 beyond-body=0.3 swept 12m
+PASS Street Loop Reverse/atv/Street Loop Reverse CP 1 edge=-1 airborne=3 beyond-body=-0.1 swept 12m
+PASS Street Loop Reverse/atv/Street Loop Reverse CP 1 edge=-1 airborne=3 beyond-body=0.15 swept 12m
+PASS Street Loop Reverse/atv/Street Loop Reverse CP 1 edge=-1 airborne=3 beyond-body=0.3 swept 12m
+PASS Street Loop Reverse/atv/Street Loop Reverse CP 1 edge=1 airborne=0 beyond-body=-0.1 swept 12m
+PASS Street Loop Reverse/atv/Street Loop Reverse CP 1 edge=1 airborne=0 beyond-body=0.15 swept 12m
+PASS Street Loop Reverse/atv/Street Loop Reverse CP 1 edge=1 airborne=0 beyond-body=0.3 swept 12m
+PASS Street Loop Reverse/atv/Street Loop Reverse CP 1 edge=1 airborne=3 beyond-body=-0.1 swept 12m
+PASS Street Loop Reverse/atv/Street Loop Reverse CP 1 edge=1 airborne=3 beyond-body=0.15 swept 12m
+PASS Street Loop Reverse/atv/Street Loop Reverse CP 1 edge=1 airborne=3 beyond-body=0.3 swept 12m
+PASS Start arms once 2
+PASS Genuine miss +5 once 2
+PASS Global household state 2/0/2
+PASS No stale pooled household group 2/0
+PASS Selection stable through pause/local recovery 2/0
+PASS Global household state 2/1/1
+PASS No stale pooled household group 2/1
+PASS Selection stable through pause/local recovery 2/1
+PASS Global household state 2/2/3
+PASS No stale pooled household group 2/2
+PASS Selection stable through pause/local recovery 2/2
+PASS Global household state 2/3/1
+PASS No stale pooled household group 2/3
+PASS Selection stable through pause/local recovery 2/3
+PASS Global household state 2/4/0
+PASS No stale pooled household group 2/4
+PASS Selection stable through pause/local recovery 2/4
+PASS Global household state 2/5/2
+PASS No stale pooled household group 2/5
+PASS Selection stable through pause/local recovery 2/5
+PASS Global household state 2/6/3
+PASS No stale pooled household group 2/6
+PASS Selection stable through pause/local recovery 2/6
+PASS Global household state 2/7/1
+PASS No stale pooled household group 2/7
+PASS Selection stable through pause/local recovery 2/7
+PASS All household states reached on course 2
+PASS Shared visit persisted across save reload 2
+PASS Forest Loop Reverse true finish index zero
+PASS Forest Loop Reverse grid behind timing start
+PASS Actual gate-test profile selected moto
+PASS Forest Loop Reverse/moto/Forest Loop Reverse START FINISH edge=-1 airborne=0 beyond-body=-0.1 swept 12m
+PASS Forest Loop Reverse/moto/Forest Loop Reverse START FINISH edge=-1 airborne=0 beyond-body=0.15 swept 12m
+PASS Forest Loop Reverse/moto/Forest Loop Reverse START FINISH edge=-1 airborne=0 beyond-body=0.3 swept 12m
+PASS Forest Loop Reverse/moto/Forest Loop Reverse START FINISH edge=-1 airborne=3 beyond-body=-0.1 swept 12m
+PASS Forest Loop Reverse/moto/Forest Loop Reverse START FINISH edge=-1 airborne=3 beyond-body=0.15 swept 12m
+PASS Forest Loop Reverse/moto/Forest Loop Reverse START FINISH edge=-1 airborne=3 beyond-body=0.3 swept 12m
+PASS Forest Loop Reverse/moto/Forest Loop Reverse START FINISH edge=1 airborne=0 beyond-body=-0.1 swept 12m
+PASS Forest Loop Reverse/moto/Forest Loop Reverse START FINISH edge=1 airborne=0 beyond-body=0.15 swept 12m
+PASS Forest Loop Reverse/moto/Forest Loop Reverse START FINISH edge=1 airborne=0 beyond-body=0.3 swept 12m
+PASS Forest Loop Reverse/moto/Forest Loop Reverse START FINISH edge=1 airborne=3 beyond-body=-0.1 swept 12m
+PASS Forest Loop Reverse/moto/Forest Loop Reverse START FINISH edge=1 airborne=3 beyond-body=0.15 swept 12m
+PASS Forest Loop Reverse/moto/Forest Loop Reverse START FINISH edge=1 airborne=3 beyond-body=0.3 swept 12m
+PASS Forest Loop Reverse/moto/Forest Loop Reverse CP 1 edge=-1 airborne=0 beyond-body=-0.1 swept 12m
+PASS Forest Loop Reverse/moto/Forest Loop Reverse CP 1 edge=-1 airborne=0 beyond-body=0.15 swept 12m
+PASS Forest Loop Reverse/moto/Forest Loop Reverse CP 1 edge=-1 airborne=0 beyond-body=0.3 swept 12m
+PASS Forest Loop Reverse/moto/Forest Loop Reverse CP 1 edge=-1 airborne=3 beyond-body=-0.1 swept 12m
+PASS Forest Loop Reverse/moto/Forest Loop Reverse CP 1 edge=-1 airborne=3 beyond-body=0.15 swept 12m
+PASS Forest Loop Reverse/moto/Forest Loop Reverse CP 1 edge=-1 airborne=3 beyond-body=0.3 swept 12m
+PASS Forest Loop Reverse/moto/Forest Loop Reverse CP 1 edge=1 airborne=0 beyond-body=-0.1 swept 12m
+PASS Forest Loop Reverse/moto/Forest Loop Reverse CP 1 edge=1 airborne=0 beyond-body=0.15 swept 12m
+PASS Forest Loop Reverse/moto/Forest Loop Reverse CP 1 edge=1 airborne=0 beyond-body=0.3 swept 12m
+PASS Forest Loop Reverse/moto/Forest Loop Reverse CP 1 edge=1 airborne=3 beyond-body=-0.1 swept 12m
+PASS Forest Loop Reverse/moto/Forest Loop Reverse CP 1 edge=1 airborne=3 beyond-body=0.15 swept 12m
+PASS Forest Loop Reverse/moto/Forest Loop Reverse CP 1 edge=1 airborne=3 beyond-body=0.3 swept 12m
+PASS Actual gate-test profile selected atv
+PASS Forest Loop Reverse/atv/Forest Loop Reverse START FINISH edge=-1 airborne=0 beyond-body=-0.1 swept 12m
+PASS Forest Loop Reverse/atv/Forest Loop Reverse START FINISH edge=-1 airborne=0 beyond-body=0.15 swept 12m
+PASS Forest Loop Reverse/atv/Forest Loop Reverse START FINISH edge=-1 airborne=0 beyond-body=0.3 swept 12m
+PASS Forest Loop Reverse/atv/Forest Loop Reverse START FINISH edge=-1 airborne=3 beyond-body=-0.1 swept 12m
+PASS Forest Loop Reverse/atv/Forest Loop Reverse START FINISH edge=-1 airborne=3 beyond-body=0.15 swept 12m
+PASS Forest Loop Reverse/atv/Forest Loop Reverse START FINISH edge=-1 airborne=3 beyond-body=0.3 swept 12m
+PASS Forest Loop Reverse/atv/Forest Loop Reverse START FINISH edge=1 airborne=0 beyond-body=-0.1 swept 12m
+PASS Forest Loop Reverse/atv/Forest Loop Reverse START FINISH edge=1 airborne=0 beyond-body=0.15 swept 12m
+PASS Forest Loop Reverse/atv/Forest Loop Reverse START FINISH edge=1 airborne=0 beyond-body=0.3 swept 12m
+PASS Forest Loop Reverse/atv/Forest Loop Reverse START FINISH edge=1 airborne=3 beyond-body=-0.1 swept 12m
+PASS Forest Loop Reverse/atv/Forest Loop Reverse START FINISH edge=1 airborne=3 beyond-body=0.15 swept 12m
+PASS Forest Loop Reverse/atv/Forest Loop Reverse START FINISH edge=1 airborne=3 beyond-body=0.3 swept 12m
+PASS Forest Loop Reverse/atv/Forest Loop Reverse CP 1 edge=-1 airborne=0 beyond-body=-0.1 swept 12m
+PASS Forest Loop Reverse/atv/Forest Loop Reverse CP 1 edge=-1 airborne=0 beyond-body=0.15 swept 12m
+PASS Forest Loop Reverse/atv/Forest Loop Reverse CP 1 edge=-1 airborne=0 beyond-body=0.3 swept 12m
+PASS Forest Loop Reverse/atv/Forest Loop Reverse CP 1 edge=-1 airborne=3 beyond-body=-0.1 swept 12m
+PASS Forest Loop Reverse/atv/Forest Loop Reverse CP 1 edge=-1 airborne=3 beyond-body=0.15 swept 12m
+PASS Forest Loop Reverse/atv/Forest Loop Reverse CP 1 edge=-1 airborne=3 beyond-body=0.3 swept 12m
+PASS Forest Loop Reverse/atv/Forest Loop Reverse CP 1 edge=1 airborne=0 beyond-body=-0.1 swept 12m
+PASS Forest Loop Reverse/atv/Forest Loop Reverse CP 1 edge=1 airborne=0 beyond-body=0.15 swept 12m
+PASS Forest Loop Reverse/atv/Forest Loop Reverse CP 1 edge=1 airborne=0 beyond-body=0.3 swept 12m
+PASS Forest Loop Reverse/atv/Forest Loop Reverse CP 1 edge=1 airborne=3 beyond-body=-0.1 swept 12m
+PASS Forest Loop Reverse/atv/Forest Loop Reverse CP 1 edge=1 airborne=3 beyond-body=0.15 swept 12m
+PASS Forest Loop Reverse/atv/Forest Loop Reverse CP 1 edge=1 airborne=3 beyond-body=0.3 swept 12m
+PASS Start arms once 3
+PASS Genuine miss +5 once 3
+PASS Global household state 3/0/2
+PASS No stale pooled household group 3/0
+PASS Selection stable through pause/local recovery 3/0
+PASS Global household state 3/1/0
+PASS No stale pooled household group 3/1
+PASS Selection stable through pause/local recovery 3/1
+PASS Global household state 3/2/3
+PASS No stale pooled household group 3/2
+PASS Selection stable through pause/local recovery 3/2
+PASS Global household state 3/3/2
+PASS No stale pooled household group 3/3
+PASS Selection stable through pause/local recovery 3/3
+PASS Global household state 3/4/0
+PASS No stale pooled household group 3/4
+PASS Selection stable through pause/local recovery 3/4
+PASS Global household state 3/5/3
+PASS No stale pooled household group 3/5
+PASS Selection stable through pause/local recovery 3/5
+PASS Global household state 3/6/1
+PASS No stale pooled household group 3/6
+PASS Selection stable through pause/local recovery 3/6
+PASS Global household state 3/7/0
+PASS No stale pooled household group 3/7
+PASS Selection stable through pause/local recovery 3/7
+PASS All household states reached on course 3
+PASS Shared visit persisted across save reload 3

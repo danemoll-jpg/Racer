@@ -1,0 +1,11 @@
+{
+  "Name": "no-input",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\CR101-build-first-playable\\Racer.exe",
+  "RuntimeAssemblySHA256": "6B3CD3B1615514FA12B0C31789BCDA937A0BC0C88D7DF9E1FBA0B4C136D3EEF1",
+  "Flags": " -batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr101-7d8f5d5544de476c8e01a522bb3b4709\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR101-104\\audio-baseline\\no-input\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr101-audio-baseline-no-input.log\" -voiceCheck full -racerAudioCheck yes",
+  "PID": 71968,
+  "Timeout": false,
+  "Exit": 0,
+  "PeakWorkingSetMiB": 517.54,
+  "CompletedUtc": "2026-09-21T03:24:19.7929136Z"
+}

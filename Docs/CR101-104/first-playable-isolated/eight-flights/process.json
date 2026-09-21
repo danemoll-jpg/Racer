@@ -1,0 +1,11 @@
+{
+  "Name": "eight-flights",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\CR101-build-isolated-first\\Racer.exe",
+  "RuntimeAssemblySHA256": "D8215AB5AC21C88C791B5B67D409DE73BFAD8EFB55DCB183B68F64A25192493E",
+  "Flags": "-racerSkipTitle -batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr101-9970a6b1bbbc43ef9bb942d07144d77e\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR101-104\\first-playable-isolated\\eight-flights\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr101-first-playable-isolated-eight-flights.log\" -cr101Check flight",
+  "PID": 54296,
+  "Timeout": false,
+  "Exit": 0,
+  "PeakWorkingSetMiB": 509.84,
+  "CompletedUtc": "2026-09-21T03:27:49.2841984Z"
+}

@@ -6,13 +6,12 @@ A small single-player PC arcade racing game inspired by a childhood street.
 ## Current scope
 
 Single-player Street and Forest races in both directions, plus free roam.
-The CR-091â€“096 pass adds missed-finish lap recovery, revised properties and
-physical signs, a permanent campsite and summit jump, relocated acorns, and a
-saved exploration map with safe free-roam travel. See the
-[validation report](Docs/CR091-096/VALIDATION.md) and
-[player guide and review checklist](Docs/CR091-096/README-player.txt).
-This builds on 0.15.0-review3; its unresolved ramp, shortcut, AI and performance
-limitations remain documented. Technical checks do not close human reports.
+The CR-101–104 correction pass revises Dan's property layout, summit signs,
+the homeward summit jump and the spoken title's mix. See the
+[validation report](Docs/CR101-104/VALIDATION.md) and
+[player guide](Docs/CR101-104/README-player.txt).
+Only these reported issues were checked; other acceptance states remain unchanged.
+Technical checks do not close human reports.
 
 The earlier phase-specific tuning and reset descriptions below are historical.
 Current local recovery uses R / Xbox-style Y and preserves race progress.

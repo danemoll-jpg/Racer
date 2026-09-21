@@ -1,0 +1,11 @@
+{
+  "Name": "atv-centered-woods",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\CR101-build-delivery\\Racer.exe",
+  "RuntimeAssemblySHA256": "F9DB15DF86530B8AAD7DA49E4164F9C7B8FB66460EA438155428221A38ADBB12",
+  "Flags": "-racerSkipTitle -batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr101-6acd049dc6de4e8c940ffaf07b690655\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR101-104\\delivery\\atv-centered-woods\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr101-delivery-atv-centered-woods.log\" -cr101Check flight -vehicle atv -center yes -course LakeWoods",
+  "PID": 95020,
+  "Timeout": false,
+  "Exit": 0,
+  "PeakWorkingSetMiB": 805.14,
+  "CompletedUtc": "2026-09-21T04:15:28.5198054Z"
+}

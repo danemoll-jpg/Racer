@@ -1,0 +1,11 @@
+{
+  "Name": "motorcycle-centered",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\Racer-0.18.0-review1-Windows\\Racer.exe",
+  "RuntimeAssemblySHA256": "21752004185B65262DFE2565CF14B540DB8D7167FA0A23BBF453028CF024DECF",
+  "Flags": "-racerSkipTitle -batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr101-82a63967c8494854b1985f6e8cc4deee\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR101-104\\final\\motorcycle-centered\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr101-final-motorcycle-centered.log\" -cr101Check flight -vehicle moto -center yes",
+  "PID": 54288,
+  "Timeout": false,
+  "Exit": 0,
+  "PeakWorkingSetMiB": 501.69,
+  "CompletedUtc": "2026-09-21T04:10:02.3962395Z"
+}

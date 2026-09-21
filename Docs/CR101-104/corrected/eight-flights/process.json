@@ -1,0 +1,11 @@
+{
+  "Name": "eight-flights",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\CR101-build-review-candidate\\Racer.exe",
+  "RuntimeAssemblySHA256": "07A50CB6A2094D0260B3A0B6757237E971E71040DEB3B92F78FD48E21CA657DF",
+  "Flags": "-racerSkipTitle -batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr101-68caf76917b3485faace9d4eca99a676\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR101-104\\corrected\\eight-flights\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr101-corrected-eight-flights.log\" -cr101Check flight",
+  "PID": 93444,
+  "Timeout": false,
+  "Exit": 0,
+  "PeakWorkingSetMiB": 509.59,
+  "CompletedUtc": "2026-09-21T03:43:15.5994491Z"
+}

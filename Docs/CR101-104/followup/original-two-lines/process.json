@@ -1,0 +1,11 @@
+{
+  "Name": "original-two-lines",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\CR101-build-followup\\Racer.exe",
+  "RuntimeAssemblySHA256": "B7F0E14DFDEED36182DE0CB75E46BF72CB28DA50921BF4F3483664CAD1A4AC03",
+  "Flags": "-racerSkipTitle -batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr101-466e9d23246646228c65fca7fe609111\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR101-104\\followup\\original-two-lines\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr101-followup-original-two-lines.log\" -cr101Check flight -vehicle original",
+  "PID": 99652,
+  "Timeout": false,
+  "Exit": 0,
+  "PeakWorkingSetMiB": 506.11,
+  "CompletedUtc": "2026-09-21T03:57:49.1040488Z"
+}

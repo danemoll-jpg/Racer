@@ -1,0 +1,1 @@
+PASS atv-0 supported from rest, terrain clearance, homeward landing; clearance=0.4473724 air=7.019994 stable=66 worldUp=0.7716199 surfaceUp=0.9934556

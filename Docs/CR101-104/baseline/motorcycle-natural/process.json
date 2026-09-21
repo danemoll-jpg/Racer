@@ -1,0 +1,11 @@
+{
+  "Name": "motorcycle-natural",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\CR097-build-cr103-baseline\\Racer.exe",
+  "RuntimeAssemblySHA256": "9AC3059058B1D36D57DD16C961EE334B58B688C02EC2B074F5CDFC69477F0291",
+  "Flags": "-racerSkipTitle -batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr101-eb0b5799039a4c5990c0976f05070aec\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR101-104\\baseline\\motorcycle-natural\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr101-baseline-motorcycle-natural.log\" -correctionPass baseline",
+  "PID": 60024,
+  "Timeout": false,
+  "Exit": 0,
+  "PeakWorkingSetMiB": 496.48,
+  "CompletedUtc": "2026-09-21T03:13:40.7039518Z"
+}

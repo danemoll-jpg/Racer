@@ -1,0 +1,1 @@
+PASS original-3 supported from rest, terrain clearance, homeward landing; clearance=0.248703 air=4.939996 stable=66 worldUp=0.6166753 surfaceUp=0.9903911

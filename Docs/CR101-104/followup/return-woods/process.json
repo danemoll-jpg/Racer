@@ -1,0 +1,11 @@
+{
+  "Name": "return-woods",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\CR101-build-followup\\Racer.exe",
+  "RuntimeAssemblySHA256": "B7F0E14DFDEED36182DE0CB75E46BF72CB28DA50921BF4F3483664CAD1A4AC03",
+  "Flags": "-racerSkipTitle -batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr101-985da4f6de52402b88314aba9fe60425\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR101-104\\followup\\return-woods\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr101-followup-return-woods.log\" -cr101Check local-drive -localPart return -course LakeWoods",
+  "PID": 99856,
+  "Timeout": false,
+  "Exit": 0,
+  "PeakWorkingSetMiB": 797.59,
+  "CompletedUtc": "2026-09-21T04:03:43.7722774Z"
+}

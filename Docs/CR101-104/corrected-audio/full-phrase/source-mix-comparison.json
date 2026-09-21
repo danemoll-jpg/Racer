@@ -1,0 +1,10 @@
+{
+  "rate": 48000,
+  "offset_frames": 38240,
+  "gain": 0.5523644042991274,
+  "voice_tail_1200_1650_rms": 0.007741568205850277,
+  "other_mix_tail_1200_1650_rms": 1.6753804906677426e-05,
+  "full_voice_correlation": 0.9999998693140322,
+  "imported_frames": 84010,
+  "import_pcm_max_error": 0.0
+}

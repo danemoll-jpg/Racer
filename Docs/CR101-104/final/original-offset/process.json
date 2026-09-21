@@ -1,0 +1,11 @@
+{
+  "Name": "original-offset",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\Racer-0.18.0-review1-Windows\\Racer.exe",
+  "RuntimeAssemblySHA256": "21752004185B65262DFE2565CF14B540DB8D7167FA0A23BBF453028CF024DECF",
+  "Flags": "-racerSkipTitle -batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr101-9d09c81cff26424facc51f0e6f962980\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR101-104\\final\\original-offset\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr101-final-original-offset.log\" -cr101Check flight -vehicle original -line 3",
+  "PID": 84044,
+  "Timeout": false,
+  "Exit": 0,
+  "PeakWorkingSetMiB": 498.63,
+  "CompletedUtc": "2026-09-21T04:09:35.5963937Z"
+}

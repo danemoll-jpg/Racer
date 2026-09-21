@@ -1,0 +1,11 @@
+{
+  "Name": "property-sign-views",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\CR101-build-review-candidate\\Racer.exe",
+  "RuntimeAssemblySHA256": "07A50CB6A2094D0260B3A0B6757237E971E71040DEB3B92F78FD48E21CA657DF",
+  "Flags": "-racerSkipTitle -batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr101-bc5d4759f77048d0bd7982775ae6833c\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR101-104\\corrected\\property-sign-views\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr101-corrected-property-sign-views.log\" -cr101Check views",
+  "PID": 10728,
+  "Timeout": false,
+  "Exit": 0,
+  "PeakWorkingSetMiB": 520.6,
+  "CompletedUtc": "2026-09-21T03:41:16.6217076Z"
+}

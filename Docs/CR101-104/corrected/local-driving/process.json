@@ -1,0 +1,11 @@
+{
+  "Name": "local-driving",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\CR101-build-review-candidate\\Racer.exe",
+  "RuntimeAssemblySHA256": "07A50CB6A2094D0260B3A0B6757237E971E71040DEB3B92F78FD48E21CA657DF",
+  "Flags": "-racerSkipTitle -batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr101-dc4615bed05e4c789998df94dd60736a\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR101-104\\corrected\\local-driving\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr101-corrected-local-driving.log\" -cr101Check local-drive",
+  "PID": 26100,
+  "Timeout": false,
+  "Exit": 0,
+  "PeakWorkingSetMiB": 503.52,
+  "CompletedUtc": "2026-09-21T03:46:15.2449506Z"
+}

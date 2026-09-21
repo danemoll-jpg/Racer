@@ -1,0 +1,1 @@
+Safe summit destination (1187.208, 152.000, 205.982) yaw 254.1522; launch activity (980.380, 177.920, 147.269) forward (-0.961990, 0.000000, -0.273083); path root (1192.018, 152.000, 207.348); property kennel (398.886, 79.320, 24.509)
