@@ -1,0 +1,1 @@
+Bounded normal-motor-input automation. Read checks for actual outcomes; no human fun or physical controller approval.

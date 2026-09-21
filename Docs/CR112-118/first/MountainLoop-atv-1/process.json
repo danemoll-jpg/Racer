@@ -1,0 +1,11 @@
+{
+  "Name": "MountainLoop-atv-1",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\CR112-first\\Racer.exe",
+  "AssemblySHA256": "7E794805B984933802C536530105825439E7CCBEFCE9680923332C1BF81348E3",
+  "Flags": "-racerSkipTitle -batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr112-89a504a293b14b38bf3594395ef7024a\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR112-118\\first\\MountainLoop-atv-1\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr112-first-MountainLoop-atv-1.log\" -cr112Check flight -course MountainLoop -vehicle atv -flight 1 -offset 0",
+  "Save": "C:\\Users\\danmo\\Racer\\Temp\\cr112-89a504a293b14b38bf3594395ef7024a",
+  "PID": 107488,
+  "Timeout": false,
+  "Exit": 0,
+  "CompletedUtc": "2026-09-21T15:52:03.2251942Z"
+}

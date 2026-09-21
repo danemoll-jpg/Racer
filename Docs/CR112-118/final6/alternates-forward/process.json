@@ -1,0 +1,11 @@
+{
+  "Name": "alternates-forward",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\Racer-0.20.0-review1-Windows\\Racer.exe",
+  "AssemblySHA256": "CECB77A776B94F5103075893B3A597A5F49A1BDC5746C1B642BD023C563820E7",
+  "Flags": "-racerSkipTitle -batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr112-39d6c114a53e4ab4ad7c81a040853dcd\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR112-118\\final6\\alternates-forward\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr112-final6-alternates-forward.log\" -cr112Check alternates -course MountainLoop",
+  "Save": "C:\\Users\\danmo\\Racer\\Temp\\cr112-39d6c114a53e4ab4ad7c81a040853dcd",
+  "PID": 107256,
+  "Timeout": false,
+  "Exit": 0,
+  "CompletedUtc": "2026-09-21T17:10:40.2535230Z"
+}

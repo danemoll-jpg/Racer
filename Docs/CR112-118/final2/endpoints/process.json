@@ -1,0 +1,11 @@
+{
+  "Name": "endpoints",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\Racer-0.20.0-review1-Windows\\Racer.exe",
+  "AssemblySHA256": "3433DF5E0EE6DC50AB4B3D1D0DCCDD18E5C2AF13A39F2B830697286D1FD941AF",
+  "Flags": "-racerSkipTitle -batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr112-34228daad1ed4b3f954bf40435120385\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR112-118\\final2\\endpoints\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr112-final2-endpoints.log\" -cr112Check endpoints -course StreetLoopGreybox",
+  "Save": "C:\\Users\\danmo\\Racer\\Temp\\cr112-34228daad1ed4b3f954bf40435120385",
+  "PID": 114736,
+  "Timeout": false,
+  "Exit": 0,
+  "CompletedUtc": "2026-09-21T16:37:52.7883202Z"
+}

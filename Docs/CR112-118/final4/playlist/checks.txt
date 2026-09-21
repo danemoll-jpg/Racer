@@ -1,0 +1,6 @@
+PASS forward-moto Eastbound Gully Flight: attainable takeoff=44.51 m/s, air=6.18s, distance=211.84m, wheel-supported landing (1283.47, 102.01, -268.85)
+PASS forward-moto Homeward Summit Flight: attainable takeoff=39.78 m/s, air=7.60s, distance=217.72m, wheel-supported landing (762.37, 87.22, 141.71)
+FAIL forward-moto: stopped at first unintended automatic recovery; inspect local connection
+FAIL forward-moto: complete ordinary-input main-line lap; misses=0, recoveries=1
+PASS forward-moto: both mandatory big jumps encountered on main line
+FAIL forward-moto: three AI navigate and physically finish the new direction

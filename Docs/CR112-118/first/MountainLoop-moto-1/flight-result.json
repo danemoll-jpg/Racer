@@ -1,0 +1,13 @@
+{
+    "flight": "Homeward Summit Flight",
+    "profile": "moto",
+    "offset": 0.0,
+    "speed": 42.83627700805664,
+    "air": 7.519993305206299,
+    "distance": 227.7184600830078,
+    "clearance": 19.75543212890625,
+    "launched": true,
+    "landed": true,
+    "obstruction": false,
+    "stable": 66
+}

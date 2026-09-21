@@ -1,0 +1,3 @@
+PASS Ordinary startup schedules supplied voice once
+PASS Untouched startup reaches looping title theme after the full voice
+FAIL Portable runtime reaches menu after title

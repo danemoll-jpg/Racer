@@ -1,0 +1,5 @@
+p=(692.20, 79.80, -96.60) road=(692.47, 79.29, -96.16) heading=(0.89, 0.10, -0.44) s=2.749777
+support Ground_CR110 main supported trail y=79.329
+support Ground_720_320 y=79.24993
+p=(1011.00, 139.00, -40.00) road=(1024.33, 139.97, -56.75) heading=(0.77, 0.17, 0.62) s=1325.668
+support Ground_Mountain_2_2 y=122.3187

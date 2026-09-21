@@ -1,0 +1,8 @@
+{
+  "Mode": "untouched",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\PackageWork\\20260921-142233-594-4fbfdb\\extracted\\Racer-0.20.0-review1-Windows\\Racer.exe",
+  "AssemblySHA256": "743D6E995789B96EA7E9FEF1E9BDD855F08A559755EE9E4B13C76BF8BDF6C396",
+  "Arguments": "-batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr118-bc16080f7e60424b927e0e70282b1934\" -racerAudioCheck -cr112Check title -advance no -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR112-118\\final\\title-untouched\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr118-untouched.log\"",
+  "Timeout": false,
+  "Exit": 0
+}

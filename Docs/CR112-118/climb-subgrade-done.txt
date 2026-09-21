@@ -1,0 +1,1 @@
+Lowered underlying coarse terrain below the existing smooth supported climb ribbon; route, road mesh and vehicle forces retained.

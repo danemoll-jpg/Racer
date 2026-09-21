@@ -1,0 +1,11 @@
+{
+  "Name": "naming",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\Racer-0.20.0-review1-Windows\\Racer.exe",
+  "AssemblySHA256": "8EC2D552FCC14AF8187ADC1A24BF1979097CA7F00403BAE28CB3B7FE9B3D43F2",
+  "Flags": "-racerSkipTitle -batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr112-24889c82077944caa02ed6a26a91b61a\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR112-118\\final\\naming\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr112-final-naming.log\" -cr112Check naming -course StreetLoopGreybox",
+  "Save": "C:\\Users\\danmo\\Racer\\Temp\\cr112-24889c82077944caa02ed6a26a91b61a",
+  "PID": 104644,
+  "Timeout": false,
+  "Exit": 0,
+  "CompletedUtc": "2026-09-21T16:06:33.7157629Z"
+}

@@ -1,0 +1,36 @@
+[
+  {
+    "mode": "untouched",
+    "rate": 48000,
+    "packaged_samples": 84010,
+    "reference_samples": 84010,
+    "packaged_max_abs_difference": 0.0,
+    "output_seconds": 3.6906666666666665,
+    "voice_start_seconds": 1.1733333333333333,
+    "complete_voice_end_seconds": 2.9235416666666665,
+    "fitted_gain": 0.4248675311980612,
+    "full_correlation": 0.9999997695285637,
+    "final_350ms_correlation": 0.999975053214911,
+    "final_350ms_reference_peak": 0.039764404296875,
+    "final_350ms_output_peak": 0.016876220703125,
+    "limitation": "Listener DSP capture only; audio-input audition unavailable; no human or OS-endpoint listening claim.",
+    "complete_tail_signal_pass": true
+  },
+  {
+    "mode": "advance",
+    "rate": 48000,
+    "packaged_samples": 84010,
+    "reference_samples": 84010,
+    "packaged_max_abs_difference": 0.0,
+    "output_seconds": 3.456,
+    "voice_start_seconds": 1.152,
+    "complete_voice_end_seconds": 2.9022083333333333,
+    "fitted_gain": 0.4248675311980612,
+    "full_correlation": 0.9999997695285637,
+    "final_350ms_correlation": 0.999975053214911,
+    "final_350ms_reference_peak": 0.039764404296875,
+    "final_350ms_output_peak": 0.016876220703125,
+    "limitation": "Listener DSP capture only; audio-input audition unavailable; no human or OS-endpoint listening claim.",
+    "complete_tail_signal_pass": true
+  }
+]

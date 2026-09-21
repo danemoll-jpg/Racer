@@ -1,0 +1,11 @@
+{
+  "Name": "summit-traverse-reverse",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\Racer-0.20.0-review1-Windows\\Racer.exe",
+  "AssemblySHA256": "692FCC01AD0012ACE1F2FBF1BD369B93B03CCF4DC98BAF0DDA50CEA3F15BCCD1",
+  "Flags": "-racerSkipTitle -batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr112-341cf2b90bdb420694784d54b4ef30c6\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR112-118\\final8\\summit-traverse-reverse\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr112-final8-summit-traverse-reverse.log\" -cr112Check alternates -course MountainLoopReverse -branch Summit -skipRecovery yes",
+  "Save": "C:\\Users\\danmo\\Racer\\Temp\\cr112-341cf2b90bdb420694784d54b4ef30c6",
+  "PID": 112336,
+  "Timeout": false,
+  "Exit": 0,
+  "CompletedUtc": "2026-09-21T17:30:57.2808729Z"
+}

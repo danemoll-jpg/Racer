@@ -1,0 +1,1 @@
+East last-sample 33.7m terrain-fallback drop removed; both four-lane continuations extend on supported level pavement. No end walls.

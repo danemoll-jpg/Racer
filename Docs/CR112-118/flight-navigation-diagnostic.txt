@@ -1,0 +1,12 @@
+Eastbound Gully Flight start=227.3742 end=734.7695 actual start=227.3742 actual end=734.7695
+Homeward Summit Flight start=1850.953 end=2360.101 actual start=1850.953 actual end=2360.101
+x=850 s=227.3742 committed=True
+x=875 s=252.3714 committed=True
+x=900 s=277.3714 committed=True
+x=925 s=302.3714 committed=True
+x=950 s=327.3714 committed=True
+x=975 s=352.3714 committed=True
+x=1000 s=377.3714 committed=True
+x=1025 s=402.2062 committed=True
+x=1050 s=425.0154 committed=True
+x=1075 s=444.6682 committed=True

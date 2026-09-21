@@ -1,0 +1,1 @@
+Removed the two obsolete non-colliding tunnel backdrop panels at local station 429 from all six scenes; legitimate tunnel sides/roof retained.

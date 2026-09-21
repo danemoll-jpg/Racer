@@ -1,0 +1,1 @@
+PASS Westbound Gully Flight moto offset=0: takeoff=43.85 m/s air=6.12s distance=205.88m clear=999.00m obstruction=False stable=66

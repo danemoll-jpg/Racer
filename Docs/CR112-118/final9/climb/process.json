@@ -1,0 +1,11 @@
+{
+  "Name": "climb",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\Racer-0.20.0-review1-Windows\\Racer.exe",
+  "AssemblySHA256": "7D32B7D82FEB28040E50A63F1F0CD5E66FBAB72426D1989C0C7E0F0B46BB1DEB",
+  "Flags": "-racerSkipTitle -batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr112-2c39bc600eeb4d5ab5109172111682bc\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR112-118\\final9\\climb\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr112-final9-climb.log\" -cr112Check climb -course MountainLoop",
+  "Save": "C:\\Users\\danmo\\Racer\\Temp\\cr112-2c39bc600eeb4d5ab5109172111682bc",
+  "PID": 80860,
+  "Timeout": false,
+  "Exit": 0,
+  "CompletedUtc": "2026-09-21T17:40:28.6019766Z"
+}

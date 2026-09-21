@@ -1,0 +1,1 @@
+FAIL Summit Traverse: normal-input entrance/traverse/rejoin; best=330.1/421.4m, misses=1, recoveries=0

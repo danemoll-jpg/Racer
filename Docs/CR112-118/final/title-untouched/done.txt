@@ -1,0 +1,1 @@
+Actual listener-DSP output captured through the phrase and transition. Audio-input tool cannot audition sound; no subjective or OS-endpoint listening claim. Isolated test muted again without saving volume changes.

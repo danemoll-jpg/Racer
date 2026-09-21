@@ -1,0 +1,1 @@
+Removed legacy overlapping branch-interval wrap before first playable tests; ridge now enters at summit rejoin.

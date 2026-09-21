@@ -1,0 +1,19 @@
+PASS Natural visit 1: smokers, household count=2
+PASS Visit 1: independent two campers remain present
+PASS smokers current ground support
+PASS Natural visit 2: coffee, household count=2
+PASS Visit 2: independent two campers remain present
+PASS coffee current ground support
+PASS Natural visit 3: empty, household count=0
+PASS Visit 3: independent two campers remain present
+PASS Natural visit 4: football, household count=3
+PASS Visit 4: independent two campers remain present
+PASS football current ground support
+PASS Natural visit 5: coffee, household count=2
+PASS Visit 5: independent two campers remain present
+PASS coffee current ground support
+PASS Natural visit 6: football, household count=3
+PASS Visit 6: independent two campers remain present
+PASS football current ground support
+PASS Unforced saved visit sequence reaches all three household groups and empty
+FAIL Natural turkey schedule includes present and absent visits

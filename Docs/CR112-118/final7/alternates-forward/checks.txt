@@ -1,0 +1,2 @@
+PASS Climbing Ridge Cut: normal-input entrance/traverse/rejoin; best=294.1/298.6m, misses=0, recoveries=0
+PASS Summit Traverse: normal-input entrance/traverse/rejoin; best=367.3/371.8m, misses=0, recoveries=0

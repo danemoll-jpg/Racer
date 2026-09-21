@@ -1,0 +1,8 @@
+{
+  "original_sha256": "a01fffbd63fec95d762a46f775746798c51317358d129ac139673d34041446c6",
+  "reference_seconds": 1.7502083333333334,
+  "wav_seconds": 1.7502083333333334,
+  "decoded_samples_identical": true,
+  "tail_half_second_peak": 2381,
+  "listening_limit": "File sample comparison only; this is not a subjective listening verdict."
+}

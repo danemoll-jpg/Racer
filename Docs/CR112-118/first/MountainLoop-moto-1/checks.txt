@@ -1,0 +1,1 @@
+PASS Homeward Summit Flight moto offset=0: takeoff=42.84 m/s air=7.52s distance=227.72m clear=19.76m obstruction=False stable=66

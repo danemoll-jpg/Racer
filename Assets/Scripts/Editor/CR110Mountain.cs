@@ -80,8 +80,10 @@ namespace Racer.Editor
             var v=new List<Vector3>();var triangles=new List<int>();
             for(int i=0;i<points.Length;i++){var forward=points[Math.Min(i+1,points.Length-1)]-points[Math.Max(0,i-1)];var side=Vector3.Cross(Vector3.up,forward).normalized*width;v.Add(points[i]-side+Vector3.up*.04f);v.Add(points[i]+side+Vector3.up*.04f);if(i+1<points.Length){int n=i*2;triangles.AddRange(new[]{n,n+2,n+1,n+1,n+2,n+3});}}
             var mesh=new Mesh{indexFormat=UnityEngine.Rendering.IndexFormat.UInt32};mesh.SetVertices(v);mesh.SetTriangles(triangles,0);mesh.RecalculateNormals();mesh.RecalculateBounds();var go=new GameObject("Ground_"+name,typeof(MeshFilter),typeof(MeshRenderer),typeof(MeshCollider));go.transform.SetParent(worldRoot);go.GetComponent<MeshFilter>().sharedMesh=MeshAsset(mesh,owner.gameObject.scene.name+"-"+name);go.GetComponent<MeshCollider>().sharedMesh=go.GetComponent<MeshFilter>().sharedMesh;go.GetComponent<Renderer>().sharedMaterial=Mat("Summit packed earth",new(.43f,.31f,.17f));
-            Terrain(name,p=>{float d=Near(p,points,out var at);if(d<width+8)p.y=Mathf.Lerp(p.y,at.y-.04f,1-Smooth(width,width+8,d));return p;});
-            ClearTrees(p=>Near(p,points,out _)<width+4);
+            float minX=points.Min(p=>p.x)-width-8,maxX=points.Max(p=>p.x)+width+8,minZ=points.Min(p=>p.z)-width-8,maxZ=points.Max(p=>p.z)+width+8;
+            bool Nearby(Vector3 p)=>p.x>=minX&&p.x<=maxX&&p.z>=minZ&&p.z<=maxZ;
+            Terrain(name,p=>{if(!Nearby(p))return p;float d=Near(p,points,out var at);if(d<width+8)p.y=Mathf.Lerp(p.y,at.y-.04f,1-Smooth(width,width+8,d));return p;});
+            ClearTrees(p=>Nearby(p)&&Near(p,points,out _)<width+4);
         }
         public static void MountainGeometry()
         {

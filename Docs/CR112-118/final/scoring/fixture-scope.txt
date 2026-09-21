@@ -1,0 +1,1 @@
+Synthetic data/UI checks only, authorized by Dan's reduced test scope. No races driven, no AI event, and no physical course acceptance claimed.

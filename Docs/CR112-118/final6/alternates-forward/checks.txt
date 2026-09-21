@@ -1,0 +1,3 @@
+PASS Summit Traverse: normal-input entrance/traverse/rejoin; best=225.7/230.7m, misses=0, recoveries=0
+FAIL Climbing Ridge Cut: normal-input entrance/traverse/rejoin; best=139.3/298.6m, misses=0, recoveries=1
+PASS Mountain Loop: local recovery near current route position; Recovered to clear earned course support

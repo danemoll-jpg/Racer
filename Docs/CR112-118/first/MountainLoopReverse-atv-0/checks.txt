@@ -1,0 +1,1 @@
+PASS Westbound Gully Flight atv offset=0: takeoff=41.92 m/s air=5.88s distance=189.54m clear=999.00m obstruction=False stable=66

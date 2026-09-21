@@ -1,0 +1,4 @@
+PASS Natural Kyle visit 1: schedule=0, active turkeys=3
+PASS Naturally selected turkey group has terrain support
+PASS Natural Kyle visit 2: schedule=4, active turkeys=0
+PASS Natural saved schedule reached both turkey-present and turkey-absent visits; inspect street-view captures for actual visibility

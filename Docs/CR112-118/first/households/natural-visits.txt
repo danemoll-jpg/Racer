@@ -1,0 +1,6 @@
+visit=1 group=smokers turkeys=0 car=(469.79, 79.22, 54.40) schedule={"dan":[],"friend":[],"lastDan":-1,"lastFriend":-1,"visits":[1,3,0],"lastVisit":2,"turkeyVisits":[3,4,0,1,2],"lastTurkeyVisit":5}
+visit=2 group=coffee turkeys=0 car=(469.79, 79.22, 54.40) schedule={"dan":[],"friend":[],"lastDan":-1,"lastFriend":-1,"visits":[3,0],"lastVisit":1,"turkeyVisits":[4,0,1,2],"lastTurkeyVisit":3}
+visit=3 group=empty turkeys=0 car=(469.79, 79.22, 54.40) schedule={"dan":[],"friend":[],"lastDan":-1,"lastFriend":-1,"visits":[0],"lastVisit":3,"turkeyVisits":[0,1,2],"lastTurkeyVisit":4}
+visit=4 group=football turkeys=0 car=(469.79, 79.22, 54.40) schedule={"dan":[],"friend":[],"lastDan":-1,"lastFriend":-1,"visits":[],"lastVisit":0,"turkeyVisits":[1,2],"lastTurkeyVisit":0}
+visit=5 group=coffee turkeys=0 car=(469.79, 79.22, 54.40) schedule={"dan":[],"friend":[],"lastDan":-1,"lastFriend":-1,"visits":[0,3,2],"lastVisit":1,"turkeyVisits":[2],"lastTurkeyVisit":1}
+visit=6 group=football turkeys=0 car=(469.79, 79.22, 54.40) schedule={"dan":[],"friend":[],"lastDan":-1,"lastFriend":-1,"visits":[3,2],"lastVisit":0,"turkeyVisits":[],"lastTurkeyVisit":2}

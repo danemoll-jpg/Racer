@@ -1,0 +1,61 @@
+Grounded roadside chain-link | CR097 supported properties and camp | Center: (463.10, 88.25, -42.16), Extents: (0.27, 0.93, 1.18) | True
+Road lettering | Breakable sign - Hwy 92 | Center: (-626.63, 10.34, 492.49), Extents: (1.90, 0.36, 0.62) | True
+Grounded roadside chain-link | CR097 supported properties and camp | Center: (475.80, 89.24, -78.81), Extents: (0.51, 0.85, 1.01) | True
+Grounded roadside chain-link | CR097 supported properties and camp | Center: (465.08, 88.63, -50.92), Extents: (0.36, 0.88, 1.13) | True
+Grounded roadside chain-link | CR097 supported properties and camp | Center: (463.52, 88.39, -44.37), Extents: (0.29, 0.91, 1.18) | True
+Grounded roadside chain-link | CR097 supported properties and camp | Center: (466.30, 88.75, -55.10), Extents: (0.39, 0.88, 1.11) | True
+Road lettering | Breakable sign - Hwy 92 South Cherokee Lane | Center: (291.98, 10.17, 575.34), Extents: (0.24, 0.62, 2.68) | True
+Grounded roadside chain-link | CR097 supported properties and camp | Center: (476.69, 89.24, -80.69), Extents: (0.52, 0.85, 1.00) | True
+Breakable roadworks marker | Jamerson raised pavement works | Center: (-631.60, 8.45, -120.08), Extents: (0.33, 0.65, 0.33) | True
+Grounded roadside chain-link | CR097 supported properties and camp | Center: (461.40, 84.60, -14.24), Extents: (0.10, 1.03, 1.10) | True
+Grounded roadside chain-link | CR097 supported properties and camp | Center: (462.89, 78.90, 16.89), Extents: (0.08, 0.99, 0.99) | True
+Grounded roadside chain-link | CR097 supported properties and camp | Center: (461.35, 84.97, -16.31), Extents: (0.09, 1.03, 1.11) | True
+Road lettering | Breakable sign - Jamerson Rd | Center: (-599.05, 8.20, -563.71), Extents: (0.61, 0.36, 2.74) | True
+Grounded roadside chain-link | CR097 supported properties and camp | Center: (461.86, 82.72, -4.18), Extents: (0.13, 1.04, 1.07) | True
+Grounded roadside chain-link | CR097 supported properties and camp | Center: (464.00, 88.49, -46.59), Extents: (0.32, 0.89, 1.18) | True
+Grounded roadside chain-link | CR097 supported properties and camp | Center: (468.42, 88.93, -61.37), Extents: (0.44, 0.88, 1.07) | True
+Grounded roadside chain-link | CR097 supported properties and camp | Center: (470.72, 89.08, -67.32), Extents: (0.47, 0.87, 1.05) | True
+Decorative Road pavement | Hwy 92 east | Center: (505.84, 24.92, 561.39), Extents: (295.00, 16.87, 8.20) | True
+Grounded roadside chain-link | CR097 supported properties and camp | Center: (466.96, 88.81, -57.17), Extents: (0.41, 0.88, 1.10) | True
+Grounded roadside chain-link | CR097 supported properties and camp | Center: (461.33, 86.01, -22.59), Extents: (0.09, 1.02, 1.13) | True
+Breakable roadworks marker | Jamerson raised pavement works | Center: (-632.16, 8.45, -86.08), Extents: (0.33, 0.65, 0.33) | True
+Grounded roadside chain-link | CR097 supported properties and camp | Center: (465.67, 88.69, -53.02), Extents: (0.38, 0.88, 1.12) | True
+Road lettering | Breakable sign - Hwy 92 South Cherokee Lane | Center: (292.13, 10.17, 575.33), Extents: (0.24, 0.62, 2.68) | False
+Grounded roadside chain-link | CR097 supported properties and camp | Center: (462.74, 79.79, 11.38), Extents: (0.11, 1.01, 1.02) | True
+Grounded roadside chain-link | CR097 supported properties and camp | Center: (461.32, 85.32, -18.39), Extents: (0.08, 1.03, 1.11) | True
+Grounded roadside chain-link | CR097 supported properties and camp | Center: (461.45, 86.65, -26.86), Extents: (0.12, 1.00, 1.14) | True
+Grounded roadside chain-link | CR097 supported properties and camp | Center: (477.59, 89.24, -82.55), Extents: (0.52, 0.85, 1.00) | True
+Grounded roadside chain-link | CR097 supported properties and camp | Center: (461.47, 84.23, -12.19), Extents: (0.11, 1.04, 1.09) | True
+Grounded roadside chain-link | CR097 supported properties and camp | Center: (472.35, 89.15, -71.21), Extents: (0.49, 0.87, 1.03) | True
+Grounded roadside chain-link | CR097 supported properties and camp | Center: (464.52, 88.57, -48.78), Extents: (0.34, 0.88, 1.15) | True
+Grounded roadside chain-link | CR097 supported properties and camp | Center: (482.18, 89.08, -91.70), Extents: (0.54, 0.88, 0.97) | True
+Decorative Road pavement | Jamerson Rd west | Center: (-811.09, 6.52, -550.02), Extents: (225.00, 0.43, 4.50) | True
+Grounded roadside chain-link | CR097 supported properties and camp | Center: (467.68, 88.87, -59.28), Extents: (0.45, 0.88, 1.16) | True
+Road lettering | Breakable sign - Jamerson Rd | Center: (-599.20, 8.20, -563.67), Extents: (0.61, 0.36, 2.74) | False
+Decorative Road pavement | Hwy 92 west | Center: (-795.95, 8.09, 538.93), Extents: (295.00, 0.00, 8.20) | True
+Grounded roadside chain-link | CR097 supported properties and camp | Center: (478.49, 89.22, -84.40), Extents: (0.53, 0.86, 0.99) | True
+Grounded roadside chain-link | CR097 supported properties and camp | Center: (461.56, 86.94, -29.01), Extents: (0.13, 0.99, 1.15) | True
+Grounded roadside chain-link | CR097 supported properties and camp | Center: (469.94, 89.03, -65.35), Extents: (0.46, 0.87, 1.06) | True
+Breakable roadworks marker | Jamerson raised pavement works | Center: (-631.43, 8.45, -130.08), Extents: (0.33, 0.65, 0.33) | True
+Grounded roadside chain-link | CR097 supported properties and camp | Center: (474.05, 89.21, -75.04), Extents: (0.50, 0.86, 1.02) | True
+Grounded roadside chain-link | CR097 supported properties and camp | Center: (462.10, 81.95, -0.21), Extents: (0.13, 1.04, 1.05) | True
+Breakable roadworks marker | Jamerson raised pavement works | Center: (-632.36, 8.45, -74.09), Extents: (0.33, 0.65, 0.33) | True
+Grounded roadside chain-link | CR097 supported properties and camp | Center: (480.33, 89.17, -88.07), Extents: (0.53, 0.87, 0.98) | True
+Grounded roadside chain-link | CR097 supported properties and camp | Center: (462.81, 79.48, 13.27), Extents: (0.10, 1.00, 1.01) | True
+Grounded roadside chain-link | CR097 supported properties and camp | Center: (461.75, 83.10, -6.18), Extents: (0.13, 1.04, 1.08) | True
+Grounded roadside chain-link | CR097 supported properties and camp | Center: (469.17, 88.98, -63.37), Extents: (0.45, 0.88, 1.07) | True
+Grounded roadside chain-link | CR097 supported properties and camp | Center: (461.98, 82.34, -2.19), Extents: (0.13, 1.05, 1.06) | True
+Grounded roadside chain-link | CR097 supported properties and camp | Center: (461.64, 83.48, -8.20), Extents: (0.12, 1.04, 1.08) | True
+Breakable roadworks marker | Jamerson raised pavement works | Center: (-631.76, 8.45, -110.08), Extents: (0.33, 0.65, 0.33) | True
+Grounded roadside chain-link | CR097 supported properties and camp | Center: (462.90, 78.64, 18.73), Extents: (0.07, 0.97, 0.99) | True
+Breakable roadworks marker | Jamerson raised pavement works | Center: (-631.96, 8.45, -98.08), Extents: (0.33, 0.65, 0.33) | True
+Grounded roadside chain-link | CR097 supported properties and camp | Center: (481.25, 89.13, -89.89), Extents: (0.53, 0.87, 0.98) | True
+Grounded roadside chain-link | CR097 supported properties and camp | Center: (471.53, 89.12, -69.27), Extents: (0.48, 0.87, 1.04) | True
+Grounded roadside chain-link | CR097 supported properties and camp | Center: (461.55, 83.86, -10.19), Extents: (0.11, 1.04, 1.05) | True
+Grounded roadside chain-link | CR097 supported properties and camp | Center: (461.31, 85.67, -20.48), Extents: (0.07, 1.02, 1.12) | True
+Grounded roadside chain-link | CR097 supported properties and camp | Center: (473.19, 89.18, -73.13), Extents: (0.49, 0.86, 1.03) | True
+Grounded roadside chain-link | CR097 supported properties and camp | Center: (461.37, 86.34, -24.72), Extents: (0.10, 1.01, 1.14) | True
+Grounded roadside chain-link | CR097 supported properties and camp | Center: (474.92, 89.23, -76.93), Extents: (0.51, 0.86, 1.01) | True
+Grounded roadside chain-link | CR097 supported properties and camp | Center: (462.86, 79.18, 15.09), Extents: (0.09, 0.99, 0.95) | True
+Grounded roadside chain-link | CR097 supported properties and camp | Center: (479.41, 89.20, -86.23), Extents: (0.53, 0.86, 0.99) | True
+Road lettering | Breakable sign - Hwy 92 | Center: (-626.58, 10.33, 492.63), Extents: (1.90, 0.36, 0.62) | False

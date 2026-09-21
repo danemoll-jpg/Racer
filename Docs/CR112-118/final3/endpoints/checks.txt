@@ -1,0 +1,2 @@
+PASS west outer endpoint normal drive: minUp=1.000, max unsupported=0.000s; traffic near changed endpoint=2
+PASS east outer endpoint normal drive: minUp=1.000, max unsupported=0.000s; traffic near changed endpoint=1

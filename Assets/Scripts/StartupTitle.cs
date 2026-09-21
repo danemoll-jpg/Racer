@@ -13,7 +13,9 @@ namespace Racer
     {
         static bool completed;
         static StartupTitle instance;
-        public static bool Active => instance;
+        public static bool Active => instance && !instance.Advancing;
+        public static bool SpeechPending => instance && !instance.speechComplete;
+        bool speechComplete;
         public bool Armed { get; private set; }
         public bool Advancing { get; private set; }
         public int VoiceStarts { get; private set; }
@@ -31,7 +33,7 @@ namespace Racer
         {
             var args=System.Environment.GetCommandLineArgs();
             if(completed || (args.Contains("-racerTestSave") && args.Contains("-racerSkipTitle")))return false;
-            if(instance){instance.owner=flow;return true;}
+            if(instance){instance.owner=flow;return !instance.Advancing;}
             instance=new GameObject("Woodstock Rush startup title").AddComponent<StartupTitle>();
             DontDestroyOnLoad(instance.gameObject);instance.owner=flow;instance.Open();return true;
         }
@@ -65,11 +67,9 @@ namespace Racer
             if(ValidationLoadDelay>0 && System.Environment.GetCommandLineArgs().Contains("-racerTestSave"))yield return new WaitForSecondsRealtime(ValidationLoadDelay);
             var voice=Resources.LoadAsync<AudioClip>("Title/Voice");var theme=Resources.LoadAsync<AudioClip>("Title/ThemeLoop");
             yield return voice;yield return theme;
-            if(Advancing)yield break;
             Voice.clip=voice.asset as AudioClip;Theme.clip=theme.asset as AudioClip;
             if(Voice.clip)Voice.clip.LoadAudioData();if(Theme.clip)Theme.clip.LoadAudioData();
             while((Voice.clip&&Voice.clip.loadState==AudioDataLoadState.Loading)||(Theme.clip&&Theme.clip.loadState==AudioDataLoadState.Loading))yield return null;
-            if(Advancing)yield break;
             // Give the supplied speech its complete audible tail before music enters.
             // The quiet final consonant was masked by the concurrent theme. Use the
             // decoded sample duration on the DSP clock, not a frame timeout or isPlaying.
@@ -77,8 +77,9 @@ namespace Racer
                 double start=AudioSettings.dspTime+.05;
                 double end=start+(double)Voice.clip.samples/Voice.clip.frequency+.2;
                 Voice.PlayScheduled(start);VoiceStarts++;
-                while(!Advancing&&AudioSettings.dspTime<end)yield return null;
+                while(AudioSettings.dspTime<end)yield return null;
             }
+            speechComplete=true;
             if(Advancing)yield break;
             if(Theme.clip)Theme.Play();
             while(!Advancing){Theme.volume=Mathf.MoveTowards(Theme.volume,.27f,Time.unscaledDeltaTime*.2f);yield return null;}
@@ -90,7 +91,7 @@ namespace Racer
         {
             if(Advancing)return;
             if(!Armed){if(Time.frameCount>openedFrame+2&&!ButtonHeld())Armed=true;return;}
-            if(ButtonPressed()){Advancing=true;StopAllCoroutines();Voice.Stop();Theme.Stop();StartCoroutine(EnterMenu());}
+            if(ButtonPressed()){Advancing=true;canvas.SetActive(false);Theme.Stop();StartCoroutine(EnterMenu());}
         }
         IEnumerator EnterMenu()
         {
@@ -100,7 +101,11 @@ namespace Racer
             yield return null;yield return null;
             completed=true;
             if(inputModule)inputModule.enabled=moduleWasEnabled;
-            instance=null;if(owner)owner.EnterMenuAfterTitle();Destroy(gameObject);
+            if(owner)owner.EnterMenuAfterTitle();
+            // The process-lifetime source survives early input and scene changes. Radio
+            // remains ducked until the scheduled full sample tail has completed.
+            while(!speechComplete)yield return null;
+            instance=null;Destroy(gameObject);
         }
         void OnDestroy(){StopAllCoroutines();if(Voice)Voice.Stop();if(Theme)Theme.Stop();if(instance==this)instance=null;}
     }

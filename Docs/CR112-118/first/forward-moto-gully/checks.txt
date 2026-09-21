@@ -1,0 +1,1 @@
+PASS Eastbound Gully Flight moto offset=0: takeoff=43.86 m/s air=6.12s distance=206.02m clear=999.00m obstruction=False stable=66

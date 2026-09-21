@@ -10,6 +10,9 @@ namespace Racer
         // Old independent bags stay serialized for lossless preference migration.
         public int[] visits = Array.Empty<int>();
         public int lastVisit = -1;
+        public int[] turkeyVisits = Array.Empty<int>();
+        public int lastTurkeyVisit = -1;
+        public bool NextTurkeys(Random random){lastTurkeyVisit=Take(ref turkeyVisits,6,lastTurkeyVisit,random);return lastTurkeyVisit<2;}
         public void Next(Random random, out int scene, out bool smokers)
         {
             int visit=Take(ref visits,4,lastVisit,random);lastVisit=visit;

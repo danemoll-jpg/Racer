@@ -1,0 +1,11 @@
+{
+  "Name": "playlist",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\Racer-0.20.0-review1-Windows\\Racer.exe",
+  "AssemblySHA256": "F968B120C62F96A635638FA342FE7C06CD6C3EDA5EFF938DB57844A181AB6644",
+  "Flags": "-racerSkipTitle -batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr112-b15f594af4604855921add5b21955072\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR112-118\\final11\\playlist\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr112-final11-playlist.log\" -cr112Check playlist -course MountainLoop -resumeEvent C:/Users/danmo/Racer/Docs/CR112-118/final10/playlist/provisional-resume.json",
+  "Save": "C:\\Users\\danmo\\Racer\\Temp\\cr112-b15f594af4604855921add5b21955072",
+  "PID": 111644,
+  "Timeout": false,
+  "Exit": 0,
+  "CompletedUtc": "2026-09-21T18:03:09.5497648Z"
+}

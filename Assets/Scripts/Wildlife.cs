@@ -9,6 +9,7 @@ namespace Racer
     {
         public enum Species { Bird, Squirrel, Frog, Deer, Coyote, Turkey }
         AudioClip turkeyCall;
+        bool turkeySelectionPending;
         [Serializable] public struct Habitat { public Species species; public Vector3 position, escape; }
         public Habitat[] habitats=Array.Empty<Habitat>();
         public AudioClip[] birdCalls, squirrelCalls, frogCalls;
@@ -112,7 +113,7 @@ namespace Racer
         }
         bool InView(Vector3 p)
         {if(!cameraView)return false;var v=cameraView.WorldToViewportPoint(p+Vector3.up*.5f);return v.z>0&&v.x>-.15f&&v.x<1.15f&&v.y>-.2f&&v.y<1.2f;}
-        public void SelectPopulation()
+        public void SelectPopulation(bool resetVisit=false)
         {
             Seed=AmbientLife.ForcedSeed!=0?AmbientLife.ForcedSeed:Environment.TickCount; rng=new System.Random(Seed^62061);SelectedCount=0;nextVoice=Time.time+Range(3,8);
             // Reserve visible retained animals first so later slots cannot push a restart over the cap.
@@ -126,7 +127,18 @@ namespace Racer
                 a.root.position=a.site.position;a.root.rotation=Quaternion.Euler(0,Range(0,360),0);a.root.gameObject.SetActive(false);if(a.selected)SelectedCount++;
             }
             if(voice)voice.Stop();
-            bool turkeys=rng.NextDouble()<.35;foreach(var a in animals.Where(a=>a.site.species==Species.Turkey)){if(a.root.gameObject.activeSelf&&InView(a.root.position))continue;a.selected=turkeys;a.retired=false;a.seen=false;a.flee=-100;a.nextCall=Time.time+Range(3,12);a.root.position=a.site.position;a.root.gameObject.SetActive(false);if(turkeys)SelectedCount++;}
+            turkeySelectionPending=true;
+            if(resetVisit||!animals.Any(a=>a.site.species==Species.Turkey&&a.root.gameObject.activeSelf&&InView(a.root.position)))ChooseTurkeys();
+        }
+        // Called within the reset transaction, after the camera cuts to its new spawn
+        // and before the first world frame. Do not leave a selected group permanently
+        // hidden merely because its habitat lies inside that camera's broad frustum.
+        public void CompleteTurkeyVisit(){foreach(var a in animals.Where(a=>a.site.species==Species.Turkey))a.root.gameObject.SetActive(a.selected);}
+        void ChooseTurkeys()
+        {
+            turkeySelectionPending=false;bool turkeys=rng.NextDouble()<.35;
+            if(AmbientLife.ForcedSeed==0&&race.Flow?.Save!=null){var save=race.Flow.Save;turkeys=(save.Settings.households??=new()).NextTurkeys(rng);save.SaveSettings();}
+            foreach(var a in animals.Where(a=>a.site.species==Species.Turkey)){a.selected=turkeys;a.retired=false;a.seen=false;a.flee=-100;a.nextCall=Time.time+Range(3,12);a.root.position=a.site.position;a.root.gameObject.SetActive(false);if(turkeys)SelectedCount++;}
         }
         public void ReserveBatSound(){QuietUntil=Time.time+4;if(voice)voice.Stop();}
         public bool Call(Species species,Vector3 at)
@@ -140,6 +152,9 @@ namespace Racer
             if(!race||!race.vehicle||Time.timeScale==0)return;
             voice.volume=.72f*(race.Flow.Save?.Settings.ambience??1);
             if(race.Flow.State!=RaceFlow.Stage.Racing){if(voice.isPlaying)voice.Stop();return;}
+            // A restart selects before the camera moves to spawn. Complete this visit's
+            // group selection once that previous view is gone, without a visible pop.
+            if(turkeySelectionPending&&!animals.Any(a=>a.site.species==Species.Turkey&&a.root.gameObject.activeSelf&&InView(a.root.position)))ChooseTurkeys();
             if(Time.time<nextThink)return;nextThink=Time.time+1/30f;
             var player=race.vehicle.transform.position;
             foreach(var a in animals)

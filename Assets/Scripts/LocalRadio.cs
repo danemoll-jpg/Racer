@@ -77,7 +77,7 @@ namespace Racer
         public void Initialize(RaceFlow owner)
         {
             flow=owner;
-            source=gameObject.AddComponent<AudioSource>(); source.playOnAwake=false;
+            source=gameObject.AddComponent<AudioSource>(); source.playOnAwake=false;source.volume=0;
             source.spatialBlend=0; source.ignoreListenerPause=true; source.priority=180;
             if(string.IsNullOrEmpty(flow.Save.Settings.musicSource))flow.Save.Settings.musicSource=string.IsNullOrEmpty(flow.Save.Settings.musicFolder)?"bundled":"custom";
             if(string.IsNullOrWhiteSpace(flow.Save.Settings.musicFolder)) flow.Save.Settings.musicFolder=Path.Combine(Application.persistentDataPath,"Music");
@@ -245,7 +245,7 @@ namespace Racer
         void Update()
         {
             if(!flow||flow.Save==null)return;
-            source.volume=flow.Save.Settings.music*.32f;
+            source.volume=StartupTitle.SpeechPending?0:flow.Save.Settings.music*.32f;
             if(scan!=null&&scan.IsCompleted)
             {
                 var result=scan.IsCompletedSuccessfully?scan.Result:new MusicCollection.Result{Error="Scan failed; try another folder"};scan=null;

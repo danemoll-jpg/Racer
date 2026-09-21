@@ -6,9 +6,11 @@ namespace Racer
     public sealed class CircuitBoundary : MonoBehaviour
     {
         RaceDirector race; ExplorationCollection exploration;
+        float boundaryLimit=-1;
         public bool Outside(Vector3 p)
         {
             if(!race)race=FindAnyObjectByType<RaceDirector>();
+            if(boundaryLimit<0){boundaryLimit=420;if(name.StartsWith("Hwy")&&race&&race.throughRoad&&race.throughRoad.name=="CR113 highway through route"){float end=420;foreach(var point in race.throughRoad.points){var local=transform.InverseTransformPoint(point);if(Mathf.Abs(local.x)<2)end=Mathf.Max(end,local.z);}boundaryLimit=end-20;}}
             // The adjoining mountain is outside the closed street continuation.
             // Its presence does not grant any race gate or shortcut entitlement.
             if(race&&!exploration)exploration=race.GetComponent<ExplorationCollection>();
@@ -29,7 +31,7 @@ namespace Racer
             var q=transform.InverseTransformPoint(p);
             // Forest extends beside the old closures. Keep the actual closed street corridor
             // protected, instead of projecting an infinite widening plane through the lake.
-            return q.z>420 && Mathf.Abs(q.x)<22;
+            return q.z>boundaryLimit && Mathf.Abs(q.x)<22;
         }
         public static bool Allowed(Vector3 p)
         {
@@ -41,7 +43,7 @@ namespace Racer
             if(!race)race=FindAnyObjectByType<RaceDirector>();
             if(!race||race.Flow.State!=RaceFlow.Stage.Racing||!Outside(race.vehicle.Body.position))return;
             var body=race.vehicle.Body;var local=transform.InverseTransformPoint(body.position);
-            local.z=390;var p=transform.TransformPoint(local);
+            local.z=boundaryLimit-30;var p=transform.TransformPoint(local);
             body.position=p;race.vehicle.transform.position=p;body.rotation=Quaternion.LookRotation(-transform.forward);body.linearVelocity=Vector3.zero;body.angularVelocity=Vector3.zero;
             race.Flow.Notify("Leaving playable area — returned to the road",3);
             race.ResetSampling(p,Time.timeAsDouble);

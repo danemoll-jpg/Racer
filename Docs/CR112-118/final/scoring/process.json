@@ -1,0 +1,11 @@
+{
+  "Name": "scoring",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\Racer-0.20.0-review1-Windows\\Racer.exe",
+  "AssemblySHA256": "743D6E995789B96EA7E9FEF1E9BDD855F08A559755EE9E4B13C76BF8BDF6C396",
+  "Flags": "-racerSkipTitle -batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr112-3d3a6f1663dd45db8ea54c1d4c263ba9\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR112-118\\final\\scoring\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr112-final-scoring.log\" -cr112Check scoring -course StreetLoopGreybox",
+  "Save": "C:\\Users\\danmo\\Racer\\Temp\\cr112-3d3a6f1663dd45db8ea54c1d4c263ba9",
+  "PID": 85408,
+  "Timeout": false,
+  "Exit": 0,
+  "CompletedUtc": "2026-09-21T18:21:15.8966662Z"
+}

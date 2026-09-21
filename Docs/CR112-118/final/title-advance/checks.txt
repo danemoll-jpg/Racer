@@ -1,0 +1,3 @@
+PASS Ordinary startup schedules supplied voice once
+PASS Early advance enters menu while original speech survives without restart
+PASS Portable runtime reaches menu after title

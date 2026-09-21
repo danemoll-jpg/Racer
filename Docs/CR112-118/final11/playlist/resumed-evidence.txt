@@ -1,0 +1,1 @@
+Forward motorcycle lap and result-reopen checks reused from final10/playlist. Provisional replacement fixture reconstructed from retained standings; see provisional-resume-notes.txt beside C:/Users/danmo/Racer/Docs/CR112-118/final10/playlist/provisional-resume.json

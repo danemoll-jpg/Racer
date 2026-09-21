@@ -1,0 +1,21 @@
+scene=Assets/Scenes/MountainLoopReverse.unity dirty=False playing=False
+life enabled=True parent active=True
+Dan - blue X position=(415.80, 83.82, -13.00) rotation=(0.00, 91.67, 0.00)
+Friend across street - blue circle position=(511.50, 78.67, -35.20) rotation=(0.00, 257.93, 0.00)
+Hwy 92 west position=(-650.95, 8.00, 538.93) rotation=(0.00, 270.00, 0.00)
+Hwy 92 east position=(360.84, 7.96, 561.39) rotation=(0.00, 90.00, 0.00)
+football (419.23, 83.82, -0.42) ground=83.81963
+football (422.66, 83.63, -2.71) ground=83.62584
+football (425.28, 83.47, -7.08) ground=83.46637
+coffee (464.21, 81.87, -3.37) ground=81.94134
+coffee (464.27, 81.42, -1.07) ground=81.52609
+smoking (487.79, 83.49, -43.23) ground=87.65443
+smoking (488.30, 83.54, -45.68) ground=87.75346
+turkey (518.28, 83.06, -14.32) ground=83.02873
+turkey (517.87, 82.66, -12.36) ground=82.63289
+turkey (517.45, 82.19, -10.41) ground=82.16112
+MESH Ground_Kyle descending drive parent=Kyle descending driveway bounds=Center: (488.16, 80.49, -19.79), Extents: (15.57, 1.78, 18.35)
+MESH Ground_House3 supported valley driveway parent=House 3 valley driveway bounds=Center: (441.11, 57.85, -187.59), Extents: (75.59, 25.03, 58.41)
+MESH Decorative Road pavement parent=Hwy 92 east bounds=Center: (505.84, 24.92, 561.39), Extents: (295.00, 16.87, 8.20)
+MESH Decorative Road pavement parent=Jamerson Rd west bounds=Center: (-811.09, 6.52, -550.02), Extents: (225.00, 0.43, 4.50)
+MESH Decorative Road pavement parent=Hwy 92 west bounds=Center: (-795.95, 8.09, 538.93), Extents: (295.00, 0.00, 8.20)

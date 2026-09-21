@@ -1,0 +1,1 @@
+PASS South Face Summit Flight moto offset=0: takeoff=42.82 m/s air=7.52s distance=227.70m clear=4.11m obstruction=False stable=66

@@ -1,0 +1,13 @@
+{
+    "flight": "Eastbound Gully Flight",
+    "profile": "atv",
+    "offset": 0.0,
+    "speed": 41.929046630859375,
+    "air": 5.879994869232178,
+    "distance": 189.5914306640625,
+    "clearance": 999.0,
+    "launched": true,
+    "landed": true,
+    "obstruction": false,
+    "stable": 66
+}

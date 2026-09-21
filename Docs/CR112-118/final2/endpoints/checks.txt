@@ -1,0 +1,2 @@
+FAIL west outer endpoint normal drive: minUp=0.911, max unsupported=2.260s; traffic near changed endpoint=2
+FAIL east outer endpoint normal drive: minUp=0.968, max unsupported=0.380s; traffic near changed endpoint=2

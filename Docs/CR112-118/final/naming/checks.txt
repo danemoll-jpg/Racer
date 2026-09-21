@@ -1,0 +1,12 @@
+PASS Naming opens a focused editable field
+PASS Typed/pasted spaces, selection replacement, Backspace and Delete
+PASS Focused Space does not trigger menu actions or save
+PASS Enter saves the edited name and reload preserves it
+PASS Escape cancels draft without closing the playlist menu
+PASS Points 10/6/4/2; DNF zero even if first slot
+PASS Repeated result snapshot is idempotent; unfinished has no winner
+PASS Restart replaces previous points; exact podium tie gives joint winners
+PASS Equal points resolves by most wins
+PASS Equal points and wins resolves by most seconds
+PASS Equal points, wins and seconds resolves by most thirds
+PASS Solo completion has no invented rivals or championship points

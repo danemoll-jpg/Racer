@@ -1,0 +1,13 @@
+{
+    "flight": "Westbound Gully Flight",
+    "profile": "atv",
+    "offset": 0.0,
+    "speed": 41.91717529296875,
+    "air": 5.879994869232178,
+    "distance": 189.5419464111328,
+    "clearance": 999.0,
+    "launched": true,
+    "landed": true,
+    "obstruction": false,
+    "stable": 66
+}

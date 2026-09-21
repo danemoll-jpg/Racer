@@ -1,0 +1,5 @@
+FAIL forward-moto Eastbound Gully Flight: attainable takeoff=17.72 m/s, air=4.92s, distance=68.58m, wheel-supported landing (1139.36, 65.37, -275.44)
+FAIL forward-moto: stopped at first unintended automatic recovery; inspect local connection
+FAIL forward-moto: complete ordinary-input main-line lap; misses=0, recoveries=1
+FAIL forward-moto: both mandatory big jumps encountered on main line
+FAIL forward-moto: three AI navigate and physically finish the new direction

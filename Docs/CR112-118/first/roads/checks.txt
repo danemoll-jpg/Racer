@@ -1,0 +1,5 @@
+PASS west seam normal drive: minimum up=1.000, maximum unsupported interval=0.000s
+PASS west through-traffic observed at changed join
+PASS east seam normal drive: minimum up=0.999, maximum unsupported interval=0.000s
+PASS east through-traffic observed at changed join
+PASS Normal drive over repaired frontage driveway edge join

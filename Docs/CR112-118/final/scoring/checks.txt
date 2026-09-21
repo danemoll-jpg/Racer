@@ -1,0 +1,5 @@
+PASS Synthetic three-event fixture: complete summary and correct overall winner
+PASS Synthetic totals: YOU 20 / Rival 1 26 / Rival 2 12 / Rival 3 6; DNF earns zero
+PASS Restart clears the entry and completed-winner state
+PASS Replacing the restarted entry and reopening its snapshot do not add points twice
+PASS Unfinished quit clears championship state without a completed winner

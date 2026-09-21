@@ -105,7 +105,7 @@ namespace Racer
             GetComponent<WrongWayGuidance>()?.Clear();
             DriverVariation.Seed=AmbientLife.ForcedSeed!=0?AmbientLife.ForcedSeed:System.Environment.TickCount;
             GetComponent<AmbientLife>()?.SelectScenes();
-            GetComponent<Wildlife>()?.SelectPopulation();
+            GetComponent<Wildlife>()?.SelectPopulation(true);
             if(Forest)
             {
                 var configuration=vehicle.GetComponent<VehicleConfiguration>();
@@ -153,6 +153,7 @@ namespace Racer
             BreakableProp.RestoreRace();
             SmashAudio.Prepare();
             ResetSampling(vehicle.Body.position, Time.timeAsDouble);
+            GetComponent<Wildlife>()?.CompleteTurkeyVisit();
             if (Flow)
             {
                 Flow.SelectRecords(Category);
@@ -220,7 +221,7 @@ namespace Racer
                 Drivers.Add(driver);
                 if (racing)
                 {
-                    var state = new RacerState(clone.name, car, gates.Length - 1, laps, true);
+                    var state = new RacerState(RacePlaylists.Active!=null?"Rival "+Racers.Count:clone.name, car, gates.Length - 1, laps, true);
                     Racers.Add(state);
                     driver.Racer = state;
                 }
@@ -345,7 +346,8 @@ namespace Racer
                     bool separatedRoad = lateral < 9 && branchLateral > branch.halfWidth+10
                         && Vector3.Dot(position-r.Previous,roadForward)>.01f;
                     r.Branch.RejoinSeconds = separatedRoad ? r.Branch.RejoinSeconds+(float)(now-r.PreviousTime) : 0;
-                    bool beyondExit = r.RoadPosition > road.Relative(branch.exitRoad,origin)+40 && lateral<18;
+                    bool beyondExit = r.RoadPosition > road.Relative(branch.exitRoad,origin)+40 && lateral<18
+                        && (!courseId.StartsWith("mountain-") || branchLateral>branch.halfWidth+3);
                     bool abandoned = !exited && (r.Branch.RejoinSeconds > 1.5f || beyondExit);
                     // Entry credit is already final. Completion/abandonment only ends context.
                     if(exited)

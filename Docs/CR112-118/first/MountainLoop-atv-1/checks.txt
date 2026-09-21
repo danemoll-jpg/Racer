@@ -1,0 +1,1 @@
+PASS Homeward Summit Flight atv offset=0: takeoff=40.91 m/s air=7.02s distance=204.25m clear=19.58m obstruction=False stable=66
