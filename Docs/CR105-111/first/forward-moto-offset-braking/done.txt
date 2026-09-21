@@ -1,0 +1,1 @@
+Targeted checks finished; read failures. Automated normal motor inputs; no physical controller or human validation.

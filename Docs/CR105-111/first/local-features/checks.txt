@@ -1,0 +1,32 @@
+PASS AI selector 1
+PASS AI selector 2
+PASS AI selector 3
+PASS AI selector 4
+PASS AI selector 5
+PASS AI wraps to 1
+PASS Solo enables Unlimited
+PASS Enabling AI restores remembered 5
+PASS Unlimited preference and last finite reload
+PASS Save edited three-entry playlist
+PASS Playlist order/laps definition reload
+PASS Six selector identities including mountain directions
+PASS Incompatible playlist vehicle requests explicit choice
+PASS Quit retains definition
+PASS Named confirmation before any travel
+PASS No leaves map/player unchanged
+PASS Yes arrives, closes overlays and resumes driving
+PASS Confirmation consumed / no second teleport
+PASS Unavailable at confirmation remains in map with reason
+PASS Lap category retained across finite counts
+PASS Finite total categories separate
+PASS Highway eastbound passes Cherokee junction straight
+PASS No road closure collision Hwy 92 west
+PASS Continuation point open Hwy 92 west
+PASS No road closure collision Jamerson Rd west
+PASS Continuation point open Jamerson Rd west
+PASS No road closure collision Hwy 92 east
+PASS Continuation point open Hwy 92 east
+PASS Three Kyle woodland turkey habitats
+FAIL Occasional present and absent turkey states
+PASS Turkeys are nonblocking
+PASS Brief turkey audio check automatically remuted

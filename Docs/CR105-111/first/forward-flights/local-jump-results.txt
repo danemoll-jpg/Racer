@@ -1,0 +1,4 @@
+moto-0 awards=0 diagnostic=site= invalid=True verticalImpact=19.44 up=0.98 wiped=False air=1.98 distance=78.59
+moto-3 awards=0 diagnostic=site= invalid=False verticalImpact=15.31 up=0.99 wiped=False air=2.22 distance=88.90
+atv-0 awards=0 diagnostic=site= invalid=False verticalImpact=15.31 up=0.99 wiped=False air=2.22 distance=88.90
+atv-3 awards=0 diagnostic=site= invalid=False verticalImpact=15.31 up=0.99 wiped=False air=2.22 distance=88.90

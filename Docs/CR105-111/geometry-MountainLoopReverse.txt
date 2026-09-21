@@ -1,0 +1,3 @@
+mountain-reverse-v1 length=1058.549 gates=3
+Downhill Ridge Cut entry=700.9879 exit=995.7552 length=298.646
+South Face Summit Flight entry=494.0605 exit=920.9368 length=1092.099

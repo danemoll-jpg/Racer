@@ -1,0 +1,4 @@
+PASS Turkey idle walk movement over one idle cycle
+PASS Incompatible player and roster unchanged before explicit choice
+PASS Explicit compatible choice changes only incompatible roster entries
+PASS Cancel compatibility playlist returns driving setup

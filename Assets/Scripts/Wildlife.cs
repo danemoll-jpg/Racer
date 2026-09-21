@@ -7,7 +7,8 @@ namespace Racer
     // A small fixed pool, seeded per race. No physics bodies, agents or road crossings.
     public sealed class Wildlife : MonoBehaviour
     {
-        public enum Species { Bird, Squirrel, Frog, Deer, Coyote }
+        public enum Species { Bird, Squirrel, Frog, Deer, Coyote, Turkey }
+        AudioClip turkeyCall;
         [Serializable] public struct Habitat { public Species species; public Vector3 position, escape; }
         public Habitat[] habitats=Array.Empty<Habitat>();
         public AudioClip[] birdCalls, squirrelCalls, frogCalls;
@@ -42,6 +43,19 @@ namespace Racer
                     a.tail=Part(a.root,"Tail feathers",new(0,.29f,-.35f),new(.22f,.055f,.32f),blue);a.tail.localRotation=Quaternion.Euler(-20,0,0);
                     foreach(int side in new[]{-1,1})Part(a.root,"Bird shin",new(side*.085f,.13f,.015f),new(.035f,.20f,.035f),beak);
                     foreach(int side in new[]{-1,1}){Part(a.root,"Eye",new(side*.105f,.59f,.27f),Vector3.one*.045f,black);Part(a.root,"Bird foot",new(side*.085f,.06f,.03f),new(.035f,.12f,.16f),beak);}
+                }
+                else if(site.species==Species.Turkey)
+                {
+                    var feather=Mat(new(.17f,.12f,.075f));var bronze=Mat(new(.38f,.25f,.12f));var red=Mat(new(.68f,.08f,.07f));
+                    Part(a.root,"Bronze turkey body",new(0,.63f,0),new(.65f,.70f,1.05f),feather);
+                    a.head=new GameObject("Pecking turkey neck and head").transform;a.head.SetParent(a.root,false);a.head.localPosition=new(0,.72f,.39f);
+                    Part(a.head,"Bare red neck",new(0,.18f,.05f),new(.14f,.45f,.17f),red);Part(a.head,"Blue gray head",new(0,.44f,.09f),new(.20f,.23f,.24f),blue);
+                    Part(a.head,"Pale pointed bill",new(0,.41f,.25f),new(.08f,.08f,.19f),beak);Part(a.head,"Red wattle",new(.035f,.30f,.19f),new(.07f,.24f,.07f),red);
+                    foreach(int side in new[]{-1,1})Part(a.head,"Turkey eye",new(side*.095f,.47f,.16f),Vector3.one*.035f,black);
+                    a.tail=new GameObject("Broad barred turkey tail").transform;a.tail.SetParent(a.root,false);a.tail.localPosition=new(0,.70f,-.46f);
+                    for(int i=-4;i<=4;i++){var pivot=new GameObject("Fan feather").transform;pivot.SetParent(a.tail,false);pivot.localRotation=Quaternion.Euler(-20,0,i*14);Part(pivot,"Bronze feather",new(0,.35f,0),new(.14f,.78f,.07f),bronze);Part(pivot,"Dark feather bar",new(0,.59f,-.01f),new(.145f,.085f,.08f),feather);Part(pivot,"Buff feather tip",new(0,.70f,0),new(.14f,.09f,.08f),cream);}
+                    Part(a.root,"Folded left wing",new(-.31f,.67f,-.08f),new(.16f,.39f,.76f),bronze);Part(a.root,"Folded right wing",new(.31f,.67f,-.08f),new(.16f,.39f,.76f),bronze);
+                    a.legs=new Transform[2];for(int i=0;i<2;i++){var leg=new GameObject("Turkey walking leg").transform;leg.SetParent(a.root,false);leg.localPosition=new(i==0?-.16f:.16f,.40f,.05f);Part(leg,"Scaled leg",new(0,-.18f,0),new(.055f,.39f,.055f),beak);Part(leg,"Three toe foot",new(0,-.36f,.065f),new(.16f,.035f,.23f),beak);a.legs[i]=leg;}a.left=a.legs[0];a.right=a.legs[1];
                 }
                 else if(site.species==Species.Squirrel)
                 {
@@ -91,6 +105,7 @@ namespace Racer
                 a.root.localScale=Vector3.one*(site.species==Species.Frog?1.4f:site.species>=Species.Deer?1:1.25f);animals.Add(a);a.root.gameObject.SetActive(false);
             }
             voice=new GameObject("Wildlife spatial voice").AddComponent<AudioSource>();voice.transform.SetParent(transform,false);voice.playOnAwake=false;voice.spatialBlend=1;voice.rolloffMode=AudioRolloffMode.Linear;voice.minDistance=12;voice.maxDistance=65;voice.dopplerLevel=0;voice.priority=80;
+            turkeyCall=TurkeyVoice.Create();
             SelectPopulation();
             // Initial pool is placed before the first world frame. Rendering frustum-culls it.
             foreach(var a in animals)a.root.gameObject.SetActive(a.selected);
@@ -104,19 +119,20 @@ namespace Racer
             foreach(var a in animals)if(a.selected&&a.root.gameObject.activeSelf&&InView(a.root.position))SelectedCount++;
             // Preserve a visible individual through restart; make new selections only beyond view.
             // Shuffle the candidate order so appended species are not starved by the cap.
-            foreach(var a in animals.OrderBy(_=>rng.Next()).ToArray())
+            foreach(var a in animals.Where(a=>a.site.species!=Species.Turkey).OrderBy(_=>rng.Next()).ToArray())
             {
                 if(a.root.gameObject.activeSelf&&InView(a.root.position))continue;
                 a.selected=SelectedCount<8&&rng.NextDouble()<.40;a.retired=false;a.seen=false;a.flee=-100;a.nextCall=Time.time+Range(1,12);
                 a.root.position=a.site.position;a.root.rotation=Quaternion.Euler(0,Range(0,360),0);a.root.gameObject.SetActive(false);if(a.selected)SelectedCount++;
             }
             if(voice)voice.Stop();
+            bool turkeys=rng.NextDouble()<.35;foreach(var a in animals.Where(a=>a.site.species==Species.Turkey)){if(a.root.gameObject.activeSelf&&InView(a.root.position))continue;a.selected=turkeys;a.retired=false;a.seen=false;a.flee=-100;a.nextCall=Time.time+Range(3,12);a.root.position=a.site.position;a.root.gameObject.SetActive(false);if(turkeys)SelectedCount++;}
         }
         public void ReserveBatSound(){QuietUntil=Time.time+4;if(voice)voice.Stop();}
         public bool Call(Species species,Vector3 at)
         {
             if(Time.time<QuietUntil||voice.isPlaying||Time.time<nextVoice)return false;
-            var clips=species==Species.Bird?birdCalls:species==Species.Squirrel?squirrelCalls:species==Species.Deer?deerCalls:species==Species.Coyote?coyoteCalls:frogCalls;if(clips==null||clips.Length==0)return false;
+            var clips=species==Species.Turkey?new[]{turkeyCall}:species==Species.Bird?birdCalls:species==Species.Squirrel?squirrelCalls:species==Species.Deer?deerCalls:species==Species.Coyote?coyoteCalls:frogCalls;if(clips==null||clips.Length==0)return false;
             voice.transform.position=at;voice.clip=clips[rng.Next(clips.Length)];voice.pitch=Range(.94f,1.06f);voice.volume=.72f*(race.Flow.Save?.Settings.ambience??1);voice.Play();Calls++;nextVoice=Time.time+Range(7,14);return true;
         }
         void Update()
@@ -145,6 +161,7 @@ namespace Racer
                     if(a.flee<0&&walk){var p=a.site.position+a.site.escape*(1+Mathf.Sin(t*.31f))*1.1f;if(Physics.Raycast(p+Vector3.up*5,Vector3.down,out var hit,12,1,QueryTriggerInteraction.Ignore))p.y=hit.point.y+.03f;a.root.SetPositionAndRotation(p,Quaternion.LookRotation(a.site.escape));}
                 }
                 a.head.localRotation=Quaternion.Euler(Mathf.Sin(t*1.2f)*9,Mathf.Sin(t*.7f)*22,0);
+                if(a.site.species==Species.Turkey&&a.flee<0)a.head.localRotation=Quaternion.Euler(Mathf.Max(0,Mathf.Sin(t*2.8f))*78,Mathf.Sin(t*.7f)*12,0);
                 if(a.site.species==Species.Squirrel)a.tail.localRotation=Quaternion.Euler(Mathf.Sin(t*1.7f)*8,Mathf.Sin(t*.8f)*12,0);
                 if(a.site.species==Species.Frog)a.tail.localScale=new Vector3(.26f,.16f,.13f)*(1+.12f*Mathf.Sin(t*2.2f));
                 if(a.flee<0&&distance<35&&Time.time>a.nextCall){if(Call(a.site.species,a.root.position))a.nextCall=Time.time+Range(20,45);}
@@ -161,6 +178,6 @@ namespace Racer
                 else if(a.site.species==Species.Bird){a.left.localRotation=Quaternion.Euler(0,0,Mathf.Sin(t)*4);a.right.localRotation=Quaternion.Euler(0,0,-Mathf.Sin(t)*4);}
             }
         }
-        void OnDestroy(){foreach(var m in materials)if(m)Destroy(m);}
+        void OnDestroy(){foreach(var m in materials)if(m)Destroy(m);if(turkeyCall)Destroy(turkeyCall);}
     }
 }

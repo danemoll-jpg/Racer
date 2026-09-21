@@ -18,6 +18,7 @@ namespace Racer
         bool musicPage;
         bool musicCollectionPage;
         bool raceBoard;
+        int playlistIndex,entryIndex,nameCursor; bool editingPlaylistName;
         bool confirmCollectionRestart;
         bool jumpRecords,historyActivities;int activitySite,activityCategory;
         string boardCategory;
@@ -76,7 +77,7 @@ namespace Racer
             previewCamera.backgroundColor=new Color(.06f,.1f,.13f); previewCamera.targetTexture=previewTexture;
             previewCamera.transform.position=new Vector3(10000,10003,9994); previewCamera.transform.LookAt(new Vector3(10000,10000.5f,10000));
             previewCamera.fieldOfView=36; previewCamera.farClipPlane=30;
-            for (int i = 0; i < 13; i++)
+            for (int i = 0; i < 15; i++)
             {
                 var rect = Rect("Action " + i, card);
                 rect.gameObject.AddComponent<UnityEngine.UI.LayoutElement>().preferredHeight = 44;
@@ -167,7 +168,7 @@ namespace Racer
             if (shown == RaceFlow.Stage.Ready)
             {
                 title.text = "WOODSTOCK RUSH / "+flow.Race.courseName.ToUpperInvariant();
-                details.text = "Three laps through the neighborhood.\nShared race clock starts at GO. Cross START to begin lap 1.\n\nPersonal best lap   " + Record(flow.Save.Best.lap) + "\nPersonal best race  " + Record(flow.Save.Best.race);
+                details.text = "Cross START to begin lap 1.";
                 Action(0,"Start race",flow.StartRace); Action(1,"Settings",flow.OpenSettings); Action(2,"Quit Game",flow.Quit);
                 Action(3, flow.Race.opponents ? "Mode: Race vs 3 AI" : "Mode: Solo / time trial", flow.ToggleOpponents);
                 Action(4, "Traffic: " + (flow.Race.traffic ? "On" : "Off"), flow.ToggleTraffic);
@@ -179,18 +180,20 @@ namespace Racer
                 Action(10,"Free Roam / explore + arcade activities",flow.StartFreeRoam);
                 Action(11,"Activity Records / Speed Traps and Jumps",flow.OpenActivities);
                 Action(12,"Exploration / clean-lap ghosts",flow.OpenExploration);
-                foreach(var b in buttons)b.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=29;
+                Action(13,"Laps: "+flow.LapLabel,flow.CycleLaps);
+                Action(14,"Saved race playlists",flow.OpenPlaylists);
+                foreach(var b in buttons)b.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=27;
                 details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=86;
                 card.GetComponent<UnityEngine.UI.VerticalLayoutGroup>().spacing=5;
                 details.fontSize=18;
-                details.text=$"{flow.Race.laps} laps / clock starts at GO\n{(flow.Race.opponents?flow.Race.RosterLabel:"Solo time trial")}\nBest lap {Record(flow.Save.Best.lap)}  /  race {Record(flow.Save.Best.race)}\nTimes below are elapsed; penalties are added to results.";
+                details.text=$"{flow.LapLabel} laps / clock starts at GO\n{(flow.Race.opponents?flow.Race.RosterLabel:"Solo time trial")}\nBest lap {Record(flow.Save.Best.lap)}"+(flow.Race.laps==0?" / End session from pause":$"  /  race {Record(flow.Save.Best.race)}");
             }
             else if (shown == RaceFlow.Stage.Paused)
             {
                 title.text = "PAUSED";
                 var p=flow.Race.Progress;
                 details.text=$"Elapsed {RaceHud.FormatTime(p.RaceTime(flow.Race.Clock))}  +{p.PenaltySeconds:0.0}s penalties\nAdjusted {RaceHud.FormatTime(p.AdjustedTime(flow.Race.Clock))}\nR / Y: recover locally; time and lap progress continue.\nRestart Race clears this event and restores props.";
-                Action(0,"Resume",flow.Resume); Action(1,"Restart Race",flow.StartRace); Action(2,"Settings",flow.OpenSettings); Action(3,"Quit Race / Return to Menu",flow.QuitRace); Action(4,"Quit Game",flow.Quit);
+                Action(0,"Resume",flow.Resume); Action(1,"Restart Race",flow.StartRace); Action(2,"Settings",flow.OpenSettings); Action(3,RacePlaylists.Active!=null?"Quit Playlist / menu":flow.Race.laps==0?"End session / menu":"Quit Race / Return to Menu",flow.QuitRace); Action(4,"Quit Game",flow.Quit);
                 Action(5,"Penalty breakdown / next page",()=>{ penaltyPage++; if(penaltyPage*4>=p.Penalties.Count) penaltyPage=-1; Show(); });
                 if(p.Finished && !flow.Race.ClassificationFinal) Action(6,"Skip waiting / estimate remaining AI",flow.Race.FinalizeUnfinishedAi);
                 if(penaltyPage>=0) PenaltyDetails(p);
@@ -233,6 +236,39 @@ namespace Racer
                 details.text+=$"\nLap {(flow.NewLapRecord?"NEW PB / ":"")}{(flow.LapRank>0?"TOP 10 #"+flow.LapRank:"")}  Race {(flow.NewRaceRecord?"NEW PB / ":"")}{(flow.RaceRank>0?"TOP 10 #"+flow.RaceRank:"")}";
                 if (penaltyPage >= 0) {
                     PenaltyDetails(p);
+                }
+                if(RacePlaylists.Active!=null){title.text=(RacePlaylists.HasNext?"PLAYLIST RESULTS":"PLAYLIST COMPLETE")+" "+(RacePlaylists.Position+1)+"/"+RacePlaylists.Active.entries.Count;details.text+="\n"+RacePlaylists.PositionLabel;Action(0,"Restart current entry",flow.StartRace);Action(2,"Quit Playlist / menu",flow.QuitRace);if(RacePlaylists.HasNext)Action(9,"Next Race: "+RacePlaylists.Active.entries[RacePlaylists.Position+1].Title,flow.NextPlaylistRace);}
+            }
+            else if(shown==RaceFlow.Stage.PlaylistVehicle)
+            {
+                title.text="CHOOSE COMPATIBLE VEHICLES";details.text=RacePlaylists.PositionLabel+"\n"+RacePlaylists.Current.Title+"\nThis event requires motorcycles / ATVs. Choose your vehicle and replace incompatible opponents with that same profile. Nothing has changed yet.";
+                Action(0,"Use Motorcycle + replace incompatible opponents",()=>flow.ChoosePlaylistVehicle("moto"));Action(1,"Use ATV + replace incompatible opponents",()=>flow.ChoosePlaylistVehicle("atv"));Action(2,"Quit Playlist / menu",flow.CancelPlaylist);
+            }
+            else if(shown==RaceFlow.Stage.Playlists)
+            {
+                title.text="SAVED RACE PLAYLISTS";var library=flow.Playlists.Definitions;
+                if(library.Count==0){details.text=flow.Playlists.Error??"Create a local playlist. Definitions stay saved when you quit.";Action(0,"New playlist",()=>{library.Add(new RacePlaylists.Definition());playlistIndex=library.Count-1;Show();});Action(1,"Back",flow.CloseGarage);}
+                else
+                {
+                    playlistIndex=Mathf.Clamp(playlistIndex,0,library.Count-1);var definition=library[playlistIndex];entryIndex=Mathf.Clamp(entryIndex,0,Mathf.Max(0,definition.entries.Count-1));
+                    details.text=definition.name+" · playlist "+(playlistIndex+1)+" / "+library.Count+"\n";
+                    if(editingPlaylistName)
+                    {
+                        nameCursor=Mathf.Clamp(nameCursor,0,23);string name=definition.name.PadRight(24);details.text+="Name: "+name.Substring(0,nameCursor)+"["+name[nameCursor]+"]"+name.Substring(nameCursor+1)+"\nController: select a character, change it, then Save name.";
+                        void Change(int delta){const string alphabet=" ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-";var chars=definition.name.PadRight(24).ToCharArray();int at=alphabet.IndexOf(chars[nameCursor]);chars[nameCursor]=alphabet[(Mathf.Max(0,at)+delta+alphabet.Length)%alphabet.Length];definition.name=new string(chars);Show();}
+                        Action(0,"Previous character position",()=>{nameCursor=(nameCursor+23)%24;Show();});Action(1,"Next character position",()=>{nameCursor=(nameCursor+1)%24;Show();});Action(2,"Previous letter",()=>Change(-1));Action(3,"Next letter",()=>Change(1));Action(4,"Save name",()=>{definition.name=definition.name.Trim();if(definition.name.Length==0)definition.name="My playlist";flow.Playlists.Save();editingPlaylistName=false;Show();});
+                    }
+                    else
+                    {
+                        details.text+=definition.entries.Count==0?"No races yet":$"Entry {entryIndex+1} / {definition.entries.Count}: "+definition.entries[entryIndex].Title;
+                        details.text+="\n"+(flow.Playlists.Error??"Roster and difficulty use race setup. Unlimited is standalone.");
+                        Action(0,"Start playlist",()=>flow.StartPlaylist(definition));Action(1,"Name playlist",()=>{editingPlaylistName=true;Show();});
+                        Action(2,"Previous entry",()=>{entryIndex=Mathf.Max(0,entryIndex-1);Show();});Action(3,"Next entry",()=>{entryIndex=Mathf.Min(definition.entries.Count-1,entryIndex+1);Show();});
+                        Action(4,"Add race (duplicates allowed)",()=>{definition.entries.Add(new RacePlaylists.Entry());entryIndex=definition.entries.Count-1;Show();});
+                        if(definition.entries.Count>0){var entry=definition.entries[entryIndex];Action(5,"Course / direction: "+RacePlaylists.Titles[entry.course],()=>{entry.course=(entry.course+1)%RacePlaylists.Scenes.Length;Show();});Action(6,"Laps: "+entry.laps,()=>{entry.laps=entry.laps%5+1;Show();});Action(7,"Move entry earlier",()=>{if(entryIndex>0){definition.entries.RemoveAt(entryIndex);definition.entries.Insert(--entryIndex,entry);}Show();});Action(8,"Move entry later",()=>{if(entryIndex+1<definition.entries.Count){definition.entries.RemoveAt(entryIndex);definition.entries.Insert(++entryIndex,entry);}Show();});Action(9,"Remove entry",()=>{definition.entries.RemoveAt(entryIndex);Show();});}
+                        Action(10,"Save playlist",()=>{if(flow.Playlists.Save())flow.Notify("Playlist saved",3);Show();});Action(11,"Next saved playlist",()=>{playlistIndex=(playlistIndex+1)%library.Count;entryIndex=0;Show();});Action(12,"New playlist",()=>{library.Add(new RacePlaylists.Definition());playlistIndex=library.Count-1;entryIndex=0;Show();});Action(13,"Back",flow.CloseGarage);
+                    }
+                    details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=110;foreach(var b in buttons)b.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=27;card.GetComponent<UnityEngine.UI.VerticalLayoutGroup>().spacing=5;
                 }
             }
             else if(shown==RaceFlow.Stage.Activities)
@@ -285,7 +321,7 @@ namespace Racer
                 Action(1,"Forest Loop",()=>flow.SelectCourse(true));
                 Action(2,"Street Loop Reverse",()=>flow.SelectCourse(false,true));
                 Action(3,"Forest Loop Reverse",()=>flow.SelectCourse(true,true));
-                Action(4,"Back",flow.CloseGarage);
+                Action(4,"Mountain Loop",()=>flow.SelectMountain(false));Action(5,"Mountain Loop Reverse",()=>flow.SelectMountain(true));Action(6,"Back",flow.CloseGarage);
             }
             else if(shown==RaceFlow.Stage.Boards)
             {
@@ -420,4 +456,3 @@ namespace Racer
         void OnDestroy() { if(menuActions) { menuActions.Disable(); Destroy(menuActions); } if(submitReference) Destroy(submitReference); if(previewRoot) Destroy(previewRoot); if(previewCamera) Destroy(previewCamera.gameObject); if(previewTexture) { previewTexture.Release(); Destroy(previewTexture); } }
     }
 }
-

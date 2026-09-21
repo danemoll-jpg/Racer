@@ -1,0 +1,11 @@
+{
+  "Name": "playlist-races",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\Racer-0.19.0-review1-Windows\\Racer.exe",
+  "AssemblySHA256": "F5A1C34C8F1F01C42519630A46C157B2BA05966B7391F07806A4F98F9B6BEDAA",
+  "Flags": "-racerSkipTitle -batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr105-8cfb1f1c2b0e4f0aaa124bfc35c79d46\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR105-111\\release1\\playlist-races\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr105-release1-playlist-races.log\" -cr105Check playlist -raceTrace",
+  "Save": "C:\\Users\\danmo\\Racer\\Temp\\cr105-8cfb1f1c2b0e4f0aaa124bfc35c79d46",
+  "PID": 104164,
+  "Timeout": false,
+  "Exit": 0,
+  "CompletedUtc": "2026-09-21T07:03:34.1365329Z"
+}

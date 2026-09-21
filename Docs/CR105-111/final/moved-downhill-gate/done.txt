@@ -1,0 +1,1 @@
+Targeted checks complete. Read checks.txt for failures. Normal motor-input automation; no physical controller or subjective acceptance.

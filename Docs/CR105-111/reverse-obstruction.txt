@@ -1,0 +1,6 @@
+station=685.4131 road=(1031.45, 141.58, -49.82) tangent=(-0.65, -0.15, -0.74)
+dir=(-0.65, -0.15, -0.74) hit=Ground_CR110 narrow ridge cut distance=18.4485 normal=(-0.11, 0.99, 0.03) at=(1018.80, 139.01, -63.05)
+dir=(-0.97, -0.18, -0.16) hit=Ground_CR110 main supported trail distance=2.375273 normal=(-0.12, 0.99, -0.12) at=(1028.56, 141.35, -49.64)
+dir=(-0.97, -0.18, -0.16) hit=Ground_Mountain_2_2 distance=10.66643 normal=(0.02, 0.99, -0.13) at=(1020.42, 139.84, -50.95)
+dir=(-0.97, -0.18, -0.16) hit=Ground_CR110 narrow ridge cut distance=23.95049 normal=(-0.07, 1.00, 0.02) at=(1007.59, 137.44, -53.16)
+dir=(-0.97, -0.18, -0.16) hit=Ground_Mountain_1_2 distance=31.20003 normal=(0.72, 0.55, -0.42) at=(1000.00, 136.44, -54.00)

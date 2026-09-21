@@ -1,0 +1,7 @@
+PASS Normal-input Mountain Loop Reverse moto completed 1 laps; actual=1 misses=0 recovery=3
+PASS Narrow ridge alternate exercised Mountain Loop Reverse
+PASS Finite finish/category 1
+PASS New direction AI finishes Mountain Loop Reverse
+PASS Corrected reverse entry reaches playlist results
+PASS Next from corrected reverse results loads final 5-lap entry
+PASS Quit after next preserves playlist definition

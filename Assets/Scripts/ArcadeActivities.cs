@@ -22,6 +22,7 @@ namespace Racer
         public float LastAirtime {get;private set;}
         public float LastSpeed {get;private set;}
         public float LastJumpAward {get;private set;}
+        public string LastJumpDiagnostic {get;private set;}
         public int SmashCount=>smashed.Count;
         public string Location {get{if(!Selected||!car)return "";var delta=Selected.transform.position-car.Body.position;int compass=Mathf.RoundToInt(Mathf.Repeat(Mathf.Atan2(delta.x,delta.z)*Mathf.Rad2Deg,360)/45)%8;return $"{DisplayUnits.Distance(Vector3.ProjectOnPlane(delta,Vector3.up).magnitude)} {new[]{"N","NE","E","SE","S","SW","W","NW"}[compass]}";}}
         public string Hud=>Time.time<feedbackUntil?Feedback:AttemptActive?$"{Selected.title} / {Mathf.Max(0,deadline-Time.time):0}s / {Location}\n{(Selected.kind==ActivitySite.Kind.Smash?SmashCount+" distinct props":"Land a clean jump in the marked area")}":race.FreeRoam?$"FREE ROAM / {Selected?.title} / {Location}\nEsc or Start: activities, retry, menu":"";
@@ -29,7 +30,15 @@ namespace Racer
         readonly HashSet<BreakableProp> smashed=new();readonly Dictionary<ActivitySite,bool> armed=new();
         string path;Vector3 previous,takeoff,landing;float warm,air,stable,feedbackUntil,deadline,blockedUntil,impactSpeed;bool sampled,flying,invalid,touchedDown;
         ActivitySite jumpSite;
+        float contactImpact,minimumContactUp=1;
         bool oppositeAttempt;
+        static bool Summit(ActivitySite site)=>site&&(site.id=="summit-homeward"||site.id=="summit-southface");
+        bool AlignedWithSupport()
+        {
+            Vector3 normal=Vector3.zero;int count=0;
+            foreach(var point in car.suspensionPoints)if(Physics.Raycast(car.transform.TransformPoint(point),-car.transform.up,out var hit,car.suspensionLength,car.groundMask,QueryTriggerInteraction.Ignore)&&hit.normal.y>.45f){normal+=hit.normal;count++;}
+            return count>=2&&Vector3.Dot(car.transform.up,normal.normalized)>.85f;
+        }
         public void Initialize(RaceDirector director,string root)
         {
             race=director;car=race.vehicle;configuration=car.GetComponent<VehicleConfiguration>();path=Path.Combine(root,"activities-v1.json");
@@ -57,7 +66,7 @@ namespace Racer
         public void NewSession(){Cancel();armed.Clear();sampled=false;warm=0;blockedUntil=Time.time+1;Feedback=null;feedbackUntil=0;LastDistance=LastAirtime=LastSpeed=LastJumpAward=0;}
         void Recovered(){if(AttemptActive)Message("Attempt cancelled by recovery / retry from pause menu",4);Cancel();armed.Clear();sampled=false;warm=0;blockedUntil=Time.time+2;}
         void ResetFlight(){flying=false;invalid=touchedDown=false;air=stable=0;jumpSite=null;}
-        public void SolidContact(Vector3 normal,float relativeSpeed){if(flying&&(normal.y<.45f||relativeSpeed>21))invalid=true;}
+        public void SolidContact(Vector3 normal,float relativeSpeed){if(!flying)return;contactImpact=Mathf.Max(contactImpact,relativeSpeed);minimumContactUp=Mathf.Min(minimumContactUp,normal.y);if(normal.y<.45f||(!Summit(jumpSite)&&relativeSpeed>21))invalid=true;}
         void Smash(BreakableProp prop,ArcadeVehicle source)
         {
             if(source!=car||!race.FreeRoam||!AttemptActive||Selected.kind!=ActivitySite.Kind.Smash||race.Flow.State!=RaceFlow.Stage.Racing||Time.time<blockedUntil||warm<.5f)return;
@@ -76,10 +85,10 @@ namespace Racer
             if(discontinuity){Recovered();previous=p;return;}
             if(Time.time<blockedUntil){previous=p;return;}
             if(AttemptActive&&Time.time>=deadline){if(Selected.kind==ActivitySite.Kind.Smash)FinishSmash();else{AttemptActive=false;Message("Jump attempt expired / retry from pause menu",4);}}
-            if(grounded&&!flying){warm=car.transform.up.y>.8f?warm+dt:0;}
+            if(grounded&&!flying){bool summitRunup=Sites.Any(s=>Summit(s)&&Vector3.Distance(p,s.transform.position)<s.radius&&Vector3.Dot(car.Body.linearVelocity,s.forward)>2);warm=car.transform.up.y>(summitRunup?.65f:.8f)?warm+dt:0;}
             if(!grounded&&!flying&&warm>=.5f&&Vector3.ProjectOnPlane(car.Body.linearVelocity,Vector3.up).magnitude>4)
             {
-                flying=true;invalid=touchedDown=false;takeoff=previous;air=stable=0;impactSpeed=0;
+                flying=true;invalid=touchedDown=false;takeoff=previous;air=stable=0;impactSpeed=contactImpact=0;minimumContactUp=1;
                 jumpSite=Sites.Where(s=>s.kind==ActivitySite.Kind.Jump&&Vector3.Distance(takeoff,s.transform.position)<s.radius&&Vector3.Dot(car.Body.linearVelocity,s.forward.normalized)>2).OrderBy(s=>Vector3.SqrMagnitude(takeoff-s.transform.position)).FirstOrDefault();
             }
             if(flying)
@@ -91,10 +100,15 @@ namespace Racer
                     // Freeze measurement at first touchdown. Subsequent settling or
                     // suspension bounces must not extend the jump's distance/airtime.
                     if(!touchedDown){landing=p;touchedDown=true;}stable+=dt;
-                    invalid|=configuration.WipedOut||car.transform.up.y<.65f||car.WaterImmersion>.05f||impactSpeed>18;
-                    if(stable>=.3f)
+                    // The two authored giant flights use sustained supported settling: their
+                    // accepted landing impacts exceed ordinary-jump thresholds. Wall contacts,
+                    // wipeouts and water still reject them; all other jumps keep their limits.
+                    invalid|=configuration.WipedOut||car.transform.up.y<.65f||car.WaterImmersion>.05f||(!Summit(jumpSite)&&impactSpeed>18);
+                    if(stable>=(Summit(jumpSite)?.75f:.3f))
                     {
                         float distance=Vector3.ProjectOnPlane(landing-takeoff,Vector3.up).magnitude;
+                        if(Summit(jumpSite))invalid|=!AlignedWithSupport();
+                        LastJumpDiagnostic=$"site={jumpSite?.id} invalid={invalid} verticalImpact={impactSpeed:F2} contactImpact={contactImpact:F2} contactUp={minimumContactUp:F2} up={car.transform.up.y:F2} wiped={configuration.WipedOut} air={air:F2} distance={distance:F2}";
                         if(jumpSite)invalid|=Vector3.Dot(landing-takeoff,jumpSite.forward.normalized)<3;
                         if(!invalid&&air>=.25f&&air<12&&distance>=3&&distance<250)
                         {

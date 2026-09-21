@@ -1,0 +1,11 @@
+{
+  "Name": "summit-award",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\CR105-build-corrected\\Racer.exe",
+  "AssemblySHA256": "1D76C8C82E1E53A33526584455AE3C656D73B0E9A925F1DF7CE64CBAD588D94B",
+  "Flags": "-racerSkipTitle -batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr105-9de0911079eb402ab4fc6adfe4c486fd\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR105-111\\corrected\\summit-award\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr105-corrected-summit-award.log\" -cr110Check flight -course MountainLoop -vehicle moto -center yes -score yes",
+  "Save": "C:\\Users\\danmo\\Racer\\Temp\\cr105-9de0911079eb402ab4fc6adfe4c486fd",
+  "PID": 28396,
+  "Timeout": false,
+  "Exit": 0,
+  "CompletedUtc": "2026-09-21T06:39:43.1296628Z"
+}

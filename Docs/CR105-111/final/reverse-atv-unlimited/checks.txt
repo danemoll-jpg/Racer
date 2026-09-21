@@ -1,0 +1,4 @@
+PASS Normal-input Mountain Loop Reverse atv completed 6 laps; actual=6 misses=1 recovery=3
+PASS Narrow ridge alternate exercised Mountain Loop Reverse
+PASS Unlimited beyond five laps has no race finish or total record
+PASS Unlimited exit to menu

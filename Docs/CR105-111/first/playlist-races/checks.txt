@@ -1,0 +1,3 @@
+PASS Playlist restart repeats current entry
+FAIL Normal-input Mountain Loop moto completed 1 laps; actual=0 misses=0 recovery=9
+FAIL Narrow ridge alternate exercised Mountain Loop

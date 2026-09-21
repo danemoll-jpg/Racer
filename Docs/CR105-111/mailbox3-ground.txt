@@ -1,0 +1,8 @@
+mailbox=(502.56, 81.76, -126.82) house=(418.00, 32.75, -160.00)
+Mailbox - Original house 3 (502.56, 83.28, -126.82)
+Ground_640_240 (502.56, 81.76, -126.82)
+Timber post bounds=Center: (502.56, 82.41, -126.82), Extents: (0.09, 0.65, 0.09)
+Slate mailbox bounds=Center: (502.56, 83.01, -126.82), Extents: (0.43, 0.21, 0.37)
+Cap bounds=Center: (502.56, 83.24, -126.82), Extents: (0.45, 0.04, 0.39)
+Ivory door bounds=Center: (502.89, 83.01, -126.66), Extents: (0.10, 0.16, 0.18)
+Small flag bounds=Center: (502.67, 83.19, -127.05), Extents: (0.09, 0.09, 0.06)

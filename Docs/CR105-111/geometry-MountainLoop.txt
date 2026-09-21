@@ -1,0 +1,3 @@
+mountain-forward-v1 length=1058.549 gates=5
+Climbing Ridge Cut entry=62.79296 exit=357.5606 length=298.646
+Homeward Summit Flight entry=564.4886 exit=801.3068 length=910.3033

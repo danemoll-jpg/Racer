@@ -1,0 +1,11 @@
+{
+  "Name": "mailbox-views",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\CR105-build-corrected\\Racer.exe",
+  "AssemblySHA256": "1D76C8C82E1E53A33526584455AE3C656D73B0E9A925F1DF7CE64CBAD588D94B",
+  "Flags": "-racerSkipTitle -batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr105-b5a23708a5734a559bfef14172a95db6\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR105-111\\corrected\\mailbox-views\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr105-corrected-mailbox-views.log\" -cr105Check views",
+  "Save": "C:\\Users\\danmo\\Racer\\Temp\\cr105-b5a23708a5734a559bfef14172a95db6",
+  "PID": 94168,
+  "Timeout": false,
+  "Exit": 0,
+  "CompletedUtc": "2026-09-21T06:37:10.8173133Z"
+}

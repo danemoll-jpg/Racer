@@ -1,0 +1,1 @@
+atv-0 awards=1 diagnostic=site=summit-southface invalid=False verticalImpact=40.96 contactImpact=21.47 contactUp=0.86 up=0.90 wiped=False air=7.02 distance=205.37

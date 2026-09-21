@@ -7,13 +7,15 @@ namespace Racer
     public sealed class RaceProgress
     {
         public int CheckpointCount { get; }
-        public int TargetLaps { get; }
+        public int TargetLaps { get; private set; }
+        public bool Unlimited => TargetLaps == 0;
+        public void ConfigureLaps(int laps) { if(laps<0||laps>5)throw new ArgumentOutOfRangeException(nameof(laps)); TargetLaps=laps; Restart(); }
         public int CompletedLaps { get; private set; }
         public int NextGate { get; private set; }
         public bool Started { get; private set; }
         public bool LapActive { get; private set; }
         public bool LapValid { get; private set; }
-        public bool Finished => CompletedLaps == TargetLaps;
+        public bool Finished => !Unlimited && CompletedLaps >= TargetLaps;
         public double LastLap { get; private set; }
         public double BestLap { get; private set; }
         public string Status { get; private set; }
@@ -57,7 +59,7 @@ namespace Racer
 
         public RaceProgress(int checkpoints, int laps)
         {
-            if (checkpoints < 1 || laps < 1) throw new ArgumentOutOfRangeException();
+            if (checkpoints < 1 || laps < 0) throw new ArgumentOutOfRangeException();
             CheckpointCount = checkpoints; TargetLaps = laps; Restart();
         }
         public void BeginTiming(double now) { if (!Started) { Started = true; raceStart = now; } }

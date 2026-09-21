@@ -22,7 +22,7 @@ namespace Racer
         public int HighwayRecycles { get; private set; }
         public float MinimumRecyclePlayerDistance { get; private set; } = float.MaxValue;
 
-        public RaceRoad DriveRoad => !racing && Race.ambientRoad ? Race.ambientRoad : Race.road;
+        public RaceRoad DriveRoad => HighwayTraffic&&Race.throughRoad?Race.throughRoad:!racing && Race.ambientRoad ? Race.ambientRoad : Race.road;
         bool racing, finishParked;
         ForestLayout forestLayout;
         WoodlandRoute plannedBranch, progressBranch;
@@ -94,8 +94,9 @@ namespace Racer
                 else routeStuck+=Time.fixedDeltaTime;
             }
             else routeStuck=0;
-            if(HighwayTraffic && (Direction>0?s>4680 || s<3650:s<3650 || s>4680))
+            if(HighwayTraffic && (DriveRoad.openHighway?(Direction>0?s>DriveRoad.Length-75:s<75):(Direction>0?s>4680 || s<3650:s<3650 || s>4680)))
             { TryRecycleHighway(); s=DriveRoad.Project(Car.Body.position,out lateral); }
+            if(HighwayTraffic&&DriveRoad.openHighway&&(Direction>0?s>DriveRoad.Length-35:s<35)){Car.Simulate(0,1,0,Time.fixedDeltaTime);return;}
             Car.GetComponent<VehicleRespawn>().RecordSafePosition();
             float speed = Mathf.Abs(Car.ForwardSpeed);
             DriveRoad.At(s, out var tangent);
@@ -148,7 +149,7 @@ namespace Racer
                             (Race.difficulty==2 || Car.GetComponent<VehicleConfiguration>().Profile.Small)) { plannedBranch=branch; break; }
             }
             var activeBranch=plannedBranch && Racer?.Branch.Route==plannedBranch ? plannedBranch : null;
-            if(!activeBranch && plannedBranch && s>=plannedBranch.entryRoad-(Race.reverseCourse?look:2)) activeBranch=plannedBranch;
+            if(!activeBranch && plannedBranch && s>=plannedBranch.entryRoad-((Race.reverseCourse||Race.courseId.StartsWith("mountain-"))?look:2)) activeBranch=plannedBranch;
             float branchS=activeBranch?activeBranch.Project(Car.Body.position,out _):0;
             if(activeBranch!=progressBranch){progressBranch=activeBranch;branchBest=branchS;branchStuck=0;}
             if(activeBranch&&Direction>0){if(branchS>branchBest+2){branchBest=branchS;branchStuck=0;}else branchStuck+=Time.fixedDeltaTime;}else branchStuck=0;
@@ -197,6 +198,9 @@ namespace Racer
                 float curvature = Vector3.Angle(Vector3.ProjectOnPlane(f,Vector3.up),Vector3.ProjectOnPlane(next,Vector3.up)) * Mathf.Deg2Rad / 8;
                 float curveSpeed = Mathf.Sqrt(cornerGrip / Mathf.Max(.00015f, curvature));
                 float hillSpeed = Mathf.Abs(f.y) > .14f ? (activeBranch && Race.reverseCourse ? activeBranch.SpeedAt(branchS+d) : racing?hillTargets[skill]:24) : Car.topSpeed;
+                // New mountain descent: brake before the falling bend instead of flying
+                // outside its post-rejoin checkpoint (observed in the first course run).
+                if(racing&&Race.courseId.StartsWith("mountain-")&&f.y<-.18f)hillSpeed=Mathf.Min(hillSpeed,18);
                 // Without downforce, a convex crest cannot support v²/r greater than gravity.
                 float crest=Mathf.Max(0,Mathf.Asin(f.y)-Mathf.Asin(next.y))/8;
                 bool authoredFlight=racing&&forestLayout&&forestLayout.IsLaunch(s+Direction*d);
@@ -304,7 +308,7 @@ namespace Racer
         }
         void TryRecycleHighway()
         {
-            float destination=Direction>0?3760:4600;
+            float destination=DriveRoad.openHighway?(Direction>0?95:DriveRoad.Length-95):(Direction>0?3760:4600);
             float side=DriveRoad.TrafficLane(destination,Direction,pace>.955f);
             var p=DriveRoad.At(destination,out var f)+Vector3.Cross(Vector3.up,f).normalized*side;
             var camera=Camera.main;

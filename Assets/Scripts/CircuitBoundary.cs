@@ -29,7 +29,7 @@ namespace Racer
             var q=transform.InverseTransformPoint(p);
             // Forest extends beside the old closures. Keep the actual closed street corridor
             // protected, instead of projecting an infinite widening plane through the lake.
-            return q.z>26 && Mathf.Abs(q.x)<(race&&race.Forest?22:Mathf.Max(90,q.z*2));
+            return q.z>420 && Mathf.Abs(q.x)<22;
         }
         public static bool Allowed(Vector3 p)
         {
@@ -41,10 +41,9 @@ namespace Racer
             if(!race)race=FindAnyObjectByType<RaceDirector>();
             if(!race||race.Flow.State!=RaceFlow.Stage.Racing||!Outside(race.vehicle.Body.position))return;
             var body=race.vehicle.Body;var local=transform.InverseTransformPoint(body.position);
-            local.z=24;var p=transform.TransformPoint(local);
-            body.position=p;race.vehicle.transform.position=p;
-            float outward=Vector3.Dot(body.linearVelocity,transform.forward);
-            if(outward>0)body.linearVelocity-=transform.forward*outward;
+            local.z=390;var p=transform.TransformPoint(local);
+            body.position=p;race.vehicle.transform.position=p;body.rotation=Quaternion.LookRotation(-transform.forward);body.linearVelocity=Vector3.zero;body.angularVelocity=Vector3.zero;
+            race.Flow.Notify("Leaving playable area — returned to the road",3);
             race.ResetSampling(p,Time.timeAsDouble);
         }
     }

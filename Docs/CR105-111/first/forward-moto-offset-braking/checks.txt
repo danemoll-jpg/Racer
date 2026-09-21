@@ -1,0 +1,1 @@
+PASS moto-3 supported from rest, terrain clearance, directional landing; clearance=0.4020157 air=7.519993 stable=66 worldUp=0.7628666 surfaceUp=0.8910406

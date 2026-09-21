@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Racer
 {
-    // Explicit rules version: crossing START after GO, ordered gates, three valid laps.
+    // Explicit rules version: START after GO and ordered gates; finite laps or unlimited solo.
     public sealed class RacerSave
     {
         [Serializable] public sealed class Records
@@ -26,6 +26,7 @@ namespace Racer
             public int frameLimit = 60;
             public bool vsync = true;
             public bool opponents = true, traffic = true;
+            public int laps = 3, lastFiniteLaps = 3;
             public bool estimateAiFinishes = false;
             public string vehicleId = "original";
             public int difficulty = 1;

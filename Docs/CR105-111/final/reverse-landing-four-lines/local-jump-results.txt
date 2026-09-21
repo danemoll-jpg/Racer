@@ -1,0 +1,4 @@
+moto-0 awards=0 diagnostic=site=summit-southface invalid=True verticalImpact=44.30 up=0.92 wiped=False air=7.52 distance=229.01
+moto-3 awards=0 diagnostic=site=summit-southface invalid=True verticalImpact=44.31 up=0.92 wiped=False air=7.52 distance=228.98
+atv-0 awards=0 diagnostic=site=summit-southface invalid=True verticalImpact=40.95 up=0.88 wiped=False air=7.02 distance=205.36
+atv-3 awards=0 diagnostic=site=summit-southface invalid=True verticalImpact=40.96 up=0.88 wiped=False air=7.02 distance=205.37

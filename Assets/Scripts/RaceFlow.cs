@@ -7,7 +7,8 @@ namespace Racer
     [DisallowMultipleComponent]
     public sealed class RaceFlow : MonoBehaviour
     {
-        public enum Stage { Ready, Countdown, Racing, Paused, Results, Settings, Garage, Roster, Boards, Courses, Activities, Exploration, Title }
+        public enum Stage { Ready, Countdown, Racing, Paused, Results, Settings, Garage, Roster, Boards, Courses, Activities, Exploration, Title, Playlists, PlaylistVehicle }
+        public RacePlaylists Playlists {get;private set;}
         public Stage State { get; private set; } = Stage.Ready;
         public RacerSave Save { get; private set; }
         public RaceDirector Race { get; private set; }
@@ -55,8 +56,11 @@ namespace Racer
             var args = System.Environment.GetCommandLineArgs();
             for (int i = 0; i + 1 < args.Length; i++) if (args[i] == "-racerTestSave") root = Path.GetFullPath(args[i + 1]);
             Save = new RacerSave(root, "street-loop-gates-v1-laps" + Race.laps);
+            Playlists=new RacePlaylists(root);
             Boards = new RecordBoards(root);
             Race.opponents = Save.Settings.opponents; Race.traffic = Save.Settings.traffic;
+            Save.Settings.lastFiniteLaps=Mathf.Clamp(Save.Settings.lastFiniteLaps,1,5);
+            Race.laps=Save.Settings.laps==0&&!Race.opponents?0:Mathf.Clamp(Save.Settings.laps==0?Save.Settings.lastFiniteLaps:Save.Settings.laps,1,5);
             Race.difficulty = Mathf.Clamp(Save.Settings.difficulty,0,2);
             var configuration = Race.vehicle.GetComponent<VehicleConfiguration>();
             if (!configuration) configuration = Race.vehicle.gameObject.AddComponent<VehicleConfiguration>();
@@ -80,7 +84,8 @@ namespace Racer
             GetComponent<ExplorationCollection>()?.Initialize(Race,root);
             GetComponent<ExplorationMap>()?.Initialize(Race,root);
             LockVehicle(true);
-            if(StartupTitle.Begin(this))SetStage(Stage.Title);else EnterMenuAfterTitle();
+            if(RacePlaylists.PendingStart){RacePlaylists.PendingStart=false;EnterMenuAfterTitle();Race.laps=RacePlaylists.Current.laps;StartRace();}
+            else if(StartupTitle.Begin(this))SetStage(Stage.Title);else EnterMenuAfterTitle();
         }
         public void EnterMenuAfterTitle(){Radio=LocalRadio.Attach(this);SetStage(Stage.Ready);}
         void Update()
@@ -145,11 +150,13 @@ namespace Racer
         {
             Save.SelectRecords(category); menus?.Show();
         }
-        public void ToggleOpponents() { Race.opponents = !Race.opponents; Save.Settings.opponents = Race.opponents; Save.SaveSettings(); SelectRecords(Race.Category); Click(); }
+        public string LapLabel => Race.laps==0?"Unlimited":Race.laps.ToString();
+        public void CycleLaps(){Race.laps=(Race.laps+1)%(Race.opponents?6:6);if(Race.opponents&&Race.laps==0)Race.laps=1;Save.Settings.laps=Race.laps;if(Race.laps>0)Save.Settings.lastFiniteLaps=Race.laps;Save.SaveSettings();SelectRecords(Race.Category);Click();}
+        public void ToggleOpponents() { Race.opponents = !Race.opponents; if(Race.opponents&&Race.laps==0){Race.laps=Save.Settings.lastFiniteLaps;Save.Settings.laps=Race.laps;Notify("AI race: restored "+Race.laps+" finite laps",4);} Save.Settings.opponents = Race.opponents; Save.SaveSettings(); SelectRecords(Race.Category); Click(); }
         public void ToggleTraffic() { Race.traffic = !Race.traffic; Save.Settings.traffic = Race.traffic; Save.SaveSettings(); SelectRecords(Race.Category); Click(); }
         public void CycleDifficulty() { if(State!=Stage.Ready && State!=Stage.Results) return; Race.difficulty=(Race.difficulty+1)%3; Save.Settings.difficulty=Race.difficulty; Save.SaveSettings(); SelectRecords(Race.Category); Click(); }
         public void OpenGarage() { if(State!=Stage.Ready && State!=Stage.Results) return; SetStage(Stage.Garage); Click(); }
-        public void CloseGarage() { SetStage(Stage.Ready); Click(); }
+        public void CloseGarage() { SetStage(RacePlaylists.Active!=null&&Race.Progress.Finished?Stage.Results:Stage.Ready); Click(); }
         public void OpenRoster() { if(State!=Stage.Ready && State!=Stage.Results) return; SetStage(Stage.Roster); Click(); }
         public void OpenBoards() { SetStage(Stage.Boards); Click(); }
         public void OpenActivities(){extrasReturn=State;SetStage(Stage.Activities);Click();}
@@ -157,6 +164,13 @@ namespace Racer
         public void CloseExtras(){SetStage(extrasReturn);Click();}
         public void ToggleGhost(){Ghost.Toggle();menus.Show();Click();}
         public void OpenCourses() { SetStage(Stage.Courses); Click(); }
+        public void SelectMountain(bool reverse){if(State!=Stage.Courses)return;Save.SaveSettings();Time.timeScale=1;AudioListener.pause=false;UnityEngine.SceneManagement.SceneManager.LoadScene(reverse?"MountainLoopReverse":"MountainLoop");}
+        public void OpenPlaylists(){SetStage(Stage.Playlists);Click();}
+        public void StartPlaylist(RacePlaylists.Definition definition){if(definition.entries.Count==0){Notify("Add a race first",4);return;}RacePlaylists.Begin(definition);LoadPlaylistEntry();}
+        public void NextPlaylistRace(){if(!RacePlaylists.HasNext)return;RacePlaylists.Advance();LoadPlaylistEntry();}
+        void LoadPlaylistEntry(){var entry=RacePlaylists.Current;if(!RacePlaylists.Eligible(entry,Save.Settings.vehicleId)||(Race.opponents&&System.Array.Exists(Save.Settings.opponentRoster,id=>!RacePlaylists.Eligible(entry,id)))){SetStage(Stage.PlaylistVehicle);return;}Save.SaveSettings();RacePlaylists.PendingStart=true;Time.timeScale=1;UnityEngine.SceneManagement.SceneManager.LoadScene(RacePlaylists.Scenes[entry.course]);}
+        public void ChoosePlaylistVehicle(string id){if(State!=Stage.PlaylistVehicle||!RacePlaylists.Eligible(RacePlaylists.Current,id))return;Save.Settings.vehicleId=id;for(int i=0;i<Save.Settings.opponentRoster.Length;i++)if(!RacePlaylists.Eligible(RacePlaylists.Current,Save.Settings.opponentRoster[i]))Save.Settings.opponentRoster[i]=id;LoadPlaylistEntry();}
+        public void CancelPlaylist(){RacePlaylists.Quit();PrepareRestart();Race.AbandonEvent();LockVehicle(true);Race.laps=Save.Settings.laps==0&&!Race.opponents?0:Mathf.Clamp(Save.Settings.laps,1,5);SetStage(Stage.Ready);}
         public void SelectCourse(bool lake)=>SelectCourse(lake,false);
         public void SelectCourse(bool lake,bool reverse)
         {
@@ -239,11 +253,12 @@ namespace Racer
         public void Resume() { SetStage(pausedStage); Click(); }
         public void OpenSettings() { settingsReturn = State; SetStage(Stage.Settings); Click(); }
         public void CloseSettings() { Save.SaveSettings(); SetStage(settingsReturn); Click(); }
-        public void Back() { if(State==Stage.Activities||State==Stage.Exploration)CloseExtras();else if (State == Stage.Settings) CloseSettings(); else if (State == Stage.Paused) Resume(); else if(State==Stage.Garage || State==Stage.Roster || State==Stage.Boards || State==Stage.Courses) CloseGarage(); }
+        public void Back() { if(State==Stage.PlaylistVehicle)CancelPlaylist();else if(State==Stage.Playlists)CloseGarage();else if(State==Stage.Activities||State==Stage.Exploration)CloseExtras();else if (State == Stage.Settings) CloseSettings(); else if (State == Stage.Paused) Resume(); else if(State==Stage.Garage || State==Stage.Roster || State==Stage.Boards || State==Stage.Courses) CloseGarage(); }
         public void QuitRace()
         {
             if(State!=Stage.Paused && State!=Stage.Results && State!=Stage.Settings) return;
             PrepareRestart(); Race.AbandonEvent(); respawn.CancelRecovery(); LockVehicle(true);
+            RacePlaylists.Quit();Race.laps=Save.Settings.laps==0&&!Race.opponents?0:Mathf.Clamp(Save.Settings.laps,1,5);
             Race.FreeRoam=false;SetGateVisibility(true);
             NewLapRecord=NewRaceRecord=false; Save.SaveSettings(); SetStage(Stage.Ready);
             Race.vehicle.GetComponent<VehicleAudio>()?.Silence();
@@ -276,7 +291,7 @@ namespace Racer
             else if(LapRank>0)Notify("TOP 10 LAP / #"+LapRank+"  "+RaceHud.FormatTime(Race.Progress.LastLap),4);
         }
         public void CompleteResults() { LockVehicle(true); SetStage(Stage.Results); }
-        void Notify(string text, float duration) { Notice = text; noticeUntil = Time.unscaledTime + duration; }
+        public void Notify(string text, float duration) { Notice = text; noticeUntil = Time.unscaledTime + duration; }
         public void Click() => Sound(click);
 #if UNITY_EDITOR || DEBUG
         public void UseValidationSave(string directory)

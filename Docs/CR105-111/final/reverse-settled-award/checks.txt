@@ -1,0 +1,2 @@
+PASS atv-0 settled summit landing awarded
+PASS atv-0 supported from rest, terrain clearance, directional landing; clearance=0.2527161 air=7.019994 stable=66 worldUp=0.7720609 surfaceUp=0.9983656

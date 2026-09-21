@@ -1,0 +1,4 @@
+PASS moto-0 supported from rest, terrain clearance, directional landing; clearance=0.6743469 air=7.519993 stable=66 worldUp=0.7624668 surfaceUp=0.9797877
+FAIL moto-3 supported from rest, terrain clearance, directional landing; clearance=0.4020157 air=7.519993 stable=66 worldUp=-0.2252883 surfaceUp=0.9586352
+PASS atv-0 supported from rest, terrain clearance, directional landing; clearance=0.4525452 air=7.019994 stable=66 worldUp=0.7716672 surfaceUp=0.9934608
+PASS atv-3 supported from rest, terrain clearance, directional landing; clearance=0.5200272 air=6.999994 stable=66 worldUp=0.7720065 surfaceUp=0.9512775

@@ -40,7 +40,7 @@ namespace Racer
         {
             if(race.FreeRoam)return "";
             var p = race.Progress;
-            return (race.reverseCourse?race.courseName.ToUpperInvariant()+"\n":race.Forest?"FOREST LOOP\n":"")+$"LAP {Mathf.Min(p.CompletedLaps+1,p.TargetLaps)}/{p.TargetLaps}    {(race.opponents?$"POS {race.PlayerPosition}/{race.Racers.Count}":"SOLO 1/1")}\n"
+            return (race.reverseCourse?race.courseName.ToUpperInvariant()+"\n":race.Forest?race.courseName.ToUpperInvariant()+"\n":"")+(p.Unlimited?$"LAP {p.CompletedLaps+1} · {p.CompletedLaps} completed":$"LAP {Mathf.Min(p.CompletedLaps+1,p.TargetLaps)}/{p.TargetLaps}")+$"    {(race.opponents?$"POS {race.PlayerPosition}/{race.Racers.Count}":"SOLO")}\n"
                 +$"Lap    {FormatTime(p.Finished?p.LastLap-p.CurrentLapPenalty:p.LapTime(race.Clock))}\nRace  {FormatTime(p.RaceTime(race.Clock))}";
         }
         void LateUpdate()

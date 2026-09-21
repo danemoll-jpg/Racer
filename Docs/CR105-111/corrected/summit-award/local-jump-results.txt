@@ -1,0 +1,1 @@
+moto-0 awards=0 diagnostic=site= invalid=False verticalImpact=11.13 up=1.00 wiped=False air=0.88 distance=26.49

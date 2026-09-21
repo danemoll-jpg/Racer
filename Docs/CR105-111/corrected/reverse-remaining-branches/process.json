@@ -1,0 +1,11 @@
+{
+  "Name": "reverse-remaining-branches",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\CR105-build-corrected\\Racer.exe",
+  "AssemblySHA256": "1D76C8C82E1E53A33526584455AE3C656D73B0E9A925F1DF7CE64CBAD588D94B",
+  "Flags": "-racerSkipTitle -batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr105-9c6da4567713490aa07fe0907b2ec5b1\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR105-111\\corrected\\reverse-remaining-branches\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr105-corrected-reverse-remaining-branches.log\" -cr110Check branches -course MountainLoopReverse -launchRoot \"CR110 reverse summit launch\"",
+  "Save": "C:\\Users\\danmo\\Racer\\Temp\\cr105-9c6da4567713490aa07fe0907b2ec5b1",
+  "PID": 13952,
+  "Timeout": false,
+  "Exit": 0,
+  "CompletedUtc": "2026-09-21T06:46:59.4067515Z"
+}

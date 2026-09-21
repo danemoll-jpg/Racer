@@ -1,0 +1,5 @@
+time=5.259998 station=159.4554 supports=4 aligned=0.9999984 landed=False normal=(0.00, 1.00, 0.00) up=(0.00, 1.00, 0.00)
+time=5.279998 station=160.3824 supports=4 aligned=0.9999597 landed=False normal=(0.00, 1.00, 0.01) up=(0.00, 1.00, 0.00)
+time=5.299998 station=161.3108 supports=4 aligned=0.9998422 landed=False normal=(0.00, 1.00, 0.02) up=(0.00, 1.00, 0.00)
+time=5.319998 station=162.2404 supports=4 aligned=0.9995031 landed=False normal=(0.00, 1.00, 0.03) up=(0.00, 1.00, 0.00)
+time=5.339998 station=163.1712 supports=4 aligned=0.9991571 landed=False normal=(0.00, 1.00, 0.04) up=(0.00, 1.00, 0.00)

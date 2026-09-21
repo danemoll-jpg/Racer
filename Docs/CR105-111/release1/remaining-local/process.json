@@ -1,0 +1,11 @@
+{
+  "Name": "remaining-local",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\Racer-0.19.0-review1-Windows\\Racer.exe",
+  "AssemblySHA256": "F5A1C34C8F1F01C42519630A46C157B2BA05966B7391F07806A4F98F9B6BEDAA",
+  "Flags": "-racerSkipTitle -batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr105-c63810db941c43ed9d756be74985d7c7\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR105-111\\release1\\remaining-local\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr105-release1-remaining-local.log\" -cr105Check final-local -mailbox \"Original house 3\" -idleOnly yes",
+  "Save": "C:\\Users\\danmo\\Racer\\Temp\\cr105-c63810db941c43ed9d756be74985d7c7",
+  "PID": 54264,
+  "Timeout": false,
+  "Exit": 0,
+  "CompletedUtc": "2026-09-21T06:56:59.4742445Z"
+}

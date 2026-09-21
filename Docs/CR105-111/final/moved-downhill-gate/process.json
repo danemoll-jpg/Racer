@@ -1,0 +1,11 @@
+{
+  "Name": "moved-downhill-gate",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\Racer-0.19.0-review3-Windows\\Racer.exe",
+  "AssemblySHA256": "C0E21EF8E43D64A96FBE9C0BF10B90F87A30ADBB177213DD9DAECA127FF3EDC7",
+  "Flags": "-racerSkipTitle -batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr105-c4e1f0319f0d4db5b13b31dcb48e3c12\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR105-111\\final\\moved-downhill-gate\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr105-final-moved-downhill-gate.log\" -cr105Check moved-gate -course MountainLoop",
+  "Save": "C:\\Users\\danmo\\Racer\\Temp\\cr105-c4e1f0319f0d4db5b13b31dcb48e3c12",
+  "PID": 103524,
+  "Timeout": false,
+  "Exit": 0,
+  "CompletedUtc": "2026-09-21T07:21:02.2971760Z"
+}

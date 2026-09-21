@@ -24,6 +24,9 @@ namespace Racer
         readonly List<UnityEngine.UI.Text> markers=new(); Texture2D texture; int selected=-1;
         readonly List<UnityEngine.UI.Text> acorns=new();
         int closedFrame=-1;
+        GameObject confirmation; UnityEngine.UI.Text confirmationText; int pending=-1,confirmationFrame=-1;
+        public bool Confirming=>pending>=0;
+        public string TravelMessage=>errorMessage;
         public bool Opened=>panel&&panel.activeSelf;
         public bool OwnsInput=>Opened||Time.frameCount==closedFrame;
         public Vector3? Waypoint {get;private set;}
@@ -67,6 +70,7 @@ namespace Racer
             var k=Keyboard.current;var g=Gamepad.current;
             if((k?.mKey.wasPressedThisFrame??false)||(g?.selectButton.wasPressedThisFrame??false)){if(Opened)Close();else if(race.Flow.State==RaceFlow.Stage.Racing||race.Flow.State==RaceFlow.Stage.Paused)Open();return;}
             if(!Opened)return;
+            if(Confirming){if(Time.frameCount==confirmationFrame)return;if((k?.escapeKey.wasPressedThisFrame??false)||(g?.buttonEast.wasPressedThisFrame??false)){CancelTravel();return;}if((k?.spaceKey.wasPressedThisFrame??false)||(g?.buttonSouth.wasPressedThisFrame??false)){ConfirmTravel();return;}return;}
             if((k?.escapeKey.wasPressedThisFrame??false)||(g?.buttonEast.wasPressedThisFrame??false)){Close();return;}
             Vector2 pan=g?.leftStick.ReadValue()??Vector2.zero;
             if(k!=null)pan+=new Vector2((k.dKey.isPressed?1:0)-(k.aKey.isPressed?1:0),(k.wKey.isPressed?1:0)-(k.sKey.isPressed?1:0));
@@ -82,7 +86,7 @@ namespace Racer
             resume=race.Flow.State==RaceFlow.Stage.Racing;if(resume)race.Flow.Pause();if(!panel)BuildUI();
             center=Normalized(race.vehicle.Body.position);panel.SetActive(true);EventSystem.current?.SetSelectedGameObject(null);Repaint();Draw();Save();
         }
-        public void Close(){closedFrame=Time.frameCount;if(panel)panel.SetActive(false);Save();if(resume)race.Flow.Resume();}
+        public void Close(){CancelTravel();closedFrame=Time.frameCount;if(panel)panel.SetActive(false);Save();if(resume)race.Flow.Resume();}
         public void SetWaypoint(Vector3 p){Waypoint=p;}
         void SelectNext(int direction){if(destinations.Length==0)return;selected=(selected+direction+destinations.Length)%destinations.Length;if(Discovered(destinations[selected].id))center=Normalized(destinations[selected].position);}
         public bool Travel(int index)
@@ -96,7 +100,20 @@ namespace Racer
             errorMessage="Arrived at "+d.title+". Active attempts cancelled.";center=Normalized(race.vehicle.Body.position);Save();return true;
         }
         string errorMessage="";
-        void TravelSelected(){Travel(selected);}
+        void TravelSelected(){RequestTravel(selected);}
+        public void RequestTravel(int index)
+        {
+            if(!Opened)return;
+            if(index<0||index>=destinations.Length||!race.FreeRoam||!Discovered(destinations[index].id)){errorMessage="Travel needs free roam and a discovered destination.";Draw();return;}
+            pending=index;confirmationFrame=Time.frameCount;confirmationText.text="Travel to "+destinations[index].title+"?\nA / Space: Yes    B / Esc: No";confirmation.SetActive(true);
+        }
+        public void CancelTravel(){pending=-1;if(confirmation)confirmation.SetActive(false);EventSystem.current?.SetSelectedGameObject(null);}
+        public bool ConfirmTravel()
+        {
+            if(pending<0)return false;int index=pending;CancelTravel();
+            if(!Travel(index)){Draw();return false;}
+            string title=destinations[index].title;resume=true;Close();race.Flow.Notify("Arrived at "+title,4);return true;
+        }
         RectTransform RectUI(string name,Transform parent,Vector2 position,Vector2 size)
         {var r=new GameObject(name,typeof(RectTransform)).GetComponent<RectTransform>();r.SetParent(parent,false);r.anchorMin=r.anchorMax=r.pivot=new(.5f,.5f);r.anchoredPosition=position;r.sizeDelta=size;return r;}
         UnityEngine.UI.Text Text(string name,Transform parent,Vector2 p,Vector2 size,int fontSize)
@@ -122,6 +139,11 @@ namespace Racer
             Button("Close map / M / B",new(-420,-316),Close);Button("Center on player",new(-150,-316),()=>center=Normalized(race.vehicle.Body.position));Button("Clear waypoint",new(120,-316),()=>Waypoint=null);
             Text("Map controls",panel.transform,new(-100,291),new(1000,25),16).text="NORTH ↑   Mouse: wheel zoom / drag pan / click waypoint or landmark";
             Text("Controller controls",panel.transform,new(0,-343),new(1200,22),15).text="Stick / WASD: pan · triggers / wheel: zoom · A / Space: waypoint · D-pad: destinations · X: travel · B / Esc: close";
+            confirmation=RectUI("Confirm destination",panel.transform,Vector2.zero,new(1280,720)).gameObject;
+            confirmation.AddComponent<UnityEngine.UI.Image>().color=new(.02f,.04f,.06f,.97f);
+            confirmationText=Text("Named travel question",confirmation.transform,new(0,55),new(850,160),28);
+            void Choice(string label,float x,Action action){var r=RectUI(label,confirmation.transform,new(x,-85),new(220,55));r.gameObject.AddComponent<UnityEngine.UI.Image>().color=new(.1f,.29f,.31f);var b=r.gameObject.AddComponent<UnityEngine.UI.Button>();b.navigation=new UnityEngine.UI.Navigation{mode=UnityEngine.UI.Navigation.Mode.None};b.onClick.AddListener(()=>action());Text(label,r,Vector2.zero,new(210,50),24).text=label;}
+            Choice("Yes",-135,()=>ConfirmTravel());Choice("No",135,CancelTravel);confirmation.SetActive(false);
         }
         void Repaint()
         {
@@ -145,7 +167,7 @@ namespace Racer
         public void OnDrag(PointerEventData e){center-=new Vector2(e.delta.x/740,e.delta.y/540)/zoom;}
         public void OnPointerClick(PointerEventData e)
         {if(e.dragging||e.button!=PointerEventData.InputButton.Left)return;if(!RectTransformUtility.ScreenPointToLocalPointInRectangle(picture.rectTransform,e.position,e.pressEventCamera,out var q))return;
-            var p=WorldPoint(center+new Vector2(q.x/740,q.y/540)/zoom);selected=Array.FindIndex(destinations,d=>Discovered(d.id)&&Vector2.Distance(ScreenPoint(d.position),q)<24);if(selected<0)SetWaypoint(p);}
+            if(Confirming)return;var p=WorldPoint(center+new Vector2(q.x/740,q.y/540)/zoom);selected=Array.FindIndex(destinations,d=>Discovered(d.id)&&Vector2.Distance(ScreenPoint(d.position),q)<24);if(selected<0)SetWaypoint(p);else RequestTravel(selected);}
     }
     public sealed class MapPointer:MonoBehaviour,IPointerClickHandler,IDragHandler,IScrollHandler
     {public ExplorationMap owner;public void OnPointerClick(PointerEventData e)=>owner.OnPointerClick(e);public void OnDrag(PointerEventData e)=>owner.OnDrag(e);public void OnScroll(PointerEventData e)=>owner.OnScroll(e);}

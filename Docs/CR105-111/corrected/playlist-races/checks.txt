@@ -1,0 +1,6 @@
+PASS Playlist restart repeats current entry
+PASS Normal-input Mountain Loop moto completed 1 laps; actual=1 misses=1 recovery=0
+FAIL Narrow ridge alternate exercised Mountain Loop
+PASS Finite finish/category 1
+PASS New direction AI finishes Mountain Loop
+PASS Next event loads reverse at position 2/3

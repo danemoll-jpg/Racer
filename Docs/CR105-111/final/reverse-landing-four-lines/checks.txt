@@ -1,0 +1,8 @@
+FAIL moto-0 settled summit landing awarded
+PASS moto-0 supported from rest, terrain clearance, directional landing; clearance=0.5927048 air=7.519993 stable=66 worldUp=0.7623816 surfaceUp=0.9991571
+FAIL moto-3 settled summit landing awarded
+PASS moto-3 supported from rest, terrain clearance, directional landing; clearance=0.5477753 air=7.519993 stable=66 worldUp=0.7624779 surfaceUp=0.9991571
+FAIL atv-0 settled summit landing awarded
+PASS atv-0 supported from rest, terrain clearance, directional landing; clearance=0.2903137 air=7.019994 stable=66 worldUp=0.7718409 surfaceUp=0.9983656
+FAIL atv-3 settled summit landing awarded
+PASS atv-3 supported from rest, terrain clearance, directional landing; clearance=0.2445602 air=7.019994 stable=66 worldUp=0.7720745 surfaceUp=0.9984359

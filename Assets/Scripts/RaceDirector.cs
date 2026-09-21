@@ -8,10 +8,11 @@ namespace Racer
     {
         public ArcadeVehicle vehicle;
         public RaceGate[] gates;
-        [Min(1)]
+        [Min(0)]
         public int laps = 3;
         public RaceRoad road;
         public RaceRoad ambientRoad;
+        public RaceRoad throughRoad;
         public bool reverseCourse;
         public bool Forest => (road&&road.forestTrail)||courseId=="lake-v2-forest" || courseId=="lake-v3-shallows";
         public VehicleProfile[] EligibleVehicles => Forest ? VehicleProfile.All.Where(p=>p.Small).ToArray() : VehicleProfile.All;
@@ -123,7 +124,8 @@ namespace Racer
             Drivers.Clear();
             Racers.RemoveRange(1, Racers.Count - 1);
             respawn.RestartAtStart();
-            Progress.Restart();
+            laps=opponents?Mathf.Clamp(laps,1,5):Mathf.Clamp(laps,0,5);
+            Progress.ConfigureLaps(laps);
             Racers[0].Dnf=false; Racers[0].FinishArmed=false; Racers[0].RecoveryStart=float.NaN; Racers[0].Recoveries=0;
             if (road && opponents && !FreeRoam)
             {
@@ -224,8 +226,8 @@ namespace Racer
                 }
 
                 int h=n-localPopulation;
-                var driveRoad=!racing&&ambientRoad?ambientRoad:road;
-                float station=driver.HighwayTraffic?3800+(h/4)*175+(h%4)*22:(!racing&&ambientRoad?driveRoad.Project(vehicle.transform.position,out _):spawn)+200+n*driveRoad.Length/Mathf.Max(1,localPopulation);
+                var driveRoad=driver.DriveRoad;
+                float station=driver.HighwayTraffic?(throughRoad?Mathf.Lerp(100,driveRoad.Length-100,(h+.5f)/Mathf.Max(1,highwayTrafficCount)):3800+(h/4)*175+(h%4)*22):(!racing&&ambientRoad?driveRoad.Project(vehicle.transform.position,out _):spawn)+200+n*driveRoad.Length/Mathf.Max(1,localPopulation);
                 driver.Place(racing ? spawn + 8 + n * 7 : station, racing ? (n % 2 == 0 ? 2.2f : -2.2f) : driveRoad.TrafficLane(station,driver.Direction,n%4>=2));
             }
             opponents=savedOpponents;
@@ -267,7 +269,7 @@ namespace Racer
             if(Progress.Finished && Flow && Flow.Save.Settings.estimateAiFinishes) FinalizeUnfinishedAi();
             if (Racers.Any(r => r.Progress.Finished) && firstFinish < 0)
                 firstFinish = Clock;
-            if (Clock - startedAt >= maximumRaceSeconds || (firstFinish >= 0 && Clock - firstFinish >= finishGraceSeconds))
+            if (!Progress.Unlimited && (Clock - startedAt >= maximumRaceSeconds*Mathf.Max(1,laps/3f) || (firstFinish >= 0 && Clock - firstFinish >= finishGraceSeconds)))
                 foreach (var r in Racers)
                     if (!r.Classified)
                         r.Dnf = true;

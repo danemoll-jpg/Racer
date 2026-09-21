@@ -1,0 +1,2 @@
+PASS atv-0 supported from rest, terrain clearance, directional landing; clearance=0.2328568 air=7.019994 stable=66 worldUp=0.7722803 surfaceUp=0.9983656
+PASS atv-3 supported from rest, terrain clearance, directional landing; clearance=0.2477188 air=7.019994 stable=66 worldUp=0.771852 surfaceUp=0.9984359

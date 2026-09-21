@@ -1,0 +1,11 @@
+{
+  "Name": "local-features",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\CR105-build-first\\Racer.exe",
+  "AssemblySHA256": "8C4AB8B8841C09C3828CAC09C24078E01DD2CDBAB44B7D058A6798977BABDC9D",
+  "Flags": "-racerSkipTitle -batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr105-4e5f609f091045fe99f6d7b964c6a7e8\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR105-111\\first\\local-features\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr105-first-local-features.log\" -cr105Check local -turkeyAudible yes",
+  "Save": "C:\\Users\\danmo\\Racer\\Temp\\cr105-4e5f609f091045fe99f6d7b964c6a7e8",
+  "PID": 66588,
+  "Timeout": false,
+  "Exit": 0,
+  "CompletedUtc": "2026-09-21T06:19:34.3373710Z"
+}

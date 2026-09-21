@@ -1,0 +1,5 @@
+PASS moto-summit-entry reached=209/209 minUp=0.9863557
+PASS moto-summit-return reached=301/301 minUp=0.8995921
+PASS atv-summit-entry reached=209/209 minUp=0.9864222
+PASS atv-summit-return reached=301/301 minUp=0.8979844
+PASS One supported local recovery in Mountain Loop Reverse

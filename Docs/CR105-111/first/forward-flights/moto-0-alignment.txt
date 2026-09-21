@@ -1,0 +1,7 @@
+time=5.259998 station=159.4556 supports=4 aligned=0.9999984 landed=False normal=(0.00, 1.00, 0.00) up=(0.00, 1.00, 0.00)
+time=5.279998 station=160.3827 supports=4 aligned=0.9999597 landed=False normal=(0.01, 1.00, 0.00) up=(0.00, 1.00, 0.00)
+time=5.299998 station=161.311 supports=4 aligned=0.9998422 landed=False normal=(0.02, 1.00, 0.00) up=(0.00, 1.00, 0.00)
+time=5.319998 station=162.2406 supports=4 aligned=0.9995031 landed=False normal=(0.03, 1.00, 0.01) up=(0.00, 1.00, 0.00)
+time=5.339998 station=163.1714 supports=4 aligned=0.9991571 landed=False normal=(0.04, 1.00, 0.01) up=(0.00, 1.00, 0.00)
+time=14.93999 station=473.619 supports=4 aligned=0.9929994 landed=True normal=(-0.30, 0.95, -0.09) up=(-0.38, 0.92, 0.00)
+time=14.95999 station=474.4271 supports=4 aligned=0.9797877 landed=True normal=(-0.23, 0.97, -0.07) up=(-0.38, 0.92, 0.05)
