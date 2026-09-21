@@ -16,11 +16,18 @@ namespace Racer
         public static bool Active => instance && !instance.Advancing;
         public static bool SpeechPending => instance && !instance.speechComplete;
         bool speechComplete;
+        double voiceScheduledAt=double.PositiveInfinity;
+        bool cancelledBeforeSpeech;
+        public const float ArtworkLeadIn=1.5f;
+        public double ArtworkReadyDsp { get; private set; }
+        public double VoiceScheduledDsp=>voiceScheduledAt;
+        public static bool CancelUnstarted(double now,double scheduled)=>now<scheduled;
         public bool Armed { get; private set; }
         public bool Advancing { get; private set; }
         public int VoiceStarts { get; private set; }
         public AudioSource Voice { get; private set; }
         public AudioSource Theme { get; private set; }
+        public AudioSource ThemeOpening { get; private set; }
         RaceFlow owner;
         GameObject canvas;
         BaseInputModule inputModule;
@@ -55,9 +62,9 @@ namespace Racer
             var fit=frame.gameObject.AddComponent<AspectRatioFitter>();fit.aspectMode=AspectRatioFitter.AspectMode.FitInParent;fit.aspectRatio=artwork?(float)artwork.width/artwork.height:16f/9;
             var prompt=Rect("Fresh button prompt",matte);prompt.anchorMin=new(0,0);prompt.anchorMax=new(1,0);prompt.pivot=new(.5f,0);prompt.sizeDelta=new(0,42);
             var text=prompt.gameObject.AddComponent<Text>();text.font=Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");text.fontSize=18;text.alignment=TextAnchor.MiddleCenter;text.color=new(.86f,.86f,.8f);text.text="Press any button";text.raycastTarget=false;
-            Voice=gameObject.AddComponent<AudioSource>();Theme=gameObject.AddComponent<AudioSource>();
-            foreach(var source in new[]{Voice,Theme}){source.playOnAwake=false;source.spatialBlend=0;source.ignoreListenerPause=true;source.priority=32;}
-            Voice.volume=.85f;Theme.volume=.09f;Theme.loop=true;
+            Voice=gameObject.AddComponent<AudioSource>();Theme=gameObject.AddComponent<AudioSource>();ThemeOpening=gameObject.AddComponent<AudioSource>();
+            foreach(var source in new[]{Voice,Theme,ThemeOpening}){source.playOnAwake=false;source.spatialBlend=0;source.ignoreListenerPause=true;source.priority=32;}
+            Voice.volume=.85f;Theme.volume=ThemeOpening.volume=.27f;Theme.loop=true;
             StartCoroutine(LoadAudio());
         }
         static RectTransform Rect(string name,Transform parent){var r=new GameObject(name,typeof(RectTransform)).GetComponent<RectTransform>();r.SetParent(parent,false);return r;}
@@ -65,24 +72,34 @@ namespace Racer
         IEnumerator LoadAudio()
         {
             if(ValidationLoadDelay>0 && System.Environment.GetCommandLineArgs().Contains("-racerTestSave"))yield return new WaitForSecondsRealtime(ValidationLoadDelay);
-            var voice=Resources.LoadAsync<AudioClip>("Title/Voice");var theme=Resources.LoadAsync<AudioClip>("Title/ThemeLoop");
-            yield return voice;yield return theme;
-            Voice.clip=voice.asset as AudioClip;Theme.clip=theme.asset as AudioClip;
-            if(Voice.clip)Voice.clip.LoadAudioData();if(Theme.clip)Theme.clip.LoadAudioData();
-            while((Voice.clip&&Voice.clip.loadState==AudioDataLoadState.Loading)||(Theme.clip&&Theme.clip.loadState==AudioDataLoadState.Loading))yield return null;
-            // Give the supplied speech its complete audible tail before music enters.
-            // The quiet final consonant was masked by the concurrent theme. Use the
-            // decoded sample duration on the DSP clock, not a frame timeout or isPlaying.
+            var voice=Resources.LoadAsync<AudioClip>("Title/Voice");var theme=Resources.LoadAsync<AudioClip>("Title/ThemeLoop");var opening=Resources.LoadAsync<AudioClip>("Title/ThemeOpening");
+            yield return voice;yield return theme;yield return opening;
+            Voice.clip=voice.asset as AudioClip;Theme.clip=theme.asset as AudioClip;ThemeOpening.clip=opening.asset as AudioClip;
+            foreach(var source in new[]{Voice,Theme,ThemeOpening})if(source.clip)source.clip.LoadAudioData();
+            while(new[]{Voice,Theme,ThemeOpening}.Any(s=>s.clip&&s.clip.loadState==AudioDataLoadState.Loading))yield return null;
+            // Let artwork render and the audio device settle after asset/scene loading.
+            // Human playback still clipped despite prior listener-tail captures.
+            Canvas.ForceUpdateCanvases();yield return null;yield return null;
+            double readyDsp=AudioSettings.dspTime;ArtworkReadyDsp=readyDsp;float ready=Time.realtimeSinceStartup;
+            while(!Advancing&&(Time.realtimeSinceStartup-ready<ArtworkLeadIn||AudioSettings.dspTime-readyDsp<ArtworkLeadIn))yield return null;
+            if(Advancing){speechComplete=true;yield break;}
+            // Use the complete decoded duration; never fade or truncate the voice.
             if(Voice.clip){
-                double start=AudioSettings.dspTime+.05;
+                double start=AudioSettings.dspTime+.1;voiceScheduledAt=start;Voice.timeSamples=0;
                 double end=start+(double)Voice.clip.samples/Voice.clip.frequency+.2;
                 Voice.PlayScheduled(start);VoiceStarts++;
-                while(AudioSettings.dspTime<end)yield return null;
+                while(!cancelledBeforeSpeech&&AudioSettings.dspTime<end)yield return null;
             }
             speechComplete=true;
             if(Advancing)yield break;
-            if(Theme.clip)Theme.Play();
-            while(!Advancing){Theme.volume=Mathf.MoveTowards(Theme.volume,.27f,Time.unscaledDeltaTime*.2f);yield return null;}
+            // Full authored attack from sample zero at the established title level.
+            if(Theme.clip){
+                double start=AudioSettings.dspTime+.1;
+                // The authored loop begins 240 ms into the original tune. Restore that
+                // supplied opening once, then retain the existing circular loop intact.
+                if(ThemeOpening.clip){ThemeOpening.timeSamples=0;ThemeOpening.PlayScheduled(start);start+=(double)ThemeOpening.clip.samples/ThemeOpening.clip.frequency;}
+                Theme.timeSamples=0;Theme.PlayScheduled(start);
+            }
         }
         static System.Collections.Generic.IEnumerable<ButtonControl> Buttons()=>InputSystem.devices.Where(d=>d is Keyboard || d is Gamepad || d is Mouse).SelectMany(d=>d.allControls.OfType<ButtonControl>()).Where(b=>!b.synthetic&&!(b.parent is StickControl));
         public static bool ButtonHeld()=>Buttons().Any(b=>b.isPressed);
@@ -91,7 +108,11 @@ namespace Racer
         {
             if(Advancing)return;
             if(!Armed){if(Time.frameCount>openedFrame+2&&!ButtonHeld())Armed=true;return;}
-            if(ButtonPressed()){Advancing=true;canvas.SetActive(false);Theme.Stop();StartCoroutine(EnterMenu());}
+            if(ButtonPressed()){
+                Advancing=true;canvas.SetActive(false);Theme.Stop();ThemeOpening.Stop();
+                if(CancelUnstarted(AudioSettings.dspTime,voiceScheduledAt)){cancelledBeforeSpeech=true;Voice.Stop();speechComplete=true;}
+                StartCoroutine(EnterMenu());
+            }
         }
         IEnumerator EnterMenu()
         {
@@ -107,6 +128,6 @@ namespace Racer
             while(!speechComplete)yield return null;
             instance=null;Destroy(gameObject);
         }
-        void OnDestroy(){StopAllCoroutines();if(Voice)Voice.Stop();if(Theme)Theme.Stop();if(instance==this)instance=null;}
+        void OnDestroy(){StopAllCoroutines();if(Voice)Voice.Stop();if(Theme)Theme.Stop();if(ThemeOpening)ThemeOpening.Stop();if(instance==this)instance=null;}
     }
 }

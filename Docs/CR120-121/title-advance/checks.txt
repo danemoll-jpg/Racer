@@ -1,0 +1,5 @@
+PASS Ordinary startup schedules supplied voice once
+PASS Artwork/clip-ready lead-in at least 1.5 seconds before speech
+PASS Tiny timing fixture: dismissal cancels loading/scheduled speech, preserves started speech
+PASS Early advance enters menu while original speech survives without restart
+PASS Portable runtime reaches menu after title

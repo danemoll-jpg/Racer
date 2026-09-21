@@ -1,8 +1,9 @@
+param([string]$Version='0.20.0-review1',[string]$EvidenceFolder='CR112-118')
 $ErrorActionPreference='Stop'
 $root=[IO.Path]::GetFullPath((Join-Path $PSScriptRoot '..'))
 $reportPath=Join-Path $root 'Builds/PACKAGE-LATEST.json'
 $report=Get-Content -LiteralPath $reportPath -Raw | ConvertFrom-Json
-if($report.Version -ne '0.20.0-review1'){throw 'Expected review preview package'}
+if($report.Version -ne $Version){throw 'Expected review preview package'}
 $buildRoot=[IO.Path]::GetFullPath((Join-Path $root 'Builds'))+[IO.Path]::DirectorySeparatorChar
 foreach($path in @($report.Runtime,$report.Latest,$report.Extracted,$report.ZIP,$report.Preserved)){
  if(![IO.Path]::GetFullPath($path).StartsWith($buildRoot,[StringComparison]::OrdinalIgnoreCase)){throw "Outside build workspace: $path"}
@@ -15,9 +16,9 @@ Add-Type -AssemblyName System.IO.Compression.FileSystem
 $zip=[IO.Compression.ZipFile]::Open($report.ZIP,[IO.Compression.ZipArchiveMode]::Update)
 try{
  foreach($name in $files.Keys){
-  $source=Join-Path $root ('Docs/CR112-118/'+$files[$name])
+  $source=Join-Path $root ('Docs/'+$EvidenceFolder+'/'+$files[$name])
   foreach($target in @($report.Runtime,$report.Latest,$report.Extracted)){Copy-Item -LiteralPath $source -Destination (Join-Path $target $name) -Force}
-  $entryName='Racer-0.20.0-review1-Windows/'+$name
+  $entryName='Racer-'+$Version+'-Windows/'+$name
   $old=$zip.GetEntry($entryName);if(!$old){throw "Missing owned entry $entryName"};$old.Delete()
   [IO.Compression.ZipFileExtensions]::CreateEntryFromFile($zip,$source,$entryName,[IO.Compression.CompressionLevel]::Optimal)|Out-Null
  }
@@ -30,7 +31,7 @@ try{
   $path=Join-Path $report.Runtime $entry.Path
   if($files.ContainsKey($entry.Path)){$entry.Bytes=(Get-Item -LiteralPath $path).Length;$entry.SHA256=(Get-FileHash -LiteralPath $path).Hash}
   foreach($target in @($report.Runtime,$report.Latest,$report.Extracted)){if((Get-FileHash -LiteralPath (Join-Path $target $entry.Path)).Hash -ne $entry.SHA256){throw "File mismatch $target/$($entry.Path)"}}
-  $z=$zip.GetEntry('Racer-0.20.0-review1-Windows/'+$entry.Path.Replace('\','/'));if(!$z){throw "ZIP missing $($entry.Path)"}
+  $z=$zip.GetEntry('Racer-'+$Version+'-Windows/'+$entry.Path.Replace('\','/'));if(!$z){throw "ZIP missing $($entry.Path)"}
   $stream=$z.Open();$sha=[Security.Cryptography.SHA256]::Create()
   try{$actual=[Convert]::ToHexString($sha.ComputeHash($stream))}finally{$stream.Dispose();$sha.Dispose()}
   if($actual -ne $entry.SHA256){throw "ZIP mismatch $($entry.Path)"}
@@ -40,5 +41,5 @@ $manifest|ConvertTo-Json -Depth 3|Set-Content -LiteralPath $manifestPath
 $report.ZipSHA256=(Get-FileHash -LiteralPath $report.ZIP).Hash
 $report.PackagedAt=Get-Date -Format o
 $report|ConvertTo-Json|Set-Content -LiteralPath $reportPath
-Copy-Item -LiteralPath $reportPath -Destination (Join-Path $root 'Docs/CR112-118/package-verification.json') -Force
+Copy-Item -LiteralPath $reportPath -Destination (Join-Path $root ('Docs/'+$EvidenceFolder+'/package-verification.json')) -Force
 $report|ConvertTo-Json

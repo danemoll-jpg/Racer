@@ -1,0 +1,1 @@
+Dan supplied needs barrier.png and confused.png. Remove unshipped chicane interpretation; preserve accepted shortcut difficulty. Identify branch merge and emphasize main continuation; remove only inviting nearby gold arrows, retain branch rejoin/gate credit.

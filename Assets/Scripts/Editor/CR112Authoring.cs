@@ -16,7 +16,7 @@ namespace Racer.Editor
         {
             // Apply to the six baseline scenes after their baseline generation. Each
             // geometry pass refuses an already-updated scene instead of duplicating it.
-            CR112Households();CR113Repairs();CR113Endpoints();CR117Geometry();CR117Landscape();CR117Connections();CR117SummitReturn();CR117ClimbSubgrade();
+            CR112Households();CR113Repairs();CR113Endpoints();CR117Geometry();CR117Landscape();CR117Connections();CR117SummitReturn();CR117ClimbSubgrade();CR120Apply();
         }
         public static void CR112Households()
         {

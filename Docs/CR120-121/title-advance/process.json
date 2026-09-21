@@ -1,0 +1,8 @@
+{
+  "Mode": "advance",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\PackageWork\\20260921-192444-696-bda4d3\\Racer-0.20.1-review1-Windows\\Racer.exe",
+  "AssemblySHA256": "CF682CDDA2252C300B8A53FBA8E8D2C3C7D1108FBB08C6FF97B17A64DBAB9F58",
+  "Arguments": "-batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr118-19bb418290514d9885c453853d2639c3\" -racerAudioCheck -cr112Check title -advance yes -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR120-121\\title-advance\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr118-advance.log\"",
+  "Timeout": false,
+  "Exit": 0
+}

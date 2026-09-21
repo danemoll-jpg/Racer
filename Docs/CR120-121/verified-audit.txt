@@ -1,0 +1,260 @@
+BRANCH Summit Traverse entry=448.6447 exit=1575.825 length=421.3905 first=(990.00, 164.00, 115.00) last=(820.00, 98.00, -125.00)
+BRANCH Downhill Ridge Cut entry=1575.825 exit=2973.702 length=108.0716 first=(820.00, 98.00, -125.00) last=(747.00, 86.00, -120.00)
+SIGN Fictional storefront identity at=(-391.76, 12.89, 513.87) forward=(-0.04, 0.00, -1.00) road=110.0 distance=1216.6 parent=Phase 6 architecture
+SIGN CR121 shortcut merge / main continues at=(802.00, 90.95, -113.00) forward=(0.35, 0.00, 0.94) road=1575.0 distance=23.1 parent=CR117 selected-direction guidance
+SIGN Phase 6 architecture at=(-392.10, 8.44, 504.93) forward=(0.04, 0.00, 1.00) road=110.0 distance=1213.7 parent=CR019 S02 business
+SIGN Road lettering at=(292.13, 10.17, 575.33) forward=(-1.00, 0.00, 0.09) road=126.0 distance=685.5 parent=Breakable sign - Hwy 92 South Cherokee Lane
+SIGN Fictional storefront identity at=(-181.09, 13.04, 507.80) forward=(0.00, 0.00, -1.00) road=114.0 distance=1022.7 parent=Phase 6 architecture
+SIGN High Ridge Drop
+35 - 55 mph at=(1048.29, 155.00, 58.93) forward=(-0.49, 0.00, 0.87) road=981.3 distance=62.2 parent=CR081 mountain exploration
+SIGN Fictional storefront identity at=(-127.00, 12.57, 504.75) forward=(0.00, 0.00, -1.00) road=114.0 distance=973.4 parent=Phase 6 architecture
+SIGN SUMMIT CAMP
+Look for the cairns at=(1000.00, 165.16, 92.00) forward=(0.00, 0.00, 1.00) road=960.3 distance=11.1 parent=CR091-096 exploration world
+SIGN Fictional storefront identity at=(48.71, 12.69, 511.31) forward=(0.22, 0.00, -0.98) road=118.0 distance=826.0 parent=Phase 6 architecture
+SIGN Phase 6 architecture at=(77.93, 8.91, 575.41) forward=(0.12, 0.00, -0.99) road=120.0 distance=840.4 parent=CR019 N10 business
+SIGN Phase 6 architecture at=(-217.75, 8.71, 558.41) forward=(-0.01, 0.00, -1.00) road=114.0 distance=1078.7 parent=CR019 N06 business
+SIGN Phase 6 architecture at=(-35.84, 7.75, 562.86) forward=(0.00, 0.00, -1.00) road=118.0 distance=925.1 parent=CR019 N08 business
+SIGN Cave warning sign at=(154.73, 46.23, 285.30) forward=(-0.71, 0.00, -0.71) road=110.0 distance=623.3 parent=
+SIGN Fictional storefront identity at=(227.49, 12.81, 583.27) forward=(-0.14, 0.00, 0.99) road=124.0 distance=734.5 parent=Phase 6 architecture
+SIGN Phase 6 architecture at=(-70.13, 7.81, 500.06) forward=(0.00, 0.00, 1.00) road=114.0 distance=921.7 parent=CR019 S09 business
+SIGN MOUNTAIN TRAILS
+Creek ascent / Ridge return at=(708.17, 81.54, -114.32) forward=(0.90, 0.00, -0.44) road=2950.6 distance=29.0 parent=CR081 mountain exploration
+SIGN Fictional storefront identity at=(-429.26, 12.57, 555.57) forward=(0.04, 0.00, 1.00) road=110.0 distance=1267.4 parent=Phase 6 architecture
+SIGN Fictional storefront identity at=(14.98, 12.28, 551.26) forward=(-0.05, 0.00, 1.00) road=118.0 distance=876.3 parent=Phase 6 architecture
+SIGN Phase 6 architecture at=(-269.42, 9.18, 561.10) forward=(-0.02, 0.00, -1.00) road=114.0 distance=1125.6 parent=CR019 N03 business
+SIGN Phase 6 architecture at=(-152.95, 8.26, 561.11) forward=(0.00, 0.00, -1.00) road=116.0 distance=1023.5 parent=CR019 N05 business
+SIGN Phase 6 architecture at=(-428.91, 8.12, 565.35) forward=(-0.04, 0.00, -1.00) road=112.0 distance=1271.2 parent=CR019 N01 business
+SIGN Fictional storefront identity at=(-217.83, 13.16, 549.47) forward=(0.01, 0.00, 1.00) road=114.0 distance=1074.3 parent=Phase 6 architecture
+SIGN LAKE SHORE
+BOTH TRAILS RETURN HOME at=(541.97, 80.28, -92.64) forward=(0.87, 0.00, -0.49) road=3038.9 distance=176.0 parent=CR081 mountain exploration
+SIGN Phase 6 architecture at=(203.98, 8.71, 519.78) forward=(-0.15, 0.00, 0.99) road=122.0 distance=708.5 parent=CR019 S10 business
+SIGN KYLE'S WOODED DRIVE
+LAKE / MOUNTAIN TRAILS at=(463.33, 85.49, -22.89) forward=(0.02, 0.00, -1.00) road=3042.1 distance=256.0 parent=CR081 mountain exploration
+SIGN JUMP CHALLENGE
+LAND CLEAN / PAUSE FOR TARGETS at=(407.31, 74.69, 223.61) forward=(-0.89, 0.00, 0.45) road=114.0 distance=367.1 parent=CR079 arcade sites
+SIGN <<< MAIN ROUTE LEFT TO FULL RUN-UP at=(960.00, 159.43, 155.00) forward=(0.80, 0.00, -0.60) road=402.9 distance=15.1 parent=CR117 selected-direction guidance
+SIGN Echo Cave <
+OPTIONAL / FORWARD at=(245.53, 56.18, 301.16) forward=(-1.00, 0.00, 0.07) road=114.0 distance=547.0 parent=CR075 direction signs
+SIGN Phase 6 architecture at=(-333.04, 8.87, 500.79) forward=(0.03, 0.00, 1.00) road=110.0 distance=1157.7 parent=CR019 S05 business
+SIGN Road lettering at=(-626.63, 10.34, 492.49) forward=(0.31, -0.01, 0.95) road=106.0 distance=1429.1 parent=Breakable sign - Hwy 92
+SIGN MAIN ROUTE FOLLOW TEAL ARROWS at=(850.00, 85.87, -136.00) forward=(0.88, 0.00, 0.48) road=1592.5 distance=29.6 parent=CR117 selected-direction guidance
+SIGN Fictional storefront identity at=(-332.77, 13.32, 508.78) forward=(-0.03, 0.00, -1.00) road=110.0 distance=1160.3 parent=Phase 6 architecture
+SIGN BIG FLIGHT AHEAD STRAIGHT / FULL RUN-UP at=(1065.00, 131.60, -287.00) forward=(-1.00, 0.00, 0.00) road=2413.3 distance=25.2 parent=CR117 selected-direction guidance
+SIGN Breakable sign - Hwy 92 South Cherokee Lane at=(292.07, 7.57, 575.33) forward=(1.00, 0.00, -0.09) road=126.0 distance=685.9 parent=CR034-039 Woodland routes
+SIGN Phase 6 architecture at=(14.60, 7.83, 559.46) forward=(0.05, 0.00, -1.00) road=118.0 distance=881.6 parent=CR019 N07 business
+SIGN Phase 6 architecture at=(113.82, 8.91, 515.20) forward=(-0.06, 0.00, 1.00) road=120.0 distance=775.6 parent=CR019 S11 business
+SIGN Phase 6 architecture at=(-373.73, 8.48, 567.28) forward=(-0.04, 0.00, -1.00) road=112.0 distance=1221.9 parent=CR019 N04 business
+SIGN Road lettering at=(-599.05, 8.20, -563.71) forward=(-0.98, -0.01, 0.22) road=2826.6 distance=1330.7 parent=Breakable sign - Jamerson Rd
+SIGN Phase 6 architecture at=(-509.87, 7.72, 571.65) forward=(-0.06, 0.00, -1.00) road=110.0 distance=1347.9 parent=CR019 N02 business
+SIGN Fictional storefront identity at=(-283.56, 13.54, 505.84) forward=(-0.02, 0.00, -1.00) road=112.0 distance=1114.2 parent=Phase 6 architecture
+SIGN Fictional storefront identity at=(202.67, 13.16, 528.60) forward=(0.15, 0.00, -0.99) road=122.0 distance=714.8 parent=Phase 6 architecture
+SIGN Phase 6 architecture at=(-492.58, 8.08, 504.54) forward=(0.05, 0.00, 1.00) road=108.0 distance=1307.0 parent=CR019 S03 business
+SIGN Fictional storefront identity at=(-510.42, 12.17, 563.19) forward=(0.06, 0.00, 1.00) road=110.0 distance=1344.9 parent=Phase 6 architecture
+SIGN FOREST ROUTE  ^
+FOLLOW AMBER BOARDS at=(589.80, 80.92, -95.25) forward=(-0.74, 0.00, 0.67) road=3037.9 distance=129.4 parent=CR075 direction signs
+SIGN Fictional storefront identity at=(113.30, 13.36, 523.72) forward=(0.06, 0.00, -1.00) road=120.0 distance=780.7 parent=Phase 6 architecture
+SIGN MAIN ROUTE / BIG JUMP SOUTH FACE SUMMIT FLIGHT at=(977.00, 152.04, 285.00) forward=(0.00, 0.00, -1.00) road=764.1 distance=13.0 parent=CR117 selected-direction guidance
+SIGN RIDGE RETURN
+Lake / Neighborhood at=(680.64, 78.60, -55.15) forward=(-0.02, 0.00, 1.00) road=3043.2 distance=36.3 parent=CR081 mountain exploration
+SIGN FOREST ROUTE  ^
+FOLLOW AMBER BOARDS at=(574.15, 81.31, -10.29) forward=(0.04, 0.00, 1.00) road=62.9 distance=150.2 parent=CR075 direction signs
+SIGN Fictional storefront identity at=(-539.27, 12.27, 519.57) forward=(-0.06, 0.00, -1.00) road=108.0 distance=1355.7 parent=Phase 6 architecture
+SIGN Fictional storefront identity at=(-70.09, 12.26, 509.50) forward=(0.00, 0.00, -1.00) road=116.0 distance=925.9 parent=Phase 6 architecture
+SIGN OPTIONAL SHORTCUT SUMMIT TRAVERSE at=(1002.12, 161.43, 113.02) forward=(0.71, 0.00, -0.70) road=454.2 distance=11.1 parent=CR117 selected-direction guidance
+SIGN Phase 6 architecture at=(226.29, 8.36, 591.82) forward=(0.14, 0.00, -0.99) road=124.0 distance=741.9 parent=CR019 N11 business
+SIGN SPEED CAMERA
+BOTH DIRECTIONS at=(557.74, 81.64, 79.29) forward=(0.09, 0.00, -1.00) road=99.8 distance=174.0 parent=CR079 arcade sites
+SIGN MAIN ROUTE / BIG JUMP WESTBOUND GULLY FLIGHT at=(1225.00, 109.75, -287.00) forward=(-1.00, 0.00, 0.00) road=2251.6 distance=12.9 parent=CR117 selected-direction guidance
+SIGN Fictional storefront identity at=(-492.17, 12.53, 513.12) forward=(-0.05, 0.00, -1.00) road=108.0 distance=1309.4 parent=Phase 6 architecture
+SIGN SPEED CAMERA
+BOTH DIRECTIONS at=(476.58, 78.47, 165.15) forward=(0.86, 0.00, -0.51) road=112.0 distance=279.1 parent=CR079 arcade sites
+SIGN Road lettering at=(-626.58, 10.33, 492.63) forward=(-0.31, 0.01, -0.95) road=106.0 distance=1429.1 parent=Breakable sign - Hwy 92
+SIGN Phase 6 architecture at=(-127.01, 8.12, 496.09) forward=(0.00, 0.00, 1.00) road=114.0 distance=969.7 parent=CR019 S06 business
+SIGN Phase 6 architecture at=(50.92, 8.24, 501.32) forward=(-0.22, 0.00, 0.98) road=118.0 distance=819.1 parent=CR019 S08 business
+SIGN Jump approach sign at=(-634.57, 10.80, -146.13) forward=(-0.02, 0.00, 1.00) road=2854.6 distance=1326.4 parent=Breakable - Jump approach sign
+SIGN FENCE LINE SMASH
+3 / 6 / 10 PROPS IN 8 s at=(462.53, 86.15, -28.50) forward=(0.06, 0.00, -1.00) road=3042.1 distance=256.0 parent=CR079 arcade sites
+SIGN SPEED CAMERA
+BOTH DIRECTIONS at=(483.32, 78.47, 176.50) forward=(-0.86, 0.00, 0.51) road=114.0 distance=277.9 parent=CR079 arcade sites
+SIGN SPEED CAMERA
+BOTH DIRECTIONS at=(570.88, 81.65, 80.52) forward=(-0.09, 0.00, 1.00) road=101.4 distance=161.5 parent=CR079 arcade sites
+SIGN Phase 6 architecture at=(158.00, 8.87, 579.35) forward=(0.10, 0.00, -1.00) road=122.0 distance=782.0 parent=CR019 N09 business
+SIGN SUMMIT
+Both trails return to lake at=(921.52, 156.05, 161.63) forward=(-0.99, 0.00, 0.15) road=367.8 distance=8.8 parent=CR081 mountain exploration
+SIGN Fern Creek Leap
+35 - 55 mph at=(846.87, 103.16, -118.19) forward=(0.72, 0.00, 0.69) road=1603.2 distance=7.9 parent=CR081 mountain exploration
+SIGN Breakable sign - Hwy 92 at=(-626.62, 7.74, 492.53) forward=(0.31, -0.01, 0.95) road=106.0 distance=1429.3 parent=CR034-039 Woodland routes
+SIGN Fictional storefront identity at=(79.14, 13.36, 565.68) forward=(-0.12, 0.00, 0.99) road=120.0 distance=833.1 parent=Phase 6 architecture
+SIGN BIG FLIGHT AHEAD STRAIGHT / FULL RUN-UP at=(1011.00, 159.77, 125.00) forward=(0.00, 0.00, -1.00) road=469.2 distance=11.0 parent=CR117 selected-direction guidance
+SIGN House 3 / Rocky Way Acres entrance at=(505.05, 81.53, -137.17) forward=(-0.97, 0.00, -0.25) road=2874.6 distance=196.8 parent=CR091-096 exploration world
+SIGN Fictional storefront identity at=(-35.88, 12.20, 554.30) forward=(0.00, 0.00, 1.00) road=118.0 distance=920.1 parent=Phase 6 architecture
+SIGN Recommended speed at=(-634.57, 10.80, -146.28) forward=(-0.02, 0.00, 1.00) road=2854.6 distance=1326.4 parent=Jump approach sign
+SIGN Road lettering at=(291.98, 10.17, 575.34) forward=(1.00, 0.00, -0.09) road=126.0 distance=685.6 parent=Breakable sign - Hwy 92 South Cherokee Lane
+SIGN MAIN ROUTE >>> GULLY FLIGHT / FOLLOW TEAL at=(825.00, 82.57, -151.00) forward=(0.35, 0.00, 0.94) road=1553.1 distance=20.9 parent=CR117 selected-direction guidance
+SIGN Fictional storefront identity at=(158.92, 13.32, 569.94) forward=(-0.10, 0.00, 1.00) road=122.0 distance=774.7 parent=Phase 6 architecture
+SIGN Fictional storefront identity at=(-374.09, 12.93, 557.75) forward=(0.04, 0.00, 1.00) road=112.0 distance=1218.0 parent=Phase 6 architecture
+SIGN Phase 6 architecture at=(-539.88, 7.82, 509.48) forward=(0.06, 0.00, 1.00) road=108.0 distance=1353.0 parent=CR019 S01 business
+SIGN Phase 6 architecture at=(-283.78, 9.09, 496.38) forward=(0.02, 0.00, 1.00) road=110.4 distance=1110.8 parent=CR019 S04 business
+SIGN Fictional storefront identity at=(-269.59, 13.63, 552.30) forward=(0.02, 0.00, 1.00) road=114.0 distance=1121.5 parent=Phase 6 architecture
+SIGN Breakable sign - Jamerson Rd at=(-599.11, 5.60, -563.70) forward=(-0.98, -0.01, 0.22) road=2826.6 distance=1331.0 parent=CR034-039 Woodland routes
+SIGN Road lettering at=(-599.20, 8.20, -563.67) forward=(0.98, 0.01, -0.22) road=2826.6 distance=1330.9 parent=Breakable sign - Jamerson Rd
+SIGN Phase 6 architecture at=(-181.12, 8.59, 499.19) forward=(0.00, 0.00, 1.00) road=112.0 distance=1019.2 parent=CR019 S07 business
+SIGN Fictional storefront identity at=(-152.96, 12.71, 553.07) forward=(0.00, 0.00, 1.00) road=116.0 distance=1019.2 parent=Phase 6 architecture
+SIGN MAIN ROUTE FOLLOW TEAL ARROWS at=(746.77, 83.06, -91.88) forward=(-0.67, 0.00, 0.75) road=2998.7 distance=10.0 parent=CR117 selected-direction guidance
+FLIGHT Westbound Gully Flight start=(1225.00, 110.00, -300.00) lip=(1005.00, 131.60, -300.00) heading=(-1.00, 0.00, 0.00) station=2253.13
+FLIGHT South Face Summit Flight start=(990.00, 152.00, 285.00) lip=(990.00, 177.92, 65.00) heading=(0.00, 0.00, -1.00) station=763.6678
+LAUNCH CR110 reverse summit launch at=(990.00, 152.00, 285.00) forward=(0.00, 0.00, -1.00)
+LAUNCH CR094 summit launch at=(1192.02, 152.00, 207.35) forward=(-0.96, 0.00, -0.27)
+ROAD 0.0 (717.47, 79.00, -59.43)
+ROAD 20.0 (724.91, 78.98, -40.98)
+ROAD 40.0 (725.69, 78.57, -21.04)
+ROAD 60.0 (724.06, 78.20, -1.11)
+ROAD 80.0 (723.30, 78.54, 18.85)
+ROAD 100.0 (726.84, 80.69, 38.39)
+ROAD 120.0 (734.40, 85.04, 56.24)
+ROAD 140.0 (749.66, 91.97, 66.32)
+ROAD 160.0 (768.09, 99.48, 65.12)
+ROAD 180.0 (786.49, 106.79, 62.28)
+ROAD 200.0 (804.94, 114.03, 63.53)
+ROAD 220.0 (818.77, 119.37, 76.27)
+ROAD 240.0 (826.71, 122.33, 94.36)
+ROAD 260.0 (833.68, 124.84, 112.93)
+ROAD 280.0 (843.18, 128.25, 130.12)
+ROAD 300.0 (858.28, 133.94, 141.71)
+ROAD 320.0 (875.58, 140.85, 148.91)
+ROAD 340.0 (893.86, 147.85, 152.90)
+ROAD 360.0 (912.81, 154.10, 153.69)
+ROAD 380.0 (931.97, 158.63, 150.42)
+ROAD 400.0 (950.34, 161.74, 143.25)
+ROAD 420.0 (967.51, 163.56, 133.19)
+ROAD 440.0 (983.35, 164.13, 121.01)
+ROAD 460.0 (997.00, 163.09, 124.34)
+ROAD 480.0 (1009.07, 161.54, 140.21)
+ROAD 500.0 (1020.82, 159.99, 156.32)
+ROAD 520.0 (1031.91, 158.45, 172.89)
+ROAD 540.0 (1042.24, 156.92, 189.95)
+ROAD 560.0 (1052.62, 155.35, 206.97)
+ROAD 580.0 (1062.05, 153.81, 224.53)
+ROAD 600.0 (1068.81, 152.46, 243.26)
+ROAD 620.0 (1069.04, 151.67, 263.09)
+ROAD 640.0 (1062.72, 151.58, 282.01)
+ROAD 660.0 (1052.86, 151.79, 299.38)
+ROAD 680.0 (1040.18, 152.00, 314.80)
+ROAD 700.0 (1022.44, 152.00, 323.43)
+ROAD 720.0 (1002.59, 152.00, 323.16)
+ROAD 740.0 (991.39, 152.00, 308.61)
+ROAD 760.0 (990.31, 152.00, 288.66)
+ROAD 780.0 (990.00, 152.00, 268.67)
+ROAD 800.0 (990.00, 152.00, 248.67)
+ROAD 820.0 (990.00, 152.00, 228.67)
+ROAD 840.0 (990.00, 152.00, 208.67)
+ROAD 860.0 (990.00, 152.00, 188.67)
+ROAD 880.0 (990.00, 152.00, 168.67)
+ROAD 900.0 (990.00, 152.00, 148.67)
+ROAD 920.0 (990.00, 152.00, 128.67)
+ROAD 940.0 (990.00, 153.89, 108.81)
+ROAD 960.0 (990.00, 160.78, 90.09)
+ROAD 980.0 (990.00, 171.36, 73.15)
+ROAD 1000.0 (990.00, 178.88, 55.42)
+ROAD 1020.0 (990.00, 180.89, 35.52)
+ROAD 1040.0 (990.00, 182.89, 15.62)
+ROAD 1060.0 (990.00, 184.90, -4.28)
+ROAD 1080.0 (990.00, 186.90, -24.17)
+ROAD 1100.0 (990.00, 188.84, -44.08)
+ROAD 1120.0 (990.00, 177.53, -60.30)
+ROAD 1140.0 (990.00, 165.53, -76.30)
+ROAD 1160.0 (990.00, 153.53, -92.30)
+ROAD 1180.0 (990.00, 141.55, -108.31)
+ROAD 1200.0 (990.00, 130.16, -124.75)
+ROAD 1220.0 (990.00, 119.77, -141.83)
+ROAD 1240.0 (990.00, 110.52, -159.56)
+ROAD 1260.0 (990.00, 102.60, -177.92)
+ROAD 1280.0 (990.00, 96.20, -196.86)
+ROAD 1300.0 (990.00, 91.50, -216.30)
+ROAD 1320.0 (982.23, 90.79, -234.34)
+ROAD 1340.0 (970.02, 90.83, -249.96)
+ROAD 1360.0 (950.94, 91.12, -253.33)
+ROAD 1380.0 (931.66, 91.46, -248.10)
+ROAD 1400.0 (913.03, 91.82, -240.85)
+ROAD 1420.0 (894.81, 92.23, -232.61)
+ROAD 1440.0 (876.93, 92.74, -223.67)
+ROAD 1460.0 (859.38, 93.49, -214.10)
+ROAD 1480.0 (842.32, 94.49, -203.72)
+ROAD 1500.0 (826.16, 95.63, -192.01)
+ROAD 1520.0 (812.30, 96.78, -177.72)
+ROAD 1540.0 (808.07, 97.53, -158.77)
+ROAD 1560.0 (813.99, 97.83, -139.73)
+ROAD 1580.0 (823.67, 98.90, -123.03)
+ROAD 1600.0 (840.36, 103.11, -112.83)
+ROAD 1620.0 (858.02, 107.31, -104.49)
+ROAD 1640.0 (876.96, 111.41, -99.73)
+ROAD 1660.0 (896.43, 115.84, -98.95)
+ROAD 1680.0 (915.88, 120.34, -100.01)
+ROAD 1700.0 (935.43, 124.41, -101.18)
+ROAD 1720.0 (955.13, 127.82, -101.50)
+ROAD 1740.0 (974.92, 130.45, -100.50)
+ROAD 1760.0 (994.63, 132.38, -97.77)
+ROAD 1780.0 (1014.12, 133.98, -93.58)
+ROAD 1800.0 (1033.49, 135.34, -88.76)
+ROAD 1820.0 (1052.82, 136.52, -83.78)
+ROAD 1840.0 (1072.20, 137.52, -78.95)
+ROAD 1860.0 (1091.70, 138.33, -74.58)
+ROAD 1880.0 (1111.38, 138.91, -71.10)
+ROAD 1900.0 (1131.28, 139.18, -69.19)
+ROAD 1920.0 (1151.22, 138.96, -70.19)
+ROAD 1940.0 (1170.57, 137.90, -75.03)
+ROAD 1960.0 (1188.79, 135.97, -82.99)
+ROAD 1980.0 (1205.56, 133.44, -93.55)
+ROAD 2000.0 (1220.80, 130.54, -106.16)
+ROAD 2020.0 (1234.57, 127.54, -120.34)
+ROAD 2040.0 (1246.96, 124.69, -135.77)
+ROAD 2060.0 (1257.31, 122.12, -152.65)
+ROAD 2080.0 (1264.59, 119.62, -171.09)
+ROAD 2100.0 (1269.85, 117.20, -190.23)
+ROAD 2120.0 (1273.77, 114.86, -209.70)
+ROAD 2140.0 (1276.77, 112.64, -229.34)
+ROAD 2160.0 (1279.26, 110.57, -249.08)
+ROAD 2180.0 (1281.13, 109.07, -268.92)
+ROAD 2200.0 (1275.17, 109.74, -287.38)
+ROAD 2220.0 (1257.94, 110.00, -296.71)
+ROAD 2240.0 (1238.09, 110.00, -298.99)
+ROAD 2260.0 (1218.13, 110.00, -300.00)
+ROAD 2280.0 (1198.13, 110.00, -300.00)
+ROAD 2300.0 (1178.13, 110.00, -300.00)
+ROAD 2320.0 (1158.13, 110.00, -300.00)
+ROAD 2340.0 (1138.13, 110.00, -300.00)
+ROAD 2360.0 (1118.13, 110.00, -300.00)
+ROAD 2380.0 (1098.13, 110.00, -300.00)
+ROAD 2400.0 (1078.13, 110.00, -300.00)
+ROAD 2420.0 (1058.14, 110.29, -300.00)
+ROAD 2440.0 (1038.57, 114.20, -300.00)
+ROAD 2460.0 (1020.20, 122.05, -300.00)
+ROAD 2480.0 (1002.86, 131.44, -300.00)
+ROAD 2500.0 (982.92, 129.92, -300.00)
+ROAD 2520.0 (962.98, 128.41, -300.00)
+ROAD 2540.0 (943.03, 126.89, -300.00)
+ROAD 2560.0 (923.09, 125.37, -300.00)
+ROAD 2580.0 (903.21, 123.47, -300.00)
+ROAD 2600.0 (883.95, 118.09, -300.00)
+ROAD 2620.0 (864.53, 113.33, -300.00)
+ROAD 2640.0 (844.95, 109.23, -300.00)
+ROAD 2660.0 (825.25, 105.80, -300.00)
+ROAD 2680.0 (805.44, 103.05, -300.00)
+ROAD 2700.0 (785.55, 101.01, -300.00)
+ROAD 2720.0 (765.59, 99.67, -300.00)
+ROAD 2740.0 (745.60, 99.05, -300.00)
+ROAD 2760.0 (725.60, 99.15, -299.99)
+ROAD 2780.0 (709.60, 99.64, -288.24)
+ROAD 2800.0 (698.66, 98.66, -271.78)
+ROAD 2820.0 (692.13, 96.16, -253.06)
+ROAD 2840.0 (688.02, 93.42, -233.70)
+ROAD 2860.0 (687.88, 91.09, -213.89)
+ROAD 2880.0 (693.29, 89.61, -194.74)
+ROAD 2900.0 (701.61, 88.56, -176.60)
+ROAD 2920.0 (711.31, 87.70, -159.13)
+ROAD 2940.0 (721.90, 86.85, -142.19)
+ROAD 2960.0 (735.86, 86.24, -127.99)
+ROAD 2980.0 (748.84, 85.46, -114.16)
+ROAD 3000.0 (738.44, 83.11, -97.57)
+ROAD 3020.0 (725.01, 80.96, -82.91)
+ROAD 3040.0 (715.92, 79.19, -65.56)

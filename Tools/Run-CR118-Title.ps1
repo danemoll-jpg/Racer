@@ -1,8 +1,8 @@
-param([Parameter(Mandatory)][string]$Runtime,[Parameter(Mandatory)][ValidateSet('untouched','advance')][string]$Mode)
+param([Parameter(Mandatory)][string]$Runtime,[Parameter(Mandatory)][ValidateSet('untouched','advance')][string]$Mode,[string]$EvidenceRoot='Docs/CR112-118/final')
 $ErrorActionPreference='Stop'
 $project=[IO.Path]::GetFullPath((Join-Path $PSScriptRoot '..'))
 $exe=[IO.Path]::GetFullPath($Runtime)
-$evidence=Join-Path $project "Docs/CR112-118/final/title-$Mode"
+$evidence=Join-Path $project "$EvidenceRoot/title-$Mode"
 $save=Join-Path $project ('Temp/cr118-'+[Guid]::NewGuid().ToString('N'))
 New-Item -ItemType Directory -Force -Path $save,$evidence | Out-Null
 '{"version":1,"master":0.5,"music":1,"frameLimit":60,"vsync":false}' | Set-Content -LiteralPath (Join-Path $save 'settings.json')

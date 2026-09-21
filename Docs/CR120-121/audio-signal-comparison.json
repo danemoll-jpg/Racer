@@ -1,0 +1,31 @@
+{
+  "opening_exact_original": true,
+  "existing_loop_starts_at_original_seconds": 0.24,
+  "loop_body_offset_max_difference": 3.0517578125e-05,
+  "limitation": "Listener DSP only; no OS-endpoint capture or human audition available. Dan audio acceptance remains open.",
+  "untouched": {
+    "voice": {
+      "start_seconds": 2.986666666666667,
+      "full_correlation": 0.9999997695285637,
+      "first_200ms_correlation": 0.999999961873444,
+      "last_350ms_correlation": 0.999975053214911,
+      "fitted_gain": 0.4248675311980612
+    },
+    "original_theme_first_second": {
+      "start_seconds": 5.006666666666667,
+      "full_correlation": 0.9999994744759539,
+      "first_200ms_correlation": 0.9999992579510628,
+      "last_350ms_correlation": 0.9999994726765699,
+      "fitted_gain": 0.13484979958496982
+    }
+  },
+  "advance": {
+    "voice": {
+      "start_seconds": 3.2,
+      "full_correlation": 0.9999997695285637,
+      "first_200ms_correlation": 0.999999961873444,
+      "last_350ms_correlation": 0.999975053214911,
+      "fitted_gain": 0.4248675311980612
+    }
+  }
+}

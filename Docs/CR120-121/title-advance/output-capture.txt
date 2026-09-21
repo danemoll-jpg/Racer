@@ -1,0 +1,1 @@
+samples=530432, peak=0.239633, rms=0.012739, clipped=0

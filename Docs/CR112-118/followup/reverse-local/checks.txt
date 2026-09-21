@@ -1,0 +1,2 @@
+PASS summit-approach: one normal-input motorcycle segment; reached=492.1/495.0, minUp=0.99. No AI/full lap.
+PASS ridge-main: one normal-input motorcycle segment; reached=1627.9/1630.8, minUp=0.98. No AI/full lap.

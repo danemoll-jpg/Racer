@@ -33,6 +33,7 @@ namespace Racer
             else if(Arg("-cr112Check")=="endpoints")yield return HighwayEndpoints();
             else if(Arg("-cr112Check")=="climb")yield return ClimbSegment();
             else if(Arg("-cr112Check")=="scoring")yield return ScoringFixture();
+            else if(Arg("-cr112Check")=="reverse-local")yield return ReverseLocal();
             File.WriteAllText(dir+"/done.txt","Bounded normal-motor-input automation. Read checks for actual outcomes; no human fun or physical controller approval.");Application.Quit();
         }
         IEnumerator Flight()
