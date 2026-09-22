@@ -13,6 +13,7 @@
 
 This review supersedes older open/awaiting-review labels for the items named here. It records Dan's acceptance, not new implementation or testing.
 
+- **COMPLETE — subsequent clarification:** Optional refinement of Dan's house position (CR-018), and the backlog item to relocate/add a shortcut elsewhere. Dan confirms both are already done. No additional house move or shortcut creation is pending under those items; exact implementation details are not inferred from this status update. Route mapping, general navigation arrows and the separate House 3 / stuck-AI issues remain open.
 - **COMPLETE:** Incorrect shortcut checkpoint penalties (BUG-004 / CR-046 / CR-050); motorcycle momentum loss at the Fox Gully house jump (BUG-008); local reverse-Mountain junction/sign guidance (CR-120/121). These correspond to items 3, 4 and 7 in the consolidated review.
 - **COMPLETE:** All delivered-feature review areas in that review except navigation: highway/traffic continuations and variety; mailbox placement; selectable laps and unlimited solo; saved playlists and keyboard naming; championship standings/summary/winner; fast-travel confirmation/arrival/map closure; shallow-water driving; AI mistake presentation and estimated finish classification; radio/library/station/metadata features; tire audio; non-turkey wildlife/bat presentation and audio; free roam.
 - **OPEN — intermittent:** Spoken title clipping (CR-118). Dan says it sometimes works and sometimes does not. Keep the report open; no audio changes or fallback removal are requested now.
@@ -37,13 +38,13 @@ This is future navigation work during the existing pause, not permission to star
 - Confirmed history: `14240a16` introduced House 3 driveway support across the existing Granite Saddle trail in Forest Loop Reverse. The recent Laurel edits were not the cause of that specific wall. The hill fix changes only two ForestLoopReverse-specific terrain assets, retains about 22m of rise and reduces the maximum sampled grade from about 78° to 22°.
 - Dan experiences this as the natural/main reverse route; the current authored data labels the affected opening branch **Granite Saddle**, a shortcut. Preserve that distinction until the route map resolves it; do not dismiss his observed driving line because of the label.
 - Dan also reports that a Laurel-area shortcut and this Forest route intertwine around the property. The precise Laurel branch, shared terrain assets, physical crossings and direction-dependent relationships still need to be mapped. Do not assume every visually overlapping route shares one asset or collider.
-- The shortcut feels like the natural continuation, while reaching the designated main route feels awkward. Consider promoting the natural branch to the main route and relocating the shortcut elsewhere. These are **proposals for Dan to choose**, not an approved redesign or permission to add a shortcut now.
+- Dan reported that the shortcut feels like the natural continuation, while reaching the designated main route feels awkward. The separate relocate/add-shortcut-elsewhere backlog item is now **complete per Dan**. Mapping can still clarify main-route identity and remaining local conflicts; do not schedule another shortcut relocation from this older discussion.
 
 ### Future scope — map first, then let Dan choose
 
 1. **Read-only route atlas, when requested.** Map all currently authored race trails and shortcuts, with separate forward/reverse layers or views. Include direction arrows, actual route names, main-versus-shortcut status, start/finish and checkpoints, shortcut entry/rejoin points, jumps, and House 3's driveway. Use scene geometry and metadata rather than guessing from route names.
 2. **Make the conflicts visible.** Provide an overall map plus a close-up of House 3 / Forest / Laurel, using the same coordinates and numbered landmarks. Mark crossings, shared terrain/colliders and vertical separation; include local height profiles where a top-down view hides a conflict. Distinguish confirmed physical interference from mere visual overlap. Give Dan an image he can mark up; add toggles only if they materially improve readability.
-3. **Dan chooses the layout.** Review which line should be the main course, whether/how the driveway should be straightened, and whether an alternate belongs elsewhere. If requested, show a small number of shortcut candidates on the map with affected routes and terrain risks. Do not implement a candidate just because it looks promising.
+3. **Dan chooses any remaining layout corrections.** Review the mapped main-course identity and whether/how House 3's driveway needs correction. The relocate/add-shortcut-elsewhere item is already complete; do not reopen it or propose another replacement unless Dan requests one.
 4. **One bounded implementation after approval.** Specify the exact route/direction, terrain footprint, driveway treatment and intended main/shortcut relationship. Identify any necessary checkpoint, entitlement or navigation-data changes in advance. Fix the agreed geometry/data cause before considering AI behavior changes; the current stuck-AI report does not establish its cause. Preserve unrelated tracks, physics and recovery unless Dan explicitly changes that scope.
 5. **Limited verification and delivery.** Check the changed surface/colliders, joins and neighboring routes; if AI work is approved, use one targeted reproduction at the reported spot. Basic build verification, then Dan's gameplay review. No repeated full races or all-vehicle matrices. Build/publish only when the resumed task requests delivery. Check disk space and retain the current build plus at most one useful previous build; preserve source, Git, publisher keys/tools, launcher/SDK and required metadata.
 
@@ -689,7 +690,7 @@ Improve appearance only after gameplay works.
 - [x] Fix text visible through terrain and align arrows to slopes; verify seams, grounding, near/far rendering and exact collision preservation.
 - [x] Integrated traversal, mixed full race, jump, props, flow/settings/save reload and fresh visible Windows build validation.
 - [x] Dan accepts Phase 8 overall for now ("pretty sure all is ok"); exact setup, individual test coverage and physical-controller testing remain unspecified.
-- [ ] CR-018 deferred optional backlog: exact childhood-house placement only when Dan requests it.
+- [x] CR-018 optional refinement of Dan's house position — already done, confirmed by Dan on 2026-09-22.
 - [ ] CR-013 deferred optional backlog: home refinements only from Dan's supplied reference photos.
 
 **Build:** Builds/Phase8/Racer.exe. Scene: Assets/Scenes/StreetLoopGreybox.unity. No Phase 9 work.
@@ -805,7 +806,7 @@ Use this for things that are not bugs but that Dan wants changed.
 
 ### Backlog — Route atlas and Dan-directed House 3 / Forest / Laurel cleanup
 **Status:** Scoped for a future session; no implementation authorized now.
-Map existing trails and shortcuts so Dan can identify where they intertwine and mark the intended layout. Consider a straightforward House 3 driveway, making the natural shortcut line the main course, and placing a new shortcut somewhere that avoids terrain conflicts. These are alternatives to review, not settled decisions. Follow the map-first sequence in the current handoff; preserve historical CR IDs rather than assigning an unverified new number.
+Map existing trails and shortcuts so Dan can identify where they intertwine and mark any remaining changes to House 3's driveway or main-course identity. The separate relocate/add-shortcut-elsewhere item is complete per Dan's 2026-09-22 clarification; it is no longer a pending alternative. Follow the map-first sequence in the current handoff; preserve historical CR IDs rather than assigning an unverified new number.
 
 ### CR-001 — Larger neighborhood entrance hill
 **Status:** Implemented and technically checked; accepted as part of Dan's overall Phase 2 track review.  
@@ -948,10 +949,10 @@ Map existing trails and shortcuts so Dan can identify where they intertwine and 
 **Validation:** 20 ordinary-frame virtual Gamepad cases at 3/30m/s, centered/glancing across five prop types; all broke once and remained upright. Consecutive three-fence drive passed. Eight 18-prop contact bursts, five repeated race restarts, cleanup and overlap deferral passed. 35-piece stress capped at 24, retired oldest 11, created no rigidbodies and cleaned fully. Three mixed laps and race/input/HUD/reset regressions passed; jump/bypass checks retain prior angled-jump limitations. Same-view destruction profiling: intact median/p95 11.39/18.87ms; 30 bursts 10.05/19.29ms, max115.2ms, one rigidbody. No controlled-host speedup or physical-controller claim. Exact locations, raw checks, before/after views and review checklist: Docs/CR016-017/VALIDATION.md.
 
 ### CR-018 — Optional later refinement of Dan's house position
-**Status:** BACKLOG / NON-BLOCKING — current house/yard accepted for now.  
+**Status:** COMPLETE / CLOSED — Dan confirms this is already done on 2026-09-22. Older deferred-placement notes are superseded.
 **Requested change:** Dan says the house is not perfectly placed but explicitly does not want to worry about it now. Revisit only when he supplies further placement guidance or asks to resume this item; optionally coordinate with CR-013 photo references.  
 **Scope:** Do not move the house, change its yard or reopen CR-016 during current Phase 6 work. No assumed new coordinates or automatic relocation.  
-**Result:** Deferred; no new placement instructions supplied.
+**Result:** Already completed, confirmed by Dan on 2026-09-22; no further placement work requested.
 
 ### CR-019 — Remove mirrored commercial layout and uniform spacing
 **Status:** ACCEPTED / CLOSED — Dan reports the first Phase 8 commercial-street batch passed.  
