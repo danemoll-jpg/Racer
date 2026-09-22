@@ -33,3 +33,21 @@ prior releases are retained. Play-Racer.cmd retains Builds/Latest/Racer.exe.
 Static checks passed: four of four player suspension probes supported; 161
 junction samples supported; 336 runway samples each hit exactly one collider,
 with maximum analytic-profile error 0.0003m. No race/jump playthroughs run.
+
+## Build and packaging completed; publication blocked
+
+- Implementation commit: 8e631a1a9072e786badcdb00b5ce21ae88bf0da4.
+- Release version: 0.23.0-review1; intended GitHub tag: game-23000.
+- Windows build succeeded with 0 errors and 2 warnings.
+- Existing packaging verified all 451 files across the extracted portable ZIP,
+  versioned runtime and Builds/Latest. Bundled music and prior Latest retained.
+- Play-Racer.cmd resolves to Builds/Latest/Racer.exe, whose VERSION.txt identifies
+  0.23.0-review1 and the implementation commit above.
+- The signed component preparation failed before creating/uploading a release:
+  Windows denied access to Builds/PublisherPrivate/launcher-signing.pem.
+  The supported elevated execution also failed; directory ACL inspection is
+  denied. No permissions were changed and no signing checks were bypassed.
+- GitHub CLI read access works; GitHub latest remains game-22000 / 0.22.0-review1.
+  This task is NOT publication-complete. Restore access to the existing pinned
+  signing key, prepare/publish game-23000, then verify the public latest catalog
+  and installed runtime against its signed manifest.
