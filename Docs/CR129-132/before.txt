@@ -1,0 +1,162 @@
+FLIGHT Eastbound Gully Flight start=(850.00, 110.00, -275.00) lip=(1070.00, 131.60, -275.00) end=(1350.00, 99.16, -275.00) forward=(1.00, 0.00, 0.00) station=227.3123 to=734.6508
+FLIGHT Homeward Summit Flight start=(1192.02, 152.00, 207.35) lip=(980.38, 177.92, 147.27) end=(730.26, 96.75, 76.27) forward=(-0.96, 0.00, -0.27) station=1850.486 to=2360.206
+BRANCH Summit Traverse entry=1605.682 exit=2441.932
+BRANCH Climbing Ridge Cut entry=17.74735 exit=1399.295
+SIGN (681.17, 83.10, -10.05) station=2466.692
+SIGN (1045.44, 139.93, -47.83) station=1423.904
+MESH Ground_CR113 west four lane seam Center: (-798.34, 8.02, 539.79), Extents: (292.61, 0.09, 9.63)
+MESH Ground_CR122 main section 1 Center: (1184.99, 138.39, -42.50), Extents: (208.55, 39.35, 256.50)
+MESH Ground_CR113 Kyle driveway edge join Center: (490.41, 80.49, -19.92), Extents: (13.32, 1.80, 18.22)
+MESH Ground_CR122 main section 0 Center: (898.84, 107.61, -198.52), Extents: (171.17, 23.84, 90.48)
+MESH Ground_CR113 west outer supported shoulders Center: (-1170.95, 7.96, 538.93), Extents: (80.00, 0.00, 60.00)
+MESH Ground_CR113 east four lane seam Center: (480.88, 25.40, 555.00), Extents: (319.96, 16.40, 14.59)
+MESH Ground_CR122 main section 2 Center: (778.60, 128.39, 9.68), Extents: (102.53, 49.42, 130.64)
+MESH Ground_CR113 west level outer continuation Center: (-1170.95, 8.11, 538.93), Extents: (80.00, 0.00, 8.20)
+MESH Ground_CR117 outer ravine Center: (1090.00, 103.16, -60.00), Extents: (440.00, 75.22, 440.00)
+MESH Ground_CR113 east level outer continuation Center: (880.84, 41.80, 561.39), Extents: (80.00, 0.00, 8.20)
+MESH Ground_CR122 Summit Traverse Center: (839.86, 124.62, 87.34), Extents: (149.70, 39.50, 71.49)
+MESH Ground_CR122 Climbing Ridge Cut Center: (882.96, 112.54, -77.16), Extents: (132.57, 26.51, 43.21)
+MESH Ground_CR113 east outer supported shoulders Center: (880.84, 41.65, 561.39), Extents: (80.00, 0.00, 60.00)
+BAD 0.0 (730.24, 83.73, -114.55) Ground_CR122 main section 2 y=83.768;Ground_CR122 main section 0 y=83.768;Ground_720_240 y=81.562
+BAD 1608.0 (992.70, 163.13, 115.86) Ground_CR122 main section 1 y=163.561;Ground_Mountain_1_3 y=160.170
+BAD 1611.0 (995.50, 162.60, 116.81) Ground_CR122 main section 1 y=163.631
+BAD 1836.0 (1191.34, 152.00, 192.99) Ground_CR122 main section 1 y=152.040;Ground_Summit authored launch y=152.000;Ground_Mountain_3_4 y=150.500
+BAD 1839.0 (1192.04, 152.00, 195.91) Ground_CR122 main section 1 y=152.040;Ground_Summit authored launch y=152.000;Ground_Mountain_3_4 y=150.500
+BAD 1842.0 (1192.65, 152.00, 198.85) Ground_CR122 main section 1 y=152.040;Ground_Summit authored launch y=152.000;Ground_Mountain_3_4 y=150.500
+BAD 1845.0 (1193.05, 152.00, 201.82) Ground_CR122 main section 1 y=152.040;Ground_Summit authored launch y=152.000;Ground_Mountain_3_4 y=150.500
+BAD 1851.0 (1191.45, 152.00, 206.92) Ground_CR122 main section 1 y=152.040;Ground_Summit authored launch y=152.000;Ground_Mountain_3_4 y=150.500
+BAD 1854.0 (1188.54, 152.00, 206.36) Ground_CR122 main section 1 y=152.040;Ground_Summit authored launch y=152.000;Ground_Mountain_3_4 y=150.500
+BAD 1857.0 (1185.66, 152.00, 205.54) Ground_CR122 main section 1 y=152.040;Ground_Summit authored launch y=152.000;Ground_Mountain_3_4 y=150.500
+BAD 1860.0 (1182.77, 152.00, 204.72) Ground_CR122 main section 1 y=152.040;Ground_Summit authored launch y=152.000;Ground_Mountain_3_4 y=150.500
+BAD 1863.0 (1179.89, 152.00, 203.90) Ground_CR122 main section 1 y=152.040;Ground_Summit authored launch y=152.000;Ground_Mountain_3_4 y=150.500
+BAD 1866.0 (1177.00, 152.00, 203.08) Ground_CR122 main section 1 y=152.040;Ground_Summit authored launch y=152.000;Ground_Mountain_3_4 y=150.500
+BAD 1869.0 (1174.11, 152.00, 202.27) Ground_CR122 main section 1 y=152.040;Ground_Summit authored launch y=152.000;Ground_Mountain_3_4 y=150.500
+BAD 1872.0 (1171.23, 152.00, 201.45) Ground_CR122 main section 1 y=152.040;Ground_Summit authored launch y=152.000;Ground_Mountain_3_4 y=150.500
+BAD 1875.0 (1168.34, 152.00, 200.63) Ground_CR122 main section 1 y=152.040;Ground_Summit authored launch y=152.000;Ground_Mountain_3_4 y=150.500
+BAD 1878.0 (1165.46, 152.00, 199.81) Ground_CR122 main section 1 y=152.040;Ground_Summit authored launch y=152.000;Ground_Mountain_3_4 y=150.500
+BAD 1881.0 (1162.57, 152.00, 198.99) Ground_CR122 main section 1 y=152.040;Ground_Summit authored launch y=152.000;Ground_Mountain_3_4 y=150.500
+BAD 1884.0 (1159.69, 152.00, 198.17) Ground_CR122 main section 1 y=152.040;Ground_Summit authored launch y=152.000;Ground_Mountain_3_4 y=150.500
+BAD 1887.0 (1156.80, 152.00, 197.35) Ground_CR122 main section 1 y=152.040;Ground_Summit authored launch y=152.000;Ground_Mountain_3_4 y=150.500
+BAD 1890.0 (1153.91, 152.00, 196.53) Ground_CR122 main section 1 y=152.040;Ground_Summit authored launch y=152.000;Ground_Mountain_3_4 y=150.500
+BAD 1893.0 (1151.03, 152.00, 195.71) Ground_CR122 main section 1 y=152.040;Ground_Summit authored launch y=152.000;Ground_Mountain_3_4 y=150.500
+BAD 1896.0 (1148.14, 152.00, 194.89) Ground_CR122 main section 1 y=152.040;Ground_Summit authored launch y=152.000;Ground_Mountain_3_4 y=150.500
+BAD 1899.0 (1145.26, 152.00, 194.07) Ground_CR122 main section 1 y=152.040;Ground_Summit authored launch y=152.000;Ground_Mountain_3_4 y=150.500
+BAD 1902.0 (1142.37, 152.00, 193.25) Ground_CR122 main section 1 y=152.040;Ground_Summit authored launch y=152.000;Ground_Mountain_3_4 y=150.500
+BAD 1905.0 (1139.48, 152.00, 192.43) Ground_CR122 main section 1 y=152.040;Ground_Summit authored launch y=152.000;Ground_Mountain_3_4 y=150.500
+BAD 1908.0 (1136.60, 152.00, 191.62) Ground_CR122 main section 1 y=152.040;Ground_Summit authored launch y=152.000;Ground_Mountain_3_4 y=150.500
+BAD 1911.0 (1133.71, 152.00, 190.80) Ground_CR122 main section 1 y=152.040;Ground_Summit authored launch y=152.000;Ground_Mountain_3_4 y=150.500
+BAD 1914.0 (1130.83, 152.00, 189.98) Ground_CR122 main section 1 y=152.040;Ground_Summit authored launch y=152.000;Ground_Mountain_3_4 y=150.500
+BAD 1917.0 (1127.94, 152.00, 189.16) Ground_CR122 main section 1 y=152.040;Ground_Summit authored launch y=152.000;Ground_Mountain_3_4 y=150.500
+BAD 1920.0 (1125.05, 152.00, 188.34) Ground_CR122 main section 1 y=152.040;Ground_Summit authored launch y=152.000;Ground_Mountain_3_4 y=150.500
+BAD 1923.0 (1122.17, 152.00, 187.52) Ground_CR122 main section 1 y=152.040;Ground_Summit authored launch y=152.000;Ground_Mountain_3_4 y=150.500
+BAD 1926.0 (1119.28, 152.00, 186.70) Ground_CR122 main section 1 y=152.040;Ground_Summit authored launch y=152.000;Ground_Mountain_3_4 y=150.500
+BAD 1929.0 (1116.40, 152.00, 185.88) Ground_CR122 main section 1 y=152.040;Ground_Summit authored launch y=152.000;Ground_Mountain_3_4 y=150.500
+BAD 1932.0 (1113.51, 152.00, 185.06) Ground_CR122 main section 1 y=152.040;Ground_Summit authored launch y=152.000;Ground_Mountain_3_4 y=150.500
+BAD 1935.0 (1110.62, 152.00, 184.24) Ground_CR122 main section 1 y=152.040;Ground_Summit authored launch y=152.000;Ground_Mountain_3_4 y=150.500
+BAD 1938.0 (1107.74, 152.00, 183.42) Ground_CR122 main section 1 y=152.040;Ground_Summit authored launch y=152.000;Ground_Mountain_3_4 y=150.500
+BAD 1941.0 (1104.85, 152.00, 182.60) Ground_CR122 main section 1 y=152.040;Ground_Summit authored launch y=152.000;Ground_Mountain_3_4 y=150.500
+BAD 1944.0 (1101.97, 152.00, 181.78) Ground_CR122 main section 1 y=152.040;Ground_Summit authored launch y=152.000;Ground_Mountain_3_4 y=150.500
+BAD 1947.0 (1099.08, 152.00, 180.97) Ground_CR122 main section 1 y=152.040;Ground_Summit authored launch y=152.000;Ground_Mountain_2_4 y=150.500
+BAD 1950.0 (1096.20, 152.00, 180.15) Ground_CR122 main section 1 y=152.040;Ground_Summit authored launch y=152.000;Ground_Mountain_2_4 y=150.500
+BAD 1953.0 (1093.31, 152.00, 179.33) Ground_CR122 main section 1 y=152.040;Ground_Summit authored launch y=152.000;Ground_Mountain_2_4 y=150.500
+BAD 1956.0 (1090.42, 152.00, 178.51) Ground_CR122 main section 1 y=152.040;Ground_Summit authored launch y=152.000;Ground_Mountain_2_4 y=150.500
+BAD 1959.0 (1087.54, 152.00, 177.69) Ground_CR122 main section 1 y=152.040;Ground_Summit authored launch y=152.000;Ground_Mountain_2_4 y=150.500
+BAD 1962.0 (1084.65, 152.00, 176.87) Ground_CR122 main section 1 y=152.040;Ground_Summit authored launch y=152.000;Ground_Mountain_2_4 y=150.500
+BAD 1965.0 (1081.77, 152.00, 176.05) Ground_CR122 main section 1 y=152.040;Ground_Summit authored launch y=152.000;Ground_Mountain_2_4 y=150.500
+BAD 1968.0 (1078.88, 152.00, 175.23) Ground_CR122 main section 1 y=152.040;Ground_Summit authored launch y=152.000;Ground_Mountain_2_4 y=150.500
+BAD 1971.0 (1075.99, 152.00, 174.41) Ground_CR122 main section 1 y=152.040;Ground_Summit authored launch y=152.000;Ground_Mountain_2_4 y=150.500
+BAD 1974.0 (1073.11, 152.00, 173.59) Ground_CR122 main section 1 y=152.040;Ground_Summit authored launch y=152.000;Ground_Mountain_2_4 y=150.500
+BAD 1977.0 (1070.22, 152.00, 172.77) Ground_CR122 main section 1 y=152.040;Ground_Summit authored launch y=152.000;Ground_Mountain_2_4 y=150.500
+BAD 1980.0 (1067.34, 152.00, 171.95) Ground_CR122 main section 1 y=152.040;Ground_Summit authored launch y=152.000;Ground_Mountain_2_4 y=150.500
+BAD 1983.0 (1064.45, 152.00, 171.13) Ground_CR122 main section 1 y=152.040;Ground_Summit authored launch y=152.000;Ground_Mountain_2_4 y=150.500
+BAD 1986.0 (1061.57, 152.00, 170.32) Ground_CR122 main section 1 y=152.040;Ground_Summit authored launch y=152.000;Ground_Mountain_2_4 y=150.500
+BAD 1989.0 (1058.68, 152.00, 169.50) Ground_CR122 main section 1 y=152.040;Ground_Summit authored launch y=152.000;Ground_Mountain_2_4 y=150.500
+BAD 1992.0 (1055.79, 152.00, 168.68) Ground_CR122 main section 1 y=152.040;Ground_Summit authored launch y=152.000;Ground_Mountain_2_4 y=150.500
+BAD 1995.0 (1052.91, 152.00, 167.86) Ground_CR122 main section 1 y=152.040;Ground_Summit authored launch y=152.000;Ground_Mountain_2_4 y=150.500
+BAD 1998.0 (1050.02, 152.00, 167.04) Ground_CR122 main section 1 y=152.040;Ground_Summit authored launch y=152.000;Ground_Mountain_2_4 y=150.500
+BAD 2001.0 (1047.14, 152.00, 166.22) Ground_CR122 main section 1 y=152.040;Ground_Summit authored launch y=152.000;Ground_Mountain_2_4 y=150.500
+BAD 2004.0 (1044.25, 152.00, 165.40) Ground_CR122 main section 1 y=152.040;Ground_Summit authored launch y=152.000;Ground_Mountain_2_4 y=150.500
+BAD 2007.0 (1041.36, 152.00, 164.58) Ground_CR122 main section 1 y=152.040;Ground_Summit authored launch y=152.000;Ground_Mountain_2_4 y=150.500
+BAD 2010.0 (1038.48, 152.01, 163.76) Ground_CR122 main section 1 y=152.055;Ground_Summit authored launch y=152.000;Ground_Mountain_2_4 y=150.525
+BAD 2013.0 (1035.60, 152.19, 162.94) Ground_CR122 main section 1 y=152.227;Ground_Summit authored launch y=152.049;Ground_Mountain_2_4 y=150.687
+BAD 2016.0 (1032.72, 152.40, 162.13) Ground_CR122 main section 1 y=152.443;Ground_Summit authored launch y=152.226;Ground_Mountain_2_4 y=150.800
+BAD 2019.0 (1029.84, 152.62, 161.31) Ground_CR122 main section 1 y=152.658;Ground_Summit authored launch y=152.531;Ground_Mountain_2_4 y=150.800
+BAD 2022.0 (1026.99, 153.05, 160.50) Ground_CR122 main section 1 y=153.095;Ground_Summit authored launch y=152.961;Ground_Mountain_2_4 y=150.800
+BAD 2025.0 (1024.17, 153.69, 159.70) Ground_CR122 main section 1 y=153.728;Ground_Summit authored launch y=153.510;Ground_Mountain_2_4 y=150.814
+BAD 2028.0 (1021.35, 154.32, 158.90) Ground_CR122 main section 1 y=154.362;Ground_Summit authored launch y=154.184
+BAD 2031.0 (1018.55, 155.04, 158.10) Ground_CR122 main section 1 y=155.083;Ground_Summit authored launch y=154.975
+BAD 2034.0 (1015.82, 156.02, 157.33) Ground_CR122 main section 1 y=156.058;Ground_Summit authored launch y=155.863
+BAD 2037.0 (1013.10, 157.03, 156.56) Ground_CR122 main section 1 y=157.074;Ground_Summit authored launch y=156.862
+BAD 2040.0 (1010.39, 158.06, 155.79) Ground_CR122 main section 1 y=158.098;Ground_Summit authored launch y=157.974
+BAD 2043.0 (1007.75, 159.26, 155.04) Ground_CR122 main section 1 y=159.301;Ground_Summit authored launch y=159.167
+BAD 2046.0 (1005.17, 160.61, 154.31) Ground_CR122 main section 1 y=160.651;Ground_Summit authored launch y=160.436
+BAD 2049.0 (1002.60, 161.96, 153.58) Ground_CR122 main section 1 y=162.002;Ground_Summit authored launch y=161.808
+BAD 2052.0 (1000.03, 163.33, 152.85) Ground_CR122 main section 1 y=163.371;Ground_Summit authored launch y=163.278
+BAD 2055.0 (997.57, 164.90, 152.15) Ground_CR122 main section 1 y=164.942;Ground_Summit authored launch y=164.781
+BAD 2058.0 (995.15, 166.53, 151.46) Ground_CR122 main section 1 y=166.573;Ground_Summit authored launch y=166.354
+BAD 2061.0 (992.73, 168.16, 150.77) Ground_CR122 main section 1 y=168.204;Ground_Summit authored launch y=168.019
+BAD 2064.0 (990.31, 169.81, 150.09) Ground_CR122 main section 1 y=169.853;Ground_Summit authored launch y=169.766
+BAD 2067.0 (988.02, 171.63, 149.44) Ground_CR122 main section 1 y=171.671;Ground_Summit authored launch y=171.513
+BAD 2070.0 (985.76, 173.49, 148.80) Ground_CR122 main section 1 y=173.533;Ground_Summit authored launch y=173.316
+BAD 2073.0 (983.49, 175.36, 148.15) Ground_CR122 main section 1 y=175.396;Ground_Summit authored launch y=175.199
+BAD 2076.0 (981.20, 177.17, 147.50) Ground_CR122 main section 1 y=177.211;Ground_Summit authored launch y=177.190
+APPROACH Eastbound Gully Flight 157.3 (787.98, 107.92, -249.35) tangent=(0.62, 0.11, -0.78)
+APPROACH Eastbound Gully Flight 167.3 (794.63, 108.87, -256.74) tangent=(0.71, 0.08, -0.70)
+APPROACH Eastbound Gully Flight 177.3 (802.25, 109.53, -263.18) tangent=(0.80, 0.06, -0.59)
+APPROACH Eastbound Gully Flight 187.3 (810.76, 110.04, -268.37) tangent=(0.89, 0.05, -0.45)
+APPROACH Eastbound Gully Flight 197.3 (820.23, 110.28, -271.52) tangent=(0.97, 0.01, -0.22)
+APPROACH Eastbound Gully Flight 207.3 (830.09, 110.27, -273.17) tangent=(0.99, -0.01, -0.12)
+APPROACH Eastbound Gully Flight 217.3 (840.04, 110.14, -274.09) tangent=(1.00, -0.02, -0.08)
+APPROACH Eastbound Gully Flight 227.3 (850.00, 110.00, -274.95) tangent=(1.00, 0.00, -0.09)
+APPROACH Eastbound Gully Flight 237.3 (860.00, 110.00, -275.00) tangent=(1.00, 0.00, 0.00)
+APPROACH Eastbound Gully Flight 247.3 (870.00, 110.00, -275.00) tangent=(1.00, 0.00, 0.00)
+APPROACH Eastbound Gully Flight 257.3 (880.00, 110.00, -275.00) tangent=(1.00, 0.00, 0.00)
+APPROACH Eastbound Gully Flight 267.3 (890.00, 110.00, -275.00) tangent=(1.00, 0.00, 0.00)
+APPROACH Eastbound Gully Flight 277.3 (900.00, 110.00, -275.00) tangent=(1.00, 0.00, 0.00)
+APPROACH Eastbound Gully Flight 287.3 (910.00, 110.00, -275.00) tangent=(1.00, 0.00, 0.00)
+APPROACH Eastbound Gully Flight 297.3 (920.00, 110.00, -275.00) tangent=(1.00, 0.00, 0.00)
+APPROACH Eastbound Gully Flight 307.3 (930.00, 110.00, -275.00) tangent=(1.00, 0.00, 0.00)
+APPROACH Eastbound Gully Flight 317.3 (940.00, 110.00, -275.00) tangent=(1.00, 0.00, 0.00)
+APPROACH Eastbound Gully Flight 327.3 (950.00, 110.00, -275.00) tangent=(1.00, 0.00, 0.00)
+APPROACH Eastbound Gully Flight 337.3 (960.00, 110.00, -275.00) tangent=(1.00, 0.00, 0.00)
+APPROACH Eastbound Gully Flight 347.3 (970.00, 110.00, -275.00) tangent=(1.00, 0.00, 0.00)
+APPROACH Eastbound Gully Flight 357.3 (980.00, 110.00, -275.00) tangent=(1.00, 0.00, 0.00)
+APPROACH Eastbound Gully Flight 367.3 (990.00, 110.00, -275.00) tangent=(1.00, 0.00, 0.00)
+APPROACH Eastbound Gully Flight 377.3 (1000.00, 110.00, -275.00) tangent=(1.00, 0.00, 0.00)
+APPROACH Eastbound Gully Flight 387.3 (1010.00, 110.00, -275.00) tangent=(1.00, 0.00, 0.00)
+APPROACH Eastbound Gully Flight 397.3 (1019.98, 110.60, -275.00) tangent=(0.99, 0.11, 0.00)
+APPROACH Eastbound Gully Flight 407.3 (1029.82, 112.36, -275.00) tangent=(0.97, 0.23, 0.00)
+APPROACH Eastbound Gully Flight 417.3 (1039.40, 115.19, -275.00) tangent=(0.94, 0.33, 0.00)
+APPROACH Eastbound Gully Flight 427.3 (1048.66, 118.97, -275.00) tangent=(0.91, 0.42, 0.00)
+APPROACH Eastbound Gully Flight 437.3 (1057.54, 123.56, -275.00) tangent=(0.87, 0.49, 0.00)
+APPROACH Eastbound Gully Flight 447.3 (1066.03, 128.84, -275.00) tangent=(0.83, 0.55, 0.00)
+APPROACH Homeward Summit Flight 1780.5 (1159.78, 152.00, 149.92) tangent=(0.92, 0.00, 0.39)
+APPROACH Homeward Summit Flight 1790.5 (1168.52, 152.00, 154.73) tangent=(0.80, 0.00, 0.59)
+APPROACH Homeward Summit Flight 1800.5 (1175.76, 152.00, 161.58) tangent=(0.63, 0.00, 0.78)
+APPROACH Homeward Summit Flight 1810.5 (1181.71, 152.00, 169.62) tangent=(0.60, 0.00, 0.80)
+APPROACH Homeward Summit Flight 1820.5 (1186.87, 152.00, 178.15) tangent=(0.38, 0.00, 0.93)
+APPROACH Homeward Summit Flight 1830.5 (1189.91, 152.00, 187.67) tangent=(0.26, 0.00, 0.97)
+APPROACH Homeward Summit Flight 1840.5 (1192.36, 152.00, 197.36) tangent=(0.20, 0.00, 0.98)
+APPROACH Homeward Summit Flight 1850.5 (1191.96, 152.00, 206.86) tangent=(-0.99, 0.00, 0.11)
+APPROACH Homeward Summit Flight 1860.5 (1182.30, 152.00, 204.59) tangent=(-0.96, 0.00, -0.27)
+APPROACH Homeward Summit Flight 1870.5 (1172.68, 152.00, 201.86) tangent=(-0.96, 0.00, -0.27)
+APPROACH Homeward Summit Flight 1880.5 (1163.07, 152.00, 199.13) tangent=(-0.96, 0.00, -0.27)
+APPROACH Homeward Summit Flight 1890.5 (1153.45, 152.00, 196.40) tangent=(-0.96, 0.00, -0.27)
+APPROACH Homeward Summit Flight 1900.5 (1143.83, 152.00, 193.67) tangent=(-0.96, 0.00, -0.27)
+APPROACH Homeward Summit Flight 1910.5 (1134.21, 152.00, 190.94) tangent=(-0.96, 0.00, -0.27)
+APPROACH Homeward Summit Flight 1920.5 (1124.59, 152.00, 188.21) tangent=(-0.96, 0.00, -0.27)
+APPROACH Homeward Summit Flight 1930.5 (1114.97, 152.00, 185.47) tangent=(-0.96, 0.00, -0.27)
+APPROACH Homeward Summit Flight 1940.5 (1105.35, 152.00, 182.74) tangent=(-0.96, 0.00, -0.27)
+APPROACH Homeward Summit Flight 1950.5 (1095.73, 152.00, 180.01) tangent=(-0.96, 0.00, -0.27)
+APPROACH Homeward Summit Flight 1960.5 (1086.11, 152.00, 177.28) tangent=(-0.96, 0.00, -0.27)
+APPROACH Homeward Summit Flight 1970.5 (1076.49, 152.00, 174.55) tangent=(-0.96, 0.00, -0.27)
+APPROACH Homeward Summit Flight 1980.5 (1066.87, 152.00, 171.82) tangent=(-0.96, 0.00, -0.27)
+APPROACH Homeward Summit Flight 1990.5 (1057.25, 152.00, 169.09) tangent=(-0.96, 0.00, -0.27)
+APPROACH Homeward Summit Flight 2000.5 (1047.63, 152.00, 166.36) tangent=(-0.96, 0.00, -0.27)
+APPROACH Homeward Summit Flight 2010.5 (1038.01, 152.04, 163.63) tangent=(-0.96, 0.05, -0.27)
+APPROACH Homeward Summit Flight 2020.5 (1028.42, 152.80, 160.91) tangent=(-0.95, 0.16, -0.27)
+APPROACH Homeward Summit Flight 2030.5 (1019.02, 154.90, 158.24) tangent=(-0.92, 0.28, -0.26)
+APPROACH Homeward Summit Flight 2040.5 (1009.95, 158.23, 155.66) tangent=(-0.90, 0.36, -0.25)
+APPROACH Homeward Summit Flight 2050.5 (1001.32, 162.63, 153.21) tangent=(-0.86, 0.45, -0.24)
+APPROACH Homeward Summit Flight 2060.5 (993.14, 167.88, 150.89) tangent=(-0.81, 0.54, -0.23)
+APPROACH Homeward Summit Flight 2070.5 (985.39, 173.80, 148.69) tangent=(-0.75, 0.62, -0.21)

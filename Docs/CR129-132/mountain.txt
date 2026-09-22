@@ -1,0 +1,2 @@
+Eastbound Gully Flight: straight run-up+ramp 260.0m, ramp 60m, rise 21.60m; lip/destination retained.
+Homeward Summit Flight: straight run-up+ramp 290.0m, ramp 60m, rise 25.92m; lip/destination retained.

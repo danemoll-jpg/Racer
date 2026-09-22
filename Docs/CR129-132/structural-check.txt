@@ -1,0 +1,3 @@
+Street Forward intended grid (322.09, 8.19, 543.72); supported suspension probes=4/4
+Junction support samples=161, max height delta per .5m=0.157m (retained hill grade included)
+Forward straight runway samples=336; exactly one collider per sample; max profile error=0.0003m; visible/collision assets match.

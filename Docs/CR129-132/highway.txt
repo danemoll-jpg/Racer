@@ -1,0 +1,7 @@
+Forward grid x/z retained; road=(322.09, 8.19, 543.72); collider=(322.09, 8.19, 543.72); height error=0.0001
+Assets/Scenes/StreetLoopGreybox.unity terrain tiles=4
+Assets/Scenes/LakeWoods.unity terrain tiles=4
+Assets/Scenes/StreetLoopReverse.unity terrain tiles=4
+Assets/Scenes/ForestLoopReverse.unity terrain tiles=4
+Assets/Scenes/MountainLoop.unity terrain tiles=4
+Assets/Scenes/MountainLoopReverse.unity terrain tiles=4
