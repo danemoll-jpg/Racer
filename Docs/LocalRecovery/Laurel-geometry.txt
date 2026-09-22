@@ -1,0 +1,1 @@
+Removed CR122/CR133 elevated Laurel overlays. Grounded valley route; straight 30m approach + 25m quadratic ramp, 1.25m rise; axis=(-0.05, 0.00, 1.00); start=(503.08, 88.02, -172.00); lip=(500.33, 89.27, -117.07); main-road target=(499.53, 87.67, -101.09); existing main-road station=3948; earth-supported 7m maximum half-width landing shoulder. No vehicle changes or boost.

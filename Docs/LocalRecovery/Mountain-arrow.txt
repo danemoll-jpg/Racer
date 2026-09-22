@@ -1,0 +1,1 @@
+First arrow already had zero colliders. Removed the shallow approach dip and abrupt faceted grades locally at original stations 35–100 (65m). Replacement road is a shared visible/collision mesh sampled at 0.25m, tangent-matched at the far end; arrow remains visual-only. No other Mountain route, ramp or shortcut redesigned.

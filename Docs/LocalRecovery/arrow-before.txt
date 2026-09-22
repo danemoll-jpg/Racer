@@ -1,0 +1,5 @@
+lane=-4 maximum .1m step=0.0218 normal change=2.114 at=84.70: Ground_CR133 mountain driving surface y=78.9085 normal=(-0.02, 0.99, -0.11)
+lane=-2 maximum .1m step=0.0184 normal change=2.114 at=84.60: Ground_CR133 mountain driving surface y=78.8975 normal=(-0.02, 0.99, -0.11)
+lane=0 maximum .1m step=0.0155 normal change=2.114 at=84.50: Ground_CR133 mountain driving surface y=78.8866 normal=(-0.02, 0.99, -0.11)
+lane=2 maximum .1m step=0.0155 normal change=2.114 at=84.40: Ground_CR133 mountain driving surface y=78.8756 normal=(-0.02, 0.99, -0.11)
+lane=4 maximum .1m step=0.0155 normal change=2.114 at=84.30: Ground_CR133 mountain driving surface y=78.8647 normal=(-0.02, 0.99, -0.11)

@@ -1,0 +1,8 @@
+System.Reflection.TargetInvocationException: Exception has been thrown by the target of an invocation. ---> System.Exception: Runway continuity error=0.0001525879, angle=50.13187
+  at LocalCorrectiveChecks.LaurelGeometry () [0x00628] in C:\Users\danmo\Racer\Assets\Scripts\Editor\LocalCorrectiveChecks.cs:94 
+  at (wrapper managed-to-native) System.Reflection.RuntimeMethodInfo.InternalInvoke(System.Reflection.RuntimeMethodInfo,object,object[],System.Exception&)
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x0006a] in <c5ae8a4eeb824526b5df2932bc2395e0>:0 
+   --- End of inner exception stack trace ---
+  at System.Reflection.RuntimeMethodInfo.Invoke (System.Object obj, System.Reflection.BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x00083] in <c5ae8a4eeb824526b5df2932bc2395e0>:0 
+  at System.Reflection.MethodBase.Invoke (System.Object obj, System.Object[] parameters) [0x00000] in <c5ae8a4eeb824526b5df2932bc2395e0>:0 
+  at PipelineEvaluation.PipelineEval_0cdc87e9+<>c.<Execute>b__0_0 () [0x00032] in <1c383b3444024bcfbf896379149a914c>:0 

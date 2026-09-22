@@ -502,7 +502,7 @@ namespace Racer
             if(!countdown && flow.PenaltyNotice!=null)banner.text=flow.PenaltyNotice;
             songBanner.gameObject.SetActive(!flow.MenuVisible);songBanner.text=flow.Radio?.Toast??"";
             var recovery=flow.Race.vehicle.GetComponent<VehicleRespawn>();
-            if(!countdown && recovery.Pending) banner.text="Waiting for clear local support — race clock continues";
+            if(!countdown && recovery.Pending) banner.text=recovery.LastRecovery+" — race clock continues";
             if (flow.State == RaceFlow.Stage.Racing && flow.Race.Progress.Finished)
                 banner.text = "Finished — AI are racing. Pause to skip waiting / estimate AI.";
             if(!countdown && flow.PenaltyNotice!=null)banner.text=flow.PenaltyNotice;
