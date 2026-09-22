@@ -1,0 +1,22 @@
+[
+  {
+    "Path": "C:\\Users\\danmo\\Racer\\Launcher\\vendor\\JSON-LICENSE.txt",
+    "Hash": "46A65CFFD1EA955132D95A8DD921640714A8D6B537D2E4E482D31145AE95B603"
+  },
+  {
+    "Path": "C:\\Users\\danmo\\Racer\\Launcher\\vendor\\json.hpp",
+    "Hash": "AAF127C04CB31C406E5B04A63F1AE89369FCCDE6D8FA7CDDA1ED4F32DFC5DE63"
+  },
+  {
+    "Path": "C:\\Users\\danmo\\Racer\\Launcher\\vendor\\MINIZ-LICENSE.txt",
+    "Hash": "0115478D567121238CF6CC1C0C361926CF07A49D9E4C9E66DA97FAC6A01646B3"
+  },
+  {
+    "Path": "C:\\Users\\danmo\\Racer\\Launcher\\vendor\\miniz.c",
+    "Hash": "E2C1AEB66EEF9191D8C3FEB164DB2DEF2335A61D039BF04ED849F6B042433B30"
+  },
+  {
+    "Path": "C:\\Users\\danmo\\Racer\\Launcher\\vendor\\miniz.h",
+    "Hash": "B53B62ED122E559B8F679E3CB787A0B0035FE87A58F909DA0E44931678F4E85F"
+  }
+]

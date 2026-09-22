@@ -1,0 +1,13 @@
+{
+  "version": "0.21.0-launcher1",
+  "build": 21002,
+  "files": 418,
+  "runtimeFiles": 220,
+  "soundtrackFiles": 189,
+  "zip": "C:\\Users\\danmo\\Racer\\Builds\\LauncherRelease-21002\\assets\\WoodstockRush-0.21.0-launcher1-Full.zip",
+  "bytes": 1017500040,
+  "sha256": "74a2c78a0e00158d402ed8aedfb2ac377997ec03a78042d9fd6333fefa82048d",
+  "extractedIdentity": true,
+  "privateKeysOrSourceIncluded": false,
+  "previousFeedbackBuildPreserved": true
+}

@@ -1,0 +1,65 @@
+{
+  "root": "C:\\Users\\danmo\\Racer\\Temp\\cr119-fixtures-1790036398380697100",
+  "checks": [
+    {
+      "check": "signed starter inventory and isolated saves",
+      "outcome": "PASS"
+    },
+    {
+      "check": "signed old-to-new activation",
+      "outcome": "PASS"
+    },
+    {
+      "check": "pre-update save backup; current save unchanged",
+      "outcome": "PASS"
+    },
+    {
+      "check": "rollback keeps current saves",
+      "outcome": "PASS"
+    },
+    {
+      "check": "offline leaves installed version selected",
+      "outcome": "PASS"
+    },
+    {
+      "check": "unsigned and changed signature payload rejected",
+      "outcome": "PASS"
+    },
+    {
+      "check": "corrupt package rejected before activation",
+      "outcome": "PASS"
+    },
+    {
+      "check": "cancel download before activation",
+      "outcome": "PASS"
+    },
+    {
+      "check": "running game defers installation",
+      "outcome": "PASS"
+    },
+    {
+      "check": "ZIP traversal rejected",
+      "outcome": "PASS"
+    },
+    {
+      "check": "insufficient storage keeps current game",
+      "outcome": "PASS"
+    },
+    {
+      "check": "interrupted activation uses prior atomic pointer",
+      "outcome": "PASS"
+    },
+    {
+      "check": "music add/change/withdraw; unchanged bytes reused; personal/modified/unknown preserved",
+      "outcome": "PASS"
+    },
+    {
+      "check": "soundtrack activation leaves game pointer unchanged",
+      "outcome": "PASS"
+    },
+    {
+      "check": "soundtrack interrupted transaction recovery",
+      "outcome": "PASS"
+    }
+  ]
+}

@@ -65,7 +65,7 @@ namespace Racer
         public string Song=>ChannelName=="Off"?"Radio Off":song;
         public string Toast=>Time.unscaledTime<stationUntil?stationToast:Time.unscaledTime<toastUntil?Song:null;
         void SongToast(float seconds=5) { toastUntil=Mathf.Max(Time.unscaledTime,stationUntil)+seconds; }
-        public static string BundledFolder=>Path.GetFullPath(Path.Combine(Application.dataPath,"..","Music"));
+        public static string BundledFolder=>LocalFolder(LauncherBridge.ManagedMusic)?LauncherBridge.ManagedMusic:Path.GetFullPath(Path.Combine(Application.dataPath,"..","Music"));
         public bool Bundled=>flow.Save.Settings.musicSource=="bundled";
         public bool IncludeSubfolders=>flow.Save.Settings.musicRecursive;
         public string Folder=>Bundled?BundledFolder:flow.Save.Settings.musicFolder;
@@ -86,6 +86,7 @@ namespace Racer
         }
         void EnsureDefault()
         {
+            if(Bundled&&LocalFolder(LauncherBridge.ManagedMusic))return;
             try
             {
                 if(!Bundled&&Folder!=Path.Combine(Application.persistentDataPath,"Music"))return;
@@ -111,7 +112,8 @@ namespace Racer
             Status="Scanning…";
             activeScanRevision=scanRevision;scanCancellation=new CancellationTokenSource();
             scanProgress=new MusicCollection.Progress();var token=scanCancellation.Token;var progress=scanProgress;bool recursive=true;
-            scan=Task.Run(()=>MusicCollection.Scan(folder,recursive,token,progress));
+            var personal=Bundled&&LocalFolder(LauncherBridge.PersonalMusic)?LauncherBridge.PersonalMusic:null;
+            scan=Task.Run(()=>personal==null?MusicCollection.Scan(folder,recursive,token,progress):MusicCollection.ScanShared(folder,personal,token,progress));
         }
         public void CancelScan(){scanRevision++;rescanPending=false;scanCancellation?.Cancel();scanSummary="Scan cancelled; previous collection retained";}
         public void SetRecursive(bool recursive){flow.Save.Settings.musicRecursive=recursive;flow.Save.SaveSettings();Rescan();}

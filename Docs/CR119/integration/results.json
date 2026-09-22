@@ -1,0 +1,36 @@
+{
+  "work": "C:\\Users\\danmo\\Racer\\Temp\\cr119-integration-1790036588935098700",
+  "checks": [
+    {
+      "check": "updated-startup",
+      "build": 21002,
+      "exit": 0,
+      "ready": true,
+      "muted": true,
+      "settingsAndPlaylistPreserved": true,
+      "reusedPriorSuccessfulStartup": true
+    },
+    {
+      "check": "rollback-startup",
+      "build": 21001,
+      "exit": 0,
+      "ready": true,
+      "muted": true,
+      "settingsAndPlaylistPreserved": true
+    }
+  ],
+  "discovery": {
+    "save": "C:\\Users\\danmo\\Racer\\Temp\\cr119-integration-1790036588935098700\\isolated-saves",
+    "managed": "C:\\Users\\danmo\\Racer\\Temp\\cr119-integration-1790036588935098700\\install\\shared\\soundtracks\\1",
+    "personal": "C:\\Users\\danmo\\Racer\\Temp\\cr119-integration-1790036588935098700\\install\\shared\\PersonalMusic",
+    "tracks": 0,
+    "stations": [
+      "Groove",
+      "Louis Prima",
+      "Personal fixture",
+      "Punk Rock Classics",
+      "Rock Classics"
+    ]
+  },
+  "saveBackups": true
+}

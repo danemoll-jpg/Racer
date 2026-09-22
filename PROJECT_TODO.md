@@ -1692,6 +1692,8 @@ Record choices we do not want to repeatedly reconsider.
 
 # SESSION HANDOFF
 
+CR-119 local implementation delivery: 0.21.0-launcher1/build21002. Complete native launcher starter with all bundled music and standalone cover is Builds/LauncherRelease-21002/assets/WoodstockRush-0.21.0-launcher1-Full.zip. Signed updater/recovery and independent soundtrack sync implemented; 15 bounded fixtures, actual signed runtime update, muted startup/rollback and 418-file ZIP identity pass. Safety checkpoint7cc2f1da14b16b136746c575355c73067708860f; completion ID in delivery response. Public release/hosted update needs explicit approval after automatic review rejected credential access; nothing uploaded. Physical Deck/controller/existing-prefix acceptance pending. See Docs/CR119/DELIVERY.md. Preserve completed0.20.1 feedback ZIP/runtime/Latest and accepted people/turkeys/mountains/ghosts. No additional gameplay/audio tests authorized by this phase.
+
 **CURRENT REVIEW / 2026-09-21 — Dan accepts 0.20.0-review1:** Household people scenes and turkeys VERIFIED; both Mountain Loops ACCEPTED as passable and fun. This supersedes all older NOT ACCEPTED/pending-sighting wording. Only two localized reverse-course cleanup items (CR-120/121) and reopened CR-118 title voice/theme onset are authorized now. No redesign, full laps, AI/all-vehicle matrices or general polish. Hwy 92 and keyboard naming are NOT YET reviewed by Dan; championship acceptance was not reported. Ghosts remain accepted/untouched. CR-119 is reserved for the authorized launcher, continued after this small feedback delivery checkpoint.
 
 **PREVIOUS AUTHORIZATION — 2026-09-21 / CR-105–111:** Road-boundary/through-traffic and mailbox fixes; selectable 1–5 laps and solo Unlimited; saved race playlists; fast-travel confirmation/arrival/map closure; Mountain Loop plus reverse with big jumps and alternates; occasional Kyle-property wild turkeys. Ghosts were accepted by Dan on 2026-09-21; no ghost work/testing is authorized in CR-112–118. Vehicle/stat/unlock/driver customization ideas are backlog only. Strict new-feature/reported-issue testing limits below supersede older broad-test instructions. Implemented and targeted checks complete in 0.19.0-review3; packaging/portable verification is recorded in Docs/CR105-111. New work awaits Dan review.
@@ -1972,6 +1974,16 @@ Review preview built with zero errors. Complete versioned Windows runtime, ZIP, 
 
 ## CR-119 — Launcher/updater (reserved, authorized)
 Continue existing LAUNCHER_CODEX_PROMPT.md / LAUNCHER_SCOPE.md after the feedback delivery checkpoint. Existing repository: danemoll-jpg/woodstock-rush-releases. No scope expansion.
+
+### CR-119 local delivery — 0.21.0-launcher1
+- [x] Native silent launcher, quick play, optional signed game/soundtrack updates, cancellation/offline Play, independent pointers, safe ZIP inventory validation, atomic activation/recovery, save backups and rollback, child lifetime and nonce startup handshake.
+- [x] Complete initial soundtrack (187 playable + two originals), shared managed/personal roots and station names; custom-folder preference retained; per-file optional soundtrack sync preserves modified/unknown/personal files.
+- [x] Publisher preparation/full starter/independent component helpers, public-key signing, draft/verify/latest-last publisher, local dry run, Windows/Deck migration instructions preserving the existing executable path and shortcut identity by design.
+- [x] 15 bounded core fixtures; actual signed runtime update + muted startup and rollback startup; settings/playlist retention; complete 418-file extracted ZIP identity. No unrelated game/audio/ghost tests.
+- [ ] Explicit publishing approval, authenticated access and hosted release update. Automatic approval review rejected the credential probe before execution; no credentials accessed and nothing uploaded. Public catalog is not live yet.
+- [ ] Physical Deck/controller, actual existing Steam AppID/prefix migration, and Dan launcher UX acceptance. Windows isolated-save evidence does not close these.
+
+Safety checkpoint `7cc2f1da14b16b136746c575355c73067708860f`. Full starter at Builds/LauncherRelease-21002/assets/WoodstockRush-0.21.0-launcher1-Full.zip. Previous 0.20.1 feedback runtime/ZIP/Latest preserved. See Docs/CR119/DELIVERY.md and VALIDATION.md. Completion commit is reported in the delivery response.
 
 ## CR-120 — Reverse summit false right turn
 Authorized local barrier/occlusion and direction-specific guidance; preserve accepted proper jump/run-up and forward/free-roam access. One local approach only; no AI/full-lap tests.

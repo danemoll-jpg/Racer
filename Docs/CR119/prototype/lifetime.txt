@@ -1,0 +1,5 @@
+Muted isolated-save prototype; physical controller/Deck not claimed
+PASS Keyboard/controller action selection model
+PASS Child launched with game directory as working directory; parent remains alive
+PASS Parent still alive while child runs; request normal WM_CLOSE
+Child exit=0; parent closes after child

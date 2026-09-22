@@ -36,6 +36,20 @@ namespace Racer
               .ThenBy(g=>g.Key,StringComparer.Ordinal).Select(g=>new Channel{Id=g.Key==""?"root:":"folder:"+g.Key,Name=g.Key==""?"General":g.Key,Paths=g.OrderBy(p=>p,StringComparer.OrdinalIgnoreCase).ToArray()}).ToArray();
         }
         public sealed class Progress { public int Tracks, Entries, Folders; }
+        public static Result ScanShared(string managed,string personal,CancellationToken token,Progress progress=null)
+        {
+            var result=Scan(managed,true,token,progress);
+            if(token.IsCancellationRequested||string.Equals(Path.GetFullPath(managed),Path.GetFullPath(personal),StringComparison.OrdinalIgnoreCase))return result;
+            var extra=Scan(personal,true,token);
+            int room=Math.Max(0,MaxTracks-result.Paths.Count);
+            var paths=extra.Paths.Take(room).ToHashSet(StringComparer.OrdinalIgnoreCase);
+            result.Paths.AddRange(paths);
+            result.Channels=result.Channels.Concat(extra.Channels.Select(c=>new Channel{Id=c.Id,Name=c.Name,Paths=c.Paths.Where(paths.Contains).ToArray()}))
+                .GroupBy(c=>c.Id,StringComparer.OrdinalIgnoreCase).Select(g=>new Channel{Id=g.First().Id,Name=g.First().Name,Paths=g.SelectMany(c=>c.Paths).ToArray()}).OrderBy(c=>c.Name,StringComparer.OrdinalIgnoreCase).ToArray();
+            result.Entries+=extra.Entries;result.Folders+=extra.Folders;result.Unsupported+=extra.Unsupported;result.Links+=extra.Links;result.Inaccessible+=extra.Inaccessible;result.Oversized+=extra.Oversized;
+            result.Limited|=extra.Limited||extra.Paths.Count>room;result.Cancelled|=extra.Cancelled;result.Error??=extra.Error;
+            return result;
+        }
         public static bool Supported(string path)
         {var ext=Path.GetExtension(path);return ext.Equals(".mp3",StringComparison.OrdinalIgnoreCase)||ext.Equals(".wav",StringComparison.OrdinalIgnoreCase)||ext.Equals(".ogg",StringComparison.OrdinalIgnoreCase);}
         public static Result Scan(string root,bool recursive,CancellationToken cancellation,Progress progress=null)
