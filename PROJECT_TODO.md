@@ -9,6 +9,28 @@
 
 **Current scope:** Update this document and record future work only. Leave the game as it is while Dan drives and collects notes, conserving tokens until his usage reset in a couple of days. No mapping run, scene edit, AI fix, build, publication, scheduled task or automatic resumption is authorized by this planning note. Resume only when Dan asks. Older embedded work prompts, “current authorization” labels, broad testing requirements and delivery paths below are historical context, not new instructions to execute. This current handoff governs the pause and review status; unrelated backlog acceptance is unchanged.
 
+### Dan's acceptance reconciliation — 2026-09-22
+
+This review supersedes older open/awaiting-review labels for the items named here. It records Dan's acceptance, not new implementation or testing.
+
+- **COMPLETE:** Incorrect shortcut checkpoint penalties (BUG-004 / CR-046 / CR-050); motorcycle momentum loss at the Fox Gully house jump (BUG-008); local reverse-Mountain junction/sign guidance (CR-120/121). These correspond to items 3, 4 and 7 in the consolidated review.
+- **COMPLETE:** All delivered-feature review areas in that review except navigation: highway/traffic continuations and variety; mailbox placement; selectable laps and unlimited solo; saved playlists and keyboard naming; championship standings/summary/winner; fast-travel confirmation/arrival/map closure; shallow-water driving; AI mistake presentation and estimated finish classification; radio/library/station/metadata features; tire audio; non-turkey wildlife/bat presentation and audio; free roam.
+- **OPEN — intermittent:** Spoken title clipping (CR-118). Dan says it sometimes works and sometimes does not. Keep the report open; no audio changes or fallback removal are requested now.
+- **UNTESTED BY DAN:** Summit jump scoring. The historical zero-award defect remains recorded; Dan has not tested it, so neither a current reproduction nor acceptance is claimed.
+- **OPEN / FUTURE WORK:** General navigation and all-track arrows below; House 3 / Forest / Laurel cleanup, route atlas and the specific stuck-AI report. Acceptance of general AI presentation does not close that stuck-AI defect.
+- Physical controller/Deck/Steam migration, friend testing, launcher UX review and optional expansion ideas were separate lists and are not marked complete by this acceptance.
+
+### Navigation backlog — spaced direction arrows on every track
+
+**Requested by Dan:** Add direction arrows across all tracks; it is sometimes easy to get lost, and arrows help substantially. Arrows can be spread out rather than forming a continuous dense line.
+
+- [ ] Cover every race course and both forward/reverse variants with arrows appropriate to the active direction.
+- [ ] Provide periodic reassurance on stretches where the continuation becomes unclear, with clearer guidance before turns, forks and confusing junctions.
+- [ ] Keep the main continuation distinguishable from optional shortcut entrances and rejoins; do not point drivers into the wrong end of a route.
+- [ ] Use the existing arrow style where practical, with readable placement that does not obstruct driving or require terrain changes. Exact spacing can follow sightlines; no fixed distance or new guidance system has been selected.
+
+This is future navigation work during the existing pause, not permission to start editing all tracks now. The completed CR-120/121 repairs stay closed; broader arrow coverage is a separate request. Review the House 3 area's final route choice before placing permanent guidance there.
+
 ### House 3 / Forest / Laurel area: findings and unresolved design
 
 - Dan intended a straightforward driveway descending from the main street to neighbor House 3. The curly driveway seemed decorative, but its terrain support interferes with drivable routes.
@@ -746,7 +768,7 @@ Use this section whenever something is wrong.
 **Requested fix:** Identify repeat-triggering and misleading wipeout detection, emit only meaningful state-transition feedback, keep recovery help compact and dismissible/short-lived, and avoid prompts during normal driving, normal landings, recoverable bumps or menus. No per-frame message recreation or repeated sound spam. Validate together with CR-029.
 
 ### BUG-004 — Designated shortcuts wrongly charge bypassed gates
-**Status:** OPEN — latest playtest still reports ambiguous shortcut gates 6/9; see CR-050.
+**Status:** COMPLETE / CLOSED by Dan on 2026-09-22; supersedes the historical unresolved gates 6/9 report below.
 **Reported:** Dan received checkpoint penalties while using authored shortcuts despite explicit penalty-free bypass rules. Reproduce player-like imperfect entries/airborne travel/rejoins in actual Latest, confirm package source, log per-racer branch/gate/penalty state, and fix recognition and exit/abandonment handling without requiring a perfect centerline. Authorized bypass gates must never receive miss/cut charges or buzzes on a legitimate traversal. Local recovery must preserve earned branch context without allowing entry-touch giant-cut exploits.  
 **Acceptance:** Repeated human-like runs of every shortcut/all profiles including recovery/reverse/edge/airborne cases finish with zero bypassed-gate charges; unrelated ordinary misses still work.
 **Historical 0.6.1 result (superseded by Dan’s report):** 80/80 ordinary-frame route/road attempts, 48 verified branch exits and16 local recoveries: zero misses, charges or buzzes. Swept guards cover reversal, abandonment, entrance-touch exploits and shared AI rules. Exact old user incident was not reproduced; source recognition/context defects were corrected.
@@ -770,7 +792,7 @@ Use this section whenever something is wrong.
 **Result:** Only the identified floating Fox Gully residence was adapted into the supported glass-entry/ramp/upper-window stunt. All12 final gully branch attempts crossed both panes. All46 unrelated building transforms unchanged.
 
 ### BUG-008 — Motorcycle loses momentum at gully-house jump
-**Status:** IMPLEMENTED IN 0.6.2-review1 — awaiting Dan review; not accepted/closed.
+**Status:** COMPLETE / CLOSED by Dan on 2026-09-22; the earlier implementation and test notes remain historical evidence.
 **Reported:** Motorcycle slows again at the house jump, similar to the earlier ramp issue. Inspect actual input/velocity/contact normals/separation, panes/debris/restoration, internal floor seams, suspension/stability/wipeout and collision filtering. Re-test the prior scoped CCD fix rather than assume the same cause. No compensating launch boost or globally disabled collision.  
 **Acceptance:** Repeated ordinary-frame runs retain appropriate momentum through glass/interior/lip and land safely within intended speeds; all profiles/class-contact rules remain functional. Report stage-by-stage speeds and failed cases.
 **Combined result:** Reproduced entrance/lip losses with contact telemetry before edits. Corrected supporting normals and inset only the lower exit facade. Motorcycle lip17.90→29.53m/s without boost or tuning changes; repeated all-profile driving passes. See Docs/CR046-049/VALIDATION.md.
@@ -1108,7 +1130,7 @@ Map existing trails and shortcuts so Dan can identify where they intertwine and 
 **Result:** Jamerson raised-pavement roadworks with supported takeoff, graded shoulder, breakable markers and open-right bypass.8/8 flights landed and credited CP14; fast motorcycle51.224m/s,17.430m apex,3.263s airtime. Fast ATV later CP15 miss retained as genuine+5.
 
 ### CR-046 — Reliable latched shortcut credit and complete penalty accounting
-**Status:** FOLLOW-UP REQUIRED — gate 6/9 placement and bypass behavior remain unresolved; see CR-050.
+**Status:** COMPLETE / CLOSED by Dan on 2026-09-22 together with BUG-004 / CR-050.
 **Requested change:** BUG-004 remains unresolved in human play: Dan saw about six notices but accumulated fourteen misses; exact causes not yet known. Relocate ambiguous approach/exit gates clearly before shortcut entrances and clearly after rejoins, with spacing for speed/flight. Once a legitimate shortcut entry is earned, latch its explicit bypass entitlement across lateral deviations, falls, stopping, reversing and local recovery until verified exit or deliberate main-road rejoin/abandonment. Do not require perfect path adherence or retroactively charge authorized bypassed gates. Distinguish earned protected gates from unrelated later-course skipping; finish/anti-teleport validity remains. Audit every mutation of player miss/penalty totals; no silent charges with suppressed notification. Add compact +5 or aggregated Nx+5 notices and a pause/results ledger containing lap, gate, cause, amount and branch context; ledger/count/sum must reconcile. Log position/time/route transitions for optional reproducible review, not a permanent debug HUD. True misses exactly5s, authorized bypasses0. Test human-like excursions, close gate ordering, loading/reset/restart and all vehicles. Prior fixtures are not proof of resolving Dan's incident.
 **Combined result:** Latched explicit bypass entitlement, completion/abandonment transitions, five checkpoint relocations, single5s charge path, traceable ledger and unsuppressed aggregate charge notices. street-v7-entitlement records preserve history. Automated/physical evidence and remaining limits: Docs/CR046-049/VALIDATION.md.
 
@@ -1130,7 +1152,7 @@ Map existing trails and shortcuts so Dan can identify where they intertwine and 
 ---
 
 ### CR-050 — Resolve shortcut boundary gates 6 and 9
-**Status:** IMPLEMENTED IN 0.6.3-review1 — awaiting Dan review; technical checks and limits in Docs/CR050-053/VALIDATION.md.
+**Status:** COMPLETE / CLOSED by Dan on 2026-09-22. Historical technical checks and limits remain in Docs/CR050-053/VALIDATION.md.
 **Feedback:** Gate 6 remains awkward; gate 9 is immediately after an exit, appears outside shortcut credit, and is extremely close to gate 10. Verify displayed numbers versus internal IDs before editing.
 **Requested change:** Audit the physical shortcut entries, landing/rejoin envelopes and bypass lists together. Move gate 6 to an unambiguous approach/rejoin position appropriate to its route. Consolidate redundant gate 9 with gate 10 or move it far enough downstream to give meaningful recovery/steering time; choose from actual geometry, not arbitrary offsets. Align route entitlements, next-gate HUD, ledger, AI progression, lap completion and record versioning. No mandatory gate at a shortcut mouth/landing and no penalties for its authorized bypass. Preserve imperfect-driving/recovery credit and exactly +5s for true misses. Show before/after gate/route evidence and ordinary-frame tests with all profiles.
 **Acceptance:** Both named gates are understandable at speed; shortcut exits have room to land/rejoin; no double or hidden charges, road route and multi-lap races still work. Await Dan review.
@@ -2037,9 +2059,13 @@ Continue existing LAUNCHER_CODEX_PROMPT.md / LAUNCHER_SCOPE.md after the feedbac
 Safety checkpoint `7cc2f1da14b16b136746c575355c73067708860f`. Full starter at Builds/LauncherRelease-21002/assets/WoodstockRush-0.21.0-launcher1-Full.zip. Previous 0.20.1 feedback runtime/ZIP/Latest preserved. See Docs/CR119/DELIVERY.md and VALIDATION.md. Completion commit is reported in the delivery response.
 
 ## CR-120 — Reverse summit false right turn
+**Status:** COMPLETE / CLOSED by Dan on 2026-09-22. The following describes the delivered repair; broader all-track arrow coverage is a separate backlog request.
+
 Authorized local barrier/occlusion and direction-specific guidance; preserve accepted proper jump/run-up and forward/free-roam access. One local approach only; no AI/full-lap tests.
 
 ## CR-121 — Reverse late junction signs and dominant bypass
+**Status:** COMPLETE / CLOSED by Dan on 2026-09-22. Historical follow-ups below do not reopen it; see the current all-track navigation backlog.
+
 Screenshot-clarified scope: distinguish the shortcut merge/wrong-end invitation, move interfering signs outside the corridor and emphasize the main continuation. Preserve accepted shortcut difficulty, supported rejoin and gate credit. Do not harden the whole branch.
 
 ## CR-118 reopened again — actual human clipping report
