@@ -71,3 +71,14 @@ Publication evidence is added after the release is uploaded and checked.
 
 The final landing shoulder widens by up to 3.5m on the right only, tapering within main-road stations 3943–3993. The visible road, earth bank and adjacent terrain use the same displacement. This closes the initially missed 61m/s motorcycle envelope. All configured profile top speeds now contact the main-road landing: 49, 52, 56 and 61m/s; see profile-speed-envelope.txt. The straight ramp is unchanged. The release is rebuilt after this verified geometry correction; no earlier package is published.
 
+## Published release verification
+
+- Built source: `573c0432ee4e5fcef7c133550da7e9b2e652acdb` — Complete localized track and recovery fixes with full-speed Laurel landing.
+- Final Windows build: zero errors, two warnings. Package SHA256: `EDCA1ADD253AD6FBB0813C4D999AD7A86B769CF87CBFBCE8EC2A1F5C4BF54904`.
+- Published version `0.25.0-review1`, tag `game-25000`: https://github.com/danemoll-jpg/woodstock-rush-releases/releases/tag/game-25000 . GitHub latest is public, non-draft and non-prerelease; see public-release.json.
+- Existing publisher signing identity and portable GitHub CLI were used. The publisher resumed its empty draft after a release-list timing error, verified all uploaded asset hashes, and fetched the published latest catalog.
+- Public updater download, pinned signature verification, installation and isolated launcher startup passed. All 261 published game files match Builds/Latest; see hosted/result.json.
+- The unchanged Play-Racer.cmd launched a responsive game window from Builds/Latest/Racer.exe, version 0.25.0-review1; see play-racer-launch.json. The helper's post-verification close lookup raced with normal game exit; the process was confirmed gone and the helper now tolerates that race.
+- Packaging initially exhausted disk space. Only two temporary packaging directories from this attempt were removed before packaging was retried successfully. Preserved releases and source checkpoints were retained.
+- No full race playthroughs were performed. The optional source-repository push was not approved; source commits remain local. Publication to the requested release repository succeeded.
+
