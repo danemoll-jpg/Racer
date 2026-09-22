@@ -1,0 +1,2 @@
+Ground_CR122 Laurel smooth takeoff shared visible/collision mesh; vertices=226
+Ground_CR122 Laurel supported catch shared visible/collision mesh; vertices=186

@@ -1,0 +1,5 @@
+Ground_CR122 main section 0 shared visible/collision mesh; vertices=1208
+Ground_CR122 main section 1 shared visible/collision mesh; vertices=4070
+Ground_CR122 main section 2 shared visible/collision mesh; vertices=1190
+Ground_CR122 Summit Traverse shared visible/collision mesh; vertices=2900
+Ground_CR122 Climbing Ridge Cut shared visible/collision mesh; vertices=2307

@@ -1,7 +1,7 @@
-param([ValidatePattern('^[0-9]+\.[0-9]+\.[0-9]+(?:-[A-Za-z0-9-]+)?$')][string]$Version='0.20.1-review1')
+param([ValidatePattern('^[0-9]+\.[0-9]+\.[0-9]+(?:-[A-Za-z0-9-]+)?$')][string]$Version='0.22.0-review1')
 $ErrorActionPreference='Stop'
-$reviewDocs=if($Version -like '0.21.1-*'){ 'CR121-followup' }elseif($Version -like '0.20.1-*'){ 'CR120-121' }else{ 'CR112-118' }
-$isCurrentReview=$Version -like '0.20.*' -or $Version -like '0.21.1-*'
+$reviewDocs=if($Version -like '0.22.0-*'){ 'CR122-128' }elseif($Version -like '0.21.1-*'){ 'CR121-followup' }elseif($Version -like '0.20.1-*'){ 'CR120-121' }else{ 'CR112-118' }
+$isCurrentReview=$Version -like '0.20.*' -or $Version -like '0.21.1-*' -or $Version -like '0.22.0-*'
 $projectRoot=[IO.Path]::GetFullPath((Join-Path $PSScriptRoot '..'))
 $builds=Join-Path $projectRoot 'Builds'
 $runtime=Join-Path $builds "Racer-$Version-Windows"

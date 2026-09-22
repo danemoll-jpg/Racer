@@ -1,0 +1,3 @@
+MountainLoop: supported mesh samples=208, misses=0
+MountainLoopReverse: supported mesh samples=230, misses=0
+StreetLoopReverse: supported mesh samples=11, misses=0

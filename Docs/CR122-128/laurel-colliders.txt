@@ -1,0 +1,2 @@
+Ground_CR103 smooth landing Center: (785.58, 139.38, 91.97), Extents: (95.54, 49.63, 48.35)
+Takeoff - 40m x 6m, 6.2m rise Center: (-626.16, 7.80, -109.99), Extents: (0.00, 0.00, 0.00)

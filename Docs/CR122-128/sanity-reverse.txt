@@ -1,0 +1,6 @@
+Ground_CR122 main section 0 shared visible/collision mesh; vertices=2644
+Ground_CR122 main section 1 shared visible/collision mesh; vertices=3542
+Ground_CR122 main section 2 shared visible/collision mesh; vertices=1252
+Ground_CR122 Summit Traverse shared visible/collision mesh; vertices=3146
+Ground_CR122 reverse shortcut runway shared visible/collision mesh; vertices=895
+Ground_CR122 reverse shortcut far-side landing shared visible/collision mesh; vertices=595
