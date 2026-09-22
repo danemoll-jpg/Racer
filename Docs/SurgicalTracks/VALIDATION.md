@@ -63,3 +63,33 @@ See `preservation.txt`, `verification.txt`, and the captured local views.
 The existing Windows build, package verifier, signing key, component publisher,
 public updater check and Play-Racer startup check are used for this release.
 Publication results will be recorded after successful upload and verification.
+
+## Published and verified
+
+- Source commit: `867f68d890e5d0ac7eb8ef4946833f29c49ad520` — Restore Laurel
+  main road and isolate shortcut ramp; smooth second Mountain Reverse arrow surface.
+- Source pushed successfully to `danemoll-jpg/Racer`, branch `main`.
+- Windows build succeeded: zero errors, two warnings, 1m50s. The existing
+  pre-baked collision warning is recorded in `build-release.txt`.
+- Package verification passed for all 451 packaged files; the archive,
+  versioned runtime and Latest match their SHA-256 manifest. The previous
+  Latest was preserved by the existing packager.
+- Published latest release: `game-26000`, version `0.26.0-review1`:
+  https://github.com/danemoll-jpg/woodstock-rush-releases/releases/tag/game-26000
+- All three required assets uploaded and their remote hashes verified:
+  `game.zip` (239,142,787 bytes), `game-manifest.json`, `update-catalog.json`.
+- The existing signing key and project-local GitHub CLI were used. No key,
+  publisher identity, launcher mechanism or soundtrack pointer was replaced.
+- The publisher's immediate draft lookup missed the newly created draft;
+  inspection confirmed it was empty, then the existing resume option completed
+  publication. No implementation or build was repeated for that timing issue.
+- Public signed catalog and game manifest verified with the pinned publisher
+  identity. All 261 public game files match the installed Latest files.
+- Existing updater performed a public download, extraction, installation and
+  isolated native launcher startup successfully; see `hosted/result.json`.
+- Unchanged `C:\Users\danmo\Racer\Play-Racer.cmd` launched the new version from
+  `Builds\Latest\Racer.exe`, producing a responsive game window. See
+  `play-racer-launch.json`. Only the verification-launched process was closed.
+- One tree obstructing the lowered shortcut approach was removed locally,
+  including its crown and trunk collision; no broader foliage cleanup occurred.
+- No full races were run. Vehicle gameplay confirmation remains with the user.
