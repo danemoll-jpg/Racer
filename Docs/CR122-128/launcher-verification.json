@@ -1,0 +1,11 @@
+{
+  "version": "0.22.0-review1",
+  "build": 22000,
+  "sourceCommit": "8857f1bfe40c5585b0f33e932c9cd95095fe41fe",
+  "rollbackCheckpoint": "38cec110bb934925e252dbd18afb6c06445be3d9",
+  "launcher": "C:\\Users\\danmo\\Racer\\Play-Racer.cmd",
+  "resolvedExecutable": "C:\\Users\\danmo\\Racer\\Builds\\Latest\\Racer.exe",
+  "verifiedFiles": 261,
+  "verification": "Every installed game file matches the signed published game manifest by size and SHA256; launcher resolves to this runtime. No gameplay run.",
+  "packageSHA256": "ab830dbaca904709e5c6e77e032d932210103b3bb40a3d0595681f3971e21545"
+}
