@@ -1,0 +1,7 @@
+main authored flight interval: (990.00, 177.67, 64.87) -> (990.00, 159.00, -85.00), 151.03m
+main authored flight interval: (1004.89, 131.30, -300.00) -> (905.01, 123.92, -300.00), 100.15m
+main: support failures=0
+Downhill Ridge Cut authored flight interval: (739.78, 92.99, -145.72) -> (715.43, 84.99, -121.98), 34.93m
+Downhill Ridge Cut: support failures=0
+Summit Traverse: support failures=0
+Route/lane samples=6903; mesh/collider centroid samples=4004; maximum route height deviation=0.4410m; failures=0

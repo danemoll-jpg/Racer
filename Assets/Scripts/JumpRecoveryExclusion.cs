@@ -11,7 +11,8 @@ namespace Racer
             var axis=Vector3.ProjectOnPlane(end-start,Vector3.up);
             var offset=Vector3.ProjectOnPlane(p-start,Vector3.up);
             float t=Vector3.Dot(offset,axis)/Mathf.Max(.01f,axis.sqrMagnitude);
-            return t>=0&&t<=1&&(offset-axis*t).magnitude<halfWidth;
+            return t>=0&&t<=1&&(offset-axis*t).magnitude<halfWidth
+                &&p.y>=Mathf.Min(start.y,end.y)-6&&p.y<=Mathf.Max(start.y,end.y)+6;
         }
     }
 }

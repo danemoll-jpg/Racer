@@ -1,0 +1,1 @@
+MountainLoopReverse: union road triangles=9790; earth bank triangles=112390; intentional flight gaps retained

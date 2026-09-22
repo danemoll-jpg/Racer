@@ -1,0 +1,2 @@
+PASS Eastbound Gully Flight: ramp/airborne anchor retained; stable grounded forward travel advanced recovery to 803.05; crash retained it; pre-jump fallback retired.
+PASS Homeward Summit Flight: ramp/airborne anchor retained; stable grounded forward travel advanced recovery to 2549.25; crash retained it; pre-jump fallback retired.

@@ -1,0 +1,1 @@
+Unified junction plane through feeder (730.00, 83.74, -114.44), regular exit (749.29, 88.57, -144.89), shortcut exit (769.26, 88.07, -108.62); full-width core radius 25m, continuous fade to 65m. Navigation, gate and spawn x/z retained.

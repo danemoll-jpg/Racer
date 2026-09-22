@@ -1,0 +1,28 @@
+MountainLoop road length=2759.798
+Flight Eastbound Gully Flight: start=(810.00, 110.00, -275.00) lip=(1070.00, 131.60, -275.00) end=(1350.00, 99.16, -275.00) dir=(1.00, 0.00, 0.00)
+Flight Homeward Summit Flight: start=(1259.36, 152.00, 226.46) lip=(980.38, 177.92, 147.27) end=(730.26, 96.75, 76.27) dir=(-0.96, 0.00, -0.27)
+Branch Summit Traverse: len=371.8087 start=(990.00, 163.43, 115.00) end=(683.06, 85.48, 19.67) width=5
+Branch Climbing Ridge Cut: len=298.6451 start=(747.00, 86.01, -120.00) end=(1020.00, 139.31, -60.00) width=3.6
+Mesh Ground_CR122 main section 1: vertices=4688 bounds=Center: (1185.05, 138.50, -31.39), Extents: (208.49, 39.46, 267.61) first=(1169.98, 123.95, -251.00) last=(976.56, 177.96, 160.74)
+Mesh Ground_CR122 main section 2: vertices=1190 bounds=Center: (778.60, 128.39, 9.68), Extents: (102.53, 49.42, 130.64) first=(881.13, 177.81, 94.15) last=(727.44, 83.77, -120.96)
+Mesh Ground_CR122 Climbing Ridge Cut: vertices=2320 bounds=Center: (883.76, 112.80, -77.16), Extents: (133.37, 26.76, 43.21) first=(750.39, 86.08, -114.18) last=(1016.55, 139.44, -55.84)
+Mesh Ground_CR122 main section 0: vertices=1552 bounds=Center: (898.83, 107.70, -198.52), Extents: (171.17, 23.94, 90.48) first=(732.80, 83.77, -108.03) last=(1070.00, 131.64, -289.00)
+Mesh Ground_CR122 Summit Traverse: vertices=2928 bounds=Center: (841.79, 124.62, 87.34), Extents: (151.63, 39.50, 71.49) first=(986.58, 163.47, 111.35) last=(690.19, 85.63, 17.04)
+MountainLoopReverse road length=3028.01
+Flight Westbound Gully Flight: start=(1225.00, 110.00, -300.00) lip=(1005.00, 131.60, -300.00) end=(725.00, 99.16, -300.00) dir=(-1.00, 0.00, 0.00)
+Flight South Face Summit Flight: start=(990.00, 152.00, 285.00) lip=(990.00, 177.92, 65.00) end=(990.00, 96.75, -195.00) dir=(0.00, 0.00, -1.00)
+Branch Summit Traverse: len=421.385 start=(990.00, 163.97, 115.00) end=(820.00, 98.39, -125.00) width=5
+Branch Downhill Ridge Cut: len=221.2021 start=(818.76, 96.22, -185.32) end=(722.89, 79.00, -48.32) width=4.2
+Mesh Ground_Summit authored launch: vertices=882 bounds=Center: (1086.20, 164.96, 177.31), Extents: (109.64, 12.96, 43.51) first=(1195.84, 152.00, 193.88) last=(976.56, 177.92, 160.74)
+Mesh Ground_CR122 main section 2: vertices=1252 bounds=Center: (792.66, 101.50, -190.07), Extents: (112.35, 22.46, 133.93) first=(905.01, 123.96, -324.00) last=(723.65, 79.04, -62.72)
+Mesh Ground_CR122 reverse shortcut far-side landing: vertices=595 bounds=Center: (703.24, 82.06, -92.89), Extents: (15.69, 2.98, 32.67) first=(711.94, 85.03, -125.56) last=(709.47, 79.10, -61.24)
+Mesh Ground_CR122 main section 1: vertices=3542 bounds=Center: (1044.41, 124.93, -188.04), Extents: (243.72, 34.11, 125.96) first=(1014.00, 159.04, -85.00) last=(1004.89, 131.34, -286.00)
+Mesh Ground_CR122 Summit Traverse: vertices=3178 bounds=Center: (948.86, 134.08, 6.76), Extents: (107.66, 29.93, 111.16) first=(993.67, 163.45, 117.82) last=(841.20, 104.15, -104.40)
+Mesh Ground_CR122 reverse shortcut runway: vertices=895 bounds=Center: (775.62, 91.63, -167.44), Extents: (38.78, 5.10, 24.73) first=(814.39, 96.21, -190.86) last=(742.71, 93.03, -142.71)
+Mesh Ground_CR122 main section 0: vertices=2644 bounds=Center: (894.22, 127.97, 134.21), Extents: (182.79, 49.74, 197.15) first=(711.42, 79.04, -55.91) last=(976.00, 177.71, 64.87)
+StreetLoopReverse road length=4674.28
+Branch Granite Creek Cut: len=774.3768 start=(-76.41, 7.96, 529.08) end=(-628.42, 8.32, 25.41) width=4.2
+Branch Laurel Switchbacks: len=475.1982 start=(195.09, 45.76, -317.91) end=(492.07, 88.50, -86.88) width=4
+Mesh Ground_Summit authored launch: vertices=882 bounds=Center: (1086.20, 164.96, 177.31), Extents: (109.64, 12.96, 43.51) first=(1195.84, 152.00, 193.88) last=(976.56, 177.92, 160.74)
+Mesh Ground_CR122 Laurel supported catch: vertices=186 bounds=Center: (404.24, 77.20, -205.79), Extents: (23.87, 2.91, 12.50) first=(387.98, 74.29, -193.29) last=(428.11, 80.11, -212.48)
+Mesh Ground_CR122 Laurel smooth takeoff: vertices=226 bounds=Center: (352.76, 72.66, -196.24), Extents: (20.19, 4.73, 20.06) first=(332.57, 67.94, -213.78) last=(367.22, 77.39, -190.84)

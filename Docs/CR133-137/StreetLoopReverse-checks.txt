@@ -1,0 +1,3 @@
+Laurel Switchbacks authored flight interval: (370.08, 77.35, -186.74) -> (384.18, 74.25, -197.93), 18.26m
+Laurel Switchbacks: support failures=0
+Route/lane samples=1170; mesh/collider centroid samples=80; maximum route height deviation=0.4347m; failures=0

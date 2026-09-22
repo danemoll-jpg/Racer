@@ -1,0 +1,1 @@
+MountainLoop: union road triangles=10125; earth bank triangles=146515; intentional flight gaps retained

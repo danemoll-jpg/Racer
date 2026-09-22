@@ -48,6 +48,9 @@ namespace Racer
         Vector3 observed;
         WoodlandRoute safeBranch;
         float stableSince=-1;
+        float untrackedTravel,stableTravel;
+        Vector3 stableObserved;
+        bool awaitingLanding;
         WoodlandRoute stableBranch;
         JumpRecoveryExclusion[] jumpExclusions;
         bool UnsafeJump(Vector3 p)
@@ -59,48 +62,74 @@ namespace Racer
                 var axis=Vector3.ProjectOnPlane(flight.forward,Vector3.up).normalized;
                 var q=p-flight.start;float along=Vector3.Dot(q,axis);
                 float lip=Vector3.Dot(flight.lip-flight.start,axis);
-                if(along>=-60&&along<=lip+35&&Mathf.Abs(Vector3.Dot(q,Vector3.Cross(Vector3.up,axis)))<30&&Mathf.Abs(p.y-flight.start.y)<70)return true;
+                if(along>=-60&&along<=lip+3&&Mathf.Abs(Vector3.Dot(q,Vector3.Cross(Vector3.up,axis)))<30&&p.y>=Mathf.Min(flight.start.y,flight.lip.y)-6&&p.y<=Mathf.Max(flight.start.y,flight.lip.y)+6)return true;
             }
             return false;
         }
         RaceRoad roamRoad;WoodlandRoute roamBranch;float roamStation,roamDirection=1;bool roamValid;
+        struct RoamSample {public RaceRoad road;public WoodlandRoute branch;public float station,direction;}
+        readonly List<RoamSample> roamHistory=new();
         public float SafeStation => safeStation;
         public void SeedCoursePosition(Vector3 position)
         {
             if(!race)race=FindAnyObjectByType<RaceDirector>();if(!race||!race.road)return;
             safeStation=race.road.Project(position,out _);safeBranch=null;observed=position;anchored=true;
             trackingStation=safeStation;trackingBranch=null;tracking=true;
+            untrackedTravel=stableTravel=0;
         }
-        public void RecordSafePosition()
+        public void RecordSafePosition()=>RecordSafePosition(Time.time);
+        void RecordSafePosition(float now)
         {
             if(!race)race=FindAnyObjectByType<RaceDirector>();
-            if(!race || !race.road || Time.time<nextHistory)return;
-            nextHistory=Time.time+.25f;
-            if(race.FreeRoam){if(vehicle.GroundedWheels>=3&&transform.up.y>=.85f)RecordRoaming();return;}
+            if(!race || !race.road || now<nextHistory)return;
+            nextHistory=now+.25f;
+            if(race.FreeRoam){
+                if(vehicle.GroundedWheels<3){awaitingLanding=true;stableSince=-1;return;}
+                if(transform.up.y<.9f||vehicle.Body.angularVelocity.magnitude>1.2f||UnsafeJump(vehicle.Body.position)){stableSince=-1;return;}
+                if(stableSince<0){stableSince=now;stableTravel=0;stableObserved=vehicle.Body.position;return;}
+                stableTravel+=Vector3.ProjectOnPlane(vehicle.Body.position-stableObserved,Vector3.up).magnitude;stableObserved=vehicle.Body.position;
+                if(now-stableSince>=1&&stableTravel>=2)RecordRoaming();return;
+            }
             var state=race.Racers.FirstOrDefault(r=>r.Car==vehicle);
             var branch=state?.Branch.Route;
             var p=vehicle.Body.position;
-            bool continuous=!tracking||Vector3.Distance(observed,p)<=90;observed=p;
+            float travelled=Vector3.Distance(observed,p);
+            bool continuous=!tracking||travelled<=90;observed=p;
             if(!continuous){stableSince=-1;return;}
-            float station=branch?branch.Project(p,out _):tracking&&trackingBranch==branch?race.road.ProjectNear(p,trackingStation,75,out _):race.road.Project(p,out _);
+            // A ballistic arc can be much farther than 75m from its last close
+            // road projection. Grow the search by observed travel until the car
+            // reaches the route again; never advance the SAFE anchor in the air.
+            untrackedTravel+=travelled;
+            float lateral;
+            float station=branch?branch.Project(p,out lateral):tracking&&trackingBranch==branch?race.road.ProjectNear(p,trackingStation,Mathf.Max(75,untrackedTravel*1.5f+15),out lateral):race.road.Project(p,out lateral);
+            if(lateral<12)untrackedTravel=0;
             trackingStation=station;trackingBranch=branch;tracking=true;
-            if(vehicle.GroundedWheels<3||transform.up.y<.9f||vehicle.Body.angularVelocity.magnitude>1.2f||UnsafeJump(p)){stableSince=-1;return;}
+            if(vehicle.GroundedWheels<3){awaitingLanding=true;stableSince=-1;return;}
+            if(transform.up.y<.9f||vehicle.Body.angularVelocity.magnitude>1.2f||UnsafeJump(p)){stableSince=-1;return;}
             Vector3 support=branch?branch.At(station,out var direction):race.road.At(station,out direction);
             float width=branch?branch.halfWidth:race.road.HalfWidth(station);
             var normal=Vector3.Cross(direction,Vector3.Cross(Vector3.up,direction)).normalized;
             if(Vector3.ProjectOnPlane(p-support,Vector3.up).magnitude>width-.4f || Mathf.Abs(p.y-support.y)>2.5f||Mathf.Abs(Vector3.Dot(vehicle.Body.linearVelocity,normal))>2.5f){stableSince=-1;return;}
-            if(stableSince<0||stableBranch!=branch){stableSince=Time.time;stableBranch=branch;return;}
-            if(Time.time-stableSince<1f)return;
+            // A supported patch of terrain below a ribbon is not a completed
+            // landing. Validate the entire suspension footprint at route height.
+            if(!Supported(support,Vector3.ProjectOnPlane(direction,Vector3.up).normalized,out var supported,out _)||Mathf.Abs(supported.y-p.y)>1.5f){stableSince=-1;return;}
+            if(stableSince<0||stableBranch!=branch){stableSince=now;stableBranch=branch;stableObserved=p;stableTravel=0;return;}
+            stableTravel+=Mathf.Max(0,Vector3.Dot(p-stableObserved,direction));stableObserved=p;
+            if(now-stableSince<1f||stableTravel<2)return;
             safeStation=station;safeBranch=branch;anchored=true;observed=p;
+            // Once a landing is earned, an obstructed newer sample must not
+            // fall back across that successfully completed jump.
+            if(awaitingLanding){history.Clear();awaitingLanding=false;}
             if(history.Count==120)history.RemoveAt(0);
             history.Add(new SafeSample{branch=branch,station=station});
         }
         public void RestartAtStart()
         {
-            Pending=false;history.Clear();nextHistory=nextAttempt=0;anchored=false;tracking=false;safeBranch=null;roamValid=false;stableSince=-1;
+            Pending=false;history.Clear();nextHistory=nextAttempt=0;anchored=false;tracking=false;safeBranch=null;roamValid=false;stableSince=-1;untrackedTravel=stableTravel=0;
+            roamHistory.Clear();awaitingLanding=false;
             Place(spawnPoint?spawnPoint.position:initialPosition,spawnPoint?Quaternion.Euler(0,spawnPoint.eulerAngles.y,0):initialRotation);
         }
-        public void CancelRecovery(){Pending=false;history.Clear();anchored=false;tracking=false;safeBranch=null;roamValid=false;stableSince=-1;}
+        public void CancelRecovery(){Pending=false;history.Clear();roamHistory.Clear();awaitingLanding=false;anchored=false;tracking=false;safeBranch=null;roamValid=false;stableSince=-1;untrackedTravel=stableTravel=0;}
         public bool TryFastTravel(Vector3 candidate,Quaternion facing)
         {
             if(!race)race=FindAnyObjectByType<RaceDirector>();
@@ -169,15 +198,20 @@ namespace Racer
             foreach(var candidate in race.Branches){float s=candidate.Project(p,out float d);d=Vector3.Distance(p,candidate.At(s,out _));if(d<best){best=d;branch=candidate;road=null;station=s;}}
             float width=branch?branch.halfWidth:road.HalfWidth(station);var point=branch?branch.At(station,out var f):road.At(station,out f);
             if(Vector3.ProjectOnPlane(p-point,Vector3.up).magnitude>width-box.size.x*.5f || Mathf.Abs(p.y-point.y)>8)return;
+            if(!Supported(point,Vector3.ProjectOnPlane(f,Vector3.up).normalized,out var supported,out _)||Mathf.Abs(supported.y-p.y)>1.5f)return;
             roamRoad=road;roamBranch=branch;roamStation=station;roamValid=true;
             if(vehicle.Body.linearVelocity.magnitude>2)roamDirection=Vector3.Dot(vehicle.Body.linearVelocity,f)>=0?1:-1;
+            if(awaitingLanding){roamHistory.Clear();awaitingLanding=false;}
+            if(roamHistory.Count==120)roamHistory.RemoveAt(0);
+            roamHistory.Add(new RoamSample{road=road,branch=branch,station=station,direction=roamDirection});
         }
         bool RecoverRoaming()
         {
-            foreach(float back in new[]{2f,5f,10f,18f,30f,50f,80f,120f})
+            foreach(var sample in roamHistory.AsEnumerable().Reverse())
             {
-                float s=roamStation-roamDirection*back;if(roamBranch)s=Mathf.Clamp(s,0,roamBranch.Length);
-                var p=roamBranch?roamBranch.At(s,out var f):roamRoad.At(s,out f);f=Vector3.ProjectOnPlane(f*roamDirection,Vector3.up).normalized;
+                if(sample.road!=roamRoad||sample.branch!=roamBranch)continue;
+                float s=sample.station;
+                var p=roamBranch?roamBranch.At(s,out var f):roamRoad.At(s,out f);f=Vector3.ProjectOnPlane(f*sample.direction,Vector3.up).normalized;
                 if(UnsafeJump(p))continue;
                 float width=roamBranch?roamBranch.halfWidth:roamRoad.HalfWidth(s);float side=Mathf.Max(0,Mathf.Min(2,width-clearance.size.x*.5f-.5f));
                 foreach(float offset in new[]{0f,side,-side})if(Supported(p+Vector3.Cross(Vector3.up,f)*offset,f,out var position,out var rotation)&&Clear(position,rotation))
@@ -255,3 +289,4 @@ namespace Racer
         }
     }
 }
+

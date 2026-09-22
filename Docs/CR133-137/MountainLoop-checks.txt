@@ -1,0 +1,6 @@
+main authored flight interval: (1070.00, 131.60, -275.00) -> (1169.98, 123.91, -275.00), 100.27m
+main authored flight interval: (980.38, 177.92, 147.27) -> (874.58, 177.77, 117.23), 109.98m
+main: support failures=0
+Climbing Ridge Cut: support failures=0
+Summit Traverse: support failures=0
+Route/lane samples=4845; mesh/collider centroid samples=4641; maximum route height deviation=0.3854m; failures=0

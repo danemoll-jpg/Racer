@@ -1,0 +1,1 @@
+Laurel: straight length=100m; level run-up=72m; quadratic ramp=28m; rise=3.800; lip=(370.08, 77.39, -186.74); landing=(384.18, 74.29, -197.93); horizontal axis=(0.78, 0.00, -0.62); matching visible/collision mesh. Terrain clipped at actual road edges.
