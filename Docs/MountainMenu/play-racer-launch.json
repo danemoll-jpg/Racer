@@ -1,0 +1,10 @@
+{
+  "launcher": "C:\\Users\\danmo\\Racer\\Play-Racer.cmd",
+  "path": "C:\\Users\\danmo\\Racer\\Builds\\Latest\\Racer.exe",
+  "pid": 10684,
+  "version": "Racer 0.24.1-review1",
+  "responding": true,
+  "windowTitle": "Racer",
+  "publishedTag": "game-24001",
+  "allPublicManifestFilesMatch": true
+}

@@ -29,3 +29,24 @@ corrected to account for the existing opponent grid instead of assuming a solo
 spawn; this did not change game startup behavior.
 
 `git diff` confirms no Assets/Scenes or Assets/Track changes from the checkpoint.
+
+## Publication and launcher verification
+
+- Fix commit: d2d12df39f5a2d1f015355f82966b6f44a90d4e2,
+  `Restore Mountain Forward and Reverse menu launches in release build`.
+  Pushed to origin/main after explicit user approval.
+- Existing packaging verified extracted ZIP, versioned runtime, and Latest by
+  SHA-256. Existing signing key and release tooling used without key changes.
+- Published version 0.24.1-review1 / game-24001 as the latest non-draft release:
+  https://github.com/danemoll-jpg/woodstock-rush-releases/releases/tag/game-24001
+- All three assets uploaded and remote digests verified. An initial immediate
+  GitHub listing missed the newly created empty draft; the existing publisher's
+  supported --resume-draft option completed the same draft successfully.
+- Public catalog and game manifest signatures verified by the existing updater;
+  all 261 public game files match Builds/Latest. Public download, installation,
+  activation, and isolated startup handshake passed with exit code zero.
+- Invoked unchanged Play-Racer.cmd and verified it launched
+  C:\Users\danmo\Racer\Builds\Latest\Racer.exe, version 0.24.1-review1,
+  with a responsive Racer window. Closed only that verification process.
+- No Mountain scene, track asset, or route geometry was modified in this pass.
+  No track repair or lengthy driving test was performed.
