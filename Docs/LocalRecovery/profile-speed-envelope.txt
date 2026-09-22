@@ -1,0 +1,4 @@
+original: speed=49; landing=True; contact=(498.95, 88.33, -89.41)
+tourer: speed=52; landing=True; contact=(498.85, 88.41, -87.46)
+moto: speed=61; landing=True; contact=(498.52, 88.60, -80.82)
+atv: speed=56; landing=True; contact=(498.71, 88.50, -84.63)

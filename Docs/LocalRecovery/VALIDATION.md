@@ -68,3 +68,6 @@ Publication evidence is added after the release is uploaded and checked.
 - Five-scene recovery fixtures pass, including the Forest landing runout, four Mountain flights and Laurel. No full races run.
 - First-arrow five-lane scan: maximum adjacent normal change reduced from 2.114 to 1.686 degrees; the arrow sits on the new flat approach instead of the old dip. Exact rider-reported event remains a human gameplay check.
 - Global vehicle physics and Mountain Forward scene are byte-unchanged from the initial checkpoint.
+
+The final landing shoulder widens by up to 3.5m on the right only, tapering within main-road stations 3943–3993. The visible road, earth bank and adjacent terrain use the same displacement. This closes the initially missed 61m/s motorcycle envelope. All configured profile top speeds now contact the main-road landing: 49, 52, 56 and 61m/s; see profile-speed-envelope.txt. The straight ramp is unchanged. The release is rebuilt after this verified geometry correction; no earlier package is published.
+

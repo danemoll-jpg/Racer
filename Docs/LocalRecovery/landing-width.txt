@@ -1,0 +1,1 @@
+Expanded only the main-road landing's right shoulder by up to 3.5m, tapering within stations 3943–3993. Road, earth and adjacent terrain share the same continuous displacement; no new overlapping collider or elevated slab. Meshes affected=3. Straight ramp geometry unchanged.
