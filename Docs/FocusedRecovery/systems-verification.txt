@@ -1,0 +1,4 @@
+PASS real Granite Creek Cut: recent safe updates and AI recovery preserve earned shortcut position.
+PASS single shared elevated collider: actual launch rejected; stable flat deck advances safe samples; airborne does not; player recovers on the deck.
+PASS AI timers: brief stop tolerated; sustained stall and below-route oscillation detected after 5 seconds; slow route driving and useful rejoining keep their grace.
+PASS production player FixedUpdate has no AI stalled/progress timer; existing requested-reset delay, support, stability, clearance and landing-history policy retained.

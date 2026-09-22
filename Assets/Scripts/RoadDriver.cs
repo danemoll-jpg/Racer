@@ -31,6 +31,9 @@ namespace Racer
         float branchBest, branchStuck;
         float routeStuck, progressStation;
         bool progressSample;
+        float rejoinStuck, rejoinBestDistance;
+        Vector3 rejoinTarget;
+        bool trackingRejoin;
         static readonly float[] cornerUse={.46f,.76f,.90f}, brakeUse={.55f,.88f,.98f}, speedUse={.91f,1f,1f}, hillTargets={26,32,35};
         float pace, stalled, safeS, lane, finishRunoff, nextRecovery;
         float departureLane,recoveryDepartureStation,recoveryDepartureUntil;
@@ -94,13 +97,6 @@ namespace Racer
 
             float s = DriveRoad.Project(Car.Body.position, out float lateral);
             float driveHalfWidth=racing&&mountainFlights?6:DriveRoad.HalfWidth(s);
-            if(racing&&!finished&&Racer?.Branch.Route==null)
-            {
-                float delta=progressSample?Mathf.Repeat(s-progressStation+DriveRoad.Length*.5f,DriveRoad.Length)-DriveRoad.Length*.5f:3;
-                if(delta>2){progressStation=s;routeStuck=0;progressSample=true;}
-                else routeStuck+=Time.fixedDeltaTime;
-            }
-            else routeStuck=0;
             if(HighwayTraffic && (DriveRoad.openHighway?(Direction>0?s>DriveRoad.Length-75:s<75):(Direction>0?s>4680 || s<3650:s<3650 || s>4680)))
             { TryRecycleHighway(); s=DriveRoad.Project(Car.Body.position,out lateral); }
             if(HighwayTraffic&&DriveRoad.openHighway&&(Direction>0?s>DriveRoad.Length-35:s<35)){Car.Simulate(0,1,0,Time.fixedDeltaTime);return;}
@@ -160,7 +156,7 @@ namespace Racer
             if(!activeBranch && plannedBranch && s>=plannedBranch.entryRoad-((Race.reverseCourse||Race.courseId.StartsWith("mountain-"))?look:2)) activeBranch=plannedBranch;
             float branchS=activeBranch?activeBranch.Project(Car.Body.position,out _):0;
             if(activeBranch!=progressBranch){progressBranch=activeBranch;branchBest=branchS;branchStuck=0;}
-            if(activeBranch&&Direction>0){if(branchS>branchBest+2){branchBest=branchS;branchStuck=0;}else branchStuck+=Time.fixedDeltaTime;}else branchStuck=0;
+            if(racing&&!finished)TrackRecoveryProgress(activeBranch,activeBranch?branchS:s);
             if(plannedBranch || activeBranch) desiredLane=0;
             float departureDistance=Mathf.Repeat(s-recoveryDepartureStation+DriveRoad.Length*.5f,DriveRoad.Length)-DriveRoad.Length*.5f;
             bool departing=racing&&Time.time<recoveryDepartureUntil&&departureDistance<60&&!plannedBranch&&!activeBranch&&!(forestLayout&&forestLayout.Approach(s));
@@ -273,7 +269,11 @@ namespace Racer
 
             // A repeated obstruction has already exhausted the first long recovery
             // window. Retry sooner, still using the same supported, non-forward pad.
-            if (Time.time>=nextRecovery && (stalled > (RecoveryCount>0?9:12) || routeStuck>(RecoveryCount>0?12:16) || branchStuck>10 || (lateral > 22 && stalled>5) || Vector3.Dot(transform.up, Vector3.up) < .1f))
+            float noProgress=Mathf.Max(routeStuck,branchStuck,rejoinStuck);
+            bool racerStuck=racing&&!finished && (noProgress>8 ||
+                (noProgress>5&&(speed<2||trackingRejoin||transform.up.y<.35f)));
+            bool trafficStuck=!racing&&(stalled>12||(lateral>22&&stalled>5)||transform.up.y<.1f);
+            if (Time.time>=nextRecovery && (racerStuck||trafficStuck))
             {
                 TryRecover(s);
             }
@@ -284,6 +284,35 @@ namespace Racer
             Car.Simulate(throttle, brake, steering, Time.fixedDeltaTime);
         }
 
+        // A projection beneath an elevated road is not meaningful route progress.
+        // Off-route cars instead get credit for approaching a fixed rejoin target;
+        // reversing/oscillating around the same hillside cannot keep resetting it.
+        void TrackRecoveryProgress(WoodlandRoute branch,float station)
+        {
+            var p=Car.Body.position;
+            var support=branch?branch.At(station,out _):DriveRoad.At(station,out _);
+            float width=branch?branch.halfWidth:DriveRoad.HalfWidth(station);
+            bool near=Vector3.ProjectOnPlane(p-support,Vector3.up).magnitude<=width+3
+                &&Mathf.Abs(p.y-support.y)<6;
+            if(!near){
+                routeStuck=branchStuck=0;
+                if(!trackingRejoin){trackingRejoin=true;rejoinTarget=support;rejoinBestDistance=Vector3.Distance(p,support);rejoinStuck=0;}
+                float distance=Vector3.Distance(p,rejoinTarget);
+                if(distance<rejoinBestDistance-2){rejoinBestDistance=distance;rejoinStuck=0;}
+                else rejoinStuck+=Time.fixedDeltaTime;
+                return;
+            }
+            trackingRejoin=false;rejoinStuck=0;
+            if(branch){
+                routeStuck=0;
+                if(station>branchBest+2){branchBest=station;branchStuck=0;}else branchStuck+=Time.fixedDeltaTime;
+            }else{
+                branchStuck=0;
+                float delta=progressSample?Mathf.Repeat(station-progressStation+DriveRoad.Length*.5f,DriveRoad.Length)-DriveRoad.Length*.5f:3;
+                if(delta>2){progressStation=station;routeStuck=0;progressSample=true;}else routeStuck+=Time.fixedDeltaTime;
+            }
+        }
+
         void TryRecover(float current)
         {
             if(racing)
@@ -291,7 +320,7 @@ namespace Racer
                 var recovery=Car.GetComponent<VehicleRespawn>();
                 nextRecovery=Time.time+1;
                 if(!recovery.TryRecoverLocal(true)) return;
-                stalled=branchStuck=routeStuck=0;progressStation=DriveRoad.Project(Car.Body.position,out _);progressSample=true;branchBest=Racer?.Branch.Position??0; nextRecovery=Time.time+4; RecoveryCount++;
+                stalled=branchStuck=routeStuck=rejoinStuck=0;trackingRejoin=false;progressStation=DriveRoad.Project(Car.Body.position,out _);progressSample=true;branchBest=Racer?.Branch.Position??0; nextRecovery=Time.time+4; RecoveryCount++;
                 recoveryDepartureStation=progressStation;recoveryDepartureUntil=Time.time+8;
                 var support=DriveRoad.At(progressStation,out var departureForward);departureLane=Vector3.Dot(Car.Body.position-support,Vector3.Cross(Vector3.up,departureForward).normalized);
                 if(Racer==null || !Racer.Branch.Route)lane=forestLayout?(lane>0?-.55f:.55f):(lane>0?-1.7f:1.7f);

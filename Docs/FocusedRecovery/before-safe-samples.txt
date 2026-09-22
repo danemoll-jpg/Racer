@@ -1,0 +1,124 @@
+Granite Creek Cut s=0 y=7.96 support=True poseY=8.65 anchor=0.00 advanced=True
+Granite Creek Cut s=10 y=7.99 support=True poseY=8.68 anchor=10.00 advanced=True
+Granite Creek Cut s=20 y=8.02 support=True poseY=8.56 anchor=20.00 advanced=True
+Granite Creek Cut s=30 y=8.12 support=True poseY=8.28 anchor=30.00 advanced=True
+Granite Creek Cut s=40 y=8.32 support=True poseY=8.28 anchor=40.00 advanced=True
+Granite Creek Cut s=50 y=8.55 support=True poseY=8.42 anchor=50.00 advanced=True
+Granite Creek Cut s=60 y=8.76 support=True poseY=8.85 anchor=60.00 advanced=True
+Granite Creek Cut s=70 y=9.04 support=True poseY=9.71 anchor=70.00 advanced=True
+Granite Creek Cut s=80 y=9.40 support=True poseY=10.13 anchor=80.00 advanced=True
+Granite Creek Cut s=90 y=9.81 support=True poseY=10.55 anchor=90.00 advanced=True
+Granite Creek Cut s=100 y=10.25 support=True poseY=10.99 anchor=100.00 advanced=True
+Granite Creek Cut s=110 y=10.70 support=True poseY=11.44 anchor=110.00 advanced=True
+Granite Creek Cut s=120 y=11.14 support=True poseY=11.88 anchor=120.00 advanced=True
+Granite Creek Cut s=130 y=11.58 support=True poseY=12.31 anchor=130.00 advanced=True
+Granite Creek Cut s=140 y=11.99 support=True poseY=12.72 anchor=140.00 advanced=True
+Granite Creek Cut s=150 y=12.37 support=True poseY=13.10 anchor=150.00 advanced=True
+Granite Creek Cut s=160 y=12.72 support=True poseY=13.44 anchor=160.00 advanced=True
+Granite Creek Cut s=170 y=13.02 support=True poseY=13.74 anchor=170.00 advanced=True
+Granite Creek Cut s=180 y=13.32 support=True poseY=14.04 anchor=180.00 advanced=True
+Granite Creek Cut s=190 y=13.62 support=True poseY=14.34 anchor=190.00 advanced=True
+Granite Creek Cut s=200 y=13.92 support=True poseY=14.64 anchor=200.00 advanced=True
+Granite Creek Cut s=210 y=14.22 support=True poseY=14.94 anchor=210.00 advanced=True
+Granite Creek Cut s=220 y=14.50 support=True poseY=15.22 anchor=220.00 advanced=True
+Granite Creek Cut s=230 y=14.77 support=True poseY=15.48 anchor=230.00 advanced=True
+Granite Creek Cut s=240 y=15.02 support=True poseY=15.73 anchor=240.00 advanced=True
+Granite Creek Cut s=250 y=15.25 support=True poseY=15.96 anchor=250.00 advanced=True
+Granite Creek Cut s=260 y=15.45 support=True poseY=16.16 anchor=260.00 advanced=True
+Granite Creek Cut s=270 y=15.63 support=True poseY=16.33 anchor=270.00 advanced=True
+Granite Creek Cut s=280 y=15.77 support=True poseY=16.47 anchor=280.00 advanced=True
+Granite Creek Cut s=290 y=15.89 support=True poseY=16.58 anchor=290.00 advanced=True
+Granite Creek Cut s=300 y=15.96 support=True poseY=16.65 anchor=300.00 advanced=True
+Granite Creek Cut s=310 y=16.00 support=True poseY=16.69 anchor=310.00 advanced=True
+Granite Creek Cut s=320 y=16.00 support=True poseY=16.69 anchor=320.00 advanced=True
+Granite Creek Cut s=330 y=15.96 support=True poseY=16.65 anchor=330.00 advanced=True
+Granite Creek Cut s=340 y=15.87 support=True poseY=16.57 anchor=340.00 advanced=True
+Granite Creek Cut s=350 y=15.75 support=True poseY=16.45 anchor=350.00 advanced=True
+Granite Creek Cut s=360 y=15.73 support=True poseY=16.45 anchor=360.00 advanced=True
+Granite Creek Cut s=370 y=16.21 support=True poseY=17.00 anchor=370.00 advanced=True
+Granite Creek Cut s=380 y=17.23 support=True poseY=18.08 anchor=380.00 advanced=True
+Granite Creek Cut s=390 y=14.66 support=False poseY=15.21 anchor=385.00 advanced=True
+Granite Creek Cut s=400 y=11.99 support=True poseY=12.70 anchor=400.00 advanced=True
+Granite Creek Cut s=410 y=11.90 support=True poseY=12.59 anchor=410.00 advanced=True
+Granite Creek Cut s=420 y=12.08 support=True poseY=12.80 anchor=420.00 advanced=True
+Granite Creek Cut s=430 y=12.42 support=True poseY=13.15 anchor=430.00 advanced=True
+Granite Creek Cut s=440 y=12.80 support=True poseY=13.53 anchor=440.00 advanced=True
+Granite Creek Cut s=450 y=13.10 support=True poseY=13.81 anchor=450.00 advanced=True
+Granite Creek Cut s=460 y=13.20 support=True poseY=13.88 anchor=460.00 advanced=True
+Granite Creek Cut s=470 y=13.01 support=True poseY=13.73 anchor=470.00 advanced=True
+Granite Creek Cut s=480 y=12.76 support=True poseY=13.47 anchor=480.00 advanced=True
+Granite Creek Cut s=490 y=12.51 support=True poseY=13.22 anchor=490.00 advanced=True
+Granite Creek Cut s=500 y=12.27 support=True poseY=12.98 anchor=500.00 advanced=True
+Granite Creek Cut s=510 y=12.05 support=True poseY=12.76 anchor=510.00 advanced=True
+Granite Creek Cut s=520 y=11.85 support=True poseY=12.55 anchor=520.00 advanced=True
+Granite Creek Cut s=530 y=11.64 support=True poseY=12.35 anchor=530.00 advanced=True
+Granite Creek Cut s=540 y=11.43 support=True poseY=12.14 anchor=540.00 advanced=True
+Granite Creek Cut s=550 y=11.22 support=True poseY=11.92 anchor=550.00 advanced=True
+Granite Creek Cut s=560 y=11.00 support=True poseY=11.71 anchor=560.00 advanced=True
+Granite Creek Cut s=570 y=10.79 support=True poseY=11.50 anchor=570.00 advanced=True
+Granite Creek Cut s=580 y=10.58 support=True poseY=11.29 anchor=580.00 advanced=True
+Granite Creek Cut s=590 y=10.37 support=True poseY=11.08 anchor=590.00 advanced=True
+Granite Creek Cut s=600 y=10.16 support=True poseY=10.87 anchor=600.00 advanced=True
+Granite Creek Cut s=610 y=9.96 support=True poseY=10.66 anchor=610.00 advanced=True
+Granite Creek Cut s=620 y=9.76 support=True poseY=10.46 anchor=620.00 advanced=True
+Granite Creek Cut s=630 y=9.57 support=True poseY=10.27 anchor=630.00 advanced=True
+Granite Creek Cut s=640 y=9.38 support=True poseY=10.08 anchor=640.00 advanced=True
+Granite Creek Cut s=650 y=9.21 support=True poseY=9.91 anchor=650.00 advanced=True
+Granite Creek Cut s=660 y=9.04 support=True poseY=9.74 anchor=660.00 advanced=True
+Granite Creek Cut s=670 y=8.90 support=True poseY=9.60 anchor=670.00 advanced=True
+Granite Creek Cut s=680 y=8.79 support=True poseY=9.48 anchor=680.00 advanced=True
+Granite Creek Cut s=690 y=8.70 support=True poseY=9.39 anchor=690.00 advanced=True
+Granite Creek Cut s=700 y=8.63 support=True poseY=9.32 anchor=700.00 advanced=True
+Granite Creek Cut s=710 y=8.57 support=True poseY=9.26 anchor=710.00 advanced=True
+Granite Creek Cut s=720 y=8.52 support=True poseY=9.21 anchor=720.00 advanced=True
+Granite Creek Cut s=730 y=8.49 support=True poseY=9.17 anchor=730.00 advanced=True
+Granite Creek Cut s=740 y=8.46 support=True poseY=9.14 anchor=740.00 advanced=True
+Granite Creek Cut s=750 y=8.42 support=True poseY=9.10 anchor=750.00 advanced=True
+Granite Creek Cut s=760 y=8.38 support=True poseY=9.07 anchor=760.00 advanced=True
+Laurel Switchbacks s=0 y=45.76 support=True poseY=46.51 anchor=769.00 advanced=True
+Laurel Switchbacks s=10 y=45.98 support=True poseY=46.68 anchor=10.00 advanced=False
+Laurel Switchbacks s=20 y=45.66 support=True poseY=46.47 anchor=20.00 advanced=True
+Laurel Switchbacks s=30 y=45.67 support=True poseY=46.44 anchor=30.00 advanced=True
+Laurel Switchbacks s=40 y=46.68 support=True poseY=47.49 anchor=40.00 advanced=True
+Laurel Switchbacks s=50 y=47.59 support=True poseY=48.39 anchor=50.00 advanced=True
+Laurel Switchbacks s=60 y=48.35 support=True poseY=49.16 anchor=60.00 advanced=True
+Laurel Switchbacks s=70 y=49.54 support=True poseY=50.50 anchor=70.00 advanced=True
+Laurel Switchbacks s=80 y=51.06 support=True poseY=52.25 anchor=75.00 advanced=True
+Laurel Switchbacks s=90 y=52.82 support=False poseY=53.37 anchor=75.00 advanced=False
+Laurel Switchbacks s=100 y=54.39 support=False poseY=54.94 anchor=75.00 advanced=False
+Laurel Switchbacks s=110 y=54.50 support=False poseY=55.05 anchor=75.00 advanced=False
+Laurel Switchbacks s=120 y=49.42 support=False poseY=49.97 anchor=75.00 advanced=False
+Laurel Switchbacks s=130 y=37.85 support=False poseY=38.40 anchor=75.00 advanced=False
+Laurel Switchbacks s=140 y=34.33 support=True poseY=35.06 anchor=140.00 advanced=True
+Laurel Switchbacks s=150 y=34.16 support=True poseY=34.89 anchor=150.00 advanced=True
+Laurel Switchbacks s=160 y=34.17 support=True poseY=34.91 anchor=160.00 advanced=True
+Laurel Switchbacks s=170 y=34.38 support=True poseY=35.15 anchor=170.00 advanced=True
+Laurel Switchbacks s=180 y=34.78 support=True poseY=35.57 anchor=180.00 advanced=True
+Laurel Switchbacks s=190 y=35.36 support=True poseY=36.19 anchor=190.00 advanced=True
+Laurel Switchbacks s=200 y=36.14 support=True poseY=37.00 anchor=200.00 advanced=True
+Laurel Switchbacks s=210 y=36.78 support=True poseY=37.56 anchor=210.00 advanced=True
+Laurel Switchbacks s=220 y=36.43 support=True poseY=37.28 anchor=220.00 advanced=True
+Laurel Switchbacks s=230 y=35.17 support=True poseY=36.04 anchor=230.00 advanced=True
+Laurel Switchbacks s=240 y=38.90 support=False poseY=39.45 anchor=232.00 advanced=True
+Laurel Switchbacks s=250 y=41.72 support=True poseY=42.65 anchor=250.00 advanced=True
+Laurel Switchbacks s=260 y=38.95 support=False poseY=39.50 anchor=257.00 advanced=True
+Laurel Switchbacks s=270 y=35.55 support=True poseY=36.61 anchor=270.00 advanced=True
+Laurel Switchbacks s=280 y=35.23 support=True poseY=36.15 anchor=270.00 advanced=False
+Laurel Switchbacks s=290 y=34.71 support=False poseY=35.26 anchor=270.00 advanced=False
+Laurel Switchbacks s=300 y=34.06 support=False poseY=34.61 anchor=270.00 advanced=False
+Laurel Switchbacks s=310 y=34.22 support=True poseY=35.04 anchor=308.00 advanced=True
+Laurel Switchbacks s=320 y=41.30 support=False poseY=41.85 anchor=308.00 advanced=False
+Laurel Switchbacks s=330 y=47.08 support=True poseY=48.28 anchor=330.00 advanced=True
+Laurel Switchbacks s=340 y=51.34 support=True poseY=52.94 anchor=340.00 advanced=True
+Laurel Switchbacks s=350 y=57.73 support=True poseY=59.31 anchor=350.00 advanced=True
+Laurel Switchbacks s=360 y=69.20 support=False poseY=69.75 anchor=350.00 advanced=False
+Laurel Switchbacks s=370 y=84.59 support=False poseY=85.14 anchor=350.00 advanced=False
+Laurel Switchbacks s=380 y=87.46 support=True poseY=81.98 anchor=350.00 advanced=False
+Laurel Switchbacks s=390 y=87.48 support=True poseY=82.58 anchor=350.00 advanced=False
+Laurel Switchbacks s=400 y=87.73 support=False poseY=88.28 anchor=350.00 advanced=False
+Laurel Switchbacks s=410 y=88.09 support=True poseY=86.78 anchor=350.00 advanced=False
+Laurel Switchbacks s=420 y=88.14 support=True poseY=88.04 anchor=420.00 advanced=True
+Laurel Switchbacks s=430 y=88.11 support=True poseY=88.75 anchor=430.00 advanced=True
+Laurel Switchbacks s=440 y=88.45 support=True poseY=89.17 anchor=440.00 advanced=True
+Laurel Switchbacks s=450 y=88.65 support=True poseY=89.34 anchor=450.00 advanced=True
+Laurel Switchbacks s=460 y=88.63 support=True poseY=89.32 anchor=460.00 advanced=True

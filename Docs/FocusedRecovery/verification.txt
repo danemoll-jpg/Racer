@@ -1,0 +1,9 @@
+StreetLoopGreybox normal road: samples=6805, gaps=0, max height error=0.06339m
+StreetLoopReverse normal road: samples=6805, gaps=0, max height error=0.06435m
+Straight ramp: samples=1905; gaps=0; stacked top surfaces=0; maximum adjacent .1m normal change=0.413deg; worst=s=-1.437, lane=-3.5, collider=Ground_560_240; profile error=0.00042m; visible/collision identical=True
+Outer side seam: 322 samples, maximum baseline mismatch=0.000031m
+Gravity=(0.00, -9.81, 0.00); launch=(345.94, 80.27, -178.02)
+Geometric flight at 32m/s: contact distance=92.75m, point=(376.58, 80.03, -90.48), clears chasm=True; actual vehicle jump left to user playtest
+Geometric flight at 38m/s: contact distance=132.95m, point=(389.86, 78.40, -52.54), clears chasm=True; actual vehicle jump left to user playtest
+Recent shortcut root absent=True
+FAILURES=0

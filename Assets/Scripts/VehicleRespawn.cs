@@ -64,11 +64,23 @@ namespace Racer
             legacyLaunchSurfaces ??= FindObjectsByType<Collider>().Where(c=>c.name.StartsWith("Takeoff -")||c.name.StartsWith("Gully supported ramp")||c.name=="Reverse supported roadworks transition").ToArray();
             foreach(var ramp in legacyLaunchSurfaces){
                 if(!ramp||!ramp.enabled||!ramp.gameObject.activeInHierarchy)continue;
-                var bounds=ramp.bounds;bounds.Expand(new Vector3(1,4,1));
-                if(bounds.Contains(p))return true;
-                // Retain an occupied run-up, not a stopped pose at the ramp's foot.
-                var routeStation=race.road.Project(p,out _);var ahead=race.road.At(routeStation+35,out _);
-                if(bounds.Contains(ahead+Vector3.up*.5f)&&Mathf.Abs(ahead.y-p.y)<8)return true;
+                var branch=race.Racers.FirstOrDefault(r=>r.Car==vehicle)?.Branch.Route;
+                float station=branch?branch.Project(p,out _):race.road.Project(p,out _);
+                var route=branch?branch.At(station,out var forward):race.road.At(station,out forward);
+                forward=Vector3.ProjectOnPlane(forward,Vector3.up).normalized;
+                // A shared collider can include a flat elevated deck or landing
+                // runout. Classify the actual face, never its whole world AABB.
+                if(LegacyLaunchAt(ramp,p,forward)||LegacyLaunchAt(ramp,p-forward*vehicle.wheelbase*.5f,forward))return true;
+                float width=branch?branch.halfWidth:race.road.HalfWidth(station);
+                if(Vector3.ProjectOnPlane(p-route,Vector3.up).magnitude>width+1||Mathf.Abs(p.y-route.y)>3)continue;
+                float side=Vector3.Dot(p-route,Vector3.Cross(Vector3.up,forward));
+                // Keep sufficient run-up for a real launch on this driving line.
+                for(float d=3;d<=35;d+=4){
+                    var ahead=branch?branch.At(station+d,out var f):race.road.At(station+d,out f);
+                    f=Vector3.ProjectOnPlane(f,Vector3.up).normalized;
+                    ahead+=Vector3.Cross(Vector3.up,f)*side;
+                    if(LegacyLaunchAt(ramp,ahead+Vector3.up*.5f,f))return true;
+                }
             }
             var flights=race.GetComponent<MountainFlights>();
             if(flights)foreach(var flight in flights.flights){
@@ -96,6 +108,11 @@ namespace Racer
                 }
             }
             return false;
+        }
+        static bool LegacyLaunchAt(Collider surface,Vector3 p,Vector3 forward)
+        {
+            if(!surface.Raycast(new Ray(p+Vector3.up*3,Vector3.down),out var hit,6))return false;
+            return hit.normal.y<.9f||Vector3.Dot(hit.normal,forward)<-.025f;
         }
         RaceRoad roamRoad;WoodlandRoute roamBranch;float roamStation,roamDirection=1;bool roamValid;
         struct RoamSample {public RaceRoad road;public WoodlandRoute branch;public float station,direction;}
