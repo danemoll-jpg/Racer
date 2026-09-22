@@ -1,0 +1,3 @@
+Ground_560_240: changed 450 of 25921 vertices; topology and x/z unchanged
+Ground_640_240: changed 2062 of 25921 vertices; topology and x/z unchanged
+Only existing ForestLoopReverse-specific terrain assets edited. No scene, route, driveway, physics, AI or reset components edited.

@@ -1,0 +1,3 @@
+PASS: 2512 local height edits, all x/z coordinates retained; vertices outside the local corridor unchanged.
+PASS: 2393 main road / ambient road / driveway support comparisons against checkpoint, tolerance 1mm.
+PASS: shared terrain tile edge maximum height mismatch 0.000000m.

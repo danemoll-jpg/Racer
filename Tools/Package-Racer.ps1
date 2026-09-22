@@ -1,7 +1,7 @@
-param([ValidatePattern('^[0-9]+\.[0-9]+\.[0-9]+(?:-[A-Za-z0-9-]+)?$')][string]$Version='0.28.0-review1')
+param([ValidatePattern('^[0-9]+\.[0-9]+\.[0-9]+(?:-[A-Za-z0-9-]+)?$')][string]$Version='0.29.0-review1')
 $ErrorActionPreference='Stop'
-$reviewDocs=if($Version -like '0.28.0-*'){ 'FocusedRecovery' }elseif($Version -like '0.27.0-*'){ 'SimpleLaurel' }elseif($Version -like '0.26.0-*'){ 'SurgicalTracks' }elseif($Version -like '0.25.0-*'){ 'LocalRecovery' }elseif($Version -like '0.24.1-*'){ 'MountainMenu' }elseif($Version -like '0.24.0-*'){ 'CR133-137' }elseif($Version -like '0.23.0-*'){ 'CR129-132' }elseif($Version -like '0.22.0-*'){ 'CR122-128' }elseif($Version -like '0.21.1-*'){ 'CR121-followup' }elseif($Version -like '0.20.1-*'){ 'CR120-121' }else{ 'CR112-118' }
-$isCurrentReview=$Version -like '0.28.0-*' -or $Version -like '0.27.0-*' -or $Version -like '0.26.0-*' -or $Version -like '0.25.0-*' -or $Version -like '0.24.1-*' -or $Version -like '0.24.0-*' -or $Version -like '0.23.0-*' -or $Version -like '0.20.*' -or $Version -like '0.21.1-*' -or $Version -like '0.22.0-*'
+$reviewDocs=if($Version -like '0.29.0-*'){ 'ForestHill' }elseif($Version -like '0.28.0-*'){ 'FocusedRecovery' }elseif($Version -like '0.27.0-*'){ 'SimpleLaurel' }elseif($Version -like '0.26.0-*'){ 'SurgicalTracks' }elseif($Version -like '0.25.0-*'){ 'LocalRecovery' }elseif($Version -like '0.24.1-*'){ 'MountainMenu' }elseif($Version -like '0.24.0-*'){ 'CR133-137' }elseif($Version -like '0.23.0-*'){ 'CR129-132' }elseif($Version -like '0.22.0-*'){ 'CR122-128' }elseif($Version -like '0.21.1-*'){ 'CR121-followup' }elseif($Version -like '0.20.1-*'){ 'CR120-121' }else{ 'CR112-118' }
+$isCurrentReview=$Version -like '0.29.0-*' -or $Version -like '0.28.0-*' -or $Version -like '0.27.0-*' -or $Version -like '0.26.0-*' -or $Version -like '0.25.0-*' -or $Version -like '0.24.1-*' -or $Version -like '0.24.0-*' -or $Version -like '0.23.0-*' -or $Version -like '0.20.*' -or $Version -like '0.21.1-*' -or $Version -like '0.22.0-*'
 $projectRoot=[IO.Path]::GetFullPath((Join-Path $PSScriptRoot '..'))
 $builds=Join-Path $projectRoot 'Builds'
 $runtime=Join-Path $builds "Racer-$Version-Windows"
@@ -107,3 +107,4 @@ $report | ConvertTo-Json | Set-Content -LiteralPath "$builds/PACKAGE-LATEST.json
 $report | ConvertTo-Json
 if(!$stagedSongs.Count){Write-Host 'No songs are staged in BundleMusic; the shareable Music folder is empty except instructions.'}
 Write-Host 'To migrate chosen songs from preserved Latest/Music, copy them to BundleMusic and run this command again.'
+

@@ -1,0 +1,12 @@
+using System;using System.IO;using System.Linq;using System.Collections.Generic;using UnityEngine;using Object=UnityEngine.Object;
+public static class VerifyForestHill {
+ public static string Main(){
+ var b=Object.FindObjectsByType<Racer.WoodlandRoute>().Single(b=>b.title=="Granite Saddle");var rows=new List<string>{"station,lateral,height,grade,normalChange"};float steep=0,turn=0,oldSteep=0;int count=0;var before=File.ReadAllLines("Docs/ForestHill/before-profile.csv").Skip(1).Select(l=>l.Split(',').Select(float.Parse).ToArray()).ToArray();
+ foreach(float t in new[]{-4f,-2,0,2,4}){float? last=null;Vector3? normal=null;foreach(var old in before.Where(q=>q[1]==t)){float s=old[0];var p=b.At(s,out var f)+Vector3.Cross(Vector3.up,f).normalized*t;var hits=Physics.RaycastAll(p+Vector3.up*200,Vector3.down,400,1,QueryTriggerInteraction.Ignore).Where(h=>h.collider.name.StartsWith("Ground")).OrderByDescending(h=>h.point.y).ToArray();if(hits.Length==0)throw new Exception("Gap at "+s+" / "+t);var h=hits[0];float g=last.HasValue?(h.point.y-last.Value)/.5f:0;float a=normal.HasValue?Vector3.Angle(h.normal,normal.Value):0;if(s>55&&s<175){steep=Math.Max(steep,Math.Abs(g));turn=Math.Max(turn,a);}if(last.HasValue&&s<=162-.9f*t&&s>55&&Math.Abs(g)>.5f)throw new Exception("Abrupt grade "+g+" at "+s+" / "+t);if(hits.Length>1&&hits[0].point.y-hits[1].point.y>.1f)throw new Exception("Overlapping surface at "+s+" / "+t);rows.Add($"{s},{t},{h.point.y:F6},{g:F6},{a:F3}");last=h.point.y;normal=h.normal;count++;}}
+ foreach(float t in new[]{-4f,-2,0,2,4}){var lane=before.Where(q=>q[1]==t).ToArray();for(int i=1;i<lane.Length;i++)oldSteep=Math.Max(oldSteep,Math.Abs((lane[i][2]-lane[i-1][2])/.5f));}
+ foreach(var n in new[]{"Ground_560_240","Ground_640_240"}){var mf=GameObject.Find(n).GetComponent<MeshFilter>();if(mf.sharedMesh!=mf.GetComponent<MeshCollider>().sharedMesh)throw new Exception("Render/collision mismatch");}
+ File.WriteAllLines("Docs/ForestHill/after-profile.csv",rows);string report=$"PASS: {count} collision samples across 8m trail width; no gaps or stacked surfaces beyond retained driveway's original 0.065m overlay.\nMaximum absolute longitudinal grade: before={oldSteep:F4} ({Mathf.Atan(oldSteep)*Mathf.Rad2Deg:F2} degrees), after={steep:F4} ({Mathf.Atan(steep)*Mathf.Rad2Deg:F2} degrees). Maximum sampled normal change={turn:F3} degrees.\nRender and collision share the exact same corrected meshes.\n";File.WriteAllText("Docs/ForestHill/verification.txt",report);return report;
+ }
+}
+
+

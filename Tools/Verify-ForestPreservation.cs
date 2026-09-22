@@ -1,0 +1,19 @@
+using System;using System.IO;using System.Linq;using System.Collections.Generic;using UnityEngine;using UnityEditor;using Object=UnityEngine.Object;
+public static class VerifyForestPreservation {
+ public static string Main(){
+ var originals=new List<MeshCollider>();var current=new List<MeshCollider>();var rows=new List<string>();int changed=0;
+ var branch=Object.FindObjectsByType<Racer.WoodlandRoute>().Single(b=>b.title=="Granite Saddle");
+ try{foreach(var name in new[]{"Ground_560_240","Ground_640_240"}){
+ var mf=GameObject.Find(name).GetComponent<MeshFilter>();var txt=File.ReadAllText("Temp/ForestHill-original-"+name+".txt");var hex=System.Text.RegularExpressions.Regex.Match(txt,@"_typelessdata: ([0-9a-fA-F]+)").Groups[1].Value;var data=Enumerable.Range(0,hex.Length/2).Select(i=>Convert.ToByte(hex.Substring(i*2,2),16)).ToArray();var now=mf.sharedMesh.vertices;int stride=data.Length/now.Length;var old=new Vector3[now.Length];
+ for(int i=0;i<old.Length;i++){old[i]=new Vector3(BitConverter.ToSingle(data,i*stride),BitConverter.ToSingle(data,i*stride+4),BitConverter.ToSingle(data,i*stride+8));if(old[i].x!=now[i].x||old[i].z!=now[i].z)throw new Exception("Alignment changed");if(Math.Abs(old[i].y-now[i].y)>.00001f){changed++;var p=mf.transform.TransformPoint(old[i]);float s=branch.Project(p,out float d);if(d>=12.001f||s<=54.999f||s>=174.001f)throw new Exception("Terrain outside local corridor changed");}}
+ var mesh=Object.Instantiate(mf.sharedMesh);mesh.vertices=old;mesh.RecalculateBounds();var go=new GameObject("Temporary baseline collider");go.transform.SetPositionAndRotation(mf.transform.position,mf.transform.rotation);go.transform.localScale=mf.transform.lossyScale;var c=go.AddComponent<MeshCollider>();c.sharedMesh=mesh;originals.Add(c);current.Add(mf.GetComponent<MeshCollider>());
+ }
+ Physics.SyncTransforms();float Height(List<MeshCollider> cs,Vector3 p){float y=float.NegativeInfinity;foreach(var c in cs)if(c.Raycast(new Ray(new Vector3(p.x,300,p.z),Vector3.down),out var h,500))y=Math.Max(y,h.point.y);return y;}
+ var race=Object.FindAnyObjectByType<Racer.RaceDirector>();int samples=0;foreach(var road in new[]{race.road,race.ambientRoad}.Where(r=>r).Distinct()){for(float s=0;s<road.Length;s+=2)foreach(float offset in new[]{-4f,0,4}){var p=road.At(s,out var f)+Vector3.Cross(Vector3.up,f).normalized*offset;float a=Height(originals,p),b=Height(current,p);if(float.IsInfinity(a)&&float.IsInfinity(b))continue;if(Math.Abs(a-b)>.001f)throw new Exception("Existing main road support changed at "+p);samples++;}}
+ // Existing driveway top and its immediate supporting ground retain their heights.
+ var drive=GameObject.Find("Ground_House3 supported valley driveway").GetComponent<MeshFilter>();foreach(var v in drive.sharedMesh.vertices){var p=drive.transform.TransformPoint(v);float a=Height(originals,p),b=Height(current,p);if(float.IsInfinity(a)&&float.IsInfinity(b))continue;if(Math.Abs(a-b)>.001f)throw new Exception("Driveway support changed at "+p);samples++;}
+ var border=new Dictionary<(int,int),float>();float seam=0;foreach(var c in current)foreach(var v in c.sharedMesh.vertices){var p=c.transform.TransformPoint(v);if(Math.Abs(p.x-480)>.001f)continue;var key=(Mathf.RoundToInt(p.x*1000),Mathf.RoundToInt(p.z*1000));if(border.TryGetValue(key,out float y))seam=Math.Max(seam,Math.Abs(y-p.y));else border[key]=p.y;}if(seam>.001f)throw new Exception("Tile seam");
+ var report=$"PASS: {changed} local height edits, all x/z coordinates retained; vertices outside the local corridor unchanged.\nPASS: {samples} main road / ambient road / driveway support comparisons against checkpoint, tolerance 1mm.\nPASS: shared terrain tile edge maximum height mismatch {seam:F6}m.\n";File.WriteAllText("Docs/ForestHill/preservation.txt",report);return report;
+ }finally{foreach(var c in originals){var mesh=c.sharedMesh;Object.DestroyImmediate(c.gameObject);Object.DestroyImmediate(mesh);}}
+ }
+}

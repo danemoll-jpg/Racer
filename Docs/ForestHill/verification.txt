@@ -1,0 +1,3 @@
+PASS: 1305 collision samples across 8m trail width; no gaps or stacked surfaces beyond retained driveway's original 0.065m overlay.
+Maximum absolute longitudinal grade: before=4.8606 (78.37 degrees), after=0.3984 (21.72 degrees). Maximum sampled normal change=17.791 degrees.
+Render and collision share the exact same corrected meshes.
