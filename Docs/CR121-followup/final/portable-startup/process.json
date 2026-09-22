@@ -1,0 +1,11 @@
+{
+  "Name": "portable-startup",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\PackageWork\\20260921-220638-424-c59444\\extracted\\Racer-0.21.1-review2-Windows\\Racer.exe",
+  "AssemblySHA256": "8418A442B2CFAF7B4DD930344EE1F1C7783DC5591372F3223791B5A624AE46BF",
+  "Flags": "-racerSkipTitle -batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr112-13df0ae2d0f344e5bfeb8d969458c434\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR121-followup\\final\\portable-startup\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr112-final-portable-startup.log\" -cr110Check startup -course MountainLoopReverse",
+  "Save": "C:\\Users\\danmo\\Racer\\Temp\\cr112-13df0ae2d0f344e5bfeb8d969458c434",
+  "PID": 49728,
+  "Timeout": false,
+  "Exit": 0,
+  "CompletedUtc": "2026-09-22T02:12:34.5120624Z"
+}

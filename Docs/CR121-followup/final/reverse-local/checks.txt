@@ -1,0 +1,7 @@
+PASS Relocated Downhill Ridge Cut entrance grants entitlement
+PASS Old late cut does not grant shortcut entitlement
+PASS Exit-only entry does not grant shortcut entitlement
+PASS Only intended gate bypasses retained; entry gate moved before branch
+PASS summit-tail-rejoin: one normal-input motorcycle traversal, waypoint 36/36, minUp=0.86
+PASS shortcut-2-entrance-and-rejoin: one normal-input motorcycle traversal, waypoint 29/29, minUp=0.97
+PASS Old left cut physically blocked: barrierContact=True, minimumX=802.49

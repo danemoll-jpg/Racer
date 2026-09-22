@@ -18,7 +18,9 @@ namespace Racer
         bool speechComplete;
         double voiceScheduledAt=double.PositiveInfinity;
         bool cancelledBeforeSpeech;
-        public const float ArtworkLeadIn=1.5f;
+        // The shipped voice derivative contains one second of actual silence.
+        // Do not stack the previous 1.5-second scheduling workaround on top.
+        public const float ArtworkLeadIn=0f;
         public double ArtworkReadyDsp { get; private set; }
         public double VoiceScheduledDsp=>voiceScheduledAt;
         public static bool CancelUnstarted(double now,double scheduled)=>now<scheduled;
@@ -72,7 +74,7 @@ namespace Racer
         IEnumerator LoadAudio()
         {
             if(ValidationLoadDelay>0 && System.Environment.GetCommandLineArgs().Contains("-racerTestSave"))yield return new WaitForSecondsRealtime(ValidationLoadDelay);
-            var voice=Resources.LoadAsync<AudioClip>("Title/Voice");var theme=Resources.LoadAsync<AudioClip>("Title/ThemeLoop");var opening=Resources.LoadAsync<AudioClip>("Title/ThemeOpening");
+            var voice=Resources.LoadAsync<AudioClip>("Title/VoicePadded");var theme=Resources.LoadAsync<AudioClip>("Title/ThemeLoop");var opening=Resources.LoadAsync<AudioClip>("Title/ThemeOpening");
             yield return voice;yield return theme;yield return opening;
             Voice.clip=voice.asset as AudioClip;Theme.clip=theme.asset as AudioClip;ThemeOpening.clip=opening.asset as AudioClip;
             foreach(var source in new[]{Voice,Theme,ThemeOpening})if(source.clip)source.clip.LoadAudioData();

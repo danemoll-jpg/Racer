@@ -1,0 +1,3 @@
+PASS Ordinary startup schedules supplied voice once
+PASS Padded derivative does not stack the obsolete 1.5-second scheduling delay
+PASS Packaged derivative has one second of actual zero-valued leading samples; this is not an audible verdict

@@ -1,0 +1,11 @@
+{
+  "Name": "reverse-local",
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\PackageWork\\20260921-215314-867-ed87d2\\extracted\\Racer-0.21.1-review1-Windows\\Racer.exe",
+  "AssemblySHA256": "8418A442B2CFAF7B4DD930344EE1F1C7783DC5591372F3223791B5A624AE46BF",
+  "Flags": "-racerSkipTitle -batchmode -screen-width 1280 -screen-height 720 -racerTestSave \"C:\\Users\\danmo\\Racer\\Temp\\cr112-4042559534484f159c17acd8cec5649e\" -evidence \"C:\\Users\\danmo\\Racer\\Docs\\CR121-followup\\final\\reverse-local\" -logFile \"C:\\Users\\danmo\\Racer/Logs/cr112-final-reverse-local.log\" -cr112Check reverse-guidance -course MountainLoopReverse",
+  "Save": "C:\\Users\\danmo\\Racer\\Temp\\cr112-4042559534484f159c17acd8cec5649e",
+  "PID": 131484,
+  "Timeout": false,
+  "Exit": 0,
+  "CompletedUtc": "2026-09-22T02:01:04.1896730Z"
+}

@@ -38,6 +38,7 @@ namespace Racer.Editor
             CR121ExitGuidance();
             Save();File.WriteAllText(ReviewDir+"/implementation.txt","Reverse scene only. Accepted main route, flight geometry, shortcut difficulty/centerline, rejoin, gate credit and layout ID retained. Summit side screen, local paint correction, relocated guidance boards and clear teal main continuation at branch merge. Dan screenshot clarification supersedes the abandoned chicane idea. No AI tuning, terrain or handling changes.");
             CR120FinalVisual();
+            CR121Repair();
         }
         static void CR121ExitGuidance()
         {

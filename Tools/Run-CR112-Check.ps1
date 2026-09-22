@@ -1,8 +1,8 @@
-param([string]$Runtime='Builds/CR112-first/Racer.exe',[string]$Tag='first',[Parameter(Mandatory)][string]$Name,[Parameter(Mandatory)][string]$Flags,[int]$Limit=240,[string]$ReuseSave='')
+param([string]$Runtime='Builds/CR112-first/Racer.exe',[string]$Tag='first',[Parameter(Mandatory)][string]$Name,[Parameter(Mandatory)][string]$Flags,[int]$Limit=240,[string]$ReuseSave='',[string]$EvidenceRoot='Docs/CR112-118')
 $ErrorActionPreference='Stop'
 $project=[IO.Path]::GetFullPath((Join-Path $PSScriptRoot '..'))
-$exe=[IO.Path]::GetFullPath((Join-Path $project $Runtime))
-$evidence=Join-Path $project "Docs/CR112-118/$Tag/$Name"
+$exe=if([IO.Path]::IsPathRooted($Runtime)){[IO.Path]::GetFullPath($Runtime)}else{[IO.Path]::GetFullPath((Join-Path $project $Runtime))}
+$evidence=Join-Path $project "$EvidenceRoot/$Tag/$Name"
 New-Item -ItemType Directory -Force -Path $evidence | Out-Null
 $save=Join-Path $project ('Temp/cr112-'+[Guid]::NewGuid().ToString('N'))
 if($ReuseSave){$save=[IO.Path]::GetFullPath($ReuseSave);if(!$save.StartsWith((Join-Path $project 'Temp')+[IO.Path]::DirectorySeparatorChar,[StringComparison]::OrdinalIgnoreCase)){throw 'Only isolated Temp saves allowed'}}

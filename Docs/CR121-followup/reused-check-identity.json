@@ -1,0 +1,7 @@
+{
+  "CheckedAssembly": "Builds/PackageWork/20260921-215314-867-ed87d2/extracted/Racer-0.21.1-review1-Windows/Racer_Data/Managed/Assembly-CSharp.dll",
+  "FinalAssembly": "Builds/Racer-0.21.1-review2-Windows/Racer_Data/Managed/Assembly-CSharp.dll",
+  "SHA256": "8418A442B2CFAF7B4DD930344EE1F1C7783DC5591372F3223791B5A624AE46BF",
+  "Identical": true,
+  "Change": "One reverse-scene sign position only; no motor, entitlement or title-code changes"
+}

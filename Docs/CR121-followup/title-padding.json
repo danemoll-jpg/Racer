@@ -1,0 +1,9 @@
+{
+  "source": "Assets\\Resources\\Title\\Voice.wav",
+  "source_sha256": "535d59e77f3df72e829366ad2e44852e3d48a1a4a5c34b0abef1ddea754d0fd2",
+  "derivative": "Assets\\Resources\\Title\\VoicePadded.wav",
+  "leading_silence_frames": 48000,
+  "original_frames": 84010,
+  "original_pcm_preserved_exactly": true,
+  "audible_completeness": "Awaiting Dan; no listening capability"
+}
