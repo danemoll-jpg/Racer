@@ -1,0 +1,6 @@
+Restored Ground_480_160: Assets/Track/ReverseReview/Street-Ground_480_160.asset
+Restored Ground_640_240: Assets/Track/Discovery/StreetLoopReverse-house3-supported-Ground_640_240.asset
+Restored Ground_560_240: Assets/Track/Discovery/StreetLoopReverse-house3-supported-Ground_560_240.asset
+Restored Ground_560_160: Assets/Track/ReverseReview/Street-Ground_560_160.asset
+Removed 21 recent shortcut meshes (curved approach, raised terminal strip, narrow sides, arrows)
+One straight ground ramp: start=(340.00, 0.00, -190.00), axis=(0.84, 0.00, 0.54), baseY=69.5233, length=26, usable width=8, side feather=6, rise=10.920, lip slope=.72; final 2m returns down the near cliff to existing terrain. No geometry across the chasm. Entry feather runs from station -8 to -3; the straight driving surface is fully smooth from -3 onward.

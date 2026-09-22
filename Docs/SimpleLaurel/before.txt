@@ -1,0 +1,89 @@
+Ground_560_160 | Center: (400.00, 34.04, -350.00), Extents: (80.00, 13.53, 80.00) | Assets/Track/LocalRecovery/StreetLoopReverse-Surgical-shortcut-only-Ground_560_160.asset
+Grounded wood crossbuck | Center: (508.75, 83.07, -145.73), Extents: (0.44, 0.86, 0.93) | Assets/Track/Discovery/StreetLoopReverse-fence-1083.asset
+Grounded wood crossbuck | Center: (498.62, 85.83, -123.29), Extents: (0.49, 0.99, 0.93) | Assets/Track/Discovery/StreetLoopReverse-fence-1076.asset
+Grounded retained neighbor fence | Center: (500.12, 86.28, -119.90), Extents: (0.48, 1.02, 1.53) | Assets/Track/Discovery/StreetLoopReverse-fence-1011.asset
+Grounded retained neighbor fence | Center: (500.92, 85.84, -122.78), Extents: (0.48, 1.12, 1.54) | Assets/Track/Discovery/StreetLoopReverse-fence-1014.asset
+Ground_Laurel separate straight ramp | Center: (349.38, 61.05, -218.63), Extents: (155.60, 27.15, 103.88) | Assets/Track/LocalRecovery/StreetLoopReverse-Laurel separate straight ramp.asset
+Ground_480_240 | Center: (240.00, 53.23, -190.00), Extents: (80.00, 16.56, 80.00) | Assets/Track/ReverseReview/Street-Ground_480_240.asset
+Grounded retained neighbor fence | Center: (509.01, 79.79, -151.68), Extents: (0.53, 3.60, 1.72) | Assets/Track/Discovery/StreetLoopReverse-fence-1007.asset
+Grounded retained neighbor fence | Center: (482.70, 86.47, -123.21), Extents: (1.96, 0.88, 0.60) | Assets/Track/Discovery/StreetLoopReverse-fence-1008.asset
+Grounded wood crossbuck | Center: (516.04, 70.77, -162.57), Extents: (0.42, 1.31, 0.89) | Assets/Track/Discovery/StreetLoopReverse-fence-1093.asset
+Grounded wood crossbuck | Center: (513.17, 74.29, -155.93), Extents: (0.43, 1.29, 0.91) | Assets/Track/Discovery/StreetLoopReverse-fence-1089.asset
+Grounded retained neighbor fence | Center: (501.73, 84.46, -125.67), Extents: (0.48, 2.03, 1.54) | Assets/Track/Discovery/StreetLoopReverse-fence-1006.asset
+Ground_640_160 | Center: (560.00, 29.34, -350.00), Extents: (80.00, 5.21, 80.00) | Assets/Track/StreetLoop/Ground_640_160.asset
+Grounded roadside chain-link | Center: (482.18, 89.08, -91.70), Extents: (0.54, 0.88, 0.97) | Assets/Track/Discovery/StreetLoopReverse-fence-1064.asset
+Grounded wood crossbuck | Center: (499.47, 84.48, -125.03), Extents: (0.50, 2.06, 0.95) | Assets/Track/Discovery/StreetLoopReverse-fence-1077.asset
+Grounded wood crossbuck | Center: (484.05, 88.94, -95.30), Extents: (0.54, 0.89, 0.97) | Assets/Track/Discovery/StreetLoopReverse-fence-1066.asset
+Grounded wood crossbuck | Center: (515.33, 71.64, -160.92), Extents: (0.43, 1.27, 0.90) | Assets/Track/Discovery/StreetLoopReverse-fence-1092.asset
+Grounded retained neighbor fence | Center: (503.74, 77.14, -154.71), Extents: (1.97, 1.24, 0.60) | Assets/Track/Discovery/StreetLoopReverse-fence-1004.asset
+Grounded wood crossbuck | Center: (487.80, 88.52, -102.42), Extents: (0.54, 0.92, 0.95) | Assets/Track/Discovery/StreetLoopReverse-fence-1070.asset
+Grounded wood crossbuck | Center: (514.61, 72.52, -159.26), Extents: (0.43, 1.31, 0.90) | Assets/Track/Discovery/StreetLoopReverse-fence-1091.asset
+Grounded wood crossbuck | Center: (510.24, 82.63, -149.16), Extents: (0.44, 1.20, 0.92) | Assets/Track/Discovery/StreetLoopReverse-fence-1085.asset
+Grounded retained neighbor fence | Center: (496.18, 77.22, -156.82), Extents: (1.96, 1.00, 0.60) | Assets/Track/Discovery/StreetLoopReverse-fence-1000.asset
+Grounded wood crossbuck | Center: (496.02, 86.25, -118.13), Extents: (0.51, 0.93, 0.93) | Assets/Track/Discovery/StreetLoopReverse-fence-1073.asset
+Ground_Laurel narrow ramp sides | Center: (349.41, 60.98, -218.69), Extents: (155.70, 27.22, 103.95) | Assets/Track/LocalRecovery/StreetLoopReverse-Laurel narrow ramp sides.asset
+Grounded retained neighbor fence | Center: (492.40, 76.87, -157.88), Extents: (1.96, 1.05, 0.60) | Assets/Track/Discovery/StreetLoopReverse-fence-1003.asset
+Grounded wood crossbuck | Center: (508.00, 83.08, -144.00), Extents: (0.45, 0.85, 0.94) | Assets/Track/Discovery/StreetLoopReverse-fence-1082.asset
+Grounded wood crossbuck | Center: (484.99, 88.85, -97.09), Extents: (0.54, 0.90, 0.96) | Assets/Track/Discovery/StreetLoopReverse-fence-1067.asset
+Grounded wood crossbuck | Center: (502.71, 83.10, -131.89), Extents: (0.46, 0.85, 0.92) | Assets/Track/Discovery/StreetLoopReverse-fence-1081.asset
+Ground_House3 supported valley driveway | Center: (441.10, 57.86, -187.51), Extents: (75.59, 25.04, 58.49) | Assets/Track/Discovery/StreetLoopReverse-house3-drive.asset
+Grounded wood crossbuck | Center: (511.71, 77.73, -152.56), Extents: (0.44, 2.38, 0.92) | Assets/Track/Discovery/StreetLoopReverse-fence-1087.asset
+Grounded wood crossbuck | Center: (518.02, 68.28, -167.19), Extents: (0.29, 1.13, 0.58) | Assets/Track/Discovery/StreetLoopReverse-fence-1096.asset
+Grounded wood crossbuck | Center: (500.31, 83.19, -126.77), Extents: (0.48, 0.94, 0.93) | Assets/Track/Discovery/StreetLoopReverse-fence-1078.asset
+Ground_640_240 | Center: (560.00, 57.49, -190.00), Extents: (80.00, 29.74, 80.00) | Assets/Track/LocalRecovery/StreetLoopReverse-Surgical-shortcut-only-Ground_640_240.asset
+Grounded retained neighbor fence | Center: (486.48, 86.31, -122.15), Extents: (1.96, 0.99, 0.60) | Assets/Track/Discovery/StreetLoopReverse-fence-1015.asset
+Grounded retained neighbor fence | Center: (499.96, 77.08, -155.76), Extents: (1.97, 1.15, 0.60) | Assets/Track/Discovery/StreetLoopReverse-fence-1005.asset
+Grounded wood crossbuck | Center: (510.98, 80.77, -150.86), Extents: (0.44, 2.36, 0.92) | Assets/Track/Discovery/StreetLoopReverse-fence-1086.asset
+Ground_560_320 | Center: (400.00, 79.22, -30.00), Extents: (80.00, 9.44, 80.00) | Assets/Track/Discovery/StreetLoopReverse-cr101-property-Ground_560_320.asset
+Grounded wood crossbuck | Center: (501.93, 83.11, -130.19), Extents: (0.47, 0.85, 0.92) | Assets/Track/Discovery/StreetLoopReverse-fence-1080.asset
+Grounded wood crossbuck | Center: (512.44, 75.47, -154.25), Extents: (0.43, 1.58, 0.91) | Assets/Track/Discovery/StreetLoopReverse-fence-1088.asset
+Grounded wood crossbuck | Center: (485.92, 88.75, -98.87), Extents: (0.54, 0.90, 0.96) | Assets/Track/Discovery/StreetLoopReverse-fence-1068.asset
+Grounded roadside chain-link | Center: (481.25, 89.13, -89.89), Extents: (0.53, 0.87, 0.98) | Assets/Track/Discovery/StreetLoopReverse-fence-1063.asset
+Grounded retained neighbor fence | Center: (475.15, 84.54, -125.32), Extents: (1.96, 1.70, 0.60) | Assets/Track/Discovery/StreetLoopReverse-fence-1012.asset
+Grounded wood crossbuck | Center: (513.89, 73.42, -157.60), Extents: (0.43, 1.28, 0.90) | Assets/Track/Discovery/StreetLoopReverse-fence-1090.asset
+Grounded wood crossbuck | Center: (496.90, 86.11, -119.85), Extents: (0.51, 0.90, 0.93) | Assets/Track/Discovery/StreetLoopReverse-fence-1074.asset
+Grounded wood crossbuck | Center: (517.45, 69.01, -165.86), Extents: (0.42, 1.29, 0.89) | Assets/Track/Discovery/StreetLoopReverse-fence-1095.asset
+Grounded retained neighbor fence | Center: (507.52, 77.54, -153.65), Extents: (1.98, 0.86, 0.60) | Assets/Track/Discovery/StreetLoopReverse-fence-1017.asset
+Grounded wood crossbuck | Center: (497.76, 86.01, -121.57), Extents: (0.50, 0.89, 0.93) | Assets/Track/Discovery/StreetLoopReverse-fence-1075.asset
+Ground_480_160 | Center: (240.00, 47.50, -350.00), Extents: (80.00, 13.32, 80.00) | Assets/Track/LocalRecovery/StreetLoopReverse-Surgical-shortcut-only-Ground_480_160.asset
+Grounded wood crossbuck | Center: (509.50, 83.01, -147.45), Extents: (0.44, 0.89, 0.93) | Assets/Track/Discovery/StreetLoopReverse-fence-1084.asset
+Ground_480_320 | Center: (240.00, 59.92, -30.00), Extents: (80.00, 16.69, 80.00) | Assets/Track/StreetLoop/Ground_480_320.asset
+Grounded wood crossbuck | Center: (501.13, 83.10, -128.48), Extents: (0.47, 0.86, 0.92) | Assets/Track/Discovery/StreetLoopReverse-fence-1079.asset
+Grounded wood crossbuck | Center: (483.12, 89.01, -93.50), Extents: (0.54, 0.88, 0.97) | Assets/Track/Discovery/StreetLoopReverse-fence-1065.asset
+Grounded wood crossbuck | Center: (516.74, 69.88, -164.22), Extents: (0.42, 1.28, 0.89) | Assets/Track/Discovery/StreetLoopReverse-fence-1094.asset
+Grounded retained neighbor fence | Center: (507.39, 82.93, -145.90), Extents: (0.51, 0.87, 1.65) | Assets/Track/Discovery/StreetLoopReverse-fence-1009.asset
+Grounded wood crossbuck | Center: (495.13, 86.45, -116.40), Extents: (0.52, 0.97, 0.94) | Assets/Track/Discovery/StreetLoopReverse-fence-1072.asset
+Ground_640_320 | Center: (560.00, 76.51, -30.00), Extents: (80.00, 12.16, 80.00) | Assets/Track/Discovery/StreetLoopReverse-kyle-smooth-drive-Ground_640_320.asset
+Grounded retained neighbor fence | Center: (508.20, 82.47, -148.79), Extents: (0.52, 1.28, 1.68) | Assets/Track/Discovery/StreetLoopReverse-fence-1013.asset
+Ground_560_240 | Center: (400.00, 60.03, -190.00), Extents: (80.00, 27.27, 80.00) | Assets/Track/LocalRecovery/StreetLoopReverse-Surgical-shortcut-only-Ground_560_240.asset
+Grounded retained neighbor fence | Center: (478.93, 85.94, -124.27), Extents: (1.96, 1.41, 0.60) | Assets/Track/Discovery/StreetLoopReverse-fence-1010.asset
+Grounded wood crossbuck | Center: (494.24, 86.74, -114.67), Extents: (0.52, 1.02, 0.94) | Assets/Track/Discovery/StreetLoopReverse-fence-1071.asset
+Grounded retained neighbor fence | Center: (490.26, 86.09, -121.09), Extents: (1.96, 0.94, 0.60) | Assets/Track/Discovery/StreetLoopReverse-fence-1001.asset
+Grounded retained neighbor fence | Center: (502.54, 83.24, -128.56), Extents: (0.48, 0.88, 1.55) | Assets/Track/Discovery/StreetLoopReverse-fence-1002.asset
+Grounded retained neighbor fence | Center: (497.82, 86.27, -118.98), Extents: (1.96, 1.02, 0.60) | Assets/Track/Discovery/StreetLoopReverse-fence-1016.asset
+Grounded retained neighbor fence | Center: (494.04, 86.05, -120.04), Extents: (1.96, 0.90, 0.60) | Assets/Track/Discovery/StreetLoopReverse-fence-1018.asset
+Grounded wood crossbuck | Center: (486.86, 88.64, -100.65), Extents: (0.54, 0.91, 0.96) | Assets/Track/Discovery/StreetLoopReverse-fence-1069.asset
+BRANCH 0 (195.09, 45.76, -317.91) (0.83, 0.22, -0.51)
+BRANCH 20 (213.92, 45.66, -316.15) (0.86, -0.05, 0.50)
+BRANCH 40 (230.34, 46.68, -304.74) (0.82, 0.10, 0.57)
+BRANCH 60 (248.14, 48.35, -295.81) (0.92, 0.10, 0.37)
+BRANCH 80 (266.70, 51.06, -288.36) (0.92, 0.17, 0.36)
+BRANCH 100 (285.55, 54.39, -281.66) (0.95, 0.11, 0.29)
+BRANCH 120 (305.03, 49.42, -277.30) (0.71, -0.70, 0.06)
+BRANCH 140 (325.00, 34.33, -277.88) (1.00, -0.04, -0.08)
+BRANCH 160 (344.96, 34.17, -278.14) (0.99, 0.01, 0.12)
+BRANCH 180 (364.67, 34.78, -274.76) (0.98, 0.05, 0.21)
+BRANCH 200 (383.98, 36.14, -269.60) (0.95, 0.08, 0.31)
+BRANCH 220 (402.35, 36.43, -261.76) (0.87, -0.09, 0.48)
+BRANCH 240 (418.86, 38.90, -250.50) (0.65, 0.57, 0.50)
+BRANCH 260 (434.43, 38.95, -237.96) (0.65, -0.56, 0.51)
+BRANCH 280 (450.80, 35.23, -226.48) (0.84, -0.03, 0.54)
+BRANCH 300 (467.43, 34.06, -215.39) (0.80, -0.05, 0.60)
+BRANCH 320 (481.86, 41.30, -201.61) (0.46, 0.70, 0.55)
+BRANCH 340 (493.25, 51.34, -185.21) (0.42, 0.52, 0.75)
+BRANCH 360 (500.81, 69.20, -166.75) (0.12, 0.87, 0.47)
+BRANCH 380 (501.99, 87.46, -146.92) (-0.10, 0.00, 1.00)
+BRANCH 400 (500.00, 87.73, -127.01) (-0.10, 0.03, 0.99)
+BRANCH 420 (497.81, 88.14, -107.14) (-0.12, 0.00, 0.99)
+BRANCH 440 (492.71, 88.45, -88.11) (-0.46, 0.03, 0.89)
+BRANCH 460 (483.91, 88.63, -70.15) (-0.41, -0.01, 0.91)
