@@ -73,3 +73,30 @@ are recorded after uploading the release.
 Intermediate mesh assets are retained. Only scene-referenced meshes are part
 of the built tracks; no broad deletion or unrelated asset cleanup was done.
 
+## Published release and launcher
+
+- Windows build succeeded with zero errors and five warnings (mesh pre-baking
+  guidance, player Pipeline configuration and existing deprecated API calls).
+- Implementation commit `32f9220b06372496d6830967d2bd51946a72f616`,
+  "Fix continuous mountain roads, straight Laurel runway, and earned post-jump
+  recovery", pushed to `danemoll-jpg/Racer` main.
+- Published `game-24000` / `0.24.0-review1` as the latest non-draft release:
+  https://github.com/danemoll-jpg/woodstock-rush-releases/releases/tag/game-24000
+- `game.zip`, `game-manifest.json` and `update-catalog.json` uploaded and their
+  GitHub SHA-256 digests matched the prepared inventory. Existing soundtrack
+  pointer preserved. Public latest catalog fetched and signature verified.
+- The native updater downloaded and activated the public game package in an
+  isolated installation. One muted startup handshake passed with exit code 0.
+  All 255 files in the public game manifest match `Builds/Latest` exactly.
+- The unchanged `C:\Users\danmo\Racer\Play-Racer.cmd` was actually invoked;
+  it started `C:\Users\danmo\Racer\Builds\Latest\Racer.exe`, version
+  `0.24.0-review1`, with a responsive Racer window. Only that verification
+  process was closed afterward. No temporary development path was substituted.
+- Publisher signing required the user to run the existing preparation script
+  outside Codex because Windows denied key access. Work resumed from those
+  prepared assets; no rebuild was performed after signing.
+
+See `public-release.json`, `play-racer-launch.json` and `hosted/result.json`
+for publication and startup evidence. Detailed driving/jump acceptance remains
+the user's gameplay test; this pass did not run full races.
+

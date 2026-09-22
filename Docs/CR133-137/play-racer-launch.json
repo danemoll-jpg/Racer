@@ -1,0 +1,12 @@
+{
+  "Launcher": "C:\\Users\\danmo\\Racer\\Play-Racer.cmd",
+  "LauncherExit": 0,
+  "ProcessId": 88020,
+  "Executable": "C:\\Users\\danmo\\Racer\\Builds\\Latest\\Racer.exe",
+  "Responding": true,
+  "WindowTitle": "Racer",
+  "Version": "Racer 0.24.0-review1\nCR133-137 structural roads and earned recovery\nRollback checkpoint: 46e689e9119395ce2eb26f163b685279d1b7f90a\nUnity 6000.6.1f1\nSource: 32f9220b06372496d6830967d2bd51946a72f616\r\n",
+  "PublicManifestFilesVerified": 255,
+  "CheckedAt": "2026-09-22T11:21:56.5893141-04:00",
+  "ClosedAfterStartupCheck": true
+}
