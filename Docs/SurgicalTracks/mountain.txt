@@ -1,0 +1,1 @@
+Second arrow at station 139.97: alternating triangle planes corrected with a continuous cubic height field. Core stations 118–160, feathered to unchanged boundaries at 100 and 180. Meshes=2; maximum local vertex displacement=3.0412m. First-arrow patch unchanged; all early arrows visual-only. Road route, physics, recovery, AI unchanged.

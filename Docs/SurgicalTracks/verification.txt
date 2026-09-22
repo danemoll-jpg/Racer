@@ -1,0 +1,18 @@
+StreetLoopGreybox normal Laurel route: 6805 samples; missing=0; maximum centerline height error=0.06339m; maximum .25m step=0.14098m.
+StreetLoopReverse normal Laurel route: 6805 samples; missing=0; maximum centerline height error=0.06435m; maximum .25m step=0.13968m.
+Shortcut: 4944 lane samples, maximum height error=0.01948m; ramp adjacent normal change=1.234deg; stacked surfaces=0.
+Ballistic 18m/s: existing main road=True; contact=(497.92, 87.29, -106.22); surface=Ground_640_320
+Ballistic 24m/s: existing main road=True; contact=(497.69, 87.49, -103.90); surface=Ground_640_320
+Ballistic 32m/s: existing main road=True; contact=(497.41, 87.70, -101.15); surface=Ground_640_320
+Ballistic 38m/s: existing main road=True; contact=(497.23, 87.83, -99.31); surface=Ground_640_320
+Ballistic 49m/s: existing main road=True; contact=(496.90, 88.04, -95.98); surface=Ground_640_320
+Ballistic 52m/s: existing main road=True; contact=(496.81, 88.08, -95.08); surface=Ground_640_320
+Ballistic 56m/s: existing main road=True; contact=(496.71, 88.14, -94.10); surface=Ground_640_320
+Ballistic 61m/s: existing main road=True; contact=(496.55, 88.21, -92.54); surface=Ground_640_320
+Mountain (40.00, 100.00): gaps=0; maximum adjacent .1m normal change=1.686deg; step=0.0225m; worst=s=98.04 lane=-4.4 Ground_First Reverse arrow smooth road
+Mountain (118.00, 160.00): gaps=0; maximum adjacent .1m normal change=0.636deg; step=0.1856m; worst=s=156.34 lane=0 Ground_CR133 mountain driving surface
+Mountain (100.00, 180.00): gaps=0; maximum adjacent .1m normal change=3.722deg; step=0.1856m; worst=s=179.64 lane=-2 Ground_CR133 mountain driving surface
+Early arrow station=0.00; child colliders=0
+Early arrow station=69.99; child colliders=0
+Early arrow station=139.86; child colliders=0
+FAILURES=0

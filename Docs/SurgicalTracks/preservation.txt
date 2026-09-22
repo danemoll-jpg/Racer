@@ -1,0 +1,6 @@
+Assets/Scripts/VehicleRespawn.cs: unchanged=True
+Assets/Scripts/JumpRecoveryExclusion.cs: unchanged=True
+Assets/Scripts/ArcadeVehicle.cs: unchanged=True
+Assets/Scripts/VehicleProfile.cs: unchanged=True
+Assets/Scenes/StreetLoopReverse.unity: recovery exclusion serialized components unchanged=True
+Assets/Scenes/MountainLoopReverse.unity: recovery exclusion serialized components unchanged=True

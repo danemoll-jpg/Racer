@@ -1,0 +1,1 @@
+Removed the single tree obstructing the lowered approach at stations 359–361, including its visible crown and trunk collider.

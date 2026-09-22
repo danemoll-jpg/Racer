@@ -1,0 +1,38 @@
+[
+  {
+    "name": "Ground_640_320",
+    "guid": "c22e3c2f4731a3b4595ad9ece607fdac"
+  },
+  {
+    "name": "Ground_480_160",
+    "guid": "0379958a7b94b074db98e4e77b751d4e"
+  },
+  {
+    "name": "Ground_640_240",
+    "guid": "2c30a3abdbfec3649b726d0933eb6f69"
+  },
+  {
+    "name": "Ground_560_320",
+    "guid": "4ebc25df05f7d2a4ebd7d0046413721d"
+  },
+  {
+    "name": "Ground_480_240",
+    "guid": "e24b7f6992da9d545829af3ba4603768"
+  },
+  {
+    "name": "Ground_560_240",
+    "guid": "d5712e5358ab6234988ecc278e527e41"
+  },
+  {
+    "name": "Ground_480_320",
+    "guid": "de794d7db8c25b349be54a32942a035e"
+  },
+  {
+    "name": "Ground_640_160",
+    "guid": "0e0a9d704294f404381e9d45a245de10"
+  },
+  {
+    "name": "Ground_560_160",
+    "guid": "e4cb6b9979a7e814c942a1c6772b95b7"
+  }
+]

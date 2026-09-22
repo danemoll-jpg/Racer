@@ -1,0 +1,1 @@
+Restored baseline 489b220b terrain; separate 5m wide shortcut, 10m straight approach + 25m straight ramp; lip=(498.80, 88.20, -115.00), axis=(-0.10, 0.00, 1.00), rise=.7m, terminal slope=.03. No destination apron; narrow side support only. Recovery components unchanged.

@@ -2,7 +2,7 @@ $ErrorActionPreference='Stop'
 $root=[IO.Path]::GetFullPath((Join-Path $PSScriptRoot '..'))
 $expected=Join-Path $root 'Builds/Latest/Racer.exe'
 $version=Get-Content (Join-Path $root 'Builds/Latest/VERSION.txt') -Raw
-if(!$version.Contains('Racer 0.25.0-review1')){throw 'Latest version mismatch'}
+if(!$version.Contains('Racer 0.26.0-review1')){throw 'Latest version mismatch'}
 $before=@(Get-Process Racer -ErrorAction SilentlyContinue | ForEach-Object Id)
 & (Join-Path $root 'Play-Racer.cmd')
 $deadline=(Get-Date).AddSeconds(45)
@@ -14,8 +14,8 @@ do {
     if($found.Count -eq 1){$launched=$found[0];$launched.Refresh()}
 } while((!$launched -or !$launched.MainWindowHandle -or !$launched.Responding) -and (Get-Date) -lt $deadline)
 if(!$launched -or !$launched.MainWindowHandle -or !$launched.Responding){throw 'New release did not present a responsive game window'}
-$record=[ordered]@{entryPoint=(Join-Path $root 'Play-Racer.cmd');path=$launched.Path;version='0.25.0-review1';pid=$launched.Id;responsive=$launched.Responding;window=$launched.MainWindowTitle;verifiedAt=(Get-Date -Format o)}
-$record | ConvertTo-Json | Set-Content (Join-Path $root 'Docs/LocalRecovery/play-racer-launch.json')
+$record=[ordered]@{entryPoint=(Join-Path $root 'Play-Racer.cmd');path=$launched.Path;version='0.26.0-review1';pid=$launched.Id;responsive=$launched.Responding;window=$launched.MainWindowTitle;verifiedAt=(Get-Date -Format o)}
+$record | ConvertTo-Json | Set-Content (Join-Path $root 'Docs/SurgicalTracks/play-racer-launch.json')
 $null=$launched.CloseMainWindow()
 if(!$launched.WaitForExit(5000)){
     # The window can finish closing between the wait and the fallback lookup.
