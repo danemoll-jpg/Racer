@@ -1,0 +1,69 @@
+{
+  "version": "0.28.0-review1",
+  "removed": [
+    {
+      "path": "C:\\Users\\danmo\\Racer\\Builds\\PackageWork",
+      "bytes": 3216840968.0
+    },
+    {
+      "path": "C:\\Users\\danmo\\Racer\\Builds\\Preserved\\20260922-171854-698-ee67ac",
+      "bytes": 2407808541.0
+    },
+    {
+      "path": "C:\\Users\\danmo\\Racer\\Builds\\Package",
+      "bytes": 1460630386.0
+    },
+    {
+      "path": "C:\\Users\\danmo\\Racer\\Builds\\Verified",
+      "bytes": 839121330.0
+    },
+    {
+      "path": "C:\\Users\\danmo\\Racer\\Builds\\Racer-0.28.0-review1-Windows",
+      "bytes": 1608420484.0
+    },
+    {
+      "path": "C:\\Users\\danmo\\Racer\\Builds\\Racer-0.28.0-review1-Windows.zip",
+      "bytes": 1035292129
+    },
+    {
+      "path": "C:\\Users\\danmo\\Racer\\Builds\\Racer-0.27.0-review1-Windows.zip",
+      "bytes": 1035256869
+    },
+    {
+      "path": "C:\\Users\\danmo\\Racer\\Builds\\LauncherRelease-28000\\assets\\game.zip",
+      "bytes": 239185982
+    },
+    {
+      "path": "C:\\Users\\danmo\\Racer\\Builds\\LauncherRelease-27000\\assets\\game.zip",
+      "bytes": 239153149
+    },
+    {
+      "path": "C:\\Users\\danmo\\Racer\\Temp\\cr133-hosted-1790090450932270900",
+      "bytes": 706328232.0
+    },
+    {
+      "path": "C:\\Users\\danmo\\Racer\\Temp\\focused-recovery-hosted-1790112254771710000",
+      "bytes": 803883212.0
+    },
+    {
+      "path": "C:\\Users\\danmo\\Racer\\Temp\\local-recovery-hosted-1790099944411264700",
+      "bytes": 801975113.0
+    },
+    {
+      "path": "C:\\Users\\danmo\\Racer\\Temp\\mountain-menu-hosted-1790092708648703900",
+      "bytes": 800467816.0
+    },
+    {
+      "path": "C:\\Users\\danmo\\Racer\\Temp\\simple-laurel-hosted-1790108021273814100",
+      "bytes": 803812035.0
+    },
+    {
+      "path": "C:\\Users\\danmo\\Racer\\Temp\\surgical-tracks-hosted-1790104034452981400",
+      "bytes": 804058441.0
+    }
+  ],
+  "buildsBytes": 4392165023.0,
+  "buildsGiB": 4.091,
+  "retained": "Latest current build; 0.27 previous build; launcher/SDK/tools/private key and all release metadata",
+  "preservedMusicVerifiedIdentical": true
+}
