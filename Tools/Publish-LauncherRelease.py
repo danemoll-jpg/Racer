@@ -4,7 +4,7 @@ REPO='danemoll-jpg/woodstock-rush-releases'
 def gh(*args):
     return subprocess.run(['gh',*args],check=True,capture_output=True,text=True).stdout
 def main():
-    p=argparse.ArgumentParser(description=__doc__);p.add_argument('draft',type=pathlib.Path);p.add_argument('--publish',action='store_true');p.add_argument('--confirm-repository');a=p.parse_args()
+    p=argparse.ArgumentParser(description=__doc__);p.add_argument('draft',type=pathlib.Path);p.add_argument('--publish',action='store_true');p.add_argument('--confirm-repository');p.add_argument('--resume-draft',action='store_true');a=p.parse_args()
     inventory=json.loads((a.draft/'INVENTORY.json').read_text());assets=a.draft/'assets';tag=inventory.get('tag','build-'+str(inventory['game']['build']))
     for item in inventory['assets']:
         file=assets/item['path']
@@ -20,12 +20,27 @@ def main():
     repo=json.loads(gh('api','repos/'+REPO));
     if repo['private'] or not repo.get('permissions',{}).get('push'):raise ValueError('Public repository with publishing permission required')
     releases=json.loads(gh('api','repos/'+REPO+'/releases?per_page=100'))
-    if any(r['tag_name']==tag for r in releases):raise ValueError('Immutable release already exists; do not overwrite its assets')
-    gh('release','create',tag,'--repo',REPO,'--draft','--title','Woodstock Rush '+inventory['game']['version'],'--notes',inventory['game']['notes'])
+    matches=[r for r in releases if r['tag_name']==tag]
+    if matches:
+        if not a.resume_draft or len(matches)!=1 or not matches[0]['draft']:raise ValueError('Release exists; only explicit resume of an unpublished draft is allowed')
+        remote=matches[0]
+    else:
+        if a.resume_draft:raise ValueError('No matching draft exists')
+        gh('release','create',tag,'--repo',REPO,'--draft','--title','Woodstock Rush '+inventory['game']['version'],'--notes',inventory['game']['notes'])
+        releases=json.loads(gh('api','repos/'+REPO+'/releases?per_page=100'))
+        remote=next(r for r in releases if r['tag_name']==tag and r['draft'])
+    release_id=remote['id'];existing={x['name']:x for x in remote['assets']}
+    expected={x['path']:x for x in inventory['assets']}
+    for name,asset in existing.items():
+        item=expected.get(name)
+        if not item or asset['size']!=item['bytes'] or asset.get('digest')!='sha256:'+item['sha256']:raise ValueError('Existing draft differs from approved inventory; nothing overwritten')
     # Upload all immutable content into the draft. The catalog is uploaded last.
-    for item in sorted(inventory['assets'],key=lambda x:x['path']=='update-catalog.json'):
+    for index,item in enumerate(sorted(inventory['assets'],key=lambda x:x['path']=='update-catalog.json'),1):
+        if item['path'] in existing:continue
         gh('release','upload',tag,str(assets/item['path']),'--repo',REPO)
-    remote=json.loads(gh('api','repos/'+REPO+'/releases/tags/'+tag));by_name={x['name']:x for x in remote['assets']}
+        print(f"Uploaded {index}/{len(inventory['assets'])}: {item['path']} ({item['bytes']} bytes)",flush=True)
+    # Draft tags may not exist until publication; their release ID is stable.
+    remote=json.loads(gh('api','repos/'+REPO+'/releases/'+str(release_id)));by_name={x['name']:x for x in remote['assets']}
     for item in inventory['assets']:
         r=by_name.get(item['path'])
         if not r or r['size']!=item['bytes'] or r.get('digest')!='sha256:'+item['sha256']:raise ValueError('Uploaded asset verification failed; draft remains unpublished')

@@ -1,0 +1,15 @@
+{
+  "catalog": "https://github.com/danemoll-jpg/woodstock-rush-releases/releases/latest/download/update-catalog.json",
+  "manifest": "https://github.com/danemoll-jpg/woodstock-rush-releases/releases/download/build-21002/game-manifest.json",
+  "fromBuild": 21001,
+  "toBuild": 21002,
+  "publicDownload": true,
+  "signatureAndInventoryVerified": true,
+  "packageBytes": 225757700,
+  "startupReady": true,
+  "parentLifetime": true,
+  "exit": 0,
+  "muted": true,
+  "playlistPreserved": true,
+  "work": "C:\\Users\\danmo\\Racer\\Temp\\cr119-hosted-1790038006868152500"
+}
