@@ -1,0 +1,1 @@
+Gold markers now follow the new supported approach and far-side landing; old world-space markers retired.

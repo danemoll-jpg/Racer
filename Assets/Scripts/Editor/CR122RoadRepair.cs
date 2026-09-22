@@ -126,6 +126,7 @@ namespace Racer.Editor
             }
             foreach(var branch in branches){branch.entryRoad=road.Project(branch.points[0],out _);branch.exitRoad=road.Project(branch.points[^1],out _);branch.bypassedGates=Enumerable.Range(1,owner.gates.Length-1).Where(i=>road.Relative(road.Project(owner.gates[i].transform.position,out _),branch.entryRoad)<road.Relative(branch.exitRoad,branch.entryRoad)).ToArray();}
             RepairSubgrade();Physics.SyncTransforms();
+            if(reverse)CR122ShortcutPaint();
             foreach(var sign in Object.FindObjectsByType<PhysicalSign>().Where(s=>s.name.StartsWith("BIG FLIGHT AHEAD"))){
                 var flight=flights.OrderBy(f=>Vector3.Distance(f.lip,sign.transform.position)).First();
                 var p=flight.start+flight.forward*120+Vector3.Cross(Vector3.up,flight.forward)*19;p.y=CR105Authoring.Ground(p);sign.transform.SetPositionAndRotation(p,Quaternion.LookRotation(flight.forward));
@@ -185,10 +186,26 @@ namespace Racer.Editor
             for(float ds=-40;ds<=38;ds+=3){var p=road.At(cs+ds,out var f);var right=Vector3.Cross(Vector3.up,f).normalized;if(Vector3.Dot(right,forward)<0)right=-right;p+=right*9;p.y=road.At(cs+ds,out _).y;
                 var wall=Part(worldRoot,"Far-side shortcut separator",p+Vector3.up*1.5f,new(.65f,3,3.2f),timber,true);wall.rotation=Quaternion.LookRotation(Vector3.ProjectOnPlane(f,Vector3.up));}
             // Remove the obsolete at-grade final stretch and its tempting gold paint.
-            foreach(var mf in Object.FindObjectsByType<MeshFilter>().Where(m=>m.name.Contains("gold")||m.name.Contains("Gold")))if(mf.transform.position.x>680&&mf.transform.position.x<820&&mf.transform.position.z< -90)mf.gameObject.SetActive(false);
+            foreach(var mf in Object.FindObjectsByType<MeshFilter>().Where(m=>m.name.Contains("gold")||m.name.Contains("Gold"))){var p=mf.GetComponent<Renderer>().bounds.center;if(p.x>680&&p.x<820&&p.z< -90)mf.gameObject.SetActive(false);}
             ClearCompleteTrees(p=>Near(p,approach,out _)<8||Near(p,departure,out _)<9);
             var template=Object.FindObjectsByType<PhysicalSign>().First(s=>s.name.StartsWith("MAIN ROUTE >>>"));var board=Object.Instantiate(template.gameObject,worldRoot);board.name="Shortcut jump over main road";board.transform.SetPositionAndRotation(basePoint-Vector3.Cross(Vector3.up,forward)*8,Quaternion.LookRotation(forward));board.GetComponentInChildren<TextMesh>().text="SHORTCUT JUMP\nSTRAIGHT / CLEAR THE MAIN ROAD";
             File.WriteAllText(CR122Dir+"/shortcut-crossing.txt",$"Main crossing {crossing}; lip {lip}; landing {landing}; 34m gap; 45m curved run-up, 6.5m rise. Far-side separator 3m high, 9m from main centre.");
+        }
+        public static void CR122ShortcutPaint()
+        {
+            owner=Object.FindAnyObjectByType<RaceDirector>();worldRoot=GameObject.Find("CR122 continuous mountain support").transform;
+            foreach(var mf in worldRoot.GetComponentsInChildren<MeshFilter>(true).Where(m=>m.name=="CR121 continuous gold arrow"||m.name=="CR122 crossing gold arrow").ToArray())Object.DestroyImmediate(mf.gameObject);
+            foreach(var mf in Object.FindObjectsByType<MeshFilter>().Where(m=>m.name.Contains("gold")||m.name.Contains("Gold"))){var p=mf.GetComponent<Renderer>().bounds.center;if(p.x>680&&p.x<820&&p.z< -90)mf.gameObject.SetActive(false);}
+            var branch=Object.FindObjectsByType<WoodlandRoute>().Single(b=>b.title=="Downhill Ridge Cut");Physics.SyncTransforms();
+            for(float s=12;s<branch.Length-5;s+=14){var p=branch.At(s,out var f);if(Physics.RaycastAll(p+Vector3.up,Vector3.down,2,1,QueryTriggerInteraction.Ignore).Any(h=>h.collider.name.StartsWith("Ground_CR122 reverse shortcut"))){
+                var right=Vector3.Cross(Vector3.up,f).normalized;f=Vector3.ProjectOnPlane(f,Vector3.up).normalized;
+                var shape=new[]{new Vector2(-.44f,-3),new(.44f,-3),new(.44f,0),new(1.1f,0),new(0,3),new(-1.1f,0),new(-.44f,0)};
+                var vertices=shape.Select(v=>{var q=p+right*v.x+f*v.y;q.y=CR105Authoring.Ground(q)+.12f;return q;}).ToArray();
+                var mesh=new Mesh{vertices=vertices,triangles=new[]{0,6,1,1,6,2,6,5,4,6,4,2,2,4,3}};mesh.RecalculateNormals();mesh.RecalculateBounds();
+                var go=new GameObject("CR122 crossing gold arrow",typeof(MeshFilter),typeof(MeshRenderer));go.transform.SetParent(worldRoot);
+                go.GetComponent<MeshFilter>().sharedMesh=MeshAsset(mesh,"MountainLoopReverse-CR122-crossing-arrow-"+s.ToString("F0"));go.GetComponent<Renderer>().sharedMaterial=Mat("CR117 alternate gold",new(.88f,.6f,.18f));
+            }}
+            Save();
         }
         public static void CR122Laurel()
         {
