@@ -1,0 +1,45 @@
+{
+  "version": "0.29.0-review1",
+  "removed": [
+    {
+      "path": "C:\\Users\\danmo\\Racer\\Builds\\PackageWork",
+      "bytes": 3216837966.0
+    },
+    {
+      "path": "C:\\Users\\danmo\\Racer\\Builds\\Racer-0.27.0-review1-Windows",
+      "bytes": 1608349315.0
+    },
+    {
+      "path": "C:\\Users\\danmo\\Racer\\Builds\\Racer-0.29.0-review1-Windows",
+      "bytes": 1608418983.0
+    },
+    {
+      "path": "C:\\Users\\danmo\\Racer\\Builds\\Racer-0.29.0-review1-Windows.zip",
+      "bytes": 1035288032
+    },
+    {
+      "path": "C:\\Users\\danmo\\Racer\\Builds\\LauncherRelease-29000\\assets\\game.zip",
+      "bytes": 239187454
+    },
+    {
+      "path": "C:\\Users\\danmo\\Racer\\Builds\\Preserved\\20260922-181353-323-607e76",
+      "bytes": 799459177.0
+    },
+    {
+      "path": "C:\\Users\\danmo\\Racer\\Temp\\forest-hill-hosted-1790115545860636200",
+      "bytes": 803881585.0
+    },
+    {
+      "path": "C:\\Users\\danmo\\Racer\\Temp\\ForestHill-original-Ground_560_240.txt",
+      "bytes": 3306245
+    },
+    {
+      "path": "C:\\Users\\danmo\\Racer\\Temp\\ForestHill-original-Ground_640_240.txt",
+      "bytes": 4135722
+    }
+  ],
+  "buildsBytes": 4392290382.0,
+  "buildsGiB": 4.091,
+  "retained": "Latest current build; 0.28 immediately previous build; publisher keys, tools, launcher, SDK and release metadata",
+  "preservedMusicVerifiedIdentical": true
+}
