@@ -1,6 +1,43 @@
 # Woodstock Rush
 ## Project Management / TODO / Astra-Codex Handoff
 
+## Current handoff — 2026-09-22 / planning only; gameplay work paused
+
+**Current playable release:** **0.29.0-review1 / game-29000**, published and verified at [GitHub](https://github.com/danemoll-jpg/woodstock-rush-releases/releases/tag/game-29000). `Play-Racer.cmd` launches this version from `Builds/Latest`. Implementation: `b0390d4a`; publication/cleanup record: `d3ec8d89`; hill rollback checkpoint: `2aa186ee`. See [publication](Docs/ForestHill/PUBLICATION.md) and [technical checks](Docs/ForestHill/VALIDATION.md).
+
+**Dan's actual review:** The Forest Loop Reverse hill is imperfect but humanly drivable for now. This is temporary usability acceptance, **not** acceptance of the whole area. Dan reports that AI racers are confused and become stuck here. That AI report remains open and has not been independently reproduced; the hill-only release did not change or validate AI behavior.
+
+**Current scope:** Update this document and record future work only. Leave the game as it is while Dan drives and collects notes, conserving tokens until his usage reset in a couple of days. No mapping run, scene edit, AI fix, build, publication, scheduled task or automatic resumption is authorized by this planning note. Resume only when Dan asks. Older embedded work prompts, “current authorization” labels, broad testing requirements and delivery paths below are historical context, not new instructions to execute. This current handoff governs the pause and review status; unrelated backlog acceptance is unchanged.
+
+### House 3 / Forest / Laurel area: findings and unresolved design
+
+- Dan intended a straightforward driveway descending from the main street to neighbor House 3. The curly driveway seemed decorative, but its terrain support interferes with drivable routes.
+- Confirmed history: `14240a16` introduced House 3 driveway support across the existing Granite Saddle trail in Forest Loop Reverse. The recent Laurel edits were not the cause of that specific wall. The hill fix changes only two ForestLoopReverse-specific terrain assets, retains about 22m of rise and reduces the maximum sampled grade from about 78° to 22°.
+- Dan experiences this as the natural/main reverse route; the current authored data labels the affected opening branch **Granite Saddle**, a shortcut. Preserve that distinction until the route map resolves it; do not dismiss his observed driving line because of the label.
+- Dan also reports that a Laurel-area shortcut and this Forest route intertwine around the property. The precise Laurel branch, shared terrain assets, physical crossings and direction-dependent relationships still need to be mapped. Do not assume every visually overlapping route shares one asset or collider.
+- The shortcut feels like the natural continuation, while reaching the designated main route feels awkward. Consider promoting the natural branch to the main route and relocating the shortcut elsewhere. These are **proposals for Dan to choose**, not an approved redesign or permission to add a shortcut now.
+
+### Future scope — map first, then let Dan choose
+
+1. **Read-only route atlas, when requested.** Map all currently authored race trails and shortcuts, with separate forward/reverse layers or views. Include direction arrows, actual route names, main-versus-shortcut status, start/finish and checkpoints, shortcut entry/rejoin points, jumps, and House 3's driveway. Use scene geometry and metadata rather than guessing from route names.
+2. **Make the conflicts visible.** Provide an overall map plus a close-up of House 3 / Forest / Laurel, using the same coordinates and numbered landmarks. Mark crossings, shared terrain/colliders and vertical separation; include local height profiles where a top-down view hides a conflict. Distinguish confirmed physical interference from mere visual overlap. Give Dan an image he can mark up; add toggles only if they materially improve readability.
+3. **Dan chooses the layout.** Review which line should be the main course, whether/how the driveway should be straightened, and whether an alternate belongs elsewhere. If requested, show a small number of shortcut candidates on the map with affected routes and terrain risks. Do not implement a candidate just because it looks promising.
+4. **One bounded implementation after approval.** Specify the exact route/direction, terrain footprint, driveway treatment and intended main/shortcut relationship. Identify any necessary checkpoint, entitlement or navigation-data changes in advance. Fix the agreed geometry/data cause before considering AI behavior changes; the current stuck-AI report does not establish its cause. Preserve unrelated tracks, physics and recovery unless Dan explicitly changes that scope.
+5. **Limited verification and delivery.** Check the changed surface/colliders, joins and neighboring routes; if AI work is approved, use one targeted reproduction at the reported spot. Basic build verification, then Dan's gameplay review. No repeated full races or all-vehicle matrices. Build/publish only when the resumed task requests delivery. Check disk space and retain the current build plus at most one useful previous build; preserve source, Git, publisher keys/tools, launcher/SDK and required metadata.
+
+### Notes Dan can collect while work is paused
+
+For each issue, note course and direction, main/shortcut choice if known, a screenshot or nearby landmark, what the player/AI did, and the desired behavior. For stuck AI, a short clip showing its approach and where it stops is useful if convenient; no formal testing is required. Keep later notes here so Codex and ChatGPT Work can use the same handoff.
+
+- [x] Record temporary human-drivability acceptance and the new AI-stuck report.
+- [x] Record the confirmed driveway regression and current published build.
+- [ ] Collect Dan's further observations.
+- [ ] Produce the route atlas after Dan resumes the work.
+- [ ] Obtain Dan's marked-up layout choice before implementing a redesign.
+- [ ] Resolve and review the approved local geometry/navigation work.
+
+## Historical reviews and authorizations
+
 **CURRENT REVIEW / 2026-09-21 — Dan accepts 0.20.0-review1:** Household people scenes and turkeys VERIFIED; both Mountain Loops ACCEPTED as passable and fun. This supersedes all older NOT ACCEPTED/pending-sighting wording. Only two localized reverse-course cleanup items (CR-120/121) and reopened CR-118 title voice/theme onset are authorized now. No redesign, full laps, AI/all-vehicle matrices or general polish. Hwy 92 and keyboard naming are NOT YET reviewed by Dan; championship acceptance was not reported. Ghosts remain accepted/untouched. CR-119 is reserved for the authorized launcher, continued after this small feedback delivery checkpoint.
 
 **PREVIOUS AUTHORIZATION — 2026-09-21 / CR-105–111:** Road-boundary/through-traffic and mailbox fixes; selectable 1–5 laps and solo Unlimited; saved race playlists; fast-travel confirmation/arrival/map closure; Mountain Loop plus reverse with big jumps and alternates; occasional Kyle-property wild turkeys. Ghosts were accepted by Dan on 2026-09-21; no ghost work/testing is authorized in CR-112–118. Vehicle/stat/unlock/driver customization ideas are backlog only. Strict new-feature/reported-issue testing limits below supersede older broad-test instructions. Implemented and targeted checks complete in 0.19.0-review3; packaging/portable verification is recorded in Docs/CR105-111. New work awaits Dan review.
@@ -678,6 +715,12 @@ Use this section whenever something is wrong.
 
 ## Active Bugs
 
+### BUG-009 — AI stuck around House 3 / opening Forest Reverse trail
+**Status:** OPEN; reported by Dan on 2026-09-22 after the 0.29.0-review1 hill delivery. Work paused.
+**Player result:** Hill is humanly drivable for now but the area is not fully accepted.
+**Actual behavior:** AI appears confused and becomes stuck around the intertwined driveway/trail area. Exact stop location and AI failure mechanism are not yet verified.
+**Next step:** Collect observations and map the main/shortcut/driveway relationships before choosing a fix. Do not infer that AI tuning, vehicle changes or recovery changes are required. See the current handoff at the top of this file.
+
 ### BUG-001 — Floating road / unsafe off-road re-entry
 **Status:** Resolved in sampled technical checks; track accepted by Dan after playthrough. No new reproduction reported; no claim of exhaustive off-road certification.  
 **Phase introduced:** Phase 2.  
@@ -737,6 +780,10 @@ Use this section whenever something is wrong.
 # CHANGE REQUESTS
 
 Use this for things that are not bugs but that Dan wants changed.
+
+### Backlog — Route atlas and Dan-directed House 3 / Forest / Laurel cleanup
+**Status:** Scoped for a future session; no implementation authorized now.
+Map existing trails and shortcuts so Dan can identify where they intertwine and mark the intended layout. Consider a straightforward House 3 driveway, making the natural shortcut line the main course, and placing a new shortcut somewhere that avoids terrain conflicts. These are alternatives to review, not settled decisions. Follow the map-first sequence in the current handoff; preserve historical CR IDs rather than assigning an unverified new number.
 
 ### CR-001 — Larger neighborhood entrance hill
 **Status:** Implemented and technically checked; accepted as part of Dan's overall Phase 2 track review.  
@@ -1691,6 +1738,8 @@ Record choices we do not want to repeatedly reconsider.
 ---
 
 # SESSION HANDOFF
+
+**Latest — 2026-09-22:** See **Current handoff** at the top of this file. Published `game-29000` is temporarily human-drivable; House 3 / Forest / Laurel layout polish and reported stuck AI remain open. This session updates planning only. Dan will collect more notes; future route atlas and any redesign wait for his request. Older session prompts below do not authorize work during this pause.
 
 CR-119 publication follow-up: build-21002 is public at https://github.com/danemoll-jpg/woodstock-rush-releases/releases/tag/build-21002 after Dan's explicit approval. All 194 assets verified; hosted signed update and muted startup pass. Safety checkpoint c73d74badd6ac7776783b03bace80b97f5dac4e2; follow-up commit in delivery response. Physical Deck/controller/prefix acceptance remains pending. GitHub's 2 GiB cap is per asset; full installer 1017500040 bytes. See Docs/CR119/publication.json and hosted/result.json. This supersedes earlier publication-blocked status below.
 
