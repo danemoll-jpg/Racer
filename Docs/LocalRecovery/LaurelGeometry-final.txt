@@ -1,0 +1,6 @@
+PASS straight approach/ramp: 663 cross-lane samples; max height error 0.000160m; adjacent angle 0.335 degrees; no duplicate colliders; removed old overlays.
+PASS full local route: 1347 lane samples outside intentional flight; maximum profile error 0.0103m; no blocking collider in road surface.
+PASS unboosted geometric flight envelope 18m/s: main-road contact at (499.78, 87.26, -106.10), station 3943.43.
+PASS unboosted geometric flight envelope 24m/s: main-road contact at (499.63, 87.53, -102.92), station 3946.33.
+PASS unboosted geometric flight envelope 32m/s: main-road contact at (499.42, 87.83, -98.85), station 3950.04.
+PASS unboosted geometric flight envelope 38m/s: main-road contact at (499.25, 88.04, -95.43), station 3953.15.

@@ -1,0 +1,5 @@
+lane=-4 maximum .1m step=0.0217 normal change=1.686 at=98.00: Ground_First Reverse arrow smooth road y=80.5870 normal=(0.00, 0.99, -0.16)
+lane=-2 maximum .1m step=0.0176 normal change=1.686 at=98.00: Ground_First Reverse arrow smooth road y=80.5216 normal=(0.00, 0.99, -0.16)
+lane=0 maximum .1m step=0.0155 normal change=1.686 at=98.00: Ground_First Reverse arrow smooth road y=80.4563 normal=(0.00, 0.99, -0.16)
+lane=2 maximum .1m step=0.0154 normal change=1.686 at=98.00: Ground_First Reverse arrow smooth road y=80.3909 normal=(0.00, 0.99, -0.16)
+lane=4 maximum .1m step=0.0147 normal change=1.686 at=98.00: Ground_First Reverse arrow smooth road y=80.3255 normal=(0.00, 0.99, -0.16)

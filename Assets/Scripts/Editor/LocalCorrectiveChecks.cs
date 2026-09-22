@@ -41,6 +41,15 @@ public static class LocalCorrectiveChecks
             Require(Math.Abs(road.Project(car.Body.position,out _)-anchor)<2,scene+": did not recover to recent station");
             reset.ResetVehicle();Require(reset.Pending,scene+": short delay not queued");float retry=(float)typeof(VehicleRespawn).GetField("nextAttempt",Private).GetValue(reset);Require(retry-Time.time>.7f&&retry-Time.time<.9f,scene+": unexpected reset delay");reset.CancelRecovery();
             rows.Add($"PASS {scene}: two supported contacts advance every 0.1s after 0.35s/1m stability; recent reset succeeds; no airborne/forward/gate credit; 0.8s requested-reset delay.");
+            if(scene=="ForestLoopReverse"){
+                var layout=Object.FindAnyObjectByType<ForestLayout>();float start=layout.jumpStarts[0];
+                var unsafeJump=typeof(VehicleRespawn).GetMethod("UnsafeJump",Private);
+                Require((bool)unsafeJump.Invoke(reset,new object[]{road.At(start+15,out _)+Vector3.up*.5f}),"Forest ramp was accepted");
+                float landing=layout.jumpEnds[0]-25;reset.SeedCoursePosition(road.At(landing,out _));
+                for(int i=0;i<15;i++)Sample(landing+i,2);
+                Require(Math.Abs(reset.SafeStation-(landing+14))<5,"Forest post-jump runout did not replace old recovery");
+                rows.Add("PASS Forest: launch rejected while stable driving in the same jump window's landing runout advances recovery.");reset.CancelRecovery();
+            }
             foreach(var flight in race.GetComponent<MountainFlights>()?.flights??Array.Empty<MountainFlights.Flight>()){
                 float before=road.Project(flight.start,out _)-75;reset.SeedCoursePosition(road.At(before,out _));for(int i=0;i<9;i++)Sample(before+i,4);float old=reset.SafeStation;
                 float lip=road.Project(flight.lip,out _),finish=road.Project(flight.landingEnd,out _)+20;
@@ -79,6 +88,15 @@ public static class LocalCorrectiveChecks
         foreach(var mf in GameObject.Find("Local Laurel replacement").GetComponentsInChildren<MeshFilter>())if(mf.TryGetComponent<MeshCollider>(out var c))Require(c.sharedMesh==mf.sharedMesh,"Visible/collision mismatch");
         Require(!GameObject.Find("CR133 straight Laurel")&&!GameObject.Find("CR122 Laurel local jump"),"Old malformed overlays retained");
         rows.Add($"PASS straight approach/ramp: {count} cross-lane samples; max height error {maxError:F6}m; adjacent angle {maxAngle:F3} degrees; no duplicate colliders; removed old overlays.");
+        var branch=Object.FindObjectsByType<WoodlandRoute>().Single(b=>b.title=="Laurel Switchbacks");float gapStart=branch.Project(lip,out _),gapEnd=gapStart+16;
+        int approachSamples=0;float routeError=0;
+        for(float s=2;s<branch.Length-3;s+=1){if(s>gapStart-.5f&&s<gapEnd+1)continue;var p=branch.At(s,out var f)+Vector3.up*.04f;
+            foreach(float lane in new[]{-2f,0,2}){var q=p+Vector3.Cross(Vector3.up,f).normalized*lane;var hits=Physics.RaycastAll(q+Vector3.up*4,Vector3.down,8,1,QueryTriggerInteraction.Ignore).Where(h=>!h.rigidbody).OrderBy(h=>h.distance).ToArray();
+                Require(hits.Length>0,$"Missing Laurel route support {s}/{lane}");Require(hits[0].collider.name.StartsWith("Ground_"),$"Laurel route obstacle {s}/{lane}: {hits[0].collider.name}");
+                routeError=Mathf.Max(routeError,Math.Abs(hits[0].point.y-q.y));approachSamples++;
+            }
+        }
+        Require(routeError<.25f,$"Laurel route continuity error {routeError}");rows.Add($"PASS full local route: {approachSamples} lane samples outside intentional flight; maximum profile error {routeError:F4}m; no blocking collider in road surface.");
         foreach(float speed in new[]{18f,24,32,38}){
             bool landed=false;Vector3 contact=default;
             for(float t=.12f;t<2.5f;t+=.01f){var p=lip+axis*(speed*t)+Vector3.up*(speed*.052f*t+.5f*Physics.gravity.y*t*t);

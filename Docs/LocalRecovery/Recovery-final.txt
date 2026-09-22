@@ -1,0 +1,11 @@
+PASS StreetLoopGreybox: two supported contacts advance every 0.1s after 0.35s/1m stability; recent reset succeeds; no airborne/forward/gate credit; 0.8s requested-reset delay.
+PASS StreetLoopReverse: two supported contacts advance every 0.1s after 0.35s/1m stability; recent reset succeeds; no airborne/forward/gate credit; 0.8s requested-reset delay.
+PASS Laurel: occupied pre-runway sample retained across ramp/flight; stable main-road landing replaces it.
+PASS ForestLoopReverse: two supported contacts advance every 0.1s after 0.35s/1m stability; recent reset succeeds; no airborne/forward/gate credit; 0.8s requested-reset delay.
+PASS Forest: launch rejected while stable driving in the same jump window's landing runout advances recovery.
+PASS MountainLoop: two supported contacts advance every 0.1s after 0.35s/1m stability; recent reset succeeds; no airborne/forward/gate credit; 0.8s requested-reset delay.
+PASS MountainLoop/Eastbound Gully Flight: ramp and air rejected; post-landing anchor=785.99; pre-jump history retired; later crash resets after jump.
+PASS MountainLoop/Homeward Summit Flight: ramp and air rejected; post-landing anchor=2532.24; pre-jump history retired; later crash resets after jump.
+PASS MountainLoopReverse: two supported contacts advance every 0.1s after 0.35s/1m stability; recent reset succeeds; no airborne/forward/gate credit; 0.8s requested-reset delay.
+PASS MountainLoopReverse/Westbound Gully Flight: ramp and air rejected; post-landing anchor=2787.62; pre-jump history retired; later crash resets after jump.
+PASS MountainLoopReverse/South Face Summit Flight: ramp and air rejected; post-landing anchor=1304.76; pre-jump history retired; later crash resets after jump.

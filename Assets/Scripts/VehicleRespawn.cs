@@ -55,6 +55,8 @@ namespace Racer
         WoodlandRoute stableBranch;
         JumpRecoveryExclusion[] jumpExclusions;
         Collider[] legacyLaunchSurfaces;
+        ForestLayout forestLayout;
+        float[] forestLipStations;
         bool UnsafeJump(Vector3 p)
         {
             jumpExclusions ??= FindObjectsByType<JumpRecoveryExclusion>();
@@ -74,6 +76,24 @@ namespace Racer
                 var q=p-flight.start;float along=Vector3.Dot(q,axis);
                 float lip=Vector3.Dot(flight.lip-flight.start,axis);
                 if(along>=-60&&along<=lip+3&&Mathf.Abs(Vector3.Dot(q,Vector3.Cross(Vector3.up,axis)))<30&&p.y>=Mathf.Min(flight.start.y,flight.lip.y)-6&&p.y<=Mathf.Max(flight.start.y,flight.lip.y)+6)return true;
+            }
+            // Forest jump windows also include their long landing runouts. Find
+            // each authored drop, rather than excluding that whole post-jump road.
+            if(!flights&&race.Forest){
+                if(!forestLayout)forestLayout=FindAnyObjectByType<ForestLayout>();
+                if(forestLayout){
+                    if(forestLipStations==null){
+                        forestLipStations=new float[forestLayout.jumpStarts.Length];
+                        for(int i=0;i<forestLipStations.Length;i++){
+                            float steepest=0,lip=forestLayout.jumpStarts[i];
+                            for(float s=forestLayout.jumpStarts[i];s<forestLayout.jumpEnds[i];s+=1){race.road.At(s,out var f);if(f.y<steepest){steepest=f.y;lip=s;}}
+                            forestLipStations[i]=lip;
+                        }
+                    }
+                    float station=race.road.Project(p,out float distance);
+                    if(distance<race.road.HalfWidth(station)+1)for(int i=0;i<forestLipStations.Length;i++)
+                        if(station>=forestLayout.jumpStarts[i]-35&&station<=forestLipStations[i]+2)return true;
+                }
             }
             return false;
         }

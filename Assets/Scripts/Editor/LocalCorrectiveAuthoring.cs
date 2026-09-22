@@ -124,6 +124,10 @@ public static partial class LocalCorrectiveRoads
         var p=sign.transform.position;p.x=487;
         var hits=Physics.RaycastAll(new Vector3(p.x,150,p.z),Vector3.down,150,1,QueryTriggerInteraction.Ignore).Where(h=>h.collider.name.StartsWith("Ground_")).OrderBy(h=>h.distance).ToArray();
         if(hits.Length==0)throw new Exception("No ground at relocated Laurel roadside sign");p.y=hits[0].point.y;sign.transform.position=p;
+        var rejoin=Object.FindObjectsByType<PhysicalSign>().Single(s=>s.name=="REJOIN / Street Loop Reverse"&&s.transform.position.x>480&&s.transform.position.x<530&&s.transform.position.z> -140&&s.transform.position.z< -60);
+        var marker=rejoin.transform.position;marker.x=486;
+        var support=Physics.RaycastAll(new Vector3(marker.x,150,marker.z),Vector3.down,150,1,QueryTriggerInteraction.Ignore).Where(h=>h.collider.name.StartsWith("Ground_")).OrderBy(h=>h.distance).First();
+        marker.y=support.point.y;rejoin.transform.position=marker;
     }
     public static string FinishLaurelSign(){EditorSceneManager.OpenScene("Assets/Scenes/StreetLoopReverse.unity");SeatLaurelSign();Save();return "Moved the complete entrance sign beside the runway, grounded outside both driving corridors.";}
     static void Guidance(Transform root,WoodlandRoute branch,Surface surface)
