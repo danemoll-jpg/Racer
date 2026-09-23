@@ -1,7 +1,7 @@
 # Woodstock Rush
 ## Project Management / TODO / Astra-Codex Handoff
 
-## Current handoff — 2026-09-22 / planning only; gameplay work paused
+## Current handoff — updated 2026-09-23 / planning only; gameplay work paused
 
 **Current playable release:** **0.29.0-review1 / game-29000**, published and verified at [GitHub](https://github.com/danemoll-jpg/woodstock-rush-releases/releases/tag/game-29000). `Play-Racer.cmd` launches this version from `Builds/Latest`. Implementation: `b0390d4a`; publication/cleanup record: `d3ec8d89`; hill rollback checkpoint: `2aa186ee`. See [publication](Docs/ForestHill/PUBLICATION.md) and [technical checks](Docs/ForestHill/VALIDATION.md).
 
@@ -47,6 +47,16 @@ This is future navigation work during the existing pause, not permission to star
 3. **Dan chooses any remaining layout corrections.** Review the mapped main-course identity and whether/how House 3's driveway needs correction. The relocate/add-shortcut-elsewhere item is already complete; do not reopen it or propose another replacement unless Dan requests one.
 4. **One bounded implementation after approval.** Specify the exact route/direction, terrain footprint, driveway treatment and intended main/shortcut relationship. Identify any necessary checkpoint, entitlement or navigation-data changes in advance. Fix the agreed geometry/data cause before considering AI behavior changes; the current stuck-AI report does not establish its cause. Preserve unrelated tracks, physics and recovery unless Dan explicitly changes that scope.
 5. **Limited verification and delivery.** Check the changed surface/colliders, joins and neighboring routes; if AI work is approved, use one targeted reproduction at the reported spot. Basic build verification, then Dan's gameplay review. No repeated full races or all-vehicle matrices. Build/publish only when the resumed task requests delivery. Check disk space and retain the current build plus at most one useful previous build; preserve source, Git, publisher keys/tools, launcher/SDK and required metadata.
+
+### New track ideas — 2026-09-23 / future backlog
+
+Dan noticed large wooded areas with little happening and would like to use some of that space for additional tracks. Record these as three distinct concepts for the future route map; no construction or terrain edits are requested during the current planning pause.
+
+- [ ] **Back-property dirt trail and gully track.** Dan's childhood property was approximately seven acres. A large dirt path began in the area between the pool house and kennel, led away from the house into the woods, and eventually reached a large gully at the back of the property. Incorporate that remembered path and gully into a track. Locate the existing pool house/kennel on the map and let Dan identify the general direction and gully area before choosing the course footprint. The seven-acre recollection is context, not an instruction to resize the current property or move accepted buildings. Do not assume this is the existing Fox Gully or House 3 site. Exact shape, depth, crossing style and any jump remain undecided.
+- [ ] **Additional track near Trickum.** Use the wooded space around Trickum for another course. Dan does not know that area as well and has no specific layout in mind, so there is more creative freedom here. Propose its location and route on the map before authoring, accounting for existing Trickum roads, jumps, shortcuts and shared terrain. Do not treat it as a redesign of the existing Trickum features.
+- [ ] **Dedicated stunt track.** Add a stunt-focused track somewhere suitable. Location, format, obstacles/jumps, vehicle eligibility and whether it uses racing or challenge rules remain undecided. Show a candidate footprint during route planning; no new scoring system, physics changes or particular structures are implied by this idea.
+
+**Planning sequence:** Include these proposed footprints as clearly separate overlays on the future atlas of existing routes. Review them with Dan, check conflicts with current courses/shortcuts/properties, and scope one track at a time before implementation. Preserve the surrounding woods and working content outside the agreed footprint. These are new course ideas, not a reopening of the completed relocate/add-shortcut item.
 
 ### Notes Dan can collect while work is paused
 
@@ -1610,6 +1620,7 @@ Add a small occasional group of recognizable wild turkeys near Kyle's property/w
 Test one present and one absent state, recognizable ground placement/movement, one brief audio/mute check and no driveway obstruction. No full species/performance suite.
 
 ### Future backlog — not implementation scope of this pass
+- Three new track concepts recorded on 2026-09-23: back-property dirt path from between the pool house and kennel to the remembered gully; an additional course near Trickum; a dedicated stunt track. See the current handoff for location details and unresolved design choices. Planning only for now.
 - More vehicle choices.
 - Visible measurable vehicle stats (e.g. top speed, nimbleness/handling and weight), grounded in actual profiles; imperial speed/weight units.
 - Explore collectible completion unlocking a special vehicle with best-in-game stats. This is a tentative idea; decide balance/unlock rule later. Do not implement now or retroactively erase progress.
@@ -1761,6 +1772,8 @@ Record choices we do not want to repeatedly reconsider.
 ---
 
 # SESSION HANDOFF
+
+**2026-09-23 planning update:** Added Dan's three future track ideas: the remembered dirt path/gully behind his approximately seven-acre property, a creatively authored track near Trickum, and a dedicated stunt track. Map proposed footprints alongside existing routes before choosing designs. Only this TODO was updated; game work remains paused.
 
 **Latest — 2026-09-22:** See **Current handoff** at the top of this file. Published `game-29000` is temporarily human-drivable; House 3 / Forest / Laurel layout polish and reported stuck AI remain open. This session updates planning only. Dan will collect more notes; future route atlas and any redesign wait for his request. Older session prompts below do not authorize work during this pause.
 
