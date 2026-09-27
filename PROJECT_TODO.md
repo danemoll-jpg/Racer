@@ -1,7 +1,7 @@
 # Woodstock Rush
 ## Project Management / TODO / Astra-Codex Handoff
 
-## Current handoff — updated 2026-09-23 / planning only; gameplay work paused
+## Current handoff — updated 2026-09-27 / planning only; gameplay work paused
 
 **Current playable release:** **0.29.0-review1 / game-29000**, published and verified at [GitHub](https://github.com/danemoll-jpg/woodstock-rush-releases/releases/tag/game-29000). `Play-Racer.cmd` launches this version from `Builds/Latest`. Implementation: `b0390d4a`; publication/cleanup record: `d3ec8d89`; hill rollback checkpoint: `2aa186ee`. See [publication](Docs/ForestHill/PUBLICATION.md) and [technical checks](Docs/ForestHill/VALIDATION.md).
 
@@ -17,7 +17,7 @@ This review supersedes older open/awaiting-review labels for the items named her
 - **COMPLETE:** Incorrect shortcut checkpoint penalties (BUG-004 / CR-046 / CR-050); motorcycle momentum loss at the Fox Gully house jump (BUG-008); local reverse-Mountain junction/sign guidance (CR-120/121). These correspond to items 3, 4 and 7 in the consolidated review.
 - **COMPLETE:** All delivered-feature review areas in that review except navigation: highway/traffic continuations and variety; mailbox placement; selectable laps and unlimited solo; saved playlists and keyboard naming; championship standings/summary/winner; fast-travel confirmation/arrival/map closure; shallow-water driving; AI mistake presentation and estimated finish classification; radio/library/station/metadata features; tire audio; non-turkey wildlife/bat presentation and audio; free roam.
 - **OPEN — intermittent:** Spoken title clipping (CR-118). Dan says it sometimes works and sometimes does not. Keep the report open; no audio changes or fallback removal are requested now.
-- **UNTESTED BY DAN:** Summit jump scoring. The historical zero-award defect remains recorded; Dan has not tested it, so neither a current reproduction nor acceptance is claimed.
+- **ACCEPTED FOR NOW / CLOSED — 2026-09-27:** Summit jump scoring. Dan reports, "I think works." Remove it from the active outstanding list; reopen only if he observes a failure. Historical zero-award results remain evidence of earlier builds, not a current unresolved defect. No new technical testing is claimed.
 - **OPEN / FUTURE WORK:** General navigation and all-track arrows below; House 3 / Forest / Laurel cleanup, route atlas and the specific stuck-AI report. Acceptance of general AI presentation does not close that stuck-AI defect.
 - Physical controller/Deck/Steam migration, friend testing, launcher UX review and optional expansion ideas were separate lists and are not marked complete by this acceptance.
 
