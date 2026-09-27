@@ -1,0 +1,81 @@
+{
+  "version": "0.30.0-review1",
+  "beforeBytes": 15624785742.0,
+  "afterBytes": 5220821510.0,
+  "beforeGiB": 14.552,
+  "afterGiB": 4.862,
+  "removed": [
+    {
+      "path": "C:\\Users\\danmo\\Racer\\Builds\\PackageWork",
+      "bytes": 3242905930.0
+    },
+    {
+      "path": "C:\\Users\\danmo\\Racer\\Builds\\Racer-0.28.0-review1-Windows",
+      "bytes": 1608420484.0
+    },
+    {
+      "path": "C:\\Users\\danmo\\Racer\\Builds\\Racer-0.30.0-review1-Windows",
+      "bytes": 1621452965.0
+    },
+    {
+      "path": "C:\\Users\\danmo\\Racer\\Builds\\Racer-0.30.0-review1-Windows.zip",
+      "bytes": 1042545869
+    },
+    {
+      "path": "C:\\Users\\danmo\\Racer\\Builds\\LauncherRelease-30000\\assets\\game.zip",
+      "bytes": 246397237
+    },
+    {
+      "path": "C:\\Users\\danmo\\Racer\\Builds\\Preserved\\20260927-081920-983-e18311",
+      "bytes": 808010817.0
+    },
+    {
+      "path": "C:\\Users\\danmo\\Racer\\Builds\\WoodstockRush-0.29.0-review1-FullBackup.zip",
+      "bytes": 1026561532
+    },
+    {
+      "path": "C:\\Users\\danmo\\Racer\\Temp\\route-atlas-hosted-1790512086113819200",
+      "bytes": 816921038.0
+    },
+    {
+      "path": "C:\\Users\\danmo\\Racer\\Temp\\route-atlas-launcher-starter",
+      "bytes": 1624201179.0
+    },
+    {
+      "path": "C:\\Users\\danmo\\Racer\\Builds\\Latest\\LauncherMigrationBackup-20260927-083006",
+      "bytes": 667136.0
+    },
+    {
+      "path": "C:\\Users\\danmo\\Racer\\Builds\\Latest\\Racer_Data",
+      "bytes": 751009112.0
+    },
+    {
+      "path": "C:\\Users\\danmo\\Racer\\Builds\\Latest\\MonoBleedingEdge",
+      "bytes": 9127774.0
+    },
+    {
+      "path": "C:\\Users\\danmo\\Racer\\Builds\\Latest\\D3D12",
+      "bytes": 4725304.0
+    },
+    {
+      "path": "C:\\Users\\danmo\\Racer\\Builds\\Latest\\UnityPlayer.dll",
+      "bytes": 38677416
+    },
+    {
+      "path": "C:\\Users\\danmo\\Racer\\Builds\\Latest\\UnityCrashHandler64.exe",
+      "bytes": 1772968
+    },
+    {
+      "path": "C:\\Users\\danmo\\Racer\\Builds\\Latest\\dstorage.dll",
+      "bytes": 206904
+    },
+    {
+      "path": "C:\\Users\\danmo\\Racer\\Builds\\Latest\\dstoragecore.dll",
+      "bytes": 1482784
+    }
+  ],
+  "current": "C:\\Users\\danmo\\Racer\\Builds\\Latest\\versions\\30000",
+  "previous": "C:\\Users\\danmo\\Racer\\Builds\\Racer-0.29.0-review1-Windows",
+  "retained": "PublisherPrivate/key, PublisherTools, Launcher/SDK, current signed install and all metadata, prior 0.29 build, source/Git/Docs/atlas/BundleMusic, user saves and intentionally retained music",
+  "preservedMusicVerifiedIdentical": true
+}

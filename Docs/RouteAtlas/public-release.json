@@ -1,0 +1,28 @@
+{
+  "repository": "https://github.com/danemoll-jpg/woodstock-rush-releases",
+  "public": true,
+  "tag": "game-30000",
+  "draft": false,
+  "url": "https://github.com/danemoll-jpg/woodstock-rush-releases/releases/tag/game-30000",
+  "published": "2026-09-27T12:27:32Z",
+  "assets": [
+    {
+      "name": "game-manifest.json",
+      "size": 56445,
+      "digest": "sha256:5c0c1d8846ffcec7e67e74cb823eb766d14a8d8d89e0014b13d0623f6a0a719e",
+      "browser_download_url": "https://github.com/danemoll-jpg/woodstock-rush-releases/releases/download/game-30000/game-manifest.json"
+    },
+    {
+      "name": "game.zip",
+      "size": 246397237,
+      "digest": "sha256:537fb44f8392050c53f64a5d13cfa5b2915ef95c0ba40649c7d49e0e0bbfcf15",
+      "browser_download_url": "https://github.com/danemoll-jpg/woodstock-rush-releases/releases/download/game-30000/game.zip"
+    },
+    {
+      "name": "update-catalog.json",
+      "size": 993,
+      "digest": "sha256:3a7cadc1ecf88118ef1a5517f5ba81865c2bd1032e95b6de665cee251fb22d93",
+      "browser_download_url": "https://github.com/danemoll-jpg/woodstock-rush-releases/releases/download/game-30000/update-catalog.json"
+    }
+  ]
+}

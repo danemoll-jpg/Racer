@@ -20,6 +20,13 @@ Derived from saved Unity scenes and collider samples. World X/Y/Z in metres; +Z 
 - L06 Laurel launch: X=346.60, Z=-176.13.
 - L07: Laurel geometric landing at 32 m/s: (376.58, 80.03, -90.48).
 - L08: Laurel geometric landing at 38 m/s: (389.86, 78.40, -52.54).
+- L09 Trickum Road: X=-626.60, Z=492.60; actual scene physical sign/landmark position.
+- L10 Jamerson connection: X=-599.10, Z=-563.70; actual scene physical sign/landmark position.
+- L11 South Cherokee / Hwy 92: X=292.00, Z=575.30; actual scene physical sign/landmark position.
+- L12 Kyle wooded drive: X=463.30, Z=-22.80; actual scene physical sign/landmark position.
+- L13 Lake shore: X=541.90, Z=-92.60; actual scene physical sign/landmark position.
+- L14 Summit: X=921.60, Z=161.60; actual scene physical sign/landmark position.
+- L15 Pool house: X=397.16, Z=-0.45; actual scene physical sign/landmark position.
 
 L07/L08 come from the existing verified physical ramp data in Docs/FocusedRecovery/verification.txt; invariance checks prove it is unchanged. The dashed landing/runout annotation adds 30m lateral allowance and 60m runout for planning; it does not define or restrict gameplay recovery. The entire Street Reverse pre-existing scene is preserved, including terrain and fencing beyond that annotation.
 

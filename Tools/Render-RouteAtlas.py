@@ -54,7 +54,11 @@ for i,c in enumerate(courses):
     main=c['routes'][0]['points'];line(ax,main+[main[0]],color=colors[i],lw=1.25,alpha=.75,label=c['scene'])
     for r in c['routes']:
         if r['kind']=='shortcut':line(ax,r['points'],color=colors[i],ls='--',lw=1)
-landmarks(ax);ax.legend(loc='upper left',fontsize=9);fig.text(.08,.025,'Solid = MAIN · Dashed = OPTIONAL · World X/Z metres, shared coordinate reference\nRoutes shown together for planning; each course is a separate saved scene with potentially different elevations.',fontsize=10)
+landmarks(ax)
+named=[('L09 Trickum Road',-626.6,492.6),('L10 Jamerson connection',-599.1,-563.7),('L11 South Cherokee / Hwy 92',292,575.3),('L12 Kyle wooded drive',463.3,-22.8),('L13 Lake shore',541.9,-92.6),('L14 Summit',921.6,161.6),('L15 Pool house',397.16,-.45)]
+for name,x,z in named:
+    ax.plot(x,z,'o',ms=3,color='#4c514c');ax.annotate(name,(x,z),xytext=(5,6 if name not in ('L12 Kyle wooded drive','L13 Lake shore') else -14),textcoords='offset points',fontsize=7,bbox=dict(facecolor='#f7f5ed',alpha=.8,edgecolor='none',pad=1))
+ax.legend(loc='lower left',fontsize=9);fig.text(.08,.025,'Solid = MAIN · Dashed = OPTIONAL · World X/Z metres, shared coordinate reference\nRoutes shown together for planning; each course is a separate saved scene with potentially different elevations. Named-road markers use actual physical sign positions.',fontsize=10)
 fig.savefig(OUT/'Overall.png',dpi=190,bbox_inches='tight');plt.close(fig)
 fig,ax=setup('HOUSE 3 / FOREST / LAUREL | current routes and protected zone',size=(16,11))
 for scene,color in [('ForestLoopReverse','#7453a5'),('StreetLoopReverse','#246ea0')]:
@@ -91,7 +95,9 @@ print('Wrote overall, six course views, close-up and height comparison to',OUT)
 lines=['# Route atlas — 0.30.0-review1','', 'Derived from saved Unity scenes and collider samples. World X/Y/Z in metres; +Z north. Each course is a separate scene; the overall overlay is not one shared collision world.','', '## Views','', '- Overall.png: all six main routes and optional branches.','- One PNG per scene: active direction, start/finish, gates, optional entrances/rejoins, jumps and environment roads.','- House3-Forest-Laurel.png: promoted main route, retired detour, both driveway states, physical Laurel launch/flight and approximate practical landing/runout area.','- Granite-height-comparison.png: original navigation heights versus scene-specific ground; the promoted route now follows current support.','- House3-Forest-Laurel-before.png: retained pre-change reference.','', '## Stable local landmarks','']
 for name,x,z in landmarks(plt.subplots()[1],True):lines.append(f'- {name}: X={x:.2f}, Z={z:.2f}.')
 plt.close('all')
-lines+=['- L07: Laurel geometric landing at 32 m/s: (376.58, 80.03, -90.48).','- L08: Laurel geometric landing at 38 m/s: (389.86, 78.40, -52.54).','', 'L07/L08 come from the existing verified physical ramp data in Docs/FocusedRecovery/verification.txt; invariance checks prove it is unchanged. The dashed landing/runout annotation adds 30m lateral allowance and 60m runout for planning; it does not define or restrict gameplay recovery. The entire Street Reverse pre-existing scene is preserved, including terrain and fencing beyond that annotation.','', '## Current identities and checkpoints','']
+lines+=['- L07: Laurel geometric landing at 32 m/s: (376.58, 80.03, -90.48).','- L08: Laurel geometric landing at 38 m/s: (389.86, 78.40, -52.54).']
+lines += [f'- {name}: X={x:.2f}, Z={z:.2f}; actual scene physical sign/landmark position.' for name,x,z in named]
+lines+=['', 'L07/L08 come from the existing verified physical ramp data in Docs/FocusedRecovery/verification.txt; invariance checks prove it is unchanged. The dashed landing/runout annotation adds 30m lateral allowance and 60m runout for planning; it does not define or restrict gameplay recovery. The entire Street Reverse pre-existing scene is preserved, including terrain and fencing beyond that annotation.','', '## Current identities and checkpoints','']
 for c in courses:
     lines += [f"### {c['scene']} — `{c['id']}`",'']
     for r in c['routes']:

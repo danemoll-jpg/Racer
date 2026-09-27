@@ -1,0 +1,13 @@
+{
+  "version": "0.30.0-review1",
+  "build": 30000,
+  "catalog": "https://github.com/danemoll-jpg/woodstock-rush-releases/releases/latest/download/update-catalog.json",
+  "manifest": "https://github.com/danemoll-jpg/woodstock-rush-releases/releases/download/game-30000/game-manifest.json",
+  "publicDownload": true,
+  "pinnedSignatureVerified": true,
+  "allLatestFilesMatch": true,
+  "files": 276,
+  "startupReady": true,
+  "exit": 0,
+  "work": "C:\\Users\\danmo\\Racer\\Temp\\route-atlas-hosted-1790512086113819200"
+}
