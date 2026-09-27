@@ -1,0 +1,1 @@
+PASS: all 1872 main X/Z control points unchanged; only 27 local ramp navigation heights changed. All existing optional branch points unchanged. Terrain X/Z and topology unchanged; 798 ramp and 399 pool-basin vertex heights changed in a new Forest-only mesh asset. Existing source assets retained. Gates and house pose checked separately against checkpoint scene blocks.

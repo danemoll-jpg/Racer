@@ -1,0 +1,8 @@
+PASS: StreetLoopReverse entire scene unchanged from checkpoint.
+PASS: StreetLoopGreybox entire scene unchanged from checkpoint.
+PASS: LakeWoods entire scene unchanged from checkpoint.
+PASS: MountainLoop entire scene unchanged from checkpoint.
+PASS: MountainLoopReverse entire scene unchanged from checkpoint.
+PASS: House 3 GameObject and all attached components/transforms unchanged.
+PASS: every existing asset and runtime source unchanged, including shared Laurel support meshes, vehicle physics, AI and recovery logic.
+Laurel protection therefore includes its entire unchanged collision world: approach, launch, flight clearance, imperfect landings, runout, fencing, recovery and rejoin. Water is authored only in ForestLoopReverse.

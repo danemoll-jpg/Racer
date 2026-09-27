@@ -1,0 +1,5 @@
+Ramp: 615 support samples across 6m usable width; adjacent normal change 3.682 degrees; grades -0.056..0.390; duplicate top hits 0. Straight plan axis (-1.00, 0.00, 0.08).
+Geometric flight 24m/s: distance 81.61m, landing (353.97, 39.19, -191.70), minimum pool/lake clearance 18.11m, 3D main-route offset 3.89m, airborne solid obstruction=none.
+Geometric flight 32m/s: distance 115.53m, landing (320.17, 43.63, -188.99), minimum pool/lake clearance 39.55m, 3D main-route offset 9.59m, airborne solid obstruction=none.
+Geometric flight 40m/s: distance 158.38m, landing (277.45, 45.77, -185.58), minimum pool/lake clearance 41.64m, 3D main-route offset 12.18m, airborne solid obstruction=none.
+Local main gates: Forest Loop Reverse START FINISH: (607.95, 79.75, -127.54); Forest Loop Reverse CP 1: (555.56, 43.94, -206.75)

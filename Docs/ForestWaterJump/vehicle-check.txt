@@ -1,0 +1,1 @@
+One bounded motorcycle check: start 16m before ramp at 24m/s, ordinary full throttle and zero steering, unchanged vehicle physics. Flight=True; launch speed=33.91m/s, X=432.41; supported landing beyond both water bodies=True, X=309.10; max immersion=0.000; final=(309.10, 42.46, -195.98). This is one local automated pass, not human handling acceptance.

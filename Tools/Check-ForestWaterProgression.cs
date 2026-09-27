@@ -1,0 +1,10 @@
+var race=UnityEngine.Object.FindAnyObjectByType<Racer.RaceDirector>();if(race.Flow.State!=Racer.RaceFlow.Stage.Racing)throw new Exception("Race must be started");var road=race.road;var car=race.vehicle;car.enabled=false;car.GetComponent<Racer.VehicleInput>().enabled=false;car.Body.isKinematic=true;
+var flight=System.IO.File.ReadAllLines("Docs/ForestWaterJump/vehicle-check.csv").Skip(1).Select(l=>l.Split(',')).Select(v=>new Vector3(float.Parse(v[1]),float.Parse(v[2]),float.Parse(v[3]))).ToArray();
+float start=road.Project(race.gates[0].transform.position,out _)-12;var p=road.At(start,out var f)+Vector3.up*.6f;car.Body.position=p;car.transform.position=p;race.ResetSampling(p,0);double now=0;int count=0;bool optional=false;
+void Sample(Vector3 q,Vector3 heading){car.Body.position=q;car.Body.rotation=Quaternion.LookRotation(Vector3.ProjectOnPlane(heading,Vector3.up));car.transform.SetPositionAndRotation(q,car.Body.rotation);race.Sample(q,heading,now+=.05);optional|=race.Racers[0].Branch.Route!=null;count++;}
+float approach=road.Project(flight[0],out _);for(float s=start+1;s<approach;s+=1){p=road.At(s,out f)+Vector3.up*.6f;Sample(p,f);}
+for(int i=0;i<flight.Length;i++)Sample(flight[i],i==0?new Vector3(-1,0,.08f):(flight[i]-flight[i-1]).normalized);
+float rejoin=road.Project(flight[^1],out _);var target=road.At(rejoin,out f)+Vector3.up*.6f;for(float t=.2f;t<=1;t+=.2f)Sample(Vector3.Lerp(flight[^1],target,t),f);
+for(float s=rejoin+1;s<850;s+=1){p=road.At(s,out f)+Vector3.up*.6f;Sample(p,f);}
+var result=$"Production RaceDirector.Sample traversal: {count} samples from start/finish, through CP1, recorded motorcycle flight and existing route after landing. Next gate={race.Progress.NextGate}; missed={race.Progress.MissedGates}; penalty={race.Progress.PenaltySeconds}; shortcut entitlement used={optional}. This checks progression using the recorded trajectory, not another physics run.";
+System.IO.File.WriteAllText("Docs/ForestWaterJump/progression-check.txt",result);EditorApplication.isPlaying=false;return result;

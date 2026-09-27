@@ -1,0 +1,43 @@
+{
+  "checkpoint": "480a279fc23afd0d1bee0a3c218f4a0ac6ecb5c9",
+  "start": [
+    474.0,
+    63.79512,
+    -201.3
+  ],
+  "axis": [
+    -0.996815264,
+    0.0,
+    0.07974522
+  ],
+  "lip": [
+    434.12738,
+    72.38512,
+    -198.1102
+  ],
+  "length": 40.0,
+  "grade": 0.0295,
+  "launchGrade": 0.4,
+  "pool": [
+    416.0,
+    34.65,
+    -197.0
+  ],
+  "poolSize": [
+    18,
+    16
+  ],
+  "lake": [
+    384.0,
+    33.35,
+    -194.1
+  ],
+  "lakeSize": [
+    38,
+    23
+  ],
+  "removedDrivewayTriangles": 1267,
+  "rampEdits": 798,
+  "poolEdits": 399,
+  "originalTerrain": "Assets/Track/RouteAtlas/ForestLoopReverse-property-Ground_560_240.asset"
+}

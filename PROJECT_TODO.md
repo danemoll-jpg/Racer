@@ -1,7 +1,29 @@
 # Woodstock Rush
 ## Project Management / TODO / Astra-Codex Handoff
 
-## Current pass — 2026-09-27 / 0.30.0-review1 published and verified
+## Current pass — 2026-09-27 / Forest water jump — IN PROGRESS, not released
+
+This section supersedes prior implementation instructions below. Safety checkpoint: clean HEAD `480a279fc23afd0d1bee0a3c218f4a0ac6ecb5c9`. No existing saved changes were discarded. The current main route stays main; no further promotion or route swap is authorized.
+
+- [x] **Forest current main preserved:** `ForestLoopReverse`, `RaceDirector.road`, course ID still `forest-reverse-v6-granite-main`. Every main X/Z control point is unchanged. Only local ramp navigation heights were updated; existing gate transforms stay fixed.
+- [ ] **Existing alternate identity needs Dan's clarification before editing classification.** Git history shows the previous pass removed the `Granite Saddle` WoodlandRoute component when making that same physical line the current main route. `Fern Gully` is still a registered optional WoodlandRoute. The former main detour south of House 3 is physically present but has no optional component. Asked Dan whether that former main detour is the alternate he means. Do not put Granite back into optional status on top of the current main, swap routes, or invent a branch while this is unresolved. No existing shortcut point/geometry has changed; no shortcut-restoration success is claimed.
+- [x] Removed the two screenshot-matched disconnected old driveway pieces from `Ground_House3 supported valley driveway`: 1,267 triangles removed in a new mesh copy. Preserved the separate public-road mouth component. These are the pieces centred near `(450,60,-199)` and `(402,33,-195)`, not a route deletion. Original terrain assets remain available and untouched.
+- [x] Converted the indicated main drop to one straight local earth ramp: approach `(474,63.80,-201.30)`, nominal lip `(434.13,72.39,-198.11)`, heading `(-0.9968,0,0.07975)`, length 40m, terminal grade 0.40. Existing terrain X/Z and topology retained in a Forest-only mesh copy. No extra road, bridge, platform or receiving road.
+- [x] House 3 pool near `(416,34.65,-197)`, 18x16m; separate lake near `(384,33.35,-194.10)`, 38x23m. One continuous main-route flight clears both. Trees were cleared only from the water footprints. Water uses existing `ShallowWater` behavior with collider-free surfaces. House 3 pose/components and existing straight property driveway preserved.
+- [x] **Laurel protection:** no StreetLoopReverse change at all, and no existing asset modified. This preserves the complete approach, launch, airborne clearance, imperfect landing footprint, runout, fences, recovery, rejoin, gates and navigation, beyond the drawn planning envelope. Water exists only in the separate Forest scene, south of Laurel's mapped physical flight/landing corridor.
+- [x] Existing all-six-direction arrow coverage from 0.30 retained. One local ramp arrow resampled to raised terrain; one obsolete ground-flight arrow hidden; existing gap sign moved beside the approach and renamed `POOL + LAKE / STRAIGHT JUMP`. No arrow colliders. Optional entrance/rejoin guidance is pending alternate identification.
+- [x] Interim atlas derived from scene data: `Docs/ForestWaterJump/routes-current.json`, `Overall.png`, six course PNGs, and `House3-Forest-Laurel.png`. Uses the same X/Z metres as the prior atlas. Clearly marks the former detour's classification as unresolved, not restored. Final atlas/index remains pending shortcut identity.
+- [x] Targeted checks: 615 ramp support samples, no missing or duplicate top support; maximum adjacent normal change 3.682 degrees. Geometric trajectories at 24/32/40m/s clear both waters and contact existing terrain. One actual motorcycle approach at ordinary full throttle/zero steering launched at 33.91m/s, cleared both waters dry and landed supported near `(309.10,42.46,-195.98)`. One production progression traversal using that recorded flight: 852 samples, next gate 3, zero misses/penalties, no shortcut entitlement. No full races, repeated feel tuning, AI retuning or global physics/recovery changes.
+- [x] Preservation evidence: `Docs/ForestWaterJump/preservation.txt`, `data-preservation.txt`, `geometry-checks.txt`, `vehicle-check.txt`, `vehicle-check.csv`, `progression-check.txt`. One initial authoring call stopped on an overly broad ground query after creating the local assets; the query was bounded to the ramp, the existing partial work completed and saved. No rollback or baseline overwrite.
+- [ ] **New Forest shortcut elsewhere remains DEFERRED.** None designed or built.
+- [ ] Completion commit, final version/course identity, build/package, source push, NEW latest release, signed catalog/asset verification and `Play-Racer.cmd` verification remain outstanding. Public latest remains `0.30.0-review1 / game-30000`; this local work has not been shipped.
+- [x] Disk inventory before any new build: Builds **4.862 GiB**, free C: approximately **314 GiB**. No build was started and no artifacts removed during this partial pass. Final post-release cleanup/size remains pending.
+
+### Session handoff for this in-progress pass
+
+The geometry and bounded checks above are saved. Resume from this state after identifying the existing alternate route; do not repeat the geometry implementation or motorcycle pass. The detail map's dotted grey south detour is the specific clarification candidate. Final classification, navigation, atlas/index, TODO completion, commit/build/publication/launcher and cleanup are still required.
+
+## Previous release — 2026-09-27 / 0.30.0-review1 published and verified
 
 This section supersedes the historical pause and older route-planning notes below. Dan authorized implementation, publishing through the existing signing/publisher system, launcher verification and safe artifact cleanup.
 

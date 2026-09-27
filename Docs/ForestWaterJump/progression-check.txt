@@ -1,0 +1,1 @@
+Production RaceDirector.Sample traversal: 852 samples from start/finish, through CP1, recorded motorcycle flight and existing route after landing. Next gate=3; missed=0; penalty=0; shortcut entitlement used=False. This checks progression using the recorded trajectory, not another physics run.

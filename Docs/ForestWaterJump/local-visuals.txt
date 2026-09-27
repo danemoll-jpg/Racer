@@ -1,0 +1,1 @@
+Trees cleared only within water footprints using existing whole-tree helper. Ramp arrows resampled=1; obsolete ground-flight arrows hidden=1; existing gap sign updated/moved beside approach. No guidance colliders added.
