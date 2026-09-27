@@ -1,0 +1,1 @@
+ForestLoopReverse: 30 new arrow meshes; 0 arrow colliders; maximum local heading deviation 9.2 degrees (surface-conforming meshes). Laurel corridor additions excluded.

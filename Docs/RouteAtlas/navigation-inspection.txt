@@ -1,0 +1,6 @@
+StreetLoopGreybox: 73 new arrow meshes; 0 arrow colliders; maximum local heading deviation 12.6 degrees (surface-conforming meshes). Laurel corridor additions excluded.
+LakeWoods: 27 new arrow meshes; 0 arrow colliders; maximum local heading deviation 4.8 degrees (surface-conforming meshes). Laurel corridor additions excluded.
+StreetLoopReverse: 54 new arrow meshes; 0 arrow colliders; maximum local heading deviation 32.8 degrees (surface-conforming meshes). Laurel corridor additions excluded.
+ForestLoopReverse: 30 new arrow meshes; 0 arrow colliders; maximum local heading deviation 9.2 degrees (surface-conforming meshes). Laurel corridor additions excluded.
+MountainLoop: 47 new arrow meshes; 0 arrow colliders; maximum local heading deviation 27.4 degrees (surface-conforming meshes). Laurel corridor additions excluded.
+MountainLoopReverse: 52 new arrow meshes; 0 arrow colliders; maximum local heading deviation 25.6 degrees (surface-conforming meshes). Laurel corridor additions excluded.

@@ -1,0 +1,3 @@
+PASS: all 49240 existing StreetLoopReverse serialized blocks unchanged; only the scene root list gains a separate visual guidance root.
+PASS: all pre-existing mesh assets unchanged. Laurel approach, ramp, launch, flight clearance, practical landing/runout terrain, fencing, colliders, rejoin, gate/entitlement, navigation and recovery data therefore retain their checkpoint contents.
+PASS: no existing runtime source changed (physics, AI, recovery included).

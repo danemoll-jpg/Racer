@@ -1,0 +1,18 @@
+# Route definition, navigation and atlas — 0.30.0-review1
+
+Safety checkpoint: aa96293f564eb99d100864cb503351be44cd8495.
+
+ForestLoopReverse's actual Granite Saddle WoodlandRoute (old main stations 139.400–637.020) is now the main RaceRoad segment, stations 139.404–593.944. Original branch X/Z samples are retained; navigation Y is sampled from existing terrain because the old route heights were stale. No physical geometry was changed for the promotion. Gates inside the retired detour moved to the main route; remaining shortcut distances/bypass references and Forest jump stations were remapped. Course ID is forest-reverse-v6-granite-main. Dan explicitly chose Reverse-only promotion; Forward retains its authored main route and Echo Cave.
+
+One deterministic player-like traversal used production RaceDirector.Sample and gate crossings: 347 samples, no misses, no penalties, no shortcut entitlement. This is a progression/data check, not a human driving claim. One actual AI driver traversed main stations 120–595 in 22.86 seconds, zero recoveries, without selecting a shortcut. No further AI runs or tuning were performed. The first fixture placement attempt was rejected because Unity cannot attach a component from an Editor folder; it was corrected before these checks ran. Existing unrelated ContinuationTraffic/AmbientVehicle exceptions appeared in the Editor play session; no changes to that system were made.
+
+House 3 remains at (418,32.75478,-160). The straight property line runs approximately (515.18,81.73,-132.87) to (436.47,32.75,-152.33), 81.1m horizontally and 49m downhill. It is intentionally steep to retain the existing valley/house and road positions. Terrain edits stay within 10m of this line and beyond 15m from authored roads/branches. Race-road-overlap driveway triangles are retained. Only trees obstructing this local driveway are cleared; no new fences/structures. StreetLoopReverse is entirely excluded from property cleanup because the straight line would intersect protected Laurel.
+
+Laurel preservation: every one of the 49,240 pre-existing StreetLoopReverse serialized blocks is unchanged. Only its root list gains an independent visual-guidance root outside a conservative protected rectangle. All original mesh assets remain unchanged. This covers existing approach, launch, flight clearance, imperfect landing terrain/fencing, runout, recovery, rejoin, gates, shortcut entitlement and navigation data. No repeated Laurel gameplay tests were needed.
+
+All six courses received direction-specific surface arrows: 283 new non-colliding meshes total. Teal means required main; gold means optional. Approximately 100m reassurance spacing, closer forks/turns with 18m minimum separation. Unsupported launch/flight placements are skipped. Existing Laurel guidance is preserved. Each new arrow's heading was inspected against its own scene's current route; maximum local tangent deviation was 32.8 degrees at a bend, no reversed arrows. Existing physical Granite optional signs were updated to main-course wording. Four representative camera views were reviewed; obstructing driveway trees and leftover optional wording found in those views were corrected.
+
+No existing vehicle physics, AI driving, wrong-way or recovery source was modified. The test fixture is UNITY_EDITOR-only and excluded from the release. No replacement Forest shortcut, road network, bridge or platform was authored.
+
+Evidence: targeted-checks.txt, ai-targeted.csv, guidance.txt, navigation-inspection.txt, house3-cleanup.txt, local-details.txt, preservation.txt, terrain-preservation.txt, routes-before.json, routes-after.json and ATLAS.md. Publication, launcher verification and cleanup results are recorded after delivery in PUBLICATION.md.
+

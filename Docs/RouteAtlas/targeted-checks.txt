@@ -1,0 +1,8 @@
+PASS: New Forest Reverse timing identity active
+PASS: Granite Saddle is absent from optional shortcut selection/entitlement
+PASS: Player-like main traversal: 347 samples, next gate 2, missed 0, penalty 0; no former-detour gate required
+PASS: Promoted main traversal requires no shortcut entitlement
+PASS: Main-route projection stays on the promoted data line
+PASS: AI selects the promoted main RaceRoad directly
+PASS: One 40-second AI check reached main station 595.0/590; recoveries 0; route Reverse main route
+PASS: AI main-route identity retained at end of check

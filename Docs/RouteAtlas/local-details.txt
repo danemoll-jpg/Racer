@@ -1,0 +1,5 @@
+StreetLoopGreybox: existing whole-tree clearance helper applied only within 4m of straight property driveway, outside 15m race-road margin. Updated Granite physical sign faces=0. Laurel scene excluded.
+LakeWoods: existing whole-tree clearance helper applied only within 4m of straight property driveway, outside 15m race-road margin. Updated Granite physical sign faces=0. Laurel scene excluded.
+ForestLoopReverse: existing whole-tree clearance helper applied only within 4m of straight property driveway, outside 15m race-road margin. Updated Granite physical sign faces=3. Laurel scene excluded.
+MountainLoop: existing whole-tree clearance helper applied only within 4m of straight property driveway, outside 15m race-road margin. Updated Granite physical sign faces=0. Laurel scene excluded.
+MountainLoopReverse: existing whole-tree clearance helper applied only within 4m of straight property driveway, outside 15m race-road margin. Updated Granite physical sign faces=0. Laurel scene excluded.

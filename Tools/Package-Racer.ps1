@@ -1,7 +1,8 @@
-param([ValidatePattern('^[0-9]+\.[0-9]+\.[0-9]+(?:-[A-Za-z0-9-]+)?$')][string]$Version='0.29.0-review1')
+param([ValidatePattern('^[0-9]+\.[0-9]+\.[0-9]+(?:-[A-Za-z0-9-]+)?$')][string]$Version='0.30.0-review1')
 $ErrorActionPreference='Stop'
 $reviewDocs=if($Version -like '0.29.0-*'){ 'ForestHill' }elseif($Version -like '0.28.0-*'){ 'FocusedRecovery' }elseif($Version -like '0.27.0-*'){ 'SimpleLaurel' }elseif($Version -like '0.26.0-*'){ 'SurgicalTracks' }elseif($Version -like '0.25.0-*'){ 'LocalRecovery' }elseif($Version -like '0.24.1-*'){ 'MountainMenu' }elseif($Version -like '0.24.0-*'){ 'CR133-137' }elseif($Version -like '0.23.0-*'){ 'CR129-132' }elseif($Version -like '0.22.0-*'){ 'CR122-128' }elseif($Version -like '0.21.1-*'){ 'CR121-followup' }elseif($Version -like '0.20.1-*'){ 'CR120-121' }else{ 'CR112-118' }
 $isCurrentReview=$Version -like '0.29.0-*' -or $Version -like '0.28.0-*' -or $Version -like '0.27.0-*' -or $Version -like '0.26.0-*' -or $Version -like '0.25.0-*' -or $Version -like '0.24.1-*' -or $Version -like '0.24.0-*' -or $Version -like '0.23.0-*' -or $Version -like '0.20.*' -or $Version -like '0.21.1-*' -or $Version -like '0.22.0-*'
+if($Version -like '0.30.0-*'){$reviewDocs='RouteAtlas';$isCurrentReview=$true}
 $projectRoot=[IO.Path]::GetFullPath((Join-Path $PSScriptRoot '..'))
 $builds=Join-Path $projectRoot 'Builds'
 $runtime=Join-Path $builds "Racer-$Version-Windows"
@@ -53,6 +54,9 @@ Copy-Item -LiteralPath $coverSource -Destination $coverTarget -Force
 if($isCurrentReview){
  New-Item -ItemType Directory -Force "$stage/Review" | Out-Null
  foreach($map in Get-ChildItem -LiteralPath "$projectRoot/Docs/CR112-118" -File | Where-Object {$_.Name -match '^route-MountainLoop(?:Reverse)?\.(png|svg)$'}){Copy-Item -LiteralPath $map.FullName -Destination "$stage/Review/$($map.Name)"}
+}
+if($Version -like '0.30.0-*'){
+ foreach($map in Get-ChildItem -LiteralPath "$projectRoot/Docs/RouteAtlas" -File | Where-Object {$_.Extension -eq '.png' -or $_.Name -eq 'ATLAS.md'}){Copy-Item -LiteralPath $map.FullName -Destination "$stage/Review/$($map.Name)"}
 }
 if($Version -like '0.21.1-*'){
  foreach($name in @('reverse-junction-guide.svg','after-summit-fork.png','after-shortcut-2-entrance.png','final-clear-uphill-view.png')){Copy-Item -LiteralPath "$projectRoot/Docs/CR121-followup/$name" -Destination "$stage/Review/$name"}

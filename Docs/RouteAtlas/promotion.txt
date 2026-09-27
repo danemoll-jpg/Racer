@@ -1,0 +1,5 @@
+ForestLoopReverse: Granite Saddle promoted from WoodlandRoute optional branch to RaceDirector.road main centreline.
+Old stations 139.400..637.020; new 139.404..593.944.
+Existing X/Z alignment preserved exactly; navigation Y sampled from existing supporting colliders. No mesh, terrain or collider changed.
+Old House 3 detour no longer required. Affected gates relocated, remaining branch station/bypass references and ForestLayout stations remapped. AI, recovery and wrong-way use the same main road reference.
+Course ID: forest-reverse-v6-granite-main. Forward scene unchanged: no authored Granite counterpart.

@@ -1,7 +1,24 @@
 # Woodstock Rush
 ## Project Management / TODO / Astra-Codex Handoff
 
-## Current handoff — updated 2026-09-27 / planning only; gameplay work paused
+## Current pass — 2026-09-27 / 0.30.0-review1 implementation complete; publication pending
+
+This section supersedes the historical pause and older route-planning notes below. Dan authorized implementation, publishing through the existing signing/publisher system, launcher verification and safe artifact cleanup.
+
+- [x] Safety checkpoint: `aa96293f564eb99d100864cb503351be44cd8495`.
+- [x] Positively identified **Granite Saddle**, `WoodlandRoute` in `ForestLoopReverse`, old main stations 139.400–637.020, from approximately (600.57,66.58,-161.74) to (200.89,44.07,-175.39). Promoted its existing X/Z line to the required main `RaceRoad`; no physical geometry changed for promotion. Navigation Y now matches existing terrain; gates, other branch station/bypass references and Forest jump station data were remapped.
+- [x] New timing identity: `forest-reverse-v6-granite-main`. The former required House 3 detour is retired from progression and remains physically present. Granite is no longer optional or AI-selected as a shortcut.
+- [x] **Dan explicitly chose Reverse-only promotion.** Forward Forest has no authored Granite counterpart and retains its geometry, main route and Echo Cave.
+- [x] Straight descending House 3 property driveway in five scenes; house pose, Rocky Way Acres sign and valley character retained. Local terrain edits remain beyond 15m of authored racing routes. Old road-overlap driveway triangles remain to preserve accepted surfaces. Removed only directly obstructing driveway trees.
+- [x] **Laurel wins.** Street Reverse's driveway is unchanged because straightening it would intersect Laurel. Every pre-existing object/component and original mesh in that scene is unchanged, protecting approach, ramp, flight, imperfect/off-centre landing, fencing, runout, recovery, rejoin, route/gate/entitlement and navigation data. Only guidance outside the protected corridor was added.
+- [x] Six selectable course/direction combinations have teal main-route and gold optional arrows: **283 new collider-free meshes**, spaced reassurance and stronger turn/fork/rejoin coverage. Laurel guidance retained. Granite physical signs updated.
+- [x] Atlas: [index](Docs/RouteAtlas/ATLAS.md), [overall](Docs/RouteAtlas/Overall.png), six scene PNGs, [House 3 / Forest / Laurel detail](Docs/RouteAtlas/House3-Forest-Laurel.png), [height comparison](Docs/RouteAtlas/Granite-height-comparison.png), before/after route JSON and representative driving/property views. Shared X/Z metre coordinates and stable L01–L08 landmarks. Separate scenes have different terrain; Laurel's physical jump and retained metadata are separately shown.
+- [x] Targeted verification: one 347-sample production progression traversal, no misses/penalties/shortcut entitlement; one actual AI traversal through Granite in 22.86s, zero recoveries. Six scene arrow direction/collider inspections; 1,145 race-road support comparisons show zero change. No broad AI, recovery or vehicle-physics redesign. See [validation](Docs/RouteAtlas/VALIDATION.md).
+- [ ] Publish **0.30.0-review1 / game-30000**, verify public assets/signed catalog and launcher entry point, then clean disposable staging and measure Builds. Implementation is not delivery until this succeeds.
+- [ ] Dan's detailed gameplay review, particularly the steep residential driveway, arrow readability and preserved Laurel/House 3 scene difference. Existing unrelated AmbientVehicle/ContinuationTraffic errors appeared in Editor-only testing; no scope expansion or subjective gameplay acceptance is claimed.
+- [ ] **New Forest shortcut explicitly DEFERRED until Dan reviews the atlas.** No new route, candidate footprint, jump, ramp, bypass or structure is built. Future direction: optional, narrow/wooded, harder and more rewarding, likely a substantial arcade jump without interfering with existing routes.
+
+## Historical handoff — 2026-09-27 / planning pause, superseded by the current pass
 
 **Current playable release:** **0.29.0-review1 / game-29000**, published and verified at [GitHub](https://github.com/danemoll-jpg/woodstock-rush-releases/releases/tag/game-29000). `Play-Racer.cmd` launches this version from `Builds/Latest`. Implementation: `b0390d4a`; publication/cleanup record: `d3ec8d89`; hill rollback checkpoint: `2aa186ee`. See [publication](Docs/ForestHill/PUBLICATION.md) and [technical checks](Docs/ForestHill/VALIDATION.md).
 

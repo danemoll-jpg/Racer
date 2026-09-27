@@ -1,0 +1,12 @@
+EditorApplication.delayCall += () => {try {
+var report=new List<string>();
+foreach(var scene in new[]{"StreetLoopGreybox","LakeWoods","ForestLoopReverse","MountainLoop","MountainLoopReverse"}){
+UnityEditor.SceneManagement.EditorSceneManager.OpenScene("Assets/Scenes/"+scene+".unity");var race=UnityEngine.Object.FindAnyObjectByType<Racer.RaceDirector>();var drive=GameObject.Find("House 3 valley driveway").GetComponent<Racer.RaceRoad>();var start=drive.points[0];var end=drive.points[^1];var axis=end-start;axis.y=0;float length=axis.magnitude;axis.Normalize();
+var protectedPoints=UnityEngine.Object.FindObjectsByType<Racer.RaceRoad>().Where(r=>r!=drive).SelectMany(r=>r.points).Where(p=>p.x>410&&p.x<540&&p.z> -180&&p.z< -100).ToArray();
+bool Clear(Vector3 p){var d=p-start;d.y=0;float s=Vector3.Dot(d,axis);return s>8&&s<length+1&&(d-axis*s).magnitude<4&&protectedPoints.All(q=>new Vector2(p.x-q.x,p.z-q.z).magnitude>15);}
+var author=typeof(Racer.Editor.DiscoveryAuthoring);var flags=System.Reflection.BindingFlags.Static|System.Reflection.BindingFlags.NonPublic;author.GetField("owner",flags).SetValue(null,race);author.GetMethod("ClearCompleteTrees",flags).Invoke(null,new object[]{(Func<Vector3,bool>)Clear});
+int signs=0;if(scene=="ForestLoopReverse")foreach(var t in UnityEngine.Object.FindObjectsByType<TextMesh>().Where(t=>t.GetComponentInParent<Racer.PhysicalSign>())){var p=t.transform.position;if(p.x<550||p.x>630||p.z< -220||p.z> -110)continue;if(t.text.Contains("SHORTCUT")||t.text.Contains("OPTIONAL")){t.text=t.text.Replace("OPTIONAL","MAIN").Replace("SHORTCUT","GRANITE SADDLE");EditorUtility.SetDirty(t);signs++;}else if(t.text.Contains("FOLLOW CURVE")){t.text="MAIN COURSE\nGRANITE SADDLE";EditorUtility.SetDirty(t);signs++;}}
+UnityEditor.SceneManagement.EditorSceneManager.MarkSceneDirty(drive.gameObject.scene);UnityEditor.SceneManagement.EditorSceneManager.SaveScene(drive.gameObject.scene);AssetDatabase.SaveAssets();report.Add(scene+": existing whole-tree clearance helper applied only within 4m of straight property driveway, outside 15m race-road margin. Updated Granite physical sign faces="+signs+". Laurel scene excluded.");
+}
+System.IO.File.WriteAllLines("Docs/RouteAtlas/local-details.txt",report);
+}catch(Exception e){System.IO.File.WriteAllText("Docs/RouteAtlas/local-details-error.txt",e.ToString());}};return "Scheduled local driveway tree clearance and remaining Granite sign text corrections";

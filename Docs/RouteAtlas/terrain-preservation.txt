@@ -1,0 +1,5 @@
+StreetLoopGreybox: 337 vertical-only property edits; 229 race-road/branch support comparisons including 4m margins; maximum before/after difference 0.000000m. House and sign transforms retained.
+LakeWoods: 1337 vertical-only property edits; 229 race-road/branch support comparisons including 4m margins; maximum before/after difference 0.000000m. House and sign transforms retained.
+ForestLoopReverse: 1337 vertical-only property edits; 229 race-road/branch support comparisons including 4m margins; maximum before/after difference 0.000000m. House and sign transforms retained.
+MountainLoop: 1337 vertical-only property edits; 229 race-road/branch support comparisons including 4m margins; maximum before/after difference 0.000000m. House and sign transforms retained.
+MountainLoopReverse: 1337 vertical-only property edits; 229 race-road/branch support comparisons including 4m margins; maximum before/after difference 0.000000m. House and sign transforms retained.
