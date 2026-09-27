@@ -19,7 +19,8 @@ This review supersedes older open/awaiting-review labels for the items named her
 - **OPEN — intermittent:** Spoken title clipping (CR-118). Dan says it sometimes works and sometimes does not. Keep the report open; no audio changes or fallback removal are requested now.
 - **ACCEPTED FOR NOW / CLOSED — 2026-09-27:** Summit jump scoring. Dan reports, "I think works." Remove it from the active outstanding list; reopen only if he observes a failure. Historical zero-award results remain evidence of earlier builds, not a current unresolved defect. No new technical testing is claimed.
 - **OPEN / FUTURE WORK:** General navigation and all-track arrows below; House 3 / Forest / Laurel cleanup, route atlas and the specific stuck-AI report. Acceptance of general AI presentation does not close that stuck-AI defect.
-- Physical controller/Deck/Steam migration, friend testing, launcher UX review and optional expansion ideas were separate lists and are not marked complete by this acceptance.
+- **BLOCKED / DEFERRED — 2026-09-27:** Dan's Steam Deck is not working, so he cannot perform Deck testing. Defer physical Deck gameplay/controller checks and Deck-specific Steam shortcut/Proton-prefix migration verification until a working device is available. This is device unavailability, not a reported Racer failure or successful compatibility test. It does not block PC work; no Deck troubleshooting or repeated testing requests are needed unless Dan asks.
+- Separate PC controller checks, friend testing, launcher UX review and optional expansion ideas remain unchanged; none are marked complete by the Deck deferral.
 
 ### Navigation backlog — spaced direction arrows on every track
 
