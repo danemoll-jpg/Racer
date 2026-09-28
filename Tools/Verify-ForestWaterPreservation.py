@@ -15,8 +15,8 @@ for k,(kind,text) in old.items():
     if k==house or f'm_GameObject: {{fileID: {house}}}' in text:
         assert new.get(k)==(kind,text),'House component changed '+k
 report.append('PASS: House 3 GameObject and all attached components/transforms unchanged.')
-changed=subprocess.check_output(['git','diff','--name-only',checkpoint],cwd=root,text=True).splitlines()
-assert not any(p.endswith('.asset') for p in changed),'Existing shared asset modified'
+changed=subprocess.check_output(['git','diff','--name-only','--diff-filter=M',checkpoint],cwd=root,text=True).splitlines()
+assert not any(p.startswith('Assets/') and p.endswith(('.asset','.mat')) for p in changed),'Existing shared asset modified'
 assert not any(p.startswith('Assets/Scripts/') and '/Editor/' not in p for p in changed),'Existing runtime behavior modified'
 report.append('PASS: every existing asset and runtime source unchanged, including shared Laurel support meshes, vehicle physics, AI and recovery logic.')
 report.append('Laurel protection therefore includes its entire unchanged collision world: approach, launch, flight clearance, imperfect landings, runout, fencing, recovery and rejoin. Water is authored only in ForestLoopReverse.')

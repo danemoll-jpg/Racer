@@ -1,0 +1,2 @@
+PASS: 773 production progression samples on existing House 3 Detour. Recognized optional route=True; CP1 entitlement=True; completed/rejoined=True; next gate=3; missed=0; penalties=0; false optional entries from main=0.
+AI route discovery=True; recovery route identity is the same production Branch.Route component; existing recovery code unchanged.

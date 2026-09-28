@@ -1,4 +1,6 @@
-# Route atlas — 0.30.0-review1
+# Route atlas — 0.30.0-review1 (historical)
+
+**Current authoritative atlas:** [0.31 Forest water jump and restored House 3 Detour](../ForestWaterJump/ATLAS.md). The current main stays main; the southern former-main detour is now optional. Maps below preserve the previous-release reference.
 
 Derived from saved Unity scenes and collider samples. World X/Y/Z in metres; +Z north. Each course is a separate scene; the overall overlay is not one shared collision world.
 

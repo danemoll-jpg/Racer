@@ -1,0 +1,6 @@
+StreetLoopGreybox: 73 active atlas/detour arrows; no colliders; maximum direction deviation 12.57deg. Existing protected Laurel guidance untouched.
+LakeWoods: 27 active atlas/detour arrows; no colliders; maximum direction deviation 4.76deg. Existing protected Laurel guidance untouched.
+StreetLoopReverse: 54 active atlas/detour arrows; no colliders; maximum direction deviation 32.76deg. Existing protected Laurel guidance untouched.
+ForestLoopReverse: 35 active atlas/detour arrows; no colliders; maximum direction deviation 9.25deg. Existing protected Laurel guidance untouched.
+MountainLoop: 47 active atlas/detour arrows; no colliders; maximum direction deviation 27.35deg. Existing protected Laurel guidance untouched.
+MountainLoopReverse: 52 active atlas/detour arrows; no colliders; maximum direction deviation 25.63deg. Existing protected Laurel guidance untouched.

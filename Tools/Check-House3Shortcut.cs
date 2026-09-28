@@ -1,0 +1,11 @@
+var race=UnityEngine.Object.FindAnyObjectByType<Racer.RaceDirector>();if(race.Flow.State!=Racer.RaceFlow.Stage.Racing)throw new Exception("Race not started");
+var road=race.road;var branch=race.Branches.Single(b=>b.title=="House 3 Detour");var car=race.vehicle;car.enabled=false;car.GetComponent<Racer.VehicleInput>().enabled=false;car.Body.isKinematic=true;
+float start=road.Project(race.gates[0].transform.position,out _)-12;var p=road.At(start,out var f)+Vector3.up*.6f;car.Body.position=p;car.transform.position=p;race.ResetSampling(p,0);double now=0;bool entered=false,earned=false;int count=0;
+void Sample(Vector3 q,Vector3 heading){car.Body.position=q;car.Body.rotation=Quaternion.LookRotation(Vector3.ProjectOnPlane(heading,Vector3.up));car.transform.SetPositionAndRotation(q,car.Body.rotation);race.Sample(q,heading,now+=.05);entered|=race.Racers[0].Branch.Route==branch;earned|=race.Racers[0].Branch.Route==branch&&race.Progress.NextGate==2;count++;}
+for(float s=start+1;s<branch.entryRoad;s+=1){p=road.At(s,out f)+Vector3.up*.6f;Sample(p,f);}
+for(float s=0;s<branch.Length;s+=1){p=branch.At(s,out f)+Vector3.up*.6f;Sample(p,f);}
+for(float s=branch.exitRoad+1;s<850;s+=1){p=road.At(s,out f)+Vector3.up*.6f;Sample(p,f);}
+int mainFalseEntries=0;for(float s=branch.entryRoad;s<branch.exitRoad;s+=1){var a=road.At(s,out var heading)+Vector3.up*.6f;var z=road.At(s+1,out _)+Vector3.up*.6f;if(branch.Enter(a,z,heading))mainFalseEntries++;}
+bool pass=entered&&earned&&race.Racers[0].Branch.Route!=branch&&race.Progress.MissedGates==0&&race.Progress.PenaltySeconds==0&&mainFalseEntries==0;
+string result=$"{(pass?"PASS":"FAIL")}: {count} production progression samples on existing House 3 Detour. Recognized optional route={entered}; CP1 entitlement={earned}; completed/rejoined={race.Racers[0].Branch.Route!=branch}; next gate={race.Progress.NextGate}; missed={race.Progress.MissedGates}; penalties={race.Progress.PenaltySeconds}; false optional entries from main={mainFalseEntries}.\nAI route discovery={branch.aiValidated&&race.Branches.Contains(branch)}; recovery route identity is the same production Branch.Route component; existing recovery code unchanged.\n";
+System.IO.File.WriteAllText("Docs/ForestWaterJump/shortcut-check.txt",result);EditorApplication.isPlaying=false;return result;

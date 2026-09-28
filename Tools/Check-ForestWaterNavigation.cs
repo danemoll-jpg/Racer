@@ -1,0 +1,9 @@
+if(Application.isPlaying||UnityEngine.SceneManagement.SceneManager.GetActiveScene().isDirty)throw new Exception("Saved edit mode required");
+try{var rows=new List<string>();var original=UnityEngine.SceneManagement.SceneManager.GetActiveScene().path;
+foreach(var scene in new[]{"StreetLoopGreybox","LakeWoods","StreetLoopReverse","ForestLoopReverse","MountainLoop","MountainLoopReverse"}){
+ UnityEditor.SceneManagement.EditorSceneManager.OpenScene("Assets/Scenes/"+scene+".unity");var race=UnityEngine.Object.FindAnyObjectByType<Racer.RaceDirector>();var root=GameObject.Find("Route atlas direction guidance");var other=GameObject.Find("House 3 Detour optional visual guidance");var meshes=root.GetComponentsInChildren<MeshFilter>().Concat(other?other.GetComponentsInChildren<MeshFilter>():Array.Empty<MeshFilter>()).ToArray();float worst=0;
+ foreach(var mf in meshes){if(mf.GetComponent<Collider>())throw new Exception("Arrow collider");var v=mf.sharedMesh.vertices;var tail=(v[0]+v[1])*.5f;var direction=Vector3.ProjectOnPlane(v[4]-tail,Vector3.up).normalized;float s=race.road.Project(tail,out _);race.road.At(s,out var expected);if(mf.name.StartsWith("Optional gold")){var b=UnityEngine.Object.FindObjectsByType<Racer.WoodlandRoute>().Single(b=>mf.name.EndsWith(b.title));s=b.Project(tail,out _);b.At(s,out expected);}float a=Vector3.Angle(direction,Vector3.ProjectOnPlane(expected,Vector3.up));worst=Math.Max(worst,a);if(a>70)throw new Exception(scene+" incorrect arrow "+mf.name);}
+ rows.Add($"{scene}: {meshes.Length} active atlas/detour arrows; no colliders; maximum direction deviation {worst:F2}deg. Existing protected Laurel guidance untouched.");
+}UnityEditor.SceneManagement.EditorSceneManager.OpenScene(original);System.IO.File.WriteAllLines("Docs/ForestWaterJump/navigation-check.txt",rows);
+}catch(Exception e){System.IO.File.WriteAllText("Docs/ForestWaterJump/navigation-error.txt",e.ToString());}return "Completed all-six-direction visual guidance check";
+

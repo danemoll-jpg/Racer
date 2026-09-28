@@ -1,0 +1,5 @@
+Dan confirmed the dotted grey former-main southern detour on 2026-09-28.
+Course ID=forest-reverse-v7-water-detour; optional WoodlandRoute title/GameObject ID=House 3 Detour.
+Historical centreline stations 139.4001..637.0195; 477 points; branch length 483.718; current main entrance=139.400, rejoin=610.522; entryInset=58; bypass gates=1.
+Existing physical geometry unchanged; no mesh/collider/terrain restoration. Only added component, 6 collider-free gold arrows and optional label.
+AI uses existing aiValidated route discovery; recovery uses existing WoodlandRoute context; no global code changed. Maximum old centreline/support discrepancy 0.115m.
