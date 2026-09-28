@@ -1,0 +1,22 @@
+{
+  "tag": "game-35000",
+  "url": "https://github.com/danemoll-jpg/woodstock-rush-releases/releases/tag/game-35000",
+  "published": true,
+  "assetsVerified": [
+    {
+      "name": "game-manifest.json",
+      "size": 44781,
+      "digest": "sha256:fca2d298cb122dae025ca83c39f4fd7de4d79c24b0b26f8077ab36ed7f6b8796"
+    },
+    {
+      "name": "game.zip",
+      "size": 243683682,
+      "digest": "sha256:ad8c6ad567d85a7fd14b32909d14d4cb5fadc29693526569a3f9bb76cc209ae4"
+    },
+    {
+      "name": "update-catalog.json",
+      "size": 993,
+      "digest": "sha256:e01d53bdca586111c7cfcead30e4fcb14512b5d6e2bc00caa8452fcd1ee3fcea"
+    }
+  ]
+}
