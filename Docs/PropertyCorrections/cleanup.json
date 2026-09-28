@@ -1,0 +1,15 @@
+{
+  "beforeBytes": 6295243353.0,
+  "afterBytes": 5237631054.0,
+  "recoveredBuildsBytes": 1057612299.0,
+  "freeBytesBefore": 324403425280,
+  "freeBytesAfter": 327091650560,
+  "removed": [
+    "C:\\Users\\danmo\\Racer\\Builds\\Racer-0.34.0-review1-Windows",
+    "C:\\Users\\danmo\\Racer\\Builds\\LauncherRelease-34000\\assets\\game.zip",
+    "C:\\Users\\danmo\\Racer\\Temp\\property-corrections-hosted-1790618255008969100",
+    "C:\\Users\\danmo\\Racer\\Temp\\property-corrections-pre-clearance-build",
+    "C:\\Users\\danmo\\Racer\\Temp\\property-corrections-editor-saves"
+  ],
+  "preserved": "Current complete root runtime, managed 34000 and previous 33000, all music, source, saves, publisher identity/tools, launcher and signed evidence"
+}
