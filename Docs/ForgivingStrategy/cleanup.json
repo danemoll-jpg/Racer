@@ -1,0 +1,13 @@
+{
+  "beforeBytes": 6268971529.0,
+  "afterBytes": 5220883238.0,
+  "recoveredBuildsBytes": 1048088291.0,
+  "freeBytesBefore": 327953772544,
+  "freeBytesAfter": 329813315584,
+  "removed": [
+    "C:\\Users\\danmo\\Racer\\Builds\\Racer-0.32.0-review1-Windows",
+    "C:\\Users\\danmo\\Racer\\Builds\\LauncherRelease-32000\\assets\\game.zip",
+    "C:\\Users\\danmo\\Racer\\Temp\\forgiving-strategy-hosted-1790589427685396000"
+  ],
+  "preserved": "Current complete root runtime, managed 32000 and previous 31000, all music, source, saves, publisher identity/tools, launcher and signed evidence"
+}
