@@ -145,7 +145,7 @@ namespace Racer
         {
             if(Time.time<QuietUntil||voice.isPlaying||Time.time<nextVoice)return false;
             var clips=species==Species.Turkey?new[]{turkeyCall}:species==Species.Bird?birdCalls:species==Species.Squirrel?squirrelCalls:species==Species.Deer?deerCalls:species==Species.Coyote?coyoteCalls:frogCalls;if(clips==null||clips.Length==0)return false;
-            voice.transform.position=at;voice.clip=clips[rng.Next(clips.Length)];voice.pitch=Range(.94f,1.06f);voice.volume=.72f*(race.Flow.Save?.Settings.ambience??1);voice.Play();Calls++;nextVoice=Time.time+Range(7,14);return true;
+            voice.transform.position=at;voice.clip=clips[rng.Next(clips.Length)];voice.pitch=species==Species.Coyote?1:Range(.94f,1.06f);voice.volume=.72f*(race.Flow.Save?.Settings.ambience??1);voice.Play();Calls++;nextVoice=Time.time+Range(7,14);return true;
         }
         void Update()
         {

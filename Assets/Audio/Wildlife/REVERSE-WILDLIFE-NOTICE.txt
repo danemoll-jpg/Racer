@@ -1,14 +1,8 @@
 Deer calls remain original procedural sound design for Racer.
-Coyote calls now use the National Park Service field recording "Coyotes",
-Mojave National Preserve, California. Credit: NPS. Public domain; no required
-attribution. This voluntary credit and source record are retained in the game.
-Source page: https://www.nps.gov/subjects/sound/sounds-coyotes.htm
-Recording: https://www.nps.gov/nps-audiovideo/legacy/mp3/nri/avElement/nri-CoyotesMOJA.mp3
-Rights: https://www.nps.gov/subjects/sound/gallery.htm states the files are public
-domain and may be downloaded. Verified 2026-09-28. No copyright symbol or
-third-party credit on this recording. Two nonoverlapping three-second excerpts,
-mono PCM, gain adjusted and boundary fades; original pitch and natural calls.
-Reproduce with Tools/Prepare-CoyoteRecording.cs; offsets and processing are in
-Docs/FiveUpdates/coyote-mastering.txt. Existing Coyote-original-* asset IDs are
-retained for scene compatibility; the content is recorded coyotes, not synthesis.
+Coyote audio supplied and selected by Dan, 2026-09-28:
+ANMLWdog-coyote_howling-Elevenlabs.mp3
+The complete supplied MP3 is retained unchanged. Unity imports mono PCM for
+spatial playback at original pitch, with the existing ambient attenuation and
+occasional scheduling. No replacement recording, generated sound, excerpt,
+time stretching or effects were substituted. Prior NPS replacement retired.
 Other wildlife recordings and their LICENSE.txt remain unchanged.

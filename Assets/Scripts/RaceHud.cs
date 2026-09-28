@@ -14,6 +14,7 @@ namespace Racer
         void Start()
         {
             RacingMiniMap.Create(transform, race, display.font);
+            DeveloperLocationHud.Create(transform, race, display.font);
             var panel=(RectTransform)display.transform.parent;
             panel.anchorMin=panel.anchorMax=panel.pivot=new Vector2(0,1);
             panel.anchoredPosition=new(18,-18); panel.sizeDelta=new(300,race.Forest||race.reverseCourse?132:108);

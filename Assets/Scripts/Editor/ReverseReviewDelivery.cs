@@ -72,7 +72,7 @@ namespace Racer.Editor
                 if(sites.Count(h=>h.species==Wildlife.Species.Deer)<2||sites.Count(h=>h.species==Wildlife.Species.Coyote)<2)throw new Exception("Insufficient woodland habitat "+scene.name);
                 wildlife.habitats=sites.ToArray();
                 wildlife.deerCalls=Enumerable.Range(1,2).Select(i=>AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Audio/Wildlife/Deer-original-"+i+".wav")).ToArray();
-                wildlife.coyoteCalls=Enumerable.Range(1,2).Select(i=>AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Audio/Wildlife/Coyote-original-"+i+".wav")).ToArray();
+                wildlife.coyoteCalls=new[]{AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Audio/Wildlife/ANMLWdog-coyote_howling-Elevenlabs.mp3")};
                 if(wildlife.deerCalls.Concat(wildlife.coyoteCalls).Any(c=>!c))throw new Exception("Missing imported audio");
                 EditorUtility.SetDirty(wildlife);EditorSceneManager.MarkSceneDirty(scene);EditorSceneManager.SaveScene(scene);
             }

@@ -1,0 +1,13 @@
+PASS XYZ HUD defaults off
+PASS F3 shows XYZ HUD
+PASS F4 copies actual Unity world position and active course
+PASS Temporary LOCATION COPIED confirmation visible
+PASS Copy confirmation expires without pausing
+PASS Free roam copies Course: None
+PASS F3 hides HUD
+PASS Only Dan's supplied recording is assigned
+PASS Supplied recording actually plays from environmental position
+PASS Full 3D linear distance attenuation 12–65m preserved
+PASS Natural pitch, existing ambient level, nonlooping
+PASS Rapid repeat rejected
+PASS Full imported recording decodes with nonzero unclipped signal

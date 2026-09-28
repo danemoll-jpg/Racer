@@ -1,0 +1,51 @@
+PASS StreetLoopGreybox local black asphalt retained with terminal parking
+PASS StreetLoopGreybox no asphalt/pool-loop continuation beyond parking
+PASS StreetLoopGreybox concrete renderer and collision match
+PASS StreetLoopGreybox entrance post meets ground within 2.5cm
+PASS StreetLoopGreybox entrance post outside road traffic width
+PASS StreetLoopGreybox entrance post meets ground within 2.5cm
+PASS StreetLoopGreybox entrance post outside road traffic width
+PASS StreetLoopGreybox authoritative audio assigned
+PASS LakeWoods local black asphalt retained with terminal parking
+PASS LakeWoods no asphalt/pool-loop continuation beyond parking
+PASS LakeWoods concrete renderer and collision match
+PASS LakeWoods entrance post meets ground within 2.5cm
+PASS LakeWoods entrance post outside road traffic width
+PASS LakeWoods entrance post meets ground within 2.5cm
+PASS LakeWoods entrance post outside road traffic width
+PASS LakeWoods authoritative audio assigned
+PASS StreetLoopReverse local black asphalt retained with terminal parking
+PASS StreetLoopReverse no asphalt/pool-loop continuation beyond parking
+PASS StreetLoopReverse concrete renderer and collision match
+PASS StreetLoopReverse entrance post meets ground within 2.5cm
+PASS StreetLoopReverse entrance post outside road traffic width
+PASS StreetLoopReverse entrance post meets ground within 2.5cm
+PASS StreetLoopReverse entrance post outside road traffic width
+PASS StreetLoopReverse authoritative audio assigned
+PASS ForestLoopReverse local black asphalt retained with terminal parking
+PASS ForestLoopReverse no asphalt/pool-loop continuation beyond parking
+PASS ForestLoopReverse concrete renderer and collision match
+PASS ForestLoopReverse entrance post meets ground within 2.5cm
+PASS ForestLoopReverse entrance post outside road traffic width
+PASS ForestLoopReverse entrance post meets ground within 2.5cm
+PASS ForestLoopReverse entrance post outside road traffic width
+PASS ForestLoopReverse authoritative audio assigned
+PASS MountainLoop local black asphalt retained with terminal parking
+PASS MountainLoop no asphalt/pool-loop continuation beyond parking
+PASS MountainLoop concrete renderer and collision match
+PASS MountainLoop entrance post meets ground within 2.5cm
+PASS MountainLoop entrance post outside road traffic width
+PASS MountainLoop entrance post meets ground within 2.5cm
+PASS MountainLoop entrance post outside road traffic width
+PASS MountainLoop authoritative audio assigned
+PASS MountainLoopReverse local black asphalt retained with terminal parking
+PASS MountainLoopReverse no asphalt/pool-loop continuation beyond parking
+PASS MountainLoopReverse concrete renderer and collision match
+PASS MountainLoopReverse entrance post meets ground within 2.5cm
+PASS MountainLoopReverse entrance post outside road traffic width
+PASS MountainLoopReverse entrance post meets ground within 2.5cm
+PASS MountainLoopReverse entrance post outside road traffic width
+PASS MountainLoopReverse authoritative audio assigned
+PASS Obsolete audio not referenced by playable scenes: Coyote-original-1.wav
+PASS Obsolete audio not referenced by playable scenes: Coyote-original-2.wav
+PASS Obsolete audio not referenced by playable scenes: Coyotes-NPS-Mojave-source.mp3

@@ -1,0 +1,17 @@
+# Property corrections / 0.34.0-review1
+
+Clean safety checkpoint: `83e1c41c3f46b7fb960a345b6800dc078bdd1a42` on main.
+
+Dan's three screenshots were matched against live Editor views and existing authoring history. The wrong paved approach is the opposite gate of the brick-house property, not McFadden's House #3 or Roger's House #2. The first-gate screenshot matches the straight approach beside the garage/kennel boundary. Existing architecture and terrain are preserved. Black asphalt terminates at the other side parking pad; the added pool-loop overlay is removed to reveal unchanged original ground. Beige concrete runs down the intended side, reaches the parking/garage apron and stops just beyond the kennel/pool-house line. Only a short dirt boundary is present; the future trail remains unbuilt.
+
+The sign regression was traced to `SeatLaurelSign` moving the complete sign without refitting its two different terrain-dependent post lengths. Existing Rocky Way Acres board and lettering are preserved. Sign repositioned beside McFadden's actual road entrance, facing South Cherokee Lane; posts extend 6 cm into the independently sampled ground. All six shared-world scenes pass grounding and public-road clearance checks. McFadden's house and all race geometry are unchanged.
+
+`geometry-checks.txt`: 51 PASS assertions covering the affected shared-world scenes and obsolete audio dependencies. `preservation.json`: every existing serialized object block outside the specific sign, paving and wildlife reference changes is unchanged; route points, houses, checkpoints, accepted map/exit/McFadden Cut and scenery retained. Mesh edits are limited to the previous incorrect paving; new meshes cover the intended beige descent. Before/after screenshots inspected. The tiny leftover asphalt spur was trimmed at the parking boundary during final verification.
+
+`editor-checks/checks.txt`: 13 PASS assertions from one muted Play-mode fixture. Input System keyboard events exercised F3 and F4. Actual clipboard equals the world position plus active course; None in free roam; panel defaults off, hides and displays without pausing; confirmation expires. Existing lower-right space above the speedometer is used. Optional progress intentionally omitted.
+
+Dan's MP3 is byte-identical to the supplied file (SHA256 `e9692d2f79229ea7cb4d83529dfdb611f84363543615d3c8e167b73aa0572115`). Full 2.736-second recording decodes and plays, original pitch, mono PCM import, full 3D linear 12–65 m attenuation, ambient gain <=0.72, no loop, immediate repeat refused. Existing 20–45-second per-animal scheduling and habitats preserved. Both old WAV excerpts and the NPS source removed only after no scene dependency/serialized reference remained. Old authoring entry point now assigns the supplied recording. No subjective listening or extensive tuning claimed; audio testing stopped after technical success.
+
+Unity CLI transport timed out while scene operations continued successfully; saved outputs were inspected instead of rerunning mutations. The synthetic Editor fixture emitted existing ContinuationTraffic errors during Play mode; all requested checks completed. Final packaged normal-startup verification is recorded separately. Incidental VehicleGlazing blend and DynamicsManager serialization changes were restored to checkpoint bytes; no material/physics change intended.
+
+Publication, final compiled HUD presentation, launcher and cleanup evidence is recorded in PUBLICATION.md when completed.

@@ -1,0 +1,111 @@
+[
+  {
+    "scene": "ForestLoopReverse",
+    "existingChanged": [
+      "1249410339",
+      "1260633136",
+      "1642651346",
+      "1430404092",
+      "9223372036854775807",
+      "1249410338",
+      "1026915895",
+      "1430404095",
+      "1321815886"
+    ],
+    "deletedBlocks": 4,
+    "newBlocks": 11,
+    "unrelatedExistingObjectsPreserved": true
+  },
+  {
+    "scene": "LakeWoods",
+    "existingChanged": [
+      "241263613",
+      "1278262918",
+      "1260633136",
+      "20087782",
+      "9223372036854775807",
+      "1278262915",
+      "173278732",
+      "1307939532",
+      "1307939531"
+    ],
+    "deletedBlocks": 4,
+    "newBlocks": 11,
+    "unrelatedExistingObjectsPreserved": true
+  },
+  {
+    "scene": "MountainLoop",
+    "existingChanged": [
+      "241263613",
+      "2084918193",
+      "1260633136",
+      "20087782",
+      "1631743576",
+      "9223372036854775807",
+      "2084918196",
+      "1631743575",
+      "173278732"
+    ],
+    "deletedBlocks": 4,
+    "newBlocks": 11,
+    "unrelatedExistingObjectsPreserved": true
+  },
+  {
+    "scene": "MountainLoopReverse",
+    "existingChanged": [
+      "421073538",
+      "241263613",
+      "1260633136",
+      "20087782",
+      "9223372036854775807",
+      "421073535",
+      "173278732",
+      "1641011854",
+      "1641011855"
+    ],
+    "deletedBlocks": 4,
+    "newBlocks": 11,
+    "unrelatedExistingObjectsPreserved": true
+  },
+  {
+    "scene": "PrototypeTrack",
+    "existingChanged": [],
+    "deletedBlocks": 0,
+    "newBlocks": 0,
+    "unrelatedExistingObjectsPreserved": true
+  },
+  {
+    "scene": "StreetLoopGreybox",
+    "existingChanged": [
+      "1260633136",
+      "991274659",
+      "9223372036854775807",
+      "708332947",
+      "1677553701",
+      "525022318",
+      "1350473009",
+      "1677553700",
+      "991274656"
+    ],
+    "deletedBlocks": 4,
+    "newBlocks": 11,
+    "unrelatedExistingObjectsPreserved": true
+  },
+  {
+    "scene": "StreetLoopReverse",
+    "existingChanged": [
+      "1260633136",
+      "1008556592",
+      "1814184985",
+      "9223372036854775807",
+      "1211297711",
+      "929782747",
+      "929782746",
+      "1008556595",
+      "1428949437"
+    ],
+    "deletedBlocks": 4,
+    "newBlocks": 11,
+    "unrelatedExistingObjectsPreserved": true
+  }
+]

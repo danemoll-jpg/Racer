@@ -77,6 +77,8 @@ Preserve working content.
 
 ## 4. REGRESSIONS
 
+When Dan supplies Unity XYZ coordinates for a requested change, treat them as the authoritative location reference. Inspect the area around those coordinates and use screenshots/descriptions to identify the intended object/change. Do not substitute a similarly described location elsewhere. If coordinates conflict with a vague description, prioritize the coordinates. Ask Dan only if the intended object remains genuinely ambiguous after inspecting that location.
+
 If something previously worked and is now broken:
 
 CHECK GIT HISTORY / DIFFS FIRST.
