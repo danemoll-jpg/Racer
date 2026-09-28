@@ -4,7 +4,9 @@ public static class CheckExitDriving {
  if(Application.isPlaying)throw new Exception("Edit mode required");string original=UnityEngine.SceneManagement.SceneManager.GetActiveScene().path;var mode=Physics.simulationMode;float volume=AudioListener.volume;var rows=new List<string>();
  try {AudioListener.volume=0;Physics.simulationMode=SimulationMode.Script;
  foreach(bool reverse in new[]{false,true}){
- EditorSceneManager.OpenScene("Assets/Scenes/StreetLoopGreybox.unity");var race=Object.FindAnyObjectByType<RaceDirector>();var car=race.vehicle;var route=Object.FindObjectsByType<WoodlandRoute>().Single(b=>b.title=="Pine Ridge");
+ EditorSceneManager.OpenScene(reverse?"Assets/Scenes/StreetLoopReverse.unity":"Assets/Scenes/StreetLoopGreybox.unity");var race=Object.FindAnyObjectByType<RaceDirector>();var car=race.vehicle;WoodlandRoute route;
+ if(reverse){var atlas=JsonUtility.FromJson<InspectRouteAtlas.Atlas>(File.ReadAllText("Docs/ForestWaterJump/routes-current.json"));route=new GameObject("Temporary Forward exit test centreline").AddComponent<WoodlandRoute>();route.points=atlas.courses.Single(c=>c.scene=="StreetLoopGreybox").routes.Single(r=>r.name=="Pine Ridge").points;}
+ else route=Object.FindObjectsByType<WoodlandRoute>().Single(b=>b.title=="Pine Ridge");
  if(stage=="before"&&GameObject.Find("Pine Ridge one-way exit"))GameObject.Find("Pine Ridge one-way exit").SetActive(false);
  typeof(ArcadeVehicle).GetMethod("Awake",System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic).Invoke(car,null);(car.GetComponent<VehicleConfiguration>()??car.gameObject.AddComponent<VehicleConfiguration>()).Apply("moto");
  foreach(var body in Object.FindObjectsByType<Rigidbody>())if(body!=car.Body)body.gameObject.SetActive(false);

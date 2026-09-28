@@ -7,7 +7,7 @@ $state=Get-Content (Join-Path $builds 'Latest/state.json') -Raw | ConvertFrom-Js
 if(!$hosted.startupReady -or !$launch.responsive -or $launch.build -ne 33000 -or $state.game.manifest.build -ne 33000 -or $state.previousGame.manifest.build -ne 32000){throw 'Verified current/previous delivery required'}
 $before=(Get-ChildItem -LiteralPath $builds -File -Recurse | Measure-Object Length -Sum).Sum
 $freeBefore=(Get-PSDrive C).Free
-$targets=@((Join-Path $builds 'Racer-0.33.0-review1-Windows'),(Join-Path $builds 'LauncherRelease-33000/assets/game.zip'),$hosted.work)
+$targets=@((Join-Path $builds 'Racer-0.33.0-review1-Windows'),(Join-Path $builds 'LauncherRelease-33000/assets/game.zip'),$hosted.work,(Join-Path $temp 'five-python'),(Join-Path $temp 'five-updates-runtime-saves'))
 $obsolete=Join-Path $builds 'Latest/versions/31000'
 if(Test-Path -LiteralPath $obsolete){
  if($state.game.directory -eq 'versions/31000' -or $state.previousGame.directory -eq 'versions/31000'){throw 'Old version remains active'}

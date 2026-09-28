@@ -1,0 +1,13 @@
+{
+  "version": "0.33.0-review1",
+  "build": 33000,
+  "catalog": "https://github.com/danemoll-jpg/woodstock-rush-releases/releases/latest/download/update-catalog.json",
+  "manifest": "https://github.com/danemoll-jpg/woodstock-rush-releases/releases/download/game-33000/game-manifest.json",
+  "publicDownload": true,
+  "pinnedSignatureVerified": true,
+  "allLatestFilesMatch": true,
+  "files": 220,
+  "startupReady": true,
+  "exit": 0,
+  "work": "C:\\Users\\danmo\\Racer\\Temp\\five-updates-hosted-1790611081694895200"
+}

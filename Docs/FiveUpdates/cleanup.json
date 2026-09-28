@@ -1,0 +1,15 @@
+{
+  "beforeBytes": 6284513352.0,
+  "afterBytes": 5229738140.0,
+  "recoveredBuildsBytes": 1054775212.0,
+  "freeBytesBefore": 326830411776,
+  "freeBytesAfter": 328832700416,
+  "removed": [
+    "C:\\Users\\danmo\\Racer\\Builds\\Racer-0.33.0-review1-Windows",
+    "C:\\Users\\danmo\\Racer\\Builds\\LauncherRelease-33000\\assets\\game.zip",
+    "C:\\Users\\danmo\\Racer\\Temp\\five-updates-hosted-1790611081694895200",
+    "C:\\Users\\danmo\\Racer\\Temp\\five-python",
+    "C:\\Users\\danmo\\Racer\\Temp\\five-updates-runtime-saves"
+  ],
+  "preserved": "Current complete root runtime, managed 33000 and previous 32000, all music, source, saves, publisher identity/tools, launcher and signed evidence"
+}
