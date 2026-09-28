@@ -1,0 +1,74 @@
+[
+  {
+    "scene": "ForestLoopReverse",
+    "changedBlocks": [
+      "1012811521",
+      "1026915895",
+      "1321815886",
+      "1642651346"
+    ],
+    "allCollidersAndRoadsUnchanged": true,
+    "noAddedOrDeletedObjects": true
+  },
+  {
+    "scene": "LakeWoods",
+    "changedBlocks": [
+      "20087782",
+      "173278732",
+      "241263613",
+      "1179241170"
+    ],
+    "allCollidersAndRoadsUnchanged": true,
+    "noAddedOrDeletedObjects": true
+  },
+  {
+    "scene": "MountainLoop",
+    "changedBlocks": [
+      "20087782",
+      "173278732",
+      "241263613",
+      "1179241170"
+    ],
+    "allCollidersAndRoadsUnchanged": true,
+    "noAddedOrDeletedObjects": true
+  },
+  {
+    "scene": "MountainLoopReverse",
+    "changedBlocks": [
+      "20087782",
+      "173278732",
+      "241263613",
+      "1179241170"
+    ],
+    "allCollidersAndRoadsUnchanged": true,
+    "noAddedOrDeletedObjects": true
+  },
+  {
+    "scene": "PrototypeTrack",
+    "changedBlocks": [],
+    "allCollidersAndRoadsUnchanged": true,
+    "noAddedOrDeletedObjects": true
+  },
+  {
+    "scene": "StreetLoopGreybox",
+    "changedBlocks": [
+      "525022318",
+      "708332947",
+      "1350473009",
+      "1714690826"
+    ],
+    "allCollidersAndRoadsUnchanged": true,
+    "noAddedOrDeletedObjects": true
+  },
+  {
+    "scene": "StreetLoopReverse",
+    "changedBlocks": [
+      "182530045",
+      "1211297711",
+      "1428949437",
+      "1814184985"
+    ],
+    "allCollidersAndRoadsUnchanged": true,
+    "noAddedOrDeletedObjects": true
+  }
+]

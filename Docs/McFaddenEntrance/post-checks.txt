@@ -1,0 +1,2 @@
+Post base (509.869, 81.280, -140.573) ground inset=0.05999756 horizontal road-centre clearance=7.924202; road half width=4.5; post half width=.2
+Post base (506.893, 83.496, -128.536) ground inset=0.05999756 horizontal road-centre clearance=5.803917; road half width=4.5; post half width=.2

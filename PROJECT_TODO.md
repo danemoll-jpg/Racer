@@ -9,7 +9,17 @@
 - Do not silently modify or weaken CODEX_RULES.md. Changes to standing rules require an explicit instruction from Dan.
 - Root AGENTS.md points future Codex tasks to both files.
 
-## Current task — 2026-09-28 / 0.34.0-review1 property corrections and location tool
+## Current task — 2026-09-28 / 0.35.0-review1 McFadden entrance correction
+
+- Safety checkpoint: clean main `eb65014b114f3e86fe5126b3fcb26b2f6b0f3110`; no saved work discarded.
+- **McFADDEN / ROCKY WAY ACRES:** Dan identified the CURRENT driveway entrance at approximately **X=511.6, Y=81.0, Z=-139.5**, Street Loop. Previous sign position reflected obsolete driveway alignment. Existing sign moved to the current beginning, approximately `(508.381,83.556,-134.554)`, original design retained, both posts independently grounded. Minimum post-edge clearance beyond main road: 1.104m. No duplicate sign, driveway obstruction or traffic obstruction.
+- **Junction COMPLETE:** clipped only the driveway's visible overlap at the main-road edge, preserving current alignment. Driveway now begins cleanly at the edge; all original collision meshes and main Street Loop road are unchanged, so no new physical lip/bump/ramp. Applied to the existing property instances without altering other property/route geometry.
+- **Targeted verification PASS:** one visual inspection and one motorcycle physics drive-through from road to 12m inside driveway; minimum settled speed 5.939m/s, maximum continuous air 0.02s. No gap/obstruction or new slowdown. Saved scene blocks confirm all colliders, roads and unrelated objects preserved. Testing stopped. [Evidence](Docs/McFaddenEntrance/VALIDATION.md).
+- **Atlas/documentation updated:** [current atlas](Docs/ForestWaterJump/ATLAS.md), [McFadden entrance supplement](Docs/ForestWaterJump/McFadden-Entrance.md), historical atlas pointer, and validation record reflect current relationship and Dan's coordinate. No unrelated landmarks cataloged.
+- **COMPLETE / ACCEPTED:** Street Loop wrong-way shortcut treatment; McFadden Cut name and physical sign; mini-map; XYZ developer HUD/copy location; Dan property driveway corrections; coyote audio using Dan's supplied file. **Reset/recovery: CURRENT ACCEPTED BASELINE. AI probabilistic shortcuts: IMPLEMENTED / PROVISIONALLY ACCEPTED / NEEDS LONGER HUMAN OBSERVATION BEFORE FURTHER TUNING.** All preserved, no reopening or retesting.
+- Delivery in progress: completion source push, fresh 0.35.0-review1 / game-35000 Windows build, complete Latest, signed publication, production launcher verification and cleanup remain to be recorded below.
+
+## Previous delivered task — 2026-09-28 / 0.34.0-review1 property corrections and location tool
 
 - Safety checkpoint: clean main `83e1c41c3f46b7fb960a345b6800dc078bdd1a42`; no saved work discarded.
 - **Authoritative identities:** HOUSE #3 = McFadden's House; HOUSE #2 = Roger's House; DAN'S HOUSE = separate childhood property. Dan's screenshot is not McFadden's driveway. Both gate screenshots match separate approaches on opposite sides of the existing brick-house property; only their requested local surfaces are changed.

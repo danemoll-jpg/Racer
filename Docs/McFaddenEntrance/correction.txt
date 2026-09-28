@@ -1,0 +1,18 @@
+StreetLoopGreybox post=(509.869, 85.818, -140.573) road centre distance=9.537448
+StreetLoopGreybox post=(506.893, 86.926, -128.536) road centre distance=6.669222
+StreetLoopGreybox sign=(508.381, 83.556, -134.554) clipped triangles=80 original collider retained=Assets/Track/RouteAtlas/StreetLoopGreybox-retained-driveway-overlaps.asset
+LakeWoods post=(509.869, 85.888, -140.573) road centre distance=9.574876
+LakeWoods post=(506.893, 86.926, -128.536) road centre distance=6.669222
+LakeWoods sign=(508.381, 83.556, -134.554) clipped triangles=80 original collider retained=Assets/Track/RouteAtlas/LakeWoods-retained-driveway-overlaps.asset
+StreetLoopReverse post=(511.160, 85.190, -141.172) road centre distance=8.601308
+StreetLoopReverse post=(506.203, 86.642, -129.806) road centre distance=7.661056
+StreetLoopReverse sign=(508.681, 83.272, -135.489) clipped triangles=80 original collider retained=Assets/Track/Discovery/StreetLoopReverse-house3-drive.asset
+ForestLoopReverse post=(509.869, 85.888, -140.573) road centre distance=9.574876
+ForestLoopReverse post=(506.893, 86.926, -128.536) road centre distance=6.669222
+ForestLoopReverse sign=(508.381, 83.556, -134.554) clipped triangles=80 original collider retained=Assets/Track/ForestWaterJump/driveway-road-mouth.asset
+MountainLoop post=(509.869, 85.888, -140.573) road centre distance=9.574876
+MountainLoop post=(506.893, 86.926, -128.536) road centre distance=6.669222
+MountainLoop sign=(508.381, 83.556, -134.554) clipped triangles=80 original collider retained=Assets/Track/RouteAtlas/MountainLoop-retained-driveway-overlaps.asset
+MountainLoopReverse post=(509.869, 85.888, -140.573) road centre distance=9.574876
+MountainLoopReverse post=(506.893, 86.926, -128.536) road centre distance=6.669222
+MountainLoopReverse sign=(508.381, 83.556, -134.554) clipped triangles=80 original collider retained=Assets/Track/RouteAtlas/MountainLoopReverse-retained-driveway-overlaps.asset

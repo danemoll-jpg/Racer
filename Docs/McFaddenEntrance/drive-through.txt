@@ -1,0 +1,12 @@
+PASS One motorcycle drive from main road through current driveway entrance. Reached 12m=True; min speed=5.939m/s; max continuous air=0.020s; max rise=0.805m. Original collision meshes and vehicle settings unchanged; 0.02s ordinary input/physics steps.
+0.00s position=(515.177, 82.383, -132.874) speed=5.000 grounded=0
+0.20s position=(514.103, 82.324, -133.154) speed=6.085 grounded=4
+0.40s position=(512.950, 82.377, -133.484) speed=6.085 grounded=4
+0.60s position=(511.798, 82.454, -133.833) speed=6.094 grounded=4
+0.80s position=(510.643, 82.496, -134.175) speed=5.943 grounded=4
+1.00s position=(509.486, 82.526, -134.511) speed=5.963 grounded=4
+1.20s position=(508.321, 82.536, -134.839) speed=6.010 grounded=4
+1.40s position=(507.140, 82.462, -135.139) speed=5.993 grounded=4
+1.60s position=(505.955, 82.304, -135.416) speed=6.092 grounded=4
+1.80s position=(504.784, 82.132, -135.681) speed=6.071 grounded=4
+2.00s position=(503.611, 81.980, -135.945) speed=6.065 grounded=4

@@ -1,0 +1,5 @@
+Ground_House3 straight descending property driveway | Assets/Track/RouteAtlas/StreetLoopGreybox-straight-house3-drive.asset | Center: (475.82, 57.82, -142.60), Extents: (40.07, 24.98, 12.64)
+Ground_House3 supported valley driveway | Assets/Track/RouteAtlas/StreetLoopGreybox-retained-driveway-overlaps.asset | Center: (441.11, 57.85, -187.59), Extents: (75.59, 25.03, 58.41)
+REFERENCE (511.60, 81.00, -139.50) main=(516.95, 80.40, -136.98) forward=(0.38, -0.30, -0.88) width=4.5 distance=5.942741
+DRIVE (515.18, 81.73, -132.87);(513.26, 81.82, -133.35);(511.34, 81.91, -133.82);(509.42, 82.00, -134.30);(507.50, 81.93, -134.77);(505.58, 81.67, -135.25);(503.66, 81.42, -135.72);(501.74, 81.08, -136.20)
+SIGN (488.90, 86.16, -124.48) forward=(-0.96, 0.00, -0.27)
