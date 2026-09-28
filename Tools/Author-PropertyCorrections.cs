@@ -30,7 +30,7 @@ public static class AuthorPropertyCorrections {
  Area(-24.3f,-26,-19.7f,-25.05f);Surface("Ground_Dan paved-to-dirt boundary","dirt",dirt,false);
  // Existing sign only: road-facing beside the actual McFadden entrance; fit each post to its new support.
  var sign=GameObject.Find("House 3 / Rocky Way Acres entrance").transform;var mouth=street.At(street.Project(new Vector3(515.1f,81.8f,-132.7f),out _),out _);var toward=Vector3.ProjectOnPlane(GameObject.Find("Original house 3").transform.position-mouth,Vector3.up).normalized;var side=Vector3.Cross(Vector3.up,toward);
- var at=mouth+toward*15+side*15;at.y=Ground(at);sign.SetPositionAndRotation(at,Quaternion.LookRotation(toward));
+ var at=mouth+toward*23+side*15;at.y=Ground(at);sign.SetPositionAndRotation(at,Quaternion.LookRotation(toward));
  var posts=sign.Cast<Transform>().Where(p=>p.name=="Tall grounded entrance post").ToArray();float highest=posts.Max(p=>Ground(new Vector3(p.position.x,at.y,p.position.z)));at.y=highest;sign.position=at;
  foreach(var post in posts){var p=post.position;float bottom=Ground(new Vector3(p.x,at.y,p.z))-.06f;float upper=at.y+6.8f;p.y=(bottom+upper)/2;post.position=p;post.localScale=new(.4f,upper-bottom,.4f);}
  race.GetComponent<Wildlife>().coyoteCalls=new[]{clip};EditorUtility.SetDirty(race.GetComponent<Wildlife>());

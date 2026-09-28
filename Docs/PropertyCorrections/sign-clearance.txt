@@ -1,0 +1,8 @@
+StreetLoopGreybox final entrance sign=(488.90, 86.16, -124.48); posts independently grounded
+LakeWoods final entrance sign=(488.90, 86.16, -124.48); posts independently grounded
+PASS Laurel post distance=9.719635m; corridor half-width=4.5m; additional margin >2m
+PASS Laurel post distance=11.8717m; corridor half-width=4.5m; additional margin >2m
+StreetLoopReverse final entrance sign=(488.90, 86.02, -124.48); posts independently grounded
+ForestLoopReverse final entrance sign=(488.90, 86.16, -124.48); posts independently grounded
+MountainLoop final entrance sign=(488.90, 86.16, -124.48); posts independently grounded
+MountainLoopReverse final entrance sign=(488.90, 86.16, -124.48); posts independently grounded
