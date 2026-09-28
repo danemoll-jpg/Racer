@@ -1,7 +1,7 @@
 # Woodstock Rush
 ## Project Management / TODO / Astra-Codex Handoff
 
-## Current pass — 2026-09-28 / 0.31.0-review1 — implementation complete, release pending
+## Current pass — 2026-09-28 / 0.31.0-review1 — published and launcher verified
 
 Safety checkpoints: initial clean HEAD `480a279fc23afd0d1bee0a3c218f4a0ac6ecb5c9`; geometry/test checkpoint `c8cc19282aeb5ef271492fe739beaa944757bfaf`; resumed clean HEAD `fdb964d9a6fda73dd3d1909c791504683213733a`. No user working changes discarded. This section supersedes historical route-promotion and planning instructions below.
 
@@ -17,13 +17,14 @@ Safety checkpoints: initial clean HEAD `480a279fc23afd0d1bee0a3c218f4a0ac6ecb5c9
 - [x] Production progression: 852 samples through recorded main flight, zero misses/penalties/no shortcut entitlement. Restored detour: 773 samples, recognized entry, CP1 entitlement, completed rejoin, next gate 3, zero misses/penalties; zero false optional entries from main. Existing AI route discovery confirmed; no broad AI playtest/retuning. Detour centreline/support differs by at most 0.115m. Preservation and six-direction arrow checks pass. Human detailed playtesting remains Dan's review.
 - [x] No global vehicle physics, AI or recovery source changed. A known Editor test-side VehicleGlazing blend mutation was returned to its original saved value; no material change remains. Initial interrupted geometry query was bounded and completed without discarding partial work; saved final checks above are authoritative.
 - [ ] **New Forest shortcut elsewhere remains DEFERRED.** None designed/built.
-- [ ] **Release pending:** new version `0.31.0-review1`, tag/build `game-31000`. Completion source commit precedes fresh Unity Windows build. Build/package, source push, publication, remote assets/catalog verification, Play-Racer.cmd verification and post-release cleanup follow. Public game-30000 remains current until these finish.
-- [ ] **Fresh-runtime delivery gate:** use a fresh clean-cache Unity build after all source/scene changes. Stage its complete runtime at root `C:\Users\danmo\Racer\Builds\Latest`, specifically actual new game `Racer.exe`, plus the matching managed `versions/31000` runtime. Preserve named WoodstockRushLauncher.exe. Verify source commit/version in VERSION.txt and signed manifest; compare every file hash across fresh output, ZIP, root Latest, versioned runtime and public download. Require substantive changed game data versus 30000; Unity bootstrap EXE hash alone is not provenance. Run Play-Racer.cmd and verify actual new process path/build. Do not leave the old launcher alias at root Racer.exe.
-- [x] Prebuild disk inventory: Builds 4.862 GiB; approximately 314 GiB free on C:. Final cleanup/size recorded after publication. Preserve publisher signing identity/tools, music, saves, source and one previous build.
+- [x] **Published:** `0.31.0-review1`, tag/build `game-31000`, completion source commit `08b625a14a789cf6d06fe56d89def8ddc3661884`, pushed to source main before building. [Public latest release](https://github.com/danemoll-jpg/woodstock-rush-releases/releases/tag/game-31000). All three assets verified remotely by size/SHA256; existing publisher identity and soundtrack catalog preserved.
+- [x] **Fresh-runtime delivery:** clean-cache Unity Windows build started 2026-09-28 07:07:55 UTC, succeeded in 4m55s; GUID `8611571668674d029ff89e8042f1c986`. Complete 220-file runtime at root `C:/Users/danmo/Racer/Builds/Latest` and `versions/31000`. VERSION.txt and signed manifest identify source/version. Fresh output, ZIP, both installations and public download match signed inventory. Game scene data and Assembly-CSharp.dll changed; Unity bootstrap EXE hash remains identical. Root Racer.exe is the actual freshly output Unity player, replacing the old launcher alias.
+- [x] **Launcher:** public download passed pinned-signature, inventory and startup checks. Production updater activated 31000 with previous 30000 retained. Play-Racer.cmd launched responsive `Builds/Latest/versions/31000/Racer.exe`; catalog reports game/music current. Named launcher, soundtrack and existing saves preserved.
+- [x] **Disk:** 330,429,915,136 free bytes checked before build. Post-release Builds cleanup: 7,883,858,282 to 5,227,358,098 bytes (**4.868 GiB**). Removed obsolete 0.29 runtime, duplicate fresh output/upload ZIP and public test install. Verified 190 old Music files had identical preserved copies. Kept root runtime, managed current/previous, music, publisher identity/tools, launcher and metadata. Final free space 330,407,596,032 bytes. Exact targets in `Docs/ForestWaterJump/cleanup.json`.
 
-### Session handoff
+### Delivery record
 
-Implementation and targeted checks complete, shortcut ambiguity resolved by Dan. Final delivery must finish from this state; do not repeat geometry or subjective playtesting. Evidence and fresh-build/staging/verification scripts are in Docs/ForestWaterJump and Tools/*ForestWater*. Publication results and completion commit will be recorded below after verification.
+Implementation, targeted verification, publication and normal launcher delivery are complete. Exact executable/source identity and evidence: `Docs/ForestWaterJump/PUBLICATION.md`. Build report counts one CLI transport-timeout diagnostic while the successful build continued, plus five warnings; no build failure or runtime startup exception. Detailed human gameplay review remains Dan's review; no subjective jump acceptance is claimed. A new shortcut elsewhere remains deferred.
 
 ## Previous release — 2026-09-27 / 0.30.0-review1 published and verified
 

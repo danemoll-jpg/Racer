@@ -1,0 +1,14 @@
+{
+  "beforeBytes": 7883858282.0,
+  "afterBytes": 5227358098.0,
+  "afterGiB": 4.868,
+  "removed": [
+    "C:\\Users\\danmo\\Racer\\Builds\\Racer-0.29.0-review1-Windows",
+    "C:\\Users\\danmo\\Racer\\Builds\\Racer-0.31.0-review1-Windows",
+    "C:\\Users\\danmo\\Racer\\Builds\\LauncherRelease-31000\\assets\\game.zip",
+    "C:\\Users\\danmo\\Racer\\Temp\\forest-water-hosted-1790579866559521100"
+  ],
+  "duplicateMusicFilesVerified": 190,
+  "preserved": "Complete root Latest runtime, current 31000 and previous 30000 managed runtimes, music, saves, publisher identity/tools, launcher, source and metadata",
+  "freeBytesAfter": 330407596032
+}

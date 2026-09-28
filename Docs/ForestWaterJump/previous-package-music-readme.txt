@@ -1,0 +1,1 @@
+Each immediate folder is a radio channel; nested artist/album folders belong to that channel. Root songs form General. Radio playback supports MP3, PCM WAV and Ogg Vorbis. Deliberately staged originals in other audio formats are preserved beside them but are not playable by this radio. See RADIO.md beside Racer.exe. Stage selected songs in project BundleMusic before repackaging.

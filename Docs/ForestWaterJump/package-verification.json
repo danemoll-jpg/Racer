@@ -1,0 +1,19 @@
+{
+  "Version": "0.31.0-review1",
+  "PackagedAt": "2026-09-28T03:21:47.331694-04:00",
+  "Songs": 187,
+  "PreservedOriginalAudio": 2,
+  "Files": 220,
+  "Runtime": "C:\\Users\\danmo\\Racer\\Builds\\Latest\\versions\\31000",
+  "Latest": "C:\\Users\\danmo\\Racer\\Builds\\Latest",
+  "ZIP": null,
+  "ZipSHA256": "05905443f7f68cfa6206286cf31c921c498a43bb55a819e4cd2b447fc974e52b",
+  "Preserved": "C:\\Users\\danmo\\Racer\\Builds\\Latest\\versions\\30000",
+  "Extracted": null,
+  "Verified": "All 220 fresh-build, ZIP, root Latest, versioned and public downloaded runtime files match signed SHA256 inventory; Play-Racer verified",
+  "ExternalCollections": "Not read or copied",
+  "PublishedRelease": "https://github.com/danemoll-jpg/woodstock-rush-releases/releases/tag/game-31000",
+  "Cleanup": "Verified disposable runtime/ZIP/test copies removed; current root runtime, managed current and previous versions retained. Docs/ForestWaterJump/cleanup.json",
+  "Build": 31000,
+  "SourceCommit": "08b625a14a789cf6d06fe56d89def8ddc3661884"
+}
