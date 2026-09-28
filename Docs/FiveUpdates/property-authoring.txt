@@ -1,0 +1,6 @@
+StreetLoopGreybox: first southern gate, existing descent, bottom parking, kennel/pool-house access paved; dirt threshold just behind z=-27; no trail constructed.
+LakeWoods: first southern gate, existing descent, bottom parking, kennel/pool-house access paved; dirt threshold just behind z=-27; no trail constructed.
+StreetLoopReverse: first southern gate, existing descent, bottom parking, kennel/pool-house access paved; dirt threshold just behind z=-27; no trail constructed.
+ForestLoopReverse: first southern gate, existing descent, bottom parking, kennel/pool-house access paved; dirt threshold just behind z=-27; no trail constructed.
+MountainLoop: first southern gate, existing descent, bottom parking, kennel/pool-house access paved; dirt threshold just behind z=-27; no trail constructed.
+MountainLoopReverse: first southern gate, existing descent, bottom parking, kennel/pool-house access paved; dirt threshold just behind z=-27; no trail constructed.

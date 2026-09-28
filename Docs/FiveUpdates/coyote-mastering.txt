@@ -1,0 +1,2 @@
+Variant 1: source offset 1.00s; duration 3s; mono 44100Hz PCM; peak <=0.68; gain=22.854; 80/160ms boundary fades; original pitch, no reverb/spectral synthesis.
+Variant 2: source offset 5.00s; duration 3s; mono 44100Hz PCM; peak <=0.68; gain=36.055; 80/160ms boundary fades; original pitch, no reverb/spectral synthesis.

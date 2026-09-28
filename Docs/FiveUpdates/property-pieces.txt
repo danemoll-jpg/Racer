@@ -1,0 +1,8 @@
+Batched Warm red brick center=(0.00, 0.65, -0.67) size=(12.02, 8.60, 23.32)
+Batched Shallow silver roof center=(-16.88, -0.08, -8.88) size=(31.45, 8.85, 59.59)
+Batched White porch trim center=(-16.63, -0.68, -7.67) size=(32.32, 7.63, 58.62)
+Batched Pool landscaping stone center=(0.00, 0.38, -8.62) size=(32.05, 9.44, 21.91)
+Batched Window glass center=(0.00, 0.31, 0.01) size=(10.86, 4.32, 19.09)
+Batched Weathered timber center=(-1.37, -1.50, -10.75) size=(12.14, 5.61, 22.58)
+Batched Pool water center=(0.00, -3.94, -18.50) size=(7.14, 0.04, 11.99)
+Batched Mountain foliage center=(-0.25, 0.29, 8.30) size=(1.70, 1.61, 20.72)

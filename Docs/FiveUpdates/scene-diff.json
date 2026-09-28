@@ -1,0 +1,101 @@
+{
+  "ForestLoopReverse": {
+    "changed": [
+      {
+        "id": "1593864982",
+        "type": "Transform:",
+        "names": [],
+        "old": "",
+        "new": ""
+      },
+      {
+        "id": "1948937515",
+        "type": "MonoBehaviour:",
+        "names": [
+          ""
+        ],
+        "old": "",
+        "new": ""
+      },
+      {
+        "id": "9223372036854775807",
+        "type": "SceneRoots:",
+        "names": [],
+        "old": "",
+        "new": ""
+      }
+    ],
+    "removed": 4,
+    "added": 30
+  },
+  "LakeWoods": {
+    "changed": [
+      {
+        "id": "9223372036854775807",
+        "type": "SceneRoots:",
+        "names": [],
+        "old": "",
+        "new": ""
+      }
+    ],
+    "removed": 0,
+    "added": 11
+  },
+  "MountainLoop": {
+    "changed": [
+      {
+        "id": "9223372036854775807",
+        "type": "SceneRoots:",
+        "names": [],
+        "old": "",
+        "new": ""
+      }
+    ],
+    "removed": 0,
+    "added": 11
+  },
+  "MountainLoopReverse": {
+    "changed": [
+      {
+        "id": "9223372036854775807",
+        "type": "SceneRoots:",
+        "names": [],
+        "old": "",
+        "new": ""
+      }
+    ],
+    "removed": 0,
+    "added": 11
+  },
+  "PrototypeTrack": {
+    "changed": [],
+    "removed": 0,
+    "added": 0
+  },
+  "StreetLoopGreybox": {
+    "changed": [
+      {
+        "id": "9223372036854775807",
+        "type": "SceneRoots:",
+        "names": [],
+        "old": "",
+        "new": ""
+      }
+    ],
+    "removed": 0,
+    "added": 37
+  },
+  "StreetLoopReverse": {
+    "changed": [
+      {
+        "id": "9223372036854775807",
+        "type": "SceneRoots:",
+        "names": [],
+        "old": "",
+        "new": ""
+      }
+    ],
+    "removed": 0,
+    "added": 37
+  }
+}

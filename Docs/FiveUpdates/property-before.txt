@@ -1,0 +1,4 @@
+Home=(415.80, 83.82, -13.00) yaw=(0.00, 91.67, 0.00) scale=(1.00, 1.00, 1.00)
+Separate downhill garage kennel local=(-37.00, -4.50, -18.00) world=(398.89, 79.32, 24.51)
+Smaller pool house left of garage local=(-12.00, -4.30, -19.00) world=(397.16, 79.52, -0.45)
+Pool house walls local=(-12.00, -2.95, -19.00) world=(397.16, 80.87, -0.45)

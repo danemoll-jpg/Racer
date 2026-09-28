@@ -1,0 +1,2 @@
+PASS Forward exit+turn: initial=534.36; last=607.51; min=534.36; max=607.51; reached=True; maxContinuousAir=0.40s; maxHeightAboveOriginal=1.60m; unchanged moto physics / ordinary 0.02s input+simulation.
+PASS Reverse entry: initial=571.36; last=560.49; min=560.49; max=571.36; reached=False; maxContinuousAir=0.10s; maxHeightAboveOriginal=0.70m; unchanged moto physics / ordinary 0.02s input+simulation.

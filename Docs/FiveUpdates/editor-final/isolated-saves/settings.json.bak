@@ -1,0 +1,78 @@
+{
+    "version": 1,
+    "master": 0.0,
+    "ambience": 1.0,
+    "feedback": 0.6499999761581421,
+    "vehicle": 0.75,
+    "music": 0.6000000238418579,
+    "radioOn": true,
+    "musicFolder": "",
+    "musicSource": "",
+    "musicRecursive": true,
+    "radioChannel": "",
+    "frameLimit": 60,
+    "vsync": true,
+    "opponents": true,
+    "traffic": true,
+    "laps": 3,
+    "lastFiniteLaps": 3,
+    "estimateAiFinishes": false,
+    "vehicleId": "original",
+    "difficulty": 1,
+    "opponentChoices": [
+        "mixed",
+        "mixed",
+        "mixed"
+    ],
+    "opponentRoster": [
+        "tourer",
+        "moto",
+        "atv"
+    ],
+    "bodyColors": [
+        -1,
+        -1,
+        -1,
+        -1
+    ],
+    "streetHouseholds": {
+        "dan": [],
+        "friend": [],
+        "lastDan": -1,
+        "lastFriend": -1,
+        "visits": [],
+        "lastVisit": -1,
+        "turkeyVisits": [],
+        "lastTurkeyVisit": -1
+    },
+    "forestHouseholds": {
+        "dan": [],
+        "friend": [],
+        "lastDan": -1,
+        "lastFriend": -1,
+        "visits": [],
+        "lastVisit": -1,
+        "turkeyVisits": [],
+        "lastTurkeyVisit": -1
+    },
+    "households": {
+        "dan": [],
+        "friend": [],
+        "lastDan": -1,
+        "lastFriend": -1,
+        "visits": [
+            0,
+            3
+        ],
+        "lastVisit": 2,
+        "turkeyVisits": [
+            2,
+            5,
+            3,
+            1,
+            0
+        ],
+        "lastTurkeyVisit": 4
+    },
+    "displayUnits": "imperial"
+}

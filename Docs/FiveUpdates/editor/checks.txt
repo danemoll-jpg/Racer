@@ -1,0 +1,25 @@
+PASS StreetLoopGreybox minimap exists
+PASS StreetLoopGreybox actual opponent racers present
+FAIL StreetLoopGreybox heading up turn 0
+PASS StreetLoopGreybox player below centre 0
+FAIL StreetLoopGreybox heading up turn 1
+PASS StreetLoopGreybox player below centre 1
+FAIL StreetLoopGreybox heading up turn 2
+PASS StreetLoopGreybox player below centre 2
+PASS ForestLoopReverse minimap exists
+PASS ForestLoopReverse actual opponent racers present
+PASS McFadden display name
+PASS Inactive Forward Pine Ridge omitted
+PASS Floating label absent
+PASS McFadden physical sign
+FAIL ForestLoopReverse heading up turn 0
+PASS ForestLoopReverse player below centre 0
+FAIL ForestLoopReverse heading up turn 1
+PASS ForestLoopReverse player below centre 1
+FAIL ForestLoopReverse heading up turn 2
+PASS ForestLoopReverse player below centre 2
+PASS Coyote playback starts
+PASS Existing spatial attenuation preserved
+PASS Short nonlooping field recording
+PASS Immediate repeat rejected
+PASS Decoded coyote signal nonzero

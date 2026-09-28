@@ -1,0 +1,1 @@
+PASS: Forest main and McFadden Cut points and all checkpoint positions match the previous delivered atlas exactly. Existing sign helper reused; unsupported label removed.

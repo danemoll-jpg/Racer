@@ -1,0 +1,5 @@
+LakeWoods: local surface refined below 0.6m edges, 0.08m clearance; vertices=15339
+StreetLoopReverse: local surface refined below 0.6m edges, 0.08m clearance; vertices=15331
+ForestLoopReverse: local surface refined below 0.6m edges, 0.08m clearance; vertices=15339
+MountainLoop: local surface refined below 0.6m edges, 0.08m clearance; vertices=15339
+MountainLoopReverse: local surface refined below 0.6m edges, 0.08m clearance; vertices=15339

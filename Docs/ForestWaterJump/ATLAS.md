@@ -1,14 +1,14 @@
-# Route atlas — 0.31.0-review1
+# Route atlas — 0.33.0-review1
 
 [Overall](Overall.png) · [House 3 / Forest / Laurel detail](House3-Forest-Laurel.png)
 
 Saved scene routes, world X/Y/Z metres; +Z north. Forward/reverse use their own scene geometry. Solid = main; dashed amber = optional; circles/diamonds = entrances/rejoins; squares = gates; triangles = jumps. Grey environment roads show intersections.
 
-Forest Reverse keeps the current Granite main line. The existing southern **House 3 Detour** is optional, with CP1 bypass entitlement. No detour geometry was changed. `forest-reverse-v7-water-detour` is the new timing identity. The separate future shortcut remains deferred.
+Forest Reverse keeps the current Granite main line. The existing southern **McFadden Cut** is optional, with CP1 bypass entitlement. No detour geometry was changed. `forest-reverse-v7-water-detour` is the new timing identity. Another Forest shortcut is canceled, not deferred.
 
 House 3 is at (418,32.75,-160); the existing straight driveway is preserved. Pool: (416,34.65,-197), 18x16m. Lake: (384,33.35,-194.10), 38x23m. Ramp lip: approximately (434.13,72.39,-198.11). One continuous westward flight crosses both; no intermediate road/platform. The actual bounded motorcycle landed near (309.10,42.46,-195.98).
 
-Laurel physical launch: approximately (346.60,80.27,-176.13); physical geometric landings near (376.58,80.03,-90.48) and (389.86,78.40,-52.54). The pink landing/runout annotation includes 30m lateral and 60m runout allowance. Protection is stronger than that annotation: its entire Street Reverse scene, shared assets, approach, flight, imperfect landings, runout, recovery and navigation are unchanged.
+Laurel physical launch: approximately (346.60,80.27,-176.13); physical geometric landings near (376.58,80.03,-90.48) and (389.86,78.40,-52.54). The pink landing/runout annotation includes 30m lateral and 60m runout allowance. Protection is stronger than that annotation: Laurel assets, approach, flight, imperfect landings, runout, recovery and navigation remain unchanged.
 
 ## Selectable courses
 
@@ -90,7 +90,7 @@ Course ID: `forest-reverse-v7-water-detour`
 - main: Main course; 1872 control points; entrance {'x': 566.0, 'y': 82.0, 'z': -40.0}; end/rejoin {'x': 565.9524536132812, 'y': 82.00007629394531, 'z': -39.213157653808594}.
 - driveway: House 3 valley driveway; 42 control points; entrance {'x': 515.1766967773438, 'y': 81.73289489746094, 'z': -132.87423706054688}; end/rejoin {'x': 436.4721984863281, 'y': 32.75477981567383, 'z': -152.33334350585938}.
 - shortcut: Fern Gully; 340 control points; entrance {'x': 200.88536071777344, 'y': 44.065189361572266, 'z': -175.38818359375}; end/rejoin {'x': 37.06760025024414, 'y': 34.289798736572266, 'z': 240.690185546875}.
-- shortcut: House 3 Detour; 477 control points; entrance {'x': 600.56689453125, 'y': 66.58478546142578, 'z': -161.74285888671875}; end/rejoin {'x': 200.88536071777344, 'y': 44.065189361572266, 'z': -175.38818359375}.
+- shortcut: McFadden Cut; 477 control points; entrance {'x': 600.56689453125, 'y': 66.58478546142578, 'z': -161.74285888671875}; end/rejoin {'x': 200.88536071777344, 'y': 44.065189361572266, 'z': -175.38818359375}.
 - Start/finish: {'x': 607.948974609375, 'y': 79.75315856933594, 'z': -127.53536224365234}.
 - CP1: {'x': 555.5569458007812, 'y': 43.941139221191406, 'z': -206.74563598632812}.
 - CP2: {'x': 124.27735137939453, 'y': 40.643733978271484, 'z': -154.28311157226562}.
