@@ -1,6 +1,22 @@
 # Woodstock Rush
 ## Project Management / TODO / Astra-Codex Handoff
 
+## Mandatory standing workflow
+
+- **PROJECT_TODO.md is the source of truth** for project state, bugs, decisions, backlog and current work.
+- **[CODEX_RULES.md](CODEX_RULES.md) contains the mandatory standing workflow/release rules.** Every future Codex task MUST read and follow it before making project changes, even when the individual prompt does not repeat those rules.
+- A later explicit instruction from Dan may override a standing rule for that specific task.
+- Do not silently modify or weaken CODEX_RULES.md. Changes to standing rules require an explicit instruction from Dan.
+- Root AGENTS.md points future Codex tasks to both files.
+
+## Current task — 2026-09-28 / standing rules and pending gameplay requirements
+
+- Safety checkpoint: clean `main` HEAD `ca84ef9e62d21b4031e0d18e4f2f08241aca7933`; no saved changes to commit and no work discarded.
+- Established CODEX_RULES.md with Dan's 25 standing rules and AGENTS.md discovery pointer. Documentation checks only at this stage.
+- Approved playable baseline remains **0.31.0-review1 / game-31000**. Dan accepts the current Forest layout: repaired Granite remains main; House 3 Detour remains optional. Additional/replacement Forest shortcut is **CANCELED / NO LONGER NECESSARY**, not deferred. Historical planning below does not reopen it.
+- Current gameplay task prohibits track geometry changes. Requested recovery direction: newest usable earned safe position, minimal lost legitimate progress, safe shortcut/elevated/post-jump support, no forward cheating. Inspect existing history/validation/fallback before local changes.
+- **Awaiting missing prompt continuation:** received text ends at POST-JUMP; remaining Change 1 requirements and all of Change 2 have not arrived. Gameplay implementation/testing and corresponding build/publication/launcher verification/cleanup remain pending; no new playable version is claimed.
+
 ## Current pass — 2026-09-28 / 0.31.0-review1 — published and launcher verified
 
 Safety checkpoints: initial clean HEAD `480a279fc23afd0d1bee0a3c218f4a0ac6ecb5c9`; geometry/test checkpoint `c8cc19282aeb5ef271492fe739beaa944757bfaf`; resumed clean HEAD `fdb964d9a6fda73dd3d1909c791504683213733a`. No user working changes discarded. This section supersedes historical route-promotion and planning instructions below.
@@ -16,7 +32,7 @@ Safety checkpoints: initial clean HEAD `480a279fc23afd0d1bee0a3c218f4a0ac6ecb5c9
 - [x] Targeted geometry: 615 support probes, no missing/stacked top support, maximum adjacent normal change 3.682 degrees. Geometric 24/32/40m/s flights clear both waters and land on existing terrain. One actual motorcycle pass using ordinary full throttle/zero steering launched at 33.91m/s, cleared dry and landed supported near `(309.10,42.46,-195.98)`. Not repeated after metadata-only restoration.
 - [x] Production progression: 852 samples through recorded main flight, zero misses/penalties/no shortcut entitlement. Restored detour: 773 samples, recognized entry, CP1 entitlement, completed rejoin, next gate 3, zero misses/penalties; zero false optional entries from main. Existing AI route discovery confirmed; no broad AI playtest/retuning. Detour centreline/support differs by at most 0.115m. Preservation and six-direction arrow checks pass. Human detailed playtesting remains Dan's review.
 - [x] No global vehicle physics, AI or recovery source changed. A known Editor test-side VehicleGlazing blend mutation was returned to its original saved value; no material change remains. Initial interrupted geometry query was bounded and completed without discarding partial work; saved final checks above are authoritative.
-- [ ] **New Forest shortcut elsewhere remains DEFERRED.** None designed/built.
+- [x] **Additional/replacement Forest shortcut CANCELED / NO LONGER NECESSARY per Dan (2026-09-28).** Repaired Granite remains main and House 3 Detour remains the optional shortcut; Dan accepts this arrangement.
 - [x] **Published:** `0.31.0-review1`, tag/build `game-31000`, completion source commit `08b625a14a789cf6d06fe56d89def8ddc3661884`, pushed to source main before building. [Public latest release](https://github.com/danemoll-jpg/woodstock-rush-releases/releases/tag/game-31000). All three assets verified remotely by size/SHA256; existing publisher identity and soundtrack catalog preserved.
 - [x] **Fresh-runtime delivery:** clean-cache Unity Windows build started 2026-09-28 07:07:55 UTC, succeeded in 4m55s; GUID `8611571668674d029ff89e8042f1c986`. Complete 220-file runtime at root `C:/Users/danmo/Racer/Builds/Latest` and `versions/31000`. VERSION.txt and signed manifest identify source/version. Fresh output, ZIP, both installations and public download match signed inventory. Game scene data and Assembly-CSharp.dll changed; Unity bootstrap EXE hash remains identical. Root Racer.exe is the actual freshly output Unity player, replacing the old launcher alias.
 - [x] **Launcher:** public download passed pinned-signature, inventory and startup checks. Production updater activated 31000 with previous 30000 retained. Play-Racer.cmd launched responsive `Builds/Latest/versions/31000/Racer.exe`; catalog reports game/music current. Named launcher, soundtrack and existing saves preserved.
@@ -24,7 +40,7 @@ Safety checkpoints: initial clean HEAD `480a279fc23afd0d1bee0a3c218f4a0ac6ecb5c9
 
 ### Delivery record
 
-Implementation, targeted verification, publication and normal launcher delivery are complete. Exact executable/source identity and evidence: `Docs/ForestWaterJump/PUBLICATION.md`. Build report counts one CLI transport-timeout diagnostic while the successful build continued, plus five warnings; no build failure or runtime startup exception. Detailed human gameplay review remains Dan's review; no subjective jump acceptance is claimed. A new shortcut elsewhere remains deferred.
+Implementation, targeted verification, publication and normal launcher delivery are complete. Exact executable/source identity and evidence: `Docs/ForestWaterJump/PUBLICATION.md`. Build report counts one CLI transport-timeout diagnostic while the successful build continued, plus five warnings; no build failure or runtime startup exception. Detailed human gameplay review remains Dan's review; no subjective jump acceptance is claimed. The additional/replacement Forest shortcut is canceled per Dan's subsequent acceptance of the existing main/optional arrangement.
 
 ## Previous release — 2026-09-27 / 0.30.0-review1 published and verified
 
