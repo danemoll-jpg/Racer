@@ -1,0 +1,1 @@
+House 3 actual fixed-step physics approach: entered=True; branchProgress=133.08m; decisionCount=1; commitmentChanges=1; recoveries=0; misses=0; choice=route=House 3 Detour; lap=1; risk=0.025; rank=0.50; gap=0.0; probability=0.315; roll=0.084; choice=shortcut

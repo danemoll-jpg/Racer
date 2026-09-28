@@ -14,7 +14,10 @@ namespace Racer
         public event Action Respawned;
         public bool Pending { get; private set; }
         public string LastRecovery { get; private set; }
-        struct SafeSample {public WoodlandRoute branch;public float station,side;}
+        struct SafeSample {public WoodlandRoute branch;public float station,side,time;public int lap;}
+        // Development diagnostics only; never displayed in the racing HUD.
+        public string RecoveryDiagnostic { get; private set; }
+        bool PlayerRecovery => race && race.vehicle==vehicle;
         readonly List<SafeSample> history=new();
         ArcadeVehicle vehicle;
         VehicleInput input;
@@ -75,7 +78,7 @@ namespace Racer
                 if(Vector3.ProjectOnPlane(p-route,Vector3.up).magnitude>width+1||Mathf.Abs(p.y-route.y)>3)continue;
                 float side=Vector3.Dot(p-route,Vector3.Cross(Vector3.up,forward));
                 // Keep sufficient run-up for a real launch on this driving line.
-                for(float d=3;d<=35;d+=4){
+                for(float d=3;d<=(PlayerRecovery?vehicle.wheelbase+2:35);d+=4){
                     var ahead=branch?branch.At(station+d,out var f):race.road.At(station+d,out f);
                     f=Vector3.ProjectOnPlane(f,Vector3.up).normalized;
                     ahead+=Vector3.Cross(Vector3.up,f)*side;
@@ -87,11 +90,11 @@ namespace Racer
                 var axis=Vector3.ProjectOnPlane(flight.forward,Vector3.up).normalized;
                 var q=p-flight.start;float along=Vector3.Dot(q,axis);
                 float lip=Vector3.Dot(flight.lip-flight.start,axis);
-                if(along>=-60&&along<=lip+3&&Mathf.Abs(Vector3.Dot(q,Vector3.Cross(Vector3.up,axis)))<30&&p.y>=Mathf.Min(flight.start.y,flight.lip.y)-6&&p.y<=Mathf.Max(flight.start.y,flight.lip.y)+6)return true;
+                if(along>=-(PlayerRecovery?vehicle.wheelbase+2:60)&&along<=lip+3&&Mathf.Abs(Vector3.Dot(q,Vector3.Cross(Vector3.up,axis)))<30&&p.y>=Mathf.Min(flight.start.y,flight.lip.y)-6&&p.y<=Mathf.Max(flight.start.y,flight.lip.y)+6)return true;
             }
             // Forest jump windows also include their long landing runouts. Find
             // each authored drop, rather than excluding that whole post-jump road.
-            if(!flights&&race.Forest){
+            if(!flights&&race.Forest&&(!PlayerRecovery||race.Racers.FirstOrDefault(r=>r.Car==vehicle)?.Branch.Route==null)){
                 if(!forestLayout)forestLayout=FindAnyObjectByType<ForestLayout>();
                 if(forestLayout){
                     if(forestLipStations==null){
@@ -104,7 +107,7 @@ namespace Racer
                     }
                     float station=race.road.Project(p,out float distance);
                     if(distance<race.road.HalfWidth(station)+1)for(int i=0;i<forestLipStations.Length;i++)
-                        if(station>=forestLayout.jumpStarts[i]-35&&station<=forestLipStations[i]+2)return true;
+                        if(station>=forestLayout.jumpStarts[i]-(PlayerRecovery?vehicle.wheelbase+2:35)&&station<=forestLipStations[i]+2)return true;
                 }
             }
             return false;
@@ -177,13 +180,13 @@ namespace Racer
             if(!Clear(supported,rotation)){stableSince=-1;return;}
             if(stableSince<0||stableBranch!=branch){stableSince=now;stableBranch=branch;stableObserved=p;stableTravel=0;return;}
             stableTravel+=Mathf.Max(0,Vector3.Dot(p-stableObserved,direction));stableObserved=p;
-            if(now-stableSince<.35f||stableTravel<1)return;
+            if(now-stableSince<(PlayerRecovery?.2f:.35f)||stableTravel<1)return;
             safeStation=station;safeSide=side;safeBranch=branch;anchored=true;observed=p;
             // Once a landing is earned, an obstructed newer sample must not
             // fall back across that successfully completed jump.
             if(awaitingLanding){history.Clear();awaitingLanding=false;}
             if(history.Count==120)history.RemoveAt(0);
-            history.Add(new SafeSample{branch=branch,station=station,side=side});
+            history.Add(new SafeSample{branch=branch,station=station,side=side,time=now,lap=state?.Progress.CompletedLaps??0});
         }
         public void RestartAtStart()
         {
@@ -217,41 +220,51 @@ namespace Racer
             // Earned branch station or last supported course sample, never nearest arbitrary ground.
             float at=anchored?safeStation:race.road.Project(spawnPoint?spawnPoint.position:initialPosition,out _);
             var candidates=new List<SafeSample>();
+            var rejected=new List<string>();
+            float earnedBefore=state?.Branch.Route?state.Branch.Earned:state?.VerifiedRoad??at;
             if(Time.time-lastRecoveryAt>35)recoveryEscalation=0;
             // Only occupied, established samples. Backward offsets can cross a
             // landing edge or select the ramp that the player just cleared.
-            candidates.Add(new SafeSample{branch=branch,station=at,side=anchored?safeSide:0});
+            int anchorIndex=history.FindLastIndex(h=>h.branch==branch&&Mathf.Abs(h.station-at)<.01f);
+            candidates.Add(anchorIndex>=0?history[anchorIndex]:new SafeSample{branch=branch,station=at,side=anchored?safeSide:0,time=Time.time,lap=state?.Progress.CompletedLaps??0});
             // Last resort: previously occupied supported course samples, still checked
             // for current traffic/obstructions. Never switch to a different branch.
             for(int i=history.Count-1;i>=0;i--)
             {
                 var sample=history[i];if(sample.branch!=branch)continue;
-                float back=branch?at-sample.station:Mathf.Repeat(at-sample.station,race.road.Length);
-                if(back>=0&&!candidates.Any(s=>Mathf.Abs(s.station-sample.station)<1))candidates.Add(sample);
+                float back=branch?at-sample.station:PlayerRecovery?Mathf.Repeat(at-sample.station+race.road.Length*.5f,race.road.Length)-race.road.Length*.5f:Mathf.Repeat(at-sample.station,race.road.Length);
+                if(back>=0&&!candidates.Any(s=>Mathf.Abs(s.station-sample.station)<(PlayerRecovery?.01f:1)))candidates.Add(sample);
             }
             foreach(var sample in candidates)
             {
                 float s=sample.station;
+                if(PlayerRecovery&&sample.lap!=(state?.Progress.CompletedLaps??0)){rejected.Add($"{s:F2}: different lap");continue;}
                 var point=branch?branch.At(s,out var f):race.road.At(s,out f);
-                if(UnsafeJump(point))continue;
+                if(UnsafeJump(point)){rejected.Add($"{s:F2}: launch exclusion");continue;}
                 var forward=Vector3.ProjectOnPlane(f,Vector3.up).normalized;
                 float width=branch?branch.halfWidth:race.road.HalfWidth(s);
                 float sideLimit=Mathf.Max(0,width-clearance.size.x*.5f-.5f);
                 float alternate=Mathf.Min(3,sideLimit)*(recoveryEscalation%2==0?1:-1);
                 var sides=preferRoad&&!branch?new[]{alternate,-alternate,sample.side,0f}:new[]{Mathf.Clamp(sample.side,-sideLimit,sideLimit),0f,Mathf.Min(1.7f,sideLimit),-Mathf.Min(1.7f,sideLimit),sideLimit,-sideLimit};
+                string reason="no usable lateral placement";
                 foreach(float side in sides)
                 {
                     var candidate=point+Vector3.Cross(Vector3.up,forward)*side;
-                    if(!Supported(candidate,forward,out var position,out var rotation) || !Clear(position,rotation))continue;
-                    if(Mathf.Abs(position.y-point.y)>5)continue;
+                    if(!Supported(candidate,forward,out var position,out var rotation)){reason="unsupported footprint";continue;}
+                    if(!Clear(position,rotation)){reason="obstacle or vehicle clearance";continue;}
+                    if(Mathf.Abs(position.y-point.y)>5){reason="support outside route height";continue;}
                     Place(position,rotation);Pending=false;
                     lastRecoveryAt=Time.time;if(preferRoad)recoveryEscalation++;
                     safeStation=s;safeSide=side;safeBranch=branch;observed=position;anchored=true;trackingStation=s;trackingBranch=branch;tracking=true;
                     stableSince=-1;
+                    // A rejected newer sample must not become a forward destination on a second reset.
+                    if(PlayerRecovery)history.RemoveAll(h=>h.time>sample.time);
                     if(state!=null&&state.Branch.Route!=branch){state.Branch.Clear();if(branch)state.Branch.Begin(branch);}
                     state?.Branch.Recovered(position);state?.SampleOrigin(race.Clock);
+                    RecoveryDiagnostic=$"earnedBefore={earnedBefore:F2}; route={branch?.title??"main"}; selected={s:F2}; age={Mathf.Max(0,Time.time-sample.time):F2}s; backward={Mathf.Max(0,Vector3.Dot(from-position,forward)):F2}m; displacement={Vector3.Distance(from,position):F2}m; rejected={rejected.Count}; reasons={string.Join(" | ",rejected)}";
                     LastRecovery="Recovered to clear earned course support";Respawned?.Invoke();return true;
                 }
+                rejected.Add($"{s:F2}: {reason}");
             }
             Pending=true;nextAttempt=Time.time+.5f;LastRecovery="Waiting for clear course support";return false;
         }

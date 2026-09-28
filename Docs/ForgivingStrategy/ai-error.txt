@@ -1,0 +1,6 @@
+System.NullReferenceException: Object reference not set to an instance of an object
+  at PipelineEvaluation.PipelineEval_91bbd283.Execute () [0x004b5] in <cfa394dee0664257ae006f1af65c871a>:0 
+driver 0: risk=0.011; neutral=MMMMSMMMMMMMMMMSMSMSSMSM
+driver 1: risk=0.018; neutral=MMMSMMSSMMMMMSSSMMSMSSMM
+driver 2: risk=0.025; neutral=SSSMSMSMSMSMMSMMMMMMMMSM
+72 opportunities per situation: leading=10, neutral=24, far-behind=45; no guaranteed/forbidden choice; neutral main favored.

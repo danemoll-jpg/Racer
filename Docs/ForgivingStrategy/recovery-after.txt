@@ -1,0 +1,12 @@
+main: end=65.00 safe=64.96 selected=64.92 loss=3.08 recovered=True gateUnchanged=True lapUnchanged=True earnedUnchanged=True
+earnedBefore=0.00; route=main; selected=64.96; age=0.00s; backward=3.04m; displacement=12.22m; rejected=0; reasons=
+jump-approach: end=626.52 safe=625.44 selected=625.37 loss=4.16 recovered=True gateUnchanged=True lapUnchanged=True earnedUnchanged=True
+earnedBefore=0.00; route=main; selected=625.44; age=0.00s; backward=4.06m; displacement=12.26m; rejected=0; reasons=
+post-jump: end=776.25 safe=776.22 selected=776.19 loss=3.06 recovered=True gateUnchanged=True lapUnchanged=True earnedUnchanged=True
+earnedBefore=0.00; route=main; selected=776.22; age=0.00s; backward=3.03m; displacement=12.25m; rejected=0; reasons=
+shortcut: end=291.04 safe=291.04 selected=291.04 loss=3.00 recovered=True gateUnchanged=True lapUnchanged=True earnedUnchanged=True
+earnedBefore=291.04; route=House 3 Detour; selected=291.04; age=0.00s; backward=3.00m; displacement=12.10m; rejected=0; reasons=
+blocked-newest setup: end=65.00 safe=64.96 selected=64.92 loss=3.08 recovered=True gateUnchanged=True lapUnchanged=True earnedUnchanged=True
+earnedBefore=0.00; route=main; selected=64.96; age=0.00s; backward=3.04m; displacement=12.22m; rejected=0; reasons=
+Blocked newest: earnedBefore=0.00; route=main; selected=63.96; age=0.00s; backward=4.03m; displacement=12.46m; rejected=1; reasons=64.96: obstacle or vehicle clearance
+PASS: newest obstruction searches recent history; repeat reset cannot advance; previous-lap samples rejected; unchanged gate/lap/branch entitlement on placement.

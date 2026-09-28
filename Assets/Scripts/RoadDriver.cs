@@ -12,6 +12,7 @@ namespace Racer
         public int Direction { get; private set; } = 1;
         public float TargetSpeed { get; private set; }
         public DriverVariation Variation { get; } = new();
+        public ShortcutStrategy Shortcuts { get; } = new();
 
         public int RecoveryCount { get; private set; }
         public float StalledSeconds => stalled;
@@ -52,6 +53,7 @@ namespace Racer
             lane = racer ? 1.7f : 2.6f * direction;
             if(racer&&mountainFlights)lane=car==race.vehicle?-1.5f:new[]{-4.5f,1.5f,4.5f}[Mathf.Clamp(race.Drivers.Count,0,2)];
             Variation.Initialize(DriverVariation.Seed,race.Drivers.Count+Mathf.RoundToInt(variation*1000));
+            Shortcuts.Initialize(System.Guid.NewGuid().GetHashCode());
         }
 
         public void Place(float s, float side)
@@ -145,13 +147,7 @@ namespace Racer
             }
 
             if(plannedBranch && ((s>plannedBranch.exitRoad+15&&(!mountainFlights||Racer?.Branch.Route==null)) || (plannedBranch.Project(Car.Body.position,out float exitLateral)>=plannedBranch.Length-7 && exitLateral<plannedBranch.halfWidth+7 && Racer?.Branch.Route==null))) plannedBranch=null;
-            if(racing && !finished && Racer!=null && Race.difficulty>0)
-            {
-                if(!plannedBranch && Race.Branches!=null)
-                    foreach(var branch in Race.Branches)
-                        if(branch.aiValidated && s>=branch.entryRoad-55 && s<branch.entryRoad &&
-                            (Race.difficulty==2 || Car.GetComponent<VehicleConfiguration>().Profile.Small)) { plannedBranch=branch; break; }
-            }
+            DecideShortcut(s);
             var activeBranch=plannedBranch && Racer?.Branch.Route==plannedBranch ? plannedBranch : null;
             if(!activeBranch && plannedBranch && s>=plannedBranch.entryRoad-((Race.reverseCourse||Race.courseId.StartsWith("mountain-"))?look:2)) activeBranch=plannedBranch;
             float branchS=activeBranch?activeBranch.Project(Car.Body.position,out _):0;
@@ -282,6 +278,24 @@ namespace Racer
                 safeS = s;
             LastThrottle=throttle; LastBrake=brake; if(brake>.1f) BrakingSeconds+=Time.fixedDeltaTime;
             Car.Simulate(throttle, brake, steering, Time.fixedDeltaTime);
+        }
+
+        void DecideShortcut(float s)
+        {
+            if(racing && Racer!=null && !Racer.Progress.Finished && !Racer.Dnf && Direction==1 && Racer.Progress.LapActive && Racer.Progress.LapValid)
+            {
+                if(!plannedBranch && Race.Branches!=null)
+                    foreach(var branch in Race.Branches)
+                        if(branch && branch.isActiveAndEnabled && branch.gameObject.scene==Race.gameObject.scene && branch.aiValidated && s>=branch.entryRoad-55 && s<branch.entryRoad-5 && Racer.Branch.Route==null && !Shortcuts.Decided(branch,Racer.Progress.CompletedLaps))
+                        {
+                            int expected=System.Array.FindIndex(Race.gates,g=>DriveRoad.Relative(DriveRoad.Project(g.transform.position,out _),Race.Origin)>DriveRoad.Relative(branch.entryRoad,Race.Origin));
+                            if(expected<=0||Racer.Progress.NextGate<expected||Racer.Progress.NextGate>expected+1)continue;
+                            var order=Race.Ordered(false);int place=order.IndexOf(Racer);
+                            float rank=order.Count>1?(float)place/(order.Count-1):.5f;
+                            var leader=order[0];float gap=Mathf.Max(0,(leader.Progress.CompletedLaps-Racer.Progress.CompletedLaps)*DriveRoad.Length+leader.RoadPosition-Racer.RoadPosition);
+                            if(Shortcuts.TryDecide(branch,Racer.Progress.CompletedLaps,rank,gap,out bool take)&&take){plannedBranch=branch;break;}
+                        }
+            }
         }
 
         // A projection beneath an elevated road is not meaningful route progress.

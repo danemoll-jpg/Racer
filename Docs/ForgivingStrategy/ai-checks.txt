@@ -1,0 +1,8 @@
+driver 0: risk=0.011; neutral=MMMMSMMMMMMMMMMSMSMSSMSM
+driver 1: risk=0.018; neutral=MMMSMMSSMMMMMSSSMMSMSSMM
+driver 2: risk=0.025; neutral=SSSMSMSMSMSMMSMMMMMMMMSM
+72 opportunities per situation: leading=10, neutral=24, far-behind=45; no guaranteed/forbidden choice; neutral main favored.
+route=House 3 Detour; lap=1; risk=0.011; rank=0.00; gap=0.0; probability=0.131; roll=0.920; choice=main
+route=House 3 Detour; lap=1; risk=0.018; rank=0.00; gap=0.0; probability=0.138; roll=0.502; choice=main
+route=House 3 Detour; lap=1; risk=0.025; rank=0.00; gap=0.0; probability=0.145; roll=0.084; choice=shortcut
+Production same opportunity choices: MAIN, MAIN, SHORTCUT; each decision latched across 20 approach updates.

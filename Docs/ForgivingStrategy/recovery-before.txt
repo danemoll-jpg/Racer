@@ -1,0 +1,4 @@
+main: end=65.00 safe=64.96 selected=64.92 loss=3.08 recovered=True gateUnchanged=True lapUnchanged=True earnedUnchanged=True
+jump-approach: end=626.52 safe=595.48 selected=595.43 loss=34.09 recovered=True gateUnchanged=True lapUnchanged=True earnedUnchanged=True
+post-jump: end=776.25 safe=776.22 selected=776.19 loss=3.06 recovered=True gateUnchanged=True lapUnchanged=True earnedUnchanged=True
+shortcut: end=291.04 safe=291.04 selected=291.04 loss=3.00 recovered=True gateUnchanged=True lapUnchanged=True earnedUnchanged=True
