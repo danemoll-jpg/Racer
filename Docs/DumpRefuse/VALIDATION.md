@@ -33,4 +33,4 @@ Unity's first authoring attempt could not resolve the new script until a full re
 
 ## Delivery
 
-Fresh completion-source build and normal signed publication/launcher/cleanup pending. Reverse and optional shortcuts remain deferred.
+Delivered **0.40.0-review1 / game-40000** from pushed completion source `c701d791f2a2648bca1bf72ab8ed69f07d735ccd`. Fresh Windows build succeeded with zero errors/seven warnings. Full 231-file identity, remote asset verification, public download/startup, production Play-Racer.cmd and cleanup pass. See [publication](PUBLICATION.md). Gameplay tests remain stopped; Reverse and optional shortcuts remain deferred.

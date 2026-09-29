@@ -16,7 +16,9 @@
 - Safety checkpoint: clean main `6396cb50de28a157ee1a3b3b34f79d6d7d6873a9`. The pasted `CODEX/_RULES.md` path does not exist; canonical `CODEX_RULES.md` governs delivery.
 - **Implementation and targeted checks COMPLETE.** 2,100 overlapping grounded pieces replace 60 scattered props; 19 irregular concentrations, no clean lane, 8 renderers/63,740 triangles, no debris colliders/rigidbodies. A dump-only grounded resistance component slows vehicles without upward force, torque, artificial penalty or reset and fades out on escape slopes. Non-blocking visual debris does not individually scatter. Exact terrain, trees, route, gates, launch/landing, AI, motor and recovery are preserved (49,341 unchanged scene blocks).
 - **21 final assertions pass:** normal motorcycle flight/crossing unchanged at 2.16s/2.28s; short-jump escape motorcycle **9.32s trash vs 6.72s empty**, ATV **9.86s vs 6.70s**. Both start from rest, steer through the pile and climb out with no reset/trap/flip/unexpected launch. Grounding and three views inspected. Initial insufficient-resistance failure and fixture vehicle-selection correction retained in [validation](Docs/DumpRefuse/VALIDATION.md). Gameplay testing STOPPED; Dan judges subjective density/feel.
-- Normal **0.40.0-review1 / game-40000 delivery pending** from completion source: fresh build, push/publication, full Latest, production launcher and cleanup. Reverse and shortcuts remain deferred.
+- **0.40.0-review1 / game-40000 delivery COMPLETE.** Completion source `c701d791f2a2648bca1bf72ab8ed69f07d735ccd` pushed/verified on origin/main before fresh Windows build: 6m47.154s, zero errors/seven warnings (including two new API deprecation notices). All **231 files** match signed ZIP/fresh output/root Latest/managed runtime; three remote assets and latest signed catalog verified; actual public download and muted startup pass. Existing signing identity, soundtrack and saves preserved. [Delivery](Docs/DumpRefuse/PUBLICATION.md).
+- Unmodified **Play-Racer.cmd** launched responsive `Builds/Latest/versions/40000/Racer.exe`. Root Latest matches; no update pending. Only current 40000 and previous 39000 retained. Cleanup: Builds **6,568,958,975 → 5,425,821,786 bytes**; **1,143,137,189 bytes** reclaimed there; total measured free-space gain **2,023,194,624 bytes**; final C: free **320,103,231,488 bytes**. Required music, keys/tools, launcher, source, metadata and evidence retained.
+- **STOP: await Dan's density/gameplay review.** No Backyard Reverse, shortcuts or unrelated changes.
 
 ## Historical delivery — 2026-09-29 / local garbage dump correction
 
@@ -1949,6 +1951,10 @@ Record choices we do not want to repeatedly reconsider.
 ---
 
 # SESSION HANDOFF
+
+## Latest handoff — 2026-09-29 / 0.40.0-review1 dense dump
+
+Dan accepts the bowl/jump direction and rejected sparse trash. Replaced 60 props with 2,100 grounded overlapping pieces in eight batches, including the central floor. Local grounded resistance slows failed-jump escape without solid obstacles or artificial penalty. Terrain/launch/landing/route/checkpoints/trees/global motor/recovery/other courses unchanged. All 21 final checks pass; motorcycle 9.32s vs empty 6.72s, ATV 9.86s vs 6.70s; normal jump unchanged, both steer/climb out without reset. Earlier failed setting and fixture issue retained in Docs/DumpRefuse/VALIDATION.md. Published game-40000 from source c701d791; fresh build, 231-file verification, signed public startup and real Play-Racer.cmd pass. Current 40000/previous 39000 retained; cleanup complete. Final delivery evidence in Docs/DumpRefuse/PUBLICATION.md. Wait for Dan; no Reverse or shortcuts.
 
 ## Latest handoff — 2026-09-29 / 0.37.0-review1
 
