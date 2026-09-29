@@ -32,3 +32,7 @@ The focused fixture uses isolated saves and legitimate checkpoint/lap progressio
 Build/publication/launcher/cleanup results are recorded separately in `PUBLICATION.md`. Once the focused checks pass, gameplay testing stops and delivery proceeds.
 
 The headless Editor stalled on the final capture-only startup attempts; they were stopped. The final visual check uses the required fresh standalone Windows build with `-racerTestSave`, `-racerSkipTitle`, and `-worldMapCheck`. This fixture is never activated by normal gameplay. Existing 26/26 state results stand; final player results/captures are recorded before publication.
+
+## Final standalone result — targeted testing STOPPED
+
+Fresh 0.44.0-review1 Windows player (completion source `6f6cd9c0e3543f3ed3e7494475712ddd1ad0f023`) passed **26/26** focused checks, exit 0, with isolated saves and muted audio. Actual menu-map, zoomed course overlay, visible COMPLETE RACE waiting button and completed results screenshots were inspected. `final-player.json` records the run. The results screenshot is synthetic checkpoint-progression fixture data, not a measured driving-time benchmark. No NullReferenceException or MissingReferenceException occurred in the final player check; optional stripped post-processing shader warnings are retained in its log. No broader gameplay matrix.
