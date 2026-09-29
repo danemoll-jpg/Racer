@@ -1,0 +1,4438 @@
+[
+  {
+    "scene": "StreetLoopGreybox",
+    "changedExisting": [
+      {
+        "id": "25003304",
+        "type": 33,
+        "object": "Ground_Dan paved-to-dirt boundary"
+      },
+      {
+        "id": "26873219",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "26873221",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "55322482",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "60298002",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "69102335",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "104566868",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "110292990",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "110292992",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "111313885",
+        "type": 1001,
+        "object": ""
+      },
+      {
+        "id": "116663648",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "116663650",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "152820100",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "152820102",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "186930009",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "202442865",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "202442867",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "222996378",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "259457446",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "274744508",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "274744510",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "275175296",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "284728240",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "294707665",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "328465017",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "328465019",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "339208523",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "339208525",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "345577282",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "350668167",
+        "type": 65,
+        "object": "Grounded roadside chain-link"
+      },
+      {
+        "id": "350668169",
+        "type": 33,
+        "object": "Grounded roadside chain-link"
+      },
+      {
+        "id": "354153218",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "354153220",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "386505384",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "390447635",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "411145727",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "411145729",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "459623862",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "497383955",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "507498696",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "511566724",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "525449500",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "525449502",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "535725687",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "560516104",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "604593860",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "623216771",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "673152228",
+        "type": 64,
+        "object": "Ground_560_320"
+      },
+      {
+        "id": "673152230",
+        "type": 33,
+        "object": "Ground_560_320"
+      },
+      {
+        "id": "675170523",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "685763524",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "691325142",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "697447380",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "697543206",
+        "type": 65,
+        "object": "Grounded roadside chain-link"
+      },
+      {
+        "id": "697543208",
+        "type": 33,
+        "object": "Grounded roadside chain-link"
+      },
+      {
+        "id": "711419224",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "726913938",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "779791211",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "779791213",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "790277129",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "833534162",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "833534164",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "838256098",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "858153486",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "880308399",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "918045699",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "945268704",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "945268706",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "964314039",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "964955543",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "964955545",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "968424270",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "979956092",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "979956094",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "987354136",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1009596465",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1051090776",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1062459752",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1108943693",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1125281090",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "1149860507",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1149860509",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1175689144",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1175689146",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1189056750",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "1195228657",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "1198995965",
+        "type": 65,
+        "object": "Grounded roadside chain-link"
+      },
+      {
+        "id": "1198995967",
+        "type": 33,
+        "object": "Grounded roadside chain-link"
+      },
+      {
+        "id": "1203257097",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1203257099",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1223348436",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "1237983818",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1237983820",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1247774028",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "1268748877",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1285155118",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1395183147",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "1397074824",
+        "type": 65,
+        "object": "Grounded roadside chain-link"
+      },
+      {
+        "id": "1397074826",
+        "type": 33,
+        "object": "Grounded roadside chain-link"
+      },
+      {
+        "id": "1405975469",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1414137503",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1438223160",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1449768957",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1449768959",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1462250544",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1462250546",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1473637891",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "1477461062",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1477694327",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1477694329",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1487303491",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1487303493",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1539493820",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "1542018437",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1542018439",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1549792031",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1549792033",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1597971118",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1608226182",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1640902714",
+        "type": 64,
+        "object": "Ground_Dan beige concrete descent and parking"
+      },
+      {
+        "id": "1640902716",
+        "type": 33,
+        "object": "Ground_Dan beige concrete descent and parking"
+      },
+      {
+        "id": "1649369268",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "1673613902",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1675146462",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1675146464",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1689073032",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1696528298",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "1739833725",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "1774568757",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1774568759",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1778474271",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "1916179954",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1916179956",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1923466339",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "1932761921",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "2021007422",
+        "type": 65,
+        "object": "Grounded roadside chain-link"
+      },
+      {
+        "id": "2021007424",
+        "type": 33,
+        "object": "Grounded roadside chain-link"
+      },
+      {
+        "id": "2029240330",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "2070728594",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "2081443184",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "2084265665",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "2084265667",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "2093921241",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "2093921243",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "2126794300",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "9223372036854775807",
+        "type": 1660057539,
+        "object": ""
+      }
+    ],
+    "allOtherBlocksPreserved": true
+  },
+  {
+    "scene": "StreetLoopReverse",
+    "changedExisting": [
+      {
+        "id": "10964849",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "10964851",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "34301268",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "34301270",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "71366178",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "111313885",
+        "type": 1001,
+        "object": ""
+      },
+      {
+        "id": "131164453",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "154618996",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "194848001",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "194848003",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "229632769",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "229632771",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "241855617",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "241855619",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "248190697",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "259801884",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "259801886",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "264798694",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "264798696",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "282742104",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "288486580",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "299903605",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "302536261",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "304602138",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "304602140",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "317285479",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "317285481",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "318191290",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "318191292",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "327914854",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "330639592",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "348932204",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "422553653",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "428085871",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "502919238",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "530445460",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "573536032",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "574608319",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "589376324",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "609450553",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "609450555",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "659303152",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "673152228",
+        "type": 64,
+        "object": "Ground_560_320"
+      },
+      {
+        "id": "673152230",
+        "type": 33,
+        "object": "Ground_560_320"
+      },
+      {
+        "id": "684936727",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "684936729",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "688207380",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "709377499",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "718270419",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "729990727",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "745373435",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "745373437",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "763372773",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "769449654",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "794531628",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "795542052",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "796360736",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "796360738",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "800255771",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "831431157",
+        "type": 65,
+        "object": "Grounded roadside chain-link"
+      },
+      {
+        "id": "831431159",
+        "type": 33,
+        "object": "Grounded roadside chain-link"
+      },
+      {
+        "id": "840833836",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "850610085",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "876380199",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "876380201",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "907583385",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "909825716",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "909825718",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "943707346",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "976039978",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "995156393",
+        "type": 64,
+        "object": "Ground_Dan beige concrete descent and parking"
+      },
+      {
+        "id": "995156395",
+        "type": 33,
+        "object": "Ground_Dan beige concrete descent and parking"
+      },
+      {
+        "id": "1010640488",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1035289432",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1107376174",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "1121256087",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1167289682",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1167457838",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1167457840",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1178443530",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1178443532",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1185224041",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1185224043",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1187098637",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1231168773",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "1237064331",
+        "type": 65,
+        "object": "Grounded roadside chain-link"
+      },
+      {
+        "id": "1237064333",
+        "type": 33,
+        "object": "Grounded roadside chain-link"
+      },
+      {
+        "id": "1254476840",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1254476842",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1260877201",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1261286086",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1261286088",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1276592951",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1303374810",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "1345665887",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1345665889",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1397065583",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1397065585",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1438047588",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1447348341",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "1492443546",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1501408325",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1502902516",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1502902518",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1511617660",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "1629766029",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1655651591",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1655651593",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1670531160",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1670531162",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1674401740",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1674401742",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1697107309",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "1698850056",
+        "type": 33,
+        "object": "Ground_Dan paved-to-dirt boundary"
+      },
+      {
+        "id": "1724063880",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "1732369932",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "1757902540",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "1768930187",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "1803578500",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1803578502",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1807746954",
+        "type": 65,
+        "object": "Grounded roadside chain-link"
+      },
+      {
+        "id": "1807746956",
+        "type": 33,
+        "object": "Grounded roadside chain-link"
+      },
+      {
+        "id": "1831902408",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1831902410",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1835743907",
+        "type": 65,
+        "object": "Grounded roadside chain-link"
+      },
+      {
+        "id": "1835743909",
+        "type": 33,
+        "object": "Grounded roadside chain-link"
+      },
+      {
+        "id": "1843075016",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "1873366615",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "1885088745",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "1908064066",
+        "type": 65,
+        "object": "Grounded roadside chain-link"
+      },
+      {
+        "id": "1908064068",
+        "type": 33,
+        "object": "Grounded roadside chain-link"
+      },
+      {
+        "id": "1914238215",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "1923737684",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1923737686",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1929693240",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1929693242",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1971142165",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "2004633909",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "2010212998",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "2080984443",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "2084622407",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "2127863319",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "2129417118",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "2130828285",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "2133907674",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "9223372036854775807",
+        "type": 1660057539,
+        "object": ""
+      }
+    ],
+    "allOtherBlocksPreserved": true
+  },
+  {
+    "scene": "LakeWoods",
+    "changedExisting": [
+      {
+        "id": "17524705",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "20771290",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "20771292",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "26864811",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "30026494",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "53330178",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "72111581",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "107426413",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "107426415",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "111313885",
+        "type": 1001,
+        "object": ""
+      },
+      {
+        "id": "111357515",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "153988715",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "153988717",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "158347402",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "185740585",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "185740587",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "219745513",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "231831218",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "231831220",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "232651422",
+        "type": 65,
+        "object": "Grounded roadside chain-link"
+      },
+      {
+        "id": "232651424",
+        "type": 33,
+        "object": "Grounded roadside chain-link"
+      },
+      {
+        "id": "243678853",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "243678855",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "261637350",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "333959653",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "375229274",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "384096766",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "384096768",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "437382046",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "446358104",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "446358106",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "465186993",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "492603680",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "509638591",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "509638593",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "536576047",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "536576049",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "583000439",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "622051577",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "630972356",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "643980021",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "661177184",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "661177186",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "665252401",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "665252403",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "673152228",
+        "type": 64,
+        "object": "Ground_560_320"
+      },
+      {
+        "id": "673152230",
+        "type": 33,
+        "object": "Ground_560_320"
+      },
+      {
+        "id": "680956215",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "703236514",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "714229986",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "722458204",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "736536460",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "761747103",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "763725813",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "763725815",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "766139839",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "782876849",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "782876851",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "783663498",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "783663500",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "788484713",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "801785519",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "810257095",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "810257097",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "826193053",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "835561819",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "842628311",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "842628313",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "868701696",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "878665961",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "918192463",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "959242509",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1023091950",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1030062565",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1042231977",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1042231979",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1076343532",
+        "type": 33,
+        "object": "Ground_Dan paved-to-dirt boundary"
+      },
+      {
+        "id": "1083122749",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "1083349918",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1116006890",
+        "type": 65,
+        "object": "Grounded roadside chain-link"
+      },
+      {
+        "id": "1116006892",
+        "type": 33,
+        "object": "Grounded roadside chain-link"
+      },
+      {
+        "id": "1128519319",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "1133681633",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1133681635",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1134594424",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "1136785557",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1136785559",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1157555782",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1185832514",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1185832516",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1202230131",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "1205946938",
+        "type": 64,
+        "object": "Ground_Dan beige concrete descent and parking"
+      },
+      {
+        "id": "1205946940",
+        "type": 33,
+        "object": "Ground_Dan beige concrete descent and parking"
+      },
+      {
+        "id": "1209581210",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1209581212",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1222685799",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "1229744787",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "1254699807",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1254699809",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1262013732",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1300451002",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1300451004",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1310549416",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1365177033",
+        "type": 65,
+        "object": "Grounded roadside chain-link"
+      },
+      {
+        "id": "1365177035",
+        "type": 33,
+        "object": "Grounded roadside chain-link"
+      },
+      {
+        "id": "1371939560",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "1375499423",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1376340453",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1377244884",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1389903954",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "1409235166",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1410762649",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "1427398079",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1427398081",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1457334805",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1477382867",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "1500234774",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1500234776",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1525569885",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1525569887",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1598083379",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1599736585",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1601326366",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1601326368",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1635252004",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "1693026683",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1693026685",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1729268773",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "1745127489",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1745696032",
+        "type": 65,
+        "object": "Grounded roadside chain-link"
+      },
+      {
+        "id": "1745696034",
+        "type": 33,
+        "object": "Grounded roadside chain-link"
+      },
+      {
+        "id": "1754672736",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1794210133",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "1797140096",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "1813263180",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1842573461",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1946862557",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1946862559",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1955869476",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "1996518128",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "2020259939",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "2047303328",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "2047303330",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "2107682448",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "2134359363",
+        "type": 65,
+        "object": "Grounded roadside chain-link"
+      },
+      {
+        "id": "2134359365",
+        "type": 33,
+        "object": "Grounded roadside chain-link"
+      },
+      {
+        "id": "9223372036854775807",
+        "type": 1660057539,
+        "object": ""
+      }
+    ],
+    "allOtherBlocksPreserved": true
+  },
+  {
+    "scene": "ForestLoopReverse",
+    "changedExisting": [
+      {
+        "id": "48235404",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "111313885",
+        "type": 1001,
+        "object": ""
+      },
+      {
+        "id": "145419637",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "160220277",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "160898708",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "160898710",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "161199659",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "210793516",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "219056839",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "237763813",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "280011024",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "306746174",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "306746176",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "309768507",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "353221183",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "368535287",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "368535289",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "398747204",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "398793775",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "415621867",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "447690237",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "460237396",
+        "type": 64,
+        "object": "Ground_Dan beige concrete descent and parking"
+      },
+      {
+        "id": "460237398",
+        "type": 33,
+        "object": "Ground_Dan beige concrete descent and parking"
+      },
+      {
+        "id": "469820851",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "482558642",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "498552540",
+        "type": 33,
+        "object": "Ground_Dan paved-to-dirt boundary"
+      },
+      {
+        "id": "568842665",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "568842667",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "593174768",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "594639743",
+        "type": 65,
+        "object": "Grounded roadside chain-link"
+      },
+      {
+        "id": "594639745",
+        "type": 33,
+        "object": "Grounded roadside chain-link"
+      },
+      {
+        "id": "598072575",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "613178463",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "640272841",
+        "type": 65,
+        "object": "Grounded roadside chain-link"
+      },
+      {
+        "id": "640272843",
+        "type": 33,
+        "object": "Grounded roadside chain-link"
+      },
+      {
+        "id": "670414057",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "670414059",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "673152228",
+        "type": 64,
+        "object": "Ground_560_320"
+      },
+      {
+        "id": "673152230",
+        "type": 33,
+        "object": "Ground_560_320"
+      },
+      {
+        "id": "677002775",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "695011825",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "695678435",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "742652370",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "742652372",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "749743092",
+        "type": 65,
+        "object": "Grounded roadside chain-link"
+      },
+      {
+        "id": "749743094",
+        "type": 33,
+        "object": "Grounded roadside chain-link"
+      },
+      {
+        "id": "756130327",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "756130329",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "763940900",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "771606926",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "771606928",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "788333293",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "816350925",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "816350927",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "824823697",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "849022916",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "849022918",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "849754955",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "849754957",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "866793303",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "866793305",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "873400694",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "873400696",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "877202330",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "910462871",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "913502769",
+        "type": 65,
+        "object": "Grounded roadside chain-link"
+      },
+      {
+        "id": "913502771",
+        "type": 33,
+        "object": "Grounded roadside chain-link"
+      },
+      {
+        "id": "961287005",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "961287007",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "995960678",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1010855855",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "1027615309",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "1039645722",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "1064305721",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "1125035574",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1125035576",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1145871196",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1145871198",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1162718268",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1208866313",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1227520888",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1227520890",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1232556398",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "1233754399",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "1238954443",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1239745831",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1239745833",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1244541703",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1258799189",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1262891039",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "1296693207",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "1326406648",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "1335380647",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1341544154",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1345156976",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "1365165108",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "1376241697",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "1404119261",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "1429530166",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1450915334",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1459171088",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1505182872",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "1509545238",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1527367171",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1527367173",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1544499118",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1565497697",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1565497699",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1600607195",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1611237193",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1611237195",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1614269268",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "1673587213",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "1676240934",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1676240936",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1708626346",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "1713347121",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1713347123",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1720222267",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1729159349",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1729159351",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1758115243",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1768061538",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "1794048111",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1794048113",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1806541540",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1806541542",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1892315855",
+        "type": 65,
+        "object": "Grounded roadside chain-link"
+      },
+      {
+        "id": "1892315857",
+        "type": 33,
+        "object": "Grounded roadside chain-link"
+      },
+      {
+        "id": "1901705326",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1912628864",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1936717025",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "1940984913",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1975734562",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1996419585",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "2039892150",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "2039892152",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "2092647606",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "2092647608",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "2103219041",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "2103219043",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "2114011219",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "2143075579",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "2143075581",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "2143346662",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "2143346664",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "9223372036854775807",
+        "type": 1660057539,
+        "object": ""
+      }
+    ],
+    "allOtherBlocksPreserved": true
+  },
+  {
+    "scene": "MountainLoop",
+    "changedExisting": [
+      {
+        "id": "17524705",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "20771290",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "20771292",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "26864811",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "30026494",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "53330178",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "72111581",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "107426413",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "107426415",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "111313885",
+        "type": 1001,
+        "object": ""
+      },
+      {
+        "id": "111357515",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "153988715",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "153988717",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "158347402",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "185740585",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "185740587",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "219745513",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "231831218",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "231831220",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "232651422",
+        "type": 65,
+        "object": "Grounded roadside chain-link"
+      },
+      {
+        "id": "232651424",
+        "type": 33,
+        "object": "Grounded roadside chain-link"
+      },
+      {
+        "id": "243678853",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "243678855",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "261637350",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "333959653",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "375229274",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "384096766",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "384096768",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "437382046",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "446358104",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "446358106",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "465186993",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "492603680",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "509638591",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "509638593",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "536576047",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "536576049",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "583000439",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "622051577",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "630972356",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "643980021",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "661177184",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "661177186",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "665252401",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "665252403",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "673152228",
+        "type": 64,
+        "object": "Ground_560_320"
+      },
+      {
+        "id": "673152230",
+        "type": 33,
+        "object": "Ground_560_320"
+      },
+      {
+        "id": "680956215",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "703236514",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "714229986",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "722458204",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "736536460",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "761747103",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "763725813",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "763725815",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "766139839",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "782876849",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "782876851",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "783663498",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "783663500",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "785537829",
+        "type": 33,
+        "object": "Ground_Dan paved-to-dirt boundary"
+      },
+      {
+        "id": "788484713",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "801785519",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "810257095",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "810257097",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "826193053",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "835561819",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "842628311",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "842628313",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "868701696",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "878665961",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "908310959",
+        "type": 64,
+        "object": "Ground_Dan beige concrete descent and parking"
+      },
+      {
+        "id": "908310961",
+        "type": 33,
+        "object": "Ground_Dan beige concrete descent and parking"
+      },
+      {
+        "id": "918192463",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "959242509",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1023091950",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1030062565",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1042231977",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1042231979",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1083122749",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "1083349918",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1116006890",
+        "type": 65,
+        "object": "Grounded roadside chain-link"
+      },
+      {
+        "id": "1116006892",
+        "type": 33,
+        "object": "Grounded roadside chain-link"
+      },
+      {
+        "id": "1128519319",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "1133681633",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1133681635",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1134594424",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "1136785557",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1136785559",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1157555782",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1185832514",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1185832516",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1202230131",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "1209581210",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1209581212",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1222685799",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "1229744787",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "1254699807",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1254699809",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1262013732",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1300451002",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1300451004",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1310549416",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1365177033",
+        "type": 65,
+        "object": "Grounded roadside chain-link"
+      },
+      {
+        "id": "1365177035",
+        "type": 33,
+        "object": "Grounded roadside chain-link"
+      },
+      {
+        "id": "1371939560",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "1375499423",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1376340453",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1377244884",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1389903954",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "1409235166",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1410762649",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "1427398079",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1427398081",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1457334805",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1477382867",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "1500234774",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1500234776",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1525569885",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1525569887",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1598083379",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1599736585",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1601326366",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1601326368",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1635252004",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "1693026683",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1693026685",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1729268773",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "1745127489",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1745696032",
+        "type": 65,
+        "object": "Grounded roadside chain-link"
+      },
+      {
+        "id": "1745696034",
+        "type": 33,
+        "object": "Grounded roadside chain-link"
+      },
+      {
+        "id": "1754672736",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1794210133",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "1797140096",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "1813263180",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1842573461",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1946862557",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1946862559",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1955869476",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "1996518128",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "2020259939",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "2047303328",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "2047303330",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "2107682448",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "2134359363",
+        "type": 65,
+        "object": "Grounded roadside chain-link"
+      },
+      {
+        "id": "2134359365",
+        "type": 33,
+        "object": "Grounded roadside chain-link"
+      },
+      {
+        "id": "9223372036854775807",
+        "type": 1660057539,
+        "object": ""
+      }
+    ],
+    "allOtherBlocksPreserved": true
+  },
+  {
+    "scene": "MountainLoopReverse",
+    "changedExisting": [
+      {
+        "id": "17524705",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "20771290",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "20771292",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "26864811",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "30026494",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "53330178",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "72111581",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "107426413",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "107426415",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "111313885",
+        "type": 1001,
+        "object": ""
+      },
+      {
+        "id": "111357515",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "153988715",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "153988717",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "158347402",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "185740585",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "185740587",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "219745513",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "231831218",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "231831220",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "232651422",
+        "type": 65,
+        "object": "Grounded roadside chain-link"
+      },
+      {
+        "id": "232651424",
+        "type": 33,
+        "object": "Grounded roadside chain-link"
+      },
+      {
+        "id": "243678853",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "243678855",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "261637350",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "333959653",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "375229274",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "384096766",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "384096768",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "437382046",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "446358104",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "446358106",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "451256679",
+        "type": 33,
+        "object": "Ground_Dan paved-to-dirt boundary"
+      },
+      {
+        "id": "465186993",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "492603680",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "509638591",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "509638593",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "536576047",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "536576049",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "583000439",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "622051577",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "630972356",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "643980021",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "661177184",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "661177186",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "665252401",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "665252403",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "673152228",
+        "type": 64,
+        "object": "Ground_560_320"
+      },
+      {
+        "id": "673152230",
+        "type": 33,
+        "object": "Ground_560_320"
+      },
+      {
+        "id": "680956215",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "703236514",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "714229986",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "722458204",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "736536460",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "761747103",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "763725813",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "763725815",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "766139839",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "782876849",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "782876851",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "783663498",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "783663500",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "788484713",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "801785519",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "810257095",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "810257097",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "826193053",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "835561819",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "842628311",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "842628313",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "868701696",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "878665961",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "918192463",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "956905746",
+        "type": 64,
+        "object": "Ground_Dan beige concrete descent and parking"
+      },
+      {
+        "id": "956905748",
+        "type": 33,
+        "object": "Ground_Dan beige concrete descent and parking"
+      },
+      {
+        "id": "959242509",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1023091950",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1030062565",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1042231977",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1042231979",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1083122749",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "1083349918",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1116006890",
+        "type": 65,
+        "object": "Grounded roadside chain-link"
+      },
+      {
+        "id": "1116006892",
+        "type": 33,
+        "object": "Grounded roadside chain-link"
+      },
+      {
+        "id": "1128519319",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "1133681633",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1133681635",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1134594424",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "1136785557",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1136785559",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1157555782",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1185832514",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1185832516",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1202230131",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "1209581210",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1209581212",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1222685799",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "1229744787",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "1254699807",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1254699809",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1262013732",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1300451002",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1300451004",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1310549416",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1365177033",
+        "type": 65,
+        "object": "Grounded roadside chain-link"
+      },
+      {
+        "id": "1365177035",
+        "type": 33,
+        "object": "Grounded roadside chain-link"
+      },
+      {
+        "id": "1371939560",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "1375499423",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1376340453",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1377244884",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1389903954",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "1409235166",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1410762649",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "1427398079",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1427398081",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1457334805",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1477382867",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "1500234774",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1500234776",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1525569885",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1525569887",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1598083379",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1599736585",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1601326366",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1601326368",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1635252004",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "1693026683",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1693026685",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1729268773",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "1745127489",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1745696032",
+        "type": 65,
+        "object": "Grounded roadside chain-link"
+      },
+      {
+        "id": "1745696034",
+        "type": 33,
+        "object": "Grounded roadside chain-link"
+      },
+      {
+        "id": "1754672736",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1794210133",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "1797140096",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "1813263180",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1842573461",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "1946862557",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1946862559",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "1955869476",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "1996518128",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "2020259939",
+        "type": 4,
+        "object": "Fence endpoint A"
+      },
+      {
+        "id": "2047303328",
+        "type": 65,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "2047303330",
+        "type": 33,
+        "object": "Grounded wood crossbuck"
+      },
+      {
+        "id": "2107682448",
+        "type": 4,
+        "object": "Fence endpoint B"
+      },
+      {
+        "id": "2134359363",
+        "type": 65,
+        "object": "Grounded roadside chain-link"
+      },
+      {
+        "id": "2134359365",
+        "type": 33,
+        "object": "Grounded roadside chain-link"
+      },
+      {
+        "id": "9223372036854775807",
+        "type": 1660057539,
+        "object": ""
+      }
+    ],
+    "allOtherBlocksPreserved": true
+  }
+]

@@ -1,0 +1,17 @@
+Reached=True; minimum speed=7.921; max continuous air=0.020; ordinary 0.02-second motorcycle physics steps across main driveway entrance.
+0.00 position=(473.000, 80.392, 7.300) speed=8.000 grounded=0
+0.20 position=(471.401, 80.358, 7.359) speed=7.969 grounded=4
+0.40 position=(469.801, 80.353, 7.433) speed=7.931 grounded=4
+0.60 position=(468.205, 80.401, 7.519) speed=8.049 grounded=4
+0.80 position=(466.589, 80.395, 7.593) speed=8.016 grounded=4
+1.00 position=(464.982, 80.270, 7.640) speed=8.073 grounded=4
+1.20 position=(463.388, 80.176, 7.683) speed=7.945 grounded=4
+1.40 position=(461.791, 80.197, 7.724) speed=7.951 grounded=4
+1.60 position=(460.194, 80.268, 7.764) speed=8.089 grounded=4
+1.80 position=(458.598, 80.342, 7.804) speed=8.008 grounded=4
+2.00 position=(457.003, 80.428, 7.845) speed=8.081 grounded=4
+2.20 position=(455.413, 80.535, 7.886) speed=7.947 grounded=4
+2.40 position=(453.820, 80.660, 7.928) speed=7.970 grounded=4
+2.60 position=(452.225, 80.800, 7.970) speed=7.972 grounded=4
+2.80 position=(450.633, 80.952, 8.012) speed=7.957 grounded=4
+3.00 position=(449.047, 81.114, 8.054) speed=7.927 grounded=4

@@ -358,14 +358,12 @@ namespace Racer
             else if(shown==RaceFlow.Stage.Courses)
             {
                 title.text="SELECT TRACK";
-                details.text="Street: all four vehicles. Wooded courses: motorcycles / ATVs.\nEach direction has its own route and records.";
-                details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=90;
+                details.text="Street: all four vehicles. Forest: motorcycles / ATVs.\nReverse courses have their own jumps and optional shortcuts.\nSeparate direction, rules and record categories.";
                 Action(0,"Street Loop",()=>flow.SelectCourse(false));
                 Action(1,"Forest Loop",()=>flow.SelectCourse(true));
                 Action(2,"Street Loop Reverse",()=>flow.SelectCourse(false,true));
                 Action(3,"Forest Loop Reverse",()=>flow.SelectCourse(true,true));
-                Action(4,"Mountain Loop",()=>flow.SelectMountain(false));Action(5,"Mountain Loop Reverse",()=>flow.SelectMountain(true));
-                Action(6,"Dan's Backyard - Forward",()=>flow.SelectBackyard(false));Action(7,"Dan's Backyard - Reverse",()=>flow.SelectBackyard(true));Action(8,"Back",flow.CloseGarage);
+                Action(4,"Mountain Loop",()=>flow.SelectMountain(false));Action(5,"Mountain Loop Reverse",()=>flow.SelectMountain(true));Action(6,"Back",flow.CloseGarage);
             }
             else if(shown==RaceFlow.Stage.Boards)
             {

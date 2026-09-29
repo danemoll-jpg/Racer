@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1900" height="1120" viewBox="0 0 1900 1120">
+<rect width="1900" height="1120" fill="#12221c"/>
+<text x="28" y="42" fill="white" font-size="29" font-family="sans-serif">RESTORED WORLD · ANCHOR VALIDATION ONLY</text>
+<text x="28" y="77" fill="#e6eddf" font-size="20" font-family="sans-serif">Dan’s Backyard rejected / rolled back. No route connects these points. North (+Z) up.</text>
+<image href="restored-world-overhead.png" x="0" y="105" width="1500" height="1000"/>
+<circle cx="1233.16" cy="518.16" r="15" fill="#f843a2" stroke="white" stroke-width="2"/>
+<text x="1233.16" y="524.16" text-anchor="middle" fill="white" font-size="18" font-weight="bold" font-family="sans-serif">1</text>
+<text x="1530" y="243" fill="#ff7dbe" font-size="20" font-family="sans-serif">1 · START / FINISH</text>
+<text x="1530" y="270" fill="white" font-size="19" font-family="sans-serif">X=463.6 / Z=8.0</text>
+<circle cx="1125.53" cy="515.53" r="15" fill="#f843a2" stroke="white" stroke-width="2"/>
+<text x="1125.53" y="521.53" text-anchor="middle" fill="white" font-size="18" font-weight="bold" font-family="sans-serif">2</text>
+<text x="1530" y="336" fill="#ff7dbe" font-size="20" font-family="sans-serif">2 · HILL START</text>
+<text x="1530" y="363" fill="white" font-size="19" font-family="sans-serif">X=422.7 / Z=9.0</text>
+<circle cx="1090.79" cy="514.74" r="15" fill="#f843a2" stroke="white" stroke-width="2"/>
+<text x="1090.79" y="520.74" text-anchor="middle" fill="white" font-size="18" font-weight="bold" font-family="sans-serif">3</text>
+<text x="1530" y="429" fill="#ff7dbe" font-size="20" font-family="sans-serif">3 · PARKING START</text>
+<text x="1530" y="456" fill="white" font-size="19" font-family="sans-serif">X=409.5 / Z=9.3</text>
+<circle cx="1044.47" cy="513.68" r="15" fill="#f843a2" stroke="white" stroke-width="2"/>
+<text x="1044.47" y="519.68" text-anchor="middle" fill="white" font-size="18" font-weight="bold" font-family="sans-serif">4</text>
+<text x="1530" y="522" fill="#ff7dbe" font-size="20" font-family="sans-serif">4 · DIRT PATH START</text>
+<text x="1530" y="549" fill="white" font-size="19" font-family="sans-serif">X=391.9 / Z=9.7</text>
+<circle cx="885.26" cy="496.58" r="15" fill="#f843a2" stroke="white" stroke-width="2"/>
+<text x="885.26" y="502.58" text-anchor="middle" fill="white" font-size="18" font-weight="bold" font-family="sans-serif">5</text>
+<text x="1530" y="615" fill="#ff7dbe" font-size="20" font-family="sans-serif">5 · FUTURE DUMP LAUNCH</text>
+<text x="1530" y="642" fill="white" font-size="19" font-family="sans-serif">X=331.4 / Z=16.2</text>
+<circle cx="693.68" cy="517.63" r="15" fill="#f843a2" stroke="white" stroke-width="2"/>
+<text x="693.68" y="523.63" text-anchor="middle" fill="white" font-size="18" font-weight="bold" font-family="sans-serif">6</text>
+<text x="1530" y="708" fill="#ff7dbe" font-size="20" font-family="sans-serif">6 · FUTURE DUMP LANDING</text>
+<text x="1530" y="735" fill="white" font-size="19" font-family="sans-serif">X=258.6 / Z=8.2</text>
+<circle cx="266.05" cy="825.00" r="15" fill="#f843a2" stroke="white" stroke-width="2"/>
+<text x="266.05" y="831.00" text-anchor="middle" fill="white" font-size="18" font-weight="bold" font-family="sans-serif">7</text>
+<text x="1530" y="801" fill="#ff7dbe" font-size="20" font-family="sans-serif">7 · FUTURE BIG GULLY</text>
+<text x="1530" y="828" fill="white" font-size="19" font-family="sans-serif">X=96.1 / Z=-108.6</text>
+<circle cx="1214.21" cy="361.84" r="15" fill="#f843a2" stroke="white" stroke-width="2"/>
+<text x="1214.21" y="367.84" text-anchor="middle" fill="white" font-size="18" font-weight="bold" font-family="sans-serif">8</text>
+<text x="1530" y="894" fill="#ff7dbe" font-size="20" font-family="sans-serif">8 · FOREST RETURN</text>
+<text x="1530" y="921" fill="white" font-size="19" font-family="sans-serif">X=456.4 / Z=67.4</text>
+<text x="1530" y="990" fill="white" font-size="19" font-family="sans-serif">Temporary · non-colliding</text>
+<text x="1530" y="1022" fill="white" font-size="19" font-family="sans-serif">Awaiting Dan’s validation</text>
+</svg>

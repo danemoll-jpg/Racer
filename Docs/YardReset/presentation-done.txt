@@ -1,0 +1,6 @@
+StreetLoopGreybox: restored original interpolated vertex colors; welded 95280 -> 16317 vertices; same triangle surfaces within 0.1mm
+StreetLoopReverse: restored original interpolated vertex colors; welded 95280 -> 16317 vertices; same triangle surfaces within 0.1mm
+LakeWoods: restored original interpolated vertex colors; welded 380040 -> 64230 vertices; same triangle surfaces within 0.1mm
+ForestLoopReverse: restored original interpolated vertex colors; welded 380040 -> 64230 vertices; same triangle surfaces within 0.1mm
+MountainLoop: restored original interpolated vertex colors; welded 380040 -> 64230 vertices; same triangle surfaces within 0.1mm
+MountainLoopReverse: restored original interpolated vertex colors; welded 380040 -> 64230 vertices; same triangle surfaces within 0.1mm

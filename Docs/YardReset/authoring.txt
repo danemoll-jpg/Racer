@@ -1,0 +1,66 @@
+StreetLoopGreybox flat parking target=79.45641
+Terrain Ground_560_320: 39156 changed samples; building foundation interiors preserved
+Refitted fence sections=36; existing mailbox (463.45, 85.99, -26.85) -> (466.30, 80.39, 2.00); south/left looking west into main entrance
+MARKER 1 (463.6000, 79.7301, 8.0000)
+MARKER 2 (422.7000, 82.8000, 9.0000)
+MARKER 3 (409.5000, 79.4569, 9.3000)
+MARKER 4 (391.9000, 79.4564, 9.7000)
+MARKER 5 (331.4000, 78.0277, 16.2000)
+MARKER 6 (258.6000, 67.6831, 8.2000)
+MARKER 7 (96.1000, 38.3389, -108.6000)
+MARKER 8 (456.4000, 81.3357, 67.4000)
+StreetLoopReverse flat parking target=79.45641
+Terrain Ground_560_320: 39156 changed samples; building foundation interiors preserved
+Refitted fence sections=36; existing mailbox (463.45, 85.99, -26.85) -> (466.30, 80.39, 2.00); south/left looking west into main entrance
+MARKER 1 (463.6000, 79.7301, 8.0000)
+MARKER 2 (422.7000, 82.8000, 9.0000)
+MARKER 3 (409.5000, 79.4569, 9.3000)
+MARKER 4 (391.9000, 79.4564, 9.7000)
+MARKER 5 (331.4000, 78.0277, 16.2000)
+MARKER 6 (258.6000, 67.6831, 8.2000)
+MARKER 7 (96.1000, 38.3389, -108.6000)
+MARKER 8 (456.4000, 81.3357, 67.4000)
+LakeWoods flat parking target=79.45346
+Terrain Ground_560_320: 156675 changed samples; building foundation interiors preserved
+Refitted fence sections=36; existing mailbox (463.45, 85.99, -26.85) -> (466.30, 80.39, 2.00); south/left looking west into main entrance
+MARKER 1 (463.6000, 79.7301, 8.0000)
+MARKER 2 (422.7000, 82.8000, 9.0000)
+MARKER 3 (409.5000, 79.4540, 9.3000)
+MARKER 4 (391.9000, 79.4535, 9.7000)
+MARKER 5 (331.4000, 78.0277, 16.2000)
+MARKER 6 (258.6000, 67.6831, 8.2000)
+MARKER 7 (96.1000, 38.3389, -108.6000)
+MARKER 8 (456.4000, 81.3357, 67.4000)
+ForestLoopReverse flat parking target=79.45346
+Terrain Ground_560_320: 156675 changed samples; building foundation interiors preserved
+Refitted fence sections=36; existing mailbox (463.45, 85.99, -26.85) -> (466.30, 80.39, 2.00); south/left looking west into main entrance
+MARKER 1 (463.6000, 79.7301, 8.0000)
+MARKER 2 (422.7000, 82.8000, 9.0000)
+MARKER 3 (409.5000, 79.4540, 9.3000)
+MARKER 4 (391.9000, 79.4535, 9.7000)
+MARKER 5 (331.4000, 78.0277, 16.2000)
+MARKER 6 (258.6000, 67.6831, 8.2000)
+MARKER 7 (96.1000, 38.3389, -108.6000)
+MARKER 8 (456.4000, 81.3357, 67.4000)
+MountainLoop flat parking target=79.45346
+Terrain Ground_560_320: 156675 changed samples; building foundation interiors preserved
+Refitted fence sections=36; existing mailbox (463.45, 85.99, -26.85) -> (466.30, 80.39, 2.00); south/left looking west into main entrance
+MARKER 1 (463.6000, 79.7301, 8.0000)
+MARKER 2 (422.7000, 82.8000, 9.0000)
+MARKER 3 (409.5000, 79.4540, 9.3000)
+MARKER 4 (391.9000, 79.4535, 9.7000)
+MARKER 5 (331.4000, 78.0277, 16.2000)
+MARKER 6 (258.6000, 67.6831, 8.2000)
+MARKER 7 (96.1000, 38.3389, -108.6000)
+MARKER 8 (456.4000, 81.3357, 67.4000)
+MountainLoopReverse flat parking target=79.45346
+Terrain Ground_560_320: 156675 changed samples; building foundation interiors preserved
+Refitted fence sections=36; existing mailbox (463.45, 85.99, -26.85) -> (466.30, 80.39, 2.00); south/left looking west into main entrance
+MARKER 1 (463.6000, 79.7301, 8.0000)
+MARKER 2 (422.7000, 82.8000, 9.0000)
+MARKER 3 (409.5000, 79.4540, 9.3000)
+MARKER 4 (391.9000, 79.4535, 9.7000)
+MARKER 5 (331.4000, 78.0277, 16.2000)
+MARKER 6 (258.6000, 67.6831, 8.2000)
+MARKER 7 (96.1000, 38.3389, -108.6000)
+MARKER 8 (456.4000, 81.3357, 67.4000)

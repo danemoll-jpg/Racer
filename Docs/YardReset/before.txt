@@ -1,0 +1,129 @@
+Phase 6 - architectural render batches/Ivory trim pos=(0.000, 0.000, 0.000) bounds=Center: (-43.86, 48.94, -1.84), Extents: (632.21, 42.87, 600.16) scale=(1.00, 1.00, 1.00)
+Remembered houses and approximate buildings/Dan - blue X/Reference architecture/Batched Weathered timber pos=(415.800, 83.820, -13.000) bounds=Center: (405.09, 82.32, -11.31), Extents: (6.07, 2.81, 11.29) scale=(1.00, 1.00, 1.00)
+CR097 supported properties and camp/Grounded roadside chain-link pos=(462.838, 78.522, 14.213) bounds=Center: (462.81, 79.48, 13.27), Extents: (0.10, 1.00, 1.01) scale=(1.00, 1.00, 1.00)
+CR097 supported properties and camp/Grounded wood crossbuck pos=(389.065, 79.090, -3.517) bounds=Center: (389.02, 79.89, -4.97), Extents: (0.11, 0.85, 1.52) scale=(1.00, 1.00, 1.00)
+Remembered houses and approximate buildings/Dan - blue X/Reference architecture/Batched White porch trim pos=(415.800, 83.820, -13.000) bounds=Center: (408.61, 83.13, 3.84), Extents: (16.16, 3.82, 29.31) scale=(1.00, 1.00, 1.00)
+CR097 supported properties and camp/Grounded wood crossbuck pos=(433.453, 78.851, 15.295) bounds=Center: (431.98, 79.75, 15.37), Extents: (1.54, 0.94, 0.15) scale=(1.00, 1.00, 1.00)
+CR101 local boundary extension/Grounded wood crossbuck pos=(416.080, 78.793, 27.120) bounds=Center: (415.22, 79.41, 28.26), Extents: (0.93, 1.03, 1.21) scale=(1.00, 1.00, 1.00)
+CR097 supported properties and camp/Grounded roadside chain-link pos=(462.044, 81.346, -1.195) bounds=Center: (461.98, 82.34, -2.19), Extents: (0.13, 1.04, 1.06) scale=(1.00, 1.00, 1.00)
+CR097 supported properties and camp/Grounded wood crossbuck pos=(459.887, 78.410, 13.917) bounds=Center: (458.42, 79.18, 13.99), Extents: (1.54, 0.88, 0.15) scale=(1.00, 1.00, 1.00)
+CR101 local boundary extension/Grounded wood crossbuck pos=(389.394, 79.320, 7.778) bounds=Center: (389.35, 80.05, 6.43), Extents: (0.11, 0.92, 1.42) scale=(1.00, 1.00, 1.00)
+Phase 6 - architectural render batches/Muted brick pos=(0.000, 0.000, 0.000) bounds=Center: (-77.93, 50.36, 41.35), Extents: (595.68, 43.61, 561.13) scale=(1.00, 1.00, 1.00)
+CR097 supported properties and camp/Grounded roadside chain-link pos=(462.877, 78.242, 15.965) bounds=Center: (462.86, 79.18, 15.09), Extents: (0.09, 0.99, 0.95) scale=(1.00, 1.00, 1.00)
+CR097 supported properties and camp/Grounded roadside chain-link pos=(461.429, 83.619, -13.213) bounds=Center: (461.40, 84.60, -14.24), Extents: (0.10, 1.03, 1.10) scale=(1.00, 1.00, 1.00)
+CR097 supported properties and camp/Grounded wood crossbuck pos=(427.579, 80.161, 15.601) bounds=Center: (426.11, 81.86, 15.68), Extents: (1.54, 1.75, 0.15) scale=(1.00, 1.00, 1.00)
+CR101 local boundary extension/Grounded wood crossbuck pos=(412.656, 78.425, 31.666) bounds=Center: (411.80, 79.26, 32.80), Extents: (0.93, 0.89, 1.21) scale=(1.00, 1.00, 1.00)
+CR101 local boundary extension/Grounded wood crossbuck pos=(390.073, 79.854, 31.054) bounds=Center: (390.03, 80.74, 29.63), Extents: (0.11, 0.94, 1.50) scale=(1.00, 1.00, 1.00)
+Woods replacing later subdivisions/Complete authored trees pos=(0.000, 0.000, 0.000) bounds=Center: (399.75, 89.06, 81.12), Extents: (86.37, 14.22, 81.57) scale=(1.00, 1.00, 1.00)
+CR097 supported properties and camp/Grounded roadside chain-link pos=(461.306, 84.698, -19.430) bounds=Center: (461.31, 85.67, -20.48), Extents: (0.07, 1.02, 1.12) scale=(1.00, 1.00, 1.00)
+CR101 local boundary extension/Grounded wood crossbuck pos=(409.231, 78.603, 36.212) bounds=Center: (407.87, 79.51, 36.25), Extents: (1.43, 0.96, 0.11) scale=(1.00, 1.00, 1.00)
+CR097 supported properties and camp/Grounded roadside chain-link pos=(461.923, 81.736, -3.178) bounds=Center: (461.86, 82.72, -4.18), Extents: (0.13, 1.04, 1.07) scale=(1.00, 1.00, 1.00)
+CR097 supported properties and camp/Grounded wood crossbuck pos=(454.013, 78.353, 14.223) bounds=Center: (452.54, 79.16, 14.30), Extents: (1.54, 0.86, 0.15) scale=(1.00, 1.00, 1.00)
+CR097 supported properties and camp/Grounded wood crossbuck pos=(448.138, 78.415, 14.529) bounds=Center: (446.67, 79.24, 14.61), Extents: (1.54, 0.88, 0.15) scale=(1.00, 1.00, 1.00)
+CR101 local boundary extension/Grounded wood crossbuck pos=(422.929, 82.207, 18.028) bounds=Center: (422.07, 82.74, 19.16), Extents: (0.93, 1.12, 1.21) scale=(1.00, 1.00, 1.00)
+CR101 local boundary extension/Grounded wood crossbuck pos=(392.952, 79.387, 36.687) bounds=Center: (391.60, 80.24, 36.73), Extents: (1.43, 0.90, 0.11) scale=(1.00, 1.00, 1.00)
+CR101 local boundary extension/Grounded wood crossbuck pos=(421.217, 81.669, 20.301) bounds=Center: (420.36, 81.95, 21.44), Extents: (0.93, 1.37, 1.21) scale=(1.00, 1.00, 1.00)
+CR101 local boundary extension/Grounded wood crossbuck pos=(389.989, 80.032, 28.198) bounds=Center: (389.95, 80.84, 26.77), Extents: (0.11, 0.86, 1.50) scale=(1.00, 1.00, 1.00)
+CR097 supported properties and camp/Grounded wood crossbuck pos=(388.812, 79.089, -12.213) bounds=Center: (388.77, 79.89, -13.66), Extents: (0.11, 0.85, 1.52) scale=(1.00, 1.00, 1.00)
+CR101 local boundary extension/Grounded wood crossbuck pos=(419.505, 80.626, 22.574) bounds=Center: (418.65, 80.89, 23.71), Extents: (0.93, 1.38, 1.21) scale=(1.00, 1.00, 1.00)
+CR101 local boundary extension/Grounded wood crossbuck pos=(390.239, 79.490, 36.766) bounds=Center: (390.20, 80.37, 35.34), Extents: (0.11, 0.93, 1.50) scale=(1.00, 1.00, 1.00)
+Phase 6 - architectural render batches/Blue glass pos=(0.000, 0.000, 0.000) bounds=Center: (-43.90, 49.11, -1.71), Extents: (631.93, 41.36, 599.94) scale=(1.00, 1.00, 1.00)
+CR097 supported properties and camp/Grounded wood crossbuck pos=(388.896, 79.089, -9.315) bounds=Center: (388.85, 79.89, -10.76), Extents: (0.11, 0.85, 1.52) scale=(1.00, 1.00, 1.00)
+CR097 supported properties and camp/Grounded wood crossbuck pos=(388.980, 79.090, -6.416) bounds=Center: (388.94, 79.89, -7.87), Extents: (0.11, 0.85, 1.52) scale=(1.00, 1.00, 1.00)
+CR101 local boundary extension/Grounded wood crossbuck pos=(398.378, 79.223, 36.529) bounds=Center: (397.02, 80.07, 36.57), Extents: (1.43, 0.89, 0.11) scale=(1.00, 1.00, 1.00)
+Phase 6 - architectural render batches/Charcoal roof pos=(0.000, 0.000, 0.000) bounds=Center: (-43.87, 51.22, 0.19), Extents: (632.32, 43.34, 602.29) scale=(1.00, 1.00, 1.00)
+CR097 supported properties and camp/Grounded roadside chain-link pos=(461.326, 84.347, -17.342) bounds=Center: (461.32, 85.32, -18.39), Extents: (0.08, 1.03, 1.11) scale=(1.00, 1.00, 1.00)
+CR097 supported properties and camp/Grounded roadside chain-link pos=(462.165, 80.961, 0.774) bounds=Center: (462.10, 81.95, -0.21), Extents: (0.13, 1.04, 1.05) scale=(1.00, 1.00, 1.00)
+Remembered houses and approximate buildings/Dan - blue X/Reference architecture/Batched Pool landscaping stone pos=(415.800, 83.820, -13.000) bounds=Center: (407.18, 84.20, -12.75), Extents: (16.02, 4.72, 10.95) scale=(1.00, 1.00, 1.00)
+Remembered houses and approximate buildings/Dan - blue X/Reference architecture/Batched Warm red brick pos=(415.800, 83.820, -13.000) bounds=Center: (415.13, 84.47, -12.98), Extents: (6.01, 4.30, 11.66) scale=(1.00, 1.00, 1.00)
+Route atlas direction guidance/Main teal / reassurance pos=(0.000, 0.000, 0.000) bounds=Center: (472.79, 82.41, -5.80), Extents: (1.50, 0.59, 3.01) scale=(1.00, 1.00, 1.00)
+CR097 supported properties and camp/Grounded wood crossbuck pos=(439.327, 78.631, 14.989) bounds=Center: (437.86, 79.48, 15.07), Extents: (1.54, 0.90, 0.15) scale=(1.00, 1.00, 1.00)
+CR097 supported properties and camp/Grounded wood crossbuck pos=(430.516, 79.039, 15.448) bounds=Center: (429.05, 80.40, 15.52), Extents: (1.54, 1.41, 0.15) scale=(1.00, 1.00, 1.00)
+CR097 supported properties and camp/Grounded roadside chain-link pos=(462.778, 78.831, 12.329) bounds=Center: (462.74, 79.79, 11.38), Extents: (0.11, 1.01, 1.02) scale=(1.00, 1.00, 1.00)
+Phase 6 - architectural render batches/Door timber pos=(0.000, 0.000, 0.000) bounds=Center: (-42.94, 47.90, -134.89), Extents: (621.28, 41.77, 456.26) scale=(1.00, 1.00, 1.00)
+CR097 supported properties and camp/Grounded wood crossbuck pos=(456.950, 78.350, 14.070) bounds=Center: (455.48, 79.15, 14.15), Extents: (1.54, 0.85, 0.15) scale=(1.00, 1.00, 1.00)
+CR101 local boundary extension/Grounded wood crossbuck pos=(389.906, 80.046, 25.342) bounds=Center: (389.86, 80.80, 23.91), Extents: (0.11, 0.90, 1.50) scale=(1.00, 1.00, 1.00)
+CR097 supported properties and camp/Grounded roadside chain-link pos=(461.368, 83.987, -15.270) bounds=Center: (461.35, 84.97, -16.31), Extents: (0.09, 1.03, 1.11) scale=(1.00, 1.00, 1.00)
+CR101 local boundary extension/Grounded wood crossbuck pos=(389.525, 79.261, 12.276) bounds=Center: (389.49, 80.09, 11.15), Extents: (0.10, 0.88, 1.19) scale=(1.00, 1.00, 1.00)
+Remembered houses and approximate buildings/Dan - blue X/Reference architecture/Batched Pool water pos=(415.800, 83.820, -13.000) bounds=Center: (397.31, 79.88, -12.46), Extents: (3.57, 0.02, 6.00) scale=(1.00, 1.00, 1.00)
+CR097 supported properties and camp/Grounded wood crossbuck pos=(389.318, 79.092, 5.179) bounds=Center: (389.28, 79.89, 3.73), Extents: (0.11, 0.85, 1.52) scale=(1.00, 1.00, 1.00)
+CR097 supported properties and camp/Grounded roadside chain-link pos=(462.898, 77.962, 17.811) bounds=Center: (462.89, 78.90, 16.89), Extents: (0.08, 0.99, 0.99) scale=(1.00, 1.00, 1.00)
+CR101 local boundary extension/Grounded wood crossbuck pos=(389.591, 79.225, 14.525) bounds=Center: (389.56, 80.04, 13.40), Extents: (0.10, 0.87, 1.19) scale=(1.00, 1.00, 1.00)
+CR097 supported properties and camp/Grounded wood crossbuck pos=(462.824, 78.594, 13.764) bounds=Center: (461.36, 79.30, 13.84), Extents: (1.54, 0.94, 0.15) scale=(1.00, 1.00, 1.00)
+CR101 local boundary extension/Grounded wood crossbuck pos=(395.665, 79.311, 36.608) bounds=Center: (394.31, 80.15, 36.65), Extents: (1.43, 0.89, 0.11) scale=(1.00, 1.00, 1.00)
+CR097 supported properties and camp/Grounded wood crossbuck pos=(388.643, 79.089, -18.011) bounds=Center: (388.60, 79.89, -19.46), Extents: (0.11, 0.85, 1.52) scale=(1.00, 1.00, 1.00)
+CR101 local boundary extension/Grounded wood crossbuck pos=(424.642, 82.018, 15.755) bounds=Center: (423.79, 82.91, 16.89), Extents: (0.93, 0.94, 1.21) scale=(1.00, 1.00, 1.00)
+CR097 supported properties and camp/Grounded roadside chain-link pos=(461.506, 83.244, -11.172) bounds=Center: (461.47, 84.23, -12.19), Extents: (0.11, 1.04, 1.09) scale=(1.00, 1.00, 1.00)
+CR097 supported properties and camp/Grounded wood crossbuck pos=(442.264, 78.543, 14.836) bounds=Center: (440.80, 79.39, 14.91), Extents: (1.54, 0.89, 0.15) scale=(1.00, 1.00, 1.00)
+CR101 local boundary extension/Grounded wood crossbuck pos=(389.656, 79.344, 16.774) bounds=Center: (389.62, 80.08, 15.65), Extents: (0.10, 0.91, 1.19) scale=(1.00, 1.00, 1.00)
+CR097 supported properties and camp/Grounded wood crossbuck pos=(389.234, 79.091, 2.280) bounds=Center: (389.19, 79.89, 0.83), Extents: (0.11, 0.85, 1.52) scale=(1.00, 1.00, 1.00)
+CR097 supported properties and camp/Grounded wood crossbuck pos=(445.201, 78.471, 14.683) bounds=Center: (443.73, 79.31, 14.76), Extents: (1.54, 0.89, 0.15) scale=(1.00, 1.00, 1.00)
+CR097 supported properties and camp/Grounded roadside chain-link pos=(461.696, 82.484, -7.185) bounds=Center: (461.64, 83.48, -8.20), Extents: (0.12, 1.05, 1.08) scale=(1.00, 1.00, 1.00)
+CR101 local boundary extension/Grounded wood crossbuck pos=(414.368, 78.435, 29.393) bounds=Center: (413.51, 79.23, 30.53), Extents: (0.93, 0.85, 1.21) scale=(1.00, 1.00, 1.00)
+CR097 supported properties and camp/Grounded roadside chain-link pos=(462.895, 77.716, 19.644) bounds=Center: (462.90, 78.64, 18.73), Extents: (0.07, 0.97, 0.99) scale=(1.00, 1.00, 1.00)
+CR101 local boundary extension/Grounded wood crossbuck pos=(389.460, 79.320, 10.027) bounds=Center: (389.43, 80.12, 8.90), Extents: (0.10, 0.85, 1.19) scale=(1.00, 1.00, 1.00)
+CR097 supported properties and camp/Grounded wood crossbuck pos=(436.390, 78.733, 15.142) bounds=Center: (434.92, 79.59, 15.22), Extents: (1.54, 0.91, 0.15) scale=(1.00, 1.00, 1.00)
+Phase 6 - architectural render batches/Warm plaster pos=(0.000, 0.000, 0.000) bounds=Center: (-43.82, 48.40, -9.09), Extents: (632.31, 43.37, 593.01) scale=(1.00, 1.00, 1.00)
+CR101 local boundary extension/Grounded wood crossbuck pos=(389.740, 79.713, 19.630) bounds=Center: (389.70, 80.33, 18.20), Extents: (0.11, 1.03, 1.50) scale=(1.00, 1.00, 1.00)
+CR101 local boundary extension/Grounded wood crossbuck pos=(390.156, 79.647, 33.910) bounds=Center: (390.11, 80.55, 32.48), Extents: (0.11, 0.95, 1.50) scale=(1.00, 1.00, 1.00)
+CR101 local boundary extension/Grounded wood crossbuck pos=(410.943, 78.501, 33.939) bounds=Center: (410.09, 79.35, 35.08), Extents: (0.93, 0.90, 1.21) scale=(1.00, 1.00, 1.00)
+CR101 local boundary extension/Grounded wood crossbuck pos=(403.805, 79.006, 36.370) bounds=Center: (402.45, 79.86, 36.41), Extents: (1.43, 0.91, 0.11) scale=(1.00, 1.00, 1.00)
+CR101 local boundary extension/Grounded wood crossbuck pos=(406.518, 78.825, 36.291) bounds=Center: (405.16, 79.72, 36.33), Extents: (1.43, 0.94, 0.11) scale=(1.00, 1.00, 1.00)
+CR101 local boundary extension/Grounded wood crossbuck pos=(389.823, 79.947, 22.486) bounds=Center: (389.78, 80.63, 21.06), Extents: (0.11, 0.97, 1.50) scale=(1.00, 1.00, 1.00)
+CR097 supported properties and camp/Grounded wood crossbuck pos=(451.075, 78.376, 14.376) bounds=Center: (449.61, 79.20, 14.45), Extents: (1.54, 0.87, 0.15) scale=(1.00, 1.00, 1.00)
+Phase 6 - architectural render batches/Slate blue siding pos=(0.000, 0.000, 0.000) bounds=Center: (-1.49, 48.75, -6.13), Extents: (589.45, 40.94, 595.45) scale=(1.00, 1.00, 1.00)
+CR101 local boundary extension/Grounded wood crossbuck pos=(417.792, 79.557, 24.847) bounds=Center: (416.94, 79.97, 25.98), Extents: (0.93, 1.23, 1.21) scale=(1.00, 1.00, 1.00)
+CR097 supported properties and camp/Grounded wood crossbuck pos=(389.149, 79.091, -0.618) bounds=Center: (389.11, 79.89, -2.07), Extents: (0.11, 0.85, 1.52) scale=(1.00, 1.00, 1.00)
+Remembered houses and approximate buildings/Dan - blue X/Reference architecture/Batched Shallow silver roof pos=(415.800, 83.820, -13.000) bounds=Center: (407.42, 83.74, 4.13), Extents: (15.72, 4.42, 29.80) scale=(1.00, 1.00, 1.00)
+Remembered houses and approximate buildings/Dan - blue X/Reference architecture/Batched Window glass pos=(415.800, 83.820, -13.000) bounds=Center: (415.81, 84.13, -13.00), Extents: (5.43, 2.16, 9.55) scale=(1.00, 1.00, 1.00)
+CR101 local boundary extension/Grounded wood crossbuck pos=(401.092, 79.121, 36.450) bounds=Center: (399.74, 79.97, 36.49), Extents: (1.43, 0.90, 0.11) scale=(1.00, 1.00, 1.00)
+CR097 supported properties and camp/Grounded wood crossbuck pos=(388.727, 79.089, -15.112) bounds=Center: (388.68, 79.89, -16.56), Extents: (0.11, 0.85, 1.52) scale=(1.00, 1.00, 1.00)
+CR097 supported properties and camp/Grounded roadside chain-link pos=(461.806, 82.110, -5.175) bounds=Center: (461.75, 83.10, -6.18), Extents: (0.13, 1.04, 1.08) scale=(1.00, 1.00, 1.00)
+CR097 supported properties and camp/Grounded wood crossbuck pos=(424.642, 81.967, 15.755) bounds=Center: (423.18, 83.42, 15.80), Extents: (1.53, 1.50, 0.11) scale=(1.00, 1.00, 1.00)
+CR097 supported properties and camp/Grounded roadside chain-link pos=(461.593, 82.874, -9.211) bounds=Center: (461.55, 83.86, -10.19), Extents: (0.11, 1.03, 1.05) scale=(1.00, 1.00, 1.00)
+Woods replacing later subdivisions/Complete authored trees pos=(0.000, 0.000, 0.000) bounds=Center: (392.73, 79.60, -79.69), Extents: (75.85, 24.67, 83.88) scale=(1.00, 1.00, 1.00)
+Remembered houses and approximate buildings/Dan - blue X/Reference architecture/Batched Mountain foliage pos=(415.800, 83.820, -13.000) bounds=Center: (424.10, 84.11, -12.99), Extents: (0.85, 0.81, 10.36) scale=(1.00, 1.00, 1.00)
+DRIVE bounds=Center: (430.31, 80.87, 17.75), Extents: (38.93, 2.23, 13.58)
+PROFILE 390 Ground_560_320=79.320
+PROFILE 392 Ground_Dan beige concrete descent and parking=79.466 / Ground_560_320=79.382
+PROFILE 394 Ground_Dan beige concrete descent and parking=79.679 / Ground_560_320=79.599
+PROFILE 396 Ground_Dan beige concrete descent and parking=79.897 / Ground_560_320=79.817
+PROFILE 398 Ground_Dan beige concrete descent and parking=80.114 / Ground_560_320=80.034
+PROFILE 400 Ground_Dan beige concrete descent and parking=80.332 / Ground_560_320=80.252
+PROFILE 402 Ground_Dan beige concrete descent and parking=80.549 / Ground_560_320=80.469
+PROFILE 404 Ground_Dan beige concrete descent and parking=80.767 / Ground_560_320=80.687
+PROFILE 406 Ground_Dan beige concrete descent and parking=80.984 / Ground_560_320=80.904
+PROFILE 408 Ground_Dan beige concrete descent and parking=81.202 / Ground_560_320=81.122
+PROFILE 410 Ground_Dan beige concrete descent and parking=81.420 / Ground_560_320=81.340
+PROFILE 412 Ground_Dan beige concrete descent and parking=81.637 / Ground_560_320=81.557
+PROFILE 414 Ground_Dan beige concrete descent and parking=81.855 / Ground_560_320=81.775
+PROFILE 416 Ground_Dan beige concrete descent and parking=82.072 / Ground_560_320=81.992
+PROFILE 418 Ground_Dan beige concrete descent and parking=82.290 / Ground_560_320=82.210
+PROFILE 420 Ground_Dan beige concrete descent and parking=82.507 / Ground_560_320=82.427
+PROFILE 422 Ground_Dan beige concrete descent and parking=82.725 / Ground_560_320=82.645
+PROFILE 424 Ground_Dan beige concrete descent and parking=82.941 / Ground_560_320=82.862
+PROFILE 426 Ground_Dan beige concrete descent and parking=83.096 / Ground_560_320=83.020
+PROFILE 428 Ground_Dan beige concrete descent and parking=83.094 / Ground_560_320=83.020
+PROFILE 430 Ground_Dan beige concrete descent and parking=82.782 / Ground_560_320=82.715
+PROFILE 432 Ground_Dan beige concrete descent and parking=81.867 / Ground_560_320=81.771
+PROFILE 434 Ground_Dan beige concrete descent and parking=81.737 / Ground_560_320=81.657
+PROFILE 436 Ground_Dan beige concrete descent and parking=81.624 / Ground_560_320=81.544
+PROFILE 438 Ground_Dan beige concrete descent and parking=81.510 / Ground_560_320=81.430
+PROFILE 440 Ground_Dan beige concrete descent and parking=81.397 / Ground_560_320=81.317
+PROFILE 442 Ground_Dan beige concrete descent and parking=81.284 / Ground_560_320=81.204
+PROFILE 444 Ground_Dan beige concrete descent and parking=81.170 / Ground_560_320=81.090
+PROFILE 446 Ground_Dan beige concrete descent and parking=81.057 / Ground_560_320=80.977
+PROFILE 448 Ground_Dan beige concrete descent and parking=80.943 / Ground_560_320=80.863
+PROFILE 450 Ground_Dan beige concrete descent and parking=80.830 / Ground_560_320=80.750
+PROFILE 452 Ground_Dan beige concrete descent and parking=80.717 / Ground_560_320=80.637
+PROFILE 454 Ground_Dan beige concrete descent and parking=80.600 / Ground_560_320=80.523
+PROFILE 456 Ground_Dan beige concrete descent and parking=80.317 / Ground_560_320=80.247
+PROFILE 458 Ground_Dan beige concrete descent and parking=79.332 / Ground_560_320=79.230
+PROFILE 460 Ground_Dan beige concrete descent and parking=79.353 / Ground_560_320=79.272
+PROFILE 462 Ground_Dan beige concrete descent and parking=79.454 / Ground_560_320=79.373
+PROFILE 464 Ground_Dan beige concrete descent and parking=79.568 / Ground_560_320=79.488
+PROFILE 466 Ground_Dan beige concrete descent and parking=79.653 / Ground_560_320=79.574
+PROFILE 468 Ground_Dan beige concrete descent and parking=79.668 / Ground_560_320=79.589
+PROFILE 470 Ground_560_320=79.571
+PROFILE 472 Ground_560_320=79.554
+PROFILE 474 Ground_560_320=79.537

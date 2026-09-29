@@ -1,0 +1,6 @@
+StreetLoopGreybox: removed local terrain intrusion beneath existing concrete: 627 vertices, largest=0.1422424; single camera-facing development labels remain visible through foliage without clearing trees
+StreetLoopReverse: removed local terrain intrusion beneath existing concrete: 627 vertices, largest=0.1422424; single camera-facing development labels remain visible through foliage without clearing trees
+LakeWoods: removed local terrain intrusion beneath existing concrete: 2439 vertices, largest=0.02532959; single camera-facing development labels remain visible through foliage without clearing trees
+ForestLoopReverse: removed local terrain intrusion beneath existing concrete: 2439 vertices, largest=0.02532959; single camera-facing development labels remain visible through foliage without clearing trees
+MountainLoop: removed local terrain intrusion beneath existing concrete: 2439 vertices, largest=0.02532959; single camera-facing development labels remain visible through foliage without clearing trees
+MountainLoopReverse: removed local terrain intrusion beneath existing concrete: 2439 vertices, largest=0.02532959; single camera-facing development labels remain visible through foliage without clearing trees

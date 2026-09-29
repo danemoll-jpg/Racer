@@ -1,0 +1,22 @@
+PASS Parking is completely flat across the full existing apron; min=79.45641 max=79.45641
+PASS Driveway visible and collision mesh are identical
+PASS Concrete terrain support max separation=0.0428772 minimum separation=0.02896881 across 439 samples
+PASS Eight temporary anchors
+PASS Marker 1 hard X/Z, grounded, one readable camera-facing label, no collider: (463.6000, 79.7301, 8.0000)
+PASS Marker 2 hard X/Z, grounded, one readable camera-facing label, no collider: (422.7000, 82.8000, 9.0000)
+PASS Marker 3 hard X/Z, grounded, one readable camera-facing label, no collider: (409.5000, 79.4569, 9.3000)
+PASS Marker 4 hard X/Z, grounded, one readable camera-facing label, no collider: (391.9000, 79.4564, 9.7000)
+PASS Marker 5 hard X/Z, grounded, one readable camera-facing label, no collider: (331.4000, 78.0277, 16.2000)
+PASS Marker 6 hard X/Z, grounded, one readable camera-facing label, no collider: (258.6000, 67.6831, 8.2000)
+PASS Marker 7 hard X/Z, grounded, one readable camera-facing label, no collider: (96.1000, 38.3389, -108.6000)
+PASS Marker 8 hard X/Z, grounded, one readable camera-facing label, no collider: (456.4000, 81.3357, 67.4000)
+PASS Rejected scenes absent from build list
+PASS Six established selectable courses
+PASS No rejected Backyard surfaces or replacement course
+PASS One existing mailbox at main entrance left side, grounded; (466.30, 80.39, 2.00)
+PASS Fence endpoint support max error=0.09794617
+PASS Garage walls supported foundation; largest corner gap=0.01136017
+PASS Pool house walls supported foundation; largest corner gap=7.629395E-06
+PASS Accepted Kyle mesh retained exactly
+PASS Existing playlist with removed Backyard entry remains readable, editable and retained
+PASS Removed course cannot load through a saved playlist

@@ -1,3 +1,5 @@
+> **REJECTED / ROLLED BACK � 2026-09-29.** Historical failed design only. See [current restored-world anchor validation atlas](../YardReset/ATLAS.md). No new course is authorized before Dan validates the eight points.
+
 # Dan's Backyard — saved scene atlas
 
 [Forward](DansBackyard.svg) · [Reverse](DansBackyardReverse.svg) · [Existing route atlas](../ForestWaterJump/ATLAS.md)

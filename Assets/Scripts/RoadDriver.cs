@@ -32,8 +32,6 @@ namespace Racer
         float branchBest, branchStuck;
         float routeStuck, progressStation;
         bool progressSample;
-        float orderedRoadStation;
-        bool orderedRoadSample;
         float rejoinStuck, rejoinBestDistance;
         Vector3 rejoinTarget;
         bool trackingRejoin;
@@ -44,7 +42,6 @@ namespace Racer
         public void Initialize(RaceDirector race, ArcadeVehicle car, bool racer, int direction, float variation)
         {
             Race = race;
-            orderedRoadSample=false;
             mountainFlights=race.GetComponent<MountainFlights>();
             // Mountain scenes retain the free-roam Forest layout. Its station numbers
             // belong to a different road and must not brake these mandatory flights.
@@ -101,15 +98,6 @@ namespace Racer
             }
 
             float s = DriveRoad.Project(Car.Body.position, out float lateral);
-            // The new ordered woodland courses pass near their own return trail.
-            // Keep pursuit on the current leg after an imperfect jump landing.
-            // Older courses and optional-route decisions retain their existing behavior.
-            if(racing && Race.requireOrderedGates)
-            {
-                float previous=Racer?.Branch.Route ? Racer.Branch.RoadPosition : orderedRoadSample?orderedRoadStation:s;
-                s=DriveRoad.ProjectNear(Car.Body.position,previous,60,out lateral);
-                orderedRoadStation=s;orderedRoadSample=true;
-            }
             float driveHalfWidth=racing&&mountainFlights?6:DriveRoad.HalfWidth(s);
             if(HighwayTraffic && (DriveRoad.openHighway?(Direction>0?s>DriveRoad.Length-75:s<75):(Direction>0?s>4680 || s<3650:s<3650 || s>4680)))
             { TryRecycleHighway(); s=DriveRoad.Project(Car.Body.position,out lateral); }

@@ -1,0 +1,25 @@
+from pathlib import Path
+root=Path(__file__).resolve().parents[1]
+p=root/'PROJECT_TODO.md';s=p.read_text(encoding='utf-8-sig')
+section="""## Current task — 2026-09-29 / rejected Backyard rollback, property correction and anchor validation
+
+**Dan's first Backyard attempt: REJECTED / ROLLED BACK.** Reasons: hard anchors not honored, excessive forest clearing, road-like geometry instead of a wooded trail, dump/gully absent or incorrect, damaged property/support relationships, and failure to implement the intended concept. Historical 0.36 automated pass claims below do not constitute Dan's acceptance.
+
+- Safety checkpoint: clean `main` **7ed9adab27fb22a765e24dad6d2eb8d66ab32c6c**. Pre-construction reference **777b6242**; rejected implementation **6b7181fc**. Selective rollback preserves unrelated accepted work.
+- Removed both rejected course scenes and their new forest surfaces, grading, clearing, jumps/ramps/shortcuts, gates, AI/navigation/minimap route data and selectable entries. Six established worlds retain their original woodland/tree assets. No replacement route, trail or road is built. Historical records and saved playlist definitions remain preserved; removed course entries cannot launch deleted scenes.
+- **Kyle driveway accepted fix preserved exactly**, near (478.3,82.0,-1.9). No other Kyle property modification. McFadden entrance/sign/Cut, Street wrong-way treatment, minimap, XYZ HUD, supplied coyote audio, accepted reset/recovery and AI shortcut probabilities, Laurel and established courses remain preserved.
+- Dan's existing **beige concrete** horizontal footprint retained. Smooth start-to-hill approach; intended hill begins near (422.7,9.0). Lower parking/apron is completely flat from approximately (409.5,9.3) through (391.9,9.7), using measured end pavement **Y=79.45641** in Street scenes (approximately **79.45346** in the other worlds). Smooth boundaries and supported entrance shoulders; no new road.
+- Coordinated dependency work: terrain support beneath driveway; building foundation interiors preserved; **36 fence sections per scene** refitted individually by endpoint with matching collider bounds; existing dirt threshold reseated. House, garage/kennel and pool house stay in place. No new race infrastructure.
+- Existing mailbox moved from the second driveway to **(466.3,≈80.391,2.0)**, south/LEFT of the main entrance when looking from South Cherokee Lane toward the property. Post grounded after terrain completion. Whole original mailbox moved; no old base or duplicate remains.
+- **Eight temporary non-colliding pink anchors awaiting Dan's validation:** 1 START/FINISH (463.6,8.0); 2 HILL START (422.7,9.0); 3 PARKING START (409.5,9.3); 4 DIRT PATH START (391.9,9.7); 5 FUTURE DUMP LAUNCH (331.4,16.2); 6 FUTURE DUMP LANDING (258.6,8.2); 7 FUTURE BIG GULLY (96.1,-108.6); 8 FOREST RETURN (456.4,67.4). These are hard X/Z, with Y grounded to each scene's final surface. **Dan's Backyard is NOT reconstructed.** Inspect in Street Loop free roam; no Backyard race is selectable.
+- Future hard rules: **NO NEW ROADS THROUGH FOREST**; after existing pavement, dirt path → narrow wooded trail. Preserve forest character; only individual necessary tree removals. Mandatory X/Z anchors. Forward first, validate before shortcuts, Reverse later. Future dump must be an actual depression, gully a physical gully, failed jumps escapable. Existing roads/landmarks protected. **Wait for Dan to inspect/approve anchors before Forward construction.**
+- [Current atlas](Docs/YardReset/ATLAS.md) shows restored world/property and numbered points without a proposed connecting route. [Technical evidence and limitations](Docs/YardReset/VALIDATION.md) includes targeted support/marker checks, scene preservation and local entrance verification. Human visual/driving acceptance remains pending.
+- Target delivery: **0.37.0-review1 / game-37000**. Fresh build, publication, production launcher verification and cleanup remain pending until recorded below. Do not confuse the existing published 0.36 runtime with these source changes.
+
+"""
+old="## Current delivered task — 2026-09-28 / Dan's Backyard 0.36.0-review1 — COMPLETE"
+assert old in s;s=s.replace(old,section+"## Historical delivery — 2026-09-28 / Dan's Backyard 0.36.0-review1 — REJECTED by Dan",1)
+p.write_text(s,encoding='utf-8')
+p=root/'Docs/Backyard/ATLAS.md';s=p.read_text();p.write_text('> **REJECTED / ROLLED BACK — 2026-09-29.** Historical failed design only. See [current restored-world anchor validation atlas](../YardReset/ATLAS.md). No new course is authorized before Dan validates the eight points.\n\n'+s)
+p=root/'Docs/ForestWaterJump/ATLAS.md';s=p.read_text();p.write_text('> **Current Backyard status:** the first attempt is rejected/rolled back. [Restored property and eight anchor markers](../YardReset/ATLAS.md) await Dan’s validation; no replacement forest route is built. Existing Forest/Laurel route mapping below remains applicable.\n\n'+s)
+print('Updated current TODO and atlas status without rewriting historical evidence.')

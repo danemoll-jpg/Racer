@@ -1,0 +1,7 @@
+System.Exception: No original entrance surface (469.11, 80.16, 5.37)
+  at Racer.Editor.YardResetAuthoring.Surface (UnityEngine.Vector3 p) [0x00090] in C:\Users\danmo\Racer\Assets\Scripts\Editor\YardResetAuthoring.cs:21 
+  at Racer.Editor.YardResetAuthoring+<>c__DisplayClass16_0.<Run>g__CachedSurface|3 (UnityEngine.Vector3 p) [0x00023] in C:\Users\danmo\Racer\Assets\Scripts\Editor\YardResetAuthoring.cs:34 
+  at Racer.Editor.YardResetAuthoring+<>c__DisplayClass16_0.<Run>g__Shape|11 (UnityEngine.Vector3 local, Racer.Editor.YardResetAuthoring+<>c__DisplayClass16_1& , Racer.Editor.YardResetAuthoring+<>c__DisplayClass16_2& ) [0x0006f] in C:\Users\danmo\Racer\Assets\Scripts\Editor\YardResetAuthoring.cs:40 
+  at Racer.Editor.YardResetAuthoring+<>c__DisplayClass16_0.<Run>g__Add|12 (UnityEngine.Vector3 v, UnityEngine.Vector2 t, Racer.Editor.YardResetAuthoring+<>c__DisplayClass16_1& , Racer.Editor.YardResetAuthoring+<>c__DisplayClass16_2& ) [0x00018] in C:\Users\danmo\Racer\Assets\Scripts\Editor\YardResetAuthoring.cs:41 
+  at Racer.Editor.YardResetAuthoring.Run () [0x004e8] in C:\Users\danmo\Racer\Assets\Scripts\Editor\YardResetAuthoring.cs:45 
+  at PipelineEvaluation.PipelineEval_39af55b8+<>c.<Execute>b__0_0 () [0x00002] in <b39384c7c25c4c319def928a9e7ac9ee>:0 

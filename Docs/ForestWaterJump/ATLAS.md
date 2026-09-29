@@ -1,3 +1,5 @@
+> **Current Backyard status:** the first attempt is rejected/rolled back. [Restored property and eight anchor markers](../YardReset/ATLAS.md) await Dan’s validation; no replacement forest route is built. Existing Forest/Laurel route mapping below remains applicable.
+
 # Route atlas â€” 0.36.0-review1
 
 **Published new course:** [Dan's Backyard Forward and Reverse](../Backyard/ATLAS.md), with maps exported from their separate saved scene geometry and [verified delivery](../Backyard/PUBLICATION.md). The six established course maps below remain unchanged.
