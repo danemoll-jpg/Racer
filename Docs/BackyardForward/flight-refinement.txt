@@ -1,0 +1,1 @@
+Lengthened integrated takeoff curvature to 42m; 29388 terrain samples; 21 additional individual flight-corridor tree removals and 795 connected visual components cleared for actual airborne clearance/visibility. Normal wooded trail unchanged. Existing scene/property assets untouched.

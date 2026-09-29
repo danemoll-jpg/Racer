@@ -1,0 +1,21 @@
+PASS Anchor 1 exact X/Z reached; nearest 0.0000m
+PASS Anchor 2 exact X/Z reached; nearest 0.0000m
+PASS Anchor 3 exact X/Z reached; nearest 0.0000m
+PASS Anchor 4 exact X/Z reached; nearest 0.0000m
+PASS Anchor 5 exact X/Z reached; nearest 0.0000m
+PASS Anchor 6 exact X/Z reached; nearest 0.0000m
+PASS Anchor 7 exact X/Z reached; nearest 0.0000m
+PASS Anchor 8 exact X/Z reached; nearest 0.0000m
+PASS Anchor 9 exact X/Z reached; nearest 0.0000m
+PASS Accepted property pavement reused exactly
+PASS Parking completely flat at 79.45641
+PASS No forest road/deck mesh
+PASS All ordinary checkpoints are accepted blue gates
+PASS No checkpoint collider hazards
+PASS Garage walls foundation supported; gap=0.01136017
+PASS Pool house walls foundation supported; gap=1.525879E-05
+PASS Wooded corridor: 31 sampled stations have trees within 13m
+PASS Dump physically depressed below raised dirt launch; drop=12.19491
+PASS Same continuous ravine deep at z=-108.6; lower rim to bottom=10.56109
+PASS Same continuous ravine deep at z=0; lower rim to bottom=6.762936
+PASS Same continuous ravine deep at z=60.7; lower rim to bottom=8.806744

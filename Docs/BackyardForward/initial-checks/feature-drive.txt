@@ -1,0 +1,5 @@
+PASS major jump 1 ordinary motorcycle physics; grounded far-side landing=True, air=0.62s, launch speed minimum=8.78m/s, final=(259.81, 68.81, 12.47)
+PASS major jump 2 ordinary motorcycle physics; grounded far-side landing=True, air=1.30s, launch speed minimum=17.67m/s, final=(72.61, 39.05, -76.60)
+PASS major jump 3 ordinary motorcycle physics; grounded far-side landing=True, air=1.08s, launch speed minimum=20.63m/s, final=(129.91, 56.59, 84.57)
+PASS failed dump jump falls inside and drives out, no reset; minimumY=66.88908 final=(253.16, 68.66, 18.21)
+PASS ravine bottom to shallow southern escape, ordinary pedals and no reset; final=(88.23, 38.03, -173.05)

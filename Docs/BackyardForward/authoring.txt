@@ -1,0 +1,11 @@
+Ground_400_240: changed 62005 samples, single visible/collision terrain mesh
+Ground_480_240: changed 20 samples, single visible/collision terrain mesh
+Ground_400_320: changed 179291 samples, single visible/collision terrain mesh
+Ground_480_320: changed 102370 samples, single visible/collision terrain mesh
+Ground_560_320: changed 45540 samples, single visible/collision terrain mesh
+Ground_400_400: changed 73599 samples, single visible/collision terrain mesh
+Ground_480_400: changed 43266 samples, single visible/collision terrain mesh
+Ground_560_400: changed 24498 samples, single visible/collision terrain mesh
+Terrain copies=8
+Trees retained=12247; individually removed=89; grounded=100; existing batch copies edited=6; normal usable trail 5.3m wide
+Forward 1255.9m; 9 anchors; 8 blue checkpoints; 3 major + 4 extra terrain jumps; no Reverse, shortcuts or new road meshes

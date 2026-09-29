@@ -1,0 +1,1 @@
+28 accepted teal ground arrows, conformed to final terrain; no collision, no arrows in flight/landing zones or parking

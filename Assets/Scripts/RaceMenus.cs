@@ -363,7 +363,7 @@ namespace Racer
                 Action(1,"Forest Loop",()=>flow.SelectCourse(true));
                 Action(2,"Street Loop Reverse",()=>flow.SelectCourse(false,true));
                 Action(3,"Forest Loop Reverse",()=>flow.SelectCourse(true,true));
-                Action(4,"Mountain Loop",()=>flow.SelectMountain(false));Action(5,"Mountain Loop Reverse",()=>flow.SelectMountain(true));Action(6,"Back",flow.CloseGarage);
+                Action(4,"Mountain Loop",()=>flow.SelectMountain(false));Action(5,"Mountain Loop Reverse",()=>flow.SelectMountain(true));Action(6,"Dan's Backyard - Forward",flow.SelectBackyardForward);Action(7,"Back",flow.CloseGarage);
             }
             else if(shown==RaceFlow.Stage.Boards)
             {

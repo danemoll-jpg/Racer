@@ -1,0 +1,7 @@
+EditorApplication.delayCall+=()=>{try{
+var scene=UnityEditor.SceneManagement.EditorSceneManager.OpenScene(Racer.Editor.BackyardForwardAuthoring.ScenePath);var race=UnityEngine.Object.FindAnyObjectByType<Racer.RaceDirector>();race.road.Initialize();Physics.SyncTransforms();
+float Ground(Vector3 p)=>Physics.RaycastAll(new Vector3(p.x,250,p.z),Vector3.down,500,1,QueryTriggerInteraction.Ignore).Where(h=>h.collider.name.StartsWith("Ground_")||h.collider.name=="Decorative Road pavement").OrderBy(h=>h.distance).First().point.y;
+var target=new Vector3(227,0,-31);target.y=Ground(target);float s=race.road.Project(target,out _);var p=race.road.At(s,out var f);p.y=Ground(p);race.gates[2].transform.SetPositionAndRotation(p+Vector3.up*1.5f,Quaternion.LookRotation(Vector3.ProjectOnPlane(f,Vector3.up)));
+var glazing=AssetDatabase.LoadAssetAtPath<Material>("Assets/Resources/VehicleGlazing.mat");glazing.SetFloat("_SrcBlend",1);EditorUtility.SetDirty(glazing);
+UnityEditor.SceneManagement.EditorSceneManager.MarkSceneDirty(scene);UnityEditor.SceneManagement.EditorSceneManager.SaveScene(scene);AssetDatabase.SaveAssets();Racer.Editor.BackyardForwardAuthoring.Export();System.IO.File.WriteAllText("Docs/BackyardForward/final-checkpoint.txt","CP2 beyond dump landing/runout: "+p+" station="+s);
+}catch(Exception e){System.IO.File.WriteAllText("Docs/BackyardForward/final-checkpoint-error.txt",e.ToString());}};return "Scheduled final grounded checkpoint beyond dump runout";

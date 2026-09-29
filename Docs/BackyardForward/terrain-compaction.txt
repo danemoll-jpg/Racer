@@ -1,0 +1,8 @@
+Ground_400_240: 108870 -> 18673 vertices; same triangles/positions within 0.1mm
+Ground_480_240: 39570 -> 6790 vertices; same triangles/positions within 0.1mm
+Ground_400_320: 262590 -> 44959 vertices; same triangles/positions within 0.1mm
+Ground_480_320: 184335 -> 31556 vertices; same triangles/positions within 0.1mm
+Ground_560_320: 790035 -> 133805 vertices; same triangles/positions within 0.1mm
+Ground_400_400: 129570 -> 22161 vertices; same triangles/positions within 0.1mm
+Ground_480_400: 128085 -> 22010 vertices; same triangles/positions within 0.1mm
+Ground_560_400: 118365 -> 20318 vertices; same triangles/positions within 0.1mm

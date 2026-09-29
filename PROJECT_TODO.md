@@ -9,7 +9,19 @@
 - Do not silently modify or weaken CODEX_RULES.md. Changes to standing rules require an explicit instruction from Dan.
 - Root AGENTS.md points future Codex tasks to both files.
 
-## Current task — 2026-09-29 / rejected Backyard rollback, property correction and anchor validation
+## Current task — 2026-09-29 / Dan's Backyard Forward only
+
+- **Anchor validation COMPLETE.** Dan accepted the rollback/property-correction baseline and authorized Forward construction. The old rejected construction remains rejected. Safety checkpoint: clean `main` **04d3faa1a29d0c05e33adf8f4a054c0b1212f818**.
+- Nine hard X/Z anchors, in order: **1** start/finish (463.6,8.0); **2** hill start (422.7,9.0); **3** flat parking start (409.5,9.3); **4** pavement/dirt boundary (391.9,9.7); **5** corrected dump launch **(309.2,15.7)**; **6** dump landing (258.6,8.2); **7** first big gully crossing (96.1,-108.6); **8** second gully crossing/jump back **(107.7,60.7)**; **9** forest return (456.4,67.4). The old dump coordinate (331.4,16.2) is obsolete.
+- New `DansBackyardForward` scene derives from the accepted Street Loop world. Approximately 1.26 km, terrain-only dirt/wooded trail, existing South Cherokee return, one normal start/finish and eight accepted blue checkpoints. Compact local grid faces straight west into the accepted driveway; no immediate right turn. Existing menu, timing, minimap, AI and recovery systems are reused.
+- Physical dump depression with restrained debris; corrected launch and landing anchors. One extended ravine, about 302m long, nominal 38m/30m crossing widths and 12m/10m excavation depths, with a drivable bottom and shallow ends. Three major jumps plus four additional terrain crests. No new road, road slab or optional shortcut through the woods.
+- Forest character preserved: **12,226 trees retained, 110 individual clearance removals, 100 affected trees re-grounded**; normal usable forest trail 5.3m wide. Accepted property concrete/parking, Kyle driveway and all six established scenes remain unchanged. Parking remains exactly Y=79.45641.
+- **DAN'S BACKYARD FORWARD: IMPLEMENTED - AWAITING DAN GAMEPLAY REVIEW.** All 21 final geometry checks pass. Strict motor-driven feature checks clear the dump/first ravine/second ravine with 2.16s/2.18s/1.72s continuous air; failed dump and ravine bottom drive out without reset. All four racers physically finish the full lap; missed gates/recoveries are recorded rather than described as clean gameplay. Final local AI limits and the checkpoint beyond the dump runout will receive one fresh-player integration check. [Actual-geometry atlas](Docs/BackyardForward/ATLAS.md), [technical evidence](Docs/BackyardForward/VALIDATION.md).
+- **DAN'S BACKYARD REVERSE: DEFERRED UNTIL FORWARD APPROVAL.**
+- **DAN'S BACKYARD OPTIONAL SHORTCUTS: DEFERRED UNTIL FORWARD APPROVAL.**
+- Planned release: **0.38.0-review1 / game-38000**; not yet published. Final technical results and delivery evidence will replace this in-progress status.
+
+## Accepted baseline — 2026-09-29 / rejected Backyard rollback, property correction and anchor validation
 
 **Dan's first Backyard attempt: REJECTED / ROLLED BACK.** Reasons: hard anchors not honored, excessive forest clearing, road-like geometry instead of a wooded trail, dump/gully absent or incorrect, damaged property/support relationships, and failure to implement the intended concept. Historical 0.36 automated pass claims below do not constitute Dan's acceptance.
 

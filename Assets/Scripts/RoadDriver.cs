@@ -27,6 +27,7 @@ namespace Racer
         public RaceRoad DriveRoad => HighwayTraffic&&Race.throughRoad?Race.throughRoad:!racing && Race.ambientRoad ? Race.ambientRoad : Race.road;
         bool racing, finishParked;
         ForestLayout forestLayout;
+        BackyardForwardCourse backyard;
         MountainFlights mountainFlights;
         WoodlandRoute plannedBranch, progressBranch;
         float branchBest, branchStuck;
@@ -42,6 +43,7 @@ namespace Racer
         public void Initialize(RaceDirector race, ArcadeVehicle car, bool racer, int direction, float variation)
         {
             Race = race;
+            backyard=race.GetComponent<BackyardForwardCourse>();
             mountainFlights=race.GetComponent<MountainFlights>();
             // Mountain scenes retain the free-roam Forest layout. Its station numbers
             // belong to a different road and must not brake these mandatory flights.
@@ -137,7 +139,7 @@ namespace Racer
                         slowerAhead = true;
                 }
 
-                if (slowerAhead && (!forestLayout || DriveRoad.HalfWidth(s)>=4.9f) && (!oncoming || DriveRoad.HighwayBlend(s)>.95f))
+                if (slowerAhead && !backyard && (!forestLayout || DriveRoad.HalfWidth(s)>=4.9f) && (!oncoming || DriveRoad.HighwayBlend(s)>.95f))
                     desiredLane = DriveRoad.HighwayBlend(s)>.95f ? 6.15f : -2.3f;
                 if(mountainFlights&&slowerAhead){desiredLane=lane;float nearest=100;foreach(float option in new[]{-4.5f,-1.5f,1.5f,4.5f})if(Mathf.Abs(option-lane)>1&&Mathf.Abs(option-lane)<nearest&&LaneClear(s,option,speed)){desiredLane=option;nearest=Mathf.Abs(option-lane);}}
                 // Commit to a pass only when its destination lane has room alongside and ahead.
@@ -171,8 +173,10 @@ namespace Racer
             // nearest-road projection can move behind an ascending vehicle and
             // make ordinary pursuit steer away from the aligned catch slope.
             if(committedMountain){var flight=mountainFlights.At(DriveRoad,s);float along=Vector3.Dot(Car.Body.position-flight.start,flight.forward);target=flight.start+flight.forward*(along+look)+Vector3.Cross(Vector3.up,flight.forward).normalized*desiredLane;target.y=Car.Body.position.y;}
+            int backyardFlight=racing&&backyard?backyard.Flight(s):-1;
+            if(backyardFlight>=0){var axis=backyard.flightDirections[backyardFlight];var start=backyard.flightStarts[backyardFlight];float along=Vector3.Dot(Car.Body.position-start,axis);target=start+axis*(along+look);target.y=Car.Body.position.y;}
             var local = transform.InverseTransformPoint(target);
-            if(committedMountain)local=Quaternion.Inverse(Quaternion.LookRotation(Vector3.ProjectOnPlane(transform.forward,Vector3.up)))*(target-Car.Body.position);
+            if(committedMountain||backyardFlight>=0)local=Quaternion.Inverse(Quaternion.LookRotation(Vector3.ProjectOnPlane(transform.forward,Vector3.up)))*(target-Car.Body.position);
             float angle = Mathf.Atan2(local.x, local.z);
             float maxAngle = Mathf.Lerp(Car.slowSteerAngle, Car.fastSteerAngle, Mathf.Clamp01(speed / Car.topSpeed)) * Mathf.Deg2Rad;
             float steering = Mathf.Clamp(Mathf.Atan(2 * Car.wheelbase * Mathf.Sin(angle) / look) / maxAngle, -1, 1);
@@ -181,6 +185,7 @@ namespace Racer
             float judgment = racing ? Car.braking*brakeUse[skill] : 8f;
             judgment*=Variation.Judgment;
             TargetSpeed = (racing ? Car.topSpeed * speedUse[skill] : Mathf.Lerp(17,29,DriveRoad.HighwayBlend(s))) * pace;
+            if(racing&&backyard)TargetSpeed=Mathf.Min(TargetSpeed,backyardFlight>=0?32:28);
             // These exposed climbing connectors need a settled approach. The mandatory
             // run-ups retain full acceleration; this is AI pedal planning, not a change
             // to the player's vehicle or to takeoff forces.
@@ -235,7 +240,7 @@ namespace Racer
                 // The ATV's wide sensor can start overlapping its own curved runway.
                 // Confirm a walkable surface beneath us before ignoring that zero-
                 // distance hit; cars, trees and genuine walls remain obstacles.
-                if(committedMountain&&hit.distance<.01f&&hit.collider.name.StartsWith("Ground_")
+                if((committedMountain||(racing&&backyard))&&hit.distance<.01f&&hit.collider.name.StartsWith("Ground_")
                     &&hit.collider.Raycast(new Ray(Car.Body.position+Vector3.up*3,Vector3.down),out var support,6)
                     &&support.normal.y>.55f)continue;
                 float aheadSpeed=hit.rigidbody?Mathf.Max(0,Vector3.Dot(hit.rigidbody.linearVelocity,transform.forward)):0;

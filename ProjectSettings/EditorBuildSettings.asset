@@ -17,5 +17,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ForestLoopReverse.unity
     guid: 7451e063286fca045a890f889635d2da
+  - enabled: 1
+    path: Assets/Scenes/DansBackyardForward.unity
+    guid: ab4dae63b898d5248ab865e07875a939
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}

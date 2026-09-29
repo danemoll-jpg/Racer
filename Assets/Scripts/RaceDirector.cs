@@ -129,8 +129,9 @@ namespace Racer
             Racers[0].Dnf=false; Racers[0].FinishArmed=false; Racers[0].RecoveryStart=float.NaN; Racers[0].Recoveries=0;
             if (road && opponents && !FreeRoam)
             {
-                var grid = road.At(origin - 32, out var direction);
-                vehicle.Body.position = grid - Vector3.Cross(Vector3.up,direction).normalized * 2.2f + Vector3.up * Mathf.Max(.4f,vehicle.suspensionLength-Physics.gravity.magnitude/vehicle.springStrength);
+                var backyard=GetComponent<BackyardForwardCourse>();
+                var grid = road.At(backyard?backyard.GridStation(this,0):origin - 32, out var direction);
+                vehicle.Body.position = grid + Vector3.Cross(Vector3.up,direction).normalized * (backyard?backyard.GridSide(0):-2.2f) + Vector3.up * Mathf.Max(.4f,vehicle.suspensionLength-Physics.gravity.magnitude/vehicle.springStrength);
                 vehicle.Body.rotation = Quaternion.LookRotation(Vector3.ProjectOnPlane(direction,Vector3.up));
                 vehicle.transform.SetPositionAndRotation(vehicle.Body.position,vehicle.Body.rotation);
                 FindAnyObjectByType<ChaseCamera>()?.Snap();
@@ -229,7 +230,8 @@ namespace Racer
                 int h=n-localPopulation;
                 var driveRoad=driver.DriveRoad;
                 float station=driver.HighwayTraffic?(throughRoad?Mathf.Lerp(100,driveRoad.Length-100,(h+.5f)/Mathf.Max(1,highwayTrafficCount)):3800+(h/4)*175+(h%4)*22):(!racing&&ambientRoad?driveRoad.Project(vehicle.transform.position,out _):spawn)+200+n*driveRoad.Length/Mathf.Max(1,localPopulation);
-                driver.Place(racing ? spawn + 8 + n * 7 : station, racing ? (n % 2 == 0 ? 2.2f : -2.2f) : driveRoad.TrafficLane(station,driver.Direction,n%4>=2));
+                var backyard=GetComponent<BackyardForwardCourse>();
+                driver.Place(racing ? (backyard?backyard.GridStation(this,n+1):spawn + 8 + n * 7) : station, racing ? (backyard?backyard.GridSide(n+1):(n % 2 == 0 ? 2.2f : -2.2f)) : driveRoad.TrafficLane(station,driver.Direction,n%4>=2));
             }
             opponents=savedOpponents;
         }
