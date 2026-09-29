@@ -18,11 +18,22 @@ with zipfile.ZipFile(draft/'game.zip') as archive:
 assert any(p.startswith('Racer_Data/') and not p.endswith('.txt') for p in changed),'Only metadata changed'
 assert not versioned.exists(),'Do not overwrite an existing version; inspect first'
 launcherHash=digest(latest/'WoodstockRushLauncher.exe')
+new_paths={i['path'] for i in manifest['files']}
+obsolete=[]
+for relative,item in old.items():
+    if relative in new_paths:continue
+    target=(latest/relative).resolve()
+    assert target.is_relative_to(latest.resolve()),'Old manifest path escapes Latest'
+    if target.exists():
+        assert target.is_file() and digest(target)==item['sha256'],'Unexpected modification to obsolete runtime file: '+relative
+        obsolete.append(target)
 for destination in [versioned,latest]:
     for item in manifest['files']:
         target=destination/item['path'];target.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(runtime/item['path'],target)
     for item in manifest['files']:assert digest(destination/item['path'])==item['sha256'],str(destination/item['path'])
+for target in obsolete:target.unlink()
 assert digest(latest/'WoodstockRushLauncher.exe')==launcherHash
 assert digest(latest/'Racer.exe')!=launcherHash,'Root Racer.exe must be the Unity game, not launcher alias'
 result=dict(version=manifest['version'],build=37000,sourceCommit=commit,files=len(manifest['files']),changedRuntimeFiles=changed,buildOutput=str(runtime),latest=str(latest/'Racer.exe'),versioned=str(versioned/'Racer.exe'),exeSha256=digest(latest/'Racer.exe'),previousExeSha256=old['Racer.exe']['sha256'],inventoryAndZipMatch=True,namedLauncherPreserved=True)
+result['removedObsoletePriorGameFiles']=[p.relative_to(latest).as_posix() for p in obsolete]
 (out/'runtime-identity.json').write_text(json.dumps(result,indent=2));print(json.dumps(result))

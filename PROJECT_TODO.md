@@ -23,7 +23,8 @@
 - Future hard rules: **NO NEW ROADS THROUGH FOREST**; after existing pavement, dirt path → narrow wooded trail. Preserve forest character; only individual necessary tree removals. Mandatory X/Z anchors. Forward first, validate before shortcuts, Reverse later. Future dump must be an actual depression, gully a physical gully, failed jumps escapable. Existing roads/landmarks protected. **Wait for Dan to inspect/approve anchors before Forward construction.**
 - [Current atlas](Docs/YardReset/ATLAS.md) shows restored world/property and numbered points without a proposed connecting route. [Technical evidence and limitations](Docs/YardReset/VALIDATION.md) includes targeted support/marker checks, scene preservation and local entrance verification. Human visual/driving acceptance remains pending.
 - **Targeted verification PASS:** 22 geometry/marker/playlist checks; flat parking min=max 79.45641; concrete support gap 0.02897–0.04288m; supported garage/pool-house corners; one muted motorcycle entrance crossing at 8m/s, minimum 7.921m/s, initial 0.020s air. Final rendered views inspected. Testing stopped; no broader gameplay matrix.
-- Target delivery: **0.37.0-review1 / game-37000**. Fresh build, publication, production launcher verification and cleanup remain pending until recorded below. Do not confuse the existing published 0.36 runtime with these source changes.
+- **Delivery COMPLETE: 0.37.0-review1 / game-37000.** Completion source `f86887a1aa9f84494f13bed744f0d6f9a8d3eeef` pushed/verified on origin/main before fresh Unity Windows build (zero errors/five existing warnings, 6m17.9s). All 231 runtime/ZIP/signed inventory/Latest/managed files match. Three remote assets and signed catalog verified; clean public download/startup passed. Existing updater activated 37000 and preserved soundtrack; unmodified Play-Racer.cmd launched responsive `Builds/Latest/versions/37000/Racer.exe`. Complete root Latest matches. [Publication and source identity](Docs/YardReset/PUBLICATION.md).
+- **Cleanup COMPLETE:** Builds **5.962 → 4.944 GiB**, **1.018 GiB** recovered there; **1.802 GiB** total free-space gain including the public verification install; final C: free **302.317 GiB** (324,610,633,728 bytes). Only current 37000 and previous managed 36000 retained; source, keys/tools, launcher, music, saves and evidence preserved. **STOP: await Dan's anchor review; no new course construction.**
 
 ## Historical delivery — 2026-09-28 / Dan's Backyard 0.36.0-review1 — REJECTED by Dan
 
@@ -1915,6 +1916,15 @@ Record choices we do not want to repeatedly reconsider.
 ---
 
 # SESSION HANDOFF
+
+## Latest handoff — 2026-09-29 / 0.37.0-review1
+
+Dan's rejected Backyard course is selectively rolled back, original established woods restored/preserved and Kyle's accepted driveway mesh fix retained exactly. Existing beige driveway/entrance is smoothed and terrain-supported; lower parking is flat at Y=79.45641 in Street Loop; building foundations remain supported; 36 fence sections per world refitted; existing mailbox moved left of the main entrance. Eight non-colliding pink markers honor the exact hard X/Z points, with camera-facing labels visible through foliage. No new road, trail, dump, gully or race is built. Current atlas: Docs/YardReset/ATLAS.md.
+
+22 targeted checks and one muted motorcycle entrance crossing passed (8m/s approach, minimum 7.921m/s, initial 0.020s air). Safety 7ed9adab; completion source f86887a1 pushed to main. Fresh build zero errors/five warnings; game-37000 published and all 231 files verified. Clean public download/startup and real Play-Racer.cmd launch passed. Builds **5.962 → 4.944 GiB**, **1.018 GiB** recovered there; **1.802 GiB** total free-space gain including the public verification install; final C: free **302.317 GiB** (324,610,633,728 bytes). Current/previous runtime, music, saves, signing identity and source retained. Detailed delivery: Docs/YardReset/PUBLICATION.md.
+
+**Next action belongs to Dan:** inspect property and all eight anchors in Street Loop free roam. Anchor validation awaits his acceptance. Do not start Forward until he authorizes it; no new forest roads ever, future dirt path/narrow trail must remain wooded.
+
 
 **2026-09-23 planning update:** Added Dan's three future track ideas: the remembered dirt path/gully behind his approximately seven-acre property, a creatively authored track near Trickum, and a dedicated stunt track. Map proposed footprints alongside existing routes before choosing designs. Only this TODO was updated; game work remains paused.
 

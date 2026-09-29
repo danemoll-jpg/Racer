@@ -1,0 +1,51 @@
+from pathlib import Path
+import json
+root=Path(__file__).resolve().parents[1];out=root/'Docs/YardReset'
+clean=json.loads((out/'cleanup.json').read_text(encoding='utf-8-sig'))
+runtime=json.loads((out/'runtime-identity.json').read_text())
+hosted=json.loads((out/'hosted/result.json').read_text())
+launch=json.loads((out/'play-racer-launch.json').read_text(encoding='utf-8-sig'))
+remote=json.loads((out/'remote-release.json').read_text(encoding='utf-8-sig'))
+assert runtime['inventoryAndZipMatch'] and hosted['startupReady'] and launch['responsive'] and not remote['draft']
+assert all(x['build']==37000 for x in [runtime,hosted,launch])
+g=1024**3
+cleanup=f"Builds **{clean['buildsBefore']/g:.3f} → {clean['buildsAfter']/g:.3f} GiB**, **{clean['buildsRecovered']/g:.3f} GiB** recovered there; **{(clean['freeAfter']-clean['freeBefore'])/g:.3f} GiB** total free-space gain including the public verification install; final C: free **{clean['freeAfter']/g:.3f} GiB** ({clean['freeAfter']:,} bytes)."
+text=f"""# Property reset and anchor validation — 0.37.0-review1 delivery
+
+**Delivery COMPLETE.** [Published game-37000]({remote['html_url']}), complete local Latest and the existing signed production launcher agree on **0.37.0-review1**. Dan's Backyard remains rolled back. The eight anchors await Dan's validation; no Forward construction is authorized yet.
+
+- Safety checkpoint: clean `main` **7ed9adab27fb22a765e24dad6d2eb8d66ab32c6c** before changes.
+- Completion source: **{runtime['sourceCommit']}**, pushed and remote SHA verified on the existing `origin/main` before building.
+- Automatic approval initially rejected the push as sensitive egress to an unverified private repository. Read-only GitHub verification established the configured `danemoll-jpg/Racer` repository is public (`private=false`) with push permission. The attached request explicitly required pushing this source to the existing configured remote/branch. The same ordinary non-force push then succeeded. No controls, hooks, identity or destination changed.
+- Fresh clean-cache Unity Windows build **succeeded**, **zero errors/five existing warnings**, **6m17.9s**, started `2026-09-29T05:38:35.7722130Z`; build GUID **4b8e35188c9f458b91e2e37a48645834**. [Build evidence](build-release.txt).
+- All **231** runtime/ZIP/signed inventory/root Latest/managed 37000 files match SHA-256. Gameplay assembly and scene data changed. Unity emitted the same bootstrap EXE bytes as before; the complete game was freshly built, not relabeled. [Identity evidence](runtime-identity.json).
+- Root Latest removed exactly six obsolete prior-manifest files (`level6`, `level6.resS`, `level7`, `level7.resS`, `sharedassets6.assets`, `sharedassets7.assets`) after checking their old hashes. The existing named launcher and unrelated music/settings/metadata were preserved. Cover/radio documentation and the new anchor atlas/review images are included in the signed package.
+- Build-only source side effects were inspected and restored to the completion commit: VehicleGlazing's blend value merely duplicated the unchanged `VehicleVisual.Materials` runtime assignment; DynamicsManager changes were Unity serialization/version/default-threading normalization. No physics or vehicle tuning was added. Post-build changes are delivery tools/evidence only; no second build is needed.
+- Published **{remote['tag_name']}** at `{remote['published_at']}`. All three remote asset sizes/digests verified; latest signed catalog fetched. The publisher hit the known post-create listing delay, then safely resumed the verified empty draft using its supported `--resume-draft` mode. Previous releases and signing identity remain unchanged. [Remote evidence](remote-release.json).
+- A clean actual public download passed pinned signatures, extraction/inventory and muted startup with exit 0; no NullReferenceException or MissingReferenceException. [Public check](hosted/result.json).
+- Existing updater activated **37000**, retained previous **36000**, preserved soundtrack state exactly and reports no pending game/music updates. [Catalog check](launcher-catalog-check.json).
+- Unmodified **Play-Racer.cmd** launched responsive **{launch['path']}** at `{launch['verifiedAt']}`. Only verification-owned processes were closed. [Launcher check](play-racer-launch.json).
+- Complete root runtime: `C:/Users/danmo/Racer/Builds/Latest/Racer.exe`; managed production runtime: `C:/Users/danmo/Racer/Builds/Latest/versions/37000/Racer.exe`.
+- Mandatory cleanup complete: {cleanup} Removed duplicate fresh runtime, upload ZIP and task-owned public test installation. Current/previous runtimes, launcher, music, saves, publisher keys/tools, signed metadata, source and all required atlas/evidence retained. [Cleanup targets and measurements](cleanup.json).
+
+Targeted gameplay testing stopped after 22 checks and one entrance crossing; see [validation](VALIDATION.md). Dan performs the next visual/driving review and validates [the eight anchors](ATLAS.md).
+"""
+(out/'PUBLICATION.md').write_text(text,encoding='utf-8')
+p=root/'PROJECT_TODO.md';s=p.read_text(encoding='utf-8-sig')
+old='- Target delivery: **0.37.0-review1 / game-37000**. Fresh build, publication, production launcher verification and cleanup remain pending until recorded below. Do not confuse the existing published 0.36 runtime with these source changes.'
+assert old in s
+delivery=f"- **Delivery COMPLETE: 0.37.0-review1 / game-37000.** Completion source `{runtime['sourceCommit']}` pushed/verified on origin/main before fresh Unity Windows build (zero errors/five existing warnings, 6m17.9s). All 231 runtime/ZIP/signed inventory/Latest/managed files match. Three remote assets and signed catalog verified; clean public download/startup passed. Existing updater activated 37000 and preserved soundtrack; unmodified Play-Racer.cmd launched responsive `Builds/Latest/versions/37000/Racer.exe`. Complete root Latest matches. [Publication and source identity](Docs/YardReset/PUBLICATION.md).\n- **Cleanup COMPLETE:** {cleanup} Only current 37000 and previous managed 36000 retained; source, keys/tools, launcher, music, saves and evidence preserved. **STOP: await Dan's anchor review; no new course construction.**"
+s=s.replace(old,delivery,1)
+handoff=f"""# SESSION HANDOFF
+
+## Latest handoff — 2026-09-29 / 0.37.0-review1
+
+Dan's rejected Backyard course is selectively rolled back, original established woods restored/preserved and Kyle's accepted driveway mesh fix retained exactly. Existing beige driveway/entrance is smoothed and terrain-supported; lower parking is flat at Y=79.45641 in Street Loop; building foundations remain supported; 36 fence sections per world refitted; existing mailbox moved left of the main entrance. Eight non-colliding pink markers honor the exact hard X/Z points, with camera-facing labels visible through foliage. No new road, trail, dump, gully or race is built. Current atlas: Docs/YardReset/ATLAS.md.
+
+22 targeted checks and one muted motorcycle entrance crossing passed (8m/s approach, minimum 7.921m/s, initial 0.020s air). Safety 7ed9adab; completion source f86887a1 pushed to main. Fresh build zero errors/five warnings; game-37000 published and all 231 files verified. Clean public download/startup and real Play-Racer.cmd launch passed. {cleanup} Current/previous runtime, music, saves, signing identity and source retained. Detailed delivery: Docs/YardReset/PUBLICATION.md.
+
+**Next action belongs to Dan:** inspect property and all eight anchors in Street Loop free roam. Anchor validation awaits his acceptance. Do not start Forward until he authorizes it; no new forest roads ever, future dirt path/narrow trail must remain wooded.
+"""
+s=s.replace('# SESSION HANDOFF',handoff,1)
+p.write_text(s,encoding='utf-8')
+print('Recorded complete publication, launcher, cleanup and next human validation gate.')
