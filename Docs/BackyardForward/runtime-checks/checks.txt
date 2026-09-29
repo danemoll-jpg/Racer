@@ -1,0 +1,10 @@
+PASS Forward launches via menu
+PASS Player and AI start straight west along accepted driveway
+PASS No optional shortcut entitlement
+PASS Existing minimap active
+PASS All intermediate gates use accepted blue checkpoint material
+PASS Gates have no colliders
+PASS YOU reference pilot physical full lap; misses=1 recoveries=4 longestAir=6.80
+PASS EMBER physical full lap; misses=2 recoveries=0 longestAir=2.77
+PASS GOLD physical full lap; misses=2 recoveries=1 longestAir=1.88
+PASS BLUE physical full lap; misses=1 recoveries=8 longestAir=11.67
