@@ -1,5 +1,7 @@
 # Route atlas — 0.35.0-review1
 
+**New course under verification:** [Dan's Backyard Forward and Reverse](../Backyard/ATLAS.md), with maps exported from their separate saved scene geometry. The six established course maps below remain unchanged.
+
 **Current McFadden entrance:** [corrected entrance map and road view](McFadden-Entrance.md), identified by Dan at **X=511.6, Y=81.0, Z=-139.5**. The existing Rocky Way Acres sign now marks the current driveway beginning, grounded and outside the main road. The driveway surface starts at the main-road edge. This supersedes the former entrance/sign relationship; existing course geometry remains unchanged.
 
 [Overall](Overall.png) · [House 3 / Forest / Laurel detail](House3-Forest-Laurel.png)

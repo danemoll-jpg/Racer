@@ -7,8 +7,8 @@ namespace Racer
 {
     public sealed class RacePlaylists
     {
-        public static readonly string[] Scenes={"StreetLoopGreybox","StreetLoopReverse","LakeWoods","ForestLoopReverse","MountainLoop","MountainLoopReverse"};
-        public static readonly string[] Titles={"Street Loop","Street Loop Reverse","Forest Loop","Forest Loop Reverse","Mountain Loop","Mountain Loop Reverse"};
+        public static readonly string[] Scenes={"StreetLoopGreybox","StreetLoopReverse","LakeWoods","ForestLoopReverse","MountainLoop","MountainLoopReverse","DansBackyard","DansBackyardReverse"};
+        public static readonly string[] Titles={"Street Loop","Street Loop Reverse","Forest Loop","Forest Loop Reverse","Mountain Loop","Mountain Loop Reverse","Dan's Backyard - Forward","Dan's Backyard - Reverse"};
         [Serializable] public sealed class Entry { public int course,laps=1; public string Title=>Titles[Mathf.Clamp(course,0,Titles.Length-1)]+" / "+laps+" lap"+(laps==1?"":"s"); }
         [Serializable] public sealed class Definition { public string name="My playlist"; public List<Entry> entries=new(); }
         [Serializable] sealed class Library { public int version=1; public List<Definition> playlists=new(); }

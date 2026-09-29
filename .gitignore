@@ -126,3 +126,4 @@ InitTestScene*.unity*
 /Assets/Resources/PerformanceTestRunInfo.json*
 /Assets/Resources/PerformanceTestRunSettings.json*
 /Tools/__pycache__/
+/Docs/Backyard/*/isolated-saves/

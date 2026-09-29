@@ -1,0 +1,38 @@
+[
+  {
+    "scene": "StreetLoopGreybox",
+    "changedBlocks": 2,
+    "change": "Kyle driveway renderer/collider mesh references only",
+    "preserved": "All other scene objects and serialized fields"
+  },
+  {
+    "scene": "StreetLoopReverse",
+    "changedBlocks": 2,
+    "change": "Kyle driveway renderer/collider mesh references only",
+    "preserved": "All other scene objects and serialized fields"
+  },
+  {
+    "scene": "LakeWoods",
+    "changedBlocks": 2,
+    "change": "Kyle driveway renderer/collider mesh references only",
+    "preserved": "All other scene objects and serialized fields"
+  },
+  {
+    "scene": "ForestLoopReverse",
+    "changedBlocks": 2,
+    "change": "Kyle driveway renderer/collider mesh references only",
+    "preserved": "All other scene objects and serialized fields"
+  },
+  {
+    "scene": "MountainLoop",
+    "changedBlocks": 2,
+    "change": "Kyle driveway renderer/collider mesh references only",
+    "preserved": "All other scene objects and serialized fields"
+  },
+  {
+    "scene": "MountainLoopReverse",
+    "changedBlocks": 2,
+    "change": "Kyle driveway renderer/collider mesh references only",
+    "preserved": "All other scene objects and serialized fields"
+  }
+]

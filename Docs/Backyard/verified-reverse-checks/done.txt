@@ -1,0 +1,11 @@
+PASS DansBackyardReverse distinct course identity
+PASS DansBackyardReverse ordered gates required
+PASS DansBackyardReverse existing minimap available
+PASS DansBackyardReverse only direction-appropriate new shortcut registered
+PASS DansBackyardReverse full main-route production progression
+PASS DansBackyardReverse immediate finish retrigger rejected
+PASS DansBackyardReverse skipped checkpoint cannot count a lap
+PASS DansBackyardReverse shortcut entitlement and rejoin complete legal lap
+PASS DansBackyardReverse existing AI driver completes physical main-route lap; recoveries=0 misses=0
+PASS DansBackyardReverse both new and existing menu entries visible
+PASS DansBackyardReverse menu action launches correct direction

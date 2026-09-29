@@ -1,0 +1,6 @@
+StreetLoopGreybox: only Kyle driveway mesh replaced; maximum adjustment=0.7914581m; blends to existing terrain +0.025m inside 4m, fades out by 10m of supplied X/Z; original terrain/roads unchanged.
+StreetLoopReverse: only Kyle driveway mesh replaced; maximum adjustment=0.7914581m; blends to existing terrain +0.025m inside 4m, fades out by 10m of supplied X/Z; original terrain/roads unchanged.
+LakeWoods: only Kyle driveway mesh replaced; maximum adjustment=0.7914505m; blends to existing terrain +0.025m inside 4m, fades out by 10m of supplied X/Z; original terrain/roads unchanged.
+ForestLoopReverse: only Kyle driveway mesh replaced; maximum adjustment=0.7914505m; blends to existing terrain +0.025m inside 4m, fades out by 10m of supplied X/Z; original terrain/roads unchanged.
+MountainLoop: only Kyle driveway mesh replaced; maximum adjustment=0.7914505m; blends to existing terrain +0.025m inside 4m, fades out by 10m of supplied X/Z; original terrain/roads unchanged.
+MountainLoopReverse: only Kyle driveway mesh replaced; maximum adjustment=0.7914505m; blends to existing terrain +0.025m inside 4m, fades out by 10m of supplied X/Z; original terrain/roads unchanged.

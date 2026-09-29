@@ -38,6 +38,8 @@ namespace Racer
             var match=Regex.Match(category,@"^(.*?)-(original|tourer|moto|atv)-(.*)$");if(!match.Success)return category;
             var bits=match.Groups[3].Value.Split('-');string course=match.Groups[1].Value;
             string track=course=="street-v11-arcade"?"Street Loop / v11":course=="lake-v4-arcade"?"Forest Loop / v4":course=="street-reverse-v2-arcade"?"Street Loop Reverse / v2":course=="forest-reverse-v2-arcade"?"Forest Loop Reverse / v2":course=="street-reverse-v1"?"Street Loop Reverse / v1":course=="forest-reverse-v1"?"Forest Loop Reverse / v1":course=="street-v10-hairpin"?"Street Loop / v10":course=="lake-v3-shallows"?"Forest Loop / v3 shallows":course=="street-v9-life"?"Street Loop / v9":course=="lake-v2-forest"?"Forest Loop / historical v2":course=="lake-v1"?"Forest Loop / historical v1":course=="street-v8-landings"?"Street Loop / historical v8 landings":course;
+            if(course=="backyard-forward-v1")track="Dan's Backyard - Forward";
+            else if(course=="backyard-reverse-v1")track="Dan's Backyard - Reverse";
             string mode=bits[0]=="solo"?"Solo":bits.Length>=5?"3 AI / "+new[]{"Easy","Normal","Hard"}[Mathf.Clamp(bits[1].Last()-'0',0,2)]:"Legacy race";
             string roster=bits[0]=="race4"&&bits.Length>=5?"\nAI: "+string.Join(" / ",bits.Skip(2).Take(3).Select(id=>VehicleProfile.Find(id).Name)):"";
             return track+" / "+VehicleProfile.Find(match.Groups[2].Value).Name+"\n"+mode+" / "+(bits.Contains("traffic")?"Traffic":"Clear")+(bits.Last().StartsWith("laps")?" / "+bits.Last().Substring(4)+" laps":" / completed laps")+roster;

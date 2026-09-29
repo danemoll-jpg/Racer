@@ -1,0 +1,14 @@
+StreetLoopGreybox branches=Creek Leap, Fox Gully, Pine Ridge, Existing Southwest Cut
+At (140.00, 40.00, -88.00)
+Ground_400_320 (140.00, 44.09, -88.00)
+At (120.00, 40.00, -95.00)
+Ground_400_320 (120.00, 41.35, -95.00)
+At (96.10, 38.80, -108.60)
+Ground_400_320 (96.10, 38.34, -108.60)
+ForestLoopReverse branches=Fern Gully, McFadden Cut
+At (140.00, 40.00, -88.00)
+Ground_400_320 (140.00, 37.62, -88.00)
+At (120.00, 40.00, -95.00)
+Ground_400_320 (120.00, 41.35, -95.00)
+At (96.10, 38.80, -108.60)
+Ground_400_320 (96.10, 38.34, -108.60)

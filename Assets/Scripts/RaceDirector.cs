@@ -14,6 +14,7 @@ namespace Racer
         public RaceRoad ambientRoad;
         public RaceRoad throughRoad;
         public bool reverseCourse;
+        public bool requireOrderedGates;
         public bool Forest => (road&&road.forestTrail)||courseId=="lake-v2-forest" || courseId=="lake-v3-shallows";
         public VehicleProfile[] EligibleVehicles => Forest ? VehicleProfile.All.Where(p=>p.Small).ToArray() : VehicleProfile.All;
         public string EligibleVehicle(string id)=>Forest&&!VehicleProfile.Find(id).Small?"moto":VehicleProfile.Find(id).Id;
@@ -437,7 +438,7 @@ namespace Racer
                 }
             }
 
-            if (road && p.LapActive && p.NextGate > 0 && lateral < 18 && step > .005f)
+            if (!requireOrderedGates && road && p.LapActive && p.NextGate > 0 && lateral < 18 && step > .005f)
             {
                 road.At(origin + r.RoadPosition, out var direction);
                 if (Vector3.Dot(position - r.Previous, direction) > .001f)
@@ -466,6 +467,9 @@ namespace Racer
         }
         void ResolveMisses(RacerState r, int until, string reason="missed gate")
         {
+            // Authored strict courses require the gate or a registered branch entitlement.
+            // Existing courses retain their accepted five-second missed-gate behavior.
+            if(requireOrderedGates)return;
             var p = r.Progress;
             while (p.NextGate > 0 && p.NextGate < until)
             {

@@ -1,0 +1,1 @@
+Return trail separated northwest of the new forest descent; all local trail surfaces considered in terrain blending.

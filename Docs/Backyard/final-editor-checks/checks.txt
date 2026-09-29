@@ -1,0 +1,16 @@
+PASS DansBackyard distinct course identity
+PASS DansBackyard ordered gates required
+PASS DansBackyard existing minimap available
+PASS DansBackyard only direction-appropriate new shortcut registered
+PASS DansBackyard full main-route production progression
+PASS DansBackyard immediate finish retrigger rejected
+PASS DansBackyard skipped checkpoint cannot count a lap
+PASS DansBackyard shortcut entitlement and rejoin complete legal lap
+FAIL DansBackyard existing AI driver completes physical main-route lap; recoveries=2 misses=0
+PASS Kyle driveway live motorcycle crossing at 16m/s; min=15.82 maxAir=0.00
+PASS DansBackyard both new and existing menu entries visible
+PASS DansBackyard menu action launches correct direction
+PASS DansBackyardReverse distinct course identity
+PASS DansBackyardReverse ordered gates required
+PASS DansBackyardReverse existing minimap available
+PASS DansBackyardReverse only direction-appropriate new shortcut registered

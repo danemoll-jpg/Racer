@@ -1,0 +1,1 @@
+Both new course scenes authored; physics and existing course meshes unchanged except the separately authorized Kyle fix. Final targeted tests pending.
