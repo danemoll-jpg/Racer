@@ -19,7 +19,7 @@
 - **DAN'S BACKYARD FORWARD: IMPLEMENTED - AWAITING DAN GAMEPLAY REVIEW.** All 21 final geometry checks pass. Strict motor-driven feature checks clear the dump/first ravine/second ravine with 2.16s/2.18s/1.72s continuous air; failed dump and ravine bottom drive out without reset. All four racers physically finish the full lap; missed gates/recoveries are recorded rather than described as clean gameplay. Final local AI limits and the checkpoint beyond the dump runout will receive one fresh-player integration check. [Actual-geometry atlas](Docs/BackyardForward/ATLAS.md), [technical evidence](Docs/BackyardForward/VALIDATION.md).
 - **DAN'S BACKYARD REVERSE: DEFERRED UNTIL FORWARD APPROVAL.**
 - **DAN'S BACKYARD OPTIONAL SHORTCUTS: DEFERRED UNTIL FORWARD APPROVAL.**
-- Planned release: **0.38.0-review1 / game-38000**; not yet published. Final technical results and delivery evidence will replace this in-progress status.
+- Planned release: **0.38.0-review1 / game-38000**; not yet published. The first fresh candidate built successfully but one AI exceeded the isolated lap-check time limit. The late Forward-only speed/line restrictions were removed to restore the previously passing pedal planning; the final candidate must pass before publication. Initial candidate/evidence retained temporarily for diagnosis, then cleaned after verified release. Final technical results and delivery evidence will replace this in-progress status.
 
 ## Accepted baseline — 2026-09-29 / rejected Backyard rollback, property correction and anchor validation
 

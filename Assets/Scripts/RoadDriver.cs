@@ -139,7 +139,7 @@ namespace Racer
                         slowerAhead = true;
                 }
 
-                if (slowerAhead && !backyard && (!forestLayout || DriveRoad.HalfWidth(s)>=4.9f) && (!oncoming || DriveRoad.HighwayBlend(s)>.95f))
+                if (slowerAhead && (!forestLayout || DriveRoad.HalfWidth(s)>=4.9f) && (!oncoming || DriveRoad.HighwayBlend(s)>.95f))
                     desiredLane = DriveRoad.HighwayBlend(s)>.95f ? 6.15f : -2.3f;
                 if(mountainFlights&&slowerAhead){desiredLane=lane;float nearest=100;foreach(float option in new[]{-4.5f,-1.5f,1.5f,4.5f})if(Mathf.Abs(option-lane)>1&&Mathf.Abs(option-lane)<nearest&&LaneClear(s,option,speed)){desiredLane=option;nearest=Mathf.Abs(option-lane);}}
                 // Commit to a pass only when its destination lane has room alongside and ahead.
@@ -185,7 +185,6 @@ namespace Racer
             float judgment = racing ? Car.braking*brakeUse[skill] : 8f;
             judgment*=Variation.Judgment;
             TargetSpeed = (racing ? Car.topSpeed * speedUse[skill] : Mathf.Lerp(17,29,DriveRoad.HighwayBlend(s))) * pace;
-            if(racing&&backyard)TargetSpeed=Mathf.Min(TargetSpeed,backyardFlight>=0?32:28);
             // These exposed climbing connectors need a settled approach. The mandatory
             // run-ups retain full acceleration; this is AI pedal planning, not a change
             // to the player's vehicle or to takeoff forces.
@@ -240,7 +239,7 @@ namespace Racer
                 // The ATV's wide sensor can start overlapping its own curved runway.
                 // Confirm a walkable surface beneath us before ignoring that zero-
                 // distance hit; cars, trees and genuine walls remain obstacles.
-                if((committedMountain||(racing&&backyard))&&hit.distance<.01f&&hit.collider.name.StartsWith("Ground_")
+                if(committedMountain&&hit.distance<.01f&&hit.collider.name.StartsWith("Ground_")
                     &&hit.collider.Raycast(new Ray(Car.Body.position+Vector3.up*3,Vector3.down),out var support,6)
                     &&support.normal.y>.55f)continue;
                 float aheadSpeed=hit.rigidbody?Mathf.Max(0,Vector3.Dot(hit.rigidbody.linearVelocity,transform.forward)):0;

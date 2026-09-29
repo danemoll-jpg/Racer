@@ -10,6 +10,7 @@ if(($launch | ConvertTo-Json -Depth 20) -notmatch '38000'){throw 'Production lau
 function Bytes([string]$p){$n=(Get-ChildItem -LiteralPath $p -File -Recurse | Measure-Object -Property Length -Sum).Sum;if($null -eq $n){return 0};return [long]$n}
 $before=Bytes $builds;$freeBefore=(Get-PSDrive C).Free
 $targets=@((Join-Path $builds 'Racer-0.38.0-review1-Windows'),(Join-Path $builds 'LauncherRelease-38000/assets/game.zip'),(Join-Path $builds 'Latest/versions/36000'),[string]$hosted.work)
+$targets+=@('forward-superseded-Racer-0.38.0-review1-Windows','forward-superseded-LauncherRelease-38000','forward-superseded-38000') | ForEach-Object {Join-Path (Join-Path $root 'Temp') $_}
 $running=Get-CimInstance Win32_Process | Where-Object {$_.ExecutablePath -and $_.ExecutablePath.StartsWith($root,[StringComparison]::OrdinalIgnoreCase)}
 $removed=@()
 foreach($candidate in $targets){
