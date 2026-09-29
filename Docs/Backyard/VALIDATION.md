@@ -36,4 +36,6 @@ The local correction removes a maximum 0.7915m height mismatch, within 4m of the
 
 Viewed the final property, dump and Reverse gully screenshots. The rendered atlas reflects the saved final routes: 1093.3m Forward and 1157.3m Reverse, ten gates each. Final existing-scene preservation was verified. The known Editor-only glazing material mutation was restored; no material/vehicle physics change remains.
 
-Fresh-runtime core/menu verification and publication evidence are recorded after building. Detailed gameplay feel remains Dan's playtest; targeted gameplay acceptance is complete and no broad regression matrix is planned.
+**Fresh-runtime acceptance PASS:** all 20 core/menu checks in `runtime-checks/done.txt` passed using the newly built 0.36.0-review1 runtime and isolated saves. The hidden normal player paused in the background; the same build completed under batch mode after correcting only the verification launch arguments. Batch-mode screenshot files are black and are not visual evidence. Visual inspection used the Editor menu and the final authored scene captures. Menu presence and both directional actions were additionally verified through production components in the compiled game.
+
+Detailed gameplay feel remains Dan's playtest; targeted gameplay acceptance is complete and no broad regression matrix is planned. Publication and launcher evidence are in [PUBLICATION.md](PUBLICATION.md).

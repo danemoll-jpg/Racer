@@ -7,7 +7,7 @@ $null=New-Item -ItemType Directory -Path $evidence,$saves -Force
 '{"version":1,"master":0,"radioOn":false,"frameLimit":60,"vsync":false}' | Set-Content (Join-Path $saves 'settings.json')
 $commit=(Get-Content (Join-Path $root 'Temp/backyard-source-commit.txt') -Raw).Trim()
 if((Get-Content (Join-Path $runtime 'VERSION.txt') -Raw) -notmatch $commit){throw 'Fresh runtime source mismatch'}
-$arguments=@('-screen-fullscreen','0','-screen-width','1280','-screen-height','720','-racerTestSave',$saves,'-backyardValidation',$evidence,'-logFile',(Join-Path $evidence 'game.log'))
+$arguments=@('-batchmode','-screen-fullscreen','0','-screen-width','1280','-screen-height','720','-racerTestSave',$saves,'-backyardValidation',$evidence,'-logFile',(Join-Path $evidence 'game.log'))
 $p=Start-Process -FilePath (Join-Path $runtime 'Racer.exe') -WorkingDirectory $runtime -ArgumentList $arguments -WindowStyle Hidden -PassThru
 if(!$p.WaitForExit(180000)){$p.Kill();throw 'Own runtime fixture timed out'}
 $checks=Get-Content (Join-Path $evidence 'done.txt')

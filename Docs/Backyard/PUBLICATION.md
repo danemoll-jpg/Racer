@@ -1,0 +1,19 @@
+# Dan's Backyard 0.36.0-review1 delivery
+
+**Delivery COMPLETE.** Published runtime, complete local Latest, signed updater and production launcher agree on 0.36.0-review1 / game-36000.
+
+- Safety checkpoint: `777b62427c2d527df78d6dc1a27db7086f345778` (clean `main`).
+- Completion source: `6b7181fc33cc2aff6dea123a46245371bac9875e`, committed and pushed to the existing `origin/main`; remote SHA verified before building.
+- Automatic approval initially rejected the push for missing explicit authorization. Re-reading the user-pasted instruction and CODEX_RULES.md sections 6/13 established the existing authorization; the same ordinary non-force push was then approved and succeeded. No hook, security control or destination was changed.
+- Target version/build: **0.36.0-review1 / game-36000**. Previous published game: **0.35.0-review1 / game-35000**.
+- Both representative physical laps passed with zero recoveries/misses. See [validation](VALIDATION.md) and [saved route atlas](ATLAS.md).
+- Fresh clean-cache Unity Windows build **succeeded**, zero errors/five existing warnings, **7m53.8s**. Started `2026-09-29T03:00:56Z`; GUID `5a434453a76d4cc5884f391accab6f98`; free space before build 320,013,717,504 bytes. [Build report](build-release.txt).
+- **20 compiled core/menu checks passed** with isolated saves. The verification wrapper was switched to batch mode after the hidden normal player paused in the background; no runtime source or build changed.
+- **226 files** match fresh output, signed manifest, ZIP, complete root Latest and managed `versions/36000`. Game scene data and `Assembly-CSharp.dll` changed. Unity's bootstrap EXE bytes are unchanged, as in prior releases; this is a fresh complete runtime rather than metadata around an old build. [Identity/inventory evidence](runtime-identity.json).
+- **Published latest [game-36000](https://github.com/danemoll-jpg/woodstock-rush-releases/releases/tag/game-36000)** at `2026-09-29T03:14:28Z`. Three assets verified remotely by size/SHA256 and published state; signed catalog fetched. Existing signing identity, soundtrack pointer and previous releases retained. A transient post-create listing lag was recovered by inspecting the empty draft and using the existing publisher's explicit resume-draft path; nothing was overwritten. [Remote evidence](remote-release.json).
+- **Clean public download/startup PASS:** pinned signatures, all 226 Latest files, existing updater installation and launcher startup succeeded with no NullReferenceException or MissingReferenceException. [Public result](hosted/result.json).
+- **Production activation PASS:** existing updater activated 36000, retained 35000 as the previous managed runtime and preserved soundtrack state exactly. Public catalog reports zero pending game/music updates. [Catalog check](launcher-catalog-check.json).
+- **Unmodified Play-Racer.cmd PASS:** launched responsive `C:\Users\danmo\Racer\Builds\Latest\versions\36000\Racer.exe` at `2026-09-28T23:17:02-04:00`. Only verification-owned processes were closed. Complete root `Builds\Latest\Racer.exe` matches the same public inventory. [Launcher evidence](play-racer-launch.json).
+- **Cleanup COMPLETE:** Builds 6,372,665,725 → 5,285,758,796 bytes (**5.935 → 4.923 GiB**), recovering 1.012 GiB there. C: free 317,640,978,432 → 319,568,371,712 bytes, approximately **1.795 GiB total recovered**, **297.621 GiB final free**. Removed duplicate fresh output, upload ZIP and task-owned public test install. Current root runtime, managed 36000/35000, source, evidence, saves, music, publisher keys/tools, launcher and signed metadata retained. [Exact cleanup targets](cleanup.json).
+
+Post-build changes are delivery evidence/documentation and the verification wrapper's batch-mode argument only. Gameplay source remains the pushed build commit above; no second runtime build is necessary.

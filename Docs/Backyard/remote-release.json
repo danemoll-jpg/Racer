@@ -1,0 +1,27 @@
+{
+  "assets": [
+    {
+      "name": "game-manifest.json",
+      "size": 45913,
+      "digest": "sha256:15067f725c03894da5401c06dc24173cd31f92ea4163e796e05df74f8477201e",
+      "browser_download_url": "https://github.com/danemoll-jpg/woodstock-rush-releases/releases/download/game-36000/game-manifest.json"
+    },
+    {
+      "name": "game.zip",
+      "size": 249756622,
+      "digest": "sha256:0a157189ebbeded4518f0325fce22e76876ca0913c70a6d3d1c224ad76c4ea7e",
+      "browser_download_url": "https://github.com/danemoll-jpg/woodstock-rush-releases/releases/download/game-36000/game.zip"
+    },
+    {
+      "name": "update-catalog.json",
+      "size": 993,
+      "digest": "sha256:6e43dbd5d865f8c80ad3d1067fdd82b6084e792aa041ec5ca786754d453afde0",
+      "browser_download_url": "https://github.com/danemoll-jpg/woodstock-rush-releases/releases/download/game-36000/update-catalog.json"
+    }
+  ],
+  "tag": "game-36000",
+  "publishedAt": "2026-09-29T03:14:28Z",
+  "allInventoryAssetsVerified": true,
+  "url": "https://github.com/danemoll-jpg/woodstock-rush-releases/releases/tag/game-36000",
+  "draft": false
+}
