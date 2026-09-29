@@ -37,6 +37,10 @@ namespace Racer
         InputActionAsset menuActions;
         InputActionReference submitReference;
         Font font;
+        UnityEngine.UI.Button simulateRemaining;
+        bool waitingShown;
+        public bool CanSimulateRemaining => flow && flow.State==RaceFlow.Stage.Racing && flow.Race.Progress.Finished
+            && !flow.Race.ClassificationFinal && flow.Race.Racers.Any(r=>r.IsAi&&!r.Classified&&!r.Dnf);
         GameObject hudPanel;
         UnityEngine.UI.RawImage preview;
         Camera previewCamera;
@@ -132,6 +136,14 @@ namespace Racer
             songBanner.resizeTextForBestFit=true; songBanner.resizeTextMinSize=14; songBanner.resizeTextMaxSize=18;
             songBanner.rectTransform.offsetMin=songBanner.rectTransform.offsetMax=Vector2.zero;
             songBanner.gameObject.AddComponent<UnityEngine.UI.Outline>();
+            var waitRect=Rect("Simulate remaining racers",canvas.transform);
+            waitRect.anchorMin=waitRect.anchorMax=new Vector2(.5f,.79f);waitRect.sizeDelta=new Vector2(430,54);
+            var waitImage=waitRect.gameObject.AddComponent<UnityEngine.UI.Image>();waitImage.color=new Color(.08f,.30f,.34f,.98f);
+            simulateRemaining=waitRect.gameObject.AddComponent<UnityEngine.UI.Button>();simulateRemaining.targetGraphic=waitImage;
+            var waitColors=simulateRemaining.colors;waitColors.highlightedColor=waitColors.selectedColor=new Color(.6f,1,1);simulateRemaining.colors=waitColors;
+            var waitText=Label("Label",waitRect,21,0);Stretch(waitText.rectTransform,10,0,-10,0);waitText.alignment=TextAnchor.MiddleCenter;waitText.text="SIMULATE REMAINING RACERS";
+            simulateRemaining.onClick.AddListener(()=>{if(CanSimulateRemaining)flow.Race.FinalizeUnfinishedAi();});
+            waitRect.gameObject.SetActive(false);
         }
         static RectTransform Rect(string name, Transform parent)
         { var rect = new GameObject(name, typeof(RectTransform)).GetComponent<RectTransform>(); rect.SetParent(parent, false); return rect; }
@@ -166,6 +178,7 @@ namespace Racer
             if(selected<0) { int swatch=swatches.FindIndex(b=>EventSystem.current && EventSystem.current.currentSelectedGameObject==b.gameObject); if(swatch>=0) selected=buttons.Count+swatch; }
             if (selected >= 0) selections[shown] = selected;
             shown = flow.State; shade.SetActive(flow.MenuVisible && shown!=RaceFlow.Stage.Title);
+            simulateRemaining.gameObject.SetActive(false);waitingShown=false;
             if(shown!=RaceFlow.Stage.Results)showChampionship=false;
             playlistName.gameObject.SetActive(shown==RaceFlow.Stage.Playlists&&editingPlaylistName&&!controllerName);
             help.text=editingPlaylistName&&!controllerName?"Type / paste / select text    Enter: save    Escape: cancel":"D-pad / stick / arrows: select     A / Space: confirm\nB / Esc: back     Enter / Start: pause or resume";
@@ -181,7 +194,7 @@ namespace Racer
             card.GetComponent<UnityEngine.UI.VerticalLayoutGroup>().spacing=shown==RaceFlow.Stage.Garage?5:8;
             title.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=shown==RaceFlow.Stage.Garage?42:48;
             title.fontSize=32;
-            foreach(var b in buttons) b.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=(shown==RaceFlow.Stage.Garage || shown==RaceFlow.Stage.Results)?38:44;
+            foreach(var b in buttons) { b.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=(shown==RaceFlow.Stage.Garage || shown==RaceFlow.Stage.Results)?38:44;var label=b.GetComponentInChildren<UnityEngine.UI.Text>();label.supportRichText=false;label.alignment=TextAnchor.MiddleCenter; }
             details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight = 160;
             details.fontSize=20;
             details.supportRichText=shown==RaceFlow.Stage.Boards;
@@ -358,12 +371,17 @@ namespace Racer
             else if(shown==RaceFlow.Stage.Courses)
             {
                 title.text="SELECT TRACK";
-                details.text="Street: all four vehicles. Forest: motorcycles / ATVs.\nReverse courses have their own jumps and optional shortcuts.\nSeparate direction, rules and record categories.";
-                Action(0,"Street Loop",()=>flow.SelectCourse(false));
-                Action(1,"Forest Loop",()=>flow.SelectCourse(true));
-                Action(2,"Street Loop Reverse",()=>flow.SelectCourse(false,true));
-                Action(3,"Forest Loop Reverse",()=>flow.SelectCourse(true,true));
-                Action(4,"Mountain Loop",()=>flow.SelectMountain(false));Action(5,"Mountain Loop Reverse",()=>flow.SelectMountain(true));Action(6,"Dan's Backyard - Forward",flow.SelectBackyardForward);Action(7,"Back",flow.CloseGarage);
+                details.text="Street: all vehicles. Other tracks: motorcycles / ATVs.\nTrack difficulty ratings await Dan's review.";
+                details.fontSize=18;details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=54;
+                int row=0;
+                foreach(int course in RacePlaylists.DisplayOrder)
+                {
+                    int choice=course;
+                    Action(row,RacePlaylists.Titles[course]+"\n<size=16><color=#BCD1D5>Difficulty: "+RacePlaylists.DifficultyLabel(course)+"</color></size>",()=>flow.SelectCourseEntry(choice));
+                    var button=buttons[row++];button.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=54;
+                    var label=button.GetComponentInChildren<UnityEngine.UI.Text>();label.supportRichText=true;label.alignment=TextAnchor.MiddleLeft;
+                }
+                Action(row,"Back",flow.CloseGarage);
             }
             else if(shown==RaceFlow.Stage.Boards)
             {
@@ -503,8 +521,15 @@ namespace Racer
             songBanner.gameObject.SetActive(!flow.MenuVisible);songBanner.text=flow.Radio?.Toast??"";
             var recovery=flow.Race.vehicle.GetComponent<VehicleRespawn>();
             if(!countdown && recovery.Pending) banner.text=recovery.LastRecovery+" — race clock continues";
-            if (flow.State == RaceFlow.Stage.Racing && flow.Race.Progress.Finished)
-                banner.text = "Finished — AI are racing. Pause to skip waiting / estimate AI.";
+            bool waiting=CanSimulateRemaining;
+            simulateRemaining.gameObject.SetActive(waiting);
+            if(waiting)
+            {
+                banner.text="Finished — AI are still racing. Wait or simulate their remaining times.";
+                Cursor.visible=true;
+                if(!waitingShown&&EventSystem.current)EventSystem.current.SetSelectedGameObject(simulateRemaining.gameObject);
+            }
+            waitingShown=waiting;
             if(!countdown && flow.PenaltyNotice!=null)banner.text=flow.PenaltyNotice;
             if (flow.MenuVisible && flow.State!=RaceFlow.Stage.Title && flow.GetComponent<ExplorationMap>()?.OwnsInput!=true && EventSystem.current && !EventSystem.current.currentSelectedGameObject) EventSystem.current.SetSelectedGameObject(buttons[0].gameObject);
         }

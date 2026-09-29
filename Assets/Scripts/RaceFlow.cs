@@ -164,6 +164,12 @@ namespace Racer
         public void CloseExtras(){SetStage(extrasReturn);Click();}
         public void ToggleGhost(){Ghost.Toggle();menus.Show();Click();}
         public void OpenCourses() { SetStage(Stage.Courses); Click(); }
+        public void SelectCourseEntry(int course)
+        {
+            if(State!=Stage.Courses || course<0 || course>=RacePlaylists.Scenes.Length)return;
+            Save.SaveSettings();Time.timeScale=1;AudioListener.pause=false;
+            UnityEngine.SceneManagement.SceneManager.LoadScene(RacePlaylists.Scenes[course]);
+        }
         public void SelectMountain(bool reverse){if(State!=Stage.Courses)return;Save.SaveSettings();Time.timeScale=1;AudioListener.pause=false;UnityEngine.SceneManagement.SceneManager.LoadScene(reverse?"MountainLoopReverse":"MountainLoop");}
         public void SelectBackyardForward(){if(State!=Stage.Courses)return;Save.SaveSettings();Time.timeScale=1;AudioListener.pause=false;UnityEngine.SceneManagement.SceneManager.LoadScene("DansBackyardForward");}
         public void OpenPlaylists(){SetStage(Stage.Playlists);Click();}

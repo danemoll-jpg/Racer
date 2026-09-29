@@ -1,0 +1,27 @@
+PASS Seven alphabetical base names; Forward before Reverse; stable saved indices
+PASS All ratings unassigned / TBD; Easy Medium Hard metadata available
+PASS Selector names/order in DansBackyardForward
+PASS Button launches DansBackyardForward
+PASS Selector names/order in DansBackyardForward
+PASS Button launches LakeWoods
+PASS Selector names/order in LakeWoods
+PASS Button launches ForestLoopReverse
+PASS Selector names/order in ForestLoopReverse
+FAIL Button launches MountainLoop
+PASS Selector names/order in ForestLoopReverse
+FAIL Button launches MountainLoopReverse
+PASS Selector names/order in ForestLoopReverse
+PASS Button launches StreetLoopGreybox
+PASS Selector names/order in StreetLoopGreybox
+PASS Button launches StreetLoopReverse
+PASS Button absent before human finishes
+PASS Early invocation cannot estimate
+PASS Finished human with unfinished AI gets visible clickable waiting button
+PASS Waiting button uses CR-064 and opens normal final results
+PASS Human and already-finished AI measured results unchanged
+PASS Only unfinished AI estimated and labeled
+PASS Repeated activation is harmless
+PASS Estimated AI do not enter measured record board
+PASS Button absent after final classification
+PASS No button when all racers have measured finishes
+PASS Normal all-measured completion unaffected

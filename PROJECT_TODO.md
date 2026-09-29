@@ -9,7 +9,22 @@
 - Do not silently modify or weaken CODEX_RULES.md. Changes to standing rules require an explicit instruction from Dan.
 - Root AGENTS.md points future Codex tasks to both files.
 
-## Current task — 2026-09-29 / dense garbage and failed-jump traversal
+## Current task — 2026-09-29 / approved Backyard map and focused UI
+
+- **DAN'S BACKYARD LOOP - FORWARD: APPROVED by Dan, including the corrected garbage dump.** Geometry/content is protected. This explicit acceptance supersedes older awaiting-review statements below.
+- **DAN'S BACKYARD LOOP - REVERSE: NOT YET IMPLEMENTED.** **OPTIONAL SHORTCUTS: PLANNING NEXT.** Construction awaits Dan's map review and selected entry/rejoin locations; nothing built in this task.
+- Safety checkpoint: clean main `53dc95a622abf2103f1f45f7dc1abd395524f7e0`.
+- **Visual shortcut-planning map CREATED:** [TRACK_MAP.png](Docs/BackyardForward/TRACK_MAP.png), 5040 × 3750 actual saved scene render with actual route/gates, forest/terrain/property/roads/trails, direction arrows, jumps, labels, legend and 50 m Unity X/Z grid. ATLAS.md updated, including the now-approved dense dump description. All 1,684 route points and nine gates unchanged; all scene/geometry files preserved.
+- **Track selector cleanup IMPLEMENTED:** Dan's Backyard Loop - Forward; Forest Loop - Forward; Forest Loop - Reverse; Mountain Loop - Forward; Mountain Loop - Reverse; Street Loop - Forward; Street Loop - Reverse. Alphabetical base names, Forward before Reverse. Display names/order only; saved playlist indices, scene IDs and record identities preserved. Consistent rows and secondary difficulty labels; metadata Unassigned/Easy/Medium/Hard, **all current ratings TBD pending Dan**.
+- **Post-finish SIMULATE REMAINING RACERS IMPLEMENTED:** visible directly after human finish with unfinished AI, uses unchanged CR-064 finalization, opens normal results. Finished racers retain measured times, estimates remain labeled/excluded from measured boards, repeated activation harmless, hidden before finish or with no unfinished AI.
+- **Targeted verification COMPLETE:** finish-button checks all pass; seven selector buttons launch correct courses. Initial 25/27 pass exposed two missing mountain entries in the Editor-only scene list (release build already includes them); temporary test alignment and only the unresolved cases pass 8/8. Original Editor list restored. PNG and UI screenshots opened/inspected; save/record/geometry protection verified. No driving/AI matrix. [Evidence and limitations](Docs/TrackUi/VALIDATION.md). **STOP TESTING.**
+- **0.41.0-review1 / game-41000 delivery in progress:** completion commit/push, fresh Windows build, signed publication, launcher verification and cleanup follow under CODEX_RULES.md.
+
+### Backlog — GENERAL MENU / UI CLEANUP PASS
+
+- [ ] Future consistency pass: hierarchy, spacing, typography, button styles, screen layout, navigation, organization and polish across menus/results/settings. **BACKLOG ONLY; no general redesign in this task.**
+
+## Historical delivery — 2026-09-29 / dense garbage and failed-jump traversal
 
 - Dan gameplay-tested 0.39: **bowl direction and jump behavior directionally ACCEPTED; garbage density REJECTED as far too sparse.** Preserve the bowl, launch, landing, successful trajectory and all other Forward content.
 - Required correction: a large hole visibly filled with accumulated trash, covering much of the floor/lower slopes. Failed racers drive THROUGH trash; no deliberately clean lane. Garbage must noticeably slow escape while remaining push-through, forgiving and non-trapping. No artificial time penalty.
@@ -1952,7 +1967,11 @@ Record choices we do not want to repeatedly reconsider.
 
 # SESSION HANDOFF
 
-## Latest handoff — 2026-09-29 / 0.40.0-review1 dense dump
+## Latest handoff — 2026-09-29 / 0.41.0-review1 map and focused UI
+
+Forward and dump APPROVED by Dan. Actual approved-world TRACK_MAP.png created for optional shortcut planning. No shortcuts or Reverse built. Selector names/order standardized with TBD difficulty metadata; direct waiting-screen Simulate Remaining Racers reuses unchanged CR-064. Targeted checks complete; Dan reviews map/UI. General menu cleanup backlog only. Full delivery evidence: Docs/TrackUi/PUBLICATION.md (updated after publication).
+
+## Historical handoff — 2026-09-29 / 0.40.0-review1 dense dump
 
 Dan accepts the bowl/jump direction and rejected sparse trash. Replaced 60 props with 2,100 grounded overlapping pieces in eight batches, including the central floor. Local grounded resistance slows failed-jump escape without solid obstacles or artificial penalty. Terrain/launch/landing/route/checkpoints/trees/global motor/recovery/other courses unchanged. All 21 final checks pass; motorcycle 9.32s vs empty 6.72s, ATV 9.86s vs 6.70s; normal jump unchanged, both steer/climb out without reset. Earlier failed setting and fixture issue retained in Docs/DumpRefuse/VALIDATION.md. Published game-40000 from source c701d791; fresh build, 231-file verification, signed public startup and real Play-Racer.cmd pass. Current 40000/previous 39000 retained; cleanup complete. Final delivery evidence in Docs/DumpRefuse/PUBLICATION.md. Wait for Dan; no Reverse or shortcuts.
 

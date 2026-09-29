@@ -1,0 +1,8 @@
+{
+  "baseline": "53dc95a622abf2103f1f45f7dc1abd395524f7e0",
+  "protectedGeometryChanges": [],
+  "unchangedRoutePoints": 1684,
+  "unchangedGates": 9,
+  "sceneSha256": "73db69bb61e0d15aaa74f058ea5a628f641832007cea687df2f9dd80d25efdab",
+  "unchangedSystems": "estimation, timing, progression, AI, records, saves, roads, minimap"
+}

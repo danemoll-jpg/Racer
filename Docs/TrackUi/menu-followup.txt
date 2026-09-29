@@ -1,0 +1,8 @@
+PASS Seven alphabetical base names; Forward before Reverse; stable saved indices
+PASS All ratings unassigned / TBD; Easy Medium Hard metadata available
+PASS Selector names/order in DansBackyardForward
+PASS Button launches MountainLoop
+PASS Existing record category retained: mountain-forward-v5-supported
+PASS Selector names/order in MountainLoop
+PASS Button launches MountainLoopReverse
+PASS Existing record category retained: mountain-reverse-v5-supported

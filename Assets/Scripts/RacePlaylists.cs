@@ -8,7 +8,14 @@ namespace Racer
     public sealed class RacePlaylists
     {
         public static readonly string[] Scenes={"StreetLoopGreybox","StreetLoopReverse","LakeWoods","ForestLoopReverse","MountainLoop","MountainLoopReverse","DansBackyardForward"};
-        public static readonly string[] Titles={"Street Loop","Street Loop Reverse","Forest Loop","Forest Loop Reverse","Mountain Loop","Mountain Loop Reverse","Dan's Backyard - Forward"};
+        // Serialized playlist indices and scene identities stay stable; only presentation is sorted.
+        public static readonly string[] Titles={"Street Loop - Forward","Street Loop - Reverse","Forest Loop - Forward","Forest Loop - Reverse","Mountain Loop - Forward","Mountain Loop - Reverse","Dan's Backyard Loop - Forward"};
+        public enum TrackDifficulty { Unassigned, Easy, Medium, Hard }
+        public static readonly TrackDifficulty[] Difficulties=new TrackDifficulty[Scenes.Length];
+        public static IEnumerable<int> DisplayOrder => Enumerable.Range(0,Scenes.Length)
+            .OrderBy(i=>Titles[i].Split(new[]{" - "},StringSplitOptions.None)[0],StringComparer.Ordinal)
+            .ThenBy(i=>Titles[i].EndsWith(" - Reverse",StringComparison.Ordinal)?1:0);
+        public static string DifficultyLabel(int course) => Difficulties[course]==TrackDifficulty.Unassigned?"TBD":Difficulties[course].ToString();
         [Serializable] public sealed class Entry { public int course,laps=1; public string Title=>(course>=Scenes.Length?"Unavailable course (rolled back)":Titles[Mathf.Clamp(course,0,Titles.Length-1)])+" / "+laps+" lap"+(laps==1?"":"s"); }
         [Serializable] public sealed class Definition { public string name="My playlist"; public List<Entry> entries=new(); }
         [Serializable] sealed class Library { public int version=1; public List<Definition> playlists=new(); }
