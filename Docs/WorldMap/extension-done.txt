@@ -1,0 +1,1 @@
+MountainLoop 10400x6240; X=-1350..1650, Z=-850..950; actual saved geometry

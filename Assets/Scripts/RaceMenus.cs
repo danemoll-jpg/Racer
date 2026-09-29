@@ -141,7 +141,7 @@ namespace Racer
             var waitImage=waitRect.gameObject.AddComponent<UnityEngine.UI.Image>();waitImage.color=new Color(.08f,.30f,.34f,.98f);
             simulateRemaining=waitRect.gameObject.AddComponent<UnityEngine.UI.Button>();simulateRemaining.targetGraphic=waitImage;
             var waitColors=simulateRemaining.colors;waitColors.highlightedColor=waitColors.selectedColor=new Color(.6f,1,1);simulateRemaining.colors=waitColors;
-            var waitText=Label("Label",waitRect,21,0);Stretch(waitText.rectTransform,10,0,-10,0);waitText.alignment=TextAnchor.MiddleCenter;waitText.text="SIMULATE REMAINING RACERS";
+            var waitText=Label("Label",waitRect,21,0);Stretch(waitText.rectTransform,10,0,-10,0);waitText.alignment=TextAnchor.MiddleCenter;waitText.text="COMPLETE RACE";
             simulateRemaining.onClick.AddListener(()=>{if(CanSimulateRemaining)flow.Race.FinalizeUnfinishedAi();});
             waitRect.gameObject.SetActive(false);
         }

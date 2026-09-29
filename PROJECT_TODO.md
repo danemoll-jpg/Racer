@@ -9,7 +9,20 @@
 - Do not silently modify or weaken CODEX_RULES.md. Changes to standing rules require an explicit instruction from Dan.
 - Root AGENTS.md points future Codex tasks to both files.
 
-## Current task — 2026-09-29 / focused shortcut revisions, 0.43.0-review1
+## Current task — 2026-09-29 / Tree-Top clearance, COMPLETE RACE and visual world map, 0.44.0-review1
+
+- Safety checkpoint: clean `main` at `73b0399b260cbf1d400f55d73bbd2d9f2d605828` before edits. This request authorizes the formerly deferred full-world/menu-map work; it does not authorize Backyard Reverse or general menu cleanup.
+- [x] **Tree-Top main-route bush encroachment corrected locally.** Removed 83/621 complete shrub/fern clusters by actual planar foliage extent; 538 remain. Nearest retained foliage is 4.294m from center, >=1.644m beyond the nominal dirt-trail edge. No scene/terrain/platform/collision/main-route/Cabin edits. Existing anti-bypass resistance and geometry are unchanged, so no new fast ground lane was exposed.
+- [x] Local checks: 1,450 main positions at center and +/-1/2m offsets have zero slowdown; 73 ground samples under/beside Tree-Top remain dense and two are correctly inside protected main-route clearance. Initial all-dense fixture assumption and exact exceptions retained. Shortcut structure, AI/gates and accepted timing system preserved. No repeated driving matrix; prior unchanged-system timing evidence remains qualified in validation.
+- [x] **COMPLETE RACE** is directly on the post-finish waiting screen when unfinished AI remain. Existing button guard/click and CR-064 estimator reused unchanged; only player-facing label changed. Focused checks verify estimated/measured results, normal results transition, harmless repeated activation, record-board exclusion and absence when unnecessary.
+- [x] **Full visual WORLD_MAP** generated from actual saved world geometry: `Docs/WorldMap/WORLD_MAP.png`, 10,700x6,680 (10,400x6,240 geography), X -1350..1650 / Z -850..950, 200m documentation grid. Master explicitly combines current Forest, Backyard and Mountain regional scene renders because no single course scene contains all revisions; exact per-scene images/geometry remain authoritative for scene-specific edits.
+- [x] **Full MENU map upgraded** to its current scene's 5200px-wide orthographic render. Player heading, destinations/collection markers, discovery saves, waypoint/travel, panning/zooming and return flow preserved. Optional actual current-course overlay; no development coordinates in game. Seven reusable transparent master overlays exported from actual course/gate/shortcut data. Regeneration process: [WorldMap README](Docs/WorldMap/README.md). Existing Backyard atlas refreshed with corrected vegetation.
+- [x] **RACING MINIMAP UNCHANGED.** All seven scene files and protected gameplay/CR-064/AI/physics/recovery sources verified identical; only the Tree-Top foliage mesh changes among world assets. All other tracks and structures protected.
+- [x] 26 focused UI/state checks pass; six final geometry assertions pass. New overlay's missing CanvasRenderer fixed. Headless Editor screenshots were obscured by title art; final visual verification will run in the required fresh Windows player with isolated saves/skip-title. Initial evidence is retained. [Validation and limits](Docs/WorldMap/VALIDATION.md).
+- [ ] Delivery in progress: completion source commit/push, fresh 0.44.0-review1 / game-44000 build, complete Latest, signed publication/catalog verification, production Play-Racer.cmd, cleanup and final disk measurements. Do not mark delivered until all gates pass.
+- **BACKLOG ONLY:** Backyard Reverse and broader menu/UI cleanup. Stop after this release for Dan's review.
+
+## Previous delivery — 2026-09-29 / focused shortcut revisions, 0.43.0-review1
 
 - Safety checkpoint: clean main `88bb363b8078f890dec28734e7036ca48a70c9f2`. Dan's gameplay rejection supersedes the earlier map-only approval of the shortcut structures. The approved Backyard main route remains protected.
 - [x] Tree-Top rebuilt as narrow rough boards and small platforms braced to four existing trees; repeated ground posts removed. Dirt entry ends at station 29; first landing 33–48 is 5.8m wide before tapering; technical bridges 3.3m. Final medium/slower-capped entries land at 37.42/34.54m and complete in 4.96/5.62s. Exit drops from station98 toward the original rejoin. Global physics unchanged.
@@ -19,7 +32,7 @@
 - [x] Backyard actual-geometry overhead map refreshed, with final dirt takeoff/structures/foliage. Existing racing minimap unchanged. No terrain/main road/property/dump/gully/checkpoint edits or new existing-tree removal. Temporary test settings/material changes restored.
 - [x] **DELIVERED 0.43.0-review1 / game-43000.** Completion source `dc6d5587451aab518f864d41d8eede2391f00acd` pushed/verified on origin/main before the fresh Windows build: zero errors,11 warnings,13m47.925s. Additional actual raised-ramp edge inspection confirms at least1.012m separation from the main trail; no correction/rebuild required. All232 signed runtime/ZIP/root Latest/managed files match; all three remote assets/latest catalog verified; actual public download and muted startup pass. [Full delivery record](Docs/ShortcutRevision/PUBLICATION.md).
 - [x] Unchanged **Play-Racer.cmd** launched responsive managed43000; complete root Latest matches the published game. Soundtrack preserved, no updates pending, current43000/previous42000 retained. Cleanup: Builds6,615,842,391→5,456,390,524 bytes;1,159,451,867 reclaimed there plus890,554,455 temporary public-install bytes. Final C: free332,972,982,272 bytes. Source/maps, music, publisher identity/tools, launcher, metadata and saves preserved. **STOP for Dan's gameplay review.**
-- **BACKLOG ONLY:** Backyard Reverse; high-resolution entire-world visual map and richer full MENU map with useful X/Z/course overlays; general menu/UI cleanup. The approved small racing minimap stays unchanged. Stop after delivery for Dan's gameplay review.
+- **Historical backlog at 0.43; world/full-menu map superseded by the 0.44 task above. BACKLOG ONLY:** Backyard Reverse and general menu/UI cleanup. The approved small racing minimap stays unchanged. Stop after delivery for Dan's gameplay review.
 
 ## Previous delivery — 2026-09-29 / two Backyard Forward shortcuts
 
@@ -1992,7 +2005,11 @@ Record choices we do not want to repeatedly reconsider.
 
 # SESSION HANDOFF
 
-## Latest handoff — 2026-09-29 / 0.41.0-review1 map and focused UI
+## Latest handoff — 2026-09-29 / 0.44.0-review1
+
+Local Tree-Top foliage clearance, COMPLETE RACE label on the existing CR-064 post-finish action, and rendered actual-world documentation/full menu maps implemented. Current task section and Docs/WorldMap contain exact sources, tests and delivery gates. Racing minimap and protected scene/gameplay data unchanged. Backyard Reverse/general menu cleanup remain backlog. Finish the authorized release workflow, then stop.
+
+## Historical handoff — 2026-09-29 / 0.41.0-review1 map and focused UI
 
 Forward and dump APPROVED by Dan. Actual approved-world TRACK_MAP.png created for optional shortcut planning. No shortcuts or Reverse built. Selector names/order standardized with TBD difficulty metadata; direct waiting-screen Simulate Remaining Racers reuses unchanged CR-064. Targeted checks complete; Dan reviews map/UI. General menu cleanup backlog only. **0.41.0-review1 / game-41000 published and verified; completion source e42f1b0f pushed; fresh complete Latest and real launcher verified; cleanup complete.** Full delivery evidence: Docs/TrackUi/PUBLICATION.md. Stop for Dan's map review.
 

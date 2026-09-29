@@ -1,0 +1,26 @@
+PASS Full menu uses high-resolution saved-scene render
+PASS Existing discovery save grid preserved
+PASS Map coordinate round trip: Dan's neighborhood
+PASS Map coordinate round trip: Lake gateway
+PASS Map coordinate round trip: Ridge overlook
+PASS Map coordinate round trip: Highway market
+PASS Map coordinate round trip: Trickum woods
+PASS Map coordinate round trip: Summit Homeward Flight / run-up
+PASS Player marker aligned to actual texture bounds
+PASS Wheel zoom and drag pan remain operational
+PASS Waypoint remains available
+PASS Optional active-course overlay uses actual route/branches
+PASS Course overlay removable; clean map is default
+PASS Close restores racing flow
+PASS Button absent before human finishes
+PASS Early invocation cannot estimate
+PASS Exact requested button label
+PASS Finished human with unfinished AI gets visible clickable waiting button
+PASS Waiting button uses CR-064 and opens normal final results
+PASS Human and already-finished AI measured results unchanged
+PASS Only unfinished AI estimated and labeled
+PASS Repeated activation is harmless
+PASS Estimated AI do not enter measured record board
+PASS Button absent after final classification
+PASS No button when all racers have measured finishes
+PASS Normal all-measured completion unaffected

@@ -1,0 +1,14 @@
+DansBackyardForward starting
+DansBackyardForward captured (x:-1350.00, y:-850.00, width:2700.00, height:1800.00)
+MountainLoopReverse starting
+MountainLoopReverse captured (x:-1350.00, y:-850.00, width:3000.00, height:1800.00)
+MountainLoop starting
+MountainLoop captured (x:-1350.00, y:-850.00, width:3000.00, height:1800.00)
+ForestLoopReverse starting
+ForestLoopReverse captured (x:-1350.00, y:-850.00, width:2700.00, height:1800.00)
+LakeWoods starting
+LakeWoods captured (x:-1350.00, y:-850.00, width:2700.00, height:1800.00)
+StreetLoopReverse starting
+StreetLoopReverse captured (x:-1350.00, y:-850.00, width:2700.00, height:1800.00)
+StreetLoopGreybox starting
+StreetLoopGreybox captured (x:-1350.00, y:-850.00, width:2700.00, height:1800.00)

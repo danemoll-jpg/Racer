@@ -1,0 +1,10 @@
+{
+  "baseline": "73b0399b260cbf1d400f55d73bbd2d9f2d605828",
+  "allSevenScenesByteIdentical": true,
+  "mainRouteStructuresGatesTerrainPropertiesDumpGullyPreserved": true,
+  "allOtherTrackAssetsUnchanged": true,
+  "racingMinimapSourceUnchanged": true,
+  "cr064MathAiTimingRecordsPhysicsRecoveryUnchanged": true,
+  "slowdownFieldUnchanged": true,
+  "onlyWorldChange": "Assets/Track/BackyardShortcuts/Tree-Top Trail dense brush.asset"
+}

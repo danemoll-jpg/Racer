@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 831cfb54b1b89034c890e6b814206983, type: 3}
+  m_Name: LakeWoods
+  m_EditorClassIdentifier: Assembly-CSharp::Racer.WorldMapVisual
+  bounds:
+    serializedVersion: 2
+    x: -1350
+    y: -850
+    width: 2700
+    height: 1800
+  image: {fileID: 2800000, guid: 13e63cf2e6e72344daa374a0ba95056c, type: 3}
+  sourceScene: Assets/Scenes/LakeWoods.unity

@@ -18,6 +18,9 @@ namespace Racer
         [Serializable] public sealed class Data { public int version=1; public string world=Compatibility; public List<int> visited=new(); public List<string> landmarks=new(); }
         public Destination[] destinations=Array.Empty<Destination>();
         public Texture2D terrain;
+        WorldMapVisual visual;WorldMapCourseOverlay courseOverlay;
+        Vector2 MapNormalized(Vector3 p)=>visual?visual.Normalized(p):Normalized(p);
+        Vector3 MapWorldPoint(Vector2 uv)=>visual?visual.WorldPoint(uv):WorldPoint(uv);
         Data data=new(); readonly HashSet<int> visited=new(); RaceDirector race; string path,error;
         Vector3 previous; bool sampled,dirty,resume; float nextReveal,nextSave,zoom=1; Vector2 center=new(.5f,.5f);
         GameObject panel; UnityEngine.UI.RawImage picture; UnityEngine.UI.Text status,heading,waypointLabel;
@@ -77,18 +80,19 @@ namespace Racer
             center+=pan*Time.unscaledDeltaTime*.4f/zoom;
             if(g!=null){zoom=Mathf.Clamp(zoom+(g.rightTrigger.ReadValue()-g.leftTrigger.ReadValue())*Time.unscaledDeltaTime*3,1,6);
                 if(g.dpad.right.wasPressedThisFrame)SelectNext(1);if(g.dpad.left.wasPressedThisFrame)SelectNext(-1);
-                if(g.buttonSouth.wasPressedThisFrame)SetWaypoint(WorldPoint(center));if(g.buttonWest.wasPressedThisFrame)TravelSelected();}
-            if(k?.spaceKey.wasPressedThisFrame??false)SetWaypoint(WorldPoint(center));
+                if(g.buttonSouth.wasPressedThisFrame)SetWaypoint(MapWorldPoint(center));if(g.buttonWest.wasPressedThisFrame)TravelSelected();}
+            if(k?.spaceKey.wasPressedThisFrame??false)SetWaypoint(MapWorldPoint(center));
             float margin=.5f/zoom;center=new(Mathf.Clamp(center.x,margin,1-margin),Mathf.Clamp(center.y,margin,1-margin));Draw();
         }
         public void Open()
         {
+            if(!visual)visual=Resources.Load<WorldMapVisual>("WorldMaps/"+gameObject.scene.name);
             resume=race.Flow.State==RaceFlow.Stage.Racing;if(resume)race.Flow.Pause();if(!panel)BuildUI();
-            center=Normalized(race.vehicle.Body.position);panel.SetActive(true);EventSystem.current?.SetSelectedGameObject(null);Repaint();Draw();Save();
+            center=MapNormalized(race.vehicle.Body.position);panel.SetActive(true);EventSystem.current?.SetSelectedGameObject(null);Repaint();Draw();Save();
         }
         public void Close(){CancelTravel();closedFrame=Time.frameCount;if(panel)panel.SetActive(false);Save();if(resume)race.Flow.Resume();}
         public void SetWaypoint(Vector3 p){Waypoint=p;}
-        void SelectNext(int direction){if(destinations.Length==0)return;selected=(selected+direction+destinations.Length)%destinations.Length;if(Discovered(destinations[selected].id))center=Normalized(destinations[selected].position);}
+        void SelectNext(int direction){if(destinations.Length==0)return;selected=(selected+direction+destinations.Length)%destinations.Length;if(Discovered(destinations[selected].id))center=MapNormalized(destinations[selected].position);}
         public bool Travel(int index)
         {
             if(error!=null||!race.FreeRoam||index<0||index>=destinations.Length||!Discovered(destinations[index].id)){errorMessage="Travel needs free roam and a discovered destination.";return false;}
@@ -97,7 +101,7 @@ namespace Racer
             race.Flow.Activities.NewSession();race.Flow.Ghost.ResetSession();race.GetComponent<ExplorationCollection>()?.ResetMovement();
             race.Racers[0].Branch.Clear();race.Racers[0].FinishArmed=false;race.Racers[0].FinishApproach=0;
             race.ResetSampling(race.vehicle.Body.position,Time.timeAsDouble);ResetMovement();
-            errorMessage="Arrived at "+d.title+". Active attempts cancelled.";center=Normalized(race.vehicle.Body.position);Save();return true;
+            errorMessage="Arrived at "+d.title+". Active attempts cancelled.";center=MapNormalized(race.vehicle.Body.position);Save();return true;
         }
         string errorMessage="";
         void TravelSelected(){RequestTravel(selected);}
@@ -127,8 +131,9 @@ namespace Racer
             var scaler=panel.GetComponent<UnityEngine.UI.CanvasScaler>();scaler.uiScaleMode=UnityEngine.UI.CanvasScaler.ScaleMode.ScaleWithScreenSize;scaler.referenceResolution=new(1280,720);
             var bg=RectUI("Map background",panel.transform,Vector2.zero,new(1280,720));bg.gameObject.AddComponent<UnityEngine.UI.Image>().color=new(.025f,.045f,.055f,1);
             Text("Title",panel.transform,new(0,323),new(1200,42),26).text="WOODSTOCK / EXPLORATION MAP";
-            var r=RectUI("Terrain",panel.transform,new(-150,10),new(740,540));picture=r.gameObject.AddComponent<UnityEngine.UI.RawImage>();r.gameObject.AddComponent<UnityEngine.UI.RectMask2D>();
+            var r=RectUI("Terrain",panel.transform,new(-150,10),new(740,visual?740*visual.bounds.height/visual.bounds.width:540));picture=r.gameObject.AddComponent<UnityEngine.UI.RawImage>();r.gameObject.AddComponent<UnityEngine.UI.RectMask2D>();
             var events=r.gameObject.AddComponent<MapPointer>();events.owner=this;
+            var overlay=RectUI("Current course overlay",r,Vector2.zero,new(740,visual?740*visual.bounds.height/visual.bounds.width:540));courseOverlay=overlay.gameObject.AddComponent<WorldMapCourseOverlay>();courseOverlay.raycastTarget=false;overlay.gameObject.SetActive(false);
             heading=Text("Player heading",r,Vector2.zero,new(35,35),27);heading.color=Color.cyan;heading.text="▲";
             waypointLabel=Text("Waypoint",r,Vector2.zero,new(25,25),24);waypointLabel.color=Color.yellow;waypointLabel.text="+";
             foreach(var d in destinations){var t=Text(d.id,r,Vector2.zero,new(170,35),16);markers.Add(t);}
@@ -136,7 +141,8 @@ namespace Racer
             Text("Cursor",r,Vector2.zero,new(25,25),20).text="+";
             status=Text("Map status",panel.transform,new(460,38),new(255,410),18);
             Button("Previous destination",new(460,-188),()=>SelectNext(-1));Button("Next destination",new(460,-232),()=>SelectNext(1));Button("Travel (free roam)",new(460,-276),TravelSelected);
-            Button("Close map / M / B",new(-420,-316),Close);Button("Center on player",new(-150,-316),()=>center=Normalized(race.vehicle.Body.position));Button("Clear waypoint",new(120,-316),()=>Waypoint=null);
+            Button("Close map / M / B",new(-420,-316),Close);Button("Center on player",new(-150,-316),()=>center=MapNormalized(race.vehicle.Body.position));Button("Clear waypoint",new(120,-316),()=>Waypoint=null);
+            Button("Show / hide course",new(460,267),()=>courseOverlay.gameObject.SetActive(!courseOverlay.gameObject.activeSelf));
             Text("Map controls",panel.transform,new(-100,291),new(1000,25),16).text="NORTH ↑   Mouse: wheel zoom / drag pan / click waypoint or landmark";
             Text("Controller controls",panel.transform,new(0,-343),new(1200,22),15).text="Stick / WASD: pan · triggers / wheel: zoom · A / Space: waypoint · D-pad: destinations · X: travel · B / Esc: close";
             confirmation=RectUI("Confirm destination",panel.transform,Vector2.zero,new(1280,720)).gameObject;
@@ -147,27 +153,29 @@ namespace Racer
         }
         void Repaint()
         {
-            if(texture)Destroy(texture);int w=terrain?terrain.width:Columns,h=terrain?terrain.height:Rows;texture=new Texture2D(w,h,TextureFormat.RGBA32,false);texture.filterMode=FilterMode.Point;texture.wrapMode=TextureWrapMode.Clamp;
-            var colors=terrain?terrain.GetPixels():Enumerable.Repeat(new Color(.28f,.36f,.2f),w*h).ToArray();
-            for(int y=0;y<h;y++)for(int x=0;x<w;x++)if(!visited.Contains((y*Rows/h)*Columns+x*Columns/w))colors[y*w+x]=new(.055f,.075f,.083f);
-            texture.SetPixels(colors);texture.Apply();picture.texture=texture;
+            if(texture)Destroy(texture);var source=visual&&visual.image?visual.image:terrain;int w=source?source.width:Columns,h=source?source.height:Rows;texture=new Texture2D(w,h,TextureFormat.RGBA32,false);texture.filterMode=FilterMode.Bilinear;texture.wrapMode=TextureWrapMode.Clamp;
+            var colors=source?source.GetPixels32():Enumerable.Repeat((Color32)new Color(.28f,.36f,.2f),w*h).ToArray();
+            // Preserve existing discovery IDs/save grid, independently of the larger visual extent.
+            for(int y=0;y<h;y++)for(int x=0;x<w;x++){var p=MapWorldPoint(new Vector2((x+.5f)/w,(y+.5f)/h));if(!Visited(p)){int i=y*w+x;var c=colors[i];colors[i]=visual?new Color32((byte)(c.r*.65f),(byte)(c.g*.65f),(byte)(c.b*.65f),255):new Color32(14,19,21,255);}}
+            texture.SetPixels32(colors);texture.Apply(false,true);picture.texture=texture;
         }
-        Vector2 ScreenPoint(Vector3 p){var uv=Normalized(p);var v=(uv-center)*zoom;return new(v.x*740,v.y*540);}
-        void Marker(UnityEngine.UI.Text t,Vector3 p){var q=ScreenPoint(p);t.rectTransform.anchoredPosition=q;t.gameObject.SetActive(Mathf.Abs(q.x)<350&&Mathf.Abs(q.y)<250);}
+        Vector2 ScreenPoint(Vector3 p){var uv=MapNormalized(p);var v=(uv-center)*zoom;return Vector2.Scale(v,picture.rectTransform.rect.size);}
+        void Marker(UnityEngine.UI.Text t,Vector3 p){var q=ScreenPoint(p);t.rectTransform.anchoredPosition=q;t.gameObject.SetActive(Mathf.Abs(q.x)<picture.rectTransform.rect.width/2-20&&Mathf.Abs(q.y)<picture.rectTransform.rect.height/2-20);}
         void Draw()
         {
             picture.uvRect=new Rect(center-Vector2.one*.5f/zoom,Vector2.one/zoom);Marker(heading,race.vehicle.Body.position);heading.rectTransform.localRotation=Quaternion.Euler(0,0,-race.vehicle.transform.eulerAngles.y);
+            courseOverlay.SetView(race,visual,center,zoom);
             if(Waypoint.HasValue)Marker(waypointLabel,Waypoint.Value);else waypointLabel.gameObject.SetActive(false);
             for(int i=0;i<destinations.Length;i++){markers[i].text=(selected==i?"◆ ":"● ")+destinations[i].title;Marker(markers[i],destinations[i].position);if(!Discovered(destinations[i].id))markers[i].gameObject.SetActive(false);}
             var collection=race.GetComponent<ExplorationCollection>();for(int i=0;i<acorns.Count;i++){var s=collection.sites[i];Marker(acorns[i],s.position);if(!collection.Discovered(s.id)||!Visited(s.position))acorns[i].gameObject.SetActive(false);}
             string choice=selected<0?"Select a discovered landmark.":Discovered(destinations[selected].id)?destinations[selected].title:"Undiscovered destination";
-            status.text=choice+"\n"+(race.FreeRoam?"Free roam travel":"Race: travel disabled")+"\n\nVisited terrain is NOT fully searched.\n\n"+(race.GetComponent<ExplorationCollection>()?.Summary??"")+"\n\n"+(error??errorMessage);
+            status.text=choice+"\n"+(race.FreeRoam?"Free roam travel":"Race: travel disabled")+"\n\nDim terrain: unexplored.\nVisited is NOT fully searched.\n"+(courseOverlay.gameObject.activeSelf?"\n"+race.courseName+"\nTeal: main · Gold: shortcuts\nArrows: travel direction\n":"\n")+(race.GetComponent<ExplorationCollection>()?.Summary??"")+"\n\n"+(error??errorMessage);
         }
         public void OnScroll(PointerEventData e){zoom=Mathf.Clamp(zoom+e.scrollDelta.y*.25f,1,6);}
-        public void OnDrag(PointerEventData e){center-=new Vector2(e.delta.x/740,e.delta.y/540)/zoom;}
+        public void OnDrag(PointerEventData e){center-=new Vector2(e.delta.x/picture.rectTransform.rect.width,e.delta.y/picture.rectTransform.rect.height)/zoom;}
         public void OnPointerClick(PointerEventData e)
         {if(e.dragging||e.button!=PointerEventData.InputButton.Left)return;if(!RectTransformUtility.ScreenPointToLocalPointInRectangle(picture.rectTransform,e.position,e.pressEventCamera,out var q))return;
-            if(Confirming)return;var p=WorldPoint(center+new Vector2(q.x/740,q.y/540)/zoom);selected=Array.FindIndex(destinations,d=>Discovered(d.id)&&Vector2.Distance(ScreenPoint(d.position),q)<24);if(selected<0)SetWaypoint(p);else RequestTravel(selected);}
+            if(Confirming)return;var p=MapWorldPoint(center+new Vector2(q.x/picture.rectTransform.rect.width,q.y/picture.rectTransform.rect.height)/zoom);selected=Array.FindIndex(destinations,d=>Discovered(d.id)&&Vector2.Distance(ScreenPoint(d.position),q)<24);if(selected<0)SetWaypoint(p);else RequestTravel(selected);}
     }
     public sealed class MapPointer:MonoBehaviour,IPointerClickHandler,IDragHandler,IScrollHandler
     {public ExplorationMap owner;public void OnPointerClick(PointerEventData e)=>owner.OnPointerClick(e);public void OnDrag(PointerEventData e)=>owner.OnDrag(e);public void OnScroll(PointerEventData e)=>owner.OnScroll(e);}

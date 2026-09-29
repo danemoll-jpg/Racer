@@ -1,0 +1,6 @@
+PASS Main and slightly off-center body positions (0/±1/±2m): 1450/1450 free of slowdown
+PASS Ground-bypass samples: 73 dense, 2 correctly excluded inside main-trail clearance, 75 total; no unexplained gaps
+PASS 538 complete shrub/fern clusters retained; only intruding plants removed
+PASS Undergrowth remains traversable, with no solid bush wall
+PASS Accepted Tree-Top route, AI registration and gate entitlement preserved
+PASS Visual bounds contain complete saved ground/outer-road extent
