@@ -1,0 +1,4 @@
+using System;using System.IO;using UnityEngine;using UnityEditor;using Racer;
+public static class StartShortcutRevisionChecks {
+ public static string Main(){if(EditorApplication.isCompiling||Application.isPlaying)throw new Exception("Compiled edit mode required");if(UnityEngine.Object.FindObjectsByType<ShortcutRevisionChecks>().Length>0)throw new Exception("Fixture exists");File.WriteAllText("Temp/revision-editor-options.txt",EditorSettings.enterPlayModeOptionsEnabled.ToString());EditorSettings.enterPlayModeOptionsEnabled=false;AudioListener.volume=0;foreach(var t in UnityEngine.Object.FindObjectsByType<ContinuationTraffic>())t.enabled=false;new GameObject("Temporary shortcut revision checks").AddComponent<ShortcutRevisionChecks>();EditorApplication.delayCall+=()=>EditorApplication.isPlaying=true;return "Scheduled one bounded muted two-shortcut fixture";}
+}

@@ -1,0 +1,6 @@
+Platform 40: anchored to CR014 trunk 05566 at (194.74, 60.21, -41.48)
+Platform 58: anchored to CR014 trunk 04300 at (206.36, 60.20, -62.59)
+Platform 76: anchored to Tree trunk at (189.00, 55.98, -69.15)
+Platform 92: anchored to CR014 trunk 04891 at (185.96, 50.31, -89.96)
+Tree-Top Trail: 465 overlapping collider-free bushes, radius 17
+Abandoned Cabin Jump: 294 overlapping collider-free bushes, radius 18

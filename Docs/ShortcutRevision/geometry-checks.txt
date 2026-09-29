@@ -1,0 +1,13 @@
+PASS Old rows of ground support posts removed
+PASS Four platforms braced to existing trees
+PASS Six adjacent long boards; short cabin approach
+PASS One readable welded cabin board/roof collider
+PASS Cabin full car-body clearance: 0 intersecting obstructions
+PASS Cabin adjoining sampled grade step 0.0340; roof constant grade .32
+PASS Two traversable bush fields; no bush rigid colliders
+PASS Zero resistance on all 1684 protected main-route samples
+PASS Abandoned Cabin Jump: dense ground coverage under/both sides including ±5 and ±10m: 30/30
+PASS Abandoned Cabin Jump: production AI/checkpoint/minimap branch metadata retained
+PASS Tree-Top Trail: dense ground coverage under/both sides including ±5 and ±10m: 75/75
+PASS Tree-Top Trail: production AI/checkpoint/minimap branch metadata retained
+PASS Tree entry unchanged

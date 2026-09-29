@@ -1,0 +1,18 @@
+PASS main-Tree-Top-Trail-26: physical normal-input traverse 13.56s, progress=142.0m, maxAir=1.40s, resets=0
+PASS shortcut-Tree-Top-Trail-26: physical normal-input traverse 4.96s, progress=107.4m, maxAir=0.44s, resets=0
+PASS Tree first touchdown 37.42m; first platform33..48, entry cap26
+PASS Tree-top receiving trail physically driven on elevated support: 122 frames
+PASS Tree-Top Trail: actual entrance/bypass entitlement, nextGate=4, misses=0, entered=True
+PASS Tree-Top Trail: substantial intentional airtime 0.44s
+PASS Tree clean 4.96s faster than main 13.56s
+PASS shortcut-Tree-Top-Trail-19: physical normal-input traverse 5.62s, progress=107.7m, maxAir=0.44s, resets=0
+PASS Tree first touchdown 34.54m; first platform33..48, entry cap19
+PASS Tree-top receiving trail physically driven on elevated support: 151 frames
+PASS Tree-Top Trail: actual entrance/bypass entitlement, nextGate=4, misses=0, entered=True
+PASS Tree-Top Trail: substantial intentional airtime 0.44s
+PASS Tree-Top Trail ground 5: traversed 36..104 in 19.06s, reached=True, resets=0
+PASS Tree-Top Trail bush section alone 19.06s slower than full main 13.56s
+PASS Abandoned Cabin Jump ground -5: traversed 44..122 in 16.04s, reached=True, resets=0
+PASS Abandoned Cabin Jump bush section alone 16.04s slower than full main 5.06s
+FAIL Abandoned Cabin Jump ground 5: traversed 44..122 in 50.02s, reached=False, resets=0
+FAIL Abandoned Cabin Jump bush section alone 50.02s slower than full main 5.06s

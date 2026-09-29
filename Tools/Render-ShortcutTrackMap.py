@@ -77,17 +77,18 @@ for branch in d['branches']:
     label(branch['title'].upper()+'\nOPTIONAL / HARD',mid['x'],mid['z'],-640 if tree else -270,0 if tree else -190,35,color='#ffcc72')
 p.text((3100,128),'GOLD: OPTIONAL SHORTCUTS',font=font(32,True),fill='#ffcc72')
 for branch in d['branches']:
-    jump=35 if branch['title']=='Tree-Top Trail' else 41
+    jump=29 if branch['title']=='Tree-Top Trail' else 41
     distance=0
     for a,b in zip(branch['points'],branch['points'][1:]):
         length=math.hypot(b['x']-a['x'],b['z']-a['z'])
         if distance+length>=jump:
             t=(jump-distance)/length;x=a['x']+(b['x']-a['x'])*t;z=a['z']+(b['z']-a['z'])*t
             px,pz=xy(x,z);p.polygon([(px,pz-18),(px+18,pz),(px,pz+18),(px-18,pz)],fill='#ffbe4b',outline='#192c2e',width=4)
-            label('CANOPY LAUNCH' if jump==35 else 'CABIN ROOF LAUNCH',x,z,-330 if jump==35 else 50,-100 if jump==35 else 80,26,color='#ffcc72')
+            label('TREEHOUSE DIRT JUMP' if jump==29 else 'CABIN ROOF LAUNCH',x,z,-330 if jump==29 else 50,-100 if jump==29 else 80,26,color='#ffcc72')
             break
         distance+=length
 im.save(out/'TRACK_MAP.png');im.resize((1344,1000)).save(root/'Temp/map-preview.png')
 print('TRACK_MAP.png: 5040 x 3750; actual approved scene and exported route/gates.')
+
 
 

@@ -8,14 +8,14 @@ Open **[TRACK_MAP.png](TRACK_MAP.png)** (5040 × 3750) to review the actual fina
 
 The current scene render before annotations is [SHORTCUT_OVERHEAD.png](SHORTCUT_OVERHEAD.png); [map-scene.json](map-scene.json) contains the freshly exported route, road and gate data. Tools/Capture-ShortcutTrackMap.cs and Tools/Render-ShortcutTrackMap.py reproduce this documentation from the saved final scene. The render itself does not modify the scene. Gold lines/arrows are optional routes; gold circles are entries and squares are rejoins.
 
-**Tree-Top Trail and Abandoned Cabin Jump are implemented; Dan gameplay review is pending. Reverse remains NOT YET IMPLEMENTED.** [Technical evidence](../BackyardShortcuts/VALIDATION.md) and [final geometry](../BackyardShortcuts/geometry.json).
+**Tree-Top Trail and Abandoned Cabin Jump are revised for 0.43.0; Dan gameplay review is pending. Reverse remains NOT YET IMPLEMENTED.** [Current technical evidence](../ShortcutRevision/VALIDATION.md) and [final geometry](../ShortcutRevision/geometry.json). Previous shortcut evidence is historical.
 
 | Shortcut | Entry X/Z | Rejoin X/Z | Length | Bypassed main | Approximate clean saving |
 |---|---|---|---|---|---|
-| Tree-Top Trail | 218.677 / -5.618 | 169.336 / -101.692 | 110.432m | 144.710m; CP2/3 | 1.68s (6.80 vs5.12s) |
-| Abandoned Cabin Jump | 183.793 /78.258 | 309.951 /95.375 | 127.856m | 151.130m; CP6 | 0.58s (4.88 vs4.30s) |
+| Tree-Top Trail | 218.677 / -5.618 | 169.336 / -101.692 | 110.432m | 144.710m; CP2/3 | 1.84s versus historical unchanged-main6.80s; final shortcut4.96s |
+| Abandoned Cabin Jump | 183.793 /78.258 | 309.951 /95.375 | 127.856m | 151.130m; CP6 | 0.80s (5.06 vs4.26s) |
 
-Tree-top launch is15–35m into its branch, followed by a12m gap, a4.7m elevated plank trail from47m, grounded timber support and a smooth downhill return. The cabin is32–41m into its branch, about a quarter of the way through; boards and roof form one physical stunt with approximately2.5s airtime in the measured clean motorcycle run. Only14 existing trees removed; main route, gates and terrain preserved. Times are representative local checks, not guaranteed human lap improvements.
+Tree-top dirt launch is15–29m into its branch, followed by a4m gap, a wider33–48m receiving platform, narrow3.3m rough bridges and small platforms braced to four existing trees, then an exit drop from98m. Six leaning boards at22–32m reach the cabin roof at32–41m; one welded collision strip preserves measured momentum through a1.96s bush-clearing flight. Dense shrubs/ferns cover the ground under and around both stunts; ground resistance is traversable and inactive on the main trail, platforms and airborne vehicles. No further existing trees removed; main route, gates and terrain preserved. Ground checks and a disclosed cabin-side automated egress limitation are in the validation record. Times are representative local checks, not guaranteed human lap improvements.
 
 The richer entire-world map and full menu-map representation are BACKLOG ONLY. Preserve the approved minimal racing minimap; it consumes the existing amber shortcut convention.
 

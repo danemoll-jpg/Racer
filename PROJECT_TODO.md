@@ -9,7 +9,18 @@
 - Do not silently modify or weaken CODEX_RULES.md. Changes to standing rules require an explicit instruction from Dan.
 - Root AGENTS.md points future Codex tasks to both files.
 
-## Current task — 2026-09-29 / two Backyard Forward shortcuts
+## Current task — 2026-09-29 / focused shortcut revisions, 0.43.0-review1
+
+- Safety checkpoint: clean main `88bb363b8078f890dec28734e7036ca48a70c9f2`. Dan's gameplay rejection supersedes the earlier map-only approval of the shortcut structures. The approved Backyard main route remains protected.
+- [x] Tree-Top rebuilt as narrow rough boards and small platforms braced to four existing trees; repeated ground posts removed. Dirt entry ends at station 29; first landing 33–48 is 5.8m wide before tapering; technical bridges 3.3m. Final medium/slower-capped entries land at 37.42/34.54m and complete in 4.96/5.62s. Exit drops from station98 toward the original rejoin. Global physics unchanged.
+- [x] Cabin's oversized timber approach replaced by six long leaning boards, station22–32, leading over its modest32–41 roof. Welded board/roof collision, matched heights/constant roof slope, recessed walls and no decorative-board colliders. Measured roof speed30.59→31.83m/s;1.96s flight clears the bushes. Clean4.26s versus5.06s main. The earlier subjective slowdown was not independently reproduced; exact local geometry repair and final momentum evidence are documented.
+- [x] Broad dense undergrowth beneath/beside both stunts, physically traversable with terrain-contact-only horizontal resistance. No rigid bush walls, launches, boosts, forced resets or time penalties.105/105 coverage samples under/±5/±10m pass; all1,684 main points have zero resistance. Tree ground−5m15.10s; +5m vicinity19.06s; cabin−5m16.04s. Cabin+5m clears all bushes at15.06s, then its automated fixed-side egress oscillates at an existing tree and times out; that full egress line remains unverified. No extra tree clearing/pilot tuning to hide this limitation.
+- [x] Targeted checks STOPPED. Both branches grant expected gates with zero misses; one AI attempt each reaches rejoin vicinity with zero recoveries. Body widths of all four vehicles fit; no full driving matrix. Final13/13 geometry checks pass;49,431 protected scene blocks, all main points/nine gates, six other scenes and12 global systems unchanged. Tree main fixture left the trail and entered brush, so its11.78/13.56s times are not clean benchmarks; final4.96s shortcut also beats the prior unchanged-main6.80s measured run. Initial failures and exact limitations retained in [validation](Docs/ShortcutRevision/VALIDATION.md).
+- [x] Backyard actual-geometry overhead map refreshed, with final dirt takeoff/structures/foliage. Existing racing minimap unchanged. No terrain/main road/property/dump/gully/checkpoint edits or new existing-tree removal. Temporary test settings/material changes restored.
+- [ ] Completion source push, fresh43000 build, complete Latest, signed publication, production Play-Racer.cmd verification and cleanup are being completed in this same task; see Docs/ShortcutRevision/PUBLICATION.md for final delivery state.
+- **BACKLOG ONLY:** Backyard Reverse; high-resolution entire-world visual map and richer full MENU map with useful X/Z/course overlays; general menu/UI cleanup. The approved small racing minimap stays unchanged. Stop after delivery for Dan's gameplay review.
+
+## Previous delivery — 2026-09-29 / two Backyard Forward shortcuts
 
 - **DELIVERED — 0.42.0-review1 / game-42000. MAPPED CHANGES APPROVED by Dan:** “these look correct.” This is visual/map approval; detailed gameplay review remains with Dan. Dan supplied `Forest Shortcuts.png` at `C:/Users/danmo/.vscode-shared/Downloads/Forest Shortcuts.png`. Its black lines authorize conceptual corridors, not literal centreline tracing.
 - Safety checkpoint: clean main `79797bc57e49da9f5de6a8cb86f972c82bd672d4`.

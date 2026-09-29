@@ -1,0 +1,153 @@
+Abandoned Cabin Jump 0 (183.79, 67.30, 78.26) ground=67.30 grade=0.16
+Abandoned Cabin Jump 5 (188.79, 68.13, 78.09) ground=68.13 grade=0.23
+Abandoned Cabin Jump 10 (193.79, 69.14, 77.92) ground=69.13 grade=0.19
+Abandoned Cabin Jump 15 (198.79, 70.15, 77.99) ground=69.98 grade=0.22
+Abandoned Cabin Jump 20 (203.77, 71.34, 78.37) ground=70.79 grade=0.26
+Abandoned Cabin Jump 25 (208.74, 72.71, 78.93) ground=71.55 grade=0.29
+Abandoned Cabin Jump 30 (213.70, 74.26, 79.57) ground=72.24 grade=0.33
+Abandoned Cabin Jump 35 (218.66, 75.99, 80.21) ground=72.86 grade=0.36
+Abandoned Cabin Jump 40 (223.62, 77.91, 80.83) ground=73.41 grade=0.40
+Abandoned Cabin Jump 45 (228.58, 78.16, 81.48) ground=73.89 grade=-0.04
+Abandoned Cabin Jump 50 (233.52, 77.92, 82.23) ground=74.32 grade=-0.05
+Abandoned Cabin Jump 55 (238.45, 77.63, 83.08) ground=74.70 grade=-0.06
+Abandoned Cabin Jump 60 (243.35, 77.30, 84.04) ground=75.03 grade=-0.07
+Abandoned Cabin Jump 65 (248.25, 76.92, 85.07) ground=75.32 grade=-0.08
+Abandoned Cabin Jump 70 (253.13, 76.50, 86.13) ground=75.56 grade=-0.09
+Abandoned Cabin Jump 75 (258.01, 76.04, 87.21) ground=75.78 grade=-0.09
+Abandoned Cabin Jump 80 (262.89, 75.97, 88.31) ground=75.97 grade=0.03
+Abandoned Cabin Jump 85 (267.77, 76.13, 89.40) ground=76.13 grade=0.03
+Abandoned Cabin Jump 90 (272.63, 76.27, 90.58) ground=76.27 grade=0.03
+Abandoned Cabin Jump 95 (277.48, 76.39, 91.81) ground=76.39 grade=0.02
+Abandoned Cabin Jump 100 (282.33, 76.49, 93.02) ground=76.49 grade=0.02
+Abandoned Cabin Jump 105 (287.20, 76.55, 94.13) ground=76.55 grade=0.01
+Abandoned Cabin Jump 110 (292.12, 76.56, 95.02) ground=76.56 grade=0.00
+Abandoned Cabin Jump 115 (297.10, 76.52, 95.49) ground=76.52 grade=-0.01
+Abandoned Cabin Jump 120 (302.10, 76.44, 95.53) ground=76.44 grade=-0.02
+Abandoned Cabin Jump 125 (307.09, 76.24, 95.38) ground=76.24 grade=0.00
+Tree-Top Trail 0 (218.68, 61.39, -5.62) ground=61.39 grade=-0.14
+Tree-Top Trail 5 (216.07, 60.64, -9.88) ground=60.64 grade=-0.16
+Tree-Top Trail 10 (213.46, 59.90, -14.15) ground=59.90 grade=-0.12
+Tree-Top Trail 15 (211.18, 59.56, -18.60) ground=59.58 grade=-0.09
+Tree-Top Trail 20 (209.36, 59.23, -23.25) ground=58.60 grade=-0.02
+Tree-Top Trail 25 (207.83, 59.38, -28.01) ground=57.97 grade=0.08
+Tree-Top Trail 30 (206.36, 60.03, -32.79) ground=57.34 grade=0.18
+Tree-Top Trail 35 (204.81, 61.17, -37.54) ground=56.71 grade=0.27
+Tree-Top Trail 40 (203.14, 62.07, -42.26) ground=56.06 grade=0.18
+Tree-Top Trail 45 (201.43, 62.97, -46.96) ground=55.39 grade=0.18
+Tree-Top Trail 50 (199.76, 63.33, -51.67) ground=54.71 grade=0.00
+Tree-Top Trail 55 (198.18, 63.33, -56.41) ground=54.03 grade=0.00
+Tree-Top Trail 60 (197.10, 63.32, -61.29) ground=53.36 grade=-0.01
+Tree-Top Trail 65 (196.53, 63.02, -66.25) ground=52.73 grade=-0.12
+Tree-Top Trail 70 (195.41, 62.10, -71.12) ground=52.04 grade=-0.24
+Tree-Top Trail 75 (193.24, 60.57, -75.61) ground=51.26 grade=-0.37
+Tree-Top Trail 80 (190.32, 58.43, -79.67) ground=50.44 grade=-0.49
+Tree-Top Trail 85 (187.06, 55.99, -83.45) ground=49.60 grade=-0.49
+Tree-Top Trail 90 (183.63, 53.54, -87.10) ground=48.75 grade=-0.49
+Tree-Top Trail 95 (180.13, 51.10, -90.66) ground=47.89 grade=-0.49
+Tree-Top Trail 100 (176.60, 48.65, -94.20) ground=46.89 grade=-0.49
+Tree-Top Trail 105 (173.08, 46.56, -97.76) ground=46.04 grade=-0.34
+Tree-Top Trail 110 (169.63, 45.32, -101.37) ground=45.31 grade=-0.16
+OBJ Tree-Top Trail pos=(0.00, 0.00, 0.00) scale=(1.00, 1.00, 1.00) colliders=0
+OBJ Abandoned Cabin Jump pos=(0.00, 0.00, 0.00) scale=(1.00, 1.00, 1.00) colliders=0
+OBJ Cabin wooded approach pos=(0.00, 0.00, 0.00) scale=(1.00, 1.00, 1.00) colliders=0
+OBJ Cabin wooded landing and return pos=(0.00, 0.00, 0.00) scale=(1.00, 1.00, 1.00) colliders=0
+OBJ Takeoff - Cabin angled approach boards continuous timber collision pos=(0.00, 0.00, 0.00) scale=(1.00, 1.00, 1.00) colliders=1
+OBJ Platform cross bearer pos=(194.79, 69.12, 77.91) scale=(0.26, 0.26, 6.30) colliders=0
+OBJ Timber grounded support pos=(204.03, 70.72, 75.78) scale=(0.24, 0.24, 0.54) colliders=0
+OBJ Tree-platform diagonal brace pos=(203.81, 70.92, 77.94) scale=(0.18, 0.18, 4.35) colliders=0
+OBJ Platform cross bearer pos=(203.77, 71.14, 78.37) scale=(0.26, 0.26, 6.30) colliders=0
+OBJ Timber grounded support pos=(212.37, 72.88, 82.02) scale=(0.24, 0.24, 1.41) colliders=0
+OBJ Tree-platform diagonal brace pos=(212.65, 73.37, 79.87) scale=(0.18, 0.18, 4.37) colliders=0
+OBJ Timber grounded support pos=(213.04, 72.68, 76.86) scale=(0.24, 0.24, 1.81) colliders=0
+OBJ Tree-platform diagonal brace pos=(212.76, 73.30, 79.01) scale=(0.18, 0.18, 4.39) colliders=0
+OBJ Platform cross bearer pos=(212.71, 73.74, 79.44) scale=(0.26, 0.26, 6.30) colliders=0
+OBJ Takeoff - Abandoned cabin sloping roof continuous timber collision pos=(0.00, 0.00, 0.00) scale=(1.00, 1.00, 1.00) colliders=0
+OBJ Timber grounded support pos=(218.30, 74.30, 83.09) scale=(0.24, 0.24, 2.70) colliders=0
+OBJ Tree-platform diagonal brace pos=(218.60, 75.20, 80.70) scale=(0.18, 0.18, 4.92) colliders=0
+OBJ Timber grounded support pos=(219.02, 74.08, 77.33) scale=(0.24, 0.24, 3.13) colliders=0
+OBJ Tree-platform diagonal brace pos=(218.72, 75.12, 79.72) scale=(0.18, 0.18, 4.95) colliders=0
+OBJ Platform cross bearer pos=(218.66, 75.79, 80.21) scale=(0.26, 0.26, 6.90) colliders=0
+OBJ Weathered cabin side wall board pos=(215.29, 73.71, 82.96) scale=(0.16, 2.01, 0.60) colliders=1
+OBJ Weathered cabin side wall board pos=(215.94, 73.86, 83.04) scale=(0.16, 2.15, 0.60) colliders=1
+OBJ Weathered cabin side wall board pos=(216.58, 74.01, 83.12) scale=(0.16, 2.30, 0.60) colliders=1
+OBJ Weathered cabin side wall board pos=(217.23, 74.17, 83.20) scale=(0.16, 2.46, 0.60) colliders=1
+OBJ Weathered cabin side wall board pos=(217.87, 74.32, 83.29) scale=(0.16, 2.61, 0.60) colliders=1
+OBJ Weathered cabin side wall board pos=(218.52, 74.48, 83.37) scale=(0.16, 2.77, 0.60) colliders=1
+OBJ Weathered cabin side wall board pos=(219.16, 74.64, 83.45) scale=(0.16, 2.94, 0.60) colliders=1
+OBJ Weathered cabin side wall board pos=(219.81, 74.79, 83.53) scale=(0.16, 3.11, 0.60) colliders=1
+OBJ Weathered cabin side wall board pos=(220.45, 74.95, 83.61) scale=(0.16, 3.28, 0.60) colliders=1
+OBJ Weathered cabin side wall board pos=(221.10, 75.11, 83.69) scale=(0.16, 3.46, 0.60) colliders=1
+OBJ Weathered cabin side wall board pos=(221.74, 75.27, 83.77) scale=(0.16, 3.64, 0.60) colliders=1
+OBJ Weathered cabin side wall board pos=(222.39, 75.43, 83.85) scale=(0.16, 3.83, 0.60) colliders=1
+OBJ Weathered cabin side wall board pos=(223.03, 75.59, 83.93) scale=(0.16, 4.02, 0.60) colliders=1
+OBJ Weathered cabin side wall board pos=(223.68, 75.76, 84.01) scale=(0.16, 4.22, 0.60) colliders=1
+OBJ Weathered cabin side wall board pos=(216.07, 73.47, 76.70) scale=(0.16, 2.49, 0.60) colliders=1
+OBJ Weathered cabin side wall board pos=(216.71, 73.62, 76.79) scale=(0.16, 2.63, 0.60) colliders=1
+OBJ Weathered cabin side wall board pos=(217.36, 73.78, 76.87) scale=(0.16, 2.78, 0.60) colliders=1
+OBJ Weathered cabin side wall board pos=(218.00, 73.93, 76.95) scale=(0.16, 2.93, 0.60) colliders=1
+OBJ Weathered cabin side wall board pos=(218.65, 74.09, 77.03) scale=(0.16, 3.09, 0.60) colliders=1
+OBJ Weathered cabin side wall board pos=(219.29, 74.24, 77.11) scale=(0.16, 3.25, 0.60) colliders=1
+OBJ Weathered cabin side wall board pos=(219.94, 74.40, 77.20) scale=(0.16, 3.41, 0.60) colliders=1
+OBJ Weathered cabin side wall board pos=(220.58, 74.56, 77.28) scale=(0.16, 3.58, 0.60) colliders=1
+OBJ Weathered cabin side wall board pos=(221.23, 74.72, 77.36) scale=(0.16, 3.75, 0.60) colliders=1
+OBJ Weathered cabin side wall board pos=(221.87, 74.88, 77.43) scale=(0.16, 3.93, 0.60) colliders=1
+OBJ Weathered cabin side wall board pos=(222.52, 75.04, 77.52) scale=(0.16, 4.11, 0.60) colliders=1
+OBJ Weathered cabin side wall board pos=(223.16, 75.20, 77.60) scale=(0.16, 4.29, 0.60) colliders=1
+OBJ Weathered cabin side wall board pos=(223.81, 75.37, 77.68) scale=(0.16, 4.48, 0.60) colliders=1
+OBJ Weathered cabin side wall board pos=(224.45, 75.53, 77.76) scale=(0.16, 4.67, 0.60) colliders=1
+OBJ Cabin far gable below launch pos=(224.31, 75.63, 80.92) scale=(6.25, 4.29, 0.18) colliders=1
+OBJ Boarded abandoned cabin window pos=(219.16, 74.41, 76.98) scale=(0.10, 1.10, 0.80) colliders=0
+OBJ Boarded abandoned cabin window pos=(220.55, 74.57, 77.15) scale=(0.10, 1.10, 0.80) colliders=0
+OBJ Boarded abandoned cabin window pos=(221.94, 74.73, 77.32) scale=(0.10, 1.10, 0.80) colliders=0
+OBJ Tree-Top Trail grounded signpost pos=(211.27, 61.84, -9.26) scale=(0.18, 3.00, 0.18) colliders=0
+OBJ Tree-Top Trail timber sign pos=(211.27, 62.94, -9.26) scale=(5.50, 1.45, 0.15) colliders=0
+OBJ Tree-Top Trail optional sign pos=(211.32, 62.94, -9.18) scale=(1.00, 1.00, 1.00) colliders=0
+OBJ Abandoned Cabin Jump grounded signpost pos=(190.62, 69.63, 73.61) scale=(0.18, 3.00, 0.18) colliders=0
+OBJ Abandoned Cabin Jump timber sign pos=(190.62, 70.73, 73.61) scale=(5.50, 1.45, 0.15) colliders=0
+OBJ Abandoned Cabin Jump optional sign pos=(190.52, 70.72, 73.61) scale=(1.00, 1.00, 1.00) colliders=0
+OBJ Takeoff - Canopy offroad launch pos=(0.00, 0.00, 0.00) scale=(1.00, 1.00, 1.00) colliders=1
+OBJ Timber grounded support pos=(207.89, 58.79, -20.56) scale=(0.24, 0.24, 0.33) colliders=0
+OBJ Tree-platform diagonal brace pos=(209.62, 58.92, -21.21) scale=(0.18, 0.18, 3.70) colliders=0
+OBJ Platform cross bearer pos=(210.04, 59.11, -21.37) scale=(0.26, 0.26, 5.70) colliders=0
+OBJ Timber grounded support pos=(209.44, 58.48, -30.59) scale=(0.24, 0.24, 1.49) colliders=0
+OBJ Tree-platform diagonal brace pos=(207.67, 58.99, -30.05) scale=(0.18, 0.18, 3.74) colliders=0
+OBJ Timber grounded support pos=(205.04, 58.35, -29.25) scale=(0.24, 0.24, 1.76) colliders=0
+OBJ Tree-platform diagonal brace pos=(206.81, 58.94, -29.79) scale=(0.18, 0.18, 3.76) colliders=0
+OBJ Platform cross bearer pos=(207.24, 59.38, -29.92) scale=(0.26, 0.26, 5.70) colliders=0
+OBJ Timber grounded support pos=(201.69, 58.84, -52.34) scale=(0.24, 0.24, 8.27) colliders=0
+OBJ Tree-platform diagonal brace pos=(200.06, 61.55, -51.77) scale=(0.18, 0.18, 4.54) colliders=0
+OBJ Timber grounded support pos=(197.82, 58.73, -51.00) scale=(0.24, 0.24, 8.50) colliders=0
+OBJ Tree-platform diagonal brace pos=(199.45, 61.51, -51.56) scale=(0.18, 0.18, 4.59) colliders=0
+OBJ Platform cross bearer pos=(199.76, 63.13, -51.67) scale=(0.26, 0.26, 5.20) colliders=0
+OBJ Timber grounded support pos=(199.27, 58.26, -60.62) scale=(0.24, 0.24, 9.44) colliders=0
+OBJ Tree-platform diagonal brace pos=(197.56, 61.35, -60.35) scale=(0.18, 0.18, 4.81) colliders=0
+OBJ Timber grounded support pos=(195.22, 58.09, -59.97) scale=(0.24, 0.24, 9.77) colliders=0
+OBJ Tree-platform diagonal brace pos=(196.92, 61.29, -60.24) scale=(0.18, 0.18, 4.89) colliders=0
+OBJ Platform cross bearer pos=(197.24, 63.13, -60.30) scale=(0.26, 0.26, 5.20) colliders=0
+OBJ Timber grounded support pos=(197.97, 57.27, -69.68) scale=(0.24, 0.24, 9.84) colliders=0
+OBJ Tree-platform diagonal brace pos=(196.29, 60.50, -69.28) scale=(0.18, 0.18, 4.91) colliders=0
+OBJ Timber grounded support pos=(193.98, 57.12, -68.72) scale=(0.24, 0.24, 10.14) colliders=0
+OBJ Tree-platform diagonal brace pos=(195.66, 60.44, -69.12) scale=(0.18, 0.18, 4.98) colliders=0
+OBJ Platform cross bearer pos=(195.98, 62.34, -69.20) scale=(0.26, 0.26, 5.20) colliders=0
+OBJ Timber grounded support pos=(193.80, 55.15, -78.47) scale=(0.24, 0.24, 8.59) colliders=0
+OBJ Tree-platform diagonal brace pos=(192.40, 57.96, -77.47) scale=(0.18, 0.18, 4.61) colliders=0
+OBJ Timber grounded support pos=(190.47, 55.11, -76.08) scale=(0.24, 0.24, 8.66) colliders=0
+OBJ Tree-platform diagonal brace pos=(191.87, 57.95, -77.09) scale=(0.18, 0.18, 4.62) colliders=0
+OBJ Platform cross bearer pos=(192.14, 59.59, -77.28) scale=(0.26, 0.26, 5.20) colliders=0
+OBJ Timber grounded support pos=(187.89, 52.23, -85.58) scale=(0.24, 0.24, 5.85) colliders=0
+OBJ Tree-platform diagonal brace pos=(186.62, 54.15, -84.41) scale=(0.18, 0.18, 4.04) colliders=0
+OBJ Timber grounded support pos=(184.87, 52.24, -82.80) scale=(0.24, 0.24, 5.82) colliders=0
+OBJ Tree-platform diagonal brace pos=(186.14, 54.16, -83.97) scale=(0.18, 0.18, 4.03) colliders=0
+OBJ Platform cross bearer pos=(186.38, 55.30, -84.19) scale=(0.26, 0.26, 5.20) colliders=0
+OBJ Timber grounded support pos=(181.58, 49.16, -92.11) scale=(0.24, 0.24, 3.18) colliders=0
+OBJ Tree-platform diagonal brace pos=(180.36, 50.22, -90.89) scale=(0.18, 0.18, 3.64) colliders=0
+OBJ Timber grounded support pos=(178.67, 49.28, -89.22) scale=(0.24, 0.24, 2.94) colliders=0
+OBJ Tree-platform diagonal brace pos=(179.90, 50.26, -90.43) scale=(0.18, 0.18, 3.61) colliders=0
+OBJ Platform cross bearer pos=(180.13, 50.90, -90.66) scale=(0.26, 0.26, 5.20) colliders=0
+OBJ Timber grounded support pos=(175.24, 46.37, -98.48) scale=(0.24, 0.24, 0.39) colliders=0
+OBJ Tree-platform diagonal brace pos=(174.01, 46.52, -97.27) scale=(0.18, 0.18, 3.46) colliders=0
+OBJ Timber grounded support pos=(172.32, 46.39, -95.61) scale=(0.24, 0.24, 0.36) colliders=0
+OBJ Tree-platform diagonal brace pos=(173.55, 46.53, -96.82) scale=(0.18, 0.18, 3.45) colliders=0
+OBJ Platform cross bearer pos=(173.78, 46.72, -97.04) scale=(0.26, 0.26, 5.20) colliders=0
+OBJ Treehouse resting platform pos=(196.76, 63.01, -64.27) scale=(6.00, 0.22, 3.20) colliders=0
+OBJ Treehouse resting platform pos=(188.39, 56.77, -81.96) scale=(6.00, 0.22, 3.20) colliders=0
