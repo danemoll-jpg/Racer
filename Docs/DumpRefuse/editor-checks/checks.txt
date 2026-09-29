@@ -1,0 +1,19 @@
+PASS clear: no ordinary-contact flip or launch; minUp=0.868, maxUpSpeed=5.84
+PASS Normal 32m/s approach clears entire dump: air=2.16s, shortContact=False, crossing=2.28s
+PASS Normal physical crossing progresses through unchanged CP2
+PASS moto-empty: no ordinary-contact flip or launch; minUp=0.823, maxUpSpeed=13.13
+PASS moto-empty short 8m/s jump lands in bowl and full-throttle climbs out: minY=61.04, supportedFrames=56, crossing=6.72s
+PASS moto-trash: no ordinary-contact flip or launch; minUp=0.832, maxUpSpeed=7.47
+PASS moto-trash short 8m/s jump lands in bowl and full-throttle climbs out: minY=61.85, supportedFrames=103, crossing=6.46s
+FAIL moto trash slows physical escape: 6.46s versus empty 6.72s
+PASS moto-maneuver: no ordinary-contact flip or launch; minUp=0.815, maxUpSpeed=3.42
+PASS Steering around floor and climbing escape slope: waypoints=4, supportedFrames=429, maxSide=8.66m
+PASS atv-empty: no ordinary-contact flip or launch; minUp=0.823, maxUpSpeed=13.13
+PASS atv-empty short 8m/s jump lands in bowl and full-throttle climbs out: minY=61.04, supportedFrames=56, crossing=6.72s
+PASS atv-trash: no ordinary-contact flip or launch; minUp=0.832, maxUpSpeed=7.47
+PASS atv-trash short 8m/s jump lands in bowl and full-throttle climbs out: minY=61.85, supportedFrames=103, crossing=6.46s
+FAIL atv trash slows physical escape: 6.46s versus empty 6.72s
+PASS atv-maneuver: no ordinary-contact flip or launch; minUp=0.815, maxUpSpeed=3.42
+PASS Steering around floor and climbing escape slope: waypoints=4, supportedFrames=429, maxSide=8.66m
+PASS Both vehicles retain normal recovery and escape without reset
+PASS Dense trash is eight renderers with no snag, flip or launch colliders

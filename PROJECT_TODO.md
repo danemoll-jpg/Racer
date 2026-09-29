@@ -9,7 +9,16 @@
 - Do not silently modify or weaken CODEX_RULES.md. Changes to standing rules require an explicit instruction from Dan.
 - Root AGENTS.md points future Codex tasks to both files.
 
-## Current task — 2026-09-29 / local garbage dump correction
+## Current task — 2026-09-29 / dense garbage and failed-jump traversal
+
+- Dan gameplay-tested 0.39: **bowl direction and jump behavior directionally ACCEPTED; garbage density REJECTED as far too sparse.** Preserve the bowl, launch, landing, successful trajectory and all other Forward content.
+- Required correction: a large hole visibly filled with accumulated trash, covering much of the floor/lower slopes. Failed racers drive THROUGH trash; no deliberately clean lane. Garbage must noticeably slow escape while remaining push-through, forgiving and non-trapping. No artificial time penalty.
+- Safety checkpoint: clean main `6396cb50de28a157ee1a3b3b34f79d6d7d6873a9`. The pasted `CODEX/_RULES.md` path does not exist; canonical `CODEX_RULES.md` governs delivery.
+- **Implementation and targeted checks COMPLETE.** 2,100 overlapping grounded pieces replace 60 scattered props; 19 irregular concentrations, no clean lane, 8 renderers/63,740 triangles, no debris colliders/rigidbodies. A dump-only grounded resistance component slows vehicles without upward force, torque, artificial penalty or reset and fades out on escape slopes. Non-blocking visual debris does not individually scatter. Exact terrain, trees, route, gates, launch/landing, AI, motor and recovery are preserved (49,341 unchanged scene blocks).
+- **21 final assertions pass:** normal motorcycle flight/crossing unchanged at 2.16s/2.28s; short-jump escape motorcycle **9.32s trash vs 6.72s empty**, ATV **9.86s vs 6.70s**. Both start from rest, steer through the pile and climb out with no reset/trap/flip/unexpected launch. Grounding and three views inspected. Initial insufficient-resistance failure and fixture vehicle-selection correction retained in [validation](Docs/DumpRefuse/VALIDATION.md). Gameplay testing STOPPED; Dan judges subjective density/feel.
+- Normal **0.40.0-review1 / game-40000 delivery pending** from completion source: fresh build, push/publication, full Latest, production launcher and cleanup. Reverse and shortcuts remain deferred.
+
+## Historical delivery — 2026-09-29 / local garbage dump correction
 
 - **DAN'S GAMEPLAY REVIEW: Forward overall route ACCEPTED except for the dump.** Forest/trail layout, major gully and second crossing, start direction and checkpoint presentation are accepted. Preserve the rest of the Forward course. The dump correction is the only remaining Forward issue in this pass.
 - Safety checkpoint: clean `main` **c27b59c777bb1fa7e01c225b0e1a13cab0039201**.

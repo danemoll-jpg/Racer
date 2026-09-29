@@ -1,0 +1,1 @@
+2100 overlapping grounded pieces; 19 irregular concentrations; 8 renderers; 63740 triangles; 0 debris colliders/rigidbodies; maximum contact error=0.000004m. Existing terrain, trees, route and jump unchanged.
