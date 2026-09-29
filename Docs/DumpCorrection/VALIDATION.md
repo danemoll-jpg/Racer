@@ -28,4 +28,4 @@ Unity required a full script recompile, so an early fixture launch could not res
 
 ## Delivery
 
-Completion source, build, publication, launcher and cleanup will be recorded in PUBLICATION.md. Until then delivery remains pending.
+Delivery complete: fresh 0.39.0-review1 / game-39000 from source `e2d409a0ca674648bd3ea841a832401f3e79655b`. Build, signed public download/startup, full Latest identity, production Play-Racer.cmd and cleanup passed. See [publication evidence](PUBLICATION.md). Gameplay testing remains stopped; await Dan's inspection.
