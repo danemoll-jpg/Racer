@@ -74,8 +74,164 @@ Do not add unrequested:
 Preserve working content.
 
 ---
+==================================================
+## 4. ENVIRONMENTAL DEPENDENCY / GROUNDING RULE
+==================================================
 
-## 4. REGRESSIONS
+Whenever changing the elevation, slope, position or shape of terrain, roads,
+driveways, trails or other supporting surfaces:
+
+YOU MUST INSPECT AND PRESERVE EVERYTHING PHYSICALLY DEPENDENT ON THAT SURFACE.
+
+Do NOT treat terrain/road geometry in isolation.
+
+Before modifying the supporting surface, identify nearby affected objects,
+including where applicable:
+
+- houses;
+- garages;
+- kennels;
+- sheds;
+- pool houses;
+- fences;
+- gates;
+- signs;
+- posts;
+- trees;
+- rocks;
+- props;
+- ramps;
+- sidewalks;
+- parking areas;
+- road shoulders;
+- colliders;
+- checkpoints;
+- navigation objects;
+- other structures resting on or attached to the changed surface.
+
+After changing the supporting surface:
+
+ADJUST DEPENDENT OBJECTS TO MATCH THE NEW FINAL GROUND LEVEL.
+
+==================================================
+NO FLOATING STRUCTURES
+==================================================
+
+Buildings and grounded structures must NEVER be left suspended above the
+terrain because the terrain beneath them was lowered.
+
+If terrain around/beneath a structure must change:
+
+- preserve a properly supported foundation/ground relationship;
+- adjust terrain locally around the structure where appropriate;
+- or reposition the structure vertically only when necessary to maintain its
+  intended relationship to the ground.
+
+Do not leave visible empty space beneath buildings.
+
+Examples:
+
+WRONG:
+lower terrain
+→ kennel remains at old elevation
+→ kennel floats in air.
+
+CORRECT:
+lower surrounding terrain
+→ preserve/reshape supported ground beneath kennel
+→ kennel remains naturally grounded.
+
+==================================================
+NO BURIED STRUCTURES
+==================================================
+
+Objects must not become buried because terrain/road elevation was raised.
+
+Examples include:
+
+- fences;
+- gates;
+- signs;
+- posts;
+- building walls;
+- props.
+
+If the supporting terrain is intentionally raised:
+
+adjust affected grounded objects so they continue to sit naturally on the new
+surface.
+
+Example:
+
+WRONG:
+raise driveway
+→ fence stays at old Y
+→ lower half of fence becomes buried.
+
+CORRECT:
+raise driveway
+→ inspect affected fence/gate
+→ raise/reseat affected fence sections to the new ground height
+→ preserve their intended relationship to the driveway/property.
+
+==================================================
+PRESERVE RELATIVE RELATIONSHIPS
+==================================================
+
+When changing elevation, preserve intended relationships such as:
+
+- fence sits on ground;
+- gate meets driveway;
+- sign posts meet terrain;
+- building foundation meets ground;
+- driveway meets parking area;
+- parking area meets building/property;
+- ramp meets road smoothly;
+- road shoulder meets surrounding terrain.
+
+Do not fix one surface while visibly breaking everything attached to it.
+
+==================================================
+LOCAL ADJUSTMENT ONLY
+==================================================
+
+Do not blindly move every nearby object by the same amount.
+
+Inspect what is actually affected.
+
+Some objects may need:
+
+- vertical repositioning;
+- local terrain support;
+- fence/post adjustment;
+- collider adjustment;
+- no change at all.
+
+Make the smallest coordinated changes necessary to keep the environment
+physically coherent.
+
+==================================================
+POST-CHANGE GROUNDING CHECK
+==================================================
+
+After ANY terrain/elevation/road-height modification, perform a targeted
+dependency inspection around the changed area.
+
+Verify:
+
+- no buildings float;
+- no structures are buried;
+- fences remain grounded;
+- gates still meet their driveways;
+- signs remain grounded;
+- props remain supported;
+- terrain does not expose building undersides;
+- colliders still correspond to visible surfaces;
+- road/driveway transitions remain clean.
+
+This inspection is part of the terrain change itself and is NOT considered
+optional extra testing.
+## 5. REGRESSIONS
 
 When Dan supplies Unity XYZ coordinates for a requested change, treat them as the authoritative location reference. Inspect the area around those coordinates and use screenshots/descriptions to identify the intended object/change. Do not substitute a similarly described location elsewhere. If coordinates conflict with a vague description, prioritize the coordinates. Ask Dan only if the intended object remains genuinely ambiguous after inspecting that location.
 
@@ -89,7 +245,7 @@ Do not globally revert unrelated successful work.
 
 ---
 
-## 5. DO NOT CHANGE UNRELATED SYSTEMS
+## 6. DO NOT CHANGE UNRELATED SYSTEMS
 
 Do not modify unrelated:
 
@@ -109,7 +265,7 @@ If a requested fix can be local, keep it local.
 
 ---
 
-## 6. PERMISSIONS - DO NOT BOTHER DAN UNLESS NECESSARY
+## 7. PERMISSIONS - DO NOT BOTHER DAN UNLESS NECESSARY
 
 Dan authorizes normal development operations required to complete assigned Racer tasks.
 
@@ -156,7 +312,7 @@ Do NOT:
 
 ---
 
-## 7. UNITY
+## 8. UNITY
 
 Use the existing Unity project/tooling.
 
@@ -168,7 +324,7 @@ Do not unnecessarily restart Unity/build work after a permission issue is resolv
 
 ---
 
-## 8. GITHUB CLI
+## 9. GITHUB CLI
 
 GitHub CLI already exists at:
 
@@ -190,7 +346,7 @@ give him the exact authentication command/action, WAIT, and resume afterward.
 
 ---
 
-## 9. EXISTING SIGNING IDENTITY
+## 10. EXISTING SIGNING IDENTITY
 
 Use the existing publisher/signing identity.
 
@@ -207,7 +363,7 @@ If access to the existing key requires Dan's Windows permission intervention, as
 
 ---
 
-## 10. TARGETED TESTING ONLY
+## 11. TARGETED TESTING ONLY
 
 Dan performs detailed gameplay testing.
 
@@ -238,7 +394,7 @@ Then build/release.
 
 ---
 
-## 11. DO NOT TUNE SUBJECTIVE GAMEPLAY FOREVER
+## 12. DO NOT TUNE SUBJECTIVE GAMEPLAY FOREVER
 
 If a change is technically functional but requires subjective gameplay evaluation:
 
@@ -250,7 +406,7 @@ Do not burn time trying dozens of tiny variations unless specifically asked.
 
 ---
 
-## 12. UPDATE PROJECT_TODO.MD EVERY RUN
+## 13. UPDATE PROJECT_TODO.MD EVERY RUN
 
 At completion of implementation/testing:
 
@@ -273,7 +429,7 @@ Do not rewrite historical evidence merely because plans changed.
 
 ---
 
-## 13. COMPLETION COMMIT AND PUSH
+## 14. COMPLETION COMMIT AND PUSH
 
 After implementation and TODO update:
 
@@ -287,7 +443,7 @@ Verify the push succeeded.
 
 ---
 
-## 14. FRESH UNITY BUILD
+## 15. FRESH UNITY BUILD
 
 For every gameplay/source change requiring a new playable game:
 
@@ -299,7 +455,7 @@ The new build must correspond to the completion source commit.
 
 ---
 
-## 15. BUILDS\LATEST MUST CONTAIN THE NEW BUILD
+## 16. BUILDS\LATEST MUST CONTAIN THE NEW BUILD
 
 The complete new runtime must be installed/staged at:
 
@@ -322,7 +478,7 @@ The local Latest runtime must represent the new build.
 
 ---
 
-## 16. PUBLISH A NEW GAME RELEASE
+## 17. PUBLISH A NEW GAME RELEASE
 
 For gameplay/source changes requiring a new playable build:
 
@@ -348,7 +504,7 @@ A local build is NOT completion.
 
 ---
 
-## 17. PLAY-RACER.CMD
+## 18. PLAY-RACER.CMD
 
 The normal player entry point is:
 
@@ -372,7 +528,7 @@ The requirement is that running Play-Racer.cmd resolves to and launches the new 
 
 ---
 
-## 18. LOCAL AND PUBLISHED LATEST MUST MATCH
+## 19. LOCAL AND PUBLISHED LATEST MUST MATCH
 
 After publication:
 
@@ -387,7 +543,7 @@ Do not leave:
 
 ---
 
-## 19. DISK SPACE CHECK
+## 20. DISK SPACE CHECK
 
 Before a substantial build/package:
 
@@ -399,7 +555,7 @@ Do not repeat this.
 
 ---
 
-## 20. MANDATORY POST-RELEASE CLEANUP
+## 21. MANDATORY POST-RELEASE CLEANUP
 
 After:
 
@@ -428,7 +584,7 @@ Do not accumulate complete copies of every build.
 
 ---
 
-## 21. RETENTION
+## 22. RETENTION
 
 Generally retain:
 
@@ -439,7 +595,7 @@ Do not retain a large historical collection of complete local builds when publis
 
 ---
 
-## 22. NEVER DELETE DURING CLEANUP
+## 23. NEVER DELETE DURING CLEANUP
 
 Always preserve:
 
@@ -476,7 +632,7 @@ Do not break publishing/updating to save disk space.
 
 ---
 
-## 23. CLEANUP REPORT
+## 24. CLEANUP REPORT
 
 For release tasks, record approximately:
 
@@ -493,7 +649,7 @@ AFTER CLEANUP:
 
 ---
 
-## 24. DEFINITION OF DONE
+## 25. DEFINITION OF DONE
 
 For a normal gameplay/source update, completion means:
 
@@ -518,7 +674,7 @@ Do not silently omit applicable steps.
 
 ---
 
-## 25. FINAL REPORT
+## 26. FINAL REPORT
 
 Keep final reports concise.
 
