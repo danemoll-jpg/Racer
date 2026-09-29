@@ -1,0 +1,3 @@
+Ground_480_320: one shared rendering/collision mesh
+Terrain samples=7096; local tree removals=2; locally regrounded trees=9; affected visual batches=2; junk pieces=60; junk colliders=0
+Ellipse: along 1..50m, lateral +/-23m, center along25.5m; floor Y61.5; smooth sloped perimeter. Exact launch and landing, route, gates, AI/navigation and other geometry preserved.

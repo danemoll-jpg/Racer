@@ -9,7 +9,17 @@
 - Do not silently modify or weaken CODEX_RULES.md. Changes to standing rules require an explicit instruction from Dan.
 - Root AGENTS.md points future Codex tasks to both files.
 
-## Current task — 2026-09-29 / Dan's Backyard Forward only
+## Current task — 2026-09-29 / local garbage dump correction
+
+- **DAN'S GAMEPLAY REVIEW: Forward overall route ACCEPTED except for the dump.** Forest/trail layout, major gully and second crossing, start direction and checkpoint presentation are accepted. Preserve the rest of the Forward course. The dump correction is the only remaining Forward issue in this pass.
+- Safety checkpoint: clean `main` **c27b59c777bb1fa7e01c225b0e1a13cab0039201**.
+- **Local implementation and targeted checks COMPLETE; release pending.** Excavated a supported bowl within the old dump footprint: 49m along / 46m across, level central floor **Y=61.5**, measured launch **Y=80.339** and far landing **Y=67.690**. Exact launch **(309.2,15.7)** and landing **(258.6,8.2)** preserved. Smooth sloped escape perimeter; 60 irregular non-colliding junk pieces; two directly affected interior trees removed and nine perimeter trees regrounded. No route, launch, landing, gates, arrows, AI, physics, recovery, penalty or other-course change.
+- Eight driving assertions and eight local geometry/dependency assertions pass. Normal motorcycle and production AI clear with **2.16s flight**. Deliberately short jump lands in bowl and full-throttle escapes without reset: **6.72s versus 2.28s** clearing, a physical **4.44s cost**. Floor maneuvering, CP2 progression, collider agreement and grounding pass. No full laps or broad matrix; targeted testing stopped. [Actual geometry, results and limitations](Docs/DumpCorrection/VALIDATION.md).
+- Atlas footprint is not materially changed; no atlas regeneration. The new validation record supersedes the historical dump depth/junk description.
+- Planned normal delivery: **0.39.0-review1 / game-39000** from the completion source, fresh full Windows runtime, `Builds/Latest`, signed publication, production launcher verification and cleanup. Do not declare complete until those steps finish.
+- **STOP after delivery; wait for Dan to inspect the corrected dump.** No Backyard Reverse or optional shortcuts in this task.
+
+## Historical delivery — 2026-09-29 / Dan's Backyard Forward 0.38.0
 
 - **Anchor validation COMPLETE.** Dan accepted the rollback/property-correction baseline and authorized Forward construction. The old rejected construction remains rejected. Safety checkpoint: clean `main` **04d3faa1a29d0c05e33adf8f4a054c0b1212f818**.
 - Nine hard X/Z anchors, in order: **1** start/finish (463.6,8.0); **2** hill start (422.7,9.0); **3** flat parking start (409.5,9.3); **4** pavement/dirt boundary (391.9,9.7); **5** corrected dump launch **(309.2,15.7)**; **6** dump landing (258.6,8.2); **7** first big gully crossing (96.1,-108.6); **8** second gully crossing/jump back **(107.7,60.7)**; **9** forest return (456.4,67.4). The old dump coordinate (331.4,16.2) is obsolete.

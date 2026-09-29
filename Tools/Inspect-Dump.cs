@@ -1,0 +1,9 @@
+if(Application.isPlaying||UnityEngine.SceneManagement.SceneManager.GetActiveScene().isDirty)throw new Exception("Saved edit mode required");
+UnityEditor.SceneManagement.EditorSceneManager.OpenScene(Racer.Editor.BackyardForwardAuthoring.ScenePath);
+System.IO.Directory.CreateDirectory("Docs/DumpCorrection");Physics.SyncTransforms();
+var axis=new Vector3(-50.6f,0,-7.5f).normalized;var side=Vector3.Cross(Vector3.up,axis);var origin=new Vector3(309.2f,0,15.7f);
+float Ground(Vector3 p)=>Physics.RaycastAll(new Vector3(p.x,250,p.z),Vector3.down,500,1,QueryTriggerInteraction.Ignore).Where(h=>h.collider.name.StartsWith("Ground_")).OrderBy(h=>h.distance).First().point.y;
+var rows=new List<string>{"along,side,x,z,y"};for(float a=0;a<=52;a+=2)for(float s=-26;s<=26;s+=2){var p=origin+axis*a+side*s;rows.Add($"{a},{s},{p.x},{p.z},{Ground(p)}");}System.IO.File.WriteAllLines("Docs/DumpCorrection/before-heights.csv",rows);
+var objects=UnityEngine.Object.FindObjectsByType<Collider>().Where(c=>{var q=c.bounds.center-origin;return Vector3.Dot(q,axis)>0&&Vector3.Dot(q,axis)<52&&Math.Abs(Vector3.Dot(q,side))<26;}).Select(c=>new{c.name,path=string.Join("/",c.GetComponentsInParent<Transform>().Reverse().Select(t=>t.name)),position=c.transform.position,bounds=c.bounds,ground=Ground(c.bounds.center)}).ToArray();
+System.IO.File.WriteAllText("Docs/DumpCorrection/dependencies-before.json",Newtonsoft.Json.JsonConvert.SerializeObject(objects,new Newtonsoft.Json.JsonSerializerSettings{ContractResolver=new Racer.Editor.ForwardJsonResolver()}));
+return new{scene=UnityEngine.SceneManagement.SceneManager.GetActiveScene().name,objects=objects.Where(o=>!o.name.StartsWith("Ground_")).ToArray(),meshes=GameObject.Find("Memory loop - north is +Z").GetComponentsInChildren<MeshFilter>().Where(m=>m.GetComponent<Renderer>().bounds.Contains(new Vector3(283,70,12))).Select(m=>m.name)};

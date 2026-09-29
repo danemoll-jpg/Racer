@@ -1,0 +1,5 @@
+if(Application.isPlaying)throw new Exception("Edit mode required");
+var mf=GameObject.Find("Memory loop - north is +Z").GetComponentsInChildren<MeshFilter>().Single(m=>m.name=="Ground_480_320");var mesh=mf.sharedMesh;if(!AssetDatabase.GetAssetPath(mesh).StartsWith("Assets/Track/DumpCorrection/"))throw new Exception("Dump-local mesh required");
+var source=AssetDatabase.LoadAssetAtPath<Mesh>("Assets/Track/BackyardForward/Ground_480_320.asset");var v=mesh.vertices;var c=mesh.colors;var old=source.colors;var axis=new Vector3(-50.6f,0,-7.5f).normalized;var side=Vector3.Cross(Vector3.up,axis);
+for(int i=0;i<v.Length;i++){var p=mf.transform.TransformPoint(v[i]);var q=p-new Vector3(309.2f,0,15.7f);float r=Mathf.Sqrt(Mathf.Pow((Vector3.Dot(q,axis)-25.5f)/24.5f,2)+Mathf.Pow(Vector3.Dot(q,side)/23,2));if(r>=1)continue;float t=Mathf.SmoothStep(0,1,Mathf.InverseLerp(.38f,1,r));float grain=.95f+.1f*Mathf.PerlinNoise(p.x*.6f,p.z*.6f);c[i]=Color.Lerp(new Color(.135f,.105f,.072f)*grain,old[i],t);}
+mesh.colors=c;EditorUtility.SetDirty(mesh);AssetDatabase.SaveAssets();return "Dark weathered bowl soil fades into preserved rim; geometry unchanged";

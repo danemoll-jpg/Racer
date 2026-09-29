@@ -1,0 +1,9 @@
+EditorApplication.delayCall+=()=>{try{
+UnityEditor.SceneManagement.EditorSceneManager.OpenScene(Racer.Editor.BackyardForwardAuthoring.ScenePath);Physics.SyncTransforms();
+var origin=new Vector3(309.2f,0,15.7f);var axis=new Vector3(-50.6f,0,-7.5f).normalized;var side=Vector3.Cross(Vector3.up,axis);
+float Ground(Vector3 p)=>Physics.RaycastAll(new Vector3(p.x,250,p.z),Vector3.down,500,1,QueryTriggerInteraction.Ignore).Where(h=>h.collider.name.StartsWith("Ground_")).OrderBy(h=>h.distance).First().point.y;
+var rows=new List<string>{"along,side,x,z,y"};for(float a=0;a<=52;a+=1)for(float s=-26;s<=26;s+=1){var p=origin+axis*a+side*s;rows.Add($"{a},{s},{p.x},{p.z},{Ground(p)}");}System.IO.File.WriteAllLines("Docs/DumpCorrection/after-heights.csv",rows);
+foreach(var view in new[]{("approach",new Vector3(308,83,15.5f),new Vector3(280,64,11.5f)),("bowl",new Vector3(285,107,13),new Vector3(283,63,12)),("floor",new Vector3(285,64,12),new Vector3(258.6f,68,8.2f))}){
+var go=new GameObject("Temporary dump inspection camera");var cam=go.AddComponent<Camera>();cam.CopyFrom(Camera.main);cam.enabled=false;cam.transform.SetPositionAndRotation(view.Item2,Quaternion.LookRotation(view.Item3-view.Item2));var rt=new RenderTexture(1280,800,24);cam.targetTexture=rt;cam.Render();var prev=RenderTexture.active;RenderTexture.active=rt;var tex=new Texture2D(1280,800,TextureFormat.RGB24,false);tex.ReadPixels(new Rect(0,0,1280,800),0,0);tex.Apply();System.IO.File.WriteAllBytes("Docs/DumpCorrection/"+view.Item1+".png",tex.EncodeToPNG());RenderTexture.active=prev;cam.targetTexture=null;UnityEngine.Object.DestroyImmediate(tex);UnityEngine.Object.DestroyImmediate(rt);UnityEngine.Object.DestroyImmediate(go);}
+System.IO.File.WriteAllText("Docs/DumpCorrection/inspection-done.txt","Local dump profiles and three views captured");
+}catch(Exception e){System.IO.File.WriteAllText("Docs/DumpCorrection/inspection-error.txt",e.ToString());}};return "Scheduled dump-only capture";

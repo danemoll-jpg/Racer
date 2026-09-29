@@ -1,0 +1,8 @@
+PASS Visible terrain and collider use the identical bowl mesh
+PASS Original continuous terrain topology retained without holes or added walls
+PASS Every terrain vertex outside the local ellipse is unchanged
+PASS Measured floor=61.500, launch=80.339, landing=67.690; substantial supported bowl
+PASS Every accepted route point is unchanged
+PASS Affected tree bases retain ground offsets: 2 removed, 9 regrounded, maximum error=0.00000m
+PASS Junk adds no colliders, trigger/reset volumes or invisible walls
+PASS Every junk mesh touches terrain: maximum grounding error=0.00000m

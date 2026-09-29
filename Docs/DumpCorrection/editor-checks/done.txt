@@ -1,0 +1,8 @@
+PASS Normal 32m/s approach clears entire dump: air=2.16s, shortContact=False, crossing=2.28s
+PASS Normal physical crossing progresses through existing CP2 without missed gates
+PASS Short 8m/s jump lands in bowl and full-throttle climbs out: minY=61.04, supportedFrames=56, crossing=6.72s
+PASS Failure plus escape costs time: 6.72s versus clear 2.28s between along -2m and +55m; full throttle escape
+PASS Steering around floor and climbing escape slope: waypoints=4, supportedFrames=461, maxSide=9.98m
+PASS All player dump drives retain normal recovery component and escape without any reset
+PASS All 60 junk pieces have no snag/launch/trap colliders
+PASS Production AI clears dump and lands: air=2.16s, recoveries=0, shortContact=False

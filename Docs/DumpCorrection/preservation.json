@@ -1,0 +1,84 @@
+{
+  "baseline": "c27b59c777bb1fa7e01c225b0e1a13cab0039201",
+  "changedExistingSceneBlocks": [
+    {
+      "id": "20902792",
+      "type": "Transform:",
+      "name": "CR014 trunk 04854"
+    },
+    {
+      "id": "1471935858",
+      "type": "Transform:",
+      "name": "Woods replacing later subdivisions"
+    },
+    {
+      "id": "1348935673",
+      "type": "MeshCollider:",
+      "name": "Ground_480_320"
+    },
+    {
+      "id": "1245012692",
+      "type": "Transform:",
+      "name": "CR014 trunk 03143"
+    },
+    {
+      "id": "2136200205",
+      "type": "Transform:",
+      "name": "CR014 trunk 03603"
+    },
+    {
+      "id": "1820191690",
+      "type": "MeshFilter:",
+      "name": "Complete authored trees"
+    },
+    {
+      "id": "511876255",
+      "type": "Transform:",
+      "name": "CR014 trunk 05338"
+    },
+    {
+      "id": "1399784556",
+      "type": "Transform:",
+      "name": "Tree trunk"
+    },
+    {
+      "id": "784965105",
+      "type": "Transform:",
+      "name": "CR014 trunk 05202"
+    },
+    {
+      "id": "1589520247",
+      "type": "Transform:",
+      "name": "Tree trunk"
+    },
+    {
+      "id": "1348935675",
+      "type": "MeshFilter:",
+      "name": "Ground_480_320"
+    },
+    {
+      "id": "2914577",
+      "type": "Transform:",
+      "name": "Dan's Backyard Forward - terrain trail"
+    },
+    {
+      "id": "1522109286",
+      "type": "Transform:",
+      "name": "CR014 trunk 01623"
+    },
+    {
+      "id": "611511356",
+      "type": "MeshFilter:",
+      "name": "Complete authored trees"
+    },
+    {
+      "id": "195964877",
+      "type": "Transform:",
+      "name": "CR014 trunk 00300"
+    }
+  ],
+  "unchangedSceneBlocks": 49327,
+  "removedBlocks": 42,
+  "addedBlocks": 242,
+  "otherScenesAndGameplaySystemsUnchanged": true
+}
