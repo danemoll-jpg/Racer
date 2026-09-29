@@ -1,0 +1,1 @@
+Ramp starts 15m into optional corridor; lip station35 Y=61.175; receiving deck station47 Y=63.325; unchanged rejoin (169.34, 45.25, -101.69)

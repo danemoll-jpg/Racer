@@ -1,0 +1,22 @@
+{
+  "removedNames": [
+    "Tree trunk",
+    "CR014 trunk 03974",
+    "Tree trunk",
+    "Tree trunk",
+    "CR014 trunk 01027",
+    "Tree trunk",
+    "CR014 trunk 03785",
+    "CR014 trunk 05162",
+    "CR014 trunk 01598",
+    "CR014 trunk 01710",
+    "Tree trunk",
+    "CR014 trunk 05199",
+    "CR014 trunk 04750",
+    "Tree trunk"
+  ],
+  "terrainModified": false,
+  "removedExistingTrees": 14,
+  "basis": "Final scene block comparison to safety checkpoint; supersedes intermediate forest counts",
+  "copiedVegetationMeshes": 2
+}

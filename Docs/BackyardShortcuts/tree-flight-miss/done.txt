@@ -1,0 +1,13 @@
+PASS Tree-Top Trail: production branch/AI metadata registered
+PASS main-Tree-Top-Trail: physical normal-input traverse 6.76s, progress=141.9m, maxAir=1.46s, resets=0
+PASS shortcut-Tree-Top-Trail: physical normal-input traverse 3.70s, progress=107.5m, maxAir=2.34s, resets=0
+FAIL Tree-top receiving trail physically driven on elevated support: 0 frames
+PASS Tree-Top Trail: actual entrance/bypass entitlement, nextGate=4, misses=0, entered=True
+PASS Tree-Top Trail: substantial intentional airtime 2.34s
+PASS Tree-Top Trail: main 6.76s / shortcut 3.70s; saving 3.06s
+PASS moto: body width 0.65m fits 4.7m tree-top trail with margin
+PASS atv: body width 1.45m fits 4.7m tree-top trail with margin
+PASS original: body width 1.85m fits 4.7m tree-top trail with margin
+PASS tourer: body width 2.00m fits 4.7m tree-top trail with margin
+PASS Tree-Top Trail: production AI attempts/rejoins or recovers, best=106.6/110.4m, recoveries=0, air=2.34s
+PASS Tree-top fall lands on forest ground without automatic reset: drop=9.3m, wheels=4, resets=0

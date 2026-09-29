@@ -1,0 +1,28 @@
+{
+  "baseline": "79797bc57e49da9f5de6a8cb86f972c82bd672d4",
+  "unchangedRoutePoints": 1684,
+  "unchangedGateCount": 9,
+  "unchangedExistingSceneBlocks": 49426,
+  "removedBlocks": 42,
+  "removedExistingTrees": 14,
+  "removedObjectNames": [
+    "Tree trunk",
+    "CR014 trunk 03974",
+    "Tree trunk",
+    "Tree trunk",
+    "CR014 trunk 01027",
+    "Tree trunk",
+    "CR014 trunk 03785",
+    "CR014 trunk 05162",
+    "CR014 trunk 01598",
+    "CR014 trunk 01710",
+    "Tree trunk",
+    "CR014 trunk 05199",
+    "CR014 trunk 04750",
+    "Tree trunk"
+  ],
+  "changedBlocks": 5,
+  "unexpectedChanges": [],
+  "protectedOtherCourses": 6,
+  "protectedSystems": 10
+}

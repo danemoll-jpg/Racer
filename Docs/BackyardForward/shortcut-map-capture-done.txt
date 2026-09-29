@@ -1,0 +1,1 @@
+4800x3200 orthographic capture; X=-40..600, Z=-220..206.666667; saved approved scene; no scene save

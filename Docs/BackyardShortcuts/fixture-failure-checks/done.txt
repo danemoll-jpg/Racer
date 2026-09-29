@@ -1,0 +1,19 @@
+PASS Abandoned Cabin Jump: production branch/AI metadata registered
+PASS main-Abandoned-Cabin-Jump: physical normal-input traverse 4.88s, progress=148.2m, maxAir=1.00s, resets=0
+PASS shortcut-Abandoned-Cabin-Jump: physical normal-input traverse 7.16s, progress=125.1m, maxAir=2.00s, resets=0
+FAIL Abandoned Cabin Jump: actual entrance/bypass entitlement, nextGate=0, misses=0, entered=False
+PASS Abandoned Cabin Jump: substantial intentional airtime 2.00s
+FAIL Abandoned Cabin Jump: main 4.88s / shortcut 7.16s; saving -2.28s
+PASS Tree-Top Trail: production branch/AI metadata registered
+PASS main-Tree-Top-Trail: physical normal-input traverse 8.44s, progress=141.8m, maxAir=2.02s, resets=0
+PASS shortcut-Tree-Top-Trail: physical normal-input traverse 11.48s, progress=107.8m, maxAir=1.74s, resets=0
+FAIL Tree-Top Trail: actual entrance/bypass entitlement, nextGate=0, misses=0, entered=False
+PASS Tree-Top Trail: substantial intentional airtime 1.74s
+FAIL Tree-Top Trail: main 8.44s / shortcut 11.48s; saving -3.04s
+PASS moto: body width 0.65m fits 4.7m tree-top trail with margin
+PASS atv: body width 1.45m fits 4.7m tree-top trail with margin
+PASS sport: body width 1.85m fits 4.7m tree-top trail with margin
+PASS tourer: body width 2.00m fits 4.7m tree-top trail with margin
+PASS Abandoned Cabin Jump: production AI attempts/rejoins or recovers, best=39.7/127.9m, recoveries=1, air=0.18s
+PASS Tree-Top Trail: production AI attempts/rejoins or recovers, best=106.5/110.4m, recoveries=1, air=0.02s
+PASS Tree-top fall lands on forest ground without automatic reset: drop=8.8m, wheels=4, resets=0

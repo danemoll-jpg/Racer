@@ -9,7 +9,19 @@
 - Do not silently modify or weaken CODEX_RULES.md. Changes to standing rules require an explicit instruction from Dan.
 - Root AGENTS.md points future Codex tasks to both files.
 
-## Current task — 2026-09-29 / approved Backyard map and focused UI
+## Current task — 2026-09-29 / two Backyard Forward shortcuts
+
+- **IMPLEMENTED / TARGETED CHECKS COMPLETE; release delivery in progress.** Dan supplied `Forest Shortcuts.png` at `C:/Users/danmo/.vscode-shared/Downloads/Forest Shortcuts.png`. Its black lines authorize conceptual corridors, not literal centreline tracing.
+- Safety checkpoint: clean main `79797bc57e49da9f5de6a8cb86f972c82bd672d4`.
+- Forward main and dump remain APPROVED and protected. Only Tree-Top Trail and Abandoned Cabin Jump are authorized, followed by the actual-geometry visual map and normal release workflow. Reverse remains deferred.
+- **Tree-Top Trail:** entry(218.677,61.391,-5.618), rejoin(169.336,45.248,-101.692);110.432m versus144.710m main, CP2/3 entitlement. Offroad timber launch,12m gap,4.7m elevated planks/platforms, supported descent; branch-local AI approach/deck speeds26/19m/s. Final physical deck support78 frames;0.82s entry flight; clean5.12s versus6.80s main, about1.68s saved. Fall10.8m onto forest ground without reset. No new fall-reset trigger.
+- **Abandoned Cabin Jump:** entry(183.793,67.299,78.258), rejoin(309.951,76.235,95.375);127.856m versus151.130m main, CP6 entitlement. Weathered cabin at roughly one-quarter; smooth boards/shared roof collision,2.50s measured flight and wooded landing/rejoin. Clean4.30s versus4.88s main, about0.58s saved.
+- Both final production AI attempts reach the rejoin area without recovery. Actual movement grants correct gates, zero misses/resets. Vehicle fit checked dimensionally; detailed all-vehicle/AI/human driving remains Dan's review. No full-race matrix. **STOP GAMEPLAY TESTING.**
+- Final25/25 geometry/support checks pass. Edge-only entry taper preserves tested centreline/heights and keeps raised timber outside the main trail.14 existing trees removed,49,426 existing scene blocks unchanged; all1,684 main points/nine gates/six other scenes preserved. Earlier contact, flight and fixture failures are retained and superseded in Docs/BackyardShortcuts/VALIDATION.md.
+- **Updated visual map:** Docs/BackyardForward/TRACK_MAP.png,5040x3750 actual saved world render with teal main, gold shortcuts, travel arrows, entry/rejoin markers, launch features and50m X/Z grid. ATLAS.md and final geometry updated. Forward remains APPROVED; only new shortcuts await Dan gameplay review.
+- Racing minimap layout/style remains unchanged; the new branches use its existing amber shortcut presentation. AI strategy/probabilities, vehicle physics and ordinary recovery remain unchanged.
+- **Next mapping/UI phase — BACKLOG ONLY:** generate authoritative high-resolution visual WORLD_MAP from actual current world geometry; include useful X/Z references in documentation; investigate using the same visual representation for the full map opened from the menu while preserving its functionality. Do not change the approved minimal racing minimap. General menu cleanup remains backlog.
+## Previous delivery — 2026-09-29 / approved Backyard map and focused UI
 
 - **DAN'S BACKYARD LOOP - FORWARD: APPROVED by Dan, including the corrected garbage dump.** Geometry/content is protected. This explicit acceptance supersedes older awaiting-review statements below.
 - **DAN'S BACKYARD LOOP - REVERSE: NOT YET IMPLEMENTED.** **OPTIONAL SHORTCUTS: PLANNING NEXT.** Construction awaits Dan's map review and selected entry/rejoin locations; nothing built in this task.

@@ -1,0 +1,2 @@
+using System;using UnityEngine;using UnityEditor;using UnityEditor.SceneManagement;
+public static class ResetShortcutTestScene{public static string Main(){if(Application.isPlaying)throw new Exception("Still playing");EditorSceneManager.OpenScene("Assets/Scenes/DansBackyardForward.unity");EditorSettings.enterPlayModeOptionsEnabled=false;AssetDatabase.Refresh();return "Saved scene restored; full reload temporarily enabled; compiling="+EditorApplication.isCompiling;}}

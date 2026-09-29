@@ -1,0 +1,10 @@
+using System;using System.IO;using System.Linq;using System.Collections.Generic;using UnityEngine;using UnityEditor;using UnityEditor.SceneManagement;using Racer;
+public static class FinalizeShortcutContacts {
+ public static string Main(){if(Application.isPlaying)throw new Exception("Edit mode required");EditorSceneManager.OpenScene("Assets/Scenes/DansBackyardForward.unity");var root=GameObject.Find("Backyard optional forest shortcuts");foreach(var m in root.GetComponentsInChildren<MeshCollider>()){m.name=(m.name.Contains("Tree-top plank")?"Landing - ":"Takeoff - ")+m.name;EditorUtility.SetDirty(m.gameObject);}
+ // The roof and approach share the same support surface; no collider edge where boards meet roof.
+ var cabin=UnityEngine.Object.FindObjectsByType<WoodlandRoute>().First(b=>b.title=="Abandoned Cabin Jump");var roof=root.GetComponentsInChildren<MeshCollider>().First(c=>c.name.Contains("Abandoned cabin sloping roof"));var approach=root.GetComponentsInChildren<MeshCollider>().First(c=>c.name.Contains("Cabin angled approach boards"));var combine=new[]{new CombineInstance{mesh=approach.sharedMesh,transform=Matrix4x4.identity},new CombineInstance{mesh=roof.sharedMesh,transform=Matrix4x4.identity}};var mesh=new Mesh();mesh.CombineMeshes(combine);mesh.RecalculateNormals();mesh.RecalculateBounds();string path="Assets/Track/BackyardShortcuts/Combined cabin stunt collision.asset";var old=AssetDatabase.LoadAssetAtPath<Mesh>(path);if(old){EditorUtility.CopySerialized(mesh,old);UnityEngine.Object.DestroyImmediate(mesh);mesh=old;}else AssetDatabase.CreateAsset(mesh,path);approach.sharedMesh=mesh;UnityEngine.Object.DestroyImmediate(roof);
+ // Below-roof wall faces must not intersect the vehicle nose on the steep launch.
+ foreach(var c in root.GetComponentsInChildren<BoxCollider>())if(c.name.Contains("Cabin far gable")){var size=c.size;size.y*=.75f;c.size=size;}
+ EditorSceneManager.MarkSceneDirty(root.scene);EditorSceneManager.SaveScene(root.scene);AssetDatabase.SaveAssets();return "Existing Takeoff/Landing surface-contact convention applied; shared board/roof collision and recessed far wall";
+ }
+}

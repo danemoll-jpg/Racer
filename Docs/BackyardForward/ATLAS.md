@@ -1,16 +1,25 @@
 # Dan's Backyard — Forward
 
-## Approved course: visual shortcut-planning map
+## Approved course and two implemented optional shortcuts
 
 **Dan approved Forward, including the corrected dense garbage dump, on 2026-09-29.**
 
-Open **[TRACK_MAP.png](TRACK_MAP.png)** (5040 × 3750) and zoom in to plan entry/rejoin locations. It combines a fresh orthographic render of the current saved `DansBackyardForward.unity` scene with its exported route and checkpoint coordinates. Trees, terrain, roads, property pavement, buildings and dense refuse are the actual implemented world. Teal is the main route, white arrows show travel, blue circles identify CP1–8, and amber diamonds identify major jumps. The grid is Unity X/Z in metres at 50 m intervals, with +Z up. The line indicates the navigation path, not corridor width.
+Open **[TRACK_MAP.png](TRACK_MAP.png)** (5040 × 3750) to review the actual final geometry and both optional shortcuts. It combines a fresh orthographic render of the current saved `DansBackyardForward.unity` scene with its exported route and checkpoint coordinates. Trees, terrain, roads, property pavement, buildings and dense refuse are the actual implemented world. Teal is the main route, white arrows show travel, blue circles identify CP1–8, and amber diamonds identify major jumps. The grid is Unity X/Z in metres at 50 m intervals, with +Z up. The line indicates the navigation path, not corridor width.
 
-The complete scene render before annotations is [APPROVED_OVERHEAD.png](APPROVED_OVERHEAD.png); [map-scene.json](map-scene.json) contains the freshly exported route, road and gate data. Tools/Capture-ApprovedTrackMap.cs and Tools/Render-ApprovedTrackMap.py reproduce this documentation. No geometry, trees, roads, gates, navigation or gameplay were changed to make the map. No additional regional maps are needed at this resolution.
+The current scene render before annotations is [SHORTCUT_OVERHEAD.png](SHORTCUT_OVERHEAD.png); [map-scene.json](map-scene.json) contains the freshly exported route, road and gate data. Tools/Capture-ShortcutTrackMap.cs and Tools/Render-ShortcutTrackMap.py reproduce this documentation from the saved final scene. The render itself does not modify the scene. Gold lines/arrows are optional routes; gold circles are entries and squares are rejoins.
 
-**Optional shortcuts: PLANNING NEXT, awaiting Dan's map review and chosen entry/rejoin points. Reverse: NOT YET IMPLEMENTED.** No proposed shortcut is drawn or built.
+**Tree-Top Trail and Abandoned Cabin Jump are implemented; Dan gameplay review is pending. Reverse remains NOT YET IMPLEMENTED.** [Technical evidence](../BackyardShortcuts/VALIDATION.md) and [final geometry](../BackyardShortcuts/geometry.json).
 
-[Forward main route and nine anchors](Forward.svg) is generated from the saved `DansBackyardForward` scene geometry. It shows the physical dump, the two crossings of one continuous ravine, and the return onto existing South Cherokee Lane. No Reverse or optional shortcut route is shown or implemented.
+| Shortcut | Entry X/Z | Rejoin X/Z | Length | Bypassed main | Approximate clean saving |
+|---|---|---|---|---|---|
+| Tree-Top Trail | 218.677 / -5.618 | 169.336 / -101.692 | 110.432m | 144.710m; CP2/3 | 1.68s (6.80 vs5.12s) |
+| Abandoned Cabin Jump | 183.793 /78.258 | 309.951 /95.375 | 127.856m | 151.130m; CP6 | 0.58s (4.88 vs4.30s) |
+
+Tree-top launch is15–35m into its branch, followed by a12m gap, a4.7m elevated plank trail from47m, grounded timber support and a smooth downhill return. The cabin is32–41m into its branch, about a quarter of the way through; boards and roof form one physical stunt with approximately2.5s airtime in the measured clean motorcycle run. Only14 existing trees removed; main route, gates and terrain preserved. Times are representative local checks, not guaranteed human lap improvements.
+
+The richer entire-world map and full menu-map representation are BACKLOG ONLY. Preserve the approved minimal racing minimap; it consumes the existing amber shortcut convention.
+
+[Forward main route and nine anchors](Forward.svg) is generated from the saved `DansBackyardForward` scene geometry. It shows the physical dump, the two crossings of one continuous ravine, and the return onto existing South Cherokee Lane. That historical SVG shows the main route only; use TRACK_MAP.png for current shortcuts. No Reverse is implemented.
 
 | Anchor | Feature | X | Z |
 |---|---|---:|---:|
