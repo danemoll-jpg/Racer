@@ -1,0 +1,27 @@
+{
+  "buildsAfter": 5441479048,
+  "removed": [
+    {
+      "bytes": 883694945,
+      "path": "C:\\Users\\danmo\\Racer\\Builds\\Racer-0.41.0-review1-Windows"
+    },
+    {
+      "bytes": 269478294,
+      "path": "C:\\Users\\danmo\\Racer\\Builds\\LauncherRelease-41000\\assets\\game.zip"
+    },
+    {
+      "bytes": 886049317,
+      "path": "C:\\Users\\danmo\\Racer\\Temp\\trackui-hosted-1790695515344356700"
+    }
+  ],
+  "freeBefore": 316201459712,
+  "retained": [
+    "Latest complete root runtime",
+    "managed 41000",
+    "managed 40000",
+    "music, publisher keys/tools, launcher, metadata, source, evidence, saves"
+  ],
+  "buildsBefore": 6594652287,
+  "buildsRecovered": 1153173239,
+  "freeAfter": 318241808384
+}
