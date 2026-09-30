@@ -1,0 +1,20 @@
+PASS Lap ranks all lengths, vehicles, AI/difficulty/traffic by actual time; 5-lap 2:12 above 1-lap 2:15
+PASS Race totals separated at 1 laps
+PASS Race totals separated at 2 laps
+PASS Race totals separated at 3 laps
+PASS Race totals separated at 4 laps
+PASS Race totals separated at 5 laps
+PASS Actual profile filter: original
+PASS Actual profile filter: tourer
+PASS Actual profile filter: moto
+PASS Actual profile filter: atv
+PASS Historical rules isolated
+PASS Empty filter combination
+PASS Exact ties use original insertion order
+PASS Unrecognized grammar never merges; exact historical group remains readable
+PASS Aggregation caps at ten without trimming source
+PASS Query never mutates entries
+PASS Existing writer already strips race length; read view preserves it
+PASS Actual archive contains 219 saved entries
+PASS All actual historical categories parse explicitly
+PASS Every actual era/length queried read-only; archive byte-identical

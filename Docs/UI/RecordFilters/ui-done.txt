@@ -1,0 +1,23 @@
+PASS Default useful All Vehicles Top 10, capped and populated
+PASS Lap board exposes Filters, no Configurations or Laps
+PASS Lap filter panel has no lap-count filter
+PASS Vehicle choices use profiles present in saved era
+PASS Vehicle selection filters rendered table
+PASS Historical selection shows only its era
+PASS Race board has direct visible lap-count selector
+PASS Race selector contains lengths 1 through 5
+PASS Race filter renders only selected 5-lap total
+PASS Empty filter combination explains recovery
+PASS All eight track/directions directly browsable
+PASS Track selection 0 retained
+PASS Track selection 1 retained
+PASS Track selection 2 retained
+PASS Track selection 3 retained
+PASS Track selection 4 retained
+PASS Track selection 5 retained
+PASS Track selection 6 retained
+PASS Track selection 7 retained
+FAIL All Records actions preserve active race, settings, scene, radio instance and song
+PASS Browsing preserves isolated saved archive bytes
+PASS Paused race locks Records to current track
+PASS Existing EventSystem and interactive raycaster retained

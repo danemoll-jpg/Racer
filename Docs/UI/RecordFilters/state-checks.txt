@@ -1,0 +1,7 @@
+After title stabilization: settingsEqual=True; songEqual=True
+PASS Active race category unchanged
+PASS Saved settings unchanged after stabilized baseline
+PASS No scene load
+PASS Same radio instance
+PASS Same song
+PASS Existing controller navigation EventSystem present

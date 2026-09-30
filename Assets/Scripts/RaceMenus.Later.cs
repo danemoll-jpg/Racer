@@ -35,7 +35,7 @@ namespace Racer
             if(page==""&&(records||flow.State==RaceFlow.Stage.Results))
             {
                 int d=tabsAction.WasPressedThisFrame()?1:previousTab.WasPressedThisFrame()?-1:0;
-                if(d!=0){if(records){recordTab=(recordTab+d+5)%5;recordFilter=activityKey="";}else{int count=RacePlaylists.Active==null?3:4;resultTab=(resultTab+d+count)%count;}Show();MenuInput.ConsumeThroughRelease();}
+                if(d!=0){if(records){recordTab=(recordTab+d+5)%5;activityKey="";}else{int count=RacePlaylists.Active==null?3:4;resultTab=(resultTab+d+count)%count;}Show();MenuInput.ConsumeThroughRelease();}
             }
             if(flow.State==RaceFlow.Stage.Playlists&&page==""&&playlistDraft!=null)
             {

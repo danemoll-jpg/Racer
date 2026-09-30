@@ -66,6 +66,8 @@ namespace Racer
         public IReadOnlyList<Entry> Board(string category,bool race)=>data.entries.Where(e=>e.category==(race?category:LapCategory(category))&&e.race==race)
             .OrderBy(e=>e.seconds).ThenBy(e=>e.order).Take(10).ToArray();
         public string[] Categories(bool race)=>data.entries.Where(e=>e.race==race).Select(e=>e.category).Distinct().OrderBy(s=>s,StringComparer.Ordinal).ToArray();
+        public IReadOnlyList<Entry> View(string era,bool race,int laps,string vehicle=null)=>RecordView.Query(data.entries,era,race,laps,vehicle);
+        public string[] ViewVehicles(string era,bool race)=>data.entries.Where(e=>e.race==race&&RecordView.Era(e.category)==era).Select(e=>e.vehicle).Distinct().OrderBy(v=>v,StringComparer.Ordinal).ToArray();
         public int Add(string id,string category,bool race,double seconds,string vehicle,string date=null,bool legacy=false)
         {
             if(readFailed||string.IsNullOrEmpty(id)||!Valid(seconds))return 0;

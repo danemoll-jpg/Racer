@@ -1,0 +1,12 @@
+# Focused Records filters validation
+
+Scope: read/query/presentation only. Query additions are separate from existing insertion, retention, migration, timing, scoring and finish feedback. No world, AI, physics, map, preview, radio or playlist edits.
+
+- **20/20 query checks pass** (`query-checks.txt`): 2:12 from a five-lap race precedes 2:15 from a one-lap race; lengths 1–5 combined for laps and separated for totals; all four profiles; All Vehicles; history/direction separation; unknown grammar isolation; empty combinations; full precision and stable ties; Top 10 cap; no mutation. Existing writer strip behavior also verified using isolated saves.
+- Actual player archive read without constructing a writer: **219 entries**, every era/race-length group compared with expected fastest ordering, original bytes unchanged. All actual keys match the audited grammar. Original legacy best files are fingerprinted separately in `player-records-before.json`.
+- **22/23 initial UI assertions pass**, including both table modes, vehicle filtering, historical era, empty state, all eight track choices, paused-race lock, EventSystem/raycaster and byte-identical isolated archive. One compound state-preservation assertion failed; it did not identify which value differed (`ui-checks-initial.txt`). No implementation change was made to conceal it.
+- **6/6 bounded follow-up state assertions pass**, with independent checks for race category, saved settings, scene handle, radio instance, song and EventSystem (`state-checks.txt`). Baseline was captured after startup stabilization. The original first-run difference was not localized and is not claimed as a game defect fixed. No broad test matrix.
+- Actual 1280×720 screenshots inspected: Lap table, compact Filters, separate historical table, Race five-lap selector/table, empty state. Existing scrolling and shared controller navigation retained. Physical controller/Steam Deck and subjective UI acceptance remain Dan's review.
+- Fixture-only setup corrections: nonexistent settings helper type replaced with JSON; obsolete SceneHandle conversion / FindObjectsSortMode replaced with current APIs. These occurred before the fixture executed, not in shipping code.
+
+Targeted acceptance complete; STOP feature testing. Build/release only from committed completion source. See COMPARABILITY.md for field-by-field decisions and source-retention limitations.

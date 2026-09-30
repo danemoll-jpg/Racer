@@ -9,7 +9,16 @@
 - Do not silently modify or weaken CODEX_RULES.md. Changes to standing rules require an explicit instruction from Dan.
 - Root AGENTS.md points future Codex tasks to both files.
 
-## Current task — track browsing / Race Setup map preview — 0.50.0-review1 DELIVERED
+## Current task — Records filters / compatible Top 10 — 0.51.0-review1
+
+- Dan generally accepts the current menu/UI direction. Further general menu polish is deferred until requested; unrelated UI phases are not reopened. Focused feedback: **replace configuration browsing with filters**.
+- Safety checkpoint: clean main `966fa46016227fbedeaf0a9f85bb13d39a26b7de`. Added a read-only aggregation/query layer; existing record insertion, category identities, retention, migration, timing, penalties and finish feedback unchanged.
+- Lap Top 10 combines compatible laps regardless of race lap count. All Vehicles is the default; vehicle profile and Record era are compact filters. Race Top 10 keeps a visible lap-count selector and separates totals. AI mode/roster, difficulty and traffic combine because they do not change player timing/penalty rules; exact course/layout versions remain isolated. Unknown grammar remains an exact historical group. [Comparability audit](Docs/UI/RecordFilters/COMPARABILITY.md).
+- Preserved all eight Forward/Reverse Records choices, paused-race track locking, current world/maps/preview, playlists/music, physics and AI. Existing records/history preserved: 219 entries (161 lap / 58 race), original archive byte-identical through query checks; legacy files fingerprinted before delivery.
+- Focused validation: 20/20 query checks; 22/23 initial UI assertions plus 6/6 independent state-preservation follow-up. Initial compound state failure retained with limitations; no gameplay fix inferred. Screenshots inspected. [Validation](Docs/UI/RecordFilters/VALIDATION.md). **STOP feature testing.**
+- Source completion, fresh Windows build, publication, production launcher verification and cleanup pending below; do not call delivery complete until all gates pass.
+
+## Previous delivery — track browsing / Race Setup map preview — 0.50.0-review1 DELIVERED
 
 - Dan says the revised UI looks much better; requested direct track browsing in Records and Map outside races, current-race locking during a race, and a map preview while selecting the race track. Safety checkpoint: clean main `43c8ef0d9a6e0ad85da1929304fdc66474ee1e04`.
 - Implemented all eight Forward/Reverse choices in Records and World Map, without loading scenes or changing the active race/settings. Empty boards remain selectable; selecting a track can show its existing saved configuration. Configuration labels and saved counts help locate records. Paused-race browsing is locked to the current track; Free Roam and between-race browsing remain available.
