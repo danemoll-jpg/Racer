@@ -129,6 +129,14 @@ namespace Racer
             if(!flow.MenuVisible||mapOpen)return;
             if(flow.State==RaceFlow.Stage.Settings&&(page=="library"||page=="music")&&Time.unscaledTime>=nextMusicRefresh){nextMusicRefresh=Time.unscaledTime+.25f;details.text=page=="music"?flow.Radio.ChannelName+"\n"+flow.Radio.Song:(flow.Radio.Bundled?"Bundled music":"Custom: "+System.IO.Path.GetFileName(flow.Radio.Folder.TrimEnd('\\','/')))+"\n"+flow.Radio.Status+"\n"+flow.Radio.ScanStatus;}
             var current=EventSystem.current?.currentSelectedGameObject;
+            // Focus is presentation only. Only the track row's Submit/click commits a course.
+            if(flow.State==RaceFlow.Stage.Courses&&page==""&&current&&current.name.StartsWith("course-")
+                &&int.TryParse(current.name.Substring(7),out int focusedCourse))
+            {
+                previewTrack=focusedCourse;
+                var previewButton=buttons.FirstOrDefault(b=>b.name=="preview-track"&&b.gameObject.activeSelf);
+                if(previewButton)previewButton.GetComponentInChildren<UnityEngine.UI.Text>(true).text="Preview: "+RacePlaylists.Titles[previewTrack];
+            }
             if(current&&current!=lastFocus&&current.transform.IsChildOf(content))
             {
                 Canvas.ForceUpdateCanvases();var r=current.GetComponent<RectTransform>();

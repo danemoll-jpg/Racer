@@ -9,7 +9,15 @@
 - Do not silently modify or weaken CODEX_RULES.md. Changes to standing rules require an explicit instruction from Dan.
 - Root AGENTS.md points future Codex tasks to both files.
 
-## Current task — Records filters / compatible Top 10 — 0.51.0-review1 DELIVERED
+## Current task — Race Setup track confirmation regression — 0.52.0-review1
+
+- Safety checkpoint: clean main `81a7804e78bf51e5d7fd920586487da4a2f76235`. Urgent focused regression fix before any SCS work; no general UI redesign or unrelated gameplay changes.
+- Root cause: `d5fe1e3d` changed track-row Select from committing the course to opening a preview, requiring an extra Use This Track action. Restored direct Select/Confirm/click commit through the existing scene-load/setup-return/eligibility path. Kept map preview as a separate optional action for the highlighted track.
+- **Standing UI rule — RACE SETUP TRACK SELECTION commits selected race course on Confirm. MAPS / RECORDS / TOP 10 TRACK BROWSING is read-only and NEVER mutates Race Setup.** Focus/highlight and preview never commit/load; B cancels without selecting. Stable internal course/scene IDs and serialized ordering remain unchanged.
+- Targeted verification COMPLETE: 40/40 assertions across initial 5 and resumed 35 checks. All eight selections, two requested race starts, eligibility/summary, controller B, optional preview, mouse/keyboard and Records/Maps isolation pass. Feature testing STOPPED. Fresh release pending. [Evidence, root cause and limitations](Docs/UI/TrackSelection/VALIDATION.md). Initial fixture quit-without-pause error retained; remaining checks resume without repeating the passed Backyard Forward start. Physical-controller/Deck acceptance remains with Dan.
+- Preserve the accepted UI and Records filters; do not begin SCS work. Full normal source/build/publication/launcher/cleanup workflow applies.
+
+## Previous delivery — Records filters / compatible Top 10 — 0.51.0-review1 DELIVERED
 
 - Dan generally accepts the current menu/UI direction. Further general menu polish is deferred until requested; unrelated UI phases are not reopened. Focused feedback: **replace configuration browsing with filters**.
 - Safety checkpoint: clean main `966fa46016227fbedeaf0a9f85bb13d39a26b7de`. Added a read-only aggregation/query layer; existing record insertion, category identities, retention, migration, timing, penalties and finish feedback unchanged.

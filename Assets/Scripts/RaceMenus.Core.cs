@@ -101,8 +101,9 @@ details.gameObject.SetActive(true);
             else if(flow.State==RaceFlow.Stage.Courses)
             {
                 if(page=="course-preview"){RenderCoursePreview();return;}
-                ClearCore("TRACKS","Choose a track and direction. Difficulty: TBD.");int i=0;
-                foreach(int course in RacePlaylists.DisplayOrder){int choice=course;Row(i++,"course-"+course,RacePlaylists.Titles[course]+"  ·  Preview",()=>{previewTrack=choice;Navigate("course-preview");});}
+                ClearCore("TRACKS","Select to use a track. Highlighting does not change Race Setup. Difficulty: TBD.");int i=0;
+                foreach(int course in RacePlaylists.DisplayOrder){int choice=course;Row(i++,"course-"+course,RacePlaylists.Titles[course],()=>flow.SelectCourseEntry(choice));}
+                Row(i++,"preview-track","Preview highlighted track",()=>Navigate("course-preview"));
                 Row(i,"back","Back",flow.CloseGarage);
             }
             else if(flow.State==RaceFlow.Stage.Garage)

@@ -1,0 +1,5 @@
+PASS Focus preserves race/settings/scene: Dan's Backyard Loop - Forward
+PASS Confirm loads exact course and returns to Race Setup: Dan's Backyard Loop - Forward
+PASS Race Setup summary reflects loaded course
+PASS Player and opponent eligibility follows course
+PASS Start Race uses confirmed course: Dan's Backyard Loop - Forward

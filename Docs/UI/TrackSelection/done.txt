@@ -1,0 +1,35 @@
+PASS Focus preserves race/settings/scene: Forest Loop - Reverse
+PASS Confirm loads exact course and returns to Race Setup: Forest Loop - Reverse
+PASS Race Setup summary reflects loaded course
+PASS Player and opponent eligibility follows course
+PASS Start Race uses confirmed course: Forest Loop - Reverse
+PASS Focus preserves race/settings/scene: Dan's Backyard Loop - Reverse
+PASS Confirm loads exact course and returns to Race Setup: Dan's Backyard Loop - Reverse
+PASS Race Setup summary reflects loaded course
+PASS Player and opponent eligibility follows course
+PASS Focus preserves race/settings/scene: Forest Loop - Forward
+PASS Confirm loads exact course and returns to Race Setup: Forest Loop - Forward
+PASS Race Setup summary reflects loaded course
+PASS Player and opponent eligibility follows course
+PASS Focus preserves race/settings/scene: Mountain Loop - Forward
+PASS Confirm loads exact course and returns to Race Setup: Mountain Loop - Forward
+PASS Race Setup summary reflects loaded course
+PASS Player and opponent eligibility follows course
+PASS Focus preserves race/settings/scene: Mountain Loop - Reverse
+PASS Confirm loads exact course and returns to Race Setup: Mountain Loop - Reverse
+PASS Race Setup summary reflects loaded course
+PASS Player and opponent eligibility follows course
+PASS Focus preserves race/settings/scene: Street Loop - Reverse
+PASS Confirm loads exact course and returns to Race Setup: Street Loop - Reverse
+PASS Race Setup summary reflects loaded course
+PASS Player and opponent eligibility follows course
+PASS Focus preserves race/settings/scene: Street Loop - Forward
+PASS Confirm loads exact course and returns to Race Setup: Street Loop - Forward
+PASS Race Setup summary reflects loaded course
+PASS Player and opponent eligibility follows course
+PASS Controller B cancels highlighted Backyard Reverse without committing
+PASS Optional highlighted-track map preview remains read-only
+PASS Back from preview does not commit
+PASS Records Forest Forward browsing preserves race/settings/scene
+PASS Maps Mountain Reverse browsing preserves race/settings/scene
+PASS Race Setup remains caller after read-only browsing
