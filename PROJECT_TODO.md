@@ -9,13 +9,15 @@
 - Do not silently modify or weaken CODEX_RULES.md. Changes to standing rules require an explicit instruction from Dan.
 - Root AGENTS.md points future Codex tasks to both files.
 
-## Current task — Race Setup track confirmation regression — 0.52.0-review1
+## Current task — Race Setup track confirmation regression — 0.52.0-review1 DELIVERED
 
 - Safety checkpoint: clean main `81a7804e78bf51e5d7fd920586487da4a2f76235`. Urgent focused regression fix before any SCS work; no general UI redesign or unrelated gameplay changes.
 - Root cause: `d5fe1e3d` changed track-row Select from committing the course to opening a preview, requiring an extra Use This Track action. Restored direct Select/Confirm/click commit through the existing scene-load/setup-return/eligibility path. Kept map preview as a separate optional action for the highlighted track.
 - **Standing UI rule — RACE SETUP TRACK SELECTION commits selected race course on Confirm. MAPS / RECORDS / TOP 10 TRACK BROWSING is read-only and NEVER mutates Race Setup.** Focus/highlight and preview never commit/load; B cancels without selecting. Stable internal course/scene IDs and serialized ordering remain unchanged.
-- Targeted verification COMPLETE: 40/40 assertions across initial 5 and resumed 35 checks. All eight selections, two requested race starts, eligibility/summary, controller B, optional preview, mouse/keyboard and Records/Maps isolation pass. Feature testing STOPPED. Fresh release pending. [Evidence, root cause and limitations](Docs/UI/TrackSelection/VALIDATION.md). Initial fixture quit-without-pause error retained; remaining checks resume without repeating the passed Backyard Forward start. Physical-controller/Deck acceptance remains with Dan.
-- Preserve the accepted UI and Records filters; do not begin SCS work. Full normal source/build/publication/launcher/cleanup workflow applies.
+- Targeted verification COMPLETE: 40/40 assertions across initial 5 and resumed 35 checks. All eight selections, two requested race starts, eligibility/summary, controller B, optional preview, mouse/keyboard and Records/Maps isolation pass. Feature testing STOPPED. [Evidence, root cause and limitations](Docs/UI/TrackSelection/VALIDATION.md). Initial fixture quit-without-pause error retained; remaining checks resume without repeating the passed Backyard Forward start. Physical-controller/Deck acceptance remains with Dan.
+- **DELIVERED:** completion source `60056d503e3e372203d18a7c60cb25d76f6861f2` pushed/verified on origin/main before the fresh Windows build (0 errors, 11 existing warnings, 4m06s). Published [game-52000](https://github.com/danemoll-jpg/woodstock-rush-releases/releases/tag/game-52000); three remote assets/latest signed catalog and all 230 runtime files verified. Public download/signature/install/muted startup passed. [Publication evidence](Docs/UI/TrackSelection/PUBLICATION.md).
+- Unchanged **Play-Racer.cmd** launched responsive managed 52000; complete root Latest matches. Music preserved, no updates pending; original player settings restored byte-for-byte after the muted launcher check. Current 52000 / previous 51000 retained. Cleanup: Builds 8,944,276,581 → 7,145,603,003 bytes; 3,250,907,605 bytes total disposable artifacts recovered. Final C: free 327,468,060,672 bytes.
+- **SESSION HANDOFF: Fix delivered; STOP for Dan's track-selection review.** Preserve the accepted UI and Records filters. No SCS work begun and no further menu cleanup authorized. Subsequent delivery commit contains only this actual status and evidence.
 
 ## Previous delivery — Records filters / compatible Top 10 — 0.51.0-review1 DELIVERED
 

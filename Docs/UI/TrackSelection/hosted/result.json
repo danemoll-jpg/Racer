@@ -1,0 +1,13 @@
+{
+  "version": "0.52.0-review1",
+  "build": 52000,
+  "catalog": "https://github.com/danemoll-jpg/woodstock-rush-releases/releases/latest/download/update-catalog.json",
+  "manifest": "https://github.com/danemoll-jpg/woodstock-rush-releases/releases/download/game-52000/game-manifest.json",
+  "publicDownload": true,
+  "pinnedSignatureVerified": true,
+  "allLatestFilesMatch": true,
+  "files": 230,
+  "startupReady": true,
+  "exit": 0,
+  "work": "C:\\Users\\danmo\\Racer\\Temp\\trackselection-hosted-1790803791223429900"
+}

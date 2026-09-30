@@ -1,0 +1,15 @@
+# Track-selection regression delivery — 0.52.0-review1
+
+- Safety checkpoint: clean main `81a7804e78bf51e5d7fd920586487da4a2f76235`.
+- Completion source: `60056d503e3e372203d18a7c60cb25d76f6861f2`, pushed and verified on origin/main before building. Automatic review initially rejected the push; read-only checks of the explicit standing authorization and configured remote resolved it. Git staging/commit sandbox permission failure was safely retried through elevation.
+- Targeted verification: 40/40 assertions across initial five and remaining 35; all eight course/directions, two requested race starts, setup/eligibility, controller Back, optional preview, mouse/keyboard and read-only Records/Maps. Initial fixture failure retained. Physical-controller/Deck review remains Dan's acceptance. Feature testing stopped.
+- Fresh Unity 6000.6.1f1 Windows build: zero errors, 11 existing warnings, 4m06.232s. Started 2026-09-30 21:21:06 UTC; GUID `bdd48f66388f43f29b7cee32f57caa69`. Free disk before build: 327,766,863,872 bytes. Full warnings in `build-release.txt`.
+- Signed game package: 230 runtime files, three release assets. Existing publisher/signing identity and soundtrack pointer retained. [Published game-52000](https://github.com/danemoll-jpg/woodstock-rush-releases/releases/tag/game-52000); all three remote asset sizes/digests and fetched latest signed catalog verified. An immediate post-create draft-list lookup failed; verified the existing empty draft and safely resumed it without duplicate releases or overwrites.
+
+See [validation](VALIDATION.md) for the root cause, scoped runtime changes and test limitations.
+
+- All 230 signed runtime files match fresh output, ZIP, complete root Latest and managed 52000 (`runtime-identity.json`). Fresh gameplay assembly built from completion source; unchanged Unity bootstrap executable bytes are expected.
+- Actual public download, pinned signature, installation and muted isolated startup passed, exit 0 (`hosted/result.json`). Remote release is published with three assets (`remote-release.json`).
+- Production updater preserved soundtrack state and reports no game/music update pending. Unchanged **Play-Racer.cmd** launched responsive `Builds/Latest/versions/52000/Racer.exe`. Complete root Latest matches the published game. Production startup was muted temporarily; original player settings were restored byte-for-byte and hash-verified afterward.
+- Cleanup: Builds **8,944,276,581 → 7,145,603,003 bytes**; **1,798,673,578 bytes** recovered there plus **1,452,234,027 bytes** in the temporary public installation, **3,250,907,605 bytes total**. Final C: free **327,468,060,672 bytes** (`cleanup.json`). Retained complete root Latest, current 52000 and previous 51000, soundtrack, signing identity/tools, launcher, metadata, source/evidence and saves.
+- STOP for Dan's review. No SCS or unrelated work started.
