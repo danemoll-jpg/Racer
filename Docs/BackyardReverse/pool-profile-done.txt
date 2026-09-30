@@ -1,0 +1,1 @@
+Continuous convex final run-up; lip=(389.00, 87.40, -3.10); base=(345.98, 80.66, -8.81)

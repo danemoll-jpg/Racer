@@ -1,0 +1,9 @@
+UnityEngine.MissingReferenceException: The object of type 'UnityEngine.Mesh' has been destroyed but you are still trying to access it.
+Your script should either check if it is null or you should not destroy the object.
+  at UnityEngine.Object+MarshalledUnityObject.TryThrowEditorNullExceptionObject (UnityEngine.Object unityObj, System.String parameterName) [0x00065] in <d5ea965f39d74501b56f4006ef80da34>:0 
+  at UnityEngine.Bindings.ThrowHelper.ThrowNullReferenceException (System.Object obj) [0x0000a] in <d5ea965f39d74501b56f4006ef80da34>:0 
+  at UnityEngine.Mesh.get_canAccess () [0x00006] in <d5ea965f39d74501b56f4006ef80da34>:0 
+  at UnityEngine.Mesh.GetAllocArrayFromChannel[T] (UnityEngine.Rendering.VertexAttribute channel, UnityEngine.Rendering.VertexAttributeFormat format, System.Int32 dim) [0x00000] in <d5ea965f39d74501b56f4006ef80da34>:0 
+  at UnityEngine.Mesh.GetAllocArrayFromChannel[T] (UnityEngine.Rendering.VertexAttribute channel) [0x00009] in <d5ea965f39d74501b56f4006ef80da34>:0 
+  at UnityEngine.Mesh.get_vertices () [0x00000] in <d5ea965f39d74501b56f4006ef80da34>:0 
+  at RepairCompleteTrees+<>c.<Main>b__5_0 () [0x0029e] in C:\Users\danmo\Racer\Tools\Repair-CompleteTrees.cs:14 

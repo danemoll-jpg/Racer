@@ -1,7 +1,7 @@
-reverse-trail Ground_400_400 changed samples 10572
-reverse-trail Ground_480_400 changed samples 3270
+reverse-trail Ground_400_400 changed samples 12057
 reverse-trail Ground_480_320 changed samples 16929
-reverse-trail Ground_400_320 changed samples 15030
-reverse-trail Ground_560_320 changed samples 9813
-Complete trees removed=77, grounded=0, render components=245
-Natural traversable bush clusters 58; no rigid barriers
+reverse-trail Ground_400_320 changed samples 22734
+reverse-trail Ground_480_400 changed samples 3270
+reverse-trail Ground_560_320 changed samples 12330
+Complete trees removed=87, grounded=0, render components=223
+Natural traversable bush clusters 55; no rigid barriers

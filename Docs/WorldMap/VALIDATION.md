@@ -1,3 +1,5 @@
+> 0.46 update: final eight-scene cartography and the permanent network were regenerated for the shared-world corrections and Backyard Reverse. See [current validation](../BackyardReverse/VALIDATION.md). Historical UI/map checks below remain applicable to the unchanged architecture.
+
 # 0.44.0-review1 — focused validation
 
 Safety checkpoint: clean `main` at `73b0399b260cbf1d400f55d73bbd2d9f2d605828` before edits. The current request supersedes the previous full-world/menu-map backlog entry. Backyard Reverse and broader menu cleanup remain deferred.

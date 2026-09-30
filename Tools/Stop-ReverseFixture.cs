@@ -1,0 +1,2 @@
+using System;using System.IO;using UnityEngine;using UnityEditor;using UnityEditor.SceneManagement;
+public static class StopReverseFixture {public static string Main(){foreach(var x in UnityEngine.Object.FindObjectsByType<Racer.BackyardReverseChecks>())UnityEngine.Object.DestroyImmediate(x.gameObject);EditorApplication.isPlaying=false;return "Stop duplicated Editor fixture; no measured event completed";}}

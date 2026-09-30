@@ -1,0 +1,2 @@
+PASS moto major jump 3 ordinary motor physics; grounded far-side landing=True, air=2.24s, launch speed minimum=30.87m/s, final=(457.07, 80.12, 12.04)
+PASS atv major jump 3 ordinary motor physics; grounded far-side landing=True, air=2.24s, launch speed minimum=30.88m/s, final=(457.41, 80.09, 11.98)

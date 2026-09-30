@@ -1,0 +1,6 @@
+PASS moto major jump 1 ordinary motor physics; grounded far-side landing=True, air=2.50s, launch speed minimum=31.32m/s, final=(49.47, 42.71, 79.95)
+FAIL moto major jump 2 ordinary motor physics; grounded far-side landing=False, air=2.60s, launch speed minimum=27.63m/s, final=(233.08, 55.47, -95.63)
+FAIL moto major jump 3 ordinary motor physics; grounded far-side landing=False, air=1.70s, launch speed minimum=14.30m/s, final=(467.10, 77.54, 33.53)
+PASS atv major jump 1 ordinary motor physics; grounded far-side landing=True, air=2.50s, launch speed minimum=31.30m/s, final=(49.96, 42.66, 78.41)
+FAIL atv major jump 2 ordinary motor physics; grounded far-side landing=False, air=2.54s, launch speed minimum=28.22m/s, final=(213.65, 53.26, -84.60)
+FAIL atv major jump 3 ordinary motor physics; grounded far-side landing=False, air=1.98s, launch speed minimum=13.15m/s, final=(393.18, 80.02, -4.70)

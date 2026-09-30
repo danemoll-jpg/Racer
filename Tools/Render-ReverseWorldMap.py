@@ -52,5 +52,5 @@ for path in out.glob('*.json'):
     for i,g in enumerate(course['gates']):
         x,y=xy(g['position']);q.ellipse((x-10,y-10,x+10,y+10),fill='white' if i==0 else '#397deb',outline='#102b31',width=2);q.text((x+15,y-8),'S/F' if i==0 else str(i),font=font(24,True),fill='white',stroke_width=2,stroke_fill='#102b31')
     layer.save(overlay_dir/(path.stem+'.png'))
-print(f'WORLD_MAP.png {canvas.width}x{canvas.height}; base {w}x{h}; seven selectable transparent course overlays')
+print(f'WORLD_MAP.png {canvas.width}x{canvas.height}; base {w}x{h}; eight selectable transparent course overlays')
 

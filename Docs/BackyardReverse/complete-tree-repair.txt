@@ -1,0 +1,8 @@
+StreetLoopGreybox: render pieces removed=22, vertically aligned=33, batches=4; ownership resolved against original pre-task trunks before removals
+StreetLoopReverse: render pieces removed=58, vertically aligned=33, batches=5; ownership resolved against original pre-task trunks before removals
+LakeWoods: render pieces removed=30, vertically aligned=33, batches=4; ownership resolved against original pre-task trunks before removals
+ForestLoopReverse: render pieces removed=26, vertically aligned=33, batches=4; ownership resolved against original pre-task trunks before removals
+MountainLoop: render pieces removed=28, vertically aligned=33, batches=4; ownership resolved against original pre-task trunks before removals
+MountainLoopReverse: render pieces removed=18, vertically aligned=33, batches=4; ownership resolved against original pre-task trunks before removals
+DansBackyardForward: render pieces removed=22, vertically aligned=27, batches=4; ownership resolved against original pre-task trunks before removals
+DansBackyardReverse: render pieces removed=264, vertically aligned=23, batches=8; ownership resolved against original pre-task trunks before removals

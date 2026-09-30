@@ -1,0 +1,10 @@
+PASS Reverse launches via menu
+PASS Player and AI start straight along South Cherokee Lane toward the natural Reverse route
+PASS No optional shortcut entitlement
+PASS Existing minimap active
+PASS All intermediate gates use accepted blue checkpoint material
+PASS Gates have no colliders
+PASS YOU reference pilot physical full lap; misses=1 recoveries=2 longestAir=3.48
+PASS EMBER physical full lap; misses=1 recoveries=2 longestAir=4.94
+PASS GOLD physical full lap; misses=0 recoveries=0 longestAir=2.43
+PASS BLUE physical full lap; misses=2 recoveries=2 longestAir=2.74

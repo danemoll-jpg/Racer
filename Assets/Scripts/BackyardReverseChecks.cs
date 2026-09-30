@@ -16,20 +16,20 @@ void OnTestScene(Scene scene,LoadSceneMode mode){foreach(var t in FindObjectsByT
 void Check(bool ok,string label){checks.Add((ok?"PASS ":"FAIL ")+label);File.WriteAllLines(Output+"/checks.txt",checks);}
 public static void Launch(){var go=new GameObject("Reverse targeted check");DontDestroyOnLoad(go);go.AddComponent<BackyardReverseChecks>();}
 [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]static void Boot(){var args=Environment.GetCommandLineArgs();int at=Array.IndexOf(args,"-backyardReverseCheck");if(at<0||Array.IndexOf(args,"-racerTestSave")<0)return;Output=args[at+1];Launch();}
-IEnumerator Start(){Directory.CreateDirectory(Output);Application.runInBackground=true;AudioListener.volume=0;yield return null;yield return null;
+IEnumerator Start(){DontDestroyOnLoad(gameObject);Directory.CreateDirectory(Output);Application.runInBackground=true;AudioListener.volume=0;yield return null;yield return null;
 var initial=FindAnyObjectByType<RaceDirector>();
 #if UNITY_EDITOR
 initial.Flow.UseValidationSave(Path.GetFullPath("Temp/BackyardReverseCheckSave"));
 #endif
 initial.Flow.OpenCourses();yield return null;
-var button=FindObjectsByType<UnityEngine.UI.Button>().Single(b=>b.gameObject.activeInHierarchy&&b.GetComponentsInChildren<UnityEngine.UI.Text>().Any(t=>t.text=="Dan's Backyard Loop - Reverse"));button.onClick.Invoke();yield return null;yield return null;
+var button=FindObjectsByType<UnityEngine.UI.Button>().Single(b=>b.gameObject.activeInHierarchy&&b.GetComponentsInChildren<UnityEngine.UI.Text>().Any(t=>t.text.StartsWith("Dan's Backyard Loop - Reverse")));button.onClick.Invoke();yield return null;yield return null;
 var race=FindAnyObjectByType<RaceDirector>();Check(SceneManager.GetActiveScene().name=="DansBackyardReverse"&&race.courseId=="backyard-reverse-v1-main","Reverse launches via menu");AudioListener.volume=0;
 #if UNITY_EDITOR
 race.Flow.UseValidationSave(Path.GetFullPath("Temp/BackyardReverseCheckSave"));
 #endif
 race.Flow.OpenGarage();race.Flow.SelectVehicle("moto");race.Flow.CloseGarage();race.laps=1;race.opponents=true;race.traffic=false;race.difficulty=1;race.opponentRoster=new[]{"moto","atv","moto"};race.Flow.Save.Settings.estimateAiFinishes=false;
 race.Racers[0]=new RacerState("YOU reference pilot",race.vehicle,race.gates.Length-1,1);race.Flow.StartRace();
-Check(race.Racers.All(r=>Vector3.Dot(r.Car.transform.forward,Vector3.right)>.97f),"Player and AI start straight east toward the natural Reverse route");
+Check(race.Racers.All(r=>Vector3.Dot(r.Car.transform.forward,race.gates[0].transform.forward)>.97f),"Player and AI start straight along South Cherokee Lane toward the natural Reverse route");
 Check(race.Branches.Length==0,"No optional shortcut entitlement");Check(FindAnyObjectByType<RacingMiniMap>()!=null,"Existing minimap active");
 Check(race.gates.Skip(1).All(g=>g.GetComponentsInChildren<Renderer>().Where(r=>r.name.Contains("marking")).All(r=>r.sharedMaterial.name=="RaceGate")),"All intermediate gates use accepted blue checkpoint material");
 Check(race.gates.All(g=>g.GetComponentsInChildren<Collider>().Length==0),"Gates have no colliders");
@@ -41,4 +41,5 @@ ScreenCapture.CaptureScreenshot(Path.GetFullPath(Output+"/finish.png"));File.Wri
 if(!Application.isEditor)Application.Quit(checks.Any(c=>c.StartsWith("FAIL"))?1:0);
 }
 }}
+
 

@@ -1,3 +1,5 @@
+> Current status: Dan approved Backyard Forward after the 0.45 review. Its historical anchors and atlas evidence below are preserved. The current separately selectable Forward/Reverse atlas is [here](../BackyardReverse/ATLAS.html).
+
 # Dan's Backyard — Forward
 
 ## Approved course and two implemented optional shortcuts

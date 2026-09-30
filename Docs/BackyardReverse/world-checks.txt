@@ -1,0 +1,65 @@
+PASS StreetLoopGreybox accepted permanent pool and lake exist
+PASS StreetLoopGreybox coping supported by local terrain, largest center gap=0.06498718
+PASS StreetLoopGreybox pool rim and full shell collision present
+PASS StreetLoopGreybox single original Roger house centered
+PASS StreetLoopGreybox Roger house not duplicated
+PASS StreetLoopGreybox Roger foundation corners supported; gap=0.0003356934
+PASS StreetLoopGreybox final terrain tree feet, count=95 max error=0.002983093
+PASS StreetLoopGreybox physical lettering retained, depth tested, single readable face; count=62
+PASS StreetLoopReverse accepted permanent pool and lake exist
+PASS StreetLoopReverse coping supported by local terrain, largest center gap=0.06498718
+PASS StreetLoopReverse pool rim and full shell collision present
+PASS StreetLoopReverse single original Roger house centered
+PASS StreetLoopReverse Roger house not duplicated
+PASS StreetLoopReverse Roger foundation corners supported; gap=0.0003356934
+PASS StreetLoopReverse final terrain tree feet, count=94 max error=0.002983093
+PASS StreetLoopReverse physical lettering retained, depth tested, single readable face; count=73
+PASS Street Reverse Laurel approach/ramp/flight/runout free of density-pass trunks
+PASS LakeWoods accepted permanent pool and lake exist
+PASS LakeWoods coping supported by local terrain, largest center gap=0
+PASS LakeWoods pool rim and full shell collision present
+PASS LakeWoods single original Roger house centered
+PASS LakeWoods Roger house not duplicated
+PASS LakeWoods Roger foundation corners supported; gap=0.0002441406
+PASS LakeWoods final terrain tree feet, count=94 max error=0.0005645752
+PASS LakeWoods physical lettering retained, depth tested, single readable face; count=61
+PASS ForestLoopReverse accepted permanent pool and lake exist
+PASS ForestLoopReverse coping supported by local terrain, largest center gap=0
+PASS ForestLoopReverse pool rim and full shell collision present
+PASS ForestLoopReverse single original Roger house centered
+PASS ForestLoopReverse Roger house not duplicated
+PASS ForestLoopReverse Roger foundation corners supported; gap=0.0002441406
+PASS ForestLoopReverse final terrain tree feet, count=94 max error=0.0005645752
+PASS ForestLoopReverse physical lettering retained, depth tested, single readable face; count=78
+PASS MountainLoop accepted permanent pool and lake exist
+PASS MountainLoop coping supported by local terrain, largest center gap=0
+PASS MountainLoop pool rim and full shell collision present
+PASS MountainLoop single original Roger house centered
+PASS MountainLoop Roger house not duplicated
+PASS MountainLoop Roger foundation corners supported; gap=0.0002441406
+PASS MountainLoop final terrain tree feet, count=94 max error=0.0005645752
+PASS MountainLoop physical lettering retained, depth tested, single readable face; count=78
+PASS MountainLoopReverse accepted permanent pool and lake exist
+PASS MountainLoopReverse coping supported by local terrain, largest center gap=0
+PASS MountainLoopReverse pool rim and full shell collision present
+PASS MountainLoopReverse single original Roger house centered
+PASS MountainLoopReverse Roger house not duplicated
+PASS MountainLoopReverse Roger foundation corners supported; gap=0.0002441406
+PASS MountainLoopReverse final terrain tree feet, count=94 max error=0.0005645752
+PASS MountainLoopReverse physical lettering retained, depth tested, single readable face; count=85
+PASS DansBackyardForward accepted permanent pool and lake exist
+PASS DansBackyardForward coping supported by local terrain, largest center gap=0.06498718
+PASS DansBackyardForward pool rim and full shell collision present
+PASS DansBackyardForward single original Roger house centered
+PASS DansBackyardForward Roger house not duplicated
+PASS DansBackyardForward Roger foundation corners supported; gap=0.0003356934
+PASS DansBackyardForward final terrain tree feet, count=81 max error=0.002983093
+PASS DansBackyardForward physical lettering retained, depth tested, single readable face; count=64
+PASS DansBackyardReverse accepted permanent pool and lake exist
+PASS DansBackyardReverse coping supported by local terrain, largest center gap=0.06498718
+PASS DansBackyardReverse pool rim and full shell collision present
+PASS DansBackyardReverse single original Roger house centered
+PASS DansBackyardReverse Roger house not duplicated
+PASS DansBackyardReverse Roger foundation corners supported; gap=0.0003356934
+PASS DansBackyardReverse final terrain tree feet, count=71 max error=0.002983093
+PASS DansBackyardReverse physical lettering retained, depth tested, single readable face; count=64

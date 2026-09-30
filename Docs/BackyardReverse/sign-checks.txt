@@ -1,0 +1,4 @@
+PASS Front lettering visibly rendered; changed pixels=1614
+PASS Back face has no visible lettering; changed pixels=0
+PASS Opaque world surface fully occludes lettering; changed pixels=0
+PASS Break/debris hiding/restoration keeps physical lettering attached; direct component lifecycle fixture

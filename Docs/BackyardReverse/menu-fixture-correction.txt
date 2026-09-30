@@ -1,0 +1,1 @@
+Menu fixture stopped before the event: its exact button-text comparison missed the existing difficulty rich-text suffix. Corrected to title-prefix matching and preserved the test component through menu scene loading. No AI event occurred in this attempt.

@@ -1,3 +1,5 @@
+> Current status: Dan approved Backyard Forward after the 0.45 review. Its historical anchors and atlas evidence below are preserved. The current separately selectable Forward/Reverse atlas is [here](../BackyardReverse/ATLAS.html).
+
 > **REJECTED / ROLLED BACK — 2026-09-29.** Historical failed design only. See [current restored-world anchor validation atlas](../YardReset/ATLAS.md). No new course is authorized before Dan validates the eight points.
 
 # Dan's Backyard â€” saved scene atlas

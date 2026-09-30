@@ -1,0 +1,2 @@
+using System;using System.Linq;using UnityEngine;using UnityEditor;
+public static class InspectReverseEvent {public static object Main(){var r=UnityEngine.Object.FindAnyObjectByType<Racer.RaceDirector>();return new {state=r.Flow.State.ToString(),scale=Time.timeScale,count=r.Flow.CountdownRemaining,clock=r.Clock,fixtures=UnityEngine.Object.FindObjectsByType<Racer.BackyardReverseChecks>().Select(x=>new{x.name,scene=x.gameObject.scene.name}).ToArray(),args=Environment.GetCommandLineArgs().Where(a=>a.Contains("Check")).ToArray()};}}
