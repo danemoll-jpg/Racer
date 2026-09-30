@@ -17,6 +17,11 @@ namespace Racer
         public ArcadeActivities Activities {get;private set;}
         public CleanLapGhost Ghost {get;private set;}
         Stage extrasReturn;
+        readonly System.Collections.Generic.Stack<Stage> callers=new();
+        static bool returnToSetup;
+        public void PushMenu(Stage stage){callers.Push(State);SetStage(stage);Click();}
+        public void PopMenu(){SetStage(callers.Count>0?callers.Pop():Stage.Ready);Click();}
+        public void RefreshMenu()=>menus.Show();
         public int LapRank { get; private set; }
         public int RaceRank { get; private set; }
         string attempt;
@@ -30,6 +35,8 @@ namespace Racer
         VehicleRespawn respawn;
         RaceMenus menus;
         InputAction menu, back;
+        public InputAction BackAction=>back;
+        public InputAction PauseAction=>menu;
         AudioSource feedback;
         AudioClip tick, go, finish, record, click, ding, buzz;
         float nextBuzz;
@@ -55,6 +62,9 @@ namespace Racer
             // Editor/standalone validation uses a separate directory, never the player's records.
             var args = System.Environment.GetCommandLineArgs();
             for (int i = 0; i + 1 < args.Length; i++) if (args[i] == "-racerTestSave") root = Path.GetFullPath(args[i + 1]);
+#if UNITY_EDITOR
+            if(!string.IsNullOrEmpty(ValidationSaveRoot))root=ValidationSaveRoot;
+#endif
             Save = new RacerSave(root, "street-loop-gates-v1-laps" + Race.laps);
             Playlists=new RacePlaylists(root);
             Boards = new RecordBoards(root);
@@ -77,7 +87,7 @@ namespace Racer
             menu = new InputAction("Pause", InputActionType.Button);
             menu.AddBinding("<Keyboard>/enter"); menu.AddBinding("<Keyboard>/escape"); menu.AddBinding("<Gamepad>/start"); menu.Enable();
             back = new InputAction("Back", InputActionType.Button);
-            back.AddBinding("<Gamepad>/buttonEast"); back.Enable();
+            back.AddBinding("<Keyboard>/escape"); back.AddBinding("<Gamepad>/buttonEast"); back.Enable();
             menus = gameObject.AddComponent<RaceMenus>(); menus.Initialize(this);
             Activities=gameObject.AddComponent<ArcadeActivities>();Activities.Initialize(Race,root);
             Ghost=gameObject.AddComponent<CleanLapGhost>();Ghost.Initialize(Race,root);
@@ -87,20 +97,19 @@ namespace Racer
             if(RacePlaylists.PendingStart){RacePlaylists.PendingStart=false;EnterMenuAfterTitle();Race.laps=RacePlaylists.Current.laps;StartRace();}
             else if(StartupTitle.Begin(this))SetStage(Stage.Title);else EnterMenuAfterTitle();
         }
-        public void EnterMenuAfterTitle(){Radio=LocalRadio.Attach(this);SetStage(Stage.Ready);}
+        public void EnterMenuAfterTitle(){Radio=LocalRadio.Attach(this);SetStage(Stage.Ready);if(returnToSetup){returnToSetup=false;menus.RestoreSceneReturn();}}
         void Update()
         {
             if (Save == null || State==Stage.Title || menus?.OwnsTextInput==true) return;
             if(GetComponent<ExplorationMap>()?.OwnsInput==true)return;
             if (finishAt > 0 && State != Stage.Paused && State != Stage.Settings && Time.unscaledTime >= finishAt) { finishAt = 0; Sound(finish); }
-            if (menu.WasPressedThisFrame())
+            if (MenuInput.Blocked) return;
+            if (MenuVisible && back.WasPressedThisFrame()) { Back(); return; }
+            if (menu.WasPressedThisFrame() && !menus.ModalOpen)
             {
                 if (State == Stage.Racing || State == Stage.Countdown) Pause();
-                else if (State == Stage.Paused) Resume();
-                else if (State == Stage.Settings) CloseSettings();
-                else if (State == Stage.Garage) CloseGarage();
-                else if (State == Stage.Roster) CloseGarage();
-                else if (State == Stage.Activities || State == Stage.Exploration) CloseExtras();
+                else if (menus.ResumeRoot) Resume();
+
             }
             else if (back.WasPressedThisFrame()) Back();
             if (State == Stage.Countdown)
@@ -118,6 +127,7 @@ namespace Racer
         }
         void SetStage(Stage stage)
         {
+            MenuInput.ConsumeThroughRelease();
             State = stage;
             if(stage!=Stage.Racing&&stage!=Stage.Paused&&stage!=Stage.Settings)
                 Race?.GetComponent<WrongWayGuidance>()?.Clear();
@@ -155,29 +165,29 @@ namespace Racer
         public void ToggleOpponents() { Race.opponents = !Race.opponents; if(Race.opponents&&Race.laps==0){Race.laps=Save.Settings.lastFiniteLaps;Save.Settings.laps=Race.laps;Notify("AI race: restored "+Race.laps+" finite laps",4);} Save.Settings.opponents = Race.opponents; Save.SaveSettings(); SelectRecords(Race.Category); Click(); }
         public void ToggleTraffic() { Race.traffic = !Race.traffic; Save.Settings.traffic = Race.traffic; Save.SaveSettings(); SelectRecords(Race.Category); Click(); }
         public void CycleDifficulty() { if(State!=Stage.Ready && State!=Stage.Results) return; Race.difficulty=(Race.difficulty+1)%3; Save.Settings.difficulty=Race.difficulty; Save.SaveSettings(); SelectRecords(Race.Category); Click(); }
-        public void OpenGarage() { if(State!=Stage.Ready && State!=Stage.Results) return; SetStage(Stage.Garage); Click(); }
-        public void CloseGarage() { SetStage(RacePlaylists.Active!=null&&Race.Progress.Finished?Stage.Results:Stage.Ready); Click(); }
-        public void OpenRoster() { if(State!=Stage.Ready && State!=Stage.Results) return; SetStage(Stage.Roster); Click(); }
-        public void OpenBoards() { SetStage(Stage.Boards); Click(); }
-        public void OpenActivities(){extrasReturn=State;SetStage(Stage.Activities);Click();}
-        public void OpenExploration(){extrasReturn=State;SetStage(Stage.Exploration);Click();}
-        public void CloseExtras(){SetStage(extrasReturn);Click();}
+        public void OpenGarage() { if(State!=Stage.Ready && State!=Stage.Results) return; PushMenu(Stage.Garage); }
+        public void CloseGarage() { PopMenu(); }
+        public void OpenRoster() { if(State!=Stage.Ready && State!=Stage.Results) return; PushMenu(Stage.Roster); }
+        public void OpenBoards() { PushMenu(Stage.Boards); }
+        public void OpenActivities(){PushMenu(Stage.Activities);}
+        public void OpenExploration(){PushMenu(Stage.Exploration);}
+        public void CloseExtras(){PopMenu();}
         public void ToggleGhost(){Ghost.Toggle();menus.Show();Click();}
-        public void OpenCourses() { SetStage(Stage.Courses); Click(); }
+        public void OpenCourses() { PushMenu(Stage.Courses); }
         public void SelectCourseEntry(int course)
         {
             if(State!=Stage.Courses || course<0 || course>=RacePlaylists.Scenes.Length)return;
-            Save.SaveSettings();Time.timeScale=1;AudioListener.pause=false;
+            menus.SaveSceneReturn();returnToSetup=true;Save.SaveSettings();Time.timeScale=1;AudioListener.pause=false;
             UnityEngine.SceneManagement.SceneManager.LoadScene(RacePlaylists.Scenes[course]);
         }
         public void SelectMountain(bool reverse){if(State!=Stage.Courses)return;Save.SaveSettings();Time.timeScale=1;AudioListener.pause=false;UnityEngine.SceneManagement.SceneManager.LoadScene(reverse?"MountainLoopReverse":"MountainLoop");}
         public void SelectBackyardForward(){if(State!=Stage.Courses)return;Save.SaveSettings();Time.timeScale=1;AudioListener.pause=false;UnityEngine.SceneManagement.SceneManager.LoadScene("DansBackyardForward");}
-        public void OpenPlaylists(){SetStage(Stage.Playlists);Click();}
+        public void OpenPlaylists(){PushMenu(Stage.Playlists);}
         public void StartPlaylist(RacePlaylists.Definition definition){if(definition.entries.Count==0){Notify("Add a race first",4);return;}if(definition.entries.Exists(e=>e.course>=RacePlaylists.Scenes.Length)){Notify("Remove the rolled-back course from this playlist",4);return;}RacePlaylists.Begin(definition);LoadPlaylistEntry();}
         public void NextPlaylistRace(){if(State!=Stage.Results||RacePlaylists.PendingStart||!RacePlaylists.HasNext||RacePlaylists.Championship.Events[RacePlaylists.Position]==null)return;RacePlaylists.Advance();LoadPlaylistEntry();}
         void LoadPlaylistEntry(){var entry=RacePlaylists.Current;if(!RacePlaylists.Eligible(entry,Save.Settings.vehicleId)||(Race.opponents&&System.Array.Exists(Save.Settings.opponentRoster,id=>!RacePlaylists.Eligible(entry,id)))){SetStage(Stage.PlaylistVehicle);return;}Save.SaveSettings();RacePlaylists.PendingStart=true;Time.timeScale=1;UnityEngine.SceneManagement.SceneManager.LoadScene(RacePlaylists.Scenes[entry.course]);}
         public void ChoosePlaylistVehicle(string id){if(State!=Stage.PlaylistVehicle||!RacePlaylists.Eligible(RacePlaylists.Current,id))return;Save.Settings.vehicleId=id;for(int i=0;i<Save.Settings.opponentRoster.Length;i++)if(!RacePlaylists.Eligible(RacePlaylists.Current,Save.Settings.opponentRoster[i]))Save.Settings.opponentRoster[i]=id;LoadPlaylistEntry();}
-        public void CancelPlaylist(){RacePlaylists.Quit();PrepareRestart();Race.AbandonEvent();LockVehicle(true);Race.laps=Save.Settings.laps==0&&!Race.opponents?0:Mathf.Clamp(Save.Settings.laps,1,5);SetStage(Stage.Ready);}
+        public void CancelPlaylist(){callers.Clear();menus.ResetPages();RacePlaylists.Quit();PrepareRestart();Race.AbandonEvent();LockVehicle(true);Race.laps=Save.Settings.laps==0&&!Race.opponents?0:Mathf.Clamp(Save.Settings.laps,1,5);SetStage(Stage.Ready);}
         public void SelectCourse(bool lake)=>SelectCourse(lake,false);
         public void SelectCourse(bool lake,bool reverse)
         {
@@ -252,17 +262,19 @@ namespace Racer
             NewLapRecord = NewRaceRecord = false; CountdownRemaining = 3; lastTick = 3;
             Notice = null; LockVehicle(true); SetStage(Stage.Countdown); Sound(tick);
         }
-        public void StartRace() { if(RacePlaylists.Active!=null)RacePlaylists.Championship.Restart(RacePlaylists.Position);Race.FreeRoam=false;SetGateVisibility(true);Click(); Race.RestartRace(); }
-        public void StartFreeRoam(){Race.FreeRoam=true;SetGateVisibility(false);Click();Race.RestartRace();}
+        public void StartRace() { callers.Clear();menus.ResetPages(); if(RacePlaylists.Active!=null)RacePlaylists.Championship.Restart(RacePlaylists.Position);Race.FreeRoam=false;SetGateVisibility(true);Click(); Race.RestartRace(); }
+        public void StartFreeRoam(){callers.Clear();menus.ResetPages();Race.FreeRoam=true;SetGateVisibility(false);Click();Race.RestartRace();}
         public void BeginRoaming(){attempt=null;CountdownRemaining=0;LapRank=RaceRank=0;NewLapRecord=NewRaceRecord=false;LockVehicle(false);Race.GetComponent<WrongWayGuidance>()?.Clear();SetStage(Stage.Racing);}
         void SetGateVisibility(bool visible){foreach(var gate in Race.gates)foreach(var renderer in gate.GetComponentsInChildren<Renderer>(true))renderer.enabled=visible;}
         public void Pause() { pausedStage = State; SetStage(Stage.Paused); Click(); }
         public void Resume() { SetStage(pausedStage); Click(); }
-        public void OpenSettings() { settingsReturn = State; SetStage(Stage.Settings); Click(); }
-        public void CloseSettings() { Save.SaveSettings(); SetStage(settingsReturn); Click(); }
-        public void Back() { if(State==Stage.PlaylistVehicle)CancelPlaylist();else if(State==Stage.Playlists)CloseGarage();else if(State==Stage.Activities||State==Stage.Exploration)CloseExtras();else if (State == Stage.Settings) CloseSettings(); else if (State == Stage.Paused) Resume(); else if(State==Stage.Garage || State==Stage.Roster || State==Stage.Boards || State==Stage.Courses) CloseGarage(); }
+        public void OpenSettings() { PushMenu(Stage.Settings); }
+        public void CloseSettings() { Save.SaveSettings(); PopMenu(); }
+        public void Back() { if(menus.BackPage())return; if(State==Stage.PlaylistVehicle)CancelPlaylist();else if(State==Stage.Paused)Resume();else if(State!=Stage.Ready&&State!=Stage.Results&&MenuVisible)PopMenu(); }
+
         public void QuitRace()
         {
+            callers.Clear();menus.ResetPages();
             if(State!=Stage.Paused && State!=Stage.Results && State!=Stage.Settings) return;
             PrepareRestart(); Race.AbandonEvent(); respawn.CancelRecovery(); LockVehicle(true);
             RacePlaylists.Quit();Race.laps=Save.Settings.laps==0&&!Race.opponents?0:Mathf.Clamp(Save.Settings.laps,1,5);
@@ -300,10 +312,16 @@ namespace Racer
         public void CompleteResults() { RacePlaylists.Record(Race);LockVehicle(true); SetStage(Stage.Results); }
         public void Notify(string text, float duration) { Notice = text; noticeUntil = Time.unscaledTime + duration; }
         public void Click() => Sound(click);
+#if UNITY_EDITOR
+        public static string ValidationSaveRoot;
+#endif
 #if UNITY_EDITOR || DEBUG
         public void UseValidationSave(string directory)
         {
             if (Race.Progress.Started) throw new System.InvalidOperationException("Validation storage must be selected before racing.");
+#if UNITY_EDITOR
+            ValidationSaveRoot=directory;
+#endif
             Save = new RacerSave(directory, "street-loop-gates-v1-laps" + Race.laps);
             Boards = new RecordBoards(directory);
             Save.SelectRecords(Race.Category); Save.ApplySettings(); menus.Show();

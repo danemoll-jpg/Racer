@@ -1,0 +1,26 @@
+PASS Main has seven approved destinations
+PASS Race enters setup directly
+PASS Garage reachable from setup
+PASS Garage returns to setup and restores semantic focus
+PASS Garage from Main returns to Main
+PASS Volume at 100 percent does not wrap
+PASS Audio adjustment decreases by one step
+PASS Folder Cancel preserves source, folder and song
+PASS Network, URL and relative paths rejected
+PASS Valid local absolute directory accepted
+PASS Meaningful controller input activates graphical prompts
+PASS Controller X deletes in shared draft
+PASS Effective binding override resolves to X rather than conceptual A
+PASS Idle stick drift retains deliberate input family
+PASS Keyboard Cancel returns one layer
+PASS Back Library returns Music
+PASS Back Music returns Audio category
+PASS Settings returns Main
+PASS Acorn reset modal defaults to Cancel
+PASS Modal Back preserves parent
+PASS Garage returns to Results caller
+PASS Settings returns to Results caller
+PASS Eight track names use stable alphabetical display order
+FAIL Track scene switch returns to Race Setup
+FAIL Track change retains process music service
+PASS Disconnect falls back without activating a menu action

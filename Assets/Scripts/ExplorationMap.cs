@@ -72,9 +72,9 @@ namespace Racer
         void OnDestroy(){Save();if(texture)Destroy(texture);if(panel)Destroy(panel);}
         void Update()
         {
-            if(!race||!race.Flow)return;
+            if(!race||!race.Flow||MenuInput.Blocked||race.Flow.GetComponent<RaceMenus>()?.ModalOpen==true)return;
             var k=Keyboard.current;var g=Gamepad.current;
-            if((k?.mKey.wasPressedThisFrame??false)||(g?.selectButton.wasPressedThisFrame??false)){if(Opened)Close();else if(race.Flow.State==RaceFlow.Stage.Racing||race.Flow.State==RaceFlow.Stage.Paused)Open();return;}
+            if((k?.mKey.wasPressedThisFrame??false)||(g?.selectButton.wasPressedThisFrame??false)){if(Opened){if(Confirming)CancelTravel();else Close();}else if(race.Flow.State==RaceFlow.Stage.Racing||race.Flow.State==RaceFlow.Stage.Paused)Open();return;}
             if(!Opened)return;
             if(Confirming){if(Time.frameCount==confirmationFrame)return;if((k?.escapeKey.wasPressedThisFrame??false)||(g?.buttonEast.wasPressedThisFrame??false)){CancelTravel();return;}if((k?.spaceKey.wasPressedThisFrame??false)||(g?.buttonSouth.wasPressedThisFrame??false)){ConfirmTravel();return;}return;}
             if((k?.escapeKey.wasPressedThisFrame??false)||(g?.buttonEast.wasPressedThisFrame??false)){Close();return;}
@@ -89,11 +89,12 @@ namespace Racer
         }
         public void Open()
         {
+            MenuInput.ConsumeThroughRelease();
             if(!visual)visual=Resources.Load<WorldMapVisual>("WorldMaps/PermanentWorld");
             resume=race.Flow.State==RaceFlow.Stage.Racing;if(resume)race.Flow.Pause();if(!panel)BuildUI();
             center=MapNormalized(race.vehicle.Body.position);panel.SetActive(true);EventSystem.current?.SetSelectedGameObject(null);Repaint();Draw();Save();
         }
-        public void Close(){CancelTravel();closedFrame=Time.frameCount;if(panel)panel.SetActive(false);Save();if(resume)race.Flow.Resume();}
+        public void Close(){MenuInput.ConsumeThroughRelease();CancelTravel();closedFrame=Time.frameCount;if(panel)panel.SetActive(false);Save();if(resume)race.Flow.Resume();}
         public void SetWaypoint(Vector3 p){Waypoint=p;}
         void SelectNext(int direction){if(destinations.Length==0)return;selected=(selected+direction+destinations.Length)%destinations.Length;if(Discovered(destinations[selected].id))center=MapNormalized(destinations[selected].position);}
         public bool Travel(int index)
@@ -114,7 +115,7 @@ namespace Racer
             if(index<0||index>=destinations.Length||!race.FreeRoam||!Discovered(destinations[index].id)){errorMessage="Travel needs free roam and a discovered destination.";Draw();return;}
             pending=index;confirmationFrame=Time.frameCount;confirmationText.text="Travel to "+destinations[index].title+"?\nA / Space: Yes    B / Esc: No";confirmation.SetActive(true);
         }
-        public void CancelTravel(){pending=-1;if(confirmation)confirmation.SetActive(false);EventSystem.current?.SetSelectedGameObject(null);}
+        public void CancelTravel(){MenuInput.ConsumeThroughRelease();pending=-1;if(confirmation)confirmation.SetActive(false);EventSystem.current?.SetSelectedGameObject(null);}
         public bool ConfirmTravel()
         {
             if(pending<0)return false;int index=pending;CancelTravel();

@@ -1,0 +1,3 @@
+Ready action=False selected=race
+A result state=Ready page=race selected=start
+B result state=Ready page=

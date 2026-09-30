@@ -1,0 +1,5 @@
+FAIL One physical A opens Race Setup without leaking into Start Race
+PASS Physical B removes one layer
+FAIL Physical Escape is Back inside menus
+PASS Settings returns to Pause
+PASS B cancels Return-to-Menu modal without resuming/abandoning

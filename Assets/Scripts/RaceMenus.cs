@@ -9,7 +9,7 @@ using UnityEngine.InputSystem.UI;
 namespace Racer
 {
     // Runtime extension of the existing uGUI HUD; legacy font retained to match its text.
-    public sealed class RaceMenus : MonoBehaviour
+    public sealed partial class RaceMenus : MonoBehaviour
     {
         RaceFlow flow;
         GameObject shade;
@@ -34,7 +34,7 @@ namespace Racer
         int penaltyPage = -1;
         float nextMusicRefresh;
         InputAction submit;
-        InputActionAsset menuActions;
+        InputActionAsset menuActions,ownedUiActions;
         InputActionReference submitReference;
         Font font;
         UnityEngine.UI.Button simulateRemaining;
@@ -58,7 +58,7 @@ namespace Racer
         readonly List<UnityEngine.UI.Button> swatches=new();
         public void Initialize(RaceFlow owner)
         {
-            flow = owner; font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
+            MenuInput.Ensure(); flow = owner; font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
             var hud = FindAnyObjectByType<RaceHud>();
             hudPanel = hud.display.transform.parent.gameObject;
             var canvas = hud.GetComponent<Canvas>();
@@ -67,7 +67,9 @@ namespace Racer
             if (!es) es = new GameObject("Race menu EventSystem", typeof(EventSystem)).GetComponent<EventSystem>();
             var module = es.GetComponent<InputSystemUIInputModule>();
             if (!module) module = es.gameObject.AddComponent<InputSystemUIInputModule>();
-            module.AssignDefaultActions();
+            module.AssignDefaultActions();module.deselectOnBackgroundClick=false;
+            // Own a clone: default modules otherwise unassign every custom reference on disable.
+            ownedUiActions=Instantiate(module.actionsAsset);module.actionsAsset=ownedUiActions;
             menuActions = ScriptableObject.CreateInstance<InputActionAsset>();
             var map = new InputActionMap("Race menu"); menuActions.AddActionMap(map);
             submit = map.AddAction("Menu confirm", InputActionType.Button);
@@ -105,7 +107,7 @@ namespace Racer
             previewCamera.backgroundColor=new Color(.06f,.1f,.13f); previewCamera.targetTexture=previewTexture;
             previewCamera.transform.position=new Vector3(10000,10003,9994); previewCamera.transform.LookAt(new Vector3(10000,10000.5f,10000));
             previewCamera.fieldOfView=36; previewCamera.farClipPlane=30;
-            for (int i = 0; i < 15; i++)
+            for (int i = 0; i < 96; i++)
             {
                 var rect = Rect("Action " + i, card);
                 rect.gameObject.AddComponent<UnityEngine.UI.LayoutElement>().preferredHeight = 44;
@@ -125,7 +127,7 @@ namespace Racer
                 var img=rect.gameObject.AddComponent<UnityEngine.UI.Image>(); img.color=VehiclePaint.Colors[i];
                 var button=rect.gameObject.AddComponent<UnityEngine.UI.Button>(); button.targetGraphic=img;
                 var colors=button.colors; colors.selectedColor=colors.highlightedColor=Color.white; colors.normalColor=new Color(.72f,.72f,.72f); button.colors=colors;
-                button.onClick.AddListener(()=>flow.SetColor(choice));
+                button.onClick.AddListener(()=>{if(MenuInput.Blocked)return;MenuInput.ConsumeThroughRelease();flow.SetColor(choice);});
                 var text=Label("Color",rect,17,0); Stretch(text.rectTransform,0,0,0,0); text.alignment=TextAnchor.MiddleCenter; text.text=VehiclePaint.Names[i]; text.color=(i==1 || i==3 || i==5 || i==6)?Color.white:Color.black;
                 swatches.Add(button);
             }
@@ -136,6 +138,7 @@ namespace Racer
             banner.rectTransform.anchorMin = new Vector2(.04f,.35f); banner.rectTransform.anchorMax = new Vector2(.96f,.6f);
             banner.rectTransform.offsetMin = banner.rectTransform.offsetMax = Vector2.zero;
             var outline = banner.gameObject.AddComponent<UnityEngine.UI.Outline>(); outline.effectColor = new Color(0,0,0,.85f); outline.effectDistance = new Vector2(2,-2);
+            BuildShell();
             shown = RaceFlow.Stage.Ready;
             songBanner=Label("Current song",canvas.transform,18,0);
             songBanner.alignment=TextAnchor.MiddleCenter;
@@ -169,7 +172,7 @@ namespace Racer
         void Action(int index, string label, UnityEngine.Events.UnityAction action)
         {
             var b = buttons[index]; b.gameObject.SetActive(true); b.GetComponentInChildren<UnityEngine.UI.Text>().text = label;
-            b.onClick.RemoveAllListeners(); b.onClick.AddListener(action);
+            b.onClick.RemoveAllListeners(); b.onClick.AddListener(()=>{if(MenuInput.Blocked)return;MenuInput.ConsumeThroughRelease();action();});
         }
         string Record(double seconds) => seconds > 0 ? RaceHud.FormatTime(seconds) : "—";
         void PenaltyDetails(RaceProgress p)
@@ -182,6 +185,15 @@ namespace Racer
         public void Show()
         {
             if (!shade) return;
+            ClearBindingRows();
+            registry.Clear();
+            CapturePage();
+            PreparePage();
+            ResetEntryLayout();ResetGarageLayout();
+            details.transform.SetSiblingIndex(0);playlistName.transform.SetSiblingIndex(1);preview.transform.SetSiblingIndex(2);
+            for(int i=0;i<buttons.Count;i++)buttons[i].transform.SetSiblingIndex(i+3);
+            swatchRow.SetSiblingIndex(buttons.Count+3);
+            foreach(var button in buttons)button.interactable=true;
             int selected = buttons.FindIndex(b => EventSystem.current && EventSystem.current.currentSelectedGameObject == b.gameObject);
             if(selected<0) { int swatch=swatches.FindIndex(b=>EventSystem.current && EventSystem.current.currentSelectedGameObject==b.gameObject); if(swatch>=0) selected=buttons.Count+swatch; }
             if (selected >= 0) selections[shown] = selected;
@@ -206,57 +218,7 @@ namespace Racer
             details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight = 160;
             details.fontSize=20;
             details.supportRichText=shown==RaceFlow.Stage.Boards;
-            if (shown == RaceFlow.Stage.Ready)
-            {
-                title.text = "WOODSTOCK RUSH / "+flow.Race.courseName.ToUpperInvariant();
-                details.text = "Cross START to begin lap 1.";
-                Action(0,"Start race",flow.StartRace); Action(1,"Settings",flow.OpenSettings); Action(2,"Quit Game",flow.Quit);
-                Action(3, flow.Race.opponents ? "Mode: Race vs 3 AI" : "Mode: Solo / time trial", flow.ToggleOpponents);
-                Action(4, "Traffic: " + (flow.Race.traffic ? "On" : "Off"), flow.ToggleTraffic);
-                Action(5,"Difficulty: " + flow.Race.DifficultyName,flow.CycleDifficulty);
-                Action(6,"Garage: " + flow.Race.vehicle.GetComponent<VehicleConfiguration>().Profile.Name,flow.OpenGarage);
-                Action(7,"Opponent vehicles",flow.OpenRoster);
-                Action(8,"Track: "+flow.Race.courseName,flow.OpenCourses);
-                Action(9,"Records / Top 10",()=>{boardCategory=null;flow.OpenBoards();});
-                Action(10,"Free Roam / explore + arcade activities",flow.StartFreeRoam);
-                Action(11,"Activity Records / Speed Traps and Jumps",flow.OpenActivities);
-                Action(12,"Exploration / clean-lap ghosts",flow.OpenExploration);
-                Action(13,"Laps: "+flow.LapLabel,flow.CycleLaps);
-                Action(14,"Saved race playlists",flow.OpenPlaylists);
-                foreach(var b in buttons)b.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=27;
-                details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=86;
-                card.GetComponent<UnityEngine.UI.VerticalLayoutGroup>().spacing=5;
-                details.fontSize=18;
-                details.text=$"{flow.LapLabel} laps / clock starts at GO\n{(flow.Race.opponents?flow.Race.RosterLabel:"Solo time trial")}\nBest lap {Record(flow.Save.Best.lap)}"+(flow.Race.laps==0?" / End session from pause":$"  /  race {Record(flow.Save.Best.race)}");
-            }
-            else if (shown == RaceFlow.Stage.Paused)
-            {
-                title.text = "PAUSED";
-                var p=flow.Race.Progress;
-                details.text=$"Elapsed {RaceHud.FormatTime(p.RaceTime(flow.Race.Clock))}  +{p.PenaltySeconds:0.0}s penalties\nAdjusted {RaceHud.FormatTime(p.AdjustedTime(flow.Race.Clock))}\nR / Y: recover locally; time and lap progress continue.\nRestart Race clears this event and restores props.";
-                Action(0,"Resume",flow.Resume); Action(1,"Restart Race",flow.StartRace); Action(2,"Settings",flow.OpenSettings); Action(3,RacePlaylists.Active!=null?"Quit Playlist / menu":flow.Race.laps==0?"End session / menu":"Quit Race / Return to Menu",flow.QuitRace); Action(4,"Quit Game",flow.Quit);
-                Action(5,"Penalty breakdown / next page",()=>{ penaltyPage++; if(penaltyPage*4>=p.Penalties.Count) penaltyPage=-1; Show(); });
-                if(p.Finished && !flow.Race.ClassificationFinal) Action(6,"Skip waiting / estimate remaining AI",flow.Race.FinalizeUnfinishedAi);
-                if(penaltyPage>=0) PenaltyDetails(p);
-                if(flow.Race.FreeRoam)
-                {
-                    title.text="FREE ROAM / PAUSED";
-                    var site=flow.Activities.Selected;var best=site?flow.Activities.PersonalBest(site):null;
-                    details.text="Traps and authored jumps score automatically while driving.\nR / Y: local reset. Only smash challenges need activation.\n"+(site?$"{site.title} / {flow.Activities.Location}\n{flow.Activities.Targets} / PB {ArcadeActivities.Measurement(site,best?.value??0)}":"");
-                    foreach(var button in buttons)button.gameObject.SetActive(false);
-                    Action(0,"Resume exploring",flow.Resume);
-                    Action(1,"Activity: "+(site?site.title:"none"),()=>{flow.Activities.Cycle();Show();});
-                    Action(2,"Start / retry selected activity",()=>{flow.Activities.BeginAttempt();flow.Resume();});
-                    Action(3,"Cancel activity",()=>{flow.Activities.Cancel();flow.Resume();});
-                    Action(4,"Settings / music",flow.OpenSettings);
-                    Action(5,"Return to menu / choose race",flow.QuitRace);
-                    Action(6,"Quit Game",flow.Quit);
-                }
-                Action(7,"Activity Records / Speed Traps and Jumps",flow.OpenActivities);
-                Action(8,"Exploration / clean-lap ghosts",flow.OpenExploration);
-                foreach(var b in buttons)b.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=32;
-            }
-            else if (shown == RaceFlow.Stage.Results)
+            if (shown == RaceFlow.Stage.Results)
             {
                 title.text = flow.Race.courseName.ToUpperInvariant()+" / RACE COMPLETE";
                 var p = flow.Race.Progress; var text = new StringBuilder();
@@ -297,11 +259,6 @@ namespace Racer
                     }
                 }
             }
-            else if(shown==RaceFlow.Stage.PlaylistVehicle)
-            {
-                title.text="CHOOSE COMPATIBLE VEHICLES";details.text=RacePlaylists.PositionLabel+"\n"+RacePlaylists.Current.Title+"\nThis event requires motorcycles / ATVs. Choose your vehicle and replace incompatible opponents with that same profile. Nothing has changed yet.";
-                Action(0,"Use Motorcycle + replace incompatible opponents",()=>flow.ChoosePlaylistVehicle("moto"));Action(1,"Use ATV + replace incompatible opponents",()=>flow.ChoosePlaylistVehicle("atv"));Action(2,"Quit Playlist / menu",flow.CancelPlaylist);
-            }
             else if(shown==RaceFlow.Stage.Playlists)
             {
                 title.text="SAVED RACE PLAYLISTS";var library=flow.Playlists.Definitions;
@@ -325,7 +282,7 @@ namespace Racer
                     {
                         details.text+=definition.entries.Count==0?"No races yet":$"Entry {entryIndex+1} / {definition.entries.Count}: "+definition.entries[entryIndex].Title;
                         details.text+="\n"+(flow.Playlists.Error??"Roster and difficulty use race setup. Unlimited is standalone.");
-                        Action(0,"Start playlist",()=>flow.StartPlaylist(definition));Action(1,"Name playlist",()=>{nameDraft=definition.name;controllerName=false;editingPlaylistName=true;Show();});
+                        Action(0,"Start playlist",()=>flow.StartPlaylist(definition));Action(1,"Name playlist",()=>OpenKeyboard(definition.name,64,value=>{var clean=new string(value.Where(c=>!char.IsControl(c)).Take(64).ToArray()).Trim();if(clean.Length==0){keyboardError="Enter a playlist name.";return false;}string old=definition.name;definition.name=clean;if(!flow.Playlists.Save()){definition.name=old;keyboardError=flow.Playlists.Error;return false;}return true;}));
                         Action(2,"Previous entry",()=>{entryIndex=Mathf.Max(0,entryIndex-1);Show();});Action(3,"Next entry",()=>{entryIndex=Mathf.Min(definition.entries.Count-1,entryIndex+1);Show();});
                         Action(4,"Add race (duplicates allowed)",()=>{definition.entries.Add(new RacePlaylists.Entry());entryIndex=definition.entries.Count-1;Show();});
                         if(definition.entries.Count>0){var entry=definition.entries[entryIndex];Action(5,"Course / direction: "+RacePlaylists.Titles[entry.course],()=>{entry.course=(entry.course+1)%RacePlaylists.Scenes.Length;Show();});Action(6,"Laps: "+entry.laps,()=>{entry.laps=entry.laps%5+1;Show();});Action(7,"Move entry earlier",()=>{if(entryIndex>0){definition.entries.RemoveAt(entryIndex);definition.entries.Insert(--entryIndex,entry);}Show();});Action(8,"Move entry later",()=>{if(entryIndex+1<definition.entries.Count){definition.entries.RemoveAt(entryIndex);definition.entries.Insert(++entryIndex,entry);}Show();});Action(9,"Remove entry",()=>{definition.entries.RemoveAt(entryIndex);Show();});}
@@ -363,34 +320,6 @@ namespace Racer
                 Action(5,"Next saved category",()=>{historyActivities=true;activityCategory++;Show();});
                 Action(6,"Back",flow.CloseExtras);
             }
-            else if(shown==RaceFlow.Stage.Exploration)
-            {
-                title.text="EXPLORATION / PERSONAL BEST";
-                flow.Ghost.Refresh();
-                details.text="Clean-lap ghosts: actual recorded poses, local only.\nNo resets, teleports or missed gates; legal shortcuts qualify.\n"+flow.Ghost.Status+"\n\n"+(flow.GetComponent<ExplorationCollection>()?.Summary??"Collection loading");
-                details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=280;details.fontSize=18;
-                Action(0,"Clean-lap ghost: "+(flow.Ghost.Enabled?"ON":"OFF"),flow.ToggleGhost);
-                
-                Action(1,"Whole-area map / discovered fast travel",()=>flow.GetComponent<ExplorationMap>()?.Open());
-                Action(2,confirmCollectionRestart?"CONFIRM: restart ONLY the 24 acorns":"Restart relocated acorn hunt...",()=>{if(confirmCollectionRestart){flow.GetComponent<ExplorationCollection>()?.RestartCollection(true);confirmCollectionRestart=false;}else confirmCollectionRestart=true;Show();});
-                Action(3,"Back / cancel restart",()=>{confirmCollectionRestart=false;flow.CloseExtras();});
-                details.text+="\nRelocated found IDs stay collected unless you restart.\nRestart preserves map, records, ghosts and settings.";
-            }
-            else if(shown==RaceFlow.Stage.Courses)
-            {
-                title.text="SELECT TRACK";
-                details.text="Street: all vehicles. Other tracks: motorcycles / ATVs.\nTrack difficulty ratings await Dan's review.";
-                details.fontSize=18;details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=54;
-                int row=0;
-                foreach(int course in RacePlaylists.DisplayOrder)
-                {
-                    int choice=course;
-                    Action(row,RacePlaylists.Titles[course]+"\n<size=16><color=#BCD1D5>Difficulty: "+RacePlaylists.DifficultyLabel(course)+"</color></size>",()=>flow.SelectCourseEntry(choice));
-                    var button=buttons[row++];button.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=54;
-                    var label=button.GetComponentInChildren<UnityEngine.UI.Text>();label.supportRichText=true;label.alignment=TextAnchor.MiddleLeft;
-                }
-                Action(row,"Back",flow.CloseGarage);
-            }
             else if(shown==RaceFlow.Stage.Boards)
             {
                 title.text=raceBoard?"TOP 10 / TOTAL RACE":"TOP 10 / LAP";
@@ -420,73 +349,27 @@ namespace Racer
                 title.text=profile.Name + " / " + profile.Class;
                 details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=80;
                 details.fontSize=18;
-                details.text=$"{profile.Description}\n{(flow.Race.Forest?"Forest Loop: motorcycles / ATVs only (player and AI).":"Street Loop: all four profiles available.")}\nBody color: choose a swatch below. R / Y recovers locally.";
+                details.text=$"{profile.Description}\n{(flow.Race.Forest?flow.Race.courseName+": motorcycles / ATVs only (player and AI).":"Street Loop: all four profiles available.")}\nBody color: choose a swatch below.";
                 if(previewRoot) { previewRoot.SetActive(false); Destroy(previewRoot); }
                 previewRoot=new GameObject("Garage display model"); previewRoot.layer=31; previewRoot.transform.position=new(10000,10000,10000); previewRoot.transform.rotation=Quaternion.Euler(0,-30,0);
                 flow.Race.vehicle.GetComponent<VehicleConfiguration>().BuildPreview(previewRoot.transform);
-                for(int i=0;i<flow.Race.EligibleVehicles.Length;i++) { var choice=flow.Race.EligibleVehicles[i]; Action(i,(profile.Id==choice.Id?"Selected: ":"Select: ")+choice.Name,()=>flow.SelectVehicle(choice.Id)); }
+                for(int i=0;i<flow.Race.EligibleVehicles.Length;i++) { var choice=flow.Race.EligibleVehicles[i]; Action(i,(profile.Id==choice.Id?"✓ ":"")+choice.Name,()=>flow.SelectVehicle(choice.Id)); }
                 Action(4,"Done / ready",flow.CloseGarage);
             }
-            else if(shown==RaceFlow.Stage.Roster)
-            {
-                title.text="OPPONENT VEHICLES";
-                details.text="Choose each slot. Random may repeat; Mixed uses eligible profiles before repeating.\nResolved roster stays fixed for restart/rematch.\n\n"+flow.Race.RosterLabel;
-                details.fontSize=18;
-                for(int i=0;i<3;i++) { int slot=i; string choice=flow.Save.Settings.opponentChoices[i]; Action(i,$"Slot {i+1}: {(choice=="random"?"Random":choice=="mixed"?"Mixed":VehicleProfile.Find(choice).Name)}  →  {VehicleProfile.Find(flow.Race.opponentRoster[i]).Name}",()=>flow.CycleOpponent(slot)); }
-                Action(3,"Use Mixed roster",flow.MixedRoster); Action(4,"Reroll Random / Mixed",flow.ResolveRoster); Action(5,"Done / ready",flow.CloseGarage);
-            }
-            else if (shown == RaceFlow.Stage.Settings)
-            {
-                card.GetComponent<UnityEngine.UI.VerticalLayoutGroup>().spacing=6;
-                foreach(var b in buttons)b.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=musicPage?32:38;
-                title.text = "SETTINGS"; details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight = 96;
-                details.text = "Select a setting to cycle its value. Changes apply now.\nVSync uses your display refresh; frame limit applies with VSync off.\nVolume steps: 0–100% in 10% increments.";
-                var s = flow.Save.Settings;
-                Action(0,$"Master volume   {s.master:P0}",()=>Adjust(()=>s.master=NextVolume(s.master)));
-                Action(1,$"Ambience volume   {s.ambience:P0}",()=>Adjust(()=>s.ambience=NextVolume(s.ambience)));
-                Action(2,$"Race / UI volume   {s.feedback:P0}",()=>Adjust(()=>s.feedback=NextVolume(s.feedback)));
-                Action(3,$"Vehicle volume   {s.vehicle:P0}",()=>Adjust(()=>s.vehicle=NextVolume(s.vehicle)));
-                Action(4,"VSync   " + (s.vsync?"On":"Off"),()=>Adjust(()=>s.vsync=!s.vsync));
-                Action(5,"Frame limit   " + s.frameLimit + " fps",()=>Adjust(()=>s.frameLimit=s.frameLimit==30?60:s.frameLimit==60?120:30));
-                Action(6,"Back",flow.CloseSettings);
-                Action(7,"Music / local radio",()=>{musicPage=true;Show();});
-                if(!musicPage) Action(8,"Estimate AI at your finish: "+(s.estimateAiFinishes?"On":"Off"),()=>Adjust(()=>s.estimateAiFinishes=!s.estimateAiFinishes));
-                if(musicPage)
-                {
-                    var radio=flow.Radio; title.text="LOCAL MUSIC";
-                    details.fontSize=16;details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=150;
-                    details.text=MusicDetails();
-                    Action(0,$"Music volume {s.music:P0}",()=>Adjust(()=>s.music=NextVolume(s.music)));
-                    Action(1,"Channel: "+radio.ChannelName+" / next channel or Off",()=>{radio.Toggle();Show();});
-                    Action(2,"Next track",()=>{radio.Next();Show();});
-                    Action(3,"Previous track",()=>{radio.Previous();Show();});
-                    Action(4,"Open Music folder",radio.OpenFolder);Action(5,"Rescan Music folder",()=>{radio.Rescan();Show();});
-                    Action(6,"Music source / collection setup",()=>{musicCollectionPage=true;Show();});Action(7,"Back to settings",()=>{musicPage=false;musicCollectionPage=false;Show();});
-                    if(musicCollectionPage)
-                    {
-                        title.text="MUSIC COLLECTION";
-                        Action(0,"Source: "+(radio.Bundled?"Bundled music":"Custom folder")+" (switch)",()=>{radio.SetSource(!radio.Bundled);Show();});
-                        Action(1,"Folder channels / nested albums included",()=>{radio.ShowSong();Show();});
-                        Action(2,"Choose custom folder",radio.ChooseFolder);
-                        Action(3,"Open selected folder",radio.OpenFolder);
-                        Action(4,"Rescan collection",()=>{radio.Rescan();Show();});
-                        Action(5,"Cancel scan",()=>{radio.CancelScan();Show();});
-                        Action(6,"Back to music controls",()=>{musicCollectionPage=false;Show();});
-                        buttons[7].gameObject.SetActive(false);
-                    }
-                }
-            }
-            var active = buttons.FindAll(b=>b.gameObject.activeSelf);
+            RenderCore();
+            var active = buttons.FindAll(b=>b.gameObject.activeSelf&&b.interactable);
             if(shown==RaceFlow.Stage.Garage) active.AddRange(swatches);
             for (int i=0;i<active.Count;i++) active[i].navigation = new UnityEngine.UI.Navigation { mode=UnityEngine.UI.Navigation.Mode.Explicit, selectOnUp=active[(i+active.Count-1)%active.Count], selectOnDown=active[(i+1)%active.Count] };
             if(shown==RaceFlow.Stage.Garage) for(int i=0;i<swatches.Count;i++) { var nav=swatches[i].navigation; nav.selectOnLeft=swatches[(i+swatches.Count-1)%swatches.Count]; nav.selectOnRight=swatches[(i+1)%swatches.Count]; swatches[i].navigation=nav; }
+            ConfigureCoreFocus();
             int focus = selections.TryGetValue(shown,out var prior)?prior:0;
             if(editingPlaylistName&&!controllerName&&shown==RaceFlow.Stage.Playlists){playlistName.SetTextWithoutNotify(nameDraft);EventSystem.current.SetSelectedGameObject(playlistName.gameObject);playlistName.ActivateInputField();return;}
-            if(shown==RaceFlow.Stage.Garage && focus>=buttons.Count && focus<buttons.Count+swatches.Count) { EventSystem.current.SetSelectedGameObject(swatches[focus-buttons.Count].gameObject); return; }
-            if (focus >= buttons.Count || !buttons[focus].gameObject.activeSelf) focus=0;
+            if(shown==RaceFlow.Stage.Garage && focus>=buttons.Count && focus<buttons.Count+swatches.Count) { EventSystem.current.SetSelectedGameObject(swatches[focus-buttons.Count].gameObject);RestorePage(); return; }
+            if (focus >= buttons.Count || (!buttons[focus].gameObject.activeSelf||!buttons[focus].interactable)) focus=0;
             EventSystem.current.SetSelectedGameObject(buttons[focus].gameObject);
+            RestorePage();
         }
-        static float NextVolume(float value) => value >= .99f ? 0 : Mathf.Min(1, (Mathf.Floor(value*10+.01f)+1)/10);
+        static float NextVolume(float value) => Mathf.Min(1, (Mathf.Floor(value*10+.01f)+1)/10);
         void FinishName(bool save)
         {
             if(save){var clean=new string((nameDraft??"").Where(c=>!char.IsControl(c)).Take(64).ToArray()).Trim();if(clean.Length==0){flow.Notify("Enter a playlist name",3);Show();return;}var d=flow.Playlists.Definitions[playlistIndex];var old=d.name;d.name=clean;if(!flow.Playlists.Save()){d.name=old;Show();return;}}
@@ -494,6 +377,7 @@ namespace Racer
         }
         void Update()
         {
+            UpdateCore();
             if(!editingPlaylistName)return;
             if(!controllerName&&Gamepad.current?.startButton.wasPressedThisFrame==true){controllerName=true;playlistName.DeactivateInputField();Show();return;}
             if(Keyboard.current?.escapeKey.wasPressedThisFrame==true||Gamepad.current?.buttonEast.wasPressedThisFrame==true)FinishName(false);
@@ -513,7 +397,8 @@ namespace Racer
         void LateUpdate()
         {
             if (!flow || !banner) return;
-            if(musicPage&&flow.State==RaceFlow.Stage.Settings&&flow.Radio&&Time.unscaledTime>=nextMusicRefresh)
+            UpdateShell();
+            if(false&&musicPage&&flow.State==RaceFlow.Stage.Settings&&flow.Radio&&Time.unscaledTime>=nextMusicRefresh)
             {
                 nextMusicRefresh=Time.unscaledTime+.25f;
                 var radio=flow.Radio;
@@ -542,6 +427,6 @@ namespace Racer
             if(!countdown && flow.PenaltyNotice!=null)banner.text=flow.PenaltyNotice;
             if (flow.MenuVisible && flow.State!=RaceFlow.Stage.Title && flow.GetComponent<ExplorationMap>()?.OwnsInput!=true && EventSystem.current && !EventSystem.current.currentSelectedGameObject) EventSystem.current.SetSelectedGameObject(buttons[0].gameObject);
         }
-        void OnDestroy() { if(menuActions) { menuActions.Disable(); Destroy(menuActions); } if(submitReference) Destroy(submitReference); if(previewRoot) Destroy(previewRoot); if(previewCamera) Destroy(previewCamera.gameObject); if(previewTexture) { previewTexture.Release(); Destroy(previewTexture); } }
+        void OnDestroy() { if(ownedUiActions){ownedUiActions.Disable();Destroy(ownedUiActions);} if(textKeyboard!=null)textKeyboard.onTextInput-=TypedCharacter; tabsAction?.Dispose();adjustAction?.Dispose();previousTab?.Dispose();deleteAction?.Dispose();spaceAction?.Dispose(); if(menuActions) { menuActions.Disable(); Destroy(menuActions); } if(submitReference) Destroy(submitReference); if(previewRoot) Destroy(previewRoot); if(previewCamera) Destroy(previewCamera.gameObject); if(previewTexture) { previewTexture.Release(); Destroy(previewTexture); } }
     }
 }

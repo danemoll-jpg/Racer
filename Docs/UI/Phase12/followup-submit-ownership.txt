@@ -1,0 +1,13 @@
+FAIL One physical A opens Race Setup without leaking into Start Race
+PASS Physical B removes one layer
+PASS Physical Escape is Back inside menus
+PASS Settings returns to Pause
+PASS B cancels Return-to-Menu modal without resuming/abandoning
+PASS Controller family active
+PASS Keyboard switches prompts without losing text draft
+PASS Return to controller preserves text and selection
+PASS Graphical glyphs have CanvasRenderers
+PASS Unavailable folder reports an error and cannot commit
+PASS Use This Folder alone commits validated local path
+PASS Track scene switch returns to Race Setup
+PASS Track switch retains the same music service and save root

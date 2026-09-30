@@ -34,6 +34,7 @@ namespace Racer
         GameObject canvas;
         BaseInputModule inputModule;
         bool moduleWasEnabled;
+        Text advanceText;MenuGlyph advanceGlyph;Text advanceKey;
         int openedFrame;
         public static float ValidationLoadDelay;
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
@@ -63,7 +64,10 @@ namespace Racer
             var raw=frame.gameObject.AddComponent<RawImage>();raw.texture=artwork;raw.raycastTarget=false;
             var fit=frame.gameObject.AddComponent<AspectRatioFitter>();fit.aspectMode=AspectRatioFitter.AspectMode.FitInParent;fit.aspectRatio=artwork?(float)artwork.width/artwork.height:16f/9;
             var prompt=Rect("Fresh button prompt",matte);prompt.anchorMin=new(0,0);prompt.anchorMax=new(1,0);prompt.pivot=new(.5f,0);prompt.sizeDelta=new(0,42);
-            var text=prompt.gameObject.AddComponent<Text>();text.font=Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");text.fontSize=18;text.alignment=TextAnchor.MiddleCenter;text.color=new(.86f,.86f,.8f);text.text="Press any button";text.raycastTarget=false;
+            var text=prompt.gameObject.AddComponent<Text>();text.font=Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");text.fontSize=18;text.alignment=TextAnchor.MiddleCenter;text.color=new(.86f,.86f,.8f);text.text="Press any key or click";text.raycastTarget=false;advanceText=text;
+            var glyphRect=Rect("Advance glyph",prompt);glyphRect.anchorMin=glyphRect.anchorMax=new(.5f,.5f);glyphRect.sizeDelta=new(34,34);glyphRect.anchoredPosition=new(-145,0);
+            advanceGlyph=glyphRect.gameObject.AddComponent<MenuGlyph>();advanceGlyph.raycastTarget=false;
+            var key=Rect("Key",glyphRect);Stretch(key);advanceKey=key.gameObject.AddComponent<Text>();advanceKey.font=text.font;advanceKey.fontSize=20;advanceKey.alignment=TextAnchor.MiddleCenter;advanceKey.color=Color.white;advanceKey.raycastTarget=false;
             Voice=gameObject.AddComponent<AudioSource>();Theme=gameObject.AddComponent<AudioSource>();ThemeOpening=gameObject.AddComponent<AudioSource>();
             foreach(var source in new[]{Voice,Theme,ThemeOpening}){source.playOnAwake=false;source.spatialBlend=0;source.ignoreListenerPause=true;source.priority=32;}
             Voice.volume=.85f;Theme.volume=ThemeOpening.volume=.27f;Theme.loop=true;
@@ -108,6 +112,7 @@ namespace Racer
         static bool ButtonPressed()=>Buttons().Any(b=>b.wasPressedThisFrame);
         void Update()
         {
+            if(advanceText){advanceText.text=MenuInput.Controller?"Continue / any button":"Press any key or click";advanceGlyph.gameObject.SetActive(MenuInput.Controller);advanceGlyph.SetPath("<Gamepad>/buttonSouth");advanceKey.text="A";}
             if(Advancing)return;
             if(!Armed){if(Time.frameCount>openedFrame+2&&!ButtonHeld())Armed=true;return;}
             if(ButtonPressed()){

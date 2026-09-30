@@ -1,6 +1,6 @@
 # Controller-first UI redesign plan
 
-Date: 2026-09-30. **Proposal awaiting Dan's review. Do not implement from this document without a subsequent implementation request.** Based on the [source audit and 31-surface census](UI_AUDIT.md) at `014f1eb72bbff6efd11fd0a40dced94370cc989b`. Preserve dark translucent surfaces, teal/cyan accents and the simple existing visual identity.
+Date: 2026-09-30. **Direction approved by Dan on 2026-09-30. Current implementation request combines Phases 1 + 2 into one review build; Phases 3–5 remain deferred.** Based on the [source audit and 31-surface census](UI_AUDIT.md) at `014f1eb72bbff6efd11fd0a40dced94370cc989b`. Preserve dark translucent surfaces, teal/cyan accents and the simple existing visual identity.
 
 ## Architecture and navigation
 

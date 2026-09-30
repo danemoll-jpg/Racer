@@ -11,6 +11,7 @@ namespace Racer
         public float Steering { get; private set; }
         bool resetRequested;
         InputAction throttle, brake, steering, reset;
+        public InputAction[] CurrentBindings => new[]{throttle,brake,steering,reset};
         public bool UsingGamepad { get; private set; }
         public string ResetControlLabel
         {
