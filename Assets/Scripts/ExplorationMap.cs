@@ -73,6 +73,7 @@ namespace Racer
         void Update()=>UpdateMapInput();
         public void Open()
         {
+            if(race.Flow.TrackBrowsingLocked)previewCourse=-1;
             MenuInput.ConsumeThroughRelease();
             if(!visual)visual=Resources.Load<WorldMapVisual>("WorldMaps/PermanentWorld");
             resume=race.Flow.State==RaceFlow.Stage.Racing;if(resume)race.Flow.Pause();if(!panel){BuildUI();BuildMapControls();}
@@ -152,11 +153,11 @@ namespace Racer
         void Draw()
         {
             picture.uvRect=new Rect(center-Vector2.one*.5f/zoom,Vector2.one/zoom);Marker(heading,race.vehicle.Body.position);heading.rectTransform.localRotation=Quaternion.Euler(0,0,-race.vehicle.transform.eulerAngles.y);
-            courseOverlay.SetView(race,visual,center,zoom);
+            courseOverlay.SetView(race,visual,center,zoom,PreviewCourse);
             if(Waypoint.HasValue)Marker(waypointLabel,Waypoint.Value);else waypointLabel.gameObject.SetActive(false);
             for(int i=0;i<destinations.Length;i++){markers[i].text=(selected==i?"◆ ":"● ")+destinations[i].title;Marker(markers[i],destinations[i].position);if(!Discovered(destinations[i].id))markers[i].gameObject.SetActive(false);}
             var collection=race.GetComponent<ExplorationCollection>();for(int i=0;i<acorns.Count;i++){var s=collection.sites[i];Marker(acorns[i],s.position);if(!collection.Discovered(s.id)||!Visited(s.position))acorns[i].gameObject.SetActive(false);}
-            status.text=(selected>=0?destinations[selected].title:"Map Point")+"\n"+(race.FreeRoam?"Select for location actions":"Travel available in Free Roam")+"\n\n"+(courseOverlay.gameObject.activeSelf?"Race route shown":"Race route hidden")+"\n\n"+(race.GetComponent<ExplorationCollection>()?.Summary??"")+"\n\n"+(error??errorMessage);
+            status.text=PreviewTitle+(race.Flow.TrackBrowsingLocked?"\nCurrent race\n\n":"\nBrowse track with Track\n\n")+(selected>=0?destinations[selected].title:"Map Point")+"\n"+(race.FreeRoam?"Select for location actions":"Travel available in Free Roam")+"\n\n"+(courseOverlay.gameObject.activeSelf?"Race route shown":"Race route hidden")+"\n\n"+(race.GetComponent<ExplorationCollection>()?.Summary??"")+"\n\n"+(error??errorMessage);
             RefreshMapPrompts();
         }        public void OnScroll(PointerEventData e){if(sheetOpen)return;zoom=Mathf.Clamp(zoom+e.scrollDelta.y*.25f,1,6);Draw();}
         public void OnDrag(PointerEventData e){if(sheetOpen)return;center-=new Vector2(e.delta.x/picture.rectTransform.rect.width,e.delta.y/picture.rectTransform.rect.height)/zoom;selected=-1;Draw();}

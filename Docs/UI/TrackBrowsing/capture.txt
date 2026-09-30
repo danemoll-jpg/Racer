@@ -1,0 +1,8 @@
+StreetLoopGreybox | street-v14-discovery | main=2331 branches=4 gates=18
+StreetLoopReverse | street-reverse-local-laurel-v6 | main=2331 branches=2 gates=17
+LakeWoods | lake-v7-discovery | main=2057 branches=1 gates=5
+ForestLoopReverse | forest-reverse-v7-water-detour | main=1872 branches=2 gates=5
+MountainLoop | mountain-forward-v5-supported | main=3714 branches=2 gates=7
+MountainLoopReverse | mountain-reverse-v5-supported | main=3718 branches=2 gates=7
+DansBackyardForward | backyard-forward-v3-forest-shortcuts | main=1684 branches=2 gates=9
+DansBackyardReverse | backyard-reverse-v1-main | main=1749 branches=0 gates=8

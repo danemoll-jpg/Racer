@@ -15,6 +15,9 @@ namespace Racer
             if(c.StartsWith("street"))return "Street Loop - "+(reverse?"Reverse":"Forward");return "Historical layout";
         }
         string recordsTrack="All tracks",recordsVehicle="All vehicles";
+        int recordCourse=-1;
+        string PreviewRecordCategory(int index)=>CoursePreviewCatalog.Courses[index].id+flow.Race.Category.Substring(flow.Race.courseId.Length);
+        string BrowsedRecordCategory=>string.IsNullOrEmpty(recordFilter)?(recordCourse<0?flow.Race.Category:PreviewRecordCategory(recordCourse)):recordFilter;
         static string ConfigurationLabel(string category)
         {
             var match=System.Text.RegularExpressions.Regex.Match(category,@"-(original|tourer|moto|atv)-");
@@ -22,20 +25,25 @@ namespace Racer
             var laps=System.Text.RegularExpressions.Regex.Match(category,@"-laps(\d+)$");
             return vehicle+" · "+(category.Contains("-solo-")?"Solo":category.Contains("-race4-")?"3 AI":"Legacy mode")+" · "+(category.Contains("-traffic")?"Traffic":"Clear")+(laps.Success?" · "+laps.Groups[1].Value+" laps":"");
         }
-        string[] RecordCategories()=>flow.Boards.Categories(recordTab==1).Append(recordTab==1?flow.Race.Category:RecordBoards.LapCategory(flow.Race.Category)).Distinct().ToArray();
+        string[] RecordCategories()=>flow.Boards.Categories(recordTab==1).Concat(Enumerable.Range(0,CoursePreviewCatalog.Courses.Length).Select(i=>recordTab==1?PreviewRecordCategory(i):RecordBoards.LapCategory(PreviewRecordCategory(i)))).Append(recordTab==1?flow.Race.Category:RecordBoards.LapCategory(flow.Race.Category)).Distinct().ToArray();
         void RenderRecords()
         {
-
+            if(flow.TrackBrowsingLocked){recordCourse=-1;recordsTrack=TrackTitle(flow.Race.Category);if(!string.IsNullOrEmpty(recordFilter)&&TrackTitle(recordFilter)!=recordsTrack)recordFilter="";}
+            if(page=="record-tracks")
+            {
+                ClearCore("RECORDS · SELECT TRACK","Browse records without changing your race. Forward and Reverse remain separate.");int n=0;Row(n++,"back","Back",()=>BackPage());
+                foreach(int i in RacePlaylists.DisplayOrder){int choice=i;if(i>=CoursePreviewCatalog.Courses.Length||flow.TrackBrowsingLocked)continue;Row(n++,"record-track-"+i,RacePlaylists.Titles[i],()=>{recordCourse=choice;recordsTrack=RacePlaylists.Titles[choice];recordFilter="";var preferred=PreviewRecordCategory(choice);if(flow.Boards.Board(preferred,recordTab==1).Count==0)recordFilter=flow.Boards.Categories(recordTab==1).Where(c=>TrackTitle(c)==recordsTrack&&(recordsVehicle=="All vehicles"||c.Contains("-"+recordsVehicle+"-"))).OrderByDescending(c=>c.StartsWith(CoursePreviewCatalog.Courses[choice].id+"-")).FirstOrDefault()??"";BackPage();});}return;
+            }
             if(page=="record-filters")
             {
                 ClearCore("RECORD FILTERS","Choose a track / direction or vehicle. Categories remain separate.");int n=0;Row(n++,"back","Back",()=>BackPage());
-                foreach(string t in RecordCategories().Select(TrackTitle).Distinct().Prepend("All tracks")){string choice=t;Row(n++,"filter-"+t,(recordsTrack==t?"✓ ":"")+t,()=>{recordsTrack=choice;Show();});}
+                foreach(string t in RecordCategories().Select(TrackTitle).Distinct().Prepend("All tracks").Where(t=>!flow.TrackBrowsingLocked||t==TrackTitle(flow.Race.Category))){string choice=t;Row(n++,"filter-"+t,(recordsTrack==t?"✓ ":"")+t,()=>{recordsTrack=choice;Show();});}
                 foreach(string v in new[]{"All vehicles","original","tourer","moto","atv"}){string choice=v;Row(n++,"vehicle-"+v,(recordsVehicle==v?"✓ ":"")+(v=="All vehicles"?v:VehicleProfile.Find(v).Name),()=>{recordsVehicle=choice;Show();});}return;
             }
             if(page=="record-categories")
             {
                 ClearCore("SAVED CONFIGURATIONS","Choose a distinct configuration. Historical records are retained.");int n=0;Row(n++,"back","Back",()=>BackPage());
-                if(recordTab<2)foreach(string cat in RecordCategories().Where(c=>(recordsTrack=="All tracks"||TrackTitle(c)==recordsTrack)&&(recordsVehicle=="All vehicles"||c.Contains("-"+recordsVehicle+"-")))){string choice=cat;Row(n++,"category-"+cat,TrackTitle(cat)+"\n"+ConfigurationLabel(cat)+" · Configuration "+n,()=>{recordFilter=choice;BackPage();});buttons[n-1].GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=82;}
+                if(recordTab<2)foreach(string cat in RecordCategories().Where(c=>(recordsTrack=="All tracks"||TrackTitle(c)==recordsTrack)&&(recordsVehicle=="All vehicles"||c.Contains("-"+recordsVehicle+"-")))){string choice=cat;Row(n++,"category-"+cat,TrackTitle(cat)+"\n"+ConfigurationLabel(cat)+" · "+flow.Boards.Board(cat,recordTab==1).Count+" saved",()=>{recordFilter=choice;BackPage();});buttons[n-1].GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=82;}
                 else
                 {
                     var kind=recordTab==2?ActivitySite.Kind.Speed:ActivitySite.Kind.Jump;
@@ -51,10 +59,11 @@ namespace Racer
             if(recordTab<2)
             {
                 Row(row++,"filters","Filters",()=>Navigate("record-filters"));
-                Row(row++,"current","Current race",()=>{recordFilter="";Show();});
+                Row(row++,"current","Current race",()=>{recordCourse=-1;recordFilter="";recordsTrack="All tracks";Show();});
                 var tools=LaterGroup("Record controls",content,true);tools.SetSiblingIndex(2);for(int i=5;i<row;i++)buttons[i].transform.SetParent(tools,false);
-                string category=string.IsNullOrEmpty(recordFilter)?flow.Race.Category:recordFilter;var board=flow.Boards.Board(category,recordTab==1);
-                title.text=TrackTitle(category);details.gameObject.SetActive(true);details.text=(recordTab==1?"TOTAL RACE":"BEST LAP")+" · "+(string.IsNullOrEmpty(recordFilter)?"Current configuration":"Saved configuration")+"\n"+(flow.Boards.Error??(board.Count==0?"No records yet for this configuration. Complete a race to set one.":"Select a row for details."));details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=70;
+                string category=BrowsedRecordCategory;var board=flow.Boards.Board(category,recordTab==1);
+                Row(row++,"record-tracks","Track: "+TrackTitle(category)+(flow.TrackBrowsingLocked?"  ·  Current race":"  ·  Change"),()=>{if(!flow.TrackBrowsingLocked)Navigate("record-tracks");});buttons[row-1].interactable=!flow.TrackBrowsingLocked;
+                title.text="RECORDS";details.gameObject.SetActive(true);details.text=(recordTab==1?"TOTAL RACE":"BEST LAP")+" · "+(string.IsNullOrEmpty(recordFilter)?(recordCourse<0?"Current configuration":"Browsing track · race settings unchanged"):"Saved configuration")+"\n"+ConfigurationLabel(category)+"\n"+(flow.Boards.Error??(board.Count==0?"No times in this setup. Configurations lists your other saved records.":"Select a row for details."));details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=100;
                 TableRow(row++,"header",new[]{"Rank","Driver","Vehicle","Time"},new[]{.10f,.30f,.32f,.28f},()=>{});
                 for(int i=0;i<board.Count;i++){var e=board[i];TableRow(row++,"record-"+e.id,new[]{(i+1).ToString(),e.legacy?"Local record (legacy)":"You",VehicleProfile.Find(e.vehicle).Name,RaceHud.FormatTime(e.seconds)+(flow.Boards.IsNew(e.id)?"  NEW":"")},new[]{.10f,.30f,.32f,.28f},()=>Help((e.legacy?"Legacy identity unknown":"Your local attempt")+"\nDate: "+(e.date??"Unknown")+"\n"+RecordBoards.Describe(category)+"\nLayout / rules: "+e.category+"\nExact ties retain original insertion order."),i<3||flow.Boards.IsNew(e.id));}
                 Row(row,"details","Configuration Details",()=>Help(RecordBoards.Describe(category)+"\nLayout / rules: "+category));
@@ -63,7 +72,7 @@ namespace Racer
             {
                 var kind=recordTab==2?ActivitySite.Kind.Speed:ActivitySite.Kind.Jump;var site=flow.Activities.Sites.FirstOrDefault(s=>s.kind==kind);
                 string key=string.IsNullOrEmpty(activityKey)?(site?flow.Activities.Key(site):""):activityKey;var entries=flow.Activities.Records.Board(key);var actual=flow.Activities.Sites.FirstOrDefault(s=>s.id==key.Split('/')[0]);
-                details.gameObject.SetActive(true);details.text=(actual?actual.title:"Historical site")+"\n"+(flow.Activities.Records.Error??(entries.Count==0?"No records for this configuration. Explore and complete an activity.":"Select a row for details."));details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=70;
+                details.gameObject.SetActive(true);details.text=(actual?actual.title:"Historical site")+"\n"+(flow.Activities.Records.Error??(entries.Count==0?"No records for this configuration. Explore and complete an activity.":"Select a row for details."));details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=100;
                 TableRow(row++,"header",new[]{"Rank","Driver","Vehicle",recordTab==2?"Speed":"Distance","Medal"},new[]{.08f,.27f,.25f,.23f,.17f},()=>{});
                 for(int i=0;i<entries.Count;i++){var e=entries[i];TableRow(row++,"activity-"+e.id,new[]{(i+1).ToString(),e.historical?"Local record (legacy)":"You",VehicleProfile.Find(e.vehicle).Name,actual?ArcadeActivities.Measurement(actual,e.value):"See Details",new[]{"—","Bronze","Silver","Gold"}[Mathf.Clamp(e.medal,0,3)]},new[]{.08f,.27f,.25f,.23f,.17f},()=>Help("Date: "+(e.date??"Unknown")+"\nConfiguration: "+e.key+(!actual?"\nOriginal stored value: "+e.value.ToString("0.###")+" (site type unavailable)":"")+(recordTab==3&&e.airtime>0?"\nAirtime: "+e.airtime.ToString("0.000")+"s":"")+"\nEqual values retain attempt order."),i<3);}
             }

@@ -22,6 +22,7 @@ namespace Racer
         public void PushMenu(Stage stage){callers.Push(State);SetStage(stage);Click();}
         public void PopMenu(){SetStage(callers.Count>0?callers.Pop():Stage.Ready);Click();}
         public void RefreshMenu()=>menus.Show();
+        public bool TrackBrowsingLocked=>!Race.FreeRoam&&(State==Stage.Racing||State==Stage.Countdown||State==Stage.Paused||callers.Contains(Stage.Paused)||callers.Contains(Stage.Racing)||callers.Contains(Stage.Countdown));
         public int LapRank { get; private set; }
         public int RaceRank { get; private set; }
         string attempt;

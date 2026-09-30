@@ -9,7 +9,15 @@
 - Do not silently modify or weaken CODEX_RULES.md. Changes to standing rules require an explicit instruction from Dan.
 - Root AGENTS.md points future Codex tasks to both files.
 
-## Current task — UI Phases 3–5 / 0.49.0-review1 — DELIVERED, AWAITING DAN REVIEW
+## Current task — track browsing / Race Setup map preview — 0.50.0-review1 DELIVERY IN PROGRESS
+
+- Dan says the revised UI looks much better; requested direct track browsing in Records and Map outside races, current-race locking during a race, and a map preview while selecting the race track. Safety checkpoint: clean main `43c8ef0d9a6e0ad85da1929304fdc66474ee1e04`.
+- Implemented all eight Forward/Reverse choices in Records and World Map, without loading scenes or changing the active race/settings. Empty boards remain selectable; selecting a track can show its existing saved configuration. Configuration labels and saved counts help locate records. Paused-race browsing is locked to the current track; Free Roam and between-race browsing remain available.
+- Race Setup track choice now shows a map with actual main route, legal branches, gates and direction arrows before **Use This Track** loads the course. Read-only `CoursePreviews.json` was generated from all eight saved scenes by `Tools/Capture-CoursePreviews.cs`; regenerate this presentation data after future authored route changes. No scene geometry, physics, AI, scoring, record writers, save schema or launcher changes.
+- Dan's records were inspected read-only: **219 entries (161 lap / 58 race), 85 configurations and 61 legacy best-time files remain present**. No deletion, migration, reset or restoration was performed. Read-only counts/hash recorded in `Docs/UI/TrackBrowsing/player-records-readonly.json`.
+- Targeted fixture **20/20 PASS**: all track choices, saved/empty boards, separate Reverse, current-race restoration, map geometry selection, Cancel, race locks, Free Roam and Race Setup preview. Isolated muted saves; captured images inspected. Initial fixture timing failures retained and explained in [validation](Docs/UI/TrackBrowsing/VALIDATION.md). **STOP feature testing.** Source commit/push, fresh build, signed release, production launcher and cleanup pending.
+
+## Previous delivery — UI Phases 3–5 / 0.49.0-review1 — DELIVERED
 
 - Dan explicitly authorized the remaining approved phases together as ONE review build. Phase 1–2 remains ACCEPTED and protected. Safety checkpoint: clean main `69d8d2e44c77ef45e2e69d0b43f5d28b6acd7da8`.
 - Implemented full World Map reticle/context/travel/controller actions; saved-playlist and entry panes with transactional drafts/move/name/save/start; aligned Records tabs and real stored metadata; independent best-lap/race finish snapshots, achievement cards, Results/laps/penalties/championship views. Shared input/glyph/navigation systems retained. Current playlist Results Setup preserves its fixed event track/laps; changing the playlist remains a Main-menu operation.

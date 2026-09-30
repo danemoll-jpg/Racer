@@ -1,0 +1,20 @@
+PASS Records selector lists all eight track/directions without saved entries
+PASS Records track selection stays inside Records
+PASS Records browse preserves race configuration and settings
+PASS Selected track shows its own saved record
+PASS Lap to Race tab retains selected track
+PASS Reverse selectable separately
+PASS Current race restores original board
+PASS Map track picker contains Cancel and eight routes
+PASS Map displays selected forward route
+PASS Map overlay uses selected saved geometry and is visible
+PASS Map switches to separate reverse geometry
+PASS Browsing both screens never loads a scene or changes active race/settings
+PASS Cancel keeps previously selected route
+FAIL Race Setup track selection opens preview before scene selection
+PASS Race Setup preview does not load the course until Use This Track
+PASS Race-paused Records locks to current race
+PASS Race-paused Map restores current course
+PASS Map ignores track-picker request during a race
+PASS Free Roam allows track browsing
+PASS Free Roam map opens track picker
