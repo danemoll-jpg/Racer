@@ -1,0 +1,1 @@
+Metadata-only correction: (388.60, 81.00, -3.18) -> actual supported lip (387.94, 88.69, -3.31); launch station=1198.215. Tested physical mesh, gate positions, XZ navigation and landing unchanged. Restored tree foot error=7.629395E-06m.
