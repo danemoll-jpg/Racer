@@ -9,7 +9,7 @@
 - Do not silently modify or weaken CODEX_RULES.md. Changes to standing rules require an explicit instruction from Dan.
 - Root AGENTS.md points future Codex tasks to both files.
 
-## Current task — 2026-09-29 / world, map and presentation cleanup — 0.45.0-review1 IN PROGRESS
+## Current task — 2026-09-29 / world, map and presentation cleanup — 0.45.0-review1 DELIVERED
 
 - Safety checkpoint: clean `main` at `132bc5719436a5cebdcc76c3c16d1816e088ee13`. Preserve accepted Backyard Forward/shortcuts, all established geometry, vehicle/AI/recovery and racing minimap. Western Gullies is AUDIT ONLY.
 - Temporary Backyard marker subtrees removed across shipped scenes; all nine reference coordinates retained in [reference table](Docs/WorldCleanup/REFERENCE_ANCHORS.md), existing atlas and authoring/course data. **Backyard Reverse is upcoming, not abandoned, and is NOT being built in this task.**
@@ -20,7 +20,9 @@
 - Complete Race hint comes from existing Space / controller south-button submit bindings. Existing handler/CR-064 math, records and results remain unchanged; guard hides the action when no unfinished AI remain.
 - Western Gullies: four acorn sites grouped by authoring indices, no separate region bounds or fast-travel landmark. [Factual audit](Docs/WorldCleanup/WESTERN_GULLIES.md); four actual terrain views audited; all four triggers fire in the isolated Windows fixture and their sampled access corridors are clear. No redesign or world change at these sites.
 - [x] Scene/asset preservation and final map regeneration complete. 742 added trees per scene pass final-terrain grounding (max foot error 0.000106812 m). Anderson final road view is substantially screened; driveway/entry retained. Shared permanent network includes 24,616 unique segments. [Validation](Docs/WorldCleanup/VALIDATION.md).
-- First fresh player passed 40/41 focused checks; Anderson arrival was corrected to the existing clear house approach and passes the isolated Editor retry. Final fresh build/arrival confirmation and required publication/launcher/cleanup delivery are IN PROGRESS. Do not treat this entry as a completed release.
+- [x] Targeted checks complete: first fresh player passed 40/41; Anderson arrival alone was corrected to the clear existing house-front approach (498.7873, 78.66718, -37.91799), then passed Editor and final Windows player (exit 0). Map/input/finish guards/records, discovery migration and all four Western triggers pass. Initial failure evidence retained. TESTING STOPPED.
+- [x] **DELIVERED 0.45.0-review1 / game-45000.** Completion source `a6d467a4834b35a0c9f0f414433121fbae2dc17b` pushed/verified on origin/main before fresh Windows build: zero errors, 11 warnings, 10m28.624s. All 232 signed files match package/root Latest/managed runtime. Three published assets, latest signed catalog, actual public download/startup and production updater verified. [Delivery record](Docs/WorldCleanup/PUBLICATION.md).
+- [x] Unchanged **Play-Racer.cmd** launches responsive managed 45000. Music preserved; no updates pending. Current 45000/previous 44000 retained. Builds 9,806,284,467 -> 6,776,167,225 bytes; 3,030,117,242 recovered there plus 1,354,979,412 from temporary public install. Final C: free 328,061,792,256 bytes. Required source/maps/music/keys/tools/launcher/metadata/saves preserved. **STOP for Dan's review. Backyard Reverse remains the upcoming substantial design phase; it is not implemented.**
 ## Previous delivery — 2026-09-29 / Tree-Top clearance, COMPLETE RACE and visual world map, 0.44.0-review1
 
 - Safety checkpoint: clean `main` at `73b0399b260cbf1d400f55d73bbd2d9f2d605828` before edits. This request authorizes the formerly deferred full-world/menu-map work; it does not authorize Backyard Reverse or general menu cleanup.
@@ -2380,4 +2382,5 @@ Dan requests actual leading silence in the audio. Ship VoicePadded.wav: exactly 
 One final-package untouched cold-start output capture only; no early-input matrix or general audio investigation. Actual listening is unavailable here, so human audible completeness stays OPEN regardless of sample/state checks. If Dan says this padded attempt still clips, he explicitly authorizes disabling the spoken announcement and removing obsolete voice-only waits/ducking, while retaining artwork and looping theme. Do not fabricate failure or remove solely because listening is unavailable.
 
 Final targeted outcomes: all three one-pass motorcycle segments and four local entitlement fixtures passed in extracted review1. A sign-back visibility obstruction was then corrected; review2 preserves the exact tested gameplay/title assembly and changes only that sign position. Final review2 build: zero errors, three build warnings. All 455 runtime/Latest/extracted ZIP files match SHA-256; muted extracted portable startup passed. 187 playable tracks plus two originals, cover and prior builds preserved. Single audio attempt interrupted; no completed audible-output capture or audible success claim. No repeat audio run. New fixes are local only; public launcher remains build 21002. See Docs/CR121-followup/DELIVERY.md and package-verification.json.
+
 

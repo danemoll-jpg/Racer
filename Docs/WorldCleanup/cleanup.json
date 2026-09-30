@@ -1,0 +1,31 @@
+{
+  "removed": [
+    {
+      "path": "C:\\Users\\danmo\\Racer\\Builds\\WorldCleanup-initial-candidate",
+      "bytes": 1322259586
+    },
+    {
+      "path": "C:\\Users\\danmo\\Racer\\Builds\\Racer-0.45.0-review1-Windows",
+      "bytes": 1352625859
+    },
+    {
+      "path": "C:\\Users\\danmo\\Racer\\Builds\\LauncherRelease-45000\\assets\\game.zip",
+      "bytes": 355231797
+    },
+    {
+      "path": "C:\\Users\\danmo\\Racer\\Temp\\worldcleanup-hosted-1790731515193007000",
+      "bytes": 1354979412
+    }
+  ],
+  "retained": [
+    "Latest complete root runtime",
+    "managed 45000",
+    "managed 44000",
+    "music, publisher keys/tools, launcher, metadata, source, evidence, saves"
+  ],
+  "freeAfter": 328061792256,
+  "buildsAfter": 6776167225,
+  "buildsBefore": 9806284467,
+  "freeBefore": 323676155904,
+  "buildsRecovered": 3030117242
+}
