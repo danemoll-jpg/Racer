@@ -9,3 +9,9 @@ Reverse starts northbound on South Cherokee Lane near the established property a
 The receiving-bank points exported in geometry.json mark the supported corridor, not a forced airborne touchdown. Measured motorcycle/ATV landings are recorded in VALIDATION.md. The full menu map retains all existing physical roads, trails and shortcuts independently of which race overlay is selected.
 
 Regenerate after geometry changes: Capture-ReverseAtlas.cs through Unity CLI, then Tools/Render-ReverseAtlas.py. For the full world map use Capture-ReverseWorldMaps.cs, Render-ReverseWorldMap.py, Render-ReversePermanentNetwork.py and Import-PermanentNetwork.cs.
+
+## Standing route-color rule
+
+ROUTE COLOR REPRESENTS ROUTE ROLE, NOT GEOMETRY OWNERSHIP. All required main-route segments use the same main-route presentation even when Forward and Reverse use different physical paths. Only genuine optional shortcuts use shortcut coloring.
+
+Latest local Reverse corrections and targeted evidence: [VALIDATION](../BackyardReverseCorrections/VALIDATION.md).

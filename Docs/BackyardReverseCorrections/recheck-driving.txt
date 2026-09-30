@@ -1,0 +1,8 @@
+PASS moto ramp 0 landed=True air=2.50 launchSpeed=31.61 headingError=0.52 centreError=0.36 final=(49.54, 42.76, 78.77)
+PASS moto ramp 2 landed=True air=2.22 launchSpeed=31.45 headingError=0.26 centreError=0.03 final=(455.54, 80.43, 9.99)
+PASS moto bump 0 finished=True air=0.16 upward=1.61 minSpeed=27.21
+FAIL moto bump 2 finished=True air=0.24 upward=7.80 minSpeed=2.84
+PASS atv ramp 0 landed=True air=2.50 launchSpeed=31.58 headingError=0.50 centreError=0.23 final=(49.98, 42.76, 80.06)
+PASS atv ramp 2 landed=True air=2.24 launchSpeed=31.67 headingError=0.26 centreError=0.02 final=(456.76, 80.29, 10.22)
+PASS atv bump 0 finished=True air=0.14 upward=1.61 minSpeed=26.67
+FAIL atv bump 2 finished=True air=0.08 upward=3.21 minSpeed=2.35

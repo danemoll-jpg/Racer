@@ -1,0 +1,5 @@
+System.ArgumentException: Cannot open scene with path "Assets/Scenes/ReverseCorrectionBaseline.unity".
+  at (wrapper managed-to-native) UnityEditor.SceneManagement.EditorSceneManager.OpenScene_Injected(UnityEngine.Bindings.ManagedSpanWrapper&,UnityEditor.SceneManagement.OpenSceneMode,UnityEngine.SceneManagement.Scene&)
+  at UnityEditor.SceneManagement.EditorSceneManager.OpenScene (System.String scenePath, UnityEditor.SceneManagement.OpenSceneMode mode) [0x0002a] in <d3386a5b246b4c92adb8d270fa9e6d17>:0 
+  at UnityEditor.SceneManagement.EditorSceneManager.OpenScene (System.String scenePath) [0x00000] in <d3386a5b246b4c92adb8d270fa9e6d17>:0 
+  at CheckReverseDependencies+<>c.<Main>b__0_0 () [0x0000b] in C:\Users\danmo\Racer\Tools\Check-ReverseDependencies.cs:3 

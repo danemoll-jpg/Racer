@@ -56,3 +56,7 @@ The post-finish button now explicitly says **Press Space to Complete Race**, or 
 ## 0.46 regeneration
 
 Run Tools/Capture-ReverseWorldMaps.cs through the Unity CLI on saved scenes, then Tools/Render-ReverseWorldMap.py and Tools/Render-ReversePermanentNetwork.py. Import through Tools/Import-PermanentNetwork.cs. The persistent network retains roads and established shortcuts from all eight exports; selecting Reverse highlights only its main route. No new Reverse shortcuts exist.
+
+## Route-role colors
+
+ROUTE COLOR REPRESENTS ROUTE ROLE, NOT GEOMETRY OWNERSHIP. All required main-route segments use the same main-route presentation even when Forward and Reverse use different physical paths. Only genuine optional shortcuts use shortcut coloring.

@@ -1,0 +1,2 @@
+System.NullReferenceException: Object reference not set to an instance of an object
+  at DiagnoseReverseContact+<>c.<Main>b__0_0 () [0x00061] in C:\Users\danmo\Racer\Tools\Diagnose-ReverseContact.cs:3 

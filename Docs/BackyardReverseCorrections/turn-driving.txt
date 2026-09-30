@@ -1,0 +1,2 @@
+PASS moto bump 2 finished=True air=0.26 upward=3.67 minSpeed=22.21
+PASS atv bump 2 finished=True air=0.20 upward=3.31 minSpeed=22.72

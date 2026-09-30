@@ -1,0 +1,12 @@
+PASS no optional Reverse route components
+PASS Forward identity disables closures
+PASS exactly three closures, all at authorized Group A divergences; no Group B closures
+PASS overlapping sparse trail strip removed; actual terrain supplies dirt and collision
+PASS Entire active minimap: 373 main segments, 0 optional segments
+PASS main route reference (230.20, 60.10, -32.90) actual-ground dirt=RGBA(0.378, 0.265, 0.147, 1.000)
+PASS main route reference (188.00, 69.00, 82.50) actual-ground dirt=RGBA(0.380, 0.256, 0.136, 1.000)
+PASS main route reference (15.80, 37.40, -61.80) actual-ground dirt=RGBA(0.378, 0.265, 0.147, 1.000)
+PASS main route reference (48.60, 42.80, 82.20) actual-ground dirt=RGBA(0.378, 0.265, 0.147, 1.000)
+PASS main route reference (130.40, 42.90, -92.40) actual-ground dirt=RGBA(0.378, 0.265, 0.147, 1.000)
+PASS full-map overlay and atlas use active main route plus zero optional branches; design unchanged
+PASS existing tree support at (207.98,89.76) restored by 0.183m local shoulder adjustment; no tree moved

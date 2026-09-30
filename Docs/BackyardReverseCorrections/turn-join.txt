@@ -1,0 +1,1 @@
+Removed nearest-segment height discontinuity across bend with one continuous local sloping support field; preserved existing tree-foot supports; vertices=3067

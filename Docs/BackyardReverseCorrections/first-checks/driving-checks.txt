@@ -1,0 +1,15 @@
+FAIL moto ramp 0 landed=False air=1.96 launchSpeed=19.46 headingError=15.52 centreError=4.80 final=(97.25, 46.88, 70.85)
+FAIL moto ramp 2 landed=False air=1.52 launchSpeed=5.55 headingError=42.50 centreError=1.25 final=(501.65, 78.08, 19.46)
+FAIL moto bump 0 finished=True air=1.12 upward=3.52 minSpeed=9.15
+PASS moto bump 1 finished=True air=0.00 upward=5.34 minSpeed=28.00
+FAIL moto bump 2 finished=False air=1.60 upward=5.98 minSpeed=14.73
+FAIL atv ramp 0 landed=False air=2.34 launchSpeed=26.63 headingError=4.25 centreError=0.36 final=(33.36, 41.66, 84.49)
+FAIL atv ramp 2 landed=False air=1.78 launchSpeed=8.13 headingError=5.52 centreError=0.32 final=(502.61, 78.07, 20.46)
+FAIL atv bump 0 finished=True air=1.06 upward=3.54 minSpeed=8.77
+PASS atv bump 1 finished=True air=0.00 upward=5.32 minSpeed=28.00
+FAIL atv bump 2 finished=False air=1.54 upward=8.04 minSpeed=8.45
+PASS Exactly three Group A closures
+PASS All closures absent in free roam
+PASS Barrier 0 stops=1.41 maxHeight=0.52 reverseEscape=35.26
+PASS Barrier 1 stops=1.41 maxHeight=0.67 reverseEscape=28.59
+PASS Barrier 2 stops=1.41 maxHeight=0.52 reverseEscape=36.14

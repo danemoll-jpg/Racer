@@ -9,7 +9,18 @@
 - Do not silently modify or weaken CODEX_RULES.md. Changes to standing rules require an explicit instruction from Dan.
 - Root AGENTS.md points future Codex tasks to both files.
 
-## Current delivery — 2026-09-30 / shared-world corrections and Backyard Reverse — 0.46.0-review1 DELIVERED
+## Current pass — 2026-09-30 / focused Backyard Reverse corrections — 0.47.0-review1
+
+- Dan accepts the overall Reverse course. Only the requested local corrections are authorized; approved Forward/world fixes remain protected. No Reverse shortcuts.
+- Safety checkpoint: clean main `2f830a934582f68fafc6e130706c09d1a921280d`.
+- Main-route dirt corrected across the full required route, including all five references. Removed the dark, sparse overlapping surface strips; actual terrain now carries the established dirt style. All 373 active minimap segments are main; zero optional branches. Map design unchanged.
+- Exactly THREE Reverse-only timber closures across the wrong Forward continuations near the Group A references: actual centres (217.16,-22.86), (173.89,70.13), (21.08,-80.00). NO barriers at color-only (48.6,82.2) or (130.4,-92.4). Free roam disables visible objects and collisions; Forward scene unchanged. All three physical contact/reverse-escape checks pass.
+- Both ramp approaches straightened locally, with two local gate placements/AI road metadata following the new alignment. Motorcycle/ATV pass both flights, centred takeoffs at 31.45–31.67m/s. Pool-house tip's short descending collision face corrected; landing targets retained.
+- All THREE bump areas corrected: northern abrupt crest/cross-slope join near (423,83); south-gully shoulder seams and Reverse clearance from the protected Tree-Top landing; discontinuous height blending inside the dump approach bend near (235,-31). Final bounded motorcycle/ATV drives pass; natural slope and brief off-road motion retained.
+- Dependency audit compared 473 local supports; one tree's 0.183m shoulder change corrected without moving the tree. Final 739-tree map grounding maximum error 0.0000763m. Forward, properties, other courses and global vehicle/AI/recovery source preserved.
+- Standing visualization rule: **ROUTE COLOR REPRESENTS ROUTE ROLE, NOT GEOMETRY OWNERSHIP.** All required main-route sections have the same main presentation; only optional shortcuts use shortcut color.
+- Targeted driving checks PASSED / STOPPED. Initial failures retained. These are ordinary Unity physics with scripted inputs, not human gameplay acceptance. [Detailed evidence](Docs/BackyardReverseCorrections/VALIDATION.md). Atlas/Reverse world layer refreshed. Completion commit, fresh build and publication are pending below; do not describe this as delivered until verified.
+## Previous delivery — 2026-09-30 / shared-world corrections and Backyard Reverse — 0.46.0-review1 DELIVERED
 
 - Dan completed review of 0.45 and explicitly authorized construction of **Dan's Backyard Loop - Reverse**. This supersedes all older Reverse deferrals below. **Backyard Forward, including its main route and two shortcuts, is APPROVED and PROTECTED.** Historical Forward anchors remain reference data.
 - Safety checkpoint: clean `main` at `50c108a7ba9dd51db89557bc4d7f17a0bd75cbf5` before edits.
@@ -2399,5 +2410,6 @@ Dan requests actual leading silence in the audio. Ship VoicePadded.wav: exactly 
 One final-package untouched cold-start output capture only; no early-input matrix or general audio investigation. Actual listening is unavailable here, so human audible completeness stays OPEN regardless of sample/state checks. If Dan says this padded attempt still clips, he explicitly authorizes disabling the spoken announcement and removing obsolete voice-only waits/ducking, while retaining artwork and looping theme. Do not fabricate failure or remove solely because listening is unavailable.
 
 Final targeted outcomes: all three one-pass motorcycle segments and four local entitlement fixtures passed in extracted review1. A sign-back visibility obstruction was then corrected; review2 preserves the exact tested gameplay/title assembly and changes only that sign position. Final review2 build: zero errors, three build warnings. All 455 runtime/Latest/extracted ZIP files match SHA-256; muted extracted portable startup passed. 187 playable tracks plus two originals, cover and prior builds preserved. Single audio attempt interrupted; no completed audible-output capture or audible success claim. No repeat audio run. New fixes are local only; public launcher remains build 21002. See Docs/CR121-followup/DELIVERY.md and package-verification.json.
+
 
 

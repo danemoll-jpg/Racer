@@ -1,0 +1,6 @@
+Assets/Track/BackyardReverseCorrections/terrain-0.asset: 223344 -> 42153 vertices; unchanged triangles, positions within 0.1mm, same UV seams
+Assets/Track/BackyardReverseCorrections/terrain-1.asset: 910632 -> 160661 vertices; unchanged triangles, positions within 0.1mm, same UV seams
+Assets/Track/BackyardReverseCorrections/terrain-2.asset: 118365 -> 20359 vertices; unchanged triangles, positions within 0.1mm, same UV seams
+Assets/Track/BackyardReverseCorrections/terrain-3.asset: 311343 -> 58147 vertices; unchanged triangles, positions within 0.1mm, same UV seams
+Assets/Track/BackyardReverseCorrections/terrain-4.asset: 187545 -> 37256 vertices; unchanged triangles, positions within 0.1mm, same UV seams
+Assets/Track/BackyardReverseCorrections/terrain-5.asset: 133992 -> 23585 vertices; unchanged triangles, positions within 0.1mm, same UV seams

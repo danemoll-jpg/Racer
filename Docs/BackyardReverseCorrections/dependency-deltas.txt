@@ -1,0 +1,1 @@
+CR014 trunk 04701 p=(207.98, 72.35, 89.76) groundDelta=0.1832886 oldFootGap=7.629395E-06

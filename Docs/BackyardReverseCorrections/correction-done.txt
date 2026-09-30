@@ -1,0 +1,9 @@
+Ground_480_320 support samples corrected=22350, dirt samples=39498
+Ground_560_320 support samples corrected=53868, dirt samples=24981
+Ground_560_400 support samples corrected=7548, dirt samples=26106
+Ground_400_320 support samples corrected=312, dirt samples=45324
+Ground_400_400 support samples corrected=63, dirt samples=20421
+Ground_480_400 support samples corrected=20229, dirt samples=31779
+Reverse timber closure A1 (217.16, 59.38, -22.86) Reverse center distance=14.1459
+Reverse timber closure A2 (173.89, 64.50, 70.13) Reverse center distance=10.56551
+Reverse timber closure A3 (21.08, 36.97, -80.00) Reverse center distance=8.653729
