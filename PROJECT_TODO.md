@@ -9,14 +9,15 @@
 - Do not silently modify or weaken CODEX_RULES.md. Changes to standing rules require an explicit instruction from Dan.
 - Root AGENTS.md points future Codex tasks to both files.
 
-## Current task — Records filters / compatible Top 10 — 0.51.0-review1
+## Current task — Records filters / compatible Top 10 — 0.51.0-review1 DELIVERED
 
 - Dan generally accepts the current menu/UI direction. Further general menu polish is deferred until requested; unrelated UI phases are not reopened. Focused feedback: **replace configuration browsing with filters**.
 - Safety checkpoint: clean main `966fa46016227fbedeaf0a9f85bb13d39a26b7de`. Added a read-only aggregation/query layer; existing record insertion, category identities, retention, migration, timing, penalties and finish feedback unchanged.
 - Lap Top 10 combines compatible laps regardless of race lap count. All Vehicles is the default; vehicle profile and Record era are compact filters. Race Top 10 keeps a visible lap-count selector and separates totals. AI mode/roster, difficulty and traffic combine because they do not change player timing/penalty rules; exact course/layout versions remain isolated. Unknown grammar remains an exact historical group. [Comparability audit](Docs/UI/RecordFilters/COMPARABILITY.md).
 - Preserved all eight Forward/Reverse Records choices, paused-race track locking, current world/maps/preview, playlists/music, physics and AI. Existing records/history preserved: 219 entries (161 lap / 58 race), original archive byte-identical through query checks; legacy files fingerprinted before delivery.
 - Focused validation: 20/20 query checks; 22/23 initial UI assertions plus 6/6 independent state-preservation follow-up. Initial compound state failure retained with limitations; no gameplay fix inferred. Screenshots inspected. [Validation](Docs/UI/RecordFilters/VALIDATION.md). **STOP feature testing.**
-- Source completion, fresh Windows build, publication, production launcher verification and cleanup pending below; do not call delivery complete until all gates pass.
+- **DELIVERED:** completion source `a9ed31f8d7060dc311cbf94ba0902c989fd4a769` pushed/verified on origin/main before a fresh Windows build (0 errors, 11 warnings, 5m37s). Published [game-51000](https://github.com/danemoll-jpg/woodstock-rush-releases/releases/tag/game-51000); all three asset hashes/sizes and 230 complete runtime files verified. Public download/signature/install/muted startup passed. Production updater preserved music; unchanged Play-Racer.cmd launched responsive managed 51000; complete root Latest matches. All 62 original record files remain byte-identical after launch, with **219 entries before/after**. [Publication evidence](Docs/UI/RecordFilters/PUBLICATION.md).
+- Cleanup: Builds 8,944,219,169 → 7,145,547,349 bytes; 3,250,904,385 bytes total disposable artifacts recovered. Final C: free 330,249,216,000 bytes. Current 51000 / previous 50000 retained with all protected assets. **STOP for Dan's review; no additional menu cleanup.**
 
 ## Previous delivery — track browsing / Race Setup map preview — 0.50.0-review1 DELIVERED
 

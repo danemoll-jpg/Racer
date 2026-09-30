@@ -1,0 +1,24 @@
+{
+  "tag": "game-51000",
+  "draft": false,
+  "assetsVerified": 3,
+  "assets": [
+    {
+      "name": "game-manifest.json",
+      "size": 46405,
+      "digest": "sha256:2fb4bc23ff6e35a3606a6031fd651e87b38f270b1a990f2a31a3a34dc042c285"
+    },
+    {
+      "name": "game.zip",
+      "size": 348792500,
+      "digest": "sha256:b19d980795ae39c8d083d5016e7cfc8d390b9aff02c8989c50b90ab98d9e3b7c"
+    },
+    {
+      "name": "update-catalog.json",
+      "size": 993,
+      "digest": "sha256:1dd812f6efa3696d6a5fb68d4b88515a97d6de691dc54f0fe1e2d893b7f92546"
+    }
+  ],
+  "verifiedAt": "2026-09-30T13:50:38.3555747-04:00",
+  "url": "https://github.com/danemoll-jpg/woodstock-rush-releases/releases/tag/game-51000"
+}
