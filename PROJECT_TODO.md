@@ -103,9 +103,13 @@
 - **Targeted verification COMPLETE:** finish-button checks all pass; seven selector buttons launch correct courses. Initial 25/27 pass exposed two missing mountain entries in the Editor-only scene list (release build already includes them); temporary test alignment and only the unresolved cases pass 8/8. Original Editor list restored. PNG and UI screenshots opened/inspected; save/record/geometry protection verified. No driving/AI matrix. [Evidence and limitations](Docs/TrackUi/VALIDATION.md). **STOP TESTING.**
 - **0.41.0-review1 / game-41000 delivery COMPLETE:** completion source `e42f1b0fc118572aa2f8ea6a40c08eba8893bfa0` pushed/verified on origin/main before fresh Windows build (zero errors, nine warnings, 5m25.201s). All 233 runtime/ZIP/root Latest/managed files match. Three remote assets and latest signed catalog verified; actual public download and isolated muted startup pass. Unchanged Play-Racer.cmd launched responsive managed 41000; soundtrack preserved, no update pending. Only current 41000 and previous 40000 retained. Builds **6,594,652,287 → 5,441,479,048 bytes**, **1,153,173,239 bytes** reclaimed there; final C: free **318,241,808,384 bytes**. [Complete publication/launcher/cleanup evidence](Docs/TrackUi/PUBLICATION.md). **STOP: await Dan's visual map/UI review and chosen shortcut locations.**
 
-### Backlog — GENERAL MENU / UI CLEANUP PASS
+### DESIGN/AUDIT IN PROGRESS — GENERAL MENU / UI CLEANUP PASS
 
-- [ ] Future consistency pass: hierarchy, spacing, typography, button styles, screen layout, navigation, organization and polish across menus/results/settings. **BACKLOG ONLY; no general redesign in this task.**
+- [x] 2026-09-30 design-only source audit and proposed architecture prepared for Dan's review: [UI_AUDIT.md](Docs/UI/UI_AUDIT.md) and [UI_REDESIGN_PLAN.md](Docs/UI/UI_REDESIGN_PLAN.md). Inventoried 31 screens/subviews/dialogs/presentation systems, including the external folder chooser and native launcher boundary; every existing action has an explicit preservation disposition.
+- [ ] Dan reviews the proposed hierarchy, graphical controller prompts, active-device switching, map controls, visible playlist lists, readable record tables and independent lap/race achievement presentation. **DESIGN/AUDIT IN PROGRESS / DOCUMENTS READY FOR REVIEW; IMPLEMENTATION NOT STARTED.** This request supersedes older general-UI backlog-only wording; historical delivery notes remain unchanged.
+- [ ] Implement only after a subsequent request: (1) shared navigation/input/glyphs, (2) core screens/settings/music and controller folder selection, (3) world map/exploration, (4) playlists/records, (5) finish/results and consistency. Launcher presentation is a separately bounded follow-up, not an updater rewrite.
+- Source findings: map course toggle/recenter/clear waypoint lack controller paths; Escape/Back and nested parent restoration are inconsistent; native music selection has no controller bridge; playlist entries and records use crowded text/button layouts; last-lap rank is insufficient for best-lap celebration. No runtime bug fixed or human/controller acceptance claimed.
+- Safety checkpoint: clean `main` at `014f1eb72bbff6efd11fd0a40dced94370cc989b`. Validation is document/source traceability and documentation-only diff review. No gameplay tests, build, release, launcher run or cleanup applies to this documentation-only task; existing 0.47.0-review1 / game-47000 runtime and protected racing HUD/minimap remain unchanged. Completion commit/push identity is recorded in Git and the task's final report.
 
 ## Historical delivery — 2026-09-29 / dense garbage and failed-jump traversal
 
@@ -2049,6 +2053,10 @@ Record choices we do not want to repeatedly reconsider.
 ---
 
 # SESSION HANDOFF
+
+## Latest handoff — 2026-09-30 / UI audit and redesign proposal only
+
+Prepared Docs/UI/UI_AUDIT.md and Docs/UI/UI_REDESIGN_PLAN.md from the actual runtime menu/input/save implementation. Census: 31 surfaces, including controller naming, confirmations, championship, diagnostic overlay, native music chooser and launcher. Major findings: pointer-only map utilities, inconsistent Back/parent/focus, dense one-entry playlists and text-based records, external music setup, and missing best-lap achievement snapshot. Proposed Main Menu: Race, Free Roam, Garage, Records, Exploration, Settings, Quit Game; graphical binding-derived prompts and five bounded implementation phases. General menu/UI cleanup is DESIGN/AUDIT IN PROGRESS, documents ready for Dan's review; no redesign implemented. Safety checkpoint 014f1eb72bbff6efd11fd0a40dced94370cc989b. Document/source checks only; game-47000 and all gameplay/HUD/minimap/audio/updater behavior remain unchanged. Commit and push these three documentation files, then STOP for Dan's review; no build/release/launcher verification/cleanup is applicable.
 
 ## Latest handoff — 2026-09-29 / 0.44.0-review1
 
