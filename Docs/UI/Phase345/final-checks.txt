@@ -1,0 +1,4 @@
+PASS Complete Race visible while unfinished AI remain
+PASS Complete Race reaches final results; repeat activation is harmless
+PASS Unfinished AI remain explicitly estimated or DNF
+PASS Dedicated lap view uses the recorded lap list

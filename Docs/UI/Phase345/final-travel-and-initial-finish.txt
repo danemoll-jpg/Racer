@@ -1,0 +1,6 @@
+PASS One supported discovered-home travel closes map and resumes
+PASS Travel arrival notice
+FAIL Complete Race visible while unfinished AI remain
+FAIL Complete Race reaches final results; repeat activation is harmless
+PASS Unfinished AI remain explicitly estimated or DNF
+PASS Dedicated lap view uses the recorded lap list

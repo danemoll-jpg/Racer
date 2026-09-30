@@ -9,7 +9,14 @@
 - Do not silently modify or weaken CODEX_RULES.md. Changes to standing rules require an explicit instruction from Dan.
 - Root AGENTS.md points future Codex tasks to both files.
 
-## Current task — 2026-09-30 / controller-first UI Phases 1 + 2 — DELIVERED / PHASES 1 + 2 ACCEPTED
+## Current task — UI Phases 3–5 / 0.49.0-review1 — IMPLEMENTED, DELIVERY IN PROGRESS
+
+- Dan explicitly authorized the remaining approved phases together as ONE review build. Phase 1–2 remains ACCEPTED and protected. Safety checkpoint: clean main `69d8d2e44c77ef45e2e69d0b43f5d28b6acd7da8`.
+- Implemented full World Map reticle/context/travel/controller actions; saved-playlist and entry panes with transactional drafts/move/name/save/start; aligned Records tabs and real stored metadata; independent best-lap/race finish snapshots, achievement cards, Results/laps/penalties/championship views. Shared input/glyph/navigation systems retained. Current playlist Results Setup preserves its fixed event track/laps; changing the playlist remains a Main-menu operation.
+- Targeted fixture **38/38 pass**, one supported travel + arrival notice pass, synthetic Complete Race/results follow-up **4/4 pass**. Initial UI failures and fixture limitations are preserved in [validation](Docs/UI/Phase345/VALIDATION.md). Representative 720p/800p/1080p screenshots inspected. Existing Editor-only AmbientVehicle exception remains unchanged. No broad driving/AI matrix or physical-controller/Deck claim. **STOP feature testing.**
+- World geometry, race timing/scoring/CR-064, record partitions/writers, championship scoring, vehicle physics/AI/recovery, racing HUD/minimap, title and radio are preserved. Playlist save schema unchanged; failed saves retain drafts and original snapshots.
+- **Phases 3, 4 and 5: IMPLEMENTED — AWAITING DAN GAMEPLAY/UI REVIEW.** Completion commit/push, fresh Windows build, published signed catalog, complete Latest, production launcher verification and cleanup are still in progress. No delivery claim yet.
+## Accepted baseline — 2026-09-30 / controller-first UI Phases 1 + 2 — DELIVERED / PHASES 1 + 2 ACCEPTED
 
 - Dan approved Docs/UI/UI_AUDIT.md and Docs/UI/UI_REDESIGN_PLAN.md and explicitly requested **one combined review build for Phases 1 and 2**. The internal five-phase dependencies remain; Phases 3, 4 and 5 are **not authorized for this build**.
 - **Dan accepted UI Phase 1 (shared navigation/input foundation) and UI Phase 2 (core menus/music) on 2026-09-30.** Both phases are delivered and accepted in 0.48.0-review1 / game-48000. Phases 3–5 remain deferred. This acceptance update changes documentation only; no new build, release, launcher verification or cleanup is required. Phase 2 acceptance documentation safety checkpoint: clean `e34cb22430fd49cdb88dbfd82cc3053f50a65a8e` on main.

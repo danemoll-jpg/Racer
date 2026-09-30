@@ -9,7 +9,7 @@ using UnityEngine.EventSystems;
 namespace Racer
 {
     // World coordinates and stable discovery IDs are shared by all four courses.
-    public sealed class ExplorationMap : MonoBehaviour, IPointerClickHandler, IDragHandler, IScrollHandler
+    public sealed partial class ExplorationMap : MonoBehaviour, IPointerClickHandler, IDragHandler, IScrollHandler
     {
         public const string Compatibility="woodstock-world-v2";
         public const int Columns=110, Rows=80;
@@ -37,7 +37,7 @@ namespace Racer
         public bool Discovered(string id)=>data.landmarks.Contains(id);
         public void Initialize(RaceDirector owner,string root)
         {
-            race=owner;path=Path.Combine(root,"exploration-map-"+Compatibility+".json");
+            race=owner;error=null;path=Path.Combine(root,"exploration-map-"+Compatibility+".json");
             try {if(File.Exists(path))data=JsonUtility.FromJson<Data>(File.ReadAllText(path))??new();
                 if(data.world!=Compatibility||data.version!=1)throw new IOException("Incompatible map data retained");
                 data.visited??=new();data.landmarks??=new();foreach(int cell in data.visited)if(cell>=0&&cell<Columns*Rows)visited.Add(cell);
@@ -69,34 +69,18 @@ namespace Racer
         }
         public void Save(){if(!dirty||error!=null)return;try{data.visited=visited.OrderBy(i=>i).ToList();AtomicSave.Write(path,JsonUtility.ToJson(data));dirty=false;}catch(Exception e){error=e.Message;}}
         void OnApplicationPause(bool paused){if(paused)Save();}
-        void OnDestroy(){Save();if(texture)Destroy(texture);if(panel)Destroy(panel);}
-        void Update()
-        {
-            if(!race||!race.Flow||MenuInput.Blocked||race.Flow.GetComponent<RaceMenus>()?.ModalOpen==true)return;
-            var k=Keyboard.current;var g=Gamepad.current;
-            if((k?.mKey.wasPressedThisFrame??false)||(g?.selectButton.wasPressedThisFrame??false)){if(Opened){if(Confirming)CancelTravel();else Close();}else if(race.Flow.State==RaceFlow.Stage.Racing||race.Flow.State==RaceFlow.Stage.Paused)Open();return;}
-            if(!Opened)return;
-            if(Confirming){if(Time.frameCount==confirmationFrame)return;if((k?.escapeKey.wasPressedThisFrame??false)||(g?.buttonEast.wasPressedThisFrame??false)){CancelTravel();return;}if((k?.spaceKey.wasPressedThisFrame??false)||(g?.buttonSouth.wasPressedThisFrame??false)){ConfirmTravel();return;}return;}
-            if((k?.escapeKey.wasPressedThisFrame??false)||(g?.buttonEast.wasPressedThisFrame??false)){Close();return;}
-            Vector2 pan=g?.leftStick.ReadValue()??Vector2.zero;
-            if(k!=null)pan+=new Vector2((k.dKey.isPressed?1:0)-(k.aKey.isPressed?1:0),(k.wKey.isPressed?1:0)-(k.sKey.isPressed?1:0));
-            center+=pan*Time.unscaledDeltaTime*.4f/zoom;
-            if(g!=null){zoom=Mathf.Clamp(zoom+(g.rightTrigger.ReadValue()-g.leftTrigger.ReadValue())*Time.unscaledDeltaTime*3,1,6);
-                if(g.dpad.right.wasPressedThisFrame)SelectNext(1);if(g.dpad.left.wasPressedThisFrame)SelectNext(-1);
-                if(g.buttonSouth.wasPressedThisFrame)SetWaypoint(MapWorldPoint(center));if(g.buttonWest.wasPressedThisFrame)TravelSelected();}
-            if(k?.spaceKey.wasPressedThisFrame??false)SetWaypoint(MapWorldPoint(center));
-            float margin=.5f/zoom;center=new(Mathf.Clamp(center.x,margin,1-margin),Mathf.Clamp(center.y,margin,1-margin));Draw();
-        }
+        void OnDestroy(){Save();mapActions?.Dispose();mapActions=null;if(texture)Destroy(texture);if(panel)Destroy(panel);mapPrompts.Clear();}
+        void Update()=>UpdateMapInput();
         public void Open()
         {
             MenuInput.ConsumeThroughRelease();
             if(!visual)visual=Resources.Load<WorldMapVisual>("WorldMaps/PermanentWorld");
-            resume=race.Flow.State==RaceFlow.Stage.Racing;if(resume)race.Flow.Pause();if(!panel)BuildUI();
-            center=MapNormalized(race.vehicle.Body.position);panel.SetActive(true);EventSystem.current?.SetSelectedGameObject(null);Repaint();Draw();Save();
+            resume=race.Flow.State==RaceFlow.Stage.Racing;if(resume)race.Flow.Pause();if(!panel){BuildUI();BuildMapControls();}
+            center=MapNormalized(race.vehicle.Body.position);selected=-1;panel.SetActive(true);EventSystem.current?.SetSelectedGameObject(null);Repaint();Draw();Save();
         }
         public void Close(){MenuInput.ConsumeThroughRelease();CancelTravel();closedFrame=Time.frameCount;if(panel)panel.SetActive(false);Save();if(resume)race.Flow.Resume();}
         public void SetWaypoint(Vector3 p){Waypoint=p;}
-        void SelectNext(int direction){if(destinations.Length==0)return;selected=(selected+direction+destinations.Length)%destinations.Length;if(Discovered(destinations[selected].id))center=MapNormalized(destinations[selected].position);}
+        void SelectNext(int direction){var known=Enumerable.Range(0,destinations.Length).Where(i=>Discovered(destinations[i].id)).ToArray();if(known.Length==0){selected=-1;errorMessage="Discover landmarks while exploring.";return;}int at=Array.IndexOf(known,selected);selected=known[(at+direction+known.Length)%known.Length];center=MapNormalized(destinations[selected].position);Draw();}
         public bool Travel(int index)
         {
             if(error!=null||!race.FreeRoam||index<0||index>=destinations.Length||!Discovered(destinations[index].id)){errorMessage="Travel needs free roam and a discovered destination.";return false;}
@@ -113,9 +97,9 @@ namespace Racer
         {
             if(!Opened)return;
             if(index<0||index>=destinations.Length||!race.FreeRoam||!Discovered(destinations[index].id)){errorMessage="Travel needs free roam and a discovered destination.";Draw();return;}
-            pending=index;confirmationFrame=Time.frameCount;confirmationText.text="Travel to "+destinations[index].title+"?\nA / Space: Yes    B / Esc: No";confirmation.SetActive(true);
+            pending=index;confirmationFrame=Time.frameCount;confirmationText.text="Travel to "+destinations[index].title+"?\nActive attempts will end.";confirmation.SetActive(true);OpenMapSheet(true);
         }
-        public void CancelTravel(){MenuInput.ConsumeThroughRelease();pending=-1;if(confirmation)confirmation.SetActive(false);EventSystem.current?.SetSelectedGameObject(null);}
+        public void CancelTravel(){MenuInput.ConsumeThroughRelease();pending=-1;CloseMapSheet();if(confirmation)confirmation.SetActive(false);EventSystem.current?.SetSelectedGameObject(null);}
         public bool ConfirmTravel()
         {
             if(pending<0)return false;int index=pending;CancelTravel();
@@ -172,15 +156,13 @@ namespace Racer
             if(Waypoint.HasValue)Marker(waypointLabel,Waypoint.Value);else waypointLabel.gameObject.SetActive(false);
             for(int i=0;i<destinations.Length;i++){markers[i].text=(selected==i?"◆ ":"● ")+destinations[i].title;Marker(markers[i],destinations[i].position);if(!Discovered(destinations[i].id))markers[i].gameObject.SetActive(false);}
             var collection=race.GetComponent<ExplorationCollection>();for(int i=0;i<acorns.Count;i++){var s=collection.sites[i];Marker(acorns[i],s.position);if(!collection.Discovered(s.id)||!Visited(s.position))acorns[i].gameObject.SetActive(false);}
-            string choice=selected<0?"Select a discovered landmark.":Discovered(destinations[selected].id)?destinations[selected].title:"Undiscovered destination";
-            status.text=choice+"\n"+(race.FreeRoam?"Free roam travel":"Race: travel disabled")+"\n\nAll roads / trails are permanent.\nDim terrain: unexplored.\nVisited is NOT fully searched.\n"+(courseOverlay.gameObject.activeSelf?"\n"+race.courseName+"\nTeal: main · Gold: shortcuts\nArrows: travel direction\n":"\n")+(race.GetComponent<ExplorationCollection>()?.Summary??"")+"\n\n"+(error??errorMessage);
-        }
-        public void OnScroll(PointerEventData e){zoom=Mathf.Clamp(zoom+e.scrollDelta.y*.25f,1,6);}
-        public void OnDrag(PointerEventData e){center-=new Vector2(e.delta.x/picture.rectTransform.rect.width,e.delta.y/picture.rectTransform.rect.height)/zoom;}
+            status.text=(selected>=0?destinations[selected].title:"Map Point")+"\n"+(race.FreeRoam?"Select for location actions":"Travel available in Free Roam")+"\n\n"+(courseOverlay.gameObject.activeSelf?"Race route shown":"Race route hidden")+"\n\n"+(race.GetComponent<ExplorationCollection>()?.Summary??"")+"\n\n"+(error??errorMessage);
+            RefreshMapPrompts();
+        }        public void OnScroll(PointerEventData e){if(sheetOpen)return;zoom=Mathf.Clamp(zoom+e.scrollDelta.y*.25f,1,6);Draw();}
+        public void OnDrag(PointerEventData e){if(sheetOpen)return;center-=new Vector2(e.delta.x/picture.rectTransform.rect.width,e.delta.y/picture.rectTransform.rect.height)/zoom;selected=-1;Draw();}
         public void OnPointerClick(PointerEventData e)
-        {if(e.dragging||e.button!=PointerEventData.InputButton.Left)return;if(!RectTransformUtility.ScreenPointToLocalPointInRectangle(picture.rectTransform,e.position,e.pressEventCamera,out var q))return;
-            if(Confirming)return;var p=MapWorldPoint(center+new Vector2(q.x/picture.rectTransform.rect.width,q.y/picture.rectTransform.rect.height)/zoom);selected=Array.FindIndex(destinations,d=>Discovered(d.id)&&Vector2.Distance(ScreenPoint(d.position),q)<24);if(selected<0)SetWaypoint(p);else RequestTravel(selected);}
-    }
-    public sealed class MapPointer:MonoBehaviour,IPointerClickHandler,IDragHandler,IScrollHandler
+        {if(sheetOpen||e.dragging||e.button!=PointerEventData.InputButton.Left)return;if(!RectTransformUtility.ScreenPointToLocalPointInRectangle(picture.rectTransform,e.position,e.pressEventCamera,out var q))return;
+            center+=new Vector2(q.x/picture.rectTransform.rect.width,q.y/picture.rectTransform.rect.height)/zoom;SelectReticle();}
+    }    public sealed class MapPointer:MonoBehaviour,IPointerClickHandler,IDragHandler,IScrollHandler
     {public ExplorationMap owner;public void OnPointerClick(PointerEventData e)=>owner.OnPointerClick(e);public void OnDrag(PointerEventData e)=>owner.OnDrag(e);public void OnScroll(PointerEventData e)=>owner.OnScroll(e);}
 }

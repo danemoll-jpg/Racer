@@ -1,0 +1,2 @@
+PASS All services initialized with isolated save root
+PASS Playlist exposes every entry as a list

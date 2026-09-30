@@ -1,0 +1,34 @@
+PASS All services initialized with isolated save root
+PASS Playlist exposes every entry as a list
+PASS Editing does not mutate saved definition
+PASS Dirty Back opens Save / Discard / Cancel
+PASS Dirty Cancel keeps editor
+PASS Discard preserves saved snapshot
+PASS Save persists edited entry
+PASS Move cancellation restores order
+PASS Labeled X opens Add Race
+PASS Duplicate entries retained after add/save
+PASS Legacy and current entries appear in aligned records table
+PASS RB switches visible Records tabs
+PASS Record browsing does not change race category or scene
+FAIL Map shoulder cycling reaches only discovered landmarks
+FAIL X toggles race overlay using controller
+PASS Permanent geography remains when overlay toggles
+FAIL Y sets selected waypoint
+PASS Y clears the same waypoint
+FAIL A selects landmark without travelling
+PASS B dismisses map context before closing map
+FAIL Travel confirmation defaults to Cancel
+PASS Default A cancels travel without closing map
+FAIL Map Back returns to caller
+PASS Strict #1 improvement
+PASS Empty board first record
+PASS Rank 2–3 podium
+PASS Rank 4–10 presentation
+PASS PB fallback
+PASS Tie never claims faster
+PASS No achievement
+PASS Submillisecond improvement is not zero
+PASS Fastest lap is resolved after all writes, not final lap rank
+PASS Settings retains Results caller
+PASS Race Setup returns to Results

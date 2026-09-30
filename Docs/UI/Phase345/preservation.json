@@ -1,0 +1,19 @@
+{
+  "protectedPaths": [
+    "Assets/Scenes",
+    "Assets/Scripts/RaceDirector.cs",
+    "Assets/Scripts/RaceProgress.cs",
+    "Assets/Scripts/RecordBoards.cs",
+    "Assets/Scripts/ActivityRecords.cs",
+    "Assets/Scripts/PlaylistChampionship.cs",
+    "Assets/Scripts/RaceHud.cs",
+    "Assets/Scripts/ArcadeVehicle.cs",
+    "Assets/Scripts/VehicleRespawn.cs",
+    "Assets/Scripts/RoadDriver.cs",
+    "Assets/Scripts/LocalRadio.cs",
+    "Assets/Scripts/StartupTitle.cs",
+    "Assets/Resources/WorldMaps"
+  ],
+  "checkpoint": "69d8d2e44c77ef45e2e69d0b43f5d28b6acd7da8",
+  "unchanged": true
+}

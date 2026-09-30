@@ -11,6 +11,7 @@ namespace Racer
         void PreparePage()
         {
             if(pageStage==flow.State)return;
+            if(flow.State==RaceFlow.Stage.Activities)recordTab=2;
             stagePages[pageStage]=page;stageStacks[pageStage]=pages.Reverse().ToArray();
             pageStage=flow.State;page=stagePages.TryGetValue(pageStage,out var saved)?saved:"";
             pages.Clear();if(stageStacks.TryGetValue(pageStage,out var stack))foreach(var entry in stack)pages.Push(entry);
@@ -39,6 +40,7 @@ details.gameObject.SetActive(true);
                 ClearCore("DETAILS",helpCopy);details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=Mathf.Max(100,details.preferredHeight+20);
                 Row(0,"back","Back",()=>BackPage());return;
             }
+            if(RenderLater())return;
             if(flow.State==RaceFlow.Stage.Ready)
             {
                 if(page=="race")
@@ -48,6 +50,13 @@ details.gameObject.SetActive(true);
                     Row(4,"laps","Laps: "+flow.LapLabel,flow.CycleLaps);Row(5,"mode",flow.Race.opponents?"Mode: Race vs 3 AI":"Mode: Solo / time trial",flow.ToggleOpponents);
                     Row(6,"difficulty","Difficulty: "+flow.Race.DifficultyName,flow.CycleDifficulty);Row(7,"traffic","Traffic: "+(flow.Race.traffic?"On":"Off"),flow.ToggleTraffic);
                     Row(8,"playlists","Playlists",flow.OpenPlaylists);Row(9,"back","Back",()=>BackPage());
+                    if(flow.SetupFromResults&&RacePlaylists.Active!=null)
+                    {
+                        details.text+="\nActive playlist: this event keeps its saved track and lap count.\nReturn to Main to edit or start another playlist.";
+                        details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=180;
+                        buttons[1].interactable=buttons[4].interactable=buttons[8].interactable=false;
+                        buttons[0].GetComponentInChildren<UnityEngine.UI.Text>(true).text="RESTART CURRENT ENTRY";
+                    }
                 }
                 else if(page=="roam")
                 {
@@ -97,9 +106,9 @@ details.gameObject.SetActive(true);
             }
             else if(flow.State==RaceFlow.Stage.Garage)
             {
-                buttons[4].GetComponentInChildren<UnityEngine.UI.Text>().text="Back";
+                buttons[4].GetComponentInChildren<UnityEngine.UI.Text>(true).text="Back";
                 LayoutGarage();
-                for(int i=0;i<swatches.Count;i++){var text=swatches[i].GetComponentInChildren<UnityEngine.UI.Text>();text.text=(flow.SelectedColor==i?"✓ ":"")+VehiclePaint.Names[i];}
+                for(int i=0;i<swatches.Count;i++){var text=swatches[i].GetComponentInChildren<UnityEngine.UI.Text>(true);text.text=(flow.SelectedColor==i?"✓ ":"")+VehiclePaint.Names[i];}
             }
             else if(flow.State==RaceFlow.Stage.Roster)
             {
@@ -176,7 +185,7 @@ details.gameObject.SetActive(true);
             int row=4;
             void Binding(string label,UnityEngine.InputSystem.InputAction action,string pad="",string keyboard=""){
                 int i=row++;Row(i,"binding-"+label,label,()=>{});
-                var button=buttons[i];var labelText=button.GetComponentInChildren<UnityEngine.UI.Text>();labelText.rectTransform.offsetMin=new(86,0);
+                var button=buttons[i];var labelText=button.GetComponentInChildren<UnityEngine.UI.Text>(true);labelText.rectTransform.offsetMin=new(86,0);
                 var icon=Rect("Current binding glyph",button.transform);icon.anchorMin=icon.anchorMax=new(0,.5f);icon.pivot=new(0,.5f);icon.anchoredPosition=new(12,0);icon.sizeDelta=new(62,34);
                 var graphic=icon.gameObject.AddComponent<MenuGlyph>();graphic.raycastTarget=false;
                 var key=Label("Control",icon,16,0);Stretch(key.rectTransform,0,0,0,0);key.alignment=TextAnchor.MiddleCenter;
@@ -186,16 +195,14 @@ details.gameObject.SetActive(true);
             Binding("Menus / Select",submit);Binding("Menus / Back",cancelAction);Binding("Menus / Navigate",uiModule.move.action);
             Binding("Menus / Previous category",previousTab);Binding("Menus / Next category",tabsAction);
             Binding("Pause / Resume",flow.PauseAction);
-            Binding("Map / Open and close",null,"<Gamepad>/select","<Keyboard>/m");
-            Binding("Map / Pan",null,"<Gamepad>/leftStick","<Keyboard>/WASD");Binding("Map / Zoom out",null,"<Gamepad>/leftTrigger","<Mouse>/scroll");Binding("Map / Zoom in",null,"<Gamepad>/rightTrigger","<Mouse>/scroll");
-            Binding("Map / Waypoint",null,"<Gamepad>/buttonSouth","<Keyboard>/space");Binding("Map / Travel",null,"<Gamepad>/buttonWest","<Mouse>/leftButton");
+            foreach(var action in flow.GetComponent<ExplorationMap>().Bindings)Binding("Map / "+action.name,action);
             Binding("Radio / Previous",null,"<Gamepad>/dpad/left","<Keyboard>/leftBracket");Binding("Radio / Next",null,"<Gamepad>/dpad/right","<Keyboard>/rightBracket");Binding("Radio / Current song",null,"<Gamepad>/dpad/up","<Keyboard>/i");Binding("Radio / Channel or Off",null,"<Gamepad>/dpad/down","<Keyboard>/n");
             Row(row,"back","Back",flow.CloseSettings);
         }
         void ClearBindingRows()
         {
             foreach(var row in bindingRows)if(row.glyph)Destroy(row.glyph.gameObject);bindingRows.Clear();
-            foreach(var b in buttons)b.GetComponentInChildren<UnityEngine.UI.Text>().rectTransform.offsetMin=new(10,0);
+            foreach(var b in buttons)b.GetComponentInChildren<UnityEngine.UI.Text>(true).rectTransform.offsetMin=new(10,0);
         }
     }
 }

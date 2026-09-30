@@ -182,6 +182,10 @@ namespace Racer
         }
         public void SelectMountain(bool reverse){if(State!=Stage.Courses)return;Save.SaveSettings();Time.timeScale=1;AudioListener.pause=false;UnityEngine.SceneManagement.SceneManager.LoadScene(reverse?"MountainLoopReverse":"MountainLoop");}
         public void SelectBackyardForward(){if(State!=Stage.Courses)return;Save.SaveSettings();Time.timeScale=1;AudioListener.pause=false;UnityEngine.SceneManagement.SceneManager.LoadScene("DansBackyardForward");}
+        public readonly FinishPresentation FinishCards=new();
+        public string FinishSummary=>FinishCards.Summary;
+        public bool SetupFromResults=>callers.Count>0&&callers.Peek()==Stage.Results;
+        public void OpenResultsSetup(){PushMenu(Stage.Ready);menus.OpenSetup();}
         public void OpenPlaylists(){PushMenu(Stage.Playlists);}
         public void StartPlaylist(RacePlaylists.Definition definition){if(definition.entries.Count==0){Notify("Add a race first",4);return;}if(definition.entries.Exists(e=>e.course>=RacePlaylists.Scenes.Length)){Notify("Remove the rolled-back course from this playlist",4);return;}RacePlaylists.Begin(definition);LoadPlaylistEntry();}
         public void NextPlaylistRace(){if(State!=Stage.Results||RacePlaylists.PendingStart||!RacePlaylists.HasNext||RacePlaylists.Championship.Events[RacePlaylists.Position]==null)return;RacePlaylists.Advance();LoadPlaylistEntry();}
@@ -258,7 +262,7 @@ namespace Racer
         }
         public void BeginCountdown()
         {
-            attempt=System.Guid.NewGuid().ToString("N");LapRank=RaceRank=0;Boards.BeginAttempt();
+            attempt=System.Guid.NewGuid().ToString("N");LapRank=RaceRank=0;Boards.BeginAttempt();FinishCards.Begin(Boards,Race.Category,Save.Best);
             NewLapRecord = NewRaceRecord = false; CountdownRemaining = 3; lastTick = 3;
             Notice = null; LockVehicle(true); SetStage(Stage.Countdown); Sound(tick);
         }
@@ -297,6 +301,7 @@ namespace Racer
             {
                 NewRaceRecord = Save.RecordRace(Race.Progress.AdjustedTime(Race.Clock));
                 RaceRank=Boards.CompletedRace(attempt,Race.Category,profile,Race.Progress,Race.Clock);
+                FinishCards.Finish(Boards,Race.Category,attempt,Race.Progress,Race.Clock);
                 input.enabled = respawn.enabled = false;
                 // Clear the finish with normal pedals/steering so following racers are not blocked.
                 var runoff=Race.vehicle.GetComponent<RoadDriver>();

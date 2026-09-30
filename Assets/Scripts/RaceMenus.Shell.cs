@@ -40,6 +40,8 @@ namespace Racer
         public bool BackPage()
         {
             if(modalConfirm!=null){modalConfirm=null;MenuInput.ConsumeThroughRelease();Show();return true;}
+            if(LaterBack())return true;
+            if(flow.State==RaceFlow.Stage.Ready&&page=="race"&&flow.SetupFromResults){flow.PopMenu();return true;}
             if(page=="folder"){FolderBack();return true;}
             if(page=="keyboard"){CloseKeyboard(false);return true;}
             if(pages.Count>0){CapturePage();page=pages.Pop();MenuInput.ConsumeThroughRelease();Show();return true;}
@@ -113,10 +115,10 @@ namespace Racer
             for(int pi=0;pi<prompts.Count;pi++)
             {
                 var p=prompts[pi];
-                bool keyboard=page=="keyboard";bool tabs=flow.State==RaceFlow.Stage.Settings&&page.StartsWith("settings");
-                p.glyph.transform.parent.gameObject.SetActive(pi<3||keyboard||tabs);
-                if(pi==2){p.action=keyboard?deleteAction:tabs?previousTab:uiModule.move.action;p.label.text=keyboard?"Delete":tabs?"Previous tab":"Navigate";}
-                if(pi==3){p.action=keyboard?spaceAction:tabsAction;p.label.text=keyboard?"Space":"Next tab";}
+                bool keyboard=page=="keyboard";bool tabs=(flow.State==RaceFlow.Stage.Settings&&page.StartsWith("settings"))||(page==""&&(flow.State==RaceFlow.Stage.Boards||flow.State==RaceFlow.Stage.Activities||flow.State==RaceFlow.Stage.Results));bool playlist=flow.State==RaceFlow.Stage.Playlists&&page==""&&playlistDraft!=null;
+                p.glyph.transform.parent.gameObject.SetActive(pi<3||keyboard||tabs||playlist);
+                if(pi==2){p.action=keyboard?deleteAction:playlist?playlistAdd:tabs?previousTab:uiModule.move.action;p.label.text=keyboard?"Delete":playlist?"Add Race":tabs?"Previous tab":"Navigate";}
+                if(pi==3){p.action=keyboard?spaceAction:playlist?playlistContext:tabsAction;p.label.text=keyboard?"Space":playlist?"Actions":"Next tab";}
                 string path=p.action!=null?MenuInput.Binding(p.action):MenuInput.Controller?p.fallback:"<Keyboard>/arrows";
                 p.glyph.SetPath(path);p.key.text=MenuGlyph.Label(path);
             }
@@ -130,15 +132,16 @@ namespace Racer
             if(current&&current!=lastFocus&&current.transform.IsChildOf(content))
             {
                 Canvas.ForceUpdateCanvases();var r=current.GetComponent<RectTransform>();
-                var bounds=RectTransformUtility.CalculateRelativeRectTransformBounds(scroll.viewport,r);
-                var view=scroll.viewport.rect;float offset=bounds.min.y<view.yMin?view.yMin-bounds.min.y:bounds.max.y>view.yMax?view.yMax-bounds.max.y:0;
-                content.anchoredPosition+=new Vector2(0,offset);lastFocus=current;
+                var owner=current.GetComponentInParent<UnityEngine.UI.ScrollRect>()??scroll;
+                var bounds=RectTransformUtility.CalculateRelativeRectTransformBounds(owner.viewport,r);
+                var view=owner.viewport.rect;float offset=bounds.min.y<view.yMin?view.yMin-bounds.min.y:bounds.max.y>view.yMax?view.yMax-bounds.max.y:0;
+                owner.content.anchoredPosition+=new Vector2(0,offset);lastFocus=current;
             }
         }
         void UpdateCore()
         {
             if(MenuInput.Blocked||flow.GetComponent<ExplorationMap>()?.OwnsInput==true)return;
-            UpdateFolder();UpdateKeyboard();
+            UpdateFolder();UpdateKeyboard();UpdateLater();
             if(!flow.MenuVisible||modalConfirm!=null||page=="keyboard")return;
             if(flow.State==RaceFlow.Stage.Settings&&page.StartsWith("settings"))
             {
@@ -157,10 +160,10 @@ namespace Racer
             foreach(var b in buttons)b.gameObject.SetActive(false);adjustments.Clear();
             title.text=heading;details.text=summary;details.fontSize=20;details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=string.IsNullOrEmpty(summary)?0:Mathf.Min(200,30*(summary.Count(c=>c=='\n')+1));
             details.gameObject.SetActive(!string.IsNullOrEmpty(summary));
-            foreach(var b in buttons){var colors=b.colors;colors.normalColor=new(.10f,.20f,.25f);b.colors=colors;b.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=44;b.GetComponentInChildren<UnityEngine.UI.Text>().alignment=TextAnchor.MiddleLeft;}
+            foreach(var b in buttons){var colors=b.colors;colors.normalColor=new(.10f,.20f,.25f);b.colors=colors;b.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=44;b.GetComponentInChildren<UnityEngine.UI.Text>(true).alignment=TextAnchor.MiddleLeft;}
         }
         void Row(int index,string id,string label,Action callback){
-            var button=buttons[index];button.gameObject.SetActive(true);button.name=id;button.GetComponentInChildren<UnityEngine.UI.Text>().text=label;
+            EnsureRows(index+1);var button=buttons[index];button.gameObject.SetActive(true);button.name=id;button.GetComponentInChildren<UnityEngine.UI.Text>(true).text=label;
             var entry=registry.Register(id,label,submit,callback,()=>button.interactable);button.onClick.RemoveAllListeners();button.onClick.AddListener(()=>entry.Execute());
         }
         void Step(int index,string id,string label,Action<int> change){Row(index,id,"‹   "+label+"   ›",()=>change(1));adjustments[index]=change;}

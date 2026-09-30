@@ -1,0 +1,21 @@
+var flags=System.Reflection.BindingFlags.Instance|System.Reflection.BindingFlags.NonPublic;
+var flow=UnityEngine.Object.FindAnyObjectByType<Racer.RaceFlow>();var menus=flow.GetComponent<Racer.RaceMenus>();var world=flow.GetComponent<Racer.ExplorationMap>();
+if(!flow.Save.DirectoryPath.Contains("UIRemaining"))throw new Exception("Isolated storage required");
+var title=UnityEngine.Object.FindAnyObjectByType<Racer.StartupTitle>();if(title)UnityEngine.Object.Destroy(title.gameObject);
+typeof(Racer.StartupTitle).GetField("completed",System.Reflection.BindingFlags.Static|System.Reflection.BindingFlags.NonPublic).SetValue(null,true);flow.EnterMenuAfterTitle();AudioListener.volume=0;
+var output="Docs/UI/Phase345";var log=new System.Text.StringBuilder();
+void Check(bool good,string message){log.AppendLine((good?"PASS ":"FAIL ")+message);System.IO.File.WriteAllText(output+"/final-checks.txt",log.ToString());}
+int step=3;double next=EditorApplication.timeSinceStartup+.6;bool raceWasEnabled=flow.Race.enabled;
+UnityEditor.EditorApplication.CallbackFunction tick=null;tick=()=>{if(EditorApplication.timeSinceStartup<next)return;next=EditorApplication.timeSinceStartup+.6;AudioListener.volume=0;
+try{
+ if(step==0){flow.Race.FreeRoam=true;typeof(Racer.RaceFlow).GetMethod("SetStage",flags).Invoke(flow,new object[]{Racer.RaceFlow.Stage.Racing});}
+ if(step==1){int home=Array.FindIndex(world.destinations,d=>d.id=="home");world.Reveal(world.destinations[home].position);world.Open();world.RequestTravel(home);}
+ if(step==2){Check(world.ConfirmTravel()&&!world.Opened&&flow.State==Racer.RaceFlow.Stage.Racing,"One supported discovered-home travel closes map and resumes");Check(flow.Notice?.StartsWith("Arrived at")==true,"Travel arrival notice");flow.Pause();flow.QuitRace();}
+ if(step==3){flow.Race.opponents=true;flow.Race.traffic=false;flow.Race.FreeRoam=false;flow.Race.laps=3;flow.StartRace();flow.Race.enabled=false;typeof(Racer.RaceFlow).GetMethod("SetStage",flags).Invoke(flow,new object[]{Racer.RaceFlow.Stage.Racing});var p=flow.Race.Progress;double time=flow.Race.Clock;p.Cross(0,true,time);int lap=0;while(!p.Finished){for(int gate=1;gate<=p.CheckpointCount;gate++)p.Cross(gate,true,time+gate*.01);time+=60+(lap++%2)*10;p.Cross(0,true,time);flow.Boards.CompletedLap("final-ui",flow.Race.Category,"moto",p);}flow.Boards.CompletedRace("final-ui",flow.Race.Category,"moto",p,time);flow.FinishCards.Finish(flow.Boards,flow.Race.Category,"final-ui",p,time);}
+ if(step==4){Check(menus.CanSimulateRemaining,"Complete Race visible while unfinished AI remain");Racer.ThreeFeatureValidation.CaptureUi(output+"/finish-waiting.png");var button=(UnityEngine.UI.Button)typeof(Racer.RaceMenus).GetField("simulateRemaining",flags).GetValue(menus);button.onClick.Invoke();button.onClick.Invoke();Check(flow.State==Racer.RaceFlow.Stage.Results&&flow.Race.ClassificationFinal,"Complete Race reaches final results; repeat activation is harmless");Check(flow.Race.Racers.Where(r=>r.IsAi).All(r=>r.Estimated||r.Dnf),"Unfinished AI remain explicitly estimated or DNF");}
+ if(step==5){Racer.ThreeFeatureValidation.CaptureUi(output+"/results-final-720.png");Racer.ThreeFeatureValidation.CaptureUi(output+"/results-final-800.png",1280,800);Racer.ThreeFeatureValidation.CaptureUi(output+"/results-final-1080.png",1920,1080);typeof(Racer.RaceMenus).GetField("resultTab",flags).SetValue(menus,1);flow.RefreshMenu();}
+ if(step==6){Check(flow.Race.Progress.LapTimes.Count==flow.Race.laps,"Dedicated lap view uses the recorded lap list");Racer.ThreeFeatureValidation.CaptureUi(output+"/lap-times-final.png");flow.OpenBoards();}
+ if(step==7){typeof(Racer.RaceMenus).GetField("recordTab",flags).SetValue(menus,3);flow.RefreshMenu();Racer.ThreeFeatureValidation.CaptureUi(output+"/jumps-empty.png");}
+ if(step++>=8){EditorApplication.update-=tick;flow.Race.enabled=raceWasEnabled;System.IO.File.WriteAllText(output+"/final-done.txt",log.ToString());EditorApplication.isPlaying=false;}
+}catch(Exception e){EditorApplication.update-=tick;System.IO.File.WriteAllText(output+"/final-error.txt",e.ToString());flow.Race.enabled=raceWasEnabled;EditorApplication.isPlaying=false;}};
+EditorApplication.update+=tick;return "Scheduled final one-travel and synthetic finish transition checks";

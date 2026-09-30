@@ -1,0 +1,7 @@
+System.NullReferenceException: Object reference not set to an instance of an object
+  at Racer.AmbientVehicle.Select () [0x0019e] in C:\Users\danmo\Racer\Assets\Scripts\AmbientVehicle.cs:81
+  at Racer.AmbientVehicle.Initialize () [0x00667] in C:\Users\danmo\Racer\Assets\Scripts\AmbientVehicle.cs:63
+  at Racer.RaceDirector.CreateCars () [0x002c7] in C:\Users\danmo\Racer\Assets\Scripts\RaceDirector.cs:215
+  at Racer.RaceDirector.RestartRace () [0x00317] in C:\Users\danmo\Racer\Assets\Scripts\RaceDirector.cs:140
+  at Racer.RaceFlow.StartFreeRoam () [0x0002f] in C:\Users\danmo\Racer\Assets\Scripts\RaceFlow.cs:270
+  at PipelineEvaluation.PipelineEval_60d78e19+<>c__DisplayClass0_0.<Execute>b__1 () [0x00046] in <ca161eafcce1498e93e89aa9621fb53e>:0
