@@ -9,7 +9,7 @@ if($state.game.manifest.build -ne 46000 -or !$hosted.startupReady){throw 'Delive
 if(($launch | ConvertTo-Json -Depth 20) -notmatch '46000'){throw 'Production launcher verification missing'}
 function Bytes([string]$p){$n=(Get-ChildItem -LiteralPath $p -File -Recurse | Measure-Object -Property Length -Sum).Sum;if($null -eq $n){return 0};return [long]$n}
 $before=Bytes $builds;$freeBefore=(Get-PSDrive C).Free
-$targets=@((Join-Path $builds 'BackyardReverse-initial-candidate'),(Join-Path $builds 'Racer-0.46.0-review1-Windows'),(Join-Path $builds 'LauncherRelease-46000/assets/game.zip'),(Join-Path $builds 'Latest/versions/44000'),[string]$hosted.work)
+$targets=@((Join-Path $root 'Temp/BackyardTreeBaselines'),(Join-Path $builds 'BackyardReverse-initial-candidate'),(Join-Path $builds 'Racer-0.46.0-review1-Windows'),(Join-Path $builds 'LauncherRelease-46000/assets/game.zip'),(Join-Path $builds 'Latest/versions/44000'),[string]$hosted.work)
 $running=Get-CimInstance Win32_Process | Where-Object {$_.ExecutablePath -and $_.ExecutablePath.StartsWith($root,[StringComparison]::OrdinalIgnoreCase)}
 $removed=@()
 foreach($candidate in $targets){

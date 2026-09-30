@@ -1,0 +1,31 @@
+{
+  "freeBefore": 321829588992,
+  "buildsRecovered": 1855092358,
+  "removed": [
+    {
+      "path": "C:\\Users\\danmo\\Racer\\Temp\\BackyardTreeBaselines",
+      "bytes": 196483055
+    },
+    {
+      "path": "C:\\Users\\danmo\\Racer\\Builds\\Racer-0.46.0-review1-Windows",
+      "bytes": 1474101219
+    },
+    {
+      "path": "C:\\Users\\danmo\\Racer\\Builds\\LauncherRelease-46000\\assets\\game.zip",
+      "bytes": 380991139
+    },
+    {
+      "path": "C:\\Users\\danmo\\Racer\\Temp\\backyardreverse-hosted-1790743510484984500",
+      "bytes": 1476457397
+    }
+  ],
+  "retained": [
+    "Latest complete root runtime",
+    "managed 46000",
+    "managed 45000",
+    "music, publisher keys/tools, launcher, metadata, source, evidence, saves"
+  ],
+  "freeAfter": 325354590208,
+  "buildsAfter": 7096499334,
+  "buildsBefore": 8951591692
+}
