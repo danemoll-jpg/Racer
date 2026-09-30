@@ -32,3 +32,7 @@ Saved-world inspection found **no distinct ravine at these four collection sites
 Evidence: [height samples](western-terrain.json), views [09](western-woodland-09.png), [10](western-woodland-10.png), [11](western-woodland-11.png), [12](western-woodland-12.png). Terrain, roads, buildings, existing acorn access spurs, saved site IDs and trigger code are unchanged. Added general roadside woodland preserves the acorn access corridors.
 
 **Recommendation for Dan's decision:** treat “Western gullies” as an inaccurate collection-category label; consider renaming/reorganizing it in a later task. Do not interpret it as the accepted Backyard ravine. No rename, removal, gully construction or trigger redesign was performed here.
+
+## Trigger and access result
+
+The fresh Windows 0.45 candidate collected **all four existing sites** using continuous grounded position samples from each documented road access to the acorn. All four normal `ExplorationCollection.FixedUpdate` swept-distance triggers fired and saved their original IDs. No trigger defect was found. A 0.65 m-radius capsule sampled along each approach found **no solid non-ground obstruction**. This supports normal motorcycle access; the test is a bounded positional/physics query, not a claim of human driving or an all-vehicle traversal trial. No collection logic was modified. The unrelated Anderson travel-point failure in that same fixture does not invalidate these four passing checks.

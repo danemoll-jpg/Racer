@@ -9,7 +9,7 @@ if($state.game.manifest.build -ne 45000 -or !$hosted.startupReady){throw 'Delive
 if(($launch | ConvertTo-Json -Depth 20) -notmatch '45000'){throw 'Production launcher verification missing'}
 function Bytes([string]$p){$n=(Get-ChildItem -LiteralPath $p -File -Recurse | Measure-Object -Property Length -Sum).Sum;if($null -eq $n){return 0};return [long]$n}
 $before=Bytes $builds;$freeBefore=(Get-PSDrive C).Free
-$targets=@((Join-Path $builds 'Racer-0.45.0-review1-Windows'),(Join-Path $builds 'LauncherRelease-45000/assets/game.zip'),(Join-Path $builds 'Latest/versions/43000'),[string]$hosted.work)
+$targets=@((Join-Path $builds 'WorldCleanup-initial-candidate'),(Join-Path $builds 'Racer-0.45.0-review1-Windows'),(Join-Path $builds 'LauncherRelease-45000/assets/game.zip'),(Join-Path $builds 'Latest/versions/43000'),[string]$hosted.work)
 $running=Get-CimInstance Win32_Process | Where-Object {$_.ExecutablePath -and $_.ExecutablePath.StartsWith($root,[StringComparison]::OrdinalIgnoreCase)}
 $removed=@()
 foreach($candidate in $targets){
@@ -21,3 +21,4 @@ foreach($candidate in $targets){
 $after=Bytes $builds;$freeAfter=(Get-PSDrive C).Free
 @{buildsBefore=$before;buildsAfter=$after;freeBefore=$freeBefore;freeAfter=$freeAfter;buildsRecovered=$before-$after;removed=$removed;retained=@('Latest complete root runtime','managed 45000','managed 44000','music, publisher keys/tools, launcher, metadata, source, evidence, saves')} | ConvertTo-Json -Depth 8 | Set-Content (Join-Path $evidence 'cleanup.json')
 Get-Content (Join-Path $evidence 'cleanup.json')
+

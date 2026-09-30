@@ -2,8 +2,9 @@ using System;using System.IO;using System.Linq;using System.Collections;using Sy
 namespace Racer {
 public sealed class WorldCleanupChecks:MonoBehaviour {
  const string Output="Docs/WorldCleanup";
+ public bool arrivalOnly;
  readonly List<string> checks=new();
- [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]static void Boot(){var args=Environment.GetCommandLineArgs();if(args.Contains("-worldCleanupCheck")&&args.Contains("-racerTestSave")&&!FindAnyObjectByType<WorldCleanupChecks>()){var go=new GameObject("Isolated world map checks");DontDestroyOnLoad(go);go.AddComponent<WorldCleanupChecks>();}}
+ [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]static void Boot(){var args=Environment.GetCommandLineArgs();if(args.Contains("-worldCleanupCheck")&&args.Contains("-racerTestSave")&&!FindAnyObjectByType<WorldCleanupChecks>()){var go=new GameObject("Isolated world map checks");DontDestroyOnLoad(go);go.AddComponent<WorldCleanupChecks>().arrivalOnly=args.Contains("-worldCleanupArrivalOnly");}}
  void Check(bool ok,string text){checks.Add((ok?"PASS ":"FAIL ")+text);File.WriteAllLines(Output+"/ui-checks.txt",checks);}
  void Update(){AudioListener.volume=0;}
  static void Complete(RaceProgress p,double start,double finish){p.BeginTiming(start);p.Cross(0,true,start);for(int lap=0;lap<p.TargetLaps;lap++){for(int g=1;g<=p.CheckpointCount;g++)p.Cross(g,true,start+1);p.Cross(0,true,start+(finish-start)*(lap+1)/p.TargetLaps);}}
@@ -15,6 +16,13 @@ public sealed class WorldCleanupChecks:MonoBehaviour {
  // Isolated UI fixture: skip startup art/audio, just as standalone -racerSkipTitle does.
  var title=FindAnyObjectByType<StartupTitle>();if(title)DestroyImmediate(title.gameObject);if(EventSystem.current){var input=EventSystem.current.GetComponent<BaseInputModule>();if(input)input.enabled=true;}flow.EnterMenuAfterTitle();yield return null;
  flow.OpenGarage();flow.SelectVehicle("moto");flow.CloseGarage();race.laps=1;race.opponents=true;race.traffic=false;flow.Save.Settings.estimateAiFinishes=false;
+ if(arrivalOnly){flow.StartFreeRoam();yield return null;var arrivalMap=race.GetComponent<ExplorationMap>();var d=arrivalMap.destinations.Single(d=>d.id=="property-anderson");arrivalMap.Reveal(d.position);bool ok=arrivalMap.Travel(Array.IndexOf(arrivalMap.destinations,d));File.WriteAllText(Output+"/anderson-arrival-"+(Application.isEditor?"editor":"player")+".txt",(ok?"PASS ":"FAIL ")+d.title+" "+d.position+" yaw="+d.yaw+" "+arrivalMap.TravelMessage);
+#if UNITY_EDITOR
+ UnityEditor.EditorApplication.isPlaying=false;
+#else
+ Application.Quit(ok?0:1);
+#endif
+ yield break;}
  flow.StartRace();while(flow.State!=RaceFlow.Stage.Racing)yield return null;
 
  var map=race.GetComponent<ExplorationMap>();map.Open();yield return null;
