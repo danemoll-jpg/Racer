@@ -9,7 +9,7 @@
 - Do not silently modify or weaken CODEX_RULES.md. Changes to standing rules require an explicit instruction from Dan.
 - Root AGENTS.md points future Codex tasks to both files.
 
-## Current task — 2026-09-30 / controller-first UI Phases 1 + 2 — IMPLEMENTED / DELIVERY IN PROGRESS
+## Current task — 2026-09-30 / controller-first UI Phases 1 + 2 — 0.48.0-review1 DELIVERED
 
 - Dan approved Docs/UI/UI_AUDIT.md and Docs/UI/UI_REDESIGN_PLAN.md and explicitly requested **one combined review build for Phases 1 and 2**. The internal five-phase dependencies remain; Phases 3, 4 and 5 are **not authorized for this build**.
 - Safety checkpoint: clean `main` at `f6b751cbce7263dcc11b91bfb62b7cfb05cc5063` before changes.
@@ -18,7 +18,8 @@
 - Controller folder picker: local roots/directories, Parent, Use This Folder, Cancel and optional path entry; bounded asynchronous enumeration, link/network rejection and access/missing-folder handling. Cancel does not mutate radio state. Shared keyboard supports controller characters/delete/space/shift/caret/Save/Cancel and the same keyboard draft. Playlist naming reuses it; no playlist-editor or save-format redesign.
 - World Map interaction, records tables, playlist editor, finish/results/championship redesign and celebrations remain deferred. Existing destinations remain reachable. World/geometry, physics, AI, recovery, scoring/CR-064, navigation arrows, HUD and minimap are protected.
 - **Targeted validation COMPLETE.** Initial 24/26 pass; fixture title/save-root issues corrected. Final follow-up **15/15 pass**, including real EventSystem dispatch of simulated A and overridden X, B/Escape, release barriers, modal cancellation, caller restoration, device switching without draft loss, valid/error folder commits and one track scene switch retaining music. Separate keyboard-Space leakage check passes. Screenshot inspection verified graphical colored face buttons, trigger/stick controls, lists, Garage and keyboard utilities. Fixed missing CanvasRenderer and Unity default-action reassignment discovered during verification. Existing Editor-only AmbientVehicle constructor errors were observed; that unrelated source remains unchanged. No physical-controller/Deck or subjective visual acceptance claimed. **STOP TESTING.**
-- Single release: **0.48.0-review1 / game-48000**. Completion commit/push, fresh build, publication, production launcher verification and cleanup are in progress. Do not present the work as delivered until those gates are complete.
+- **DELIVERED as one review build: 0.48.0-review1 / game-48000.** Completion source **`ed4eafb362efeee6c8b01067c199921ee1b4550c`** pushed and verified on origin/main. Fresh Unity Windows build succeeded with zero errors, 12 warnings, 12m32.409s. All **230** signed files match the fresh runtime, ZIP, complete root Latest and managed 48000. All three remote asset sizes/digests and latest signed catalog verified; actual public download and isolated startup passed without errors/exceptions. Existing production updater preserved music and reports no updates pending. Unchanged Play-Racer.cmd launched responsive `Builds/Latest/versions/48000/Racer.exe`. [Delivery evidence](Docs/UI/Phase12/PUBLICATION.md).
+- Cleanup complete: Builds **8,958,221,638 → 7,165,262,115 bytes**; **1,792,959,523 bytes** recovered there, **3,240,182,675 bytes** disposable artifacts removed including the temporary public installation. Final C: free **330,517,614,592 bytes**. Complete root Latest, current 48000 and previous 47000 retained. **STOP for Dan's controller/visual review. Phases 3–5 remain deferred.**
 
 ## Current delivery — 2026-09-30 / focused Backyard Reverse corrections — 0.47.0-review1 DELIVERED
 
