@@ -1,0 +1,111 @@
+{
+  "checkpoint": "50c108a7ba9dd51db89557bc4d7f17a0bd75cbf5",
+  "forwardComponentsUnchanged": [
+    {
+      "type": "ForestLayout",
+      "id": "2914576"
+    },
+    {
+      "type": "RaceRoad",
+      "id": "109760614"
+    },
+    {
+      "type": "ShortcutUndergrowth",
+      "id": "288170403"
+    },
+    {
+      "type": "ShortcutUndergrowth",
+      "id": "316432710"
+    },
+    {
+      "type": "RaceGate",
+      "id": "533215352"
+    },
+    {
+      "type": "WoodlandRoute",
+      "id": "671387479"
+    },
+    {
+      "type": "WoodlandRoute",
+      "id": "837557590"
+    },
+    {
+      "type": "RaceGate",
+      "id": "860308276"
+    },
+    {
+      "type": "RaceRoad",
+      "id": "918881214"
+    },
+    {
+      "type": "RaceGate",
+      "id": "1174348956"
+    },
+    {
+      "type": "RaceGate",
+      "id": "1239179593"
+    },
+    {
+      "type": "RaceRoad",
+      "id": "1260633134"
+    },
+    {
+      "type": "BackyardForwardCourse",
+      "id": "1260633139"
+    },
+    {
+      "type": "RaceRoad",
+      "id": "1275243302"
+    },
+    {
+      "type": "RaceGate",
+      "id": "1349857022"
+    },
+    {
+      "type": "RaceGate",
+      "id": "1426625464"
+    },
+    {
+      "type": "RaceRoad",
+      "id": "1446515900"
+    },
+    {
+      "type": "RaceGate",
+      "id": "1451002378"
+    },
+    {
+      "type": "RaceRoad",
+      "id": "1514369724"
+    },
+    {
+      "type": "RaceGate",
+      "id": "1578491882"
+    },
+    {
+      "type": "RaceRoad",
+      "id": "1663362186"
+    },
+    {
+      "type": "RaceGate",
+      "id": "1766835227"
+    },
+    {
+      "type": "RaceRoad",
+      "id": "1892688991"
+    }
+  ],
+  "globalSystemsUnchanged": [
+    "RacingMiniMap",
+    "RaceFlow",
+    "ArcadeVehicle",
+    "RoadDriver",
+    "RaceProgress",
+    "RaceRoad",
+    "WoodlandRoute",
+    "ShortcutStrategy",
+    "BackyardForwardCourse",
+    "VehicleRespawn",
+    "BreakableProp"
+  ],
+  "approvedForwardMeshAssets": "unchanged"
+}

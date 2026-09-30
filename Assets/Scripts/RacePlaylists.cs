@@ -7,9 +7,9 @@ namespace Racer
 {
     public sealed class RacePlaylists
     {
-        public static readonly string[] Scenes={"StreetLoopGreybox","StreetLoopReverse","LakeWoods","ForestLoopReverse","MountainLoop","MountainLoopReverse","DansBackyardForward"};
+        public static readonly string[] Scenes={"StreetLoopGreybox","StreetLoopReverse","LakeWoods","ForestLoopReverse","MountainLoop","MountainLoopReverse","DansBackyardForward","DansBackyardReverse"};
         // Serialized playlist indices and scene identities stay stable; only presentation is sorted.
-        public static readonly string[] Titles={"Street Loop - Forward","Street Loop - Reverse","Forest Loop - Forward","Forest Loop - Reverse","Mountain Loop - Forward","Mountain Loop - Reverse","Dan's Backyard Loop - Forward"};
+        public static readonly string[] Titles={"Street Loop - Forward","Street Loop - Reverse","Forest Loop - Forward","Forest Loop - Reverse","Mountain Loop - Forward","Mountain Loop - Reverse","Dan's Backyard Loop - Forward","Dan's Backyard Loop - Reverse"};
         public enum TrackDifficulty { Unassigned, Easy, Medium, Hard }
         public static readonly TrackDifficulty[] Difficulties=new TrackDifficulty[Scenes.Length];
         public static IEnumerable<int> DisplayOrder => Enumerable.Range(0,Scenes.Length)

@@ -9,7 +9,16 @@
 - Do not silently modify or weaken CODEX_RULES.md. Changes to standing rules require an explicit instruction from Dan.
 - Root AGENTS.md points future Codex tasks to both files.
 
-## Current task — 2026-09-29 / world, map and presentation cleanup — 0.45.0-review1 DELIVERED
+## Current task — 2026-09-29 / shared-world corrections and Backyard Reverse — IN PROGRESS
+
+- Dan completed review of 0.45 and explicitly authorized construction of **Dan's Backyard Loop - Reverse**. This supersedes all older Reverse deferrals below. **Backyard Forward, including its main route and two shortcuts, is APPROVED and PROTECTED.** Historical Forward anchors remain reference data.
+- Safety checkpoint: clean `main` at `50c108a7ba9dd51db89557bc4d7f17a0bd75cbf5` before edits.
+- World authoring pass saved in all seven established shared-property scenes: complete ramp-tree removal on Street Reverse; permanent accepted McFadden pool/lake geometry with local basin/shell support; existing Roger house moved from `(448.61554,82.27071,-129.65616)` to `(440,86.96748,-82)` with local foundation support and landmark/collection arrival updates; complete tree grounding in a 65m region around `(370.3,12.7)`; physical lettering uses depth testing and back-face culling. Technical verification remains pending.
+- Inspection found the authoritative McFadden pool/lake in **ForestLoopReverse**, rather than StreetLoopReverse as reported. Reuse its actual water geometry at pool `(416,34.65,-197)` and lake `(384,33.35,-194.1)`; do not copy its course-specific launch or AI data. All current scene variants contain this same property geography.
+- Reverse construction uses Forward's accepted world, with distinct north/south gully crossings, wooded dump bypass through `(231.4,-25.6)` toward `(345.6,-8.8)`, and the pool-house flight near `(378.6,-9.8)`. No optional Reverse shortcuts, global vehicle/AI tuning, minimap redesign or Forward route edits are authorized.
+- [Work evidence](Docs/BackyardReverse/) is provisional until targeted motorcycle/ATV jumps, lap/checkpoints, one AI event, world support/sign checks, final maps and normal publication/launcher/cleanup are complete. No release or acceptance claimed yet.
+
+## Previous delivery — 2026-09-29 / world, map and presentation cleanup — 0.45.0-review1 DELIVERED
 
 - Safety checkpoint: clean `main` at `132bc5719436a5cebdcc76c3c16d1816e088ee13`. Preserve accepted Backyard Forward/shortcuts, all established geometry, vehicle/AI/recovery and racing minimap. Western Gullies is AUDIT ONLY.
 - Temporary Backyard marker subtrees removed across shipped scenes; all nine reference coordinates retained in [reference table](Docs/WorldCleanup/REFERENCE_ANCHORS.md), existing atlas and authoring/course data. **Backyard Reverse is upcoming, not abandoned, and is NOT being built in this task.**

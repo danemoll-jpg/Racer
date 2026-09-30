@@ -1,0 +1,1 @@
+First construction stopped in background Editor because unbounded authoring proximity checks scanned unrelated terrain. All world changes were saved. The unfinished Reverse scene was byte-identical to updated Forward; only that clone and three unreferenced generated mesh assets were removed. Rerun uses bounded spatial indexing, unchanged intended geometry.

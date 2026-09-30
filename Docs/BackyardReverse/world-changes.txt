@@ -1,0 +1,43 @@
+SCENE StreetLoopGreybox
+roger-support Ground_560_320 changed samples 7104
+Roger existing house (448.62, 82.27, -129.66) -> (440.00, 86.97, -82.00); local footprint support floor=86.34748
+permanent-water-support Ground_560_240 changed samples 27108
+Complete trees removed=7, grounded=14, render components=50
+Physical lettering with depth testing and back-face culling=62
+SCENE StreetLoopReverse
+roger-support Ground_560_320 changed samples 7104
+Roger existing house (448.62, 82.27, -129.66) -> (440.00, 86.97, -82.00); local footprint support floor=86.34748
+permanent-water-support Ground_560_240 changed samples 30633
+permanent-water-support Ground_House3 supported valley driveway changed samples 5469
+Complete trees removed=19, grounded=14, render components=82
+Physical lettering with depth testing and back-face culling=73
+SCENE LakeWoods
+roger-support Ground_560_320 changed samples 12612
+Roger existing house (448.62, 82.27, -129.66) -> (440.00, 86.97, -82.00); local footprint support floor=86.34748
+permanent-water-support Ground_560_240 changed samples 43464
+Complete trees removed=9, grounded=14, render components=105
+Physical lettering with depth testing and back-face culling=61
+SCENE ForestLoopReverse
+roger-support Ground_560_320 changed samples 12612
+Roger existing house (448.62, 82.27, -129.66) -> (440.00, 86.97, -82.00); local footprint support floor=86.34748
+permanent-water-support Ground_560_240 changed samples 45966
+Complete trees removed=8, grounded=14, render components=101
+Physical lettering with depth testing and back-face culling=78
+SCENE MountainLoop
+roger-support Ground_560_320 changed samples 12612
+Roger existing house (448.62, 82.27, -129.66) -> (440.00, 86.97, -82.00); local footprint support floor=86.34748
+permanent-water-support Ground_560_240 changed samples 43464
+Complete trees removed=9, grounded=14, render components=101
+Physical lettering with depth testing and back-face culling=78
+SCENE MountainLoopReverse
+roger-support Ground_560_320 changed samples 12612
+Roger existing house (448.62, 82.27, -129.66) -> (440.00, 86.97, -82.00); local footprint support floor=86.34748
+permanent-water-support Ground_560_240 changed samples 43464
+Complete trees removed=5, grounded=14, render components=93
+Physical lettering with depth testing and back-face culling=85
+SCENE DansBackyardForward
+roger-support Ground_560_320 changed samples 7104
+Roger existing house (448.62, 82.27, -129.66) -> (440.00, 86.97, -82.00); local footprint support floor=86.34748
+permanent-water-support Ground_560_240 changed samples 27108
+Complete trees removed=7, grounded=11, render components=44
+Physical lettering with depth testing and back-face culling=64

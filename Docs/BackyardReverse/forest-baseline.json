@@ -1,0 +1,9970 @@
+[
+  {
+    "scene": "ForestLoopReverse",
+    "objects": [
+      {
+        "path": "House 3 pool and lake/House 3 lake",
+        "p": {
+          "x": 384.0,
+          "y": 33.35,
+          "z": -194.1
+        },
+        "scale": {
+          "x": 38.0,
+          "y": 0.04,
+          "z": 23.0
+        },
+        "forward": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 1.0
+        },
+        "bounds": {
+          "min": {
+            "x": 365.0,
+            "y": 33.3099976,
+            "z": -205.6
+          },
+          "max": {
+            "x": 403.0,
+            "y": 33.39,
+            "z": -182.6
+          }
+        }
+      },
+      {
+        "path": "House 3 pool and lake/House 3 swimming pool",
+        "p": {
+          "x": 416.0,
+          "y": 34.65,
+          "z": -197.0
+        },
+        "scale": {
+          "x": 18.0,
+          "y": 0.08,
+          "z": 16.0
+        },
+        "forward": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 1.0
+        },
+        "bounds": {
+          "min": {
+            "x": 407.0,
+            "y": 34.61,
+            "z": -205.0
+          },
+          "max": {
+            "x": 425.0,
+            "y": 34.6900024,
+            "z": -189.0
+          }
+        }
+      },
+      {
+        "path": "CR056 Forest Loop/Friend's lake - visible shoreline",
+        "p": {
+          "x": 642.0,
+          "y": 78.0,
+          "z": -20.0
+        },
+        "scale": {
+          "x": 134.0,
+          "y": 0.035,
+          "z": 134.0
+        },
+        "forward": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 1.0
+        },
+        "bounds": {
+          "min": {
+            "x": 575.0,
+            "y": 77.965,
+            "z": -87.00003
+          },
+          "max": {
+            "x": 709.0,
+            "y": 78.035,
+            "z": 47.0000038
+          }
+        }
+      },
+      {
+        "path": "CR081 mountain exploration/RIDGE RETURN\nLake / Neighborhood",
+        "p": {
+          "x": 680.64325,
+          "y": 78.60121,
+          "z": -55.1484375
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "forward": {
+          "x": -0.0157401823,
+          "y": 0.0,
+          "z": 0.999876142
+        },
+        "bounds": null
+      },
+      {
+        "path": "CR081 mountain exploration/Lake shore connection",
+        "p": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "forward": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 1.0
+        },
+        "bounds": null
+      },
+      {
+        "path": "House 3 pool and lake",
+        "p": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "forward": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 1.0
+        },
+        "bounds": null
+      },
+      {
+        "path": "Remembered houses and approximate buildings/Original house 2",
+        "p": {
+          "x": 448.61554,
+          "y": 82.2707,
+          "z": -129.656158
+        },
+        "scale": {
+          "x": 1.00000012,
+          "y": 1.0,
+          "z": 1.00000012
+        },
+        "forward": {
+          "x": 0.999575555,
+          "y": 0.0,
+          "z": -0.0291336775
+        },
+        "bounds": null
+      },
+      {
+        "path": "Remembered houses and approximate buildings/Dan - blue X/Reference architecture/Rear swimming pool",
+        "p": {
+          "x": 397.307831,
+          "y": 79.8796158,
+          "z": -12.4610271
+        },
+        "scale": {
+          "x": 11.8,
+          "y": 0.04,
+          "z": 6.80000067
+        },
+        "forward": {
+          "x": 0.999575555,
+          "y": 0.0,
+          "z": -0.0291336775
+        },
+        "bounds": null
+      },
+      {
+        "path": "Remembered houses and approximate buildings/Dan - blue X/Reference architecture/Pool coping",
+        "p": {
+          "x": 397.307831,
+          "y": 79.71962,
+          "z": -12.4610271
+        },
+        "scale": {
+          "x": 13.000001,
+          "y": 0.24,
+          "z": 8.000001
+        },
+        "forward": {
+          "x": 0.999575555,
+          "y": 0.0,
+          "z": -0.0291336775
+        },
+        "bounds": null
+      },
+      {
+        "path": "House 3 pool and lake/Pool edge",
+        "p": {
+          "x": 425.3,
+          "y": 34.77,
+          "z": -197.0
+        },
+        "scale": {
+          "x": 0.6,
+          "y": 0.24,
+          "z": 17.2
+        },
+        "forward": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 1.0
+        },
+        "bounds": {
+          "min": {
+            "x": 425.0,
+            "y": 34.65,
+            "z": -205.6
+          },
+          "max": {
+            "x": 425.599976,
+            "y": 34.89,
+            "z": -188.4
+          }
+        }
+      },
+      {
+        "path": "CR081 mountain exploration/SUMMIT\nBoth trails return to lake",
+        "p": {
+          "x": 921.516235,
+          "y": 156.047531,
+          "z": 161.633636
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "forward": {
+          "x": -0.9886713,
+          "y": 0.0,
+          "z": 0.150096953
+        },
+        "bounds": null
+      },
+      {
+        "path": "House 3 pool and lake/Pool edge",
+        "p": {
+          "x": 416.0,
+          "y": 34.77,
+          "z": -188.7
+        },
+        "scale": {
+          "x": 18.0,
+          "y": 0.24,
+          "z": 0.6
+        },
+        "forward": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 1.0
+        },
+        "bounds": {
+          "min": {
+            "x": 407.0,
+            "y": 34.65,
+            "z": -189.0
+          },
+          "max": {
+            "x": 425.0,
+            "y": 34.89,
+            "z": -188.4
+          }
+        }
+      },
+      {
+        "path": "Remembered houses and approximate buildings/Dan - blue X/Reference architecture/Smaller pool house left of garage/Pool house walls",
+        "p": {
+          "x": 397.157654,
+          "y": 80.86962,
+          "z": -0.4515543
+        },
+        "scale": {
+          "x": 5.0,
+          "y": 2.7,
+          "z": 5.0
+        },
+        "forward": {
+          "x": 0.999575555,
+          "y": 0.0,
+          "z": -0.0291336775
+        },
+        "bounds": null
+      },
+      {
+        "path": "House 3 pool and lake/Pool edge",
+        "p": {
+          "x": 416.0,
+          "y": 34.77,
+          "z": -205.3
+        },
+        "scale": {
+          "x": 18.0,
+          "y": 0.24,
+          "z": 0.6
+        },
+        "forward": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 1.0
+        },
+        "bounds": {
+          "min": {
+            "x": 407.0,
+            "y": 34.65,
+            "z": -205.6
+          },
+          "max": {
+            "x": 425.0,
+            "y": 34.89,
+            "z": -205.0
+          }
+        }
+      },
+      {
+        "path": "CR081 mountain exploration/LAKE SHORE\nBOTH TRAILS RETURN HOME",
+        "p": {
+          "x": 541.9733,
+          "y": 80.2807,
+          "z": -92.6438446
+        },
+        "scale": {
+          "x": 0.9999999,
+          "y": 1.0,
+          "z": 0.9999999
+        },
+        "forward": {
+          "x": 0.8730794,
+          "y": 0.0,
+          "z": -0.487577915
+        },
+        "bounds": null
+      },
+      {
+        "path": "Remembered houses and approximate buildings/Original house 3",
+        "p": {
+          "x": 418.0,
+          "y": 32.75478,
+          "z": -160.0
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "forward": {
+          "x": 0.9236104,
+          "y": 0.0,
+          "z": 0.383332551
+        },
+        "bounds": null
+      },
+      {
+        "path": "Remembered houses and approximate buildings/Dan - blue X/Reference architecture/Batched Pool water",
+        "p": {
+          "x": 415.8,
+          "y": 83.81962,
+          "z": -13.0
+        },
+        "scale": {
+          "x": 1.00000012,
+          "y": 1.0,
+          "z": 1.00000012
+        },
+        "forward": {
+          "x": 0.999575555,
+          "y": 0.0,
+          "z": -0.0291336775
+        },
+        "bounds": {
+          "min": {
+            "x": 393.737427,
+            "y": 79.85962,
+            "z": -18.4575882
+          },
+          "max": {
+            "x": 400.8783,
+            "y": 79.89961,
+            "z": -6.464488
+          }
+        }
+      },
+      {
+        "path": "House 3 pool and lake/Pool edge",
+        "p": {
+          "x": 406.7,
+          "y": 34.77,
+          "z": -197.0
+        },
+        "scale": {
+          "x": 0.6,
+          "y": 0.24,
+          "z": 17.2
+        },
+        "forward": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 1.0
+        },
+        "bounds": {
+          "min": {
+            "x": 406.400024,
+            "y": 34.65,
+            "z": -205.6
+          },
+          "max": {
+            "x": 407.0,
+            "y": 34.89,
+            "z": -188.4
+          }
+        }
+      },
+      {
+        "path": "Remembered houses and approximate buildings/Dan - blue X/Reference architecture/Batched Pool landscaping stone",
+        "p": {
+          "x": 415.8,
+          "y": 83.81962,
+          "z": -13.0
+        },
+        "scale": {
+          "x": 1.00000012,
+          "y": 1.0,
+          "z": 1.00000012
+        },
+        "forward": {
+          "x": 0.999575555,
+          "y": 0.0,
+          "z": -0.0291336775
+        },
+        "bounds": {
+          "min": {
+            "x": 391.154449,
+            "y": 79.4915848,
+            "z": -23.7024059
+          },
+          "max": {
+            "x": 423.2029,
+            "y": 88.9196243,
+            "z": -1.795063
+          }
+        }
+      },
+      {
+        "path": "Remembered houses and approximate buildings/Dan - blue X/Reference architecture/Smaller pool house left of garage",
+        "p": {
+          "x": 397.157654,
+          "y": 79.5196152,
+          "z": -0.4515543
+        },
+        "scale": {
+          "x": 1.00000012,
+          "y": 1.0,
+          "z": 1.00000012
+        },
+        "forward": {
+          "x": 0.999575555,
+          "y": 0.0,
+          "z": -0.0291336775
+        },
+        "bounds": null
+      },
+      {
+        "path": "CR081 mountain exploration/KYLE'S WOODED DRIVE\nLAKE / MOUNTAIN TRAILS",
+        "p": {
+          "x": 463.329163,
+          "y": 85.49101,
+          "z": -22.89255
+        },
+        "scale": {
+          "x": 1.0,
+          "y": 1.0,
+          "z": 1.0
+        },
+        "forward": {
+          "x": 0.0165443011,
+          "y": 0.0,
+          "z": -0.999863148
+        },
+        "bounds": null
+      }
+    ],
+    "near": [
+      {
+        "path": "CR101 local boundary extension/Grounded wood crossbuck",
+        "min": {
+          "x": 398.233429,
+          "y": 78.9805,
+          "z": 36.3045044
+        },
+        "max": {
+          "x": 401.236542,
+          "y": 80.9436,
+          "z": 36.6735764
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/Tree trunk",
+        "min": {
+          "x": 359.436951,
+          "y": 41.82538,
+          "z": -228.766388
+        },
+        "max": {
+          "x": 360.436951,
+          "y": 46.8704147,
+          "z": -227.766388
+        }
+      },
+      {
+        "path": "CR101 local boundary extension/Grounded wood crossbuck",
+        "min": {
+          "x": 409.0859,
+          "y": 78.54746,
+          "z": 33.7942
+        },
+        "max": {
+          "x": 411.088226,
+          "y": 80.84884,
+          "z": 36.3572731
+        }
+      },
+      {
+        "path": "CR097 supported properties and camp/Grounded wood crossbuck",
+        "min": {
+          "x": 388.919922,
+          "y": 78.9710541,
+          "z": -3.66208315
+        },
+        "max": {
+          "x": 389.294373,
+          "y": 80.82164,
+          "z": -0.473314762
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/Tree trunk",
+        "min": {
+          "x": 354.4547,
+          "y": 42.7632256,
+          "z": -231.7146
+        },
+        "max": {
+          "x": 355.4547,
+          "y": 48.4631462,
+          "z": -230.7146
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/CR014 trunk 02081",
+        "min": {
+          "x": 330.584869,
+          "y": 77.4561,
+          "z": 34.4875259
+        },
+        "max": {
+          "x": 331.334869,
+          "y": 86.86511,
+          "z": 35.2375259
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/CR016 trunk 102",
+        "min": {
+          "x": 371.287262,
+          "y": 77.67408,
+          "z": 70.7091751
+        },
+        "max": {
+          "x": 372.037262,
+          "y": 85.68275,
+          "z": 71.4591751
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/CR016 trunk 009",
+        "min": {
+          "x": 373.097748,
+          "y": 80.765625,
+          "z": 24.2462883
+        },
+        "max": {
+          "x": 373.847748,
+          "y": 88.7149658,
+          "z": 24.9962883
+        }
+      },
+      {
+        "path": "CR101 local boundary extension/Grounded wood crossbuck",
+        "min": {
+          "x": 389.170441,
+          "y": 79.18602,
+          "z": 4.93426561
+        },
+        "max": {
+          "x": 389.539154,
+          "y": 81.12526,
+          "z": 7.92312
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/CR016 trunk 035",
+        "min": {
+          "x": 348.2298,
+          "y": 77.09541,
+          "z": 56.2910156
+        },
+        "max": {
+          "x": 348.9798,
+          "y": 85.50551,
+          "z": 57.0410156
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/CR016 trunk 032",
+        "min": {
+          "x": 402.6632,
+          "y": 79.19577,
+          "z": 47.61553
+        },
+        "max": {
+          "x": 403.4132,
+          "y": 89.00447,
+          "z": 48.36553
+        }
+      },
+      {
+        "path": "CR097 supported properties and camp/Grounded wood crossbuck",
+        "min": {
+          "x": 388.666473,
+          "y": 78.97133,
+          "z": -12.3583908
+        },
+        "max": {
+          "x": 389.040924,
+          "y": 80.82172,
+          "z": -9.16962051
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/Tree trunk",
+        "min": {
+          "x": 355.79483,
+          "y": 45.2283249,
+          "z": -214.558853
+        },
+        "max": {
+          "x": 356.79483,
+          "y": 54.2197723,
+          "z": -213.558853
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/CR014 trunk 01109",
+        "min": {
+          "x": 340.425262,
+          "y": 76.5453,
+          "z": 63.49723
+        },
+        "max": {
+          "x": 341.175262,
+          "y": 86.47371,
+          "z": 64.24723
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/CR016 trunk 028",
+        "min": {
+          "x": 364.1184,
+          "y": 78.40842,
+          "z": 46.1981621
+        },
+        "max": {
+          "x": 364.8684,
+          "y": 87.99138,
+          "z": 46.9481621
+        }
+      },
+      {
+        "path": "CR097 supported properties and camp/Grounded wood crossbuck",
+        "min": {
+          "x": 390.737,
+          "y": 79.25546,
+          "z": -41.51603
+        },
+        "max": {
+          "x": 393.942444,
+          "y": 81.14371,
+          "z": -41.14106
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/CR016 trunk 098",
+        "min": {
+          "x": 428.6376,
+          "y": 77.7876053,
+          "z": 23.0094547
+        },
+        "max": {
+          "x": 429.3876,
+          "y": 87.04546,
+          "z": 23.7594547
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/Tree trunk",
+        "min": {
+          "x": 331.2845,
+          "y": 78.21282,
+          "z": 9.998415
+        },
+        "max": {
+          "x": 332.2845,
+          "y": 83.57157,
+          "z": 10.998415
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/CR014 trunk 03307",
+        "min": {
+          "x": 326.023773,
+          "y": 77.53616,
+          "z": 4.87516451
+        },
+        "max": {
+          "x": 326.773773,
+          "y": 86.352356,
+          "z": 5.62516451
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/CR014 trunk 01617",
+        "min": {
+          "x": 339.9383,
+          "y": 76.9948044,
+          "z": 55.0016861
+        },
+        "max": {
+          "x": 340.6883,
+          "y": 85.06068,
+          "z": 55.7516861
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/Tree trunk",
+        "min": {
+          "x": 334.449066,
+          "y": 78.6267548,
+          "z": 10.0078239
+        },
+        "max": {
+          "x": 335.449066,
+          "y": 83.7693,
+          "z": 11.0078239
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/CR016 trunk 012",
+        "min": {
+          "x": 357.042816,
+          "y": 79.46659,
+          "z": 30.9101238
+        },
+        "max": {
+          "x": 357.792816,
+          "y": 87.0802841,
+          "z": 31.6601238
+        }
+      },
+      {
+        "path": "Remembered houses and approximate buildings/Dan - blue X/Reference architecture/Deck support",
+        "min": {
+          "x": 405.7682,
+          "y": 80.41962,
+          "z": -9.833382
+        },
+        "max": {
+          "x": 406.015076,
+          "y": 83.91962,
+          "z": -9.586491
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/CR014 trunk 05778",
+        "min": {
+          "x": 339.7645,
+          "y": 43.4834442,
+          "z": -217.045364
+        },
+        "max": {
+          "x": 340.5145,
+          "y": 52.31636,
+          "z": -216.295364
+        }
+      },
+      {
+        "path": "CR101 local boundary extension/Grounded wood crossbuck",
+        "min": {
+          "x": 389.3802,
+          "y": 79.1862946,
+          "z": 12.1312113
+        },
+        "max": {
+          "x": 389.735779,
+          "y": 81.12523,
+          "z": 14.6702566
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/CR016 trunk 041",
+        "min": {
+          "x": 402.3049,
+          "y": 79.8504944,
+          "z": 55.4983368
+        },
+        "max": {
+          "x": 403.0549,
+          "y": 89.02426,
+          "z": 56.2483368
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/CR014 trunk 02988",
+        "min": {
+          "x": 304.77655,
+          "y": 35.4833527,
+          "z": -266.487244
+        },
+        "max": {
+          "x": 305.52655,
+          "y": 44.018074,
+          "z": -265.737244
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/CR016 trunk 042",
+        "min": {
+          "x": 410.2405,
+          "y": 80.07884,
+          "z": 56.35947
+        },
+        "max": {
+          "x": 410.9905,
+          "y": 87.94289,
+          "z": 57.10947
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/CR014 trunk 00536",
+        "min": {
+          "x": 287.9336,
+          "y": 40.61486,
+          "z": -249.911575
+        },
+        "max": {
+          "x": 288.6836,
+          "y": 48.585907,
+          "z": -249.161575
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/CR016 trunk 046",
+        "min": {
+          "x": 378.856476,
+          "y": 78.7294846,
+          "z": 62.28249
+        },
+        "max": {
+          "x": 379.606476,
+          "y": 87.04333,
+          "z": 63.03249
+        }
+      },
+      {
+        "path": "CR101 local boundary extension/Grounded wood crossbuck",
+        "min": {
+          "x": 389.927551,
+          "y": 79.53864,
+          "z": 30.9089546
+        },
+        "max": {
+          "x": 390.300781,
+          "y": 81.59377,
+          "z": 34.054882
+        }
+      },
+      {
+        "path": "Remembered houses and approximate buildings/Dan - blue X/Reference architecture/White porch post",
+        "min": {
+          "x": 422.8992,
+          "y": 83.81962,
+          "z": -13.30749
+        },
+        "max": {
+          "x": 423.094635,
+          "y": 86.81962,
+          "z": -13.1120348
+        }
+      },
+      {
+        "path": "Remembered houses and approximate buildings/Dan - blue X/Reference architecture/Brick chimney",
+        "min": {
+          "x": 409.191925,
+          "y": 80.16962,
+          "z": -21.804903
+        },
+        "max": {
+          "x": 410.735016,
+          "y": 88.76962,
+          "z": -20.2618389
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/Tree trunk",
+        "min": {
+          "x": 323.233063,
+          "y": 34.2319565,
+          "z": -281.3414
+        },
+        "max": {
+          "x": 324.233063,
+          "y": 39.0737076,
+          "z": -280.3414
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/CR016 trunk 036",
+        "min": {
+          "x": 355.9852,
+          "y": 77.44125,
+          "z": 54.1760063
+        },
+        "max": {
+          "x": 356.7352,
+          "y": 86.2482,
+          "z": 54.9260063
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/CR016 trunk 031",
+        "min": {
+          "x": 394.555847,
+          "y": 79.2688141,
+          "z": 48.9997025
+        },
+        "max": {
+          "x": 395.305847,
+          "y": 89.0020142,
+          "z": 49.7497025
+        }
+      },
+      {
+        "path": "CR101 local boundary extension/Grounded wood crossbuck",
+        "min": {
+          "x": 389.594574,
+          "y": 79.5905762,
+          "z": 19.4852314
+        },
+        "max": {
+          "x": 389.9678,
+          "y": 81.66989,
+          "z": 22.6311626
+        }
+      },
+      {
+        "path": "CR097 supported properties and camp/Grounded wood crossbuck",
+        "min": {
+          "x": 427.433563,
+          "y": 79.59332,
+          "z": 15.30333
+        },
+        "max": {
+          "x": 430.660675,
+          "y": 82.31981,
+          "z": 15.7464762
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/CR016 trunk 021",
+        "min": {
+          "x": 363.8588,
+          "y": 79.01773,
+          "z": 39.36805
+        },
+        "max": {
+          "x": 364.6088,
+          "y": 87.33302,
+          "z": 40.11805
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/CR016 trunk 038",
+        "min": {
+          "x": 372.785,
+          "y": 78.26454,
+          "z": 56.29344
+        },
+        "max": {
+          "x": 373.535,
+          "y": 87.4610443,
+          "z": 57.04344
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/CR014 trunk 02721",
+        "min": {
+          "x": 308.167938,
+          "y": 54.1983681,
+          "z": -207.0966
+        },
+        "max": {
+          "x": 308.917938,
+          "y": 63.7317238,
+          "z": -206.3466
+        }
+      },
+      {
+        "path": "CR097 supported properties and camp/Grounded wood crossbuck",
+        "min": {
+          "x": 387.8216,
+          "y": 78.907074,
+          "z": -41.431057
+        },
+        "max": {
+          "x": 391.027039,
+          "y": 81.10547,
+          "z": -41.0560875
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/CR016 trunk 024",
+        "min": {
+          "x": 388.133942,
+          "y": 79.3290939,
+          "z": 40.5661964
+        },
+        "max": {
+          "x": 388.883942,
+          "y": 88.19265,
+          "z": 41.3161964
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/CR016 trunk 019",
+        "min": {
+          "x": 426.778168,
+          "y": 77.46219,
+          "z": 30.3378544
+        },
+        "max": {
+          "x": 427.528168,
+          "y": 85.02539,
+          "z": 31.0878544
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/CR014 trunk 00793",
+        "min": {
+          "x": 316.73288,
+          "y": 76.03211,
+          "z": -4.665604
+        },
+        "max": {
+          "x": 317.48288,
+          "y": 83.84498,
+          "z": -3.915604
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/CR016 trunk 020",
+        "min": {
+          "x": 354.507965,
+          "y": 78.57628,
+          "z": 39.77123
+        },
+        "max": {
+          "x": 355.257965,
+          "y": 87.07912,
+          "z": 40.52123
+        }
+      },
+      {
+        "path": "CR097 supported properties and camp/Grounded wood crossbuck",
+        "min": {
+          "x": 387.8216,
+          "y": 78.90707,
+          "z": -41.3460846
+        },
+        "max": {
+          "x": 388.196045,
+          "y": 80.82021,
+          "z": -38.15732
+        }
+      },
+      {
+        "path": "CR101 local boundary extension/Grounded wood crossbuck",
+        "min": {
+          "x": 390.094025,
+          "y": 79.26597,
+          "z": 36.5417328
+        },
+        "max": {
+          "x": 393.097137,
+          "y": 81.21978,
+          "z": 36.9108124
+        }
+      },
+      {
+        "path": "CR097 supported properties and camp/Grounded wood crossbuck",
+        "min": {
+          "x": 387.99057,
+          "y": 78.9706955,
+          "z": -35.5485458
+        },
+        "max": {
+          "x": 388.365021,
+          "y": 80.82113,
+          "z": -32.35978
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/CR016 trunk 003",
+        "min": {
+          "x": 380.784729,
+          "y": 82.70799,
+          "z": 6.23582745
+        },
+        "max": {
+          "x": 381.534729,
+          "y": 92.30812,
+          "z": 6.98582745
+        }
+      },
+      {
+        "path": "CR101 local boundary extension/Grounded wood crossbuck",
+        "min": {
+          "x": 400.9465,
+          "y": 78.88739,
+          "z": 36.2254257
+        },
+        "max": {
+          "x": 403.949677,
+          "y": 80.83115,
+          "z": 36.5945053
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/CR016 trunk 044",
+        "min": {
+          "x": 362.709167,
+          "y": 77.18837,
+          "z": 62.735405
+        },
+        "max": {
+          "x": 363.459167,
+          "y": 86.70732,
+          "z": 63.485405
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/CR016 trunk 043",
+        "min": {
+          "x": 355.7408,
+          "y": 76.82915,
+          "z": 62.6460876
+        },
+        "max": {
+          "x": 356.4908,
+          "y": 85.2977,
+          "z": 63.3960876
+        }
+      },
+      {
+        "path": "CR101 local boundary extension/Grounded wood crossbuck",
+        "min": {
+          "x": 395.5203,
+          "y": 79.09361,
+          "z": 36.38358
+        },
+        "max": {
+          "x": 398.5234,
+          "y": 81.03697,
+          "z": 36.75266
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/CR016 trunk 007",
+        "min": {
+          "x": 386.5307,
+          "y": 81.88504,
+          "z": 16.0754242
+        },
+        "max": {
+          "x": 387.2807,
+          "y": 89.9322052,
+          "z": 16.8254242
+        }
+      },
+      {
+        "path": "Remembered houses and approximate buildings/Dan - blue X/Reference architecture/Deck support",
+        "min": {
+          "x": 405.418579,
+          "y": 80.41962,
+          "z": -21.8282871
+        },
+        "max": {
+          "x": 405.665466,
+          "y": 83.91962,
+          "z": -21.5813961
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/CR016 trunk 100",
+        "min": {
+          "x": 420.926239,
+          "y": 77.96254,
+          "z": 38.5079651
+        },
+        "max": {
+          "x": 421.676239,
+          "y": 86.8344,
+          "z": 39.2579651
+        }
+      },
+      {
+        "path": "CR101 local boundary extension/Grounded wood crossbuck",
+        "min": {
+          "x": 389.6778,
+          "y": 79.8199,
+          "z": 22.3411636
+        },
+        "max": {
+          "x": 390.051025,
+          "y": 81.77382,
+          "z": 25.4870911
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/CR016 trunk 047",
+        "min": {
+          "x": 388.750732,
+          "y": 79.85946,
+          "z": 64.73914
+        },
+        "max": {
+          "x": 389.500732,
+          "y": 89.07787,
+          "z": 65.48914
+        }
+      },
+      {
+        "path": "CR097 supported properties and camp/Grounded wood crossbuck",
+        "min": {
+          "x": 389.088867,
+          "y": 78.981575,
+          "z": 2.13545513
+        },
+        "max": {
+          "x": 389.463379,
+          "y": 80.94936,
+          "z": 5.32422447
+        }
+      },
+      {
+        "path": "Remembered houses and approximate buildings/Dan - blue X/Reference architecture/Side handrail",
+        "min": {
+          "x": 405.7788,
+          "y": 84.96962,
+          "z": -3.43541646
+        },
+        "max": {
+          "x": 410.981262,
+          "y": 85.12962,
+          "z": -3.12398982
+        }
+      },
+      {
+        "path": "CR101 local boundary extension/Grounded wood crossbuck",
+        "min": {
+          "x": 422.78418,
+          "y": 81.97506,
+          "z": 15.609623
+        },
+        "max": {
+          "x": 424.7865,
+          "y": 83.9975357,
+          "z": 18.1726952
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/CR016 trunk 010",
+        "min": {
+          "x": 387.1879,
+          "y": 80.48901,
+          "z": 24.6375923
+        },
+        "max": {
+          "x": 387.9379,
+          "y": 88.72606,
+          "z": 25.3875923
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/CR014 trunk 03633",
+        "min": {
+          "x": 315.000183,
+          "y": 34.69671,
+          "z": -275.130951
+        },
+        "max": {
+          "x": 315.750183,
+          "y": 44.38717,
+          "z": -274.380951
+        }
+      },
+      {
+        "path": "CR097 supported properties and camp/Grounded wood crossbuck",
+        "min": {
+          "x": 393.652466,
+          "y": 79.2909,
+          "z": -41.601
+        },
+        "max": {
+          "x": 396.857849,
+          "y": 81.1437149,
+          "z": -41.2260323
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/CR014 trunk 01808",
+        "min": {
+          "x": 324.230316,
+          "y": 77.21861,
+          "z": -22.2605343
+        },
+        "max": {
+          "x": 324.980316,
+          "y": 85.86012,
+          "z": -21.5105343
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/CR016 trunk 025",
+        "min": {
+          "x": 405.098541,
+          "y": 78.82518,
+          "z": 39.6582069
+        },
+        "max": {
+          "x": 405.848541,
+          "y": 86.32939,
+          "z": 40.4082069
+        }
+      },
+      {
+        "path": "CR101 local boundary extension/Grounded wood crossbuck",
+        "min": {
+          "x": 415.935059,
+          "y": 78.68868,
+          "z": 24.7019119
+        },
+        "max": {
+          "x": 417.937378,
+          "y": 81.26792,
+          "z": 27.2649841
+        }
+      },
+      {
+        "path": "Remembered houses and approximate buildings/Dan - blue X/Reference architecture/Deck support",
+        "min": {
+          "x": 405.8556,
+          "y": 80.41962,
+          "z": -6.834655
+        },
+        "max": {
+          "x": 406.102478,
+          "y": 83.91962,
+          "z": -6.58776474
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/CR016 trunk 033",
+        "min": {
+          "x": 412.2137,
+          "y": 78.86633,
+          "z": 46.2220879
+        },
+        "max": {
+          "x": 412.9637,
+          "y": 87.5435944,
+          "z": 46.9720879
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/CR014 trunk 02189",
+        "min": {
+          "x": 314.730438,
+          "y": 36.0719643,
+          "z": -267.407837
+        },
+        "max": {
+          "x": 315.480438,
+          "y": 45.3859673,
+          "z": -266.657837
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/Tree trunk",
+        "min": {
+          "x": 380.070526,
+          "y": 82.14424,
+          "z": -1.27688456
+        },
+        "max": {
+          "x": 381.070526,
+          "y": 89.63982,
+          "z": -0.276884556
+        }
+      },
+      {
+        "path": "Remembered houses and approximate buildings/Dan - blue X/Reference architecture/Side handrail",
+        "min": {
+          "x": 405.22525,
+          "y": 84.96962,
+          "z": -22.4273529
+        },
+        "max": {
+          "x": 410.4277,
+          "y": 85.12962,
+          "z": -22.1159248
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/CR014 trunk 00638",
+        "min": {
+          "x": 334.606567,
+          "y": 78.9552155,
+          "z": -3.89818978
+        },
+        "max": {
+          "x": 335.356567,
+          "y": 88.93552,
+          "z": -3.14818978
+        }
+      },
+      {
+        "path": "CR097 supported properties and camp/Grounded wood crossbuck",
+        "min": {
+          "x": 388.835419,
+          "y": 78.97164,
+          "z": -6.560853
+        },
+        "max": {
+          "x": 389.20993,
+          "y": 80.82212,
+          "z": -3.37208271
+        }
+      },
+      {
+        "path": "Remembered houses and approximate buildings/Dan - blue X/Reference architecture/Deck support",
+        "min": {
+          "x": 405.6808,
+          "y": 80.41962,
+          "z": -12.8321085
+        },
+        "max": {
+          "x": 405.927673,
+          "y": 83.91962,
+          "z": -12.5852175
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/CR016 trunk 037",
+        "min": {
+          "x": 364.1439,
+          "y": 77.6942139,
+          "z": 55.72935
+        },
+        "max": {
+          "x": 364.8939,
+          "y": 86.98834,
+          "z": 56.47935
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/Tree trunk",
+        "min": {
+          "x": 336.265137,
+          "y": 79.3388062,
+          "z": -25.9676113
+        },
+        "max": {
+          "x": 337.265137,
+          "y": 86.8900452,
+          "z": -24.9676113
+        }
+      },
+      {
+        "path": "CR101 local boundary extension/Grounded wood crossbuck",
+        "min": {
+          "x": 389.8443,
+          "y": 79.7437744,
+          "z": 28.05302
+        },
+        "max": {
+          "x": 390.217529,
+          "y": 81.75894,
+          "z": 31.1989517
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/Tree trunk",
+        "min": {
+          "x": 309.2424,
+          "y": 34.7777672,
+          "z": -280.333923
+        },
+        "max": {
+          "x": 310.2424,
+          "y": 40.6836281,
+          "z": -279.333923
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/CR016 trunk 008",
+        "min": {
+          "x": 363.235168,
+          "y": 80.39751,
+          "z": 24.5157948
+        },
+        "max": {
+          "x": 363.985168,
+          "y": 88.43375,
+          "z": 25.2657948
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/CR014 trunk 02918",
+        "min": {
+          "x": 330.48053,
+          "y": 45.3186874,
+          "z": -216.327988
+        },
+        "max": {
+          "x": 331.23053,
+          "y": 53.45041,
+          "z": -215.577988
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/CR016 trunk 013",
+        "min": {
+          "x": 364.336731,
+          "y": 79.78452,
+          "z": 31.558754
+        },
+        "max": {
+          "x": 365.086731,
+          "y": 89.3203659,
+          "z": 32.308754
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/CR014 trunk 03499",
+        "min": {
+          "x": 320.780945,
+          "y": 76.68746,
+          "z": 36.63408
+        },
+        "max": {
+          "x": 321.530945,
+          "y": 85.37478,
+          "z": 37.38408
+        }
+      },
+      {
+        "path": "CR101 local boundary extension/Grounded wood crossbuck",
+        "min": {
+          "x": 389.314667,
+          "y": 79.27368,
+          "z": 9.882165
+        },
+        "max": {
+          "x": 389.6702,
+          "y": 81.12384,
+          "z": 12.42121
+        }
+      },
+      {
+        "path": "CR101 local boundary extension/Grounded wood crossbuck",
+        "min": {
+          "x": 419.35965,
+          "y": 80.4992447,
+          "z": 20.1557674
+        },
+        "max": {
+          "x": 421.3619,
+          "y": 83.44515,
+          "z": 22.71884
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/Tree trunk",
+        "min": {
+          "x": 340.717072,
+          "y": 79.99891,
+          "z": -31.1177216
+        },
+        "max": {
+          "x": 341.717072,
+          "y": 86.72903,
+          "z": -30.1177216
+        }
+      },
+      {
+        "path": "Remembered houses and approximate buildings/Dan - blue X/Reference architecture/Long low brick main level",
+        "min": {
+          "x": 410.467072,
+          "y": 83.81962,
+          "z": -24.640789
+        },
+        "max": {
+          "x": 421.1329,
+          "y": 86.9196243,
+          "z": -1.359211
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/Tree trunk",
+        "min": {
+          "x": 345.4915,
+          "y": 79.62407,
+          "z": 16.3197536
+        },
+        "max": {
+          "x": 346.4915,
+          "y": 87.6040344,
+          "z": 17.3197536
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/Tree trunk",
+        "min": {
+          "x": 364.535767,
+          "y": 81.5611038,
+          "z": 11.9329834
+        },
+        "max": {
+          "x": 365.535767,
+          "y": 90.49804,
+          "z": 12.9329834
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/CR016 trunk 004",
+        "min": {
+          "x": 388.8457,
+          "y": 83.1800461,
+          "z": 9.123252
+        },
+        "max": {
+          "x": 389.5957,
+          "y": 91.44486,
+          "z": 9.873252
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/CR016 trunk 022",
+        "min": {
+          "x": 372.0953,
+          "y": 79.35917,
+          "z": 38.5940132
+        },
+        "max": {
+          "x": 372.8453,
+          "y": 88.28765,
+          "z": 39.3440132
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/CR016 trunk 023",
+        "min": {
+          "x": 379.840973,
+          "y": 79.4409943,
+          "z": 39.04725
+        },
+        "max": {
+          "x": 380.590973,
+          "y": 89.3555756,
+          "z": 39.79725
+        }
+      },
+      {
+        "path": "Remembered houses and approximate buildings/Dan - blue X/Reference architecture/White porch post",
+        "min": {
+          "x": 423.173065,
+          "y": 83.81962,
+          "z": -3.91148138
+        },
+        "max": {
+          "x": 423.3685,
+          "y": 86.81962,
+          "z": -3.71602678
+        }
+      },
+      {
+        "path": "CR101 local boundary extension/Grounded wood crossbuck",
+        "min": {
+          "x": 412.510468,
+          "y": 78.80944,
+          "z": 29.2480564
+        },
+        "max": {
+          "x": 414.5128,
+          "y": 81.13096,
+          "z": 31.8111286
+        }
+      },
+      {
+        "path": "CR101 local boundary extension/Grounded wood crossbuck",
+        "min": {
+          "x": 389.44574,
+          "y": 79.18398,
+          "z": 14.3802567
+        },
+        "max": {
+          "x": 389.801331,
+          "y": 81.07383,
+          "z": 16.9193
+        }
+      },
+      {
+        "path": "Remembered houses and approximate buildings/Dan - blue X/Reference architecture/Separate downhill garage kennel/Garage walls",
+        "min": {
+          "x": 393.640045,
+          "y": 79.31962,
+          "z": 15.8666391
+        },
+        "max": {
+          "x": 404.131073,
+          "y": 82.9196243,
+          "z": 33.1507645
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/CR014 trunk 01847",
+        "min": {
+          "x": 315.173584,
+          "y": 76.20295,
+          "z": 31.1021023
+        },
+        "max": {
+          "x": 315.923584,
+          "y": 85.81989,
+          "z": 31.8521023
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/CR016 trunk 002",
+        "min": {
+          "x": 370.421173,
+          "y": 82.21765,
+          "z": 7.96715641
+        },
+        "max": {
+          "x": 371.171173,
+          "y": 91.03456,
+          "z": 8.717156
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/CR016 trunk 045",
+        "min": {
+          "x": 371.312683,
+          "y": 77.89872,
+          "z": 63.73768
+        },
+        "max": {
+          "x": 372.062683,
+          "y": 86.6608353,
+          "z": 64.48768
+        }
+      },
+      {
+        "path": "CR097 supported properties and camp/Grounded wood crossbuck",
+        "min": {
+          "x": 388.075043,
+          "y": 78.9704361,
+          "z": -32.6497765
+        },
+        "max": {
+          "x": 388.449554,
+          "y": 80.8207,
+          "z": -29.46101
+        }
+      },
+      {
+        "path": "CR097 supported properties and camp/Grounded wood crossbuck",
+        "min": {
+          "x": 388.750946,
+          "y": 78.97171,
+          "z": -9.459621
+        },
+        "max": {
+          "x": 389.1254,
+          "y": 80.82211,
+          "z": -6.270853
+        }
+      },
+      {
+        "path": "Remembered houses and approximate buildings/Dan - blue X/Reference architecture/Deck support",
+        "min": {
+          "x": 405.593384,
+          "y": 80.41962,
+          "z": -15.8308353
+        },
+        "max": {
+          "x": 405.840271,
+          "y": 83.91962,
+          "z": -15.5839443
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/CR014 trunk 02040",
+        "min": {
+          "x": 324.1192,
+          "y": 77.25921,
+          "z": -14.6403084
+        },
+        "max": {
+          "x": 324.8692,
+          "y": 85.10909,
+          "z": -13.8903084
+        }
+      },
+      {
+        "path": "Remembered houses and approximate buildings/Dan - blue X/Reference architecture/Front porch floor",
+        "min": {
+          "x": 420.392029,
+          "y": 83.74962,
+          "z": -23.7023926
+        },
+        "max": {
+          "x": 423.202881,
+          "y": 83.92961,
+          "z": -2.64720917
+        }
+      },
+      {
+        "path": "Remembered houses and approximate buildings/Dan - blue X/Reference architecture/Pool coping",
+        "min": {
+          "x": 393.120148,
+          "y": 79.59962,
+          "z": -19.0748024
+        },
+        "max": {
+          "x": 401.4955,
+          "y": 79.83962,
+          "z": -5.847252
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/CR016 trunk 039",
+        "min": {
+          "x": 388.2238,
+          "y": 79.3598,
+          "z": 56.59056
+        },
+        "max": {
+          "x": 388.9738,
+          "y": 88.49263,
+          "z": 57.34056
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/Tree trunk",
+        "min": {
+          "x": 347.086761,
+          "y": 78.14732,
+          "z": 40.68088
+        },
+        "max": {
+          "x": 348.086761,
+          "y": 83.02573,
+          "z": 41.68088
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/CR014 trunk 03848",
+        "min": {
+          "x": 343.188354,
+          "y": 80.37513,
+          "z": -12.08691
+        },
+        "max": {
+          "x": 343.938354,
+          "y": 89.23579,
+          "z": -11.33691
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/Tree trunk",
+        "min": {
+          "x": 321.96344,
+          "y": 76.89501,
+          "z": 20.09437
+        },
+        "max": {
+          "x": 322.96344,
+          "y": 81.77401,
+          "z": 21.09437
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/CR014 trunk 01486",
+        "min": {
+          "x": 331.102661,
+          "y": 76.85009,
+          "z": 53.4797668
+        },
+        "max": {
+          "x": 331.852661,
+          "y": 85.176445,
+          "z": 54.2297668
+        }
+      },
+      {
+        "path": "Remembered houses and approximate buildings/Dan - blue X/Reference architecture/Rear deck handrail",
+        "min": {
+          "x": 405.190338,
+          "y": 84.96962,
+          "z": -22.4495735
+        },
+        "max": {
+          "x": 405.918365,
+          "y": 85.12962,
+          "z": -2.953186
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/Tree trunk",
+        "min": {
+          "x": 295.6662,
+          "y": 35.8168068,
+          "z": -267.5558
+        },
+        "max": {
+          "x": 296.6662,
+          "y": 44.11909,
+          "z": -266.5558
+        }
+      },
+      {
+        "path": "CR101 local boundary extension/Grounded wood crossbuck",
+        "min": {
+          "x": 406.372772,
+          "y": 78.547,
+          "z": 36.0672722
+        },
+        "max": {
+          "x": 409.375946,
+          "y": 80.5863647,
+          "z": 36.43635
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/CR016 trunk 006",
+        "min": {
+          "x": 373.1236,
+          "y": 81.57912,
+          "z": 16.3379555
+        },
+        "max": {
+          "x": 373.8736,
+          "y": 89.42854,
+          "z": 17.0879555
+        }
+      },
+      {
+        "path": "CR101 local boundary extension/Grounded wood crossbuck",
+        "min": {
+          "x": 389.761047,
+          "y": 79.9089355,
+          "z": 25.19709
+        },
+        "max": {
+          "x": 390.134277,
+          "y": 81.77382,
+          "z": 28.3430214
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/CR016 trunk 048",
+        "min": {
+          "x": 395.9741,
+          "y": 80.46915,
+          "z": 63.90439
+        },
+        "max": {
+          "x": 396.7241,
+          "y": 89.6715546,
+          "z": 64.65439
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/CR014 trunk 05564",
+        "min": {
+          "x": 288.94342,
+          "y": 36.5596657,
+          "z": -258.356537
+        },
+        "max": {
+          "x": 289.69342,
+          "y": 46.40749,
+          "z": -257.606537
+        }
+      },
+      {
+        "path": "CR097 supported properties and camp/Grounded wood crossbuck",
+        "min": {
+          "x": 388.159546,
+          "y": 78.97033,
+          "z": -29.751009
+        },
+        "max": {
+          "x": 388.534,
+          "y": 80.82044,
+          "z": -26.5622387
+        }
+      },
+      {
+        "path": "CR097 supported properties and camp/Grounded wood crossbuck",
+        "min": {
+          "x": 421.581055,
+          "y": 81.97375,
+          "z": 15.609623
+        },
+        "max": {
+          "x": 424.7865,
+          "y": 84.92756,
+          "z": 15.9845963
+        }
+      },
+      {
+        "path": "CR101 local boundary extension/Grounded wood crossbuck",
+        "min": {
+          "x": 410.7982,
+          "y": 78.99885,
+          "z": 31.52113
+        },
+        "max": {
+          "x": 412.8005,
+          "y": 81.13096,
+          "z": 34.0842
+        }
+      },
+      {
+        "path": "CR101 local boundary extension/Grounded wood crossbuck",
+        "min": {
+          "x": 392.807159,
+          "y": 79.1869659,
+          "z": 36.4626579
+        },
+        "max": {
+          "x": 395.810272,
+          "y": 81.11597,
+          "z": 36.83173
+        }
+      },
+      {
+        "path": "Remembered houses and approximate buildings/Dan - blue X/Reference architecture/Deck support",
+        "min": {
+          "x": 405.943,
+          "y": 80.41962,
+          "z": -3.83592844
+        },
+        "max": {
+          "x": 406.18988,
+          "y": 83.91962,
+          "z": -3.58903837
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/CR014 trunk 04283",
+        "min": {
+          "x": 320.927277,
+          "y": 76.77064,
+          "z": 11.8826361
+        },
+        "max": {
+          "x": 321.677277,
+          "y": 86.52645,
+          "z": 12.6326361
+        }
+      },
+      {
+        "path": "CR101 local boundary extension/Grounded wood crossbuck",
+        "min": {
+          "x": 417.647369,
+          "y": 79.41608,
+          "z": 22.42884
+        },
+        "max": {
+          "x": 419.649628,
+          "y": 82.34924,
+          "z": 24.9919128
+        }
+      },
+      {
+        "path": "CR101 local boundary extension/Grounded wood crossbuck",
+        "min": {
+          "x": 421.07193,
+          "y": 81.5951462,
+          "z": 17.8826942
+        },
+        "max": {
+          "x": 423.0742,
+          "y": 83.99279,
+          "z": 20.4457664
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/Tree trunk",
+        "min": {
+          "x": 354.05072,
+          "y": 81.4681549,
+          "z": -1.59822333
+        },
+        "max": {
+          "x": 355.05072,
+          "y": 87.4224548,
+          "z": -0.5982233
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/Tree trunk",
+        "min": {
+          "x": 344.318237,
+          "y": 80.0795059,
+          "z": 4.347406
+        },
+        "max": {
+          "x": 345.318237,
+          "y": 88.9574661,
+          "z": 5.347406
+        }
+      },
+      {
+        "path": "CR101 local boundary extension/Grounded wood crossbuck",
+        "min": {
+          "x": 390.010773,
+          "y": 79.36978,
+          "z": 33.76488
+        },
+        "max": {
+          "x": 390.384,
+          "y": 81.38864,
+          "z": 36.91081
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/CR016 trunk 097",
+        "min": {
+          "x": 380.3156,
+          "y": 80.8187943,
+          "z": 23.47804
+        },
+        "max": {
+          "x": 381.0656,
+          "y": 90.48986,
+          "z": 24.22804
+        }
+      },
+      {
+        "path": "CR101 local boundary extension/Grounded wood crossbuck",
+        "min": {
+          "x": 414.222748,
+          "y": 78.69051,
+          "z": 26.9749851
+        },
+        "max": {
+          "x": 416.225067,
+          "y": 80.65943,
+          "z": 29.5380573
+        }
+      },
+      {
+        "path": "CR097 supported properties and camp/Grounded wood crossbuck",
+        "min": {
+          "x": 388.328522,
+          "y": 78.97035,
+          "z": -23.9534683
+        },
+        "max": {
+          "x": 388.702972,
+          "y": 80.8204956,
+          "z": -20.764698
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/Tree trunk",
+        "min": {
+          "x": 343.298157,
+          "y": 78.39858,
+          "z": 33.61983
+        },
+        "max": {
+          "x": 344.298157,
+          "y": 86.90586,
+          "z": 34.61983
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/CR016 trunk 026",
+        "min": {
+          "x": 412.811523,
+          "y": 78.39921,
+          "z": 38.2466965
+        },
+        "max": {
+          "x": 413.561523,
+          "y": 86.970314,
+          "z": 38.9966965
+        }
+      },
+      {
+        "path": "CR097 supported properties and camp/Grounded wood crossbuck",
+        "min": {
+          "x": 388.413,
+          "y": 78.97049,
+          "z": -21.0546989
+        },
+        "max": {
+          "x": 388.7875,
+          "y": 80.8207245,
+          "z": -17.8659325
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/Tree trunk",
+        "min": {
+          "x": 351.3653,
+          "y": 81.13803,
+          "z": -0.8689265
+        },
+        "max": {
+          "x": 352.3653,
+          "y": 89.7440643,
+          "z": 0.131073475
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/Tree trunk",
+        "min": {
+          "x": 351.528473,
+          "y": 44.57894,
+          "z": -215.770874
+        },
+        "max": {
+          "x": 352.528473,
+          "y": 52.8964,
+          "z": -214.770874
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/CR014 trunk 03327",
+        "min": {
+          "x": 347.9991,
+          "y": 44.54354,
+          "z": -228.827087
+        },
+        "max": {
+          "x": 348.7491,
+          "y": 52.5685425,
+          "z": -228.077087
+        }
+      },
+      {
+        "path": "CR101 local boundary extension/Grounded wood crossbuck",
+        "min": {
+          "x": 389.5113,
+          "y": 79.2197952,
+          "z": 16.6293011
+        },
+        "max": {
+          "x": 389.884583,
+          "y": 81.44077,
+          "z": 19.7752323
+        }
+      },
+      {
+        "path": "Remembered houses and approximate buildings/Dan - blue X/Reference architecture/Smaller pool house left of garage/Pool house walls",
+        "min": {
+          "x": 394.585876,
+          "y": 79.51962,
+          "z": -3.02332687
+        },
+        "max": {
+          "x": 399.729431,
+          "y": 82.21962,
+          "z": 2.12021828
+        }
+      },
+      {
+        "path": "Remembered houses and approximate buildings/Dan - blue X/Reference architecture/Brick lower rear level",
+        "min": {
+          "x": 410.467072,
+          "y": 80.61962,
+          "z": -24.640789
+        },
+        "max": {
+          "x": 421.1329,
+          "y": 84.11962,
+          "z": -1.359211
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/CR014 trunk 00676",
+        "min": {
+          "x": 333.153046,
+          "y": 77.9399643,
+          "z": 26.3482838
+        },
+        "max": {
+          "x": 333.903046,
+          "y": 86.67414,
+          "z": 27.0982838
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/CR014 trunk 01348",
+        "min": {
+          "x": 329.525757,
+          "y": 77.13779,
+          "z": 42.6976128
+        },
+        "max": {
+          "x": 330.275757,
+          "y": 84.78891,
+          "z": 43.4476128
+        }
+      },
+      {
+        "path": "CR097 supported properties and camp/Grounded wood crossbuck",
+        "min": {
+          "x": 389.0044,
+          "y": 78.97106,
+          "z": -0.7633147
+        },
+        "max": {
+          "x": 389.3789,
+          "y": 80.8315659,
+          "z": 2.425455
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/CR016 trunk 029",
+        "min": {
+          "x": 371.833344,
+          "y": 78.6743546,
+          "z": 47.0560074
+        },
+        "max": {
+          "x": 372.583344,
+          "y": 88.26942,
+          "z": 47.8060074
+        }
+      },
+      {
+        "path": "CR101 local boundary extension/Grounded wood crossbuck",
+        "min": {
+          "x": 403.659637,
+          "y": 78.73518,
+          "z": 36.14635
+        },
+        "max": {
+          "x": 406.6628,
+          "y": 80.7387543,
+          "z": 36.5154228
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/CR016 trunk 030",
+        "min": {
+          "x": 378.4685,
+          "y": 78.85849,
+          "z": 48.5865822
+        },
+        "max": {
+          "x": 379.2185,
+          "y": 86.4541,
+          "z": 49.3365822
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/Tree trunk",
+        "min": {
+          "x": 350.2063,
+          "y": 80.52894,
+          "z": 8.894198
+        },
+        "max": {
+          "x": 351.2063,
+          "y": 87.80988,
+          "z": 9.894198
+        }
+      },
+      {
+        "path": "CR097 supported properties and camp/Grounded wood crossbuck",
+        "min": {
+          "x": 388.244019,
+          "y": 78.97033,
+          "z": -26.8522377
+        },
+        "max": {
+          "x": 388.61853,
+          "y": 80.82035,
+          "z": -23.6634674
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/CR014 trunk 03280",
+        "min": {
+          "x": 349.4067,
+          "y": 80.63895,
+          "z": -29.4321289
+        },
+        "max": {
+          "x": 350.1567,
+          "y": 89.84581,
+          "z": -28.6821289
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/CR016 trunk 027",
+        "min": {
+          "x": 354.555664,
+          "y": 78.00934,
+          "z": 46.6364975
+        },
+        "max": {
+          "x": 355.305664,
+          "y": 87.0171356,
+          "z": 47.3864975
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/CR014 trunk 02401",
+        "min": {
+          "x": 321.7795,
+          "y": 76.69559,
+          "z": 44.0081749
+        },
+        "max": {
+          "x": 322.5295,
+          "y": 86.61655,
+          "z": 44.7581749
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/Tree trunk",
+        "min": {
+          "x": 337.06546,
+          "y": 78.55891,
+          "z": 20.4675655
+        },
+        "max": {
+          "x": 338.06546,
+          "y": 84.81751,
+          "z": 21.4675655
+        }
+      },
+      {
+        "path": "CR097 supported properties and camp/Grounded wood crossbuck",
+        "min": {
+          "x": 424.4965,
+          "y": 80.45535,
+          "z": 15.4564772
+        },
+        "max": {
+          "x": 427.7236,
+          "y": 83.83861,
+          "z": 15.8996229
+        }
+      },
+      {
+        "path": "Remembered houses and approximate buildings/Dan - blue X/Reference architecture/Deck support",
+        "min": {
+          "x": 405.505981,
+          "y": 80.41962,
+          "z": -18.8295612
+        },
+        "max": {
+          "x": 405.752869,
+          "y": 83.91962,
+          "z": -18.58267
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/CR016 trunk 014",
+        "min": {
+          "x": 380.7593,
+          "y": 79.9975,
+          "z": 32.08679
+        },
+        "max": {
+          "x": 381.5093,
+          "y": 89.27513,
+          "z": 32.83679
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/CR016 trunk 040",
+        "min": {
+          "x": 395.069244,
+          "y": 79.74938,
+          "z": 56.91754
+        },
+        "max": {
+          "x": 395.819244,
+          "y": 87.564,
+          "z": 57.66754
+        }
+      },
+      {
+        "path": "Remembered houses and approximate buildings/Dan - blue X/Reference architecture/Elevated wooden rear deck",
+        "min": {
+          "x": 405.127655,
+          "y": 83.71962,
+          "z": -22.3503
+        },
+        "max": {
+          "x": 411.0789,
+          "y": 84.01962,
+          "z": -3.20104218
+        }
+      },
+      {
+        "path": "CR097 supported properties and camp/Grounded wood crossbuck",
+        "min": {
+          "x": 387.906067,
+          "y": 78.97021,
+          "z": -38.44731
+        },
+        "max": {
+          "x": 388.280579,
+          "y": 80.82113,
+          "z": -35.2585449
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/CR014 trunk 00477",
+        "min": {
+          "x": 333.949341,
+          "y": 45.0497551,
+          "z": -209.169708
+        },
+        "max": {
+          "x": 334.699341,
+          "y": 53.97817,
+          "z": -208.419708
+        }
+      },
+      {
+        "path": "CR097 supported properties and camp/Grounded wood crossbuck",
+        "min": {
+          "x": 388.4975,
+          "y": 78.97072,
+          "z": -18.1559315
+        },
+        "max": {
+          "x": 388.871948,
+          "y": 80.821,
+          "z": -14.9671612
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/CR016 trunk 101",
+        "min": {
+          "x": 386.823578,
+          "y": 79.14416,
+          "z": 48.7504654
+        },
+        "max": {
+          "x": 387.573578,
+          "y": 87.99322,
+          "z": 49.5004654
+        }
+      },
+      {
+        "path": "CR097 supported properties and camp/Grounded wood crossbuck",
+        "min": {
+          "x": 388.58197,
+          "y": 78.97099,
+          "z": -15.2571621
+        },
+        "max": {
+          "x": 388.956482,
+          "y": 80.8213348,
+          "z": -12.0683918
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/CR016 trunk 099",
+        "min": {
+          "x": 396.639343,
+          "y": 79.174324,
+          "z": 39.2608147
+        },
+        "max": {
+          "x": 397.389343,
+          "y": 88.748436,
+          "z": 40.0108147
+        }
+      },
+      {
+        "path": "Woods replacing later subdivisions/CR014 trunk 04788",
+        "min": {
+          "x": 330.937073,
+          "y": 78.44785,
+          "z": -12.5408669
+        },
+        "max": {
+          "x": 331.687073,
+          "y": 86.17518,
+          "z": -11.7908669
+        }
+      },
+      {
+        "path": "CR101 local boundary extension/Grounded wood crossbuck",
+        "min": {
+          "x": 389.2491,
+          "y": 79.27381,
+          "z": 7.63312054
+        },
+        "max": {
+          "x": 389.6047,
+          "y": 81.12383,
+          "z": 10.1721659
+        }
+      },
+      {
+        "path": "Remembered houses and approximate buildings/Dan - blue X/Reference architecture/White porch post",
+        "min": {
+          "x": 423.036133,
+          "y": 83.81962,
+          "z": -8.609486
+        },
+        "max": {
+          "x": 423.231567,
+          "y": 86.81962,
+          "z": -8.41403
+        }
+      },
+      {
+        "path": "CR056 Forest Loop/Forest trunk collision",
+        "min": {
+          "x": 296.768066,
+          "y": 43.6413574,
+          "z": -220.0579
+        },
+        "max": {
+          "x": 297.268066,
+          "y": 51.2394562,
+          "z": -219.5579
+        }
+      },
+      {
+        "path": "CR056 Forest Loop/Forest trunk collision",
+        "min": {
+          "x": 309.1329,
+          "y": 42.46872,
+          "z": -226.6253
+        },
+        "max": {
+          "x": 309.6329,
+          "y": 54.1724548,
+          "z": -226.1253
+        }
+      },
+      {
+        "path": "CR056 Forest Loop/Forest trunk collision",
+        "min": {
+          "x": 303.980652,
+          "y": 45.1616,
+          "z": -226.279358
+        },
+        "max": {
+          "x": 304.480652,
+          "y": 56.70623,
+          "z": -225.779358
+        }
+      },
+      {
+        "path": "CR056 Forest Loop/Forest trunk collision",
+        "min": {
+          "x": 284.516724,
+          "y": 40.65189,
+          "z": -247.490585
+        },
+        "max": {
+          "x": 285.016724,
+          "y": 50.989254,
+          "z": -246.990585
+        }
+      },
+      {
+        "path": "CR056 Forest Loop/Forest trunk collision",
+        "min": {
+          "x": 293.468,
+          "y": 42.92451,
+          "z": -216.3834
+        },
+        "max": {
+          "x": 293.968,
+          "y": 53.05792,
+          "z": -215.8834
+        }
+      },
+      {
+        "path": "Memory loop - north is +Z/Ground_560_320",
+        "min": {
+          "x": 320.0,
+          "y": 69.7877045,
+          "z": -110.0
+        },
+        "max": {
+          "x": 480.0,
+          "y": 88.6620941,
+          "z": 50.0
+        }
+      }
+    ],
+    "text": [
+      {
+        "path": "CR034-039 Woodland routes/Breakable sign - Hwy 92/Road lettering",
+        "text": "Trickum Road",
+        "shader": "Racer/WorldText",
+        "material": "Assets/Track/Woodland/Lettering.mat"
+      },
+      {
+        "path": "CR034-039 Woodland routes/Breakable sign - Hwy 92 South Cherokee Lane/Road lettering",
+        "text": "South Cherokee Lane\nJUNCTION: Hwy 92",
+        "shader": "Racer/WorldText",
+        "material": "Assets/Track/Woodland/Lettering.mat"
+      },
+      {
+        "path": "CR088-089 physical direction cues/REVERSE\nSHORTCUT/Mounted lettering",
+        "text": "REVERSE\nMAIN COURSE",
+        "shader": "Racer/WorldText",
+        "material": "Assets/Environment/Phase8/Depth tested world lettering 0.mat"
+      },
+      {
+        "path": "CR091-096 exploration world/SUMMIT CAMP\nLook for the cairns/Physical lettering",
+        "text": "SUMMIT CAMP\nLook for the cairns",
+        "shader": "Racer/WorldText",
+        "material": "Assets/Track/Woodland/Lettering.mat"
+      },
+      {
+        "path": "CR081 mountain exploration/Fern Creek Leap\n35 - 55 mph/Direction lettering",
+        "text": "Fern Creek Leap\n35 - 55 mph",
+        "shader": "GUI/Text Shader",
+        "material": "Library/unity default resources"
+      },
+      {
+        "path": "CR102 summit signs/01 approach/Contained front lettering",
+        "text": "SUMMIT JUMP\nFOLLOW THE RUN-UP",
+        "shader": "Racer/SummitText",
+        "material": "Assets/Track/Discovery/CR102 lettering.mat"
+      },
+      {
+        "path": "Remembered houses and approximate buildings/CR019 N10 business/Phase 6 architecture/Fictional storefront identity",
+        "text": "HILLTOP DINER",
+        "shader": "Racer/WorldText",
+        "material": "Assets/Environment/Phase8/Depth tested world lettering 0.mat"
+      },
+      {
+        "path": "CR079 arcade sites/JUMP CHALLENGE\nLAND CLEAN / PAUSE FOR TARGETS/Mounted direction lettering",
+        "text": "JUMP CHALLENGE\nLAND CLEAN / PAUSE FOR TARGETS",
+        "shader": "Racer/WorldText",
+        "material": "Assets/Environment/Phase8/Depth tested world lettering 0.mat"
+      },
+      {
+        "path": "CR091-096 exploration world/House 3 / Rocky Way Acres entrance/Rocky Way Acres lettering",
+        "text": "Rocky Way Acres",
+        "shader": "GUI/Text Shader",
+        "material": "Library/unity default resources"
+      },
+      {
+        "path": "CR102 summit signs/02 run-up/Contained front lettering",
+        "text": "HOMEWARD JUMP\nSTRAIGHT / FULL THROTTLE",
+        "shader": "Racer/SummitText",
+        "material": "Assets/Track/Discovery/CR102 lettering.mat"
+      },
+      {
+        "path": "Remembered houses and approximate buildings/CR019 S05 business/Phase 6 architecture/Fictional storefront identity",
+        "text": "CORNER MARKET",
+        "shader": "Racer/WorldText",
+        "material": "Assets/Environment/Phase8/Depth tested world lettering 0.mat"
+      },
+      {
+        "path": "Remembered houses and approximate buildings/CR019 N01 business/Phase 6 architecture/Fictional storefront identity",
+        "text": "CORNER MARKET",
+        "shader": "Racer/WorldText",
+        "material": "Assets/Environment/Phase8/Depth tested world lettering 0.mat"
+      },
+      {
+        "path": "CR081 mountain exploration/LAKE SHORE\nBOTH TRAILS RETURN HOME/Direction lettering",
+        "text": "LAKE SHORE\nBOTH TRAILS RETURN HOME",
+        "shader": "GUI/Text Shader",
+        "material": "Library/unity default resources"
+      },
+      {
+        "path": "Remembered houses and approximate buildings/CR019 N03 business/Phase 6 architecture/Fictional storefront identity",
+        "text": "AUTO SERVICE",
+        "shader": "Racer/WorldText",
+        "material": "Assets/Environment/Phase8/Depth tested world lettering 0.mat"
+      },
+      {
+        "path": "CR079 arcade sites/FENCE LINE SMASH\n3 / 6 / 10 PROPS IN 8 s/Mounted direction lettering",
+        "text": "FENCE LINE SMASH\n3 / 6 / 10 PROPS IN 8 s",
+        "shader": "Racer/WorldText",
+        "material": "Assets/Environment/Phase8/Depth tested world lettering 0.mat"
+      },
+      {
+        "path": "CR102 summit signs/04 landing/Contained front lettering",
+        "text": "LANDING\nBRAKE AFTER TOUCHDOWN",
+        "shader": "Racer/SummitText",
+        "material": "Assets/Track/Discovery/CR102 lettering.mat"
+      },
+      {
+        "path": "CR081 mountain exploration/SUMMIT\nBoth trails return to lake/Direction lettering",
+        "text": "SUMMIT\nBoth trails return to lake",
+        "shader": "GUI/Text Shader",
+        "material": "Library/unity default resources"
+      },
+      {
+        "path": "Reverse course authoring/Fern Gully / OPTIONAL/Reverse physical sign text",
+        "text": "Fern Gully / OPTIONAL",
+        "shader": "GUI/Text Shader",
+        "material": "Library/unity default resources"
+      },
+      {
+        "path": "CR034-039 Woodland routes/Breakable sign - Jamerson Rd/Road lettering",
+        "text": "TO Jamerson Road",
+        "shader": "Racer/WorldText",
+        "material": "Assets/Track/Woodland/Lettering.mat"
+      },
+      {
+        "path": "Remembered houses and approximate buildings/CR019 S09 business/Phase 6 architecture/Fictional storefront identity",
+        "text": "CORNER MARKET",
+        "shader": "Racer/WorldText",
+        "material": "Assets/Environment/Phase8/Depth tested world lettering 0.mat"
+      },
+      {
+        "path": "CR102 summit signs/05 return/Contained front lettering",
+        "text": "RIDGE RETURN\nBEAR RIGHT",
+        "shader": "Racer/SummitText",
+        "material": "Assets/Track/Discovery/CR102 lettering.mat"
+      },
+      {
+        "path": "Remembered houses and approximate buildings/CR019 N07 business/Phase 6 architecture/Fictional storefront identity",
+        "text": "AUTO SERVICE",
+        "shader": "Racer/WorldText",
+        "material": "Assets/Environment/Phase8/Depth tested world lettering 0.mat"
+      },
+      {
+        "path": "Remembered houses and approximate buildings/CR019 S10 business/Phase 6 architecture/Fictional storefront identity",
+        "text": "HILLTOP DINER",
+        "shader": "Racer/WorldText",
+        "material": "Assets/Environment/Phase8/Depth tested world lettering 0.mat"
+      },
+      {
+        "path": "Remembered houses and approximate buildings/CR019 N08 business/Phase 6 architecture/Fictional storefront identity",
+        "text": "GENERAL STORE",
+        "shader": "Racer/WorldText",
+        "material": "Assets/Environment/Phase8/Depth tested world lettering 0.mat"
+      },
+      {
+        "path": "CR088-089 physical direction cues/MAIN  ^/Mounted lettering",
+        "text": "^",
+        "shader": "Racer/WorldText",
+        "material": "Assets/Environment/Phase8/Depth tested world lettering 0.mat"
+      },
+      {
+        "path": "House 3 Detour optional visual guidance/McFADDEN CUT\nOPTIONAL/Mounted lettering",
+        "text": "McFADDEN CUT\nOPTIONAL",
+        "shader": "Racer/WorldText",
+        "material": "Assets/Environment/Phase8/Depth tested world lettering 0.mat"
+      },
+      {
+        "path": "CR088-089 physical direction cues/MAIN  ^/Mounted lettering",
+        "text": "^",
+        "shader": "Racer/WorldText",
+        "material": "Assets/Environment/Phase8/Depth tested world lettering 0.mat"
+      },
+      {
+        "path": "Reverse course authoring/GAP / STRAIGHT LANDING/Reverse physical sign text",
+        "text": "POOL + LAKE\nSTRAIGHT JUMP",
+        "shader": "GUI/Text Shader",
+        "material": "Library/unity default resources"
+      },
+      {
+        "path": "Remembered houses and approximate buildings/CR019 N09 business/Phase 6 architecture/Fictional storefront identity",
+        "text": "CORNER MARKET",
+        "shader": "Racer/WorldText",
+        "material": "Assets/Environment/Phase8/Depth tested world lettering 0.mat"
+      },
+      {
+        "path": "Cave warning sign/Cave warning lettering",
+        "text": "Warning: Cave Ahead\nEnter at your Own Risk",
+        "shader": "Racer/WorldText",
+        "material": "Assets/Track/Woodland/Lettering.mat"
+      },
+      {
+        "path": "CR081 mountain exploration/KYLE'S WOODED DRIVE\nLAKE / MOUNTAIN TRAILS/Direction lettering",
+        "text": "ANDERSON'S\nLAKE / MOUNTAIN TRAILS",
+        "shader": "GUI/Text Shader",
+        "material": "Library/unity default resources"
+      },
+      {
+        "path": "Remembered houses and approximate buildings/CR019 S02 business/Phase 6 architecture/Fictional storefront identity",
+        "text": "HILLTOP DINER",
+        "shader": "Racer/WorldText",
+        "material": "Assets/Environment/Phase8/Depth tested world lettering 0.mat"
+      },
+      {
+        "path": "Remembered houses and approximate buildings/CR019 N05 business/Phase 6 architecture/Fictional storefront identity",
+        "text": "CORNER MARKET",
+        "shader": "Racer/WorldText",
+        "material": "Assets/Environment/Phase8/Depth tested world lettering 0.mat"
+      },
+      {
+        "path": "Remembered houses and approximate buildings/CR019 S03 business/Phase 6 architecture/Fictional storefront identity",
+        "text": "AUTO SERVICE",
+        "shader": "Racer/WorldText",
+        "material": "Assets/Environment/Phase8/Depth tested world lettering 0.mat"
+      },
+      {
+        "path": "Remembered houses and approximate buildings/CR019 N04 business/Phase 6 architecture/Fictional storefront identity",
+        "text": "GENERAL STORE",
+        "shader": "Racer/WorldText",
+        "material": "Assets/Environment/Phase8/Depth tested world lettering 0.mat"
+      },
+      {
+        "path": "Remembered houses and approximate buildings/CR019 S08 business/Phase 6 architecture/Fictional storefront identity",
+        "text": "GENERAL STORE",
+        "shader": "Racer/WorldText",
+        "material": "Assets/Environment/Phase8/Depth tested world lettering 0.mat"
+      },
+      {
+        "path": "CR034-039 Woodland routes/Breakable sign - Jamerson Rd/Road lettering",
+        "text": "TO Jamerson Road",
+        "shader": "Racer/WorldText",
+        "material": "Assets/Track/Woodland/Lettering.mat"
+      },
+      {
+        "path": "Remembered houses and approximate buildings/CR019 N06 business/Phase 6 architecture/Fictional storefront identity",
+        "text": "HILLTOP DINER",
+        "shader": "Racer/WorldText",
+        "material": "Assets/Environment/Phase8/Depth tested world lettering 0.mat"
+      },
+      {
+        "path": "CR088-089 physical direction cues/OPTIONAL\n>  SHORTCUT/Mounted lettering",
+        "text": "MAIN\n> FOREST",
+        "shader": "Racer/WorldText",
+        "material": "Assets/Environment/Phase8/Depth tested world lettering 0.mat"
+      },
+      {
+        "path": "CR079 arcade sites/SPEED CAMERA\nBOTH DIRECTIONS/Mounted direction lettering",
+        "text": "SPEED CAMERA\nBOTH DIRECTIONS",
+        "shader": "Racer/WorldText",
+        "material": "Assets/Environment/Phase8/Depth tested world lettering 0.mat"
+      },
+      {
+        "path": "Reverse course authoring/REJOIN / Forest Loop Reverse/Reverse physical sign text",
+        "text": "REJOIN / Forest Loop Reverse",
+        "shader": "GUI/Text Shader",
+        "material": "Library/unity default resources"
+      },
+      {
+        "path": "Remembered houses and approximate buildings/CR019 S04 business/Phase 6 architecture/Fictional storefront identity",
+        "text": "GENERAL STORE",
+        "shader": "Racer/WorldText",
+        "material": "Assets/Environment/Phase8/Depth tested world lettering 0.mat"
+      },
+      {
+        "path": "CR079 arcade sites/SPEED CAMERA\nBOTH DIRECTIONS/Mounted direction lettering",
+        "text": "SPEED CAMERA\nBOTH DIRECTIONS",
+        "shader": "Racer/WorldText",
+        "material": "Assets/Environment/Phase8/Depth tested world lettering 0.mat"
+      },
+      {
+        "path": "CR034-039 Woodland routes/Breakable sign - Hwy 92/Road lettering",
+        "text": "Trickum Road",
+        "shader": "Racer/WorldText",
+        "material": "Assets/Track/Woodland/Lettering.mat"
+      },
+      {
+        "path": "Remembered houses and approximate buildings/CR019 N11 business/Phase 6 architecture/Fictional storefront identity",
+        "text": "AUTO SERVICE",
+        "shader": "Racer/WorldText",
+        "material": "Assets/Environment/Phase8/Depth tested world lettering 0.mat"
+      },
+      {
+        "path": "Remembered houses and approximate buildings/CR019 N02 business/Phase 6 architecture/Fictional storefront identity",
+        "text": "HILLTOP DINER",
+        "shader": "Racer/WorldText",
+        "material": "Assets/Environment/Phase8/Depth tested world lettering 0.mat"
+      },
+      {
+        "path": "CR081 mountain exploration/RIDGE RETURN\nLake / Neighborhood/Direction lettering",
+        "text": "RIDGE RETURN\nLake / Neighborhood",
+        "shader": "GUI/Text Shader",
+        "material": "Library/unity default resources"
+      },
+      {
+        "path": "CR088-089 physical direction cues/MAIN  ^/Mounted lettering",
+        "text": "^",
+        "shader": "Racer/WorldText",
+        "material": "Assets/Environment/Phase8/Depth tested world lettering 0.mat"
+      },
+      {
+        "path": "CR102 summit signs/03 launch/Contained front lettering",
+        "text": "CLEAR THE SUMMIT\nLAND STRAIGHT",
+        "shader": "Racer/SummitText",
+        "material": "Assets/Track/Discovery/CR102 lettering.mat"
+      },
+      {
+        "path": "CR079 arcade sites/SPEED CAMERA\nBOTH DIRECTIONS/Mounted direction lettering",
+        "text": "SPEED CAMERA\nBOTH DIRECTIONS",
+        "shader": "Racer/WorldText",
+        "material": "Assets/Environment/Phase8/Depth tested world lettering 0.mat"
+      },
+      {
+        "path": "CR088-089 physical direction cues/MAIN COURSE\nFOLLOW CURVE/Mounted lettering",
+        "text": "MAIN COURSE\nGRANITE SADDLE",
+        "shader": "Racer/WorldText",
+        "material": "Assets/Environment/Phase8/Depth tested world lettering 0.mat"
+      },
+      {
+        "path": "CR034-039 Woodland routes/Breakable sign - Hwy 92 South Cherokee Lane/Road lettering",
+        "text": "South Cherokee Lane\nJUNCTION: Hwy 92",
+        "shader": "Racer/WorldText",
+        "material": "Assets/Track/Woodland/Lettering.mat"
+      },
+      {
+        "path": "Reverse course authoring/REJOIN / Forest Loop Reverse/Reverse physical sign text",
+        "text": "REJOIN / Forest Loop Reverse",
+        "shader": "GUI/Text Shader",
+        "material": "Library/unity default resources"
+      },
+      {
+        "path": "CR081 mountain exploration/High Ridge Drop\n35 - 55 mph/Direction lettering",
+        "text": "High Ridge Drop\n35 - 55 mph",
+        "shader": "GUI/Text Shader",
+        "material": "Library/unity default resources"
+      },
+      {
+        "path": "CR088-089 physical direction cues/MAIN  ^/Mounted lettering",
+        "text": "^",
+        "shader": "Racer/WorldText",
+        "material": "Assets/Environment/Phase8/Depth tested world lettering 0.mat"
+      },
+      {
+        "path": "Remembered houses and approximate buildings/CR019 S01 business/Phase 6 architecture/Fictional storefront identity",
+        "text": "CORNER MARKET",
+        "shader": "Racer/WorldText",
+        "material": "Assets/Environment/Phase8/Depth tested world lettering 0.mat"
+      },
+      {
+        "path": "CR088-089 physical direction cues/REVERSE\nSHORTCUT/Mounted lettering",
+        "text": "REVERSE\nSHORTCUT",
+        "shader": "Racer/WorldText",
+        "material": "Assets/Environment/Phase8/Depth tested world lettering 0.mat"
+      },
+      {
+        "path": "CR081 mountain exploration/MOUNTAIN TRAILS\nCreek ascent / Ridge return/Direction lettering",
+        "text": "MOUNTAIN TRAILS\nCreek ascent / Ridge return",
+        "shader": "GUI/Text Shader",
+        "material": "Library/unity default resources"
+      },
+      {
+        "path": "Remembered houses and approximate buildings/CR019 S06 business/Phase 6 architecture/Fictional storefront identity",
+        "text": "HILLTOP DINER",
+        "shader": "Racer/WorldText",
+        "material": "Assets/Environment/Phase8/Depth tested world lettering 0.mat"
+      },
+      {
+        "path": "Reverse course authoring/FERN GROTTO / THROUGH PASSAGE/Reverse physical sign text",
+        "text": "FERN GROTTO / THROUGH PASSAGE",
+        "shader": "GUI/Text Shader",
+        "material": "Library/unity default resources"
+      },
+      {
+        "path": "Remembered houses and approximate buildings/CR019 S11 business/Phase 6 architecture/Fictional storefront identity",
+        "text": "AUTO SERVICE",
+        "shader": "Racer/WorldText",
+        "material": "Assets/Environment/Phase8/Depth tested world lettering 0.mat"
+      },
+      {
+        "path": "CR079 arcade sites/SPEED CAMERA\nBOTH DIRECTIONS/Mounted direction lettering",
+        "text": "SPEED CAMERA\nBOTH DIRECTIONS",
+        "shader": "Racer/WorldText",
+        "material": "Assets/Environment/Phase8/Depth tested world lettering 0.mat"
+      },
+      {
+        "path": "CR088-089 physical direction cues/OPTIONAL\n>  SHORTCUT/Mounted lettering",
+        "text": "OPTIONAL\n>  SHORTCUT",
+        "shader": "Racer/WorldText",
+        "material": "Assets/Environment/Phase8/Depth tested world lettering 0.mat"
+      },
+      {
+        "path": "Reverse course authoring/Granite Saddle / OPTIONAL/Reverse physical sign text",
+        "text": "Granite Saddle / MAIN ROUTE",
+        "shader": "GUI/Text Shader",
+        "material": "Library/unity default resources"
+      },
+      {
+        "path": "Remembered houses and approximate buildings/CR019 S07 business/Phase 6 architecture/Fictional storefront identity",
+        "text": "AUTO SERVICE",
+        "shader": "Racer/WorldText",
+        "material": "Assets/Environment/Phase8/Depth tested world lettering 0.mat"
+      }
+    ],
+    "samples": [
+      {
+        "x": 40.0,
+        "y": 36.449028,
+        "z": -180.0
+      },
+      {
+        "x": 50.0,
+        "y": 36.65707,
+        "z": -180.0
+      },
+      {
+        "x": 60.0,
+        "y": 36.9371872,
+        "z": -180.0
+      },
+      {
+        "x": 70.0,
+        "y": 37.24518,
+        "z": -180.0
+      },
+      {
+        "x": 80.0,
+        "y": 37.54036,
+        "z": -180.0
+      },
+      {
+        "x": 90.0,
+        "y": 37.7954979,
+        "z": -180.0
+      },
+      {
+        "x": 100.0,
+        "y": 37.99242,
+        "z": -180.0
+      },
+      {
+        "x": 110.0,
+        "y": 38.1347961,
+        "z": -180.0
+      },
+      {
+        "x": 120.0,
+        "y": 38.2556152,
+        "z": -180.0
+      },
+      {
+        "x": 130.0,
+        "y": 38.41428,
+        "z": -180.0
+      },
+      {
+        "x": 140.0,
+        "y": 38.6385574,
+        "z": -180.0
+      },
+      {
+        "x": 150.0,
+        "y": 38.93936,
+        "z": -180.0
+      },
+      {
+        "x": 160.0,
+        "y": 39.31995,
+        "z": -180.0
+      },
+      {
+        "x": 170.0,
+        "y": 40.131073,
+        "z": -180.0
+      },
+      {
+        "x": 180.0,
+        "y": 42.12846,
+        "z": -180.0
+      },
+      {
+        "x": 190.0,
+        "y": 43.2903824,
+        "z": -180.0
+      },
+      {
+        "x": 200.0,
+        "y": 44.13822,
+        "z": -180.0
+      },
+      {
+        "x": 210.0,
+        "y": 44.7159729,
+        "z": -180.0
+      },
+      {
+        "x": 220.0,
+        "y": 45.2215652,
+        "z": -180.0
+      },
+      {
+        "x": 230.0,
+        "y": 45.6567955,
+        "z": -180.0
+      },
+      {
+        "x": 240.0,
+        "y": 45.3940163,
+        "z": -180.0
+      },
+      {
+        "x": 250.0,
+        "y": 45.0987358,
+        "z": -180.0
+      },
+      {
+        "x": 260.0,
+        "y": 45.4139366,
+        "z": -180.0
+      },
+      {
+        "x": 270.0,
+        "y": 46.15452,
+        "z": -180.0
+      },
+      {
+        "x": 280.0,
+        "y": 47.03555,
+        "z": -180.0
+      },
+      {
+        "x": 290.0,
+        "y": 48.0181274,
+        "z": -180.0
+      },
+      {
+        "x": 300.0,
+        "y": 49.0474548,
+        "z": -180.0
+      },
+      {
+        "x": 310.0,
+        "y": 50.0905037,
+        "z": -180.0
+      },
+      {
+        "x": 320.0,
+        "y": 51.1463928,
+        "z": -180.0
+      },
+      {
+        "x": 330.0,
+        "y": 52.2318,
+        "z": -180.0
+      },
+      {
+        "x": 340.0,
+        "y": 53.36935,
+        "z": -180.0
+      },
+      {
+        "x": 350.0,
+        "y": 54.56528,
+        "z": -180.0
+      },
+      {
+        "x": 360.0,
+        "y": 55.6582031,
+        "z": -180.0
+      },
+      {
+        "x": 370.0,
+        "y": 42.74685,
+        "z": -180.0
+      },
+      {
+        "x": 380.0,
+        "y": 32.9350967,
+        "z": -180.0
+      },
+      {
+        "x": 390.0,
+        "y": 32.9742355,
+        "z": -180.0
+      },
+      {
+        "x": 400.0,
+        "y": 33.00022,
+        "z": -180.0
+      },
+      {
+        "x": 410.0,
+        "y": 33.0079079,
+        "z": -180.0
+      },
+      {
+        "x": 420.0,
+        "y": 33.0168,
+        "z": -180.0
+      },
+      {
+        "x": 430.0,
+        "y": 33.00629,
+        "z": -180.0
+      },
+      {
+        "x": 440.0,
+        "y": 32.9649963,
+        "z": -180.0
+      },
+      {
+        "x": 450.0,
+        "y": 33.3424377,
+        "z": -180.0
+      },
+      {
+        "x": 460.0,
+        "y": 67.30858,
+        "z": -180.0
+      },
+      {
+        "x": 470.0,
+        "y": 69.25627,
+        "z": -180.0
+      },
+      {
+        "x": 40.0,
+        "y": 36.2219543,
+        "z": -170.0
+      },
+      {
+        "x": 50.0,
+        "y": 36.33938,
+        "z": -170.0
+      },
+      {
+        "x": 60.0,
+        "y": 36.5477257,
+        "z": -170.0
+      },
+      {
+        "x": 70.0,
+        "y": 36.8177376,
+        "z": -170.0
+      },
+      {
+        "x": 80.0,
+        "y": 37.11327,
+        "z": -170.0
+      },
+      {
+        "x": 90.0,
+        "y": 37.3979073,
+        "z": -170.0
+      },
+      {
+        "x": 100.0,
+        "y": 37.6431732,
+        "z": -170.0
+      },
+      {
+        "x": 110.0,
+        "y": 37.7673569,
+        "z": -170.0
+      },
+      {
+        "x": 120.0,
+        "y": 37.4216957,
+        "z": -170.0
+      },
+      {
+        "x": 130.0,
+        "y": 37.68974,
+        "z": -170.0
+      },
+      {
+        "x": 140.0,
+        "y": 37.6260376,
+        "z": -170.0
+      },
+      {
+        "x": 150.0,
+        "y": 38.5974464,
+        "z": -170.0
+      },
+      {
+        "x": 160.0,
+        "y": 39.81558,
+        "z": -170.0
+      },
+      {
+        "x": 170.0,
+        "y": 40.98639,
+        "z": -170.0
+      },
+      {
+        "x": 180.0,
+        "y": 42.1610756,
+        "z": -170.0
+      },
+      {
+        "x": 190.0,
+        "y": 43.1660767,
+        "z": -170.0
+      },
+      {
+        "x": 200.0,
+        "y": 43.8654442,
+        "z": -170.0
+      },
+      {
+        "x": 210.0,
+        "y": 44.1044426,
+        "z": -170.0
+      },
+      {
+        "x": 220.0,
+        "y": 44.0417175,
+        "z": -170.0
+      },
+      {
+        "x": 230.0,
+        "y": 44.4007759,
+        "z": -170.0
+      },
+      {
+        "x": 240.0,
+        "y": 45.2485275,
+        "z": -170.0
+      },
+      {
+        "x": 250.0,
+        "y": 46.1302834,
+        "z": -170.0
+      },
+      {
+        "x": 260.0,
+        "y": 47.04948,
+        "z": -170.0
+      },
+      {
+        "x": 270.0,
+        "y": 48.02767,
+        "z": -170.0
+      },
+      {
+        "x": 280.0,
+        "y": 49.0952339,
+        "z": -170.0
+      },
+      {
+        "x": 290.0,
+        "y": 50.2677,
+        "z": -170.0
+      },
+      {
+        "x": 300.0,
+        "y": 51.4879456,
+        "z": -170.0
+      },
+      {
+        "x": 310.0,
+        "y": 52.7164726,
+        "z": -170.0
+      },
+      {
+        "x": 320.0,
+        "y": 53.9447021,
+        "z": -170.0
+      },
+      {
+        "x": 330.0,
+        "y": 55.18172,
+        "z": -170.0
+      },
+      {
+        "x": 340.0,
+        "y": 56.4441452,
+        "z": -170.0
+      },
+      {
+        "x": 350.0,
+        "y": 57.7477837,
+        "z": -170.0
+      },
+      {
+        "x": 360.0,
+        "y": 59.1021461,
+        "z": -170.0
+      },
+      {
+        "x": 370.0,
+        "y": 59.82915,
+        "z": -170.0
+      },
+      {
+        "x": 380.0,
+        "y": 37.07989,
+        "z": -170.0
+      },
+      {
+        "x": 390.0,
+        "y": 33.3554573,
+        "z": -170.0
+      },
+      {
+        "x": 400.0,
+        "y": 33.0685425,
+        "z": -170.0
+      },
+      {
+        "x": 410.0,
+        "y": 33.0335274,
+        "z": -170.0
+      },
+      {
+        "x": 420.0,
+        "y": 32.991066,
+        "z": -170.0
+      },
+      {
+        "x": 430.0,
+        "y": 32.89655,
+        "z": -170.0
+      },
+      {
+        "x": 440.0,
+        "y": 32.89538,
+        "z": -170.0
+      },
+      {
+        "x": 450.0,
+        "y": 33.0748062,
+        "z": -170.0
+      },
+      {
+        "x": 460.0,
+        "y": 49.83122,
+        "z": -170.0
+      },
+      {
+        "x": 470.0,
+        "y": 71.6810455,
+        "z": -170.0
+      },
+      {
+        "x": 40.0,
+        "y": 36.086216,
+        "z": -160.0
+      },
+      {
+        "x": 50.0,
+        "y": 36.13923,
+        "z": -160.0
+      },
+      {
+        "x": 60.0,
+        "y": 36.29461,
+        "z": -160.0
+      },
+      {
+        "x": 70.0,
+        "y": 36.30247,
+        "z": -160.0
+      },
+      {
+        "x": 80.0,
+        "y": 35.0799332,
+        "z": -160.0
+      },
+      {
+        "x": 90.0,
+        "y": 33.0609,
+        "z": -160.0
+      },
+      {
+        "x": 100.0,
+        "y": 31.8773346,
+        "z": -160.0
+      },
+      {
+        "x": 110.0,
+        "y": 32.47292,
+        "z": -160.0
+      },
+      {
+        "x": 120.0,
+        "y": 34.21622,
+        "z": -160.0
+      },
+      {
+        "x": 130.0,
+        "y": 39.18579,
+        "z": -160.0
+      },
+      {
+        "x": 140.0,
+        "y": 39.06333,
+        "z": -160.0
+      },
+      {
+        "x": 150.0,
+        "y": 39.27242,
+        "z": -160.0
+      },
+      {
+        "x": 160.0,
+        "y": 39.81567,
+        "z": -160.0
+      },
+      {
+        "x": 170.0,
+        "y": 40.68382,
+        "z": -160.0
+      },
+      {
+        "x": 180.0,
+        "y": 41.6577263,
+        "z": -160.0
+      },
+      {
+        "x": 190.0,
+        "y": 42.4725075,
+        "z": -160.0
+      },
+      {
+        "x": 200.0,
+        "y": 42.9114075,
+        "z": -160.0
+      },
+      {
+        "x": 210.0,
+        "y": 43.6074677,
+        "z": -160.0
+      },
+      {
+        "x": 220.0,
+        "y": 44.60421,
+        "z": -160.0
+      },
+      {
+        "x": 230.0,
+        "y": 45.63928,
+        "z": -160.0
+      },
+      {
+        "x": 240.0,
+        "y": 46.69548,
+        "z": -160.0
+      },
+      {
+        "x": 250.0,
+        "y": 47.7753,
+        "z": -160.0
+      },
+      {
+        "x": 260.0,
+        "y": 48.8898544,
+        "z": -160.0
+      },
+      {
+        "x": 270.0,
+        "y": 50.0599022,
+        "z": -160.0
+      },
+      {
+        "x": 280.0,
+        "y": 51.31684,
+        "z": -160.0
+      },
+      {
+        "x": 290.0,
+        "y": 52.67837,
+        "z": -160.0
+      },
+      {
+        "x": 300.0,
+        "y": 54.0847855,
+        "z": -160.0
+      },
+      {
+        "x": 310.0,
+        "y": 55.48935,
+        "z": -160.0
+      },
+      {
+        "x": 320.0,
+        "y": 56.8744545,
+        "z": -160.0
+      },
+      {
+        "x": 330.0,
+        "y": 58.2405052,
+        "z": -160.0
+      },
+      {
+        "x": 340.0,
+        "y": 59.5972557,
+        "z": -160.0
+      },
+      {
+        "x": 350.0,
+        "y": 60.9570923,
+        "z": -160.0
+      },
+      {
+        "x": 360.0,
+        "y": 62.3302956,
+        "z": -160.0
+      },
+      {
+        "x": 370.0,
+        "y": 63.074707,
+        "z": -160.0
+      },
+      {
+        "x": 380.0,
+        "y": 55.6332436,
+        "z": -160.0
+      },
+      {
+        "x": 390.0,
+        "y": 35.31955,
+        "z": -160.0
+      },
+      {
+        "x": 400.0,
+        "y": 33.20692,
+        "z": -160.0
+      },
+      {
+        "x": 410.0,
+        "y": 33.0497742,
+        "z": -160.0
+      },
+      {
+        "x": 420.0,
+        "y": 32.9276,
+        "z": -160.0
+      },
+      {
+        "x": 430.0,
+        "y": 32.7847061,
+        "z": -160.0
+      },
+      {
+        "x": 440.0,
+        "y": 32.94554,
+        "z": -160.0
+      },
+      {
+        "x": 450.0,
+        "y": 32.9650879,
+        "z": -160.0
+      },
+      {
+        "x": 460.0,
+        "y": 42.4110031,
+        "z": -160.0
+      },
+      {
+        "x": 470.0,
+        "y": 73.9987,
+        "z": -160.0
+      },
+      {
+        "x": 40.0,
+        "y": 30.516367,
+        "z": -150.0
+      },
+      {
+        "x": 50.0,
+        "y": 30.3474617,
+        "z": -150.0
+      },
+      {
+        "x": 60.0,
+        "y": 30.5721169,
+        "z": -150.0
+      },
+      {
+        "x": 70.0,
+        "y": 30.77378,
+        "z": -150.0
+      },
+      {
+        "x": 80.0,
+        "y": 30.9693,
+        "z": -150.0
+      },
+      {
+        "x": 90.0,
+        "y": 31.2083988,
+        "z": -150.0
+      },
+      {
+        "x": 100.0,
+        "y": 31.7118263,
+        "z": -150.0
+      },
+      {
+        "x": 110.0,
+        "y": 32.33907,
+        "z": -150.0
+      },
+      {
+        "x": 120.0,
+        "y": 33.07442,
+        "z": -150.0
+      },
+      {
+        "x": 130.0,
+        "y": 39.2468147,
+        "z": -150.0
+      },
+      {
+        "x": 140.0,
+        "y": 39.0615959,
+        "z": -150.0
+      },
+      {
+        "x": 150.0,
+        "y": 38.45638,
+        "z": -150.0
+      },
+      {
+        "x": 160.0,
+        "y": 39.7829247,
+        "z": -150.0
+      },
+      {
+        "x": 170.0,
+        "y": 40.548172,
+        "z": -150.0
+      },
+      {
+        "x": 180.0,
+        "y": 40.9140167,
+        "z": -150.0
+      },
+      {
+        "x": 190.0,
+        "y": 42.3988075,
+        "z": -150.0
+      },
+      {
+        "x": 200.0,
+        "y": 43.4647827,
+        "z": -150.0
+      },
+      {
+        "x": 210.0,
+        "y": 44.5959663,
+        "z": -150.0
+      },
+      {
+        "x": 220.0,
+        "y": 45.77532,
+        "z": -150.0
+      },
+      {
+        "x": 230.0,
+        "y": 46.98975,
+        "z": -150.0
+      },
+      {
+        "x": 240.0,
+        "y": 48.2317162,
+        "z": -150.0
+      },
+      {
+        "x": 250.0,
+        "y": 49.5010643,
+        "z": -150.0
+      },
+      {
+        "x": 260.0,
+        "y": 50.806263,
+        "z": -150.0
+      },
+      {
+        "x": 270.0,
+        "y": 52.1656151,
+        "z": -150.0
+      },
+      {
+        "x": 280.0,
+        "y": 53.6087723,
+        "z": -150.0
+      },
+      {
+        "x": 290.0,
+        "y": 55.1526,
+        "z": -150.0
+      },
+      {
+        "x": 300.0,
+        "y": 56.73555,
+        "z": -150.0
+      },
+      {
+        "x": 310.0,
+        "y": 58.303688,
+        "z": -150.0
+      },
+      {
+        "x": 320.0,
+        "y": 59.8297424,
+        "z": -150.0
+      },
+      {
+        "x": 330.0,
+        "y": 61.3043633,
+        "z": -150.0
+      },
+      {
+        "x": 340.0,
+        "y": 62.7297745,
+        "z": -150.0
+      },
+      {
+        "x": 350.0,
+        "y": 64.11472,
+        "z": -150.0
+      },
+      {
+        "x": 360.0,
+        "y": 65.47037,
+        "z": -150.0
+      },
+      {
+        "x": 370.0,
+        "y": 66.70783,
+        "z": -150.0
+      },
+      {
+        "x": 380.0,
+        "y": 61.68821,
+        "z": -150.0
+      },
+      {
+        "x": 390.0,
+        "y": 48.20035,
+        "z": -150.0
+      },
+      {
+        "x": 400.0,
+        "y": 36.3244667,
+        "z": -150.0
+      },
+      {
+        "x": 410.0,
+        "y": 32.95466,
+        "z": -150.0
+      },
+      {
+        "x": 420.0,
+        "y": 32.8802834,
+        "z": -150.0
+      },
+      {
+        "x": 430.0,
+        "y": 32.75478,
+        "z": -150.0
+      },
+      {
+        "x": 440.0,
+        "y": 35.1970024,
+        "z": -150.0
+      },
+      {
+        "x": 449.999969,
+        "y": 41.0615463,
+        "z": -150.0
+      },
+      {
+        "x": 460.0,
+        "y": 46.8910942,
+        "z": -150.0
+      },
+      {
+        "x": 470.0,
+        "y": 56.76849,
+        "z": -150.0
+      },
+      {
+        "x": 40.0,
+        "y": 29.8821068,
+        "z": -140.0
+      },
+      {
+        "x": 50.0,
+        "y": 30.2649841,
+        "z": -140.0
+      },
+      {
+        "x": 60.0,
+        "y": 30.5332451,
+        "z": -140.0
+      },
+      {
+        "x": 70.0,
+        "y": 30.7358856,
+        "z": -140.0
+      },
+      {
+        "x": 80.0,
+        "y": 30.92109,
+        "z": -140.0
+      },
+      {
+        "x": 90.0,
+        "y": 31.1467361,
+        "z": -140.0
+      },
+      {
+        "x": 100.0,
+        "y": 31.5257473,
+        "z": -140.0
+      },
+      {
+        "x": 110.0,
+        "y": 32.3461647,
+        "z": -140.0
+      },
+      {
+        "x": 120.0,
+        "y": 34.1460037,
+        "z": -140.0
+      },
+      {
+        "x": 130.0,
+        "y": 37.7590637,
+        "z": -140.0
+      },
+      {
+        "x": 140.0,
+        "y": 38.73993,
+        "z": -140.0
+      },
+      {
+        "x": 150.0,
+        "y": 39.6015778,
+        "z": -140.0
+      },
+      {
+        "x": 160.0,
+        "y": 40.03216,
+        "z": -140.0
+      },
+      {
+        "x": 170.0,
+        "y": 40.1477165,
+        "z": -140.0
+      },
+      {
+        "x": 180.0,
+        "y": 41.62812,
+        "z": -140.0
+      },
+      {
+        "x": 190.0,
+        "y": 43.255703,
+        "z": -140.0
+      },
+      {
+        "x": 200.0,
+        "y": 44.43866,
+        "z": -140.0
+      },
+      {
+        "x": 210.0,
+        "y": 45.6979256,
+        "z": -140.0
+      },
+      {
+        "x": 220.0,
+        "y": 47.01722,
+        "z": -140.0
+      },
+      {
+        "x": 230.0,
+        "y": 48.38333,
+        "z": -140.0
+      },
+      {
+        "x": 240.0,
+        "y": 49.7878723,
+        "z": -140.0
+      },
+      {
+        "x": 250.0,
+        "y": 51.2286263,
+        "z": -140.0
+      },
+      {
+        "x": 260.0,
+        "y": 52.71102,
+        "z": -140.0
+      },
+      {
+        "x": 270.0,
+        "y": 54.2495766,
+        "z": -140.0
+      },
+      {
+        "x": 280.0,
+        "y": 55.86896,
+        "z": -140.0
+      },
+      {
+        "x": 290.0,
+        "y": 57.58216,
+        "z": -140.0
+      },
+      {
+        "x": 300.0,
+        "y": 59.3268929,
+        "z": -140.0
+      },
+      {
+        "x": 310.0,
+        "y": 61.0435143,
+        "z": -140.0
+      },
+      {
+        "x": 320.0,
+        "y": 62.69484,
+        "z": -140.0
+      },
+      {
+        "x": 330.0,
+        "y": 64.26116,
+        "z": -140.0
+      },
+      {
+        "x": 340.0,
+        "y": 65.7364655,
+        "z": -140.0
+      },
+      {
+        "x": 350.0,
+        "y": 67.12511,
+        "z": -140.0
+      },
+      {
+        "x": 360.0,
+        "y": 68.4387054,
+        "z": -140.0
+      },
+      {
+        "x": 370.0,
+        "y": 69.69318,
+        "z": -140.0
+      },
+      {
+        "x": 380.0,
+        "y": 68.91545,
+        "z": -140.0
+      },
+      {
+        "x": 390.0,
+        "y": 59.9545174,
+        "z": -140.0
+      },
+      {
+        "x": 400.0,
+        "y": 48.5288658,
+        "z": -140.0
+      },
+      {
+        "x": 410.0,
+        "y": 41.5103035,
+        "z": -140.0
+      },
+      {
+        "x": 420.0,
+        "y": 45.9272346,
+        "z": -140.0
+      },
+      {
+        "x": 430.0,
+        "y": 38.3411064,
+        "z": -140.0
+      },
+      {
+        "x": 440.0,
+        "y": 34.1874771,
+        "z": -140.0
+      },
+      {
+        "x": 450.0,
+        "y": 77.64988,
+        "z": -140.0
+      },
+      {
+        "x": 460.0,
+        "y": 59.6832428,
+        "z": -140.0
+      },
+      {
+        "x": 470.0,
+        "y": 54.2056046,
+        "z": -140.0
+      },
+      {
+        "x": 40.0,
+        "y": 29.8151722,
+        "z": -130.0
+      },
+      {
+        "x": 50.0,
+        "y": 30.2154274,
+        "z": -130.0
+      },
+      {
+        "x": 60.0,
+        "y": 30.5758057,
+        "z": -130.0
+      },
+      {
+        "x": 70.0,
+        "y": 31.7972832,
+        "z": -130.0
+      },
+      {
+        "x": 80.0,
+        "y": 34.66718,
+        "z": -130.0
+      },
+      {
+        "x": 90.0,
+        "y": 37.0677032,
+        "z": -130.0
+      },
+      {
+        "x": 100.0,
+        "y": 37.55005,
+        "z": -130.0
+      },
+      {
+        "x": 110.0,
+        "y": 38.02253,
+        "z": -130.0
+      },
+      {
+        "x": 120.0,
+        "y": 38.49822,
+        "z": -130.0
+      },
+      {
+        "x": 130.0,
+        "y": 39.0101738,
+        "z": -130.0
+      },
+      {
+        "x": 140.0,
+        "y": 39.5992355,
+        "z": -130.0
+      },
+      {
+        "x": 150.0,
+        "y": 40.0324478,
+        "z": -130.0
+      },
+      {
+        "x": 160.0,
+        "y": 39.691227,
+        "z": -130.0
+      },
+      {
+        "x": 170.0,
+        "y": 39.99541,
+        "z": -130.0
+      },
+      {
+        "x": 180.0,
+        "y": 43.086338,
+        "z": -130.0
+      },
+      {
+        "x": 190.0,
+        "y": 44.2536125,
+        "z": -130.0
+      },
+      {
+        "x": 200.0,
+        "y": 45.51588,
+        "z": -130.0
+      },
+      {
+        "x": 210.0,
+        "y": 46.8633537,
+        "z": -130.0
+      },
+      {
+        "x": 220.0,
+        "y": 48.28318,
+        "z": -130.0
+      },
+      {
+        "x": 230.0,
+        "y": 49.76431,
+        "z": -130.0
+      },
+      {
+        "x": 240.0,
+        "y": 51.2991943,
+        "z": -130.0
+      },
+      {
+        "x": 250.0,
+        "y": 52.8845825,
+        "z": -130.0
+      },
+      {
+        "x": 260.0,
+        "y": 54.52286,
+        "z": -130.0
+      },
+      {
+        "x": 270.0,
+        "y": 56.22302,
+        "z": -130.0
+      },
+      {
+        "x": 280.0,
+        "y": 58.0018425,
+        "z": -130.0
+      },
+      {
+        "x": 290.0,
+        "y": 59.8654938,
+        "z": -130.0
+      },
+      {
+        "x": 300.0,
+        "y": 61.75289,
+        "z": -130.0
+      },
+      {
+        "x": 310.0,
+        "y": 63.6005173,
+        "z": -130.0
+      },
+      {
+        "x": 320.0,
+        "y": 65.3620453,
+        "z": -130.0
+      },
+      {
+        "x": 330.0,
+        "y": 67.00718,
+        "z": -130.0
+      },
+      {
+        "x": 340.0,
+        "y": 68.52079,
+        "z": -130.0
+      },
+      {
+        "x": 350.0,
+        "y": 69.90168,
+        "z": -130.0
+      },
+      {
+        "x": 360.0,
+        "y": 71.16083,
+        "z": -130.0
+      },
+      {
+        "x": 370.0,
+        "y": 72.319,
+        "z": -130.0
+      },
+      {
+        "x": 380.0,
+        "y": 73.40311,
+        "z": -130.0
+      },
+      {
+        "x": 390.0,
+        "y": 72.04364,
+        "z": -130.0
+      },
+      {
+        "x": 400.0,
+        "y": 66.74818,
+        "z": -130.0
+      },
+      {
+        "x": 410.0,
+        "y": 62.04519,
+        "z": -130.0
+      },
+      {
+        "x": 420.0,
+        "y": 68.82684,
+        "z": -130.0
+      },
+      {
+        "x": 430.0,
+        "y": 82.2707,
+        "z": -130.0
+      },
+      {
+        "x": 440.0,
+        "y": 82.2707,
+        "z": -130.0
+      },
+      {
+        "x": 450.0,
+        "y": 82.2707,
+        "z": -130.0
+      },
+      {
+        "x": 460.0,
+        "y": 82.2707,
+        "z": -130.0
+      },
+      {
+        "x": 470.0,
+        "y": 82.2707,
+        "z": -130.0
+      },
+      {
+        "x": 40.0,
+        "y": 35.9927673,
+        "z": -120.0
+      },
+      {
+        "x": 50.0,
+        "y": 36.09838,
+        "z": -120.0
+      },
+      {
+        "x": 60.0,
+        "y": 36.2008743,
+        "z": -120.0
+      },
+      {
+        "x": 70.0,
+        "y": 36.4729462,
+        "z": -120.0
+      },
+      {
+        "x": 80.0,
+        "y": 36.8835564,
+        "z": -120.0
+      },
+      {
+        "x": 90.0,
+        "y": 37.39015,
+        "z": -120.0
+      },
+      {
+        "x": 100.0,
+        "y": 37.9478836,
+        "z": -120.0
+      },
+      {
+        "x": 110.0,
+        "y": 38.52252,
+        "z": -120.0
+      },
+      {
+        "x": 120.0,
+        "y": 39.10597,
+        "z": -120.0
+      },
+      {
+        "x": 130.0,
+        "y": 39.726944,
+        "z": -120.0
+      },
+      {
+        "x": 140.0,
+        "y": 40.4126244,
+        "z": -120.0
+      },
+      {
+        "x": 150.0,
+        "y": 39.39635,
+        "z": -120.0
+      },
+      {
+        "x": 160.0,
+        "y": 39.3767929,
+        "z": -120.0
+      },
+      {
+        "x": 170.0,
+        "y": 41.52397,
+        "z": -120.0
+      },
+      {
+        "x": 180.0,
+        "y": 44.1652222,
+        "z": -120.0
+      },
+      {
+        "x": 190.0,
+        "y": 45.3664055,
+        "z": -120.0
+      },
+      {
+        "x": 200.0,
+        "y": 46.66616,
+        "z": -120.0
+      },
+      {
+        "x": 210.0,
+        "y": 48.0575676,
+        "z": -120.0
+      },
+      {
+        "x": 220.0,
+        "y": 49.53352,
+        "z": -120.0
+      },
+      {
+        "x": 230.0,
+        "y": 51.0875854,
+        "z": -120.0
+      },
+      {
+        "x": 240.0,
+        "y": 52.7147141,
+        "z": -120.0
+      },
+      {
+        "x": 250.0,
+        "y": 54.4116745,
+        "z": -120.0
+      },
+      {
+        "x": 260.0,
+        "y": 56.17782,
+        "z": -120.0
+      },
+      {
+        "x": 270.0,
+        "y": 58.0155525,
+        "z": -120.0
+      },
+      {
+        "x": 280.0,
+        "y": 59.9312668,
+        "z": -120.0
+      },
+      {
+        "x": 290.0,
+        "y": 61.92146,
+        "z": -120.0
+      },
+      {
+        "x": 300.0,
+        "y": 63.9287,
+        "z": -120.0
+      },
+      {
+        "x": 310.0,
+        "y": 65.88801,
+        "z": -120.0
+      },
+      {
+        "x": 320.0,
+        "y": 67.74508,
+        "z": -120.0
+      },
+      {
+        "x": 330.0,
+        "y": 69.45929,
+        "z": -120.0
+      },
+      {
+        "x": 340.0,
+        "y": 71.00574,
+        "z": -120.0
+      },
+      {
+        "x": 350.0,
+        "y": 72.3764,
+        "z": -120.0
+      },
+      {
+        "x": 360.0,
+        "y": 73.58002,
+        "z": -120.0
+      },
+      {
+        "x": 370.0,
+        "y": 74.6400757,
+        "z": -120.0
+      },
+      {
+        "x": 380.0,
+        "y": 75.591774,
+        "z": -120.0
+      },
+      {
+        "x": 390.0,
+        "y": 76.53359,
+        "z": -120.0
+      },
+      {
+        "x": 400.0,
+        "y": 77.51976,
+        "z": -120.0
+      },
+      {
+        "x": 410.0,
+        "y": 77.8510742,
+        "z": -120.0
+      },
+      {
+        "x": 420.0,
+        "y": 79.59387,
+        "z": -120.0
+      },
+      {
+        "x": 430.0,
+        "y": 82.2707,
+        "z": -120.0
+      },
+      {
+        "x": 440.0,
+        "y": 82.2707,
+        "z": -120.0
+      },
+      {
+        "x": 450.0,
+        "y": 82.2707,
+        "z": -120.0
+      },
+      {
+        "x": 460.0,
+        "y": 82.2707,
+        "z": -120.0
+      },
+      {
+        "x": 470.0,
+        "y": 82.46905,
+        "z": -120.0
+      },
+      {
+        "x": 40.0,
+        "y": 36.3123474,
+        "z": -110.0
+      },
+      {
+        "x": 50.0,
+        "y": 36.2646828,
+        "z": -110.0
+      },
+      {
+        "x": 60.0,
+        "y": 36.4171143,
+        "z": -110.0
+      },
+      {
+        "x": 70.0,
+        "y": 36.7566032,
+        "z": -110.0
+      },
+      {
+        "x": 80.0,
+        "y": 37.25041,
+        "z": -110.0
+      },
+      {
+        "x": 90.0,
+        "y": 37.852932,
+        "z": -110.0
+      },
+      {
+        "x": 100.0,
+        "y": 38.51568,
+        "z": -110.0
+      },
+      {
+        "x": 110.0,
+        "y": 39.2008667,
+        "z": -110.0
+      },
+      {
+        "x": 120.0,
+        "y": 39.8981934,
+        "z": -110.0
+      },
+      {
+        "x": 130.0,
+        "y": 40.63342,
+        "z": -110.0
+      },
+      {
+        "x": 140.0,
+        "y": 40.0829659,
+        "z": -110.0
+      },
+      {
+        "x": 150.0,
+        "y": 38.82331,
+        "z": -110.0
+      },
+      {
+        "x": 160.0,
+        "y": 39.3868675,
+        "z": -110.0
+      },
+      {
+        "x": 170.0,
+        "y": 44.212944,
+        "z": -110.0
+      },
+      {
+        "x": 180.0,
+        "y": 45.3617439,
+        "z": -110.0
+      },
+      {
+        "x": 190.0,
+        "y": 46.5643158,
+        "z": -110.0
+      },
+      {
+        "x": 200.0,
+        "y": 47.86068,
+        "z": -110.0
+      },
+      {
+        "x": 210.0,
+        "y": 49.2523575,
+        "z": -110.0
+      },
+      {
+        "x": 220.0,
+        "y": 50.74015,
+        "z": -110.0
+      },
+      {
+        "x": 230.0,
+        "y": 52.3240356,
+        "z": -110.0
+      },
+      {
+        "x": 240.0,
+        "y": 54.00313,
+        "z": -110.0
+      },
+      {
+        "x": 250.0,
+        "y": 55.7753258,
+        "z": -110.0
+      },
+      {
+        "x": 260.0,
+        "y": 57.6371574,
+        "z": -110.0
+      },
+      {
+        "x": 270.0,
+        "y": 59.5837135,
+        "z": -110.0
+      },
+      {
+        "x": 280.0,
+        "y": 61.6090546,
+        "z": -110.0
+      },
+      {
+        "x": 290.0,
+        "y": 63.69817,
+        "z": -110.0
+      },
+      {
+        "x": 300.0,
+        "y": 65.7995758,
+        "z": -110.0
+      },
+      {
+        "x": 310.0,
+        "y": 67.84965,
+        "z": -110.0
+      },
+      {
+        "x": 320.0,
+        "y": 69.7877045,
+        "z": -110.0
+      },
+      {
+        "x": 330.0,
+        "y": 71.5632858,
+        "z": -110.0
+      },
+      {
+        "x": 340.0,
+        "y": 73.14142,
+        "z": -110.0
+      },
+      {
+        "x": 350.0,
+        "y": 74.5060043,
+        "z": -110.0
+      },
+      {
+        "x": 360.0,
+        "y": 75.66152,
+        "z": -110.0
+      },
+      {
+        "x": 370.0,
+        "y": 76.6319046,
+        "z": -110.0
+      },
+      {
+        "x": 380.0,
+        "y": 77.45798,
+        "z": -110.0
+      },
+      {
+        "x": 390.0,
+        "y": 78.39645,
+        "z": -110.0
+      },
+      {
+        "x": 400.0,
+        "y": 79.7025757,
+        "z": -110.0
+      },
+      {
+        "x": 410.0,
+        "y": 81.23226,
+        "z": -110.0
+      },
+      {
+        "x": 420.0,
+        "y": 82.83166,
+        "z": -110.0
+      },
+      {
+        "x": 430.0,
+        "y": 83.18488,
+        "z": -110.0
+      },
+      {
+        "x": 440.0,
+        "y": 82.2707,
+        "z": -110.0
+      },
+      {
+        "x": 450.0,
+        "y": 82.2707,
+        "z": -110.0
+      },
+      {
+        "x": 460.0,
+        "y": 82.32903,
+        "z": -110.0
+      },
+      {
+        "x": 470.0,
+        "y": 85.82422,
+        "z": -110.0
+      },
+      {
+        "x": 40.0,
+        "y": 36.4645042,
+        "z": -100.0
+      },
+      {
+        "x": 50.0,
+        "y": 36.4797821,
+        "z": -100.0
+      },
+      {
+        "x": 60.0,
+        "y": 36.7102051,
+        "z": -100.0
+      },
+      {
+        "x": 70.0,
+        "y": 37.14127,
+        "z": -100.0
+      },
+      {
+        "x": 80.0,
+        "y": 37.7375641,
+        "z": -100.0
+      },
+      {
+        "x": 90.0,
+        "y": 38.449955,
+        "z": -100.0
+      },
+      {
+        "x": 100.0,
+        "y": 39.22643,
+        "z": -100.0
+      },
+      {
+        "x": 110.0,
+        "y": 40.026722,
+        "z": -100.0
+      },
+      {
+        "x": 120.0,
+        "y": 40.840004,
+        "z": -100.0
+      },
+      {
+        "x": 130.0,
+        "y": 41.3669319,
+        "z": -100.0
+      },
+      {
+        "x": 140.0,
+        "y": 38.1837578,
+        "z": -100.0
+      },
+      {
+        "x": 150.0,
+        "y": 38.4010124,
+        "z": -100.0
+      },
+      {
+        "x": 160.0,
+        "y": 42.6392021,
+        "z": -100.0
+      },
+      {
+        "x": 170.0,
+        "y": 45.542923,
+        "z": -100.0
+      },
+      {
+        "x": 180.0,
+        "y": 46.6429367,
+        "z": -100.0
+      },
+      {
+        "x": 190.0,
+        "y": 47.8162231,
+        "z": -100.0
+      },
+      {
+        "x": 200.0,
+        "y": 49.0742378,
+        "z": -100.0
+      },
+      {
+        "x": 210.0,
+        "y": 50.4283371,
+        "z": -100.0
+      },
+      {
+        "x": 220.0,
+        "y": 51.8886375,
+        "z": -100.0
+      },
+      {
+        "x": 230.0,
+        "y": 53.462986,
+        "z": -100.0
+      },
+      {
+        "x": 240.0,
+        "y": 55.1558266,
+        "z": -100.0
+      },
+      {
+        "x": 250.0,
+        "y": 56.96695,
+        "z": -100.0
+      },
+      {
+        "x": 260.0,
+        "y": 58.8906021,
+        "z": -100.0
+      },
+      {
+        "x": 270.0,
+        "y": 60.9145432,
+        "z": -100.0
+      },
+      {
+        "x": 280.0,
+        "y": 63.01929,
+        "z": -100.0
+      },
+      {
+        "x": 290.0,
+        "y": 65.1774,
+        "z": -100.0
+      },
+      {
+        "x": 300.0,
+        "y": 67.34565,
+        "z": -100.0
+      },
+      {
+        "x": 310.0,
+        "y": 69.46408,
+        "z": -100.0
+      },
+      {
+        "x": 320.0,
+        "y": 71.46777,
+        "z": -100.0
+      },
+      {
+        "x": 330.0,
+        "y": 73.29746,
+        "z": -100.0
+      },
+      {
+        "x": 340.0,
+        "y": 74.90801,
+        "z": -100.0
+      },
+      {
+        "x": 350.0,
+        "y": 76.27447,
+        "z": -100.0
+      },
+      {
+        "x": 360.0,
+        "y": 77.39511,
+        "z": -100.0
+      },
+      {
+        "x": 370.0,
+        "y": 78.2917557,
+        "z": -100.0
+      },
+      {
+        "x": 380.0,
+        "y": 79.02832,
+        "z": -100.0
+      },
+      {
+        "x": 390.0,
+        "y": 79.97505,
+        "z": -100.0
+      },
+      {
+        "x": 400.0,
+        "y": 81.16986,
+        "z": -100.0
+      },
+      {
+        "x": 410.0,
+        "y": 82.5197449,
+        "z": -100.0
+      },
+      {
+        "x": 420.0,
+        "y": 83.91839,
+        "z": -100.0
+      },
+      {
+        "x": 430.0,
+        "y": 85.23737,
+        "z": -100.0
+      },
+      {
+        "x": 440.0,
+        "y": 85.94933,
+        "z": -100.0
+      },
+      {
+        "x": 450.0,
+        "y": 86.09145,
+        "z": -100.0
+      },
+      {
+        "x": 460.0,
+        "y": 87.59163,
+        "z": -100.0
+      },
+      {
+        "x": 470.0,
+        "y": 87.91252,
+        "z": -100.0
+      },
+      {
+        "x": 40.0,
+        "y": 36.621582,
+        "z": -90.0
+      },
+      {
+        "x": 50.0,
+        "y": 36.7267075,
+        "z": -90.0
+      },
+      {
+        "x": 60.0,
+        "y": 37.05895,
+        "z": -90.0
+      },
+      {
+        "x": 70.0,
+        "y": 37.60115,
+        "z": -90.0
+      },
+      {
+        "x": 80.0,
+        "y": 38.31438,
+        "z": -90.0
+      },
+      {
+        "x": 90.0,
+        "y": 39.145813,
+        "z": -90.0
+      },
+      {
+        "x": 100.0,
+        "y": 40.04035,
+        "z": -90.0
+      },
+      {
+        "x": 110.0,
+        "y": 40.95604,
+        "z": -90.0
+      },
+      {
+        "x": 120.0,
+        "y": 41.88334,
+        "z": -90.0
+      },
+      {
+        "x": 130.0,
+        "y": 39.0376167,
+        "z": -90.0
+      },
+      {
+        "x": 140.0,
+        "y": 37.7009544,
+        "z": -90.0
+      },
+      {
+        "x": 150.0,
+        "y": 39.61131,
+        "z": -90.0
+      },
+      {
+        "x": 160.0,
+        "y": 45.86012,
+        "z": -90.0
+      },
+      {
+        "x": 170.0,
+        "y": 46.8980026,
+        "z": -90.0
+      },
+      {
+        "x": 180.0,
+        "y": 47.96918,
+        "z": -90.0
+      },
+      {
+        "x": 190.0,
+        "y": 49.09176,
+        "z": -90.0
+      },
+      {
+        "x": 200.0,
+        "y": 50.28675,
+        "z": -90.0
+      },
+      {
+        "x": 210.0,
+        "y": 51.5756874,
+        "z": -90.0
+      },
+      {
+        "x": 220.0,
+        "y": 52.9786263,
+        "z": -90.0
+      },
+      {
+        "x": 230.0,
+        "y": 54.51187,
+        "z": -90.0
+      },
+      {
+        "x": 240.0,
+        "y": 56.1858444,
+        "z": -90.0
+      },
+      {
+        "x": 250.0,
+        "y": 58.0030136,
+        "z": -90.0
+      },
+      {
+        "x": 260.0,
+        "y": 59.9558144,
+        "z": -90.0
+      },
+      {
+        "x": 270.0,
+        "y": 62.02496,
+        "z": -90.0
+      },
+      {
+        "x": 280.0,
+        "y": 64.17772,
+        "z": -90.0
+      },
+      {
+        "x": 290.0,
+        "y": 66.37402,
+        "z": -90.0
+      },
+      {
+        "x": 300.0,
+        "y": 68.58076,
+        "z": -90.0
+      },
+      {
+        "x": 310.0,
+        "y": 70.74412,
+        "z": -90.0
+      },
+      {
+        "x": 320.0,
+        "y": 72.79665,
+        "z": -90.0
+      },
+      {
+        "x": 330.0,
+        "y": 74.67195,
+        "z": -90.0
+      },
+      {
+        "x": 340.0,
+        "y": 76.31535,
+        "z": -90.0
+      },
+      {
+        "x": 350.0,
+        "y": 77.6924744,
+        "z": -90.0
+      },
+      {
+        "x": 360.0,
+        "y": 78.7940445,
+        "z": -90.0
+      },
+      {
+        "x": 370.0,
+        "y": 79.6374359,
+        "z": -90.0
+      },
+      {
+        "x": 380.0,
+        "y": 80.35651,
+        "z": -90.0
+      },
+      {
+        "x": 390.0,
+        "y": 81.26033,
+        "z": -90.0
+      },
+      {
+        "x": 400.0,
+        "y": 82.31746,
+        "z": -90.0
+      },
+      {
+        "x": 410.0,
+        "y": 83.47808,
+        "z": -90.0
+      },
+      {
+        "x": 420.0,
+        "y": 84.678894,
+        "z": -90.0
+      },
+      {
+        "x": 430.0,
+        "y": 85.81731,
+        "z": -90.0
+      },
+      {
+        "x": 440.0,
+        "y": 86.78196,
+        "z": -90.0
+      },
+      {
+        "x": 450.0,
+        "y": 87.4935,
+        "z": -90.0
+      },
+      {
+        "x": 460.0,
+        "y": 87.94583,
+        "z": -90.0
+      },
+      {
+        "x": 470.0,
+        "y": 88.15125,
+        "z": -90.0
+      },
+      {
+        "x": 40.0,
+        "y": 36.77219,
+        "z": -80.0
+      },
+      {
+        "x": 50.0,
+        "y": 36.9876823,
+        "z": -80.0
+      },
+      {
+        "x": 60.0,
+        "y": 37.4388771,
+        "z": -80.0
+      },
+      {
+        "x": 70.0,
+        "y": 38.1051,
+        "z": -80.0
+      },
+      {
+        "x": 80.0,
+        "y": 38.9434929,
+        "z": -80.0
+      },
+      {
+        "x": 90.0,
+        "y": 39.8975754,
+        "z": -80.0
+      },
+      {
+        "x": 100.0,
+        "y": 40.9096756,
+        "z": -80.0
+      },
+      {
+        "x": 110.0,
+        "y": 41.9371452,
+        "z": -80.0
+      },
+      {
+        "x": 120.0,
+        "y": 41.17655,
+        "z": -80.0
+      },
+      {
+        "x": 130.0,
+        "y": 37.05553,
+        "z": -80.0
+      },
+      {
+        "x": 140.0,
+        "y": 37.31786,
+        "z": -80.0
+      },
+      {
+        "x": 150.0,
+        "y": 45.12321,
+        "z": -80.0
+      },
+      {
+        "x": 160.0,
+        "y": 47.23561,
+        "z": -80.0
+      },
+      {
+        "x": 170.0,
+        "y": 48.26702,
+        "z": -80.0
+      },
+      {
+        "x": 180.0,
+        "y": 49.3013229,
+        "z": -80.0
+      },
+      {
+        "x": 190.0,
+        "y": 50.3636932,
+        "z": -80.0
+      },
+      {
+        "x": 200.0,
+        "y": 51.4839554,
+        "z": -80.0
+      },
+      {
+        "x": 210.0,
+        "y": 52.69336,
+        "z": -80.0
+      },
+      {
+        "x": 220.0,
+        "y": 54.0214462,
+        "z": -80.0
+      },
+      {
+        "x": 230.0,
+        "y": 55.4927826,
+        "z": -80.0
+      },
+      {
+        "x": 240.0,
+        "y": 57.1238861,
+        "z": -80.0
+      },
+      {
+        "x": 250.0,
+        "y": 58.9201927,
+        "z": -80.0
+      },
+      {
+        "x": 260.0,
+        "y": 60.87289,
+        "z": -80.0
+      },
+      {
+        "x": 270.0,
+        "y": 62.9565773,
+        "z": -80.0
+      },
+      {
+        "x": 280.0,
+        "y": 65.12627,
+        "z": -80.0
+      },
+      {
+        "x": 290.0,
+        "y": 67.3306961,
+        "z": -80.0
+      },
+      {
+        "x": 300.0,
+        "y": 69.54771,
+        "z": -80.0
+      },
+      {
+        "x": 310.0,
+        "y": 71.731575,
+        "z": -80.0
+      },
+      {
+        "x": 320.0,
+        "y": 73.8145142,
+        "z": -80.0
+      },
+      {
+        "x": 330.0,
+        "y": 75.7244644,
+        "z": -80.0
+      },
+      {
+        "x": 340.0,
+        "y": 77.3987045,
+        "z": -80.0
+      },
+      {
+        "x": 350.0,
+        "y": 78.7937,
+        "z": -80.0
+      },
+      {
+        "x": 360.0,
+        "y": 79.89175,
+        "z": -80.0
+      },
+      {
+        "x": 370.0,
+        "y": 80.70383,
+        "z": -80.0
+      },
+      {
+        "x": 380.0,
+        "y": 81.4410553,
+        "z": -80.0
+      },
+      {
+        "x": 390.0,
+        "y": 82.18976,
+        "z": -80.0
+      },
+      {
+        "x": 400.0,
+        "y": 82.46803,
+        "z": -80.0
+      },
+      {
+        "x": 410.0,
+        "y": 84.17183,
+        "z": -80.0
+      },
+      {
+        "x": 420.0,
+        "y": 85.19351,
+        "z": -80.0
+      },
+      {
+        "x": 430.0,
+        "y": 86.16336,
+        "z": -80.0
+      },
+      {
+        "x": 440.0,
+        "y": 87.00465,
+        "z": -80.0
+      },
+      {
+        "x": 450.0,
+        "y": 87.63009,
+        "z": -80.0
+      },
+      {
+        "x": 460.0,
+        "y": 88.03434,
+        "z": -80.0
+      },
+      {
+        "x": 470.0,
+        "y": 88.20793,
+        "z": -80.0
+      },
+      {
+        "x": 40.0,
+        "y": 36.90809,
+        "z": -70.0
+      },
+      {
+        "x": 50.0,
+        "y": 37.246376,
+        "z": -70.0
+      },
+      {
+        "x": 60.0,
+        "y": 37.82565,
+        "z": -70.0
+      },
+      {
+        "x": 70.0,
+        "y": 38.62125,
+        "z": -70.0
+      },
+      {
+        "x": 80.0,
+        "y": 39.5863838,
+        "z": -70.0
+      },
+      {
+        "x": 90.0,
+        "y": 40.6611633,
+        "z": -70.0
+      },
+      {
+        "x": 100.0,
+        "y": 41.78592,
+        "z": -70.0
+      },
+      {
+        "x": 110.0,
+        "y": 42.7907066,
+        "z": -70.0
+      },
+      {
+        "x": 120.0,
+        "y": 37.02109,
+        "z": -70.0
+      },
+      {
+        "x": 130.0,
+        "y": 36.667717,
+        "z": -70.0
+      },
+      {
+        "x": 140.0,
+        "y": 41.5755959,
+        "z": -70.0
+      },
+      {
+        "x": 150.0,
+        "y": 47.50821,
+        "z": -70.0
+      },
+      {
+        "x": 160.0,
+        "y": 48.5799255,
+        "z": -70.0
+      },
+      {
+        "x": 170.0,
+        "y": 49.60545,
+        "z": -70.0
+      },
+      {
+        "x": 180.0,
+        "y": 50.6051826,
+        "z": -70.0
+      },
+      {
+        "x": 190.0,
+        "y": 51.61005,
+        "z": -70.0
+      },
+      {
+        "x": 200.0,
+        "y": 52.6573563,
+        "z": -70.0
+      },
+      {
+        "x": 210.0,
+        "y": 53.7866325,
+        "z": -70.0
+      },
+      {
+        "x": 220.0,
+        "y": 55.0356636,
+        "z": -70.0
+      },
+      {
+        "x": 230.0,
+        "y": 56.43624,
+        "z": -70.0
+      },
+      {
+        "x": 240.0,
+        "y": 58.01039,
+        "z": -70.0
+      },
+      {
+        "x": 250.0,
+        "y": 59.7662849,
+        "z": -70.0
+      },
+      {
+        "x": 260.0,
+        "y": 61.6947632,
+        "z": -70.0
+      },
+      {
+        "x": 270.0,
+        "y": 63.7653656,
+        "z": -70.0
+      },
+      {
+        "x": 280.0,
+        "y": 65.9230042,
+        "z": -70.0
+      },
+      {
+        "x": 290.0,
+        "y": 68.10736,
+        "z": -70.0
+      },
+      {
+        "x": 300.0,
+        "y": 70.30785,
+        "z": -70.0
+      },
+      {
+        "x": 310.0,
+        "y": 72.48774,
+        "z": -70.0
+      },
+      {
+        "x": 320.0,
+        "y": 74.5810242,
+        "z": -70.0
+      },
+      {
+        "x": 330.0,
+        "y": 76.512146,
+        "z": -70.0
+      },
+      {
+        "x": 340.0,
+        "y": 78.21166,
+        "z": -70.0
+      },
+      {
+        "x": 350.0,
+        "y": 79.6279755,
+        "z": -70.0
+      },
+      {
+        "x": 360.0,
+        "y": 80.73516,
+        "z": -70.0
+      },
+      {
+        "x": 370.0,
+        "y": 81.54571,
+        "z": -70.0
+      },
+      {
+        "x": 380.0,
+        "y": 82.25714,
+        "z": -70.0
+      },
+      {
+        "x": 390.0,
+        "y": 80.87038,
+        "z": -70.0
+      },
+      {
+        "x": 400.0,
+        "y": 79.51768,
+        "z": -70.0
+      },
+      {
+        "x": 410.0,
+        "y": 82.5588,
+        "z": -70.0
+      },
+      {
+        "x": 420.0,
+        "y": 85.47542,
+        "z": -70.0
+      },
+      {
+        "x": 430.0,
+        "y": 86.3547,
+        "z": -70.0
+      },
+      {
+        "x": 440.0,
+        "y": 87.07862,
+        "z": -70.0
+      },
+      {
+        "x": 450.0,
+        "y": 87.6208649,
+        "z": -70.0
+      },
+      {
+        "x": 460.0,
+        "y": 87.9674,
+        "z": -70.0
+      },
+      {
+        "x": 470.0,
+        "y": 88.2114,
+        "z": -70.0
+      },
+      {
+        "x": 40.0,
+        "y": 37.02548,
+        "z": -60.0
+      },
+      {
+        "x": 50.0,
+        "y": 37.49087,
+        "z": -60.0
+      },
+      {
+        "x": 60.0,
+        "y": 38.19965,
+        "z": -60.0
+      },
+      {
+        "x": 70.0,
+        "y": 39.12309,
+        "z": -60.0
+      },
+      {
+        "x": 80.0,
+        "y": 40.2106552,
+        "z": -60.0
+      },
+      {
+        "x": 90.0,
+        "y": 41.39971,
+        "z": -60.0
+      },
+      {
+        "x": 100.0,
+        "y": 42.62915,
+        "z": -60.0
+      },
+      {
+        "x": 110.0,
+        "y": 39.1388245,
+        "z": -60.0
+      },
+      {
+        "x": 120.0,
+        "y": 36.05487,
+        "z": -60.0
+      },
+      {
+        "x": 130.0,
+        "y": 37.517395,
+        "z": -60.0
+      },
+      {
+        "x": 140.0,
+        "y": 47.53906,
+        "z": -60.0
+      },
+      {
+        "x": 150.0,
+        "y": 48.7543,
+        "z": -60.0
+      },
+      {
+        "x": 160.0,
+        "y": 49.8538628,
+        "z": -60.0
+      },
+      {
+        "x": 170.0,
+        "y": 50.8802452,
+        "z": -60.0
+      },
+      {
+        "x": 180.0,
+        "y": 51.8558731,
+        "z": -60.0
+      },
+      {
+        "x": 190.0,
+        "y": 52.8158264,
+        "z": -60.0
+      },
+      {
+        "x": 200.0,
+        "y": 53.8028831,
+        "z": -60.0
+      },
+      {
+        "x": 210.0,
+        "y": 54.862854,
+        "z": -60.0
+      },
+      {
+        "x": 220.0,
+        "y": 56.0397263,
+        "z": -60.0
+      },
+      {
+        "x": 230.0,
+        "y": 57.37104,
+        "z": -60.0
+      },
+      {
+        "x": 240.0,
+        "y": 58.8831558,
+        "z": -60.0
+      },
+      {
+        "x": 250.0,
+        "y": 60.58681,
+        "z": -60.0
+      },
+      {
+        "x": 260.0,
+        "y": 62.4727,
+        "z": -60.0
+      },
+      {
+        "x": 270.0,
+        "y": 64.50699,
+        "z": -60.0
+      },
+      {
+        "x": 280.0,
+        "y": 66.62727,
+        "z": -60.0
+      },
+      {
+        "x": 290.0,
+        "y": 68.76687,
+        "z": -60.0
+      },
+      {
+        "x": 300.0,
+        "y": 70.92673,
+        "z": -60.0
+      },
+      {
+        "x": 310.0,
+        "y": 73.07963,
+        "z": -60.0
+      },
+      {
+        "x": 320.0,
+        "y": 75.16293,
+        "z": -60.0
+      },
+      {
+        "x": 330.0,
+        "y": 77.0996,
+        "z": -60.0
+      },
+      {
+        "x": 340.0,
+        "y": 78.81557,
+        "z": -60.0
+      },
+      {
+        "x": 350.0,
+        "y": 80.25257,
+        "z": -60.0
+      },
+      {
+        "x": 360.0,
+        "y": 81.37694,
+        "z": -60.0
+      },
+      {
+        "x": 370.0,
+        "y": 82.20539,
+        "z": -60.0
+      },
+      {
+        "x": 380.0,
+        "y": 81.07885,
+        "z": -60.0
+      },
+      {
+        "x": 390.0,
+        "y": 78.647644,
+        "z": -60.0
+      },
+      {
+        "x": 400.0,
+        "y": 78.31962,
+        "z": -60.0
+      },
+      {
+        "x": 410.0,
+        "y": 79.38314,
+        "z": -60.0
+      },
+      {
+        "x": 420.0,
+        "y": 83.3775253,
+        "z": -60.0
+      },
+      {
+        "x": 430.0,
+        "y": 86.34024,
+        "z": -60.0
+      },
+      {
+        "x": 440.0,
+        "y": 87.05592,
+        "z": -60.0
+      },
+      {
+        "x": 450.0,
+        "y": 87.51396,
+        "z": -60.0
+      },
+      {
+        "x": 460.0,
+        "y": 87.78897,
+        "z": -60.0
+      },
+      {
+        "x": 470.0,
+        "y": 88.2325058,
+        "z": -60.0
+      },
+      {
+        "x": 40.0,
+        "y": 37.12643,
+        "z": -50.0
+      },
+      {
+        "x": 50.0,
+        "y": 37.7171745,
+        "z": -50.0
+      },
+      {
+        "x": 60.0,
+        "y": 38.55144,
+        "z": -50.0
+      },
+      {
+        "x": 70.0,
+        "y": 39.5967064,
+        "z": -50.0
+      },
+      {
+        "x": 80.0,
+        "y": 40.79922,
+        "z": -50.0
+      },
+      {
+        "x": 90.0,
+        "y": 42.0940971,
+        "z": -50.0
+      },
+      {
+        "x": 100.0,
+        "y": 41.6980171,
+        "z": -50.0
+      },
+      {
+        "x": 110.0,
+        "y": 35.4670372,
+        "z": -50.0
+      },
+      {
+        "x": 120.0,
+        "y": 35.6940079,
+        "z": -50.0
+      },
+      {
+        "x": 130.0,
+        "y": 44.8155365,
+        "z": -50.0
+      },
+      {
+        "x": 140.0,
+        "y": 48.68087,
+        "z": -50.0
+      },
+      {
+        "x": 150.0,
+        "y": 49.9103279,
+        "z": -50.0
+      },
+      {
+        "x": 160.0,
+        "y": 51.04138,
+        "z": -50.0
+      },
+      {
+        "x": 170.0,
+        "y": 52.0779152,
+        "z": -50.0
+      },
+      {
+        "x": 180.0,
+        "y": 53.043232,
+        "z": -50.0
+      },
+      {
+        "x": 190.0,
+        "y": 53.97474,
+        "z": -50.0
+      },
+      {
+        "x": 200.0,
+        "y": 54.91878,
+        "z": -50.0
+      },
+      {
+        "x": 210.0,
+        "y": 55.92521,
+        "z": -50.0
+      },
+      {
+        "x": 220.0,
+        "y": 57.0421944,
+        "z": -50.0
+      },
+      {
+        "x": 230.0,
+        "y": 58.31129,
+        "z": -50.0
+      },
+      {
+        "x": 240.0,
+        "y": 59.76199,
+        "z": -50.0
+      },
+      {
+        "x": 250.0,
+        "y": 61.40706,
+        "z": -50.0
+      },
+      {
+        "x": 260.0,
+        "y": 63.237484,
+        "z": -50.0
+      },
+      {
+        "x": 270.0,
+        "y": 65.21759,
+        "z": -50.0
+      },
+      {
+        "x": 280.0,
+        "y": 67.28027,
+        "z": -50.0
+      },
+      {
+        "x": 290.0,
+        "y": 69.35562,
+        "z": -50.0
+      },
+      {
+        "x": 300.0,
+        "y": 71.45535,
+        "z": -50.0
+      },
+      {
+        "x": 310.0,
+        "y": 73.56201,
+        "z": -50.0
+      },
+      {
+        "x": 320.0,
+        "y": 75.61733,
+        "z": -50.0
+      },
+      {
+        "x": 330.0,
+        "y": 77.5446243,
+        "z": -50.0
+      },
+      {
+        "x": 340.0,
+        "y": 79.2668152,
+        "z": -50.0
+      },
+      {
+        "x": 350.0,
+        "y": 80.7205,
+        "z": -50.0
+      },
+      {
+        "x": 360.0,
+        "y": 81.50095,
+        "z": -50.0
+      },
+      {
+        "x": 370.0,
+        "y": 80.64346,
+        "z": -50.0
+      },
+      {
+        "x": 380.0,
+        "y": 78.69912,
+        "z": -50.0
+      },
+      {
+        "x": 390.0,
+        "y": 78.57223,
+        "z": -50.0
+      },
+      {
+        "x": 400.0,
+        "y": 78.4405,
+        "z": -50.0
+      },
+      {
+        "x": 410.0,
+        "y": 79.80014,
+        "z": -50.0
+      },
+      {
+        "x": 420.0,
+        "y": 81.53148,
+        "z": -50.0
+      },
+      {
+        "x": 430.0,
+        "y": 84.7075653,
+        "z": -50.0
+      },
+      {
+        "x": 440.0,
+        "y": 86.8095245,
+        "z": -50.0
+      },
+      {
+        "x": 450.0,
+        "y": 87.34666,
+        "z": -50.0
+      },
+      {
+        "x": 460.0,
+        "y": 87.55146,
+        "z": -50.0
+      },
+      {
+        "x": 470.0,
+        "y": 88.0670242,
+        "z": -50.0
+      },
+      {
+        "x": 40.0,
+        "y": 37.2204132,
+        "z": -40.0
+      },
+      {
+        "x": 50.0,
+        "y": 37.93319,
+        "z": -40.0
+      },
+      {
+        "x": 60.0,
+        "y": 38.88834,
+        "z": -40.0
+      },
+      {
+        "x": 70.0,
+        "y": 40.04989,
+        "z": -40.0
+      },
+      {
+        "x": 80.0,
+        "y": 41.36114,
+        "z": -40.0
+      },
+      {
+        "x": 90.0,
+        "y": 42.7163162,
+        "z": -40.0
+      },
+      {
+        "x": 100.0,
+        "y": 36.0584068,
+        "z": -40.0
+      },
+      {
+        "x": 110.0,
+        "y": 35.1257439,
+        "z": -40.0
+      },
+      {
+        "x": 120.0,
+        "y": 39.936245,
+        "z": -40.0
+      },
+      {
+        "x": 130.0,
+        "y": 48.349453,
+        "z": -40.0
+      },
+      {
+        "x": 140.0,
+        "y": 49.71901,
+        "z": -40.0
+      },
+      {
+        "x": 150.0,
+        "y": 50.99789,
+        "z": -40.0
+      },
+      {
+        "x": 160.0,
+        "y": 52.161953,
+        "z": -40.0
+      },
+      {
+        "x": 170.0,
+        "y": 53.21382,
+        "z": -40.0
+      },
+      {
+        "x": 180.0,
+        "y": 54.1769943,
+        "z": -40.0
+      },
+      {
+        "x": 190.0,
+        "y": 55.09017,
+        "z": -40.0
+      },
+      {
+        "x": 200.0,
+        "y": 56.00186,
+        "z": -40.0
+      },
+      {
+        "x": 210.0,
+        "y": 56.9644127,
+        "z": -40.0
+      },
+      {
+        "x": 220.0,
+        "y": 58.02897,
+        "z": -40.0
+      },
+      {
+        "x": 230.0,
+        "y": 59.2396927,
+        "z": -40.0
+      },
+      {
+        "x": 240.0,
+        "y": 60.6286545,
+        "z": -40.0
+      },
+      {
+        "x": 250.0,
+        "y": 62.2102661,
+        "z": -40.0
+      },
+      {
+        "x": 260.0,
+        "y": 63.9761,
+        "z": -40.0
+      },
+      {
+        "x": 270.0,
+        "y": 65.88979,
+        "z": -40.0
+      },
+      {
+        "x": 280.0,
+        "y": 67.881424,
+        "z": -40.0
+      },
+      {
+        "x": 290.0,
+        "y": 69.88002,
+        "z": -40.0
+      },
+      {
+        "x": 300.0,
+        "y": 71.90758,
+        "z": -40.0
+      },
+      {
+        "x": 310.0,
+        "y": 73.95592,
+        "z": -40.0
+      },
+      {
+        "x": 320.0,
+        "y": 75.9717941,
+        "z": -40.0
+      },
+      {
+        "x": 330.0,
+        "y": 77.87968,
+        "z": -40.0
+      },
+      {
+        "x": 340.0,
+        "y": 79.60078,
+        "z": -40.0
+      },
+      {
+        "x": 350.0,
+        "y": 81.06768,
+        "z": -40.0
+      },
+      {
+        "x": 360.0,
+        "y": 79.53332,
+        "z": -40.0
+      },
+      {
+        "x": 370.0,
+        "y": 78.3512344,
+        "z": -40.0
+      },
+      {
+        "x": 380.0,
+        "y": 78.31962,
+        "z": -40.0
+      },
+      {
+        "x": 390.0,
+        "y": 79.36305,
+        "z": -40.0
+      },
+      {
+        "x": 400.0,
+        "y": 79.55889,
+        "z": -40.0
+      },
+      {
+        "x": 410.0,
+        "y": 82.0826645,
+        "z": -40.0
+      },
+      {
+        "x": 420.0,
+        "y": 83.72728,
+        "z": -40.0
+      },
+      {
+        "x": 430.0,
+        "y": 83.3234558,
+        "z": -40.0
+      },
+      {
+        "x": 440.0,
+        "y": 84.80985,
+        "z": -40.0
+      },
+      {
+        "x": 450.0,
+        "y": 85.92515,
+        "z": -40.0
+      },
+      {
+        "x": 460.0,
+        "y": 87.10947,
+        "z": -40.0
+      },
+      {
+        "x": 470.0,
+        "y": 87.61452,
+        "z": -40.0
+      },
+      {
+        "x": 40.0,
+        "y": 37.3252068,
+        "z": -30.0
+      },
+      {
+        "x": 50.0,
+        "y": 38.1558723,
+        "z": -30.0
+      },
+      {
+        "x": 60.0,
+        "y": 39.2274666,
+        "z": -30.0
+      },
+      {
+        "x": 70.0,
+        "y": 40.5007629,
+        "z": -30.0
+      },
+      {
+        "x": 80.0,
+        "y": 41.9164734,
+        "z": -30.0
+      },
+      {
+        "x": 90.0,
+        "y": 38.49618,
+        "z": -30.0
+      },
+      {
+        "x": 100.0,
+        "y": 34.5918961,
+        "z": -30.0
+      },
+      {
+        "x": 110.0,
+        "y": 35.72471,
+        "z": -30.0
+      },
+      {
+        "x": 120.0,
+        "y": 47.5585251,
+        "z": -30.0
+      },
+      {
+        "x": 130.0,
+        "y": 49.301693,
+        "z": -30.0
+      },
+      {
+        "x": 140.0,
+        "y": 50.73056,
+        "z": -30.0
+      },
+      {
+        "x": 150.0,
+        "y": 52.056263,
+        "z": -30.0
+      },
+      {
+        "x": 160.0,
+        "y": 53.2518234,
+        "z": -30.0
+      },
+      {
+        "x": 170.0,
+        "y": 54.3185158,
+        "z": -30.0
+      },
+      {
+        "x": 180.0,
+        "y": 55.2794647,
+        "z": -30.0
+      },
+      {
+        "x": 190.0,
+        "y": 56.1743,
+        "z": -30.0
+      },
+      {
+        "x": 200.0,
+        "y": 57.0530663,
+        "z": -30.0
+      },
+      {
+        "x": 210.0,
+        "y": 57.9702339,
+        "z": -30.0
+      },
+      {
+        "x": 220.0,
+        "y": 58.9794121,
+        "z": -30.0
+      },
+      {
+        "x": 230.0,
+        "y": 60.127346,
+        "z": -30.0
+      },
+      {
+        "x": 240.0,
+        "y": 61.4484558,
+        "z": -30.0
+      },
+      {
+        "x": 250.0,
+        "y": 62.9591,
+        "z": -30.0
+      },
+      {
+        "x": 260.0,
+        "y": 64.65196,
+        "z": -30.0
+      },
+      {
+        "x": 270.0,
+        "y": 66.49044,
+        "z": -30.0
+      },
+      {
+        "x": 280.0,
+        "y": 68.4028549,
+        "z": -30.0
+      },
+      {
+        "x": 290.0,
+        "y": 70.31761,
+        "z": -30.0
+      },
+      {
+        "x": 300.0,
+        "y": 72.26634,
+        "z": -30.0
+      },
+      {
+        "x": 310.0,
+        "y": 74.24984,
+        "z": -30.0
+      },
+      {
+        "x": 320.0,
+        "y": 76.2197342,
+        "z": -30.0
+      },
+      {
+        "x": 330.0,
+        "y": 78.10202,
+        "z": -30.0
+      },
+      {
+        "x": 340.0,
+        "y": 79.8164749,
+        "z": -30.0
+      },
+      {
+        "x": 350.0,
+        "y": 80.69382,
+        "z": -30.0
+      },
+      {
+        "x": 360.0,
+        "y": 78.6257,
+        "z": -30.0
+      },
+      {
+        "x": 370.0,
+        "y": 78.31962,
+        "z": -30.0
+      },
+      {
+        "x": 380.0,
+        "y": 78.31962,
+        "z": -30.0
+      },
+      {
+        "x": 390.0,
+        "y": 79.35918,
+        "z": -30.0
+      },
+      {
+        "x": 400.0,
+        "y": 79.64476,
+        "z": -30.0
+      },
+      {
+        "x": 410.0,
+        "y": 81.737175,
+        "z": -30.0
+      },
+      {
+        "x": 420.0,
+        "y": 83.79756,
+        "z": -30.0
+      },
+      {
+        "x": 430.0,
+        "y": 83.10685,
+        "z": -30.0
+      },
+      {
+        "x": 439.999969,
+        "y": 84.1771,
+        "z": -30.0
+      },
+      {
+        "x": 450.000031,
+        "y": 85.91357,
+        "z": -30.0
+      },
+      {
+        "x": 460.0,
+        "y": 86.23102,
+        "z": -30.0
+      },
+      {
+        "x": 470.0,
+        "y": 86.56801,
+        "z": -30.0
+      },
+      {
+        "x": 40.0,
+        "y": 37.4639664,
+        "z": -20.0
+      },
+      {
+        "x": 50.0,
+        "y": 38.39044,
+        "z": -20.0
+      },
+      {
+        "x": 60.0,
+        "y": 39.5564079,
+        "z": -20.0
+      },
+      {
+        "x": 70.0,
+        "y": 40.92106,
+        "z": -20.0
+      },
+      {
+        "x": 80.0,
+        "y": 40.7040749,
+        "z": -20.0
+      },
+      {
+        "x": 90.0,
+        "y": 34.1004,
+        "z": -20.0
+      },
+      {
+        "x": 100.0,
+        "y": 34.29159,
+        "z": -20.0
+      },
+      {
+        "x": 110.0,
+        "y": 43.75864,
+        "z": -20.0
+      },
+      {
+        "x": 120.0,
+        "y": 48.6367,
+        "z": -20.0
+      },
+      {
+        "x": 130.0,
+        "y": 50.1724472,
+        "z": -20.0
+      },
+      {
+        "x": 140.0,
+        "y": 51.660778,
+        "z": -20.0
+      },
+      {
+        "x": 150.0,
+        "y": 53.0382156,
+        "z": -20.0
+      },
+      {
+        "x": 160.0,
+        "y": 54.2754,
+        "z": -20.0
+      },
+      {
+        "x": 170.0,
+        "y": 55.371273,
+        "z": -20.0
+      },
+      {
+        "x": 180.0,
+        "y": 56.3473358,
+        "z": -20.0
+      },
+      {
+        "x": 190.0,
+        "y": 57.24214,
+        "z": -20.0
+      },
+      {
+        "x": 200.0,
+        "y": 58.10519,
+        "z": -20.0
+      },
+      {
+        "x": 210.0,
+        "y": 58.99137,
+        "z": -20.0
+      },
+      {
+        "x": 220.0,
+        "y": 59.95531,
+        "z": -20.0
+      },
+      {
+        "x": 230.0,
+        "y": 61.0454369,
+        "z": -20.0
+      },
+      {
+        "x": 240.0,
+        "y": 62.2982521,
+        "z": -20.0
+      },
+      {
+        "x": 250.0,
+        "y": 63.732193,
+        "z": -20.0
+      },
+      {
+        "x": 260.0,
+        "y": 65.34198,
+        "z": -20.0
+      },
+      {
+        "x": 270.0,
+        "y": 67.09227,
+        "z": -20.0
+      },
+      {
+        "x": 280.0,
+        "y": 68.91173,
+        "z": -20.0
+      },
+      {
+        "x": 290.0,
+        "y": 70.7290649,
+        "z": -20.0
+      },
+      {
+        "x": 300.0,
+        "y": 72.58301,
+        "z": -20.0
+      },
+      {
+        "x": 310.0,
+        "y": 74.48161,
+        "z": -20.0
+      },
+      {
+        "x": 320.0,
+        "y": 76.38171,
+        "z": -20.0
+      },
+      {
+        "x": 330.0,
+        "y": 78.2120743,
+        "z": -20.0
+      },
+      {
+        "x": 340.0,
+        "y": 79.893,
+        "z": -20.0
+      },
+      {
+        "x": 350.0,
+        "y": 80.6970444,
+        "z": -20.0
+      },
+      {
+        "x": 360.0,
+        "y": 78.78408,
+        "z": -20.0
+      },
+      {
+        "x": 370.0,
+        "y": 78.31962,
+        "z": -20.0
+      },
+      {
+        "x": 380.0,
+        "y": 78.31962,
+        "z": -20.0
+      },
+      {
+        "x": 390.0,
+        "y": 79.3205,
+        "z": -20.0
+      },
+      {
+        "x": 400.0,
+        "y": 79.53169,
+        "z": -20.0
+      },
+      {
+        "x": 410.0,
+        "y": 81.38501,
+        "z": -20.0
+      },
+      {
+        "x": 420.0,
+        "y": 83.81962,
+        "z": -20.0
+      },
+      {
+        "x": 430.0,
+        "y": 83.71568,
+        "z": -20.0
+      },
+      {
+        "x": 440.0,
+        "y": 83.83658,
+        "z": -20.0
+      },
+      {
+        "x": 450.0,
+        "y": 84.54542,
+        "z": -20.0
+      },
+      {
+        "x": 460.0,
+        "y": 84.70493,
+        "z": -20.0
+      },
+      {
+        "x": 470.0,
+        "y": 85.02182,
+        "z": -20.0
+      },
+      {
+        "x": 40.0,
+        "y": 37.6581764,
+        "z": -10.0
+      },
+      {
+        "x": 50.0,
+        "y": 38.6454659,
+        "z": -10.0
+      },
+      {
+        "x": 60.0,
+        "y": 39.87086,
+        "z": -10.0
+      },
+      {
+        "x": 70.0,
+        "y": 41.17365,
+        "z": -10.0
+      },
+      {
+        "x": 80.0,
+        "y": 34.665844,
+        "z": -10.0
+      },
+      {
+        "x": 90.0,
+        "y": 33.8325,
+        "z": -10.0
+      },
+      {
+        "x": 100.0,
+        "y": 38.6005249,
+        "z": -10.0
+      },
+      {
+        "x": 110.0,
+        "y": 47.7373924,
+        "z": -10.0
+      },
+      {
+        "x": 120.0,
+        "y": 49.321373,
+        "z": -10.0
+      },
+      {
+        "x": 130.0,
+        "y": 50.9189,
+        "z": -10.0
+      },
+      {
+        "x": 140.0,
+        "y": 52.4690857,
+        "z": -10.0
+      },
+      {
+        "x": 150.0,
+        "y": 53.9090729,
+        "z": -10.0
+      },
+      {
+        "x": 160.0,
+        "y": 55.20745,
+        "z": -10.0
+      },
+      {
+        "x": 170.0,
+        "y": 56.3596878,
+        "z": -10.0
+      },
+      {
+        "x": 180.0,
+        "y": 57.3831673,
+        "z": -10.0
+      },
+      {
+        "x": 190.0,
+        "y": 58.3120842,
+        "z": -10.0
+      },
+      {
+        "x": 200.0,
+        "y": 59.1924,
+        "z": -10.0
+      },
+      {
+        "x": 210.0,
+        "y": 60.0764961,
+        "z": -10.0
+      },
+      {
+        "x": 220.0,
+        "y": 61.0174866,
+        "z": -10.0
+      },
+      {
+        "x": 230.0,
+        "y": 62.0637321,
+        "z": -10.0
+      },
+      {
+        "x": 240.0,
+        "y": 63.2531471,
+        "z": -10.0
+      },
+      {
+        "x": 250.0,
+        "y": 64.60659,
+        "z": -10.0
+      },
+      {
+        "x": 260.0,
+        "y": 66.12208,
+        "z": -10.0
+      },
+      {
+        "x": 270.0,
+        "y": 67.76774,
+        "z": -10.0
+      },
+      {
+        "x": 280.0,
+        "y": 69.47541,
+        "z": -10.0
+      },
+      {
+        "x": 290.0,
+        "y": 71.17578,
+        "z": -10.0
+      },
+      {
+        "x": 300.0,
+        "y": 72.91063,
+        "z": -10.0
+      },
+      {
+        "x": 310.0,
+        "y": 74.69268,
+        "z": -10.0
+      },
+      {
+        "x": 320.0,
+        "y": 76.4843,
+        "z": -10.0
+      },
+      {
+        "x": 330.0,
+        "y": 78.219635,
+        "z": -10.0
+      },
+      {
+        "x": 340.0,
+        "y": 79.82287,
+        "z": -10.0
+      },
+      {
+        "x": 350.0,
+        "y": 81.22341,
+        "z": -10.0
+      },
+      {
+        "x": 360.0,
+        "y": 79.83689,
+        "z": -10.0
+      },
+      {
+        "x": 370.0,
+        "y": 78.31962,
+        "z": -10.0
+      },
+      {
+        "x": 380.0,
+        "y": 78.31962,
+        "z": -10.0
+      },
+      {
+        "x": 390.0,
+        "y": 79.27888,
+        "z": -10.0
+      },
+      {
+        "x": 400.0,
+        "y": 79.5206757,
+        "z": -10.0
+      },
+      {
+        "x": 410.0,
+        "y": 81.0649643,
+        "z": -10.0
+      },
+      {
+        "x": 420.0,
+        "y": 83.81961,
+        "z": -10.0
+      },
+      {
+        "x": 430.0,
+        "y": 83.27042,
+        "z": -10.0
+      },
+      {
+        "x": 440.0,
+        "y": 83.04257,
+        "z": -10.0
+      },
+      {
+        "x": 450.0,
+        "y": 82.90764,
+        "z": -10.0
+      },
+      {
+        "x": 460.0,
+        "y": 82.93727,
+        "z": -10.0
+      },
+      {
+        "x": 470.0,
+        "y": 83.1773453,
+        "z": -10.0
+      },
+      {
+        "x": 40.0,
+        "y": 37.92404,
+        "z": 0.0
+      },
+      {
+        "x": 50.0,
+        "y": 38.9337654,
+        "z": 0.0
+      },
+      {
+        "x": 60.0,
+        "y": 40.1802025,
+        "z": 0.0
+      },
+      {
+        "x": 70.0,
+        "y": 36.2783279,
+        "z": 0.0
+      },
+      {
+        "x": 80.0,
+        "y": 33.4207535,
+        "z": 0.0
+      },
+      {
+        "x": 90.0,
+        "y": 34.72065,
+        "z": 0.0
+      },
+      {
+        "x": 100.0,
+        "y": 46.33823,
+        "z": 0.0
+      },
+      {
+        "x": 110.0,
+        "y": 48.23847,
+        "z": 0.0
+      },
+      {
+        "x": 120.0,
+        "y": 49.8819,
+        "z": 0.0
+      },
+      {
+        "x": 130.0,
+        "y": 51.5384026,
+        "z": 0.0
+      },
+      {
+        "x": 140.0,
+        "y": 53.15384,
+        "z": 0.0
+      },
+      {
+        "x": 150.0,
+        "y": 54.66917,
+        "z": 0.0
+      },
+      {
+        "x": 160.0,
+        "y": 56.0516319,
+        "z": 0.0
+      },
+      {
+        "x": 170.0,
+        "y": 57.2917557,
+        "z": 0.0
+      },
+      {
+        "x": 180.0,
+        "y": 58.3998337,
+        "z": 0.0
+      },
+      {
+        "x": 190.0,
+        "y": 59.4024963,
+        "z": 0.0
+      },
+      {
+        "x": 200.0,
+        "y": 60.33844,
+        "z": 0.0
+      },
+      {
+        "x": 210.0,
+        "y": 61.25392,
+        "z": 0.0
+      },
+      {
+        "x": 220.0,
+        "y": 62.1980324,
+        "z": 0.0
+      },
+      {
+        "x": 230.0,
+        "y": 63.21733,
+        "z": 0.0
+      },
+      {
+        "x": 240.0,
+        "y": 64.35001,
+        "z": 0.0
+      },
+      {
+        "x": 250.0,
+        "y": 65.6198959,
+        "z": 0.0
+      },
+      {
+        "x": 260.0,
+        "y": 67.0295639,
+        "z": 0.0
+      },
+      {
+        "x": 270.0,
+        "y": 68.55318,
+        "z": 0.0
+      },
+      {
+        "x": 280.0,
+        "y": 70.12875,
+        "z": 0.0
+      },
+      {
+        "x": 290.0,
+        "y": 71.69104,
+        "z": 0.0
+      },
+      {
+        "x": 300.0,
+        "y": 73.2793655,
+        "z": 0.0
+      },
+      {
+        "x": 310.0,
+        "y": 74.9086456,
+        "z": 0.0
+      },
+      {
+        "x": 320.0,
+        "y": 76.54755,
+        "z": 0.0
+      },
+      {
+        "x": 330.0,
+        "y": 78.1382,
+        "z": 0.0
+      },
+      {
+        "x": 340.0,
+        "y": 79.61257,
+        "z": 0.0
+      },
+      {
+        "x": 350.0,
+        "y": 80.9063,
+        "z": 0.0
+      },
+      {
+        "x": 360.0,
+        "y": 80.19701,
+        "z": 0.0
+      },
+      {
+        "x": 370.0,
+        "y": 78.31962,
+        "z": 0.0
+      },
+      {
+        "x": 380.0,
+        "y": 78.31962,
+        "z": 0.0
+      },
+      {
+        "x": 390.0,
+        "y": 79.23466,
+        "z": 0.0
+      },
+      {
+        "x": 400.0,
+        "y": 79.5196152,
+        "z": 0.0
+      },
+      {
+        "x": 410.0,
+        "y": 80.45755,
+        "z": 0.0
+      },
+      {
+        "x": 420.0,
+        "y": 83.81962,
+        "z": 0.0
+      },
+      {
+        "x": 430.0,
+        "y": 81.68309,
+        "z": 0.0
+      },
+      {
+        "x": 440.0,
+        "y": 81.32002,
+        "z": 0.0
+      },
+      {
+        "x": 450.0,
+        "y": 81.04269,
+        "z": 0.0
+      },
+      {
+        "x": 460.0,
+        "y": 80.928154,
+        "z": 0.0
+      },
+      {
+        "x": 470.0,
+        "y": 81.23355,
+        "z": 0.0
+      },
+      {
+        "x": 40.0,
+        "y": 38.26951,
+        "z": 10.0
+      },
+      {
+        "x": 50.0,
+        "y": 39.2671471,
+        "z": 10.0
+      },
+      {
+        "x": 60.0,
+        "y": 37.7088928,
+        "z": 10.0
+      },
+      {
+        "x": 70.0,
+        "y": 33.0453072,
+        "z": 10.0
+      },
+      {
+        "x": 80.0,
+        "y": 33.20069,
+        "z": 10.0
+      },
+      {
+        "x": 90.0,
+        "y": 42.8490944,
+        "z": 10.0
+      },
+      {
+        "x": 100.0,
+        "y": 46.93349,
+        "z": 10.0
+      },
+      {
+        "x": 110.0,
+        "y": 48.64385,
+        "z": 10.0
+      },
+      {
+        "x": 120.0,
+        "y": 50.34219,
+        "z": 10.0
+      },
+      {
+        "x": 130.0,
+        "y": 52.0548935,
+        "z": 10.0
+      },
+      {
+        "x": 140.0,
+        "y": 53.73851,
+        "z": 10.0
+      },
+      {
+        "x": 150.0,
+        "y": 55.34119,
+        "z": 10.0
+      },
+      {
+        "x": 160.0,
+        "y": 56.82917,
+        "z": 10.0
+      },
+      {
+        "x": 170.0,
+        "y": 58.186512,
+        "z": 10.0
+      },
+      {
+        "x": 180.0,
+        "y": 59.41399,
+        "z": 10.0
+      },
+      {
+        "x": 190.0,
+        "y": 60.5272,
+        "z": 10.0
+      },
+      {
+        "x": 200.0,
+        "y": 61.55414,
+        "z": 10.0
+      },
+      {
+        "x": 210.0,
+        "y": 62.5320129,
+        "z": 10.0
+      },
+      {
+        "x": 220.0,
+        "y": 63.50325,
+        "z": 10.0
+      },
+      {
+        "x": 230.0,
+        "y": 64.51086,
+        "z": 10.0
+      },
+      {
+        "x": 240.0,
+        "y": 65.592804,
+        "z": 10.0
+      },
+      {
+        "x": 250.0,
+        "y": 66.77607,
+        "z": 10.0
+      },
+      {
+        "x": 260.0,
+        "y": 68.06923,
+        "z": 10.0
+      },
+      {
+        "x": 270.0,
+        "y": 69.4546051,
+        "z": 10.0
+      },
+      {
+        "x": 280.0,
+        "y": 70.8794861,
+        "z": 10.0
+      },
+      {
+        "x": 290.0,
+        "y": 72.283844,
+        "z": 10.0
+      },
+      {
+        "x": 300.0,
+        "y": 73.6998138,
+        "z": 10.0
+      },
+      {
+        "x": 310.0,
+        "y": 75.14153,
+        "z": 10.0
+      },
+      {
+        "x": 320.0,
+        "y": 76.5850143,
+        "z": 10.0
+      },
+      {
+        "x": 330.0,
+        "y": 77.983284,
+        "z": 10.0
+      },
+      {
+        "x": 340.0,
+        "y": 79.2803345,
+        "z": 10.0
+      },
+      {
+        "x": 350.0,
+        "y": 80.42164,
+        "z": 10.0
+      },
+      {
+        "x": 360.0,
+        "y": 79.96853,
+        "z": 10.0
+      },
+      {
+        "x": 370.0,
+        "y": 78.31962,
+        "z": 10.0
+      },
+      {
+        "x": 380.0,
+        "y": 78.31962,
+        "z": 10.0
+      },
+      {
+        "x": 390.0,
+        "y": 79.40919,
+        "z": 10.0
+      },
+      {
+        "x": 400.0,
+        "y": 79.45346,
+        "z": 10.0
+      },
+      {
+        "x": 409.999969,
+        "y": 79.46789,
+        "z": 10.0
+      },
+      {
+        "x": 420.0,
+        "y": 82.43701,
+        "z": 10.0
+      },
+      {
+        "x": 430.0,
+        "y": 82.5415039,
+        "z": 10.0
+      },
+      {
+        "x": 440.000031,
+        "y": 81.61687,
+        "z": 10.0
+      },
+      {
+        "x": 450.0,
+        "y": 80.5226,
+        "z": 10.0
+      },
+      {
+        "x": 460.0,
+        "y": 79.79718,
+        "z": 10.0
+      },
+      {
+        "x": 470.0,
+        "y": 79.39755,
+        "z": 10.0
+      },
+      {
+        "x": 40.0,
+        "y": 38.6925354,
+        "z": 20.0
+      },
+      {
+        "x": 50.0,
+        "y": 38.6605263,
+        "z": 20.0
+      },
+      {
+        "x": 60.0,
+        "y": 32.77837,
+        "z": 20.0
+      },
+      {
+        "x": 70.0,
+        "y": 32.84413,
+        "z": 20.0
+      },
+      {
+        "x": 80.0,
+        "y": 38.8290024,
+        "z": 20.0
+      },
+      {
+        "x": 90.0,
+        "y": 45.5028725,
+        "z": 20.0
+      },
+      {
+        "x": 100.0,
+        "y": 47.2415924,
+        "z": 20.0
+      },
+      {
+        "x": 110.0,
+        "y": 48.9915924,
+        "z": 20.0
+      },
+      {
+        "x": 120.0,
+        "y": 50.74072,
+        "z": 20.0
+      },
+      {
+        "x": 130.0,
+        "y": 52.50676,
+        "z": 20.0
+      },
+      {
+        "x": 140.0,
+        "y": 54.2605,
+        "z": 20.0
+      },
+      {
+        "x": 150.0,
+        "y": 55.9594955,
+        "z": 20.0
+      },
+      {
+        "x": 160.0,
+        "y": 57.5694237,
+        "z": 20.0
+      },
+      {
+        "x": 170.0,
+        "y": 59.0666656,
+        "z": 20.0
+      },
+      {
+        "x": 180.0,
+        "y": 60.4402847,
+        "z": 20.0
+      },
+      {
+        "x": 190.0,
+        "y": 61.69219,
+        "z": 20.0
+      },
+      {
+        "x": 200.0,
+        "y": 62.8371468,
+        "z": 20.0
+      },
+      {
+        "x": 210.0,
+        "y": 63.900692,
+        "z": 20.0
+      },
+      {
+        "x": 220.0,
+        "y": 64.9167557,
+        "z": 20.0
+      },
+      {
+        "x": 230.0,
+        "y": 65.92354,
+        "z": 20.0
+      },
+      {
+        "x": 240.0,
+        "y": 66.9584,
+        "z": 20.0
+      },
+      {
+        "x": 250.0,
+        "y": 68.05173,
+        "z": 20.0
+      },
+      {
+        "x": 260.0,
+        "y": 69.2192459,
+        "z": 20.0
+      },
+      {
+        "x": 270.0,
+        "y": 70.45334,
+        "z": 20.0
+      },
+      {
+        "x": 280.0,
+        "y": 71.71277,
+        "z": 20.0
+      },
+      {
+        "x": 290.0,
+        "y": 72.94341,
+        "z": 20.0
+      },
+      {
+        "x": 300.0,
+        "y": 74.16583,
+        "z": 20.0
+      },
+      {
+        "x": 310.0,
+        "y": 75.3915939,
+        "z": 20.0
+      },
+      {
+        "x": 320.0,
+        "y": 76.6044,
+        "z": 20.0
+      },
+      {
+        "x": 330.0,
+        "y": 77.77123,
+        "z": 20.0
+      },
+      {
+        "x": 340.0,
+        "y": 78.85161,
+        "z": 20.0
+      },
+      {
+        "x": 350.0,
+        "y": 79.80483,
+        "z": 20.0
+      },
+      {
+        "x": 360.0,
+        "y": 79.84629,
+        "z": 20.0
+      },
+      {
+        "x": 370.0,
+        "y": 79.04874,
+        "z": 20.0
+      },
+      {
+        "x": 380.0,
+        "y": 79.144455,
+        "z": 20.0
+      },
+      {
+        "x": 390.0,
+        "y": 79.79401,
+        "z": 20.0
+      },
+      {
+        "x": 400.0,
+        "y": 79.31962,
+        "z": 20.0
+      },
+      {
+        "x": 410.0,
+        "y": 79.46761,
+        "z": 19.9999981
+      },
+      {
+        "x": 420.0,
+        "y": 81.9538651,
+        "z": 20.0
+      },
+      {
+        "x": 430.0,
+        "y": 78.2947845,
+        "z": 20.0
+      },
+      {
+        "x": 440.0,
+        "y": 77.76192,
+        "z": 20.0
+      },
+      {
+        "x": 450.0,
+        "y": 77.49131,
+        "z": 20.0
+      },
+      {
+        "x": 460.0,
+        "y": 77.49009,
+        "z": 20.0
+      },
+      {
+        "x": 470.0,
+        "y": 77.90554,
+        "z": 20.0
+      },
+      {
+        "x": 40.0,
+        "y": 36.9705467,
+        "z": 30.0
+      },
+      {
+        "x": 50.0,
+        "y": 33.4287071,
+        "z": 30.0
+      },
+      {
+        "x": 60.0,
+        "y": 32.5118866,
+        "z": 30.0
+      },
+      {
+        "x": 70.0,
+        "y": 35.4387474,
+        "z": 30.0
+      },
+      {
+        "x": 80.0,
+        "y": 44.11822,
+        "z": 30.0
+      },
+      {
+        "x": 90.0,
+        "y": 45.7892075,
+        "z": 30.0
+      },
+      {
+        "x": 100.0,
+        "y": 47.5398979,
+        "z": 30.0
+      },
+      {
+        "x": 110.0,
+        "y": 49.3242226,
+        "z": 30.0
+      },
+      {
+        "x": 120.0,
+        "y": 51.1204758,
+        "z": 30.0
+      },
+      {
+        "x": 130.0,
+        "y": 52.9371452,
+        "z": 30.0
+      },
+      {
+        "x": 140.0,
+        "y": 54.76116,
+        "z": 30.0
+      },
+      {
+        "x": 150.0,
+        "y": 56.5611229,
+        "z": 30.0
+      },
+      {
+        "x": 160.0,
+        "y": 58.3022041,
+        "z": 30.0
+      },
+      {
+        "x": 170.0,
+        "y": 59.95235,
+        "z": 30.0
+      },
+      {
+        "x": 180.0,
+        "y": 61.4872971,
+        "z": 30.0
+      },
+      {
+        "x": 190.0,
+        "y": 62.8938866,
+        "z": 30.0
+      },
+      {
+        "x": 200.0,
+        "y": 64.17168,
+        "z": 30.0
+      },
+      {
+        "x": 210.0,
+        "y": 65.33337,
+        "z": 30.0
+      },
+      {
+        "x": 220.0,
+        "y": 66.4032059,
+        "z": 30.0
+      },
+      {
+        "x": 230.0,
+        "y": 67.41402,
+        "z": 30.0
+      },
+      {
+        "x": 240.0,
+        "y": 68.40235,
+        "z": 30.0
+      },
+      {
+        "x": 250.0,
+        "y": 69.40239,
+        "z": 30.0
+      },
+      {
+        "x": 260.0,
+        "y": 70.43782,
+        "z": 30.0
+      },
+      {
+        "x": 270.0,
+        "y": 71.51201,
+        "z": 30.0
+      },
+      {
+        "x": 280.0,
+        "y": 72.5966644,
+        "z": 30.0
+      },
+      {
+        "x": 290.0,
+        "y": 73.6436,
+        "z": 30.0
+      },
+      {
+        "x": 300.0,
+        "y": 74.65871,
+        "z": 30.0
+      },
+      {
+        "x": 310.0,
+        "y": 75.64927,
+        "z": 30.0
+      },
+      {
+        "x": 320.0,
+        "y": 76.60782,
+        "z": 30.0
+      },
+      {
+        "x": 330.0,
+        "y": 77.51734,
+        "z": 30.0
+      },
+      {
+        "x": 340.0,
+        "y": 78.355835,
+        "z": 30.0
+      },
+      {
+        "x": 350.0,
+        "y": 79.09995,
+        "z": 30.0
+      },
+      {
+        "x": 360.0,
+        "y": 79.7125549,
+        "z": 30.0
+      },
+      {
+        "x": 370.0,
+        "y": 80.12932,
+        "z": 30.0
+      },
+      {
+        "x": 380.0,
+        "y": 80.21501,
+        "z": 30.0
+      },
+      {
+        "x": 390.0,
+        "y": 79.94607,
+        "z": 30.0
+      },
+      {
+        "x": 400.0,
+        "y": 79.31962,
+        "z": 30.0
+      },
+      {
+        "x": 410.0,
+        "y": 79.46805,
+        "z": 30.0
+      },
+      {
+        "x": 420.0,
+        "y": 77.93769,
+        "z": 30.0
+      },
+      {
+        "x": 430.0,
+        "y": 77.30356,
+        "z": 30.0
+      },
+      {
+        "x": 440.0,
+        "y": 76.84532,
+        "z": 30.0
+      },
+      {
+        "x": 450.0,
+        "y": 76.60178,
+        "z": 30.0
+      },
+      {
+        "x": 460.0,
+        "y": 76.66198,
+        "z": 30.0
+      },
+      {
+        "x": 470.0,
+        "y": 77.0734558,
+        "z": 30.0
+      },
+      {
+        "x": 40.0,
+        "y": 32.5856667,
+        "z": 40.0
+      },
+      {
+        "x": 50.0,
+        "y": 32.1996231,
+        "z": 40.0
+      },
+      {
+        "x": 60.0,
+        "y": 33.0908432,
+        "z": 40.0
+      },
+      {
+        "x": 70.0,
+        "y": 42.5475578,
+        "z": 40.0
+      },
+      {
+        "x": 80.0,
+        "y": 44.4506721,
+        "z": 40.0
+      },
+      {
+        "x": 90.0,
+        "y": 46.10572,
+        "z": 40.0
+      },
+      {
+        "x": 100.0,
+        "y": 47.865036,
+        "z": 40.0
+      },
+      {
+        "x": 110.0,
+        "y": 49.6806564,
+        "z": 40.0
+      },
+      {
+        "x": 120.0,
+        "y": 51.521183,
+        "z": 40.0
+      },
+      {
+        "x": 130.0,
+        "y": 53.385788,
+        "z": 40.0
+      },
+      {
+        "x": 140.0,
+        "y": 55.2783737,
+        "z": 40.0
+      },
+      {
+        "x": 150.0,
+        "y": 57.17891,
+        "z": 40.0
+      },
+      {
+        "x": 160.0,
+        "y": 59.0519447,
+        "z": 40.0
+      },
+      {
+        "x": 170.0,
+        "y": 60.8565979,
+        "z": 40.0
+      },
+      {
+        "x": 180.0,
+        "y": 62.5549164,
+        "z": 40.0
+      },
+      {
+        "x": 190.0,
+        "y": 64.1179352,
+        "z": 40.0
+      },
+      {
+        "x": 200.0,
+        "y": 65.52991,
+        "z": 40.0
+      },
+      {
+        "x": 210.0,
+        "y": 66.7900543,
+        "z": 40.0
+      },
+      {
+        "x": 220.0,
+        "y": 67.913,
+        "z": 40.0
+      },
+      {
+        "x": 230.0,
+        "y": 68.9260559,
+        "z": 40.0
+      },
+      {
+        "x": 240.0,
+        "y": 69.86534,
+        "z": 40.0
+      },
+      {
+        "x": 250.0,
+        "y": 70.7690353,
+        "z": 40.0
+      },
+      {
+        "x": 260.0,
+        "y": 71.66918,
+        "z": 40.0
+      },
+      {
+        "x": 270.0,
+        "y": 72.5804443,
+        "z": 40.0
+      },
+      {
+        "x": 280.0,
+        "y": 73.48759,
+        "z": 40.0
+      },
+      {
+        "x": 290.0,
+        "y": 74.34774,
+        "z": 40.0
+      },
+      {
+        "x": 300.0,
+        "y": 75.1504059,
+        "z": 40.0
+      },
+      {
+        "x": 310.0,
+        "y": 75.89806,
+        "z": 40.0
+      },
+      {
+        "x": 320.0,
+        "y": 76.59237,
+        "z": 40.0
+      },
+      {
+        "x": 330.0,
+        "y": 77.23423,
+        "z": 40.0
+      },
+      {
+        "x": 340.0,
+        "y": 77.82233,
+        "z": 40.0
+      },
+      {
+        "x": 350.0,
+        "y": 78.35274,
+        "z": 40.0
+      },
+      {
+        "x": 360.0,
+        "y": 78.8180161,
+        "z": 40.0
+      },
+      {
+        "x": 370.0,
+        "y": 79.19842,
+        "z": 40.0
+      },
+      {
+        "x": 380.0,
+        "y": 79.3981,
+        "z": 40.0
+      },
+      {
+        "x": 390.0,
+        "y": 79.35129,
+        "z": 40.0
+      },
+      {
+        "x": 400.0,
+        "y": 79.06695,
+        "z": 40.0
+      },
+      {
+        "x": 410.0,
+        "y": 78.6118546,
+        "z": 40.0
+      },
+      {
+        "x": 420.0,
+        "y": 78.08521,
+        "z": 40.0
+      },
+      {
+        "x": 430.0,
+        "y": 77.58784,
+        "z": 40.0
+      },
+      {
+        "x": 440.0,
+        "y": 77.19245,
+        "z": 40.0
+      },
+      {
+        "x": 450.0,
+        "y": 76.9362946,
+        "z": 40.0
+      },
+      {
+        "x": 460.0,
+        "y": 76.9727249,
+        "z": 40.0
+      },
+      {
+        "x": 470.0,
+        "y": 77.16885,
+        "z": 40.0
+      },
+      {
+        "x": 40.0,
+        "y": 31.9039154,
+        "z": 50.0
+      },
+      {
+        "x": 50.0,
+        "y": 32.0281639,
+        "z": 50.0
+      },
+      {
+        "x": 60.0,
+        "y": 40.03842,
+        "z": 50.0
+      },
+      {
+        "x": 70.0,
+        "y": 43.3617668,
+        "z": 50.0
+      },
+      {
+        "x": 80.0,
+        "y": 44.83155,
+        "z": 50.0
+      },
+      {
+        "x": 90.0,
+        "y": 46.4747849,
+        "z": 50.0
+      },
+      {
+        "x": 100.0,
+        "y": 48.2442856,
+        "z": 50.0
+      },
+      {
+        "x": 110.0,
+        "y": 50.09034,
+        "z": 50.0
+      },
+      {
+        "x": 120.0,
+        "y": 51.97304,
+        "z": 50.0
+      },
+      {
+        "x": 130.0,
+        "y": 53.8831062,
+        "z": 50.0
+      },
+      {
+        "x": 140.0,
+        "y": 55.8406,
+        "z": 50.0
+      },
+      {
+        "x": 150.0,
+        "y": 57.8361359,
+        "z": 50.0
+      },
+      {
+        "x": 160.0,
+        "y": 59.8333969,
+        "z": 50.0
+      },
+      {
+        "x": 170.0,
+        "y": 61.7827759,
+        "z": 50.0
+      },
+      {
+        "x": 180.0,
+        "y": 63.6330833,
+        "z": 50.0
+      },
+      {
+        "x": 190.0,
+        "y": 65.3402252,
+        "z": 50.0
+      },
+      {
+        "x": 200.0,
+        "y": 66.87395,
+        "z": 50.0
+      },
+      {
+        "x": 210.0,
+        "y": 68.2209244,
+        "z": 50.0
+      },
+      {
+        "x": 220.0,
+        "y": 69.38686,
+        "z": 50.0
+      },
+      {
+        "x": 230.0,
+        "y": 70.39445,
+        "z": 50.0
+      },
+      {
+        "x": 240.0,
+        "y": 71.2796249,
+        "z": 50.0
+      },
+      {
+        "x": 250.0,
+        "y": 72.08497,
+        "z": 50.0
+      },
+      {
+        "x": 260.0,
+        "y": 72.8505,
+        "z": 50.0
+      },
+      {
+        "x": 270.0,
+        "y": 73.60191,
+        "z": 50.0
+      },
+      {
+        "x": 280.0,
+        "y": 74.33582,
+        "z": 50.0
+      },
+      {
+        "x": 290.0,
+        "y": 75.01349,
+        "z": 50.0
+      },
+      {
+        "x": 300.0,
+        "y": 75.60804,
+        "z": 50.0
+      },
+      {
+        "x": 310.0,
+        "y": 76.11683,
+        "z": 50.0
+      },
+      {
+        "x": 320.0,
+        "y": 76.5516,
+        "z": 50.0
+      },
+      {
+        "x": 330.0,
+        "y": 76.93156,
+        "z": 50.0
+      },
+      {
+        "x": 340.0,
+        "y": 77.2772751,
+        "z": 50.0
+      },
+      {
+        "x": 350.0,
+        "y": 77.6056747,
+        "z": 50.0
+      },
+      {
+        "x": 360.0,
+        "y": 77.93148,
+        "z": 50.0
+      },
+      {
+        "x": 370.0,
+        "y": 78.3933,
+        "z": 50.0
+      },
+      {
+        "x": 380.0,
+        "y": 78.87885,
+        "z": 50.0
+      },
+      {
+        "x": 390.0,
+        "y": 79.21571,
+        "z": 50.0
+      },
+      {
+        "x": 400.0,
+        "y": 79.32431,
+        "z": 50.0
+      },
+      {
+        "x": 410.0,
+        "y": 79.2549057,
+        "z": 50.0
+      },
+      {
+        "x": 420.0,
+        "y": 79.025795,
+        "z": 50.0
+      },
+      {
+        "x": 430.0,
+        "y": 78.71862,
+        "z": 50.0
+      },
+      {
+        "x": 440.0,
+        "y": 78.4051361,
+        "z": 50.0
+      },
+      {
+        "x": 450.0,
+        "y": 78.11956,
+        "z": 50.0
+      },
+      {
+        "x": 460.0,
+        "y": 78.1379852,
+        "z": 50.0
+      },
+      {
+        "x": 470.0,
+        "y": 78.10492,
+        "z": 50.0
+      },
+      {
+        "x": 40.0,
+        "y": 31.7389,
+        "z": 60.0
+      },
+      {
+        "x": 50.0,
+        "y": 32.83538,
+        "z": 60.0
+      },
+      {
+        "x": 60.0,
+        "y": 40.9443321,
+        "z": 60.0
+      },
+      {
+        "x": 70.0,
+        "y": 43.8086166,
+        "z": 60.0
+      },
+      {
+        "x": 80.0,
+        "y": 45.26372,
+        "z": 60.0
+      },
+      {
+        "x": 90.0,
+        "y": 46.9060326,
+        "z": 60.0
+      },
+      {
+        "x": 100.0,
+        "y": 48.6914864,
+        "z": 60.0
+      },
+      {
+        "x": 110.0,
+        "y": 50.56947,
+        "z": 60.0
+      },
+      {
+        "x": 120.0,
+        "y": 52.4931259,
+        "z": 60.0
+      },
+      {
+        "x": 130.0,
+        "y": 54.4463234,
+        "z": 60.0
+      },
+      {
+        "x": 140.0,
+        "y": 56.46327,
+        "z": 60.0
+      },
+      {
+        "x": 150.0,
+        "y": 58.5435562,
+        "z": 60.0
+      },
+      {
+        "x": 160.0,
+        "y": 60.6494179,
+        "z": 60.0
+      },
+      {
+        "x": 170.0,
+        "y": 62.7232628,
+        "z": 60.0
+      },
+      {
+        "x": 180.0,
+        "y": 64.70204,
+        "z": 60.0
+      },
+      {
+        "x": 190.0,
+        "y": 66.52838,
+        "z": 60.0
+      },
+      {
+        "x": 200.0,
+        "y": 68.15921,
+        "z": 60.0
+      },
+      {
+        "x": 210.0,
+        "y": 69.571,
+        "z": 60.0
+      },
+      {
+        "x": 220.0,
+        "y": 70.76195,
+        "z": 60.0
+      },
+      {
+        "x": 230.0,
+        "y": 71.75132,
+        "z": 60.0
+      },
+      {
+        "x": 240.0,
+        "y": 72.57575,
+        "z": 60.0
+      },
+      {
+        "x": 250.0,
+        "y": 73.2823257,
+        "z": 60.0
+      },
+      {
+        "x": 260.0,
+        "y": 73.91841,
+        "z": 60.0
+      },
+      {
+        "x": 270.0,
+        "y": 74.51921,
+        "z": 60.0
+      },
+      {
+        "x": 280.0,
+        "y": 75.0912,
+        "z": 60.0
+      },
+      {
+        "x": 290.0,
+        "y": 75.59817,
+        "z": 60.0
+      },
+      {
+        "x": 300.0,
+        "y": 75.9977,
+        "z": 60.0
+      },
+      {
+        "x": 310.0,
+        "y": 76.28335,
+        "z": 60.0
+      },
+      {
+        "x": 320.0,
+        "y": 76.47685,
+        "z": 60.0
+      },
+      {
+        "x": 330.0,
+        "y": 76.61537,
+        "z": 60.0
+      },
+      {
+        "x": 340.0,
+        "y": 76.74131,
+        "z": 60.0
+      },
+      {
+        "x": 350.0,
+        "y": 76.8927155,
+        "z": 60.0
+      },
+      {
+        "x": 360.0,
+        "y": 77.18689,
+        "z": 60.0
+      },
+      {
+        "x": 370.0,
+        "y": 77.8928757,
+        "z": 60.0
+      },
+      {
+        "x": 380.0,
+        "y": 78.79442,
+        "z": 60.0
+      },
+      {
+        "x": 390.0,
+        "y": 79.6056747,
+        "z": 60.0
+      },
+      {
+        "x": 400.0,
+        "y": 80.2468643,
+        "z": 60.0
+      },
+      {
+        "x": 410.0,
+        "y": 80.58152,
+        "z": 60.0
+      },
+      {
+        "x": 420.0,
+        "y": 80.62418,
+        "z": 60.0
+      },
+      {
+        "x": 430.0,
+        "y": 80.5172043,
+        "z": 60.0
+      },
+      {
+        "x": 440.0,
+        "y": 80.22168,
+        "z": 60.0
+      },
+      {
+        "x": 450.0,
+        "y": 79.89006,
+        "z": 60.0
+      },
+      {
+        "x": 460.0,
+        "y": 79.88712,
+        "z": 60.0
+      },
+      {
+        "x": 470.0,
+        "y": 79.62214,
+        "z": 60.0
+      },
+      {
+        "x": 40.0,
+        "y": 32.1973038,
+        "z": 70.0
+      },
+      {
+        "x": 50.0,
+        "y": 33.72521,
+        "z": 70.0
+      },
+      {
+        "x": 60.0,
+        "y": 36.8370132,
+        "z": 70.0
+      },
+      {
+        "x": 70.0,
+        "y": 44.2481422,
+        "z": 70.0
+      },
+      {
+        "x": 80.0,
+        "y": 45.7373047,
+        "z": 70.0
+      },
+      {
+        "x": 90.0,
+        "y": 47.3949776,
+        "z": 70.0
+      },
+      {
+        "x": 100.0,
+        "y": 49.205864,
+        "z": 70.0
+      },
+      {
+        "x": 110.0,
+        "y": 51.11903,
+        "z": 70.0
+      },
+      {
+        "x": 120.0,
+        "y": 53.0831,
+        "z": 70.0
+      },
+      {
+        "x": 130.0,
+        "y": 55.0775,
+        "z": 70.0
+      },
+      {
+        "x": 140.0,
+        "y": 57.1471977,
+        "z": 70.0
+      },
+      {
+        "x": 150.0,
+        "y": 59.29807,
+        "z": 70.0
+      },
+      {
+        "x": 160.0,
+        "y": 61.490593,
+        "z": 70.0
+      },
+      {
+        "x": 170.0,
+        "y": 63.66028,
+        "z": 70.0
+      },
+      {
+        "x": 180.0,
+        "y": 65.73431,
+        "z": 70.0
+      },
+      {
+        "x": 190.0,
+        "y": 67.6448059,
+        "z": 70.0
+      },
+      {
+        "x": 200.0,
+        "y": 69.33894,
+        "z": 70.0
+      },
+      {
+        "x": 210.0,
+        "y": 70.7854156,
+        "z": 70.0
+      },
+      {
+        "x": 220.0,
+        "y": 71.9776154,
+        "z": 70.0
+      },
+      {
+        "x": 230.0,
+        "y": 72.9331,
+        "z": 70.0
+      },
+      {
+        "x": 240.0,
+        "y": 73.68987,
+        "z": 70.0
+      },
+      {
+        "x": 250.0,
+        "y": 74.2995,
+        "z": 70.0
+      },
+      {
+        "x": 260.0,
+        "y": 74.81569,
+        "z": 70.0
+      },
+      {
+        "x": 270.0,
+        "y": 75.28105,
+        "z": 70.0
+      },
+      {
+        "x": 280.0,
+        "y": 75.70906,
+        "z": 70.0
+      },
+      {
+        "x": 290.0,
+        "y": 76.06366,
+        "z": 70.0
+      },
+      {
+        "x": 300.0,
+        "y": 76.28955,
+        "z": 70.0
+      },
+      {
+        "x": 310.0,
+        "y": 76.37805,
+        "z": 70.0
+      },
+      {
+        "x": 320.0,
+        "y": 76.3600845,
+        "z": 70.0
+      },
+      {
+        "x": 330.0,
+        "y": 76.2897,
+        "z": 70.0
+      },
+      {
+        "x": 340.0,
+        "y": 76.22931,
+        "z": 70.0
+      },
+      {
+        "x": 350.0,
+        "y": 76.25565,
+        "z": 70.0
+      },
+      {
+        "x": 360.0,
+        "y": 76.6438446,
+        "z": 70.0
+      },
+      {
+        "x": 370.0,
+        "y": 77.52014,
+        "z": 70.0
+      },
+      {
+        "x": 380.0,
+        "y": 78.79546,
+        "z": 70.0
+      },
+      {
+        "x": 390.0,
+        "y": 80.22631,
+        "z": 70.0
+      },
+      {
+        "x": 400.0,
+        "y": 81.40683,
+        "z": 70.0
+      },
+      {
+        "x": 410.0,
+        "y": 82.18644,
+        "z": 70.0
+      },
+      {
+        "x": 420.0,
+        "y": 82.57984,
+        "z": 70.0
+      },
+      {
+        "x": 430.0,
+        "y": 82.59449,
+        "z": 70.0
+      },
+      {
+        "x": 440.0,
+        "y": 81.9789658,
+        "z": 70.0
+      },
+      {
+        "x": 450.0,
+        "y": 81.8998,
+        "z": 70.0
+      },
+      {
+        "x": 460.0,
+        "y": 81.85829,
+        "z": 70.0
+      },
+      {
+        "x": 470.0,
+        "y": 81.41681,
+        "z": 70.0
+      },
+      {
+        "x": 40.0,
+        "y": 37.63557,
+        "z": 80.0
+      },
+      {
+        "x": 50.0,
+        "y": 34.2287827,
+        "z": 80.0
+      },
+      {
+        "x": 60.0,
+        "y": 34.5235672,
+        "z": 80.0
+      },
+      {
+        "x": 70.0,
+        "y": 41.5808334,
+        "z": 80.0
+      },
+      {
+        "x": 80.0,
+        "y": 46.23102,
+        "z": 80.0
+      },
+      {
+        "x": 90.0,
+        "y": 47.9238663,
+        "z": 80.0
+      },
+      {
+        "x": 100.0,
+        "y": 49.77201,
+        "z": 80.0
+      },
+      {
+        "x": 110.0,
+        "y": 51.7250862,
+        "z": 80.0
+      },
+      {
+        "x": 120.0,
+        "y": 53.72975,
+        "z": 80.0
+      },
+      {
+        "x": 130.0,
+        "y": 55.7636,
+        "z": 80.0
+      },
+      {
+        "x": 140.0,
+        "y": 57.87854,
+        "z": 80.0
+      },
+      {
+        "x": 150.0,
+        "y": 60.0834465,
+        "z": 80.0
+      },
+      {
+        "x": 160.0,
+        "y": 62.33662,
+        "z": 80.0
+      },
+      {
+        "x": 170.0,
+        "y": 64.5680542,
+        "z": 80.0
+      },
+      {
+        "x": 180.0,
+        "y": 66.69793,
+        "z": 80.0
+      },
+      {
+        "x": 190.0,
+        "y": 68.65122,
+        "z": 80.0
+      },
+      {
+        "x": 200.0,
+        "y": 70.36904,
+        "z": 80.0
+      },
+      {
+        "x": 210.0,
+        "y": 71.81572,
+        "z": 80.0
+      },
+      {
+        "x": 220.0,
+        "y": 72.98256,
+        "z": 80.0
+      },
+      {
+        "x": 230.0,
+        "y": 73.8873749,
+        "z": 80.0
+      },
+      {
+        "x": 240.0,
+        "y": 74.5705948,
+        "z": 80.0
+      },
+      {
+        "x": 250.0,
+        "y": 75.0878,
+        "z": 80.0
+      },
+      {
+        "x": 260.0,
+        "y": 75.49796,
+        "z": 80.0
+      },
+      {
+        "x": 270.0,
+        "y": 75.84828,
+        "z": 80.0
+      },
+      {
+        "x": 280.0,
+        "y": 76.15564,
+        "z": 80.0
+      },
+      {
+        "x": 290.0,
+        "y": 76.38197,
+        "z": 80.0
+      },
+      {
+        "x": 300.0,
+        "y": 76.4624,
+        "z": 80.0
+      },
+      {
+        "x": 310.0,
+        "y": 76.38761,
+        "z": 80.0
+      },
+      {
+        "x": 320.0,
+        "y": 76.19692,
+        "z": 80.0
+      },
+      {
+        "x": 330.0,
+        "y": 75.9584045,
+        "z": 80.0
+      },
+      {
+        "x": 340.0,
+        "y": 75.75301,
+        "z": 80.0
+      },
+      {
+        "x": 350.0,
+        "y": 75.78312,
+        "z": 80.0
+      },
+      {
+        "x": 360.0,
+        "y": 76.26679,
+        "z": 80.0
+      },
+      {
+        "x": 370.0,
+        "y": 77.25343,
+        "z": 80.0
+      },
+      {
+        "x": 380.0,
+        "y": 78.6935,
+        "z": 80.0
+      },
+      {
+        "x": 390.0,
+        "y": 80.38794,
+        "z": 80.0
+      },
+      {
+        "x": 400.0,
+        "y": 82.0597458,
+        "z": 80.0
+      },
+      {
+        "x": 410.0,
+        "y": 83.38266,
+        "z": 80.0
+      },
+      {
+        "x": 420.0,
+        "y": 84.1326752,
+        "z": 80.0
+      },
+      {
+        "x": 430.0,
+        "y": 84.3818741,
+        "z": 80.0
+      },
+      {
+        "x": 440.0,
+        "y": 84.21019,
+        "z": 80.0
+      },
+      {
+        "x": 450.0,
+        "y": 83.81409,
+        "z": 80.0
+      },
+      {
+        "x": 460.0,
+        "y": 83.66477,
+        "z": 80.0
+      },
+      {
+        "x": 470.0,
+        "y": 83.17536,
+        "z": 80.0
+      },
+      {
+        "x": 40.0,
+        "y": 41.47577,
+        "z": 90.0
+      },
+      {
+        "x": 50.0,
+        "y": 36.3135147,
+        "z": 90.0
+      },
+      {
+        "x": 60.0,
+        "y": 35.0,
+        "z": 90.0
+      },
+      {
+        "x": 70.0,
+        "y": 36.4412766,
+        "z": 90.0
+      },
+      {
+        "x": 80.0,
+        "y": 46.3731079,
+        "z": 90.0
+      },
+      {
+        "x": 90.0,
+        "y": 48.46426,
+        "z": 90.0
+      },
+      {
+        "x": 100.0,
+        "y": 50.3625641,
+        "z": 90.0
+      },
+      {
+        "x": 110.0,
+        "y": 52.3608856,
+        "z": 90.0
+      },
+      {
+        "x": 120.0,
+        "y": 54.4068375,
+        "z": 90.0
+      },
+      {
+        "x": 130.0,
+        "y": 56.4789963,
+        "z": 90.0
+      },
+      {
+        "x": 140.0,
+        "y": 58.6314926,
+        "z": 90.0
+      },
+      {
+        "x": 150.0,
+        "y": 60.8731575,
+        "z": 90.0
+      },
+      {
+        "x": 160.0,
+        "y": 63.15964,
+        "z": 90.0
+      },
+      {
+        "x": 170.0,
+        "y": 65.4169846,
+        "z": 90.0
+      },
+      {
+        "x": 180.0,
+        "y": 67.56138,
+        "z": 90.0
+      },
+      {
+        "x": 190.0,
+        "y": 69.51447,
+        "z": 90.0
+      },
+      {
+        "x": 200.0,
+        "y": 71.21509,
+        "z": 90.0
+      },
+      {
+        "x": 210.0,
+        "y": 72.62696,
+        "z": 90.0
+      },
+      {
+        "x": 220.0,
+        "y": 73.74214,
+        "z": 90.0
+      },
+      {
+        "x": 230.0,
+        "y": 74.58071,
+        "z": 90.0
+      },
+      {
+        "x": 240.0,
+        "y": 75.1865845,
+        "z": 90.0
+      },
+      {
+        "x": 250.0,
+        "y": 75.6189651,
+        "z": 90.0
+      },
+      {
+        "x": 260.0,
+        "y": 75.94027,
+        "z": 90.0
+      },
+      {
+        "x": 270.0,
+        "y": 76.19983,
+        "z": 90.0
+      },
+      {
+        "x": 280.0,
+        "y": 76.4139938,
+        "z": 90.0
+      },
+      {
+        "x": 290.0,
+        "y": 76.54002,
+        "z": 90.0
+      },
+      {
+        "x": 300.0,
+        "y": 76.50789,
+        "z": 90.0
+      },
+      {
+        "x": 310.0,
+        "y": 76.309166,
+        "z": 90.0
+      },
+      {
+        "x": 320.0,
+        "y": 75.98982,
+        "z": 90.0
+      },
+      {
+        "x": 330.0,
+        "y": 75.63657,
+        "z": 90.0
+      },
+      {
+        "x": 340.0,
+        "y": 75.36005,
+        "z": 90.0
+      },
+      {
+        "x": 350.0,
+        "y": 75.41502,
+        "z": 90.0
+      },
+      {
+        "x": 360.0,
+        "y": 75.96004,
+        "z": 90.0
+      },
+      {
+        "x": 370.0,
+        "y": 77.0402756,
+        "z": 90.0
+      },
+      {
+        "x": 380.0,
+        "y": 78.56944,
+        "z": 90.0
+      },
+      {
+        "x": 390.0,
+        "y": 80.323555,
+        "z": 90.0
+      },
+      {
+        "x": 400.0,
+        "y": 82.10987,
+        "z": 90.0
+      },
+      {
+        "x": 410.0,
+        "y": 83.62904,
+        "z": 90.0
+      },
+      {
+        "x": 420.0,
+        "y": 84.74413,
+        "z": 90.0
+      },
+      {
+        "x": 430.0,
+        "y": 85.29679,
+        "z": 90.0
+      },
+      {
+        "x": 440.0,
+        "y": 85.32917,
+        "z": 90.0
+      },
+      {
+        "x": 450.0,
+        "y": 85.3101959,
+        "z": 90.0
+      },
+      {
+        "x": 460.0,
+        "y": 85.06174,
+        "z": 90.0
+      },
+      {
+        "x": 470.0,
+        "y": 84.5558,
+        "z": 90.0
+      },
+      {
+        "x": 40.0,
+        "y": 41.73736,
+        "z": 100.0
+      },
+      {
+        "x": 50.0,
+        "y": 39.9292145,
+        "z": 100.0
+      },
+      {
+        "x": 60.0,
+        "y": 35.50221,
+        "z": 100.0
+      },
+      {
+        "x": 70.0,
+        "y": 35.7640343,
+        "z": 100.0
+      },
+      {
+        "x": 80.0,
+        "y": 42.36405,
+        "z": 100.0
+      },
+      {
+        "x": 90.0,
+        "y": 48.9816933,
+        "z": 100.0
+      },
+      {
+        "x": 100.0,
+        "y": 50.94239,
+        "z": 100.0
+      },
+      {
+        "x": 110.0,
+        "y": 52.99138,
+        "z": 100.0
+      },
+      {
+        "x": 120.0,
+        "y": 55.07964,
+        "z": 100.0
+      },
+      {
+        "x": 130.0,
+        "y": 57.18927,
+        "z": 100.0
+      },
+      {
+        "x": 140.0,
+        "y": 59.37269,
+        "z": 100.0
+      },
+      {
+        "x": 150.0,
+        "y": 61.63516,
+        "z": 100.0
+      },
+      {
+        "x": 160.0,
+        "y": 63.9294357,
+        "z": 100.0
+      },
+      {
+        "x": 170.0,
+        "y": 66.1794052,
+        "z": 100.0
+      },
+      {
+        "x": 180.0,
+        "y": 68.30005,
+        "z": 100.0
+      },
+      {
+        "x": 190.0,
+        "y": 70.213295,
+        "z": 100.0
+      },
+      {
+        "x": 200.0,
+        "y": 71.85963,
+        "z": 100.0
+      },
+      {
+        "x": 210.0,
+        "y": 73.20532,
+        "z": 100.0
+      },
+      {
+        "x": 220.0,
+        "y": 74.24616,
+        "z": 100.0
+      },
+      {
+        "x": 230.0,
+        "y": 75.00642,
+        "z": 100.0
+      },
+      {
+        "x": 240.0,
+        "y": 75.53408,
+        "z": 100.0
+      },
+      {
+        "x": 250.0,
+        "y": 75.89176,
+        "z": 100.0
+      },
+      {
+        "x": 260.0,
+        "y": 76.1436844,
+        "z": 100.0
+      },
+      {
+        "x": 270.0,
+        "y": 76.3386,
+        "z": 100.0
+      },
+      {
+        "x": 280.0,
+        "y": 76.48862,
+        "z": 100.0
+      },
+      {
+        "x": 290.0,
+        "y": 76.54458,
+        "z": 100.0
+      },
+      {
+        "x": 300.0,
+        "y": 76.4347839,
+        "z": 100.0
+      },
+      {
+        "x": 310.0,
+        "y": 76.1716843,
+        "z": 100.0
+      },
+      {
+        "x": 320.0,
+        "y": 75.8385,
+        "z": 100.0
+      },
+      {
+        "x": 330.0,
+        "y": 75.49385,
+        "z": 100.0
+      },
+      {
+        "x": 340.0,
+        "y": 75.20012,
+        "z": 100.0
+      },
+      {
+        "x": 350.0,
+        "y": 75.09014,
+        "z": 100.0
+      },
+      {
+        "x": 360.0,
+        "y": 75.66493,
+        "z": 100.0
+      },
+      {
+        "x": 370.0,
+        "y": 76.77012,
+        "z": 100.0
+      },
+      {
+        "x": 380.0,
+        "y": 78.3046341,
+        "z": 100.0
+      },
+      {
+        "x": 390.0,
+        "y": 80.03731,
+        "z": 100.0
+      },
+      {
+        "x": 400.0,
+        "y": 81.79119,
+        "z": 100.0
+      },
+      {
+        "x": 410.0,
+        "y": 83.28768,
+        "z": 100.0
+      },
+      {
+        "x": 420.0,
+        "y": 84.43128,
+        "z": 100.0
+      },
+      {
+        "x": 430.0,
+        "y": 85.17105,
+        "z": 100.0
+      },
+      {
+        "x": 440.0,
+        "y": 85.5177841,
+        "z": 100.0
+      },
+      {
+        "x": 450.0,
+        "y": 85.99104,
+        "z": 100.0
+      },
+      {
+        "x": 460.0,
+        "y": 85.85412,
+        "z": 100.0
+      },
+      {
+        "x": 470.0,
+        "y": 85.28269,
+        "z": 100.0
+      },
+      {
+        "x": 40.0,
+        "y": 41.5852661,
+        "z": 110.0
+      },
+      {
+        "x": 50.0,
+        "y": 42.7149048,
+        "z": 110.0
+      },
+      {
+        "x": 60.0,
+        "y": 37.29995,
+        "z": 110.0
+      },
+      {
+        "x": 70.0,
+        "y": 36.2796,
+        "z": 110.0
+      },
+      {
+        "x": 80.0,
+        "y": 37.81456,
+        "z": 110.0
+      },
+      {
+        "x": 90.0,
+        "y": 49.1667747,
+        "z": 110.0
+      },
+      {
+        "x": 100.0,
+        "y": 51.4752922,
+        "z": 110.0
+      },
+      {
+        "x": 110.0,
+        "y": 53.5794334,
+        "z": 110.0
+      },
+      {
+        "x": 120.0,
+        "y": 55.7112923,
+        "z": 110.0
+      },
+      {
+        "x": 130.0,
+        "y": 57.8582573,
+        "z": 110.0
+      },
+      {
+        "x": 140.0,
+        "y": 60.0674858,
+        "z": 110.0
+      },
+      {
+        "x": 150.0,
+        "y": 62.33851,
+        "z": 110.0
+      },
+      {
+        "x": 160.0,
+        "y": 64.62071,
+        "z": 110.0
+      },
+      {
+        "x": 170.0,
+        "y": 66.8371658,
+        "z": 110.0
+      },
+      {
+        "x": 180.0,
+        "y": 68.90425,
+        "z": 110.0
+      },
+      {
+        "x": 190.0,
+        "y": 70.74709,
+        "z": 110.0
+      },
+      {
+        "x": 200.0,
+        "y": 72.31075,
+        "z": 110.0
+      },
+      {
+        "x": 210.0,
+        "y": 73.5670853,
+        "z": 110.0
+      },
+      {
+        "x": 220.0,
+        "y": 74.51778,
+        "z": 110.0
+      },
+      {
+        "x": 230.0,
+        "y": 75.19278,
+        "z": 110.0
+      },
+      {
+        "x": 240.0,
+        "y": 75.64472,
+        "z": 110.0
+      },
+      {
+        "x": 250.0,
+        "y": 75.9393158,
+        "z": 110.0
+      },
+      {
+        "x": 260.0,
+        "y": 76.1413651,
+        "z": 110.0
+      },
+      {
+        "x": 270.0,
+        "y": 76.2967758,
+        "z": 110.0
+      },
+      {
+        "x": 280.0,
+        "y": 76.41078,
+        "z": 110.0
+      },
+      {
+        "x": 290.0,
+        "y": 76.42795,
+        "z": 110.0
+      },
+      {
+        "x": 300.0,
+        "y": 76.34548,
+        "z": 110.0
+      },
+      {
+        "x": 310.0,
+        "y": 76.16519,
+        "z": 110.0
+      },
+      {
+        "x": 320.0,
+        "y": 75.91425,
+        "z": 110.0
+      },
+      {
+        "x": 330.0,
+        "y": 75.631424,
+        "z": 110.0
+      },
+      {
+        "x": 340.0,
+        "y": 75.37027,
+        "z": 110.0
+      },
+      {
+        "x": 350.0,
+        "y": 74.7635,
+        "z": 110.0
+      },
+      {
+        "x": 360.0,
+        "y": 75.3485,
+        "z": 110.0
+      },
+      {
+        "x": 370.0,
+        "y": 76.41318,
+        "z": 110.0
+      },
+      {
+        "x": 380.0,
+        "y": 77.84288,
+        "z": 110.0
+      },
+      {
+        "x": 390.0,
+        "y": 79.50628,
+        "z": 110.0
+      },
+      {
+        "x": 400.0,
+        "y": 81.11404,
+        "z": 110.0
+      },
+      {
+        "x": 410.0,
+        "y": 82.51395,
+        "z": 110.0
+      },
+      {
+        "x": 420.0,
+        "y": 83.6159439,
+        "z": 110.0
+      },
+      {
+        "x": 430.0,
+        "y": 84.41528,
+        "z": 110.0
+      },
+      {
+        "x": 440.0,
+        "y": 85.2604,
+        "z": 110.0
+      },
+      {
+        "x": 450.0,
+        "y": 85.7724457,
+        "z": 110.0
+      },
+      {
+        "x": 460.0,
+        "y": 85.9339,
+        "z": 110.0
+      },
+      {
+        "x": 470.0,
+        "y": 85.54268,
+        "z": 110.0
+      },
+      {
+        "x": 40.0,
+        "y": 41.2908173,
+        "z": 120.0
+      },
+      {
+        "x": 50.0,
+        "y": 42.6573,
+        "z": 120.0
+      },
+      {
+        "x": 60.0,
+        "y": 41.3245544,
+        "z": 120.0
+      },
+      {
+        "x": 70.0,
+        "y": 36.8161354,
+        "z": 120.0
+      },
+      {
+        "x": 80.0,
+        "y": 37.05753,
+        "z": 120.0
+      },
+      {
+        "x": 90.0,
+        "y": 46.1601257,
+        "z": 120.0
+      },
+      {
+        "x": 100.0,
+        "y": 51.9325752,
+        "z": 120.0
+      },
+      {
+        "x": 110.0,
+        "y": 54.0947266,
+        "z": 120.0
+      },
+      {
+        "x": 120.0,
+        "y": 56.2712326,
+        "z": 120.0
+      },
+      {
+        "x": 130.0,
+        "y": 58.4560623,
+        "z": 120.0
+      },
+      {
+        "x": 140.0,
+        "y": 60.68913,
+        "z": 120.0
+      },
+      {
+        "x": 150.0,
+        "y": 62.9624367,
+        "z": 120.0
+      },
+      {
+        "x": 160.0,
+        "y": 65.22203,
+        "z": 120.0
+      },
+      {
+        "x": 170.0,
+        "y": 67.39106,
+        "z": 120.0
+      },
+      {
+        "x": 180.0,
+        "y": 69.38881,
+        "z": 120.0
+      },
+      {
+        "x": 190.0,
+        "y": 71.1453247,
+        "z": 120.0
+      },
+      {
+        "x": 200.0,
+        "y": 72.6120148,
+        "z": 120.0
+      },
+      {
+        "x": 210.0,
+        "y": 73.76813,
+        "z": 120.0
+      },
+      {
+        "x": 220.0,
+        "y": 74.6225052,
+        "z": 120.0
+      },
+      {
+        "x": 230.0,
+        "y": 75.2116,
+        "z": 120.0
+      },
+      {
+        "x": 240.0,
+        "y": 75.59333,
+        "z": 120.0
+      },
+      {
+        "x": 250.0,
+        "y": 75.83624,
+        "z": 120.0
+      },
+      {
+        "x": 260.0,
+        "y": 76.0049438,
+        "z": 120.0
+      },
+      {
+        "x": 270.0,
+        "y": 76.14139,
+        "z": 120.0
+      },
+      {
+        "x": 280.0,
+        "y": 76.25247,
+        "z": 120.0
+      },
+      {
+        "x": 290.0,
+        "y": 76.3710861,
+        "z": 120.0
+      },
+      {
+        "x": 300.0,
+        "y": 76.42058,
+        "z": 120.0
+      },
+      {
+        "x": 310.0,
+        "y": 76.35919,
+        "z": 120.0
+      },
+      {
+        "x": 320.0,
+        "y": 76.248764,
+        "z": 120.0
+      },
+      {
+        "x": 330.0,
+        "y": 76.06337,
+        "z": 120.0
+      },
+      {
+        "x": 340.0,
+        "y": 75.86038,
+        "z": 120.0
+      },
+      {
+        "x": 350.0,
+        "y": 75.54885,
+        "z": 120.0
+      },
+      {
+        "x": 360.0,
+        "y": 74.96473,
+        "z": 120.0
+      },
+      {
+        "x": 370.0,
+        "y": 75.9198,
+        "z": 120.0
+      },
+      {
+        "x": 380.0,
+        "y": 77.22787,
+        "z": 120.0
+      },
+      {
+        "x": 390.0,
+        "y": 78.72634,
+        "z": 120.0
+      },
+      {
+        "x": 400.0,
+        "y": 80.17958,
+        "z": 120.0
+      },
+      {
+        "x": 410.0,
+        "y": 81.46076,
+        "z": 120.0
+      },
+      {
+        "x": 420.0,
+        "y": 82.51027,
+        "z": 120.0
+      },
+      {
+        "x": 430.0,
+        "y": 83.46855,
+        "z": 120.0
+      },
+      {
+        "x": 440.0,
+        "y": 84.52606,
+        "z": 120.0
+      },
+      {
+        "x": 450.0,
+        "y": 85.10584,
+        "z": 120.0
+      },
+      {
+        "x": 460.0,
+        "y": 85.2147446,
+        "z": 120.0
+      },
+      {
+        "x": 470.0,
+        "y": 85.36838,
+        "z": 120.0
+      }
+    ]
+  }
+]

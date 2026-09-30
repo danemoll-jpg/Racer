@@ -10,7 +10,7 @@ Shader "Racer/WorldText"
             Blend SrcAlpha OneMinusSrcAlpha
             ZWrite Off
             ZTest LEqual
-            Cull Off
+            Cull Back
             HLSLPROGRAM
             #pragma vertex vert
             #pragma fragment frag
