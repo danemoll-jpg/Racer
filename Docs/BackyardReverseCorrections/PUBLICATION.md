@@ -1,0 +1,14 @@
+# Delivered — 0.47.0-review1 / game-47000
+
+- Safety checkpoint: clean main `2f830a934582f68fafc6e130706c09d1a921280d`.
+- Implementation commit `b1de7b32ad3933516699281a7cb99d9d50b6e027`; final build source **`04d19b658caa629438e28931cc50a408a88297af`**, pushed and verified on origin/main before the final build. Later edits contain delivery evidence/documentation only.
+- Fresh Unity 6000.6.1f1 Windows runtime: **zero errors, two warnings, 4m51.341s**; started 2026-09-30 07:09:20 UTC; GUID `18b318f79e774ca58624bbe03148d703`. Warnings concern future collision prebaking and the intentionally absent optional Runtime Pipeline configuration. An earlier successful clean-cache build was withheld when the final metadata audit found the flight anchor on the descending edge; that candidate was never published and has been removed. The final build uses the corrected supported-lip metadata and unchanged tested physical geometry.
+- [Published game-47000](https://github.com/danemoll-jpg/woodstock-rush-releases/releases/tag/game-47000): published/non-draft; all three immutable asset sizes and SHA-256 digests verified. Latest signed catalog fetched and matched. Existing publisher identity and previous releases preserved.
+- **All 237 signed files match** the fresh output, ZIP, complete root Latest and managed 47000. New gameplay assembly, scene data and resources differ from 46000. Unity's bootstrap EXE bytes remain identical, but the complete runtime is freshly built from the final source. See `runtime-identity.json` and `remote-release.json`.
+- Actual public download, pinned-signature verification, extraction and muted startup passed, exit 0. Every root Latest file also matches the public manifest. See `hosted/result.json`.
+- Existing production updater activated 47000, preserved soundtrack state, and reports no pending game/music update. No launcher architecture changes.
+- **Unchanged Play-Racer.cmd** launched responsive `Builds/Latest/versions/47000/Racer.exe` at 2026-09-30 03:24 EDT. Complete root `Builds/Latest/Racer.exe` represents the same new release. Only the verification launch was closed. See `play-racer-launch.json`.
+- Cleanup: Builds **10,534,920,811 → 7,229,331,413 bytes**; **3,305,589,398 bytes** recovered there. Including the temporary public installation, **4,787,699,205 bytes** of disposable artifacts removed. C: free **324,025,135,104 → 328,814,964,736 bytes**. See `cleanup.json`.
+- Retained complete root Latest, managed current **47000**, previous **46000**, source/maps/evidence, music, publisher keys/tools, launcher metadata and user saves. Updater already retired 45000 before manual cleanup.
+
+Requested corrections and bounded test results: [VALIDATION.md](VALIDATION.md). Targeted testing stopped; no Reverse shortcuts or unrelated world changes. Await Dan's gameplay review.

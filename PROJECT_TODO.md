@@ -9,7 +9,7 @@
 - Do not silently modify or weaken CODEX_RULES.md. Changes to standing rules require an explicit instruction from Dan.
 - Root AGENTS.md points future Codex tasks to both files.
 
-## Current pass — 2026-09-30 / focused Backyard Reverse corrections — 0.47.0-review1
+## Current delivery — 2026-09-30 / focused Backyard Reverse corrections — 0.47.0-review1 DELIVERED
 
 - Dan accepts the overall Reverse course. Only the requested local corrections are authorized; approved Forward/world fixes remain protected. No Reverse shortcuts.
 - Safety checkpoint: clean main `2f830a934582f68fafc6e130706c09d1a921280d`.
@@ -19,7 +19,9 @@
 - All THREE bump areas corrected: northern abrupt crest/cross-slope join near (423,83); south-gully shoulder seams and Reverse clearance from the protected Tree-Top landing; discontinuous height blending inside the dump approach bend near (235,-31). Final bounded motorcycle/ATV drives pass; natural slope and brief off-road motion retained.
 - Dependency audit compared 473 local supports; one tree's 0.183m shoulder change corrected without moving the tree. Final 739-tree map grounding maximum error 0.0000763m. Forward, properties, other courses and global vehicle/AI/recovery source preserved.
 - Standing visualization rule: **ROUTE COLOR REPRESENTS ROUTE ROLE, NOT GEOMETRY OWNERSHIP.** All required main-route sections have the same main presentation; only optional shortcuts use shortcut color.
-- Targeted driving checks PASSED / STOPPED. Initial failures retained. These are ordinary Unity physics with scripted inputs, not human gameplay acceptance. [Detailed evidence](Docs/BackyardReverseCorrections/VALIDATION.md). Atlas/Reverse world layer refreshed. Completion commit, fresh build and publication are pending below; do not describe this as delivered until verified.
+- Targeted driving checks PASSED / STOPPED. Initial failures retained. These are ordinary Unity physics with scripted inputs, not human gameplay acceptance. [Detailed evidence](Docs/BackyardReverseCorrections/VALIDATION.md). Atlas/Reverse world layer refreshed. Final metadata audit placed the pool-house anchor on its actual supported lip `(387.94,88.69,-3.31)`; tested physical geometry unchanged.
+- **DELIVERED 0.47.0-review1 / game-47000.** Final source **`04d19b658caa629438e28931cc50a408a88297af`** pushed/verified on origin/main before fresh Windows build: zero errors, two existing warnings, 4m51.341s. All **237** signed files match fresh output/ZIP/complete root Latest/managed 47000. All three remote assets, latest signed catalog and actual public download/startup verified. [Publication record](Docs/BackyardReverseCorrections/PUBLICATION.md).
+- Unchanged **Play-Racer.cmd** launched responsive `Builds/Latest/versions/47000/Racer.exe`. Music state preserved; no pending updates. Retained current **47000** and previous **46000**. Cleanup: Builds **10,534,920,811 → 7,229,331,413 bytes**, **3,305,589,398** recovered there; **4,787,699,205 bytes** total disposable artifacts removed including public test install. Final C: free **328,814,964,736 bytes / 306.233 GiB**. Required source, atlases, music, signing identity/tools, launcher metadata and saves preserved. **STOP for Dan's gameplay review.** No Reverse shortcuts or unrelated world changes.
 ## Previous delivery — 2026-09-30 / shared-world corrections and Backyard Reverse — 0.46.0-review1 DELIVERED
 
 - Dan completed review of 0.45 and explicitly authorized construction of **Dan's Backyard Loop - Reverse**. This supersedes all older Reverse deferrals below. **Backyard Forward, including its main route and two shortcuts, is APPROVED and PROTECTED.** Historical Forward anchors remain reference data.
