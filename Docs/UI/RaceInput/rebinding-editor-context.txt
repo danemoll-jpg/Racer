@@ -1,0 +1,4 @@
+Control type=UnityEngine.InputSystem.Controls.ButtonControl value=0 pressed=False controls=/Gamepad/rightTrigger UnityEngine.InputSystem.Controls.ButtonControl
+Captured=0
+FAIL Rebound UI trigger remains consumed while held; value=0
+PASS Rebound UI trigger release unlocks despite held brake

@@ -9,7 +9,15 @@
 - Do not silently modify or weaken CODEX_RULES.md. Changes to standing rules require an explicit instruction from Dan.
 - Root AGENTS.md points future Codex tasks to both files.
 
-## Current task — Race Setup track confirmation regression — 0.52.0-review1 DELIVERED
+## Current task — In-race map/menu input lock — 0.53.0-review1
+
+- Safety checkpoint: clean main `6a06d9ef9a31be08793ce1379f1ba1e71ac23042`. Dan reports map/menu becoming unresponsive during a race, sometimes after the first use.
+- **Root cause reproduced:** Phase 1 shared release barrier waited for EVERY device button, including held throttle/brake/keyboard driving keys. Both pause/menu and map input returned early while blocked; countdown could stall too. Releasing throttle cleared the reproduced lock.
+- **FIXED:** release barriers track controls of the consumed UI InputAction only. Lifecycle-only transitions retain the short frame guard; held UI buttons still cannot activate twice. Released/disconnected controls clear the lock, and effective rebinding is respected. Updated shared MenuInput/action registry and direct pause/back/map/menu callbacks. Title, vehicle controls/physics, geometry, AI, scoring, Records and the 0.52 track-selection fix are preserved.
+- Targeted checks COMPLETE: **34 unique assertions PASS** covering countdown; repeated controller pause/Confirm/map/Back with throttle/brake/steering held; repeated keyboard Escape/M with W/A held; held-button protection; controller disconnection; trigger-bound UI action. Initial Editor-input-buffer and release-event timing fixture failures retained; corrected isolated binding checks pass. No physical-controller/Deck claim. [Validation](Docs/UI/RaceInput/VALIDATION.md). **STOP feature testing.**
+- Source completion and fresh signed release pending. Normal standing release/launcher/cleanup workflow applies. No SCS or unrelated UI changes.
+
+## Previous delivery — Race Setup track confirmation regression — 0.52.0-review1 DELIVERED
 
 - Safety checkpoint: clean main `81a7804e78bf51e5d7fd920586487da4a2f76235`. Urgent focused regression fix before any SCS work; no general UI redesign or unrelated gameplay changes.
 - Root cause: `d5fe1e3d` changed track-row Select from committing the course to opening a preview, requiring an extra Use This Track action. Restored direct Select/Confirm/click commit through the existing scene-load/setup-return/eligibility path. Kept map preview as a separate optional action for the highlighted track.

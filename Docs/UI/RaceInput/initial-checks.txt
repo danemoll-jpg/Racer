@@ -1,0 +1,33 @@
+PASS Held throttle/brake/steering does not block countdown
+PASS Race begins with continuous driving input
+PASS Controller Pause opens once while held, cycle 1
+PASS Releasing Pause unlocks menu with driving input held, cycle 1
+PASS Held Confirm resumes once and cannot submit hidden menu, cycle 1
+PASS Confirm release unlocks with throttle still held, cycle 1
+PASS Controller map opens once while held, cycle 1
+PASS Map is interactive after Map release with throttle held, cycle 1
+PASS Map Back closes and resumes once, cycle 1
+PASS Map can be reopened without releasing driving controls, cycle 1
+PASS Controller Pause opens once while held, cycle 2
+PASS Releasing Pause unlocks menu with driving input held, cycle 2
+PASS Held Confirm resumes once and cannot submit hidden menu, cycle 2
+PASS Confirm release unlocks with throttle still held, cycle 2
+PASS Controller map opens once while held, cycle 2
+PASS Map is interactive after Map release with throttle held, cycle 2
+PASS Map Back closes and resumes once, cycle 2
+PASS Map can be reopened without releasing driving controls, cycle 2
+PASS Keyboard Escape pauses while W/A held, cycle 1
+PASS Escape release unlocks despite W/A, cycle 1
+PASS Second Escape resumes without a duplicate pause, cycle 1
+PASS Keyboard M opens map once while held, cycle 1
+PASS M release unlocks map despite W/A, cycle 1
+PASS Second M closes map and resumes, cycle 1
+PASS Keyboard Escape pauses while W/A held, cycle 2
+PASS Escape release unlocks despite W/A, cycle 2
+PASS Second Escape resumes without a duplicate pause, cycle 2
+PASS Keyboard M opens map once while held, cycle 2
+PASS M release unlocks map despite W/A, cycle 2
+PASS Second M closes map and resumes, cycle 2
+PASS Consumed Pause waits for its controller
+PASS Controller disconnect clears consumed control without releasing keyboard driving keys
+FAIL A trigger used as an actual UI binding still requires release

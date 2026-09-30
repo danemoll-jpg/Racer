@@ -1,0 +1,4 @@
+REPRODUCED held throttle blocks countdown: True
+REPRODUCED menu button ignored: True
+REPRODUCED map button ignored: True
+Release throttle clears lock: True

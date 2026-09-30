@@ -13,7 +13,7 @@ namespace Racer
             public InputAction Binding;
             public Func<bool> Enabled;
             public Action Invoke;
-            public bool Execute(){if(MenuInput.Blocked||Enabled?.Invoke()==false)return false;MenuInput.ConsumeThroughRelease();Invoke();return true;}
+            public bool Execute(){if(MenuInput.Blocked||Enabled?.Invoke()==false)return false;MenuInput.ConsumeThroughRelease(Binding);Invoke();return true;}
         }
         readonly Dictionary<string,Entry> entries=new();
         public Entry Register(string id,string label,InputAction binding,Action invoke,Func<bool> enabled=null)

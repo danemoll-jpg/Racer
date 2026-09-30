@@ -40,9 +40,9 @@ namespace Racer
         void UpdateMapInput()
         {
             EnsureMapActions();if(!race||!race.Flow||MenuInput.Blocked||race.Flow.GetComponent<RaceMenus>()?.ModalOpen==true)return;
-            if(mapToggle.WasPressedThisFrame()){if(Opened){if(sheetOpen){if(Confirming)CancelTravel();else CloseMapSheet();}else Close();}else if(race.Flow.State==RaceFlow.Stage.Racing||race.Flow.State==RaceFlow.Stage.Paused)Open();return;}
+            if(mapToggle.WasPressedThisFrame()){MenuInput.ConsumeThroughRelease(mapToggle);if(Opened){if(sheetOpen){if(Confirming)CancelTravel();else CloseMapSheet();}else Close();}else if(race.Flow.State==RaceFlow.Stage.Racing||race.Flow.State==RaceFlow.Stage.Paused)Open();return;}
             if(!Opened)return;
-            if(backAction.WasPressedThisFrame()){if(Confirming)CancelTravel();else if(sheetOpen)CloseMapSheet();else Close();return;}
+            if(backAction.WasPressedThisFrame()){MenuInput.ConsumeThroughRelease(backAction);if(Confirming)CancelTravel();else if(sheetOpen)CloseMapSheet();else Close();return;}
             if(sheetOpen)
             {
                 float y=navigateAction.ReadValue<float>();if(Mathf.Abs(y)>.5f&&Time.unscaledTime>=nextNavigation){sheetFocus=(sheetFocus+(y>0?-1:1)+sheetButtons.Count)%sheetButtons.Count;EventSystem.current.SetSelectedGameObject(sheetButtons[sheetFocus].gameObject);nextNavigation=Time.unscaledTime+.2f;}if(Mathf.Abs(y)<.2f)nextNavigation=0;

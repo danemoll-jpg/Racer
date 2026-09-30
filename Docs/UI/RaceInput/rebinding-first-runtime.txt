@@ -1,0 +1,3 @@
+Runtime trigger value=1
+PASS Rebound UI trigger remains consumed while held
+FAIL Rebound UI trigger release unlocks despite held brake

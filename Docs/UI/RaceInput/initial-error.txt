@@ -1,0 +1,5 @@
+Step 67
+System.Exception: A trigger used as an actual UI binding still requires release
+  at PipelineEvaluation.PipelineEval_c39538f9+<>c__DisplayClass0_0.<Execute>g__Check|3 (System.Boolean good, System.String label) [0x00040] in <11b20815e645467796abac1f700af80a>:0 
+  at PipelineEvaluation.PipelineEval_c39538f9+<>c__DisplayClass0_0.<Execute>b__14 () [0x00007] in <11b20815e645467796abac1f700af80a>:0 
+  at PipelineEvaluation.PipelineEval_c39538f9+<>c__DisplayClass0_0.<Execute>b__17 () [0x0006c] in <11b20815e645467796abac1f700af80a>:0 

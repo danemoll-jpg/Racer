@@ -105,14 +105,14 @@ namespace Racer
             if(GetComponent<ExplorationMap>()?.OwnsInput==true)return;
             if (finishAt > 0 && State != Stage.Paused && State != Stage.Settings && Time.unscaledTime >= finishAt) { finishAt = 0; Sound(finish); }
             if (MenuInput.Blocked) return;
-            if (MenuVisible && back.WasPressedThisFrame()) { Back(); return; }
+            if (MenuVisible && back.WasPressedThisFrame()) { MenuInput.ConsumeThroughRelease(back); Back(); return; }
             if (menu.WasPressedThisFrame() && !menus.ModalOpen)
             {
-                if (State == Stage.Racing || State == Stage.Countdown) Pause();
-                else if (menus.ResumeRoot) Resume();
+                if (State == Stage.Racing || State == Stage.Countdown) { MenuInput.ConsumeThroughRelease(menu); Pause(); }
+                else if (menus.ResumeRoot) { MenuInput.ConsumeThroughRelease(menu); Resume(); }
 
             }
-            else if (back.WasPressedThisFrame()) Back();
+            else if (back.WasPressedThisFrame()) { MenuInput.ConsumeThroughRelease(back); Back(); }
             if (State == Stage.Countdown)
             {
                 CountdownRemaining = Mathf.Max(0, CountdownRemaining - Time.deltaTime);

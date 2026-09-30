@@ -127,7 +127,7 @@ namespace Racer
                 var img=rect.gameObject.AddComponent<UnityEngine.UI.Image>(); img.color=VehiclePaint.Colors[i];
                 var button=rect.gameObject.AddComponent<UnityEngine.UI.Button>(); button.targetGraphic=img;
                 var colors=button.colors; colors.selectedColor=colors.highlightedColor=Color.white; colors.normalColor=new Color(.72f,.72f,.72f); button.colors=colors;
-                button.onClick.AddListener(()=>{if(MenuInput.Blocked)return;MenuInput.ConsumeThroughRelease();flow.SetColor(choice);});
+                button.onClick.AddListener(()=>{if(MenuInput.Blocked)return;MenuInput.ConsumeThroughRelease(submit);flow.SetColor(choice);});
                 var text=Label("Color",rect,17,0); Stretch(text.rectTransform,0,0,0,0); text.alignment=TextAnchor.MiddleCenter; text.text=VehiclePaint.Names[i]; text.color=(i==1 || i==3 || i==5 || i==6)?Color.white:Color.black;
                 swatches.Add(button);
             }
@@ -172,7 +172,7 @@ namespace Racer
         void Action(int index, string label, UnityEngine.Events.UnityAction action)
         {
             var b = buttons[index]; b.gameObject.SetActive(true); b.GetComponentInChildren<UnityEngine.UI.Text>(true).text = label;
-            b.onClick.RemoveAllListeners(); b.onClick.AddListener(()=>{if(MenuInput.Blocked)return;MenuInput.ConsumeThroughRelease();action();});
+            b.onClick.RemoveAllListeners(); b.onClick.AddListener(()=>{if(MenuInput.Blocked)return;MenuInput.ConsumeThroughRelease(submit);action();});
         }
         string Record(double seconds) => seconds > 0 ? RaceHud.FormatTime(seconds) : "—";
         void PenaltyDetails(RaceProgress p)

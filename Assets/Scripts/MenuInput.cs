@@ -16,6 +16,7 @@ namespace Racer
         public static bool Blocked => barrier;
         static bool barrier;
         static int barrierFrame;
+        static readonly System.Collections.Generic.List<ButtonControl> releaseButtons=new();
         Vector2 mouseTravel;
         float mouseWindow, analogAt;
         readonly System.Collections.Generic.Dictionary<int,bool> analogHeld=new();
@@ -25,7 +26,15 @@ namespace Racer
             instance=new GameObject("Shared UI input owner").AddComponent<MenuInput>();
             DontDestroyOnLoad(instance.gameObject);
         }
-        public static void ConsumeThroughRelease(){barrier=true;barrierFrame=Time.frameCount;}
+        public static void ConsumeThroughRelease(InputAction action=null)
+        {
+            if(!barrier)releaseButtons.Clear();
+            barrier=true;barrierFrame=Time.frameCount;
+            // Only consumed UI controls own the release barrier. Held driving input
+            // must not lock pause/map or freeze countdown after a lifecycle transition.
+            if(action!=null)foreach(var button in action.controls.OfType<ButtonControl>())
+                if(button.isPressed&&!releaseButtons.Contains(button))releaseButtons.Add(button);
+        }
         public static string Binding(InputAction action)
         {
             if(action==null)return "";
@@ -56,7 +65,11 @@ namespace Racer
                 mouseTravel+=mouse.delta.ReadValue();
                 if(mouseTravel.magnitude>=8||mouse.scroll.ReadValue().sqrMagnitude>1)Controller=false;
             }
-            if(barrier&&Time.frameCount>barrierFrame+1&&!StartupTitle.ButtonHeld())barrier=false;
+            if(barrier&&Time.frameCount>barrierFrame+1)
+            {
+                releaseButtons.RemoveAll(button=>!button.device.added||!button.isPressed);
+                if(releaseButtons.Count==0)barrier=false;
+            }
         }
     }
 }
