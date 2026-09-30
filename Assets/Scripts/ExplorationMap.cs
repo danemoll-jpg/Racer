@@ -41,6 +41,9 @@ namespace Racer
             try {if(File.Exists(path))data=JsonUtility.FromJson<Data>(File.ReadAllText(path))??new();
                 if(data.world!=Compatibility||data.version!=1)throw new IOException("Incompatible map data retained");
                 data.visited??=new();data.landmarks??=new();foreach(int cell in data.visited)if(cell>=0&&cell<Columns*Rows)visited.Add(cell);
+                foreach(var d in destinations)
+                    if(d.id.StartsWith("property-",StringComparison.Ordinal)&&Visited(d.position)&&!data.landmarks.Contains(d.id))
+                    { data.landmarks.Add(d.id); dirty=true; }
             } catch(Exception e){error=e.Message;}
         }
         public static Vector2 Normalized(Vector3 p)=>new((p.x-World.xMin)/World.width,(p.z-World.yMin)/World.height);
@@ -86,7 +89,7 @@ namespace Racer
         }
         public void Open()
         {
-            if(!visual)visual=Resources.Load<WorldMapVisual>("WorldMaps/"+gameObject.scene.name);
+            if(!visual)visual=Resources.Load<WorldMapVisual>("WorldMaps/PermanentWorld");
             resume=race.Flow.State==RaceFlow.Stage.Racing;if(resume)race.Flow.Pause();if(!panel)BuildUI();
             center=MapNormalized(race.vehicle.Body.position);panel.SetActive(true);EventSystem.current?.SetSelectedGameObject(null);Repaint();Draw();Save();
         }
@@ -169,7 +172,7 @@ namespace Racer
             for(int i=0;i<destinations.Length;i++){markers[i].text=(selected==i?"◆ ":"● ")+destinations[i].title;Marker(markers[i],destinations[i].position);if(!Discovered(destinations[i].id))markers[i].gameObject.SetActive(false);}
             var collection=race.GetComponent<ExplorationCollection>();for(int i=0;i<acorns.Count;i++){var s=collection.sites[i];Marker(acorns[i],s.position);if(!collection.Discovered(s.id)||!Visited(s.position))acorns[i].gameObject.SetActive(false);}
             string choice=selected<0?"Select a discovered landmark.":Discovered(destinations[selected].id)?destinations[selected].title:"Undiscovered destination";
-            status.text=choice+"\n"+(race.FreeRoam?"Free roam travel":"Race: travel disabled")+"\n\nDim terrain: unexplored.\nVisited is NOT fully searched.\n"+(courseOverlay.gameObject.activeSelf?"\n"+race.courseName+"\nTeal: main · Gold: shortcuts\nArrows: travel direction\n":"\n")+(race.GetComponent<ExplorationCollection>()?.Summary??"")+"\n\n"+(error??errorMessage);
+            status.text=choice+"\n"+(race.FreeRoam?"Free roam travel":"Race: travel disabled")+"\n\nAll roads / trails are permanent.\nDim terrain: unexplored.\nVisited is NOT fully searched.\n"+(courseOverlay.gameObject.activeSelf?"\n"+race.courseName+"\nTeal: main · Gold: shortcuts\nArrows: travel direction\n":"\n")+(race.GetComponent<ExplorationCollection>()?.Summary??"")+"\n\n"+(error??errorMessage);
         }
         public void OnScroll(PointerEventData e){zoom=Mathf.Clamp(zoom+e.scrollDelta.y*.25f,1,6);}
         public void OnDrag(PointerEventData e){center-=new Vector2(e.delta.x/picture.rectTransform.rect.width,e.delta.y/picture.rectTransform.rect.height)/zoom;}

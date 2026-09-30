@@ -1,0 +1,66 @@
+[
+  {
+    "scene": "DansBackyardForward",
+    "unchanged": 50396,
+    "removed": 0,
+    "modified": 5,
+    "added": 2452,
+    "unexpected": []
+  },
+  {
+    "scene": "ForestLoopReverse",
+    "unchanged": 50573,
+    "removed": 90,
+    "modified": 5,
+    "added": 2516,
+    "unexpected": []
+  },
+  {
+    "scene": "LakeWoods",
+    "unchanged": 50629,
+    "removed": 90,
+    "modified": 5,
+    "added": 2456,
+    "unexpected": []
+  },
+  {
+    "scene": "MountainLoop",
+    "unchanged": 50671,
+    "removed": 90,
+    "modified": 5,
+    "added": 2508,
+    "unexpected": []
+  },
+  {
+    "scene": "MountainLoopReverse",
+    "unchanged": 50974,
+    "removed": 90,
+    "modified": 5,
+    "added": 2508,
+    "unexpected": []
+  },
+  {
+    "scene": "PrototypeTrack",
+    "unchanged": 119,
+    "removed": 0,
+    "modified": 0,
+    "added": 0,
+    "unexpected": []
+  },
+  {
+    "scene": "StreetLoopGreybox",
+    "unchanged": 49819,
+    "removed": 90,
+    "modified": 5,
+    "added": 2500,
+    "unexpected": []
+  },
+  {
+    "scene": "StreetLoopReverse",
+    "unchanged": 49498,
+    "removed": 90,
+    "modified": 5,
+    "added": 2440,
+    "unexpected": []
+  }
+]

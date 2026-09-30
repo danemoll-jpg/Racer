@@ -44,3 +44,7 @@ The route joins South Cherokee Lane near Z=63 and follows the actual existing ro
 Rendered views: [start](start.png), [flat parking](parking.png), [dump](dump.png), [first crossing](big-gully.png), [same ravine](same-ravine.png), [second crossing](second-crossing.png), [wooded trail](woods.png), [return](return.png).
 
 Historical [rejected Backyard atlas](../Backyard/ATLAS.md) is not the current design. The [rollback atlas](../YardReset/ATLAS.md) records the accepted starting baseline; its old anchor-5 coordinate and eight-marker plan are superseded by the nine anchors above.
+
+## 0.45 world presentation cleanup
+Visible temporary anchor markers removed; all nine coordinates retained in [reference table](../WorldCleanup/REFERENCE_ANCHORS.md). Forward route, dump, ravine, Tree-Top and Cabin geometry remain accepted and unchanged. Map refreshed for added woodland and corrected property names. **Backyard Reverse is upcoming, not abandoned, and not built in this pass.**
+

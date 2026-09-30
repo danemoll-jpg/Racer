@@ -1,0 +1,37 @@
+{
+  "bounds": {
+    "x": -1350.0,
+    "y": -850.0,
+    "width": 3000.0,
+    "height": 1800.0
+  },
+  "segments": 24616,
+  "sources": [
+    "Abandoned Cabin Jump",
+    "CR113 highway through route",
+    "CR117 mandatory two-flight racing line",
+    "Climbing Ridge Cut",
+    "Creek Leap",
+    "Downhill Ridge Cut",
+    "Echo Cave",
+    "Existing Southwest Cut",
+    "Fern Gully",
+    "Forest race route",
+    "Forward navigation only - no road mesh",
+    "Fox Gully",
+    "Granite Creek Cut",
+    "House 3 valley driveway",
+    "Kyle descending driveway",
+    "Lake shore connection",
+    "Laurel Switchbacks",
+    "McFadden Cut",
+    "Mountain racing line",
+    "Mountain return trails / exploration only",
+    "Phase 3 - Race Systems",
+    "Pine Ridge",
+    "Reverse main route",
+    "Summit Traverse",
+    "Summit approach and safe return",
+    "Tree-Top Trail"
+  ]
+}

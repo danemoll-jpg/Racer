@@ -18,7 +18,7 @@ namespace Racer
         public VehicleProfile[] EligibleVehicles => Forest ? VehicleProfile.All.Where(p=>p.Small).ToArray() : VehicleProfile.All;
         public string EligibleVehicle(string id)=>Forest&&!VehicleProfile.Find(id).Small?"moto":VehicleProfile.Find(id).Id;
         public string courseId="street-v8-landings";
-        public string courseName="Street Loop";
+        public string courseName="Street Loop - Forward";
         public const double OrdinaryMissPenalty = 5;
         public bool opponents = true, traffic = true;
         public bool FreeRoam {get;set;}

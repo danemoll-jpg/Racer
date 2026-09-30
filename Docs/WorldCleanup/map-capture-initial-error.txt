@@ -1,0 +1,8 @@
+System.IO.IOException: Win32 IO returned 1224. Path: C:\Users\danmo\Racer\Docs\WorldMap\BACKYARD_BASE.png
+  at System.IO.FileStream..ctor (System.String path, System.IO.FileMode mode, System.IO.FileAccess access, System.IO.FileShare share, System.Int32 bufferSize, System.Boolean anonymous, System.IO.FileOptions options) [0x0019e] in <c5ae8a4eeb824526b5df2932bc2395e0>:0 
+  at System.IO.FileStream..ctor (System.String path, System.IO.FileMode mode, System.IO.FileAccess access, System.IO.FileShare share) [0x00000] in <c5ae8a4eeb824526b5df2932bc2395e0>:0 
+  at (wrapper remoting-invoke-with-check) System.IO.FileStream..ctor(string,System.IO.FileMode,System.IO.FileAccess,System.IO.FileShare)
+  at System.IO.File.InternalWriteAllBytes (System.String path, System.Byte[] bytes) [0x00000] in <c5ae8a4eeb824526b5df2932bc2395e0>:0 
+  at System.IO.File.WriteAllBytes (System.String path, System.Byte[] bytes) [0x00039] in <c5ae8a4eeb824526b5df2932bc2395e0>:0 
+  at CaptureCleanupWorldMaps.Capture (UnityEngine.Camera cam, System.Int32 w, System.Int32 h, System.String path) [0x00057] in C:\Users\danmo\Racer\Tools\Capture-CleanupWorldMaps.cs:24 
+  at CaptureCleanupWorldMaps.Run () [0x005fe] in C:\Users\danmo\Racer\Tools\Capture-CleanupWorldMaps.cs:17 

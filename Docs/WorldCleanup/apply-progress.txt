@@ -1,0 +1,14 @@
+StreetLoopGreybox starting
+StreetLoopGreybox saved trees=720 Anderson=3
+StreetLoopReverse starting
+StreetLoopReverse saved trees=720 Anderson=2
+LakeWoods starting
+LakeWoods saved trees=720 Anderson=4
+ForestLoopReverse starting
+ForestLoopReverse saved trees=720 Anderson=4
+MountainLoop starting
+MountainLoop saved trees=720 Anderson=4
+MountainLoopReverse starting
+MountainLoopReverse saved trees=720 Anderson=4
+DansBackyardForward starting
+DansBackyardForward saved trees=720 Anderson=3

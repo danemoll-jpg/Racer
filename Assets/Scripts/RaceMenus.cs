@@ -39,6 +39,14 @@ namespace Racer
         Font font;
         UnityEngine.UI.Button simulateRemaining;
         bool waitingShown;
+        // Show both available bindings: no guessed controller letter or new input scheme.
+        public string CompleteRacePrompt {
+            get {
+                string keys=submit.GetBindingDisplayString(0);
+                string pad=Gamepad.current==null?null:submit.GetBindingDisplayString(1);
+                return "Press "+(string.IsNullOrEmpty(pad)?keys:pad+" / "+keys)+" to Complete Race";
+            }
+        }
         public bool CanSimulateRemaining => flow && flow.State==RaceFlow.Stage.Racing && flow.Race.Progress.Finished
             && !flow.Race.ClassificationFinal && flow.Race.Racers.Any(r=>r.IsAi&&!r.Classified&&!r.Dnf);
         GameObject hudPanel;
@@ -525,7 +533,8 @@ namespace Racer
             simulateRemaining.gameObject.SetActive(waiting);
             if(waiting)
             {
-                banner.text="Finished — AI are still racing. Wait or simulate their remaining times.";
+                banner.text="Finished — AI are still racing.\n"+CompleteRacePrompt;
+                simulateRemaining.GetComponentInChildren<UnityEngine.UI.Text>().text=CompleteRacePrompt;
                 Cursor.visible=true;
                 if(!waitingShown&&EventSystem.current)EventSystem.current.SetSelectedGameObject(simulateRemaining.gameObject);
             }

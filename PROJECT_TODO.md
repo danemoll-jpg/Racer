@@ -9,7 +9,19 @@
 - Do not silently modify or weaken CODEX_RULES.md. Changes to standing rules require an explicit instruction from Dan.
 - Root AGENTS.md points future Codex tasks to both files.
 
-## Current task — 2026-09-29 / Tree-Top clearance, COMPLETE RACE and visual world map, 0.44.0-review1
+## Current task — 2026-09-29 / world, map and presentation cleanup — 0.45.0-review1 IN PROGRESS
+
+- Safety checkpoint: clean `main` at `132bc5719436a5cebdcc76c3c16d1816e088ee13`. Preserve accepted Backyard Forward/shortcuts, all established geometry, vehicle/AI/recovery and racing minimap. Western Gullies is AUDIT ONLY.
+- Temporary Backyard marker subtrees removed across shipped scenes; all nine reference coordinates retained in [reference table](Docs/WorldCleanup/REFERENCE_ANCHORS.md), existing atlas and authoring/course data. **Backyard Reverse is upcoming, not abandoned, and is NOT being built in this task.**
+- Standardized current/default race labels use `Street Loop - Forward` and the existing playlist display table; scene IDs, save/record/course IDs remain unchanged.
+- Properties: Moll's retains `home`; Roger's = existing House 2; McFadden's = existing House 3; Anderson's = existing Kyle house/property, not driveway. New property destination IDs inherit previously visited map cells, with unvisited properties hidden. No houses created or moved.
+- Controlled added woodland uses final terrain raycasts, irregular placement and explicit road/driveway/route/gate/acorn-spur/stunt/recovery exclusions. Anderson road screening is a required visual acceptance item, not assumed from tree count.
+- Full MENU map gets a shared actual-geometry regional composite plus permanent road/trail/shortcut network independent of race selection. Optional actual current-course overlay, fog/discovery/waypoints/travel preserved. Small racing minimap unchanged.
+- Complete Race hint comes from existing Space / controller south-button submit bindings. Existing handler/CR-064 math, records and results remain unchanged; guard hides the action when no unfinished AI remain.
+- Western Gullies: four acorn sites grouped by authoring indices, no separate region bounds or fast-travel landmark. [Factual audit](Docs/WorldCleanup/WESTERN_GULLIES.md); terrain/reachability/trigger evidence pending completion. No redesign or world change at these sites.
+- [x] Scene/asset preservation and final map regeneration complete. 742 added trees per scene pass final-terrain grounding (max foot error 0.000106812 m). Anderson final road view is substantially screened; driveway/entry retained. Shared permanent network includes 24,616 unique segments. [Validation](Docs/WorldCleanup/VALIDATION.md).
+- Fresh-player focused UI/discovery checks and required commit/push/build/publication/launcher/cleanup delivery are IN PROGRESS. Do not treat this entry as a completed release.
+## Previous delivery — 2026-09-29 / Tree-Top clearance, COMPLETE RACE and visual world map, 0.44.0-review1
 
 - Safety checkpoint: clean `main` at `73b0399b260cbf1d400f55d73bbd2d9f2d605828` before edits. This request authorizes the formerly deferred full-world/menu-map work; it does not authorize Backyard Reverse or general menu cleanup.
 - [x] **Tree-Top main-route bush encroachment corrected locally.** Removed 83/621 complete shrub/fern clusters by actual planar foliage extent; 538 remain. Nearest retained foliage is 4.294m from center, >=1.644m beyond the nominal dirt-trail edge. No scene/terrain/platform/collision/main-route/Cabin edits. Existing anti-bypass resistance and geometry are unchanged, so no new fast ground lane was exposed.

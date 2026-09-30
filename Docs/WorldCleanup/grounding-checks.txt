@@ -1,0 +1,8 @@
+DansBackyardForward trees=742 maxFootError=7.629395E-05m
+DansBackyardForward trees=742 maxFootError=7.629395E-05m
+MountainLoopReverse trees=742 maxFootError=4.577637E-05m
+MountainLoop trees=742 maxFootError=3.051758E-05m
+ForestLoopReverse trees=742 maxFootError=0.0001068115m
+LakeWoods trees=742 maxFootError=7.629395E-05m
+StreetLoopReverse trees=742 maxFootError=3.051758E-05m
+StreetLoopGreybox trees=742 maxFootError=7.629395E-05m
