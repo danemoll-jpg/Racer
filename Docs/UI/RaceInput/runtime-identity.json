@@ -1,0 +1,22 @@
+{
+  "version": "0.53.0-review1",
+  "build": 53000,
+  "sourceCommit": "571976e32fc3362af503777e8d337ca828261960",
+  "files": 230,
+  "changedRuntimeFiles": [
+    "Racer_Data/boot.config",
+    "Racer_Data/globalgamemanagers",
+    "Racer_Data/Managed/Assembly-CSharp.dll",
+    "README.txt",
+    "VALIDATION.md",
+    "VERSION.txt"
+  ],
+  "buildOutput": "C:\\Users\\danmo\\Racer\\Builds\\Racer-0.53.0-review1-Windows",
+  "latest": "C:\\Users\\danmo\\Racer\\Builds\\Latest\\Racer.exe",
+  "versioned": "C:\\Users\\danmo\\Racer\\Builds\\Latest\\versions\\53000\\Racer.exe",
+  "exeSha256": "07534cc5839d2c89c4fe45ec272c91b046ff3d64f14ab3f0a32221121e0ffff2",
+  "previousExeSha256": "07534cc5839d2c89c4fe45ec272c91b046ff3d64f14ab3f0a32221121e0ffff2",
+  "inventoryAndZipMatch": true,
+  "namedLauncherPreserved": true,
+  "removedObsoletePriorGameFiles": []
+}

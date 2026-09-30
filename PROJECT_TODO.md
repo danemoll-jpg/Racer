@@ -9,13 +9,15 @@
 - Do not silently modify or weaken CODEX_RULES.md. Changes to standing rules require an explicit instruction from Dan.
 - Root AGENTS.md points future Codex tasks to both files.
 
-## Current task — In-race map/menu input lock — 0.53.0-review1
+## Current task — In-race map/menu input lock — 0.53.0-review1 DELIVERED
 
 - Safety checkpoint: clean main `6a06d9ef9a31be08793ce1379f1ba1e71ac23042`. Dan reports map/menu becoming unresponsive during a race, sometimes after the first use.
 - **Root cause reproduced:** Phase 1 shared release barrier waited for EVERY device button, including held throttle/brake/keyboard driving keys. Both pause/menu and map input returned early while blocked; countdown could stall too. Releasing throttle cleared the reproduced lock.
 - **FIXED:** release barriers track controls of the consumed UI InputAction only. Lifecycle-only transitions retain the short frame guard; held UI buttons still cannot activate twice. Released/disconnected controls clear the lock, and effective rebinding is respected. Updated shared MenuInput/action registry and direct pause/back/map/menu callbacks. Title, vehicle controls/physics, geometry, AI, scoring, Records and the 0.52 track-selection fix are preserved.
 - Targeted checks COMPLETE: **34 unique assertions PASS** covering countdown; repeated controller pause/Confirm/map/Back with throttle/brake/steering held; repeated keyboard Escape/M with W/A held; held-button protection; controller disconnection; trigger-bound UI action. Initial Editor-input-buffer and release-event timing fixture failures retained; corrected isolated binding checks pass. No physical-controller/Deck claim. [Validation](Docs/UI/RaceInput/VALIDATION.md). **STOP feature testing.**
-- Source completion and fresh signed release pending. Normal standing release/launcher/cleanup workflow applies. No SCS or unrelated UI changes.
+- **DELIVERED:** completion source `571976e32fc3362af503777e8d337ca828261960` pushed/verified on origin/main before fresh Windows build (0 errors, 11 existing warnings, 4m17s). Published [game-53000](https://github.com/danemoll-jpg/woodstock-rush-releases/releases/tag/game-53000); three remote assets/latest signed catalog and all 230 complete runtime files verified. Actual public download/signature/install/muted startup passed. [Publication evidence](Docs/UI/RaceInput/PUBLICATION.md).
+- Unchanged **Play-Racer.cmd** launched responsive managed 53000; complete root Latest matches. Music preserved, no updates pending, original player settings restored byte-for-byte after muted verification. Current 53000 / previous 52000 retained. Cleanup: Builds 8,944,329,819 → 7,145,655,098 bytes; 3,250,909,728 bytes total disposable artifacts recovered. Final C: free 327,476,436,992 bytes.
+- **SESSION HANDOFF: Fix delivered; STOP for Dan's in-race map/menu review.** Physical-controller acceptance remains with Dan. No SCS or unrelated UI work. Subsequent commit contains delivery evidence/documentation only.
 
 ## Previous delivery — Race Setup track confirmation regression — 0.52.0-review1 DELIVERED
 
