@@ -1,0 +1,7 @@
+Reseated complete tree render components and colliders: 132
+Understory reseated=0
+Wall-side fallen slab height scale=0.65 visible mesh collider retained
+Central fractured boulder height scale=0.49 visible mesh collider retained
+Opening-side fallen stone height scale=0.52 visible mesh collider retained
+Broken rear slab height scale=0.52 visible mesh collider retained
+Lower supported side stones replacing eye-line decorative slabs=36

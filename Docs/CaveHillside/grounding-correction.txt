@@ -1,0 +1,1 @@
+Restored original tree mesh references 52; scoped new hill support reseats 86. Initial broad tree predicate and reversed portal normals corrected before validation.

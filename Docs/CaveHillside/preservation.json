@@ -1,0 +1,721 @@
+{
+  "baseline": "acb259163904b2ca84e05f75e133b1370dd9537e",
+  "changedExisting": [
+    {
+      "id": "11042051",
+      "name": "Forest trunk collision",
+      "type": "--- !u!4 &11042051"
+    },
+    {
+      "id": "17461843",
+      "name": "Complete authored trees",
+      "type": "--- !u!33 &17461843"
+    },
+    {
+      "id": "17705708",
+      "name": "Angular cave wall ledge",
+      "type": "--- !u!4 &17705708"
+    },
+    {
+      "id": "22790460",
+      "name": "Angular cave wall ledge",
+      "type": "--- !u!4 &22790460"
+    },
+    {
+      "id": "33385062",
+      "name": "Angular cave wall ledge",
+      "type": "--- !u!4 &33385062"
+    },
+    {
+      "id": "64285742",
+      "name": "Tree trunk",
+      "type": "--- !u!4 &64285742"
+    },
+    {
+      "id": "84861822",
+      "name": "CR014 trunk 02513",
+      "type": "--- !u!4 &84861822"
+    },
+    {
+      "id": "88649040",
+      "name": "Forest trunk collision",
+      "type": "--- !u!4 &88649040"
+    },
+    {
+      "id": "106964090",
+      "name": "CR014 trunk 04459",
+      "type": "--- !u!4 &106964090"
+    },
+    {
+      "id": "110448723",
+      "name": "Tree trunk",
+      "type": "--- !u!4 &110448723"
+    },
+    {
+      "id": "151097001",
+      "name": "Tree trunk",
+      "type": "--- !u!4 &151097001"
+    },
+    {
+      "id": "165108197",
+      "name": "CR014 trunk 00405",
+      "type": "--- !u!4 &165108197"
+    },
+    {
+      "id": "172681057",
+      "name": "Tree trunk",
+      "type": "--- !u!4 &172681057"
+    },
+    {
+      "id": "209772569",
+      "name": "CR014 trunk 03784",
+      "type": "--- !u!4 &209772569"
+    },
+    {
+      "id": "221256853",
+      "name": "Tree trunk",
+      "type": "--- !u!4 &221256853"
+    },
+    {
+      "id": "240615747",
+      "name": "Forest detail batch",
+      "type": "--- !u!33 &240615747"
+    },
+    {
+      "id": "243658330",
+      "name": "Tree trunk",
+      "type": "--- !u!4 &243658330"
+    },
+    {
+      "id": "243726024",
+      "name": "CR014 trunk 00601",
+      "type": "--- !u!4 &243726024"
+    },
+    {
+      "id": "262100112",
+      "name": "Angular cave wall ledge",
+      "type": "--- !u!4 &262100112"
+    },
+    {
+      "id": "307467663",
+      "name": "Opening-side fallen stone",
+      "type": "--- !u!4 &307467663"
+    },
+    {
+      "id": "322552851",
+      "name": "Tree trunk",
+      "type": "--- !u!4 &322552851"
+    },
+    {
+      "id": "323406005",
+      "name": "Angular cave wall ledge",
+      "type": "--- !u!4 &323406005"
+    },
+    {
+      "id": "346517016",
+      "name": "Angular cave wall ledge",
+      "type": "--- !u!4 &346517016"
+    },
+    {
+      "id": "365056340",
+      "name": "Roadside woodland trunk",
+      "type": "--- !u!4 &365056340"
+    },
+    {
+      "id": "366303114",
+      "name": "Complete authored trees",
+      "type": "--- !u!33 &366303114"
+    },
+    {
+      "id": "383602885",
+      "name": "Tree trunk",
+      "type": "--- !u!4 &383602885"
+    },
+    {
+      "id": "383814432",
+      "name": "Tree trunk",
+      "type": "--- !u!4 &383814432"
+    },
+    {
+      "id": "396466686",
+      "name": "CR014 trunk 05504",
+      "type": "--- !u!4 &396466686"
+    },
+    {
+      "id": "529921642",
+      "name": "CR014 trunk 03509",
+      "type": "--- !u!4 &529921642"
+    },
+    {
+      "id": "530281675",
+      "name": "Angular cave wall ledge",
+      "type": "--- !u!4 &530281675"
+    },
+    {
+      "id": "534165910",
+      "name": "Tree trunk",
+      "type": "--- !u!4 &534165910"
+    },
+    {
+      "id": "534338699",
+      "name": "Angular cave wall ledge",
+      "type": "--- !u!4 &534338699"
+    },
+    {
+      "id": "552743328",
+      "name": "Tree trunk",
+      "type": "--- !u!4 &552743328"
+    },
+    {
+      "id": "553199834",
+      "name": "Tree trunk",
+      "type": "--- !u!4 &553199834"
+    },
+    {
+      "id": "560223777",
+      "name": "CR014 trunk 03758",
+      "type": "--- !u!4 &560223777"
+    },
+    {
+      "id": "563193360",
+      "name": "CR014 trunk 04238",
+      "type": "--- !u!4 &563193360"
+    },
+    {
+      "id": "570947690",
+      "name": "Forest trunk collision",
+      "type": "--- !u!4 &570947690"
+    },
+    {
+      "id": "576413127",
+      "name": "Angular cave wall ledge",
+      "type": "--- !u!4 &576413127"
+    },
+    {
+      "id": "607407877",
+      "name": "Forest detail batch",
+      "type": "--- !u!33 &607407877"
+    },
+    {
+      "id": "611817989",
+      "name": "CR014 trunk 05029",
+      "type": "--- !u!4 &611817989"
+    },
+    {
+      "id": "667330838",
+      "name": "CR014 trunk 04775",
+      "type": "--- !u!4 &667330838"
+    },
+    {
+      "id": "691317390",
+      "name": "CR014 trunk 04924",
+      "type": "--- !u!4 &691317390"
+    },
+    {
+      "id": "696682664",
+      "name": "CR014 trunk 02635",
+      "type": "--- !u!4 &696682664"
+    },
+    {
+      "id": "696800552",
+      "name": "Angular cave wall ledge",
+      "type": "--- !u!4 &696800552"
+    },
+    {
+      "id": "714025575",
+      "name": "Tree trunk",
+      "type": "--- !u!4 &714025575"
+    },
+    {
+      "id": "719771219",
+      "name": "Angular cave wall ledge",
+      "type": "--- !u!4 &719771219"
+    },
+    {
+      "id": "749435802",
+      "name": "Angular cave wall ledge",
+      "type": "--- !u!4 &749435802"
+    },
+    {
+      "id": "759036038",
+      "name": "CR014 trunk 03037",
+      "type": "--- !u!4 &759036038"
+    },
+    {
+      "id": "774602467",
+      "name": "Complete authored trees",
+      "type": "--- !u!33 &774602467"
+    },
+    {
+      "id": "787219477",
+      "name": "Angular cave wall ledge",
+      "type": "--- !u!4 &787219477"
+    },
+    {
+      "id": "797618728",
+      "name": "CR014 trunk 02389",
+      "type": "--- !u!4 &797618728"
+    },
+    {
+      "id": "839069867",
+      "name": "Tree trunk",
+      "type": "--- !u!4 &839069867"
+    },
+    {
+      "id": "856795699",
+      "name": "Angular cave wall ledge",
+      "type": "--- !u!4 &856795699"
+    },
+    {
+      "id": "870083173",
+      "name": "Angular cave wall ledge",
+      "type": "--- !u!4 &870083173"
+    },
+    {
+      "id": "903645611",
+      "name": "CR014 trunk 02279",
+      "type": "--- !u!4 &903645611"
+    },
+    {
+      "id": "912981311",
+      "name": "CR014 trunk 02849",
+      "type": "--- !u!4 &912981311"
+    },
+    {
+      "id": "963477597",
+      "name": "Complete authored trees",
+      "type": "--- !u!33 &963477597"
+    },
+    {
+      "id": "967907526",
+      "name": "Tree trunk",
+      "type": "--- !u!4 &967907526"
+    },
+    {
+      "id": "968752960",
+      "name": "Tree trunk",
+      "type": "--- !u!4 &968752960"
+    },
+    {
+      "id": "982147202",
+      "name": "CR014 trunk 03374",
+      "type": "--- !u!4 &982147202"
+    },
+    {
+      "id": "987687329",
+      "name": "CR014 trunk 02493",
+      "type": "--- !u!4 &987687329"
+    },
+    {
+      "id": "988013223",
+      "name": "Tree trunk",
+      "type": "--- !u!4 &988013223"
+    },
+    {
+      "id": "999522414",
+      "name": "Angular cave wall ledge",
+      "type": "--- !u!4 &999522414"
+    },
+    {
+      "id": "1013462535",
+      "name": "Angular cave wall ledge",
+      "type": "--- !u!4 &1013462535"
+    },
+    {
+      "id": "1036473312",
+      "name": "Angular cave wall ledge",
+      "type": "--- !u!4 &1036473312"
+    },
+    {
+      "id": "1048475669",
+      "name": "Tree trunk",
+      "type": "--- !u!4 &1048475669"
+    },
+    {
+      "id": "1056317639",
+      "name": "Angular cave wall ledge",
+      "type": "--- !u!4 &1056317639"
+    },
+    {
+      "id": "1068033546",
+      "name": "Complete authored trees",
+      "type": "--- !u!33 &1068033546"
+    },
+    {
+      "id": "1077104535",
+      "name": "CR014 trunk 05484",
+      "type": "--- !u!4 &1077104535"
+    },
+    {
+      "id": "1103256501",
+      "name": "Central fractured boulder",
+      "type": "--- !u!4 &1103256501"
+    },
+    {
+      "id": "1134345460",
+      "name": "Forest detail batch",
+      "type": "--- !u!33 &1134345460"
+    },
+    {
+      "id": "1146944379",
+      "name": "Forest detail batch",
+      "type": "--- !u!33 &1146944379"
+    },
+    {
+      "id": "1168536765",
+      "name": "Wall-side fallen slab",
+      "type": "--- !u!4 &1168536765"
+    },
+    {
+      "id": "1178527981",
+      "name": "Broken rear slab",
+      "type": "--- !u!4 &1178527981"
+    },
+    {
+      "id": "1181032796",
+      "name": "CR014 trunk 03150",
+      "type": "--- !u!4 &1181032796"
+    },
+    {
+      "id": "1192164043",
+      "name": "CR014 trunk 00507",
+      "type": "--- !u!4 &1192164043"
+    },
+    {
+      "id": "1199533145",
+      "name": "CR014 trunk 02852",
+      "type": "--- !u!4 &1199533145"
+    },
+    {
+      "id": "1213501240",
+      "name": "CR014 trunk 01120",
+      "type": "--- !u!4 &1213501240"
+    },
+    {
+      "id": "1227604680",
+      "name": "Complete authored trees",
+      "type": "--- !u!33 &1227604680"
+    },
+    {
+      "id": "1244407352",
+      "name": "Tree trunk",
+      "type": "--- !u!4 &1244407352"
+    },
+    {
+      "id": "1266763807",
+      "name": "Angular cave wall ledge",
+      "type": "--- !u!4 &1266763807"
+    },
+    {
+      "id": "1267579036",
+      "name": "Forest trunk collision",
+      "type": "--- !u!4 &1267579036"
+    },
+    {
+      "id": "1280682061",
+      "name": "CR014 trunk 02034",
+      "type": "--- !u!4 &1280682061"
+    },
+    {
+      "id": "1287369119",
+      "name": "Angular cave wall ledge",
+      "type": "--- !u!4 &1287369119"
+    },
+    {
+      "id": "1302738306",
+      "name": "Angular cave wall ledge",
+      "type": "--- !u!4 &1302738306"
+    },
+    {
+      "id": "1326933949",
+      "name": "CR014 trunk 05714",
+      "type": "--- !u!4 &1326933949"
+    },
+    {
+      "id": "1330607087",
+      "name": "CR014 trunk 05586",
+      "type": "--- !u!4 &1330607087"
+    },
+    {
+      "id": "1336547772",
+      "name": "Tree trunk",
+      "type": "--- !u!4 &1336547772"
+    },
+    {
+      "id": "1343438026",
+      "name": "Angular cave wall ledge",
+      "type": "--- !u!4 &1343438026"
+    },
+    {
+      "id": "1343801253",
+      "name": "Forest detail batch",
+      "type": "--- !u!33 &1343801253"
+    },
+    {
+      "id": "1372887870",
+      "name": "Angular cave wall ledge",
+      "type": "--- !u!4 &1372887870"
+    },
+    {
+      "id": "1424473968",
+      "name": "Angular cave wall ledge",
+      "type": "--- !u!4 &1424473968"
+    },
+    {
+      "id": "1436850930",
+      "name": "Additional woodland canopy",
+      "type": "--- !u!33 &1436850930"
+    },
+    {
+      "id": "1437983259",
+      "name": "CR014 trunk 03024",
+      "type": "--- !u!4 &1437983259"
+    },
+    {
+      "id": "1443028182",
+      "name": "CR014 trunk 02953",
+      "type": "--- !u!4 &1443028182"
+    },
+    {
+      "id": "1495994394",
+      "name": "Forest detail batch",
+      "type": "--- !u!33 &1495994394"
+    },
+    {
+      "id": "1499052005",
+      "name": "CR014 trunk 05011",
+      "type": "--- !u!4 &1499052005"
+    },
+    {
+      "id": "1535986659",
+      "name": "Forest trunk collision",
+      "type": "--- !u!4 &1535986659"
+    },
+    {
+      "id": "1540260587",
+      "name": "CR014 trunk 02567",
+      "type": "--- !u!4 &1540260587"
+    },
+    {
+      "id": "1543312810",
+      "name": "Tree trunk",
+      "type": "--- !u!4 &1543312810"
+    },
+    {
+      "id": "1543370868",
+      "name": "Tree trunk",
+      "type": "--- !u!4 &1543370868"
+    },
+    {
+      "id": "1554525800",
+      "name": "Tree trunk",
+      "type": "--- !u!4 &1554525800"
+    },
+    {
+      "id": "1560386789",
+      "name": "CR014 trunk 02812",
+      "type": "--- !u!4 &1560386789"
+    },
+    {
+      "id": "1567087587",
+      "name": "Angular cave wall ledge",
+      "type": "--- !u!4 &1567087587"
+    },
+    {
+      "id": "1621527159",
+      "name": "Forest trunk collision",
+      "type": "--- !u!4 &1621527159"
+    },
+    {
+      "id": "1623653449",
+      "name": "CR014 trunk 05155",
+      "type": "--- !u!4 &1623653449"
+    },
+    {
+      "id": "1624764675",
+      "name": "Forest detail batch",
+      "type": "--- !u!33 &1624764675"
+    },
+    {
+      "id": "1625799873",
+      "name": "CR014 trunk 03937",
+      "type": "--- !u!4 &1625799873"
+    },
+    {
+      "id": "1630373914",
+      "name": "CR014 trunk 02200",
+      "type": "--- !u!4 &1630373914"
+    },
+    {
+      "id": "1652600769",
+      "name": "Tree trunk",
+      "type": "--- !u!4 &1652600769"
+    },
+    {
+      "id": "1666104149",
+      "name": "Forest trunk collision",
+      "type": "--- !u!4 &1666104149"
+    },
+    {
+      "id": "1677101118",
+      "name": "Tree trunk",
+      "type": "--- !u!4 &1677101118"
+    },
+    {
+      "id": "1687538430",
+      "name": "Forest trunk collision",
+      "type": "--- !u!4 &1687538430"
+    },
+    {
+      "id": "1700032640",
+      "name": "Forest detail batch",
+      "type": "--- !u!33 &1700032640"
+    },
+    {
+      "id": "1714108848",
+      "name": "CR014 trunk 04523",
+      "type": "--- !u!4 &1714108848"
+    },
+    {
+      "id": "1725774672",
+      "name": "CR014 trunk 03323",
+      "type": "--- !u!4 &1725774672"
+    },
+    {
+      "id": "1732354947",
+      "name": "CR014 trunk 02124",
+      "type": "--- !u!4 &1732354947"
+    },
+    {
+      "id": "1744235630",
+      "name": "CR014 trunk 04973",
+      "type": "--- !u!4 &1744235630"
+    },
+    {
+      "id": "1747930764",
+      "name": "Angular cave wall ledge",
+      "type": "--- !u!4 &1747930764"
+    },
+    {
+      "id": "1766534394",
+      "name": "Angular cave wall ledge",
+      "type": "--- !u!4 &1766534394"
+    },
+    {
+      "id": "1804885611",
+      "name": "Angular cave wall ledge",
+      "type": "--- !u!4 &1804885611"
+    },
+    {
+      "id": "1881813052",
+      "name": "Forest trunk collision",
+      "type": "--- !u!4 &1881813052"
+    },
+    {
+      "id": "1884497355",
+      "name": "Tree trunk",
+      "type": "--- !u!4 &1884497355"
+    },
+    {
+      "id": "1909321985",
+      "name": "Angular cave wall ledge",
+      "type": "--- !u!4 &1909321985"
+    },
+    {
+      "id": "1911077539",
+      "name": "Tree trunk",
+      "type": "--- !u!4 &1911077539"
+    },
+    {
+      "id": "1927725502",
+      "name": "Angular cave wall ledge",
+      "type": "--- !u!4 &1927725502"
+    },
+    {
+      "id": "1928804770",
+      "name": "CR014 trunk 02525",
+      "type": "--- !u!4 &1928804770"
+    },
+    {
+      "id": "1931922124",
+      "name": "Tree trunk",
+      "type": "--- !u!4 &1931922124"
+    },
+    {
+      "id": "1933784741",
+      "name": "Angular cave wall ledge",
+      "type": "--- !u!4 &1933784741"
+    },
+    {
+      "id": "1938577555",
+      "name": "Forest detail batch",
+      "type": "--- !u!33 &1938577555"
+    },
+    {
+      "id": "1946134115",
+      "name": "Tree trunk",
+      "type": "--- !u!4 &1946134115"
+    },
+    {
+      "id": "1985020987",
+      "name": "CR014 trunk 03361",
+      "type": "--- !u!4 &1985020987"
+    },
+    {
+      "id": "2011594508",
+      "name": "CR014 trunk 01034",
+      "type": "--- !u!4 &2011594508"
+    },
+    {
+      "id": "2052366846",
+      "name": "Angular cave wall ledge",
+      "type": "--- !u!4 &2052366846"
+    },
+    {
+      "id": "2058593373",
+      "name": "Angular cave wall ledge",
+      "type": "--- !u!4 &2058593373"
+    },
+    {
+      "id": "2059993168",
+      "name": "CR014 trunk 04564",
+      "type": "--- !u!4 &2059993168"
+    },
+    {
+      "id": "2061938202",
+      "name": "CR014 trunk 00994",
+      "type": "--- !u!4 &2061938202"
+    },
+    {
+      "id": "2063121767",
+      "name": "Angular cave wall ledge",
+      "type": "--- !u!4 &2063121767"
+    },
+    {
+      "id": "2085130432",
+      "name": "Angular cave wall ledge",
+      "type": "--- !u!4 &2085130432"
+    },
+    {
+      "id": "2116707528",
+      "name": "Tree trunk",
+      "type": "--- !u!4 &2116707528"
+    },
+    {
+      "id": "9223372036854775807",
+      "name": "",
+      "type": "--- !u!1660057539 &9223372036854775807"
+    }
+  ],
+  "noExistingObjectsRemoved": true,
+  "allExistingRouteCheckpointGuidanceComponentsUnchanged": true,
+  "protectedFilesUnchanged": [
+    "Assets/Scenes/ForestLoopReverse.unity",
+    "Assets/Scenes/DansBackyardReverse.unity",
+    "Assets/Scripts/RoadDriver.cs",
+    "Assets/Scripts/VehicleRespawn.cs",
+    "Assets/Scripts/ArcadeVehicle.cs",
+    "Assets/Scripts/UndergroundLife.cs",
+    "Play-Racer.cmd"
+  ]
+}

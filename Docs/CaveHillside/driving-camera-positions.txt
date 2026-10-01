@@ -1,0 +1,4 @@
+moto station=185 camera=(92.86, 43.21, 167.10) offset=(0.00, 3.00, -6.50)
+moto station=197 camera=(86.39, 42.46, 156.94) offset=(0.00, 3.00, -6.50)
+atv station=185 camera=(93.01, 43.41, 167.36) offset=(0.00, 3.20, -6.80)
+atv station=197 camera=(86.50, 42.66, 157.21) offset=(0.00, 3.20, -6.80)

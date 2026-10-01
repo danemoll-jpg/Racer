@@ -1,0 +1,10 @@
+PASS Main route support preserved, probes=3180, blocked=0
+PASS Trees on cover=95; buried=0
+PASS Wall-side fallen slab collision matches visible mesh
+PASS Central fractured boulder collision matches visible mesh
+PASS Opening-side fallen stone collision matches visible mesh
+PASS Broken rear slab collision matches visible mesh
+PASS Passage sight line station=180
+PASS Passage sight line station=192
+PASS Passage sight line station=200
+PASS Shell cover probes=679; exposed=0

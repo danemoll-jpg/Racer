@@ -1,0 +1,1 @@
+Changed existing trees=85; final reseats=6; maximum final tree foot gap=0.0543m; discarded unreferenced intermediate tree meshes=58. Main road/props original transforms preserved. No new shrubs required.

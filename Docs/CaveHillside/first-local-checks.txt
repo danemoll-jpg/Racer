@@ -1,0 +1,47 @@
+road cover s=632 at=(140.82, 45.75, 278.82) cover=53.1835
+road cover s=634 at=(138.90, 45.83, 278.29) cover=52.81074
+road cover s=634 at=(137.84, 45.83, 282.15) cover=51.26802
+road cover s=636 at=(137.00, 45.93, 277.76) cover=52.36121
+road cover s=636 at=(135.91, 45.93, 281.61) cover=50.83828
+road cover s=638 at=(135.10, 46.07, 277.22) cover=51.85195
+road cover s=638 at=(133.99, 46.07, 281.06) cover=50.39612
+road cover s=638 at=(132.89, 46.07, 284.90) cover=48.92115
+road cover s=640 at=(133.20, 46.23, 276.66) cover=51.3489
+road cover s=640 at=(132.08, 46.23, 280.50) cover=49.91326
+road cover s=640 at=(130.96, 46.23, 284.34) cover=48.56275
+road cover s=642 at=(131.31, 46.41, 276.11) cover=50.85864
+road cover s=642 at=(130.17, 46.41, 279.94) cover=49.47535
+road cover s=642 at=(129.03, 46.41, 283.77) cover=48.2188
+road cover s=644 at=(129.42, 46.63, 275.54) cover=50.40348
+road cover s=644 at=(128.27, 46.63, 279.37) cover=49.09291
+road cover s=644 at=(127.11, 46.63, 283.20) cover=47.95101
+road cover s=646 at=(127.54, 46.87, 274.97) cover=49.97677
+road cover s=646 at=(126.37, 46.87, 278.79) cover=48.77634
+road cover s=646 at=(125.19, 46.87, 282.61) cover=47.77247
+road cover s=648 at=(125.67, 47.14, 274.39) cover=49.62819
+road cover s=648 at=(124.47, 47.14, 278.20) cover=48.53881
+road cover s=648 at=(123.28, 47.14, 282.02) cover=47.66197
+road cover s=650 at=(123.79, 47.44, 273.80) cover=49.34302
+road cover s=650 at=(122.59, 47.44, 277.61) cover=48.39871
+road cover s=650 at=(121.38, 47.44, 281.43) cover=47.71325
+road cover s=652 at=(121.93, 47.76, 273.20) cover=49.15478
+road cover s=652 at=(120.71, 47.76, 277.01) cover=48.333
+road cover s=654 at=(120.07, 48.11, 272.60) cover=49.01722
+road cover s=654 at=(118.83, 48.11, 276.40) cover=48.35157
+road cover s=656 at=(118.35, 47.74, 272.04) cover=48.28969
+road cover s=658 at=(117.21, 46.17, 271.66) cover=46.51665
+road cover s=660 at=(116.32, 44.41, 271.36) cover=44.94313
+road cover s=662 at=(115.51, 42.61, 271.09) cover=43.03373
+road cover s=664 at=(114.71, 40.80, 270.82) cover=41.14389
+road cover s=666 at=(113.86, 39.02, 270.53) cover=39.55901
+road cover s=668 at=(112.82, 37.35, 270.17) cover=37.80015
+FAIL Main route support preserved, probes=3180, blocked=37
+PASS Trees on cover=100; buried=0
+PASS Wall-side fallen slab collision matches visible mesh
+PASS Central fractured boulder collision matches visible mesh
+PASS Opening-side fallen stone collision matches visible mesh
+PASS Broken rear slab collision matches visible mesh
+PASS Passage sight line station=180
+PASS Passage sight line station=192
+PASS Passage sight line station=200
+PASS Shell cover probes=679; exposed=0

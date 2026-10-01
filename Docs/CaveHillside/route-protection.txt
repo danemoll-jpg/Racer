@@ -1,0 +1,1 @@
+Feathered 257 cover vertices down to unchanged main-route terrain with 8m protected corridor and 15m blend; reseated 9 affected trees. Portal rock/earth joins overlap 0.65m.

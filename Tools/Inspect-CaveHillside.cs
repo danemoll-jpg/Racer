@@ -1,0 +1,7 @@
+using System;using System.IO;using System.Linq;using System.Collections.Generic;using UnityEngine;using UnityEditor;using UnityEditor.SceneManagement;using Racer;using Object=UnityEngine.Object;
+public static class InspectCaveHillside {
+ public static string Main(){if(Application.isPlaying||UnityEngine.SceneManagement.SceneManager.GetActiveScene().isDirty)throw new Exception("Saved edit mode required");EditorSceneManager.OpenScene("Assets/Scenes/LakeWoods.unity");Directory.CreateDirectory("Docs/CaveHillside");Physics.SyncTransforms();var b=Object.FindObjectsByType<WoodlandRoute>().Single(x=>x.title=="Echo Cave");var rows=new List<string>();
+ for(float s=40;s<500;s+=20){var p=b.At(s,out var f);rows.Add($"station {s} p={p:F2} f={f:F2}");foreach(float d in new[]{-40f,-20f,0,20f,40f}){var q=p+Vector3.Cross(Vector3.up,f).normalized*d;rows.Add($"  lateral {d}: "+string.Join(";",Physics.RaycastAll(new(q.x,200,q.z),Vector3.down,300,~0,QueryTriggerInteraction.Ignore).OrderBy(h=>h.distance).Take(8).Select(h=>$"{h.collider.name} y={h.point.y:F2}")));}}
+ var shell=GameObject.Find("Echo Cave enclosed rock").GetComponent<Renderer>();rows.Add("SHELL "+shell.bounds);foreach(var r in Object.FindObjectsByType<Renderer>().Where(r=>r.bounds.Intersects(shell.bounds)&&!r.name.Contains("patch")&&!r.name.Contains("stone")))rows.Add(r.name+" "+r.bounds+" parent="+r.transform.parent?.name);
+ File.WriteAllLines("Docs/CaveHillside/before-inventory.txt",rows);return string.Join("\n",rows.Take(42));}
+}

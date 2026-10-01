@@ -9,7 +9,17 @@
 - Do not silently modify or weaken CODEX_RULES.md. Changes to standing rules require an explicit instruction from Dan.
 - Root AGENTS.md points future Codex tasks to both files.
 
-## Current delivery — Final rat audio / Forward cave obstacle — 0.58.0-review1
+## Current delivery — Forest Forward cave hillside / sight-line correction — 0.59.0-review1
+
+- Dan requests only exterior integration and improved rockfall visibility. Preserve the accepted interior, obstacle concept, Forward AI and Forest Reverse. Clean safety checkpoint `acb259163904b2ca84e05f75e133b1370dd9537e`.
+- [x] Broad asymmetric wooded earth cover joins existing slopes and conceals the freestanding cave shell. Natural sloping entrance/exit banks preserve usable openings. Interior shell/floor/jump unchanged.
+- [x] Oversized rockfall heights reduced; one approximately 3.8m right passage retained. Thirty-six eye-line decorative slabs near the obstacle become low supported side stones. Existing visible mesh colliders follow the reduced rocks; no obsolete remnants.
+- [x] Motorcycle and ATV clean line pass at 27m/s target, minimum 26.76m/s, zero airtime/flips. Straight poor line stops both upright. Actual vehicle chase-camera views show the passage in advance. Production ATV AI traverses with zero resets/recoveries. Automated verification does not claim Dan's handling/visual acceptance.
+- [x] 3,180 main-trail/edge probes with zero obstruction; 679 shell probes with zero exposed roof. Final 85 changed trees grounded with maximum 0.0543m foot gap; combined foliage follows trunks. Initial winding/tree-scope/main-trail overlap issues corrected before acceptance checks. Existing route/checkpoint/AI data and Reverse preserved.
+- [ ] Completion source push, fresh Windows build, complete Latest, new signed game-59000 release/catalog, production Play-Racer.cmd verification and cleanup pending execution.
+- [SESSION HANDOFF] Implementation and targeted gameplay checks complete. Finish standard delivery, then STOP for Dan's review. No additional cave/track changes. [Evidence and limits](Docs/CaveHillside/VALIDATION.md).
+
+## Previous delivery — Final rat audio / Forward cave obstacle — 0.58.0-review1
 
 - Dan accepts the previous correction pass except these two items. Rat visuals and Forest Forward cave visuals/environment are **ACCEPTED**; other completed shortcut/cave work remains closed. Clean safety checkpoint `414d092ce92288927cb550e15def201085d6646f`.
 - Storm Drain audio corrected in the existing source: low synthesized amplitude and source gain compounded attenuation/masking. Three brief chirps plus irregular scratching, stronger source, appropriate near range/priority, first-movement timing and group-centered spatial position. Rat count/models/placement/movement and tunnel unchanged. No continuous loop or music ducking.

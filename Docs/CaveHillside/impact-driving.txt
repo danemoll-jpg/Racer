@@ -1,0 +1,2 @@
+PASS moto-straight-impact complete=False minUp=0.998 maxSide=0.080 maxAir=0.00 minSpeed=0.00 maxAngular=3.05 maxUpward=0.15 final=(83.08, 38.78, 140.10)
+PASS atv-straight-impact complete=False minUp=0.998 maxSide=0.138 maxAir=0.00 minSpeed=-0.05 maxAngular=2.69 maxUpward=0.35 final=(83.00, 38.70, 140.18)

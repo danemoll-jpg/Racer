@@ -1,0 +1,132 @@
+Mountain trunk (833.353, 120.760, 68.884) oldFoot=114.453 finalGround=123.236
+CR014 trunk 00057 (237.578, 67.703, 240.526) oldFoot=63.566 finalGround=69.822
+CR014 trunk 02451 (-85.445, 27.256, -39.484) oldFoot=22.889 finalGround=34.906
+Mountain trunk (816.708, 106.058, 140.733) oldFoot=100.766 finalGround=110.244
+CR014 trunk 04874 (101.729, 48.736, 102.311) oldFoot=44.908 finalGround=51.422
+Mountain trunk (834.801, 118.402, 68.173) oldFoot=113.424 finalGround=122.809
+Tree trunk (-86.839, 33.790, -18.621) oldFoot=29.605 finalGround=33.530
+Tree trunk (149.804, 60.855, 214.649) oldFoot=58.493 finalGround=59.203
+CR014 trunk 05770 (-51.461, 35.075, -8.392) oldFoot=30.753 finalGround=35.008
+Mountain trunk (743.748, 90.091, 39.066) oldFoot=83.616 finalGround=85.174
+Mountain trunk (886.589, 99.897, -105.805) oldFoot=96.423 finalGround=96.837
+CR014 trunk 04523 (43.623, 42.830, 137.358) oldFoot=38.218 finalGround=41.197
+CR014 trunk 03267 (253.975, 76.503, 226.001) oldFoot=72.344 finalGround=73.477
+CR014 trunk 01155 (-22.431, 34.413, 164.152) oldFoot=30.322 finalGround=30.450
+Tree trunk (691.279, 77.188, 117.876) oldFoot=73.729 finalGround=75.057
+Mountain trunk (754.521, 89.355, 122.394) oldFoot=85.881 finalGround=91.410
+CR014 trunk 05011 (102.868, 47.900, 115.671) oldFoot=43.894 finalGround=52.354
+Tree trunk (17.807, 35.658, 192.381) oldFoot=32.871 finalGround=34.082
+CR014 trunk 04503 (678.101, 79.937, 106.541) oldFoot=75.682 finalGround=83.531
+Tree trunk (332.739, 81.463, 163.868) oldFoot=77.275 finalGround=79.994
+Tree trunk (23.453, 38.737, 192.059) oldFoot=34.623 finalGround=35.096
+CR014 trunk 02561 (-93.055, 30.505, 17.644) oldFoot=26.258 finalGround=31.974
+CR014 trunk 02588 (-38.702, 30.162, 1.448) oldFoot=25.857 finalGround=35.229
+Tree trunk (671.261, 79.912, 101.217) oldFoot=76.578 finalGround=76.858
+Mountain trunk (764.263, 91.456, 121.170) oldFoot=87.635 finalGround=102.105
+CR014 trunk 05785 (-50.438, 32.190, 145.732) oldFoot=28.069 finalGround=28.760
+Tree trunk (678.523, 80.132, 80.719) oldFoot=76.917 finalGround=82.201
+Tree trunk (271.521, 79.239, 211.721) oldFoot=76.546 finalGround=76.654
+Tree trunk (83.628, 45.275, 47.698) oldFoot=41.388 finalGround=45.319
+Tree trunk (97.778, 48.589, 228.007) oldFoot=45.850 finalGround=47.528
+Tree trunk (29.356, 36.704, 199.935) oldFoot=33.819 finalGround=35.672
+CR014 trunk 01212 (88.495, 47.170, 12.458) oldFoot=42.997 finalGround=45.030
+Mountain trunk (763.480, 93.065, 123.402) oldFoot=87.449 finalGround=96.632
+Mountain trunk (855.281, 122.203, 74.699) oldFoot=118.430 finalGround=136.918
+Tree trunk (134.052, 61.723, 183.932) oldFoot=58.339 finalGround=59.644
+CR014 trunk 05029 (43.401, 39.620, 128.054) oldFoot=34.813 finalGround=41.481
+CR014 trunk 00887 (54.363, 42.459, 191.020) oldFoot=37.926 finalGround=41.454
+Mountain trunk (850.642, 121.784, 75.031) oldFoot=116.281 finalGround=140.378
+Mountain trunk (747.693, 90.475, 41.406) oldFoot=84.500 finalGround=87.257
+Tree trunk (-94.458, 24.584, 7.559) oldFoot=21.905 finalGround=31.995
+CR014 trunk 04270 (-7.633, 33.441, 182.092) oldFoot=29.259 finalGround=30.988
+Tree trunk (444.760, 82.880, 14.994) oldFoot=78.432 finalGround=78.997
+CR014 trunk 01120 (7.247, 41.014, -48.041) oldFoot=36.286 finalGround=36.716
+CR014 trunk 01065 (-14.878, 37.994, 38.910) oldFoot=33.430 finalGround=37.198
+CR014 trunk 00381 (241.746, 75.717, 230.942) oldFoot=70.733 finalGround=70.902
+CR014 trunk 03675 (-13.565, 33.260, 175.971) oldFoot=29.211 finalGround=30.659
+CR014 trunk 01389 (-90.515, 33.842, 71.943) oldFoot=29.107 finalGround=31.268
+Mountain trunk (832.899, 116.034, 61.082) oldFoot=110.567 finalGround=112.404
+CR014 trunk 03083 (697.959, 79.561, 69.947) oldFoot=74.873 finalGround=89.860
+CR014 trunk 05155 (43.525, 41.442, 14.446) oldFoot=37.282 finalGround=38.769
+Tree trunk (690.284, 80.131, 63.420) oldFoot=75.795 finalGround=86.769
+Mountain trunk (829.043, 116.593, 145.151) oldFoot=111.193 finalGround=117.370
+CR014 trunk 05484 (-0.090, 34.088, 53.494) oldFoot=30.150 finalGround=38.535
+Tree trunk (679.848, 80.904, 72.911) oldFoot=76.986 finalGround=81.613
+Mountain trunk (847.749, 119.913, 74.993) oldFoot=114.982 finalGround=141.493
+Mountain trunk (729.956, 86.602, 37.459) oldFoot=82.038 finalGround=84.950
+CR014 trunk 00165 (45.964, 40.335, -165.186) oldFoot=35.909 finalGround=36.187
+Mountain trunk (757.860, 96.293, 49.984) oldFoot=91.731 finalGround=98.295
+CR014 trunk 01749 (121.038, 49.562, 71.909) oldFoot=45.303 finalGround=53.409
+Mountain trunk (744.400, 90.876, 45.987) oldFoot=85.782 finalGround=93.562
+Mountain trunk (785.351, 95.085, 140.773) oldFoot=91.732 finalGround=113.339
+Tree trunk (51.378, 40.296, 162.197) oldFoot=36.661 finalGround=41.897
+CR014 trunk 00221 (70.823, 41.181, -168.785) oldFoot=36.194 finalGround=36.804
+CR014 trunk 02864 (333.283, 82.542, 155.318) oldFoot=78.752 finalGround=79.182
+CR014 trunk 00471 (687.164, 80.091, 69.638) oldFoot=76.188 finalGround=85.925
+CR014 trunk 04539 (53.001, 43.662, 200.684) oldFoot=39.079 finalGround=40.556
+CR014 trunk 00980 (-89.700, 36.613, 53.826) oldFoot=31.719 finalGround=31.901
+Tree trunk (-32.188, 38.419, 21.700) oldFoot=35.281 finalGround=35.726
+Mountain trunk (1075.473, 143.175, 120.044) oldFoot=137.237 finalGround=142.748
+Mountain trunk (875.733, 132.744, 78.901) oldFoot=128.773 finalGround=142.400
+CR014 trunk 00739 (-38.689, 37.491, 10.977) oldFoot=33.453 finalGround=35.249
+Tree trunk (57.373, 42.131, 23.431) oldFoot=37.801 finalGround=40.642
+CR014 trunk 05319 (61.748, 40.544, -166.843) oldFoot=35.668 finalGround=36.504
+CR014 trunk 01365 (101.122, 44.713, 30.759) oldFoot=40.683 finalGround=47.763
+Tree trunk (-86.890, 31.495, -23.179) oldFoot=27.952 finalGround=33.770
+CR014 trunk 02070 (96.379, 48.568, 70.936) oldFoot=44.280 finalGround=48.586
+Mountain trunk (745.892, 89.614, 44.558) oldFoot=85.346 finalGround=91.695
+Mountain trunk (1095.727, 132.540, 119.948) oldFoot=127.138 finalGround=130.236
+Tree trunk (128.072, 60.557, 164.616) oldFoot=57.728 finalGround=59.166
+Tree trunk (122.934, 54.327, 152.783) oldFoot=51.073 finalGround=58.042
+Mountain trunk (731.528, 89.059, 112.610) oldFoot=82.825 finalGround=91.705
+CR014 trunk 02248 (-85.693, 37.612, -11.324) oldFoot=32.646 finalGround=33.283
+CR014 trunk 02808 (-95.132, 29.918, 45.663) oldFoot=25.999 finalGround=31.566
+Mountain trunk (760.287, 91.897, 43.786) oldFoot=88.218 finalGround=89.836
+CR014 trunk 00832 (112.755, 53.221, 38.596) oldFoot=48.446 finalGround=50.132
+Mountain trunk (736.952, 88.307, 37.020) oldFoot=82.715 finalGround=84.040
+Tree trunk (443.849, 80.883, 14.672) oldFoot=78.515 finalGround=79.302
+Tree trunk (681.812, 79.908, 84.440) oldFoot=76.444 finalGround=85.197
+CR014 trunk 02895 (127.517, 58.427, 68.984) oldFoot=54.301 finalGround=54.511
+Mountain trunk (867.997, 131.049, 77.057) oldFoot=124.777 finalGround=139.662
+Tree trunk (124.751, 54.229, 123.896) oldFoot=51.574 finalGround=57.508
+Tree trunk (127.210, 59.528, 125.570) oldFoot=55.810 finalGround=58.133
+Mountain trunk (1087.040, 136.757, 123.929) oldFoot=131.128 finalGround=149.674
+CR014 trunk 00513 (100.430, 47.340, 80.939) oldFoot=43.497 finalGround=49.910
+CR014 trunk 05192 (114.024, 50.068, 46.104) oldFoot=45.495 finalGround=50.672
+Tree trunk (-89.010, 33.501, -3.266) oldFoot=29.879 finalGround=32.720
+Tree trunk (129.189, 61.585, 171.983) oldFoot=57.340 finalGround=59.225
+Mountain trunk (758.098, 92.014, 147.128) oldFoot=85.943 finalGround=86.744
+CR014 trunk 02525 (8.189, 40.090, 69.507) oldFoot=35.182 finalGround=39.473
+Mountain trunk (1089.818, 133.209, 121.450) oldFoot=129.968 finalGround=140.682
+Tree trunk (-7.407, 33.954, 172.874) oldFoot=31.543 finalGround=31.650
+CR014 trunk 02986 (122.257, 53.570, 140.363) oldFoot=49.367 finalGround=57.629
+CR014 trunk 03462 (54.579, 40.000, -165.456) oldFoot=35.508 finalGround=36.315
+CR014 trunk 05748 (-93.805, 30.091, 31.351) oldFoot=26.142 finalGround=31.805
+CR014 trunk 02435 (-23.624, 31.633, 20.940) oldFoot=26.973 finalGround=36.077
+Mountain trunk (1068.646, 144.344, 122.617) oldFoot=140.298 finalGround=149.970
+Mountain trunk (761.367, 90.695, 120.833) oldFoot=87.095 finalGround=100.137
+Tree trunk (244.965, 12.213, 523.988) oldFoot=7.995 finalGround=8.116
+Mountain trunk (1062.611, 148.827, 119.612) oldFoot=143.471 finalGround=147.050
+CR014 trunk 04729 (688.818, 80.589, 82.390) oldFoot=75.757 finalGround=89.224
+CR014 trunk 00956 (113.049, 43.413, 55.116) oldFoot=39.433 finalGround=50.904
+Tree trunk (13.923, 40.882, -107.683) oldFoot=36.489 finalGround=37.257
+Mountain trunk (737.401, 86.543, 148.139) oldFoot=83.074 finalGround=85.153
+Tree trunk (121.807, 47.973, 107.208) oldFoot=44.556 finalGround=55.924
+CR014 trunk 04697 (666.174, 81.100, 94.948) oldFoot=77.341 finalGround=77.547
+CR014 trunk 03150 (36.391, 40.429, 113.303) oldFoot=35.585 finalGround=41.086
+CR014 trunk 03037 (3.044, 40.555, 64.264) oldFoot=36.320 finalGround=39.088
+Mountain trunk (1023.765, 146.669, 22.206) oldFoot=142.890 finalGround=143.080
+Tree trunk (130.393, 62.375, 166.257) oldFoot=59.497 finalGround=59.651
+CR014 trunk 04900 (54.220, 41.467, 181.042) oldFoot=37.039 finalGround=41.890
+CR014 trunk 05471 (118.589, 47.665, 129.177) oldFoot=43.001 finalGround=56.395
+CR014 trunk 00766 (52.060, 42.141, 171.739) oldFoot=37.701 finalGround=41.758
+CR014 trunk 02034 (37.769, 37.236, 2.939) oldFoot=33.481 finalGround=37.827
+Mountain trunk (1107.125, 123.531, 146.245) oldFoot=118.691 finalGround=146.095
+Mountain trunk (740.621, 89.109, 147.487) oldFoot=83.464 finalGround=84.702
+Tree trunk (666.350, 80.437, 87.575) oldFoot=77.732 finalGround=77.849
+Mountain trunk (811.882, 114.754, 52.682) oldFoot=111.348 finalGround=111.978
+CR014 trunk 01448 (96.364, 53.904, 95.703) oldFoot=48.961 finalGround=49.981
+CR014 trunk 01034 (25.402, 36.393, -31.099) oldFoot=32.214 finalGround=36.570
+Tree trunk (681.533, 78.055, 113.740) oldFoot=74.935 finalGround=77.865
+CR014 trunk 05757 (-22.698, 38.104, 30.178) oldFoot=33.908 finalGround=36.457
+Tree trunk (299.443, 78.360, 197.914) oldFoot=74.726 finalGround=80.100
