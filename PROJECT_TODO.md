@@ -9,14 +9,16 @@
 - Do not silently modify or weaken CODEX_RULES.md. Changes to standing rules require an explicit instruction from Dan.
 - Root AGENTS.md points future Codex tasks to both files.
 
-## Current task — Backyard Reverse optional shortcuts — IMPLEMENTED, RELEASE PENDING
+## Current delivery — Backyard Reverse optional shortcuts — 0.54.0-review1 DELIVERED
 
 - Safety checkpoint: clean main `771bb757ae1fc8383cd9b73a1b964c71ca3b4ca5`. Accepted main routes and Forward shortcuts preserved.
 - Implemented Logging Ridge and Storm Drain / Gully Jump at Dan's authoritative anchors. Shared permanent geometry, Forward gates closed and Reverse/free-roam open. Local complete-tree clearance/reseating, natural brush recovery. [Request](Docs/ReverseShortcuts/REQUEST.md), [atlas](Docs/ReverseShortcuts/ATLAS.html).
 - Player-only branches; AI main route unchanged. Ridge bypasses no gates; drain grants CP3 only. Height/station guards reject entry from above. Layout `backyard-reverse-v2-forest-shortcuts` preserves old Records history separately. Gold optional/dashed underground map and preview data; racing minimap unchanged.
 - Targeted checks COMPLETE: 23 state/geometry and 5 recorded-entry assertions; motorcycle/ATV ridge, culvert and corrected jump/runout traversal; both recover ridge falls and gully undershoots. 834 original road/shoulder support samples show zero height change; original route/gate/flight components, six other scenes and eleven global sources preserved. Initial failures retained. [Exact evidence and limitations](Docs/ReverseShortcuts/VALIDATION.md).
 - STOP gameplay testing. Motorcycle drain validation combines culvert traversal and corrected jump/runout checks. Human handling and actual time savings await Dan; routes are 12.6%/14.5% shorter, not a proven lap-time comparison. Automatic respawn event loop was not exercised by manual simulation. No broad matrix or AI shortcut enablement.
-- Target 0.54.0-review1 / 54000; completion commit/push, fresh build, signed publication, unchanged real launcher verification and cleanup remain pending. Existing public/local release stays 0.53 / 53000 until verified delivery.
+- **DELIVERED:** completion source `36ad4ce8dc18ab9d249a3693d3f0b1e6e715bccd` pushed and verified on origin/main before fresh Windows build (3m53s; succeeded; 21 warnings and one logged CLI status timeout, detailed in publication). Published [game-54000](https://github.com/danemoll-jpg/woodstock-rush-releases/releases/tag/game-54000); all three remote assets/catalog and 235 runtime/review files verified. Actual public download/signature/install/muted startup passed. [Publication evidence](Docs/ReverseShortcuts/PUBLICATION.md).
+- Unchanged **Play-Racer.cmd** launched responsive managed 54000. Full root Latest matches. Music preserved, no updates pending; original settings restored byte-for-byte. Current 54000 / previous 53000 retained. Cleanup: Builds 9,165,787,189 -> 7,286,940,014 bytes; 3,401,700,207 bytes total recovered. Final C: free 326,113,779,712 bytes.
+- **SESSION HANDOFF: STOP for Dan's review.** Subsequent delivery commit records evidence only; build source remains `36ad4ce8`.
 
 ## Previous delivery — In-race map/menu input lock — 0.53.0-review1 DELIVERED
 

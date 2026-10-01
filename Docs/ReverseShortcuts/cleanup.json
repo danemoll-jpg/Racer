@@ -1,0 +1,27 @@
+{
+  "removed": [
+    {
+      "bytes": 1520497958,
+      "path": "C:\\Users\\danmo\\Racer\\Builds\\Racer-0.54.0-review1-Windows"
+    },
+    {
+      "bytes": 358349217,
+      "path": "C:\\Users\\danmo\\Racer\\Builds\\LauncherRelease-54000\\assets\\game.zip"
+    },
+    {
+      "bytes": 1522853032,
+      "path": "C:\\Users\\danmo\\Racer\\Temp\\reverseshortcuts-hosted-1790815494810431200"
+    }
+  ],
+  "freeBefore": 322711015424,
+  "retained": [
+    "Latest complete root runtime",
+    "managed 54000",
+    "managed 53000",
+    "music, publisher keys/tools, launcher, metadata, source, evidence, saves"
+  ],
+  "buildsBefore": 9165787189,
+  "freeAfter": 326113779712,
+  "buildsRecovered": 1878847175,
+  "buildsAfter": 7286940014
+}
