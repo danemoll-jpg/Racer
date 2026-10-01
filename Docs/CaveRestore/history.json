@@ -1,0 +1,87 @@
+{
+  "source": "5985a27c17e9245c5aa3e44727c1cd5a72bba5dd",
+  "version": "0.58.0-review1 / game-58000",
+  "rocks": [
+    {
+      "name": "Wall-side fallen slab",
+      "position": {
+        "x": 86.010765,
+        "y": 37.80052,
+        "z": 134.80496
+      },
+      "rotation": {
+        "x": -0.0,
+        "y": 0.98294795,
+        "z": -0.0,
+        "w": -0.18388428
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
+      "transformId": "1168536765"
+    },
+    {
+      "name": "Central fractured boulder",
+      "position": {
+        "x": 84.08892,
+        "y": 37.857384,
+        "z": 136.62637
+      },
+      "rotation": {
+        "x": -0.0,
+        "y": 0.98309726,
+        "z": -0.0,
+        "w": -0.1830844
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
+      "transformId": "1103256501"
+    },
+    {
+      "name": "Opening-side fallen stone",
+      "position": {
+        "x": 81.908325,
+        "y": 37.793236,
+        "z": 136.39555
+      },
+      "rotation": {
+        "x": -0.0,
+        "y": 0.98294795,
+        "z": -0.0,
+        "w": -0.18388428
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
+      "transformId": "307467663"
+    },
+    {
+      "name": "Broken rear slab",
+      "position": {
+        "x": 82.67191,
+        "y": 37.608456,
+        "z": 132.8638
+      },
+      "rotation": {
+        "x": -0.0,
+        "y": 0.98223484,
+        "z": -0.0,
+        "w": -0.18765597
+      },
+      "scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+      },
+      "transformId": "1178527981"
+    }
+  ],
+  "originalMeshAssetsAndColliderComponentsUnchanged": true
+}

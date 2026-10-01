@@ -1,0 +1,1 @@
+166 decorative ground stones; maximum true vertex height=0.160m; maximum footprint=.65x.8m; grounded .035m below support. Prior renderer-bounds cap retained tilted height; corrected using actual vertices and yaw-only rotation.

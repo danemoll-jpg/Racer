@@ -9,7 +9,17 @@
 - Do not silently modify or weaken CODEX_RULES.md. Changes to standing rules require an explicit instruction from Dan.
 - Root AGENTS.md points future Codex tasks to both files.
 
-## Current delivery — Forest Forward cave hillside / sight-line correction — 0.59.0-review1
+## Current work — Forest Forward accepted cave-in restoration / grounded edge rocks — 0.60.0-review1
+
+- Dan reports 0.59 neutralized the accepted obstacle and left visually obstructive drive-through rocks. This request supersedes its previous STOP. Clean safety checkpoint `0b94bd492ac7a4ff45d50a251b2035428ec41de6`.
+- [x] ACTUAL four-rock cave-in restored from `5985a27c17e9245c5aa3e44727c1cd5a72bba5dd` / 0.58.0-review1 (game-58000), using exact historical transforms and original meshes/colliders. No new obstacle or whole-cave revert. Original approximately 3.8m right opening and full heights restored. Historical local AI line/guidance and recovery exclusion were still present and retained.
+- [x] Current accepted cave shell/ceiling/lighting/ambience/floor/entrance/exit/route/jump and wooded hillside preserved. Full restored obstacle is contained below the hill and readable in advance; no extra obstacle shrink/reposition needed after ordinary eye-line ledges were removed. No terrain/dependent vegetation changes.
+- [x] Recompose 166 ordinary wall ledges into 45 irregular grounded edge boulders with matching solid mesh collision, removing 121 intrusive/repeated pieces. Ground and cap 166 decorative stones to actual .16m height. All 49 substantial obstacle/edge rocks now physically matter; centre line/opening/jump envelope retained.
+- [x] Motorcycle/ATV aligned passes at 27m/s target, minimum 26.76m/s; poor alignment physically stops both upright. Three edge impacts stop ATV without airtime/flips. Full production Forward rival traversal reaches cave exit with zero resets/recoveries; existing intentional jump retained. Chase/interior/exterior views inspected. Automated checks do not claim Dan acceptance. No Reverse/global AI/physics/recovery changes.
+- [x] Historical restoration, collision classes, preservation audit, initial fixture issues and targeted results documented in [Docs/CaveRestore/VALIDATION.md](Docs/CaveRestore/VALIDATION.md).
+- [ ] Completion source push, fresh Windows runtime, complete Latest, signed game-60000 publication/catalog, real Play-Racer.cmd verification and disposable cleanup in progress.
+- **SESSION HANDOFF:** implementation and bounded gameplay checks complete; STOP further gameplay tuning/testing. Finish normal release delivery, then await Dan's gameplay review.
+## Previous delivery — Forest Forward cave hillside / sight-line correction — 0.59.0-review1
 
 - Dan requests only exterior integration and improved rockfall visibility. Preserve the accepted interior, obstacle concept, Forward AI and Forest Reverse. Clean safety checkpoint `acb259163904b2ca84e05f75e133b1370dd9537e`.
 - [x] Broad asymmetric wooded earth cover joins existing slopes and conceals the freestanding cave shell. Natural sloping entrance/exit banks preserve usable openings. Interior shell/floor/jump unchanged.

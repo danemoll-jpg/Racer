@@ -1,0 +1,50 @@
+RESTORED Wall-side fallen slab exact original transform and mesh/collider from 5985a27c17e9245c5aa3e44727c1cd5a72bba5dd
+RESTORED Central fractured boulder exact original transform and mesh/collider from 5985a27c17e9245c5aa3e44727c1cd5a72bba5dd
+RESTORED Opening-side fallen stone exact original transform and mesh/collider from 5985a27c17e9245c5aa3e44727c1cd5a72bba5dd
+RESTORED Broken rear slab exact original transform and mesh/collider from 5985a27c17e9245c5aa3e44727c1cd5a72bba5dd
+EDGE Grounded cave edge boulder 0 station=65.00 side=1 size=1.11,1.04,1.84 exact visible mesh collision
+EDGE Grounded cave edge boulder 1 station=68.75 side=1 size=1.11,1.03,2.24 exact visible mesh collision
+EDGE Grounded cave edge boulder 2 station=76.12 side=-1 size=1.52,0.88,1.27 exact visible mesh collision
+EDGE Grounded cave edge boulder 3 station=80.37 side=-1 size=1.14,1.03,2.18 exact visible mesh collision
+EDGE Grounded cave edge boulder 4 station=82.68 side=1 size=1.31,0.87,2.68 exact visible mesh collision
+EDGE Grounded cave edge boulder 5 station=92.35 side=-1 size=1.06,0.96,2.13 exact visible mesh collision
+EDGE Grounded cave edge boulder 6 station=96.94 side=-1 size=1.09,1.39,1.49 exact visible mesh collision
+EDGE Grounded cave edge boulder 7 station=104.72 side=1 size=1.12,0.95,1.68 exact visible mesh collision
+EDGE Grounded cave edge boulder 8 station=109.04 side=-1 size=1.36,0.99,1.64 exact visible mesh collision
+EDGE Grounded cave edge boulder 9 station=109.04 side=1 size=1.77,0.92,1.47 exact visible mesh collision
+EDGE Grounded cave edge boulder 10 station=112.98 side=1 size=1.34,1.37,1.93 exact visible mesh collision
+EDGE Grounded cave edge boulder 11 station=113.09 side=-1 size=1.14,1.07,2.29 exact visible mesh collision
+EDGE Grounded cave edge boulder 12 station=117.18 side=-1 size=1.82,1.18,2.14 exact visible mesh collision
+EDGE Grounded cave edge boulder 13 station=124.41 side=1 size=1.07,0.89,1.57 exact visible mesh collision
+EDGE Grounded cave edge boulder 14 station=132.81 side=1 size=1.81,0.95,2.32 exact visible mesh collision
+EDGE Grounded cave edge boulder 15 station=138.23 side=1 size=1.22,1.32,2.05 exact visible mesh collision
+EDGE Grounded cave edge boulder 16 station=149.10 side=1 size=1.47,1.35,1.59 exact visible mesh collision
+EDGE Grounded cave edge boulder 17 station=150.49 side=-1 size=1.35,1.32,1.92 exact visible mesh collision
+EDGE Grounded cave edge boulder 18 station=152.62 side=1 size=1.83,1.21,1.76 exact visible mesh collision
+EDGE Grounded cave edge boulder 19 station=157.65 side=-1 size=1.28,1.19,2.59 exact visible mesh collision
+EDGE Grounded cave edge boulder 20 station=158.14 side=1 size=1.31,0.91,2.00 exact visible mesh collision
+EDGE Grounded cave edge boulder 21 station=164.25 side=-1 size=1.83,0.97,2.31 exact visible mesh collision
+EDGE Grounded cave edge boulder 22 station=170.56 side=1 size=1.08,0.87,1.44 exact visible mesh collision
+EDGE Grounded cave edge boulder 23 station=167.70 side=-1 size=1.71,1.32,1.51 exact visible mesh collision
+EDGE Grounded cave edge boulder 24 station=259.18 side=1 size=1.69,1.24,1.51 exact visible mesh collision
+EDGE Grounded cave edge boulder 25 station=258.75 side=-1 size=1.29,0.87,2.05 exact visible mesh collision
+EDGE Grounded cave edge boulder 26 station=263.78 side=-1 size=1.54,1.13,1.72 exact visible mesh collision
+EDGE Grounded cave edge boulder 27 station=270.65 side=1 size=1.48,1.27,1.40 exact visible mesh collision
+EDGE Grounded cave edge boulder 28 station=275.61 side=-1 size=1.65,1.18,1.27 exact visible mesh collision
+EDGE Grounded cave edge boulder 29 station=277.42 side=1 size=1.19,0.87,2.12 exact visible mesh collision
+EDGE Grounded cave edge boulder 30 station=280.98 side=-1 size=1.70,1.34,2.36 exact visible mesh collision
+EDGE Grounded cave edge boulder 31 station=393.62 side=-1 size=1.50,0.98,1.35 exact visible mesh collision
+EDGE Grounded cave edge boulder 32 station=398.17 side=1 size=1.10,1.22,1.37 exact visible mesh collision
+EDGE Grounded cave edge boulder 33 station=404.67 side=-1 size=1.04,1.18,2.46 exact visible mesh collision
+EDGE Grounded cave edge boulder 34 station=405.18 side=1 size=1.67,1.34,2.65 exact visible mesh collision
+EDGE Grounded cave edge boulder 35 station=423.60 side=-1 size=1.40,1.33,1.53 exact visible mesh collision
+EDGE Grounded cave edge boulder 36 station=428.29 side=1 size=1.07,1.33,2.40 exact visible mesh collision
+EDGE Grounded cave edge boulder 37 station=433.74 side=1 size=1.44,1.16,1.70 exact visible mesh collision
+EDGE Grounded cave edge boulder 38 station=445.76 side=1 size=1.43,1.39,1.28 exact visible mesh collision
+EDGE Grounded cave edge boulder 39 station=448.61 side=1 size=1.50,1.25,2.12 exact visible mesh collision
+EDGE Grounded cave edge boulder 40 station=452.82 side=1 size=1.60,0.86,1.45 exact visible mesh collision
+EDGE Grounded cave edge boulder 41 station=458.65 side=-1 size=1.69,1.13,2.68 exact visible mesh collision
+EDGE Grounded cave edge boulder 42 station=459.03 side=1 size=1.59,1.21,2.63 exact visible mesh collision
+EDGE Grounded cave edge boulder 43 station=465.52 side=-1 size=1.27,0.86,2.13 exact visible mesh collision
+EDGE Grounded cave edge boulder 44 station=470.23 side=-1 size=1.09,1.14,2.56 exact visible mesh collision
+Recomposed 166 wall ledges into 45 irregular colliding grounded edge boulders; removed 121 intrusive/repeated pieces; 166 tiny rubble meshes grounded. Shell/ceiling/hillside/lighting/floor/route/AI/recovery unchanged.

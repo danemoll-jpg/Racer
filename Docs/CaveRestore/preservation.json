@@ -1,0 +1,19 @@
+{
+  "baseline": "0b94bd492ac7a4ff45d50a251b2035428ec41de6",
+  "obstacleSource": "5985a27c17e9245c5aa3e44727c1cd5a72bba5dd",
+  "originalFourObstacleTransformsRestored": true,
+  "removedOnlyWallLedgeComponents": 484,
+  "changedExisting": 306,
+  "protectedFiles": [
+    "Assets/Scenes/ForestLoopReverse.unity",
+    "Assets/Scenes/DansBackyardForward.unity",
+    "Assets/Scenes/DansBackyardReverse.unity",
+    "Assets/Scripts/RoadDriver.cs",
+    "Assets/Scripts/VehicleRespawn.cs",
+    "Assets/Scripts/ArcadeVehicle.cs",
+    "Assets/Scripts/UndergroundLife.cs",
+    "Play-Racer.cmd"
+  ],
+  "allRouteCheckpointAiRecoveryComponentsUnchanged": true,
+  "hillsideShellFloorMaterialsMeshesUnchanged": true
+}

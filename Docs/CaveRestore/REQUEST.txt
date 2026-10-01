@@ -1,0 +1,807 @@
+READ FIRST:
+
+C:\Users\danmo\Racer\CODEX\_RULES.md
+C:\Users\danmo\Racer\PROJECT_TODO.md
+
+Follow _RULES.md throughout this task.
+
+==================================================
+TASK:
+FOREST FORWARD CAVE FINAL OBSTACLE / ROCK CLEANUP
+==================================================
+
+Course:
+
+FOREST LOOP - FORWARD
+
+Dan has reviewed the latest cave build.
+
+The cave itself now generally looks good.
+
+The exterior hillside integration is improved.
+
+However, the latest cleanup introduced TWO gameplay/visual regressions:
+
+1. The previously working cave-in obstacle was effectively REMOVED.
+
+2. Many of the remaining rocks protruding from the cave walls still obstruct
+   the player's view, but the vehicle can drive THROUGH them.
+
+This creates the worst combination:
+
+THE ROCKS GET IN THE WAY VISUALLY
+BUT DO NOT MATTER PHYSICALLY.
+
+Correct these issues without redesigning the cave again.
+
+==================================================
+IMPORTANT:
+RESTORE THE ACTUAL PREVIOUS WORKING OBSTACLE
+==================================================
+
+DO NOT DESIGN A NEW CAVE-IN.
+
+DO NOT INVENT A NEW CHOKE POINT.
+
+DO NOT APPROXIMATE THE OLD OBSTACLE FROM THIS PROMPT.
+
+A previous build already contained a cave-in / rockfall obstacle that Dan
+gameplay-tested and confirmed worked.
+
+Dan specifically said:
+
+"the shortcut itself works."
+
+The gameplay obstacle was accepted.
+
+A later visual-cleanup pass removed or substantially neutralized that obstacle.
+
+USE SOURCE / GIT HISTORY to restore the ACTUAL previously working cave-in
+obstacle.
+
+==================================================
+USE REPOSITORY HISTORY
+==================================================
+
+Inspect repository history and identify the exact earlier implementation of
+the Forest Loop - Forward cave-in obstacle from the version immediately before
+it was removed/neutralized.
+
+Determine:
+
+- which commit/version contained the accepted working obstacle;
+- which obstacle-specific geometry/data/code created it;
+- whether it had associated collision;
+- whether it had associated AI routing.
+
+Restore the relevant obstacle implementation from that version.
+
+DO NOT blindly revert the entire cave.
+
+DO NOT revert unrelated files/features.
+
+Restore only what is necessary to recover the accepted obstacle.
+
+==================================================
+TARGET RESULT
+==================================================
+
+The desired result is:
+
+CURRENT IMPROVED CAVE
++
+CURRENT IMPROVED EXTERIOR HILLSIDE
++
+PREVIOUS WORKING CAVE-IN OBSTACLE
++
+BETTER GROUNDED EDGE ROCKS.
+
+Not:
+
+OLD CAVE RESTORED WHOLESALE.
+
+==================================================
+PRESERVE CURRENT ACCEPTED CAVE WORK
+==================================================
+
+Preserve the later improvements that Dan accepts:
+
+- current natural cave appearance;
+- current cave enclosure;
+- current cave ceiling;
+- current lighting;
+- current ambience;
+- current floor treatment;
+- current entrance;
+- current exit;
+- current route;
+- current exterior hillside integration.
+
+Do NOT restore the old freestanding tunnel appearance.
+
+==================================================
+EXTERIOR RULE:
+CAVE MUST LOOK LIKE A HILL
+==================================================
+
+From outside, the cave should continue to look like:
+
+A NORMAL WOODED HILLSIDE
+WITH A NATURAL CAVE OPENING.
+
+The player should NOT see:
+
+- a tunnel sitting on top of the terrain;
+- the entire shape of the cave shell;
+- a giant rock tube;
+- cave-in rocks protruding through the hill;
+- floating cave geometry;
+- internal construction meshes.
+
+The cave should visually disappear INTO the hillside.
+
+==================================================
+RESTORED OBSTACLE:
+PRESERVE ITS GAMEPLAY
+==================================================
+
+The previous cave-in obstacle already provided the desired challenge.
+
+Restore its gameplay behavior.
+
+The player should again need to:
+
+SEE THE OBSTACLE
+->
+IDENTIFY THE OPENING
+->
+LINE UP
+->
+PASS THROUGH
+->
+CONTINUE.
+
+Poor alignment should:
+
+- hit physical rock;
+- cost speed;
+- require correction.
+
+Good alignment should allow the player through at useful racing speed.
+
+==================================================
+REAL COLLISION
+==================================================
+
+The restored obstacle's substantial rocks MUST have appropriate collision.
+
+The player must NOT be able to drive through them.
+
+Collision should approximately match the visible geometry.
+
+Do NOT use oversized invisible collision boxes.
+
+Do NOT leave obsolete invisible colliders from later cave revisions.
+
+==================================================
+MINIMAL VISUAL CLEANUP OF RESTORED OBSTACLE
+==================================================
+
+The original obstacle worked, but its first implementation had visual issues.
+
+Some rocks:
+
+- protruded through the exterior cave shell/hill;
+- appeared unsupported;
+- intersected other geometry;
+- blocked too much of the driver's forward view.
+
+Restore the working obstacle FIRST.
+
+Then make ONLY the minimum corrections necessary to address those visual
+problems.
+
+Do NOT solve the visual problems by:
+
+- removing the obstacle;
+- disabling its collision;
+- dramatically shrinking it;
+- replacing it with another obstacle;
+- opening the passage so much that the challenge disappears.
+
+==================================================
+FORWARD VISIBILITY
+==================================================
+
+The player must be able to SEE the intended opening before reaching the
+obstacle.
+
+The challenge should be:
+
+"I see the opening and need to line up correctly."
+
+NOT:
+
+"A giant rock fills the screen and I have to guess where the opening is."
+
+If one or more pieces of the restored obstacle unnecessarily block the normal
+motorcycle/ATV camera sight line:
+
+adjust ONLY those offending pieces.
+
+Prefer:
+
+- lowering them;
+- moving them toward the sides;
+- rotating them;
+- replacing an especially bad upper slab with a smaller equivalent rock.
+
+Preserve:
+
+- obstacle location;
+- intended opening;
+- collision challenge;
+- approximate difficulty.
+
+==================================================
+EXTERIOR PROTRUSIONS
+==================================================
+
+If restored obstacle pieces penetrate through the exterior hillside:
+
+correct those individual pieces.
+
+Prefer:
+
+- lowering/repositioning the offending upper rock;
+- moving it inward;
+- integrating it with internal cave geometry;
+- modestly covering appropriate internal geometry with hillside terrain.
+
+Do NOT enlarge the exterior into another visible cave tube.
+
+Outside must remain an ordinary-looking wooded hill.
+
+==================================================
+ORDINARY CAVE ROCKS:
+CURRENT PROBLEM
+==================================================
+
+Outside of the main cave-in obstacle, many cave rocks currently protrude from
+the walls.
+
+Dan's complaints:
+
+- they still interfere with forward visibility;
+- they are too uniform;
+- many can simply be driven through;
+- they do not meaningfully affect driving.
+
+This treatment must be replaced.
+
+==================================================
+GROUND THE ORDINARY ROCKS
+==================================================
+
+Instead of large wall protrusions hanging into the player's view:
+
+place most ordinary cave obstacles ON THE GROUND.
+
+Use:
+
+- grounded boulders;
+- fallen rocks;
+- rock piles;
+- rubble;
+- natural cave debris.
+
+These should primarily occupy the:
+
+LOWER SIDES / EDGES
+
+of the cave.
+
+The walls and ceiling provide enclosure.
+
+Grounded rocks provide driving hazards.
+
+Do not confuse those roles.
+
+==================================================
+IRREGULAR PLACEMENT
+==================================================
+
+The cave-edge rocks should look naturally scattered.
+
+Vary:
+
+- size;
+- spacing;
+- rotation;
+- height;
+- distance from wall;
+- distance into driving line.
+
+Do NOT create:
+
+- repeated identical rocks;
+- neat rows;
+- evenly spaced hazards;
+- symmetrical left/right patterns.
+
+Some stretches may have almost no rocks.
+
+Other stretches may have larger accumulations.
+
+It should feel natural.
+
+==================================================
+EDGE ROCKS SHOULD MATTER
+==================================================
+
+Substantial visible edge boulders should have appropriate collision.
+
+If the player drives too close to the cave edge and clips one:
+
+the player should:
+
+- hit it;
+- lose speed;
+- be pushed away from the ideal line;
+- need to correct.
+
+The player should NOT:
+
+- drive through it;
+- randomly launch into the ceiling;
+- flip because of a tiny invisible lip.
+
+==================================================
+SMALL DECORATIVE RUBBLE
+==================================================
+
+Small visual rubble may remain non-colliding where necessary for smooth
+gameplay.
+
+Use common sense.
+
+If a rock visually appears large enough that a motorcycle or ATV should hit
+it:
+
+IT SHOULD HAVE COLLISION.
+
+If it is tiny ground clutter:
+
+it may be decorative.
+
+==================================================
+FORWARD SIGHT LINE THROUGH CAVE
+==================================================
+
+The ordinary cave-edge rocks must NOT dominate the player's view.
+
+From the normal motorcycle and ATV cameras, the player should generally be
+able to see:
+
+- where the cave goes;
+- upcoming turns;
+- the restored cave-in obstacle;
+- the cave-in opening;
+- the exit direction.
+
+Remove/reposition ordinary rocks whose main effect is simply blocking the
+camera.
+
+==================================================
+NATURAL TECHNICAL LINE
+==================================================
+
+Use the grounded edge rocks to make the cave somewhat more technical overall.
+
+For example:
+
+larger rocks intrude from LEFT
+-> ideal line moves slightly RIGHT.
+
+Later:
+
+larger rocks intrude from RIGHT
+-> ideal line moves slightly LEFT.
+
+Keep this subtle and natural.
+
+Do NOT turn the cave into an artificial slalom.
+
+The MAIN challenge remains the restored cave-in obstacle.
+
+==================================================
+CAVE-IN OPENING
+==================================================
+
+Preserve approximately the original working opening.
+
+It must support:
+
+MOTORCYCLE
+and
+ATV.
+
+Motorcycle may have more margin.
+
+ATV may require better alignment.
+
+That is acceptable.
+
+Do NOT make the opening:
+
+- pixel-perfect;
+- crawl-speed only;
+- narrower than the ATV;
+- dependent on vehicle clipping.
+
+==================================================
+COLLISION AUDIT
+==================================================
+
+Audit visible cave rock geometry.
+
+Classify it:
+
+A. CAVE SHELL
+   - walls / ceiling;
+   - provides enclosure.
+
+B. MAIN RESTORED CAVE-IN OBSTACLE
+   - meaningful driving obstacle;
+   - substantial rocks MUST have collision.
+
+C. GROUNDED EDGE BOULDERS
+   - meaningful edge hazards;
+   - substantial rocks MUST have collision.
+
+D. SMALL DECORATIVE RUBBLE
+   - may be non-colliding where appropriate.
+
+Remove the current bad situation where category B/C-sized rocks visually
+exist but behave like category D.
+
+==================================================
+NO WORLD / MESH LEAKS
+==================================================
+
+While restoring/repositioning rocks:
+
+verify the player does not see inappropriate:
+
+- sky;
+- exterior terrain;
+- backside faces;
+- world gaps;
+
+through cave geometry.
+
+Natural intentional openings are fine only where geographically sensible.
+
+Do not hide leaks with giant sight-blocking rocks.
+
+Fix the actual shell/terrain relationship.
+
+==================================================
+FOREST FORWARD ONLY
+==================================================
+
+IMPORTANT:
+
+The cave physically exists in the world and may therefore also physically
+exist while driving Forest Reverse.
+
+However:
+
+THE CAVE SHORTCUT IS INTENDED FOR FOREST LOOP - FORWARD.
+
+Do NOT:
+
+- add Reverse shortcut routing;
+- add Reverse shortcut arrows;
+- encourage Reverse AI through it;
+- change Reverse checkpoints for it.
+
+==================================================
+AI
+==================================================
+
+Preserve Forest Forward rival AI cave-shortcut use.
+
+If the previous accepted obstacle had associated AI guidance:
+
+recover that from the same repository history where appropriate.
+
+Update only the LOCAL cave line as necessary for the current cave geometry.
+
+AI should:
+
+ENTER CAVE
+->
+FOLLOW SAFE LINE BETWEEN EDGE ROCKS
+->
+ALIGN BEFORE RESTORED CAVE-IN
+->
+PASS THROUGH OPENING
+->
+CONTINUE.
+
+AI must not repeatedly:
+
+- hit edge boulders;
+- crash into cave-in;
+- become stuck;
+- drive through rocks visually.
+
+Do NOT globally retune AI.
+
+==================================================
+RECOVERY
+==================================================
+
+Preserve the current improved recovery behavior.
+
+Do NOT create recovery points:
+
+- inside the restored cave-in;
+- against edge boulders;
+- inside the narrow opening;
+- inside cave walls;
+- on unstable rock geometry.
+
+==================================================
+WORLD DEPENDENCY RULES
+==================================================
+
+Follow _RULES.md.
+
+If terrain/hillside is adjusted:
+
+verify:
+
+- trees grounded;
+- bushes grounded;
+- signs grounded;
+- props grounded;
+- nearby trail unaffected.
+
+No:
+
+- buried trees;
+- floating vegetation;
+- exposed cave shell;
+- suspended rocks;
+- terrain damage to Forest route.
+
+==================================================
+DO NOT CHANGE
+==================================================
+
+Do NOT redesign:
+
+- overall cave route;
+- cave entrance;
+- cave exit;
+- accepted cave lighting;
+- accepted cave ambience;
+- accepted exterior hillside except where required to conceal restored
+  obstacle geometry;
+- Forest main route;
+- Forest Reverse;
+- Backyard tracks;
+- vehicle physics;
+- global AI;
+- UI;
+- Records;
+- Playlists;
+- other shortcuts.
+
+This is a focused cave obstacle/rock correction.
+
+==================================================
+TARGETED TESTING ONLY
+==================================================
+
+Do NOT over-test.
+
+==================================================
+SOURCE-HISTORY VERIFICATION
+==================================================
+
+Before gameplay testing:
+
+identify the exact prior commit/version containing the cave-in obstacle that
+Dan previously gameplay-tested and accepted.
+
+Confirm the obstacle was restored from that implementation rather than newly
+invented.
+
+Record the source commit/version for the final report.
+
+==================================================
+EXTERIOR VISUAL TEST
+==================================================
+
+Inspect the cave from multiple normal outside viewpoints.
+
+Verify:
+
+- looks like natural wooded hillside;
+- cave shell does not look like tunnel sitting on ground;
+- restored obstacle does not protrude visibly through hill;
+- no floating rock pieces;
+- no obvious internal geometry outside;
+- entrance remains visible/usable.
+
+==================================================
+INTERIOR VISIBILITY TEST
+==================================================
+
+Approach with:
+
+MOTORCYCLE
+ATV.
+
+Verify:
+
+- forward cave route remains readable;
+- ordinary wall rocks no longer block view unnecessarily;
+- restored cave-in is visible in advance;
+- intended opening can be identified before reaching it.
+
+==================================================
+MAIN OBSTACLE TEST
+==================================================
+
+With motorcycle:
+
+- good alignment passes;
+- poor alignment hits physical rock / loses speed.
+
+With ATV:
+
+- good alignment passes;
+- less margin than motorcycle is acceptable;
+- poor alignment hits physical rock / loses speed.
+
+Verify player CANNOT simply drive through the substantial cave-in rocks.
+
+==================================================
+EDGE ROCK TEST
+==================================================
+
+Drive close to several substantial grounded edge boulders.
+
+Verify:
+
+- real collision exists;
+- collision matches visible rock reasonably;
+- clipping rock costs speed;
+- rocks do not randomly launch vehicle;
+- player cannot drive through obvious boulders.
+
+==================================================
+FULL CAVE TEST
+==================================================
+
+Verify:
+
+- irregular grounded rocks make edges matter;
+- useful center/fast line remains;
+- no artificial slalom appearance;
+- no invisible collision remnants;
+- no world leaks;
+- no camera-blocking giant protrusions.
+
+==================================================
+AI TEST
+==================================================
+
+Verify Forest Forward rival AI:
+
+- enters cave;
+- navigates edge hazards;
+- aligns with restored obstacle;
+- passes through;
+- exits normally.
+
+Do NOT test/add Reverse cave routing.
+
+Then STOP TESTING.
+
+==================================================
+PROJECT_TODO / DOCUMENTATION
+==================================================
+
+Update PROJECT_TODO.md with:
+
+- exact prior commit/version used to restore the accepted cave-in obstacle;
+- confirmation that the ACTUAL previous obstacle was restored rather than a
+  newly designed replacement;
+- current improved cave/hillside preserved;
+- obstacle visual cleanup limited to sight-line/exterior issues;
+- ordinary sight-blocking wall protrusions removed/repositioned;
+- grounded irregular edge boulders added/recomposed;
+- substantial visible rocks now have appropriate collision;
+- motorcycle / ATV / AI verification.
+
+Do not reopen other completed cave work.
+
+==================================================
+DELIVERY
+==================================================
+
+Follow _RULES.md for the normal source-changing delivery workflow.
+
+Complete standard:
+
+- TODO/docs;
+- completion commit;
+- push;
+- fresh Windows build;
+- complete Builds\Latest;
+- GitHub release;
+- release catalog;
+- Play-Racer.cmd verification;
+- disposable build cleanup.
+
+Do not ask Dan to perform actions that can be completed automatically.
+
+If external authentication genuinely requires Dan:
+
+1. preserve completed work;
+2. explain exactly what Dan must do;
+3. wait;
+4. resume the SAME task afterward.
+
+==================================================
+FINAL REPORT
+==================================================
+
+Keep concise.
+
+Report:
+
+RESTORATION:
+- exact prior commit/version containing the accepted cave-in;
+- obstacle components restored;
+- confirmation it was restored from history rather than newly invented.
+
+CAVE-IN:
+- sight-line cleanup;
+- exterior protrusion cleanup;
+- physical collision;
+- intended opening/difficulty retained.
+
+EDGE ROCKS:
+- wall protrusions removed/repositioned;
+- grounded irregular boulder treatment;
+- collision behavior;
+- forward visibility.
+
+EXTERIOR:
+- confirmation cave still looks embedded in a natural hillside;
+- no visible tunnel-shell regression.
+
+TESTING:
+- motorcycle obstacle result;
+- ATV obstacle result;
+- edge-rock collision result;
+- Forest Forward rival AI result.
+
+DELIVERY:
+- TODO/docs;
+- commit/push;
+- build/release/version;
+- Play-Racer.cmd;
+- cleanup.
+
+Then STOP.
+
+Do not perform additional cave, track, shortcut, UI or world redesign.
+
+Wait for Dan's gameplay review.

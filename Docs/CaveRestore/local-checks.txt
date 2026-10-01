@@ -1,0 +1,57 @@
+PASS Wall-side fallen slab exact visible collision
+PASS Central fractured boulder exact visible collision
+PASS Opening-side fallen stone exact visible collision
+PASS Broken rear slab exact visible collision
+PASS Grounded cave edge boulder 35 exact visible collision
+PASS Grounded cave edge boulder 6 exact visible collision
+PASS Grounded cave edge boulder 1 exact visible collision
+PASS Grounded cave edge boulder 10 exact visible collision
+PASS Grounded cave edge boulder 36 exact visible collision
+PASS Grounded cave edge boulder 27 exact visible collision
+PASS Grounded cave edge boulder 40 exact visible collision
+PASS Grounded cave edge boulder 25 exact visible collision
+PASS Grounded cave edge boulder 16 exact visible collision
+PASS Grounded cave edge boulder 13 exact visible collision
+PASS Grounded cave edge boulder 14 exact visible collision
+PASS Grounded cave edge boulder 7 exact visible collision
+PASS Grounded cave edge boulder 41 exact visible collision
+PASS Grounded cave edge boulder 11 exact visible collision
+PASS Grounded cave edge boulder 5 exact visible collision
+PASS Grounded cave edge boulder 20 exact visible collision
+PASS Grounded cave edge boulder 21 exact visible collision
+PASS Grounded cave edge boulder 22 exact visible collision
+PASS Grounded cave edge boulder 15 exact visible collision
+PASS Grounded cave edge boulder 17 exact visible collision
+PASS Grounded cave edge boulder 37 exact visible collision
+PASS Grounded cave edge boulder 23 exact visible collision
+PASS Grounded cave edge boulder 18 exact visible collision
+PASS Grounded cave edge boulder 26 exact visible collision
+PASS Grounded cave edge boulder 44 exact visible collision
+PASS Grounded cave edge boulder 33 exact visible collision
+PASS Grounded cave edge boulder 38 exact visible collision
+PASS Grounded cave edge boulder 32 exact visible collision
+PASS Grounded cave edge boulder 12 exact visible collision
+PASS Grounded cave edge boulder 19 exact visible collision
+PASS Grounded cave edge boulder 28 exact visible collision
+PASS Grounded cave edge boulder 0 exact visible collision
+PASS Grounded cave edge boulder 30 exact visible collision
+PASS Grounded cave edge boulder 9 exact visible collision
+PASS Grounded cave edge boulder 8 exact visible collision
+PASS Grounded cave edge boulder 29 exact visible collision
+PASS Grounded cave edge boulder 4 exact visible collision
+PASS Grounded cave edge boulder 43 exact visible collision
+PASS Grounded cave edge boulder 34 exact visible collision
+PASS Grounded cave edge boulder 39 exact visible collision
+PASS Grounded cave edge boulder 2 exact visible collision
+PASS Grounded cave edge boulder 24 exact visible collision
+PASS Grounded cave edge boulder 3 exact visible collision
+PASS Grounded cave edge boulder 42 exact visible collision
+PASS Grounded cave edge boulder 31 exact visible collision
+PASS Rock exterior containment vertices=6468 exposed=0
+PASS No former eye-line wall slabs remain
+PASS Grounded edge boulders=45 unsupported=0
+PASS Visible right passage from station 180
+PASS Visible right passage from station 192
+PASS Visible right passage from station 200
+PASS ATV safe-line envelope contacts with edge rocks=0
+PASS Existing rockfall recovery exclusion retained
