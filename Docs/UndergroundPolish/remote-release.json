@@ -1,0 +1,23 @@
+{
+  "tag_name": "game-56000",
+  "html_url": "https://github.com/danemoll-jpg/woodstock-rush-releases/releases/tag/game-56000",
+  "draft": false,
+  "published_at": "2026-10-01T04:34:26Z",
+  "assets": [
+    {
+      "name": "game-manifest.json",
+      "size": 47193,
+      "digest": "sha256:01b63a214bec0df518f6d33405dc14d6cb6d88805e8b54b782c79a2ba7ebcfe7"
+    },
+    {
+      "name": "game.zip",
+      "size": 363020591,
+      "digest": "sha256:329dcd230525d2626fe9f79c8750aa4f7fcc5c7dbceb840d8b35966978848f31"
+    },
+    {
+      "name": "update-catalog.json",
+      "size": 993,
+      "digest": "sha256:f1f3b62cd7a66b30ae0b8fa336ffdb7c7b39c63ac467ded48e7ab2b8687c7464"
+    }
+  ]
+}
