@@ -1,0 +1,107 @@
+DansBackyardReverse
+ROUTE Storm Drain / Gully Jump Storm Drain / Gully Jump length=268.8557 width=3.8 underground=14.44738-176.6548 ai=True
+ROUTE Abandoned Logging Ridge Abandoned Logging Ridge length=131.9259 width=2.4 underground=0-0 ai=True
+OBJECT Tail lamps path=Phase 8 car visuals pos=(473.62, 77.81, 26.90) bounds=Center: (473.76, 77.98, 25.05), Extents: (0.76, 0.07, 0.08) material=Car red lamps
+OBJECT Trail sign post path=KYLE'S WOODED DRIVE
+LAKE / MOUNTAIN TRAILS pos=(463.33, 86.79, -22.89) bounds=Center: (463.33, 86.79, -22.89), Extents: (0.08, 1.30, 0.08) material=Weathered timber
+OBJECT Grounded roadside chain-link path=CR097 supported properties and camp pos=(462.04, 81.35, -1.20) bounds=Center: (461.98, 82.34, -2.19), Extents: (0.13, 1.04, 1.06) material=Fence galvanized
+OBJECT Direction lettering path=KYLE'S WOODED DRIVE
+LAKE / MOUNTAIN TRAILS pos=(463.33, 87.84, -22.79) bounds=Center: (463.33, 87.84, -22.79), Extents: (2.64, 0.48, 0.04) material=letters-74
+OBJECT Grounded roadside chain-link path=CR097 supported properties and camp pos=(462.84, 78.52, 14.21) bounds=Center: (462.81, 79.96, 13.27), Extents: (0.10, 1.17, 1.01) material=Fence galvanized
+OBJECT Grounded roadside chain-link path=CR097 supported properties and camp pos=(461.70, 82.48, -7.19) bounds=Center: (461.64, 83.48, -8.20), Extents: (0.12, 1.05, 1.08) material=Fence galvanized
+OBJECT Grounded roadside chain-link path=CR097 supported properties and camp pos=(462.90, 77.96, 17.81) bounds=Center: (462.89, 78.90, 16.89), Extents: (0.08, 0.99, 0.99) material=Fence galvanized
+OBJECT Grounded roadside chain-link path=CR097 supported properties and camp pos=(462.78, 78.83, 12.33) bounds=Center: (462.74, 80.39, 11.38), Extents: (0.11, 0.96, 1.02) material=Fence galvanized
+OBJECT Cube path=FENCE LINE SMASH
+3 / 6 / 10 PROPS IN 8 s pos=(462.53, 88.95, -28.50) bounds=Center: (462.53, 88.95, -28.50), Extents: (3.50, 0.80, 0.29) material=Phase4Ramp
+OBJECT Timber post path=Mailbox - Dan - blue X pos=(466.30, 81.04, 2.00) bounds=Center: (466.30, 81.04, 2.00), Extents: (0.07, 0.65, 0.07) material=Door timber
+OBJECT Grounded roadside chain-link path=CR097 supported properties and camp pos=(461.31, 84.70, -19.43) bounds=Center: (461.31, 85.67, -20.48), Extents: (0.07, 1.02, 1.12) material=Fence galvanized
+OBJECT Cap path=Mailbox - Dan - blue X pos=(466.30, 81.87, 2.00) bounds=Center: (466.30, 81.87, 2.00), Extents: (0.39, 0.04, 0.27) material=Charcoal roof
+OBJECT Grounded wood crossbuck path=CR097 supported properties and camp pos=(445.20, 78.47, 14.68) bounds=Center: (443.73, 80.05, 14.76), Extents: (1.54, 0.90, 0.15) material=Fence white wood
+OBJECT Cube path=FENCE LINE SMASH
+3 / 6 / 10 PROPS IN 8 s pos=(462.53, 87.55, -28.58) bounds=Center: (462.53, 87.55, -28.58), Extents: (0.10, 1.40, 0.10) material=Phase4Ramp
+OBJECT Grounded roadside chain-link path=CR097 supported properties and camp pos=(461.51, 83.24, -11.17) bounds=Center: (461.47, 84.23, -12.19), Extents: (0.11, 1.04, 1.09) material=Fence galvanized
+OBJECT Reverse teal ground arrow path=Backyard Reverse main route pos=(452.93, 80.25, 8.22) bounds=Center: (452.93, 80.29, 8.22), Extents: (1.72, 0.15, 0.71) material=CR117 main teal
+OBJECT Grounded roadside chain-link path=CR097 supported properties and camp pos=(462.88, 78.24, 15.96) bounds=Center: (462.86, 79.35, 15.09), Extents: (0.09, 1.15, 0.95) material=Fence galvanized
+OBJECT Placeholder wheel path=PrototypeCar pos=(474.66, 77.61, 25.67) bounds=Center: (474.66, 77.61, 25.67), Extents: (0.18, 0.33, 0.34) material=PrototypeRubber
+OBJECT Supported culvert mouth pier path=Reverse optional forest shortcuts pos=(168.86, 66.27, 68.45) bounds=Center: (168.86, 66.27, 68.45), Extents: (0.60, 3.25, 0.53) material=Damp layered concrete
+OBJECT Grounded wood crossbuck path=CR097 supported properties and camp pos=(459.89, 78.41, 13.92) bounds=Center: (458.42, 79.71, 13.99), Extents: (1.54, 0.86, 0.15) material=Fence white wood
+OBJECT Grounded wood crossbuck path=CR097 supported properties and camp pos=(462.82, 78.59, 13.76) bounds=Center: (461.36, 79.77, 13.84), Extents: (1.54, 0.91, 0.15) material=Fence white wood
+OBJECT Grounded roadside chain-link path=CR097 supported properties and camp pos=(461.43, 83.62, -13.21) bounds=Center: (461.40, 84.60, -14.24), Extents: (0.10, 1.03, 1.10) material=Fence galvanized
+OBJECT Grounded roadside chain-link path=CR097 supported properties and camp pos=(462.89, 77.72, 19.64) bounds=Center: (462.90, 78.64, 18.73), Extents: (0.07, 0.97, 0.99) material=Fence galvanized
+OBJECT Grounded roadside chain-link path=CR097 supported properties and camp pos=(461.37, 83.99, -15.27) bounds=Center: (461.35, 84.97, -16.31), Extents: (0.09, 1.03, 1.11) material=Fence galvanized
+OBJECT Main teal / reassurance path=Route atlas direction guidance pos=(0.00, 0.00, 0.00) bounds=Center: (472.79, 82.41, -5.80), Extents: (1.50, 0.59, 3.01) material=CR117 main teal
+OBJECT Buried gully mouth lining path=Reverse optional forest shortcuts pos=(114.30, 35.68, -59.35) bounds=Center: (114.30, 35.68, -59.35), Extents: (0.25, 5.00, 2.25) material=Damp layered concrete
+OBJECT Grounded roadside chain-link path=CR097 supported properties and camp pos=(461.33, 84.35, -17.34) bounds=Center: (461.32, 85.32, -18.39), Extents: (0.08, 1.03, 1.11) material=Fence galvanized
+OBJECT Mounted direction lettering path=FENCE LINE SMASH
+3 / 6 / 10 PROPS IN 8 s pos=(462.52, 88.95, -28.41) bounds=Center: (462.52, 88.95, -28.41), Extents: (2.22, 0.47, 0.14) material=letters-73
+OBJECT Culvert mouth lintel path=Reverse optional forest shortcuts pos=(114.30, 37.08, -66.10) bounds=Center: (114.30, 37.08, -66.10), Extents: (1.67, 0.35, 5.33) material=Damp layered concrete
+OBJECT Trail sign board path=KYLE'S WOODED DRIVE
+LAKE / MOUNTAIN TRAILS pos=(463.33, 87.84, -22.89) bounds=Center: (463.33, 87.84, -22.89), Extents: (3.13, 0.77, 0.13) material=Weathered timber
+OBJECT Grounded wood crossbuck path=CR097 supported properties and camp pos=(451.08, 78.38, 14.38) bounds=Center: (449.61, 79.86, 14.45), Extents: (1.54, 0.89, 0.15) material=Fence white wood
+OBJECT Supported culvert mouth pier path=Reverse optional forest shortcuts pos=(164.74, 66.27, 77.55) bounds=Center: (164.74, 66.27, 77.55), Extents: (0.60, 3.25, 0.53) material=Damp layered concrete
+OBJECT Culvert mouth lintel path=Reverse optional forest shortcuts pos=(166.80, 69.67, 73.00) bounds=Center: (166.80, 69.67, 73.00), Extents: (2.66, 0.35, 5.08) material=Damp layered concrete
+OBJECT Ivory door path=Mailbox - Dan - blue X pos=(466.67, 81.64, 2.02) bounds=Center: (466.67, 81.64, 2.02), Extents: (0.03, 0.16, 0.20) material=Ivory trim
+OBJECT Grounded roadside chain-link path=CR097 supported properties and camp pos=(461.50, 86.00, -27.93) bounds=Center: (461.56, 86.94, -29.01), Extents: (0.13, 0.99, 1.15) material=Fence galvanized
+OBJECT Grounded roadside chain-link path=CR097 supported properties and camp pos=(461.34, 85.37, -23.65) bounds=Center: (461.37, 86.34, -24.72), Extents: (0.10, 1.01, 1.14) material=Fence galvanized
+OBJECT Supported culvert mouth pier path=Reverse optional forest shortcuts pos=(113.20, 33.68, -61.22) bounds=Center: (113.20, 33.68, -61.22), Extents: (0.56, 3.25, 0.45) material=Damp layered concrete
+OBJECT Small flag path=Mailbox - Dan - blue X pos=(466.31, 81.82, 1.74) bounds=Center: (466.31, 81.82, 1.74), Extents: (0.09, 0.09, 0.02) material=Diner red
+OBJECT Grounded roadside chain-link path=CR097 supported properties and camp pos=(461.31, 85.04, -21.53) bounds=Center: (461.33, 86.01, -22.59), Extents: (0.09, 1.02, 1.13) material=Fence galvanized
+OBJECT Grounded roadside chain-link path=CR097 supported properties and camp pos=(461.59, 82.87, -9.21) bounds=Center: (461.55, 83.86, -10.19), Extents: (0.11, 1.03, 1.05) material=Fence galvanized
+OBJECT Reverse teal ground arrow path=Backyard Reverse main route pos=(473.90, 78.15, 18.12) bounds=Center: (473.90, 78.19, 18.12), Extents: (0.65, 0.22, 1.70) material=CR117 main teal
+OBJECT Grounded roadside chain-link path=CR097 supported properties and camp pos=(461.92, 81.74, -3.18) bounds=Center: (461.86, 82.72, -4.18), Extents: (0.13, 1.04, 1.07) material=Fence galvanized
+OBJECT Grounded roadside chain-link path=CR097 supported properties and camp pos=(461.40, 85.70, -25.78) bounds=Center: (461.45, 86.65, -26.86), Extents: (0.12, 1.00, 1.14) material=Fence galvanized
+OBJECT Exit upper lintel path=Fox Gully drive-through house (former 44 -451) pos=(25.38, 36.39, -463.98) bounds=Center: (25.38, 36.39, -463.98), Extents: (7.73, 0.30, 6.73) material=Gully ivory
+OBJECT Grounded roadside chain-link path=CR097 supported properties and camp pos=(461.81, 82.11, -5.17) bounds=Center: (461.75, 83.10, -6.18), Extents: (0.13, 1.04, 1.08) material=Fence galvanized
+OBJECT Buried gully mouth lining path=Reverse optional forest shortcuts pos=(114.30, 35.68, -72.85) bounds=Center: (114.30, 35.68, -72.85), Extents: (0.25, 5.00, 2.25) material=Damp layered concrete
+OBJECT Buried gully mouth crown lining path=Reverse optional forest shortcuts pos=(114.30, 38.78, -66.10) bounds=Center: (114.30, 38.78, -66.10), Extents: (0.25, 2.00, 4.50) material=Damp layered concrete
+OBJECT Grounded wood crossbuck path=CR097 supported properties and camp pos=(448.14, 78.41, 14.53) bounds=Center: (446.67, 79.95, 14.61), Extents: (1.54, 0.90, 0.15) material=Fence white wood
+OBJECT Grounded roadside chain-link path=CR097 supported properties and camp pos=(462.17, 80.96, 0.77) bounds=Center: (462.10, 81.83, -0.21), Extents: (0.13, 1.17, 1.05) material=Fence galvanized
+OBJECT Grounded wood crossbuck path=CR097 supported properties and camp pos=(454.01, 78.35, 14.22) bounds=Center: (452.54, 79.78, 14.30), Extents: (1.54, 0.88, 0.15) material=Fence white wood
+OBJECT Slate mailbox path=Mailbox - Dan - blue X pos=(466.30, 81.64, 2.00) bounds=Center: (466.30, 81.64, 2.00), Extents: (0.37, 0.21, 0.26) material=Slate blue siding
+OBJECT Grounded wood crossbuck path=CR097 supported properties and camp pos=(442.26, 78.54, 14.84) bounds=Center: (440.80, 80.15, 14.91), Extents: (1.54, 0.90, 0.15) material=Fence white wood
+OBJECT Placeholder wheel path=PrototypeCar pos=(472.77, 77.61, 25.54) bounds=Center: (472.77, 77.61, 25.54), Extents: (0.18, 0.33, 0.34) material=PrototypeRubber
+OBJECT Grounded wood crossbuck path=CR097 supported properties and camp pos=(456.95, 78.35, 14.07) bounds=Center: (455.48, 79.73, 14.15), Extents: (1.54, 0.87, 0.15) material=Fence white wood
+OBJECT Supported culvert mouth pier path=Reverse optional forest shortcuts pos=(115.40, 33.68, -70.98) bounds=Center: (115.40, 33.68, -70.98), Extents: (0.56, 3.25, 0.45) material=Damp layered concrete
+ForestLoopReverse
+ROUTE Fern Gully Fern Gully length=506.1991 width=3.7 underground=0-0 ai=True
+ROUTE House 3 Detour McFadden Cut length=483.7179 width=3.6 underground=0-0 ai=True
+OBJECT Cave rock buttress path=CR056 Forest Loop pos=(124.43, 47.84, 235.26) bounds=Center: (124.43, 47.84, 235.26), Extents: (2.50, 4.50, 3.00) material=Cave granite
+OBJECT Cave rock buttress path=CR056 Forest Loop pos=(-36.06, 25.89, -52.67) bounds=Center: (-36.06, 25.89, -52.67), Extents: (2.50, 4.50, 3.00) material=Cave granite
+OBJECT Cave rock buttress path=CR056 Forest Loop pos=(65.60, 39.51, 116.43) bounds=Center: (65.60, 39.51, 116.43), Extents: (2.50, 4.50, 3.00) material=Cave granite
+OBJECT Cave rock buttress path=CR056 Forest Loop pos=(-23.93, 25.89, -59.66) bounds=Center: (-23.93, 25.89, -59.66), Extents: (2.50, 4.50, 3.00) material=Cave granite
+OBJECT Cave rock buttress path=CR056 Forest Loop pos=(112.67, 46.42, 216.43) bounds=Center: (112.67, 46.42, 216.43), Extents: (2.50, 4.50, 3.00) material=Cave granite
+OBJECT Cave rock buttress path=CR056 Forest Loop pos=(90.88, 43.61, 177.52) bounds=Center: (90.88, 43.61, 177.52), Extents: (2.50, 4.50, 3.00) material=Cave granite
+OBJECT Cave rock buttress path=CR056 Forest Loop pos=(-41.86, 26.59, -97.38) bounds=Center: (-41.86, 26.59, -97.38), Extents: (2.50, 4.50, 3.00) material=Cave granite
+OBJECT Cave rock buttress path=CR056 Forest Loop pos=(10.43, 32.35, -3.65) bounds=Center: (10.43, 32.35, -3.65), Extents: (2.50, 4.50, 3.00) material=Cave granite
+OBJECT Cave rock buttress path=CR056 Forest Loop pos=(22.21, 33.31, 14.91) bounds=Center: (22.21, 33.31, 14.91), Extents: (2.50, 4.50, 3.00) material=Cave granite
+OBJECT Cave rock buttress path=CR056 Forest Loop pos=(78.28, 39.51, 110.50) bounds=Center: (78.28, 39.51, 110.50), Extents: (2.50, 4.50, 3.00) material=Cave granite
+OBJECT Cave warning lettering path=Cave warning sign pos=(154.81, 49.23, 285.37) bounds=Center: (154.81, 49.23, 285.37), Extents: (3.34, 1.04, 3.33) material=letters-42
+OBJECT Cave rock buttress path=CR056 Forest Loop pos=(68.23, 38.24, 90.50) bounds=Center: (68.23, 38.24, 90.50), Extents: (2.50, 4.50, 3.00) material=Cave granite
+OBJECT Cave rock buttress path=CR056 Forest Loop pos=(113.66, 45.00, 190.37) bounds=Center: (113.66, 45.00, 190.37), Extents: (2.50, 4.50, 3.00) material=Cave granite
+OBJECT Cave rock buttress path=CR056 Forest Loop pos=(22.16, 34.53, 40.99) bounds=Center: (22.16, 34.53, 40.99), Extents: (2.50, 4.50, 3.00) material=Cave granite
+OBJECT Cave rock buttress path=CR056 Forest Loop pos=(-55.52, 26.59, -94.33) bounds=Center: (-55.52, 26.59, -94.33), Extents: (2.50, 4.50, 3.00) material=Cave granite
+OBJECT Cave rock buttress path=CR056 Forest Loop pos=(-46.79, 26.81, -72.31) bounds=Center: (-46.79, 26.81, -72.31), Extents: (2.50, 4.50, 3.00) material=Cave granite
+OBJECT Cave rock buttress path=CR056 Forest Loop pos=(101.47, 45.00, 197.26) bounds=Center: (101.47, 45.00, 197.26), Extents: (2.50, 4.50, 3.00) material=Cave granite
+OBJECT Cave rock buttress path=CR056 Forest Loop pos=(-13.14, 30.01, -14.82) bounds=Center: (-13.14, 30.01, -14.82), Extents: (2.50, 4.50, 3.00) material=Cave granite
+OBJECT Cave rock buttress path=CR056 Forest Loop pos=(103.44, 43.61, 171.34) bounds=Center: (103.44, 43.61, 171.34), Extents: (2.50, 4.50, 3.00) material=Cave granite
+OBJECT Cave rock buttress path=CR056 Forest Loop pos=(95.00, 42.21, 151.71) bounds=Center: (95.00, 42.21, 151.71), Extents: (2.50, 4.50, 3.00) material=Cave granite
+OBJECT Cave rock buttress path=CR056 Forest Loop pos=(148.30, 49.24, 245.73) bounds=Center: (148.30, 49.24, 245.73), Extents: (2.50, 4.50, 3.00) material=Cave granite
+OBJECT Cave rock buttress path=CR056 Forest Loop pos=(-1.27, 30.01, -22.24) bounds=Center: (-1.27, 30.01, -22.24), Extents: (2.50, 4.50, 3.00) material=Cave granite
+OBJECT Cave rock buttress path=CR056 Forest Loop pos=(-1.40, 32.35, 3.83) bounds=Center: (-1.40, 32.35, 3.83), Extents: (2.50, 4.50, 3.00) material=Cave granite
+OBJECT Cave rock buttress path=CR056 Forest Loop pos=(-34.30, 26.81, -78.63) bounds=Center: (-34.30, 26.81, -78.63), Extents: (2.50, 4.50, 3.00) material=Cave granite
+OBJECT Cave rock buttress path=CR056 Forest Loop pos=(45.19, 37.00, 78.26) bounds=Center: (45.19, 37.00, 78.26), Extents: (2.50, 4.50, 3.00) material=Cave granite
+OBJECT Cave rock buttress path=CR056 Forest Loop pos=(161.18, 50.51, 262.78) bounds=Center: (161.18, 50.51, 262.78), Extents: (2.50, 4.50, 3.00) material=Cave granite
+OBJECT Cave rock buttress path=CR056 Forest Loop pos=(136.20, 47.84, 227.67) bounds=Center: (136.20, 47.84, 227.67), Extents: (2.50, 4.50, 3.00) material=Cave granite
+OBJECT Cave rock buttress path=CR056 Forest Loop pos=(57.22, 37.00, 71.10) bounds=Center: (57.22, 37.00, 71.10), Extents: (2.50, 4.50, 3.00) material=Cave granite
+OBJECT Cave rock buttress path=CR056 Forest Loop pos=(81.93, 42.21, 156.75) bounds=Center: (81.93, 42.21, 156.75), Extents: (2.50, 4.50, 3.00) material=Cave granite
+OBJECT Cave rock buttress path=CR056 Forest Loop pos=(136.83, 49.24, 253.76) bounds=Center: (136.83, 49.24, 253.76), Extents: (2.50, 4.50, 3.00) material=Cave granite
+OBJECT Cave rock buttress path=CR056 Forest Loop pos=(150.46, 50.51, 271.79) bounds=Center: (150.46, 50.51, 271.79), Extents: (2.50, 4.50, 3.00) material=Cave granite
+OBJECT Cave rock buttress path=CR056 Forest Loop pos=(34.00, 34.53, 33.51) bounds=Center: (34.00, 34.53, 33.51), Extents: (2.50, 4.50, 3.00) material=Cave granite
+OBJECT Cave rock buttress path=CR056 Forest Loop pos=(-24.74, 25.15, -33.61) bounds=Center: (-24.74, 25.15, -33.61), Extents: (2.50, 4.50, 3.00) material=Cave granite
+OBJECT Cave rock buttress path=CR056 Forest Loop pos=(55.90, 38.24, 97.12) bounds=Center: (55.90, 38.24, 97.12), Extents: (2.50, 4.50, 3.00) material=Cave granite
+OBJECT Cave rock buttress path=CR056 Forest Loop pos=(-12.78, 25.15, -40.89) bounds=Center: (-12.78, 25.15, -40.89), Extents: (2.50, 4.50, 3.00) material=Cave granite
+OBJECT Cave rock buttress path=CR056 Forest Loop pos=(74.12, 40.83, 136.26) bounds=Center: (74.12, 40.83, 136.26), Extents: (2.50, 4.50, 3.00) material=Cave granite
+OBJECT Cave rock buttress path=CR056 Forest Loop pos=(124.65, 46.42, 209.19) bounds=Center: (124.65, 46.42, 209.19), Extents: (2.50, 4.50, 3.00) material=Cave granite
+OBJECT Cave rock buttress path=CR056 Forest Loop pos=(10.39, 33.31, 22.42) bounds=Center: (10.39, 33.31, 22.42), Extents: (2.50, 4.50, 3.00) material=Cave granite
+OBJECT Cave rock buttress path=CR056 Forest Loop pos=(87.13, 40.83, 131.09) bounds=Center: (87.13, 40.83, 131.09), Extents: (2.50, 4.50, 3.00) material=Cave granite
+OBJECT Echo Cave enclosed rock path=CR056 Forest Loop pos=(0.00, 0.00, 0.00) bounds=Center: (52.96, 42.15, 86.77), Extents: (108.21, 19.80, 185.02) material=Cave granite

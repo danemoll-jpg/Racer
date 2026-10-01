@@ -1,0 +1,4 @@
+FAIL Fern Gully: existing probabilistic AI selection reaches this branch
+PASS AI-moto-Fern-Gully: entered=True; completed=True; station=310.5/506.2; air=0.00s; lateralMax=0.04; resets=0; AI recoveries=0
+FAIL Fern Gully: existing probabilistic AI selection reaches this branch
+PASS AI-atv-Fern-Gully: entered=True; completed=True; station=310.4/506.2; air=0.00s; lateralMax=0.04; resets=0; AI recoveries=0

@@ -1,0 +1,3 @@
+Removed Main teal / reassurance at bounds (472.79, 82.41, -5.80) (atlas mesh stored at world origin)
+Drain: entrance ceiling/lintel +0.9m taper over 28m, piers extended with bases preserved; floor vertices unchanged. Four non-colliding rats and local audio; 300+ edge details; restrained lights; grounded sign.
+Forest cave route preserved: Fern Gully, decoration span 208.4-506.2; no detail colliders, daylight ends, natural stone/roots/dampness and three sparse localized drip sources.

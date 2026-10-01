@@ -62,6 +62,15 @@ namespace Racer
         float[] forestLipStations;
         bool UnsafeJump(Vector3 p)
         {
+            // Consume route flight metadata, including newly authored shortcuts;
+            // a curved Ground_ takeoff must not depend on a legacy object name.
+            foreach(var route in race.Branches??Array.Empty<WoodlandRoute>()){
+                var guide=route.GetComponent<ReverseShortcutGuidance>();
+                if(!guide||guide.takeoff<0)continue;
+                float s=route.Project(p,out float lateral);var floor=route.At(s,out _);
+                if(lateral<route.halfWidth+1&&Mathf.Abs(p.y-floor.y)<3
+                    &&s>=guide.takeoff-32&&s<=guide.landing+6)return true;
+            }
             jumpExclusions ??= FindObjectsByType<JumpRecoveryExclusion>();
             foreach(var zone in jumpExclusions)if(zone&&zone.Contains(p))return true;
             legacyLaunchSurfaces ??= FindObjectsByType<Collider>().Where(c=>c.name.StartsWith("Takeoff -")||c.name.StartsWith("Gully supported ramp")||c.name=="Reverse supported roadworks transition").ToArray();
@@ -78,7 +87,7 @@ namespace Racer
                 if(Vector3.ProjectOnPlane(p-route,Vector3.up).magnitude>width+1||Mathf.Abs(p.y-route.y)>3)continue;
                 float side=Vector3.Dot(p-route,Vector3.Cross(Vector3.up,forward));
                 // Keep sufficient run-up for a real launch on this driving line.
-                for(float d=3;d<=(PlayerRecovery?vehicle.wheelbase+2:35);d+=4){
+                for(float d=3;d<=(PlayerRecovery?22:35);d+=4){
                     var ahead=branch?branch.At(station+d,out var f):race.road.At(station+d,out f);
                     f=Vector3.ProjectOnPlane(f,Vector3.up).normalized;
                     ahead+=Vector3.Cross(Vector3.up,f)*side;
@@ -90,7 +99,7 @@ namespace Racer
                 var axis=Vector3.ProjectOnPlane(flight.forward,Vector3.up).normalized;
                 var q=p-flight.start;float along=Vector3.Dot(q,axis);
                 float lip=Vector3.Dot(flight.lip-flight.start,axis);
-                if(along>=-(PlayerRecovery?vehicle.wheelbase+2:60)&&along<=lip+3&&Mathf.Abs(Vector3.Dot(q,Vector3.Cross(Vector3.up,axis)))<30&&p.y>=Mathf.Min(flight.start.y,flight.lip.y)-6&&p.y<=Mathf.Max(flight.start.y,flight.lip.y)+6)return true;
+                if(along>=-(PlayerRecovery?22:60)&&along<=lip+3&&Mathf.Abs(Vector3.Dot(q,Vector3.Cross(Vector3.up,axis)))<30&&p.y>=Mathf.Min(flight.start.y,flight.lip.y)-6&&p.y<=Mathf.Max(flight.start.y,flight.lip.y)+6)return true;
             }
             // Forest jump windows also include their long landing runouts. Find
             // each authored drop, rather than excluding that whole post-jump road.
@@ -107,7 +116,7 @@ namespace Racer
                     }
                     float station=race.road.Project(p,out float distance);
                     if(distance<race.road.HalfWidth(station)+1)for(int i=0;i<forestLipStations.Length;i++)
-                        if(station>=forestLayout.jumpStarts[i]-(PlayerRecovery?vehicle.wheelbase+2:35)&&station<=forestLipStations[i]+2)return true;
+                        if(station>=forestLayout.jumpStarts[i]-(PlayerRecovery?22:35)&&station<=forestLipStations[i]+2)return true;
                 }
             }
             return false;
@@ -250,6 +259,7 @@ namespace Racer
                 foreach(float side in sides)
                 {
                     var candidate=point+Vector3.Cross(Vector3.up,forward)*side;
+                    if(UnsafeJump(candidate)){reason="launch or landing exclusion";continue;}
                     if(!Supported(candidate,forward,out var position,out var rotation)){reason="unsupported footprint";continue;}
                     if(!Clear(position,rotation)){reason="obstacle or vehicle clearance";continue;}
                     if(Mathf.Abs(position.y-point.y)>5){reason="support outside route height";continue;}
@@ -304,23 +314,29 @@ namespace Racer
         {
             position=candidate; rotation=Quaternion.LookRotation(forward);
             Vector3 normal=Vector3.zero; float top=float.MinValue, low=float.MaxValue;
+            var contacts=new List<Vector3>();
             foreach(var local in vehicle.suspensionPoints)
             {
-                var origin=candidate+rotation*local+Vector3.up*14;
+                var origin=candidate+rotation*local+Vector3.up*2;
                 // Select the upper supported driving surface, never the terrain under
                 // a ramp. Cave ceilings are not driving surfaces; body clearance below
                 // them is checked separately with the complete vehicle bounds.
-                var supportHits=Physics.RaycastAll(origin,Vector3.down,30,vehicle.groundMask,QueryTriggerInteraction.Ignore)
-                    .Where(h=>!h.rigidbody&&h.normal.y>=.65f&&IsCourseSupport(h.collider.name)).OrderBy(h=>h.distance).ToArray();
+                var supportHits=Physics.RaycastAll(origin,Vector3.down,4,vehicle.groundMask,QueryTriggerInteraction.Ignore)
+                    .Where(h=>!h.rigidbody&&h.normal.y>=.82f&&IsCourseSupport(h.collider.name)).OrderBy(h=>Mathf.Abs(h.point.y-candidate.y)).ToArray();
                 if(supportHits.Length==0)return false;var hit=supportHits[0];
                 foreach(var water in ShallowWater.Active)
-                    if(water&&water.gameObject.scene==gameObject.scene&&water.Contains(hit.point)&&hit.point.y<water.Surface+.1f)return false;
+                    if(water&&water.gameObject.scene==gameObject.scene&&water.Contains(hit.point)&&water.Surface-hit.point.y>.18f)return false;
+                contacts.Add(hit.point);
                 normal+=hit.normal; top=Mathf.Max(top,hit.point.y); low=Mathf.Min(low,hit.point.y);
             }
             normal.Normalize();
-            if(top-low>vehicle.wheelbase*.8f) return false;
+            if(top-low>vehicle.wheelbase*.65f) return false;
             rotation=Quaternion.LookRotation(Vector3.ProjectOnPlane(forward,normal),normal);
-            position.y=top+Mathf.Max(vehicle.suspensionLength-.12f,box.size.y*.5f-box.center.y+.12f);
+            // Fit the support plane at chassis centre. The highest wheel on a
+            // slope inflated the old spawn pose and prevented fresh anchors.
+            float centreY=contacts.Average(p=>p.y+(normal.x*(p.x-candidate.x)+normal.z*(p.z-candidate.z))/normal.y);
+            if(contacts.Any(p=>Mathf.Abs(Vector3.Dot(p-new Vector3(candidate.x,centreY,candidate.z),normal))>.22f))return false;
+            position.y=centreY+Mathf.Max(vehicle.suspensionLength-.12f,box.size.y*.5f-box.center.y+.12f)/normal.y;
             return true;
         }
         static bool IsCourseSupport(string support)=>support.StartsWith("Ground_")||support.StartsWith("Takeoff -")||support.StartsWith("Landing -")||support.StartsWith("Gully supported ramp")||support.StartsWith("Decorative Road pavement")||support=="Reverse supported roadworks transition"||support=="Reverse flush west pavement apron";

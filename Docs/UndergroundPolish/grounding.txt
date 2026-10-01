@@ -1,0 +1,2 @@
+Sign moved before checkpoint upright and post resampled; 18 cave stones seated by renderer base on final terrain. No terrain, trees, routes or collision changed.
+Logging sign: station=8, side=6, main-road lateral=10.97, main half-width=3.60; board outside both racing corridors, post base=(389.88, 80.32, 88.52)

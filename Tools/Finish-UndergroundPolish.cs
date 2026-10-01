@@ -1,0 +1,17 @@
+using System;using System.IO;using System.Linq;using System.Collections.Generic;using UnityEngine;using UnityEditor;using UnityEditor.SceneManagement;using Racer;using Object=UnityEngine.Object;
+public static class FinishUndergroundPolish {
+ public static string Main(){
+ EditorSceneManager.OpenScene("Assets/Scenes/ForestLoopReverse.unity");Physics.SyncTransforms();var root=GameObject.Find("Forest Reverse natural cave atmosphere").transform;var shell=GameObject.Find("Echo Cave enclosed rock").GetComponent<MeshCollider>();var b=Object.FindObjectsByType<WoodlandRoute>().Single(b=>b.title=="Fern Gully");
+ bool Covered(Vector3 p)=>shell.Raycast(new Ray(p+Vector3.up*2,Vector3.up),out _,30);
+ var stations=new List<float>();for(float s=0;s<b.Length;s+=.5f)if(Covered(b.At(s,out _)))stations.Add(s);if(stations.Count==0)throw new Exception("No cave coverage found");
+ float begin=stations.Min(),end=stations.Max();int removed=0;foreach(Transform t in root.Cast<Transform>().ToArray())if(!Covered(t.position)&&!t.GetComponent<UndergroundLife>()){Object.DestroyImmediate(t.gameObject);removed++;}
+ foreach(var drip in root.GetComponentsInChildren<UndergroundLife>()){drip.entrance=b.At((begin+end)*.5f,out _)+Vector3.up*2;}
+ foreach(var drip in root.GetComponentsInChildren<UndergroundLife>().Skip(1).ToArray())Object.DestroyImmediate(drip.gameObject);
+ var floorMat=new Material(Shader.Find("Racer/UndergroundSurface")){color=new(.29f,.25f,.19f)};floorMat.SetFloat("_Natural",1);AssetDatabase.CreateAsset(floorMat,"Assets/Track/UndergroundPolish/Cave damp earth.mat");var vertices=new List<Vector3>();var tri=new List<int>();var colors=new List<Color>();
+ for(float s=begin;s<end;s+=.5f){if(!Covered(b.At(s,out _)))continue;int start=vertices.Count;foreach(float ds in new[]{0f,.5f}){var p=b.At(s+ds,out var f);var side=Vector3.Cross(Vector3.up,f).normalized;foreach(int edge in new[]{-1,1}){var at=p+side*edge*3.85f;var hits=Physics.RaycastAll(at+Vector3.up*2,Vector3.down,5,1,QueryTriggerInteraction.Ignore).Where(h=>h.collider.name.StartsWith("Ground_")).OrderBy(h=>Mathf.Abs(h.point.y-at.y)).ToArray();if(hits.Length>0)at.y=hits[0].point.y+.022f;vertices.Add(at);float brightness=Mathf.Lerp(.45f,1,Mathf.Max(1-Mathf.Clamp01((s-begin)/5),1-Mathf.Clamp01((end-s)/5)));colors.Add(new(brightness,brightness,brightness,1));}}tri.AddRange(new[]{start,start+2,start+1,start+1,start+2,start+3});}
+ var mesh=new Mesh();mesh.SetVertices(vertices);mesh.SetColors(colors);mesh.SetTriangles(tri,0);mesh.RecalculateNormals();mesh.RecalculateBounds();AssetDatabase.CreateAsset(mesh,"Assets/Track/UndergroundPolish/Cave damp floor.asset");var g=new GameObject("Cave local damp earth skin",typeof(MeshFilter),typeof(MeshRenderer));g.transform.SetParent(root);g.GetComponent<MeshFilter>().sharedMesh=mesh;g.GetComponent<Renderer>().sharedMaterial=floorMat;
+ foreach(var light in Object.FindObjectsByType<Light>().Where(l=>l.name=="Fern grotto amber light")){light.intensity=.3f;light.range=9;}
+ EditorSceneManager.MarkSceneDirty(root.gameObject.scene);EditorSceneManager.SaveScene(root.gameObject.scene);AssetDatabase.SaveAssets();File.WriteAllText("Docs/UndergroundPolish/cave-span.txt",$"Actual roof-covered Fern Grotto span {begin:F1}-{end:F1}; removed {removed} outdoors detail objects; one localized drip source; no new collision.");
+ EditorSceneManager.OpenScene("Assets/Scenes/DansBackyardReverse.unity");return $"Cave-local span {begin}-{end}";
+ }
+}

@@ -1,0 +1,6 @@
+PASS Entrance central 2m corridor vertical clearance minimum=6.140302 limiting=Long storm culvert walls and ceiling at station 38.44738
+PASS Continuous drain floor vertices/triangles preserved exactly
+PASS All drain clutter, rats and sign have no collision; renderers=363
+PASS Four fixed rats with wall refuges and no spawn loop
+PASS Stray atlas arrow removed; local remaining arrows=Reverse teal ground arrow at (452.93, 80.29, 8.22);Reverse teal ground arrow at (473.90, 78.19, 18.12)
+PASS Natural cave detail adds no collision; renderers=59

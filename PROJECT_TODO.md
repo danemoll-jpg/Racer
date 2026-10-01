@@ -9,7 +9,18 @@
 - Do not silently modify or weaken CODEX_RULES.md. Changes to standing rules require an explicit instruction from Dan.
 - Root AGENTS.md points future Codex tasks to both files.
 
-## Current delivery — Backyard Reverse shortcut correction — 0.55.0-review1
+## Current delivery — Underground polish / recovery — 0.56.0-review1
+
+- Dan's current focused correction supersedes the prior STOP-for-review handoff. Safety checkpoint: clean main `8ab1294278a0708a6e7ab2e4ab5490d5c442eba9`.
+- Removed the stray driveway-exit atlas arrow; adjacent legitimate left-turn guidance retained. No global arrow regeneration or replacement.
+- Storm Drain: entrance ceiling/lintel +0.9m with continuous floor preserved; darker mottled concrete, restrained maintenance lighting, retained shallow water, 363 collision-free atmosphere renderers including edge debris/structure detail, four scurrying rats with brief local squeak/scratch audio. Logging Ridge gets a grounded, readable, one-sided label.
+- Systemic recovery: local-height support queries, fitted support plane, shallow-water allowance, route flight metadata and useful pre-jump acceleration margins replace validators that left anchors stale or permitted ramp-top placement. No penalty/checkpoint redesign. [Standing technical contract](Docs/RECOVERY_TECHNICAL.md).
+- Forest Reverse: darker natural cave, rock/roots/damp-earth/puddle detail and sparse localized drips, confined to existing Fern Grotto roof-covered passage. No route relocation; no added detail collision.
+- Targeted checks complete: motorcycle/ATV production-driver traversals of both Backyard branches and the Forest cave, all zero resets/AI recoveries. Representative recovery cases retain latest usable progress; drain and existing Forest launch exclusion checks pass. Entrance clearance >=6.14m across sampled central corridor, floor mesh identical. No broader testing. [Evidence and fixture limitations](Docs/UndergroundPolish/VALIDATION.md).
+- Six other scenes and protected route/gate/flight data preserved; global physics, scoring, AI driver/strategy, UI/Records/Playlists and music untouched. Local sign/stone/pier dependency checks completed.
+- Delivery in progress: completion source commit/push, fresh 56000 Windows build, signed release/catalog, Latest, real launcher verification and cleanup remain required. Do not treat this implementation entry as published delivery.
+
+## Previous delivery — Backyard Reverse shortcut correction — 0.55.0-review1
 
 - Safety checkpoint: clean `main` at `cad2c3f5c2885bb46c91adc9f7d8b6c6885701b1`. Dan's [correction request](Docs/ReverseCorrection/REQUEST.md) supersedes the historical player-only implementation below.
 - Logging Ridge corrected: up to 9.02m above original ground, natural rolling 4.8m crest/sloped wooded sides, smoother entry climb, small hops, worn wheel paths/grass/edge timber/stumps, slow traversable undergrowth. Approximate original anchors retained. Local 18m/s technical pace; global physics unchanged.
@@ -2505,3 +2516,4 @@ Dan requests actual leading silence in the audio. Ship VoicePadded.wav: exactly 
 One final-package untouched cold-start output capture only; no early-input matrix or general audio investigation. Actual listening is unavailable here, so human audible completeness stays OPEN regardless of sample/state checks. If Dan says this padded attempt still clips, he explicitly authorizes disabling the spoken announcement and removing obsolete voice-only waits/ducking, while retaining artwork and looping theme. Do not fabricate failure or remove solely because listening is unavailable.
 
 Final targeted outcomes: all three one-pass motorcycle segments and four local entitlement fixtures passed in extracted review1. A sign-back visibility obstruction was then corrected; review2 preserves the exact tested gameplay/title assembly and changes only that sign position. Final review2 build: zero errors, three build warnings. All 455 runtime/Latest/extracted ZIP files match SHA-256; muted extracted portable startup passed. 187 playable tracks plus two originals, cover and prior builds preserved. Single audio attempt interrupted; no completed audible-output capture or audible success claim. No repeat audio run. New fixes are local only; public launcher remains build 21002. See Docs/CR121-followup/DELIVERY.md and package-verification.json.
+

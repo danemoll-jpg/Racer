@@ -1,0 +1,2 @@
+Actual roof-covered Fern Grotto span 281.5-294.0; removed 160 outdoors detail objects; one localized drip source; no new collision.
+Added 50 cave-local shoulder/ceiling rocks and roots, all non-colliding and outside central corridor.

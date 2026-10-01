@@ -1,0 +1,1 @@
+FAIL Existing Gully ramp actual inclined surface: 0/18 sampled faces excluded. Earlier AABB-centre probe was not a surface point; flat shared runout is intentionally usable.

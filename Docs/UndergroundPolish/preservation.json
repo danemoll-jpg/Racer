@@ -1,0 +1,37 @@
+{
+  "baseline": "8ab1294278a0708a6e7ab2e4ab5490d5c442eba9",
+  "checks": [
+    "StreetLoopGreybox unchanged",
+    "StreetLoopReverse unchanged",
+    "LakeWoods unchanged",
+    "DansBackyardForward unchanged",
+    "MountainLoop unchanged",
+    "MountainLoopReverse unchanged",
+    "RaceDirector unchanged",
+    "RaceProgress unchanged",
+    "RacerState unchanged",
+    "RaceRoad unchanged",
+    "RacingMiniMap unchanged",
+    "ShortcutStrategy unchanged",
+    "ArcadeVehicle unchanged",
+    "RoadDriver unchanged",
+    "RaceFlow unchanged",
+    "LocalRadio unchanged",
+    "ForestLoopReverse accepted route/gate/flight components unchanged",
+    "DansBackyardReverse accepted route/gate/flight components unchanged"
+  ],
+  "scenes": {
+    "ForestLoopReverse": {
+      "protectedOriginalComponents": 35,
+      "unchangedBlocks": 53067,
+      "removed": []
+    },
+    "DansBackyardReverse": {
+      "protectedOriginalComponents": 23,
+      "unchangedBlocks": 53665,
+      "removed": [
+        "Main teal / reassurance"
+      ]
+    }
+  }
+}
