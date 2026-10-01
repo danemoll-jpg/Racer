@@ -1,0 +1,4 @@
+FAIL moto ridge fall to trail rejoin time=35.00s final=(313.58, 79.91, 123.31); ordinary motor and actual brush resistance
+PASS moto gully undershoot to existing northern shallow exit time=21.54s final=(110.38, 53.14, 119.40); ordinary motor and actual brush resistance
+FAIL atv ridge fall to trail rejoin time=35.00s final=(325.77, 80.08, 120.47); ordinary motor and actual brush resistance
+PASS atv gully undershoot to existing northern shallow exit time=23.32s final=(110.42, 53.13, 119.35); ordinary motor and actual brush resistance

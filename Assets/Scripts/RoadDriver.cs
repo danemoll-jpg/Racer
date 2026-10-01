@@ -148,11 +148,13 @@ namespace Racer
                     desiredLane=Mathf.Clamp(currentLane,-driveHalfWidth+1.2f,driveHalfWidth-1.2f);
             }
 
-            if(plannedBranch && ((s>plannedBranch.exitRoad+15&&(!mountainFlights||Racer?.Branch.Route==null)) || (plannedBranch.Project(Car.Body.position,out float exitLateral)>=plannedBranch.Length-7 && exitLateral<plannedBranch.halfWidth+7 && Racer?.Branch.Route==null))) plannedBranch=null;
+            if(plannedBranch && ((s>plannedBranch.exitRoad+15&&(!mountainFlights||Racer?.Branch.Route==null)&&!(plannedBranch.GetComponent<ReverseShortcutGuidance>()&&Racer?.Branch.Route==plannedBranch)) || (plannedBranch.Project(Car.Body.position,out float exitLateral)>=plannedBranch.Length-7 && exitLateral<plannedBranch.halfWidth+7 && Racer?.Branch.Route==null))) plannedBranch=null;
             DecideShortcut(s);
             var activeBranch=plannedBranch && Racer?.Branch.Route==plannedBranch ? plannedBranch : null;
             if(!activeBranch && plannedBranch && s>=plannedBranch.entryRoad-((Race.reverseCourse||Race.courseId.StartsWith("mountain-"))?look:2)) activeBranch=plannedBranch;
             float branchS=activeBranch?activeBranch.Project(Car.Body.position,out _):0;
+            var reverseShortcut=activeBranch?activeBranch.GetComponent<ReverseShortcutGuidance>():null;
+            if(reverseShortcut)look=Mathf.Min(look,reverseShortcut.lookAhead);
             if(activeBranch!=progressBranch){progressBranch=activeBranch;branchBest=branchS;branchStuck=0;}
             if(racing&&!finished)TrackRecoveryProgress(activeBranch,activeBranch?branchS:s);
             if(plannedBranch || activeBranch) desiredLane=0;
@@ -166,6 +168,7 @@ namespace Racer
             Variation.Step(this,s,speed,!racing||finished||plannedBranch||activeBranch||bypass||lateral>2.5f||Car.transform.up.y<.9f||committedMountain|| (forestLayout&&forestLayout.IsLaunch(s)),jumpApproach);
             if(Variation.Line!=0)desiredLane=Mathf.Clamp(desiredLane+Variation.Line,-driveHalfWidth+1.6f,driveHalfWidth-1.6f);
             var target = activeBranch ? activeBranch.At(branchS+look,out _) : DriveRoad.At(s + Direction * look, out _);
+            if(reverseShortcut)target=reverseShortcut.Target(activeBranch,Car.Body.position,branchS,look);
             var ahead = tangent;
             if(activeBranch) activeBranch.At(branchS+look,out ahead); else DriveRoad.At(s+Direction*look,out ahead);
             target += Vector3.Cross(Vector3.up, ahead).normalized * desiredLane;
@@ -173,10 +176,10 @@ namespace Racer
             // nearest-road projection can move behind an ascending vehicle and
             // make ordinary pursuit steer away from the aligned catch slope.
             if(committedMountain){var flight=mountainFlights.At(DriveRoad,s);float along=Vector3.Dot(Car.Body.position-flight.start,flight.forward);target=flight.start+flight.forward*(along+look)+Vector3.Cross(Vector3.up,flight.forward).normalized*desiredLane;target.y=Car.Body.position.y;}
-            int backyardFlight=racing&&backyard?backyard.Flight(s):-1;
+            int backyardFlight=racing&&backyard&&!reverseShortcut?backyard.Flight(s):-1;
             if(backyardFlight>=0){var axis=backyard.flightDirections[backyardFlight];var start=backyard.flightStarts[backyardFlight];float along=Vector3.Dot(Car.Body.position-start,axis);target=start+axis*(along+look);target.y=Car.Body.position.y;}
             var local = transform.InverseTransformPoint(target);
-            if(committedMountain||backyardFlight>=0)local=Quaternion.Inverse(Quaternion.LookRotation(Vector3.ProjectOnPlane(transform.forward,Vector3.up)))*(target-Car.Body.position);
+            if(committedMountain||backyardFlight>=0||reverseShortcut)local=Quaternion.Inverse(Quaternion.LookRotation(Vector3.ProjectOnPlane(transform.forward,Vector3.up)))*(target-Car.Body.position);
             float angle = Mathf.Atan2(local.x, local.z);
             float maxAngle = Mathf.Lerp(Car.slowSteerAngle, Car.fastSteerAngle, Mathf.Clamp01(speed / Car.topSpeed)) * Mathf.Deg2Rad;
             float steering = Mathf.Clamp(Mathf.Atan(2 * Car.wheelbase * Mathf.Sin(angle) / look) / maxAngle, -1, 1);
@@ -229,7 +232,11 @@ namespace Racer
             // Bounded non-alloc obstacle query; includes other cars and solid roadside objects, excludes own body.
             float range = 6 + speed * 1.5f;
             float radius=Mathf.Min(.7f,Car.GetComponent<BoxCollider>().size.x*.5f+.12f);
-            int count = Physics.SphereCastNonAlloc(Car.Body.position + Vector3.up * .35f, radius, transform.forward, hits, range, ~0, QueryTriggerInteraction.Ignore);
+            // The local culvert line can turn away from a nearby wall. Sense the
+            // intended short path so a stopped vehicle can steer out normally.
+            var obstacleDirection=reverseShortcut?Vector3.ProjectOnPlane(target-Car.Body.position,Vector3.up).normalized:transform.forward;
+            if(reverseShortcut)range=Mathf.Min(range,look+4);
+            int count = Physics.SphereCastNonAlloc(Car.Body.position + Vector3.up * .35f, radius, obstacleDirection, hits, range, ~0, QueryTriggerInteraction.Ignore);
             LastObstacle="";
             for (int i = 0; i < count; i++)
             {

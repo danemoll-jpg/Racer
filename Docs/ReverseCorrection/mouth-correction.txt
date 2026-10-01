@@ -1,0 +1,6 @@
+Ground_400_400 mouth triangles removed=8
+Ground_480_400 mouth triangles removed=10
+Ground_400_320 mouth triangles removed=3711
+Ground_400_320 mouth triangles removed=3711
+Ground_480_400 mouth triangles removed=10
+Ground_400_400 mouth triangles removed=8

@@ -1,0 +1,2 @@
+PASS moto ridge fall to trail rejoin time=17.08s final=(273.54, 76.63, 124.34); ordinary motor and actual brush resistance
+PASS atv ridge fall to trail rejoin time=18.40s final=(273.49, 76.63, 124.34); ordinary motor and actual brush resistance

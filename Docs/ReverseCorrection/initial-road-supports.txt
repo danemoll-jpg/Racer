@@ -1,0 +1,48 @@
+FAIL Existing route centre/shoulder support samples=1941 maximum change=6.44799
+FAIL Forward navigation only - no road mesh p=(170.68, 63.93, 70.15) original=63.9293 current=64.34274 delta=0.4134331
+FAIL Forward navigation only - no road mesh p=(172.90, 64.57, 71.90) original=64.57146 current=64.70921 delta=0.1377487
+FAIL Forward navigation only - no road mesh p=(284.23, 77.23, 120.12) original=77.23046 current=80.16808 delta=2.937614
+FAIL Forward navigation only - no road mesh p=(283.30, 77.23, 118.34) original=77.23034 current=78.09427 delta=0.8639297
+FAIL Forward navigation only - no road mesh p=(287.02, 78.03, 118.57) original=78.01756 current=81.90891 delta=3.891342
+FAIL Forward navigation only - no road mesh p=(286.01, 78.03, 116.84) original=78.00956 current=80.84084 delta=2.831284
+FAIL Forward navigation only - no road mesh p=(285.00, 78.03, 115.12) original=78.01237 current=80.86108 delta=2.848701
+FAIL Forward navigation only - no road mesh p=(289.74, 77.84, 116.88) original=77.83432 current=83.51631 delta=5.681992
+FAIL Forward navigation only - no road mesh p=(288.66, 77.84, 115.20) original=77.83453 current=82.76752 delta=4.932991
+FAIL Forward navigation only - no road mesh p=(287.57, 77.84, 113.53) original=77.83727 current=81.47196 delta=3.634697
+FAIL Forward navigation only - no road mesh p=(292.39, 77.31, 115.09) original=77.30847 current=83.69718 delta=6.38871
+FAIL Forward navigation only - no road mesh p=(291.23, 77.31, 113.46) original=77.30764 current=82.85885 delta=5.551208
+FAIL Forward navigation only - no road mesh p=(290.08, 77.31, 111.82) original=77.30795 current=81.347 delta=4.039047
+FAIL Forward navigation only - no road mesh p=(294.95, 76.74, 113.23) original=76.73898 current=83.02089 delta=6.281914
+FAIL Forward navigation only - no road mesh p=(293.74, 76.74, 111.63) original=76.73975 current=82.12244 delta=5.38269
+FAIL Forward navigation only - no road mesh p=(292.54, 76.74, 110.03) original=76.73889 current=80.57534 delta=3.836449
+FAIL Forward navigation only - no road mesh p=(297.42, 76.40, 111.30) original=76.40565 current=81.80473 delta=5.399086
+FAIL Forward navigation only - no road mesh p=(296.17, 76.40, 109.74) original=76.40749 current=80.09808 delta=3.690598
+FAIL Forward navigation only - no road mesh p=(294.92, 76.40, 108.18) original=76.40634 current=79.36835 delta=2.962006
+FAIL Forward navigation only - no road mesh p=(299.80, 76.37, 109.34) original=76.37425 current=79.72234 delta=3.348083
+FAIL Forward navigation only - no road mesh p=(298.52, 76.37, 107.81) original=76.37424 current=78.16875 delta=1.79451
+FAIL Forward navigation only - no road mesh p=(302.10, 76.35, 107.38) original=76.35133 current=77.86043 delta=1.509102
+FAIL Reverse navigation only - no pavement p=(303.65, 76.33, 106.01) original=76.33242 current=76.72175 delta=0.389328
+FAIL Reverse navigation only - no pavement p=(299.99, 76.36, 106.56) original=76.36066 current=77.02318 delta=0.6625137
+FAIL Reverse navigation only - no pavement p=(301.30, 76.36, 108.07) original=76.36063 current=78.46904 delta=2.108406
+FAIL Reverse navigation only - no pavement p=(296.29, 76.38, 107.07) original=76.38132 current=77.13454 delta=0.7532272
+FAIL Reverse navigation only - no pavement p=(297.56, 76.38, 108.61) original=76.38132 current=78.94846 delta=2.567146
+FAIL Reverse navigation only - no pavement p=(298.83, 76.38, 110.15) original=76.38131 current=80.57966 delta=4.198349
+FAIL Reverse navigation only - no pavement p=(293.81, 76.52, 109.06) original=76.51643 current=79.96502 delta=3.448586
+FAIL Reverse navigation only - no pavement p=(295.04, 76.52, 110.63) original=76.51512 current=81.37987 delta=4.864746
+FAIL Reverse navigation only - no pavement p=(296.27, 76.52, 112.21) original=76.51749 current=82.40943 delta=5.891937
+FAIL Reverse navigation only - no pavement p=(291.25, 77.03, 110.99) original=77.02792 current=81.05368 delta=4.025764
+FAIL Reverse navigation only - no pavement p=(292.42, 77.03, 112.61) original=77.02781 current=82.64876 delta=5.620949
+FAIL Reverse navigation only - no pavement p=(293.60, 77.03, 114.22) original=77.02766 current=83.47565 delta=6.44799
+FAIL Reverse navigation only - no pavement p=(288.61, 77.64, 112.84) original=77.64014 current=81.51333 delta=3.873184
+FAIL Reverse navigation only - no pavement p=(289.73, 77.64, 114.50) original=77.6413 current=82.89755 delta=5.256248
+FAIL Reverse navigation only - no pavement p=(290.84, 77.64, 116.16) original=77.64086 current=83.70148 delta=6.060616
+FAIL Reverse navigation only - no pavement p=(285.91, 78.02, 114.57) original=78.02032 current=81.17323 delta=3.152908
+FAIL Reverse navigation only - no pavement p=(286.95, 78.02, 116.28) original=78.02167 current=82.30219 delta=4.280525
+FAIL Reverse navigation only - no pavement p=(287.99, 78.02, 117.99) original=78.02287 current=82.92509 delta=4.902222
+FAIL Reverse navigation only - no pavement p=(284.10, 77.44, 117.92) original=77.44031 current=78.46249 delta=1.022179
+FAIL Reverse navigation only - no pavement p=(285.06, 77.44, 119.68) original=77.44106 current=80.7103 delta=3.269249
+FAIL Reverse navigation only - no pavement p=(281.19, 76.77, 119.39) original=76.77128 current=77.24341 delta=0.4721298
+FAIL Reverse navigation only - no pavement p=(282.04, 76.77, 121.20) original=76.77011 current=78.75993 delta=1.989822
+FAIL Reverse navigation only - no pavement p=(172.75, 64.99, 78.70) original=64.98812 current=65.32988 delta=0.3417587
+FAIL Reverse navigation only - no pavement p=(172.75, 64.99, 80.70) original=64.98812 current=65.5332 delta=0.5450745
+FAIL Reverse navigation only - no pavement p=(169.64, 64.36, 78.70) original=64.36475 current=64.81927 delta=0.4545288

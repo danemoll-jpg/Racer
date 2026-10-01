@@ -1,0 +1,1 @@
+Existing ShallowWater/WaterFeedback reused in shallow level/decreasing-grade sections; no new water physics. Above-ground vehicles excluded by existing immersion-height test.

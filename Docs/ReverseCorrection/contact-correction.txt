@@ -1,0 +1,1 @@
+Culvert floor registered by Ground_ identity with existing VehicleSurfaceContacts; removed duplicate water-skin colliders. Water remains shallow visual/immersion feedback over continuous concrete. Global physics unchanged.

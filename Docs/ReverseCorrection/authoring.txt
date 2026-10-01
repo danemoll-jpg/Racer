@@ -1,0 +1,14 @@
+Ridge crest raised by varying 4-9m; 4.8m top; two small earth hops; sloped vegetated sides.
+Exit floor derived from existing lower gully at (103,-66.1): 30.67736
+Tunnel underground length 162.21m; exit (114.3,30.67736,-66.1); lip 197.00; landing 230.02; full branch 268.86m
+Ground_400_400 mouth triangles removed=2166
+Ground_480_400 mouth triangles removed=3454
+Ground_400_320 mouth triangles removed=1057
+DansBackyardReverse saved
+Ridge crest raised by varying 4-9m; 4.8m top; two small earth hops; sloped vegetated sides.
+Exit floor derived from existing lower gully at (103,-66.1): 30.67736
+Tunnel underground length 162.21m; exit (114.3,30.67736,-66.1); lip 197.00; landing 230.02; full branch 268.86m
+Ground_400_400 mouth triangles removed=2166
+Ground_480_400 mouth triangles removed=3482
+Ground_400_320 mouth triangles removed=1057
+DansBackyardForward saved

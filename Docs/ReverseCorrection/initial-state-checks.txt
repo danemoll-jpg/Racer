@@ -1,0 +1,23 @@
+PASS DansBackyardReverse race-specific grate and ridge gate
+PASS DansBackyardReverse visible grate has physical bars
+PASS DansBackyardReverse free roam opens both routes
+PASS DansBackyardReverse retains exactly its two legal branches
+PASS Both branches available to existing rival AI choice
+PASS Minimal gate entitlement: only drain CP3
+PASS Legitimate underground entrance accepted
+PASS Surface-level travel above drain cannot claim shortcut
+PASS Wrong-way entrance rejected
+PASS Underground map span authored
+PASS Ridge shortens main route by over 15m
+PASS Drain shortens main route by a positive distance
+FAIL Visible ground brush slows failed lines
+PASS Recovery brush traversable; no invisible collision wall
+PASS Main route never receives new brush resistance
+PASS Shortcut geometry adds no reset trigger
+PASS DansBackyardReverse ridge trees grounded: 54 maximum foot error=7.629395E-06
+PASS DansBackyardForward race-specific grate and ridge gate
+PASS DansBackyardForward visible grate has physical bars
+PASS DansBackyardForward free roam opens both routes
+PASS DansBackyardForward retains exactly its two legal branches
+PASS Forward original branches retained; Reverse entitlement absent
+PASS DansBackyardForward ridge trees grounded: 59 maximum foot error=0.01842499

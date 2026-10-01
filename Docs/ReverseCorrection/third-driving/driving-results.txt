@@ -1,0 +1,8 @@
+PASS moto-Storm-Drain---Gully-Jump: entered=True; completed=True; station=268.9/268.9; air=2.76s; lateralMax=14.44; resets=0; AI recoveries=0
+FAIL moto-Abandoned-Logging-Ridge: entered=True; completed=False; station=131.9/131.9; air=27.04s; lateralMax=42.52; resets=0; AI recoveries=0
+FAIL atv-Storm-Drain---Gully-Jump: entered=False; completed=False; station=137.4/268.9; air=2.00s; lateralMax=10.17; resets=0; AI recoveries=0
+FAIL atv-Abandoned-Logging-Ridge: entered=True; completed=False; station=71.7/131.9; air=0.82s; lateralMax=15.47; resets=0; AI recoveries=0
+PASS Storm Drain / Gully Jump: existing probabilistic AI selection reaches this branch
+PASS AI-atv-Storm-Drain---Gully-Jump: entered=True; completed=True; station=265.1/268.9; air=2.58s; lateralMax=4.01; resets=0; AI recoveries=0
+PASS Abandoned Logging Ridge: existing probabilistic AI selection reaches this branch
+FAIL AI-atv-Abandoned-Logging-Ridge: entered=True; completed=False; station=68.5/131.9; air=0.44s; lateralMax=1.39; resets=1; AI recoveries=1

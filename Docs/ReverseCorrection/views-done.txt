@@ -1,0 +1,1 @@
+Seven actual geometry/state views; no scene changes saved

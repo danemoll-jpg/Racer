@@ -1,0 +1,4 @@
+Culvert seamless floor removed only overlapping apron triangles=9351
+Ground_Wide west bank landing removed only overlapping apron triangles=2552
+Ground_Natural rolling ridge removed only overlapping apron triangles=70588
+Ground_Worn logging crest removed only overlapping apron triangles=2811

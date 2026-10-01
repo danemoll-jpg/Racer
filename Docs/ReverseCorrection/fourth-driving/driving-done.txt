@@ -1,0 +1,4 @@
+PASS Storm Drain / Gully Jump: existing probabilistic AI selection reaches this branch
+PASS AI-moto-Storm-Drain---Gully-Jump: entered=True; completed=True; station=264.9/268.9; air=2.80s; lateralMax=13.95; resets=0; AI recoveries=0
+PASS Abandoned Logging Ridge: existing probabilistic AI selection reaches this branch
+FAIL AI-moto-Abandoned-Logging-Ridge: entered=True; completed=False; station=77.1/131.9; air=1.18s; lateralMax=6.99; resets=1; AI recoveries=1

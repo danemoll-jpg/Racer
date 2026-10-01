@@ -9,7 +9,17 @@
 - Do not silently modify or weaken CODEX_RULES.md. Changes to standing rules require an explicit instruction from Dan.
 - Root AGENTS.md points future Codex tasks to both files.
 
-## Current delivery — Backyard Reverse optional shortcuts — 0.54.0-review1 DELIVERED
+## Current delivery — Backyard Reverse shortcut correction — 0.55.0-review1
+
+- Safety checkpoint: clean `main` at `cad2c3f5c2885bb46c91adc9f7d8b6c6885701b1`. Dan's [correction request](Docs/ReverseCorrection/REQUEST.md) supersedes the historical player-only implementation below.
+- Logging Ridge corrected: up to 9.02m above original ground, natural rolling 4.8m crest/sloped wooded sides, smoother entry climb, small hops, worn wheel paths/grass/edge timber/stumps, slow traversable undergrowth. Approximate original anchors retained. Local 18m/s technical pace; global physics unchanged.
+- Drain corrected: continuous entrance collision with existing ground-contact correction, 162.21m underground, wet/shallow water and existing splash feedback, channels/inlets/joints/debris/lights. New lower-wall exit `(114.3,30.67736,-66.1)` derives Y from actual gully, never Y=42.5. Old exit/jump removed; short straight run-up, curved substantial takeoff, cleared flight/landing/rejoin corridor.
+- Both branches now use existing probabilistic rival shortcut choice with local steering/flight/obstacle guidance. Forward cannot select either Reverse branch and its grate remains closed in races; original Forward shortcuts and main routes preserved. Layout `backyard-reverse-v3-ridge-drain` preserves historical Records separately.
+- Targeted checks COMPLETE: production-driver motorcycle/ATV traversals of both routes, all zero resets/recoveries; both vehicles recover representative ridge falls and gully undershoots. 23 state checks PASS; 1,941 original road-support samples max change 0.01671m; nineteen original route/gate/flight components in each Backyard scene unchanged, six other scenes and ten global sources unchanged. Trees reseated with full crowns, sampled feet within 0.019m. [Evidence, initial failures and limitations](Docs/ReverseCorrection/VALIDATION.md).
+- **STOP gameplay tuning/testing.** Automated local pilots are not human handling approval. Earlier custom-pilot failures and recovery waypoint/tree collisions remain recorded. No full-lap timing proof or exhaustive off-line recovery claim; manual-physics recovery does not exercise the live automatic-respawn event loop. Dan handles final feel/review.
+- Atlas/world maps/course previews refreshed from saved geometry. Standard completion commit/push, fresh Windows build 55000, signed release/catalog, complete Latest, real Play-Racer.cmd verification and cleanup are pending delivery gates. No published-delivery claim until those finish.
+
+## Previous delivery — Backyard Reverse optional shortcuts — 0.54.0-review1 DELIVERED
 
 - Safety checkpoint: clean main `771bb757ae1fc8383cd9b73a1b964c71ca3b4ca5`. Accepted main routes and Forward shortcuts preserved.
 - Implemented Logging Ridge and Storm Drain / Gully Jump at Dan's authoritative anchors. Shared permanent geometry, Forward gates closed and Reverse/free-roam open. Local complete-tree clearance/reseating, natural brush recovery. [Request](Docs/ReverseShortcuts/REQUEST.md), [atlas](Docs/ReverseShortcuts/ATLAS.html).

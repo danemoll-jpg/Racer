@@ -1,0 +1,1 @@
+Removed 16 duplicate decorative grass/wheel-path colliders. Solid Ground_ ridge meshes retain collision and existing normal correction.

@@ -1,0 +1,4 @@
+PASS Abandoned Logging Ridge: existing probabilistic AI selection reaches this branch
+PASS AI-moto-Abandoned-Logging-Ridge: entered=True; completed=True; station=128.0/131.9; air=0.84s; lateralMax=5.77; resets=0; AI recoveries=0
+PASS Abandoned Logging Ridge: existing probabilistic AI selection reaches this branch
+PASS AI-atv-Abandoned-Logging-Ridge: entered=True; completed=True; station=130.8/131.9; air=1.54s; lateralMax=7.62; resets=0; AI recoveries=0

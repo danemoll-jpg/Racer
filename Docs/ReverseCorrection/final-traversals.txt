@@ -1,0 +1,4 @@
+PASS AI-moto-Storm-Drain---Gully-Jump: entered=True; completed=True; station=264.9/268.9; air=2.80s; lateralMax=13.95; resets=0; AI recoveries=0
+PASS AI-atv-Storm-Drain---Gully-Jump: entered=True; completed=True; station=265.1/268.9; air=2.58s; lateralMax=4.01; resets=0; AI recoveries=0
+PASS AI-moto-Abandoned-Logging-Ridge: entered=True; completed=True; station=128.0/131.9; air=0.84s; lateralMax=5.77; resets=0; AI recoveries=0
+PASS AI-atv-Abandoned-Logging-Ridge: entered=True; completed=True; station=130.8/131.9; air=1.54s; lateralMax=7.62; resets=0; AI recoveries=0

@@ -1,0 +1,7 @@
+using System;using System.IO;using UnityEngine;using UnityEditor;using Racer;
+public static class StartReverseCorrectionChecks {
+ public static string Prepare(){UnityEditor.SceneManagement.EditorSceneManager.OpenScene("Assets/Scenes/DansBackyardReverse.unity");AssetDatabase.Refresh();return "Saved scene restored and fixture import requested";} public static string Motorcycle(){var r=Main();UnityEngine.Object.FindAnyObjectByType<ReverseCorrectionChecks>().Only="AI-moto";return r+"; filtered to production-pilot motorcycle";} public static string RidgeAI(){var r=Main();UnityEngine.Object.FindAnyObjectByType<ReverseCorrectionChecks>().Only="AI-ridge";return r+"; filtered to production-pilot ATV ridge";} public static string Main(){if(EditorApplication.isCompiling||Application.isPlaying)throw new Exception("Compiled edit mode required");if(UnityEngine.SceneManagement.SceneManager.GetActiveScene().isDirty)throw new Exception("Saved scene required");AudioListener.volume=0;foreach(var t in UnityEngine.Object.FindObjectsByType<ContinuationTraffic>())t.enabled=false;new GameObject("Temporary reverse correction checks").AddComponent<ReverseCorrectionChecks>();File.WriteAllText("Docs/ReverseCorrection/driving-started.txt",DateTime.UtcNow.ToString("o"));EditorApplication.delayCall+=()=>EditorApplication.isPlaying=true;return "Scheduled four local motorcycle/ATV traversals and two production-AI traversals, muted";}
+}
+
+
+

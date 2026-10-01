@@ -1,0 +1,8 @@
+FAIL Existing route centre/shoulder support samples=1941 maximum change=4.598717
+FAIL Forward navigation only - no road mesh p=(294.95, 76.74, 113.23) original=76.73898 current=81.2794 delta=4.540428
+FAIL Forward navigation only - no road mesh p=(293.74, 76.74, 111.63) original=76.73975 current=80.48222 delta=3.74247
+FAIL Forward navigation only - no road mesh p=(297.42, 76.40, 111.30) original=76.40565 current=80.86028 delta=4.454628
+FAIL Forward navigation only - no road mesh p=(299.80, 76.37, 109.34) original=76.37425 current=79.4818 delta=3.107544
+FAIL Reverse navigation only - no pavement p=(298.83, 76.38, 110.15) original=76.38131 current=80.10323 delta=3.721924
+FAIL Reverse navigation only - no pavement p=(295.04, 76.52, 110.63) original=76.51512 current=80.18761 delta=3.672485
+FAIL Reverse navigation only - no pavement p=(296.27, 76.52, 112.21) original=76.51749 current=81.11621 delta=4.598717

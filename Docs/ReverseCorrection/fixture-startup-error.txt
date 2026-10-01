@@ -1,0 +1,2 @@
+Initial runtime fixture stopped before its first traversal: the slash in Storm Drain / Gully Jump was not sanitized for the CSV filename. Fixed fixture filename handling; no driving success was inferred.
+Second corrected fixture startup ran before RaceFlow.Start initialized its Race field; added two initialization frames before selecting isolated saves. No traversal ran in that attempt.
