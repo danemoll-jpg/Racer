@@ -1,0 +1,12 @@
+using System;using System.IO;using System.Collections;using UnityEngine;
+namespace Racer{
+// Explicit local verification only; absent from saved scenes.
+public sealed class SevenJumpAI:MonoBehaviour{
+ IEnumerator Start(){AudioListener.volume=0;var race=FindAnyObjectByType<RaceDirector>();yield return null;yield return null;
+ #if UNITY_EDITOR
+ race.Flow.UseValidationSave(Path.GetFullPath("Temp/SevenCorrectionSave"));
+ #endif
+ race.Flow.OpenGarage();race.Flow.SelectVehicle("atv");race.Flow.CloseGarage();race.opponents=race.traffic=false;race.Flow.StartRace();while(race.Flow.State!=RaceFlow.Stage.Racing){AudioListener.volume=0;yield return null;}var car=race.vehicle;car.GetComponent<VehicleInput>().enabled=false;car.enabled=false;var course=race.GetComponent<BackyardForwardCourse>();float s=course.launchStations[2]-30;var pilot=car.gameObject.AddComponent<RoadDriver>();pilot.Initialize(race,car,true,1,1);pilot.Racer=race.Racers[0];pilot.enabled=false;pilot.Place(s,0);race.Progress.Restart();race.Progress.Cross(0,true,race.Clock);for(int i=1;i<race.gates.Length;i++)if(race.road.Project(race.gates[i].transform.position,out _)<s)race.Progress.Cross(i,true,race.Clock);for(int i=0;i<30;i++){car.Simulate(0,0,0,Time.fixedDeltaTime);yield return new WaitForFixedUpdate();}race.ResetSampling(car.Body.position,race.Clock);car.Body.linearVelocity=car.transform.forward*36;int resets=0;car.GetComponent<VehicleRespawn>().Respawned+=()=>resets++;pilot.enabled=true;float start=Time.time,air=0,maxAir=0,minUp=1;bool complete=false;var lip=course.flightStarts[2];using(var log=new StreamWriter("Docs/SevenCorrections/pool-ai.csv")){log.WriteLine("time,x,y,z,speed,wheels,up");while(Time.time-start<12){AudioListener.volume=0;yield return new WaitForFixedUpdate();var p=car.Body.position;minUp=Mathf.Min(minUp,car.transform.up.y);if(car.GroundedWheels==0){air+=Time.fixedDeltaTime;maxAir=Mathf.Max(maxAir,air);}else air=0;log.WriteLine($"{Time.time-start:F2},{p.x:F3},{p.y:F3},{p.z:F3},{car.ForwardSpeed:F2},{car.GroundedWheels},{car.transform.up.y:F3}");if(p.x>420&&car.GroundedWheels>=2){complete=true;break;}if(resets>0||car.transform.up.y<.4f)break;}}
+ File.WriteAllText("Docs/SevenCorrections/pool-ai.txt",(complete&&minUp>.7f&&maxAir>.5f&&car.Body.position.x<474&&resets==0&&pilot.RecoveryCount==0?"PASS ":"FAIL ")+$"Production AI ATV pool-house jump complete={complete} air={maxAir:F2} minUp={minUp:F3} landing={car.Body.position:F3} resets={resets} recoveries={pilot.RecoveryCount}");pilot.enabled=false;car.Body.isKinematic=true;race.Flow.Pause();
+ }
+}}

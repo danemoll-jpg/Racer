@@ -1,0 +1,203 @@
+DansBackyardReverse
+BRANCH Abandoned Logging Ridge length=131.9259 underground=0-0 ai=True start=(394.10, 81.15, 79.40) end=(273.00, 76.15, 122.00)
+PROFILE Abandoned Logging Ridge s=66.93 p=(334.465, 80.676, 109.452) grade=0.088 hits=Ground_Natural rolling ridge:80.676:(0.06, 1.00, -0.06);Ground_Worn logging crest:80.676:(0.08, 1.00, -0.03);Ground_560_400:75.491:(0.03, 1.00, -0.02)
+PROFILE Abandoned Logging Ridge s=68.93 p=(332.580, 80.897, 110.122) grade=0.130 hits=Ground_Natural rolling ridge:80.898:(0.11, 0.99, -0.07);Ground_Worn logging crest:80.897:(0.12, 0.99, -0.04);Ground_560_400:75.571:(0.04, 1.00, -0.03)
+PROFILE Abandoned Logging Ridge s=70.93 p=(330.690, 81.151, 110.775) grade=0.128 hits=Ground_Worn logging crest:81.152:(0.12, 0.99, -0.04);Ground_Natural rolling ridge:81.151:(0.11, 0.99, -0.07);Ground_560_400:75.637:(0.02, 1.00, -0.03)
+PROFILE Abandoned Logging Ridge s=72.93 p=(328.794, 81.426, 111.411) grade=0.140 hits=Ground_Worn logging crest:81.426:(0.13, 0.99, -0.04);Ground_Natural rolling ridge:81.426:(0.12, 0.99, -0.08);Ground_560_400:75.716:(0.04, 1.00, -0.03)
+PROFILE Abandoned Logging Ridge s=74.93 p=(326.891, 81.663, 112.026) grade=0.103 hits=Ground_Natural rolling ridge:81.663:(0.09, 0.99, -0.06);Ground_Worn logging crest:81.663:(0.10, 0.99, -0.03);Ground_560_400:75.784:(0.02, 1.00, -0.03)
+PROFILE Abandoned Logging Ridge s=76.93 p=(324.981, 81.842, 112.619) grade=0.079 hits=Ground_Natural rolling ridge:81.842:(0.07, 1.00, -0.06);Ground_Worn logging crest:81.842:(0.07, 1.00, -0.02);Ground_560_400:75.850:(0.03, 1.00, -0.04)
+PROFILE Abandoned Logging Ridge s=78.93 p=(323.063, 81.956, 113.188) grade=0.042 hits=Ground_Worn logging crest:81.956:(0.04, 1.00, -0.01);Ground_Natural rolling ridge:81.956:(0.03, 1.00, -0.05);Ground_560_400:75.916:(0.02, 1.00, -0.04)
+PROFILE Abandoned Logging Ridge s=80.93 p=(321.138, 82.032, 113.729) grade=0.035 hits=Ground_Worn logging crest:82.033:(0.04, 1.00, -0.01);Ground_Natural rolling ridge:82.032:(0.02, 1.00, -0.04);Ground_560_400:75.976:(0.02, 1.00, -0.03)
+PROFILE Abandoned Logging Ridge s=82.93 p=(319.204, 82.158, 114.239) grade=0.089 hits=Ground_Worn logging crest:82.159:(0.08, 1.00, -0.02);Ground_Natural rolling ridge:82.158:(0.08, 1.00, -0.06);Ground_480_400:76.036:(0.03, 1.00, -0.03)
+PROFILE Abandoned Logging Ridge s=84.93 p=(317.262, 82.348, 114.714) grade=0.081 hits=Ground_Natural rolling ridge:82.348:(0.07, 1.00, -0.05);Ground_Worn logging crest:82.347:(0.07, 1.00, -0.02);Ground_480_400:76.099:(0.02, 1.00, -0.03)
+PROFILE Abandoned Logging Ridge s=86.93 p=(315.308, 82.382, 115.144) grade=-0.080 hits=Ground_Natural rolling ridge:82.381:(-0.03, 1.00, 0.04);Ground_Worn logging crest:82.377:(-0.04, 1.00, 0.01);Ground_480_400:76.145:(0.02, 1.00, -0.03)
+PROFILE Abandoned Logging Ridge s=88.93 p=(313.338, 82.129, 115.486) grade=-0.177 hits=Ground_Natural rolling ridge:82.129:(-0.15, 0.99, 0.06);Ground_Worn logging crest:82.128:(-0.18, 0.98, 0.03);Ground_480_400:76.192:(0.02, 1.00, -0.03)
+PROFILE Abandoned Logging Ridge s=90.93 p=(311.356, 81.791, 115.751) grade=-0.127 hits=Ground_Worn logging crest:81.792:(-0.14, 0.99, 0.02);Ground_Natural rolling ridge:81.791:(-0.15, 0.99, 0.05);Ground_480_400:76.237:(0.01, 1.00, -0.03)
+PROFILE Abandoned Logging Ridge s=92.93 p=(309.367, 81.624, 115.960) grade=-0.002 hits=Ground_Natural rolling ridge:81.625:(-0.04, 1.00, -0.03);Ground_Worn logging crest:81.562:(-0.23, 0.97, 0.00);Ground_480_400:76.267:(0.01, 1.00, -0.02)
+PROFILE Abandoned Logging Ridge s=94.93 p=(307.374, 81.696, 116.135) grade=0.072 hits=Ground_Natural rolling ridge:81.696:(0.05, 0.97, -0.23);Ground_Worn logging crest:81.256:(0.07, 0.98, -0.19);Ground_480_400:76.296:(0.02, 1.00, -0.02)
+PROFILE Abandoned Logging Ridge s=96.93 p=(305.381, 81.629, 116.295) grade=-0.129 hits=Ground_Natural rolling ridge:81.630:(-0.15, 0.99, -0.09);Ground_Worn logging crest:80.972:(-0.46, 0.83, -0.31);Ground_480_400:76.326:(0.01, 1.00, -0.02)
+PROFILE Abandoned Logging Ridge s=98.93 p=(303.388, 81.000, 116.461) grade=-0.427 hits=Ground_Natural rolling ridge:80.999:(-0.40, 0.82, -0.41);Ground_Worn logging crest:80.458:(-0.49, 0.74, -0.46);Ground_480_400:76.348:(0.01, 1.00, -0.01)
+PROFILE Abandoned Logging Ridge s=100.93 p=(301.397, 79.900, 116.656) grade=-0.607 hits=Ground_Natural rolling ridge:79.900:(-0.45, 0.65, -0.61);Ground_Worn logging crest:79.744:(-0.29, 0.73, -0.62);Ground_480_400:76.363:(0.00, 1.00, -0.01)
+PROFILE Abandoned Logging Ridge s=102.93 p=(299.413, 78.705, 116.907) grade=-0.561 hits=Ground_Worn logging crest:78.911:(-0.31, 0.72, -0.62);Ground_Natural rolling ridge:78.704:(-0.47, 0.67, -0.57);Ground_480_400:76.376:(0.00, 1.00, -0.01)
+PROFILE Abandoned Logging Ridge s=104.93 p=(297.442, 77.698, 117.244) grade=-0.434 hits=Ground_Worn logging crest:78.252:(-0.48, 0.73, -0.48);Ground_Natural rolling ridge:77.696:(-0.44, 0.76, -0.48);Ground_480_400:76.386:(0.00, 1.00, -0.01)
+PROFILE Abandoned Logging Ridge s=106.93 p=(295.497, 76.991, 117.709) grade=-0.293 hits=Ground_Worn logging crest:77.927:(0.06, 0.86, -0.50);Ground_Natural rolling ridge:76.991:(-0.35, 0.89, -0.30);Ground_480_400:76.389:(0.00, 1.00, -0.01)
+PROFILE Abandoned Logging Ridge s=108.93 p=(293.610, 76.625, 118.369) grade=-0.127 hits=Ground_Worn logging crest:77.821:(-0.40, 0.92, -0.05);Ground_Natural rolling ridge:76.623:(-0.30, 0.83, -0.47);Ground_480_400:76.387:(0.00, 1.00, 0.00)
+PROFILE Abandoned Logging Ridge s=110.93 p=(291.795, 76.479, 119.206) grade=-0.044 hits=Ground_Worn logging crest:76.478:(-0.12, 0.98, -0.14);Ground_Natural rolling ridge:76.478:(0.12, 0.94, 0.33);Ground_480_400:76.381:(-0.01, 1.00, 0.00)
+PROFILE Abandoned Logging Ridge s=112.93 p=(290.043, 76.423, 120.170) grade=-0.018 hits=Ground_Worn logging crest:76.424:(-0.02, 1.00, 0.00);Ground_Natural rolling ridge:76.424:(-0.08, 0.99, -0.10);Ground_480_400:76.372:(-0.01, 1.00, 0.00)
+PROFILE Abandoned Logging Ridge s=114.93 p=(288.335, 76.394, 121.211) grade=-0.011 hits=Ground_Natural rolling ridge:76.394:(-0.04, 1.00, -0.05);Ground_Worn logging crest:76.394:(-0.07, 0.99, -0.09);Ground_480_400:76.356:(-0.01, 1.00, 0.00)
+PROFILE Abandoned Logging Ridge s=116.93 p=(286.647, 76.371, 122.284) grade=-0.012 hits=Ground_Natural rolling ridge:76.371:(-0.05, 1.00, -0.05);Ground_Worn logging crest:76.371:(-0.06, 1.00, -0.07);Ground_480_400:76.334:(-0.01, 1.00, 0.00)
+PROFILE Abandoned Logging Ridge s=118.93 p=(284.944, 76.343, 123.331) grade=-0.016 hits=Ground_Natural rolling ridge:76.343:(-0.06, 1.00, -0.07);Ground_Worn logging crest:76.343:(-0.05, 1.00, -0.05);Ground_480_400:76.308:(-0.02, 1.00, 0.00)
+PROFILE Abandoned Logging Ridge s=120.93 p=(283.177, 76.305, 124.268) grade=-0.022 hits=Ground_Natural rolling ridge:76.305:(-0.04, 1.00, -0.04);Ground_Worn logging crest:76.305:(-0.04, 1.00, -0.03);Ground_480_400:76.276:(-0.02, 1.00, 0.00)
+PROFILE Abandoned Logging Ridge s=122.93 p=(281.286, 76.256, 124.902) grade=-0.024 hits=Ground_Natural rolling ridge:76.256:(-0.03, 1.00, -0.01);Ground_Worn logging crest:76.256:(-0.03, 1.00, -0.01);Ground_480_400:76.237:(-0.02, 1.00, 0.00)
+PROFILE Abandoned Logging Ridge s=124.93 p=(279.295, 76.220, 124.934) grade=-0.006 hits=Ground_Natural rolling ridge:76.218:(-0.01, 1.00, 0.02);Ground_480_400:76.204:(-0.01, 1.00, 0.06)
+PROFILE Abandoned Logging Ridge s=126.93 p=(277.371, 76.213, 124.411) grade=-0.011 hits=Ground_480_400:76.199:(-0.02, 1.00, 0.04)
+PROFILE Abandoned Logging Ridge s=128.93 p=(275.583, 76.184, 123.519) grade=-0.011 hits=Ground_480_400:76.169:(-0.02, 1.00, 0.00)
+PROFILE Abandoned Logging Ridge s=130.93 p=(273.884, 76.162, 122.464) grade=-0.011 hits=Ground_480_400:76.147:(-0.02, 1.00, 0.00)
+BRANCH Storm Drain / Gully Jump length=268.8557 underground=14.44738-176.6548 ai=True start=(179.00, 66.42, 80.70) end=(26.00, 37.34, -50.00)
+PROFILE Storm Drain / Gully Jump s=0.00 p=(179.000, 66.418, 80.700) grade=-0.176 hits=Ground_480_400:66.393:(-0.22, 0.98, 0.00)
+PROFILE Storm Drain / Gully Jump s=2.00 p=(177.347, 66.079, 79.574) grade=-0.168 hits=Ground_480_400:66.015:(-0.23, 0.97, 0.00)
+PROFILE Storm Drain / Gully Jump s=4.00 p=(175.694, 65.740, 78.449) grade=-0.172 hits=Ground_480_400:65.630:(-0.22, 0.97, 0.00)
+PROFILE Storm Drain / Gully Jump s=6.00 p=(174.035, 65.387, 77.331) grade=-0.180 hits=Ground_480_400:65.256:(-0.21, 0.98, -0.02)
+PROFILE Storm Drain / Gully Jump s=8.00 p=(172.364, 65.002, 76.232) grade=-0.203 hits=Ground_Culvert seamless floor:65.003:(-0.18, 0.98, -0.12);Ground_480_400:64.862:(-0.19, 0.95, -0.24)
+PROFILE Storm Drain / Gully Jump s=10.00 p=(170.691, 64.708, 75.136) grade=-0.052 hits=Ground_Culvert seamless floor:64.709:(-0.04, 1.00, -0.03)
+PROFILE Storm Drain / Gully Jump s=12.00 p=(169.000, 64.445, 74.070) grade=-0.284 hits=Ground_Culvert seamless floor:64.458:(-0.32, 0.93, -0.17);Ground_480_400:63.900:(-0.24, 0.92, -0.31)
+PROFILE Storm Drain / Gully Jump s=14.00 p=(167.208, 63.526, 73.185) grade=-0.579 hits=Ground_Culvert seamless floor:63.526:(-0.46, 0.87, -0.21);Ground_480_400:63.347:(-0.21, 0.97, -0.09)
+PROFILE Storm Drain / Gully Jump s=16.00 p=(165.333, 62.239, 72.495) grade=-0.710 hits=Ground_Culvert seamless floor:62.265:(-0.49, 0.86, -0.14)
+PROFILE Storm Drain / Gully Jump s=18.00 p=(163.390, 60.773, 72.023) grade=-0.754 hits=Ground_Culvert seamless floor:60.773:(-0.59, 0.80, -0.13)
+PROFILE Storm Drain / Gully Jump s=20.00 p=(161.440, 59.238, 71.577) grade=-0.777 hits=Ground_Culvert seamless floor:59.223:(-0.56, 0.81, -0.14)
+PROFILE Storm Drain / Gully Jump s=22.00 p=(159.510, 57.675, 71.054) grade=-0.784 hits=Ground_Culvert seamless floor:57.671:(-0.53, 0.83, -0.17)
+PROFILE Storm Drain / Gully Jump s=24.00 p=(157.631, 56.116, 70.373) grade=-0.773 hits=Ground_Culvert seamless floor:56.069:(-0.67, 0.69, -0.28)
+PROFILE Storm Drain / Gully Jump s=26.00 p=(155.854, 54.611, 69.459) grade=-0.729 hits=Ground_Culvert seamless floor:54.595:(-0.40, 0.88, -0.25)
+PROFILE Storm Drain / Gully Jump s=28.00 p=(154.263, 53.232, 68.253) grade=-0.635 hits=Ground_Culvert seamless floor:53.168:(-0.58, 0.64, -0.51)
+PROFILE Storm Drain / Gully Jump s=30.00 p=(152.899, 52.015, 66.792) grade=-0.583 hits=Ground_Culvert seamless floor:52.004:(-0.29, 0.89, -0.34)
+PROFILE Storm Drain / Gully Jump s=32.00 p=(151.672, 50.888, 65.213) grade=-0.544 hits=Ground_Culvert seamless floor:50.883:(-0.31, 0.85, -0.43)
+PROFILE Storm Drain / Gully Jump s=34.00 p=(150.556, 49.835, 63.554) grade=-0.508 hits=Ground_Culvert seamless floor:49.826:(-0.22, 0.91, -0.35)
+PROFILE Storm Drain / Gully Jump s=36.00 p=(149.536, 48.846, 61.834) grade=-0.482 hits=Ground_Culvert seamless floor:48.845:(-0.23, 0.88, -0.41)
+PROFILE Storm Drain / Gully Jump s=38.00 p=(148.600, 47.913, 60.066) grade=-0.452 hits=Ground_Culvert seamless floor:47.904:(-0.17, 0.92, -0.34)
+PROFILE Storm Drain / Gully Jump s=40.00 p=(147.739, 47.029, 58.261) grade=-0.430 hits=Ground_Culvert seamless floor:47.028:(-0.15, 0.93, -0.34)
+PROFILE Storm Drain / Gully Jump s=42.00 p=(146.945, 46.191, 56.426) grade=-0.409 hits=Ground_Culvert seamless floor:46.184:(-0.15, 0.91, -0.38)
+PROFILE Storm Drain / Gully Jump s=44.00 p=(146.215, 45.394, 54.564) grade=-0.388 hits=Ground_Culvert seamless floor:45.392:(-0.12, 0.94, -0.32)
+COORD (172.10, 66.00, 86.20)
+OBJECT Ground_480_400 parent=Memory loop - north is +Z bounds=Center: (240.00, 70.77, 130.00), Extents: (80.00, 10.94, 80.00) mesh=Assets/Track/ReverseCorrection/Local bore mouths Ground_480_400-801.asset
+OBJECT CR014 trunk 01498 parent=Woods replacing later subdivisions bounds=Center: (163.77, 67.84, 90.66), Extents: (0.38, 3.77, 0.38) mesh=
+OBJECT CR014 trunk 05630 parent=Woods replacing later subdivisions bounds=Center: (179.24, 71.33, 89.36), Extents: (0.38, 3.98, 0.38) mesh=
+OBJECT Supported culvert mouth pier parent=Reverse optional forest shortcuts bounds=Center: (164.74, 66.72, 77.55), Extents: (0.60, 3.70, 0.53) mesh=Library/unity default resources
+OBJECT Culvert mouth lintel parent=Reverse optional forest shortcuts bounds=Center: (166.80, 70.57, 73.00), Extents: (2.66, 0.35, 5.08) mesh=Library/unity default resources
+OBJECT Long storm culvert walls and ceiling parent=Reverse optional forest shortcuts bounds=Center: (140.99, 50.42, 3.26), Extents: (27.75, 19.84, 74.04) mesh=Assets/Track/UndergroundPolish/surface-0.asset
+MAIN 407.45 (200.665, 71.360, 84.412) Ground_480_400:71.360
+MAIN 409.45 (199.135, 71.000, 83.178) Ground_480_400:71.001
+MAIN 411.45 (197.465, 70.611, 82.152) Ground_480_400:70.611
+MAIN 413.45 (195.663, 70.188, 81.400) Ground_480_400:70.188
+MAIN 415.45 (193.770, 69.744, 80.943) Ground_480_400:69.744
+MAIN 417.45 (191.835, 69.283, 80.740) Ground_480_400:69.283
+MAIN 419.45 (189.890, 68.821, 80.700) Ground_480_400:68.819
+MAIN 421.45 (187.933, 68.407, 80.700) Ground_480_400:68.407
+MAIN 423.45 (185.975, 68.000, 80.700) Ground_480_400:68.000
+MAIN 425.45 (184.027, 67.547, 80.700) Ground_480_400:67.547
+MAIN 427.45 (182.085, 67.070, 80.700) Ground_480_400:67.068
+MAIN 429.45 (180.132, 66.640, 80.700) Ground_480_400:66.640
+MAIN 431.45 (178.179, 66.207, 80.700) Ground_480_400:66.208
+MAIN 433.45 (176.231, 65.754, 80.700) Ground_480_400:65.754
+MAIN 435.45 (174.281, 65.313, 80.700) Ground_480_400:65.313
+MAIN 437.45 (172.323, 64.901, 80.700) Ground_480_400:64.901
+MAIN 439.45 (170.362, 64.509, 80.700) Ground_480_400:64.509
+MAIN 441.45 (168.401, 64.115, 80.700) Ground_480_400:64.115
+MAIN 443.45 (166.441, 63.718, 80.700) Ground_480_400:63.718
+MAIN 445.45 (164.480, 63.327, 80.700) Ground_480_400:63.327
+MAIN 447.45 (162.519, 62.934, 80.700) Ground_480_400:62.935
+MAIN 449.45 (160.562, 62.520, 80.700) Ground_480_400:62.520
+MAIN 451.45 (158.610, 62.088, 80.721) Ground_400_400:62.086
+MAIN 453.45 (156.651, 61.685, 80.742) Ground_400_400:61.683
+MAIN 455.45 (154.684, 61.324, 80.751) Ground_400_400:61.323
+MAIN 457.45 (152.709, 61.010, 80.748) Ground_400_400:61.008
+MAIN 459.45 (150.727, 60.740, 80.735) Ground_400_400:60.739
+MAIN 461.45 (148.740, 60.518, 80.717) Ground_400_400:60.518
+MAIN 463.45 (146.747, 60.346, 80.704) Ground_400_400:60.346
+MAIN 465.45 (144.751, 60.226, 80.700) Ground_400_400:60.224
+MAIN 467.45 (142.752, 60.153, 80.700) Ground_400_400:60.153
+MAIN 469.45 (140.752, 60.133, 80.700) Ground_400_400:60.132
+MAIN 471.45 (138.753, 60.165, 80.700) Ground_400_400:60.163
+MAIN 473.45 (136.754, 60.245, 80.700) Ground_400_400:60.245
+MAIN 475.45 (134.759, 60.380, 80.700) Ground_400_400:60.378
+MAIN 477.45 (132.768, 60.564, 80.700) Ground_400_400:60.562
+MAIN 479.45 (130.781, 60.799, 80.700) Ground_400_400:60.796
+MAIN 481.45 (128.801, 61.079, 80.700) Ground_400_400:61.079
+COORD (405.40, 80.50, 2.50)
+OBJECT Ground_Dan beige concrete descent and parking parent=Dan first gate straight beige driveway bounds=Center: (430.31, 81.13, 17.75), Extents: (38.93, 1.67, 13.58) mesh=Assets/Track/YardReset/StreetLoopGreybox-concrete.asset
+OBJECT Side handrail parent=Reference architecture bounds=Center: (408.38, 85.05, -3.28), Extents: (2.60, 0.08, 0.16) mesh=
+OBJECT Brick lower rear level parent=Reference architecture bounds=Center: (415.80, 82.37, -13.00), Extents: (5.33, 1.75, 11.64) mesh=
+OBJECT Long low brick main level parent=Reference architecture bounds=Center: (415.80, 85.37, -13.00), Extents: (5.33, 1.55, 11.64) mesh=
+OBJECT Deck support parent=Reference architecture bounds=Center: (406.07, 82.17, -3.71), Extents: (0.12, 1.75, 0.12) mesh=
+OBJECT Pool house walls parent=Smaller pool house left of garage bounds=Center: (397.16, 80.87, -0.45), Extents: (2.57, 1.35, 2.57) mesh=
+OBJECT Pool coping parent=Reference architecture bounds=Center: (397.31, 79.72, -12.46), Extents: (4.19, 0.12, 6.61) mesh=
+OBJECT Elevated wooden rear deck parent=Reference architecture bounds=Center: (408.10, 83.87, -12.78), Extents: (2.98, 0.15, 9.57) mesh=
+OBJECT Rear deck handrail parent=Reference architecture bounds=Center: (405.55, 85.05, -12.70), Extents: (0.36, 0.08, 9.75) mesh=
+OBJECT Ground_560_320 parent=Memory loop - north is +Z bounds=Center: (400.00, 79.32, -30.00), Extents: (80.00, 9.53, 80.00) mesh=Assets/Track/BackyardReverseCorrections/terrain-1.asset
+MAIN 1187.60 (377.560, 86.321, -5.388) Ground_560_320:86.321
+MAIN 1189.60 (379.478, 86.739, -5.004) Ground_560_320:86.739
+MAIN 1191.60 (381.394, 87.166, -4.621) Ground_560_320:87.165
+MAIN 1193.60 (383.308, 87.600, -4.238) Ground_560_320:87.600
+MAIN 1195.60 (385.221, 88.042, -3.856) Ground_560_320:88.042
+MAIN 1197.60 (387.123, 88.420, -3.475) Ground_560_320:88.490
+MAIN 1199.60 (388.853, 87.478, -3.129) Ground_560_320:79.082
+MAIN 1201.60 (390.783, 87.196, -2.745) Ground_560_320:79.314
+MAIN 1203.60 (392.733, 86.975, -2.359) Ground_560_320:79.494
+MAIN 1205.60 (394.684, 86.754, -1.974) Pool house walls:82.220;Ground_560_320:79.520
+MAIN 1207.60 (396.634, 86.532, -1.590) Pool house walls:82.220;Ground_560_320:79.520
+MAIN 1209.60 (398.584, 86.311, -1.207) Pool house walls:82.220;Ground_560_320:79.520
+MAIN 1211.60 (400.535, 86.090, -0.824) Ground_560_320:79.576
+MAIN 1213.60 (402.485, 85.869, -0.440) Ground_560_320:79.799
+MAIN 1215.60 (404.436, 85.648, -0.057) Ground_560_320:80.051
+MAIN 1217.60 (406.386, 85.427, 0.326) Ground_560_320:80.114
+MAIN 1219.60 (408.336, 85.206, 0.710) Ground_560_320:80.042
+MAIN 1221.60 (410.287, 84.985, 1.094) Ground_560_320:80.230
+MAIN 1223.60 (412.237, 84.763, 1.478) Ground_560_320:81.425
+MAIN 1225.60 (414.187, 84.542, 1.863) Ground_560_320:83.051
+MAIN 1227.60 (416.137, 84.321, 2.249) Ground_560_320:83.112
+MAIN 1229.60 (418.087, 84.100, 2.635) Ground_560_320:82.975
+MAIN 1231.60 (420.037, 83.879, 3.022) Ground_560_320:82.963
+MAIN 1233.60 (421.986, 83.658, 3.409) Ground_560_320:82.941
+MAIN 1235.60 (423.936, 83.437, 3.798) Ground_560_320:82.784
+MAIN 1237.60 (425.885, 83.216, 4.188) Ground_560_320:82.718
+MAIN 1239.60 (427.833, 82.995, 4.580) Ground_560_320:82.598
+MAIN 1241.60 (429.782, 82.773, 4.974) Ground_560_320:82.495
+MAIN 1243.60 (431.730, 82.552, 5.370) Ground_560_320:82.374
+MAIN 1245.60 (433.677, 82.331, 5.770) Ground_560_320:82.219
+MAIN 1247.60 (435.623, 82.110, 6.175) Ground_Dan beige concrete descent and parking:82.074;Ground_560_320:82.039
+MAIN 1249.60 (437.567, 81.889, 6.587) Ground_Dan beige concrete descent and parking:81.878;Ground_560_320:81.843
+MAIN 1251.60 (439.500, 81.670, 7.049) Ground_Dan beige concrete descent and parking:81.672;Ground_560_320:81.637
+MAIN 1253.60 (441.406, 81.459, 7.616) Ground_Dan beige concrete descent and parking:81.461;Ground_560_320:81.426
+MAIN 1255.60 (441.766, 81.420, 8.361) Ground_Dan beige concrete descent and parking:81.421;Ground_560_320:81.386
+MAIN 1257.60 (441.131, 81.492, 8.506) Ground_Dan beige concrete descent and parking:81.492;Ground_560_320:81.457
+MAIN 1259.60 (443.118, 81.269, 8.534) Ground_Dan beige concrete descent and parking:81.269;Ground_560_320:81.234
+MAIN 1261.60 (445.105, 81.046, 8.497) Ground_Dan beige concrete descent and parking:81.046;Ground_560_320:81.011
+LakeWoods
+BRANCH Echo Cave length=533.4959 underground=0-0 ai=False start=(205.31, 51.35, 294.55) end=(-15.80, 26.19, -128.83)
+CAVE Cave rock buttress bounds=Center: (136.83, 49.24, 253.76), Extents: (2.50, 4.50, 3.00) mesh=Library/unity default resources
+CAVE Cave rock buttress bounds=Center: (124.65, 46.42, 209.19), Extents: (2.50, 4.50, 3.00) mesh=Library/unity default resources
+CAVE Cave rock buttress bounds=Center: (45.19, 37.00, 78.26), Extents: (2.50, 4.50, 3.00) mesh=Library/unity default resources
+CAVE Cave rock buttress bounds=Center: (95.00, 42.21, 151.71), Extents: (2.50, 4.50, 3.00) mesh=Library/unity default resources
+CAVE Cave rock buttress bounds=Center: (55.90, 38.24, 97.12), Extents: (2.50, 4.50, 3.00) mesh=Library/unity default resources
+CAVE Main teal / before Echo Cave fork bounds=Center: (229.17, 53.98, 295.04), Extents: (3.01, 0.32, 1.50) mesh=Assets/Track/RouteAtlas/LakeWoods-arrow-000.asset
+CAVE Cave rock buttress bounds=Center: (161.18, 50.51, 262.78), Extents: (2.50, 4.50, 3.00) mesh=Library/unity default resources
+CAVE Cave rock buttress bounds=Center: (-55.52, 26.59, -94.33), Extents: (2.50, 4.50, 3.00) mesh=Library/unity default resources
+CAVE Cave rock buttress bounds=Center: (103.44, 43.61, 171.34), Extents: (2.50, 4.50, 3.00) mesh=Library/unity default resources
+CAVE Cave rock buttress bounds=Center: (113.66, 45.00, 190.37), Extents: (2.50, 4.50, 3.00) mesh=Library/unity default resources
+CAVE Cave rock buttress bounds=Center: (148.30, 49.24, 245.73), Extents: (2.50, 4.50, 3.00) mesh=Library/unity default resources
+CAVE Cave rock buttress bounds=Center: (124.43, 47.84, 235.26), Extents: (2.50, 4.50, 3.00) mesh=Library/unity default resources
+CAVE Cave rock buttress bounds=Center: (78.28, 39.51, 110.50), Extents: (2.50, 4.50, 3.00) mesh=Library/unity default resources
+CAVE Optional gold / Echo Cave bounds=Center: (61.29, 35.20, 92.15), Extents: (1.60, 0.17, 2.73) mesh=Assets/Track/RouteAtlas/LakeWoods-arrow-026.asset
+CAVE Cave rock buttress bounds=Center: (22.21, 33.31, 14.91), Extents: (2.50, 4.50, 3.00) mesh=Library/unity default resources
+CAVE Cave rock buttress bounds=Center: (90.88, 43.61, 177.52), Extents: (2.50, 4.50, 3.00) mesh=Library/unity default resources
+CAVE Cave rock buttress bounds=Center: (45.71, 35.77, 52.20), Extents: (2.50, 4.50, 3.00) mesh=Library/unity default resources
+CAVE Main teal / Echo Cave rejoin bounds=Center: (7.70, 27.84, -133.15), Extents: (3.01, 0.20, 1.48) mesh=Assets/Track/RouteAtlas/LakeWoods-arrow-002.asset
+CAVE Cave rock buttress bounds=Center: (65.60, 39.51, 116.43), Extents: (2.50, 4.50, 3.00) mesh=Library/unity default resources
+CAVE Cave warning lettering bounds=Center: (154.81, 49.23, 285.37), Extents: (3.34, 1.04, 3.33) mesh=
+CAVE Main teal / main at Echo Cave fork bounds=Center: (183.63, 49.16, 292.08), Extents: (3.01, 0.24, 1.48) mesh=Assets/Track/RouteAtlas/LakeWoods-arrow-001.asset
+CAVE Cave rock buttress bounds=Center: (-46.79, 26.81, -72.31), Extents: (2.50, 4.50, 3.00) mesh=Library/unity default resources
+CAVE Cave rock buttress bounds=Center: (150.46, 50.51, 271.79), Extents: (2.50, 4.50, 3.00) mesh=Library/unity default resources
+CAVE Optional gold / Echo Cave bounds=Center: (149.76, 47.03, 259.58), Extents: (1.97, 0.17, 2.52) mesh=Assets/Track/RouteAtlas/LakeWoods-arrow-024.asset
+CAVE Cave rock buttress bounds=Center: (10.43, 32.35, -3.65), Extents: (2.50, 4.50, 3.00) mesh=Library/unity default resources
+CAVE Cave rock buttress bounds=Center: (68.23, 38.24, 90.50), Extents: (2.50, 4.50, 3.00) mesh=Library/unity default resources
+CAVE Echo Cave enclosed rock bounds=Center: (52.96, 42.15, 86.77), Extents: (108.21, 19.80, 185.02) mesh=Assets/Track/ForestLoop/Echo cave rock enclosure.asset
+CAVE Cave rock buttress bounds=Center: (22.16, 34.53, 40.99), Extents: (2.50, 4.50, 3.00) mesh=Library/unity default resources
+CAVE Cave rock buttress bounds=Center: (-36.06, 25.89, -52.67), Extents: (2.50, 4.50, 3.00) mesh=Library/unity default resources
+CAVE Cave rock buttress bounds=Center: (57.22, 37.00, 71.10), Extents: (2.50, 4.50, 3.00) mesh=Library/unity default resources
+CAVE Cave rock buttress bounds=Center: (112.67, 46.42, 216.43), Extents: (2.50, 4.50, 3.00) mesh=Library/unity default resources
+CAVE Cave rock buttress bounds=Center: (34.00, 34.53, 33.51), Extents: (2.50, 4.50, 3.00) mesh=Library/unity default resources
+CAVE Cave rock buttress bounds=Center: (-34.30, 26.81, -78.63), Extents: (2.50, 4.50, 3.00) mesh=Library/unity default resources
+CAVE Cave rock buttress bounds=Center: (33.81, 35.77, 59.58), Extents: (2.50, 4.50, 3.00) mesh=Library/unity default resources
+CAVE Cave rock buttress bounds=Center: (136.20, 47.84, 227.67), Extents: (2.50, 4.50, 3.00) mesh=Library/unity default resources
+CAVE Cave rock buttress bounds=Center: (-41.86, 26.59, -97.38), Extents: (2.50, 4.50, 3.00) mesh=Library/unity default resources
+CAVE Cave rock buttress bounds=Center: (101.47, 45.00, 197.26), Extents: (2.50, 4.50, 3.00) mesh=Library/unity default resources
+CAVE Cave rock buttress bounds=Center: (-23.93, 25.89, -59.66), Extents: (2.50, 4.50, 3.00) mesh=Library/unity default resources
+CAVE Cave rock buttress bounds=Center: (-1.40, 32.35, 3.83), Extents: (2.50, 4.50, 3.00) mesh=Library/unity default resources
+CAVE Optional gold / Echo Cave bounds=Center: (116.77, 43.23, 209.48), Extents: (1.71, 0.19, 2.68) mesh=Assets/Track/RouteAtlas/LakeWoods-arrow-025.asset
+CAVE Cave rock buttress bounds=Center: (81.93, 42.21, 156.75), Extents: (2.50, 4.50, 3.00) mesh=Library/unity default resources
+CAVE Cave rock buttress bounds=Center: (-1.27, 30.01, -22.24), Extents: (2.50, 4.50, 3.00) mesh=Library/unity default resources
+CAVE Cave rock buttress bounds=Center: (-13.14, 30.01, -14.82), Extents: (2.50, 4.50, 3.00) mesh=Library/unity default resources
+CAVE Cave rock buttress bounds=Center: (-24.74, 25.15, -33.61), Extents: (2.50, 4.50, 3.00) mesh=Library/unity default resources
+CAVE Cave rock buttress bounds=Center: (74.12, 40.83, 136.26), Extents: (2.50, 4.50, 3.00) mesh=Library/unity default resources
+CAVE Cave rock buttress bounds=Center: (-12.78, 25.15, -40.89), Extents: (2.50, 4.50, 3.00) mesh=Library/unity default resources
+CAVE Cave rock buttress bounds=Center: (10.39, 33.31, 22.42), Extents: (2.50, 4.50, 3.00) mesh=Library/unity default resources
+CAVE Cave rock buttress bounds=Center: (87.13, 40.83, 131.09), Extents: (2.50, 4.50, 3.00) mesh=Library/unity default resources

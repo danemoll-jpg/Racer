@@ -1,0 +1,4 @@
+FAIL moto entry=32 takeoff=0.00 air=0.00 landed=False landing=(0.000, 0.000, 0.000) minUp=0.987
+FAIL moto entry=42 takeoff=0.00 air=0.00 landed=False landing=(0.000, 0.000, 0.000) minUp=0.986
+FAIL atv entry=32 takeoff=0.00 air=0.00 landed=False landing=(0.000, 0.000, 0.000) minUp=0.975
+FAIL atv entry=42 takeoff=0.00 air=0.00 landed=False landing=(0.000, 0.000, 0.000) minUp=0.981

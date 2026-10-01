@@ -1,0 +1,2 @@
+FAIL moto-cave complete=False minUp=0.184 maxSide=0.245 maxAir=0.42 minSpeed=-13.47 maxAngular=5.64 maxUpward=3.72 final=(-8.67, 26.47, -20.42)
+FAIL atv-cave complete=False minUp=0.217 maxSide=0.737 maxAir=0.30 minSpeed=-7.32 maxAngular=11.02 maxUpward=3.53 final=(-7.45, 29.28, -20.32)

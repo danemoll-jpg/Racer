@@ -1,0 +1,2 @@
+PASS Echo Cave: existing probabilistic AI selection reaches this branch
+PASS AI-atv-Echo-Cave: entered=True; completed=True; station=478.0/533.5; air=1.56s; lateralMax=0.94; resets=0; AI recoveries=0

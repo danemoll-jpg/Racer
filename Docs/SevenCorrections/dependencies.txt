@@ -1,0 +1,4 @@
+Compared 208 existing grounded colliders; maximum increased absolute foot gap=0.0137; main road samples outside authorized jump=33, missing=0, maxDelta=0.0000
+Tree trunk groundDelta=1.965 oldGap=0.000 newGap=0.000
+Tree trunk groundDelta=0.069 oldGap=0.000 newGap=0.000
+Tree trunk groundDelta=1.718 oldGap=0.000 newGap=0.000

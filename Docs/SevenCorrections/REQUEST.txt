@@ -1,0 +1,845 @@
+READ FIRST:
+
+C:\Users\danmo\Racer\CODEX\_RULES.md
+C:\Users\danmo\Racer\PROJECT_TODO.md
+
+Follow _RULES.md throughout this task.
+
+==================================================
+TASK:
+BACKYARD REVERSE + FOREST CAVE CORRECTION PASS
+==================================================
+
+Dan gameplay-tested the latest build.
+
+Several previously requested improvements either remain functionally broken or
+still do not visually achieve the intended result.
+
+This is NOT another general redesign.
+
+Fix the SEVEN specific issues below.
+
+Do not merely report that previous systems technically exist.
+
+Judge the result from the PLAYER'S actual driving/viewing experience.
+
+==================================================
+1. LOGGING RIDGE END FLIPS VEHICLE
+==================================================
+
+Course:
+Dan's Backyard Loop - Reverse
+
+At the END of the Logging Ridge shortcut, the current transition/rejoin flips
+Dan's vehicle nearly every time.
+
+This occurs even when following the directional arrow correctly.
+
+The shortcut itself can remain.
+
+Fix the END / DESCENT / REJOIN geometry.
+
+==================================================
+RIDGE REJOIN REQUIREMENT
+==================================================
+
+A correctly driven:
+
+MOTORCYCLE
+or
+ATV
+
+must be able to follow the intended arrow/line off the Logging Ridge and rejoin
+without:
+
+- nose-diving;
+- catching a terrain lip;
+- striking overlapping collision;
+- rolling;
+- flipping;
+- receiving an abrupt lateral kick.
+
+Inspect the actual cause.
+
+Possible causes include:
+
+- excessive descent angle;
+- abrupt slope transition;
+- terrain/mesh seam;
+- overlapping surfaces;
+- hidden collision;
+- badly aligned trail pieces;
+- sudden camber change.
+
+Fix the ROOT CAUSE.
+
+Do not simply move the arrow around a broken transition.
+
+==================================================
+SMOOTH RIDGE EXIT
+==================================================
+
+Preserve the elevated ridge character.
+
+Do NOT flatten the entire ridge.
+
+Only reshape the final descent/rejoin enough to provide a predictable racing
+transition.
+
+Use a progressive slope:
+
+RIDGE
+-> DESCENT
+-> TRANSITION
+-> REJOIN
+
+rather than:
+
+RIDGE
+-> SUDDEN EDGE
+-> FLIP.
+
+==================================================
+2. REMOVE EXPOSED MESH BEFORE STORM DRAIN
+==================================================
+
+Position:
+
+X=172.1
+Y=66.0
+Z=86.2
+
+Course:
+Dan's Backyard Loop - Reverse
+
+There is an obvious exposed mesh/wedge protruding from the ground immediately
+before the Storm Drain.
+
+Dan supplied a screenshot showing the problem.
+
+REMOVE OR CORRECT IT.
+
+Determine whether it is:
+
+- obsolete ramp geometry;
+- tunnel-transition geometry;
+- terrain patch;
+- collision helper;
+- duplicate mesh;
+- another generated object.
+
+It must no longer visibly protrude through the terrain.
+
+If the geometry is still functionally required:
+
+integrate/bury/reshape it correctly without creating a collision lip.
+
+Do not leave hidden collision after removing the visible portion.
+
+==================================================
+3. STORM DRAIN ENTRANCE STILL FLIPS VEHICLES
+==================================================
+
+The Storm Drain entrance still frequently flips the vehicle.
+
+The previous entrance correction DID NOT solve the problem.
+
+Treat this as a FUNCTIONAL FAILURE.
+
+==================================================
+REBUILD THE LOCAL TRANSITION IF NECESSARY
+==================================================
+
+Inspect the complete transition from:
+
+OUTSIDE APPROACH
+->
+ENTRANCE THRESHOLD
+->
+TUNNEL FLOOR.
+
+Do not preserve bad geometry merely because it already exists.
+
+The floor transition should be essentially continuous.
+
+Remove:
+
+- raised lip;
+- sharp collision edge;
+- overlapping surfaces;
+- sudden pitch change;
+- hidden collider;
+- terrain/mesh seam capable of catching wheels.
+
+The ATV should be able to drive STRAIGHT into the opening at normal shortcut
+speed.
+
+The motorcycle should also enter cleanly.
+
+The player should NOT need:
+
+- a special angle;
+- reduced crawl speed;
+- wheel placement trick;
+- luck.
+
+==================================================
+ENTRANCE TEST
+==================================================
+
+Test MULTIPLE approaches with both:
+
+MOTORCYCLE
+ATV.
+
+Do not count one successful attempt as sufficient.
+
+If normal centered approaches still sometimes flip:
+
+the entrance is NOT fixed.
+
+==================================================
+4. STORM DRAIN STILL LOOKS LIKE A HIGHWAY TUNNEL
+==================================================
+
+The Storm Drain remains too:
+
+- wide;
+- open;
+- bright;
+- clean;
+- uniform.
+
+It reads more like a HIGHWAY TUNNEL than a drainage culvert.
+
+Previous atmosphere/detail changes were insufficient.
+
+This time change the actual VISUAL CHARACTER and PROPORTIONS.
+
+==================================================
+MAKE IT MORE CONFINED
+==================================================
+
+Reduce the apparent width and openness of the tunnel.
+
+The tunnel should feel:
+
+CRAMPED
+ENCLOSED
+DAMP
+DIRTY
+UNDERGROUND.
+
+IMPORTANT:
+
+It must still comfortably accommodate the ATV and motorcycle.
+
+Do NOT make it frustratingly narrow or create camera clipping.
+
+But the player should NOT feel like four cars could drive side-by-side.
+
+Use:
+
+- narrower usable chamber;
+- lower apparent ceiling;
+- wall/pipe structures;
+- side drainage channels;
+- irregular utility protrusions outside racing clearance.
+
+Maintain safe vehicle/head clearance.
+
+==================================================
+MAKE IT CONSIDERABLY DARKER
+==================================================
+
+The previous pass did not darken the tunnel enough.
+
+Make the middle/deeper portions OBVIOUSLY darker than they are now.
+
+The player should immediately notice the difference.
+
+Use:
+
+ENTRANCE DAYLIGHT
+-> RAPID DARKENING
+-> DARK INTERIOR
+-> SMALL LIMITED LIGHT SOURCES
+-> DISTANT EXIT LIGHT.
+
+Do NOT simply tint everything slightly darker.
+
+Use stronger contrast.
+
+The driving line must remain readable through:
+
+- limited ambient light;
+- reflected wet surfaces;
+- occasional grate/light shaft;
+- exit glow.
+
+Do NOT make it completely black.
+
+==================================================
+WATER MUST BE OBVIOUS
+==================================================
+
+Make shallow drainage water a prominent visual feature.
+
+Use meaningful stretches of:
+
+- shallow center water;
+- puddles;
+- drainage flow;
+- wet floor.
+
+The tunnel should visually communicate:
+
+STORM WATER DRAIN.
+
+Do not hide tiny puddles along the wall and call the requirement complete.
+
+==================================================
+VISIBLE DEBRIS
+==================================================
+
+Dan still sees essentially no meaningful debris.
+
+Add enough that it is OBVIOUS while driving.
+
+Examples:
+
+- branches;
+- leaves;
+- small trash piles;
+- boards;
+- discarded pipe sections;
+- washed-in junk;
+- rocks;
+- mud/debris accumulation.
+
+Concentrate collision-capable debris along edges.
+
+Small visual debris may extend closer to the driving line if it cannot snag or
+launch the vehicle.
+
+The player should see environmental storytelling while driving through.
+
+==================================================
+5. RATS ARE NOT NOTICEABLE
+==================================================
+
+The previous rat implementation is not perceptible during normal gameplay.
+
+Dan reports NO NOTICEABLE RATS.
+
+Fix this.
+
+==================================================
+RAT ENCOUNTER MUST BE OBVIOUS
+==================================================
+
+When entering the Storm Drain in Backyard Reverse:
+
+Dan should visibly see a small group of rats scurry away.
+
+Use approximately:
+
+4–6 visible rats.
+
+Place/timing must account for racing speed.
+
+Do NOT spawn them:
+
+- behind the player;
+- underneath the vehicle;
+- too far away;
+- in darkness so complete they cannot be seen;
+- for such a short duration that they are effectively invisible.
+
+They should begin far enough AHEAD of the player to be noticed.
+
+Have them visibly cross/scurry toward:
+
+- wall edges;
+- drainage pipes;
+- openings.
+
+==================================================
+RAT VISIBILITY
+==================================================
+
+The rats may receive subtle local contrast/highlighting appropriate to the
+low-poly art style so they remain visible against the dark tunnel.
+
+Do NOT make them glowing cartoon objects.
+
+They need no meaningful collision.
+
+==================================================
+RAT AUDIO
+==================================================
+
+Play a noticeable but restrained spatial sound event:
+
+- squeaks;
+- scratching;
+- scurrying.
+
+The audio should be clearly audible during normal vehicle operation without
+being absurdly loud.
+
+Do not loop it constantly.
+
+Trigger once per appropriate shortcut traversal with sensible rearm behavior.
+
+==================================================
+6. BACKYARD REVERSE JUMP IS TOO LARGE
+==================================================
+
+Position:
+
+X=405.4
+Y=80.5
+Z=2.5
+
+Course:
+Dan's Backyard Loop - Reverse
+
+Dan almost never complains that a jump is too large.
+
+THIS ONE IS TOO LARGE.
+
+When hit correctly, the current ramp can launch the player completely across:
+
+SOUTH CHEROKEE LANE
+
+and into the woods on the opposite side.
+
+That makes recovery to the Start/Finish unnecessarily difficult.
+
+==================================================
+KEEP THE JUMP — REDUCE THE LAUNCH
+==================================================
+
+Do NOT remove the jump.
+
+Dan still wants airtime.
+
+Reduce its:
+
+- takeoff angle;
+- effective launch height;
+- excessive vertical impulse;
+- or whichever local geometry is responsible.
+
+Use the smallest appropriate correction.
+
+The desired result:
+
+GOOD SPEED
+-> FUN JUMP
+-> CONTROLLED LANDING
+-> EASY CONTINUATION TOWARD START/FINISH.
+
+NOT:
+
+GOOD SPEED
+-> ORBIT
+-> CROSS SOUTH CHEROKEE LANE
+-> LAND IN WOODS
+-> FIND CIVILIZATION.
+
+==================================================
+JUMP LANDING
+==================================================
+
+Inspect the intended landing zone.
+
+The normal successful landing should:
+
+- remain on the intended side/course area;
+- point the player toward continued Reverse progression;
+- avoid trees/obstacles;
+- not require difficult recovery to reach Start/Finish.
+
+Test with:
+
+MOTORCYCLE
+ATV.
+
+Use realistic race-entry speeds, not artificially slow test approaches.
+
+==================================================
+7. FOREST LOOP - FORWARD:
+CAVE SHORTCUT STILL DOES NOT LOOK LIKE A CAVE
+==================================================
+
+Course:
+Forest Loop - Forward
+
+IMPORTANT COURSE-DIRECTION RULE:
+
+The cave physically exists in the world and therefore may also be visible or
+physically present during Forest Loop - Reverse.
+
+However:
+
+THE CAVE SHORTCUT IS INTENDED FOR FOREST LOOP - FORWARD.
+
+It is NOT an intended Forest Loop - Reverse shortcut.
+
+Do NOT:
+
+- add it to the Reverse racing line;
+- add Reverse shortcut navigation through it;
+- add Reverse shortcut arrows;
+- encourage Reverse AI to use it;
+- change Reverse checkpoints to support it.
+
+Preserve the existing intended Forward shortcut behavior.
+
+Dan reports essentially no noticeable visual improvement to the cave.
+
+The supplied screenshot confirms the problem.
+
+It currently reads visually as:
+
+A BROWN DIRT ROAD
+WITH LARGE DARK SMOOTH OBJECTS ALONG THE SIDES.
+
+That is NOT sufficient.
+
+Stop treating this as a decoration-only pass.
+
+The cave needs stronger CAVE GEOMETRY and SILHOUETTE.
+
+==================================================
+CAVE GEOMETRY
+==================================================
+
+Create a convincing enclosed natural-rock passage.
+
+The player should perceive:
+
+ROCK WALLS
+ROCK CEILING
+IRREGULAR CAVE SHAPE.
+
+The ceiling should visually connect across the passage.
+
+The cave should not resemble a row of separate dark boulders standing beside
+an open dirt road.
+
+==================================================
+IRREGULAR NATURAL SHAPE
+==================================================
+
+Avoid repeated identical smooth shapes.
+
+Use variation in:
+
+- wall depth;
+- wall height;
+- ceiling height;
+- chamber width;
+- rock size;
+- rock orientation;
+- silhouette.
+
+Create sections that:
+
+- narrow;
+- widen;
+- rise;
+- lower;
+- bend visually.
+
+Maintain adequate racing clearance.
+
+==================================================
+ROCK CHARACTER
+==================================================
+
+Use natural low-poly rock forms.
+
+Add visible:
+
+- angular rock faces;
+- ledges;
+- cracks/seams where supported;
+- ceiling formations;
+- rock protrusions outside driving clearance;
+- scattered stone;
+- earth/gravel transitions.
+
+Use subtle material/value variation so individual rock surfaces remain
+readable in darkness.
+
+Do not use one uniform near-black material for every surface.
+
+==================================================
+CAVE CEILING
+==================================================
+
+The ceiling is critical.
+
+The player should LOOK UP / FORWARD and understand:
+
+I AM INSIDE ROCK.
+
+Use an irregular connected ceiling rather than leaving the passage feeling
+open between independent side objects.
+
+Include some natural formations such as:
+
+- hanging rock shapes;
+- small stalactite-like formations;
+- exposed roots.
+
+Keep all formations safely above vehicle/rider clearance.
+
+==================================================
+CAVE FLOOR
+==================================================
+
+Break up the uniform brown-road appearance.
+
+Use a mixture of:
+
+- dirt;
+- stone;
+- gravel;
+- damp patches;
+- small puddles;
+- scattered non-blocking rocks.
+
+Preserve a readable racing line.
+
+==================================================
+CAVE LIGHTING
+==================================================
+
+Use:
+
+ENTRANCE LIGHT
+-> DARKER INTERIOR
+-> SUBTLE NATURAL VARIATION
+-> EXIT LIGHT.
+
+Rock surfaces should remain readable.
+
+Do not simply make everything black.
+
+==================================================
+CAVE DETAIL / AUDIO
+==================================================
+
+Add visible natural details such as:
+
+- roots;
+- damp rock;
+- water drips;
+- small puddles;
+- fallen stone.
+
+Where lightweight audio support exists, use restrained:
+
+- dripping water;
+- subtle trickle;
+- cave ambience.
+
+Do not copy Storm Drain trash/pipe assets into the cave.
+
+The environments must remain distinct.
+
+==================================================
+CAVE DRIVEABILITY
+==================================================
+
+This remains a racing shortcut.
+
+Do NOT introduce:
+
+- low ceiling collision;
+- narrow vehicle traps;
+- unavoidable boulders;
+- sharp floor lips;
+- collision snags.
+
+Test motorcycle, ATV and rival AI.
+
+==================================================
+RECOVERY SYSTEM
+==================================================
+
+Preserve the systemic recovery improvements from the previous pass.
+
+Because this task modifies:
+
+- ridge exit;
+- drain entrance;
+- jump near X=405.4 Z=2.5;
+- cave geometry;
+
+verify that none of the modified geometry becomes a bad recovery candidate.
+
+No recovery point should place a vehicle:
+
+- on ramp face;
+- ramp crest;
+- unstable ridge edge;
+- drain threshold;
+- cave obstacle;
+- unsafe slope.
+
+Do NOT regress the recently corrected recovery behavior.
+
+==================================================
+AI
+==================================================
+
+Preserve rival AI support for:
+
+- Logging Ridge in Backyard Reverse;
+- Storm Drain in Backyard Reverse;
+- the cave shortcut in Forest Loop - Forward.
+
+The cave is NOT an intended Forest Loop - Reverse shortcut.
+
+Do not add Reverse AI routing through the cave.
+
+After geometry changes, update localized AI guidance if required.
+
+AI should not:
+
+- flip at ridge exit;
+- flip entering drain;
+- hit cave geometry;
+- overshoot the reduced Backyard jump.
+
+Do NOT globally retune AI.
+
+==================================================
+WORLD DEPENDENCY / CLEANUP
+==================================================
+
+Follow _RULES.md.
+
+Remove obsolete geometry rather than leaving:
+
+- exposed wedges;
+- duplicate meshes;
+- hidden colliders;
+- buried props;
+- floating props.
+
+After terrain/geometry changes verify:
+
+- trees grounded;
+- signs grounded;
+- props grounded;
+- no floating/buried dependencies;
+- no damage to nearby approved routes.
+
+==================================================
+TARGETED TESTING
+==================================================
+
+Do NOT over-test.
+
+Test:
+
+LOGGING RIDGE:
+- motorcycle follows arrow/rejoin without flipping;
+- ATV follows arrow/rejoin without flipping;
+- AI rejoin works.
+
+STORM DRAIN APPROACH:
+- exposed mesh at X=172.1 Z=86.2 gone;
+- multiple normal-speed motorcycle entries;
+- multiple normal-speed ATV entries;
+- no threshold flipping.
+
+STORM DRAIN VISUAL:
+- clearly darker than previous build;
+- visibly more confined;
+- obvious shallow water;
+- obvious environmental debris;
+- rats clearly visible at racing speed;
+- rat audio clearly perceptible;
+- driving line remains readable.
+
+BACKYARD JUMP X=405.4 Z=2.5:
+- motorcycle retains fun airtime but no normal overshoot across South Cherokee;
+- ATV retains fun airtime but no normal overshoot across South Cherokee;
+- intended landing/rejoin works;
+- AI remains viable.
+
+FOREST FORWARD CAVE:
+- unmistakably reads as an enclosed natural cave;
+- connected ceiling visible;
+- varied rock walls/forms visible;
+- floor no longer looks like plain uniform dirt road;
+- motorcycle clean traversal;
+- ATV clean traversal;
+- AI clean traversal.
+
+RECOVERY:
+- no new bad reset candidates created by these changes.
+
+Then STOP TESTING.
+
+==================================================
+PROJECT_TODO / DOCUMENTATION
+==================================================
+
+Update PROJECT_TODO.md with all seven corrections and targeted test results.
+
+Record specifically that:
+
+- the previous Storm Drain atmosphere/rats pass was insufficient and required
+  stronger visible treatment;
+- the Forest Reverse cave required geometry/silhouette changes rather than
+  decoration alone;
+- the X=405.4 Z=2.5 jump remains intentional but was reduced;
+- the exposed mesh near X=172.1 Z=86.2 was removed/corrected.
+
+==================================================
+DELIVERY
+==================================================
+
+Follow _RULES.md for the normal source-changing delivery workflow:
+
+- TODO/docs;
+- commit;
+- push;
+- fresh Windows build;
+- complete Builds\Latest;
+- GitHub release;
+- catalog;
+- Play-Racer.cmd verification;
+- disposable build cleanup.
+
+==================================================
+FINAL REPORT
+==================================================
+
+Keep concise.
+
+Report:
+
+1. Logging Ridge rejoin root cause and correction.
+2. Exposed mesh root cause/removal.
+3. Storm Drain entrance-flip root cause and correction.
+4. Storm Drain geometry/lighting/water/debris changes.
+5. Rat visibility/audio changes.
+6. Reduced Backyard jump behavior at X=405.4 Z=2.5.
+7. Forest Forward cave geometry/environment changes and confirmation that it
+   remains a Forward shortcut, not a Reverse shortcut.
+8. Motorcycle/ATV/AI targeted results.
+9. Recovery regression check.
+10. Commit/build/release status.
+
+Then STOP.
+
+Wait for Dan's gameplay review.

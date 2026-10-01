@@ -1,0 +1,1 @@
+Dan confirmed main pool-house jump, not the ground crest. Lip (387.941, 88.686, -3.312) -> (387.941, 86.146, -3.312); final slope 0.08 (formerly about 0.24), base (350.679, 88.686, -10.764) Y=81.325; intended landing unchanged; trees and arrows reseated, flight/recovery metadata follows new height.

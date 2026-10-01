@@ -1,0 +1,1 @@
+PASS Production AI ATV pool-house jump complete=True air=1.08 minUp=0.984 landing=(423.387, 83.345, 3.828) resets=0 recoveries=0

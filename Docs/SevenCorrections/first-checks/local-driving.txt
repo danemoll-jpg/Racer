@@ -1,0 +1,8 @@
+FAIL moto-ridge complete=False minUp=0.249 maxSide=2.670 maxAir=1.08 minSpeed=5.28 maxAngular=6.05 maxUpward=5.42 final=(272.42, 78.56, 123.02)
+FAIL moto-drain-0 complete=False minUp=0.240 maxSide=2.501 maxAir=0.56 minSpeed=3.00 maxAngular=8.95 maxUpward=0.00 final=(162.84, 62.54, 69.34)
+FAIL moto-drain-1 complete=True minUp=0.926 maxSide=3.141 maxAir=1.00 minSpeed=14.36 maxAngular=8.01 maxUpward=0.00 final=(141.03, 38.51, 18.78)
+FAIL moto-drain-2 complete=False minUp=0.222 maxSide=3.030 maxAir=0.82 minSpeed=-21.34 maxAngular=6.61 maxUpward=0.00 final=(144.46, 53.18, 57.48)
+FAIL atv-ridge complete=False minUp=0.248 maxSide=3.202 maxAir=0.72 minSpeed=10.43 maxAngular=6.15 maxUpward=6.98 final=(278.98, 79.48, 121.81)
+FAIL atv-drain-0 complete=False minUp=0.214 maxSide=1.293 maxAir=0.84 minSpeed=5.12 maxAngular=9.32 maxUpward=5.66 final=(166.74, 65.46, 71.58)
+PASS atv-drain-1 complete=True minUp=0.837 maxSide=2.740 maxAir=0.72 minSpeed=13.00 maxAngular=4.21 maxUpward=0.00 final=(141.04, 38.57, 19.04)
+FAIL atv-drain-2 complete=False minUp=0.600 maxSide=2.675 maxAir=0.82 minSpeed=-0.75 maxAngular=9.15 maxUpward=0.01 final=(141.76, 48.77, 46.90)

@@ -1,0 +1,16 @@
+Visible washed paper and leaves parent=Reverse optional forest shortcuts verts=6 minY=61.75864 maxY=61.79176
+Complete authored trees parent=Woods replacing later subdivisions verts=1 minY=72.79717 maxY=72.79717
+Wet edge channel parent=Reverse optional forest shortcuts verts=12 minY=63.5461 maxY=63.59336
+Optional gold guidance parent=Reverse optional forest shortcuts verts=24 minY=65.50154 maxY=65.73567
+Long storm culvert walls and ceiling parent=Reverse optional forest shortcuts verts=19 minY=61.88663 maxY=69.27501
+Ground_480_400 parent=Memory loop - north is +Z verts=9574 minY=62.06941 maxY=68.96101
+Reverse teal ground arrow parent=Backyard Reverse main route verts=7 minY=65.28548 maxY=66.06068
+Visible washed debris accumulation parent=Reverse optional forest shortcuts verts=12 minY=61.76457 maxY=62.12611
+Complete authored trees parent=Woods replacing later subdivisions verts=91 minY=64.07143 maxY=83.86886
+Culvert mouth lintel parent=Reverse optional forest shortcuts verts=12 minY=69.22067 maxY=69.82068
+Broken rusted pipe section parent=Storm Drain atmosphere verts=34 minY=61.96167 maxY=62.27708
+Storm washed branch or board parent=Storm Drain atmosphere verts=12 minY=61.97417 maxY=62.11665
+Supported culvert mouth pier parent=Reverse optional forest shortcuts verts=24 minY=62.87798 maxY=69.07798
+Damp sediment and leaf cluster parent=Storm Drain atmosphere verts=266 minY=61.55376 maxY=61.94966
+Ground_Culvert seamless floor parent=Reverse optional forest shortcuts verts=4461 minY=61.60522 maxY=66.41148
+Optional gold guidance parent=Reverse optional forest shortcuts verts=24 minY=65.50155 maxY=65.73568

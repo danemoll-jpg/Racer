@@ -1,0 +1,17 @@
+Broken rusted pipe section parent=Storm Drain atmosphere verts=44 minY=59.23984 maxY=59.55526
+Culvert mouth lintel parent=Reverse optional forest shortcuts verts=12 minY=70.21649 maxY=70.91649
+Wet edge channel parent=Reverse optional forest shortcuts verts=12 minY=59.80581 maxY=59.85306
+Ground_480_400 parent=Memory loop - north is +Z verts=9574 minY=62.06941 maxY=68.96101
+Cabin wooded approach parent=Backyard optional forest shortcuts verts=2 minY=66.92438 maxY=67.73058
+Complete authored trees parent=Woods replacing later subdivisions verts=91 minY=64.07143 maxY=83.86886
+Supported culvert mouth pier parent=Reverse optional forest shortcuts verts=24 minY=63.01648 maxY=70.41648
+Long storm culvert walls and ceiling parent=Reverse optional forest shortcuts verts=12 minY=59.68568 maxY=70.26643
+Storm washed branch or board parent=Storm Drain atmosphere verts=12 minY=59.25234 maxY=59.39482
+Optional gold guidance parent=Reverse optional forest shortcuts verts=24 minY=65.52132 maxY=65.75546
+Reverse teal ground arrow parent=Backyard Reverse main route verts=7 minY=65.28548 maxY=66.06068
+Ground_Culvert seamless floor parent=Reverse optional forest shortcuts verts=35631 minY=59.05249 maxY=65.64775
+Optional gold guidance parent=Reverse optional forest shortcuts verts=24 minY=65.52132 maxY=65.75546
+Complete authored trees parent=Woods replacing later subdivisions verts=1 minY=72.79717 maxY=72.79717
+Damp sediment and leaf cluster parent=Storm Drain atmosphere verts=515 minY=58.97118 maxY=59.37092
+cave stations=59.99999-479
+cave first vertices=(150.46, 47.71, 271.79);(150.65, 51.39, 271.64);(151.18, 54.83, 271.19);(152.03, 57.78, 270.47);(153.14, 60.04, 269.54);(154.43, 61.47, 268.45);(155.82, 61.95, 267.29);(157.21, 61.47, 266.12);(158.50, 60.04, 265.03);(159.61, 57.78, 264.10);(160.46, 54.83, 263.39);(161.00, 51.39, 262.94);(161.18, 47.71, 262.78);(149.15, 47.60, 270.22);(149.33, 51.30, 270.07);(149.87, 54.74, 269.62);(150.73, 57.69, 268.91);(151.85, 59.96, 267.99)

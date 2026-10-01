@@ -1,0 +1,4 @@
+PASS moto entry=32 takeoff=31.97 air=1.04 landed=True landing=(422.949, 83.448, 3.717) minUp=0.988
+PASS moto entry=42 takeoff=41.97 air=1.36 landed=True landing=(446.016, 81.482, 8.303) minUp=0.988
+PASS atv entry=32 takeoff=31.94 air=1.04 landed=True landing=(422.876, 83.415, 3.680) minUp=0.988
+PASS atv entry=42 takeoff=41.64 air=1.40 landed=True landing=(447.931, 81.230, 8.536) minUp=0.988

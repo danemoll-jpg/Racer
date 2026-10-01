@@ -1,0 +1,1 @@
+Existing cave takeoff is station387, gap ends399. Raised natural flight chamber at340-465 to preserve original max-neighbour clearance; removed hanging detail and floor overlays across flight. No floor collision/route/gates moved.

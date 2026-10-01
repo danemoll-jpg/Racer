@@ -1,0 +1,1 @@
+Removed 3 complete trees (trunk collider and connected combined crown/trunk meshes) intersecting bore/portal; no floating tree remnants retained.

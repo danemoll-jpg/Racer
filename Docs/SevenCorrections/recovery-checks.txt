@@ -1,0 +1,14 @@
+PASS normal off-road crash requested=82.0 earned=82.00 selected=82.00 unsafe=False; earnedBefore=0.00; route=main; selected=82.00; age=0.00s; backward=2.63m; displacement=10.63m; rejected=0; reasons=
+PASS Logging Ridge final descent requested=124.0 earned=124.00 selected=124.00 unsafe=False; earnedBefore=0.00; route=Abandoned Logging Ridge; selected=124.00; age=0.00s; backward=0.00m; displacement=10.63m; rejected=0; reasons=
+PASS shallow wet drain beneath surface road requested=116.0 earned=116.00 selected=116.00 unsafe=False; earnedBefore=0.00; route=Storm Drain / Gully Jump; selected=116.00; age=0.00s; backward=0.00m; displacement=10.63m; rejected=0; reasons=
+PASS failed exit jump keeps acceleration approach requested=164.0 earned=163.95 selected=163.95 unsafe=False; earnedBefore=0.00; route=Storm Drain / Gully Jump; selected=163.95; age=0.00s; backward=0.00m; displacement=10.63m; rejected=0; reasons=
+PASS failed jump retains pre-jump established point earnedBefore=0.00; route=Storm Drain / Gully Jump; selected=163.95; age=0.00s; backward=49.45m; displacement=66.02m; rejected=0; reasons=
+PASS successful exit jump landing then crash requested=250.0 earned=249.97 selected=249.97 unsafe=False; earnedBefore=0.00; route=Storm Drain / Gully Jump; selected=249.97; age=0.00s; backward=0.00m; displacement=10.63m; rejected=0; reasons=
+PASS drain threshold excluded
+PASS pool-house ramp/crest excluded -8
+PASS pool-house ramp/crest excluded 0
+PASS exit ramp/crest/landing excluded station=186.9548
+PASS exit ramp/crest/landing excluded station=196.9548
+PASS exit ramp/crest/landing excluded station=229.9694
+PASS Forward cave interior requested=167.0 earned=167.00 selected=167.00 unsafe=False; earnedBefore=0.00; route=Echo Cave; selected=167.00; age=0.00s; backward=0.00m; displacement=10.63m; rejected=0; reasons=
+PASS Forest cave recovery requested=72.0 earned=72.00 selected=72.00 unsafe=False; earnedBefore=0.00; route=Echo Cave; selected=72.00; age=0.00s; backward=0.00m; displacement=10.63m; rejected=0; reasons=

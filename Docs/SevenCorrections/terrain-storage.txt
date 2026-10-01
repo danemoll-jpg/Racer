@@ -1,0 +1,1 @@
+PASS lossless vertex deduplication: vertices 992679 -> 621249; triangle indices=992679; every expanded vertex's 64 bytes identical, triangle order unchanged; bytes 135007891 -> 87464824; both renderer/collider reference compact mesh; global settings unchanged

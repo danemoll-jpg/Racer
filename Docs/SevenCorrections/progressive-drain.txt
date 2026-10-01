@@ -1,0 +1,1 @@
+Entrance grade -0.20 eases to -0.32 across35m; constant slope through95m then long gradual flattening to original exit. Addresses suspension losing contact and striking bend/ceiling during descending airborne travel at27m/s. Matched all floor/shell/water/props/rats; removed 526 intersecting bore triangles.

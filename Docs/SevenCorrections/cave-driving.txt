@@ -1,0 +1,2 @@
+PASS moto-cave complete=True minUp=0.986 maxSide=0.864 maxAir=1.62 minSpeed=26.52 maxAngular=5.13 maxUpward=3.72 final=(-48.97, 24.16, -95.89)
+PASS atv-cave complete=True minUp=0.989 maxSide=0.881 maxAir=1.64 minSpeed=27.17 maxAngular=2.90 maxUpward=3.53 final=(-49.06, 24.13, -96.18)

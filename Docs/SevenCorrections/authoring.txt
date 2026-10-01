@@ -1,0 +1,4 @@
+Ridge: one collision skin; final stations 82-116 use continuous Hermite descent, broad level crown, original elevated entry/middle retained; trees/timber/scrub/guidance reseated.
+Removed obsolete Cabin wooded approach render strip in Reverse near supplied drain coordinate, including any associated collider; Forward scene untouched.
+Drain: first 100m regraded continuously instead of abrupt 38-degree entrance plunge; 6.7m chamber and chamfered 5.35m ceiling, rapid portal falloff, broad centre flow and visible edge accumulations. Five larger rats staged ahead.
+Forest Forward Echo Cave: replaced 13m smooth vault and repeated oval buttresses with connected irregular faceted 7-9m rock ceiling/walls, flight clearance retained; angular ledges, roots, gravel/damp floor, natural water audio. No Reverse route/gates/arrows/AI changed.

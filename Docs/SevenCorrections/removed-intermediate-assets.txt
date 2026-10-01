@@ -1,0 +1,41 @@
+Assets/Track/BackyardReverse/DansBackyardReverse-Drain continuous entrance apron-2.asset
+Assets/Track/BackyardReverse/DansBackyardReverse-Drain continuous entrance apron-3.asset
+Assets/Track/BackyardReverse/DansBackyardReverse-Integrated ridge descent-0.asset
+Assets/Track/BackyardReverse/DansBackyardReverse-Reduced pool house takeoff-4.asset
+Assets/Track/BackyardReverse/DansBackyardReverse-Remove former pool crest remnant-5.asset
+Assets/Track/BackyardReverse/DansBackyardReverse-trees-0 4.asset
+Assets/Track/BackyardReverse/DansBackyardReverse-trees-1 3.asset
+Assets/Track/SevenCorrections/Angular rock 272.asset
+Assets/Track/SevenCorrections/Angular rock 275.asset
+Assets/Track/SevenCorrections/Angular rock 286.asset
+Assets/Track/SevenCorrections/Angular rock 289.asset
+Assets/Track/SevenCorrections/Angular rock 300.asset
+Assets/Track/SevenCorrections/Angular rock 303.asset
+Assets/Track/SevenCorrections/Angular rock 314.asset
+Assets/Track/SevenCorrections/Angular rock 317.asset
+Assets/Track/SevenCorrections/Angular rock 328.asset
+Assets/Track/SevenCorrections/Angular rock 331.asset
+Assets/Track/SevenCorrections/Angular rock 342.asset
+Assets/Track/SevenCorrections/Angular rock 345.asset
+Assets/Track/SevenCorrections/Angular rock 356.asset
+Assets/Track/SevenCorrections/Angular rock 359.asset
+Assets/Track/SevenCorrections/Cave natural gravel floor.asset
+Assets/Track/SevenCorrections/Clean entrance bore 1.asset
+Assets/Track/SevenCorrections/Clean entrance bore.asset
+Assets/Track/SevenCorrections/Continuous shallow storm flow.asset
+Assets/Track/SevenCorrections/Drain bend terrain clearance.asset
+Assets/Track/SevenCorrections/Drain entrance bend clearance.asset
+Assets/Track/SevenCorrections/Echo Cave enclosed rock.asset
+Assets/Track/SevenCorrections/Ground_Culvert seamless floor.asset
+Assets/Track/SevenCorrections/Ground_Natural rolling ridge-0.asset
+Assets/Track/SevenCorrections/Irregular damp patch 526.asset
+Assets/Track/SevenCorrections/Irregular damp patch 527.asset
+Assets/Track/SevenCorrections/Irregular damp patch 528.asset
+Assets/Track/SevenCorrections/Irregular damp patch 529.asset
+Assets/Track/SevenCorrections/Irregular damp patch 530.asset
+Assets/Track/SevenCorrections/Irregular damp patch 531.asset
+Assets/Track/SevenCorrections/Irregular damp patch 532.asset
+Assets/Track/SevenCorrections/Irregular damp patch 533.asset
+Assets/Track/SevenCorrections/Irregular damp patch 534.asset
+Assets/Track/SevenCorrections/Long storm culvert walls and ceiling.asset
+Assets/Track/SevenCorrections/Visible storm flow.mat

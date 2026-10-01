@@ -9,7 +9,19 @@
 - Do not silently modify or weaken CODEX_RULES.md. Changes to standing rules require an explicit instruction from Dan.
 - Root AGENTS.md points future Codex tasks to both files.
 
-## Current delivery — Underground polish / recovery — 0.56.0-review1
+## Current delivery — Seven focused Backyard Reverse / Forest Forward corrections — 0.57.0-review1
+
+- Dan's seven-issue gameplay correction supersedes the prior STOP. Clean safety checkpoint `7dc6292069ee7f2b05233d2d06bf0de6140bb151`; [request](Docs/SevenCorrections/REQUEST.txt), [implementation, evidence and limitations](Docs/SevenCorrections/VALIDATION.md).
+- Logging Ridge final descent: removed overlapping/uneven crest collision and integrated a progressive descent/rejoin, preserving the elevated ridge. Exposed `Cabin wooded approach` mesh near X=172.1/Z=86.2 removed in Reverse with no hidden collision retained.
+- Drain entry: removed threshold ground/floor overlap and abrupt steep plunge; continuous progressive floor and safe bend clearance. Previous drain atmosphere/rats pass was insufficient: substantially darker, lower/narrower chamber, continuous animated center water, visible washed-in edge debris, five readable rats with longer escape and one stronger local sound event.
+- Dan explicitly confirmed the main pool-house jump for X=405.4/Z=2.5. It remains intentional: reduced takeoff height/grade and rounded release edge; motorcycle/ATV 32/42m/s runs retain 1.04–1.40s airtime, land X≈423–448 upright before South Cherokee. New Backyard Reverse layout identity preserves historic record partitions; preview follows saved geometry.
+- Cave correction applies to **Forest Forward / Echo Cave**, not Reverse. Prior decoration-only work was insufficient and the previous pass targeted the wrong direction. Connected irregular angular rock walls/ceiling, varied chambers, roots, gravel/stone/damp floor and local drips now replace smooth repeated silhouettes. Original cave jump clearance retained. Forward AI eligibility enabled; Forest Reverse scene, arrows/checkpoints/routing/AI unchanged. This resolves the request's contradictory later documentation phrase “Forest Reverse cave” in favor of its explicit Forward-only rule.
+- Targeted driving checks PASS: both vehicles on ridge, six drain entries, four pool-house flights, both vehicles through Forward cave. Faster offset drain entries can contact the bend and slow but complete without overturning. Production rival driver passes both Backyard branches, Forward cave and reduced pool jump with zero resets/recoveries. One rat encounter and audio event recorded. Muted checks do not claim human listening approval.
+- Fourteen recovery checks PASS; existing systemic recent-progress behavior preserved, local drain-threshold exclusion added. Six other scenes, twelve global systems, gates and protected structure transforms preserved. Main-road support comparison outside the jump: 1,559 samples, zero missing/height change. Final tree comparison: 208 existing grounded colliders, maximum new foot-gap difference 0.014m; three complete interfering drain trees removed.
+- Source hosting recovery: oversized generated terrain compacted by lossless exact-vertex deduplication (135.0MB to 87.5MB), triangle data/order unchanged. Dan approved replacing the unpublished rejected commit; original `3acc6420` retained on local `codex/seven-before-binary-storage`. No published history rewritten.
+- Final saved-camera visual inspection complete. Initial failed checks retained transparently. **STOP driving/subjective tuning.** Complete source commit/push, fresh Windows game-57000, signed publication, complete Latest, production Play-Racer verification and cleanup next. Actual delivery evidence follows in `Docs/SevenCorrections/PUBLICATION.md`; not yet marked published.
+
+## Previous delivery — Underground polish / recovery — 0.56.0-review1
 
 - Dan's current focused correction supersedes the prior STOP-for-review handoff. Safety checkpoint: clean main `8ab1294278a0708a6e7ab2e4ab5490d5c442eba9`.
 - Removed the stray driveway-exit atlas arrow; adjacent legitimate left-turn guidance retained. No global arrow regeneration or replacement.

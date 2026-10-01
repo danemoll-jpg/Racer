@@ -1,0 +1,5 @@
+PASS Abandoned Logging Ridge: existing probabilistic AI selection reaches this branch
+PASS AI-atv-Abandoned-Logging-Ridge: entered=True; completed=True; station=128.1/131.9; air=1.36s; lateralMax=1.73; resets=0; AI recoveries=0
+PASS Storm Drain / Gully Jump: existing probabilistic AI selection reaches this branch
+PASS AI-atv-Storm-Drain---Gully-Jump: entered=True; completed=True; station=265.0/268.9; air=0.78s; lateralMax=3.78; resets=0; AI recoveries=0
+PASS Rat encounter and localized audio triggered; encounters=1 sounds=1

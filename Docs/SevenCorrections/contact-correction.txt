@@ -1,0 +1,1 @@
+Final ridge descent integrated into original terrain; removed detached apron tail and overlapping collision. Removed 1973 original terrain triangles intersecting driveable drain bore; floor retained.
