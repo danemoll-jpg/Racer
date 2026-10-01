@@ -9,7 +9,7 @@ EditorApplication.delayCall+=()=>{try{
   try{
    if(scene.isDirty)throw new Exception("Unsaved course: "+name);
    var roots=scene.GetRootGameObjects();var race=roots.SelectMany(g=>g.GetComponentsInChildren<Racer.RaceDirector>(true)).Single();
-   courses.Add(new Racer.CoursePreviewCatalog.Course{scene=name,id=race.courseId,main=race.road.points.ToArray(),gates=race.gates.Select(g=>g.transform.position).ToArray(),branches=roots.SelectMany(g=>g.GetComponentsInChildren<Racer.WoodlandRoute>()).Where(b=>b.gameObject.activeInHierarchy).Select(b=>new Racer.CoursePreviewCatalog.Path{points=b.points.ToArray()}).ToArray()});
+   courses.Add(new Racer.CoursePreviewCatalog.Course{scene=name,id=race.courseId,main=race.road.points.ToArray(),gates=race.gates.Select(g=>g.transform.position).ToArray(),branches=roots.SelectMany(g=>g.GetComponentsInChildren<Racer.WoodlandRoute>()).Where(b=>b.gameObject.activeInHierarchy).Select(b=>new Racer.CoursePreviewCatalog.Path{points=b.points.ToArray(),undergroundStart=b.undergroundStart,undergroundEnd=b.undergroundEnd}).ToArray()});
   }finally{if(opened)UnityEditor.SceneManagement.EditorSceneManager.CloseScene(scene,true);}
  }
  UnityEngine.SceneManagement.SceneManager.SetActiveScene(original);catalog.courses=courses.ToArray();

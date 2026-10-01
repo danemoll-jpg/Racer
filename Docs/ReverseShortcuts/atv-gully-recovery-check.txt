@@ -1,0 +1,1 @@
+PASS atv gully undershoot to existing northern shallow exit time=17.12s final=(108.71, 52.74, 119.24); ordinary motor and actual brush resistance

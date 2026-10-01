@@ -1,0 +1,4 @@
+PASS moto Abandoned Logging Ridge time=7.32 progress=131.9/131.9 air=1.58 landing=False lipSpeed=5.29 final=(257.08, 76.49, 118.00)
+FAIL moto Storm Drain / Gully Jump time=25.00 progress=196.7/249.4 air=2.28 landing=True lipSpeed=26.86 final=(74.43, 38.33, -91.93)
+PASS atv Abandoned Logging Ridge time=6.06 progress=131.9/131.9 air=0.52 landing=False lipSpeed=23.67 final=(259.41, 76.39, 127.90)
+PASS atv Storm Drain / Gully Jump time=15.64 progress=245.4/249.4 air=2.10 landing=True lipSpeed=25.47 final=(27.94, 37.79, -54.42)

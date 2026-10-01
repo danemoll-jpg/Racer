@@ -60,3 +60,5 @@ Run Tools/Capture-ReverseWorldMaps.cs through the Unity CLI on saved scenes, the
 ## Route-role colors
 
 ROUTE COLOR REPRESENTS ROUTE ROLE, NOT GEOMETRY OWNERSHIP. All required main-route segments use the same main-route presentation even when Forward and Reverse use different physical paths. Only genuine optional shortcuts use shortcut coloring.
+
+Backyard Reverse optional branches (0.54): Logging Ridge and Storm Drain / Gully Jump. Gold remains optional-route color; dashed gold denotes the underground drain beneath preserved surface routes. See [updated atlas](../ReverseShortcuts/ATLAS.html) and [original anchors](../ReverseShortcuts/REQUEST.md).

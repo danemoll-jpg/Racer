@@ -1,0 +1,1 @@
+Single shared prefab in both Backyard scenes; Forward removes only new branch metadata and closes grate/logging gate. Reverse opens both. Free roam opens both. Existing Forward branches unchanged. Reverse record identity v2; historical records retained.

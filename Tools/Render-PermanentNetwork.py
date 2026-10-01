@@ -8,10 +8,14 @@ def save(image,path):
 b=json.loads((out/'MountainLoop.json').read_text())['bounds'];image=Image.open(out/'WORLD_BASE.png').convert('RGB');draw=ImageDraw.Draw(image)
 data=json.loads((r/'Docs/WorldCleanup/audit.json').read_text());seen=set();segments=[]
 def xy(p):return ((p['x']-b['x'])/b['width']*image.width,(b['y']+b['height']-p['z'])/b['height']*image.height)
-def add(points,kind,title,closed=False):
+def add(points,kind,title,closed=False,underground_start=0,underground_end=0):
  pairs=list(zip(points,points[1:]+points[:1] if closed else points[1:]))
+ station=0
  for a,c in pairs:
   if math.dist((a['x'],a['z']),(c['x'],c['z']))<.05:continue
+  underground=underground_end>underground_start and underground_start<=station<underground_end
+  station+=math.hypot(c['x']-a['x'],c['z']-a['z'])
+  if underground and int(station/4)%2:continue
   key=tuple(sorted(((round(a['x'],1),round(a['z'],1)),(round(c['x'],1),round(c['z'],1)))))
   if key in seen:continue
   seen.add(key);segments.append((a,c,kind,title))
@@ -21,7 +25,7 @@ for scene in data:
   closed=road['name'] in ('Phase 3 - Race Systems','Reverse main route','Forest race route','Mountain racing line','CR117 mandatory two-flight racing line','Forward navigation only - no road mesh')
   kind='dirt' if road['forestTrail'] or any(s in road['name'].lower() for s in ('driveway','trail','summit','shore','navigation')) else 'paved'
   add(road['points'],kind,road['name'],closed)
- for branch in scene['branches']:add(branch['points'],'shortcut',branch['title'])
+ for branch in scene['branches']:add(branch['points'],'shortcut',branch['title'],underground_start=branch.get('undergroundStart',0),underground_end=branch.get('undergroundEnd',0))
 for a,c,kind,title in sorted(segments,key=lambda s:s[2]!='paved'):
  width=12 if kind=='paved' else 9;color='#bdb8a8' if kind=='paved' else '#b99d70'
  draw.line((xy(a),xy(c)),fill='#374139',width=width+3)

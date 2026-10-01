@@ -2,7 +2,7 @@
 
 Unity metres; Y values are final authored geometry, not the original driven vehicle-centre heights. Gate positions below are gate transforms (1.5m above supporting terrain).
 
-Course ID: `backyard-reverse-v1-main`. Main route length: 1257.47m. No optional Reverse branches.
+Course ID: `backyard-reverse-v2-forest-shortcuts`. Accepted main route remains 1257.47m. Optional Logging Ridge and Storm Drain / Gully Jump: [technical evidence](../ReverseShortcuts/VALIDATION.md) and [original supplied anchors](../ReverseShortcuts/REQUEST.md).
 
 | Feature | Launch lip | Supported receiving corridor |
 |---|---|---|

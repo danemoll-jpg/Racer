@@ -1,0 +1,5 @@
+Logging ridge length=132.3905 entry=(394.10, 81.17, 79.40) rejoin=(273.00, 76.17, 122.00) AI disabled; original forest preserved
+Drain entrance station=14.45293 exit=95.68018 jumpStart=114.1535 lip=142.4681 landing=187.2764; branch length=247.4226; bypass CP3 only; AI disabled
+Portal cut Ground_Gully straight launch triangles=1687
+Portal cut Ground_480_400 triangles=2639
+Portal cut Ground_400_320 triangles=4179

@@ -1,0 +1,19 @@
+Assets/Track/ReverseShortcuts/Culvert continuous floor-2.asset
+Assets/Track/ReverseShortcuts/Ground_Abandoned logging earth ridge-0.asset
+Assets/Track/ReverseShortcuts/Ground_Abandoned logging earth ridge-300.asset
+Assets/Track/ReverseShortcuts/Ground_Gully straight launch-3.asset
+Assets/Track/ReverseShortcuts/Ground_Gully straight launch-203.asset
+Assets/Track/ReverseShortcuts/Ground_Gully western landing and rejoin-4.asset
+Assets/Track/ReverseShortcuts/Ground_Logging ridge corrected around existing tree-100.asset
+Assets/Track/ReverseShortcuts/Portal terrain Ground_400_320-10.asset
+Assets/Track/ReverseShortcuts/Portal terrain Ground_400_320-208.asset
+Assets/Track/ReverseShortcuts/Portal terrain Ground_400_400-209.asset
+Assets/Track/ReverseShortcuts/Portal terrain Ground_480_400-9.asset
+Assets/Track/ReverseShortcuts/Portal terrain Ground_480_400-210.asset
+Assets/Track/ReverseShortcuts/Portal terrain Ground_Gully straight launch-8.asset
+Assets/Track/ReverseShortcuts/Shortcut recovery brush-500.asset
+Assets/Track/ReverseShortcuts/sign-1.mat
+Assets/Track/ReverseShortcuts/sign-6.mat
+Assets/Track/ReverseShortcuts/sign-7.mat
+Assets/Track/ReverseShortcuts/sign-301.mat
+Assets/Track/ReverseShortcuts/Storm culvert walls and roof-5.asset

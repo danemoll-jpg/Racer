@@ -10,7 +10,7 @@ namespace Racer
         public GameObject[] closures;
         public void Refresh()
         {
-            bool active = race && race.courseId == "backyard-reverse-v1-main" && !race.FreeRoam;
+            bool active = race && race.courseId.StartsWith("backyard-reverse-") && !race.FreeRoam;
             foreach (var closure in closures)
                 if (closure && closure.activeSelf != active) closure.SetActive(active);
         }

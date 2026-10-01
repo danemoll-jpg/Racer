@@ -1,0 +1,1 @@
+Two changed Backyard scenes rendered; no scene saves. +Z up; pixel/world bounds in per-scene JSON and WorldMapVisual assets.

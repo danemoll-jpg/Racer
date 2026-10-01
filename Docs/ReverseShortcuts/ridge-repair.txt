@@ -1,0 +1,1 @@
+Logging ridge length=132.3905 entry=(394.10, 81.17, 79.40) rejoin=(273.00, 76.17, 122.00) AI disabled; original forest preserved

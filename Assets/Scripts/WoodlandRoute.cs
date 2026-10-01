@@ -10,6 +10,9 @@ namespace Racer
         public float entryRoad, exitRoad, halfWidth=5, recommendedSpeed=32;
         public int[] bypassedGates;
         public bool aiValidated;
+        // Optional full-map underground span; zero length preserves old routes.
+        public float undergroundStart, undergroundEnd;
+        public float entryHeightBelow=3, entryHeightAbove=12;
         public float entrySpeed,entrySpeedDistance;
         public float SpeedAt(float station)=>entrySpeed>0&&station<entrySpeedDistance?entrySpeed:recommendedSpeed;
         public float entryInset, entryMargin=7;
@@ -49,7 +52,7 @@ namespace Racer
             float s=Project(to,out float lateral);
             if(b<0 || s<entryInset || s>entryInset+30 || lateral>halfWidth+entryMargin) return false;
             var support=At(s,out _);
-            return to.y>support.y-3 && to.y<support.y+12;
+            return to.y>support.y-entryHeightBelow && to.y<support.y+entryHeightAbove;
         }
     }
 

@@ -1,0 +1,1 @@
+Forward gate obstruction at (168.624084,72.97187) removed as complete tree. Irregular established foliage replaces smooth spheres; matt weathered wheel ruts added. Driving collisions unchanged.

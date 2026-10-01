@@ -1,0 +1,1001 @@
+case,time,s,x,y,z,speed,grounded
+moto-Storm Drain / Gully Jump,0.00,1.58,177.306,66.592,79.626,22.00,4
+moto-Storm Drain / Gully Jump,0.10,3.74,175.472,66.228,78.464,21.92,4
+moto-Storm Drain / Gully Jump,0.20,5.91,173.639,65.865,77.303,21.83,4
+moto-Storm Drain / Gully Jump,0.30,8.08,171.808,65.495,76.139,22.14,4
+moto-Storm Drain / Gully Jump,0.40,10.26,169.992,65.099,74.941,22.05,4
+moto-Storm Drain / Gully Jump,0.50,12.30,168.197,64.640,73.734,21.97,0
+moto-Storm Drain / Gully Jump,0.60,14.69,166.407,64.089,72.545,21.93,0
+moto-Storm Drain / Gully Jump,0.70,16.47,164.622,63.440,71.359,21.68,0
+moto-Storm Drain / Gully Jump,0.80,18.16,162.840,62.696,70.176,21.23,0
+moto-Storm Drain / Gully Jump,0.90,19.78,161.250,62.054,69.923,16.00,0
+moto-Storm Drain / Gully Jump,1.00,21.24,159.824,61.503,70.208,14.95,0
+moto-Storm Drain / Gully Jump,1.10,22.73,158.393,60.821,70.446,14.44,0
+moto-Storm Drain / Gully Jump,1.20,24.25,156.954,60.036,70.637,13.88,0
+moto-Storm Drain / Gully Jump,1.30,25.79,155.506,59.167,70.793,13.42,0
+moto-Storm Drain / Gully Jump,1.40,27.35,154.053,58.220,70.928,13.14,0
+moto-Storm Drain / Gully Jump,1.50,28.99,152.596,57.197,71.053,13.06,0
+moto-Storm Drain / Gully Jump,1.60,30.49,151.139,56.096,71.174,13.19,0
+moto-Storm Drain / Gully Jump,1.70,31.83,149.692,54.946,71.288,13.51,0
+moto-Storm Drain / Gully Jump,1.80,33.02,148.132,54.171,71.359,13.38,0
+moto-Storm Drain / Gully Jump,1.90,34.22,146.491,53.541,71.335,12.90,0
+moto-Storm Drain / Gully Jump,2.00,35.41,145.277,52.996,70.837,1.52,0
+moto-Storm Drain / Gully Jump,2.10,36.46,144.475,52.476,69.970,-4.09,0
+moto-Storm Drain / Gully Jump,2.20,37.56,143.670,51.977,69.076,-6.58,0
+moto-Storm Drain / Gully Jump,2.30,38.70,142.853,51.439,68.172,-8.74,0
+moto-Storm Drain / Gully Jump,2.40,39.92,142.006,50.912,67.252,-10.28,0
+moto-Storm Drain / Gully Jump,2.50,41.15,141.139,50.356,66.327,-11.44,0
+moto-Storm Drain / Gully Jump,2.60,42.41,140.283,49.842,65.381,-11.95,0
+moto-Storm Drain / Gully Jump,2.70,43.71,139.420,49.335,64.419,-12.16,0
+moto-Storm Drain / Gully Jump,2.80,45.05,138.548,48.837,63.447,-12.23,0
+moto-Storm Drain / Gully Jump,2.90,46.39,137.680,48.361,62.452,-12.44,0
+moto-Storm Drain / Gully Jump,3.00,47.67,136.823,47.912,61.436,-12.58,0
+moto-Storm Drain / Gully Jump,3.10,48.95,135.979,47.489,60.404,-12.70,0
+moto-Storm Drain / Gully Jump,3.20,50.26,135.152,47.083,59.354,-12.81,0
+moto-Storm Drain / Gully Jump,3.30,51.57,134.337,46.682,58.290,-12.91,0
+moto-Storm Drain / Gully Jump,3.40,52.89,133.531,46.296,57.214,-12.98,0
+moto-Storm Drain / Gully Jump,3.50,54.22,132.731,45.916,56.130,-13.01,0
+moto-Storm Drain / Gully Jump,3.60,55.56,131.936,45.544,55.038,-13.05,0
+moto-Storm Drain / Gully Jump,3.70,56.91,131.143,45.181,53.941,-13.08,0
+moto-Storm Drain / Gully Jump,3.80,58.26,130.350,44.825,52.841,-13.10,0
+moto-Storm Drain / Gully Jump,3.90,59.63,129.556,44.477,51.738,-13.11,0
+moto-Storm Drain / Gully Jump,4.00,61.00,128.760,44.136,50.633,-13.10,0
+moto-Storm Drain / Gully Jump,4.10,62.38,127.959,43.800,49.531,-13.07,0
+moto-Storm Drain / Gully Jump,4.20,63.76,127.153,43.473,48.430,-13.05,0
+moto-Storm Drain / Gully Jump,4.30,65.17,126.339,43.151,47.335,-13.02,0
+moto-Storm Drain / Gully Jump,4.40,66.58,125.520,42.847,46.241,-12.97,0
+moto-Storm Drain / Gully Jump,4.50,67.97,124.698,42.557,45.149,-12.90,0
+moto-Storm Drain / Gully Jump,4.60,69.35,123.872,42.291,44.065,-12.80,0
+moto-Storm Drain / Gully Jump,4.70,70.72,123.045,42.044,42.988,-12.69,0
+moto-Storm Drain / Gully Jump,4.80,72.09,122.217,41.816,41.921,-12.60,0
+moto-Storm Drain / Gully Jump,4.90,73.44,121.391,41.601,40.861,-12.49,0
+moto-Storm Drain / Gully Jump,5.00,74.79,120.566,41.399,39.811,-12.38,0
+moto-Storm Drain / Gully Jump,5.10,76.12,119.744,41.207,38.770,-12.28,0
+moto-Storm Drain / Gully Jump,5.20,77.44,118.925,41.024,37.738,-12.17,0
+moto-Storm Drain / Gully Jump,5.30,78.75,118.110,40.846,36.716,-12.07,0
+moto-Storm Drain / Gully Jump,5.40,80.05,117.299,40.671,35.702,-11.98,0
+moto-Storm Drain / Gully Jump,5.50,81.34,116.494,40.498,34.697,-11.91,0
+moto-Storm Drain / Gully Jump,5.60,82.61,115.697,40.319,33.696,-11.86,0
+moto-Storm Drain / Gully Jump,5.70,83.88,114.907,40.134,32.698,-11.82,0
+moto-Storm Drain / Gully Jump,5.80,85.15,114.125,39.951,31.703,-11.74,0
+moto-Storm Drain / Gully Jump,5.90,86.41,113.345,39.773,30.715,-11.65,0
+moto-Storm Drain / Gully Jump,6.00,87.66,112.569,39.604,29.736,-11.54,0
+moto-Storm Drain / Gully Jump,6.10,88.91,111.796,39.443,28.766,-11.43,0
+moto-Storm Drain / Gully Jump,6.20,90.13,111.028,39.294,27.806,-11.31,0
+moto-Storm Drain / Gully Jump,6.30,91.35,110.264,39.159,26.856,-11.18,0
+moto-Storm Drain / Gully Jump,6.40,92.67,109.509,39.047,25.916,-11.01,0
+moto-Storm Drain / Gully Jump,6.50,94.26,108.800,38.992,25.087,-9.71,0
+moto-Storm Drain / Gully Jump,6.60,95.00,108.122,38.941,24.288,-9.64,0
+moto-Storm Drain / Gully Jump,6.70,95.66,107.465,38.924,23.516,-9.46,0
+moto-Storm Drain / Gully Jump,6.80,96.31,106.909,38.984,22.931,-7.02,0
+moto-Storm Drain / Gully Jump,6.90,96.83,106.376,38.996,22.392,-6.89,0
+moto-Storm Drain / Gully Jump,7.00,97.51,105.843,38.974,21.866,-6.63,0
+moto-Storm Drain / Gully Jump,7.10,98.05,105.328,39.183,21.353,-6.46,0
+moto-Storm Drain / Gully Jump,7.20,98.56,104.814,39.081,20.854,-6.46,0
+moto-Storm Drain / Gully Jump,7.30,99.09,104.196,39.081,20.432,-6.66,0
+moto-Storm Drain / Gully Jump,7.40,99.60,103.693,38.997,19.976,-6.96,0
+moto-Storm Drain / Gully Jump,7.50,100.09,103.242,38.904,19.529,-6.54,0
+moto-Storm Drain / Gully Jump,7.60,100.62,102.787,38.725,19.078,-6.70,0
+moto-Storm Drain / Gully Jump,7.70,101.12,102.318,38.476,18.620,-6.80,0
+moto-Storm Drain / Gully Jump,7.80,101.65,101.803,38.223,18.148,-6.67,0
+moto-Storm Drain / Gully Jump,7.90,102.17,101.255,38.079,17.692,-5.08,0
+moto-Storm Drain / Gully Jump,8.00,102.68,100.690,37.945,17.251,-5.54,0
+moto-Storm Drain / Gully Jump,8.10,103.20,100.124,37.775,16.809,-6.16,0
+moto-Storm Drain / Gully Jump,8.20,103.74,99.564,37.693,16.360,-5.70,0
+moto-Storm Drain / Gully Jump,8.30,104.24,99.069,37.707,15.926,-5.12,0
+moto-Storm Drain / Gully Jump,8.40,104.71,98.646,37.777,15.511,-4.84,0
+moto-Storm Drain / Gully Jump,8.50,105.16,98.318,37.896,15.107,-4.40,0
+moto-Storm Drain / Gully Jump,8.60,105.61,97.991,37.924,14.712,-4.77,0
+moto-Storm Drain / Gully Jump,8.70,106.05,97.678,37.878,14.320,-4.73,0
+moto-Storm Drain / Gully Jump,8.80,106.48,97.401,37.784,13.936,-4.38,0
+moto-Storm Drain / Gully Jump,8.90,106.86,97.249,37.718,13.595,-2.97,0
+moto-Storm Drain / Gully Jump,9.00,107.16,97.226,37.733,13.293,-2.55,0
+moto-Storm Drain / Gully Jump,9.10,107.46,97.238,37.711,12.998,-2.17,0
+moto-Storm Drain / Gully Jump,9.20,107.74,97.285,37.653,12.710,-1.79,0
+moto-Storm Drain / Gully Jump,9.30,108.02,97.369,37.572,12.427,-1.48,0
+moto-Storm Drain / Gully Jump,9.40,108.27,97.483,37.468,12.149,-1.29,1
+moto-Storm Drain / Gully Jump,9.50,108.52,97.625,37.346,11.875,-1.21,1
+moto-Storm Drain / Gully Jump,9.60,108.70,97.752,37.250,11.733,0.04,2
+moto-Storm Drain / Gully Jump,9.70,108.62,97.851,37.208,11.820,1.63,2
+moto-Storm Drain / Gully Jump,9.80,108.39,97.987,37.142,12.058,3.17,3
+moto-Storm Drain / Gully Jump,9.90,108.03,98.195,37.065,12.416,4.60,4
+moto-Storm Drain / Gully Jump,10.00,107.52,98.486,37.005,12.887,6.04,4
+moto-Storm Drain / Gully Jump,10.10,106.92,98.845,36.987,13.454,7.19,4
+moto-Storm Drain / Gully Jump,10.20,106.22,99.284,37.003,14.104,8.28,4
+moto-Storm Drain / Gully Jump,10.30,105.45,99.850,37.052,14.808,9.41,4
+moto-Storm Drain / Gully Jump,10.40,104.63,100.547,37.169,15.519,10.47,4
+moto-Storm Drain / Gully Jump,10.50,103.84,101.287,37.426,16.200,10.76,4
+moto-Storm Drain / Gully Jump,10.60,103.10,102.134,37.799,16.824,11.42,4
+moto-Storm Drain / Gully Jump,10.70,102.42,103.037,38.327,17.331,11.93,4
+moto-Storm Drain / Gully Jump,10.80,101.84,104.063,38.928,17.709,12.27,2
+moto-Storm Drain / Gully Jump,10.90,101.41,105.170,39.526,17.947,12.17,0
+moto-Storm Drain / Gully Jump,11.00,100.98,106.282,40.025,18.173,11.19,0
+moto-Storm Drain / Gully Jump,11.10,100.54,107.393,40.421,18.394,10.06,0
+moto-Storm Drain / Gully Jump,11.20,100.10,108.502,40.716,18.612,8.83,0
+moto-Storm Drain / Gully Jump,11.30,99.65,109.606,40.909,18.826,7.57,0
+moto-Storm Drain / Gully Jump,11.40,99.17,110.706,41.001,19.037,6.31,0
+moto-Storm Drain / Gully Jump,11.50,98.97,111.368,40.997,18.900,5.60,0
+moto-Storm Drain / Gully Jump,11.60,99.23,111.543,41.014,18.645,3.22,0
+moto-Storm Drain / Gully Jump,11.70,99.44,111.707,40.947,18.395,2.99,2
+moto-Storm Drain / Gully Jump,11.80,99.67,111.955,40.925,18.163,3.62,2
+moto-Storm Drain / Gully Jump,11.90,99.84,112.241,40.998,17.922,4.14,4
+moto-Storm Drain / Gully Jump,12.00,100.13,112.471,41.235,17.609,4.88,4
+moto-Storm Drain / Gully Jump,12.10,100.46,112.650,41.578,17.215,5.71,4
+moto-Storm Drain / Gully Jump,12.20,100.93,112.825,41.952,16.725,6.56,4
+moto-Storm Drain / Gully Jump,12.30,101.50,113.009,42.311,16.123,7.44,4
+moto-Storm Drain / Gully Jump,12.40,102.19,113.190,42.627,15.393,8.36,4
+moto-Storm Drain / Gully Jump,12.50,103.01,113.340,42.877,14.528,9.33,4
+moto-Storm Drain / Gully Jump,12.60,103.99,113.430,43.035,13.528,10.37,4
+moto-Storm Drain / Gully Jump,12.70,105.09,113.436,43.073,12.401,11.49,4
+moto-Storm Drain / Gully Jump,12.80,106.31,113.340,42.960,11.162,12.68,4
+moto-Storm Drain / Gully Jump,12.90,107.63,113.126,42.664,9.839,13.94,4
+moto-Storm Drain / Gully Jump,13.00,109.01,112.778,42.161,8.465,15.26,4
+moto-Storm Drain / Gully Jump,13.10,110.41,112.281,41.432,7.082,16.63,4
+moto-Storm Drain / Gully Jump,13.20,111.80,111.616,40.472,5.740,18.03,4
+moto-Storm Drain / Gully Jump,13.30,113.13,110.756,39.339,4.477,19.40,4
+moto-Storm Drain / Gully Jump,13.40,114.46,109.633,38.353,3.257,20.00,4
+moto-Storm Drain / Gully Jump,13.50,115.87,108.283,37.719,1.997,20.35,4
+moto-Storm Drain / Gully Jump,13.60,117.45,106.766,37.379,0.655,20.90,4
+moto-Storm Drain / Gully Jump,13.70,119.17,105.208,37.260,-0.777,21.70,4
+moto-Storm Drain / Gully Jump,13.80,121.07,103.640,37.308,-2.350,22.44,4
+moto-Storm Drain / Gully Jump,13.90,123.14,102.146,37.438,-4.096,23.14,4
+moto-Storm Drain / Gully Jump,14.00,125.38,100.810,37.638,-6.034,23.72,4
+moto-Storm Drain / Gully Jump,14.10,127.73,99.691,37.923,-8.152,24.26,4
+moto-Storm Drain / Gully Jump,14.20,130.14,98.792,38.311,-10.413,24.81,4
+moto-Storm Drain / Gully Jump,14.30,132.59,98.076,38.804,-12.779,25.40,4
+moto-Storm Drain / Gully Jump,14.40,135.05,97.474,39.394,-15.217,26.00,4
+moto-Storm Drain / Gully Jump,14.50,137.59,96.934,40.100,-17.689,26.50,4
+moto-Storm Drain / Gully Jump,14.60,140.17,96.396,40.906,-20.190,27.03,4
+moto-Storm Drain / Gully Jump,14.70,142.73,95.832,41.817,-22.701,27.49,4
+moto-Storm Drain / Gully Jump,14.80,145.31,95.213,42.788,-25.236,27.93,0
+moto-Storm Drain / Gully Jump,14.90,147.92,94.575,43.686,-27.777,27.51,0
+moto-Storm Drain / Gully Jump,15.00,150.54,93.938,44.485,-30.315,27.09,0
+moto-Storm Drain / Gully Jump,15.10,153.15,93.302,45.184,-32.848,26.69,0
+moto-Storm Drain / Gully Jump,15.20,155.75,92.666,45.783,-35.376,26.30,0
+moto-Storm Drain / Gully Jump,15.30,158.35,92.031,46.283,-37.900,25.92,0
+moto-Storm Drain / Gully Jump,15.40,160.94,91.397,46.684,-40.419,25.57,0
+moto-Storm Drain / Gully Jump,15.50,163.53,90.765,46.986,-42.933,25.23,0
+moto-Storm Drain / Gully Jump,15.60,166.11,90.133,47.188,-45.442,24.92,0
+moto-Storm Drain / Gully Jump,15.70,168.68,89.502,47.292,-47.945,24.62,0
+moto-Storm Drain / Gully Jump,15.80,171.23,88.873,47.297,-50.442,24.36,0
+moto-Storm Drain / Gully Jump,15.90,173.78,88.245,47.204,-52.934,24.12,0
+moto-Storm Drain / Gully Jump,16.00,176.31,87.618,47.013,-55.421,23.90,0
+moto-Storm Drain / Gully Jump,16.10,178.81,86.993,46.725,-57.901,23.70,0
+moto-Storm Drain / Gully Jump,16.20,181.29,86.369,46.338,-60.375,23.53,0
+moto-Storm Drain / Gully Jump,16.30,183.71,85.747,45.855,-62.844,23.37,0
+moto-Storm Drain / Gully Jump,16.40,186.01,85.260,45.269,-65.329,23.44,0
+moto-Storm Drain / Gully Jump,16.50,188.03,84.803,44.573,-67.802,24.51,0
+moto-Storm Drain / Gully Jump,16.60,189.80,84.338,43.772,-70.257,25.31,0
+moto-Storm Drain / Gully Jump,16.70,191.17,83.865,42.870,-72.695,25.86,0
+moto-Storm Drain / Gully Jump,16.80,192.26,83.381,41.874,-75.120,26.15,0
+moto-Storm Drain / Gully Jump,16.90,193.18,82.888,40.785,-77.533,26.21,0
+moto-Storm Drain / Gully Jump,17.00,193.69,82.388,39.607,-79.937,26.03,0
+moto-Storm Drain / Gully Jump,17.10,194.19,81.901,38.365,-82.343,25.61,0
+moto-Storm Drain / Gully Jump,17.20,194.57,82.086,38.046,-84.787,22.08,1
+moto-Storm Drain / Gully Jump,17.30,194.85,82.271,37.662,-87.206,20.70,0
+moto-Storm Drain / Gully Jump,17.40,194.85,82.447,37.187,-89.626,18.68,0
+moto-Storm Drain / Gully Jump,17.50,194.85,82.616,36.617,-92.047,16.03,0
+moto-Storm Drain / Gully Jump,17.60,194.85,82.819,36.001,-94.464,12.94,1
+moto-Storm Drain / Gully Jump,17.70,194.86,83.205,35.460,-96.846,11.26,1
+moto-Storm Drain / Gully Jump,17.80,195.03,83.637,34.822,-99.203,10.58,0
+moto-Storm Drain / Gully Jump,17.90,195.20,84.067,34.084,-101.553,9.76,0
+moto-Storm Drain / Gully Jump,18.00,195.37,84.491,33.247,-103.896,8.80,0
+moto-Storm Drain / Gully Jump,18.10,195.49,84.909,32.311,-106.231,7.82,0
+moto-Storm Drain / Gully Jump,18.20,195.49,85.322,31.279,-108.558,6.91,0
+moto-Storm Drain / Gully Jump,18.30,195.49,85.734,30.150,-110.862,6.13,3
+moto-Storm Drain / Gully Jump,18.40,195.49,86.300,29.027,-112.826,6.33,4
+moto-Storm Drain / Gully Jump,18.50,195.49,87.076,28.017,-114.431,6.25,4
+moto-Storm Drain / Gully Jump,18.60,195.06,88.024,27.106,-115.736,5.93,4
+moto-Storm Drain / Gully Jump,18.70,194.85,89.024,26.405,-116.707,4.99,4
+moto-Storm Drain / Gully Jump,18.80,194.85,89.995,26.046,-117.357,3.43,4
+moto-Storm Drain / Gully Jump,18.90,194.85,90.885,25.928,-117.694,3.50,4
+moto-Storm Drain / Gully Jump,19.00,194.85,91.627,25.977,-117.727,4.25,4
+moto-Storm Drain / Gully Jump,19.10,194.85,92.168,26.086,-117.468,5.27,4
+moto-Storm Drain / Gully Jump,19.20,194.85,92.549,26.184,-116.970,6.42,4
+moto-Storm Drain / Gully Jump,19.30,194.85,92.867,26.250,-116.303,7.62,4
+moto-Storm Drain / Gully Jump,19.40,194.85,93.131,26.296,-115.487,8.79,4
+moto-Storm Drain / Gully Jump,19.50,194.63,93.319,26.336,-114.533,9.93,4
+moto-Storm Drain / Gully Jump,19.60,194.19,93.402,26.381,-113.453,11.03,4
+moto-Storm Drain / Gully Jump,19.70,194.19,93.354,26.434,-112.262,12.11,4
+moto-Storm Drain / Gully Jump,19.80,194.19,93.162,26.492,-110.979,13.17,4
+moto-Storm Drain / Gully Jump,19.90,194.19,92.822,26.549,-109.618,14.22,4
+moto-Storm Drain / Gully Jump,20.00,194.19,92.336,26.602,-108.191,15.27,4
+moto-Storm Drain / Gully Jump,20.10,194.19,91.715,26.651,-106.704,16.31,4
+moto-Storm Drain / Gully Jump,20.20,194.19,91.005,26.728,-105.173,17.13,4
+moto-Storm Drain / Gully Jump,20.30,194.19,90.317,26.947,-103.614,17.70,4
+moto-Storm Drain / Gully Jump,20.40,194.19,89.679,27.363,-102.000,18.20,4
+moto-Storm Drain / Gully Jump,20.50,194.19,89.072,27.947,-100.345,18.82,4
+moto-Storm Drain / Gully Jump,20.60,194.19,88.456,28.669,-98.674,19.39,4
+moto-Storm Drain / Gully Jump,20.70,194.19,87.810,29.522,-97.015,19.88,4
+moto-Storm Drain / Gully Jump,20.80,194.19,87.115,30.502,-95.385,20.32,4
+moto-Storm Drain / Gully Jump,20.90,194.19,86.374,31.598,-93.799,20.73,4
+moto-Storm Drain / Gully Jump,21.00,194.19,85.594,32.795,-92.256,21.10,4
+moto-Storm Drain / Gully Jump,21.10,194.21,84.774,34.075,-90.752,21.45,4
+moto-Storm Drain / Gully Jump,21.20,194.50,83.903,35.414,-89.279,21.77,4
+moto-Storm Drain / Gully Jump,21.30,194.85,82.957,36.778,-87.827,22.07,2
+moto-Storm Drain / Gully Jump,21.40,194.85,81.943,38.119,-86.386,21.98,0
+moto-Storm Drain / Gully Jump,21.50,194.85,80.925,39.365,-84.947,21.32,0
+moto-Storm Drain / Gully Jump,21.60,194.85,79.907,40.513,-83.511,20.67,0
+moto-Storm Drain / Gully Jump,21.70,195.28,78.889,41.562,-82.078,20.04,0
+moto-Storm Drain / Gully Jump,21.80,195.49,77.870,42.512,-80.647,19.43,0
+moto-Storm Drain / Gully Jump,21.90,195.53,76.851,43.362,-79.219,18.84,0
+moto-Storm Drain / Gully Jump,22.00,196.11,75.832,44.112,-77.794,18.29,0
+moto-Storm Drain / Gully Jump,22.10,196.47,74.814,44.762,-76.372,17.78,0
+moto-Storm Drain / Gully Jump,22.20,196.93,73.796,45.311,-74.952,17.32,0
+moto-Storm Drain / Gully Jump,22.30,197.67,72.780,45.760,-73.535,16.91,0
+moto-Storm Drain / Gully Jump,22.40,198.62,71.765,46.108,-72.121,16.56,0
+moto-Storm Drain / Gully Jump,22.50,199.70,70.753,46.356,-70.710,16.29,0
+moto-Storm Drain / Gully Jump,22.60,201.00,69.743,46.504,-69.302,16.08,0
+moto-Storm Drain / Gully Jump,22.70,202.41,68.736,46.552,-67.896,15.95,0
+moto-Storm Drain / Gully Jump,22.80,203.82,67.733,46.501,-66.494,15.89,0
+moto-Storm Drain / Gully Jump,22.90,205.13,66.734,46.351,-65.095,15.89,0
+moto-Storm Drain / Gully Jump,23.00,206.24,65.738,46.103,-63.698,15.96,0
+moto-Storm Drain / Gully Jump,23.10,207.28,64.746,45.757,-62.305,16.09,0
+moto-Storm Drain / Gully Jump,23.20,208.45,63.759,45.313,-60.914,16.25,0
+moto-Storm Drain / Gully Jump,23.30,209.92,62.775,44.773,-59.527,16.46,0
+moto-Storm Drain / Gully Jump,23.40,211.35,61.795,44.136,-58.142,16.68,0
+moto-Storm Drain / Gully Jump,23.50,212.81,60.819,43.404,-56.760,16.91,0
+moto-Storm Drain / Gully Jump,23.60,214.40,59.847,42.575,-55.381,17.14,0
+moto-Storm Drain / Gully Jump,23.70,215.92,58.879,41.650,-54.005,17.35,0
+moto-Storm Drain / Gully Jump,23.80,217.56,57.913,40.630,-52.632,17.53,0
+moto-Storm Drain / Gully Jump,23.90,219.12,56.952,39.514,-51.261,17.67,0
+moto-Storm Drain / Gully Jump,24.00,220.67,56.009,38.563,-49.943,16.48,4
+moto-Storm Drain / Gully Jump,24.10,222.43,54.806,38.488,-48.915,15.63,4
+moto-Storm Drain / Gully Jump,24.20,224.34,53.363,38.454,-48.118,16.52,4
+moto-Storm Drain / Gully Jump,24.30,226.33,51.734,38.398,-47.524,17.38,4
+moto-Storm Drain / Gully Jump,24.40,228.56,49.957,38.296,-47.162,18.19,4
+moto-Storm Drain / Gully Jump,24.50,230.92,48.070,38.155,-47.070,18.95,4
+moto-Storm Drain / Gully Jump,24.60,232.77,46.119,37.997,-47.274,19.70,4
+moto-Storm Drain / Gully Jump,24.70,234.51,44.137,37.843,-47.762,20.57,4
+moto-Storm Drain / Gully Jump,24.80,236.02,42.122,37.703,-48.460,21.56,4
+moto-Storm Drain / Gully Jump,24.90,237.47,40.041,37.580,-49.267,22.56,4
+moto-Abandoned Logging Ridge,0.00,1.31,392.422,81.515,79.896,22.00,4
+moto-Abandoned Logging Ridge,0.10,3.56,390.238,81.313,80.520,23.00,4
+moto-Abandoned Logging Ridge,0.20,5.91,387.964,81.075,81.196,23.98,4
+moto-Abandoned Logging Ridge,0.30,8.31,385.696,80.806,81.934,24.13,4
+moto-Abandoned Logging Ridge,0.40,10.68,383.469,80.640,82.764,24.13,4
+moto-Abandoned Logging Ridge,0.50,13.06,381.268,80.580,83.719,24.14,4
+moto-Abandoned Logging Ridge,0.60,15.44,379.128,80.518,84.822,24.15,4
+moto-Abandoned Logging Ridge,0.70,17.81,377.064,80.370,86.057,23.99,0
+moto-Abandoned Logging Ridge,0.80,20.19,375.014,80.124,87.309,23.86,0
+moto-Abandoned Logging Ridge,0.90,22.58,372.969,79.780,88.558,23.67,0
+moto-Abandoned Logging Ridge,1.00,24.99,370.929,79.339,89.804,23.41,0
+moto-Abandoned Logging Ridge,1.10,27.43,368.895,78.833,91.067,23.01,0
+moto-Abandoned Logging Ridge,1.20,29.83,366.943,78.555,92.292,20.69,1
+moto-Abandoned Logging Ridge,1.30,32.10,364.960,78.276,93.376,20.18,0
+moto-Abandoned Logging Ridge,1.40,34.38,362.884,78.291,94.256,13.57,0
+moto-Abandoned Logging Ridge,1.50,36.62,360.748,78.514,94.992,7.09,0
+moto-Abandoned Logging Ridge,1.60,38.94,358.618,78.406,95.890,5.69,0
+moto-Abandoned Logging Ridge,1.70,41.28,356.474,78.213,96.800,4.23,0
+moto-Abandoned Logging Ridge,1.80,43.63,354.352,78.022,97.733,0.68,0
+moto-Abandoned Logging Ridge,1.90,45.95,352.239,77.847,98.666,-6.11,0
+moto-Abandoned Logging Ridge,2.00,48.28,350.120,77.589,99.603,-11.66,0
+moto-Abandoned Logging Ridge,2.10,50.62,347.997,77.260,100.544,-18.03,0
+moto-Abandoned Logging Ridge,2.20,52.96,345.893,76.820,101.503,-21.19,0
+moto-Abandoned Logging Ridge,2.30,55.27,343.848,76.329,102.473,-20.56,0
+moto-Abandoned Logging Ridge,2.40,57.49,341.826,76.086,103.207,-19.30,0
+moto-Abandoned Logging Ridge,2.50,59.63,339.810,75.948,103.817,-18.84,0
+moto-Abandoned Logging Ridge,2.60,61.73,337.823,75.912,104.356,-19.09,0
+moto-Abandoned Logging Ridge,2.70,63.84,335.858,75.859,104.885,-19.46,0
+moto-Abandoned Logging Ridge,2.80,65.86,333.995,75.864,105.423,-18.57,2
+moto-Abandoned Logging Ridge,2.90,67.49,332.595,75.995,106.080,-14.93,2
+moto-Abandoned Logging Ridge,3.00,68.84,331.444,76.134,106.636,-12.32,2
+moto-Abandoned Logging Ridge,3.10,69.92,330.528,76.255,107.095,-9.74,2
+moto-Abandoned Logging Ridge,3.20,70.74,329.851,76.345,107.463,-7.20,4
+moto-Abandoned Logging Ridge,3.30,71.31,329.391,76.390,107.712,-4.71,4
+moto-Abandoned Logging Ridge,3.40,71.65,329.137,76.416,107.820,-2.23,4
+moto-Abandoned Logging Ridge,3.50,71.73,329.082,76.425,107.794,0.09,4
+moto-Abandoned Logging Ridge,3.60,71.64,329.176,76.408,107.674,1.78,4
+moto-Abandoned Logging Ridge,3.70,71.37,329.409,76.351,107.473,3.42,4
+moto-Abandoned Logging Ridge,3.80,70.96,329.777,76.253,107.196,5.01,4
+moto-Abandoned Logging Ridge,3.90,70.39,330.276,76.135,106.852,6.50,4
+moto-Abandoned Logging Ridge,4.00,69.69,330.901,76.034,106.452,7.88,4
+moto-Abandoned Logging Ridge,4.10,68.84,331.660,75.944,106.001,9.19,4
+moto-Abandoned Logging Ridge,4.20,68.36,331.945,75.995,105.921,0.55,4
+moto-Abandoned Logging Ridge,4.30,68.35,331.954,76.020,105.925,0.10,4
+moto-Abandoned Logging Ridge,4.40,68.35,331.951,76.019,105.923,-0.01,4
+moto-Abandoned Logging Ridge,4.50,68.35,331.951,76.018,105.922,0.00,4
+moto-Abandoned Logging Ridge,4.60,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,4.70,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,4.80,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,4.90,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,5.00,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,5.10,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,5.20,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,5.30,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,5.40,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,5.50,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,5.60,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,5.70,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,5.80,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,5.90,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,6.00,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,6.10,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,6.20,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,6.30,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,6.40,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,6.50,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,6.60,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,6.70,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,6.80,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,6.90,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,7.00,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,7.10,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,7.20,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,7.30,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,7.40,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,7.50,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,7.60,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,7.70,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,7.80,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,7.90,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,8.00,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,8.10,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,8.20,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,8.30,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,8.40,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,8.50,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,8.60,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,8.70,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,8.80,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,8.90,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,9.00,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,9.10,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,9.20,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,9.30,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,9.40,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,9.50,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,9.60,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,9.70,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,9.80,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,9.90,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,10.00,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,10.10,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,10.20,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,10.30,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,10.40,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,10.50,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,10.60,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,10.70,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,10.80,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,10.90,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,11.00,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,11.10,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,11.20,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,11.30,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,11.40,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,11.50,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,11.60,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,11.70,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,11.80,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,11.90,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,12.00,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,12.10,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,12.20,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,12.30,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,12.40,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,12.50,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,12.60,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,12.70,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,12.80,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,12.90,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,13.00,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,13.10,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,13.20,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,13.30,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,13.40,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,13.50,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,13.60,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,13.70,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,13.80,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,13.90,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,14.00,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,14.10,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,14.20,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,14.30,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,14.40,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,14.50,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,14.60,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,14.70,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,14.80,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,14.90,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,15.00,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,15.10,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,15.20,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,15.30,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,15.40,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,15.50,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,15.60,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,15.70,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,15.80,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,15.90,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,16.00,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,16.10,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,16.20,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,16.30,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,16.40,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,16.50,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,16.60,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,16.70,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,16.80,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,16.90,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,17.00,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,17.10,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,17.20,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,17.30,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,17.40,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,17.50,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,17.60,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,17.70,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,17.80,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,17.90,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,18.00,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,18.10,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,18.20,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,18.30,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,18.40,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,18.50,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,18.60,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,18.70,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,18.80,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,18.90,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,19.00,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,19.10,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,19.20,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,19.30,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,19.40,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,19.50,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,19.60,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,19.70,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,19.80,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,19.90,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,20.00,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,20.10,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,20.20,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,20.30,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,20.40,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,20.50,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,20.60,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,20.70,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,20.80,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,20.90,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,21.00,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,21.10,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,21.20,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,21.30,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,21.40,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,21.50,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,21.60,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,21.70,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,21.80,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,21.90,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,22.00,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,22.10,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,22.20,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,22.30,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,22.40,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,22.50,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,22.60,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,22.70,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,22.80,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,22.90,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,23.00,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,23.10,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,23.20,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,23.30,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,23.40,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,23.50,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,23.60,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,23.70,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,23.80,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,23.90,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,24.00,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,24.10,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,24.20,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,24.30,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,24.40,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,24.50,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,24.60,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,24.70,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,24.80,68.35,331.951,76.019,105.922,0.00,4
+moto-Abandoned Logging Ridge,24.90,68.35,331.951,76.019,105.922,0.00,4
+atv-Storm Drain / Gully Jump,0.00,1.61,177.259,66.591,79.623,22.00,4
+atv-Storm Drain / Gully Jump,0.10,3.78,175.433,66.219,78.458,21.88,4
+atv-Storm Drain / Gully Jump,0.20,5.95,173.606,65.846,77.290,22.13,4
+atv-Storm Drain / Gully Jump,0.30,8.12,171.778,65.473,76.118,22.01,4
+atv-Storm Drain / Gully Jump,0.40,10.28,169.972,65.082,74.919,21.88,4
+atv-Storm Drain / Gully Jump,0.50,12.33,168.177,64.626,73.710,22.13,1
+atv-Storm Drain / Gully Jump,0.60,14.73,166.373,64.078,72.511,22.07,0
+atv-Storm Drain / Gully Jump,0.70,16.50,164.575,63.433,71.316,21.79,0
+atv-Storm Drain / Gully Jump,0.80,18.22,162.783,62.692,70.275,20.37,0
+atv-Storm Drain / Gully Jump,0.90,19.79,161.233,61.874,70.264,16.69,0
+atv-Storm Drain / Gully Jump,1.00,21.36,159.698,61.151,70.414,16.72,0
+atv-Storm Drain / Gully Jump,1.10,22.93,158.183,60.261,70.485,16.84,0
+atv-Storm Drain / Gully Jump,1.20,24.52,156.671,59.282,70.511,16.94,0
+atv-Storm Drain / Gully Jump,1.30,26.21,155.152,58.265,70.519,17.07,0
+atv-Storm Drain / Gully Jump,1.40,27.91,153.604,57.316,70.553,18.05,0
+atv-Storm Drain / Gully Jump,1.50,29.72,152.038,56.310,70.585,18.57,0
+atv-Storm Drain / Gully Jump,1.60,31.49,150.404,55.461,70.549,17.80,0
+atv-Storm Drain / Gully Jump,1.70,33.02,148.769,54.564,70.456,17.75,0
+atv-Storm Drain / Gully Jump,1.80,34.40,147.048,53.768,70.409,18.41,2
+atv-Storm Drain / Gully Jump,1.90,35.53,145.342,52.950,70.496,19.69,2
+atv-Storm Drain / Gully Jump,2.00,36.55,144.445,52.259,69.937,10.53,4
+atv-Storm Drain / Gully Jump,2.10,37.44,143.585,51.847,69.354,11.28,4
+atv-Storm Drain / Gully Jump,2.20,38.51,142.664,51.452,68.637,12.51,4
+atv-Storm Drain / Gully Jump,2.30,39.68,141.852,51.002,67.679,13.59,4
+atv-Storm Drain / Gully Jump,2.40,40.98,141.013,50.473,66.601,14.91,4
+atv-Storm Drain / Gully Jump,2.50,42.43,140.147,49.870,65.402,16.24,4
+atv-Storm Drain / Gully Jump,2.60,44.01,139.284,49.217,64.057,17.49,4
+atv-Storm Drain / Gully Jump,2.70,45.72,138.510,48.547,62.525,18.59,4
+atv-Storm Drain / Gully Jump,2.80,47.43,137.870,47.894,60.802,19.73,4
+atv-Storm Drain / Gully Jump,2.90,49.20,137.286,47.273,58.921,20.95,4
+atv-Storm Drain / Gully Jump,3.00,51.15,136.614,46.672,56.942,22.04,4
+atv-Storm Drain / Gully Jump,3.10,53.20,135.754,46.091,55.001,21.83,4
+atv-Storm Drain / Gully Jump,3.20,55.32,134.665,45.520,53.164,21.99,4
+atv-Storm Drain / Gully Jump,3.30,57.46,133.389,44.962,51.453,21.87,4
+atv-Storm Drain / Gully Jump,3.40,59.59,131.999,44.421,49.829,22.20,4
+atv-Storm Drain / Gully Jump,3.50,61.72,130.574,43.899,48.235,22.17,4
+atv-Storm Drain / Gully Jump,3.60,63.85,129.169,43.397,46.624,22.12,4
+atv-Storm Drain / Gully Jump,3.70,65.99,127.803,42.912,44.971,22.06,4
+atv-Storm Drain / Gully Jump,3.80,68.14,126.467,42.447,43.279,22.00,4
+atv-Storm Drain / Gully Jump,3.90,70.30,125.148,42.014,41.575,21.93,4
+atv-Storm Drain / Gully Jump,4.00,72.46,123.814,41.628,39.874,21.84,4
+atv-Storm Drain / Gully Jump,4.10,74.63,122.446,41.296,38.190,22.11,4
+atv-Storm Drain / Gully Jump,4.20,76.81,121.032,41.007,36.521,21.99,4
+atv-Storm Drain / Gully Jump,4.30,78.99,119.596,40.748,34.884,21.86,4
+atv-Storm Drain / Gully Jump,4.40,81.17,118.141,40.498,33.258,22.09,4
+atv-Storm Drain / Gully Jump,4.50,83.36,116.681,40.237,31.628,21.94,4
+atv-Storm Drain / Gully Jump,4.60,85.55,115.234,39.952,29.990,22.15,4
+atv-Storm Drain / Gully Jump,4.70,87.73,113.799,39.640,28.337,22.00,4
+atv-Storm Drain / Gully Jump,4.80,89.90,112.387,39.325,26.688,21.84,4
+atv-Storm Drain / Gully Jump,4.90,92.08,110.956,39.034,25.054,22.05,4
+atv-Storm Drain / Gully Jump,5.00,94.11,109.623,38.836,23.559,19.16,4
+atv-Storm Drain / Gully Jump,5.10,95.93,108.768,38.792,22.432,12.02,4
+atv-Storm Drain / Gully Jump,5.20,96.90,108.327,39.046,21.584,10.25,4
+atv-Storm Drain / Gully Jump,5.30,98.00,107.889,39.161,20.549,11.25,2
+atv-Storm Drain / Gully Jump,5.40,99.20,107.464,39.188,19.412,12.08,0
+atv-Storm Drain / Gully Jump,5.50,100.41,107.041,39.115,18.265,12.06,0
+atv-Storm Drain / Gully Jump,5.60,101.61,106.621,38.944,17.120,12.10,0
+atv-Storm Drain / Gully Jump,5.70,102.81,106.210,38.680,15.975,12.18,2
+atv-Storm Drain / Gully Jump,5.80,104.07,105.866,38.422,14.727,13.36,4
+atv-Storm Drain / Gully Jump,5.90,105.46,105.559,38.241,13.346,14.51,4
+atv-Storm Drain / Gully Jump,6.00,106.97,105.277,38.125,11.838,15.62,4
+atv-Storm Drain / Gully Jump,6.10,108.59,105.017,38.034,10.213,16.70,4
+atv-Storm Drain / Gully Jump,6.20,110.33,104.769,37.932,8.479,17.75,4
+atv-Storm Drain / Gully Jump,6.30,112.16,104.521,37.800,6.643,18.77,4
+atv-Storm Drain / Gully Jump,6.40,114.10,104.251,37.636,4.711,19.76,4
+atv-Storm Drain / Gully Jump,6.50,116.13,103.940,37.446,2.690,20.72,4
+atv-Storm Drain / Gully Jump,6.60,118.25,103.563,37.267,0.588,21.65,4
+atv-Storm Drain / Gully Jump,6.70,120.43,103.119,37.216,-1.566,22.41,4
+atv-Storm Drain / Gully Jump,6.80,122.69,102.590,37.325,-3.792,23.16,4
+atv-Storm Drain / Gully Jump,6.90,125.03,101.972,37.541,-6.070,23.89,4
+atv-Storm Drain / Gully Jump,7.00,127.44,101.266,37.834,-8.383,24.60,4
+atv-Storm Drain / Gully Jump,7.10,129.90,100.488,38.215,-10.725,25.24,4
+atv-Storm Drain / Gully Jump,7.20,132.41,99.665,38.705,-13.097,25.83,4
+atv-Storm Drain / Gully Jump,7.30,134.95,98.816,39.308,-15.496,26.36,4
+atv-Storm Drain / Gully Jump,7.40,137.51,97.959,40.011,-17.921,26.86,4
+atv-Storm Drain / Gully Jump,7.50,140.09,97.094,40.818,-20.358,27.30,4
+atv-Storm Drain / Gully Jump,7.60,142.68,96.226,41.737,-22.801,27.70,4
+atv-Storm Drain / Gully Jump,7.70,145.30,95.349,42.720,-25.268,28.04,0
+atv-Storm Drain / Gully Jump,7.80,147.92,94.470,43.630,-27.746,27.66,0
+atv-Storm Drain / Gully Jump,7.90,150.55,93.591,44.440,-30.221,27.31,0
+atv-Storm Drain / Gully Jump,8.00,153.17,92.713,45.151,-32.692,26.98,0
+atv-Storm Drain / Gully Jump,8.10,155.79,91.837,45.762,-35.159,26.69,0
+atv-Storm Drain / Gully Jump,8.20,158.40,90.963,46.274,-37.621,26.43,0
+atv-Storm Drain / Gully Jump,8.30,161.01,90.090,46.685,-40.079,26.20,0
+atv-Storm Drain / Gully Jump,8.40,163.61,89.219,46.998,-42.531,26.01,0
+atv-Storm Drain / Gully Jump,8.50,166.21,88.350,47.211,-44.978,25.86,0
+atv-Storm Drain / Gully Jump,8.60,168.81,87.483,47.326,-47.418,25.76,0
+atv-Storm Drain / Gully Jump,8.70,171.40,86.619,47.342,-49.852,25.70,0
+atv-Storm Drain / Gully Jump,8.80,173.99,85.756,47.260,-52.280,25.69,0
+atv-Storm Drain / Gully Jump,8.90,176.41,85.176,47.096,-54.547,22.38,0
+atv-Storm Drain / Gully Jump,9.00,178.58,84.765,46.825,-56.699,21.86,0
+atv-Storm Drain / Gully Jump,9.10,180.73,84.330,46.445,-58.843,20.57,0
+atv-Storm Drain / Gully Jump,9.20,182.87,83.873,45.967,-60.983,18.86,0
+atv-Storm Drain / Gully Jump,9.30,184.69,83.347,45.369,-62.455,3.34,0
+atv-Storm Drain / Gully Jump,9.40,185.39,82.744,44.680,-62.947,-5.21,0
+atv-Storm Drain / Gully Jump,9.50,186.14,82.128,43.915,-63.493,-8.65,0
+atv-Storm Drain / Gully Jump,9.60,186.95,81.526,43.078,-64.092,-10.04,0
+atv-Storm Drain / Gully Jump,9.70,187.79,80.953,42.171,-64.724,-9.58,0
+atv-Storm Drain / Gully Jump,9.80,188.64,80.417,41.192,-65.372,-7.76,0
+atv-Storm Drain / Gully Jump,9.90,189.48,79.886,40.827,-65.928,-2.95,0
+atv-Storm Drain / Gully Jump,10.00,190.11,79.399,41.002,-66.336,-0.64,0
+atv-Storm Drain / Gully Jump,10.10,190.75,78.937,40.942,-66.713,1.26,0
+atv-Storm Drain / Gully Jump,10.20,191.38,78.493,40.752,-67.061,2.60,0
+atv-Storm Drain / Gully Jump,10.30,191.93,78.046,40.436,-67.387,3.08,1
+atv-Storm Drain / Gully Jump,10.40,192.48,77.673,40.253,-67.561,0.66,3
+atv-Storm Drain / Gully Jump,10.50,192.63,77.584,40.194,-67.655,0.32,4
+atv-Storm Drain / Gully Jump,10.60,192.70,77.534,40.190,-67.689,0.19,4
+atv-Storm Drain / Gully Jump,10.70,192.83,77.501,40.197,-67.710,0.10,4
+atv-Storm Drain / Gully Jump,10.80,192.86,77.476,40.194,-67.730,0.09,4
+atv-Storm Drain / Gully Jump,10.90,192.89,77.453,40.193,-67.748,0.07,4
+atv-Storm Drain / Gully Jump,11.00,192.92,77.429,40.192,-67.765,0.07,4
+atv-Storm Drain / Gully Jump,11.10,192.95,77.406,40.192,-67.782,0.07,4
+atv-Storm Drain / Gully Jump,11.20,192.98,77.381,40.189,-67.798,0.08,4
+atv-Storm Drain / Gully Jump,11.30,193.01,77.357,40.188,-67.814,0.07,4
+atv-Storm Drain / Gully Jump,11.40,193.04,77.332,40.188,-67.829,0.07,4
+atv-Storm Drain / Gully Jump,11.50,193.07,77.307,40.187,-67.843,0.07,4
+atv-Storm Drain / Gully Jump,11.60,193.10,77.282,40.186,-67.857,0.07,4
+atv-Storm Drain / Gully Jump,11.70,193.12,77.257,40.185,-67.870,0.06,4
+atv-Storm Drain / Gully Jump,11.80,193.15,77.232,40.185,-67.883,0.06,4
+atv-Storm Drain / Gully Jump,11.90,193.18,77.207,40.185,-67.894,0.06,4
+atv-Storm Drain / Gully Jump,12.00,193.21,77.181,40.184,-67.906,0.06,4
+atv-Storm Drain / Gully Jump,12.10,193.24,77.156,40.183,-67.917,0.06,4
+atv-Storm Drain / Gully Jump,12.20,193.26,77.128,40.179,-67.925,0.08,4
+atv-Storm Drain / Gully Jump,12.30,193.29,77.102,40.174,-67.934,0.07,4
+atv-Storm Drain / Gully Jump,12.40,193.32,77.075,40.169,-67.943,0.06,4
+atv-Storm Drain / Gully Jump,12.50,193.34,77.049,40.165,-67.952,0.06,4
+atv-Storm Drain / Gully Jump,12.60,193.37,77.022,40.162,-67.960,0.06,4
+atv-Storm Drain / Gully Jump,12.70,193.40,76.996,40.159,-67.967,0.06,4
+atv-Storm Drain / Gully Jump,12.80,193.42,76.969,40.157,-67.974,0.05,4
+atv-Storm Drain / Gully Jump,12.90,193.45,76.941,40.155,-67.980,0.05,4
+atv-Storm Drain / Gully Jump,13.00,193.58,76.914,40.152,-67.986,0.05,4
+atv-Storm Drain / Gully Jump,13.10,193.61,76.887,40.150,-67.991,0.06,4
+atv-Storm Drain / Gully Jump,13.20,193.63,76.859,40.147,-67.995,0.06,4
+atv-Storm Drain / Gully Jump,13.30,193.66,76.833,40.142,-67.999,0.06,4
+atv-Storm Drain / Gully Jump,13.40,193.69,76.805,40.137,-68.002,0.06,4
+atv-Storm Drain / Gully Jump,13.50,193.71,76.778,40.133,-68.005,0.06,4
+atv-Storm Drain / Gully Jump,13.60,193.74,76.750,40.130,-68.007,0.05,4
+atv-Storm Drain / Gully Jump,13.70,193.76,76.723,40.128,-68.008,0.05,4
+atv-Storm Drain / Gully Jump,13.80,193.79,76.695,40.124,-68.009,0.05,4
+atv-Storm Drain / Gully Jump,13.90,193.81,76.668,40.120,-68.009,0.05,4
+atv-Storm Drain / Gully Jump,14.00,193.84,76.641,40.116,-68.008,0.05,4
+atv-Storm Drain / Gully Jump,14.10,193.86,76.614,40.113,-68.007,0.05,4
+atv-Storm Drain / Gully Jump,14.20,193.88,76.586,40.111,-68.005,0.05,4
+atv-Storm Drain / Gully Jump,14.30,193.91,76.559,40.109,-68.002,0.05,4
+atv-Storm Drain / Gully Jump,14.40,193.93,76.532,40.107,-67.999,0.05,4
+atv-Storm Drain / Gully Jump,14.50,193.95,76.506,40.106,-67.995,0.05,4
+atv-Storm Drain / Gully Jump,14.60,193.97,76.481,40.105,-67.991,0.05,4
+atv-Storm Drain / Gully Jump,14.70,194.00,76.454,40.104,-67.986,0.05,4
+atv-Storm Drain / Gully Jump,14.80,194.01,76.432,40.104,-67.982,0.02,4
+atv-Storm Drain / Gully Jump,14.90,194.02,76.432,40.104,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,15.00,194.02,76.432,40.104,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,15.10,194.02,76.432,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,15.20,194.02,76.432,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,15.30,194.02,76.432,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,15.40,194.02,76.432,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,15.50,194.02,76.432,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,15.60,194.02,76.433,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,15.70,194.02,76.433,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,15.80,194.02,76.433,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,15.90,194.02,76.433,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,16.00,194.02,76.433,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,16.10,194.02,76.433,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,16.20,194.02,76.433,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,16.30,194.02,76.433,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,16.40,194.02,76.433,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,16.50,194.02,76.433,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,16.60,194.02,76.433,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,16.70,194.02,76.433,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,16.80,194.02,76.433,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,16.90,194.02,76.433,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,17.00,194.02,76.433,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,17.10,194.02,76.433,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,17.20,194.02,76.433,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,17.30,194.02,76.433,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,17.40,194.02,76.433,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,17.50,194.02,76.433,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,17.60,194.02,76.433,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,17.70,194.02,76.433,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,17.80,194.02,76.433,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,17.90,194.02,76.433,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,18.00,194.02,76.433,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,18.10,194.02,76.433,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,18.20,194.02,76.433,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,18.30,194.02,76.433,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,18.40,194.02,76.433,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,18.50,194.02,76.433,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,18.60,194.02,76.433,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,18.70,194.02,76.433,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,18.80,194.02,76.433,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,18.90,194.02,76.433,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,19.00,194.02,76.433,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,19.10,194.02,76.433,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,19.20,194.02,76.433,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,19.30,194.02,76.433,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,19.40,194.02,76.433,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,19.50,194.02,76.433,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,19.60,194.02,76.433,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,19.70,194.02,76.433,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,19.80,194.02,76.433,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,19.90,194.02,76.433,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,20.00,194.02,76.433,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,20.10,194.02,76.433,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,20.20,194.02,76.433,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,20.30,194.02,76.433,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,20.40,194.02,76.433,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,20.50,194.02,76.433,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,20.60,194.02,76.433,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,20.70,194.02,76.433,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,20.80,194.02,76.433,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,20.90,194.02,76.433,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,21.00,194.02,76.433,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,21.10,194.02,76.433,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,21.20,194.02,76.433,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,21.30,194.02,76.433,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,21.40,194.02,76.433,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,21.50,194.02,76.433,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,21.60,194.02,76.433,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,21.70,194.02,76.433,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,21.80,194.02,76.433,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,21.90,194.02,76.433,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,22.00,194.02,76.433,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,22.10,194.02,76.433,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,22.20,194.02,76.433,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,22.30,194.02,76.433,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,22.40,194.02,76.433,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,22.50,194.02,76.433,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,22.60,194.02,76.433,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,22.70,194.02,76.433,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,22.80,194.02,76.433,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,22.90,194.02,76.433,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,23.00,194.02,76.433,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,23.10,194.02,76.433,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,23.20,194.02,76.433,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,23.30,194.02,76.433,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,23.40,194.02,76.433,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,23.50,194.02,76.433,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,23.60,194.02,76.433,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,23.70,194.02,76.433,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,23.80,194.02,76.433,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,23.90,194.02,76.433,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,24.00,194.02,76.433,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,24.10,194.02,76.433,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,24.20,194.02,76.433,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,24.30,194.02,76.433,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,24.40,194.02,76.433,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,24.50,194.02,76.433,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,24.60,194.02,76.433,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,24.70,194.02,76.433,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,24.80,194.02,76.433,40.103,-67.982,0.00,4
+atv-Storm Drain / Gully Jump,24.90,194.02,76.433,40.103,-67.982,0.00,4
+atv-Abandoned Logging Ridge,0.00,1.33,392.395,81.517,79.888,22.00,4
+atv-Abandoned Logging Ridge,0.10,3.58,390.218,81.308,80.511,22.91,4
+atv-Abandoned Logging Ridge,0.20,5.91,387.963,81.064,81.185,23.79,4
+atv-Abandoned Logging Ridge,0.30,8.30,385.697,80.792,81.928,23.88,4
+atv-Abandoned Logging Ridge,0.40,10.68,383.465,80.593,82.770,23.92,4
+atv-Abandoned Logging Ridge,0.50,13.07,381.275,80.500,83.745,23.91,4
+atv-Abandoned Logging Ridge,0.60,15.44,379.151,80.438,84.870,23.88,4
+atv-Abandoned Logging Ridge,0.70,17.82,377.110,80.306,86.129,23.87,0
+atv-Abandoned Logging Ridge,0.80,20.19,375.098,80.076,87.415,23.80,0
+atv-Abandoned Logging Ridge,0.90,22.57,373.091,79.749,88.698,23.69,0
+atv-Abandoned Logging Ridge,1.00,24.96,371.090,79.325,89.977,23.52,0
+atv-Abandoned Logging Ridge,1.10,27.37,369.086,78.834,91.266,23.30,0
+atv-Abandoned Logging Ridge,1.20,29.79,367.122,78.349,92.555,23.10,2
+atv-Abandoned Logging Ridge,1.30,32.16,365.284,77.946,94.046,24.15,3
+atv-Abandoned Logging Ridge,1.40,34.47,363.560,77.640,95.686,23.86,4
+atv-Abandoned Logging Ridge,1.50,36.80,361.758,77.457,97.251,23.79,4
+atv-Abandoned Logging Ridge,1.60,39.16,359.816,77.348,98.661,24.10,4
+atv-Abandoned Logging Ridge,1.70,41.55,357.764,77.273,99.897,24.07,4
+atv-Abandoned Logging Ridge,1.80,43.94,355.624,77.208,100.986,24.08,4
+atv-Abandoned Logging Ridge,1.90,46.33,353.436,77.138,101.961,24.13,4
+atv-Abandoned Logging Ridge,2.00,48.71,351.220,77.056,102.864,23.80,4
+atv-Abandoned Logging Ridge,2.10,51.10,348.985,76.957,103.734,23.86,4
+atv-Abandoned Logging Ridge,2.20,53.48,346.750,76.846,104.596,23.92,4
+atv-Abandoned Logging Ridge,2.30,55.86,344.532,76.783,105.456,23.89,4
+atv-Abandoned Logging Ridge,2.40,58.24,342.312,76.853,106.327,23.89,4
+atv-Abandoned Logging Ridge,2.50,60.63,340.088,77.000,107.208,23.86,4
+atv-Abandoned Logging Ridge,2.60,63.03,337.863,77.106,108.092,23.84,4
+atv-Abandoned Logging Ridge,2.70,65.43,335.629,77.136,108.971,23.84,4
+atv-Abandoned Logging Ridge,2.80,67.83,333.389,77.127,109.834,23.84,4
+atv-Abandoned Logging Ridge,2.90,70.23,331.144,77.136,110.670,23.83,4
+atv-Abandoned Logging Ridge,3.00,72.62,328.890,77.205,111.474,23.82,4
+atv-Abandoned Logging Ridge,3.10,75.01,326.628,77.343,112.239,23.79,4
+atv-Abandoned Logging Ridge,3.20,77.40,324.350,77.530,112.964,24.14,4
+atv-Abandoned Logging Ridge,3.30,79.78,322.062,77.738,113.642,24.09,4
+atv-Abandoned Logging Ridge,3.40,82.17,319.756,77.939,114.268,24.03,4
+atv-Abandoned Logging Ridge,3.50,84.55,317.430,78.112,114.831,23.97,4
+atv-Abandoned Logging Ridge,3.60,86.94,315.089,78.247,115.318,23.90,4
+atv-Abandoned Logging Ridge,3.70,89.32,312.726,78.330,115.716,23.84,4
+atv-Abandoned Logging Ridge,3.80,91.72,310.343,78.351,116.021,23.80,2
+atv-Abandoned Logging Ridge,3.90,94.11,307.950,78.306,116.237,23.79,4
+atv-Abandoned Logging Ridge,4.00,96.51,305.555,78.225,116.382,23.82,4
+atv-Abandoned Logging Ridge,4.10,98.91,303.157,78.131,116.487,23.85,4
+atv-Abandoned Logging Ridge,4.20,101.31,300.765,78.042,116.599,23.88,4
+atv-Abandoned Logging Ridge,4.30,103.72,298.375,77.966,116.777,23.88,4
+atv-Abandoned Logging Ridge,4.40,106.12,296.002,77.910,117.089,23.81,4
+atv-Abandoned Logging Ridge,4.50,108.51,293.658,77.882,117.599,24.04,4
+atv-Abandoned Logging Ridge,4.60,110.86,291.383,77.897,118.357,23.84,4
+atv-Abandoned Logging Ridge,4.70,113.19,289.283,78.146,119.490,23.54,3
+atv-Abandoned Logging Ridge,4.80,115.58,287.126,78.368,120.617,23.21,1
+atv-Abandoned Logging Ridge,4.90,117.99,284.966,78.493,121.724,22.70,1
+atv-Abandoned Logging Ridge,5.00,120.50,282.812,78.523,122.819,22.36,0
+atv-Abandoned Logging Ridge,5.10,123.26,280.665,78.459,123.903,22.23,0
+atv-Abandoned Logging Ridge,5.20,125.76,278.525,78.302,124.979,22.30,0
+atv-Abandoned Logging Ridge,5.30,127.35,276.390,78.053,126.047,22.57,0
+atv-Abandoned Logging Ridge,5.40,128.59,274.261,77.711,127.108,22.98,0
+atv-Abandoned Logging Ridge,5.50,129.67,272.137,77.275,128.162,23.48,0
+atv-Abandoned Logging Ridge,5.60,130.75,270.024,76.806,129.181,23.71,1
+atv-Abandoned Logging Ridge,5.70,132.39,267.935,76.339,130.135,23.83,3
+atv-Abandoned Logging Ridge,5.80,132.39,265.792,76.136,131.129,23.84,4
+atv-Abandoned Logging Ridge,5.90,132.39,263.560,76.161,132.026,24.10,4
+atv-Abandoned Logging Ridge,6.00,132.39,261.250,76.211,132.686,23.80,4
+atv-Abandoned Logging Ridge,6.10,132.39,258.869,76.232,133.056,23.76,4
+atv-Abandoned Logging Ridge,6.20,132.39,256.527,76.214,133.051,23.99,4
+atv-Abandoned Logging Ridge,6.30,132.39,254.474,76.277,132.528,21.15,2
+atv-Abandoned Logging Ridge,6.40,132.39,252.473,76.407,131.721,21.25,2
+atv-Abandoned Logging Ridge,6.50,132.39,250.531,76.485,130.738,20.74,0
+atv-Abandoned Logging Ridge,6.60,132.39,248.590,76.465,129.755,19.41,0
+atv-Abandoned Logging Ridge,6.70,132.39,246.653,76.345,128.770,17.64,0
+atv-Abandoned Logging Ridge,6.80,132.39,244.804,76.158,127.725,15.94,4
+atv-Abandoned Logging Ridge,6.90,132.39,243.294,76.072,126.464,16.38,4
+atv-Abandoned Logging Ridge,7.00,132.39,242.048,76.098,125.040,16.10,4
+atv-Abandoned Logging Ridge,7.10,132.39,241.090,76.154,123.485,15.74,4
+atv-Abandoned Logging Ridge,7.20,132.39,240.439,76.194,121.842,15.44,4
+atv-Abandoned Logging Ridge,7.30,132.39,240.106,76.208,120.155,15.21,4
+atv-Abandoned Logging Ridge,7.40,132.39,240.093,76.196,118.475,15.08,4
+atv-Abandoned Logging Ridge,7.50,132.39,240.392,76.165,116.853,15.05,4
+atv-Abandoned Logging Ridge,7.60,132.39,240.988,76.134,115.338,15.12,4
+atv-Abandoned Logging Ridge,7.70,132.39,241.860,76.138,113.977,15.27,4
+atv-Abandoned Logging Ridge,7.80,132.39,242.978,76.188,112.808,15.50,4
+atv-Abandoned Logging Ridge,7.90,132.39,244.312,76.263,111.868,15.80,4
+atv-Abandoned Logging Ridge,8.00,132.39,245.821,76.336,111.190,16.18,4
+atv-Abandoned Logging Ridge,8.10,132.39,247.461,76.393,110.798,16.62,4
+atv-Abandoned Logging Ridge,8.20,132.39,249.186,76.437,110.710,17.16,4
+atv-Abandoned Logging Ridge,8.30,132.39,250.957,76.472,110.917,17.84,4
+atv-Abandoned Logging Ridge,8.40,132.39,252.453,76.503,111.363,17.04,4
+atv-Abandoned Logging Ridge,8.50,132.39,252.624,76.495,111.741,0.40,4
+atv-Abandoned Logging Ridge,8.60,132.39,252.659,76.486,111.871,0.07,4
+atv-Abandoned Logging Ridge,8.70,132.39,252.674,76.486,111.911,0.03,4
+atv-Abandoned Logging Ridge,8.80,132.39,252.681,76.489,111.928,0.01,4
+atv-Abandoned Logging Ridge,8.90,132.39,252.685,76.493,111.937,0.01,4
+atv-Abandoned Logging Ridge,9.00,132.39,252.688,76.495,111.945,0.01,4
+atv-Abandoned Logging Ridge,9.10,132.39,252.692,76.496,111.952,0.01,4
+atv-Abandoned Logging Ridge,9.20,132.39,252.694,76.496,111.958,0.01,4
+atv-Abandoned Logging Ridge,9.30,132.39,252.697,76.496,111.965,0.01,4
+atv-Abandoned Logging Ridge,9.40,132.39,252.700,76.495,111.972,0.01,4
+atv-Abandoned Logging Ridge,9.50,132.39,252.703,76.495,111.978,0.01,4
+atv-Abandoned Logging Ridge,9.60,132.39,252.706,76.495,111.985,0.01,4
+atv-Abandoned Logging Ridge,9.70,132.39,252.709,76.495,111.991,0.01,4
+atv-Abandoned Logging Ridge,9.80,132.39,252.712,76.495,111.998,0.01,4
+atv-Abandoned Logging Ridge,9.90,132.39,252.715,76.495,112.005,0.01,4
+atv-Abandoned Logging Ridge,10.00,132.39,252.718,76.495,112.011,0.01,4
+atv-Abandoned Logging Ridge,10.10,132.39,252.721,76.495,112.018,0.01,4
+atv-Abandoned Logging Ridge,10.20,132.39,252.724,76.495,112.024,0.01,4
+atv-Abandoned Logging Ridge,10.30,132.39,252.727,76.495,112.030,0.01,4
+atv-Abandoned Logging Ridge,10.40,132.39,252.730,76.495,112.037,0.01,4
+atv-Abandoned Logging Ridge,10.50,132.39,252.734,76.495,112.043,0.01,4
+atv-Abandoned Logging Ridge,10.60,132.39,252.737,76.495,112.050,0.01,4
+atv-Abandoned Logging Ridge,10.70,132.39,252.740,76.495,112.056,0.01,4
+atv-Abandoned Logging Ridge,10.80,132.39,252.744,76.495,112.063,0.01,4
+atv-Abandoned Logging Ridge,10.90,132.39,252.747,76.495,112.069,0.01,4
+atv-Abandoned Logging Ridge,11.00,132.39,252.751,76.495,112.075,0.01,4
+atv-Abandoned Logging Ridge,11.10,132.39,252.754,76.495,112.082,0.01,4
+atv-Abandoned Logging Ridge,11.20,132.39,252.758,76.495,112.088,0.01,4
+atv-Abandoned Logging Ridge,11.30,132.39,252.761,76.495,112.094,0.01,4
+atv-Abandoned Logging Ridge,11.40,132.39,252.765,76.495,112.101,0.01,4
+atv-Abandoned Logging Ridge,11.50,132.39,252.769,76.495,112.107,0.01,4
+atv-Abandoned Logging Ridge,11.60,132.39,252.773,76.495,112.113,0.01,4
+atv-Abandoned Logging Ridge,11.70,132.39,252.776,76.495,112.120,0.01,4
+atv-Abandoned Logging Ridge,11.80,132.39,252.780,76.495,112.126,0.01,4
+atv-Abandoned Logging Ridge,11.90,132.39,252.784,76.495,112.132,0.01,4
+atv-Abandoned Logging Ridge,12.00,132.39,252.788,76.495,112.138,0.01,4
+atv-Abandoned Logging Ridge,12.10,132.39,252.792,76.495,112.144,0.01,4
+atv-Abandoned Logging Ridge,12.20,132.39,252.796,76.495,112.151,0.01,4
+atv-Abandoned Logging Ridge,12.30,132.39,252.800,76.495,112.157,0.01,4
+atv-Abandoned Logging Ridge,12.40,132.39,252.804,76.495,112.163,0.01,4
+atv-Abandoned Logging Ridge,12.50,132.39,252.808,76.495,112.169,0.01,4
+atv-Abandoned Logging Ridge,12.60,132.39,252.812,76.495,112.175,0.01,4
+atv-Abandoned Logging Ridge,12.70,132.39,252.816,76.496,112.181,0.01,4
+atv-Abandoned Logging Ridge,12.80,132.39,252.821,76.496,112.187,0.01,4
+atv-Abandoned Logging Ridge,12.90,132.39,252.825,76.496,112.193,0.01,4
+atv-Abandoned Logging Ridge,13.00,132.39,252.829,76.496,112.199,0.01,4
+atv-Abandoned Logging Ridge,13.10,132.39,252.833,76.496,112.205,0.01,4
+atv-Abandoned Logging Ridge,13.20,132.39,252.838,76.496,112.211,0.01,4
+atv-Abandoned Logging Ridge,13.30,132.39,252.842,76.496,112.216,0.01,4
+atv-Abandoned Logging Ridge,13.40,132.39,252.847,76.496,112.222,0.01,4
+atv-Abandoned Logging Ridge,13.50,132.39,252.851,76.496,112.228,0.01,4
+atv-Abandoned Logging Ridge,13.60,132.39,252.856,76.496,112.234,0.01,4
+atv-Abandoned Logging Ridge,13.70,132.39,252.860,76.496,112.240,0.01,4
+atv-Abandoned Logging Ridge,13.80,132.39,252.865,76.496,112.245,0.01,4
+atv-Abandoned Logging Ridge,13.90,132.39,252.869,76.496,112.251,0.01,4
+atv-Abandoned Logging Ridge,14.00,132.39,252.874,76.496,112.257,0.01,4
+atv-Abandoned Logging Ridge,14.10,132.39,252.879,76.496,112.262,0.01,4
+atv-Abandoned Logging Ridge,14.20,132.39,252.883,76.496,112.268,0.01,4
+atv-Abandoned Logging Ridge,14.30,132.39,252.888,76.496,112.274,0.01,4
+atv-Abandoned Logging Ridge,14.40,132.39,252.893,76.496,112.279,0.01,4
+atv-Abandoned Logging Ridge,14.50,132.39,252.898,76.496,112.285,0.01,4
+atv-Abandoned Logging Ridge,14.60,132.39,252.903,76.496,112.290,0.01,4
+atv-Abandoned Logging Ridge,14.70,132.39,252.907,76.496,112.296,0.01,4
+atv-Abandoned Logging Ridge,14.80,132.39,252.912,76.496,112.301,0.01,4
+atv-Abandoned Logging Ridge,14.90,132.39,252.917,76.496,112.307,0.01,4
+atv-Abandoned Logging Ridge,15.00,132.39,252.922,76.496,112.312,0.01,4
+atv-Abandoned Logging Ridge,15.10,132.39,252.927,76.496,112.317,0.01,4
+atv-Abandoned Logging Ridge,15.20,132.39,252.932,76.496,112.323,0.01,4
+atv-Abandoned Logging Ridge,15.30,132.39,252.938,76.496,112.328,0.01,4
+atv-Abandoned Logging Ridge,15.40,132.39,252.943,76.497,112.333,0.01,4
+atv-Abandoned Logging Ridge,15.50,132.39,252.948,76.497,112.339,0.01,4
+atv-Abandoned Logging Ridge,15.60,132.39,252.953,76.497,112.344,0.01,4
+atv-Abandoned Logging Ridge,15.70,132.39,252.958,76.497,112.349,0.01,4
+atv-Abandoned Logging Ridge,15.80,132.39,252.963,76.497,112.354,0.01,4
+atv-Abandoned Logging Ridge,15.90,132.39,252.969,76.497,112.359,0.01,4
+atv-Abandoned Logging Ridge,16.00,132.39,252.974,76.497,112.364,0.01,4
+atv-Abandoned Logging Ridge,16.10,132.39,252.979,76.497,112.369,0.01,4
+atv-Abandoned Logging Ridge,16.20,132.39,252.985,76.497,112.374,0.01,4
+atv-Abandoned Logging Ridge,16.30,132.39,252.990,76.497,112.379,0.01,4
+atv-Abandoned Logging Ridge,16.40,132.39,252.996,76.497,112.384,0.01,4
+atv-Abandoned Logging Ridge,16.50,132.39,253.001,76.497,112.389,0.01,4
+atv-Abandoned Logging Ridge,16.60,132.39,253.007,76.497,112.394,0.01,4
+atv-Abandoned Logging Ridge,16.70,132.39,253.012,76.497,112.399,0.01,4
+atv-Abandoned Logging Ridge,16.80,132.39,253.018,76.497,112.404,0.01,4
+atv-Abandoned Logging Ridge,16.90,132.39,253.023,76.497,112.408,0.01,4
+atv-Abandoned Logging Ridge,17.00,132.39,253.029,76.497,112.413,0.01,4
+atv-Abandoned Logging Ridge,17.10,132.39,253.035,76.497,112.418,0.01,4
+atv-Abandoned Logging Ridge,17.20,132.39,253.040,76.498,112.422,0.01,4
+atv-Abandoned Logging Ridge,17.30,132.39,253.046,76.498,112.427,0.01,4
+atv-Abandoned Logging Ridge,17.40,132.39,253.052,76.498,112.432,0.01,4
+atv-Abandoned Logging Ridge,17.50,132.39,253.057,76.498,112.436,0.01,4
+atv-Abandoned Logging Ridge,17.60,132.39,253.063,76.498,112.441,0.01,4
+atv-Abandoned Logging Ridge,17.70,132.39,253.069,76.498,112.445,0.01,4
+atv-Abandoned Logging Ridge,17.80,132.39,253.075,76.498,112.450,0.01,4
+atv-Abandoned Logging Ridge,17.90,132.39,253.081,76.498,112.454,0.01,4
+atv-Abandoned Logging Ridge,18.00,132.39,253.087,76.498,112.458,0.01,4
+atv-Abandoned Logging Ridge,18.10,132.39,253.093,76.498,112.463,0.01,4
+atv-Abandoned Logging Ridge,18.20,132.39,253.099,76.498,112.467,0.01,4
+atv-Abandoned Logging Ridge,18.30,132.39,253.105,76.498,112.471,0.01,4
+atv-Abandoned Logging Ridge,18.40,132.39,253.111,76.498,112.476,0.01,4
+atv-Abandoned Logging Ridge,18.50,132.39,253.117,76.498,112.480,0.01,4
+atv-Abandoned Logging Ridge,18.60,132.39,253.123,76.499,112.484,0.01,4
+atv-Abandoned Logging Ridge,18.70,132.39,253.129,76.499,112.488,0.01,4
+atv-Abandoned Logging Ridge,18.80,132.39,253.135,76.499,112.492,0.01,4
+atv-Abandoned Logging Ridge,18.90,132.39,253.141,76.499,112.496,0.01,4
+atv-Abandoned Logging Ridge,19.00,132.39,253.147,76.499,112.500,0.01,4
+atv-Abandoned Logging Ridge,19.10,132.39,253.153,76.499,112.504,0.01,4
+atv-Abandoned Logging Ridge,19.20,132.39,253.160,76.499,112.508,0.01,4
+atv-Abandoned Logging Ridge,19.30,132.39,253.166,76.499,112.512,0.01,4
+atv-Abandoned Logging Ridge,19.40,132.39,253.172,76.499,112.516,0.01,4
+atv-Abandoned Logging Ridge,19.50,132.39,253.178,76.499,112.520,0.01,4
+atv-Abandoned Logging Ridge,19.60,132.39,253.185,76.499,112.523,0.01,4
+atv-Abandoned Logging Ridge,19.70,132.39,253.191,76.500,112.527,0.01,4
+atv-Abandoned Logging Ridge,19.80,132.39,253.197,76.500,112.531,0.01,4
+atv-Abandoned Logging Ridge,19.90,132.39,253.204,76.500,112.534,0.01,4
+atv-Abandoned Logging Ridge,20.00,132.39,253.210,76.500,112.538,0.01,4
+atv-Abandoned Logging Ridge,20.10,132.39,253.217,76.500,112.542,0.01,4
+atv-Abandoned Logging Ridge,20.20,132.39,253.223,76.500,112.545,0.01,4
+atv-Abandoned Logging Ridge,20.30,132.39,253.229,76.500,112.548,0.01,4
+atv-Abandoned Logging Ridge,20.40,132.39,253.235,76.500,112.552,0.01,4
+atv-Abandoned Logging Ridge,20.50,132.39,253.242,76.500,112.555,0.01,4
+atv-Abandoned Logging Ridge,20.60,132.39,253.248,76.500,112.558,0.01,4
+atv-Abandoned Logging Ridge,20.70,132.39,253.255,76.500,112.562,0.01,4
+atv-Abandoned Logging Ridge,20.80,132.39,253.261,76.500,112.565,0.01,4
+atv-Abandoned Logging Ridge,20.90,132.39,253.268,76.500,112.568,0.01,4
+atv-Abandoned Logging Ridge,21.00,132.39,253.274,76.500,112.571,0.01,4
+atv-Abandoned Logging Ridge,21.10,132.39,253.281,76.500,112.574,0.01,4
+atv-Abandoned Logging Ridge,21.20,132.39,253.287,76.501,112.577,0.01,4
+atv-Abandoned Logging Ridge,21.30,132.39,253.294,76.501,112.581,0.01,4
+atv-Abandoned Logging Ridge,21.40,132.39,253.300,76.501,112.584,0.01,4
+atv-Abandoned Logging Ridge,21.50,132.39,253.307,76.501,112.587,0.01,4
+atv-Abandoned Logging Ridge,21.60,132.39,253.313,76.501,112.589,0.01,4
+atv-Abandoned Logging Ridge,21.70,132.39,253.320,76.501,112.592,0.01,4
+atv-Abandoned Logging Ridge,21.80,132.39,253.327,76.501,112.595,0.01,4
+atv-Abandoned Logging Ridge,21.90,132.39,253.333,76.501,112.598,0.01,4
+atv-Abandoned Logging Ridge,22.00,132.39,253.340,76.501,112.601,0.01,4
+atv-Abandoned Logging Ridge,22.10,132.39,253.347,76.502,112.603,0.01,4
+atv-Abandoned Logging Ridge,22.20,132.39,253.353,76.502,112.606,0.01,4
+atv-Abandoned Logging Ridge,22.30,132.39,253.360,76.502,112.609,0.01,4
+atv-Abandoned Logging Ridge,22.40,132.39,253.367,76.502,112.611,0.01,4
+atv-Abandoned Logging Ridge,22.50,132.39,253.374,76.502,112.614,0.01,4
+atv-Abandoned Logging Ridge,22.60,132.39,253.380,76.502,112.616,0.01,4
+atv-Abandoned Logging Ridge,22.70,132.39,253.387,76.502,112.619,0.01,4
+atv-Abandoned Logging Ridge,22.80,132.39,253.394,76.502,112.621,0.01,4
+atv-Abandoned Logging Ridge,22.90,132.39,253.401,76.502,112.624,0.01,4
+atv-Abandoned Logging Ridge,23.00,132.39,253.408,76.503,112.626,0.01,4
+atv-Abandoned Logging Ridge,23.10,132.39,253.415,76.503,112.628,0.01,4
+atv-Abandoned Logging Ridge,23.20,132.39,253.421,76.503,112.631,0.01,4
+atv-Abandoned Logging Ridge,23.30,132.39,253.428,76.503,112.633,0.01,4
+atv-Abandoned Logging Ridge,23.40,132.39,253.435,76.503,112.635,0.01,4
+atv-Abandoned Logging Ridge,23.50,132.39,253.442,76.503,112.637,0.01,4
+atv-Abandoned Logging Ridge,23.60,132.39,253.449,76.503,112.639,0.01,4
+atv-Abandoned Logging Ridge,23.70,132.39,253.456,76.503,112.641,0.01,4
+atv-Abandoned Logging Ridge,23.80,132.39,253.463,76.503,112.643,0.01,4
+atv-Abandoned Logging Ridge,23.90,132.39,253.470,76.504,112.645,0.01,4
+atv-Abandoned Logging Ridge,24.00,132.39,253.477,76.504,112.647,0.01,4
+atv-Abandoned Logging Ridge,24.10,132.39,253.484,76.504,112.649,0.01,4
+atv-Abandoned Logging Ridge,24.20,132.39,253.491,76.504,112.651,0.01,4
+atv-Abandoned Logging Ridge,24.30,132.39,253.498,76.504,112.653,0.01,4
+atv-Abandoned Logging Ridge,24.40,132.39,253.505,76.504,112.655,0.01,4
+atv-Abandoned Logging Ridge,24.50,132.39,253.512,76.504,112.656,0.01,4
+atv-Abandoned Logging Ridge,24.60,132.39,253.519,76.504,112.658,0.01,4
+atv-Abandoned Logging Ridge,24.70,132.39,253.526,76.505,112.660,0.01,4
+atv-Abandoned Logging Ridge,24.80,132.39,253.533,76.505,112.661,0.01,4
+atv-Abandoned Logging Ridge,24.90,132.39,253.540,76.505,112.663,0.01,4

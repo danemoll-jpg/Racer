@@ -5,9 +5,10 @@
     "width": 3000.0,
     "height": 1800.0
   },
-  "segments": 24616,
+  "segments": 26837,
   "sources": [
     "Abandoned Cabin Jump",
+    "Abandoned Logging Ridge",
     "CR113 highway through route",
     "CR117 mandatory two-flight racing line",
     "Climbing Ridge Cut",
@@ -30,6 +31,8 @@
     "Phase 3 - Race Systems",
     "Pine Ridge",
     "Reverse main route",
+    "Reverse navigation only - no pavement",
+    "Storm Drain / Gully Jump",
     "Summit Traverse",
     "Summit approach and safe return",
     "Tree-Top Trail"

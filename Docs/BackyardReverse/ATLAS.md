@@ -1,6 +1,6 @@
 # Dan's Backyard route atlas
 
-Open [ATLAS.html](ATLAS.html) for separately selectable views, or [Forward.png](Forward.png) / [Reverse.png](Reverse.png) directly. Teal shows each direction's main route; gold shows the approved Forward shortcuts. Reverse has no optional shortcuts.
+Open [ATLAS.html](ATLAS.html) for separately selectable views, or [Forward.png](Forward.png) / [Reverse.png](Reverse.png) directly. Teal shows each direction's main route; gold shows optional shortcuts in either direction; dashed gold marks the underground drain. Reverse now has Logging Ridge and Storm Drain / Gully Jump.
 
 The images use actual saved Unity scene renders and exported route/gate/flight coordinates. North is +Z. They show the dump, continuous gully, property geography, permanent McFadden water, major jumps and direction arrows. Forward retains its approved route, Tree-Top Trail and Abandoned Cabin Jump. Its original anchor coordinates remain in PROJECT_TODO.md and Docs/WorldCleanup/REFERENCE_ANCHORS.md.
 
@@ -15,3 +15,5 @@ Regenerate after geometry changes: Capture-ReverseAtlas.cs through Unity CLI, th
 ROUTE COLOR REPRESENTS ROUTE ROLE, NOT GEOMETRY OWNERSHIP. All required main-route segments use the same main-route presentation even when Forward and Reverse use different physical paths. Only genuine optional shortcuts use shortcut coloring.
 
 Latest local Reverse corrections and targeted evidence: [VALIDATION](../BackyardReverseCorrections/VALIDATION.md).
+
+Latest regeneration: Capture-ReverseShortcutsMaps.cs, Render-ReverseShortcutsWorld.py, Render-PermanentNetwork.py and Render-ReverseShortcutsAtlas.py. [Shortcut checks and limitations](../ReverseShortcuts/VALIDATION.md).

@@ -1,0 +1,5 @@
+PASS moto recorded physical entry: Abandoned Logging Ridge
+PASS moto recorded physical entry: Storm Drain / Gully Jump
+PASS atv recorded physical entry: Abandoned Logging Ridge
+PASS atv recorded physical entry: Storm Drain / Gully Jump
+PASS Drain credit consumes only CP3; CP4 remains required

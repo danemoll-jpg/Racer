@@ -1,0 +1,1 @@
+Additional complete trees cleared only from driving/landing line: 7; brush clusters: 43; main-route clearance protected. No reset trigger or invisible wall.

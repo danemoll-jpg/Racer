@@ -1,0 +1,1290 @@
+[
+  {
+    "name": "Ground_640_0",
+    "guid": "21484b6f86d384549853b3dae26a77ad"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "862df3462f6c65848aebd6e0b020e3c0"
+  },
+  {
+    "name": "Ground_Dan paved-to-dirt boundary",
+    "guid": "9598cdef851c20f45a4298bdb5ec914e"
+  },
+  {
+    "name": "Ground_CR113 outer lane dash",
+    "guid": "af41c49bb29c70a459b5661b413f349f"
+  },
+  {
+    "name": "Ground_CR113 outer lane dash",
+    "guid": "1813ffde2d34aea449105f9a88396dff"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "d53d658104af0a44489eef533bf5d29e"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "7c7634b6e77a9154b85bb5c292cc4e6a"
+  },
+  {
+    "name": "Ground_480_560",
+    "guid": "9e0c6173272152a46a5eaefccd3fb9ed"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "b1a7c9a05dc7a384d8c6d4b847043205"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "bacf4d58d134862489b8ef55018f5b4e"
+  },
+  {
+    "name": "Ground_160_320",
+    "guid": "1edde15403bf1d4498e33272282676cc"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "fabfd74cc98b5704190b2dd2416d2871"
+  },
+  {
+    "name": "Ground_CR113 outer double yellow",
+    "guid": "7e45e033f4051fe4bb2319817fe5edfe"
+  },
+  {
+    "name": "Ground_720_160",
+    "guid": "ff0e4c24e07e7034ab9de56efe35628e"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "3bc419876a092644f8d4c984f9bcaa95"
+  },
+  {
+    "name": "Ground_640_320",
+    "guid": "6b4a8157c9740e440bb0d876811d3933"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "27906b80f04dd504fad1b824e1a47dd2"
+  },
+  {
+    "name": "Ground_Mountain_0_5",
+    "guid": "a55b51d140d511b4e943a2bf92a0807a"
+  },
+  {
+    "name": "Ground_Mountain_3_0",
+    "guid": "f18f3807fa0698f44a43328665672350"
+  },
+  {
+    "name": "Ground_480_160",
+    "guid": "16348abae5956064d8334ab9710f66e9"
+  },
+  {
+    "name": "Ground_CR113 outer lane dash",
+    "guid": "626918fa20d19d849a97f12f11a9fbb4"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "d2e1cf18dd98b9c4f83ac825c1e1a51f"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "4157003127f9f114e8438e22aa721efe"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "74514c7ad05085344919a30903d19ae4"
+  },
+  {
+    "name": "Ground_80_480",
+    "guid": "be8a432fd78ab784296e8dc93ce3a325"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "01a101ccf450f09498902cf6778f2922"
+  },
+  {
+    "name": "Ground_400_320",
+    "guid": "a39f72b3c18784643b29cac559f78919"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "0ebe6d9e4150cac459201d6d4f694579"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "6e6faf56a6388214cb40896e399462a3"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "fb8664aac3dad3a4fb65120307f0ad33"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "51276df56a331654cab295fc31713696"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "dea082776ed22594eaff1f44e9686310"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "f2ad6fa9eee834d4180e2dd99b33dae7"
+  },
+  {
+    "name": "Ground_Mountain_1_1",
+    "guid": "9abfba1c27bbc8a48807b97e88812360"
+  },
+  {
+    "name": "Ground_Mountain_0_1",
+    "guid": "2a75a394f80165b4c80496af53019100"
+  },
+  {
+    "name": "Ground_240_160",
+    "guid": "6311e11d39314804ebd4fc366c154f96"
+  },
+  {
+    "name": "Ground_160_480",
+    "guid": "3ba2c2242055e3c48b917f3a4ac55105"
+  },
+  {
+    "name": "Ground_160_0",
+    "guid": "bc9fdf8753e7c46428f5afd4c7a159c4"
+  },
+  {
+    "name": "Ground_Mountain_0_4",
+    "guid": "f16be8aa0be16484f8dad662bbee90c6"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "82f163ef51625ff4d9d93bef336afeb2"
+  },
+  {
+    "name": "Ground_CR103 smooth landing",
+    "guid": "c78376866b369344b80b5ef51310847d"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "5c4754ab32b755f46a0a98daa068b341"
+  },
+  {
+    "name": "Ground_400_640",
+    "guid": "56170eaf3746c0144b15c1caf4e8611b"
+  },
+  {
+    "name": "Ground_CR113 outer lane dash",
+    "guid": "42378dc17c3224f478f4030f3bd139fd"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "8a3d9c8caadb57947a361d22d0b19555"
+  },
+  {
+    "name": "Ground_CR113 outer lane dash",
+    "guid": "d80125efe42794f42b92b809f0d8cdc7"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "57c2af018fd408a4997d452ed54e64fe"
+  },
+  {
+    "name": "Ground_480_720",
+    "guid": "5ca0b8e4d0529964e9cd2fe2ccc18a19"
+  },
+  {
+    "name": "Ground_CR113 outer lane dash",
+    "guid": "e28e6a4462ad5504da3633e84433cec5"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "533a6c55cb3ff3b4292e2b3439a13efb"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "6a0f02f848eab124d8b958da53ca009a"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "f786b655a708e4f42b44764033be1f4b"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "d6e68dc76938a304f9598de558a0ff30"
+  },
+  {
+    "name": "Ground_CR113 outer lane dash",
+    "guid": "afa585ae56818364989db837773f8f70"
+  },
+  {
+    "name": "Ground_640_240",
+    "guid": "e840d31e78cd2924bb6567fe4f4be7e0"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "4fbb67a2153e1f44aad395f798c4743b"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "ab09857c57d85e14d89b23e42acbd8d1"
+  },
+  {
+    "name": "Ground_CR113 east level outer continuation",
+    "guid": "bb3030d9c96d6804a8071b64c324f84a"
+  },
+  {
+    "name": "Ground_240_400",
+    "guid": "9b9a619642fd3aa4e8515755d55b2401"
+  },
+  {
+    "name": "Ground_CR113 outer lane dash",
+    "guid": "c761bfd1a18052848a0bb7d9c8c21df2"
+  },
+  {
+    "name": "Ground_CR113 outer lane dash",
+    "guid": "f6a564ba322fc134d9796ccd0287e7b9"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "f0343b9cc8d53624da84e927bd03b35b"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "0ec2714285017d947b852434f7466014"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "179cfa95c59a19d4b949c604239bdaef"
+  },
+  {
+    "name": "Ground_CR113 outer lane dash",
+    "guid": "3ace57c9d38eba940b76cd4e249d6c7a"
+  },
+  {
+    "name": "Ground_CR103 supported return",
+    "guid": "7e60a41f8c51c284ead45416116efb20"
+  },
+  {
+    "name": "Ground_560_400",
+    "guid": "d396c423e7422294b95f8d6a07f13fe2"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "5421c26726f576a4a808a0b9e4cf8020"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "1871d9f85ba0cc2438e2a034e21b7228"
+  },
+  {
+    "name": "Ground_CR113 outer lane dash",
+    "guid": "9c218e64d330e4246bb0b9d94c4a31e4"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "eab0381ebadb89d4f9a6fab36d1a8e46"
+  },
+  {
+    "name": "Ground_480_80",
+    "guid": "22059d33754b24b49b617607f537a6f2"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "1d2cd29c63240ca429c9e871030a91ca"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "f015c3e737898cf47a8b24e88e5fd4dc"
+  },
+  {
+    "name": "Ground_CR113 outer lane dash",
+    "guid": "7cc9b2a901174824fb96ca113a11d76c"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "122d7d783c3dfe94ea0611a389a53bbd"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "c92451def1c457445bf2af0e4a2ee841"
+  },
+  {
+    "name": "Ground_640_480",
+    "guid": "9ef3a40aed8cd6c48854e2b6820f5900"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "5d4f34e67932f1241a6b7449710a3913"
+  },
+  {
+    "name": "Ground_320_720",
+    "guid": "b70f5a8968bb9ac46932d9983f415eae"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "b0a22321fe5f0a841b47f4d364c90997"
+  },
+  {
+    "name": "Ground_CR113 outer lane dash",
+    "guid": "0f191d21b5261654f85f6e6e45fc920e"
+  },
+  {
+    "name": "Ground_Mountain_1_2",
+    "guid": "ca19c8c17638b494db0231e5912b31d3"
+  },
+  {
+    "name": "Ground_CR113 outer lane dash",
+    "guid": "6535bff3c04b06a4fb2c775ef66d7683"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "325c3ff698221614baae12a391a16ddf"
+  },
+  {
+    "name": "Ground_720_480",
+    "guid": "88400e637f04a7343b2dfa3f3cf1e82e"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "3b41aac59a6f3ce4ebdae570046fd66c"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "3d6deb2846559f34f9ede8b5b2178a28"
+  },
+  {
+    "name": "Ground_Mountain_3_5",
+    "guid": "f2b093e40a4874a4ab4c20f7463d0a3b"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "f32193d8de8cdef4f83f7435ef0e5836"
+  },
+  {
+    "name": "Ground_Mountain_3_2",
+    "guid": "f329009edef7fe240a2ecf3f64e26683"
+  },
+  {
+    "name": "Ground_CR113 outer lane dash",
+    "guid": "1ea08fedaaca74d43bfc14d23739e714"
+  },
+  {
+    "name": "Ground_CR113 outer lane dash",
+    "guid": "78a10c2a040b4ff42a7e7b1787d13154"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "83dca421e3c51b140a630da13e0eee94"
+  },
+  {
+    "name": "Ground_560_0",
+    "guid": "c03da9b6a4a086a48ad30676c041414c"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "bda399ee8b1a1144e9f0f2eb43a5d27f"
+  },
+  {
+    "name": "Ground_560_320",
+    "guid": "aeafffc1512bae94582c9b1eb8c42530"
+  },
+  {
+    "name": "Ground_CR113 outer double yellow",
+    "guid": "0f8afba206442174abc64e90fefcc806"
+  },
+  {
+    "name": "Ground_400_240",
+    "guid": "316747fc7fdf6c5429e53820fde40f3d"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "61bce408988603f46aa445429c8a3fb8"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "f8e217a1caac4e849a7a61f55122850a"
+  },
+  {
+    "name": "Ground_720_0",
+    "guid": "af7585664de813d44b88dd753c369cc2"
+  },
+  {
+    "name": "Ground_CR113 outer lane dash",
+    "guid": "e6be939155470d54fa54a0c3524dce1a"
+  },
+  {
+    "name": "Ground_CR113 outer lane dash",
+    "guid": "9f255bbdfcb047e46ab9d337a46c3fd6"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "3245eb6cd09fec641992b97a25d34719"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "6cf694d3840e809488157a54a68b0d47"
+  },
+  {
+    "name": "Ground_Mountain_1_0",
+    "guid": "8a466c3b604ca61479f32f9690836023"
+  },
+  {
+    "name": "Ground_CR113 outer lane dash",
+    "guid": "f15502c75656ba54188c47fe66c59e3b"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "b267d3e859d3506408273ba8cbb40a29"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "b9477796f3dac694a83c916ed830e681"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "e91411ee474fa8b4a88d85ff4e9dfe2c"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "20f528fca22fdbb428b7ef4cf2fd4ffd"
+  },
+  {
+    "name": "Ground_640_560",
+    "guid": "667bc1a233b5f3243b7e82f5e40d4501"
+  },
+  {
+    "name": "Ground_720_720",
+    "guid": "1f7b9ef268fa8994db8c6098675e1ebd"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "b981ce55ad36b0149a39f4819c329bee"
+  },
+  {
+    "name": "Ground_640_80",
+    "guid": "6f91769de638dce4b8e2083a25697eee"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "02e507142408fc64c8d36ac6da30bb5d"
+  },
+  {
+    "name": "Ground_720_80",
+    "guid": "73162a8a1c978f54a82646896bb81789"
+  },
+  {
+    "name": "Ground_560_560",
+    "guid": "daff4c35335690b4786525b138bd8560"
+  },
+  {
+    "name": "Ground_CR113 double yellow",
+    "guid": "70ca104b140620144b07b21f1bc0c9c4"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "af836906804a9144b82fc83fb734c08b"
+  },
+  {
+    "name": "Ground_80_320",
+    "guid": "c39e12e333af0f74da2e4d44ed9ff11e"
+  },
+  {
+    "name": "Ground_Mountain_2_5",
+    "guid": "706b0ca51eb7c9245a5af7f6ab5f1059"
+  },
+  {
+    "name": "Ground_480_240",
+    "guid": "cd7768c3a7cf23c45856318175033261"
+  },
+  {
+    "name": "Ground_560_480",
+    "guid": "b820b3dac46096949bebb74ef3dc0b2e"
+  },
+  {
+    "name": "Ground_CR113 outer lane dash",
+    "guid": "19a424e2a0037af438e10977c04f52bb"
+  },
+  {
+    "name": "Ground_CR113 outer lane dash",
+    "guid": "a5f837438e449d442ac73fab1a1d6195"
+  },
+  {
+    "name": "Ground_80_160",
+    "guid": "51878805bbd0f4743929805d40a7bbab"
+  },
+  {
+    "name": "Ground_House3 straight descending property driveway",
+    "guid": "acea49e0dcc21e94eb170830763b7155"
+  },
+  {
+    "name": "Ground_400_400",
+    "guid": "cf7485583ee229545bcfceaeea8384b8"
+  },
+  {
+    "name": "Ground_CR113 outer lane dash",
+    "guid": "71e29d0b34c9edf4287d4a72e03bc6cf"
+  },
+  {
+    "name": "Ground_400_0",
+    "guid": "49b224dad878ed74aa9b1563e2570248"
+  },
+  {
+    "name": "Ground_CR113 west four lane seam",
+    "guid": "012f40f52d2dbd643bcb60f9ac0c2f45"
+  },
+  {
+    "name": "Ground_240_80",
+    "guid": "b02f4e33eaae33242825aec58c5e43f6"
+  },
+  {
+    "name": "Ground_560_720",
+    "guid": "65f46ae5c7a4f594baef464cd1839e2e"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "1bace39f5ec6f1c4f80171111eb7754f"
+  },
+  {
+    "name": "Ground_320_320",
+    "guid": "1448834bdc1cb9845b72fccdf8457fa5"
+  },
+  {
+    "name": "Ground_0_720",
+    "guid": "4d7b1366211487f438cc89acc63868b3"
+  },
+  {
+    "name": "Ground_560_80",
+    "guid": "e2e1942a445c88447b12adc81b11a300"
+  },
+  {
+    "name": "Ground_720_560",
+    "guid": "a4e2f5939465dd94192b361fd214d34f"
+  },
+  {
+    "name": "Ground_CR113 outer lane dash",
+    "guid": "d32183429cc0bef4498c0dfc7320637b"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "ac4e8cf6e3fef584dbb04c27a1435d3f"
+  },
+  {
+    "name": "Ground_80_0",
+    "guid": "eae15c6180a47a44ab21262839fbf059"
+  },
+  {
+    "name": "Ground_Black asphalt driveway and terminal parking",
+    "guid": "fdc75a44e261f914bac135c5d067a2b2"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "4d7d551c1d57bb34887f053d475be782"
+  },
+  {
+    "name": "Ground_CR113 double yellow",
+    "guid": "794d93e1f6036fd4fa6531a2bb75a783"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "b51f0aff2a80fbb448a109695468413e"
+  },
+  {
+    "name": "Ground_80_400",
+    "guid": "cbb92b9b943d9a640a2a220165559d51"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "f2aed248fc5c34b468be39eee7e3ac32"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "b2b5af9ad2eb79045acafe22a1ba29e2"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "a8ed99cb31833034fa2387ba4bf87e89"
+  },
+  {
+    "name": "Ground_CR113 outer lane dash",
+    "guid": "cead50513e4174b4fb92d10d69e7b934"
+  },
+  {
+    "name": "Ground_CR113 outer lane dash",
+    "guid": "85553e1c9db1ae24e8b79b432bc21f8a"
+  },
+  {
+    "name": "Ground_720_240",
+    "guid": "0a2c25db818fca5499d0298a174665ae"
+  },
+  {
+    "name": "Ground_560_640",
+    "guid": "deff0ca652c975d47b9ac3462079c020"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "6a694e3951bfab940a76da397c06f607"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "f51b9795cb330904d99fc0335a45c9d0"
+  },
+  {
+    "name": "Ground_240_480",
+    "guid": "2af14c700b7879c4bb7f659a8b69c62c"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "1c982e2ab20667a449a16e6f784e91e9"
+  },
+  {
+    "name": "Ground_CR113 outer lane dash",
+    "guid": "07d790a38c1842e458f559f557a3479c"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "ba70c2209b00eac438d919e82d74d49a"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "38de82013f5ae8e49817ab059b0118a8"
+  },
+  {
+    "name": "Ground_CR103 supported connection",
+    "guid": "19a213ba31085e24a92175b12d5f889e"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "52c70490f57d5e84eb3977df98b26ff5"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "246c984b1d951cb4daa6903dca764117"
+  },
+  {
+    "name": "Ground_80_560",
+    "guid": "356d8d771dc086040b6a64b100f10204"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "f89bbfcd78db1914e99462fbe1d3589b"
+  },
+  {
+    "name": "Ground_CR113 double yellow",
+    "guid": "627d864322f318e49b7e5edf3d25c031"
+  },
+  {
+    "name": "Ground_720_640",
+    "guid": "6c50d8d2337586e4eadc07edee8f1e03"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "b03e58e583de3de45b211f480b1a6dca"
+  },
+  {
+    "name": "Ground_320_640",
+    "guid": "67357612085ab244f9f84b63a9f78954"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "6bf7fedf186c6334d80d4aae075cfb1f"
+  },
+  {
+    "name": "Ground_Mountain_3_1",
+    "guid": "de47b25bfafa2f040942cd6ce890bd40"
+  },
+  {
+    "name": "Ground_CR113 outer lane dash",
+    "guid": "edf02aaec47d21f46a2b353128a43cf3"
+  },
+  {
+    "name": "Ground_0_400",
+    "guid": "b7dcee0cc9624a440aff9cbb6a0a7320"
+  },
+  {
+    "name": "Ground_Summit authored launch",
+    "guid": "5ec38a55da294fa49b30299b19906757"
+  },
+  {
+    "name": "Ground_320_560",
+    "guid": "b8467d92654ff2345a205c382cc7a58d"
+  },
+  {
+    "name": "Ground_Mountain_3_3",
+    "guid": "69c6bb2613d085840834465160435ac3"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "044b61be34f85ce44be38f0b6e23375e"
+  },
+  {
+    "name": "Ground_Mountain_2_1",
+    "guid": "e2a86703468049a4992ec99286f3b752"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "f34475655c4d8614cbe16634ef653092"
+  },
+  {
+    "name": "Ground_Mountain_3_4",
+    "guid": "08937a1640aa175409fd1845c545db83"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "9bb398687b73da548a546f49220a7a92"
+  },
+  {
+    "name": "Ground_400_160",
+    "guid": "8092c3c7ebf9d2f49bbfd1a2bb13809b"
+  },
+  {
+    "name": "Ground_160_400",
+    "guid": "573607c9c6cfa21429566e56c51371a9"
+  },
+  {
+    "name": "Ground_160_240",
+    "guid": "a63e70673cb64b5479c41fae1238689d"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "a5c19643161bc4c4ca8fcd76ace9f72a"
+  },
+  {
+    "name": "Ground_320_80",
+    "guid": "6b9741176789f054284868ca0e9171f7"
+  },
+  {
+    "name": "Ground_560_240",
+    "guid": "2e43da59fea53d94a9127d7a5a147cb7"
+  },
+  {
+    "name": "Ground_CR113 outer lane dash",
+    "guid": "88287dde2e3f3514c9f8995de11bbaa0"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "9211ad079c3711f4c989b7ae502f6b05"
+  },
+  {
+    "name": "Ground_240_560",
+    "guid": "8f7ae73d32d35f14c94e24cd81995ca2"
+  },
+  {
+    "name": "Ground_640_400",
+    "guid": "3eee88ea12710564c81dfbc2c681f785"
+  },
+  {
+    "name": "Ground_80_640",
+    "guid": "8bf695994ccddc746a00d2c74ed840fe"
+  },
+  {
+    "name": "Ground_CR113 double yellow",
+    "guid": "8d99e96881a675648b27ccb8888bcd19"
+  },
+  {
+    "name": "Ground_Mountain_1_5",
+    "guid": "d63da960f2c598447bedb2933a58b785"
+  },
+  {
+    "name": "Ground_160_80",
+    "guid": "60416100ef6104448a5c82ba49fbaa70"
+  },
+  {
+    "name": "Ground_80_720",
+    "guid": "a3bc793bb7b03db4bbeb82fdb0873b3c"
+  },
+  {
+    "name": "Ground_CR113 outer lane dash",
+    "guid": "17bf60a8b8ce5de4e9923592aea1e4b6"
+  },
+  {
+    "name": "Ground_400_720",
+    "guid": "29a4e435e5dba6340b3ac05023d58e62"
+  },
+  {
+    "name": "Ground_CR113 outer lane dash",
+    "guid": "d8bbcf23595628f4d8c1dbeb801bc3db"
+  },
+  {
+    "name": "Ground_480_320",
+    "guid": "fa51bf4f7ff543e4fbdc4a3df06273f0"
+  },
+  {
+    "name": "Ground_640_160",
+    "guid": "0e0a9d704294f404381e9d45a245de10"
+  },
+  {
+    "name": "Ground_CR113 outer lane dash",
+    "guid": "626d28347bdb6f74cbd69921a7ab8ad3"
+  },
+  {
+    "name": "Ground_0_80",
+    "guid": "9db1448a2a39c1c4a9a5483b4aa11fc2"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "3a7881f0dd270934ea64b61907130a37"
+  },
+  {
+    "name": "Ground_160_560",
+    "guid": "cbd9c0b8ed31de849833523822ea111e"
+  },
+  {
+    "name": "Ground_480_480",
+    "guid": "ee5e545938202964ebd082b6c2b17535"
+  },
+  {
+    "name": "Ground_160_160",
+    "guid": "551fa94a960f22f419718328df54e779"
+  },
+  {
+    "name": "Ground_CR113 outer lane dash",
+    "guid": "7332047e3daa67d4b8ed5a94deaf1126"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "dbdfdf9f782741646afdf24a266b1ff0"
+  },
+  {
+    "name": "Ground_480_0",
+    "guid": "5810a50119173944790d883b7bbfeb93"
+  },
+  {
+    "name": "Ground_0_240",
+    "guid": "ab756dbd802a94f42ace23a41efa5db4"
+  },
+  {
+    "name": "Ground_CR113 outer lane dash",
+    "guid": "8e98a630648d4334d8d5258b890c5f70"
+  },
+  {
+    "name": "Ground_Kyle descending drive",
+    "guid": "54f6b90dcf9a2b64bb7cd35d12e4fbf9"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "3586df0073600b749b547ccc893c15a7"
+  },
+  {
+    "name": "Ground_80_240",
+    "guid": "17875dc0cb94a8a438337a96dfdb55b6"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "58cb2a30879a9af4285991958828ff7a"
+  },
+  {
+    "name": "Ground_CR113 east outer supported shoulders",
+    "guid": "a6caa66d264e23d46a1c5c0b52dc2a48"
+  },
+  {
+    "name": "Ground_Mountain_0_3",
+    "guid": "1f9127e620459834fa6329720083b489"
+  },
+  {
+    "name": "Ground_Mountain_2_3",
+    "guid": "5458a15cc93ea85448bf274986ca9d8d"
+  },
+  {
+    "name": "Ground_CR113 outer lane dash",
+    "guid": "83e6120a522715e42b21b0bfdde4b274"
+  },
+  {
+    "name": "Ground_240_240",
+    "guid": "f1647745173be874190cd335376a6d1e"
+  },
+  {
+    "name": "Ground_720_400",
+    "guid": "adc23ff68d13e6e44a3a545dcd188a0d"
+  },
+  {
+    "name": "Ground_CR113 outer lane dash",
+    "guid": "4fdba4bba9cc3844a8568d7f3bb1b1ad"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "7fd486d8900809b4c967214a41d36d4c"
+  },
+  {
+    "name": "Ground_Mountain_0_0",
+    "guid": "f0613488a70855c4987f4ef690ded4f0"
+  },
+  {
+    "name": "Ground_CR113 outer double yellow",
+    "guid": "44e8e82f234509f409f25817312d93ec"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "24e77381e9a76674ebf1400a80a6d800"
+  },
+  {
+    "name": "Ground_400_80",
+    "guid": "94963bca7669684458b2a53a45661483"
+  },
+  {
+    "name": "Ground_CR113 west level outer continuation",
+    "guid": "3a64d869b443faf428c6c3ef1c90f85b"
+  },
+  {
+    "name": "Ground_Mountain_0_2",
+    "guid": "a03b2480419d82640ac1ca62cf3887d6"
+  },
+  {
+    "name": "Ground_320_400",
+    "guid": "2f3e9a97ab2ff8642a0513413fa08e51"
+  },
+  {
+    "name": "Ground_160_720",
+    "guid": "094eaf2bdc1a6e1408f2aed661dc04ec"
+  },
+  {
+    "name": "Ground_Pine Ridge low exit lip",
+    "guid": "80080e6ec9cffb648a20c31f3ed2b3a8"
+  },
+  {
+    "name": "Ground_320_0",
+    "guid": "74af20bd3b97d6a4597d119989fc41c8"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "b37a390e9b4384a4ba8f4ce06bd650a6"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "988611b4e8a45ba479d97c231c23eac2"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "b4a5fc87a9938b044965c8e4327ac5e7"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "5fa735a529510b24a8112496b456a4e1"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "84371450510e7354ebc51faf9a07c5dc"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "7956c08a813a32c46819d3af210ddd2b"
+  },
+  {
+    "name": "Ground_Mountain_2_0",
+    "guid": "928f69b45c1133140b0c227711a45915"
+  },
+  {
+    "name": "Ground_480_400",
+    "guid": "2ba43b50866fc5349bcb0450e1459d62"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "7a7a76a04bbb314479ee282a8a112fc0"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "661df520a9e78244bb4ed3b0a1e5302f"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "3e9643b138ba12e45afe8240ec25b57a"
+  },
+  {
+    "name": "Ground_Dan beige concrete descent and parking",
+    "guid": "0ae05e98679b4ce4fb5ed60f55a60bcc"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "202ee19b777bd714696db9ca50b5c6a1"
+  },
+  {
+    "name": "Ground_Mountain_1_4",
+    "guid": "bd5b121a806479746b9c7f1ad8b08f92"
+  },
+  {
+    "name": "Ground_640_640",
+    "guid": "f211ecfa18aa4fe47a0d26bee7b720b8"
+  },
+  {
+    "name": "Ground_CR113 outer lane dash",
+    "guid": "c47d53ed519421e4e92581ec3c2240f2"
+  },
+  {
+    "name": "Ground_0_0",
+    "guid": "59ca9a5d77fc45541b0232755c3d333e"
+  },
+  {
+    "name": "Ground_480_640",
+    "guid": "8e0fde0a30ef57241b87c591b896b2ec"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "2628342f171824647aa24f8348a6bedb"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "48646ed6f569e874cb32aa1c26717e31"
+  },
+  {
+    "name": "Ground_0_480",
+    "guid": "ec7c5eea614b7b04fa30bd1389d911b3"
+  },
+  {
+    "name": "Ground_House3 supported valley driveway",
+    "guid": "bc85a72e7a278cd4ab0a134a5aeac350"
+  },
+  {
+    "name": "Ground_240_640",
+    "guid": "41f9a7263b3bc1344b7353ed7b9d0cbf"
+  },
+  {
+    "name": "Ground_CR113 west outer supported shoulders",
+    "guid": "f6896f5a7698ca44d96b16ddb6c9823c"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "d8954df5a20823441b183a334f0c3160"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "d45f1e0c33451aa4ab0505d949f410c2"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "60f1e9cdcc65a3b42b35ea48aa3578e5"
+  },
+  {
+    "name": "Ground_400_480",
+    "guid": "92835a512fb384544adff5c1a1eefca9"
+  },
+  {
+    "name": "Ground_0_160",
+    "guid": "a75cfe5dc7303f1448c83aa0f41d6367"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "ed09d1caa6e6e7549acad040a6c4c1a0"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "cd36bf412fc80b745b72b2cbf2e848f6"
+  },
+  {
+    "name": "Ground_CR113 outer lane dash",
+    "guid": "47efe1995e7821c49a0431b3121ef0d5"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "f3a8d43190226c94bb59d1222516caff"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "3b16201baf66bd040aac831f1ca4b55a"
+  },
+  {
+    "name": "Ground_240_320",
+    "guid": "c8d5acaa749e0a3418310510d71f49be"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "d1e8a76aaca59d442a1e2505983a6604"
+  },
+  {
+    "name": "Ground_CR113 outer lane dash",
+    "guid": "0d3bdc69ac422ed4bba11d734624e4de"
+  },
+  {
+    "name": "Ground_Mountain_1_3",
+    "guid": "3fcff5750f5abf74b9034169ec16faae"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "305e6ef2bfff6904384cfd6c2d63317a"
+  },
+  {
+    "name": "Ground_CR113 outer lane dash",
+    "guid": "6a49d873c56a3a54b8aa28ff174bec03"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "990dc7e6c75aaf0418bfb064bce87f57"
+  },
+  {
+    "name": "Ground_CR113 outer lane dash",
+    "guid": "a49d2e20f2f4ec74e81adcfbf4cc30c4"
+  },
+  {
+    "name": "Ground_0_640",
+    "guid": "2956cb430af111147bc9228af4a34ad6"
+  },
+  {
+    "name": "Ground_CR113 outer lane dash",
+    "guid": "bafd3216bfb781748820e49447c0616a"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "15c83e95ecad00043a313a1d7cb9714d"
+  },
+  {
+    "name": "Ground_Mountain_2_2",
+    "guid": "38348e7aae30953458cda8d1d2225101"
+  },
+  {
+    "name": "Ground_0_320",
+    "guid": "43db8781af0cbdd44882bc01516c25ae"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "baf62273f7946214bade814f7bc922f2"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "5254d244a3ecf1347a3e4ce618434c59"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "8a2dc96548bc9464ca659de5db25527c"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "9eb6ad9c72cc8344380f2ef9ec6ac97a"
+  },
+  {
+    "name": "Ground_CR113 Kyle driveway edge join",
+    "guid": "683e6e6211d985745a129136a544f5a7"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "73f2fffbc91531f4c8c501dd6e182d21"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "35951a36e9b56384f95b82f914b3c3c2"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "097168a8dcf87434f9d0f2501bf7072b"
+  },
+  {
+    "name": "Ground_CR113 outer lane dash",
+    "guid": "55d3a490fae7c484eaa525eb44f19bea"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "dfefba221e023704bb60562bf4da0de2"
+  },
+  {
+    "name": "Ground_CR113 outer lane dash",
+    "guid": "8ed55b15c72f6c249b4c5c0974fb2fe5"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "464cde336c2088346bcef7c14577ee48"
+  },
+  {
+    "name": "Ground_Mountain_2_4",
+    "guid": "416bd12fd7ac5df4988e89bf84adaf9c"
+  },
+  {
+    "name": "Ground_560_160",
+    "guid": "f0ef971d9739b0643b5f4ee49199ae55"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "ed1b7503ef79207488b36620ec40bb02"
+  },
+  {
+    "name": "Ground_0_560",
+    "guid": "3903f4b72cdb4de468545137dd80b845"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "f2fa7bff2656ba544831b919f5215126"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "c4eaead95d348904f9d22a214ecd0321"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "e97d6d4d59d3b694b85137e12ce1b607"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "5d69f696de7ba7b4aae317469ac45ca2"
+  },
+  {
+    "name": "Ground_400_560",
+    "guid": "77568f6628d219c4fb24a874d820af61"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "283064d5defa20a4abea5bf48c57e8e2"
+  },
+  {
+    "name": "Ground_240_720",
+    "guid": "1807a95a49995204397e532060925090"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "5454599ea02725a4e8fe175dfce9b177"
+  },
+  {
+    "name": "Ground_320_160",
+    "guid": "297565aedaaca7044b2f2036d341e3bc"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "2ca15bc4403c44848b9feb2921cc3ccb"
+  },
+  {
+    "name": "Ground_320_240",
+    "guid": "d3b23853b7069b449b1cad6732865958"
+  },
+  {
+    "name": "Ground_240_0",
+    "guid": "4edf736f86be82a4c930d8f7a3a71d75"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "c5f6cbc4b78412d418536d803117e6e5"
+  },
+  {
+    "name": "Ground_80_80",
+    "guid": "2349d842173ea8b479f3589e9b5e2965"
+  },
+  {
+    "name": "Ground_640_720",
+    "guid": "dcde03e4a3df99d41b0137326ebc5521"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "695c27c37b4a3354bb5c5287a6a0308d"
+  },
+  {
+    "name": "Ground_320_480",
+    "guid": "80336bab1b9bf094dad566ba7e188b36"
+  },
+  {
+    "name": "Ground_CR113 outer lane dash",
+    "guid": "fff712fcfa3e86a42a32b53a8a354024"
+  },
+  {
+    "name": "Ground_CR113 outer double yellow",
+    "guid": "d246a72b5905f474c8c580ca3ffe598d"
+  },
+  {
+    "name": "Ground_CR113 east four lane seam",
+    "guid": "69ca508dbda12ac45841adfb52e3a7ee"
+  },
+  {
+    "name": "Ground_160_640",
+    "guid": "5c60e70780f04cd4f936149ea1229abe"
+  },
+  {
+    "name": "Ground_720_320",
+    "guid": "5e8e8ded04331004ca8fe7f2e0bb33a4"
+  },
+  {
+    "name": "Ground_CR113 white lane dash",
+    "guid": "e5b935095dc5a4141901701042fa8d36"
+  }
+]

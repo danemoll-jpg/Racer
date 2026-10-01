@@ -6,7 +6,7 @@ namespace Racer
     // Read-only presentation snapshots generated from saved courses, never race state.
     [Serializable] public sealed class CoursePreviewCatalog
     {
-        [Serializable] public sealed class Path { public Vector3[] points; }
+        [Serializable] public sealed class Path { public Vector3[] points; public float undergroundStart,undergroundEnd; }
         [Serializable] public sealed class Course
         {
             public string scene,id;
