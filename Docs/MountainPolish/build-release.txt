@@ -1,0 +1,73 @@
+Succeeded; errors=0; warnings=21; time=00:03:33.2367114; startedUtc=2026-10-01T17:54:05.0720449Z; source=56e63e4797d912f5e5822dee9f39eb3afc47919a; freeBytesBefore=294436253696; GUID=83efa7722ec54d22bbb2c3e3a1fc80da
+Pre-baked collision is disabled on 574 mesh(es) referenced by Mesh Collider components in this build. In future versions of Unity, the build process will no longer automatically pre-bake collision for these meshes; enable pre-baked collision in the Mesh import settings. Use Project Auditor (Window > Analysis > Project Auditor > Game Objects) to find and fix similar issues across the project. Affected meshes:
+ - 'StreetLoopGreybox-connections-Ground_640_400' (triangle collision is disabled)
+ - 'StreetLoopGreybox-CR113 west support-Ground_80_640' (triangle collision is disabled)
+ - 'StreetLoopGreybox-summit-landing-v3-Ground_Mountain_1_5' (triangle collision is disabled)
+ - 'StreetLoopGreybox-baseline-protected-Ground_160_80(Clone)(Clone)(Clone)(Clone)(Clone)' (triangle collision is disabled)
+ - 'Ground_80_720' (triangle collision is disabled)
+ - 'Ground_400_720' (triangle collision is disabled)
+ - 'Ground_480_320' (triangle collision is disabled)
+ - 'Ground_640_160' (triangle collision is disabled)
+ - 'Gully interior' (triangle collision is disabled)
+ - 'Ground_0_80' (triangle collision is disabled)
+ - 'StreetLoopGreybox-baseline-protected-Ground_160_560(Clone)(Clone)(Clone)(Clone)(Clone)' (triangle collision is disabled)
+ - 'StreetLoopGreybox-baseline-protected-Ground_480_480(Clone)(Clone)(Clone)(Clone)(Clone)' (triangle collision is disabled)
+ - 'Jamerson Rd west' (triangle collision is disabled)
+ - 'Ground_160_160' (triangle collision is disabled)
+ - 'Ground_480_0' (triangle collision is disabled)
+ - 'Ground_0_240' (triangle collision is disabled)
+ - '' (triangle collision is disabled)
+ - 'Ground_80_240' (triangle collision is disabled)
+ - 'StreetLoopGreybox-CR113-east outer supported shoulders-28' (triangle collision is disabled)
+ - 'StreetLoopGreybox-cr103-supported-return-Ground_Mountain_0_3' (triangle collision is disabled)
+ - 'StreetLoopGreybox-cr103-inward-connection-Ground_Mountain_2_3' (triangle collision is disabled)
+ - 'Ground_240_240' (triangle collision is disabled)
+ - 'StreetLoopGreybox-cr103-supported-return-Ground_720_400' (triangle collision is disabled)
+ - 'StreetLoopGreybox-extension-0-0' (triangle collision is disabled)
+ - 'Ground_400_80' (triangle collision is disabled)
+ - 'StreetLoopGreybox-CR113-west level outer continuation-1' (triangle collision is disabled)
+ - 'StreetLoopGreybox-baseline-protected-Ground_Mountain_0_2(Clone)(Clone)(Clone)(Clone)(Clone)' (triangle collision is disabled)
+ - 'Ground_320_400' (triangle collision is disabled)
+ - 'Ground_160_720' (triangle collision is disabled)
+ - 'StreetLoopGreybox-exit' (triangle collision is disabled)
+ - 'Ground_320_0' (triangle collision is disabled)
+ - 'StreetLoopGreybox-extension-2-0' (triangle collision is disabled)
+ - 'Ground_480_400' (triangle collision is disabled)
+ - 'StreetLoopGreybox-concrete' (triangle collision is disabled)
+ - 'StreetLoopGreybox-cr103-inward-connection-Ground_Mountain_1_4' (triangle collision is disabled)
+ - 'StreetLoopGreybox-CR113 east support-Ground_640_640' (triangle collision is disabled)
+ - 'Ground_0_0' (triangle collision is disabled)
+ - 'StreetLoopGreybox-CR129-junction-Ground_480_640' (triangle collision is disabled)
+ - 'Ground_0_480' (triangle collision is disabled)
+ - 'StreetLoopGreybox-retained-driveway-overlaps' (triangle collision is disabled)
+ - 'Ground_240_640' (triangle collision is disabled)
+ - 'StreetLoopGreybox-CR113-west outer supported shoulders-2' (triangle collision is disabled)
+ - 'Ground_400_480' (triangle collision is disabled)
+ - 'Ground_0_160' (triangle collision is disabled)
+ - 'Ground_240_320' (triangle collision is disabled)
+ - 'StreetLoopGreybox-cr103-inward-connection-Ground_Mountain_1_3' (triangle collision is disabled)
+ - 'StreetLoopGreybox-CR113 west support-Ground_0_640' (triangle collision is disabled)
+ - 'StreetLoopGreybox-baseline-protected-Ground_Mountain_2_2(Clone)(Clone)(Clone)(Clone)(Clone)' (triangle collision is disabled)
+ - 'Ground_0_320' (triangle collision is disabled)
+ - 'StreetLoopGreybox-Kyle-edge' (triangle collision is disabled)
+ - ...and 524 more (showing the first 50). See Project Auditor for the full list.
+Pipeline: No RuntimePipelineConfig asset found (Project Settings > Pipeline > Runtime). Pipeline will be disabled in Player builds.
+You are building a player, but you have uncompiled code changes. This means that any post-processing or importing code you may have changed will not affect this player build.
+Assets\Scripts\DumpRefuse.cs(32,61): warning CS0618: 'FindObjectsSortMode' is obsolete: 'FindObjectsSortMode has been deprecated. Use the FindObjectsByType overloads that do not take a FindObjectsSortMode parameter.'
+Assets\Scripts\DumpRefuse.cs(32,28): warning CS0618: 'Object.FindObjectsByType<T>(FindObjectsSortMode)' is obsolete: 'FindObjectsByType with FindObjectsSortMode parameter has been deprecated. Use FindObjectsByType<T>() or FindObjectsByType<T>(FindObjectsInactive) instead. InstanceID will be replaced in the future with EntityId and previous sort order cannot be maintained.'
+Assets\Scripts\LauncherBridge.cs(23,19): warning CS0618: 'Object.FindFirstObjectByType<T>()' is obsolete: 'FindFirstObjectByType has been deprecated because it relies on instance ID ordering. Use FindAnyObjectByType instead, which does not depend on ordering.'
+Assets\Scripts\ShortcutUndergrowth.cs(33,61): warning CS0618: 'FindObjectsSortMode' is obsolete: 'FindObjectsSortMode has been deprecated. Use the FindObjectsByType overloads that do not take a FindObjectsSortMode parameter.'
+Assets\Scripts\ShortcutUndergrowth.cs(33,28): warning CS0618: 'Object.FindObjectsByType<T>(FindObjectsSortMode)' is obsolete: 'FindObjectsByType with FindObjectsSortMode parameter has been deprecated. Use FindObjectsByType<T>() or FindObjectsByType<T>(FindObjectsInactive) instead. InstanceID will be replaced in the future with EntityId and previous sort order cannot be maintained.'
+Assets\Scripts\TrackUiChecks.cs(29,56): warning CS0618: 'FindObjectsSortMode' is obsolete: 'FindObjectsSortMode has been deprecated. Use the FindObjectsByType overloads that do not take a FindObjectsSortMode parameter.'
+Assets\Scripts\TrackUiChecks.cs(29,15): warning CS0618: 'Object.FindObjectsByType<T>(FindObjectsSortMode)' is obsolete: 'FindObjectsByType with FindObjectsSortMode parameter has been deprecated. Use FindObjectsByType<T>() or FindObjectsByType<T>(FindObjectsInactive) instead. InstanceID will be replaced in the future with EntityId and previous sort order cannot be maintained.'
+Assets\Scripts\ThreeFeatureValidation.cs(83,75): warning CS0618: 'FindObjectsSortMode' is obsolete: 'FindObjectsSortMode has been deprecated. Use the FindObjectsByType overloads that do not take a FindObjectsSortMode parameter.'
+Assets\Scripts\ThreeFeatureValidation.cs(83,49): warning CS0618: 'Object.FindObjectsByType<T>(FindObjectsSortMode)' is obsolete: 'FindObjectsByType with FindObjectsSortMode parameter has been deprecated. Use FindObjectsByType<T>() or FindObjectsByType<T>(FindObjectsInactive) instead. InstanceID will be replaced in the future with EntityId and previous sort order cannot be maintained.'
+Assets\Scripts\DumpRefuse.cs(32,61): warning CS0618: 'FindObjectsSortMode' is obsolete: 'FindObjectsSortMode has been deprecated. Use the FindObjectsByType overloads that do not take a FindObjectsSortMode parameter.'
+Assets\Scripts\DumpRefuse.cs(32,28): warning CS0618: 'Object.FindObjectsByType<T>(FindObjectsSortMode)' is obsolete: 'FindObjectsByType with FindObjectsSortMode parameter has been deprecated. Use FindObjectsByType<T>() or FindObjectsByType<T>(FindObjectsInactive) instead. InstanceID will be replaced in the future with EntityId and previous sort order cannot be maintained.'
+Assets\Scripts\LauncherBridge.cs(23,19): warning CS0618: 'Object.FindFirstObjectByType<T>()' is obsolete: 'FindFirstObjectByType has been deprecated because it relies on instance ID ordering. Use FindAnyObjectByType instead, which does not depend on ordering.'
+Assets\Scripts\ShortcutUndergrowth.cs(33,61): warning CS0618: 'FindObjectsSortMode' is obsolete: 'FindObjectsSortMode has been deprecated. Use the FindObjectsByType overloads that do not take a FindObjectsSortMode parameter.'
+Assets\Scripts\ShortcutUndergrowth.cs(33,28): warning CS0618: 'Object.FindObjectsByType<T>(FindObjectsSortMode)' is obsolete: 'FindObjectsByType with FindObjectsSortMode parameter has been deprecated. Use FindObjectsByType<T>() or FindObjectsByType<T>(FindObjectsInactive) instead. InstanceID will be replaced in the future with EntityId and previous sort order cannot be maintained.'
+Assets\Scripts\TrackUiChecks.cs(29,56): warning CS0618: 'FindObjectsSortMode' is obsolete: 'FindObjectsSortMode has been deprecated. Use the FindObjectsByType overloads that do not take a FindObjectsSortMode parameter.'
+Assets\Scripts\TrackUiChecks.cs(29,15): warning CS0618: 'Object.FindObjectsByType<T>(FindObjectsSortMode)' is obsolete: 'FindObjectsByType with FindObjectsSortMode parameter has been deprecated. Use FindObjectsByType<T>() or FindObjectsByType<T>(FindObjectsInactive) instead. InstanceID will be replaced in the future with EntityId and previous sort order cannot be maintained.'
+Assets\Scripts\ThreeFeatureValidation.cs(83,75): warning CS0618: 'FindObjectsSortMode' is obsolete: 'FindObjectsSortMode has been deprecated. Use the FindObjectsByType overloads that do not take a FindObjectsSortMode parameter.'
+Assets\Scripts\ThreeFeatureValidation.cs(83,49): warning CS0618: 'Object.FindObjectsByType<T>(FindObjectsSortMode)' is obsolete: 'FindObjectsByType with FindObjectsSortMode parameter has been deprecated. Use FindObjectsByType<T>() or FindObjectsByType<T>(FindObjectsInactive) instead. InstanceID will be replaced in the future with EntityId and previous sort order cannot be maintained.'
