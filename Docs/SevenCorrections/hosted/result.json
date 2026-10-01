@@ -1,0 +1,13 @@
+{
+  "version": "0.57.0-review1",
+  "build": 57000,
+  "catalog": "https://github.com/danemoll-jpg/woodstock-rush-releases/releases/latest/download/update-catalog.json",
+  "manifest": "https://github.com/danemoll-jpg/woodstock-rush-releases/releases/download/game-57000/game-manifest.json",
+  "publicDownload": true,
+  "pinnedSignatureVerified": true,
+  "allLatestFilesMatch": true,
+  "files": 234,
+  "startupReady": true,
+  "exit": 0,
+  "work": "C:\\Users\\danmo\\Racer\\Temp\\sevencorrections-hosted-1790838226087489000"
+}
