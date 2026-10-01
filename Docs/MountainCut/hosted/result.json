@@ -1,0 +1,13 @@
+{
+  "version": "0.62.0-review1",
+  "build": 62000,
+  "catalog": "https://github.com/danemoll-jpg/woodstock-rush-releases/releases/latest/download/update-catalog.json",
+  "manifest": "https://github.com/danemoll-jpg/woodstock-rush-releases/releases/download/game-62000/game-manifest.json",
+  "publicDownload": true,
+  "pinnedSignatureVerified": true,
+  "allLatestFilesMatch": true,
+  "files": 233,
+  "startupReady": true,
+  "exit": 0,
+  "work": "C:\\Users\\danmo\\Racer\\Temp\\mountaincut-hosted-1790888069880646500"
+}

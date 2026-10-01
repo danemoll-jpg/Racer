@@ -1,0 +1,14 @@
+# Mountain Reverse restoration delivery — 0.62.0-review1
+
+- Safety checkpoint: `5e11668cb53f3921812c8941b883ecf132574839` (clean main).
+- Completion source: `4470658f9711e7de5da9dc2d6750a2ca33cf9786`, pushed and verified on origin/main before building.
+- Fresh Unity 6000.6.1f1 Windows build succeeded in 3m58.76s, zero errors and 12 warnings. Build GUID `8c2bcc304d544fb990c3bf3a56380e2e`. The retained build report includes collision pre-bake, pipeline configuration, pending-code and obsolete-API warnings; pipeline/pending-code notices also appeared in the previous delivery. No runtime gameplay source was retuned. Saved scene and mesh changes are included in the fresh build.
+- Published [game-62000](https://github.com/danemoll-jpg/woodstock-rush-releases/releases/tag/game-62000), version **0.62.0-review1**. Existing signing identity, publisher, release repository and launcher retained. Game ZIP, signed manifest and signed catalog remote sizes/digests verified before publication; latest public catalog fetched and matched. Previous releases remain available.
+- All **233** runtime files in complete `Builds/Latest` and managed `versions/62000` match the signed package. Fresh Unity scene/data files changed; the platform bootstrap Racer.exe hash itself is unchanged, as expected. Full runtime inventory and source identity are in `runtime-identity.json`.
+- Actual public download, pinned-signature verification, updater installation and isolated startup passed. Startup evidence is under `hosted/`. No race/gameplay tests were added after the targeted stop condition.
+- Production updater activated 62000; signed latest catalog reports no pending game/music updates. Soundtrack state preserved. Unchanged `Play-Racer.cmd` launched responsive `Builds/Latest/versions/62000/Racer.exe`. Original player settings restored byte-for-byte after temporary mute. See `play-racer-launch.json`, `launcher-catalog-check.json` and `settings-preserved.json`.
+- Cleanup: Builds **9,634,691,634 → 7,641,773,145 bytes** (1,992,918,489 bytes removed from Builds). Including the temporary public install, **3,616,266,631 bytes** of disposable copies removed. C: free **287,570,366,464 → 291,182,661,632 bytes**. Retained complete current runtime, managed 62000 and previous 61000, music, signing/publishing tooling, launchers, metadata, source, evidence and user saves.
+
+Publication recovery: the initial source push was rejected by automatic approval review. A reviewed retry citing the user's explicit DELIVERY authorization succeeded. GitHub's release list briefly omitted the newly created empty draft; direct inspection confirmed its identity and the existing publisher resumed that same unpublished draft. No releases were overwritten and no approval mechanism was bypassed.
+
+Implementation and targeted technical results are recorded in [VALIDATION.md](VALIDATION.md). Dan's gameplay acceptance remains pending. **STOP; no additional Mountain polish.**

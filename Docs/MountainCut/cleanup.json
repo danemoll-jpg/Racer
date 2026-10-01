@@ -1,0 +1,27 @@
+{
+  "retained": [
+    "Latest complete root runtime",
+    "managed 62000",
+    "managed 61000",
+    "music, publisher keys/tools, launcher, metadata, source, evidence, saves"
+  ],
+  "removed": [
+    {
+      "bytes": 1620993923,
+      "path": "C:\\Users\\danmo\\Racer\\Builds\\Racer-0.62.0-review1-Windows"
+    },
+    {
+      "bytes": 371924566,
+      "path": "C:\\Users\\danmo\\Racer\\Builds\\LauncherRelease-62000\\assets\\game.zip"
+    },
+    {
+      "bytes": 1623348142,
+      "path": "C:\\Users\\danmo\\Racer\\Temp\\mountaincut-hosted-1790888069880646500"
+    }
+  ],
+  "freeBefore": 287570366464,
+  "freeAfter": 291182661632,
+  "buildsAfter": 7641773145,
+  "buildsBefore": 9634691634,
+  "buildsRecovered": 1992918489
+}
