@@ -1,0 +1,27 @@
+{
+  "buildsBefore": 9517315645,
+  "buildsRecovered": 1957299881,
+  "removed": [
+    {
+      "bytes": 1590318134,
+      "path": "C:\\Users\\danmo\\Racer\\Builds\\Racer-0.59.0-review1-Windows"
+    },
+    {
+      "bytes": 366981747,
+      "path": "C:\\Users\\danmo\\Racer\\Builds\\LauncherRelease-59000\\assets\\game.zip"
+    },
+    {
+      "bytes": 1592672317,
+      "path": "C:\\Users\\danmo\\Racer\\Temp\\cavehillside-hosted-1790866400619812600"
+    }
+  ],
+  "freeBefore": 293533941760,
+  "freeAfter": 297084891136,
+  "buildsAfter": 7560015764,
+  "retained": [
+    "Latest complete root runtime",
+    "managed 59000",
+    "managed 58000",
+    "music, publisher keys/tools, launcher, metadata, source, evidence, saves"
+  ]
+}
