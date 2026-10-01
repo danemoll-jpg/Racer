@@ -9,14 +9,27 @@
 - Do not silently modify or weaken CODEX_RULES.md. Changes to standing rules require an explicit instruction from Dan.
 - Root AGENTS.md points future Codex tasks to both files.
 
-## CURRENT — Mountain Reverse cleanup + developer reporting — source complete, delivery in progress
+## CURRENT — Mountain Reverse cleanup + developer reporting — delivered 0.63.0-review1
 
 - Dan explicitly authorizes A1–A10 at the supplied coordinates, followed only after Phase A verification by Debug Mode / bug reporting / detached inspection. This supersedes the prior STOP for these areas only. Other courses, physics, global AI, checkpoints and recovery remain protected.
 - Safety checkpoint: clean main `b9041b01a5598a3fa1ce05a44f7de9a7ab59237f`.
 - Phase A complete: A1 smooth retessellated climb; A2 continuous shoulder/join support; A3 lower natural outcrops and clear sign; A4 cleared support intrusion and steep paved step; A5 local grade smoothing; A6 mountain support under the existing receiving road; A7 natural separator rocks; A8 grounded Summit outcrops; A9 intrusive vault faces removed; A10 green support shards replaced. Each root cause, correction and targeted motorcycle/ATV result is recorded in [Phase A validation](Docs/MountainCleanup/VALIDATION.md). Full-route AI limitations are explicitly retained; no global AI/physics/recovery tuning.
 - Standing Mountain rule: before filling apparent empty space beneath an upper road, verify whether a lower authored route requires clearance; preserve its complete corridor and support around it. A6 includes an intentional flight gap; support the existing receiving road, not the gap.
 - Phase B complete: F3 Debug Mode (default off), F4 screenshot-before-comment capture, F6/Start debug menu, Markdown/JSON/PNG sessions and ZIP export, detached camera with keyboard/controller controls and return. Debug movement invalidates the active race and rolls back records from that attempt; HUD/capture preserve eligibility. **Debug Mode suspends overall race timeout and post-finisher grace; off resumes the remaining budget.** All 28 targeted checks pass, including three saved reports. [Controls](Docs/DebugReporting/DEBUG_MODE.md), [validation](Docs/DebugReporting/VALIDATION.md).
-- Delivery in progress for 0.63.0-review1 / game-63000. Published/local baseline remains 0.62.0-review1 / game-62000 until the signed build and production-launch gates complete.
+- A1 resolved: overlapping climb contacts/grade retessellated; both vehicles complete with zero resets/recoveries (motorcycle initial-placement air 0.02s, ATV 0s).
+- A2 resolved: malformed shoulder/road fans replaced with continuous support; main and affected branch traversals pass both vehicles.
+- A3 resolved: obscuring slab wall replaced by lower colliding outcrops; sign visible and adjacent traversal passes both vehicles.
+- A4 resolved: intrusive support and steep paved step corrected; both vehicles have zero air/resets/recoveries through the merge.
+- A5 resolved: local grade transition smoothed; both vehicles grounded. Baseline jump was not reproduced on the tested line.
+- A6 resolved: receiving road supported by mountain rock shoulder, intentional flight gap preserved; both vehicles pass receiving pavement and support grid has no holes. Full-flight AI test limitation remains documented.
+- A7 resolved: artificial separator slabs replaced with colliding irregular outcrops; view and adjacent vehicle traversals checked.
+- A8 resolved: oversized stacked slabs replaced with grounded outcrops; view and both vehicles through Summit entry checked.
+- A9 resolved: vault facets cleared from existing Summit pavement; both vehicles grounded through affected stations 8–30.
+- A10 resolved: green support curtains replaced by continuous local terrain; view and affected descent pass both vehicles.
+- **DELIVERED:** source `2b584b4598240c3109f93cb1c142a3a658b93947` pushed and verified on origin/main; fresh Windows build succeeds (zero errors, 11 warnings, 3m57s). Published [game-63000](https://github.com/danemoll-jpg/woodstock-rush-releases/releases/tag/game-63000). All 233 Latest files match the public signed manifest; public download/signature/install/startup passes. [Delivery evidence](Docs/DebugReporting/PUBLICATION.md).
+- Unchanged **Play-Racer.cmd** launched responsive managed 63000. Settings restored byte-for-byte; soundtrack preserved; no pending updates. Complete Latest root runtime, current 63000 and previous 62000 retained.
+- Cleanup: Builds **9,688,401,947 → 7,682,834,457 bytes**; **3,647,352,311 bytes** disposable output removed including isolated public install and temporary reports. Final C: free **309,860,352,000 bytes**.
+- **SESSION HANDOFF: STOP for Dan's clean-baseline debug run.** Implementation, targeted checks and delivery complete. No additional tuning or unrelated work. Documentation-only delivery commit follows; playable source remains `2b584b45`.
 
 ## Previous delivery — Urgent Mountain Reverse main-route restoration — 0.62.0-review1
 
