@@ -9,7 +9,17 @@
 - Do not silently modify or weaken CODEX_RULES.md. Changes to standing rules require an explicit instruction from Dan.
 - Root AGENTS.md points future Codex tasks to both files.
 
-## Current delivery — Seven focused Backyard Reverse / Forest Forward corrections — 0.57.0-review1
+## Current delivery — Final rat audio / Forward cave obstacle — 0.58.0-review1
+
+- Dan accepts the previous correction pass except these two items. Rat visuals and Forest Forward cave visuals/environment are **ACCEPTED**; other completed shortcut/cave work remains closed. Clean safety checkpoint `414d092ce92288927cb550e15def201085d6646f`.
+- Storm Drain audio corrected in the existing source: low synthesized amplitude and source gain compounded attenuation/masking. Three brief chirps plus irregular scratching, stronger source, appropriate near range/priority, first-movement timing and group-centered spatial position. Rat count/models/placement/movement and tunnel unchanged. No continuous loop or music ducking.
+- Normal-audio motorcycle/ATV approaches PASS with engine, radio and ambience active (master .8 / vehicle .75 / music .6 / ambience 1). One visible encounter and synchronized sound each; nonzero source/listener DSP, no clipping. Failed muted fixture retained; final fixture disables its automatic test-only mute for the two approaches. Human listening remains Dan's acceptance, not claimed from signal captures.
+- Forest Forward Echo Cave: one substantial four-rock partial cave-in around `(82,38,137)`, original stations 207–217. Blocks left/straight line; one approximately 3.8m right passage. Local AI line aligns right 3.05m before the rocks, rejoins afterward; no global AI tuning or Reverse cave AI use. Existing environment and jump unchanged.
+- Motorcycle/ATV clean-line checks PASS at 27m/s target, minimum 26.76m/s, upright/no airtime. Straight-line contacts stop both vehicles upright. Production rival AI traverses the local approach/opening/exit with zero resets/recoveries. Existing recovery exclusion metadata keeps stations 188–239 out of spawn selection; no reset volumes/invisible colliders. Local clearance/preservation checks pass. [Evidence and limitations](Docs/FinalTwo/VALIDATION.md).
+- Source commit/push, fresh Windows build, signed game-58000 release, complete Latest, production Play-Racer.cmd verification and cleanup are the remaining delivery steps; final identities/results will be recorded in [publication evidence](Docs/FinalTwo/PUBLICATION.md).
+- **SESSION HANDOFF:** targeted gameplay testing stops after these checks. Deliver this focused build, then STOP for Dan's gameplay review. No additional world, shortcut, UI or track changes.
+
+## Previous delivery — Seven focused Backyard Reverse / Forest Forward corrections — 0.57.0-review1
 
 - Dan's seven-issue gameplay correction supersedes the prior STOP. Clean safety checkpoint `7dc6292069ee7f2b05233d2d06bf0de6140bb151`; [request](Docs/SevenCorrections/REQUEST.txt), [implementation, evidence and limitations](Docs/SevenCorrections/VALIDATION.md).
 - Logging Ridge final descent: removed overlapping/uneven crest collision and integrated a progressive descent/rejoin, preserving the elevated ridge. Exposed `Cabin wooded approach` mesh near X=172.1/Z=86.2 removed in Reverse with no hidden collision retained.

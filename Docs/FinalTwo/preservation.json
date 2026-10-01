@@ -1,0 +1,17 @@
+{
+  "baseline": "414d092ce92288927cb550e15def201085d6646f",
+  "changedExistingSceneBlocks": [
+    "778536542",
+    "778536544",
+    "950739542"
+  ],
+  "addedSceneBlocks": 24,
+  "noExistingObjectsRemoved": true,
+  "protectedFilesUnchanged": [
+    "Assets/Scenes/DansBackyardReverse.unity",
+    "Assets/Scenes/ForestLoopReverse.unity",
+    "Assets/Scripts/RoadDriver.cs",
+    "Assets/Scripts/VehicleRespawn.cs",
+    "Assets/Scripts/ArcadeVehicle.cs"
+  ]
+}

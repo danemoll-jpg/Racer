@@ -1,0 +1,393 @@
+READ FIRST:
+
+C:\Users\danmo\Racer\CODEX\_RULES.md
+C:\Users\danmo\Racer\PROJECT_TODO.md
+
+Follow _RULES.md.
+
+==================================================
+FINAL TWO ITEMS FROM PREVIOUS POLISH PASS
+==================================================
+
+Dan has reviewed the latest build.
+
+The previous correction pass is accepted except for TWO remaining items:
+
+1. Storm Drain rats are now visually noticeable, but their AUDIO is still not
+   noticeable enough.
+2. The Forest Loop - Forward cave now LOOKS good, but the shortcut has no
+   meaningful driving challenge.
+
+This is a VERY SMALL focused correction pass.
+
+DO NOT revisit or redesign anything else from the previous work.
+
+==================================================
+1. STORM DRAIN RAT AUDIO
+==================================================
+
+Course:
+Dan's Backyard Loop - Reverse
+
+The rats themselves are now visible and accepted.
+
+DO NOT substantially change:
+
+- rat models;
+- rat count;
+- rat movement;
+- rat placement;
+- tunnel geometry;
+- tunnel lighting;
+- tunnel debris;
+- tunnel water.
+
+The remaining problem is AUDIO.
+
+Dan can see the rats but cannot really HEAR them.
+
+==================================================
+MAKE THE RAT EVENT AUDIBLE
+==================================================
+
+When the rats scurry away near the Storm Drain entrance, their sound should be
+clearly noticeable during normal gameplay.
+
+Use an appropriate combination of:
+
+- rat squeaks;
+- rapid scratching;
+- scurrying/footstep sounds.
+
+The sound should occur at the SAME TIME the visible rats react.
+
+It should sound spatially connected to the rats rather than like unrelated
+global UI audio.
+
+==================================================
+VEHICLE / MUSIC COMPETITION
+==================================================
+
+Test the rat event under REAL gameplay conditions:
+
+- vehicle engine audible;
+- normal music/radio audible;
+- normal ambience.
+
+Do NOT validate the rats only with music/vehicle audio muted.
+
+The rat sound should cut through enough that Dan notices:
+
+"there are rats in here"
+
+without becoming absurdly loud.
+
+==================================================
+RAT AUDIO BALANCE
+==================================================
+
+Desired:
+
+CLEARLY AUDIBLE
+BRIEF
+LOCALIZED
+ATMOSPHERIC.
+
+Not:
+
+CONSTANT
+SHRILL
+REPETITIVE
+DOMINATING.
+
+A short cluster of squeaks/scurrying as the rats flee is appropriate.
+
+Do not continuously loop rat sounds throughout the tunnel.
+
+If the existing sound is already being triggered but is effectively inaudible,
+inspect:
+
+- source volume;
+- spatial falloff;
+- mixer routing;
+- attenuation;
+- trigger timing;
+- distance;
+- competing audio;
+- clip amplitude.
+
+Fix the actual reason it cannot be heard rather than simply adding another
+independent sound system.
+
+==================================================
+2. FOREST LOOP - FORWARD CAVE:
+ADD ONE MEANINGFUL OBSTACLE
+==================================================
+
+Course:
+Forest Loop - Forward
+
+IMPORTANT:
+
+The cave physically exists in both directions, but it is an intended shortcut
+for:
+
+FOREST LOOP - FORWARD.
+
+Do NOT convert it into a Forest Reverse shortcut.
+
+The cave's latest visual/environment pass is ACCEPTED.
+
+Dan now feels it looks like a cave.
+
+DO NOT broadly redesign:
+
+- cave walls;
+- cave ceiling;
+- lighting;
+- floor;
+- existing formations;
+- cave route.
+
+The remaining problem is GAMEPLAY.
+
+There are lots of cave formations around the edges, but nothing currently
+requires meaningful driving skill.
+
+Add ONE substantial natural obstacle.
+
+==================================================
+PREFERRED OBSTACLE:
+PARTIAL CAVE-IN / ROCKFALL
+==================================================
+
+Create one believable partial cave-in somewhere in the cave where the existing
+geometry provides an appropriate location.
+
+The cave-in should block MOST of the easy straight racing line.
+
+Use:
+
+- fallen rock;
+- broken stone;
+- rubble;
+- natural cave debris.
+
+Leave a deliberately usable passage around/through it.
+
+==================================================
+DRIVING CHALLENGE
+==================================================
+
+The obstacle should require the player to:
+
+SEE IT
+->
+CHOOSE / LINE UP THE OPENING
+->
+ADJUST THEIR LINE
+->
+PASS THROUGH CLEANLY
+->
+ACCELERATE AWAY.
+
+A skilled player who anticipates the opening should be able to maintain useful
+speed.
+
+A careless player who simply drives straight ahead should:
+
+- hit rock;
+- lose meaningful speed;
+- need to correct their line.
+
+==================================================
+DIFFICULT BUT FAIR
+==================================================
+
+Make this one of the more difficult moments in the cave.
+
+However, do NOT make it:
+
+- pixel-perfect;
+- barely wider than a motorcycle;
+- impossible for an ATV;
+- dependent on crawling through;
+- an unavoidable vehicle-flipping trap.
+
+Both:
+
+MOTORCYCLE
+and
+ATV
+
+must have a legitimate racing line through it.
+
+The ATV should have less margin for error, which is acceptable.
+
+==================================================
+NO INVISIBLE CHEATING
+==================================================
+
+The intended opening must be visually obvious enough to understand at racing
+speed.
+
+Do not use:
+
+- invisible walls;
+- unexplained colliders;
+- automatic reset volumes.
+
+The physical rockfall itself should create the challenge.
+
+==================================================
+NO EASY SECOND PATH
+==================================================
+
+Do not leave a huge open gap on the opposite side that completely defeats the
+obstacle.
+
+There should be ONE obvious intended fast passage.
+
+Other accidental ways around the rockfall should be:
+
+- slower;
+- awkward;
+- or naturally blocked by cave geometry.
+
+==================================================
+AI
+==================================================
+
+Forest Forward rival AI must be able to use the cave shortcut after this
+change.
+
+Add/update only the LOCAL cave shortcut line as needed.
+
+AI should:
+
+- recognize the usable opening;
+- align before reaching it;
+- pass through without repeatedly crashing;
+- continue the shortcut.
+
+Do NOT globally retune AI.
+
+Do NOT add Forest Reverse AI use of the cave.
+
+==================================================
+RECOVERY
+==================================================
+
+The new rockfall must NOT become a recovery spawn point.
+
+Do not recover the player:
+
+- inside the obstacle;
+- immediately against the rocks;
+- inside the narrow opening.
+
+Preserve the recently improved recovery system.
+
+==================================================
+TARGETED TESTING ONLY
+==================================================
+
+STORM DRAIN:
+
+With normal gameplay audio active:
+
+- enter using motorcycle;
+- verify visible rat event;
+- verify rat squeaks/scurrying are clearly audible.
+
+Repeat with ATV.
+
+Do not test with music/vehicle audio muted as the primary acceptance test.
+
+FOREST FORWARD CAVE:
+
+Test rockfall with:
+
+- motorcycle;
+- ATV;
+- rival AI.
+
+Verify:
+
+- obstacle is clearly visible;
+- requires meaningful steering/alignment;
+- skilled traversal preserves useful speed;
+- poor line costs time;
+- motorcycle fits;
+- ATV fits;
+- no unavoidable flipping;
+- no easy unintended bypass;
+- AI can traverse it;
+- cave still visually looks as approved.
+
+Then STOP TESTING.
+
+==================================================
+PROJECT_TODO
+==================================================
+
+Update PROJECT_TODO.md:
+
+- Storm Drain rats: visual implementation accepted; audio increased/fixed and
+  tested under normal gameplay audio.
+- Forest Forward cave: visual/environment pass accepted.
+- Added one meaningful partial cave-in / rockfall driving obstacle.
+- Record motorcycle / ATV / AI targeted results.
+
+Do not reopen other completed shortcut/cave work.
+
+==================================================
+DELIVERY
+==================================================
+
+Follow _RULES.md for the normal source-changing delivery workflow.
+
+Complete the standard:
+
+- TODO/docs;
+- commit;
+- push;
+- Windows build;
+- Builds\Latest;
+- GitHub release;
+- catalog;
+- Play-Racer.cmd verification;
+- cleanup.
+
+==================================================
+FINAL REPORT
+==================================================
+
+Keep concise.
+
+Report:
+
+RATS:
+- why previous audio was difficult to hear;
+- audio correction;
+- normal-gameplay motorcycle/ATV result.
+
+CAVE:
+- rockfall location/treatment;
+- intended driving line;
+- motorcycle result;
+- ATV result;
+- rival AI result.
+
+DELIVERY:
+- TODO;
+- commit/push;
+- build/release/version;
+- Play-Racer.cmd;
+- cleanup.
+
+Then STOP.
+
+Do not make additional world, shortcut, UI or track changes.
+
+Wait for Dan's gameplay review.

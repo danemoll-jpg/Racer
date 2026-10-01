@@ -1,0 +1,14 @@
+PASS Recovery excludes rockfall corridor station=190
+PASS Recovery excludes rockfall corridor station=205
+PASS Recovery excludes rockfall corridor station=211
+PASS Recovery excludes rockfall corridor station=225
+PASS Recovery excludes rockfall corridor station=237
+PASS Recovery available before/after local exclusion
+PASS ATV-width sweep lateral=-4.5 rock contact=True
+PASS ATV-width sweep lateral=-2 rock contact=True
+PASS ATV-width sweep lateral=0 rock contact=True
+PASS ATV-width sweep lateral=3.05 rock contact=False
+PASS Wall-side fallen slab visible and physical mesh identical
+PASS Central fractured boulder visible and physical mesh identical
+PASS Opening-side fallen stone visible and physical mesh identical
+PASS Broken rear slab visible and physical mesh identical

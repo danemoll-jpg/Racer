@@ -1,0 +1,5 @@
+Wall-side fallen slab foot=(86.011, 37.801, 134.805) size=(3.40, 3.90, 7.20)
+Central fractured boulder foot=(84.089, 37.857, 136.626) size=(3.10, 3.30, 5.80)
+Opening-side fallen stone foot=(81.908, 37.793, 136.396) size=(2.80, 2.65, 5.50)
+Broken rear slab foot=(82.672, 37.608, 132.864) size=(4.80, 2.25, 4.20)
+Original station 210-216, right opening approximately 3.8m; line offset +3.05m, approach 169-198, rejoin 225-254. Recovery excluded 188-239 using existing metadata. No reset/collision volume.
