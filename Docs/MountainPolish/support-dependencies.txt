@@ -1,0 +1,25 @@
+MountainLoop trees intersecting new support: 21
+Roadside woodland trunk footGap=0.000
+Mountain trunk footGap=0.000
+Roadside woodland trunk footGap=0.000
+Roadside woodland trunk footGap=0.000
+Roadside woodland trunk footGap=0.000
+Mountain trunk footGap=0.000
+Mountain trunk footGap=0.000
+Roadside woodland trunk footGap=0.000
+Roadside woodland trunk footGap=0.000
+Roadside woodland trunk footGap=0.000
+Mountain trunk footGap=0.000
+Mountain trunk footGap=0.000
+Roadside woodland trunk footGap=0.000
+Roadside woodland trunk footGap=0.000
+Roadside woodland trunk footGap=0.000
+Roadside woodland trunk footGap=0.000
+Roadside woodland trunk footGap=0.000
+Mountain trunk footGap=0.000
+Mountain trunk footGap=0.000
+Mountain trunk footGap=0.000
+Roadside woodland trunk footGap=0.000
+MountainLoopReverse trees intersecting new support: 2
+Roadside woodland trunk footGap=0.000
+Roadside woodland trunk footGap=0.000

@@ -19,12 +19,13 @@ namespace Racer
         readonly Transform[] bodies=new Transform[4];
         readonly List<Renderer>[] painted={new(),new(),new(),new()};
         readonly List<Transform> wheels=new();
-        readonly MaterialPropertyBlock block=new();
+        MaterialPropertyBlock block;
         float roll;
         ArcadeVehicle motor;
         static Material Mat(string name,Color color)=>new(Shader.Find("Universal Render Pipeline/Lit")){name=name,color=color,enableInstancing=true};
         public void Initialize()
         {
+            block ??= new MaterialPropertyBlock();
             if(bodies[0])return;
             motor=GetComponent<ArcadeVehicle>();
             foreach(var renderer in GetComponentsInChildren<Renderer>())renderer.enabled=false;

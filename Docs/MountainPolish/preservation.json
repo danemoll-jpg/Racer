@@ -1,0 +1,78 @@
+{
+  "baseline": "b29330bc4ceecf8eda2dba77697583f538db002e",
+  "forestChangedComponents": [
+    {
+      "id": "64893302",
+      "name": "CR014 trunk 00352"
+    },
+    {
+      "id": "229985253",
+      "name": "Forest trunk collision"
+    },
+    {
+      "id": "252266950",
+      "name": "Forest detail batch"
+    },
+    {
+      "id": "330109881",
+      "name": "Forest trunk collision"
+    },
+    {
+      "id": "431139915",
+      "name": "Forest trunk collision"
+    },
+    {
+      "id": "453325251",
+      "name": "Forest trunk collision"
+    },
+    {
+      "id": "487411210",
+      "name": "Forest trunk collision"
+    },
+    {
+      "id": "518591770",
+      "name": "Tree trunk"
+    },
+    {
+      "id": "602463772",
+      "name": "Forest trunk collision"
+    },
+    {
+      "id": "774602467",
+      "name": "Complete authored trees"
+    },
+    {
+      "id": "792000332",
+      "name": "Forest trunk collision"
+    },
+    {
+      "id": "1008186645",
+      "name": "CR014 trunk 05642"
+    },
+    {
+      "id": "1069862139",
+      "name": "CR014 trunk 02761"
+    },
+    {
+      "id": "1680307252",
+      "name": "Forest trunk collision"
+    },
+    {
+      "id": "1938577555",
+      "name": "Forest detail batch"
+    }
+  ],
+  "caveGeometryAndObstacleUnchanged": true,
+  "protectedFiles": [
+    "Assets/Scenes/ForestLoopReverse.unity",
+    "Assets/Scenes/DansBackyardForward.unity",
+    "Assets/Scenes/DansBackyardReverse.unity",
+    "Assets/Scenes/StreetLoopGreybox.unity",
+    "Assets/Scenes/StreetLoopReverse.unity",
+    "Assets/Scripts/RoadDriver.cs",
+    "Assets/Scripts/VehicleRespawn.cs",
+    "Assets/Scripts/ArcadeVehicle.cs",
+    "Play-Racer.cmd",
+    "CODEX_RULES.md"
+  ]
+}

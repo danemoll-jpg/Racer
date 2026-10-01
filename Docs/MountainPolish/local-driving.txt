@@ -1,0 +1,1 @@
+PASS moto-summit-and-merge complete=True minUp=0.946 maxSide=1.036 maxAir=0.18 minSpeed=13.84 maxAngular=1.54 maxUpward=0.50 final=(699.80, 82.51, -9.78)

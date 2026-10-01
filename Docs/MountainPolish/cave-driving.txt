@@ -1,0 +1,2 @@
+PASS moto-summit-and-merge complete=True minUp=0.837 maxSide=3.009 maxAir=0.50 minSpeed=5.68 maxAngular=4.76 maxUpward=3.53 final=(957.29, 128.71, -101.50)
+FAIL atv-summit-and-merge complete=False minUp=0.786 maxSide=23.407 maxAir=1.52 minSpeed=-8.16 maxAngular=4.98 maxUpward=3.88 final=(895.01, 103.54, -122.50)

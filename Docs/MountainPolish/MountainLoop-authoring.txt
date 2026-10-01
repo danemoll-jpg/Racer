@@ -1,0 +1,2 @@
+Supported exposed corridor edges=9041
+Grounded signs=10, cairns=6

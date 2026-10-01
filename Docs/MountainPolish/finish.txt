@@ -1,0 +1,3 @@
+Summit bypass gates=2,3,4
+MountainLoopReverse grounded extended posts=8
+MountainLoop grounded extended posts=7

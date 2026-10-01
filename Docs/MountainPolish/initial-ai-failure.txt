@@ -1,0 +1,2 @@
+PASS Summit Traverse: existing probabilistic AI selection reaches this branch
+FAIL AI-atv-Summit-Traverse: entered=True; completed=False; station=411.9/461.4; air=2.56s; lateralMax=34.50; resets=1; AI recoveries=1

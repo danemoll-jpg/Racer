@@ -1,0 +1,8 @@
+using System;using System.IO;using System.Linq;using UnityEngine;using UnityEditor;using UnityEditor.SceneManagement;using Racer;using Object=UnityEngine.Object;
+public static class ViewsMountainPolishAfter {
+ public static string Main(){foreach(string scene in new[]{"MountainLoopReverse","MountainLoop","LakeWoods"}){EditorSceneManager.OpenScene("Assets/Scenes/"+scene+".unity");var g=new GameObject("Temporary review",typeof(Camera));var c=g.GetComponent<Camera>();c.CopyFrom(Camera.main);c.enabled=false;
+ void Shot(string name,Vector3 eye,Vector3 target){c.fieldOfView=70;c.transform.SetPositionAndRotation(eye,Quaternion.LookRotation(target-eye));var rt=new RenderTexture(1000,650,24);var prior=RenderTexture.active;c.targetTexture=rt;c.Render();RenderTexture.active=rt;var t=new Texture2D(1000,650,TextureFormat.RGB24,false);t.ReadPixels(new Rect(0,0,1000,650),0,0);t.Apply();File.WriteAllBytes("Docs/MountainPolish/"+scene+"-after-"+name+".png",t.EncodeToPNG());c.targetTexture=null;RenderTexture.active=prior;rt.Release();Object.DestroyImmediate(t);Object.DestroyImmediate(rt);}
+ if(scene=="LakeWoods")Shot("trees",new(174.8f,51,279.2f),new(185,55,265));else{var b=Object.FindObjectsByType<WoodlandRoute>().Single(b=>b.title=="Summit Traverse");foreach(float s in new[]{0f,35f,120f,230f,310f,360f,410f}){var p=b.At(s,out var f);Shot("s"+s,p+Vector3.up*2.5f-f*6,b.At(s+30,out _)+Vector3.up);}Shot("tail-overview",new(938,290,-40),new(935,115,-85));}Object.DestroyImmediate(g);}return "Views saved";}
+}
+
+

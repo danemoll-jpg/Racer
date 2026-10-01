@@ -19,6 +19,8 @@ namespace Racer
         Stage extrasReturn;
         readonly System.Collections.Generic.Stack<Stage> callers=new();
         static bool returnToSetup;
+        public bool RoamMenu { get; private set; }
+        public float RoamMenuHintUntil { get; private set; }
         public void PushMenu(Stage stage){callers.Push(State);SetStage(stage);Click();}
         public void PopMenu(){SetStage(callers.Count>0?callers.Pop():Stage.Ready);Click();}
         public void RefreshMenu()=>menus.Show();
@@ -99,6 +101,7 @@ namespace Racer
             else if(StartupTitle.Begin(this))SetStage(Stage.Title);else EnterMenuAfterTitle();
         }
         public void EnterMenuAfterTitle(){Radio=LocalRadio.Attach(this);SetStage(Stage.Ready);if(returnToSetup){returnToSetup=false;menus.RestoreSceneReturn();}}
+        public void EnterFreeRoamAfterTitle(){Radio=LocalRadio.Attach(this);StartFreeRoam();RoamMenuHintUntil=Time.unscaledTime+12;}
         void Update()
         {
             if (Save == null || State==Stage.Title || menus?.OwnsTextInput==true) return;
@@ -267,15 +270,15 @@ namespace Racer
             NewLapRecord = NewRaceRecord = false; CountdownRemaining = 3; lastTick = 3;
             Notice = null; LockVehicle(true); SetStage(Stage.Countdown); Sound(tick);
         }
-        public void StartRace() { callers.Clear();menus.ResetPages(); if(RacePlaylists.Active!=null)RacePlaylists.Championship.Restart(RacePlaylists.Position);Race.FreeRoam=false;SetGateVisibility(true);Click(); Race.RestartRace(); }
-        public void StartFreeRoam(){callers.Clear();menus.ResetPages();Race.FreeRoam=true;SetGateVisibility(false);Click();Race.RestartRace();}
+        public void StartRace() { RoamMenu=false;callers.Clear();menus.ResetPages(); if(RacePlaylists.Active!=null)RacePlaylists.Championship.Restart(RacePlaylists.Position);Race.FreeRoam=false;SetGateVisibility(true);Click(); Race.RestartRace(); }
+        public void StartFreeRoam(){RoamMenu=false;callers.Clear();menus.ResetPages();Race.FreeRoam=true;SetGateVisibility(false);Click();Race.RestartRace();}
         public void BeginRoaming(){attempt=null;CountdownRemaining=0;LapRank=RaceRank=0;NewLapRecord=NewRaceRecord=false;LockVehicle(false);Race.GetComponent<WrongWayGuidance>()?.Clear();SetStage(Stage.Racing);}
         void SetGateVisibility(bool visible){foreach(var gate in Race.gates)foreach(var renderer in gate.GetComponentsInChildren<Renderer>(true))renderer.enabled=visible;}
-        public void Pause() { pausedStage = State; SetStage(Stage.Paused); Click(); }
-        public void Resume() { SetStage(pausedStage); Click(); }
+        public void Pause() { pausedStage = State; RoamMenuHintUntil=0;RoamMenu=Race.FreeRoam;if(RoamMenu)menus.ResetPages();SetStage(RoamMenu?Stage.Ready:Stage.Paused); Click(); }
+        public void Resume() { RoamMenu=false;SetStage(pausedStage); Click(); }
         public void OpenSettings() { PushMenu(Stage.Settings); }
         public void CloseSettings() { Save.SaveSettings(); PopMenu(); }
-        public void Back() { if(menus.BackPage())return; if(State==Stage.PlaylistVehicle)CancelPlaylist();else if(State==Stage.Paused)Resume();else if(State!=Stage.Ready&&State!=Stage.Results&&MenuVisible)PopMenu(); }
+        public void Back() { if(menus.BackPage())return; if(State==Stage.PlaylistVehicle)CancelPlaylist();else if(State==Stage.Paused||(State==Stage.Ready&&RoamMenu))Resume();else if(State!=Stage.Ready&&State!=Stage.Results&&MenuVisible)PopMenu(); }
 
         public void QuitRace()
         {

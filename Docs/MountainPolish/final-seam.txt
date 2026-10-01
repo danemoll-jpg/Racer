@@ -1,0 +1,1 @@
+Continuous final merge grade; clamped old support below pavement. Vertices=873; y380=111.1755; y450=119.8188

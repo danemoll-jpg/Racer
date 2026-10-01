@@ -1,0 +1,20 @@
+CR014 trunk 00352 (180.550, 54.627, 308.381) foot=50.309 ground=49.269
+Roadside woodland trunk (195.455, 63.100, 263.061) foot=59.931 ground=59.931
+Roadside woodland trunk (175.556, 61.749, 257.958) foot=56.892 ground=56.892
+CR014 trunk 00803 (145.232, 50.024, 294.717) foot=45.590 ground=45.590
+CR014 trunk 02761 (176.908, 54.269, 301.691) foot=49.345 ground=48.743
+Tree trunk (163.076, 49.560, 304.769) foot=47.230 ground=47.230
+CR014 trunk 05642 (188.769, 55.669, 307.844) foot=51.285 ground=49.785
+Tree trunk (172.461, 52.520, 308.611) foot=48.609 ground=48.392
+CR014 trunk 04001 (180.918, 63.273, 250.220) foot=58.891 ground=58.891
+Forest trunk collision (163.179, 51.186, 302.646) foot=47.497 ground=47.426
+Forest trunk collision (158.683, 52.382, 299.025) foot=46.975 ground=46.975
+Forest trunk collision (192.050, 59.936, 280.660) foot=53.971 ground=49.583
+Forest trunk collision (168.223, 51.968, 303.572) foot=48.295 ground=47.732
+Forest trunk collision (196.611, 57.025, 282.807) foot=53.344 ground=50.362
+Forest trunk collision (188.862, 56.837, 305.733) foot=50.839 ground=49.758
+Forest trunk collision (178.819, 52.455, 302.835) foot=49.749 ground=48.954
+Forest trunk collision (173.065, 52.980, 305.876) foot=49.042 ground=48.301
+Forest trunk collision (183.185, 58.566, 275.826) foot=53.154 ground=48.651
+Forest trunk collision (153.427, 51.668, 299.022) foot=46.220 ground=46.220
+Forest trunk collision (149.005, 49.963, 295.429) foot=45.899 ground=45.899

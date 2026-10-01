@@ -1,0 +1,4 @@
+PASS Summit Traverse: existing probabilistic AI selection reaches this branch
+PASS AI-moto-Summit-Traverse: entered=True; completed=True; station=461.4/461.4; air=1.00s; lateralMax=34.50; resets=0; AI recoveries=0
+PASS Summit Traverse: existing probabilistic AI selection reaches this branch
+PASS AI-atv-Summit-Traverse: entered=True; completed=True; station=461.4/461.4; air=0.58s; lateralMax=34.50; resets=0; AI recoveries=0

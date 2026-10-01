@@ -129,7 +129,7 @@ namespace Racer
             yield return null;yield return null;
             completed=true;
             if(inputModule)inputModule.enabled=moduleWasEnabled;
-            if(owner)owner.EnterMenuAfterTitle();
+            if(owner)owner.EnterFreeRoamAfterTitle();
             // The process-lifetime source survives early input and scene changes. Radio
             // remains ducked until the scheduled full sample tail has completed.
             while(!speechComplete)yield return null;

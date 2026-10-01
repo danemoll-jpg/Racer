@@ -9,7 +9,48 @@
 - Do not silently modify or weaken CODEX_RULES.md. Changes to standing rules require an explicit instruction from Dan.
 - Root AGENTS.md points future Codex tasks to both files.
 
-## Current delivery — Forest Forward accepted cave-in restoration / grounded edge rocks — 0.60.0-review1
+## CURRENT — Project cleanup and Mountain polish — 0.61.0-review1
+
+This section is authoritative. Everything below **Historical implementation and delivery records** is historical evidence, not an active checklist or authorization. Dan's 2026-10-01 decisions supersede older pending-review and planning labels.
+
+### ACTIVE / KNOWN
+
+- CR-118: intermittent spoken-title clipping remains open; no later definitive human resolution. No audio retuning in this pass.
+- This pass is implemented and awaits Dan's gameplay review: local Forest Forward tree grounding; Free Roam startup and shaped Start/Menu hint; ineffective Race Complete root Back prompt removed; Mountain support/prop grounding and Reverse Summit Traverse forward-facing merge.
+- Targeted checks: Forest/cave preservation, controller/keyboard UI flow, representative Forward drive, 1,215 support probes, and final motorcycle/ATV production-driver traversals continuing beyond the Reverse merge. Both final traversals complete with zero resets/recoveries. Early fixture failures and local seam correction are documented in [Docs/MountainPolish/VALIDATION.md](Docs/MountainPolish/VALIDATION.md). No global physics/AI/recovery retuning.
+- Safety checkpoint: clean `b29330bc4ceecf8eda2dba77697583f538db002e`. Completion source will be committed/pushed before the fresh Windows build; release and launcher evidence will be recorded in Docs/MountainPolish/PUBLICATION.md.
+
+### FUTURE EXPANSION
+
+- New Trickum-area course.
+- Dedicated stunt track.
+- More vehicles and visible, measurable vehicle statistics.
+- Possible collectible-completion special vehicle.
+- Selectable drivers, appearances and clothing colors.
+- Multiplayer / split-screen.
+
+### DEFERRED
+
+- Physical Steam Deck gameplay/controller and migration checks while Dan's Deck is unavailable.
+
+### SOMEDAY / IDEAS
+
+- Optional separate lake/woodland circuit, if still desired.
+- Private online friend play.
+- Larger-world import / generation tooling.
+
+### COMPLETED / ACCEPTED
+
+- Dan's Backyard Loop Forward and Reverse accepted. The old back-property dirt trail / gully concept became this course and is complete, not a future track.
+- Forest Forward cave accepted for now. No additional cave work; reopen only on Dan's explicit request.
+- House 3 / Forest / Laurel AI issue complete, including BUG-009 and associated mapping/stuck-AI work. A route atlas is no longer an active prerequisite.
+- General all-track navigation-arrow pass removed from active backlog. This pass addresses only the reported Mountain Reverse Summit Traverse rejoin.
+- Ghosts accepted; older human-test-pending wording is superseded.
+- Other later accepted/closed reconciliations remain authoritative.
+
+## Historical implementation and delivery records
+
+## Previous delivery — Forest Forward accepted cave-in restoration / grounded edge rocks — 0.60.0-review1
 
 - Dan reports 0.59 neutralized the accepted obstacle and left visually obstructive drive-through rocks. This request supersedes its previous STOP. Clean safety checkpoint `0b94bd492ac7a4ff45d50a251b2035428ec41de6`.
 - [x] ACTUAL four-rock cave-in restored from `5985a27c17e9245c5aa3e44727c1cd5a72bba5dd` / 0.58.0-review1 (game-58000), using exact historical transforms and original meshes/colliders. No new obstacle or whole-cave revert. Original approximately 3.8m right opening and full heights restored. Historical local AI line/guidance and recovery exclusion were still present and retained.
@@ -447,7 +488,7 @@ This review supersedes older open/awaiting-review labels for the items named her
 - **BLOCKED / DEFERRED — 2026-09-27:** Dan's Steam Deck is not working, so he cannot perform Deck testing. Defer physical Deck gameplay/controller checks and Deck-specific Steam shortcut/Proton-prefix migration verification until a working device is available. This is device unavailability, not a reported Racer failure or successful compatibility test. It does not block PC work; no Deck troubleshooting or repeated testing requests are needed unless Dan asks.
 - Separate PC controller checks, friend testing, launcher UX review and optional expansion ideas remain unchanged; none are marked complete by the Deck deferral.
 
-### Navigation backlog — spaced direction arrows on every track
+### Historical navigation request — removed from active backlog on 2026-10-01
 
 **Requested by Dan:** Add direction arrows across all tracks; it is sometimes easy to get lost, and arrows help substantially. Arrows can be spread out rather than forming a continuous dense line.
 
@@ -478,7 +519,7 @@ This is future navigation work during the existing pause, not permission to star
 
 Dan noticed large wooded areas with little happening and would like to use some of that space for additional tracks. Record these as three distinct concepts for the future route map; no construction or terrain edits are requested during the current planning pause.
 
-- [ ] **Back-property dirt trail and gully track.** Dan's childhood property was approximately seven acres. A large dirt path began in the area between the pool house and kennel, led away from the house into the woods, and eventually reached a large gully at the back of the property. Incorporate that remembered path and gully into a track. Locate the existing pool house/kennel on the map and let Dan identify the general direction and gully area before choosing the course footprint. The seven-acre recollection is context, not an instruction to resize the current property or move accepted buildings. Do not assume this is the existing Fox Gully or House 3 site. Exact shape, depth, crossing style and any jump remain undecided.
+- [x] **Back-property dirt trail and gully track — completed as accepted Dan's Backyard Loop (2026-10-01).** Historical concept: Dan's childhood property was approximately seven acres. A large dirt path began in the area between the pool house and kennel, led away from the house into the woods, and eventually reached a large gully at the back of the property. Incorporate that remembered path and gully into a track. Locate the existing pool house/kennel on the map and let Dan identify the general direction and gully area before choosing the course footprint. The seven-acre recollection is context, not an instruction to resize the current property or move accepted buildings. Do not assume this is the existing Fox Gully or House 3 site. Exact shape, depth, crossing style and any jump remain undecided.
 - [ ] **Additional track near Trickum.** Use the wooded space around Trickum for another course. Dan does not know that area as well and has no specific layout in mind, so there is more creative freedom here. Propose its location and route on the map before authoring, accounting for existing Trickum roads, jumps, shortcuts and shared terrain. Do not treat it as a redesign of the existing Trickum features.
 - [ ] **Dedicated stunt track.** Add a stunt-focused track somewhere suitable. Location, format, obstacles/jumps, vehicle eligibility and whether it uses racing or challenge rules remain undecided. Show a candidate footprint during route planning; no new scoring system, physics changes or particular structures are implied by this idea.
 
@@ -1172,9 +1213,11 @@ Historical optional-expansion list below is superseded by current CR-075–081 a
 
 Use this section whenever something is wrong.
 
-## Active Bugs
+## Historical bug tracker — current status is summarized above
 
-### BUG-009 — AI stuck around House 3 / opening Forest Reverse trail
+### BUG-009 — COMPLETE per Dan, 2026-10-01
+
+No active mapping/stuck-AI work or atlas prerequisite remains. The original report below is retained as history.
 **Status:** OPEN; reported by Dan on 2026-09-22 after the 0.29.0-review1 hill delivery. Work paused.
 **Player result:** Hill is humanly drivable for now but the area is not fully accepted.
 **Actual behavior:** AI appears confused and becomes stuck around the intertwined driveway/trail area. Exact stop location and AI failure mechanism are not yet verified.
@@ -1240,7 +1283,7 @@ Use this section whenever something is wrong.
 
 Use this for things that are not bugs but that Dan wants changed.
 
-### Backlog — Route atlas and Dan-directed House 3 / Forest / Laurel cleanup
+### Completed — Route atlas and House 3 / Forest / Laurel cleanup
 **Status:** Scoped for a future session; no implementation authorized now.
 Map existing trails and shortcuts so Dan can identify where they intertwine and mark any remaining changes to House 3's driveway or main-course identity. The separate relocate/add-shortcut-elsewhere item is complete per Dan's 2026-09-22 clarification; it is no longer a pending alternative. Follow the map-first sequence in the current handoff; preserve historical CR IDs rather than assigning an unverified new number.
 

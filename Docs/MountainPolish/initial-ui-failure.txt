@@ -1,0 +1,16 @@
+PASS Normal title remains the startup presentation
+FAIL Title dismissal starts driveable Free Roam
+FAIL Controller throttle moves the vehicle
+FAIL Temporary prompt uses the existing shaped Menu glyph
+FAIL Start opens existing main menu
+FAIL Existing menu destination: race
+FAIL Existing menu destination: garage
+FAIL Existing menu destination: records
+FAIL Existing menu destination: exploration
+FAIL Existing menu destination: settings
+PASS Opening menu dismisses temporary hint
+FAIL B resumes Free Roam from main menu
+FAIL Keyboard Escape opens the same menu
+PASS Results root does not advertise ineffective Back
+PASS Results Settings retains valid Back
+PASS Results Settings B returns to results

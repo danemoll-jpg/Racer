@@ -1,0 +1,4 @@
+Final rejoin starts at (982.46, 131.68, -71.98); merges at (924.90, 122.29, -100.61), exit=1672.47. Old length=421.39, new=461.36, replaced triangles=331. Remaining main distance skipped=1227.35m.
+Supported exposed corridor edges=10196
+Grounded signs=14, cairns=10
+Tree patch inspected=28

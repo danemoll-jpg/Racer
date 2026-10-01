@@ -1,0 +1,9 @@
+using System;using System.IO;using System.Linq;using UnityEngine;using UnityEditor;using UnityEditor.SceneManagement;using Racer;using Object=UnityEngine.Object;
+public static class SmoothMountainMerge {
+ public static string Main(){EditorSceneManager.OpenScene("Assets/Scenes/MountainLoopReverse.unity");var b=Object.FindObjectsByType<WoodlandRoute>().Single(b=>b.title=="Summit Traverse");var road=Object.FindAnyObjectByType<RaceDirector>().road;var mf=GameObject.Find("Ground_CR133 mountain driving surface").GetComponent<MeshFilter>();var mc=mf.GetComponent<MeshCollider>();
+ // The planar union left thin interpolation slivers at the old/new boundary.
+ // Refit only that local roadbed to its continuous authored centreline.
+ var mesh=Object.Instantiate(mf.sharedMesh);var vs=mesh.vertices;int count=0;for(int i=0;i<vs.Length;i++){var p=mf.transform.TransformPoint(vs[i]);float s=b.Project(p,out float d);if(s<230||s>395||d>8)continue;var at=b.At(s,out _);if(Math.Abs(p.y-at.y)>2)continue;float weight=Mathf.SmoothStep(0,1,Mathf.InverseLerp(230,245,s));p.y=Mathf.Lerp(p.y,at.y+.04f,weight);vs[i]=mf.transform.InverseTransformPoint(p);count++;}mesh.vertices=vs;mesh.RecalculateNormals();mesh.RecalculateBounds();AssetDatabase.CreateAsset(mesh,"Assets/Track/MountainPolish/reverse-continuous-merge.asset");mf.sharedMesh=mesh;mc.sharedMesh=mesh;Physics.SyncTransforms();
+ for(int i=0;i<b.points.Length;i++){var p=b.points[i];float s=b.Project(p,out _);if(s<395)continue;if(mc.Raycast(new Ray(p+Vector3.up*4,Vector3.down),out var hit,8))b.points[i]=new(p.x,hit.point.y-.04f,p.z);}EditorUtility.SetDirty(b);
+ EditorSceneManager.MarkSceneDirty(b.gameObject.scene);EditorSceneManager.SaveScene(b.gameObject.scene);AssetDatabase.SaveAssets();return "Refit "+count+" local roadbed vertices and seated final merge navigation on retained main pavement";}
+}

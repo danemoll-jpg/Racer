@@ -1,0 +1,7 @@
+Ground_Mountain_1_2 locally trimmed faces=105
+Ground_CR133 mountain earth banks locally trimmed faces=164
+Ground_Mountain_0_2 locally trimmed faces=88
+Ground_Mountain_0_1 locally trimmed faces=34
+Supported exposed corridor edges=9370
+Grounded signs=2, cairns=0
+Tree patch inspected=29

@@ -29,7 +29,7 @@ namespace Racer
         readonly List<(MenuGlyph glyph,UnityEngine.UI.Text key,UnityEngine.UI.Text label,InputAction action,string fallback)> prompts=new();
         string PageKey=>flow.State+"/"+page+(modalConfirm!=null?"/modal":"");
         public bool ModalOpen=>modalConfirm!=null||page=="keyboard";
-        public bool ResumeRoot=>flow.State==RaceFlow.Stage.Paused&&page==""&&modalConfirm==null;
+        public bool ResumeRoot=>(flow.State==RaceFlow.Stage.Paused||(flow.State==RaceFlow.Stage.Ready&&flow.RoamMenu))&&page==""&&modalConfirm==null;
         static string sceneReturnPage;
         static System.Collections.Generic.Dictionary<string,(string item,float scroll)> sceneMemory;
         public void SaveSceneReturn(){CapturePage();sceneReturnPage=stagePages.TryGetValue(RaceFlow.Stage.Ready,out var p)?p:"race";sceneMemory=new(pageMemory);}
@@ -116,7 +116,8 @@ namespace Racer
             {
                 var p=prompts[pi];
                 bool keyboard=page=="keyboard";bool tabs=(flow.State==RaceFlow.Stage.Settings&&page.StartsWith("settings"))||(page==""&&(flow.State==RaceFlow.Stage.Boards||flow.State==RaceFlow.Stage.Activities||flow.State==RaceFlow.Stage.Results));bool playlist=flow.State==RaceFlow.Stage.Playlists&&page==""&&playlistDraft!=null;
-                p.glyph.transform.parent.gameObject.SetActive(pi<3||keyboard||tabs||playlist);
+                bool noResultsBack=pi==1&&flow.State==RaceFlow.Stage.Results&&page==""&&modalConfirm==null;
+                p.glyph.transform.parent.gameObject.SetActive(!noResultsBack&&(pi<3||keyboard||tabs||playlist));
                 if(pi==2){p.action=keyboard?deleteAction:playlist?playlistAdd:tabs?previousTab:uiModule.move.action;p.label.text=keyboard?"Delete":playlist?"Add Race":tabs?"Previous tab":"Navigate";}
                 if(pi==3){p.action=keyboard?spaceAction:playlist?playlistContext:tabsAction;p.label.text=keyboard?"Space":playlist?"Actions":"Next tab";}
                 string path=p.action!=null?MenuInput.Binding(p.action):MenuInput.Controller?p.fallback:"<Keyboard>/arrows";

@@ -6,8 +6,23 @@ namespace Racer
     {
         GameObject finishPanel;UnityEngine.UI.Text lapCard,raceCard;UnityEngine.UI.Image finishAccent;
         MenuGlyph completeGlyph;UnityEngine.UI.Text completeKey;FinishPresentation.Result presentedLap;float flourishAt;
+        GameObject roamHint;MenuGlyph roamGlyph;UnityEngine.UI.Text roamKey;
+        void UpdateRoamHint()
+        {
+            bool visible=flow.State==RaceFlow.Stage.Racing&&flow.Race.FreeRoam&&Time.unscaledTime<flow.RoamMenuHintUntil;
+            if(visible&&!roamHint){
+                var r=Rect("Free Roam menu hint",shade.transform.parent);r.anchorMin=r.anchorMax=new(.5f,.28f);r.sizeDelta=new(470,76);r.gameObject.AddComponent<UnityEngine.UI.Image>().color=new(.025f,.065f,.085f,.94f);roamHint=r.gameObject;
+                var label=Label("Menu hint",r,23,0);label.rectTransform.anchorMin=label.rectTransform.anchorMax=new(.5f,.5f);label.rectTransform.sizeDelta=new(105,32);label.rectTransform.anchoredPosition=new(-125,12);label.alignment=TextAnchor.MiddleCenter;label.text="PRESS";
+                var menuLabel=Label("Menu action",r,23,0);menuLabel.rectTransform.anchorMin=menuLabel.rectTransform.anchorMax=new(.5f,.5f);menuLabel.rectTransform.sizeDelta=new(160,32);menuLabel.rectTransform.anchoredPosition=new(77,12);menuLabel.alignment=TextAnchor.MiddleCenter;menuLabel.text="FOR MENU";
+                var context=Label("Menu context",r,16,0);context.rectTransform.anchorMin=context.rectTransform.anchorMax=new(.5f,.5f);context.rectTransform.sizeDelta=new(430,22);context.rectTransform.anchoredPosition=new(0,-20);context.alignment=TextAnchor.MiddleCenter;context.text="Race and game options";
+                var icon=Rect("Menu button",r);icon.anchorMin=icon.anchorMax=new(.5f,.5f);icon.sizeDelta=new(42,30);icon.anchoredPosition=new(-50,12);roamGlyph=icon.gameObject.AddComponent<MenuGlyph>();roamGlyph.raycastTarget=false;
+                roamKey=Label("Key",icon,15,0);Stretch(roamKey.rectTransform,0,0,0,0);roamKey.alignment=TextAnchor.MiddleCenter;
+            }
+            if(roamHint){roamHint.SetActive(visible);if(visible){string path=MenuInput.Controller?"<Gamepad>/start":"<Keyboard>/escape";roamGlyph.SetPath(path);roamKey.text=MenuGlyph.Label(path);}}
+        }
         void UpdateFinishPresentation()
         {
+            UpdateRoamHint();
             bool visible=flow.State==RaceFlow.Stage.Racing&&flow.Race.Progress.Finished&&flow.FinishCards.Lap!=null;
             if(!finishPanel)
             {
