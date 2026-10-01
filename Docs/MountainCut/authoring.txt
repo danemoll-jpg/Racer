@@ -1,0 +1,13 @@
+Retired local support faces=9851
+Replacement embankment faces=6764
+Raised CP1 visual crossbar 3.5m; checkpoint data unchanged
+Grounded sign SUMMIT
+Both trails return to lake delta=-0.06433105
+Grounded sign CR121 <<< LEFT FORK SUMMIT TRAVERSE delta=-0.08457947
+Grounded sign SUMMIT CAMP
+Look for the cairns delta=0.04000854
+Grounded sign BIG FLIGHT AHEAD STRAIGHT / FULL RUN-UP delta=1.075027
+Grounded sign OPTIONAL SHORTCUT SUMMIT TRAVERSE delta=1.902893
+Grounded sign High Ridge Drop
+35 - 55 mph delta=0.03999329
+Grounded sign <<< MAIN ROUTE LEFT TO FULL RUN-UP delta=5.252594

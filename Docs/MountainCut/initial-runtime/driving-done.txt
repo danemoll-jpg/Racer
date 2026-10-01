@@ -1,0 +1,4 @@
+FAIL Main moto: completed=False, station=939.63, resets=1, AI recoveries=1, maxAir=0.38, minUp=-0.93
+FAIL Main atv: completed=False, station=944.09, resets=1, AI recoveries=1, maxAir=2.22, minUp=-0.27
+PASS Summit Traverse: existing probabilistic AI selection reaches this branch
+PASS AI-moto-Summit-Traverse: entered=True; completed=True; station=461.4/461.4; air=1.28s; lateralMax=34.50; resets=0; AI recoveries=0

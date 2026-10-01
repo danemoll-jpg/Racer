@@ -9,9 +9,20 @@
 - Do not silently modify or weaken CODEX_RULES.md. Changes to standing rules require an explicit instruction from Dan.
 - Root AGENTS.md points future Codex tasks to both files.
 
-## CURRENT — Project cleanup and Mountain polish — 0.61.0-review1
+## CURRENT — Urgent Mountain Reverse main-route restoration — 0.62.0-review1
 
-This section is authoritative. Everything below **Historical implementation and delivery records** is historical evidence, not an active checklist or authorization. Dan's 2026-10-01 decisions supersede older pending-review and planning labels.
+This supersedes the previous polish STOP only for the reported junction regression. No broad Mountain polish is authorized.
+
+- The Mountain polish accidentally filled intentional lower-route clearance and flattened part of the separate lower run-up. Lower main route restored as a tunnel/mountain-cut corridor through the existing left loop, approach, crossing, exit and continuation; original lower grade restored from history. X/Z line, direction and checkpoint progression preserved.
+- Upper road supported around the corridor using earth banks, rock vault/outcrops and natural boulder edge barriers. Buried Main Route sign, local support seams and low CP1 visual gate corrected; local signs/cairns/complete trees grounded. No invisible walls or route redesign.
+- Summit Traverse corrected rejoin preserved exactly; old U-turn has not returned. No global AI/physics/recovery or unrelated scene/UI/audio/startup/Race Complete changes.
+- Targeted tests COMPLETE: motorcycle/ATV main-route production-driver traversals pass with zero resets/recoveries; one motorcycle Summit traversal passes; 660 lower probes and all upper support probes clear; 9/9 local recovery footprints clear. Initial buried-support contact failures retained; corrected by clearing secondary faces below pavement. See [validation](Docs/MountainCut/VALIDATION.md). This is automated technical evidence, not Dan's gameplay acceptance.
+- Safety checkpoint: clean main `5e11668cb53f3921812c8941b883ecf132574839`. Completion source, fresh build, release/catalog, Latest, launcher and cleanup evidence follow in the delivery record.
+- SESSION HANDOFF: Implementation and targeted driving verification complete. Finish standard delivery, then STOP for Dan's review. Do not reopen completed backlog work or start more Mountain polishing.
+
+## Previous delivery — Project cleanup and Mountain polish — 0.61.0-review1
+
+The following records the previous 0.61 delivery. Its polish acceptance is superseded by the urgent regression correction above; older completed backlog decisions remain closed.
 
 ### ACTIVE / KNOWN
 

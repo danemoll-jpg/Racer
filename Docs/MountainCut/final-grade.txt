@@ -1,0 +1,2 @@
+Restored 0 lower vertices against actual historical road samples. Exact X/Z maintained; branch stations reseated to unchanged world-space anchors.
+Actual 28m-wide lower pavement edges restored: 240 vertices.

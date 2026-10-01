@@ -1,0 +1,18 @@
+Sign High Ridge Drop
+35 - 55 mph reseat=-0.02999878
+Sign SUMMIT CAMP
+Look for the cairns reseat=-0.02999878
+Sign SUMMIT
+Both trails return to lake reseat=-0.02999878
+Sign CR121 <<< LEFT FORK SUMMIT TRAVERSE reseat=-0.02999878
+Sign BIG FLIGHT AHEAD STRAIGHT / FULL RUN-UP reseat=-0.02999878
+Sign OPTIONAL SHORTCUT SUMMIT TRAVERSE reseat=-0.02999878
+Sign <<< MAIN ROUTE LEFT TO FULL RUN-UP reseat=-0.02999878
+Cairn reseat=0
+Cairn reseat=0
+Cairn reseat=0
+Cairn reseat=0
+Cairn reseat=0
+Cairn reseat=0
+Cairn reseat=0
+Trees checked=176 reseated=0 maximum foot gap=0.004989624

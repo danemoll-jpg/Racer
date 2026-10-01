@@ -1,0 +1,2 @@
+PASS Main moto: completed=True, station=962.34, resets=0, AI recoveries=0, maxAir=0.38, minUp=0.85
+PASS Main atv: completed=True, station=962.29, resets=0, AI recoveries=0, maxAir=0.32, minUp=0.86

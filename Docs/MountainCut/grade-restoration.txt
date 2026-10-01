@@ -1,0 +1,1 @@
+Restored original lower road grade: mesh/marking vertices=231, navigation points=57; X/Z line, branch and gates retained

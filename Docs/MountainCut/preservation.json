@@ -1,0 +1,7 @@
+{
+  "baseline": "5e11668cb53f3921812c8941b883ecf132574839",
+  "protectedFiles": 298,
+  "otherScenesAndExistingGameplaySourcesUnchanged": true,
+  "mainXZAndBranchCoordinatesAndGates": "See geometry-checks.txt; lower Y restored from pre-polish baseline",
+  "newFixture": "Editor only, absent from saved scene"
+}

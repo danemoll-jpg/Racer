@@ -1,0 +1,8 @@
+using System;using System.IO;using System.Linq;using UnityEngine;using UnityEditor;using Racer;using Object=UnityEngine.Object;
+public static class ViewsMountainCut {
+ public static string Main(string label="before") {Directory.CreateDirectory("Docs/MountainCut");var race=Object.FindAnyObjectByType<RaceDirector>();var road=race.road;var b=Object.FindObjectsByType<WoodlandRoute>().Single(b=>b.title=="Summit Traverse");var go=new GameObject("Temporary review",typeof(Camera));var c=go.GetComponent<Camera>();c.CopyFrom(Camera.main);c.enabled=false;
+ void Shot(string tag,Vector3 eye,Vector3 target){c.fieldOfView=70;c.farClipPlane=1600;c.transform.SetPositionAndRotation(eye,Quaternion.LookRotation(target-eye));var rt=new RenderTexture(1100,720,24);var prior=RenderTexture.active;c.targetTexture=rt;c.Render();RenderTexture.active=rt;var t=new Texture2D(1100,720,TextureFormat.RGB24,false);t.ReadPixels(new Rect(0,0,1100,720),0,0);t.Apply();File.WriteAllBytes("Docs/MountainCut/"+label+"-"+tag+".png",t.EncodeToPNG());c.targetTexture=null;RenderTexture.active=prior;rt.Release();Object.DestroyImmediate(t);Object.DestroyImmediate(rt);}
+ foreach(float s in new[]{400f,440f,850f,885f,910f,935f,970f,1640f}){var p=road.At(s,out var f);Shot("main"+s,p+Vector3.up*3-f*6,road.At(s+30,out _)+Vector3.up*1.5f);}
+ foreach(float s in new[]{20f,120f,230f,320f}){var p=b.At(s,out var f);Shot("upper"+s,p+Vector3.up*3-f*6,b.At(s+25,out _)+Vector3.up);}
+ Shot("junction",new(1070,205,210),new(990,154,125));Shot("support",new(1075,162,-35),new(997,139,-50));Object.DestroyImmediate(go);return "Saved corridor views";}
+}

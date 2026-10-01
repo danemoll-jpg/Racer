@@ -1,0 +1,8 @@
+Lower corridor: 660 floor probes, missing=0, forward clearance intersections=0
+Upper: missing=0, high=0
+Unchanged rejoin tangent angle=0.3443497
+Preservation: branch coordinates=True; gates=True; main X/Z=True; lower Y restored from historical road; station anchors refitted
+Main sign Whole timber post Center: (960.00, 167.69, 155.00), Extents: (0.14, 2.98, 0.14)
+Main sign Physical sign backing Center: (960.00, 170.16, 155.00), Extents: (2.77, 1.30, 3.68)
+Main sign Direction lettering Center: (959.90, 170.16, 155.08), Extents: (1.61, 0.56, 2.17)
+CP1 visuals Non-colliding gate marking:Center: (966.46, 166.97, 143.57), Extents: (0.17, 3.75, 0.17);Non-colliding gate marking:Center: (957.94, 166.97, 129.73), Extents: (0.17, 3.75, 0.17);Non-colliding gate marking:Center: (962.20, 170.72, 136.65), Extents: (4.43, 0.13, 7.09)

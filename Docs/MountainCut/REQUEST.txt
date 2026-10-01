@@ -1,0 +1,532 @@
+READ FIRST:
+
+C:\Users\danmo\Racer\CODEX\_RULES.md
+C:\Users\danmo\Racer\PROJECT_TODO.md
+
+Follow _RULES.md throughout this task.
+
+Dan has supplied screenshots from the latest Mountain Reverse build.
+
+==================================================
+URGENT CORRECTION:
+RESTORE MOUNTAIN REVERSE MAIN ROUTE
+==================================================
+
+STOP other Mountain polish work for now.
+
+The previous Mountain support/blending pass introduced a serious regression:
+
+THE MOUNTAIN LOOP - REVERSE MAIN ROUTE IS NOW PHYSICALLY BLOCKED.
+
+Dan cannot meaningfully continue testing this track until the main route is
+restored.
+
+Fix this regression and the directly related visual/support defects described
+below.
+
+Do NOT perform another broad Mountain polish pass in this task.
+
+==================================================
+AREA / CONTEXT
+==================================================
+
+This is the same Summit Traverse / upper-lower route area addressed in the
+previous Mountain cleanup.
+
+Previously supplied nearby anchors include:
+
+Summit Traverse shortcut entrance:
+X=983.1
+Y=164.6
+Z=121.7
+
+Known nearby gap:
+X=1009.5
+Y=162.5
+Z=95.9
+
+Known upper shortcut hanging-road example:
+X=997.2
+Y=135.1
+Z=-66.4
+
+Summit Traverse rejoin:
+X=872.3
+Y=111.1
+Z=-89.3
+
+Course:
+Mountain Loop - Reverse
+
+Dan's new screenshots show the regression clearly.
+
+Use the current authored route data and screenshots to identify the complete
+affected corridor.
+
+Do not require Dan to recollect coordinates for every visible defect.
+
+==================================================
+CRITICAL GEOMETRY INTENT
+==================================================
+
+This area contains TWO DELIBERATE VERTICAL ROUTE LAYERS.
+
+They must NOT be treated as one road sitting above empty terrain.
+
+--------------------------------------------------
+LOWER ROUTE
+--------------------------------------------------
+
+The LOWER route is the:
+
+MOUNTAIN LOOP - REVERSE MAIN ROUTE.
+
+It loops LEFT and passes UNDER the upper road / Summit Traverse area.
+
+This lower route must remain fully driveable.
+
+--------------------------------------------------
+UPPER ROUTE
+--------------------------------------------------
+
+The UPPER route / shortcut area passes ABOVE the lower main route.
+
+It needs believable mountain/terrain support.
+
+However:
+
+THE EMPTY SPACE NEEDED BY THE LOWER ROAD IS INTENTIONAL.
+
+DO NOT FILL IT WITH SOLID TERRAIN.
+
+==================================================
+LOWER MAIN ROUTE:
+TREAT AS A TUNNEL / MOUNTAIN CUT
+==================================================
+
+The correct visual design is:
+
+MOUNTAIN
+->
+LOWER MAIN ROAD ENTERS A CUT / TUNNEL THROUGH THE MOUNTAIN
+->
+UPPER ROUTE PASSES ABOVE
+->
+LOWER MAIN ROAD EMERGES ON THE OTHER SIDE.
+
+The upper road should look naturally supported by the mountain.
+
+The lower road should look deliberately carved through that mountain.
+
+This solves BOTH requirements:
+
+- upper road does not look like a floating slab;
+- lower main route remains open.
+
+==================================================
+RESTORE LOWER-ROAD CLEARANCE
+==================================================
+
+Remove the terrain/support geometry currently blocking the lower main route.
+
+Do NOT merely punch a tiny hole at the exact crossing point.
+
+Restore a complete usable LOWER-ROAD CLEARANCE CORRIDOR covering:
+
+APPROACH
+->
+TUNNEL / CUT ENTRANCE
+->
+UNDER-UPPER-ROAD SECTION
+->
+EXIT
+->
+CONTINUATION.
+
+The player must be able to understand and drive the route naturally.
+
+==================================================
+TUNNEL / CUT CLEARANCE
+==================================================
+
+Provide comfortable clearance for:
+
+- motorcycle;
+- ATV;
+- rider;
+- chase camera;
+- rival AI.
+
+Ensure sufficient:
+
+- width;
+- headroom;
+- side clearance.
+
+Do NOT create:
+
+- low ceiling collisions;
+- narrow ATV pinch points;
+- terrain lips at entrance/exit;
+- sudden floor elevation changes;
+- hidden collision;
+- camera clipping.
+
+The lower road surface itself should remain smooth.
+
+==================================================
+DO NOT CHANGE THE LOWER ROUTE
+==================================================
+
+The main route already existed and worked before the previous polish pass.
+
+RESTORE IT.
+
+Do NOT:
+
+- reroute it;
+- straighten it;
+- move it somewhere else;
+- convert it into a shortcut;
+- change checkpoints;
+- change its driving direction.
+
+The road loops LEFT and passes underneath the upper route.
+
+Preserve that established route.
+
+==================================================
+UPPER ROAD SUPPORT
+==================================================
+
+The upper road should no longer appear to hang unsupported in space.
+
+BUT:
+
+do not solve this by filling the lower-route tunnel/cut.
+
+Support the upper road around the preserved lower-road opening.
+
+Use believable mountain construction such as:
+
+- terrain;
+- rock faces;
+- natural earth embankments;
+- rock outcrops.
+
+Think of the upper road as running across/along the mountain while the lower
+road has been cut through beneath it.
+
+==================================================
+UPPER ROAD NATURAL BARRIERS
+==================================================
+
+Where the upper road needs edge protection, Dan prefers NATURAL BARRIERS.
+
+Use appropriate combinations of:
+
+- boulders;
+- rock outcrops;
+- raised earth;
+- dense bushes;
+- trees where safe/appropriate.
+
+Do NOT create giant unnatural vertical terrain walls merely to stop the player
+falling.
+
+Do NOT use invisible walls as the visual solution.
+
+The upper road should feel like a mountain trail/road.
+
+==================================================
+BURIED MAIN-ROUTE SIGN
+==================================================
+
+Dan's screenshot shows the existing:
+
+MAIN ROUTE
+LEFT TO ...
+
+sign partially buried by the terrain changes.
+
+Restore the sign.
+
+It should be:
+
+- fully visible;
+- readable from the intended approach;
+- properly grounded;
+- outside the driving line.
+
+Do not leave it embedded in terrain.
+
+==================================================
+UNEVEN ROAD / TRIANGULAR SEAMS
+==================================================
+
+Dan's screenshots show uneven/triangular road-support geometry around this
+junction.
+
+Clean these transitions.
+
+Remove obvious:
+
+- triangular wedges;
+- overlapping road/support meshes;
+- abrupt shoulder steps;
+- visible cracks;
+- collision lips.
+
+Preserve the established road line.
+
+==================================================
+UPPER / LANDING ROAD SUPPORT
+==================================================
+
+Screenshots also show sections of the upper/landing-side road still visibly
+hanging over open air.
+
+Correct these where they are directly part of this junction.
+
+Use terrain/rock/embankment support while preserving the lower tunnel/cut.
+
+IMPORTANT:
+
+Do not simply fill everything underneath.
+
+First determine whether the volume is required for the lower main-route
+clearance corridor.
+
+==================================================
+CHECKPOINT GATE TOO LOW
+==================================================
+
+Dan's screenshot shows a cyan checkpoint gate in this area positioned too low.
+
+It crosses near rider/head level.
+
+Raise/refit this gate.
+
+The motorcycle and ATV with rider must comfortably pass beneath it.
+
+The gate should still clearly frame the intended route.
+
+Do not change checkpoint progression or race logic.
+
+This is a visual/clearance correction.
+
+==================================================
+SUMMIT TRAVERSE REJOIN
+==================================================
+
+The actual Summit Traverse shortcut rejoin redesign from the previous pass
+appears basically fixed.
+
+PRESERVE IT unless a directly related support correction is required.
+
+Do NOT restore the old U-turn/hairpin behavior.
+
+Do NOT redesign the shortcut again in this task.
+
+The priority is restoring the MAIN ROUTE and cleaning the directly affected
+junction geometry.
+
+==================================================
+SIGNS / CAIRNS / PROPS
+==================================================
+
+Inspect the directly affected junction for terrain-dependent objects.
+
+Ground/refit any locally affected:
+
+- signs;
+- cairns;
+- trees;
+- bushes;
+- props.
+
+No floating objects.
+
+No buried signs.
+
+Do not perform a global prop audit.
+
+==================================================
+AI
+==================================================
+
+The restored lower main route must remain usable by rival AI.
+
+The fixed Summit Traverse must also remain usable by rival AI.
+
+Do not globally retune AI.
+
+Only update local navigation/support data if the corrected geometry requires
+it.
+
+==================================================
+RECOVERY
+==================================================
+
+Do not modify the general recovery system.
+
+Verify only that the restored tunnel/cut and upper-road support do not create
+new unsafe recovery candidates.
+
+No recovery inside:
+
+- terrain wall;
+- tunnel wall;
+- road seam;
+- unsupported edge.
+
+==================================================
+DO NOT CHANGE
+==================================================
+
+Do NOT touch unrelated:
+
+- Mountain sections;
+- Forest tracks;
+- Backyard tracks;
+- Street tracks;
+- vehicle physics;
+- global AI;
+- UI;
+- Records;
+- music;
+- startup behavior from the previous pass;
+- Race Complete behavior from the previous pass.
+
+Do not continue broad Mountain visual polishing yet.
+
+Dan needs the main route restored first so he can resume testing.
+
+==================================================
+TARGETED TESTING ONLY
+==================================================
+
+LOWER MAIN ROUTE:
+
+Drive the affected Mountain Reverse main-route section with:
+
+MOTORCYCLE
+ATV.
+
+Verify:
+
+- route loops left as intended;
+- lower road enters mountain cut/tunnel;
+- complete corridor is open;
+- no terrain blocks route;
+- no ceiling/head collision;
+- no camera clipping;
+- no entrance/exit lip;
+- smooth continuation after emerging.
+
+UPPER ROUTE:
+
+Verify:
+
+- upper road looks supported;
+- lower tunnel remains open underneath;
+- natural edge barriers do not block driving;
+- no obvious hanging-road regression in the corrected junction.
+
+LOCAL DETAILS:
+
+Verify:
+
+- buried Main Route sign restored/readable;
+- triangular/uneven seams corrected;
+- cyan gate has proper clearance;
+- locally affected cairns/signs/trees grounded.
+
+SUMMIT TRAVERSE:
+
+One motorcycle traversal is enough to verify:
+
+- previous corrected rejoin remains;
+- old U-turn has NOT returned.
+
+AI:
+
+One short targeted Mountain Reverse run verifies AI can use the restored main
+route through this area.
+
+Then STOP TESTING.
+
+==================================================
+PROJECT_TODO
+==================================================
+
+Update PROJECT_TODO.md with this regression and correction.
+
+Record explicitly:
+
+- Mountain polish accidentally filled the intentional lower-route clearance;
+- lower Mountain Reverse main route restored as a tunnel/mountain-cut corridor;
+- upper road supported around that corridor rather than filling it;
+- natural barriers used where upper-road edge protection is required;
+- buried sign / local seams / low gate corrected;
+- Summit Traverse corrected rejoin preserved.
+
+Do not reopen completed backlog items.
+
+==================================================
+DELIVERY
+==================================================
+
+Follow _RULES.md for the normal source-changing delivery workflow.
+
+Complete standard:
+
+- TODO/docs;
+- completion commit;
+- push;
+- fresh Windows build;
+- complete Builds\Latest;
+- GitHub release;
+- release catalog;
+- Play-Racer.cmd verification;
+- cleanup.
+
+==================================================
+FINAL REPORT
+==================================================
+
+Keep concise.
+
+Report:
+
+MAIN ROUTE:
+- cause of blockage;
+- tunnel/mountain-cut restoration;
+- motorcycle/ATV result.
+
+UPPER ROUTE:
+- support treatment;
+- natural barrier treatment;
+- confirmation lower corridor remains open.
+
+LOCAL CLEANUP:
+- buried sign;
+- road seams;
+- low checkpoint gate;
+- floating/buried local props.
+
+SUMMIT TRAVERSE:
+- confirmation corrected rejoin remains and U-turn did not return.
+
+AI:
+- targeted main-route result.
+
+DELIVERY:
+- commit/push;
+- build/release/version;
+- Play-Racer.cmd;
+- cleanup.
+
+Then STOP.
+
+Wait for Dan's gameplay review before doing any additional Mountain polish.

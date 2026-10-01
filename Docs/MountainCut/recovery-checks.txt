@@ -1,0 +1,9 @@
+main 870: supported=True, full rider/body clearance=True
+main 895: supported=True, full rider/body clearance=True
+main 910: supported=True, full rider/body clearance=True
+main 925: supported=True, full rider/body clearance=True
+main 937: supported=True, full rider/body clearance=True
+upper 60: supported=True, full rider/body clearance=True
+upper 140: supported=True, full rider/body clearance=True
+upper 220: supported=True, full rider/body clearance=True
+upper 330: supported=True, full rider/body clearance=True

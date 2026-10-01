@@ -1,0 +1,1 @@
+Removed secondary support faces through 4m below the lower pavement, preserving the driving surface. These faces were missed by above-floor probes and contacted the vehicle suspension/body. Meshes=4

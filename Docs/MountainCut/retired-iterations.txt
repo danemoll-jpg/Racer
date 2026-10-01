@@ -1,0 +1,4 @@
+Assets/Track/MountainCut/local-seam-Ground_Mountain_1_1.asset
+Assets/Track/MountainCut/local-seam-Ground_Mountain_2_1.asset
+Assets/Track/MountainCut/local-seam-Ground_Mountain_2_2.asset
+Assets/Track/MountainCut/local-seam-Ground_Mountain_2_3.asset

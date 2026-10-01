@@ -1,0 +1,102 @@
+s=375.1 p=(927.37, 157.80, 151.61) width=3.60 overhead=
+s=385.1 p=(936.35, 161.36, 149.05) width=3.60 overhead=
+s=395.1 p=(945.22, 164.42, 145.63) width=3.60 overhead=
+s=405.1 p=(954.14, 165.60, 141.30) width=3.60 overhead=
+s=415.1 p=(962.78, 165.21, 136.29) width=3.60 overhead=
+s=425.1 p=(971.07, 165.08, 130.71) width=3.60 overhead=
+s=435.1 p=(979.31, 164.65, 125.12) width=3.60 overhead=
+s=445.1 p=(989.11, 163.89, 123.86) width=3.60 overhead=
+s=455.1 p=(998.42, 163.26, 127.12) width=3.60 overhead=
+s=465.1 p=(1004.89, 162.85, 134.68) width=3.60 overhead=
+s=475.1 p=(1010.89, 162.12, 142.65) width=3.60 overhead=
+s=485.1 p=(1016.80, 161.64, 150.70) width=3.60 overhead=
+s=495.1 p=(1022.58, 160.76, 158.81) width=3.60 overhead=
+s=505.1 p=(1028.14, 159.47, 167.02) width=3.60 overhead=
+s=515.1 p=(1033.45, 158.25, 175.40) width=3.60 overhead=
+s=865.1 p=(990.00, 152.00, 175.69) width=3.60 overhead=
+s=875.1 p=(990.00, 152.00, 165.69) width=3.60 overhead=
+s=885.1 p=(990.00, 152.00, 155.69) width=3.60 overhead=
+s=895.1 p=(990.00, 152.00, 145.69) width=3.60 overhead=
+s=905.1 p=(990.00, 152.00, 135.69) width=3.60 overhead=
+s=915.1 p=(990.00, 152.00, 125.69) width=3.60 overhead=
+s=925.1 p=(990.00, 152.62, 115.72) width=3.60 overhead=
+s=935.1 p=(990.00, 154.62, 105.93) width=3.60 overhead=
+s=945.1 p=(990.00, 157.86, 96.48) width=3.60 overhead=
+s=955.1 p=(990.00, 163.17, 91.15) width=3.60 overhead=
+s=965.1 p=(990.00, 164.30, 81.36) width=3.60 overhead=
+s=975.1 p=(990.00, 170.71, 74.02) width=3.60 overhead=
+s=985.1 p=(990.00, 176.91, 66.18) width=3.60 overhead=
+s=995.1 p=(990.00, 176.62, 56.45) width=3.60 overhead=
+s=1005.1 p=(990.00, 175.39, 46.53) width=3.60 overhead=
+s=1015.1 p=(990.00, 174.15, 36.61) width=3.60 overhead=
+s=1025.1 p=(990.00, 172.91, 26.68) width=3.60 overhead=
+s=1035.1 p=(990.00, 171.68, 16.76) width=3.60 overhead=
+s=1045.1 p=(990.00, 170.44, 6.84) width=5.00 overhead=
+s=1055.1 p=(990.00, 169.20, -3.09) width=5.00 overhead=
+s=1065.1 p=(990.00, 167.97, -13.01) width=5.00 overhead=
+s=1075.1 p=(990.00, 166.73, -22.93) width=5.00 overhead=
+s=1085.1 p=(990.00, 165.50, -32.86) width=3.60 overhead=
+s=1095.1 p=(990.00, 164.26, -42.78) width=3.60 overhead=
+s=1105.1 p=(990.00, 163.02, -52.70) width=3.60 overhead=
+s=1115.1 p=(990.00, 161.79, -62.63) width=3.60 overhead=
+s=1125.1 p=(990.00, 160.55, -72.55) width=3.60 overhead=
+s=1135.1 p=(990.00, 159.31, -82.47) width=3.60 overhead=
+s=1145.1 p=(990.00, 154.53, -90.96) width=3.60 overhead=
+s=1155.1 p=(990.00, 148.53, -98.96) width=3.60 overhead=
+s=1165.1 p=(990.00, 142.53, -106.97) width=3.60 overhead=
+s=1175.1 p=(990.00, 136.69, -115.08) width=3.60 overhead=
+s=1185.1 p=(990.00, 131.08, -123.36) width=3.60 overhead=
+s=1195.1 p=(990.00, 125.70, -131.79) width=3.60 overhead=
+s=1205.1 p=(990.00, 120.59, -140.39) width=3.60 overhead=
+s=1215.1 p=(990.00, 115.77, -149.14) width=3.60 overhead=
+s=1225.1 p=(990.00, 111.24, -158.06) width=3.60 overhead=
+s=1565.1 p=(822.21, 98.65, -123.86) width=5.00 overhead=
+s=1575.1 p=(830.69, 99.67, -118.67) width=5.00 overhead=
+s=1585.1 p=(839.19, 100.69, -113.50) width=5.00 overhead=
+s=1595.1 p=(847.96, 101.69, -108.81) width=5.00 overhead=
+s=1605.1 p=(857.03, 103.12, -104.86) width=3.60 overhead=
+s=1615.1 p=(866.10, 106.06, -101.90) width=3.60 overhead=
+s=1625.1 p=(873.51, 110.86, -100.26) width=3.60 overhead=
+s=1635.1 p=(882.93, 113.95, -99.14) width=3.60 overhead=
+s=1645.1 p=(892.70, 115.97, -98.89) width=3.60 overhead=
+s=1655.1 p=(902.53, 117.80, -99.19) width=3.60 overhead=
+s=1665.1 p=(912.35, 119.57, -99.78) width=3.60 overhead=
+s=1675.1 p=(922.10, 121.70, -100.43) width=3.60 overhead=
+s=1685.1 p=(931.88, 123.72, -101.01) width=3.60 overhead=
+s=1695.1 p=(941.69, 125.58, -101.40) width=3.60 overhead=
+s=1705.1 p=(951.55, 127.26, -101.53) width=3.60 overhead=
+s=1715.1 p=(961.44, 128.75, -101.34) width=3.60 overhead=
+branch entry=445.1191 exit=1672.469
+SIGN SUMMIT CAMP
+Look for the cairns p=(1000.00, 165.16, 92.00) text=SUMMIT CAMP
+Look for the cairns
+SIGN <<< MAIN ROUTE LEFT TO FULL RUN-UP p=(960.00, 159.43, 155.00) text=<<< MAIN ROUTE
+LEFT TO FULL RUN-UP
+SIGN SUMMIT
+Both trails return to lake p=(921.52, 156.05, 161.63) text=SUMMIT
+Both trails return to lake
+SIGN MAIN ROUTE >>> GULLY FLIGHT / FOLLOW TEAL p=(825.00, 82.57, -151.00) text=MAIN ROUTE >>>
+GULLY FLIGHT / FOLLOW TEAL
+SIGN MAIN ROUTE / BIG JUMP SOUTH FACE SUMMIT FLIGHT p=(977.00, 152.04, 285.00) text=MAIN ROUTE / BIG JUMP
+SOUTH FACE SUMMIT FLIGHT
+SIGN MAIN ROUTE FOLLOW TEAL ARROWS p=(850.00, 85.87, -136.00) text=MAIN ROUTE
+FOLLOW TEAL ARROWS
+SIGN Fern Creek Leap
+35 - 55 mph p=(846.87, 103.16, -118.19) text=Fern Creek Leap
+35 - 55 mph
+SIGN CR121 <<< LEFT FORK SUMMIT TRAVERSE p=(1022.78, 138.97, -65.34) text=<<< LEFT FORK
+SUMMIT TRAVERSE
+SIGN BIG FLIGHT AHEAD STRAIGHT / FULL RUN-UP p=(971.00, 161.91, 165.00) text=BIG FLIGHT AHEAD
+STRAIGHT / FULL RUN-UP
+SIGN High Ridge Drop
+35 - 55 mph p=(1048.29, 155.00, 58.93) text=High Ridge Drop
+35 - 55 mph
+SIGN OPTIONAL SHORTCUT SUMMIT TRAVERSE p=(1002.12, 161.43, 113.02) text=OPTIONAL SHORTCUT
+SUMMIT TRAVERSE
+SIGN CR121 <<< SHORTCUT 2 DOWNHILL RIDGE CUT p=(829.95, 89.68, -207.42) text=<<< SHORTCUT 2
+DOWNHILL RIDGE CUT
+GATE CR117 CP 1 (962.20, 164.72, 136.65) Non-colliding gate marking:Center: (966.46, 165.22, 143.57), Extents: (0.17, 2.00, 0.17);Non-colliding gate marking:Center: (957.94, 165.22, 129.73), Extents: (0.17, 2.00, 0.17);Non-colliding gate marking:Center: (962.20, 167.22, 136.65), Extents: (4.43, 0.13, 7.09)
+GATE CR117 CP 2 (992.80, 153.60, 314.78) Non-colliding gate marking:Center: (1000.55, 154.10, 312.34), Extents: (0.16, 2.00, 0.16);Non-colliding gate marking:Center: (985.04, 154.10, 317.22), Extents: (0.16, 2.00, 0.16);Non-colliding gate marking:Center: (992.80, 156.10, 314.78), Extents: (7.91, 0.13, 2.60)
+GATE CR117 CP 3 (842.32, 96.09, -203.72) Non-colliding gate marking:Center: (837.88, 96.59, -210.53), Extents: (0.17, 2.00, 0.17);Non-colliding gate marking:Center: (846.76, 96.59, -196.92), Extents: (0.17, 2.00, 0.17);Non-colliding gate marking:Center: (842.32, 98.59, -203.72), Extents: (4.62, 0.13, 6.98)
+GATE CR117 CP 4 (854.22, 108.04, -105.98) Non-colliding gate marking:Center: (851.09, 108.54, -98.48), Extents: (0.16, 2.00, 0.16);Non-colliding gate marking:Center: (857.34, 108.54, -113.48), Extents: (0.16, 2.00, 0.16);Non-colliding gate marking:Center: (854.22, 110.54, -105.98), Extents: (3.29, 0.13, 7.66)
+GATE CR117 CP 5 (1254.87, 111.60, -297.29) Non-colliding gate marking:Center: (1256.14, 112.10, -305.31), Extents: (0.14, 2.00, 0.14);Non-colliding gate marking:Center: (1253.59, 112.10, -289.26), Extents: (0.14, 2.00, 0.14);Non-colliding gate marking:Center: (1254.87, 114.10, -297.29), Extents: (1.42, 0.13, 8.17)
