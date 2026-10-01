@@ -1,0 +1,4 @@
+PASS Main moto 180-250: completed=True, station=250.20, resets=0, AI recoveries=0, maxAir=0.82, minUp=0.74
+PASS Main moto 2140-2220: completed=True, station=2220.12, resets=0, AI recoveries=0, maxAir=0.00, minUp=0.99
+PASS Main atv 180-250: completed=True, station=250.06, resets=0, AI recoveries=0, maxAir=1.18, minUp=0.89
+PASS Main atv 2140-2220: completed=True, station=2220.24, resets=0, AI recoveries=0, maxAir=0.00, minUp=0.99

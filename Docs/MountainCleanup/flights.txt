@@ -1,0 +1,138 @@
+[
+  {
+    "name": "Westbound Gully Flight",
+    "start": {
+      "x": 1225.0,
+      "y": 110.0,
+      "z": -300.0,
+      "normalized": {
+        "x": 0.9676239,
+        "y": 0.08688867,
+        "z": -0.236969113,
+        "magnitude": 1.0,
+        "sqrMagnitude": 1.0
+      },
+      "magnitude": 1265.98779,
+      "sqrMagnitude": 1602725.0
+    },
+    "lip": {
+      "x": 1005.0,
+      "y": 131.6,
+      "z": -300.0,
+      "normalized": {
+        "x": 0.950764,
+        "y": 0.124498054,
+        "z": -0.283810139,
+        "normalized": {
+          "x": 0.9507639,
+          "y": 0.124498039,
+          "z": -0.2838101,
+          "normalized": {
+            "x": 0.950763941,
+            "y": 0.124498047,
+            "z": -0.283810139,
+            "magnitude": 1.0,
+            "sqrMagnitude": 1.0
+          },
+          "magnitude": 0.99999994,
+          "sqrMagnitude": 0.9999999
+        },
+        "magnitude": 1.00000012,
+        "sqrMagnitude": 1.00000012
+      },
+      "magnitude": 1057.04468,
+      "sqrMagnitude": 1117343.5
+    },
+    "landingEnd": {
+      "x": 725.0,
+      "y": 99.159996,
+      "z": -300.0,
+      "normalized": {
+        "x": 0.9167249,
+        "y": 0.125382677,
+        "z": -0.37933445,
+        "magnitude": 1.0,
+        "sqrMagnitude": 1.0
+      },
+      "magnitude": 790.8588,
+      "sqrMagnitude": 625457.7
+    },
+    "forward": {
+      "x": -1.0,
+      "y": 0.0,
+      "z": 0.0,
+      "magnitude": 1.0,
+      "sqrMagnitude": 1.0
+    },
+    "approachStation": 2236.40356,
+    "endStation": 2743.77466
+  },
+  {
+    "name": "South Face Summit Flight",
+    "start": {
+      "x": 990.0,
+      "y": 152.0,
+      "z": 285.0,
+      "normalized": {
+        "x": 0.950680554,
+        "y": 0.145963073,
+        "z": 0.273680776,
+        "normalized": {
+          "x": 0.9506806,
+          "y": 0.145963088,
+          "z": 0.2736808,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.0
+        },
+        "magnitude": 0.99999994,
+        "sqrMagnitude": 0.9999999
+      },
+      "magnitude": 1041.35925,
+      "sqrMagnitude": 1084429.0
+    },
+    "lip": {
+      "x": 990.0,
+      "y": 177.92,
+      "z": 65.0,
+      "normalized": {
+        "x": 0.982183158,
+        "y": 0.176515177,
+        "z": 0.06448677,
+        "normalized": {
+          "x": 0.9821832,
+          "y": 0.176515192,
+          "z": 0.06448678,
+          "magnitude": 1.0,
+          "sqrMagnitude": 1.0
+        },
+        "magnitude": 0.99999994,
+        "sqrMagnitude": 0.9999999
+      },
+      "magnitude": 1007.95862,
+      "sqrMagnitude": 1015980.5
+    },
+    "landingEnd": {
+      "x": 990.0,
+      "y": 96.75,
+      "z": -195.0,
+      "normalized": {
+        "x": 0.976668835,
+        "y": 0.09544718,
+        "z": -0.19237417,
+        "magnitude": 1.0,
+        "sqrMagnitude": 1.0
+      },
+      "magnitude": 1013.6496,
+      "sqrMagnitude": 1027485.56
+    },
+    "forward": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": -1.0,
+      "magnitude": 1.0,
+      "sqrMagnitude": 1.0
+    },
+    "approachStation": 755.8541,
+    "endStation": 1260.817
+  }
+]

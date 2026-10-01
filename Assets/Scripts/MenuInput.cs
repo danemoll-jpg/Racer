@@ -13,7 +13,7 @@ namespace Racer
         static MenuInput instance;
         public static bool Controller { get; private set; }
         public static Gamepad Pad { get; private set; }
-        public static bool Blocked => barrier;
+        public static bool Blocked => barrier || DeveloperLocationHud.OwnsInput;
         static bool barrier;
         static int barrierFrame;
         static readonly System.Collections.Generic.List<ButtonControl> releaseButtons=new();

@@ -1,0 +1,1050 @@
+A1,180.0,-5,786.99,106.814,67.25: Ground_CR133 mountain driving surface=106.837
+A1,180.0,-3,786.81,106.814,65.26: Ground_CR133 mountain driving surface=106.844
+A1,180.0,0,786.54,106.814,62.27: Ground_CR133 mountain driving surface=106.856
+A1,180.0,3,786.27,106.814,59.29: Ground_CR133 mountain driving surface=106.868
+A1,180.0,5,786.09,106.814,57.30: Ground_CR133 mountain driving surface=106.875
+A1,182.0,-5,788.81,107.545,67.09: Ground_CR133 mountain driving surface=107.601
+A1,182.0,-3,788.64,107.545,65.10: Ground_CR133 mountain driving surface=107.599
+A1,182.0,0,788.40,107.545,62.11: Ground_CR133 mountain driving surface=107.592
+A1,182.0,3,788.15,107.545,59.12: Ground_CR133 mountain driving surface=107.585
+A1,182.0,5,787.98,107.545,57.13: Ground_CR133 mountain driving surface=107.580
+A1,184.0,-5,790.50,108.277,66.98: Ground_CR133 mountain driving surface=108.313
+A1,184.0,-3,790.40,108.277,64.98: Ground_CR133 mountain driving surface=108.321
+A1,184.0,0,790.25,108.277,61.98: Ground_CR133 mountain driving surface=108.334
+A1,184.0,3,790.10,108.277,58.99: Ground_CR133 mountain driving surface=108.331
+A1,184.0,5,790.00,108.277,56.99: Ground_CR133 mountain driving surface=108.329
+A1,186.0,-5,792.17,109.008,66.91: Ground_CR133 mountain driving surface=109.019
+A1,186.0,-3,792.14,109.008,64.91: Ground_CR133 mountain driving surface=109.031
+A1,186.0,0,792.11,109.008,61.91: Ground_CR133 mountain driving surface=109.052
+A1,186.0,3,792.08,109.008,58.91: Ground_CR133 mountain driving surface=109.073
+A1,186.0,5,792.06,109.008,56.91: Ground_CR133 mountain driving surface=109.082
+A1,188.0,-5,793.96,109.740,66.89: Ground_CR133 mountain driving surface=109.808
+A1,188.0,-3,793.97,109.740,64.89: Ground_CR133 mountain driving surface=109.801
+A1,188.0,0,793.97,109.740,61.89: Ground_CR133 mountain driving surface=109.790
+A1,188.0,3,793.98,109.740,58.89: Ground_CR133 mountain driving surface=109.779
+A1,188.0,5,793.99,109.740,56.89: Ground_CR133 mountain driving surface=109.772
+A1,190.0,-5,795.58,110.470,66.93: Ground_CR133 mountain driving surface=110.504
+A1,190.0,-3,795.68,110.470,64.94: Ground_CR133 mountain driving surface=110.517
+A1,190.0,0,795.84,110.470,61.94: Ground_CR133 mountain driving surface=110.536
+A1,190.0,3,795.99,110.470,58.95: Ground_CR133 mountain driving surface=110.530
+A1,190.0,5,796.09,110.470,56.95: Ground_CR133 mountain driving surface=110.527
+A1,192.0,-5,797.14,111.199,67.03: Ground_CR133 mountain driving surface=111.198
+A1,192.0,-3,797.36,111.199,65.04: Ground_CR133 mountain driving surface=111.213
+A1,192.0,0,797.69,111.199,62.06: Ground_CR133 mountain driving surface=111.245
+A1,192.0,3,798.03,111.199,59.08: Ground_CR133 mountain driving surface=111.280
+A1,192.0,5,798.25,111.199,57.09: Ground_CR133 mountain driving surface=111.285
+A1,194.0,-5,798.89,111.923,67.23: Ground_CR133 mountain driving surface=112.004
+A1,194.0,-3,799.15,111.923,65.25: Ground_CR133 mountain driving surface=111.994
+A1,194.0,0,799.55,111.923,62.27: Ground_CR133 mountain driving surface=111.978
+A1,194.0,3,799.94,111.923,59.30: Ground_CR133 mountain driving surface=111.963
+A1,194.0,5,800.20,111.923,57.32: Ground_CR133 mountain driving surface=111.952
+A1,196.0,-5,800.36,112.643,67.48: Ground_CR133 mountain driving surface=112.673
+A1,196.0,-3,800.77,112.643,65.52: Ground_CR133 mountain driving surface=112.695
+A1,196.0,0,801.38,112.643,62.59: Ground_CR133 mountain driving surface=112.718
+A1,196.0,3,802.00,112.643,59.65: Ground_CR133 mountain driving surface=112.710
+A1,196.0,5,802.41,112.643,57.69: Ground_CR133 mountain driving surface=112.705
+A1,198.0,-5,801.76,113.355,67.79: Ground_CR133 mountain driving surface=113.342
+A1,198.0,-3,802.34,113.355,65.87: Ground_CR133 mountain driving surface=113.361
+A1,198.0,0,803.21,113.355,63.00: Ground_CR133 mountain driving surface=113.406
+A1,198.0,3,804.08,113.355,60.13: Ground_CR133 mountain driving surface=113.456
+A1,198.0,5,804.66,113.355,58.21: Ground_CR133 mountain driving surface=113.456
+A1,200.0,-5,803.41,114.053,68.30: Ground_CR133 mountain driving surface=114.143
+A1,200.0,-3,804.04,114.053,66.40: Ground_CR133 mountain driving surface=114.130
+A1,200.0,0,805.00,114.053,63.56: Ground_CR133 mountain driving surface=114.111
+A1,200.0,3,805.95,114.053,60.71: Ground_CR133 mountain driving surface=114.092
+A1,200.0,5,806.59,114.053,58.82: Ground_CR133 mountain driving surface=114.079
+A1,202.0,-5,804.65,114.734,68.79: Ground_CR133 mountain driving surface=114.757
+A1,202.0,-3,805.49,114.734,66.97: Ground_CR133 mountain driving surface=114.793
+A1,202.0,0,806.74,114.734,64.25: Ground_CR133 mountain driving surface=114.816
+A1,202.0,3,808.00,114.734,61.53: Ground_CR133 mountain driving surface=114.808
+A1,202.0,5,808.84,114.734,59.71: Ground_CR133 mountain driving surface=114.802
+A1,204.0,-5,805.83,115.393,69.35: Ground_CR133 mountain driving surface=115.371
+A1,204.0,-3,806.87,115.393,67.64: Ground_CR133 mountain driving surface=115.396
+A1,204.0,0,808.44,115.393,65.08: Ground_CR133 mountain driving surface=115.448
+A1,204.0,3,810.00,115.393,62.52: Ground_CR133 mountain driving surface=115.498
+A1,204.0,5,811.05,115.393,60.81: Ground_CR133 mountain driving surface=115.498
+A1,206.0,-5,807.29,116.019,70.26: Ground_CR133 mountain driving surface=116.109
+A1,206.0,-3,808.39,116.019,68.59: Ground_CR133 mountain driving surface=116.096
+A1,206.0,0,810.05,116.019,66.09: Ground_CR133 mountain driving surface=116.077
+A1,206.0,3,811.71,116.019,63.59: Ground_CR133 mountain driving surface=116.058
+A1,206.0,5,812.81,116.019,61.92: Ground_CR133 mountain driving surface=116.045
+A1,208.0,-5,808.32,116.609,71.04: Ground_CR133 mountain driving surface=116.633
+A1,208.0,-3,809.62,116.609,69.52: Ground_CR133 mountain driving surface=116.666
+A1,208.0,0,811.57,116.609,67.24: Ground_CR133 mountain driving surface=116.686
+A1,208.0,3,813.52,116.609,64.96: Ground_CR133 mountain driving surface=116.678
+A1,208.0,5,814.82,116.609,63.44: Ground_CR133 mountain driving surface=116.673
+A1,210.0,-5,809.38,117.162,71.97: Ground_CR133 mountain driving surface=117.160
+A1,210.0,-3,810.83,117.162,70.59: Ground_CR133 mountain driving surface=117.176
+A1,210.0,0,813.00,117.162,68.52: Ground_CR133 mountain driving surface=117.212
+A1,210.0,3,815.18,117.162,66.46: Ground_CR133 mountain driving surface=117.249
+A1,210.0,5,816.63,117.162,65.08: Ground_CR133 mountain driving surface=117.249
+A1,212.0,-5,810.61,117.672,73.28: Ground_CR133 mountain driving surface=117.743
+A1,212.0,-3,812.09,117.672,71.94: Ground_CR133 mountain driving surface=117.735
+A1,212.0,0,814.32,117.672,69.94: Ground_CR133 mountain driving surface=117.723
+A1,212.0,3,816.55,117.672,67.93: Ground_CR133 mountain driving surface=117.711
+A1,212.0,5,818.04,117.672,66.59: Ground_CR133 mountain driving surface=117.703
+A1,214.0,-5,811.58,118.146,74.46: Ground_CR133 mountain driving surface=118.179
+A1,214.0,-3,813.17,118.146,73.25: Ground_CR133 mountain driving surface=118.193
+A1,214.0,0,815.56,118.146,71.44: Ground_CR133 mountain driving surface=118.207
+A1,214.0,3,817.95,118.146,69.62: Ground_CR133 mountain driving surface=118.203
+A1,214.0,5,819.54,118.146,68.41: Ground_CR133 mountain driving surface=118.200
+A1,216.0,-5,812.55,118.588,75.77: Ground_CR133 mountain driving surface=118.606
+A1,216.0,-3,814.21,118.588,74.66: Ground_CR133 mountain driving surface=118.614
+A1,216.0,0,816.72,118.588,73.01: Ground_CR133 mountain driving surface=118.632
+A1,216.0,3,819.22,118.588,71.35: Ground_CR133 mountain driving surface=118.651
+A1,216.0,5,820.88,118.588,70.24: Ground_CR133 mountain driving surface=118.654
+A1,218.0,-5,813.58,118.998,77.33: Ground_CR133 mountain driving surface=119.055
+A1,218.0,-3,815.26,118.998,76.26: Ground_CR133 mountain driving surface=119.050
+A1,218.0,0,817.79,118.998,74.64: Ground_CR133 mountain driving surface=119.044
+A1,218.0,3,820.32,118.998,73.03: Ground_CR133 mountain driving surface=119.037
+A1,218.0,5,822.00,118.998,71.95: Ground_CR133 mountain driving surface=119.033
+A1,220.0,-5,814.45,119.382,78.79: Ground_CR133 mountain driving surface=119.419
+A1,220.0,-3,816.19,119.382,77.81: Ground_CR133 mountain driving surface=119.425
+A1,220.0,0,818.80,119.382,76.33: Ground_CR133 mountain driving surface=119.433
+A1,220.0,3,821.41,119.382,74.84: Ground_CR133 mountain driving surface=119.431
+A1,220.0,5,823.15,119.382,73.86: Ground_CR133 mountain driving surface=119.430
+A1,222.0,-5,815.31,119.743,80.34: Ground_CR133 mountain driving surface=119.771
+A1,222.0,-3,817.09,119.743,79.42: Ground_CR133 mountain driving surface=119.777
+A1,222.0,0,819.75,119.743,78.05: Ground_CR133 mountain driving surface=119.785
+A1,222.0,3,822.42,119.743,76.67: Ground_CR133 mountain driving surface=119.793
+A1,222.0,5,824.20,119.743,75.75: Ground_CR133 mountain driving surface=119.797
+A1,224.0,-5,816.19,120.082,82.05: Ground_CR133 mountain driving surface=120.131
+A1,224.0,-3,817.98,120.082,81.15: Ground_CR133 mountain driving surface=120.129
+A1,224.0,0,820.65,120.082,79.80: Ground_CR133 mountain driving surface=120.126
+A1,224.0,3,823.33,120.082,78.45: Ground_CR133 mountain driving surface=120.122
+A1,224.0,5,825.12,120.082,77.55: Ground_CR133 mountain driving surface=120.120
+A1,226.0,-5,816.98,120.404,83.68: Ground_CR133 mountain driving surface=120.443
+A1,226.0,-3,818.79,120.404,82.84: Ground_CR133 mountain driving surface=120.445
+A1,226.0,0,821.51,120.404,81.58: Ground_CR133 mountain driving surface=120.450
+A1,226.0,3,824.23,120.404,80.31: Ground_CR133 mountain driving surface=120.449
+A1,226.0,5,826.05,120.404,79.47: Ground_CR133 mountain driving surface=120.448
+A1,228.0,-5,817.75,120.711,85.37: Ground_CR133 mountain driving surface=120.745
+A1,228.0,-3,819.58,120.711,84.57: Ground_CR133 mountain driving surface=120.748
+A1,228.0,0,822.33,120.711,83.37: Ground_CR133 mountain driving surface=120.752
+A1,228.0,3,825.08,120.711,82.18: Ground_CR133 mountain driving surface=120.756
+A1,228.0,5,826.92,120.711,81.38: Ground_CR133 mountain driving surface=120.759
+A1,230.0,-5,818.52,121.004,87.16: Ground_CR133 mountain driving surface=121.049
+A1,230.0,-3,820.36,121.004,86.37: Ground_CR133 mountain driving surface=121.048
+A1,230.0,0,823.12,121.004,85.19: Ground_CR133 mountain driving surface=121.046
+A1,230.0,3,825.88,121.004,84.01: Ground_CR133 mountain driving surface=121.044
+A1,230.0,5,827.72,121.004,83.22: Ground_CR133 mountain driving surface=121.043
+A1,232.0,-5,819.25,121.286,88.89: Ground_CR133 mountain driving surface=121.326
+A1,232.0,-3,821.10,121.286,88.14: Ground_CR133 mountain driving surface=121.327
+A1,232.0,0,823.88,121.286,87.02: Ground_CR133 mountain driving surface=121.329
+A1,232.0,3,826.66,121.286,85.89: Ground_CR133 mountain driving surface=121.329
+A1,232.0,5,828.51,121.286,85.14: Ground_CR133 mountain driving surface=121.329
+A1,234.0,-5,819.96,121.559,90.67: Ground_CR133 mountain driving surface=121.596
+A1,234.0,-3,821.82,121.559,89.94: Ground_CR133 mountain driving surface=121.597
+A1,234.0,0,824.62,121.559,88.86: Ground_CR133 mountain driving surface=121.599
+A1,234.0,3,827.41,121.559,87.77: Ground_CR133 mountain driving surface=121.601
+A1,234.0,5,829.28,121.559,87.04: Ground_CR133 mountain driving surface=121.603
+A1,236.0,-5,820.67,121.823,92.50: Ground_CR133 mountain driving surface=121.865
+A1,236.0,-3,822.54,121.823,91.78: Ground_CR133 mountain driving surface=121.865
+A1,236.0,0,825.34,121.823,90.70: Ground_CR133 mountain driving surface=121.864
+A1,236.0,3,828.14,121.823,89.62: Ground_CR133 mountain driving surface=121.863
+A1,236.0,5,830.00,121.823,88.91: Ground_CR133 mountain driving surface=121.863
+A1,238.0,-5,821.36,122.081,94.31: Ground_CR133 mountain driving surface=122.121
+A1,238.0,-3,823.23,122.081,93.61: Ground_CR133 mountain driving surface=122.122
+A1,238.0,0,826.04,122.081,92.56: Ground_CR133 mountain driving surface=122.123
+A1,238.0,3,828.85,122.081,91.51: Ground_CR133 mountain driving surface=122.123
+A1,238.0,5,830.72,122.081,90.81: Ground_CR133 mountain driving surface=122.123
+A1,240.0,-5,822.04,122.335,96.14: Ground_CR133 mountain driving surface=122.373
+A1,240.0,-3,823.92,122.335,95.45: Ground_CR133 mountain driving surface=122.374
+A1,240.0,0,826.73,122.335,94.42: Ground_CR133 mountain driving surface=122.375
+A1,240.0,3,829.55,122.335,93.38: Ground_CR133 mountain driving surface=122.376
+A1,240.0,5,831.43,122.335,92.70: Ground_CR133 mountain driving surface=122.376
+A1,242.0,-5,822.72,122.583,98.00: Ground_CR133 mountain driving surface=122.624
+A1,242.0,-3,824.60,122.583,97.31: Ground_CR133 mountain driving surface=122.624
+A1,242.0,0,827.42,122.583,96.28: Ground_CR133 mountain driving surface=122.624
+A1,242.0,3,830.23,122.583,95.25: Ground_CR133 mountain driving surface=122.623
+A1,242.0,5,832.11,122.583,94.56: Ground_CR133 mountain driving surface=122.623
+A1,244.0,-5,823.39,122.830,99.85: Ground_CR133 mountain driving surface=122.870
+A1,244.0,-3,825.27,122.830,99.17: Ground_CR133 mountain driving surface=122.870
+A1,244.0,0,828.09,122.830,98.15: Ground_CR133 mountain driving surface=122.870
+A1,244.0,3,830.91,122.830,97.12: Ground_CR133 mountain driving surface=122.870
+A1,244.0,5,832.79,122.830,96.44: Ground_CR133 mountain driving surface=122.870
+A5,2140.0,-5,1283.66,111.032,-243.86: Ground_CR133 mountain driving surface=111.071
+A5,2140.0,-3,1281.67,111.032,-244.10: Ground_CR133 mountain driving surface=111.071
+A5,2140.0,0,1278.69,111.032,-244.46: Ground_CR133 mountain driving surface=111.072
+A5,2140.0,3,1275.71,111.032,-244.82: Ground_CR133 mountain driving surface=111.072
+A5,2140.0,5,1273.73,111.032,-245.06: Ground_CR133 mountain driving surface=111.072
+A5,2142.0,-5,1283.90,110.831,-245.83: Ground_CR133 mountain driving surface=110.871
+A5,2142.0,-3,1281.91,110.831,-246.07: Ground_CR133 mountain driving surface=110.871
+A5,2142.0,0,1278.93,110.831,-246.44: Ground_CR133 mountain driving surface=110.871
+A5,2142.0,3,1275.96,110.831,-246.80: Ground_CR133 mountain driving surface=110.871
+A5,2142.0,5,1273.97,110.831,-247.04: Ground_CR133 mountain driving surface=110.871
+A5,2144.0,-5,1284.14,110.633,-247.81: Ground_CR133 mountain driving surface=110.673
+A5,2144.0,-3,1282.15,110.633,-248.05: Ground_CR133 mountain driving surface=110.673
+A5,2144.0,0,1279.17,110.633,-248.41: Ground_CR133 mountain driving surface=110.673
+A5,2144.0,3,1276.20,110.633,-248.78: Ground_CR133 mountain driving surface=110.673
+A5,2144.0,5,1274.21,110.633,-249.02: Ground_CR133 mountain driving surface=110.673
+A5,2146.0,-5,1284.38,110.439,-249.77: Ground_CR133 mountain driving surface=110.479
+A5,2146.0,-3,1282.39,110.439,-250.02: Ground_CR133 mountain driving surface=110.479
+A5,2146.0,0,1279.42,110.439,-250.39: Ground_CR133 mountain driving surface=110.479
+A5,2146.0,3,1276.44,110.439,-250.76: Ground_CR133 mountain driving surface=110.479
+A5,2146.0,5,1274.45,110.439,-251.00: Ground_CR133 mountain driving surface=110.478
+A5,2148.0,-5,1284.62,110.248,-251.74: Ground_CR133 mountain driving surface=110.288
+A5,2148.0,-3,1282.64,110.248,-251.99: Ground_CR133 mountain driving surface=110.288
+A5,2148.0,0,1279.66,110.248,-252.36: Ground_CR133 mountain driving surface=110.288
+A5,2148.0,3,1276.69,110.248,-252.74: Ground_CR133 mountain driving surface=110.288
+A5,2148.0,5,1274.70,110.248,-252.99: Ground_CR133 mountain driving surface=110.288
+A5,2150.0,-5,1284.87,110.063,-253.71: Ground_CR133 mountain driving surface=110.103
+A5,2150.0,-3,1282.89,110.063,-253.96: Ground_CR133 mountain driving surface=110.103
+A5,2150.0,0,1279.91,110.063,-254.34: Ground_CR133 mountain driving surface=110.103
+A5,2150.0,3,1276.94,110.063,-254.72: Ground_CR133 mountain driving surface=110.103
+A5,2150.0,5,1274.95,110.063,-254.97: Ground_CR133 mountain driving surface=110.103
+A5,2152.0,-5,1285.13,109.884,-255.70: Ground_CR133 mountain driving surface=109.924
+A5,2152.0,-3,1283.14,109.884,-255.95: Ground_CR133 mountain driving surface=109.924
+A5,2152.0,0,1280.16,109.884,-256.32: Ground_CR133 mountain driving surface=109.925
+A5,2152.0,3,1277.19,109.884,-256.68: Ground_CR133 mountain driving surface=109.925
+A5,2152.0,5,1275.20,109.884,-256.93: Ground_CR133 mountain driving surface=109.925
+A5,2154.0,-5,1285.37,109.715,-257.74: Ground_CR133 mountain driving surface=109.756
+A5,2154.0,-3,1283.38,109.715,-257.96: Ground_CR133 mountain driving surface=109.756
+A5,2154.0,0,1280.40,109.715,-258.29: Ground_CR133 mountain driving surface=109.755
+A5,2154.0,3,1277.42,109.715,-258.63: Ground_CR133 mountain driving surface=109.755
+A5,2154.0,5,1275.43,109.715,-258.85: Ground_CR133 mountain driving surface=109.755
+A5,2156.0,-5,1285.59,109.561,-259.80: Ground_CR133 mountain driving surface=109.600
+A5,2156.0,-3,1283.60,109.561,-259.99: Ground_CR133 mountain driving surface=109.601
+A5,2156.0,0,1280.61,109.561,-260.28: Ground_CR133 mountain driving surface=109.602
+A5,2156.0,3,1277.62,109.561,-260.56: Ground_CR133 mountain driving surface=109.602
+A5,2156.0,5,1275.63,109.561,-260.76: Ground_CR133 mountain driving surface=109.602
+A5,2158.0,-5,1285.78,109.419,-261.86: Ground_CR133 mountain driving surface=109.458
+A5,2158.0,-3,1283.78,109.419,-262.02: Ground_CR133 mountain driving surface=109.459
+A5,2158.0,0,1280.79,109.419,-262.26: Ground_CR133 mountain driving surface=109.459
+A5,2158.0,3,1277.80,109.419,-262.51: Ground_CR133 mountain driving surface=109.460
+A5,2158.0,5,1275.81,109.419,-262.67: Ground_CR133 mountain driving surface=109.460
+A5,2160.0,-5,1285.93,109.292,-263.93: Ground_CR133 mountain driving surface=109.333
+A5,2160.0,-3,1283.94,109.292,-264.06: Ground_CR133 mountain driving surface=109.332
+A5,2160.0,0,1280.94,109.292,-264.25: Ground_CR133 mountain driving surface=109.332
+A5,2160.0,3,1277.95,109.292,-264.45: Ground_CR133 mountain driving surface=109.332
+A5,2160.0,5,1275.95,109.292,-264.58: Ground_CR133 mountain driving surface=109.332
+A5,2162.0,-5,1286.05,109.182,-266.05: Ground_CR133 mountain driving surface=109.221
+A5,2162.0,-3,1284.05,109.182,-266.13: Ground_CR133 mountain driving surface=109.222
+A5,2162.0,0,1281.06,109.182,-266.25: Ground_CR133 mountain driving surface=109.223
+A5,2162.0,3,1278.06,109.182,-266.37: Ground_CR133 mountain driving surface=109.223
+A5,2162.0,5,1276.06,109.182,-266.45: Ground_CR133 mountain driving surface=109.223
+A5,2164.0,-5,1286.12,109.092,-268.18: Ground_CR133 mountain driving surface=109.131
+A5,2164.0,-3,1284.12,109.092,-268.21: Ground_CR133 mountain driving surface=109.131
+A5,2164.0,0,1281.12,109.092,-268.24: Ground_CR133 mountain driving surface=109.132
+A5,2164.0,3,1278.12,109.092,-268.28: Ground_CR133 mountain driving surface=109.133
+A5,2164.0,5,1276.12,109.092,-268.31: Ground_CR133 mountain driving surface=109.133
+A5,2166.0,-5,1286.12,109.024,-270.32: Ground_CR133 mountain driving surface=109.065
+A5,2166.0,-3,1284.12,109.024,-270.29: Ground_CR133 mountain driving surface=109.065
+A5,2166.0,0,1281.12,109.024,-270.24: Ground_CR133 mountain driving surface=109.065
+A5,2166.0,3,1278.12,109.024,-270.19: Ground_CR133 mountain driving surface=109.064
+A5,2166.0,5,1276.13,109.024,-270.16: Ground_CR133 mountain driving surface=109.064
+A5,2168.0,-5,1286.05,108.982,-272.56: Ground_CR133 mountain driving surface=109.022
+A5,2168.0,-3,1284.05,108.982,-272.43: Ground_CR133 mountain driving surface=109.023
+A5,2168.0,0,1281.06,108.982,-272.24: Ground_CR133 mountain driving surface=109.023
+A5,2168.0,3,1278.06,108.982,-272.05: Ground_CR133 mountain driving surface=109.023
+A5,2168.0,5,1276.07,108.982,-271.92: Ground_CR133 mountain driving surface=109.023
+A5,2170.0,-5,1285.87,108.969,-274.80: Ground_CR133 mountain driving surface=109.009
+A5,2170.0,-3,1283.88,108.969,-274.57: Ground_CR133 mountain driving surface=109.009
+A5,2170.0,0,1280.90,108.969,-274.23: Ground_CR133 mountain driving surface=109.009
+A5,2170.0,3,1277.92,108.969,-273.89: Ground_CR133 mountain driving surface=109.008
+A5,2170.0,5,1275.93,108.969,-273.67: Ground_CR133 mountain driving surface=109.008
+A5,2172.0,-5,1285.58,108.986,-277.03: Ground_CR133 mountain driving surface=109.025
+A5,2172.0,-3,1283.60,108.986,-276.70: Ground_CR133 mountain driving surface=109.025
+A5,2172.0,0,1280.64,108.986,-276.22: Ground_CR133 mountain driving surface=109.025
+A5,2172.0,3,1277.68,108.986,-275.73: Ground_CR133 mountain driving surface=109.026
+A5,2172.0,5,1275.71,108.986,-275.41: Ground_CR133 mountain driving surface=109.026
+A5,2174.0,-5,1285.08,109.037,-279.46: Ground_CR133 mountain driving surface=109.077
+A5,2174.0,-3,1283.15,109.037,-278.95: Ground_CR133 mountain driving surface=109.075
+A5,2174.0,0,1280.25,109.037,-278.18: Ground_CR133 mountain driving surface=109.072
+A5,2174.0,3,1277.35,109.037,-277.41: Ground_CR133 mountain driving surface=109.070
+A5,2174.0,5,1275.42,109.037,-276.89: Ground_CR133 mountain driving surface=109.070
+A5,2176.0,-5,1284.39,109.125,-281.79: Ground_CR133 mountain driving surface=109.168
+A5,2176.0,-3,1282.51,109.125,-281.11: Ground_CR133 mountain driving surface=109.166
+A5,2176.0,0,1279.69,109.125,-280.09: Ground_CR133 mountain driving surface=109.163
+A5,2176.0,3,1276.87,109.125,-279.08: Ground_CR133 mountain driving surface=109.160
+A5,2176.0,5,1274.99,109.125,-278.40: Ground_CR133 mountain driving surface=109.158
+A5,2178.0,-5,1283.48,109.245,-284.07: Ground_CR133 mountain driving surface=109.279
+A5,2178.0,-3,1281.67,109.245,-283.22: Ground_CR133 mountain driving surface=109.277
+A5,2178.0,0,1278.95,109.245,-281.95: Ground_CR133 mountain driving surface=109.281
+A5,2178.0,3,1276.24,109.245,-280.67: Ground_CR133 mountain driving surface=109.285
+A5,2178.0,5,1274.43,109.245,-279.82: Ground_CR133 mountain driving surface=109.287
+A5,2180.0,-5,1282.24,109.390,-286.39: Ground_CR133 mountain driving surface=109.432
+A5,2180.0,-3,1280.55,109.390,-285.32: Ground_CR133 mountain driving surface=109.427
+A5,2180.0,0,1278.02,109.390,-283.71: Ground_CR133 mountain driving surface=109.420
+A5,2180.0,3,1275.49,109.390,-282.09: Ground_CR133 mountain driving surface=109.412
+A5,2180.0,5,1273.80,109.390,-281.02: Ground_CR133 mountain driving surface=109.412
+A5,2182.0,-5,1280.82,109.546,-288.45: Ground_CR133 mountain driving surface=109.591
+A5,2182.0,-3,1279.25,109.546,-287.21: Ground_CR133 mountain driving surface=109.588
+A5,2182.0,0,1276.90,109.546,-285.36: Ground_CR133 mountain driving surface=109.584
+A5,2182.0,3,1274.55,109.546,-283.50: Ground_CR133 mountain driving surface=109.579
+A5,2182.0,5,1272.98,109.546,-282.26: Ground_CR133 mountain driving surface=109.576
+A5,2184.0,-5,1279.32,109.697,-290.26: Ground_CR133 mountain driving surface=109.732
+A5,2184.0,-3,1277.84,109.697,-288.91: Ground_CR133 mountain driving surface=109.732
+A5,2184.0,0,1275.63,109.697,-286.89: Ground_CR133 mountain driving surface=109.735
+A5,2184.0,3,1273.41,109.697,-284.87: Ground_CR133 mountain driving surface=109.737
+A5,2184.0,5,1271.93,109.697,-283.52: Ground_CR133 mountain driving surface=109.738
+A5,2186.0,-5,1277.66,109.827,-291.97: Ground_CR133 mountain driving surface=109.868
+A5,2186.0,-3,1276.29,109.827,-290.51: Ground_CR133 mountain driving surface=109.865
+A5,2186.0,0,1274.24,109.827,-288.32: Ground_CR133 mountain driving surface=109.862
+A5,2186.0,3,1272.19,109.827,-286.13: Ground_CR133 mountain driving surface=109.861
+A5,2186.0,5,1270.82,109.827,-284.67: Ground_CR133 mountain driving surface=109.861
+A5,2188.0,-5,1276.04,109.923,-293.45: Ground_CR133 mountain driving surface=109.964
+A5,2188.0,-3,1274.73,109.923,-291.94: Ground_CR133 mountain driving surface=109.963
+A5,2188.0,0,1272.76,109.923,-289.67: Ground_CR133 mountain driving surface=109.962
+A5,2188.0,3,1270.80,109.923,-287.40: Ground_CR133 mountain driving surface=109.961
+A5,2188.0,5,1269.49,109.923,-285.89: Ground_CR133 mountain driving surface=109.961
+A5,2190.0,-5,1274.45,109.979,-294.81: Ground_CR133 mountain driving surface=110.019
+A5,2190.0,-3,1273.17,109.979,-293.27: Ground_CR133 mountain driving surface=110.019
+A5,2190.0,0,1271.24,109.979,-290.97: Ground_CR133 mountain driving surface=110.019
+A5,2190.0,3,1269.32,109.979,-288.67: Ground_CR133 mountain driving surface=110.019
+A5,2190.0,5,1268.04,109.979,-287.13: Ground_CR133 mountain driving surface=110.019
+A5,2192.0,-5,1272.56,109.999,-296.29: Ground_CR133 mountain driving surface=110.039
+A5,2192.0,-3,1271.41,109.999,-294.66: Ground_CR133 mountain driving surface=110.039
+A5,2192.0,0,1269.68,109.999,-292.21: Ground_CR133 mountain driving surface=110.039
+A5,2192.0,3,1267.95,109.999,-289.76: Ground_CR133 mountain driving surface=110.039
+A5,2192.0,5,1266.79,109.999,-288.13: Ground_CR133 mountain driving surface=110.039
+A5,2194.0,-5,1270.40,110.000,-297.70: Ground_CR133 mountain driving surface=110.040
+A5,2194.0,-3,1269.44,110.000,-295.94: Ground_CR133 mountain driving surface=110.040
+A5,2194.0,0,1268.01,110.000,-293.31: Ground_CR133 mountain driving surface=110.040
+A5,2194.0,3,1266.57,110.000,-290.67: Ground_CR133 mountain driving surface=110.040
+A5,2194.0,5,1265.62,110.000,-288.92: Ground_CR133 mountain driving surface=110.040
+A5,2196.0,-5,1268.24,110.000,-298.79: Ground_CR133 mountain driving surface=110.040
+A5,2196.0,-3,1267.43,110.000,-296.96: Ground_CR133 mountain driving surface=110.040
+A5,2196.0,0,1266.23,110.000,-294.21: Ground_CR133 mountain driving surface=110.040
+A5,2196.0,3,1265.02,110.000,-291.46: Ground_CR133 mountain driving surface=110.040
+A5,2196.0,5,1264.21,110.000,-289.63: Ground_CR133 mountain driving surface=110.040
+A5,2198.0,-5,1266.02,110.000,-299.67: Ground_CR133 mountain driving surface=110.040
+A5,2198.0,-3,1265.36,110.000,-297.79: Ground_CR133 mountain driving surface=110.040
+A5,2198.0,0,1264.37,110.000,-294.95: Ground_CR133 mountain driving surface=110.040
+A5,2198.0,3,1263.38,110.000,-292.12: Ground_CR133 mountain driving surface=110.040
+A5,2198.0,5,1262.72,110.000,-290.23: Ground_CR133 mountain driving surface=110.040
+A5,2200.0,-5,1263.87,110.000,-300.39: Ground_CR133 mountain driving surface=110.040
+A5,2200.0,-3,1263.31,110.000,-298.47: Ground_CR133 mountain driving surface=110.040
+A5,2200.0,0,1262.47,110.000,-295.58: Ground_CR133 mountain driving surface=110.040
+A5,2200.0,3,1261.64,110.000,-292.70: Ground_CR133 mountain driving surface=110.040
+A5,2200.0,5,1261.08,110.000,-290.78: Ground_CR133 mountain driving surface=110.040
+A5,2202.0,-5,1261.76,110.000,-300.97: Ground_CR133 mountain driving surface=110.040
+A5,2202.0,-3,1261.28,110.000,-299.03: Ground_CR133 mountain driving surface=110.040
+A5,2202.0,0,1260.54,110.000,-296.12: Ground_CR133 mountain driving surface=110.040
+A5,2202.0,3,1259.81,110.000,-293.21: Ground_CR133 mountain driving surface=110.040
+A5,2202.0,5,1259.33,110.000,-291.27: Ground_CR133 mountain driving surface=110.040
+A5,2204.0,-5,1259.63,110.000,-301.47: Ground_CR133 mountain driving surface=110.040
+A5,2204.0,-3,1259.22,110.000,-299.51: Ground_CR133 mountain driving surface=110.040
+A5,2204.0,0,1258.60,110.000,-296.57: Ground_CR133 mountain driving surface=110.040
+A5,2204.0,3,1257.98,110.000,-293.64: Ground_CR133 mountain driving surface=110.040
+A5,2204.0,5,1257.57,110.000,-291.68: Ground_CR133 mountain driving surface=110.040
+A5,2206.0,-5,1257.54,110.000,-301.89: Ground_CR133 mountain driving surface=110.040
+A5,2206.0,-3,1257.18,110.000,-299.92: Ground_CR133 mountain driving surface=110.040
+A5,2206.0,0,1256.64,110.000,-296.97: Ground_CR133 mountain driving surface=110.040
+A5,2206.0,3,1256.10,110.000,-294.02: Ground_CR133 mountain driving surface=110.040
+A5,2206.0,5,1255.74,110.000,-292.05: Ground_CR133 mountain driving surface=110.040
+A5,2208.0,-5,1255.47,110.000,-302.25: Ground_CR133 mountain driving surface=110.040
+A5,2208.0,-3,1255.15,110.000,-300.28: Ground_CR133 mountain driving surface=110.040
+A5,2208.0,0,1254.67,110.000,-297.32: Ground_CR133 mountain driving surface=110.040
+A5,2208.0,3,1254.19,110.000,-294.36: Ground_CR133 mountain driving surface=110.040
+A5,2208.0,5,1253.86,110.000,-292.38: Ground_CR133 mountain driving surface=110.040
+A5,2210.0,-5,1253.38,110.000,-302.57: Ground_CR133 mountain driving surface=110.040
+A5,2210.0,-3,1253.10,110.000,-300.59: Ground_CR133 mountain driving surface=110.040
+A5,2210.0,0,1252.69,110.000,-297.62: Ground_CR133 mountain driving surface=110.040
+A5,2210.0,3,1252.28,110.000,-294.65: Ground_CR133 mountain driving surface=110.040
+A5,2210.0,5,1252.00,110.000,-292.67: Ground_CR133 mountain driving surface=110.040
+A5,2212.0,-5,1251.31,110.000,-302.85: Ground_CR133 mountain driving surface=110.040
+A5,2212.0,-3,1251.07,110.000,-300.86: Ground_CR133 mountain driving surface=110.040
+A5,2212.0,0,1250.71,110.000,-297.89: Ground_CR133 mountain driving surface=110.040
+A5,2212.0,3,1250.35,110.000,-294.91: Ground_CR133 mountain driving surface=110.040
+A5,2212.0,5,1250.11,110.000,-292.92: Ground_CR133 mountain driving surface=110.040
+A5,2214.0,-5,1249.26,110.000,-303.09: Ground_CR133 mountain driving surface=110.040
+A5,2214.0,-3,1249.05,110.000,-301.10: Ground_CR133 mountain driving surface=110.040
+A5,2214.0,0,1248.72,110.000,-298.12: Ground_CR133 mountain driving surface=110.040
+A5,2214.0,3,1248.40,110.000,-295.13: Ground_CR133 mountain driving surface=110.040
+A5,2214.0,5,1248.18,110.000,-293.15: Ground_CR133 mountain driving surface=110.040
+A5,2216.0,-5,1247.20,110.000,-303.30: Ground_CR133 mountain driving surface=110.040
+A5,2216.0,-3,1247.01,110.000,-301.31: Ground_CR133 mountain driving surface=110.040
+A5,2216.0,0,1246.73,110.000,-298.32: Ground_CR133 mountain driving surface=110.040
+A5,2216.0,3,1246.45,110.000,-295.34: Ground_CR133 mountain driving surface=110.040
+A5,2216.0,5,1246.26,110.000,-293.34: Ground_CR133 mountain driving surface=110.040
+A5,2218.0,-5,1245.16,110.000,-303.49: Ground_CR133 mountain driving surface=110.040
+A5,2218.0,-3,1244.99,110.000,-301.49: Ground_CR133 mountain driving surface=110.040
+A5,2218.0,0,1244.74,110.000,-298.50: Ground_CR133 mountain driving surface=110.040
+A5,2218.0,3,1244.49,110.000,-295.52: Ground_CR133 mountain driving surface=110.040
+A5,2218.0,5,1244.32,110.000,-293.52: Ground_CR133 mountain driving surface=110.040
+A5,2220.0,-5,1243.13,110.000,-303.65: Ground_CR133 mountain driving surface=110.040
+A5,2220.0,-3,1242.98,110.000,-301.66: Ground_CR133 mountain driving surface=110.040
+A5,2220.0,0,1242.75,110.000,-298.67: Ground_CR133 mountain driving surface=110.040
+A5,2220.0,3,1242.52,110.000,-295.68: Ground_CR133 mountain driving surface=110.040
+A5,2220.0,5,1242.36,110.000,-293.68: Ground_CR133 mountain driving surface=110.040
+A9,0.0,-5,993.44,163.650,118.62: Ground_CR133 mountain driving surface=163.464;Ground_MountainCut rock vault=163.300;Ground_MountainCut mountain cap=162.964
+A9,0.0,-3,992.07,163.650,117.17: Ground_CR133 mountain driving surface=163.539;Ground_MountainCut rock vault=163.300;Ground_MountainCut mountain cap=163.039
+A9,0.0,0,990.00,163.650,115.00: Ground_CR133 mountain driving surface=163.650;Ground_MountainCut rock vault=163.300;Ground_MountainCut mountain cap=163.150
+A9,0.0,3,987.93,163.650,112.83: Ground_CR133 mountain driving surface=163.762;Ground_MountainCut rock vault=163.300;Ground_MountainCut mountain cap=163.262
+A9,0.0,5,986.56,163.650,111.38: Ground_CR133 mountain driving surface=163.836;Ground_MountainCut mountain cap=163.336;Ground_MountainCut rock vault=161.623
+A9,2.0,-5,994.90,163.514,117.24: Ground_CR133 mountain driving surface=163.327;Ground_MountainCut rock vault=163.300;Ground_MountainCut mountain cap=162.828
+A9,2.0,-3,993.52,163.514,115.79: Ground_CR133 mountain driving surface=163.402;Ground_MountainCut rock vault=163.300;Ground_MountainCut mountain cap=162.902
+A9,2.0,0,991.45,163.514,113.62: Ground_CR133 mountain driving surface=163.514;Ground_MountainCut rock vault=163.300;Ground_MountainCut mountain cap=163.014
+A9,2.0,3,989.38,163.514,111.45: Ground_CR133 mountain driving surface=163.626;Ground_MountainCut mountain cap=163.126;Ground_MountainCut rock vault=161.804
+A9,2.0,5,988.00,163.514,110.00: Ground_CR133 mountain driving surface=163.700;Ground_MountainCut mountain cap=163.200;Ground_MountainCut rock vault=162.302
+A9,4.0,-5,996.36,163.378,115.84: Ground_MountainCut rock vault=163.300;Ground_CR133 mountain driving surface=163.190;Ground_MountainCut mountain cap=162.690
+A9,4.0,-3,994.98,163.378,114.40: Ground_MountainCut rock vault=163.300;Ground_CR133 mountain driving surface=163.265;Ground_MountainCut mountain cap=162.765
+A9,4.0,0,992.89,163.378,112.24: Ground_CR133 mountain driving surface=163.378;Ground_MountainCut rock vault=163.300;Ground_MountainCut mountain cap=162.878
+A9,4.0,3,990.81,163.378,110.08: Ground_CR133 mountain driving surface=163.491;Ground_MountainCut mountain cap=162.991;Ground_MountainCut rock vault=162.421
+A9,4.0,5,989.42,163.378,108.64: Ground_CR133 mountain driving surface=163.566;Ground_MountainCut rock vault=162.976
+A9,6.0,-5,997.82,163.242,114.43: Ground_MountainCut rock vault=163.300;Ground_CR133 mountain driving surface=163.052;Ground_MountainCut mountain cap=162.552
+A9,6.0,-3,996.43,163.242,113.00: Ground_MountainCut rock vault=163.300;Ground_CR133 mountain driving surface=163.128;Ground_MountainCut mountain cap=162.628
+A9,6.0,0,994.33,163.242,110.85: Ground_CR133 mountain driving surface=163.242;Ground_MountainCut mountain cap=162.742;Ground_MountainCut rock vault=162.024
+A9,6.0,3,992.24,163.242,108.70: Ground_CR133 mountain driving surface=163.356;Ground_MountainCut rock vault=162.994
+A9,6.0,5,990.84,163.242,107.27: Ground_MountainCut rock vault=163.589;Ground_CR133 mountain driving surface=163.432;Ground_MountainCut natural embankments=162.869
+A9,8.0,-5,999.26,163.107,113.02: Ground_MountainCut rock vault=163.300;Ground_CR133 mountain driving surface=162.916;Ground_MountainCut mountain cap=162.416;Ground_MountainCut portal outcrops=147.504
+A9,8.0,-3,997.86,163.107,111.59: Ground_CR133 mountain driving surface=162.992;Ground_MountainCut mountain cap=162.492;Ground_MountainCut rock vault=161.288
+A9,8.0,0,995.76,163.107,109.45: Ground_CR133 mountain driving surface=163.107;Ground_MountainCut rock vault=162.681
+A9,8.0,3,993.66,163.107,107.31: Ground_MountainCut rock vault=163.571;Ground_CR133 mountain driving surface=163.222;Ground_MountainCut natural embankments=162.414
+A9,8.0,5,992.26,163.107,105.88: Ground_CR133 mountain driving surface=163.298
+A9,10.0,-5,1000.70,162.972,111.61: Ground_CR133 mountain driving surface=162.780;Ground_MountainCut mountain cap=162.280;Ground_MountainCut rock vault=158.406;Ground_MountainCut portal outcrops=153.687
+A9,10.0,-3,999.30,162.972,110.19: Ground_CR133 mountain driving surface=162.856;Ground_MountainCut mountain cap=162.357;Ground_MountainCut rock vault=162.071
+A9,10.0,0,997.19,162.972,108.05: Ground_MountainCut rock vault=163.264;Ground_CR133 mountain driving surface=162.972;Ground_MountainCut natural embankments=162.152
+A9,10.0,3,995.08,162.972,105.91: Ground_CR133 mountain driving surface=163.087
+A9,10.0,5,993.68,162.972,104.49: Ground_CR133 mountain driving surface=163.164
+A9,12.0,-5,1002.13,162.837,110.19: Ground_CR133 mountain driving surface=162.644;Ground_MountainCut mountain cap=162.144;Ground_MountainCut rock vault=159.342;Ground_MountainCut portal outcrops=154.731
+A9,12.0,-3,1000.72,162.837,108.77: Ground_MountainCut rock vault=162.857;Ground_CR133 mountain driving surface=162.721;Ground_MountainCut natural embankments=157.218
+A9,12.0,0,998.61,162.837,106.64: Ground_CR133 mountain driving surface=162.837;Ground_MountainCut natural embankments=161.933
+A9,12.0,3,996.50,162.837,104.51: Ground_CR133 mountain driving surface=162.953
+A9,12.0,5,995.09,162.837,103.09: Ground_CR133 mountain driving surface=163.030
+A9,14.0,-5,1003.57,162.703,108.75: Ground_CR133 mountain driving surface=162.508;Ground_MountainCut natural embankments=162.448;Ground_MountainCut rock vault=159.204;Ground_MountainCut portal outcrops=155.170
+A9,14.0,-3,1002.15,162.703,107.34: Ground_MountainCut rock vault=163.558;Ground_CR133 mountain driving surface=162.586;Ground_MountainCut natural embankments=154.381;Ground_MountainCut portal outcrops=146.921
+A9,14.0,0,1000.02,162.703,105.23: Ground_CR133 mountain driving surface=162.703;Ground_MountainCut natural embankments=161.347
+A9,14.0,3,997.90,162.703,103.11: Ground_CR133 mountain driving surface=162.820
+A9,14.0,5,996.48,162.703,101.70: Ground_CR133 mountain driving surface=162.898
+A9,16.0,-5,1005.00,162.569,107.31: Ground_CR133 mountain driving surface=162.372;Ground_MountainCut natural embankments=162.312;Ground_MountainCut rock vault=158.395;Ground_MountainCut portal outcrops=155.590;Ground_Mountain_2_3=152.005
+A9,16.0,-3,1003.57,162.569,105.91: Ground_CR133 mountain driving surface=162.451;Ground_MountainCut natural embankments=152.912;Ground_MountainCut portal outcrops=149.026
+A9,16.0,0,1001.43,162.569,103.80: Ground_CR133 mountain driving surface=162.569;Ground_MountainCut natural embankments=158.232
+A9,16.0,3,999.29,162.569,101.70: Ground_CR133 mountain driving surface=162.687;Ground_MountainCut natural embankments=157.222
+A9,16.0,5,997.86,162.569,100.30: Ground_CR133 mountain driving surface=162.766
+A9,18.0,-5,1006.42,162.435,105.86: Ground_CR133 mountain driving surface=162.236;Ground_MountainCut natural embankments=162.176;Ground_MountainCut portal outcrops=155.539;Ground_Mountain_2_3=153.660
+A9,18.0,-3,1004.98,162.435,104.47: Ground_CR133 mountain driving surface=162.316;Ground_MountainCut natural embankments=151.439;Ground_MountainCut portal outcrops=151.048
+A9,18.0,0,1002.83,162.435,102.38: Ground_CR133 mountain driving surface=162.435;Ground_MountainCut natural embankments=153.514
+A9,18.0,3,1000.68,162.435,100.29: Ground_CR133 mountain driving surface=162.555;Ground_MountainCut natural embankments=158.920
+A9,18.0,5,999.24,162.435,98.89: Ground_CR133 mountain driving surface=162.635;Ground_MountainCut natural embankments=154.965
+A9,20.0,-5,1007.82,162.302,104.41: Ground_CR133 mountain driving surface=162.102;Ground_MountainCut natural embankments=162.042;Ground_MountainCut portal outcrops=154.481
+A9,20.0,-3,1006.38,162.302,103.02: Ground_CR133 mountain driving surface=162.182;Ground_MountainCut natural embankments=149.951;Ground_MountainCut portal outcrops=147.315
+A9,20.0,0,1004.22,162.302,100.94: Ground_CR133 mountain driving surface=162.302;Ground_MountainCut natural embankments=149.252
+A9,20.0,3,1002.06,162.302,98.86: Ground_CR133 mountain driving surface=162.423;Ground_MountainCut natural embankments=159.349
+A9,20.0,5,1000.62,162.302,97.47: Ground_CR133 mountain driving surface=162.503;Ground_MountainCut natural embankments=154.313
+A9,22.0,-5,1009.23,162.169,102.95: Ground_CR133 mountain driving surface=161.967;Ground_MountainCut natural embankments=161.907;Ground_MountainCut portal outcrops=153.401
+A9,22.0,-3,1007.78,162.169,101.57: Ground_CR133 mountain driving surface=162.048;Ground_MountainCut natural embankments=148.453
+A9,22.0,0,1005.61,162.169,99.50: Ground_CR133 mountain driving surface=162.169
+A9,22.0,3,1003.44,162.169,97.43: Ground_CR133 mountain driving surface=162.291;Ground_MountainCut natural embankments=156.741
+A9,22.0,5,1001.99,162.169,96.05: Ground_CR133 mountain driving surface=162.372;Ground_MountainCut natural embankments=155.940
+A9,24.0,-5,1010.63,162.037,101.48: Ground_CR133 mountain driving surface=161.833;Ground_MountainCut natural embankments=161.773;Ground_MountainCut portal outcrops=147.646
+A9,24.0,-3,1009.17,162.037,100.10: Ground_CR133 mountain driving surface=161.914
+A9,24.0,0,1006.99,162.037,98.05: Ground_CR133 mountain driving surface=162.037
+A9,24.0,3,1004.80,162.037,95.99: Ground_CR133 mountain driving surface=162.160;Ground_MountainCut natural embankments=152.192
+A9,24.0,5,1003.35,162.037,94.62: Ground_CR133 mountain driving surface=162.242;Ground_MountainCut natural embankments=157.533
+A9,26.0,-5,1012.00,161.905,100.01: Ground_CR133 mountain driving surface=161.700;Ground_MountainCut natural embankments=161.640;Ground_Mountain_2_3=160.392
+A9,26.0,-3,1010.55,161.905,98.64: Ground_CR133 mountain driving surface=161.782
+A9,26.0,0,1008.36,161.905,96.59: Ground_CR133 mountain driving surface=161.905
+A9,26.0,3,1006.17,161.905,94.54: Ground_CR133 mountain driving surface=162.028
+A9,26.0,5,1004.71,161.905,93.17: Ground_CR133 mountain driving surface=162.111;Ground_MountainCut natural embankments=156.057;Ground_Mountain_2_3=155.522
+A9,28.0,-5,1013.39,161.772,98.52: Ground_CR133 mountain driving surface=161.595;Ground_MountainCut natural embankments=161.535
+A9,28.0,-3,1011.92,161.772,97.16: Ground_CR133 mountain driving surface=161.672
+A9,28.0,0,1009.72,161.772,95.13: Ground_CR133 mountain driving surface=161.787
+A9,28.0,3,1007.51,161.772,93.09: Ground_CR133 mountain driving surface=161.903
+A9,28.0,5,1006.04,161.772,91.74: Ground_CR133 mountain driving surface=161.983;Ground_Mountain_2_3=157.169
+A9,30.0,-5,1014.77,161.714,97.02: Ground_CR133 mountain driving surface=161.545;Ground_MountainCut natural embankments=161.485
+A9,30.0,-3,1013.29,161.714,95.68: Ground_CR133 mountain driving surface=161.624
+A9,30.0,0,1011.07,161.714,93.66: Ground_CR133 mountain driving surface=161.742
+A9,30.0,3,1008.85,161.714,91.64: Ground_CR133 mountain driving surface=161.860
+A9,30.0,5,1007.38,161.714,90.29: Ground_CR133 mountain driving surface=161.939;Ground_Mountain_2_3=159.069
+A9,32.0,-5,1016.13,161.689,95.53: Ground_CR133 mountain driving surface=161.534;Ground_MountainCut natural embankments=161.474;Ground_Mountain_2_3=159.700
+A9,32.0,-3,1014.64,161.689,94.19: Ground_CR133 mountain driving surface=161.612
+A9,32.0,0,1012.42,161.689,92.18: Ground_CR133 mountain driving surface=161.728
+A9,32.0,3,1010.19,161.689,90.17: Ground_CR133 mountain driving surface=161.845
+A9,32.0,5,1008.71,161.689,88.82: Ground_CR133 mountain driving surface=161.922;Ground_Mountain_2_3=159.688
+A9,34.0,-5,1017.49,161.674,94.01: Ground_CR133 mountain driving surface=161.529;Ground_MountainCut natural embankments=161.469
+A9,34.0,-3,1016.00,161.674,92.68: Ground_CR133 mountain driving surface=161.605
+A9,34.0,0,1013.76,161.674,90.69: Ground_CR133 mountain driving surface=161.719
+A9,34.0,3,1011.52,161.674,88.69: Ground_CR133 mountain driving surface=161.833
+A9,34.0,5,1010.02,161.674,87.36: Ground_CR133 mountain driving surface=161.908;Ground_Mountain_2_3=159.456
+A9,36.0,-5,1018.84,161.628,92.49: Ground_CR133 mountain driving surface=161.494;Ground_MountainCut natural embankments=161.434
+A9,36.0,-3,1017.34,161.628,91.17: Ground_CR133 mountain driving surface=161.567
+A9,36.0,0,1015.08,161.628,89.19: Ground_CR133 mountain driving surface=161.676
+A9,36.0,3,1012.83,161.628,87.22: Ground_CR133 mountain driving surface=161.786
+A9,36.0,5,1011.33,161.628,85.90: Ground_CR133 mountain driving surface=161.859;Ground_Mountain_2_3=159.212
+A9,38.0,-5,1020.17,161.518,90.98: Ground_CR133 mountain driving surface=161.393;Ground_MountainCut natural embankments=161.333;Ground_Mountain_2_3=158.963
+A9,38.0,-3,1018.66,161.518,89.66: Ground_CR133 mountain driving surface=161.462
+A9,38.0,0,1016.40,161.518,87.69: Ground_CR133 mountain driving surface=161.565
+A9,38.0,3,1014.14,161.518,85.72: Ground_CR133 mountain driving surface=161.665
+A9,38.0,5,1012.63,161.518,84.40: Ground_CR133 mountain driving surface=161.732;Ground_Mountain_2_3=158.956
+A9,40.0,-5,1021.51,161.316,89.43: Ground_CR133 mountain driving surface=161.201;Ground_MountainCut natural embankments=161.141;Ground_Mountain_2_3=158.706
+A9,40.0,-3,1019.99,161.316,88.13: Ground_CR133 mountain driving surface=161.264
+A9,40.0,0,1017.71,161.316,86.18: Ground_CR133 mountain driving surface=161.359
+A9,40.0,3,1015.43,161.316,84.23: Ground_CR133 mountain driving surface=161.453
+A9,40.0,5,1013.91,161.316,82.92: Ground_CR133 mountain driving surface=161.513;Ground_Mountain_2_3=158.698
+A9,42.0,-5,1022.83,161.018,87.88: Ground_CR133 mountain driving surface=160.920;Ground_MountainCut natural embankments=160.860;Ground_Mountain_2_3=158.448
+A9,42.0,-3,1021.30,161.018,86.59: Ground_CR133 mountain driving surface=160.975
+A9,42.0,0,1019.01,161.018,84.66: Ground_CR133 mountain driving surface=161.059
+A9,42.0,3,1016.72,161.018,82.72: Ground_CR133 mountain driving surface=161.143
+A9,42.0,5,1015.19,161.018,81.43: Ground_CR133 mountain driving surface=161.199;Ground_Mountain_2_3=158.434
+A9,44.0,-5,1024.14,160.662,86.33: Ground_CR133 mountain driving surface=160.578;Ground_MountainCut natural embankments=160.518;Ground_Mountain_2_3=158.180
+A9,44.0,-3,1022.60,160.662,85.05: Ground_CR133 mountain driving surface=160.629
+A9,44.0,0,1020.30,160.662,83.13: Ground_CR133 mountain driving surface=160.702
+A9,44.0,3,1017.99,160.662,81.21: Ground_CR133 mountain driving surface=160.773
+A9,44.0,5,1016.46,160.662,79.93: Ground_CR133 mountain driving surface=160.820;Ground_Mountain_2_3=158.164
+A4,1555.0,-5,814.19,98.020,-126.71: Ground_CR133 mountain driving surface=97.891
+A4,1555.0,-3,816.05,98.020,-127.44: Ground_CR133 mountain driving surface=97.959
+A4,1555.0,0,818.84,98.020,-128.55: Ground_CR133 mountain driving surface=98.060
+A4,1555.0,3,821.63,98.020,-129.66: Ground_CR133 mountain driving surface=98.161
+A4,1555.0,5,823.49,98.020,-130.40: Ground_CR133 mountain driving surface=98.229
+A4,1557.0,-5,814.77,98.223,-125.08: Ground_CR133 mountain driving surface=98.068
+A4,1557.0,-3,816.67,98.223,-125.72: Ground_CR133 mountain driving surface=98.146
+A4,1557.0,0,819.51,98.223,-126.68: Ground_CR133 mountain driving surface=98.263
+A4,1557.0,3,822.35,98.223,-127.64: Ground_CR133 mountain driving surface=98.381
+A4,1557.0,5,824.25,98.223,-128.28: Ground_CR133 mountain driving surface=98.459
+A4,1559.0,-5,816.90,98.435,-121.58: Ground_CR133 mountain driving surface=98.507
+A4,1559.0,-3,818.36,98.435,-122.95: Ground_CR133 mountain driving surface=98.494
+A4,1559.0,0,820.54,98.435,-125.00: Ground_CR133 mountain driving surface=98.475
+A4,1559.0,3,822.73,98.435,-127.05: Ground_CR133 mountain driving surface=98.456
+A4,1559.0,5,824.19,98.435,-128.42: Ground_CR133 mountain driving surface=98.443
+A4,1561.0,-5,819.80,98.641,-119.48: Ground_CR133 mountain driving surface=98.885
+A4,1561.0,-3,820.74,98.641,-121.24: Ground_CR133 mountain driving surface=98.803
+A4,1561.0,0,822.16,98.641,-123.89: Ground_CR133 mountain driving surface=98.681
+A4,1561.0,3,823.58,98.641,-126.53: Ground_CR133 mountain driving surface=98.559
+A4,1561.0,5,824.53,98.641,-128.29: Ground_CR133 mountain driving surface=98.477
+A4,1563.0,-5,821.37,98.843,-118.58: Ground_CR133 mountain driving surface=99.069
+A4,1563.0,-3,822.38,98.843,-120.31: Ground_CR133 mountain driving surface=98.995
+A4,1563.0,0,823.89,98.843,-122.90: Ground_CR133 mountain driving surface=98.883
+A4,1563.0,3,825.40,98.843,-125.49: Ground_CR133 mountain driving surface=98.772
+A4,1563.0,5,826.41,98.843,-127.22: Ground_CR133 mountain driving surface=98.698
+A4,1565.0,-5,822.98,99.048,-117.61: Ground_CR133 mountain driving surface=99.262
+A4,1565.0,-3,824.02,99.048,-119.31: Ground_CR133 mountain driving surface=99.193
+A4,1565.0,0,825.59,99.048,-121.87: Ground_CR133 mountain driving surface=99.088
+A4,1565.0,3,827.16,99.048,-124.43: Ground_CR133 mountain driving surface=98.983
+A4,1565.0,5,828.21,99.048,-126.13: Ground_CR133 mountain driving surface=98.913
+A4,1567.0,-5,824.63,99.253,-116.58: Ground_CR133 mountain driving surface=99.463
+A4,1567.0,-3,825.69,99.253,-118.28: Ground_CR133 mountain driving surface=99.395
+A4,1567.0,0,827.28,99.253,-120.82: Ground_CR133 mountain driving surface=99.293
+A4,1567.0,3,828.87,99.253,-123.36: Ground_CR133 mountain driving surface=99.191
+A4,1567.0,5,829.93,99.253,-125.06: Ground_CR133 mountain driving surface=99.123
+A4,1569.0,-5,826.30,99.459,-115.53: Ground_CR133 mountain driving surface=99.667
+A4,1569.0,-3,827.36,99.459,-117.22: Ground_CR133 mountain driving surface=99.599
+A4,1569.0,0,828.97,99.459,-119.76: Ground_CR133 mountain driving surface=99.499
+A4,1569.0,3,830.57,99.459,-122.30: Ground_CR133 mountain driving surface=99.398
+A4,1569.0,5,831.63,99.459,-123.99: Ground_CR133 mountain driving surface=99.331
+A4,1571.0,-5,827.98,99.664,-114.47: Ground_CR133 mountain driving surface=99.872
+A4,1571.0,-3,829.05,99.664,-116.16: Ground_CR133 mountain driving surface=99.805
+A4,1571.0,0,830.65,99.664,-118.70: Ground_CR133 mountain driving surface=99.704
+A4,1571.0,3,832.25,99.664,-121.24: Ground_CR133 mountain driving surface=99.603
+A4,1571.0,5,833.32,99.664,-122.93: Ground_CR133 mountain driving surface=99.536
+A4,1573.0,-5,829.69,99.870,-113.40: Ground_CR133 mountain driving surface=100.081
+A4,1573.0,-3,830.75,99.870,-115.10: Ground_CR133 mountain driving surface=100.012
+A4,1573.0,0,832.33,99.870,-117.64: Ground_CR133 mountain driving surface=99.910
+A4,1573.0,3,833.92,99.870,-120.19: Ground_CR133 mountain driving surface=99.807
+A4,1573.0,5,834.98,99.870,-121.88: Ground_CR133 mountain driving surface=99.739
+A4,1575.0,-5,831.39,100.075,-112.34: Ground_CR133 mountain driving surface=100.287
+A4,1575.0,-3,832.44,100.075,-114.04: Ground_CR133 mountain driving surface=100.218
+A4,1575.0,0,834.02,100.075,-116.59: Ground_CR133 mountain driving surface=100.115
+A4,1575.0,3,835.60,100.075,-119.14: Ground_CR133 mountain driving surface=100.012
+A4,1575.0,5,836.66,100.075,-120.84: Ground_CR133 mountain driving surface=99.943
+A4,1577.0,-5,833.12,100.280,-111.28: Ground_CR133 mountain driving surface=100.496
+A4,1577.0,-3,834.16,100.280,-112.99: Ground_CR133 mountain driving surface=100.426
+A4,1577.0,0,835.72,100.280,-115.55: Ground_CR133 mountain driving surface=100.320
+A4,1577.0,3,837.28,100.280,-118.12: Ground_CR133 mountain driving surface=100.214
+A4,1577.0,5,838.32,100.280,-119.83: Ground_CR133 mountain driving surface=100.143
+A4,1579.0,-5,834.88,100.484,-110.23: Ground_CR133 mountain driving surface=100.707
+A4,1579.0,-3,835.90,100.484,-111.95: Ground_CR133 mountain driving surface=100.634
+A4,1579.0,0,837.43,100.484,-114.53: Ground_CR133 mountain driving surface=100.524
+A4,1579.0,3,838.95,100.484,-117.11: Ground_CR133 mountain driving surface=100.414
+A4,1579.0,5,839.97,100.484,-118.84: Ground_CR133 mountain driving surface=100.341
+A4,1581.0,-5,836.62,100.687,-109.21: Ground_CR133 mountain driving surface=100.913
+A4,1581.0,-3,837.63,100.687,-110.94: Ground_CR133 mountain driving surface=100.839
+A4,1581.0,0,839.14,100.687,-113.53: Ground_CR133 mountain driving surface=100.727
+A4,1581.0,3,840.66,100.687,-116.12: Ground_CR133 mountain driving surface=100.616
+A4,1581.0,5,841.67,100.687,-117.84: Ground_CR133 mountain driving surface=100.542
+A4,1583.0,-5,838.41,100.890,-108.19: Ground_CR133 mountain driving surface=101.122
+A4,1583.0,-3,839.39,100.890,-109.93: Ground_CR133 mountain driving surface=101.045
+A4,1583.0,0,840.87,100.890,-112.54: Ground_CR133 mountain driving surface=100.930
+A4,1583.0,3,842.35,100.890,-115.15: Ground_CR133 mountain driving surface=100.814
+A4,1583.0,5,843.34,100.890,-116.89: Ground_CR133 mountain driving surface=100.738
+A4,1585.0,-5,840.23,101.091,-107.18: Ground_CR133 mountain driving surface=101.333
+A4,1585.0,-3,841.18,101.091,-108.94: Ground_CR133 mountain driving surface=101.252
+A4,1585.0,0,842.61,101.091,-111.58: Ground_CR133 mountain driving surface=101.131
+A4,1585.0,3,844.05,101.091,-114.21: Ground_CR133 mountain driving surface=101.011
+A4,1585.0,5,845.00,101.091,-115.97: Ground_CR133 mountain driving surface=100.930
+A4,1587.0,-5,842.06,101.292,-106.20: Ground_CR133 mountain driving surface=101.542
+A4,1587.0,-3,842.98,101.292,-107.97: Ground_CR133 mountain driving surface=101.458
+A4,1587.0,0,844.37,101.292,-110.64: Ground_CR133 mountain driving surface=101.332
+A4,1587.0,3,845.75,101.292,-113.30: Ground_CR133 mountain driving surface=101.206
+A4,1587.0,5,846.68,101.292,-115.07: Ground_CR133 mountain driving surface=101.122
+A4,1589.0,-5,843.85,101.491,-105.27: Ground_CR133 mountain driving surface=101.744
+A4,1589.0,-3,844.76,101.491,-107.05: Ground_CR133 mountain driving surface=101.659
+A4,1589.0,0,846.13,101.491,-109.72: Ground_CR133 mountain driving surface=101.531
+A4,1589.0,3,847.51,101.491,-112.39: Ground_CR133 mountain driving surface=101.404
+A4,1589.0,5,848.42,101.491,-114.17: Ground_CR133 mountain driving surface=101.319
+A4,1591.0,-5,845.72,101.689,-104.34: Ground_CR133 mountain driving surface=101.952
+A4,1591.0,-3,846.60,101.689,-106.14: Ground_CR133 mountain driving surface=101.863
+A4,1591.0,0,847.91,101.689,-108.83: Ground_CR133 mountain driving surface=101.729
+A4,1591.0,3,849.23,101.689,-111.53: Ground_CR133 mountain driving surface=101.595
+A4,1591.0,5,850.11,101.689,-113.32: Ground_CR133 mountain driving surface=101.506
+A4,1593.0,-5,847.62,101.886,-103.43: Ground_CR133 mountain driving surface=102.162;Ground_MountainCut natural embankments=97.516
+A4,1593.0,-3,848.45,101.886,-105.25: Ground_CR133 mountain driving surface=102.068;Ground_MountainCut natural embankments=97.276
+A4,1593.0,0,849.71,101.886,-107.97: Ground_CR133 mountain driving surface=101.928
+A4,1593.0,3,850.97,101.886,-110.70: Ground_CR133 mountain driving surface=101.787
+A4,1593.0,5,851.80,101.886,-112.51: Ground_CR133 mountain driving surface=101.693
+A4,1595.0,-5,849.45,102.091,-102.59: Ground_CR133 mountain driving surface=102.401;Ground_MountainCut natural embankments=99.051
+A4,1595.0,-3,850.28,102.091,-104.41: Ground_CR133 mountain driving surface=102.301;Ground_MountainCut natural embankments=98.797
+A4,1595.0,0,851.52,102.091,-107.14: Ground_CR133 mountain driving surface=102.151;Ground_MountainCut natural embankments=98.339
+A4,1595.0,3,852.76,102.091,-109.88: Ground_CR133 mountain driving surface=102.001;Ground_MountainCut natural embankments=97.887
+A4,1595.0,5,853.59,102.091,-111.70: Ground_CR133 mountain driving surface=101.901;Ground_MountainCut natural embankments=97.400
+A4,1597.0,-5,851.37,102.359,-101.75: Ground_CR133 mountain driving surface=102.714;Ground_MountainCut natural embankments=100.643
+A4,1597.0,-3,852.16,102.359,-103.59: Ground_CR133 mountain driving surface=102.604;Ground_MountainCut natural embankments=100.347
+A4,1597.0,0,853.34,102.359,-106.35: Ground_CR133 mountain driving surface=102.439;Ground_MountainCut natural embankments=99.833
+A4,1597.0,3,854.51,102.359,-109.11: Ground_CR133 mountain driving surface=102.272;Ground_MountainCut natural embankments=99.330
+A4,1597.0,5,855.30,102.359,-110.95: Ground_CR133 mountain driving surface=102.161;Ground_MountainCut natural embankments=99.845
+A4,1599.0,-5,853.30,102.697,-100.95: Ground_CR133 mountain driving surface=103.096;Ground_MountainCut natural embankments=102.238
+A4,1599.0,-3,854.04,102.697,-102.81: Ground_CR133 mountain driving surface=102.974;Ground_MountainCut natural embankments=101.890
+A4,1599.0,0,855.16,102.697,-105.60: Ground_CR133 mountain driving surface=102.791;Ground_MountainCut natural embankments=101.323
+A4,1599.0,3,856.27,102.697,-108.38: Ground_CR133 mountain driving surface=102.608;Ground_MountainCut natural embankments=100.667
+A4,1599.0,5,857.01,102.697,-110.24: Ground_MountainCut natural embankments=104.175;Ground_CR133 mountain driving surface=102.485
+A4,1601.0,-5,855.15,103.103,-100.22: Ground_MountainCut natural embankments=103.730;Ground_CR133 mountain driving surface=103.524
+A4,1601.0,-3,855.88,103.103,-102.08: Ground_CR133 mountain driving surface=103.398;Ground_MountainCut natural embankments=103.363
+A4,1601.0,0,856.98,103.103,-104.88: Ground_CR133 mountain driving surface=103.210;Ground_MountainCut natural embankments=102.807
+A4,1601.0,3,858.07,103.103,-107.67: Ground_CR133 mountain driving surface=103.021;Ground_MountainCut natural embankments=102.366
+A4,1601.0,5,858.80,103.103,-109.53: Ground_MountainCut natural embankments=106.380;Ground_CR133 mountain driving surface=102.895
+A4,1603.0,-5,857.10,103.579,-99.50: Ground_MountainCut natural embankments=105.287;Ground_CR133 mountain driving surface=104.038
+A4,1603.0,-3,857.78,103.579,-101.38: Ground_MountainCut natural embankments=104.876;Ground_CR133 mountain driving surface=103.900
+A4,1603.0,0,858.80,103.579,-104.20: Ground_MountainCut natural embankments=104.297;Ground_CR133 mountain driving surface=103.693
+A4,1603.0,3,859.82,103.579,-107.02: Ground_MountainCut natural embankments=106.969;Ground_CR133 mountain driving surface=103.488
+A4,1603.0,5,860.50,103.579,-108.90: Ground_MountainCut natural embankments=107.359;Ground_CR133 mountain driving surface=103.351
+A4,1605.0,-5,859.05,104.117,-98.82: Ground_MountainCut natural embankments=106.820;Ground_CR133 mountain driving surface=104.613
+A4,1605.0,-3,859.67,104.117,-100.72: Ground_MountainCut natural embankments=106.371;Ground_CR133 mountain driving surface=104.463
+A4,1605.0,0,860.62,104.117,-103.56: Ground_MountainCut natural embankments=105.658;Ground_CR133 mountain driving surface=104.237
+A4,1605.0,3,861.56,104.117,-106.41: Ground_MountainCut natural embankments=108.013;Ground_CR133 mountain driving surface=104.011
+A4,1605.0,5,862.19,104.117,-108.31: Ground_MountainCut natural embankments=108.089;Ground_CR133 mountain driving surface=103.861
+A10,325.0,-5,909.54,120.423,-53.00: Ground_CR133 mountain driving surface=120.463;Ground_Mountain_1_2=106.870
+A10,325.0,-3,909.54,120.423,-51.00: Ground_CR133 mountain driving surface=120.463;Ground_Mountain_1_2=106.937
+A10,325.0,0,909.54,120.423,-48.00: Ground_CR133 mountain driving surface=120.463;Ground_Mountain_1_2=108.989
+A10,325.0,3,909.54,120.423,-45.00: Ground_CR133 mountain driving surface=120.463;Ground_Mountain_1_2=117.153
+A10,325.0,5,909.54,120.423,-43.00: Ground_CR133 mountain driving surface=120.463
+A10,327.0,-5,907.54,120.017,-53.00: Ground_CR133 mountain driving surface=120.057;Ground_Mountain_1_2=106.584
+A10,327.0,-3,907.54,120.017,-51.00: Ground_CR133 mountain driving surface=120.057;Ground_Mountain_1_2=106.598
+A10,327.0,0,907.54,120.017,-48.00: Ground_CR133 mountain driving surface=120.057;Ground_Mountain_1_2=108.825
+A10,327.0,3,907.54,120.017,-45.00: Ground_CR133 mountain driving surface=120.057;Ground_Mountain_1_2=117.090
+A10,327.0,5,907.54,120.017,-43.00: Ground_CR133 mountain driving surface=120.057
+A10,329.0,-5,905.54,119.611,-53.00: Ground_CR133 mountain driving surface=119.651;Ground_Mountain_1_2=106.275
+A10,329.0,-3,905.54,119.611,-51.00: Ground_CR133 mountain driving surface=119.651;Ground_Mountain_1_2=106.238
+A10,329.0,0,905.54,119.611,-48.00: Ground_CR133 mountain driving surface=119.651;Ground_Mountain_1_2=108.713
+A10,329.0,3,905.54,119.611,-45.00: Ground_CR133 mountain driving surface=119.651;Ground_Mountain_1_2=117.079
+A10,329.0,5,905.54,119.611,-43.00: Ground_CR133 mountain driving surface=119.651
+A10,331.0,-5,903.54,119.206,-53.00: Ground_CR133 mountain driving surface=119.246;Ground_Mountain_1_2=105.937
+A10,331.0,-3,903.54,119.206,-51.00: Ground_CR133 mountain driving surface=119.246;Ground_Mountain_1_2=105.861
+A10,331.0,0,903.54,119.206,-48.00: Ground_CR133 mountain driving surface=119.246;Ground_Mountain_1_2=108.659
+A10,331.0,3,903.54,119.206,-45.00: Ground_CR133 mountain driving surface=119.246;Ground_Mountain_1_2=117.112
+A10,331.0,5,903.54,119.206,-43.00: Ground_CR133 mountain driving surface=119.246
+A10,333.0,-5,901.54,118.802,-53.00: Ground_CR133 mountain driving surface=118.842;Ground_Mountain_1_2=105.573
+A10,333.0,-3,901.54,118.802,-51.00: Ground_CR133 mountain driving surface=118.842;Ground_Mountain_1_2=105.471
+A10,333.0,0,901.54,118.802,-48.00: Ground_CR133 mountain driving surface=118.842;Ground_Mountain_1_2=108.680
+A10,333.0,3,901.54,118.802,-45.00: Ground_CR133 mountain driving surface=118.842;Ground_Mountain_1_2=117.188
+A10,333.0,5,901.54,118.802,-43.00: Ground_CR133 mountain driving surface=118.842
+A10,335.0,-5,899.54,118.401,-53.00: Ground_CR133 mountain driving surface=118.441;Ground_Mountain_0_2=105.172
+A10,335.0,-3,899.54,118.401,-51.00: Ground_CR133 mountain driving surface=118.441;Ground_Mountain_0_2=105.094
+A10,335.0,0,899.54,118.401,-48.00: Ground_CR133 mountain driving surface=118.441;Ground_Mountain_0_2=108.784
+A10,335.0,3,899.54,118.401,-45.00: Ground_CR133 mountain driving surface=118.441;Ground_Mountain_0_2=117.308
+A10,335.0,5,899.54,118.401,-43.00: Ground_CR133 mountain driving surface=118.441
+A10,337.0,-5,897.54,118.003,-53.00: Ground_CR133 mountain driving surface=118.043;Ground_Mountain_0_2=104.737
+A10,337.0,-3,897.54,118.003,-51.00: Ground_CR133 mountain driving surface=118.043;Ground_Mountain_0_2=104.743
+A10,337.0,0,897.54,118.003,-48.00: Ground_CR133 mountain driving surface=118.043;Ground_Mountain_0_2=108.983
+A10,337.0,3,897.54,118.003,-45.00: Ground_CR133 mountain driving surface=118.043
+A10,337.0,5,897.54,118.003,-43.00: Ground_CR133 mountain driving surface=118.043
+A10,339.0,-5,895.54,117.609,-53.00: Ground_CR133 mountain driving surface=117.649;Ground_Mountain_0_2=104.270
+A10,339.0,-3,895.54,117.609,-51.00: Ground_CR133 mountain driving surface=117.649;Ground_Mountain_0_2=104.430
+A10,339.0,0,895.54,117.609,-48.00: Ground_CR133 mountain driving surface=117.649;Ground_Mountain_0_2=109.290
+A10,339.0,3,895.54,117.609,-45.00: Ground_CR133 mountain driving surface=117.649
+A10,339.0,5,895.54,117.609,-43.00: Ground_CR133 mountain driving surface=117.649
+A10,341.0,-5,893.54,117.221,-53.00: Ground_CR133 mountain driving surface=117.261;Ground_Mountain_0_2=103.770
+A10,341.0,-3,893.54,117.221,-51.00: Ground_CR133 mountain driving surface=117.261;Ground_Mountain_0_2=104.171
+A10,341.0,0,893.54,117.221,-48.00: Ground_CR133 mountain driving surface=117.261;Ground_Mountain_0_2=109.699
+A10,341.0,3,893.54,117.221,-45.00: Ground_CR133 mountain driving surface=117.261
+A10,341.0,5,893.54,117.221,-43.00: Ground_CR133 mountain driving surface=117.261
+A10,343.0,-5,891.54,116.839,-53.00: Ground_CR133 mountain driving surface=116.879;Ground_Mountain_0_2=103.230
+A10,343.0,-3,891.54,116.839,-51.00: Ground_CR133 mountain driving surface=116.879;Ground_Mountain_0_2=103.975
+A10,343.0,0,891.54,116.839,-48.00: Ground_CR133 mountain driving surface=116.879;Ground_Mountain_0_2=110.216
+A10,343.0,3,891.54,116.839,-45.00: Ground_CR133 mountain driving surface=116.879
+A10,343.0,5,891.54,116.839,-43.00: Ground_CR133 mountain driving surface=116.879
+A10,345.0,-5,889.54,116.464,-53.00: Ground_CR133 mountain driving surface=116.504;Ground_Mountain_0_2=102.671
+A10,345.0,-3,889.54,116.464,-51.00: Ground_CR133 mountain driving surface=116.504;Ground_Mountain_0_2=103.862
+A10,345.0,0,889.54,116.464,-48.00: Ground_CR133 mountain driving surface=116.504;Ground_Mountain_0_2=110.840
+A10,345.0,3,889.54,116.464,-45.00: Ground_CR133 mountain driving surface=116.504
+A10,345.0,5,889.54,116.464,-43.00: Ground_CR133 mountain driving surface=116.504
+A10,347.0,-5,887.54,116.097,-53.00: Ground_CR133 mountain driving surface=116.137;Ground_Mountain_0_2=102.117
+A10,347.0,-3,887.54,116.097,-51.00: Ground_CR133 mountain driving surface=116.137;Ground_Mountain_0_2=103.847
+A10,347.0,0,887.54,116.097,-48.00: Ground_CR133 mountain driving surface=116.137;Ground_Mountain_0_2=111.558
+A10,347.0,3,887.54,116.097,-45.00: Ground_CR133 mountain driving surface=116.137
+A10,347.0,5,887.54,116.097,-43.00: Ground_CR133 mountain driving surface=116.137
+A10,349.0,-5,885.94,115.734,-53.05: Ground_CR133 mountain driving surface=115.770;Ground_Mountain_0_2=101.666
+A10,349.0,-3,885.78,115.734,-51.06: Ground_CR133 mountain driving surface=115.776;Ground_Mountain_0_2=103.805
+A10,349.0,0,885.54,115.734,-48.07: Ground_CR133 mountain driving surface=115.781;Ground_Mountain_0_2=112.144
+A10,349.0,3,885.30,115.734,-45.08: Ground_CR133 mountain driving surface=115.783
+A10,349.0,5,885.14,115.734,-43.09: Ground_CR133 mountain driving surface=115.784
+A10,351.0,-5,884.56,115.363,-53.28: Ground_CR133 mountain driving surface=115.402;Ground_Mountain_0_2=101.396
+A10,351.0,-3,884.16,115.363,-51.32: Ground_CR133 mountain driving surface=115.407;Ground_Mountain_0_2=103.445
+A10,351.0,0,883.56,115.363,-48.38: Ground_CR133 mountain driving surface=115.409;Ground_Mountain_0_2=112.017
+A10,351.0,3,882.97,115.363,-45.44: Ground_CR133 mountain driving surface=115.411
+A10,351.0,5,882.57,115.363,-43.48: Ground_CR133 mountain driving surface=115.412
+A10,353.0,-5,883.16,114.991,-53.67: Ground_CR133 mountain driving surface=115.031;Ground_Mountain_0_2=100.927
+A10,353.0,-3,882.55,114.991,-51.76: Ground_CR133 mountain driving surface=115.032;Ground_Mountain_0_2=102.668
+A10,353.0,0,881.64,114.991,-48.91: Ground_CR133 mountain driving surface=115.034;Ground_Mountain_0_2=111.250
+A10,353.0,3,880.72,114.991,-46.05: Ground_CR133 mountain driving surface=115.036
+A10,353.0,5,880.11,114.991,-44.14: Ground_CR133 mountain driving surface=115.037
+A10,355.0,-5,881.76,114.622,-54.21: Ground_CR133 mountain driving surface=114.667;Ground_Mountain_0_2=100.170
+A10,355.0,-3,880.96,114.622,-52.37: Ground_CR133 mountain driving surface=114.659;Ground_Mountain_0_2=102.107
+A10,355.0,0,879.77,114.622,-49.62: Ground_CR133 mountain driving surface=114.660;Ground_Mountain_0_2=110.046
+A10,355.0,3,878.58,114.622,-46.87: Ground_CR133 mountain driving surface=114.662
+A10,355.0,5,877.78,114.622,-45.03: Ground_CR133 mountain driving surface=114.664
+A10,357.0,-5,880.36,114.259,-54.89: Ground_CR133 mountain driving surface=114.312;Ground_Mountain_0_2=99.751
+A10,357.0,-3,879.41,114.259,-53.13: Ground_CR133 mountain driving surface=114.305;Ground_Mountain_0_2=101.302
+A10,357.0,0,877.97,114.259,-50.50: Ground_CR133 mountain driving surface=114.295;Ground_Mountain_0_2=108.545
+A10,357.0,3,876.54,114.259,-47.86: Ground_CR133 mountain driving surface=114.295
+A10,357.0,5,875.58,114.259,-46.10: Ground_CR133 mountain driving surface=114.296
+A10,359.0,-5,879.00,113.906,-55.69: Ground_CR133 mountain driving surface=113.963;Ground_Mountain_0_2=99.284
+A10,359.0,-3,877.90,113.906,-54.02: Ground_CR133 mountain driving surface=113.958;Ground_Mountain_0_2=99.497
+A10,359.0,0,876.25,113.906,-51.51: Ground_CR133 mountain driving surface=113.951;Ground_Mountain_0_2=106.440
+A10,359.0,3,874.60,113.906,-49.01: Ground_Mountain_0_2=114.128;Ground_CR133 mountain driving surface=113.941
+A10,359.0,5,873.51,113.906,-47.33: Ground_CR133 mountain driving surface=113.937
+A10,361.0,-5,877.59,113.563,-56.67: Ground_CR133 mountain driving surface=113.607;Ground_Mountain_0_2=98.761
+A10,361.0,-3,876.40,113.563,-55.06: Ground_CR133 mountain driving surface=113.601;Ground_Mountain_0_2=99.129
+A10,361.0,0,874.61,113.563,-52.65: Ground_CR133 mountain driving surface=113.602;Ground_Mountain_0_2=104.382
+A10,361.0,3,872.82,113.563,-50.25: Ground_CR133 mountain driving surface=113.603;Ground_Mountain_0_2=112.629
+A10,361.0,5,871.62,113.563,-48.64: Ground_CR133 mountain driving surface=113.604
+A10,363.0,-5,876.32,113.232,-57.68: Ground_CR133 mountain driving surface=113.285;Ground_Mountain_0_2=98.335
+A10,363.0,-3,875.01,113.232,-56.17: Ground_CR133 mountain driving surface=113.280;Ground_Mountain_0_2=98.105
+A10,363.0,0,873.05,113.232,-53.90: Ground_CR133 mountain driving surface=113.273;Ground_Mountain_0_2=101.586
+A10,363.0,3,871.08,113.232,-51.64: Ground_CR133 mountain driving surface=113.266;Ground_Mountain_0_2=109.926
+A10,363.0,5,869.77,113.232,-50.13: Ground_CR133 mountain driving surface=113.267
+A10,365.0,-5,875.04,112.916,-58.85: Ground_CR133 mountain driving surface=112.957;Ground_Mountain_0_2=98.407
+A10,365.0,-3,873.66,112.916,-57.41: Ground_CR133 mountain driving surface=112.955;Ground_Mountain_0_2=97.710
+A10,365.0,0,871.57,112.916,-55.25: Ground_CR133 mountain driving surface=112.956;Ground_Mountain_0_2=99.724
+A10,365.0,3,869.49,112.916,-53.10: Ground_CR133 mountain driving surface=112.958;Ground_Mountain_0_2=107.027
+A10,365.0,5,868.10,112.916,-51.66: Ground_CR133 mountain driving surface=112.959;Ground_Mountain_0_2=112.257
+A10,367.0,-5,873.90,112.615,-60.04: Ground_CR133 mountain driving surface=112.665;Ground_Mountain_0_2=98.303
+A10,367.0,-3,872.41,112.615,-58.70: Ground_CR133 mountain driving surface=112.660;Ground_Mountain_0_2=97.417
+A10,367.0,0,870.18,112.615,-56.69: Ground_CR133 mountain driving surface=112.654;Ground_Mountain_0_2=97.864
+A10,367.0,3,867.95,112.615,-54.69: Ground_CR133 mountain driving surface=112.650;Ground_Mountain_0_2=103.835
+A10,367.0,5,866.47,112.615,-53.35: Ground_CR133 mountain driving surface=112.651;Ground_Mountain_0_2=109.244
+A10,369.0,-5,872.78,112.330,-61.36: Ground_CR133 mountain driving surface=112.357;Ground_Mountain_0_2=99.227
+A10,369.0,-3,871.22,112.330,-60.10: Ground_CR133 mountain driving surface=112.359;Ground_Mountain_0_2=97.211
+A10,369.0,0,868.89,112.330,-58.21: Ground_CR133 mountain driving surface=112.364;Ground_Mountain_0_2=96.494
+A10,369.0,3,866.55,112.330,-56.33: Ground_CR133 mountain driving surface=112.369;Ground_Mountain_0_2=100.738
+A10,369.0,5,865.00,112.330,-55.07: Ground_CR133 mountain driving surface=112.372;Ground_Mountain_0_2=105.888
+A10,371.0,-5,871.79,112.065,-62.67: Ground_CR133 mountain driving surface=112.100;Ground_Mountain_0_2=100.261
+A10,371.0,-3,870.15,112.065,-61.53: Ground_CR133 mountain driving surface=112.099;Ground_Mountain_0_2=97.734
+A10,371.0,0,867.69,112.065,-59.81: Ground_CR133 mountain driving surface=112.096;Ground_Mountain_0_2=96.117
+A10,371.0,3,865.23,112.065,-58.10: Ground_CR133 mountain driving surface=112.098;Ground_Mountain_0_2=97.471
+A10,371.0,5,863.58,112.065,-56.96: Ground_CR133 mountain driving surface=112.101;Ground_Mountain_0_2=102.120
+A10,373.0,-5,870.85,111.820,-64.12: Ground_CR133 mountain driving surface=111.848;Ground_Mountain_0_2=101.863
+A10,373.0,-3,869.14,111.820,-63.06: Ground_CR133 mountain driving surface=111.851;Ground_Mountain_0_2=98.989
+A10,373.0,0,866.59,111.820,-61.49: Ground_CR133 mountain driving surface=111.856;Ground_Mountain_0_2=96.008
+A10,373.0,3,864.04,111.820,-59.91: Ground_CR133 mountain driving surface=111.860
+A10,373.0,5,862.34,111.820,-58.86: Ground_CR133 mountain driving surface=111.863;Ground_Mountain_0_2=98.618
+A10,375.0,-5,870.06,111.599,-65.53: Ground_CR133 mountain driving surface=111.632;Ground_Mountain_0_2=103.982
+A10,375.0,-3,868.28,111.599,-64.61: Ground_CR133 mountain driving surface=111.631;Ground_Mountain_0_2=100.545
+A10,375.0,0,865.61,111.599,-63.23: Ground_CR133 mountain driving surface=111.631;Ground_Mountain_0_2=96.703
+A10,375.0,3,862.95,111.599,-61.85: Ground_CR133 mountain driving surface=111.635
+A10,375.0,5,861.17,111.599,-60.94: Ground_CR133 mountain driving surface=111.638;Ground_Mountain_0_2=96.036
+A10,377.0,-5,869.37,111.382,-66.97: Ground_CR133 mountain driving surface=111.421;Ground_Mountain_0_2=106.132
+A10,377.0,-3,867.53,111.382,-66.20: Ground_CR133 mountain driving surface=111.419;Ground_Mountain_0_2=102.749
+A10,377.0,0,864.76,111.382,-65.04: Ground_CR133 mountain driving surface=111.417;Ground_Mountain_0_2=98.243
+A10,377.0,3,861.99,111.382,-63.88: Ground_CR133 mountain driving surface=111.415
+A10,377.0,5,860.15,111.382,-63.11: Ground_CR133 mountain driving surface=111.417
+A10,379.0,-5,868.78,111.220,-68.53: Ground_CR133 mountain driving surface=111.253;Ground_Mountain_0_2=108.379
+A10,379.0,-3,866.89,111.220,-67.88: Ground_CR133 mountain driving surface=111.255;Ground_Mountain_0_2=105.472
+A10,379.0,0,864.05,111.220,-66.91: Ground_CR133 mountain driving surface=111.258;Ground_Mountain_0_2=100.555
+A10,379.0,3,861.21,111.220,-65.94: Ground_CR133 mountain driving surface=111.260;Ground_Mountain_0_2=96.203
+A10,379.0,5,859.32,111.220,-65.29: Ground_CR133 mountain driving surface=111.261
+A10,381.0,-5,868.37,111.158,-70.00: Ground_CR133 mountain driving surface=111.197;Ground_Mountain_0_2=110.471
+A10,381.0,-3,866.42,111.158,-69.53: Ground_CR133 mountain driving surface=111.197;Ground_Mountain_0_2=107.922
+A10,381.0,0,863.51,111.158,-68.83: Ground_CR133 mountain driving surface=111.197;Ground_Mountain_0_2=103.637
+A10,381.0,3,860.59,111.158,-68.13: Ground_CR133 mountain driving surface=111.198;Ground_Mountain_0_2=98.976
+A10,381.0,5,858.64,111.158,-67.67: Ground_CR133 mountain driving surface=111.198;Ground_Mountain_0_2=96.306
+A10,383.0,-5,868.10,111.185,-71.45: Ground_CR133 mountain driving surface=111.227
+A10,383.0,-3,866.12,111.185,-71.19: Ground_CR133 mountain driving surface=111.225;Ground_Mountain_0_1=109.881
+A10,383.0,0,863.15,111.185,-70.80: Ground_CR133 mountain driving surface=111.225;Ground_Mountain_0_1=106.726
+A10,383.0,3,860.17,111.185,-70.41: Ground_CR133 mountain driving surface=111.225;Ground_Mountain_0_1=102.804
+A10,383.0,5,858.19,111.185,-70.15: Ground_CR133 mountain driving surface=111.224;Ground_Mountain_0_1=99.896
+A10,385.0,-5,868.00,111.248,-72.87: Ground_CR133 mountain driving surface=111.290
+A10,385.0,-3,866.00,111.248,-72.84: Ground_CR133 mountain driving surface=111.288
+A10,385.0,0,863.00,111.248,-72.79: Ground_CR133 mountain driving surface=111.288;Ground_Mountain_0_1=109.233
+A10,385.0,3,860.00,111.248,-72.75: Ground_CR133 mountain driving surface=111.288;Ground_Mountain_0_1=106.686
+A10,385.0,5,858.00,111.248,-72.72: Ground_CR133 mountain driving surface=111.287;Ground_Mountain_0_1=104.539
+A6,2460.0,-5,1007.15,130.081,-305.00: Ground_CR133 mountain driving surface=130.121
+A6,2460.0,-3,1007.15,130.081,-303.00: Ground_CR133 mountain driving surface=130.121
+A6,2460.0,0,1007.15,130.081,-300.00: Ground_CR133 mountain driving surface=130.121
+A6,2460.0,3,1007.15,130.081,-297.00: Ground_CR133 mountain driving surface=130.121
+A6,2460.0,5,1007.15,130.081,-295.00: Ground_CR133 mountain driving surface=130.121
+A6,2462.0,-5,1005.44,131.093,-305.00: Ground_CR133 mountain driving surface=131.133
+A6,2462.0,-3,1005.44,131.093,-303.00: Ground_CR133 mountain driving surface=131.133
+A6,2462.0,0,1005.44,131.093,-300.00: Ground_CR133 mountain driving surface=131.133
+A6,2462.0,3,1005.44,131.093,-297.00: Ground_CR133 mountain driving surface=131.133
+A6,2462.0,5,1005.44,131.093,-295.00: Ground_CR133 mountain driving surface=131.133
+A6,2464.0,-5,1003.48,131.195,-305.00: 
+A6,2464.0,-3,1003.48,131.195,-303.00: 
+A6,2464.0,0,1003.48,131.195,-300.00: 
+A6,2464.0,3,1003.48,131.195,-297.00: 
+A6,2464.0,5,1003.48,131.195,-295.00: 
+A6,2466.0,-5,1001.49,131.047,-305.00: 
+A6,2466.0,-3,1001.49,131.047,-303.00: 
+A6,2466.0,0,1001.49,131.047,-300.00: 
+A6,2466.0,3,1001.49,131.047,-297.00: 
+A6,2466.0,5,1001.49,131.047,-295.00: 
+A6,2468.0,-5,999.49,130.900,-305.00: 
+A6,2468.0,-3,999.49,130.900,-303.00: 
+A6,2468.0,0,999.49,130.900,-300.00: 
+A6,2468.0,3,999.49,130.900,-297.00: 
+A6,2468.0,5,999.49,130.900,-295.00: 
+A6,2470.0,-5,997.50,130.753,-305.00: 
+A6,2470.0,-3,997.50,130.753,-303.00: 
+A6,2470.0,0,997.50,130.753,-300.00: 
+A6,2470.0,3,997.50,130.753,-297.00: 
+A6,2470.0,5,997.50,130.753,-295.00: 
+A6,2472.0,-5,995.50,130.605,-305.00: 
+A6,2472.0,-3,995.50,130.605,-303.00: 
+A6,2472.0,0,995.50,130.605,-300.00: 
+A6,2472.0,3,995.50,130.605,-297.00: 
+A6,2472.0,5,995.50,130.605,-295.00: 
+A6,2474.0,-5,993.51,130.458,-305.00: 
+A6,2474.0,-3,993.51,130.458,-303.00: 
+A6,2474.0,0,993.51,130.458,-300.00: 
+A6,2474.0,3,993.51,130.458,-297.00: 
+A6,2474.0,5,993.51,130.458,-295.00: 
+A6,2476.0,-5,991.51,130.311,-305.00: 
+A6,2476.0,-3,991.51,130.311,-303.00: 
+A6,2476.0,0,991.51,130.311,-300.00: 
+A6,2476.0,3,991.51,130.311,-297.00: 
+A6,2476.0,5,991.51,130.311,-295.00: 
+A6,2478.0,-5,989.52,130.163,-305.00: 
+A6,2478.0,-3,989.52,130.163,-303.00: 
+A6,2478.0,0,989.52,130.163,-300.00: 
+A6,2478.0,3,989.52,130.163,-297.00: 
+A6,2478.0,5,989.52,130.163,-295.00: 
+A6,2480.0,-5,987.52,130.016,-305.00: 
+A6,2480.0,-3,987.52,130.016,-303.00: 
+A6,2480.0,0,987.52,130.016,-300.00: 
+A6,2480.0,3,987.52,130.016,-297.00: 
+A6,2480.0,5,987.52,130.016,-295.00: 
+A6,2482.0,-5,985.53,129.869,-305.00: 
+A6,2482.0,-3,985.53,129.869,-303.00: 
+A6,2482.0,0,985.53,129.869,-300.00: 
+A6,2482.0,3,985.53,129.869,-297.00: 
+A6,2482.0,5,985.53,129.869,-295.00: 
+A6,2484.0,-5,983.54,129.722,-305.00: 
+A6,2484.0,-3,983.54,129.722,-303.00: 
+A6,2484.0,0,983.54,129.722,-300.00: 
+A6,2484.0,3,983.54,129.722,-297.00: 
+A6,2484.0,5,983.54,129.722,-295.00: 
+A6,2486.0,-5,981.54,129.574,-305.00: 
+A6,2486.0,-3,981.54,129.574,-303.00: 
+A6,2486.0,0,981.54,129.574,-300.00: 
+A6,2486.0,3,981.54,129.574,-297.00: 
+A6,2486.0,5,981.54,129.574,-295.00: 
+A6,2488.0,-5,979.55,129.427,-305.00: 
+A6,2488.0,-3,979.55,129.427,-303.00: 
+A6,2488.0,0,979.55,129.427,-300.00: 
+A6,2488.0,3,979.55,129.427,-297.00: 
+A6,2488.0,5,979.55,129.427,-295.00: 
+A6,2490.0,-5,977.55,129.280,-305.00: 
+A6,2490.0,-3,977.55,129.280,-303.00: 
+A6,2490.0,0,977.55,129.280,-300.00: 
+A6,2490.0,3,977.55,129.280,-297.00: 
+A6,2490.0,5,977.55,129.280,-295.00: 
+A6,2492.0,-5,975.56,129.132,-305.00: 
+A6,2492.0,-3,975.56,129.132,-303.00: 
+A6,2492.0,0,975.56,129.132,-300.00: 
+A6,2492.0,3,975.56,129.132,-297.00: 
+A6,2492.0,5,975.56,129.132,-295.00: 
+A6,2494.0,-5,973.56,128.985,-305.00: 
+A6,2494.0,-3,973.56,128.985,-303.00: 
+A6,2494.0,0,973.56,128.985,-300.00: 
+A6,2494.0,3,973.56,128.985,-297.00: 
+A6,2494.0,5,973.56,128.985,-295.00: 
+A6,2496.0,-5,971.57,128.838,-305.00: 
+A6,2496.0,-3,971.57,128.838,-303.00: 
+A6,2496.0,0,971.57,128.838,-300.00: 
+A6,2496.0,3,971.57,128.838,-297.00: 
+A6,2496.0,5,971.57,128.838,-295.00: 
+A6,2498.0,-5,969.57,128.690,-305.00: 
+A6,2498.0,-3,969.57,128.690,-303.00: 
+A6,2498.0,0,969.57,128.690,-300.00: 
+A6,2498.0,3,969.57,128.690,-297.00: 
+A6,2498.0,5,969.57,128.690,-295.00: 
+A6,2500.0,-5,967.58,128.543,-305.00: 
+A6,2500.0,-3,967.58,128.543,-303.00: 
+A6,2500.0,0,967.58,128.543,-300.00: 
+A6,2500.0,3,967.58,128.543,-297.00: 
+A6,2500.0,5,967.58,128.543,-295.00: 
+A6,2502.0,-5,965.58,128.396,-305.00: 
+A6,2502.0,-3,965.58,128.396,-303.00: 
+A6,2502.0,0,965.58,128.396,-300.00: 
+A6,2502.0,3,965.58,128.396,-297.00: 
+A6,2502.0,5,965.58,128.396,-295.00: 
+A6,2504.0,-5,963.59,128.249,-305.00: 
+A6,2504.0,-3,963.59,128.249,-303.00: 
+A6,2504.0,0,963.59,128.249,-300.00: 
+A6,2504.0,3,963.59,128.249,-297.00: 
+A6,2504.0,5,963.59,128.249,-295.00: 
+A6,2506.0,-5,961.60,128.101,-305.00: 
+A6,2506.0,-3,961.60,128.101,-303.00: 
+A6,2506.0,0,961.60,128.101,-300.00: 
+A6,2506.0,3,961.60,128.101,-297.00: 
+A6,2506.0,5,961.60,128.101,-295.00: 
+A6,2508.0,-5,959.60,127.954,-305.00: 
+A6,2508.0,-3,959.60,127.954,-303.00: 
+A6,2508.0,0,959.60,127.954,-300.00: 
+A6,2508.0,3,959.60,127.954,-297.00: 
+A6,2508.0,5,959.60,127.954,-295.00: 
+A6,2510.0,-5,957.61,127.807,-305.00: 
+A6,2510.0,-3,957.61,127.807,-303.00: 
+A6,2510.0,0,957.61,127.807,-300.00: 
+A6,2510.0,3,957.61,127.807,-297.00: 
+A6,2510.0,5,957.61,127.807,-295.00: 
+A6,2512.0,-5,955.61,127.659,-305.00: 
+A6,2512.0,-3,955.61,127.659,-303.00: 
+A6,2512.0,0,955.61,127.659,-300.00: 
+A6,2512.0,3,955.61,127.659,-297.00: 
+A6,2512.0,5,955.61,127.659,-295.00: 
+A6,2514.0,-5,953.62,127.512,-305.00: 
+A6,2514.0,-3,953.62,127.512,-303.00: 
+A6,2514.0,0,953.62,127.512,-300.00: 
+A6,2514.0,3,953.62,127.512,-297.00: 
+A6,2514.0,5,953.62,127.512,-295.00: 
+A6,2516.0,-5,951.62,127.365,-305.00: 
+A6,2516.0,-3,951.62,127.365,-303.00: 
+A6,2516.0,0,951.62,127.365,-300.00: 
+A6,2516.0,3,951.62,127.365,-297.00: 
+A6,2516.0,5,951.62,127.365,-295.00: 
+A6,2518.0,-5,949.63,127.217,-305.00: 
+A6,2518.0,-3,949.63,127.217,-303.00: 
+A6,2518.0,0,949.63,127.217,-300.00: 
+A6,2518.0,3,949.63,127.217,-297.00: 
+A6,2518.0,5,949.63,127.217,-295.00: 
+A6,2520.0,-5,947.63,127.070,-305.00: 
+A6,2520.0,-3,947.63,127.070,-303.00: 
+A6,2520.0,0,947.63,127.070,-300.00: 
+A6,2520.0,3,947.63,127.070,-297.00: 
+A6,2520.0,5,947.63,127.070,-295.00: 
+A6,2522.0,-5,945.64,126.923,-305.00: 
+A6,2522.0,-3,945.64,126.923,-303.00: 
+A6,2522.0,0,945.64,126.923,-300.00: 
+A6,2522.0,3,945.64,126.923,-297.00: 
+A6,2522.0,5,945.64,126.923,-295.00: 
+A6,2524.0,-5,943.64,126.776,-305.00: 
+A6,2524.0,-3,943.64,126.776,-303.00: 
+A6,2524.0,0,943.64,126.776,-300.00: 
+A6,2524.0,3,943.64,126.776,-297.00: 
+A6,2524.0,5,943.64,126.776,-295.00: 
+A6,2526.0,-5,941.65,126.628,-305.00: 
+A6,2526.0,-3,941.65,126.628,-303.00: 
+A6,2526.0,0,941.65,126.628,-300.00: 
+A6,2526.0,3,941.65,126.628,-297.00: 
+A6,2526.0,5,941.65,126.628,-295.00: 
+A6,2528.0,-5,939.66,126.481,-305.00: 
+A6,2528.0,-3,939.66,126.481,-303.00: 
+A6,2528.0,0,939.66,126.481,-300.00: 
+A6,2528.0,3,939.66,126.481,-297.00: 
+A6,2528.0,5,939.66,126.481,-295.00: 
+A6,2530.0,-5,937.66,126.334,-305.00: 
+A6,2530.0,-3,937.66,126.334,-303.00: 
+A6,2530.0,0,937.66,126.334,-300.00: 
+A6,2530.0,3,937.66,126.334,-297.00: 
+A6,2530.0,5,937.66,126.334,-295.00: 
+A6,2532.0,-5,935.67,126.186,-305.00: 
+A6,2532.0,-3,935.67,126.186,-303.00: 
+A6,2532.0,0,935.67,126.186,-300.00: 
+A6,2532.0,3,935.67,126.186,-297.00: 
+A6,2532.0,5,935.67,126.186,-295.00: 
+A6,2534.0,-5,933.67,126.039,-305.00: 
+A6,2534.0,-3,933.67,126.039,-303.00: 
+A6,2534.0,0,933.67,126.039,-300.00: 
+A6,2534.0,3,933.67,126.039,-297.00: 
+A6,2534.0,5,933.67,126.039,-295.00: 
+A6,2536.0,-5,931.68,125.892,-305.00: 
+A6,2536.0,-3,931.68,125.892,-303.00: 
+A6,2536.0,0,931.68,125.892,-300.00: 
+A6,2536.0,3,931.68,125.892,-297.00: 
+A6,2536.0,5,931.68,125.892,-295.00: 
+A6,2538.0,-5,929.68,125.744,-305.00: 
+A6,2538.0,-3,929.68,125.744,-303.00: 
+A6,2538.0,0,929.68,125.744,-300.00: 
+A6,2538.0,3,929.68,125.744,-297.00: 
+A6,2538.0,5,929.68,125.744,-295.00: 
+A6,2540.0,-5,927.69,125.597,-305.00: 
+A6,2540.0,-3,927.69,125.597,-303.00: 
+A6,2540.0,0,927.69,125.597,-300.00: 
+A6,2540.0,3,927.69,125.597,-297.00: 
+A6,2540.0,5,927.69,125.597,-295.00: 
+A6,2542.0,-5,925.69,125.450,-305.00: 
+A6,2542.0,-3,925.69,125.450,-303.00: 
+A6,2542.0,0,925.69,125.450,-300.00: 
+A6,2542.0,3,925.69,125.450,-297.00: 
+A6,2542.0,5,925.69,125.450,-295.00: 
+A6,2544.0,-5,923.70,125.303,-305.00: 
+A6,2544.0,-3,923.70,125.303,-303.00: 
+A6,2544.0,0,923.70,125.303,-300.00: 
+A6,2544.0,3,923.70,125.303,-297.00: 
+A6,2544.0,5,923.70,125.303,-295.00: 
+A6,2546.0,-5,921.70,125.155,-305.00: 
+A6,2546.0,-3,921.70,125.155,-303.00: 
+A6,2546.0,0,921.70,125.155,-300.00: 
+A6,2546.0,3,921.70,125.155,-297.00: 
+A6,2546.0,5,921.70,125.155,-295.00: 
+A6,2548.0,-5,919.71,125.008,-305.00: 
+A6,2548.0,-3,919.71,125.008,-303.00: 
+A6,2548.0,0,919.71,125.008,-300.00: 
+A6,2548.0,3,919.71,125.008,-297.00: 
+A6,2548.0,5,919.71,125.008,-295.00: 
+A6,2550.0,-5,917.71,124.861,-305.00: 
+A6,2550.0,-3,917.71,124.861,-303.00: 
+A6,2550.0,0,917.71,124.861,-300.00: 
+A6,2550.0,3,917.71,124.861,-297.00: 
+A6,2550.0,5,917.71,124.861,-295.00: 
+A6,2552.0,-5,915.72,124.713,-305.00: 
+A6,2552.0,-3,915.72,124.713,-303.00: 
+A6,2552.0,0,915.72,124.713,-300.00: 
+A6,2552.0,3,915.72,124.713,-297.00: 
+A6,2552.0,5,915.72,124.713,-295.00: 
+A6,2554.0,-5,913.73,124.566,-305.00: 
+A6,2554.0,-3,913.73,124.566,-303.00: 
+A6,2554.0,0,913.73,124.566,-300.00: 
+A6,2554.0,3,913.73,124.566,-297.00: 
+A6,2554.0,5,913.73,124.566,-295.00: 
+A6,2556.0,-5,911.73,124.419,-305.00: 
+A6,2556.0,-3,911.73,124.419,-303.00: 
+A6,2556.0,0,911.73,124.419,-300.00: 
+A6,2556.0,3,911.73,124.419,-297.00: 
+A6,2556.0,5,911.73,124.419,-295.00: 
+A6,2558.0,-5,909.74,124.271,-305.00: 
+A6,2558.0,-3,909.74,124.271,-303.00: 
+A6,2558.0,0,909.74,124.271,-300.00: 
+A6,2558.0,3,909.74,124.271,-297.00: 
+A6,2558.0,5,909.74,124.271,-295.00: 
+A6,2560.0,-5,907.74,124.124,-305.00: 
+A6,2560.0,-3,907.74,124.124,-303.00: 
+A6,2560.0,0,907.74,124.124,-300.00: 
+A6,2560.0,3,907.74,124.124,-297.00: 
+A6,2560.0,5,907.74,124.124,-295.00: 
+A6,2562.0,-5,905.75,123.977,-305.00: 
+A6,2562.0,-3,905.75,123.977,-303.00: 
+A6,2562.0,0,905.75,123.977,-300.00: 
+A6,2562.0,3,905.75,123.977,-297.00: 
+A6,2562.0,5,905.75,123.977,-295.00: 
+A6,2564.0,-5,903.78,123.637,-305.00: Ground_CR133 mountain driving surface=123.677
+A6,2564.0,-3,903.78,123.637,-303.00: Ground_CR133 mountain driving surface=123.677
+A6,2564.0,0,903.78,123.637,-300.00: Ground_CR133 mountain driving surface=123.677
+A6,2564.0,3,903.78,123.637,-297.00: Ground_CR133 mountain driving surface=123.677
+A6,2564.0,5,903.78,123.637,-295.00: Ground_CR133 mountain driving surface=123.677
+A6,2566.0,-5,901.87,123.069,-305.00: Ground_CR133 mountain driving surface=123.109
+A6,2566.0,-3,901.87,123.069,-303.00: Ground_CR133 mountain driving surface=123.109
+A6,2566.0,0,901.87,123.069,-300.00: Ground_CR133 mountain driving surface=123.109
+A6,2566.0,3,901.87,123.069,-297.00: Ground_CR133 mountain driving surface=123.109
+A6,2566.0,5,901.87,123.069,-295.00: Ground_CR133 mountain driving surface=123.110
+A6,2568.0,-5,899.95,122.508,-305.00: Ground_CR133 mountain driving surface=122.548
+A6,2568.0,-3,899.95,122.508,-303.00: Ground_CR133 mountain driving surface=122.548
+A6,2568.0,0,899.95,122.508,-300.00: Ground_CR133 mountain driving surface=122.548
+A6,2568.0,3,899.95,122.508,-297.00: Ground_CR133 mountain driving surface=122.548
+A6,2568.0,5,899.95,122.508,-295.00: Ground_CR133 mountain driving surface=122.548
+A6,2570.0,-5,898.03,121.952,-305.00: Ground_CR133 mountain driving surface=121.992
+A6,2570.0,-3,898.03,121.952,-303.00: Ground_CR133 mountain driving surface=121.992
+A6,2570.0,0,898.03,121.952,-300.00: Ground_CR133 mountain driving surface=121.992
+A6,2570.0,3,898.03,121.952,-297.00: Ground_CR133 mountain driving surface=121.992
+A6,2570.0,5,898.03,121.952,-295.00: Ground_CR133 mountain driving surface=121.992

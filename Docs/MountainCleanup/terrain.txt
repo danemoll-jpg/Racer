@@ -1,0 +1,12 @@
+Replaced patch inside Ground_CR133 mountain earth banks
+Replaced patch inside Ground_Mountain_0_1
+Replaced patch inside Ground_Mountain_1_1
+Replaced patch inside Ground_Mountain_1_2
+Replaced patch inside Ground_MountainCut natural embankments
+Replaced patch inside Ground_MountainPolish supported shoulders
+Replaced patch inside Ground_Mountain_0_2
+Replaced patch inside Ground_CR117 outer ravine
+Grounded Acorn clue / woodland-15 by -0.0004196167
+Grounded Fern Creek Leap
+35 - 55 mph by -1.746269
+Grounded Acorn clue / woodland-16 by -10.87153

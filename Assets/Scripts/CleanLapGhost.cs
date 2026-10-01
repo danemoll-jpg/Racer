@@ -20,7 +20,18 @@ namespace Racer
         public void Initialize(RaceDirector owner,string saveRoot)
         {race=owner;root=Path.Combine(saveRoot,"CleanLapGhosts");try{Enabled=File.Exists(Path.Combine(root,"preference.txt"))&&File.ReadAllText(Path.Combine(root,"preference.txt"))=="on";}catch{Enabled=false;}race.vehicle.GetComponent<VehicleRespawn>().Respawned+=Invalidate;}
         public void Toggle(){Enabled=!Enabled;try{Directory.CreateDirectory(root);AtomicSave.Write(Path.Combine(root,"preference.txt"),Enabled?"on":"off");}catch(Exception e){Status="Ghost preference could not save: "+e.Message;}if(!Enabled&&visual)visual.gameObject.SetActive(false);}
-        public void ResetSession(){active=false;recording.Clear();sampled=false;cursor=0;if(visual)visual.gameObject.SetActive(false);}
+        Lap attemptBaseline; bool wroteAttempt;
+        public void ResetSession(){active=false;recording.Clear();sampled=false;cursor=0;if(visual)visual.gameObject.SetActive(false);Refresh();attemptBaseline=best;wroteAttempt=false;}
+        public void RejectDebugRun()
+        {
+            invalid=true;active=false;recording.Clear();
+            if(wroteAttempt)
+            {
+                try{if(attemptBaseline==null)File.Delete(FileName);else AtomicSave.Write(FileName,JsonUtility.ToJson(attemptBaseline));best=attemptBaseline;wroteAttempt=false;}
+                catch(Exception e){Status="Debug ghost rollback failed: "+e.Message;return;}
+            }
+            Status="DEBUG RUN / ghosts disabled until restart";
+        }
         public void Invalidate(){invalid=true;Status="Clean-lap ghost rejected: reset or teleport. Next lap can qualify.";}
         string FileName=>Path.Combine(root,Key.Replace('/','_')+".json");
         public void Refresh()
@@ -40,6 +51,7 @@ namespace Racer
         }
         public void Boundary(double time,Vector3 crossing,Quaternion rotation,bool completed,bool finished)
         {
+            if(race.Flow.DebugMovementUsed){active=false;invalid=true;return;}
             Refresh();
             if(completed&&active)
             {
@@ -50,7 +62,7 @@ namespace Racer
                     if(best==null||seconds<best.seconds)
                     {
                         var lap=new Lap{key=key,date=DateTime.UtcNow.ToString("o"),seconds=seconds,poses=new(recording)};
-                        try{Directory.CreateDirectory(root);AtomicSave.Write(FileName,JsonUtility.ToJson(lap));best=lap;Status="NEW CLEAN-LAP GHOST / "+RaceHud.FormatTime(seconds);}
+                        try{Directory.CreateDirectory(root);AtomicSave.Write(FileName,JsonUtility.ToJson(lap));best=lap;wroteAttempt=true;Status="NEW CLEAN-LAP GHOST / "+RaceHud.FormatTime(seconds);}
                         catch(Exception e){Status="Ghost could not be saved: "+e.Message;}
                     }
                 }

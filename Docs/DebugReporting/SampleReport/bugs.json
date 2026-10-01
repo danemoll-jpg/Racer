@@ -1,0 +1,117 @@
+{
+    "schemaVersion": 1,
+    "started": "2026-10-01T18:53:46.5492729-04:00",
+    "bugs": [
+        {
+            "id": "BUG-001",
+            "timestamp": "2026-10-01T18:53:46.5567898-04:00",
+            "course": "Mountain Loop - Reverse",
+            "direction": "Reverse",
+            "mode": "Race",
+            "vehicle": "moto",
+            "version": "0.62.0-review1",
+            "buildGuid": "00000000000000000000000000000000",
+            "scene": "MountainLoopReverse",
+            "position": {
+                "x": 724.903564453125,
+                "y": 79.54212188720703,
+                "z": -41.00733184814453
+            },
+            "rotation": {
+                "x": -6.561439818142389e-7,
+                "y": 9.923242568969727,
+                "z": -1.1512358177867554e-8
+            },
+            "vehiclePosition": {
+                "x": 724.903564453125,
+                "y": 79.54212188720703,
+                "z": -41.00733184814453
+            },
+            "heading": 9.923242568969727,
+            "speedMps": 5.621605581040967e-8,
+            "roadProgress": 19.96819496154785,
+            "branchProgress": 0.0,
+            "lap": 1,
+            "nextCheckpoint": 0,
+            "branch": "Main",
+            "viewpoint": "Vehicle",
+            "screenshot": "Screenshots/BUG-001.png",
+            "comment": "Road needs inspection",
+            "debugMovementUsed": false
+        },
+        {
+            "id": "BUG-002",
+            "timestamp": "2026-10-01T18:53:47.3804748-04:00",
+            "course": "Mountain Loop - Reverse",
+            "direction": "Reverse",
+            "mode": "Race",
+            "vehicle": "moto",
+            "version": "0.62.0-review1",
+            "buildGuid": "00000000000000000000000000000000",
+            "scene": "MountainLoopReverse",
+            "position": {
+                "x": 728.0758056640625,
+                "y": 89.65878295898438,
+                "z": -42.93775177001953
+            },
+            "rotation": {
+                "x": 9.900232315063477,
+                "y": 17.303037643432617,
+                "z": -1.0833494457074266e-7
+            },
+            "vehiclePosition": {
+                "x": 724.903564453125,
+                "y": 79.54193115234375,
+                "z": -41.007328033447266
+            },
+            "heading": 17.303037643432617,
+            "speedMps": 5.955918780387037e-8,
+            "roadProgress": 19.968198776245117,
+            "branchProgress": 0.0,
+            "lap": 1,
+            "nextCheckpoint": 0,
+            "branch": "Main",
+            "viewpoint": "Detached inspection camera",
+            "screenshot": "Screenshots/BUG-002.png",
+            "comment": "Detached view: shoulder and road seam.",
+            "debugMovementUsed": true
+        },
+        {
+            "id": "BUG-003",
+            "timestamp": "2026-10-01T18:53:47.7678922-04:00",
+            "course": "Mountain Loop - Reverse",
+            "direction": "Reverse",
+            "mode": "Free Roam",
+            "vehicle": "moto",
+            "version": "0.62.0-review1",
+            "buildGuid": "00000000000000000000000000000000",
+            "scene": "MountainLoopReverse",
+            "position": {
+                "x": 723.783447265625,
+                "y": 82.6776123046875,
+                "z": -47.41008377075195
+            },
+            "rotation": {
+                "x": 13.609758377075195,
+                "y": 9.923018455505371,
+                "z": 0.0
+            },
+            "vehiclePosition": {
+                "x": 724.903564453125,
+                "y": 79.67304992675781,
+                "z": -41.007328033447266
+            },
+            "heading": 9.923018455505371,
+            "speedMps": 1.144226640520385e-12,
+            "roadProgress": 19.968198776245117,
+            "branchProgress": 0.0,
+            "lap": 0,
+            "nextCheckpoint": -1,
+            "branch": "Main",
+            "viewpoint": "Detached inspection camera",
+            "screenshot": "Screenshots/BUG-003.png",
+            "comment": "Free roam inspection / third report.",
+            "debugMovementUsed": true
+        }
+    ]
+}

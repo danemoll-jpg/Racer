@@ -1,79 +1,334 @@
-using System.Globalization;
+using System;
+using System.Collections;
+using System.IO;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 namespace Racer
 {
+    [DefaultExecutionOrder(-900)]
     public sealed class DeveloperLocationHud : MonoBehaviour
     {
+        public static DeveloperLocationHud Instance { get; private set; }
+        static DebugReportSession session;
+        public static bool DebugEnabled => Instance && Instance.visible;
+        public static bool Inspecting => Instance && Instance.Flying;
+        public static bool OwnsInput => Instance && (Instance.Holding || Time.frameCount <= Instance.releasedFrame);
+        public static DebugReportSession Session => session;
+#if UNITY_EDITOR
+        public static string ValidationReportRoot;
+        public static void ResetValidationSession() => session = null;
+#endif
         RaceDirector race;
-        GameObject panel;
-        UnityEngine.UI.Text label, confirmation;
-        bool visible;
-        float copiedUntil, nextRefresh;
+        Font font;
+        GameObject panel, shade, menuCard, commentCard;
+        UnityEngine.UI.Text label, status, captureDetails;
+        UnityEngine.UI.InputField comment;
+        UnityEngine.UI.Button firstButton;
+        bool visible, hudVisible = true, menuOpen, capturing, held;
+        bool oldInput, oldAudio, oldCursor, oldChase;
+        float oldScale, nextRefresh, yaw, pitch;
+        CursorLockMode oldLock;
+        int releasedFrame = -1;
+        Camera cameraView;
+        ChaseCamera chase;
+        Vector3 cameraPosition;
+        Quaternion cameraRotation;
+        DebugReportSession.Bug pending;
+        Keyboard textKeyboard;
+        float nextErase;
+        public bool Flying { get; private set; }
+        public bool CommentOpen { get; private set; }
         public bool Visible => visible;
+        public bool Capturing => capturing;
+        public string LastExport { get; private set; }
+        public string LastOpenedFolder { get; private set; }
+        public string Error { get; private set; }
+        public string HudText => label ? label.text : "";
+        bool Holding => menuOpen || capturing || CommentOpen || Flying;
+        bool Available => race && race.Flow && race.vehicle && race.Flow.State != RaceFlow.Stage.Title;
+
         public static void Create(Transform parent, RaceDirector owner, Font font)
         {
-            var host = new GameObject("Developer location HUD", typeof(RectTransform));
-            host.transform.SetParent(parent, false);
-            var hud = host.AddComponent<DeveloperLocationHud>();
-            hud.race = owner;
-            hud.panel = new GameObject("World XYZ panel", typeof(RectTransform), typeof(UnityEngine.UI.Image));
-            hud.panel.transform.SetParent(parent, false);
-            var rect = (RectTransform)hud.panel.transform;
-            rect.anchorMin = rect.anchorMax = rect.pivot = new Vector2(1, 0);
-            rect.anchoredPosition = new(-18, 96); rect.sizeDelta = new(236, 148);
-            var background = hud.panel.GetComponent<UnityEngine.UI.Image>();
-            background.color = new(.025f, .055f, .07f, .9f); background.raycastTarget = false;
-            hud.label = Text("Unity world coordinates", rect, font);
-            hud.label.rectTransform.anchorMin = Vector2.zero; hud.label.rectTransform.anchorMax = Vector2.one;
-            hud.label.rectTransform.offsetMin = new(10, 8); hud.label.rectTransform.offsetMax = new(-8, -8);
-            hud.confirmation = Text("Location copied", parent, font);
-            var cr = hud.confirmation.rectTransform;
-            cr.anchorMin = cr.anchorMax = cr.pivot = new(1, 0);
-            cr.anchoredPosition = new(-18, 250); cr.sizeDelta = new(236, 26);
-            hud.confirmation.alignment = TextAnchor.MiddleRight;
-            hud.confirmation.gameObject.AddComponent<UnityEngine.UI.Outline>();
-            hud.confirmation.text = "LOCATION COPIED"; hud.confirmation.enabled = false;
-            hud.panel.SetActive(false);
+            var host = new GameObject("Developer inspection", typeof(RectTransform), typeof(Canvas), typeof(UnityEngine.UI.CanvasScaler), typeof(UnityEngine.UI.GraphicRaycaster));
+            var canvas = host.GetComponent<Canvas>(); canvas.renderMode = RenderMode.ScreenSpaceOverlay; canvas.sortingOrder = 500;
+            var scaler = host.GetComponent<UnityEngine.UI.CanvasScaler>(); scaler.uiScaleMode = UnityEngine.UI.CanvasScaler.ScaleMode.ScaleWithScreenSize;
+            scaler.referenceResolution = new(1280, 800); scaler.matchWidthOrHeight = .5f;
+            var hud = host.AddComponent<DeveloperLocationHud>(); Instance = hud; hud.race = owner; hud.font = font; hud.BuildUi();
         }
-        static UnityEngine.UI.Text Text(string name, Transform parent, Font font)
+        RectTransform Rect(string name, Transform parent, Vector2 size)
         {
-            var text = new GameObject(name, typeof(RectTransform), typeof(UnityEngine.UI.Text)).GetComponent<UnityEngine.UI.Text>();
-            text.transform.SetParent(parent, false); text.font = font; text.fontSize = 16;
-            text.color = Color.white; text.raycastTarget = false; text.supportRichText = false;
-            return text;
+            var r = new GameObject(name, typeof(RectTransform)).GetComponent<RectTransform>(); r.SetParent(parent, false); r.sizeDelta = size; return r;
         }
-        bool ActiveCourse => race && !race.FreeRoam && race.Flow && !race.Flow.MenuVisible;
-        public string LocationText()
+        UnityEngine.UI.Text Text(string name, Transform parent, int size)
         {
-            var p = race.vehicle.transform.position;
-            return string.Format(CultureInfo.InvariantCulture, "Position: X={0:F1}, Y={1:F1}, Z={2:F1} | Course: {3}", p.x, p.y, p.z, ActiveCourse ? race.courseName : "None");
+            var t = Rect(name, parent, Vector2.zero).gameObject.AddComponent<UnityEngine.UI.Text>();
+            t.font = font; t.fontSize = size; t.color = Color.white; t.raycastTarget = false; t.supportRichText = false; return t;
         }
-        public void Toggle() { visible = !visible; nextRefresh = 0; }
-        public void CopyLocation()
+        void Fill(RectTransform r, float pad = 0) { r.anchorMin = Vector2.zero; r.anchorMax = Vector2.one; r.offsetMin = new(pad, pad); r.offsetMax = new(-pad, -pad); }
+        void Background(GameObject g, Color color) => g.AddComponent<UnityEngine.UI.Image>().color = color;
+        UnityEngine.UI.Button Button(Transform parent, string title, Action action)
         {
-            if (!race || !race.vehicle) return;
-            string text = LocationText(); GUIUtility.systemCopyBuffer = text;
-            if (GUIUtility.systemCopyBuffer == text) copiedUntil = Time.unscaledTime + 1.7f;
+            var r = Rect(title, parent, new(0, 38)); r.gameObject.AddComponent<UnityEngine.UI.LayoutElement>().preferredHeight = 38;
+            Background(r.gameObject, new(.12f, .25f, .29f)); var b = r.gameObject.AddComponent<UnityEngine.UI.Button>();
+            b.targetGraphic = r.GetComponent<UnityEngine.UI.Image>(); var colors = b.colors; colors.highlightedColor = new(.4f, .9f, .8f); colors.selectedColor = colors.highlightedColor; b.colors = colors;
+            var t = Text(title, r, 19); t.alignment = TextAnchor.MiddleCenter; t.text = title; Fill(t.rectTransform);
+            b.onClick.AddListener(() => action()); return b;
+        }
+        GameObject Card(string name, Vector2 size)
+        {
+            var r = Rect(name, shade.transform, size); r.anchorMin = r.anchorMax = new(.5f, .5f);
+            Background(r.gameObject, new(.035f, .065f, .085f, .99f));
+            var layout = r.gameObject.AddComponent<UnityEngine.UI.VerticalLayoutGroup>(); layout.padding = new(24, 24, 20, 20); layout.spacing = 8;
+            layout.childControlWidth = layout.childControlHeight = true; layout.childForceExpandHeight = false; return r.gameObject;
+        }
+        UnityEngine.UI.Text Row(Transform parent, string value, int size, float height)
+        {
+            var t = Text(value, parent, size); t.text = value; t.gameObject.AddComponent<UnityEngine.UI.LayoutElement>().preferredHeight = height; return t;
+        }
+        void BuildUi()
+        {
+            var p = Rect("Debug HUD", transform, new(328, 230)); panel = p.gameObject;
+            p.anchorMin = p.anchorMax = p.pivot = new(1, 0); p.anchoredPosition = new(-18, 94);
+            Background(panel, new(.025f, .055f, .07f, .94f)); label = Text("Debug state", p, 15); Fill(label.rectTransform, 12);
+            var hb = Button(p, "Debug menu  F6", OpenMenu); var hr = (RectTransform)hb.transform;
+            hr.anchorMin = new(0, 0); hr.anchorMax = new(1, 0); hr.pivot = new(.5f, 0); hr.offsetMin = new(8, 8); hr.offsetMax = new(-8, 38);
+            var sr = Rect("Debug overlay", transform, Vector2.zero); Fill(sr); shade = sr.gameObject; Background(shade, new(0, .02f, .04f, .72f));
+            menuCard = Card("Debug menu", new(660, 615));
+            Row(menuCard.transform, "DEBUG / INSPECTION", 27, 40).color = new(.3f, .95f, .81f);
+            firstButton = Button(menuCard.transform, "Resume", CloseMenu);
+            Button(menuCard.transform, "Capture Bug  F4", CaptureBug);
+            Button(menuCard.transform, "Debug Fly / Inspection", StartFly);
+            Button(menuCard.transform, "Return to Vehicle", () => { ReturnToVehicle(); CloseMenu(); });
+            Button(menuCard.transform, "Export Bug Report ZIP", Export);
+            Button(menuCard.transform, "Open Debug Report Folder", OpenFolder);
+            Button(menuCard.transform, "Toggle Debug HUD", () => { hudVisible = !hudVisible; });
+            Button(menuCard.transform, "Exit Debug Mode  F3", () => SetEnabled(false));
+            status = Row(menuCard.transform, "F3 mode · F4 capture · F6 menu\nRace timeout suspended while Debug Mode is on.", 16, 140);
+            commentCard = Card("Bug comment", new(680, 550));
+            Row(commentCard.transform, "BUG CAPTURED", 28, 40).color = new(.3f, .95f, .81f);
+            captureDetails = Row(commentCard.transform, "", 17, 62);
+            Row(commentCard.transform, "Describe the problem:", 20, 28);
+            var field = Rect("Comment", commentCard.transform, new(0, 156)); field.gameObject.AddComponent<UnityEngine.UI.LayoutElement>().preferredHeight = 156;
+            Background(field.gameObject, new(.12f, .22f, .27f)); comment = field.gameObject.AddComponent<UnityEngine.UI.InputField>(); comment.targetGraphic = field.GetComponent<UnityEngine.UI.Image>();
+            var content = Text("Editable comment", field, 20); Fill(content.rectTransform, 12); comment.textComponent = content;
+            comment.lineType = UnityEngine.UI.InputField.LineType.MultiLineNewline; comment.characterLimit = 4000;
+            // Input System text events own insertion; the field retains native selection/caret rendering.
+            comment.readOnly = true;
+            Button(commentCard.transform, "Save  Enter", () => SaveComment(comment.text));
+            Button(commentCard.transform, "Cancel  Esc / B", CancelComment);
+            Row(commentCard.transform, "Shift+Enter: new line. Screenshot already saved before this dialog.", 15, 28);
+            panel.SetActive(false); shade.SetActive(false); menuCard.SetActive(false); commentCard.SetActive(false);
+        }
+        public string LocationText() => Available ? $"Position: {race.vehicle.transform.position} | Course: {race.courseName}" : "";
+        public void CopyLocation() => GUIUtility.systemCopyBuffer = LocationText();
+        public void Toggle() => SetEnabled(!visible);
+        public void SetEnabled(bool value)
+        {
+            if (!Available || capturing || CommentOpen) return;
+            visible = value; nextRefresh = 0;
+            if (!value) { ReturnToVehicle(); menuOpen = false; shade.SetActive(false); SyncHold(); }
+        }
+        void EnsureSession()
+        {
+            if (session != null) return;
+            string root = Path.Combine(Application.persistentDataPath, "DebugReports");
+#if UNITY_EDITOR
+            if (!string.IsNullOrEmpty(ValidationReportRoot)) root = ValidationReportRoot;
+#endif
+            session = new DebugReportSession(root);
+        }
+        public void OpenMenu()
+        {
+            if (!visible || capturing || CommentOpen) return;
+            menuOpen = true; shade.SetActive(true); menuCard.SetActive(true); commentCard.SetActive(false); SyncHold();
+            EventSystem.current?.SetSelectedGameObject(firstButton.gameObject);
+        }
+        public void CloseMenu() { menuOpen = false; shade.SetActive(false); SyncHold(); }
+        void SyncHold()
+        {
+            var input = race && race.vehicle ? race.vehicle.GetComponent<VehicleInput>() : null;
+            if (Holding && !held)
+            {
+                oldScale = Time.timeScale; oldAudio = AudioListener.pause; oldInput = input && input.enabled;
+                oldCursor = Cursor.visible; oldLock = Cursor.lockState; held = true;
+                Time.timeScale = 0; AudioListener.pause = true; if (input) input.enabled = false;
+            }
+            if (!Holding && held)
+            {
+                Time.timeScale = oldScale; AudioListener.pause = oldAudio; if (input) input.enabled = oldInput;
+                Cursor.visible = oldCursor; Cursor.lockState = oldLock; held = false; releasedFrame = Time.frameCount + 1;
+                MenuInput.ConsumeThroughRelease(); EventSystem.current?.SetSelectedGameObject(null);
+            }
+            else if (Holding) { Cursor.visible = true; Cursor.lockState = CursorLockMode.None; }
+        }
+        public void CaptureBug()
+        {
+            if (!visible || !Available || capturing || CommentOpen) return;
+            try { EnsureSession(); } catch (Exception e) { Fail(e); return; }
+            var t = Flying && cameraView ? cameraView.transform : race.vehicle.transform;
+            var b = race.Racers.Count > 0 ? race.Racers[0].Branch : null;
+            pending = new DebugReportSession.Bug {
+                id = session.NextId, timestamp = DateTimeOffset.Now.ToString("o"), position = t.position, rotation = t.eulerAngles, heading = t.eulerAngles.y,
+                vehiclePosition = race.vehicle.transform.position, course = race.courseName, direction = race.reverseCourse ? "Reverse" : "Forward",
+                mode = race.FreeRoam ? "Free Roam" : "Race", lap = race.FreeRoam ? 0 : race.Progress.CompletedLaps + 1,
+                nextCheckpoint = race.FreeRoam ? -1 : race.Progress.NextGate, roadProgress = race.road ? race.road.Project(race.vehicle.transform.position, out _) : 0,
+                branch = b?.Route ? b.Route.title : "Main", branchProgress = b?.Position ?? 0,
+                vehicle = race.vehicle.GetComponent<VehicleConfiguration>().profileId, speedMps = Mathf.Abs(race.vehicle.ForwardSpeed),
+                version = Application.version, buildGuid = Application.buildGUID, scene = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name,
+                viewpoint = Flying ? "Detached inspection camera" : "Vehicle", debugMovementUsed = race.Flow.DebugMovementUsed
+            };
+            pending.screenshot = "Screenshots/" + pending.id + ".png";
+            menuOpen = false; capturing = true; shade.SetActive(false); EventSystem.current?.SetSelectedGameObject(null); SyncHold();
+            StartCoroutine(CaptureView());
+        }
+        IEnumerator CaptureView()
+        {
+            yield return null;
+            if (!Application.isBatchMode) yield return new WaitForEndOfFrame();
+            Texture2D image = null;
+            try
+            {
+                image = Application.isBatchMode ? BatchView() : ScreenCapture.CaptureScreenshotAsTexture();
+                if (!image) throw new IOException("Could not read the rendered view.");
+                File.WriteAllBytes(Path.Combine(session.DirectoryPath, pending.screenshot), image.EncodeToPNG());
+                capturing = false; CommentOpen = true; comment.text = "";
+                captureDetails.text = pending.id + " / " + pending.course + "\n" + pending.viewpoint + " / " + pending.position.ToString("F2");
+                shade.SetActive(true); menuCard.SetActive(false); commentCard.SetActive(true); SyncHold();
+                EventSystem.current?.SetSelectedGameObject(comment.gameObject); comment.ActivateInputField();
+            }
+            catch (Exception e) { capturing = false; pending = null; SyncHold(); Fail(e); }
+            finally { if (image) Destroy(image); }
+        }
+        // Batch Editor verification has no end-of-frame callback. Render the same camera + live canvases explicitly.
+        Texture2D BatchView()
+        {
+            var cam = Camera.main; var rt = new RenderTexture(1280, 800, 24); var oldTarget = cam.targetTexture; var active = RenderTexture.active;
+            var canvases = FindObjectsByType<Canvas>(); var modes = new RenderMode[canvases.Length]; var cameras = new Camera[canvases.Length]; var distances = new float[canvases.Length];
+            try
+            {
+                for (int i = 0; i < canvases.Length; i++) { var c = canvases[i]; modes[i] = c.renderMode; cameras[i] = c.worldCamera; distances[i] = c.planeDistance; if (c.renderMode == RenderMode.ScreenSpaceOverlay) { c.renderMode = RenderMode.ScreenSpaceCamera; c.worldCamera = cam; c.planeDistance = 1; } }
+                cam.targetTexture = rt; Canvas.ForceUpdateCanvases(); cam.Render(); RenderTexture.active = rt;
+                var image = new Texture2D(rt.width, rt.height, TextureFormat.RGB24, false); image.ReadPixels(new Rect(0, 0, rt.width, rt.height), 0, 0); image.Apply(); return image;
+            }
+            finally { cam.targetTexture = oldTarget; RenderTexture.active = active; for (int i = 0; i < canvases.Length; i++) { canvases[i].renderMode = modes[i]; canvases[i].worldCamera = cameras[i]; canvases[i].planeDistance = distances[i]; } rt.Release(); Destroy(rt); }
+        }
+        public void SaveComment(string value)
+        {
+            if (!CommentOpen || pending == null) return;
+            try { pending.comment = value ?? ""; session.Save(pending); string id = pending.id; pending = null; EndComment(); race.Flow.Notify(id + " saved / " + session.Count + " reports", 4); }
+            catch (Exception e) { captureDetails.text = "Save failed. Your screenshot and comment are retained.\n" + e.Message; Error = e.Message; }
+        }
+        public void CancelComment()
+        {
+            if (!CommentOpen) return;
+            try { if (pending != null && !session.Data.bugs.Contains(pending)) File.Delete(Path.Combine(session.DirectoryPath, pending.screenshot)); }
+            catch (Exception e) { Error = e.Message; }
+            pending = null; EndComment();
+        }
+        void EndComment() { comment.DeactivateInputField(); CommentOpen = false; shade.SetActive(false); SyncHold(); }
+        void InsertComment(string value)
+        {
+            int a=Mathf.Min(comment.selectionAnchorPosition,comment.selectionFocusPosition),b=Mathf.Max(comment.selectionAnchorPosition,comment.selectionFocusPosition);
+            string text=comment.text; a=Mathf.Clamp(a,0,text.Length);b=Mathf.Clamp(b,a,text.Length);
+            int capacity=comment.characterLimit-(text.Length-(b-a));if(value.Length>capacity)value=value.Substring(0,Mathf.Max(0,capacity));
+            comment.SetTextWithoutNotify(text.Remove(a,b-a).Insert(a,value));comment.caretPosition=a+value.Length;
+        }
+        void TypedCharacter(char value)
+        {
+            if(!CommentOpen||!comment.isFocused||Keyboard.current?.ctrlKey.isPressed==true)return;
+            if(!char.IsControl(value))InsertComment(value.ToString());
+        }
+        void CommentInput(Keyboard k)
+        {
+            if(k==null||!comment.isFocused)return;
+            if(k.ctrlKey.isPressed&&k.vKey.wasPressedThisFrame)InsertComment(GUIUtility.systemCopyBuffer);
+            if(k.ctrlKey.isPressed&&k.xKey.wasPressedThisFrame){int a=Mathf.Min(comment.selectionAnchorPosition,comment.selectionFocusPosition),b=Mathf.Max(comment.selectionAnchorPosition,comment.selectionFocusPosition);GUIUtility.systemCopyBuffer=comment.text.Substring(a,b-a);InsertComment("");}
+            if(k.shiftKey.isPressed&&k.enterKey.wasPressedThisFrame)InsertComment("\n");
+            bool back=k.backspaceKey.isPressed,delete=k.deleteKey.isPressed;
+            if((back||delete)&&(k.backspaceKey.wasPressedThisFrame||k.deleteKey.wasPressedThisFrame||Time.unscaledTime>=nextErase))
+            {
+                int a=Mathf.Min(comment.selectionAnchorPosition,comment.selectionFocusPosition),b=Mathf.Max(comment.selectionAnchorPosition,comment.selectionFocusPosition);
+                if(a==b){if(back&&a>0)comment.selectionAnchorPosition=a-1;else if(delete&&b<comment.text.Length)comment.selectionFocusPosition=b+1;}
+                InsertComment("");nextErase=Time.unscaledTime+((k.backspaceKey.wasPressedThisFrame||k.deleteKey.wasPressedThisFrame) ? .35f : .055f);
+            }
+        }
+        public void Export()
+        {
+            try { EnsureSession(); LastExport = session.Export(); status.text = "ZIP ready:\n" + LastExport; Error = null; }
+            catch (Exception e) { Fail(e); }
+        }
+        public void OpenFolder()
+        {
+            try { EnsureSession(); LastOpenedFolder = session.DirectoryPath; System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo(session.DirectoryPath) { UseShellExecute = true }); status.text = "Report folder:\n" + session.DirectoryPath; }
+            catch (Exception e) { Fail(e); }
+        }
+        void Fail(Exception e) { Error = e.Message; if (status) status.text = e.Message; race.Flow.Notify("Debug report: " + e.Message, 8); }
+        public void StartFly()
+        {
+            if (!visible || Flying || capturing || CommentOpen || !Available) return;
+            cameraView = Camera.main; if (!cameraView) return;
+            cameraPosition = cameraView.transform.position; cameraRotation = cameraView.transform.rotation;
+            chase = cameraView.GetComponent<ChaseCamera>(); oldChase = chase && chase.enabled; if (chase) chase.enabled = false;
+            yaw = cameraView.transform.eulerAngles.y; pitch = Mathf.DeltaAngle(0, cameraView.transform.eulerAngles.x);
+            Flying = true; race.Flow.MarkDebugMovement(); race.Flow.Activities?.NewSession();
+            menuOpen = false; shade.SetActive(false); EventSystem.current?.SetSelectedGameObject(null); SyncHold();
+        }
+        public void ReturnToVehicle()
+        {
+            if (!Flying) return; Flying = false;
+            if (cameraView) cameraView.transform.SetPositionAndRotation(cameraPosition, cameraRotation);
+            if (chase) { chase.enabled = oldChase; if (oldChase) chase.Snap(); }
+            if (race) { race.GetComponent<ExplorationCollection>()?.ResetMovement(); race.GetComponent<ExplorationMap>()?.ResetMovement(); }
+            SyncHold();
+        }
+        void FlyInput()
+        {
+            var k = Keyboard.current; var g = Gamepad.current; var m = Mouse.current;
+            float x = (k?.dKey.isPressed == true ? 1 : 0) - (k?.aKey.isPressed == true ? 1 : 0);
+            float z = (k?.wKey.isPressed == true ? 1 : 0) - (k?.sKey.isPressed == true ? 1 : 0);
+            float y = (k?.eKey.isPressed == true ? 1 : 0) - (k?.qKey.isPressed == true ? 1 : 0);
+            var stick = g?.leftStick.ReadValue() ?? Vector2.zero; x += stick.x; z += stick.y; y += (g?.rightTrigger.ReadValue() ?? 0) - (g?.leftTrigger.ReadValue() ?? 0);
+            Vector2 look = (g?.rightStick.ReadValue() ?? Vector2.zero) * (100 * Time.unscaledDeltaTime);
+            if (m?.rightButton.isPressed == true) look += m.delta.ReadValue() * .13f;
+            yaw += look.x; pitch = Mathf.Clamp(pitch - look.y, -89, 89); cameraView.transform.rotation = Quaternion.Euler(pitch, yaw, 0);
+            float speed = k?.leftShiftKey.isPressed == true || g?.rightShoulder.isPressed == true ? 90 : k?.leftCtrlKey.isPressed == true || g?.leftShoulder.isPressed == true ? 3 : 22;
+            var delta = cameraView.transform.right * x + cameraView.transform.forward * z + Vector3.up * y;
+            cameraView.transform.position += Vector3.ClampMagnitude(delta, 1) * speed * Time.unscaledDeltaTime;
         }
         void Update()
         {
-            if (!race || !race.vehicle) return;
-            var keyboard = Keyboard.current;
-            if (keyboard != null)
+            if (!Available) return;
+            var k = Keyboard.current; var g = Gamepad.current;
+            if(textKeyboard!=k){if(textKeyboard!=null)textKeyboard.onTextInput-=TypedCharacter;textKeyboard=k;if(k!=null)k.onTextInput+=TypedCharacter;}
+            if (CommentOpen)
             {
-                if (keyboard.f3Key.wasPressedThisFrame) Toggle();
-                if (keyboard.f4Key.wasPressedThisFrame) CopyLocation();
+                CommentInput(k);
+                if (k?.escapeKey.wasPressedThisFrame == true || g?.buttonEast.wasPressedThisFrame == true) CancelComment();
+                else if ((k?.enterKey.wasPressedThisFrame == true || k?.numpadEnterKey.wasPressedThisFrame == true) && k?.shiftKey.isPressed != true) SaveComment(comment.text);
+                return;
             }
-            bool gameplay = race.Flow && !race.Flow.MenuVisible;
-            panel.SetActive(visible && gameplay);
-            confirmation.enabled = gameplay && Time.unscaledTime < copiedUntil;
-            if (!visible || Time.unscaledTime < nextRefresh) return;
-            nextRefresh = Time.unscaledTime + .1f;
-            var p = race.vehicle.transform.position;
-            label.text = string.Format(CultureInfo.InvariantCulture, "WORLD XYZ\nX: {0:F1}\nY: {1:F1}\nZ: {2:F1}\nCourse: {3}\nF3 hide  /  F4 copy", p.x, p.y, p.z, ActiveCourse ? race.courseName : "None");
+            if (capturing) return;
+            if (k?.f3Key.wasPressedThisFrame == true) Toggle();
+            if (!visible) { panel.SetActive(false); return; }
+            if (k?.f4Key.wasPressedThisFrame == true) { CaptureBug(); return; }
+            if (k?.f6Key.wasPressedThisFrame == true || g?.startButton.wasPressedThisFrame == true) { if (menuOpen) CloseMenu(); else OpenMenu(); }
+            if (menuOpen && (k?.escapeKey.wasPressedThisFrame == true || g?.buttonEast.wasPressedThisFrame == true)) CloseMenu();
+            if (Flying && !menuOpen) FlyInput();
+            panel.SetActive(hudVisible && !menuOpen);
+            if (Time.unscaledTime < nextRefresh) return; nextRefresh = Time.unscaledTime + .1f;
+            var t = Flying && cameraView ? cameraView.transform : race.vehicle.transform; var p = t.position;
+            label.text = $"DEBUG / {race.courseName}\n{(race.reverseCourse ? "Reverse" : "Forward")} / {(race.FreeRoam ? "Free Roam" : "Race")}\nX {p.x:F2}   Y {p.y:F2}   Z {p.z:F2}\nHeading {t.eulerAngles.y:F1}° / {race.vehicle.GetComponent<VehicleConfiguration>().profileId} / {DisplayUnits.Mph(Mathf.Abs(race.vehicle.ForwardSpeed)):F1} mph\n"
+                + (race.FreeRoam ? "Exploration" : $"Lap {race.Progress.CompletedLaps + 1} / Next CP {race.Progress.NextGate}")
+                + $" / Reports {session?.Count ?? 0}\nF3 mode / F4 capture / Timeout OFF\n"
+                + (Flying ? "FLY: WASD · Q/E · RMB look\nShift fast / Ctrl precise · F6 return" : race.Flow.DebugMovementUsed ? "DEBUG RUN / records disabled" : "Vehicle view / records eligible");
         }
-        void OnDestroy() { if (panel) Destroy(panel); if (confirmation) Destroy(confirmation.gameObject); }
+        void OnDestroy()
+        {
+            if(textKeyboard!=null)textKeyboard.onTextInput-=TypedCharacter;
+            if (Instance != this) return;
+            ReturnToVehicle(); menuOpen = capturing = CommentOpen = false; SyncHold(); Instance = null;
+        }
     }
 }

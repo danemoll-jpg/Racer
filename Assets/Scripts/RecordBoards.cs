@@ -31,7 +31,13 @@ namespace Racer
         public string LatestRaceId { get; private set; }
         readonly HashSet<string> newEntries=new();
         public bool IsNew(string id)=>newEntries.Contains(id);
-        public void BeginAttempt()=>newEntries.Clear();
+        Data attemptBaseline;
+        public void BeginAttempt(){newEntries.Clear();attemptBaseline=JsonUtility.FromJson<Data>(JsonUtility.ToJson(data));}
+        public void RevokeAttempt()
+        {
+            if(attemptBaseline==null)return;
+            data=attemptBaseline;attemptBaseline=null;newEntries.Clear();LatestLapId=LatestRaceId=null;Write();
+        }
         public static string LapCategory(string category)=>Regex.Replace(category,@"-laps\d+$","");
         public static string Describe(string category)
         {

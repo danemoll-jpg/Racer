@@ -1,0 +1,10 @@
+PASS Main moto 160-270: completed=True, station=270.39, resets=0, AI recoveries=0, maxAir=0.02, minUp=0.94
+PASS Main moto 1480-1675: completed=True, station=1675.33, resets=0, AI recoveries=0, maxAir=0.00, minUp=0.93
+PASS Main moto 2570-2710: completed=True, station=2710.37, resets=0, AI recoveries=0, maxAir=0.00, minUp=0.96
+PASS Main atv 160-270: completed=True, station=270.12, resets=0, AI recoveries=0, maxAir=0.00, minUp=0.91
+PASS Main atv 1480-1675: completed=True, station=1675.25, resets=0, AI recoveries=0, maxAir=0.00, minUp=0.93
+PASS Main atv 2570-2710: completed=True, station=2710.08, resets=0, AI recoveries=0, maxAir=0.00, minUp=0.96
+PASS Summit Traverse: existing probabilistic AI selection reaches this branch
+FAIL AI-moto-Summit-Traverse: entered=True; completed=False; station=313.0/461.4; air=2.74s; lateralMax=34.50; resets=1; AI recoveries=1
+PASS Summit Traverse: existing probabilistic AI selection reaches this branch
+PASS AI-atv-Summit-Traverse: entered=True; completed=True; station=461.4/461.4; air=0.66s; lateralMax=34.50; resets=0; AI recoveries=0

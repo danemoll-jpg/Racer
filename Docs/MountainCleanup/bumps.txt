@@ -1,0 +1,2 @@
+(175.00, 255.00): 28538 vertices refitted with endpoint-tangent continuity
+(2140.00, 2215.00): 13194 vertices refitted with endpoint-tangent continuity

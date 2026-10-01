@@ -52,6 +52,7 @@ namespace Racer
         public void ResetMovement(){sampled=false;previous=race.vehicle.Body.position;nextReveal=Time.time+1;}
         void FixedUpdate()
         {
+            if(DeveloperLocationHud.Inspecting){sampled=false;return;}
             if(!race||race.Flow.State!=RaceFlow.Stage.Racing)return;
             var p=race.vehicle.Body.position;
             if(!sampled){previous=p;sampled=true;return;}

@@ -1,0 +1,429 @@
+A1: (814.90, 118.00, 68.40) main s=211.391 d=1.544 road=(813.93, 117.52, 69.50) forward=(0.67, 0.26, 0.70)
+ branch Downhill Ridge Cut s=221.20 d=148.62 at=(722.89, 79.00, -48.32)
+ branch Summit Traverse s=356.81 d=134.59 at=(878.14, 114.29, -50.41)
+ collider Ground_720_400 MeshCollider min=(640.00, 68.56, 50.00) max=(800.00, 152.45, 210.00)
+ collider Ground_CR117 outer ravine MeshCollider min=(800.00, 33.01, -500.00) max=(1530.00, 151.90, 380.00)
+ collider Ground_CR133 mountain driving surface MeshCollider min=(680.30, 79.04, -324.00) max=(1288.14, 177.71, 331.36)
+ collider Ground_CR133 mountain earth banks MeshCollider min=(669.76, 32.57, -379.00) max=(1298.14, 181.81, 370.34)
+ collider Ground_Mountain_0_3 MeshCollider min=(800.00, 93.64, 30.00) max=(900.00, 181.92, 130.00)
+ collider Ground_MountainPolish supported shoulders MeshCollider min=(676.30, 34.07, -328.00) max=(1292.14, 157.72, 335.36)
+ probe 196.39 routeY=112.782: Ground_CR133 mountain driving surface=112.069
+ probe 197.39 routeY=113.138: Ground_CR133 mountain driving surface=112.361
+ probe 198.39 routeY=113.491: Ground_CR133 mountain driving surface=112.650
+ probe 199.39 routeY=113.841: Ground_CR133 mountain driving surface=112.937
+ probe 200.39 routeY=114.187: Ground_CR133 mountain driving surface=113.220
+ probe 201.39 routeY=114.528: Ground_CR133 mountain driving surface=113.499
+ probe 202.39 routeY=114.864: Ground_CR133 mountain driving surface=113.777
+ probe 203.39 routeY=115.194: Ground_CR133 mountain driving surface=114.051
+ probe 204.39 routeY=115.516: Ground_CR133 mountain driving surface=114.321
+ probe 205.39 routeY=115.831: Ground_CR133 mountain driving surface=114.588
+ probe 206.39 routeY=116.137: Ground_CR133 mountain driving surface=114.853
+ probe 207.39 routeY=116.433: Ground_CR133 mountain driving surface=115.114
+ probe 208.39 routeY=116.719: Ground_CR133 mountain driving surface=115.372
+ probe 209.39 routeY=116.996: Ground_CR133 mountain driving surface=115.628
+ probe 210.39 routeY=117.263: Ground_CR133 mountain driving surface=115.880
+ probe 211.39 routeY=117.519: Ground_CR133 mountain driving surface=116.130
+ probe 212.39 routeY=117.767: Ground_CR133 mountain driving surface=116.376
+ probe 213.39 routeY=118.005: Ground_CR133 mountain driving surface=116.618
+ probe 214.39 routeY=118.234: Ground_CR133 mountain driving surface=116.859
+ probe 215.39 routeY=118.455: Ground_CR133 mountain driving surface=117.097
+ probe 216.39 routeY=118.669: Ground_CR133 mountain driving surface=117.331
+ probe 217.39 routeY=118.875: Ground_CR133 mountain driving surface=117.562
+ probe 218.39 routeY=119.074: Ground_CR133 mountain driving surface=117.791
+ probe 219.39 routeY=119.267: Ground_CR133 mountain driving surface=118.016
+ probe 220.39 routeY=119.454: Ground_CR133 mountain driving surface=118.239
+ probe 221.39 routeY=119.634: Ground_CR133 mountain driving surface=118.458
+ probe 222.39 routeY=119.810: Ground_CR133 mountain driving surface=118.675
+ probe 223.39 routeY=119.980: Ground_CR133 mountain driving surface=118.889
+ probe 224.39 routeY=120.146: Ground_CR133 mountain driving surface=119.100
+ probe 225.39 routeY=120.308: Ground_CR133 mountain driving surface=119.308
+ probe 226.39 routeY=120.465: Ground_CR133 mountain driving surface=119.514
+A2: (874.20, 113.70, -91.20) main s=1623.692 d=9.111 road=(876.04, 111.51, -99.85) forward=(0.96, 0.25, 0.14)
+ branch Downhill Ridge Cut s=0.00 d=109.24 at=(818.76, 95.71, -185.32)
+ branch Summit Traverse s=407.76 d=1.73 at=(873.05, 113.11, -92.50)
+ collider Ground_CR117 outer ravine MeshCollider min=(800.00, 33.01, -500.00) max=(1530.00, 151.90, 380.00)
+ collider Ground_CR133 mountain driving surface MeshCollider min=(680.30, 79.04, -324.00) max=(1288.14, 177.71, 331.36)
+ collider Ground_CR133 mountain earth banks MeshCollider min=(669.76, 32.57, -379.00) max=(1298.14, 181.81, 370.34)
+ collider Ground_Mountain_0_1 MeshCollider min=(800.00, 79.71, -170.00) max=(900.00, 106.04, -70.00)
+ collider Ground_MountainCleanup connected mountain shoulder MeshCollider min=(830.00, 45.00, -130.00) max=(930.00, 126.83, -20.00)
+ collider Ground_MountainPolish supported shoulders MeshCollider min=(676.30, 34.07, -328.00) max=(1292.14, 157.72, 335.36)
+ probe 1608.69 routeY=105.252: Ground_CR133 mountain driving surface=106.052;Ground_MountainCleanup connected mountain shoulder=103.993
+ probe 1609.69 routeY=105.588: Ground_CR133 mountain driving surface=106.387;Ground_MountainCleanup connected mountain shoulder=104.335
+ probe 1610.69 routeY=105.933: Ground_CR133 mountain driving surface=106.726;Ground_MountainCleanup connected mountain shoulder=104.675
+ probe 1611.69 routeY=106.286: Ground_CR133 mountain driving surface=107.070;Ground_MountainCleanup connected mountain shoulder=105.030
+ probe 1612.69 routeY=106.648: Ground_CR133 mountain driving surface=107.418;Ground_MountainCleanup connected mountain shoulder=105.389
+ probe 1613.69 routeY=107.016: Ground_CR133 mountain driving surface=107.769;Ground_MountainCleanup connected mountain shoulder=105.900
+ probe 1614.69 routeY=107.707: Ground_CR133 mountain driving surface=107.986;Ground_MountainCleanup connected mountain shoulder=106.313
+ probe 1615.69 routeY=108.672: Ground_CR133 mountain driving surface=108.085;Ground_MountainCleanup connected mountain shoulder=106.511
+ probe 1616.69 routeY=109.637: Ground_CR133 mountain driving surface=108.185;Ground_MountainCleanup connected mountain shoulder=106.710
+ probe 1617.69 routeY=110.064: Ground_CR133 mountain driving surface=108.484;Ground_MountainCleanup connected mountain shoulder=107.185
+ probe 1618.69 routeY=110.300: Ground_CR133 mountain driving surface=108.860;Ground_MountainCleanup connected mountain shoulder=107.561
+ probe 1619.69 routeY=110.532: Ground_CR133 mountain driving surface=109.238;Ground_MountainCleanup connected mountain shoulder=107.937
+ probe 1620.69 routeY=110.774: Ground_CR133 mountain driving surface=109.615;Ground_MountainCleanup connected mountain shoulder=108.315
+ probe 1621.69 routeY=111.015: Ground_CR133 mountain driving surface=109.992;Ground_MountainCleanup connected mountain shoulder=108.692
+ probe 1622.69 routeY=111.262: Ground_CR133 mountain driving surface=110.368;Ground_MountainCleanup connected mountain shoulder=109.066
+ probe 1623.69 routeY=111.509: Ground_CR133 mountain driving surface=110.741;Ground_MountainCleanup connected mountain shoulder=109.441
+ probe 1624.69 routeY=111.761: Ground_CR133 mountain driving surface=111.112;Ground_MountainCleanup connected mountain shoulder=109.810
+ probe 1625.69 routeY=112.016: Ground_CR133 mountain driving surface=111.478;Ground_MountainCleanup connected mountain shoulder=110.178
+ probe 1626.69 routeY=112.295: Ground_CR133 mountain driving surface=111.838;Ground_MountainCleanup connected mountain shoulder=110.535
+ probe 1627.69 routeY=112.652: Ground_CR133 mountain driving surface=112.182;Ground_MountainCleanup connected mountain shoulder=110.881
+ probe 1628.69 routeY=113.055: Ground_CR133 mountain driving surface=112.515;Ground_MountainCleanup connected mountain shoulder=111.211
+ probe 1629.69 routeY=113.454: Ground_CR133 mountain driving surface=112.841;Ground_MountainCleanup connected mountain shoulder=111.539
+ probe 1630.69 routeY=113.825: Ground_CR133 mountain driving surface=113.164;Ground_MountainCleanup connected mountain shoulder=111.860
+ probe 1631.69 routeY=114.165: Ground_CR133 mountain driving surface=113.484;Ground_MountainCleanup connected mountain shoulder=112.180
+ probe 1632.69 routeY=114.449: Ground_CR133 mountain driving surface=113.799;Ground_MountainCleanup connected mountain shoulder=112.495
+ probe 1633.69 routeY=114.663: Ground_CR133 mountain driving surface=114.111;Ground_MountainCleanup connected mountain shoulder=112.806
+ probe 1634.69 routeY=114.831: Ground_CR133 mountain driving surface=114.413;Ground_MountainCleanup connected mountain shoulder=113.109
+ probe 1635.69 routeY=114.999: Ground_CR133 mountain driving surface=114.703;Ground_MountainCleanup connected mountain shoulder=113.398
+ probe 1636.69 routeY=115.189: Ground_CR133 mountain driving surface=114.978;Ground_MountainCleanup connected mountain shoulder=113.674
+ probe 1637.69 routeY=115.367: Ground_CR133 mountain driving surface=115.240;Ground_MountainCleanup connected mountain shoulder=113.934
+ probe 1638.69 routeY=115.545: Ground_CR133 mountain driving surface=115.486;Ground_MountainCleanup connected mountain shoulder=114.181
+A3: (804.70, 95.00, -162.90) main s=1518.427 d=3.048 road=(807.71, 94.53, -162.97) forward=(0.03, 0.02, 1.00)
+ branch Downhill Ridge Cut s=11.98 d=24.95 at=(807.05, 96.15, -187.74)
+ branch Summit Traverse s=406.74 d=98.10 at=(872.30, 112.99, -91.81)
+ collider Ground_720_240 MeshCollider min=(640.00, 30.22, -270.00) max=(800.00, 97.18, -110.00)
+ collider Ground_CR117 outer ravine MeshCollider min=(800.00, 33.01, -500.00) max=(1530.00, 151.90, 380.00)
+ collider Ground_CR133 mountain driving surface MeshCollider min=(680.30, 79.04, -324.00) max=(1288.14, 177.71, 331.36)
+ collider Ground_CR133 mountain earth banks MeshCollider min=(669.76, 32.57, -379.00) max=(1298.14, 181.81, 370.34)
+ collider Ground_Mountain_0_0 MeshCollider min=(800.00, 36.39, -270.00) max=(900.00, 95.93, -170.00)
+ collider Ground_Mountain_0_1 MeshCollider min=(800.00, 79.71, -170.00) max=(900.00, 106.04, -70.00)
+ collider Ground_MountainCleanup natural outcrop 11 MeshCollider min=(798.53, 96.42, -165.32) max=(801.57, 99.96, -159.51)
+ collider Ground_MountainCleanup natural outcrop 16 MeshCollider min=(798.56, 95.83, -150.22) max=(801.42, 99.35, -144.86)
+ collider Ground_MountainCleanup natural outcrop 27 MeshCollider min=(798.59, 94.18, -175.49) max=(801.58, 97.71, -169.54)
+ collider Ground_MountainCleanup natural outcrop 32 MeshCollider min=(798.65, 95.32, -155.07) max=(801.34, 98.85, -149.95)
+ collider Ground_MountainCleanup natural outcrop 33 MeshCollider min=(798.51, 96.08, -170.42) max=(801.53, 99.62, -164.80)
+ collider Ground_MountainCleanup natural outcrop 42 MeshCollider min=(798.66, 95.85, -160.05) max=(801.33, 99.39, -154.93)
+ collider Ground_MountainPolish supported shoulders MeshCollider min=(676.30, 34.07, -328.00) max=(1292.14, 157.72, 335.36)
+ probe 1503.43 routeY=95.162: Ground_CR133 mountain driving surface=95.395
+ probe 1504.43 routeY=95.099: Ground_CR133 mountain driving surface=95.337
+ probe 1505.43 routeY=95.037: Ground_CR133 mountain driving surface=95.283
+ probe 1506.43 routeY=94.972: Ground_CR133 mountain driving surface=95.221
+ probe 1507.43 routeY=94.909: Ground_CR133 mountain driving surface=95.158
+ probe 1508.43 routeY=94.845: Ground_CR133 mountain driving surface=95.093
+ probe 1509.43 routeY=94.784: Ground_CR133 mountain driving surface=95.030
+ probe 1510.43 routeY=94.726: Ground_CR133 mountain driving surface=94.956
+ probe 1511.43 routeY=94.671: Ground_CR133 mountain driving surface=94.899
+ probe 1512.43 routeY=94.623: Ground_CR133 mountain driving surface=94.836
+ probe 1513.43 routeY=94.583: Ground_CR133 mountain driving surface=94.782
+ probe 1514.43 routeY=94.551: Ground_CR133 mountain driving surface=94.738
+ probe 1515.43 routeY=94.529: Ground_CR133 mountain driving surface=94.705
+ probe 1516.43 routeY=94.518: Ground_CR133 mountain driving surface=94.670
+ probe 1517.43 routeY=94.518: Ground_CR133 mountain driving surface=94.664
+ probe 1518.43 routeY=94.533: Ground_CR133 mountain driving surface=94.662
+ probe 1519.43 routeY=94.561: Ground_CR133 mountain driving surface=94.671
+ probe 1520.43 routeY=94.602: Ground_CR133 mountain driving surface=94.701
+ probe 1521.43 routeY=94.659: Ground_CR133 mountain driving surface=94.744
+ probe 1522.43 routeY=94.731: Ground_CR133 mountain driving surface=94.795
+ probe 1523.43 routeY=94.817: Ground_CR133 mountain driving surface=94.871
+ probe 1524.43 routeY=94.911: Ground_CR133 mountain driving surface=94.954
+ probe 1525.43 routeY=95.006: Ground_CR133 mountain driving surface=95.046
+ probe 1526.43 routeY=95.102: Ground_CR133 mountain driving surface=95.142
+ probe 1527.43 routeY=95.198: Ground_CR133 mountain driving surface=95.238
+ probe 1528.43 routeY=95.296: Ground_CR133 mountain driving surface=95.336
+ probe 1529.43 routeY=95.394: Ground_CR133 mountain driving surface=95.434
+ probe 1530.43 routeY=95.493: Ground_CR133 mountain driving surface=95.533
+ probe 1531.43 routeY=95.593: Ground_CR133 mountain driving surface=95.633
+ probe 1532.43 routeY=95.693: Ground_CR133 mountain driving surface=95.733
+ probe 1533.43 routeY=95.793: Ground_CR133 mountain driving surface=95.833
+A4: (826.20, 99.80, -119.70) main s=1566.734 d=1.630 road=(827.06, 99.23, -120.96) forward=(0.84, 0.10, 0.53)
+ branch Downhill Ridge Cut s=0.00 d=66.04 at=(818.76, 95.71, -185.32)
+ branch Summit Traverse s=401.22 d=53.12 at=(868.61, 112.36, -87.71)
+ collider Ground_CR117 outer ravine MeshCollider min=(800.00, 33.01, -500.00) max=(1530.00, 151.90, 380.00)
+ collider Ground_CR133 mountain driving surface MeshCollider min=(680.30, 79.04, -324.00) max=(1288.14, 177.71, 331.36)
+ collider Ground_CR133 mountain earth banks MeshCollider min=(669.76, 32.57, -379.00) max=(1298.14, 181.81, 370.34)
+ collider Ground_Mountain_0_1 MeshCollider min=(800.00, 79.71, -170.00) max=(900.00, 106.04, -70.00)
+ collider Ground_MountainCleanup connected mountain shoulder MeshCollider min=(830.00, 45.00, -130.00) max=(930.00, 126.83, -20.00)
+ collider Ground_MountainPolish supported shoulders MeshCollider min=(676.30, 34.07, -328.00) max=(1292.14, 157.72, 335.36)
+ probe 1551.73 routeY=97.683: Ground_CR133 mountain driving surface=97.723
+ probe 1552.73 routeY=97.786: Ground_CR133 mountain driving surface=97.826
+ probe 1553.73 routeY=97.890: Ground_CR133 mountain driving surface=97.930
+ probe 1554.73 routeY=97.993: Ground_CR133 mountain driving surface=98.033
+ probe 1555.73 routeY=98.095: Ground_CR133 mountain driving surface=98.135
+ probe 1556.73 routeY=98.196: Ground_CR133 mountain driving surface=98.236
+ probe 1557.73 routeY=98.299: Ground_CR133 mountain driving surface=98.339
+ probe 1558.73 routeY=98.406: Ground_CR133 mountain driving surface=98.446
+ probe 1559.73 routeY=98.514: Ground_CR133 mountain driving surface=98.554
+ probe 1560.73 routeY=98.614: Ground_CR133 mountain driving surface=98.654
+ probe 1561.73 routeY=98.715: Ground_CR133 mountain driving surface=98.755
+ probe 1562.73 routeY=98.816: Ground_CR133 mountain driving surface=98.856
+ probe 1563.73 routeY=98.918: Ground_CR133 mountain driving surface=98.958
+ probe 1564.73 routeY=99.021: Ground_CR133 mountain driving surface=99.061
+ probe 1565.73 routeY=99.123: Ground_CR133 mountain driving surface=99.163
+ probe 1566.73 routeY=99.226: Ground_CR133 mountain driving surface=99.266
+ probe 1567.73 routeY=99.328: Ground_CR133 mountain driving surface=99.368
+ probe 1568.73 routeY=99.431: Ground_CR133 mountain driving surface=99.471
+ probe 1569.73 routeY=99.534: Ground_CR133 mountain driving surface=99.574
+ probe 1570.73 routeY=99.637: Ground_CR133 mountain driving surface=99.677;Ground_MountainCleanup connected mountain shoulder=46.804
+ probe 1571.73 routeY=99.740: Ground_CR133 mountain driving surface=99.780;Ground_MountainCleanup connected mountain shoulder=50.385
+ probe 1572.73 routeY=99.843: Ground_CR133 mountain driving surface=99.883;Ground_MountainCleanup connected mountain shoulder=54.531
+ probe 1573.73 routeY=99.945: Ground_CR133 mountain driving surface=99.985;Ground_MountainCleanup connected mountain shoulder=62.481
+ probe 1574.73 routeY=100.048: Ground_CR133 mountain driving surface=100.088;Ground_MountainCleanup connected mountain shoulder=70.446
+ probe 1575.73 routeY=100.150: Ground_CR133 mountain driving surface=100.190;Ground_MountainCleanup connected mountain shoulder=78.476
+ probe 1576.73 routeY=100.253: Ground_CR133 mountain driving surface=100.293;Ground_MountainCleanup connected mountain shoulder=86.545
+ probe 1577.73 routeY=100.355: Ground_CR133 mountain driving surface=100.395;Ground_MountainCleanup connected mountain shoulder=92.725
+ probe 1578.73 routeY=100.457: Ground_CR133 mountain driving surface=100.497;Ground_MountainCleanup connected mountain shoulder=96.116
+ probe 1579.73 routeY=100.559: Ground_CR133 mountain driving surface=100.599;Ground_MountainCleanup connected mountain shoulder=99.293
+ probe 1580.73 routeY=100.660: Ground_CR133 mountain driving surface=100.700;Ground_MountainCleanup connected mountain shoulder=99.391
+ probe 1581.73 routeY=100.762: Ground_CR133 mountain driving surface=100.802;Ground_MountainCleanup connected mountain shoulder=99.486
+A5: (1276.60, 109.70, -279.40) main s=2176.426 d=3.190 road=(1279.55, 109.15, -280.49) forward=(-0.34, 0.06, -0.94)
+ branch Downhill Ridge Cut s=0.00 d=467.41 at=(818.76, 95.71, -185.32)
+ branch Summit Traverse s=192.00 d=335.84 at=(1030.08, 141.27, -51.34)
+ collider Ground_CR117 outer ravine MeshCollider min=(800.00, 33.01, -500.00) max=(1530.00, 151.90, 380.00)
+ collider Ground_CR133 mountain driving surface MeshCollider min=(680.30, 79.04, -324.00) max=(1288.14, 177.71, 331.36)
+ collider Ground_CR133 mountain earth banks MeshCollider min=(669.76, 32.57, -379.00) max=(1298.14, 181.81, 370.34)
+ collider Ground_MountainPolish supported shoulders MeshCollider min=(676.30, 34.07, -328.00) max=(1292.14, 157.72, 335.36)
+ probe 2161.43 routeY=109.210: Ground_CR133 mountain driving surface=109.767
+ probe 2162.43 routeY=109.161: Ground_CR133 mountain driving surface=109.741
+ probe 2163.43 routeY=109.115: Ground_CR133 mountain driving surface=109.720
+ probe 2164.43 routeY=109.076: Ground_CR133 mountain driving surface=109.697
+ probe 2165.43 routeY=109.040: Ground_CR133 mountain driving surface=109.678
+ probe 2166.43 routeY=109.014: Ground_CR133 mountain driving surface=109.663
+ probe 2167.43 routeY=108.990: Ground_CR133 mountain driving surface=109.648
+ probe 2168.43 routeY=108.978: Ground_CR133 mountain driving surface=109.636
+ probe 2169.43 routeY=108.969: Ground_CR133 mountain driving surface=109.626
+ probe 2170.43 routeY=108.970: Ground_CR133 mountain driving surface=109.619
+ probe 2171.43 routeY=108.976: Ground_CR133 mountain driving surface=109.612
+ probe 2172.43 routeY=108.994: Ground_CR133 mountain driving surface=109.608
+ probe 2173.43 routeY=109.016: Ground_CR133 mountain driving surface=109.606
+ probe 2174.43 routeY=109.053: Ground_CR133 mountain driving surface=109.605
+ probe 2175.43 routeY=109.096: Ground_CR133 mountain driving surface=109.600
+ probe 2176.43 routeY=109.149: Ground_CR133 mountain driving surface=109.609
+ probe 2177.43 routeY=109.206: Ground_CR133 mountain driving surface=109.611
+ probe 2178.43 routeY=109.275: Ground_CR133 mountain driving surface=109.624
+ probe 2179.43 routeY=109.346: Ground_CR133 mountain driving surface=109.623
+ probe 2180.43 routeY=109.424: Ground_CR133 mountain driving surface=109.631
+ probe 2181.43 routeY=109.502: Ground_CR133 mountain driving surface=109.628
+ probe 2182.43 routeY=109.579: Ground_CR133 mountain driving surface=109.651
+ probe 2183.43 routeY=109.656: Ground_CR133 mountain driving surface=109.660
+ probe 2184.43 routeY=109.727: Ground_CR133 mountain driving surface=109.676
+ probe 2185.43 routeY=109.794: Ground_CR133 mountain driving surface=109.683
+ probe 2186.43 routeY=109.849: Ground_CR133 mountain driving surface=109.697
+ probe 2187.43 routeY=109.899: Ground_CR133 mountain driving surface=109.708
+ probe 2188.43 routeY=109.937: Ground_CR133 mountain driving surface=109.725
+ probe 2189.43 routeY=109.969: Ground_CR133 mountain driving surface=109.740
+ probe 2190.43 routeY=109.985: Ground_CR133 mountain driving surface=109.755
+ probe 2191.43 routeY=109.997: Ground_CR133 mountain driving surface=109.769
+A6: (983.30, 145.40, -302.60) main s=2483.080 d=15.868 road=(984.45, 129.79, -300.00) forward=(-1.00, -0.07, 0.00)
+ branch Downhill Ridge Cut s=0.00 d=202.06 at=(818.76, 95.71, -185.32)
+ branch Summit Traverse s=461.36 d=210.26 at=(924.90, 122.29, -100.61)
+ collider Ground_CR117 outer ravine MeshCollider min=(800.00, 33.01, -500.00) max=(1530.00, 151.90, 380.00)
+ collider Ground_CR133 mountain driving surface MeshCollider min=(680.30, 79.04, -324.00) max=(1288.14, 177.71, 331.36)
+ collider Ground_CR133 mountain earth banks MeshCollider min=(669.76, 32.57, -379.00) max=(1298.14, 181.81, 370.34)
+ collider Ground_MountainPolish supported shoulders MeshCollider min=(676.30, 34.07, -328.00) max=(1292.14, 157.72, 335.36)
+ probe 2468.08 routeY=130.894: 
+ probe 2469.08 routeY=130.820: 
+ probe 2470.08 routeY=130.747: 
+ probe 2471.08 routeY=130.673: 
+ probe 2472.08 routeY=130.599: 
+ probe 2473.08 routeY=130.526: 
+ probe 2474.08 routeY=130.452: 
+ probe 2475.08 routeY=130.378: 
+ probe 2476.08 routeY=130.305: 
+ probe 2477.08 routeY=130.231: 
+ probe 2478.08 routeY=130.158: 
+ probe 2479.08 routeY=130.084: 
+ probe 2480.08 routeY=130.010: 
+ probe 2481.08 routeY=129.937: 
+ probe 2482.08 routeY=129.863: 
+ probe 2483.08 routeY=129.789: 
+ probe 2484.08 routeY=129.716: 
+ probe 2485.08 routeY=129.642: 
+ probe 2486.08 routeY=129.568: 
+ probe 2487.08 routeY=129.495: 
+ probe 2488.08 routeY=129.421: 
+ probe 2489.08 routeY=129.347: 
+ probe 2490.08 routeY=129.274: 
+ probe 2491.08 routeY=129.200: 
+ probe 2492.08 routeY=129.126: 
+ probe 2493.08 routeY=129.053: 
+ probe 2494.08 routeY=128.979: 
+ probe 2495.08 routeY=128.905: 
+ probe 2496.08 routeY=128.832: 
+ probe 2497.08 routeY=128.758: 
+ probe 2498.08 routeY=128.685: 
+A7: (748.10, 85.70, -111.20) main s=2967.555 d=0.600 road=(748.15, 85.10, -111.26) forward=(-0.33, -0.12, 0.94)
+ branch Downhill Ridge Cut s=112.87 d=30.53 at=(726.79, 88.72, -133.05)
+ branch Summit Traverse s=390.80 d=120.26 at=(863.84, 111.50, -78.51)
+ collider Ground_720_240 MeshCollider min=(640.00, 30.22, -270.00) max=(800.00, 97.18, -110.00)
+ collider Ground_720_320 MeshCollider min=(640.00, 58.67, -110.00) max=(800.00, 108.99, 50.00)
+ collider Ground_CR133 mountain driving surface MeshCollider min=(680.30, 79.04, -324.00) max=(1288.14, 177.71, 331.36)
+ collider Ground_CR133 mountain earth banks MeshCollider min=(669.76, 32.57, -379.00) max=(1298.14, 181.81, 370.34)
+ collider Ground_MountainCleanup natural outcrop 13 MeshCollider min=(735.07, 85.56, -117.66) max=(738.04, 89.09, -115.19)
+ collider Ground_MountainCleanup natural outcrop 15 MeshCollider min=(737.27, 85.51, -116.09) max=(740.48, 89.04, -113.66)
+ collider Ground_MountainCleanup natural outcrop 18 MeshCollider min=(739.06, 85.00, -116.64) max=(740.69, 88.54, -113.05)
+ collider Ground_MountainCleanup natural outcrop 2 MeshCollider min=(738.95, 85.28, -115.62) max=(741.23, 88.81, -112.48)
+ collider Ground_MountainCleanup natural outcrop 25 MeshCollider min=(738.89, 84.66, -116.53) max=(740.81, 88.20, -113.04)
+ collider Ground_MountainCleanup natural outcrop 28 MeshCollider min=(729.72, 85.65, -121.32) max=(732.93, 89.19, -118.94)
+ collider Ground_MountainCleanup natural outcrop 3 MeshCollider min=(737.02, 83.93, -113.17) max=(739.46, 87.47, -110.19)
+ collider Ground_MountainCleanup natural outcrop 34 MeshCollider min=(732.41, 85.60, -119.47) max=(735.62, 89.14, -117.15)
+ collider Ground_MountainCleanup natural outcrop 36 MeshCollider min=(738.75, 85.44, -115.40) max=(741.39, 88.98, -112.50)
+ collider Ground_MountainCleanup natural outcrop 9 MeshCollider min=(738.19, 84.30, -115.15) max=(740.50, 87.83, -111.97)
+ collider Ground_MountainPolish supported shoulders MeshCollider min=(676.30, 34.07, -328.00) max=(1292.14, 157.72, 335.36)
+ collider Roadside woodland trunk BoxCollider min=(755.19, 83.92, -100.12) max=(755.79, 94.03, -99.52)
+ collider Roadside woodland trunk BoxCollider min=(749.74, 83.08, -93.58) max=(750.34, 90.61, -92.98)
+ probe 2952.56 routeY=86.107: Ground_CR133 mountain driving surface=86.147
+ probe 2953.56 routeY=86.091: Ground_CR133 mountain driving surface=86.131
+ probe 2954.56 routeY=86.075: Ground_CR133 mountain driving surface=86.114
+ probe 2955.56 routeY=86.058: Ground_CR133 mountain driving surface=86.098
+ probe 2956.56 routeY=86.037: Ground_CR133 mountain driving surface=86.073
+ probe 2957.56 routeY=86.008: Ground_CR133 mountain driving surface=86.051
+ probe 2958.56 routeY=85.967: Ground_CR133 mountain driving surface=86.046
+ probe 2959.56 routeY=85.914: Ground_CR133 mountain driving surface=86.026
+ probe 2960.56 routeY=85.847: Ground_CR133 mountain driving surface=86.051
+ probe 2961.56 routeY=85.766: Ground_CR133 mountain driving surface=86.060
+ probe 2962.56 routeY=85.673: Ground_CR133 mountain driving surface=86.047
+ probe 2963.56 routeY=85.569: Ground_CR133 mountain driving surface=85.822
+ probe 2964.56 routeY=85.459: Ground_CR133 mountain driving surface=85.700
+ probe 2965.56 routeY=85.343: Ground_CR133 mountain driving surface=85.524
+ probe 2966.56 routeY=85.225: Ground_CR133 mountain driving surface=85.367
+ probe 2967.56 routeY=85.105: Ground_CR133 mountain driving surface=85.210
+ probe 2968.56 routeY=84.984: Ground_CR133 mountain driving surface=85.048
+ probe 2969.56 routeY=84.863: Ground_CR133 mountain driving surface=84.901
+ probe 2970.56 routeY=84.742: Ground_CR133 mountain driving surface=84.779
+ probe 2971.56 routeY=84.621: Ground_CR133 mountain driving surface=84.657
+ probe 2972.56 routeY=84.501: Ground_CR133 mountain driving surface=84.534
+ probe 2973.56 routeY=84.381: Ground_CR133 mountain driving surface=84.419
+ probe 2974.56 routeY=84.263: Ground_CR133 mountain driving surface=84.300
+ probe 2975.56 routeY=84.144: Ground_CR133 mountain driving surface=84.179
+ probe 2976.56 routeY=84.027: Ground_CR133 mountain driving surface=84.065
+ probe 2977.56 routeY=83.910: Ground_CR133 mountain driving surface=83.949
+ probe 2978.56 routeY=83.794: Ground_CR133 mountain driving surface=83.830
+ probe 2979.56 routeY=83.679: Ground_CR133 mountain driving surface=83.713
+ probe 2980.56 routeY=83.563: Ground_CR133 mountain driving surface=83.581
+ probe 2981.56 routeY=83.442: Ground_CR133 mountain driving surface=83.442
+ probe 2982.56 routeY=83.302: Ground_CR133 mountain driving surface=83.281
+A8: (965.80, 165.70, 131.60) main s=420.249 d=2.367 road=(967.07, 165.06, 133.49) forward=(0.83, 0.00, -0.56)
+ branch Downhill Ridge Cut s=221.20 d=302.28 at=(722.89, 79.00, -48.32)
+ branch Summit Traverse s=0.00 d=29.35 at=(990.00, 163.65, 115.00)
+ collider Ground_CR117 outer ravine MeshCollider min=(800.00, 33.01, -500.00) max=(1530.00, 151.90, 380.00)
+ collider Ground_CR133 mountain driving surface MeshCollider min=(680.30, 79.04, -324.00) max=(1288.14, 177.71, 331.36)
+ collider Ground_CR133 mountain earth banks MeshCollider min=(669.76, 32.57, -379.00) max=(1298.14, 181.81, 370.34)
+ collider Ground_Mountain_1_3 MeshCollider min=(900.00, 130.89, 30.00) max=(1000.00, 175.51, 130.00)
+ collider Ground_Mountain_1_4 MeshCollider min=(900.00, 116.71, 130.00) max=(976.00, 178.21, 230.00)
+ collider Ground_MountainCleanup natural outcrop 0 MeshCollider min=(966.41, 163.81, 113.85) max=(971.85, 168.04, 118.35)
+ collider Ground_MountainCleanup natural outcrop 5 MeshCollider min=(968.92, 160.41, 110.01) max=(973.88, 164.64, 115.02)
+ collider Ground_MountainCut mountain cap MeshCollider min=(973.00, 161.78, 110.00) max=(1007.00, 165.11, 149.00)
+ collider Ground_MountainCut natural embankments MeshCollider min=(930.00, 109.07, -96.96) max=(1061.82, 165.79, 185.87)
+ collider Ground_MountainCut portal outcrops MeshCollider min=(954.00, 137.00, 101.00) max=(1026.00, 163.25, 157.00)
+ collider Ground_MountainCut rock vault MeshCollider min=(966.60, 150.00, 107.00) max=(1013.40, 163.70, 150.00)
+ collider Ground_MountainPolish supported shoulders MeshCollider min=(676.30, 34.07, -328.00) max=(1292.14, 157.72, 335.36)
+ probe 405.25 routeY=165.598: Ground_CR133 mountain driving surface=165.596
+ probe 406.25 routeY=165.600: Ground_CR133 mountain driving surface=165.606
+ probe 407.25 routeY=165.585: Ground_CR133 mountain driving surface=165.602;Ground_MountainCut portal outcrops=152.701
+ probe 408.25 routeY=165.553: Ground_CR133 mountain driving surface=165.579;Ground_MountainCut portal outcrops=155.109
+ probe 409.25 routeY=165.507: Ground_CR133 mountain driving surface=165.541;Ground_MountainCut portal outcrops=157.077
+ probe 410.25 routeY=165.456: Ground_CR133 mountain driving surface=165.496;Ground_MountainCut portal outcrops=159.043
+ probe 411.25 routeY=165.405: Ground_CR133 mountain driving surface=165.445;Ground_MountainCut portal outcrops=160.376
+ probe 412.25 routeY=165.354: Ground_CR133 mountain driving surface=165.394;Ground_MountainCut portal outcrops=160.767
+ probe 413.25 routeY=165.303: Ground_CR133 mountain driving surface=165.343;Ground_MountainCut portal outcrops=161.158
+ probe 414.25 routeY=165.252: Ground_CR133 mountain driving surface=165.292;Ground_MountainCut portal outcrops=161.548
+ probe 415.25 routeY=165.202: Ground_CR133 mountain driving surface=165.242;Ground_MountainCut portal outcrops=161.938
+ probe 416.25 routeY=165.152: Ground_CR133 mountain driving surface=165.192;Ground_MountainCut portal outcrops=162.327
+ probe 417.25 routeY=165.108: Ground_CR133 mountain driving surface=165.144;Ground_MountainCut portal outcrops=162.704
+ probe 418.25 routeY=165.080: Ground_CR133 mountain driving surface=165.104;Ground_MountainCut portal outcrops=163.081
+ probe 419.25 routeY=165.064: Ground_CR133 mountain driving surface=165.077;Ground_MountainCut portal outcrops=163.167
+ probe 420.25 routeY=165.060: Ground_CR133 mountain driving surface=165.061;Ground_MountainCut portal outcrops=163.100
+ probe 421.25 routeY=165.062: Ground_CR133 mountain driving surface=165.053;Ground_MountainCut portal outcrops=163.029
+ probe 422.25 routeY=165.068: Ground_CR133 mountain driving surface=165.049;Ground_MountainCut portal outcrops=162.981
+ probe 423.25 routeY=165.076: Ground_CR133 mountain driving surface=165.050;Ground_MountainCut portal outcrops=163.024
+ probe 424.25 routeY=165.081: Ground_CR133 mountain driving surface=165.051;Ground_MountainCut portal outcrops=163.135
+ probe 425.25 routeY=165.084: Ground_CR133 mountain driving surface=165.047;Ground_MountainCut portal outcrops=163.165
+ probe 426.25 routeY=165.080: Ground_CR133 mountain driving surface=165.043;Ground_MountainCut portal outcrops=163.106
+ probe 427.25 routeY=165.069: Ground_CR133 mountain driving surface=165.033;Ground_MountainCut portal outcrops=163.047
+ probe 428.25 routeY=165.050: Ground_CR133 mountain driving surface=165.012;Ground_MountainCut mountain cap=164.658;Ground_MountainCut portal outcrops=162.948
+ probe 429.25 routeY=165.021: Ground_CR133 mountain driving surface=164.988;Ground_MountainCut mountain cap=164.586;Ground_MountainCut portal outcrops=162.549
+ probe 430.25 routeY=164.981: Ground_CR133 mountain driving surface=164.955;Ground_MountainCut mountain cap=164.514;Ground_MountainCut portal outcrops=162.149
+ probe 431.25 routeY=164.932: Ground_CR133 mountain driving surface=164.909;Ground_MountainCut mountain cap=164.443;Ground_MountainCut portal outcrops=161.751
+ probe 432.25 routeY=164.869: Ground_CR133 mountain driving surface=164.851;Ground_MountainCut mountain cap=164.370;Ground_MountainCut portal outcrops=161.348
+ probe 433.25 routeY=164.796: Ground_CR133 mountain driving surface=164.783;Ground_MountainCut mountain cap=164.296;Ground_MountainCut rock vault=163.300;Ground_MountainCut portal outcrops=160.930
+ probe 434.25 routeY=164.721: Ground_CR133 mountain driving surface=164.713;Ground_MountainCut mountain cap=164.221;Ground_MountainCut rock vault=163.300;Ground_MountainCut portal outcrops=160.502
+ probe 435.25 routeY=164.644: Ground_CR133 mountain driving surface=164.640;Ground_MountainCut mountain cap=164.144;Ground_MountainCut rock vault=163.300;Ground_MountainCut portal outcrops=160.065
+A9: (1001.70, 163.10, 103.80) main s=939.913 d=13.887 road=(990.00, 156.03, 101.35) forward=(0.00, 0.33, -0.94)
+ branch Downhill Ridge Cut s=221.20 d=317.60 at=(722.89, 79.00, -48.32)
+ branch Summit Traverse s=16.19 d=0.19 at=(1001.56, 162.56, 103.67)
+ collider Ground_CR117 outer ravine MeshCollider min=(800.00, 33.01, -500.00) max=(1530.00, 151.90, 380.00)
+ collider Ground_CR133 mountain driving surface MeshCollider min=(680.30, 79.04, -324.00) max=(1288.14, 177.71, 331.36)
+ collider Ground_CR133 mountain earth banks MeshCollider min=(669.76, 32.57, -379.00) max=(1298.14, 181.81, 370.34)
+ collider Ground_Mountain_1_3 MeshCollider min=(900.00, 130.89, 30.00) max=(1000.00, 175.51, 130.00)
+ collider Ground_Mountain_2_3 MeshCollider min=(1000.00, 117.54, 30.00) max=(1100.00, 175.03, 130.00)
+ collider Ground_MountainCut mountain cap MeshCollider min=(973.00, 161.78, 110.00) max=(1007.00, 165.11, 149.00)
+ collider Ground_MountainCut natural embankments MeshCollider min=(930.00, 109.07, -96.96) max=(1061.82, 165.79, 185.87)
+ collider Ground_MountainCut portal outcrops MeshCollider min=(954.00, 137.00, 101.00) max=(1026.00, 163.25, 157.00)
+ collider Ground_MountainCut rock vault MeshCollider min=(966.60, 150.00, 107.00) max=(1013.40, 163.70, 150.00)
+ collider Ground_MountainPolish supported shoulders MeshCollider min=(676.30, 34.07, -328.00) max=(1292.14, 157.72, 335.36)
+ collider SUMMIT CAMP
+Look for the cairns BoxCollider min=(997.00, 162.75, 91.85) max=(1003.00, 165.55, 92.15)
+ probe 924.91 routeY=152.598: Ground_CR133 mountain driving surface=152.638
+ probe 925.91 routeY=152.735: Ground_CR133 mountain driving surface=152.775
+ probe 926.91 routeY=152.885: Ground_CR133 mountain driving surface=152.925
+ probe 927.91 routeY=153.049: Ground_CR133 mountain driving surface=153.089
+ probe 928.91 routeY=153.226: Ground_CR133 mountain driving surface=153.266
+ probe 929.91 routeY=153.418: Ground_CR133 mountain driving surface=153.458
+ probe 930.91 routeY=153.622: Ground_CR133 mountain driving surface=153.662
+ probe 931.91 routeY=153.840: Ground_CR133 mountain driving surface=153.880
+ probe 932.91 routeY=154.070: Ground_CR133 mountain driving surface=154.110
+ probe 933.91 routeY=154.313: Ground_CR133 mountain driving surface=154.353
+ probe 934.91 routeY=154.569: Ground_CR133 mountain driving surface=154.609
+ probe 935.91 routeY=154.838: Ground_CR133 mountain driving surface=154.878
+ probe 936.91 routeY=155.118: Ground_CR133 mountain driving surface=155.158
+ probe 937.91 routeY=155.411: Ground_CR133 mountain driving surface=155.451
+ probe 938.91 routeY=155.716: Ground_CR133 mountain driving surface=155.756
+ probe 939.91 routeY=156.032: Ground_CR133 mountain driving surface=156.072
+ probe 940.91 routeY=156.360: Ground_CR133 mountain driving surface=156.400
+ probe 941.91 routeY=156.700: Ground_CR133 mountain driving surface=156.740
+ probe 942.91 routeY=157.050: Ground_CR133 mountain driving surface=157.090
+ probe 943.91 routeY=157.412: Ground_CR133 mountain driving surface=157.452
+ probe 944.91 routeY=157.785: Ground_CR133 mountain driving surface=157.825
+ probe 945.91 routeY=158.168: Ground_CR133 mountain driving surface=158.208;Ground_MountainCut natural embankments=153.905
+ probe 946.91 routeY=158.561: Ground_CR133 mountain driving surface=158.601;Ground_MountainCut natural embankments=153.195
+ probe 947.91 routeY=158.964: Ground_CR133 mountain driving surface=159.004;Ground_MountainCut natural embankments=152.488
+ probe 948.91 routeY=159.378: Ground_CR133 mountain driving surface=159.418;Ground_MountainCut natural embankments=155.228
+ probe 949.91 routeY=159.801: Ground_CR133 mountain driving surface=159.841;Ground_MountainCut natural embankments=154.695
+ probe 950.91 routeY=160.234: Ground_CR133 mountain driving surface=160.274;Ground_MountainCut natural embankments=154.166
+ probe 951.91 routeY=160.677: Ground_CR133 mountain driving surface=160.717;Ground_MountainCut natural embankments=153.638
+ probe 952.91 routeY=161.128: Ground_CR133 mountain driving surface=161.168;Ground_MountainCut natural embankments=153.115
+ probe 953.91 routeY=161.589: Ground_CR133 mountain driving surface=161.629;Ground_MountainCut natural embankments=152.596
+ probe 954.91 routeY=162.058: Ground_CR133 mountain driving surface=162.098;Ground_MountainCut natural embankments=152.079
+A10: (885.70, 116.30, -46.90) main s=1635.642 d=52.080 road=(887.38, 114.99, -98.94) forward=(0.98, 0.18, 0.03)
+ branch Downhill Ridge Cut s=0.00 d=153.76 at=(818.76, 95.71, -185.32)
+ branch Summit Traverse s=348.75 d=1.15 at=(885.79, 115.78, -48.05)
+ collider Ground_CR117 outer ravine MeshCollider min=(800.00, 33.01, -500.00) max=(1530.00, 151.90, 380.00)
+ collider Ground_CR133 mountain driving surface MeshCollider min=(680.30, 79.04, -324.00) max=(1288.14, 177.71, 331.36)
+ collider Ground_CR133 mountain earth banks MeshCollider min=(669.76, 32.57, -379.00) max=(1298.14, 181.81, 370.34)
+ collider Ground_Mountain_0_2 MeshCollider min=(800.00, 84.21, -70.00) max=(900.00, 130.89, 30.00)
+ collider Ground_Mountain_1_2 MeshCollider min=(900.00, 109.91, -70.00) max=(1000.00, 188.96, 30.00)
+ collider Ground_MountainCleanup connected mountain shoulder MeshCollider min=(830.00, 45.00, -130.00) max=(930.00, 126.83, -20.00)
+ collider Ground_MountainPolish supported shoulders MeshCollider min=(676.30, 34.07, -328.00) max=(1292.14, 157.72, 335.36)
+ collider Mountain trunk BoxCollider min=(900.33, 115.76, -57.64) max=(900.88, 127.87, -57.09)
+ collider Mountain trunk BoxCollider min=(884.26, 106.09, -29.25) max=(884.81, 113.47, -28.70)
+ probe 1620.64 routeY=110.762: Ground_CR133 mountain driving surface=109.596;Ground_MountainCleanup connected mountain shoulder=108.296
+ probe 1621.64 routeY=111.003: Ground_CR133 mountain driving surface=109.973;Ground_MountainCleanup connected mountain shoulder=108.673
+ probe 1622.64 routeY=111.250: Ground_CR133 mountain driving surface=110.349;Ground_MountainCleanup connected mountain shoulder=109.048
+ probe 1623.64 routeY=111.496: Ground_CR133 mountain driving surface=110.723;Ground_MountainCleanup connected mountain shoulder=109.423
+ probe 1624.64 routeY=111.748: Ground_CR133 mountain driving surface=111.094;Ground_MountainCleanup connected mountain shoulder=109.791
+ probe 1625.64 routeY=112.003: Ground_CR133 mountain driving surface=111.460;Ground_MountainCleanup connected mountain shoulder=110.160
+ probe 1626.64 routeY=112.280: Ground_CR133 mountain driving surface=111.820;Ground_MountainCleanup connected mountain shoulder=110.517
+ probe 1627.64 routeY=112.632: Ground_CR133 mountain driving surface=112.166;Ground_MountainCleanup connected mountain shoulder=110.865
+ probe 1628.64 routeY=113.035: Ground_CR133 mountain driving surface=112.498;Ground_MountainCleanup connected mountain shoulder=111.195
+ probe 1629.64 routeY=113.435: Ground_CR133 mountain driving surface=112.825;Ground_MountainCleanup connected mountain shoulder=111.522
+ probe 1630.64 routeY=113.807: Ground_CR133 mountain driving surface=113.148;Ground_MountainCleanup connected mountain shoulder=111.845
+ probe 1631.64 routeY=114.149: Ground_CR133 mountain driving surface=113.468;Ground_MountainCleanup connected mountain shoulder=112.164
+ probe 1632.64 routeY=114.437: Ground_CR133 mountain driving surface=113.784;Ground_MountainCleanup connected mountain shoulder=112.480
+ probe 1633.64 routeY=114.654: Ground_CR133 mountain driving surface=114.095;Ground_MountainCleanup connected mountain shoulder=112.791
+ probe 1634.64 routeY=114.823: Ground_CR133 mountain driving surface=114.398;Ground_MountainCleanup connected mountain shoulder=113.094
+ probe 1635.64 routeY=114.990: Ground_CR133 mountain driving surface=114.689;Ground_MountainCleanup connected mountain shoulder=113.383
+ probe 1636.64 routeY=115.179: Ground_CR133 mountain driving surface=114.965;Ground_MountainCleanup connected mountain shoulder=113.661
+ probe 1637.64 routeY=115.358: Ground_CR133 mountain driving surface=115.227;Ground_MountainCleanup connected mountain shoulder=113.921
+ probe 1638.64 routeY=115.537: Ground_CR133 mountain driving surface=115.474;Ground_MountainCleanup connected mountain shoulder=114.170
+ probe 1639.64 routeY=115.716: Ground_CR133 mountain driving surface=115.705;Ground_MountainCleanup connected mountain shoulder=114.397
+ probe 1640.64 routeY=115.895: Ground_CR133 mountain driving surface=115.919;Ground_MountainCleanup connected mountain shoulder=114.614
+ probe 1641.64 routeY=116.076: Ground_CR133 mountain driving surface=116.114;Ground_MountainCleanup connected mountain shoulder=114.806
+ probe 1642.64 routeY=116.258: Ground_CR133 mountain driving surface=116.298;Ground_MountainCleanup connected mountain shoulder=114.997
+ probe 1643.64 routeY=116.440: Ground_CR133 mountain driving surface=116.480;Ground_MountainCleanup connected mountain shoulder=115.179
+ probe 1644.64 routeY=116.622: Ground_CR133 mountain driving surface=116.662;Ground_MountainCleanup connected mountain shoulder=115.362
+ probe 1645.64 routeY=116.805: Ground_CR133 mountain driving surface=116.845;Ground_MountainCleanup connected mountain shoulder=115.545
+ probe 1646.64 routeY=116.989: Ground_CR133 mountain driving surface=117.029;Ground_MountainCleanup connected mountain shoulder=115.728
+ probe 1647.64 routeY=117.173: Ground_CR133 mountain driving surface=117.213;Ground_MountainCleanup connected mountain shoulder=115.912
+ probe 1648.64 routeY=117.356: Ground_CR133 mountain driving surface=117.396;Ground_MountainCleanup connected mountain shoulder=116.096
+ probe 1649.64 routeY=117.540: Ground_CR133 mountain driving surface=117.580;Ground_MountainCleanup connected mountain shoulder=116.279
+ probe 1650.64 routeY=117.723: Ground_CR133 mountain driving surface=117.763;Ground_MountainCleanup connected mountain shoulder=116.463

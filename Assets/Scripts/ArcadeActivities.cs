@@ -77,6 +77,7 @@ namespace Racer
         void FinishSmash(){var value=smashed.Count;AttemptActive=false;Award(Selected,value,"props");}
         void FixedUpdate()
         {
+            if(DeveloperLocationHud.Inspecting){NewSession();return;}
             if(!race||!race.Flow||race.Flow.State!=RaceFlow.Stage.Racing)return;
             if(!race.FreeRoam&&race.Progress.Finished)return;
             var p=car.Body.position;float dt=Time.fixedDeltaTime;bool grounded=car.GroundedWheels>=2;
@@ -139,6 +140,7 @@ namespace Racer
         }
         void Award(ActivitySite site,float value,string units)
         {
+            if(DeveloperLocationHud.Inspecting)return;
             if(!float.IsFinite(value)||value<=0)return;int medal=site.Medal(value,configuration.profileId);var best=PersonalBest(site);
             bool improved=best==null||value>best.value;
             if(site.kind!=ActivitySite.Kind.Smash)Records.Add(new ActivityRecords.Entry{id=Guid.NewGuid().ToString("N"),key=Key(site),site=site.id,vehicle=configuration.profileId,date=DateTime.UtcNow.ToString("o"),value=value,airtime=site.kind==ActivitySite.Kind.Jump?LastAirtime:0,medal=medal});

@@ -1,0 +1,8 @@
+Ground_Mountain_0_1: 2907 -> 2913
+Ground_Mountain_2_3: 5207 -> 5232
+Ground_MountainCut natural embankments: 7589 -> 7453
+Ground_MountainPolish supported shoulders: 12451 -> 12467
+Ground_MountainCut rock vault: 1620 -> 1704
+Ground_MountainCleanup connected mountain shoulder: 5500 -> 5209
+Ground_MountainCut mountain cap: 2652 -> 2489
+Ground_CR133 mountain earth banks: 157540 -> 157548

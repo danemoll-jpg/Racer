@@ -85,6 +85,13 @@ namespace Racer
             catch (Exception e) when (e is IOException || e is UnauthorizedAccessException)
             { Error = "Could not save. Records/settings remain in memory."; return false; }
         }
+        Records attemptBaseline;
+        public void BeginAttempt()=>attemptBaseline=JsonUtility.FromJson<Records>(JsonUtility.ToJson(Best));
+        public void RevokeAttempt()
+        {
+            if(attemptBaseline==null||attemptBaseline.course!=Best.course)return;
+            Best=attemptBaseline;attemptBaseline=null;Write(recordFile,Best);
+        }
         public bool RecordLap(double seconds)
         {
             if (!Valid(seconds) || seconds <= 0 || (Best.lap > 0 && seconds >= Best.lap)) return false;

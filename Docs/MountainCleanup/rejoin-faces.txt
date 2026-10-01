@@ -1,0 +1,1 @@
+Corrected 23258 vertices in existing overlapping-ribbon join. Deterministic continuous height blend between unchanged route centre lines; existing X/Z footprint and final rejoin unchanged.

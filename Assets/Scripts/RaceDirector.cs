@@ -48,6 +48,7 @@ namespace Racer
         public WoodlandRoute[] Branches { get; private set; }
         public float Origin => origin;
         double startedAt, firstFinish = -1;
+        double debugTimeoutOffset, debugGraceOffset;
         GameObject gridVisual;
         static Material gridPaint;
         void Awake()
@@ -149,6 +150,7 @@ namespace Racer
             }
 
             firstFinish = -1;
+            debugTimeoutOffset=debugGraceOffset=0;
             ClassificationFinal = false;
             startedAt = Time.timeAsDouble + 3;
             BreakableProp.RestoreRace();
@@ -272,7 +274,9 @@ namespace Racer
             if(Progress.Finished && Flow && Flow.Save.Settings.estimateAiFinishes) FinalizeUnfinishedAi();
             if (Racers.Any(r => r.Progress.Finished) && firstFinish < 0)
                 firstFinish = Clock;
-            if (!Progress.Unlimited && (Clock - startedAt >= maximumRaceSeconds*Mathf.Max(1,laps/3f) || (firstFinish >= 0 && Clock - firstFinish >= finishGraceSeconds)))
+            // Debug review time consumes neither the total race budget nor the post-finisher grace budget.
+            if(DeveloperLocationHud.DebugEnabled){debugTimeoutOffset+=Time.fixedDeltaTime;if(firstFinish>=0)debugGraceOffset+=Time.fixedDeltaTime;}
+            if (!DeveloperLocationHud.DebugEnabled && !Progress.Unlimited && (Clock - startedAt - debugTimeoutOffset >= maximumRaceSeconds*Mathf.Max(1,laps/3f) || (firstFinish >= 0 && Clock - firstFinish - debugGraceOffset >= finishGraceSeconds)))
                 foreach (var r in Racers)
                     if (!r.Classified)
                         r.Dnf = true;

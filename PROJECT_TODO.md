@@ -9,7 +9,16 @@
 - Do not silently modify or weaken CODEX_RULES.md. Changes to standing rules require an explicit instruction from Dan.
 - Root AGENTS.md points future Codex tasks to both files.
 
-## CURRENT — Urgent Mountain Reverse main-route restoration — 0.62.0-review1
+## CURRENT — Mountain Reverse cleanup + developer reporting — source complete, delivery in progress
+
+- Dan explicitly authorizes A1–A10 at the supplied coordinates, followed only after Phase A verification by Debug Mode / bug reporting / detached inspection. This supersedes the prior STOP for these areas only. Other courses, physics, global AI, checkpoints and recovery remain protected.
+- Safety checkpoint: clean main `b9041b01a5598a3fa1ce05a44f7de9a7ab59237f`.
+- Phase A complete: A1 smooth retessellated climb; A2 continuous shoulder/join support; A3 lower natural outcrops and clear sign; A4 cleared support intrusion and steep paved step; A5 local grade smoothing; A6 mountain support under the existing receiving road; A7 natural separator rocks; A8 grounded Summit outcrops; A9 intrusive vault faces removed; A10 green support shards replaced. Each root cause, correction and targeted motorcycle/ATV result is recorded in [Phase A validation](Docs/MountainCleanup/VALIDATION.md). Full-route AI limitations are explicitly retained; no global AI/physics/recovery tuning.
+- Standing Mountain rule: before filling apparent empty space beneath an upper road, verify whether a lower authored route requires clearance; preserve its complete corridor and support around it. A6 includes an intentional flight gap; support the existing receiving road, not the gap.
+- Phase B complete: F3 Debug Mode (default off), F4 screenshot-before-comment capture, F6/Start debug menu, Markdown/JSON/PNG sessions and ZIP export, detached camera with keyboard/controller controls and return. Debug movement invalidates the active race and rolls back records from that attempt; HUD/capture preserve eligibility. **Debug Mode suspends overall race timeout and post-finisher grace; off resumes the remaining budget.** All 28 targeted checks pass, including three saved reports. [Controls](Docs/DebugReporting/DEBUG_MODE.md), [validation](Docs/DebugReporting/VALIDATION.md).
+- Delivery in progress for 0.63.0-review1 / game-63000. Published/local baseline remains 0.62.0-review1 / game-62000 until the signed build and production-launch gates complete.
+
+## Previous delivery — Urgent Mountain Reverse main-route restoration — 0.62.0-review1
 
 This supersedes the previous polish STOP only for the reported junction regression. No broad Mountain polish is authorized.
 

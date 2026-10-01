@@ -1,0 +1,29 @@
+Assets/Track/MountainCleanup/MountainCleanup connected mountain shoulder.asset
+Assets/Track/MountainCleanup/MountainCleanup landing rock shoulder.asset
+Assets/Track/MountainCleanup/bump-175-Ground_720_400.asset
+Assets/Track/MountainCleanup/bump-175-Ground_CR133 mountain driving surface.asset
+Assets/Track/MountainCleanup/bump-175-Ground_CR133 mountain earth banks.asset
+Assets/Track/MountainCleanup/bump-175-Ground_MountainPolish supported shoulders.asset
+Assets/Track/MountainCleanup/bump-175-Ground_Mountain_0_3.asset
+Assets/Track/MountainCleanup/bump-2140-Ground_CR133 mountain driving surface.asset
+Assets/Track/MountainCleanup/bump-2140-Ground_CR133 mountain earth banks.asset
+Assets/Track/MountainCleanup/bump-2140-Ground_MountainPolish supported shoulders.asset
+Assets/Track/MountainCleanup/cleared-Ground_CR133 mountain earth banks.asset
+Assets/Track/MountainCleanup/cleared-Ground_MountainCleanup connected mountain shoulder.asset
+Assets/Track/MountainCleanup/cleared-Ground_MountainPolish supported shoulders.asset
+Assets/Track/MountainCleanup/coherent-rejoin.asset
+Assets/Track/MountainCleanup/continuous-subgrade.asset
+Assets/Track/MountainCleanup/final-connected-subgrade.asset
+Assets/Track/MountainCleanup/final-subgrade.asset
+Assets/Track/MountainCleanup/first-bump-surface.asset
+Assets/Track/MountainCleanup/retessellated-first-climb.asset
+Assets/Track/MountainCleanup/seated-arrow-0.asset
+Assets/Track/MountainCleanup/seated-arrow-1.asset
+Assets/Track/MountainCleanup/seated-arrow-2.asset
+Assets/Track/MountainCleanup/seated-arrow-3.asset
+Assets/Track/MountainCleanup/seated-arrow-4.asset
+Assets/Track/MountainCleanup/terrain-retained-Ground_CR117 outer ravine.asset
+Assets/Track/MountainCleanup/terrain-retained-Ground_CR133 mountain earth banks.asset
+Assets/Track/MountainCleanup/terrain-retained-Ground_MountainCut natural embankments.asset
+Assets/Track/MountainCleanup/terrain-retained-Ground_MountainPolish supported shoulders.asset
+Assets/Track/MountainCleanup/terrain-retained-Ground_Mountain_0_1.asset

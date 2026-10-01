@@ -1,0 +1,1 @@
+Removed overlapping triangulation inside the existing local footprint and retessellated at 0.5m spacing; 26246 faces. Main/branch coordinates, endpoints and final tangent unchanged.

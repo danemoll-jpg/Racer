@@ -43,6 +43,7 @@ namespace Racer
         }
         void FixedUpdate()
         {
+            if(DeveloperLocationHud.Inspecting){sampled=false;return;}
             if(!race||!race.Flow)return;var p=race.vehicle.Body.position;
             if(!sampled){previous=p;sampled=true;return;}
             var delta=p-previous;bool valid=delta.magnitude<=Mathf.Max(3,race.vehicle.Body.linearVelocity.magnitude*Time.fixedDeltaTime*2+.3f);

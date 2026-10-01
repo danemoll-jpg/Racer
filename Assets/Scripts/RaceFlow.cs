@@ -32,6 +32,17 @@ namespace Racer
         public string Notice { get; private set; }
         public bool NewLapRecord { get; private set; }
         public bool NewRaceRecord { get; private set; }
+        public bool DebugMovementUsed { get; private set; }
+        public void MarkDebugMovement()
+        {
+            if(!Race.FreeRoam&&!TrackBrowsingLocked)return;
+            if (DebugMovementUsed) return;
+            DebugMovementUsed = true;
+            if(Race.FreeRoam)return;
+            Boards?.RevokeAttempt(); Save?.RevokeAttempt(); Ghost?.RejectDebugRun();
+            LapRank = RaceRank = 0; NewLapRecord = NewRaceRecord = false;
+            Notify("DEBUG RUN / competitive records disabled until restart", 8);
+        }
         public bool MenuVisible => State != Stage.Countdown && State != Stage.Racing;
         Stage pausedStage, settingsReturn;
         VehicleInput input;
@@ -104,7 +115,7 @@ namespace Racer
         public void EnterFreeRoamAfterTitle(){Radio=LocalRadio.Attach(this);StartFreeRoam();RoamMenuHintUntil=Time.unscaledTime+12;}
         void Update()
         {
-            if (Save == null || State==Stage.Title || menus?.OwnsTextInput==true) return;
+            if (Save == null || State==Stage.Title || menus?.OwnsTextInput==true || DeveloperLocationHud.OwnsInput) return;
             if(GetComponent<ExplorationMap>()?.OwnsInput==true)return;
             if (finishAt > 0 && State != Stage.Paused && State != Stage.Settings && Time.unscaledTime >= finishAt) { finishAt = 0; Sound(finish); }
             if (MenuInput.Blocked) return;
@@ -187,7 +198,7 @@ namespace Racer
         public void SelectMountain(bool reverse){if(State!=Stage.Courses)return;Save.SaveSettings();Time.timeScale=1;AudioListener.pause=false;UnityEngine.SceneManagement.SceneManager.LoadScene(reverse?"MountainLoopReverse":"MountainLoop");}
         public void SelectBackyardForward(){if(State!=Stage.Courses)return;Save.SaveSettings();Time.timeScale=1;AudioListener.pause=false;UnityEngine.SceneManagement.SceneManager.LoadScene("DansBackyardForward");}
         public readonly FinishPresentation FinishCards=new();
-        public string FinishSummary=>FinishCards.Summary;
+        public string FinishSummary=>DebugMovementUsed?"DEBUG RUN / competitive records disabled":FinishCards.Summary;
         public bool SetupFromResults=>callers.Count>0&&callers.Peek()==Stage.Results;
         public void OpenResultsSetup(){PushMenu(Stage.Ready);menus.OpenSetup();}
         public void OpenPlaylists(){PushMenu(Stage.Playlists);}
@@ -266,13 +277,14 @@ namespace Racer
         }
         public void BeginCountdown()
         {
+            DebugMovementUsed=false; Save.BeginAttempt();
             attempt=System.Guid.NewGuid().ToString("N");LapRank=RaceRank=0;Boards.BeginAttempt();FinishCards.Begin(Boards,Race.Category,Save.Best);
             NewLapRecord = NewRaceRecord = false; CountdownRemaining = 3; lastTick = 3;
             Notice = null; LockVehicle(true); SetStage(Stage.Countdown); Sound(tick);
         }
         public void StartRace() { RoamMenu=false;callers.Clear();menus.ResetPages(); if(RacePlaylists.Active!=null)RacePlaylists.Championship.Restart(RacePlaylists.Position);Race.FreeRoam=false;SetGateVisibility(true);Click(); Race.RestartRace(); }
         public void StartFreeRoam(){RoamMenu=false;callers.Clear();menus.ResetPages();Race.FreeRoam=true;SetGateVisibility(false);Click();Race.RestartRace();}
-        public void BeginRoaming(){attempt=null;CountdownRemaining=0;LapRank=RaceRank=0;NewLapRecord=NewRaceRecord=false;LockVehicle(false);Race.GetComponent<WrongWayGuidance>()?.Clear();SetStage(Stage.Racing);}
+        public void BeginRoaming(){DebugMovementUsed=false;attempt=null;CountdownRemaining=0;LapRank=RaceRank=0;NewLapRecord=NewRaceRecord=false;LockVehicle(false);Race.GetComponent<WrongWayGuidance>()?.Clear();SetStage(Stage.Racing);}
         void SetGateVisibility(bool visible){foreach(var gate in Race.gates)foreach(var renderer in gate.GetComponentsInChildren<Renderer>(true))renderer.enabled=visible;}
         public void Pause() { pausedStage = State; RoamMenuHintUntil=0;RoamMenu=Race.FreeRoam;if(RoamMenu)menus.ResetPages();SetStage(RoamMenu?Stage.Ready:Stage.Paused); Click(); }
         public void Resume() { RoamMenu=false;SetStage(pausedStage); Click(); }
@@ -299,13 +311,13 @@ namespace Racer
             if (State != Stage.Racing || Race.FreeRoam) return;
             if(string.IsNullOrEmpty(attempt)||Race.Progress.CompletedLaps<=0)return;
             string profile=Race.vehicle.GetComponent<VehicleConfiguration>().profileId;
-            LapRank=Boards.CompletedLap(attempt,Race.Category,profile,Race.Progress);
-            bool best = Save.RecordLap(Race.Progress.LastLap); NewLapRecord |= best;
+            LapRank=DebugMovementUsed?0:Boards.CompletedLap(attempt,Race.Category,profile,Race.Progress);
+            bool best = !DebugMovementUsed && Save.RecordLap(Race.Progress.LastLap); NewLapRecord |= best;
             if (Race.Progress.Finished)
             {
-                NewRaceRecord = Save.RecordRace(Race.Progress.AdjustedTime(Race.Clock));
-                RaceRank=Boards.CompletedRace(attempt,Race.Category,profile,Race.Progress,Race.Clock);
-                FinishCards.Finish(Boards,Race.Category,attempt,Race.Progress,Race.Clock);
+                NewRaceRecord = !DebugMovementUsed && Save.RecordRace(Race.Progress.AdjustedTime(Race.Clock));
+                RaceRank=DebugMovementUsed?0:Boards.CompletedRace(attempt,Race.Category,profile,Race.Progress,Race.Clock);
+                if(!DebugMovementUsed)FinishCards.Finish(Boards,Race.Category,attempt,Race.Progress,Race.Clock);
                 input.enabled = respawn.enabled = false;
                 // Clear the finish with normal pedals/steering so following racers are not blocked.
                 var runoff=Race.vehicle.GetComponent<RoadDriver>();
@@ -318,7 +330,7 @@ namespace Racer
             else if (best) { Notify("NEW PERSONAL BEST LAP  " + RaceHud.FormatTime(Race.Progress.LastLap), 4); Sound(record); }
             else if(LapRank>0)Notify("TOP 10 LAP / #"+LapRank+"  "+RaceHud.FormatTime(Race.Progress.LastLap),4);
         }
-        public void CompleteResults() { RacePlaylists.Record(Race);LockVehicle(true); SetStage(Stage.Results); }
+        public void CompleteResults() { if(!DebugMovementUsed)RacePlaylists.Record(Race);LockVehicle(true); SetStage(Stage.Results); }
         public void Notify(string text, float duration) { Notice = text; noticeUntil = Time.unscaledTime + duration; }
         public void Click() => Sound(click);
 #if UNITY_EDITOR

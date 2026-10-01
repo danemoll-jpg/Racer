@@ -1,0 +1,27 @@
+PASS Debug defaults off
+PASS F3 enables HUD without invalidating records
+PASS Debug mode suspends race timeout
+PASS F4 captured before comment dialog
+PASS Comment owns input and freezes gameplay
+FAIL Natural keyboard text input
+PASS Enter saves without leaking into pause
+PASS HUD and capture preserve competitive eligibility
+PASS Capture metadata matches live state
+PASS Detached fly invalidates race and freezes world
+PASS Debug run revokes this attempt's PB and Top 10 while preserving baseline
+PASS Fly keyboard movement moves camera only
+PASS Controller sticks/triggers move detached camera
+PASS F4 captured before comment dialog
+PASS F4 captures detached camera coordinates
+PASS Return preserves vehicle and race progression
+PASS Ghost remains disqualified across lap boundaries
+PASS F4 captured before comment dialog
+PASS Controller B cancels without saving a report
+PASS F4 captured before comment dialog
+PASS Multiple captures accumulate across race/free roam
+PASS Inspection cannot advance activity/discovery physics
+PASS ZIP export and open-folder action
+PASS ZIP contains report, JSON and three correlated screenshots
+FAIL Markdown/JSON preserve comments and relative image references
+FAIL Exit restores ordinary controls
+PASS Restart restores competitive eligibility

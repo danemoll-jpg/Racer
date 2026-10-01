@@ -252,6 +252,7 @@ namespace Racer
         }
         void Update()
         {
+            if(DeveloperLocationHud.OwnsInput)return;
             UpdateCore();
             if(!editingPlaylistName)return;
             if(!controllerName&&Gamepad.current?.startButton.wasPressedThisFrame==true){controllerName=true;playlistName.DeactivateInputField();Show();return;}
