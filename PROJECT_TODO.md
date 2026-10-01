@@ -9,7 +9,7 @@
 - Do not silently modify or weaken CODEX_RULES.md. Changes to standing rules require an explicit instruction from Dan.
 - Root AGENTS.md points future Codex tasks to both files.
 
-## Current work — Forest Forward accepted cave-in restoration / grounded edge rocks — 0.60.0-review1
+## Current delivery — Forest Forward accepted cave-in restoration / grounded edge rocks — 0.60.0-review1
 
 - Dan reports 0.59 neutralized the accepted obstacle and left visually obstructive drive-through rocks. This request supersedes its previous STOP. Clean safety checkpoint `0b94bd492ac7a4ff45d50a251b2035428ec41de6`.
 - [x] ACTUAL four-rock cave-in restored from `5985a27c17e9245c5aa3e44727c1cd5a72bba5dd` / 0.58.0-review1 (game-58000), using exact historical transforms and original meshes/colliders. No new obstacle or whole-cave revert. Original approximately 3.8m right opening and full heights restored. Historical local AI line/guidance and recovery exclusion were still present and retained.
@@ -17,8 +17,9 @@
 - [x] Recompose 166 ordinary wall ledges into 45 irregular grounded edge boulders with matching solid mesh collision, removing 121 intrusive/repeated pieces. Ground and cap 166 decorative stones to actual .16m height. All 49 substantial obstacle/edge rocks now physically matter; centre line/opening/jump envelope retained.
 - [x] Motorcycle/ATV aligned passes at 27m/s target, minimum 26.76m/s; poor alignment physically stops both upright. Three edge impacts stop ATV without airtime/flips. Full production Forward rival traversal reaches cave exit with zero resets/recoveries; existing intentional jump retained. Chase/interior/exterior views inspected. Automated checks do not claim Dan acceptance. No Reverse/global AI/physics/recovery changes.
 - [x] Historical restoration, collision classes, preservation audit, initial fixture issues and targeted results documented in [Docs/CaveRestore/VALIDATION.md](Docs/CaveRestore/VALIDATION.md).
-- [ ] Completion source push, fresh Windows runtime, complete Latest, signed game-60000 publication/catalog, real Play-Racer.cmd verification and disposable cleanup in progress.
-- **SESSION HANDOFF:** implementation and bounded gameplay checks complete; STOP further gameplay tuning/testing. Finish normal release delivery, then await Dan's gameplay review.
+- [x] **DELIVERED:** completion source `d2ae81b48ff6587016cc1f207bc679ba9db1c8d4` pushed/verified on origin/main; fresh Windows build succeeds with zero errors/11 existing warnings in 3m16s. Published [game-60000](https://github.com/danemoll-jpg/woodstock-rush-releases/releases/tag/game-60000); all three remote assets and all 233 complete Latest runtime files verified. Actual public download/signature/install/startup passed. [Publication evidence](Docs/CaveRestore/PUBLICATION.md).
+- [x] Unchanged **Play-Racer.cmd** launched responsive managed 60000. Original settings restored byte-for-byte; soundtrack state preserved; no updates pending. Current 60000 / previous 59000 retained. Builds **9,523,447,484 → 7,566,589,771 bytes**; **3,549,168,422 bytes** disposable output removed; final C: free **295,783,903,232 bytes**.
+- **SESSION HANDOFF: STOP for Dan's gameplay review.** Actual history restoration, bounded verification and standard release delivery complete. No additional cave/track/UI/world changes. Documentation-only completion record follows; playable source remains `d2ae81b4`.
 ## Previous delivery — Forest Forward cave hillside / sight-line correction — 0.59.0-review1
 
 - Dan requests only exterior integration and improved rockfall visibility. Preserve the accepted interior, obstacle concept, Forward AI and Forest Reverse. Clean safety checkpoint `acb259163904b2ca84e05f75e133b1370dd9537e`.
