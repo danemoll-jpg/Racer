@@ -10,7 +10,61 @@
 - Root AGENTS.md points future Codex tasks to both files.
 - From 2026-10-02 the coding agent is Claude Code. The same two files govern it; root CLAUDE.md (created in the 0.67 round) is its discovery pointer.
 
-## CURRENT — Reset rule rewrite, fall-through safety, Mountain fixes, landing, barriers — 0.68.0-review1 — DELIVERED
+## CURRENT — 8-report follow-up: road edges, barriers, signs, grass on road — target 0.69.0-review1 — NOT STARTED
+
+- **Authorized by Dan** from debug session `2026-10-02_17-29-13-319_325918` (CLOSED, exported as `..._325918_47fd0b7a.zip`). All 8 reports were captured on 0.68.0-review1 (build `fd4431e2`), so all 8 count. Folder with full-size screenshots: `C:\Users\danmo\AppData\LocalLow\DefaultCompany\Racer\DebugReports\2026-10-02_17-29-13-319_325918`. READ every comment and LOOK at every screenshot before changing anything. If the folder is missing, ask Dan for the ZIP.
+- **Starting point:** main `10538c77` (documentation commit; playable source `52393f8b`, 0.68.0-review1 / game-68000). This TODO edit is uncommitted and belongs in the safety checkpoint.
+- **Scope is exactly Parts A–D below.** Section 5A applies to all geometry: driving lines, jumps, flight corridors, tunnels and lower routes are protected. The 0.68 reset rule, failsafe, seam-cover colliders, landing runout, berms and arrow cleanup are accepted work; do not undo them.
+- **0.68 is CLOSED / ACCEPTED by Dan (2026-10-02).** The reset rule works as described; Dan will keep using it and will raise a flag himself if he wants it changed. Do not reopen or retune any 0.68 item.
+
+### Part A — Road edges: remove the sawtooth and make edges drivable (Mountain Loop, both directions)
+
+- **BUG-004** Mountain Loop Reverse (827.31, 124.59, 108.94) main s 254, heading 120. Dan: "can we get rid of this sawtooth stuff and smooth out the roads? If I fall off the track I should be able to just get right back on." The screenshot shows the jagged zigzag outline where pavement meets terrain. 0.67 recorded "jagged pavement outlines remain" as a known limitation; Dan now wants it gone.
+- **Outcome required, all Mountain routes (main and branches), Forward and Reverse scenes:**
+  1. The visible boundary between pavement and terrain is a clean, smooth line that follows the road. No sawtooth/stair-step outline, no slivers, no see-through seams.
+  2. Wherever terrain adjoins the road, the shoulder meets the pavement flush: no lip, step, trench or gap that stops a motorcycle or ATV from riding off the road and straight back on. Collision matches what is visible (rule 4).
+  3. Road centre line, width, grade and banking are unchanged. This is an edge and shoulder correction, not a road rebuild.
+- **Not edges to "fix":** jump lips and landings, flight gaps, tunnel mouths, bridges/elevated ribbons over a lower route, and the 0.68 berms. Leave those as they are.
+- Find the cause first (the 0.64 voxel terrain is clipped against pavement in grid steps) and fix it at the source for the affected meshes if that is the smallest reliable change; otherwise correct edges locally. Do NOT regenerate the mountain terrain broadly (5A.3).
+- Record before/after counts of sawtooth/step edge stations per scene in `Docs/Report069/VALIDATION.md`. If some stretch cannot be made flush without touching a protected feature, list it with coordinates and leave it.
+
+### Part B — Barriers at two crest-then-bend places (Mountain Loop)
+
+Dan asked in 0.68 for barriers after jumps that lead straight into a turn. These two are the same problem at a hill crest instead of a ramp.
+
+- **BUG-005** Mountain Loop Reverse (995.76, 163.84, 121.08) main s 450, heading 98. "This place in particular needs a barrier. When you come off the hill it is too easy to go flying off the edge here." The exposed edge is ahead/left of the "OPTIONAL SHORTCUT / SUMMIT TRAVERSE" sign. **The Summit Traverse shortcut entrance (gold arrow, right) must stay open and unobstructed.**
+- **BUG-008** Mountain Loop Forward (1021.31, 139.27, -66.87) main s 1403, heading 88. "Another place that needs a barrier, you come over the hill and there is no straight road so you go flying off the track." The road bends away just past the crest, with a drop on the outside.
+- Build as in 0.68 Part E: natural berm/rock on the OUTSIDE of the bend, grounded, with colliders, shaped to deflect along the road, high enough for a motorcycle and ATV arriving at full speed over the crest. Nothing in the driving width, flight corridors or shortcut entrances. Check whether the same location exists in the other direction's scene and needs the same barrier.
+- Add both to `Docs/Report068/BARRIERS.md` (or a 069 copy). Verify each with one full-throttle motorcycle and one ATV pass: clean line unobstructed, overshoot kept on track.
+
+### Part C — Terrain lying on the road
+
+- **BUG-001** Street Loop Forward, Free Roam (323.64, 8.73, 542.52) main s 8, heading 228. "What happened here? Why is the grass on the road now? Need to remove this." Grass-coloured terrain now covers part of the pavement near the start. **Regression — check Git first (rule 5).** This is the spot where 0.67 grounded the cairn (its BUG-001) and where 0.68 "seated the start on its support"; compare the ground/road meshes and materials here against 0.66 (`eec4e911`) and restore the road surface. The cairn stays grounded. The pale flat rectangle beside the cairn is still visible; blend or remove it if it is a leftover pad. Check the same location in the other Street Loop / shared-world scenes.
+- **BUG-006** Mountain Loop Reverse (730.36, 99.60, -294.35) main s 2740, heading 318. "Fix this." (Reading confirmed by Dan.) A lump of green terrain overlaps the right side of the pavement, with a torn/see-through patch in it. Remove the terrain from the driving surface and close the tear with a clean, collidable shoulder (Part A outcome).
+- **BUG-007** Mountain Loop Forward, Climbing Ridge Cut 14 m (759.37, 87.75, -113.37), heading 163. "Smooth out the grass." Lumpy grass sheets overlap the trail ahead and expose a ribbed, see-through underside at their edge. Replace with one smooth connected surface meeting the trail flush. The Climbing Ridge Cut jump system is protected.
+
+### Part D — Signs (Street Loop Forward, Free Roam; shared world)
+
+- **BUG-002** (471.15, 85.67, -20.84) main s 640, heading 220. "I think just remove these signs." Remove BOTH: "FENCE LINE SMASH / 3 / 6 / 10 PROPS IN 8 s" and "ANDERSON'S / LAKE / MOUNTAIN TRAILS", with their posts. Remove them in every scene where they appear. Signs only: the Fence Line Smash activity, its scoring and the fences stay.
+- **BUG-003** (538.99, 81.03, -83.76) main s 730, heading 164. "Raise this sign out of the dirt." The "LAKE … / BOTH TRAILS …" sign is half buried in the hillside. Reseat it on the ground with its post visible and the whole face readable from the trail; apply to every scene where it appears.
+
+### Verification for this round (targeted, rule 11)
+
+- Before/after view at each of the 8 coordinates, with a PASS/explained disposition per bug in `Docs/Report069/VALIDATION.md`.
+- Part A: ride off the road and back on (motorcycle and ATV) at BUG-004 and at four other sample points per scene chosen from the worst stations before the fix; edge-step probe counts before/after.
+- 5A.6 neighbour checks for every geometry change, covering at minimum the lower main route tunnel, South Face Summit jump, Summit Traverse entry/rejoin, Climbing and Downhill Ridge Cut jumps, Homeward landing runout and the three 0.68 berms. Results must match 0.68.
+- One reset from off-track beside a corrected edge in each Mountain scene, to confirm the 0.68 reset rule still places at the nearest point.
+
+### Outstanding after this round (as of 2026-10-02)
+
+- Awaiting Dan: gameplay review of 0.69; recheck of the Reverse s 1583 bump.
+- From the 0.68 results, not yet raised by Dan: the full-throttle line brushes the Downhill Ridge Cut berm; airborne riders at ~38 m/s can still clear the Homeward berm; High Ridge Drop barrier is a suggestion only; production AI stops at the Homeward deck (s 2316) and undershoots the South Face deck (both pre-existing).
+- Open: CR-118 intermittent spoken-title clipping.
+- Possibly stale, needs Dan's yes/no: CR-010 slightly tighter steering.
+- Deferred: physical Steam Deck / controller / save-migration checks; friend test of the packaged build on another PC.
+- Backlog (not authorized): graphics upgrade; see FUTURE EXPANSION.
+
+## Previous delivery — Reset rule rewrite, fall-through safety, Mountain fixes, landing, barriers — 0.68.0-review1 — DELIVERED, ACCEPTED BY DAN 2026-10-02
 
 ### Results (2026-10-02, Claude Code)
 
@@ -408,6 +462,7 @@ The following records the previous 0.61 delivery. Its polish acceptance is super
 
 ### COMPLETED / ACCEPTED
 
+- Per Dan, 2026-10-02: 0.68.0-review1 accepted and closed, including the player reset rule (nearest track point, facing forward, always succeeds). Reopen only if Dan raises it.
 - Per Dan, 2026-10-02: 0.66 BUG-001 (lower main route) and BUG-002 (South Face Summit jump) verified; CR-087 Trickum ramp complete; separate lake/woodland circuit (CR-040) complete. Do not reopen without Dan's request.
 - Dan's Backyard Loop Forward and Reverse accepted. The old back-property dirt trail / gully concept became this course and is complete, not a future track.
 - Forest Forward cave accepted for now. No additional cave work; reopen only on Dan's explicit request.
