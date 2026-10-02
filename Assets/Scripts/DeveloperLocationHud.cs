@@ -13,14 +13,16 @@ namespace Racer
     {
         public static DeveloperLocationHud Instance { get; private set; }
         static DebugReportSession session;
+        static bool resumeChecked;
         public static bool DebugEnabled => Instance && Instance.visible;
         public static bool Inspecting => Instance && Instance.Flying;
         public static bool OwnsInput => Instance && (Instance.Holding || Time.frameCount <= Instance.releasedFrame);
         public static bool Interactive => Instance && (Instance.menuOpen || Instance.CommentOpen);
-        public static DebugReportSession Session => session;
+        public static DebugReportSession Session { get { ResumeOnce(); return session; } }
 #if UNITY_EDITOR
         public static string ValidationReportRoot;
-        public static void ResetValidationSession() => session = null;
+        // Simulates a fresh game launch: forget the in-memory session so the next use resumes from disk.
+        public static void ResetValidationSession() { session = null; resumeChecked = false; }
 #endif
         RaceDirector race;
         Font font;
@@ -52,7 +54,7 @@ namespace Racer
         public string LastOpenedFolder { get; private set; }
         public string Error { get; private set; }
         public string HudText => label ? label.text : "";
-        public string SessionText => session == null ? "Session: NEW / Reports 0\nNext F4 starts BUG-001"
+        public string SessionText => Session == null ? "Session: NEW / Reports 0\nNext F4 starts BUG-001"
             : "Session: " + session.Id + "\n" + (session.Closed ? "CLOSED" : "OPEN") + " / Reports " + session.Count
                 + (session.Closed ? " / Next F4: new BUG-001" : "");
         bool Holding => menuOpen || capturing || CommentOpen || Flying;
@@ -155,6 +157,7 @@ namespace Racer
         void RefreshMenu()
         {
             flyButton.interactable=!Flying; returnButton.interactable=Flying;
+            ResumeOnce();
             exportButton.interactable=session!=null&&session.Count>0&&!session.Closed;
             folderButton.interactable=session!=null;
             sessionDetails.text=SessionText;
@@ -171,14 +174,26 @@ namespace Racer
             visible = value; nextRefresh = 0;
             if (!value) { ReturnToVehicle(); menuOpen = false; shade.SetActive(false); SyncHold(); }
         }
+        static string ReportRoot()
+        {
+#if UNITY_EDITOR
+            if (!string.IsNullOrEmpty(ValidationReportRoot)) return ValidationReportRoot;
+#endif
+            return Path.Combine(Application.persistentDataPath, "DebugReports");
+        }
+        // First use after launch continues the newest still-OPEN session from disk.
+        static void ResumeOnce()
+        {
+            if (resumeChecked || session != null) return;
+            resumeChecked = true;
+            try { session = DebugReportSession.ResumeLatest(ReportRoot()); }
+            catch (Exception e) { Debug.LogWarning("Debug session resume skipped: " + e.Message); }
+        }
         void EnsureSession()
         {
+            ResumeOnce();
             if (session != null && !session.Closed) return;
-            string root = Path.Combine(Application.persistentDataPath, "DebugReports");
-#if UNITY_EDITOR
-            if (!string.IsNullOrEmpty(ValidationReportRoot)) root = ValidationReportRoot;
-#endif
-            session = new DebugReportSession(root);
+            session = new DebugReportSession(ReportRoot());
         }
         public void OpenMenu()
         {

@@ -1,0 +1,4 @@
+moto-AI-Climbing_Ridge_Cut: entered=False rejoined=False best=0.0/298.6 resets=1 recov=1 maxAir=5.18 minUp=0.82
+atv-AI-Climbing_Ridge_Cut: entered=False rejoined=False best=0.0/298.6 resets=1 recov=1 maxAir=5.20 minUp=0.82
+moto-throttle-Climbing_Ridge_Cut: complete=True best=298.6/298.6 resets=0 maxAir=4.48 minUp=0.93 airMaxRoll=15.9
+atv-throttle-Climbing_Ridge_Cut: complete=True best=298.6/298.6 resets=0 maxAir=4.18 minUp=0.32 airMaxRoll=70.9

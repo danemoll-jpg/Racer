@@ -1,0 +1,2 @@
+moto-throttle-Downhill_Ridge_Cut: complete=False best=117.8/221.2 resets=0 maxAir=2.06 minUp=0.32 airMaxRoll=47.6
+atv-throttle-Downhill_Ridge_Cut: complete=False best=117.4/221.2 resets=0 maxAir=2.04 minUp=0.50 airMaxRoll=44.6

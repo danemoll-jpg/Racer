@@ -1,0 +1,1 @@
+BODY CLEARANCE: 145 terrain vertices in 1 meshes lowered to 1.2 m under the pavement above them

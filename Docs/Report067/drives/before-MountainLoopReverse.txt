@@ -1,0 +1,11 @@
+moto-AI-1540-1830-0: complete=True best=1830.4 resets=0 recov=0 maxAir=1.46 minUp=-0.34 airMaxRoll=110.6
+atv-AI-1540-1830-0: complete=True best=1830.2 resets=0 recov=0 maxAir=1.30 minUp=-0.27 airMaxRoll=112.1
+moto-throttle-1540-1830-0: complete=True best=1830.3 resets=0 recov=0 maxAir=1.76 minUp=-0.18 airMaxRoll=100.8
+moto-throttle-800-1300-0: complete=True best=1300.3 resets=0 recov=0 maxAir=7.16 minUp=0.76 airMaxRoll=0.7
+atv-throttle-800-1300-0: complete=True best=1300.3 resets=0 recov=0 maxAir=6.64 minUp=0.76 airMaxRoll=0.1
+moto-AI-800-1300-0: complete=False best=1180.9 resets=1 recov=1 maxAir=5.80 minUp=-0.13 airMaxRoll=97.6
+moto-AI-Summit_Traverse: entered=False rejoined=False best=0.0/461.4 resets=1 recov=1 maxAir=5.18 minUp=0.75
+atv-AI-Summit_Traverse: entered=False rejoined=False best=0.0/461.4 resets=1 recov=1 maxAir=5.82 minUp=0.13
+moto-AI-Downhill_Ridge_Cut: entered=False rejoined=False best=0.0/221.2 resets=1 recov=1 maxAir=2.16 minUp=-0.10
+atv-AI-Downhill_Ridge_Cut: entered=False rejoined=False best=0.0/221.2 resets=1 recov=1 maxAir=5.18 minUp=-0.19
+moto-AI-100-200-0: complete=True best=208.2 resets=0 recov=0 maxAir=3.36 minUp=0.68 airMaxRoll=43.4

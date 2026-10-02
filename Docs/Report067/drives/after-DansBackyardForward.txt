@@ -1,0 +1,5 @@
+moto-AI-690-800-0: complete=True best=809.8 resets=0 recov=0 maxAir=1.68 minUp=0.92 airMaxRoll=7.6
+atv-AI-690-800-0: complete=True best=800.9 resets=0 recov=0 maxAir=1.46 minUp=0.79 airMaxRoll=36.8
+moto-throttle-690-800-0: complete=True best=819.6 resets=0 recov=0 maxAir=1.76 minUp=0.92 airMaxRoll=3.8
+# repeat ATV run with contact logging:
+atv-AI-690-800-0: complete=True best=805.1 resets=0 recov=0 maxAir=1.46 minUp=0.46 airMaxRoll=23.2

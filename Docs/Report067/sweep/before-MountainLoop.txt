@@ -1,0 +1,211 @@
+Main s=736 p=(1343.9, 99.0, -275.0) | L w=8.6 drop=1.8 Ground_ReportCleanup MountainLoop continuous solid 0 wall=NONE FLIGHT | R w=8.6 drop=1.7 Ground_ReportCleanup MountainLoop continuous solid 0 wall=NONE FLIGHT
+Main s=746 p=(1352.1, 99.3, -271.4) | L w=9.3 drop=1.5 Ground_ReportCleanup MountainLoop continuous solid 0 wall=NONE FLIGHT
+Main s=752 p=(1355.4, 99.5, -266.4) | R w=6.8 drop=1.4 Ground_ReportCleanup MountainLoop continuous solid 0 wall=NONE
+Main s=758 p=(1358.8, 99.7, -261.5) | L w=6.8 drop=1.7 Ground_ReportCleanup MountainLoop continuous solid 0 wall=NONE
+Main s=760 p=(1359.9, 99.7, -259.8) | L w=6.8 drop=1.7 Ground_ReportCleanup MountainLoop continuous solid 0 wall=NONE
+Main s=766 p=(1363.3, 99.9, -254.8) | L w=6.8 drop=1.8 Ground_ReportCleanup MountainLoop continuous solid 0 wall=NONE
+Main s=768 p=(1364.4, 100.0, -253.2) | L w=6.8 drop=1.6 Ground_ReportCleanup MountainLoop continuous solid 0 wall=NONE
+Main s=778 p=(1369.8, 100.3, -244.7) | R w=6.8 drop=1.7 Ground_ReportCleanup MountainLoop continuous solid 0 wall=NONE
+Main s=780 p=(1370.8, 100.4, -243.0) | L w=7.0 drop=1.5 Ground_ReportCleanup MountainLoop continuous solid 0 wall=NONE | R w=7.0 drop=1.7 Ground_ReportCleanup MountainLoop continuous solid 0 wall=NONE
+Main s=790 p=(1375.8, 100.8, -234.4) | L w=7.0 drop=1.7 Ground_ReportCleanup MountainLoop continuous solid 0 wall=NONE | R w=7.0 drop=1.8 Ground_ReportCleanup MountainLoop continuous solid 0 wall=NONE
+Main s=792 p=(1376.7, 100.9, -232.6) | L w=7.0 drop=1.7 Ground_ReportCleanup MountainLoop continuous solid 0 wall=NONE
+Main s=794 p=(1377.6, 101.1, -230.8) | R w=7.0 drop=1.8 Ground_ReportCleanup MountainLoop continuous solid 0 wall=NONE
+Main s=796 p=(1378.5, 101.2, -229.0) | L w=7.0 drop=1.8 Ground_ReportCleanup MountainLoop continuous solid 0 wall=NONE
+Main s=798 p=(1379.4, 101.3, -227.2) | R w=7.0 drop=1.7 Ground_ReportCleanup MountainLoop continuous solid 0 wall=NONE
+Main s=800 p=(1380.2, 101.4, -225.4) | L w=7.0 drop=1.8 Ground_ReportCleanup MountainLoop continuous solid 0 wall=NONE
+Main s=802 p=(1381.0, 101.6, -223.6) | L w=7.0 drop=1.7 Ground_ReportCleanup MountainLoop continuous solid 0 wall=NONE | R w=7.0 drop=1.6 Ground_ReportCleanup MountainLoop continuous solid 0 wall=NONE
+Main s=808 p=(1383.0, 102.1, -218.0) | L w=7.0 drop=1.7 Ground_ReportCleanup MountainLoop continuous solid 0 wall=NONE | R w=7.0 drop=1.7 Ground_ReportCleanup MountainLoop continuous solid 0 wall=NONE
+Main s=814 p=(1384.6, 102.7, -212.2) | R w=7.0 drop=1.7 Ground_ReportCleanup MountainLoop continuous solid 0 wall=NONE
+Main s=816 p=(1384.9, 103.0, -210.3) | L w=7.0 drop=1.3 Ground_ReportCleanup MountainLoop continuous solid 0 wall=NONE
+Main s=818 p=(1385.2, 103.2, -208.3) | L w=7.0 drop=1.6 Ground_ReportCleanup MountainLoop continuous solid 0 wall=NONE
+Main s=820 p=(1385.5, 103.5, -206.3) | R w=7.0 drop=2.6 Ground_ReportCleanup MountainLoop continuous solid 0 wall=NONE
+Main s=822 p=(1385.7, 103.8, -204.4) | L w=6.8 drop=4.7 Ground_ReportCleanup MountainLoop continuous solid 0 wall=NONE | R w=6.8 drop=6.1 Ground_ReportCleanup MountainLoop continuous solid 0 wall=NONE
+Main s=824 p=(1385.9, 104.1, -202.4) | R w=6.8 drop=7.8 Ground_ReportCleanup MountainLoop continuous solid 0 wall=NONE
+Main s=826 p=(1386.1, 104.4, -200.4) | L w=6.8 drop=15.7 Ground_ReportCleanup MountainLoop continuous solid 0 wall=BACK Ground_ReportCleanup MountainLoop continuous solid 0
+Main s=828 p=(1386.3, 104.7, -198.5) | R w=6.8 drop=4.2 Ground_ReportCleanup MountainLoop continuous solid 0 wall=BACK Ground_ReportCleanup MountainLoop continuous solid 0
+Main s=1508 p=(1049.8, 151.1, 30.9) | R w=6.8 drop=36.9 Ground_ReportCleanup MountainLoop continuous solid 2 wall=BACK Ground_ReportCleanup MountainLoop continuous solid 2
+Main s=1512 p=(1048.9, 151.7, 34.8) | L w=6.8 drop=39.4 Ground_ReportCleanup MountainLoop continuous solid 2 wall=BACK Ground_ReportCleanup MountainLoop continuous solid 2
+Main s=1514 p=(1048.4, 152.0, 36.7) | L w=6.8 drop=50.0 Ground_ReportCleanup MountainLoop continuous solid 2 wall=BACK Ground_ReportCleanup MountainLoop continuous solid 2 | R w=6.8 drop=9.0 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Main s=1516 p=(1047.8, 152.3, 38.5) | R w=6.8 drop=14.2 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Main s=1518 p=(1047.2, 152.6, 40.4) | R w=6.8 drop=4.9 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Main s=1520 p=(1046.5, 152.9, 42.3) | L w=6.8 drop=19.5 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Main s=1522 p=(1045.7, 153.2, 44.1) | L w=6.8 drop=3.8 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Main s=1524 p=(1044.9, 153.5, 45.9) | L w=6.8 drop=1.6 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE | R w=6.8 drop=1.4 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Main s=1526 p=(1044.1, 153.8, 47.7) | L w=6.8 drop=1.3 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Main s=1528 p=(1043.2, 154.1, 49.5) | R w=6.8 drop=1.6 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Main s=1530 p=(1042.3, 154.4, 51.2) | L w=6.8 drop=1.6 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Main s=1532 p=(1041.4, 154.7, 53.0) | R w=6.8 drop=1.6 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Main s=1536 p=(1039.5, 155.3, 56.4) | R w=6.8 drop=1.5 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Main s=1538 p=(1038.5, 155.6, 58.1) | L w=6.8 drop=1.3 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Main s=1540 p=(1037.4, 155.9, 59.8) | R w=6.8 drop=1.4 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Main s=1542 p=(1036.4, 156.2, 61.5) | L w=6.8 drop=1.5 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE | R w=6.8 drop=1.5 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Main s=1550 p=(1032.0, 157.4, 68.1) | L w=6.8 drop=1.7 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE | R w=6.8 drop=1.6 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Main s=1554 p=(1029.6, 158.0, 71.3) | R w=6.8 drop=1.3 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Main s=1560 p=(1026.0, 158.8, 76.0) | L w=7.0 drop=1.6 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE | R w=7.0 drop=1.6 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Main s=1564 p=(1023.6, 159.3, 79.1) | L w=7.0 drop=1.4 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Main s=1566 p=(1022.3, 159.6, 80.7) | R w=7.0 drop=1.3 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Main s=1570 p=(1019.8, 160.1, 83.7) | R w=7.0 drop=1.6 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Main s=1572 p=(1018.5, 160.4, 85.2) | R w=7.0 drop=1.8 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Main s=1574 p=(1017.2, 160.6, 86.7) | L w=7.0 drop=1.9 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE | R w=7.0 drop=1.8 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Main s=1576 p=(1015.9, 160.9, 88.2) | L w=7.0 drop=1.8 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE | R w=7.0 drop=1.3 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Main s=1578 p=(1014.6, 161.1, 89.7) | L w=7.0 drop=1.6 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Main s=1580 p=(1013.5, 161.2, 91.4) | R w=7.0 drop=1.2 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Main s=1582 p=(1012.6, 161.3, 93.2) | L w=7.0 drop=1.7 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE | R w=7.0 drop=1.5 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Main s=1586 p=(1011.4, 161.3, 97.0) | L w=7.0 drop=1.8 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Main s=1588 p=(1011.0, 161.2, 98.9) | R w=7.0 drop=1.8 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Main s=1590 p=(1010.8, 161.0, 100.9) | R w=7.0 drop=2.0 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Main s=1592 p=(1010.7, 160.8, 102.9) | R w=7.0 drop=2.0 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Main s=1594 p=(1010.7, 160.6, 104.9) | R w=7.0 drop=1.9 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Main s=1596 p=(1010.9, 160.4, 106.9) | L w=10.0 drop=1.5 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE | R w=7.0 drop=1.8 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Main s=1598 p=(1011.1, 160.1, 108.8) | L w=7.0 drop=1.6 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Main s=1606 p=(1013.3, 158.8, 116.4) | R w=6.8 drop=1.6 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE OVER Main
+Main s=1618 p=(1020.8, 156.3, 125.1) | L w=6.8 drop=1.5 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Main s=1624 p=(1026.4, 155.1, 126.8) | L w=6.8 drop=1.6 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Main s=1626 p=(1028.3, 154.8, 127.3) | L w=6.8 drop=1.7 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Main s=1632 p=(1034.1, 153.8, 128.8) | L w=6.8 drop=1.7 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE | R w=6.8 drop=1.5 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Main s=1634 p=(1036.0, 153.5, 129.2) | L w=6.8 drop=1.7 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE | R w=6.8 drop=1.7 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Main s=1636 p=(1037.9, 153.2, 129.6) | R w=6.8 drop=1.6 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Main s=1642 p=(1043.8, 152.6, 130.6) | L w=6.8 drop=1.7 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Main s=1644 p=(1045.8, 152.5, 130.9) | L w=6.8 drop=1.8 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Main s=1646 p=(1047.8, 152.3, 131.1) | R w=6.8 drop=1.7 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Main s=1648 p=(1049.8, 152.2, 131.3) | R w=6.8 drop=1.8 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Main s=1650 p=(1051.7, 152.1, 131.5) | R w=6.8 drop=1.7 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Main s=1652 p=(1053.7, 152.0, 131.7) | R w=6.8 drop=1.6 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Main s=1662 p=(1063.7, 151.8, 132.3) | L w=6.8 drop=1.5 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Main s=1664 p=(1065.7, 151.8, 132.3) | L w=6.8 drop=1.6 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Main s=1666 p=(1067.7, 151.8, 132.4) | L w=6.8 drop=1.7 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Main s=1668 p=(1069.7, 151.8, 132.5) | L w=6.8 drop=1.7 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Main s=1670 p=(1071.7, 151.8, 132.6) | L w=6.8 drop=1.7 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE | R w=6.8 drop=5.0 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Main s=1672 p=(1073.7, 151.8, 132.7) | L w=6.8 drop=1.5 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE | R w=6.8 drop=16.2 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Main s=1674 p=(1075.7, 151.8, 132.8) | R w=6.8 drop=32.6 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Main s=1680 p=(1081.7, 151.9, 133.1) | L w=6.8 drop=29.7 Ground_ReportCleanup MountainLoop continuous solid 2 wall=BACK Ground_ReportCleanup MountainLoop continuous solid 2
+Main s=1804 p=(1197.7, 151.9, 173.1) | R w=7.1 drop=4.2 Ground_ReportCleanup MountainLoop continuous solid 1 wall=NONE
+Main s=1808 p=(1201.2, 151.9, 175.0) | R w=7.1 drop=3.1 Ground_ReportCleanup MountainLoop continuous solid 1 wall=NONE
+Main s=1810 p=(1202.9, 151.9, 176.0) | R w=7.1 drop=4.5 Ground_ReportCleanup MountainLoop continuous solid 1 wall=NONE
+Main s=1812 p=(1204.7, 151.9, 177.1) | R w=7.1 drop=1.4 Ground_ReportCleanup MountainLoop continuous solid 1 wall=NONE
+Main s=1816 p=(1208.1, 151.9, 179.1) | L w=7.1 drop=3.8 Ground_ReportCleanup MountainLoop continuous solid 1 wall=NONE
+Main s=1818 p=(1209.8, 151.9, 180.1) | L w=7.1 drop=8.8 Ground_ReportCleanup MountainLoop continuous solid 1 wall=NONE | R w=7.1 drop=1.8 Ground_ReportCleanup MountainLoop continuous solid 1 wall=NONE
+Main s=1820 p=(1211.5, 151.9, 181.1) | L w=7.2 drop=1.6 Ground_ReportCleanup MountainLoop continuous solid 1 wall=NONE | R w=7.2 drop=1.5 Ground_ReportCleanup MountainLoop continuous solid 1 wall=NONE
+Main s=1824 p=(1215.0, 151.9, 183.2) | L w=7.2 drop=1.7 Ground_ReportCleanup MountainLoop continuous solid 1 wall=NONE
+Main s=1826 p=(1216.7, 151.9, 184.2) | L w=7.2 drop=1.8 Ground_ReportCleanup MountainLoop continuous solid 1 wall=NONE
+Main s=1830 p=(1220.1, 152.0, 186.3) | R w=7.2 drop=1.8 Ground_ReportCleanup MountainLoop continuous solid 1 wall=NONE
+Main s=1832 p=(1221.8, 152.0, 187.4) | L w=7.2 drop=1.7 Ground_ReportCleanup MountainLoop continuous solid 1 wall=NONE
+Main s=1842 p=(1230.2, 152.0, 192.8) | R w=7.2 drop=1.6 Ground_ReportCleanup MountainLoop continuous solid 1 wall=NONE
+Main s=1856 p=(1241.9, 152.0, 200.5) | R w=7.2 drop=1.7 Ground_ReportCleanup MountainLoop continuous solid 1 wall=NONE
+Main s=1860 p=(1245.1, 152.0, 202.8) | L w=7.5 drop=1.3 Ground_ReportCleanup MountainLoop continuous solid 1 wall=BACK Ground_ReportCleanup MountainLoop continuous solid 1
+Main s=1862 p=(1246.8, 152.0, 204.0) | L w=7.3 drop=1.7 Ground_ReportCleanup MountainLoop continuous solid 1 wall=BACK Ground_ReportCleanup MountainLoop continuous solid 1
+Main s=1864 p=(1248.4, 152.0, 205.1) | L w=7.3 drop=1.6 Ground_ReportCleanup MountainLoop continuous solid 1 wall=BACK Ground_ReportCleanup MountainLoop continuous solid 1
+Main s=1872 p=(1254.8, 152.0, 209.9) | R w=7.6 drop=1.8 Ground_ReportCleanup MountainLoop continuous solid 1 wall=NONE
+Main s=1884 p=(1264.1, 152.0, 217.5) | R w=7.6 drop=1.8 Ground_ReportCleanup MountainLoop continuous solid 1 wall=NONE
+Main s=1886 p=(1265.6, 152.0, 218.9) | R w=7.6 drop=1.8 Ground_ReportCleanup MountainLoop continuous solid 1 wall=NONE
+Main s=1888 p=(1267.0, 152.0, 220.3) | R w=7.6 drop=1.8 Ground_ReportCleanup MountainLoop continuous solid 1 wall=NONE
+Main s=1890 p=(1268.4, 152.0, 221.7) | R w=7.6 drop=1.8 Ground_ReportCleanup MountainLoop continuous solid 1 wall=NONE
+Main s=1892 p=(1269.6, 152.0, 223.3) | R w=7.8 drop=1.8 Ground_ReportCleanup MountainLoop continuous solid 1 wall=NONE
+Main s=1898 p=(1269.5, 152.0, 228.0) | R w=8.1 drop=1.4 Ground_ReportCleanup MountainLoop continuous solid 1 wall=NONE
+Main s=1902 p=(1265.5, 152.0, 227.9) | R w=8.1 drop=1.8 Ground_ReportCleanup MountainLoop continuous solid 1 wall=NONE
+Main s=1904 p=(1263.5, 152.0, 227.5) | R w=8.1 drop=1.8 Ground_ReportCleanup MountainLoop continuous solid 1 wall=NONE
+Main s=1912 p=(1255.8, 152.0, 225.5) | R w=8.3 drop=1.7 Ground_ReportCleanup MountainLoop continuous solid 1 wall=NONE
+Main s=1920 p=(1248.1, 152.0, 223.3) | R w=8.3 drop=1.7 Ground_ReportCleanup MountainLoop continuous solid 1 wall=NONE
+Main s=1926 p=(1242.3, 152.0, 221.6) | R w=8.6 drop=1.8 Ground_ReportCleanup MountainLoop continuous solid 1 wall=NONE
+Main s=1928 p=(1240.4, 152.0, 221.1) | L w=8.6 drop=1.6 Ground_ReportCleanup MountainLoop continuous solid 1 wall=BACK Ground_ReportCleanup MountainLoop continuous solid 1 | R w=8.6 drop=1.7 Ground_ReportCleanup MountainLoop continuous solid 1 wall=NONE
+Main s=1934 p=(1234.6, 152.0, 219.4) | R w=8.8 drop=1.9 Ground_ReportCleanup MountainLoop continuous solid 1 wall=NONE
+Main s=1936 p=(1232.7, 152.0, 218.9) | R w=8.8 drop=1.7 Ground_ReportCleanup MountainLoop continuous solid 1 wall=NONE
+Main s=1942 p=(1226.9, 152.0, 217.3) | L w=9.1 drop=1.7 Ground_ReportCleanup MountainLoop continuous solid 1 wall=NONE | R w=9.1 drop=1.8 Ground_ReportCleanup MountainLoop continuous solid 1 wall=NONE
+Main s=1944 p=(1225.0, 152.0, 216.7) | L w=9.1 drop=1.8 Ground_ReportCleanup MountainLoop continuous solid 1 wall=NONE | R w=9.1 drop=1.7 Ground_ReportCleanup MountainLoop continuous solid 1 wall=NONE
+Main s=1948 p=(1221.2, 152.0, 215.6) | L w=9.1 drop=1.5 Ground_ReportCleanup MountainLoop continuous solid 1 wall=NONE
+Main s=1950 p=(1219.2, 152.0, 215.1) | L w=9.1 drop=1.8 Ground_ReportCleanup MountainLoop continuous solid 1 wall=NONE
+Main s=1952 p=(1217.3, 152.0, 214.5) | R w=9.3 drop=1.7 Ground_ReportCleanup MountainLoop continuous solid 1 wall=NONE
+Main s=1956 p=(1213.5, 152.0, 213.4) | L w=9.3 drop=1.7 Ground_ReportCleanup MountainLoop continuous solid 1 wall=NONE
+Main s=1958 p=(1211.6, 152.0, 212.9) | R w=9.3 drop=1.6 Ground_ReportCleanup MountainLoop continuous solid 1 wall=NONE
+Main s=1960 p=(1209.6, 152.0, 212.3) | R w=9.3 drop=3.3 Ground_ReportCleanup MountainLoop continuous solid 1 wall=NONE
+Main s=1962 p=(1207.7, 152.0, 211.8) | L w=9.6 drop=1.7 Ground_ReportCleanup MountainLoop continuous solid 1 wall=NONE | R w=9.6 drop=8.3 Ground_ReportCleanup MountainLoop continuous solid 1 wall=NONE
+Main s=1964 p=(1205.8, 152.0, 211.3) | L w=9.6 drop=2.9 Ground_ReportCleanup MountainLoop continuous solid 1 wall=NONE | R w=9.6 drop=12.2 Ground_ReportCleanup MountainLoop continuous solid 1 wall=NONE
+Main s=1966 p=(1203.9, 152.0, 210.7) | L w=9.6 drop=4.2 Ground_ReportCleanup MountainLoop continuous solid 1 wall=NONE | R w=9.6 drop=6.1 Ground_ReportCleanup MountainLoop continuous solid 1 wall=NONE
+Main s=1968 p=(1201.9, 152.0, 210.2) | L w=9.6 drop=5.1 Ground_ReportCleanup MountainLoop continuous solid 1 wall=NONE
+Main s=1970 p=(1200.0, 152.0, 209.6) | L w=9.6 drop=2.4 Ground_ReportCleanup MountainLoop continuous solid 1 wall=NONE
+Main s=2480 p=(738.0, 99.4, 78.5) | R w=9.8 drop=1.5 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE FLIGHT
+Main s=2482 p=(736.1, 98.7, 78.0) | R w=9.1 drop=3.5 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE FLIGHT
+Main s=2484 p=(734.3, 98.1, 77.6) | L w=7.8 drop=2.9 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE FLIGHT
+Main s=2488 p=(730.4, 97.0, 77.2) | R w=6.8 drop=20.1 Ground_ReportCleanup MountainLoop continuous solid 2 wall=BACK Ground_ReportCleanup MountainLoop continuous solid 2 FLIGHT
+Main s=2492 p=(726.6, 95.9, 76.8) | L w=6.8 drop=29.8 Ground_ReportCleanup MountainLoop continuous solid 2 wall=BACK Ground_ReportCleanup MountainLoop continuous solid 2 OVER Main
+SUMMARY Main len=2760 flaggedStations=130
+Summit Traverse s=0 p=(1011.2, 161.2, 98.2) | R w=8.7 drop=1.8 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Summit Traverse s=2 p=(1009.7, 161.1, 99.6) | L w=7.2 drop=1.3 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Summit Traverse s=4 p=(1008.1, 161.0, 100.8) | L w=6.5 drop=1.5 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Summit Traverse s=6 p=(1006.4, 160.9, 101.7) | L w=5.2 drop=1.5 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Summit Traverse s=12 p=(1000.5, 160.8, 102.9) | R w=5.0 drop=1.8 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Summit Traverse s=16 p=(996.5, 160.8, 102.6) | R w=5.0 drop=1.7 Ground_ReportCleanup MountainLoop natural edge 1 wall=NONE
+Summit Traverse s=18 p=(994.6, 160.8, 102.2) | L w=5.0 drop=1.3 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE | R w=5.0 drop=1.5 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Summit Traverse s=20 p=(992.6, 160.8, 101.8) | L w=5.0 drop=1.6 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Summit Traverse s=22 p=(990.7, 160.7, 101.2) | L w=5.0 drop=1.8 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Summit Traverse s=24 p=(988.8, 160.5, 100.6) | L w=5.0 drop=1.4 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE | R w=5.0 drop=1.6 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Summit Traverse s=26 p=(986.9, 160.3, 99.9) | L w=5.0 drop=1.4 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE | R w=5.0 drop=1.4 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Summit Traverse s=28 p=(985.0, 160.0, 99.2) | L w=5.0 drop=1.7 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE | R w=5.0 drop=1.4 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Summit Traverse s=30 p=(983.2, 159.7, 98.4) | L w=5.0 drop=1.7 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE | R w=5.0 drop=1.5 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Summit Traverse s=32 p=(981.4, 159.2, 97.6) | L w=5.0 drop=1.5 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE | R w=5.0 drop=1.5 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Summit Traverse s=34 p=(979.5, 158.7, 96.8) | L w=5.0 drop=1.7 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE | R w=5.0 drop=1.5 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Summit Traverse s=36 p=(977.7, 158.2, 95.9) | L w=5.0 drop=1.4 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE | R w=5.0 drop=1.6 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Summit Traverse s=38 p=(975.9, 157.7, 95.1) | L w=5.0 drop=1.5 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE | R w=5.0 drop=1.5 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Summit Traverse s=40 p=(974.1, 157.3, 94.2) | L w=5.0 drop=1.3 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE | R w=5.0 drop=1.6 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Summit Traverse s=42 p=(972.3, 156.9, 93.4) | L w=5.0 drop=1.5 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE | R w=5.0 drop=1.6 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Summit Traverse s=44 p=(970.5, 156.7, 92.5) | L w=5.0 drop=1.4 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE | R w=5.0 drop=1.7 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Summit Traverse s=46 p=(968.7, 156.4, 91.6) | L w=5.0 drop=1.4 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE | R w=5.0 drop=1.7 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Summit Traverse s=48 p=(966.9, 156.1, 90.8) | L w=5.0 drop=1.5 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE | R w=5.0 drop=1.7 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Summit Traverse s=50 p=(965.1, 155.8, 90.0) | R w=5.0 drop=1.4 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Summit Traverse s=52 p=(963.2, 155.5, 89.2) | L w=5.0 drop=1.6 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE | R w=5.0 drop=1.3 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Summit Traverse s=54 p=(961.4, 155.2, 88.5) | L w=5.0 drop=1.7 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE | R w=5.0 drop=1.4 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Summit Traverse s=56 p=(959.5, 154.9, 87.8) | L w=5.0 drop=1.4 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE | R w=5.0 drop=1.5 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Summit Traverse s=58 p=(957.6, 154.5, 87.1) | L w=5.0 drop=1.5 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE | R w=5.0 drop=1.6 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Summit Traverse s=60 p=(955.7, 154.2, 86.4) | R w=5.0 drop=1.7 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Summit Traverse s=62 p=(953.9, 153.8, 85.7) | L w=5.0 drop=1.3 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Summit Traverse s=64 p=(952.0, 153.4, 84.9) | L w=5.0 drop=1.7 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE | R w=5.0 drop=1.5 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Summit Traverse s=66 p=(950.2, 153.1, 84.2) | L w=5.0 drop=1.3 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE | R w=5.0 drop=1.6 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Summit Traverse s=68 p=(948.3, 152.7, 83.4) | L w=5.0 drop=1.5 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE | R w=5.0 drop=1.6 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Summit Traverse s=70 p=(946.5, 152.3, 82.5) | L w=5.0 drop=1.4 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE | R w=5.0 drop=1.7 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Summit Traverse s=72 p=(944.7, 152.0, 81.7) | L w=5.0 drop=1.2 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE | R w=5.0 drop=1.6 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Summit Traverse s=74 p=(942.9, 151.6, 80.8) | L w=5.0 drop=1.4 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE | R w=5.0 drop=1.7 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Summit Traverse s=76 p=(941.1, 151.2, 80.0) | R w=5.0 drop=1.5 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Summit Traverse s=78 p=(939.3, 150.8, 79.1) | L w=5.0 drop=1.5 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE | R w=5.0 drop=1.3 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Summit Traverse s=80 p=(937.5, 150.4, 78.2) | R w=5.0 drop=1.4 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Summit Traverse s=82 p=(935.7, 150.0, 77.3) | L w=5.0 drop=1.4 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE | R w=5.0 drop=1.3 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Summit Traverse s=84 p=(933.9, 149.6, 76.4) | L w=5.0 drop=1.2 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE | R w=5.0 drop=1.3 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Summit Traverse s=86 p=(932.1, 149.2, 75.5) | L w=5.0 drop=1.3 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE | R w=5.0 drop=1.4 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Summit Traverse s=88 p=(930.4, 148.8, 74.6) | L w=5.0 drop=1.3 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE | R w=5.0 drop=1.3 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Summit Traverse s=90 p=(928.6, 148.4, 73.7) | L w=5.0 drop=1.3 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE | R w=5.0 drop=1.6 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Summit Traverse s=92 p=(926.8, 148.0, 72.7) | L w=5.0 drop=1.4 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE | R w=5.0 drop=1.7 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Summit Traverse s=94 p=(925.0, 147.6, 71.8) | L w=5.0 drop=1.2 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE | R w=5.0 drop=1.6 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Summit Traverse s=96 p=(923.3, 147.1, 70.9) | L w=5.0 drop=1.5 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Summit Traverse s=98 p=(921.5, 146.7, 70.0) | L w=5.0 drop=1.2 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Summit Traverse s=100 p=(919.7, 146.3, 69.1) | L w=5.0 drop=1.5 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Summit Traverse s=102 p=(917.9, 145.9, 68.2) | L w=5.0 drop=1.3 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Summit Traverse s=104 p=(916.1, 145.4, 67.3) | L w=5.0 drop=1.4 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Summit Traverse s=106 p=(914.3, 145.0, 66.4) | L w=5.0 drop=1.4 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Summit Traverse s=108 p=(912.5, 144.5, 65.5) | L w=5.0 drop=1.4 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Summit Traverse s=110 p=(910.7, 144.1, 64.6) | L w=5.0 drop=1.4 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Summit Traverse s=190 p=(834.2, 121.8, 41.9) | L w=5.0 drop=7.6 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Summit Traverse s=192 p=(832.3, 121.2, 41.5) | L w=5.0 drop=2.7 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Summit Traverse s=196 p=(828.3, 120.0, 40.7) | L w=5.0 drop=7.5 Ground_ReportCleanup MountainLoop continuous solid 2 wall=BACK Ground_ReportCleanup MountainLoop continuous solid 2
+Summit Traverse s=198 p=(826.4, 119.4, 40.3) | L w=5.0 drop=5.5 Ground_ReportCleanup MountainLoop continuous solid 2 wall=BACK Ground_ReportCleanup MountainLoop continuous solid 2
+Summit Traverse s=200 p=(824.4, 118.8, 39.9) | L w=5.0 drop=2.8 Ground_ReportCleanup MountainLoop continuous solid 2 wall=BACK Ground_ReportCleanup MountainLoop continuous solid 2
+Summit Traverse s=206 p=(818.5, 116.9, 38.7) | L w=5.0 drop=9.7 Ground_ReportCleanup MountainLoop continuous solid 2 wall=BACK Ground_ReportCleanup MountainLoop continuous solid 2
+Summit Traverse s=208 p=(816.6, 116.3, 38.3) | L w=5.0 drop=7.2 Ground_ReportCleanup MountainLoop continuous solid 2 wall=BACK Ground_ReportCleanup MountainLoop continuous solid 2
+Summit Traverse s=210 p=(814.6, 115.6, 38.0) | L w=5.0 drop=3.9 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Summit Traverse s=222 p=(802.8, 111.6, 35.9) | R w=5.0 drop=1.8 Ground_ReportCleanup MountainLoop continuous solid 2 wall=BACK Ground_ReportCleanup MountainLoop continuous solid 2
+Summit Traverse s=224 p=(800.8, 110.9, 35.5) | R w=5.0 drop=1.9 Ground_ReportCleanup MountainLoop continuous solid 2 wall=BACK Ground_ReportCleanup MountainLoop continuous solid 2
+Summit Traverse s=226 p=(798.9, 110.2, 35.2) | R w=5.0 drop=2.3 Ground_ReportCleanup MountainLoop continuous solid 2 wall=BACK Ground_ReportCleanup MountainLoop continuous solid 2
+Summit Traverse s=234 p=(791.0, 107.5, 34.0) | R w=5.0 drop=2.3 Ground_ReportCleanup MountainLoop continuous solid 2 wall=BACK Ground_ReportCleanup MountainLoop continuous solid 2
+Summit Traverse s=236 p=(789.0, 106.8, 33.7) | R w=5.0 drop=3.4 Ground_ReportCleanup MountainLoop continuous solid 2 wall=BACK Ground_ReportCleanup MountainLoop continuous solid 2
+Summit Traverse s=238 p=(787.0, 106.1, 33.4) | R w=5.0 drop=4.3 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Summit Traverse s=246 p=(779.1, 103.4, 32.2) | R w=5.0 drop=4.8 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Summit Traverse s=248 p=(777.1, 102.8, 31.9) | R w=5.0 drop=11.0 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Summit Traverse s=250 p=(775.1, 102.1, 31.6) | R w=5.0 drop=16.8 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Summit Traverse s=252 p=(773.2, 101.5, 31.3) | R w=5.0 drop=6.2 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Summit Traverse s=260 p=(765.2, 99.1, 30.2) | R w=5.0 drop=5.6 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Summit Traverse s=262 p=(763.3, 98.5, 29.9) | R w=5.0 drop=12.4 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Summit Traverse s=264 p=(761.3, 97.9, 29.6) | R w=5.0 drop=18.7 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Summit Traverse s=266 p=(759.3, 97.4, 29.3) | R w=5.0 drop=25.0 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Summit Traverse s=276 p=(749.4, 94.8, 27.9) | R w=5.0 drop=10.7 Ground_ReportCleanup MountainLoop continuous solid 2 wall=NONE
+Summit Traverse s=300 p=(725.5, 91.0, 29.1) | R w=5.0 drop=27.2 Ground_ReportCleanup MountainLoop continuous solid 2 wall=BACK Ground_ReportCleanup MountainLoop continuous solid 2
+SUMMARY Summit Traverse len=349 flaggedStations=77
+SUMMARY Climbing Ridge Cut len=299 flaggedStations=0
+TOTAL MountainLoop flaggedStations=207

@@ -1,0 +1,6 @@
+moto-AI-740-860-0: complete=True best=860.2 resets=0 recov=0 maxAir=0.02 minUp=0.98 airMaxRoll=0.0
+atv-AI-740-860-0: complete=True best=860.3 resets=0 recov=0 maxAir=0.00 minUp=0.98 airMaxRoll=0.0
+moto-AI-2560-2740-0: complete=True best=2740.4 resets=0 recov=0 maxAir=0.00 minUp=0.99 airMaxRoll=0.0
+moto-AI-Summit_Traverse: entered=True rejoined=True best=344.1/348.9 resets=0 recov=0 maxAir=0.18 minUp=0.95
+atv-AI-Summit_Traverse: entered=True rejoined=True best=344.1/348.9 resets=0 recov=0 maxAir=0.12 minUp=0.95
+moto-AI-Climbing_Ridge_Cut: entered=False rejoined=False best=0.0/298.6 resets=1 recov=1 maxAir=5.18 minUp=0.82

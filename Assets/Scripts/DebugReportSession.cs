@@ -39,6 +39,29 @@ namespace Racer
             Data.sessionId = Path.GetFileName(DirectoryPath);
             Directory.CreateDirectory(Path.Combine(DirectoryPath, "Screenshots"));
         }
+        DebugReportSession(string directory, Report data) { DirectoryPath = directory; Data = data; }
+        // Sessions survive quitting: only Export or an explicit new session ends one. The most recently
+        // started session folder with reports is resumed if it is still OPEN. Closed, empty or unreadable
+        // newest sessions mean a fresh session; no folder is ever modified here.
+        public static DebugReportSession ResumeLatest(string root)
+        {
+            if (!Directory.Exists(root)) return null;
+            var folders = Directory.GetDirectories(root);
+            Array.Sort(folders, StringComparer.Ordinal);
+            for (int i = folders.Length - 1; i >= 0; i--)
+            {
+                string json = Path.Combine(folders[i], "bugs.json");
+                if (!File.Exists(json)) continue;
+                try
+                {
+                    var data = JsonUtility.FromJson<Report>(File.ReadAllText(json));
+                    if (data == null || data.bugs == null || data.sessionId != Path.GetFileName(folders[i])) return null;
+                    return !data.closed && data.bugs.Count > 0 ? new DebugReportSession(folders[i], data) : null;
+                }
+                catch { return null; }
+            }
+            return null;
+        }
         public string NextId => Closed ? throw new InvalidOperationException("This debug session is closed.") : "BUG-" + (Count + 1).ToString("000");
         public void Save(Bug bug)
         {

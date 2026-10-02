@@ -1,0 +1,20 @@
+PASS Empty report folder: first launch shows NEW session
+PASS Session A open with BUG-001/002
+PASS Relaunch resumes newest OPEN session from disk (new process state)
+PASS HUD/menu show resumed session ID, OPEN state and count before capture
+PASS Next F4 after relaunch is BUG-003 in the same folder
+PASS Resumed session keeps earlier reports in JSON and Markdown
+PASS No orphan folder created by relaunch
+PASS Scene reload keeps the open session
+PASS Export closes resumed session
+PASS Export -> relaunch -> NEW
+PASS After export, next F4 starts new session at BUG-001
+PASS New session asks for confirmation
+PASS Confirmed new session closes B without export
+PASS Confirmed new session -> relaunch -> NEW
+PASS Next F4 starts session C at BUG-001
+PASS Corrupt newest bugs.json -> NEW session
+PASS After corrupt session, F4 starts D at BUG-001
+PASS Corrupt session folder left untouched
+PASS Newest OPEN session resumed, not an older orphan
+PASS Resume reads only; all session history byte-for-byte unchanged

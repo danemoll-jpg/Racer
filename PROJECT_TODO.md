@@ -10,7 +10,50 @@
 - Root AGENTS.md points future Codex tasks to both files.
 - From 2026-10-02 the coding agent is Claude Code. The same two files govern it; root CLAUDE.md (created in the 0.67 round) is its discovery pointer.
 
-## CURRENT — 20-report cleanup + Debug session persistence — target 0.67.0-review1 — NOT STARTED
+## CURRENT — 20-report cleanup + Debug session persistence — 0.67.0-review1 — IMPLEMENTED AND VERIFIED (delivery below)
+
+### Results (2026-10-02, Claude Code)
+
+- **Safety checkpoint:** `8d93f31a` (TODO plan + PROJECT_TODO_ARCHIVE.md committed and pushed before any change). Version 0.67.0-review1 / build 67000.
+- **Part A — PASS.** The cause matched the source reading.
+  - New `DebugReportSession.ResumeLatest`, read-only, resumes the newest session folder if it is OPEN, has reports and its JSON is readable with a matching ID. Otherwise the next F4 starts a new session.
+  - `DeveloperLocationHud` resolves this once per launch.
+  - 20/20 focused checks PASS (`DebugSessionPersistenceChecks`): relaunch → BUG-003 in the same folder, scene reload, export → NEW, confirmed new session → NEW, corrupt json → NEW with the folder byte-identical, older orphan not resumed, history byte-identical.
+  - DEBUG_MODE.md updated.
+  - Dan's `..._547472` was closed via `DebugReportSession.Close()` (close without export; 20 reports + 20 screenshots kept).
+  - **Discovery:** a newer OPEN session `2026-10-02_13-02-35-687_63de1f` (2 reports, created by installed 0.66 at 13:02 during this round) exists; it was left untouched, and 0.67 will resume it.
+- **Part B:** all 20 handled; dispositions in [Docs/Report067/VALIDATION.md](Docs/Report067/VALIDATION.md).
+  - **Shared cause behind BUG-002 and the s 1576 launch:** the vehicle body dips below the pavement and struck 0.64 voxel terrain lying 0.5–1.2 m under it. Fixed locally by lowering terrain vertices under pavement to 1.2 m below it (barriers excluded). The arrow had no collider.
+  - **BUG-006:** legacy CR120/121 arrows were 1–3.7 m above the regraded pavement. They were hidden where they duplicate Route Atlas arrows, and draped elsewhere.
+  - **BUG-007/008:** collider-free seam cover for see-through edge gaps; sloped shoulders where a jagged edge steps straight down; pavement shelf at s 1614–1617 regraded (≤0.16 m, top layer only).
+  - **BUG-009/010:** connected South Face hillside with a tunnel around the protected lower-route clearance.
+  - **Signs and objects:**
+    - BUG-004, BUG-005 and BUG-013 signs removed.
+    - BUG-003 and BUG-014 signs reseated.
+    - BUG-011 spheres became faceted rocks with colliders.
+    - BUG-001 cairn grounded in all 8 scenes.
+    - BUG-019 inherited Street Loop arrow removed.
+    - BUG-020 route polyline aligned to the run-up, fixing both the arrow and the reset heading.
+  - **Partial / explained:**
+    - BUG-001 faint flat-area shading;
+    - BUG-016 grey slab is pavement material;
+    - BUG-018 pale band is the trail's own driving-surface material (553 buried duplicate triangles removed);
+    - jagged pavement outlines remain (gaps behind them closed).
+- **Part C:** flagged edge stations, Forward 207→92 and Reverse 408→143.
+  - The remainder are protected jump/flight systems, multi-level routes, tunnel faces, or steep but continuous embankments under raised berms.
+  - Shoulders: Forward 18 runs / 604 stations; Reverse 32 runs / 1,238 stations. Seam covers: Forward 170 runs; Reverse 467 runs. Coordinates are in `Docs/Report067/partC-*.txt`.
+- **5A.6 checks (moto + ATV, muted):**
+  - Reverse s 1540–1830 went from 110° rolls / minUp −0.34 to 0° / 0.93.
+  - Unchanged from 0.66: South Face jump, Summit Traverse (both directions), Downhill and Climbing Ridge Cut jumps, and the known AI South Face undershoot at 1180.9.
+  - Backyard ramp: AI moto recovery removed. The ATV lands harder on the corrected straight line (roll 23–37°), but completes with no reset.
+- **Tools:** kept in `Tools/Report067/` (authoring, probes, drive harness, release pipeline). Root `CLAUDE.md` created.
+- **Remaining limitations:**
+  - The items above;
+  - 74 Reverse intrusion samples (barrier rocks and edge slivers);
+  - ~75 other inherited Street Loop arrows in Backyard Forward (listed in author-notes for Dan);
+  - production AI South Face undershoot (since 0.63).
+
+### Original scope (as planned)
 
 **Tooling change (Dan, 2026-10-02):** development moves from Codex to Claude Code. CODEX_RULES.md keeps its filename and applies unchanged; wherever it says "Codex", read "the coding agent". Planning, bug triage and this TODO section were prepared in Claude chat; implementation is done by Claude Code in this repository.
 
@@ -78,7 +121,7 @@ Dan's Backyard Loop — Forward (scene DansBackyardForward), Race:
 
 ### Outstanding after this round (as of 2026-10-02)
 
-- Awaiting Dan: gameplay review of this round.
+- Awaiting Dan: gameplay review of this round (0.67.0-review1). Dan has an open 0.66 debug session `2026-10-02_13-02-35-687_63de1f` (2 reports) that 0.67 will resume.
 - Open: CR-118 intermittent spoken-title clipping. Known limitation: production AI undershoots the South Face receiving deck at ~35.8 m/s (unchanged since 0.63).
 - Closed by Dan on 2026-10-02: 0.66 BUG-001/002 verified; CR-087 (Trickum ramp) complete; separate lake/woodland circuit (CR-040) complete.
 - Possibly stale, needs Dan's yes/no: CR-010 slightly tighter steering ("non-blocking follow-up" in the archive).

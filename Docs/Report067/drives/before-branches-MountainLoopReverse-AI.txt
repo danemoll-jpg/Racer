@@ -1,0 +1,4 @@
+moto-AI-Summit_Traverse: entered=True rejoined=True best=456.4/461.4 resets=0 recov=0 maxAir=0.48 minUp=0.93
+atv-AI-Summit_Traverse: entered=True rejoined=True best=456.5/461.4 resets=0 recov=0 maxAir=0.46 minUp=0.92
+moto-AI-Downhill_Ridge_Cut: entered=False rejoined=False best=0.0/221.2 resets=1 recov=1 maxAir=2.86 minUp=-0.88
+atv-AI-Downhill_Ridge_Cut: entered=False rejoined=False best=0.0/221.2 resets=1 recov=1 maxAir=5.20 minUp=-0.18
