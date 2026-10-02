@@ -10,7 +10,92 @@
 - Root AGENTS.md points future Codex tasks to both files.
 - From 2026-10-02 the coding agent is Claude Code. The same two files govern it; root CLAUDE.md (created in the 0.67 round) is its discovery pointer.
 
-## CURRENT — 20-report cleanup + Debug session persistence — 0.67.0-review1 — IMPLEMENTED AND VERIFIED (delivery below)
+## CURRENT — Reset rule rewrite, fall-through safety, Mountain fixes, landing, barriers — target 0.68.0-review1 — NOT STARTED
+
+- **Authorized by Dan** from debug session `2026-10-02_13-02-35-687_63de1f` (CLOSED, exported as `..._63de1f_e068b7b8.zip`). Folder with full-size screenshots: `C:\Users\danmo\AppData\LocalLow\DefaultCompany\Racer\DebugReports\2026-10-02_13-02-35-687_63de1f`. READ every comment and LOOK at every screenshot before changing anything. If the folder is missing, ask Dan for the ZIP.
+- **Only BUG-003 to BUG-009 count.** BUG-001 and BUG-002 in that session were captured at 13:02–13:03 on the OLD 0.66 build (`34ba59b9`) while 0.67 was still being built; the session was then resumed by 0.67 (build `78170779`). Do not treat 001/002 as 0.67 failures. 001's sign is re-reported as BUG-004. 002 ("bad bump", Reverse main s 1583, 842.3/101.4/-115.1) was not re-reported on 0.67; Dan will recheck it. Do not change it this round.
+- **Starting point:** main `3debbe88` (documentation commit; playable source `abb1652d`, 0.67.0-review1 / game-67000). This TODO edit is uncommitted and belongs in the safety checkpoint.
+- **Scope is exactly Parts A–F below.** Section 5A applies to all geometry. Local fixes only.
+
+### Part A — Reset rule rewrite + nobody falls through the world (highest priority)
+
+**STANDING DESIGN DECISION — Dan, 2026-10-02 (supersedes the "accepted reset/recovery baseline" and the "earned sample only" behavior from CR-076 for the PLAYER):**
+
+> A reset puts the player on the **closest point of the track to where the vehicle is now, facing the correct race direction**. It must not send the player back over road already cleared. The wreck and the existing few-second delay are the whole punishment. A reset must **always** succeed; "Waiting for clear course support" must never be something the player sits and watches. Dan has asked for this several times without success. This is the fix that matters most this round.
+
+- **What happened (BUG-007 + BUG-008, Mountain Loop Forward):** Dan overshot the BUG-008 jump, landed far off the track, and pressed reset. He got "Waiting for clear course support — race clock continues" repeatedly, was never restored, and then fell through a hole, captured at (684.53, **-334.58**, 71.83), main s 2560.
+- **Why the current code does this (read from `Assets/Scripts/VehicleRespawn.cs`; confirm before changing):**
+  - `TryRecoverLocal` only considers the last *earned* anchor (`safeStation`) and older `history` samples behind it — "never nearest arbitrary ground". The vehicle's current position is used only for diagnostics.
+  - The anchor only advances while the vehicle is grounded, upright, inside the road width, facing and moving forward. During a jump `awaitingLanding` freezes it at the pre-ramp sample, and samples in launch/landing zones are rejected by `UnsafeJump`. After a missed jump the only candidates are therefore before the ramp, often far back, or all rejected.
+  - When every candidate is rejected it sets `Pending`, shows "Waiting for clear course support" and retries the **same** candidates every 0.5 s forever. There is no fallback and no fall-through protection.
+- **Required player behavior:**
+  1. **Target = nearest route point to the vehicle's current position**, on the route the player is racing (main, or the branch they are on), searched around the tracked progress (`trackingStation` / `ProjectNear`) so a multi-level mountain does not snap to an unrelated part of the lap above or below. Facing the route's forward direction for the active race direction (BUG-020 rule).
+  2. If that exact spot is unusable (unsupported, obstructed, inside a ramp/flight/landing exclusion), step outward along the route in small increments in **both** directions and take the nearest usable station. On a tie prefer forward. Do not jump back to a distant earned sample.
+  3. **Missed jumps:** the nearest usable station is normally at or just past the landing. Use it. Do not return the player to before the ramp or earlier. (Dan: "If you need to use it you are already being punished.")
+  4. **Guaranteed result:** the search is bounded in time (well under the current visible wait) and must end with a placement. Last resort order: nearest usable station anywhere on the current route → start position. The waiting message must not persist or repeat.
+  5. Checkpoints/penalties are NOT changed: if the nearest point is past a missed gate, the existing missed-checkpoint penalty rules apply as they do today. Reset must not itself award laps.
+  6. Keep the existing delay, the support/clearance validation of the chosen spot, and traffic/other-racer occupancy checks.
+- **AI and Free Roam:** leave AI recovery selection as it is, but give it the same "never wait forever" fallback. Free Roam reset keeps its current nearest-road behavior; make sure it also cannot hang.
+- **Fall-through protection (BUG-007, BUG-009):**
+  - **BUG-009** Mountain Loop Forward (728.22, 80.69, -10.35), main s 2635: on stopping/quitting the race here Dan fell through the world. Leaving a race (quit / end race / handoff to Free Roam) must place the vehicle on the nearest validated solid ground with full clearance.
+  - **Failsafe, all scenes:** any vehicle that drops well below the world is recovered immediately through the rule above. Nobody falls indefinitely.
+  - **Find and close the real hole(s).** Likely a 0.67 regression — check first (rule 5): 0.67 added "collider-free seam covers" (Forward 170 runs, Reverse 467 runs) and lowered terrain under pavement. A surface that looks solid but has no collider breaks rule 4. Inspect the ground around where Dan left the track after the BUG-008 jump and above x≈684, z≈72, and s 2560–2640 in the Forward scene. Then audit every 0.67 seam cover in both Mountain scenes: anywhere a vehicle can reach must have solid collision under it or be physically unreachable. Fix locally; list what was fixed.
+- This is an explicitly authorized change to the recovery system (rule 6 exception). Change target selection and the fallback only; do not retune physics, wipeout detection, the delay, or checkpoint logic. All tracks benefit, but verify per the list below, not with a full matrix.
+
+### Part B — Mountain Loop Reverse geometry and signs
+
+- **BUG-003** (814.16, 95.49, -171.39) main s 1507, heading 176 — "fix this". Visible defects: green terrain sheets/wedges lying across the pavement at right and ahead-right with a torn terrain edge beside the gold-arrow branch entry, and a blank dark sign board (no readable face from the route) left of centre near the gate. Clean the terrain off the driving surface and close the torn edge. The blank board: turn its text toward approaching Reverse traffic if it carries useful information, otherwise remove it (standing sign principle). *Dan's comment was not specific; if he corrects this reading, his correction wins.*
+- **BUG-004** (810.26, 95.43, -159.19) main s 1523, heading 347 — REMOVE the "OLD CUT CLOSED / MAIN ROUTE >>>" sign and post.
+- **BUG-005** (744.70, 85.84, -113.38) main s 2966, heading 148 — "fix". A raised lip/step runs diagonally across the pavement and a teal arrow is cut by it (part of the arrow appears as a detached square beyond the lip). Remove the step so the pavement is one smooth surface and reseat the arrow flat on it.
+- **BUG-006** (1005.11, 162.65, 121.37) main s 457, heading 7 — "eliminate this gap... at least cover it up (might have to be race only change)". The pavement sits above the terrain with a visible dark gap under its left edge, sharp terrain shards poke up around both edges, and a very large dark flat slab hangs in the sky ahead. Close the gap with collidable, grounded support (see Part A: no visual-only covers where a vehicle can reach), remove the shards, and identify the slab: if it is stray geometry, remove it. If any of this is part of a protected jump/flight system or a Free Roam feature, cover it for Race only, as Dan allows.
+
+### Part C — Mountain Loop Forward landing
+
+- **BUG-008** (802.79, 177.67, 90.57) main s 2379, captured airborne at 65.9 mph, heading 250. Dan: the landing area should be larger, or the jump scaled down a little; he almost always carries too much momentum to hit the landing, and he **prefers to keep the jump**.
+- Leave the approach, ramp and lip unchanged. Enlarge the landing zone (longer and, if needed, wider) so a full-throttle motorcycle and ATV land on it, with grounded support and matching colliders, and a clean continuation to the route. Only if a larger landing cannot fit without breaking neighboring protected routes, propose the smallest ramp reduction instead and say why.
+- This is a Dan-requested change to a protected jump, limited to its landing/recovery. One implementation, verified at full throttle and at a moderate speed; then stop (rule 12). Dan judges the feel.
+
+### Part D — Pause menu wording
+
+- **BUG-009 (second half):** in the in-race menu it is not obvious which option leaves the race. Label that option clearly, e.g. **"End Race / Return to Menu"**. Text and, if needed, button width only; no menu redesign. Controller and keyboard navigation unchanged.
+
+### Part E — Guardrails / natural barriers after jumps (Mountain Loop Forward and Reverse only)
+
+- **Dan's request:** add guardrails or natural formations at the more perilous places to keep riders from flying off the track, **particularly where a jump is followed immediately by a turn**. Mountain tracks only.
+- First list every Mountain jump (main and branches, both directions) whose landing is followed by a turn or a drop-off within the distance a full-speed landing needs to settle. Put the list with coordinates in `Docs/Report068/BARRIERS.md`.
+- At those places add a barrier on the OUTSIDE of the post-landing turn / exposed edge. Prefer natural formations that match the mountain (rock outcrops, boulder lines, earth berms); a simple guardrail is fine where rock would look wrong. Grounded, with matching colliders, tall enough to stop a motorcycle and an ATV, shaped to deflect along the road instead of stopping a vehicle dead or launching it.
+- Barriers must not intrude into the driving width, the jump's flight corridor, any shortcut entrance/exit, lower routes or tunnels (5A.4/5A.5). Do not fence the whole mountain: only the listed post-jump places. Other perilous spots you notice go in the list as SUGGESTIONS for Dan, not built.
+- Verify each new barrier with one full-throttle motorcycle and one ATV pass: the clean line is unobstructed, and an overshoot is kept on the track.
+
+### Part F — Remove redundant ground arrows (all courses)
+
+- **Dan, 2026-10-02:** the game "goes a little crazy with the arrows"; redundant arrows may be removed. If a removal bothers him he will ask for it back.
+- Remove:
+  - arrows inherited from another course that do not belong to the active route, starting with the ~75 inherited Street Loop arrows in Backyard Forward listed in the 0.67 author notes;
+  - arrows that duplicate another arrow or a Route Atlas arrow for the same instruction within a short distance;
+  - arrows that point the wrong way for the active direction;
+  - strings of repeated arrows on stretches with no turn, fork or other decision (keep at most an occasional reassurance arrow on long unclear stretches).
+- Keep: arrows before turns, forks and confusing junctions; shortcut entry and rejoin arrows (gold) and the main-route arrow that distinguishes them; arrows Dan asked for in earlier rounds (e.g. the 0.67 BUG-020 straight arrow).
+- Arrows only. No signs, gates, minimap, route lines or wrong-way guidance changes. Any arrow kept must sit flat on the pavement (0.67 BUG-006 rule).
+- Record per course and direction: count before, count after, and the removed arrows with coordinates in `Docs/Report068/ARROWS.md`, so any single removal can be reversed. Verification: one pass per changed course/direction confirming every turn, fork and shortcut entry still has guidance. No lap matrix.
+
+### Verification for this round (targeted, rule 11)
+
+- Part A reset rule: first reproduce on 0.67 (overshoot the BUG-008 jump, land off-track, reset → waiting message). Then show, with before/after station and distance for each case: overshoot of the BUG-008 jump; a missed Reverse jump; off the side of an elevated Mountain road; upside-down on the road; off-track on one non-Mountain course (Backyard ramp at 0.67 BUG-020). Each must restore within the normal delay, at the nearest usable track point, facing forward, with no waiting loop and no long setback.
+- Part A fall-through: reproduce both on 0.67, then show them fixed; failsafe test by placing a vehicle below the world in one race and one Free Roam scene; quit-race placement at BUG-009's location and one elevated-road location.
+- Before/after view at each of the seven coordinates with a PASS/explained disposition in `Docs/Report068/VALIDATION.md`.
+- 5A.6 neighbor checks around every geometry change, including the 0.66/0.67 protected features that are nearby (lower main route tunnel, South Face Summit jump, Summit Traverse, Ridge Cut jumps). Motorcycle + ATV through each changed corridor; no broad matrix.
+
+### Outstanding after this round (as of 2026-10-02)
+
+- Awaiting Dan: gameplay review of 0.68; recheck of the Reverse s 1583 bump on the current build.
+- From the 0.67 results, not yet raised by Dan: 74 Reverse intrusion samples; jagged pavement outlines.
+- Open: CR-118 intermittent spoken-title clipping. Known limitation: production AI undershoots the South Face receiving deck (since 0.63).
+- Possibly stale, needs Dan's yes/no: CR-010 slightly tighter steering.
+- Deferred: physical Steam Deck / controller / save-migration checks; friend test of the packaged build on another PC.
+- Backlog (not authorized): graphics upgrade; see FUTURE EXPANSION.
+
+## Previous delivery — 20-report cleanup + Debug session persistence — 0.67.0-review1 — DELIVERED
 
 ### Results (2026-10-02, Claude Code)
 
