@@ -1,0 +1,35 @@
+# Racer bug report
+
+Session: 2026-10-02_00-32-26-321_c7ef14
+Started: 2026-10-02T00:32:26.3213184-04:00
+Status: CLOSED
+Reports: 1
+Closed: 2026-10-02T00:32:30.1785302-04:00
+Exported: False
+
+## BUG-001
+
+Comment:
+> New session report one
+
+```text
+Timestamp: 2026-10-02T00:32:26.3218246-04:00
+Course: Mountain Loop - Forward
+Direction: Forward
+Mode: Free Roam
+Position: X=724.51, Y=69.24, Z=-6.11
+Rotation: X=0.00, Y=174.74, Z=0.00
+Heading: 174.74 degrees
+Viewpoint: Vehicle
+Vehicle: moto
+Vehicle position: X=724.51, Y=69.24, Z=-6.11
+Speed: 0.00 m/s / 0.00 mph
+Lap: 0 / Next checkpoint: -1
+Road progress: 2632.10 m / Branch: Main / 0.00 m
+Version: 0.64.0-review1 / Build: 00000000000000000000000000000000
+Scene: MountainLoop
+Debug movement used: False
+```
+
+![BUG-001](Screenshots/BUG-001.png)
+

@@ -21,23 +21,28 @@ namespace Racer
         }
         [Serializable] public sealed class Report
         {
-            public int schemaVersion = 1;
-            public string started;
+            public int schemaVersion = 2;
+            public string started, sessionId, closedAt;
+            public bool closed, exported;
             public List<Bug> bugs = new();
         }
         public readonly string DirectoryPath;
         public readonly Report Data = new();
         public int Count => Data.bugs.Count;
+        public string Id => Data.sessionId;
+        public bool Closed => Data.closed;
         public DebugReportSession(string root)
         {
             Data.started = DateTimeOffset.Now.ToString("o");
             string name = DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss-fff");
             DirectoryPath = Path.Combine(root, name + "_" + Guid.NewGuid().ToString("N").Substring(0, 6));
+            Data.sessionId = Path.GetFileName(DirectoryPath);
             Directory.CreateDirectory(Path.Combine(DirectoryPath, "Screenshots"));
         }
-        public string NextId => "BUG-" + (Count + 1).ToString("000");
+        public string NextId => Closed ? throw new InvalidOperationException("This debug session is closed.") : "BUG-" + (Count + 1).ToString("000");
         public void Save(Bug bug)
         {
+            if (Closed) throw new InvalidOperationException("Cannot append to a closed debug session.");
             if (!File.Exists(Path.Combine(DirectoryPath, bug.screenshot))) throw new IOException("The screenshot is missing; capture again.");
             if (!Data.bugs.Contains(bug)) Data.bugs.Add(bug);
             Write();
@@ -45,7 +50,9 @@ namespace Racer
         public void Write()
         {
             AtomicSave.Write(Path.Combine(DirectoryPath, "bugs.json"), JsonUtility.ToJson(Data, true));
-            var md = new StringBuilder("# Racer bug report\n\nSession: " + Data.started + "\n\n");
+            var md = new StringBuilder("# Racer bug report\n\nSession: " + Id + "\nStarted: " + Data.started
+                + "\nStatus: " + (Closed ? "CLOSED" : "OPEN") + "\nReports: " + Count
+                + (Closed ? "\nClosed: " + Data.closedAt + "\nExported: " + Data.exported : "") + "\n\n");
             foreach (var b in Data.bugs)
             {
                 md.AppendLine("## " + b.id).AppendLine().AppendLine("Comment:");
@@ -69,10 +76,32 @@ namespace Racer
         static string Position(Vector3 p) => "X=" + F(p.x) + ", Y=" + F(p.y) + ", Z=" + F(p.z);
         public string Export()
         {
-            Write();
-            string zip = DirectoryPath + "_" + DateTime.Now.ToString("HHmmssfff") + ".zip";
-            ZipFile.CreateFromDirectory(DirectoryPath, zip, System.IO.Compression.CompressionLevel.Optimal, true);
-            return zip;
+            if (Closed) throw new InvalidOperationException("This session is already closed; its history is preserved.");
+            string zip = DirectoryPath + "_" + Guid.NewGuid().ToString("N").Substring(0, 8) + ".zip";
+            string temporary = zip + ".tmp";
+            try
+            {
+                // Include the final lifecycle state in both the folder and portable archive.
+                Data.closed = Data.exported = true; Data.closedAt = DateTimeOffset.Now.ToString("o");
+                Write();
+                ZipFile.CreateFromDirectory(DirectoryPath, temporary, System.IO.Compression.CompressionLevel.Optimal, true);
+                File.Move(temporary, zip);
+                return zip;
+            }
+            catch
+            {
+                Data.closed = Data.exported = false; Data.closedAt = null;
+                try { Write(); } catch { /* Keep the original export error; in-memory reports remain open. */ }
+                try { if (File.Exists(temporary)) File.Delete(temporary); } catch { /* Never delete a prior export. */ }
+                throw;
+            }
+        }
+        public void Close()
+        {
+            if (Closed) return;
+            Data.closed = true; Data.closedAt = DateTimeOffset.Now.ToString("o");
+            try { Write(); }
+            catch { Data.closed = false; Data.closedAt = null; throw; }
         }
     }
 }

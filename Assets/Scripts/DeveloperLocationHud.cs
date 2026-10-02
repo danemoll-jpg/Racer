@@ -24,11 +24,11 @@ namespace Racer
 #endif
         RaceDirector race;
         Font font;
-        GameObject panel, shade, menuCard, commentCard;
-        UnityEngine.UI.Text label, status, captureDetails;
+        GameObject panel, shade, menuCard, commentCard, newSessionCard;
+        UnityEngine.UI.Text label, status, captureDetails, sessionDetails, newSessionWarning;
         UnityEngine.UI.InputField comment;
         UnityEngine.UI.Button firstButton;
-        UnityEngine.UI.Button flyButton, returnButton, exportButton, folderButton;
+        UnityEngine.UI.Button flyButton, returnButton, exportButton, folderButton, newSessionButton, keepSessionButton;
         readonly List<UnityEngine.UI.Button> menuButtons = new();
         readonly List<(MenuGlyph glyph, UnityEngine.UI.Text key, string pad, string keyboard)> prompts = new();
         bool visible, hudVisible = true, menuOpen, capturing, held;
@@ -45,12 +45,16 @@ namespace Racer
         float nextErase;
         public bool Flying { get; private set; }
         public bool CommentOpen { get; private set; }
+        public bool NewSessionConfirmationOpen { get; private set; }
         public bool Visible => visible;
         public bool Capturing => capturing;
         public string LastExport { get; private set; }
         public string LastOpenedFolder { get; private set; }
         public string Error { get; private set; }
         public string HudText => label ? label.text : "";
+        public string SessionText => session == null ? "Session: NEW / Reports 0\nNext F4 starts BUG-001"
+            : "Session: " + session.Id + "\n" + (session.Closed ? "CLOSED" : "OPEN") + " / Reports " + session.Count
+                + (session.Closed ? " / Next F4: new BUG-001" : "");
         bool Holding => menuOpen || capturing || CommentOpen || Flying;
         bool Available => race && race.Flow && race.vehicle && race.Flow.State != RaceFlow.Stage.Title;
 
@@ -96,20 +100,22 @@ namespace Racer
         }
         void BuildUi()
         {
-            var p = Rect("Debug HUD", transform, new(328, 230)); panel = p.gameObject;
+            var p = Rect("Debug HUD", transform, new(430, 270)); panel = p.gameObject;
             p.anchorMin = p.anchorMax = p.pivot = new(1, 0); p.anchoredPosition = new(-18, 94);
             Background(panel, new(.025f, .055f, .07f, .94f)); label = Text("Debug state", p, 15); Fill(label.rectTransform, 12);
             var hb = Button(p, "Debug menu  F6", OpenMenu); var hr = (RectTransform)hb.transform;
             hr.anchorMin = new(0, 0); hr.anchorMax = new(1, 0); hr.pivot = new(.5f, 0); hr.offsetMin = new(8, 8); hr.offsetMax = new(-8, 38);
             var sr = Rect("Debug overlay", transform, Vector2.zero); Fill(sr); shade = sr.gameObject; Background(shade, new(0, .02f, .04f, .72f));
-            menuCard = Card("Debug menu", new(660, 615));
+            menuCard = Card("Debug menu", new(660, 740));
             Row(menuCard.transform, "DEBUG / INSPECTION", 27, 40).color = new(.3f, .95f, .81f);
+            sessionDetails = Row(menuCard.transform, SessionText, 16, 60);
             firstButton = Button(menuCard.transform, "Resume", CloseMenu);
             Button(menuCard.transform, "Capture Bug  F4", CaptureBug);
             flyButton = Button(menuCard.transform, "Debug Fly / Inspection", StartFly);
             returnButton = Button(menuCard.transform, "Return to Vehicle", () => { ReturnToVehicle(); CloseMenu(); });
             exportButton = Button(menuCard.transform, "Export Bug Report ZIP", Export);
             folderButton = Button(menuCard.transform, "Open Debug Report Folder", OpenFolder);
+            newSessionButton = Button(menuCard.transform, "START NEW DEBUG SESSION", StartNewSession);
             Button(menuCard.transform, "Toggle Debug HUD", () => { hudVisible = !hudVisible; });
             Button(menuCard.transform, "Exit Debug Mode  F3", () => SetEnabled(false));
             var controls=Rect("Debug controls",menuCard.transform,new(0,32));controls.gameObject.AddComponent<UnityEngine.UI.LayoutElement>().preferredHeight=32;
@@ -128,6 +134,14 @@ namespace Racer
             Button(commentCard.transform, "Save  Enter", () => SaveComment(comment.text));
             Button(commentCard.transform, "Cancel  Esc / B", CancelComment);
             Row(commentCard.transform, "Shift+Enter: new line. Screenshot already saved before this dialog.", 15, 28);
+            newSessionCard = Card("Confirm new debug session", new(660, 310));
+            Row(newSessionCard.transform, "START NEW DEBUG SESSION?", 25, 36);
+            newSessionWarning = Row(newSessionCard.transform, "", 18, 104);
+            keepSessionButton = Button(newSessionCard.transform, "Keep Current Session", CancelNewSession);
+            var closeSessionButton = Button(newSessionCard.transform, "Close Session Without Export", CloseCurrentSession);
+            keepSessionButton.navigation = new UnityEngine.UI.Navigation { mode=UnityEngine.UI.Navigation.Mode.Explicit, selectOnUp=closeSessionButton, selectOnDown=closeSessionButton };
+            closeSessionButton.navigation = new UnityEngine.UI.Navigation { mode=UnityEngine.UI.Navigation.Mode.Explicit, selectOnUp=keepSessionButton, selectOnDown=keepSessionButton };
+            newSessionCard.SetActive(false);
             panel.SetActive(false); shade.SetActive(false); menuCard.SetActive(false); commentCard.SetActive(false);
         }
         void Prompt(Transform parent,float x,string title,string pad,string keyboard)
@@ -141,7 +155,9 @@ namespace Racer
         void RefreshMenu()
         {
             flyButton.interactable=!Flying; returnButton.interactable=Flying;
-            exportButton.interactable=folderButton.interactable=session!=null&&session.Count>0;
+            exportButton.interactable=session!=null&&session.Count>0&&!session.Closed;
+            folderButton.interactable=session!=null;
+            sessionDetails.text=SessionText;
             var enabled=menuButtons.FindAll(b=>b.interactable);
             for(int i=0;i<enabled.Count;i++)enabled[i].navigation=new UnityEngine.UI.Navigation { mode=UnityEngine.UI.Navigation.Mode.Explicit, selectOnUp=enabled[(i+enabled.Count-1)%enabled.Count],selectOnDown=enabled[(i+1)%enabled.Count] };
             foreach(var p in prompts){var path=MenuInput.Controller?p.pad:p.keyboard;p.glyph.SetPath(path);p.key.text=MenuGlyph.Label(path);}
@@ -151,13 +167,13 @@ namespace Racer
         public void Toggle() => SetEnabled(!visible);
         public void SetEnabled(bool value)
         {
-            if (!Available || capturing || CommentOpen) return;
+            if (!Available || capturing || CommentOpen || NewSessionConfirmationOpen) return;
             visible = value; nextRefresh = 0;
             if (!value) { ReturnToVehicle(); menuOpen = false; shade.SetActive(false); SyncHold(); }
         }
         void EnsureSession()
         {
-            if (session != null) return;
+            if (session != null && !session.Closed) return;
             string root = Path.Combine(Application.persistentDataPath, "DebugReports");
 #if UNITY_EDITOR
             if (!string.IsNullOrEmpty(ValidationReportRoot)) root = ValidationReportRoot;
@@ -166,7 +182,7 @@ namespace Racer
         }
         public void OpenMenu()
         {
-            if (!visible || capturing || CommentOpen) return;
+            if (!visible || capturing || CommentOpen || NewSessionConfirmationOpen) return;
             menuOpen = true; shade.SetActive(true); menuCard.SetActive(true); commentCard.SetActive(false); SyncHold();
             RefreshMenu();MenuInput.ConsumeThroughRelease();EventSystem.current?.SetSelectedGameObject(firstButton.gameObject);
         }
@@ -190,7 +206,7 @@ namespace Racer
         }
         public void CaptureBug()
         {
-            if (!visible || !Available || capturing || CommentOpen) return;
+            if (!visible || !Available || capturing || CommentOpen || NewSessionConfirmationOpen) return;
             try { EnsureSession(); } catch (Exception e) { Fail(e); return; }
             var t = Flying && cameraView ? cameraView.transform : race.vehicle.transform;
             var b = race.Racers.Count > 0 ? race.Racers[0].Branch : null;
@@ -281,13 +297,36 @@ namespace Racer
         }
         public void Export()
         {
-            try { EnsureSession(); LastExport = session.Export(); status.text = "ZIP ready:\n" + LastExport; Error = null; }
+            if (capturing || CommentOpen || NewSessionConfirmationOpen || session == null || session.Closed || session.Count == 0) return;
+            try { LastExport = session.Export(); status.text = "Session CLOSED. Next F4 starts BUG-001. ZIP:\n" + LastExport; Error = null; RefreshMenu(); EventSystem.current?.SetSelectedGameObject(firstButton.gameObject); }
             catch (Exception e) { Fail(e); }
         }
         public void OpenFolder()
         {
-            try { EnsureSession(); LastOpenedFolder = session.DirectoryPath; System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo(session.DirectoryPath) { UseShellExecute = true }); status.text = "Report folder:\n" + session.DirectoryPath; }
+            if (session == null) return;
+            try { LastOpenedFolder = session.DirectoryPath; System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo(session.DirectoryPath) { UseShellExecute = true }); status.text = "Report folder:\n" + session.DirectoryPath; }
             catch (Exception e) { Fail(e); }
+        }
+        public void StartNewSession()
+        {
+            if (!menuOpen || capturing || CommentOpen || NewSessionConfirmationOpen) return;
+            if (session != null && !session.Closed && session.Count > 0)
+            {
+                NewSessionConfirmationOpen = true; menuCard.SetActive(false); newSessionCard.SetActive(true);
+                newSessionWarning.text = session.Id + "\n" + session.Count + " unexported reports. Close without export?\nFiles stay in history. Next F4 starts a new BUG-001.";
+                MenuInput.ConsumeThroughRelease(); EventSystem.current?.SetSelectedGameObject(keepSessionButton.gameObject);
+            }
+            else CloseCurrentSession();
+        }
+        void CancelNewSession()
+        {
+            NewSessionConfirmationOpen=false;newSessionCard.SetActive(false);menuCard.SetActive(true);
+            MenuInput.ConsumeThroughRelease();EventSystem.current?.SetSelectedGameObject(newSessionButton.gameObject);
+        }
+        void CloseCurrentSession()
+        {
+            try { session?.Close(); CancelNewSession(); RefreshMenu(); status.text="Session closed; history preserved.\nNext F4 creates a new session starting at BUG-001."; Error=null; }
+            catch(Exception e) { CancelNewSession(); Fail(e); }
         }
         void Fail(Exception e) { Error = e.Message; if (status) status.text = e.Message; race.Flow.Notify("Debug report: " + e.Message, 8); }
         public void StartFly()
@@ -327,6 +366,16 @@ namespace Racer
             if (!Available) return;
             var k = Keyboard.current; var g = Gamepad.current;
             if(textKeyboard!=k){if(textKeyboard!=null)textKeyboard.onTextInput-=TypedCharacter;textKeyboard=k;if(k!=null)k.onTextInput+=TypedCharacter;}
+            if (NewSessionConfirmationOpen)
+            {
+                if(k?.escapeKey.wasPressedThisFrame==true||g?.buttonEast.wasPressedThisFrame==true)CancelNewSession();
+                else if(!MenuInput.UiBlocked&&(k?.enterKey.wasPressedThisFrame==true||k?.numpadEnterKey.wasPressedThisFrame==true))
+                {
+                    var selected=EventSystem.current?.currentSelectedGameObject;
+                    if(selected&&selected.transform.IsChildOf(newSessionCard.transform))ExecuteEvents.Execute(selected,new BaseEventData(EventSystem.current),ExecuteEvents.submitHandler);
+                }
+                return;
+            }
             if (CommentOpen)
             {
                 CommentInput(k);
@@ -356,7 +405,7 @@ namespace Racer
             var t = Flying && cameraView ? cameraView.transform : race.vehicle.transform; var p = t.position;
             label.text = $"DEBUG / {race.courseName}\n{(race.reverseCourse ? "Reverse" : "Forward")} / {(race.FreeRoam ? "Free Roam" : "Race")}\nX {p.x:F2}   Y {p.y:F2}   Z {p.z:F2}\nHeading {t.eulerAngles.y:F1}° / {race.vehicle.GetComponent<VehicleConfiguration>().profileId} / {DisplayUnits.Mph(Mathf.Abs(race.vehicle.ForwardSpeed)):F1} mph\n"
                 + (race.FreeRoam ? "Exploration" : $"Lap {race.Progress.CompletedLaps + 1} / Next CP {race.Progress.NextGate}")
-                + $" / Reports {session?.Count ?? 0}\nF3 mode / F4 capture / Timeout OFF\n"
+                + "\n" + SessionText + "\nF3 mode / F4 capture / Timeout OFF\n"
                 + (Flying ? "FLY: WASD · Q/E · RMB look\nShift fast / Ctrl precise · F6 return" : race.Flow.DebugMovementUsed ? "DEBUG RUN / records disabled" : "Vehicle view / records eligible");
         }
         void OnDestroy()

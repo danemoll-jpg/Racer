@@ -1,0 +1,47 @@
+{
+    "schemaVersion": 2,
+    "started": "2026-10-02T00:32:30.3845039-04:00",
+    "sessionId": "2026-10-02_00-32-30-384_adbea3",
+    "closedAt": "",
+    "closed": false,
+    "exported": false,
+    "bugs": [
+        {
+            "id": "BUG-001",
+            "timestamp": "2026-10-02T00:32:30.3850031-04:00",
+            "course": "Mountain Loop - Forward",
+            "direction": "Forward",
+            "mode": "Free Roam",
+            "vehicle": "moto",
+            "version": "0.64.0-review1",
+            "buildGuid": "00000000000000000000000000000000",
+            "scene": "MountainLoop",
+            "position": {
+                "x": 724.5137939453125,
+                "y": 65.39616394042969,
+                "z": -6.11069917678833
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 174.73597717285156,
+                "z": 0.0
+            },
+            "vehiclePosition": {
+                "x": 724.5137939453125,
+                "y": 65.39616394042969,
+                "z": -6.11069917678833
+            },
+            "heading": 174.73597717285156,
+            "speedMps": 0.0,
+            "roadProgress": 2632.3115234375,
+            "branchProgress": 0.0,
+            "lap": 0,
+            "nextCheckpoint": -1,
+            "branch": "Main",
+            "viewpoint": "Vehicle",
+            "screenshot": "Screenshots/BUG-001.png",
+            "comment": "After manual new session",
+            "debugMovementUsed": false
+        }
+    ]
+}

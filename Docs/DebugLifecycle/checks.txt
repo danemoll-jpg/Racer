@@ -1,0 +1,28 @@
+PASS F4 opens capture comment
+PASS F4 opens capture comment
+PASS First session numbers BUG-001 and BUG-002
+PASS HUD shows session ID and count
+PASS Controller reaches Export Bug Report ZIP
+PASS Successful in-game export closes session
+PASS Closed lifecycle state persisted in session folder
+PASS Exported ZIP contains closed state and both correlated screenshots
+PASS Closed session rejects appended captures
+PASS F4 opens capture comment
+PASS Next F4 creates a different timestamped open session
+PASS New session restarts at BUG-001, not BUG-003
+PASS New session contains no old screenshot or report entry
+PASS Previous session files and ZIP preserved byte-for-byte
+PASS Controller reaches START NEW DEBUG SESSION
+PASS Unexported reports require explicit confirmation
+PASS F4 cannot bypass pending confirmation
+PASS Controller B cancels without closing session
+PASS Controller reaches START NEW DEBUG SESSION
+PASS Default keyboard confirmation keeps current session
+PASS Controller reaches START NEW DEBUG SESSION
+PASS Mouse confirmation closes unexported session and preserves its folder
+PASS Manual new-session action waits for capture; no empty folder created
+PASS F4 opens capture comment
+PASS Manual restart also begins a new BUG-001
+PASS Failed export leaves reports in the active session
+PASS Failed export restores persisted OPEN state
+PASS Failed export does not alter earlier ZIP history

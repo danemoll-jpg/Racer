@@ -9,7 +9,16 @@
 - Do not silently modify or weaken CODEX_RULES.md. Changes to standing rules require an explicit instruction from Dan.
 - Root AGENTS.md points future Codex tasks to both files.
 
-## CURRENT — 25-report Mountain cleanup, Debug input and sign audit — 0.64.0-review1
+## CURRENT — Debug session lifecycle correction — 0.65.0-review1
+
+- Safety checkpoint: clean main `23e383f95dc7ec1cf4a0570699fbade6531a37ed`. Scope is Debug session lifecycle only; previous Mountain cleanup remains complete.
+- Successful export now marks the session CLOSED in its folder and ZIP. Next F4 creates a different timestamped session starting at BUG-001. Closed sessions reject additional captures; numbering is per session, with no copied screenshots or entries.
+- START NEW DEBUG SESSION closes without export, preserves history, and creates the next folder only on capture. Unexported reports require explicit confirmation, defaulting to Keep Current Session. Debug HUD/menu show session ID, state and count. Failed export retains an OPEN session for retry.
+- **History retention:** never automatically delete closed DebugReport folders or exported ZIPs. Original user reports and all lifecycle test history are preserved.
+- All **28 focused input/lifecycle checks PASS**, including BUG-001/002 -> export -> new BUG-001, exact prior-folder/ZIP hashes, controller/keyboard cancellation, mouse confirmation, pending-confirmation F4 guard, and archive-failure rollback. UI/HUD screenshots inspected. [Validation](Docs/DebugLifecycle/VALIDATION.md), [controls](Docs/DebugReporting/DEBUG_MODE.md). Targeted testing complete; no broad gameplay matrix.
+- Release in progress: completion source commit/push, fresh 0.65.0-review1 / game-65000 Windows build, signed publication, complete Latest activation, actual Play-Racer.cmd check and gated disposable-build cleanup follow. Do not claim release complete until evidence is recorded.
+
+## Previous delivery — 25-report Mountain cleanup, Debug input and sign audit — 0.64.0-review1
 
 - Authorized by Dan’s supplied 25-report session and four-part cleanup request. Safety checkpoint: clean main `f034febc94ba52f61b3bba2acce0a620a0e2b993`. All original comments/screenshots reviewed; [individual dispositions and evidence](Docs/ReportCleanup/VALIDATION.md).
 - BUG-001 pavement remesh join; 002 climb slit; 003 entry support/shimmer; 004 ragged shoulders; 005 obsolete fork sign; 006 side-cut barrier; 007 torn multi-level support; 008 suspended creek plane/shoulder; 009 artificial pit; 010 South Face receiving support; 011 buried flight sign; 012 offroad terrain gaps — corrected with route/flight/tunnel clearance retained.
