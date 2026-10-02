@@ -53,6 +53,19 @@
   - ~75 other inherited Street Loop arrows in Backyard Forward (listed in author-notes for Dan);
   - production AI South Face undershoot (since 0.63).
 
+- **DELIVERED:**
+  - Source `abb1652d5cf9a5a731d4eff751bf703bd7893822` pushed and verified on origin/main.
+  - Fresh 0.67.0-review1 Windows build: 0 errors, 20 warnings, 3m52s.
+  - Published [game-67000](https://github.com/danemoll-jpg/woodstock-rush-releases/releases/tag/game-67000). The known draft-lookup miss was resolved with `--resume-draft`.
+  - All 232 Latest files match the public signed manifest; public download, signature, install and startup pass.
+  - [Delivery evidence](Docs/Report067/PUBLICATION.md).
+- **Play-Racer.cmd (unchanged):** launched a responsive managed 67000, muted, with settings restored byte-for-byte; no pending updates. Latest root, current 67000 and previous 66000 retained.
+- **Cleanup:**
+  - Builds 9,712,075,132 → 7,696,949,672 bytes.
+  - C: free 301,155,147,776 bytes.
+  - All debug report history preserved.
+- **SESSION HANDOFF: STOP.** Wait for Dan's review of 0.67. A documentation-only delivery commit follows; playable source remains `abb1652d`.
+
 ### Original scope (as planned)
 
 **Tooling change (Dan, 2026-10-02):** development moves from Codex to Claude Code. CODEX_RULES.md keeps its filename and applies unchanged; wherever it says "Codex", read "the coding agent". Planning, bug triage and this TODO section were prepared in Claude chat; implementation is done by Claude Code in this repository.
