@@ -245,6 +245,19 @@ Do not globally revert unrelated successful work.
 
 ---
 
+## 5A. WORLD GEOMETRY REGRESSION PROTECTION
+
+Standing rule added at Dan's explicit request (0.66 regression repair).
+
+1. **Protect accepted playable geometry.** Before modifying world geometry, identify the established playable surfaces in the affected area: roads, trails, ramps, jumps, landing zones, shortcuts, underpasses, tunnels, mountain cuts, checkpoint approaches and rejoins. Treat accepted/working geometry as PROTECTED. A requested visual/support fix does NOT grant permission to alter neighboring accepted gameplay geometry.
+2. **Known-good restoration before redesign.** When a previously working feature regresses, FIRST inspect Git/source history. If a known-good implementation exists, restore/reconcile against it. Do not redesign a previously working road/ramp/jump unless Dan specifically requests a redesign.
+3. **Local fixes over broad regeneration.** For terrain support, floating roads, visual gaps, barriers and seams, make the smallest LOCAL correction. Do not broadly regenerate/rebuild surrounding terrain when a local mesh/terrain/support correction can solve the problem.
+4. **Multi-level route clearance.** Before filling empty space beneath/around an elevated road, verify whether another authored route uses that volume. Never block lower roads, tunnels, underpasses, mountain cuts or jump trajectories. Support upper geometry AROUND protected clearance volumes.
+5. **Ramps and jumps are protected systems.** An accepted jump is APPROACH -> TAKEOFF TRANSITION -> RAMP -> FLIGHT PATH -> LANDING -> RECOVERY/CONTINUATION. This includes the space beneath and beside the ramp and lip. Do not alter any component during unrelated terrain/support work without checking the entire jump.
+6. **Before/after regression check.** After changing geometry near an accepted playable feature, explicitly verify that neighboring protected features still function as before (clearance, support, collision contacts and a realistic-speed traversal of each affected route/jump). Do not validate only the object that was intentionally changed. Test spans must actually cover the protected features, not stop short of them.
+
+---
+
 ## 6. DO NOT CHANGE UNRELATED SYSTEMS
 
 Do not modify unrelated:

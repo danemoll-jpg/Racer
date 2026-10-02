@@ -1,0 +1,9 @@
+moto-AI-800-0: complete=False best=1750.5 resets=1 recov=1 maxAir=5.84 minUp=0.29 takeoffSpeed=35.7 flightMaxRoll=71.9 flightMaxPitchRate=515 flightMaxRollRate=301 landS=1139.2
+moto-throttle-800--5: complete=True best=1300.7 resets=0 recov=0 maxAir=7.16 minUp=0.76 takeoffSpeed=41.6 flightMaxRoll=0.9 flightMaxPitchRate=39 flightMaxRollRate=1 landS=1209.1
+moto-throttle-800-0: complete=True best=1300.3 resets=0 recov=0 maxAir=7.16 minUp=0.76 takeoffSpeed=41.6 flightMaxRoll=0.7 flightMaxPitchRate=40 flightMaxRollRate=1 landS=1208.8
+moto-throttle-800-5: complete=True best=1300.8 resets=0 recov=0 maxAir=7.16 minUp=0.76 takeoffSpeed=41.6 flightMaxRoll=0.5 flightMaxPitchRate=40 flightMaxRollRate=1 landS=1208.8
+moto-AI-1600-0: complete=True best=1820.3 resets=0 recov=0 maxAir=0.00 minUp=0.93 takeoffSpeed=0.0 flightMaxRoll=0.0 flightMaxPitchRate=0 flightMaxRollRate=0 landS=0.0
+moto-throttle-1600-0: complete=True best=1820.2 resets=0 recov=0 maxAir=0.56 minUp=0.81 takeoffSpeed=0.0 flightMaxRoll=0.0 flightMaxPitchRate=0 flightMaxRollRate=0 landS=0.0
+atv-AI-800-0: complete=False best=1816.6 resets=1 recov=1 maxAir=5.88 minUp=0.35 takeoffSpeed=33.9 flightMaxRoll=16.8 flightMaxPitchRate=737 flightMaxRollRate=715 landS=1745.4
+atv-throttle-800-0: complete=True best=1300.3 resets=0 recov=0 maxAir=6.64 minUp=0.76 takeoffSpeed=39.8 flightMaxRoll=0.1 flightMaxPitchRate=53 flightMaxRollRate=0 landS=1181.9
+atv-AI-1600-0: complete=True best=1820.0 resets=0 recov=0 maxAir=0.00 minUp=0.93 takeoffSpeed=0.0 flightMaxRoll=0.0 flightMaxPitchRate=0 flightMaxRollRate=0 landS=0.0

@@ -1,0 +1,4 @@
+BUG-001 window s=1709-1719 from (959.40, 128.46, -101.41) to (969.30, 129.79, -100.94)
+BUG-001 window s=1760-1772 from (1009.58, 133.63, -94.64) to (1021.22, 134.50, -91.86)
+BUG-001 sheet triangles removed from lower-route clearance: 394; remaining=35830
+BUG-002 solid-0 vertices lowered beneath ramp/lip: 884; max drop=3.91m; clearance target=4m below pavement
