@@ -16,7 +16,10 @@
 - START NEW DEBUG SESSION closes without export, preserves history, and creates the next folder only on capture. Unexported reports require explicit confirmation, defaulting to Keep Current Session. Debug HUD/menu show session ID, state and count. Failed export retains an OPEN session for retry.
 - **History retention:** never automatically delete closed DebugReport folders or exported ZIPs. Original user reports and all lifecycle test history are preserved.
 - All **28 focused input/lifecycle checks PASS**, including BUG-001/002 -> export -> new BUG-001, exact prior-folder/ZIP hashes, controller/keyboard cancellation, mouse confirmation, pending-confirmation F4 guard, and archive-failure rollback. UI/HUD screenshots inspected. [Validation](Docs/DebugLifecycle/VALIDATION.md), [controls](Docs/DebugReporting/DEBUG_MODE.md). Targeted testing complete; no broad gameplay matrix.
-- Release in progress: completion source commit/push, fresh 0.65.0-review1 / game-65000 Windows build, signed publication, complete Latest activation, actual Play-Racer.cmd check and gated disposable-build cleanup follow. Do not claim release complete until evidence is recorded.
+- **DELIVERED:** source `a888e6a5b9e5fbd4377166e7a943de87cd6ed34d` pushed and verified on origin/main; fresh 0.65.0-review1 Windows build succeeded (0 errors, 20 warnings, 4m52s). Published [game-65000](https://github.com/danemoll-jpg/woodstock-rush-releases/releases/tag/game-65000). All 232 Latest files match the public signed manifest; public download/signature/install/startup pass. [Delivery evidence](Docs/DebugLifecycle/PUBLICATION.md).
+- Unchanged Play-Racer.cmd launched responsive managed 65000. Original settings restored byte-for-byte, soundtrack preserved, no pending updates. Complete Latest root/current 65000/previous 64000 retained.
+- Cleanup: Builds **9,683,288,517 -> 7,678,725,701 bytes**; **3,634,290,858 bytes** disposable output removed. Final C: free **308,386,238,464 bytes**. Every user/test report folder and ZIP preserved.
+- **SESSION HANDOFF: STOP for Dan's next debug run.** Implementation, targeted checks and delivery complete. Documentation-only delivery commit follows; playable source remains `a888e6a5`.
 
 ## Previous delivery — 25-report Mountain cleanup, Debug input and sign audit — 0.64.0-review1
 
