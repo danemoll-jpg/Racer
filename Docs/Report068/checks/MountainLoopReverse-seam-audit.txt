@@ -1,0 +1,1194 @@
+MountainLoopReverse seam tris=11756 void=946 deeper-than-2.5m=247
+DEEP (740.03, 89.33, 71.11) floor 69.70 Ground_ReportCleanup MountainLoopReverse continuous solid 1 drop 19.6
+DEEP (739.90, 89.31, 71.19) floor 86.76 Ground_MountainPolish supported shoulders drop 2.5
+DEEP (739.85, 89.31, 71.28) floor 86.80 Ground_720_400 drop 2.5
+DEEP (739.93, 89.33, 71.29) floor 86.78 Ground_720_400 drop 2.5
+DEEP (829.62, 126.51, 125.49) floor 120.38 Ground_MountainPolish supported shoulders drop 6.1
+DEEP (829.69, 126.51, 125.55) floor 120.49 Ground_MountainPolish supported shoulders drop 6.0
+DEEP (829.53, 126.57, 125.54) floor 120.08 Ground_MountainPolish supported shoulders drop 6.5
+DEEP (829.60, 126.57, 125.59) floor 120.19 Ground_MountainPolish supported shoulders drop 6.4
+DEEP (829.65, 126.62, 125.76) floor 120.11 Ground_MountainPolish supported shoulders drop 6.5
+DEEP (829.56, 126.68, 125.80) floor 119.81 Ground_MountainPolish supported shoulders drop 6.9
+DEEP (829.62, 126.69, 125.86) floor 119.92 Ground_MountainPolish supported shoulders drop 6.8
+DEEP (829.47, 126.75, 125.85) floor 119.51 Ground_MountainPolish supported shoulders drop 7.2
+DEEP (829.54, 126.75, 125.91) floor 119.62 Ground_MountainPolish supported shoulders drop 7.1
+DEEP (829.71, 126.78, 126.08) floor 119.86 Ground_MountainPolish supported shoulders drop 6.9
+VOID (829.81, 126.79, 126.20)
+DEEP (829.62, 126.85, 126.13) floor 119.56 Ground_MountainPolish supported shoulders drop 7.3
+VOID (829.72, 126.87, 126.25)
+VOID (831.03, 126.26, 125.80)
+VOID (831.10, 126.28, 125.86)
+DEEP (1000.11, 162.89, 141.17) floor 156.93 Ground_MountainCut rock vault drop 6.0
+DEEP (999.95, 162.90, 141.19) floor 157.26 Ground_MountainCut rock vault drop 5.6
+DEEP (1000.03, 162.89, 141.23) floor 157.13 Ground_MountainCut rock vault drop 5.8
+DEEP (999.87, 162.89, 141.25) floor 157.36 Ground_MountainCut rock vault drop 5.5
+DEEP (999.95, 162.89, 141.29) floor 157.26 Ground_MountainCut rock vault drop 5.6
+DEEP (1000.26, 162.88, 141.26) floor 156.57 Ground_MountainCut rock vault drop 6.3
+DEEP (1000.34, 162.87, 141.31) floor 156.75 Ground_MountainCut portal outcrops drop 6.1
+DEEP (1000.18, 162.87, 141.32) floor 156.76 Ground_MountainCut rock vault drop 6.1
+DEEP (1000.26, 162.87, 141.37) floor 156.58 Ground_MountainCut rock vault drop 6.3
+DEEP (1000.57, 162.86, 141.34) floor 157.24 Ground_MountainCut portal outcrops drop 5.6
+DEEP (1000.65, 162.85, 141.38) floor 157.35 Ground_MountainCut portal outcrops drop 5.5
+DEEP (1000.49, 162.85, 141.40) floor 157.05 Ground_MountainCut portal outcrops drop 5.8
+DEEP (1000.57, 162.85, 141.44) floor 157.16 Ground_MountainCut portal outcrops drop 5.7
+DEEP (1000.96, 162.83, 141.46) floor 157.46 Ground_MountainCut portal outcrops drop 5.4
+DEEP (1000.80, 162.83, 141.48) floor 157.10 Ground_MountainCut portal outcrops drop 5.7
+DEEP (1000.88, 162.83, 141.52) floor 157.24 Ground_MountainCut portal outcrops drop 5.6
+VOID (824.42, 99.63, -113.80)
+VOID (824.51, 99.64, -113.78)
+VOID (824.68, 99.64, -113.75)
+VOID (824.77, 99.64, -113.74)
+VOID (824.63, 99.64, -113.67)
+VOID (824.72, 99.64, -113.65)
+VOID (824.95, 99.66, -113.70)
+VOID (825.03, 99.68, -113.69)
+VOID (824.89, 99.66, -113.62)
+VOID (824.98, 99.68, -113.60)
+VOID (824.84, 99.66, -113.54)
+VOID (824.93, 99.68, -113.52)
+VOID (825.21, 99.70, -113.66)
+VOID (825.30, 99.71, -113.64)
+VOID (825.16, 99.70, -113.57)
+VOID (825.24, 99.71, -113.56)
+VOID (825.10, 99.70, -113.49)
+VOID (825.19, 99.71, -113.47)
+VOID (825.05, 99.71, -113.40)
+VOID (825.14, 99.72, -113.39)
+VOID (825.47, 99.72, -113.61)
+VOID (825.56, 99.73, -113.59)
+VOID (825.42, 99.72, -113.52)
+VOID (825.51, 99.73, -113.51)
+VOID (825.37, 99.73, -113.44)
+VOID (825.45, 99.73, -113.42)
+VOID (825.31, 99.73, -113.35)
+VOID (825.40, 99.74, -113.34)
+VOID (825.26, 99.73, -113.27)
+VOID (825.35, 99.74, -113.25)
+VOID (825.68, 99.75, -113.48)
+VOID (825.77, 99.75, -113.46)
+VOID (825.63, 99.75, -113.39)
+VOID (825.72, 99.76, -113.37)
+VOID (825.58, 99.75, -113.31)
+VOID (825.66, 99.76, -113.29)
+VOID (825.52, 99.76, -113.22)
+VOID (825.61, 99.76, -113.21)
+VOID (825.47, 99.76, -113.14)
+VOID (825.56, 99.77, -113.12)
+VOID (825.89, 99.77, -113.34)
+VOID (825.98, 99.78, -113.33)
+VOID (825.84, 99.78, -113.26)
+VOID (825.93, 99.78, -113.24)
+VOID (825.79, 99.78, -113.17)
+VOID (825.88, 99.79, -113.16)
+VOID (825.73, 99.78, -113.09)
+VOID (825.82, 99.79, -113.07)
+VOID (825.68, 99.79, -113.00)
+VOID (825.77, 99.79, -112.99)
+VOID (826.10, 99.80, -113.21)
+VOID (826.19, 99.80, -113.19)
+VOID (826.05, 99.80, -113.13)
+VOID (826.14, 99.81, -113.11)
+VOID (826.00, 99.80, -113.04)
+VOID (826.09, 99.81, -113.02)
+VOID (825.94, 99.81, -112.96)
+VOID (826.03, 99.81, -112.94)
+VOID (825.89, 99.81, -112.87)
+VOID (825.98, 99.82, -112.86)
+VOID (826.31, 99.82, -113.08)
+VOID (826.40, 99.83, -113.06)
+VOID (826.26, 99.83, -112.99)
+VOID (826.35, 99.83, -112.98)
+VOID (826.21, 99.83, -112.91)
+VOID (826.30, 99.84, -112.89)
+VOID (826.15, 99.83, -112.82)
+VOID (826.24, 99.84, -112.81)
+VOID (826.10, 99.84, -112.74)
+VOID (826.19, 99.84, -112.72)
+VOID (826.53, 99.85, -112.94)
+VOID (826.61, 99.86, -112.93)
+VOID (826.47, 99.85, -112.86)
+VOID (826.56, 99.86, -112.84)
+VOID (826.42, 99.86, -112.77)
+VOID (826.51, 99.86, -112.76)
+VOID (826.37, 99.86, -112.69)
+VOID (826.45, 99.87, -112.67)
+VOID (826.31, 99.86, -112.61)
+VOID (826.40, 99.87, -112.59)
+VOID (826.74, 99.87, -112.81)
+VOID (826.83, 99.88, -112.79)
+VOID (826.68, 99.88, -112.73)
+VOID (826.77, 99.89, -112.71)
+VOID (826.63, 99.88, -112.64)
+VOID (826.72, 99.89, -112.62)
+VOID (826.58, 99.88, -112.56)
+VOID (826.67, 99.89, -112.54)
+VOID (826.52, 99.89, -112.47)
+VOID (826.61, 99.90, -112.46)
+VOID (826.95, 99.90, -112.68)
+VOID (827.04, 99.91, -112.66)
+VOID (826.89, 99.90, -112.59)
+VOID (826.98, 99.91, -112.58)
+VOID (826.84, 99.91, -112.51)
+VOID (826.93, 99.91, -112.49)
+VOID (826.79, 99.91, -112.42)
+VOID (826.88, 99.92, -112.41)
+VOID (826.73, 99.91, -112.34)
+VOID (826.82, 99.92, -112.32)
+VOID (827.16, 99.93, -112.54)
+VOID (827.26, 99.93, -112.52)
+VOID (827.11, 99.93, -112.46)
+VOID (827.20, 99.94, -112.44)
+VOID (827.06, 99.93, -112.37)
+VOID (827.15, 99.94, -112.35)
+VOID (827.00, 99.94, -112.29)
+VOID (827.10, 99.95, -112.27)
+VOID (826.95, 99.94, -112.20)
+VOID (827.04, 99.95, -112.18)
+VOID (827.38, 99.95, -112.40)
+VOID (827.47, 99.96, -112.39)
+VOID (827.33, 99.96, -112.32)
+VOID (827.42, 99.96, -112.30)
+VOID (827.28, 99.96, -112.23)
+VOID (827.37, 99.97, -112.22)
+VOID (827.22, 99.96, -112.15)
+VOID (827.31, 99.97, -112.13)
+VOID (827.17, 99.97, -112.06)
+VOID (827.26, 99.97, -112.05)
+VOID (827.59, 99.98, -112.27)
+VOID (827.68, 99.99, -112.26)
+VOID (827.54, 99.98, -112.19)
+VOID (827.63, 99.99, -112.17)
+VOID (827.49, 99.99, -112.10)
+VOID (827.58, 99.99, -112.09)
+VOID (827.43, 99.99, -112.02)
+VOID (827.52, 100.00, -112.00)
+VOID (827.38, 99.99, -111.93)
+VOID (827.47, 100.00, -111.92)
+VOID (827.80, 100.01, -112.14)
+VOID (827.89, 100.01, -112.12)
+VOID (827.75, 100.01, -112.05)
+VOID (827.84, 100.02, -112.04)
+VOID (827.70, 100.01, -111.97)
+VOID (827.79, 100.02, -111.95)
+VOID (827.65, 100.02, -111.88)
+VOID (827.73, 100.02, -111.87)
+VOID (827.59, 100.02, -111.80)
+VOID (827.68, 100.03, -111.78)
+VOID (828.02, 100.03, -112.01)
+VOID (828.10, 100.04, -111.99)
+VOID (827.96, 100.03, -111.92)
+VOID (828.05, 100.04, -111.91)
+VOID (827.91, 100.04, -111.84)
+VOID (828.00, 100.05, -111.82)
+VOID (827.86, 100.04, -111.75)
+VOID (827.94, 100.05, -111.74)
+VOID (827.80, 100.04, -111.67)
+VOID (827.89, 100.05, -111.65)
+VOID (828.23, 100.06, -111.87)
+VOID (828.31, 100.06, -111.86)
+VOID (828.17, 100.06, -111.79)
+VOID (828.26, 100.07, -111.77)
+VOID (828.12, 100.06, -111.71)
+VOID (828.21, 100.07, -111.69)
+VOID (828.07, 100.07, -111.62)
+VOID (828.15, 100.07, -111.60)
+VOID (828.01, 100.07, -111.54)
+VOID (828.10, 100.08, -111.52)
+VOID (828.44, 100.08, -111.74)
+VOID (828.54, 100.09, -111.72)
+VOID (828.39, 100.09, -111.65)
+VOID (828.48, 100.09, -111.64)
+VOID (828.34, 100.09, -111.57)
+VOID (828.43, 100.10, -111.55)
+VOID (828.28, 100.09, -111.48)
+VOID (828.38, 100.10, -111.47)
+VOID (828.23, 100.10, -111.40)
+VOID (828.32, 100.10, -111.38)
+VOID (828.66, 100.11, -111.60)
+VOID (828.75, 100.12, -111.58)
+VOID (828.61, 100.11, -111.52)
+VOID (828.70, 100.12, -111.50)
+VOID (828.56, 100.12, -111.43)
+VOID (828.65, 100.12, -111.42)
+VOID (828.51, 100.12, -111.35)
+VOID (828.59, 100.13, -111.33)
+VOID (828.45, 100.12, -111.26)
+VOID (828.54, 100.13, -111.25)
+VOID (828.87, 100.14, -111.47)
+VOID (828.96, 100.14, -111.45)
+VOID (828.82, 100.14, -111.38)
+VOID (828.91, 100.15, -111.37)
+VOID (828.77, 100.14, -111.30)
+VOID (828.86, 100.15, -111.28)
+VOID (828.72, 100.15, -111.21)
+VOID (828.80, 100.15, -111.20)
+VOID (828.66, 100.15, -111.13)
+VOID (828.75, 100.16, -111.11)
+VOID (829.09, 100.16, -111.33)
+VOID (829.19, 100.17, -111.31)
+VOID (829.04, 100.17, -111.25)
+VOID (829.13, 100.17, -111.23)
+VOID (828.99, 100.17, -111.16)
+VOID (829.08, 100.18, -111.14)
+VOID (828.93, 100.17, -111.08)
+VOID (829.03, 100.18, -111.06)
+VOID (828.88, 100.18, -110.99)
+VOID (828.97, 100.18, -110.97)
+VOID (829.31, 100.19, -111.20)
+VOID (829.40, 100.20, -111.18)
+VOID (829.26, 100.19, -111.11)
+VOID (829.35, 100.20, -111.10)
+VOID (829.21, 100.20, -111.03)
+VOID (829.30, 100.20, -111.01)
+VOID (829.16, 100.20, -110.94)
+VOID (829.24, 100.21, -110.93)
+VOID (829.10, 100.20, -110.86)
+VOID (829.19, 100.21, -110.84)
+VOID (830.36, 100.20, -109.49)
+VOID (855.09, 103.38, -96.12)
+VOID (930.48, 123.37, -95.66)
+VOID (930.56, 123.39, -95.70)
+VOID (930.72, 123.42, -95.67)
+VOID (930.80, 123.44, -95.71)
+VOID (930.96, 123.47, -95.69)
+VOID (931.04, 123.49, -95.72)
+VOID (931.28, 123.53, -95.74)
+VOID (931.53, 123.58, -95.75)
+VOID (931.52, 123.57, -94.31)
+VOID (931.53, 123.57, -94.21)
+VOID (931.61, 123.58, -94.25)
+VOID (931.61, 123.58, -94.15)
+VOID (931.69, 123.62, -95.83)
+VOID (932.49, 123.76, -94.47)
+VOID (932.50, 123.76, -94.37)
+VOID (932.58, 123.78, -94.40)
+VOID (932.73, 123.81, -94.48)
+VOID (932.80, 123.83, -94.51)
+VOID (933.41, 123.95, -95.31)
+VOID (933.49, 123.97, -95.35)
+VOID (936.32, 124.53, -95.54)
+VOID (936.39, 124.54, -95.58)
+VOID (936.34, 124.53, -94.94)
+VOID (936.41, 124.54, -94.98)
+VOID (936.43, 124.54, -94.58)
+VOID (936.55, 124.57, -95.55)
+VOID (936.63, 124.59, -95.59)
+VOID (936.57, 124.57, -94.95)
+VOID (936.65, 124.59, -94.99)
+VOID (936.79, 124.62, -95.56)
+VOID (936.87, 124.63, -95.60)
+VOID (937.04, 124.67, -95.57)
+VOID (937.12, 124.68, -95.61)
+VOID (937.28, 124.71, -95.58)
+VOID (937.36, 124.73, -95.62)
+VOID (937.53, 124.76, -95.59)
+VOID (937.61, 124.77, -95.63)
+VOID (937.77, 124.80, -95.60)
+VOID (937.85, 124.82, -95.64)
+VOID (938.01, 124.85, -95.61)
+VOID (938.09, 124.87, -95.65)
+VOID (938.04, 124.85, -94.91)
+VOID (938.12, 124.87, -94.95)
+VOID (938.25, 124.90, -95.82)
+VOID (938.33, 124.91, -95.86)
+VOID (938.26, 124.90, -95.62)
+VOID (938.34, 124.91, -95.66)
+VOID (938.28, 124.90, -94.92)
+VOID (938.36, 124.91, -94.96)
+VOID (938.49, 124.94, -95.83)
+VOID (938.56, 124.96, -95.87)
+VOID (938.49, 124.94, -95.63)
+VOID (938.57, 124.96, -95.67)
+VOID (938.72, 124.99, -95.84)
+VOID (938.80, 125.00, -95.88)
+VOID (938.76, 124.99, -94.64)
+VOID (938.84, 125.00, -94.68)
+VOID (939.71, 125.17, -95.47)
+VOID (939.79, 125.19, -95.51)
+VOID (939.95, 125.22, -95.48)
+VOID (940.03, 125.23, -95.52)
+VOID (940.05, 125.23, -95.02)
+VOID (939.97, 125.22, -94.88)
+VOID (940.05, 125.23, -94.92)
+VOID (940.18, 125.26, -95.69)
+VOID (940.26, 125.28, -95.72)
+VOID (940.21, 125.26, -94.99)
+VOID (940.29, 125.28, -95.03)
+VOID (940.21, 125.26, -94.89)
+VOID (940.29, 125.28, -94.93)
+VOID (946.26, 126.35, -94.93)
+VOID (946.34, 126.37, -94.87)
+VOID (946.57, 126.41, -94.87)
+VOID (946.81, 126.45, -94.87)
+VOID (947.06, 126.49, -94.88)
+VOID (947.30, 126.54, -94.88)
+VOID (947.55, 126.58, -94.88)
+VOID (947.80, 126.62, -94.89)
+VOID (948.02, 126.66, -94.89)
+VOID (948.25, 126.70, -94.89)
+VOID (948.50, 126.74, -94.89)
+VOID (948.74, 126.78, -94.89)
+VOID (948.99, 126.83, -94.90)
+VOID (949.23, 126.87, -94.90)
+VOID (949.47, 126.91, -94.90)
+VOID (949.72, 126.95, -94.90)
+VOID (949.97, 126.99, -94.90)
+VOID (950.19, 127.03, -94.90)
+VOID (950.42, 127.07, -94.90)
+VOID (950.67, 127.11, -94.90)
+VOID (950.92, 127.15, -94.90)
+VOID (951.16, 127.19, -94.90)
+VOID (951.41, 127.23, -94.90)
+VOID (951.64, 127.27, -94.90)
+VOID (951.88, 127.31, -94.90)
+VOID (952.13, 127.35, -94.90)
+VOID (952.36, 127.39, -94.90)
+VOID (952.60, 127.42, -94.90)
+VOID (952.85, 127.46, -94.89)
+VOID (953.10, 127.50, -94.89)
+VOID (953.34, 127.54, -94.89)
+VOID (953.59, 127.58, -94.89)
+VOID (953.81, 127.62, -94.89)
+VOID (954.05, 127.66, -94.88)
+VOID (958.09, 128.28, -94.88)
+VOID (958.16, 128.29, -94.91)
+VOID (958.32, 128.32, -94.87)
+VOID (958.40, 128.33, -94.90)
+VOID (958.56, 128.35, -94.87)
+VOID (958.65, 128.37, -94.90)
+VOID (961.48, 128.78, -94.87)
+VOID (961.56, 128.79, -94.90)
+VOID (963.65, 129.09, -94.88)
+VOID (963.73, 129.10, -94.91)
+VOID (963.89, 129.12, -94.87)
+VOID (963.96, 129.13, -94.90)
+VOID (995.08, 132.52, -90.94)
+VOID (1001.11, 133.04, -89.92)
+VOID (1028.47, 135.10, -83.58)
+VOID (1028.56, 135.11, -83.59)
+VOID (1039.50, 135.78, -79.50)
+VOID (1039.47, 135.77, -79.41)
+VOID (1039.56, 135.78, -79.42)
+VOID (1039.67, 135.79, -79.15)
+VOID (1040.01, 136.04, -79.48)
+VOID (1040.10, 136.19, -79.49)
+VOID (1040.07, 136.29, -79.39)
+VOID (1040.05, 136.39, -79.29)
+VOID (1040.25, 136.37, -79.41)
+VOID (1040.34, 136.26, -79.43)
+DEEP (1099.99, 138.58, -64.68) floor 107.50 Ground_ReportCleanup MountainLoopReverse continuous solid 0 drop 31.1
+DEEP (1099.97, 138.57, -64.58) floor 112.93 Ground_ReportCleanup MountainLoopReverse continuous solid 0 drop 25.6
+DEEP (1099.95, 138.56, -64.48) floor 118.35 Ground_ReportCleanup MountainLoopReverse continuous solid 0 drop 20.2
+DEEP (1099.94, 138.55, -64.38) floor 123.78 Ground_ReportCleanup MountainLoopReverse continuous solid 0 drop 14.8
+DEEP (1099.92, 138.55, -64.28) floor 129.21 Ground_ReportCleanup MountainLoopReverse continuous solid 0 drop 9.3
+DEEP (1099.90, 138.54, -64.18) floor 134.63 Ground_ReportCleanup MountainLoopReverse continuous solid 0 drop 3.9
+DEEP (1099.99, 138.56, -64.20) floor 129.69 Ground_ReportCleanup MountainLoopReverse continuous solid 0 drop 8.9
+VOID (1162.35, 138.56, -65.35)
+VOID (1162.43, 138.55, -65.40)
+VOID (1162.60, 138.54, -65.41)
+VOID (1162.67, 138.54, -65.46)
+VOID (1168.70, 138.18, -67.10)
+VOID (1168.77, 138.18, -67.16)
+VOID (1174.48, 137.75, -69.02)
+VOID (1174.55, 137.75, -69.08)
+VOID (1174.72, 137.73, -69.11)
+VOID (1174.78, 137.73, -69.17)
+VOID (1188.25, 136.41, -74.89)
+VOID (1188.31, 136.41, -74.95)
+VOID (1188.47, 136.39, -75.00)
+VOID (1188.53, 136.38, -75.06)
+VOID (1191.53, 136.03, -76.56)
+VOID (1191.59, 136.02, -76.63)
+VOID (1191.76, 136.00, -76.68)
+VOID (1191.81, 135.99, -76.75)
+VOID (1197.00, 135.32, -79.61)
+VOID (1197.06, 135.31, -79.68)
+VOID (1197.22, 135.29, -79.74)
+VOID (1197.27, 135.28, -79.81)
+VOID (1197.43, 135.26, -79.86)
+VOID (1197.49, 135.25, -79.94)
+VOID (1199.23, 135.02, -80.94)
+VOID (1199.28, 135.01, -81.01)
+VOID (1199.44, 134.99, -81.07)
+VOID (1199.49, 134.98, -81.14)
+VOID (693.08, 98.87, -276.52)
+VOID (693.08, 98.86, -276.43)
+VOID (691.53, 98.46, -272.72)
+VOID (691.53, 98.45, -272.63)
+VOID (691.44, 98.43, -272.49)
+VOID (691.44, 98.43, -272.40)
+VOID (690.14, 98.03, -269.12)
+VOID (690.14, 98.02, -269.03)
+VOID (690.05, 98.00, -268.89)
+VOID (690.06, 97.99, -268.80)
+VOID (689.43, 97.79, -267.19)
+VOID (689.43, 97.78, -267.10)
+VOID (689.34, 97.76, -266.95)
+VOID (689.34, 97.75, -266.87)
+VOID (689.26, 97.73, -266.72)
+VOID (689.26, 97.72, -266.63)
+VOID (689.17, 97.69, -266.47)
+VOID (689.16, 97.69, -266.37)
+VOID (689.07, 97.66, -266.21)
+VOID (689.08, 97.65, -266.12)
+VOID (688.14, 97.31, -263.54)
+VOID (688.14, 97.30, -263.45)
+VOID (688.06, 97.28, -263.31)
+VOID (688.06, 97.27, -263.22)
+VOID (687.98, 97.25, -263.07)
+VOID (687.98, 97.24, -262.98)
+VOID (686.23, 96.51, -257.66)
+VOID (686.24, 96.51, -257.57)
+VOID (686.16, 96.48, -257.43)
+VOID (686.16, 96.47, -257.34)
+VOID (685.93, 96.38, -256.69)
+VOID (685.94, 96.37, -256.60)
+VOID (684.94, 95.90, -253.23)
+VOID (684.95, 95.89, -253.14)
+VOID (683.52, 95.14, -247.67)
+VOID (683.53, 95.13, -247.58)
+VOID (683.46, 95.10, -247.43)
+VOID (683.47, 95.09, -247.34)
+VOID (682.57, 94.55, -243.35)
+VOID (682.58, 94.54, -243.26)
+VOID (683.82, 90.14, -200.63)
+VOID (683.88, 90.14, -200.56)
+VOID (683.90, 90.12, -200.39)
+VOID (683.95, 90.12, -200.32)
+VOID (685.16, 89.87, -196.61)
+VOID (685.22, 89.87, -196.54)
+VOID (685.24, 89.85, -196.37)
+VOID (685.30, 89.85, -196.30)
+VOID (685.88, 89.74, -194.61)
+VOID (685.94, 89.74, -194.55)
+VOID (686.16, 89.70, -193.88)
+VOID (686.22, 89.69, -193.81)
+VOID (689.84, 89.16, -184.97)
+VOID (689.91, 89.16, -184.91)
+VOID (689.94, 89.15, -184.74)
+VOID (690.01, 89.15, -184.68)
+VOID (690.91, 89.03, -182.63)
+VOID (690.98, 89.03, -182.56)
+VOID (691.02, 89.02, -182.39)
+VOID (691.08, 89.02, -182.32)
+VOID (691.12, 89.01, -182.16)
+VOID (691.19, 89.00, -182.10)
+VOID (691.67, 88.94, -180.99)
+VOID (691.74, 88.94, -180.93)
+VOID (693.35, 88.76, -177.50)
+VOID (693.42, 88.75, -177.44)
+VOID (693.46, 88.74, -177.28)
+VOID (693.53, 88.74, -177.22)
+VOID (693.58, 88.73, -177.05)
+VOID (693.65, 88.73, -176.98)
+VOID (695.08, 88.58, -174.06)
+VOID (695.15, 88.58, -174.00)
+VOID (695.20, 88.57, -173.84)
+VOID (695.26, 88.56, -173.78)
+VOID (698.91, 88.22, -166.83)
+VOID (698.98, 88.22, -166.77)
+VOID (699.89, 88.13, -165.04)
+VOID (699.96, 88.13, -164.99)
+VOID (700.89, 88.05, -163.26)
+VOID (700.96, 88.04, -163.21)
+VOID (701.77, 87.97, -161.71)
+VOID (701.84, 87.97, -161.65)
+VOID (702.77, 87.89, -159.94)
+VOID (702.84, 87.89, -159.89)
+VOID (705.98, 87.63, -154.47)
+VOID (706.05, 87.63, -154.41)
+VOID (708.07, 87.47, -150.99)
+VOID (708.14, 87.47, -150.94)
+VOID (708.46, 87.44, -150.35)
+VOID (708.54, 87.43, -150.29)
+VOID (708.60, 87.43, -150.13)
+VOID (708.67, 87.42, -150.07)
+VOID (709.00, 87.40, -149.47)
+VOID (709.07, 87.39, -149.42)
+VOID (709.13, 87.39, -149.26)
+VOID (709.20, 87.38, -149.21)
+VOID (710.32, 87.29, -147.32)
+VOID (710.39, 87.29, -147.27)
+VOID (710.99, 87.24, -146.24)
+VOID (711.06, 87.24, -146.19)
+VOID (711.39, 87.21, -145.60)
+VOID (711.46, 87.21, -145.55)
+VOID (712.46, 87.12, -143.89)
+VOID (712.53, 87.12, -143.84)
+VOID (712.59, 87.11, -143.68)
+VOID (712.67, 87.11, -143.63)
+VOID (712.73, 87.10, -143.47)
+VOID (712.80, 87.10, -143.42)
+VOID (712.86, 87.09, -143.25)
+VOID (712.94, 87.09, -143.20)
+VOID (713.00, 87.08, -143.03)
+VOID (713.07, 87.08, -142.98)
+VOID (713.13, 87.07, -142.82)
+VOID (713.21, 87.07, -142.77)
+VOID (713.27, 87.06, -142.61)
+VOID (713.34, 87.06, -142.56)
+VOID (713.40, 87.05, -142.40)
+VOID (713.48, 87.04, -142.34)
+VOID (713.54, 87.04, -142.19)
+VOID (713.61, 87.03, -142.13)
+VOID (713.67, 87.02, -141.97)
+VOID (713.75, 87.02, -141.92)
+VOID (742.26, 85.88, -115.18)
+VOID (742.32, 85.87, -115.11)
+VOID (742.17, 85.89, -115.15)
+VOID (742.23, 85.88, -115.08)
+VOID (742.08, 85.90, -115.12)
+VOID (742.13, 85.88, -115.05)
+VOID (741.98, 85.90, -115.08)
+VOID (742.04, 85.88, -115.02)
+VOID (741.89, 85.90, -115.05)
+VOID (742.27, 85.91, -115.32)
+VOID (742.18, 85.92, -115.30)
+VOID (742.09, 85.90, -115.11)
+VOID (742.08, 85.92, -115.27)
+VOID (741.99, 85.90, -115.08)
+VOID (741.98, 85.93, -115.25)
+VOID (741.90, 85.90, -115.05)
+VOID (741.89, 85.93, -115.22)
+VOID (741.79, 85.93, -115.19)
+VOID (742.57, 85.87, -115.20)
+VOID (742.62, 85.87, -115.13)
+VOID (742.47, 85.87, -115.18)
+VOID (742.52, 85.87, -115.10)
+VOID (742.37, 85.87, -115.16)
+VOID (742.43, 85.87, -115.08)
+VOID (742.28, 85.87, -115.13)
+VOID (742.33, 85.87, -115.06)
+VOID (742.18, 85.87, -115.11)
+VOID (742.23, 85.87, -115.04)
+VOID (742.08, 85.88, -115.09)
+VOID (742.13, 85.87, -115.01)
+VOID (741.98, 85.89, -115.07)
+VOID (741.89, 85.90, -115.04)
+VOID (742.59, 85.88, -115.17)
+VOID (742.60, 85.88, -115.30)
+VOID (742.49, 85.88, -115.15)
+VOID (742.50, 85.89, -115.29)
+VOID (742.39, 85.89, -115.13)
+VOID (742.40, 85.90, -115.27)
+VOID (742.29, 85.89, -115.11)
+VOID (742.19, 85.89, -115.09)
+VOID (742.20, 85.91, -115.24)
+VOID (742.10, 85.89, -115.07)
+VOID (742.10, 85.91, -115.23)
+VOID (742.00, 85.89, -115.06)
+VOID (742.01, 85.92, -115.21)
+VOID (741.90, 85.89, -115.04)
+VOID (741.91, 85.92, -115.19)
+VOID (741.81, 85.93, -115.18)
+VOID (743.60, 85.58, -114.89)
+VOID (743.64, 85.59, -114.96)
+VOID (743.50, 85.59, -114.89)
+VOID (743.40, 85.59, -114.89)
+VOID (743.60, 85.58, -114.94)
+VOID (743.63, 85.55, -114.86)
+VOID (743.50, 85.61, -114.95)
+VOID (743.53, 85.56, -114.86)
+VOID (743.43, 85.58, -114.87)
+VOID (743.33, 85.59, -114.88)
+VOID (741.99, 85.45, -114.72)
+VOID (742.04, 85.49, -114.81)
+VOID (741.89, 85.45, -114.73)
+VOID (741.94, 85.50, -114.83)
+VOID (742.00, 85.50, -114.83)
+VOID (742.02, 85.46, -114.74)
+VOID (741.90, 85.50, -114.84)
+VOID (741.93, 85.46, -114.76)
+DEEP (740.13, 85.70, 52.31) floor 82.04 Ground_ReportCleanup MountainLoopReverse continuous solid 1 drop 3.7
+VOID (740.18, 85.65, 52.16)
+DEEP (740.55, 85.93, 52.79) floor 80.99 Ground_ReportCleanup MountainLoopReverse continuous solid 1 drop 4.9
+DEEP (740.57, 85.97, 52.87) floor 79.77 Ground_ReportCleanup MountainLoopReverse continuous solid 1 drop 6.2
+DEEP (740.65, 85.94, 52.81) floor 82.66 Ground_ReportCleanup MountainLoopReverse continuous solid 1 drop 3.3
+VOID (740.70, 85.88, 52.66)
+DEEP (740.66, 86.02, 52.93) floor 80.40 Ground_ReportCleanup MountainLoopReverse continuous solid 1 drop 5.6
+DEEP (740.65, 86.04, 52.97) floor 79.35 Ground_ReportCleanup MountainLoopReverse continuous solid 1 drop 6.7
+DEEP (740.74, 85.98, 52.87) floor 83.29 Ground_ReportCleanup MountainLoopReverse continuous solid 1 drop 2.7
+DEEP (740.73, 86.01, 52.91) floor 82.24 Ground_ReportCleanup MountainLoopReverse continuous solid 1 drop 3.8
+VOID (740.82, 85.94, 52.81)
+DEEP (740.74, 86.07, 53.03) floor 80.03 Ground_ReportCleanup MountainLoopReverse continuous solid 1 drop 6.0
+DEEP (740.76, 86.09, 53.11) floor 78.87 Ground_ReportCleanup MountainLoopReverse continuous solid 1 drop 7.2
+DEEP (740.82, 86.04, 52.97) floor 82.93 Ground_ReportCleanup MountainLoopReverse continuous solid 1 drop 3.1
+DEEP (740.84, 86.07, 53.05) floor 81.77 Ground_ReportCleanup MountainLoopReverse continuous solid 1 drop 4.3
+VOID (983.03, 91.39, -217.92)
+VOID (983.07, 91.38, -218.00)
+VOID (982.81, 91.17, -218.53)
+VOID (982.59, 91.07, -218.69)
+VOID (982.37, 91.00, -218.85)
+VOID (826.11, 98.42, -129.65)
+VOID (825.86, 98.39, -129.81)
+VOID (825.91, 98.40, -129.74)
+VOID (826.07, 98.42, -129.68)
+VOID (826.13, 98.43, -129.62)
+VOID (923.36, 122.00, -107.99)
+VOID (923.60, 122.05, -108.01)
+VOID (923.66, 122.23, -108.38)
+VOID (923.57, 122.15, -108.51)
+VOID (923.65, 122.30, -108.48)
+VOID (923.56, 122.17, -108.61)
+VOID (923.65, 122.38, -108.58)
+VOID (924.43, 122.33, -108.03)
+VOID (924.43, 122.36, -108.13)
+VOID (924.42, 122.38, -108.23)
+VOID (924.33, 122.31, -108.36)
+VOID (924.41, 122.40, -108.33)
+VOID (924.32, 122.33, -108.46)
+VOID (924.41, 122.42, -108.43)
+VOID (924.32, 122.35, -108.56)
+VOID (924.40, 122.44, -108.53)
+VOID (924.31, 122.37, -108.65)
+VOID (924.40, 122.46, -108.63)
+VOID (924.31, 122.38, -108.75)
+VOID (924.39, 122.48, -108.73)
+VOID (924.59, 122.53, -108.07)
+VOID (924.68, 122.62, -108.04)
+VOID (930.41, 123.49, -107.57)
+VOID (975.92, 130.49, -107.10)
+VOID (975.93, 130.49, -107.20)
+VOID (976.01, 130.50, -107.16)
+VOID (976.96, 130.60, -107.11)
+VOID (976.97, 130.60, -107.21)
+VOID (977.05, 130.61, -107.17)
+VOID (977.96, 130.71, -107.11)
+VOID (977.97, 130.71, -107.21)
+VOID (978.05, 130.71, -107.17)
+VOID (980.76, 130.99, -106.42)
+VOID (980.83, 131.00, -106.38)
+VOID (980.77, 130.99, -106.52)
+VOID (980.85, 131.00, -106.48)
+VOID (980.98, 131.02, -106.19)
+VOID (981.06, 131.03, -106.15)
+VOID (980.99, 131.02, -106.29)
+VOID (981.07, 131.03, -106.25)
+VOID (981.72, 131.09, -106.11)
+VOID (981.73, 131.09, -106.21)
+VOID (981.81, 131.10, -106.17)
+VOID (982.51, 131.17, -106.12)
+VOID (982.52, 131.17, -106.22)
+VOID (982.60, 131.17, -106.17)
+VOID (983.31, 131.24, -106.12)
+VOID (983.32, 131.24, -106.22)
+VOID (983.40, 131.25, -106.17)
+VOID (984.88, 131.39, -106.11)
+VOID (984.90, 131.39, -106.21)
+VOID (984.97, 131.39, -106.17)
+VOID (985.65, 131.46, -106.11)
+VOID (985.66, 131.46, -106.21)
+VOID (985.74, 131.47, -106.16)
+VOID (986.43, 131.53, -106.20)
+VOID (986.51, 131.54, -106.16)
+VOID (989.68, 131.83, -105.20)
+VOID (989.75, 131.84, -105.15)
+VOID (991.50, 131.99, -105.20)
+VOID (991.58, 132.00, -105.16)
+VOID (994.74, 132.28, -104.43)
+VOID (994.81, 132.29, -104.38)
+VOID (994.75, 132.28, -104.53)
+VOID (994.83, 132.29, -104.48)
+VOID (997.02, 132.47, -104.11)
+VOID (997.04, 132.47, -104.20)
+VOID (997.11, 132.48, -104.16)
+VOID (997.29, 132.50, -104.16)
+VOID (997.36, 132.50, -104.11)
+VOID (997.31, 132.50, -104.26)
+VOID (997.38, 132.50, -104.21)
+VOID (997.54, 132.52, -104.11)
+VOID (997.56, 132.52, -104.21)
+VOID (997.63, 132.52, -104.16)
+VOID (999.31, 132.67, -103.86)
+VOID (999.38, 132.67, -103.82)
+VOID (999.33, 132.67, -103.96)
+VOID (999.40, 132.67, -103.91)
+VOID (999.94, 132.73, -103.23)
+VOID (1000.02, 132.73, -103.18)
+VOID (999.96, 132.73, -103.33)
+VOID (1000.04, 132.73, -103.28)
+VOID (1002.80, 132.96, -103.15)
+VOID (1002.87, 132.96, -103.10)
+VOID (1002.82, 132.96, -103.25)
+VOID (1002.89, 132.96, -103.20)
+VOID (1009.80, 133.51, -102.04)
+VOID (1010.31, 133.57, -102.03)
+VOID (1018.70, 134.20, -99.13)
+VOID (1018.72, 134.20, -99.23)
+VOID (1018.80, 134.20, -99.18)
+VOID (1040.55, 135.78, -94.55)
+VOID (1040.82, 135.76, -94.59)
+VOID (1041.09, 135.74, -94.62)
+VOID (1041.98, 135.74, -94.08)
+VOID (1042.05, 135.72, -94.03)
+VOID (1042.22, 135.71, -94.02)
+VOID (1042.49, 135.75, -94.05)
+VOID (1042.56, 135.75, -94.00)
+VOID (1042.73, 135.75, -93.99)
+VOID (1042.99, 135.76, -94.02)
+VOID (1043.26, 135.79, -94.06)
+VOID (1043.33, 135.79, -94.01)
+VOID (1043.50, 135.79, -94.00)
+VOID (1102.65, 138.63, -79.57)
+VOID (1102.72, 138.64, -79.53)
+VOID (1102.89, 138.64, -79.53)
+VOID (1102.97, 138.64, -79.48)
+VOID (1104.33, 138.68, -79.28)
+VOID (1104.41, 138.69, -79.23)
+VOID (1104.58, 138.69, -79.24)
+VOID (1104.65, 138.69, -79.19)
+VOID (1104.82, 138.70, -79.19)
+VOID (1104.90, 138.70, -79.15)
+VOID (1105.06, 138.70, -79.15)
+VOID (1105.13, 138.71, -79.11)
+VOID (1105.30, 138.71, -79.11)
+VOID (1105.37, 138.72, -79.07)
+VOID (1111.33, 138.87, -78.15)
+VOID (1111.40, 138.87, -78.11)
+VOID (1119.50, 139.04, -77.09)
+VOID (1119.57, 139.04, -77.04)
+VOID (1119.74, 139.04, -77.06)
+VOID (1119.82, 139.04, -77.02)
+VOID (1119.99, 139.04, -77.03)
+VOID (1120.07, 139.05, -76.99)
+VOID (1123.58, 139.10, -76.67)
+VOID (1123.66, 139.10, -76.63)
+VOID (1125.25, 139.12, -76.53)
+VOID (1125.32, 139.12, -76.49)
+VOID (1147.98, 139.01, -76.76)
+VOID (1148.07, 139.01, -76.74)
+VOID (705.93, 98.87, -271.13)
+VOID (705.87, 98.86, -271.07)
+VOID (705.84, 98.84, -270.90)
+VOID (705.77, 98.84, -270.84)
+VOID (705.74, 98.82, -270.68)
+VOID (705.68, 98.81, -270.61)
+VOID (704.04, 98.32, -266.46)
+VOID (703.98, 98.32, -266.40)
+VOID (703.18, 98.03, -264.21)
+VOID (703.12, 98.02, -264.15)
+VOID (699.09, 96.28, -252.04)
+VOID (699.03, 96.27, -251.97)
+VOID (699.02, 96.24, -251.80)
+VOID (698.96, 96.23, -251.73)
+VOID (698.95, 96.21, -251.56)
+VOID (698.89, 96.20, -251.49)
+VOID (698.88, 96.17, -251.32)
+VOID (698.83, 96.16, -251.25)
+VOID (698.56, 96.00, -250.20)
+VOID (698.51, 95.99, -250.14)
+VOID (698.50, 95.97, -249.98)
+VOID (698.44, 95.96, -249.90)
+VOID (697.53, 95.42, -246.33)
+VOID (697.48, 95.41, -246.26)
+VOID (696.97, 95.07, -244.02)
+VOID (696.92, 95.06, -243.95)
+VOID (694.44, 92.69, -227.77)
+VOID (694.40, 92.68, -227.69)
+VOID (694.42, 92.66, -227.52)
+VOID (694.39, 92.65, -227.45)
+VOID (698.38, 89.85, -201.01)
+VOID (698.38, 89.85, -200.92)
+VOID (699.11, 89.71, -199.03)
+VOID (699.10, 89.71, -198.95)
+VOID (699.70, 89.60, -197.48)
+VOID (699.70, 89.60, -197.39)
+VOID (701.04, 89.39, -194.18)
+VOID (701.04, 89.38, -194.09)
+VOID (701.13, 89.37, -193.95)
+VOID (701.14, 89.37, -193.86)
+VOID (702.46, 89.18, -190.89)
+VOID (702.46, 89.18, -190.80)
+VOID (702.56, 89.16, -190.66)
+VOID (702.57, 89.16, -190.57)
+VOID (702.66, 89.15, -190.43)
+VOID (702.67, 89.15, -190.34)
+VOID (703.25, 89.07, -189.13)
+VOID (703.26, 89.07, -189.04)
+VOID (704.28, 88.94, -186.93)
+VOID (704.28, 88.94, -186.84)
+VOID (704.58, 88.91, -186.29)
+VOID (704.58, 88.90, -186.21)
+VOID (704.68, 88.89, -186.07)
+VOID (704.69, 88.89, -185.98)
+VOID (705.74, 88.77, -183.89)
+VOID (705.75, 88.77, -183.80)
+VOID (705.85, 88.76, -183.67)
+VOID (705.86, 88.75, -183.58)
+VOID (705.96, 88.74, -183.45)
+VOID (705.97, 88.74, -183.36)
+VOID (706.07, 88.73, -183.23)
+VOID (706.07, 88.73, -183.14)
+VOID (706.17, 88.72, -183.02)
+VOID (706.18, 88.72, -182.93)
+VOID (706.28, 88.71, -182.79)
+VOID (706.29, 88.71, -182.70)
+DEEP (795.01, 96.71, -183.24) floor 89.70 Ground_720_240 drop 7.0
+DEEP (999.36, 163.01, 115.53) floor 158.66 Ground_MountainCut rock vault drop 4.4
+DEEP (999.40, 163.02, 115.45) floor 158.62 Ground_MountainCut rock vault drop 4.4
+DEEP (999.43, 163.09, 115.61) floor 158.56 Ground_MountainCut rock vault drop 4.5
+DEEP (999.47, 163.12, 115.52) floor 158.52 Ground_MountainCut rock vault drop 4.6
+DEEP (999.47, 162.98, 115.29) floor 158.55 Ground_MountainCut rock vault drop 4.4
+DEEP (999.51, 162.93, 115.21) floor 158.51 Ground_MountainCut rock vault drop 4.4
+DEEP (999.54, 163.09, 115.36) floor 158.45 Ground_MountainCut rock vault drop 4.6
+DEEP (999.58, 163.05, 115.28) floor 158.41 Ground_MountainCut rock vault drop 4.6
+DEEP (999.61, 163.21, 115.43) floor 158.35 Ground_MountainCut rock vault drop 4.9
+DEEP (999.65, 163.17, 115.35) floor 158.31 Ground_MountainCut rock vault drop 4.9
+DEEP (999.65, 162.99, 115.11) floor 158.34 Ground_MountainCut rock vault drop 4.6
+DEEP (999.69, 162.97, 115.03) floor 158.30 Ground_MountainCut rock vault drop 4.7
+DEEP (999.72, 163.10, 115.19) floor 158.24 Ground_MountainCut rock vault drop 4.9
+DEEP (999.76, 163.08, 115.10) floor 158.20 Ground_MountainCut rock vault drop 4.9
+DEEP (999.79, 163.21, 115.26) floor 158.14 Ground_MountainCut rock vault drop 5.1
+DEEP (999.83, 163.18, 115.17) floor 158.10 Ground_MountainCut rock vault drop 5.1
+DEEP (999.76, 162.92, 114.87) floor 158.23 Ground_MountainCut rock vault drop 4.7
+DEEP (999.80, 162.88, 114.79) floor 158.20 Ground_MountainCut rock vault drop 4.7
+DEEP (999.83, 162.99, 114.94) floor 158.13 Ground_MountainCut rock vault drop 4.9
+DEEP (999.87, 162.94, 114.86) floor 158.09 Ground_MountainCut rock vault drop 4.8
+DEEP (999.90, 163.07, 115.01) floor 158.03 Ground_MountainCut rock vault drop 5.0
+DEEP (999.94, 163.01, 114.93) floor 157.99 Ground_MountainCut rock vault drop 5.0
+DEEP (999.97, 163.15, 115.08) floor 157.93 Ground_MountainCut rock vault drop 5.2
+DEEP (1000.01, 163.07, 115.00) floor 157.89 Ground_MountainCut rock vault drop 5.2
+DEEP (1000.35, 162.86, 114.01) floor 157.20 Ground_MountainCut rock vault drop 5.7
+DEEP (1000.39, 162.83, 113.93) floor 157.12 Ground_MountainCut rock vault drop 5.7
+DEEP (1000.42, 162.93, 114.08) floor 157.02 Ground_MountainCut rock vault drop 5.9
+DEEP (1000.46, 162.90, 114.00) floor 156.94 Ground_MountainCut rock vault drop 6.0
+DEEP (1000.49, 163.00, 114.15) floor 156.84 Ground_MountainCut rock vault drop 6.2
+DEEP (1000.53, 162.98, 114.07) floor 156.77 Ground_MountainCut rock vault drop 6.2
+DEEP (1000.56, 163.08, 114.23) floor 156.66 Ground_MountainCut rock vault drop 6.4
+DEEP (1000.60, 163.05, 114.14) floor 156.59 Ground_MountainCut rock vault drop 6.5
+DEEP (1000.63, 163.15, 114.30) floor 156.48 Ground_MountainCut rock vault drop 6.7
+DEEP (1000.67, 163.13, 114.21) floor 156.41 Ground_MountainCut rock vault drop 6.7
+DEEP (1000.70, 163.23, 114.37) floor 156.31 Ground_MountainCut rock vault drop 6.9
+DEEP (1000.74, 163.20, 114.29) floor 156.23 Ground_MountainCut rock vault drop 7.0
+DEEP (1000.46, 162.81, 113.76) floor 156.97 Ground_MountainCut rock vault drop 5.8
+DEEP (1000.50, 162.81, 113.68) floor 156.89 Ground_MountainCut rock vault drop 5.9
+DEEP (1000.53, 162.86, 113.83) floor 156.79 Ground_MountainCut rock vault drop 6.1
+DEEP (1000.57, 162.85, 113.75) floor 156.71 Ground_MountainCut rock vault drop 6.1
+DEEP (1000.60, 162.93, 113.91) floor 156.61 Ground_MountainCut rock vault drop 6.3
+DEEP (1000.64, 162.92, 113.82) floor 156.53 Ground_MountainCut rock vault drop 6.4
+DEEP (1000.67, 163.01, 113.98) floor 156.43 Ground_MountainCut rock vault drop 6.6
+DEEP (1000.71, 162.99, 113.89) floor 156.35 Ground_MountainCut rock vault drop 6.6
+DEEP (1000.74, 163.08, 114.05) floor 156.25 Ground_MountainCut rock vault drop 6.8
+DEEP (1000.78, 163.06, 113.96) floor 156.17 Ground_MountainCut rock vault drop 6.9
+DEEP (1000.81, 163.15, 114.12) floor 156.07 Ground_MountainCut rock vault drop 7.1
+DEEP (1000.85, 163.13, 114.03) floor 155.99 Ground_MountainCut rock vault drop 7.1
+DEEP (1000.88, 163.22, 114.19) floor 155.90 Ground_MountainCut rock vault drop 7.3
+DEEP (1000.92, 163.20, 114.11) floor 155.82 Ground_MountainCut rock vault drop 7.4
+DEEP (1000.65, 162.82, 113.58) floor 156.56 Ground_MountainCut rock vault drop 6.3
+DEEP (1000.68, 162.79, 113.50) floor 156.49 Ground_MountainCut rock vault drop 6.3
+DEEP (1000.72, 162.89, 113.65) floor 156.38 Ground_MountainCut rock vault drop 6.5
+DEEP (1000.75, 162.86, 113.57) floor 156.31 Ground_MountainCut rock vault drop 6.6
+DEEP (1000.79, 162.96, 113.73) floor 156.20 Ground_MountainCut rock vault drop 6.8
+DEEP (1000.82, 162.93, 113.64) floor 156.13 Ground_MountainCut rock vault drop 6.8
+DEEP (1000.86, 163.02, 113.80) floor 156.02 Ground_MountainCut rock vault drop 7.0
+DEEP (1000.89, 163.00, 113.71) floor 155.95 Ground_MountainCut rock vault drop 7.1
+DEEP (1000.93, 163.09, 113.87) floor 155.84 Ground_MountainCut rock vault drop 7.3
+DEEP (1000.96, 163.07, 113.79) floor 155.77 Ground_MountainCut rock vault drop 7.3
+DEEP (1001.00, 163.16, 113.94) floor 155.80 Ground_MountainCut portal outcrops drop 7.4
+DEEP (1001.03, 163.14, 113.86) floor 155.82 Ground_MountainCut portal outcrops drop 7.3
+DEEP (1001.07, 163.23, 114.01) floor 155.98 Ground_MountainCut portal outcrops drop 7.3
+DEEP (1001.10, 163.20, 113.93) floor 156.00 Ground_MountainCut portal outcrops drop 7.2
+DEEP (1000.75, 162.78, 113.34) floor 156.34 Ground_MountainCut rock vault drop 6.4
+DEEP (1000.79, 162.78, 113.25) floor 156.27 Ground_MountainCut rock vault drop 6.5
+DEEP (1000.82, 162.82, 113.41) floor 156.16 Ground_MountainCut rock vault drop 6.7
+DEEP (1000.86, 162.82, 113.33) floor 156.09 Ground_MountainCut rock vault drop 6.7
+DEEP (1000.89, 162.89, 113.48) floor 155.98 Ground_MountainCut rock vault drop 6.9
+DEEP (1000.93, 162.88, 113.40) floor 155.91 Ground_MountainCut rock vault drop 7.0
+DEEP (1000.96, 162.96, 113.55) floor 155.80 Ground_MountainCut rock vault drop 7.2
+DEEP (1001.00, 162.95, 113.47) floor 155.73 Ground_MountainCut rock vault drop 7.2
+DEEP (1001.03, 163.03, 113.62) floor 155.66 Ground_MountainCut portal outcrops drop 7.4
+DEEP (1001.07, 163.01, 113.54) floor 155.68 Ground_MountainCut portal outcrops drop 7.3
+DEEP (1001.10, 163.09, 113.69) floor 155.84 Ground_MountainCut portal outcrops drop 7.2
+DEEP (1001.14, 163.08, 113.61) floor 155.86 Ground_MountainCut portal outcrops drop 7.2
+DEEP (1001.17, 163.16, 113.76) floor 156.03 Ground_MountainCut portal outcrops drop 7.1
+DEEP (1001.21, 163.14, 113.68) floor 156.04 Ground_MountainCut portal outcrops drop 7.1
+DEEP (1001.24, 163.23, 113.83) floor 156.21 Ground_MountainCut portal outcrops drop 7.0
+DEEP (1001.28, 163.21, 113.75) floor 156.22 Ground_MountainCut portal outcrops drop 7.0
+DEEP (1000.93, 162.79, 113.16) floor 155.95 Ground_MountainCut rock vault drop 6.8
+DEEP (1000.97, 162.76, 113.08) floor 155.87 Ground_MountainCut rock vault drop 6.9
+DEEP (1001.00, 162.85, 113.23) floor 155.76 Ground_MountainCut rock vault drop 7.1
+DEEP (1001.04, 162.83, 113.15) floor 155.69 Ground_MountainCut rock vault drop 7.1
+DEEP (1001.07, 162.91, 113.30) floor 155.58 Ground_MountainCut rock vault drop 7.3
+DEEP (1001.11, 162.89, 113.22) floor 155.54 Ground_MountainCut portal outcrops drop 7.4
+DEEP (1001.14, 162.98, 113.37) floor 155.70 Ground_MountainCut portal outcrops drop 7.3
+DEEP (1001.18, 162.95, 113.29) floor 155.72 Ground_MountainCut portal outcrops drop 7.2
+DEEP (1001.21, 163.04, 113.45) floor 155.88 Ground_MountainCut portal outcrops drop 7.2
+DEEP (1001.25, 163.02, 113.36) floor 155.90 Ground_MountainCut portal outcrops drop 7.1
+DEEP (1001.28, 163.10, 113.52) floor 156.06 Ground_MountainCut portal outcrops drop 7.0
+DEEP (1001.32, 163.08, 113.43) floor 156.08 Ground_MountainCut portal outcrops drop 7.0
+DEEP (1001.35, 163.17, 113.59) floor 156.24 Ground_MountainCut portal outcrops drop 6.9
+DEEP (1001.39, 163.14, 113.51) floor 156.26 Ground_MountainCut portal outcrops drop 6.9
+DEEP (1001.42, 163.23, 113.66) floor 156.43 Ground_MountainCut portal outcrops drop 6.8
+DEEP (1001.46, 163.21, 113.58) floor 156.44 Ground_MountainCut portal outcrops drop 6.8
+DEEP (1001.11, 162.77, 112.98) floor 155.54 Ground_MountainCut rock vault drop 7.2
+DEEP (1001.15, 162.75, 112.90) floor 155.46 Ground_MountainCut rock vault drop 7.3
+DEEP (1001.18, 162.84, 113.05) floor 155.56 Ground_MountainCut portal outcrops drop 7.3
+DEEP (1001.22, 162.81, 112.97) floor 155.58 Ground_MountainCut portal outcrops drop 7.2
+DEEP (1001.25, 162.90, 113.13) floor 155.75 Ground_MountainCut portal outcrops drop 7.2
+DEEP (1001.29, 162.88, 113.04) floor 155.76 Ground_MountainCut portal outcrops drop 7.1
+DEEP (1001.32, 162.97, 113.20) floor 155.93 Ground_MountainCut portal outcrops drop 7.0
+DEEP (1001.36, 162.94, 113.11) floor 155.94 Ground_MountainCut portal outcrops drop 7.0
+DEEP (1001.39, 163.03, 113.27) floor 156.11 Ground_MountainCut portal outcrops drop 6.9
+DEEP (1001.43, 163.01, 113.18) floor 156.12 Ground_MountainCut portal outcrops drop 6.9
+DEEP (1001.46, 163.10, 113.34) floor 156.29 Ground_MountainCut portal outcrops drop 6.8
+DEEP (1001.50, 163.07, 113.26) floor 156.30 Ground_MountainCut portal outcrops drop 6.8
+DEEP (1001.53, 163.16, 113.41) floor 156.47 Ground_MountainCut portal outcrops drop 6.7
+DEEP (1001.57, 163.14, 113.33) floor 156.48 Ground_MountainCut portal outcrops drop 6.7
+DEEP (1001.60, 163.23, 113.48) floor 156.65 Ground_MountainCut portal outcrops drop 6.6
+DEEP (1001.64, 163.21, 113.40) floor 156.66 Ground_MountainCut portal outcrops drop 6.5
+DEEP (1022.90, 138.93, -65.54) floor 111.93 Ground_Report067 edge shoulders drop 27.0
+VOID (983.03, 131.99, -78.64)
+VOID (982.88, 131.98, -78.62)
+VOID (982.33, 131.98, -78.62)
+VOID (982.18, 131.97, -78.61)
+VOID (981.96, 132.02, -78.66)
+VOID (981.87, 132.00, -78.64)
+VOID (977.11, 130.84, -78.49)
+VOID (976.97, 130.83, -78.44)
+VOID (976.76, 130.77, -78.35)
+VOID (976.44, 130.72, -78.40)
+VOID (976.42, 130.76, -78.50)
+VOID (976.29, 130.71, -78.45)
+VOID (975.76, 130.63, -78.40)
+VOID (974.43, 130.50, -78.23)
+VOID (973.55, 130.38, -77.59)
+VOID (973.48, 130.36, -77.54)
+VOID (971.55, 130.19, -77.38)
+VOID (969.41, 129.91, -75.99)
+VOID (969.07, 129.89, -75.95)
+VOID (968.77, 129.92, -75.92)
+VOID (968.43, 129.91, -75.87)
+VOID (967.35, 129.68, -75.33)
+VOID (964.66, 129.39, -73.56)
+VOID (964.58, 129.35, -73.47)
+VOID (964.30, 129.57, -73.57)
+VOID (964.14, 130.11, -73.82)
+VOID (964.08, 129.99, -73.75)
+VOID (964.08, 130.20, -73.90)
+VOID (964.03, 130.14, -73.83)
+VOID (963.87, 129.22, -73.17)
+VOID (963.81, 129.22, -73.10)
+VOID (963.69, 129.21, -72.94)
+VOID (963.62, 129.21, -72.85)
+VOID (962.92, 129.13, -72.55)
+VOID (962.87, 129.11, -72.47)
+VOID (962.64, 129.08, -72.48)
+VOID (962.57, 129.06, -72.39)
+VOID (962.34, 129.04, -72.40)
+VOID (962.29, 129.06, -72.48)
+VOID (962.23, 129.07, -72.56)
+VOID (962.18, 129.05, -72.49)
+VOID (961.83, 129.01, -72.16)
+VOID (961.77, 129.02, -72.24)
+VOID (961.72, 129.01, -72.17)
+VOID (961.49, 129.04, -72.17)
+VOID (961.43, 129.00, -72.08)
+DEEP (961.21, 128.96, -71.93) floor 115.43 Ground_Report067 edge shoulders drop 13.5
+DEEP (961.27, 128.93, -71.35) floor 124.13 Ground_Report067 edge shoulders drop 4.8
+DEEP (961.27, 128.92, -71.52) floor 123.04 Ground_Report067 edge shoulders drop 5.9
+DEEP (961.21, 128.93, -71.43) floor 119.46 Ground_Report067 edge shoulders drop 9.5
+DEEP (961.16, 128.93, -71.19) floor 117.91 Ground_Report067 edge shoulders drop 11.0
+DEEP (961.11, 128.91, -71.12) floor 115.23 Ground_Report067 edge shoulders drop 13.7
+DEEP (961.00, 128.88, -70.95) floor 115.09 Ground_Report067 edge shoulders drop 13.8
+DEEP (960.94, 128.87, -71.04) floor 114.68 Ground_Report067 edge shoulders drop 14.2
+DEEP (960.88, 128.85, -70.95) floor 115.12 Ground_Report067 edge shoulders drop 13.7
+DEEP (958.47, 128.82, -69.41) floor 123.64 Ground_Report067 edge shoulders drop 5.2
+DEEP (958.13, 128.80, -69.40) floor 123.88 Ground_Report067 edge shoulders drop 4.9
+DEEP (956.96, 128.51, -68.34) floor 119.12 Ground_Report067 edge shoulders drop 9.4
+DEEP (956.38, 128.38, -67.70) floor 111.61 Ground_Report067 edge shoulders drop 16.8
+DEEP (956.36, 128.41, -67.85) floor 110.33 Ground_Report067 edge shoulders drop 18.1
+DEEP (956.31, 128.41, -67.78) floor 109.94 Ground_Report067 edge shoulders drop 18.5
+DEEP (956.22, 128.35, -67.62) floor 109.09 Ground_Report067 edge shoulders drop 19.3
+DEEP (956.16, 128.39, -67.69) floor 107.42 Ground_Report067 edge shoulders drop 21.0
+DEEP (956.11, 128.35, -67.61) floor 106.97 Ground_Report067 edge shoulders drop 21.4
+DEEP (955.69, 128.31, -67.44) floor 100.88 Ground_Report067 edge shoulders drop 27.4
+DEEP (954.70, 128.20, -66.63) floor 105.21 Ground_Report067 edge shoulders drop 23.0
+DEEP (954.51, 128.18, -66.47) floor 106.08 Ground_Report067 edge shoulders drop 22.1
+DEEP (954.46, 128.17, -66.39) floor 106.52 Ground_Report067 edge shoulders drop 21.6
+DEEP (954.38, 128.13, -66.23) floor 107.39 Ground_Report067 edge shoulders drop 20.7
+DEEP (954.18, 128.11, -66.07) floor 108.26 Ground_Report067 edge shoulders drop 19.9
+DEEP (954.14, 128.10, -65.99) floor 108.69 Ground_Report067 edge shoulders drop 19.4
+DEEP (954.05, 128.08, -65.83) floor 109.55 Ground_Report067 edge shoulders drop 18.5
+DEEP (953.86, 128.05, -65.67) floor 110.41 Ground_Report067 edge shoulders drop 17.6
+DEEP (953.82, 128.05, -65.59) floor 110.83 Ground_Report067 edge shoulders drop 17.2
+DEEP (953.67, 128.03, -65.51) floor 111.26 Ground_Report067 edge shoulders drop 16.8
+DEEP (953.62, 128.03, -65.43) floor 111.68 Ground_Report067 edge shoulders drop 16.3
+DEEP (953.47, 128.01, -65.35) floor 112.11 Ground_Report067 edge shoulders drop 15.9
+DEEP (953.43, 128.01, -65.27) floor 112.53 Ground_Report067 edge shoulders drop 15.5
+DEEP (953.22, 127.99, -65.27) floor 112.53 Ground_Report067 edge shoulders drop 15.5
+DEEP (952.96, 127.98, -65.19) floor 112.99 Ground_Report067 edge shoulders drop 15.0
+DEEP (951.06, 127.82, -63.62) floor 121.89 Ground_Report067 edge shoulders drop 5.9
+DEEP (948.34, 127.51, -60.93) floor 94.95 Ground_Report067 edge shoulders drop 32.6
+DEEP (948.21, 127.87, -61.09) floor 93.99 Ground_Report067 edge shoulders drop 33.9
+DEEP (944.95, 126.94, -58.59) floor 108.01 Ground_Report067 edge shoulders drop 18.9
+DEEP (944.90, 126.92, -58.51) floor 108.43 Ground_Report067 edge shoulders drop 18.5
+DEEP (944.70, 126.91, -58.54) floor 108.19 Ground_Report067 edge shoulders drop 18.7
+DEEP (944.67, 126.90, -58.48) floor 108.55 Ground_Report067 edge shoulders drop 18.3
+DEEP (944.47, 126.88, -58.51) floor 108.33 Ground_Report067 edge shoulders drop 18.6
+DEEP (944.42, 126.86, -58.43) floor 108.76 Ground_Report067 edge shoulders drop 18.1
+DEEP (944.23, 126.84, -58.47) floor 108.52 Ground_Report067 edge shoulders drop 18.3
+DEEP (944.20, 126.83, -58.41) floor 108.87 Ground_Report067 edge shoulders drop 18.0
+DEEP (943.87, 126.80, -58.23) floor 109.83 Ground_Report067 edge shoulders drop 17.0
+DEEP (943.46, 126.77, -58.09) floor 110.55 Ground_Report067 edge shoulders drop 16.2
+DEEP (943.23, 126.74, -57.91) floor 111.53 Ground_Report067 edge shoulders drop 15.2
+DEEP (943.25, 126.69, -57.61) floor 113.33 Ground_Report067 edge shoulders drop 13.4
+DEEP (943.22, 126.69, -57.55) floor 113.66 Ground_Report067 edge shoulders drop 13.0
+DEEP (942.83, 126.65, -57.12) floor 116.13 Ground_Report067 edge shoulders drop 10.5
+DEEP (942.78, 126.67, -57.21) floor 115.60 Ground_Report067 edge shoulders drop 11.1
+DEEP (942.72, 126.65, -57.14) floor 116.01 Ground_Report067 edge shoulders drop 10.6
+DEEP (940.90, 126.39, -56.41) floor 93.92 Ground_Report067 edge shoulders drop 32.5
+DEEP (940.15, 126.23, -56.17) floor 74.14 Ground_Report067 edge shoulders drop 52.1
+DEEP (939.72, 126.12, -55.65) floor 73.26 Ground_Report067 edge shoulders drop 52.9
+DEEP (939.70, 126.12, -55.60) floor 73.18 Ground_Report067 edge shoulders drop 52.9
+DEEP (939.60, 126.12, -55.49) floor 72.99 Ground_Report067 edge shoulders drop 53.1
+DEEP (938.00, 125.98, -54.91) floor 75.90 Ground_Report067 edge shoulders drop 50.1
+DEEP (937.97, 125.96, -54.87) floor 76.17 Ground_Report067 edge shoulders drop 49.8
+DEEP (937.85, 125.99, -54.86) floor 76.13 Ground_Report067 edge shoulders drop 49.9
+DEEP (937.78, 125.98, -54.81) floor 76.45 Ground_Report067 edge shoulders drop 49.5
+DEEP (937.65, 126.01, -54.81) floor 76.41 Ground_Report067 edge shoulders drop 49.6
+DEEP (937.63, 126.00, -54.76) floor 76.67 Ground_Report067 edge shoulders drop 49.3
+DEEP (937.50, 126.03, -54.76) floor 76.61 Ground_Report067 edge shoulders drop 49.4
+DEEP (937.43, 126.00, -54.71) floor 76.92 Ground_Report067 edge shoulders drop 49.1
+DEEP (937.30, 126.02, -54.71) floor 76.85 Ground_Report067 edge shoulders drop 49.2
+DEEP (937.28, 126.00, -54.67) floor 77.10 Ground_Report067 edge shoulders drop 48.9
+DEEP (937.15, 125.99, -54.67) floor 77.02 Ground_Report067 edge shoulders drop 49.0
+DEEP (936.94, 126.02, -54.72) floor 76.60 Ground_Report067 edge shoulders drop 49.4
+DEEP (936.91, 125.99, -54.68) floor 76.85 Ground_Report067 edge shoulders drop 49.1
+DEEP (936.79, 125.99, -54.69) floor 76.75 Ground_Report067 edge shoulders drop 49.2
+DEEP (936.57, 126.03, -54.74) floor 76.28 Ground_Report067 edge shoulders drop 49.7
+DEEP (936.55, 125.99, -54.70) floor 76.52 Ground_Report067 edge shoulders drop 49.5
+DEEP (936.43, 126.00, -54.71) floor 76.40 Ground_Report067 edge shoulders drop 49.6
+DEEP (936.22, 126.04, -54.78) floor 75.90 Ground_Report067 edge shoulders drop 50.1
+DEEP (936.19, 126.00, -54.74) floor 76.13 Ground_Report067 edge shoulders drop 49.9
+DEEP (936.08, 126.00, -54.75) floor 75.98 Ground_Report067 edge shoulders drop 50.0
+DEEP (935.88, 125.90, -54.72) floor 76.09 Ground_Report067 edge shoulders drop 49.8
+DEEP (934.75, 125.18, -54.69) floor 75.39 Ground_Report067 edge shoulders drop 49.8
+VOID (1010.58, 161.87, 85.13)
+VOID (1010.66, 161.93, 85.09)
+VOID (1010.89, 161.86, 85.07)
+VOID (1010.97, 161.88, 85.03)
+VOID (1010.98, 161.96, 84.82)
+VOID (1026.56, 156.72, 64.71)
+VOID (1026.40, 156.74, 64.70)
+VOID (1026.48, 156.72, 64.66)
+VOID (1026.71, 156.68, 64.62)
+VOID (1026.62, 156.68, 64.56)
+VOID (1026.70, 156.66, 64.51)
+VOID (1026.54, 156.67, 64.50)
+VOID (1026.62, 156.66, 64.46)
+VOID (1026.46, 156.66, 64.45)
+VOID (1026.53, 156.64, 64.40)
+VOID (1026.38, 156.64, 64.39)
+VOID (1026.45, 156.63, 64.34)
+VOID (1026.68, 156.62, 64.30)
+VOID (1026.76, 156.61, 64.26)
+VOID (1026.60, 156.60, 64.25)
+VOID (1026.68, 156.60, 64.20)
+VOID (1029.46, 156.24, 61.50)
+DEEP (1028.95, 157.78, 57.19) floor 153.42 Ground_Report067 edge shoulders drop 4.4
+DEEP (1028.87, 157.80, 57.13) floor 153.28 Ground_Report067 edge shoulders drop 4.5
+DEEP (1028.94, 157.76, 57.08) floor 153.49 Ground_Report067 edge shoulders drop 4.3
+VOID (1004.31, 136.04, -60.71)
+VOID (1004.25, 136.03, -60.77)
+VOID (1004.08, 136.01, -60.79)
+VOID (1004.01, 136.00, -60.85)
+VOID (987.91, 132.81, -64.97)
+VOID (987.84, 132.78, -65.01)
+VOID (987.65, 132.75, -64.91)
+VOID (987.58, 132.72, -64.96)
+VOID (986.00, 132.53, -65.32)
+VOID (985.49, 132.35, -65.31)
+VOID (981.12, 131.54, -65.54)
+VOID (978.24, 130.81, -65.49)
+VOID (978.25, 130.84, -65.40)
+VOID (978.16, 130.75, -65.42)
+VOID (978.08, 130.67, -65.27)
+VOID (978.05, 130.64, -65.29)
+VOID (973.93, 129.81, -64.20)
+VOID (973.98, 129.83, -64.11)
+VOID (973.74, 129.72, -64.29)
+VOID (973.69, 129.72, -64.30)
+VOID (972.42, 129.66, -63.63)
+VOID (972.32, 129.62, -63.53)
+VOID (971.09, 129.38, -62.33)
+VOID (970.15, 129.20, -61.83)
+VOID (970.21, 129.25, -61.74)
+VOID (970.12, 129.17, -61.72)
+VOID (970.13, 129.25, -61.45)
+VOID (968.92, 128.97, -61.13)
+VOID (968.88, 129.07, -60.94)
+VOID (968.82, 129.09, -60.65)
+VOID (968.75, 129.08, -60.35)
+VOID (967.38, 128.87, -59.75)
+VOID (967.11, 128.72, -59.49)
+VOID (965.94, 128.50, -58.32)
+VOID (966.00, 128.50, -58.24)
+VOID (965.92, 128.49, -58.22)
+VOID (966.06, 128.49, -58.17)
+VOID (965.99, 128.48, -58.15)
+VOID (964.38, 128.46, -57.58)
+VOID (964.44, 128.62, -57.50)
+VOID (964.32, 128.50, -57.28)
+VOID (964.26, 128.52, -56.97)
+VOID (964.20, 128.56, -56.66)
+VOID (962.30, 128.28, -55.87)
+VOID (962.22, 128.28, -55.84)
+VOID (962.17, 128.35, -55.63)
+VOID (962.17, 128.36, -55.25)
+VOID (962.11, 128.23, -54.93)
+VOID (960.76, 128.02, -54.59)
+VOID (960.63, 128.11, -54.35)
+VOID (960.56, 128.45, -54.04)
+VOID (960.37, 128.31, -53.88)
+VOID (960.28, 128.22, -53.85)
+VOID (960.17, 128.31, -53.72)
+VOID (960.08, 128.25, -53.69)
+VOID (959.91, 128.12, -53.63)
+VOID (959.97, 128.36, -53.55)
+VOID (959.88, 128.33, -53.52)
+VOID (958.72, 127.95, -53.05)
+VOID (958.58, 128.01, -52.81)
+VOID (958.44, 128.06, -52.56)
+VOID (958.31, 128.11, -52.33)
+VOID (956.26, 127.87, -51.09)
+VOID (956.17, 127.72, -51.06)
+VOID (956.11, 127.58, -50.84)
+VOID (956.14, 127.65, -50.37)
+VOID (954.40, 127.31, -49.56)
+VOID (954.23, 127.36, -49.31)
+VOID (953.16, 127.10, -48.91)
+VOID (953.08, 127.07, -48.89)
+VOID (953.17, 127.33, -48.43)
+VOID (952.83, 126.99, -47.94)
+VOID (952.59, 126.96, -47.78)
+VOID (952.38, 126.95, -47.64)
+VOID (952.29, 126.93, -47.62)
+VOID (952.10, 126.90, -47.57)
+VOID (951.99, 126.89, -47.54)
+VOID (951.80, 126.89, -47.49)
+VOID (951.71, 126.89, -47.47)
+VOID (951.52, 126.88, -47.42)
+VOID (951.04, 126.83, -47.11)
+VOID (950.93, 126.80, -47.08)
+VOID (950.84, 126.81, -46.87)
+VOID (950.66, 126.82, -46.63)
+VOID (950.46, 126.81, -46.39)
+VOID (923.16, 121.95, -107.98)
+VOID (923.41, 122.02, -108.00)
+VOID (923.66, 122.07, -108.01)
+VOID (923.75, 122.09, -107.99)
+VOID (923.65, 122.06, -108.21)
+VOID (923.74, 122.08, -108.18)
+VOID (923.73, 122.12, -108.28)
+VOID (923.64, 122.09, -108.41)
+VOID (923.72, 122.16, -108.38)
+VOID (923.63, 122.16, -108.51)
+VOID (923.72, 122.21, -108.48)
+VOID (923.63, 122.22, -108.61)
+VOID (923.71, 122.31, -108.58)
+VOID (923.62, 122.19, -108.71)
+VOID (923.71, 122.33, -108.68)
+VOID (923.61, 122.17, -108.81)
+VOID (923.70, 122.35, -108.78)
+VOID (923.61, 122.16, -108.91)
+VOID (923.69, 122.38, -108.88)

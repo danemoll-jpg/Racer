@@ -1,0 +1,8 @@
+clean line Main s 1265-1370 (moto): complete=True best=1370.4 berm contacts=0 maxAir=0.82 minUp=0.99
+clean line Main s 1265-1370 (atv): complete=True best=1370.7 berm contacts=0 maxAir=0.82 minUp=0.99
+overshoot Main from s 1270 at 32 m/s, no steering (moto): berm contacts=1 (max impulse 0); end s 1301.4 lateral 6.5 m (max 6.8); maxAir=0.80 minUp=1.00 speed 0.0
+overshoot Main from s 1270 at 32 m/s, no steering (atv): berm contacts=1 (max impulse 0); end s 1309.8 lateral 8.6 m (max 8.6); maxAir=0.80 minUp=0.52 speed 11.1
+clean line Downhill Ridge Cut s 125-205 (moto): complete=True best=221.2 berm contacts=1 maxAir=3.18 minUp=-0.08
+clean line Downhill Ridge Cut s 125-205 (atv): complete=True best=221.2 berm contacts=1 maxAir=1.62 minUp=0.45
+overshoot Downhill Ridge Cut from s 135 at 24 m/s, no steering (moto): berm contacts=1 (max impulse 1562); end s 221.2 lateral 4.5 m (max 6.1); maxAir=1.00 minUp=0.86 speed 21.9
+overshoot Downhill Ridge Cut from s 135 at 24 m/s, no steering (atv): berm contacts=2 (max impulse 4667); end s 200.8 lateral 6.9 m (max 6.9); maxAir=0.88 minUp=0.05 speed 17.3

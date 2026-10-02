@@ -1,0 +1,26 @@
+   flight: takeoff (979.1, 179.5, 147.0) at 40.0 m/s; first contact (792.5, 127.5, 94.2) (s 2416.4 lat 0.7); now (749.0, 103.2, 73.7)
+overshoot Homeward Summit Flight (BUG-008) from s 2080 at 30 m/s: before (749.0, 103.2, 73.7) s=2469.9 lat=7.6 -> after (775.8, 116.8, 86.6) s=2437.5 lat=2.6; along=-32.3 m; distance=32.6 m; restored=True in 0.80s; waitingShown=False; last='Recovered to clear earned course support'; up=0.88; facing=1.00; diag=earnedBefore=0.00; route=main; selected=2437.84; age=1.46s; backward=62.09m; displacement=67.08m; rejected=0; reasons=
+   after reset: held 2 s, drop 3.34 m, wheels 4, pos (769.6, 113.5, 84.8)
+   flight: takeoff (979.2, 179.4, 147.0) at 42.4 m/s; first contact (763.8, 110.8, 86.2) (s 2450.7 lat 0.6); now (639.4, 78.5, 8.5)
+overshoot Homeward Summit Flight (BUG-008) from s 2080 at 40 m/s: before (639.4, 78.5, 8.5) s=2576.8 lat=44.7 -> after (748.3, 103.6, 78.7) s=2469.1 lat=2.7; along=-107.7 m; distance=132.0 m; restored=True in 0.80s; waitingShown=False; last='Recovered to clear earned course support'; up=0.93; facing=1.00; diag=earnedBefore=0.00; route=main; selected=2469.34; age=4.02s; backward=141.08m; displacement=150.00m; rejected=0; reasons=
+   after reset: held 2 s, drop 2.04 m, wheels 4, pos (743.2, 101.6, 77.3)
+   flight: takeoff (979.1, 179.5, 147.0) at 44.3 m/s; first contact (743.7, 102.0, 80.9) (s 2473.3 lat 0.9); now (697.5, 89.5, 52.2)
+overshoot Homeward Summit Flight (BUG-008) from s 2080 at 46 m/s: before (697.5, 89.5, 52.2) s=2532.7 lat=2.8 -> after (724.1, 81.0, -10.5) s=2631.5 lat=0.6; along=98.8 m; distance=68.6 m; restored=True in 0.81s; waitingShown=False; last='Recovered to clear earned course support'; up=1.00; facing=1.00; diag=earnedBefore=0.00; route=main; selected=2631.55; age=0.00s; backward=0.00m; displacement=67.43m; rejected=0; reasons=
+   after reset: held 2 s, drop 0.09 m, wheels 4, pos (725.0, 80.9, -10.6)
+   flight: takeoff (978.8, 179.7, 146.9) at 41.7 m/s; first contact (772.4, 115.3, 87.9) (s 2440.8 lat 0.6); now (726.6, 96.5, 71.4)
+overshoot Homeward Summit Flight (BUG-008) from s 2080 at 42 m/s: before (726.6, 96.5, 71.4) s=2492.5 lat=5.4 -> after (742.6, 101.4, 77.5) s=2475.4 lat=2.3; along=-17.1 m; distance=17.8 m; restored=True in 0.81s; waitingShown=False; last='Recovered to clear earned course support'; up=0.94; facing=1.00; diag=earnedBefore=0.00; route=main; selected=2475.58; age=1.16s; backward=50.16m; displacement=51.60m; rejected=0; reasons=
+   after reset: held 2 s, drop 1.69 m, wheels 4, pos (738.0, 99.7, 76.2)
+off the side at s 1500 lateral 22: before (1076.2, 126.0, 18.9) s=1492.5 lat=34.1 -> after (1050.9, 150.5, 21.4) s=1498.4 lat=0.6; along=6.0 m; distance=35.3 m; restored=True in 0.84s; waitingShown=False; last='Recovered to clear earned course support'; up=0.99; facing=1.00; diag=earnedBefore=1578.28; route=main; selected=1498.37; age=4.90s; backward=0.00m; displacement=36.65m; rejected=0; reasons=
+   after reset: held 2 s, drop 0.24 m, wheels 4, pos (1051.0, 150.2, 19.6)
+upside-down on the road at s 1000: before (1290.8, 135.0, -69.6) s=999.8 lat=0.5 -> after (1290.7, 135.1, -69.7) s=999.9 lat=0.6; along=0.1 m; distance=0.2 m; restored=True in 0.82s; waitingShown=False; last='Recovered to clear earned course support'; up=0.99; facing=1.00; diag=earnedBefore=0.00; route=main; selected=999.78; age=2.82s; backward=0.00m; displacement=0.18m; rejected=0; reasons=
+   after reset: held 2 s, drop 0.29 m, wheels 4, pos (1292.4, 134.8, -70.5)
+failsafe below the world (Race) at s 800: from (1380.2, -60.0, -225.4) -> (1379.7, 102.0, -225.9) in 0.82s recovered=True; last='Recovered to clear earned course support'; diag=earnedBefore=0.00; route=main; selected=799.33; age=0.84s; backward=0.54m; displacement=180.88m; rejected=0; reasons=
+   after failsafe: held 2 s, drop 0.10 m, wheels 4, pos (1379.3, 101.9, -226.9)
+quit race at (728.2, 79.2, -10.4) (s 2635.6): vehicle (728.2, 79.2, -10.4); pavement above it=False; floor below=NONE
+   free roam after quit: held 2 s, drop 19.94 m, wheels 0, pos (724.5, 59.0, -6.1)
+quit race at (1013.0, 160.0, 96.0) (s 1584.6): vehicle (1013.0, 160.0, 96.0); pavement above it=False; floor below=NONE
+   free roam after quit: held 2 s, drop 19.94 m, wheels 0, pos (724.5, 59.0, -6.1)
+failsafe below the world (Free Roam) at s 800: from (1380.2, -60.0, -225.4) -> (1379.9, 102.0, -226.0) in 0.82s recovered=True; last='Recovered to recent safe road/trail'; diag=earnedBefore=0.00; route=main; selected=799.33; age=0.84s; backward=0.54m; displacement=180.88m; rejected=0; reasons=
+   after failsafe: held 2 s, drop 0.10 m, wheels 4, pos (1379.5, 101.9, -226.9)
+free roam start: spawn marker (724.51, 78.96, -6.11), vehicle (724.51, 77.69, -6.11)
+   free roam start: held 2 s, drop 29.60 m, wheels 0, pos (724.5, 48.1, -6.1)

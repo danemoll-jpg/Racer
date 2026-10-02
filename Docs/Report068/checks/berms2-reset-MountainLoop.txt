@@ -1,0 +1,6 @@
+clean line Main s 2470-2580 (moto): complete=True best=2580.4 berm contacts=0 maxAir=1.14 minUp=0.95
+clean line Main s 2470-2580 (atv): complete=True best=2580.5 berm contacts=0 maxAir=1.14 minUp=0.96
+overshoot Main from s 2470 at 32 m/s, no steering (moto): berm contacts=1 (max impulse 0); end s 2509.3 lateral 28.7 m (max 28.7); maxAir=1.56 minUp=0.99 speed 16.8
+overshoot Main from s 2470 at 32 m/s, no steering (atv): berm contacts=1 (max impulse 0); end s 2509.3 lateral 18.0 m (max 18.0); maxAir=1.56 minUp=0.99 speed 0.0
+overshoot Main from s 2476 at 38 m/s, no steering (moto): berm contacts=1 (max impulse 0); end s 2515.3 lateral 108.5 m (max 108.5); maxAir=2.12 minUp=-0.01 speed 10.5
+overshoot Main from s 2476 at 38 m/s, no steering (atv): berm contacts=1 (max impulse 0); end s 2515.3 lateral 86.3 m (max 86.3); maxAir=2.28 minUp=0.44 speed 0.0

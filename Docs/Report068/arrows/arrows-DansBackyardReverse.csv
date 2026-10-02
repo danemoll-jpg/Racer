@@ -1,0 +1,107 @@
+action,route,station,lateral,x,y,z,heading,gold,surfaceGap,reason,object,mesh
+REMOVE,,0.0,0.0,111.70,37.54,-340.56,-156,True,0.08,"not on this course","Route atlas direction guidance/Optional gold / Fox Gully",StreetLoopGreybox-arrow-065
+REMOVE,,0.0,0.0,-50.33,28.12,-541.39,-142,True,0.11,"not on this course","Route atlas direction guidance/Optional gold / Fox Gully",StreetLoopGreybox-arrow-067
+REMOVE,,0.0,0.0,-133.37,30.28,-581.71,-92,False,0.08,"not on this course","Route atlas direction guidance/Main teal / Fox Gully rejoin",StreetLoopGreybox-arrow-008
+REMOVE,,0.0,0.0,-155.36,30.73,-582.36,-91,False,0.07,"not on this course","Route atlas direction guidance/Main teal / before Pine Ridge fork",StreetLoopGreybox-arrow-009
+REMOVE,,0.0,0.0,-477.47,15.97,-349.38,-49,True,0.07,"not on this course","Route atlas direction guidance/Optional gold / Pine Ridge",StreetLoopGreybox-arrow-071
+REMOVE,,0.0,0.0,-620.63,6.60,-426.02,-1,False,0.07,"not on this course","Route atlas direction guidance/Main teal / Existing Southwest Cut rejoin",StreetLoopGreybox-arrow-005
+REMOVE,,0.0,0.0,-581.38,10.89,-271.35,-54,True,0.06,"not on this course","Route atlas direction guidance/Optional gold / Pine Ridge",StreetLoopGreybox-arrow-072
+REMOVE,,0.0,0.0,76.37,9.05,541.88,82,False,0.07,"not on this course","Route atlas direction guidance/Main teal / reassurance",StreetLoopGreybox-arrow-059
+REMOVE,,0.0,0.0,498.74,87.83,-99.58,152,False,0.07,"not on this course","Route atlas direction guidance/Main teal / reassurance",StreetLoopGreybox-arrow-032
+REMOVE,,0.0,0.0,-84.41,29.95,-579.90,-92,False,0.07,"not on this course","Route atlas direction guidance/Main teal / reassurance",StreetLoopGreybox-arrow-040
+REMOVE,,0.0,0.0,509.20,23.05,-528.82,-143,False,0.08,"not on this course","Route atlas direction guidance/Main teal / turn",StreetLoopGreybox-arrow-014
+REMOVE,,0.0,0.0,-283.04,20.03,-573.42,-81,False,0.07,"not on this course","Route atlas direction guidance/Main teal / reassurance",StreetLoopGreybox-arrow-041
+REMOVE,,0.0,0.0,-322.01,8.96,531.45,92,False,0.07,"not on this course","Route atlas direction guidance/Main teal / reassurance",StreetLoopGreybox-arrow-055
+REMOVE,,0.0,0.0,175.99,9.02,550.19,83,False,0.02,"not on this course","Route atlas direction guidance/Main teal / reassurance",StreetLoopGreybox-arrow-060
+REMOVE,,0.0,0.0,275.13,8.11,561.94,90,False,0.08,"not on this course","Route atlas direction guidance/Main teal / reassurance",StreetLoopGreybox-arrow-061
+REMOVE,,0.0,0.0,-480.64,7.07,-550.82,-86,False,0.07,"not on this course","Route atlas direction guidance/Main teal / reassurance",StreetLoopGreybox-arrow-043
+REMOVE,,0.0,0.0,-222.04,8.92,529.45,91,False,0.07,"not on this course","Route atlas direction guidance/Main teal / reassurance",StreetLoopGreybox-arrow-056
+REMOVE,,0.0,0.0,-385.95,20.97,-441.61,-43,True,0.08,"not on this course","Route atlas direction guidance/Optional gold / Pine Ridge",StreetLoopGreybox-arrow-070
+REMOVE,,0.0,0.0,-521.84,8.02,539.37,94,False,0.08,"not on this course","Route atlas direction guidance/Main teal / reassurance",StreetLoopGreybox-arrow-053
+REMOVE,,0.0,0.0,-122.04,8.25,529.09,90,False,0.08,"not on this course","Route atlas direction guidance/Main teal / reassurance",StreetLoopGreybox-arrow-057
+REMOVE,,0.0,0.0,-630.14,8.79,119.76,-1,False,0.07,"not on this course","Route atlas direction guidance/Main teal / reassurance",StreetLoopGreybox-arrow-049
+REMOVE,,0.0,0.0,-623.62,7.27,-280.18,-1,False,0.07,"not on this course","Route atlas direction guidance/Main teal / reassurance",StreetLoopGreybox-arrow-046
+REMOVE,,0.0,0.0,509.12,25.52,-354.60,-116,True,0.07,"not on this course","Route atlas direction guidance/Optional gold / Creek Leap",StreetLoopGreybox-arrow-063
+REMOVE,,0.0,0.0,537.30,55.96,-184.85,158,False,0.08,"not on this course","Route atlas direction guidance/Main teal / reassurance",StreetLoopGreybox-arrow-033
+REMOVE,,0.0,0.0,-421.94,8.35,535.07,92,False,0.08,"not on this course","Route atlas direction guidance/Main teal / reassurance",StreetLoopGreybox-arrow-054
+REMOVE,,0.0,0.0,-618.95,6.29,-480.12,-2,False,0.08,"not on this course","Route atlas direction guidance/Main teal / reassurance",StreetLoopGreybox-arrow-044
+REMOVE,,0.0,0.0,39.67,23.32,-447.71,-139,True,0.10,"not on this course","Route atlas direction guidance/Optional gold / Fox Gully",StreetLoopGreybox-arrow-066
+REMOVE,,0.0,0.0,311.99,8.08,559.29,99,False,0.08,"not on this course","Route atlas direction guidance/Main teal / turn",StreetLoopGreybox-arrow-025
+REMOVE,,0.0,0.0,425.73,35.74,-457.12,-34,False,0.07,"not on this course","Route atlas direction guidance/Main teal / reassurance",StreetLoopGreybox-arrow-036
+REMOVE,,0.0,0.0,-621.56,6.84,-380.16,-1,False,0.07,"not on this course","Route atlas direction guidance/Main teal / reassurance",StreetLoopGreybox-arrow-045
+REMOVE,,0.0,0.0,302.29,39.65,-393.34,-68,True,0.07,"not on this course","Route atlas direction guidance/Optional gold / Creek Leap",StreetLoopGreybox-arrow-062
+REMOVE,,0.0,0.0,265.97,36.04,-366.25,-55,False,0.08,"not on this course","Route atlas direction guidance/Main teal / Creek Leap rejoin",StreetLoopGreybox-arrow-002
+REMOVE,,0.0,0.0,318.64,36.94,429.21,-180,False,0.08,"not on this course","Route atlas direction guidance/Main teal / reassurance",StreetLoopGreybox-arrow-027
+REMOVE,,0.0,0.0,-626.60,7.98,-80.21,-1,False,0.08,"not on this course","Route atlas direction guidance/Main teal / reassurance",StreetLoopGreybox-arrow-047
+REMOVE,,0.0,0.0,-613.58,5.97,-542.87,-9,False,-0.01,"not on this course","Route atlas direction guidance/Main teal / turn",StreetLoopGreybox-arrow-023
+REMOVE,,0.0,0.0,-22.04,7.95,528.82,90,False,0.08,"not on this course","Route atlas direction guidance/Main teal / reassurance",StreetLoopGreybox-arrow-058
+REMOVE,,0.0,0.0,-605.42,7.99,528.57,17,False,0.07,"not on this course","Route atlas direction guidance/Main teal / turn",StreetLoopGreybox-arrow-024
+REMOVE,,0.0,0.0,240.55,40.86,-347.44,-53,False,0.07,"not on this course","Route atlas direction guidance/Main teal / before Fox Gully fork",StreetLoopGreybox-arrow-006
+REMOVE,,0.0,0.0,-628.32,7.47,-226.55,-5,True,0.07,"not on this course","Route atlas direction guidance/Optional gold / Pine Ridge",StreetLoopGreybox-arrow-068
+REMOVE,,0.0,0.0,-581.44,6.21,-551.64,-88,False,0.08,"not on this course","Route atlas direction guidance/Main teal / main at Existing Southwest Cut fork",StreetLoopGreybox-arrow-004
+REMOVE,,0.0,0.0,-633.09,9.20,319.74,-1,False,0.07,"not on this course","Route atlas direction guidance/Main teal / reassurance",StreetLoopGreybox-arrow-051
+REMOVE,,0.0,0.0,-201.34,30.55,-582.12,-88,False,0.07,"not on this course","Route atlas direction guidance/Main teal / main at Pine Ridge fork",StreetLoopGreybox-arrow-010
+REMOVE,,0.0,0.0,-535.48,6.69,-550.21,-92,False,0.07,"not on this course","Route atlas direction guidance/Main teal / before Existing Southwest Cut fork",StreetLoopGreybox-arrow-003
+REMOVE,,0.0,0.0,-295.62,24.53,-535.05,-48,True,0.07,"not on this course","Route atlas direction guidance/Optional gold / Pine Ridge",StreetLoopGreybox-arrow-069
+REMOVE,,0.0,0.0,-628.32,8.38,19.78,-1,False,0.08,"not on this course","Route atlas direction guidance/Main teal / reassurance",StreetLoopGreybox-arrow-048
+REMOVE,,0.0,0.0,-381.05,6.77,-559.62,-84,False,0.08,"not on this course","Route atlas direction guidance/Main teal / reassurance",StreetLoopGreybox-arrow-042
+REMOVE,,0.0,0.0,-625.16,7.63,-181.19,-1,False,0.07,"not on this course","Route atlas direction guidance/Main teal / Pine Ridge rejoin",StreetLoopGreybox-arrow-011
+REMOVE,,0.0,0.0,-24.71,31.30,-564.85,-133,False,0.08,"not on this course","Route atlas direction guidance/Main teal / turn",StreetLoopGreybox-arrow-022
+REMOVE,,0.0,0.0,392.66,76.27,180.39,121,False,0.09,"not on this course","Route atlas direction guidance/Main teal / turn",StreetLoopGreybox-arrow-013
+REMOVE,,0.0,0.0,-629.70,8.99,419.61,7,False,0.07,"not on this course","Route atlas direction guidance/Main teal / reassurance",StreetLoopGreybox-arrow-052
+REMOVE,,0.0,0.0,490.40,22.67,-544.66,-100,False,0.09,"not on this course","Route atlas direction guidance/Main teal / turn",StreetLoopGreybox-arrow-015
+REMOVE,,0.0,0.0,-631.52,9.10,219.75,-1,False,0.07,"not on this course","Route atlas direction guidance/Main teal / reassurance",StreetLoopGreybox-arrow-050
+REMOVE,,0.0,0.0,320.11,11.70,525.92,-179,False,0.09,"not on this course","Route atlas direction guidance/Main teal / reassurance",StreetLoopGreybox-arrow-026
+REMOVE,Abandoned Logging Ridge,79.0,93.6,349.27,82.08,203.08,142,False,0.07,"not on this course","Route atlas direction guidance/Main teal / turn",StreetLoopGreybox-arrow-012
+REMOVE,Abandoned Logging Ridge,89.0,122.0,332.64,81.86,235.91,162,False,0.07,"not on this course","Route atlas direction guidance/Main teal / reassurance",StreetLoopGreybox-arrow-029
+keep,Main,12.0,0.2,452.68,80.31,8.23,92,False,0.04,"turn/fork ahead","Backyard Reverse main route/Reverse teal ground arrow",arrow-36
+keep,Main,42.0,0.2,473.90,78.22,17.87,0,False,0.04,"turn/fork ahead","Backyard Reverse main route/Reverse teal ground arrow",arrow-28
+keep,Main,72.0,0.2,470.90,77.84,47.60,-9,False,0.04,"turn/fork ahead","Backyard Reverse main route/Reverse teal ground arrow",arrow-22
+keep,Main,102.0,0.2,456.02,81.40,67.57,-63,False,0.03,"turn/fork ahead","Backyard Reverse main route/Reverse teal ground arrow",arrow-32
+REMOVE,Main,112.0,22.8,459.93,85.32,91.89,159,False,0.06,"not on this course","Route atlas direction guidance/Main teal / reassurance",StreetLoopGreybox-arrow-030
+keep,Main,132.0,0.3,430.33,84.32,82.36,-73,False,0.03,"turn/fork ahead","Backyard Reverse main route/Reverse teal ground arrow",arrow-19
+keep,Main,162.0,0.3,400.94,82.26,80.90,-106,False,0.03,"turn/fork ahead","Backyard Reverse main route/Reverse teal ground arrow",arrow-29
+keep,Main,192.0,0.3,374.91,78.22,66.83,-119,False,0.04,"turn/fork ahead","Backyard Reverse main route/Reverse teal ground arrow",arrow-6
+keep,Main,222.0,0.3,346.03,76.67,63.08,-77,False,0.04,"turn/fork ahead","Backyard Reverse main route/Reverse teal ground arrow",arrow-26
+keep,Main,252.0,0.3,320.07,76.29,76.94,-36,False,0.04,"turn/fork ahead","Backyard Reverse main route/Reverse teal ground arrow",arrow-27
+keep,Main,282.0,0.3,304.55,76.33,102.48,-47,False,-0.28,"turn/fork ahead","Backyard Reverse main route/Reverse teal ground arrow",arrow-35
+keep,Main,312.0,0.3,280.49,76.70,119.71,-66,False,0.40,"turn/fork ahead","Backyard Reverse main route/Reverse teal ground arrow",arrow-39
+keep,Main,342.0,0.3,251.14,75.87,121.79,-102,False,0.03,"turn/fork ahead","Backyard Reverse main route/Reverse teal ground arrow",arrow-21
+keep,Main,372.0,0.3,223.08,74.81,111.50,-119,False,0.03,"turn/fork ahead","Backyard Reverse main route/Reverse teal ground arrow",arrow-34
+keep,Main,401.0,0.3,204.70,72.28,89.01,-143,False,0.03,"turn/fork ahead","Backyard Reverse main route/Reverse teal ground arrow",arrow-13
+keep,Main,434.0,0.2,175.94,65.72,80.70,-90,False,-0.15,"turn/fork ahead","Backyard Reverse main route/Reverse teal ground arrow",arrow-20
+keep,Main,463.0,0.5,146.72,60.39,80.70,-90,False,0.04,"turn/fork ahead","Backyard Reverse main route/Reverse teal ground arrow",arrow-24
+keep,Main,583.0,0.5,31.25,40.81,74.27,-125,False,0.04,"turn/fork ahead","Backyard Reverse main route/Reverse teal ground arrow",arrow-38
+keep,Main,613.0,0.5,24.31,39.26,47.80,166,False,0.03,"turn/fork ahead","Backyard Reverse main route/Reverse teal ground arrow",arrow-15
+keep,Main,643.0,0.5,35.59,38.42,20.10,159,False,0.04,"turn/fork ahead","Backyard Reverse main route/Reverse teal ground arrow",arrow-7
+keep,Main,673.0,0.5,46.53,38.31,-7.78,169,False,0.03,"turn/fork ahead","Backyard Reverse main route/Reverse teal ground arrow",arrow-25
+keep,Main,703.0,0.5,36.48,37.06,-34.68,-141,False,0.04,"turn/fork ahead","Backyard Reverse main route/Reverse teal ground arrow",arrow-9
+keep,Main,733.0,0.5,19.92,36.82,-59.30,-152,False,0.04,"turn/fork ahead","Backyard Reverse main route/Reverse teal ground arrow",arrow-11
+keep,Main,763.0,0.5,13.35,37.32,-87.60,144,False,0.03,"turn/fork ahead","Backyard Reverse main route/Reverse teal ground arrow",arrow-33
+REMOVE,Main,782.0,241.9,15.55,37.45,-336.00,-162,False,0.07,"not on this course","Route atlas direction guidance/Main teal / reassurance",StreetLoopGreybox-arrow-038
+REMOVE,Main,782.0,340.5,-1.98,32.43,-433.52,-176,False,0.08,"not on this course","Route atlas direction guidance/Main teal / reassurance",StreetLoopGreybox-arrow-039
+REMOVE,Main,782.0,451.6,-11.58,34.95,-544.18,-158,False,0.06,"not on this course","Route atlas direction guidance/Main teal / turn",StreetLoopGreybox-arrow-021
+REMOVE,Main,784.0,207.6,32.09,35.59,-302.18,-141,False,0.10,"not on this course","Route atlas direction guidance/Main teal / turn",StreetLoopGreybox-arrow-020
+REMOVE,Main,793.0,0.5,41.50,36.61,-94.13,88,False,0.04,"repeated on straight (30 m after kept arrow)","Backyard Reverse main route/Reverse teal ground arrow",arrow-18
+REMOVE,Main,803.0,193.5,51.08,41.56,-287.57,-113,False,0.06,"not on this course","Route atlas direction guidance/Main teal / turn",StreetLoopGreybox-arrow-019
+REMOVE,Main,828.0,189.3,75.33,43.73,-283.44,-90,False,0.06,"not on this course","Route atlas direction guidance/Main teal / turn",StreetLoopGreybox-arrow-018
+keep,Main,913.0,0.5,160.08,45.02,-96.50,94,False,0.04,"turn/fork ahead","Backyard Reverse main route/Reverse teal ground arrow",arrow-31
+REMOVE,Main,927.0,214.0,182.16,44.34,-311.87,-66,False,0.07,"not on this course","Route atlas direction guidance/Main teal / reassurance",StreetLoopGreybox-arrow-037
+REMOVE,Main,929.0,225.7,202.75,46.06,-321.89,-62,False,0.06,"not on this course","Route atlas direction guidance/Main teal / main at Fox Gully fork",StreetLoopGreybox-arrow-007
+keep,Main,944.0,0.1,189.56,48.73,-93.39,62,False,0.03,"turn/fork ahead","Backyard Reverse main route/Reverse teal ground arrow",arrow-16
+keep,Main,974.0,0.1,215.89,53.53,-80.04,55,False,0.06,"turn/fork ahead","Backyard Reverse main route/Reverse teal ground arrow",arrow-37
+keep,Main,1004.0,0.1,232.91,58.28,-56.78,20,False,0.03,"turn/fork ahead","Backyard Reverse main route/Reverse teal ground arrow",arrow-8
+keep,Main,1034.0,0.1,230.72,60.30,-28.41,-9,False,0.03,"turn/fork ahead","Backyard Reverse main route/Reverse teal ground arrow",arrow-12
+REMOVE,Main,1064.0,0.1,257.63,64.69,-23.96,87,False,0.04,"repeated on straight (30 m after kept arrow)","Backyard Reverse main route/Reverse teal ground arrow",arrow-14
+REMOVE,Main,1094.0,0.1,287.06,70.14,-21.99,82,False,0.04,"repeated on straight (60 m after kept arrow)","Backyard Reverse main route/Reverse teal ground arrow",arrow-23
+REMOVE,Main,1124.0,0.1,315.98,75.68,-16.44,80,False,0.04,"repeated on straight (90 m after kept arrow)","Backyard Reverse main route/Reverse teal ground arrow",arrow-10
+keep,Main,1154.0,0.2,344.94,80.54,-11.91,79,False,0.04,"turn/fork ahead","Backyard Reverse main route/Reverse teal ground arrow",arrow-17
+REMOVE,Main,1183.0,0.3,373.51,84.79,-6.20,79,False,0.03,"repeated on straight (29 m after kept arrow)","Backyard Reverse main route/Reverse teal ground arrow",Reduced jump guidance
+REMOVE,Storm Drain / Gully Jump,0.0,288.7,319.79,63.10,332.70,179,False,0.07,"not on this course","Route atlas direction guidance/Main teal / reassurance",StreetLoopGreybox-arrow-028
+REMOVE,Storm Drain / Gully Jump,150.0,455.9,552.57,35.22,-228.74,164,False,0.08,"not on this course","Route atlas direction guidance/Main teal / before Creek Leap fork",StreetLoopGreybox-arrow-000
+REMOVE,Storm Drain / Gully Jump,155.0,482.3,560.91,28.11,-273.22,177,False,0.07,"not on this course","Route atlas direction guidance/Main teal / main at Creek Leap fork",StreetLoopGreybox-arrow-001
+REMOVE,Storm Drain / Gully Jump,162.0,521.9,544.40,25.78,-374.36,-175,False,0.08,"not on this course","Route atlas direction guidance/Main teal / reassurance",StreetLoopGreybox-arrow-034
+REMOVE,Storm Drain / Gully Jump,164.0,579.1,534.02,31.43,-473.10,-165,False,0.07,"not on this course","Route atlas direction guidance/Main teal / reassurance",StreetLoopGreybox-arrow-035
+REMOVE,Storm Drain / Gully Jump,165.0,434.4,388.40,33.56,-408.34,-43,False,0.07,"not on this course","Route atlas direction guidance/Main teal / turn",StreetLoopGreybox-arrow-016
+REMOVE,Storm Drain / Gully Jump,165.0,394.9,381.45,26.67,-363.23,-104,True,0.08,"not on this course","Route atlas direction guidance/Optional gold / Creek Leap",StreetLoopGreybox-arrow-064
+REMOVE,Storm Drain / Gully Jump,165.0,411.1,368.58,30.31,-394.10,-73,False,0.12,"not on this course","Route atlas direction guidance/Main teal / turn",StreetLoopGreybox-arrow-017

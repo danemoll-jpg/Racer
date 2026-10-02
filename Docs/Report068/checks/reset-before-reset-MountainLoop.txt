@@ -1,0 +1,18 @@
+overshoot Homeward Summit Flight (BUG-008) from s 2080 at 34 m/s: before (738.6, 99.3, 69.2) s=2481.6 lat=9.1 -> after (768.0, 112.7, 84.7) s=2446.6 lat=2.2; along=-35.0 m; distance=35.8 m; restored=True in 0.82s; waitingShown=False; last='Recovered to clear earned course support'; up=0.89; facing=1.00; diag=earnedBefore=0.00; route=main; selected=2446.83; age=1.56s; backward=67.01m; displacement=71.00m; rejected=0; reasons=
+   after reset: held 2 s, drop 2.99 m, wheels 4, pos (762.1, 109.8, 83.0)
+overshoot Homeward Summit Flight (BUG-008) from s 2080 at 34 m/s: before (756.3, 106.7, 80.0) s=2460.5 lat=3.5 -> after (768.7, 113.1, 84.9) s=2445.8 lat=2.3; along=-14.7 m; distance=14.8 m; restored=True in 0.80s; waitingShown=False; last='Recovered to clear earned course support'; up=0.89; facing=1.00; diag=earnedBefore=0.00; route=main; selected=2446.04; age=1.08s; backward=44.08m; displacement=47.23m; rejected=0; reasons=
+   after reset: held 2 s, drop 3.02 m, wheels 4, pos (762.8, 110.1, 83.2)
+off the side at s 1500 lateral 22: before (1076.2, 126.5, 20.5) s=1493.7 lat=33.9 -> after (724.1, 81.0, -10.5) s=2631.5 lat=0.6; along=1137.8 m; distance=356.4 m; restored=True in 0.81s; waitingShown=False; last='Recovered to clear earned course support'; up=1.00; facing=1.00; diag=earnedBefore=0.00; route=main; selected=2631.55; age=0.00s; backward=344.82m; displacement=356.24m; rejected=0; reasons=
+   after reset: held 2 s, drop 0.09 m, wheels 4, pos (725.1, 80.9, -10.7)
+upside-down on the road at s 1000: before (1290.7, 135.0, -69.4) s=999.9 lat=0.5 -> after (724.1, 81.0, -10.5) s=2631.5 lat=0.6; along=-1128.3 m; distance=572.2 m; restored=True in 0.82s; waitingShown=False; last='Recovered to clear earned course support'; up=1.00; facing=1.00; diag=earnedBefore=0.00; route=main; selected=2631.55; age=0.00s; backward=569.30m; displacement=572.21m; rejected=0; reasons=
+   after reset: held 2 s, drop 0.09 m, wheels 4, pos (725.0, 80.9, -10.6)
+failsafe below the world (Race) at s 800: from (1380.2, -60.0, -225.4) -> (724.1, 81.0, -10.5) in 0.81s recovered=True; last='Recovered to clear earned course support'; diag=earnedBefore=0.00; route=main; selected=2631.55; age=0.00s; backward=679.52m; displacement=708.72m; rejected=0; reasons=
+   after failsafe: held 2 s, drop 0.09 m, wheels 4, pos (725.0, 80.9, -10.6)
+quit race at (728.2, 79.2, -10.4) (s 2635.6): vehicle (728.2, 79.2, -10.4); pavement above it=False; floor below=NONE
+   free roam after quit: held 2 s, drop 19.94 m, wheels 0, pos (724.5, 59.0, -6.1)
+quit race at (1013.0, 160.0, 96.0) (s 1584.6): vehicle (1013.0, 160.0, 96.0); pavement above it=False; floor below=NONE
+   free roam after quit: held 2 s, drop 19.94 m, wheels 0, pos (724.5, 59.0, -6.1)
+failsafe below the world (Free Roam) at s 800: from (1380.2, -60.0, -225.4) -> (724.1, 81.0, -10.5) in 0.81s recovered=True; last='Recovered to clear earned course support'; diag=earnedBefore=0.00; route=main; selected=2631.55; age=0.00s; backward=679.52m; displacement=708.72m; rejected=0; reasons=
+   after failsafe: held 2 s, drop 0.09 m, wheels 4, pos (725.0, 80.9, -10.6)
+free roam start: spawn marker (724.51, 78.96, -6.11), vehicle (724.51, 77.69, -6.11)
+   free roam start: held 2 s, drop 29.60 m, wheels 0, pos (724.5, 48.1, -6.1)

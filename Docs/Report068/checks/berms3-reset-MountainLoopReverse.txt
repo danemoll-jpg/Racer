@@ -1,0 +1,2 @@
+clean line Downhill Ridge Cut s 132-205 (moto): complete=True best=221.2 berm contacts=1 maxAir=3.48 minUp=-0.06
+clean line Downhill Ridge Cut s 132-205 (atv): complete=True best=205.2 berm contacts=2 maxAir=0.52 minUp=0.30

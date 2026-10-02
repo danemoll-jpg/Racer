@@ -1,0 +1,4 @@
+off the side at s 737.9 lateral 12: before (62.0, 42.8, 48.5) s=724.5 lat=9.9 -> after (67.2, 44.8, 59.9) s=737.2 lat=1.0; along=12.7 m; distance=12.6 m; restored=True in 0.83s; waitingShown=False; last='Recovered to clear earned course support'; up=0.98; facing=1.00; diag=earnedBefore=0.00; route=main; selected=737.12; age=4.88s; backward=0.00m; displacement=13.55m; rejected=0; reasons=
+   after reset: held 2 s, drop 0.70 m, wheels 4, pos (64.1, 44.1, 59.8)
+upside-down on the road at s 600: before (25.2, 37.4, -52.7) s=600.0 lat=0.5 -> after (21.9, 37.4, -69.8) s=582.5 lat=0.7; along=-17.5 m; distance=17.4 m; restored=True in 0.82s; waitingShown=False; last='Recovered to clear earned course support'; up=1.00; facing=1.00; diag=earnedBefore=0.00; route=main; selected=582.53; age=3.90s; backward=17.33m; displacement=17.37m; rejected=0; reasons=
+   after reset: held 2 s, drop 0.03 m, wheels 4, pos (22.0, 37.4, -69.6)

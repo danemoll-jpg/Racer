@@ -1,0 +1,4 @@
+off the side at s 737.9 lateral 12: before (62.0, 42.8, 48.5) s=724.5 lat=9.9 -> after (55.7, 42.3, 54.0) s=722.9 lat=1.8; along=-1.6 m; distance=8.3 m; restored=True in 0.82s; waitingShown=False; last='Recovered to nearest course point'; up=0.99; facing=1.00; diag=route=main; nearest=722.84; selected=722.84; along=0.00m; from=(60.18, 42.56, 48.52); to=(55.74, 42.35, 54.05); displacement=7.10m
+   after reset: held 2 s, drop 0.23 m, wheels 4, pos (54.4, 42.1, 52.9)
+upside-down on the road at s 600: before (25.2, 37.4, -52.7) s=600.0 lat=0.5 -> after (34.4, 37.6, -38.0) s=617.9 lat=1.8; along=17.9 m; distance=17.4 m; restored=True in 0.82s; waitingShown=False; last='Recovered to nearest course point'; up=0.99; facing=1.00; diag=route=main; nearest=600.00; selected=618.00; along=18.00m; from=(25.17, 37.41, -52.70); to=(34.42, 37.65, -38.03); displacement=17.35m
+   after reset: held 2 s, drop 0.15 m, wheels 4, pos (35.4, 37.5, -36.9)

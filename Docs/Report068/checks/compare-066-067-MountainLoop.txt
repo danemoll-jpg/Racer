@@ -1,0 +1,472 @@
+MountainLoop: samples=39184 void created by 0.67=0 void before and after=413 support-under-top removed by 0.67=42
+changed collider Ground_ReportCleanup MountainLoop receiving bank 0 <- ReportCleanup MountainLoop receiving bank 0.asset (old v5088/t1696, new v5088/t1696)
+changed collider Ground_ReportCleanup MountainLoop receiving bank 1 <- ReportCleanup MountainLoop receiving bank 1.asset (old v5088/t1696, new v5088/t1696)
+changed collider Ground_ReportCleanup MountainLoop continuous solid 2 <- ReportCleanup MountainLoop continuous solid 2.asset (old v91638/t180717, new v91638/t180717)
+changed collider Ground_ReportCleanup MountainLoop continuous solid 1 <- ReportCleanup MountainLoop continuous solid 1.asset (old v43305/t84741, new v43305/t84741)
+changed collider Ground_720_240 <- MountainLoop-mountain-subgrade-Ground_720_240.asset (old v25545/t47932, new v25545/t47932)
+changed collider Ground_CR133 mountain earth banks <- MountainLoop-solid-retained-2-4598165-12032.asset (old v52955/t91143, new v52955/t91004)
+changed collider Ground_ReportCleanup MountainLoop continuous solid 0 <- forward-bend-seated-terrain.asset (old v54834/t108396, new v54834/t108396)
+changed collider Ground_MountainPolish supported shoulders <- MountainLoop-solid-retained-2-4558247-13056.asset (old v36828/t12276, new v36828/t12135)
+changed collider Ground_720_320 <- MountainLoop-solid-retained-2-4606785-12032.asset (old v23465/t43032, new v23465/t42759)
+changed collider Ground_CR117 outer ravine <- MountainLoop-solid-retained-2-4560482-12544.asset (old v91485/t30495, new v91485/t30495)
+column 724.51,-6.11 NEW: 80.45 Ground_CR133 mountain driving surface
+column 724.51,-6.11 OLD: 80.45 Ground_CR133 mountain driving surface
+column 728.22,-10.35 NEW: 80.19 Ground_CR133 mountain driving surface
+column 728.22,-10.35 OLD: 80.19 Ground_CR133 mountain driving surface
+column 684.53,71.83 NEW: 84.56 Ground_720_400
+column 684.53,71.83 OLD: 84.56 Ground_720_400
+VOID-BOTH 984,125 routeY 159.2 | Main s=1604 o=-30
+VOID-BOTH 986,128 routeY 158.8 | Main s=1606 o=-30
+VOID-BOTH 988,128 routeY 158.8 | Main s=1606 o=-28
+VOID-BOTH 989,127 routeY 158.8 | Main s=1606 o=-26
+VOID-BOTH 987,132 routeY 158.4 | Main s=1608 o=-30
+VOID-BOTH 989,131 routeY 158.4 | Main s=1608 o=-28
+VOID-BOTH 993,129 routeY 158.4 | Main s=1608 o=-24
+VOID-BOTH 990,137 routeY 158.0 | Main s=1610 o=-30
+VOID-BOTH 992,135 routeY 158.0 | Main s=1610 o=-28
+VOID-BOTH 993,134 routeY 158.0 | Main s=1610 o=-26
+VOID-BOTH 995,133 routeY 158.0 | Main s=1610 o=-24
+VOID-BOTH 993,140 routeY 157.6 | Main s=1612 o=-30
+VOID-BOTH 994,139 routeY 157.6 | Main s=1612 o=-28
+UNDER-NEW 716,-22 top 80.7 Ground_CR133 mountain earth banks; old below 80.5 old:Ground_720_320 | Main s=2624 o=12
+UNDER-NEW 716,-24 top 79.9 Ground_CR133 mountain earth banks; old below 79.6 old:Ground_720_320 | Main s=2624 o=14
+UNDER-NEW 716,-26 top 78.9 Ground_CR133 mountain earth banks; old below 78.9 old:Ground_720_320 | Main s=2624 o=16
+UNDER-NEW 716,-32 top 78.8 Ground_720_320; old below 78.8 old:Ground_CR133 mountain earth banks | Main s=2624 o=22
+UNDER-NEW 718,-20 top 80.7 Ground_CR133 mountain earth banks; old below 80.5 old:Ground_MountainPolish supported shoulders | Main s=2626 o=10
+UNDER-NEW 718,-22 top 80.5 Ground_CR133 mountain earth banks; old below 80.4 old:Ground_720_320 | Main s=2626 o=12
+UNDER-NEW 718,-24 top 79.9 Ground_CR133 mountain earth banks; old below 79.6 old:Ground_720_320 | Main s=2626 o=14
+UNDER-NEW 718,-26 top 79.0 Ground_CR133 mountain earth banks; old below 78.9 old:Ground_720_320 | Main s=2626 o=16
+UNDER-NEW 718,-30 top 78.8 Ground_720_320; old below 78.8 old:Ground_CR133 mountain earth banks | Main s=2626 o=20
+UNDER-NEW 717,-36 top 78.9 Ground_CR133 mountain earth banks; old below 78.8 old:Ground_720_320 | Main s=2626 o=26
+UNDER-NEW 720,-20 top 80.5 Ground_CR133 mountain earth banks; old below 80.4 old:Ground_MountainPolish supported shoulders | Main s=2628 o=10
+UNDER-NEW 720,-22 top 80.4 Ground_CR133 mountain earth banks; old below 80.3 old:Ground_720_320 | Main s=2628 o=12
+UNDER-NEW 720,-24 top 79.8 Ground_CR133 mountain earth banks; old below 79.6 old:Ground_720_320 | Main s=2628 o=14
+UNDER-NEW 720,-26 top 79.0 Ground_CR133 mountain earth banks; old below 79.0 old:Ground_720_320 | Main s=2628 o=16
+UNDER-NEW 719,-28 top 78.8 Ground_720_320; old below 78.8 old:Ground_CR133 mountain earth banks | Main s=2628 o=18
+UNDER-NEW 719,-30 top 78.9 Ground_720_320; old below 78.9 old:Ground_CR133 mountain earth banks | Main s=2628 o=20
+UNDER-NEW 719,-34 top 79.0 Ground_CR133 mountain earth banks; old below 78.9 old:Ground_720_320 | Main s=2628 o=24
+UNDER-NEW 722,-20 top 80.4 Ground_CR133 mountain earth banks; old below 80.3 old:Ground_MountainPolish supported shoulders | Main s=2630 o=10
+UNDER-NEW 722,-22 top 80.3 Ground_CR133 mountain earth banks; old below 80.1 old:Ground_720_320 | Main s=2630 o=12
+UNDER-NEW 721,-24 top 79.7 Ground_CR133 mountain earth banks; old below 79.5 old:Ground_720_320 | Main s=2630 o=14
+UNDER-NEW 721,-26 top 79.0 Ground_CR133 mountain earth banks; old below 79.0 old:Ground_720_320 | Main s=2630 o=16
+UNDER-NEW 721,-28 top 78.8 Ground_720_320; old below 78.8 old:Ground_CR133 mountain earth banks | Main s=2630 o=18
+UNDER-NEW 723,-20 top 80.3 Ground_CR133 mountain earth banks; old below 80.1 old:Ground_MountainPolish supported shoulders | Main s=2632 o=10
+UNDER-NEW 721,-32 top 79.0 Ground_CR133 mountain earth banks; old below 78.9 old:Ground_720_320 | Main s=2632 o=22
+UNDER-NEW 724,-23 top 80.1 Ground_CR133 mountain earth banks; old below 79.9 old:Ground_720_320 | Main s=2634 o=12
+UNDER-NEW 724,-25 top 79.6 Ground_CR133 mountain earth banks; old below 79.4 old:Ground_720_320 | Main s=2634 o=14
+UNDER-NEW 723,-27 top 78.9 Ground_CR133 mountain earth banks; old below 78.9 old:Ground_720_320 | Main s=2634 o=16
+UNDER-NEW 726,-21 top 79.9 Ground_CR133 mountain earth banks; old below 79.8 old:Ground_MountainPolish supported shoulders | Main s=2638 o=10
+UNDER-NEW 726,-23 top 79.8 Ground_CR133 mountain earth banks; old below 79.6 old:Ground_720_320 | Main s=2640 o=12
+UNDER-NEW 728,-22 top 79.6 Ground_CR133 mountain earth banks; old below 79.5 old:Ground_MountainPolish supported shoulders | Main s=2642 o=10
+UNDER-NEW 725,-26 top 79.3 Ground_CR133 mountain earth banks; old below 79.2 old:Ground_720_320 | Main s=2642 o=14
+UNDER-NEW 727,-24 top 79.5 Ground_CR133 mountain earth banks; old below 79.4 old:Ground_720_320 | Main s=2644 o=12
+UNDER-NEW 730,-24 top 79.4 Ground_CR133 mountain earth banks; old below 79.3 old:Ground_MountainPolish supported shoulders | Main s=2646 o=10
+UNDER-NEW 728,-25 top 79.4 Ground_CR133 mountain earth banks; old below 79.3 old:Ground_720_320 | Main s=2646 o=12
+UNDER-NEW 727,-27 top 79.0 Ground_CR133 mountain earth banks; old below 78.9 old:Ground_720_320 | Main s=2648 o=14
+UNDER-NEW 731,-26 top 79.2 Ground_CR133 mountain earth banks; old below 79.2 old:Ground_MountainPolish supported shoulders | Main s=2650 o=10
+UNDER-NEW 731,-26 top 79.2 Ground_CR133 mountain earth banks; old below 79.1 old:Ground_MountainPolish supported shoulders | Main s=2652 o=10
+UNDER-NEW 730,-27 top 79.1 Ground_CR133 mountain earth banks; old below 79.0 old:Ground_720_320 | Main s=2652 o=12
+UNDER-NEW 732,-27 top 79.1 Ground_CR133 mountain earth banks; old below 78.8 old:Ground_MountainPolish supported shoulders | Main s=2654 o=10
+UNDER-NEW 729,-30 top 78.8 Ground_CR133 mountain earth banks; old below 78.8 old:Ground_MountainPolish supported shoulders | Main s=2672 o=10
+UNDER-NEW 726,-32 top 78.9 Ground_CR133 mountain earth banks; old below 78.8 old:Ground_MountainPolish supported shoulders | Main s=2676 o=10
+UNDER-NEW 723,-31 top 78.9 Ground_CR133 mountain earth banks; old below 78.9 old:Ground_720_320 | Main s=2678 o=12
+VOID-BOTH 982,128 routeY 160.7 | Summit Traverse s=22 o=28
+VOID-BOTH 909,95 routeY 146.7 | Summit Traverse s=98 o=28
+VOID-BOTH 909,90 routeY 146.3 | Summit Traverse s=100 o=24
+VOID-BOTH 908,92 routeY 146.3 | Summit Traverse s=100 o=26
+VOID-BOTH 907,94 routeY 146.3 | Summit Traverse s=100 o=28
+VOID-BOTH 909,86 routeY 145.9 | Summit Traverse s=102 o=20
+VOID-BOTH 908,88 routeY 145.9 | Summit Traverse s=102 o=22
+VOID-BOTH 906,91 routeY 145.9 | Summit Traverse s=102 o=26
+VOID-BOTH 908,83 routeY 145.4 | Summit Traverse s=104 o=18
+VOID-BOTH 906,87 routeY 145.4 | Summit Traverse s=104 o=22
+VOID-BOTH 905,89 routeY 145.4 | Summit Traverse s=104 o=24
+VOID-BOTH 905,91 routeY 145.4 | Summit Traverse s=104 o=26
+VOID-BOTH 904,92 routeY 145.4 | Summit Traverse s=104 o=28
+VOID-BOTH 906,78 routeY 144.5 | Summit Traverse s=108 o=14
+VOID-BOTH 906,80 routeY 144.5 | Summit Traverse s=108 o=16
+VOID-BOTH 905,82 routeY 144.5 | Summit Traverse s=108 o=18
+VOID-BOTH 904,84 routeY 144.5 | Summit Traverse s=108 o=20
+VOID-BOTH 903,85 routeY 144.5 | Summit Traverse s=108 o=22
+VOID-BOTH 902,87 routeY 144.5 | Summit Traverse s=108 o=24
+VOID-BOTH 900,91 routeY 144.5 | Summit Traverse s=108 o=28
+VOID-BOTH 899,93 routeY 144.5 | Summit Traverse s=108 o=30
+VOID-BOTH 904,75 routeY 143.6 | Summit Traverse s=112 o=12
+VOID-BOTH 903,76 routeY 143.6 | Summit Traverse s=112 o=14
+VOID-BOTH 902,78 routeY 143.6 | Summit Traverse s=112 o=16
+VOID-BOTH 901,80 routeY 143.6 | Summit Traverse s=112 o=18
+VOID-BOTH 900,82 routeY 143.6 | Summit Traverse s=112 o=20
+VOID-BOTH 900,84 routeY 143.6 | Summit Traverse s=112 o=22
+VOID-BOTH 899,86 routeY 143.6 | Summit Traverse s=112 o=24
+VOID-BOTH 898,87 routeY 143.6 | Summit Traverse s=112 o=26
+VOID-BOTH 896,91 routeY 143.6 | Summit Traverse s=112 o=30
+VOID-BOTH 902,74 routeY 143.1 | Summit Traverse s=114 o=12
+VOID-BOTH 901,76 routeY 143.1 | Summit Traverse s=114 o=14
+VOID-BOTH 900,78 routeY 143.1 | Summit Traverse s=114 o=16
+VOID-BOTH 900,79 routeY 143.1 | Summit Traverse s=114 o=18
+VOID-BOTH 899,81 routeY 143.1 | Summit Traverse s=114 o=20
+VOID-BOTH 897,85 routeY 143.1 | Summit Traverse s=114 o=24
+VOID-BOTH 896,87 routeY 143.1 | Summit Traverse s=114 o=26
+VOID-BOTH 896,88 routeY 143.1 | Summit Traverse s=114 o=28
+VOID-BOTH 895,90 routeY 143.1 | Summit Traverse s=114 o=30
+VOID-BOTH 899,72 routeY 142.2 | Summit Traverse s=118 o=12
+VOID-BOTH 898,74 routeY 142.2 | Summit Traverse s=118 o=14
+VOID-BOTH 896,78 routeY 142.2 | Summit Traverse s=118 o=18
+VOID-BOTH 896,80 routeY 142.2 | Summit Traverse s=118 o=20
+VOID-BOTH 895,82 routeY 142.2 | Summit Traverse s=118 o=22
+VOID-BOTH 894,83 routeY 142.2 | Summit Traverse s=118 o=24
+VOID-BOTH 892,87 routeY 142.2 | Summit Traverse s=118 o=28
+VOID-BOTH 896,73 routeY 141.7 | Summit Traverse s=120 o=14
+VOID-BOTH 895,75 routeY 141.7 | Summit Traverse s=120 o=16
+VOID-BOTH 895,77 routeY 141.7 | Summit Traverse s=120 o=18
+VOID-BOTH 894,79 routeY 141.7 | Summit Traverse s=120 o=20
+VOID-BOTH 892,83 routeY 141.7 | Summit Traverse s=120 o=24
+VOID-BOTH 892,85 routeY 141.7 | Summit Traverse s=120 o=26
+VOID-BOTH 891,86 routeY 141.7 | Summit Traverse s=120 o=28
+VOID-BOTH 890,88 routeY 141.7 | Summit Traverse s=120 o=30
+VOID-BOTH 894,70 routeY 140.7 | Summit Traverse s=124 o=12
+VOID-BOTH 893,72 routeY 140.7 | Summit Traverse s=124 o=14
+VOID-BOTH 892,74 routeY 140.7 | Summit Traverse s=124 o=16
+VOID-BOTH 891,76 routeY 140.7 | Summit Traverse s=124 o=18
+VOID-BOTH 891,78 routeY 140.7 | Summit Traverse s=124 o=20
+VOID-BOTH 890,80 routeY 140.7 | Summit Traverse s=124 o=22
+VOID-BOTH 889,83 routeY 140.7 | Summit Traverse s=124 o=26
+VOID-BOTH 888,85 routeY 140.7 | Summit Traverse s=124 o=28
+VOID-BOTH 892,70 routeY 140.2 | Summit Traverse s=126 o=12
+VOID-BOTH 891,73 routeY 140.2 | Summit Traverse s=126 o=16
+VOID-BOTH 890,75 routeY 140.2 | Summit Traverse s=126 o=18
+VOID-BOTH 888,79 routeY 140.2 | Summit Traverse s=126 o=22
+VOID-BOTH 887,83 routeY 140.2 | Summit Traverse s=126 o=26
+VOID-BOTH 886,85 routeY 140.2 | Summit Traverse s=126 o=28
+VOID-BOTH 886,87 routeY 140.2 | Summit Traverse s=126 o=30
+VOID-BOTH 890,69 routeY 139.7 | Summit Traverse s=128 o=12
+VOID-BOTH 889,73 routeY 139.7 | Summit Traverse s=128 o=16
+VOID-BOTH 888,75 routeY 139.7 | Summit Traverse s=128 o=18
+VOID-BOTH 887,77 routeY 139.7 | Summit Traverse s=128 o=20
+VOID-BOTH 887,78 routeY 139.7 | Summit Traverse s=128 o=22
+VOID-BOTH 886,80 routeY 139.7 | Summit Traverse s=128 o=24
+VOID-BOTH 886,82 routeY 139.7 | Summit Traverse s=128 o=26
+VOID-BOTH 885,84 routeY 139.7 | Summit Traverse s=128 o=28
+VOID-BOTH 884,86 routeY 139.7 | Summit Traverse s=128 o=30
+VOID-BOTH 888,68 routeY 139.2 | Summit Traverse s=130 o=12
+VOID-BOTH 888,70 routeY 139.2 | Summit Traverse s=130 o=14
+VOID-BOTH 886,74 routeY 139.2 | Summit Traverse s=130 o=18
+VOID-BOTH 886,76 routeY 139.2 | Summit Traverse s=130 o=20
+VOID-BOTH 884,80 routeY 139.2 | Summit Traverse s=130 o=24
+VOID-BOTH 884,82 routeY 139.2 | Summit Traverse s=130 o=26
+VOID-BOTH 883,85 routeY 139.2 | Summit Traverse s=130 o=30
+VOID-BOTH 887,68 routeY 138.7 | Summit Traverse s=132 o=12
+VOID-BOTH 886,70 routeY 138.7 | Summit Traverse s=132 o=14
+VOID-BOTH 885,72 routeY 138.7 | Summit Traverse s=132 o=16
+VOID-BOTH 885,73 routeY 138.7 | Summit Traverse s=132 o=18
+VOID-BOTH 884,75 routeY 138.7 | Summit Traverse s=132 o=20
+VOID-BOTH 883,77 routeY 138.7 | Summit Traverse s=132 o=22
+VOID-BOTH 883,79 routeY 138.7 | Summit Traverse s=132 o=24
+VOID-BOTH 882,81 routeY 138.7 | Summit Traverse s=132 o=26
+VOID-BOTH 881,85 routeY 138.7 | Summit Traverse s=132 o=30
+VOID-BOTH 885,67 routeY 138.2 | Summit Traverse s=134 o=12
+VOID-BOTH 884,69 routeY 138.2 | Summit Traverse s=134 o=14
+VOID-BOTH 883,73 routeY 138.2 | Summit Traverse s=134 o=18
+VOID-BOTH 882,75 routeY 138.2 | Summit Traverse s=134 o=20
+VOID-BOTH 882,77 routeY 138.2 | Summit Traverse s=134 o=22
+VOID-BOTH 881,79 routeY 138.2 | Summit Traverse s=134 o=24
+VOID-BOTH 880,80 routeY 138.2 | Summit Traverse s=134 o=26
+VOID-BOTH 880,82 routeY 138.2 | Summit Traverse s=134 o=28
+VOID-BOTH 883,67 routeY 137.6 | Summit Traverse s=136 o=12
+VOID-BOTH 882,68 routeY 137.6 | Summit Traverse s=136 o=14
+VOID-BOTH 882,70 routeY 137.6 | Summit Traverse s=136 o=16
+VOID-BOTH 880,74 routeY 137.6 | Summit Traverse s=136 o=20
+VOID-BOTH 880,76 routeY 137.6 | Summit Traverse s=136 o=22
+VOID-BOTH 879,78 routeY 137.6 | Summit Traverse s=136 o=24
+VOID-BOTH 879,80 routeY 137.6 | Summit Traverse s=136 o=26
+VOID-BOTH 878,82 routeY 137.6 | Summit Traverse s=136 o=28
+VOID-BOTH 877,84 routeY 137.6 | Summit Traverse s=136 o=30
+VOID-BOTH 880,68 routeY 137.1 | Summit Traverse s=138 o=14
+VOID-BOTH 880,70 routeY 137.1 | Summit Traverse s=138 o=16
+VOID-BOTH 879,72 routeY 137.1 | Summit Traverse s=138 o=18
+VOID-BOTH 879,74 routeY 137.1 | Summit Traverse s=138 o=20
+VOID-BOTH 878,76 routeY 137.1 | Summit Traverse s=138 o=22
+VOID-BOTH 878,77 routeY 137.1 | Summit Traverse s=138 o=24
+VOID-BOTH 877,79 routeY 137.1 | Summit Traverse s=138 o=26
+VOID-BOTH 876,81 routeY 137.1 | Summit Traverse s=138 o=28
+VOID-BOTH 876,83 routeY 137.1 | Summit Traverse s=138 o=30
+VOID-BOTH 879,65 routeY 136.6 | Summit Traverse s=140 o=12
+VOID-BOTH 879,67 routeY 136.6 | Summit Traverse s=140 o=14
+VOID-BOTH 878,69 routeY 136.6 | Summit Traverse s=140 o=16
+VOID-BOTH 877,71 routeY 136.6 | Summit Traverse s=140 o=18
+VOID-BOTH 877,73 routeY 136.6 | Summit Traverse s=140 o=20
+VOID-BOTH 876,75 routeY 136.6 | Summit Traverse s=140 o=22
+VOID-BOTH 875,79 routeY 136.6 | Summit Traverse s=140 o=26
+VOID-BOTH 875,81 routeY 136.6 | Summit Traverse s=140 o=28
+VOID-BOTH 874,83 routeY 136.6 | Summit Traverse s=140 o=30
+VOID-BOTH 877,65 routeY 136.0 | Summit Traverse s=142 o=12
+VOID-BOTH 877,67 routeY 136.0 | Summit Traverse s=142 o=14
+VOID-BOTH 876,69 routeY 136.0 | Summit Traverse s=142 o=16
+VOID-BOTH 876,71 routeY 136.0 | Summit Traverse s=142 o=18
+VOID-BOTH 875,73 routeY 136.0 | Summit Traverse s=142 o=20
+VOID-BOTH 875,74 routeY 136.0 | Summit Traverse s=142 o=22
+VOID-BOTH 874,76 routeY 136.0 | Summit Traverse s=142 o=24
+VOID-BOTH 873,78 routeY 136.0 | Summit Traverse s=142 o=26
+VOID-BOTH 873,80 routeY 136.0 | Summit Traverse s=142 o=28
+VOID-BOTH 872,82 routeY 136.0 | Summit Traverse s=142 o=30
+VOID-BOTH 876,64 routeY 135.5 | Summit Traverse s=144 o=12
+VOID-BOTH 875,66 routeY 135.5 | Summit Traverse s=144 o=14
+VOID-BOTH 874,68 routeY 135.5 | Summit Traverse s=144 o=16
+VOID-BOTH 874,70 routeY 135.5 | Summit Traverse s=144 o=18
+VOID-BOTH 873,72 routeY 135.5 | Summit Traverse s=144 o=20
+VOID-BOTH 873,74 routeY 135.5 | Summit Traverse s=144 o=22
+VOID-BOTH 872,76 routeY 135.5 | Summit Traverse s=144 o=24
+VOID-BOTH 872,78 routeY 135.5 | Summit Traverse s=144 o=26
+VOID-BOTH 870,82 routeY 135.5 | Summit Traverse s=144 o=30
+VOID-BOTH 874,64 routeY 134.9 | Summit Traverse s=146 o=12
+VOID-BOTH 873,68 routeY 134.9 | Summit Traverse s=146 o=16
+VOID-BOTH 872,70 routeY 134.9 | Summit Traverse s=146 o=18
+VOID-BOTH 871,71 routeY 134.9 | Summit Traverse s=146 o=20
+VOID-BOTH 871,73 routeY 134.9 | Summit Traverse s=146 o=22
+VOID-BOTH 870,75 routeY 134.9 | Summit Traverse s=146 o=24
+VOID-BOTH 870,77 routeY 134.9 | Summit Traverse s=146 o=26
+VOID-BOTH 869,79 routeY 134.9 | Summit Traverse s=146 o=28
+VOID-BOTH 869,81 routeY 134.9 | Summit Traverse s=146 o=30
+VOID-BOTH 872,63 routeY 134.3 | Summit Traverse s=148 o=12
+VOID-BOTH 871,65 routeY 134.3 | Summit Traverse s=148 o=14
+VOID-BOTH 871,67 routeY 134.3 | Summit Traverse s=148 o=16
+VOID-BOTH 870,69 routeY 134.3 | Summit Traverse s=148 o=18
+VOID-BOTH 869,73 routeY 134.3 | Summit Traverse s=148 o=22
+VOID-BOTH 869,75 routeY 134.3 | Summit Traverse s=148 o=24
+VOID-BOTH 868,77 routeY 134.3 | Summit Traverse s=148 o=26
+VOID-BOTH 867,79 routeY 134.3 | Summit Traverse s=148 o=28
+VOID-BOTH 867,81 routeY 134.3 | Summit Traverse s=148 o=30
+VOID-BOTH 870,63 routeY 133.8 | Summit Traverse s=150 o=12
+VOID-BOTH 869,65 routeY 133.8 | Summit Traverse s=150 o=14
+VOID-BOTH 869,67 routeY 133.8 | Summit Traverse s=150 o=16
+VOID-BOTH 868,69 routeY 133.8 | Summit Traverse s=150 o=18
+VOID-BOTH 868,70 routeY 133.8 | Summit Traverse s=150 o=20
+VOID-BOTH 867,72 routeY 133.8 | Summit Traverse s=150 o=22
+VOID-BOTH 867,74 routeY 133.8 | Summit Traverse s=150 o=24
+VOID-BOTH 866,76 routeY 133.8 | Summit Traverse s=150 o=26
+VOID-BOTH 866,78 routeY 133.8 | Summit Traverse s=150 o=28
+VOID-BOTH 868,62 routeY 133.2 | Summit Traverse s=152 o=12
+VOID-BOTH 868,64 routeY 133.2 | Summit Traverse s=152 o=14
+VOID-BOTH 867,68 routeY 133.2 | Summit Traverse s=152 o=18
+VOID-BOTH 866,70 routeY 133.2 | Summit Traverse s=152 o=20
+VOID-BOTH 865,72 routeY 133.2 | Summit Traverse s=152 o=22
+VOID-BOTH 865,74 routeY 133.2 | Summit Traverse s=152 o=24
+VOID-BOTH 864,76 routeY 133.2 | Summit Traverse s=152 o=26
+VOID-BOTH 864,78 routeY 133.2 | Summit Traverse s=152 o=28
+VOID-BOTH 863,80 routeY 133.2 | Summit Traverse s=152 o=30
+VOID-BOTH 866,62 routeY 132.6 | Summit Traverse s=154 o=12
+VOID-BOTH 866,64 routeY 132.6 | Summit Traverse s=154 o=14
+VOID-BOTH 865,66 routeY 132.6 | Summit Traverse s=154 o=16
+VOID-BOTH 865,68 routeY 132.6 | Summit Traverse s=154 o=18
+VOID-BOTH 864,69 routeY 132.6 | Summit Traverse s=154 o=20
+VOID-BOTH 864,71 routeY 132.6 | Summit Traverse s=154 o=22
+VOID-BOTH 863,75 routeY 132.6 | Summit Traverse s=154 o=26
+VOID-BOTH 862,77 routeY 132.6 | Summit Traverse s=154 o=28
+VOID-BOTH 862,79 routeY 132.6 | Summit Traverse s=154 o=30
+VOID-BOTH 864,61 routeY 132.0 | Summit Traverse s=156 o=12
+VOID-BOTH 864,63 routeY 132.0 | Summit Traverse s=156 o=14
+VOID-BOTH 863,65 routeY 132.0 | Summit Traverse s=156 o=16
+VOID-BOTH 863,67 routeY 132.0 | Summit Traverse s=156 o=18
+VOID-BOTH 862,71 routeY 132.0 | Summit Traverse s=156 o=22
+VOID-BOTH 861,73 routeY 132.0 | Summit Traverse s=156 o=24
+VOID-BOTH 861,75 routeY 132.0 | Summit Traverse s=156 o=26
+VOID-BOTH 860,77 routeY 132.0 | Summit Traverse s=156 o=28
+VOID-BOTH 860,79 routeY 132.0 | Summit Traverse s=156 o=30
+VOID-BOTH 862,61 routeY 131.5 | Summit Traverse s=158 o=12
+VOID-BOTH 862,63 routeY 131.5 | Summit Traverse s=158 o=14
+VOID-BOTH 861,65 routeY 131.5 | Summit Traverse s=158 o=16
+VOID-BOTH 861,67 routeY 131.5 | Summit Traverse s=158 o=18
+VOID-BOTH 860,68 routeY 131.5 | Summit Traverse s=158 o=20
+VOID-BOTH 860,70 routeY 131.5 | Summit Traverse s=158 o=22
+VOID-BOTH 859,72 routeY 131.5 | Summit Traverse s=158 o=24
+VOID-BOTH 859,74 routeY 131.5 | Summit Traverse s=158 o=26
+VOID-BOTH 858,76 routeY 131.5 | Summit Traverse s=158 o=28
+VOID-BOTH 858,78 routeY 131.5 | Summit Traverse s=158 o=30
+VOID-BOTH 859,60 routeY 130.3 | Summit Traverse s=162 o=12
+VOID-BOTH 858,62 routeY 130.3 | Summit Traverse s=162 o=14
+VOID-BOTH 858,64 routeY 130.3 | Summit Traverse s=162 o=16
+VOID-BOTH 857,66 routeY 130.3 | Summit Traverse s=162 o=18
+VOID-BOTH 857,68 routeY 130.3 | Summit Traverse s=162 o=20
+VOID-BOTH 856,69 routeY 130.3 | Summit Traverse s=162 o=22
+VOID-BOTH 856,71 routeY 130.3 | Summit Traverse s=162 o=24
+VOID-BOTH 855,73 routeY 130.3 | Summit Traverse s=162 o=26
+VOID-BOTH 855,75 routeY 130.3 | Summit Traverse s=162 o=28
+VOID-BOTH 854,77 routeY 130.3 | Summit Traverse s=162 o=30
+VOID-BOTH 857,59 routeY 129.7 | Summit Traverse s=164 o=12
+VOID-BOTH 856,61 routeY 129.7 | Summit Traverse s=164 o=14
+VOID-BOTH 856,63 routeY 129.7 | Summit Traverse s=164 o=16
+VOID-BOTH 855,65 routeY 129.7 | Summit Traverse s=164 o=18
+VOID-BOTH 855,67 routeY 129.7 | Summit Traverse s=164 o=20
+VOID-BOTH 854,69 routeY 129.7 | Summit Traverse s=164 o=22
+VOID-BOTH 853,73 routeY 129.7 | Summit Traverse s=164 o=26
+VOID-BOTH 853,75 routeY 129.7 | Summit Traverse s=164 o=28
+VOID-BOTH 852,77 routeY 129.7 | Summit Traverse s=164 o=30
+VOID-BOTH 855,59 routeY 129.1 | Summit Traverse s=166 o=12
+VOID-BOTH 854,61 routeY 129.1 | Summit Traverse s=166 o=14
+VOID-BOTH 854,63 routeY 129.1 | Summit Traverse s=166 o=16
+VOID-BOTH 853,65 routeY 129.1 | Summit Traverse s=166 o=18
+VOID-BOTH 853,67 routeY 129.1 | Summit Traverse s=166 o=20
+VOID-BOTH 852,69 routeY 129.1 | Summit Traverse s=166 o=22
+VOID-BOTH 852,71 routeY 129.1 | Summit Traverse s=166 o=24
+VOID-BOTH 852,72 routeY 129.1 | Summit Traverse s=166 o=26
+VOID-BOTH 851,76 routeY 129.1 | Summit Traverse s=166 o=30
+VOID-BOTH 851,60 routeY 127.9 | Summit Traverse s=170 o=14
+VOID-BOTH 850,62 routeY 127.9 | Summit Traverse s=170 o=16
+VOID-BOTH 850,64 routeY 127.9 | Summit Traverse s=170 o=18
+VOID-BOTH 849,66 routeY 127.9 | Summit Traverse s=170 o=20
+VOID-BOTH 849,68 routeY 127.9 | Summit Traverse s=170 o=22
+VOID-BOTH 848,70 routeY 127.9 | Summit Traverse s=170 o=24
+VOID-BOTH 848,72 routeY 127.9 | Summit Traverse s=170 o=26
+VOID-BOTH 847,74 routeY 127.9 | Summit Traverse s=170 o=28
+VOID-BOTH 847,75 routeY 127.9 | Summit Traverse s=170 o=30
+VOID-BOTH 845,57 routeY 126.1 | Summit Traverse s=176 o=12
+VOID-BOTH 845,59 routeY 126.1 | Summit Traverse s=176 o=14
+VOID-BOTH 844,61 routeY 126.1 | Summit Traverse s=176 o=16
+VOID-BOTH 844,62 routeY 126.1 | Summit Traverse s=176 o=18
+VOID-BOTH 843,64 routeY 126.1 | Summit Traverse s=176 o=20
+VOID-BOTH 843,68 routeY 126.1 | Summit Traverse s=176 o=24
+VOID-BOTH 842,70 routeY 126.1 | Summit Traverse s=176 o=26
+VOID-BOTH 842,72 routeY 126.1 | Summit Traverse s=176 o=28
+VOID-BOTH 841,74 routeY 126.1 | Summit Traverse s=176 o=30
+VOID-BOTH 843,56 routeY 125.5 | Summit Traverse s=178 o=12
+VOID-BOTH 843,58 routeY 125.5 | Summit Traverse s=178 o=14
+VOID-BOTH 842,60 routeY 125.5 | Summit Traverse s=178 o=16
+VOID-BOTH 842,62 routeY 125.5 | Summit Traverse s=178 o=18
+VOID-BOTH 842,64 routeY 125.5 | Summit Traverse s=178 o=20
+VOID-BOTH 841,66 routeY 125.5 | Summit Traverse s=178 o=22
+VOID-BOTH 841,68 routeY 125.5 | Summit Traverse s=178 o=24
+VOID-BOTH 840,70 routeY 125.5 | Summit Traverse s=178 o=26
+VOID-BOTH 840,72 routeY 125.5 | Summit Traverse s=178 o=28
+VOID-BOTH 839,74 routeY 125.5 | Summit Traverse s=178 o=30
+VOID-BOTH 841,56 routeY 124.9 | Summit Traverse s=180 o=12
+VOID-BOTH 841,58 routeY 124.9 | Summit Traverse s=180 o=14
+VOID-BOTH 841,60 routeY 124.9 | Summit Traverse s=180 o=16
+VOID-BOTH 840,62 routeY 124.9 | Summit Traverse s=180 o=18
+VOID-BOTH 840,64 routeY 124.9 | Summit Traverse s=180 o=20
+VOID-BOTH 839,66 routeY 124.9 | Summit Traverse s=180 o=22
+VOID-BOTH 839,67 routeY 124.9 | Summit Traverse s=180 o=24
+VOID-BOTH 838,69 routeY 124.9 | Summit Traverse s=180 o=26
+VOID-BOTH 838,71 routeY 124.9 | Summit Traverse s=180 o=28
+VOID-BOTH 838,73 routeY 124.9 | Summit Traverse s=180 o=30
+VOID-BOTH 839,55 routeY 124.3 | Summit Traverse s=182 o=12
+VOID-BOTH 839,59 routeY 124.3 | Summit Traverse s=182 o=16
+VOID-BOTH 838,61 routeY 124.3 | Summit Traverse s=182 o=18
+VOID-BOTH 838,63 routeY 124.3 | Summit Traverse s=182 o=20
+VOID-BOTH 837,65 routeY 124.3 | Summit Traverse s=182 o=22
+VOID-BOTH 837,67 routeY 124.3 | Summit Traverse s=182 o=24
+VOID-BOTH 836,69 routeY 124.3 | Summit Traverse s=182 o=26
+VOID-BOTH 836,73 routeY 124.3 | Summit Traverse s=182 o=30
+VOID-BOTH 838,55 routeY 123.7 | Summit Traverse s=184 o=12
+VOID-BOTH 837,57 routeY 123.7 | Summit Traverse s=184 o=14
+VOID-BOTH 837,59 routeY 123.7 | Summit Traverse s=184 o=16
+VOID-BOTH 836,61 routeY 123.7 | Summit Traverse s=184 o=18
+VOID-BOTH 836,63 routeY 123.7 | Summit Traverse s=184 o=20
+VOID-BOTH 835,65 routeY 123.7 | Summit Traverse s=184 o=22
+VOID-BOTH 835,67 routeY 123.7 | Summit Traverse s=184 o=24
+VOID-BOTH 835,69 routeY 123.7 | Summit Traverse s=184 o=26
+VOID-BOTH 834,71 routeY 123.7 | Summit Traverse s=184 o=28
+VOID-BOTH 834,73 routeY 123.7 | Summit Traverse s=184 o=30
+VOID-BOTH 836,54 routeY 123.1 | Summit Traverse s=186 o=12
+VOID-BOTH 835,56 routeY 123.1 | Summit Traverse s=186 o=14
+VOID-BOTH 835,58 routeY 123.1 | Summit Traverse s=186 o=16
+VOID-BOTH 834,60 routeY 123.1 | Summit Traverse s=186 o=18
+VOID-BOTH 834,62 routeY 123.1 | Summit Traverse s=186 o=20
+VOID-BOTH 834,64 routeY 123.1 | Summit Traverse s=186 o=22
+VOID-BOTH 833,68 routeY 123.1 | Summit Traverse s=186 o=26
+VOID-BOTH 832,70 routeY 123.1 | Summit Traverse s=186 o=28
+VOID-BOTH 832,72 routeY 123.1 | Summit Traverse s=186 o=30
+VOID-BOTH 834,54 routeY 122.4 | Summit Traverse s=188 o=12
+VOID-BOTH 833,56 routeY 122.4 | Summit Traverse s=188 o=14
+VOID-BOTH 833,58 routeY 122.4 | Summit Traverse s=188 o=16
+VOID-BOTH 832,60 routeY 122.4 | Summit Traverse s=188 o=18
+VOID-BOTH 832,62 routeY 122.4 | Summit Traverse s=188 o=20
+VOID-BOTH 832,64 routeY 122.4 | Summit Traverse s=188 o=22
+VOID-BOTH 831,66 routeY 122.4 | Summit Traverse s=188 o=24
+VOID-BOTH 831,68 routeY 122.4 | Summit Traverse s=188 o=26
+VOID-BOTH 830,70 routeY 122.4 | Summit Traverse s=188 o=28
+VOID-BOTH 830,72 routeY 122.4 | Summit Traverse s=188 o=30
+VOID-BOTH 828,53 routeY 120.6 | Summit Traverse s=194 o=12
+VOID-BOTH 827,55 routeY 120.6 | Summit Traverse s=194 o=14
+VOID-BOTH 827,57 routeY 120.6 | Summit Traverse s=194 o=16
+VOID-BOTH 827,59 routeY 120.6 | Summit Traverse s=194 o=18
+VOID-BOTH 826,61 routeY 120.6 | Summit Traverse s=194 o=20
+VOID-BOTH 826,63 routeY 120.6 | Summit Traverse s=194 o=22
+VOID-BOTH 825,65 routeY 120.6 | Summit Traverse s=194 o=24
+VOID-BOTH 825,67 routeY 120.6 | Summit Traverse s=194 o=26
+VOID-BOTH 825,69 routeY 120.6 | Summit Traverse s=194 o=28
+VOID-BOTH 824,70 routeY 120.6 | Summit Traverse s=194 o=30
+VOID-BOTH 826,52 routeY 120.0 | Summit Traverse s=196 o=12
+VOID-BOTH 825,54 routeY 120.0 | Summit Traverse s=196 o=14
+VOID-BOTH 825,56 routeY 120.0 | Summit Traverse s=196 o=16
+VOID-BOTH 825,58 routeY 120.0 | Summit Traverse s=196 o=18
+VOID-BOTH 824,60 routeY 120.0 | Summit Traverse s=196 o=20
+VOID-BOTH 824,62 routeY 120.0 | Summit Traverse s=196 o=22
+VOID-BOTH 823,64 routeY 120.0 | Summit Traverse s=196 o=24
+VOID-BOTH 823,68 routeY 120.0 | Summit Traverse s=196 o=28
+VOID-BOTH 822,70 routeY 120.0 | Summit Traverse s=196 o=30
+VOID-BOTH 824,52 routeY 119.4 | Summit Traverse s=198 o=12
+VOID-BOTH 824,54 routeY 119.4 | Summit Traverse s=198 o=14
+VOID-BOTH 823,56 routeY 119.4 | Summit Traverse s=198 o=16
+VOID-BOTH 823,58 routeY 119.4 | Summit Traverse s=198 o=18
+VOID-BOTH 822,60 routeY 119.4 | Summit Traverse s=198 o=20
+VOID-BOTH 822,62 routeY 119.4 | Summit Traverse s=198 o=22
+VOID-BOTH 822,64 routeY 119.4 | Summit Traverse s=198 o=24
+VOID-BOTH 821,66 routeY 119.4 | Summit Traverse s=198 o=26
+VOID-BOTH 821,68 routeY 119.4 | Summit Traverse s=198 o=28
+VOID-BOTH 822,52 routeY 118.8 | Summit Traverse s=200 o=12
+VOID-BOTH 822,54 routeY 118.8 | Summit Traverse s=200 o=14
+VOID-BOTH 821,56 routeY 118.8 | Summit Traverse s=200 o=16
+VOID-BOTH 821,58 routeY 118.8 | Summit Traverse s=200 o=18
+VOID-BOTH 820,59 routeY 118.8 | Summit Traverse s=200 o=20
+VOID-BOTH 820,61 routeY 118.8 | Summit Traverse s=200 o=22
+VOID-BOTH 820,63 routeY 118.8 | Summit Traverse s=200 o=24
+VOID-BOTH 819,65 routeY 118.8 | Summit Traverse s=200 o=26
+VOID-BOTH 819,67 routeY 118.8 | Summit Traverse s=200 o=28
+VOID-BOTH 820,51 routeY 118.2 | Summit Traverse s=202 o=12
+VOID-BOTH 820,53 routeY 118.2 | Summit Traverse s=202 o=14
+VOID-BOTH 819,55 routeY 118.2 | Summit Traverse s=202 o=16
+VOID-BOTH 819,57 routeY 118.2 | Summit Traverse s=202 o=18
+VOID-BOTH 819,59 routeY 118.2 | Summit Traverse s=202 o=20
+VOID-BOTH 818,61 routeY 118.2 | Summit Traverse s=202 o=22
+VOID-BOTH 818,63 routeY 118.2 | Summit Traverse s=202 o=24
+VOID-BOTH 817,67 routeY 118.2 | Summit Traverse s=202 o=28
+VOID-BOTH 817,69 routeY 118.2 | Summit Traverse s=202 o=30
+VOID-BOTH 818,51 routeY 117.5 | Summit Traverse s=204 o=12
+VOID-BOTH 818,53 routeY 117.5 | Summit Traverse s=204 o=14
+VOID-BOTH 817,55 routeY 117.5 | Summit Traverse s=204 o=16
+VOID-BOTH 817,57 routeY 117.5 | Summit Traverse s=204 o=18
+VOID-BOTH 817,59 routeY 117.5 | Summit Traverse s=204 o=20
+VOID-BOTH 816,61 routeY 117.5 | Summit Traverse s=204 o=22
+VOID-BOTH 816,63 routeY 117.5 | Summit Traverse s=204 o=24
+VOID-BOTH 815,65 routeY 117.5 | Summit Traverse s=204 o=26
+VOID-BOTH 816,50 routeY 116.9 | Summit Traverse s=206 o=12
+VOID-BOTH 816,52 routeY 116.9 | Summit Traverse s=206 o=14
+VOID-BOTH 816,54 routeY 116.9 | Summit Traverse s=206 o=16
+VOID-BOTH 815,56 routeY 116.9 | Summit Traverse s=206 o=18
+VOID-BOTH 815,58 routeY 116.9 | Summit Traverse s=206 o=20
+VOID-BOTH 814,60 routeY 116.9 | Summit Traverse s=206 o=22
+VOID-BOTH 814,62 routeY 116.9 | Summit Traverse s=206 o=24
+VOID-BOTH 814,64 routeY 116.9 | Summit Traverse s=206 o=26
+VOID-BOTH 813,66 routeY 116.9 | Summit Traverse s=206 o=28
+VOID-BOTH 812,50 routeY 115.6 | Summit Traverse s=210 o=12
+VOID-BOTH 812,52 routeY 115.6 | Summit Traverse s=210 o=14
+VOID-BOTH 812,54 routeY 115.6 | Summit Traverse s=210 o=16
+VOID-BOTH 811,56 routeY 115.6 | Summit Traverse s=210 o=18
+VOID-BOTH 811,58 routeY 115.6 | Summit Traverse s=210 o=20
+VOID-BOTH 811,60 routeY 115.6 | Summit Traverse s=210 o=22
+VOID-BOTH 810,62 routeY 115.6 | Summit Traverse s=210 o=24
+VOID-BOTH 810,64 routeY 115.6 | Summit Traverse s=210 o=26
+VOID-BOTH 809,65 routeY 115.6 | Summit Traverse s=210 o=28
+VOID-BOTH 806,53 routeY 113.6 | Summit Traverse s=216 o=16
+VOID-BOTH 806,55 routeY 113.6 | Summit Traverse s=216 o=18
+VOID-BOTH 805,57 routeY 113.6 | Summit Traverse s=216 o=20
+VOID-BOTH 805,59 routeY 113.6 | Summit Traverse s=216 o=22
+VOID-BOTH 805,61 routeY 113.6 | Summit Traverse s=216 o=24
+VOID-BOTH 804,63 routeY 113.6 | Summit Traverse s=216 o=26
+VOID-BOTH 804,64 routeY 113.6 | Summit Traverse s=216 o=28
+VOID-BOTH 801,56 routeY 112.2 | Summit Traverse s=220 o=20
+VOID-BOTH 801,60 routeY 112.2 | Summit Traverse s=220 o=24
+VOID-BOTH 800,62 routeY 112.2 | Summit Traverse s=220 o=26
+VOID-BOTH 799,58 routeY 111.6 | Summit Traverse s=222 o=22
+VOID-BOTH 799,60 routeY 111.6 | Summit Traverse s=222 o=24
+VOID-BOTH 798,62 routeY 111.6 | Summit Traverse s=222 o=26

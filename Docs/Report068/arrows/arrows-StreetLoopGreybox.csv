@@ -1,0 +1,74 @@
+action,route,station,lateral,x,y,z,heading,gold,surfaceGap,reason,object,mesh
+keep,Creek Leap,130.0,0.4,509.12,25.52,-354.60,-116,True,0.07,"turn/fork ahead","Route atlas direction guidance/Optional gold / Creek Leap",StreetLoopGreybox-arrow-063
+keep,Creek Leap,260.0,0.4,381.45,26.67,-363.23,-104,True,0.08,"turn/fork ahead","Route atlas direction guidance/Optional gold / Creek Leap",StreetLoopGreybox-arrow-064
+keep,Creek Leap,346.0,0.0,302.29,39.65,-393.34,-68,True,0.07,"turn/fork ahead","Route atlas direction guidance/Optional gold / Creek Leap",StreetLoopGreybox-arrow-062
+keep,Fox Gully,130.0,0.4,111.70,37.54,-340.56,-156,True,0.08,"reassurance (long straight)","Route atlas direction guidance/Optional gold / Fox Gully",StreetLoopGreybox-arrow-065
+REMOVE,Fox Gully,260.0,0.4,39.67,23.32,-447.71,-139,True,0.10,"repeated on straight (130 m after kept arrow)","Route atlas direction guidance/Optional gold / Fox Gully",StreetLoopGreybox-arrow-066
+keep,Fox Gully,390.0,0.4,-50.33,28.12,-541.39,-142,True,0.11,"turn/fork ahead","Route atlas direction guidance/Optional gold / Fox Gully",StreetLoopGreybox-arrow-067
+keep,Main,25.0,0.4,320.11,11.70,525.92,-179,False,0.09,"reassurance (long straight)","Route atlas direction guidance/Main teal / reassurance",StreetLoopGreybox-arrow-026
+REMOVE,Main,125.0,0.4,318.64,36.94,429.21,-180,False,0.08,"repeated on straight (100 m after kept arrow)","Route atlas direction guidance/Main teal / reassurance",StreetLoopGreybox-arrow-027
+keep,Main,225.0,0.4,319.79,63.10,332.70,179,False,0.07,"reassurance (long straight)","Route atlas direction guidance/Main teal / reassurance",StreetLoopGreybox-arrow-028
+keep,Main,325.0,0.4,332.64,81.86,235.91,162,False,0.07,"turn/fork ahead","Route atlas direction guidance/Main teal / reassurance",StreetLoopGreybox-arrow-029
+keep,Main,362.0,0.4,349.27,82.08,203.08,142,False,0.07,"turn/fork ahead","Route atlas direction guidance/Main teal / turn",StreetLoopGreybox-arrow-012
+keep,Main,412.0,0.4,392.66,76.27,180.39,121,False,0.09,"turn/fork ahead","Route atlas direction guidance/Main teal / turn",StreetLoopGreybox-arrow-013
+REMOVE,Main,525.0,0.4,459.93,85.32,91.89,159,False,0.06,"repeated on straight (113 m after kept arrow)","Route atlas direction guidance/Main teal / reassurance",StreetLoopGreybox-arrow-030
+keep,Main,625.0,0.4,472.81,82.33,-5.39,-177,False,0.08,"turn/fork ahead","Route atlas direction guidance/Main teal / reassurance",StreetLoopGreybox-arrow-031
+REMOVE,Main,725.0,0.4,498.74,87.83,-99.58,152,False,0.07,"repeated on straight (100 m after kept arrow)","Route atlas direction guidance/Main teal / reassurance",StreetLoopGreybox-arrow-032
+keep,Main,825.0,0.4,537.30,55.96,-184.85,158,False,0.08,"turn/fork ahead","Route atlas direction guidance/Main teal / reassurance",StreetLoopGreybox-arrow-033
+keep,Main,876.0,0.4,552.57,35.22,-228.74,164,False,0.08,"fork/rejoin arrow","Route atlas direction guidance/Main teal / before Creek Leap fork",StreetLoopGreybox-arrow-000
+keep,Main,922.0,0.4,560.91,28.11,-273.22,177,False,0.07,"fork/rejoin arrow","Route atlas direction guidance/Main teal / main at Creek Leap fork",StreetLoopGreybox-arrow-001
+REMOVE,Main,1025.0,0.4,544.40,25.78,-374.36,-175,False,0.08,"repeated on straight (103 m after kept arrow)","Route atlas direction guidance/Main teal / reassurance",StreetLoopGreybox-arrow-034
+keep,Main,1125.0,0.4,534.02,31.43,-473.10,-165,False,0.07,"turn/fork ahead","Route atlas direction guidance/Main teal / reassurance",StreetLoopGreybox-arrow-035
+keep,Main,1187.0,0.4,509.20,23.05,-528.82,-143,False,0.08,"turn/fork ahead","Route atlas direction guidance/Main teal / turn",StreetLoopGreybox-arrow-014
+keep,Main,1212.0,0.4,490.40,22.67,-544.66,-100,False,0.09,"turn/fork ahead","Route atlas direction guidance/Main teal / turn",StreetLoopGreybox-arrow-015
+keep,Main,1325.0,0.4,425.73,35.74,-457.12,-34,False,0.07,"turn/fork ahead","Route atlas direction guidance/Main teal / reassurance",StreetLoopGreybox-arrow-036
+keep,Main,1387.0,0.4,388.40,33.56,-408.34,-43,False,0.07,"turn/fork ahead","Route atlas direction guidance/Main teal / turn",StreetLoopGreybox-arrow-016
+keep,Main,1412.0,0.4,368.58,30.31,-394.10,-73,False,0.12,"turn/fork ahead","Route atlas direction guidance/Main teal / turn",StreetLoopGreybox-arrow-017
+keep,Main,1524.0,0.4,265.97,36.04,-366.25,-55,False,0.08,"fork/rejoin arrow","Route atlas direction guidance/Main teal / Creek Leap rejoin",StreetLoopGreybox-arrow-002
+keep,Main,1556.0,0.4,240.55,40.86,-347.44,-53,False,0.07,"fork/rejoin arrow","Route atlas direction guidance/Main teal / before Fox Gully fork",StreetLoopGreybox-arrow-006
+keep,Main,1602.0,0.4,202.75,46.06,-321.89,-62,False,0.06,"fork/rejoin arrow","Route atlas direction guidance/Main teal / main at Fox Gully fork",StreetLoopGreybox-arrow-007
+REMOVE,Main,1625.0,0.4,182.16,44.34,-311.87,-66,False,0.07,"repeated on straight (23 m after kept arrow)","Route atlas direction guidance/Main teal / reassurance",StreetLoopGreybox-arrow-037
+keep,Main,1737.0,0.4,75.33,43.73,-283.44,-90,False,0.06,"turn/fork ahead","Route atlas direction guidance/Main teal / turn",StreetLoopGreybox-arrow-018
+keep,Main,1762.0,0.4,51.08,41.56,-287.57,-113,False,0.06,"turn/fork ahead","Route atlas direction guidance/Main teal / turn",StreetLoopGreybox-arrow-019
+keep,Main,1787.0,0.4,32.09,35.59,-302.18,-141,False,0.10,"turn/fork ahead","Route atlas direction guidance/Main teal / turn",StreetLoopGreybox-arrow-020
+REMOVE,Main,1825.0,0.4,15.55,37.45,-336.00,-162,False,0.07,"repeated on straight (38 m after kept arrow)","Route atlas direction guidance/Main teal / reassurance",StreetLoopGreybox-arrow-038
+REMOVE,Main,1925.0,0.4,-1.98,32.43,-433.52,-176,False,0.08,"repeated on straight (138 m after kept arrow)","Route atlas direction guidance/Main teal / reassurance",StreetLoopGreybox-arrow-039
+keep,Main,2037.0,0.4,-11.58,34.95,-544.18,-158,False,0.06,"turn/fork ahead","Route atlas direction guidance/Main teal / turn",StreetLoopGreybox-arrow-021
+keep,Main,2062.0,0.4,-24.71,31.30,-564.85,-133,False,0.08,"turn/fork ahead","Route atlas direction guidance/Main teal / turn",StreetLoopGreybox-arrow-022
+keep,Main,2125.0,0.4,-84.41,29.95,-579.90,-92,False,0.07,"turn/fork ahead","Route atlas direction guidance/Main teal / reassurance",StreetLoopGreybox-arrow-040
+keep,Main,2174.0,0.4,-133.37,30.28,-581.71,-92,False,0.08,"fork/rejoin arrow","Route atlas direction guidance/Main teal / Fox Gully rejoin",StreetLoopGreybox-arrow-008
+keep,Main,2196.0,0.4,-155.36,30.73,-582.36,-91,False,0.07,"fork/rejoin arrow","Route atlas direction guidance/Main teal / before Pine Ridge fork",StreetLoopGreybox-arrow-009
+keep,Main,2242.0,0.4,-201.34,30.55,-582.12,-88,False,0.07,"fork/rejoin arrow","Route atlas direction guidance/Main teal / main at Pine Ridge fork",StreetLoopGreybox-arrow-010
+REMOVE,Main,2325.0,0.4,-283.04,20.03,-573.42,-81,False,0.07,"repeated on straight (83 m after kept arrow)","Route atlas direction guidance/Main teal / reassurance",StreetLoopGreybox-arrow-041
+keep,Main,2425.0,0.4,-381.05,6.77,-559.62,-84,False,0.08,"reassurance (long straight)","Route atlas direction guidance/Main teal / reassurance",StreetLoopGreybox-arrow-042
+keep,Main,2525.0,0.4,-480.64,7.07,-550.82,-86,False,0.07,"turn/fork ahead","Route atlas direction guidance/Main teal / reassurance",StreetLoopGreybox-arrow-043
+keep,Main,2579.0,0.4,-535.48,6.69,-550.21,-92,False,0.07,"fork/rejoin arrow","Route atlas direction guidance/Main teal / before Existing Southwest Cut fork",StreetLoopGreybox-arrow-003
+keep,Main,2625.0,0.4,-581.44,6.21,-551.64,-88,False,0.08,"fork/rejoin arrow","Route atlas direction guidance/Main teal / main at Existing Southwest Cut fork",StreetLoopGreybox-arrow-004
+keep,Main,2662.0,0.4,-613.58,5.97,-542.87,-9,False,-0.01,"turn/fork ahead","Route atlas direction guidance/Main teal / turn",StreetLoopGreybox-arrow-023
+keep,Main,2725.0,0.4,-618.95,6.29,-480.12,-2,False,0.08,"turn/fork ahead","Route atlas direction guidance/Main teal / reassurance",StreetLoopGreybox-arrow-044
+keep,Main,2779.0,0.3,-620.63,6.60,-426.02,-1,False,0.07,"fork/rejoin arrow","Route atlas direction guidance/Main teal / Existing Southwest Cut rejoin",StreetLoopGreybox-arrow-005
+REMOVE,Main,2825.0,0.4,-621.56,6.84,-380.16,-1,False,0.07,"repeated on straight (46 m after kept arrow)","Route atlas direction guidance/Main teal / reassurance",StreetLoopGreybox-arrow-045
+keep,Main,2925.0,0.4,-623.62,7.27,-280.18,-1,False,0.07,"turn/fork ahead","Route atlas direction guidance/Main teal / reassurance",StreetLoopGreybox-arrow-046
+keep,Main,3024.0,0.4,-625.16,7.63,-181.19,-1,False,0.07,"fork/rejoin arrow","Route atlas direction guidance/Main teal / Pine Ridge rejoin",StreetLoopGreybox-arrow-011
+REMOVE,Main,3125.0,0.4,-626.60,7.98,-80.21,-1,False,0.08,"repeated on straight (101 m after kept arrow)","Route atlas direction guidance/Main teal / reassurance",StreetLoopGreybox-arrow-047
+keep,Main,3225.0,0.4,-628.32,8.38,19.78,-1,False,0.08,"reassurance (long straight)","Route atlas direction guidance/Main teal / reassurance",StreetLoopGreybox-arrow-048
+REMOVE,Main,3325.0,0.4,-630.14,8.79,119.76,-1,False,0.07,"repeated on straight (100 m after kept arrow)","Route atlas direction guidance/Main teal / reassurance",StreetLoopGreybox-arrow-049
+keep,Main,3425.0,0.4,-631.52,9.10,219.75,-1,False,0.07,"reassurance (long straight)","Route atlas direction guidance/Main teal / reassurance",StreetLoopGreybox-arrow-050
+REMOVE,Main,3525.0,0.4,-633.09,9.20,319.74,-1,False,0.07,"repeated on straight (100 m after kept arrow)","Route atlas direction guidance/Main teal / reassurance",StreetLoopGreybox-arrow-051
+keep,Main,3625.0,0.4,-629.70,8.99,419.61,7,False,0.07,"reassurance (long straight)","Route atlas direction guidance/Main teal / reassurance",StreetLoopGreybox-arrow-052
+keep,Main,3737.0,0.4,-605.42,7.99,528.57,17,False,0.07,"turn/fork ahead","Route atlas direction guidance/Main teal / turn",StreetLoopGreybox-arrow-024
+REMOVE,Main,3825.0,0.4,-521.84,8.02,539.37,94,False,0.08,"repeated on straight (88 m after kept arrow)","Route atlas direction guidance/Main teal / reassurance",StreetLoopGreybox-arrow-053
+keep,Main,3925.0,0.4,-421.94,8.35,535.07,92,False,0.08,"reassurance (long straight)","Route atlas direction guidance/Main teal / reassurance",StreetLoopGreybox-arrow-054
+REMOVE,Main,4025.0,0.4,-322.01,8.96,531.45,92,False,0.07,"repeated on straight (100 m after kept arrow)","Route atlas direction guidance/Main teal / reassurance",StreetLoopGreybox-arrow-055
+keep,Main,4125.0,0.4,-222.04,8.92,529.45,91,False,0.07,"reassurance (long straight)","Route atlas direction guidance/Main teal / reassurance",StreetLoopGreybox-arrow-056
+REMOVE,Main,4225.0,0.4,-122.04,8.25,529.09,90,False,0.08,"repeated on straight (100 m after kept arrow)","Route atlas direction guidance/Main teal / reassurance",StreetLoopGreybox-arrow-057
+keep,Main,4325.0,0.4,-22.04,7.95,528.82,90,False,0.08,"reassurance (long straight)","Route atlas direction guidance/Main teal / reassurance",StreetLoopGreybox-arrow-058
+REMOVE,Main,4425.0,0.4,76.37,9.05,541.88,82,False,0.07,"repeated on straight (100 m after kept arrow)","Route atlas direction guidance/Main teal / reassurance",StreetLoopGreybox-arrow-059
+keep,Main,4525.0,0.4,175.99,9.02,550.19,83,False,0.02,"reassurance (long straight)","Route atlas direction guidance/Main teal / reassurance",StreetLoopGreybox-arrow-060
+keep,Main,4625.0,0.4,275.13,8.11,561.94,90,False,0.08,"turn/fork ahead","Route atlas direction guidance/Main teal / reassurance",StreetLoopGreybox-arrow-061
+keep,Main,4662.0,0.4,311.99,8.08,559.29,99,False,0.08,"turn/fork ahead","Route atlas direction guidance/Main teal / turn",StreetLoopGreybox-arrow-025
+keep,Pine Ridge,130.0,0.4,-295.62,24.53,-535.05,-48,True,0.07,"reassurance (long straight)","Route atlas direction guidance/Optional gold / Pine Ridge",StreetLoopGreybox-arrow-069
+REMOVE,Pine Ridge,260.0,0.4,-385.95,20.97,-441.61,-43,True,0.08,"repeated on straight (130 m after kept arrow)","Route atlas direction guidance/Optional gold / Pine Ridge",StreetLoopGreybox-arrow-070
+keep,Pine Ridge,390.0,0.4,-477.47,15.97,-349.38,-49,True,0.07,"reassurance (long straight)","Route atlas direction guidance/Optional gold / Pine Ridge",StreetLoopGreybox-arrow-071
+keep,Pine Ridge,520.0,0.4,-581.38,10.89,-271.35,-54,True,0.06,"turn/fork ahead","Route atlas direction guidance/Optional gold / Pine Ridge",StreetLoopGreybox-arrow-072
+keep,Pine Ridge,586.0,0.1,-628.32,7.47,-226.55,-5,True,0.07,"turn/fork ahead","Route atlas direction guidance/Optional gold / Pine Ridge",StreetLoopGreybox-arrow-068

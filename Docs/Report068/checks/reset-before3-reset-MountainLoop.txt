@@ -1,0 +1,5 @@
+off-track landing at (690.00, 87.00, 75.00) after the run-up to s 2190: before (689.8, 67.7, 74.9) s=2523.0 lat=28.7 -> after (724.1, 81.0, -10.5) s=2631.5 lat=0.6; along=108.5 m; distance=93.0 m; restored=True in 0.83s; waitingShown=False; last='Recovered to clear earned course support'; up=1.00; facing=1.00; diag=earnedBefore=0.00; route=main; selected=2631.55; age=0.00s; backward=0.00m; displacement=97.37m; rejected=0; reasons=
+   after reset: held 2 s, drop 0.09 m, wheels 4, pos (725.0, 80.9, -10.6)
+drop from (760.00, 177.00, 82.00) v=(-29.00, -5.00, -8.00): first ground contact (649.4, 78.5, 50.8); lowest y 78.5; now (641.5, 78.7, 49.3); fell through world=False; last='Recovered to clear earned course support'
+drop from (740.00, 170.00, 80.00) v=(-30.00, -20.00, -9.00): first ground contact (658.3, 78.2, 55.3); lowest y 78.0; now (650.2, 78.5, 51.7); fell through world=False; last='Recovered to clear earned course support'
+drop from (760.00, 177.00, 82.00) v=(-29.00, -5.00, -8.00): first ground contact (649.8, 78.4, 50.8); lowest y 78.4; now (649.8, 78.6, 50.9); fell through world=False; last='Recovered to clear earned course support'

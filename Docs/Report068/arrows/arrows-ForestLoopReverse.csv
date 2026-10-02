@@ -1,0 +1,36 @@
+action,route,station,lateral,x,y,z,heading,gold,surfaceGap,reason,object,mesh
+keep,Fern Gully,43.0,0.4,171.00,40.64,-149.82,-22,True,0.08,"reassurance (long straight)","Route atlas direction guidance/Optional gold / Fern Gully",ForestLoopReverse-arrow-025
+REMOVE,Fern Gully,130.0,0.4,129.94,36.87,-73.32,-32,True,0.08,"repeated on straight (87 m after kept arrow)","Route atlas direction guidance/Optional gold / Fern Gully",ForestLoopReverse-arrow-027
+keep,Fern Gully,260.0,0.4,56.33,32.47,33.76,-37,True,0.08,"reassurance (long straight)","Route atlas direction guidance/Optional gold / Fern Gully",ForestLoopReverse-arrow-028
+keep,Fern Gully,390.0,0.4,-8.96,29.81,145.38,-15,True,0.07,"turn/fork ahead","Route atlas direction guidance/Optional gold / Fern Gully",ForestLoopReverse-arrow-029
+keep,Fern Gully,484.0,0.2,16.65,32.56,232.20,49,True,0.07,"turn/fork ahead","Route atlas direction guidance/Optional gold / Fern Gully",ForestLoopReverse-arrow-026
+keep,Main,37.0,0.4,570.64,82.37,-76.16,162,False,0.06,"turn/fork ahead","Route atlas direction guidance/Main teal / turn",ForestLoopReverse-arrow-006
+keep,Main,87.0,0.4,601.42,79.64,-114.45,142,False,0.06,"turn/fork ahead","Route atlas direction guidance/Main teal / turn",ForestLoopReverse-arrow-007
+keep,Main,110.0,0.4,608.35,77.33,-135.61,-173,False,0.07,"turn/fork ahead","Route atlas direction guidance/Main teal / Granite Saddle main",ForestLoopReverse-arrow-003
+keep,Main,150.0,0.4,599.16,61.65,-170.39,-166,False,0.08,"turn/fork ahead","Route atlas direction guidance/Main teal / Granite Saddle main",ForestLoopReverse-arrow-004
+keep,Main,185.0,0.4,578.77,46.51,-193.85,-129,False,0.05,"turn/fork ahead","Route atlas direction guidance/Main teal / Granite Saddle main",ForestLoopReverse-arrow-005
+keep,Main,212.0,0.4,556.02,42.33,-206.61,-106,False,0.05,"turn/fork ahead","Route atlas direction guidance/Main teal / turn",ForestLoopReverse-arrow-008
+REMOVE,Main,325.0,0.4,447.23,68.02,-199.21,-85,False,0.09,"repeated on straight (113 m after kept arrow)","Route atlas direction guidance/Main teal / reassurance",ramp-arrow-0
+keep,Main,541.0,0.1,266.53,46.45,-196.22,-80,False,0.07,"turn/fork ahead","Route atlas direction guidance/Main teal / reassurance",ForestLoopReverse-arrow-012
+keep,Main,586.0,0.1,222.89,45.58,-185.74,-73,False,0.08,"fork/rejoin arrow","Route atlas direction guidance/Main teal / before Fern Gully fork",ForestLoopReverse-arrow-000
+keep,Main,632.0,0.1,180.83,42.24,-167.73,-72,False,0.07,"fork/rejoin arrow","Route atlas direction guidance/Main teal / main at Fern Gully fork",ForestLoopReverse-arrow-001
+REMOVE,Main,741.0,0.1,77.84,30.98,-144.48,-77,False,0.08,"repeated on straight (109 m after kept arrow)","Route atlas direction guidance/Main teal / reassurance",ForestLoopReverse-arrow-013
+keep,Main,841.0,0.1,-20.57,25.94,-127.76,-77,False,0.07,"turn/fork ahead","Route atlas direction guidance/Main teal / reassurance",ForestLoopReverse-arrow-014
+REMOVE,Main,941.0,0.1,-100.25,21.00,-72.56,-33,False,0.08,"repeated on straight (100 m after kept arrow)","Route atlas direction guidance/Main teal / reassurance",ForestLoopReverse-arrow-015
+keep,Main,1041.0,0.1,-125.49,16.61,19.51,2,False,0.08,"reassurance (long straight)","Route atlas direction guidance/Main teal / reassurance",ForestLoopReverse-arrow-016
+REMOVE,Main,1141.0,0.1,-102.47,20.71,115.99,26,False,0.09,"repeated on straight (100 m after kept arrow)","Route atlas direction guidance/Main teal / reassurance",ForestLoopReverse-arrow-017
+keep,Main,1241.0,0.1,-38.32,27.30,191.21,52,False,0.07,"reassurance (long straight)","Route atlas direction guidance/Main teal / reassurance",ForestLoopReverse-arrow-018
+keep,Main,1355.0,0.3,57.80,37.23,251.50,64,False,0.08,"fork/rejoin arrow","Route atlas direction guidance/Main teal / Fern Gully rejoin",ForestLoopReverse-arrow-002
+REMOVE,Main,1441.0,0.1,134.52,43.03,281.21,74,False,0.07,"repeated on straight (86 m after kept arrow)","Route atlas direction guidance/Main teal / reassurance",ForestLoopReverse-arrow-019
+keep,Main,1541.0,0.1,232.48,54.33,294.86,94,False,0.06,"reassurance (long straight)","Route atlas direction guidance/Main teal / reassurance",ForestLoopReverse-arrow-020
+REMOVE,Main,1641.0,0.1,320.23,78.72,258.80,121,False,0.07,"repeated on straight (100 m after kept arrow)","Route atlas direction guidance/Main teal / reassurance",ForestLoopReverse-arrow-021
+keep,Main,1741.0,0.1,405.91,74.38,213.70,118,False,0.08,"reassurance (long straight)","Route atlas direction guidance/Main teal / reassurance",ForestLoopReverse-arrow-022
+keep,Main,1841.0,0.1,492.25,78.85,163.49,121,False,0.07,"turn/fork ahead","Route atlas direction guidance/Main teal / reassurance",ForestLoopReverse-arrow-023
+keep,Main,1928.0,0.1,557.34,81.37,107.55,155,False,0.07,"turn/fork ahead","Route atlas direction guidance/Main teal / turn",ForestLoopReverse-arrow-009
+keep,Main,2041.0,0.1,566.36,82.13,-4.35,-178,False,0.07,"turn/fork ahead","Route atlas direction guidance/Main teal / reassurance",ForestLoopReverse-arrow-024
+keep,McFadden Cut,63.0,0.4,569.18,37.90,-215.64,-141,True,0.09,"reassurance (long straight)","House 3 Detour optional visual guidance/Optional gold / House 3 Detour",detour-arrow-0
+REMOVE,McFadden Cut,110.0,0.4,534.70,32.43,-247.25,-123,True,0.11,"repeated on straight (47 m after kept arrow)","House 3 Detour optional visual guidance/Optional gold / House 3 Detour",detour-arrow-1
+keep,McFadden Cut,190.0,0.4,462.08,55.26,-280.23,-107,True,0.06,"turn/fork ahead","House 3 Detour optional visual guidance/Optional gold / House 3 Detour",detour-arrow-2
+REMOVE,McFadden Cut,270.0,0.4,383.52,53.52,-286.25,-72,True,0.06,"repeated on straight (80 m after kept arrow)","House 3 Detour optional visual guidance/Optional gold / House 3 Detour",detour-arrow-3
+keep,McFadden Cut,350.0,0.4,313.96,45.98,-247.22,-60,True,0.27,"reassurance (long straight)","House 3 Detour optional visual guidance/Optional gold / House 3 Detour",detour-arrow-4
+keep,McFadden Cut,458.0,0.3,223.39,45.64,-187.19,-59,True,0.07,"turn/fork ahead","House 3 Detour optional visual guidance/Optional gold / House 3 Detour",detour-arrow-5

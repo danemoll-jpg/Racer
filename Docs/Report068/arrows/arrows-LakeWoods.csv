@@ -1,0 +1,28 @@
+action,route,station,lateral,x,y,z,heading,gold,surfaceGap,reason,object,mesh
+keep,Echo Cave,70.0,0.4,149.85,47.06,259.81,-143,True,0.07,"reassurance (long straight)","Route atlas direction guidance/Optional gold / Echo Cave",LakeWoods-arrow-024
+REMOVE,Echo Cave,130.0,0.4,116.82,43.25,209.75,-149,True,0.07,"repeated on straight (60 m after kept arrow)","Route atlas direction guidance/Optional gold / Echo Cave",LakeWoods-arrow-025
+keep,Echo Cave,260.0,0.2,61.32,35.22,92.43,-152,True,0.07,"reassurance (long straight)","Route atlas direction guidance/Optional gold / Echo Cave",LakeWoods-arrow-026
+keep,Main,25.0,0.4,565.98,82.10,-15.44,2,False,0.06,"reassurance (long straight)","Route atlas direction guidance/Main teal / reassurance",LakeWoods-arrow-006
+keep,Main,137.0,0.4,561.53,81.61,96.22,-16,False,0.07,"turn/fork ahead","Route atlas direction guidance/Main teal / turn",LakeWoods-arrow-003
+REMOVE,Main,225.0,0.4,501.71,79.24,157.71,-58,False,0.07,"repeated on straight (88 m after kept arrow)","Route atlas direction guidance/Main teal / reassurance",LakeWoods-arrow-007
+keep,Main,325.0,0.4,415.68,74.60,208.44,-61,False,0.07,"reassurance (long straight)","Route atlas direction guidance/Main teal / reassurance",LakeWoods-arrow-008
+REMOVE,Main,425.0,0.4,330.99,80.59,252.33,-60,False,0.07,"repeated on straight (100 m after kept arrow)","Route atlas direction guidance/Main teal / reassurance",LakeWoods-arrow-009
+keep,Main,541.0,0.4,229.59,54.02,295.02,-88,False,0.06,"fork/rejoin arrow","Route atlas direction guidance/Main teal / before Echo Cave fork",LakeWoods-arrow-000
+keep,Main,587.0,0.4,184.00,49.19,292.14,-99,False,0.08,"fork/rejoin arrow","Route atlas direction guidance/Main teal / main at Echo Cave fork",LakeWoods-arrow-001
+REMOVE,Main,625.0,0.4,146.94,45.80,284.58,-104,False,0.09,"repeated on straight (38 m after kept arrow)","Route atlas direction guidance/Main teal / reassurance",LakeWoods-arrow-010
+REMOVE,Main,725.0,0.4,59.65,34.31,252.41,-116,False,0.07,"repeated on straight (138 m after kept arrow)","Route atlas direction guidance/Main teal / reassurance",LakeWoods-arrow-011
+keep,Main,825.0,0.4,-25.66,28.47,200.90,-127,False,0.07,"reassurance (long straight)","Route atlas direction guidance/Main teal / reassurance",LakeWoods-arrow-012
+REMOVE,Main,925.0,0.4,-94.95,23.24,130.02,-150,False,0.08,"repeated on straight (100 m after kept arrow)","Route atlas direction guidance/Main teal / reassurance",LakeWoods-arrow-013
+keep,Main,1025.0,0.4,-124.18,20.16,38.91,-174,False,0.07,"reassurance (long straight)","Route atlas direction guidance/Main teal / reassurance",LakeWoods-arrow-014
+keep,Main,1125.0,0.4,-110.19,19.08,-54.71,155,False,0.06,"turn/fork ahead","Route atlas direction guidance/Main teal / reassurance",LakeWoods-arrow-015
+keep,Main,1225.0,0.4,-40.27,24.62,-122.15,109,False,0.04,"turn/fork ahead","Route atlas direction guidance/Main teal / reassurance",LakeWoods-arrow-016
+keep,Main,1274.0,0.4,7.33,27.81,-133.08,99,False,0.07,"fork/rejoin arrow","Route atlas direction guidance/Main teal / Echo Cave rejoin",LakeWoods-arrow-002
+REMOVE,Main,1325.0,0.4,57.65,31.36,-140.55,99,False,0.07,"repeated on straight (51 m after kept arrow)","Route atlas direction guidance/Main teal / reassurance",LakeWoods-arrow-017
+keep,Main,1425.0,0.4,148.62,36.30,-159.18,102,False,0.07,"reassurance (long straight)","Route atlas direction guidance/Main teal / reassurance",LakeWoods-arrow-018
+REMOVE,Main,1525.0,0.4,239.48,46.57,-197.43,124,False,0.07,"repeated on straight (100 m after kept arrow)","Route atlas direction guidance/Main teal / reassurance",LakeWoods-arrow-019
+keep,Main,1625.0,0.4,318.47,45.50,-249.86,121,False,0.07,"turn/fork ahead","Route atlas direction guidance/Main teal / reassurance",LakeWoods-arrow-020
+REMOVE,Main,1725.0,0.4,407.87,54.93,-290.02,90,False,0.06,"repeated on straight (100 m after kept arrow)","Route atlas direction guidance/Main teal / reassurance",LakeWoods-arrow-021
+keep,Main,1825.0,0.4,501.57,41.60,-265.18,65,False,0.07,"reassurance (long straight)","Route atlas direction guidance/Main teal / reassurance",LakeWoods-arrow-022
+keep,Main,1925.0,0.4,576.90,42.05,-205.24,35,False,0.09,"turn/fork ahead","Route atlas direction guidance/Main teal / reassurance",LakeWoods-arrow-023
+keep,Main,2012.0,0.4,608.47,77.52,-133.89,2,False,0.07,"turn/fork ahead","Route atlas direction guidance/Main teal / turn",LakeWoods-arrow-004
+keep,Main,2062.0,0.4,580.87,81.48,-94.49,-44,False,0.06,"turn/fork ahead","Route atlas direction guidance/Main teal / turn",LakeWoods-arrow-005

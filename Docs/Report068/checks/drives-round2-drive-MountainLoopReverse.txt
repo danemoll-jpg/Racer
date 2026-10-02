@@ -1,0 +1,6 @@
+moto-throttle-800-1300-0: complete=True best=1300.3 resets=0 recov=0 maxAir=7.16 minUp=0.76 airMaxRoll=0.7
+atv-throttle-800-1300-0: complete=True best=1300.3 resets=0 recov=0 maxAir=6.64 minUp=0.76 airMaxRoll=0.1
+moto-AI-800-1300-0: complete=False best=1180.9 resets=1 recov=1 maxAir=5.80 minUp=0.27 airMaxRoll=73.8
+moto-throttle-2900-3010-0: complete=True best=3019.6 resets=0 recov=0 maxAir=1.96 minUp=-0.62 airMaxRoll=178.2
+moto-AI-2900-3010-0: complete=True best=3010.1 resets=0 recov=0 maxAir=0.20 minUp=0.98 airMaxRoll=1.4
+atv-throttle-2900-3010-0: complete=False best=2985.0 resets=0 recov=0 maxAir=1.28 minUp=0.04 airMaxRoll=87.0

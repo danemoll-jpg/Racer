@@ -1,0 +1,4 @@
+moto-AI-2100-2650-0: complete=False best=2315.9 resets=1 recov=1 maxAir=4.42 minUp=0.36 airMaxRoll=8.0
+atv-AI-2100-2650-0: complete=False best=2317.4 resets=1 recov=1 maxAir=4.38 minUp=0.69 airMaxRoll=2.2
+moto-throttle-Climbing_Ridge_Cut: complete=True best=298.6/298.6 resets=0 maxAir=4.48 minUp=0.93 airMaxRoll=14.7
+atv-throttle-Climbing_Ridge_Cut: complete=True best=298.6/298.6 resets=0 maxAir=4.16 minUp=0.32 airMaxRoll=70.8

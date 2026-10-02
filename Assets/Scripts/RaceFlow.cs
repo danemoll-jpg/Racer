@@ -296,7 +296,7 @@ namespace Racer
         {
             callers.Clear();menus.ResetPages();
             if(State!=Stage.Paused && State!=Stage.Results && State!=Stage.Settings) return;
-            PrepareRestart(); Race.AbandonEvent(); respawn.CancelRecovery(); LockVehicle(true);
+            PrepareRestart(); Race.AbandonEvent(); respawn.CancelRecovery(); respawn.PlaceOnNearestGround(); LockVehicle(true);
             RacePlaylists.Quit();Race.laps=Save.Settings.laps==0&&!Race.opponents?0:Mathf.Clamp(Save.Settings.laps,1,5);
             Race.FreeRoam=false;SetGateVisibility(true);
             NewLapRecord=NewRaceRecord=false; Save.SaveSettings(); SetStage(Stage.Ready);

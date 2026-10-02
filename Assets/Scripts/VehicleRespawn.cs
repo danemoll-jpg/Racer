@@ -37,14 +37,18 @@ namespace Racer
         {
             if(!race) race=FindAnyObjectByType<RaceDirector>();
             if(race && race.Flow.State!=RaceFlow.Stage.Racing) return;
+            // 0.68 failsafe (all scenes, player and AI): a vehicle that drops below the
+            // world is placed back on the nearest course point at once, never left falling.
+            if(transform.position.y<fallResetHeight){if(Time.time>=nextFailsafe){nextFailsafe=Time.time+.25f;RecoverNearest(true);}return;}
+            lastAbove=vehicle.Body.position;haveAbove=true;
             if(!Pending)RecordSafePosition();
             // AI owns its retry/cooldown bookkeeping. A second automatic respawn
             // here could otherwise move it without clearing its stuck counters.
             if(TryGetComponent<RoadDriver>(out var driver)&&driver.enabled)return;
             if(input.enabled && input.ConsumeReset()) ResetVehicle();
             else if(Pending && Time.time>=nextAttempt) TryRecoverLocal();
-            else if(!Pending && transform.position.y<fallResetHeight) ResetVehicle();
         }
+        float nextFailsafe,aiFailingSince=-1;Vector3 lastAbove;bool haveAbove;
         float safeStation,safeSide,trackingStation;
         bool tracking;
         WoodlandRoute trackingBranch;
@@ -201,7 +205,10 @@ namespace Racer
         {
             Pending=false;history.Clear();nextHistory=nextAttempt=0;anchored=false;tracking=false;safeBranch=null;roamValid=false;stableSince=-1;untrackedTravel=stableTravel=0;
             roamHistory.Clear();awaitingLanding=false;
-            Place(spawnPoint?spawnPoint.position:initialPosition,spawnPoint?Quaternion.Euler(0,spawnPoint.eulerAngles.y,0):initialRotation);
+            var p=spawnPoint?spawnPoint.position:initialPosition;var r=spawnPoint?Quaternion.Euler(0,spawnPoint.eulerAngles.y,0):initialRotation;
+            // BUG-009: seat the start on its supporting surface (a spawn marker below the pavement fell through the world).
+            if(Supported(p,r*Vector3.forward,out var seated,out _))p=seated;
+            Place(p,r);
         }
         public void CancelRecovery(){Pending=false;history.Clear();roamHistory.Clear();awaitingLanding=false;anchored=false;tracking=false;safeBranch=null;roamValid=false;stableSince=-1;untrackedTravel=stableTravel=0;}
         public bool TryFastTravel(Vector3 candidate,Quaternion facing)
@@ -222,7 +229,10 @@ namespace Racer
             if(!race)race=FindAnyObjectByType<RaceDirector>();
             if(!race || !race.road)return false;
             MeasureClearance();
-            if(race.FreeRoam&&roamValid)return RecoverRoaming();
+            // Free Roam keeps its recent-road behaviour, but can no longer wait forever.
+            if(race.FreeRoam)return roamValid&&RecoverRoaming()||RecoverNearest(false);
+            // 0.68 player rule (Dan): the nearest usable track point, facing the race direction.
+            if(PlayerRecovery)return RecoverNearest(false);
             var state=race.Racers.FirstOrDefault(r=>r.Car==vehicle);
             var branch=anchored?safeBranch:null;
             var from=vehicle.Body.position;
@@ -263,7 +273,7 @@ namespace Racer
                     if(!Supported(candidate,forward,out var position,out var rotation)){reason="unsupported footprint";continue;}
                     if(!Clear(position,rotation)){reason="obstacle or vehicle clearance";continue;}
                     if(Mathf.Abs(position.y-point.y)>5){reason="support outside route height";continue;}
-                    Place(position,rotation);Pending=false;
+                    Place(position,rotation);Pending=false;aiFailingSince=-1;
                     lastRecoveryAt=Time.time;if(preferRoad)recoveryEscalation++;
                     safeStation=s;safeSide=side;safeBranch=branch;observed=position;anchored=true;trackingStation=s;trackingBranch=branch;tracking=true;
                     stableSince=-1;
@@ -276,7 +286,135 @@ namespace Racer
                 }
                 rejected.Add($"{s:F2}: {reason}");
             }
+            // AI selection is unchanged; after 3 s of rejected earned samples it takes the
+            // same guaranteed nearest-point placement as the player instead of waiting forever.
+            if(aiFailingSince<0)aiFailingSince=Time.time;
+            if(Time.time-aiFailingSince>=3)return RecoverNearest(false);
             Pending=true;nextAttempt=Time.time+.5f;LastRecovery="Waiting for clear course support";return false;
+        }
+        // ---------- 0.68 nearest-point recovery (PROJECT_TODO 0.68 Part A) ----------
+        // Target = nearest route point to the vehicle on the route it is racing (main, or its branch),
+        // searched around tracked progress so a multi-level mountain cannot snap to an unrelated part of
+        // the lap. Unusable spots step outward 2 m at a time in both directions (forward first on a tie);
+        // stepping backward never crosses a ramp/flight exclusion it reached from outside, so a missed
+        // jump restores at/after its landing, not before the ramp. Always ends with a placement.
+        sealed class Track
+        {
+            public RaceRoad road;public WoodlandRoute branch;public bool loop;public float length;
+            public Vector3 At(float s,out Vector3 f)=>branch?branch.At(s,out f):road.At(s,out f);
+            public float Width(float s)=>branch?branch.halfWidth:road.HalfWidth(s);
+        }
+        Track MainTrack(RaceRoad road){road.Initialize();return new Track{road=road,loop=!road.openHighway,length=road.Length};}
+        static Track BranchTrack(WoodlandRoute b)=>new(){branch=b,loop=false,length=b.Length};
+        static float Cost(Vector3 a,Vector3 b){var d=a-b;float dy=Mathf.Min(Mathf.Abs(d.y),40);return Mathf.Sqrt(d.x*d.x+d.z*d.z+dy*dy);}
+        float Nearest(Track t,Vector3 from,float centre,float window)
+        {
+            float best=float.MaxValue,result=centre;
+            for(float o=-window;o<=window;o+=1){float s=centre+o;if(!t.loop&&(s<0||s>t.length))continue;float c=Cost(t.At(s,out _),from);if(c<best){best=c;result=s;}}
+            for(float o=-1;o<=1;o+=.1f){float s=result+o;if(!t.loop&&(s<0||s>t.length))continue;float c=Cost(t.At(s,out _),from);if(c<best){best=c;result=s;}}
+            return t.loop?Mathf.Repeat(result,t.length):result;
+        }
+        bool RecoverNearest(bool fell)
+        {
+            if(!race)race=FindAnyObjectByType<RaceDirector>();
+            MeasureClearance();
+            var from=fell||vehicle.Body.position.y<fallResetHeight?(haveAbove?lastAbove:(spawnPoint?spawnPoint.position:initialPosition)):vehicle.Body.position;
+            if(!race||!race.road)return PlaceStart(from,"no course");
+            var state=race.FreeRoam?null:race.Racers.FirstOrDefault(r=>r.Car==vehicle);
+            var tracks=new List<(Track t,float s0,float lo,float hi,float facing)>();
+            if(race.FreeRoam)
+            {
+                // Nearest of every drivable road/trail in the scene; the current roaming direction is kept.
+                var options=new List<(Track t,float s0,float cost)>();
+                void Add(Track t){if(t==null||t.length<=0)return;float s=t.branch?t.branch.Project(from,out _):t.road.Project(from,out _);s=Nearest(t,from,s,25);options.Add((t,s,Cost(t.At(s,out _),from)));}
+                Add(MainTrack(race.road));if(race.ambientRoad)Add(MainTrack(race.ambientRoad));
+                var exploration=race.GetComponent<ExplorationCollection>();if(exploration)foreach(var r in exploration.routes)if(r)Add(MainTrack(r));
+                foreach(var b in race.Branches??Array.Empty<WoodlandRoute>())if(b&&b.gameObject.activeInHierarchy)Add(BranchTrack(b));
+                foreach(var o in options.OrderBy(o=>o.cost)){bool same=o.t.branch?o.t.branch==roamBranch:o.t.road==roamRoad;tracks.Add((o.t,o.s0,0,o.t.length,same?roamDirection:1));}
+            }
+            else
+            {
+                var branch=state?.Branch.Route;
+                if(branch)tracks.Add((BranchTrack(branch),Nearest(BranchTrack(branch),from,branch.Project(from,out _),branch.Length),0,branch.Length,1));
+                var main=MainTrack(race.road);
+                float window=tracking&&!trackingBranch?Mathf.Clamp(Mathf.Max(75,untrackedTravel*1.5f+15),75,main.length*.5f):main.length*.5f;
+                float centre=tracking&&!trackingBranch?trackingStation:race.road.Project(from,out _);
+                float s0=Nearest(main,from,centre,window);
+                // A reset never crosses START/FINISH: it must not award or undo a lap.
+                float rel=race.road.Relative(s0,race.Origin);
+                tracks.Add((main,s0,s0-rel+.5f,s0+(main.length-rel)-.5f,1));
+            }
+            foreach(var (t,s0,lo,hi,facing) in tracks)if(SearchTrack(t,s0,lo,hi,facing,from,state))return true;
+            return PlaceStart(from,"no usable station on the current route");
+        }
+        bool SearchTrack(Track t,float s0,float lo,float hi,float facing,Vector3 from,RacerState state)
+        {
+            const float step=2;
+            bool Excluded(float s)=>!race.FreeRoam&&UnsafeJump(t.At(s,out _));
+            bool backBlocked=false,backOutside=!Excluded(s0);
+            float reach=Mathf.Max(hi-s0,s0-lo);
+            for(int k=0;k*step<=reach;k++)
+            {
+                float sf=s0+k*step;
+                if(sf<=hi&&!Excluded(sf)&&PlaceAt(t,sf,facing,from,state,s0))return true;
+                if(k==0||backBlocked)continue;
+                float sb=s0-k*step;if(sb<lo){backBlocked=true;continue;}
+                bool excluded=Excluded(sb);
+                if(excluded){if(backOutside)backBlocked=true;continue;}
+                backOutside=true;
+                if(PlaceAt(t,sb,facing,from,state,s0))return true;
+            }
+            return false;
+        }
+        bool PlaceAt(Track t,float s,float facing,Vector3 from,RacerState state,float s0)
+        {
+            if(t.loop)s=Mathf.Repeat(s,t.length);
+            var point=t.At(s,out var f);var forward=Vector3.ProjectOnPlane(f*facing,Vector3.up).normalized;if(forward.sqrMagnitude<.01f)return false;
+            var right=Vector3.Cross(Vector3.up,forward);
+            float sideLimit=Mathf.Max(0,t.Width(s)-clearance.size.x*.5f-.5f),near=Mathf.Min(1.7f,sideLimit);
+            float own=Vector3.Dot(from-point,right);
+            var sides=new[]{Mathf.Clamp(own,-near,near),0f,Mathf.Clamp(own,-sideLimit,sideLimit),near,-near,sideLimit,-sideLimit};
+            for(int i=0;i<sides.Length;i++)
+            {
+                float side=sides[i];if(Array.IndexOf(sides,side)<i)continue;
+                var candidate=point+right*side;
+                if(!race.FreeRoam&&UnsafeJump(candidate))continue;
+                if(!Supported(candidate,forward,out var position,out var rotation))continue;
+                if(!Clear(position,rotation))continue;
+                if(Mathf.Abs(position.y-point.y)>5)continue;
+                Place(position,rotation);Pending=false;aiFailingSince=-1;lastRecoveryAt=Time.time;
+                history.Clear();awaitingLanding=false;stableSince=-1;untrackedTravel=0;
+                if(race.FreeRoam){roamRoad=t.road;roamBranch=t.branch;roamStation=s;roamDirection=facing;roamValid=true;roamHistory.Clear();RecordRoaming();}
+                else
+                {
+                    safeStation=s;safeSide=side;safeBranch=t.branch;observed=position;anchored=true;trackingStation=s;trackingBranch=t.branch;tracking=true;
+                    if(state!=null&&state.Branch.Route!=t.branch){state.Branch.Clear();if(t.branch)state.Branch.Begin(t.branch);}
+                    state?.Branch.Recovered(position);state?.SampleOrigin(race.Clock);
+                }
+                float moved=t.loop?Mathf.Repeat(s-s0+t.length*.5f,t.length)-t.length*.5f:s-s0;
+                RecoveryDiagnostic=$"route={(t.branch?t.branch.title:t.road==race.road?"main":t.road.name)}; nearest={s0:F2}; selected={s:F2}; along={moved:F2}m; from={from:F2}; to={position:F2}; displacement={Vector3.Distance(from,position):F2}m";
+                LastRecovery="Recovered to nearest course point";Respawned?.Invoke();return true;
+            }
+            return false;
+        }
+        // Last resort: the start position (always succeeds; checkpoints are not changed).
+        bool PlaceStart(Vector3 from,string why)
+        {
+            var p=spawnPoint?spawnPoint.position:initialPosition;var r=spawnPoint?Quaternion.Euler(0,spawnPoint.eulerAngles.y,0):initialRotation;
+            Place(p,r);Pending=false;aiFailingSince=-1;history.Clear();awaitingLanding=false;stableSince=-1;anchored=false;tracking=false;roamValid=false;
+            if(race&&!race.FreeRoam){var state=race.Racers.FirstOrDefault(x=>x.Car==vehicle);state?.Branch.Clear();state?.SampleOrigin(race.Clock);}
+            RecoveryDiagnostic=$"start position ({why}); from={from:F2}";LastRecovery="Recovered to start position";Respawned?.Invoke();return true;
+        }
+        // Leaving a race (BUG-009): the stopped vehicle is set on the nearest validated, clear course
+        // support before it is locked, so it can never be left over a hole or inside geometry.
+        public void PlaceOnNearestGround()
+        {
+            if(!race)race=FindAnyObjectByType<RaceDirector>();
+            if(!race||!race.road||!vehicle||!box)return;
+            MeasureClearance();
+            var p=vehicle.Body.position;var f=Vector3.ProjectOnPlane(transform.forward,Vector3.up);
+            if(p.y>=fallResetHeight&&vehicle.GroundedWheels>=2&&f.sqrMagnitude>.01f&&Supported(p,f.normalized,out var at,out var rot)&&Mathf.Abs(at.y-p.y)<1.2f&&Clear(at,rot))return;
+            RecoverNearest(false);
         }
         void RecordRoaming()
         {

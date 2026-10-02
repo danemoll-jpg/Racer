@@ -1,0 +1,68 @@
+# Chronological authoring log for 0.68 (each SCENE block is one run; later runs supersede earlier lines for the same item).
+SCENE MountainLoop
+BUG-003 sheets MountainLoop: 0 0.67 shoulder vertices that lay on top of the pavement tucked 1.2 m under it; 20 m cells: 
+BUG-007 seams MountainLoop: 538 of 6488 0.67 seam-cover triangles lay over a hole (void 353, deep 185); they now have a matching collider (Ground_Report068 seam support, collider only; the 0.67 cover still draws it)
+BUG-009: start marker 'Fixed roadside respawn - north entrance' was 1.49 m BELOW the pavement (Ground_CR133 mountain driving surface at 80.45) with no ground under it; raised to 0.7 m above it (78.96 -> 81.15); scene vehicle moved with it
+Part C: Homeward Summit Flight landing widened to 9 m each side along the descent s 2318-2482 (0+0 stations) and a 15 m runout outside the s 2474-2545 bend (69 stations); 543 tris, collidable earth (Ground_Report068 landing zone); approach/ramp/lip/deck unchanged
+Part C: signs/posts raised 0; tree bases inside the new surface 0
+Part E MountainLoop Homeward Summit Flight bend: earth berm on the right (outside) of Main s 2476-2545: 70 stations, 573 tris, 1.5 m above the pavement edge
+Part E Homeward Summit Flight bend: signs/posts raised 0; tree bases inside the new surface 0
+Part E MountainLoop High Ridge Drop / Summit Traverse entry: earth berm on the right (outside) of Summit Traverse s 8-60: 52 stations, 748 tris, 1.5 m above the pavement edge
+Part E High Ridge Drop / Summit Traverse entry: tree trunk 'CR081 mountain exploration/Mountain woods 3 4/Mountain trunk' base now 2.29 m inside the new surface (tree stands on it)
+Part E High Ridge Drop / Summit Traverse entry: tree trunk 'World cleanup additional woodland/Roadside woodland trunk' base now 2.11 m inside the new surface (tree stands on it)
+Part E High Ridge Drop / Summit Traverse entry: signs/posts raised 0; tree bases inside the new surface 2
+SCENE MountainLoopReverse
+BUG-003 sheets MountainLoopReverse: 69 0.67 shoulder vertices that lay on top of the pavement tucked 1.2 m under it; 20 m cells: 800,-180(69)
+BUG-007 seams MountainLoopReverse: 2142 of 11756 0.67 seam-cover triangles lay over a hole (void 1515, deep 627); they now have a matching collider (Ground_Report068 seam support, collider only; the 0.67 cover still draws it)
+BUG-004: removed sign 'OLD CUT CLOSED/MAIN ROUTE >>>' with post at (798.00, 96.41, -145.00)
+BUG-005: 23 pavement vertices (Assets/Track/ReportCleanup/reverse-branch-join.asset) blended across z -117.5..-112.5, x 739..757; max change 0.44 m (profile before/after in bug005-crease.txt)
+BUG-005: arrow 'Route atlas direction guidance/Main teal / turn' reseated flat on the pavement (max vertex correction 0.19 m)
+SCENE MountainLoop
+BUG-003 sheets MountainLoop: 0 0.67 shoulder vertices that lay on top of the pavement tucked 1.2 m under it; 20 m cells: 
+BUG-007 seams MountainLoop: 538 of 6488 0.67 seam-cover triangles lay over a hole (void 353, deep 185); they now have a matching collider (Ground_Report068 seam support, collider only; the 0.67 cover still draws it)
+spawn already seated
+Part C: Homeward Summit Flight landing widened to 9 m each side along the descent s 2318-2482 (0+0 stations) and a 15 m runout outside the s 2474-2545 bend (69 stations); 543 tris, collidable earth (Ground_Report068 landing zone); approach/ramp/lip/deck unchanged
+Part C: signs/posts raised 0; tree bases inside the new surface 0
+Part E MountainLoop Homeward Summit Flight bend: earth berm on the right (outside) of Main s 2476-2545: 70 stations, 573 tris, 1.5 m above the pavement edge
+Part E Homeward Summit Flight bend: signs/posts raised 0; tree bases inside the new surface 0
+Part E MountainLoop High Ridge Drop / Summit Traverse entry: earth berm on the right (outside) of Summit Traverse s 8-60: 52 stations, 748 tris, 1.5 m above the pavement edge
+Part E High Ridge Drop / Summit Traverse entry: tree trunk 'World cleanup additional woodland/Roadside woodland trunk' base now 2.11 m inside the new surface (tree stands on it)
+Part E High Ridge Drop / Summit Traverse entry: tree trunk 'CR081 mountain exploration/Mountain woods 3 4/Mountain trunk' base now 2.29 m inside the new surface (tree stands on it)
+Part E High Ridge Drop / Summit Traverse entry: signs/posts raised 0; tree bases inside the new surface 2
+SCENE MountainLoopReverse
+BUG-003 sheets MountainLoopReverse: 0 0.67 shoulder vertices that lay on top of the pavement tucked 1.2 m under it; 20 m cells: 
+BUG-007 seams MountainLoopReverse: 2050 of 11756 0.67 seam-cover triangles lay over a hole (void 1423, deep 627); they now have a matching collider (Ground_Report068 seam support, collider only; the 0.67 cover still draws it)
+BUG-004: removed sign 'OLD CUT CLOSED/MAIN ROUTE >>>' with post at (798.00, 96.41, -145.00)
+BUG-005: 23 pavement vertices (Assets/Track/ReportCleanup/reverse-branch-join.asset) blended across z -117.5..-112.5, x 739..757; max change 0.11 m (profile before/after in bug005-crease.txt)
+BUG-005: arrow 'Route atlas direction guidance/Main teal / turn' reseated flat on the pavement (max vertex correction 0.22 m)
+BUG-006: collidable earth shoulder along the exposed pavement edges at Reverse main s 428-488 (1060 tris, log bug006-shoulder.txt); 459 terrain/outcrop vertices poking above it lowered under it
+Part E MountainLoopReverse South Face Summit Flight bend: earth berm on the left (outside) of Main s 1279-1350: 72 stations, 1222 tris, 1.5 m above the pavement edge
+Part E South Face Summit Flight bend: signs/posts raised 0; tree bases inside the new surface 0
+Part E MountainLoopReverse Downhill Ridge Cut jumps: earth berm on the left (outside) of Downhill Ridge Cut s 112-192: 68 stations, 1265 tris, 1.5 m above the pavement edge
+Part E Downhill Ridge Cut jumps: tree trunk 'Woods replacing later subdivisions/CR014 trunk 00254' base now 5.33 m inside the new surface (tree stands on it)
+Part E Downhill Ridge Cut jumps: tree trunk 'World cleanup additional woodland/Roadside woodland trunk' base now 3.69 m inside the new surface (tree stands on it)
+Part E Downhill Ridge Cut jumps: signs/posts raised 0; tree bases inside the new surface 2
+SCENE MountainLoop
+SCENE MountainLoopReverse
+BUG-005: 42 pavement vertices (Assets/Track/ReportCleanup/reverse-branch-join.asset) set on a smooth 20 m vertical curve z -126..-106, x 739..757; max change 0.74 m (profiles in bug005-crease.txt)
+BUG-005: arrow 'Route atlas direction guidance/Main teal / turn' reseated flat on the pavement (max vertex correction 0.16 m)
+SCENE MountainLoop
+Part E MountainLoop Homeward Summit Flight bend: earth berm on the right (outside) of Main s 2476-2545: 70 stations, 589 tris, 1.8 m above the pavement edge, near-vertical (85 deg) inner face
+Part E Homeward Summit Flight bend: signs/posts raised 0; tree bases inside the new surface 0
+SCENE MountainLoopReverse
+Part E MountainLoopReverse South Face Summit Flight bend: earth berm on the left (outside) of Main s 1279-1350: 72 stations, 1210 tris, 1.8 m above the pavement edge, near-vertical (85 deg) inner face
+Part E South Face Summit Flight bend: signs/posts raised 0; tree bases inside the new surface 0
+Part E MountainLoopReverse Downhill Ridge Cut jumps: earth berm on the left (outside) of Downhill Ridge Cut s 112-192: 68 stations, 1281 tris, 1.8 m above the pavement edge, near-vertical (85 deg) inner face
+Part E Downhill Ridge Cut jumps: tree trunk 'Woods replacing later subdivisions/CR014 trunk 00254' base now 5.89 m inside the new surface (tree stands on it)
+Part E Downhill Ridge Cut jumps: tree trunk 'World cleanup additional woodland/Roadside woodland trunk' base now 4.24 m inside the new surface (tree stands on it)
+Part E Downhill Ridge Cut jumps: signs/posts raised 0; tree bases inside the new surface 2
+SCENE MountainLoop
+Part E MountainLoop Homeward Summit Flight bend: earth berm on the right (outside) of Main s 2476-2545: 70 stations, 691 tris, 2.4 m above the pavement edge, near-vertical (85 deg) inner face
+Part E Homeward Summit Flight bend: signs/posts raised 0; tree bases inside the new surface 0
+SCENE MountainLoopReverse
+Part E MountainLoopReverse South Face Summit Flight bend: earth berm on the left (outside) of Main s 1279-1350: 72 stations, 1210 tris, 1.8 m above the pavement edge, near-vertical (85 deg) inner face
+Part E South Face Summit Flight bend: signs/posts raised 0; tree bases inside the new surface 0
+Part E MountainLoopReverse Downhill Ridge Cut jumps: earth berm on the left (outside) of Downhill Ridge Cut s 112-192: 68 stations, 1281 tris, 1.8 m above the pavement edge, near-vertical (85 deg) inner face
+Part E Downhill Ridge Cut jumps: tree trunk 'Woods replacing later subdivisions/CR014 trunk 00254' base now 5.89 m inside the new surface (tree stands on it)
+Part E Downhill Ridge Cut jumps: tree trunk 'World cleanup additional woodland/Roadside woodland trunk' base now 4.24 m inside the new surface (tree stands on it)
+Part E Downhill Ridge Cut jumps: signs/posts raised 0; tree bases inside the new surface 2

@@ -1,0 +1,31 @@
+off-track landing at (690.00, 87.00, 75.00) after the run-up to s 2190: before (689.8, 67.7, 74.9) s=2523.0 lat=28.7 -> after (701.6, 90.8, 64.0) s=2520.9 lat=1.8; along=-2.1 m; distance=28.2 m; restored=True in 0.83s; waitingShown=False; last='Recovered to nearest course point'; up=0.99; facing=1.00; diag=route=main; nearest=2520.94; selected=2520.94; along=0.00m; from=(689.72, 49.33, 74.92); to=(701.64, 90.82, 64.01); displacement=44.52m
+   after reset: held 2 s, drop 0.20 m, wheels 4, pos (700.6, 90.6, 62.8)
+drop from (760.00, 177.00, 82.00) v=(-29.00, -5.00, -8.00): first ground contact (649.4, 78.5, 50.8); lowest y 78.5; now (641.5, 78.7, 49.3); fell through world=False; last='Recovered to nearest course point'
+drop from (740.00, 170.00, 80.00) v=(-30.00, -20.00, -9.00): first ground contact (658.3, 78.2, 55.3); lowest y 78.0; now (650.2, 78.5, 51.7); fell through world=False; last='Recovered to nearest course point'
+drop from (760.00, 177.00, 82.00) v=(-29.00, -5.00, -8.00): first ground contact (649.8, 78.4, 50.8); lowest y 78.4; now (649.8, 78.6, 50.9); fell through world=False; last='Recovered to nearest course point'
+   flight: takeoff (979.1, 179.5, 147.0) at 40.0 m/s; first contact (792.5, 127.5, 94.2) (s 2416.4 lat 0.7); now (749.0, 103.2, 73.7)
+overshoot Homeward Summit Flight (BUG-008) from s 2080 at 30 m/s: before (749.0, 103.2, 73.7) s=2469.9 lat=7.6 -> after (711.0, 92.1, 68.6) s=2510.9 lat=1.8; along=41.0 m; distance=39.9 m; restored=True in 0.81s; waitingShown=False; last='Recovered to nearest course point'; up=0.99; facing=1.00; diag=route=main; nearest=2510.98; selected=2510.98; along=0.00m; from=(719.04, 93.94, 59.09); to=(711.04, 92.09, 68.56); displacement=12.54m
+   after reset: held 2 s, drop 0.39 m, wheels 4, pos (709.3, 91.7, 67.0)
+   flight: takeoff (979.2, 179.4, 147.0) at 42.4 m/s; first contact (763.8, 110.8, 86.2) (s 2450.7 lat 0.6); now (678.8, 87.3, 34.2)
+overshoot Homeward Summit Flight (BUG-008) from s 2080 at 40 m/s: before (678.8, 87.3, 34.2) s=2556.6 lat=5.8 -> after (681.6, 86.5, 24.8) s=2565.0 lat=1.8; along=8.4 m; distance=9.9 m; restored=True in 0.83s; waitingShown=False; last='Recovered to nearest course point'; up=1.00; facing=1.00; diag=route=main; nearest=2565.05; selected=2565.05; along=0.00m; from=(657.90, 84.65, 26.69); to=(681.57, 86.50, 24.76); displacement=23.82m
+   after reset: held 2 s, drop 0.16 m, wheels 4, pos (681.5, 86.3, 23.4)
+   flight: takeoff (979.1, 179.5, 147.0) at 44.2 m/s; first contact (743.9, 102.1, 80.9) (s 2473.0 lat 0.9); now (692.8, 89.4, 54.5)
+overshoot Homeward Summit Flight (BUG-008) from s 2080 at 46 m/s: before (692.8, 89.4, 54.5) s=2533.7 lat=2.4 -> after (682.7, 87.3, 32.6) s=2557.3 lat=1.8; along=23.6 m; distance=24.3 m; restored=True in 0.83s; waitingShown=False; last='Recovered to nearest course point'; up=0.99; facing=1.00; diag=route=main; nearest=2557.33; selected=2557.33; along=0.00m; from=(670.58, 88.42, 35.22); to=(682.66, 87.26, 32.57); displacement=12.43m
+   after reset: held 2 s, drop 0.19 m, wheels 4, pos (682.4, 87.1, 31.0)
+   flight: takeoff (978.8, 179.7, 146.9) at 41.7 m/s; first contact (772.4, 115.3, 87.9) (s 2440.8 lat 0.6); now (726.6, 96.4, 71.4)
+overshoot Homeward Summit Flight (BUG-008) from s 2080 at 42 m/s: before (726.6, 96.4, 71.4) s=2492.5 lat=5.4 -> after (696.6, 90.0, 58.2) s=2528.5 lat=1.8; along=36.0 m; distance=33.4 m; restored=True in 0.83s; waitingShown=False; last='Recovered to nearest course point'; up=1.00; facing=1.00; diag=route=main; nearest=2528.58; selected=2528.58; along=0.00m; from=(694.71, 89.90, 59.68); to=(696.59, 90.05, 58.19); displacement=2.40m
+   after reset: held 2 s, drop 0.16 m, wheels 4, pos (695.7, 89.9, 57.1)
+off the side at s 1500 lateral 22: before (1076.2, 126.0, 18.9) s=1492.5 lat=34.1 -> after (1053.2, 149.6, 13.4) s=1490.3 lat=1.8; along=-2.1 m; distance=33.3 m; restored=True in 0.81s; waitingShown=False; last='Recovered to nearest course point'; up=0.99; facing=1.00; diag=route=main; nearest=1490.28; selected=1490.28; along=0.00m; from=(1076.61, 124.95, 16.25); to=(1053.20, 149.56, 13.44); displacement=34.08m
+   after reset: held 2 s, drop 0.19 m, wheels 4, pos (1053.2, 149.4, 11.9)
+upside-down on the road at s 1000: before (1290.8, 135.0, -69.6) s=999.8 lat=0.5 -> after (1290.7, 135.1, -69.5) s=999.8 lat=0.6; along=0.1 m; distance=0.1 m; restored=True in 0.82s; waitingShown=False; last='Recovered to nearest course point'; up=0.99; facing=1.00; diag=route=main; nearest=999.77; selected=999.77; along=0.00m; from=(1290.79, 135.02, -69.57); to=(1290.73, 135.11, -69.54); displacement=0.11m
+   after reset: held 2 s, drop 0.29 m, wheels 4, pos (1292.5, 134.8, -70.4)
+failsafe below the world (Race) at s 800: from (1380.2, -60.0, -225.4) -> (1379.9, 102.0, -225.5) in 0.02s recovered=True; last='Recovered to nearest course point'; diag=route=main; nearest=799.83; selected=799.83; along=0.00m; from=(1379.83, 101.94, -225.64); to=(1379.91, 102.00, -225.47); displacement=0.20m
+   after failsafe: held 2 s, drop 0.12 m, wheels 4, pos (1379.4, 101.9, -226.6)
+quit race at (728.2, 79.2, -10.4) (s 2635.6): vehicle (728.3, 80.7, -10.4); pavement above it=False; floor below=Ground_CR133 mountain driving surface 0.53 m
+   free roam after quit: held 2 s, drop 0.04 m, wheels 4, pos (724.6, 80.9, -6.3)
+quit race at (1013.0, 160.0, 96.0) (s 1584.6): vehicle (1013.0, 161.9, 96.0); pavement above it=False; floor below=Ground_CR133 mountain driving surface 0.52 m
+   free roam after quit: held 2 s, drop 0.04 m, wheels 4, pos (724.6, 80.9, -6.3)
+failsafe below the world (Free Roam) at s 800: from (1380.2, -60.0, -225.4) -> (1379.8, 102.0, -225.6) in 0.02s recovered=True; last='Recovered to nearest course point'; diag=route=main; nearest=799.69; selected=799.69; along=0.00m; from=(1379.83, 101.94, -225.64); to=(1379.85, 101.99, -225.60); displacement=0.06m
+   after failsafe: held 2 s, drop 0.12 m, wheels 4, pos (1379.3, 101.9, -226.7)
+free roam start: spawn marker (724.51, 81.15, -6.11), vehicle (724.53, 80.94, -6.12)
+   free roam start: held 2 s, drop 0.01 m, wheels 4, pos (724.7, 80.9, -6.3)

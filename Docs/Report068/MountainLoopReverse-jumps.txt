@@ -1,0 +1,382 @@
+MountainLoopReverse jumps (pavement gaps >= 2 m)
+JUMP Main lip s=34 (725.9, 79.0, -27.0) -> landing s=100 (726.9, 80.7, 38.4); gap 66 m, drop -1.7 m; paved deck after landing 199 m; heading at landing 14
+   +  0 m s=100 (726.9, 80.7, 38.4) turn     0 deg; drop 2 m outside edge L=-0.2 R=0.3
+   + 10 m s=110 (729.8, 82.5, 47.8) turn     7 deg; drop 2 m outside edge L=-0.1 R=-0.2
+   + 20 m s=120 (734.4, 85.1, 56.3) turn    24 deg; drop 2 m outside edge L=-0.1 R=-0.4
+   + 30 m s=130 (741.2, 88.3, 62.8) turn    42 deg; drop 2 m outside edge L=0.0 R=-0.2
+   + 40 m s=140 (749.7, 92.0, 66.3) turn    66 deg; drop 2 m outside edge L=0.0 R=0.3
+   + 50 m s=150 (758.9, 95.8, 66.4) turn    82 deg; drop 2 m outside edge L=0.0 R=0.7
+   + 60 m s=160 (768.1, 99.5, 65.1) turn    85 deg; drop 2 m outside edge L=0.1 R=0.6
+   + 70 m s=170 (777.3, 103.2, 63.5) turn    85 deg; drop 2 m outside edge L=0.2 R=0.2
+   + 80 m s=180 (786.5, 106.8, 62.3) turn    81 deg; drop 2 m outside edge L=0.0 R=0.0
+   + 90 m s=190 (795.8, 110.5, 61.9) turn    73 deg; drop 2 m outside edge L=0.0 R=0.0
+   +100 m s=200 (805.0, 114.1, 63.6) turn    57 deg; drop 2 m outside edge L=0.0 R=0.0
+JUMP Main lip s=982 (990.0, 177.4, 65.4) -> landing s=1134 (990.0, 158.8, -85.3); gap 152 m, drop 18.6 m; paved deck after landing 199 m; heading at landing 180
+   +  0 m s=1134 (990.0, 158.8, -85.3) turn     0 deg; drop 2 m outside edge L=0.0 R=0.0
+   + 10 m s=1144 (990.0, 152.8, -93.3) turn     0 deg; drop 2 m outside edge L=0.0 R=0.0
+   + 20 m s=1154 (990.0, 146.8, -101.3) turn     0 deg; drop 2 m outside edge L=0.0 R=0.0
+   + 30 m s=1164 (990.0, 140.8, -109.3) turn     0 deg; drop 2 m outside edge L=0.0 R=0.0
+   + 40 m s=1174 (990.0, 135.0, -117.5) turn     0 deg; drop 2 m outside edge L=0.0 R=0.0
+   + 50 m s=1184 (990.0, 129.5, -125.8) turn     0 deg; drop 2 m outside edge L=0.0 R=0.0
+   + 60 m s=1194 (990.0, 124.2, -134.3) turn     0 deg; drop 2 m outside edge L=0.0 R=0.0
+   + 70 m s=1204 (990.0, 119.1, -142.9) turn     0 deg; drop 2 m outside edge L=0.0 R=0.0
+   + 80 m s=1214 (990.0, 114.4, -151.8) turn     0 deg; drop 2 m outside edge L=0.0 R=0.0
+   + 90 m s=1224 (990.0, 110.0, -160.7) turn     0 deg; drop 2 m outside edge L=0.0 R=0.0
+   +100 m s=1234 (990.0, 105.9, -169.8) turn     0 deg; drop 2 m outside edge L=0.0 R=0.0
+JUMP Main lip s=2462 (1005.4, 131.1, -300.0) -> landing s=2563 (904.8, 123.9, -300.0); gap 101 m, drop 7.2 m; paved deck after landing 199 m; heading at landing -90
+   +  0 m s=2563 (904.8, 123.9, -300.0) turn     0 deg; drop 2 m outside edge L=0.0 R=0.0
+   + 10 m s=2573 (895.1, 121.1, -300.0) turn     0 deg; drop 2 m outside edge L=0.0 R=0.0
+   + 20 m s=2583 (885.5, 118.5, -300.0) turn     0 deg; drop 2 m outside edge L=0.0 R=0.0
+   + 30 m s=2593 (875.8, 116.0, -300.0) turn     0 deg; drop 2 m outside edge L=0.0 R=0.0
+   + 40 m s=2603 (866.1, 113.7, -300.0) turn     0 deg; drop 2 m outside edge L=0.0 R=0.0
+   + 50 m s=2613 (856.3, 111.5, -300.0) turn     0 deg; drop 2 m outside edge L=0.0 R=0.0
+   + 60 m s=2623 (846.5, 109.5, -300.0) turn     0 deg; drop 2 m outside edge L=0.0 R=0.0
+   + 70 m s=2633 (836.7, 107.7, -300.0) turn     0 deg; drop 2 m outside edge L=0.0 R=0.0
+   + 80 m s=2643 (826.8, 106.0, -300.0) turn     0 deg; drop 2 m outside edge L=0.0 R=0.0
+   + 90 m s=2653 (816.9, 104.6, -300.0) turn     0 deg; drop 2 m outside edge L=0.0 R=0.0
+   +100 m s=2663 (807.0, 103.2, -300.0) turn     0 deg; drop 2 m outside edge L=0.0 R=0.0
+JUMP Downhill Ridge Cut lip s=94 (740.3, 92.8, -146.2) -> landing s=112 (727.4, 88.9, -133.7); gap 18 m, drop 3.9 m; paved deck after landing 5 m; heading at landing -46
+   +  0 m s=112 (727.4, 88.9, -133.7) turn     0 deg; drop 2 m outside edge L=-0.2 R=0.2
+   + 10 m s=122 (720.3, 86.6, -126.7) turn     0 deg; drop 2 m outside edge L=VOID R=VOID
+   + 20 m s=132 (713.1, 84.3, -119.7) turn     0 deg; drop 2 m outside edge L=7.5 R=0.5
+   + 30 m s=142 (705.9, 82.8, -112.7) turn     0 deg; drop 2 m outside edge L=1.1 R=0.4
+   + 40 m s=152 (698.8, 82.0, -105.7) turn     0 deg; drop 2 m outside edge L=1.1 R=0.5
+   + 50 m s=162 (692.9, 81.9, -97.8) turn    31 deg; drop 2 m outside edge L=0.9 R=0.6
+   + 60 m s=172 (694.4, 81.1, -88.2) turn    71 deg; drop 2 m outside edge L=0.6 R=0.7
+   + 70 m s=182 (699.8, 79.8, -79.8) turn    83 deg; drop 2 m outside edge L=0.3 R=0.2
+   + 80 m s=192 (706.1, 79.1, -72.0) turn    86 deg; drop 2 m outside edge L=0.1 R=0.0
+   + 90 m s=202 (712.6, 79.0, -64.4) turn    85 deg; drop 2 m outside edge L=0.0 R=0.0
+   +100 m s=212 (718.6, 79.0, -56.5) turn    79 deg; drop 2 m outside edge L=0.0 R=0.0
+JUMP Downhill Ridge Cut lip s=117 (723.8, 87.8, -130.2) -> landing s=129 (715.2, 84.9, -121.8); gap 12 m, drop 2.8 m; paved deck after landing 92 m; heading at landing -46
+   +  0 m s=129 (715.2, 84.9, -121.8) turn     0 deg; drop 2 m outside edge L=7.1 R=0.6
+   + 10 m s=139 (708.1, 83.2, -114.8) turn     0 deg; drop 2 m outside edge L=1.1 R=0.4
+   + 20 m s=149 (700.9, 82.2, -107.8) turn     0 deg; drop 2 m outside edge L=1.1 R=0.4
+   + 30 m s=159 (694.1, 82.0, -100.6) turn    14 deg; drop 2 m outside edge L=1.2 R=0.6
+   + 40 m s=169 (693.3, 81.4, -91.0) turn    65 deg; drop 2 m outside edge L=0.8 R=0.5
+   + 50 m s=179 (698.0, 80.1, -82.2) turn    81 deg; drop 2 m outside edge L=0.4 R=0.4
+   + 60 m s=189 (704.2, 79.2, -74.3) turn    86 deg; drop 2 m outside edge L=0.4 R=0.0
+   + 70 m s=199 (710.7, 79.0, -66.7) turn    86 deg; drop 2 m outside edge L=0.0 R=0.0
+   + 80 m s=209 (716.9, 79.0, -58.9) turn    82 deg; drop 2 m outside edge L=0.0 R=0.0
+   + 90 m s=219 (722.1, 79.0, -50.4) turn    69 deg; drop 2 m outside edge L=0.0 R=0.0
+JUMP Summit Traverse lip s=398 (866.8, 112.0, -85.1) -> landing s=414 (878.1, 114.0, -96.1); gap 16 m, drop -1.9 m; paved deck after landing 47 m; heading at landing 120
+   +  0 m s=414 (878.1, 114.0, -96.1) turn     0 deg; drop 2 m outside edge L=0.0 R=1.3
+   + 10 m s=424 (887.6, 115.5, -99.0) turn   -29 deg; drop 2 m outside edge L=0.0 R=0.4
+   + 20 m s=434 (897.6, 117.1, -99.2) turn   -28 deg; drop 2 m outside edge L=0.0 R=0.6
+   + 30 m s=444 (907.6, 118.8, -99.6) turn   -27 deg; drop 2 m outside edge L=0.0 R=0.3
+   + 40 m s=454 (917.6, 120.7, -100.2) turn   -26 deg; drop 2 m outside edge L=0.6 R=0.0
+ACTIVITY JUMP 'Fern Creek Leap' (active) at (880.2, 115.5, -84.9) fwd (0.89, 0.37, 0.28) on Main s=1633 (distance 15.8); route heading 87
+   +  0 m s=1633 (884.8, 114.5, -99.0) turn     0 deg; paved=True; drop 2 m outside edge L=0.1 R=-0.1
+   + 10 m s=1643 (894.6, 116.3, -98.9) turn     4 deg; paved=True; drop 2 m outside edge L=0.0 R=0.0
+   + 20 m s=1653 (904.4, 118.2, -99.3) turn     6 deg; paved=True; drop 2 m outside edge L=0.0 R=0.0
+   + 30 m s=1663 (914.3, 120.0, -99.9) turn     7 deg; paved=True; drop 2 m outside edge L=0.0 R=0.0
+   + 40 m s=1673 (924.0, 122.1, -100.6) turn     7 deg; paved=True; drop 2 m outside edge L=0.0 R=0.0
+   + 50 m s=1683 (933.8, 124.1, -101.1) turn     6 deg; paved=True; drop 2 m outside edge L=0.0 R=0.0
+   + 60 m s=1693 (943.6, 125.9, -101.5) turn     4 deg; paved=True; drop 2 m outside edge L=0.0 R=0.0
+   + 70 m s=1703 (953.5, 127.6, -101.5) turn     3 deg; paved=True; drop 2 m outside edge L=0.0 R=0.0
+   + 80 m s=1713 (963.4, 129.0, -101.3) turn     1 deg; paved=True; drop 2 m outside edge L=0.0 R=0.0
+   + 90 m s=1723 (973.3, 130.3, -100.6) turn    -2 deg; paved=True; drop 2 m outside edge L=0.0 R=0.0
+   +100 m s=1733 (983.2, 131.3, -99.6) turn    -4 deg; paved=True; drop 2 m outside edge L=0.0 R=0.0
+   +110 m s=1743 (993.0, 132.2, -98.1) turn    -7 deg; paved=True; drop 2 m outside edge L=0.0 R=0.0
+   +120 m s=1753 (1002.8, 133.1, -96.1) turn    -9 deg; paved=True; drop 2 m outside edge L=0.0 R=0.0
+ACTIVITY JUMP 'Fern Creek Leap' (active) at (880.2, 115.5, -84.9) fwd (0.89, 0.37, 0.28) on Summit Traverse s=410 (distance 12.6); route heading 128
+   +  0 m s=410 (874.8, 113.4, -93.9) turn     0 deg; paved=False; drop 2 m outside edge L=VOID R=VOID
+   + 10 m s=420 (883.6, 114.8, -98.4) turn   -23 deg; paved=True; drop 2 m outside edge L=-0.2 R=0.6
+   + 20 m s=430 (893.6, 116.5, -99.1) turn   -36 deg; paved=True; drop 2 m outside edge L=0.0 R=0.4
+   + 30 m s=440 (903.6, 118.2, -99.4) turn   -35 deg; paved=True; drop 2 m outside edge L=0.0 R=0.4
+   + 40 m s=450 (913.6, 119.8, -99.9) turn   -34 deg; paved=True; drop 2 m outside edge L=0.0 R=0.3
+   + 50 m s=460 (923.5, 122.0, -100.5) turn   -34 deg; paved=True; drop 2 m outside edge L=0.1 R=0.0
+ACTIVITY JUMP 'High Ridge Drop' (active) at (1011.0, 163.7, 93.7) fwd (-0.65, 0.28, 0.71) on Main s=958 (distance 22.9); route heading 180
+   +  0 m s=958 (990.0, 163.6, 84.9) turn     0 deg; paved=True; drop 2 m outside edge L=0.0 R=0.0
+   + 10 m s=968 (990.0, 168.9, 76.5) turn     0 deg; paved=True; drop 2 m outside edge L=0.0 R=0.0
+   + 20 m s=978 (990.0, 175.0, 68.5) turn     0 deg; paved=True; drop 2 m outside edge L=0.0 R=0.0
+   + 30 m s=988 (990.0, 177.0, 59.5) turn     0 deg; paved=False; drop 2 m outside edge L=VOID R=VOID
+   + 40 m s=998 (990.0, 175.8, 49.6) turn     0 deg; paved=False; drop 2 m outside edge L=VOID R=VOID
+   + 50 m s=1008 (990.0, 174.5, 39.6) turn     0 deg; paved=False; drop 2 m outside edge L=VOID R=VOID
+   + 60 m s=1018 (990.0, 173.3, 29.7) turn     0 deg; paved=False; drop 2 m outside edge L=VOID R=VOID
+   + 70 m s=1028 (990.0, 172.1, 19.8) turn     0 deg; paved=False; drop 2 m outside edge L=VOID R=VOID
+   + 80 m s=1038 (990.0, 170.8, 9.9) turn     0 deg; paved=False; drop 2 m outside edge L=VOID R=VOID
+   + 90 m s=1048 (990.0, 169.6, -0.1) turn     0 deg; paved=False; drop 2 m outside edge L=VOID R=VOID
+   +100 m s=1058 (990.0, 168.3, -10.0) turn     0 deg; paved=False; drop 2 m outside edge L=VOID R=VOID
+   +110 m s=1068 (990.0, 167.1, -19.9) turn     0 deg; paved=False; drop 2 m outside edge L=VOID R=VOID
+   +120 m s=1078 (990.0, 165.9, -29.8) turn     0 deg; paved=False; drop 2 m outside edge L=VOID R=VOID
+ACTIVITY JUMP 'High Ridge Drop' (active) at (1011.0, 163.7, 93.7) fwd (-0.65, 0.28, 0.71) on Summit Traverse s=30 (distance 2.1); route heading 138
+   +  0 m s=30 (1011.1, 161.7, 93.7) turn     0 deg; paved=True; drop 2 m outside edge L=2.7 R=1.0
+   + 10 m s=40 (1017.7, 161.3, 86.2) turn     2 deg; paved=True; drop 2 m outside edge L=1.8 R=-1.1
+   + 20 m s=50 (1024.1, 159.4, 78.5) turn     4 deg; paved=True; drop 2 m outside edge L=1.7 R=-1.0
+   + 30 m s=60 (1030.2, 157.3, 70.5) turn     6 deg; paved=True; drop 2 m outside edge L=1.7 R=-1.4
+   + 40 m s=70 (1035.8, 156.0, 62.3) turn    10 deg; paved=True; drop 2 m outside edge L=1.7 R=-0.6
+   + 50 m s=80 (1041.0, 154.6, 53.7) turn    14 deg; paved=True; drop 2 m outside edge L=1.7 R=1.7
+   + 60 m s=90 (1045.4, 153.2, 44.8) turn    19 deg; paved=True; drop 2 m outside edge L=1.7 R=1.7
+   + 70 m s=100 (1048.8, 151.8, 35.4) turn    27 deg; paved=True; drop 2 m outside edge L=1.7 R=1.7
+   + 80 m s=110 (1050.7, 150.4, 25.6) turn    35 deg; paved=True; drop 2 m outside edge L=1.7 R=1.7
+   + 90 m s=120 (1051.4, 149.2, 15.6) turn    40 deg; paved=True; drop 2 m outside edge L=1.7 R=1.7
+   +100 m s=130 (1051.4, 148.2, 5.6) turn    45 deg; paved=True; drop 2 m outside edge L=1.7 R=1.7
+   +110 m s=140 (1050.4, 147.2, -4.4) turn    50 deg; paved=True; drop 2 m outside edge L=1.7 R=1.7
+   +120 m s=150 (1048.6, 146.3, -14.2) turn    55 deg; paved=True; drop 2 m outside edge L=1.7 R=1.7
+ACTIVITY JUMP 'South Face Summit Flight' (active) at (990.0, 177.9, 65.0) fwd (0.00, 0.00, -1.00) on Main s=983 (distance 0.9); route heading 180
+   +  0 m s=983 (990.0, 177.6, 64.4) turn     0 deg; paved=False; drop 2 m outside edge L=VOID R=VOID
+   + 10 m s=993 (990.0, 176.4, 54.5) turn     0 deg; paved=False; drop 2 m outside edge L=VOID R=VOID
+   + 20 m s=1003 (990.0, 175.1, 44.6) turn     0 deg; paved=False; drop 2 m outside edge L=VOID R=VOID
+   + 30 m s=1013 (990.0, 173.9, 34.7) turn     0 deg; paved=False; drop 2 m outside edge L=VOID R=VOID
+   + 40 m s=1023 (990.0, 172.7, 24.8) turn     0 deg; paved=False; drop 2 m outside edge L=VOID R=VOID
+   + 50 m s=1033 (990.0, 171.4, 14.8) turn     0 deg; paved=False; drop 2 m outside edge L=VOID R=VOID
+   + 60 m s=1043 (990.0, 170.2, 4.9) turn     0 deg; paved=False; drop 2 m outside edge L=VOID R=VOID
+   + 70 m s=1053 (990.0, 169.0, -5.0) turn     0 deg; paved=False; drop 2 m outside edge L=VOID R=VOID
+   + 80 m s=1063 (990.0, 167.7, -14.9) turn     0 deg; paved=False; drop 2 m outside edge L=VOID R=VOID
+   + 90 m s=1073 (990.0, 166.5, -24.9) turn     0 deg; paved=False; drop 2 m outside edge L=VOID R=VOID
+   +100 m s=1083 (990.0, 165.3, -34.8) turn     0 deg; paved=False; drop 2 m outside edge L=VOID R=VOID
+   +110 m s=1093 (990.0, 164.0, -44.7) turn     0 deg; paved=False; drop 2 m outside edge L=VOID R=VOID
+   +120 m s=1103 (990.0, 162.8, -54.6) turn     0 deg; paved=False; drop 2 m outside edge L=VOID R=VOID
+PROFILE Westbound Gully Flight approach 2236 end 2744
+   s=2236 (1226.4, 110.0, -299.8) hdg -97 hw 3.6 pave=110.0
+   s=2241 (1221.4, 110.0, -300.0) hdg -90 hw 3.6 pave=110.0
+   s=2246 (1216.4, 110.0, -300.0) hdg -90 hw 3.6 pave=110.0
+   s=2251 (1211.4, 110.0, -300.0) hdg -90 hw 3.6 pave=110.0
+   s=2256 (1206.4, 110.0, -300.0) hdg -90 hw 3.6 pave=110.0
+   s=2261 (1201.4, 110.0, -300.0) hdg -90 hw 3.6 pave=110.0
+   s=2266 (1196.4, 110.0, -300.0) hdg -90 hw 3.6 pave=110.0
+   s=2271 (1191.4, 110.0, -300.0) hdg -90 hw 3.6 pave=110.0
+   s=2276 (1186.4, 110.0, -300.0) hdg -90 hw 3.6 pave=110.0
+   s=2281 (1181.4, 110.0, -300.0) hdg -90 hw 3.6 pave=110.0
+   s=2286 (1176.4, 110.0, -300.0) hdg -90 hw 3.6 pave=110.0
+   s=2291 (1171.4, 110.0, -300.0) hdg -90 hw 3.6 pave=110.0
+   s=2296 (1166.4, 110.0, -300.0) hdg -90 hw 3.6 pave=110.0
+   s=2301 (1161.4, 110.0, -300.0) hdg -90 hw 3.6 pave=110.0
+   s=2306 (1156.4, 110.0, -300.0) hdg -90 hw 3.6 pave=110.0
+   s=2311 (1151.4, 110.0, -300.0) hdg -90 hw 3.6 pave=110.0
+   s=2316 (1146.4, 110.0, -300.0) hdg -90 hw 3.6 pave=110.0
+   s=2321 (1141.4, 110.0, -300.0) hdg -90 hw 3.6 pave=110.0
+   s=2326 (1136.4, 110.0, -300.0) hdg -90 hw 3.6 pave=110.0
+   s=2331 (1131.4, 110.0, -300.0) hdg -90 hw 3.6 pave=110.0
+   s=2336 (1126.4, 110.0, -300.0) hdg -90 hw 3.6 pave=110.0
+   s=2341 (1121.4, 110.0, -300.0) hdg -90 hw 5.0 pave=110.0
+   s=2346 (1116.4, 110.0, -300.0) hdg -90 hw 5.0 pave=110.0
+   s=2351 (1111.4, 110.0, -300.0) hdg -90 hw 5.0 pave=110.0
+   s=2356 (1106.4, 110.0, -300.0) hdg -90 hw 5.0 pave=110.0
+   s=2361 (1101.4, 110.0, -300.0) hdg -90 hw 5.0 pave=110.0
+   s=2366 (1096.4, 110.0, -300.0) hdg -90 hw 5.0 pave=110.0
+   s=2371 (1091.4, 110.0, -300.0) hdg -90 hw 5.0 pave=110.0
+   s=2376 (1086.4, 110.0, -300.0) hdg -90 hw 5.0 pave=110.0
+   s=2381 (1081.4, 110.0, -300.0) hdg -90 hw 5.0 pave=110.0
+   s=2386 (1076.4, 110.0, -300.0) hdg -90 hw 3.6 pave=110.0
+   s=2391 (1071.4, 110.0, -300.0) hdg -90 hw 3.6 pave=110.0
+   s=2396 (1066.4, 110.0, -300.0) hdg -90 hw 3.6 pave=110.0
+   s=2401 (1061.4, 110.1, -300.0) hdg -90 hw 3.6 pave=110.1
+   s=2406 (1056.4, 110.4, -300.0) hdg -90 hw 3.6 pave=110.5
+   s=2411 (1051.5, 111.1, -300.0) hdg -90 hw 3.6 pave=111.1
+   s=2416 (1046.5, 112.0, -300.0) hdg -90 hw 3.6 pave=112.1
+   s=2421 (1041.7, 113.3, -300.0) hdg -90 hw 3.6 pave=113.3
+   s=2426 (1036.9, 114.7, -300.0) hdg -90 hw 3.6 pave=114.8
+   s=2431 (1032.2, 116.5, -300.0) hdg -90 hw 3.6 pave=116.5
+   s=2436 (1027.6, 118.4, -300.0) hdg -90 hw 3.6 pave=118.4
+   s=2441 (1023.1, 120.5, -300.0) hdg -90 hw 3.6 pave=120.6
+   s=2446 (1018.7, 122.9, -300.0) hdg -90 hw 3.6 pave=122.9
+   s=2451 (1014.4, 125.4, -300.0) hdg -90 hw 3.6 pave=125.4
+   s=2456 (1010.1, 128.1, -300.0) hdg -90 hw 3.6 pave=128.1
+   s=2461 (1006.0, 130.9, -300.0) hdg -90 hw 3.6 pave=130.9
+   s=2466 (1001.1, 131.0, -300.0) hdg -90 hw 3.6 pave=-
+   s=2471 (996.1, 130.6, -300.0) hdg -90 hw 3.6 pave=-
+   s=2476 (991.1, 130.3, -300.0) hdg -90 hw 3.6 pave=-
+   s=2481 (986.1, 129.9, -300.0) hdg -90 hw 3.6 pave=-
+   s=2486 (981.1, 129.5, -300.0) hdg -90 hw 3.6 pave=-
+   s=2491 (976.2, 129.2, -300.0) hdg -90 hw 3.6 pave=-
+   s=2496 (971.2, 128.8, -300.0) hdg -90 hw 3.6 pave=-
+   s=2501 (966.2, 128.4, -300.0) hdg -90 hw 3.6 pave=-
+   s=2506 (961.2, 128.1, -300.0) hdg -90 hw 3.6 pave=-
+   s=2511 (956.2, 127.7, -300.0) hdg -90 hw 3.6 pave=-
+   s=2516 (951.2, 127.3, -300.0) hdg -90 hw 3.6 pave=-
+   s=2521 (946.2, 127.0, -300.0) hdg -90 hw 3.6 pave=-
+   s=2526 (941.2, 126.6, -300.0) hdg -90 hw 3.6 pave=-
+   s=2531 (936.3, 126.2, -300.0) hdg -90 hw 3.6 pave=-
+   s=2536 (931.3, 125.9, -300.0) hdg -90 hw 3.6 pave=-
+   s=2541 (926.3, 125.5, -300.0) hdg -90 hw 3.6 pave=-
+   s=2546 (921.3, 125.1, -300.0) hdg -90 hw 3.6 pave=-
+   s=2551 (916.3, 124.8, -300.0) hdg -90 hw 3.6 pave=-
+   s=2556 (911.3, 124.4, -300.0) hdg -90 hw 3.6 pave=-
+   s=2561 (906.3, 124.0, -300.0) hdg -90 hw 3.6 pave=-
+   s=2566 (901.5, 123.0, -300.0) hdg -90 hw 3.6 pave=123.0
+   s=2571 (896.7, 121.6, -300.0) hdg -90 hw 3.6 pave=121.6
+   s=2576 (891.9, 120.2, -300.0) hdg -90 hw 3.6 pave=120.3
+   s=2581 (887.0, 118.9, -300.0) hdg -90 hw 3.6 pave=118.9
+   s=2586 (882.2, 117.6, -300.0) hdg -90 hw 3.6 pave=117.7
+   s=2591 (877.4, 116.4, -300.0) hdg -90 hw 3.6 pave=116.4
+   s=2596 (872.5, 115.2, -300.0) hdg -90 hw 3.6 pave=115.2
+   s=2601 (867.6, 114.0, -300.0) hdg -90 hw 5.0 pave=114.1
+   s=2606 (862.8, 112.9, -300.0) hdg -90 hw 5.0 pave=113.0
+   s=2611 (857.9, 111.9, -300.0) hdg -90 hw 5.0 pave=111.9
+   s=2616 (853.0, 110.8, -300.0) hdg -90 hw 5.0 pave=110.9
+   s=2621 (848.1, 109.8, -300.0) hdg -90 hw 5.0 pave=109.9
+   s=2626 (843.2, 108.9, -300.0) hdg -90 hw 5.0 pave=108.9
+   s=2631 (838.3, 108.0, -300.0) hdg -90 hw 5.0 pave=108.0
+   s=2636 (833.3, 107.1, -300.0) hdg -90 hw 5.0 pave=107.2
+   s=2641 (828.4, 106.3, -300.0) hdg -90 hw 5.0 pave=106.3
+   s=2646 (823.5, 105.5, -300.0) hdg -90 hw 3.6 pave=105.6
+   s=2651 (818.5, 104.8, -300.0) hdg -90 hw 3.6 pave=104.8
+   s=2656 (813.6, 104.1, -300.0) hdg -90 hw 3.6 pave=104.1
+   s=2661 (808.6, 103.4, -300.0) hdg -90 hw 3.6 pave=103.5
+   s=2666 (803.6, 102.8, -300.0) hdg -90 hw 3.6 pave=102.9
+   s=2671 (798.7, 102.3, -300.0) hdg -90 hw 3.6 pave=102.3
+   s=2676 (793.7, 101.8, -300.0) hdg -90 hw 3.6 pave=101.8
+   s=2681 (788.7, 101.3, -300.0) hdg -90 hw 3.6 pave=101.3
+   s=2686 (783.7, 100.9, -300.0) hdg -90 hw 3.6 pave=100.9
+   s=2691 (778.8, 100.5, -300.0) hdg -90 hw 3.6 pave=100.5
+   s=2696 (773.8, 100.1, -300.0) hdg -90 hw 3.6 pave=100.2
+   s=2701 (768.8, 99.8, -300.0) hdg -90 hw 3.6 pave=99.9
+   s=2706 (763.8, 99.6, -300.0) hdg -90 hw 3.6 pave=99.6
+   s=2711 (758.8, 99.4, -300.0) hdg -90 hw 3.6 pave=99.4
+   s=2716 (753.8, 99.2, -300.0) hdg -90 hw 3.6 pave=99.3
+   s=2721 (748.8, 99.1, -300.0) hdg -90 hw 3.6 pave=99.1
+   s=2726 (743.8, 99.0, -300.0) hdg -90 hw 3.6 pave=99.1
+   s=2731 (738.8, 99.0, -300.0) hdg -90 hw 3.6 pave=99.0
+   s=2736 (733.8, 99.0, -300.0) hdg -90 hw 3.6 pave=99.1
+   s=2741 (728.8, 99.1, -300.0) hdg -90 hw 3.6 pave=99.1
+   s=2746 (724.1, 99.2, -299.2) hdg -50 hw 3.6 pave=99.2
+   s=2751 (720.0, 99.3, -296.2) hdg -56 hw 3.6 pave=99.4
+   s=2756 (715.9, 99.5, -293.4) hdg -54 hw 3.6 pave=99.5
+   s=2761 (712.0, 99.6, -290.3) hdg -51 hw 3.6 pave=99.6
+   s=2766 (708.3, 99.6, -287.0) hdg -45 hw 3.6 pave=99.7
+   s=2771 (704.9, 99.6, -283.2) hdg -37 hw 3.6 pave=99.6
+   s=2776 (702.1, 99.3, -279.1) hdg -31 hw 3.6 pave=99.4
+   s=2781 (699.9, 99.0, -274.7) hdg -23 hw 3.6 pave=99.0
+   s=2786 (698.0, 98.5, -270.1) hdg -22 hw 3.6 pave=98.5
+   s=2791 (696.2, 97.9, -265.4) hdg -20 hw 3.6 pave=97.9
+   s=2796 (694.5, 97.3, -260.8) hdg -19 hw 3.6 pave=97.3
+   s=2801 (693.0, 96.6, -256.0) hdg -17 hw 3.6 pave=96.6
+   s=2806 (691.6, 95.9, -251.3) hdg -16 hw 3.6 pave=95.9
+   s=2811 (690.4, 95.2, -246.5) hdg -13 hw 3.6 pave=95.3
+   s=2816 (689.3, 94.5, -241.7) hdg -11 hw 3.6 pave=94.6
+   s=2821 (688.5, 93.8, -236.8) hdg -9 hw 3.6 pave=93.9
+   s=2826 (687.8, 93.2, -231.9) hdg -6 hw 3.6 pave=93.2
+   s=2831 (687.4, 92.5, -226.9) hdg -2 hw 3.6 pave=92.6
+   s=2836 (687.3, 91.9, -222.0) hdg 0 hw 3.6 pave=92.0
+   s=2841 (687.5, 91.4, -217.0) hdg 5 hw 3.6 pave=91.4
+   s=2846 (688.2, 90.9, -212.1) hdg 9 hw 3.6 pave=91.0
+   s=2851 (689.2, 90.5, -207.2) hdg 14 hw 3.6 pave=90.5
+   s=2856 (690.6, 90.1, -202.4) hdg 17 hw 3.6 pave=90.2
+   s=2861 (692.2, 89.8, -197.7) hdg 20 hw 5.0 pave=89.8
+PROFILE South Face Summit Flight approach 756 end 1261
+   s=756 (990.1, 152.0, 285.0) hdg -178 hw 3.6 pave=152.0
+   s=761 (990.0, 152.0, 280.0) hdg 180 hw 3.6 pave=152.0
+   s=766 (990.0, 152.0, 275.0) hdg 180 hw 3.6 pave=152.0
+   s=771 (990.0, 152.0, 270.0) hdg 180 hw 3.6 pave=152.0
+   s=776 (990.0, 152.0, 265.0) hdg 180 hw 3.6 pave=152.0
+   s=781 (990.0, 152.0, 260.0) hdg 180 hw 5.0 pave=152.0
+   s=786 (990.0, 152.0, 255.0) hdg 180 hw 5.0 pave=152.0
+   s=791 (990.0, 152.0, 250.0) hdg 180 hw 5.0 pave=152.0
+   s=796 (990.0, 152.0, 245.0) hdg 180 hw 5.0 pave=152.0
+   s=801 (990.0, 152.0, 240.0) hdg 180 hw 5.0 pave=152.0
+   s=806 (990.0, 152.0, 235.0) hdg 180 hw 5.0 pave=152.0
+   s=811 (990.0, 152.0, 230.0) hdg 180 hw 5.0 pave=152.0
+   s=816 (990.0, 152.0, 225.0) hdg 180 hw 5.0 pave=152.0
+   s=821 (990.0, 152.0, 220.0) hdg 180 hw 5.0 pave=152.0
+   s=826 (990.0, 152.0, 215.0) hdg 180 hw 3.6 pave=152.0
+   s=831 (990.0, 152.0, 210.0) hdg 180 hw 3.6 pave=152.0
+   s=836 (990.0, 152.0, 205.0) hdg 180 hw 3.6 pave=152.0
+   s=841 (990.0, 152.0, 200.0) hdg 180 hw 3.6 pave=152.0
+   s=846 (990.0, 152.0, 195.0) hdg 180 hw 3.6 pave=152.0
+   s=851 (990.0, 152.0, 190.0) hdg 180 hw 3.6 pave=152.0
+   s=856 (990.0, 152.0, 185.0) hdg 180 hw 3.6 pave=152.0
+   s=861 (990.0, 152.0, 180.0) hdg 180 hw 3.6 pave=152.0
+   s=866 (990.0, 152.0, 175.0) hdg 180 hw 3.6 pave=152.0
+   s=871 (990.0, 152.0, 170.0) hdg 180 hw 3.6 pave=152.0
+   s=876 (990.0, 152.0, 165.0) hdg 180 hw 3.6 pave=152.0
+   s=881 (990.0, 152.0, 160.0) hdg 180 hw 3.6 pave=152.0
+   s=886 (990.0, 152.0, 155.0) hdg 180 hw 3.6 pave=152.0
+   s=891 (990.0, 152.0, 150.0) hdg 180 hw 3.6 pave=152.0
+   s=896 (990.0, 152.0, 145.0) hdg 180 hw 3.6 pave=152.0
+   s=901 (990.0, 152.0, 140.0) hdg 180 hw 3.6 pave=152.0
+   s=906 (990.0, 152.0, 135.0) hdg 180 hw 3.6 pave=152.0
+   s=911 (990.0, 152.0, 130.0) hdg 180 hw 3.6 pave=152.0
+   s=916 (990.0, 152.0, 125.0) hdg 180 hw 3.6 pave=152.0
+   s=921 (990.0, 152.2, 120.0) hdg 180 hw 3.6 pave=152.2
+   s=926 (990.0, 152.7, 115.0) hdg 180 hw 3.6 pave=152.8
+   s=931 (990.0, 153.6, 110.1) hdg 180 hw 3.6 pave=153.6
+   s=936 (990.0, 154.8, 105.2) hdg 180 hw 3.6 pave=154.9
+   s=941 (990.0, 156.3, 100.5) hdg 180 hw 3.6 pave=156.4
+   s=946 (990.0, 158.1, 95.8) hdg 180 hw 3.6 pave=158.2
+   s=951 (990.0, 160.2, 91.2) hdg 180 hw 3.6 pave=160.2
+   s=956 (990.0, 162.5, 86.8) hdg 180 hw 3.6 pave=162.5
+   s=961 (990.0, 165.0, 82.5) hdg 180 hw 3.6 pave=165.1
+   s=966 (990.0, 167.7, 78.3) hdg 180 hw 3.6 pave=167.8
+   s=971 (990.0, 170.6, 74.2) hdg 180 hw 3.6 pave=170.6
+   s=976 (990.0, 173.6, 70.2) hdg 180 hw 3.6 pave=173.7
+   s=981 (990.0, 176.8, 66.3) hdg 180 hw 3.6 pave=176.8
+   s=986 (990.0, 177.3, 61.6) hdg 180 hw 3.6 pave=-
+   s=991 (990.0, 176.6, 56.7) hdg 180 hw 3.6 pave=-
+   s=996 (990.0, 176.0, 51.7) hdg 180 hw 3.6 pave=-
+   s=1001 (990.0, 175.4, 46.7) hdg 180 hw 3.6 pave=-
+   s=1006 (990.0, 174.8, 41.8) hdg 180 hw 3.6 pave=-
+   s=1011 (990.0, 174.2, 36.8) hdg 180 hw 3.6 pave=-
+   s=1016 (990.0, 173.6, 31.8) hdg 180 hw 3.6 pave=-
+   s=1021 (990.0, 172.9, 26.9) hdg 180 hw 3.6 pave=-
+   s=1026 (990.0, 172.3, 21.9) hdg 180 hw 3.6 pave=-
+   s=1031 (990.0, 171.7, 17.0) hdg 180 hw 3.6 pave=-
+   s=1036 (990.0, 171.1, 12.0) hdg 180 hw 3.6 pave=-
+   s=1041 (990.0, 170.5, 7.0) hdg 180 hw 5.0 pave=-
+   s=1046 (990.0, 169.8, 2.1) hdg 180 hw 5.0 pave=-
+   s=1051 (990.0, 169.2, -2.9) hdg 180 hw 5.0 pave=-
+   s=1056 (990.0, 168.6, -7.8) hdg 180 hw 5.0 pave=-
+   s=1061 (990.0, 168.0, -12.8) hdg 180 hw 5.0 pave=-
+   s=1066 (990.0, 167.4, -17.8) hdg 180 hw 5.0 pave=-
+   s=1071 (990.0, 166.8, -22.7) hdg 180 hw 5.0 pave=-
+   s=1076 (990.0, 166.1, -27.7) hdg 180 hw 5.0 pave=-
+   s=1081 (990.0, 165.5, -32.7) hdg 180 hw 5.0 pave=-
+   s=1086 (990.0, 164.9, -37.6) hdg 180 hw 3.6 pave=-
+   s=1091 (990.0, 164.3, -42.6) hdg 180 hw 3.6 pave=-
+   s=1096 (990.0, 163.7, -47.5) hdg 180 hw 3.6 pave=-
+   s=1101 (990.0, 163.0, -52.5) hdg 180 hw 3.6 pave=-
+   s=1106 (990.0, 162.4, -57.5) hdg 180 hw 3.6 pave=-
+   s=1111 (990.0, 161.8, -62.4) hdg 180 hw 3.6 pave=-
+   s=1116 (990.0, 161.2, -67.4) hdg 180 hw 3.6 pave=-
+   s=1121 (990.0, 160.6, -72.4) hdg 180 hw 3.6 pave=-
+   s=1126 (990.0, 160.0, -77.3) hdg 180 hw 3.6 pave=-
+   s=1131 (990.0, 159.3, -82.3) hdg 180 hw 3.6 pave=-
+   s=1136 (990.0, 157.6, -86.8) hdg 180 hw 3.6 pave=157.7
+   s=1141 (990.0, 154.6, -90.8) hdg 180 hw 3.6 pave=154.7
+   s=1146 (990.0, 151.6, -94.8) hdg 180 hw 3.6 pave=151.7
+   s=1151 (990.0, 148.6, -98.8) hdg 180 hw 3.6 pave=148.7
+   s=1156 (990.0, 145.6, -102.8) hdg 180 hw 3.6 pave=145.7
+   s=1161 (990.0, 142.7, -106.8) hdg 180 hw 3.6 pave=142.7
+   s=1166 (990.0, 139.7, -110.8) hdg 180 hw 3.6 pave=139.7
+   s=1171 (990.0, 136.8, -114.9) hdg 180 hw 3.6 pave=136.8
+   s=1176 (990.0, 134.0, -119.0) hdg 180 hw 3.6 pave=134.0
+   s=1181 (990.0, 131.2, -123.2) hdg 180 hw 3.6 pave=131.2
+   s=1186 (990.0, 128.5, -127.4) hdg 180 hw 3.6 pave=128.5
+   s=1191 (990.0, 125.8, -131.6) hdg 180 hw 3.6 pave=125.8
+   s=1196 (990.0, 123.2, -135.9) hdg 180 hw 3.6 pave=123.3
+   s=1201 (990.0, 120.7, -140.2) hdg 180 hw 3.6 pave=120.7
+   s=1206 (990.0, 118.2, -144.6) hdg 180 hw 3.6 pave=118.3
+   s=1211 (990.0, 115.9, -149.0) hdg 180 hw 3.6 pave=115.9
+   s=1216 (990.0, 113.6, -153.4) hdg 180 hw 3.6 pave=113.6
+   s=1221 (990.0, 111.3, -157.9) hdg 180 hw 3.6 pave=111.4
+   s=1226 (990.0, 109.2, -162.4) hdg 180 hw 3.6 pave=109.2
+   s=1231 (990.0, 107.1, -167.0) hdg 180 hw 3.6 pave=107.2
+   s=1236 (990.0, 105.2, -171.6) hdg 180 hw 3.6 pave=105.2
+   s=1241 (990.0, 103.3, -176.2) hdg 180 hw 3.6 pave=103.3
+   s=1246 (990.0, 101.5, -180.9) hdg 180 hw 3.6 pave=101.5
+   s=1251 (990.0, 99.8, -185.6) hdg 180 hw 3.6 pave=99.8
+   s=1256 (990.0, 98.2, -190.3) hdg 180 hw 3.6 pave=98.3
+   s=1261 (990.0, 96.7, -195.1) hdg 180 hw 3.6 pave=96.8
+   s=1266 (990.0, 95.3, -199.9) hdg 180 hw 3.6 pave=95.4
+   s=1271 (990.0, 94.1, -204.7) hdg 180 hw 3.6 pave=94.1
+   s=1276 (990.0, 92.9, -209.6) hdg 180 hw 3.6 pave=92.9
+   s=1281 (990.0, 91.9, -214.5) hdg 180 hw 3.6 pave=91.9
+   s=1286 (990.0, 91.2, -219.4) hdg -154 hw 3.6 pave=91.3
+   s=1291 (987.6, 90.9, -223.8) hdg -152 hw 3.6 pave=90.9
+   s=1296 (985.3, 90.8, -228.2) hdg -154 hw 3.6 pave=90.8
+   s=1301 (983.1, 90.8, -232.7) hdg -153 hw 5.0 pave=90.8
+   s=1306 (980.7, 90.8, -237.1) hdg -150 hw 5.0 pave=90.8
+   s=1311 (978.0, 90.8, -241.4) hdg -146 hw 5.0 pave=90.8
+   s=1316 (975.0, 90.8, -245.3) hdg -138 hw 5.0 pave=90.8
+   s=1321 (971.4, 90.8, -248.8) hdg -131 hw 5.0 pave=90.9
+   s=1326 (967.3, 90.9, -251.6) hdg -116 hw 5.0 pave=90.9
+   s=1331 (962.7, 90.9, -253.4) hdg -104 hw 5.0 pave=91.0
+   s=1336 (957.7, 91.0, -254.0) hdg -90 hw 5.0 pave=91.0
+   s=1341 (952.7, 91.1, -253.6) hdg -83 hw 5.0 pave=91.1
+   s=1346 (947.8, 91.2, -252.7) hdg -78 hw 3.6 pave=91.2
+   s=1351 (942.9, 91.3, -251.6) hdg -75 hw 3.6 pave=91.3
+   s=1356 (938.1, 91.3, -250.2) hdg -73 hw 3.6 pave=91.4
+   s=1361 (933.4, 91.4, -248.7) hdg -71 hw 3.6 pave=91.5
+   s=1366 (928.7, 91.5, -247.0) hdg -70 hw 3.6 pave=91.6
+   s=1371 (924.0, 91.6, -245.3) hdg -69 hw 3.6 pave=91.6
+   s=1376 (919.3, 91.7, -243.5) hdg -68 hw 3.6 pave=91.7

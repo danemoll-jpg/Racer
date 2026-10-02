@@ -1,0 +1,73 @@
+action,route,station,lateral,x,y,z,heading,gold,surfaceGap,reason,object,mesh
+keep,Downhill Ridge Cut,18.0,0.4,801.47,96.57,-187.97,-89,True,0.07,"turn/fork ahead","Route atlas direction guidance/Optional gold / Downhill Ridge Cut",MountainLoopReverse-arrow-048
+REMOVE,Downhill Ridge Cut,54.0,0.4,769.24,86.71,-174.46,-46,True,-1.97,"repeated on straight (36 m after kept arrow)","CR122 continuous mountain support/CR122 crossing gold arrow",MountainLoopReverse-CR122-crossing-arrow-54
+keep,Downhill Ridge Cut,68.0,0.4,759.22,87.68,-164.68,-46,True,0.19,"turn/fork ahead","CR122 continuous mountain support/CR122 crossing gold arrow",MountainLoopReverse-CR122-crossing-arrow-68
+keep,Downhill Ridge Cut,82.0,0.4,749.20,89.92,-154.91,-46,True,0.13,"turn/fork ahead","CR122 continuous mountain support/CR122 crossing gold arrow",MountainLoopReverse-CR122-crossing-arrow-82
+keep,Downhill Ridge Cut,138.0,0.4,709.10,83.53,-115.81,-46,True,0.13,"turn/fork ahead","CR122 continuous mountain support/CR122 crossing gold arrow",MountainLoopReverse-CR122-crossing-arrow-138
+keep,Downhill Ridge Cut,152.0,0.4,699.08,82.24,-106.04,-46,True,0.14,"turn/fork ahead","CR122 continuous mountain support/CR122 crossing gold arrow",MountainLoopReverse-CR122-crossing-arrow-152
+keep,Downhill Ridge Cut,166.0,0.4,692.58,81.86,-94.30,7,True,0.13,"turn/fork ahead","CR122 continuous mountain support/CR122 crossing gold arrow",MountainLoopReverse-CR122-crossing-arrow-166
+keep,Downhill Ridge Cut,180.0,0.4,698.34,80.98,-81.71,36,True,0.87,"turn/fork ahead","CR122 continuous mountain support/CR122 crossing gold arrow",MountainLoopReverse-CR122-crossing-arrow-180
+keep,Downhill Ridge Cut,194.0,0.4,707.16,79.96,-70.85,41,True,0.89,"turn/fork ahead","CR122 continuous mountain support/CR122 crossing gold arrow",MountainLoopReverse-CR122-crossing-arrow-194
+keep,Downhill Ridge Cut,220.0,0.4,722.63,79.12,-49.08,19,False,0.07,"turn/fork ahead","Route atlas direction guidance/Main teal / turn",MountainLoopReverse-arrow-006
+keep,Main,36.0,0.0,725.85,79.12,-25.08,-2,False,0.08,"fork/rejoin arrow","Route atlas direction guidance/Main teal / Downhill Ridge Cut rejoin",MountainLoopReverse-arrow-002
+keep,Main,112.0,0.4,730.41,82.75,49.21,25,False,0.11,"turn/fork ahead","Route atlas direction guidance/Main teal / turn",MountainLoopReverse-arrow-007
+keep,Main,137.0,0.4,746.61,90.80,65.58,73,False,0.08,"turn/fork ahead","Route atlas direction guidance/Main teal / turn",MountainLoopReverse-arrow-008
+keep,Main,212.0,0.4,814.04,116.25,69.62,42,False,0.08,"turn/fork ahead","Route atlas direction guidance/Main teal / turn",bump-175-Main teal - turn
+keep,Main,262.0,0.4,834.31,125.21,114.42,24,False,0.10,"turn/fork ahead","Route atlas direction guidance/Main teal / turn",MountainLoopReverse-seated-marking-19
+keep,Main,287.0,0.4,847.66,130.02,134.69,51,False,0.11,"turn/fork ahead","Route atlas direction guidance/Main teal / turn",MountainLoopReverse-seated-marking-9
+keep,Main,325.0,0.4,879.72,142.62,150.10,75,False,0.10,"turn/fork ahead","Route atlas direction guidance/Main teal / reassurance",MountainLoopReverse-seated-marking-23
+keep,Main,421.0,0.3,967.43,165.17,133.25,125,False,0.11,"fork/rejoin arrow","Route atlas direction guidance/Main teal / before Summit Traverse fork",MountainLoopReverse-seated-marking-1
+keep,Main,467.0,0.3,1005.84,162.80,135.93,37,False,0.09,"fork/rejoin arrow","Route atlas direction guidance/Main teal / main at Summit Traverse fork",MountainLoopReverse-seated-marking-3
+keep,Main,525.0,0.4,1038.29,157.62,183.51,31,False,0.08,"turn/fork ahead","Route atlas direction guidance/Main teal / reassurance",MountainLoopReverse-arrow-033
+keep,Main,587.0,0.4,1067.37,152.92,237.89,17,False,0.08,"turn/fork ahead","Route atlas direction guidance/Main teal / turn",MountainLoopReverse-arrow-013
+keep,Main,612.0,0.4,1069.15,151.79,262.53,-11,False,0.08,"turn/fork ahead","Route atlas direction guidance/Main teal / turn",MountainLoopReverse-arrow-014
+keep,Main,662.0,0.4,1047.27,152.03,306.98,-39,False,0.07,"turn/fork ahead","Route atlas direction guidance/Main teal / turn",MountainLoopReverse-arrow-015
+keep,Main,687.0,0.4,1027.81,152.12,322.00,-71,False,0.07,"turn/fork ahead","Route atlas direction guidance/Main teal / turn",MountainLoopReverse-arrow-016
+keep,Main,712.0,0.4,1003.14,152.12,323.31,-105,False,0.07,"turn/fork ahead","Route atlas direction guidance/Main teal / turn",MountainLoopReverse-arrow-017
+REMOVE,Main,825.0,0.4,990.00,152.12,216.22,180,False,0.07,"repeated on straight (113 m after kept arrow)","Route atlas direction guidance/Main teal / reassurance",MountainLoopReverse-arrow-034
+keep,Main,925.0,0.4,990.00,152.72,116.25,-180,False,0.12,"reassurance (long straight)","Route atlas direction guidance/Main teal / reassurance",MountainLoopReverse-seated-marking-7
+keep,Main,1225.0,0.4,990.00,109.87,-161.21,180,False,0.08,"turn/fork ahead","Route atlas direction guidance/Main teal / reassurance",MountainLoopReverse-arrow-036
+keep,Main,1287.0,0.4,989.64,91.36,-220.08,-154,False,0.06,"turn/fork ahead","Route atlas direction guidance/Main teal / turn",MountainLoopReverse-arrow-018
+keep,Main,1312.0,0.4,977.62,90.90,-241.96,-145,False,0.08,"turn/fork ahead","Route atlas direction guidance/Main teal / turn",MountainLoopReverse-arrow-019
+keep,Main,1337.0,0.4,956.98,91.13,-253.97,-88,False,0.08,"turn/fork ahead","Route atlas direction guidance/Main teal / turn",MountainLoopReverse-arrow-020
+keep,Main,1425.0,0.4,875.23,92.92,-222.78,-62,False,0.08,"turn/fork ahead","Route atlas direction guidance/Main teal / reassurance",MountainLoopReverse-arrow-037
+keep,Main,1468.0,0.3,837.67,94.92,-200.60,-55,False,0.08,"fork/rejoin arrow","Route atlas direction guidance/Main teal / before Downhill Ridge Cut fork",MountainLoopReverse-arrow-000
+keep,Main,1487.0,0.4,823.18,95.77,-189.47,-49,False,0.07,"turn/fork ahead","Route atlas direction guidance/Main teal / turn",MountainLoopReverse-arrow-021
+REMOVE,Main,1504.0,21.0,793.50,91.77,-187.29,-80,True,NaN,"not on this course","CR122 continuous mountain support/CR122 crossing gold arrow",MountainLoopReverse-CR122-crossing-arrow-26
+keep,Main,1514.0,0.3,807.92,94.84,-167.10,-6,False,0.10,"fork/rejoin arrow","Route atlas direction guidance/Main teal / main at Downhill Ridge Cut fork",MountainLoopReverse-arrow-001
+keep,Main,1537.0,0.4,811.70,96.23,-145.41,21,False,0.07,"turn/fork ahead","Route atlas direction guidance/Main teal / turn",MountainLoopReverse-arrow-022
+keep,Main,1562.0,0.4,822.68,98.81,-123.61,60,False,0.07,"turn/fork ahead","Route atlas direction guidance/Main teal / turn",MountainLoopReverse-arrow-023
+keep,Main,1580.0,0.0,838.29,100.70,-114.02,60,False,0.07,"turn/fork ahead","CR121 continuous reverse guidance/CR121 uphill teal handoff",CR121-arrow-50(Clone)
+keep,Main,1593.0,0.2,849.51,102.08,-108.06,65,False,0.11,"turn/fork ahead","CR121 continuous reverse guidance/CR121 uphill teal handoff",CR121-arrow-51(Clone)
+keep,Main,1627.0,0.4,878.83,111.87,-99.50,81,False,0.06,"turn/fork ahead","Route atlas direction guidance/Main teal / reassurance",MountainLoopReverse-draped-arrow-879--100(Clone)(Clone)(Clone)(Clone)(Clone)
+REMOVE,Main,1726.0,0.0,976.26,130.74,-100.38,85,False,0.10,"repeated on straight (99 m after kept arrow)","Route atlas direction guidance/Main teal / reassurance",MountainLoopReverse-seated-marking-15
+keep,Main,1826.0,0.0,1073.51,137.72,-78.63,77,False,0.10,"turn/fork ahead","Route atlas direction guidance/Main teal / reassurance",MountainLoopReverse-seated-marking-2
+REMOVE,Main,1926.0,0.0,1171.84,137.90,-75.47,110,False,0.07,"repeated on straight (100 m after kept arrow)","Route atlas direction guidance/Main teal / reassurance",MountainLoopReverse-arrow-041
+keep,Main,2026.0,0.0,1247.75,124.63,-136.85,144,False,0.08,"reassurance (long straight)","Route atlas direction guidance/Main teal / reassurance",MountainLoopReverse-arrow-042
+keep,Main,2126.0,0.0,1276.95,112.61,-230.67,172,False,0.08,"turn/fork ahead","Route atlas direction guidance/Main teal / reassurance",MountainLoopReverse-arrow-043
+keep,Main,2163.0,0.0,1281.10,109.81,-267.27,179,False,0.08,"turn/fork ahead","Route atlas direction guidance/Main teal / turn",bump-2140-Main teal - turn
+REMOVE,Main,2226.0,0.0,1236.74,110.12,-299.07,-93,False,0.07,"repeated on straight (63 m after kept arrow)","Route atlas direction guidance/Main teal / reassurance",MountainLoopReverse-arrow-044
+keep,Main,2326.0,0.0,1136.77,110.12,-300.00,-90,False,0.08,"reassurance (long straight)","Route atlas direction guidance/Main teal / reassurance",MountainLoopReverse-arrow-045
+REMOVE,Main,2426.0,0.0,1037.30,114.75,-300.00,-90,False,0.10,"repeated on straight (100 m after kept arrow)","Route atlas direction guidance/Main teal / reassurance",MountainLoopReverse-arrow-046
+keep,Main,2626.0,0.0,843.55,109.08,-300.00,-90,False,0.08,"reassurance (long straight)","Route atlas direction guidance/Main teal / reassurance",MountainLoopReverse-arrow-047
+keep,Main,2738.0,0.0,732.17,99.15,-300.00,-90,False,0.08,"turn/fork ahead","Route atlas direction guidance/Main teal / turn",MountainLoopReverse-arrow-026
+keep,Main,2763.0,0.0,710.74,99.74,-289.27,-48,False,0.07,"turn/fork ahead","Route atlas direction guidance/Main teal / turn",MountainLoopReverse-arrow-027
+keep,Main,2838.0,0.0,687.34,91.88,-220.36,2,False,0.08,"turn/fork ahead","Route atlas direction guidance/Main teal / turn",MountainLoopReverse-arrow-028
+keep,Main,2938.0,0.0,730.83,86.51,-132.15,48,False,0.08,"turn/fork ahead","Route atlas direction guidance/Main teal / turn",MountainLoopReverse-arrow-029
+REMOVE,Main,2950.0,70.6,780.23,87.89,-183.02,-63,True,NaN,"not on this course","CR122 continuous mountain support/CR122 crossing gold arrow",MountainLoopReverse-CR122-crossing-arrow-40
+keep,Main,2963.0,0.0,748.84,85.83,-115.67,1,False,-0.01,"turn/fork ahead","Route atlas direction guidance/Main teal / turn",MountainLoopReverse-arrow-030(Clone)
+keep,Main,3013.0,0.0,720.05,79.22,-76.34,-33,False,0.08,"turn/fork ahead","Route atlas direction guidance/Main teal / turn",MountainLoopReverse-arrow-031
+keep,Summit Traverse,20.0,0.4,1003.92,162.43,101.25,136,True,0.10,"turn/fork ahead","Route atlas direction guidance/Optional gold / Summit Traverse",MountainLoopReverse-seated-marking-22
+keep,Summit Traverse,130.0,0.4,1051.39,148.37,6.02,-177,True,0.10,"turn/fork ahead","Route atlas direction guidance/Optional gold / Summit Traverse",MountainLoopReverse-seated-marking-17
+keep,Summit Traverse,245.0,0.4,982.88,131.90,-71.92,-98,True,0.10,"turn/fork ahead","Summit merge gold arrow",MountainLoopReverse-seated-marking-10
+keep,Summit Traverse,263.0,0.4,966.08,129.30,-67.00,-55,True,0.10,"turn/fork ahead","Summit merge gold arrow",MountainLoopReverse-seated-marking-0
+keep,Summit Traverse,281.0,0.4,951.97,127.59,-55.82,-53,True,0.10,"turn/fork ahead","Summit merge gold arrow",MountainLoopReverse-seated-marking-14
+keep,Summit Traverse,353.0,0.0,881.64,115.13,-48.91,-109,True,0.10,"turn/fork ahead","Summit merge gold arrow",MountainLoopReverse-seated-marking-18
+REMOVE,Summit Traverse,353.0,0.0,881.64,115.13,-48.91,-109,True,0.10,"duplicate of Summit merge gold arrow (0 m)","Summit merge gold arrow",MountainLoopReverse-seated-marking-12
+keep,Summit Traverse,389.0,0.0,863.40,111.47,-76.76,167,True,0.03,"turn/fork ahead","Summit merge gold arrow",MountainLoopReverse-seated-marking-20
+REMOVE,Summit Traverse,389.0,0.0,863.40,111.47,-76.76,167,True,0.03,"duplicate of Summit merge gold arrow (0 m)","Summit merge gold arrow",MountainLoopReverse-seated-marking-5
+keep,Summit Traverse,407.0,0.0,872.49,109.54,-91.99,131,True,0.14,"turn/fork ahead","Summit merge gold arrow",MountainLoopReverse-seated-marking-8(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
+REMOVE,Summit Traverse,407.0,0.0,872.49,109.54,-91.99,131,True,0.14,"duplicate of Summit merge gold arrow (0 m)","Summit merge gold arrow",MountainLoopReverse-seated-marking-8(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)
+keep,Summit Traverse,425.0,0.0,888.59,115.10,-99.00,89,False,0.07,"fork/rejoin arrow","Route atlas direction guidance/Main teal / Summit Traverse rejoin",MountainLoopReverse-seated-marking-13
+keep,Summit Traverse,425.0,0.0,888.59,115.10,-99.00,89,True,0.07,"turn/fork ahead","Summit merge gold arrow",MountainLoopReverse-seated-marking-11
+REMOVE,Summit Traverse,425.0,0.0,888.59,115.10,-99.00,89,True,0.07,"duplicate of Summit merge gold arrow (0 m)","Summit merge gold arrow",MountainLoopReverse-seated-marking-16

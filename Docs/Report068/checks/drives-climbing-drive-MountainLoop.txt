@@ -1,0 +1,2 @@
+moto-throttle-Climbing_Ridge_Cut: complete=True best=298.6/298.6 resets=0 maxAir=4.34 minUp=0.83 airMaxRoll=11.2
+atv-throttle-Climbing_Ridge_Cut: complete=True best=298.6/298.6 resets=0 maxAir=4.14 minUp=0.06 airMaxRoll=86.7

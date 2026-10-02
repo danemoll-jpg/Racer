@@ -1,0 +1,4 @@
+drop from (726.50, 97.50, 84.03) v=(-1.00, -2.00, 0.00): first ground contact (726.3, 96.8, 84.0); lowest y 91.9; now (698.9, 91.9, 83.7); fell through world=False; last=''
+drop from (787.50, 107.50, 28.40) v=(0.00, -2.00, -1.00): first ground contact (787.5, 106.6, 28.1); lowest y 88.8; now (791.6, 88.8, -10.0); fell through world=False; last=''
+drop from (726.50, 99.00, 84.03) v=(-12.00, -6.00, -3.00): first ground contact (721.2, 95.4, 82.7); lowest y 80.6; now (678.1, 80.6, 68.2); fell through world=False; last=''
+drop from (726.50, 97.50, 84.03) v=(-1.00, -2.00, 0.00): first ground contact (726.3, 96.8, 84.0); lowest y 91.9; now (698.7, 91.9, 83.8); fell through world=False; last=''

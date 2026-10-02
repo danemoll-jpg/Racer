@@ -1,0 +1,48 @@
+SCENE MountainLoop
+High Ridge Drop / Summit Traverse entry s 8: would enter Main corridor; skipped
+SCENE MountainLoop
+High Ridge Drop / Summit Traverse entry s 8: would enter Main corridor; skipped
+SCENE MountainLoopReverse
+Downhill Ridge Cut jumps s 112: would enter Main corridor; skipped
+Downhill Ridge Cut jumps s 113: would enter Main corridor; skipped
+Downhill Ridge Cut jumps s 118: no pavement at centre
+Downhill Ridge Cut jumps s 119: no pavement at centre
+Downhill Ridge Cut jumps s 120: no pavement at centre
+Downhill Ridge Cut jumps s 121: no pavement at centre
+Downhill Ridge Cut jumps s 122: no pavement at centre
+Downhill Ridge Cut jumps s 123: no pavement at centre
+Downhill Ridge Cut jumps s 124: no pavement at centre
+Downhill Ridge Cut jumps s 125: no pavement at centre
+Downhill Ridge Cut jumps s 126: no pavement at centre
+Downhill Ridge Cut jumps s 127: no pavement at centre
+Downhill Ridge Cut jumps s 128: no pavement at centre
+SCENE MountainLoop
+SCENE MountainLoopReverse
+Downhill Ridge Cut jumps s 112: would enter Main corridor; skipped
+Downhill Ridge Cut jumps s 113: would enter Main corridor; skipped
+Downhill Ridge Cut jumps s 118: no pavement at centre
+Downhill Ridge Cut jumps s 119: no pavement at centre
+Downhill Ridge Cut jumps s 120: no pavement at centre
+Downhill Ridge Cut jumps s 121: no pavement at centre
+Downhill Ridge Cut jumps s 122: no pavement at centre
+Downhill Ridge Cut jumps s 123: no pavement at centre
+Downhill Ridge Cut jumps s 124: no pavement at centre
+Downhill Ridge Cut jumps s 125: no pavement at centre
+Downhill Ridge Cut jumps s 126: no pavement at centre
+Downhill Ridge Cut jumps s 127: no pavement at centre
+Downhill Ridge Cut jumps s 128: no pavement at centre
+SCENE MountainLoop
+SCENE MountainLoopReverse
+Downhill Ridge Cut jumps s 112: would enter Main corridor; skipped
+Downhill Ridge Cut jumps s 113: would enter Main corridor; skipped
+Downhill Ridge Cut jumps s 118: no pavement at centre
+Downhill Ridge Cut jumps s 119: no pavement at centre
+Downhill Ridge Cut jumps s 120: no pavement at centre
+Downhill Ridge Cut jumps s 121: no pavement at centre
+Downhill Ridge Cut jumps s 122: no pavement at centre
+Downhill Ridge Cut jumps s 123: no pavement at centre
+Downhill Ridge Cut jumps s 124: no pavement at centre
+Downhill Ridge Cut jumps s 125: no pavement at centre
+Downhill Ridge Cut jumps s 126: no pavement at centre
+Downhill Ridge Cut jumps s 127: no pavement at centre
+Downhill Ridge Cut jumps s 128: no pavement at centre

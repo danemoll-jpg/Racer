@@ -84,7 +84,7 @@ details.gameObject.SetActive(true);
                 Row(0,"resume","RESUME",flow.Resume);
                 if(flow.Race.FreeRoam){Row(1,"map","MAP",()=>flow.GetComponent<ExplorationMap>()?.Open());Row(2,"activities","ACTIVITIES",()=>Navigate("activities"));}
                 else Row(1,"restart","RESTART RACE",()=>Confirm("RESTART RACE?","This restarts the current event and clears its progress.",flow.StartRace));
-                Row(3,"settings","SETTINGS",flow.OpenSettings);Row(4,"return","RETURN TO MENU",()=>Confirm("RETURN TO MENU?",RacePlaylists.Active!=null?"The active playlist and championship progress will end. Saved playlists are kept.":"The current event will end.",flow.QuitRace));
+                Row(3,"settings","SETTINGS",flow.OpenSettings);Row(4,"return",flow.Race.FreeRoam?"RETURN TO MENU":"END RACE / RETURN TO MENU",()=>Confirm(flow.Race.FreeRoam?"RETURN TO MENU?":"END RACE AND RETURN TO MENU?",RacePlaylists.Active!=null?"The active playlist and championship progress will end. Saved playlists are kept.":"The current event will end.",flow.QuitRace));
                 Row(5,"records","Records",flow.OpenBoards);Row(6,"exploration","Exploration",flow.OpenExploration);
                 if(!flow.Race.FreeRoam)Row(7,"penalties","Penalty Details",()=>Navigate("penalties"));
                 if(flow.Race.Progress.Finished&&!flow.Race.ClassificationFinal)Row(8,"complete","Complete Race",flow.Race.FinalizeUnfinishedAi);

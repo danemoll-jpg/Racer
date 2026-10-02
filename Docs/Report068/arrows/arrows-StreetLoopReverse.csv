@@ -1,0 +1,55 @@
+action,route,station,lateral,x,y,z,heading,gold,surfaceGap,reason,object,mesh
+keep,Granite Creek Cut,29.0,0.4,-94.11,7.66,509.31,-164,True,0.08,"turn/fork ahead","Route atlas direction guidance/Optional gold / Granite Creek Cut",StreetLoopReverse-arrow-049
+REMOVE,Granite Creek Cut,130.0,0.4,-125.41,11.63,413.73,-151,True,0.07,"repeated on straight (101 m after kept arrow)","Route atlas direction guidance/Optional gold / Granite Creek Cut",StreetLoopReverse-arrow-050
+keep,Granite Creek Cut,260.0,0.4,-222.10,15.52,329.25,-122,True,0.07,"reassurance (long straight)","Route atlas direction guidance/Optional gold / Granite Creek Cut",StreetLoopReverse-arrow-051
+keep,Granite Creek Cut,520.0,0.4,-432.80,11.93,177.12,-123,True,0.07,"reassurance (long straight)","Route atlas direction guidance/Optional gold / Granite Creek Cut",StreetLoopReverse-arrow-052
+keep,Granite Creek Cut,650.0,0.4,-544.67,9.29,110.95,-121,True,0.08,"turn/fork ahead","Route atlas direction guidance/Optional gold / Granite Creek Cut",StreetLoopReverse-arrow-053
+keep,Main,12.0,0.4,313.12,8.08,559.10,-81,False,0.07,"turn/fork ahead","Route atlas direction guidance/Main teal / turn",StreetLoopReverse-arrow-003
+REMOVE,Main,125.0,0.4,200.89,9.14,553.69,-98,False,0.02,"repeated on straight (113 m after kept arrow)","Route atlas direction guidance/Main teal / reassurance",StreetLoopReverse-arrow-018
+keep,Main,225.0,0.4,101.38,9.18,544.45,-94,False,0.07,"reassurance (long straight)","Route atlas direction guidance/Main teal / reassurance",StreetLoopReverse-arrow-019
+keep,Main,325.0,0.4,3.10,7.98,529.06,-91,False,0.08,"turn/fork ahead","Route atlas direction guidance/Main teal / reassurance",StreetLoopReverse-arrow-020
+keep,Main,380.0,0.3,-52.01,7.98,528.96,-90,False,0.08,"fork/rejoin arrow","Route atlas direction guidance/Main teal / before Granite Creek Cut fork",StreetLoopReverse-arrow-000
+keep,Main,426.0,0.3,-98.01,8.12,529.10,-90,False,0.08,"fork/rejoin arrow","Route atlas direction guidance/Main teal / main at Granite Creek Cut fork",StreetLoopReverse-arrow-001
+REMOVE,Main,525.0,0.4,-196.89,8.78,529.26,-90,False,0.07,"repeated on straight (99 m after kept arrow)","Route atlas direction guidance/Main teal / reassurance",StreetLoopReverse-arrow-021
+keep,Main,625.0,0.4,-296.88,9.05,530.71,-88,False,0.07,"reassurance (long straight)","Route atlas direction guidance/Main teal / reassurance",StreetLoopReverse-arrow-022
+REMOVE,Main,725.0,0.4,-396.82,8.51,534.13,-88,False,0.07,"repeated on straight (100 m after kept arrow)","Route atlas direction guidance/Main teal / reassurance",StreetLoopReverse-arrow-023
+keep,Main,825.0,0.4,-496.75,7.98,537.80,-87,False,-0.06,"turn/fork ahead","Route atlas direction guidance/Main teal / reassurance",StreetLoopReverse-arrow-024
+keep,Main,912.0,0.4,-583.59,8.02,540.40,-98,False,0.08,"turn/fork ahead","Route atlas direction guidance/Main teal / turn",StreetLoopReverse-arrow-004
+keep,Main,937.0,0.4,-605.02,7.99,529.64,-157,False,0.07,"turn/fork ahead","Route atlas direction guidance/Main teal / turn",StreetLoopReverse-arrow-005
+REMOVE,Main,1025.0,0.4,-625.60,8.78,444.41,-168,False,0.07,"repeated on straight (88 m after kept arrow)","Route atlas direction guidance/Main teal / reassurance",StreetLoopReverse-arrow-025
+keep,Main,1125.0,0.4,-633.20,9.19,344.88,-180,False,0.07,"reassurance (long straight)","Route atlas direction guidance/Main teal / reassurance",StreetLoopReverse-arrow-026
+REMOVE,Main,1225.0,0.4,-631.88,9.14,244.89,179,False,0.07,"repeated on straight (100 m after kept arrow)","Route atlas direction guidance/Main teal / reassurance",StreetLoopReverse-arrow-027
+keep,Main,1325.0,0.4,-630.56,8.88,144.90,179,False,0.07,"reassurance (long straight)","Route atlas direction guidance/Main teal / reassurance",StreetLoopReverse-arrow-028
+keep,Main,1425.0,0.4,-628.79,8.48,44.92,179,False,0.07,"turn/fork ahead","Route atlas direction guidance/Main teal / reassurance",StreetLoopReverse-arrow-029
+keep,Main,1468.0,0.3,-627.99,8.30,1.81,179,False,0.08,"fork/rejoin arrow","Route atlas direction guidance/Main teal / Granite Creek Cut rejoin",StreetLoopReverse-arrow-002
+REMOVE,Main,1525.0,0.4,-627.00,8.07,-55.07,179,False,0.08,"repeated on straight (57 m after kept arrow)","Route atlas direction guidance/Main teal / reassurance",StreetLoopReverse-arrow-030
+keep,Main,1625.0,0.4,-625.53,7.72,-155.05,179,False,0.08,"reassurance (long straight)","Route atlas direction guidance/Main teal / reassurance",StreetLoopReverse-arrow-031
+REMOVE,Main,1725.0,0.4,-624.05,7.37,-255.04,179,False,0.07,"repeated on straight (100 m after kept arrow)","Route atlas direction guidance/Main teal / reassurance",StreetLoopReverse-arrow-032
+keep,Main,1825.0,0.4,-622.05,6.96,-355.02,179,False,0.07,"reassurance (long straight)","Route atlas direction guidance/Main teal / reassurance",StreetLoopReverse-arrow-033
+keep,Main,1925.0,0.4,-619.87,6.43,-455.00,178,False,0.07,"turn/fork ahead","Route atlas direction guidance/Main teal / reassurance",StreetLoopReverse-arrow-034
+keep,Main,2012.0,0.4,-613.75,5.98,-541.74,171,False,0.03,"turn/fork ahead","Route atlas direction guidance/Main teal / turn",StreetLoopReverse-arrow-006
+REMOVE,Main,2125.0,0.4,-505.75,6.98,-549.66,91,False,0.07,"repeated on straight (113 m after kept arrow)","Route atlas direction guidance/Main teal / reassurance",StreetLoopReverse-arrow-035
+keep,Main,2225.0,0.4,-406.05,6.26,-557.04,96,False,0.08,"reassurance (long straight)","Route atlas direction guidance/Main teal / reassurance",StreetLoopReverse-arrow-036
+REMOVE,Main,2325.0,0.4,-307.44,15.39,-569.47,99,False,0.08,"repeated on straight (100 m after kept arrow)","Route atlas direction guidance/Main teal / reassurance",StreetLoopReverse-arrow-037
+keep,Main,2425.0,0.4,-209.47,30.19,-581.79,93,False,0.07,"reassurance (long straight)","Route atlas direction guidance/Main teal / reassurance",StreetLoopReverse-arrow-038
+keep,Main,2525.0,0.4,-109.54,30.08,-580.68,88,False,0.07,"turn/fork ahead","Route atlas direction guidance/Main teal / reassurance",StreetLoopReverse-arrow-039
+keep,Main,2587.0,0.4,-47.78,29.70,-576.35,77,False,0.08,"turn/fork ahead","Route atlas direction guidance/Main teal / turn",StreetLoopReverse-arrow-007
+keep,Main,2612.0,0.4,-25.56,31.15,-565.61,50,False,0.08,"turn/fork ahead","Route atlas direction guidance/Main teal / turn",StreetLoopReverse-arrow-008
+REMOVE,Main,2725.0,0.4,-3.73,31.06,-458.55,2,False,0.08,"repeated on straight (113 m after kept arrow)","Route atlas direction guidance/Main teal / reassurance",StreetLoopReverse-arrow-040
+keep,Main,2825.0,0.4,8.75,39.79,-360.09,14,False,0.07,"turn/fork ahead","Route atlas direction guidance/Main teal / reassurance",StreetLoopReverse-arrow-041
+keep,Main,2887.0,0.4,31.38,35.46,-303.07,39,False,0.11,"turn/fork ahead","Route atlas direction guidance/Main teal / turn",StreetLoopReverse-arrow-009
+keep,Main,2912.0,0.4,50.04,41.26,-288.01,67,False,0.06,"turn/fork ahead","Route atlas direction guidance/Main teal / turn",StreetLoopReverse-arrow-010
+keep,Main,3212.0,0.4,319.45,42.07,-393.10,104,False,0.04,"turn/fork ahead","Route atlas direction guidance/Main teal / turn",StreetLoopReverse-arrow-011
+keep,Main,3262.0,0.4,367.50,30.44,-393.76,107,False,0.12,"turn/fork ahead","Route atlas direction guidance/Main teal / turn",StreetLoopReverse-arrow-012
+REMOVE,Main,3325.0,0.4,411.25,37.90,-436.68,143,False,0.07,"repeated on straight (63 m after kept arrow)","Route atlas direction guidance/Main teal / reassurance",StreetLoopReverse-arrow-042
+keep,Main,3437.0,0.4,471.02,25.32,-530.40,149,False,0.08,"turn/fork ahead","Route atlas direction guidance/Main teal / turn",StreetLoopReverse-arrow-013
+keep,Main,3462.0,0.4,489.28,22.72,-544.86,80,False,0.09,"turn/fork ahead","Route atlas direction guidance/Main teal / turn",StreetLoopReverse-arrow-014
+REMOVE,Main,3525.0,0.4,526.46,27.48,-496.74,21,False,0.07,"repeated on straight (63 m after kept arrow)","Route atlas direction guidance/Main teal / reassurance",StreetLoopReverse-arrow-043
+keep,Main,3625.0,0.4,543.03,28.48,-399.32,2,False,0.08,"reassurance (long straight)","Route atlas direction guidance/Main teal / reassurance",StreetLoopReverse-arrow-044
+keep,Main,4225.0,0.4,419.94,78.86,154.19,-40,False,0.08,"turn/fork ahead","Route atlas direction guidance/Main teal / reassurance",StreetLoopReverse-arrow-045
+keep,Main,4287.0,0.4,370.80,79.24,189.32,-71,False,0.07,"turn/fork ahead","Route atlas direction guidance/Main teal / turn",StreetLoopReverse-arrow-015
+keep,Main,4312.0,0.4,349.97,82.06,202.18,-38,False,0.06,"turn/fork ahead","Route atlas direction guidance/Main teal / turn",StreetLoopReverse-arrow-016
+REMOVE,Main,4425.0,0.4,320.61,69.44,308.36,-3,False,0.07,"repeated on straight (113 m after kept arrow)","Route atlas direction guidance/Main teal / reassurance",StreetLoopReverse-arrow-046
+keep,Main,4525.0,0.4,318.60,43.70,404.96,0,False,0.07,"reassurance (long straight)","Route atlas direction guidance/Main teal / reassurance",StreetLoopReverse-arrow-047
+keep,Main,4625.0,0.4,319.28,17.88,501.56,2,False,0.08,"turn/fork ahead","Route atlas direction guidance/Main teal / reassurance",StreetLoopReverse-arrow-048
+keep,Main,4662.0,0.4,320.19,8.86,537.39,-2,False,0.11,"turn/fork ahead","Route atlas direction guidance/Main teal / turn",StreetLoopReverse-arrow-017

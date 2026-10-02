@@ -1,0 +1,6 @@
+   flight: takeoff (990.0, 179.3, 64.0) at 36.0 m/s; first contact (989.5, 145.3, -82.7) (s 1140.0 lat 12.4); now (990.0, 145.0, -82.4)
+undershoot South Face Summit Flight (Reverse) from s 880 at 16 m/s: before (990.0, 145.0, -82.4) s=1139.9 lat=12.8 -> after (724.9, 79.6, -41.0) s=20.0 lat=0.6; along=-1120.0 m; distance=276.1 m; restored=True in 0.82s; waitingShown=False; last='Recovered to clear earned course support'; up=1.00; facing=1.00; diag=earnedBefore=0.00; route=main; selected=19.97; age=0.00s; backward=8.39m; displacement=277.33m; rejected=0; reasons=
+   after reset: held 2 s, drop 0.03 m, wheels 4, pos (724.9, 79.5, -41.0)
+   flight: takeoff (990.0, 179.3, 64.1) at 36.5 m/s; first contact (989.4, 145.8, -83.0) (s 1139.9 lat 11.8); now (991.7, 146.2, -82.4)
+undershoot South Face Summit Flight (Reverse) from s 880 at 20 m/s: before (991.7, 146.2, -82.4) s=1139.2 lat=11.9 -> after (724.9, 79.6, -41.0) s=20.0 lat=0.6; along=-1119.3 m; distance=278.1 m; restored=True in 0.80s; waitingShown=False; last='Recovered to clear earned course support'; up=1.00; facing=1.00; diag=earnedBefore=0.00; route=main; selected=19.97; age=0.00s; backward=8.65m; displacement=279.82m; rejected=0; reasons=
+   after reset: held 2 s, drop 0.03 m, wheels 4, pos (724.9, 79.5, -41.0)

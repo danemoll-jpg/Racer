@@ -10,7 +10,69 @@
 - Root AGENTS.md points future Codex tasks to both files.
 - From 2026-10-02 the coding agent is Claude Code. The same two files govern it; root CLAUDE.md (created in the 0.67 round) is its discovery pointer.
 
-## CURRENT — Reset rule rewrite, fall-through safety, Mountain fixes, landing, barriers — target 0.68.0-review1 — NOT STARTED
+## CURRENT — Reset rule rewrite, fall-through safety, Mountain fixes, landing, barriers — 0.68.0-review1 — IMPLEMENTED, delivery in progress
+
+### Results (2026-10-02, Claude Code)
+
+- **Safety checkpoint:** `d2a196e3` (this TODO plan), pushed before any change. Version 0.68.0-review1 / build 68000. Evidence: [Docs/Report068/VALIDATION.md](Docs/Report068/VALIDATION.md); tools in `Tools/Report068/`; play-mode harness `Assets/Scripts/Report068ResetChecks.cs`.
+- **Part A — reset rule (Dan's standing decision) — PASS.**
+  - The cause matched the source reading: earned-anchor-only candidates, run-up samples rejected by jump exclusions, and an endless retry with no fallback.
+  - Reproduced on 0.67 code:
+    - off-track landing after the Homeward run-up → start marker (93–109 m);
+    - Reverse South Face undershoot → start line (1,120 m back);
+    - BUG-008 overshoots → 15–108 m back;
+    - Free Roam start / quit-race → fell through the world.
+    - The exact waiting loop was not reproduced by the harness; its cause is shown in the source.
+  - New `VehicleRespawn.RecoverNearest`: nearest route point around tracked progress, on the raced route (branch first), facing the race direction.
+    - It steps outward 2 m at a time, forward first.
+    - It never steps back across a ramp/flight exclusion it reached from outside, and never crosses START/FINISH.
+    - It always places, with last resorts of anywhere on the route, then the start position.
+    - The delay, validation, wipeout detection and checkpoints are unchanged.
+  - AI selection is unchanged, with the same guaranteed placement after 3 s of rejections. Free Roam can no longer hang.
+  - Failsafe below -15 in all scenes (immediate).
+  - Quit race seats the vehicle on validated ground.
+  - The start is seated on its support.
+  - All targeted cases restore in 0.80–0.83 s at the nearest usable point (2–44 m, mostly under 30 m), facing forward, with no waiting message. Failsafe 0.02 s.
+- **Fall-through holes:**
+  - Rule-5 comparison of every 0.67-modified ground mesh against 0.66: 0.67 created no voids.
+  - 0.67's visual-only seam covers hid bottomless or deep slots (up to ~1.1 m wide). These are 538 (Forward) and 2,050 (Reverse) triangles, including a cluster beside the Homeward landing where Dan overshot. All now have matching colliders.
+  - **BUG-009 root cause:** the Mountain Forward start marker was 1.49 m below the pavement with nothing under it (pre-dates 0.67). Raised; the code also seats any start on its support.
+  - The exact BUG-007 pass-through was not reproduced.
+- **Part B:**
+  - **BUG-003:** a 0.67 shoulder sheet lying on the pavement was tucked under it (69 vertices). The "blank board" is the back of "<<< SHORTCUT 2 / DOWNHILL RIDGE CUT", whose text already faces Reverse traffic (Dan was facing backwards); kept.
+  - **BUG-004:** sign removed.
+  - **BUG-005:** the 0.3–0.6 m pavement crease is now a smooth 20 m vertical curve. A 5 m blend still launched a 35 m/s bike; AI roll went from 81° to 1.4°. The arrow was reseated.
+  - **BUG-006:**
+    - Collidable shoulder from both pavement edges over the MountainCut cap (s 428–488); 459 shard vertices lowered under it.
+    - The "sky slab" is the back/underside of the OPTIONAL SHORTCUT / SUMMIT TRAVERSE sign; kept.
+- **Part C — BUG-008:**
+  - Measured: only ~33–36 m/s takeoffs land on the 17 m deck. Full-throttle moto/ATV land on the 167 m paved descent, which is already 9+ m wide each side, then meet the 68° left bend too fast.
+  - Approach, ramp, lip and deck are unchanged.
+  - The landing zone continues through the bend as a runout up to 15 m wide on the outside (s 2474–2545), bounded by the Part E berm.
+  - The clean line is clear. At 38 m/s airborne riders can still clear the berm; the new reset restores them at the bend. Dan judges the feel.
+- **Part D:** "END RACE / RETURN TO MENU" (confirm: "END RACE AND RETURN TO MENU?"). Text only; navigation unchanged.
+- **Part E** ([BARRIERS.md](Docs/Report068/BARRIERS.md)):
+  - Earth berms with an 85° rock inner face are built at:
+    - the Forward Homeward bend (2.4 m);
+    - the Reverse South Face bend;
+    - Reverse Downhill Ridge Cut (1.8 m).
+  - Clean lines are clear, except that the full-throttle line brushes the narrow Downhill Ridge Cut turn.
+  - No-steering overshoots are kept on track at the South Face and Downhill sites, and for the ATV at the Homeward bend.
+  - The High Ridge Drop berm (shortcut entrance) was removed after it touched the clean line; it is now a suggestion.
+- **Part F** ([ARROWS.md](Docs/Report068/ARROWS.md)):
+  - 538 → 302 arrows on all 8 courses: 146 inherited/off-course (72 Street Loop arrows in each Backyard scene), 10 duplicates, 80 repeated on straights.
+  - Every turn/fork/shortcut entry keeps guidance. 7 kept arrows were reseated flat.
+- **5A.6 neighbour checks** (moto + ATV) match 0.67:
+  - lower main route s 1460–1830;
+  - South Face jump from s 800 (known AI stop at 1180.9);
+  - Summit Traverse, both scenes;
+  - start area;
+  - Climbing / Downhill Ridge Cut throttle.
+  - The production AI stopping at the Homeward deck (s 2316) is confirmed identical on the 0.67 scene (pre-existing).
+- **Not changed:** the Reverse s 1583 bump (awaiting Dan); the Mountain Reverse world edge north of z ≈ 380 (outside every route; the failsafe covers it).
+
+### Original scope (as planned)
+
 
 - **Authorized by Dan** from debug session `2026-10-02_13-02-35-687_63de1f` (CLOSED, exported as `..._63de1f_e068b7b8.zip`). Folder with full-size screenshots: `C:\Users\danmo\AppData\LocalLow\DefaultCompany\Racer\DebugReports\2026-10-02_13-02-35-687_63de1f`. READ every comment and LOOK at every screenshot before changing anything. If the folder is missing, ask Dan for the ZIP.
 - **Only BUG-003 to BUG-009 count.** BUG-001 and BUG-002 in that session were captured at 13:02–13:03 on the OLD 0.66 build (`34ba59b9`) while 0.67 was still being built; the session was then resumed by 0.67 (build `78170779`). Do not treat 001/002 as 0.67 failures. 001's sign is re-reported as BUG-004. 002 ("bad bump", Reverse main s 1583, 842.3/101.4/-115.1) was not re-reported on 0.67; Dan will recheck it. Do not change it this round.
@@ -88,7 +150,8 @@
 
 ### Outstanding after this round (as of 2026-10-02)
 
-- Awaiting Dan: gameplay review of 0.68; recheck of the Reverse s 1583 bump on the current build.
+- Awaiting Dan: gameplay review of 0.68 (the reset feel, BUG-008 landing/runout and the three berms); recheck of the Reverse s 1583 bump on the current build.
+- From 0.68 testing, not built: barrier suggestions in BARRIERS.md (High Ridge Drop entrance, Eastbound Gully bend, Reverse High Ridge Drop); Homeward airborne overshoots of 38 m/s or more clear the bend berm; production AI stops at the Homeward deck (pre-existing, same class as South Face).
 - From the 0.67 results, not yet raised by Dan: 74 Reverse intrusion samples; jagged pavement outlines.
 - Open: CR-118 intermittent spoken-title clipping. Known limitation: production AI undershoots the South Face receiving deck (since 0.63).
 - Possibly stale, needs Dan's yes/no: CR-010 slightly tighter steering.
