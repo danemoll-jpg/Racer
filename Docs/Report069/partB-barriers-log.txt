@@ -1,0 +1,8 @@
+SCENE MountainLoop
+SCENE MountainLoopReverse
+Summit crest bend (BUG-005) s 446: would enter the Summit Traverse corridor; left open
+Summit crest bend (BUG-005) s 447: would enter the Summit Traverse corridor; left open
+Summit crest bend (BUG-005) s 448: would enter the Summit Traverse corridor; left open
+Summit crest bend (BUG-005) s 449: would enter the Summit Traverse corridor; left open
+Summit crest bend (BUG-005) s 450: would enter the Summit Traverse corridor; left open
+Summit crest bend (BUG-005) s 451: would enter the Summit Traverse corridor; left open

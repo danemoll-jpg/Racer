@@ -10,7 +10,59 @@
 - Root AGENTS.md points future Codex tasks to both files.
 - From 2026-10-02 the coding agent is Claude Code. The same two files govern it; root CLAUDE.md (created in the 0.67 round) is its discovery pointer.
 
-## CURRENT — 8-report follow-up: road edges, barriers, signs, grass on road — target 0.69.0-review1 — NOT STARTED
+## CURRENT — 8-report follow-up: road edges, barriers, signs, grass on road — 0.69.0-review1 — IMPLEMENTED, DELIVERY IN PROGRESS
+
+### Results (2026-10-02, Claude Code)
+
+- **Safety checkpoint:** `20277246` (this TODO plan), pushed before any change. Version 0.69.0-review1 / build 69000.
+  - Evidence: [Docs/Report069/VALIDATION.md](Docs/Report069/VALIDATION.md) and [BARRIERS.md](Docs/Report069/BARRIERS.md).
+  - Tools in `Tools/Report069/`; play-mode harness `Assets/Scripts/Report069Checks.cs`.
+- **Part A — BUG-004 and all Mountain edges: PASS (with listed remainders).**
+  - **Cause (not the voxel terrain):**
+    - The Reverse pavement (`reverse-branch-join.asset`) is a world-axis 0.5 m grid, so diagonal edges stair-step. The green notches are the 0.67 shoulder showing through.
+    - Separately, the 0.67 edge shoulders start 0.12 m under the edge and fall at 37° (median −0.47 m at 0.3 m out), so most edges were a step.
+  - **A1 (source fix):**
+    - Pavement boundary vertices on road sides move onto a local least-squares edge line: Reverse 438 vertices (≤ 0.40 m), Forward 8.
+    - No triangle flips. A "do no harm" pass undoes any move that makes the edge less straight.
+    - Centre line, width, grade and banking are unchanged.
+  - **A2 (flush shoulders):** collidable earth shoulder tucked under the edge, flush, 1 m verge at −4%, then 1:2 (1:1.33, 1:0.7 lower) to the ground, or rising 1:2 to a bank.
+    - Terrain above the verge is lowered under it, never toward a road below.
+    - Tree-aware: no trunk buried more than 1 m. Posts/signs in the footprint were raised.
+    - Built: Forward 1,909 stations, Reverse 4,332.
+  - **Open 0.5 m edge stations, before → after:**
+
+    | Scene | Steps | Sawtooth |
+    |---|---|---|
+    | Forward | 1,345 → 228 | 125 → 130 |
+    | Reverse | 3,776 → 520 | 283 → 193 |
+
+  - **What remains** is junction mouths, natural rock barriers, steep walls, tree stations and stretches where straightening was undone. It is listed with coordinates in `Docs/Report069/partA-remaining.txt`.
+  - **Protected, unchanged:** whole flight systems from the approach, activity jumps, jump-exclusion zones, multi-level and covered roads, 0.68 berms, junctions.
+  - **Rides:** BUG-004 rides off and straight back on (moto/ATV). So do the other Reverse samples except s 1665 (natural rock barrier) and Summit Traverse s 452.5 (protected Fern Creek zone, unchanged).
+  - **Resets** beside corrected edges restore in 0.82 s at the nearest point.
+  - **Discovery:** a first build moved 3 vertices on the South Face run-up. AI takeoffs dropped and stopped at s 1092. Fixed by protecting whole flight systems from their approach, then rebuilt from scratch.
+- **Part B — PASS, with limitations.**
+  - Earth berms (0.68 design, 1.8 m, 85° face):
+    - BUG-005: Reverse main s 446–486, right; Summit Traverse entrance open.
+    - BUG-008: Forward main s 1390–1434, right, opposite the Climbing Ridge Cut rejoin.
+  - **BUG-008:** shortcut overshoots that fell ~40 m are now kept at the rejoin.
+  - **BUG-005:** 3 of 4 overshoots that fell 24–43 m now stop within 2–7 m. One ATV at 30 m/s rides off the berm's far end (15.6 m).
+  - **Clean lines:** complete. The full-throttle Reverse crest line brushes the BUG-005 berm, and no longer rolls over.
+  - **Other direction:** not needed (Forward climbs into that bend; the Reverse road is straight at the BUG-008 place).
+- **Part C:**
+  - **BUG-001 — regression from 0.67:** `PalePatch` recoloured 276 vertices of `StreetLoopGreybox-CR129-junction-Ground_480_640.asset`, which carries the Street Loop asphalt as vertex colour.
+    - The asset was restored to 0.66 (`eec4e911`). The cairn stays grounded.
+    - The "pale rectangle" is flat street-level grass (lighting), not a pad; left.
+  - **BUG-006:** the torn gore at the deck end was replaced by a smooth collidable surface, flush with the pavement.
+  - **BUG-007:** the ribbed earth-bank wedge at the Climbing Ridge Cut junction was replaced by one smooth surface, flush with both trails. Production AI now enters and rejoins the Climbing Ridge Cut (it reset before entering in 0.68).
+- **Part D:**
+  - **BUG-002:** both signs and their posts removed in all 8 course scenes. The Fence Line Smash activity is untouched.
+  - **BUG-003:** LAKE SHORE board raised 3.0 m in all 8 scenes. It clears the hillside under its whole width; the post is visible and grounded.
+- **5A.6 neighbour drives** (same sets as 0.68) match 0.68: South Face (AI stop 1183, throttle 1144), lower main route, Summit Traverse both scenes, Downhill / Climbing Ridge Cut, Homeward landing / runout, the three 0.68 berms.
+- **Remaining for Dan's review:**
+  - the BUG-005 ATV overshoot past the berm end, and the crest line brushing that berm;
+  - a faint stepped rim on the far side of the BUG-007 patch;
+  - 7 single stations where the new shoulder overlaps a pavement edge by 2–11 cm.
 
 - **Authorized by Dan** from debug session `2026-10-02_17-29-13-319_325918` (CLOSED, exported as `..._325918_47fd0b7a.zip`). All 8 reports were captured on 0.68.0-review1 (build `fd4431e2`), so all 8 count. Folder with full-size screenshots: `C:\Users\danmo\AppData\LocalLow\DefaultCompany\Racer\DebugReports\2026-10-02_17-29-13-319_325918`. READ every comment and LOOK at every screenshot before changing anything. If the folder is missing, ask Dan for the ZIP.
 - **Starting point:** main `10538c77` (documentation commit; playable source `52393f8b`, 0.68.0-review1 / game-68000). This TODO edit is uncommitted and belongs in the safety checkpoint.
@@ -57,7 +109,8 @@ Dan asked in 0.68 for barriers after jumps that lead straight into a turn. These
 
 ### Outstanding after this round (as of 2026-10-02)
 
-- Awaiting Dan: gameplay review of 0.69; recheck of the Reverse s 1583 bump.
+- Awaiting Dan: gameplay review of 0.69 (edge feel, the two new berms, BUG-006/007 surfaces); recheck of the Reverse s 1583 bump.
+- From 0.69 results, not raised by Dan: BUG-005 ATV overshoot past the berm end; remaining junction/rock-barrier edge stations (partA-remaining.txt).
 - From the 0.68 results, not yet raised by Dan: the full-throttle line brushes the Downhill Ridge Cut berm; airborne riders at ~38 m/s can still clear the Homeward berm; High Ridge Drop barrier is a suggestion only; production AI stops at the Homeward deck (s 2316) and undershoots the South Face deck (both pre-existing).
 - Open: CR-118 intermittent spoken-title clipping.
 - Possibly stale, needs Dan's yes/no: CR-010 slightly tighter steering.

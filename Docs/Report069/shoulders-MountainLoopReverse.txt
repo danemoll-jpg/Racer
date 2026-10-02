@@ -1,0 +1,107 @@
+MountainLoopReverse: stations with a new flush shoulder 4332 (0.5 m; 47 steep beside trees); already flush 3084; skipped: flush 3084, F 2204, unpaved 1462, J 1372, junction 1271, flight corridor 384, B 283, T 120, M 116, barrier 108, wall 67, patch 46, corridor Downhill Ridge Cut 9
+Main L s 100.0-100.0
+Main L s 101.5-101.5
+Main L s 105.0-105.0
+Main L s 107.0-107.5
+Main L s 108.5-108.5
+Main L s 111.0-111.0
+Main L s 133.0-406.5
+Main L s 510.5-715.5
+Main L s 1266.0-1278.0
+Main L s 1506.5-1509.5
+Main L s 1527.0-1527.0
+Main L s 1528.0-1528.0
+Main L s 1529.0-1542.0
+Main L s 1565.0-1568.0
+Main L s 1574.5-1595.5
+Main L s 1600.5-1600.5
+Main L s 1686.5-1687.5
+Main L s 1688.5-1713.0
+Main L s 1772.5-1776.0
+Main L s 1777.0-1778.0
+Main L s 1779.0-1781.0
+Main L s 1782.0-1783.5
+Main L s 1784.5-1784.5
+Main L s 1786.5-1786.5
+Main L s 1788.0-1788.5
+Main L s 1792.0-1854.5
+Main L s 1923.5-1924.0
+Main L s 1925.0-1925.5
+Main L s 1929.0-1930.0
+Main L s 1933.0-1937.5
+Main L s 1938.5-1940.5
+Main L s 1941.5-1951.5
+Main L s 2767.5-2857.0
+Main L s 2858.0-2860.0
+Main L s 2861.0-2862.5
+Main L s 2863.5-2863.5
+Main L s 2864.5-2865.0
+Main L s 2866.5-2867.5
+Main L s 2868.5-2869.0
+Main L s 2871.0-2872.0
+Main L s 2873.5-2874.0
+Main L s 2876.0-2876.5
+Main L s 2878.5-2878.5
+Main L s 2881.0-2881.0
+Main L s 2883.0-2883.0
+Main L s 2953.0-2953.0
+Main L s 2954.0-2954.0
+Main L s 2957.0-2957.0
+Main L s 2958.5-2959.0
+Main R s 101.0-101.0
+Main R s 102.5-102.5
+Main R s 104.0-104.0
+Main R s 105.0-105.0
+Main R s 106.5-108.0
+Main R s 111.0-112.5
+Main R s 113.5-118.0
+Main R s 120.5-421.0
+Main R s 488.5-715.5
+Main R s 1266.0-1278.0
+Main R s 1284.5-1285.0
+Main R s 1288.0-1289.5
+Main R s 1501.0-1528.5
+Main R s 1530.0-1530.0
+Main R s 1531.0-1535.0
+Main R s 1565.0-1602.5
+Main R s 1686.0-1686.0
+Main R s 1687.0-1687.0
+Main R s 1688.5-1688.5
+Main R s 1689.5-1690.5
+Main R s 1691.5-1692.0
+Main R s 1694.5-1694.5
+Main R s 1699.0-1699.0
+Main R s 1700.0-1712.5
+Main R s 1765.5-1769.5
+Main R s 1771.5-1773.0
+Main R s 1774.0-1778.5
+Main R s 1779.5-1782.0
+Main R s 1783.0-1784.5
+Main R s 1785.5-1785.5
+Main R s 1786.5-1889.5
+Main R s 2770.0-2861.5
+Main R s 2862.5-2864.0
+Main R s 2865.5-2867.0
+Main R s 2868.5-2869.5
+Main R s 2871.5-2872.0
+Main R s 2874.0-2874.0
+Main R s 2961.0-2966.0
+Main R s 2996.0-3007.5
+Summit Traverse L s 70.0-212.0
+Summit Traverse L s 261.5-338.5
+Summit Traverse R s 70.0-196.5
+Summit Traverse R s 276.5-338.5
+Downhill Ridge Cut L s 5.5-6.0
+Downhill Ridge Cut L s 7.0-7.0
+Downhill Ridge Cut L s 10.5-10.5
+Downhill Ridge Cut L s 11.5-11.5
+Downhill Ridge Cut L s 19.5-42.0
+Downhill Ridge Cut L s 93.0-94.5
+Downhill Ridge Cut L s 192.5-193.5
+Downhill Ridge Cut R s 17.0-18.0
+Downhill Ridge Cut R s 19.5-20.5
+Downhill Ridge Cut R s 24.5-36.0
+Downhill Ridge Cut R s 38.0-41.5
+Downhill Ridge Cut R s 93.0-94.5
+Downhill Ridge Cut R s 129.0-183.0
+Downhill Ridge Cut R s 186.0-188.5

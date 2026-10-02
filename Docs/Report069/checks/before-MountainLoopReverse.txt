@@ -1,0 +1,18 @@
+overshoot Main from s 436 at 32 m/s, no steering (moto): berm contacts=0 (max impulse 0); end (1085.7, 122.0, 77.6) main s 471.3 lat 106.8; on pavement=False; dropped 43.3 m below the start; maxAir=4.44 minUp=-0.94 speed 0.0
+overshoot Main from s 436 at 32 m/s, no steering (atv): berm contacts=0 (max impulse 0); end (1090.6, 122.7, 65.0) main s 463.6 lat 117.5; on pavement=False; dropped 42.7 m below the start; maxAir=4.42 minUp=-0.11 speed 10.3
+overshoot Main from s 442 at 30 m/s, no steering (moto): berm contacts=0 (max impulse 0); end (1048.3, 141.1, 134.1) main s 491.6 lat 40.6; on pavement=False; dropped 23.7 m below the start; maxAir=3.72 minUp=-0.02 speed 4.2
+overshoot Main from s 442 at 30 m/s, no steering (atv): berm contacts=0 (max impulse 0); end (1000.5, 163.5, 126.1) main s 456.0 lat 2.1; on pavement=False; dropped 2.5 m below the start; maxAir=1.68 minUp=-0.02 speed 13.6
+clean line Main s 400-520 (moto): complete=True best=525.4 berm contacts=0 maxAir=2.58 minUp=-0.46 resets=0
+clean line Main s 400-520 (atv): complete=True best=533.7 berm contacts=0 maxAir=1.40 minUp=0.15 resets=0
+clean line Summit Traverse s 0-60 (moto): complete=True best=74.7 berm contacts=0 maxAir=1.08 minUp=0.99 resets=0
+off-and-on Main s 254 left (moto, 12 m/s): edge 6.95 m from centre; went off=True (max 8.8 m out); back on=True at s 277.3; resets=0; stuck(max 0.0s); maxAir=0.32; minUp=0.70
+off-and-on Main s 254 left (atv, 12 m/s): edge 6.95 m from centre; went off=True (max 8.5 m out); back on=True at s 277.0; resets=0; stuck(max 0.6s); maxAir=0.32; minUp=0.44
+off-and-on Main s 273 left (moto, 12 m/s): edge 6.80 m from centre; went off=True (max 14.2 m out); back on=True at s 305.9; resets=0; stuck(max 0.0s); maxAir=0.86; minUp=0.63
+off-and-on Main s 273 left (atv, 12 m/s): edge 6.80 m from centre; went off=True (max 13.4 m out); back on=True at s 306.2; resets=0; stuck(max 0.0s); maxAir=0.76; minUp=0.74
+off-and-on Main s 1665 right (moto, 12 m/s): edge 7.20 m from centre; went off=False (max 7.1 m out); back on=False; resets=0; stuck(max 3.0s); maxAir=0.00; minUp=0.96
+off-and-on Main s 1665 right (atv, 12 m/s): edge 7.20 m from centre; went off=False (max 7.0 m out); back on=False; resets=0; stuck(max 3.0s); maxAir=0.00; minUp=0.87
+off-and-on Summit Traverse s 300.5 right (moto, 12 m/s): edge 6.25 m from centre; went off=True (max 12.6 m out); back on=True at s 340.0; resets=0; stuck(max 0.0s); maxAir=1.24; minUp=0.67
+off-and-on Summit Traverse s 300.5 right (atv, 12 m/s): edge 6.25 m from centre; went off=True (max 12.8 m out); back on=True at s 339.3; resets=0; stuck(max 0.0s); maxAir=1.16; minUp=0.73
+off-and-on Summit Traverse s 452.5 right (moto, 12 m/s): edge 7.20 m from centre; went off=True (max 11.0 m out); back on=False; resets=0; stuck(max 3.0s); maxAir=4.20; minUp=-0.01
+off-and-on Summit Traverse s 452.5 right (atv, 12 m/s): edge 7.20 m from centre; went off=True (max 23.6 m out); back on=True at s 461.4; resets=0; stuck(max 3.0s); maxAir=2.14; minUp=0.07
+reset beside the edge at s 254 (left, 2.5 m from centre, moto): before s 253.3 lat 2.6 -> after s 252.3 lat 1.8; along -1.1 m; distance 1.3 m; restored=True in 0.82s; waiting shown=False; facing=1.00; up=0.99

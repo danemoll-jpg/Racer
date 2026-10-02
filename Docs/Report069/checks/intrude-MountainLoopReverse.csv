@@ -1,0 +1,4 @@
+route,s,lat,x,y,z,kind,collider,heightAbovePavement
+Main,1566.5,7.00,830.57,99.07,-127.02,on-pavement,Ground_Report069 flush shoulders,0.02
+Main,1594.5,-9.25,847.24,102.32,-98.93,on-pavement,Ground_Report069 flush shoulders,0.11
+Main,1595,-9.50,847.59,102.25,-98.50,on-pavement,Ground_Report069 flush shoulders,0.03

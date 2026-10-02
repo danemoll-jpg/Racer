@@ -1,0 +1,54 @@
+SCENE StreetLoopGreybox
+BUG-002: removed sign 'FENCE LINE SMASH/3 / 6 / 10 PROPS IN 8 s' with post (CR079 arcade sites/FENCE LINE SMASH/3 / 6 / 10 PROPS IN 8 s) at (462.53, 86.15, -28.50)
+BUG-002: removed sign 'ANDERSON'S/LAKE / MOUNTAIN TRAILS' with post (CR081 mountain exploration/KYLE'S WOODED DRIVE/LAKE / MOUNTAIN TRAILS) at (463.33, 85.49, -22.89)
+BUG-003: 'CR081 mountain exploration/LAKE SHORE/BOTH TRAILS RETURN HOME' board raised 3.00 m: bottom now 84.78 (post ground 82.78, highest ground under the board 84.38); post 82.48..85.63
+SCENE StreetLoopReverse
+BUG-002: removed sign 'FENCE LINE SMASH/3 / 6 / 10 PROPS IN 8 s' with post (CR079 arcade sites/FENCE LINE SMASH/3 / 6 / 10 PROPS IN 8 s) at (462.53, 86.15, -28.50)
+BUG-002: removed sign 'ANDERSON'S/LAKE / MOUNTAIN TRAILS' with post (CR081 mountain exploration/KYLE'S WOODED DRIVE/LAKE / MOUNTAIN TRAILS) at (463.33, 85.49, -22.89)
+BUG-003: 'CR081 mountain exploration/LAKE SHORE/BOTH TRAILS RETURN HOME' board raised 3.00 m: bottom now 84.78 (post ground 82.78, highest ground under the board 84.38); post 82.48..85.63
+SCENE LakeWoods
+BUG-002: removed sign 'FENCE LINE SMASH/3 / 6 / 10 PROPS IN 8 s' with post (CR079 arcade sites/FENCE LINE SMASH/3 / 6 / 10 PROPS IN 8 s) at (462.53, 86.15, -28.50)
+BUG-002: removed sign 'ANDERSON'S/LAKE / MOUNTAIN TRAILS' with post (CR081 mountain exploration/KYLE'S WOODED DRIVE/LAKE / MOUNTAIN TRAILS) at (463.33, 85.49, -22.89)
+BUG-003: 'CR081 mountain exploration/LAKE SHORE/BOTH TRAILS RETURN HOME' board raised 3.00 m: bottom now 84.78 (post ground 82.85, highest ground under the board 84.38); post 82.55..85.63
+SCENE ForestLoopReverse
+BUG-002: removed sign 'FENCE LINE SMASH/3 / 6 / 10 PROPS IN 8 s' with post (CR079 arcade sites/FENCE LINE SMASH/3 / 6 / 10 PROPS IN 8 s) at (462.53, 86.15, -28.50)
+BUG-002: removed sign 'ANDERSON'S/LAKE / MOUNTAIN TRAILS' with post (CR081 mountain exploration/KYLE'S WOODED DRIVE/LAKE / MOUNTAIN TRAILS) at (463.33, 85.49, -22.89)
+BUG-003: 'CR081 mountain exploration/LAKE SHORE/BOTH TRAILS RETURN HOME' board raised 3.00 m: bottom now 84.78 (post ground 82.85, highest ground under the board 84.38); post 82.55..85.63
+SCENE DansBackyardForward
+BUG-002: removed sign 'FENCE LINE SMASH/3 / 6 / 10 PROPS IN 8 s' with post (CR079 arcade sites/FENCE LINE SMASH/3 / 6 / 10 PROPS IN 8 s) at (462.53, 86.15, -28.50)
+BUG-002: removed sign 'ANDERSON'S/LAKE / MOUNTAIN TRAILS' with post (CR081 mountain exploration/KYLE'S WOODED DRIVE/LAKE / MOUNTAIN TRAILS) at (463.33, 85.49, -22.89)
+BUG-003: 'CR081 mountain exploration/LAKE SHORE/BOTH TRAILS RETURN HOME' board raised 3.00 m: bottom now 84.78 (post ground 82.78, highest ground under the board 84.38); post 82.48..85.63
+SCENE DansBackyardReverse
+BUG-002: removed sign 'FENCE LINE SMASH/3 / 6 / 10 PROPS IN 8 s' with post (CR079 arcade sites/FENCE LINE SMASH/3 / 6 / 10 PROPS IN 8 s) at (462.53, 86.15, -28.50)
+BUG-002: removed sign 'ANDERSON'S/LAKE / MOUNTAIN TRAILS' with post (CR081 mountain exploration/KYLE'S WOODED DRIVE/LAKE / MOUNTAIN TRAILS) at (463.33, 85.49, -22.89)
+BUG-003: 'CR081 mountain exploration/LAKE SHORE/BOTH TRAILS RETURN HOME' board raised 3.00 m: bottom now 84.78 (post ground 82.78, highest ground under the board 84.38); post 82.48..85.63
+SCENE MountainLoop
+BUG-002: removed sign 'FENCE LINE SMASH/3 / 6 / 10 PROPS IN 8 s' with post (CR079 arcade sites/FENCE LINE SMASH/3 / 6 / 10 PROPS IN 8 s) at (462.53, 86.15, -28.50)
+BUG-002: removed sign 'ANDERSON'S/LAKE / MOUNTAIN TRAILS' with post (CR081 mountain exploration/KYLE'S WOODED DRIVE/LAKE / MOUNTAIN TRAILS) at (463.33, 85.49, -22.89)
+BUG-003: 'CR081 mountain exploration/LAKE SHORE/BOTH TRAILS RETURN HOME' board raised 3.00 m: bottom now 84.78 (post ground 82.85, highest ground under the board 84.38); post 82.55..85.63
+A1 outline MountainLoop Ground_CR133 mountain driving surface (Assets/Track/ReportCleanup/forward-bend-final.asset): boundary vertices 9679, side-edge candidates 5184, moved 8 onto the smooth edge line (max 0.32 m; 1 reverted to avoid flipped triangles, 13 undone where the edge did not get straighter); skipped: flaring edge 184, not a side edge 387, protected J 1299, protected F 1632, centre unpaved 3, no route 903, junction/notch 17, protected B 70
+BUG-007 junction: smooth collidable surface r 8.5 m around (761.50, 88.00, -119.50) (528 free 0.5 m cells, 1196 tris, material MountainLoop-earth); pinned flush 3 cm under the pavement edge and 2 cm under the ground at the rim; terrain vertices lowered under it 281
+BUG-007 junction: signs/posts raised 0; tree bases inside the new surface 0
+A2 MountainLoop pass 1: 9 tree trunks would stand more than 1 m inside the shoulder; 60 stations made steeper/left as they were
+A2 flush shoulders MountainLoop: 1909 stations (0.5 m) in 43 runs (60 steeper beside trees; trunks still >1 m inside: 0); already flush 5386; terrain vertices lowered under the new verge 7358; skipped flush 5386, F 1828, J 1699, junction 1509, unpaved 842, flight corridor 255, B 107, patch 38, wall 32, corridor Main 22, corridor Climbing Ridge Cut 5 (runs in shoulders-MountainLoop.txt)
+A2: raised sign/post 'CR081 mountain exploration/High Ridge Drop/35 - 55 mph' 1.19 m onto the new surface
+A2: signs/posts raised 1; tree bases inside the new surface 0
+Part B MountainLoop Climbing Ridge Cut rejoin (BUG-008): earth berm on the right (outside) of Main s 1390-1434: 45 stations, 544 tris, 1.8 m above the pavement edge, 85 deg inner face
+Part B Climbing Ridge Cut rejoin (BUG-008): signs/posts raised 0; tree bases inside the new surface 0
+SCENE MountainLoopReverse
+BUG-002: removed sign 'FENCE LINE SMASH/3 / 6 / 10 PROPS IN 8 s' with post (CR079 arcade sites/FENCE LINE SMASH/3 / 6 / 10 PROPS IN 8 s) at (462.53, 86.15, -28.50)
+BUG-002: removed sign 'ANDERSON'S/LAKE / MOUNTAIN TRAILS' with post (CR081 mountain exploration/KYLE'S WOODED DRIVE/LAKE / MOUNTAIN TRAILS) at (463.33, 85.49, -22.89)
+BUG-003: 'CR081 mountain exploration/LAKE SHORE/BOTH TRAILS RETURN HOME' board raised 3.00 m: bottom now 84.78 (post ground 82.85, highest ground under the board 84.38); post 82.55..85.63
+A1 outline MountainLoopReverse Ground_CR133 mountain driving surface (Assets/Track/ReportCleanup/reverse-branch-join.asset): boundary vertices 11434, side-edge candidates 5956, moved 438 onto the smooth edge line (max 0.40 m; 124 reverted to avoid flipped triangles, 144 undone where the edge did not get straighter); skipped: flaring edge 448, centre unpaved 146, not a side edge 998, protected M 74, protected J 1413, junction/notch 81, protected F 718, no route 1335, protected B 183, protected T 82
+BUG-006 gore: smooth collidable surface r 9 m around (729.00, 99.10, -286.50) (645 free 0.5 m cells, 1370 tris, material MountainLoopReverse-earth); pinned flush 3 cm under the pavement edge and 2 cm under the ground at the rim; terrain vertices lowered under it 307
+BUG-006 gore: signs/posts raised 0; tree bases inside the new surface 0
+A2 MountainLoopReverse pass 1: 9 tree trunks would stand more than 1 m inside the shoulder; 47 stations made steeper/left as they were
+A2 flush shoulders MountainLoopReverse: 4332 stations (0.5 m) in 106 runs (47 steeper beside trees; trunks still >1 m inside: 0); already flush 3084; terrain vertices lowered under the new verge 10807; skipped flush 3084, F 2204, unpaved 1462, J 1372, junction 1271, flight corridor 384, B 283, T 120, M 116, barrier 108, wall 67, patch 46, corridor Downhill Ridge Cut 9 (runs in shoulders-MountainLoopReverse.txt)
+A2: raised sign/post 'CR081 mountain exploration/SUMMIT/Both trails return to lake' 1.21 m onto the new surface
+A2: raised sign/post 'CR081 mountain exploration/Fern Creek Leap/35 - 55 mph' 0.74 m onto the new surface
+A2: tree trunk 'CR081 mountain exploration/Mountain woods 2 2/Mountain trunk' base 0.26 m inside the new surface (tree stands on it)
+A2: raised sign/post 'CR081 mountain exploration/MOUNTAIN TRAILS/Creek ascent / Ridge return' 0.08 m onto the new surface
+A2: raised sign/post 'CR081 mountain exploration/High Ridge Drop/35 - 55 mph' 1.58 m onto the new surface
+A2: signs/posts raised 4; tree bases inside the new surface 1
+Part B MountainLoopReverse Summit crest bend (BUG-005): earth berm on the right (outside) of Main s 446-486: 35 stations, 351 tris, 1.8 m above the pavement edge, 85 deg inner face
+Part B Summit crest bend (BUG-005): signs/posts raised 0; tree bases inside the new surface 0
