@@ -1,0 +1,549 @@
+GROUND Ground_MountainCleanup natural outcrop 23 asset=Assets/Track/MountainCleanup/MountainCleanup natural outcrop 23.asset triangles=117 bounds=Center: (698.49, 89.31, -163.45), Extents: (1.07, 1.77, 1.70)
+GROUND Ground_80_400 asset=Assets/Track/Discovery/LakeWoods-baseline-protected-Ground_80_400.asset triangles=12800 bounds=Center: (-560.00, 8.02, 130.00), Extents: (80.00, 3.96, 80.00)
+GROUND Ground_480_320 asset=Assets/Track/ForestLoop/Terrain-17.asset triangles=51200 bounds=Center: (240.00, 59.92, -30.00), Extents: (80.00, 16.69, 80.00)
+GROUND Ground_480_80 asset=Assets/Track/StreetLoop/Ground_480_80.asset triangles=12800 bounds=Center: (240.00, 35.01, -510.00), Extents: (80.00, 6.32, 80.00)
+GROUND Ground_640_80 asset=Assets/Track/HairpinReview/Forest-Ground_640_80.asset triangles=12800 bounds=Center: (560.00, 27.38, -510.00), Extents: (80.00, 5.62, 80.00)
+GROUND Ground_160_320 asset=Assets/Track/StreetLoop/Ground_160_320.asset triangles=12800 bounds=Center: (-400.00, 10.90, -30.00), Extents: (80.00, 4.37, 80.00)
+GROUND Ground_560_160 asset=Assets/Track/LivingWorld/Forest-Ground_560_160.asset triangles=51200 bounds=Center: (400.00, 38.84, -350.00), Extents: (80.00, 18.33, 80.00)
+GROUND Ground_MountainCleanup natural outcrop 18 asset=Assets/Track/MountainCleanup/MountainCleanup natural outcrop 18.asset triangles=117 bounds=Center: (739.87, 86.77, -114.85), Extents: (0.81, 1.77, 1.79)
+GROUND Ground_MountainCleanup natural outcrop 34 asset=Assets/Track/MountainCleanup/MountainCleanup natural outcrop 34.asset triangles=117 bounds=Center: (734.01, 87.37, -118.31), Extents: (1.60, 1.77, 1.16)
+GROUND Ground_480_560 asset=Assets/Track/Discovery/MountainLoopReverse-CR129-junction-Ground_480_560.asset triangles=12800 bounds=Center: (240.00, 30.41, 450.00), Extents: (80.00, 22.64, 80.00)
+GROUND Ground_MountainCleanup natural outcrop 31 asset=Assets/Track/MountainCleanup/MountainCleanup natural outcrop 31.asset triangles=117 bounds=Center: (800.03, 97.76, -137.40), Extents: (1.51, 1.77, 2.85)
+GROUND Ground_MountainCleanup natural outcrop 6 asset=Assets/Track/MountainCleanup/MountainCleanup natural outcrop 6.asset triangles=117 bounds=Center: (728.58, 87.48, -122.15), Extents: (1.42, 1.77, 1.35)
+GROUND Ground_Mountain_2_0 asset=Assets/Track/StructuralRoads/MountainLoopReverse-mountain-subgrade-Ground_Mountain_2_0.asset triangles=5004 bounds=Center: (1050.00, 91.49, -220.00), Extents: (50.00, 13.24, 50.00)
+GROUND Ground_MountainCleanup natural outcrop 35 asset=Assets/Track/MountainCleanup/MountainCleanup natural outcrop 35.asset triangles=117 bounds=Center: (707.74, 88.56, -147.54), Extents: (1.24, 1.77, 1.51)
+GROUND Ground_Mountain_2_2 asset=Assets/Track/StructuralRoads/MountainLoopReverse-mountain-subgrade-Ground_Mountain_2_2.asset triangles=5245 bounds=Center: (1050.00, 143.99, -20.00), Extents: (50.00, 44.97, 50.00)
+GROUND Ground_560_240 asset=Assets/Track/BackyardReverse/MountainLoopReverse-permanent-water-support-57.asset triangles=71585 bounds=Center: (400.00, 60.03, -190.00), Extents: (80.00, 27.27, 80.00)
+GROUND Ground_160_560 asset=Assets/Track/Discovery/LakeWoods-baseline-protected-Ground_160_560.asset triangles=12800 bounds=Center: (-400.00, 6.95, 450.00), Extents: (80.00, 2.77, 80.00)
+GROUND Ground_Mountain_3_4 asset=Assets/Track/Discovery/LakeWoods-cr103-inward-connection-Ground_Mountain_3_4.asset triangles=5000 bounds=Center: (1150.00, 119.60, 180.00), Extents: (50.00, 32.41, 50.00)
+GROUND Ground_560_560 asset=Assets/Track/Discovery/MountainLoopReverse-CR129-junction-Ground_560_560.asset triangles=12800 bounds=Center: (400.00, 31.62, 450.00), Extents: (80.00, 21.49, 80.00)
+GROUND Ground_Mountain_0_0 asset=Assets/Track/StructuralRoads/MountainLoopReverse-mountain-subgrade-Ground_Mountain_0_0.asset triangles=4905 bounds=Center: (850.00, 66.16, -220.00), Extents: (50.00, 29.77, 50.00)
+GROUND Ground_Mountain_0_3 asset=Assets/Track/MountainCleanup/first-bump-clear-Ground_Mountain_0_3.asset triangles=5506 bounds=Center: (850.00, 137.78, 80.00), Extents: (50.00, 44.14, 50.00)
+GROUND Ground_0_80 asset=Assets/Track/StreetLoop/Ground_0_80.asset triangles=12800 bounds=Center: (-720.00, 5.79, -510.00), Extents: (80.00, 2.70, 80.00)
+GROUND Ground_CR133 mountain driving surface asset=Assets/Track/MountainCleanup/single-surface-rejoin.asset triangles=91755 bounds=Center: (984.22, 128.37, 3.68), Extents: (303.92, 49.33, 327.68)
+GROUND Ground_MountainCleanup natural outcrop 9 asset=Assets/Track/MountainCleanup/MountainCleanup natural outcrop 9.asset triangles=117 bounds=Center: (739.34, 86.06, -113.56), Extents: (1.16, 1.77, 1.59)
+GROUND Ground_MountainCleanup natural outcrop 32 asset=Assets/Track/MountainCleanup/MountainCleanup natural outcrop 32.asset triangles=117 bounds=Center: (800.00, 97.08, -152.51), Extents: (1.34, 1.77, 2.56)
+GROUND Ground_640_320 asset=Assets/Track/Discovery/LakeWoods-kyle-smooth-drive-Ground_640_320.asset triangles=51200 bounds=Center: (560.00, 76.79, -30.00), Extents: (80.00, 11.88, 80.00)
+GROUND Ground_240_160 asset=Assets/Track/ForestLoop/Terrain-0.asset triangles=51200 bounds=Center: (-240.00, 23.54, -350.00), Extents: (80.00, 9.45, 80.00)
+GROUND Ground_MountainCleanup natural outcrop 11 asset=Assets/Track/MountainCleanup/MountainCleanup natural outcrop 11.asset triangles=117 bounds=Center: (800.05, 98.19, -162.42), Extents: (1.52, 1.77, 2.90)
+GROUND Ground_400_160 asset=Assets/Track/ForestLoop/Terrain-2.asset triangles=51200 bounds=Center: (80.00, 34.04, -350.00), Extents: (80.00, 9.97, 80.00)
+GROUND Ground_CR113 Kyle driveway edge join asset=Assets/Track/Backyard/MountainLoopReverse-Kyle-edge.asset triangles=9117 bounds=Center: (490.41, 80.65, -19.92), Extents: (13.32, 1.96, 18.22)
+GROUND Ground_MountainCleanup natural outcrop 20 asset=Assets/Track/MountainCleanup/MountainCleanup natural outcrop 20.asset triangles=117 bounds=Center: (723.57, 87.63, -126.68), Extents: (1.36, 1.77, 1.43)
+GROUND Ground_MountainCleanup natural outcrop 42 asset=Assets/Track/MountainCleanup/MountainCleanup natural outcrop 42.asset triangles=117 bounds=Center: (800.00, 97.62, -157.49), Extents: (1.34, 1.77, 2.56)
+GROUND Ground_MountainCleanup natural outcrop 12 asset=Assets/Track/MountainCleanup/MountainCleanup natural outcrop 12.asset triangles=117 bounds=Center: (699.98, 89.19, -160.66), Extents: (1.21, 1.77, 1.55)
+GROUND Ground_0_560 asset=Assets/Track/Discovery/MountainLoopReverse-CR113 west support-Ground_0_560.asset triangles=12800 bounds=Center: (-720.00, 6.48, 450.00), Extents: (80.00, 2.68, 80.00)
+GROUND Ground_240_480 asset=Assets/Track/ForestLoop/Terrain-28.asset triangles=51200 bounds=Center: (-240.00, 9.81, 290.00), Extents: (80.00, 4.85, 80.00)
+GROUND Ground_CR113 east level outer continuation asset=Assets/Track/Discovery/MountainLoopReverse-CR113-east level outer continuation-27.asset triangles=64 bounds=Center: (880.84, 41.80, 561.39), Extents: (80.00, 0.00, 8.20)
+GROUND Ground_CR117 outer ravine asset=Assets/Track/MountainCleanup/bump-2140-Ground_CR117 outer ravine.asset triangles=34069 bounds=Center: (1165.00, 92.46, -60.00), Extents: (365.00, 59.44, 440.00)
+GROUND Ground_80_240 asset=Assets/Track/StreetLoop/Ground_80_240.asset triangles=12800 bounds=Center: (-560.00, 8.11, -190.00), Extents: (80.00, 3.19, 80.00)
+GROUND Ground_560_0 asset=Assets/Track/StreetLoop/Ground_560_0.asset triangles=12800 bounds=Center: (400.00, 28.17, -670.00), Extents: (80.00, 4.63, 80.00)
+GROUND Ground_320_720 asset=Assets/Track/StreetLoop/Ground_320_720.asset triangles=12800 bounds=Center: (-80.00, 8.63, 770.00), Extents: (80.00, 2.92, 80.00)
+GROUND Ground_Mountain_1_3 asset=Assets/Track/StructuralRoads/MountainLoopReverse-mountain-subgrade-Ground_Mountain_1_3.asset triangles=4606 bounds=Center: (950.00, 153.20, 80.00), Extents: (50.00, 22.31, 50.00)
+GROUND Ground_0_320 asset=Assets/Track/StreetLoop/Ground_0_320.asset triangles=12800 bounds=Center: (-720.00, 8.91, -30.00), Extents: (80.00, 3.66, 80.00)
+GROUND Ground_Black asphalt driveway and terminal parking asset=Assets/Track/FiveUpdates/MountainLoopReverse-concrete.asset triangles=15729 bounds=Center: (429.59, 83.25, -31.94), Extents: (38.54, 3.70, 6.64)
+GROUND Ground_80_0 asset=Assets/Track/StreetLoop/Ground_80_0.asset triangles=12800 bounds=Center: (-560.00, 5.86, -670.00), Extents: (80.00, 4.13, 80.00)
+GROUND Ground_400_0 asset=Assets/Track/StreetLoop/Ground_400_0.asset triangles=12800 bounds=Center: (80.00, 31.88, -670.00), Extents: (80.00, 3.66, 80.00)
+GROUND Ground_0_0 asset=Assets/Track/StreetLoop/Ground_0_0.asset triangles=12800 bounds=Center: (-720.00, 7.07, -670.00), Extents: (80.00, 4.78, 80.00)
+GROUND Ground_MountainCleanup natural outcrop 24 asset=Assets/Track/MountainCleanup/MountainCleanup natural outcrop 24.asset triangles=117 bounds=Center: (701.50, 89.06, -158.14), Extents: (1.11, 1.77, 1.67)
+GROUND Ground_MountainCleanup natural outcrop 19 asset=Assets/Track/MountainCleanup/MountainCleanup natural outcrop 19.asset triangles=117 bounds=Center: (704.62, 88.82, -152.72), Extents: (1.20, 1.76, 1.60)
+GROUND Ground_560_480 asset=Assets/Track/Discovery/LakeWoods-baseline-protected-Ground_560_480.asset triangles=51200 bounds=Center: (400.00, 67.23, 290.00), Extents: (80.00, 15.00, 80.00)
+GROUND Ground_400_400 asset=Assets/Track/ForestLoop/Terrain-23.asset triangles=51200 bounds=Center: (80.00, 48.25, 130.00), Extents: (80.00, 17.98, 80.00)
+GROUND Ground_MountainCleanup natural outcrop 38 asset=Assets/Track/MountainCleanup/MountainCleanup natural outcrop 38.asset triangles=117 bounds=Center: (714.47, 88.06, -137.02), Extents: (1.27, 1.76, 1.45)
+GROUND Ground_400_560 asset=Assets/Track/Discovery/LakeWoods-baseline-protected-Ground_400_560.asset triangles=12800 bounds=Center: (80.00, 20.70, 450.00), Extents: (80.00, 13.26, 80.00)
+GROUND Ground_320_0 asset=Assets/Track/StreetLoop/Ground_320_0.asset triangles=12800 bounds=Center: (-80.00, 27.66, -670.00), Extents: (80.00, 4.07, 80.00)
+GROUND Ground_240_320 asset=Assets/Track/ForestLoop/Terrain-14.asset triangles=51200 bounds=Center: (-240.00, 21.65, -30.00), Extents: (80.00, 10.42, 80.00)
+GROUND Ground_Mountain_0_4 asset=Assets/Track/StructuralRoads/MountainLoopReverse-mountain-subgrade-Ground_Mountain_0_4.asset triangles=5003 bounds=Center: (850.00, 137.44, 180.00), Extents: (50.00, 41.40, 50.00)
+GROUND Ground_640_480 asset=Assets/Track/ForestLoop/Terrain-33.asset triangles=51200 bounds=Center: (560.00, 67.92, 290.00), Extents: (80.00, 14.81, 80.00)
+GROUND Ground_CR113 west level outer continuation asset=Assets/Track/Discovery/MountainLoopReverse-CR113-west level outer continuation-1.asset triangles=64 bounds=Center: (-1170.95, 8.11, 538.93), Extents: (80.00, 0.00, 8.20)
+GROUND Ground_240_0 asset=Assets/Track/StreetLoop/Ground_240_0.asset triangles=12800 bounds=Center: (-240.00, 22.15, -670.00), Extents: (80.00, 8.90, 80.00)
+GROUND Ground_640_160 asset=Assets/Track/ForestLoop/Terrain-5.asset triangles=51200 bounds=Center: (560.00, 37.34, -350.00), Extents: (80.00, 13.21, 80.00)
+GROUND Ground_640_240 asset=Assets/Track/RouteAtlas/MountainLoopReverse-property-Ground_640_240.asset triangles=51200 bounds=Center: (560.00, 57.49, -190.00), Extents: (80.00, 29.74, 80.00)
+GROUND Ground_240_240 asset=Assets/Track/ForestLoop/Terrain-7.asset triangles=51200 bounds=Center: (-240.00, 24.46, -190.00), Extents: (80.00, 10.71, 80.00)
+GROUND Ground_MountainCleanup natural outcrop 33 asset=Assets/Track/MountainCleanup/MountainCleanup natural outcrop 33.asset triangles=117 bounds=Center: (800.02, 97.85, -167.61), Extents: (1.51, 1.77, 2.81)
+GROUND Ground_720_0 asset=Assets/Track/StreetLoop/Ground_720_0.asset triangles=12800 bounds=Center: (720.00, 29.07, -670.00), Extents: (80.00, 6.00, 80.00)
+GROUND Ground_240_560 asset=Assets/Track/StreetLoop/Ground_240_560.asset triangles=12800 bounds=Center: (-240.00, 6.98, 450.00), Extents: (80.00, 2.02, 80.00)
+GROUND Ground_160_160 asset=Assets/Track/StreetLoop/Ground_160_160.asset triangles=12800 bounds=Center: (-400.00, 12.64, -350.00), Extents: (80.00, 7.98, 80.00)
+GROUND Ground_80_480 asset=Assets/Track/StreetLoop/Ground_80_480.asset triangles=12800 bounds=Center: (-560.00, 6.77, 290.00), Extents: (80.00, 2.58, 80.00)
+GROUND Ground_MountainCleanup natural outcrop 13 asset=Assets/Track/MountainCleanup/MountainCleanup natural outcrop 13.asset triangles=117 bounds=Center: (736.55, 87.33, -116.42), Extents: (1.48, 1.77, 1.24)
+GROUND Ground_0_240 asset=Assets/Track/StreetLoop/Ground_0_240.asset triangles=12800 bounds=Center: (-720.00, 9.11, -190.00), Extents: (80.00, 3.50, 80.00)
+GROUND Ground_240_720 asset=Assets/Track/StreetLoop/Ground_240_720.asset triangles=12800 bounds=Center: (-240.00, 8.35, 770.00), Extents: (80.00, 2.62, 80.00)
+GROUND Ground_Mountain_3_2 asset=Assets/Track/StructuralRoads/MountainLoopReverse-mountain-subgrade-Ground_Mountain_3_2.asset triangles=4906 bounds=Center: (1150.00, 110.77, -20.00), Extents: (50.00, 29.30, 50.00)
+GROUND Ground_Mountain_2_5 asset=Assets/Track/StructuralRoads/MountainLoopReverse-mountain-subgrade-Ground_Mountain_2_5.asset triangles=4819 bounds=Center: (1050.00, 118.15, 280.00), Extents: (50.00, 33.91, 50.00)
+GROUND Ground_MountainCleanup natural outcrop 7 asset=Assets/Track/MountainCleanup/MountainCleanup natural outcrop 7.asset triangles=117 bounds=Center: (718.83, 87.82, -131.71), Extents: (1.28, 1.77, 1.51)
+GROUND Ground_MountainCleanup natural outcrop 40 asset=Assets/Track/MountainCleanup/MountainCleanup natural outcrop 40.asset triangles=117 bounds=Center: (800.06, 95.52, -122.56), Extents: (1.51, 1.77, 2.94)
+GROUND Ground_480_160 asset=Assets/Track/ForestLoop/Terrain-3.asset triangles=51200 bounds=Center: (240.00, 40.09, -350.00), Extents: (80.00, 5.91, 80.00)
+GROUND Ground_MountainCleanup natural outcrop 25 asset=Assets/Track/MountainCleanup/MountainCleanup natural outcrop 25.asset triangles=117 bounds=Center: (739.85, 86.43, -114.78), Extents: (0.96, 1.77, 1.75)
+GROUND Ground_160_480 asset=Assets/Track/StreetLoop/Ground_160_480.asset triangles=12800 bounds=Center: (-400.00, 9.39, 290.00), Extents: (80.00, 5.26, 80.00)
+GROUND Ground_480_720 asset=Assets/Track/StreetLoop/Ground_480_720.asset triangles=12800 bounds=Center: (240.00, 12.08, 770.00), Extents: (80.00, 2.68, 80.00)
+GROUND Ground_MountainCut natural embankments asset=Assets/Track/MountainCleanup/cleared-Ground_MountainCut natural embankments.asset triangles=7790 bounds=Center: (995.91, 137.43, 44.45), Extents: (65.91, 28.36, 141.41)
+GROUND Ground_Mountain_1_4 asset=Assets/Track/StructuralRoads/MountainLoopReverse-mountain-subgrade-Ground_Mountain_1_4.asset triangles=3729 bounds=Center: (938.00, 147.46, 180.00), Extents: (38.00, 30.75, 50.00)
+GROUND Ground_MountainCleanup natural outcrop 2 asset=Assets/Track/MountainCleanup/MountainCleanup natural outcrop 2.asset triangles=117 bounds=Center: (740.09, 87.05, -114.05), Extents: (1.14, 1.77, 1.57)
+GROUND Ground_0_400 asset=Assets/Track/StreetLoop/Ground_0_400.asset triangles=12800 bounds=Center: (-720.00, 8.42, 130.00), Extents: (80.00, 2.84, 80.00)
+GROUND Ground_320_560 asset=Assets/Track/StreetLoop/Ground_320_560.asset triangles=12800 bounds=Center: (-80.00, 8.25, 450.00), Extents: (80.00, 2.83, 80.00)
+GROUND Ground_320_160 asset=Assets/Track/ForestLoop/Terrain-1.asset triangles=51200 bounds=Center: (-80.00, 34.03, -350.00), Extents: (80.00, 6.01, 80.00)
+GROUND Ground_MountainCleanup natural outcrop 8 asset=Assets/Track/MountainCleanup/MountainCleanup natural outcrop 8.asset triangles=117 bounds=Center: (800.02, 97.78, -142.39), Extents: (1.50, 1.77, 2.78)
+GROUND Ground_160_640 asset=Assets/Track/Discovery/LakeWoods-baseline-protected-Ground_160_640.asset triangles=12800 bounds=Center: (-400.00, 8.11, 610.00), Extents: (80.00, 3.13, 80.00)
+GROUND Ground_MountainCut portal outcrops asset=Assets/Track/MountainCut/clear-Ground_MountainCut portal outcrops.asset triangles=1665 bounds=Center: (990.00, 150.13, 129.00), Extents: (36.00, 13.13, 28.00)
+GROUND Ground_400_640 asset=Assets/Track/Discovery/MountainLoopReverse-CR113 east support-Ground_400_640.asset triangles=12800 bounds=Center: (80.00, 8.67, 610.00), Extents: (80.00, 1.96, 80.00)
+GROUND Ground_640_400 asset=Assets/Track/Exploration/LakeWoods-course-protected-Ground_640_400.asset triangles=51200 bounds=Center: (560.00, 78.65, 130.00), Extents: (80.00, 6.80, 80.00)
+GROUND Ground_Mountain_3_0 asset=Assets/Track/Exploration/LakeWoods-extension-3-0.asset triangles=5000 bounds=Center: (1150.00, 79.47, -220.00), Extents: (50.00, 1.42, 50.00)
+GROUND Ground_CR113 west four lane seam asset=Assets/Track/Discovery/MountainLoopReverse-CR113-level-end-4209119-378112.asset triangles=412 bounds=Center: (-798.34, 8.02, 539.79), Extents: (292.61, 0.09, 9.63)
+GROUND Ground_480_240 asset=Assets/Track/ForestLoop/Terrain-10.asset triangles=51200 bounds=Center: (240.00, 52.37, -190.00), Extents: (80.00, 17.42, 80.00)
+GROUND Ground_MountainCleanup natural outcrop 0 asset=Assets/Track/MountainCleanup/MountainCleanup natural outcrop 0.asset triangles=117 bounds=Center: (969.13, 165.93, 116.10), Extents: (2.72, 2.12, 2.25)
+GROUND Ground_Mountain_1_1 asset=Assets/Track/MountainCleanup/terrain-retained-Ground_Mountain_1_1.asset triangles=5057 bounds=Center: (950.00, 111.96, -120.00), Extents: (50.00, 30.09, 50.00)
+GROUND Ground_560_720 asset=Assets/Track/StreetLoop/Ground_560_720.asset triangles=12800 bounds=Center: (400.00, 14.56, 770.00), Extents: (80.00, 6.41, 80.00)
+GROUND Ground_MountainCleanup natural outcrop 3 asset=Assets/Track/MountainCleanup/MountainCleanup natural outcrop 3.asset triangles=117 bounds=Center: (738.24, 85.70, -111.68), Extents: (1.22, 1.77, 1.49)
+GROUND Ground_Mountain_0_5 asset=Assets/Track/Discovery/LakeWoods-summit-landing-v3-Ground_Mountain_0_5.asset triangles=5000 bounds=Center: (850.00, 103.49, 280.00), Extents: (50.00, 48.01, 50.00)
+GROUND Ground_320_320 asset=Assets/Track/ForestLoop/Terrain-15.asset triangles=51200 bounds=Center: (-80.00, 27.08, -30.00), Extents: (80.00, 12.10, 80.00)
+GROUND Ground_MountainCleanup natural outcrop 41 asset=Assets/Track/MountainCleanup/MountainCleanup natural outcrop 41.asset triangles=117 bounds=Center: (703.00, 88.93, -155.43), Extents: (1.15, 1.76, 1.58)
+GROUND Ground_640_720 asset=Assets/Track/StreetLoop/Ground_640_720.asset triangles=12800 bounds=Center: (560.00, 20.57, 770.00), Extents: (80.00, 6.90, 80.00)
+GROUND Ground_0_160 asset=Assets/Track/StreetLoop/Ground_0_160.asset triangles=12800 bounds=Center: (-720.00, 6.27, -350.00), Extents: (80.00, 2.65, 80.00)
+GROUND Ground_80_640 asset=Assets/Track/Discovery/MountainLoopReverse-CR113 west support-Ground_80_640.asset triangles=12800 bounds=Center: (-560.00, 9.01, 610.00), Extents: (80.00, 2.94, 80.00)
+GROUND Ground_MountainCleanup natural outcrop 27 asset=Assets/Track/MountainCleanup/MountainCleanup natural outcrop 27.asset triangles=117 bounds=Center: (800.08, 95.95, -172.52), Extents: (1.49, 1.77, 2.98)
+GROUND Ground_560_400 asset=Assets/Track/Discovery/LakeWoods-baseline-protected-Ground_560_400.asset triangles=51200 bounds=Center: (400.00, 80.03, 130.00), Extents: (80.00, 5.97, 80.00)
+GROUND Ground_720_400 asset=Assets/Track/MountainCleanup/first-bump-clear-Ground_720_400.asset triangles=49799 bounds=Center: (720.00, 110.50, 130.00), Extents: (80.00, 41.95, 80.00)
+GROUND Ground_560_640 asset=Assets/Track/Discovery/MountainLoopReverse-CR129-junction-Ground_560_640.asset triangles=12054 bounds=Center: (400.00, 13.88, 610.00), Extents: (80.00, 7.17, 80.00)
+GROUND Ground_MountainCleanup natural outcrop 14 asset=Assets/Track/MountainCleanup/MountainCleanup natural outcrop 14.asset triangles=117 bounds=Center: (712.72, 88.18, -139.79), Extents: (1.18, 1.77, 1.62)
+GROUND Ground_MountainCleanup natural outcrop 21 asset=Assets/Track/MountainCleanup/MountainCleanup natural outcrop 21.asset triangles=117 bounds=Center: (716.67, 87.93, -134.20), Extents: (1.33, 1.77, 1.46)
+GROUND Ground_House3 straight descending property driveway asset=Assets/Track/RouteAtlas/MountainLoopReverse-straight-house3-drive.asset triangles=528 bounds=Center: (468.15, 56.80, -144.50), Extents: (32.39, 23.97, 10.74)
+GROUND Ground_80_320 asset=Assets/Track/StreetLoop/Ground_80_320.asset triangles=12800 bounds=Center: (-560.00, 8.68, -30.00), Extents: (80.00, 3.83, 80.00)
+GROUND Ground_240_400 asset=Assets/Track/ForestLoop/Terrain-21.asset triangles=51200 bounds=Center: (-240.00, 18.15, 130.00), Extents: (80.00, 7.84, 80.00)
+GROUND Ground_Mountain_2_1 asset=Assets/Track/StructuralRoads/MountainLoopReverse-mountain-subgrade-Ground_Mountain_2_1.asset triangles=5582 bounds=Center: (1050.00, 116.04, -120.00), Extents: (50.00, 35.15, 50.00)
+GROUND Ground_480_0 asset=Assets/Track/StreetLoop/Ground_480_0.asset triangles=12800 bounds=Center: (240.00, 31.95, -670.00), Extents: (80.00, 3.44, 80.00)
+GROUND Ground_400_720 asset=Assets/Track/StreetLoop/Ground_400_720.asset triangles=12800 bounds=Center: (80.00, 10.62, 770.00), Extents: (80.00, 2.12, 80.00)
+GROUND Ground_MountainCleanup natural outcrop 26 asset=Assets/Track/MountainCleanup/MountainCleanup natural outcrop 26.asset triangles=117 bounds=Center: (709.41, 88.44, -144.93), Extents: (1.16, 1.77, 1.64)
+GROUND Ground_MountainCleanup natural outcrop 39 asset=Assets/Track/MountainCleanup/MountainCleanup natural outcrop 39.asset triangles=117 bounds=Center: (711.01, 88.31, -142.34), Extents: (1.20, 1.77, 1.61)
+GROUND Ground_MountainCleanup natural outcrop 29 asset=Assets/Track/MountainCleanup/MountainCleanup natural outcrop 29.asset triangles=117 bounds=Center: (706.21, 88.69, -150.09), Extents: (1.20, 1.77, 1.61)
+GROUND Ground_720_640 asset=Assets/Track/Discovery/MountainLoopReverse-CR113 east support-Ground_720_640.asset triangles=12800 bounds=Center: (720.00, 28.02, 610.00), Extents: (80.00, 14.35, 80.00)
+GROUND Ground_240_80 asset=Assets/Track/StreetLoop/Ground_240_80.asset triangles=12800 bounds=Center: (-240.00, 21.42, -510.00), Extents: (80.00, 9.47, 80.00)
+GROUND Ground_MountainCleanup natural outcrop 28 asset=Assets/Track/MountainCleanup/MountainCleanup natural outcrop 28.asset triangles=117 bounds=Center: (731.33, 87.42, -120.13), Extents: (1.60, 1.77, 1.19)
+GROUND Ground_MountainCleanup natural outcrop 36 asset=Assets/Track/MountainCleanup/MountainCleanup natural outcrop 36.asset triangles=117 bounds=Center: (740.07, 87.21, -113.95), Extents: (1.32, 1.77, 1.45)
+GROUND Ground_0_720 asset=Assets/Track/StreetLoop/Ground_0_720.asset triangles=12800 bounds=Center: (-720.00, 7.46, 770.00), Extents: (80.00, 3.11, 80.00)
+GROUND Ground_MountainCut rock vault asset=Assets/Track/MountainCleanup/cleared-Ground_MountainCut rock vault.asset triangles=1837 bounds=Center: (990.00, 156.85, 128.50), Extents: (23.40, 6.85, 21.50)
+GROUND Ground_720_560 asset=Assets/Track/StreetLoop/Ground_720_560.asset triangles=12800 bounds=Center: (720.00, 43.96, 450.00), Extents: (80.00, 11.00, 80.00)
+GROUND Ground_MountainCleanup natural outcrop 22 asset=Assets/Track/MountainCleanup/MountainCleanup natural outcrop 22.asset triangles=117 bounds=Center: (799.99, 95.51, -127.51), Extents: (1.35, 1.76, 2.58)
+GROUND Ground_560_80 asset=Assets/Track/StreetLoop/Ground_560_80.asset triangles=12800 bounds=Center: (400.00, 31.72, -510.00), Extents: (80.00, 9.25, 80.00)
+GROUND Ground_Mountain_0_2 asset=Assets/Track/MountainCleanup/terrain-retained-Ground_Mountain_0_2.asset triangles=3250 bounds=Center: (850.00, 107.55, -20.00), Extents: (50.00, 23.34, 50.00)
+GROUND Ground_CR113 east outer supported shoulders asset=Assets/Track/MountainPolish/grade-Ground_CR113 east outer supported shoulders.asset triangles=64 bounds=Center: (880.84, 41.65, 561.39), Extents: (80.00, 0.00, 60.00)
+GROUND Ground_320_80 asset=Assets/Track/StreetLoop/Ground_320_80.asset triangles=12800 bounds=Center: (-80.00, 31.30, -510.00), Extents: (80.00, 4.70, 80.00)
+GROUND Ground_160_240 asset=Assets/Track/StreetLoop/Ground_160_240.asset triangles=12800 bounds=Center: (-400.00, 10.84, -190.00), Extents: (80.00, 5.58, 80.00)
+GROUND Ground_Mountain_1_5 asset=Assets/Track/StructuralRoads/MountainLoopReverse-mountain-subgrade-Ground_Mountain_1_5.asset triangles=4574 bounds=Center: (950.00, 119.15, 280.00), Extents: (50.00, 32.81, 50.00)
+GROUND Ground_240_640 asset=Assets/Track/StreetLoop/Ground_240_640.asset triangles=12800 bounds=Center: (-240.00, 9.63, 610.00), Extents: (80.00, 3.25, 80.00)
+GROUND Ground_720_160 asset=Assets/Track/StructuralRoads/MountainLoopReverse-mountain-subgrade-Ground_720_160.asset triangles=45574 bounds=Center: (720.00, 64.43, -350.00), Extents: (80.00, 35.07, 80.00)
+GROUND Ground_720_480 asset=Assets/Track/Discovery/LakeWoods-summit-landing-v3-Ground_720_480.asset triangles=51200 bounds=Center: (720.00, 102.67, 290.00), Extents: (80.00, 49.39, 80.00)
+GROUND Ground_Mountain_3_1 asset=Assets/Track/StructuralRoads/MountainLoopReverse-mountain-subgrade-Ground_Mountain_3_1.asset triangles=5063 bounds=Center: (1150.00, 108.30, -120.00), Extents: (50.00, 29.66, 50.00)
+GROUND Ground_MountainCleanup natural outcrop 37 asset=Assets/Track/MountainCleanup/MountainCleanup natural outcrop 37.asset triangles=117 bounds=Center: (800.09, 96.34, -132.50), Extents: (1.48, 1.77, 2.98)
+GROUND Ground_640_640 asset=Assets/Track/Discovery/MountainLoopReverse-CR113 east support-Ground_640_640.asset triangles=12800 bounds=Center: (560.00, 22.86, 610.00), Extents: (80.00, 10.20, 80.00)
+GROUND Ground_Mountain_3_3 asset=Assets/Track/Discovery/LakeWoods-cr103-inward-connection-Ground_Mountain_3_3.asset triangles=5000 bounds=Center: (1150.00, 119.37, 80.00), Extents: (50.00, 32.63, 50.00)
+GROUND Ground_MountainCleanup connected mountain shoulder asset=Assets/Track/MountainCleanup/final-shoulder-contact.asset triangles=5500 bounds=Center: (880.00, 85.92, -75.00), Extents: (50.00, 40.92, 55.00)
+GROUND Ground_640_560 asset=Assets/Track/StreetLoop/Ground_640_560.asset triangles=12800 bounds=Center: (560.00, 38.67, 450.00), Extents: (80.00, 17.62, 80.00)
+GROUND Ground_MountainCleanup natural outcrop 16 asset=Assets/Track/MountainCleanup/MountainCleanup natural outcrop 16.asset triangles=117 bounds=Center: (799.99, 97.59, -147.54), Extents: (1.43, 1.76, 2.68)
+GROUND Ground_320_640 asset=Assets/Track/StreetLoop/Ground_320_640.asset triangles=12800 bounds=Center: (-80.00, 8.51, 610.00), Extents: (80.00, 2.14, 80.00)
+GROUND Ground_320_400 asset=Assets/Track/ForestLoop/Terrain-22.asset triangles=51200 bounds=Center: (-80.00, 25.56, 130.00), Extents: (80.00, 13.59, 80.00)
+GROUND Ground_Mountain_2_4 asset=Assets/Track/StructuralRoads/MountainLoopReverse-mountain-subgrade-Ground_Mountain_2_4.asset triangles=4836 bounds=Center: (1052.00, 131.75, 180.00), Extents: (48.00, 28.83, 50.00)
+GROUND Ground_80_720 asset=Assets/Track/StreetLoop/Ground_80_720.asset triangles=12800 bounds=Center: (-560.00, 9.58, 770.00), Extents: (80.00, 4.19, 80.00)
+GROUND Ground_400_240 asset=Assets/Track/ForestLoop/Terrain-9.asset triangles=51200 bounds=Center: (80.00, 35.41, -190.00), Extents: (80.00, 8.21, 80.00)
+GROUND Ground_MountainCleanup natural outcrop 4 asset=Assets/Track/MountainCleanup/MountainCleanup natural outcrop 4.asset triangles=117 bounds=Center: (979.73, 156.95, 104.79), Extents: (2.59, 2.12, 2.41)
+GROUND Ground_320_480 asset=Assets/Track/ForestLoop/Terrain-29.asset triangles=51200 bounds=Center: (-80.00, 18.94, 290.00), Extents: (80.00, 12.15, 80.00)
+GROUND Ground_640_0 asset=Assets/Track/StreetLoop/Ground_640_0.asset triangles=12800 bounds=Center: (560.00, 27.72, -670.00), Extents: (80.00, 6.06, 80.00)
+GROUND Ground_MountainCleanup natural outcrop 30 asset=Assets/Track/MountainCleanup/MountainCleanup natural outcrop 30.asset triangles=117 bounds=Center: (800.06, 95.11, -117.58), Extents: (1.52, 1.77, 2.92)
+GROUND Ground_160_400 asset=Assets/Track/StreetLoop/Ground_160_400.asset triangles=12800 bounds=Center: (-400.00, 9.96, 130.00), Extents: (80.00, 5.27, 80.00)
+GROUND Ground_Mountain_1_2 asset=Assets/Track/MountainCleanup/terrain-retained-Ground_Mountain_1_2.asset triangles=4437 bounds=Center: (950.00, 149.44, -20.00), Extents: (50.00, 39.52, 50.00)
+GROUND Ground_480_480 asset=Assets/Track/Discovery/LakeWoods-baseline-protected-Ground_480_480.asset triangles=51200 bounds=Center: (240.00, 57.85, 290.00), Extents: (80.00, 23.88, 80.00)
+GROUND Ground_480_640 asset=Assets/Track/Discovery/MountainLoopReverse-CR129-junction-Ground_480_640.asset triangles=12114 bounds=Center: (240.00, 10.74, 610.00), Extents: (80.00, 4.01, 80.00)
+GROUND Ground_560_320 asset=Assets/Track/BackyardReverse/MountainLoopReverse-roger-support-56.asset triangles=138272 bounds=Center: (400.00, 79.22, -30.00), Extents: (80.00, 9.44, 80.00)
+GROUND Ground_Mountain_1_0 asset=Assets/Track/StructuralRoads/MountainLoopReverse-mountain-subgrade-Ground_Mountain_1_0.asset triangles=4814 bounds=Center: (950.00, 91.53, -220.00), Extents: (50.00, 13.20, 50.00)
+GROUND Ground_720_720 asset=Assets/Track/StreetLoop/Ground_720_720.asset triangles=12800 bounds=Center: (720.00, 27.60, 770.00), Extents: (80.00, 4.06, 80.00)
+GROUND Ground_80_80 asset=Assets/Track/StreetLoop/Ground_80_80.asset triangles=12800 bounds=Center: (-560.00, 5.43, -510.00), Extents: (80.00, 1.59, 80.00)
+GROUND Ground_MountainCut mountain cap asset=Assets/Track/MountainCleanup/cleared-Ground_MountainCut mountain cap.asset triangles=2544 bounds=Center: (990.00, 163.44, 129.50), Extents: (17.00, 1.67, 19.50)
+GROUND Ground_160_0 asset=Assets/Track/StreetLoop/Ground_160_0.asset triangles=12800 bounds=Center: (-400.00, 10.89, -670.00), Extents: (80.00, 5.15, 80.00)
+GROUND Ground_400_320 asset=Assets/Track/ForestLoop/Terrain-16.asset triangles=51200 bounds=Center: (80.00, 43.77, -30.00), Extents: (80.00, 16.07, 80.00)
+GROUND Ground_MountainCleanup natural outcrop 10 asset=Assets/Track/MountainCleanup/MountainCleanup natural outcrop 10.asset triangles=117 bounds=Center: (721.23, 87.72, -129.00), Extents: (1.31, 1.77, 1.47)
+GROUND Ground_720_320 asset=Assets/Track/MountainCleanup/bump-175-Ground_720_320.asset triangles=47320 bounds=Center: (720.00, 83.83, -30.00), Extents: (80.00, 25.16, 80.00)
+GROUND Ground_160_80 asset=Assets/Track/Discovery/LakeWoods-baseline-protected-Ground_160_80.asset triangles=12800 bounds=Center: (-400.00, 17.11, -510.00), Extents: (80.00, 12.23, 80.00)
+GROUND Ground_80_560 asset=Assets/Track/Discovery/MountainLoopReverse-CR113 west support-Ground_80_560.asset triangles=12800 bounds=Center: (-560.00, 7.67, 450.00), Extents: (80.00, 1.69, 80.00)
+GROUND Ground_Mountain_0_1 asset=Assets/Track/MountainCleanup/cleared-Ground_Mountain_0_1.asset triangles=2933 bounds=Center: (850.00, 92.88, -120.00), Extents: (50.00, 13.16, 50.00)
+GROUND Ground_160_720 asset=Assets/Track/StreetLoop/Ground_160_720.asset triangles=12800 bounds=Center: (-400.00, 9.92, 770.00), Extents: (80.00, 3.94, 80.00)
+GROUND Ground_CR133 mountain earth banks asset=Assets/Track/MountainCleanup/first-bump-clear-Ground_CR133 mountain earth banks.asset triangles=158204 bounds=Center: (983.95, 107.19, -4.33), Extents: (314.19, 74.62, 374.67)
+GROUND Ground_MountainCleanup natural outcrop 15 asset=Assets/Track/MountainCleanup/MountainCleanup natural outcrop 15.asset triangles=117 bounds=Center: (738.88, 87.27, -114.87), Extents: (1.60, 1.77, 1.21)
+GROUND Ground_400_480 asset=Assets/Track/ForestLoop/Terrain-30.asset triangles=51200 bounds=Center: (80.00, 36.33, 290.00), Extents: (80.00, 25.25, 80.00)
+GROUND Ground_MountainCleanup landing rock shoulder asset=Assets/Track/MountainCleanup/irregular-landing-rock-face.asset triangles=2592 bounds=Center: (867.71, 84.28, -300.00), Extents: (52.71, 39.28, 54.00)
+GROUND Ground_House3 supported valley driveway asset=Assets/Track/RouteAtlas/MountainLoopReverse-retained-driveway-overlaps.asset triangles=192 bounds=Center: (507.86, 81.75, -135.95), Extents: (8.84, 1.13, 6.77)
+GROUND Ground_MountainCleanup natural outcrop 1 asset=Assets/Track/MountainCleanup/MountainCleanup natural outcrop 1.asset triangles=117 bounds=Center: (975.50, 162.50, 108.60), Extents: (2.51, 2.12, 2.47)
+GROUND Ground_80_160 asset=Assets/Track/StreetLoop/Ground_80_160.asset triangles=12800 bounds=Center: (-560.00, 9.96, -350.00), Extents: (80.00, 6.13, 80.00)
+GROUND Ground_720_80 asset=Assets/Track/StreetLoop/Ground_720_80.asset triangles=12800 bounds=Center: (720.00, 29.38, -510.00), Extents: (80.00, 6.22, 80.00)
+GROUND Ground_400_80 asset=Assets/Track/StreetLoop/Ground_400_80.asset triangles=12800 bounds=Center: (80.00, 29.71, -510.00), Extents: (80.00, 6.49, 80.00)
+GROUND Ground_320_240 asset=Assets/Track/ForestLoop/Terrain-8.asset triangles=51200 bounds=Center: (-80.00, 31.15, -190.00), Extents: (80.00, 8.45, 80.00)
+GROUND Ground_CR113 east four lane seam asset=Assets/Track/Discovery/MountainLoopReverse-CR129-highway-0.asset triangles=466 bounds=Center: (480.88, 24.90, 555.00), Extents: (319.96, 16.90, 14.59)
+GROUND Ground_MountainCleanup natural outcrop 5 asset=Assets/Track/MountainCleanup/MountainCleanup natural outcrop 5.asset triangles=117 bounds=Center: (971.40, 162.52, 112.52), Extents: (2.48, 2.12, 2.51)
+GROUND Ground_CR113 west outer supported shoulders asset=Assets/Track/MountainPolish/grade-Ground_CR113 west outer supported shoulders.asset triangles=64 bounds=Center: (-1170.95, 7.96, 538.93), Extents: (80.00, 0.00, 60.00)
+GROUND Ground_720_240 asset=Assets/Track/StructuralRoads/MountainLoopReverse-mountain-subgrade-Ground_720_240.asset triangles=48038 bounds=Center: (720.00, 63.70, -190.00), Extents: (80.00, 33.48, 80.00)
+GROUND Ground_480_400 asset=Assets/Track/ForestLoop/Terrain-24.asset triangles=51200 bounds=Center: (240.00, 70.77, 130.00), Extents: (80.00, 10.94, 80.00)
+GROUND Ground_MountainPolish supported shoulders asset=Assets/Track/MountainCleanup/first-bump-clear-Ground_MountainPolish supported shoulders.asset triangles=13166 bounds=Center: (984.22, 95.89, 3.68), Extents: (307.92, 61.82, 331.68)
+GROUND Ground_MountainCleanup natural outcrop 17 asset=Assets/Track/MountainCleanup/MountainCleanup natural outcrop 17.asset triangles=117 bounds=Center: (726.21, 87.55, -124.34), Extents: (1.47, 1.77, 1.34)
+GROUND Ground_First Reverse arrow smooth road asset=Assets/Track/LocalRecovery/MountainLoopReverse-First Reverse arrow smooth road.asset triangles=520 bounds=Center: (724.91, 80.02, 6.98), Extents: (8.72, 0.98, 33.14)
+GROUND Ground_Mountain_3_5 asset=Assets/Track/Discovery/LakeWoods-cr103-homeward-Ground_Mountain_3_5.asset triangles=5000 bounds=Center: (1150.00, 108.11, 280.00), Extents: (50.00, 28.73, 50.00)
+GROUND Ground_0_640 asset=Assets/Track/Discovery/MountainLoopReverse-CR113 west support-Ground_0_640.asset triangles=12800 bounds=Center: (-720.00, 7.33, 610.00), Extents: (80.00, 3.45, 80.00)
+GROUND Ground_Dan beige concrete descent and parking asset=Assets/Track/YardReset/MountainLoopReverse-concrete.asset triangles=16704 bounds=Center: (430.31, 81.13, 17.75), Extents: (38.93, 1.67, 13.58)
+GROUND Ground_0_480 asset=Assets/Track/StreetLoop/Ground_0_480.asset triangles=12800 bounds=Center: (-720.00, 6.90, 290.00), Extents: (80.00, 3.62, 80.00)
+GROUND Ground_Mountain_2_3 asset=Assets/Track/MountainCleanup/cleared-Ground_Mountain_2_3.asset triangles=5269 bounds=Center: (1050.00, 146.28, 80.00), Extents: (50.00, 28.75, 50.00)
+BUG-001 (937.79, 124.19, -46.42)
+ main s=1684.576 d=54.80876 p=(935.33, 124.39, -101.17)
+ branch Summit Traverse s=297.1022 d=1.934209 p=(937.42, 125.53, -48.32)
+ branch Downhill Ridge Cut s=0 d=182.9265 p=(818.76, 95.71, -185.32)
+ hits -8/-8: Ground_MountainCleanup connected mountain shoulder@110.334
+ hits -8/-4: Ground_CR133 mountain driving surface@124.340; Ground_MountainCleanup connected mountain shoulder@110.520
+ hits -8/0: Ground_CR133 mountain driving surface@124.340; Ground_MountainCleanup connected mountain shoulder@116.481
+ hits -8/4: Ground_CR133 mountain driving surface@124.340; Ground_MountainCleanup connected mountain shoulder@60.785
+ hits -8/8: Ground_MountainCleanup connected mountain shoulder@126.715
+ hits -4/-8: Ground_MountainCut natural embankments@124.881; Ground_Mountain_1_2@111.005
+ hits -4/-4: Ground_CR133 mountain driving surface@125.006; Ground_Mountain_1_2@110.936
+ hits -4/0: Ground_CR133 mountain driving surface@125.006; Ground_Mountain_1_2@117.317
+ hits -4/4: Ground_CR133 mountain driving surface@125.006
+ hits -4/8: Ground_Mountain_1_2@127.430; Ground_MountainCut natural embankments@124.442
+ hits 0/-8: Ground_CR133 mountain driving surface@124.652; Ground_Mountain_1_2@111.854
+ hits 0/-4: Ground_CR133 mountain driving surface@123.756; Ground_Mountain_1_2@111.550
+ hits 0/0: Ground_CR133 mountain driving surface@123.693; Ground_Mountain_1_2@118.489
+ hits 0/4: Ground_CR133 mountain driving surface@123.954
+ hits 0/8: Ground_Mountain_1_2@128.064; Ground_MountainCut natural embankments@124.922
+ hits 4/-8: Ground_CR133 mountain driving surface@126.453; Ground_Mountain_1_2@112.690
+ hits 4/-4: Ground_CR133 mountain driving surface@126.232; Ground_Mountain_1_2@112.146
+ hits 4/0: Ground_CR133 mountain driving surface@126.054; Ground_Mountain_1_2@119.801
+ hits 4/4: Ground_MountainCut natural embankments@125.706
+ hits 4/8: Ground_Mountain_1_2@128.657; Ground_MountainCut natural embankments@125.276
+ hits 8/-8: Ground_CR133 mountain driving surface@126.889; Ground_Mountain_1_2@113.509
+ hits 8/-4: Ground_CR133 mountain driving surface@126.662; Ground_Mountain_1_2@112.763
+ hits 8/0: Ground_CR133 mountain driving surface@126.462; Ground_Mountain_1_2@121.257
+ hits 8/4: Ground_Mountain_1_2@128.867; Ground_MountainCut natural embankments@125.900
+ hits 8/8: Ground_Mountain_1_2@129.149; Ground_MountainCut natural embankments@125.455
+ nearby signs/arrows: Summit merge gold arrow @(965.85, 129.24, -66.93); Summit merge gold arrow @(951.77, 127.52, -55.74)
+BUG-002 (773.23, 101.64, 72.00)
+ main s=164.3504 d=7.671968 p=(772.14, 101.10, 64.43)
+ branch Summit Traverse s=361.905 d=160.6541 p=(873.89, 113.41, -53.21)
+ branch Downhill Ridge Cut s=221.2024 d=130.4207 p=(722.89, 79.00, -48.32)
+ hits -8/-8: Ground_CR133 mountain driving surface@98.711
+ hits -8/-4: Ground_CR133 mountain driving surface@98.613
+ hits -8/0: Ground_CR133 mountain driving surface@98.163
+ hits -8/4: Ground_720_400@98.493; Ground_CR133 mountain earth banks@97.375; Ground_MountainPolish supported shoulders@87.926
+ hits -8/8: Ground_720_400@104.566; Ground_CR133 mountain earth banks@98.701
+ hits -4/-8: Ground_CR133 mountain driving surface@100.516
+ hits -4/-4: Ground_CR133 mountain driving surface@100.289
+ hits -4/0: Ground_CR133 mountain driving surface@99.674
+ hits -4/4: Ground_720_400@101.951; Ground_CR133 mountain earth banks@98.804; Ground_MountainPolish supported shoulders@87.640
+ hits -4/8: Ground_720_400@105.703; Ground_CR133 mountain earth banks@100.545
+ hits 0/-8: Ground_CR133 mountain driving surface@102.148
+ hits 0/-4: Ground_CR133 mountain driving surface@101.823
+ hits 0/0: Ground_CR133 mountain earth banks@101.090; Ground_MountainPolish supported shoulders@99.252; Ground_720_400@97.872
+ hits 0/4: Ground_720_400@105.461; Ground_CR133 mountain earth banks@100.341
+ hits 0/8: Ground_CR133 mountain earth banks@102.671
+ hits 4/-8: Ground_CR133 mountain driving surface@103.493
+ hits 4/-4: Ground_CR133 mountain driving surface@103.143
+ hits 4/0: Ground_CR133 mountain earth banks@102.437; Ground_720_400@99.885; Ground_MountainPolish supported shoulders@98.677
+ hits 4/4: Ground_CR133 mountain earth banks@102.551
+ hits 4/8: Ground_CR133 mountain earth banks@105.258
+ hits 8/-8: Ground_CR133 mountain driving surface@104.783
+ hits 8/-4: Ground_CR133 mountain driving surface@104.491
+ hits 8/0: Ground_CR133 mountain earth banks@103.979; Ground_720_400@102.070; Ground_MountainPolish supported shoulders@98.274
+ hits 8/4: Ground_CR133 mountain earth banks@105.424
+ hits 8/8: 
+ nearby signs/arrows: 
+BUG-003 (988.09, 164.29, 114.95)
+ main s=443.7971 d=8.830992 p=(987.79, 163.99, 123.77)
+ branch Summit Traverse s=0 d=1.910628 p=(990.00, 163.65, 115.00)
+ branch Downhill Ridge Cut s=221.2024 d=311.4233 p=(722.89, 79.00, -48.32)
+ hits -8/-8: Ground_MountainCut natural embankments@157.013; Ground_CR133 mountain driving surface@154.392
+ hits -8/-4: Ground_MountainCut mountain cap@163.812; Ground_MountainCut rock vault@160.849; Ground_CR133 mountain driving surface@153.467; Ground_MountainCut portal outcrops@146.426
+ hits -8/0: Ground_MountainCut mountain cap@163.892; Ground_MountainCut rock vault@163.300; Ground_MountainCut portal outcrops@154.428; Ground_CR133 mountain driving surface@152.773
+ hits -8/4: Ground_CR133 mountain driving surface@164.472; Ground_MountainCut mountain cap@163.972; Ground_MountainCut rock vault@163.300; Ground_MountainCut portal outcrops@157.106
+ hits -8/8: Ground_CR133 mountain driving surface@164.551; Ground_MountainCut mountain cap@164.052; Ground_MountainCut rock vault@163.300; Ground_MountainCut portal outcrops@158.759
+ hits -4/-8: Ground_MountainCut natural embankments@162.223; Ground_CR133 mountain driving surface@154.392
+ hits -4/-4: Ground_MountainCut mountain cap@163.512; Ground_MountainCut rock vault@161.615; Ground_CR133 mountain driving surface@153.467
+ hits -4/0: Ground_MountainCut mountain cap@163.592; Ground_MountainCut rock vault@163.300; Ground_CR133 mountain driving surface@152.773
+ hits -4/4: Ground_CR133 mountain driving surface@164.172; Ground_MountainCut mountain cap@163.672; Ground_MountainCut rock vault@163.300
+ hits -4/8: Ground_CR133 mountain driving surface@164.252; Ground_MountainCut mountain cap@163.752; Ground_MountainCut rock vault@163.300
+ hits 0/-8: Ground_MountainCut natural embankments@162.900; Ground_CR133 mountain driving surface@154.392
+ hits 0/-4: Ground_CR133 mountain driving surface@163.712; Ground_MountainCut rock vault@161.915
+ hits 0/0: Ground_CR133 mountain driving surface@163.792; Ground_MountainCut rock vault@163.300; Ground_MountainCut mountain cap@163.292
+ hits 0/4: Ground_CR133 mountain driving surface@163.872; Ground_MountainCut mountain cap@163.372; Ground_MountainCut rock vault@163.300
+ hits 0/8: Ground_CR133 mountain driving surface@163.952; Ground_MountainCut mountain cap@163.452; Ground_MountainCut rock vault@163.300
+ hits 4/-8: Ground_CR133 mountain driving surface@163.332
+ hits 4/-4: Ground_CR133 mountain driving surface@163.412; Ground_MountainCut rock vault@162.058
+ hits 4/0: Ground_CR133 mountain driving surface@163.492; Ground_MountainCut rock vault@160.952
+ hits 4/4: Ground_CR133 mountain driving surface@163.572; Ground_MountainCut rock vault@163.300; Ground_MountainCut mountain cap@163.072
+ hits 4/8: Ground_CR133 mountain driving surface@163.652; Ground_MountainCut rock vault@163.300; Ground_MountainCut mountain cap@163.152
+ hits 8/-8: Ground_CR133 mountain driving surface@163.032
+ hits 8/-4: Ground_CR133 mountain driving surface@163.112; Ground_MountainCut rock vault@161.828
+ hits 8/0: Ground_CR133 mountain driving surface@163.192; Ground_MountainCut rock vault@160.652
+ hits 8/4: Ground_MountainCut rock vault@163.300; Ground_CR133 mountain driving surface@163.272; Ground_MountainCut mountain cap@162.772
+ hits 8/8: Ground_CR133 mountain driving surface@163.352; Ground_MountainCut rock vault@163.300; Ground_MountainCut mountain cap@162.852
+ nearby signs/arrows: Physical sign backing @(1002.12, 166.98, 113.02); Direction lettering @(1002.03, 166.98, 113.11); Grounded sign post @(1000.00, 162.73, 92.00); Sign board @(1000.00, 165.15, 92.00); Physical lettering @(1000.00, 165.15, 91.88); Whole timber post @(1002.12, 165.45, 113.02)
+BUG-004 (1017.70, 161.55, 83.00)
+ main s=958.6625 d=27.83249 p=(990.00, 163.89, 84.36)
+ branch Summit Traverse s=42.4217 d=2.070171 p=(1019.28, 160.95, 84.34)
+ branch Downhill Ridge Cut s=221.2024 d=322.7293 p=(722.89, 79.00, -48.32)
+ hits -8/-8: Ground_Mountain_2_3@162.509
+ hits -8/-4: Ground_Mountain_2_3@162.142
+ hits -8/0: Ground_Mountain_2_3@160.405; Ground_MountainCut natural embankments@154.620
+ hits -8/4: Ground_Mountain_2_3@159.517
+ hits -8/8: Ground_CR133 mountain driving surface@161.842
+ hits -4/-8: Ground_MountainCut natural embankments@159.802; Ground_Mountain_2_3@159.794
+ hits -4/-4: Ground_MountainCut natural embankments@160.631; Ground_Mountain_2_3@159.080
+ hits -4/0: Ground_Mountain_2_3@158.738
+ hits -4/4: Ground_CR133 mountain driving surface@161.733
+ hits -4/8: Ground_CR133 mountain driving surface@161.715
+ hits 0/-8: Ground_CR133 mountain earth banks@159.769; Ground_MountainCut natural embankments@159.476; Ground_Mountain_2_3@158.058
+ hits 0/-4: Ground_CR133 mountain driving surface@160.501
+ hits 0/0: Ground_CR133 mountain driving surface@161.044
+ hits 0/4: Ground_CR133 mountain driving surface@161.418
+ hits 0/8: Ground_CR133 mountain driving surface@161.548
+ hits 4/-8: Ground_CR133 mountain driving surface@159.226
+ hits 4/-4: Ground_CR133 mountain driving surface@159.898
+ hits 4/0: Ground_CR133 mountain driving surface@160.487
+ hits 4/4: Ground_CR133 mountain driving surface@160.969
+ hits 4/8: Ground_Mountain_2_3@159.046
+ hits 8/-8: Ground_CR133 mountain driving surface@158.631
+ hits 8/-4: Ground_CR133 mountain driving surface@159.305
+ hits 8/0: Ground_CR133 mountain driving surface@159.923
+ hits 8/4: Ground_Mountain_2_3@158.453
+ hits 8/8: Ground_MountainCut natural embankments@160.551; Ground_Mountain_2_3@160.096
+ nearby signs/arrows: Trail sign board @(1048.29, 157.42, 58.93); Physical sign backing @(1002.12, 166.98, 113.02); Direction lettering @(1002.03, 166.98, 113.11); Grounded sign post @(1000.00, 162.73, 92.00); Trail sign post @(1048.29, 156.19, 58.93); Sign board @(1000.00, 165.15, 92.00); Direction lettering @(1048.34, 157.42, 58.84); Physical lettering @(1000.00, 165.15, 91.88); Whole timber post @(1002.12, 165.45, 113.02)
+BUG-005 (1028.09, 141.06, -56.10)
+ main s=1787.95 d=33.43827 p=(1036.65, 135.55, -87.95)
+ branch Summit Traverse s=196.6648 d=1.977319 p=(1026.77, 140.52, -54.63)
+ branch Downhill Ridge Cut s=0 d=246.0043 p=(818.76, 95.71, -185.32)
+ hits -8/-8: Ground_CR133 mountain driving surface@138.662
+ hits -8/-4: Ground_CR133 mountain driving surface@139.045
+ hits -8/0: Ground_CR133 mountain driving surface@139.476
+ hits -8/4: Ground_CR133 mountain earth banks@139.873; Ground_MountainCut natural embankments@139.641; Ground_Mountain_2_2@138.020
+ hits -8/8: Ground_CR133 mountain earth banks@140.252; Ground_Mountain_2_2@139.711; Ground_MountainCut natural embankments@133.256
+ hits -4/-8: Ground_MountainCut natural embankments@139.023; Ground_Mountain_2_2@137.263
+ hits -4/-4: Ground_CR133 mountain driving surface@139.622
+ hits -4/0: Ground_CR133 mountain driving surface@140.052
+ hits -4/4: Ground_CR133 mountain driving surface@140.511
+ hits -4/8: Ground_CR133 mountain earth banks@140.908; Ground_MountainCut natural embankments@140.684; Ground_Mountain_2_2@139.233
+ hits 0/-8: Ground_CR133 mountain earth banks@139.493; Ground_MountainCut natural embankments@139.360; Ground_Mountain_2_2@138.474
+ hits 0/-4: Ground_CR133 mountain driving surface@140.131
+ hits 0/0: Ground_CR133 mountain driving surface@140.555
+ hits 0/4: Ground_CR133 mountain driving surface@141.002
+ hits 0/8: Ground_CR133 mountain driving surface@141.472
+ hits 4/-8: Ground_CR133 mountain earth banks@139.620; Ground_Mountain_2_2@139.093
+ hits 4/-4: Ground_CR133 mountain earth banks@140.342; Ground_MountainCut natural embankments@140.132; Ground_Mountain_2_2@138.898
+ hits 4/0: Ground_CR133 mountain driving surface@140.997
+ hits 4/4: Ground_CR133 mountain driving surface@141.428
+ hits 4/8: Ground_CR133 mountain driving surface@141.876
+ hits 8/-8: Ground_CR133 mountain earth banks@139.371; Ground_Mountain_2_2@139.162
+ hits 8/-4: Ground_CR133 mountain earth banks@140.108; Ground_Mountain_2_2@139.162
+ hits 8/0: Ground_CR133 mountain earth banks@141.073; Ground_MountainCut natural embankments@140.840; Ground_Mountain_2_2@139.162
+ hits 8/4: Ground_CR133 mountain earth banks@141.802; Ground_Mountain_2_2@139.347
+ hits 8/8: Ground_CR133 mountain driving surface@142.231
+ nearby signs/arrows: Direction lettering @(1022.89, 141.72, -65.27); Whole timber post @(1022.78, 140.51, -65.34); Physical sign backing @(1022.78, 141.72, -65.34)
+BUG-006 (1034.32, 141.27, -57.93)
+ main s=1793.539 d=30.13642 p=(1042.05, 135.89, -86.56)
+ branch Summit Traverse s=193.7285 d=7.626351 p=(1028.88, 140.99, -52.59)
+ branch Downhill Ridge Cut s=0 d=250.3909 p=(818.76, 95.71, -185.32)
+ hits -8/-8: Ground_MountainCut natural embankments@138.938; Ground_Mountain_2_2@138.440
+ hits -8/-4: Ground_CR133 mountain earth banks@139.710; Ground_Mountain_2_2@137.670
+ hits -8/0: Ground_CR133 mountain driving surface@140.141
+ hits -8/4: Ground_CR133 mountain driving surface@140.581
+ hits -8/8: Ground_CR133 mountain driving surface@141.050
+ hits -4/-8: Ground_CR133 mountain earth banks@139.383; Ground_Mountain_2_2@139.062
+ hits -4/-4: Ground_CR133 mountain earth banks@139.965; Ground_MountainCut natural embankments@139.794; Ground_Mountain_2_2@138.706
+ hits -4/0: Ground_CR133 mountain driving surface@140.614
+ hits -4/4: Ground_CR133 mountain driving surface@141.043
+ hits -4/8: Ground_CR133 mountain driving surface@141.496
+ hits 0/-8: Ground_CR133 mountain earth banks@139.253; Ground_Mountain_2_2@139.131
+ hits 0/-4: Ground_CR133 mountain earth banks@139.882; Ground_Mountain_2_2@139.131
+ hits 0/0: Ground_CR133 mountain earth banks@140.756; Ground_MountainCut natural embankments@140.526; Ground_Mountain_2_2@139.092
+ hits 0/4: Ground_CR133 mountain driving surface@141.448
+ hits 0/8: Ground_CR133 mountain driving surface@141.878
+ hits 4/-8: Ground_Mountain_2_2@139.203; Ground_CR133 mountain earth banks@139.145
+ hits 4/-4: Ground_CR133 mountain earth banks@139.488; Ground_Mountain_2_2@139.203
+ hits 4/0: Ground_CR133 mountain earth banks@140.348; Ground_Mountain_2_2@139.203
+ hits 4/4: Ground_CR133 mountain earth banks@141.401; Ground_MountainCut natural embankments@141.156; Ground_Mountain_2_2@139.210
+ hits 4/8: Ground_CR133 mountain earth banks@142.190; Ground_Mountain_2_2@140.152
+ hits 8/-8: Ground_Mountain_2_2@139.278
+ hits 8/-4: Ground_Mountain_2_2@139.278; Ground_CR133 mountain earth banks@139.255
+ hits 8/0: Ground_CR133 mountain earth banks@139.688; Ground_Mountain_2_2@139.278
+ hits 8/4: Ground_CR133 mountain earth banks@140.542; Ground_Mountain_2_2@139.285
+ hits 8/8: Ground_CR133 mountain earth banks@141.932; Ground_MountainCut natural embankments@141.633; Ground_Mountain_2_2@140.412
+ nearby signs/arrows: Direction lettering @(1022.89, 141.72, -65.27); Whole timber post @(1022.78, 140.51, -65.34); Physical sign backing @(1022.78, 141.72, -65.34)
+BUG-007 (984.09, 132.66, -67.39)
+ main s=1119.382 d=28.92507 p=(990.00, 160.76, -70.89)
+ branch Summit Traverse s=242.6164 d=4.263507 p=(984.81, 132.11, -71.59)
+ branch Downhill Ridge Cut s=0 d=203.0826 p=(818.76, 95.71, -185.32)
+ hits -8/-8: Ground_CR133 mountain driving surface@130.734
+ hits -8/-4: Ground_CR133 mountain driving surface@130.625
+ hits -8/0: Ground_CR133 mountain driving surface@130.454; Ground_Mountain_1_2@128.696
+ hits -8/4: Ground_Mountain_1_2@130.608; Ground_MountainCut natural embankments@129.316
+ hits -8/8: Ground_MountainCut natural embankments@126.152
+ hits -4/-8: Ground_CR133 mountain driving surface@131.285
+ hits -4/-4: Ground_CR133 mountain driving surface@131.291
+ hits -4/0: Ground_CR133 mountain driving surface@131.301
+ hits -4/4: Ground_Mountain_1_2@130.806; Ground_MountainCut natural embankments@125.394
+ hits -4/8: 
+ hits 0/-8: Ground_CR133 mountain driving surface@131.912
+ hits 0/-4: Ground_CR133 mountain driving surface@132.031
+ hits 0/0: Ground_CR133 mountain driving surface@132.152
+ hits 0/4: Ground_Mountain_1_2@131.251; Ground_MountainCut natural embankments@124.825
+ hits 0/8: Ground_Mountain_1_2@134.982
+ hits 4/-8: Ground_CR133 mountain driving surface@132.611
+ hits 4/-4: Ground_CR133 mountain driving surface@132.742
+ hits 4/0: Ground_CR133 mountain driving surface@132.877
+ hits 4/4: Ground_Mountain_1_2@131.668; Ground_MountainCut natural embankments@128.284
+ hits 4/8: Ground_Mountain_1_2@134.271
+ hits 8/-8: Ground_Mountain_1_1@131.210
+ hits 8/-4: Ground_CR133 mountain driving surface@133.452
+ hits 8/0: Ground_CR133 mountain driving surface@133.604
+ hits 8/4: Ground_Mountain_1_2@132.081; Ground_MountainCut natural embankments@132.060
+ hits 8/8: Ground_Mountain_1_2@135.792
+ nearby signs/arrows: Direction lettering @(1022.89, 141.72, -65.27); Whole timber post @(1022.78, 140.51, -65.34); Summit merge gold arrow @(965.85, 129.24, -66.93); Physical sign backing @(1022.78, 141.72, -65.34); Summit merge gold arrow @(951.77, 127.52, -55.74); Summit merge gold arrow @(982.49, 131.81, -71.98)
+BUG-008 (872.20, 113.05, -59.48)
+ main s=1625.293 d=40.53764 p=(877.57, 111.91, -99.64)
+ branch Summit Traverse s=367.7837 d=3.357657 p=(869.66, 112.50, -57.28)
+ branch Downhill Ridge Cut s=0 d=136.7183 p=(818.76, 95.71, -185.32)
+ hits -8/-8: Ground_CR133 mountain driving surface@111.235; Ground_MountainCleanup connected mountain shoulder@109.945
+ hits -8/-4: Ground_CR133 mountain driving surface@111.548; Ground_MountainCleanup connected mountain shoulder@110.244
+ hits -8/0: Ground_CR133 mountain driving surface@111.911; Ground_MountainCleanup connected mountain shoulder@110.610
+ hits -8/4: Ground_CR133 mountain driving surface@112.280; Ground_MountainCleanup connected mountain shoulder@111.050
+ hits -8/8: Ground_MountainCleanup connected mountain shoulder@110.742
+ hits -4/-8: Ground_CR133 mountain driving surface@111.325; Ground_MountainCleanup connected mountain shoulder@110.033
+ hits -4/-4: Ground_CR133 mountain driving surface@111.752; Ground_MountainCleanup connected mountain shoulder@110.447
+ hits -4/0: Ground_CR133 mountain driving surface@112.179; Ground_MountainCleanup connected mountain shoulder@110.873
+ hits -4/4: Ground_CR133 mountain driving surface@112.597; Ground_MountainCleanup connected mountain shoulder@111.295
+ hits -4/8: Ground_CR133 mountain driving surface@112.983; Ground_MountainCleanup connected mountain shoulder@111.776
+ hits 0/-8: Ground_MountainCleanup connected mountain shoulder@109.753
+ hits 0/-4: Ground_CR133 mountain driving surface@112.041; Ground_MountainCleanup connected mountain shoulder@110.788
+ hits 0/0: Ground_CR133 mountain driving surface@112.541; Ground_MountainCleanup connected mountain shoulder@111.233
+ hits 0/4: Ground_CR133 mountain driving surface@113.003; Ground_MountainCleanup connected mountain shoulder@111.703
+ hits 0/8: Ground_CR133 mountain driving surface@113.413; Ground_MountainCleanup connected mountain shoulder@112.111
+ hits 4/-8: Ground_MountainCleanup connected mountain shoulder@107.599
+ hits 4/-4: Ground_MountainCleanup connected mountain shoulder@109.845
+ hits 4/0: Ground_MountainCleanup connected mountain shoulder@112.085
+ hits 4/4: Ground_CR133 mountain driving surface@113.524; Ground_MountainCleanup connected mountain shoulder@112.221
+ hits 4/8: Ground_CR133 mountain driving surface@113.942; Ground_MountainCleanup connected mountain shoulder@112.640
+ hits 8/-8: Ground_MountainCleanup connected mountain shoulder@105.763
+ hits 8/-4: Ground_MountainCleanup connected mountain shoulder@108.418
+ hits 8/0: Ground_MountainCleanup connected mountain shoulder@111.214
+ hits 8/4: Ground_CR133 mountain driving surface@114.207; Ground_MountainCleanup connected mountain shoulder@112.901
+ hits 8/8: Ground_CR133 mountain driving surface@114.591; Ground_MountainCleanup connected mountain shoulder@113.291
+ nearby signs/arrows: Summit merge gold arrow @(881.70, 115.12, -48.76); Summit merge gold arrow @(863.40, 111.41, -76.72); Summit merge gold arrow @(872.34, 109.57, -91.82); Summit merge gold arrow @(872.34, 109.57, -91.82); Summit merge gold arrow @(878.80, 111.84, -99.50); Summit merge gold arrow @(863.40, 111.41, -76.72); Summit merge gold arrow @(881.70, 115.12, -48.76); Summit merge gold arrow @(888.59, 115.03, -99.00); Summit merge gold arrow @(888.59, 115.03, -99.00)
+BUG-009 (997.54, 152.54, 307.44)
+ main s=732.4368 d=6.281286 p=(991.35, 152.00, 308.33)
+ branch Summit Traverse s=0 d=192.5876 p=(990.00, 163.65, 115.00)
+ branch Downhill Ridge Cut s=221.2024 d=449.4356 p=(722.89, 79.00, -48.32)
+ hits -8/-8: Ground_CR133 mountain driving surface@152.040
+ hits -8/-4: Ground_CR133 mountain driving surface@152.040
+ hits -8/0: Ground_CR133 mountain driving surface@152.040
+ hits -8/4: Ground_CR133 mountain driving surface@152.040
+ hits -8/8: Ground_CR133 mountain driving surface@152.040
+ hits -4/-8: Ground_CR133 mountain driving surface@152.040
+ hits -4/-4: Ground_CR133 mountain driving surface@152.040
+ hits -4/0: Ground_CR133 mountain driving surface@152.040
+ hits -4/4: Ground_CR133 mountain driving surface@152.040
+ hits -4/8: Ground_CR133 mountain driving surface@152.040
+ hits 0/-8: Ground_CR133 mountain driving surface@152.040
+ hits 0/-4: Ground_CR133 mountain driving surface@152.040
+ hits 0/0: Ground_CR133 mountain driving surface@152.040
+ hits 0/4: Ground_CR133 mountain driving surface@152.040
+ hits 0/8: Ground_CR133 mountain driving surface@152.040
+ hits 4/-8: Ground_CR133 mountain earth banks@146.002; Ground_Mountain_2_5@135.521; Ground_MountainPolish supported shoulders@135.218
+ hits 4/-4: Ground_CR133 mountain earth banks@144.346; Ground_Mountain_2_5@127.396; Ground_MountainPolish supported shoulders@126.445
+ hits 4/0: Ground_CR133 mountain earth banks@147.310; Ground_Mountain_2_5@131.019; Ground_MountainPolish supported shoulders@129.119
+ hits 4/4: Ground_CR133 mountain earth banks@150.044; Ground_Mountain_2_5@138.752; Ground_MountainPolish supported shoulders@134.957
+ hits 4/8: Ground_CR133 mountain driving surface@152.040
+ hits 8/-8: Ground_CR133 mountain earth banks@106.536; Ground_Mountain_2_5@100.287
+ hits 8/-4: Ground_CR133 mountain earth banks@105.370; Ground_Mountain_2_5@97.419
+ hits 8/0: Ground_CR133 mountain earth banks@102.982; Ground_Mountain_2_5@97.734
+ hits 8/4: Ground_CR133 mountain earth banks@131.353; Ground_Mountain_2_5@111.992
+ hits 8/8: Ground_CR133 mountain earth banks@151.797; Ground_Mountain_2_5@146.563; Ground_MountainPolish supported shoulders@143.184
+ nearby signs/arrows: Direction lettering @(977.00, 154.84, 285.13); Whole timber post @(977.00, 153.68, 285.00); Physical sign backing @(977.00, 154.84, 285.00)
+BUG-010 (986.95, 217.21, -16.04)
+ main s=1057.974 d=49.33324 p=(990.00, 168.35, -9.95)
+ branch Summit Traverse s=278.1405 d=52.8943 p=(953.88, 127.68, -57.32)
+ branch Downhill Ridge Cut s=0 d=238.6308 p=(818.76, 95.71, -185.32)
+ hits -8/-8: Ground_Mountain_1_2@188.907
+ hits -8/-4: Ground_Mountain_1_2@166.285
+ hits -8/0: Ground_Mountain_1_2@133.252
+ hits -8/4: Ground_Mountain_1_2@132.235
+ hits -8/8: Ground_Mountain_1_2@134.103
+ hits -4/-8: Ground_Mountain_1_2@188.960
+ hits -4/-4: Ground_Mountain_1_2@179.624
+ hits -4/0: Ground_Mountain_1_2@141.231
+ hits -4/4: Ground_Mountain_1_2@132.305
+ hits -4/8: Ground_Mountain_1_2@134.165
+ hits 0/-8: Ground_Mountain_1_2@188.960
+ hits 0/-4: Ground_Mountain_1_2@185.294
+ hits 0/0: Ground_Mountain_1_2@147.579
+ hits 0/4: Ground_Mountain_1_2@132.320
+ hits 0/8: Ground_Mountain_1_2@134.146
+ hits 4/-8: Ground_Mountain_1_2@188.960
+ hits 4/-4: Ground_Mountain_1_2@186.226
+ hits 4/0: Ground_Mountain_1_2@148.968
+ hits 4/4: Ground_Mountain_1_2@132.223
+ hits 4/8: Ground_Mountain_1_2@134.045
+ hits 8/-8: Ground_Mountain_1_2@188.960
+ hits 8/-4: Ground_Mountain_1_2@183.407
+ hits 8/0: Ground_Mountain_1_2@144.840
+ hits 8/4: Ground_Mountain_1_2@132.012
+ hits 8/8: Ground_Mountain_1_2@133.863
+ nearby signs/arrows: 
+BUG-011 (1121.44, 109.93, -283.10)
+ main s=2341.357 d=16.90014 p=(1121.44, 110.00, -300.00)
+ branch Summit Traverse s=211.999 d=244.5865 p=(1014.18, 137.76, -63.28)
+ branch Downhill Ridge Cut s=0 d=318.0847 p=(818.76, 95.71, -185.32)
+ hits -8/-8: Ground_CR133 mountain driving surface@110.040
+ hits -8/-4: Ground_CR133 mountain driving surface@110.040
+ hits -8/0: Ground_CR133 mountain earth banks@109.389; Ground_MountainPolish supported shoulders@106.330; Ground_CR117 outer ravine@105.573
+ hits -8/4: Ground_CR133 mountain earth banks@105.927; Ground_CR117 outer ravine@103.119
+ hits -8/8: Ground_CR133 mountain earth banks@100.496; Ground_CR117 outer ravine@100.351
+ hits -4/-8: Ground_CR133 mountain driving surface@110.040
+ hits -4/-4: Ground_CR133 mountain driving surface@110.040
+ hits -4/0: Ground_CR133 mountain earth banks@109.390; Ground_MountainPolish supported shoulders@106.343; Ground_CR117 outer ravine@105.590
+ hits -4/4: Ground_CR133 mountain earth banks@105.933; Ground_CR117 outer ravine@103.142
+ hits -4/8: Ground_CR133 mountain earth banks@100.477; Ground_CR117 outer ravine@100.378
+ hits 0/-8: Ground_CR133 mountain driving surface@110.040
+ hits 0/-4: Ground_CR133 mountain driving surface@110.040
+ hits 0/0: Ground_CR133 mountain earth banks@109.391; Ground_MountainPolish supported shoulders@106.352; Ground_CR117 outer ravine@105.601
+ hits 0/4: Ground_CR133 mountain earth banks@105.936; Ground_CR117 outer ravine@103.156
+ hits 0/8: Ground_CR133 mountain earth banks@100.460; Ground_CR117 outer ravine@100.394
+ hits 4/-8: Ground_CR133 mountain driving surface@110.040
+ hits 4/-4: Ground_CR133 mountain driving surface@110.040
+ hits 4/0: Ground_CR133 mountain earth banks@109.392; Ground_MountainPolish supported shoulders@106.356; Ground_CR117 outer ravine@105.606
+ hits 4/4: Ground_CR133 mountain earth banks@105.936; Ground_CR117 outer ravine@103.161
+ hits 4/8: Ground_CR133 mountain earth banks@100.445; Ground_CR117 outer ravine@100.398
+ hits 8/-8: Ground_CR133 mountain driving surface@110.040
+ hits 8/-4: Ground_CR133 mountain driving surface@110.040
+ hits 8/0: Ground_CR133 mountain earth banks@109.391; Ground_MountainPolish supported shoulders@106.354; Ground_CR117 outer ravine@105.603
+ hits 8/4: Ground_CR133 mountain earth banks@105.934; Ground_CR117 outer ravine@103.156
+ hits 8/8: Ground_CR133 mountain earth banks@100.439; Ground_CR117 outer ravine@100.387
+ nearby signs/arrows: Physical sign backing @(1105.00, 107.07, -281.00); Whole timber post @(1105.00, 105.97, -281.00); Direction lettering @(1105.13, 107.07, -281.00)
+BUG-012 (941.61, 125.09, -67.73)
+ main s=1689.915 d=33.65794 p=(940.57, 125.38, -101.37)
+ branch Summit Traverse s=281.7014 d=15.75125 p=(951.07, 127.34, -55.14)
+ branch Downhill Ridge Cut s=0 d=170.0597 p=(818.76, 95.71, -185.32)
+ hits -8/-8: 
+ hits -8/-4: Ground_CR133 mountain earth banks@123.037; Ground_Mountain_1_1@121.052; Ground_MountainCut natural embankments@110.474
+ hits -8/0: Ground_CR133 mountain earth banks@122.782; Ground_Mountain_1_2@122.237; Ground_MountainCut natural embankments@113.937
+ hits -8/4: Ground_CR133 mountain earth banks@119.220; Ground_Mountain_1_2@118.554; Ground_MountainCut natural embankments@117.401
+ hits -8/8: Ground_MountainCut natural embankments@120.864; Ground_Mountain_1_2@114.517
+ hits -4/-8: 
+ hits -4/-4: Ground_CR133 mountain earth banks@123.762; Ground_Mountain_1_1@121.691
+ hits -4/0: Ground_MountainCut natural embankments@124.050; Ground_CR133 mountain earth banks@123.552; Ground_Mountain_1_2@123.009
+ hits -4/4: Ground_MountainCut natural embankments@124.707; Ground_CR133 mountain earth banks@120.561; Ground_Mountain_1_2@119.883
+ hits -4/8: Ground_MountainCut natural embankments@125.201; Ground_Mountain_1_2@115.659
+ hits 0/-8: 
+ hits 0/-4: 
+ hits 0/0: Ground_MountainCut natural embankments@124.567; Ground_CR133 mountain earth banks@124.265; Ground_Mountain_1_2@123.641
+ hits 0/4: Ground_MountainCut natural embankments@125.438; Ground_CR133 mountain earth banks@121.814; Ground_Mountain_1_2@121.159
+ hits 0/8: Ground_MountainCut natural embankments@126.062; Ground_Mountain_1_2@116.772
+ hits 4/-8: 
+ hits 4/-4: 
+ hits 4/0: Ground_CR133 mountain earth banks@125.004; Ground_Mountain_1_2@124.220
+ hits 4/4: Ground_MountainCut natural embankments@126.223; Ground_CR133 mountain earth banks@123.022; Ground_Mountain_1_2@122.362
+ hits 4/8: Ground_MountainCut natural embankments@126.966; Ground_Mountain_1_2@117.844
+ hits 8/-8: 
+ hits 8/-4: 
+ hits 8/0: Ground_MountainCut natural embankments@125.970; Ground_CR133 mountain earth banks@125.745; Ground_Mountain_1_2@124.797
+ hits 8/4: Ground_MountainCut natural embankments@127.278; Ground_CR133 mountain earth banks@124.217; Ground_Mountain_1_2@123.485
+ hits 8/8: Ground_CR133 mountain driving surface@127.540; Ground_Mountain_1_2@118.876; Ground_CR133 mountain earth banks@118.861
+ nearby signs/arrows: Summit merge gold arrow @(965.85, 129.24, -66.93); Summit merge gold arrow @(951.77, 127.52, -55.74); Summit merge gold arrow @(982.49, 131.81, -71.98)

@@ -1,0 +1,482 @@
+SCENE Assets/Scenes/StreetLoopGreybox.unity
+04 landing | LANDING/BRAKE AFTER TOUCHDOWN | (806.69, 143.01, 118.75)
+SPEED CAMERA
+BOTH DIRECTIONS | SPEED CAMERA/BOTH DIRECTIONS | (-622.22, 11.39, 95.45)
+RIDGE RETURN
+Lake / Neighborhood | RIDGE RETURN/Lake / Neighborhood | (680.64, 80.95, -55.25)
+SUMMIT CAMP
+Look for the cairns | SUMMIT CAMP/Look for the cairns | (1000.00, 167.56, 91.88)
+Fictional storefront identity | AUTO SERVICE | (-492.17, 12.53, 513.12)
+Fictional storefront identity | HILLTOP DINER | (79.14, 13.36, 565.68)
+Creek Leap >
+OPTIONAL / FORWARD | Creek Leap >/OPTIONAL / FORWARD | (545.22, 38.88, -227.46)
+SPEED CAMERA
+BOTH DIRECTIONS | SPEED CAMERA/BOTH DIRECTIONS | (-396.84, 11.00, 522.92)
+Road lettering | Creek Leap  >/76 mph | (567.19, 32.64, -250.34)
+SPEED CAMERA
+BOTH DIRECTIONS | SPEED CAMERA/BOTH DIRECTIONS | (-637.22, 11.38, 95.36)
+LAKE SHORE
+BOTH TRAILS RETURN HOME | LAKE SHORE/BOTH TRAILS RETURN HOME | (541.89, 82.63, -92.60)
+03 launch | CLEAR THE SUMMIT/LAND STRAIGHT | (1021.06, 156.32, 169.21)
+Fox Gully >
+OPTIONAL / FORWARD | Fox Gully >/OPTIONAL / FORWARD | (247.30, 43.02, -344.13)
+Fictional storefront identity | HILLTOP DINER | (-391.76, 12.89, 513.87)
+02 run-up | HOMEWARD JUMP/STRAIGHT / FULL THROTTLE | (1172.09, 154.70, 212.09)
+NO ENTRY | NO ENTRY | (-608.33, 8.98, -241.55)
+Fictional storefront identity | HILLTOP DINER | (202.67, 13.16, 528.60)
+Fictional storefront identity | CORNER MARKET | (-539.27, 12.27, 519.57)
+Fictional storefront identity | HILLTOP DINER | (-217.83, 13.16, 549.47)
+Road lettering | Fox Gully  >/67 mph | (215.28, 47.04, -340.22)
+Road lettering | TO Jamerson Road | (-599.05, 8.20, -563.71)
+JUMP CHALLENGE
+LAND CLEAN / PAUSE FOR TARGETS | JUMP CHALLENGE/LAND CLEAN / PAUSE FOR TARGETS | (-617.70, 10.54, -107.94)
+Road lettering | TO Jamerson Road | (-599.20, 8.20, -563.67)
+KYLE'S WOODED DRIVE
+LAKE / MOUNTAIN TRAILS | ANDERSON'S/LAKE / MOUNTAIN TRAILS | (463.33, 87.84, -22.79)
+Existing Southwest Cut >
+OPTIONAL / FORWARD | Existing Southwest Cut >/OPTIONAL / FORWARD | (-532.30, 9.44, -543.37)
+Fictional storefront identity | AUTO SERVICE | (227.49, 12.81, 583.27)
+Road lettering | Creek Leap  >/76 mph | (567.23, 32.62, -250.49)
+Fictional storefront identity | AUTO SERVICE | (-181.09, 13.04, 507.80)
+FENCE LINE SMASH
+3 / 6 / 10 PROPS IN 8 s | FENCE LINE SMASH/3 / 6 / 10 PROPS IN 8 s | (462.52, 88.95, -28.41)
+Fictional storefront identity | CORNER MARKET | (-332.77, 13.32, 508.78)
+SPEED CAMERA
+BOTH DIRECTIONS | SPEED CAMERA/BOTH DIRECTIONS | (-395.81, 11.00, 545.30)
+Fictional storefront identity | AUTO SERVICE | (-269.59, 13.63, 552.30)
+Fictional storefront identity | HILLTOP DINER | (-127.00, 12.57, 504.75)
+SUMMIT
+Both trails return to lake | SUMMIT/Both trails return to lake | (921.62, 158.40, 161.62)
+Fictional storefront identity | CORNER MARKET | (-70.09, 12.26, 509.50)
+Pine Ridge <
+OPTIONAL / FORWARD | Pine Ridge </OPTIONAL / FORWARD | (-152.07, 33.38, -575.59)
+01 approach | SUMMIT JUMP/FOLLOW THE RUN-UP | (1039.88, 155.67, 133.96)
+Recommended speed | RAISED PAVEMENT WORKS/JUMP 78 - 96 mph/OPEN LANE ON RIGHT | (-634.57, 10.80, -146.28)
+Road lettering | Fox Gully  >/67 mph | (215.39, 47.02, -340.32)
+Fictional storefront identity | GENERAL STORE | (-374.09, 12.93, 557.75)
+Road lettering | Pine Ridge  >/89 mph | (-179.09, 33.43, -591.51)
+Road lettering | South Cherokee Lane/JUNCTION: Hwy 92 | (292.13, 10.17, 575.33)
+Fictional storefront identity | CORNER MARKET | (158.92, 13.32, 569.94)
+House 3 / Rocky Way Acres entrance | Rocky Way Acres | (508.58, 89.76, -134.51)
+Fictional storefront identity | HILLTOP DINER | (-510.42, 12.17, 563.19)
+Road lettering | Trickum Road | (-626.63, 10.34, 492.49)
+High Ridge Drop
+35 - 55 mph | High Ridge Drop/35 - 55 mph | (1048.34, 157.35, 58.84)
+Fictional storefront identity | GENERAL STORE | (-283.56, 13.54, 505.84)
+Fictional storefront identity | GENERAL STORE | (-35.88, 12.20, 554.30)
+Fictional storefront identity | CORNER MARKET | (-429.26, 12.57, 555.57)
+MOUNTAIN TRAILS
+Creek ascent / Ridge return | MOUNTAIN TRAILS/Creek ascent / Ridge return | (708.08, 83.89, -114.27)
+Road lettering | Pine Ridge  >/89 mph | (-178.94, 33.43, -591.49)
+05 return | RIDGE RETURN/BEAR RIGHT | (739.35, 104.51, 99.64)
+Fictional storefront identity | GENERAL STORE | (48.71, 12.69, 511.31)
+Road lettering | South Cherokee Lane/JUNCTION: Hwy 92 | (291.98, 10.17, 575.34)
+Fictional storefront identity | AUTO SERVICE | (14.98, 12.28, 551.26)
+Fictional storefront identity | CORNER MARKET | (-152.96, 12.71, 553.07)
+Fern Creek Leap
+35 - 55 mph | Fern Creek Leap/35 - 55 mph | (846.80, 105.51, -118.26)
+Road lettering | Trickum Road | (-626.58, 10.33, 492.63)
+Fictional storefront identity | AUTO SERVICE | (113.30, 13.36, 523.72)
+SCENE Assets/Scenes/LakeWoods.unity
+Cave warning sign | Warning: Cave Ahead/Enter at your Own Risk | (154.81, 49.23, 285.37)
+Fictional storefront identity | CORNER MARKET | (-429.26, 12.57, 555.57)
+Fictional storefront identity | AUTO SERVICE | (14.98, 12.28, 551.26)
+Fern Creek Leap
+35 - 55 mph | Fern Creek Leap/35 - 55 mph | (846.80, 105.51, -118.26)
+Road lettering | Trickum Road | (-626.63, 10.34, 492.49)
+Fictional storefront identity | CORNER MARKET | (-70.09, 12.26, 509.50)
+Fictional storefront identity | AUTO SERVICE | (-181.09, 13.04, 507.80)
+Fictional storefront identity | HILLTOP DINER | (-510.42, 12.17, 563.19)
+02 run-up | HOMEWARD JUMP/STRAIGHT / FULL THROTTLE | (1172.09, 154.70, 212.09)
+Fictional storefront identity | GENERAL STORE | (-374.09, 12.93, 557.75)
+FENCE LINE SMASH
+3 / 6 / 10 PROPS IN 8 s | FENCE LINE SMASH/3 / 6 / 10 PROPS IN 8 s | (462.52, 88.95, -28.41)
+03 launch | CLEAR THE SUMMIT/LAND STRAIGHT | (1021.06, 156.32, 169.21)
+Echo Cave <
+OPTIONAL / FORWARD | Echo Cave </OPTIONAL / FORWARD | (245.62, 58.98, 301.16)
+Fictional storefront identity | GENERAL STORE | (-283.56, 13.54, 505.84)
+Fictional storefront identity | CORNER MARKET | (-539.27, 12.27, 519.57)
+SPEED CAMERA
+BOTH DIRECTIONS | SPEED CAMERA/BOTH DIRECTIONS | (476.50, 81.27, 165.20)
+Fictional storefront identity | HILLTOP DINER | (-127.00, 12.57, 504.75)
+Fictional storefront identity | AUTO SERVICE | (-492.17, 12.53, 513.12)
+Fictional storefront identity | HILLTOP DINER | (202.67, 13.16, 528.60)
+Fictional storefront identity | GENERAL STORE | (48.71, 12.69, 511.31)
+LAKE SHORE
+BOTH TRAILS RETURN HOME | LAKE SHORE/BOTH TRAILS RETURN HOME | (541.89, 82.63, -92.60)
+SPEED CAMERA
+BOTH DIRECTIONS | SPEED CAMERA/BOTH DIRECTIONS | (557.73, 84.44, 79.38)
+Fictional storefront identity | CORNER MARKET | (158.92, 13.32, 569.94)
+Fictional storefront identity | AUTO SERVICE | (113.30, 13.36, 523.72)
+MOUNTAIN TRAILS
+Creek ascent / Ridge return | MOUNTAIN TRAILS/Creek ascent / Ridge return | (708.08, 83.89, -114.27)
+Road lettering | TO Jamerson Road | (-599.20, 8.20, -563.67)
+Fictional storefront identity | HILLTOP DINER | (-217.83, 13.16, 549.47)
+05 return | RIDGE RETURN/BEAR RIGHT | (739.35, 104.51, 99.64)
+01 approach | SUMMIT JUMP/FOLLOW THE RUN-UP | (1039.88, 155.67, 133.96)
+SPEED CAMERA
+BOTH DIRECTIONS | SPEED CAMERA/BOTH DIRECTIONS | (483.39, 81.27, 176.46)
+FOREST ROUTE  ^
+FOLLOW AMBER BOARDS | FOREST ROUTE  ^/FOLLOW AMBER BOARDS | (574.15, 84.11, -10.38)
+Fictional storefront identity | AUTO SERVICE | (227.49, 12.81, 583.27)
+04 landing | LANDING/BRAKE AFTER TOUCHDOWN | (806.69, 143.01, 118.75)
+Road lettering | South Cherokee Lane/JUNCTION: Hwy 92 | (292.13, 10.17, 575.33)
+SPEED CAMERA
+BOTH DIRECTIONS | SPEED CAMERA/BOTH DIRECTIONS | (570.89, 84.45, 80.43)
+Fictional storefront identity | HILLTOP DINER | (-391.76, 12.89, 513.87)
+Fictional storefront identity | CORNER MARKET | (-152.96, 12.71, 553.07)
+Road lettering | TO Jamerson Road | (-599.05, 8.20, -563.71)
+FOREST ROUTE  ^
+FOLLOW AMBER BOARDS | FOREST ROUTE  ^/FOLLOW AMBER BOARDS | (589.87, 83.72, -95.31)
+Fictional storefront identity | CORNER MARKET | (-332.77, 13.32, 508.78)
+RIDGE RETURN
+Lake / Neighborhood | RIDGE RETURN/Lake / Neighborhood | (680.64, 80.95, -55.25)
+High Ridge Drop
+35 - 55 mph | High Ridge Drop/35 - 55 mph | (1048.34, 157.35, 58.84)
+Fictional storefront identity | GENERAL STORE | (-35.88, 12.20, 554.30)
+Road lettering | South Cherokee Lane/JUNCTION: Hwy 92 | (291.98, 10.17, 575.34)
+SUMMIT
+Both trails return to lake | SUMMIT/Both trails return to lake | (921.62, 158.40, 161.62)
+SUMMIT CAMP
+Look for the cairns | SUMMIT CAMP/Look for the cairns | (1000.00, 167.56, 91.88)
+JUMP CHALLENGE
+LAND CLEAN / PAUSE FOR TARGETS | JUMP CHALLENGE/LAND CLEAN / PAUSE FOR TARGETS | (407.39, 77.49, 223.57)
+Recommended speed | RAISED PAVEMENT WORKS/JUMP 78 - 96 mph/OPEN LANE ON RIGHT | (-634.57, 10.80, -146.28)
+House 3 / Rocky Way Acres entrance | Rocky Way Acres | (508.58, 89.76, -134.51)
+Road lettering | Trickum Road | (-626.58, 10.33, 492.63)
+KYLE'S WOODED DRIVE
+LAKE / MOUNTAIN TRAILS | ANDERSON'S/LAKE / MOUNTAIN TRAILS | (463.33, 87.84, -22.79)
+Fictional storefront identity | HILLTOP DINER | (79.14, 13.36, 565.68)
+Fictional storefront identity | AUTO SERVICE | (-269.59, 13.63, 552.30)
+SCENE Assets/Scenes/StreetLoopReverse.unity
+03 launch | CLEAR THE SUMMIT/LAND STRAIGHT | (1021.06, 156.32, 169.21)
+Fictional storefront identity | CORNER MARKET | (-152.96, 12.71, 553.07)
+Fictional storefront identity | HILLTOP DINER | (-510.42, 12.17, 563.19)
+Fictional storefront identity | AUTO SERVICE | (-492.17, 12.53, 513.12)
+Fictional storefront identity | AUTO SERVICE | (113.30, 13.36, 523.72)
+Road lettering | South Cherokee Lane/JUNCTION: Hwy 92 | (291.98, 10.17, 575.34)
+FENCE LINE SMASH
+3 / 6 / 10 PROPS IN 8 s | FENCE LINE SMASH/3 / 6 / 10 PROPS IN 8 s | (462.52, 88.95, -28.41)
+Road lettering | Trickum Road | (-626.63, 10.34, 492.49)
+OPTIONAL
+SHORTCUT  < | OPTIONAL/SHORTCUT  < | (-51.40, 9.38, 518.75)
+SUMMIT
+Both trails return to lake | SUMMIT/Both trails return to lake | (921.62, 158.40, 161.62)
+Fictional storefront identity | HILLTOP DINER | (-127.00, 12.57, 504.75)
+Granite Creek Cut / OPTIONAL | Granite Creek Cut / OPTIONAL | (-87.03, 10.29, 507.81)
+Fictional storefront identity | AUTO SERVICE | (227.49, 12.81, 583.27)
+Fictional storefront identity | HILLTOP DINER | (-391.76, 12.89, 513.87)
+LAKE SHORE
+BOTH TRAILS RETURN HOME | LAKE SHORE/BOTH TRAILS RETURN HOME | (541.89, 82.63, -92.60)
+Fictional storefront identity | GENERAL STORE | (48.71, 12.69, 511.31)
+SPEED CAMERA
+BOTH DIRECTIONS | SPEED CAMERA/BOTH DIRECTIONS | (-222.09, 11.41, 540.65)
+Road lettering | Trickum Road | (-626.58, 10.33, 492.63)
+Fictional storefront identity | HILLTOP DINER | (202.67, 13.16, 528.60)
+SUMMIT CAMP
+Look for the cairns | SUMMIT CAMP/Look for the cairns | (1000.00, 167.56, 91.88)
+Road lettering | South Cherokee Lane/JUNCTION: Hwy 92 | (292.13, 10.17, 575.33)
+EXIT ONLY
+NO REVERSE ROUTE | EXIT ONLY/NO REVERSE ROUTE | (-611.00, 8.86, -204.93)
+REJOIN / Street Loop Reverse | REJOIN / Street Loop Reverse | (-613.27, 10.64, 49.44)
+REJOIN / Street Loop Reverse | REJOIN / Street Loop Reverse | (485.98, 86.99, -110.80)
+Fictional storefront identity | CORNER MARKET | (-70.09, 12.26, 509.50)
+^ | ^ | (-635.06, 8.99, -188.63)
+Fictional storefront identity | GENERAL STORE | (-283.56, 13.54, 505.84)
+House 3 / Rocky Way Acres entrance | Rocky Way Acres | (508.86, 89.47, -135.41)
+Road lettering | TO Jamerson Road | (-599.05, 8.20, -563.71)
+OPTIONAL
+SHORTCUT  < | OPTIONAL/SHORTCUT  < | (174.77, 44.25, -301.77)
+Fictional storefront identity | CORNER MARKET | (158.92, 13.32, 569.94)
+Fictional storefront identity | CORNER MARKET | (-429.26, 12.57, 555.57)
+MOUNTAIN TRAILS
+Creek ascent / Ridge return | MOUNTAIN TRAILS/Creek ascent / Ridge return | (708.08, 83.89, -114.27)
+Fictional storefront identity | GENERAL STORE | (-374.09, 12.93, 557.75)
+Fern Creek Leap
+35 - 55 mph | Fern Creek Leap/35 - 55 mph | (846.80, 105.51, -118.26)
+04 landing | LANDING/BRAKE AFTER TOUCHDOWN | (806.69, 143.01, 118.75)
+KYLE'S WOODED DRIVE
+LAKE / MOUNTAIN TRAILS | ANDERSON'S/LAKE / MOUNTAIN TRAILS | (463.33, 87.84, -22.79)
+Fictional storefront identity | GENERAL STORE | (-35.88, 12.20, 554.30)
+SPEED CAMERA
+BOTH DIRECTIONS | SPEED CAMERA/BOTH DIRECTIONS | (-222.47, 11.40, 518.25)
+GAP / STRAIGHT LANDING | GAP / STRAIGHT LANDING | (-310.05, 18.60, 259.09)
+^ | ^ | (-634.89, 9.03, -200.63)
+Fictional storefront identity | AUTO SERVICE | (-269.59, 13.63, 552.30)
+Fictional storefront identity | CORNER MARKET | (-539.27, 12.27, 519.57)
+Fictional storefront identity | CORNER MARKET | (-332.77, 13.32, 508.78)
+NO ENTRY | NO ENTRY | (-608.33, 8.98, -241.55)
+05 return | RIDGE RETURN/BEAR RIGHT | (739.35, 104.51, 99.64)
+SPEED CAMERA
+BOTH DIRECTIONS | SPEED CAMERA/BOTH DIRECTIONS | (-622.64, 11.48, 119.55)
+RIDGE RETURN
+Lake / Neighborhood | RIDGE RETURN/Lake / Neighborhood | (680.64, 80.95, -55.25)
+02 run-up | HOMEWARD JUMP/STRAIGHT / FULL THROTTLE | (1172.09, 154.70, 212.09)
+Road lettering | TO Jamerson Road | (-599.20, 8.20, -563.67)
+Fictional storefront identity | AUTO SERVICE | (14.98, 12.28, 551.26)
+01 approach | SUMMIT JUMP/FOLLOW THE RUN-UP | (1039.88, 155.67, 133.96)
+MAIN ROUTE
+STRAIGHT | MAIN ROUTE/STRAIGHT | (-635.23, 9.03, -176.63)
+SPEED CAMERA
+BOTH DIRECTIONS | SPEED CAMERA/BOTH DIRECTIONS | (-637.64, 11.48, 119.47)
+REVERSE
+SHORTCUT | REVERSE/SHORTCUT | (-100.15, 9.54, 516.44)
+Laurel Switchbacks / OPTIONAL | Laurel Switchbacks / OPTIONAL | (214.25, 47.22, -321.79)
+Fictional storefront identity | AUTO SERVICE | (-181.09, 13.04, 507.80)
+High Ridge Drop
+35 - 55 mph | High Ridge Drop/35 - 55 mph | (1048.34, 157.35, 58.84)
+Fictional storefront identity | HILLTOP DINER | (79.14, 13.36, 565.68)
+Fictional storefront identity | HILLTOP DINER | (-217.83, 13.16, 549.47)
+JUMP CHALLENGE
+LAND CLEAN / PAUSE FOR TARGETS | JUMP CHALLENGE/LAND CLEAN / PAUSE FOR TARGETS | (-639.08, 10.66, -24.10)
+REVERSE
+SHORTCUT | REVERSE/SHORTCUT | (231.66, 46.59, -324.71)
+SCENE Assets/Scenes/ForestLoopReverse.unity
+LAKE SHORE
+BOTH TRAILS RETURN HOME | LAKE SHORE/BOTH TRAILS RETURN HOME | (541.89, 82.63, -92.60)
+SPEED CAMERA
+BOTH DIRECTIONS | SPEED CAMERA/BOTH DIRECTIONS | (473.66, 81.12, 166.89)
+KYLE'S WOODED DRIVE
+LAKE / MOUNTAIN TRAILS | ANDERSON'S/LAKE / MOUNTAIN TRAILS | (463.33, 87.84, -22.79)
+MAIN  ^ | ^ | (579.82, 49.26, -191.40)
+Fictional storefront identity | CORNER MARKET | (-152.96, 12.71, 553.07)
+Fictional storefront identity | CORNER MARKET | (-429.26, 12.57, 555.57)
+Fictional storefront identity | GENERAL STORE | (-35.88, 12.20, 554.30)
+REJOIN / Forest Loop Reverse | REJOIN / Forest Loop Reverse | (6.29, 34.11, 229.84)
+MOUNTAIN TRAILS
+Creek ascent / Ridge return | MOUNTAIN TRAILS/Creek ascent / Ridge return | (708.08, 83.89, -114.27)
+Road lettering | Trickum Road | (-626.63, 10.34, 492.49)
+Road lettering | Trickum Road | (-626.58, 10.33, 492.63)
+Fictional storefront identity | AUTO SERVICE | (-269.59, 13.63, 552.30)
+Fictional storefront identity | AUTO SERVICE | (113.30, 13.36, 523.72)
+Fictional storefront identity | GENERAL STORE | (-374.09, 12.93, 557.75)
+SPEED CAMERA
+BOTH DIRECTIONS | SPEED CAMERA/BOTH DIRECTIONS | (480.54, 81.12, 178.15)
+Fictional storefront identity | GENERAL STORE | (-283.56, 13.54, 505.84)
+Road lettering | TO Jamerson Road | (-599.05, 8.20, -563.71)
+McFADDEN CUT
+OPTIONAL | McFADDEN CUT/OPTIONAL | (567.25, 41.07, -208.34)
+MAIN  ^ | ^ | (591.47, 61.61, -169.77)
+MAIN  ^ | ^ | (596.18, 68.66, -158.98)
+SUMMIT
+Both trails return to lake | SUMMIT/Both trails return to lake | (921.62, 158.40, 161.62)
+SPEED CAMERA
+BOTH DIRECTIONS | SPEED CAMERA/BOTH DIRECTIONS | (574.07, 84.60, 63.33)
+SPEED CAMERA
+BOTH DIRECTIONS | SPEED CAMERA/BOTH DIRECTIONS | (556.07, 84.54, 63.16)
+Fictional storefront identity | AUTO SERVICE | (-181.09, 13.04, 507.80)
+OPTIONAL
+>  SHORTCUT | MAIN/> FOREST | (602.07, 78.16, -139.07)
+Fictional storefront identity | HILLTOP DINER | (-510.42, 12.17, 563.19)
+05 return | RIDGE RETURN/BEAR RIGHT | (739.35, 104.51, 99.64)
+GAP / STRAIGHT LANDING | POOL + LAKE/STRAIGHT JUMP | (462.76, 67.43, -192.37)
+Road lettering | TO Jamerson Road | (-599.20, 8.20, -563.67)
+OPTIONAL
+>  SHORTCUT | OPTIONAL/>  SHORTCUT | (225.91, 47.14, -182.17)
+REVERSE
+SHORTCUT | REVERSE/MAIN COURSE | (562.25, 44.44, -195.43)
+REVERSE
+SHORTCUT | REVERSE/SHORTCUT | (180.14, 42.56, -151.00)
+House 3 / Rocky Way Acres entrance | Rocky Way Acres | (508.58, 89.76, -134.51)
+Fern Creek Leap
+35 - 55 mph | Fern Creek Leap/35 - 55 mph | (846.80, 105.51, -118.26)
+Fictional storefront identity | HILLTOP DINER | (-127.00, 12.57, 504.75)
+Fictional storefront identity | HILLTOP DINER | (202.67, 13.16, 528.60)
+Fictional storefront identity | HILLTOP DINER | (79.14, 13.36, 565.68)
+Fern Gully / OPTIONAL | Fern Gully / OPTIONAL | (171.52, 43.77, -166.52)
+Fictional storefront identity | HILLTOP DINER | (-217.83, 13.16, 549.47)
+MAIN  ^ | ^ | (585.97, 55.30, -180.67)
+Cave warning sign | Warning: Cave Ahead/Enter at your Own Risk | (154.81, 49.23, 285.37)
+Fictional storefront identity | AUTO SERVICE | (-492.17, 12.53, 513.12)
+02 run-up | HOMEWARD JUMP/STRAIGHT / FULL THROTTLE | (1172.09, 154.70, 212.09)
+03 launch | CLEAR THE SUMMIT/LAND STRAIGHT | (1021.06, 156.32, 169.21)
+Fictional storefront identity | AUTO SERVICE | (14.98, 12.28, 551.26)
+JUMP CHALLENGE
+LAND CLEAN / PAUSE FOR TARGETS | JUMP CHALLENGE/LAND CLEAN / PAUSE FOR TARGETS | (361.17, 51.09, -264.67)
+Road lettering | South Cherokee Lane/JUNCTION: Hwy 92 | (292.13, 10.17, 575.33)
+04 landing | LANDING/BRAKE AFTER TOUCHDOWN | (806.69, 143.01, 118.75)
+Road lettering | South Cherokee Lane/JUNCTION: Hwy 92 | (291.98, 10.17, 575.34)
+Fictional storefront identity | CORNER MARKET | (158.92, 13.32, 569.94)
+Fictional storefront identity | CORNER MARKET | (-539.27, 12.27, 519.57)
+Fictional storefront identity | CORNER MARKET | (-332.77, 13.32, 508.78)
+FERN GROTTO / THROUGH PASSAGE | FERN GROTTO / THROUGH PASSAGE | (50.57, 34.58, 30.28)
+REJOIN / Forest Loop Reverse | REJOIN / Forest Loop Reverse | (226.62, 47.99, -193.85)
+Fictional storefront identity | AUTO SERVICE | (227.49, 12.81, 583.27)
+Fictional storefront identity | HILLTOP DINER | (-391.76, 12.89, 513.87)
+01 approach | SUMMIT JUMP/FOLLOW THE RUN-UP | (1039.88, 155.67, 133.96)
+RIDGE RETURN
+Lake / Neighborhood | RIDGE RETURN/Lake / Neighborhood | (680.64, 80.95, -55.25)
+Fictional storefront identity | GENERAL STORE | (48.71, 12.69, 511.31)
+MAIN COURSE
+FOLLOW CURVE | MAIN COURSE/GRANITE SADDLE | (600.17, 75.69, -147.95)
+FENCE LINE SMASH
+3 / 6 / 10 PROPS IN 8 s | FENCE LINE SMASH/3 / 6 / 10 PROPS IN 8 s | (462.52, 88.95, -28.41)
+High Ridge Drop
+35 - 55 mph | High Ridge Drop/35 - 55 mph | (1048.34, 157.35, 58.84)
+Fictional storefront identity | CORNER MARKET | (-70.09, 12.26, 509.50)
+SUMMIT CAMP
+Look for the cairns | SUMMIT CAMP/Look for the cairns | (1000.00, 167.56, 91.88)
+Granite Saddle / OPTIONAL | Granite Saddle / MAIN ROUTE | (592.70, 54.30, -190.42)
+SCENE Assets/Scenes/DansBackyardForward.unity
+House 3 / Rocky Way Acres entrance | Rocky Way Acres | (508.58, 89.76, -134.51)
+Fictional storefront identity | GENERAL STORE | (-283.56, 13.54, 505.84)
+Fictional storefront identity | CORNER MARKET | (-70.09, 12.26, 509.50)
+Road lettering | TO Jamerson Road | (-599.05, 8.20, -563.71)
+MOUNTAIN TRAILS
+Creek ascent / Ridge return | MOUNTAIN TRAILS/Creek ascent / Ridge return | (708.08, 83.89, -114.27)
+Fictional storefront identity | CORNER MARKET | (-539.27, 12.27, 519.57)
+05 return | RIDGE RETURN/BEAR RIGHT | (739.35, 104.51, 99.64)
+Fictional storefront identity | AUTO SERVICE | (227.49, 12.81, 583.27)
+RIDGE RETURN
+Lake / Neighborhood | RIDGE RETURN/Lake / Neighborhood | (680.64, 80.95, -55.25)
+Road lettering | South Cherokee Lane/JUNCTION: Hwy 92 | (292.13, 10.17, 575.33)
+Fictional storefront identity | CORNER MARKET | (-429.26, 12.57, 555.57)
+Pine Ridge <
+OPTIONAL / FORWARD | Pine Ridge </OPTIONAL / FORWARD | (-152.07, 33.38, -575.59)
+SPEED CAMERA
+BOTH DIRECTIONS | SPEED CAMERA/BOTH DIRECTIONS | (-396.84, 11.00, 522.92)
+Fictional storefront identity | CORNER MARKET | (158.92, 13.32, 569.94)
+SPEED CAMERA
+BOTH DIRECTIONS | SPEED CAMERA/BOTH DIRECTIONS | (-395.81, 11.00, 545.30)
+02 run-up | HOMEWARD JUMP/STRAIGHT / FULL THROTTLE | (1172.09, 154.70, 212.09)
+Road lettering | Fox Gully  >/67 mph | (215.39, 47.02, -340.32)
+Road lettering | TO Jamerson Road | (-599.20, 8.20, -563.67)
+Recommended speed | RAISED PAVEMENT WORKS/JUMP 78 - 96 mph/OPEN LANE ON RIGHT | (-634.57, 10.80, -146.28)
+Fictional storefront identity | AUTO SERVICE | (14.98, 12.28, 551.26)
+High Ridge Drop
+35 - 55 mph | High Ridge Drop/35 - 55 mph | (1048.34, 157.35, 58.84)
+KYLE'S WOODED DRIVE
+LAKE / MOUNTAIN TRAILS | ANDERSON'S/LAKE / MOUNTAIN TRAILS | (463.33, 87.84, -22.79)
+Fictional storefront identity | AUTO SERVICE | (113.30, 13.36, 523.72)
+Fictional storefront identity | HILLTOP DINER | (-217.83, 13.16, 549.47)
+Fictional storefront identity | AUTO SERVICE | (-269.59, 13.63, 552.30)
+Fictional storefront identity | HILLTOP DINER | (202.67, 13.16, 528.60)
+SUMMIT CAMP
+Look for the cairns | SUMMIT CAMP/Look for the cairns | (1000.00, 167.56, 91.88)
+Fictional storefront identity | AUTO SERVICE | (-181.09, 13.04, 507.80)
+Fictional storefront identity | CORNER MARKET | (-332.77, 13.32, 508.78)
+Road lettering | Trickum Road | (-626.58, 10.33, 492.63)
+Road lettering | South Cherokee Lane/JUNCTION: Hwy 92 | (291.98, 10.17, 575.34)
+Road lettering | Trickum Road | (-626.63, 10.34, 492.49)
+Road lettering | Pine Ridge  >/89 mph | (-179.09, 33.43, -591.51)
+Existing Southwest Cut >
+OPTIONAL / FORWARD | Existing Southwest Cut >/OPTIONAL / FORWARD | (-532.30, 9.44, -543.37)
+Tree-Top Trail optional sign | TREE-TOP TRAIL/OPTIONAL / HARD | (211.32, 62.94, -9.18)
+Fern Creek Leap
+35 - 55 mph | Fern Creek Leap/35 - 55 mph | (846.80, 105.51, -118.26)
+Fictional storefront identity | HILLTOP DINER | (-127.00, 12.57, 504.75)
+Road lettering | Fox Gully  >/67 mph | (215.28, 47.04, -340.22)
+JUMP CHALLENGE
+LAND CLEAN / PAUSE FOR TARGETS | JUMP CHALLENGE/LAND CLEAN / PAUSE FOR TARGETS | (-617.70, 10.54, -107.94)
+Road lettering | Creek Leap  >/76 mph | (567.23, 32.62, -250.49)
+LAKE SHORE
+BOTH TRAILS RETURN HOME | LAKE SHORE/BOTH TRAILS RETURN HOME | (541.89, 82.63, -92.60)
+Road lettering | Creek Leap  >/76 mph | (567.19, 32.64, -250.34)
+Fictional storefront identity | GENERAL STORE | (-374.09, 12.93, 557.75)
+Fictional storefront identity | HILLTOP DINER | (-510.42, 12.17, 563.19)
+Fox Gully >
+OPTIONAL / FORWARD | Fox Gully >/OPTIONAL / FORWARD | (247.30, 43.02, -344.13)
+01 approach | SUMMIT JUMP/FOLLOW THE RUN-UP | (1039.88, 155.67, 133.96)
+NO ENTRY | NO ENTRY | (-608.33, 8.98, -241.55)
+Fictional storefront identity | HILLTOP DINER | (-391.76, 12.89, 513.87)
+Abandoned Cabin Jump optional sign | ABANDONED CABIN JUMP/OPTIONAL / HARD | (190.52, 70.72, 73.61)
+Fictional storefront identity | GENERAL STORE | (48.71, 12.69, 511.31)
+Fictional storefront identity | AUTO SERVICE | (-492.17, 12.53, 513.12)
+Fictional storefront identity | HILLTOP DINER | (79.14, 13.36, 565.68)
+03 launch | CLEAR THE SUMMIT/LAND STRAIGHT | (1021.06, 156.32, 169.21)
+Road lettering | Pine Ridge  >/89 mph | (-178.94, 33.43, -591.49)
+FENCE LINE SMASH
+3 / 6 / 10 PROPS IN 8 s | FENCE LINE SMASH/3 / 6 / 10 PROPS IN 8 s | (462.52, 88.95, -28.41)
+Creek Leap >
+OPTIONAL / FORWARD | Creek Leap >/OPTIONAL / FORWARD | (545.22, 38.88, -227.46)
+SPEED CAMERA
+BOTH DIRECTIONS | SPEED CAMERA/BOTH DIRECTIONS | (-622.22, 11.39, 95.45)
+04 landing | LANDING/BRAKE AFTER TOUCHDOWN | (806.69, 143.01, 118.75)
+SUMMIT
+Both trails return to lake | SUMMIT/Both trails return to lake | (921.62, 158.40, 161.62)
+Fictional storefront identity | CORNER MARKET | (-152.96, 12.71, 553.07)
+Fictional storefront identity | GENERAL STORE | (-35.88, 12.20, 554.30)
+SPEED CAMERA
+BOTH DIRECTIONS | SPEED CAMERA/BOTH DIRECTIONS | (-637.22, 11.38, 95.36)
+SCENE Assets/Scenes/DansBackyardReverse.unity
+Fern Creek Leap
+35 - 55 mph | Fern Creek Leap/35 - 55 mph | (846.80, 105.51, -118.26)
+Road lettering | Creek Leap  >/76 mph | (567.19, 32.64, -250.34)
+RIDGE RETURN
+Lake / Neighborhood | RIDGE RETURN/Lake / Neighborhood | (680.64, 80.95, -55.25)
+Fictional storefront identity | HILLTOP DINER | (202.67, 13.16, 528.60)
+Fictional storefront identity | AUTO SERVICE | (-269.59, 13.63, 552.30)
+Road lettering | Fox Gully  >/67 mph | (215.28, 47.04, -340.22)
+SUMMIT
+Both trails return to lake | SUMMIT/Both trails return to lake | (921.62, 158.40, 161.62)
+Road lettering | Fox Gully  >/67 mph | (215.39, 47.02, -340.32)
+Fictional storefront identity | CORNER MARKET | (-152.96, 12.71, 553.07)
+Existing Southwest Cut >
+OPTIONAL / FORWARD | Existing Southwest Cut >/OPTIONAL / FORWARD | (-532.30, 9.44, -543.37)
+Fictional storefront identity | GENERAL STORE | (-374.09, 12.93, 557.75)
+KYLE'S WOODED DRIVE
+LAKE / MOUNTAIN TRAILS | ANDERSON'S/LAKE / MOUNTAIN TRAILS | (463.33, 87.84, -22.79)
+Pine Ridge <
+OPTIONAL / FORWARD | Pine Ridge </OPTIONAL / FORWARD | (-152.07, 33.38, -575.59)
+Fictional storefront identity | AUTO SERVICE | (227.49, 12.81, 583.27)
+House 3 / Rocky Way Acres entrance | Rocky Way Acres | (508.58, 89.76, -134.51)
+Fictional storefront identity | GENERAL STORE | (48.71, 12.69, 511.31)
+02 run-up | HOMEWARD JUMP/STRAIGHT / FULL THROTTLE | (1172.09, 154.70, 212.09)
+05 return | RIDGE RETURN/BEAR RIGHT | (739.35, 104.51, 99.64)
+SPEED CAMERA
+BOTH DIRECTIONS | SPEED CAMERA/BOTH DIRECTIONS | (-395.81, 11.00, 545.30)
+Road lettering | Trickum Road | (-626.63, 10.34, 492.49)
+MOUNTAIN TRAILS
+Creek ascent / Ridge return | MOUNTAIN TRAILS/Creek ascent / Ridge return | (708.08, 83.89, -114.27)
+SPEED CAMERA
+BOTH DIRECTIONS | SPEED CAMERA/BOTH DIRECTIONS | (-622.22, 11.39, 95.45)
+Road lettering | TO Jamerson Road | (-599.05, 8.20, -563.71)
+SPEED CAMERA
+BOTH DIRECTIONS | SPEED CAMERA/BOTH DIRECTIONS | (-396.84, 11.00, 522.92)
+Road lettering | TO Jamerson Road | (-599.20, 8.20, -563.67)
+Road lettering | Pine Ridge  >/89 mph | (-178.94, 33.43, -591.49)
+Fictional storefront identity | HILLTOP DINER | (-217.83, 13.16, 549.47)
+SUMMIT CAMP
+Look for the cairns | SUMMIT CAMP/Look for the cairns | (1000.00, 167.56, 91.88)
+Recommended speed | RAISED PAVEMENT WORKS/JUMP 78 - 96 mph/OPEN LANE ON RIGHT | (-634.57, 10.80, -146.28)
+Fictional storefront identity | AUTO SERVICE | (-492.17, 12.53, 513.12)
+Creek Leap >
+OPTIONAL / FORWARD | Creek Leap >/OPTIONAL / FORWARD | (545.22, 38.88, -227.46)
+NO ENTRY | NO ENTRY | (-608.33, 8.98, -241.55)
+Fictional storefront identity | CORNER MARKET | (-539.27, 12.27, 519.57)
+Fictional storefront identity | AUTO SERVICE | (113.30, 13.36, 523.72)
+Road lettering | South Cherokee Lane/JUNCTION: Hwy 92 | (292.13, 10.17, 575.33)
+03 launch | CLEAR THE SUMMIT/LAND STRAIGHT | (1021.06, 156.32, 169.21)
+SPEED CAMERA
+BOTH DIRECTIONS | SPEED CAMERA/BOTH DIRECTIONS | (-637.22, 11.38, 95.36)
+Road lettering | Trickum Road | (-626.58, 10.33, 492.63)
+Fictional storefront identity | HILLTOP DINER | (-391.76, 12.89, 513.87)
+Fictional storefront identity | HILLTOP DINER | (-127.00, 12.57, 504.75)
+Fictional storefront identity | CORNER MARKET | (-332.77, 13.32, 508.78)
+Road lettering | Pine Ridge  >/89 mph | (-179.09, 33.43, -591.51)
+LAKE SHORE
+BOTH TRAILS RETURN HOME | LAKE SHORE/BOTH TRAILS RETURN HOME | (541.89, 82.63, -92.60)
+Fictional storefront identity | GENERAL STORE | (-283.56, 13.54, 505.84)
+Fictional storefront identity | GENERAL STORE | (-35.88, 12.20, 554.30)
+FENCE LINE SMASH
+3 / 6 / 10 PROPS IN 8 s | FENCE LINE SMASH/3 / 6 / 10 PROPS IN 8 s | (462.52, 88.95, -28.41)
+Fictional storefront identity | AUTO SERVICE | (-181.09, 13.04, 507.80)
+01 approach | SUMMIT JUMP/FOLLOW THE RUN-UP | (1039.88, 155.67, 133.96)
+Fictional storefront identity | CORNER MARKET | (158.92, 13.32, 569.94)
+Fictional storefront identity | HILLTOP DINER | (79.14, 13.36, 565.68)
+Fox Gully >
+OPTIONAL / FORWARD | Fox Gully >/OPTIONAL / FORWARD | (247.30, 43.02, -344.13)
+Fictional storefront identity | AUTO SERVICE | (14.98, 12.28, 551.26)
+LOGGING RIDGE | LOGGING RIDGE | (389.95, 82.42, 88.48)
+04 landing | LANDING/BRAKE AFTER TOUCHDOWN | (806.69, 143.01, 118.75)
+Road lettering | South Cherokee Lane/JUNCTION: Hwy 92 | (291.98, 10.17, 575.34)
+Fictional storefront identity | CORNER MARKET | (-70.09, 12.26, 509.50)
+Fictional storefront identity | CORNER MARKET | (-429.26, 12.57, 555.57)
+High Ridge Drop
+35 - 55 mph | High Ridge Drop/35 - 55 mph | (1048.34, 157.35, 58.84)
+Abandoned Cabin Jump optional sign | ABANDONED CABIN JUMP/OPTIONAL / HARD | (190.52, 70.72, 73.61)
+Road lettering | Creek Leap  >/76 mph | (567.23, 32.62, -250.49)
+JUMP CHALLENGE
+LAND CLEAN / PAUSE FOR TARGETS | JUMP CHALLENGE/LAND CLEAN / PAUSE FOR TARGETS | (-617.70, 10.54, -107.94)
+Tree-Top Trail optional sign | TREE-TOP TRAIL/OPTIONAL / HARD | (211.32, 62.94, -9.18)
+Fictional storefront identity | HILLTOP DINER | (-510.42, 12.17, 563.19)

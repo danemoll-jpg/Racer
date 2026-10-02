@@ -1,0 +1,14 @@
+Assets/Track/ReportCleanup/MountainLoop-solid-retained-2-4598165-12032.asset: 273429 -> 52955 vertices; triangle positions unchanged to 0.1mm
+Assets/Track/ReportCleanup/ReportCleanup MountainLoop continuous solid 1.asset: 254223 -> 43305 vertices; triangle positions unchanged to 0.1mm
+Assets/Track/ReportCleanup/MountainLoopReverse-solid-retained-2-4601089-10496.asset: 218796 -> 40951 vertices; triangle positions unchanged to 0.1mm
+Assets/Track/ReportCleanup/ReportCleanup MountainLoopReverse continuous solid 1.asset: 103338 -> 17646 vertices; triangle positions unchanged to 0.1mm
+Assets/Track/ReportCleanup/ReportCleanup MountainLoop continuous solid 2.asset: 542151 -> 91638 vertices; triangle positions unchanged to 0.1mm
+Assets/Track/ReportCleanup/MountainLoop-solid-retained-2-4590758-12032.asset: 100659 -> 17358 vertices; triangle positions unchanged to 0.1mm
+Assets/Track/ReportCleanup/ReportCleanup MountainLoop continuous solid 0.asset: 325188 -> 54834 vertices; triangle positions unchanged to 0.1mm
+Assets/Track/ReportCleanup/reverse-branch-join.asset: 275265 -> 51703 vertices; triangle positions unchanged to 0.1mm
+Assets/Track/ReportCleanup/MountainLoop-solid-retained-2-4606785-12032.asset: 129096 -> 23465 vertices; triangle positions unchanged to 0.1mm
+Assets/Track/ReportCleanup/MountainLoopReverse-solid-retained-2-5411647-256.asset: 1371837 -> 230741 vertices; triangle positions unchanged to 0.1mm
+Assets/Track/ReportCleanup/MountainLoopReverse-solid-retained-2-4569410-10496.asset: 100749 -> 19288 vertices; triangle positions unchanged to 0.1mm
+Assets/Track/ReportCleanup/MountainLoopReverse-solid-retained-1-4591092-10496.asset: 126009 -> 21396 vertices; triangle positions unchanged to 0.1mm
+Assets/Track/ReportCleanup/ReportCleanup MountainLoopReverse continuous solid 2.asset: 108672 -> 18509 vertices; triangle positions unchanged to 0.1mm
+Assets/Track/ReportCleanup/MountainLoopReverse-solid-retained-1-4607133-10496.asset: 131160 -> 23492 vertices; triangle positions unchanged to 0.1mm

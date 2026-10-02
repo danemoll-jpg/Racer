@@ -1,0 +1,9 @@
+(0.40, 0.53)
+Ground_CR133 mountain driving surface @(1365.72, 100.09, -246.95) Assets/Track/ReportCleanup/forward-bend-contact-grade.asset
+Ground_ReportCleanup MountainLoop continuous solid 0 @(1366.29, 100.02, -246.37) Assets/Track/ReportCleanup/forward-bend-seated-terrain.asset
+Ground_CR117 outer ravine @(1419.91, 93.87, -190.44) Assets/Track/ReportCleanup/MountainLoop-solid-retained-2-4560482-12544.asset
+CR117 complete outer crowns @(1441.70, 91.37, -167.71) Assets/Track/Discovery/MountainLoop-outer-woods.asset
+(0.44, 0.50)
+Ground_CR133 mountain driving surface @(1361.10, 99.68, -255.40) Assets/Track/ReportCleanup/forward-bend-contact-grade.asset
+Ground_ReportCleanup MountainLoop continuous solid 0 @(1361.94, 99.55, -254.67) Assets/Track/ReportCleanup/forward-bend-seated-terrain.asset
+Ground_CR117 outer ravine @(1424.32, 89.69, -200.09) Assets/Track/ReportCleanup/MountainLoop-solid-retained-2-4560482-12544.asset

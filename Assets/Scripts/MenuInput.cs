@@ -14,6 +14,8 @@ namespace Racer
         public static bool Controller { get; private set; }
         public static Gamepad Pad { get; private set; }
         public static bool Blocked => barrier || DeveloperLocationHud.OwnsInput;
+        // A debug dialog blocks the game, but still needs the shared EventSystem.
+        public static bool UiBlocked => barrier || (DeveloperLocationHud.OwnsInput && !DeveloperLocationHud.Interactive);
         static bool barrier;
         static int barrierFrame;
         static readonly System.Collections.Generic.List<ButtonControl> releaseButtons=new();

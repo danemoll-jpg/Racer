@@ -110,14 +110,14 @@ namespace Racer
         {
             if(!scroll)return;
             foreach(var row in bindingRows){string path=row.action!=null?MenuInput.Binding(row.action):MenuInput.Controller?row.pad:row.keyboard;row.glyph.SetPath(path);row.key.text=MenuGlyph.Label(path);}
-            if(uiModule&&flow.State!=RaceFlow.Stage.Title)uiModule.enabled=!MenuInput.Blocked;
-            if(EventSystem.current)EventSystem.current.sendNavigationEvents=!MenuInput.Blocked&&flow.GetComponent<ExplorationMap>()?.OwnsInput!=true;
+            if(uiModule&&flow.State!=RaceFlow.Stage.Title)uiModule.enabled=!MenuInput.UiBlocked;
+            if(EventSystem.current)EventSystem.current.sendNavigationEvents=!MenuInput.UiBlocked&&(DeveloperLocationHud.Interactive||flow.GetComponent<ExplorationMap>()?.OwnsInput!=true);
             for(int pi=0;pi<prompts.Count;pi++)
             {
                 var p=prompts[pi];
                 bool keyboard=page=="keyboard";bool tabs=(flow.State==RaceFlow.Stage.Settings&&page.StartsWith("settings"))||(page==""&&(flow.State==RaceFlow.Stage.Boards||flow.State==RaceFlow.Stage.Activities||flow.State==RaceFlow.Stage.Results));bool playlist=flow.State==RaceFlow.Stage.Playlists&&page==""&&playlistDraft!=null;
-                bool noResultsBack=pi==1&&flow.State==RaceFlow.Stage.Results&&page==""&&modalConfirm==null;
-                p.glyph.transform.parent.gameObject.SetActive(!noResultsBack&&(pi<3||keyboard||tabs||playlist));
+                p.glyph.transform.parent.gameObject.SetActive(pi<3||keyboard||tabs||playlist);
+                if(pi==1)p.label.text=flow.State==RaceFlow.Stage.Results?"Main Menu":"Back";
                 if(pi==2){p.action=keyboard?deleteAction:playlist?playlistAdd:tabs?previousTab:uiModule.move.action;p.label.text=keyboard?"Delete":playlist?"Add Race":tabs?"Previous tab":"Navigate";}
                 if(pi==3){p.action=keyboard?spaceAction:playlist?playlistContext:tabsAction;p.label.text=keyboard?"Space":playlist?"Actions":"Next tab";}
                 string path=p.action!=null?MenuInput.Binding(p.action):MenuInput.Controller?p.fallback:"<Keyboard>/arrows";
@@ -127,7 +127,7 @@ namespace Racer
             if(mapOpen&&!mapWasOpen)mapCallerFocus=lastFocus;
             if(!mapOpen&&mapWasOpen&&mapCallerFocus&&mapCallerFocus.activeInHierarchy)EventSystem.current.SetSelectedGameObject(mapCallerFocus);
             mapWasOpen=mapOpen;
-            if(!flow.MenuVisible||mapOpen)return;
+            if(!flow.MenuVisible||mapOpen||DeveloperLocationHud.OwnsInput)return;
             if(flow.State==RaceFlow.Stage.Settings&&(page=="library"||page=="music")&&Time.unscaledTime>=nextMusicRefresh){nextMusicRefresh=Time.unscaledTime+.25f;details.text=page=="music"?flow.Radio.ChannelName+"\n"+flow.Radio.Song:(flow.Radio.Bundled?"Bundled music":"Custom: "+System.IO.Path.GetFileName(flow.Radio.Folder.TrimEnd('\\','/')))+"\n"+flow.Radio.Status+"\n"+flow.Radio.ScanStatus;}
             var current=EventSystem.current?.currentSelectedGameObject;
             // Focus is presentation only. Only the track row's Submit/click commits a course.

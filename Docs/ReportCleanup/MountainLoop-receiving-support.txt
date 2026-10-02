@@ -1,0 +1,2 @@
+Eastbound Gully Flight: terrain seated against the first 16m of existing receiving pavement. Starts=(1169.98, 123.95, -275.00); preceding flight gap untouched; bank joins sampled surrounding ground.
+Homeward Summit Flight: terrain seated against the first 16m of existing receiving pavement. Starts=(874.58, 177.81, 117.23); preceding flight gap untouched; bank joins sampled surrounding ground.

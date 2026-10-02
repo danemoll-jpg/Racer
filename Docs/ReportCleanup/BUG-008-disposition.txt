@@ -1,0 +1,1 @@
+Removed obsolete Fern creek bed visual plane at (880.24,111.49,-84.92), exposed in midair beside the trail. It had no collider. Route arrows retained.

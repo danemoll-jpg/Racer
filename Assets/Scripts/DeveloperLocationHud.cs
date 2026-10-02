@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.IO;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -15,6 +16,7 @@ namespace Racer
         public static bool DebugEnabled => Instance && Instance.visible;
         public static bool Inspecting => Instance && Instance.Flying;
         public static bool OwnsInput => Instance && (Instance.Holding || Time.frameCount <= Instance.releasedFrame);
+        public static bool Interactive => Instance && (Instance.menuOpen || Instance.CommentOpen);
         public static DebugReportSession Session => session;
 #if UNITY_EDITOR
         public static string ValidationReportRoot;
@@ -26,6 +28,9 @@ namespace Racer
         UnityEngine.UI.Text label, status, captureDetails;
         UnityEngine.UI.InputField comment;
         UnityEngine.UI.Button firstButton;
+        UnityEngine.UI.Button flyButton, returnButton, exportButton, folderButton;
+        readonly List<UnityEngine.UI.Button> menuButtons = new();
+        readonly List<(MenuGlyph glyph, UnityEngine.UI.Text key, string pad, string keyboard)> prompts = new();
         bool visible, hudVisible = true, menuOpen, capturing, held;
         bool oldInput, oldAudio, oldCursor, oldChase;
         float oldScale, nextRefresh, yaw, pitch;
@@ -74,7 +79,9 @@ namespace Racer
             Background(r.gameObject, new(.12f, .25f, .29f)); var b = r.gameObject.AddComponent<UnityEngine.UI.Button>();
             b.targetGraphic = r.GetComponent<UnityEngine.UI.Image>(); var colors = b.colors; colors.highlightedColor = new(.4f, .9f, .8f); colors.selectedColor = colors.highlightedColor; b.colors = colors;
             var t = Text(title, r, 19); t.alignment = TextAnchor.MiddleCenter; t.text = title; Fill(t.rectTransform);
-            b.onClick.AddListener(() => action()); return b;
+            b.onClick.AddListener(() => { if(MenuInput.UiBlocked)return; MenuInput.ConsumeThroughRelease(); action(); });
+            if(menuCard && parent==menuCard.transform)menuButtons.Add(b);
+            return b;
         }
         GameObject Card(string name, Vector2 size)
         {
@@ -99,13 +106,15 @@ namespace Racer
             Row(menuCard.transform, "DEBUG / INSPECTION", 27, 40).color = new(.3f, .95f, .81f);
             firstButton = Button(menuCard.transform, "Resume", CloseMenu);
             Button(menuCard.transform, "Capture Bug  F4", CaptureBug);
-            Button(menuCard.transform, "Debug Fly / Inspection", StartFly);
-            Button(menuCard.transform, "Return to Vehicle", () => { ReturnToVehicle(); CloseMenu(); });
-            Button(menuCard.transform, "Export Bug Report ZIP", Export);
-            Button(menuCard.transform, "Open Debug Report Folder", OpenFolder);
+            flyButton = Button(menuCard.transform, "Debug Fly / Inspection", StartFly);
+            returnButton = Button(menuCard.transform, "Return to Vehicle", () => { ReturnToVehicle(); CloseMenu(); });
+            exportButton = Button(menuCard.transform, "Export Bug Report ZIP", Export);
+            folderButton = Button(menuCard.transform, "Open Debug Report Folder", OpenFolder);
             Button(menuCard.transform, "Toggle Debug HUD", () => { hudVisible = !hudVisible; });
             Button(menuCard.transform, "Exit Debug Mode  F3", () => SetEnabled(false));
-            status = Row(menuCard.transform, "F3 mode · F4 capture · F6 menu\nRace timeout suspended while Debug Mode is on.", 16, 140);
+            var controls=Rect("Debug controls",menuCard.transform,new(0,32));controls.gameObject.AddComponent<UnityEngine.UI.LayoutElement>().preferredHeight=32;
+            Prompt(controls,0,"Select","buttonSouth","enter");Prompt(controls,198,"Close","buttonEast","escape");Prompt(controls,396,"Navigate","dpad","arrows");
+            status = Row(menuCard.transform, "F3 mode · F4 capture · F6 menu\nRace timeout suspended while Debug Mode is on.", 16, 96);
             commentCard = Card("Bug comment", new(680, 550));
             Row(commentCard.transform, "BUG CAPTURED", 28, 40).color = new(.3f, .95f, .81f);
             captureDetails = Row(commentCard.transform, "", 17, 62);
@@ -120,6 +129,22 @@ namespace Racer
             Button(commentCard.transform, "Cancel  Esc / B", CancelComment);
             Row(commentCard.transform, "Shift+Enter: new line. Screenshot already saved before this dialog.", 15, 28);
             panel.SetActive(false); shade.SetActive(false); menuCard.SetActive(false); commentCard.SetActive(false);
+        }
+        void Prompt(Transform parent,float x,string title,string pad,string keyboard)
+        {
+            var icon=Rect(title+" binding",parent,new(48,30));icon.anchorMin=icon.anchorMax=icon.pivot=new(0,.5f);icon.anchoredPosition=new(x,0);
+            var glyph=icon.gameObject.AddComponent<MenuGlyph>();glyph.raycastTarget=false;
+            var key=Text("Key",icon,16);Fill(key.rectTransform);key.alignment=TextAnchor.MiddleCenter;
+            var text=Text(title,parent,17);text.text=title;text.rectTransform.anchorMin=text.rectTransform.anchorMax=text.rectTransform.pivot=new(0,.5f);text.rectTransform.sizeDelta=new(140,30);text.rectTransform.anchoredPosition=new(x+54,0);text.alignment=TextAnchor.MiddleLeft;
+            prompts.Add((glyph,key,"<Gamepad>/"+pad,"<Keyboard>/"+keyboard));
+        }
+        void RefreshMenu()
+        {
+            flyButton.interactable=!Flying; returnButton.interactable=Flying;
+            exportButton.interactable=folderButton.interactable=session!=null&&session.Count>0;
+            var enabled=menuButtons.FindAll(b=>b.interactable);
+            for(int i=0;i<enabled.Count;i++)enabled[i].navigation=new UnityEngine.UI.Navigation { mode=UnityEngine.UI.Navigation.Mode.Explicit, selectOnUp=enabled[(i+enabled.Count-1)%enabled.Count],selectOnDown=enabled[(i+1)%enabled.Count] };
+            foreach(var p in prompts){var path=MenuInput.Controller?p.pad:p.keyboard;p.glyph.SetPath(path);p.key.text=MenuGlyph.Label(path);}
         }
         public string LocationText() => Available ? $"Position: {race.vehicle.transform.position} | Course: {race.courseName}" : "";
         public void CopyLocation() => GUIUtility.systemCopyBuffer = LocationText();
@@ -143,7 +168,7 @@ namespace Racer
         {
             if (!visible || capturing || CommentOpen) return;
             menuOpen = true; shade.SetActive(true); menuCard.SetActive(true); commentCard.SetActive(false); SyncHold();
-            EventSystem.current?.SetSelectedGameObject(firstButton.gameObject);
+            RefreshMenu();MenuInput.ConsumeThroughRelease();EventSystem.current?.SetSelectedGameObject(firstButton.gameObject);
         }
         public void CloseMenu() { menuOpen = false; shade.SetActive(false); SyncHold(); }
         void SyncHold()
@@ -315,6 +340,16 @@ namespace Racer
             if (k?.f4Key.wasPressedThisFrame == true) { CaptureBug(); return; }
             if (k?.f6Key.wasPressedThisFrame == true || g?.startButton.wasPressedThisFrame == true) { if (menuOpen) CloseMenu(); else OpenMenu(); }
             if (menuOpen && (k?.escapeKey.wasPressedThisFrame == true || g?.buttonEast.wasPressedThisFrame == true)) CloseMenu();
+            if(menuOpen)
+            {
+                RefreshMenu();
+                // The ordinary menu reserves Enter for pause. Debug owns it as Select.
+                if(!MenuInput.UiBlocked&&(k?.enterKey.wasPressedThisFrame==true||k?.numpadEnterKey.wasPressedThisFrame==true))
+                {
+                    var selected=EventSystem.current?.currentSelectedGameObject;
+                    if(selected&&selected.transform.IsChildOf(menuCard.transform))ExecuteEvents.Execute(selected,new BaseEventData(EventSystem.current),ExecuteEvents.submitHandler);
+                }
+            }
             if (Flying && !menuOpen) FlyInput();
             panel.SetActive(hudVisible && !menuOpen);
             if (Time.unscaledTime < nextRefresh) return; nextRefresh = Time.unscaledTime + .1f;

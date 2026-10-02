@@ -1,0 +1,1 @@
+Natural outcrops=8; seated marking meshes=24. Both road layers checked before barrier placement.

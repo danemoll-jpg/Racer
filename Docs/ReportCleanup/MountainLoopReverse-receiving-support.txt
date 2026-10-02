@@ -1,0 +1,2 @@
+Westbound Gully Flight: terrain seated against the first 16m of existing receiving pavement. Starts=(905.01, 123.96, -300.00); preceding flight gap untouched; bank joins sampled surrounding ground.
+South Face Summit Flight: terrain seated against the first 16m of existing receiving pavement. Starts=(990.00, 159.04, -85.00); preceding flight gap untouched; bank joins sampled surrounding ground.

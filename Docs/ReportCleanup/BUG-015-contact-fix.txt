@@ -1,0 +1,1 @@
+The tight bend contained crossing pavement triangles on inconsistent grades (6cm contact jumps). Their shared local affine grade now removes those intersecting contact steps, fading outside the bend. Existing X/Z footprint and route preserved. Vertices=110 max local correction=0.1669922

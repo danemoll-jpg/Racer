@@ -1,0 +1,3 @@
+(830, 1100, -144, 356) solid surface triangles=479580
+(740, 840, 20, 124) solid surface triangles=34580
+(950, 1050, -212, -84) solid surface triangles=36360

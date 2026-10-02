@@ -1,0 +1,1 @@
+Rebuilt dependency seating from safety-checkpoint tree meshes and positions: 60 combined meshes reset; 3 temporary original trunks restored before final supported-ground/corridor classification. Applied final grounding to complete trunk/crown assemblies in one successful pass.

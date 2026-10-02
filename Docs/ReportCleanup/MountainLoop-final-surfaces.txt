@@ -1,0 +1,1 @@
+samples=1983; pavementIntrusions=0; receivingSupportMissing=0; routeDataUnchanged=True; visibleAndCollisionMeshesMatch=True

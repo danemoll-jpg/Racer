@@ -1,0 +1,2 @@
+Ground_MountainCut rock vault: removed only faces entering the existing upper pavement corridor; lower vault retained; faces 2412 -> 2702
+Ground_MountainCut portal outcrops: removed only faces entering the existing upper pavement corridor; lower vault retained; faces 1967 -> 2269

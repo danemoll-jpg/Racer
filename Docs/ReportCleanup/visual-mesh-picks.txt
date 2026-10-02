@@ -1,0 +1,12 @@
+(0.82, 0.64)
+Ground_ReportCleanup MountainLoopReverse continuous solid 0 @(970.06, 137.07, -62.04) Assets/Track/ReportCleanup/MountainLoopReverse-solid-retained-2-5304562-256.asset
+(0.91, 0.48)
+Ground_ReportCleanup MountainLoopReverse continuous solid 0 @(964.32, 133.40, -57.83) Assets/Track/ReportCleanup/MountainLoopReverse-solid-retained-2-5304562-256.asset
+Complete authored trees @(600.60, 93.32, 39.93) Assets/Track/Exploration/LakeWoods-MountainOldTrees-3-0.asset
+Forest detail batch @(600.52, 93.31, 39.95) Assets/Track/ForestLoop/Close forest 6 0.asset
+Ground_640_400 @(484.84, 80.56, 71.04) Assets/Track/Exploration/LakeWoods-course-protected-Ground_640_400.asset
+(0.56, 0.64)
+Ground_ReportCleanup MountainLoopReverse continuous solid 0 @(986.66, 136.32, -65.58) Assets/Track/ReportCleanup/MountainLoopReverse-solid-retained-2-5304562-256.asset
+(0.30, 0.60)
+Ground_ReportCleanup MountainLoopReverse continuous solid 0 @(988.62, 136.17, -65.55) Assets/Track/ReportCleanup/MountainLoopReverse-solid-retained-2-5304562-256.asset
+Ground_ReportCleanup MountainLoopReverse continuous solid 2 @(952.32, 136.57, -112.54) Assets/Track/ReportCleanup/ReportCleanup MountainLoopReverse continuous solid 2.asset

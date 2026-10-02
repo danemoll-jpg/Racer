@@ -1,0 +1,2 @@
+PASS Main moto 710-790: completed=True, station=790.42, resets=0, AI recoveries=0, maxAir=0.02, minUp=1.00
+PASS Main atv 710-790: completed=True, station=790.30, resets=0, AI recoveries=0, maxAir=0.00, minUp=1.00

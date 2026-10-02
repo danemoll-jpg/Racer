@@ -1,0 +1,8 @@
+Grounded landmark cairn Acorn clue / woodland-16 (896.46, 116.28, -75.59)
+Grounded landmark cairn Acorn clue / woodland-15 (878.24, 112.26, -90.36)
+Grounded landmark cairn Acorn clue / woodland-23 (753.01, 104.34, 73.96)
+Grounded landmark cairn Acorn clue / woodland-17 (1040.81, 116.91, 32.70)
+Grounded landmark cairn Acorn clue / woodland-19 (1000.84, 157.41, 92.32)
+Grounded landmark cairn Acorn clue / woodland-14 (807.37, 95.46, -131.59)
+Grounded landmark cairn Acorn clue / woodland-20 (940.89, 148.07, 138.35)
+Grounded landmark cairn Acorn clue / woodland-18 (1045.82, 150.82, 27.81)

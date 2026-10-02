@@ -1,0 +1,1 @@
+Terrain vertices seated below the final local pavement grade: 1289. No buildings, fences or tree trunks occupy this pavement-only repair.

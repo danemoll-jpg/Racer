@@ -1,0 +1,14 @@
+Grounded outward solid collision Ground_ReportCleanup MountainLoop natural edge 0
+Grounded outward solid collision Ground_ReportCleanup MountainLoop natural edge 1
+Grounded SUMMIT CAMP
+Look for the cairns
+Grounded OPTIONAL SHORTCUT SUMMIT TRAVERSE
+Remove repeated tutorial MAIN ROUTE / BIG JUMP
+EASTBOUND GULLY FLIGHT
+Grounded Fern Creek Leap
+35 - 55 mph
+Grounded OPTIONAL SHORTCUT CLIMBING RIDGE CUT
+Grounded SUMMIT
+Both trails return to lake
+Grounded High Ridge Drop
+35 - 55 mph

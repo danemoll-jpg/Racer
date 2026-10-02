@@ -1,0 +1,22 @@
+Grounded outward solid collision Ground_ReportCleanup MountainLoopReverse natural edge 6
+Grounded outward solid collision Ground_ReportCleanup MountainLoopReverse natural edge 4
+Grounded outward solid collision Ground_ReportCleanup MountainLoopReverse natural edge 2
+Grounded outward solid collision Ground_ReportCleanup MountainLoopReverse natural edge 7
+Grounded outward solid collision Ground_ReportCleanup MountainLoopReverse natural edge 5
+Grounded outward solid collision Ground_ReportCleanup MountainLoopReverse natural edge 0
+Grounded outward solid collision Ground_ReportCleanup MountainLoopReverse natural edge 1
+Grounded outward solid collision Ground_ReportCleanup MountainLoopReverse natural edge 3
+Grounded Fern Creek Leap
+35 - 55 mph
+Grounded SUMMIT CAMP
+Look for the cairns
+Grounded OPTIONAL SHORTCUT SUMMIT TRAVERSE
+Grounded SUMMIT
+Both trails return to lake
+Grounded CR121 OLD CUT CLOSED MAIN ROUTE >>>
+Grounded Shortcut jump over main road
+Grounded CR121 DOWNHILL RIDGE CUT FOLLOW GOLD
+Grounded High Ridge Drop
+35 - 55 mph
+Grounded <<< MAIN ROUTE LEFT TO FULL RUN-UP
+Grounded CR121 <<< SHORTCUT 2 DOWNHILL RIDGE CUT

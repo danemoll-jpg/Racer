@@ -290,7 +290,7 @@ namespace Racer
         public void Resume() { RoamMenu=false;SetStage(pausedStage); Click(); }
         public void OpenSettings() { PushMenu(Stage.Settings); }
         public void CloseSettings() { Save.SaveSettings(); PopMenu(); }
-        public void Back() { if(menus.BackPage())return; if(State==Stage.PlaylistVehicle)CancelPlaylist();else if(State==Stage.Paused||(State==Stage.Ready&&RoamMenu))Resume();else if(State!=Stage.Ready&&State!=Stage.Results&&MenuVisible)PopMenu(); }
+        public void Back() { if(State==Stage.Results){QuitRace();return;} if(menus.BackPage())return; if(State==Stage.PlaylistVehicle)CancelPlaylist();else if(State==Stage.Paused||(State==Stage.Ready&&RoamMenu))Resume();else if(State!=Stage.Ready&&MenuVisible)PopMenu(); }
 
         public void QuitRace()
         {

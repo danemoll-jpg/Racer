@@ -1,0 +1,5 @@
+Trail sign post Center: (846.87, 104.46, -118.19), Extents: (0.11, 1.30, 0.11)
+SUMMIT CAMP
+Look for the cairns Center: (1000.00, 166.56, 92.00), Extents: (3.00, 1.40, 0.15)
+Trail sign post Center: (921.52, 157.35, 161.63), Extents: (0.09, 1.30, 0.09)
+Trail sign post Center: (1048.29, 156.23, 58.93), Extents: (0.11, 1.36, 0.11)

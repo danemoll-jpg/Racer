@@ -1,0 +1,18 @@
+using System;using System.IO;using System.Linq;using System.Collections.Generic;using UnityEngine;using UnityEditor;using UnityEditor.SceneManagement;using UnityEngine.SceneManagement;using Racer;using Object=UnityEngine.Object;
+public static class ReportTreeSeating {
+ public static string Main(){
+ var scene=SceneManager.GetActiveScene();if(scene.name!="MountainLoopReverse"||Application.isPlaying)throw new Exception("Saved Reverse edit scene required");var driving=GameObject.Find("Ground_CR133 mountain driving surface").GetComponent<MeshCollider>();
+ bool Tree(Collider c)=>c.name.IndexOf("trunk",StringComparison.OrdinalIgnoreCase)>=0||c.name.IndexOf("tree",StringComparison.OrdinalIgnoreCase)>=0;
+ bool Local(Vector3 p)=>p.x>=740&&p.x<=1100&&p.z>=-212&&p.z<=356;
+ var trees=Object.FindObjectsByType<Collider>().Where(c=>c.gameObject.scene==scene&&Tree(c)).GroupBy(c=>GlobalObjectId.GetGlobalObjectIdSlow(c).targetObjectId).Where(g=>g.Key!=0).ToDictionary(g=>g.Key,g=>g.First());var meshes=Object.FindObjectsByType<MeshFilter>().Where(m=>m.gameObject.scene==scene).GroupBy(m=>GlobalObjectId.GetGlobalObjectIdSlow(m).targetObjectId).Where(g=>g.Key!=0).ToDictionary(g=>g.Key,g=>g.First());
+ AssetDatabase.ImportAsset("Assets/ReportCleanupBaseline.unity");var baseline=EditorSceneManager.OpenScene("Assets/ReportCleanupBaseline.unity",OpenSceneMode.Additive);int restored=0,reset=0;
+ foreach(var root in baseline.GetRootGameObjects()){
+ foreach(var mf in root.GetComponentsInChildren<MeshFilter>(true)){ulong id=GlobalObjectId.GetGlobalObjectIdSlow(mf).targetObjectId;if(meshes.TryGetValue(id,out var current)&&AssetDatabase.GetAssetPath(current.sharedMesh).Contains("-trees-")&&current.sharedMesh!=mf.sharedMesh){current.sharedMesh=mf.sharedMesh;if(current.TryGetComponent<MeshCollider>(out var mc))mc.sharedMesh=mf.sharedMesh;reset++;}}
+ foreach(var c in root.GetComponentsInChildren<Collider>(true).Where(Tree)){if(!Local(c.bounds.center))continue;ulong id=GlobalObjectId.GetGlobalObjectIdSlow(c).targetObjectId;if(trees.TryGetValue(id,out var current))current.transform.position=c.transform.position;else{var copy=Object.Instantiate(c.gameObject);copy.name=c.name;copy.transform.SetParent(null);copy.transform.SetPositionAndRotation(c.transform.position,c.transform.rotation);copy.transform.localScale=c.transform.lossyScale;SceneManager.MoveGameObjectToScene(copy,scene);restored++;}}
+ }EditorSceneManager.CloseScene(baseline,true);SceneManager.SetActiveScene(scene);Physics.SyncTransforms();
+ bool Supported(Collider c)=>Physics.RaycastAll(new(c.bounds.center.x,500,c.bounds.center.z),Vector3.down,1000,1,QueryTriggerInteraction.Ignore).Any(h=>h.collider.name.StartsWith("Ground_"));
+ typeof(Racer.Editor.BackyardReverseAuthoring).GetMethod("Trees",System.Reflection.BindingFlags.NonPublic|System.Reflection.BindingFlags.Static).Invoke(null,new object[]{(Func<Collider,bool>)(c=>Local(c.bounds.center)&&(!Supported(c)||driving.Raycast(new Ray(new(c.bounds.center.x,230,c.bounds.center.z),Vector3.down),out _,260))),(Func<Collider,bool>)(c=>Local(c.bounds.center)&&Supported(c))});
+ EditorSceneManager.MarkSceneDirty(scene);EditorSceneManager.SaveScene(scene);AssetDatabase.SaveAssets();File.WriteAllText("Docs/ReportCleanup/tree-seating.txt",$"Rebuilt dependency seating from safety-checkpoint tree meshes and positions: {reset} combined meshes reset; {restored} temporary original trunks restored before final supported-ground/corridor classification. Applied final grounding to complete trunk/crown assemblies in one successful pass.");return "Trees reconciled from baseline and final ground";
+ }
+}
+

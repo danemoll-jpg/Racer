@@ -1,0 +1,28 @@
+PASS Debug owns gameplay while shared UI remains active
+PASS Inapplicable return/export actions disabled
+PASS Keyboard arrows navigate debug actions
+PASS Enter activates in-game Capture Bug
+PASS Comment saved through keyboard
+PASS Navigation reaches Export Bug Report ZIP
+PASS Controller A activates in-game ZIP export
+PASS Opened exported ZIP: Markdown, JSON and referenced PNG present
+PASS Markdown screenshot resolves inside ZIP
+PASS Navigation reaches Debug Fly / Inspection
+PASS Controller activates Debug Fly
+PASS Fly/return applicability reverses while flying
+PASS Left stick navigates debug menu
+PASS Mouse hover raycasts Return to Vehicle
+PASS Mouse returns to vehicle
+PASS Mouse hover raycasts Open Debug Report Folder
+PASS Mouse activates report-folder action
+PASS Mouse hover raycasts Toggle Debug HUD
+PASS Mouse toggles Debug HUD
+PASS Controller B closes menu
+PASS Escape closes menu
+PASS Mouse hover raycasts Resume
+PASS Mouse Resume restores game
+PASS Navigation reaches Exit Debug Mode  F3
+PASS Enter exits Debug Mode without leaking to Pause
+PASS Short ordered-gate race completes through production Results flow
+PASS Controller switches Results to Lap Times
+PASS B returns directly from alternate Results tab to Main Menu

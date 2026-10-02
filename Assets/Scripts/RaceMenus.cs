@@ -290,7 +290,7 @@ namespace Racer
             songBanner.gameObject.SetActive(!flow.MenuVisible);songBanner.text=flow.Radio?.Toast??"";
             var recovery=flow.Race.vehicle.GetComponent<VehicleRespawn>();
             if(!countdown && recovery.Pending) banner.text=recovery.LastRecovery+" — race clock continues";
-            bool waiting=CanSimulateRemaining;
+            bool waiting=CanSimulateRemaining&&!DeveloperLocationHud.OwnsInput;
             simulateRemaining.gameObject.SetActive(waiting);
             if(waiting)
             {
@@ -301,7 +301,7 @@ namespace Racer
             }
             waitingShown=waiting;UpdateFinishPresentation();
             if(!countdown && flow.PenaltyNotice!=null)banner.text=flow.PenaltyNotice;
-            if (flow.MenuVisible && flow.State!=RaceFlow.Stage.Title && flow.GetComponent<ExplorationMap>()?.OwnsInput!=true && EventSystem.current && !EventSystem.current.currentSelectedGameObject) EventSystem.current.SetSelectedGameObject(buttons[0].gameObject);
+            if (!DeveloperLocationHud.OwnsInput && flow.MenuVisible && flow.State!=RaceFlow.Stage.Title && flow.GetComponent<ExplorationMap>()?.OwnsInput!=true && EventSystem.current && !EventSystem.current.currentSelectedGameObject) EventSystem.current.SetSelectedGameObject(buttons[0].gameObject);
         }
         void OnDestroy() { if(roamHint)Destroy(roamHint);if(finishPanel)Destroy(finishPanel);playlistAdd?.Dispose();playlistContext?.Dispose();if(ownedUiActions){ownedUiActions.Disable();Destroy(ownedUiActions);} if(textKeyboard!=null)textKeyboard.onTextInput-=TypedCharacter; tabsAction?.Dispose();adjustAction?.Dispose();previousTab?.Dispose();deleteAction?.Dispose();spaceAction?.Dispose(); if(menuActions) { menuActions.Disable(); Destroy(menuActions); } if(submitReference) Destroy(submitReference); if(previewRoot) Destroy(previewRoot); if(previewCamera) Destroy(previewCamera.gameObject); if(previewTexture) { previewTexture.Release(); Destroy(previewTexture); } }
     }

@@ -1,0 +1,1 @@
+Existing paved bend refitted with endpoint-height/grade continuity, stations 710-790. Vertices=165, maximum local vertical correction=0.252m; route points and X/Z road footprint unchanged.

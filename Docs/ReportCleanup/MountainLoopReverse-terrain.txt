@@ -1,0 +1,21 @@
+DEPENDENCY BEFORE Fern Creek Leap
+35 - 55 mph (846.87, 100.99, -118.19)
+DEPENDENCY BEFORE High Ridge Drop
+35 - 55 mph (1048.29, 154.67, 58.93)
+DEPENDENCY BEFORE OPTIONAL SHORTCUT SUMMIT TRAVERSE (1002.12, 164.15, 113.02)
+DEPENDENCY BEFORE SUMMIT CAMP
+Look for the cairns (1000.00, 162.72, 92.00)
+DEPENDENCY BEFORE MAIN ROUTE / BIG JUMP SOUTH FACE SUMMIT FLIGHT (977.00, 152.08, 285.00)
+descent replaced support with continuous terrain: 9290 polygons; lower clearance=125 prisms
+climb replaced support with continuous terrain: 4900 polygons; lower clearance=54 prisms
+summit replaced support with continuous terrain: 12522 polygons; lower clearance=137 prisms
+hairpin replaced support with continuous terrain: 8400 polygons; lower clearance=54 prisms
+south-receiving replaced support with continuous terrain: 5952 polygons; lower clearance=54 prisms
+DEPENDENCY grounded Fern Creek Leap
+35 - 55 mph by 0
+DEPENDENCY grounded High Ridge Drop
+35 - 55 mph by -2.940399
+DEPENDENCY grounded OPTIONAL SHORTCUT SUMMIT TRAVERSE by 0
+DEPENDENCY grounded SUMMIT CAMP
+Look for the cairns by 0
+DEPENDENCY grounded MAIN ROUTE / BIG JUMP SOUTH FACE SUMMIT FLIGHT by -5.480026

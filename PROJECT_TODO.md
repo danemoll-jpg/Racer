@@ -9,7 +9,19 @@
 - Do not silently modify or weaken CODEX_RULES.md. Changes to standing rules require an explicit instruction from Dan.
 - Root AGENTS.md points future Codex tasks to both files.
 
-## CURRENT — Mountain Reverse cleanup + developer reporting — delivered 0.63.0-review1
+## CURRENT — 25-report Mountain cleanup, Debug input and sign audit — 0.64.0-review1
+
+- Authorized by Dan’s supplied 25-report session and four-part cleanup request. Safety checkpoint: clean main `f034febc94ba52f61b3bba2acce0a620a0e2b993`. All original comments/screenshots reviewed; [individual dispositions and evidence](Docs/ReportCleanup/VALIDATION.md).
+- BUG-001 pavement remesh join; 002 climb slit; 003 entry support/shimmer; 004 ragged shoulders; 005 obsolete fork sign; 006 side-cut barrier; 007 torn multi-level support; 008 suspended creek plane/shoulder; 009 artificial pit; 010 South Face receiving support; 011 buried flight sign; 012 offroad terrain gaps — corrected with route/flight/tunnel clearance retained.
+- BUG-013 buried flight sign; 014 east receiving support; 015 crossing-triangle bend contact and arrow; 016 teal tutorial; 017 oversized main tutorial; 018 Summit jump tutorial; 019 green support ribbon; 020 duplicate homeward signs; 021 duplicate flight signs; 022 west receiving support/tree dependencies/lower shortcut clearance; 023 teal tutorial; 024 two-flights tutorial; 025 misleading apron — corrected. Every item has a final coordinate view and explicit PASS disposition in validation.
+- Shared cause: malformed support faces/shoulder sheets replaced by connected terrain with explicit lower-route/flight clearance; existing working road/jump line preserved. Local pavement grades corrected only at the reported seams. Complete dependent trees, signs, props and rocks grounded; obsolete creek plane removed.
+- **Standing sign design principle:** instructional/navigation signs only remain when they communicate useful information not already obvious from environment, arrows, gates, minimap or established conventions. Retain useful landmarks, world character, named optional routes and nonobvious hazards. Conservative worldwide removals; no non-Mountain track redesign.
+- Debug regression fixed in the existing menu: gameplay ownership had disabled the shared UI module. Interactive Debug now keeps it active with explicit enabled-action navigation, focus and glyphs. All 28 controller/keyboard/mouse checks pass, including all eight actions and real in-game ZIP export. [Opened/verified export](Docs/ReportCleanup/verified-menu-export.zip) contains Markdown, JSON and referenced PNG.
+- Results red **B Main Menu** restored; direct exit precedes Results subpage handling. Short isolated ordered-gate race, alternate Lap Times tab and B-to-Main-Menu pass. Other finish/scoring behavior unchanged.
+- Targeted checks: Forward 1,983 / Reverse 2,091 support probes pass; extra Reverse 3,570 pavement probes and lower tunnel pass. Navigation data unchanged; visible/collision meshes match. Motorcycle affected corridors in both directions and ATV affected support/clearance traversals complete without reset/recovery. Final reported bend repeat upright/grounded (moto air 0.02s, ATV 0s). Raw fixture limitations, including an off-line Reverse main-road roll and explicit Forward shortcut selection, are retained in validation; no global AI tuning or full-course acceptance claim.
+- Implementation/targeted testing complete. Delivery in progress: completion source push, fresh 0.64.0-review1 Windows build, new game-64000 publication, signed launcher path and cleanup remain required. Do not resume broad gameplay tuning; finish delivery, then STOP for Dan’s next debug run.
+
+## Previous delivery — Mountain Reverse cleanup + developer reporting — 0.63.0-review1
 
 - Dan explicitly authorizes A1–A10 at the supplied coordinates, followed only after Phase A verification by Debug Mode / bug reporting / detached inspection. This supersedes the prior STOP for these areas only. Other courses, physics, global AI, checkpoints and recovery remain protected.
 - Safety checkpoint: clean main `b9041b01a5598a3fa1ce05a44f7de9a7ab59237f`.

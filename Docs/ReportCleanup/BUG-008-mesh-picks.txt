@@ -1,0 +1,10 @@
+(0.27, 0.33)
+Fern creek bed @(876.05, 111.72, -69.76) Library/unity default resources
+Batched Weathered timber @(876.11, 111.51, -70.46) Assets/Track/BackyardReverse/MountainLoopReverse-trees-167.asset
+Ground_ReportCleanup MountainLoopReverse continuous solid 0 @(877.34, 107.58, -83.29) Assets/Track/ReportCleanup/MountainLoopReverse-solid-retained-2-5411647-256.asset
+Ground_Mountain_0_1 @(885.51, 81.54, -168.52) Assets/Track/ReportCleanup/MountainLoopReverse-solid-retained-0-4570792-10496.asset
+(0.25, 0.34)
+Ground_ReportCleanup MountainLoopReverse continuous solid 0 @(878.53, 107.74, -84.45) Assets/Track/ReportCleanup/MountainLoopReverse-solid-retained-2-5411647-256.asset
+Batched Weathered timber @(885.84, 91.62, -140.21) Assets/Track/BackyardReverse/MountainLoopReverse-trees-130.asset
+Batched Mountain foliage @(885.85, 91.60, -140.30) Assets/Track/BackyardReverse/MountainLoopReverse-trees-151.asset
+Ground_Mountain_0_0 @(890.60, 81.13, -176.54) Assets/Track/StructuralRoads/MountainLoopReverse-mountain-subgrade-Ground_Mountain_0_0.asset

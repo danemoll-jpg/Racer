@@ -1,0 +1,197 @@
+Assets/Scenes/StreetLoopGreybox.unity: 60 removed blocks, 0 added, 5 modified
+MODIFIED 114 1238118527
+--- 
++++ 
+@@ -203,6 +203,10 @@
+   recommendedSpeed: 34
+   bypassedGates: 0400000005000000i
+   aiValidated: 0
++  undergroundStart: 0
++  undergroundEnd: 0
++  entryHeightBelow: 3
++  entryHeightAbove: 12
+   entrySpeed: 0
+   entrySpeedDistance: 0
+   entryInset: 0
+
+MODIFIED 114 1511789248
+--- 
++++ 
+@@ -108,6 +108,10 @@
+   recommendedSpeed: 24
+   bypassedGates: 
+   aiValidated: 0
++  undergroundStart: 0
++  undergroundEnd: 0
++  entryHeightBelow: 3
++  entryHeightAbove: 12
+   entrySpeed: 0
+   entrySpeedDistance: 0
+   entryInset: 0
+
+MODIFIED 4 1302457059
+--- 
++++ 
+@@ -10,10 +10,6 @@
+   m_LocalScale: {x: 1, y: 1, z: 1}
+   m_ConstrainProportionsScale: 0
+   m_Children:
+-  - {fileID: 1903675766}
+-  - {fileID: 1639218931}
+-  - {fileID: 828585539}
+-  - {fileID: 1515095251}
+   - {fileID: 1191758246}
+   m_Father: {fileID: 0}
+   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+
+MODIFIED 114 315064304
+--- 
++++ 
+@@ -255,6 +255,10 @@
+   recommendedSpeed: 30
+   bypassedGates: 0600000007000000i
+   aiValidated: 0
++  undergroundStart: 0
++  undergroundEnd: 0
++  entryHeightBelow: 3
++  entryHeightAbove: 12
+   entrySpeed: 0
+   entrySpeedDistance: 0
+   entryInset: 0
+
+MODIFIED 114 99162056
+--- 
++++ 
+@@ -323,6 +323,10 @@
+   recommendedSpeed: 40
+   bypassedGates: 08000000090000000a000000i
+   aiValidated: 0
++  undergroundStart: 0
++  undergroundEnd: 0
++  entryHeightBelow: 3
++  entryHeightAbove: 12
+   entrySpeed: 0
+   entrySpeedDistance: 0
+   entryInset: 0
+
+Assets/Scenes/StreetLoopReverse.unity: 60 removed blocks, 0 added, 3 modified
+MODIFIED 4 1637288079
+--- 
++++ 
+@@ -10,10 +10,6 @@
+   m_LocalScale: {x: 1, y: 1, z: 1}
+   m_ConstrainProportionsScale: 0
+   m_Children:
+-  - {fileID: 899333747}
+-  - {fileID: 622513911}
+-  - {fileID: 1849007069}
+-  - {fileID: 1800153522}
+   - {fileID: 845145371}
+   m_Father: {fileID: 0}
+   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+
+MODIFIED 114 33182866
+--- 
++++ 
+@@ -976,6 +976,10 @@
+   recommendedSpeed: 28
+   bypassedGates: 0c0000000d000000i
+   aiValidated: 1
++  undergroundStart: 0
++  undergroundEnd: 0
++  entryHeightBelow: 3
++  entryHeightAbove: 12
+   entrySpeed: 20
+   entrySpeedDistance: 75
+   entryInset: 38
+
+MODIFIED 114 1389576848
+--- 
++++ 
+@@ -556,6 +556,10 @@
+   recommendedSpeed: 52
+   bypassedGates: 02000000030000000400000005000000i
+   aiValidated: 1
++  undergroundStart: 0
++  undergroundEnd: 0
++  entryHeightBelow: 3
++  entryHeightAbove: 12
+   entrySpeed: 0
+   entrySpeedDistance: 0
+   entryInset: 24
+
+Assets/Scenes/LakeWoods.unity: 90 removed blocks, 0 added, 2 modified
+MODIFIED 4 1125874546
+--- 
++++ 
+@@ -11,7 +11,5 @@
+   m_ConstrainProportionsScale: 0
+   m_Children:
+   - {fileID: 1534772812}
+-  - {fileID: 1698207850}
+-  - {fileID: 78447402}
+   m_Father: {fileID: 0}
+   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+
+MODIFIED 4 586362985
+--- 
++++ 
+@@ -10,10 +10,6 @@
+   m_LocalScale: {x: 1, y: 1, z: 1}
+   m_ConstrainProportionsScale: 0
+   m_Children:
+-  - {fileID: 205072776}
+-  - {fileID: 183449688}
+-  - {fileID: 155308458}
+-  - {fileID: 1324799170}
+   - {fileID: 2036561404}
+   m_Father: {fileID: 0}
+   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+
+Assets/Scenes/ForestLoopReverse.unity: 60 removed blocks, 0 added, 1 modified
+MODIFIED 4 352754255
+--- 
++++ 
+@@ -10,10 +10,6 @@
+   m_LocalScale: {x: 1, y: 1, z: 1}
+   m_ConstrainProportionsScale: 0
+   m_Children:
+-  - {fileID: 2098281137}
+-  - {fileID: 689983609}
+-  - {fileID: 113372469}
+-  - {fileID: 1293041243}
+   - {fileID: 1477767112}
+   m_Father: {fileID: 0}
+   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+
+Assets/Scenes/DansBackyardForward.unity: 60 removed blocks, 0 added, 1 modified
+MODIFIED 4 1302457059
+--- 
++++ 
+@@ -10,10 +10,6 @@
+   m_LocalScale: {x: 1, y: 1, z: 1}
+   m_ConstrainProportionsScale: 0
+   m_Children:
+-  - {fileID: 1903675766}
+-  - {fileID: 1639218931}
+-  - {fileID: 828585539}
+-  - {fileID: 1515095251}
+   - {fileID: 1191758246}
+   m_Father: {fileID: 0}
+   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+
+Assets/Scenes/DansBackyardReverse.unity: 60 removed blocks, 0 added, 1 modified
+MODIFIED 4 1302457059
+--- 
++++ 
+@@ -10,10 +10,6 @@
+   m_LocalScale: {x: 1, y: 1, z: 1}
+   m_ConstrainProportionsScale: 0
+   m_Children:
+-  - {fileID: 1903675766}
+-  - {fileID: 1639218931}
+-  - {fileID: 828585539}
+-  - {fileID: 1515095251}
+   - {fileID: 1191758246}
+   m_Father: {fileID: 0}
+   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

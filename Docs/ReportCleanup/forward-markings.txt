@@ -1,0 +1,2 @@
+Removed bend marking Main teal / turn at (1344.45, 99.17, -275.00)
+Placed following-straight arrow at station 760 / (1359.93, 99.73, -259.80)
