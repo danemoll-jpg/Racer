@@ -1,0 +1,12 @@
+{
+    "entryPoint":  "C:\\Users\\danmo\\Racer\\Play-Racer.cmd",
+    "path":  "C:\\Users\\danmo\\Racer\\Builds\\Latest\\versions\\68000\\Racer.exe",
+    "version":  "0.68.0-review1",
+    "build":  68000,
+    "pid":  81384,
+    "responsive":  true,
+    "window":  "",
+    "stableLauncherRoot":  "C:\\Users\\danmo\\Racer\\Builds\\Latest",
+    "futureSignedUpdatesPreserved":  true,
+    "verifiedAt":  "2026-10-02T17:15:34.6470592-04:00"
+}

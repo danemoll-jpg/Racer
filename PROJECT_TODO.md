@@ -10,7 +10,7 @@
 - Root AGENTS.md points future Codex tasks to both files.
 - From 2026-10-02 the coding agent is Claude Code. The same two files govern it; root CLAUDE.md (created in the 0.67 round) is its discovery pointer.
 
-## CURRENT — Reset rule rewrite, fall-through safety, Mountain fixes, landing, barriers — 0.68.0-review1 — IMPLEMENTED, delivery in progress
+## CURRENT — Reset rule rewrite, fall-through safety, Mountain fixes, landing, barriers — 0.68.0-review1 — DELIVERED
 
 ### Results (2026-10-02, Claude Code)
 
@@ -70,6 +70,18 @@
   - Climbing / Downhill Ridge Cut throttle.
   - The production AI stopping at the Homeward deck (s 2316) is confirmed identical on the 0.67 scene (pre-existing).
 - **Not changed:** the Reverse s 1583 bump (awaiting Dan); the Mountain Reverse world edge north of z ≈ 380 (outside every route; the failsafe covers it).
+- **DELIVERED:**
+  - Source `52393f8bbe7684f99060532b4b65108bdf5c62e4` pushed and verified on origin/main.
+  - Fresh 0.68.0-review1 Windows build: 0 errors, 20 warnings, 3m37s.
+  - Published [game-68000](https://github.com/danemoll-jpg/woodstock-rush-releases/releases/tag/game-68000). The known draft-lookup miss was resolved with `--resume-draft`.
+  - All 234 Latest files match the public signed manifest; public download, signature, install and startup pass.
+  - [Delivery evidence](Docs/Report068/PUBLICATION.md).
+- **Play-Racer.cmd (unchanged):** launched a responsive managed 68000, muted, with settings restored byte-for-byte; no pending updates. Latest root, current 68000 and previous 67000 retained.
+- **Cleanup:**
+  - Builds 9,733,604,882 → 7,713,741,731 bytes.
+  - C: free 299,698,380,800 bytes.
+  - All debug report history preserved.
+- **SESSION HANDOFF: STOP.** Wait for Dan's review of 0.68. A documentation-only delivery commit follows; playable source remains `52393f8b`.
 
 ### Original scope (as planned)
 
