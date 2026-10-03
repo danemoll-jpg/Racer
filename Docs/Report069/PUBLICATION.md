@@ -1,0 +1,39 @@
+# 0.69.0-review1 — delivery evidence
+
+- **Source:**
+  - Completion commit `be4f86e56849fa24fd13659b7e41e6b644ffd329`, pushed and verified equal to origin/main.
+  - Safety checkpoint: `20277246`.
+- **Build:**
+  - Fresh Unity 6000.6.1f1 Windows build from that commit: Succeeded, 0 errors, 11 warnings, 3m28s.
+  - GUID `dd3589a4ee6140b39feaea19e9b8d2d0` ([build-release.txt](build-release.txt)).
+  - The commit was passed to the build in `REPORT069_COMMIT`.
+- **Staged:**
+  - `Builds/Latest` root and `Builds/Latest/versions/69000` hold all 233 signed manifest files. `Review/ARROWS.md` from 0.68 was dropped and `Review/BARRIERS.md` replaced.
+  - 28 runtime files changed versus 68000, including all scene data and `Assembly-CSharp.dll`.
+  - The named launcher is preserved ([runtime-identity.json](runtime-identity.json)).
+- **Release:**
+  - Published [game-69000](https://github.com/danemoll-jpg/woodstock-rush-releases/releases/tag/game-69000) with:
+    - `game-manifest.json` (47,049 bytes);
+    - `game.zip` (385,657,179 bytes);
+    - `update-catalog.json` (993 bytes).
+  - The first publish hit the known draft-lookup miss; `--resume-draft` uploaded the draft and published it.
+  - Previous releases were retained.
+- **Public verification** ([hosted/result.json](hosted/result.json)):
+  - The public catalog resolves to the 69000 manifest, and its pinned signature is verified.
+  - All 233 Latest files match the public manifest.
+  - Public download, install and startup check pass (exit 0).
+- **Activation:** the production updater reports nothing pending against the public catalog ([launcher-catalog-check.json](launcher-catalog-check.json)).
+- **Play-Racer.cmd (unchanged script):**
+  - It launched a responsive `Builds/Latest/versions/69000/Racer.exe` ([play-racer-launch.json](play-racer-launch.json)).
+  - The game was muted for the check, and the original settings bytes were restored ([settings-preserved.json](settings-preserved.json)).
+- **Cleanup** ([cleanup.json](cleanup.json)):
+  - Builds went from 9,843,285,097 to 7,784,122,345 bytes (2,059,162,752 recovered).
+  - Removed:
+    - the build output folder;
+    - the duplicate `game.zip`;
+    - the hosted verification install (1.68 GB under the project `Temp/`).
+  - The 29 MB of probe scratch outside the project was removed; its evidence is copied into this folder.
+  - `versions/67000` is gone.
+  - Retained: Latest root, managed 69000 + previous 68000, music, publisher tools/keys, launcher, metadata, evidence and saves.
+  - Final C: free: 314,369,523,712 bytes.
+- **Debug report history:** untouched. Dan's session `..._325918` was already closed and exported by Dan.

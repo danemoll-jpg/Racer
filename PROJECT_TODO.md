@@ -10,7 +10,20 @@
 - Root AGENTS.md points future Codex tasks to both files.
 - From 2026-10-02 the coding agent is Claude Code. The same two files govern it; root CLAUDE.md (created in the 0.67 round) is its discovery pointer.
 
-## CURRENT — 8-report follow-up: road edges, barriers, signs, grass on road — 0.69.0-review1 — IMPLEMENTED, DELIVERY IN PROGRESS
+## CURRENT — 8-report follow-up: road edges, barriers, signs, grass on road — 0.69.0-review1 — DELIVERED, AWAITING DAN'S REVIEW
+
+- **DELIVERED:**
+  - Source `be4f86e56849fa24fd13659b7e41e6b644ffd329` pushed and verified on origin/main.
+  - Fresh 0.69.0-review1 Windows build: 0 errors, 11 warnings, 3m28s.
+  - Published [game-69000](https://github.com/danemoll-jpg/woodstock-rush-releases/releases/tag/game-69000). The known draft-lookup miss was resolved with `--resume-draft`.
+  - All 233 Latest files match the public signed manifest; public download, signature, install and startup pass.
+  - [Delivery evidence](Docs/Report069/PUBLICATION.md).
+- **Play-Racer.cmd (unchanged):** launched a responsive managed 69000, muted, with settings restored byte-for-byte; no pending updates. Latest root, current 69000 and previous 68000 retained.
+- **Cleanup:**
+  - Builds 9,843,285,097 → 7,784,122,345 bytes.
+  - C: free 314,369,523,712 bytes.
+  - All debug report history preserved.
+- **SESSION HANDOFF: STOP.** Wait for Dan's review of 0.69. A documentation-only delivery commit follows; playable source remains `be4f86e5`.
 
 ### Results (2026-10-02, Claude Code)
 
