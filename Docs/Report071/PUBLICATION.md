@@ -1,0 +1,42 @@
+# 0.71.0-review1 — delivery evidence
+
+- **Source:**
+  - Completion commit `c022d3d61c2c4a59cff612f8aaaafccd193860c5`, pushed and verified equal to origin/main. It is the playable source.
+  - Safety checkpoint: `e42ea6bb`.
+  - No temporary editor tool copies were committed. The release build script was copied into `Assets/Editor` only for the build and removed afterwards.
+- **Build:**
+  - Fresh Unity 6000.6.1f1 Windows build from `c022d3d6`: Succeeded, 0 errors, 19 warnings, 2m52s.
+  - GUID `4f3fb34caa13402aa2f919d57ea307e5` ([build-release.txt](build-release.txt)).
+  - The commit was passed to the build in `REPORT071_COMMIT`.
+- **Staged:**
+  - `Builds/Latest` root and `Builds/Latest/versions/71000` hold all 233 signed manifest files.
+  - 29 runtime files changed versus 70000: all scene data (level0–7), shared assets, globalgamemanagers, `Assembly-CSharp.dll`, README/VERSION and the review docs.
+  - The obsolete `Review/BARRIERS.md` was removed. The named launcher is preserved ([runtime-identity.json](runtime-identity.json)).
+- **Release:**
+  - Published [game-71000](https://github.com/danemoll-jpg/woodstock-rush-releases/releases/tag/game-71000) with:
+    - `game-manifest.json` (47,009 bytes);
+    - `game.zip` (391,230,992 bytes);
+    - `update-catalog.json` (993 bytes).
+  - Published on the first attempt (no draft-lookup miss this time). The latest catalog was fetched back and matched. Previous releases were retained.
+- **Public verification** ([hosted/result.json](hosted/result.json)):
+  - The public catalog resolves to the 71000 manifest, and its pinned signature is verified.
+  - All 233 Latest files match the public manifest.
+  - Public download, install and startup check pass (exit 0).
+- **Activation:** the production updater activated 71000 in `Builds/Latest`, soundtrack state unchanged. It reports nothing pending against the public catalog ([launcher-catalog-check.json](launcher-catalog-check.json)).
+- **Play-Racer.cmd (unchanged script):**
+  - It launched a responsive `Builds/Latest/versions/71000/Racer.exe` ([play-racer-launch.json](play-racer-launch.json)).
+  - The game was muted for the check, and the original settings bytes were restored ([settings-preserved.json](settings-preserved.json)).
+- **Cleanup** ([cleanup.json](cleanup.json)):
+  - Builds went from 9,966,067,109 to 7,877,434,994 bytes (2,088,632,115 recovered).
+  - Removed:
+    - the build output folder;
+    - the duplicate `game.zip`;
+    - the hosted verification install (1.70 GB under the project `Temp/`).
+  - Managed 69000 had already been pruned by the updater on activation.
+  - The 5.16 GB of probe scratch, test players and benchmark output outside the project, and the project `Temp/report071-*` files, were removed; their evidence is copied into this folder.
+  - Retained:
+    - Latest root, managed 71000 + previous 70000;
+    - `LauncherRelease-71000` signed manifest and catalog;
+    - music, publisher tools/keys, launcher, metadata, source, evidence and saves.
+  - Final C: free: 309,717,004,288 bytes.
+- **Debug report history:** untouched. Dan's session `..._a733ff` was already closed and exported by Dan.

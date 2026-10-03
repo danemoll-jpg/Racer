@@ -10,7 +10,20 @@
 - Root AGENTS.md points future Codex tasks to both files.
 - From 2026-10-02 the coding agent is Claude Code. The same two files govern it; root CLAUDE.md (created in the 0.67 round) is its discovery pointer.
 
-## CURRENT — Lighting and atmosphere pass + 3-report follow-up + Free Roam landing — 0.71.0-review1 — IMPLEMENTED (delivery record follows)
+## CURRENT — Lighting and atmosphere pass + 3-report follow-up + Free Roam landing — 0.71.0-review1 — DELIVERED, AWAITING DAN'S REVIEW
+
+- **DELIVERED:**
+  - Source `c022d3d61c2c4a59cff612f8aaaafccd193860c5` pushed and verified on origin/main.
+  - Fresh 0.71.0-review1 Windows build: 0 errors, 19 warnings, 2m52s.
+  - Published [game-71000](https://github.com/danemoll-jpg/woodstock-rush-releases/releases/tag/game-71000) on the first attempt.
+  - All 233 Latest files match the public signed manifest; public download, signature, install and startup pass.
+  - [Delivery evidence](Docs/Report071/PUBLICATION.md).
+- **Play-Racer.cmd (unchanged):** launched a responsive managed 71000, muted, with settings restored byte-for-byte; no pending updates. Latest root, current 71000 and previous 70000 retained.
+- **Cleanup:**
+  - Builds 9,966,067,109 → 7,877,434,994 bytes.
+  - C: free 309,717,004,288 bytes.
+  - All debug report history preserved.
+- **SESSION HANDOFF: STOP.** Wait for Dan's review of 0.71 (geometry and the look). A documentation-only delivery commit follows; playable source remains `c022d3d6`.
 
 ### Results (2026-10-03, Claude Code)
 
