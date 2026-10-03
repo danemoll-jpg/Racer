@@ -10,7 +10,74 @@
 - Root AGENTS.md points future Codex tasks to both files.
 - From 2026-10-02 the coding agent is Claude Code. The same two files govern it; root CLAUDE.md (created in the 0.67 round) is its discovery pointer.
 
-## CURRENT — 8-report follow-up: road edges, barriers, signs, grass on road — 0.69.0-review1 — DELIVERED, AWAITING DAN'S REVIEW
+## CURRENT — 9-report follow-up: quit confirmation, Free Roam mountain path, taller crest barrier, campsite, smoothing — target 0.70.0-review1 — NOT STARTED
+
+- **Authorized by Dan** from debug session `2026-10-02_20-28-25-546_11ee21` (CLOSED, exported as `..._11ee21_f7519669.zip`) plus his written request for a quit confirmation. All 9 reports were captured on 0.69.0-review1 (build `dd3589a4`), so all 9 count. Folder with full-size screenshots: `C:\Users\danmo\AppData\LocalLow\DefaultCompany\Racer\DebugReports\2026-10-02_20-28-25-546_11ee21`. READ every comment and LOOK at every screenshot before changing anything. If the folder is missing, ask Dan for the ZIP.
+- **Starting point:** main `f3d5c38c` (documentation commit; playable source `be4f86e5`, 0.69.0-review1 / game-69000). This TODO edit and the archive move are uncommitted and belong in the safety checkpoint.
+- **Scope is exactly Parts A–F below.** Section 5A applies to all geometry. 0.68 is accepted and closed. The 0.69 edge/shoulder work stays; only the specific places below are corrected.
+- Dan's overall verdict on 0.69: the reports are getting fewer. Keep changes local so that continues.
+
+### Part A — Quit Game confirmation (written request)
+
+- Every control that quits the application (main menu "Quit Game" and any other quit-to-desktop path) must first show a confirmation, e.g. **"Quit Woodstock Rush?" — [Cancel] [Quit]**.
+- Focus defaults to **Cancel**. B / Esc cancels. Works with controller, keyboard and mouse, using the existing confirmation-dialog pattern (as used for END RACE / RETURN TO MENU). No other menu changes.
+- "END RACE / RETURN TO MENU" already confirms and is unchanged. Alt+F4 / closing the window is not intercepted.
+
+### Part B — Free Roam: restore the straight path up the mountain
+
+- **BUG-001** Street Loop Forward, Free Roam (895.79, 151.05, 154.34), heading 231. A very large, steep green/brown mound rises directly across the dirt path. Dan: "This was likely put there for the race tracks but it completely impedes Free Roam. Can we remove it in Free Roam only? But make sure it still exists in the races so it doesn't mess up the tracks."
+- **BUG-002** Street Loop Forward, Free Roam (761.93, 109.29, 80.45), heading 76. "This is the other side of this. It used to be a straight path up the mountain but now you can [only] get by on either side." The screenshot is the bike against the steep brown face of the same obstruction.
+- **Hint from the coordinates:** the two captures are ~150 m apart and lie along the Mountain Loop Reverse main climb (0.67 reports put that road at (746, 91, 64) s 136 → (922, 157, 155) s 369). The obstruction is probably race-authored mountain geometry (a raised roadbed/embankment, fill or shoulder) present in the Free Roam world. Identify exactly which object(s)/meshes it is and which commit introduced it (rule 5) before changing anything.
+- **Required:**
+  1. In **Free Roam**, the straight path up the mountain between these two points is open and rideable again, as it was before. Remove, hide or reshape the obstruction for Free Roam only, and make sure the ground left behind is continuous and supported (no hole, no floating objects; rule 4).
+  2. In **races** (Mountain Loop Forward and Reverse and any other course that uses that geometry) nothing changes: same road, same collision, same support. Verify by comparing the race scenes before/after.
+  3. If the obstruction turns out to be a Free Roam activity feature (e.g. a jump Dan asked for earlier), do not delete it: report what it is and stop on this item.
+
+### Part C — Mountain Loop Reverse: the crest barrier must actually stop a full-speed rider
+
+- **BUG-005** (1008.30, 163.05, 129.66) main s 463, heading 151. "This is not nearly high enough. I go flying over this still. Must be much higher. Test against the hill leading up here at full speed and see."
+- **BUG-006** (994.30, 172.40, 122.12) main s 449, heading 112, captured **airborne at 32.0 m/s (71.5 mph)**. "See?" The bike is about 9 m above the road surface (road ≈ 163 at this station) and far above the 1.8 m berm built in 0.69 at s 446–486.
+- The 0.69 verification used overshoot runs that did not reproduce Dan's real approach. **Reproduce first:** full throttle up the hill leading to this crest (motorcycle and ATV), and record where the vehicle is in the air at s 440–490 (height above road, lateral position, speed). The run must reach roughly Dan's captured state before any design is chosen.
+- **Then build a barrier sized from those measured trajectories**, with margin: a tall natural rock wall / cliff outcrop on the outside of the bend, high and long enough that a full-throttle motorcycle and ATV coming over the crest cannot clear it or pass its ends. Grounded, collidable, matching the mountain. A wipeout against it followed by the 0.68 nearest-point reset is an acceptable outcome; leaving the track is not.
+- Keep the driving width, the **Summit Traverse shortcut entrance** and its flight/approach, and the sign visible. Replace or absorb the 0.69 berm here rather than stacking mismatched pieces. If no barrier of sensible size can contain the measured launch, say so with the numbers and propose the smallest alternative (for example easing the crest) instead of building it; do not change the crest without Dan's approval.
+- Verify with at least three full-throttle passes per vehicle. Update BARRIERS.md.
+
+### Part D — Mountain campsite (Mountain Loop Forward; check Reverse)
+
+- **BUG-007** (1013.84, 160.89, 81.02) main s 1572, heading 285. The summit campsite (dome tent, figure, platform) floats in the air to the upper left. Dan: "Can we lower this scene for race mode so that it is on the ground, but in Free Roam don't move it. Looks like there are major differences in elevation here. Also in Free Roam can we mark this as Campsite landmark?"
+- **Race scenes:** seat the whole campsite group on the actual ground in Mountain Loop Forward, and in Reverse if it floats there too (rule 4 grounding: tent, figure, props, cairns, colliders together). Do not change the terrain to meet it.
+- **Free Roam:** do not move the campsite. Add it as a named landmark **"Campsite"** using the existing exploration-map / landmark system (same behaviour as other landmarks: map label, discovery, fast-travel destination if landmarks have one). No new system.
+
+### Part E — Something flips the bike at the Climbing Ridge Cut entrance (Mountain Loop Forward)
+
+- **BUG-008** Climbing Ridge Cut 3.9 m (750.42, 87.12, -119.04), heading 62. "Something around here is flipping me."
+- **Likely a 0.69 regression — check first (rule 5).** This is the junction where 0.69 replaced the ribbed earth-bank wedge with a new smooth surface (its BUG-007 at (759.37, 87.75, -113.37)) and built flush shoulders; 0.69 also listed "7 single stations where the new shoulder overlaps a pavement edge by 2–11 cm" and "a faint stepped rim on the far side of the BUG-007 patch". Compare contacts here against 0.68.
+- Reproduce with motorcycle (and ATV) entering the shortcut at several speeds and lines, find the surface that produces the impulse (lip, overlapping collider, hidden face under the pavement, sign/post collider), and remove that cause locally. If it cannot be reproduced in a bounded investigation, change nothing and say so. The Climbing Ridge Cut jump system is protected.
+
+### Part F — Smoothing
+
+- **BUG-003** Street Loop Forward, Race (226.34, 9.71, 544.45) main s 4574, heading 138. "Can we smooth this out." Beside the road the ground breaks into hard creases and a stepped, sawtooth-walled trench running through the trees. Blend it into a smooth natural slope/gully. Road surface unchanged; trees stay grounded.
+- **BUG-004** Street Loop Forward, Race (264.50, 8.75, 562.17) main s 4614, heading 284. "Smooth here as well." The right-hand verge of the highway is lumpy and uneven where it meets the asphalt. Smooth the verge and make it meet the road cleanly. Highway surface, lane markings and buildings unchanged.
+- **BUG-009** Mountain Loop Forward (1015.00, 139.88, -54.59) main s 1407, heading 275. "Smooth this out." Lumpy faceted green sheets on the right overlap the pavement edge, with a stepped patch on the left, at the Climbing Ridge Cut rejoin beside the 0.69 berm (s 1390–1434). Replace with smooth shoulders flush with the road; the berm keeps doing its job.
+- Shared-world note: BUG-003/004 geometry is in the Street Loop world. Check whether the same meshes appear in other scenes and keep them consistent.
+
+### Verification for this round (targeted, rule 11)
+
+- Before/after view at each of the 9 coordinates, with a PASS/explained disposition per bug in `Docs/Report070/VALIDATION.md`.
+- Part A: quit from every quit control with controller, keyboard and mouse: Cancel returns, Quit exits, default focus is Cancel.
+- Part B: ride the straight path between the BUG-002 and BUG-001 positions in Free Roam, both directions; then Mountain Loop Forward and Reverse climbs in Race are identical to 0.69 (motorcycle + ATV).
+- Part C as described. 5A.6 neighbour checks for every geometry change, covering at minimum Summit Traverse entry/rejoin, South Face Summit jump, Climbing and Downhill Ridge Cut jumps, and the 0.68/0.69 berms. Results must match 0.69 except where this round intentionally changes them.
+
+### Outstanding after this round (as of 2026-10-02)
+
+- Awaiting Dan: gameplay review of 0.70; recheck of the Reverse s 1583 bump.
+- From earlier results, not raised by Dan: the full-throttle line brushes the Downhill Ridge Cut berm; airborne riders at ~38 m/s can still clear the Homeward berm; High Ridge Drop barrier is a suggestion only; remaining edge stations in `Docs/Report069/partA-remaining.txt`; production AI stops at the Homeward deck and undershoots the South Face deck (both pre-existing).
+- Open: CR-118 intermittent spoken-title clipping.
+- Possibly stale, needs Dan's yes/no: CR-010 slightly tighter steering.
+- Deferred: physical Steam Deck / controller / save-migration checks; friend test of the packaged build on another PC.
+- Backlog (not authorized): graphics upgrade; see FUTURE EXPANSION.
+
+## Previous delivery — 8-report follow-up: road edges, barriers, signs, grass on road — 0.69.0-review1 — DELIVERED, REVIEWED BY DAN (follow-ups in 0.70)
 
 - **DELIVERED:**
   - Source `be4f86e56849fa24fd13659b7e41e6b644ffd329` pushed and verified on origin/main.
@@ -421,80 +488,6 @@ Dan's Backyard Loop — Forward (scene DansBackyardForward), Race:
 - Deferred: physical Steam Deck / controller / save-migration checks; friend test of the packaged build on another PC.
 - Future expansion and Someday lists below are unchanged.
 
-## Previous delivery — Urgent Mountain Reverse regression restoration — 0.66.0-review1
-
-- Authorized by Dan's debug session `2026-10-02_00-57-44-616_93acc0_4d42d5ed.zip` (BUG-001/002, metadata and screenshots reviewed). Scope is exactly these two regressions plus the permanent geometry-regression rules. Safety checkpoint: clean main `f588a2d4` (playable `a888e6a5`).
-- **Known-good source:** `2b584b45` (0.63.0-review1 / game-63000). **Regressing commit:** `6af2c67d` (0.64): `Tools/Author-SolidReportTerrain.cs` regenerated the whole x 830-1100 Mountain area as voxel "continuous solid" terrain. Its carves protected only main s 798-964, Summit Traverse and the flight corridors. Its own drive spans stopped at s 955 and s 1690, short of both features.
-- **BUG-001 (main route blocked, 948,127,-101) — REGRESSION, restored.** Root cause: `continuous solid 2` left two thin sheets across the lower main route at s≈1713 (x≈964) and s≈1766 (x≈1015), at the edges of the South Face flight carve where the route passes under the receiving road. 0.63 was open there. Selective restoration removed only the 394 road-facing sheet triangles inside the lower-route clearance (+0.15..+6 m). Floor, walls, upper receiving support, route line and checkpoints are unchanged. Moto AI, moto full-throttle and ATV AI complete s 1600-1820 with zero resets/recoveries (0.65: all three stopped at s 1710-1713).
-- **BUG-002 (South Face Summit jump, 983,176,69) — REGRESSION, restored.** Ramp/lip/landing pavement is identical to 0.63. Root cause: the 0.64 solid was filled to 0.1-0.5 m beneath the ramp with steep lip faces. The vehicle body struck them while still on the pavement (impulses up to 652), causing the uncontrolled pitch/roll. The faces also made the AI brake to ~19 m/s. Selective restoration lowered 884 `continuous solid 0` vertices under the ramp/lip (main s 966-986) to 4 m below the pavement, restoring 0.63's free-standing ramp. Vertices within 12 m of branches were excluded. Moto full throttle at -5/0/+5 m flies with ≤0.9° roll (0.63: ≤0.8°; 0.65: up to 94°), lands on the receiving deck and continues. ATV 0.1° (0.65: roll-over). AI takeoff restored to 35.7/33.9 m/s.
-- Neighbor regression check: every main/branch station in both regions compared before/after. The first wider BUG-002 attempt also deepened Summit Traverse entry support, so it was rejected and restricted. Final diff shows only the intended stations changed; Summit Traverse is identical. Retained pre-existing limitation (same in 0.63): at ~35.8 m/s the production AI flight undershoots the receiving deck and fails after the flight. The landing was not altered. [Validation](Docs/RegressionRestore/VALIDATION.md).
-- **Permanent safeguards added:** CODEX_RULES.md section 5A, World Geometry Regression Protection (protected playable geometry, known-good restoration first, local over broad regeneration, multi-level clearance, jumps as protected systems including the space under the ramp, before/after neighbor checks whose spans must cover the protected features).
-- **DELIVERED:** source `eec4e91131e3b3853981a6146f37ee9e0d91da84` pushed and verified on origin/main. Fresh 0.66.0-review1 Windows build succeeded (0 errors, 11 warnings, 5m04s), built in an isolated worktree at that exact commit because an idle leftover batch Unity editor holds the main project. Published [game-66000](https://github.com/danemoll-jpg/woodstock-rush-releases/releases/tag/game-66000); the existing draft-lookup hiccup was resolved with `--resume-draft`. All 232 Latest files match the public signed manifest; public download/signature/install/startup pass. [Delivery evidence](Docs/RegressionRestore/PUBLICATION.md).
-- Unchanged Play-Racer.cmd launched a responsive managed 66000. Original settings restored byte-for-byte; no pending updates. Latest root/current 66000/previous 65000 retained.
-- Cleanup: Builds **9,683,739,471 -> 7,679,034,176 bytes**; probe worktree removed. Final C: free **305,971,154,944 bytes**. All debug report history preserved.
-- **SESSION HANDOFF: STOP. Wait for Dan to verify BUG-001 and BUG-002 before any further development.** Documentation-only delivery commit follows; playable source remains `eec4e911`.
-
-## Previous delivery — Debug session lifecycle correction — 0.65.0-review1
-
-- Safety checkpoint: clean main `23e383f95dc7ec1cf4a0570699fbade6531a37ed`. Scope is Debug session lifecycle only; previous Mountain cleanup remains complete.
-- Successful export now marks the session CLOSED in its folder and ZIP. Next F4 creates a different timestamped session starting at BUG-001. Closed sessions reject additional captures; numbering is per session, with no copied screenshots or entries.
-- START NEW DEBUG SESSION closes without export, preserves history, and creates the next folder only on capture. Unexported reports require explicit confirmation, defaulting to Keep Current Session. Debug HUD/menu show session ID, state and count. Failed export retains an OPEN session for retry.
-- **History retention:** never automatically delete closed DebugReport folders or exported ZIPs. Original user reports and all lifecycle test history are preserved.
-- All **28 focused input/lifecycle checks PASS**, including BUG-001/002 -> export -> new BUG-001, exact prior-folder/ZIP hashes, controller/keyboard cancellation, mouse confirmation, pending-confirmation F4 guard, and archive-failure rollback. UI/HUD screenshots inspected. [Validation](Docs/DebugLifecycle/VALIDATION.md), [controls](Docs/DebugReporting/DEBUG_MODE.md). Targeted testing complete; no broad gameplay matrix.
-- **DELIVERED:** source `a888e6a5b9e5fbd4377166e7a943de87cd6ed34d` pushed and verified on origin/main; fresh 0.65.0-review1 Windows build succeeded (0 errors, 20 warnings, 4m52s). Published [game-65000](https://github.com/danemoll-jpg/woodstock-rush-releases/releases/tag/game-65000). All 232 Latest files match the public signed manifest; public download/signature/install/startup pass. [Delivery evidence](Docs/DebugLifecycle/PUBLICATION.md).
-- Unchanged Play-Racer.cmd launched responsive managed 65000. Original settings restored byte-for-byte, soundtrack preserved, no pending updates. Complete Latest root/current 65000/previous 64000 retained.
-- Cleanup: Builds **9,683,288,517 -> 7,678,725,701 bytes**; **3,634,290,858 bytes** disposable output removed. Final C: free **308,386,238,464 bytes**. Every user/test report folder and ZIP preserved.
-- **SESSION HANDOFF: STOP for Dan's next debug run.** Implementation, targeted checks and delivery complete. Documentation-only delivery commit follows; playable source remains `a888e6a5`.
-
-## Previous delivery — 25-report Mountain cleanup, Debug input and sign audit — 0.64.0-review1
-
-- Authorized by Dan’s supplied 25-report session and four-part cleanup request. Safety checkpoint: clean main `f034febc94ba52f61b3bba2acce0a620a0e2b993`. All original comments/screenshots reviewed; [individual dispositions and evidence](Docs/ReportCleanup/VALIDATION.md).
-- BUG-001 pavement remesh join; 002 climb slit; 003 entry support/shimmer; 004 ragged shoulders; 005 obsolete fork sign; 006 side-cut barrier; 007 torn multi-level support; 008 suspended creek plane/shoulder; 009 artificial pit; 010 South Face receiving support; 011 buried flight sign; 012 offroad terrain gaps — corrected with route/flight/tunnel clearance retained.
-- BUG-013 buried flight sign; 014 east receiving support; 015 crossing-triangle bend contact and arrow; 016 teal tutorial; 017 oversized main tutorial; 018 Summit jump tutorial; 019 green support ribbon; 020 duplicate homeward signs; 021 duplicate flight signs; 022 west receiving support/tree dependencies/lower shortcut clearance; 023 teal tutorial; 024 two-flights tutorial; 025 misleading apron — corrected. Every item has a final coordinate view and explicit PASS disposition in validation.
-- Shared cause: malformed support faces/shoulder sheets replaced by connected terrain with explicit lower-route/flight clearance; existing working road/jump line preserved. Local pavement grades corrected only at the reported seams. Complete dependent trees, signs, props and rocks grounded; obsolete creek plane removed.
-- **Standing sign design principle:** instructional/navigation signs only remain when they communicate useful information not already obvious from environment, arrows, gates, minimap or established conventions. Retain useful landmarks, world character, named optional routes and nonobvious hazards. Conservative worldwide removals; no non-Mountain track redesign.
-- Debug regression fixed in the existing menu: gameplay ownership had disabled the shared UI module. Interactive Debug now keeps it active with explicit enabled-action navigation, focus and glyphs. All 28 controller/keyboard/mouse checks pass, including all eight actions and real in-game ZIP export. [Opened/verified export](Docs/ReportCleanup/verified-menu-export.zip) contains Markdown, JSON and referenced PNG.
-- Results red **B Main Menu** restored; direct exit precedes Results subpage handling. Short isolated ordered-gate race, alternate Lap Times tab and B-to-Main-Menu pass. Other finish/scoring behavior unchanged.
-- Targeted checks: Forward 1,983 / Reverse 2,091 support probes pass; extra Reverse 3,570 pavement probes and lower tunnel pass. Navigation data unchanged; visible/collision meshes match. Motorcycle affected corridors in both directions and ATV affected support/clearance traversals complete without reset/recovery. Final reported bend repeat upright/grounded (moto air 0.02s, ATV 0s). Raw fixture limitations, including an off-line Reverse main-road roll and explicit Forward shortcut selection, are retained in validation; no global AI tuning or full-course acceptance claim.
-- **DELIVERED:** source `6af2c67dcfa4aaf14a167604bf535d6514be857e` pushed and verified on origin/main; fresh 0.64.0-review1 Windows build succeeded (0 errors, 20 warnings, 4m11s). Published [game-64000](https://github.com/danemoll-jpg/woodstock-rush-releases/releases/tag/game-64000). All 232 Latest files match the public signed manifest; public download/signature/install/startup pass. [Delivery evidence](Docs/ReportCleanup/PUBLICATION.md).
-- Unchanged Play-Racer.cmd launched responsive managed 64000. Original settings restored byte-for-byte, soundtrack preserved, no pending updates. Complete Latest root/current 64000/previous 63000 retained.
-- Cleanup: Builds **9,845,981,594 -> 7,683,982,559 bytes**; **3,791,740,033 bytes** disposable output removed. Final C: free **308,871,303,168 bytes**. Original private report preserved; verified in-game export retained in Docs.
-- **SESSION HANDOFF: STOP for Dan's next debug run.** Requested implementation, targeted checks and delivery complete. No broad tuning or unrelated work. Documentation-only delivery commit follows; playable source remains `6af2c67d`.
-
-## Previous delivery — Mountain Reverse cleanup + developer reporting — 0.63.0-review1
-
-- Dan explicitly authorizes A1–A10 at the supplied coordinates, followed only after Phase A verification by Debug Mode / bug reporting / detached inspection. This supersedes the prior STOP for these areas only. Other courses, physics, global AI, checkpoints and recovery remain protected.
-- Safety checkpoint: clean main `b9041b01a5598a3fa1ce05a44f7de9a7ab59237f`.
-- Phase A complete: A1 smooth retessellated climb; A2 continuous shoulder/join support; A3 lower natural outcrops and clear sign; A4 cleared support intrusion and steep paved step; A5 local grade smoothing; A6 mountain support under the existing receiving road; A7 natural separator rocks; A8 grounded Summit outcrops; A9 intrusive vault faces removed; A10 green support shards replaced. Each root cause, correction and targeted motorcycle/ATV result is recorded in [Phase A validation](Docs/MountainCleanup/VALIDATION.md). Full-route AI limitations are explicitly retained; no global AI/physics/recovery tuning.
-- Standing Mountain rule: before filling apparent empty space beneath an upper road, verify whether a lower authored route requires clearance; preserve its complete corridor and support around it. A6 includes an intentional flight gap; support the existing receiving road, not the gap.
-- Phase B complete: F3 Debug Mode (default off), F4 screenshot-before-comment capture, F6/Start debug menu, Markdown/JSON/PNG sessions and ZIP export, detached camera with keyboard/controller controls and return. Debug movement invalidates the active race and rolls back records from that attempt; HUD/capture preserve eligibility. **Debug Mode suspends overall race timeout and post-finisher grace; off resumes the remaining budget.** All 28 targeted checks pass, including three saved reports. [Controls](Docs/DebugReporting/DEBUG_MODE.md), [validation](Docs/DebugReporting/VALIDATION.md).
-- A1 resolved: overlapping climb contacts/grade retessellated; both vehicles complete with zero resets/recoveries (motorcycle initial-placement air 0.02s, ATV 0s).
-- A2 resolved: malformed shoulder/road fans replaced with continuous support; main and affected branch traversals pass both vehicles.
-- A3 resolved: obscuring slab wall replaced by lower colliding outcrops; sign visible and adjacent traversal passes both vehicles.
-- A4 resolved: intrusive support and steep paved step corrected; both vehicles have zero air/resets/recoveries through the merge.
-- A5 resolved: local grade transition smoothed; both vehicles grounded. Baseline jump was not reproduced on the tested line.
-- A6 resolved: receiving road supported by mountain rock shoulder, intentional flight gap preserved; both vehicles pass receiving pavement and support grid has no holes. Full-flight AI test limitation remains documented.
-- A7 resolved: artificial separator slabs replaced with colliding irregular outcrops; view and adjacent vehicle traversals checked.
-- A8 resolved: oversized stacked slabs replaced with grounded outcrops; view and both vehicles through Summit entry checked.
-- A9 resolved: vault facets cleared from existing Summit pavement; both vehicles grounded through affected stations 8–30.
-- A10 resolved: green support curtains replaced by continuous local terrain; view and affected descent pass both vehicles.
-- **DELIVERED:** source `2b584b4598240c3109f93cb1c142a3a658b93947` pushed and verified on origin/main; fresh Windows build succeeds (zero errors, 11 warnings, 3m57s). Published [game-63000](https://github.com/danemoll-jpg/woodstock-rush-releases/releases/tag/game-63000). All 233 Latest files match the public signed manifest; public download/signature/install/startup passes. [Delivery evidence](Docs/DebugReporting/PUBLICATION.md).
-- Unchanged **Play-Racer.cmd** launched responsive managed 63000. Settings restored byte-for-byte; soundtrack preserved; no pending updates. Complete Latest root runtime, current 63000 and previous 62000 retained.
-- Cleanup: Builds **9,688,401,947 → 7,682,834,457 bytes**; **3,647,352,311 bytes** disposable output removed including isolated public install and temporary reports. Final C: free **309,860,352,000 bytes**.
-- **SESSION HANDOFF: STOP for Dan's clean-baseline debug run.** Implementation, targeted checks and delivery complete. No additional tuning or unrelated work. Documentation-only delivery commit follows; playable source remains `2b584b45`.
-
-## Previous delivery — Urgent Mountain Reverse main-route restoration — 0.62.0-review1
-
-This supersedes the previous polish STOP only for the reported junction regression. No broad Mountain polish is authorized.
-
-- The Mountain polish accidentally filled intentional lower-route clearance and flattened part of the separate lower run-up. Lower main route restored as a tunnel/mountain-cut corridor through the existing left loop, approach, crossing, exit and continuation; original lower grade restored from history. X/Z line, direction and checkpoint progression preserved.
-- Upper road supported around the corridor using earth banks, rock vault/outcrops and natural boulder edge barriers. Buried Main Route sign, local support seams and low CP1 visual gate corrected; local signs/cairns/complete trees grounded. No invisible walls or route redesign.
-- Summit Traverse corrected rejoin preserved exactly; old U-turn has not returned. No global AI/physics/recovery or unrelated scene/UI/audio/startup/Race Complete changes.
-- Targeted tests COMPLETE: motorcycle/ATV main-route production-driver traversals pass with zero resets/recoveries; one motorcycle Summit traversal passes; 660 lower probes and all upper support probes clear; 9/9 local recovery footprints clear. Initial buried-support contact failures retained; corrected by clearing secondary faces below pavement. See [validation](Docs/MountainCut/VALIDATION.md). This is automated technical evidence, not Dan's gameplay acceptance.
-- Safety checkpoint: clean main `5e11668cb53f3921812c8941b883ecf132574839`. Completion source `4470658f9711e7de5da9dc2d6750a2ca33cf9786` pushed and remotely verified on origin/main. Fresh Windows build succeeded in 3m59s with zero errors / 12 warnings. Published [game-62000](https://github.com/danemoll-jpg/woodstock-rush-releases/releases/tag/game-62000); all 233 Latest files match the public signed manifest. Public download/signature/startup and unchanged Play-Racer.cmd launch of responsive managed 62000 passed; original settings restored byte-for-byte and soundtrack preserved. [Delivery evidence](Docs/MountainCut/PUBLICATION.md).
-- Cleanup: Builds **9,634,691,634 → 7,641,773,145 bytes**; **3,616,266,631 bytes** disposable copies removed including the temporary public install. Final C: free **291,182,661,632 bytes**. Current 62000 / previous 61000 retained.
-- SESSION HANDOFF: Delivery complete. **STOP for Dan's gameplay review.** Do not reopen completed backlog work or start more Mountain polishing. Documentation-only delivery record follows; playable source remains `4470658f`.
-
 ## Previous delivery — Project cleanup and Mountain polish — 0.61.0-review1
 
 The following records the previous 0.61 delivery. Its polish acceptance is superseded by the urgent regression correction above; older completed backlog decisions remain closed.
@@ -539,6 +532,7 @@ The following records the previous 0.61 delivery. Its polish acceptance is super
 
 ## History archive
 
+- 2026-10-02 (second move): the 0.62–0.66 "Previous delivery" sections were moved verbatim to the end of the archive.
 - Everything formerly below this point (historical delivery records, phases 0-9, the old bug tracker, CR-001 through CR-121, the decision log and old session handoffs) was moved VERBATIM to [PROJECT_TODO_ARCHIVE.md](PROJECT_TODO_ARCHIVE.md) on 2026-10-02 at Dan's request, to keep this file small enough to read in full every round.
 - The archive is reference only. Unchecked boxes and "open/pending" labels inside it are superseded by the lists above; the latest explicit decision wins. Search it when a bug or rule needs history (known-good commits, earlier decisions, CR details). Do not delete it and do not append new work to it.
 - When this file grows again, move the oldest "Previous delivery" sections to the end of the archive, verbatim.
