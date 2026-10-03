@@ -10,7 +10,88 @@
 - Root AGENTS.md points future Codex tasks to both files.
 - From 2026-10-02 the coding agent is Claude Code. The same two files govern it; root CLAUDE.md (created in the 0.67 round) is its discovery pointer.
 
-## CURRENT — Lighting and atmosphere pass + 3-report follow-up + Free Roam landing — 0.71.0-review1 — DELIVERED, AWAITING DAN'S REVIEW
+## CURRENT — Time of day and weather + AI lost after jumps + 1 report — target 0.72.0-review1 — NOT STARTED
+
+- **Authorized by Dan (2026-10-03)** from debug session `2026-10-03_12-02-07-031_bc36a2` (CLOSED, exported as `..._bc36a2_f6f5231c.zip`; 1 report, captured on 0.71.0-review1 build `4f3fb34c`), his written request to investigate AI riders getting lost after big jumps, and his request to start the next feature. Folder with the full-size screenshot: `C:\Users\danmo\AppData\LocalLow\DefaultCompany\Racer\DebugReports\2026-10-03_12-02-07-031_bc36a2`.
+- **Dan is away for a few hours and wants this round to run unattended.** Every design decision needed is written below. Do not stop to ask about design; make the smallest reasonable choice, record it, and continue. Stop only for a real external blocker (rule 7).
+- **Starting point:** main `06f73ee9` (documentation commit; playable source `c022d3d6`, 0.71.0-review1 / game-71000). This TODO edit and the archive move are uncommitted and belong in the safety checkpoint.
+- **Scope is exactly Parts A–C below, in that order.** Verify A and B before starting C, so geometry/AI evidence is not mixed with the look change. Section 5A applies to all geometry.
+- **Dan accepted the 0.71 "Clear Day" look (2026-10-03): "looks good, definite improvement."** Build on it as delivered; do not retune it.
+
+### Part A — Free Roam terrain tear (1 report)
+
+- **BUG-001** Street Loop Forward, Free Roam (692.07, 79.81, 92.50), heading 28. "Clean this up." A dirt patch ahead of the bike is torn: overlapping grey slivers and a dark crack run across it, its left edge is a raw cut face, and pale faceted terrain pokes up beside it. It lies in or beside the area 0.71 reshaped when it removed the Homeward catch mound (check first, rule 5).
+- Replace with one clean, connected, collidable surface meeting the trail and the surrounding ground smoothly. Check the whole perimeter of the 0.71 reshaped box (launch-frame s 316–545, |x| ≤ 50 m) and the re-seated trails for the same kind of tear and fix what is found, listing each. Apply to all six Street-Loop-world scenes. The jump approach, lip and the open landing/run-out stay as delivered.
+
+### Part B — AI riders get lost after big jumps (Mountain Loop Forward and Reverse)
+
+- **Dan's report:** "It seems sometimes AI riders get lost after big jumps. On the first jump on Mountain Forward I have seen them land but then just disappear. At first I thought maybe they were resetting but I have seen it multiple times. I have seen them land on the second ramp multiple times. On Reverse I think it happens on the second big jump, because I can see them in front of me on the radar and they suddenly disappear."
+- **Dan's follow-up (2026-10-03), important:** he also sees AI come up short on the jumps, but separately he has watched AI riders **land exactly where they should and then disappear**. "Maybe resetting, but why if they landed successfully?" So there are two problems: failed jumps, and a recovery that fires on a rider who is fine.
+- **Lead for the "landed fine, then vanished" case (read from `Assets/Scripts/RoadDriver.cs`; confirm before changing):** `TrackRecoveryProgress` treats a car as off-route when it is not within `halfWidth + 3` m horizontally and 6 m vertically of the projected route point. It then fixes a `rejoinTarget` at that moment and counts `rejoinStuck` whenever the car is not getting at least 2 m closer to that fixed target. `racerStuck` fires after 5 s of that (`noProgress > 5 && trackingRejoin`) and calls `TryRecover` → `TryRecoverLocal`, i.e. the old earned-anchor placement. A long flight, or a landing on a deck where the route projection resolves to another level or a station far from the car (multi-level mountain, flight chord across a bend), can keep `near` false while the rider is flying and then riding correctly, so a healthy rider is teleported back a few seconds after landing. Check whether the projection used here (`DriveRoad.Project` vs tracked progress) is the cause, and log `near`, `trackingRejoin`, `rejoinStuck` and the projected station through each big jump.
+- A rider that is airborne, or that has landed and is moving forward along the route, must never be classed as stuck. Fix the detection, not only the place it recovers to.
+- **Already known from earlier rounds (likely the same thing):**
+  - Production AI stops at the Homeward deck in Forward (s 2316) and undershoots/stops at the South Face receiving deck in Reverse (s ≈ 1181–1183); both recorded as pre-existing since 0.63.
+  - 0.68 changed only the PLAYER reset to "nearest track point". AI recovery still uses the old earned-anchor selection, which 0.68 measured sending a vehicle to the start line (1,120 m back) after a Reverse South Face undershoot. A rival that is teleported far back would vanish from the minimap exactly as Dan describes.
+- **Investigate first, with real races, not a single harness line:** run Mountain Loop Forward and Reverse races with the normal AI field for several laps and log, for every AI at every big jump: takeoff speed, where it lands, whether it stops/wipes out, and every AI recovery (from position/station → to position/station, distance moved). Also confirm what the minimap does with a rival that is recovering, far away or classified by `AiFinishEstimate`. State plainly what causes the disappearance.
+- **Required outcome:**
+  1. **AI completes the main-route big jumps reliably** in both directions (target: at least 9 of 10 attempts per jump land and continue). Fix the actual cause in the AI's approach at those jumps (speed plan, line, throttle/brake points). Do not change jump geometry, landing geometry or anything the player drives on to achieve this, and do not retune AI globally.
+  2. **When an AI still fails, it recovers near where it failed**, using the same nearest-usable-track-point selection as the player (0.68 `RecoverNearest`), facing forward. It must not be sent far back and must not gain laps, gates or positions it has not earned.
+  3. A rival never silently vanishes from the minimap while it is still racing. If the marker is being hidden by something other than a teleport, fix that.
+- This is an explicitly authorized AI/recovery change (rule 6 exception), limited to the above. Race results, AI difficulty elsewhere and `AiFinishEstimate` classification rules stay as they are.
+- Evidence in `Docs/Report072/AI_JUMPS.md`: per-jump success table before and after, and recovery distances before and after.
+
+### Part C — NEW FEATURE: time of day and weather (visual only)
+
+Dan's decisions (2026-10-03), all final for this round:
+
+- Weather and time of day are **visual and audio only**. No grip, handling, AI or physics change. Lap/race records and ghosts stay in the same categories as today.
+- **Races:** time of day and weather are **options the player picks at race setup**. They stay fixed for the whole race.
+- **Free Roam:** a **live day-night cycle**, starting speed **1 real minute = 1 game hour** (24-minute day). Keep the speed as one clearly named value so it can be changed later.
+
+**What to build, on the 0.71 `WorldLook` / `LookPreset` system:**
+
+1. **Time-of-day presets:** Day (the existing Clear Day, unchanged), Dusk (warm low sun, long shadows), Night (moonlit, dark blue, stars). Night must be genuinely playable: a rider must be able to race every course at night.
+2. **Weather presets:** Clear, Rain, Snow. Each combines with each time of day (9 combinations).
+   - **Rain:** falling rain around the camera that reads at speed, overcast sky, heavier haze, darker wet-looking roads with stronger sheen, rain ambience audio on the Ambience bus.
+   - **Snow:** falling snow, pale overcast sky, white haze, and a snow tint on grass/terrain via the ground shader so the world reads as snow-covered; roads and trails stay distinguishable from the ground.
+   - No rain or snow inside the cave/tunnel sections.
+3. **Night support:**
+   - Headlights on the player vehicle, AI vehicles and traffic, lighting the road ahead; tail lights visible.
+   - Ground arrows, checkpoint gates and the next-gate marker stay clearly visible at night (emissive/unlit). Signs readable when headlights reach them.
+4. **Race setup UI:** two new options on the existing race setup screen, **Time of Day: Day / Dusk / Night** and **Weather: Clear / Rain / Snow**, default Day / Clear, remembered between sessions, working with controller, keyboard and mouse in the existing option style. No other menu changes.
+5. **Free Roam:** the cycle blends continuously through the presets (`LookPreset.Lerp`), starting at 08:00 each time Free Roam starts. Headlights switch on automatically when it gets dark. Show the game clock in the existing Free Roam HUD text. Add **Weather: Clear / Rain / Snow** to Free Roam start in the same option style, default Clear. The sun and moon should move smoothly; shadows must not flicker or pop.
+
+**Constraints:**
+
+- Day / Clear must look exactly as 0.71 delivered.
+- Readability first in every combination: arrows, gates, signs, minimap and HUD remain clear. Rain and snow must not hide the road ahead at racing speed.
+- No motion blur, depth of field, film grain, lens dirt or chromatic aberration.
+- **Performance at 3840×2160 (GTX 1660 Ti):** measure the same three views as 0.71 for Day/Clear, Night/Clear, Day/Rain, Night/Snow. Every combination must stay well above 60 fps; report the table. Headlights should be cheap (limit real-time shadow-casting lights; AI/traffic lights need not cast shadows).
+- Menus and garage are unaffected by race options (garage stays Clear Day).
+- Debug Mode: add the current time of day and weather to the debug HUD text and to each bug report's metadata (Markdown and JSON), so future reports show the conditions.
+
+**Evidence:** screenshots of all 9 combinations from one fixed view per course family (Street, Forest, Backyard, Mountain), plus cave/tunnel at night, in `Docs/Report072/Look/`; a short capture list of the Free Roam cycle at 08:00, 12:00, 18:00, 21:00, 00:00 and 05:00; the frame-rate table.
+
+**Rule 12:** one considered implementation, then stop. Dan judges the look and feel.
+
+### Verification for this round (targeted, rule 11)
+
+- Part A: before/after at the coordinate and each other tear found; one ride across each in Free Roam.
+- Part B: as described; plus one full 3-lap race in each Mountain direction after the change with final positions and no vanished rivals.
+- Part C: one short race at Night/Rain and one at Dusk/Snow on different course families (start, checkpoints, finish, results, records saved normally); Free Roam through one full dusk-to-night transition; options persist across relaunch; race setup navigation with controller and keyboard.
+- 5A.6 neighbour checks only where Part A or B touched something.
+- `Docs/Report072/VALIDATION.md` with a PASS/explained disposition per item.
+
+### Outstanding after this round (as of 2026-10-03)
+
+- Awaiting Dan: review of 0.72; recheck of the Reverse s 1583 bump.
+- From earlier results, not raised by Dan: the widest 32 m/s corner cut at the Climbing Ridge Cut entrance can cross into the far bank; the full-throttle line brushes the Downhill Ridge Cut berm; airborne riders at ~38 m/s can still clear the Homeward berm (race scenes); High Ridge Drop barrier is a suggestion only; remaining edge stations in `Docs/Report069/partA-remaining.txt`.
+- Open: CR-118 intermittent spoken-title clipping.
+- Possibly stale, needs Dan's yes/no: CR-010 slightly tighter steering.
+- Deferred: physical Steam Deck / controller / save-migration checks; friend test of the packaged build on another PC.
+- Later, not authorized: weather affecting grip; graphics upgrade steps 2–3 (vehicle/driver remodel, world scenery).
+
+## Previous delivery — Lighting and atmosphere pass + 3-report follow-up + Free Roam landing — 0.71.0-review1 — DELIVERED, CLEAR DAY LOOK ACCEPTED BY DAN (follow-ups in 0.72)
 
 - **DELIVERED:**
   - Source `c022d3d61c2c4a59cff612f8aaaafccd193860c5` pushed and verified on origin/main.
@@ -393,297 +474,6 @@ Dan asked in 0.68 for barriers after jumps that lead straight into a turn. These
 - Deferred: physical Steam Deck / controller / save-migration checks; friend test of the packaged build on another PC.
 - Backlog (not authorized): graphics upgrade; see FUTURE EXPANSION.
 
-## Previous delivery — Reset rule rewrite, fall-through safety, Mountain fixes, landing, barriers — 0.68.0-review1 — DELIVERED, ACCEPTED BY DAN 2026-10-02
-
-### Results (2026-10-02, Claude Code)
-
-- **Safety checkpoint:** `d2a196e3` (this TODO plan), pushed before any change. Version 0.68.0-review1 / build 68000. Evidence: [Docs/Report068/VALIDATION.md](Docs/Report068/VALIDATION.md); tools in `Tools/Report068/`; play-mode harness `Assets/Scripts/Report068ResetChecks.cs`.
-- **Part A — reset rule (Dan's standing decision) — PASS.**
-  - The cause matched the source reading: earned-anchor-only candidates, run-up samples rejected by jump exclusions, and an endless retry with no fallback.
-  - Reproduced on 0.67 code:
-    - off-track landing after the Homeward run-up → start marker (93–109 m);
-    - Reverse South Face undershoot → start line (1,120 m back);
-    - BUG-008 overshoots → 15–108 m back;
-    - Free Roam start / quit-race → fell through the world.
-    - The exact waiting loop was not reproduced by the harness; its cause is shown in the source.
-  - New `VehicleRespawn.RecoverNearest`: nearest route point around tracked progress, on the raced route (branch first), facing the race direction.
-    - It steps outward 2 m at a time, forward first.
-    - It never steps back across a ramp/flight exclusion it reached from outside, and never crosses START/FINISH.
-    - It always places, with last resorts of anywhere on the route, then the start position.
-    - The delay, validation, wipeout detection and checkpoints are unchanged.
-  - AI selection is unchanged, with the same guaranteed placement after 3 s of rejections. Free Roam can no longer hang.
-  - Failsafe below -15 in all scenes (immediate).
-  - Quit race seats the vehicle on validated ground.
-  - The start is seated on its support.
-  - All targeted cases restore in 0.80–0.83 s at the nearest usable point (2–44 m, mostly under 30 m), facing forward, with no waiting message. Failsafe 0.02 s.
-- **Fall-through holes:**
-  - Rule-5 comparison of every 0.67-modified ground mesh against 0.66: 0.67 created no voids.
-  - 0.67's visual-only seam covers hid bottomless or deep slots (up to ~1.1 m wide). These are 538 (Forward) and 2,050 (Reverse) triangles, including a cluster beside the Homeward landing where Dan overshot. All now have matching colliders.
-  - **BUG-009 root cause:** the Mountain Forward start marker was 1.49 m below the pavement with nothing under it (pre-dates 0.67). Raised; the code also seats any start on its support.
-  - The exact BUG-007 pass-through was not reproduced.
-- **Part B:**
-  - **BUG-003:** a 0.67 shoulder sheet lying on the pavement was tucked under it (69 vertices). The "blank board" is the back of "<<< SHORTCUT 2 / DOWNHILL RIDGE CUT", whose text already faces Reverse traffic (Dan was facing backwards); kept.
-  - **BUG-004:** sign removed.
-  - **BUG-005:** the 0.3–0.6 m pavement crease is now a smooth 20 m vertical curve. A 5 m blend still launched a 35 m/s bike; AI roll went from 81° to 1.4°. The arrow was reseated.
-  - **BUG-006:**
-    - Collidable shoulder from both pavement edges over the MountainCut cap (s 428–488); 459 shard vertices lowered under it.
-    - The "sky slab" is the back/underside of the OPTIONAL SHORTCUT / SUMMIT TRAVERSE sign; kept.
-- **Part C — BUG-008:**
-  - Measured: only ~33–36 m/s takeoffs land on the 17 m deck. Full-throttle moto/ATV land on the 167 m paved descent, which is already 9+ m wide each side, then meet the 68° left bend too fast.
-  - Approach, ramp, lip and deck are unchanged.
-  - The landing zone continues through the bend as a runout up to 15 m wide on the outside (s 2474–2545), bounded by the Part E berm.
-  - The clean line is clear. At 38 m/s airborne riders can still clear the berm; the new reset restores them at the bend. Dan judges the feel.
-- **Part D:** "END RACE / RETURN TO MENU" (confirm: "END RACE AND RETURN TO MENU?"). Text only; navigation unchanged.
-- **Part E** ([BARRIERS.md](Docs/Report068/BARRIERS.md)):
-  - Earth berms with an 85° rock inner face are built at:
-    - the Forward Homeward bend (2.4 m);
-    - the Reverse South Face bend;
-    - Reverse Downhill Ridge Cut (1.8 m).
-  - Clean lines are clear, except that the full-throttle line brushes the narrow Downhill Ridge Cut turn.
-  - No-steering overshoots are kept on track at the South Face and Downhill sites, and for the ATV at the Homeward bend.
-  - The High Ridge Drop berm (shortcut entrance) was removed after it touched the clean line; it is now a suggestion.
-- **Part F** ([ARROWS.md](Docs/Report068/ARROWS.md)):
-  - 538 → 302 arrows on all 8 courses: 146 inherited/off-course (72 Street Loop arrows in each Backyard scene), 10 duplicates, 80 repeated on straights.
-  - Every turn/fork/shortcut entry keeps guidance. 7 kept arrows were reseated flat.
-- **5A.6 neighbour checks** (moto + ATV) match 0.67:
-  - lower main route s 1460–1830;
-  - South Face jump from s 800 (known AI stop at 1180.9);
-  - Summit Traverse, both scenes;
-  - start area;
-  - Climbing / Downhill Ridge Cut throttle.
-  - The production AI stopping at the Homeward deck (s 2316) is confirmed identical on the 0.67 scene (pre-existing).
-- **Not changed:** the Reverse s 1583 bump (awaiting Dan); the Mountain Reverse world edge north of z ≈ 380 (outside every route; the failsafe covers it).
-- **DELIVERED:**
-  - Source `52393f8bbe7684f99060532b4b65108bdf5c62e4` pushed and verified on origin/main.
-  - Fresh 0.68.0-review1 Windows build: 0 errors, 20 warnings, 3m37s.
-  - Published [game-68000](https://github.com/danemoll-jpg/woodstock-rush-releases/releases/tag/game-68000). The known draft-lookup miss was resolved with `--resume-draft`.
-  - All 234 Latest files match the public signed manifest; public download, signature, install and startup pass.
-  - [Delivery evidence](Docs/Report068/PUBLICATION.md).
-- **Play-Racer.cmd (unchanged):** launched a responsive managed 68000, muted, with settings restored byte-for-byte; no pending updates. Latest root, current 68000 and previous 67000 retained.
-- **Cleanup:**
-  - Builds 9,733,604,882 → 7,713,741,731 bytes.
-  - C: free 299,698,380,800 bytes.
-  - All debug report history preserved.
-- **SESSION HANDOFF: STOP.** Wait for Dan's review of 0.68. A documentation-only delivery commit follows; playable source remains `52393f8b`.
-
-### Original scope (as planned)
-
-
-- **Authorized by Dan** from debug session `2026-10-02_13-02-35-687_63de1f` (CLOSED, exported as `..._63de1f_e068b7b8.zip`). Folder with full-size screenshots: `C:\Users\danmo\AppData\LocalLow\DefaultCompany\Racer\DebugReports\2026-10-02_13-02-35-687_63de1f`. READ every comment and LOOK at every screenshot before changing anything. If the folder is missing, ask Dan for the ZIP.
-- **Only BUG-003 to BUG-009 count.** BUG-001 and BUG-002 in that session were captured at 13:02–13:03 on the OLD 0.66 build (`34ba59b9`) while 0.67 was still being built; the session was then resumed by 0.67 (build `78170779`). Do not treat 001/002 as 0.67 failures. 001's sign is re-reported as BUG-004. 002 ("bad bump", Reverse main s 1583, 842.3/101.4/-115.1) was not re-reported on 0.67; Dan will recheck it. Do not change it this round.
-- **Starting point:** main `3debbe88` (documentation commit; playable source `abb1652d`, 0.67.0-review1 / game-67000). This TODO edit is uncommitted and belongs in the safety checkpoint.
-- **Scope is exactly Parts A–F below.** Section 5A applies to all geometry. Local fixes only.
-
-### Part A — Reset rule rewrite + nobody falls through the world (highest priority)
-
-**STANDING DESIGN DECISION — Dan, 2026-10-02 (supersedes the "accepted reset/recovery baseline" and the "earned sample only" behavior from CR-076 for the PLAYER):**
-
-> A reset puts the player on the **closest point of the track to where the vehicle is now, facing the correct race direction**. It must not send the player back over road already cleared. The wreck and the existing few-second delay are the whole punishment. A reset must **always** succeed; "Waiting for clear course support" must never be something the player sits and watches. Dan has asked for this several times without success. This is the fix that matters most this round.
-
-- **What happened (BUG-007 + BUG-008, Mountain Loop Forward):** Dan overshot the BUG-008 jump, landed far off the track, and pressed reset. He got "Waiting for clear course support — race clock continues" repeatedly, was never restored, and then fell through a hole, captured at (684.53, **-334.58**, 71.83), main s 2560.
-- **Why the current code does this (read from `Assets/Scripts/VehicleRespawn.cs`; confirm before changing):**
-  - `TryRecoverLocal` only considers the last *earned* anchor (`safeStation`) and older `history` samples behind it — "never nearest arbitrary ground". The vehicle's current position is used only for diagnostics.
-  - The anchor only advances while the vehicle is grounded, upright, inside the road width, facing and moving forward. During a jump `awaitingLanding` freezes it at the pre-ramp sample, and samples in launch/landing zones are rejected by `UnsafeJump`. After a missed jump the only candidates are therefore before the ramp, often far back, or all rejected.
-  - When every candidate is rejected it sets `Pending`, shows "Waiting for clear course support" and retries the **same** candidates every 0.5 s forever. There is no fallback and no fall-through protection.
-- **Required player behavior:**
-  1. **Target = nearest route point to the vehicle's current position**, on the route the player is racing (main, or the branch they are on), searched around the tracked progress (`trackingStation` / `ProjectNear`) so a multi-level mountain does not snap to an unrelated part of the lap above or below. Facing the route's forward direction for the active race direction (BUG-020 rule).
-  2. If that exact spot is unusable (unsupported, obstructed, inside a ramp/flight/landing exclusion), step outward along the route in small increments in **both** directions and take the nearest usable station. On a tie prefer forward. Do not jump back to a distant earned sample.
-  3. **Missed jumps:** the nearest usable station is normally at or just past the landing. Use it. Do not return the player to before the ramp or earlier. (Dan: "If you need to use it you are already being punished.")
-  4. **Guaranteed result:** the search is bounded in time (well under the current visible wait) and must end with a placement. Last resort order: nearest usable station anywhere on the current route → start position. The waiting message must not persist or repeat.
-  5. Checkpoints/penalties are NOT changed: if the nearest point is past a missed gate, the existing missed-checkpoint penalty rules apply as they do today. Reset must not itself award laps.
-  6. Keep the existing delay, the support/clearance validation of the chosen spot, and traffic/other-racer occupancy checks.
-- **AI and Free Roam:** leave AI recovery selection as it is, but give it the same "never wait forever" fallback. Free Roam reset keeps its current nearest-road behavior; make sure it also cannot hang.
-- **Fall-through protection (BUG-007, BUG-009):**
-  - **BUG-009** Mountain Loop Forward (728.22, 80.69, -10.35), main s 2635: on stopping/quitting the race here Dan fell through the world. Leaving a race (quit / end race / handoff to Free Roam) must place the vehicle on the nearest validated solid ground with full clearance.
-  - **Failsafe, all scenes:** any vehicle that drops well below the world is recovered immediately through the rule above. Nobody falls indefinitely.
-  - **Find and close the real hole(s).** Likely a 0.67 regression — check first (rule 5): 0.67 added "collider-free seam covers" (Forward 170 runs, Reverse 467 runs) and lowered terrain under pavement. A surface that looks solid but has no collider breaks rule 4. Inspect the ground around where Dan left the track after the BUG-008 jump and above x≈684, z≈72, and s 2560–2640 in the Forward scene. Then audit every 0.67 seam cover in both Mountain scenes: anywhere a vehicle can reach must have solid collision under it or be physically unreachable. Fix locally; list what was fixed.
-- This is an explicitly authorized change to the recovery system (rule 6 exception). Change target selection and the fallback only; do not retune physics, wipeout detection, the delay, or checkpoint logic. All tracks benefit, but verify per the list below, not with a full matrix.
-
-### Part B — Mountain Loop Reverse geometry and signs
-
-- **BUG-003** (814.16, 95.49, -171.39) main s 1507, heading 176 — "fix this". Visible defects: green terrain sheets/wedges lying across the pavement at right and ahead-right with a torn terrain edge beside the gold-arrow branch entry, and a blank dark sign board (no readable face from the route) left of centre near the gate. Clean the terrain off the driving surface and close the torn edge. The blank board: turn its text toward approaching Reverse traffic if it carries useful information, otherwise remove it (standing sign principle). *Dan's comment was not specific; if he corrects this reading, his correction wins.*
-- **BUG-004** (810.26, 95.43, -159.19) main s 1523, heading 347 — REMOVE the "OLD CUT CLOSED / MAIN ROUTE >>>" sign and post.
-- **BUG-005** (744.70, 85.84, -113.38) main s 2966, heading 148 — "fix". A raised lip/step runs diagonally across the pavement and a teal arrow is cut by it (part of the arrow appears as a detached square beyond the lip). Remove the step so the pavement is one smooth surface and reseat the arrow flat on it.
-- **BUG-006** (1005.11, 162.65, 121.37) main s 457, heading 7 — "eliminate this gap... at least cover it up (might have to be race only change)". The pavement sits above the terrain with a visible dark gap under its left edge, sharp terrain shards poke up around both edges, and a very large dark flat slab hangs in the sky ahead. Close the gap with collidable, grounded support (see Part A: no visual-only covers where a vehicle can reach), remove the shards, and identify the slab: if it is stray geometry, remove it. If any of this is part of a protected jump/flight system or a Free Roam feature, cover it for Race only, as Dan allows.
-
-### Part C — Mountain Loop Forward landing
-
-- **BUG-008** (802.79, 177.67, 90.57) main s 2379, captured airborne at 65.9 mph, heading 250. Dan: the landing area should be larger, or the jump scaled down a little; he almost always carries too much momentum to hit the landing, and he **prefers to keep the jump**.
-- Leave the approach, ramp and lip unchanged. Enlarge the landing zone (longer and, if needed, wider) so a full-throttle motorcycle and ATV land on it, with grounded support and matching colliders, and a clean continuation to the route. Only if a larger landing cannot fit without breaking neighboring protected routes, propose the smallest ramp reduction instead and say why.
-- This is a Dan-requested change to a protected jump, limited to its landing/recovery. One implementation, verified at full throttle and at a moderate speed; then stop (rule 12). Dan judges the feel.
-
-### Part D — Pause menu wording
-
-- **BUG-009 (second half):** in the in-race menu it is not obvious which option leaves the race. Label that option clearly, e.g. **"End Race / Return to Menu"**. Text and, if needed, button width only; no menu redesign. Controller and keyboard navigation unchanged.
-
-### Part E — Guardrails / natural barriers after jumps (Mountain Loop Forward and Reverse only)
-
-- **Dan's request:** add guardrails or natural formations at the more perilous places to keep riders from flying off the track, **particularly where a jump is followed immediately by a turn**. Mountain tracks only.
-- First list every Mountain jump (main and branches, both directions) whose landing is followed by a turn or a drop-off within the distance a full-speed landing needs to settle. Put the list with coordinates in `Docs/Report068/BARRIERS.md`.
-- At those places add a barrier on the OUTSIDE of the post-landing turn / exposed edge. Prefer natural formations that match the mountain (rock outcrops, boulder lines, earth berms); a simple guardrail is fine where rock would look wrong. Grounded, with matching colliders, tall enough to stop a motorcycle and an ATV, shaped to deflect along the road instead of stopping a vehicle dead or launching it.
-- Barriers must not intrude into the driving width, the jump's flight corridor, any shortcut entrance/exit, lower routes or tunnels (5A.4/5A.5). Do not fence the whole mountain: only the listed post-jump places. Other perilous spots you notice go in the list as SUGGESTIONS for Dan, not built.
-- Verify each new barrier with one full-throttle motorcycle and one ATV pass: the clean line is unobstructed, and an overshoot is kept on the track.
-
-### Part F — Remove redundant ground arrows (all courses)
-
-- **Dan, 2026-10-02:** the game "goes a little crazy with the arrows"; redundant arrows may be removed. If a removal bothers him he will ask for it back.
-- Remove:
-  - arrows inherited from another course that do not belong to the active route, starting with the ~75 inherited Street Loop arrows in Backyard Forward listed in the 0.67 author notes;
-  - arrows that duplicate another arrow or a Route Atlas arrow for the same instruction within a short distance;
-  - arrows that point the wrong way for the active direction;
-  - strings of repeated arrows on stretches with no turn, fork or other decision (keep at most an occasional reassurance arrow on long unclear stretches).
-- Keep: arrows before turns, forks and confusing junctions; shortcut entry and rejoin arrows (gold) and the main-route arrow that distinguishes them; arrows Dan asked for in earlier rounds (e.g. the 0.67 BUG-020 straight arrow).
-- Arrows only. No signs, gates, minimap, route lines or wrong-way guidance changes. Any arrow kept must sit flat on the pavement (0.67 BUG-006 rule).
-- Record per course and direction: count before, count after, and the removed arrows with coordinates in `Docs/Report068/ARROWS.md`, so any single removal can be reversed. Verification: one pass per changed course/direction confirming every turn, fork and shortcut entry still has guidance. No lap matrix.
-
-### Verification for this round (targeted, rule 11)
-
-- Part A reset rule: first reproduce on 0.67 (overshoot the BUG-008 jump, land off-track, reset → waiting message). Then show, with before/after station and distance for each case: overshoot of the BUG-008 jump; a missed Reverse jump; off the side of an elevated Mountain road; upside-down on the road; off-track on one non-Mountain course (Backyard ramp at 0.67 BUG-020). Each must restore within the normal delay, at the nearest usable track point, facing forward, with no waiting loop and no long setback.
-- Part A fall-through: reproduce both on 0.67, then show them fixed; failsafe test by placing a vehicle below the world in one race and one Free Roam scene; quit-race placement at BUG-009's location and one elevated-road location.
-- Before/after view at each of the seven coordinates with a PASS/explained disposition in `Docs/Report068/VALIDATION.md`.
-- 5A.6 neighbor checks around every geometry change, including the 0.66/0.67 protected features that are nearby (lower main route tunnel, South Face Summit jump, Summit Traverse, Ridge Cut jumps). Motorcycle + ATV through each changed corridor; no broad matrix.
-
-### Outstanding after this round (as of 2026-10-02)
-
-- Awaiting Dan: gameplay review of 0.68 (the reset feel, BUG-008 landing/runout and the three berms); recheck of the Reverse s 1583 bump on the current build.
-- From 0.68 testing, not built: barrier suggestions in BARRIERS.md (High Ridge Drop entrance, Eastbound Gully bend, Reverse High Ridge Drop); Homeward airborne overshoots of 38 m/s or more clear the bend berm; production AI stops at the Homeward deck (pre-existing, same class as South Face).
-- From the 0.67 results, not yet raised by Dan: 74 Reverse intrusion samples; jagged pavement outlines.
-- Open: CR-118 intermittent spoken-title clipping. Known limitation: production AI undershoots the South Face receiving deck (since 0.63).
-- Possibly stale, needs Dan's yes/no: CR-010 slightly tighter steering.
-- Deferred: physical Steam Deck / controller / save-migration checks; friend test of the packaged build on another PC.
-- Backlog (not authorized): graphics upgrade; see FUTURE EXPANSION.
-
-## Previous delivery — 20-report cleanup + Debug session persistence — 0.67.0-review1 — DELIVERED
-
-### Results (2026-10-02, Claude Code)
-
-- **Safety checkpoint:** `8d93f31a` (TODO plan + PROJECT_TODO_ARCHIVE.md committed and pushed before any change). Version 0.67.0-review1 / build 67000.
-- **Part A — PASS.** The cause matched the source reading.
-  - New `DebugReportSession.ResumeLatest`, read-only, resumes the newest session folder if it is OPEN, has reports and its JSON is readable with a matching ID. Otherwise the next F4 starts a new session.
-  - `DeveloperLocationHud` resolves this once per launch.
-  - 20/20 focused checks PASS (`DebugSessionPersistenceChecks`): relaunch → BUG-003 in the same folder, scene reload, export → NEW, confirmed new session → NEW, corrupt json → NEW with the folder byte-identical, older orphan not resumed, history byte-identical.
-  - DEBUG_MODE.md updated.
-  - Dan's `..._547472` was closed via `DebugReportSession.Close()` (close without export; 20 reports + 20 screenshots kept).
-  - **Discovery:** a newer OPEN session `2026-10-02_13-02-35-687_63de1f` (2 reports, created by installed 0.66 at 13:02 during this round) exists; it was left untouched, and 0.67 will resume it.
-- **Part B:** all 20 handled; dispositions in [Docs/Report067/VALIDATION.md](Docs/Report067/VALIDATION.md).
-  - **Shared cause behind BUG-002 and the s 1576 launch:** the vehicle body dips below the pavement and struck 0.64 voxel terrain lying 0.5–1.2 m under it. Fixed locally by lowering terrain vertices under pavement to 1.2 m below it (barriers excluded). The arrow had no collider.
-  - **BUG-006:** legacy CR120/121 arrows were 1–3.7 m above the regraded pavement. They were hidden where they duplicate Route Atlas arrows, and draped elsewhere.
-  - **BUG-007/008:** collider-free seam cover for see-through edge gaps; sloped shoulders where a jagged edge steps straight down; pavement shelf at s 1614–1617 regraded (≤0.16 m, top layer only).
-  - **BUG-009/010:** connected South Face hillside with a tunnel around the protected lower-route clearance.
-  - **Signs and objects:**
-    - BUG-004, BUG-005 and BUG-013 signs removed.
-    - BUG-003 and BUG-014 signs reseated.
-    - BUG-011 spheres became faceted rocks with colliders.
-    - BUG-001 cairn grounded in all 8 scenes.
-    - BUG-019 inherited Street Loop arrow removed.
-    - BUG-020 route polyline aligned to the run-up, fixing both the arrow and the reset heading.
-  - **Partial / explained:**
-    - BUG-001 faint flat-area shading;
-    - BUG-016 grey slab is pavement material;
-    - BUG-018 pale band is the trail's own driving-surface material (553 buried duplicate triangles removed);
-    - jagged pavement outlines remain (gaps behind them closed).
-- **Part C:** flagged edge stations, Forward 207→92 and Reverse 408→143.
-  - The remainder are protected jump/flight systems, multi-level routes, tunnel faces, or steep but continuous embankments under raised berms.
-  - Shoulders: Forward 18 runs / 604 stations; Reverse 32 runs / 1,238 stations. Seam covers: Forward 170 runs; Reverse 467 runs. Coordinates are in `Docs/Report067/partC-*.txt`.
-- **5A.6 checks (moto + ATV, muted):**
-  - Reverse s 1540–1830 went from 110° rolls / minUp −0.34 to 0° / 0.93.
-  - Unchanged from 0.66: South Face jump, Summit Traverse (both directions), Downhill and Climbing Ridge Cut jumps, and the known AI South Face undershoot at 1180.9.
-  - Backyard ramp: AI moto recovery removed. The ATV lands harder on the corrected straight line (roll 23–37°), but completes with no reset.
-- **Tools:** kept in `Tools/Report067/` (authoring, probes, drive harness, release pipeline). Root `CLAUDE.md` created.
-- **Remaining limitations:**
-  - The items above;
-  - 74 Reverse intrusion samples (barrier rocks and edge slivers);
-  - ~75 other inherited Street Loop arrows in Backyard Forward (listed in author-notes for Dan);
-  - production AI South Face undershoot (since 0.63).
-
-- **DELIVERED:**
-  - Source `abb1652d5cf9a5a731d4eff751bf703bd7893822` pushed and verified on origin/main.
-  - Fresh 0.67.0-review1 Windows build: 0 errors, 20 warnings, 3m52s.
-  - Published [game-67000](https://github.com/danemoll-jpg/woodstock-rush-releases/releases/tag/game-67000). The known draft-lookup miss was resolved with `--resume-draft`.
-  - All 232 Latest files match the public signed manifest; public download, signature, install and startup pass.
-  - [Delivery evidence](Docs/Report067/PUBLICATION.md).
-- **Play-Racer.cmd (unchanged):** launched a responsive managed 67000, muted, with settings restored byte-for-byte; no pending updates. Latest root, current 67000 and previous 66000 retained.
-- **Cleanup:**
-  - Builds 9,712,075,132 → 7,696,949,672 bytes.
-  - C: free 301,155,147,776 bytes.
-  - All debug report history preserved.
-- **SESSION HANDOFF: STOP.** Wait for Dan's review of 0.67. A documentation-only delivery commit follows; playable source remains `abb1652d`.
-
-### Original scope (as planned)
-
-**Tooling change (Dan, 2026-10-02):** development moves from Codex to Claude Code. CODEX_RULES.md keeps its filename and applies unchanged; wherever it says "Codex", read "the coding agent". Planning, bug triage and this TODO section were prepared in Claude chat; implementation is done by Claude Code in this repository.
-
-- **Authorized by Dan** from debug session `2026-10-02_03-04-39-449_547472` (20 reports, build 0.66.0-review1 / `34ba59b9b198412590505861745fcd79`) plus his written report of the Debug session bug. Original folder with full-size screenshots: `C:\Users\danmo\AppData\LocalLow\DefaultCompany\Racer\DebugReports\2026-10-02_03-04-39-449_547472` (BUG_REPORT.md, bugs.json, Screenshots\BUG-001..020.png). READ every comment and LOOK at every screenshot before changing anything. If the folder is missing, ask Dan for the ZIP; do not work from this summary alone.
-- **Starting point:** main `c6432b12` (documentation commit; playable source `eec4e911`, 0.66.0-review1 / game-66000). The TODO edits and the new PROJECT_TODO_ARCHIVE.md are uncommitted and belong in the safety checkpoint.
-- **Scope is exactly Part A + Part B + Part C below.** No other tracks, physics, AI, recovery system, UI, audio or route redesign. Coordinates are authoritative (rule 5). Section 5A applies to every geometry item: the 0.64 broad terrain regeneration is what caused the 0.65/0.66 regressions, so make LOCAL mesh/terrain corrections only and do not re-run or extend `Tools/Author-SolidReportTerrain.cs` over an area.
-- **0.66 BUG-001/002 (lower main route sheets, South Face Summit jump) were verified by Dan on 2026-10-02.** Both are accepted, protected features; do not alter them.
-
-### Part A — Debug session must survive quitting the game
-
-- **Dan's report:** exiting the game ends the current debug session. It must stay open until he presses the export (ZIP) button.
-- **Evidence:** BUG-001 screenshot of this session shows `Session: NEW / Reports 0` at first capture after launch, and bugs.json on disk is still `closed:false, exported:false`.
-- **Cause found by reading source (confirm before fixing):** `DeveloperLocationHud` holds the session only in `static DebugReportSession session`. Nothing reloads it at startup, so after a relaunch `EnsureSession()` creates a new folder and the previous OPEN session is orphaned on disk. `DebugReportSession` has no constructor that loads an existing folder.
-- **Required behavior:** on first use after launch, resume the most recently started session under `persistentDataPath/DebugReports` that is OPEN (`closed:false`) and has at least one report; continue its numbering (next F4 = next BUG number), HUD/menu show its ID, OPEN state and count. A session ends ONLY by successful Export, or by START NEW DEBUG SESSION with its existing confirmation. Scene/track changes, returning to the main menu, quitting and relaunching must not end it. Unreadable/corrupt bugs.json: leave that folder untouched and start a new session. Never delete or rewrite history.
-- Older orphaned OPEN sessions (one is created by every earlier quit) are left untouched; only the newest is resumed.
-- **Session `..._547472` itself:** Dan has already zipped and delivered it. After its contents are processed, mark it CLOSED through the same code path as "close without export" (files preserved) so the new build does not resume a 20-report session he has already handed over. Report this in the final report.
-- Update `Docs/DebugReporting/DEBUG_MODE.md`. Targeted checks only: capture -> quit -> relaunch -> next capture continues same session/number; export -> relaunch -> NEW; new-session-confirm -> relaunch -> NEW; corrupt json -> NEW with old folder untouched.
-
-### Part B — 20 reports (Unity XYZ; s = road progress in metres)
-
-Street Loop — Forward (scene StreetLoopGreybox), Free Roam:
-- **BUG-001** (314.69, 9.14, 538.04) heading 236.5 — "put cairn on ground". Stone cairn about 8–10 m ahead of the camera floats above the grass slope, over a paler flat rectangular patch. Ground the cairn (and its collider); remove/blend the patch if it is a leftover pad. It is an acorn-clue cairn (`DiscoveryDetails.cs`), so check whether the same cairn appears in other scenes of the shared world.
-
-Mountain Loop — Reverse (scene MountainLoopReverse), Race:
-- **BUG-002** (746.32, 90.97, 64.20) main s 136 — "something causes bikes to flip sometimes (could it be the arrow)". Large teal ground arrow on the climb. DIAGNOSE FIRST: does the arrow (or anything at this station) have a collider or raised geometry, or is there a pavement seam/step? Check Git history for when it changed. Fix the actual cause. If it cannot be reproduced or identified in a bounded investigation, change nothing here and say so (rules 11/12).
-- **BUG-003** (921.90, 156.89, 155.56) main s 369 — brown SUMMIT sign beside the road is sunk too low / half hidden. Reseat it at a readable grounded height. (Dan allowed "or only show in Free Roam"; it would still be too low there, so fix the height. Hiding it during races as well is acceptable.)
-- **BUG-004** (948.03, 165.14, 147.70) main s 397 — REMOVE the left-hand sign "<<< MAIN ROUTE / LEFT TO FULL RUN-UP". Keep the "OPTIONAL SHORTCUT / SUMMIT TRAVERSE" sign and the gate ahead.
-- **BUG-005** (999.75, 161.76, 89.38) main s 953 — REMOVE the "SUMMIT CAMP / Look for the cairns" sign and its post. The large boulder floating above the slope to the right must lie on the ground. Small cairn at the sign base stays, grounded.
-- **BUG-006** (815.51, 96.64, -148.82) main s 1535 — teal direction arrows float above the road and cast shadows; Dan thinks they are not always there. Find why they are intermittent and why they are off the surface, then seat every arrow on this stretch (through BUG-007/008, where the same floating arrows are visible) on the final pavement.
-- **BUG-007** (825.20, 99.93, -117.54) main s 1567 — sawtooth hole between the left road edge and the terrain, before the "Fern Creek Leap" sign. Close it, and close any other road-edge/terrain gaps of the same kind found by the Part C sweep.
-- **BUG-008** (846.63, 102.07, -110.01) main s 1589 — "smooth the bump" in the pavement just ahead. Local grade smoothing only; the Fern Creek Leap jump system is protected (5A.5). Jagged pavement edges and holes on both sides here belong to BUG-007.
-- **BUG-009** (985.35, 131.97, -106.06) main s 1734 — a mountainside is missing: the right road edge drops into open void and a terrain slab hangs overhead at upper left.
-- **BUG-010** (987.86, 132.40, -92.78) main s 1739, heading 37 — same area: the upper road is a thin unsupported ribbon over open space, with vertical green curtain faces. **BUG-009/010 are inside the 0.66 BUG-001 repair zone (lower main route under the South Face receiving road, s 1713–1766).** Build real, connected mountain support/hillside AROUND the lower-route clearance volume and the South Face flight corridor. Do not re-block the lower route (5A.4). Re-run the 0.66 traversals afterwards.
-- **BUG-011** (1046.89, 150.85, 24.40) Summit Traverse 110.65 m, heading 208.9 — pale rounded grey shapes float beside the road edge. Make them read as real rocks/boulders and ground them with matching colliders.
-- **BUG-012** (1006.88, 137.03, -63.03) Summit Traverse 218.80 m — floating road. "Fix here and wherever else there are floating roads" — see Part C.
-- **BUG-013** (785.35, 96.00, -184.02) Downhill Ridge Cut 34.39 m — REMOVE the "SHORTCUT JUMP / STRAIGHT / CLEAR THE MAIN ROAD" sign and post. Ramp and orange arrows unchanged.
-- **BUG-014** (701.91, 82.64, -104.54) Downhill Ridge Cut 150.60 m — "MOUNTAIN TRAILS / Creek ascent / Ridge return" sign sits low on the driving surface. Move it off the pavement to a grounded, readable roadside position, or show it only in Free Roam; simplest wins.
-
-Mountain Loop — Forward (scene MountainLoop), Race:
-- **BUG-015** (1371.13, 101.15, -236.74) main s 786 — floating road; gap/translucent support along the left edge.
-- **BUG-016** (731.26, 92.21, 32.30) Summit Traverse 294.59 m — floating road; unsupported grey slab along the left edge.
-- **BUG-017** (963.81, 154.28, 97.12) Summit Traverse 48.21 m — more floating road; the road ribbon is visible from below/aside with nothing under it.
-- **BUG-018** (731.44, 79.66, -26.64) main s 2653, heading 263 — "mesh mess": overlapping terrain sheets, slivers and a z-fighting pale patch where the trails meet near the lake. Replace with one clean connected surface; road lines, gates and the junction layout unchanged.
-
-Dan's Backyard Loop — Forward (scene DansBackyardForward), Race:
-- **BUG-019** (469.23, 80.94, 3.13) main s 0.87 — REMOVE the teal arrow on the road here; it points the wrong way.
-- **BUG-020** (68.18, 45.08, 61.54) main s 737.90, heading 75 — the arrow here should point straight along the trail. Also, resetting here leaves Dan facing the same skewed direction as the arrow at the edge of the ramp; per CR-076 a reset must face the correct local route direction. Find the shared cause (likely the tangent/heading both are derived from at this station) and fix it locally. Do not retune the recovery system globally. The ramp is a protected jump.
-
-### Part C — bounded sweep for the two "everywhere else" requests
-
-- Dan asked for "whatever other gaps you find" (BUG-007) and "wherever else there are floating roads" (BUG-012). Scope: Mountain Loop main route and all Mountain branches, both direction scenes. Use the existing support-probe tooling to list unsupported pavement and road-edge gaps, fix each LOCALLY, and record the list with coordinates. Where Forward and Reverse share geometry, apply each fix to both scenes.
-- Multi-level clearance first (5A.4): intentional flight gaps, tunnels, underpasses and lower routes are NOT floating roads. Do not fill them.
-- Other tracks are out of scope for the sweep.
-
-### Verification for this round (targeted, rule 11)
-
-- Before/after view at each of the 20 coordinates, with a PASS/explained disposition per bug in `Docs/Report067/VALIDATION.md`.
-- 5A.6 neighbor check for every geometry change, covering at minimum: lower main route s 1600–1820 and the South Face Summit jump (0.66 results must still hold), Fern Creek Leap, Summit Traverse entry/rejoin, Downhill Ridge Cut jump, Backyard ramp at BUG-020. Motorcycle + ATV through each changed corridor; no broad matrix.
-- Part A checks as listed above.
-
-### Also in this round (housekeeping)
-
-- Create root `CLAUDE.md` with the same content/purpose as `AGENTS.md` (read CODEX_RULES.md, then PROJECT_TODO.md, before any change). Leave AGENTS.md and CODEX_RULES.md as they are.
-- At completion, update this section with the actual results per rule 13, then build, publish and verify per rules 14–26.
-
-### Outstanding after this round (as of 2026-10-02)
-
-- Awaiting Dan: gameplay review of this round (0.67.0-review1). Dan has an open 0.66 debug session `2026-10-02_13-02-35-687_63de1f` (2 reports) that 0.67 will resume.
-- Open: CR-118 intermittent spoken-title clipping. Known limitation: production AI undershoots the South Face receiving deck at ~35.8 m/s (unchanged since 0.63).
-- Closed by Dan on 2026-10-02: 0.66 BUG-001/002 verified; CR-087 (Trickum ramp) complete; separate lake/woodland circuit (CR-040) complete.
-- Possibly stale, needs Dan's yes/no: CR-010 slightly tighter steering ("non-blocking follow-up" in the archive).
-- Deferred: physical Steam Deck / controller / save-migration checks; friend test of the packaged build on another PC.
-- Future expansion and Someday lists below are unchanged.
-
 ## Previous delivery — Project cleanup and Mountain polish — 0.61.0-review1
 
 The following records the previous 0.61 delivery. Its polish acceptance is superseded by the urgent regression correction above; older completed backlog decisions remain closed.
@@ -698,7 +488,7 @@ The following records the previous 0.61 delivery. Its polish acceptance is super
 
 ### FUTURE EXPANSION
 
-- **Time of day and weather (added by Dan 2026-10-03; planned as the next feature, not authorized yet).** Built as additional presets on the 0.71 look system. **Dan's decisions (2026-10-03):** (1) weather is VISUAL ONLY to start: no grip/handling change, so records and ghosts stay comparable; (2) RACES use one fixed time of day per race (at least at first), no change during a race; (3) FREE ROAM / open world gets a live day-night cycle. Night needs vehicle headlights and readable arrows/gates/signs. Rain: particles, darker sky, fog, wet-look road, rain audio. Snow: particles plus a white ground tint. (4) In RACES, time of day and weather are an OPTION the player picks at race setup. (5) FREE ROAM cycle speed starts at 1 real minute = 1 game hour (a full day in 24 minutes); Dan will adjust after trying it. Make the speed a single easily changed value.
+- **Time of day and weather (added by Dan 2026-10-03; AUTHORIZED as 0.72 Part C).** Built as additional presets on the 0.71 look system. **Dan's decisions (2026-10-03):** (1) weather is VISUAL ONLY to start: no grip/handling change, so records and ghosts stay comparable; (2) RACES use one fixed time of day per race (at least at first), no change during a race; (3) FREE ROAM / open world gets a live day-night cycle. Night needs vehicle headlights and readable arrows/gates/signs. Rain: particles, darker sky, fog, wet-look road, rain audio. Snow: particles plus a white ground tint. (4) In RACES, time of day and weather are an OPTION the player picks at race setup. (5) FREE ROAM cycle speed starts at 1 real minute = 1 game hour (a full day in 24 minutes); Dan will adjust after trying it. Make the speed a single easily changed value.
 - **Graphics upgrade (added by Dan 2026-10-02).** Step 1, lighting and atmosphere, is authorized as 0.71 Part C; steps 2–3 below are not authorized yet. Minimum goal: better-looking vehicles and drivers. Dan has Blender installed. Suggested order when scheduled: (1) lighting/post-processing/material pass in the existing URP setup; (2) one pilot vehicle + driver remodel for Dan's approval before doing the rest; (3) world/scenery later, if wanted. Must preserve vehicle colliders, handling, camera clearance, color selection and driver/vehicle identity. Free CC0 assets may be proposed; no paid assets without Dan's approval.
 - New Trickum-area course.
 - Dedicated stunt track.
@@ -718,6 +508,7 @@ The following records the previous 0.61 delivery. Its polish acceptance is super
 
 ### COMPLETED / ACCEPTED
 
+- Per Dan, 2026-10-03: the 0.71 Clear Day look is accepted ("definite improvement").
 - Per Dan, 2026-10-02: 0.68.0-review1 accepted and closed, including the player reset rule (nearest track point, facing forward, always succeeds). Reopen only if Dan raises it.
 - Per Dan, 2026-10-02: 0.66 BUG-001 (lower main route) and BUG-002 (South Face Summit jump) verified; CR-087 Trickum ramp complete; separate lake/woodland circuit (CR-040) complete. Do not reopen without Dan's request.
 - Dan's Backyard Loop Forward and Reverse accepted. The old back-property dirt trail / gully concept became this course and is complete, not a future track.
@@ -729,6 +520,7 @@ The following records the previous 0.61 delivery. Its polish acceptance is super
 
 ## History archive
 
+- 2026-10-03 (third move): the 0.67 and 0.68 "Previous delivery" sections were moved verbatim to the end of the archive.
 - 2026-10-02 (second move): the 0.62–0.66 "Previous delivery" sections were moved verbatim to the end of the archive.
 - Everything formerly below this point (historical delivery records, phases 0-9, the old bug tracker, CR-001 through CR-121, the decision log and old session handoffs) was moved VERBATIM to [PROJECT_TODO_ARCHIVE.md](PROJECT_TODO_ARCHIVE.md) on 2026-10-02 at Dan's request, to keep this file small enough to read in full every round.
 - The archive is reference only. Unchecked boxes and "open/pending" labels inside it are superseded by the lists above; the latest explicit decision wins. Search it when a bug or rule needs history (known-good commits, earlier decisions, CR details). Do not delete it and do not append new work to it.
