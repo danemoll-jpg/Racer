@@ -10,7 +10,72 @@
 - Root AGENTS.md points future Codex tasks to both files.
 - From 2026-10-02 the coding agent is Claude Code. The same two files govern it; root CLAUDE.md (created in the 0.67 round) is its discovery pointer.
 
-## CURRENT — 9-report follow-up: quit confirmation, Free Roam mountain path, taller crest barrier, campsite, smoothing — 0.70.0-review1 — DELIVERED, AWAITING DAN'S REVIEW
+## CURRENT — Lighting and atmosphere pass + 3-report follow-up + Free Roam landing — target 0.71.0-review1 — NOT STARTED
+
+- **Authorized by Dan** from debug session `2026-10-03_00-37-35-649_a733ff` (CLOSED, exported as `..._a733ff_54e5751c.zip`) plus his written decision on 0.70 Part B. All 3 reports were captured on 0.70.0-review1 (build `25ce7af3`). Folder with full-size screenshots: `C:\Users\danmo\AppData\LocalLow\DefaultCompany\Racer\DebugReports\2026-10-03_00-37-35-649_a733ff`. READ every comment and LOOK at every screenshot before changing anything. If the folder is missing, ask Dan for the ZIP.
+- **Dan's review of 0.70:** "No problems on the Reverse track and just a couple on the [Forward] track." Mountain Loop Reverse is clean as of 0.70, including the 12 m crest outcrop. Do not change Mountain Reverse this round except where a shared mesh requires the same fix.
+- **Starting point:** main `a5b2ebaa` (documentation commit; playable source `459f3f87`, 0.70.0-review1 / game-70000). This TODO edit is uncommitted and belongs in the safety checkpoint.
+- **Scope is exactly Parts A–C below.** Section 5A applies to all geometry. Keep changes local. Do Parts A and B first and verify them before Part C, so geometry evidence is not mixed with the look change.
+
+### Part A — Free Roam: replace the Homeward catch mound with a flat, open landing (Dan's decision on 0.70 Part B)
+
+- 0.70 found that the Free Roam obstruction (0.70 BUG-001 at (895.79, 151.05, 154.34) and BUG-002 at (761.93, 109.29, 80.45)) is the **catch landing of the Summit Homeward Flight giant jump** (CR-094/CR-103, `Ground_CR103 smooth landing` plus its shaped terrain), and stopped for Dan's decision.
+- **Dan's decision (2026-10-03):** the mound is not necessary. "I wanted something that would let me jump really far. If it is getting in the way of me jumping even further then just give me a flat area where it isn't blocking the main path."
+- **Required, Free Roam world only:**
+  1. **Keep the jump** (approach, launch ramp, lip) exactly as it is. The point of this feature is a very long jump.
+  2. **Remove the raised catch mound.** Replace it with natural ground at the surrounding terrain level: a broad, flat, open, obstacle-free landing/run-out along the flight line, long enough that a full-throttle motorcycle and ATV land on it and can keep rolling. Nothing should stop the flight short; a longer jump than before is the desired result.
+  3. **The straight path up the mountain is open again** between the two 0.70 positions, rideable in both directions. The landing area must not sit across that path as an obstacle.
+  4. Ground left behind is continuous, supported and collidable (rule 4): re-ground trees, rocks, signs and props that stood on or against the mound; no holes, floating objects or exposed undersides.
+  5. Jump activity scoring/records for this jump keep working (distance should now be able to read higher). If a sign or landmark text describes the catch landing, update the wording; do not add new signs.
+- **Races are untouched.** The mound is already inactive in both Mountain race scenes; confirm that and confirm those scenes are byte-identical in this area after the change.
+- Verify: three full-throttle Free Roam jumps per vehicle (motorcycle, ATV): record flight distance before (0.70) and after, landing position, and that the vehicle lands on supported ground and rolls out. Then ride the straight path between the two 0.70 positions both ways.
+
+### Part B — Mountain Loop Forward: Climbing Ridge Cut (3 reports)
+
+- **BUG-001** Climbing Ridge Cut 24 m (767.34, 88.23, -107.26), heading 16. "Hole." A dark gap/notch sits at the left edge of the trail where the grass shoulder meets it, a few metres ahead of the bike; a grey slab wedge also sticks out at the right edge. Close the hole with collidable ground flush with the trail, and tuck or remove the slab.
+- **BUG-002** Climbing Ridge Cut 6 m (753.74, 87.67, -120.91), heading 39. "If you cut through the grass here (which is hard not to) you get flipped." This is the grass wedge on the inside of the shortcut entrance, beside the OPTIONAL SHORTCUT / CLIMBING RIDGE CUT sign; its surface is visibly crumpled. 0.70 fixed entries that stay on the pavement and recorded that faces under the 0.69 patch remain. Dan's line cuts the corner across the grass.
+  - Reproduce by entering across the grass wedge at several speeds (including full throttle) and lines. Make the wedge one smooth, drivable surface with clean collision, with nothing hidden under it that a wheel or chassis can catch (lower or remove buried faces; a small visible change to the wedge is acceptable here, Dan prefers not being flipped).
+  - If the sign post is part of the cause, move the sign a little further from the driving line; keep it readable.
+  - Target: no flip for corner-cutting entries up to full throttle, motorcycle and ATV. This also covers the 0.70 remainder ("at 32 m/s entries still roll").
+- **BUG-003** Climbing Ridge Cut 278 m, at the rejoin (998.48, 137.80, -57.98) main s 1393, heading 56. "Fix this hole." A crater-like pit with steep walls sits in the gore between the shortcut trail and the main road, directly beyond the trail. Fill it to a natural, smooth grade continuous with the surrounding ground and both road edges. The 0.69 berm and the two 0.70 gore surfaces stay functional.
+- The Climbing Ridge Cut jump system is protected; verify its jump line is unchanged. Check whether the same meshes exist in Mountain Reverse and keep them consistent only if they are shared.
+
+### Part C — NEW FEATURE: lighting and atmosphere pass (all courses)
+
+Dan chose this as the first step of the graphics upgrade (2026-10-03). It is a look change only: no geometry, physics, AI, routes, UI layout or audio.
+
+- **Goal:** the game should look clearly better at first glance on every course and in Free Roam, while staying the same stylized low-poly world. Today the scenes use flat default lighting, a plain sky and a grey-brown void at the horizon.
+- **Build it once, as named presets.** One shared look setup applied to every scene by code/profile, not hand-edited per scene. Structure it as a small set of named presets with exactly one preset implemented now: **"Clear Day"**. Day/night and weather (rain, snow) are planned next and must be addable later as further presets without rework, including a live day-night cycle in Free Roam that blends between presets over time. Design the preset data so two presets can be interpolated (sun angle/colour, sky, fog, ambient, exposure). Do not build them now.
+- **What "Clear Day" should include (URP, existing pipeline assets):**
+  - sun direction, colour and intensity chosen for good shape and depth on hills and trees; soft shadows with sensible distance and cascades so shadows are clean near the vehicle and do not pop;
+  - ambient / environment lighting so shaded sides are not flat or black;
+  - a proper sky (gradient or procedural) with a horizon that hides the edge of the world; light distance haze/fog matched to the sky colour;
+  - a post-processing volume: tonemapping and gentle colour grading, ambient occlusion, mild bloom, anti-aliasing;
+  - a light material pass where it is cheap and safe: road, dirt trail, grass and lake water should read as different surfaces (the lake may get a simple reflective/animated water look).
+- **Hard constraints:**
+  - **Readability first.** Ground arrows, gates, signs, the minimap, HUD and menu text must be at least as clear as now. The image must not get darker or murkier overall.
+  - No motion blur, depth of field, film grain, lens dirt, chromatic aberration or heavy vignette.
+  - **Performance:** Dan plays at 3840×2160. Measure frame rate before and after at three fixed views (one Street Loop, one Mountain, one Forest/Backyard). Keep it at or above 60 fps there and within about 10% of the 0.70 figures; if a setting costs more than that, reduce or drop it and say which.
+  - Applies in races, Free Roam, garage and menus consistently. The cave/underground sections must stay playable (not black); give them the lighting they need.
+  - Vehicle colours and driver appearance must still read true in the garage and in play.
+- **Evidence:** before/after screenshot pairs from the same fixed viewpoints on all 8 course scenes plus the garage, in `Docs/Report071/Look/`, and the frame-rate table.
+- **Rule 12:** one considered implementation, then stop. Dan judges the look and asks for adjustments.
+
+### Verification for this round (targeted, rule 11)
+
+- Before/after view at each of the 3 coordinates and of the Free Roam landing, with a PASS/explained disposition in `Docs/Report071/VALIDATION.md`.
+- 5A.6 neighbour checks limited to what this round touches: Climbing Ridge Cut entrance, jump and rejoin; 0.69 BUG-008 berm; Forward main s 1380–1440. Results must match 0.70 except where intentionally changed.
+
+### Outstanding after this round (as of 2026-10-03)
+
+- Awaiting Dan: gameplay review of 0.71; recheck of the Reverse s 1583 bump.
+- Next feature after this round (Dan is interested, not yet authorized): time of day (day / dusk / night) and weather (sun, rain, snow) as further look presets. Dan decided 2026-10-03: weather visual only; races keep one fixed time of day; Free Roam gets a live day-night cycle (details in FUTURE EXPANSION).
+- From earlier results, not raised by Dan: the full-throttle line brushes the Downhill Ridge Cut berm; airborne riders at ~38 m/s can still clear the Homeward berm (race scenes); High Ridge Drop barrier is a suggestion only; remaining edge stations in `Docs/Report069/partA-remaining.txt`; production AI stops at the Homeward deck and undershoots the South Face deck (both pre-existing).
+- Open: CR-118 intermittent spoken-title clipping.
+- Possibly stale, needs Dan's yes/no: CR-010 slightly tighter steering.
+- Deferred: physical Steam Deck / controller / save-migration checks; friend test of the packaged build on another PC.
+
+## Previous delivery — 9-report follow-up: quit confirmation, Free Roam mountain path, taller crest barrier, campsite, smoothing — 0.70.0-review1 — DELIVERED, REVIEWED BY DAN (follow-ups in 0.71)
 
 - **DELIVERED:**
   - Source `459f3f873a91c0e34a9639339b2f16a8b0ffad5b` pushed and verified on origin/main. The completion commit is `67d08694`; `459f3f87` removes temporary editor tool copies it accidentally included.
@@ -579,7 +644,8 @@ The following records the previous 0.61 delivery. Its polish acceptance is super
 
 ### FUTURE EXPANSION
 
-- **Graphics upgrade (backlog, added by Dan 2026-10-02; not authorized yet).** Minimum goal: better-looking vehicles and drivers. Dan has Blender installed. Suggested order when scheduled: (1) lighting/post-processing/material pass in the existing URP setup; (2) one pilot vehicle + driver remodel for Dan's approval before doing the rest; (3) world/scenery later, if wanted. Must preserve vehicle colliders, handling, camera clearance, color selection and driver/vehicle identity. Free CC0 assets may be proposed; no paid assets without Dan's approval.
+- **Time of day and weather (added by Dan 2026-10-03; planned as the next feature, not authorized yet).** Built as additional presets on the 0.71 look system. **Dan's decisions (2026-10-03):** (1) weather is VISUAL ONLY to start: no grip/handling change, so records and ghosts stay comparable; (2) RACES use one fixed time of day per race (at least at first), no change during a race; (3) FREE ROAM / open world gets a live day-night cycle. Night needs vehicle headlights and readable arrows/gates/signs. Rain: particles, darker sky, fog, wet-look road, rain audio. Snow: particles plus a white ground tint. (4) In RACES, time of day and weather are an OPTION the player picks at race setup. (5) FREE ROAM cycle speed starts at 1 real minute = 1 game hour (a full day in 24 minutes); Dan will adjust after trying it. Make the speed a single easily changed value.
+- **Graphics upgrade (added by Dan 2026-10-02).** Step 1, lighting and atmosphere, is authorized as 0.71 Part C; steps 2–3 below are not authorized yet. Minimum goal: better-looking vehicles and drivers. Dan has Blender installed. Suggested order when scheduled: (1) lighting/post-processing/material pass in the existing URP setup; (2) one pilot vehicle + driver remodel for Dan's approval before doing the rest; (3) world/scenery later, if wanted. Must preserve vehicle colliders, handling, camera clearance, color selection and driver/vehicle identity. Free CC0 assets may be proposed; no paid assets without Dan's approval.
 - New Trickum-area course.
 - Dedicated stunt track.
 - More vehicles and visible, measurable vehicle statistics.
