@@ -1,0 +1,306 @@
+SCENE MountainLoopReverse
+Part C: Summit Traverse flight window takeoff -1 landing -1
+Part C: removed the 0.69 berm 'Ground_Report069 barrier Summit crest bend (BUG-005)' (absorbed into the outcrop)
+Part C MountainLoopReverse: summit crest rock outcrop built: 134 cross-sections, 4944 tris; cliff face 7 m beyond the main right edge (s 448-494) and 1 m beyond the Summit Traverse left edge (s 4-42); top 12 m above the pavement edge
+Part C outcrop: tree trunk 'CR081 mountain exploration/Mountain woods 4 4/Mountain trunk' base 6.89 m inside the new surface (tree stands on it)
+Part C outcrop: signs/posts raised 0; tree bases inside the new surface 1
+SCENE MountainLoopReverse
+Part C: Summit Traverse flight window takeoff -1 landing -1
+Part C MountainLoopReverse: summit crest rock outcrop built: 134 cross-sections, 4984 tris; cliff face 7 m beyond the main right edge (s 448-494) and 1 m beyond the Summit Traverse left edge (s 4-42); top 12 m above the pavement edge
+Part C outcrop: signs/posts raised 0; tree bases inside the new surface 0
+SCENE StreetLoopGreybox
+Part D StreetLoopGreybox: added landmark 'Campsite' at (982.00, 164.20, 76.00) yaw 90 (10 destinations)
+SCENE StreetLoopReverse
+Part D StreetLoopReverse: added landmark 'Campsite' at (982.00, 164.20, 76.00) yaw 90 (10 destinations)
+SCENE LakeWoods
+Part D LakeWoods: added landmark 'Campsite' at (982.00, 164.20, 76.00) yaw 90 (10 destinations)
+SCENE ForestLoopReverse
+Part D ForestLoopReverse: added landmark 'Campsite' at (982.00, 164.20, 76.00) yaw 90 (10 destinations)
+SCENE DansBackyardForward
+Part D DansBackyardForward: added landmark 'Campsite' at (982.00, 164.20, 76.00) yaw 90 (10 destinations)
+SCENE DansBackyardReverse
+Part D DansBackyardReverse: added landmark 'Campsite' at (982.00, 164.20, 76.00) yaw 90 (10 destinations)
+SCENE MountainLoop
+Part D MountainLoop: added landmark 'Campsite' at (982.00, 164.20, 76.00) yaw 90 (10 destinations)
+Part D MountainLoop: 'Fire ring stone' base 163.93 -> 145.33 (moved -18.60 m) on 'Ground_ReportCleanup MountainLoop continuous solid 2'; ground under its footprint 145.25..145.50
+Part D MountainLoop: 'Fire ring stone' base 164.12 -> 145.74 (moved -18.37 m) on 'Ground_ReportCleanup MountainLoop continuous solid 2'; ground under its footprint 145.67..145.91
+Part D MountainLoop: 'Fire ring stone' base 164.22 -> 145.92 (moved -18.29 m) on 'Ground_ReportCleanup MountainLoop continuous solid 2'; ground under its footprint 145.86..146.09
+Part D MountainLoop: 'Fire ring stone' base 164.17 -> 145.77 (moved -18.40 m) on 'Ground_ReportCleanup MountainLoop continuous solid 2'; ground under its footprint 145.71..145.94
+Part D MountainLoop: 'Fire ring stone' base 164.14 -> 145.38 (moved -18.76 m) on 'Ground_ReportCleanup MountainLoop continuous solid 2'; ground under its footprint 145.32..145.55
+Part D MountainLoop: 'Fire ring stone' base 164.01 -> 144.98 (moved -19.03 m) on 'Ground_ReportCleanup MountainLoop continuous solid 2'; ground under its footprint 144.91..145.14
+Part D MountainLoop: 'Fire ring stone' base 163.85 -> 144.78 (moved -19.07 m) on 'Ground_ReportCleanup MountainLoop continuous solid 2'; ground under its footprint 144.71..144.96
+Part D MountainLoop: 'Fire ring stone' base 163.77 -> 144.93 (moved -18.84 m) on 'Ground_ReportCleanup MountainLoop continuous solid 2'; ground under its footprint 144.86..145.10
+Part D MountainLoop: 'Campfire' base 163.97 -> 145.36 (moved -18.61 m) on 'Ground_ReportCleanup MountainLoop continuous solid 2'; ground under its footprint 145.21..145.60
+Part D MountainLoop: 'Seated guy' base 164.08 -> 144.60 (moved -19.48 m) on 'Ground_ReportCleanup MountainLoop continuous solid 2'; ground under its footprint 144.20..145.10
+Part D MountainLoop: 'Seated guy' base 163.48 -> 145.07 (moved -18.41 m) on 'Ground_ReportCleanup MountainLoop continuous solid 2'; ground under its footprint 144.54..145.69
+Part D MountainLoop: 'Small domed camping tent' base 163.66 -> 147.72 (moved -15.94 m) on 'Ground_ReportCleanup MountainLoop continuous solid 2'; ground under its footprint 146.32..149.21
+SCENE MountainLoopReverse
+Part D MountainLoopReverse: added landmark 'Campsite' at (982.00, 164.20, 76.00) yaw 90 (10 destinations)
+Part D MountainLoopReverse: 'Fire ring stone' base 163.93 -> 164.22 (moved +0.29 m) on 'Ground_ReportCleanup MountainLoopReverse continuous solid 0'; ground under its footprint 164.23..164.32
+Part D MountainLoopReverse: 'Fire ring stone' base 164.12 -> 164.07 (moved -0.04 m) on 'Ground_ReportCleanup MountainLoopReverse continuous solid 0'; ground under its footprint 164.08..164.16
+Part D MountainLoopReverse: 'Fire ring stone' base 164.22 -> 164.11 (moved -0.11 m) on 'Ground_ReportCleanup MountainLoopReverse continuous solid 0'; ground under its footprint 164.12..164.20
+Part D MountainLoopReverse: 'Fire ring stone' base 164.17 -> 164.22 (moved +0.04 m) on 'Ground_ReportCleanup MountainLoopReverse continuous solid 0'; ground under its footprint 164.22..164.31
+Part D MountainLoopReverse: 'Fire ring stone' base 164.14 -> 164.31 (moved +0.16 m) on 'Ground_ReportCleanup MountainLoopReverse continuous solid 0'; ground under its footprint 164.33..164.38
+Part D MountainLoopReverse: 'Fire ring stone' base 164.01 -> 164.37 (moved +0.36 m) on 'Ground_ReportCleanup MountainLoopReverse continuous solid 0'; ground under its footprint 164.38..164.66
+Part D MountainLoopReverse: 'Fire ring stone' base 163.85 -> 164.60 (moved +0.74 m) on 'Ground_ReportCleanup MountainLoopReverse continuous solid 0'; ground under its footprint 164.49..164.80
+Part D MountainLoopReverse: 'Fire ring stone' base 163.77 -> 164.37 (moved +0.61 m) on 'Ground_ReportCleanup MountainLoopReverse continuous solid 0'; ground under its footprint 164.38..164.58
+Part D MountainLoopReverse: 'Campfire' base 163.97 -> 164.22 (moved +0.25 m) on 'Ground_ReportCleanup MountainLoopReverse continuous solid 0'; ground under its footprint 164.20..164.34
+Part D MountainLoopReverse: 'Seated guy' base 164.08 -> 165.79 (moved +1.70 m) on 'Ground_ReportCleanup MountainLoopReverse continuous solid 0'; ground under its footprint 164.66..165.95
+Part D MountainLoopReverse: 'Seated guy' base 163.48 -> 165.29 (moved +1.81 m) on 'Ground_ReportCleanup MountainLoopReverse continuous solid 0'; ground under its footprint 164.63..165.69
+Part D MountainLoopReverse: 'Small domed camping tent' base 163.66 -> 164.38 (moved +0.72 m) on 'Ground_ReportCleanup MountainLoopReverse continuous solid 0'; ground under its footprint 162.91..165.45
+SCENE MountainLoop
+Part E BUG-008 Climbing Ridge Cut entry: seam-support vertices in the box 102; pushed to 0.35 m under the pavement 16 (edge vertices unchanged)
+SCENE MountainLoop
+Part E BUG-008 Climbing Ridge Cut entry: seam-support triangles in the box 34; removed 0 lying entirely under the pavement (0-0.3 m below it; listed in partE-hidden-faces.txt); partly exposed triangles unchanged, so every seam stays closed
+SCENE MountainLoop (dry run, not saved)
+Part E BUG-008 Climbing Ridge Cut entry: seam-support triangles in the box 34; removed 0 lying entirely under the pavement (0-0.3 m below it; listed in partE-hidden-faces.txt); partly exposed triangles unchanged, so every seam stays closed
+SCENE MountainLoop
+Part E BUG-008 Climbing Ridge Cut entry: seam-support triangles in the box 34; vertices lying under the pavement lowered to 0.6 m under it: 45; vertices outside the pavement (the left-edge slot cover) unchanged (partE-hidden-faces.txt)
+SCENE MountainLoop
+Part E BUG-008 Climbing Ridge Cut entry: seam-support triangles reaching under the pavement 34, each subdivided 8x8; 1254 points that lie under the pavement lowered to 0.6 m below it; points outside the pavement (the left-edge slot cover) unchanged (partE-hidden-faces.txt)
+SCENE MountainLoop
+Part E BUG-008 Climbing Ridge Cut entry: earth-bank / older-shoulder vertices lying 0-0.3 m under the pavement or the 0.69 patch lowered to 0.6 m below it: 239
+Part E BUG-008 Climbing Ridge Cut entry: seam-support triangles reaching under the pavement 34, each subdivided 8x8; 1171 points that lie under the pavement lowered to 0.6 m below it; points outside the pavement (the left-edge slot cover) unchanged (partE-hidden-faces.txt)
+SCENE StreetLoopGreybox (dry run, not saved)
+Part F StreetLoopGreybox BUG-003 trench wall: 2 terrain meshes, 595 nodes in the 9 m band (189 pinned: objects 0, flush to the road 0); 47 iterations; ground change -3.83 .. +2.38 m; trunks in the band 11 (dry run)
+Part F StreetLoopGreybox BUG-004 highway verge: 1 terrain meshes, 177 nodes in the 4.5 m band (109 pinned: objects 0, flush to the road 60); 14 iterations; ground change -0.49 .. +0.00 m; trunks in the band 0 (dry run)
+SCENE StreetLoopReverse (dry run, not saved)
+Part F StreetLoopReverse BUG-003 trench wall: 2 terrain meshes, 595 nodes in the 9 m band (189 pinned: objects 0, flush to the road 0); 48 iterations; ground change -3.83 .. +2.38 m; trunks in the band 7 (dry run)
+Part F StreetLoopReverse BUG-004 highway verge: 1 terrain meshes, 177 nodes in the 4.5 m band (109 pinned: objects 0, flush to the road 60); 14 iterations; ground change -0.49 .. +0.00 m; trunks in the band 0 (dry run)
+SCENE LakeWoods (dry run, not saved)
+Part F LakeWoods BUG-003 trench wall: 2 terrain meshes, 595 nodes in the 9 m band (189 pinned: objects 0, flush to the road 0); 47 iterations; ground change -3.83 .. +2.38 m; trunks in the band 10 (dry run)
+Part F LakeWoods BUG-004 highway verge: 1 terrain meshes, 177 nodes in the 4.5 m band (109 pinned: objects 0, flush to the road 60); 14 iterations; ground change -0.49 .. +0.00 m; trunks in the band 0 (dry run)
+SCENE ForestLoopReverse (dry run, not saved)
+Part F ForestLoopReverse BUG-003 trench wall: 2 terrain meshes, 595 nodes in the 9 m band (189 pinned: objects 0, flush to the road 0); 48 iterations; ground change -3.83 .. +2.38 m; trunks in the band 9 (dry run)
+Part F ForestLoopReverse BUG-004 highway verge: 1 terrain meshes, 177 nodes in the 4.5 m band (109 pinned: objects 0, flush to the road 60); 14 iterations; ground change -0.49 .. +0.00 m; trunks in the band 0 (dry run)
+SCENE StreetLoopGreybox
+Part F StreetLoopGreybox BUG-003 trench wall: 2 terrain meshes, 595 nodes in the 9 m band (189 pinned: objects 0, flush to the road 0); 47 iterations; ground change -3.83 .. +2.38 m; trunks in the band 11
+Ground_480_640: mesh Assets/Track/Discovery/StreetLoopGreybox-CR129-junction-Ground_480_640.asset is shared with DansBackyardForward,DansBackyardReverse; this scene now uses its own copy Assets/Track/Report070/StreetLoopGreybox-own-StreetLoopGreybox-CR129-junction-Ground_480_640.asset
+Ground_480_560: mesh Assets/Track/Discovery/StreetLoopGreybox-CR129-junction-Ground_480_560.asset is shared with DansBackyardForward,DansBackyardReverse; this scene now uses its own copy Assets/Track/Report070/StreetLoopGreybox-own-StreetLoopGreybox-CR129-junction-Ground_480_560.asset
+Part F BUG-003 trench wall: tree at (231.4, 26.4, 465.8) re-grounded -0.91 m (trunk collider 'Woods replacing later subdivisions/Tree trunk' and 7 batched pieces)
+Part F BUG-003 trench wall: tree at (285.6, 16.9, 517.6) re-grounded -0.38 m (trunk collider 'World cleanup additional woodland/Roadside woodland trunk' and 7 batched pieces)
+Part F BUG-003 trench wall: tree at (277.0, 18.9, 509.1) re-grounded -0.63 m (trunk collider 'World cleanup additional woodland/Roadside woodland trunk' and 9 batched pieces)
+Part F BUG-003 trench wall: tree at (258.8, 21.7, 494.4) re-grounded -2.10 m (trunk collider 'World cleanup additional woodland/Roadside woodland trunk' and 9 batched pieces)
+Part F BUG-003 trench wall: tree at (237.4, 26.3, 467.5) re-grounded -0.39 m (trunk collider 'Woods replacing later subdivisions/Tree trunk' and 7 batched pieces)
+Part F BUG-003 trench wall: tree at (263.2, 13.0, 509.6) re-grounded +0.60 m (trunk collider 'World cleanup additional woodland/Roadside woodland trunk' and 7 batched pieces)
+Part F BUG-003 trench wall: tree at (269.5, 18.5, 507.5) re-grounded -2.61 m (trunk collider 'Woods replacing later subdivisions/Tree trunk' and 9 batched pieces)
+Part F BUG-003 trench wall: tree at (252.1, 16.9, 494.1) re-grounded +1.29 m (trunk collider 'Woods replacing later subdivisions/Tree trunk' and 7 batched pieces)
+Part F BUG-003 trench wall: tree at (266.3, 21.3, 497.4) re-grounded -0.94 m (trunk collider 'Woods replacing later subdivisions/Tree trunk' and 7 batched pieces)
+Part F BUG-003 trench wall: tree at (245.9, 16.1, 489.4) re-grounded +1.07 m (trunk collider 'Woods replacing later subdivisions/Tree trunk' and 7 batched pieces)
+Complete authored trees: mesh Assets/Track/Discovery/StreetLoopGreybox-cleared-4203731-133376.asset is shared with DansBackyardForward,DansBackyardReverse; this scene now uses its own copy Assets/Track/Report070/StreetLoopGreybox-own-StreetLoopGreybox-cleared-4203731-133376.asset
+Complete authored trees: mesh Assets/Track/Exploration/StreetLoopGreybox-MountainOldTrees-1-3.asset is shared with DansBackyardForward,DansBackyardReverse; this scene now uses its own copy Assets/Track/Report070/StreetLoopGreybox-own-StreetLoopGreybox-MountainOldTrees-1-3.asset
+Part F BUG-003 trench wall: trees re-grounded 10 (76 batched pieces moved with them)
+Part F StreetLoopGreybox BUG-004 highway verge: 1 terrain meshes, 177 nodes in the 4.5 m band (109 pinned: objects 0, flush to the road 60); 14 iterations; ground change -0.49 .. +0.00 m; trunks in the band 0
+Part F BUG-004 highway verge: trees re-grounded 0 (0 batched pieces moved with them)
+SCENE StreetLoopReverse
+Part F StreetLoopReverse BUG-003 trench wall: 2 terrain meshes, 595 nodes in the 9 m band (189 pinned: objects 0, flush to the road 0); 48 iterations; ground change -3.83 .. +2.38 m; trunks in the band 7
+Part F BUG-003 trench wall: tree at (237.4, 26.3, 467.5) re-grounded -0.39 m (trunk collider 'Woods replacing later subdivisions/Tree trunk' and 7 batched pieces)
+Part F BUG-003 trench wall: tree at (252.1, 16.9, 494.1) re-grounded +1.29 m (trunk collider 'Woods replacing later subdivisions/Tree trunk' and 7 batched pieces)
+Part F BUG-003 trench wall: tree at (266.3, 21.3, 497.4) re-grounded -0.94 m (trunk collider 'Woods replacing later subdivisions/Tree trunk' and 7 batched pieces)
+Part F BUG-003 trench wall: tree at (269.5, 18.5, 507.5) re-grounded -2.61 m (trunk collider 'Woods replacing later subdivisions/Tree trunk' and 9 batched pieces)
+Part F BUG-003 trench wall: tree at (245.9, 16.1, 489.4) re-grounded +1.07 m (trunk collider 'Woods replacing later subdivisions/Tree trunk' and 7 batched pieces)
+Part F BUG-003 trench wall: tree at (231.4, 26.4, 465.8) re-grounded -0.91 m (trunk collider 'Woods replacing later subdivisions/Tree trunk' and 7 batched pieces)
+Part F BUG-003 trench wall: trees re-grounded 6 (44 batched pieces moved with them)
+Part F StreetLoopReverse BUG-004 highway verge: 1 terrain meshes, 177 nodes in the 4.5 m band (109 pinned: objects 0, flush to the road 60); 14 iterations; ground change -0.49 .. +0.00 m; trunks in the band 0
+Part F BUG-004 highway verge: trees re-grounded 0 (0 batched pieces moved with them)
+SCENE LakeWoods
+Part F LakeWoods BUG-003 trench wall: 2 terrain meshes, 595 nodes in the 9 m band (189 pinned: objects 0, flush to the road 0); 48 iterations; ground change -3.83 .. +2.38 m; trunks in the band 10
+Part F BUG-003 trench wall: tree at (252.1, 16.9, 494.1) re-grounded +1.29 m (trunk collider 'Woods replacing later subdivisions/Tree trunk' and 7 batched pieces)
+Part F BUG-003 trench wall: tree at (231.4, 26.4, 465.8) re-grounded -0.91 m (trunk collider 'Woods replacing later subdivisions/Tree trunk' and 7 batched pieces)
+Part F BUG-003 trench wall: tree at (269.5, 18.5, 507.5) re-grounded -2.61 m (trunk collider 'Woods replacing later subdivisions/Tree trunk' and 9 batched pieces)
+Part F BUG-003 trench wall: tree at (297.5, 14.8, 528.2) re-grounded +0.12 m (trunk collider 'World cleanup additional woodland/Roadside woodland trunk' and 7 batched pieces)
+Part F BUG-003 trench wall: tree at (266.3, 21.3, 497.4) re-grounded -0.94 m (trunk collider 'Woods replacing later subdivisions/Tree trunk' and 7 batched pieces)
+Part F BUG-003 trench wall: tree at (237.4, 26.3, 467.5) re-grounded -0.39 m (trunk collider 'Woods replacing later subdivisions/Tree trunk' and 7 batched pieces)
+Part F BUG-003 trench wall: tree at (245.9, 16.1, 489.4) re-grounded +1.07 m (trunk collider 'Woods replacing later subdivisions/Tree trunk' and 7 batched pieces)
+Complete authored trees: mesh Assets/Track/Exploration/LakeWoods-MountainOldTrees-1-3.asset is shared with MountainLoop,MountainLoopReverse; this scene now uses its own copy Assets/Track/Report070/LakeWoods-own-LakeWoods-MountainOldTrees-1-3.asset
+Complete authored trees: mesh Assets/Track/Discovery/LakeWoods-cleared-7461529-52992.asset is shared with MountainLoop,MountainLoopReverse; this scene now uses its own copy Assets/Track/Report070/LakeWoods-own-LakeWoods-cleared-7461529-52992.asset
+Part F BUG-003 trench wall: trees re-grounded 7 (51 batched pieces moved with them)
+Part F LakeWoods BUG-004 highway verge: 1 terrain meshes, 177 nodes in the 4.5 m band (109 pinned: objects 0, flush to the road 60); 14 iterations; ground change -0.49 .. +0.00 m; trunks in the band 0
+Part F BUG-004 highway verge: trees re-grounded 0 (0 batched pieces moved with them)
+SCENE ForestLoopReverse
+Part F ForestLoopReverse BUG-003 trench wall: 2 terrain meshes, 595 nodes in the 9 m band (189 pinned: objects 0, flush to the road 0); 48 iterations; ground change -3.83 .. +2.38 m; trunks in the band 9
+Part F BUG-003 trench wall: tree at (237.4, 26.3, 467.5) re-grounded -0.39 m (trunk collider 'Woods replacing later subdivisions/Tree trunk' and 7 batched pieces)
+Part F BUG-003 trench wall: tree at (231.4, 26.4, 465.8) re-grounded -0.91 m (trunk collider 'Woods replacing later subdivisions/Tree trunk' and 7 batched pieces)
+Part F BUG-003 trench wall: tree at (285.1, 18.7, 519.5) re-grounded -0.63 m (trunk collider 'World cleanup additional woodland/Roadside woodland trunk' and 9 batched pieces)
+Part F BUG-003 trench wall: tree at (245.9, 16.1, 489.4) re-grounded +1.07 m (trunk collider 'Woods replacing later subdivisions/Tree trunk' and 7 batched pieces)
+Part F BUG-003 trench wall: tree at (266.3, 21.3, 497.4) re-grounded -0.94 m (trunk collider 'Woods replacing later subdivisions/Tree trunk' and 7 batched pieces)
+Part F BUG-003 trench wall: tree at (269.5, 18.5, 507.5) re-grounded -2.61 m (trunk collider 'Woods replacing later subdivisions/Tree trunk' and 9 batched pieces)
+Part F BUG-003 trench wall: tree at (252.1, 16.9, 494.1) re-grounded +1.29 m (trunk collider 'Woods replacing later subdivisions/Tree trunk' and 7 batched pieces)
+Part F BUG-003 trench wall: tree at (289.4, 14.8, 525.2) re-grounded -0.29 m (trunk collider 'World cleanup additional woodland/Roadside woodland trunk' and 7 batched pieces)
+Part F BUG-003 trench wall: trees re-grounded 8 (60 batched pieces moved with them)
+Part F ForestLoopReverse BUG-004 highway verge: 1 terrain meshes, 177 nodes in the 4.5 m band (109 pinned: objects 0, flush to the road 60); 14 iterations; ground change -0.49 .. +0.00 m; trunks in the band 0
+Part F BUG-004 highway verge: trees re-grounded 0 (0 batched pieces moved with them)
+SCENE StreetLoopGreybox
+Part D StreetLoopGreybox: added landmark 'Campsite' at (982.00, 164.20, 76.00) yaw 90 (10 destinations)
+Part F StreetLoopGreybox BUG-003 trench wall: 2 terrain meshes, 817 nodes in the 12 m band (199 pinned: objects 0, flush to the road 0); 501 iterations; ground change -3.44 .. +2.79 m; trunks in the band 12
+Ground_480_640: mesh Assets/Track/Discovery/StreetLoopGreybox-CR129-junction-Ground_480_640.asset is shared with DansBackyardForward,DansBackyardReverse; this scene now uses its own copy Assets/Track/Report070/StreetLoopGreybox-own-StreetLoopGreybox-CR129-junction-Ground_480_640.asset
+Ground_480_560: mesh Assets/Track/Discovery/StreetLoopGreybox-CR129-junction-Ground_480_560.asset is shared with DansBackyardForward,DansBackyardReverse; this scene now uses its own copy Assets/Track/Report070/StreetLoopGreybox-own-StreetLoopGreybox-CR129-junction-Ground_480_560.asset
+Part F BUG-003 trench wall: tree at (245.9, 16.1, 489.4) re-grounded +1.42 m (trunk collider 'Woods replacing later subdivisions/Tree trunk' and 7 batched pieces)
+Part F BUG-003 trench wall: tree at (263.2, 13.0, 509.6) re-grounded +1.42 m (trunk collider 'World cleanup additional woodland/Roadside woodland trunk' and 7 batched pieces)
+Part F BUG-003 trench wall: tree at (285.6, 16.9, 517.6) re-grounded -0.64 m (trunk collider 'World cleanup additional woodland/Roadside woodland trunk' and 7 batched pieces)
+Part F BUG-003 trench wall: tree at (252.1, 16.9, 494.1) re-grounded +1.58 m (trunk collider 'Woods replacing later subdivisions/Tree trunk' and 7 batched pieces)
+Part F BUG-003 trench wall: tree at (269.5, 18.5, 507.5) re-grounded -2.54 m (trunk collider 'Woods replacing later subdivisions/Tree trunk' and 9 batched pieces)
+Part F BUG-003 trench wall: tree at (231.4, 26.4, 465.8) re-grounded -1.03 m (trunk collider 'Woods replacing later subdivisions/Tree trunk' and 7 batched pieces)
+Part F BUG-003 trench wall: tree at (277.0, 18.9, 509.1) re-grounded -1.28 m (trunk collider 'World cleanup additional woodland/Roadside woodland trunk' and 9 batched pieces)
+Part F BUG-003 trench wall: tree at (240.5, 17.5, 490.1) re-grounded +0.45 m (trunk collider 'Woods replacing later subdivisions/Tree trunk' and 7 batched pieces)
+Part F BUG-003 trench wall: tree at (266.3, 21.3, 497.4) re-grounded -1.46 m (trunk collider 'Woods replacing later subdivisions/Tree trunk' and 7 batched pieces)
+Part F BUG-003 trench wall: tree at (258.8, 21.7, 494.4) re-grounded -2.27 m (trunk collider 'World cleanup additional woodland/Roadside woodland trunk' and 9 batched pieces)
+Part F BUG-003 trench wall: tree at (237.4, 26.3, 467.5) re-grounded -0.76 m (trunk collider 'Woods replacing later subdivisions/Tree trunk' and 7 batched pieces)
+Complete authored trees: mesh Assets/Track/Exploration/StreetLoopGreybox-MountainOldTrees-1-3.asset is shared with DansBackyardForward,DansBackyardReverse; this scene now uses its own copy Assets/Track/Report070/StreetLoopGreybox-own-StreetLoopGreybox-MountainOldTrees-1-3.asset
+Complete authored trees: mesh Assets/Track/Discovery/StreetLoopGreybox-cleared-4203731-133376.asset is shared with DansBackyardForward,DansBackyardReverse; this scene now uses its own copy Assets/Track/Report070/StreetLoopGreybox-own-StreetLoopGreybox-cleared-4203731-133376.asset
+Part F BUG-003 trench wall: trees re-grounded 11 (83 batched pieces moved with them)
+Part F StreetLoopGreybox BUG-004 highway verge: 1 terrain meshes, 177 nodes in the 4.5 m band (109 pinned: objects 0, flush to the road 60); 501 iterations; ground change -0.49 .. +0.00 m; trunks in the band 0
+Part F BUG-004 highway verge: trees re-grounded 0 (0 batched pieces moved with them)
+SCENE StreetLoopReverse
+Part D StreetLoopReverse: added landmark 'Campsite' at (982.00, 164.20, 76.00) yaw 90 (10 destinations)
+Part F StreetLoopReverse BUG-003 trench wall: 2 terrain meshes, 817 nodes in the 12 m band (199 pinned: objects 0, flush to the road 0); 501 iterations; ground change -3.44 .. +2.79 m; trunks in the band 7
+Part F BUG-003 trench wall: tree at (231.4, 26.4, 465.8) re-grounded -1.03 m (trunk collider 'Woods replacing later subdivisions/Tree trunk' and 7 batched pieces)
+Part F BUG-003 trench wall: tree at (237.4, 26.3, 467.5) re-grounded -0.76 m (trunk collider 'Woods replacing later subdivisions/Tree trunk' and 7 batched pieces)
+Part F BUG-003 trench wall: tree at (245.9, 16.1, 489.4) re-grounded +1.42 m (trunk collider 'Woods replacing later subdivisions/Tree trunk' and 7 batched pieces)
+Part F BUG-003 trench wall: tree at (266.3, 21.3, 497.4) re-grounded -1.46 m (trunk collider 'Woods replacing later subdivisions/Tree trunk' and 7 batched pieces)
+Part F BUG-003 trench wall: tree at (240.5, 17.5, 490.1) re-grounded +0.45 m (trunk collider 'Woods replacing later subdivisions/Tree trunk' and 7 batched pieces)
+Part F BUG-003 trench wall: tree at (252.1, 16.9, 494.1) re-grounded +1.58 m (trunk collider 'Woods replacing later subdivisions/Tree trunk' and 7 batched pieces)
+Part F BUG-003 trench wall: tree at (269.5, 18.5, 507.5) re-grounded -2.54 m (trunk collider 'Woods replacing later subdivisions/Tree trunk' and 9 batched pieces)
+Part F BUG-003 trench wall: trees re-grounded 7 (51 batched pieces moved with them)
+Part F StreetLoopReverse BUG-004 highway verge: 1 terrain meshes, 177 nodes in the 4.5 m band (109 pinned: objects 0, flush to the road 60); 501 iterations; ground change -0.49 .. +0.00 m; trunks in the band 0
+Part F BUG-004 highway verge: trees re-grounded 0 (0 batched pieces moved with them)
+SCENE LakeWoods
+Part D LakeWoods: added landmark 'Campsite' at (982.00, 164.20, 76.00) yaw 90 (10 destinations)
+Part F LakeWoods BUG-003 trench wall: 2 terrain meshes, 817 nodes in the 12 m band (199 pinned: objects 0, flush to the road 0); 501 iterations; ground change -3.44 .. +2.79 m; trunks in the band 11
+Part F BUG-003 trench wall: tree at (266.3, 21.3, 497.4) re-grounded -1.46 m (trunk collider 'Woods replacing later subdivisions/Tree trunk' and 7 batched pieces)
+Part F BUG-003 trench wall: tree at (265.2, 14.1, 514.6) re-grounded +0.72 m (trunk collider 'World cleanup additional woodland/Roadside woodland trunk' and 7 batched pieces)
+Part F BUG-003 trench wall: tree at (245.9, 16.1, 489.4) re-grounded +1.42 m (trunk collider 'Woods replacing later subdivisions/Tree trunk' and 7 batched pieces)
+Part F BUG-003 trench wall: tree at (237.4, 26.3, 467.5) re-grounded -0.76 m (trunk collider 'Woods replacing later subdivisions/Tree trunk' and 7 batched pieces)
+Part F BUG-003 trench wall: tree at (275.5, 11.6, 529.6) re-grounded +0.13 m (trunk collider 'World cleanup additional woodland/Roadside woodland trunk' and 7 batched pieces)
+Part F BUG-003 trench wall: tree at (276.3, 21.5, 502.3) re-grounded -0.43 m (trunk collider 'World cleanup additional woodland/Roadside woodland trunk' and 7 batched pieces)
+Part F BUG-003 trench wall: tree at (297.5, 14.8, 528.2) re-grounded +0.45 m (trunk collider 'World cleanup additional woodland/Roadside woodland trunk' and 7 batched pieces)
+Part F BUG-003 trench wall: tree at (252.1, 16.9, 494.1) re-grounded +1.58 m (trunk collider 'Woods replacing later subdivisions/Tree trunk' and 7 batched pieces)
+Part F BUG-003 trench wall: tree at (240.5, 17.5, 490.1) re-grounded +0.45 m (trunk collider 'Woods replacing later subdivisions/Tree trunk' and 7 batched pieces)
+Part F BUG-003 trench wall: tree at (231.4, 26.4, 465.8) re-grounded -1.03 m (trunk collider 'Woods replacing later subdivisions/Tree trunk' and 7 batched pieces)
+Part F BUG-003 trench wall: tree at (269.5, 18.5, 507.5) re-grounded -2.54 m (trunk collider 'Woods replacing later subdivisions/Tree trunk' and 9 batched pieces)
+Complete authored trees: mesh Assets/Track/Exploration/LakeWoods-MountainOldTrees-1-3.asset is shared with MountainLoop,MountainLoopReverse; this scene now uses its own copy Assets/Track/Report070/LakeWoods-own-LakeWoods-MountainOldTrees-1-3.asset
+Complete authored trees: mesh Assets/Track/Discovery/LakeWoods-cleared-7461529-52992.asset is shared with MountainLoop,MountainLoopReverse; this scene now uses its own copy Assets/Track/Report070/LakeWoods-own-LakeWoods-cleared-7461529-52992.asset
+Part F BUG-003 trench wall: trees re-grounded 11 (79 batched pieces moved with them)
+Part F LakeWoods BUG-004 highway verge: 1 terrain meshes, 177 nodes in the 4.5 m band (109 pinned: objects 0, flush to the road 60); 501 iterations; ground change -0.49 .. +0.00 m; trunks in the band 0
+Part F BUG-004 highway verge: trees re-grounded 0 (0 batched pieces moved with them)
+SCENE ForestLoopReverse
+Part D ForestLoopReverse: added landmark 'Campsite' at (982.00, 164.20, 76.00) yaw 90 (10 destinations)
+Part F ForestLoopReverse BUG-003 trench wall: 2 terrain meshes, 817 nodes in the 12 m band (199 pinned: objects 0, flush to the road 0); 501 iterations; ground change -3.44 .. +2.79 m; trunks in the band 9
+Part F BUG-003 trench wall: tree at (240.5, 17.5, 490.1) re-grounded +0.45 m (trunk collider 'Woods replacing later subdivisions/Tree trunk' and 7 batched pieces)
+Part F BUG-003 trench wall: tree at (231.4, 26.4, 465.8) re-grounded -1.03 m (trunk collider 'Woods replacing later subdivisions/Tree trunk' and 7 batched pieces)
+Part F BUG-003 trench wall: tree at (269.5, 18.5, 507.5) re-grounded -2.54 m (trunk collider 'Woods replacing later subdivisions/Tree trunk' and 9 batched pieces)
+Part F BUG-003 trench wall: tree at (245.9, 16.1, 489.4) re-grounded +1.42 m (trunk collider 'Woods replacing later subdivisions/Tree trunk' and 7 batched pieces)
+Part F BUG-003 trench wall: tree at (252.1, 16.9, 494.1) re-grounded +1.58 m (trunk collider 'Woods replacing later subdivisions/Tree trunk' and 7 batched pieces)
+Part F BUG-003 trench wall: tree at (285.1, 18.7, 519.5) re-grounded -0.70 m (trunk collider 'World cleanup additional woodland/Roadside woodland trunk' and 9 batched pieces)
+Part F BUG-003 trench wall: tree at (237.4, 26.3, 467.5) re-grounded -0.76 m (trunk collider 'Woods replacing later subdivisions/Tree trunk' and 7 batched pieces)
+Part F BUG-003 trench wall: tree at (266.3, 21.3, 497.4) re-grounded -1.46 m (trunk collider 'Woods replacing later subdivisions/Tree trunk' and 7 batched pieces)
+Part F BUG-003 trench wall: tree at (289.4, 14.8, 525.2) re-grounded -0.09 m (trunk collider 'World cleanup additional woodland/Roadside woodland trunk' and 7 batched pieces)
+Part F BUG-003 trench wall: trees re-grounded 9 (67 batched pieces moved with them)
+Part F ForestLoopReverse BUG-004 highway verge: 1 terrain meshes, 177 nodes in the 4.5 m band (109 pinned: objects 0, flush to the road 60); 501 iterations; ground change -0.49 .. +0.00 m; trunks in the band 0
+Part F BUG-004 highway verge: trees re-grounded 0 (0 batched pieces moved with them)
+SCENE StreetLoopGreybox
+Part F StreetLoopGreybox BUG-004 highway verge: 1 terrain meshes, 282 nodes in the 6 m band (150 pinned: objects 0, flush to the road 89); 501 iterations; ground change -0.43 .. +0.19 m; trunks in the band 1
+Part F BUG-004 highway verge: trees re-grounded 0 (0 batched pieces moved with them)
+SCENE StreetLoopReverse
+Part F StreetLoopReverse BUG-004 highway verge: 1 terrain meshes, 282 nodes in the 6 m band (150 pinned: objects 0, flush to the road 89); 501 iterations; ground change -0.43 .. +0.19 m; trunks in the band 2
+Part F BUG-004 highway verge: trees re-grounded 0 (0 batched pieces moved with them)
+SCENE LakeWoods
+Part F LakeWoods BUG-004 highway verge: 1 terrain meshes, 282 nodes in the 6 m band (150 pinned: objects 0, flush to the road 89); 501 iterations; ground change -0.43 .. +0.19 m; trunks in the band 0
+Part F BUG-004 highway verge: trees re-grounded 0 (0 batched pieces moved with them)
+SCENE ForestLoopReverse
+Part F ForestLoopReverse BUG-004 highway verge: 1 terrain meshes, 282 nodes in the 6 m band (150 pinned: objects 0, flush to the road 89); 501 iterations; ground change -0.43 .. +0.19 m; trunks in the band 0
+Part F BUG-004 highway verge: trees re-grounded 0 (0 batched pieces moved with them)
+SCENE MountainLoop
+BUG-009 right gore: smooth collidable surface r 7.5 m around (1011.00, 139.60, -49.50) (terrain left under it sunk 0.4 m below it) (352 free 0.5 m cells, 738 tris, material MountainLoop-earth); pinned flush 3 cm under the pavement edge and 2 cm under the ground at the rim; terrain vertices lowered under it 711
+BUG-009 right gore: signs/posts raised 0; tree bases inside the new surface 0
+BUG-009 left gore: smooth collidable surface r 8 m around (1004.50, 137.20, -65.50) (terrain left under it sunk 0.4 m below it) (427 free 0.5 m cells, 970 tris, material MountainLoop-earth); pinned flush 3 cm under the pavement edge and 2 cm under the ground at the rim; terrain vertices lowered under it 467
+BUG-009 left gore: signs/posts raised 0; tree bases inside the new surface 0
+SCENE MountainLoop
+BUG-009 left gore: smooth collidable surface r 9.5 m around (1006.50, 137.60, -63.00) (terrain left under it sunk 0.4 m below it) (426 free 0.5 m cells, 968 tris, material MountainLoop-earth); pinned flush 3 cm under the pavement edge and 2 cm under the ground at the rim; terrain vertices lowered under it 922
+BUG-009 left gore: signs/posts raised 0; tree bases inside the new surface 0
+SCENE MountainLoop
+Part E fix: earth-bank / shoulder vertices put back to their committed height (a triangle reached beyond the cover) 112; kept lowered (all their triangles fully under the pavement or patch) 127
+SCENE MountainLoop
+Part E: earth-bank / older-shoulder triangles partly under the pavement or the 0.69 patch, subdivided 8x8: 195; sub-points covered (0.4 m margin) lowered to 0.6 m under the cover: 2732; visible ground unchanged
+SCENE MountainLoop
+Part E undo: Ground_MountainPolish supported shoulders back to 36828 vertices / 12135 triangles (committed topology, post-correction heights)
+Part E undo: Ground_CR133 mountain earth banks back to 52955 vertices / 91004 triangles (committed topology, post-correction heights)
+SCENE MountainLoop (dry run, not saved)
+Part F MountainLoop BUG-003 trench wall: 2 terrain meshes, 817 nodes in the 12 m band (199 pinned: objects 0, flush to the road 0); 501 iterations; ground change -3.44 .. +2.79 m; trunks in the band 7 (dry run)
+Part F MountainLoop BUG-004 highway verge: 1 terrain meshes, 282 nodes in the 6 m band (150 pinned: objects 0, flush to the road 89); 501 iterations; ground change -0.51 .. +0.19 m; trunks in the band 0 (dry run)
+SCENE MountainLoopReverse (dry run, not saved)
+Part F MountainLoopReverse BUG-003 trench wall: 2 terrain meshes, 817 nodes in the 12 m band (199 pinned: objects 0, flush to the road 0); 501 iterations; ground change -3.44 .. +2.79 m; trunks in the band 7 (dry run)
+Part F MountainLoopReverse BUG-004 highway verge: 1 terrain meshes, 282 nodes in the 6 m band (150 pinned: objects 0, flush to the road 89); 501 iterations; ground change -0.51 .. +0.19 m; trunks in the band 0 (dry run)
+SCENE DansBackyardForward (dry run, not saved)
+Part F DansBackyardForward BUG-003 trench wall: 2 terrain meshes, 817 nodes in the 12 m band (199 pinned: objects 0, flush to the road 0); 501 iterations; ground change -3.44 .. +2.79 m; trunks in the band 14 (dry run)
+Part F DansBackyardForward BUG-004 highway verge: 1 terrain meshes, 282 nodes in the 6 m band (150 pinned: objects 0, flush to the road 89); 501 iterations; ground change -0.51 .. +0.19 m; trunks in the band 0 (dry run)
+SCENE DansBackyardForward
+Part F DansBackyardForward BUG-003 trench wall: 2 terrain meshes, 817 nodes in the 12 m band (199 pinned: objects 0, flush to the road 0); 501 iterations; ground change -3.44 .. +2.79 m; trunks in the band 14
+Ground_480_560: mesh Assets/Track/Discovery/StreetLoopGreybox-CR129-junction-Ground_480_560.asset is shared with DansBackyardReverse; this scene now uses its own copy Assets/Track/Report070/DansBackyardForward-own-StreetLoopGreybox-CR129-junction-Ground_480_560.asset
+Ground_480_640: mesh Assets/Track/Discovery/StreetLoopGreybox-CR129-junction-Ground_480_640.asset is shared with DansBackyardReverse; this scene now uses its own copy Assets/Track/Report070/DansBackyardForward-own-StreetLoopGreybox-CR129-junction-Ground_480_640.asset
+Part F BUG-003 trench wall: tree at (266.3, 21.3, 497.4) re-grounded -1.46 m (trunk collider 'Woods replacing later subdivisions/Tree trunk' and 7 batched pieces)
+Part F BUG-003 trench wall: tree at (295.9, 15.7, 524.4) re-grounded +0.18 m (trunk collider 'World cleanup additional woodland/Roadside woodland trunk' and 7 batched pieces)
+Part F BUG-003 trench wall: tree at (231.4, 26.4, 465.8) re-grounded -1.03 m (trunk collider 'Woods replacing later subdivisions/Tree trunk' and 7 batched pieces)
+Part F BUG-003 trench wall: tree at (240.5, 17.5, 490.1) re-grounded +0.45 m (trunk collider 'Woods replacing later subdivisions/Tree trunk' and 7 batched pieces)
+Part F BUG-003 trench wall: tree at (252.1, 16.9, 494.1) re-grounded +1.58 m (trunk collider 'Woods replacing later subdivisions/Tree trunk' and 7 batched pieces)
+Part F BUG-003 trench wall: tree at (274.1, 20.7, 501.0) re-grounded -0.62 m (trunk collider 'World cleanup additional woodland/Roadside woodland trunk' and 7 batched pieces)
+Part F BUG-003 trench wall: tree at (269.5, 18.5, 507.5) re-grounded -2.54 m (trunk collider 'Woods replacing later subdivisions/Tree trunk' and 9 batched pieces)
+Part F BUG-003 trench wall: tree at (264.9, 11.7, 516.9) re-grounded +0.32 m (trunk collider 'World cleanup additional woodland/Roadside woodland trunk' and 7 batched pieces)
+Part F BUG-003 trench wall: tree at (237.4, 26.3, 467.5) re-grounded -0.76 m (trunk collider 'Woods replacing later subdivisions/Tree trunk' and 7 batched pieces)
+Part F BUG-003 trench wall: tree at (245.9, 16.1, 489.4) re-grounded +1.42 m (trunk collider 'Woods replacing later subdivisions/Tree trunk' and 7 batched pieces)
+Part F BUG-003 trench wall: tree at (275.1, 17.8, 514.6) re-grounded -2.24 m (trunk collider 'World cleanup additional woodland/Roadside woodland trunk' and 7 batched pieces)
+Complete authored trees: mesh Assets/Track/Exploration/StreetLoopGreybox-MountainOldTrees-1-3.asset is shared with DansBackyardReverse; this scene now uses its own copy Assets/Track/Report070/DansBackyardForward-own-StreetLoopGreybox-MountainOldTrees-1-3.asset
+Additional woodland canopy: mesh Assets/Vegetation/WorldCleanup/DansBackyardForward-1-3.asset is shared with DansBackyardReverse; this scene now uses its own copy Assets/Track/Report070/DansBackyardForward-own-DansBackyardForward-1-3.asset
+Complete authored trees: mesh Assets/Track/Discovery/StreetLoopGreybox-cleared-4203731-133376.asset is shared with DansBackyardReverse; this scene now uses its own copy Assets/Track/Report070/DansBackyardForward-own-StreetLoopGreybox-cleared-4203731-133376.asset
+Part F BUG-003 trench wall: trees re-grounded 11 (79 batched pieces moved with them)
+Part F DansBackyardForward BUG-004 highway verge: 1 terrain meshes, 282 nodes in the 6 m band (150 pinned: objects 0, flush to the road 89); 501 iterations; ground change -0.51 .. +0.19 m; trunks in the band 0
+Part F BUG-004 highway verge: trees re-grounded 0 (0 batched pieces moved with them)
+SCENE DansBackyardReverse
+Part F DansBackyardReverse BUG-003 trench wall: 2 terrain meshes, 817 nodes in the 12 m band (199 pinned: objects 0, flush to the road 0); 501 iterations; ground change -3.44 .. +2.79 m; trunks in the band 14
+Ground_480_560: mesh Assets/Track/Discovery/StreetLoopGreybox-CR129-junction-Ground_480_560.asset is shared with DansBackyardForward; this scene now uses its own copy Assets/Track/Report070/DansBackyardReverse-own-StreetLoopGreybox-CR129-junction-Ground_480_560.asset
+Ground_480_640: mesh Assets/Track/Discovery/StreetLoopGreybox-CR129-junction-Ground_480_640.asset is shared with DansBackyardForward; this scene now uses its own copy Assets/Track/Report070/DansBackyardReverse-own-StreetLoopGreybox-CR129-junction-Ground_480_640.asset
+Part F BUG-003 trench wall: tree at (264.9, 11.7, 516.9) re-grounded +0.32 m (trunk collider 'World cleanup additional woodland/Roadside woodland trunk' and 7 batched pieces)
+Part F BUG-003 trench wall: tree at (274.1, 20.7, 501.0) re-grounded -0.62 m (trunk collider 'World cleanup additional woodland/Roadside woodland trunk' and 7 batched pieces)
+Part F BUG-003 trench wall: tree at (269.5, 18.5, 507.5) re-grounded -2.54 m (trunk collider 'Woods replacing later subdivisions/Tree trunk' and 9 batched pieces)
+Part F BUG-003 trench wall: tree at (240.5, 17.5, 490.1) re-grounded +0.45 m (trunk collider 'Woods replacing later subdivisions/Tree trunk' and 7 batched pieces)
+Part F BUG-003 trench wall: tree at (295.9, 15.7, 524.4) re-grounded +0.18 m (trunk collider 'World cleanup additional woodland/Roadside woodland trunk' and 7 batched pieces)
+Part F BUG-003 trench wall: tree at (266.3, 21.3, 497.4) re-grounded -1.46 m (trunk collider 'Woods replacing later subdivisions/Tree trunk' and 7 batched pieces)
+Part F BUG-003 trench wall: tree at (245.9, 16.1, 489.4) re-grounded +1.42 m (trunk collider 'Woods replacing later subdivisions/Tree trunk' and 7 batched pieces)
+Part F BUG-003 trench wall: tree at (252.1, 16.9, 494.1) re-grounded +1.58 m (trunk collider 'Woods replacing later subdivisions/Tree trunk' and 7 batched pieces)
+Part F BUG-003 trench wall: tree at (237.4, 26.3, 467.5) re-grounded -0.76 m (trunk collider 'Woods replacing later subdivisions/Tree trunk' and 7 batched pieces)
+Part F BUG-003 trench wall: tree at (275.1, 17.8, 514.6) re-grounded -2.24 m (trunk collider 'World cleanup additional woodland/Roadside woodland trunk' and 7 batched pieces)
+Part F BUG-003 trench wall: tree at (231.4, 26.4, 465.8) re-grounded -1.03 m (trunk collider 'Woods replacing later subdivisions/Tree trunk' and 7 batched pieces)
+Additional woodland canopy: mesh Assets/Vegetation/WorldCleanup/DansBackyardForward-1-3.asset is shared with DansBackyardForward; this scene now uses its own copy Assets/Track/Report070/DansBackyardReverse-own-DansBackyardForward-1-3.asset
+Complete authored trees: mesh Assets/Track/Exploration/StreetLoopGreybox-MountainOldTrees-1-3.asset is shared with DansBackyardForward; this scene now uses its own copy Assets/Track/Report070/DansBackyardReverse-own-StreetLoopGreybox-MountainOldTrees-1-3.asset
+Complete authored trees: mesh Assets/Track/Discovery/StreetLoopGreybox-cleared-4203731-133376.asset is shared with DansBackyardForward; this scene now uses its own copy Assets/Track/Report070/DansBackyardReverse-own-StreetLoopGreybox-cleared-4203731-133376.asset
+Part F BUG-003 trench wall: trees re-grounded 11 (79 batched pieces moved with them)
+Part F DansBackyardReverse BUG-004 highway verge: 1 terrain meshes, 282 nodes in the 6 m band (150 pinned: objects 0, flush to the road 89); 501 iterations; ground change -0.51 .. +0.19 m; trunks in the band 0
+Part F BUG-004 highway verge: trees re-grounded 0 (0 batched pieces moved with them)
+SCENE MountainLoop
+Part F MountainLoop BUG-003 trench wall: 2 terrain meshes, 817 nodes in the 12 m band (199 pinned: objects 0, flush to the road 0); 501 iterations; ground change -3.44 .. +2.79 m; trunks in the band 7
+Part F BUG-003 trench wall: tree at (269.5, 18.5, 507.5) re-grounded -2.54 m (trunk collider 'Woods replacing later subdivisions/Tree trunk' and 9 batched pieces)
+Part F BUG-003 trench wall: tree at (240.5, 17.5, 490.1) re-grounded +0.45 m (trunk collider 'Woods replacing later subdivisions/Tree trunk' and 7 batched pieces)
+Part F BUG-003 trench wall: tree at (237.4, 26.3, 467.5) re-grounded -0.76 m (trunk collider 'Woods replacing later subdivisions/Tree trunk' and 7 batched pieces)
+Part F BUG-003 trench wall: tree at (252.1, 16.9, 494.1) re-grounded +1.58 m (trunk collider 'Woods replacing later subdivisions/Tree trunk' and 7 batched pieces)
+Part F BUG-003 trench wall: tree at (266.3, 21.3, 497.4) re-grounded -1.46 m (trunk collider 'Woods replacing later subdivisions/Tree trunk' and 7 batched pieces)
+Part F BUG-003 trench wall: tree at (245.9, 16.1, 489.4) re-grounded +1.42 m (trunk collider 'Woods replacing later subdivisions/Tree trunk' and 7 batched pieces)
+Part F BUG-003 trench wall: tree at (231.4, 26.4, 465.8) re-grounded -1.03 m (trunk collider 'Woods replacing later subdivisions/Tree trunk' and 7 batched pieces)
+Complete authored trees: mesh Assets/Track/Exploration/LakeWoods-MountainOldTrees-1-3.asset is shared with MountainLoopReverse; this scene now uses its own copy Assets/Track/Report070/MountainLoop-own-LakeWoods-MountainOldTrees-1-3.asset
+Complete authored trees: mesh Assets/Track/Discovery/LakeWoods-cleared-7461529-52992.asset is shared with MountainLoopReverse; this scene now uses its own copy Assets/Track/Report070/MountainLoop-own-LakeWoods-cleared-7461529-52992.asset
+Part F BUG-003 trench wall: trees re-grounded 7 (51 batched pieces moved with them)
+Part F MountainLoop BUG-004 highway verge: 1 terrain meshes, 282 nodes in the 6 m band (150 pinned: objects 0, flush to the road 89); 501 iterations; ground change -0.51 .. +0.19 m; trunks in the band 0
+Part F BUG-004 highway verge: trees re-grounded 0 (0 batched pieces moved with them)
+SCENE MountainLoopReverse
+Part F MountainLoopReverse BUG-003 trench wall: 2 terrain meshes, 817 nodes in the 12 m band (199 pinned: objects 0, flush to the road 0); 501 iterations; ground change -3.44 .. +2.79 m; trunks in the band 7
+Part F BUG-003 trench wall: tree at (266.3, 21.3, 497.4) re-grounded -1.46 m (trunk collider 'Woods replacing later subdivisions/Tree trunk' and 7 batched pieces)
+Part F BUG-003 trench wall: tree at (252.1, 16.9, 494.1) re-grounded +1.58 m (trunk collider 'Woods replacing later subdivisions/Tree trunk' and 7 batched pieces)
+Part F BUG-003 trench wall: tree at (231.4, 26.4, 465.8) re-grounded -1.03 m (trunk collider 'Woods replacing later subdivisions/Tree trunk' and 7 batched pieces)
+Part F BUG-003 trench wall: tree at (245.9, 16.1, 489.4) re-grounded +1.42 m (trunk collider 'Woods replacing later subdivisions/Tree trunk' and 7 batched pieces)
+Part F BUG-003 trench wall: tree at (237.4, 26.3, 467.5) re-grounded -0.76 m (trunk collider 'Woods replacing later subdivisions/Tree trunk' and 7 batched pieces)
+Part F BUG-003 trench wall: tree at (240.5, 17.5, 490.1) re-grounded +0.45 m (trunk collider 'Woods replacing later subdivisions/Tree trunk' and 7 batched pieces)
+Part F BUG-003 trench wall: tree at (269.5, 18.5, 507.5) re-grounded -2.54 m (trunk collider 'Woods replacing later subdivisions/Tree trunk' and 9 batched pieces)
+Complete authored trees: mesh Assets/Track/Exploration/LakeWoods-MountainOldTrees-1-3.asset is shared with MountainLoop; this scene now uses its own copy Assets/Track/Report070/MountainLoopReverse-own-LakeWoods-MountainOldTrees-1-3.asset
+Complete authored trees: mesh Assets/Track/Discovery/LakeWoods-cleared-7461529-52992.asset is shared with MountainLoop; this scene now uses its own copy Assets/Track/Report070/MountainLoopReverse-own-LakeWoods-cleared-7461529-52992.asset
+Part F BUG-003 trench wall: trees re-grounded 7 (51 batched pieces moved with them)
+Part F MountainLoopReverse BUG-004 highway verge: 1 terrain meshes, 282 nodes in the 6 m band (150 pinned: objects 0, flush to the road 89); 501 iterations; ground change -0.51 .. +0.19 m; trunks in the band 0
+Part F BUG-004 highway verge: trees re-grounded 0 (0 batched pieces moved with them)

@@ -1,0 +1,5 @@
+PASS Campsite is a map destination (10 destinations)
+PASS Free Roam camp not moved ((989.00, 163.81, 75.00))
+PASS Not discovered before visiting
+PASS Discovered within 45 m (exploration reveal)
+PASS Fast travel to Campsite arrives at (981.7, 164.7, 75.9) on 'PrototypeCar', 7.4 m from the camp, up 1.00

@@ -1,0 +1,9 @@
+clean line Main s 400-520 (moto): complete=True best=520.2 berm contacts=1 maxAir=1.70 minUp=0.71 resets=0
+clean line Main s 400-520 (moto): complete=True best=520.2 berm contacts=1 maxAir=1.70 minUp=0.71 resets=0
+clean line Main s 400-520 (moto): complete=True best=520.2 berm contacts=1 maxAir=1.70 minUp=0.71 resets=0
+clean line Main s 400-520 (atv): complete=True best=520.3 berm contacts=1 maxAir=1.28 minUp=0.15 resets=0
+clean line Main s 400-520 (atv): complete=True best=520.3 berm contacts=1 maxAir=1.28 minUp=0.15 resets=0
+clean line Main s 400-520 (atv): complete=True best=520.3 berm contacts=1 maxAir=1.28 minUp=0.15 resets=0
+clean line Downhill Ridge Cut s 125-205 (moto): complete=True best=221.2 berm contacts=2 maxAir=2.44 minUp=-0.98 resets=0
+clean line Downhill Ridge Cut s 125-205 (moto): complete=True best=221.2 berm contacts=2 maxAir=2.44 minUp=-0.98 resets=0
+clean line Downhill Ridge Cut s 125-205 (moto): complete=True best=221.2 berm contacts=2 maxAir=2.44 minUp=-0.98 resets=0

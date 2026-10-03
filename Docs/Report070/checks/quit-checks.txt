@@ -1,0 +1,16 @@
+PASS Main menu has QUIT GAME
+PASS Main menu / keyboard Space: confirmation 'QUIT WOODSTOCK RUSH?' [CANCEL] [QUIT] shown, focus on cancel, still running=True
+PASS Main menu / keyboard Esc cancels, back on the main menu
+PASS Main menu / controller A: confirmation 'QUIT WOODSTOCK RUSH?' [CANCEL] [QUIT] shown, focus on cancel, still running=True
+PASS Main menu / controller A on default CANCEL returns
+PASS Main menu / controller B cancels
+PASS Main menu / mouse click: confirmation 'QUIT WOODSTOCK RUSH?' [CANCEL] [QUIT] shown, focus on cancel, still running=True
+PASS Main menu / mouse CANCEL returns
+PASS Pause menu has Quit Game
+PASS Pause menu / controller A: confirmation 'QUIT WOODSTOCK RUSH?' [CANCEL] [QUIT] shown, focus on cancel, still running=True
+PASS Pause menu / controller B cancels, race still paused
+PASS Pause menu / mouse click: confirmation 'QUIT WOODSTOCK RUSH?' [CANCEL] [QUIT] shown, focus on cancel, still running=True
+PASS Pause menu / keyboard Esc cancels
+PASS END RACE / RETURN TO MENU confirmation unchanged
+PASS Pause menu / before QUIT: confirmation 'QUIT WOODSTOCK RUSH?' [CANCEL] [QUIT] shown, focus on cancel, still running=True
+PASS QUIT ends the game (play mode stopped by RaceFlow.Quit; Application.Quit in a build)

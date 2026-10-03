@@ -1,0 +1,27 @@
+overshoot Main from s 436 at 32 m/s, no steering (moto): berm contacts=7 (max impulse 2375); end (1017.2, 155.3, 122.9) main s 463.5 lat 18.6; on pavement=False; dropped 10.0 m below the start; maxAir=3.78 minUp=-0.97 speed 6.8
+overshoot Main from s 436 at 32 m/s, no steering (atv): berm contacts=3 (max impulse 0); end (1002.4, 162.6, 112.6) main s 452.5 lat 14.6; on pavement=False; dropped 3.0 m below the start; maxAir=1.80 minUp=-0.32 speed 7.4
+overshoot Main from s 442 at 30 m/s, no steering (moto): berm contacts=3 (max impulse 0); end (1026.5, 157.2, 141.5) main s 483.6 lat 14.0; on pavement=False; dropped 8.0 m below the start; maxAir=3.60 minUp=-0.02 speed 11.6
+overshoot Main from s 442 at 30 m/s, no steering (atv): berm contacts=1 (max impulse 169); end (1011.9, 162.7, 130.3) main s 465.9 lat 8.2; on pavement=False; dropped 2.1 m below the start; maxAir=3.96 minUp=-0.02 speed 1.9
+clean line Main s 400-520 (moto): complete=True best=525.7 berm contacts=0 maxAir=3.24 minUp=-0.47 resets=0
+clean line Main s 400-520 (atv): complete=True best=520.4 berm contacts=1 maxAir=1.28 minUp=0.14 resets=0
+clean line Summit Traverse s 0-60 (moto): complete=True best=74.7 berm contacts=0 maxAir=1.08 minUp=0.99 resets=0
+off-and-on Main s 254 left (moto, 12 m/s): edge 6.80 m from centre; went off=True (max 8.6 m out); back on=True at s 276.4; resets=0; stuck(max 0.5s); maxAir=0.60; minUp=0.90
+off-and-on Main s 254 left (atv, 12 m/s): edge 6.80 m from centre; went off=True (max 8.3 m out); back on=True at s 278.4; resets=0; stuck(max 0.2s); maxAir=0.22; minUp=0.54
+off-and-on Main s 273 left (moto, 12 m/s): edge 6.80 m from centre; went off=True (max 12.0 m out); back on=True at s 304.7; resets=0; stuck(max 0.0s); maxAir=0.62; minUp=0.65
+off-and-on Main s 273 left (atv, 12 m/s): edge 6.80 m from centre; went off=True (max 9.0 m out); back on=True at s 298.2; resets=0; stuck(max 0.0s); maxAir=0.00; minUp=0.79
+off-and-on Main s 1665 right (moto, 12 m/s): edge 7.20 m from centre; went off=False (max 7.1 m out); back on=False; resets=0; stuck(max 3.0s); maxAir=0.00; minUp=0.96
+off-and-on Main s 1665 right (atv, 12 m/s): edge 7.20 m from centre; went off=False (max 7.0 m out); back on=False; resets=0; stuck(max 3.0s); maxAir=0.00; minUp=0.87
+off-and-on Summit Traverse s 300.5 right (moto, 12 m/s): edge 6.15 m from centre; went off=True (max 11.6 m out); back on=True at s 332.8; resets=0; stuck(max 0.0s); maxAir=0.72; minUp=0.78
+off-and-on Summit Traverse s 300.5 right (atv, 12 m/s): edge 6.15 m from centre; went off=True (max 9.5 m out); back on=True at s 329.4; resets=0; stuck(max 0.0s); maxAir=0.46; minUp=0.83
+off-and-on Summit Traverse s 452.5 right (moto, 12 m/s): edge 7.20 m from centre; went off=True (max 11.1 m out); back on=False; resets=0; stuck(max 3.0s); maxAir=4.24; minUp=0.00
+off-and-on Summit Traverse s 452.5 right (atv, 12 m/s): edge 7.20 m from centre; went off=True (max 51.5 m out); back on=False; resets=0; stuck(max 3.0s); maxAir=3.30; minUp=0.39
+reset beside the edge at s 254 (left, 2.5 m from centre, moto): before s 253.3 lat 2.6 -> after s 252.2 lat 1.8; along -1.1 m; distance 1.4 m; restored=True in 0.81s; waiting shown=False; facing=1.00; up=0.99
+reset beside the edge at s 1665 (right, 2.5 m from centre, atv): before s 1663.1 lat 2.6 -> after s 1653.2 lat 1.8; along -10.0 m; distance 10.0 m; restored=True in 0.83s; waiting shown=False; facing=1.00; up=0.98
+clean line Main s 1265-1370 (moto): complete=True best=1370.4 berm contacts=0 maxAir=0.82 minUp=0.99 resets=0
+clean line Main s 1265-1370 (atv): complete=True best=1370.7 berm contacts=0 maxAir=0.82 minUp=0.99 resets=0
+overshoot Main from s 1270 at 32 m/s, no steering (moto): berm contacts=1 (max impulse 0); end (988.5, 91.3, -236.2) main s 1301.4 lat 6.5; on pavement=False; dropped 3.8 m below the start; maxAir=0.80 minUp=1.00 speed 0.0
+overshoot Main from s 1270 at 32 m/s, no steering (atv): berm contacts=1 (max impulse 0); end (986.8, 91.3, -239.4) main s 1304.9 lat 6.5; on pavement=False; dropped 3.9 m below the start; maxAir=0.80 minUp=0.98 speed 0.0
+clean line Downhill Ridge Cut s 125-205 (moto): complete=True best=221.2 berm contacts=2 maxAir=2.44 minUp=-0.98 resets=0
+clean line Downhill Ridge Cut s 125-205 (atv): complete=True best=212.8 berm contacts=1 maxAir=0.76 minUp=0.52 resets=0
+overshoot Downhill Ridge Cut from s 135 at 24 m/s, no steering (moto): berm contacts=1 (max impulse 1562); end (720.2, 80.2, -53.8) main s 3014.4 lat 21.4; on pavement=True; dropped 5.0 m below the start; maxAir=1.62 minUp=-0.18 speed 12.4
+overshoot Downhill Ridge Cut from s 135 at 24 m/s, no steering (atv): berm contacts=2 (max impulse 4668); end (719.4, 79.6, -66.6) main s 3014.4 lat 8.6; on pavement=False; dropped 5.2 m below the start; maxAir=0.88 minUp=0.05 speed 18.0

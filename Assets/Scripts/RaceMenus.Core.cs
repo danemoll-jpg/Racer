@@ -24,7 +24,7 @@ details.gameObject.SetActive(true);
             {
                 ClearCore(modalTitle,modalMessage);preview.gameObject.SetActive(false);swatchRow.gameObject.SetActive(false);
                 Row(0,"cancel","CANCEL",()=>{modalConfirm=null;Show();});
-                Row(1,"confirm","CONFIRM",()=>{var commit=modalConfirm;modalConfirm=null;commit();Show();});return;
+                Row(1,"confirm",modalConfirmLabel,()=>{var commit=modalConfirm;modalConfirm=null;commit();Show();});return;
             }
             if(page=="keyboard"){RenderKeyboard();return;}
             if(page=="folder"){RenderFolder();return;}
@@ -67,7 +67,7 @@ details.gameObject.SetActive(true);
                 {
                     ClearCore("WOODSTOCK RUSH","");
                     Row(0,"race","RACE",()=>Navigate("race"));Row(1,"roam","FREE ROAM",()=>Navigate("roam"));Row(2,"garage","GARAGE",flow.OpenGarage);
-                    Row(3,"records","RECORDS",flow.OpenBoards);Row(4,"exploration","EXPLORATION",flow.OpenExploration);Row(5,"settings","SETTINGS",flow.OpenSettings);Row(6,"quit","QUIT GAME",flow.Quit);
+                    Row(3,"records","RECORDS",flow.OpenBoards);Row(4,"exploration","EXPLORATION",flow.OpenExploration);Row(5,"settings","SETTINGS",flow.OpenSettings);Row(6,"quit","QUIT GAME",ConfirmQuit);
                     if(flow.RoamMenu){Row(7,"resume","RESUME DRIVING",flow.Resume);buttons[7].transform.SetSiblingIndex(buttons[0].transform.GetSiblingIndex());}
                 }
             }
@@ -88,7 +88,7 @@ details.gameObject.SetActive(true);
                 Row(5,"records","Records",flow.OpenBoards);Row(6,"exploration","Exploration",flow.OpenExploration);
                 if(!flow.Race.FreeRoam)Row(7,"penalties","Penalty Details",()=>Navigate("penalties"));
                 if(flow.Race.Progress.Finished&&!flow.Race.ClassificationFinal)Row(8,"complete","Complete Race",flow.Race.FinalizeUnfinishedAi);
-                Row(9,"quit","Quit Game",flow.Quit);
+                Row(9,"quit","Quit Game",ConfirmQuit);
             }
             else if(flow.State==RaceFlow.Stage.Settings)RenderSettings();
             else if(flow.State==RaceFlow.Stage.Exploration)
@@ -141,6 +141,8 @@ details.gameObject.SetActive(true);
             }
         }
         string helpCopy="";
+        // Every quit-to-desktop control asks first; focus starts on CANCEL and B / Esc cancels (0.70 Part A).
+        void ConfirmQuit()=>Confirm("QUIT WOODSTOCK RUSH?","",flow.Quit,"QUIT");
         void Help(string text){helpCopy=text;Navigate("help");}
         void RenderSettings()
         {

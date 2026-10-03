@@ -10,7 +10,65 @@
 - Root AGENTS.md points future Codex tasks to both files.
 - From 2026-10-02 the coding agent is Claude Code. The same two files govern it; root CLAUDE.md (created in the 0.67 round) is its discovery pointer.
 
-## CURRENT — 9-report follow-up: quit confirmation, Free Roam mountain path, taller crest barrier, campsite, smoothing — target 0.70.0-review1 — NOT STARTED
+## CURRENT — 9-report follow-up: quit confirmation, Free Roam mountain path, taller crest barrier, campsite, smoothing — 0.70.0-review1 — IMPLEMENTED, DELIVERY IN PROGRESS
+
+### Results (2026-10-02, Claude Code)
+
+- **Safety checkpoint:** `236ecc73` (this TODO plan and the archive move), pushed before any change. Version 0.70.0-review1 / build 70000.
+  - Evidence: [Docs/Report070/VALIDATION.md](Docs/Report070/VALIDATION.md) and [BARRIERS.md](Docs/Report070/BARRIERS.md).
+  - Tools in `Tools/Report070/`; play-mode checks `Assets/Scripts/Report070Checks.cs`, `Report070QuitChecks.cs`, `Report070CampChecks.cs`.
+- **Part A — quit confirmation: PASS (16/16 checks).**
+  - Main menu QUIT GAME and pause menu Quit Game now open the existing dialog: "QUIT WOODSTOCK RUSH?" [CANCEL] [QUIT].
+  - Focus starts on CANCEL; B / Esc cancel back to the same menu.
+  - Tested with keyboard, controller and mouse. QUIT exits. END RACE dialog unchanged; Alt+F4 not intercepted.
+- **Part B — BUG-001/002: STOPPED, nothing changed (TODO item 3).**
+  - The "mound" is the **catch landing of the Summit Homeward Flight** giant jump (CR-094/CR-103, `Ground_CR103 smooth landing` plus its shaped terrain). It is a Free Roam activity Dan asked for and approved on 2026-09-21.
+  - It is already inactive in both Mountain race scenes. It is unchanged since `752ca2f1` (0.18), so it is not a regression.
+  - **Needs Dan's decision:**
+    1. cut a rideable notch through its high end;
+    2. lower that end (this changes the catch area);
+    3. remove the jump from Free Roam.
+- **Part C — Reverse crest barrier: PASS.**
+  - **Reproduced first:** 8 full-throttle runs (4 moto, 4 ATV) left the crest at 31–35 m/s, crossed the outside of the bend 4–9.5 m above the road (Dan: about 9 m at 32 m/s), and all 8 landed 50–88 m off.
+  - **Built** one natural rock outcrop filling the gore between the main road and the Summit Traverse entrance:
+    - 12 m tall, sized from the measured flights;
+    - 85° cliff 7 m beyond the main edge (just behind the OPTIONAL SHORTCUT sign, which stays in front of it, unmoved) and 1 m beyond the Summit Traverse edge;
+    - grounded and collidable;
+    - the 0.69 berm here was absorbed.
+  - **After:** all 8 runs stay on the summit plateau (two wipe out against the cliff and are reset; two ATVs end in a pre-existing 3–4 m dip beside the sign). The Summit Traverse entrance and the clean lines complete. The crest itself is unchanged.
+- **Part D — campsite: PASS.**
+  - Mountain Forward: the camp floated 16–19 m. Each piece is now seated on the scene's own ground: tent, each figure with its log, campfire, each stone.
+  - Mountain Reverse: the pieces were sunk 0.3–1.7 m; now raised. That camp is hidden under the South Face run-up ramp.
+  - Terrain unchanged. The Street Loop / Free Roam camp is unmoved.
+  - **Landmark "Campsite":** an ordinary map destination in all 8 course scenes, with discovery and fast travel. 5/5 checks, run on an isolated map save.
+- **Part E — Climbing Ridge Cut entrance flips (BUG-008): PASS, cause found.**
+  - **Reproduced:** every entry at ≥ 14 m/s hit hidden faces just under the junction surface at branch s 9–11 and was launched, then rolled 38–86° (one 180°).
+  - **Cause:**
+    1. the 0.68 seam cover here is long slivers 5–11 cm under the pavement with faces tilted up to 39°;
+    2. **0.69 regression:** crumpled CR133 earth-bank faces 3–20 cm under the 0.69 BUG-007 patch.
+  - **Fix:** in the junction only:
+    - the seam-cover slivers were subdivided, and the parts under the pavement pushed 0.6 m down;
+    - earth-bank vertices whose triangles lie fully under the cover were lowered (127).
+    - Nothing within 0.4 m of an edge changed, so the left-edge slot stays closed and the view matches 0.69. (A wider pass made a visible notch; it was reverted.)
+  - **After:** all entries at 8–26 m/s, every line, moto and ATV, are clean (roll ≤ 8°).
+  - **Remains:** at 32 m/s (72 mph) entries still roll (71–180°), from faces under the 0.69 patch that cannot be lowered without visible notches. Dan to judge.
+  - The AI enters and rejoins; the Climbing Ridge Cut jump line and overshoot are unchanged.
+- **Part F — PASS.**
+  - **BUG-003 is not a trench:** it is a 3–6 m sawtooth cliff in the terrain 10–50 m off the highway.
+    - Smoothed to an even ~13° slope (no 1 m cell rises more than 0.49 m).
+    - 7–11 trees per scene were re-grounded: trunk collider plus their batched pieces.
+  - **BUG-004:** a 0.25–0.45 m lump where the highway strip ends. The verge now meets the strip within ±0.05 m and falls away smoothly.
+  - Both are applied in all 8 course scenes, since every scene carries this part of the shared world.
+  - **BUG-009:** both gores at the Climbing Ridge Cut rejoin are now one smooth surface each, flush 3 cm under the pavement edges. Terrain under them is 0.4 m down; the 0.69 berm is untouched.
+- **5A.6 neighbour checks:** the 0.69 sets were re-run unchanged (VALIDATION.md).
+  - **Same as 0.69:**
+    - Forward checks 20/20; Forward drives 9/10; Reverse checks and drives.
+    - This covers Summit Traverse, South Face, Downhill and Climbing Ridge Cut, Homeward, the 0.68 berms, the 0.69 BUG-008 berm, the lower main route and the edges.
+  - **Explained differences:**
+    - Forward AI Climbing Ridge Cut: a harness start-line wrap that leaves entry to the random shortcut roll. With the plan held, the AI enters and rejoins.
+    - Reverse crest line and ATV throttle drive: the outcrop at work. The crest still launches the full-throttle line; it lands upright with one brush in 3/3 repeats, but rolled once in the 0.69-harness session.
+    - Reverse Downhill Ridge Cut full-throttle moto line: rolls after brushing the 0.68 berm twice. Nothing there changed; this is a known marginal line.
+- **Discovery:** `Builds/LauncherRelease-69000/assets` was empty (the 0.69 signed manifest and catalog were missing locally). Both were restored, byte-identical to the published game-69000 assets and signature-verified, from `Builds/Latest/game-manifest.json` and the public release.
 
 - **Authorized by Dan** from debug session `2026-10-02_20-28-25-546_11ee21` (CLOSED, exported as `..._11ee21_f7519669.zip`) plus his written request for a quit confirmation. All 9 reports were captured on 0.69.0-review1 (build `dd3589a4`), so all 9 count. Folder with full-size screenshots: `C:\Users\danmo\AppData\LocalLow\DefaultCompany\Racer\DebugReports\2026-10-02_20-28-25-546_11ee21`. READ every comment and LOOK at every screenshot before changing anything. If the folder is missing, ask Dan for the ZIP.
 - **Starting point:** main `f3d5c38c` (documentation commit; playable source `be4f86e5`, 0.69.0-review1 / game-69000). This TODO edit and the archive move are uncommitted and belong in the safety checkpoint.
@@ -71,6 +129,12 @@
 ### Outstanding after this round (as of 2026-10-02)
 
 - Awaiting Dan: gameplay review of 0.70; recheck of the Reverse s 1583 bump.
+- **Needs Dan's decision (Part B):** what to do about the Summit Homeward Flight catch landing blocking the Free Roam path (notch / lower its end / remove from Free Roam). Nothing was changed.
+- From 0.70 results, for Dan's review:
+  - Climbing Ridge Cut entries at 72 mph still roll;
+  - the Reverse crest full-throttle line still launches (the outcrop now holds it);
+  - a pre-existing 3–5 m dip in the crest gore beside the sign;
+  - the Downhill Ridge Cut full-throttle moto line rolled in 0.70's runs.
 - From earlier results, not raised by Dan: the full-throttle line brushes the Downhill Ridge Cut berm; airborne riders at ~38 m/s can still clear the Homeward berm; High Ridge Drop barrier is a suggestion only; remaining edge stations in `Docs/Report069/partA-remaining.txt`; production AI stops at the Homeward deck and undershoots the South Face deck (both pre-existing).
 - Open: CR-118 intermittent spoken-title clipping.
 - Possibly stale, needs Dan's yes/no: CR-010 slightly tighter steering.

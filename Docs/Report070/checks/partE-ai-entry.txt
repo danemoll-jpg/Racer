@@ -1,0 +1,3 @@
+AI Climbing Ridge Cut from main s 0.5 (moto): entered=True rejoined=True best=293.8/298.6 recoveries=0 resets=0 maxAir=0.04 minUp=0.93
+AI Climbing Ridge Cut from main s 0.5 (atv): entered=True rejoined=True best=294.0/298.6 recoveries=0 resets=0 maxAir=0.00 minUp=0.93
+AI Climbing Ridge Cut from main s 3 (moto): entered=True rejoined=True best=293.8/298.6 recoveries=0 resets=0 maxAir=0.10 minUp=0.93

@@ -1,0 +1,39 @@
+SCENE MountainLoopReverse
+main face s 448: junction/unpaved
+main face s 448.5: junction/unpaved
+main face s 449: junction/unpaved
+main face s 449.5: junction/unpaved
+main face s 450: junction/unpaved
+main face s 450.5: junction/unpaved
+main face s 451: face point in the other road's keep-out; skipped
+main face s 451.5: face point in the other road's keep-out; skipped
+main face s 452: face point in the other road's keep-out; skipped
+main face s 452.5: face point in the other road's keep-out; skipped
+main face s 453: face point in the other road's keep-out; skipped
+main face s 453.5: face point in the other road's keep-out; skipped
+main face s 454: face point in the other road's keep-out; skipped
+main face: stations 80 from s 454.5 to 494; face 7 m beyond the pavement edge; top 12 m above it
+Summit Traverse face s 4: face point in the other road's keep-out; skipped
+Summit Traverse face s 4.5: face point in the other road's keep-out; skipped
+Summit Traverse face s 5: face point in the other road's keep-out; skipped
+Summit Traverse face s 5.5: face point in the other road's keep-out; skipped
+Summit Traverse face s 6: face point in the other road's keep-out; skipped
+Summit Traverse face s 6.5: face point in the other road's keep-out; skipped
+Summit Traverse face s 7: face point in the other road's keep-out; skipped
+Summit Traverse face s 7.5: face point in the other road's keep-out; skipped
+Summit Traverse face s 8: face point in the other road's keep-out; skipped
+Summit Traverse face s 8.5: face point in the other road's keep-out; skipped
+Summit Traverse face s 9: face point in the other road's keep-out; skipped
+Summit Traverse face s 9.5: face point in the other road's keep-out; skipped
+Summit Traverse face s 10: face point in the other road's keep-out; skipped
+Summit Traverse face s 10.5: face point in the other road's keep-out; skipped
+Summit Traverse face s 11: face point in the other road's keep-out; skipped
+Summit Traverse face s 11.5: face point in the other road's keep-out; skipped
+Summit Traverse face s 12: face point in the other road's keep-out; skipped
+Summit Traverse face s 12.5: face point in the other road's keep-out; skipped
+Summit Traverse face s 13: face point in the other road's keep-out; skipped
+Summit Traverse face s 13.5: face point in the other road's keep-out; skipped
+Summit Traverse face s 14: face point in the other road's keep-out; skipped
+Summit Traverse face s 14.5: face point in the other road's keep-out; skipped
+Summit Traverse face s 15: face point in the other road's keep-out; skipped
+Summit Traverse face: stations 54 from s 15.5 to 42; face 1 m beyond the pavement edge; top 12 m above it

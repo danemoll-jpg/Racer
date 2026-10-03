@@ -21,7 +21,7 @@ namespace Racer
         RectTransform content;
         InputSystemUIInputModule uiModule;
         InputAction cancelAction,tabsAction,adjustAction,previousTab,deleteAction,spaceAction;
-        string modalTitle,modalMessage;
+        string modalTitle,modalMessage,modalConfirmLabel="CONFIRM";
         Action modalConfirm;
 
         GameObject lastFocus;
@@ -48,8 +48,8 @@ namespace Racer
             if(flow.State==RaceFlow.Stage.Ready&&page!=""){page="";Show();return true;}
             return false;
         }
-        void Confirm(string heading,string message,Action commit)
-        {CapturePage();modalTitle=heading;modalMessage=message;modalConfirm=commit;MenuInput.ConsumeThroughRelease();Show();}
+        void Confirm(string heading,string message,Action commit,string confirmLabel="CONFIRM")
+        {CapturePage();modalTitle=heading;modalMessage=message;modalConfirm=commit;modalConfirmLabel=confirmLabel;MenuInput.ConsumeThroughRelease();Show();}
         void CapturePage()
         {
             if(renderedKey==""||!scroll)return;

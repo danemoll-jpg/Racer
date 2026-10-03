@@ -1,0 +1,36 @@
+tri 0 (750.58, 86.13, -113.48) (750.62, 86.12, -113.39) (754.79, 87.13, -119.45): subdivided 8x8; points under the pavement lowered to 0.6 m below it
+tri 1 (750.58, 86.13, -113.48) (754.79, 87.13, -119.45) (754.69, 87.12, -119.46): subdivided 8x8; points under the pavement lowered to 0.6 m below it
+tri 2 (750.62, 86.12, -113.39) (750.67, 86.11, -113.31) (754.89, 87.14, -119.44): subdivided 8x8; points under the pavement lowered to 0.6 m below it
+tri 3 (750.62, 86.12, -113.39) (754.89, 87.14, -119.44) (754.79, 87.13, -119.45): subdivided 8x8; points under the pavement lowered to 0.6 m below it
+tri 4 (750.67, 86.11, -113.31) (750.72, 86.11, -113.22) (754.99, 87.15, -119.43): subdivided 8x8; points under the pavement lowered to 0.6 m below it
+tri 5 (750.67, 86.11, -113.31) (754.99, 87.15, -119.43) (754.89, 87.14, -119.44): subdivided 8x8; points under the pavement lowered to 0.6 m below it
+tri 6 (750.72, 86.11, -113.22) (750.77, 86.10, -113.13) (755.09, 87.16, -119.42): subdivided 8x8; points under the pavement lowered to 0.6 m below it
+tri 7 (750.72, 86.11, -113.22) (755.09, 87.16, -119.42) (754.99, 87.15, -119.43): subdivided 8x8; points under the pavement lowered to 0.6 m below it
+tri 8 (750.77, 86.10, -113.13) (750.82, 86.10, -113.04) (755.19, 87.17, -119.40): subdivided 8x8; points under the pavement lowered to 0.6 m below it
+tri 9 (750.77, 86.10, -113.13) (755.19, 87.17, -119.40) (755.09, 87.16, -119.42): subdivided 8x8; points under the pavement lowered to 0.6 m below it
+tri 10 (750.82, 86.10, -113.04) (750.87, 86.10, -112.96) (755.29, 87.18, -119.39): subdivided 8x8; points under the pavement lowered to 0.6 m below it
+tri 11 (750.82, 86.10, -113.04) (755.29, 87.18, -119.39) (755.19, 87.17, -119.40): subdivided 8x8; points under the pavement lowered to 0.6 m below it
+tri 12 (750.87, 86.10, -112.96) (750.92, 86.10, -112.87) (755.39, 87.20, -119.38): subdivided 8x8; points under the pavement lowered to 0.6 m below it
+tri 13 (750.87, 86.10, -112.96) (755.39, 87.20, -119.38) (755.29, 87.18, -119.39): subdivided 8x8; points under the pavement lowered to 0.6 m below it
+tri 14 (750.92, 86.10, -112.87) (750.96, 86.10, -112.78) (755.49, 87.21, -119.37): subdivided 8x8; points under the pavement lowered to 0.6 m below it
+tri 15 (750.92, 86.10, -112.87) (755.49, 87.21, -119.37) (755.39, 87.20, -119.38): subdivided 8x8; points under the pavement lowered to 0.6 m below it
+tri 16 (750.96, 86.10, -112.78) (751.01, 86.10, -112.69) (755.59, 87.22, -119.36): subdivided 8x8; points under the pavement lowered to 0.6 m below it
+tri 17 (750.96, 86.10, -112.78) (755.59, 87.22, -119.36) (755.49, 87.21, -119.37): subdivided 8x8; points under the pavement lowered to 0.6 m below it
+tri 18 (751.01, 86.10, -112.69) (751.06, 86.10, -112.61) (755.68, 87.23, -119.35): subdivided 8x8; points under the pavement lowered to 0.6 m below it
+tri 19 (751.01, 86.10, -112.69) (755.68, 87.23, -119.35) (755.59, 87.22, -119.36): subdivided 8x8; points under the pavement lowered to 0.6 m below it
+tri 20 (751.06, 86.10, -112.61) (751.11, 86.11, -112.52) (755.78, 87.24, -119.33): subdivided 8x8; points under the pavement lowered to 0.6 m below it
+tri 21 (751.06, 86.10, -112.61) (755.78, 87.24, -119.33) (755.68, 87.23, -119.35): subdivided 8x8; points under the pavement lowered to 0.6 m below it
+tri 22 (751.11, 86.11, -112.52) (751.16, 86.11, -112.43) (755.88, 87.25, -119.32): subdivided 8x8; points under the pavement lowered to 0.6 m below it
+tri 23 (751.11, 86.11, -112.52) (755.88, 87.25, -119.32) (755.78, 87.24, -119.33): subdivided 8x8; points under the pavement lowered to 0.6 m below it
+tri 24 (751.16, 86.11, -112.43) (751.21, 86.11, -112.34) (755.98, 87.26, -119.31): subdivided 8x8; points under the pavement lowered to 0.6 m below it
+tri 25 (751.16, 86.11, -112.43) (755.98, 87.26, -119.31) (755.88, 87.25, -119.32): subdivided 8x8; points under the pavement lowered to 0.6 m below it
+tri 26 (751.21, 86.11, -112.34) (751.25, 86.11, -112.26) (756.08, 87.27, -119.30): subdivided 8x8; points under the pavement lowered to 0.6 m below it
+tri 27 (751.21, 86.11, -112.34) (756.08, 87.27, -119.30) (755.98, 87.26, -119.31): subdivided 8x8; points under the pavement lowered to 0.6 m below it
+tri 28 (751.25, 86.11, -112.26) (751.30, 86.11, -112.17) (756.18, 87.28, -119.29): subdivided 8x8; points under the pavement lowered to 0.6 m below it
+tri 29 (751.25, 86.11, -112.26) (756.18, 87.28, -119.29) (756.08, 87.27, -119.30): subdivided 8x8; points under the pavement lowered to 0.6 m below it
+tri 30 (752.03, 86.07, -110.86) (752.08, 86.09, -110.77) (757.77, 87.39, -119.10): subdivided 8x8; points under the pavement lowered to 0.6 m below it
+tri 31 (752.03, 86.07, -110.86) (757.77, 87.39, -119.10) (757.67, 87.45, -119.11): subdivided 8x8; points under the pavement lowered to 0.6 m below it
+tri 32 (752.08, 86.09, -110.77) (752.13, 86.09, -110.68) (757.87, 87.32, -119.09): subdivided 8x8; points under the pavement lowered to 0.6 m below it
+tri 33 (752.08, 86.09, -110.77) (757.87, 87.32, -119.09) (757.77, 87.39, -119.10): subdivided 8x8; points under the pavement lowered to 0.6 m below it
+Ground_MountainPolish supported shoulders: vertices under the top surface lowered
+Ground_CR133 mountain earth banks: vertices under the top surface lowered
