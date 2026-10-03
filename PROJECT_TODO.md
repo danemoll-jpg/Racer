@@ -10,7 +10,45 @@
 - Root AGENTS.md points future Codex tasks to both files.
 - From 2026-10-02 the coding agent is Claude Code. The same two files govern it; root CLAUDE.md (created in the 0.67 round) is its discovery pointer.
 
-## CURRENT — Lighting and atmosphere pass + 3-report follow-up + Free Roam landing — target 0.71.0-review1 — NOT STARTED
+## CURRENT — Lighting and atmosphere pass + 3-report follow-up + Free Roam landing — 0.71.0-review1 — IMPLEMENTED (delivery record follows)
+
+### Results (2026-10-03, Claude Code)
+
+- **Safety checkpoint:** `e42ea6bb` (this TODO plan), pushed before any change. Version 0.71.0-review1 / build 71000.
+  - Evidence: [Docs/Report071/VALIDATION.md](Docs/Report071/VALIDATION.md) and [LOOK.md](Docs/Report071/LOOK.md).
+  - Tools in `Tools/Report071/`; play-mode checks `Assets/Scripts/Report071Checks.cs`; look evidence runner `Assets/Scripts/LookBench.cs` (command-line opt-in only).
+- **Part A — Free Roam Homeward catch mound: PASS.**
+  - Active in all six Street-Loop-world scenes (both Street Loops, both Forest Loops, both Backyards); changed in all six. Mountain race scenes: inactive there, unchanged (no file or referenced asset touched).
+  - The landing sheet was removed. The terrain in the launch frame's s 316–545, |x| ≤ 50 m became the smooth surface spanning the surrounding untouched ground: no mound, no cliff.
+  - The buried trails, 4 acorn cairns and ~30 trees came out; all re-seated. The routes in the box, the supported-return ribbon and the RIDGE RETURN sign were re-seated.
+  - 59–71 trees were removed from the run-out line (|x| ≤ 22 m, s 300–690). Jump approach, lip and site are untouched; no sign text needed changing.
+  - Summit giant flights now score up to 2000 m / 20 s. Dan confirmed during the round that he never wanted a cap.
+  - **Flights** (3 per vehicle, full throttle from rest):
+    - moto 230–231 m → 242.5–243.5 m;
+    - ATV 207–208 m → 223.5–224.0 m.
+    - All land upright on open ground and roll out 80–94 m with no obstacle. All 6 score (0.70: one hard-landing reject, three tree hits).
+  - **Straight path between the 0.70 positions:** 0.70 blocked at the mound's end cliff; 0.71 rideable both ways, moto and ATV, no stop or reset.
+- **Part B — Climbing Ridge Cut (Mountain Loop Forward): PASS, one remainder.**
+  - Cause: several terrain sheets stacked at the junction with steep faces where they cross (earth banks under the 0.69 patch, the `Ground_720_320` slab).
+  - Fix: one smooth collidable surface per place (entrance + both shoulders; rejoin hollow), tucked 3 cm under the pavement edges and flush with the kept 0.70 gores and 0.69 berm. Every other sheet under it was lowered 0.8 m where covered.
+  - **BUG-001:** slab down 2–3 m, notch closed.
+  - **BUG-002:** corner-cut lines (48 runs, 14–32 m/s, moto/ATV): rolls past 60° went 22 → 1. All 13 0.70 entry lines are now 7–12°; in 0.70 the 32 m/s lines rolled 87–180°.
+  - **Remainder:** the widest 32 m/s corner cut can carry a vehicle over the far side of the trail at s 30–40 into the cut bank (ATV 80°, recovers). That is not a hidden face; left for Dan.
+  - **BUG-003:** the hollow north of the shortcut and west of the main road was filled to a smooth grade flush with both road edges (up to +10.6 m); 9 trees raised with it.
+  - **5A.6:** CRC jump line (max air 1.00 / 0.92 s), AI entry and rejoin, rejoin line, berm overshoots and main s 1360–1460 all match 0.70.
+  - Mountain Reverse is unchanged: it shares none of these meshes.
+- **Part C — Clear Day look: implemented (Dan judges the look).**
+  - `WorldLook` applies one shared preset to every scene at load. `LookPreset` (+ `Lerp`) is structured for later presets and a day-night blend.
+  - The preset covers: sun, trilight ambient, procedural sky and matched haze (the horizon void is hidden), ground-shader response (grass / dirt / road distinct, road sheen, shape), water (sky reflection), Neutral tonemapping, gentle grade and mild bloom.
+  - Pipeline asset: HDR on, shadows 40 → 80 m. MSAA 2× is unchanged.
+  - **Dropped:** screen-space AO, which cost ~1.4 ms (+45%) at 4K.
+  - **Frame rate** at 3840×2160 (GPU median, GTX 1660 Ti):
+    - Street 3.49 → 3.85 ms (+10%);
+    - Forest 3.21 → 3.63 ms (+13%);
+    - Mountain 3.01 → 3.47 ms (+15%).
+    - 260–290 fps; well above 60 everywhere.
+    - The remaining ~0.4 ms is the post chain as a whole; no single setting is over 10%.
+  - Before/after pairs for all 8 course scenes, the cave approach, the lower route and the garage are in `Docs/Report071/Look/`.
 
 - **Authorized by Dan** from debug session `2026-10-03_00-37-35-649_a733ff` (CLOSED, exported as `..._a733ff_54e5751c.zip`) plus his written decision on 0.70 Part B. All 3 reports were captured on 0.70.0-review1 (build `25ce7af3`). Folder with full-size screenshots: `C:\Users\danmo\AppData\LocalLow\DefaultCompany\Racer\DebugReports\2026-10-03_00-37-35-649_a733ff`. READ every comment and LOOK at every screenshot before changing anything. If the folder is missing, ask Dan for the ZIP.
 - **Dan's review of 0.70:** "No problems on the Reverse track and just a couple on the [Forward] track." Mountain Loop Reverse is clean as of 0.70, including the 12 m crest outcrop. Do not change Mountain Reverse this round except where a shared mesh requires the same fix.
@@ -68,7 +106,10 @@ Dan chose this as the first step of the graphics upgrade (2026-10-03). It is a l
 
 ### Outstanding after this round (as of 2026-10-03)
 
-- Awaiting Dan: gameplay review of 0.71; recheck of the Reverse s 1583 bump.
+- Awaiting Dan: gameplay review of 0.71; his verdict on the Clear Day look (rule 12, no further tuning without his notes); recheck of the Reverse s 1583 bump.
+- From 0.71 results, for Dan's review:
+  - frame-time cost of the look at 4K is +10–15% (Forest/Mountain 3–5 points over the ~10% target). The lever is the post chain (estimated ~0–4% without it, losing tonemapping/grade/bloom). AO was dropped (+45%);
+  - the widest 32 m/s corner cut at the Climbing Ridge Cut entrance can run over the far side of the trail into the cut bank (ATV 80°, recovers).
 - Next feature after this round (Dan is interested, not yet authorized): time of day (day / dusk / night) and weather (sun, rain, snow) as further look presets. Dan decided 2026-10-03: weather visual only; races keep one fixed time of day; Free Roam gets a live day-night cycle (details in FUTURE EXPANSION).
 - From earlier results, not raised by Dan: the full-throttle line brushes the Downhill Ridge Cut berm; airborne riders at ~38 m/s can still clear the Homeward berm (race scenes); High Ridge Drop barrier is a suggestion only; remaining edge stations in `Docs/Report069/partA-remaining.txt`; production AI stops at the Homeward deck and undershoots the South Face deck (both pre-existing).
 - Open: CR-118 intermittent spoken-title clipping.

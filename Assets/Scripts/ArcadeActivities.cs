@@ -111,7 +111,8 @@ namespace Racer
                         if(Summit(jumpSite))invalid|=!AlignedWithSupport();
                         LastJumpDiagnostic=$"site={jumpSite?.id} invalid={invalid} verticalImpact={impactSpeed:F2} contactImpact={contactImpact:F2} contactUp={minimumContactUp:F2} up={car.transform.up.y:F2} wiped={configuration.WipedOut} air={air:F2} distance={distance:F2}";
                         if(jumpSite)invalid|=Vector3.Dot(landing-takeoff,jumpSite.forward.normalized)<3;
-                        if(!invalid&&air>=.25f&&air<12&&distance>=3&&distance<250)
+                        // The two summit giant flights are meant to go as far as possible (0.71: no 250 m cap for them).
+                        if(!invalid&&air>=.25f&&air<(Summit(jumpSite)?20:12)&&distance>=3&&distance<(Summit(jumpSite)?2000:250))
                         {
                             LastDistance=distance;LastAirtime=air;Message($"CLEAN JUMP / {DisplayUnits.Jump(distance)} / {air:0.00} s / {Mathf.RoundToInt(distance*10+air*100)} pts",4);
                             if(jumpSite){AttemptActive=false;Award(jumpSite,distance,"m");}

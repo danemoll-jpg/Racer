@@ -1,0 +1,7 @@
+2026-10-03T04:24:41 PC_RPAsset HDR False shadow distance 40 cascades 4
+2026-10-03T04:31:47 PC_RPAsset HDR True shadow distance 110 cascades 4
+2026-10-03T04:40:17 PC_RPAsset HDR True shadow distance 80 cascades 4
+2026-10-03T04:51:01 PC_RPAsset HDR False shadow distance 40 cascades 4
+2026-10-03T04:57:37 PC_RPAsset HDR True shadow distance 80 cascades 4
+2026-10-03T05:11:45 PC_RPAsset HDR True shadow distance 60 cascades 4
+2026-10-03T05:22:44 PC_RPAsset HDR True shadow distance 80 cascades 4

@@ -1,0 +1,112 @@
+# 0.71 look frame-rate runs (3840x2160, GTX 1660 Ti). GPU = FrameTimingManager median; ~30 fps runs are desktop-throttled (both sides) and excluded from LOOK.md.
+
+## 0.70 rendering (0.70 pipeline values, -lookOff)
+[before-warmup]
+FPS forest-loop-forward before: GPU median 3.23 ms (95th 3.85) = 310 fps GPU-limited; CPU main median 1.26 ms; wall-clock average 294.0 fps, 1% low 197.0 fps, median frame 3.27 ms (3524 timed frames)
+FPS mountain-loop-forward before: GPU median 3.01 ms (95th 3.47) = 332 fps GPU-limited; CPU main median 1.09 ms; wall-clock average 320.4 fps, 1% low 265.4 fps, median frame 3.04 ms (3826 timed frames)
+FPS street-loop-forward before: GPU median 3.49 ms (95th 4.20) = 287 fps GPU-limited; CPU main median 1.42 ms; wall-clock average 267.5 fps, 1% low 133.6 fps, median frame 3.54 ms (3196 timed frames)
+[before]
+FPS forest-loop-forward before: GPU median 35.15 ms (95th 42.78) = 28 fps GPU-limited; CPU main median 1.30 ms; wall-clock average 27.9 fps, 1% low 21.2 fps, median frame 35.17 ms (335 timed frames)
+FPS mountain-loop-forward before: GPU median 30.18 ms (95th 36.94) = 33 fps GPU-limited; CPU main median 1.15 ms; wall-clock average 32.5 fps, 1% low 23.2 fps, median frame 30.19 ms (386 timed frames)
+FPS street-loop-forward before: GPU median 34.26 ms (95th 42.25) = 29 fps GPU-limited; CPU main median 1.51 ms; wall-clock average 28.8 fps, 1% low 20.5 fps, median frame 34.27 ms (345 timed frames)
+[before-extra1]
+FPS forest-loop-forward before: GPU median 3.18 ms (95th 3.92) = 314 fps GPU-limited; CPU main median 1.28 ms; wall-clock average 294.2 fps, 1% low 138.8 fps, median frame 3.23 ms (3522 timed frames)
+FPS mountain-loop-forward before: GPU median 3.00 ms (95th 3.57) = 333 fps GPU-limited; CPU main median 1.07 ms; wall-clock average 319.8 fps, 1% low 251.7 fps, median frame 3.03 ms (3800 timed frames)
+FPS street-loop-forward before: GPU median 3.47 ms (95th 4.08) = 289 fps GPU-limited; CPU main median 1.39 ms; wall-clock average 271.3 fps, 1% low 149.2 fps, median frame 3.51 ms (3248 timed frames)
+[before-extra2]
+FPS forest-loop-forward before: GPU median 3.20 ms (95th 3.83) = 313 fps GPU-limited; CPU main median 1.27 ms; wall-clock average 296.4 fps, 1% low 213.0 fps, median frame 3.24 ms (3554 timed frames)
+FPS mountain-loop-forward before: GPU median 3.02 ms (95th 3.47) = 332 fps GPU-limited; CPU main median 1.10 ms; wall-clock average 321.5 fps, 1% low 266.5 fps, median frame 3.04 ms (3834 timed frames)
+FPS street-loop-forward before: GPU median 3.50 ms (95th 4.26) = 286 fps GPU-limited; CPU main median 1.45 ms; wall-clock average 265.7 fps, 1% low 124.9 fps, median frame 3.55 ms (3177 timed frames)
+[before-extra3]
+FPS forest-loop-forward before: GPU median 3.22 ms (95th 3.86) = 311 fps GPU-limited; CPU main median 1.27 ms; wall-clock average 295.3 fps, 1% low 202.0 fps, median frame 3.25 ms (3535 timed frames)
+FPS mountain-loop-forward before: GPU median 3.01 ms (95th 3.57) = 332 fps GPU-limited; CPU main median 1.08 ms; wall-clock average 320.1 fps, 1% low 256.0 fps, median frame 3.04 ms (3814 timed frames)
+FPS street-loop-forward before: GPU median 3.51 ms (95th 4.21) = 285 fps GPU-limited; CPU main median 1.46 ms; wall-clock average 266.7 fps, 1% low 136.3 fps, median frame 3.57 ms (3186 timed frames)
+
+## Clear Day, 80 m shadows (final)
+[after-warmup]
+FPS forest-loop-forward after: GPU median 35.48 ms (95th 42.56) = 28 fps GPU-limited; CPU main median 1.52 ms; wall-clock average 28.0 fps, 1% low 21.2 fps, median frame 35.50 ms (336 timed frames)
+FPS mountain-loop-forward after: GPU median 30.28 ms (95th 35.62) = 33 fps GPU-limited; CPU main median 1.45 ms; wall-clock average 32.6 fps, 1% low 24.2 fps, median frame 30.30 ms (391 timed frames)
+FPS street-loop-forward after: GPU median 32.38 ms (95th 38.17) = 31 fps GPU-limited; CPU main median 1.56 ms; wall-clock average 30.3 fps, 1% low 21.5 fps, median frame 32.40 ms (365 timed frames)
+[after]
+FPS forest-loop-forward after: GPU median 3.70 ms (95th 4.37) = 270 fps GPU-limited; CPU main median 1.40 ms; wall-clock average 260.2 fps, 1% low 127.8 fps, median frame 3.72 ms (3111 timed frames)
+FPS mountain-loop-forward after: GPU median 3.35 ms (95th 4.09) = 298 fps GPU-limited; CPU main median 1.20 ms; wall-clock average 279.4 fps, 1% low 225.0 fps, median frame 3.46 ms (3350 timed frames)
+FPS street-loop-forward after: GPU median 3.84 ms (95th 4.91) = 260 fps GPU-limited; CPU main median 1.50 ms; wall-clock average 239.7 fps, 1% low 127.2 fps, median frame 3.89 ms (2871 timed frames)
+[var1]
+FPS forest-loop-forward after: GPU median 3.58 ms (95th 4.21) = 279 fps GPU-limited; CPU main median 1.40 ms; wall-clock average 265.7 fps, 1% low 211.1 fps, median frame 3.63 ms (3187 timed frames)
+FPS mountain-loop-forward after: GPU median 3.56 ms (95th 4.17) = 281 fps GPU-limited; CPU main median 1.27 ms; wall-clock average 270.0 fps, 1% low 221.4 fps, median frame 3.61 ms (3238 timed frames)
+FPS street-loop-forward after: GPU median 3.88 ms (95th 4.58) = 258 fps GPU-limited; CPU main median 1.52 ms; wall-clock average 243.7 fps, 1% low 137.5 fps, median frame 3.94 ms (2921 timed frames)
+[var2]
+FPS forest-loop-forward after: GPU median 3.61 ms (95th 4.32) = 277 fps GPU-limited; CPU main median 1.41 ms; wall-clock average 262.1 fps, 1% low 152.6 fps, median frame 3.65 ms (3142 timed frames)
+FPS mountain-loop-forward after: GPU median 3.53 ms (95th 4.14) = 283 fps GPU-limited; CPU main median 1.22 ms; wall-clock average 271.1 fps, 1% low 226.2 fps, median frame 3.58 ms (3250 timed frames)
+FPS street-loop-forward after: GPU median 3.86 ms (95th 4.60) = 259 fps GPU-limited; CPU main median 1.53 ms; wall-clock average 243.4 fps, 1% low 137.2 fps, median frame 3.90 ms (2916 timed frames)
+[bloom off, 80 m]
+FPS forest-loop-forward after: GPU median 34.44 ms (95th 40.26) = 29 fps GPU-limited; CPU main median 1.43 ms; wall-clock average 28.6 fps, 1% low 21.7 fps, median frame 34.46 ms (343 timed frames)
+FPS mountain-loop-forward after: GPU median 30.29 ms (95th 37.29) = 33 fps GPU-limited; CPU main median 1.44 ms; wall-clock average 32.3 fps, 1% low 24.2 fps, median frame 30.31 ms (387 timed frames)
+FPS street-loop-forward after: GPU median 4.21 ms (95th 4.84) = 237 fps GPU-limited; CPU main median 1.52 ms; wall-clock average 225.7 fps, 1% low 167.2 fps, median frame 4.28 ms (2708 timed frames)
+FPS forest-loop-forward after: GPU median 3.93 ms (95th 4.68) = 255 fps GPU-limited; CPU main median 1.36 ms; wall-clock average 239.9 fps, 1% low 146.4 fps, median frame 3.99 ms (2879 timed frames)
+FPS mountain-loop-forward after: GPU median 3.95 ms (95th 4.68) = 253 fps GPU-limited; CPU main median 1.25 ms; wall-clock average 243.2 fps, 1% low 202.6 fps, median frame 4.00 ms (2917 timed frames)
+FPS street-loop-forward after: GPU median 4.26 ms (95th 5.02) = 235 fps GPU-limited; CPU main median 1.54 ms; wall-clock average 222.6 fps, 1% low 147.6 fps, median frame 4.32 ms (2669 timed frames)
+
+## Clear Day, 60 m shadows (tried, no measurable difference; reverted to 80 m)
+[after-warmup]
+FPS forest-loop-forward after: GPU median 3.60 ms (95th 4.23) = 278 fps GPU-limited; CPU main median 1.39 ms; wall-clock average 264.3 fps, 1% low 186.7 fps, median frame 3.63 ms (3167 timed frames)
+FPS mountain-loop-forward after: GPU median 3.52 ms (95th 4.04) = 284 fps GPU-limited; CPU main median 1.25 ms; wall-clock average 275.5 fps, 1% low 231.0 fps, median frame 3.54 ms (3305 timed frames)
+FPS street-loop-forward after: GPU median 3.88 ms (95th 4.55) = 258 fps GPU-limited; CPU main median 1.57 ms; wall-clock average 243.8 fps, 1% low 155.1 fps, median frame 3.93 ms (2922 timed frames)
+[after]
+FPS forest-loop-forward after: GPU median 3.61 ms (95th 4.24) = 277 fps GPU-limited; CPU main median 1.39 ms; wall-clock average 264.1 fps, 1% low 183.9 fps, median frame 3.66 ms (3165 timed frames)
+FPS mountain-loop-forward after: GPU median 3.36 ms (95th 3.98) = 298 fps GPU-limited; CPU main median 1.24 ms; wall-clock average 280.1 fps, 1% low 231.6 fps, median frame 3.44 ms (3360 timed frames)
+FPS street-loop-forward after: GPU median 3.85 ms (95th 4.61) = 259 fps GPU-limited; CPU main median 1.52 ms; wall-clock average 243.9 fps, 1% low 132.8 fps, median frame 3.90 ms (2922 timed frames)
+[extra1]
+FPS forest-loop-forward after: GPU median 3.58 ms (95th 4.25) = 279 fps GPU-limited; CPU main median 1.40 ms; wall-clock average 262.9 fps, 1% low 132.1 fps, median frame 3.62 ms (3149 timed frames)
+FPS mountain-loop-forward after: GPU median 3.51 ms (95th 4.04) = 285 fps GPU-limited; CPU main median 1.24 ms; wall-clock average 277.4 fps, 1% low 228.6 fps, median frame 3.53 ms (3327 timed frames)
+FPS street-loop-forward after: GPU median 3.83 ms (95th 4.92) = 261 fps GPU-limited; CPU main median 1.50 ms; wall-clock average 245.1 fps, 1% low 135.7 fps, median frame 3.88 ms (2939 timed frames)
+[extra2]
+FPS forest-loop-forward after: GPU median 3.59 ms (95th 4.31) = 279 fps GPU-limited; CPU main median 1.37 ms; wall-clock average 264.0 fps, 1% low 169.8 fps, median frame 3.63 ms (3162 timed frames)
+FPS mountain-loop-forward after: GPU median 3.50 ms (95th 4.06) = 286 fps GPU-limited; CPU main median 1.21 ms; wall-clock average 277.4 fps, 1% low 222.9 fps, median frame 3.51 ms (3328 timed frames)
+FPS street-loop-forward after: GPU median 3.84 ms (95th 4.53) = 260 fps GPU-limited; CPU main median 1.51 ms; wall-clock average 244.8 fps, 1% low 138.4 fps, median frame 3.89 ms (2931 timed frames)
+
+## Earlier wall-clock component runs (with AO, 110 m shadows; before GPU timing was added)
+look=after screen=3840x2160 gpu=NVIDIA GeForce GTX 1660 Ti quality=PC variant=[]
+FPS street-loop-forward after: average 180.4 fps over 2166 frames, 1% low 155.6 fps, median frame 5.41 ms
+FPS forest-loop-forward after: average 188.9 fps over 2267 frames, 1% low 149.3 fps, median frame 5.15 ms
+FPS mountain-loop-forward after: average 200.6 fps over 2408 frames, 1% low 178.9 fps, median frame 4.89 ms
+look=after screen=3840x2160 gpu=NVIDIA GeForce GTX 1660 Ti quality=PC variant=[-lookNoAO]
+FPS street-loop-forward after: average 243.1 fps over 2918 frames, 1% low 155.8 fps, median frame 3.92 ms
+FPS forest-loop-forward after: average 264.3 fps over 3172 frames, 1% low 185.1 fps, median frame 3.61 ms
+FPS mountain-loop-forward after: average 268.6 fps over 3224 frames, 1% low 227.8 fps, median frame 3.62 ms
+look=after screen=3840x2160 gpu=NVIDIA GeForce GTX 1660 Ti quality=PC variant=[-lookNoAO]
+FPS street-loop-forward after: average 243.1 fps over 2918 frames, 1% low 155.8 fps, median frame 3.92 ms
+FPS forest-loop-forward after: average 264.3 fps over 3172 frames, 1% low 185.1 fps, median frame 3.61 ms
+FPS mountain-loop-forward after: average 268.6 fps over 3224 frames, 1% low 227.8 fps, median frame 3.62 ms
+look=after screen=3840x2160 gpu=NVIDIA GeForce GTX 1660 Ti quality=PC variant=[-lookNoAO -lookNoBloom]
+FPS street-loop-forward after: average 220.9 fps over 2651 frames, 1% low 143.2 fps, median frame 4.37 ms
+FPS forest-loop-forward after: average 239.1 fps over 2870 frames, 1% low 178.3 fps, median frame 4.00 ms
+FPS mountain-loop-forward after: average 241.8 fps over 2902 frames, 1% low 203.9 fps, median frame 4.05 ms
+look=after screen=3840x2160 gpu=NVIDIA GeForce GTX 1660 Ti quality=PC variant=[-lookNoAO -lookNoBloom]
+FPS street-loop-forward after: average 220.9 fps over 2651 frames, 1% low 143.2 fps, median frame 4.37 ms
+FPS forest-loop-forward after: average 239.1 fps over 2870 frames, 1% low 178.3 fps, median frame 4.00 ms
+FPS mountain-loop-forward after: average 241.8 fps over 2902 frames, 1% low 203.9 fps, median frame 4.05 ms
+look=after screen=3840x2160 gpu=NVIDIA GeForce GTX 1660 Ti quality=PC variant=[-lookNoAO -lookNoBloom -lookNoHDR]
+FPS street-loop-forward after: average 223.2 fps over 2679 frames, 1% low 156.9 fps, median frame 4.30 ms
+FPS forest-loop-forward after: average 240.2 fps over 2883 frames, 1% low 185.9 fps, median frame 3.99 ms
+FPS mountain-loop-forward after: average 242.3 fps over 2908 frames, 1% low 211.0 fps, median frame 4.05 ms
+look=after screen=3840x2160 gpu=NVIDIA GeForce GTX 1660 Ti quality=PC variant=[-lookNoAO -lookNoBloom -lookNoHDR]
+FPS street-loop-forward after: average 223.2 fps over 2679 frames, 1% low 156.9 fps, median frame 4.30 ms
+FPS forest-loop-forward after: average 240.2 fps over 2883 frames, 1% low 185.9 fps, median frame 3.99 ms
+FPS mountain-loop-forward after: average 242.3 fps over 2908 frames, 1% low 211.0 fps, median frame 4.05 ms
+look=after screen=3840x2160 gpu=NVIDIA GeForce GTX 1660 Ti quality=PC variant=[-lookNoPost]
+FPS street-loop-forward after: average 192.6 fps over 2312 frames, 1% low 136.0 fps, median frame 5.05 ms
+FPS forest-loop-forward after: average 202.2 fps over 2426 frames, 1% low 165.6 fps, median frame 4.81 ms
+FPS mountain-loop-forward after: average 215.8 fps over 2590 frames, 1% low 188.9 fps, median frame 4.55 ms
+look=after screen=3840x2160 gpu=NVIDIA GeForce GTX 1660 Ti quality=PC variant=[-lookNoPost]
+FPS street-loop-forward after: average 192.6 fps over 2312 frames, 1% low 136.0 fps, median frame 5.05 ms
+FPS forest-loop-forward after: average 202.2 fps over 2426 frames, 1% low 165.6 fps, median frame 4.81 ms
+FPS mountain-loop-forward after: average 215.8 fps over 2590 frames, 1% low 188.9 fps, median frame 4.55 ms
+look=before screen=3840x2160 gpu=NVIDIA GeForce GTX 1660 Ti quality=PC variant=[-lookOff]
+FPS street-loop-forward before: average 266.0 fps over 3192 frames, 1% low 130.2 fps, median frame 3.52 ms
+FPS forest-loop-forward before: average 291.5 fps over 3498 frames, 1% low 181.8 fps, median frame 3.25 ms
+FPS mountain-loop-forward before: average 305.9 fps over 3671 frames, 1% low 262.2 fps, median frame 3.21 ms
+look=before screen=3840x2160 gpu=NVIDIA GeForce GTX 1660 Ti quality=PC variant=[-lookOff]
+FPS street-loop-forward before: average 266.0 fps over 3192 frames, 1% low 130.2 fps, median frame 3.52 ms
+FPS forest-loop-forward before: average 291.5 fps over 3498 frames, 1% low 181.8 fps, median frame 3.25 ms
+FPS mountain-loop-forward before: average 305.9 fps over 3671 frames, 1% low 262.2 fps, median frame 3.21 ms

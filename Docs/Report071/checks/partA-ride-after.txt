@@ -1,0 +1,4 @@
+ride straight path up (0.70 BUG-002 -> BUG-001) (moto): complete; furthest 153 / 153 m; longest stop 0.0 s; steepest grade 49 deg; min up 0.68; resets 0; end y 153.6
+ride straight path down (BUG-001 -> BUG-002) (moto): complete; furthest 153 / 153 m; longest stop 0.0 s; steepest grade 44 deg; min up 0.83; resets 0; end y 91.4
+ride straight path up (0.70 BUG-002 -> BUG-001) (atv): complete; furthest 153 / 153 m; longest stop 0.0 s; steepest grade 50 deg; min up 0.69; resets 0; end y 153.6
+ride straight path down (BUG-001 -> BUG-002) (atv): complete; furthest 153 / 153 m; longest stop 0.0 s; steepest grade 46 deg; min up 0.83; resets 0; end y 91.4

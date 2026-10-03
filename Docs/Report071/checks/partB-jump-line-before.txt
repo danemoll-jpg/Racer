@@ -1,0 +1,3 @@
+clean line Climbing Ridge Cut s 0-296 (moto): complete=True best=298.6 berm contacts=1 maxAir=1.00 minUp=0.93 resets=0
+clean line Climbing Ridge Cut s 0-296 (atv): complete=True best=298.6 berm contacts=1 maxAir=0.92 minUp=0.93 resets=0
+clean line Climbing Ridge Cut s 0-296 (moto): complete=True best=298.6 berm contacts=1 maxAir=1.00 minUp=0.93 resets=0
