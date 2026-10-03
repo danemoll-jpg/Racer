@@ -233,7 +233,8 @@ namespace Racer
                 branch = b?.Route ? b.Route.title : "Main", branchProgress = b?.Position ?? 0,
                 vehicle = race.vehicle.GetComponent<VehicleConfiguration>().profileId, speedMps = Mathf.Abs(race.vehicle.ForwardSpeed),
                 version = Application.version, buildGuid = Application.buildGUID, scene = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name,
-                viewpoint = Flying ? "Detached inspection camera" : "Vehicle", debugMovementUsed = race.Flow.DebugMovementUsed
+                viewpoint = Flying ? "Detached inspection camera" : "Vehicle", debugMovementUsed = race.Flow.DebugMovementUsed,
+                conditions = WorldLook.Current ? WorldLook.Current.Conditions : "Look off"
             };
             pending.screenshot = "Screenshots/" + pending.id + ".png";
             menuOpen = false; capturing = true; shade.SetActive(false); EventSystem.current?.SetSelectedGameObject(null); SyncHold();
@@ -420,6 +421,7 @@ namespace Racer
             var t = Flying && cameraView ? cameraView.transform : race.vehicle.transform; var p = t.position;
             label.text = $"DEBUG / {race.courseName}\n{(race.reverseCourse ? "Reverse" : "Forward")} / {(race.FreeRoam ? "Free Roam" : "Race")}\nX {p.x:F2}   Y {p.y:F2}   Z {p.z:F2}\nHeading {t.eulerAngles.y:F1}° / {race.vehicle.GetComponent<VehicleConfiguration>().profileId} / {DisplayUnits.Mph(Mathf.Abs(race.vehicle.ForwardSpeed)):F1} mph\n"
                 + (race.FreeRoam ? "Exploration" : $"Lap {race.Progress.CompletedLaps + 1} / Next CP {race.Progress.NextGate}")
+                + "\n" + (WorldLook.Current ? WorldLook.Current.Conditions : "Look off")
                 + "\n" + SessionText + "\nF3 mode / F4 capture / Timeout OFF\n"
                 + (Flying ? "FLY: WASD · Q/E · RMB look\nShift fast / Ctrl precise · F6 return" : race.Flow.DebugMovementUsed ? "DEBUG RUN / records disabled" : "Vehicle view / records eligible");
         }

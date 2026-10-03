@@ -1,0 +1,15 @@
+| Course | Flight | Attempts | Landed and continued | Failed (recovered) | Success |
+|---|---|---|---|---|---|
+| mountain-forward | Eastbound Gully Flight | 18 | 17 | 1 (BLUE lap 1 stopped / fell 15 s after the lip (speed 0.5, y 92)) | 94% |
+| mountain-forward | Homeward Summit Flight | 18 | 18 | 0 | 100% |
+| mountain-reverse | South Face Summit Flight | 12 | 12 | 0 | 100% |
+| mountain-reverse | Westbound Gully Flight | 18 | 18 | 0 | 100% |
+
+AI recoveries: 6
+distance moved: median 62 m, max 76 m; along the route from the nearest point (+ forward / - back; earned-anchor recoveries: from tracked station): +0, +0, -76, -82, +62, -34
+  partB-fwd-after3 BLUE lap 1: from (1014.3, 158.0, 124.1) to (1018.3, 158.1, 120.5), moved 5 m, along route +0 m
+  partB-fwd-after3 EMBER lap 1: from (1014.3, 158.2, 123.0) to (1014.3, 158.3, 122.9), moved 0 m, along route +0 m
+  partB-fwd-after3 EMBER lap 2: from (1269.3, 152.5, 227.6) to (1213.4, 152.5, 182.2), moved 72 m, along route -76 m
+  partB-fwd-after3 BLUE lap 2: from (1268.4, 152.5, 226.3) to (1209.0, 152.5, 179.6), moved 76 m, along route -82 m
+  partB-rev-after5 EMBER lap 0: from (1017.6, 142.8, -70.7) to (991.7, 130.5, -125.3), moved 62 m, along route +62 m
+  partB-rev-after5 GOLD lap 0: from (989.4, 164.3, 118.2) to (958.4, 166.1, 137.0), moved 36 m, along route -34 m

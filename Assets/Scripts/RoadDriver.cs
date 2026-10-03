@@ -35,7 +35,7 @@ namespace Racer
         bool progressSample;
         float rejoinStuck, rejoinBestDistance;
         Vector3 rejoinTarget;
-        bool trackingRejoin;
+        bool trackingRejoin, airborne;
         static readonly float[] cornerUse={.46f,.76f,.90f}, brakeUse={.55f,.88f,.98f}, speedUse={.91f,1f,1f}, hillTargets={26,32,35};
         float pace, stalled, safeS, lane, finishRunoff, nextRecovery;
         float departureLane,recoveryDepartureStation,recoveryDepartureUntil;
@@ -164,6 +164,9 @@ namespace Racer
             // Commit to the readable central launch line; pass in the intervening pockets.
             if(racing&&forestLayout&&forestLayout.Approach(s))desiredLane=0;
             bool committedMountain=racing&&!activeBranch&&mountainFlights&&mountainFlights.Committed(DriveRoad,s);
+            // 0.72: a run-up that starts in a bend (Homeward) is committed to only once the rider faces the flight;
+            // until then it keeps following the road at road speed instead of steering for the flight axis at full throttle.
+            if(committedMountain&&Car.GroundedWheels>0){var flight=mountainFlights.At(DriveRoad,s);if(Vector3.Dot(Vector3.ProjectOnPlane(transform.forward,Vector3.up).normalized,Vector3.ProjectOnPlane(flight.forward,Vector3.up).normalized)<.85f)committedMountain=false;}
             bool jumpApproach=racing&&forestLayout&&forestLayout.Approach(s)&&!forestLayout.IsLaunch(s);
             Variation.Step(this,s,speed,!racing||finished||plannedBranch||activeBranch||bypass||lateral>2.5f||Car.transform.up.y<.9f||committedMountain|| (forestLayout&&forestLayout.IsLaunch(s)),jumpApproach);
             if(Variation.Line!=0)desiredLane=Mathf.Clamp(desiredLane+Variation.Line,-driveHalfWidth+1.6f,driveHalfWidth-1.6f);
@@ -175,6 +178,9 @@ namespace Racer
             // Use the launch's horizontal bearing across its airborne gap. A 3D
             // nearest-road projection can move behind an ascending vehicle and
             // make ordinary pursuit steer away from the aligned catch slope.
+            // South Face (the flight with an AI entry speed): every rival takes the line EMBER (lane -4.5, x 994.5) takes up the run-up, which
+            // carries the most speed to the lip (0.72 races: 38-39.7 m/s there, 36.5-37.8 on the other lines; < 37 is short).
+            if(committedMountain&&mountainFlights.At(DriveRoad,s).aiEntrySpeed>0)desiredLane=-4.5f;
             if(committedMountain){var flight=mountainFlights.At(DriveRoad,s);float along=Vector3.Dot(Car.Body.position-flight.start,flight.forward);target=flight.start+flight.forward*(along+look)+Vector3.Cross(Vector3.up,flight.forward).normalized*desiredLane;target.y=Car.Body.position.y;}
             int backyardFlight=racing&&backyard&&!reverseShortcut?backyard.Flight(s):-1;
             if(backyardFlight>=0){var axis=backyard.flightDirections[backyardFlight];var start=backyard.flightStarts[backyardFlight];float along=Vector3.Dot(Car.Body.position-start,axis);target=start+axis*(along+look);target.y=Car.Body.position.y;}
@@ -183,6 +189,9 @@ namespace Racer
             float angle = Mathf.Atan2(local.x, local.z);
             float maxAngle = Mathf.Lerp(Car.slowSteerAngle, Car.fastSteerAngle, Mathf.Clamp01(speed / Car.topSpeed)) * Mathf.Deg2Rad;
             float steering = Mathf.Clamp(Mathf.Atan(2 * Car.wheelbase * Mathf.Sin(angle) / look) / maxAngle, -1, 1);
+            // 0.72 (Mountain run-ups): pure pursuit steers less as the target swings past 90 degrees; a rider that overshoots
+            // the U-turn onto the Homeward run-up went straight off the deck. Beyond 90 degrees it turns at full lock.
+            if(racing&&mountainFlights&&Mathf.Abs(angle)>Mathf.PI*.5f)steering=Mathf.Sign(angle);
             int skill = racing ? Mathf.Clamp(Race.difficulty,0,2) : 0;
             float cornerGrip = racing ? Car.maxGripAcceleration*cornerUse[skill] : 7.5f;
             float judgment = racing ? Car.braking*brakeUse[skill] : 8f;
@@ -191,11 +200,15 @@ namespace Racer
             // These exposed climbing connectors need a settled approach. The mandatory
             // run-ups retain full acceleration; this is AI pedal planning, not a change
             // to the player's vehicle or to takeoff forces.
-            if(racing&&mountainFlights&&!committedMountain)TargetSpeed=Mathf.Min(TargetSpeed,24);
+            if(racing&&mountainFlights&&!committedMountain){var next=mountainFlights.Ahead(DriveRoad,s,140);TargetSpeed=Mathf.Min(TargetSpeed,next!=null&&next.aiEntrySpeed>0?next.aiEntrySpeed:24);}
+            // 0.72: per-flight take-off limit (a faster take-off overshoots onto the wrong deck).
+            if(committedMountain){var flight=mountainFlights.At(DriveRoad,s);if(flight.aiTakeoffSpeed>0)TargetSpeed=Mathf.Min(TargetSpeed,flight.aiTakeoffSpeed);
+                // South Face: the run-up is driven at full throttle (no pace or consistency lift), or slower riders fall short.
+                if(flight.aiEntrySpeed>0)TargetSpeed=Car.topSpeed;}
             if(departing)TargetSpeed=Mathf.Min(TargetSpeed,26);
             if(finished) TargetSpeed=12;
             // Consistency costs time through early lifting, never extra vehicle capability.
-            if (racing && skill < 2) TargetSpeed *= 1 - (skill==0?.07f:.012f)*(.5f+.5f*Mathf.Sin(Time.time*.19f+pace*31));
+            if (racing && skill < 2 && !(committedMountain&&mountainFlights.At(DriveRoad,s).aiEntrySpeed>0)) TargetSpeed *= 1 - (skill==0?.07f:.012f)*(.5f+.5f*Mathf.Sin(Time.time*.19f+pace*31));
             if(activeBranch) TargetSpeed=Mathf.Min(TargetSpeed,activeBranch.SpeedAt(branchS));
             else if(plannedBranch&&plannedBranch.entrySpeed>0)TargetSpeed=Mathf.Min(TargetSpeed,Mathf.Sqrt(plannedBranch.entrySpeed*plannedBranch.entrySpeed+2*judgment*Mathf.Max(0,plannedBranch.entryRoad-s-12)));
             if(racing&&!activeBranch&&forestLayout&&forestLayout.Approach(s))TargetSpeed=Mathf.Min(TargetSpeed,32);
@@ -276,6 +289,9 @@ namespace Racer
 
             // A repeated obstruction has already exhausted the first long recovery
             // window. Retry sooner, still using the same supported, non-forward pad.
+            // 0.72: the 0.68 fall-through failsafe for rivals (their VehicleRespawn is disabled; RoadDriver owns AI recovery):
+            // a rival below the world is restored to the nearest course point at once instead of falling out of sight.
+            if(racing&&!finished&&Car.Body.position.y<Car.GetComponent<VehicleRespawn>().fallResetHeight&&Time.time>=nextRecovery)TryRecover(s);
             float noProgress=Mathf.Max(routeStuck,branchStuck,rejoinStuck);
             bool racerStuck=racing&&!finished && (noProgress>8 ||
                 (noProgress>5&&(speed<2||trackingRejoin||transform.up.y<.35f)));
@@ -315,12 +331,24 @@ namespace Racer
         void TrackRecoveryProgress(WoodlandRoute branch,float station)
         {
             var p=Car.Body.position;
+            // 0.72: a rider in the air is neither progressing nor stuck (a long authored flight is far above
+            // its projected route point for several seconds); on touchdown it is judged afresh from there.
             var support=branch?branch.At(station,out _):DriveRoad.At(station,out _);
+            if(Car.GroundedWheels==0&&Car.Body.linearVelocity.magnitude>3&&p.y>support.y-15){airborne=true;return;}
+            if(airborne){airborne=false;trackingRejoin=false;rejoinStuck=0;}
             float width=branch?branch.halfWidth:DriveRoad.HalfWidth(station);
             bool near=Vector3.ProjectOnPlane(p-support,Vector3.up).magnitude<=width+3
                 &&Mathf.Abs(p.y-support.y)<6;
             if(!near){
                 routeStuck=branchStuck=0;
+                // 0.72: progress tracked near the last station counts even where the global projection resolves to
+                // another level or the car is beyond the near band (a landing deck, a flight chord across a bend).
+                if(!branch){
+                    float tracked=DriveRoad.ProjectNear(p,progressStation,60,out _);var trackedPoint=DriveRoad.At(tracked,out _);
+                    float advance=Mathf.Repeat(tracked-progressStation+DriveRoad.Length*.5f,DriveRoad.Length)-DriveRoad.Length*.5f;
+                    bool onCourse=Mathf.Abs(p.y-trackedPoint.y)<12&&Vector3.ProjectOnPlane(p-trackedPoint,Vector3.up).magnitude<DriveRoad.HalfWidth(tracked)+15;
+                    if(progressSample&&onCourse&&advance>2){progressStation=tracked;trackingRejoin=false;rejoinStuck=0;return;}
+                }
                 if(!trackingRejoin){trackingRejoin=true;rejoinTarget=support;rejoinBestDistance=Vector3.Distance(p,support);rejoinStuck=0;}
                 float distance=Vector3.Distance(p,rejoinTarget);
                 if(distance<rejoinBestDistance-2){rejoinBestDistance=distance;rejoinStuck=0;}

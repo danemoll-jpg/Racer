@@ -143,7 +143,9 @@ namespace Racer
             untrackedTravel=stableTravel=0;
             stableSince=-1;
         }
-        public void RecordSafePosition()=>RecordSafePosition(Time.time);
+        // RoadDriver calls this every tick for rivals (whose FixedUpdate here is disabled), so it also keeps the last
+        // position above the world for the fall-through failsafe (0.72).
+        public void RecordSafePosition(){if(vehicle&&vehicle.Body.position.y>=fallResetHeight){lastAbove=vehicle.Body.position;haveAbove=true;}RecordSafePosition(Time.time);}
         void RecordSafePosition(float now)
         {
             if(!race)race=FindAnyObjectByType<RaceDirector>();
@@ -232,8 +234,9 @@ namespace Racer
             // Free Roam keeps its recent-road behaviour, but can no longer wait forever.
             if(race.FreeRoam)return roamValid&&RecoverRoaming()||RecoverNearest(false);
             // 0.68 player rule (Dan): the nearest usable track point, facing the race direction.
-            if(PlayerRecovery)return RecoverNearest(false);
+            // 0.72: racing AI uses the same rule, so a rival that fails is restored where it failed.
             var state=race.Racers.FirstOrDefault(r=>r.Car==vehicle);
+            if(PlayerRecovery||state!=null)return RecoverNearest(false);
             var branch=anchored?safeBranch:null;
             var from=vehicle.Body.position;
             // Earned branch station or last supported course sample, never nearest arbitrary ground.

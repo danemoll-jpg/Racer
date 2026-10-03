@@ -12,8 +12,10 @@ namespace Racer
     // the settings that cannot change at runtime without rebuilding the pipeline (HDR on, 80 m shadows, 4 cascades).
     // Screen-space ambient occlusion was tried and dropped: it cost ~1.4 ms per frame at 3840x2160 (GTX 1660 Ti), far over
     // the 10% budget (Docs/Report071/LOOK.md).
-    // Everything a look sets is one named LookPreset; two presets interpolate field by field (LookPreset.Lerp), so
-    // time-of-day and weather can be added later as more presets and a Free Roam day-night cycle can blend between them.
+    // Everything a look sets is one named LookPreset; two presets interpolate field by field (LookPreset.Lerp).
+    // 0.72 time of day and weather (visual and audio only): Day / Dusk / Night presets, Clear / Rain / Snow applied on top of
+    // any of them. Races use the conditions chosen at race setup, fixed for the race; Free Roam runs a live day-night cycle
+    // (FreeRoamHoursPerRealMinute) through the same presets; menus and the garage always show Clear Day.
     // "-lookOff" on the command line leaves the scenes' authored lighting - used only for evidence.
     [Serializable]
     public sealed class LookPreset
@@ -28,6 +30,8 @@ namespace Racer
         [Header("Water")] public float waterSmoothness;
         [Header("Post-processing")] public float postExposure, contrast, saturation, bloomIntensity, bloomThreshold;
         public Color colorFilter;
+        // 0.72: vehicle lamps / course markings glow (0 day .. 1 night), star field, wet surfaces, snow cover, falling rain and snow.
+        [Header("Night and weather")] public float lights, stars, wetness, snow, rain, snowfall;
 
         public static LookPreset Lerp(LookPreset a, LookPreset b, float t)
         {
@@ -45,14 +49,19 @@ namespace Racer
                 sunBoost = F(a.sunBoost, b.sunBoost), ambientScale = F(a.ambientScale, b.ambientScale), shadowLift = F(a.shadowLift, b.shadowLift), roadSheen = F(a.roadSheen, b.roadSheen), groundVariation = F(a.groundVariation, b.groundVariation),
                 postExposure = F(a.postExposure, b.postExposure), contrast = F(a.contrast, b.contrast), saturation = F(a.saturation, b.saturation),
                 bloomIntensity = F(a.bloomIntensity, b.bloomIntensity), bloomThreshold = F(a.bloomThreshold, b.bloomThreshold),
-                colorFilter = C(a.colorFilter, b.colorFilter), waterSmoothness = F(a.waterSmoothness, b.waterSmoothness)
+                colorFilter = C(a.colorFilter, b.colorFilter), waterSmoothness = F(a.waterSmoothness, b.waterSmoothness),
+                lights = F(a.lights, b.lights), stars = F(a.stars, b.stars), wetness = F(a.wetness, b.wetness), snow = F(a.snow, b.snow), rain = F(a.rain, b.rain), snowfall = F(a.snowfall, b.snowfall)
             };
         }
+        public LookPreset Copy() => Lerp(this, this, 0);
     }
+
+    public enum TimeOfDay { Day, Dusk, Night }
+    public enum Weather { Clear, Rain, Snow }
 
     public static class LookPresets
     {
-        // The only preset so far. Later presets (dusk, night, rain, snow) are added here with their own values.
+        // Day is the accepted 0.71 "Clear Day", unchanged.
         public static LookPreset ClearDay => new LookPreset
         {
             name = "Clear Day",
@@ -65,19 +74,91 @@ namespace Racer
             postExposure = .1f, contrast = 12, saturation = 12, bloomIntensity = .2f, bloomThreshold = 1.05f, waterSmoothness = .92f,
             colorFilter = Color.white
         };
-        public static readonly string[] Names = { "Clear Day" };
-        public static LookPreset Get(string name) => ClearDay;
+        // Warm low sun from the west-north-west, long shadows, amber haze; vehicle lamps on at half.
+        public static LookPreset Dusk => new LookPreset
+        {
+            name = "Dusk",
+            sunElevation = 9, sunAzimuth = 286, sunIntensity = .95f, shadowStrength = .8f,
+            sunColor = new Color(1f, .64f, .40f),
+            ambientSky = new Color(.46f, .46f, .60f), ambientEquator = new Color(.60f, .47f, .40f), ambientGround = new Color(.25f, .21f, .19f), ambientIntensity = .92f,
+            skyTint = new Color(.50f, .48f, .60f), skyGround = new Color(.52f, .42f, .38f), skyExposure = 1.05f, atmosphere = 1.35f, sunSize = .05f,
+            fogColor = new Color(.66f, .55f, .52f), fogStart = 150, fogEnd = 1350,
+            sunBoost = .8f, ambientScale = .82f, shadowLift = .12f, roadSheen = .32f, groundVariation = 1,
+            postExposure = .18f, contrast = 13, saturation = 10, bloomIntensity = .35f, bloomThreshold = 1f, waterSmoothness = .92f,
+            colorFilter = new Color(1f, .95f, .89f), lights = .55f
+        };
+        // Moonlit: a pale blue moon (the main light, drawn as the sky's disc), dark blue sky and haze, stars, lamps on.
+        // Kept bright enough to race: lifted exposure and ambient, headlights and glowing markings carry the road ahead.
+        public static LookPreset Night => new LookPreset
+        {
+            name = "Night",
+            sunElevation = 38, sunAzimuth = 140, sunIntensity = .36f, shadowStrength = .55f,
+            sunColor = new Color(.62f, .73f, 1f),
+            ambientSky = new Color(.24f, .30f, .48f), ambientEquator = new Color(.18f, .22f, .32f), ambientGround = new Color(.08f, .09f, .12f), ambientIntensity = 1,
+            skyTint = new Color(.12f, .17f, .34f), skyGround = new Color(.06f, .08f, .13f), skyExposure = .28f, atmosphere = .6f, sunSize = .045f,
+            fogColor = new Color(.07f, .10f, .18f), fogStart = 90, fogEnd = 950,
+            sunBoost = .7f, ambientScale = .62f, shadowLift = .1f, roadSheen = .25f, groundVariation = 1,
+            postExposure = .55f, contrast = 8, saturation = -8, bloomIntensity = .55f, bloomThreshold = .9f, waterSmoothness = .95f,
+            colorFilter = new Color(.86f, .91f, 1f), lights = 1, stars = 1
+        };
+        public static LookPreset ForTime(TimeOfDay t) => t == TimeOfDay.Dusk ? Dusk : t == TimeOfDay.Night ? Night : ClearDay;
+        // Weather on top of any time of day. Brightness follows the base (night rain is dark grey, not daylight grey).
+        public static LookPreset WithWeather(LookPreset b, Weather w)
+        {
+            if (w == Weather.Clear) return b;
+            var p = b.Copy();
+            float bright = Mathf.Clamp(b.fogColor.grayscale / .76f, .1f, 1.1f);
+            if (w == Weather.Rain)
+            {
+                p.name = b.name + " Rain";
+                p.sunIntensity *= .38f; p.shadowStrength *= .35f; p.sunSize *= .25f;
+                var grey = new Color(.47f, .50f, .55f) * bright; grey.a = 1;
+                p.skyTint = Color.Lerp(b.skyTint, grey, .85f); p.skyGround = Color.Lerp(b.skyGround, grey * .9f, .8f); p.skyExposure *= .85f; p.atmosphere *= .7f;
+                p.ambientSky = Color.Lerp(b.ambientSky, grey * 1.15f, .5f); p.ambientEquator = Color.Lerp(b.ambientEquator, grey, .5f);
+                p.fogColor = Color.Lerp(b.fogColor, grey * 1.05f, .8f); p.fogStart = Mathf.Min(b.fogStart, 55); p.fogEnd = Mathf.Min(b.fogEnd, 560);
+                p.roadSheen = Mathf.Max(b.roadSheen, .6f); p.shadowLift = Mathf.Max(b.shadowLift, .3f);
+                p.saturation -= 14; p.contrast -= 2; p.wetness = 1; p.rain = 1;
+            }
+            else
+            {
+                p.name = b.name + " Snow";
+                p.sunIntensity *= .55f; p.shadowStrength *= .45f; p.sunSize *= .4f;
+                var pale = new Color(.80f, .83f, .88f) * bright; pale.a = 1;
+                p.skyTint = Color.Lerp(b.skyTint, pale, .8f); p.skyGround = Color.Lerp(b.skyGround, pale, .8f); p.atmosphere *= .7f;
+                p.ambientSky = Color.Lerp(b.ambientSky, pale, .45f); p.ambientGround = Color.Lerp(b.ambientGround, pale * .8f, .5f);
+                p.fogColor = Color.Lerp(b.fogColor, pale, .85f); p.fogStart = Mathf.Min(b.fogStart, 50); p.fogEnd = Mathf.Min(b.fogEnd, 520);
+                p.shadowLift = Mathf.Max(b.shadowLift, .3f); p.saturation -= 8; p.snow = 1; p.snowfall = 1;
+            }
+            return p;
+        }
+        public static LookPreset Compose(TimeOfDay t, Weather w) => WithWeather(ForTime(t), w);
+        public static readonly string[] Names = { "Clear Day", "Dusk", "Night" };
+        public static LookPreset Get(string name) => name == "Dusk" ? Dusk : name == "Night" ? Night : ClearDay;
     }
 
     public sealed class WorldLook : MonoBehaviour
     {
+        // Free Roam: game hours per real minute (1 = a full day in 24 minutes). Dan will tune this one value.
+        public const float FreeRoamHoursPerRealMinute = 1f;
+        public const float FreeRoamStartHour = 8f;
+
         public static bool Disabled { get; private set; }
         // Evidence switches (frame-rate cost of each part): -lookNoBloom, -lookNoHDR, -lookNoPost.
         static bool Arg(string a) => Array.IndexOf(Environment.GetCommandLineArgs(), a) >= 0;
         public static WorldLook Current { get; private set; }
         public LookPreset Preset { get; private set; }
+        // What is showing now: "Menu" (Clear Day), "Race" (chosen conditions) or "Free Roam" (the live cycle).
+        public string Mode { get; private set; } = "Menu";
+        public TimeOfDay RaceTime { get; private set; }
+        public Weather RaceWeather { get; private set; }
+        public Weather RoamWeather { get; private set; }
+        public float Hour { get; private set; } = FreeRoamStartHour;
+        public string Clock => $"{Mathf.FloorToInt(Hour) % 24:00}:{Mathf.FloorToInt(Hour * 60) % 60:00}";
+        public string Conditions => Mode == "Free Roam" ? $"Free Roam {Clock} ({Preset?.name}) / {RoamWeather}" : Mode == "Race" ? $"{RaceTime} / {RaceWeather}" : "Clear Day (menus)";
         Light sun; Material sky; Volume volume; ColorAdjustments color; Bloom bloom; Tonemapping tone;
         float nextCameraCheck;
+        RaceFlow flow; string session = "Menu"; string applied = "";
+        public static event Action<LookPreset> Applied;
 
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
         static void Boot()
@@ -93,8 +174,61 @@ namespace Racer
             if (!FindAnyObjectByType<RaceDirector>()) return;
             new GameObject("World look").AddComponent<WorldLook>();
         }
-        void Awake() { Current = this; Apply(LookPresets.ClearDay); }
-        void OnDestroy() { if (Current == this) Current = null; if (sky) Destroy(sky); if (volume) Destroy(volume.sharedProfile); foreach (var m in water.Values) if (m) Destroy(m); }
+        void Awake() { Current = this; Apply(LookPresets.ClearDay); applied = "Menu"; if (!GetComponent<WeatherEffects>()) gameObject.AddComponent<WeatherEffects>(); }
+        void OnDestroy() { if (Current == this) Current = null; if (sky) Destroy(sky); if (volume) Destroy(volume.sharedProfile); foreach (var m in water.Values) if (m) Destroy(m); foreach (var m in glow.Values) if (m) Destroy(m); }
+
+        // ---------- 0.72 conditions: which look shows now ----------
+        void Update()
+        {
+            if (!flow) flow = FindAnyObjectByType<RaceFlow>();
+            if (!flow || flow.Save == null) return;
+            var s = flow.Save.Settings;
+            RaceTime = (TimeOfDay)Mathf.Clamp(s.timeOfDay, 0, 2); RaceWeather = (Weather)Mathf.Clamp(s.weather, 0, 2); RoamWeather = (Weather)Mathf.Clamp(s.roamWeather, 0, 2);
+            var stage = flow.State;
+            bool live = stage == RaceFlow.Stage.Countdown || stage == RaceFlow.Stage.Racing;
+            if (live) { string next = flow.Race.FreeRoam ? "Free Roam" : "Race"; if (next == "Free Roam" && session != "Free Roam") Hour = FreeRoamStartHour; session = next; }
+            else if (stage == RaceFlow.Stage.Ready && !flow.RoamMenu) session = "Menu";
+            Mode = stage == RaceFlow.Stage.Garage ? "Menu" : session;
+            if (pinned != null) return;
+            if (Mode == "Free Roam")
+            {
+                if (stage == RaceFlow.Stage.Racing) Hour = Mathf.Repeat(Hour + Time.deltaTime / 60f * FreeRoamHoursPerRealMinute, 24);
+                Apply(Cycle(Hour, RoamWeather)); applied = "Free Roam";
+            }
+            else
+            {
+                string key = Mode == "Race" ? $"Race {RaceTime} {RaceWeather}" : "Menu";
+                if (key != applied) { Apply(Mode == "Race" ? LookPresets.Compose(RaceTime, RaceWeather) : LookPresets.ClearDay); applied = key; }
+            }
+        }
+        // Evidence only (ConditionsBench): show one preset until unpinned.
+        LookPreset pinned;
+        public void Pin(LookPreset p) { pinned = p; if (p != null) Apply(p); applied = ""; }
+        // The Free Roam day: presets blended by hour (night -> dawn -> day -> dusk -> night); the sun and moon move continuously.
+        // The main light follows the sun while it is up and the moon otherwise; it fades to nothing at each horizon crossing,
+        // so the switch never pops a shadow.
+        static readonly (float hour, int preset)[] keys = { (0, 2), (4.6f, 2), (6f, 1), (7.6f, 0), (17.8f, 0), (19.4f, 1), (20.8f, 2), (24, 2) };
+        // The sun is up 06:00-20:00 (rising ENE, setting WNW, highest 58 degrees); the moon has the night (highest ~36 degrees).
+        public static (float elevation, float azimuth, bool sun) Sky(float hour)
+        {
+            if (hour >= 6 && hour < 20) return (58 * Mathf.Sin(Mathf.PI * (hour - 6) / 14), 75 + 210 * (hour - 6) / 14, true);
+            float n = Mathf.Repeat(hour - 20, 24);
+            return (36 * Mathf.Sin(Mathf.PI * n / 10), 105 + 150 * n / 10, false);
+        }
+        public static LookPreset Cycle(float hour, Weather weather)
+        {
+            LookPreset P(int i) => i == 0 ? LookPresets.ClearDay : i == 1 ? LookPresets.Dusk : LookPresets.Night;
+            int k = 0; while (k < keys.Length - 2 && hour >= keys[k + 1].hour) k++;
+            float t = Mathf.SmoothStep(0, 1, Mathf.InverseLerp(keys[k].hour, keys[k + 1].hour, hour));
+            var p = LookPreset.Lerp(P(keys[k].preset), P(keys[k + 1].preset), t);
+            var (elev, az, _) = Sky(hour);
+            p.sunElevation = Mathf.Max(elev, 1); p.sunAzimuth = az;
+            // Off within 2 degrees of the horizon, so the switch between sun and moon never shows.
+            float fade = Mathf.SmoothStep(0, 1, Mathf.InverseLerp(2, 9, elev));
+            p.sunIntensity *= fade; p.shadowStrength *= fade;
+            p.name = hour < 4.6f || hour >= 20.8f ? "Night" : hour < 7.6f ? "Dawn" : hour < 17.8f ? "Day" : "Dusk";
+            return LookPresets.WithWeather(p, weather);
+        }
 
         public void Apply(LookPreset p)
         {
@@ -120,7 +254,9 @@ namespace Racer
                 sky.SetFloat("_AtmosphereThickness", p.atmosphere); sky.SetFloat("_SunSize", p.sunSize);
                 RenderSettings.skybox = sky;
             }
-            DynamicGI.UpdateEnvironment();
+            // The environment (ambient probe) is refreshed only when a preset changes noticeably, not every cycle frame.
+            if (environmentKey < 0 || Mathf.Abs(p.skyExposure - environmentKey) > .01f || Mathf.Abs(p.skyTint.grayscale - environmentTint) > .01f)
+            { DynamicGI.UpdateEnvironment(); environmentKey = p.skyExposure; environmentTint = p.skyTint.grayscale; }
             // Distance haze, matched to the horizon.
             RenderSettings.fog = true; RenderSettings.fogMode = FogMode.Linear; RenderSettings.fogColor = p.fogColor;
             RenderSettings.fogStartDistance = p.fogStart; RenderSettings.fogEndDistance = p.fogEnd;
@@ -128,6 +264,7 @@ namespace Racer
             Shader.SetGlobalFloat("_RacerLook", 1);
             Shader.SetGlobalFloat("_RacerSunBoost", p.sunBoost); Shader.SetGlobalFloat("_RacerAmbientScale", p.ambientScale);
             Shader.SetGlobalFloat("_RacerShadowLift", p.shadowLift); Shader.SetGlobalFloat("_RacerRoadSheen", p.roadSheen); Shader.SetGlobalFloat("_RacerGroundVariation", p.groundVariation);
+            Shader.SetGlobalFloat("_RacerWet", p.wetness); Shader.SetGlobalFloat("_RacerSnow", p.snow);
             // Post-processing: neutral tonemapping, gentle grade, mild bloom. Nothing else (no blur, grain, vignette...).
             if (!volume)
             {
@@ -141,11 +278,16 @@ namespace Racer
             color.postExposure.Override(p.postExposure); color.contrast.Override(p.contrast); color.saturation.Override(p.saturation); color.colorFilter.Override(p.colorFilter);
             bloom.intensity.Override(p.bloomIntensity); bloom.threshold.Override(p.bloomThreshold); bloom.scatter.Override(.6f); bloom.highQualityFiltering.Override(false); bloom.active = !Arg("-lookNoBloom");
             Water(p);
+            Glow(p);
             Cameras();
+            Applied?.Invoke(p);
         }
+        float environmentKey = -1, environmentTint;
         // Water (URP Lit "water" materials): a runtime copy with a smoother surface, and a sky-only reflection probe over each
         // lake rendered once, so lakes and ponds read as water. The authored materials are not changed.
         readonly Dictionary<Material, Material> water = new();
+        readonly List<ReflectionProbe> probes = new();
+        float probeExposure = -1;
         void Water(LookPreset p)
         {
             if (water.Count == 0)
@@ -165,10 +307,45 @@ namespace Racer
                     var probe = new GameObject("World look water reflection").AddComponent<ReflectionProbe>(); probe.transform.SetParent(transform, false);
                     probe.transform.position = b.center; probe.size = b.size + new Vector3(10, 40, 10); probe.mode = ReflectionProbeMode.Realtime;
                     probe.refreshMode = ReflectionProbeRefreshMode.ViaScripting; probe.cullingMask = 0; probe.resolution = 128; probe.clearFlags = ReflectionProbeClearFlags.Skybox; probe.importance = 2;
-                    probe.RenderProbe();
+                    probes.Add(probe);
                 }
             }
             foreach (var copy in water.Values) copy.SetFloat("_Smoothness", p.waterSmoothness);
+            // The sky reflection is re-rendered when the sky changes (a race's conditions, or every few game minutes of the cycle).
+            if (probeExposure < 0 || Mathf.Abs(probeExposure - p.skyExposure) > .04f) { foreach (var probe in probes) if (probe) probe.RenderProbe(); probeExposure = p.skyExposure; }
+        }
+        // 0.72 night readability: the course arrows and checkpoint gate markings glow (their own colour, emitted) as it gets
+        // dark, so they read at night under every weather. Day = no emission, exactly the 0.71 look. Runtime copies only.
+        readonly Dictionary<Material, Material> glow = new();
+        bool glowScanned;
+        void Glow(LookPreset p)
+        {
+            if (!glowScanned)
+            {
+                glowScanned = true;
+                var race = FindAnyObjectByType<RaceDirector>();
+                var marked = new HashSet<Renderer>();
+                foreach (var r in FindObjectsByType<MeshRenderer>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+                    if (r.name.IndexOf("arrow", StringComparison.OrdinalIgnoreCase) >= 0) marked.Add(r);
+                if (race && race.gates != null) foreach (var g in race.gates) if (g) foreach (var r in g.GetComponentsInChildren<MeshRenderer>(true)) marked.Add(r);
+                foreach (var r in marked)
+                {
+                    var mats = r.sharedMaterials; bool any = false;
+                    for (int i = 0; i < mats.Length; i++)
+                    {
+                        var m = mats[i]; if (!m || !m.HasProperty("_EmissionColor")) continue;
+                        if (!glow.TryGetValue(m, out var copy)) glow[m] = copy = new Material(m) { name = m.name + " (night glow)" };
+                        mats[i] = copy; any = true;
+                    }
+                    if (any) r.sharedMaterials = mats;
+                }
+            }
+            foreach (var kv in glow)
+            {
+                var c = kv.Key.HasProperty("_BaseColor") ? kv.Key.GetColor("_BaseColor") : kv.Key.color;
+                if (p.lights > .01f) { kv.Value.EnableKeyword("_EMISSION"); kv.Value.SetColor("_EmissionColor", c * (1.8f * p.lights)); kv.Value.globalIlluminationFlags = MaterialGlobalIlluminationFlags.None; }
+                else { kv.Value.DisableKeyword("_EMISSION"); kv.Value.SetColor("_EmissionColor", Color.black); }
+            }
         }
         // Every camera (race, garage, menus) renders post-processing.
         void Cameras()
@@ -183,6 +360,6 @@ namespace Racer
         void LateUpdate() { if (Time.unscaledTime >= nextCameraCheck) { nextCameraCheck = Time.unscaledTime + 1; Cameras(); } }
 
         // Editor play mode: clear the shader globals so edit-mode views show the authored look.
-        static void Restore() => Shader.SetGlobalFloat("_RacerLook", 0);
+        static void Restore() { Shader.SetGlobalFloat("_RacerLook", 0); Shader.SetGlobalFloat("_RacerWet", 0); Shader.SetGlobalFloat("_RacerSnow", 0); }
     }
 }

@@ -1,0 +1,53 @@
+airace mountain-reverse-v4-natural-summit-merge laps 3 AI 3 (EMBER/moto, GOLD/moto, BLUE/atv) difficulty 1 flights Westbound Gully Flight, South Face Summit Flight
+RECOVERY EMBER lap 0 from (1017.6, 142.8, -70.7) s 1774 (road pos 1719) to (991.7, 130.5, -125.3) s 1183 (road pos 1128); moved 62 m; backward along route 591/3031; diagnostic route=main; nearest=1121.42; selected=1183.42; along=62.00m; from=(1017.64, 142.76, -70.71); to=(991.70, 130.46, -125.34); displacement=61.71m
+FLIGHT South Face Summit Flight: 9 attempts
+  EMBER lap 0: take-off 36.2 m/s at along 221; touchdown along 368 y 147.7 on Ground_ReportCleanup MountainLoopReverse continuous solid 0 after 5.9 s; continued: 8 s later speed -4.3 s 1769 recoveries 0
+  GOLD lap 0: take-off 39.8 m/s at along 221; touchdown along 412 y 129.7 on GOLD after 6.7 s; continued: 8 s later speed 23.7 s 1394 recoveries 0
+  BLUE lap 0: take-off 37.2 m/s at along 221; touchdown along 372 y 158.7 on BLUE after 5.6 s; continued: 8 s later speed 23.8 s 1371 recoveries 0
+  GOLD lap 1: take-off 38.9 m/s at along 221; touchdown along 400 y 137.9 on GOLD after 6.4 s; continued: 8 s later speed 23.8 s 1387 recoveries 0
+  BLUE lap 1: take-off 37.2 m/s at along 222; touchdown along 372 y 158.6 on BLUE after 5.6 s; continued: 8 s later speed 23.7 s 1371 recoveries 0
+  EMBER lap 1: take-off 11.0 m/s at along 366; touchdown along 370 y 110.4 on EMBER after 0.4 s; continued: 8 s later speed 23.6 s 1715 recoveries 1
+  EMBER lap 2: take-off 38.9 m/s at along 221; touchdown along 400 y 137.3 on EMBER after 6.4 s; continued: 8 s later speed 23.6 s 1387 recoveries 1
+  GOLD lap 2: take-off 39.8 m/s at along 221; touchdown along 412 y 129.2 on GOLD after 6.7 s; continued: 8 s later speed 23.8 s 1394 recoveries 0
+  BLUE lap 2: take-off 37.7 m/s at along 221; touchdown along 379 y 153.4 on BLUE after 5.8 s; continued: 8 s later speed 23.9 s 1375 recoveries 0
+FLIGHT Westbound Gully Flight: 9 attempts
+  GOLD lap 0: take-off 44.7 m/s at along 221; touchdown along 435 y 101.9 on GOLD after 6.2 s; continued: 8 s later speed 23.6 s 2879 recoveries 0
+  BLUE lap 0: take-off 42.7 m/s at along 221; touchdown along 418 y 103.6 on BLUE after 5.9 s; continued: 8 s later speed 23.6 s 2868 recoveries 0
+  EMBER lap 0: take-off 44.7 m/s at along 222; touchdown along 435 y 101.8 on EMBER after 6.2 s; continued: 8 s later speed 23.6 s 2880 recoveries 1
+  EMBER lap 1: take-off 44.8 m/s at along 222; touchdown along 435 y 101.8 on EMBER after 6.1 s; continued: 8 s later speed 23.7 s 2877 recoveries 1
+  GOLD lap 1: take-off 44.7 m/s at along 222; touchdown along 435 y 101.9 on GOLD after 6.2 s; continued: 8 s later speed 23.8 s 2878 recoveries 0
+  BLUE lap 1: take-off 42.7 m/s at along 221; touchdown along 417 y 103.8 on BLUE after 5.9 s; continued: 8 s later speed 23.9 s 2868 recoveries 0
+  EMBER lap 2: take-off 44.8 m/s at along 222; touchdown along 435 y 101.8 on EMBER after 6.1 s; continued: 8 s later speed 23.8 s 2879 recoveries 1
+  GOLD lap 2: take-off 44.7 m/s at along 221; touchdown along 434 y 101.9 on GOLD after 6.2 s; continued: 8 s later speed 23.6 s 2878 recoveries 0
+  BLUE lap 2: take-off 42.7 m/s at along 222; touchdown along 418 y 103.5 on BLUE after 5.9 s; continued: 8 s later speed 23.6 s 2869 recoveries 0
+AI EMBER: laps 3/3 finished True dnf False recoveries 1 minimap-drawn True
+AI GOLD: laps 3/3 finished True dnf False recoveries 0 minimap-drawn True
+AI BLUE: laps 3/3 finished True dnf False recoveries 0 minimap-drawn True
+airace mountain-reverse-v4-natural-summit-merge: total AI recoveries 1; race time 357 s
+airace mountain-reverse-v4-natural-summit-merge laps 3 AI 3 (EMBER/moto, GOLD/moto, BLUE/atv) difficulty 1 flights Westbound Gully Flight, South Face Summit Flight
+RECOVERY GOLD lap 0 from (989.4, 164.3, 118.2) s 445 (road pos 390) to (958.4, 166.1, 137.0) s 411 (road pos 356); moved 36 m; backward along route 34/3031; diagnostic route=main; nearest=444.97; selected=410.97; along=-34.00m; from=(989.45, 164.26, 118.25); to=(958.38, 166.05, 136.98); displacement=36.32m
+FLIGHT South Face Summit Flight: 10 attempts
+  GOLD lap 0: take-off - m/s at along 0; touchdown -; recovered in the air/before landing, moved 36 m
+  EMBER lap 0: take-off 38.5 m/s at along 221; touchdown along 394 y 141.7 on EMBER after 6.2 s; continued: 8 s later speed 21.9 s 1326 recoveries 0
+  BLUE lap 0: take-off 37.6 m/s at along 221; touchdown along 378 y 154.0 on BLUE after 5.8 s; continued: 8 s later speed 23.9 s 1375 recoveries 0
+  GOLD lap 0: take-off 19.1 m/s at along 205; touchdown -; no touchdown logged
+  EMBER lap 1: take-off 38.9 m/s at along 221; touchdown along 400 y 137.6 on EMBER after 6.4 s; continued: 8 s later speed 21.9 s 1326 recoveries 0
+  GOLD lap 1: take-off 11.0 m/s at along 366; touchdown -; no touchdown logged
+  BLUE lap 1: take-off 10.9 m/s at along 366; touchdown -; no touchdown logged
+  GOLD lap 2: take-off 38.9 m/s at along 221; touchdown along 400 y 137.8 on GOLD after 6.4 s; continued: 8 s later speed 22.4 s 1331 recoveries 1
+  EMBER lap 2: take-off 11.0 m/s at along 366; touchdown along 370 y 110.4 on EMBER after 0.4 s; continued: 8 s later speed 23.6 s 1715 recoveries 0
+  BLUE lap 2: take-off 11.1 m/s at along 366; touchdown -; no touchdown logged
+FLIGHT Westbound Gully Flight: 9 attempts
+  GOLD lap 0: take-off 44.7 m/s at along 221; touchdown along 434 y 101.9 on GOLD after 6.2 s; continued: 8 s later speed 23.8 s 2872 recoveries 1
+  EMBER lap 0: take-off 44.7 m/s at along 221; touchdown along 435 y 101.9 on EMBER after 6.2 s; continued: 8 s later speed 23.6 s 2867 recoveries 0
+  BLUE lap 0: take-off 42.7 m/s at along 221; touchdown along 417 y 103.7 on BLUE after 5.9 s; continued: 8 s later speed 23.7 s 2868 recoveries 0
+  GOLD lap 1: take-off 44.8 m/s at along 222; touchdown along 435 y 101.8 on GOLD after 6.1 s; continued: 8 s later speed 23.9 s 2874 recoveries 1
+  BLUE lap 1: take-off 42.7 m/s at along 221; touchdown along 418 y 103.6 on BLUE after 5.9 s; continued: 8 s later speed 23.8 s 2868 recoveries 0
+  EMBER lap 1: take-off 44.8 m/s at along 222; touchdown along 436 y 101.8 on EMBER after 6.1 s; continued: 8 s later speed 23.8 s 2869 recoveries 0
+  GOLD lap 2: take-off 44.7 m/s at along 221; touchdown along 435 y 101.8 on GOLD after 6.2 s; continued: 8 s later speed 23.7 s 2873 recoveries 1
+  BLUE lap 2: take-off 42.7 m/s at along 221; touchdown along 417 y 103.7 on BLUE after 5.9 s; continued: 8 s later speed 23.8 s 2866 recoveries 0
+  EMBER lap 2: take-off 44.7 m/s at along 222; touchdown along 436 y 101.7 on EMBER after 6.1 s; continued: 8 s later speed 23.9 s 2870 recoveries 0
+AI EMBER: laps 3/3 finished True dnf False recoveries 0 minimap-drawn True
+AI GOLD: laps 3/3 finished True dnf False recoveries 1 minimap-drawn True
+AI BLUE: laps 3/3 finished True dnf False recoveries 0 minimap-drawn True
+airace mountain-reverse-v4-natural-summit-merge: total AI recoveries 1; race time 343 s

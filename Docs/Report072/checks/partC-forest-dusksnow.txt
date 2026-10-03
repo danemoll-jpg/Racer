@@ -1,0 +1,11 @@
+PASS Dusk/Snow: race look 'Dusk Snow' (mode Race); lights 0.55 wet 0.0 snow 1.0
+PASS Dusk/Snow: player (driven by the AI driver) finished 1/1 laps, checkpoint changes 5, missed gates 0, time 01:21.333, recoveries 1
+PASS Dusk/Snow: vehicle lamps on during the race (level 0.55, vehicles with lamps 8)
+PASS Dusk/Snow: results screen shown (state Results); standings:
+1. EMBER  01:13.194  (+0.0s / 0 misses)
+2. GOLD  01:14.470  (+0.0s / 0 misses)
+3. BLUE  01:20.752  (+0.0s / 0 misses)
+4. YOU  01:21.333  (+0.0s / 0 misses)
+PASS Dusk/Snow: race record saved normally in the same category 'lake-v7-discovery-moto-race4-d1-moto-moto-atv-traffic-laps1' (files: records-lake-v7-discovery-moto-race4-d1-moto-moto-atv-traffic-laps1.json, settings.json, top-ten-v1.json)
+PASS Dusk/Snow: back in the menu the look is Clear Day again ('Clear Day')
+done, failures 0

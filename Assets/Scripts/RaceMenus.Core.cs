@@ -49,19 +49,20 @@ details.gameObject.SetActive(true);
                     Row(0,"start","START RACE",flow.StartRace);var startColors=buttons[0].colors;startColors.normalColor=new(.1f,.38f,.35f);buttons[0].colors=startColors;buttons[0].GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=54;Row(1,"tracks","Tracks",flow.OpenCourses);Row(2,"garage","Garage",flow.OpenGarage);Row(3,"opponents","Opponents",flow.OpenRoster);
                     Row(4,"laps","Laps: "+flow.LapLabel,flow.CycleLaps);Row(5,"mode",flow.Race.opponents?"Mode: Race vs 3 AI":"Mode: Solo / time trial",flow.ToggleOpponents);
                     Row(6,"difficulty","Difficulty: "+flow.Race.DifficultyName,flow.CycleDifficulty);Row(7,"traffic","Traffic: "+(flow.Race.traffic?"On":"Off"),flow.ToggleTraffic);
-                    Row(8,"playlists","Playlists",flow.OpenPlaylists);Row(9,"back","Back",()=>BackPage());
+                    Row(8,"timeofday","Time of Day: "+flow.TimeOfDayLabel,flow.CycleTimeOfDay);Row(9,"weather","Weather: "+flow.WeatherLabel,flow.CycleWeather);
+                    Row(10,"playlists","Playlists",flow.OpenPlaylists);Row(11,"back","Back",()=>BackPage());
                     if(flow.SetupFromResults&&RacePlaylists.Active!=null)
                     {
                         details.text+="\nActive playlist: this event keeps its saved track and lap count.\nReturn to Main to edit or start another playlist.";
                         details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=180;
-                        buttons[1].interactable=buttons[4].interactable=buttons[8].interactable=false;
+                        buttons[1].interactable=buttons[4].interactable=buttons[10].interactable=false;
                         buttons[0].GetComponentInChildren<UnityEngine.UI.Text>(true).text="RESTART CURRENT ENTRY";
                     }
                 }
                 else if(page=="roam")
                 {
                     ClearCore("FREE ROAM",flow.Race.courseName+"\n"+flow.Race.vehicle.GetComponent<VehicleConfiguration>().Profile.Name+"\nExplore, collect acorns and score activities.");
-                    Row(0,"explore","EXPLORE",flow.StartFreeRoam);Row(1,"tracks","Tracks",flow.OpenCourses);Row(2,"garage","Garage",flow.OpenGarage);Row(3,"back","Back",()=>BackPage());
+                    Row(0,"explore","EXPLORE",flow.StartFreeRoam);Row(1,"roam-weather","Weather: "+flow.RoamWeatherLabel,flow.CycleRoamWeather);Row(2,"tracks","Tracks",flow.OpenCourses);Row(3,"garage","Garage",flow.OpenGarage);Row(4,"back","Back",()=>BackPage());
                 }
                 else
                 {

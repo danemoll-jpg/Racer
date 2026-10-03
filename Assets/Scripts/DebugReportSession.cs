@@ -17,6 +17,7 @@ namespace Racer
             public float heading, speedMps, roadProgress, branchProgress;
             public int lap, nextCheckpoint;
             public string branch, viewpoint, screenshot, comment;
+            public string conditions;
             public bool debugMovementUsed;
         }
         [Serializable] public sealed class Report
@@ -90,6 +91,7 @@ namespace Racer
                   .AppendLine("Lap: " + b.lap + " / Next checkpoint: " + b.nextCheckpoint)
                   .AppendLine("Road progress: " + F(b.roadProgress) + " m / Branch: " + b.branch + " / " + F(b.branchProgress) + " m")
                   .AppendLine("Version: " + b.version + " / Build: " + b.buildGuid).AppendLine("Scene: " + b.scene)
+                  .AppendLine("Conditions: " + (string.IsNullOrEmpty(b.conditions) ? "not recorded" : b.conditions))
                   .AppendLine("Debug movement used: " + b.debugMovementUsed).AppendLine("```").AppendLine()
                   .AppendLine("![" + b.id + "](" + b.screenshot.Replace('\\', '/') + ")").AppendLine();
             }

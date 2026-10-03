@@ -9,6 +9,8 @@ float RacerNoise(float2 p)
 }
 // 0.71 world look (Racer.WorldLook sets these globals; all 0 = the authored look, so "-lookOff" is unchanged).
 float _RacerLook,_RacerSunBoost,_RacerAmbientScale,_RacerShadowLift,_RacerRoadSheen,_RacerGroundVariation;
+// 0.72 weather: wet surfaces (darker, glossier road) and snow cover (0 = clear, the 0.71 look).
+float _RacerWet,_RacerSnow;
 half3 RacerSurface(half3 color,float3 world,float3 normal,float vegetation)
 {
     Light light=GetMainLight();
@@ -28,6 +30,19 @@ half3 RacerSurface(half3 color,float3 world,float3 normal,float vegetation)
         float patch=RacerNoise(world.xz*.09)*.65+RacerNoise(world.xz*.31)*.35-.5;
         float2 fine=world.xz*5;float fineFilter=1-smoothstep(.3,1.2,max(length(ddx(fine)),length(ddy(fine))));
         color*=1+look*(grass*patch*.16+dirt*(RacerNoise(fine)-.5)*.10*fineFilter);
+        // 0.72 wet: the road darkens (its sheen rises through _RacerRoadSheen); open ground darkens slightly.
+        color*=1-_RacerWet*(road*.32+(1-road)*.12);
+        // 0.72 snow: open ground and gentle slopes turn white; paved road stays dark and dirt trails keep a tracked,
+        // darker snow, so roads and trails stay readable against the ground.
+        float flat=saturate((normalize(normal).y-.45)*2.5);
+        float cover=_RacerSnow*flat*(1-road)*(1-dirt*.8)*(.85+.15*patch);
+        color=lerp(color,half3(.86,.88,.92),cover);
+        color*=1-_RacerSnow*road*.08;
+    }
+    else
+    {
+        // 0.72 snow on vegetation: upward-facing foliage takes a light dusting.
+        color=lerp(color,half3(.84,.87,.90),_RacerSnow*saturate(normalize(normal).y)*.45);
     }
     float3 n=normalize(normal);
     float3 ambient=clamp(SampleSH(n),.25,.8)*lerp(1,_RacerAmbientScale,_RacerLook);
@@ -38,6 +53,18 @@ half3 RacerSurface(half3 color,float3 world,float3 normal,float vegetation)
     // Look: a faint sun sheen on the paved road only.
     float3 viewDir=normalize(GetWorldSpaceViewDir(world));
     float spec=pow(saturate(dot(n,normalize(light.direction+viewDir))),48)*road*_RacerRoadSheen*_RacerLook*light.shadowAttenuation;
-    return result+spec*light.color;
+    result+=spec*light.color;
+    // 0.72 vehicle headlights (and any other local light): diffuse, plus a wet-road glint.
+    #if defined(_ADDITIONAL_LIGHTS)
+    uint lights=GetAdditionalLightsCount();
+    for(uint li=0;li<lights;li++)
+    {
+        Light l=GetAdditionalLight(li,world);
+        float atten=l.distanceAttenuation;
+        result+=color*l.color*(atten*saturate(dot(n,l.direction))*.85);
+        result+=l.color*(atten*pow(saturate(dot(n,normalize(l.direction+viewDir))),24)*road*(.08+_RacerWet*.6));
+    }
+    #endif
+    return result;
 }
 #endif

@@ -30,6 +30,9 @@ namespace Racer
             public bool estimateAiFinishes = false;
             public string vehicleId = "original";
             public int difficulty = 1;
+            // 0.72 conditions (visual and audio only): race time of day (0 Day, 1 Dusk, 2 Night), race weather and Free Roam
+            // weather (0 Clear, 1 Rain, 2 Snow). Records and ghosts are not split by these.
+            public int timeOfDay = 0, weather = 0, roamWeather = 0;
             public string[] opponentChoices = {"mixed","mixed","mixed"};
             public string[] opponentRoster = {"tourer","moto","atv"};
             public int[] bodyColors = {-1,-1,-1,-1};

@@ -10,13 +10,32 @@
 - Root AGENTS.md points future Codex tasks to both files.
 - From 2026-10-02 the coding agent is Claude Code. The same two files govern it; root CLAUDE.md (created in the 0.67 round) is its discovery pointer.
 
-## CURRENT — Time of day and weather + AI lost after jumps + 1 report — target 0.72.0-review1 — NOT STARTED
+## CURRENT — Time of day and weather + AI lost after jumps + 1 report — 0.72.0-review1 — IMPLEMENTED, RELEASE IN PROGRESS
 
 - **Authorized by Dan (2026-10-03)** from debug session `2026-10-03_12-02-07-031_bc36a2` (CLOSED, exported as `..._bc36a2_f6f5231c.zip`; 1 report, captured on 0.71.0-review1 build `4f3fb34c`), his written request to investigate AI riders getting lost after big jumps, and his request to start the next feature. Folder with the full-size screenshot: `C:\Users\danmo\AppData\LocalLow\DefaultCompany\Racer\DebugReports\2026-10-03_12-02-07-031_bc36a2`.
 - **Dan is away for a few hours and wants this round to run unattended.** Every design decision needed is written below. Do not stop to ask about design; make the smallest reasonable choice, record it, and continue. Stop only for a real external blocker (rule 7).
 - **Starting point:** main `06f73ee9` (documentation commit; playable source `c022d3d6`, 0.71.0-review1 / game-71000). This TODO edit and the archive move are uncommitted and belong in the safety checkpoint.
 - **Scope is exactly Parts A–C below, in that order.** Verify A and B before starting C, so geometry/AI evidence is not mixed with the look change. Section 5A applies to all geometry.
 - **Dan accepted the 0.71 "Clear Day" look (2026-10-03): "looks good, definite improvement."** Build on it as delivered; do not retune it.
+
+### Results (2026-10-03, Claude Code)
+
+- **Safety checkpoint:** `b8f5ccbc` (this TODO plan and the archive move), pushed before any change. Version 0.72.0-review1 / build 72000.
+  - Evidence: [Docs/Report072/VALIDATION.md](Docs/Report072/VALIDATION.md), [AI_JUMPS.md](Docs/Report072/AI_JUMPS.md), [LOOK.md](Docs/Report072/LOOK.md).
+  - Tools in `Tools/Report072/`; play-mode checks `Assets/Scripts/Report072Checks.cs` (rides, AI races) and `Report072CondChecks.cs` (menus, conditions races, Free Roam cycle, debug metadata); look evidence runner `Assets/Scripts/ConditionsBench.cs` (command-line opt-in only).
+- **Part A — BUG-001 terrain tear: PASS.**
+  - Cause: the Summit Homeward **supported-return ribbon** (14 m strip, vertices only at its edges) folds into bow-ties at its hairpin and its two legs overlap at different heights; beside it a spiked terrain bank (to ~84 m, then a 4–5 m cliff) and stray crown fragments (the "pale faceted terrain"), all hidden by the catch mound until 0.71.
+  - Fix in all six Street-Loop-world scenes: the ribbon rebuilt as one clean surface (0.5 m grid, smooth outline, original end lines); the broken part (hairpin + overlap) follows the ground; inside the protected Homeward landing/run-out corridor it keeps the 0.71 driving surface exactly; collider = top surface only (a collidable edge skirt launched a landing moto and was removed). Spiked bank smoothed (2 trees re-grounded); 0.71 tree leftovers fixed (6 trunkless crowns removed, 6 lobes moved with their trunks, 4–6 stray fragments removed).
+  - Box perimeter scan, all six scenes: folds 0, terrain through the trail 0, visual/collision mismatches 0; the remaining hits are natural slopes/creases (listed).
+  - Rides 6/6 (moto/ATV, both ways through the hairpin, across Dan's position). Homeward flights (3 moto + 3 ATV): distances and touchdowns equal 0.71, upright, no reset, open run-out; lean during the coasting run-out slightly larger in some runs (min up 0.67–0.98 vs 0.96–0.98).
+- **Part B — AI lost after big jumps: PASS.**
+  - Cause: rivals were reset in mid-air (5 s "no progress" during a 5.6–6.4 s flight) and the earned-anchor recovery sent them 400–1,062 m back (off the minimap); rivals also had no fall-through failsafe (`VehicleRespawn` disabled on clones). Real failures: Homeward 31.4 m/s take-offs overshoot; South Face < 37 m/s land short; the Homeward run-up U-turn.
+  - Fix (`RoadDriver`, `VehicleRespawn`, `MountainFlights` data): airborne riders are neither stuck nor progressing; tracked progress counts on decks; rival fall-through failsafe; racing AI uses the player's 0.68 nearest-point recovery; Homeward AI take-off limit 29.5 m/s; South Face entry 31 m/s, full-throttle run-up on the fastest line; commit to a flight only when facing it; full lock beyond 90° on the Mountain courses.
+  - Before → after: Gully Fwd 6/57 → 17/18; Homeward 6/9 → 18/18; South Face 1/141 → 12/12; Gully Rev 0/79 → 18/18. Recoveries 273 (median 409 m) → 6 in 4 races (0–76 m). Every rival finished all four after races; none vanished from the minimap.
+- **Part C — time of day and weather: implemented (Dan judges the look).**
+  - Day (Clear Day unchanged) / Dusk / Night × Clear / Rain / Snow on `WorldLook`; race setup options (remembered), Free Roam live cycle (1 real minute = 1 game hour, from 08:00, clock in the HUD, Free Roam Weather option); headlights on every vehicle, glowing arrows/gates, stars and moon; rain/snow particles (none under cover), wet roads, snow cover, rain sound on the Ambience volume; menus/garage Clear Day; debug HUD and bug reports record the conditions.
+  - Frame rate 3840×2160 (GPU median): Day/Clear 3.39–3.72 ms (0.71: 3.47–3.85), worst Night/Snow Street 4.37 ms = 229 fps.
+  - Checks: menu rows with controller/keyboard/mouse, persistence, garage Clear Day; Night/Rain race (Street) and Dusk/Snow race (Forest) start→finish→results→record; Free Roam dusk→night; debug metadata.
 
 ### Part A — Free Roam terrain tear (1 report)
 
@@ -84,7 +103,8 @@ Dan's decisions (2026-10-03), all final for this round:
 
 ### Outstanding after this round (as of 2026-10-03)
 
-- Awaiting Dan: review of 0.72; recheck of the Reverse s 1583 bump.
+- Awaiting Dan: review of 0.72 (the time-of-day and weather looks, rule 12; AI on the Mountain jumps; the Free Roam trail); recheck of the Reverse s 1583 bump.
+- From 0.72 results, for Dan's review: Homeward run-up U-turn — a rival occasionally stalls on its outer corner and is put back ~75 m (2 of 18 passes); the Homeward coasting run-out leans a little more in some flights after the trail rebuild; the Free Roam cycle speed is one value (`WorldLook.FreeRoamHoursPerRealMinute`).
 - From earlier results, not raised by Dan: the widest 32 m/s corner cut at the Climbing Ridge Cut entrance can cross into the far bank; the full-throttle line brushes the Downhill Ridge Cut berm; airborne riders at ~38 m/s can still clear the Homeward berm (race scenes); High Ridge Drop barrier is a suggestion only; remaining edge stations in `Docs/Report069/partA-remaining.txt`.
 - Open: CR-118 intermittent spoken-title clipping.
 - Possibly stale, needs Dan's yes/no: CR-010 slightly tighter steering.

@@ -1,0 +1,35 @@
+PASS defaults: Time of Day Day, Weather Clear, Free Roam weather Clear
+PASS Race setup rows: 'Time of Day: Day', 'Weather: Clear' (between Traffic 'Traffic: On' and 'Playlists')
+PASS controller D-pad reaches Time of Day
+PASS controller A: Time of Day: Dusk
+PASS controller A again: Time of Day: Night
+PASS controller D-pad down reaches Weather
+PASS controller A: Weather: Rain
+PASS keyboard arrows reach Weather
+PASS keyboard Space: Weather: Snow
+PASS keyboard Space on Time of Day wraps: Time of Day: Day
+PASS mouse click: Time of Day: Dusk
+PASS menus stay Clear Day while options change (showing 'Clear Day')
+PASS Free Roam page row: 'Weather: Clear' after 'EXPLORE'
+PASS controller reaches Free Roam Weather
+PASS controller A: Weather: Rain
+PASS keyboard Space: Weather: Snow
+PASS settings.json read by a fresh save (relaunch): timeOfDay 1 (Dusk), weather 2 (Snow), roamWeather 2 (Snow)
+PASS garage shows Clear Day (mode Menu, preset Clear Day)
+PASS Night/Rain: race look 'Night Rain' (mode Race); lights 1.00 wet 1.0 snow 0.0
+PASS Night/Rain: player (driven by the AI driver) finished 1/1 laps, checkpoint changes 14, missed gates 0, time 02:23.498, recoveries 1
+PASS Night/Rain: vehicle lamps on during the race (level 1.00, vehicles with lamps 24)
+PASS Night/Rain: results screen shown (state Results); standings:
+1. GOLD  02:06.671  (+0.0s / 0 misses)
+2. EMBER  02:20.842  (+0.0s / 0 misses)
+3. YOU  02:23.498  (+0.0s / 0 misses)
+4. BLUE  ~ 03:38.990 Estimated  (+0.0s / 0 misses)
+PASS Night/Rain: race record saved normally in the same category 'street-v14-discovery-moto-race4-d1-tourer-moto-atv-traffic-laps1' (files: records-street-v14-discovery-moto-race4-d1-tourer-moto-atv-traffic-laps1.json, settings.json, top-ten-v1.json)
+PASS Night/Rain: back in the menu the look is Clear Day again ('Clear Day')
+PASS Free Roam starts at 08:00 (mode Free Roam, preset Day)
+PASS clock in the Free Roam HUD line: 'FREE ROAM 08:00 / Trickum pavement jump / 0.70 mi SW'
+PASS cycle 18.5h -> 21:55: presets passed 18:35 Dusk -> 20:48 Night
+PASS no pops: largest change of the main light per game minute 0.0450 intensity, 0.330 degrees while lit (sun / moon move 0.25 / 0.25 degrees per game minute; 151 frames)
+PASS lamps switch on automatically at 18:40
+PASS bug report records the conditions: Markdown 'Conditions: Night / Snow', JSON has conditions
+done, failures 0
