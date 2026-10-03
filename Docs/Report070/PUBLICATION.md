@@ -1,0 +1,46 @@
+# 0.70.0-review1 — delivery evidence
+
+- **Source:**
+  - Completion commit `67d08694` plus `459f3f873a91c0e34a9639339b2f16a8b0ffad5b`. The second removes temporary editor tool copies that the first accidentally included; it is the playable source.
+  - Both pushed and verified equal to origin/main.
+  - Safety checkpoint: `236ecc73`.
+- **Build:**
+  - Fresh Unity 6000.6.1f1 Windows build from `459f3f87`: Succeeded, 0 errors, 20 warnings, 4m08s.
+  - GUID `25ce7af339194f39869a67e8b0451949` ([build-release.txt](build-release.txt)).
+  - The commit was passed to the build in `REPORT070_COMMIT`.
+- **Staged:**
+  - `Builds/Latest` root and `Builds/Latest/versions/70000` hold all 233 signed manifest files.
+  - 27 runtime files changed versus 69000: all scene data (level0–7), shared assets, `Assembly-CSharp.dll`, README/VERSION and the review docs.
+  - The named launcher is preserved ([runtime-identity.json](runtime-identity.json)).
+- **Previous release chain:**
+  - `Builds/LauncherRelease-69000/assets` was found empty (the 0.69 signed manifest and catalog were missing locally).
+  - The manifest was restored from `Builds/Latest/game-manifest.json`, and the catalog from the public game-69000 release.
+  - Both are byte-identical to the 0.69 inventory hashes; the catalog signature was verified with the existing launcher checks.
+- **Release:**
+  - Published [game-70000](https://github.com/danemoll-jpg/woodstock-rush-releases/releases/tag/game-70000) with:
+    - `game-manifest.json` (47,013 bytes);
+    - `game.zip` (388,147,712 bytes);
+    - `update-catalog.json` (993 bytes).
+  - The first publish hit the known draft-lookup miss; `--resume-draft` uploaded the draft and published it.
+  - The latest catalog was fetched back and matched. Previous releases were retained.
+- **Public verification** ([hosted/result.json](hosted/result.json)):
+  - The public catalog resolves to the 70000 manifest, and its pinned signature is verified.
+  - All 233 Latest files match the public manifest.
+  - Public download, install and startup check pass (exit 0).
+- **Activation:** the production updater activated 70000 in `Builds/Latest`, soundtrack state unchanged. It reports nothing pending against the public catalog ([launcher-catalog-check.json](launcher-catalog-check.json)).
+- **Play-Racer.cmd (unchanged script):**
+  - It launched a responsive `Builds/Latest/versions/70000/Racer.exe` ([play-racer-launch.json](play-racer-launch.json)).
+  - The game was muted for the check, and the original settings bytes were restored ([settings-preserved.json](settings-preserved.json)).
+- **Cleanup** ([cleanup.json](cleanup.json)):
+  - Builds went from 9,915,700,993 to 7,841,821,157 bytes (2,073,879,836 recovered).
+  - Removed:
+    - the build output folder;
+    - the duplicate `game.zip`;
+    - the hosted verification install (1.69 GB under the project `Temp/`).
+  - The 37 MB of probe scratch outside the project and the project `Temp/report070-*` folders were removed; their evidence is copied into this folder.
+  - Retained:
+    - Latest root, managed 70000 + previous 69000;
+    - `LauncherRelease-70000` signed manifest and catalog;
+    - music, publisher tools/keys, launcher, metadata, source, evidence and saves.
+  - Final C: free: 307,555,516,416 bytes.
+- **Debug report history:** untouched. Dan's session `..._11ee21` was already closed and exported by Dan.

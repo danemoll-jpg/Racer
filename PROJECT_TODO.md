@@ -10,7 +10,20 @@
 - Root AGENTS.md points future Codex tasks to both files.
 - From 2026-10-02 the coding agent is Claude Code. The same two files govern it; root CLAUDE.md (created in the 0.67 round) is its discovery pointer.
 
-## CURRENT — 9-report follow-up: quit confirmation, Free Roam mountain path, taller crest barrier, campsite, smoothing — 0.70.0-review1 — IMPLEMENTED, DELIVERY IN PROGRESS
+## CURRENT — 9-report follow-up: quit confirmation, Free Roam mountain path, taller crest barrier, campsite, smoothing — 0.70.0-review1 — DELIVERED, AWAITING DAN'S REVIEW
+
+- **DELIVERED:**
+  - Source `459f3f873a91c0e34a9639339b2f16a8b0ffad5b` pushed and verified on origin/main. The completion commit is `67d08694`; `459f3f87` removes temporary editor tool copies it accidentally included.
+  - Fresh 0.70.0-review1 Windows build: 0 errors, 20 warnings, 4m08s.
+  - Published [game-70000](https://github.com/danemoll-jpg/woodstock-rush-releases/releases/tag/game-70000). The known draft-lookup miss was resolved with `--resume-draft`.
+  - All 233 Latest files match the public signed manifest; public download, signature, install and startup pass.
+  - [Delivery evidence](Docs/Report070/PUBLICATION.md).
+- **Play-Racer.cmd (unchanged):** launched a responsive managed 70000, muted, with settings restored byte-for-byte; no pending updates. Latest root, current 70000 and previous 69000 retained.
+- **Cleanup:**
+  - Builds 9,915,700,993 → 7,841,821,157 bytes.
+  - C: free 307,555,516,416 bytes.
+  - All debug report history preserved.
+- **SESSION HANDOFF: STOP.** Wait for Dan's review of 0.70 and his decision on Part B. A documentation-only delivery commit follows; playable source remains `459f3f87`.
 
 ### Results (2026-10-02, Claude Code)
 
