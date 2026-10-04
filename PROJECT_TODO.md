@@ -10,13 +10,27 @@
 - Root AGENTS.md points future Codex tasks to both files.
 - From 2026-10-02 the coding agent is Claude Code. The same two files govern it; root CLAUDE.md (created in the 0.67 round) is its discovery pointer.
 
-## CURRENT — Snow scenes and frozen water, thunderstorms, clouds, first Blender models (motorcycle + rider) — target 0.73.0-review1 — NOT STARTED
+## CURRENT — Snow scenes and frozen water, thunderstorms, clouds, first Blender models (motorcycle + rider) — target 0.73.0-review1 — IMPLEMENTED AND VERIFIED; BUILD / RELEASE IN PROGRESS
 
 - **Authorized by Dan (2026-10-03)** from debug session `2026-10-03_20-51-21-371_00b27e` (CLOSED, exported as `..._00b27e_df2aae45.zip`; 2 entries, both captured on 0.72.0-review1 build `b6b54925`, both feature requests, not bugs) plus his written requests in chat. Folder with full-size screenshots: `C:\Users\danmo\AppData\LocalLow\DefaultCompany\Racer\DebugReports\2026-10-03_20-51-21-371_00b27e`. LOOK at both screenshots before placing anything.
 - **Dan's review of 0.72:** he played it and reported no bugs; he is adding to the weather feature. Treat 0.72 time of day / weather, the AI jump fixes and the Free Roam trail as working. Do not retune them.
 - **Starting point:** main `662281d2` (documentation commit; playable source `859d068a`, 0.72.0-review1 / game-72000). This TODO edit is uncommitted and belongs in the safety checkpoint.
 - **Scope is exactly Parts A–D below, in that order.** All design decisions needed are written here; do not stop to ask about design. Make the smallest reasonable choice, record it, continue. Stop only for a real external blocker (rule 7).
 - Weather stays **visual and audio only** (Dan's standing decision), with the single exception spelled out in Part A2.
+
+### Results (2026-10-03, Claude Code)
+
+- **Safety checkpoint:** `f850d54f` (this TODO plan and the archive move), pushed before any change. Version 0.73.0-review1 / build 73000.
+  - Evidence: [Docs/Report073/VALIDATION.md](Docs/Report073/VALIDATION.md) (per-item disposition and the frame-rate table), [Look/](Docs/Report073/Look/), [Water/](Docs/Report073/Water/), [Scenes/](Docs/Report073/Scenes/), [Storm/](Docs/Report073/Storm/), [Models/](Docs/Report073/Models/).
+  - Tools in `Tools/Report073/`; play-mode checks `Assets/Scripts/Report073Checks.cs`; 4K evidence through `ConditionsBench.cs` (extended: Night/Rain measured, dusk-to-night strip, motorcycle shots, New vs Classic frame time).
+- **Part A — Snow: PASS.**
+  - A1: all water freezes in Snow (Dan's pool, House 3 pool and lake, Friend's lake, J1 creek, Woodland creek, Fern creek, the culvert storm-drain flow): `WorldLook` swaps each water renderer to a frosted ice material (`Resources/WaterIce.mat`, generated dusting texture, environment reflections off); Clear/Rain untouched; no ripples or splash sounds on ice.
+  - A2: `ShallowWater` switches on a collidable ice face (water shape) on level water bodies; the slowdown is measured as if the vehicle were on the bed under the ice, so it equals the water's. Not on Fern creek (22° sloped channel, buried except where it overhangs drops) or the 3 cm drain footprints: vehicles stay on the ground there as now. House 3 lake crossing: over water moto 1.78 s Clear / 1.80 s Snow, ATV 2.00 / 1.96 s; whole 72 m line ATV 7.00 / 6.47 s (in Clear it also climbs out of the lake bed). Body on top of the ice (+0.43 / +0.49 m). Snow race on Forest Loop finished with the record saved.
+  - A3/A4: `SnowScenes` (AmbientLife figures, no colliders, Snow only, races and Free Roam): two people sledding on the grass 11 m right of the road centre below Dan's BUG-001 position (slide, stand, pull the sled back up); three people playing broom hockey on the frozen pool beside the deck (BUG-002). Absent in Clear/Rain/menus; household scenes untouched.
+- **Part B — thunder and lightning: PASS.** In Rain a strike every 20–60 s (irregular): 1–2 short flashes (sky, clouds and image; strongest at night), thunder 0.8–4.7 s later on the Ambience volume (generated, no asset). Settings > Display "Lightning flashes: On / Off" (default On, remembered; Off keeps the thunder). Under cover no flash, thunder muffled. Night/Rain race: 3 strikes, gaps 43 / 50 s.
+- **Part C — clouds: implemented (Dan judges the look).** `SkyClouds` + `Racer/StylizedClouds` shader: faceted low-poly clusters 410–560 m up (highest ground/tree 197 m), drifting with one wind; Clear scattered, Rain dark overcast lit by lightning, Snow pale even overcast (overcast adds a flat deck and a haze-coloured horizon ring). Lit by the main light (sun, dusk, moon). No cloud shadows. Frame rate 3840×2160 within ±0.1 ms of 0.72 (worst Night/Snow Street 4.57 ms = 219 fps; Night/Rain 4.53 ms).
+- **Part D — Blender motorcycle and rider: implemented (pilot, Dan decides).** Blender 3.6.1 is at `F:\blender\blender.exe` (not the default path). `Tools/Blender/needle600.py` → `SourceArt/Blender/Needle600.blend` + `Assets/Resources/VehicleModels/Needle600.fbx`; `render_views.py` renders. 3 revision passes. 11,592 triangles (classic 16,468). Fitted to the existing vehicle (wheels, collider, physics, camera unchanged); front end steers about the fork axis; paint on bodywork only (black checked); lamps glow at night; wipe-out/reset fine; garage "Model: New (Classic / New)" (default New, remembered), AI motorcycles follow it. Frame time New 3.93 ms vs Classic 3.94 ms. ATV/cars unchanged.
+- **Notes for Dan:** the House 3 pool (1.34 m deep) becomes a level ice floor in Snow, so a vehicle no longer drops into it; Clear scattered clouds are sparse from the road (22 of 64 cloud slots; one value in `SkyClouds`).
 
 ### Part A — Snow: frozen water and two winter scenes
 
@@ -86,7 +100,7 @@ This is graphics upgrade step 2, pilot only. Dan has Blender installed on this P
 
 ### Outstanding after this round (as of 2026-10-03)
 
-- Awaiting Dan: review of 0.73, especially his verdict on the Blender motorcycle and rider (continue to ATV/cars or change approach); recheck of the Reverse s 1583 bump.
+- Awaiting Dan: review of 0.73, especially his verdict on the Blender motorcycle and rider (continue to ATV/cars or change approach), the cloud look (rule 12) and the snow scenes; recheck of the Reverse s 1583 bump.
 - From earlier results, not raised by Dan: the widest 32 m/s corner cut at the Climbing Ridge Cut entrance can cross into the far bank; the full-throttle line brushes the Downhill Ridge Cut berm; airborne riders at ~38 m/s can still clear the Homeward berm (race scenes); High Ridge Drop barrier is a suggestion only; remaining edge stations in `Docs/Report069/partA-remaining.txt`.
 - Open: CR-118 intermittent spoken-title clipping.
 - Possibly stale, needs Dan's yes/no: CR-010 slightly tighter steering.

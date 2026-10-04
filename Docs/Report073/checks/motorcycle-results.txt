@@ -1,0 +1,12 @@
+MODEL classic: triangles 16468, renderers 20, materials 12 (Garage alloy, Garage rubber, Driver trousers denim, Driver shirt green, Driver skin light, Driver hair gold, Driver eye whites, Driver smile, Driver shoes brown, Garage body paint, Garage headlamps, Garage tail lamps); bounds min (-0.51, -0.53, -1.28) max (0.51, 1.44, 1.28); wheels Wheel@(0.000, -0.200, -0.825) Wheel@(0.000, -0.200, 0.825)
+MODEL new: triangles 0, renderers 23, materials 13 (Garage engine, Garage alloy, Garage body paint, Garage rubber, Garage tail lamps, Driver eye whites, Driver hair gold, Driver smile, Driver shirt green, Driver shoes brown, Driver skin light, Driver trousers denim, Garage headlamps); bounds min (-0.45, -0.54, -1.16) max (0.45, 1.39, 1.16); wheels Front wheel@(0.000, -0.200, 0.825) Rear wheel@(0.000, -0.200, -0.825)
+PASS default Model: New
+PASS garage, motorcycle: new model on the player bike True; row 'Model: New   (Classic / New)'
+PASS switch to Classic: new model present False, saved False
+PASS switch back to New: new model present True, saved (relaunch reads) True
+PASS colour Black: 2 bodywork renderers painted RGBA(0.018, 0.021, 0.025, 1.000), rider keeps own materials (Driver eye whites, Driver hair chestnut, Driver smile, Garage rubber, Driver shirt blue, Driver shoes brown, Driver skin warm, Driver trousers denim)
+PASS colour Red: 2 bodywork renderers painted RGBA(0.900, 0.130, 0.090, 1.000), rider keeps own materials (Driver eye whites, Driver hair chestnut, Driver smile, Garage rubber, Driver shirt blue, Driver shoes brown, Driver skin warm, Driver trousers denim)
+PASS Day race: AI motorcycles with the new model 3/3; rider shirts Driver shirt plum, Driver shirt green, Driver shirt blue; lamps level 0.00
+PASS wipe-out then reset: wiped True, after reset up 0.96, wiped False, model intact True
+PASS Night race: AI motorcycles with the new model 3/3; rider shirts Driver shirt plum, Driver shirt green, Driver shirt blue; lamps level 1.00
+done, failures 0

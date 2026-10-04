@@ -1,0 +1,18 @@
+PASS Free Roam Clear: sled scene False, hockey scene False (expected absent)
+PASS Free Roam Rain: sled scene False, hockey scene False (expected absent)
+PASS Free Roam Snow: sled scene True, hockey scene True (expected present)
+PASS sled travels down the hill and back: height range 45.3 - 64.2 m
+PASS sled stays on the ground: clearance -0.03 .. 0.02 m
+PASS hockey: ball travelled 101.9 m in 185 samples; figures on the ice (largest height error 0.000 m); ice collider True
+PASS race in Snow: sled True, hockey True
+PASS menu (Clear Day): scenes hidden (sled False, hockey False)
+VIEWS water Snow Day (Day Snow): frozen True; sled scene True, hockey scene True; clouds visible 47
+VIEWS water Snow Night (Night Snow): frozen True; sled scene True, hockey scene True; clouds visible 48
+VIEWS water Clear Day (Day): frozen False; sled scene False, hockey scene False; clouds visible 14
+VIEWS scenes Snow Day (Day Snow): frozen True; sled scene True, hockey scene True; clouds visible 51
+VIEWS scenes Snow Night (Night Snow): frozen True; sled scene True, hockey scene True; clouds visible 51
+VIEWS scenes Clear Day (Day): frozen False; sled scene False, hockey scene False; clouds visible 15
+VIEWS scenes Clear Night (Night): frozen False; sled scene False, hockey scene False; clouds visible 15
+VIEWS scenes Rain Day (Day Rain): frozen False; sled scene False, hockey scene False; clouds visible 51
+VIEWS scenes Rain Night (Night Rain): frozen False; sled scene False, hockey scene False; clouds visible 51
+done, failures 0

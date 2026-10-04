@@ -24,7 +24,7 @@ namespace Racer
         sealed class Person {public Transform root, arm, otherArm, leftLeg, rightLeg, prop, smoke; public Vector3 home; public float phase;public int action;public bool selected;}
         readonly List<Person> people=new();
         Transform ball; Transform[] bats, leftWings,rightWings; Vector3[] flightStarts;
-        Material skin, hair, trousers, propMat, batMat; Material[] shirts;
+        internal Material skin, hair, trousers, propMat, batMat; internal Material[] shirts;
         RaceDirector race; AudioSource audioSource; AudioClip chirps;
         float batStart=-100,nextBat,awaySince=-1,nextAnimation; bool armed=true; Vector3 passTarget;
         public static AudioClip Sound(string title,float seconds,int seed,bool bat)
@@ -34,7 +34,7 @@ namespace Racer
             var clip=AudioClip.Create(title,data.Length,1,rate,false);clip.SetData(data,0);return clip;
         }
         Material Mat(Color c)=>new(Shader.Find("Universal Render Pipeline/Lit")){color=c,enableInstancing=true};
-        Transform Part(Transform parent,string name,PrimitiveType type,Vector3 p,Vector3 scale,Material mat)
+        internal Transform Part(Transform parent,string name,PrimitiveType type,Vector3 p,Vector3 scale,Material mat)
         {
             var g=GameObject.CreatePrimitive(type);g.name=name;g.transform.SetParent(parent,false);g.transform.localPosition=p;g.transform.localScale=scale;g.GetComponent<Collider>().enabled=false;Destroy(g.GetComponent<Collider>());g.GetComponent<Renderer>().sharedMaterial=mat;return g.transform;
         }
@@ -62,6 +62,8 @@ namespace Racer
             audioSource.clip=GetComponent<Wildlife>()?.batFlight;
             // Ready/menu construction must not consume a saved race visit.
             foreach(var p in people)p.root.gameObject.SetActive(false);
+            // 0.73: the Snow-only scenes (sledding, broom hockey) use these same figures and materials.
+            if(!GetComponent<SnowScenes>())gameObject.AddComponent<SnowScenes>();
         }
         Transform Wing(Transform parent,int side)
         {

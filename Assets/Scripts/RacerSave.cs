@@ -33,6 +33,9 @@ namespace Racer
             // 0.72 conditions (visual and audio only): race time of day (0 Day, 1 Dusk, 2 Night), race weather and Free Roam
             // weather (0 Clear, 1 Rain, 2 Snow). Records and ghosts are not split by these.
             public int timeOfDay = 0, weather = 0, roamWeather = 0;
+            // 0.73: Settings > Display "Lightning flashes" (Off keeps the thunder); garage "Model" for the motorcycle
+            // (true = the 0.73 Blender model, false = the classic one).
+            public bool lightningFlashes = true, newMotorcycle = true;
             public string[] opponentChoices = {"mixed","mixed","mixed"};
             public string[] opponentRoster = {"tourer","moto","atv"};
             public int[] bodyColors = {-1,-1,-1,-1};

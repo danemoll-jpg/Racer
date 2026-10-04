@@ -181,6 +181,7 @@ details.gameObject.SetActive(true);
                 details.gameObject.SetActive(true);details.text="VSync uses your display refresh. The frame cap applies with VSync off.";details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=58;
                 Row(4,"vsync","VSync: "+(s.vsync?"On":"Off"),()=>Adjust(()=>s.vsync=!s.vsync));
                 Step(5,"fps","Frame cap: "+s.frameLimit+" FPS",d=>Adjust(()=>{int[] caps={30,60,120};s.frameLimit=caps[Mathf.Clamp(Array.IndexOf(caps,s.frameLimit)+d,0,2)];}));
+                Row(6,"lightning","Lightning flashes: "+(s.lightningFlashes?"On":"Off"),()=>Adjust(()=>s.lightningFlashes=!s.lightningFlashes));
             }
             if(page=="settings-controls")RenderControls();
             if(page!="settings-controls")Row(14,"back","Back",flow.CloseSettings);

@@ -140,9 +140,12 @@ namespace Racer
             if(flow.State==RaceFlow.Stage.Garage){
                 var profiles=buttons.Take(4).Where(b=>b.gameObject.activeSelf).ToArray();
                 var chosen=swatches[Mathf.Clamp(flow.SelectedColor,0,swatches.Count-1)];
-                for(int i=0;i<swatches.Count;i++){var nav=swatches[i].navigation;nav.selectOnUp=profiles.Last();nav.selectOnDown=buttons[4];swatches[i].navigation=nav;}
+                // 0.73: the motorcycle Model row (when shown) sits between the swatches and Done.
+                var model=buttons.Count>5&&buttons[5].gameObject.activeSelf?buttons[5]:null;var below=model?model:buttons[4];
+                for(int i=0;i<swatches.Count;i++){var nav=swatches[i].navigation;nav.selectOnUp=profiles.Last();nav.selectOnDown=below;swatches[i].navigation=nav;}
                 var last=profiles.Last().navigation;last.selectOnDown=chosen;profiles.Last().navigation=last;
-                var back=buttons[4].navigation;back.selectOnUp=chosen;buttons[4].navigation=back;
+                if(model){var m=model.navigation;m.selectOnUp=chosen;m.selectOnDown=buttons[4];model.navigation=m;}
+                var back=buttons[4].navigation;back.selectOnUp=below==buttons[4]?chosen:model;buttons[4].navigation=back;
             }
             if(page!="keyboard")return;
             for(int i=Keys.Length;i<=Keys.Length+6;i++){

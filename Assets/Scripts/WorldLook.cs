@@ -175,7 +175,7 @@ namespace Racer
             new GameObject("World look").AddComponent<WorldLook>();
         }
         void Awake() { Current = this; Apply(LookPresets.ClearDay); applied = "Menu"; if (!GetComponent<WeatherEffects>()) gameObject.AddComponent<WeatherEffects>(); }
-        void OnDestroy() { if (Current == this) Current = null; if (sky) Destroy(sky); if (volume) Destroy(volume.sharedProfile); foreach (var m in water.Values) if (m) Destroy(m); foreach (var m in glow.Values) if (m) Destroy(m); }
+        void OnDestroy() { if (Current == this) Current = null; if (sky) Destroy(sky); if (volume) Destroy(volume.sharedProfile); foreach (var m in water.Values) if (m) Destroy(m); foreach (var m in glow.Values) if (m) Destroy(m); foreach (var e in iceRenderers) foreach (var m in e.ice) if (m && m.name == "Frozen water (world look)") Destroy(m); }
 
         // ---------- 0.72 conditions: which look shows now ----------
         void Update()
@@ -278,11 +278,20 @@ namespace Racer
             color.postExposure.Override(p.postExposure); color.contrast.Override(p.contrast); color.saturation.Override(p.saturation); color.colorFilter.Override(p.colorFilter);
             bloom.intensity.Override(p.bloomIntensity); bloom.threshold.Override(p.bloomThreshold); bloom.scatter.Override(.6f); bloom.highQualityFiltering.Override(false); bloom.active = !Arg("-lookNoBloom");
             Water(p);
+            ShallowWater.SetFrozen(p.snow > .5f); Ice();
             Glow(p);
             Cameras();
             Applied?.Invoke(p);
         }
         float environmentKey = -1, environmentTint;
+        // 0.73 lightning (WeatherEffects): a brief brightening of the sky and the whole image on top of the current preset;
+        // 0 puts the preset back exactly.
+        public void Lightning(float f)
+        {
+            if (Preset == null || !color) return;
+            color.postExposure.Override(Preset.postExposure + f * 1.3f);
+            if (sky) sky.SetFloat("_Exposure", Preset.skyExposure * (1 + f * 2.5f));
+        }
         // Water (URP Lit "water" materials): a runtime copy with a smoother surface, and a sky-only reflection probe over each
         // lake rendered once, so lakes and ponds read as water. The authored materials are not changed.
         readonly Dictionary<Material, Material> water = new();
@@ -314,6 +323,35 @@ namespace Racer
             // The sky reflection is re-rendered when the sky changes (a race's conditions, or every few game minutes of the cycle).
             if (probeExposure < 0 || Mathf.Abs(probeExposure - p.skyExposure) > .04f) { foreach (var probe in probes) if (probe) probe.RenderProbe(); probeExposure = p.skyExposure; }
         }
+        // 0.73 Snow: every water surface (lakes, creeks, pools, the storm-drain flow) shows as ice - pale blue-white, matte
+        // with a soft sheen, a light dusting of snow, no animation and no sky reflection. Each water renderer gets its own
+        // ice copy (the dusting tiles about every 6 m); the unfrozen materials are put back for Clear and Rain.
+        readonly List<(Renderer r, Material[] water, Material[] ice)> iceRenderers = new();
+        bool iceScanned, iceShown;
+        static bool IsWater(Material m) => m && (m.name.IndexOf("water", StringComparison.OrdinalIgnoreCase) >= 0 || m.name.StartsWith("Lake blue green") || m.name.StartsWith("Pool turquoise") || m.shader && m.shader.name == "Racer/ShallowDrainWater");
+        void Ice()
+        {
+            bool frozen = ShallowWater.Frozen;
+            if (frozen && !iceScanned)
+            {
+                iceScanned = true;
+                var template = Resources.Load<Material>("WaterIce");
+                if (template)
+                    foreach (var r in FindObjectsByType<MeshRenderer>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+                    {
+                        var mats = r.sharedMaterials; if (!r.GetComponent<ShallowWater>() && !Array.Exists(mats, IsWater)) continue;
+                        var m = new Material(template) { name = "Frozen water (world look)" };
+                        if (r.GetComponent<MeshFilter>()?.sharedMesh?.name is "Cube" or "Cylinder") m.SetTextureScale("_BaseMap", new Vector2(Mathf.Max(1, Mathf.Round(r.transform.lossyScale.x / 6)), Mathf.Max(1, Mathf.Round(r.transform.lossyScale.z / 6))));
+                        bool all = r.GetComponent<ShallowWater>(); var frozenMats = new Material[mats.Length];
+                        for (int k = 0; k < mats.Length; k++) frozenMats[k] = all || IsWater(mats[k]) ? m : mats[k];
+                        iceRenderers.Add((r, mats, frozenMats));
+                    }
+            }
+            if (frozen == iceShown) return;
+            iceShown = frozen;
+            foreach (var (r, w, i) in iceRenderers) if (r) r.sharedMaterials = frozen ? i : w;
+        }
+
         // 0.72 night readability: the course arrows and checkpoint gate markings glow (their own colour, emitted) as it gets
         // dark, so they read at night under every weather. Day = no emission, exactly the 0.71 look. Runtime copies only.
         readonly Dictionary<Material, Material> glow = new();

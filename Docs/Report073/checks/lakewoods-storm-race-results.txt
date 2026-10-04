@@ -1,0 +1,22 @@
+VIEWS water2 Snow Day (Day Snow): frozen True; sled scene True, hockey scene True; clouds visible 48
+VIEWS water2 Snow Night (Night Snow): frozen True; sled scene True, hockey scene True; clouds visible 48
+VIEWS water2 Clear Day (Day): frozen False; sled scene False, hockey scene False; clouds visible 18
+CROSS Forest race route m330-430 moto Clear: complete in 6.59 s; over water 1.36 s (68 steps); lowest body above surface 4.26 m; largest immersion 0.00; resets 0; frozen False
+CROSS Forest race route m330-430 moto Snow: complete in 6.58 s; over water 1.36 s (68 steps); lowest body above surface 4.26 m; largest immersion 0.00; resets 0; frozen True
+CROSS Forest race route m330-430 atv Clear: complete in 6.61 s; over water 1.34 s (67 steps); lowest body above surface 4.27 m; largest immersion 0.00; resets 0; frozen False
+CROSS Forest race route m330-430 atv Snow: complete in 6.60 s; over water 1.34 s (67 steps); lowest body above surface 4.27 m; largest immersion 0.00; resets 0; frozen True
+strike 1 at 14.4 s: 1 pulse(s), peak 0.67; strike 2 at 57.4 s: 2 pulse(s), peak 0.81; strike 3 at 107.2 s: 2 pulse(s), peak 0.96
+PASS Night/Rain race: 3 strikes in 112 s, gaps 43.1, 49.7 s (20-60 s), thunder played 3
+PASS flashes: at most 2 pulses per strike, peak level 0.96 (night)
+PASS Lightning flashes Off: strike 1, thunder 1, flash peak 0.00
+PASS under cover (cave, covered=True): strike 1, flash peak 0.00, thunder 1 muffled (low-pass 520 Hz, volume 0.40)
+PASS menu after the storm: Clear Day, no flash left (0)
+PASS Day/Snow: race look 'Clear Day Snow' frozen water True
+PASS Day/Snow: player (AI driver) finished 1/1 laps, checkpoint changes 5, missed gates 0, time 01:12.612, recoveries 0; time on ice 0.7 s, largest immersion 0.00
+PASS Day/Snow: results screen; standings:
+1. GOLD  01:06.213  (+0.0s / 0 misses)
+2. YOU  01:12.612  (+0.0s / 0 misses)
+3. BLUE  ~ 01:20.565 Estimated  (+0.0s / 0 misses)
+4. EMBER  ~ 01:21.160 Estimated  (+0.0s / 0 misses)
+PASS Day/Snow: race record saved in category 'lake-v7-discovery-moto-race4-d1-moto-moto-atv-clear-laps1' (best race 72.61 s; files records-lake-v7-discovery-moto-race4-d1-moto-moto-atv-clear-laps1.json, records-lake-v7-discovery-moto-race4-d1-moto-moto-atv-clear-laps1.json.bak)
+done, failures 0

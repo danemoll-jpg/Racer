@@ -15,6 +15,9 @@ namespace Racer
     // all 9 time-of-day x weather combinations; the Forest cave at night; the Free Roam cycle at 08, 12, 18, 21, 00 and 05;
     // and GPU frame times at the three 0.71 views for Day/Clear, Night/Clear, Day/Rain and Night/Snow. Muted, vsync and frame
     // cap off. "-conditionsFpsOnly" skips the screenshots. Quits when done.
+    // 0.73: the clouds show in every view; Night/Rain is measured too (lightning held so it never lands in a fixed view);
+    // Free Roam dusk to night (18:00-23:00); and the motorcycle model: full-screen garage (New, Classic), the race grid at Day
+    // and Night from the chase camera and a close side view, and GPU frame times on the grid with New and with Classic.
     public sealed class ConditionsBench : MonoBehaviour
     {
         string outDir;
@@ -25,7 +28,7 @@ namespace Racer
             ("DansBackyardForward", 12, 3.2f, false, "backyard"),
             ("MountainLoop", 400, 3.6f, true, "mountain"),
         };
-        static readonly (TimeOfDay t, Weather w)[] Measured = { (TimeOfDay.Day, Weather.Clear), (TimeOfDay.Night, Weather.Clear), (TimeOfDay.Day, Weather.Rain), (TimeOfDay.Night, Weather.Snow) };
+        static readonly (TimeOfDay t, Weather w)[] Measured = { (TimeOfDay.Day, Weather.Clear), (TimeOfDay.Night, Weather.Clear), (TimeOfDay.Day, Weather.Rain), (TimeOfDay.Night, Weather.Rain), (TimeOfDay.Night, Weather.Snow) };
 
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
         static void Boot()
@@ -40,6 +43,7 @@ namespace Racer
             Directory.CreateDirectory(outDir);
             var rows = new List<string> { $"screen={Screen.width}x{Screen.height} gpu={SystemInfo.graphicsDeviceName} quality={QualitySettings.names[QualitySettings.GetQualityLevel()]}" };
             Screen.SetResolution(3840, 2160, FullScreenMode.FullScreenWindow); yield return null; yield return null;
+            WeatherEffects.HoldStrikes = true;
             bool fpsOnly = Array.IndexOf(Environment.GetCommandLineArgs(), "-conditionsFpsOnly") >= 0;
             foreach (var v in Views)
             {
@@ -82,12 +86,60 @@ namespace Racer
                 if (!fpsOnly && v.label == "street")
                 {
                     // The Free Roam day-night cycle (the same function Free Roam uses), Clear weather.
-                    foreach (float h in new[] { 8f, 12f, 18f, 21f, 0f, 5f }) { WorldLook.Current.Pin(WorldLook.Cycle(h, Weather.Clear)); yield return Hold(2); yield return Shot($"freeroam-cycle-{h:00}00.jpg"); rows.Add($"VIEW free roam cycle {h:00}:00 ({WorldLook.Current.Preset.name})"); }
+                    foreach (float h in new[] { 8f, 12f, 18f, 19f, 20f, 21f, 22f, 23f, 0f, 5f }) { WorldLook.Current.Pin(WorldLook.Cycle(h, Weather.Clear)); yield return Hold(2); yield return Shot($"freeroam-cycle-{h:00}00.jpg"); rows.Add($"VIEW free roam cycle {h:00}:00 ({WorldLook.Current.Preset.name}), clouds {FindAnyObjectByType<SkyClouds>()?.Visible}"); }
                 }
                 WorldLook.Current.Pin(null);
                 File.WriteAllLines(Path.Combine(outDir, "conditions.txt"), rows);
             }
+            if (!fpsOnly || Array.IndexOf(Environment.GetCommandLineArgs(), "-conditionsMoto") >= 0) yield return Motorcycle(rows);
+            File.WriteAllLines(Path.Combine(outDir, "conditions.txt"), rows);
             Application.Quit();
+        }
+        // 0.73 Part D evidence: the Needle 600 model in the garage and on the race grid; frame time New vs Classic.
+        IEnumerator Motorcycle(List<string> rows)
+        {
+            SceneManager.LoadScene("StreetLoopGreybox"); yield return null; yield return null;
+            var race = Prepare(); var flow = race.Flow; var s = flow.Save.Settings;
+            foreach (bool model in new[] { true, false })
+            {
+                VehicleVisual.NewMotorcycle = s.newMotorcycle = model;
+                flow.OpenGarage(); flow.SelectVehicle("moto"); flow.SetColor(3); yield return Hold(2);
+                yield return Full($"moto-garage-{(model ? "new" : "classic")}.jpg");
+                if (model) { flow.SetColor(6); yield return Hold(1); yield return Full("moto-garage-new-black.jpg"); flow.SetColor(3); yield return Hold(.5f); }
+                flow.CloseGarage(); yield return Hold(.5f);
+            }
+            VehicleVisual.NewMotorcycle = s.newMotorcycle = true;
+            s.opponentChoices = new[] { "moto", "moto", "moto" }; s.opponentRoster = new[] { "moto", "moto", "moto" }; race.opponentRoster = new[] { "moto", "moto", "moto" };
+            foreach (var t in new[] { TimeOfDay.Day, TimeOfDay.Night })
+                foreach (bool model in new[] { true, false })
+                {
+                    VehicleVisual.NewMotorcycle = s.newMotorcycle = model; s.timeOfDay = (int)t; s.weather = 0;
+                    flow.OpenGarage(); flow.SelectVehicle("moto"); flow.SetColor(3); flow.CloseGarage();
+                    yield return Grid(race); yield return Hold(3);
+                    string tag = $"{t}-{(model ? "new" : "classic")}".ToLowerInvariant();
+                    yield return Full($"moto-race-{tag}-chase.jpg");
+                    var cam = Camera.main; var chase = FindObjectsByType<ChaseCamera>(FindObjectsSortMode.None); foreach (var c in chase) c.enabled = false;
+                    var car = race.vehicle.transform; var eye = car.position + car.right * 2.6f + car.forward * .4f + Vector3.up * .55f;
+                    var old = (cam.transform.position, cam.transform.rotation); cam.transform.SetPositionAndRotation(eye, Quaternion.LookRotation(car.position + Vector3.up * .45f - eye));
+                    yield return Hold(1); yield return Full($"moto-race-{tag}-side.jpg");
+                    cam.transform.SetPositionAndRotation(old.Item1, old.Item2); foreach (var c in chase) c.enabled = true; yield return Hold(1);
+                    if (t == TimeOfDay.Day)
+                    {
+                        var gpu = new List<float>(); var ft = new FrameTiming[1]; float t0 = Time.unscaledTime;
+                        while (Time.unscaledTime - t0 < 10) { yield return null; Keep(); FrameTimingManager.CaptureFrameTimings(); if (FrameTimingManager.GetLatestTimings(1, ft) > 0 && ft[0].gpuFrameTime > 0) gpu.Add((float)ft[0].gpuFrameTime); }
+                        gpu.Sort(); float med = gpu.Count > 0 ? gpu[gpu.Count / 2] : float.NaN;
+                        rows.Add($"FPS moto grid Day/Clear chase, model {(model ? "New" : "Classic")} (player + 3 AI motorcycles): GPU median {med:F2} ms = {1000 / med:F0} fps; {gpu.Count} timed frames; screen {Screen.width}x{Screen.height}");
+                        File.WriteAllLines(Path.Combine(outDir, "conditions.txt"), rows);
+                    }
+                    flow.Pause(); flow.QuitRace(); yield return Hold(1);
+                }
+            VehicleVisual.NewMotorcycle = s.newMotorcycle = true;
+        }
+        // Full screen (UI included) at the screen resolution.
+        IEnumerator Full(string name)
+        {
+            yield return new WaitForEndOfFrame();
+            var tex = ScreenCapture.CaptureScreenshotAsTexture(); File.WriteAllBytes(Path.Combine(outDir, name), tex.EncodeToJPG(88)); Destroy(tex);
         }
         RaceDirector Prepare()
         {

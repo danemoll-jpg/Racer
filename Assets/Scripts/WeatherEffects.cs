@@ -6,10 +6,22 @@ namespace Racer
     // falling rain / snow in a box around the camera (world-space particles, so they stream past at speed), cut off under
     // cover (caves, tunnels, underpasses: something solid overhead), a rain ambience loop on the Ambience volume, and a
     // star field that fades in at night. Vehicle lamps are set here too (VehicleLights on every vehicle in the scene).
+    // 0.73: thunderstorms in Rain - an occasional strike (one every 20-60 s, irregular): one or two short flashes that light
+    // the sky, the clouds and the world (strongest at night, subtle by day; never more than two pulses, ~0.1 s each), then
+    // thunder after a short varying delay on the Ambience volume. Settings > Display "Lightning flashes: Off" keeps the
+    // thunder and removes the flash. Under cover: no flash, thunder muffled. No gameplay effect. The clouds live here too.
     public sealed class WeatherEffects : MonoBehaviour
     {
         ParticleSystem rain, snow, stars; ParticleSystemRenderer starRenderer;
-        AudioSource rainAudio;
+        AudioSource rainAudio, thunderAudio; AudioLowPassFilter thunderFilter; AudioClip[] thunderClips;
+        float nextStrike = -1, strikeAt = -100, thunderAt = -1, strikeStrength, thunderDistance; int pulses; bool strikeFlashes;
+        public int Strikes { get; private set; }
+        // Evidence only (ConditionsBench): no new strikes while fixed-view screenshots and frame times are taken.
+        public static bool HoldStrikes;
+        public int ThunderPlayed { get; private set; }
+        public float FlashLevel { get; private set; }
+        public float PeakFlash { get; private set; }
+        public bool LastStrikeCovered { get; private set; }
         RaceFlow flow;
         float rainLevel, snowLevel, starLevel, lightsLevel, nextVehicleScan, nextCoverCheck;
         bool covered;
@@ -35,6 +47,11 @@ namespace Racer
             snow = Make("Snow", snowMat, false);
             stars = Stars();
             rainAudio = gameObject.AddComponent<AudioSource>(); rainAudio.clip = RainClip(); rainAudio.loop = true; rainAudio.spatialBlend = 0; rainAudio.volume = 0; rainAudio.playOnAwake = false; rainAudio.priority = 170;
+            var thunder = new GameObject("Thunder"); thunder.transform.SetParent(transform, false);
+            thunderAudio = thunder.AddComponent<AudioSource>(); thunderAudio.spatialBlend = 0; thunderAudio.playOnAwake = false; thunderAudio.priority = 160;
+            thunderFilter = thunder.AddComponent<AudioLowPassFilter>(); thunderFilter.cutoffFrequency = 5000;
+            thunderClips = new[] { ThunderClip(7311), ThunderClip(7312), ThunderClip(7313) };
+            if (!GetComponentInChildren<SkyClouds>()) { var sky = new GameObject("Sky clouds"); sky.transform.SetParent(transform, false); sky.AddComponent<SkyClouds>(); }
         }
         static Material Particle(Color c)
         {
@@ -123,11 +140,71 @@ namespace Racer
             if (targetAudio > .001f && !rainAudio.isPlaying) rainAudio.Play();
             rainAudio.volume = Mathf.MoveTowards(rainAudio.volume, targetAudio, Time.unscaledDeltaTime * .5f);
             if (rainAudio.volume <= .001f && targetAudio <= .001f && rainAudio.isPlaying) rainAudio.Stop();
+            Storm(p, look);
             // Vehicle lamps: every vehicle (player, rivals, traffic) gets its lamps once; their level follows the preset.
             if (Time.unscaledTime >= nextVehicleScan) { nextVehicleScan = Time.unscaledTime + 1; foreach (var v in FindObjectsByType<ArcadeVehicle>(FindObjectsSortMode.None)) if (!v.GetComponent<VehicleLights>()) v.gameObject.AddComponent<VehicleLights>(); }
             lightsLevel = Mathf.MoveTowards(lightsLevel, p.lights, Time.unscaledDeltaTime);
             VehicleLights.Level = lightsLevel;
         }
+        // ---------- 0.73 lightning and thunder ----------
+        void Storm(LookPreset p, WorldLook look)
+        {
+            bool storm = p.rain > .5f && look.Mode != "Menu";
+            float now = Time.time;// scaled: nothing new while paused
+            if (!storm) { nextStrike = -1; thunderAt = -1; if (FlashLevel > 0) Flash(0, look); if (thunderAudio.isPlaying && p.rain <= .5f) thunderAudio.Stop(); return; }
+            if (nextStrike < 0 || HoldStrikes && nextStrike < now + 5) nextStrike = now + Random.Range(8f, 25f);
+            if (now >= nextStrike)
+            {
+                Strikes++; strikeAt = now; nextStrike = now + Random.Range(20f, 60f);
+                pulses = Random.value < .55f ? 2 : 1; thunderDistance = Random.value;
+                // Strongest at night, a little less at dusk, subtle in daylight; nearer strikes are brighter.
+                strikeStrength = Mathf.Lerp(.32f, 1f, Mathf.Clamp01(p.lights)) * Mathf.Lerp(1.1f, .65f, thunderDistance);
+                LastStrikeCovered = covered; strikeFlashes = !covered && (flow == null || flow.Save == null || flow.Save.Settings.lightningFlashes);
+                thunderAt = now + Mathf.Lerp(.8f, 4.2f, thunderDistance) + Random.Range(0f, .5f);
+            }
+            // Flash envelope: pulse 1 at 0-0.11 s, pulse 2 (weaker) at 0.22-0.32 s; fast rise, quick fall.
+            float age = now - strikeAt, f = 0;
+            if (strikeFlashes && age >= 0 && age < .4f)
+            {
+                f = Pulse(age, 0, .11f);
+                if (pulses > 1) f = Mathf.Max(f, .7f * Pulse(age, .22f, .1f));
+                f *= strikeStrength;
+            }
+            if (f > 0 || FlashLevel > 0) Flash(f, look);
+            PeakFlash = Mathf.Max(PeakFlash, f);
+            if (thunderAt > 0 && now >= thunderAt)
+            {
+                thunderAt = -1; ThunderPlayed++;
+                float volume = flow && flow.Save != null ? flow.Save.Settings.ambience : 1;
+                thunderAudio.clip = thunderClips[Random.Range(0, thunderClips.Length)];
+                thunderAudio.volume = Mathf.Lerp(.95f, .55f, thunderDistance) * (covered ? .45f : 1) * volume;
+                thunderFilter.cutoffFrequency = covered ? 520 : Mathf.Lerp(5200, 1100, thunderDistance);
+                thunderAudio.pitch = Random.Range(.92f, 1.06f); thunderAudio.Play();
+            }
+        }
+        static float Pulse(float age, float start, float length) { float x = (age - start) / length; return x < 0 || x > 1 ? 0 : x < .15f ? x / .15f : Mathf.Pow(1 - (x - .15f) / .85f, 2); }
+        void Flash(float f, WorldLook look) { FlashLevel = f; SkyClouds.Flash = f; look.Lightning(f); }
+        // Thunder made at start-up (no audio asset): a dull rumble of filtered noise in a few rolling swells, with a short
+        // crack at the front of some.
+        static AudioClip ThunderClip(int seed)
+        {
+            const int rate = 22050; float seconds = 6.5f; var data = new float[(int)(rate * seconds)]; var rng = new System.Random(seed);
+            float brown = 0, lp = 0, lp2 = 0, swell = 0, swellTarget = 1; float peak = 0; bool crack = seed % 2 == 1;
+            for (int i = 0; i < data.Length; i++)
+            {
+                float t = i / (float)rate, n = (float)rng.NextDouble() * 2 - 1;
+                brown = brown * .995f + n * .06f; lp += (brown - lp) * .08f; lp2 += (lp - lp2) * .12f;
+                if (i % 2200 == 0) swellTarget = .35f + (float)rng.NextDouble() * .9f; swell += (swellTarget - swell) * .0009f;
+                float env = Mathf.Clamp01(t / .09f) * Mathf.Exp(-t / 2.1f) * swell;
+                float v = lp2 * 6f * env;
+                if (crack && t < .35f) v += n * .5f * Mathf.Exp(-t / .06f);
+                data[i] = v; peak = Mathf.Max(peak, Mathf.Abs(v));
+            }
+            if (peak > 0) for (int i = 0; i < data.Length; i++) data[i] *= .9f / peak;
+            int fade = rate / 2; for (int i = 0; i < fade; i++) data[data.Length - 1 - i] *= i / (float)fade;
+            var clip = AudioClip.Create("Thunder " + seed, data.Length, 1, rate, false); clip.SetData(data, 0); return clip;
+        }
+        void OnDestroy() { if (FlashLevel > 0) SkyClouds.Flash = 0; if (thunderClips != null) foreach (var c in thunderClips) if (c) Destroy(c); }
         static Texture2D dotTexture;
         static Texture2D Dot()
         {

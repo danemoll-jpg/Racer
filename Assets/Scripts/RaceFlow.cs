@@ -80,6 +80,7 @@ namespace Racer
             if(!string.IsNullOrEmpty(ValidationSaveRoot))root=ValidationSaveRoot;
 #endif
             Save = new RacerSave(root, "street-loop-gates-v1-laps" + Race.laps);
+            VehicleVisual.NewMotorcycle = Save.Settings.newMotorcycle;
             Playlists=new RacePlaylists(root);
             Boards = new RecordBoards(root);
             Race.opponents = Save.Settings.opponents; Race.traffic = Save.Settings.traffic;
@@ -273,6 +274,15 @@ namespace Racer
             Save.Settings.vehicleId=VehicleProfile.Find(id).Id; Save.SaveSettings(); SelectRecords(Race.Category); Click();
             Race.vehicle.GetComponent<VehicleConfiguration>().SetBodyColor(SelectedColor); menus.Show();
         }
+        // 0.73 garage: motorcycle Model Classic / New (remembered; the AI motorcycles follow it at the next race start).
+        public string MotorcycleModelLabel => Save.Settings.newMotorcycle ? "New" : "Classic";
+        public void ToggleMotorcycleModel()
+        {
+            if(State!=Stage.Garage) return;
+            Save.Settings.newMotorcycle=!Save.Settings.newMotorcycle; VehicleVisual.NewMotorcycle=Save.Settings.newMotorcycle;
+            var configuration=Race.vehicle.GetComponent<VehicleConfiguration>(); configuration.Apply(configuration.profileId); configuration.SetBodyColor(SelectedColor);
+            Save.SaveSettings(); Click(); menus.Show();
+        }
         public void WipeoutFeedback() { if(State==Stage.Racing) Notify("R / Y: right vehicle locally",2); }
         public void ClearRecoveryFeedback() { if(Notice=="R / Y: right vehicle locally") Notice=null; }
         public void CheckpointFeedback(bool accepted, double seconds, int count)
@@ -350,6 +360,7 @@ namespace Racer
             ValidationSaveRoot=directory;
 #endif
             Save = new RacerSave(directory, "street-loop-gates-v1-laps" + Race.laps);
+            VehicleVisual.NewMotorcycle = Save.Settings.newMotorcycle;
             Boards = new RecordBoards(directory);
             Save.SelectRecords(Race.Category); Save.ApplySettings(); menus.Show();
         }

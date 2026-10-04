@@ -193,6 +193,7 @@ namespace Racer
             preview.GetComponent<UnityEngine.UI.LayoutElement>().preferredWidth=620;
             for(int i=0;i<4;i++)if(buttons[i].gameObject.activeSelf){buttons[i].transform.SetParent(garageProfiles,false);buttons[i].name="profile-"+i;buttons[i].GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=44;}
             swatchRow.SetSiblingIndex(2);buttons[4].transform.SetSiblingIndex(3);
+            if(buttons.Count>5&&buttons[5].gameObject.activeSelf){buttons[5].transform.SetSiblingIndex(3);buttons[4].transform.SetSiblingIndex(4);}
         }
         void ResetGarageLayout()
         {

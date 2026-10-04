@@ -7,7 +7,11 @@ namespace Racer
     // bound draw calls; every piece is visual only, with no collider changes.
     public static class VehicleVisual
     {
-        static Material paint,rubber,glass,metal,lamps,tail,eyes,mouth;
+        static Material paint,rubber,glass,metal,lamps,tail,eyes,mouth,engine;
+        // 0.73 garage "Model": true = the Blender-made Needle 600 and rider (Resources/VehicleModels/Needle600.fbx, source in
+        // SourceArt/Blender, script Tools/Blender/needle600.py), false = the classic generated one (Bike below, untouched).
+        // Applies to the player's and the AI motorcycles; RaceFlow sets it from the save. ATV and cars are not affected.
+        public static bool NewMotorcycle = true;
         static Material[] hair,skins,shirts,trousers,shoes;
         static Material Mat(string name,Color color,float smooth=.3f)
         {var m=new Material(Shader.Find("Universal Render Pipeline/Lit")){name=name,color=color,enableInstancing=true};m.SetFloat("_Smoothness",smooth);return m;}
@@ -24,11 +28,13 @@ namespace Racer
             trousers=new[]{Mat("Driver trousers denim",new(.12f,.20f,.32f)),Mat("Driver trousers slate",new(.23f,.26f,.29f)),Mat("Driver trousers tan",new(.43f,.34f,.23f))};
             shoes=new[]{Mat("Driver shoes brown",new(.17f,.095f,.05f)),Mat("Driver shoes charcoal",new(.065f,.073f,.085f))};
             eyes=Mat("Driver eye whites",new(.96f,.95f,.90f));mouth=Mat("Driver smile",new(.24f,.075f,.065f));
+            engine=Mat("Garage engine",new(.21f,.22f,.24f),.45f);
             hair=new[]{Mat("Driver hair chestnut",new(.18f,.065f,.028f)),Mat("Driver hair charcoal",new(.035f,.029f,.025f)),Mat("Driver hair gold",new(.62f,.36f,.09f))};
         }
         public static Transform Build(Transform parent,VehicleProfile p,List<Transform> wheels=null)
         {
             Materials();var root=new GameObject("Vehicle visual").transform;root.SetParent(parent,false);root.gameObject.layer=parent.gameObject.layer;
+            if(p.Id=="moto"&&NewMotorcycle&&NeedleModel(root,wheels))return root;
             if(p.Small) Bike(root,p);else Car(root,p);
             // Merge fixed parts before adding independently rotating wheels.
             Merge(root);
@@ -93,6 +99,42 @@ namespace Racer
             else foreach(float x in new[]{-.63f,.63f})foreach(float z in new[]{-.82f,.82f}){Part(root,"Fender",new(x,.19f,z),new(.48f,.13f,.72f),paint);}
             if(!moto){Part(root,"Front cargo rack",new(0,.40f,.91f),new(.95f,.065f,.30f),metal);Part(root,"Rear cargo rack",new(0,.4f,-.91f),new(.95f,.065f,.28f),metal);}
             Person(root,new(0,.5f,-.32f),1,true,moto?.32f:.55f);
+        }
+        // ---------- 0.73 Needle 600 model ----------
+        // The FBX holds objects "<Group>__<slot>". Body stays fixed; Front (fork, clamps, bars, fender, number plate,
+        // headlamp, front wheel) turns about the fork axis with the steering; Rider sits in the steering pose like the classic
+        // rider; the wheels spin as before (VehicleConfiguration). Every slot gets the game's own shared material: paint is
+        // the body colour, lamps glow at night, and the rider takes the same identity colours as the classic rider.
+        static GameObject needle; static bool needleLoaded;
+        static bool NeedleModel(Transform root,List<Transform> wheels)
+        {
+            if(!needleLoaded){needleLoaded=true;needle=Resources.Load<GameObject>("VehicleModels/Needle600");}
+            if(!needle)return false;
+            // Blender's default FBX axes arrive in Unity turned half a turn about the vertical (a rotation, not a mirror).
+            var model=Object.Instantiate(needle,root,false);model.name="Needle 600 model";model.transform.localRotation=Quaternion.Euler(0,180,0);
+            var pose=new GameObject("Steering pose").transform;pose.SetParent(root,false);pose.gameObject.AddComponent<VehiclePose>().bike=true;
+            var front=new GameObject("Front end").transform;front.SetParent(root,false);front.localPosition=new(0,-.2f,.825f);front.gameObject.AddComponent<MotorcycleFrontEnd>();
+            int identity=0;foreach(char c in root.root.name)identity+=c;
+            foreach(var r in model.GetComponentsInChildren<MeshRenderer>(true))
+            {
+                var t=r.transform;var parts=t.name.Split(new[]{"__"},System.StringSplitOptions.None);if(parts.Length!=2)continue;
+                string group=parts[0],slot=parts[1];
+                r.sharedMaterial=slot switch{"paint"=>paint,"metal"=>metal,"engine"=>engine,"rubber"=>rubber,"lamp"=>lamps,"tail"=>tail,"skin"=>skins[identity%skins.Length],"shirt"=>shirts[identity%shirts.Length],
+                    "trousers"=>trousers[(identity/3)%trousers.Length],"shoes"=>shoes[identity%shoes.Length],"hair"=>hair[identity%hair.Length],"eyes"=>eyes,"pupil"=>rubber,"mouth"=>mouth,_=>metal};
+                if(group=="Rider")t.SetParent(pose,true);
+                else if(group=="Front")t.SetParent(front,true);
+                else if(group.StartsWith("Wheel"))
+                {
+                    // One spinning pivot per wheel, named and oriented like the classic wheels (axle along local y after the
+                    // Euler(roll,0,90) VehicleConfiguration applies), so wheel spin needs no other change.
+                    bool isFront=group=="WheelFront";var pivotName=isFront?"Front wheel":"Rear wheel";
+                    var host=isFront?front:root;var pivot=host.Find(pivotName);
+                    if(!pivot){pivot=new GameObject(pivotName).transform;pivot.SetParent(host,false);pivot.position=t.position;pivot.localRotation=Quaternion.Euler(0,0,90);wheels?.Add(pivot);}
+                    t.SetParent(pivot,true);
+                }
+            }
+            foreach(var t in root.GetComponentsInChildren<Transform>(true))t.gameObject.layer=root.gameObject.layer;
+            return true;
         }
         static void Person(Transform root,Vector3 hip,float scale,bool bike,float footSpan=.32f)
         {
@@ -212,6 +254,14 @@ namespace Racer
         // Retiring a cloned hierarchy must never destroy the original racer's mesh.
         [System.NonSerialized] public Mesh owned;
         void OnDestroy(){if(owned)Object.Destroy(owned);}
+    }
+    // 0.73 Needle 600: the front end turns about the fork (steering) axis with the visual steering. Its wheel pivot sits on
+    // the axle, which lies on that axis, so the wheel stays in the fork.
+    public sealed class MotorcycleFrontEnd:MonoBehaviour
+    {
+        static readonly Vector3 Axis=new Vector3(0,.76f,-.305f).normalized;ArcadeVehicle car;
+        void Start(){car=GetComponentInParent<ArcadeVehicle>();}
+        void LateUpdate(){if(car)transform.localRotation=Quaternion.AngleAxis(car.VisualSteering*9,Axis);}
     }
     public sealed class VehiclePose:MonoBehaviour
     {

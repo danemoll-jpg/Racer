@@ -230,6 +230,7 @@ namespace Racer
                 flow.Race.vehicle.GetComponent<VehicleConfiguration>().BuildPreview(previewRoot.transform);
                 for(int i=0;i<flow.Race.EligibleVehicles.Length;i++) { var choice=flow.Race.EligibleVehicles[i]; Action(i,(profile.Id==choice.Id?"✓ ":"")+choice.Name,()=>flow.SelectVehicle(choice.Id)); }
                 Action(4,"Done / ready",flow.CloseGarage);
+                if(profile.Id=="moto")Action(5,"Model: "+flow.MotorcycleModelLabel+"   (Classic / New)",flow.ToggleMotorcycleModel);
             }
             RenderCore();
             var active = buttons.FindAll(b=>b.gameObject.activeSelf&&b.interactable);
