@@ -10,7 +10,20 @@
 - Root AGENTS.md points future Codex tasks to both files.
 - From 2026-10-02 the coding agent is Claude Code. The same two files govern it; root CLAUDE.md (created in the 0.67 round) is its discovery pointer.
 
-## CURRENT — Blender vehicles for the whole garage + rider customization — target 0.75.0-review1 — IMPLEMENTED AND VERIFIED; RELEASE RECORD FOLLOWS
+## CURRENT — Blender vehicles for the whole garage + rider customization — 0.75.0-review1 — DELIVERED, AWAITING DAN'S REVIEW
+
+- **DELIVERED:**
+  - Source `e1182daf671796f6f197d1b4fe9fb5aa3df82cd3` pushed and verified on origin/main.
+  - Fresh 0.75.0-review1 Windows build: 0 errors, 2 warnings, 2m35s.
+  - Published [game-75000](https://github.com/danemoll-jpg/woodstock-rush-releases/releases/tag/game-75000) (known draft-lookup miss, completed with `--resume-draft`).
+  - All 232 Latest files match the public signed manifest; public download, signature, install and startup pass.
+  - [Delivery evidence](Docs/Report075/PUBLICATION.md).
+- **Play-Racer.cmd (unchanged):** launched a responsive managed 75000, muted, with settings restored byte-for-byte; no pending updates. Latest root, current 75000 and previous 74000 retained.
+- **Cleanup:**
+  - Builds 10,422,915,497 → 8,201,176,166 bytes; 1.80 GB hosted check install and 1.95 GB scratch outside the project removed.
+  - C: free 295,396,601,856 bytes.
+  - All debug report history preserved.
+- **SESSION HANDOFF: STOP.** Awaiting Dan's review of 0.75 (the new garage models and rider customization; rule 12) and of 0.74. Dan's queued 0.76 round below starts only when he starts it. A documentation-only delivery commit follows; playable source remains `e1182daf`.
 
 ### Results (2026-10-04, Claude Code)
 
