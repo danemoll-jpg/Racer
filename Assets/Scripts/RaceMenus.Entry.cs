@@ -137,15 +137,15 @@ namespace Racer
         }
         void ConfigureCoreFocus()
         {
-            if(flow.State==RaceFlow.Stage.Garage){
+            if(flow.State==RaceFlow.Stage.Garage&&page!="rider"){
                 var profiles=buttons.Take(4).Where(b=>b.gameObject.activeSelf).ToArray();
                 var chosen=swatches[Mathf.Clamp(flow.SelectedColor,0,swatches.Count-1)];
-                // 0.73: the motorcycle Model row (when shown) sits between the swatches and Done.
-                var model=buttons.Count>5&&buttons[5].gameObject.activeSelf?buttons[5]:null;var below=model?model:buttons[4];
+                // The Model row (0.73) and the Rider row (0.75) sit between the swatches and Done, in that order.
+                var rows=new[]{5,6}.Where(i=>buttons.Count>i&&buttons[i].gameObject.activeSelf).Select(i=>buttons[i]).ToList();var below=rows.Count>0?rows[0]:buttons[4];
                 for(int i=0;i<swatches.Count;i++){var nav=swatches[i].navigation;nav.selectOnUp=profiles.Last();nav.selectOnDown=below;swatches[i].navigation=nav;}
                 var last=profiles.Last().navigation;last.selectOnDown=chosen;profiles.Last().navigation=last;
-                if(model){var m=model.navigation;m.selectOnUp=chosen;m.selectOnDown=buttons[4];model.navigation=m;}
-                var back=buttons[4].navigation;back.selectOnUp=below==buttons[4]?chosen:model;buttons[4].navigation=back;
+                for(int i=0;i<rows.Count;i++){var m=rows[i].navigation;m.selectOnUp=i==0?chosen:rows[i-1];m.selectOnDown=i+1<rows.Count?rows[i+1]:buttons[4];rows[i].navigation=m;}
+                var back=buttons[4].navigation;back.selectOnUp=rows.Count==0?chosen:rows[^1];buttons[4].navigation=back;
             }
             if(page!="keyboard")return;
             for(int i=Keys.Length;i<=Keys.Length+6;i++){

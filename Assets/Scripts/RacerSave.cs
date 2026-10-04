@@ -33,9 +33,12 @@ namespace Racer
             // 0.72 conditions (visual and audio only): race time of day (0 Day, 1 Dusk, 2 Night), race weather and Free Roam
             // weather (0 Clear, 1 Rain, 2 Snow). Records and ghosts are not split by these.
             public int timeOfDay = 0, weather = 0, roamWeather = 0;
-            // 0.73: Settings > Display "Lightning flashes" (Off keeps the thunder); garage "Model" for the motorcycle
-            // (true = the 0.73 Blender model, false = the classic one).
+            // 0.73: Settings > Display "Lightning flashes" (Off keeps the thunder); garage "Model" (true = the Blender models,
+            // false = the classic ones). The name is from 0.73, when only the motorcycle had a new model; since 0.75 it is the
+            // one setting for every vehicle (kept so the saved choice carries over).
             public bool lightningFlashes = true, newMotorcycle = true;
+            // 0.75: the player's rider (garage Rider page). Missing in older saves = the default (the 0.73 rider's identity).
+            public RiderLook rider = new();
             // 0.74: race time of day also 3 = Dawn. The Free Roam clock and calendar day (1-30), saved when Free Roam ends and
             // resumed next time (a missing value is day 1, 08:00; out-of-range values fall back to that too).
             public float roamHour = 8f;
@@ -64,6 +67,7 @@ namespace Racer
             Best = Read<Records>("records.json", r => r.version == 1 && r.course == course && Valid(r.lap) && Valid(r.race)) ?? new Records { course = course };
             Settings = Read<Options>("settings.json", s => s.version == 1 && Volume(s.master) && Volume(s.ambience) && Volume(s.feedback) && Volume(s.vehicle) && (s.frameLimit == 30 || s.frameLimit == 60 || s.frameLimit == 120)) ?? new Options();
             if(!Volume(Settings.music))Settings.music=.6f;
+            Settings.rider=(Settings.rider??new RiderLook()).Valid();
             // No canonical value is converted during migration; only presentation changes.
             Settings.displayUnits="imperial";
         }

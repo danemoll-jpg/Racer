@@ -1,0 +1,30 @@
+Moto hair Short: split errors 0
+Moto hair Medium: split errors 0
+Moto hair Long: split errors 0
+Moto hair Ponytail: split errors 0
+Moto hat FlatCap: head points above band 90, outside the hat 0
+Moto hat Baseball: head points above band 90, outside the hat 0
+Moto hat Beanie: head points above band 90, outside the hat 0
+Moto hat Cowboy: head points above band 90, outside the hat 0
+Atv hair Short: split errors 0
+Atv hair Medium: split errors 0
+Atv hair Long: split errors 0
+Atv hair Ponytail: split errors 0
+Atv hat FlatCap: head points above band 90, outside the hat 0
+Atv hat Baseball: head points above band 90, outside the hat 0
+Atv hat Beanie: head points above band 90, outside the hat 0
+Atv hat Cowboy: head points above band 90, outside the hat 0
+Car hair Short: split errors 0
+Car hair Medium: split errors 0
+Car hair Long: split errors 0
+Car hair Ponytail: split errors 0
+Car hat FlatCap: head points above band 90, outside the hat 0
+Car hat Baseball: head points above band 90, outside the hat 0
+Car hat Beanie: head points above band 90, outside the hat 0
+Car hat Cowboy: head points above band 90, outside the hat 0
+Moto Man: worst-case rider triangles 8636
+Moto Woman: worst-case rider triangles 9060
+Atv Man: worst-case rider triangles 8636
+Atv Woman: worst-case rider triangles 9060
+Car Man: worst-case rider triangles 8636
+Car Woman: worst-case rider triangles 9060

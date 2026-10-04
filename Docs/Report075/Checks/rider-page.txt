@@ -1,0 +1,21 @@
+PASS Rider page open: 10 option rows (‹   Body: Man   › | ‹   Skin tone: Medium   › | ‹   Hair: Short   › | ‹   Hair colour: Dark brown   › | ‹   Hat: Flat cap   › | ‹   Hat colour: Black   › | ‹   Shirt: T-shirt   › | ‹   Shirt colour: Blue   › | ‹   Pants: Jeans   › | ‹   Pants colour: Blue   ›), Randomize Randomize
+PASS row 0: '‹   Body: Man   ›' -> '‹   Body: Woman   ›': preview changed True, saved True, player vehicle matches the preview True
+PASS row 1: '‹   Skin tone: Medium   ›' -> '‹   Skin tone: Tan   ›': preview changed True, saved True, player vehicle matches the preview True
+PASS row 2: '‹   Hair: Short   ›' -> '‹   Hair: Medium   ›': preview changed True, saved True, player vehicle matches the preview True
+PASS row 3: '‹   Hair colour: Dark brown   ›' -> '‹   Hair colour: Brown   ›': preview changed True, saved True, player vehicle matches the preview True
+PASS row 4: '‹   Hat: Flat cap   ›' -> '‹   Hat: Baseball cap   ›': preview changed True, saved True, player vehicle matches the preview True
+PASS row 5: '‹   Hat colour: Black   ›' -> '‹   Hat colour: Teal   ›': preview changed True, saved True, player vehicle matches the preview True
+PASS row 6: '‹   Shirt: T-shirt   ›' -> '‹   Shirt: Long sleeve   ›': preview changed True, saved True, player vehicle matches the preview True
+PASS row 7: '‹   Shirt colour: Blue   ›' -> '‹   Shirt colour: White   ›': preview changed True, saved True, player vehicle matches the preview True
+PASS row 8: '‹   Pants: Jeans   ›' -> '‹   Pants: Shorts   ›': preview changed True, saved True, player vehicle matches the preview True
+PASS row 9: '‹   Pants colour: Blue   ›' -> '‹   Pants colour: White   ›': preview changed True, saved True, player vehicle matches the preview True
+PASS left/right: stepping back restores the default look
+PASS hat x hair x body: 50 combinations, part sets correct (hair above the band hidden under every hat) 50/50
+PASS Randomize: new look saved (Body: Man / Skin tone: Tan / Hair: Short / Hair colour: Grey / Hat: Cowboy hat / Hat colour: White / Shirt: Jacket / Shirt colour: Red / Pants: Shorts / Pants colour: Black)
+PASS persistence: a fresh read of settings.json returns the chosen look
+PASS Needle 600: Rider page preview shows the chosen rider in the Moto pose (15 parts)
+PASS Trail Four: Rider page preview shows the chosen rider in the Atv pose (15 parts)
+PASS Street Classic: Rider page preview shows the chosen rider in the Car pose (15 parts)
+PASS Longroof GT: Rider page preview shows the chosen rider in the Car pose (15 parts)
+PASS Classic: Rider page shows the note True, no option rows True, classic rider on the vehicle True
+done, failures 0

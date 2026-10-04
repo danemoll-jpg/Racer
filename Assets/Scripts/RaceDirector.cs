@@ -180,6 +180,8 @@ namespace Racer
             int localPopulation = Mathf.Clamp(trafficCount, 0, 6);
             int population = localPopulation + Mathf.Clamp(highwayTrafficCount,0,24);
             Color[] colors = {new(.95f, .25f, .12f), new(.95f, .75f, .1f), new(.2f, .55f, 1)};
+            // 0.75: each AI gets a random rider for this race (varied across the field, never the player's exact look).
+            var riders = RiderLook.Field(DriverVariation.Seed, 3, RiderLook.Player);
             for (int i = 0; i < (opponents ? 3 : 0) + (traffic ? population : 0); i++)
             {
                 bool racing = opponents && i < 3;
@@ -190,7 +192,8 @@ namespace Racer
                 foreach(var activityContact in clone.GetComponents<ActivityLandingContact>())Destroy(activityContact);
                 var configuration = clone.GetComponent<VehicleConfiguration>();
                 if (!configuration) configuration = clone.AddComponent<VehicleConfiguration>();
-                // Every opponent uses the resolved real physics/visual profile.
+                // Every opponent uses the resolved real physics/visual profile. Ambient traffic keeps the classic car.
+                configuration.riderLook = racing ? riders[n] : null; configuration.classicVisual = !racing;
                 configuration.Apply(racing ? opponentRoster[n] : "original");
                 configuration.SetPaint(racing?colors[n]:new Color(.55f,.55f,.5f));
                 // Explicit test pilots must never be duplicated into opponents.

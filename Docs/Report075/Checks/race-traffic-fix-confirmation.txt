@@ -1,0 +1,9 @@
+PASS moto-day: new models on the player and 3 AI (Longroof GT, Trail Four, Street Classic); AI riders varied and not the player's: True; traffic classic 20/20 
+  EMBER (Longroof GT): Body: Woman / Skin tone: Very light / Hair: Short / Hair colour: Brown / Hat: Beanie / Hat colour: Violet / Shirt: T-shirt / Shirt colour: Violet / Pants: Shorts / Pants colour: Black
+  GOLD (Trail Four): Body: Man / Skin tone: Brown / Hair: Ponytail / Hair colour: White / Hat: Baseball cap / Hat colour: Violet / Shirt: Jacket / Shirt colour: Teal / Pants: Shorts / Pants colour: Violet
+  BLUE (Street Classic): Body: Man / Skin tone: Dark / Hair: Ponytail / Hair colour: Grey / Hat: Baseball cap / Hat colour: White / Shirt: T-shirt / Shirt colour: White / Pants: Jeans / Pants colour: Black
+moto-day: lamps level 0.00
+PASS moto-day: wipe-out True, then reset: up 0.96, wiped False, model and rider intact True
+PASS moto-day: lap finished True (02:30.124), missed gates 0, recoveries 1; model intact True
+PASS moto-day: results and race record (category 'street-v14-discovery-moto-race4-d1-tourer-atv-original-traffic-laps1', best 150.12 s)
+done, failures 0

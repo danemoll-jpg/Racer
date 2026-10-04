@@ -1,0 +1,23 @@
+screen=3840x2160 gpu=NVIDIA GeForce GTX 1660 Ti quality=PC
+FPS street Day/Clear: GPU median 3.72 ms (95th 4.14) = 269 fps GPU-limited; wall-clock median frame 3.76 ms; 2059 timed frames; vehicles with lamps 24; screen 3840x2160
+FPS street Dawn/Clear: GPU median 4.50 ms (95th 5.04) = 222 fps GPU-limited; wall-clock median frame 4.55 ms; 1947 timed frames; vehicles with lamps 24; screen 3840x2160
+FPS street Night/Clear: GPU median 4.43 ms (95th 5.06) = 226 fps GPU-limited; wall-clock median frame 4.45 ms; 1871 timed frames; vehicles with lamps 24; screen 3840x2160
+FPS street Day/Rain: GPU median 3.86 ms (95th 4.37) = 259 fps GPU-limited; wall-clock median frame 3.95 ms; 2014 timed frames; vehicles with lamps 24; screen 3840x2160
+FPS street Night/Rain strikes every 2 s: GPU median 4.60 ms (95th 5.20) = 217 fps GPU-limited; wall-clock median frame 4.63 ms; 1858 timed frames; vehicles with lamps 24; screen 3840x2160
+FPS street Night/Snow: GPU median 4.60 ms (95th 5.30) = 217 fps GPU-limited; wall-clock median frame 4.64 ms; 1880 timed frames; vehicles with lamps 24; screen 3840x2160
+FPS forest Day/Clear: GPU median 3.40 ms (95th 4.23) = 294 fps GPU-limited; wall-clock median frame 3.44 ms; 2329 timed frames; vehicles with lamps 8; screen 3840x2160
+FPS forest Dawn/Clear: GPU median 4.10 ms (95th 4.63) = 244 fps GPU-limited; wall-clock median frame 4.14 ms; 1879 timed frames; vehicles with lamps 8; screen 3840x2160
+FPS forest Night/Clear: GPU median 3.96 ms (95th 4.68) = 252 fps GPU-limited; wall-clock median frame 3.99 ms; 2134 timed frames; vehicles with lamps 8; screen 3840x2160
+FPS forest Day/Rain: GPU median 3.46 ms (95th 4.25) = 289 fps GPU-limited; wall-clock median frame 3.53 ms; 2257 timed frames; vehicles with lamps 8; screen 3840x2160
+FPS forest Night/Rain strikes every 2 s: GPU median 4.13 ms (95th 4.78) = 242 fps GPU-limited; wall-clock median frame 4.17 ms; 2163 timed frames; vehicles with lamps 8; screen 3840x2160
+FPS forest Night/Snow: GPU median 4.15 ms (95th 4.82) = 241 fps GPU-limited; wall-clock median frame 4.19 ms; 2033 timed frames; vehicles with lamps 8; screen 3840x2160
+FPS mountain Day/Clear: GPU median 3.09 ms (95th 3.87) = 324 fps GPU-limited; wall-clock median frame 3.24 ms; 2454 timed frames; vehicles with lamps 8; screen 3840x2160
+FPS mountain Dawn/Clear: GPU median 3.26 ms (95th 4.05) = 307 fps GPU-limited; wall-clock median frame 3.40 ms; 2396 timed frames; vehicles with lamps 8; screen 3840x2160
+FPS mountain Night/Clear: GPU median 3.14 ms (95th 3.94) = 318 fps GPU-limited; wall-clock median frame 3.28 ms; 2457 timed frames; vehicles with lamps 8; screen 3840x2160
+FPS mountain Day/Rain: GPU median 3.36 ms (95th 4.16) = 297 fps GPU-limited; wall-clock median frame 3.49 ms; 2392 timed frames; vehicles with lamps 8; screen 3840x2160
+FPS mountain Night/Rain strikes every 2 s: GPU median 3.41 ms (95th 4.23) = 293 fps GPU-limited; wall-clock median frame 3.54 ms; 2329 timed frames; vehicles with lamps 8; screen 3840x2160
+FPS mountain Night/Snow: GPU median 3.43 ms (95th 4.30) = 292 fps GPU-limited; wall-clock median frame 3.55 ms; 2328 timed frames; vehicles with lamps 8; screen 3840x2160
+FPS mixed grid Day/Clear chase, models New (Street Classic + Longroof GT, Needle 600, Trail Four AI; traffic): GPU median 4.17 ms = 240 fps; 1755 timed frames; screen 3840x2160
+FPS mixed grid Day/Clear chase, models Classic (Street Classic + Longroof GT, Needle 600, Trail Four AI; traffic): GPU median 4.11 ms = 243 fps; 1776 timed frames; screen 3840x2160
+FPS mixed grid Night/Clear chase, models New (Street Classic + Longroof GT, Needle 600, Trail Four AI; traffic): GPU median 4.82 ms = 207 fps; 1702 timed frames; screen 3840x2160
+FPS mixed grid Night/Clear chase, models Classic (Street Classic + Longroof GT, Needle 600, Trail Four AI; traffic): GPU median 4.75 ms = 210 fps; 1718 timed frames; screen 3840x2160

@@ -173,16 +173,16 @@ public sealed class Report073Checks:MonoBehaviour {
   Destroy(cam.gameObject);Destroy(root);yield return null;}
  IEnumerator Moto(){
   yield return ToMenu();
-  VehicleVisual.NewMotorcycle=false;yield return Turntable("classic");VehicleVisual.NewMotorcycle=true;yield return Turntable("new");
+  VehicleVisual.NewModels=false;yield return Turntable("classic");VehicleVisual.NewModels=true;yield return Turntable("new");
   // Garage: select the motorcycle, default New, switch both ways, colours including black
   var s=flow.Save.Settings;Check(s.newMotorcycle,"default Model: New");
   flow.OpenGarage();flow.SelectVehicle("moto");yield return null;
   var cfg=Car.GetComponent<VehicleConfiguration>();bool HasNew()=>Car.GetComponentsInChildren<Transform>(true).Any(t=>t.name=="Needle 600 model"&&t.gameObject.activeInHierarchy);
   var modelButton=FindObjectsByType<UnityEngine.UI.Button>(FindObjectsSortMode.None).FirstOrDefault(b=>b.gameObject.activeInHierarchy&&b.GetComponentInChildren<UnityEngine.UI.Text>(true).text.StartsWith("Model:"));
   Check(HasNew()&&modelButton,$"garage, motorcycle: new model on the player bike {HasNew()}; row '{modelButton?.GetComponentInChildren<UnityEngine.UI.Text>(true).text}'");
-  flow.ToggleMotorcycleModel();yield return null;Check(!HasNew()&&!s.newMotorcycle&&new RacerSave(saveDir,"street-loop-gates-v1-laps3").Settings.newMotorcycle==false,$"switch to Classic: new model present {HasNew()}, saved {s.newMotorcycle}");
+  flow.ToggleModel();yield return null;Check(!HasNew()&&!s.newMotorcycle&&new RacerSave(saveDir,"street-loop-gates-v1-laps3").Settings.newMotorcycle==false,$"switch to Classic: new model present {HasNew()}, saved {s.newMotorcycle}");
   yield return GarageShot("garage-classic.png");
-  flow.ToggleMotorcycleModel();yield return null;Check(HasNew()&&s.newMotorcycle&&new RacerSave(saveDir,"street-loop-gates-v1-laps3").Settings.newMotorcycle,$"switch back to New: new model present {HasNew()}, saved (relaunch reads) {s.newMotorcycle}");
+  flow.ToggleModel();yield return null;Check(HasNew()&&s.newMotorcycle&&new RacerSave(saveDir,"street-loop-gates-v1-laps3").Settings.newMotorcycle,$"switch back to New: new model present {HasNew()}, saved (relaunch reads) {s.newMotorcycle}");
   foreach(int colour in new[]{6,1}){flow.SetColor(colour);yield return null;
    var painted=Car.GetComponentsInChildren<Renderer>().Where(r=>VehiclePaint.IsBodyPaint(r.sharedMaterial)).ToArray();var blk=new MaterialPropertyBlock();painted[0].GetPropertyBlock(blk);
    var riderMats=Car.GetComponentsInChildren<Renderer>().Where(r=>r.transform.parent&&r.transform.parent.name=="Steering pose").Select(r=>r.sharedMaterial.name).ToArray();

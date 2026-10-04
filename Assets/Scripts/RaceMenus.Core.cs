@@ -110,6 +110,7 @@ details.gameObject.SetActive(true);
             }
             else if(flow.State==RaceFlow.Stage.Garage)
             {
+                if(page=="rider"){RenderRider();return;}
                 buttons[4].GetComponentInChildren<UnityEngine.UI.Text>(true).text="Back";
                 LayoutGarage();
                 for(int i=0;i<swatches.Count;i++){var text=swatches[i].GetComponentInChildren<UnityEngine.UI.Text>(true);text.text=(flow.SelectedColor==i?"✓ ":"")+VehiclePaint.Names[i];}

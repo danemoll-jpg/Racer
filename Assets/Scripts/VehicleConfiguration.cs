@@ -10,6 +10,10 @@ namespace Racer
         void OnEnable() => active.Add(this);
         void OnDisable() => active.Remove(this);
         public string profileId = "original";
+        // 0.75: this vehicle's rider (null = the player's, RiderLook.Player) and, for ambient traffic, always the classic
+        // model. Set before Apply; clones do not inherit them.
+        [System.NonSerialized] public RiderLook riderLook;
+        [System.NonSerialized] public bool classicVisual;
         [SerializeField] string originalMotor;
         [SerializeField] Transform[] originalVisuals;
         [SerializeField] bool[] originalEnabled;
@@ -61,6 +65,8 @@ namespace Racer
             // Clones carry the generated hierarchy but not runtime field references.
             var old = transform.Find("Vehicle visual");
             if (old) { old.name="Retired visual"; old.gameObject.SetActive(false); Destroy(old.gameObject); }
+            // 0.75: a clone made in the frame its source was rebuilt inherits that hidden, not-yet-destroyed copy; remove it.
+            foreach (Transform child in transform) if (child.name=="Retired visual" && child!=old) Destroy(child.gameObject);
             wheels.Clear(); generated = null;
             if (profileId != "original")
             {
@@ -78,7 +84,7 @@ namespace Racer
                 motor.airStability=p.Id=="moto"?.1f:.18f;
                 motor.centreOfMass=new(0,p.Small?-.28f:-.35f,0);
             }
-            generated=VehicleVisual.Build(transform,p,wheels);
+            generated=VehicleVisual.Build(transform,p,wheels,riderLook,classicVisual);
             box.size=profileId=="original"?originalSize:p.Size;
             box.center=profileId=="original"?originalCenter:new Vector3(0,.05f,0);
             motor.Body.mass=profileId=="original"?originalMass:p.Mass;
@@ -104,7 +110,7 @@ namespace Racer
         }
         public void BuildPreview(Transform parent)
         {
-            VehicleVisual.Build(parent,Profile);
+            VehicleVisual.Build(parent,Profile,null,riderLook,classicVisual);
             if(selectedPaint.HasValue) VehiclePaint.Apply(parent,selectedPaint.Value);
         }
         void OnCollisionEnter(Collision collision)

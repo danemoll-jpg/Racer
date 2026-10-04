@@ -228,22 +228,40 @@ namespace Racer
                 if(previewRoot) { previewRoot.SetActive(false); Destroy(previewRoot); }
                 previewRoot=new GameObject("Garage display model"); previewRoot.layer=31; previewRoot.transform.position=new(10000,10000,10000); previewRoot.transform.rotation=Quaternion.Euler(0,-30,0);
                 flow.Race.vehicle.GetComponent<VehicleConfiguration>().BuildPreview(previewRoot.transform);
-                for(int i=0;i<flow.Race.EligibleVehicles.Length;i++) { var choice=flow.Race.EligibleVehicles[i]; Action(i,(profile.Id==choice.Id?"✓ ":"")+choice.Name,()=>flow.SelectVehicle(choice.Id)); }
-                Action(4,"Done / ready",flow.CloseGarage);
-                if(profile.Id=="moto")Action(5,"Model: "+flow.MotorcycleModelLabel+"   (Classic / New)",flow.ToggleMotorcycleModel);
+                FramePreview(profile);
+                if(page!="rider")
+                {
+                    for(int i=0;i<flow.Race.EligibleVehicles.Length;i++) { var choice=flow.Race.EligibleVehicles[i]; Action(i,(profile.Id==choice.Id?"✓ ":"")+choice.Name,()=>flow.SelectVehicle(choice.Id)); }
+                    Action(4,"Done / ready",flow.CloseGarage);
+                    Action(5,"Model: "+flow.ModelLabel+"   (Classic / New)",flow.ToggleModel);
+                    Action(6,"Rider…",()=>Navigate("rider"));
+                }
             }
             RenderCore();
             var active = buttons.FindAll(b=>b.gameObject.activeSelf&&b.interactable);
-            if(shown==RaceFlow.Stage.Garage) active.AddRange(swatches);
+            if(shown==RaceFlow.Stage.Garage&&page!="rider") active.AddRange(swatches);
             for (int i=0;i<active.Count;i++) active[i].navigation = new UnityEngine.UI.Navigation { mode=UnityEngine.UI.Navigation.Mode.Explicit, selectOnUp=active[(i+active.Count-1)%active.Count], selectOnDown=active[(i+1)%active.Count] };
-            if(shown==RaceFlow.Stage.Garage) for(int i=0;i<swatches.Count;i++) { var nav=swatches[i].navigation; nav.selectOnLeft=swatches[(i+swatches.Count-1)%swatches.Count]; nav.selectOnRight=swatches[(i+1)%swatches.Count]; swatches[i].navigation=nav; }
+            if(shown==RaceFlow.Stage.Garage&&page!="rider") for(int i=0;i<swatches.Count;i++) { var nav=swatches[i].navigation; nav.selectOnLeft=swatches[(i+swatches.Count-1)%swatches.Count]; nav.selectOnRight=swatches[(i+1)%swatches.Count]; swatches[i].navigation=nav; }
             ConfigureCoreFocus();ConfigureLaterFocus();
             int focus = selections.TryGetValue(shown,out var prior)?prior:0;
             if(editingPlaylistName&&!controllerName&&shown==RaceFlow.Stage.Playlists){playlistName.SetTextWithoutNotify(nameDraft);EventSystem.current.SetSelectedGameObject(playlistName.gameObject);playlistName.ActivateInputField();return;}
-            if(shown==RaceFlow.Stage.Garage && focus>=buttons.Count && focus<buttons.Count+swatches.Count) { EventSystem.current.SetSelectedGameObject(swatches[focus-buttons.Count].gameObject);RestorePage(); return; }
+            if(shown==RaceFlow.Stage.Garage && page!="rider" && focus>=buttons.Count && focus<buttons.Count+swatches.Count) { EventSystem.current.SetSelectedGameObject(swatches[focus-buttons.Count].gameObject);RestorePage(); return; }
             if (focus >= buttons.Count || (!buttons[focus].gameObject.activeSelf||!buttons[focus].interactable)) focus=buttons.FindIndex(b=>b.gameObject.activeInHierarchy&&b.interactable);if(focus<0)return;
             EventSystem.current.SetSelectedGameObject(buttons[focus].gameObject);
             RestorePage();
+        }
+        // 0.75: the Rider page frames the rider (through the side window in a car); the other garage pages frame the whole
+        // vehicle as before.
+        void FramePreview(VehicleProfile profile)
+        {
+            var eye=new Vector3(10000,10003,9994);var target=new Vector3(10000,10000.5f,10000);
+            if(page=="rider"&&VehicleVisual.NewModels&&previewRoot)
+            {
+                var head=profile.Id=="moto"?new Vector3(0,1.225f,-.005f):profile.Id=="atv"?new Vector3(0,1.255f,-.08f):profile.Id=="original"?new Vector3(-.40f,.78f,-.195f):new Vector3(-.43f,.82f,-.145f);
+                var rt=previewRoot.transform;target=rt.TransformPoint(head+new Vector3(0,-.3f,0));
+                eye=rt.TransformPoint(head+(profile.Small?new Vector3(-1.1f,.15f,1.05f):new Vector3(-1.55f,.2f,.62f)));
+            }
+            previewCamera.transform.position=eye;previewCamera.transform.LookAt(target);
         }
         static float NextVolume(float value) => Mathf.Min(1, (Mathf.Floor(value*10+.01f)+1)/10);
         void FinishName(bool save)

@@ -80,7 +80,7 @@ namespace Racer
             if(!string.IsNullOrEmpty(ValidationSaveRoot))root=ValidationSaveRoot;
 #endif
             Save = new RacerSave(root, "street-loop-gates-v1-laps" + Race.laps);
-            VehicleVisual.NewMotorcycle = Save.Settings.newMotorcycle;
+            VehicleVisual.NewModels = Save.Settings.newMotorcycle; RiderLook.Player = Save.Settings.rider;
             Playlists=new RacePlaylists(root);
             Boards = new RecordBoards(root);
             Race.opponents = Save.Settings.opponents; Race.traffic = Save.Settings.traffic;
@@ -275,14 +275,37 @@ namespace Racer
             Save.Settings.vehicleId=VehicleProfile.Find(id).Id; Save.SaveSettings(); SelectRecords(Race.Category); Click();
             Race.vehicle.GetComponent<VehicleConfiguration>().SetBodyColor(SelectedColor); menus.Show();
         }
-        // 0.73 garage: motorcycle Model Classic / New (remembered; the AI motorcycles follow it at the next race start).
-        public string MotorcycleModelLabel => Save.Settings.newMotorcycle ? "New" : "Classic";
-        public void ToggleMotorcycleModel()
+        // Garage Model Classic / New (0.73 motorcycle; 0.75 every vehicle): one setting, remembered; the AI vehicles follow
+        // it at the next race start. Ambient traffic always keeps the classic cars.
+        public string ModelLabel => Save.Settings.newMotorcycle ? "New" : "Classic";
+        public void ToggleModel()
         {
             if(State!=Stage.Garage) return;
-            Save.Settings.newMotorcycle=!Save.Settings.newMotorcycle; VehicleVisual.NewMotorcycle=Save.Settings.newMotorcycle;
+            Save.Settings.newMotorcycle=!Save.Settings.newMotorcycle; VehicleVisual.NewModels=Save.Settings.newMotorcycle;
+            RebuildPlayerVisual(); Save.SaveSettings(); Click(); menus.Show();
+        }
+        // 0.75 garage Rider page (New models only): each row steps one option; Randomize picks a whole new look. Saved at
+        // once; the AI riders are drawn at random for each race (RiderLook.Field).
+        public RiderLook Rider => Save.Settings.rider;
+        public void StepRider(int field, int direction)
+        {
+            if(State!=Stage.Garage || !VehicleVisual.NewModels) return;
+            Save.Settings.rider.Step(field, direction); RiderChanged();
+        }
+        public void RandomizeRider()
+        {
+            if(State!=Stage.Garage || !VehicleVisual.NewModels) return;
+            var current=Save.Settings.rider; RiderLook look; var random=new System.Random();
+            do look=RiderLook.Random(random); while(look.SameAs(current));
+            Save.Settings.rider=look; RiderChanged();
+        }
+        void RiderChanged()
+        {
+            RiderLook.Player=Save.Settings.rider; RebuildPlayerVisual(); Save.SaveSettings(); Click(); menus.Show();
+        }
+        void RebuildPlayerVisual()
+        {
             var configuration=Race.vehicle.GetComponent<VehicleConfiguration>(); configuration.Apply(configuration.profileId); configuration.SetBodyColor(SelectedColor);
-            Save.SaveSettings(); Click(); menus.Show();
         }
         public void WipeoutFeedback() { if(State==Stage.Racing) Notify("R / Y: right vehicle locally",2); }
         public void ClearRecoveryFeedback() { if(Notice=="R / Y: right vehicle locally") Notice=null; }
@@ -361,7 +384,7 @@ namespace Racer
             ValidationSaveRoot=directory;
 #endif
             Save = new RacerSave(directory, "street-loop-gates-v1-laps" + Race.laps);
-            VehicleVisual.NewMotorcycle = Save.Settings.newMotorcycle;
+            VehicleVisual.NewModels = Save.Settings.newMotorcycle; RiderLook.Player = Save.Settings.rider;
             Boards = new RecordBoards(directory);
             Save.SelectRecords(Race.Category); Save.ApplySettings(); menus.Show();
         }

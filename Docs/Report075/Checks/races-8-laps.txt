@@ -1,0 +1,65 @@
+FAIL moto-day: new models on the player and 3 AI (Trail Four, Longroof GT, Street Classic); AI riders varied and not the player's: True; traffic classic 0/20 Traffic 1/Retired visual/Needle 600 model Traffic 8/Retired visual/Needle 600 model Traffic 10/Retired visual/Needle 600 model
+  EMBER (Trail Four): Body: Man / Skin tone: Tan / Hair: Medium / Hair colour: Dark brown / Hat: Cowboy hat / Hat colour: Blue / Shirt: T-shirt / Shirt colour: Red / Pants: Jeans / Pants colour: Red
+  GOLD (Longroof GT): Body: Woman / Skin tone: Light / Hair: Medium / Hair colour: Auburn / Hat: None / Hat colour: White / Shirt: Long sleeve / Shirt colour: Black / Pants: Shorts / Pants colour: Blue
+  BLUE (Street Classic): Body: Woman / Skin tone: Medium / Hair: Long / Hair colour: Dark brown / Hat: None / Hat colour: Blue / Shirt: Jacket / Shirt colour: Blue / Pants: Jeans / Pants colour: White
+moto-day: lamps level 0.00
+PASS moto-day: wipe-out True, then reset: up 0.96, wiped False, model and rider intact True
+PASS moto-day: lap finished True (02:20.008), missed gates 0, recoveries 0; model intact True
+PASS moto-day: results and race record (category 'street-v14-discovery-moto-race4-d1-atv-tourer-original-traffic-laps1', best 140.01 s)
+FAIL moto-night: new models on the player and 3 AI (Needle 600, Trail Four, Street Classic); AI riders varied and not the player's: True; traffic classic 0/20 Traffic 8/Retired visual/Needle 600 model Traffic 20/Retired visual/Needle 600 model Traffic 5/Retired visual/Needle 600 model
+  EMBER (Needle 600): Body: Man / Skin tone: Brown / Hair: Ponytail / Hair colour: Brown / Hat: Cowboy hat / Hat colour: Violet / Shirt: Long sleeve / Shirt colour: Blue / Pants: Shorts / Pants colour: Red
+  GOLD (Trail Four): Body: Woman / Skin tone: Light / Hair: Long / Hair colour: Blonde / Hat: Baseball cap / Hat colour: Black / Shirt: Jacket / Shirt colour: Red / Pants: Shorts / Pants colour: Teal
+  BLUE (Street Classic): Body: Man / Skin tone: Medium / Hair: Bald / Hair colour: Black / Hat: Cowboy hat / Hat colour: Red / Shirt: T-shirt / Shirt colour: Gold / Pants: Jeans / Pants colour: Red
+moto-night: lamps level 1.00
+PASS moto-night: wipe-out True, then reset: up 0.96, wiped False, model and rider intact True
+PASS moto-night: lap finished True (02:13.369), missed gates 0, recoveries 0; model intact True
+PASS moto-night: results and race record (category 'street-v14-discovery-moto-race4-d1-moto-atv-original-traffic-laps1', best 133.37 s)
+FAIL atv-day: new models on the player and 3 AI (Needle 600, Street Classic, Longroof GT); AI riders varied and not the player's: True; traffic classic 0/20 Traffic 1/Retired visual/Needle 600 model Traffic 6/Retired visual/Needle 600 model Traffic 13/Retired visual/Needle 600 model
+  EMBER (Needle 600): Body: Woman / Skin tone: Brown / Hair: Short / Hair colour: Black / Hat: Baseball cap / Hat colour: Teal / Shirt: Jacket / Shirt colour: Gold / Pants: Shorts / Pants colour: Violet
+  GOLD (Street Classic): Body: Man / Skin tone: Dark / Hair: Bald / Hair colour: Brown / Hat: Flat cap / Hat colour: Red / Shirt: Long sleeve / Shirt colour: Blue / Pants: Shorts / Pants colour: White
+  BLUE (Longroof GT): Body: Woman / Skin tone: Medium / Hair: Ponytail / Hair colour: Dark brown / Hat: Baseball cap / Hat colour: Blue / Shirt: Long sleeve / Shirt colour: Black / Pants: Shorts / Pants colour: Gold
+atv-day: lamps level 0.00
+PASS atv-day: wipe-out True, then reset: up 0.96, wiped False, model and rider intact True
+PASS atv-day: lap finished True (02:35.384), missed gates 0, recoveries 0; model intact True
+PASS atv-day: results and race record (category 'street-v14-discovery-atv-race4-d1-moto-original-tourer-traffic-laps1', best 155.38 s)
+FAIL atv-night: new models on the player and 3 AI (Trail Four, Longroof GT, Needle 600); AI riders varied and not the player's: True; traffic classic 0/20 Traffic 14/Retired visual/Trail Four model Traffic 3/Retired visual/Trail Four model Traffic 1/Retired visual/Trail Four model
+  EMBER (Trail Four): Body: Woman / Skin tone: Medium / Hair: Short / Hair colour: White / Hat: Baseball cap / Hat colour: Violet / Shirt: Jacket / Shirt colour: Red / Pants: Shorts / Pants colour: Black
+  GOLD (Longroof GT): Body: Woman / Skin tone: Tan / Hair: Short / Hair colour: Brown / Hat: Flat cap / Hat colour: Black / Shirt: Long sleeve / Shirt colour: Black / Pants: Jeans / Pants colour: Teal
+  BLUE (Needle 600): Body: Man / Skin tone: Brown / Hair: Bald / Hair colour: Blonde / Hat: None / Hat colour: Gold / Shirt: Long sleeve / Shirt colour: White / Pants: Jeans / Pants colour: Teal
+atv-night: lamps level 1.00
+PASS atv-night: wipe-out True, then reset: up 0.96, wiped False, model and rider intact True
+PASS atv-night: lap finished True (02:28.261), missed gates 0, recoveries 0; model intact True
+PASS atv-night: results and race record (category 'street-v14-discovery-atv-race4-d1-atv-tourer-moto-traffic-laps1', best 148.26 s)
+FAIL original-day: new models on the player and 3 AI (Longroof GT, Needle 600, Trail Four); AI riders varied and not the player's: True; traffic classic 0/20 Traffic 19/Retired visual/Trail Four model Traffic 7/Retired visual/Trail Four model Traffic 4/Retired visual/Trail Four model
+  EMBER (Longroof GT): Body: Man / Skin tone: Medium / Hair: Long / Hair colour: White / Hat: None / Hat colour: Teal / Shirt: T-shirt / Shirt colour: Black / Pants: Jeans / Pants colour: Blue
+  GOLD (Needle 600): Body: Woman / Skin tone: Medium / Hair: Bald / Hair colour: Red / Hat: None / Hat colour: Blue / Shirt: Jacket / Shirt colour: Blue / Pants: Shorts / Pants colour: Blue
+  BLUE (Trail Four): Body: Woman / Skin tone: Tan / Hair: Ponytail / Hair colour: Blonde / Hat: Cowboy hat / Hat colour: Teal / Shirt: Long sleeve / Shirt colour: Violet / Pants: Shorts / Pants colour: Gold
+original-day: lamps level 0.00
+PASS original-day: reset: up 0.96, wiped False, model and rider intact True
+PASS original-day: lap finished True (02:35.816), missed gates 0, recoveries 0; model intact True
+PASS original-day: results and race record (category 'street-v14-discovery-original-race4-d1-tourer-moto-atv-traffic-laps1', best 155.82 s)
+FAIL original-night: new models on the player and 3 AI (Street Classic, Trail Four, Needle 600); AI riders varied and not the player's: True; traffic classic 0/20 Traffic 15/Retired visual/Street Classic model Traffic 10/Retired visual/Street Classic model Traffic 20/Retired visual/Street Classic model
+  EMBER (Street Classic): Body: Woman / Skin tone: Light / Hair: Ponytail / Hair colour: Dark brown / Hat: None / Hat colour: White / Shirt: T-shirt / Shirt colour: Gold / Pants: Jeans / Pants colour: Violet
+  GOLD (Trail Four): Body: Man / Skin tone: Tan / Hair: Ponytail / Hair colour: Black / Hat: Cowboy hat / Hat colour: Black / Shirt: Long sleeve / Shirt colour: White / Pants: Shorts / Pants colour: Blue
+  BLUE (Needle 600): Body: Man / Skin tone: Very light / Hair: Long / Hair colour: Dark brown / Hat: None / Hat colour: White / Shirt: Long sleeve / Shirt colour: Black / Pants: Shorts / Pants colour: Blue
+original-night: lamps level 1.00
+PASS original-night: reset: up 0.96, wiped False, model and rider intact True
+PASS original-night: lap finished True (02:36.066), missed gates 0, recoveries 0; model intact True
+PASS original-night: results and race record (category 'street-v14-discovery-original-race4-d1-original-atv-moto-traffic-laps1', best 156.07 s)
+FAIL tourer-day: new models on the player and 3 AI (Street Classic, Trail Four, Needle 600); AI riders varied and not the player's: True; traffic classic 0/20 Traffic 19/Retired visual/Street Classic model Traffic 4/Retired visual/Street Classic model Traffic 14/Retired visual/Street Classic model
+  EMBER (Street Classic): Body: Man / Skin tone: Medium / Hair: Short / Hair colour: Red / Hat: Flat cap / Hat colour: Gold / Shirt: Long sleeve / Shirt colour: White / Pants: Shorts / Pants colour: Black
+  GOLD (Trail Four): Body: Woman / Skin tone: Dark / Hair: Bald / Hair colour: Grey / Hat: None / Hat colour: White / Shirt: T-shirt / Shirt colour: Gold / Pants: Shorts / Pants colour: Teal
+  BLUE (Needle 600): Body: Man / Skin tone: Dark / Hair: Long / Hair colour: Auburn / Hat: Baseball cap / Hat colour: White / Shirt: T-shirt / Shirt colour: Teal / Pants: Shorts / Pants colour: Blue
+tourer-day: lamps level 0.00
+PASS tourer-day: reset: up 0.96, wiped False, model and rider intact True
+PASS tourer-day: lap finished True (02:25.607), missed gates 0, recoveries 0; model intact True
+PASS tourer-day: results and race record (category 'street-v14-discovery-tourer-race4-d1-original-atv-moto-traffic-laps1', best 145.61 s)
+FAIL tourer-night: new models on the player and 3 AI (Longroof GT, Needle 600, Street Classic); AI riders varied and not the player's: True; traffic classic 0/20 Traffic 18/Retired visual/Longroof GT model Traffic 11/Retired visual/Longroof GT model Traffic 8/Retired visual/Longroof GT model
+  EMBER (Longroof GT): Body: Man / Skin tone: Tan / Hair: Ponytail / Hair colour: Black / Hat: Beanie / Hat colour: White / Shirt: Long sleeve / Shirt colour: Red / Pants: Jeans / Pants colour: White
+  GOLD (Needle 600): Body: Man / Skin tone: Brown / Hair: Short / Hair colour: White / Hat: Flat cap / Hat colour: Red / Shirt: Long sleeve / Shirt colour: Black / Pants: Jeans / Pants colour: Gold
+  BLUE (Street Classic): Body: Woman / Skin tone: Very light / Hair: Ponytail / Hair colour: Auburn / Hat: Flat cap / Hat colour: Black / Shirt: Jacket / Shirt colour: Violet / Pants: Jeans / Pants colour: White
+tourer-night: lamps level 1.00
+PASS tourer-night: reset: up 0.96, wiped False, model and rider intact True
+PASS tourer-night: lap finished True (02:35.882), missed gates 0, recoveries 0; model intact True
+PASS tourer-night: results and race record (category 'street-v14-discovery-tourer-race4-d1-tourer-moto-original-traffic-laps1', best 155.88 s)
+done, failures 8

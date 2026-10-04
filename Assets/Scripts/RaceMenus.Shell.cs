@@ -179,6 +179,14 @@ namespace Racer
         RectTransform garageBody,garageProfiles;
         void LayoutGarage()
         {
+            LayoutGarageBody();
+            for(int i=0;i<4;i++)if(buttons[i].gameObject.activeSelf){buttons[i].transform.SetParent(garageProfiles,false);buttons[i].name="profile-"+i;buttons[i].GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=44;}
+            swatchRow.SetSiblingIndex(2);buttons[4].transform.SetSiblingIndex(3);
+            if(buttons.Count>6&&buttons[6].gameObject.activeSelf){buttons[6].transform.SetSiblingIndex(3);buttons[4].transform.SetSiblingIndex(4);}
+            if(buttons.Count>5&&buttons[5].gameObject.activeSelf){buttons[5].transform.SetSiblingIndex(3);buttons[4].transform.SetSiblingIndex(5);}
+        }
+        void LayoutGarageBody()
+        {
             if(!garageBody)
             {
                 garageBody=Rect("Garage preview and profiles",content);
@@ -191,9 +199,24 @@ namespace Racer
             garageBody.gameObject.SetActive(true);garageBody.SetSiblingIndex(1);
             preview.transform.SetParent(garageBody,false);preview.transform.SetSiblingIndex(0);
             preview.GetComponent<UnityEngine.UI.LayoutElement>().preferredWidth=620;
-            for(int i=0;i<4;i++)if(buttons[i].gameObject.activeSelf){buttons[i].transform.SetParent(garageProfiles,false);buttons[i].name="profile-"+i;buttons[i].GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=44;}
-            swatchRow.SetSiblingIndex(2);buttons[4].transform.SetSiblingIndex(3);
-            if(buttons.Count>5&&buttons[5].gameObject.activeSelf){buttons[5].transform.SetSiblingIndex(3);buttons[4].transform.SetSiblingIndex(4);}
+        }
+        // 0.75 garage Rider page: the live preview (framed on the rider) with Randomize and Back beside it, the option rows
+        // below in the existing row style (‹ › / left-right steps, select / click steps forward). Classic models show the
+        // old rider, so the page then only says that customization needs the New models.
+        void RenderRider()
+        {
+            var look=flow.Rider;bool on=VehicleVisual.NewModels;
+            ClearCore("RIDER",on?"Choose your rider. Left / right changes a row; the AI riders are random each race.":"Rider customization needs the New models.\nSet Model: New in the garage (or below) to choose your rider.");
+            details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=on?30:60;
+            swatchRow.gameObject.SetActive(false);preview.gameObject.SetActive(true);
+            if(on)
+            {
+                Row(0,"randomize","Randomize",flow.RandomizeRider);Row(1,"rider-back","Back",()=>BackPage());
+                for(int i=0;i<RiderLook.Fields;i++){int field=i;Step(2+i,"rider-"+i,look.Label(i),d=>flow.StepRider(field,d));}
+            }
+            else{Row(0,"model","Model: "+flow.ModelLabel+"   (Classic / New)",flow.ToggleModel);Row(1,"rider-back","Back",()=>BackPage());}
+            LayoutGarageBody();
+            for(int i=0;i<2;i++){buttons[i].transform.SetParent(garageProfiles,false);buttons[i].GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=44;}
         }
         void ResetGarageLayout()
         {

@@ -117,8 +117,33 @@ namespace Racer
                 File.WriteAllLines(Path.Combine(outDir, "conditions.txt"), rows);
             }
             if (!fpsOnly || Array.IndexOf(Environment.GetCommandLineArgs(), "-conditionsMoto") >= 0) yield return Motorcycle(rows);
+            if (Array.IndexOf(Environment.GetCommandLineArgs(), "-conditionsModels") >= 0) yield return Models(rows);
             File.WriteAllLines(Path.Combine(outDir, "conditions.txt"), rows);
             Application.Quit();
+        }
+        // 0.75 evidence ("-conditionsModels"): a mixed grid (player Street Classic; AI Longroof GT, Needle 600, Trail Four)
+        // from the chase camera at Day and Night, New vs Classic models: full-screen shots and GPU frame times.
+        IEnumerator Models(List<string> rows)
+        {
+            SceneManager.LoadScene("StreetLoopGreybox"); yield return null; yield return null;
+            var race = Prepare(); var flow = race.Flow; var s = flow.Save.Settings;
+            s.opponentChoices = new[] { "tourer", "moto", "atv" }; s.opponentRoster = new[] { "tourer", "moto", "atv" }; race.opponentRoster = new[] { "tourer", "moto", "atv" };
+            foreach (var t in new[] { TimeOfDay.Day, TimeOfDay.Night })
+                foreach (bool model in new[] { true, false })
+                {
+                    VehicleVisual.NewModels = s.newMotorcycle = model; s.timeOfDay = (int)t; s.weather = 0;
+                    flow.OpenGarage(); flow.SelectVehicle("original"); flow.SetColor(1); flow.CloseGarage();
+                    yield return Grid(race); yield return Hold(3);
+                    string tag = $"{t}-{(model ? "new" : "classic")}".ToLowerInvariant();
+                    yield return Shot($"models-grid-{tag}-chase.jpg");
+                    var gpu = new List<float>(); var ft = new FrameTiming[1]; float t0 = Time.unscaledTime;
+                    while (Time.unscaledTime - t0 < 10) { yield return null; Keep(); FrameTimingManager.CaptureFrameTimings(); if (FrameTimingManager.GetLatestTimings(1, ft) > 0 && ft[0].gpuFrameTime > 0) gpu.Add((float)ft[0].gpuFrameTime); }
+                    gpu.Sort(); float med = gpu.Count > 0 ? gpu[gpu.Count / 2] : float.NaN;
+                    rows.Add($"FPS mixed grid {t}/Clear chase, models {(model ? "New" : "Classic")} (Street Classic + Longroof GT, Needle 600, Trail Four AI; traffic): GPU median {med:F2} ms = {1000 / med:F0} fps; {gpu.Count} timed frames; screen {Screen.width}x{Screen.height}");
+                    File.WriteAllLines(Path.Combine(outDir, "conditions.txt"), rows);
+                    flow.Pause(); flow.QuitRace(); yield return Hold(1);
+                }
+            VehicleVisual.NewModels = s.newMotorcycle = true; s.timeOfDay = 0;
         }
         // 0.73 Part D evidence: the Needle 600 model in the garage and on the race grid; frame time New vs Classic.
         IEnumerator Motorcycle(List<string> rows)
@@ -127,18 +152,18 @@ namespace Racer
             var race = Prepare(); var flow = race.Flow; var s = flow.Save.Settings;
             foreach (bool model in new[] { true, false })
             {
-                VehicleVisual.NewMotorcycle = s.newMotorcycle = model;
+                VehicleVisual.NewModels = s.newMotorcycle = model;
                 flow.OpenGarage(); flow.SelectVehicle("moto"); flow.SetColor(3); yield return Hold(2);
                 yield return Full($"moto-garage-{(model ? "new" : "classic")}.jpg");
                 if (model) { flow.SetColor(6); yield return Hold(1); yield return Full("moto-garage-new-black.jpg"); flow.SetColor(3); yield return Hold(.5f); }
                 flow.CloseGarage(); yield return Hold(.5f);
             }
-            VehicleVisual.NewMotorcycle = s.newMotorcycle = true;
+            VehicleVisual.NewModels = s.newMotorcycle = true;
             s.opponentChoices = new[] { "moto", "moto", "moto" }; s.opponentRoster = new[] { "moto", "moto", "moto" }; race.opponentRoster = new[] { "moto", "moto", "moto" };
             foreach (var t in new[] { TimeOfDay.Day, TimeOfDay.Night })
                 foreach (bool model in new[] { true, false })
                 {
-                    VehicleVisual.NewMotorcycle = s.newMotorcycle = model; s.timeOfDay = (int)t; s.weather = 0;
+                    VehicleVisual.NewModels = s.newMotorcycle = model; s.timeOfDay = (int)t; s.weather = 0;
                     flow.OpenGarage(); flow.SelectVehicle("moto"); flow.SetColor(3); flow.CloseGarage();
                     yield return Grid(race); yield return Hold(3);
                     string tag = $"{t}-{(model ? "new" : "classic")}".ToLowerInvariant();
@@ -158,7 +183,7 @@ namespace Racer
                     }
                     flow.Pause(); flow.QuitRace(); yield return Hold(1);
                 }
-            VehicleVisual.NewMotorcycle = s.newMotorcycle = true;
+            VehicleVisual.NewModels = s.newMotorcycle = true;
         }
         // Full screen (UI included) at the screen resolution.
         IEnumerator Full(string name)
