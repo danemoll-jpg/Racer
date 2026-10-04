@@ -1,0 +1,93 @@
+screen=3840x2160 gpu=NVIDIA GeForce GTX 1660 Ti quality=PC
+VIEW street Day Clear
+VIEW street Day Rain
+VIEW street Day Snow
+VIEW street Dusk Clear
+VIEW street Dusk Rain
+VIEW street Dusk Snow
+VIEW street Night Clear
+VIEW street Night Rain
+VIEW street Night Snow
+VIEW street Dawn Clear
+VIEW street Dawn Rain
+VIEW street Dawn Snow
+FPS street Day/Clear: GPU median 3.76 ms (95th 4.20) = 266 fps GPU-limited; wall-clock median frame 3.80 ms; 2086 timed frames; vehicles with lamps 24; screen 3840x2160
+FPS street Dawn/Clear: GPU median 4.60 ms (95th 5.14) = 217 fps GPU-limited; wall-clock median frame 4.65 ms; 1959 timed frames; vehicles with lamps 24; screen 3840x2160
+FPS street Night/Clear: GPU median 4.37 ms (95th 4.86) = 229 fps GPU-limited; wall-clock median frame 4.42 ms; 2001 timed frames; vehicles with lamps 24; screen 3840x2160
+FPS street Day/Rain: GPU median 3.90 ms (95th 4.36) = 256 fps GPU-limited; wall-clock median frame 3.94 ms; 2075 timed frames; vehicles with lamps 24; screen 3840x2160
+FPS street Night/Rain strikes every 2 s: GPU median 4.51 ms (95th 5.02) = 222 fps GPU-limited; wall-clock median frame 4.54 ms; 1934 timed frames; vehicles with lamps 24; screen 3840x2160
+FPS street Night/Snow: GPU median 4.55 ms (95th 5.06) = 220 fps GPU-limited; wall-clock median frame 4.59 ms; 1908 timed frames; vehicles with lamps 24; screen 3840x2160
+VIEW free roam cycle 05:00 (Dawn), clouds 19
+VIEW free roam cycle 06:00 (Dawn), clouds 19
+VIEW free roam cycle 06:00 (Dawn), clouds 19
+VIEW free roam cycle 07:00 (Dawn), clouds 18
+VIEW free roam cycle 07:00 (Dawn), clouds 18
+VIEW free roam cycle 08:00 (Day), clouds 17
+VIEW free roam cycle 12:00 (Day), clouds 17
+VIEW free roam cycle 18:00 (Dusk), clouds 17
+VIEW free roam cycle 19:00 (Dusk), clouds 16
+VIEW free roam cycle 20:00 (Dusk), clouds 16
+VIEW free roam cycle 21:00 (Night), clouds 16
+VIEW free roam cycle 22:00 (Night), clouds 16
+VIEW free roam cycle 23:00 (Night), clouds 16
+VIEW free roam cycle 00:00 (Night), clouds 16
+VIEW moon day 1: phase 0.00, lit 0.00
+VIEW moon day 4: phase 0.10, lit 0.10
+VIEW moon day 8: phase 0.23, lit 0.45
+VIEW moon day 15: phase 0.47, lit 0.99
+VIEW moon day 22: phase 0.70, lit 0.65
+VIEW moon day 27: phase 0.87, lit 0.17
+VIEW lightning Day/Rain: strike 1, flash 1.01, bolts shown 3
+VIEW lightning Night/Rain: strike 1, flash 1.01, bolts shown 4
+VIEW forest Day Clear
+VIEW forest Day Rain
+VIEW forest Day Snow
+VIEW forest Dusk Clear
+VIEW forest Dusk Rain
+VIEW forest Dusk Snow
+VIEW forest Night Clear
+VIEW forest Night Rain
+VIEW forest Night Snow
+VIEW forest Dawn Clear
+VIEW forest Dawn Rain
+VIEW forest Dawn Snow
+FPS forest Day/Clear: GPU median 3.40 ms (95th 4.26) = 294 fps GPU-limited; wall-clock median frame 3.45 ms; 2356 timed frames; vehicles with lamps 8; screen 3840x2160
+FPS forest Dawn/Clear: GPU median 4.13 ms (95th 4.68) = 242 fps GPU-limited; wall-clock median frame 4.15 ms; 2161 timed frames; vehicles with lamps 8; screen 3840x2160
+FPS forest Night/Clear: GPU median 4.07 ms (95th 4.85) = 246 fps GPU-limited; wall-clock median frame 4.09 ms; 2170 timed frames; vehicles with lamps 8; screen 3840x2160
+FPS forest Day/Rain: GPU median 3.54 ms (95th 4.43) = 282 fps GPU-limited; wall-clock median frame 3.59 ms; 2242 timed frames; vehicles with lamps 8; screen 3840x2160
+FPS forest Night/Rain strikes every 2 s: GPU median 4.18 ms (95th 5.00) = 239 fps GPU-limited; wall-clock median frame 4.23 ms; 2122 timed frames; vehicles with lamps 8; screen 3840x2160
+FPS forest Night/Snow: GPU median 4.23 ms (95th 5.07) = 237 fps GPU-limited; wall-clock median frame 4.26 ms; 2093 timed frames; vehicles with lamps 8; screen 3840x2160
+VIEW forest cave interior Night Clear: covered True, falling particles 0
+VIEW forest cave interior Night Rain: covered True, falling particles 0
+VIEW backyard Day Clear
+VIEW backyard Day Rain
+VIEW backyard Day Snow
+VIEW backyard Dusk Clear
+VIEW backyard Dusk Rain
+VIEW backyard Dusk Snow
+VIEW backyard Night Clear
+VIEW backyard Night Rain
+VIEW backyard Night Snow
+VIEW backyard Dawn Clear
+VIEW backyard Dawn Rain
+VIEW backyard Dawn Snow
+VIEW mountain Day Clear
+VIEW mountain Day Rain
+VIEW mountain Day Snow
+VIEW mountain Dusk Clear
+VIEW mountain Dusk Rain
+VIEW mountain Dusk Snow
+VIEW mountain Night Clear
+VIEW mountain Night Rain
+VIEW mountain Night Snow
+VIEW mountain Dawn Clear
+VIEW mountain Dawn Rain
+VIEW mountain Dawn Snow
+FPS mountain Day/Clear: GPU median 3.01 ms (95th 3.38) = 332 fps GPU-limited; wall-clock median frame 3.13 ms; 2695 timed frames; vehicles with lamps 8; screen 3840x2160
+FPS mountain Dawn/Clear: GPU median 3.07 ms (95th 3.44) = 325 fps GPU-limited; wall-clock median frame 3.19 ms; 2562 timed frames; vehicles with lamps 8; screen 3840x2160
+FPS mountain Night/Clear: GPU median 3.07 ms (95th 3.44) = 326 fps GPU-limited; wall-clock median frame 3.17 ms; 2625 timed frames; vehicles with lamps 8; screen 3840x2160
+FPS mountain Day/Rain: GPU median 3.24 ms (95th 3.56) = 309 fps GPU-limited; wall-clock median frame 3.36 ms; 2482 timed frames; vehicles with lamps 8; screen 3840x2160
+FPS mountain Night/Rain strikes every 2 s: GPU median 3.30 ms (95th 3.63) = 303 fps GPU-limited; wall-clock median frame 3.40 ms; 2433 timed frames; vehicles with lamps 8; screen 3840x2160
+FPS mountain Night/Snow: GPU median 3.34 ms (95th 3.67) = 300 fps GPU-limited; wall-clock median frame 3.43 ms; 2458 timed frames; vehicles with lamps 8; screen 3840x2160
+FPS moto grid Day/Clear chase, model New (player + 3 AI motorcycles): GPU median 3.96 ms = 252 fps; 1922 timed frames; screen 3840x2160
+FPS moto grid Day/Clear chase, model Classic (player + 3 AI motorcycles): GPU median 4.02 ms = 249 fps; 1922 timed frames; screen 3840x2160

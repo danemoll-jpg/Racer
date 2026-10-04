@@ -1,0 +1,7 @@
+PASS RIDE pts=744,-110/743,-125/742.5,-135/742,-146 fwd moto pace 20: complete in 1.8 s over 36 m; slowest 0.0 m/s, fastest 20.2 m/s; longest airborne 0.12 s; largest pitch 12 deg, roll 36 deg; wipe-outs 0; resets 0; steepest driven 2 m grade 20%
+PASS RIDE pts=744,-110/743,-125/742.5,-135/742,-146 fwd atv pace 20: complete in 1.9 s over 36 m; slowest 0.0 m/s, fastest 20.2 m/s; longest airborne 0.30 s; largest pitch 42 deg, roll 45 deg; wipe-outs 0; resets 0; steepest driven 2 m grade 32%
+PASS RIDE pts=744,-110/743,-125/742.5,-135/742,-146 fwd moto pace 26: complete in 1.5 s over 36 m; slowest 0.0 m/s, fastest 26.2 m/s; longest airborne 0.08 s; largest pitch 9 deg, roll 26 deg; wipe-outs 0; resets 0; steepest driven 2 m grade 19%
+PASS RIDE pts=1048,8/1047,25/1045,40/1043,52 fwd moto pace 26: complete in 1.9 s over 45 m; slowest 0.0 m/s, fastest 26.2 m/s; longest airborne 0.00 s; largest pitch 9 deg, roll 2 deg; wipe-outs 0; resets 0; steepest driven 2 m grade 16%
+PASS RIDE pts=743,-128/747,-123/753,-121/760,-115/766,-108 fwd moto pace 20: complete in 1.6 s over 31 m; slowest 0.0 m/s, fastest 20.2 m/s; longest airborne 0.06 s; largest pitch 4 deg, roll 8 deg; wipe-outs 0; resets 0; steepest driven 2 m grade 7%
+PASS RIDE pts=743,-128/747,-123/753,-121/760,-115/766,-108 fwd atv pace 16: complete in 1.8 s over 31 m; slowest 0.0 m/s, fastest 16.2 m/s; longest airborne 0.00 s; largest pitch 4 deg, roll 8 deg; wipe-outs 0; resets 0; steepest driven 2 m grade 7%
+done, failures 0

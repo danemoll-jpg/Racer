@@ -1,0 +1,6 @@
+PASS RIDE file=Docs/Report074/storm-drain-tunnel.txt fwd moto pace 12: complete in 15.5 s over 186 m; slowest 9.1 m/s, fastest 12.3 m/s; longest airborne 0.12 s; largest pitch 18 deg, roll 5 deg; wipe-outs 0; resets 0; steepest driven 2 m grade 33%
+PASS RIDE file=Docs/Report074/storm-drain-tunnel.txt back atv pace 10: complete in 18.8 s over 186 m; slowest 7.3 m/s, fastest 10.3 m/s; longest airborne 0.08 s; largest pitch 18 deg, roll 4 deg; wipe-outs 0; resets 0; steepest driven 2 m grade 33%
+SHOT tunnel-entrance-mountain hour 12 Clear
+SHOT tunnel-gully-mountain hour 12 Clear
+SHOT tunnel-inside-mountain hour 23 Clear
+done, failures 0

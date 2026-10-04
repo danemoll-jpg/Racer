@@ -10,14 +10,27 @@ namespace Racer
     // the sky, the clouds and the world (strongest at night, subtle by day; never more than two pulses, ~0.1 s each), then
     // thunder after a short varying delay on the Ambience volume. Settings > Display "Lightning flashes: Off" keeps the
     // thunder and removes the flash. Under cover: no flash, thunder muffled. No gameplay effect. The clouds live here too.
+    // 0.74: storms with presence - a strike every 8-25 s (irregular, sometimes a close pair), each with a visible forked bolt
+    // in a random direction and a flash noticeable at any time of day; near strikes are bright with a loud crack soon after,
+    // far ones dimmer with a long low rumble several seconds later; faint distant rumbles (a glow in the clouds) between
+    // strikes. Thunder fuller and louder against a softer rain. The rain sound is rebuilt: a low rounded bed with slow
+    // variation, occasional heavier gusts and light patter, no hiss; muffled (low-passed) under cover. The moon is drawn with
+    // its phase (MoonDisc) and Dawn lays light ground mist in low areas (DawnMist).
     public sealed class WeatherEffects : MonoBehaviour
     {
         ParticleSystem rain, snow, stars; ParticleSystemRenderer starRenderer;
-        AudioSource rainAudio, thunderAudio; AudioLowPassFilter thunderFilter; AudioClip[] thunderClips;
+        AudioSource rainAudio, thunderAudio, rumbleAudio; AudioLowPassFilter thunderFilter, rainFilter, rumbleFilter; AudioClip[] thunderClips, farClips;
+        LightningBolts bolts; MoonDisc moon; DawnMist mist; float nextRumble = -1, rumbleAt = -100;
+        public int Rumbles { get; private set; }
+        public int BoltsShown => bolts ? bolts.Shown : 0;
+        public float LastStrikeDistance { get; private set; }
         float nextStrike = -1, strikeAt = -100, thunderAt = -1, strikeStrength, thunderDistance; int pulses; bool strikeFlashes;
         public int Strikes { get; private set; }
         // Evidence only (ConditionsBench): no new strikes while fixed-view screenshots and frame times are taken.
         public static bool HoldStrikes;
+        // Evidence only: strikes every TestStrikeInterval seconds when > 0 (frame time during strikes); a fixed moon
+        // (phase, elevation, azimuth) when TestMoonPhase >= 0 (moon-phase screenshots).
+        public static float TestStrikeInterval, TestMoonPhase = -1, TestMoonElevation, TestMoonAzimuth, TestBoltAzimuth = float.NaN;
         public int ThunderPlayed { get; private set; }
         public float FlashLevel { get; private set; }
         public float PeakFlash { get; private set; }
@@ -47,10 +60,18 @@ namespace Racer
             snow = Make("Snow", snowMat, false);
             stars = Stars();
             rainAudio = gameObject.AddComponent<AudioSource>(); rainAudio.clip = RainClip(); rainAudio.loop = true; rainAudio.spatialBlend = 0; rainAudio.volume = 0; rainAudio.playOnAwake = false; rainAudio.priority = 170;
+            rainFilter = gameObject.AddComponent<AudioLowPassFilter>(); rainFilter.cutoffFrequency = 22000;
             var thunder = new GameObject("Thunder"); thunder.transform.SetParent(transform, false);
             thunderAudio = thunder.AddComponent<AudioSource>(); thunderAudio.spatialBlend = 0; thunderAudio.playOnAwake = false; thunderAudio.priority = 160;
             thunderFilter = thunder.AddComponent<AudioLowPassFilter>(); thunderFilter.cutoffFrequency = 5000;
-            thunderClips = new[] { ThunderClip(7311), ThunderClip(7312), ThunderClip(7313) };
+            thunderClips = new[] { ThunderClip(7411, true), ThunderClip(7413, true), ThunderClip(7415, true) };
+            farClips = new[] { ThunderClip(7412, false), ThunderClip(7414, false), ThunderClip(7416, false) };
+            var rumble = new GameObject("Distant thunder"); rumble.transform.SetParent(transform, false);
+            rumbleAudio = rumble.AddComponent<AudioSource>(); rumbleAudio.spatialBlend = 0; rumbleAudio.playOnAwake = false; rumbleAudio.priority = 165;
+            rumbleFilter = rumble.AddComponent<AudioLowPassFilter>(); rumbleFilter.cutoffFrequency = 700;
+            bolts = new GameObject("Lightning bolts").AddComponent<LightningBolts>(); bolts.transform.SetParent(transform, false);
+            moon = new GameObject("Moon").AddComponent<MoonDisc>(); moon.transform.SetParent(transform, false);
+            mist = new GameObject("Mist").AddComponent<DawnMist>(); mist.transform.SetParent(transform, false);
             if (!GetComponentInChildren<SkyClouds>()) { var sky = new GameObject("Sky clouds"); sky.transform.SetParent(transform, false); sky.AddComponent<SkyClouds>(); }
         }
         static Material Particle(Color c)
@@ -136,11 +157,23 @@ namespace Racer
             if (starMat && starMat.HasProperty("_Visibility")) starMat.SetFloat("_Visibility", starLevel);
             // Rain ambience on the Ambience volume, muffled under cover.
             float volume = flow && flow.Save != null ? flow.Save.Settings.ambience : 1;
-            float targetAudio = p.rain * (covered ? .35f : 1) * .55f * volume;
+            float targetAudio = p.rain * (covered ? .45f : 1) * .42f * volume;
+            rainFilter.cutoffFrequency = Mathf.MoveTowards(rainFilter.cutoffFrequency, covered ? 650 : 22000, Time.unscaledDeltaTime * 40000);
             if (targetAudio > .001f && !rainAudio.isPlaying) rainAudio.Play();
             rainAudio.volume = Mathf.MoveTowards(rainAudio.volume, targetAudio, Time.unscaledDeltaTime * .5f);
             if (rainAudio.volume <= .001f && targetAudio <= .001f && rainAudio.isPlaying) rainAudio.Stop();
             Storm(p, look);
+            // The moon (with its phase) where the night light comes from; visible in a clear dark sky.
+            if (look.Mode != "Menu")
+            {
+                float phase = look.MoonPhase, mElev, mAz;
+                if (look.Mode == "Free Roam") (mElev, mAz) = WorldLook.Moon(look.Hour, phase); else { mElev = p.sunElevation; mAz = p.sunAzimuth; }
+                if (TestMoonPhase >= 0) { phase = TestMoonPhase; mElev = TestMoonElevation; mAz = TestMoonAzimuth; }
+                float dark = Mathf.Clamp01(p.stars * 1.2f) * (1 - Mathf.Max(p.rain, p.snowfall));
+                moon.Show(cam, mElev, mAz, phase, dark * Mathf.SmoothStep(0, 1, Mathf.InverseLerp(-1, 4, mElev)));
+            }
+            else moon.Show(cam, -10, 0, .5f, 0);
+            mist.Set(snowMat, cam, look.Mode == "Menu" || covered ? 0 : p.mist * (1 - Mathf.Max(p.rain, p.snowfall) * .5f), p.fogColor);
             // Vehicle lamps: every vehicle (player, rivals, traffic) gets its lamps once; their level follows the preset.
             if (Time.unscaledTime >= nextVehicleScan) { nextVehicleScan = Time.unscaledTime + 1; foreach (var v in FindObjectsByType<ArcadeVehicle>(FindObjectsSortMode.None)) if (!v.GetComponent<VehicleLights>()) v.gameObject.AddComponent<VehicleLights>(); }
             lightsLevel = Mathf.MoveTowards(lightsLevel, p.lights, Time.unscaledDeltaTime);
@@ -151,16 +184,25 @@ namespace Racer
         {
             bool storm = p.rain > .5f && look.Mode != "Menu";
             float now = Time.time;// scaled: nothing new while paused
-            if (!storm) { nextStrike = -1; thunderAt = -1; if (FlashLevel > 0) Flash(0, look); if (thunderAudio.isPlaying && p.rain <= .5f) thunderAudio.Stop(); return; }
-            if (nextStrike < 0 || HoldStrikes && nextStrike < now + 5) nextStrike = now + Random.Range(8f, 25f);
+            if (!storm) { nextStrike = -1; thunderAt = -1; nextRumble = -1; if (FlashLevel > 0) Flash(0, look); if (thunderAudio.isPlaying && p.rain <= .5f) thunderAudio.Stop(); if (rumbleAudio.isPlaying && p.rain <= .5f) rumbleAudio.Stop(); return; }
+            if (nextStrike < 0 || HoldStrikes && nextStrike < now + 5) nextStrike = now + Random.Range(4f, 12f);
+            if (nextRumble < 0) nextRumble = now + Random.Range(6f, 14f);
+            float volume = flow && flow.Save != null ? flow.Save.Settings.ambience : 1;
             if (now >= nextStrike)
             {
-                Strikes++; strikeAt = now; nextStrike = now + Random.Range(20f, 60f);
+                Strikes++; strikeAt = now;
+                // irregular, 8-25 s apart; about one strike in five is followed closely by a second
+                nextStrike = Random.value < .2f ? now + Random.Range(1.6f, 4.5f) : now + Random.Range(8f, 25f);
+                if (TestStrikeInterval > 0) nextStrike = now + TestStrikeInterval;
                 pulses = Random.value < .55f ? 2 : 1; thunderDistance = Random.value;
-                // Strongest at night, a little less at dusk, subtle in daylight; nearer strikes are brighter.
-                strikeStrength = Mathf.Lerp(.32f, 1f, Mathf.Clamp01(p.lights)) * Mathf.Lerp(1.1f, .65f, thunderDistance);
+                LastStrikeDistance = Mathf.Lerp(260, 1500, thunderDistance);
+                // A clear brightening at any time of day (more at night); nearer strikes are brighter.
+                strikeStrength = Mathf.Lerp(.62f, 1f, Mathf.Clamp01(p.lights)) * Mathf.Lerp(1.15f, .5f, thunderDistance);
                 LastStrikeCovered = covered; strikeFlashes = !covered && (flow == null || flow.Save == null || flow.Save.Settings.lightningFlashes);
-                thunderAt = now + Mathf.Lerp(.8f, 4.2f, thunderDistance) + Random.Range(0f, .5f);
+                // sound at 343 m/s: a near crack within about a second, a far rumble 4-5 s later
+                thunderAt = now + LastStrikeDistance / 343f + Random.Range(0f, .3f);
+                var cam = Camera.main; if (cam && bolts) bolts.Strike(cam.transform.position, float.IsNaN(TestBoltAzimuth) ? Random.Range(0f, 360f) : TestBoltAzimuth, LastStrikeDistance, 1 - thunderDistance, pulses, 470);
+                nextRumble = Mathf.Max(nextRumble, now + 5);
             }
             // Flash envelope: pulse 1 at 0-0.11 s, pulse 2 (weaker) at 0.22-0.32 s; fast rise, quick fall.
             float age = now - strikeAt, f = 0;
@@ -170,41 +212,59 @@ namespace Racer
                 if (pulses > 1) f = Mathf.Max(f, .7f * Pulse(age, .22f, .1f));
                 f *= strikeStrength;
             }
-            if (f > 0 || FlashLevel > 0) Flash(f, look);
+            // distant rumble between strikes: a faint glow inside the clouds and a low roll, no bolt and no screen flash
+            float glow = 0, rumbleAge = now - rumbleAt;
+            if (rumbleAge >= 0 && rumbleAge < 1.2f && !covered) glow = .16f * Mathf.Sin(Mathf.Clamp01(rumbleAge / 1.2f) * Mathf.PI);
+            if (now >= nextRumble)
+            {
+                nextRumble = now + Random.Range(7f, 16f); rumbleAt = now; Rumbles++;
+                rumbleAudio.clip = farClips[Random.Range(0, farClips.Length)]; rumbleAudio.volume = Random.Range(.35f, .5f) * (covered ? .5f : 1) * volume;
+                rumbleFilter.cutoffFrequency = covered ? 400 : 700; rumbleAudio.pitch = Random.Range(.85f, .98f); rumbleAudio.PlayDelayed(Random.Range(1.5f, 3f));
+            }
+            if (f > 0 || FlashLevel > 0 || glow > 0) { Flash(f, look); SkyClouds.Flash = Mathf.Max(f, glow); }
             PeakFlash = Mathf.Max(PeakFlash, f);
             if (thunderAt > 0 && now >= thunderAt)
             {
                 thunderAt = -1; ThunderPlayed++;
-                float volume = flow && flow.Save != null ? flow.Save.Settings.ambience : 1;
-                thunderAudio.clip = thunderClips[Random.Range(0, thunderClips.Length)];
-                thunderAudio.volume = Mathf.Lerp(.95f, .55f, thunderDistance) * (covered ? .45f : 1) * volume;
-                thunderFilter.cutoffFrequency = covered ? 520 : Mathf.Lerp(5200, 1100, thunderDistance);
-                thunderAudio.pitch = Random.Range(.92f, 1.06f); thunderAudio.Play();
+                bool near = thunderDistance < .45f;
+                thunderAudio.clip = near ? thunderClips[Random.Range(0, thunderClips.Length)] : farClips[Random.Range(0, farClips.Length)];
+                thunderAudio.volume = Mathf.Lerp(1f, .7f, thunderDistance) * (covered ? .45f : 1) * volume;
+                thunderFilter.cutoffFrequency = covered ? 520 : Mathf.Lerp(7000, 1400, thunderDistance);
+                thunderAudio.pitch = Random.Range(.92f, 1.04f); thunderAudio.Play();
             }
         }
-        static float Pulse(float age, float start, float length) { float x = (age - start) / length; return x < 0 || x > 1 ? 0 : x < .15f ? x / .15f : Mathf.Pow(1 - (x - .15f) / .85f, 2); }
+        public static float Pulse(float age, float start, float length) { float x = (age - start) / length; return x < 0 || x > 1 ? 0 : x < .15f ? x / .15f : Mathf.Pow(1 - (x - .15f) / .85f, 2); }
         void Flash(float f, WorldLook look) { FlashLevel = f; SkyClouds.Flash = f; look.Lightning(f); }
-        // Thunder made at start-up (no audio asset): a dull rumble of filtered noise in a few rolling swells, with a short
-        // crack at the front of some.
-        static AudioClip ThunderClip(int seed)
+        // Thunder made at start-up (no audio asset). Near: a sharp crack, a ripping tear and a full rolling rumble with deep
+        // swells. Far: no crack, a slower onset and a long, low, softer roll.
+        static AudioClip ThunderClip(int seed, bool near)
         {
-            const int rate = 22050; float seconds = 6.5f; var data = new float[(int)(rate * seconds)]; var rng = new System.Random(seed);
-            float brown = 0, lp = 0, lp2 = 0, swell = 0, swellTarget = 1; float peak = 0; bool crack = seed % 2 == 1;
+            const int rate = 22050; float seconds = near ? 8f : 10f; var data = new float[(int)(rate * seconds)]; var rng = new System.Random(seed);
+            float b1 = 0, b2 = 0, l1 = 0, l2 = 0, l3 = 0, hp = 0, hpPrev = 0, peak = 0;
+            // rolling swells: a few peaks at random times, each a quick rise and a slow decay
+            int swells = near ? 5 : 4; var at = new float[swells]; var amp = new float[swells]; var len = new float[swells];
+            for (int k = 0; k < swells; k++) { at[k] = (near ? .05f : .5f) + (float)rng.NextDouble() * seconds * .55f; amp[k] = .45f + (float)rng.NextDouble() * .7f; len[k] = .8f + (float)rng.NextDouble() * 2.2f; }
+            if (near) { at[0] = .02f; amp[0] = 1.15f; len[0] = 1.6f; }
             for (int i = 0; i < data.Length; i++)
             {
                 float t = i / (float)rate, n = (float)rng.NextDouble() * 2 - 1;
-                brown = brown * .995f + n * .06f; lp += (brown - lp) * .08f; lp2 += (lp - lp2) * .12f;
-                if (i % 2200 == 0) swellTarget = .35f + (float)rng.NextDouble() * .9f; swell += (swellTarget - swell) * .0009f;
-                float env = Mathf.Clamp01(t / .09f) * Mathf.Exp(-t / 2.1f) * swell;
-                float v = lp2 * 6f * env;
-                if (crack && t < .35f) v += n * .5f * Mathf.Exp(-t / .06f);
+                b1 = b1 * .997f + n * .045f; b2 = b2 * .9993f + n * .012f;// two brown-noise layers (rumble, sub)
+                l1 += (b1 - l1) * (near ? .06f : .035f); l2 += (l1 - l2) * .09f; l3 += (b2 - l3) * .02f;
+                float env = 0; for (int k = 0; k < swells; k++) { float x = t - at[k]; if (x > 0) env += amp[k] * Mathf.Min(1, x / .12f) * Mathf.Exp(-x / len[k]); }
+                env *= Mathf.Clamp01(t / (near ? .01f : .35f)) * Mathf.Clamp01((seconds - t) / 1.2f);
+                float v = (l2 * 7f + l3 * 9f) * env;
+                if (near && t < .5f)
+                {
+                    hp = .9f * (hp + n - hpPrev); hpPrev = n;// crack: bright noise burst, then a short tearing rattle
+                    float crack = Mathf.Exp(-t / .045f) * 1.1f + (t > .05f ? Mathf.Exp(-(t - .05f) / .18f) * .35f * (Mathf.Sin(t * 230) > .2f ? 1 : .3f) : 0);
+                    v += hp * crack * .55f;
+                }
                 data[i] = v; peak = Mathf.Max(peak, Mathf.Abs(v));
             }
-            if (peak > 0) for (int i = 0; i < data.Length; i++) data[i] *= .9f / peak;
-            int fade = rate / 2; for (int i = 0; i < fade; i++) data[data.Length - 1 - i] *= i / (float)fade;
+            if (peak > 0) for (int i = 0; i < data.Length; i++) data[i] *= .95f / peak;
             var clip = AudioClip.Create("Thunder " + seed, data.Length, 1, rate, false); clip.SetData(data, 0); return clip;
         }
-        void OnDestroy() { if (FlashLevel > 0) SkyClouds.Flash = 0; if (thunderClips != null) foreach (var c in thunderClips) if (c) Destroy(c); }
+        void OnDestroy() { if (FlashLevel > 0) SkyClouds.Flash = 0; if (thunderClips != null) foreach (var c in thunderClips) if (c) Destroy(c); if (farClips != null) foreach (var c in farClips) if (c) Destroy(c); if (rainAudio && rainAudio.clip) Destroy(rainAudio.clip); }
         static Texture2D dotTexture;
         static Texture2D Dot()
         {
@@ -252,20 +312,44 @@ namespace Racer
             var em = ps.emission; em.rateOverTime = rate;
             if (rate > 1 && !ps.isPlaying) ps.Play(); else if (rate <= 1 && ps.isPlaying && ps.particleCount == 0) ps.Stop();
         }
-        // A rain loop made at start-up: soft filtered noise with a slight patter, so no audio asset is needed.
+        // A rain loop made at start-up (no audio asset), 24 s and seamless: a low rounded bed (two softly filtered noise layers),
+        // slow swells and two heavier gusts in the loop, and light patter (short soft droplet ticks of varied pitch and size,
+        // a few heavier drips); everything is low-passed under 5 kHz, so there is no hiss.
         static AudioClip RainClip()
         {
-            const int rate = 22050, seconds = 4; var data = new float[rate * seconds]; var rng = new System.Random(7202);
-            float lp = 0, lp2 = 0;
-            for (int i = 0; i < data.Length; i++)
+            const int rate = 22050, seconds = 24, n = rate * seconds; var bed = new float[n]; var rng = new System.Random(7402);
+            float w1 = 0, w2 = 0, w3 = 0, r1 = 0, r2 = 0; var raw = new float[n]; for (int i = 0; i < n; i++) raw[i] = (float)rng.NextDouble() * 2 - 1;
+            for (int pass = 0; pass < 2; pass++)// the same noise twice round: the first pass only settles the filters, so the loop point matches
+                for (int i = 0; i < n; i++)
+                {
+                    float x = raw[i];
+                    w1 += (x - w1) * .16f; w2 += (w1 - w2) * .22f; w3 += (w2 - w3) * .3f;// wash ~1.2 kHz and down
+                    r1 += (x - r1) * .025f; r2 += (r1 - r2) * .05f;// rounder low bed ~150-300 Hz
+                    if (pass == 1) bed[i] = w3 * .55f + r2 * 2.2f;
+                }
+            float Wrap(float t, float c) { float d = Mathf.Abs(t - c); return Mathf.Min(d, seconds - d); }
+            float[] gusts = { 6.5f, 17.2f };
+            var data = new float[n];
+            for (int i = 0; i < n; i++)
             {
-                float n = (float)rng.NextDouble() * 2 - 1; lp += (n - lp) * .22f; lp2 += (lp - lp2) * .5f;
-                float patter = rng.NextDouble() < .0025 ? ((float)rng.NextDouble() * 2 - 1) * .6f : 0;
-                data[i] = (lp2 * .55f + patter) * .8f;
+                float t = i / (float)rate;
+                float swell = .82f + .1f * Mathf.Sin(2 * Mathf.PI * t / 12f) + .06f * Mathf.Sin(2 * Mathf.PI * t / 4.8f + 1.1f) + .04f * Mathf.Sin(2 * Mathf.PI * t / 3f + 2.3f);
+                foreach (var g in gusts) { float d = Wrap(t, g); swell += .42f * Mathf.Exp(-d * d / 2.4f); }
+                data[i] = bed[i] * swell;
             }
-            // Cross-fade the ends so the loop has no click.
-            int fade = rate / 4; for (int i = 0; i < fade; i++) { float t = i / (float)fade; data[i] = data[i] * t + data[data.Length - fade + i] * (1 - t); }
-            var clip = AudioClip.Create("Rain ambience", data.Length - fade, 1, rate, false); var trimmed = new float[data.Length - fade]; System.Array.Copy(data, trimmed, trimmed.Length); clip.SetData(trimmed, 0);
+            // patter: ~45 droplet ticks a second (damped tones 1.2-3.8 kHz, 3-9 ms), ~4 heavier drips (400-900 Hz)
+            void Drop(float freq, float decay, float a, int start)
+            {
+                int len = (int)(decay * 6 * rate); float ph = (float)rng.NextDouble() * 6.28f, w = 2 * Mathf.PI * freq / rate;
+                for (int k = 0; k < len; k++) { int j = (start + k) % n; data[j] += a * Mathf.Sin(ph + w * k) * Mathf.Exp(-k / (decay * rate)) * Mathf.Min(1, k / 12f); }
+            }
+            for (int k = 0; k < seconds * 45; k++) { float a = (float)rng.NextDouble(); Drop(1200 + (float)rng.NextDouble() * 2600, .003f + (float)rng.NextDouble() * .006f, .035f + a * a * .09f, rng.Next(n)); }
+            for (int k = 0; k < seconds * 4; k++) Drop(400 + (float)rng.NextDouble() * 500, .012f + (float)rng.NextDouble() * .012f, .05f + (float)rng.NextDouble() * .06f, rng.Next(n));
+            // final soft low-pass (two poles at ~4.5 kHz), run twice around the loop so the ends join
+            float o1 = 0, o2 = 0, peak = 0;
+            for (int pass = 0; pass < 2; pass++) for (int i = 0; i < n; i++) { o1 += (data[i] - o1) * .62f; o2 += (o1 - o2) * .62f; if (pass == 1) { data[i] = o2; peak = Mathf.Max(peak, Mathf.Abs(o2)); } }
+            if (peak > 0) for (int i = 0; i < n; i++) data[i] *= .8f / peak;
+            var clip = AudioClip.Create("Rain ambience", n, 1, rate, false); clip.SetData(data, 0);
             return clip;
         }
     }

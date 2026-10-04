@@ -1,0 +1,45 @@
+SCENE DansBackyardReverse 668 samples
+  s    3.5 (511.9,-134.1) y 81.79 grade in 0% out 9% (dip) on Ground_640_240
+  s    4.0 (511.4,-134.3) y 81.79 grade in 0% out 12% (dip) on Ground_640_240
+  s    4.5 (511.0,-134.5) y 81.86 grade in 3% out 24% (dip) on Ground_House3 supported valley driveway
+  s    5.0 (510.5,-134.7) y 81.86 grade in 3% out 425% (dip) on Ground_House3 supported valley driveway
+  s    6.5 (509.1,-135.3) y 82.34 grade in 24% out -3% (CREST) on Ground_House3 gentle winding driveway
+  s    7.0 (508.7,-135.5) y 90.36 grade in 425% out -406% (CREST) on House 3 / Rocky Way Acres entrance
+  s    7.5 (508.2,-135.7) y 82.30 grade in 16% out -4% (CREST) on Ground_House3 gentle winding driveway
+  s    8.0 (507.8,-135.9) y 82.29 grade in 13% out -5% (CREST) on Ground_House3 gentle winding driveway
+  s    9.0 (506.9,-136.3) y 82.24 grade in -406% out -6% (dip) on Ground_House3 gentle winding driveway
+  steepest 2 m grade 425% at s 5.0
+  p s    0.0 y 81.79 Ground_640_240
+  p s   10.0 y 82.19 Ground_House3 gentle winding driveway
+  p s   20.0 y 81.14 Ground_House3 gentle winding driveway
+  p s   30.0 y 79.36 Ground_House3 gentle winding driveway
+  p s   40.0 y 77.05 Ground_House3 gentle winding driveway
+  p s   50.0 y 74.43 Ground_House3 gentle winding driveway
+  p s   60.0 y 71.74 Ground_House3 gentle winding driveway
+  p s   70.0 y 68.91 Ground_House3 gentle winding driveway
+  p s   80.0 y 65.89 Ground_House3 gentle winding driveway
+  p s   90.0 y 62.80 Ground_House3 gentle winding driveway
+  p s  100.0 y 59.74 Ground_House3 gentle winding driveway
+  p s  110.0 y 56.70 Ground_House3 gentle winding driveway
+  p s  120.0 y 53.68 Ground_House3 gentle winding driveway
+  p s  130.0 y 50.65 Ground_House3 gentle winding driveway
+  p s  140.0 y 47.59 Ground_House3 gentle winding driveway
+  p s  150.0 y 44.60 Ground_House3 gentle winding driveway
+  p s  160.0 y 41.53 Ground_House3 gentle winding driveway
+  p s  170.0 y 38.51 Ground_House3 gentle winding driveway
+  p s  180.0 y 36.47 Ground_House3 gentle winding driveway
+  p s  190.0 y 35.10 Ground_House3 gentle winding driveway
+  p s  200.0 y 33.99 Ground_House3 gentle winding driveway
+  p s  210.0 y 33.36 Ground_House3 gentle winding driveway
+  p s  220.0 y 33.21 Ground_House3 gentle winding driveway
+  p s  230.0 y 33.41 Ground_House3 gentle winding driveway
+  p s  240.0 y 33.45 Ground_House3 gentle winding driveway
+  p s  250.0 y 33.22 Ground_House3 gentle winding driveway
+  p s  260.0 y 33.08 Ground_House3 gentle winding driveway
+  p s  270.0 y 33.05 Ground_House3 gentle winding driveway
+  p s  280.0 y 33.06 Ground_House3 gentle winding driveway
+  p s  290.0 y 33.07 Ground_House3 gentle winding driveway
+  p s  300.0 y 33.06 Ground_House3 gentle winding driveway
+  p s  310.0 y 32.99 Ground_House3 gentle winding driveway
+  p s  320.0 y 32.90 Ground_House3 gentle winding driveway
+  p s  330.0 y 32.88 Ground_House3 gentle winding driveway

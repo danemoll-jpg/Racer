@@ -16,6 +16,9 @@ namespace Racer
     // 0.72 time of day and weather (visual and audio only): Day / Dusk / Night presets, Clear / Rain / Snow applied on top of
     // any of them. Races use the conditions chosen at race setup, fixed for the race; Free Roam runs a live day-night cycle
     // (FreeRoamHoursPerRealMinute) through the same presets; menus and the garage always show Clear Day.
+    // 0.74: a Dawn preset (race option and the Free Roam early morning), the Free Roam clock saved and resumed with a 30-day
+    // calendar (Day N), a visible moon with the day's phase (new on day 1, full around day 15; brighter nights near full),
+    // a fixed full moon in races.
     // "-lookOff" on the command line leaves the scenes' authored lighting - used only for evidence.
     [Serializable]
     public sealed class LookPreset
@@ -32,6 +35,8 @@ namespace Racer
         public Color colorFilter;
         // 0.72: vehicle lamps / course markings glow (0 day .. 1 night), star field, wet surfaces, snow cover, falling rain and snow.
         [Header("Night and weather")] public float lights, stars, wetness, snow, rain, snowfall;
+        // 0.74: light ground mist in low areas (Dawn).
+        public float mist;
 
         public static LookPreset Lerp(LookPreset a, LookPreset b, float t)
         {
@@ -50,13 +55,15 @@ namespace Racer
                 postExposure = F(a.postExposure, b.postExposure), contrast = F(a.contrast, b.contrast), saturation = F(a.saturation, b.saturation),
                 bloomIntensity = F(a.bloomIntensity, b.bloomIntensity), bloomThreshold = F(a.bloomThreshold, b.bloomThreshold),
                 colorFilter = C(a.colorFilter, b.colorFilter), waterSmoothness = F(a.waterSmoothness, b.waterSmoothness),
-                lights = F(a.lights, b.lights), stars = F(a.stars, b.stars), wetness = F(a.wetness, b.wetness), snow = F(a.snow, b.snow), rain = F(a.rain, b.rain), snowfall = F(a.snowfall, b.snowfall)
+                lights = F(a.lights, b.lights), stars = F(a.stars, b.stars), wetness = F(a.wetness, b.wetness), snow = F(a.snow, b.snow), rain = F(a.rain, b.rain), snowfall = F(a.snowfall, b.snowfall),
+                mist = F(a.mist, b.mist)
             };
         }
         public LookPreset Copy() => Lerp(this, this, 0);
     }
 
-    public enum TimeOfDay { Day, Dusk, Night }
+    // Saved as ints: Day 0, Dusk 1, Night 2, Dawn 3 (appended in 0.74; the menus show Dawn / Day / Dusk / Night).
+    public enum TimeOfDay { Day, Dusk, Night, Dawn }
     public enum Weather { Clear, Rain, Snow }
 
     public static class LookPresets
@@ -87,7 +94,7 @@ namespace Racer
             postExposure = .18f, contrast = 13, saturation = 10, bloomIntensity = .35f, bloomThreshold = 1f, waterSmoothness = .92f,
             colorFilter = new Color(1f, .95f, .89f), lights = .55f
         };
-        // Moonlit: a pale blue moon (the main light, drawn as the sky's disc), dark blue sky and haze, stars, lamps on.
+        // Moonlit: a pale blue moon (the main light; 0.74: drawn by WeatherEffects with its phase), dark blue sky and haze, stars, lamps on.
         // Kept bright enough to race: lifted exposure and ambient, headlights and glowing markings carry the road ahead.
         public static LookPreset Night => new LookPreset
         {
@@ -95,13 +102,27 @@ namespace Racer
             sunElevation = 38, sunAzimuth = 140, sunIntensity = .36f, shadowStrength = .55f,
             sunColor = new Color(.62f, .73f, 1f),
             ambientSky = new Color(.24f, .30f, .48f), ambientEquator = new Color(.18f, .22f, .32f), ambientGround = new Color(.08f, .09f, .12f), ambientIntensity = 1,
-            skyTint = new Color(.12f, .17f, .34f), skyGround = new Color(.06f, .08f, .13f), skyExposure = .28f, atmosphere = .6f, sunSize = .045f,
+            skyTint = new Color(.12f, .17f, .34f), skyGround = new Color(.06f, .08f, .13f), skyExposure = .28f, atmosphere = .6f, sunSize = 0,
             fogColor = new Color(.07f, .10f, .18f), fogStart = 90, fogEnd = 950,
             sunBoost = .7f, ambientScale = .62f, shadowLift = .1f, roadSheen = .25f, groundVariation = 1,
             postExposure = .55f, contrast = 8, saturation = -8, bloomIntensity = .55f, bloomThreshold = .9f, waterSmoothness = .95f,
             colorFilter = new Color(.86f, .91f, 1f), lights = 1, stars = 1
         };
-        public static LookPreset ForTime(TimeOfDay t) => t == TimeOfDay.Dusk ? Dusk : t == TimeOfDay.Night ? Night : ClearDay;
+        // 0.74 Dawn: low sun in the east (the opposite side of the sky from Dusk), cool pink-to-pale-gold light, bluish
+        // shadows, a pale lavender-pink haze and light ground mist in the low areas; vehicle lamps on at half, as at Dusk.
+        public static LookPreset Dawn => new LookPreset
+        {
+            name = "Dawn",
+            sunElevation = 8, sunAzimuth = 96, sunIntensity = .9f, shadowStrength = .72f,
+            sunColor = new Color(1f, .79f, .70f),
+            ambientSky = new Color(.48f, .55f, .74f), ambientEquator = new Color(.55f, .52f, .62f), ambientGround = new Color(.21f, .22f, .27f), ambientIntensity = .92f,
+            skyTint = new Color(.62f, .50f, .72f), skyGround = new Color(.70f, .56f, .63f), skyExposure = 1.0f, atmosphere = 1.1f, sunSize = .045f,
+            fogColor = new Color(.77f, .67f, .74f), fogStart = 110, fogEnd = 1150,
+            sunBoost = .75f, ambientScale = .84f, shadowLift = .14f, roadSheen = .26f, groundVariation = 1,
+            postExposure = .16f, contrast = 11, saturation = 6, bloomIntensity = .3f, bloomThreshold = 1f, waterSmoothness = .93f,
+            colorFilter = new Color(.97f, .96f, 1f), lights = .55f, mist = 1
+        };
+        public static LookPreset ForTime(TimeOfDay t) => t == TimeOfDay.Dusk ? Dusk : t == TimeOfDay.Night ? Night : t == TimeOfDay.Dawn ? Dawn : ClearDay;
         // Weather on top of any time of day. Brightness follows the base (night rain is dark grey, not daylight grey).
         public static LookPreset WithWeather(LookPreset b, Weather w)
         {
@@ -132,8 +153,10 @@ namespace Racer
             return p;
         }
         public static LookPreset Compose(TimeOfDay t, Weather w) => WithWeather(ForTime(t), w);
-        public static readonly string[] Names = { "Clear Day", "Dusk", "Night" };
-        public static LookPreset Get(string name) => name == "Dusk" ? Dusk : name == "Night" ? Night : ClearDay;
+        public static readonly string[] Names = { "Clear Day", "Dusk", "Night", "Dawn" };
+        public static LookPreset Get(string name) => name == "Dusk" ? Dusk : name == "Night" ? Night : name == "Dawn" ? Dawn : ClearDay;
+        // Menu order of the race Time of Day option (saved values: Day 0, Dusk 1, Night 2, Dawn 3).
+        public static readonly TimeOfDay[] MenuOrder = { TimeOfDay.Dawn, TimeOfDay.Day, TimeOfDay.Dusk, TimeOfDay.Night };
     }
 
     public sealed class WorldLook : MonoBehaviour
@@ -153,11 +176,18 @@ namespace Racer
         public Weather RaceWeather { get; private set; }
         public Weather RoamWeather { get; private set; }
         public float Hour { get; private set; } = FreeRoamStartHour;
+        // 0.74: the Free Roam calendar (1-30, advancing at midnight) and the moon (0 new .. 0.5 full .. 1 new again).
+        public const int CalendarDays = 30;
+        public int Day { get; private set; } = 1;
+        public float MoonPhase => Mode == "Free Roam" ? PhaseOf(Day, Hour) : .5f;// races: a fixed full moon
+        public static float PhaseOf(int day, float hour) => Mathf.Repeat((day - 1 + hour / 24f) / CalendarDays, 1);
+        public static float Illumination(float phase) => (1 - Mathf.Cos(phase * 2 * Mathf.PI)) * .5f;
         public string Clock => $"{Mathf.FloorToInt(Hour) % 24:00}:{Mathf.FloorToInt(Hour * 60) % 60:00}";
-        public string Conditions => Mode == "Free Roam" ? $"Free Roam {Clock} ({Preset?.name}) / {RoamWeather}" : Mode == "Race" ? $"{RaceTime} / {RaceWeather}" : "Clear Day (menus)";
+        public string RoamClock => $"Day {Day} {Clock}";
+        public string Conditions => Mode == "Free Roam" ? $"Free Roam {RoamClock} ({Preset?.name}) / {RoamWeather}" : Mode == "Race" ? $"{RaceTime} / {RaceWeather}" : "Clear Day (menus)";
         Light sun; Material sky; Volume volume; ColorAdjustments color; Bloom bloom; Tonemapping tone;
         float nextCameraCheck;
-        RaceFlow flow; string session = "Menu"; string applied = "";
+        RaceFlow flow; string session = "Menu"; string applied = ""; bool roamMenuSaved;
         public static event Action<LookPreset> Applied;
 
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
@@ -175,7 +205,7 @@ namespace Racer
             new GameObject("World look").AddComponent<WorldLook>();
         }
         void Awake() { Current = this; Apply(LookPresets.ClearDay); applied = "Menu"; if (!GetComponent<WeatherEffects>()) gameObject.AddComponent<WeatherEffects>(); }
-        void OnDestroy() { if (Current == this) Current = null; if (sky) Destroy(sky); if (volume) Destroy(volume.sharedProfile); foreach (var m in water.Values) if (m) Destroy(m); foreach (var m in glow.Values) if (m) Destroy(m); foreach (var e in iceRenderers) foreach (var m in e.ice) if (m && m.name == "Frozen water (world look)") Destroy(m); }
+        void OnDestroy() { if (session == "Free Roam") SaveClock(); if (Current == this) Current = null; if (sky) Destroy(sky); if (volume) Destroy(volume.sharedProfile); foreach (var m in water.Values) if (m) Destroy(m); foreach (var m in glow.Values) if (m) Destroy(m); foreach (var e in iceRenderers) foreach (var m in e.ice) if (m && m.name == "Frozen water (world look)") Destroy(m); }
 
         // ---------- 0.72 conditions: which look shows now ----------
         void Update()
@@ -183,17 +213,32 @@ namespace Racer
             if (!flow) flow = FindAnyObjectByType<RaceFlow>();
             if (!flow || flow.Save == null) return;
             var s = flow.Save.Settings;
-            RaceTime = (TimeOfDay)Mathf.Clamp(s.timeOfDay, 0, 2); RaceWeather = (Weather)Mathf.Clamp(s.weather, 0, 2); RoamWeather = (Weather)Mathf.Clamp(s.roamWeather, 0, 2);
+            RaceTime = (TimeOfDay)Mathf.Clamp(s.timeOfDay, 0, 3); RaceWeather = (Weather)Mathf.Clamp(s.weather, 0, 2); RoamWeather = (Weather)Mathf.Clamp(s.roamWeather, 0, 2);
             var stage = flow.State;
             bool live = stage == RaceFlow.Stage.Countdown || stage == RaceFlow.Stage.Racing;
-            if (live) { string next = flow.Race.FreeRoam ? "Free Roam" : "Race"; if (next == "Free Roam" && session != "Free Roam") Hour = FreeRoamStartHour; session = next; }
+            string was = session;
+            if (live) { string next = flow.Race.FreeRoam ? "Free Roam" : "Race"; if (next == "Free Roam" && session != "Free Roam") Resume(s); session = next; }
             else if (stage == RaceFlow.Stage.Ready && !flow.RoamMenu) session = "Menu";
+            // "Return to menu" from the Free Roam pause menu leaves Free Roam even while that menu is still up.
+            if (session == "Free Roam" && !flow.Race.FreeRoam) session = "Menu";
+            // 0.74: Free Roam ended (a race, the menu, another course) - its clock is saved; it resumes from there next time.
+            if (was == "Free Roam" && session != "Free Roam") SaveClock();
+            // The Free Roam pause menu is the main menu (the session goes on behind it): its clock is saved when it opens.
+            bool roamMenu = session == "Free Roam" && stage == RaceFlow.Stage.Ready && flow.RoamMenu;
+            if (roamMenu && !roamMenuSaved) SaveClock();
+            roamMenuSaved = roamMenu;
             Mode = stage == RaceFlow.Stage.Garage ? "Menu" : session;
             if (pinned != null) return;
             if (Mode == "Free Roam")
             {
-                if (stage == RaceFlow.Stage.Racing) Hour = Mathf.Repeat(Hour + Time.deltaTime / 60f * FreeRoamHoursPerRealMinute, 24);
-                Apply(Cycle(Hour, RoamWeather)); applied = "Free Roam";
+                if (stage == RaceFlow.Stage.Racing)
+                {
+                    float h = Hour + Time.deltaTime / 60f * FreeRoamHoursPerRealMinute;
+                    if (h >= 24) Day = Day % CalendarDays + 1;// midnight: the next day (30 wraps to 1)
+                    Hour = Mathf.Repeat(h, 24);
+                }
+                s.roamHour = Hour; s.roamDay = Day;// kept in the settings in memory; written to disk when Free Roam ends or the game quits
+                Apply(Cycle(Hour, RoamWeather, MoonPhase)); applied = "Free Roam";
             }
             else
             {
@@ -201,13 +246,29 @@ namespace Racer
                 if (key != applied) { Apply(Mode == "Race" ? LookPresets.Compose(RaceTime, RaceWeather) : LookPresets.ClearDay); applied = key; }
             }
         }
+        // The saved Free Roam clock (a missing or unreadable value falls back to day 1, 08:00).
+        void Resume(RacerSave.Options s)
+        {
+            Hour = float.IsNaN(s.roamHour) || s.roamHour < 0 || s.roamHour >= 24 ? FreeRoamStartHour : s.roamHour;
+            Day = s.roamDay < 1 || s.roamDay > CalendarDays ? 1 : s.roamDay;
+            s.roamHour = Hour; s.roamDay = Day;
+        }
+        void SaveClock()
+        {
+            if (!flow || flow.Save == null) return;
+            flow.Save.Settings.roamHour = Hour; flow.Save.Settings.roamDay = Day; flow.Save.SaveSettings();
+        }
+        void OnApplicationQuit() { if (session == "Free Roam") SaveClock(); }
+        // Evidence / checks: set the Free Roam calendar directly.
+        public void SetClock(int day, float hour) { Day = Mathf.Clamp(day, 1, CalendarDays); Hour = Mathf.Repeat(hour, 24); }
         // Evidence only (ConditionsBench): show one preset until unpinned.
         LookPreset pinned;
         public void Pin(LookPreset p) { pinned = p; if (p != null) Apply(p); applied = ""; }
         // The Free Roam day: presets blended by hour (night -> dawn -> day -> dusk -> night); the sun and moon move continuously.
         // The main light follows the sun while it is up and the moon otherwise; it fades to nothing at each horizon crossing,
         // so the switch never pops a shadow.
-        static readonly (float hour, int preset)[] keys = { (0, 2), (4.6f, 2), (6f, 1), (7.6f, 0), (17.8f, 0), (19.4f, 1), (20.8f, 2), (24, 2) };
+        // 0.74: the early morning passes through the Dawn preset (3), the evening through Dusk (1).
+        static readonly (float hour, int preset)[] keys = { (0, 2), (4.6f, 2), (6f, 3), (7.6f, 0), (17.8f, 0), (19.4f, 1), (20.8f, 2), (24, 2) };
         // The sun is up 06:00-20:00 (rising ENE, setting WNW, highest 58 degrees); the moon has the night (highest ~36 degrees).
         public static (float elevation, float azimuth, bool sun) Sky(float hour)
         {
@@ -215,16 +276,44 @@ namespace Racer
             float n = Mathf.Repeat(hour - 20, 24);
             return (36 * Mathf.Sin(Mathf.PI * n / 10), 105 + 150 * n / 10, false);
         }
-        public static LookPreset Cycle(float hour, Weather weather)
+        // 0.74 moon: it rises in the east about six hours before it is highest and sets six hours after; highest at noon on
+        // day 1 (new, unseen), at midnight around day 15 (full). Returns elevation (negative = below the horizon) and azimuth.
+        public static (float elevation, float azimuth) Moon(float hour, float phase)
         {
-            LookPreset P(int i) => i == 0 ? LookPresets.ClearDay : i == 1 ? LookPresets.Dusk : LookPresets.Night;
+            float transit = Mathf.Repeat(12 + phase * 24, 24);
+            float d = Mathf.Repeat(hour - transit + 12, 24) - 12;// hours from the moon's highest point, -12..12
+            return (52 * Mathf.Cos(d / 24f * 2 * Mathf.PI) - 2, 180 + Mathf.Clamp(d / 6f, -1.4f, 1.4f) * 90);
+        }
+        public static LookPreset Cycle(float hour, Weather weather) => Cycle(hour, weather, .5f);
+        public static LookPreset Cycle(float hour, Weather weather, float phase)
+        {
+            LookPreset P(int i) => i == 0 ? LookPresets.ClearDay : i == 1 ? LookPresets.Dusk : i == 3 ? LookPresets.Dawn : LookPresets.Night;
             int k = 0; while (k < keys.Length - 2 && hour >= keys[k + 1].hour) k++;
             float t = Mathf.SmoothStep(0, 1, Mathf.InverseLerp(keys[k].hour, keys[k + 1].hour, hour));
             var p = LookPreset.Lerp(P(keys[k].preset), P(keys[k + 1].preset), t);
-            var (elev, az, _) = Sky(hour);
-            p.sunElevation = Mathf.Max(elev, 1); p.sunAzimuth = az;
-            // Off within 2 degrees of the horizon, so the switch between sun and moon never shows.
-            float fade = Mathf.SmoothStep(0, 1, Mathf.InverseLerp(2, 9, elev));
+            var (elev, az, isSun) = Sky(hour);
+            float fade;
+            if (isSun)
+            {
+                p.sunElevation = Mathf.Max(elev, 1); p.sunAzimuth = az;
+                // Off within 2 degrees of the horizon, so the switch between sun and moon never shows.
+                fade = Mathf.SmoothStep(0, 1, Mathf.InverseLerp(2, 9, elev));
+            }
+            else
+            {
+                // Night light: the moon while it is up (brighter near full), otherwise a dim sky glow from high in the south;
+                // both fade out at 6 degrees, so the change of direction never shows. "elev" is the old night arc, kept only
+                // for the hand-over from and to the sun (it starts and ends at the horizon at 20:00 and 06:00).
+                var (me, ma) = Moon(hour, phase); float lit = Illumination(phase);
+                float handover = Mathf.SmoothStep(0, 1, Mathf.InverseLerp(2, 9, elev));
+                if (me >= 6) { p.sunElevation = me; p.sunAzimuth = ma; fade = Mathf.SmoothStep(0, 1, Mathf.InverseLerp(6, 14, me)) * Mathf.Lerp(.55f, 1.12f, lit); }
+                else { p.sunElevation = 62; p.sunAzimuth = 180; fade = Mathf.SmoothStep(0, 1, Mathf.InverseLerp(6, 0, me)) * .5f; }
+                fade *= handover;
+                // Moonlit nights a little brighter near full, darker near new, always playable.
+                float bright = Mathf.Lerp(.86f, 1.06f, lit) * p.stars + (1 - p.stars);
+                p.ambientIntensity *= bright; p.postExposure += Mathf.Lerp(-.06f, .04f, lit) * p.stars;
+                p.sunSize = 0;// the moon is drawn by WeatherEffects with its phase, not as the sky's sun disc
+            }
             p.sunIntensity *= fade; p.shadowStrength *= fade;
             p.name = hour < 4.6f || hour >= 20.8f ? "Night" : hour < 7.6f ? "Dawn" : hour < 17.8f ? "Day" : "Dusk";
             return LookPresets.WithWeather(p, weather);

@@ -1,0 +1,8 @@
+PASS RIDE House 3 valley driveway fwd moto pace 10: complete in 32.9 s over 340 m; slowest 9.9 m/s, fastest 10.4 m/s; longest airborne 0.02 s; largest pitch 17 deg, roll 17 deg; wipe-outs 0; resets 0; steepest driven 2 m grade 33%
+PASS RIDE House 3 valley driveway back moto pace 10: complete in 33.2 s over 340 m; slowest 9.8 m/s, fastest 10.3 m/s; longest airborne 0.08 s; largest pitch 18 deg, roll 10 deg; wipe-outs 0; resets 0; steepest driven 2 m grade 34%
+PASS RIDE House 3 valley driveway fwd original pace 10: complete in 32.9 s over 340 m; slowest 9.9 m/s, fastest 10.4 m/s; longest airborne 0.02 s; largest pitch 17 deg, roll 17 deg; wipe-outs 0; resets 0; steepest driven 2 m grade 33%
+PASS RIDE House 3 valley driveway back original pace 10: complete in 33.2 s over 340 m; slowest 9.8 m/s, fastest 10.3 m/s; longest airborne 0.08 s; largest pitch 18 deg, roll 10 deg; wipe-outs 0; resets 0; steepest driven 2 m grade 34%
+PASS RIDE file=Docs/Report074/storm-drain-tunnel.txt fwd moto pace 12: complete in 15.6 s over 186 m; slowest 9.1 m/s, fastest 12.3 m/s; longest airborne 0.12 s; largest pitch 18 deg, roll 5 deg; wipe-outs 0; resets 0; steepest driven 2 m grade 33%
+SHOT cave-forest-forward hour 12 Clear
+SHOT cave-forest-forward-inside hour 12 Clear
+done, failures 0

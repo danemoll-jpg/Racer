@@ -10,7 +10,7 @@
 - Root AGENTS.md points future Codex tasks to both files.
 - From 2026-10-02 the coding agent is Claude Code. The same two files govern it; root CLAUDE.md (created in the 0.67 round) is its discovery pointer.
 
-## CURRENT — 6 reports, storm and rain sound, dawn, continuous Free Roam calendar with moon phases, map waypoints, tunnel and cave in Free Roam — target 0.74.0-review1 — NOT STARTED
+## CURRENT — 6 reports, storm and rain sound, dawn, continuous Free Roam calendar with moon phases, map waypoints, tunnel and cave in Free Roam — target 0.74.0-review1 — IMPLEMENTED AND VERIFIED; BUILD / RELEASE IN PROGRESS
 
 - **Authorized by Dan (2026-10-04)** from debug session `2026-10-04_00-23-11-202_43e8e2` (CLOSED, exported as `..._43e8e2_8460ce84.zip`; 6 reports, all captured on 0.73.0-review1 build `557d959c`) plus eight written requests in chat. Folder with full-size screenshots: `C:\Users\danmo\AppData\LocalLow\DefaultCompany\Racer\DebugReports\2026-10-04_00-23-11-202_43e8e2`. READ every comment and LOOK at every screenshot before changing anything.
 - **Dan's verdict on 0.73:** "I really like the way things are looking. It looks so much better than it did when I started." The Blender motorcycle and rider approach is APPROVED; more vehicles and rider customization follow in the queued 0.75 round below. Snow scenes, frozen water and clouds drew no complaints; do not retune them except as written here.
@@ -18,6 +18,27 @@
 - **Starting point:** main `4fd27957` (documentation commit after the 0.73 delivery; playable source as recorded in the 0.73 DELIVERED entry, game-73000). This TODO edit and the archive move are uncommitted and belong in the safety checkpoint.
 - **Scope is exactly Parts A–G below.** Do geometry (A, B, C) first and verify it before the look/audio/UI parts. Section 5A applies to all geometry. Weather and time of day stay visual/audio only.
 - **When this round is fully delivered (published and verified), continue with the queued 0.75 section below, as a separate round with its own safety checkpoint, commit, build, release and report.** Dan authorized running both back to back.
+
+### Results (2026-10-04, Claude Code)
+
+- **Safety checkpoint:** `8da01e4e` (this TODO plan and the archive move), pushed before any change. Version 0.74.0-review1 / build 74000.
+  - Evidence: [Docs/Report074/VALIDATION.md](Docs/Report074/VALIDATION.md) (per-item disposition, ride table, storm table, clock and waypoint tables, frame-rate table), [Views/](Docs/Report074/Views/), [Checks/](Docs/Report074/Checks/), [Profiles/](Docs/Report074/Profiles/), [Bench/](Docs/Report074/Bench/).
+  - Tools in `Tools/Report074/` (authoring `Report074Author/Drive/Tunnel/Cave.cs`, probes, batch scripts); play-mode checks `Assets/Scripts/Report074Checks*.cs`; 4K evidence through `ConditionsBench.cs` (Dawn added, moon phases, lightning).
+- **Part A — 6 reports: PASS.**
+  - BUG-001: the brick-house driveway tree (Street Loop Forward only) moved 6 m south onto the grass, re-grounded.
+  - BUG-002: the House 3 diamond sign ("Simple bend warning") removed in all 8 course scenes.
+  - BUG-003: the 0.30 straight driveway (steepest 2 m grade **205 %**, 64°) replaced in the seven scenes that had it by the original winding driveway (slot filled back to the hillside, line round the lake's west tip and north shore, 8 m clear of the pool, level start at the gate, 7 m gravel, terrain benched ≤3 m cut / 3.5 m fill, 1–7 trees per scene moved out of the width, fences/sign/road follow). Steepest after **32 %** (natural hillside). Moto, ATV and both cars drive it down and up at 10 m/s without stall, wipe-out or reset. Street Loop Reverse untouched (it always had the winding drive). Race ramp untouched.
+  - **Exception — Forest Loop Reverse:** the gap-jump embankment lies on the original line and is protected; the drive crosses that trail at grade, so going up a vehicle hops 0.36–0.8 s onto the trail's raised edge, and the descent off it reaches 38–46 % for a few metres. It completes in every vehicle, no stall.
+  - BUG-004: one smooth collidable surface (0.71 junction method) over the Mountain Forward s 12 trail edge and bank; 0.71 Climbing Ridge Cut fix kept (5A.6 entrance ride PASS). BUG-005: the s 1503 left-bank lip smoothed flush with the road edge. Rides at 20/26 m/s PASS.
+  - BUG-006: see Part C.
+- **Part B — storm-drain tunnel in every Free Roam: PASS.** Copied from Backyard Reverse into Street Loop F/R, Lake Woods, Forest Loop Reverse, Mountain Loop F/R as Free Roam-only content (`FreeRoamOnly`: culvert, lights, flow (freezes in Snow), gully takeoff/landing, rat encounter); three terrain tiles take the Backyard shape in Free Roam only (≈7,360 m², no route within 20 m), trees on the changed ground re-grounded and those in the tunnel line hidden, in Free Roam only. Races unchanged. Backyard scenes unchanged (drain and its race data identical). Map landmark "Storm drain tunnel" in all 8 scenes. Rides in Clear and Snow from several courses PASS.
+- **Part C — one cave: PASS.** Mountain Loop F/R now have the Lake Woods (Forest Forward) cave (terrain there identical); Forest Forward bats also fly in Free Roam. Forest Loop Reverse left as is (its Fern Gully branch runs through its cave).
+- **Part D — rain and storm: PASS.** New generated 24 s rain loop (soft bed, swells, light patter, no hiss; quieter, muffled under cover). Rain storms strike every 8–25 s (20 % quick pairs), 260–1500 m away; thunder arrives at the speed of sound (near crack, far roll), louder than rain; distant rumbles with cloud glow; forked bolts drawn at the strike's bearing by day and night. 3-min recordings: Day 13 strikes (6 near / 7 far, longest gap 24.7 s), Night 12. "Lightning flashes: Off" removes the screen flash only.
+- **Part E — Dawn: PASS.** Time of Day options Dawn / Day / Dusk / Night (Dawn saved as 3, older saves unchanged): low sun in the east, cool lavender-pink light, pink clouds, ground mist in hollows; Free Roam passes through it (about 04:36–07:36). One Dawn race finished, record saved.
+- **Part F — Free Roam clock and calendar: PASS.** The Free Roam day/time is saved when Free Roam ends (race start, opening the menu, another course) and on quit, and resumes there; 30-day calendar ("Day N hh:mm" in the HUD and debug conditions), midnight advances the day, day 30 → day 1; moon phase from the calendar (disc shows the phase; night light by illumination); Night races use a full moon; missing/unreadable value → Day 1 08:00.
+- **Part G — map waypoints: PASS.** Free cursor or mouse click sets a waypoint anywhere (fogged areas too; landmarks still select), a new one replaces it, Backspace / left-stick press or right-click clears it; beacon beam in the world and a HUD distance + arrow; "Destination reached" within 15 m; not saved; nothing in races.
+- **Frame rate (3840×2160): PASS.** Worst view Street Dawn/Clear 4.60 ms (0.73 worst 4.57 ms); Night/Rain with strikes every 2 s 4.51 ms (0.73: 4.53 ms).
+- **Notes for Dan:** the Free Roam pause menu is the main menu, so "returning to the menu" saves the clock when that menu opens; resuming Free Roam continues from there. Moon: day 1 new, day 15–16 full.
 
 ### Part A — 6 reports
 
@@ -98,8 +119,8 @@ Free Roam started from Mountain Loop Forward:
 
 ### Outstanding after this round (as of 2026-10-04)
 
-- Next: the queued 0.75 round below.
-- Awaiting Dan: review of 0.74; recheck of the Reverse s 1583 bump; whether he has seen any rival vanish after a jump since 0.72.
+- Next: the queued 0.75 round below (not started in the 0.74 session: that session's prompt limited it to this section; start it as its own round).
+- Awaiting Dan: review of 0.74 (especially the House 3 driveway feel, the Forest Loop Reverse crossing exception, Dawn look, storm sound and bolts); recheck of the Reverse s 1583 bump; whether he has seen any rival vanish after a jump since 0.72.
 - Open: CR-118 intermittent spoken-title clipping. Possibly stale: CR-010 slightly tighter steering.
 - Deferred: physical Steam Deck / controller / save-migration checks; friend test of the packaged build on another PC.
 

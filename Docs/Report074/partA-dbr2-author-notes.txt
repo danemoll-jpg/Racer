@@ -1,0 +1,44 @@
+SCENE DansBackyardReverse
+BUG-001 DansBackyardReverse: tree not present; not changed
+BUG-002 DansBackyardReverse: removed CR-015 modest roadside details/Simple bend warning at (500.65, 83.61, -129.81) (4 parts, colliders 1)
+BUG-003 DansBackyardReverse: straight driveway (515.2, 81.7, -132.9) -> (436.5, 32.8, -152.3), 81.1 m plan, drop 49.0 m; steepest 2 m grade 205% (64 deg) at s 19.5
+BUG-003 DansBackyardReverse: slot fill: 288 terrain vertices raised (max +31.1 m) in 2 tiles (Ground_640_240, Ground_560_240)
+BUG-003 DansBackyardReverse: winding line 159 samples, 334 m, 81.8 -> 32.9 m; ground along it before smoothing max grade 40%; centre profile max grade 32% (18 deg) at s 160; sharpest vertical curvature 0.094/m (radius 11 m) at s 2
+   s     0 (515.1,-132.7) ground 81.79 profile 81.79 protected-dist 0.0 Phase 3 - Race Systems
+   s    21 (495.7,-140.7) ground 80.09 profile 80.54 protected-dist 20.9 
+   s    42 (483.8,-157.2) ground 75.69 profile 76.39 protected-dist 38.5 
+   s    63 (473.8,-175.9) ground 70.85 profile 70.82 protected-dist 55.1 
+   s    84 (461.7,-193.1) ground 64.53 profile 64.53 protected-dist 73.0 
+   s   105 (445.5,-206.7) ground 58.03 profile 58.03 protected-dist 93.2 
+   s   127 (427.1,-217.5) ground 51.58 profile 51.58 protected-dist 114.3 
+   s   148 (410.8,-230.4) ground 45.24 profile 45.24 protected-dist 134.4 
+   s   169 (394.0,-242.0) ground 38.72 profile 38.80 protected-dist 154.2 
+   s   190 (376.3,-231.6) ground 35.07 profile 35.09 protected-dist 166.7 
+   s   211 (369.7,-212.2) ground 33.26 profile 33.28 protected-dist 165.0 
+   s   232 (365.4,-192.9) ground 33.40 profile 33.38 protected-dist 161.2 
+   s   253 (381.4,-181.4) ground 33.12 profile 33.12 protected-dist 141.8 
+   s   274 (403.1,-180.7) ground 33.00 profile 33.00 protected-dist 121.9 
+   s   296 (424.6,-180.7) ground 33.02 profile 33.02 protected-dist 102.2 
+   s   317 (436.8,-169.3) ground 32.89 profile 32.89 protected-dist 86.3 
+BUG-003 DansBackyardReverse: terrain fitted to the profile: 3114 vertices (-0.12 .. +2.39 m) in 2 tiles
+BUG-003 DansBackyardReverse: in the driving width: World cleanup additional woodland/Roadside woodland trunk BoxCollider at (472.8, 76.5, -171.7) (s 60, 3.0 m from centre)
+BUG-003 DansBackyardReverse: in the driving width: World cleanup additional woodland/Roadside woodland trunk BoxCollider at (449.8, 64.3, -200.6) (s 98, 2.7 m from centre)
+BUG-003 DansBackyardReverse: in the driving width: World cleanup additional woodland/Roadside woodland trunk BoxCollider at (455.2, 67.0, -195.5) (s 90, 3.1 m from centre)
+BUG-003 DansBackyardReverse: in the driving width: World cleanup additional woodland/Roadside woodland trunk BoxCollider at (479.4, 77.5, -165.1) (s 51, 0.7 m from centre)
+BUG-003 DansBackyardReverse: in the driving width: World cleanup additional woodland/Roadside woodland trunk BoxCollider at (487.3, 80.5, -159.9) (s 43, 4.3 m from centre)
+BUG-003 DansBackyardReverse: in the driving width: World cleanup additional woodland/Roadside woodland trunk BoxCollider at (467.6, 71.2, -185.0) (s 74, 0.2 m from centre)
+BUG-003 DansBackyardReverse: in the driving width: World cleanup additional woodland/Roadside woodland trunk BoxCollider at (466.0, 70.6, -193.0) (s 82, 3.3 m from centre)
+BUG-003 DansBackyardReverse: gravel surface 2480 tris, 7 m wide, rows 156/159 (rows within 5.5 m of the main road centre are the road and the existing gate pad mouth)
+BUG-003 DansBackyardReverse: gate pad vertices put under the gravel: 1065
+BUG-003 DansBackyardReverse: ground benched to the gravel: 2954 vertices (-3.00 .. +1.19 m) in 2 meshes (Ground_640_240, Ground_560_240)
+BUG-003 DansBackyardReverse: tree at (461.1, 74.3, -156.6) re-grounded -0.18 m (trunk 'Woods replacing later subdivisions/Tree trunk' and 5 batched pieces)
+BUG-003 DansBackyardReverse: trees re-grounded 1 (5 batched pieces moved with them)
+BUG-003 DansBackyardReverse (was 3.0 m from the driveway centre): tree World cleanup additional woodland/Roadside woodland trunk at (472.8, 76.5, -171.7) moved by (-2.97, -0.03, 1.82) with 2 batched pieces (Additional woodland canopy 36, Additional woodland canopy 12)
+BUG-003 DansBackyardReverse (was 2.7 m from the driveway centre): tree World cleanup additional woodland/Roadside woodland trunk at (449.8, 64.3, -200.6) moved by (-2.29, -0.03, 3.09) with 2 batched pieces (Additional woodland canopy 36, Additional woodland canopy 12)
+BUG-003 DansBackyardReverse (was 3.1 m from the driveway centre): tree World cleanup additional woodland/Roadside woodland trunk at (455.2, 67.0, -195.5) moved by (-2.43, -0.02, 2.42) with 2 batched pieces (Additional woodland canopy 36, Additional woodland canopy 12)
+BUG-003 DansBackyardReverse (was 0.7 m from the driveway centre): tree World cleanup additional woodland/Roadside woodland trunk at (479.4, 77.5, -165.1) moved by (-6.40, 0.03, 3.43) with 2 batched pieces (Additional woodland canopy 36, Additional woodland canopy 12)
+BUG-003 DansBackyardReverse (was 4.3 m from the driveway centre): tree World cleanup additional woodland/Roadside woodland trunk at (487.3, 80.5, -159.9) moved by (2.06, 0.36, -0.86) with 2 batched pieces (Additional woodland canopy 36, Additional woodland canopy 12)
+BUG-003 DansBackyardReverse (was 0.2 m from the driveway centre): tree World cleanup additional woodland/Roadside woodland trunk at (467.6, 71.2, -185.0) moved by (-5.16, -0.02, 3.60) with 2 batched pieces (Additional woodland canopy 36, Additional woodland canopy 12)
+BUG-003 DansBackyardReverse (was 3.3 m from the driveway centre): tree World cleanup additional woodland/Roadside woodland trunk at (466.0, 70.6, -193.0) moved by (2.55, -0.02, -2.02) with 2 batched pieces (Additional woodland canopy 36, Additional woodland canopy 12)
+BUG-003 DansBackyardReverse: re-grounded CR091-096 exploration world/House 3 / Rocky Way Acres entrance (4 parts) +0.26 m
+BUG-003 DansBackyardReverse: dependents: trees 1, fences 0, props 1

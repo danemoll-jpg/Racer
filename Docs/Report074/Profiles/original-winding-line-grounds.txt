@@ -1,0 +1,1285 @@
+source points 222 length 424.0
+SCENE StreetLoopGreybox
+s    0 (515.1,81.8,-132.7) ground 81.85 Ground_House3 supported valley driveway | near Phase 3 - Race Systems 0.8m y82.0
+s    2 (513.3,82.0,-133.5) ground 81.85 Ground_House3 supported valley driveway | near Phase 3 - Race Systems 2.1m y82.0
+s    4 (511.4,82.3,-134.3) ground 81.86 Ground_House3 supported valley driveway | near Phase 3 - Race Systems 4.0m y82.0
+s    6 (509.6,82.4,-135.1) ground 81.85 Ground_House3 supported valley driveway | near Phase 3 - Race Systems 6.0m y82.0
+s    8 (507.8,82.5,-135.9) ground 81.86 Ground_House3 supported valley driveway | near Phase 3 - Race Systems 8.0m y82.0
+s   10 (506.0,82.4,-136.7) ground 81.71 Ground_House3 supported valley driveway | near Phase 3 - Race Systems 10.0m y82.0
+s   12 (504.2,82.2,-137.6) ground 81.46 Ground_House3 supported valley driveway | near Phase 3 - Race Systems 12.0m y82.0
+s   14 (502.4,81.8,-138.2) ground 81.13 Ground_House3 supported valley driveway | near Phase 3 - Race Systems 13.9m y82.0
+s   16 (500.5,81.3,-138.9) ground 80.76 Ground_House3 supported valley driveway | near -
+s   18 (498.7,80.8,-139.5) ground 78.11 Ground_House3 straight descending property driveway | near -
+s   20 (496.9,80.3,-140.2) ground 74.58 Ground_House3 straight descending property driveway | near -
+s   22 (495.1,79.7,-141.0) ground 70.71 Ground_640_240 | near -
+s   24 (493.5,79.2,-142.0) ground 67.93 Ground_640_240 | near -
+s   26 (491.9,78.7,-143.1) ground 67.35 Ground_640_240 | near -
+s   28 (490.5,78.2,-144.4) ground 67.51 Ground_640_240 | near -
+s   30 (489.3,77.7,-145.9) ground 69.51 Ground_640_240 | near -
+s   32 (488.2,77.4,-147.6) ground 73.11 Ground_640_240 | near -
+s   34 (487.2,77.0,-149.3) ground 75.35 Ground_640_240 | near -
+s   36 (486.4,76.7,-151.1) ground 76.67 Ground_640_240 | near -
+s   38 (485.6,76.4,-152.9) ground 76.44 Ground_640_240 | near -
+s   40 (484.8,76.1,-154.7) ground 76.12 Ground_640_240 | near -
+s   42 (484.1,75.8,-156.5) ground 75.80 Ground_640_240 | near -
+s   44 (483.3,75.4,-158.4) ground 75.47 Ground_640_240 | near -
+s   46 (482.5,75.1,-160.2) ground 75.12 Ground_640_240 | near -
+s   48 (481.7,74.7,-162.0) ground 74.75 Ground_640_240 | near -
+s   50 (480.9,74.4,-163.7) ground 74.36 Ground_640_240 | near -
+s   52 (480.0,73.9,-165.5) ground 73.95 Ground_640_240 | near -
+s   54 (479.1,73.5,-167.2) ground 73.51 Ground_560_240 | near -
+s   56 (478.1,73.0,-168.9) ground 73.03 Ground_560_240 | near -
+s   58 (477.1,72.5,-170.5) ground 72.54 Ground_560_240 | near -
+s   60 (476.0,72.0,-172.2) ground 72.03 Ground_560_240 | near -
+s   62 (475.0,71.5,-173.8) ground 71.51 Ground_560_240 | near -
+s   64 (474.0,71.0,-175.4) ground 70.98 Ground_560_240 | near -
+s   66 (473.0,70.4,-177.1) ground 70.44 Ground_560_240 | near -
+s   68 (472.0,69.9,-178.7) ground 69.89 Ground_560_240 | near -
+s   70 (471.0,69.3,-180.3) ground 69.33 Ground_560_240 | near -
+s   72 (469.9,68.8,-181.9) ground 68.76 Ground_560_240 | near -
+s   74 (468.9,68.2,-183.5) ground 68.19 Ground_560_240 | near -
+s   76 (467.8,67.6,-185.1) ground 67.61 Ground_560_240 | near -
+s   78 (466.7,67.0,-186.7) ground 67.03 Ground_560_240 | near -
+s   80 (465.5,66.4,-188.2) ground 66.45 Ground_560_240 | near -
+s   82 (464.4,65.9,-189.8) ground 65.86 Ground_560_240 | near -
+s   84 (463.2,65.3,-191.3) ground 65.27 Ground_560_240 | near -
+s   86 (462.0,64.7,-192.7) ground 64.68 Ground_560_240 | near -
+s   88 (460.7,64.1,-194.2) ground 64.08 Ground_560_240 | near -
+s   90 (459.4,63.5,-195.6) ground 63.49 Ground_560_240 | near -
+s   92 (458.1,62.9,-197.0) ground 62.91 Ground_560_240 | near -
+s   94 (456.8,62.3,-198.3) ground 62.32 Ground_560_240 | near -
+s   96 (455.3,61.7,-199.6) ground 61.73 Ground_560_240 | near -
+s   98 (453.9,61.1,-200.8) ground 61.15 Ground_560_240 | near -
+s  100 (452.4,60.6,-202.0) ground 60.56 Ground_560_240 | near -
+s  102 (450.8,60.0,-203.2) ground 59.98 Ground_560_240 | near -
+s  104 (449.3,59.4,-204.3) ground 59.39 Ground_560_240 | near -
+s  106 (447.7,58.8,-205.3) ground 58.81 Ground_560_240 | near -
+s  108 (446.1,58.2,-206.4) ground 58.23 Ground_560_240 | near -
+s  110 (444.5,57.7,-207.4) ground 57.65 Ground_560_240 | near -
+s  112 (442.8,57.1,-208.4) ground 57.07 Ground_560_240 | near -
+s  114 (441.2,56.5,-209.4) ground 56.49 Ground_560_240 | near -
+s  116 (439.6,55.9,-210.3) ground 55.91 Ground_560_240 | near -
+s  118 (437.9,55.3,-211.3) ground 55.34 Ground_560_240 | near -
+s  120 (436.2,54.8,-212.2) ground 54.76 Ground_560_240 | near -
+s  122 (434.6,54.2,-213.2) ground 54.18 Ground_560_240 | near -
+s  124 (432.9,53.6,-214.1) ground 53.60 Ground_560_240 | near -
+s  126 (431.2,53.0,-215.1) ground 53.02 Ground_560_240 | near -
+s  128 (429.6,52.4,-216.0) ground 52.44 Ground_560_240 | near -
+s  130 (427.9,51.9,-217.0) ground 51.86 Ground_560_240 | near -
+s  132 (426.3,51.3,-218.0) ground 51.28 Ground_560_240 | near -
+s  134 (424.6,50.7,-219.0) ground 50.70 Ground_560_240 | near -
+s  136 (423.0,50.1,-220.0) ground 50.12 Ground_560_240 | near -
+s  138 (421.4,49.5,-221.0) ground 49.53 Ground_560_240 | near -
+s  140 (419.8,48.9,-222.1) ground 48.94 Ground_560_240 | near -
+s  142 (418.3,48.4,-223.3) ground 48.35 Ground_560_240 | near -
+s  144 (416.8,47.8,-224.5) ground 47.77 Ground_560_240 | near -
+s  146 (415.4,47.2,-225.7) ground 47.19 Ground_560_240 | near -
+s  148 (414.0,46.6,-227.1) ground 46.61 Ground_560_240 | near -
+s  150 (412.6,46.0,-228.4) ground 46.04 Ground_560_240 | near -
+s  152 (411.3,45.5,-229.8) ground 45.47 Ground_560_240 | near -
+s  154 (410.0,44.9,-231.2) ground 44.90 Ground_560_240 | near -
+s  156 (408.7,44.3,-232.6) ground 44.33 Ground_560_240 | near -
+s  158 (407.3,43.8,-233.9) ground 43.76 Ground_560_240 | near -
+s  160 (406.0,43.2,-235.3) ground 43.18 Ground_560_240 | near -
+s  162 (404.6,42.6,-236.6) ground 42.60 Ground_560_240 | near -
+s  164 (403.2,42.0,-237.9) ground 42.00 Ground_560_240 | near -
+s  166 (401.7,41.4,-239.1) ground 41.40 Ground_560_240 | near -
+s  168 (400.2,40.8,-240.2) ground 40.79 Ground_560_240 | near -
+s  170 (398.5,40.2,-241.1) ground 40.17 Ground_560_240 | near -
+s  172 (396.7,39.6,-241.7) ground 39.55 Ground_560_240 | near -
+s  174 (394.8,39.0,-242.0) ground 38.96 Ground_560_240 | near -
+s  176 (392.9,38.4,-241.9) ground 38.42 Ground_560_240 | near -
+s  178 (391.0,37.9,-241.4) ground 37.93 Ground_560_240 | near -
+s  180 (389.2,37.5,-240.8) ground 37.50 Ground_560_240 | near -
+s  182 (387.4,37.1,-240.0) ground 37.12 Ground_560_240 | near -
+s  184 (385.6,36.8,-239.1) ground 36.77 Ground_560_240 | near -
+s  186 (384.0,36.4,-238.0) ground 36.45 Ground_560_240 | near -
+s  188 (382.3,36.1,-236.9) ground 36.15 Ground_560_240 | near -
+s  190 (380.8,35.9,-235.7) ground 35.86 Ground_560_240 | near -
+s  192 (379.2,35.6,-234.4) ground 35.60 Ground_560_240 | near -
+s  194 (377.8,35.3,-233.1) ground 35.34 Ground_560_240 | near -
+s  196 (376.4,35.1,-231.7) ground 35.10 Ground_560_240 | near -
+s  198 (375.1,34.9,-230.2) ground 34.86 Ground_560_240 | near -
+s  200 (373.8,34.6,-228.7) ground 34.63 Ground_560_240 | near -
+s  202 (372.7,34.4,-227.0) ground 34.40 Ground_560_240 | near -
+s  204 (371.7,34.2,-225.3) ground 34.17 Ground_560_240 | near -
+s  206 (370.8,33.9,-223.5) ground 33.96 Ground_560_240 | near -
+s  208 (370.2,33.7,-221.6) ground 33.75 Ground_560_240 | near -
+s  210 (369.8,33.6,-219.7) ground 33.60 Ground_560_240 | near -
+s  212 (369.6,33.5,-217.7) ground 33.48 Ground_560_240 | near -
+s  214 (369.5,33.4,-215.7) ground 33.38 Ground_560_240 | near -
+s  216 (369.5,33.3,-213.7) ground 33.31 Ground_560_240 | near -
+s  218 (369.7,33.2,-211.7) ground 33.25 Ground_560_240 | near -
+s  220 (369.9,33.2,-209.7) ground 33.20 Ground_560_240 | near -
+s  222 (370.2,33.2,-207.8) ground 33.16 Ground_560_240 | near -
+s  224 (370.6,33.1,-205.8) ground 33.13 Ground_560_240 | near -
+s  226 (371.1,33.1,-203.9) ground 33.29 Ground_560_240 | near -
+s  228 (371.7,33.1,-202.0) ground 33.40 Ground_560_240 | near -
+s  230 (372.4,33.1,-200.1) ground 32.85 Ground_560_240 | near -
+s  232 (373.2,33.1,-198.2) ground 32.85 Ground_560_240 | near -
+s  234 (374.1,33.0,-196.5) ground 32.85 Ground_560_240 | near -
+s  236 (375.2,33.0,-194.8) ground 32.85 Ground_560_240 | near -
+s  238 (376.4,33.0,-193.2) ground 32.85 Ground_560_240 | near -
+s  240 (377.8,32.9,-191.8) ground 32.85 Ground_560_240 | near -
+s  242 (379.4,32.9,-190.5) ground 32.85 Ground_560_240 | near -
+s  244 (381.0,32.9,-189.4) ground 32.85 Ground_560_240 | near -
+s  246 (382.7,32.9,-188.4) ground 32.85 Ground_560_240 | near -
+s  248 (384.5,32.9,-187.5) ground 32.85 Ground_560_240 | near -
+s  250 (386.4,32.9,-186.7) ground 32.85 Ground_560_240 | near -
+s  252 (388.2,33.0,-185.9) ground 32.85 Ground_560_240 | near -
+s  254 (390.1,33.0,-185.3) ground 32.85 Ground_560_240 | near -
+s  256 (392.0,33.0,-184.7) ground 33.37 Ground_560_240 | near -
+s  258 (394.0,33.0,-184.2) ground 33.39 Ground_560_240 | near -
+s  260 (395.9,33.0,-183.7) ground 33.19 Ground_560_240 | near -
+s  262 (397.8,33.0,-183.2) ground 33.00 Ground_560_240 | near -
+s  264 (399.8,33.0,-182.9) ground 33.00 Ground_560_240 | near -
+s  266 (401.8,33.0,-182.7) ground 33.00 Ground_560_240 | near -
+s  268 (403.8,33.0,-182.6) ground 33.00 Ground_560_240 | near -
+s  270 (405.8,33.0,-182.7) ground 33.00 Ground_560_240 | near -
+s  272 (407.8,33.0,-182.9) ground 33.01 Ground_560_240 | near -
+s  274 (409.8,33.0,-183.1) ground 33.01 Ground_560_240 | near -
+s  276 (411.8,33.0,-183.4) ground 33.01 Ground_560_240 | near -
+s  278 (413.7,33.0,-183.7) ground 33.01 Ground_560_240 | near -
+s  280 (415.7,33.0,-183.9) ground 33.01 Ground_560_240 | near -
+s  282 (417.7,33.0,-184.2) ground 33.02 Ground_560_240 | near -
+s  284 (419.7,33.0,-184.5) ground 33.02 Ground_560_240 | near -
+s  286 (421.7,33.0,-184.7) ground 33.02 Ground_560_240 | near -
+s  288 (423.7,33.0,-184.8) ground 33.02 Ground_560_240 | near -
+s  290 (425.7,33.0,-184.9) ground 33.02 Ground_560_240 | near -
+s  292 (427.7,33.0,-184.8) ground 33.02 Ground_560_240 | near -
+s  294 (429.6,33.0,-184.5) ground 33.01 Ground_560_240 | near -
+s  296 (431.5,33.0,-183.9) ground 33.01 Ground_560_240 | near -
+s  298 (433.2,33.0,-182.8) ground 33.00 Ground_560_240 | near -
+s  300 (434.5,33.0,-181.3) ground 32.99 Ground_560_240 | near -
+s  302 (435.3,33.0,-179.4) ground 32.97 Ground_560_240 | near -
+s  304 (435.9,33.0,-177.5) ground 32.96 Ground_560_240 | near -
+s  306 (436.3,32.9,-175.6) ground 32.94 Ground_560_240 | near -
+s  308 (436.6,32.9,-173.6) ground 32.92 Ground_560_240 | near -
+s  310 (436.7,32.9,-171.6) ground 32.91 Ground_560_240 | near -
+s  312 (436.8,32.9,-169.6) ground 32.89 Ground_560_240 | near -
+s  314 (436.9,32.9,-167.6) ground 32.88 Ground_560_240 | near -
+s  316 (436.8,32.9,-165.6) ground 32.86 Ground_560_240 | near -
+s  318 (436.8,32.8,-163.6) ground 32.83 Ground_560_240 | near -
+s  320 (436.7,32.8,-161.6) ground 32.78 Ground_560_240 | near -
+s  322 (436.6,32.8,-159.6) ground 32.75 Ground_560_240 | near -
+s  324 (436.5,32.8,-157.6) ground 32.77 Ground_560_240 | near -
+s  326 (436.4,32.8,-155.6) ground 32.83 Ground_560_240 | near -
+s  328 (436.4,32.8,-153.6) ground 32.89 Ground_560_240 | near -
+s  330 (437.1,33.1,-152.2) ground 33.28 Ground_House3 straight descending property driveway | near -
+s  332 (438.7,34.2,-151.8) ground 34.19 Ground_House3 straight descending property driveway | near -
+s  334 (440.4,35.2,-151.4) ground 35.23 Ground_House3 straight descending property driveway | near -
+s  336 (442.0,36.2,-150.9) ground 36.26 Ground_House3 straight descending property driveway | near -
+s  338 (443.7,37.3,-150.5) ground 37.29 Ground_House3 straight descending property driveway | near -
+s  340 (445.4,38.3,-150.1) ground 38.33 Ground_House3 straight descending property driveway | near -
+s  342 (447.0,39.3,-149.7) ground 39.36 Ground_House3 straight descending property driveway | near -
+s  344 (448.7,40.4,-149.3) ground 40.39 Ground_House3 straight descending property driveway | near -
+s  346 (450.3,41.4,-148.9) ground 41.43 Ground_House3 straight descending property driveway | near -
+s  348 (452.0,42.4,-148.5) ground 42.46 Ground_House3 straight descending property driveway | near -
+s  350 (453.7,43.5,-148.0) ground 43.50 Ground_House3 straight descending property driveway | near -
+s  352 (455.3,44.5,-147.6) ground 44.53 Ground_House3 straight descending property driveway | near -
+s  354 (457.0,45.5,-147.2) ground 45.56 Ground_House3 straight descending property driveway | near -
+s  356 (458.6,46.6,-146.8) ground 46.60 Ground_House3 straight descending property driveway | near -
+s  358 (460.3,47.6,-146.4) ground 47.63 Ground_House3 straight descending property driveway | near -
+s  360 (462.0,48.7,-146.0) ground 48.66 Ground_House3 straight descending property driveway | near -
+s  362 (463.6,49.7,-145.5) ground 49.70 Ground_House3 straight descending property driveway | near -
+s  364 (465.3,50.7,-145.1) ground 50.73 Ground_House3 straight descending property driveway | near -
+s  366 (466.9,51.8,-144.7) ground 51.77 Ground_House3 straight descending property driveway | near -
+s  368 (468.6,52.8,-144.3) ground 52.80 Ground_House3 straight descending property driveway | near -
+s  370 (470.3,53.8,-143.9) ground 53.83 Ground_House3 straight descending property driveway | near -
+s  372 (471.9,54.9,-143.5) ground 54.87 Ground_House3 straight descending property driveway | near -
+s  374 (473.6,55.9,-143.1) ground 55.90 Ground_House3 straight descending property driveway | near -
+s  376 (475.2,56.9,-142.6) ground 56.93 Ground_House3 straight descending property driveway | near -
+s  378 (476.9,58.0,-142.2) ground 57.97 Ground_House3 straight descending property driveway | near -
+s  380 (478.6,59.0,-141.8) ground 59.00 Ground_House3 straight descending property driveway | near -
+s  382 (480.2,60.0,-141.4) ground 60.04 Ground_House3 straight descending property driveway | near -
+s  384 (481.9,61.1,-141.0) ground 61.07 Ground_House3 straight descending property driveway | near -
+s  386 (483.5,62.1,-140.6) ground 62.10 Ground_House3 straight descending property driveway | near -
+s  388 (485.2,63.1,-140.2) ground 63.14 Ground_House3 straight descending property driveway | near -
+s  390 (486.9,64.2,-139.7) ground 64.17 Ground_House3 straight descending property driveway | near -
+s  392 (488.5,65.2,-139.3) ground 65.20 Ground_House3 straight descending property driveway | near -
+s  394 (490.2,66.3,-138.9) ground 66.24 Ground_House3 straight descending property driveway | near -
+s  396 (491.8,67.3,-138.5) ground 67.47 Ground_House3 straight descending property driveway | near -
+s  398 (493.5,68.3,-138.1) ground 69.96 Ground_House3 straight descending property driveway | near -
+s  400 (495.2,69.4,-137.7) ground 73.26 Ground_House3 straight descending property driveway | near -
+s  402 (496.8,70.4,-137.3) ground 76.64 Ground_640_240 | near -
+s  404 (498.5,71.4,-136.8) ground 79.32 Ground_640_240 | near -
+s  406 (500.2,72.5,-136.4) ground 80.85 Ground_House3 supported valley driveway | near -
+s  408 (501.8,73.5,-136.0) ground 81.17 Ground_House3 supported valley driveway | near Phase 3 - Race Systems 13.5m y82.5
+s  410 (503.5,74.5,-135.6) ground 81.47 Ground_House3 supported valley driveway | near Phase 3 - Race Systems 11.8m y82.5
+s  412 (505.1,75.6,-135.2) ground 81.69 Ground_House3 supported valley driveway | near Phase 3 - Race Systems 10.2m y82.0
+s  414 (506.8,76.6,-134.8) ground 81.91 Ground_House3 supported valley driveway | near Phase 3 - Race Systems 8.5m y82.0
+s  416 (508.5,77.6,-134.4) ground 90.36 House 3 / Rocky Way Acres entrance | near Phase 3 - Race Systems 6.8m y82.0
+s  418 (510.1,78.7,-133.9) ground 82.08 Ground_House3 supported valley driveway | near Phase 3 - Race Systems 5.1m y82.0
+s  420 (511.8,79.7,-133.5) ground 82.00 Ground_House3 supported valley driveway | near Phase 3 - Race Systems 3.4m y82.0
+s  422 (513.4,80.7,-133.1) ground 81.93 Ground_House3 supported valley driveway | near Phase 3 - Race Systems 1.8m y82.0
+s  424 (515.1,81.8,-132.7) ground 81.85 Ground_House3 supported valley driveway | near Phase 3 - Race Systems 0.8m y82.0
+SCENE ForestLoopReverse
+s    0 (515.1,81.8,-132.7) ground 81.85 Ground_House3 supported valley driveway | near Phase 3 - Race Systems 0.8m y82.0
+s    2 (513.3,82.0,-133.5) ground 81.85 Ground_House3 supported valley driveway | near Phase 3 - Race Systems 2.1m y82.0
+s    4 (511.4,82.3,-134.3) ground 81.86 Ground_House3 supported valley driveway | near Phase 3 - Race Systems 4.0m y82.0
+s    6 (509.6,82.4,-135.1) ground 81.85 Ground_House3 supported valley driveway | near Phase 3 - Race Systems 6.0m y82.0
+s    8 (507.8,82.5,-135.9) ground 81.84 Ground_House3 supported valley driveway | near Phase 3 - Race Systems 8.0m y82.0
+s   10 (506.0,82.4,-136.7) ground 81.71 Ground_House3 supported valley driveway | near Phase 3 - Race Systems 10.0m y82.0
+s   12 (504.2,82.2,-137.6) ground 81.46 Ground_House3 supported valley driveway | near Phase 3 - Race Systems 12.0m y82.0
+s   14 (502.4,81.8,-138.2) ground 81.13 Ground_House3 supported valley driveway | near Phase 3 - Race Systems 13.9m y82.0
+s   16 (500.5,81.3,-138.9) ground 80.76 Ground_House3 supported valley driveway | near -
+s   18 (498.7,80.8,-139.5) ground 78.19 Ground_640_240 | near -
+s   20 (496.9,80.3,-140.2) ground 74.59 Ground_640_240 | near -
+s   22 (495.1,79.7,-141.0) ground 70.66 Ground_640_240 | near -
+s   24 (493.5,79.2,-142.0) ground 67.85 Ground_640_240 | near -
+s   26 (491.9,78.7,-143.1) ground 66.82 Ground_640_240 | near -
+s   28 (490.5,78.2,-144.4) ground 67.33 Ground_640_240 | near -
+s   30 (489.3,77.7,-145.9) ground 69.47 Ground_640_240 | near -
+s   32 (488.2,77.4,-147.6) ground 73.15 Ground_640_240 | near -
+s   34 (487.2,77.0,-149.3) ground 76.18 Ground_640_240 | near -
+s   36 (486.4,76.7,-151.1) ground 76.75 Ground_640_240 | near -
+s   38 (485.6,76.4,-152.9) ground 76.44 Ground_640_240 | near -
+s   40 (484.8,76.1,-154.7) ground 76.13 Ground_640_240 | near -
+s   42 (484.1,75.8,-156.5) ground 75.80 Ground_640_240 | near -
+s   44 (483.3,75.4,-158.4) ground 75.47 Ground_640_240 | near -
+s   46 (482.5,75.1,-160.2) ground 75.12 Ground_640_240 | near -
+s   48 (481.7,74.7,-162.0) ground 74.75 Ground_640_240 | near -
+s   50 (480.9,74.4,-163.7) ground 74.36 Ground_640_240 | near -
+s   52 (480.0,73.9,-165.5) ground 73.95 Ground_640_240 | near -
+s   54 (479.1,73.5,-167.2) ground 73.51 Ground_560_240 | near -
+s   56 (478.1,73.0,-168.9) ground 73.04 Ground_560_240 | near -
+s   58 (477.1,72.5,-170.5) ground 72.54 Ground_560_240 | near -
+s   60 (476.0,72.0,-172.2) ground 72.04 Ground_560_240 | near -
+s   62 (475.0,71.5,-173.8) ground 71.51 Ground_560_240 | near -
+s   64 (474.0,71.0,-175.4) ground 70.98 Ground_560_240 | near -
+s   66 (473.0,70.4,-177.1) ground 70.44 Ground_560_240 | near -
+s   68 (472.0,69.9,-178.7) ground 69.89 Ground_560_240 | near -
+s   70 (471.0,69.3,-180.3) ground 69.33 Ground_560_240 | near -
+s   72 (469.9,68.8,-181.9) ground 68.76 Ground_560_240 | near -
+s   74 (468.9,68.2,-183.5) ground 68.19 Ground_560_240 | near -
+s   76 (467.8,67.6,-185.1) ground 67.61 Ground_560_240 | near -
+s   78 (466.7,67.0,-186.7) ground 67.03 Ground_560_240 | near Reverse main route 14.0m y64.3
+s   80 (465.5,66.4,-188.2) ground 66.45 Ground_560_240 | near Reverse main route 12.4m y64.5
+s   82 (464.4,65.9,-189.8) ground 65.86 Ground_560_240 | near Reverse main route 10.8m y64.7
+s   84 (463.2,65.3,-191.3) ground 65.25 Ground_560_240 | near Reverse main route 9.2m y64.7
+s   86 (462.0,64.7,-192.7) ground 64.83 Ground_560_240 | near Reverse main route 7.6m y64.9
+s   88 (460.7,64.1,-194.2) ground 64.97 Ground_560_240 | near Reverse main route 6.1m y65.1
+s   90 (459.4,63.5,-195.6) ground 65.27 Ground_560_240 | near Reverse main route 4.6m y65.3
+s   92 (458.1,62.9,-197.0) ground 65.48 Ground_560_240 | near Reverse main route 3.2m y65.6
+s   94 (456.8,62.3,-198.3) ground 65.72 Ground_560_240 | near Reverse main route 1.8m y65.6
+s   96 (455.3,61.7,-199.6) ground 65.97 Ground_560_240 | near Reverse main route 0.6m y65.9
+s   98 (453.9,61.1,-200.8) ground 66.26 Ground_560_240 | near Reverse main route 1.2m y66.2
+s  100 (452.4,60.6,-202.0) ground 66.57 Ground_560_240 | near Reverse main route 2.4m y66.5
+s  102 (450.8,60.0,-203.2) ground 66.90 Ground_560_240 | near Reverse main route 3.7m y66.8
+s  104 (449.3,59.4,-204.3) ground 67.19 Ground_560_240 | near Reverse main route 4.9m y67.2
+s  106 (447.7,58.8,-205.3) ground 66.44 Ground_560_240 | near Reverse main route 6.1m y67.6
+s  108 (446.1,58.2,-206.4) ground 63.79 Ground_560_240 | near Reverse main route 7.2m y68.0
+s  110 (444.5,57.7,-207.4) ground 60.33 Ground_560_240 | near Reverse main route 8.4m y68.4
+s  112 (442.8,57.1,-208.4) ground 57.61 Ground_560_240 | near Reverse main route 9.5m y68.8
+s  114 (441.2,56.5,-209.4) ground 56.49 Ground_560_240 | near Reverse main route 10.6m y69.3
+s  116 (439.6,55.9,-210.3) ground 55.91 Ground_560_240 | near Reverse main route 11.7m y69.8
+s  118 (437.9,55.3,-211.3) ground 55.33 Ground_560_240 | near Reverse main route 12.8m y70.3
+s  120 (436.2,54.8,-212.2) ground 54.76 Ground_560_240 | near Reverse main route 13.9m y70.9
+s  122 (434.6,54.2,-213.2) ground 54.18 Ground_560_240 | near Reverse main route 15.0m y72.0
+s  124 (432.9,53.6,-214.1) ground 53.60 Ground_560_240 | near -
+s  126 (431.2,53.0,-215.1) ground 53.02 Ground_560_240 | near -
+s  128 (429.6,52.4,-216.0) ground 52.44 Ground_560_240 | near -
+s  130 (427.9,51.9,-217.0) ground 51.86 Ground_560_240 | near -
+s  132 (426.3,51.3,-218.0) ground 51.28 Ground_560_240 | near -
+s  134 (424.6,50.7,-219.0) ground 50.70 Ground_560_240 | near -
+s  136 (423.0,50.1,-220.0) ground 50.11 Ground_560_240 | near -
+s  138 (421.4,49.5,-221.0) ground 49.53 Ground_560_240 | near -
+s  140 (419.8,48.9,-222.1) ground 48.94 Ground_560_240 | near -
+s  142 (418.3,48.4,-223.3) ground 48.35 Ground_560_240 | near -
+s  144 (416.8,47.8,-224.5) ground 47.77 Ground_560_240 | near -
+s  146 (415.4,47.2,-225.7) ground 47.19 Ground_560_240 | near -
+s  148 (414.0,46.6,-227.1) ground 46.62 Ground_560_240 | near -
+s  150 (412.6,46.0,-228.4) ground 46.04 Ground_560_240 | near -
+s  152 (411.3,45.5,-229.8) ground 45.47 Ground_560_240 | near -
+s  154 (410.0,44.9,-231.2) ground 44.90 Ground_560_240 | near -
+s  156 (408.7,44.3,-232.6) ground 44.33 Ground_560_240 | near -
+s  158 (407.3,43.8,-233.9) ground 43.76 Ground_560_240 | near -
+s  160 (406.0,43.2,-235.3) ground 43.18 Ground_560_240 | near -
+s  162 (404.6,42.6,-236.6) ground 42.60 Ground_560_240 | near -
+s  164 (403.2,42.0,-237.9) ground 42.01 Ground_560_240 | near -
+s  166 (401.7,41.4,-239.1) ground 41.40 Ground_560_240 | near -
+s  168 (400.2,40.8,-240.2) ground 40.79 Ground_560_240 | near -
+s  170 (398.5,40.2,-241.1) ground 40.17 Ground_560_240 | near -
+s  172 (396.7,39.6,-241.7) ground 39.55 Ground_560_240 | near -
+s  174 (394.8,39.0,-242.0) ground 38.95 Ground_560_240 | near -
+s  176 (392.9,38.4,-241.9) ground 38.41 Ground_560_240 | near -
+s  178 (391.0,37.9,-241.4) ground 37.93 Ground_560_240 | near -
+s  180 (389.2,37.5,-240.8) ground 37.50 Ground_560_240 | near -
+s  182 (387.4,37.1,-240.0) ground 37.12 Ground_560_240 | near -
+s  184 (385.6,36.8,-239.1) ground 36.77 Ground_560_240 | near -
+s  186 (384.0,36.4,-238.0) ground 36.45 Ground_560_240 | near -
+s  188 (382.3,36.1,-236.9) ground 36.14 Ground_560_240 | near -
+s  190 (380.8,35.9,-235.7) ground 35.86 Ground_560_240 | near -
+s  192 (379.2,35.6,-234.4) ground 35.60 Ground_560_240 | near -
+s  194 (377.8,35.3,-233.1) ground 35.34 Ground_560_240 | near -
+s  196 (376.4,35.1,-231.7) ground 35.10 Ground_560_240 | near -
+s  198 (375.1,34.9,-230.2) ground 34.86 Ground_560_240 | near -
+s  200 (373.8,34.6,-228.7) ground 34.63 Ground_560_240 | near -
+s  202 (372.7,34.4,-227.0) ground 34.40 Ground_560_240 | near -
+s  204 (371.7,34.2,-225.3) ground 34.17 Ground_560_240 | near -
+s  206 (370.8,33.9,-223.5) ground 33.95 Ground_560_240 | near -
+s  208 (370.2,33.7,-221.6) ground 33.75 Ground_560_240 | near -
+s  210 (369.8,33.6,-219.7) ground 33.60 Ground_560_240 | near -
+s  212 (369.6,33.5,-217.7) ground 33.48 Ground_560_240 | near -
+s  214 (369.5,33.4,-215.7) ground 33.38 Ground_560_240 | near -
+s  216 (369.5,33.3,-213.7) ground 33.31 Ground_560_240 | near -
+s  218 (369.7,33.2,-211.7) ground 33.25 Ground_560_240 | near -
+s  220 (369.9,33.2,-209.7) ground 33.20 Ground_560_240 | near Reverse main route 14.7m y33.0
+s  222 (370.2,33.2,-207.8) ground 33.16 Ground_560_240 | near Reverse main route 12.8m y33.0
+s  224 (370.6,33.1,-205.8) ground 33.13 Ground_560_240 | near Reverse main route 10.8m y33.0
+s  226 (371.1,33.1,-203.9) ground 33.29 Ground_560_240 | near Reverse main route 8.9m y33.1
+s  228 (371.7,33.1,-202.0) ground 33.40 Ground_560_240 | near Reverse main route 7.0m y33.1
+s  230 (372.4,33.1,-200.1) ground 32.85 Ground_560_240 | near Reverse main route 5.1m y33.1
+s  232 (373.2,33.1,-198.2) ground 32.85 Ground_560_240 | near Reverse main route 3.3m y33.1
+s  234 (374.1,33.0,-196.5) ground 32.85 Ground_560_240 | near Reverse main route 1.6m y33.1
+s  236 (375.2,33.0,-194.8) ground 32.85 Ground_560_240 | near Reverse main route 0.3m y33.1
+s  238 (376.4,33.0,-193.2) ground 32.85 Ground_560_240 | near Reverse main route 1.8m y33.1
+s  240 (377.8,32.9,-191.8) ground 32.85 Ground_560_240 | near Reverse main route 3.3m y33.0
+s  242 (379.4,32.9,-190.5) ground 32.85 Ground_560_240 | near Reverse main route 4.5m y33.0
+s  244 (381.0,32.9,-189.4) ground 32.85 Ground_560_240 | near Reverse main route 5.7m y32.9
+s  246 (382.7,32.9,-188.4) ground 32.85 Ground_560_240 | near Reverse main route 6.8m y32.9
+s  248 (384.5,32.9,-187.5) ground 32.85 Ground_560_240 | near Reverse main route 7.8m y32.9
+s  250 (386.4,32.9,-186.7) ground 32.85 Ground_560_240 | near Reverse main route 8.6m y32.9
+s  252 (388.2,33.0,-185.9) ground 32.85 Ground_560_240 | near Reverse main route 9.4m y32.9
+s  254 (390.1,33.0,-185.3) ground 32.85 Ground_560_240 | near Reverse main route 10.1m y33.0
+s  256 (392.0,33.0,-184.7) ground 33.21 Ground_560_240 | near Reverse main route 10.8m y33.0
+s  258 (394.0,33.0,-184.2) ground 33.39 Ground_560_240 | near Reverse main route 11.4m y33.2
+s  260 (395.9,33.0,-183.7) ground 33.19 Ground_560_240 | near Reverse main route 11.9m y33.4
+s  262 (397.8,33.0,-183.2) ground 33.00 Ground_560_240 | near Reverse main route 12.5m y33.6
+s  264 (399.8,33.0,-182.9) ground 33.00 Ground_560_240 | near Reverse main route 13.0m y33.9
+s  266 (401.8,33.0,-182.7) ground 33.00 Ground_560_240 | near Reverse main route 13.3m y34.6
+s  268 (403.8,33.0,-182.6) ground 33.00 Ground_560_240 | near Reverse main route 13.4m y34.8
+s  270 (405.8,33.0,-182.7) ground 33.00 Ground_560_240 | near Reverse main route 13.4m y35.0
+s  272 (407.8,33.0,-182.9) ground 33.01 Ground_560_240 | near Reverse main route 13.4m y35.1
+s  274 (409.8,33.0,-183.1) ground 33.01 Ground_560_240 | near Reverse main route 13.3m y35.0
+s  276 (411.8,33.0,-183.4) ground 33.01 Ground_560_240 | near Reverse main route 13.1m y35.2
+s  278 (413.7,33.0,-183.7) ground 33.01 Ground_560_240 | near Reverse main route 13.0m y35.4
+s  280 (415.7,33.0,-183.9) ground 33.01 Ground_560_240 | near Reverse main route 12.8m y35.3
+s  282 (417.7,33.0,-184.2) ground 33.02 Ground_560_240 | near Reverse main route 12.7m y35.1
+s  284 (419.7,33.0,-184.5) ground 33.02 Ground_560_240 | near Reverse main route 12.6m y35.0
+s  286 (421.7,33.0,-184.7) ground 33.02 Ground_560_240 | near Reverse main route 12.5m y34.9
+s  288 (423.7,33.0,-184.8) ground 33.02 Ground_560_240 | near Reverse main route 12.5m y34.8
+s  290 (425.7,33.0,-184.9) ground 33.02 Ground_560_240 | near Reverse main route 12.6m y34.9
+s  292 (427.7,33.0,-184.8) ground 33.02 Ground_560_240 | near Reverse main route 12.9m y35.4
+s  294 (429.6,33.0,-184.5) ground 33.01 Ground_560_240 | near Reverse main route 13.3m y35.8
+s  296 (431.5,33.0,-183.9) ground 33.01 Ground_560_240 | near Reverse main route 14.1m y36.5
+s  298 (433.2,33.0,-182.8) ground 33.00 Ground_560_240 | near -
+s  300 (434.5,33.0,-181.3) ground 32.99 Ground_560_240 | near -
+s  302 (435.3,33.0,-179.4) ground 32.97 Ground_560_240 | near -
+s  304 (435.9,33.0,-177.5) ground 32.96 Ground_560_240 | near -
+s  306 (436.3,32.9,-175.6) ground 32.94 Ground_560_240 | near -
+s  308 (436.6,32.9,-173.6) ground 32.92 Ground_560_240 | near -
+s  310 (436.7,32.9,-171.6) ground 32.91 Ground_560_240 | near -
+s  312 (436.8,32.9,-169.6) ground 32.89 Ground_560_240 | near -
+s  314 (436.9,32.9,-167.6) ground 32.88 Ground_560_240 | near -
+s  316 (436.8,32.9,-165.6) ground 32.86 Ground_560_240 | near -
+s  318 (436.8,32.8,-163.6) ground 32.84 Ground_560_240 | near -
+s  320 (436.7,32.8,-161.6) ground 32.77 Ground_560_240 | near -
+s  322 (436.6,32.8,-159.6) ground 32.75 Ground_560_240 | near -
+s  324 (436.5,32.8,-157.6) ground 32.75 Ground_560_240 | near -
+s  326 (436.4,32.8,-155.6) ground 32.75 Ground_560_240 | near -
+s  328 (436.4,32.8,-153.6) ground 32.78 Ground_560_240 | near -
+s  330 (437.1,33.1,-152.2) ground 33.24 Ground_House3 straight descending property driveway | near -
+s  332 (438.7,34.2,-151.8) ground 34.19 Ground_House3 straight descending property driveway | near -
+s  334 (440.4,35.2,-151.4) ground 35.23 Ground_House3 straight descending property driveway | near -
+s  336 (442.0,36.2,-150.9) ground 36.26 Ground_House3 straight descending property driveway | near -
+s  338 (443.7,37.3,-150.5) ground 37.29 Ground_House3 straight descending property driveway | near -
+s  340 (445.4,38.3,-150.1) ground 38.33 Ground_House3 straight descending property driveway | near -
+s  342 (447.0,39.3,-149.7) ground 39.36 Ground_House3 straight descending property driveway | near -
+s  344 (448.7,40.4,-149.3) ground 40.39 Ground_House3 straight descending property driveway | near -
+s  346 (450.3,41.4,-148.9) ground 41.43 Ground_House3 straight descending property driveway | near -
+s  348 (452.0,42.4,-148.5) ground 42.46 Ground_House3 straight descending property driveway | near -
+s  350 (453.7,43.5,-148.0) ground 43.50 Ground_House3 straight descending property driveway | near -
+s  352 (455.3,44.5,-147.6) ground 44.53 Ground_House3 straight descending property driveway | near -
+s  354 (457.0,45.5,-147.2) ground 45.56 Ground_House3 straight descending property driveway | near -
+s  356 (458.6,46.6,-146.8) ground 46.60 Ground_House3 straight descending property driveway | near -
+s  358 (460.3,47.6,-146.4) ground 47.63 Ground_House3 straight descending property driveway | near -
+s  360 (462.0,48.7,-146.0) ground 48.66 Ground_House3 straight descending property driveway | near -
+s  362 (463.6,49.7,-145.5) ground 49.70 Ground_House3 straight descending property driveway | near -
+s  364 (465.3,50.7,-145.1) ground 50.73 Ground_House3 straight descending property driveway | near -
+s  366 (466.9,51.8,-144.7) ground 51.77 Ground_House3 straight descending property driveway | near -
+s  368 (468.6,52.8,-144.3) ground 52.80 Ground_House3 straight descending property driveway | near -
+s  370 (470.3,53.8,-143.9) ground 53.83 Ground_House3 straight descending property driveway | near -
+s  372 (471.9,54.9,-143.5) ground 54.87 Ground_House3 straight descending property driveway | near -
+s  374 (473.6,55.9,-143.1) ground 55.90 Ground_House3 straight descending property driveway | near -
+s  376 (475.2,56.9,-142.6) ground 56.93 Ground_House3 straight descending property driveway | near -
+s  378 (476.9,58.0,-142.2) ground 57.97 Ground_House3 straight descending property driveway | near -
+s  380 (478.6,59.0,-141.8) ground 59.00 Ground_House3 straight descending property driveway | near -
+s  382 (480.2,60.0,-141.4) ground 60.04 Ground_House3 straight descending property driveway | near -
+s  384 (481.9,61.1,-141.0) ground 61.07 Ground_House3 straight descending property driveway | near -
+s  386 (483.5,62.1,-140.6) ground 62.10 Ground_House3 straight descending property driveway | near -
+s  388 (485.2,63.1,-140.2) ground 63.14 Ground_House3 straight descending property driveway | near -
+s  390 (486.9,64.2,-139.7) ground 64.17 Ground_House3 straight descending property driveway | near -
+s  392 (488.5,65.2,-139.3) ground 65.20 Ground_House3 straight descending property driveway | near -
+s  394 (490.2,66.3,-138.9) ground 66.24 Ground_House3 straight descending property driveway | near -
+s  396 (491.8,67.3,-138.5) ground 67.44 Ground_House3 straight descending property driveway | near -
+s  398 (493.5,68.3,-138.1) ground 69.95 Ground_House3 straight descending property driveway | near -
+s  400 (495.2,69.4,-137.7) ground 73.25 Ground_House3 straight descending property driveway | near -
+s  402 (496.8,70.4,-137.3) ground 76.68 Ground_640_240 | near -
+s  404 (498.5,71.4,-136.8) ground 79.37 Ground_640_240 | near -
+s  406 (500.2,72.5,-136.4) ground 80.85 Ground_House3 supported valley driveway | near -
+s  408 (501.8,73.5,-136.0) ground 81.17 Ground_House3 supported valley driveway | near Phase 3 - Race Systems 13.5m y82.5
+s  410 (503.5,74.5,-135.6) ground 81.47 Ground_House3 supported valley driveway | near Phase 3 - Race Systems 11.8m y82.5
+s  412 (505.1,75.6,-135.2) ground 81.69 Ground_House3 supported valley driveway | near Phase 3 - Race Systems 10.2m y82.0
+s  414 (506.8,76.6,-134.8) ground 81.89 Ground_House3 supported valley driveway | near Phase 3 - Race Systems 8.5m y82.0
+s  416 (508.5,77.6,-134.4) ground 90.36 House 3 / Rocky Way Acres entrance | near Phase 3 - Race Systems 6.8m y82.0
+s  418 (510.1,78.7,-133.9) ground 82.08 Ground_House3 supported valley driveway | near Phase 3 - Race Systems 5.1m y82.0
+s  420 (511.8,79.7,-133.5) ground 82.00 Ground_House3 supported valley driveway | near Phase 3 - Race Systems 3.4m y82.0
+s  422 (513.4,80.7,-133.1) ground 81.93 Ground_House3 supported valley driveway | near Phase 3 - Race Systems 1.8m y82.0
+s  424 (515.1,81.8,-132.7) ground 81.85 Ground_House3 supported valley driveway | near Phase 3 - Race Systems 0.8m y82.0
+SCENE LakeWoods
+s    0 (515.1,81.8,-132.7) ground 81.85 Ground_House3 supported valley driveway | near Phase 3 - Race Systems 0.8m y82.0
+s    2 (513.3,82.0,-133.5) ground 81.85 Ground_House3 supported valley driveway | near Phase 3 - Race Systems 2.1m y82.0
+s    4 (511.4,82.3,-134.3) ground 81.86 Ground_House3 supported valley driveway | near Phase 3 - Race Systems 4.0m y82.0
+s    6 (509.6,82.4,-135.1) ground 81.85 Ground_House3 supported valley driveway | near Phase 3 - Race Systems 6.0m y82.0
+s    8 (507.8,82.5,-135.9) ground 81.84 Ground_House3 supported valley driveway | near Phase 3 - Race Systems 8.0m y82.0
+s   10 (506.0,82.4,-136.7) ground 81.71 Ground_House3 supported valley driveway | near Phase 3 - Race Systems 10.0m y82.0
+s   12 (504.2,82.2,-137.6) ground 81.46 Ground_House3 supported valley driveway | near Phase 3 - Race Systems 12.0m y82.0
+s   14 (502.4,81.8,-138.2) ground 81.13 Ground_House3 supported valley driveway | near Phase 3 - Race Systems 13.9m y82.0
+s   16 (500.5,81.3,-138.9) ground 80.76 Ground_House3 supported valley driveway | near -
+s   18 (498.7,80.8,-139.5) ground 78.19 Ground_640_240 | near -
+s   20 (496.9,80.3,-140.2) ground 74.59 Ground_640_240 | near -
+s   22 (495.1,79.7,-141.0) ground 70.66 Ground_640_240 | near -
+s   24 (493.5,79.2,-142.0) ground 67.85 Ground_640_240 | near -
+s   26 (491.9,78.7,-143.1) ground 66.82 Ground_640_240 | near -
+s   28 (490.5,78.2,-144.4) ground 67.33 Ground_640_240 | near -
+s   30 (489.3,77.7,-145.9) ground 69.47 Ground_640_240 | near -
+s   32 (488.2,77.4,-147.6) ground 73.15 Ground_640_240 | near -
+s   34 (487.2,77.0,-149.3) ground 76.18 Ground_640_240 | near -
+s   36 (486.4,76.7,-151.1) ground 76.75 Ground_640_240 | near -
+s   38 (485.6,76.4,-152.9) ground 76.44 Ground_640_240 | near -
+s   40 (484.8,76.1,-154.7) ground 76.13 Ground_640_240 | near -
+s   42 (484.1,75.8,-156.5) ground 75.80 Ground_640_240 | near -
+s   44 (483.3,75.4,-158.4) ground 75.47 Ground_640_240 | near -
+s   46 (482.5,75.1,-160.2) ground 75.12 Ground_640_240 | near -
+s   48 (481.7,74.7,-162.0) ground 74.75 Ground_640_240 | near -
+s   50 (480.9,74.4,-163.7) ground 74.36 Ground_640_240 | near -
+s   52 (480.0,73.9,-165.5) ground 73.95 Ground_640_240 | near -
+s   54 (479.1,73.5,-167.2) ground 73.51 Ground_560_240 | near -
+s   56 (478.1,73.0,-168.9) ground 73.04 Ground_560_240 | near -
+s   58 (477.1,72.5,-170.5) ground 72.54 Ground_560_240 | near -
+s   60 (476.0,72.0,-172.2) ground 72.04 Ground_560_240 | near -
+s   62 (475.0,71.5,-173.8) ground 71.51 Ground_560_240 | near -
+s   64 (474.0,71.0,-175.4) ground 70.98 Ground_560_240 | near -
+s   66 (473.0,70.4,-177.1) ground 70.44 Ground_560_240 | near -
+s   68 (472.0,69.9,-178.7) ground 69.89 Ground_560_240 | near -
+s   70 (471.0,69.3,-180.3) ground 69.33 Ground_560_240 | near -
+s   72 (469.9,68.8,-181.9) ground 68.76 Ground_560_240 | near -
+s   74 (468.9,68.2,-183.5) ground 68.19 Ground_560_240 | near -
+s   76 (467.8,67.6,-185.1) ground 67.61 Ground_560_240 | near -
+s   78 (466.7,67.0,-186.7) ground 67.03 Ground_560_240 | near -
+s   80 (465.5,66.4,-188.2) ground 66.45 Ground_560_240 | near -
+s   82 (464.4,65.9,-189.8) ground 65.86 Ground_560_240 | near -
+s   84 (463.2,65.3,-191.3) ground 65.27 Ground_560_240 | near -
+s   86 (462.0,64.7,-192.7) ground 64.68 Ground_560_240 | near -
+s   88 (460.7,64.1,-194.2) ground 64.09 Ground_560_240 | near -
+s   90 (459.4,63.5,-195.6) ground 63.49 Ground_560_240 | near -
+s   92 (458.1,62.9,-197.0) ground 62.90 Ground_560_240 | near -
+s   94 (456.8,62.3,-198.3) ground 62.32 Ground_560_240 | near -
+s   96 (455.3,61.7,-199.6) ground 61.73 Ground_560_240 | near -
+s   98 (453.9,61.1,-200.8) ground 61.15 Ground_560_240 | near -
+s  100 (452.4,60.6,-202.0) ground 60.56 Ground_560_240 | near -
+s  102 (450.8,60.0,-203.2) ground 59.98 Ground_560_240 | near -
+s  104 (449.3,59.4,-204.3) ground 59.39 Ground_560_240 | near -
+s  106 (447.7,58.8,-205.3) ground 58.81 Ground_560_240 | near -
+s  108 (446.1,58.2,-206.4) ground 58.23 Ground_560_240 | near -
+s  110 (444.5,57.7,-207.4) ground 57.65 Ground_560_240 | near -
+s  112 (442.8,57.1,-208.4) ground 57.07 Ground_560_240 | near -
+s  114 (441.2,56.5,-209.4) ground 56.49 Ground_560_240 | near -
+s  116 (439.6,55.9,-210.3) ground 55.91 Ground_560_240 | near -
+s  118 (437.9,55.3,-211.3) ground 55.33 Ground_560_240 | near -
+s  120 (436.2,54.8,-212.2) ground 54.76 Ground_560_240 | near -
+s  122 (434.6,54.2,-213.2) ground 54.18 Ground_560_240 | near -
+s  124 (432.9,53.6,-214.1) ground 53.60 Ground_560_240 | near -
+s  126 (431.2,53.0,-215.1) ground 53.02 Ground_560_240 | near -
+s  128 (429.6,52.4,-216.0) ground 52.44 Ground_560_240 | near -
+s  130 (427.9,51.9,-217.0) ground 51.86 Ground_560_240 | near -
+s  132 (426.3,51.3,-218.0) ground 51.28 Ground_560_240 | near -
+s  134 (424.6,50.7,-219.0) ground 50.70 Ground_560_240 | near -
+s  136 (423.0,50.1,-220.0) ground 50.11 Ground_560_240 | near -
+s  138 (421.4,49.5,-221.0) ground 49.53 Ground_560_240 | near -
+s  140 (419.8,48.9,-222.1) ground 48.94 Ground_560_240 | near -
+s  142 (418.3,48.4,-223.3) ground 48.35 Ground_560_240 | near -
+s  144 (416.8,47.8,-224.5) ground 47.77 Ground_560_240 | near -
+s  146 (415.4,47.2,-225.7) ground 47.19 Ground_560_240 | near -
+s  148 (414.0,46.6,-227.1) ground 46.62 Ground_560_240 | near -
+s  150 (412.6,46.0,-228.4) ground 46.04 Ground_560_240 | near -
+s  152 (411.3,45.5,-229.8) ground 45.47 Ground_560_240 | near -
+s  154 (410.0,44.9,-231.2) ground 44.90 Ground_560_240 | near -
+s  156 (408.7,44.3,-232.6) ground 44.33 Ground_560_240 | near -
+s  158 (407.3,43.8,-233.9) ground 43.76 Ground_560_240 | near -
+s  160 (406.0,43.2,-235.3) ground 43.18 Ground_560_240 | near -
+s  162 (404.6,42.6,-236.6) ground 42.60 Ground_560_240 | near -
+s  164 (403.2,42.0,-237.9) ground 42.01 Ground_560_240 | near -
+s  166 (401.7,41.4,-239.1) ground 41.40 Ground_560_240 | near -
+s  168 (400.2,40.8,-240.2) ground 40.79 Ground_560_240 | near -
+s  170 (398.5,40.2,-241.1) ground 40.17 Ground_560_240 | near -
+s  172 (396.7,39.6,-241.7) ground 39.55 Ground_560_240 | near -
+s  174 (394.8,39.0,-242.0) ground 38.95 Ground_560_240 | near -
+s  176 (392.9,38.4,-241.9) ground 38.41 Ground_560_240 | near -
+s  178 (391.0,37.9,-241.4) ground 37.93 Ground_560_240 | near -
+s  180 (389.2,37.5,-240.8) ground 37.50 Ground_560_240 | near -
+s  182 (387.4,37.1,-240.0) ground 37.12 Ground_560_240 | near -
+s  184 (385.6,36.8,-239.1) ground 36.77 Ground_560_240 | near -
+s  186 (384.0,36.4,-238.0) ground 36.45 Ground_560_240 | near -
+s  188 (382.3,36.1,-236.9) ground 36.14 Ground_560_240 | near -
+s  190 (380.8,35.9,-235.7) ground 35.86 Ground_560_240 | near -
+s  192 (379.2,35.6,-234.4) ground 35.60 Ground_560_240 | near -
+s  194 (377.8,35.3,-233.1) ground 35.34 Ground_560_240 | near -
+s  196 (376.4,35.1,-231.7) ground 35.10 Ground_560_240 | near -
+s  198 (375.1,34.9,-230.2) ground 34.86 Ground_560_240 | near -
+s  200 (373.8,34.6,-228.7) ground 34.63 Ground_560_240 | near -
+s  202 (372.7,34.4,-227.0) ground 34.40 Ground_560_240 | near -
+s  204 (371.7,34.2,-225.3) ground 34.17 Ground_560_240 | near -
+s  206 (370.8,33.9,-223.5) ground 33.95 Ground_560_240 | near -
+s  208 (370.2,33.7,-221.6) ground 33.75 Ground_560_240 | near -
+s  210 (369.8,33.6,-219.7) ground 33.60 Ground_560_240 | near -
+s  212 (369.6,33.5,-217.7) ground 33.48 Ground_560_240 | near -
+s  214 (369.5,33.4,-215.7) ground 33.38 Ground_560_240 | near -
+s  216 (369.5,33.3,-213.7) ground 33.31 Ground_560_240 | near -
+s  218 (369.7,33.2,-211.7) ground 33.25 Ground_560_240 | near -
+s  220 (369.9,33.2,-209.7) ground 33.20 Ground_560_240 | near -
+s  222 (370.2,33.2,-207.8) ground 33.16 Ground_560_240 | near -
+s  224 (370.6,33.1,-205.8) ground 33.13 Ground_560_240 | near -
+s  226 (371.1,33.1,-203.9) ground 33.29 Ground_560_240 | near -
+s  228 (371.7,33.1,-202.0) ground 33.40 Ground_560_240 | near -
+s  230 (372.4,33.1,-200.1) ground 32.85 Ground_560_240 | near -
+s  232 (373.2,33.1,-198.2) ground 32.85 Ground_560_240 | near -
+s  234 (374.1,33.0,-196.5) ground 32.85 Ground_560_240 | near -
+s  236 (375.2,33.0,-194.8) ground 32.85 Ground_560_240 | near -
+s  238 (376.4,33.0,-193.2) ground 32.85 Ground_560_240 | near -
+s  240 (377.8,32.9,-191.8) ground 32.85 Ground_560_240 | near -
+s  242 (379.4,32.9,-190.5) ground 32.85 Ground_560_240 | near -
+s  244 (381.0,32.9,-189.4) ground 32.85 Ground_560_240 | near -
+s  246 (382.7,32.9,-188.4) ground 32.85 Ground_560_240 | near -
+s  248 (384.5,32.9,-187.5) ground 32.85 Ground_560_240 | near -
+s  250 (386.4,32.9,-186.7) ground 32.85 Ground_560_240 | near -
+s  252 (388.2,33.0,-185.9) ground 32.85 Ground_560_240 | near -
+s  254 (390.1,33.0,-185.3) ground 32.85 Ground_560_240 | near -
+s  256 (392.0,33.0,-184.7) ground 33.21 Ground_560_240 | near -
+s  258 (394.0,33.0,-184.2) ground 33.39 Ground_560_240 | near -
+s  260 (395.9,33.0,-183.7) ground 33.19 Ground_560_240 | near -
+s  262 (397.8,33.0,-183.2) ground 33.00 Ground_560_240 | near -
+s  264 (399.8,33.0,-182.9) ground 33.00 Ground_560_240 | near -
+s  266 (401.8,33.0,-182.7) ground 33.00 Ground_560_240 | near -
+s  268 (403.8,33.0,-182.6) ground 33.00 Ground_560_240 | near -
+s  270 (405.8,33.0,-182.7) ground 33.00 Ground_560_240 | near -
+s  272 (407.8,33.0,-182.9) ground 33.01 Ground_560_240 | near -
+s  274 (409.8,33.0,-183.1) ground 33.01 Ground_560_240 | near -
+s  276 (411.8,33.0,-183.4) ground 33.01 Ground_560_240 | near -
+s  278 (413.7,33.0,-183.7) ground 33.01 Ground_560_240 | near -
+s  280 (415.7,33.0,-183.9) ground 33.01 Ground_560_240 | near -
+s  282 (417.7,33.0,-184.2) ground 33.02 Ground_560_240 | near -
+s  284 (419.7,33.0,-184.5) ground 33.02 Ground_560_240 | near -
+s  286 (421.7,33.0,-184.7) ground 33.02 Ground_560_240 | near -
+s  288 (423.7,33.0,-184.8) ground 33.02 Ground_560_240 | near -
+s  290 (425.7,33.0,-184.9) ground 33.02 Ground_560_240 | near -
+s  292 (427.7,33.0,-184.8) ground 33.02 Ground_560_240 | near -
+s  294 (429.6,33.0,-184.5) ground 33.01 Ground_560_240 | near -
+s  296 (431.5,33.0,-183.9) ground 33.01 Ground_560_240 | near -
+s  298 (433.2,33.0,-182.8) ground 33.00 Ground_560_240 | near -
+s  300 (434.5,33.0,-181.3) ground 32.99 Ground_560_240 | near -
+s  302 (435.3,33.0,-179.4) ground 32.97 Ground_560_240 | near -
+s  304 (435.9,33.0,-177.5) ground 32.96 Ground_560_240 | near -
+s  306 (436.3,32.9,-175.6) ground 32.94 Ground_560_240 | near -
+s  308 (436.6,32.9,-173.6) ground 32.92 Ground_560_240 | near -
+s  310 (436.7,32.9,-171.6) ground 32.91 Ground_560_240 | near -
+s  312 (436.8,32.9,-169.6) ground 32.89 Ground_560_240 | near -
+s  314 (436.9,32.9,-167.6) ground 32.88 Ground_560_240 | near -
+s  316 (436.8,32.9,-165.6) ground 32.86 Ground_560_240 | near -
+s  318 (436.8,32.8,-163.6) ground 32.84 Ground_560_240 | near -
+s  320 (436.7,32.8,-161.6) ground 32.77 Ground_560_240 | near -
+s  322 (436.6,32.8,-159.6) ground 32.75 Ground_560_240 | near -
+s  324 (436.5,32.8,-157.6) ground 32.75 Ground_560_240 | near -
+s  326 (436.4,32.8,-155.6) ground 32.75 Ground_560_240 | near -
+s  328 (436.4,32.8,-153.6) ground 32.78 Ground_560_240 | near -
+s  330 (437.1,33.1,-152.2) ground 33.24 Ground_House3 straight descending property driveway | near -
+s  332 (438.7,34.2,-151.8) ground 34.19 Ground_House3 straight descending property driveway | near -
+s  334 (440.4,35.2,-151.4) ground 35.23 Ground_House3 straight descending property driveway | near -
+s  336 (442.0,36.2,-150.9) ground 36.26 Ground_House3 straight descending property driveway | near -
+s  338 (443.7,37.3,-150.5) ground 37.29 Ground_House3 straight descending property driveway | near -
+s  340 (445.4,38.3,-150.1) ground 38.33 Ground_House3 straight descending property driveway | near -
+s  342 (447.0,39.3,-149.7) ground 39.36 Ground_House3 straight descending property driveway | near -
+s  344 (448.7,40.4,-149.3) ground 40.39 Ground_House3 straight descending property driveway | near -
+s  346 (450.3,41.4,-148.9) ground 41.43 Ground_House3 straight descending property driveway | near -
+s  348 (452.0,42.4,-148.5) ground 42.46 Ground_House3 straight descending property driveway | near -
+s  350 (453.7,43.5,-148.0) ground 43.50 Ground_House3 straight descending property driveway | near -
+s  352 (455.3,44.5,-147.6) ground 44.53 Ground_House3 straight descending property driveway | near -
+s  354 (457.0,45.5,-147.2) ground 45.56 Ground_House3 straight descending property driveway | near -
+s  356 (458.6,46.6,-146.8) ground 46.60 Ground_House3 straight descending property driveway | near -
+s  358 (460.3,47.6,-146.4) ground 47.63 Ground_House3 straight descending property driveway | near -
+s  360 (462.0,48.7,-146.0) ground 48.66 Ground_House3 straight descending property driveway | near -
+s  362 (463.6,49.7,-145.5) ground 49.70 Ground_House3 straight descending property driveway | near -
+s  364 (465.3,50.7,-145.1) ground 50.73 Ground_House3 straight descending property driveway | near -
+s  366 (466.9,51.8,-144.7) ground 51.77 Ground_House3 straight descending property driveway | near -
+s  368 (468.6,52.8,-144.3) ground 52.80 Ground_House3 straight descending property driveway | near -
+s  370 (470.3,53.8,-143.9) ground 53.83 Ground_House3 straight descending property driveway | near -
+s  372 (471.9,54.9,-143.5) ground 54.87 Ground_House3 straight descending property driveway | near -
+s  374 (473.6,55.9,-143.1) ground 55.90 Ground_House3 straight descending property driveway | near -
+s  376 (475.2,56.9,-142.6) ground 56.93 Ground_House3 straight descending property driveway | near -
+s  378 (476.9,58.0,-142.2) ground 57.97 Ground_House3 straight descending property driveway | near -
+s  380 (478.6,59.0,-141.8) ground 59.00 Ground_House3 straight descending property driveway | near -
+s  382 (480.2,60.0,-141.4) ground 60.04 Ground_House3 straight descending property driveway | near -
+s  384 (481.9,61.1,-141.0) ground 61.07 Ground_House3 straight descending property driveway | near -
+s  386 (483.5,62.1,-140.6) ground 62.10 Ground_House3 straight descending property driveway | near -
+s  388 (485.2,63.1,-140.2) ground 63.14 Ground_House3 straight descending property driveway | near -
+s  390 (486.9,64.2,-139.7) ground 64.17 Ground_House3 straight descending property driveway | near -
+s  392 (488.5,65.2,-139.3) ground 65.20 Ground_House3 straight descending property driveway | near -
+s  394 (490.2,66.3,-138.9) ground 66.24 Ground_House3 straight descending property driveway | near -
+s  396 (491.8,67.3,-138.5) ground 67.44 Ground_House3 straight descending property driveway | near -
+s  398 (493.5,68.3,-138.1) ground 69.95 Ground_House3 straight descending property driveway | near -
+s  400 (495.2,69.4,-137.7) ground 73.25 Ground_House3 straight descending property driveway | near -
+s  402 (496.8,70.4,-137.3) ground 76.68 Ground_640_240 | near -
+s  404 (498.5,71.4,-136.8) ground 79.37 Ground_640_240 | near -
+s  406 (500.2,72.5,-136.4) ground 80.85 Ground_House3 supported valley driveway | near -
+s  408 (501.8,73.5,-136.0) ground 81.17 Ground_House3 supported valley driveway | near Phase 3 - Race Systems 13.5m y82.5
+s  410 (503.5,74.5,-135.6) ground 81.47 Ground_House3 supported valley driveway | near Phase 3 - Race Systems 11.8m y82.5
+s  412 (505.1,75.6,-135.2) ground 81.69 Ground_House3 supported valley driveway | near Phase 3 - Race Systems 10.2m y82.0
+s  414 (506.8,76.6,-134.8) ground 81.89 Ground_House3 supported valley driveway | near Phase 3 - Race Systems 8.5m y82.0
+s  416 (508.5,77.6,-134.4) ground 90.36 House 3 / Rocky Way Acres entrance | near Phase 3 - Race Systems 6.8m y82.0
+s  418 (510.1,78.7,-133.9) ground 82.08 Ground_House3 supported valley driveway | near Phase 3 - Race Systems 5.1m y82.0
+s  420 (511.8,79.7,-133.5) ground 82.00 Ground_House3 supported valley driveway | near Phase 3 - Race Systems 3.4m y82.0
+s  422 (513.4,80.7,-133.1) ground 81.93 Ground_House3 supported valley driveway | near Phase 3 - Race Systems 1.8m y82.0
+s  424 (515.1,81.8,-132.7) ground 81.85 Ground_House3 supported valley driveway | near Phase 3 - Race Systems 0.8m y82.0
+SCENE DansBackyardReverse
+s    0 (515.1,81.8,-132.7) ground 81.79 Ground_640_240 | near Phase 3 - Race Systems 0.8m y82.0
+s    2 (513.3,82.0,-133.5) ground 81.79 Ground_640_240 | near Phase 3 - Race Systems 2.1m y82.0
+s    4 (511.4,82.3,-134.3) ground 81.79 Ground_640_240 | near Phase 3 - Race Systems 4.0m y82.0
+s    6 (509.6,82.4,-135.1) ground 81.85 Ground_House3 supported valley driveway | near Phase 3 - Race Systems 6.0m y82.0
+s    8 (507.8,82.5,-135.9) ground 81.86 Ground_House3 supported valley driveway | near Phase 3 - Race Systems 8.0m y82.0
+s   10 (506.0,82.4,-136.7) ground 81.71 Ground_House3 supported valley driveway | near Phase 3 - Race Systems 10.0m y82.0
+s   12 (504.2,82.2,-137.6) ground 81.46 Ground_House3 supported valley driveway | near Phase 3 - Race Systems 12.0m y82.0
+s   14 (502.4,81.8,-138.2) ground 81.13 Ground_House3 supported valley driveway | near Phase 3 - Race Systems 13.9m y82.0
+s   16 (500.5,81.3,-138.9) ground 80.76 Ground_House3 supported valley driveway | near -
+s   18 (498.7,80.8,-139.5) ground 78.11 Ground_House3 straight descending property driveway | near -
+s   20 (496.9,80.3,-140.2) ground 74.58 Ground_House3 straight descending property driveway | near -
+s   22 (495.1,79.7,-141.0) ground 70.71 Ground_640_240 | near -
+s   24 (493.5,79.2,-142.0) ground 67.93 Ground_640_240 | near -
+s   26 (491.9,78.7,-143.1) ground 67.35 Ground_640_240 | near -
+s   28 (490.5,78.2,-144.4) ground 67.51 Ground_640_240 | near -
+s   30 (489.3,77.7,-145.9) ground 69.51 Ground_640_240 | near -
+s   32 (488.2,77.4,-147.6) ground 73.11 Ground_640_240 | near -
+s   34 (487.2,77.0,-149.3) ground 75.35 Ground_640_240 | near -
+s   36 (486.4,76.7,-151.1) ground 76.67 Ground_640_240 | near -
+s   38 (485.6,76.4,-152.9) ground 76.44 Ground_640_240 | near -
+s   40 (484.8,76.1,-154.7) ground 76.12 Ground_640_240 | near -
+s   42 (484.1,75.8,-156.5) ground 75.80 Ground_640_240 | near -
+s   44 (483.3,75.4,-158.4) ground 75.47 Ground_640_240 | near -
+s   46 (482.5,75.1,-160.2) ground 75.12 Ground_640_240 | near -
+s   48 (481.7,74.7,-162.0) ground 74.75 Ground_640_240 | near -
+s   50 (480.9,74.4,-163.7) ground 74.36 Ground_640_240 | near -
+s   52 (480.0,73.9,-165.5) ground 73.95 Ground_640_240 | near -
+s   54 (479.1,73.5,-167.2) ground 73.51 Ground_560_240 | near -
+s   56 (478.1,73.0,-168.9) ground 73.03 Ground_560_240 | near -
+s   58 (477.1,72.5,-170.5) ground 72.54 Ground_560_240 | near -
+s   60 (476.0,72.0,-172.2) ground 72.03 Ground_560_240 | near -
+s   62 (475.0,71.5,-173.8) ground 71.51 Ground_560_240 | near -
+s   64 (474.0,71.0,-175.4) ground 70.98 Ground_560_240 | near -
+s   66 (473.0,70.4,-177.1) ground 70.44 Ground_560_240 | near -
+s   68 (472.0,69.9,-178.7) ground 69.89 Ground_560_240 | near -
+s   70 (471.0,69.3,-180.3) ground 69.33 Ground_560_240 | near -
+s   72 (469.9,68.8,-181.9) ground 68.76 Ground_560_240 | near -
+s   74 (468.9,68.2,-183.5) ground 68.19 Ground_560_240 | near -
+s   76 (467.8,67.6,-185.1) ground 67.61 Ground_560_240 | near -
+s   78 (466.7,67.0,-186.7) ground 67.03 Ground_560_240 | near -
+s   80 (465.5,66.4,-188.2) ground 66.45 Ground_560_240 | near -
+s   82 (464.4,65.9,-189.8) ground 65.86 Ground_560_240 | near -
+s   84 (463.2,65.3,-191.3) ground 65.27 Ground_560_240 | near -
+s   86 (462.0,64.7,-192.7) ground 64.68 Ground_560_240 | near -
+s   88 (460.7,64.1,-194.2) ground 64.08 Ground_560_240 | near -
+s   90 (459.4,63.5,-195.6) ground 63.49 Ground_560_240 | near -
+s   92 (458.1,62.9,-197.0) ground 62.91 Ground_560_240 | near -
+s   94 (456.8,62.3,-198.3) ground 62.32 Ground_560_240 | near -
+s   96 (455.3,61.7,-199.6) ground 61.73 Ground_560_240 | near -
+s   98 (453.9,61.1,-200.8) ground 61.15 Ground_560_240 | near -
+s  100 (452.4,60.6,-202.0) ground 60.56 Ground_560_240 | near -
+s  102 (450.8,60.0,-203.2) ground 59.98 Ground_560_240 | near -
+s  104 (449.3,59.4,-204.3) ground 59.39 Ground_560_240 | near -
+s  106 (447.7,58.8,-205.3) ground 58.81 Ground_560_240 | near -
+s  108 (446.1,58.2,-206.4) ground 58.23 Ground_560_240 | near -
+s  110 (444.5,57.7,-207.4) ground 57.65 Ground_560_240 | near -
+s  112 (442.8,57.1,-208.4) ground 57.07 Ground_560_240 | near -
+s  114 (441.2,56.5,-209.4) ground 56.49 Ground_560_240 | near -
+s  116 (439.6,55.9,-210.3) ground 55.91 Ground_560_240 | near -
+s  118 (437.9,55.3,-211.3) ground 55.34 Ground_560_240 | near -
+s  120 (436.2,54.8,-212.2) ground 54.76 Ground_560_240 | near -
+s  122 (434.6,54.2,-213.2) ground 54.18 Ground_560_240 | near -
+s  124 (432.9,53.6,-214.1) ground 53.60 Ground_560_240 | near -
+s  126 (431.2,53.0,-215.1) ground 53.02 Ground_560_240 | near -
+s  128 (429.6,52.4,-216.0) ground 52.44 Ground_560_240 | near -
+s  130 (427.9,51.9,-217.0) ground 51.86 Ground_560_240 | near -
+s  132 (426.3,51.3,-218.0) ground 51.28 Ground_560_240 | near -
+s  134 (424.6,50.7,-219.0) ground 50.70 Ground_560_240 | near -
+s  136 (423.0,50.1,-220.0) ground 50.12 Ground_560_240 | near -
+s  138 (421.4,49.5,-221.0) ground 49.53 Ground_560_240 | near -
+s  140 (419.8,48.9,-222.1) ground 48.94 Ground_560_240 | near -
+s  142 (418.3,48.4,-223.3) ground 48.35 Ground_560_240 | near -
+s  144 (416.8,47.8,-224.5) ground 47.77 Ground_560_240 | near -
+s  146 (415.4,47.2,-225.7) ground 47.19 Ground_560_240 | near -
+s  148 (414.0,46.6,-227.1) ground 46.61 Ground_560_240 | near -
+s  150 (412.6,46.0,-228.4) ground 46.04 Ground_560_240 | near -
+s  152 (411.3,45.5,-229.8) ground 45.47 Ground_560_240 | near -
+s  154 (410.0,44.9,-231.2) ground 44.90 Ground_560_240 | near -
+s  156 (408.7,44.3,-232.6) ground 44.33 Ground_560_240 | near -
+s  158 (407.3,43.8,-233.9) ground 43.76 Ground_560_240 | near -
+s  160 (406.0,43.2,-235.3) ground 43.18 Ground_560_240 | near -
+s  162 (404.6,42.6,-236.6) ground 42.60 Ground_560_240 | near -
+s  164 (403.2,42.0,-237.9) ground 42.00 Ground_560_240 | near -
+s  166 (401.7,41.4,-239.1) ground 41.40 Ground_560_240 | near -
+s  168 (400.2,40.8,-240.2) ground 40.79 Ground_560_240 | near -
+s  170 (398.5,40.2,-241.1) ground 40.17 Ground_560_240 | near -
+s  172 (396.7,39.6,-241.7) ground 39.55 Ground_560_240 | near -
+s  174 (394.8,39.0,-242.0) ground 38.96 Ground_560_240 | near -
+s  176 (392.9,38.4,-241.9) ground 38.42 Ground_560_240 | near -
+s  178 (391.0,37.9,-241.4) ground 37.93 Ground_560_240 | near -
+s  180 (389.2,37.5,-240.8) ground 37.50 Ground_560_240 | near -
+s  182 (387.4,37.1,-240.0) ground 37.12 Ground_560_240 | near -
+s  184 (385.6,36.8,-239.1) ground 36.77 Ground_560_240 | near -
+s  186 (384.0,36.4,-238.0) ground 36.45 Ground_560_240 | near -
+s  188 (382.3,36.1,-236.9) ground 36.15 Ground_560_240 | near -
+s  190 (380.8,35.9,-235.7) ground 35.86 Ground_560_240 | near -
+s  192 (379.2,35.6,-234.4) ground 35.60 Ground_560_240 | near -
+s  194 (377.8,35.3,-233.1) ground 35.34 Ground_560_240 | near -
+s  196 (376.4,35.1,-231.7) ground 35.10 Ground_560_240 | near -
+s  198 (375.1,34.9,-230.2) ground 34.86 Ground_560_240 | near -
+s  200 (373.8,34.6,-228.7) ground 34.63 Ground_560_240 | near -
+s  202 (372.7,34.4,-227.0) ground 34.40 Ground_560_240 | near -
+s  204 (371.7,34.2,-225.3) ground 34.17 Ground_560_240 | near -
+s  206 (370.8,33.9,-223.5) ground 33.96 Ground_560_240 | near -
+s  208 (370.2,33.7,-221.6) ground 33.75 Ground_560_240 | near -
+s  210 (369.8,33.6,-219.7) ground 33.60 Ground_560_240 | near -
+s  212 (369.6,33.5,-217.7) ground 33.48 Ground_560_240 | near -
+s  214 (369.5,33.4,-215.7) ground 33.38 Ground_560_240 | near -
+s  216 (369.5,33.3,-213.7) ground 33.31 Ground_560_240 | near -
+s  218 (369.7,33.2,-211.7) ground 33.25 Ground_560_240 | near -
+s  220 (369.9,33.2,-209.7) ground 33.20 Ground_560_240 | near -
+s  222 (370.2,33.2,-207.8) ground 33.16 Ground_560_240 | near -
+s  224 (370.6,33.1,-205.8) ground 33.13 Ground_560_240 | near -
+s  226 (371.1,33.1,-203.9) ground 33.29 Ground_560_240 | near -
+s  228 (371.7,33.1,-202.0) ground 33.40 Ground_560_240 | near -
+s  230 (372.4,33.1,-200.1) ground 32.85 Ground_560_240 | near -
+s  232 (373.2,33.1,-198.2) ground 32.85 Ground_560_240 | near -
+s  234 (374.1,33.0,-196.5) ground 32.85 Ground_560_240 | near -
+s  236 (375.2,33.0,-194.8) ground 32.85 Ground_560_240 | near -
+s  238 (376.4,33.0,-193.2) ground 32.85 Ground_560_240 | near -
+s  240 (377.8,32.9,-191.8) ground 32.85 Ground_560_240 | near -
+s  242 (379.4,32.9,-190.5) ground 32.85 Ground_560_240 | near -
+s  244 (381.0,32.9,-189.4) ground 32.85 Ground_560_240 | near -
+s  246 (382.7,32.9,-188.4) ground 32.85 Ground_560_240 | near -
+s  248 (384.5,32.9,-187.5) ground 32.85 Ground_560_240 | near -
+s  250 (386.4,32.9,-186.7) ground 32.85 Ground_560_240 | near -
+s  252 (388.2,33.0,-185.9) ground 32.85 Ground_560_240 | near -
+s  254 (390.1,33.0,-185.3) ground 32.85 Ground_560_240 | near -
+s  256 (392.0,33.0,-184.7) ground 33.37 Ground_560_240 | near -
+s  258 (394.0,33.0,-184.2) ground 33.39 Ground_560_240 | near -
+s  260 (395.9,33.0,-183.7) ground 33.19 Ground_560_240 | near -
+s  262 (397.8,33.0,-183.2) ground 33.00 Ground_560_240 | near -
+s  264 (399.8,33.0,-182.9) ground 33.00 Ground_560_240 | near -
+s  266 (401.8,33.0,-182.7) ground 33.00 Ground_560_240 | near -
+s  268 (403.8,33.0,-182.6) ground 33.00 Ground_560_240 | near -
+s  270 (405.8,33.0,-182.7) ground 33.00 Ground_560_240 | near -
+s  272 (407.8,33.0,-182.9) ground 33.01 Ground_560_240 | near -
+s  274 (409.8,33.0,-183.1) ground 33.01 Ground_560_240 | near -
+s  276 (411.8,33.0,-183.4) ground 33.01 Ground_560_240 | near -
+s  278 (413.7,33.0,-183.7) ground 33.01 Ground_560_240 | near -
+s  280 (415.7,33.0,-183.9) ground 33.01 Ground_560_240 | near -
+s  282 (417.7,33.0,-184.2) ground 33.02 Ground_560_240 | near -
+s  284 (419.7,33.0,-184.5) ground 33.02 Ground_560_240 | near -
+s  286 (421.7,33.0,-184.7) ground 33.02 Ground_560_240 | near -
+s  288 (423.7,33.0,-184.8) ground 33.02 Ground_560_240 | near -
+s  290 (425.7,33.0,-184.9) ground 33.02 Ground_560_240 | near -
+s  292 (427.7,33.0,-184.8) ground 33.02 Ground_560_240 | near -
+s  294 (429.6,33.0,-184.5) ground 33.01 Ground_560_240 | near -
+s  296 (431.5,33.0,-183.9) ground 33.01 Ground_560_240 | near -
+s  298 (433.2,33.0,-182.8) ground 33.00 Ground_560_240 | near -
+s  300 (434.5,33.0,-181.3) ground 32.99 Ground_560_240 | near -
+s  302 (435.3,33.0,-179.4) ground 32.97 Ground_560_240 | near -
+s  304 (435.9,33.0,-177.5) ground 32.96 Ground_560_240 | near -
+s  306 (436.3,32.9,-175.6) ground 32.94 Ground_560_240 | near -
+s  308 (436.6,32.9,-173.6) ground 32.92 Ground_560_240 | near -
+s  310 (436.7,32.9,-171.6) ground 32.91 Ground_560_240 | near -
+s  312 (436.8,32.9,-169.6) ground 32.89 Ground_560_240 | near -
+s  314 (436.9,32.9,-167.6) ground 32.88 Ground_560_240 | near -
+s  316 (436.8,32.9,-165.6) ground 32.86 Ground_560_240 | near -
+s  318 (436.8,32.8,-163.6) ground 32.83 Ground_560_240 | near -
+s  320 (436.7,32.8,-161.6) ground 32.78 Ground_560_240 | near -
+s  322 (436.6,32.8,-159.6) ground 32.75 Ground_560_240 | near -
+s  324 (436.5,32.8,-157.6) ground 32.77 Ground_560_240 | near -
+s  326 (436.4,32.8,-155.6) ground 32.83 Ground_560_240 | near -
+s  328 (436.4,32.8,-153.6) ground 32.89 Ground_560_240 | near -
+s  330 (437.1,33.1,-152.2) ground 33.28 Ground_House3 straight descending property driveway | near -
+s  332 (438.7,34.2,-151.8) ground 34.19 Ground_House3 straight descending property driveway | near -
+s  334 (440.4,35.2,-151.4) ground 35.23 Ground_House3 straight descending property driveway | near -
+s  336 (442.0,36.2,-150.9) ground 36.26 Ground_House3 straight descending property driveway | near -
+s  338 (443.7,37.3,-150.5) ground 37.29 Ground_House3 straight descending property driveway | near -
+s  340 (445.4,38.3,-150.1) ground 38.33 Ground_House3 straight descending property driveway | near -
+s  342 (447.0,39.3,-149.7) ground 39.36 Ground_House3 straight descending property driveway | near -
+s  344 (448.7,40.4,-149.3) ground 40.39 Ground_House3 straight descending property driveway | near -
+s  346 (450.3,41.4,-148.9) ground 41.43 Ground_House3 straight descending property driveway | near -
+s  348 (452.0,42.4,-148.5) ground 42.46 Ground_House3 straight descending property driveway | near -
+s  350 (453.7,43.5,-148.0) ground 43.50 Ground_House3 straight descending property driveway | near -
+s  352 (455.3,44.5,-147.6) ground 44.53 Ground_House3 straight descending property driveway | near -
+s  354 (457.0,45.5,-147.2) ground 45.56 Ground_House3 straight descending property driveway | near -
+s  356 (458.6,46.6,-146.8) ground 46.60 Ground_House3 straight descending property driveway | near -
+s  358 (460.3,47.6,-146.4) ground 47.63 Ground_House3 straight descending property driveway | near -
+s  360 (462.0,48.7,-146.0) ground 48.66 Ground_House3 straight descending property driveway | near -
+s  362 (463.6,49.7,-145.5) ground 49.70 Ground_House3 straight descending property driveway | near -
+s  364 (465.3,50.7,-145.1) ground 50.73 Ground_House3 straight descending property driveway | near -
+s  366 (466.9,51.8,-144.7) ground 51.77 Ground_House3 straight descending property driveway | near -
+s  368 (468.6,52.8,-144.3) ground 52.80 Ground_House3 straight descending property driveway | near -
+s  370 (470.3,53.8,-143.9) ground 53.83 Ground_House3 straight descending property driveway | near -
+s  372 (471.9,54.9,-143.5) ground 54.87 Ground_House3 straight descending property driveway | near -
+s  374 (473.6,55.9,-143.1) ground 55.90 Ground_House3 straight descending property driveway | near -
+s  376 (475.2,56.9,-142.6) ground 56.93 Ground_House3 straight descending property driveway | near -
+s  378 (476.9,58.0,-142.2) ground 57.97 Ground_House3 straight descending property driveway | near -
+s  380 (478.6,59.0,-141.8) ground 59.00 Ground_House3 straight descending property driveway | near -
+s  382 (480.2,60.0,-141.4) ground 60.04 Ground_House3 straight descending property driveway | near -
+s  384 (481.9,61.1,-141.0) ground 61.07 Ground_House3 straight descending property driveway | near -
+s  386 (483.5,62.1,-140.6) ground 62.10 Ground_House3 straight descending property driveway | near -
+s  388 (485.2,63.1,-140.2) ground 63.14 Ground_House3 straight descending property driveway | near -
+s  390 (486.9,64.2,-139.7) ground 64.17 Ground_House3 straight descending property driveway | near -
+s  392 (488.5,65.2,-139.3) ground 65.20 Ground_House3 straight descending property driveway | near -
+s  394 (490.2,66.3,-138.9) ground 66.24 Ground_House3 straight descending property driveway | near -
+s  396 (491.8,67.3,-138.5) ground 67.47 Ground_House3 straight descending property driveway | near -
+s  398 (493.5,68.3,-138.1) ground 69.96 Ground_House3 straight descending property driveway | near -
+s  400 (495.2,69.4,-137.7) ground 73.26 Ground_House3 straight descending property driveway | near -
+s  402 (496.8,70.4,-137.3) ground 76.64 Ground_640_240 | near -
+s  404 (498.5,71.4,-136.8) ground 79.32 Ground_640_240 | near -
+s  406 (500.2,72.5,-136.4) ground 80.85 Ground_House3 supported valley driveway | near -
+s  408 (501.8,73.5,-136.0) ground 81.17 Ground_House3 supported valley driveway | near Phase 3 - Race Systems 13.5m y82.5
+s  410 (503.5,74.5,-135.6) ground 81.47 Ground_House3 supported valley driveway | near Phase 3 - Race Systems 11.8m y82.5
+s  412 (505.1,75.6,-135.2) ground 81.69 Ground_House3 supported valley driveway | near Phase 3 - Race Systems 10.2m y82.0
+s  414 (506.8,76.6,-134.8) ground 81.91 Ground_House3 supported valley driveway | near Phase 3 - Race Systems 8.5m y82.0
+s  416 (508.5,77.6,-134.4) ground 90.36 House 3 / Rocky Way Acres entrance | near Phase 3 - Race Systems 6.8m y82.0
+s  418 (510.1,78.7,-133.9) ground 82.08 Ground_House3 supported valley driveway | near Phase 3 - Race Systems 5.1m y82.0
+s  420 (511.8,79.7,-133.5) ground 81.94 Ground_640_240 | near Phase 3 - Race Systems 3.4m y82.0
+s  422 (513.4,80.7,-133.1) ground 81.86 Ground_640_240 | near Phase 3 - Race Systems 1.8m y82.0
+s  424 (515.1,81.8,-132.7) ground 81.79 Ground_640_240 | near Phase 3 - Race Systems 0.8m y82.0
+SCENE DansBackyardForward
+s    0 (515.1,81.8,-132.7) ground 81.85 Ground_House3 supported valley driveway | near Phase 3 - Race Systems 0.8m y82.0
+s    2 (513.3,82.0,-133.5) ground 81.85 Ground_House3 supported valley driveway | near Phase 3 - Race Systems 2.1m y82.0
+s    4 (511.4,82.3,-134.3) ground 81.86 Ground_House3 supported valley driveway | near Phase 3 - Race Systems 4.0m y82.0
+s    6 (509.6,82.4,-135.1) ground 81.85 Ground_House3 supported valley driveway | near Phase 3 - Race Systems 6.0m y82.0
+s    8 (507.8,82.5,-135.9) ground 81.86 Ground_House3 supported valley driveway | near Phase 3 - Race Systems 8.0m y82.0
+s   10 (506.0,82.4,-136.7) ground 81.71 Ground_House3 supported valley driveway | near Phase 3 - Race Systems 10.0m y82.0
+s   12 (504.2,82.2,-137.6) ground 81.46 Ground_House3 supported valley driveway | near Phase 3 - Race Systems 12.0m y82.0
+s   14 (502.4,81.8,-138.2) ground 81.13 Ground_House3 supported valley driveway | near Phase 3 - Race Systems 13.9m y82.0
+s   16 (500.5,81.3,-138.9) ground 80.76 Ground_House3 supported valley driveway | near -
+s   18 (498.7,80.8,-139.5) ground 78.11 Ground_House3 straight descending property driveway | near -
+s   20 (496.9,80.3,-140.2) ground 74.58 Ground_House3 straight descending property driveway | near -
+s   22 (495.1,79.7,-141.0) ground 70.71 Ground_640_240 | near -
+s   24 (493.5,79.2,-142.0) ground 67.93 Ground_640_240 | near -
+s   26 (491.9,78.7,-143.1) ground 67.35 Ground_640_240 | near -
+s   28 (490.5,78.2,-144.4) ground 67.51 Ground_640_240 | near -
+s   30 (489.3,77.7,-145.9) ground 69.51 Ground_640_240 | near -
+s   32 (488.2,77.4,-147.6) ground 73.11 Ground_640_240 | near -
+s   34 (487.2,77.0,-149.3) ground 75.35 Ground_640_240 | near -
+s   36 (486.4,76.7,-151.1) ground 76.67 Ground_640_240 | near -
+s   38 (485.6,76.4,-152.9) ground 76.44 Ground_640_240 | near -
+s   40 (484.8,76.1,-154.7) ground 76.12 Ground_640_240 | near -
+s   42 (484.1,75.8,-156.5) ground 75.80 Ground_640_240 | near -
+s   44 (483.3,75.4,-158.4) ground 75.47 Ground_640_240 | near -
+s   46 (482.5,75.1,-160.2) ground 75.12 Ground_640_240 | near -
+s   48 (481.7,74.7,-162.0) ground 74.75 Ground_640_240 | near -
+s   50 (480.9,74.4,-163.7) ground 74.36 Ground_640_240 | near -
+s   52 (480.0,73.9,-165.5) ground 73.95 Ground_640_240 | near -
+s   54 (479.1,73.5,-167.2) ground 73.51 Ground_560_240 | near -
+s   56 (478.1,73.0,-168.9) ground 73.03 Ground_560_240 | near -
+s   58 (477.1,72.5,-170.5) ground 72.54 Ground_560_240 | near -
+s   60 (476.0,72.0,-172.2) ground 72.03 Ground_560_240 | near -
+s   62 (475.0,71.5,-173.8) ground 71.51 Ground_560_240 | near -
+s   64 (474.0,71.0,-175.4) ground 70.98 Ground_560_240 | near -
+s   66 (473.0,70.4,-177.1) ground 70.44 Ground_560_240 | near -
+s   68 (472.0,69.9,-178.7) ground 69.89 Ground_560_240 | near -
+s   70 (471.0,69.3,-180.3) ground 69.33 Ground_560_240 | near -
+s   72 (469.9,68.8,-181.9) ground 68.76 Ground_560_240 | near -
+s   74 (468.9,68.2,-183.5) ground 68.19 Ground_560_240 | near -
+s   76 (467.8,67.6,-185.1) ground 67.61 Ground_560_240 | near -
+s   78 (466.7,67.0,-186.7) ground 67.03 Ground_560_240 | near -
+s   80 (465.5,66.4,-188.2) ground 66.45 Ground_560_240 | near -
+s   82 (464.4,65.9,-189.8) ground 65.86 Ground_560_240 | near -
+s   84 (463.2,65.3,-191.3) ground 65.27 Ground_560_240 | near -
+s   86 (462.0,64.7,-192.7) ground 64.68 Ground_560_240 | near -
+s   88 (460.7,64.1,-194.2) ground 64.08 Ground_560_240 | near -
+s   90 (459.4,63.5,-195.6) ground 63.49 Ground_560_240 | near -
+s   92 (458.1,62.9,-197.0) ground 62.91 Ground_560_240 | near -
+s   94 (456.8,62.3,-198.3) ground 62.32 Ground_560_240 | near -
+s   96 (455.3,61.7,-199.6) ground 61.73 Ground_560_240 | near -
+s   98 (453.9,61.1,-200.8) ground 61.15 Ground_560_240 | near -
+s  100 (452.4,60.6,-202.0) ground 60.56 Ground_560_240 | near -
+s  102 (450.8,60.0,-203.2) ground 59.98 Ground_560_240 | near -
+s  104 (449.3,59.4,-204.3) ground 59.39 Ground_560_240 | near -
+s  106 (447.7,58.8,-205.3) ground 58.81 Ground_560_240 | near -
+s  108 (446.1,58.2,-206.4) ground 58.23 Ground_560_240 | near -
+s  110 (444.5,57.7,-207.4) ground 57.65 Ground_560_240 | near -
+s  112 (442.8,57.1,-208.4) ground 57.07 Ground_560_240 | near -
+s  114 (441.2,56.5,-209.4) ground 56.49 Ground_560_240 | near -
+s  116 (439.6,55.9,-210.3) ground 55.91 Ground_560_240 | near -
+s  118 (437.9,55.3,-211.3) ground 55.34 Ground_560_240 | near -
+s  120 (436.2,54.8,-212.2) ground 54.76 Ground_560_240 | near -
+s  122 (434.6,54.2,-213.2) ground 54.18 Ground_560_240 | near -
+s  124 (432.9,53.6,-214.1) ground 53.60 Ground_560_240 | near -
+s  126 (431.2,53.0,-215.1) ground 53.02 Ground_560_240 | near -
+s  128 (429.6,52.4,-216.0) ground 52.44 Ground_560_240 | near -
+s  130 (427.9,51.9,-217.0) ground 51.86 Ground_560_240 | near -
+s  132 (426.3,51.3,-218.0) ground 51.28 Ground_560_240 | near -
+s  134 (424.6,50.7,-219.0) ground 50.70 Ground_560_240 | near -
+s  136 (423.0,50.1,-220.0) ground 50.12 Ground_560_240 | near -
+s  138 (421.4,49.5,-221.0) ground 49.53 Ground_560_240 | near -
+s  140 (419.8,48.9,-222.1) ground 48.94 Ground_560_240 | near -
+s  142 (418.3,48.4,-223.3) ground 48.35 Ground_560_240 | near -
+s  144 (416.8,47.8,-224.5) ground 47.77 Ground_560_240 | near -
+s  146 (415.4,47.2,-225.7) ground 47.19 Ground_560_240 | near -
+s  148 (414.0,46.6,-227.1) ground 46.61 Ground_560_240 | near -
+s  150 (412.6,46.0,-228.4) ground 46.04 Ground_560_240 | near -
+s  152 (411.3,45.5,-229.8) ground 45.47 Ground_560_240 | near -
+s  154 (410.0,44.9,-231.2) ground 44.90 Ground_560_240 | near -
+s  156 (408.7,44.3,-232.6) ground 44.33 Ground_560_240 | near -
+s  158 (407.3,43.8,-233.9) ground 43.76 Ground_560_240 | near -
+s  160 (406.0,43.2,-235.3) ground 43.18 Ground_560_240 | near -
+s  162 (404.6,42.6,-236.6) ground 42.60 Ground_560_240 | near -
+s  164 (403.2,42.0,-237.9) ground 42.00 Ground_560_240 | near -
+s  166 (401.7,41.4,-239.1) ground 41.40 Ground_560_240 | near -
+s  168 (400.2,40.8,-240.2) ground 40.79 Ground_560_240 | near -
+s  170 (398.5,40.2,-241.1) ground 40.17 Ground_560_240 | near -
+s  172 (396.7,39.6,-241.7) ground 39.55 Ground_560_240 | near -
+s  174 (394.8,39.0,-242.0) ground 38.96 Ground_560_240 | near -
+s  176 (392.9,38.4,-241.9) ground 38.42 Ground_560_240 | near -
+s  178 (391.0,37.9,-241.4) ground 37.93 Ground_560_240 | near -
+s  180 (389.2,37.5,-240.8) ground 37.50 Ground_560_240 | near -
+s  182 (387.4,37.1,-240.0) ground 37.12 Ground_560_240 | near -
+s  184 (385.6,36.8,-239.1) ground 36.77 Ground_560_240 | near -
+s  186 (384.0,36.4,-238.0) ground 36.45 Ground_560_240 | near -
+s  188 (382.3,36.1,-236.9) ground 36.15 Ground_560_240 | near -
+s  190 (380.8,35.9,-235.7) ground 35.86 Ground_560_240 | near -
+s  192 (379.2,35.6,-234.4) ground 35.60 Ground_560_240 | near -
+s  194 (377.8,35.3,-233.1) ground 35.34 Ground_560_240 | near -
+s  196 (376.4,35.1,-231.7) ground 35.10 Ground_560_240 | near -
+s  198 (375.1,34.9,-230.2) ground 34.86 Ground_560_240 | near -
+s  200 (373.8,34.6,-228.7) ground 34.63 Ground_560_240 | near -
+s  202 (372.7,34.4,-227.0) ground 34.40 Ground_560_240 | near -
+s  204 (371.7,34.2,-225.3) ground 34.17 Ground_560_240 | near -
+s  206 (370.8,33.9,-223.5) ground 33.96 Ground_560_240 | near -
+s  208 (370.2,33.7,-221.6) ground 33.75 Ground_560_240 | near -
+s  210 (369.8,33.6,-219.7) ground 33.60 Ground_560_240 | near -
+s  212 (369.6,33.5,-217.7) ground 33.48 Ground_560_240 | near -
+s  214 (369.5,33.4,-215.7) ground 33.38 Ground_560_240 | near -
+s  216 (369.5,33.3,-213.7) ground 33.31 Ground_560_240 | near -
+s  218 (369.7,33.2,-211.7) ground 33.25 Ground_560_240 | near -
+s  220 (369.9,33.2,-209.7) ground 33.20 Ground_560_240 | near -
+s  222 (370.2,33.2,-207.8) ground 33.16 Ground_560_240 | near -
+s  224 (370.6,33.1,-205.8) ground 33.13 Ground_560_240 | near -
+s  226 (371.1,33.1,-203.9) ground 33.29 Ground_560_240 | near -
+s  228 (371.7,33.1,-202.0) ground 33.40 Ground_560_240 | near -
+s  230 (372.4,33.1,-200.1) ground 32.85 Ground_560_240 | near -
+s  232 (373.2,33.1,-198.2) ground 32.85 Ground_560_240 | near -
+s  234 (374.1,33.0,-196.5) ground 32.85 Ground_560_240 | near -
+s  236 (375.2,33.0,-194.8) ground 32.85 Ground_560_240 | near -
+s  238 (376.4,33.0,-193.2) ground 32.85 Ground_560_240 | near -
+s  240 (377.8,32.9,-191.8) ground 32.85 Ground_560_240 | near -
+s  242 (379.4,32.9,-190.5) ground 32.85 Ground_560_240 | near -
+s  244 (381.0,32.9,-189.4) ground 32.85 Ground_560_240 | near -
+s  246 (382.7,32.9,-188.4) ground 32.85 Ground_560_240 | near -
+s  248 (384.5,32.9,-187.5) ground 32.85 Ground_560_240 | near -
+s  250 (386.4,32.9,-186.7) ground 32.85 Ground_560_240 | near -
+s  252 (388.2,33.0,-185.9) ground 32.85 Ground_560_240 | near -
+s  254 (390.1,33.0,-185.3) ground 32.85 Ground_560_240 | near -
+s  256 (392.0,33.0,-184.7) ground 33.37 Ground_560_240 | near -
+s  258 (394.0,33.0,-184.2) ground 33.39 Ground_560_240 | near -
+s  260 (395.9,33.0,-183.7) ground 33.19 Ground_560_240 | near -
+s  262 (397.8,33.0,-183.2) ground 33.00 Ground_560_240 | near -
+s  264 (399.8,33.0,-182.9) ground 33.00 Ground_560_240 | near -
+s  266 (401.8,33.0,-182.7) ground 33.00 Ground_560_240 | near -
+s  268 (403.8,33.0,-182.6) ground 33.00 Ground_560_240 | near -
+s  270 (405.8,33.0,-182.7) ground 33.00 Ground_560_240 | near -
+s  272 (407.8,33.0,-182.9) ground 33.01 Ground_560_240 | near -
+s  274 (409.8,33.0,-183.1) ground 33.01 Ground_560_240 | near -
+s  276 (411.8,33.0,-183.4) ground 33.01 Ground_560_240 | near -
+s  278 (413.7,33.0,-183.7) ground 33.01 Ground_560_240 | near -
+s  280 (415.7,33.0,-183.9) ground 33.01 Ground_560_240 | near -
+s  282 (417.7,33.0,-184.2) ground 33.02 Ground_560_240 | near -
+s  284 (419.7,33.0,-184.5) ground 33.02 Ground_560_240 | near -
+s  286 (421.7,33.0,-184.7) ground 33.02 Ground_560_240 | near -
+s  288 (423.7,33.0,-184.8) ground 33.02 Ground_560_240 | near -
+s  290 (425.7,33.0,-184.9) ground 33.02 Ground_560_240 | near -
+s  292 (427.7,33.0,-184.8) ground 33.02 Ground_560_240 | near -
+s  294 (429.6,33.0,-184.5) ground 33.01 Ground_560_240 | near -
+s  296 (431.5,33.0,-183.9) ground 33.01 Ground_560_240 | near -
+s  298 (433.2,33.0,-182.8) ground 33.00 Ground_560_240 | near -
+s  300 (434.5,33.0,-181.3) ground 32.99 Ground_560_240 | near -
+s  302 (435.3,33.0,-179.4) ground 32.97 Ground_560_240 | near -
+s  304 (435.9,33.0,-177.5) ground 32.96 Ground_560_240 | near -
+s  306 (436.3,32.9,-175.6) ground 32.94 Ground_560_240 | near -
+s  308 (436.6,32.9,-173.6) ground 32.92 Ground_560_240 | near -
+s  310 (436.7,32.9,-171.6) ground 32.91 Ground_560_240 | near -
+s  312 (436.8,32.9,-169.6) ground 32.89 Ground_560_240 | near -
+s  314 (436.9,32.9,-167.6) ground 32.88 Ground_560_240 | near -
+s  316 (436.8,32.9,-165.6) ground 32.86 Ground_560_240 | near -
+s  318 (436.8,32.8,-163.6) ground 32.83 Ground_560_240 | near -
+s  320 (436.7,32.8,-161.6) ground 32.78 Ground_560_240 | near -
+s  322 (436.6,32.8,-159.6) ground 32.75 Ground_560_240 | near -
+s  324 (436.5,32.8,-157.6) ground 32.77 Ground_560_240 | near -
+s  326 (436.4,32.8,-155.6) ground 32.83 Ground_560_240 | near -
+s  328 (436.4,32.8,-153.6) ground 32.89 Ground_560_240 | near -
+s  330 (437.1,33.1,-152.2) ground 33.28 Ground_House3 straight descending property driveway | near -
+s  332 (438.7,34.2,-151.8) ground 34.19 Ground_House3 straight descending property driveway | near -
+s  334 (440.4,35.2,-151.4) ground 35.23 Ground_House3 straight descending property driveway | near -
+s  336 (442.0,36.2,-150.9) ground 36.26 Ground_House3 straight descending property driveway | near -
+s  338 (443.7,37.3,-150.5) ground 37.29 Ground_House3 straight descending property driveway | near -
+s  340 (445.4,38.3,-150.1) ground 38.33 Ground_House3 straight descending property driveway | near -
+s  342 (447.0,39.3,-149.7) ground 39.36 Ground_House3 straight descending property driveway | near -
+s  344 (448.7,40.4,-149.3) ground 40.39 Ground_House3 straight descending property driveway | near -
+s  346 (450.3,41.4,-148.9) ground 41.43 Ground_House3 straight descending property driveway | near -
+s  348 (452.0,42.4,-148.5) ground 42.46 Ground_House3 straight descending property driveway | near -
+s  350 (453.7,43.5,-148.0) ground 43.50 Ground_House3 straight descending property driveway | near -
+s  352 (455.3,44.5,-147.6) ground 44.53 Ground_House3 straight descending property driveway | near -
+s  354 (457.0,45.5,-147.2) ground 45.56 Ground_House3 straight descending property driveway | near -
+s  356 (458.6,46.6,-146.8) ground 46.60 Ground_House3 straight descending property driveway | near -
+s  358 (460.3,47.6,-146.4) ground 47.63 Ground_House3 straight descending property driveway | near -
+s  360 (462.0,48.7,-146.0) ground 48.66 Ground_House3 straight descending property driveway | near -
+s  362 (463.6,49.7,-145.5) ground 49.70 Ground_House3 straight descending property driveway | near -
+s  364 (465.3,50.7,-145.1) ground 50.73 Ground_House3 straight descending property driveway | near -
+s  366 (466.9,51.8,-144.7) ground 51.77 Ground_House3 straight descending property driveway | near -
+s  368 (468.6,52.8,-144.3) ground 52.80 Ground_House3 straight descending property driveway | near -
+s  370 (470.3,53.8,-143.9) ground 53.83 Ground_House3 straight descending property driveway | near -
+s  372 (471.9,54.9,-143.5) ground 54.87 Ground_House3 straight descending property driveway | near -
+s  374 (473.6,55.9,-143.1) ground 55.90 Ground_House3 straight descending property driveway | near -
+s  376 (475.2,56.9,-142.6) ground 56.93 Ground_House3 straight descending property driveway | near -
+s  378 (476.9,58.0,-142.2) ground 57.97 Ground_House3 straight descending property driveway | near -
+s  380 (478.6,59.0,-141.8) ground 59.00 Ground_House3 straight descending property driveway | near -
+s  382 (480.2,60.0,-141.4) ground 60.04 Ground_House3 straight descending property driveway | near -
+s  384 (481.9,61.1,-141.0) ground 61.07 Ground_House3 straight descending property driveway | near -
+s  386 (483.5,62.1,-140.6) ground 62.10 Ground_House3 straight descending property driveway | near -
+s  388 (485.2,63.1,-140.2) ground 63.14 Ground_House3 straight descending property driveway | near -
+s  390 (486.9,64.2,-139.7) ground 64.17 Ground_House3 straight descending property driveway | near -
+s  392 (488.5,65.2,-139.3) ground 65.20 Ground_House3 straight descending property driveway | near -
+s  394 (490.2,66.3,-138.9) ground 66.24 Ground_House3 straight descending property driveway | near -
+s  396 (491.8,67.3,-138.5) ground 67.47 Ground_House3 straight descending property driveway | near -
+s  398 (493.5,68.3,-138.1) ground 69.96 Ground_House3 straight descending property driveway | near -
+s  400 (495.2,69.4,-137.7) ground 73.26 Ground_House3 straight descending property driveway | near -
+s  402 (496.8,70.4,-137.3) ground 76.64 Ground_640_240 | near -
+s  404 (498.5,71.4,-136.8) ground 79.32 Ground_640_240 | near -
+s  406 (500.2,72.5,-136.4) ground 80.85 Ground_House3 supported valley driveway | near -
+s  408 (501.8,73.5,-136.0) ground 81.17 Ground_House3 supported valley driveway | near Phase 3 - Race Systems 13.5m y82.5
+s  410 (503.5,74.5,-135.6) ground 81.47 Ground_House3 supported valley driveway | near Phase 3 - Race Systems 11.8m y82.5
+s  412 (505.1,75.6,-135.2) ground 81.69 Ground_House3 supported valley driveway | near Phase 3 - Race Systems 10.2m y82.0
+s  414 (506.8,76.6,-134.8) ground 81.91 Ground_House3 supported valley driveway | near Phase 3 - Race Systems 8.5m y82.0
+s  416 (508.5,77.6,-134.4) ground 90.36 House 3 / Rocky Way Acres entrance | near Phase 3 - Race Systems 6.8m y82.0
+s  418 (510.1,78.7,-133.9) ground 82.08 Ground_House3 supported valley driveway | near Phase 3 - Race Systems 5.1m y82.0
+s  420 (511.8,79.7,-133.5) ground 82.00 Ground_House3 supported valley driveway | near Phase 3 - Race Systems 3.4m y82.0
+s  422 (513.4,80.7,-133.1) ground 81.93 Ground_House3 supported valley driveway | near Phase 3 - Race Systems 1.8m y82.0
+s  424 (515.1,81.8,-132.7) ground 81.85 Ground_House3 supported valley driveway | near Phase 3 - Race Systems 0.8m y82.0
+SCENE MountainLoop
+s    0 (515.1,81.8,-132.7) ground 81.85 Ground_House3 supported valley driveway | near Phase 3 - Race Systems 0.8m y82.0
+s    2 (513.3,82.0,-133.5) ground 81.85 Ground_House3 supported valley driveway | near Phase 3 - Race Systems 2.1m y82.0
+s    4 (511.4,82.3,-134.3) ground 81.86 Ground_House3 supported valley driveway | near Phase 3 - Race Systems 4.0m y82.0
+s    6 (509.6,82.4,-135.1) ground 81.85 Ground_House3 supported valley driveway | near Phase 3 - Race Systems 6.0m y82.0
+s    8 (507.8,82.5,-135.9) ground 81.84 Ground_House3 supported valley driveway | near Phase 3 - Race Systems 8.0m y82.0
+s   10 (506.0,82.4,-136.7) ground 81.71 Ground_House3 supported valley driveway | near Phase 3 - Race Systems 10.0m y82.0
+s   12 (504.2,82.2,-137.6) ground 81.46 Ground_House3 supported valley driveway | near Phase 3 - Race Systems 12.0m y82.0
+s   14 (502.4,81.8,-138.2) ground 81.13 Ground_House3 supported valley driveway | near Phase 3 - Race Systems 13.9m y82.0
+s   16 (500.5,81.3,-138.9) ground 80.76 Ground_House3 supported valley driveway | near -
+s   18 (498.7,80.8,-139.5) ground 78.19 Ground_640_240 | near -
+s   20 (496.9,80.3,-140.2) ground 74.59 Ground_640_240 | near -
+s   22 (495.1,79.7,-141.0) ground 70.66 Ground_640_240 | near -
+s   24 (493.5,79.2,-142.0) ground 67.85 Ground_640_240 | near -
+s   26 (491.9,78.7,-143.1) ground 66.82 Ground_640_240 | near -
+s   28 (490.5,78.2,-144.4) ground 67.33 Ground_640_240 | near -
+s   30 (489.3,77.7,-145.9) ground 69.47 Ground_640_240 | near -
+s   32 (488.2,77.4,-147.6) ground 73.15 Ground_640_240 | near -
+s   34 (487.2,77.0,-149.3) ground 76.18 Ground_640_240 | near -
+s   36 (486.4,76.7,-151.1) ground 76.75 Ground_640_240 | near -
+s   38 (485.6,76.4,-152.9) ground 76.44 Ground_640_240 | near -
+s   40 (484.8,76.1,-154.7) ground 76.13 Ground_640_240 | near -
+s   42 (484.1,75.8,-156.5) ground 75.80 Ground_640_240 | near -
+s   44 (483.3,75.4,-158.4) ground 75.47 Ground_640_240 | near -
+s   46 (482.5,75.1,-160.2) ground 75.12 Ground_640_240 | near -
+s   48 (481.7,74.7,-162.0) ground 74.75 Ground_640_240 | near -
+s   50 (480.9,74.4,-163.7) ground 74.36 Ground_640_240 | near -
+s   52 (480.0,73.9,-165.5) ground 73.95 Ground_640_240 | near -
+s   54 (479.1,73.5,-167.2) ground 73.51 Ground_560_240 | near -
+s   56 (478.1,73.0,-168.9) ground 73.04 Ground_560_240 | near -
+s   58 (477.1,72.5,-170.5) ground 72.54 Ground_560_240 | near -
+s   60 (476.0,72.0,-172.2) ground 72.04 Ground_560_240 | near -
+s   62 (475.0,71.5,-173.8) ground 71.51 Ground_560_240 | near -
+s   64 (474.0,71.0,-175.4) ground 70.98 Ground_560_240 | near -
+s   66 (473.0,70.4,-177.1) ground 70.44 Ground_560_240 | near -
+s   68 (472.0,69.9,-178.7) ground 69.89 Ground_560_240 | near -
+s   70 (471.0,69.3,-180.3) ground 69.33 Ground_560_240 | near -
+s   72 (469.9,68.8,-181.9) ground 68.76 Ground_560_240 | near -
+s   74 (468.9,68.2,-183.5) ground 68.19 Ground_560_240 | near -
+s   76 (467.8,67.6,-185.1) ground 67.61 Ground_560_240 | near -
+s   78 (466.7,67.0,-186.7) ground 67.03 Ground_560_240 | near -
+s   80 (465.5,66.4,-188.2) ground 66.45 Ground_560_240 | near -
+s   82 (464.4,65.9,-189.8) ground 65.86 Ground_560_240 | near -
+s   84 (463.2,65.3,-191.3) ground 65.27 Ground_560_240 | near -
+s   86 (462.0,64.7,-192.7) ground 64.68 Ground_560_240 | near -
+s   88 (460.7,64.1,-194.2) ground 64.09 Ground_560_240 | near -
+s   90 (459.4,63.5,-195.6) ground 63.49 Ground_560_240 | near -
+s   92 (458.1,62.9,-197.0) ground 62.90 Ground_560_240 | near -
+s   94 (456.8,62.3,-198.3) ground 62.32 Ground_560_240 | near -
+s   96 (455.3,61.7,-199.6) ground 61.73 Ground_560_240 | near -
+s   98 (453.9,61.1,-200.8) ground 61.15 Ground_560_240 | near -
+s  100 (452.4,60.6,-202.0) ground 60.56 Ground_560_240 | near -
+s  102 (450.8,60.0,-203.2) ground 59.98 Ground_560_240 | near -
+s  104 (449.3,59.4,-204.3) ground 59.39 Ground_560_240 | near -
+s  106 (447.7,58.8,-205.3) ground 58.81 Ground_560_240 | near -
+s  108 (446.1,58.2,-206.4) ground 58.23 Ground_560_240 | near -
+s  110 (444.5,57.7,-207.4) ground 57.65 Ground_560_240 | near -
+s  112 (442.8,57.1,-208.4) ground 57.07 Ground_560_240 | near -
+s  114 (441.2,56.5,-209.4) ground 56.49 Ground_560_240 | near -
+s  116 (439.6,55.9,-210.3) ground 55.91 Ground_560_240 | near -
+s  118 (437.9,55.3,-211.3) ground 55.33 Ground_560_240 | near -
+s  120 (436.2,54.8,-212.2) ground 54.76 Ground_560_240 | near -
+s  122 (434.6,54.2,-213.2) ground 54.18 Ground_560_240 | near -
+s  124 (432.9,53.6,-214.1) ground 53.60 Ground_560_240 | near -
+s  126 (431.2,53.0,-215.1) ground 53.02 Ground_560_240 | near -
+s  128 (429.6,52.4,-216.0) ground 52.44 Ground_560_240 | near -
+s  130 (427.9,51.9,-217.0) ground 51.86 Ground_560_240 | near -
+s  132 (426.3,51.3,-218.0) ground 51.28 Ground_560_240 | near -
+s  134 (424.6,50.7,-219.0) ground 50.70 Ground_560_240 | near -
+s  136 (423.0,50.1,-220.0) ground 50.11 Ground_560_240 | near -
+s  138 (421.4,49.5,-221.0) ground 49.53 Ground_560_240 | near -
+s  140 (419.8,48.9,-222.1) ground 48.94 Ground_560_240 | near -
+s  142 (418.3,48.4,-223.3) ground 48.35 Ground_560_240 | near -
+s  144 (416.8,47.8,-224.5) ground 47.77 Ground_560_240 | near -
+s  146 (415.4,47.2,-225.7) ground 47.19 Ground_560_240 | near -
+s  148 (414.0,46.6,-227.1) ground 46.62 Ground_560_240 | near -
+s  150 (412.6,46.0,-228.4) ground 46.04 Ground_560_240 | near -
+s  152 (411.3,45.5,-229.8) ground 45.47 Ground_560_240 | near -
+s  154 (410.0,44.9,-231.2) ground 44.90 Ground_560_240 | near -
+s  156 (408.7,44.3,-232.6) ground 44.33 Ground_560_240 | near -
+s  158 (407.3,43.8,-233.9) ground 43.76 Ground_560_240 | near -
+s  160 (406.0,43.2,-235.3) ground 43.18 Ground_560_240 | near -
+s  162 (404.6,42.6,-236.6) ground 42.60 Ground_560_240 | near -
+s  164 (403.2,42.0,-237.9) ground 42.01 Ground_560_240 | near -
+s  166 (401.7,41.4,-239.1) ground 41.40 Ground_560_240 | near -
+s  168 (400.2,40.8,-240.2) ground 40.79 Ground_560_240 | near -
+s  170 (398.5,40.2,-241.1) ground 40.17 Ground_560_240 | near -
+s  172 (396.7,39.6,-241.7) ground 39.55 Ground_560_240 | near -
+s  174 (394.8,39.0,-242.0) ground 38.95 Ground_560_240 | near -
+s  176 (392.9,38.4,-241.9) ground 38.41 Ground_560_240 | near -
+s  178 (391.0,37.9,-241.4) ground 37.93 Ground_560_240 | near -
+s  180 (389.2,37.5,-240.8) ground 37.50 Ground_560_240 | near -
+s  182 (387.4,37.1,-240.0) ground 37.12 Ground_560_240 | near -
+s  184 (385.6,36.8,-239.1) ground 36.77 Ground_560_240 | near -
+s  186 (384.0,36.4,-238.0) ground 36.45 Ground_560_240 | near -
+s  188 (382.3,36.1,-236.9) ground 36.14 Ground_560_240 | near -
+s  190 (380.8,35.9,-235.7) ground 35.86 Ground_560_240 | near -
+s  192 (379.2,35.6,-234.4) ground 35.60 Ground_560_240 | near -
+s  194 (377.8,35.3,-233.1) ground 35.34 Ground_560_240 | near -
+s  196 (376.4,35.1,-231.7) ground 35.10 Ground_560_240 | near -
+s  198 (375.1,34.9,-230.2) ground 34.86 Ground_560_240 | near -
+s  200 (373.8,34.6,-228.7) ground 34.63 Ground_560_240 | near -
+s  202 (372.7,34.4,-227.0) ground 34.40 Ground_560_240 | near -
+s  204 (371.7,34.2,-225.3) ground 34.17 Ground_560_240 | near -
+s  206 (370.8,33.9,-223.5) ground 33.95 Ground_560_240 | near -
+s  208 (370.2,33.7,-221.6) ground 33.75 Ground_560_240 | near -
+s  210 (369.8,33.6,-219.7) ground 33.60 Ground_560_240 | near -
+s  212 (369.6,33.5,-217.7) ground 33.48 Ground_560_240 | near -
+s  214 (369.5,33.4,-215.7) ground 33.38 Ground_560_240 | near -
+s  216 (369.5,33.3,-213.7) ground 33.31 Ground_560_240 | near -
+s  218 (369.7,33.2,-211.7) ground 33.25 Ground_560_240 | near -
+s  220 (369.9,33.2,-209.7) ground 33.20 Ground_560_240 | near -
+s  222 (370.2,33.2,-207.8) ground 33.16 Ground_560_240 | near -
+s  224 (370.6,33.1,-205.8) ground 33.13 Ground_560_240 | near -
+s  226 (371.1,33.1,-203.9) ground 33.29 Ground_560_240 | near -
+s  228 (371.7,33.1,-202.0) ground 33.40 Ground_560_240 | near -
+s  230 (372.4,33.1,-200.1) ground 32.85 Ground_560_240 | near -
+s  232 (373.2,33.1,-198.2) ground 32.85 Ground_560_240 | near -
+s  234 (374.1,33.0,-196.5) ground 32.85 Ground_560_240 | near -
+s  236 (375.2,33.0,-194.8) ground 32.85 Ground_560_240 | near -
+s  238 (376.4,33.0,-193.2) ground 32.85 Ground_560_240 | near -
+s  240 (377.8,32.9,-191.8) ground 32.85 Ground_560_240 | near -
+s  242 (379.4,32.9,-190.5) ground 32.85 Ground_560_240 | near -
+s  244 (381.0,32.9,-189.4) ground 32.85 Ground_560_240 | near -
+s  246 (382.7,32.9,-188.4) ground 32.85 Ground_560_240 | near -
+s  248 (384.5,32.9,-187.5) ground 32.85 Ground_560_240 | near -
+s  250 (386.4,32.9,-186.7) ground 32.85 Ground_560_240 | near -
+s  252 (388.2,33.0,-185.9) ground 32.85 Ground_560_240 | near -
+s  254 (390.1,33.0,-185.3) ground 32.85 Ground_560_240 | near -
+s  256 (392.0,33.0,-184.7) ground 33.21 Ground_560_240 | near -
+s  258 (394.0,33.0,-184.2) ground 33.39 Ground_560_240 | near -
+s  260 (395.9,33.0,-183.7) ground 33.19 Ground_560_240 | near -
+s  262 (397.8,33.0,-183.2) ground 33.00 Ground_560_240 | near -
+s  264 (399.8,33.0,-182.9) ground 33.00 Ground_560_240 | near -
+s  266 (401.8,33.0,-182.7) ground 33.00 Ground_560_240 | near -
+s  268 (403.8,33.0,-182.6) ground 33.00 Ground_560_240 | near -
+s  270 (405.8,33.0,-182.7) ground 33.00 Ground_560_240 | near -
+s  272 (407.8,33.0,-182.9) ground 33.01 Ground_560_240 | near -
+s  274 (409.8,33.0,-183.1) ground 33.01 Ground_560_240 | near -
+s  276 (411.8,33.0,-183.4) ground 33.01 Ground_560_240 | near -
+s  278 (413.7,33.0,-183.7) ground 33.01 Ground_560_240 | near -
+s  280 (415.7,33.0,-183.9) ground 33.01 Ground_560_240 | near -
+s  282 (417.7,33.0,-184.2) ground 33.02 Ground_560_240 | near -
+s  284 (419.7,33.0,-184.5) ground 33.02 Ground_560_240 | near -
+s  286 (421.7,33.0,-184.7) ground 33.02 Ground_560_240 | near -
+s  288 (423.7,33.0,-184.8) ground 33.02 Ground_560_240 | near -
+s  290 (425.7,33.0,-184.9) ground 33.02 Ground_560_240 | near -
+s  292 (427.7,33.0,-184.8) ground 33.02 Ground_560_240 | near -
+s  294 (429.6,33.0,-184.5) ground 33.01 Ground_560_240 | near -
+s  296 (431.5,33.0,-183.9) ground 33.01 Ground_560_240 | near -
+s  298 (433.2,33.0,-182.8) ground 33.00 Ground_560_240 | near -
+s  300 (434.5,33.0,-181.3) ground 32.99 Ground_560_240 | near -
+s  302 (435.3,33.0,-179.4) ground 32.97 Ground_560_240 | near -
+s  304 (435.9,33.0,-177.5) ground 32.96 Ground_560_240 | near -
+s  306 (436.3,32.9,-175.6) ground 32.94 Ground_560_240 | near -
+s  308 (436.6,32.9,-173.6) ground 32.92 Ground_560_240 | near -
+s  310 (436.7,32.9,-171.6) ground 32.91 Ground_560_240 | near -
+s  312 (436.8,32.9,-169.6) ground 32.89 Ground_560_240 | near -
+s  314 (436.9,32.9,-167.6) ground 32.88 Ground_560_240 | near -
+s  316 (436.8,32.9,-165.6) ground 32.86 Ground_560_240 | near -
+s  318 (436.8,32.8,-163.6) ground 32.84 Ground_560_240 | near -
+s  320 (436.7,32.8,-161.6) ground 32.77 Ground_560_240 | near -
+s  322 (436.6,32.8,-159.6) ground 32.75 Ground_560_240 | near -
+s  324 (436.5,32.8,-157.6) ground 32.75 Ground_560_240 | near -
+s  326 (436.4,32.8,-155.6) ground 32.75 Ground_560_240 | near -
+s  328 (436.4,32.8,-153.6) ground 32.78 Ground_560_240 | near -
+s  330 (437.1,33.1,-152.2) ground 33.24 Ground_House3 straight descending property driveway | near -
+s  332 (438.7,34.2,-151.8) ground 34.19 Ground_House3 straight descending property driveway | near -
+s  334 (440.4,35.2,-151.4) ground 35.23 Ground_House3 straight descending property driveway | near -
+s  336 (442.0,36.2,-150.9) ground 36.26 Ground_House3 straight descending property driveway | near -
+s  338 (443.7,37.3,-150.5) ground 37.29 Ground_House3 straight descending property driveway | near -
+s  340 (445.4,38.3,-150.1) ground 38.33 Ground_House3 straight descending property driveway | near -
+s  342 (447.0,39.3,-149.7) ground 39.36 Ground_House3 straight descending property driveway | near -
+s  344 (448.7,40.4,-149.3) ground 40.39 Ground_House3 straight descending property driveway | near -
+s  346 (450.3,41.4,-148.9) ground 41.43 Ground_House3 straight descending property driveway | near -
+s  348 (452.0,42.4,-148.5) ground 42.46 Ground_House3 straight descending property driveway | near -
+s  350 (453.7,43.5,-148.0) ground 43.50 Ground_House3 straight descending property driveway | near -
+s  352 (455.3,44.5,-147.6) ground 44.53 Ground_House3 straight descending property driveway | near -
+s  354 (457.0,45.5,-147.2) ground 45.56 Ground_House3 straight descending property driveway | near -
+s  356 (458.6,46.6,-146.8) ground 46.60 Ground_House3 straight descending property driveway | near -
+s  358 (460.3,47.6,-146.4) ground 47.63 Ground_House3 straight descending property driveway | near -
+s  360 (462.0,48.7,-146.0) ground 48.66 Ground_House3 straight descending property driveway | near -
+s  362 (463.6,49.7,-145.5) ground 49.70 Ground_House3 straight descending property driveway | near -
+s  364 (465.3,50.7,-145.1) ground 50.73 Ground_House3 straight descending property driveway | near -
+s  366 (466.9,51.8,-144.7) ground 51.77 Ground_House3 straight descending property driveway | near -
+s  368 (468.6,52.8,-144.3) ground 52.80 Ground_House3 straight descending property driveway | near -
+s  370 (470.3,53.8,-143.9) ground 53.83 Ground_House3 straight descending property driveway | near -
+s  372 (471.9,54.9,-143.5) ground 54.87 Ground_House3 straight descending property driveway | near -
+s  374 (473.6,55.9,-143.1) ground 55.90 Ground_House3 straight descending property driveway | near -
+s  376 (475.2,56.9,-142.6) ground 56.93 Ground_House3 straight descending property driveway | near -
+s  378 (476.9,58.0,-142.2) ground 57.97 Ground_House3 straight descending property driveway | near -
+s  380 (478.6,59.0,-141.8) ground 59.00 Ground_House3 straight descending property driveway | near -
+s  382 (480.2,60.0,-141.4) ground 60.04 Ground_House3 straight descending property driveway | near -
+s  384 (481.9,61.1,-141.0) ground 61.07 Ground_House3 straight descending property driveway | near -
+s  386 (483.5,62.1,-140.6) ground 62.10 Ground_House3 straight descending property driveway | near -
+s  388 (485.2,63.1,-140.2) ground 63.14 Ground_House3 straight descending property driveway | near -
+s  390 (486.9,64.2,-139.7) ground 64.17 Ground_House3 straight descending property driveway | near -
+s  392 (488.5,65.2,-139.3) ground 65.20 Ground_House3 straight descending property driveway | near -
+s  394 (490.2,66.3,-138.9) ground 66.24 Ground_House3 straight descending property driveway | near -
+s  396 (491.8,67.3,-138.5) ground 67.44 Ground_House3 straight descending property driveway | near -
+s  398 (493.5,68.3,-138.1) ground 69.95 Ground_House3 straight descending property driveway | near -
+s  400 (495.2,69.4,-137.7) ground 73.25 Ground_House3 straight descending property driveway | near -
+s  402 (496.8,70.4,-137.3) ground 76.68 Ground_640_240 | near -
+s  404 (498.5,71.4,-136.8) ground 79.37 Ground_640_240 | near -
+s  406 (500.2,72.5,-136.4) ground 80.85 Ground_House3 supported valley driveway | near -
+s  408 (501.8,73.5,-136.0) ground 81.17 Ground_House3 supported valley driveway | near Phase 3 - Race Systems 13.5m y82.5
+s  410 (503.5,74.5,-135.6) ground 81.47 Ground_House3 supported valley driveway | near Phase 3 - Race Systems 11.8m y82.5
+s  412 (505.1,75.6,-135.2) ground 81.69 Ground_House3 supported valley driveway | near Phase 3 - Race Systems 10.2m y82.0
+s  414 (506.8,76.6,-134.8) ground 81.89 Ground_House3 supported valley driveway | near Phase 3 - Race Systems 8.5m y82.0
+s  416 (508.5,77.6,-134.4) ground 90.36 House 3 / Rocky Way Acres entrance | near Phase 3 - Race Systems 6.8m y82.0
+s  418 (510.1,78.7,-133.9) ground 82.08 Ground_House3 supported valley driveway | near Phase 3 - Race Systems 5.1m y82.0
+s  420 (511.8,79.7,-133.5) ground 82.00 Ground_House3 supported valley driveway | near Phase 3 - Race Systems 3.4m y82.0
+s  422 (513.4,80.7,-133.1) ground 81.93 Ground_House3 supported valley driveway | near Phase 3 - Race Systems 1.8m y82.0
+s  424 (515.1,81.8,-132.7) ground 81.85 Ground_House3 supported valley driveway | near Phase 3 - Race Systems 0.8m y82.0

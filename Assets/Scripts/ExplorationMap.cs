@@ -81,7 +81,15 @@ namespace Racer
             center=MapNormalized(race.vehicle.Body.position);selected=-1;panel.SetActive(true);EventSystem.current?.SetSelectedGameObject(null);Repaint();Draw();Save();
         }
         public void Close(){MenuInput.ConsumeThroughRelease();CancelTravel();closedFrame=Time.frameCount;if(panel)panel.SetActive(false);Save();if(resume)race.Flow.Resume();}
-        public void SetWaypoint(Vector3 p){Waypoint=p;}
+        // 0.74: a custom destination anywhere in the world (map cursor, mouse click or a destination): the ground height under
+        // it is found here. Drive-to only (no travel); not saved; shown in Free Roam only (WaypointGuide).
+        public void SetWaypoint(Vector3 p)
+        {
+            float y=p.y;foreach(var h in Physics.RaycastAll(new Vector3(p.x,700,p.z),Vector3.down,1400,~0,QueryTriggerInteraction.Ignore).OrderBy(h=>h.distance)){if(h.collider.isTrigger||h.collider.attachedRigidbody)continue;var n=h.collider.name;if(n.IndexOf("trunk",StringComparison.OrdinalIgnoreCase)>=0||n.IndexOf("tree",StringComparison.OrdinalIgnoreCase)>=0)continue;y=h.point.y;break;}
+            Waypoint=new Vector3(p.x,y,p.z);errorMessage=Visited(p)?"Waypoint set.":"Waypoint set in unexplored land.";
+            if(!GetComponent<WaypointGuide>())gameObject.AddComponent<WaypointGuide>();
+        }
+        public void ClearWaypointFromGuide(){Waypoint=null;}
         void SelectNext(int direction){var known=Enumerable.Range(0,destinations.Length).Where(i=>Discovered(destinations[i].id)).ToArray();if(known.Length==0){selected=-1;errorMessage="Discover landmarks while exploring.";return;}int at=Array.IndexOf(known,selected);selected=known[(at+direction+known.Length)%known.Length];center=MapNormalized(destinations[selected].position);Draw();}
         public bool Travel(int index)
         {
@@ -158,13 +166,19 @@ namespace Racer
             if(Waypoint.HasValue)Marker(waypointLabel,Waypoint.Value);else waypointLabel.gameObject.SetActive(false);
             for(int i=0;i<destinations.Length;i++){markers[i].text=(selected==i?"◆ ":"● ")+destinations[i].title;Marker(markers[i],destinations[i].position);if(!Discovered(destinations[i].id))markers[i].gameObject.SetActive(false);}
             var collection=race.GetComponent<ExplorationCollection>();for(int i=0;i<acorns.Count;i++){var s=collection.sites[i];Marker(acorns[i],s.position);if(!collection.Discovered(s.id)||!Visited(s.position))acorns[i].gameObject.SetActive(false);}
-            status.text=PreviewTitle+(race.Flow.TrackBrowsingLocked?"\nCurrent race\n\n":"\nBrowse track with Track\n\n")+(selected>=0?destinations[selected].title:"Map Point")+"\n"+(race.FreeRoam?"Select for location actions":"Travel available in Free Roam")+"\n\n"+(courseOverlay.gameObject.activeSelf?"Race route shown":"Race route hidden")+"\n\n"+(race.GetComponent<ExplorationCollection>()?.Summary??"")+"\n\n"+(error??errorMessage);
+            string wpt=Waypoint.HasValue?"Waypoint "+DisplayUnits.Distance(Vector3.ProjectOnPlane(Waypoint.Value-race.vehicle.Body.position,Vector3.up).magnitude)+(race.FreeRoam?"":" (Free Roam only)")+"\n\n":"Mouse: click the map to set a waypoint, right-click to clear\n\n";
+            status.text=wpt+PreviewTitle+(race.Flow.TrackBrowsingLocked?"\nCurrent race\n\n":"\nBrowse track with Track\n\n")+(selected>=0?destinations[selected].title:"Map Point")+"\n"+(race.FreeRoam?"Select for location actions":"Travel available in Free Roam")+"\n\n"+(courseOverlay.gameObject.activeSelf?"Race route shown":"Race route hidden")+"\n\n"+(race.GetComponent<ExplorationCollection>()?.Summary??"")+"\n\n"+(error??errorMessage);
             RefreshMapPrompts();
         }        public void OnScroll(PointerEventData e){if(sheetOpen)return;zoom=Mathf.Clamp(zoom+e.scrollDelta.y*.25f,1,6);Draw();}
         public void OnDrag(PointerEventData e){if(sheetOpen)return;center-=new Vector2(e.delta.x/picture.rectTransform.rect.width,e.delta.y/picture.rectTransform.rect.height)/zoom;selected=-1;Draw();}
+        // 0.74 mouse: a click on a discovered landmark opens its actions (as before); a click anywhere else puts the waypoint
+        // there; a right-click clears it.
         public void OnPointerClick(PointerEventData e)
-        {if(sheetOpen||e.dragging||e.button!=PointerEventData.InputButton.Left)return;if(!RectTransformUtility.ScreenPointToLocalPointInRectangle(picture.rectTransform,e.position,e.pressEventCamera,out var q))return;
-            center+=new Vector2(q.x/picture.rectTransform.rect.width,q.y/picture.rectTransform.rect.height)/zoom;SelectReticle();}
+        {if(sheetOpen||e.dragging)return;if(e.button==PointerEventData.InputButton.Right){ClearWaypoint();return;}if(e.button!=PointerEventData.InputButton.Left)return;if(!RectTransformUtility.ScreenPointToLocalPointInRectangle(picture.rectTransform,e.position,e.pressEventCamera,out var q))return;
+            var uv=center+new Vector2(q.x/picture.rectTransform.rect.width,q.y/picture.rectTransform.rect.height)/zoom;
+            bool landmark=Enumerable.Range(0,destinations.Length).Any(i=>Discovered(destinations[i].id)&&(ScreenPoint(destinations[i].position)-q).magnitude<=20);
+            if(landmark){center=uv;SelectReticle();return;}
+            selected=-1;SetWaypoint(MapWorldPoint(uv));Draw();}
     }    public sealed class MapPointer:MonoBehaviour,IPointerClickHandler,IDragHandler,IScrollHandler
     {public ExplorationMap owner;public void OnPointerClick(PointerEventData e)=>owner.OnPointerClick(e);public void OnDrag(PointerEventData e)=>owner.OnDrag(e);public void OnScroll(PointerEventData e)=>owner.OnScroll(e);}
 }

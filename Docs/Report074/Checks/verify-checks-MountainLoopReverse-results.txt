@@ -1,0 +1,3 @@
+FAIL RIDE file=Docs/Report074/echo-cave-route.txt fwd moto pace 14: complete in 37.8 s over 538 m; slowest 12.4 m/s, fastest 16.8 m/s; longest airborne 1.42 s; largest pitch 18 deg, roll 6 deg; wipe-outs 0; resets 0; steepest driven 2 m grade 87%
+PASS RIDE file=Docs/Report074/storm-drain-tunnel.txt fwd moto pace 12: complete in 15.5 s over 186 m; slowest 9.1 m/s, fastest 12.3 m/s; longest airborne 0.12 s; largest pitch 18 deg, roll 5 deg; wipe-outs 0; resets 0; steepest driven 2 m grade 33%
+done, failures 1

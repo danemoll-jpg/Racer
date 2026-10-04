@@ -1,0 +1,9 @@
+PASS Dawn/Clear: race look 'Dawn' frozen water False
+PASS Dawn/Clear: player (AI driver) finished 1/1 laps, checkpoint changes 14, missed gates 0, time 02:34.622, recoveries 2; time on ice 0.0 s, largest immersion 0.00
+PASS Dawn/Clear: results screen; standings:
+1. GOLD  02:06.753  (+0.0s / 0 misses)
+2. BLUE  02:16.968  (+0.0s / 0 misses)
+3. EMBER  02:29.364  (+0.0s / 0 misses)
+4. YOU  02:34.622  (+0.0s / 0 misses)
+PASS Dawn/Clear: race record saved in category 'street-v14-discovery-moto-race4-d1-moto-moto-moto-traffic-laps1' (best race 154.62 s; files records-street-v14-discovery-moto-race4-d1-moto-moto-moto-traffic-laps1.json, records-street-v14-discovery-moto-race4-d1-moto-moto-moto-traffic-laps1.json.bak)
+done, failures 0

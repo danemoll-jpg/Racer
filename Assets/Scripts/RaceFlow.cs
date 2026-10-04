@@ -180,10 +180,11 @@ namespace Racer
         public void CycleLaps(){Race.laps=(Race.laps+1)%(Race.opponents?6:6);if(Race.opponents&&Race.laps==0)Race.laps=1;Save.Settings.laps=Race.laps;if(Race.laps>0)Save.Settings.lastFiniteLaps=Race.laps;Save.SaveSettings();SelectRecords(Race.Category);Click();}
         public void ToggleOpponents() { Race.opponents = !Race.opponents; if(Race.opponents&&Race.laps==0){Race.laps=Save.Settings.lastFiniteLaps;Save.Settings.laps=Race.laps;Notify("AI race: restored "+Race.laps+" finite laps",4);} Save.Settings.opponents = Race.opponents; Save.SaveSettings(); SelectRecords(Race.Category); Click(); }
         public void ToggleTraffic() { Race.traffic = !Race.traffic; Save.Settings.traffic = Race.traffic; Save.SaveSettings(); SelectRecords(Race.Category); Click(); }
-        public string TimeOfDayLabel => ((TimeOfDay)Mathf.Clamp(Save.Settings.timeOfDay,0,2)).ToString();
+        public string TimeOfDayLabel => ((TimeOfDay)Mathf.Clamp(Save.Settings.timeOfDay,0,3)).ToString();
         public string WeatherLabel => ((Weather)Mathf.Clamp(Save.Settings.weather,0,2)).ToString();
         public string RoamWeatherLabel => ((Weather)Mathf.Clamp(Save.Settings.roamWeather,0,2)).ToString();
-        public void CycleTimeOfDay() { Save.Settings.timeOfDay=(Mathf.Clamp(Save.Settings.timeOfDay,0,2)+1)%3; Save.SaveSettings(); menus?.Show(); Click(); }
+        // 0.74: Dawn / Day / Dusk / Night (the saved value of Dawn is 3, so older saves keep their choice).
+        public void CycleTimeOfDay() { var order=LookPresets.MenuOrder; int i=System.Array.IndexOf(order,(TimeOfDay)Mathf.Clamp(Save.Settings.timeOfDay,0,3)); Save.Settings.timeOfDay=(int)order[(i+1)%order.Length]; Save.SaveSettings(); menus?.Show(); Click(); }
         public void CycleWeather() { Save.Settings.weather=(Mathf.Clamp(Save.Settings.weather,0,2)+1)%3; Save.SaveSettings(); menus?.Show(); Click(); }
         public void CycleRoamWeather() { Save.Settings.roamWeather=(Mathf.Clamp(Save.Settings.roamWeather,0,2)+1)%3; Save.SaveSettings(); menus?.Show(); Click(); }
         public void CycleDifficulty() { if(State!=Stage.Ready && State!=Stage.Results) return; Race.difficulty=(Race.difficulty+1)%3; Save.Settings.difficulty=Race.difficulty; Save.SaveSettings(); SelectRecords(Race.Category); Click(); }

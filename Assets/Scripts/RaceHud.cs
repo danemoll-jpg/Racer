@@ -11,6 +11,7 @@ namespace Racer
         GameObject wrongPanel;
         UnityEngine.UI.Text wrongText,wrongArrow;
         UnityEngine.UI.Text activities;
+        UnityEngine.UI.Text waypointText,waypointArrow;GameObject waypointPanel;
         void Start()
         {
             RacingMiniMap.Create(transform, race, display.font);
@@ -34,6 +35,11 @@ namespace Racer
             {var t=new GameObject(name,typeof(RectTransform),typeof(UnityEngine.UI.Text)).GetComponent<UnityEngine.UI.Text>();t.transform.SetParent(wr,false);t.font=display.font;t.fontSize=fontSize;t.color=new(1,.84f,.35f);t.alignment=TextAnchor.MiddleCenter;t.raycastTarget=false;t.rectTransform.anchoredPosition=position;t.rectTransform.sizeDelta=dimensions;return t;}
             wrongArrow=Label("Local course direction",new(-184,0),new(88,88),68);wrongArrow.text="↑";
             wrongText=Label("Wrong way and local reset",new(48,0),new(366,108),38);wrongText.color=Color.white;wrongText.supportRichText=true;wrongPanel.SetActive(false);
+            // 0.74 Free Roam waypoint line: distance and an arrow pointing to it (relative to the vehicle), bottom centre.
+            waypointPanel=new GameObject("Waypoint guidance",typeof(RectTransform),typeof(UnityEngine.UI.Image));var wp=waypointPanel.GetComponent<RectTransform>();wp.SetParent(transform,false);wp.anchorMin=wp.anchorMax=wp.pivot=new(.5f,0);wp.anchoredPosition=new(0,18);wp.sizeDelta=new(330,54);
+            waypointPanel.GetComponent<UnityEngine.UI.Image>().color=new Color(.025f,.055f,.07f,.84f);
+            UnityEngine.UI.Text WLabel(string name,Vector2 position,Vector2 dimensions,int fontSize){var t=new GameObject(name,typeof(RectTransform),typeof(UnityEngine.UI.Text)).GetComponent<UnityEngine.UI.Text>();t.transform.SetParent(wp,false);t.font=display.font;t.fontSize=fontSize;t.color=new(1,.86f,.3f);t.alignment=TextAnchor.MiddleCenter;t.raycastTarget=false;t.rectTransform.anchoredPosition=position;t.rectTransform.sizeDelta=dimensions;return t;}
+            waypointArrow=WLabel("Waypoint direction",new(-132,0),new(50,50),40);waypointArrow.text="↑";waypointText=WLabel("Waypoint distance",new(26,0),new(270,50),24);waypointPanel.SetActive(false);
             var feedback=new GameObject("Arcade activity feedback",typeof(RectTransform),typeof(UnityEngine.UI.Text));feedback.transform.SetParent(transform,false);activities=feedback.GetComponent<UnityEngine.UI.Text>();activities.font=display.font;activities.fontSize=21;activities.color=new Color(1,.9f,.5f);activities.raycastTarget=false;activities.alignment=TextAnchor.LowerLeft;activities.rectTransform.anchorMin=activities.rectTransform.anchorMax=activities.rectTransform.pivot=Vector2.zero;activities.rectTransform.anchoredPosition=new(22,78);activities.rectTransform.sizeDelta=new(700,80);feedback.AddComponent<UnityEngine.UI.Outline>();
         }
         public static string FormatTime(double seconds)
@@ -52,6 +58,8 @@ namespace Racer
             display.transform.parent.gameObject.SetActive(!race.FreeRoam&&!race.Flow.MenuVisible);
             if(activities)activities.text=race.Flow.MenuVisible?"":race.Flow.Activities?.Hud;
             if(activities&&!race.Flow.MenuVisible&&race.FreeRoam&&race.GetComponent<ExplorationCollection>() is ExplorationCollection collection){activities.rectTransform.sizeDelta=new(700,110);activities.text+="\n"+collection.Hud;}
+            var guide=race.GetComponent<WaypointGuide>();if(!guide)guide=FindAnyObjectByType<WaypointGuide>();
+            if(waypointPanel){bool show=guide&&guide.Active&&!race.Flow.MenuVisible;waypointPanel.SetActive(show);if(show){waypointText.text=guide.Hud;waypointArrow.rectTransform.localRotation=Quaternion.Euler(0,0,-guide.Bearing);}}
             var guidance=race.GetComponent<WrongWayGuidance>();
             if(wrongPanel)
             {

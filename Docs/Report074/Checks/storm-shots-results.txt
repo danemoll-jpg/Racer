@@ -1,0 +1,24 @@
+SHOT BUG-001-after hour 12 Clear
+SHOT BUG-002-after hour 12 Clear
+SHOT BUG-003-gate-after hour 12 Clear
+SHOT BUG-003-hillside-after hour 12 Clear
+SHOT BUG-003-valley-after hour 12 Clear
+SHOT tunnel-entrance hour 12 Clear
+SHOT tunnel-gully hour 12 Clear
+SHOT tunnel-entrance-snow hour 12 Snow
+SHOT dawn-street hour 6.3 Clear
+SHOT dusk-street hour 19.4 Clear
+STORM hour 12 (Day Rain) 180 s: strikes 13, bolts shown 13, thunder 13, distant rumbles 14
+  strikes (t s, distance m, flash peak): 6.6/857/0.51  18.8/971/0.48  32.4/894/0.50  55.3/355/0.58  57.9/796/0.54  60.6/463/0.65  85.3/295/0.70  108.9/506/0.63  117.8/1024/0.46  130.2/780/0.54  153.5/522/0.63  166.8/1220/0.40  177.1/321/0.69
+  gaps s: 12.2 13.7 22.9 2.6 2.7 24.7 23.6 8.8 12.5 23.3 13.3 10.3; near (<600 m) 6, far 7; close pairs (<5 s) 2
+PASS storm: at least one strike per 25 s on average (13 in 180 s)
+PASS storm: no gap longer than ~25 s (longest 24.7 s)
+PASS storm: every strike flashes clearly (lowest peak 0.40)
+PASS storm Off: 4 strikes in 60 s, screen flash peak 0.00, bolts 4, thunder 4
+STORM hour 00 (Night Rain) 180 s: strikes 12, bolts shown 29, thunder 12, distant rumbles 13
+  strikes (t s, distance m, flash peak): 3.8/1063/0.72  18.5/1458/0.52  33.9/1354/0.58  57.5/1244/0.63  74.1/1322/0.59  85.5/810/0.86  97.3/764/0.88  110.5/544/1.00  125.8/1027/0.75  133.9/1220/0.65  149.6/992/0.76  174.0/321/1.09
+  gaps s: 14.7 15.4 23.6 16.6 11.4 11.8 13.2 15.3 8.1 15.8 24.3; near (<600 m) 2, far 10; close pairs (<5 s) 0
+PASS storm: at least one strike per 25 s on average (12 in 180 s)
+PASS storm: no gap longer than ~25 s (longest 24.3 s)
+PASS storm: every strike flashes clearly (lowest peak 0.52)
+PASS storm Off: 5 strikes in 60 s, screen flash peak 0.00, bolts 5, thunder 4

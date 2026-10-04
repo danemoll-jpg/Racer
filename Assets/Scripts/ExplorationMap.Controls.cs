@@ -10,7 +10,7 @@ namespace Racer
     public sealed partial class ExplorationMap
     {
         InputActionMap mapActions;
-        InputAction mapToggle,panAction,zoomOutAction,zoomInAction,selectAction,routeAction,waypointAction,centerAction,prevAction,nextAction,helpAction,backAction,navigateAction,trackAction;
+        InputAction mapToggle,panAction,zoomOutAction,zoomInAction,selectAction,routeAction,waypointAction,centerAction,prevAction,nextAction,helpAction,backAction,navigateAction,trackAction,clearWaypointAction;
         int previewCourse=-1;
         CoursePreviewCatalog.Course PreviewCourse=>previewCourse>=0&&previewCourse<CoursePreviewCatalog.Courses.Length?CoursePreviewCatalog.Courses[previewCourse]:null;
         string PreviewTitle=>PreviewCourse!=null?RacePlaylists.Titles[previewCourse]:race.courseName;
@@ -21,12 +21,13 @@ namespace Racer
         public IEnumerable<InputAction> Bindings {get{EnsureMapActions();return mapActions.actions;}}
         void EnsureMapActions()
         {
-            if(mapActions!=null&&routeAction!=null&&routeAction.bindings.Count>0)return;mapActions?.Dispose();mapActions=new InputActionMap("World Map");
+            if(mapActions!=null&&routeAction!=null&&routeAction.bindings.Count>0&&clearWaypointAction!=null)return;mapActions?.Dispose();mapActions=new InputActionMap("World Map");
             InputAction ButtonAction(string name,string keyboard,string controller){var a=mapActions.AddAction(name,InputActionType.Button);a.AddBinding(keyboard);a.AddBinding(controller);return a;}
             mapToggle=ButtonAction("Open / close","<Keyboard>/m","<Gamepad>/select");
             selectAction=ButtonAction("Select location","<Keyboard>/space","<Gamepad>/buttonSouth");
             routeAction=ButtonAction("Show / hide race route","<Keyboard>/c","<Gamepad>/buttonWest");
             waypointAction=ButtonAction("Set / move / clear waypoint","<Keyboard>/f","<Gamepad>/buttonNorth");
+            clearWaypointAction=ButtonAction("Clear waypoint","<Keyboard>/backspace","<Gamepad>/leftStickPress");
             centerAction=ButtonAction("Center on player","<Keyboard>/home","<Gamepad>/rightStickPress");
             prevAction=ButtonAction("Previous discovered destination","<Keyboard>/q","<Gamepad>/leftShoulder");
             nextAction=ButtonAction("Next discovered destination","<Keyboard>/e","<Gamepad>/rightShoulder");
@@ -53,7 +54,7 @@ namespace Racer
             // Keep the player and edge landmarks reachable at every zoom.
             center=new(Mathf.Clamp01(center.x),Mathf.Clamp01(center.y));
             if(prevAction.WasPressedThisFrame())SelectNext(-1);else if(nextAction.WasPressedThisFrame())SelectNext(1);
-            else if(routeAction.WasPressedThisFrame())ToggleRoute();else if(waypointAction.WasPressedThisFrame())ToggleWaypoint();
+            else if(routeAction.WasPressedThisFrame())ToggleRoute();else if(waypointAction.WasPressedThisFrame())ToggleWaypoint();else if(clearWaypointAction.WasPressedThisFrame())ClearWaypoint();
             else if(centerAction.WasPressedThisFrame()){center=MapNormalized(race.vehicle.Body.position);selected=-1;}
             else if(trackAction.WasPressedThisFrame())OpenMapSheet(false,false,true);else if(helpAction.WasPressedThisFrame())OpenMapSheet(false);else if(selectAction.WasPressedThisFrame())SelectReticle();
             Draw();
@@ -64,7 +65,10 @@ namespace Racer
             if(selected>=0)center=MapNormalized(destinations[selected].position);OpenMapSheet(false,true);Draw();
         }
         void ToggleRoute(){courseOverlay.gameObject.SetActive(!courseOverlay.gameObject.activeSelf);Draw();}
-        void ToggleWaypoint(){var p=selected>=0?destinations[selected].position:MapWorldPoint(center);if(Waypoint.HasValue&&Vector2.Distance(new(Waypoint.Value.x,Waypoint.Value.z),new(p.x,p.z))<1)Waypoint=null;else SetWaypoint(p);Draw();}
+        // 0.74: the waypoint goes at the cursor (the "+" in the middle of the map, moved by panning) or at the selected
+        // destination - anywhere on the map, explored or not; pressing it again on the same spot clears it.
+        void ToggleWaypoint(){var p=selected>=0?destinations[selected].position:MapWorldPoint(center);if(Waypoint.HasValue&&ScreenPoint(Waypoint.Value).magnitude<12&&selected<0)ClearWaypoint();else SetWaypoint(p);Draw();}
+        void ClearWaypoint(){if(Waypoint.HasValue)errorMessage="Waypoint cleared.";Waypoint=null;Draw();}
         void CloseMapSheet(){sheetOpen=false;if(actionSheet)actionSheet.SetActive(false);MenuInput.ConsumeThroughRelease();EventSystem.current?.SetSelectedGameObject(null);}
         void OpenMapSheet(bool confirm,bool location=false,bool tracks=false)
         {
@@ -86,7 +90,7 @@ namespace Racer
                 Choice("waypoint","Set / Move / Clear Waypoint",()=>{ToggleWaypoint();CloseMapSheet();});
                 Choice("route",courseOverlay.gameObject.activeSelf?"Hide Race Route":"Show Race Route",()=>{ToggleRoute();CloseMapSheet();});
                 Choice("center","Center on Player",()=>{center=MapNormalized(race.vehicle.Body.position);selected=-1;CloseMapSheet();});
-                Choice("clear","Clear Waypoint",()=>{Waypoint=null;CloseMapSheet();});
+                Choice("clear","Clear Waypoint",()=>{ClearWaypoint();CloseMapSheet();});
                 Choice("destinations","Next Discovered Destination",()=>{SelectNext(1);CloseMapSheet();});
                 if(!race.Flow.TrackBrowsingLocked)Choice("tracks","Select Track",()=>OpenMapSheet(false,false,true));
             }
@@ -99,8 +103,8 @@ namespace Racer
             picture.rectTransform.sizeDelta=new(930,visual?930*visual.bounds.height/visual.bounds.width:540);picture.rectTransform.anchoredPosition=new(-150,15);courseOverlay.rectTransform.sizeDelta=picture.rectTransform.sizeDelta;
             status.rectTransform.anchoredPosition=new(485,25);status.rectTransform.sizeDelta=new(235,500);status.fontSize=18;
             var footer=RectUI("Map bindings",panel.transform,new(0,-302),new(1220,94));
-            var items=new[]{(selectAction,"Select"),(backAction,"Back"),(routeAction,"Race route"),(waypointAction,"Waypoint"),(prevAction,"Previous"),(nextAction,"Next"),(panAction,"Pan"),(zoomOutAction,"Zoom out"),(zoomInAction,"Zoom in"),(centerAction,"Center"),(helpAction,"Actions / Help"),(trackAction,"Track")};
-            for(int i=0;i<items.Length;i++){var item=items[i];var r=RectUI(item.Item2,footer,new(-510+(i%6)*204,23-(i/6)*46),new(195,40));var icon=RectUI("Glyph",r,new(-69,0),new(54,34));var glyph=icon.gameObject.AddComponent<MenuGlyph>();glyph.raycastTarget=false;var key=Text("Key",icon,Vector2.zero,new(54,34),15);var label=Text("Action",r,new(30,0),new(125,36),18);label.text=item.Item2;mapPrompts.Add((glyph,key,label,item.Item1));var b=r.gameObject.AddComponent<UnityEngine.UI.Button>();b.navigation=new(){mode=UnityEngine.UI.Navigation.Mode.None};int n=i;b.onClick.AddListener(()=>{if(sheetOpen)return;switch(n){case 0:SelectReticle();break;case 1:Close();break;case 2:ToggleRoute();break;case 3:ToggleWaypoint();break;case 4:SelectNext(-1);break;case 5:SelectNext(1);break;case 9:center=MapNormalized(race.vehicle.Body.position);selected=-1;break;case 10:OpenMapSheet(false);break;case 11:OpenMapSheet(false,false,true);break;}Draw();});var hit=r.gameObject.AddComponent<UnityEngine.UI.Image>();hit.color=new(0,0,0,.01f);b.targetGraphic=hit;}
+            var items=new[]{(selectAction,"Select"),(backAction,"Back"),(routeAction,"Race route"),(waypointAction,"Waypoint"),(prevAction,"Previous"),(nextAction,"Next"),(clearWaypointAction,"Clear wpt"),(panAction,"Move cursor"),(zoomOutAction,"Zoom out"),(zoomInAction,"Zoom in"),(centerAction,"Center"),(helpAction,"Actions / Help"),(trackAction,"Track")};
+            for(int i=0;i<items.Length;i++){var item=items[i];var r=RectUI(item.Item2,footer,new(-522+(i%7)*174,23-(i/7)*46),new(170,40));var icon=RectUI("Glyph",r,new(-69,0),new(54,34));var glyph=icon.gameObject.AddComponent<MenuGlyph>();glyph.raycastTarget=false;var key=Text("Key",icon,Vector2.zero,new(54,34),15);var label=Text("Action",r,new(30,0),new(112,36),16);label.text=item.Item2;mapPrompts.Add((glyph,key,label,item.Item1));var b=r.gameObject.AddComponent<UnityEngine.UI.Button>();b.navigation=new(){mode=UnityEngine.UI.Navigation.Mode.None};int n=i;b.onClick.AddListener(()=>{if(sheetOpen)return;switch(n){case 0:SelectReticle();break;case 1:Close();break;case 2:ToggleRoute();break;case 3:ToggleWaypoint();break;case 4:SelectNext(-1);break;case 5:SelectNext(1);break;case 6:ClearWaypoint();break;case 10:center=MapNormalized(race.vehicle.Body.position);selected=-1;break;case 11:OpenMapSheet(false);break;case 12:OpenMapSheet(false,false,true);break;}Draw();});var hit=r.gameObject.AddComponent<UnityEngine.UI.Image>();hit.color=new(0,0,0,.01f);b.targetGraphic=hit;}
             RefreshMapPrompts();
         }
         void RefreshMapPrompts(){foreach(var p in mapPrompts){string binding=MenuInput.Binding(p.action);p.glyph.SetPath(binding);p.key.text=binding=="<Gamepad>/dpad/right"?"D→":MenuGlyph.Label(binding);if(p.action==trackAction)p.glyph.transform.parent.gameObject.SetActive(!race.Flow.TrackBrowsingLocked);}}

@@ -1,0 +1,9 @@
+PASS RIDE House 3 valley driveway fwd moto pace 10: complete in 34.0 s over 352 m; slowest 7.8 m/s, fastest 10.4 m/s; longest airborne 0.20 s; largest pitch 24 deg, roll 23 deg; wipe-outs 0; resets 0; steepest driven 2 m grade 38%
+FAIL RIDE House 3 valley driveway back moto pace 10: complete in 34.5 s over 352 m; slowest 9.1 m/s, fastest 10.3 m/s; longest airborne 0.36 s; largest pitch 22 deg, roll 16 deg; wipe-outs 0; resets 0; steepest driven 2 m grade 45%
+FAIL RIDE House 3 valley driveway fwd atv pace 10: complete in 34.2 s over 352 m; slowest 5.8 m/s, fastest 10.3 m/s; longest airborne 0.44 s; largest pitch 21 deg, roll 27 deg; wipe-outs 0; resets 0; steepest driven 2 m grade 38%
+FAIL RIDE House 3 valley driveway back atv pace 10: complete in 34.8 s over 352 m; slowest 5.5 m/s, fastest 10.3 m/s; longest airborne 0.80 s; largest pitch 22 deg, roll 31 deg; wipe-outs 0; resets 0; steepest driven 2 m grade 46%
+PASS RIDE House 3 valley driveway fwd original pace 10: complete in 34.0 s over 352 m; slowest 7.8 m/s, fastest 10.4 m/s; longest airborne 0.20 s; largest pitch 24 deg, roll 23 deg; wipe-outs 0; resets 0; steepest driven 2 m grade 38%
+FAIL RIDE House 3 valley driveway back original pace 10: complete in 34.5 s over 352 m; slowest 9.0 m/s, fastest 10.3 m/s; longest airborne 0.38 s; largest pitch 22 deg, roll 18 deg; wipe-outs 0; resets 0; steepest driven 2 m grade 43%
+PASS RIDE House 3 valley driveway fwd tourer pace 10: complete in 34.1 s over 352 m; slowest 7.8 m/s, fastest 10.4 m/s; longest airborne 0.20 s; largest pitch 24 deg, roll 23 deg; wipe-outs 0; resets 0; steepest driven 2 m grade 38%
+FAIL RIDE House 3 valley driveway back tourer pace 10: complete in 34.5 s over 352 m; slowest 9.0 m/s, fastest 10.3 m/s; longest airborne 0.38 s; largest pitch 22 deg, roll 18 deg; wipe-outs 0; resets 0; steepest driven 2 m grade 43%
+done, failures 5

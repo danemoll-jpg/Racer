@@ -1,0 +1,48 @@
+SCENE StreetLoopGreybox
+Part B StreetLoopGreybox: 254 tunnel pieces + 333 atmosphere pieces from Dan's Backyard Reverse; area x 12..196, z -94..98; 0 route points of this scene nearby kept clear
+Part B StreetLoopGreybox: ground differs from Backyard Reverse on 6845 m² of the area; 7360 m² connected to the tunnel take the Backyard Reverse shape in Free Roam
+Part B StreetLoopGreybox: tile Ground_400_320: Free Roam shape - 10546 of its own triangles kept, 34483 Backyard Reverse triangles in the tunnel region
+Part B StreetLoopGreybox: tile Ground_400_400: Free Roam shape - 11746 of its own triangles kept, 19323 Backyard Reverse triangles in the tunnel region
+Part B StreetLoopGreybox: tile Ground_480_400: Free Roam shape - 12415 of its own triangles kept, 4952 Backyard Reverse triangles in the tunnel region
+Part B StreetLoopGreybox: Free Roam terrain on 3 tiles; 428 batched tree pieces re-grounded (84 in the tunnel line or where the ground opens: put out of sight), 60 trunks and 0 other objects follow the Free Roam ground
+Part B StreetLoopGreybox: 'Storm drain tunnel (Free Roam)' added (573 renderers, 12 lights, 1 rat encounter, 36 water volumes); shown only in Free Roam
+SCENE StreetLoopReverse
+Part B StreetLoopReverse: 254 tunnel pieces + 333 atmosphere pieces from Dan's Backyard Reverse; area x 12..196, z -94..98; 0 route points of this scene nearby kept clear
+Part B StreetLoopReverse: ground differs from Backyard Reverse on 6845 m² of the area; 7360 m² connected to the tunnel take the Backyard Reverse shape in Free Roam
+Part B StreetLoopReverse: tile Ground_400_320: Free Roam shape - 10546 of its own triangles kept, 34483 Backyard Reverse triangles in the tunnel region
+Part B StreetLoopReverse: tile Ground_400_400: Free Roam shape - 11746 of its own triangles kept, 19323 Backyard Reverse triangles in the tunnel region
+Part B StreetLoopReverse: tile Ground_480_400: Free Roam shape - 12415 of its own triangles kept, 4952 Backyard Reverse triangles in the tunnel region
+Part B StreetLoopReverse: Free Roam terrain on 3 tiles; 428 batched tree pieces re-grounded (84 in the tunnel line or where the ground opens: put out of sight), 60 trunks and 0 other objects follow the Free Roam ground
+Part B StreetLoopReverse: 'Storm drain tunnel (Free Roam)' added (573 renderers, 12 lights, 1 rat encounter, 36 water volumes); shown only in Free Roam
+SCENE LakeWoods
+Part B LakeWoods: 254 tunnel pieces + 333 atmosphere pieces from Dan's Backyard Reverse; area x 12..196, z -94..98; 535 route points of this scene nearby kept clear
+Part B LakeWoods: ground differs from Backyard Reverse on 6845 m² of the area; 7360 m² connected to the tunnel take the Backyard Reverse shape in Free Roam
+Part B LakeWoods: tile Ground_400_320: Free Roam shape - 42241 of its own triangles kept, 34483 Backyard Reverse triangles in the tunnel region
+Part B LakeWoods: tile Ground_400_400: Free Roam shape - 46961 of its own triangles kept, 19323 Backyard Reverse triangles in the tunnel region
+Part B LakeWoods: tile Ground_480_400: Free Roam shape - 49678 of its own triangles kept, 4952 Backyard Reverse triangles in the tunnel region
+Part B LakeWoods: Free Roam terrain on 3 tiles; 778 batched tree pieces re-grounded (162 in the tunnel line or where the ground opens: put out of sight), 50 trunks and 0 other objects follow the Free Roam ground
+Part B LakeWoods: 'Storm drain tunnel (Free Roam)' added (573 renderers, 12 lights, 1 rat encounter, 36 water volumes); shown only in Free Roam
+SCENE ForestLoopReverse
+Part B ForestLoopReverse: 254 tunnel pieces + 333 atmosphere pieces from Dan's Backyard Reverse; area x 12..196, z -94..98; 655 route points of this scene nearby kept clear
+Part B ForestLoopReverse: ground differs from Backyard Reverse on 5301 m² of the area; 5738 m² connected to the tunnel take the Backyard Reverse shape in Free Roam
+Part B ForestLoopReverse: tile Ground_400_320: Free Roam shape - 45485 of its own triangles kept, 22201 Backyard Reverse triangles in the tunnel region
+Part B ForestLoopReverse: tile Ground_400_400: Free Roam shape - 46961 of its own triangles kept, 19323 Backyard Reverse triangles in the tunnel region
+Part B ForestLoopReverse: tile Ground_480_400: Free Roam shape - 49678 of its own triangles kept, 4952 Backyard Reverse triangles in the tunnel region
+Part B ForestLoopReverse: Free Roam terrain on 3 tiles; 573 batched tree pieces re-grounded (150 in the tunnel line or where the ground opens: put out of sight), 37 trunks and 0 other objects follow the Free Roam ground
+Part B ForestLoopReverse: 'Storm drain tunnel (Free Roam)' added (573 renderers, 12 lights, 1 rat encounter, 36 water volumes); shown only in Free Roam
+SCENE MountainLoop
+Part B MountainLoop: 254 tunnel pieces + 333 atmosphere pieces from Dan's Backyard Reverse; area x 12..196, z -94..98; 206 route points of this scene nearby kept clear
+Part B MountainLoop: ground differs from Backyard Reverse on 6845 m² of the area; 7360 m² connected to the tunnel take the Backyard Reverse shape in Free Roam
+Part B MountainLoop: tile Ground_400_320: Free Roam shape - 42241 of its own triangles kept, 34483 Backyard Reverse triangles in the tunnel region
+Part B MountainLoop: tile Ground_400_400: Free Roam shape - 46961 of its own triangles kept, 19323 Backyard Reverse triangles in the tunnel region
+Part B MountainLoop: tile Ground_480_400: Free Roam shape - 49678 of its own triangles kept, 4952 Backyard Reverse triangles in the tunnel region
+Part B MountainLoop: Free Roam terrain on 3 tiles; 778 batched tree pieces re-grounded (162 in the tunnel line or where the ground opens: put out of sight), 50 trunks and 0 other objects follow the Free Roam ground
+Part B MountainLoop: 'Storm drain tunnel (Free Roam)' added (573 renderers, 12 lights, 1 rat encounter, 36 water volumes); shown only in Free Roam
+SCENE MountainLoopReverse
+Part B MountainLoopReverse: 254 tunnel pieces + 333 atmosphere pieces from Dan's Backyard Reverse; area x 12..196, z -94..98; 206 route points of this scene nearby kept clear
+Part B MountainLoopReverse: ground differs from Backyard Reverse on 6845 m² of the area; 7360 m² connected to the tunnel take the Backyard Reverse shape in Free Roam
+Part B MountainLoopReverse: tile Ground_400_320: Free Roam shape - 42241 of its own triangles kept, 34483 Backyard Reverse triangles in the tunnel region
+Part B MountainLoopReverse: tile Ground_400_400: Free Roam shape - 46961 of its own triangles kept, 19323 Backyard Reverse triangles in the tunnel region
+Part B MountainLoopReverse: tile Ground_480_400: Free Roam shape - 49678 of its own triangles kept, 4952 Backyard Reverse triangles in the tunnel region
+Part B MountainLoopReverse: Free Roam terrain on 3 tiles; 778 batched tree pieces re-grounded (162 in the tunnel line or where the ground opens: put out of sight), 50 trunks and 0 other objects follow the Free Roam ground
+Part B MountainLoopReverse: 'Storm drain tunnel (Free Roam)' added (573 renderers, 12 lights, 1 rat encounter, 36 water volumes); shown only in Free Roam

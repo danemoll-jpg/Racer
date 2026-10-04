@@ -28,7 +28,8 @@ namespace Racer
             ("DansBackyardForward", 12, 3.2f, false, "backyard"),
             ("MountainLoop", 400, 3.6f, true, "mountain"),
         };
-        static readonly (TimeOfDay t, Weather w)[] Measured = { (TimeOfDay.Day, Weather.Clear), (TimeOfDay.Night, Weather.Clear), (TimeOfDay.Day, Weather.Rain), (TimeOfDay.Night, Weather.Rain), (TimeOfDay.Night, Weather.Snow) };
+        // 0.74: Dawn/Clear, and Night/Rain with a lightning strike every 2 s during the measurement ("Night/Rain strikes").
+        static readonly (TimeOfDay t, Weather w)[] Measured = { (TimeOfDay.Day, Weather.Clear), (TimeOfDay.Dawn, Weather.Clear), (TimeOfDay.Night, Weather.Clear), (TimeOfDay.Day, Weather.Rain), (TimeOfDay.Night, Weather.Rain), (TimeOfDay.Night, Weather.Snow) };
 
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
         static void Boot()
@@ -61,6 +62,7 @@ namespace Racer
                     foreach (var (t, w) in Measured)
                     {
                         WorldLook.Current.Pin(LookPresets.Compose(t, w)); yield return Hold(3);
+                        bool strikes = t == TimeOfDay.Night && w == Weather.Rain; if (strikes) { WeatherEffects.HoldStrikes = false; WeatherEffects.TestStrikeInterval = 2; }
                         var gpu = new List<float>(); var frames = new List<float>(); var ft = new FrameTiming[1]; float t0 = Time.unscaledTime;
                         while (Time.unscaledTime - t0 < 10)
                         {
@@ -68,7 +70,8 @@ namespace Racer
                             FrameTimingManager.CaptureFrameTimings(); if (FrameTimingManager.GetLatestTimings(1, ft) > 0 && ft[0].gpuFrameTime > 0) gpu.Add((float)ft[0].gpuFrameTime);
                         }
                         gpu.Sort(); frames.Sort(); float med = gpu.Count > 0 ? gpu[gpu.Count / 2] : float.NaN, p95 = gpu.Count > 0 ? gpu[(int)(gpu.Count * .95f)] : float.NaN;
-                        rows.Add($"FPS {v.label} {t}/{w}: GPU median {med:F2} ms (95th {p95:F2}) = {1000 / med:F0} fps GPU-limited; wall-clock median frame {frames[frames.Count / 2] * 1000:F2} ms; {gpu.Count} timed frames; vehicles with lamps {FindObjectsByType<VehicleLights>(FindObjectsSortMode.None).Length}; screen {Screen.width}x{Screen.height}");
+                        if (strikes) { WeatherEffects.HoldStrikes = true; WeatherEffects.TestStrikeInterval = 0; }
+                        rows.Add($"FPS {v.label} {t}/{w}{(strikes ? " strikes every 2 s" : "")}: GPU median {med:F2} ms (95th {p95:F2}) = {1000 / med:F0} fps GPU-limited; wall-clock median frame {frames[frames.Count / 2] * 1000:F2} ms; {gpu.Count} timed frames; vehicles with lamps {FindObjectsByType<VehicleLights>(FindObjectsSortMode.None).Length}; screen {Screen.width}x{Screen.height}");
                     }
                 File.WriteAllLines(Path.Combine(outDir, "conditions.txt"), rows);
                 if (!fpsOnly && v.label == "forest")
@@ -86,7 +89,29 @@ namespace Racer
                 if (!fpsOnly && v.label == "street")
                 {
                     // The Free Roam day-night cycle (the same function Free Roam uses), Clear weather.
-                    foreach (float h in new[] { 8f, 12f, 18f, 19f, 20f, 21f, 22f, 23f, 0f, 5f }) { WorldLook.Current.Pin(WorldLook.Cycle(h, Weather.Clear)); yield return Hold(2); yield return Shot($"freeroam-cycle-{h:00}00.jpg"); rows.Add($"VIEW free roam cycle {h:00}:00 ({WorldLook.Current.Preset.name}), clouds {FindAnyObjectByType<SkyClouds>()?.Visible}"); }
+                    foreach (float h in new[] { 5f, 5.5f, 6f, 6.5f, 7f, 8f, 12f, 18f, 19f, 20f, 21f, 22f, 23f, 0f }) { WorldLook.Current.Pin(WorldLook.Cycle(h, Weather.Clear)); yield return Hold(2); yield return Shot($"freeroam-cycle-{Mathf.FloorToInt(h):00}{Mathf.RoundToInt(h % 1 * 60):00}.jpg"); rows.Add($"VIEW free roam cycle {h:00}:00 ({WorldLook.Current.Preset.name}), clouds {FindAnyObjectByType<SkyClouds>()?.Visible}"); }
+                }
+                if (!fpsOnly && v.label == "street")
+                {
+                    // 0.74 moon phases: the sky at night on days 1, 4, 8, 15, 22 and 27, looking at the moon (fixed at 40 degrees, south).
+                    foreach (int day in new[] { 1, 4, 8, 15, 22, 27 })
+                    {
+                        float ph = WorldLook.PhaseOf(day, 0); WeatherEffects.TestMoonPhase = ph; WeatherEffects.TestMoonElevation = 40; WeatherEffects.TestMoonAzimuth = 180;
+                        WorldLook.Current.Pin(WorldLook.Cycle(0, Weather.Clear, ph)); var to = -(Quaternion.Euler(40, 180, 0) * Vector3.forward); cam.transform.rotation = Quaternion.LookRotation(to);
+                        yield return Hold(2); yield return Shot($"moon-day{day:00}.jpg"); rows.Add($"VIEW moon day {day}: phase {ph:F2}, lit {WorldLook.Illumination(ph):F2}");
+                    }
+                    WeatherEffects.TestMoonPhase = -1; cam.transform.SetPositionAndRotation(eye, Quaternion.LookRotation(p + f * 30 + Vector3.up * .5f - eye));
+                    // lightning by day and by night (a strike forced at the start of the hold; the screenshot near its first pulse)
+                    foreach (var t in new[] { TimeOfDay.Day, TimeOfDay.Night })
+                    {
+                        WorldLook.Current.Pin(LookPresets.Compose(t, Weather.Rain)); yield return Hold(2);
+                        WeatherEffects.HoldStrikes = false; WeatherEffects.TestStrikeInterval = 30; WeatherEffects.TestBoltAzimuth = cam.transform.eulerAngles.y + 8; var fx = WorldLook.Current.GetComponent<WeatherEffects>(); int before = fx.Strikes;
+                        typeof(WeatherEffects).GetField("nextStrike", BindingFlags.NonPublic | BindingFlags.Instance).SetValue(fx, Time.time);
+                        float w0 = Time.unscaledTime; while (fx.Strikes == before && Time.unscaledTime - w0 < 3) yield return null;
+                        yield return null; yield return null; yield return Shot($"lightning-{t}.jpg".ToLowerInvariant());
+                        WeatherEffects.HoldStrikes = true; WeatherEffects.TestStrikeInterval = 0; WeatherEffects.TestBoltAzimuth = float.NaN; yield return Hold(1);
+                        rows.Add($"VIEW lightning {t}/Rain: strike {fx.Strikes - before}, flash {fx.PeakFlash:F2}, bolts shown {fx.BoltsShown}");
+                    }
                 }
                 WorldLook.Current.Pin(null);
                 File.WriteAllLines(Path.Combine(outDir, "conditions.txt"), rows);

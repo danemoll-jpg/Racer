@@ -36,6 +36,10 @@ namespace Racer
             // 0.73: Settings > Display "Lightning flashes" (Off keeps the thunder); garage "Model" for the motorcycle
             // (true = the 0.73 Blender model, false = the classic one).
             public bool lightningFlashes = true, newMotorcycle = true;
+            // 0.74: race time of day also 3 = Dawn. The Free Roam clock and calendar day (1-30), saved when Free Roam ends and
+            // resumed next time (a missing value is day 1, 08:00; out-of-range values fall back to that too).
+            public float roamHour = 8f;
+            public int roamDay = 1;
             public string[] opponentChoices = {"mixed","mixed","mixed"};
             public string[] opponentRoster = {"tourer","moto","atv"};
             public int[] bodyColors = {-1,-1,-1,-1};

@@ -25,7 +25,7 @@ namespace Racer
         public string LastJumpDiagnostic {get;private set;}
         public int SmashCount=>smashed.Count;
         public string Location {get{if(!Selected||!car)return "";var delta=Selected.transform.position-car.Body.position;int compass=Mathf.RoundToInt(Mathf.Repeat(Mathf.Atan2(delta.x,delta.z)*Mathf.Rad2Deg,360)/45)%8;return $"{DisplayUnits.Distance(Vector3.ProjectOnPlane(delta,Vector3.up).magnitude)} {new[]{"N","NE","E","SE","S","SW","W","NW"}[compass]}";}}
-        public string Hud=>Time.time<feedbackUntil?Feedback:AttemptActive?$"{Selected.title} / {Mathf.Max(0,deadline-Time.time):0}s / {Location}\n{(Selected.kind==ActivitySite.Kind.Smash?SmashCount+" distinct props":"Land a clean jump in the marked area")}":race.FreeRoam?$"FREE ROAM {(WorldLook.Current?WorldLook.Current.Clock+" ":"")}/ {Selected?.title} / {Location}\nEsc or Start: activities, retry, menu":"";
+        public string Hud=>Time.time<feedbackUntil?Feedback:AttemptActive?$"{Selected.title} / {Mathf.Max(0,deadline-Time.time):0}s / {Location}\n{(Selected.kind==ActivitySite.Kind.Smash?SmashCount+" distinct props":"Land a clean jump in the marked area")}":race.FreeRoam?$"FREE ROAM {(WorldLook.Current?WorldLook.Current.RoamClock+" ":"")}/ {Selected?.title} / {Location}\nEsc or Start: activities, retry, menu":"";
         RaceDirector race;ArcadeVehicle car;VehicleConfiguration configuration;
         readonly HashSet<BreakableProp> smashed=new();readonly Dictionary<ActivitySite,bool> armed=new();
         string path;Vector3 previous,takeoff,landing;float warm,air,stable,feedbackUntil,deadline,blockedUntil,impactSpeed;bool sampled,flying,invalid,touchedDown;

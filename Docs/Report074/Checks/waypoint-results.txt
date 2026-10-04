@@ -1,0 +1,8 @@
+PASS waypoint: placed with the cursor at (540, 23, 536)
+PASS waypoint: replaced by a new one
+PASS waypoint: cleared with the clear button
+PASS waypoint: placed with a mouse click at (-981, 0, -767) (unexplored: True)
+PASS waypoint: cleared with a right-click
+PASS waypoint: beam shown, HUD "WAYPOINT  198 ft" bearing 0 deg
+PASS waypoint: reached (within 15 m) -> cleared, "Destination reached" shown (1)
+PASS waypoint: not shown in a race

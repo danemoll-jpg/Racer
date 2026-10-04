@@ -1,0 +1,15 @@
+PASS clock: first start Day 1 08:00
+PASS clock: starting a race saved Day 3 21.51 (was Day 3 21.51)
+PASS clock: resumed after the race at Day 3 21:30 (time did not advance during the race)
+PASS clock: opening the menu (Free Roam pause = main menu) saved Day 9 13.26
+PASS clock: resumed after the menu at Day 9 13:15
+PASS clock: quitting saved Day 17 4.76 (read back from settings.json)
+PASS clock: midnight Day 14 -> Day 15 00:00; moon phase 0.467 -> 0.467 (lit 0.99)
+PASS clock: Day 30 wraps to Day 1 00:00; moon phase 0.000 (new)
+PASS clock: HUD "FREE ROAM Day 1 00:00 / Trickum pavement jump / 0.70 mi SW"; conditions "Free Roam Day 1 00:00 (Night) / Clear"
+  night 00:30 day 1: light 0.18 at elevation 62 az 180, ambient x0.86
+  night 00:30 day 8: light 0.18 at elevation 62 az 180, ambient x0.95
+  night 00:30 day 15: light 0.40 at elevation 47 az 199, ambient x1.06
+  night 00:30 day 22: light 0.33 at elevation 20 az 115, ambient x0.99
+PASS clock: unreadable value -> Day 1 08:00
+done, failures 0

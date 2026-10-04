@@ -1,0 +1,3 @@
+PASS RIDE file=Docs/Report074/storm-drain-tunnel.txt fwd moto pace 12: complete in 15.5 s over 186 m; slowest 9.1 m/s, fastest 12.3 m/s; longest airborne 0.12 s; largest pitch 18 deg, roll 5 deg; wipe-outs 0; resets 0; steepest driven 2 m grade 33%
+SHOT tunnel-entrance-LakeWoods hour 12 Clear
+done, failures 0

@@ -114,7 +114,8 @@ namespace Racer
             float distance=Vector3.Distance(player,batEntrance);
             if(distance>65){if(awaySince<0)awaySince=Time.time;if(Time.time-awaySince>12&&Time.time>nextBat)armed=true;}else awaySince=-1;
             bool racing=race.Flow && race.Flow.State==RaceFlow.Stage.Racing;
-            if(racing&&race.Forest&&armed&&Time.time>nextBat&&distance<30&&distance>7&&Vector3.Dot(race.vehicle.Body.linearVelocity,batForward)>3)
+            // 0.74: the cave bats also fly in Free Roam in every scene that has the cave (the Mountain scenes), as in Forest Forward.
+            if(racing&&(race.Forest||race.FreeRoam&&batEntrance!=Vector3.zero)&&armed&&Time.time>nextBat&&distance<30&&distance>7&&Vector3.Dot(race.vehicle.Body.linearVelocity,batForward)>3)
             {
                 armed=false;batStart=Time.time;nextBat=Time.time+45;Swarms++;passTarget=player+Vector3.up*3;
                 audioSource.transform.position=batRoost;

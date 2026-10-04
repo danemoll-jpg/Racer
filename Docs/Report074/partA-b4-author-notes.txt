@@ -1,0 +1,9 @@
+SCENE MountainLoop
+BUG-004 rerun: trunk at (735.87, 88.42, -133.68) put back up 0.97 m (its batched pieces were restored with the sheets)
+BUG-004 main s 12 trail edge: 842 free 0.5 m cells, 62 pinned under pavement edges; new surface vs old top -4.31 .. +2.19 m
+BUG-004 main s 12 trail edge: surface built (1828 tris, material MountainLoop-earth); terrain-sheet vertices lowered to 0.8 m under it or the pavement: 533 (Ground_Report067 edge shoulders 33, Ground_Report069 flush shoulders 24, Ground_720_240 28, Ground_CR133 mountain earth banks 325, Ground_MountainPolish supported shoulders 123)
+BUG-004 main s 12 trail edge: tree at (735.9, 89.4, -133.7) re-grounded -0.24 m (trunk 'World cleanup additional woodland/Roadside woodland trunk' and 9 batched pieces)
+BUG-004 main s 12 trail edge: trees re-grounded 1 (9 batched pieces moved with them)
+BUG-005 main s 1503 left bank: 737 free 0.5 m cells, 22 pinned under pavement edges; new surface vs old top -0.88 .. +1.03 m
+BUG-005 main s 1503 left bank: surface built (1634 tris, material MountainLoop-earth); terrain-sheet vertices lowered to 0.8 m under it or the pavement: 1417 (Ground_Report067 edge shoulders 88, Ground_Report069 flush shoulders 1079, Ground_ReportCleanup MountainLoop continuous solid 2 69, Ground_Mountain_2_3 15, Ground_Mountain_2_2 7, Ground_CR133 mountain earth banks 116, Ground_MountainPolish supported shoulders 43)
+BUG-005 main s 1503 left bank: trees re-grounded 0
