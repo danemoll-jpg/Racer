@@ -1,0 +1,11 @@
+moto: preview 1800x1488 px at (186,330), texture 1800x1488 (aspect 1.210 vs panel 1.210, true proportions); wholly on screen True; separate from the list True
+atv: preview 1800x1488 px at (186,330), texture 1800x1488 (aspect 1.210 vs panel 1.210, true proportions); wholly on screen True; separate from the list True
+original: preview 1800x1488 px at (186,330), texture 1800x1488 (aspect 1.210 vs panel 1.210, true proportions); wholly on screen True; separate from the list True
+tourer: preview 1800x1488 px at (186,330), texture 1800x1488 (aspect 1.210 vs panel 1.210, true proportions); wholly on screen True; separate from the list True
+rider page on moto, first row 'Randomize' (row on screen True; preview moved 0.0 px): preview 1800x1488 px at (186,330), texture 1800x1488 (aspect 1.210 vs panel 1.210, true proportions); wholly on screen True; separate from the list True
+rider page on moto, middle row '‹   Hat: Flat cap   ›' (row on screen True; preview moved 0.0 px): preview 1800x1488 px at (186,330), texture 1800x1488 (aspect 1.210 vs panel 1.210, true proportions); wholly on screen True; separate from the list True
+rider page on moto, last row '‹   Pants colour: Blue   ›' (row on screen True; preview moved 0.0 px): preview 1800x1488 px at (186,330), texture 1800x1488 (aspect 1.210 vs panel 1.210, true proportions); wholly on screen True; separate from the list True
+rider page on tourer, first row 'Randomize' (row on screen True; preview moved 0.0 px): preview 1800x1488 px at (186,330), texture 1800x1488 (aspect 1.210 vs panel 1.210, true proportions); wholly on screen True; separate from the list True
+rider page on tourer, middle row '‹   Hat: Flat cap   ›' (row on screen True; preview moved 0.0 px): preview 1800x1488 px at (186,330), texture 1800x1488 (aspect 1.210 vs panel 1.210, true proportions); wholly on screen True; separate from the list True
+rider page on tourer, last row '‹   Pants colour: Blue   ›' (row on screen True; preview moved 0.0 px): preview 1800x1488 px at (186,330), texture 1800x1488 (aspect 1.210 vs panel 1.210, true proportions); wholly on screen True; separate from the list True
+done

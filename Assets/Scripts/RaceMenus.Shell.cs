@@ -33,6 +33,7 @@ namespace Racer
         static string sceneReturnPage;
         static System.Collections.Generic.Dictionary<string,(string item,float scroll)> sceneMemory;
         public void SaveSceneReturn(){CapturePage();sceneReturnPage=stagePages.TryGetValue(RaceFlow.Stage.Ready,out var p)?p:"race";sceneMemory=new(pageMemory);}
+        public void SetSceneReturn(string target){sceneReturnPage=target;sceneMemory=null;}
         public void RestoreSceneReturn(){page=sceneReturnPage??"race";stagePages[RaceFlow.Stage.Ready]=page;if(sceneMemory!=null)foreach(var entry in sceneMemory)pageMemory[entry.Key]=entry.Value;sceneMemory=null;Show();}
         public void OpenSetup(){page="race";stagePages[RaceFlow.Stage.Ready]=page;Show();}
         public void ResetPages(){page="";pages.Clear();stagePages.Clear();stageStacks.Clear();modalConfirm=null;}
@@ -116,11 +117,14 @@ namespace Racer
             {
                 var p=prompts[pi];
                 bool keyboard=page=="keyboard";bool tabs=(flow.State==RaceFlow.Stage.Settings&&page.StartsWith("settings"))||(page==""&&(flow.State==RaceFlow.Stage.Boards||flow.State==RaceFlow.Stage.Activities||flow.State==RaceFlow.Stage.Results));bool playlist=flow.State==RaceFlow.Stage.Playlists&&page==""&&playlistDraft!=null;
-                p.glyph.transform.parent.gameObject.SetActive(pi<3||keyboard||tabs||playlist);
+                bool garage=garageView&&!keyboard;
+                p.glyph.transform.parent.gameObject.SetActive(pi<3||keyboard||tabs||playlist||garage);
                 if(pi==1)p.label.text=flow.State==RaceFlow.Stage.Results?"Main Menu":"Back";
                 if(pi==2){p.action=keyboard?deleteAction:playlist?playlistAdd:tabs?previousTab:uiModule.move.action;p.label.text=keyboard?"Delete":playlist?"Add Race":tabs?"Previous tab":"Navigate";}
                 if(pi==3){p.action=keyboard?spaceAction:playlist?playlistContext:tabsAction;p.label.text=keyboard?"Space":playlist?"Actions":"Next tab";}
                 string path=p.action!=null?MenuInput.Binding(p.action):MenuInput.Controller?p.fallback:"<Keyboard>/arrows";
+                // 0.76 garage: the preview turns with the right stick, Q / E or a mouse drag.
+                if(pi==3&&garage&&!tabs&&!playlist){path=MenuInput.Controller?"<Gamepad>/rightStick":"<Keyboard>/q";p.label.text=MenuInput.Controller?"Rotate":"/ E  Rotate";}
                 p.glyph.SetPath(path);p.key.text=MenuGlyph.Label(path);
             }
             bool mapOpen=flow.GetComponent<ExplorationMap>()?.OwnsInput==true;
@@ -176,30 +180,19 @@ namespace Racer
             var entry=registry.Register(id,label,submit,callback,()=>button.interactable);button.onClick.RemoveAllListeners();button.onClick.AddListener(()=>entry.Execute());
         }
         void Step(int index,string id,string label,Action<int> change){Row(index,id,"‹   "+label+"   ›",()=>change(1));adjustments[index]=change;}
-        RectTransform garageBody,garageProfiles;
+        // 0.76: the preview has its own fixed panel (RaceMenus.GaragePreview); the list reads: description, the vehicles,
+        // colours, Model, Rider..., Back.
         void LayoutGarage()
         {
             LayoutGarageBody();
-            for(int i=0;i<4;i++)if(buttons[i].gameObject.activeSelf){buttons[i].transform.SetParent(garageProfiles,false);buttons[i].name="profile-"+i;buttons[i].GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=44;}
-            swatchRow.SetSiblingIndex(2);buttons[4].transform.SetSiblingIndex(3);
-            if(buttons.Count>6&&buttons[6].gameObject.activeSelf){buttons[6].transform.SetSiblingIndex(3);buttons[4].transform.SetSiblingIndex(4);}
-            if(buttons.Count>5&&buttons[5].gameObject.activeSelf){buttons[5].transform.SetSiblingIndex(3);buttons[4].transform.SetSiblingIndex(5);}
+            details.transform.SetSiblingIndex(0);int at=1;
+            for(int i=0;i<4;i++)if(buttons[i].gameObject.activeSelf){buttons[i].transform.SetSiblingIndex(at++);buttons[i].name="profile-"+i;}
+            swatchRow.SetSiblingIndex(at++);
+            if(buttons.Count>5&&buttons[5].gameObject.activeSelf)buttons[5].transform.SetSiblingIndex(at++);
+            if(buttons.Count>6&&buttons[6].gameObject.activeSelf)buttons[6].transform.SetSiblingIndex(at++);
+            buttons[4].transform.SetSiblingIndex(at);
         }
-        void LayoutGarageBody()
-        {
-            if(!garageBody)
-            {
-                garageBody=Rect("Garage preview and profiles",content);
-                garageBody.gameObject.AddComponent<UnityEngine.UI.LayoutElement>().preferredHeight=240;
-                var horizontal=garageBody.gameObject.AddComponent<UnityEngine.UI.HorizontalLayoutGroup>();horizontal.spacing=24;horizontal.childControlWidth=horizontal.childControlHeight=true;horizontal.childForceExpandWidth=false;
-                garageProfiles=Rect("Vehicle profiles",garageBody);garageProfiles.gameObject.AddComponent<UnityEngine.UI.LayoutElement>().preferredWidth=280;
-                var vertical=garageProfiles.gameObject.AddComponent<UnityEngine.UI.VerticalLayoutGroup>();vertical.spacing=8;vertical.childControlWidth=vertical.childControlHeight=true;vertical.childForceExpandHeight=false;
-                previewTexture.Release();previewTexture.width=640;previewTexture.height=280;previewTexture.Create();
-            }
-            garageBody.gameObject.SetActive(true);garageBody.SetSiblingIndex(1);
-            preview.transform.SetParent(garageBody,false);preview.transform.SetSiblingIndex(0);
-            preview.GetComponent<UnityEngine.UI.LayoutElement>().preferredWidth=620;
-        }
+        void LayoutGarageBody()=>EnterGarageView();
         // 0.75 garage Rider page: the live preview (framed on the rider) with Randomize and Back beside it, the option rows
         // below in the existing row style (‹ › / left-right steps, select / click steps forward). Classic models show the
         // old rider, so the page then only says that customization needs the New models.
@@ -216,14 +209,7 @@ namespace Racer
             }
             else{Row(0,"model","Model: "+flow.ModelLabel+"   (Classic / New)",flow.ToggleModel);Row(1,"rider-back","Back",()=>BackPage());}
             LayoutGarageBody();
-            for(int i=0;i<2;i++){buttons[i].transform.SetParent(garageProfiles,false);buttons[i].GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=44;}
         }
-        void ResetGarageLayout()
-        {
-            if(!garageBody)return;
-            preview.transform.SetParent(content,false);
-            foreach(var b in buttons)if(b.transform.parent==garageProfiles)b.transform.SetParent(content,false);
-            garageBody.gameObject.SetActive(false);
-        }
+        void ResetGarageLayout()=>LeaveGarageView();
     }
 }

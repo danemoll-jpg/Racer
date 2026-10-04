@@ -53,8 +53,16 @@ namespace Racer
         public static string ActivityCourse(string course)=>course switch{
             "street-v12-corrections"=>"street-v11-arcade", "lake-v5-corrections"=>"lake-v4-arcade",
             "forest-reverse-v3-corrections"=>"forest-reverse-v2-arcade", _=>course};
-        public string Key(ActivitySite s)=>s.id+"/"+ActivityCourse(race.courseId)+"/activities-v2/"+configuration.profileId+(s.kind==ActivitySite.Kind.Speed&&oppositeAttempt?"/opposite":"/forward");
-        public Best PersonalBest(ActivitySite s)=>Results.results.FirstOrDefault(b=>b.key==Key(s));
+        string Suffix(ActivitySite s)=>"/activities-v2/"+configuration.profileId+(s.kind==ActivitySite.Kind.Speed&&oppositeAttempt?"/opposite":"/forward");
+        public string Key(ActivitySite s)=>s.id+"/"+ActivityCourse(race.courseId)+Suffix(s);
+        // The site's own key plus, in FreeRoamWorld, the keys it had in the course scenes.
+        public string[] Keys(ActivitySite s)=>s.legacyRecords==null||s.legacyRecords.Length==0?new[]{Key(s)}:new[]{Key(s)}.Concat(s.legacyRecords.Select(k=>k+Suffix(s))).ToArray();
+        public Best PersonalBest(ActivitySite s)
+        {
+            var own=Results.results.FirstOrDefault(b=>b.key==Key(s));if(s.legacyRecords==null||s.legacyRecords.Length==0)return own;
+            var keys=Keys(s);var all=Results.results.Where(b=>keys.Contains(b.key)).ToList();if(all.Count==0)return null;
+            return new Best{key=Key(s),value=all.Max(b=>b.value),medal=all.Max(b=>b.medal)};
+        }
         public static string Measurement(ActivitySite site,float value)=>site.kind==ActivitySite.Kind.Speed?DisplayUnits.Speed(value):site.kind==ActivitySite.Kind.Jump?DisplayUnits.Jump(value):value.ToString("0")+" props";
         public string Targets{get{if(!Selected)return "";Selected.Targets(configuration.profileId,out float b,out float s,out float g);return Selected.kind==ActivitySite.Kind.Jump?$"Bronze {DisplayUnits.Target(b)} / silver {DisplayUnits.Target(s)} / gold {DisplayUnits.Target(g)}":$"Bronze {Measurement(Selected,b)} / silver {Measurement(Selected,s)} / gold {Measurement(Selected,g)} / {Selected.Seconds:0}s";}}
         public void Cycle(){var choices=Sites.Where(s=>s.kind!=ActivitySite.Kind.Speed).ToArray();if(choices.Length==0)return;Cancel();Selected=choices[(Array.IndexOf(choices,Selected)+1)%choices.Length];}
@@ -146,8 +154,8 @@ namespace Racer
             bool improved=best==null||value>best.value;
             if(site.kind!=ActivitySite.Kind.Smash)Records.Add(new ActivityRecords.Entry{id=Guid.NewGuid().ToString("N"),key=Key(site),site=site.id,vehicle=configuration.profileId,date=DateTime.UtcNow.ToString("o"),value=value,airtime=site.kind==ActivitySite.Kind.Jump?LastAirtime:0,medal=medal});
             if(site.kind==ActivitySite.Kind.Jump)LastJumpAward=value;
-            if(best==null){best=new Best{key=Key(site)};Results.results.Add(best);}best.value=Mathf.Max(best.value,value);best.medal=Mathf.Max(best.medal,medal);Awards++;
-            string measurement=Measurement(site,value)+" / PB "+Measurement(site,best.value);
+            var own=Results.results.FirstOrDefault(b=>b.key==Key(site));if(own==null){own=new Best{key=Key(site)};Results.results.Add(own);}own.value=Mathf.Max(own.value,value);own.medal=Mathf.Max(own.medal,medal);Awards++;
+            string measurement=Measurement(site,value)+" / PB "+Measurement(site,Mathf.Max(own.value,best?.value??0));
             Message(site.title+" / "+measurement+"\n"+new[]{"No medal yet","BRONZE","SILVER","GOLD"}[medal]+(improved?" / NEW BEST":" / personal best retained")+(site.kind==ActivitySite.Kind.Jump?$" / {LastAirtime:0.00}s / {Mathf.RoundToInt(value*10+LastAirtime*100)} pts":""),6);
             try{AtomicSave.Write(path,JsonUtility.ToJson(Results,true));}catch(Exception e){Message("Activity result could not be saved: "+e.Message,6);}
         }

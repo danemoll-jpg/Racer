@@ -67,7 +67,7 @@ details.gameObject.SetActive(true);
                 else
                 {
                     ClearCore("WOODSTOCK RUSH","");
-                    Row(0,"race","RACE",()=>Navigate("race"));Row(1,"roam","FREE ROAM",()=>Navigate("roam"));Row(2,"garage","GARAGE",flow.OpenGarage);
+                    Row(0,"race","RACE",()=>{if(flow.InRoamWorld)flow.OpenRaceSetupFromRoam();else Navigate("race");});Row(1,"roam","FREE ROAM",()=>Navigate("roam"));Row(2,"garage","GARAGE",flow.OpenGarage);
                     Row(3,"records","RECORDS",flow.OpenBoards);Row(4,"exploration","EXPLORATION",flow.OpenExploration);Row(5,"settings","SETTINGS",flow.OpenSettings);Row(6,"quit","QUIT GAME",ConfirmQuit);
                     if(flow.RoamMenu){Row(7,"resume","RESUME DRIVING",flow.Resume);buttons[7].transform.SetSiblingIndex(buttons[0].transform.GetSiblingIndex());}
                 }

@@ -19,6 +19,13 @@ namespace Racer
         Stage extrasReturn;
         readonly System.Collections.Generic.Stack<Stage> callers=new();
         static bool returnToSetup;
+        // 0.76: Free Roam has its own scene, built from Dan's Backyard Loop - Reverse. It is the same world whichever course
+        // is selected; the course scenes are races only. RoamCourse is the course Free Roam was started from (the player
+        // starts at its start location; Race Setup, Start Race and Return to Menu go back to its scene).
+        public const string RoamScene="FreeRoamWorld";
+        public static int RoamCourse;
+        static bool pendingRace,roamHint;
+        public bool InRoamWorld=>gameObject.scene.name==RoamScene;
         public bool RoamMenu { get; private set; }
         public float RoamMenuHintUntil { get; private set; }
         public void PushMenu(Stage stage){callers.Push(State);SetStage(stage);Click();}
@@ -70,6 +77,7 @@ namespace Racer
             Race = GetComponent<RaceDirector>();
             input = Race.vehicle.GetComponent<VehicleInput>();
             respawn = Race.vehicle.GetComponent<VehicleRespawn>();
+            if (InRoamWorld) ApplyRoamCourse();
             if (!Race.vehicle.GetComponent<VehicleAudio>()) Race.vehicle.gameObject.AddComponent<VehicleAudio>();
             originalKinematic = Race.vehicle.Body.isKinematic;
             string root = Path.Combine(Application.persistentDataPath, "Phase7", "street-loop-gates-v1-laps" + Race.laps);
@@ -110,10 +118,30 @@ namespace Racer
             GetComponent<ExplorationMap>()?.Initialize(Race,root);
             LockVehicle(true);
             if(RacePlaylists.PendingStart){RacePlaylists.PendingStart=false;EnterMenuAfterTitle();Race.laps=RacePlaylists.Current.laps;StartRace();}
+            else if(pendingRace){pendingRace=false;EnterMenuAfterTitle();StartRace();}
+            else if(InRoamWorld){Radio=LocalRadio.Attach(this);StartFreeRoam();if(roamHint){roamHint=false;RoamMenuHintUntil=Time.unscaledTime+12;}}
             else if(StartupTitle.Begin(this))SetStage(Stage.Title);else EnterMenuAfterTitle();
         }
+        // FreeRoamWorld shows the selected course's name and vehicle rules and starts the player at that course's start.
+        void ApplyRoamCourse()
+        {
+            RoamCourse=Mathf.Clamp(RoamCourse,0,RacePlaylists.Scenes.Length-1);
+            Race.courseName=RacePlaylists.Titles[RoamCourse];
+            var courses=CoursePreviewCatalog.Courses;if(RoamCourse>=courses.Length)return;var c=courses[RoamCourse];
+            Race.forestOverride=c.forest?1:0;
+            var start=new GameObject("Free Roam start / "+c.scene).transform;start.SetPositionAndRotation(c.start,Quaternion.Euler(0,c.startYaw,0));respawn.spawnPoint=start;
+        }
+        void LoadScene(string scene){Save.SaveSettings();Time.timeScale=1;AudioListener.pause=false;UnityEngine.SceneManagement.SceneManager.LoadScene(scene);}
+        // Leaving FreeRoamWorld for the selected course's scene (its menu page, or a race when pendingRace is set).
+        void LeaveRoamWorld(string page)
+        {
+            WorldLook.Current?.SaveRoamClock();GetComponent<ExplorationMap>()?.Save();
+            callers.Clear();menus.ResetPages();returnToSetup=page!=null;if(returnToSetup)menus.SetSceneReturn(page);
+            LoadScene(RacePlaylists.Scenes[RoamCourse]);
+        }
+        public void OpenRaceSetupFromRoam()=>LeaveRoamWorld("race");
         public void EnterMenuAfterTitle(){Radio=LocalRadio.Attach(this);SetStage(Stage.Ready);if(returnToSetup){returnToSetup=false;menus.RestoreSceneReturn();}}
-        public void EnterFreeRoamAfterTitle(){Radio=LocalRadio.Attach(this);StartFreeRoam();RoamMenuHintUntil=Time.unscaledTime+12;}
+        public void EnterFreeRoamAfterTitle(){Radio=LocalRadio.Attach(this);roamHint=!InRoamWorld;StartFreeRoam();RoamMenuHintUntil=Time.unscaledTime+12;}
         void Update()
         {
             if (Save == null || State==Stage.Title || menus?.OwnsTextInput==true || DeveloperLocationHud.OwnsInput) return;
@@ -322,8 +350,8 @@ namespace Racer
             NewLapRecord = NewRaceRecord = false; CountdownRemaining = 3; lastTick = 3;
             Notice = null; LockVehicle(true); SetStage(Stage.Countdown); Sound(tick);
         }
-        public void StartRace() { RoamMenu=false;callers.Clear();menus.ResetPages(); if(RacePlaylists.Active!=null)RacePlaylists.Championship.Restart(RacePlaylists.Position);Race.FreeRoam=false;SetGateVisibility(true);Click(); Race.RestartRace(); }
-        public void StartFreeRoam(){RoamMenu=false;callers.Clear();menus.ResetPages();Race.FreeRoam=true;SetGateVisibility(false);Click();Race.RestartRace();}
+        public void StartRace() { if(InRoamWorld){pendingRace=true;LeaveRoamWorld(null);return;} RoamMenu=false;callers.Clear();menus.ResetPages(); if(RacePlaylists.Active!=null)RacePlaylists.Championship.Restart(RacePlaylists.Position);Race.FreeRoam=false;SetGateVisibility(true);Click(); Race.RestartRace(); }
+        public void StartFreeRoam(){int course=System.Array.IndexOf(RacePlaylists.Scenes,gameObject.scene.name);if(!InRoamWorld&&course>=0){RoamCourse=course;LoadScene(RoamScene);return;}RoamMenu=false;callers.Clear();menus.ResetPages();Race.FreeRoam=true;SetGateVisibility(false);Click();Race.RestartRace();}
         public void BeginRoaming(){DebugMovementUsed=false;attempt=null;CountdownRemaining=0;LapRank=RaceRank=0;NewLapRecord=NewRaceRecord=false;LockVehicle(false);Race.GetComponent<WrongWayGuidance>()?.Clear();SetStage(Stage.Racing);}
         void SetGateVisibility(bool visible){foreach(var gate in Race.gates)foreach(var renderer in gate.GetComponentsInChildren<Renderer>(true))renderer.enabled=visible;}
         public void Pause() { pausedStage = State; RoamMenuHintUntil=0;RoamMenu=Race.FreeRoam;if(RoamMenu)menus.ResetPages();SetStage(RoamMenu?Stage.Ready:Stage.Paused); Click(); }
@@ -336,6 +364,7 @@ namespace Racer
         {
             callers.Clear();menus.ResetPages();
             if(State!=Stage.Paused && State!=Stage.Results && State!=Stage.Settings) return;
+            if(InRoamWorld){LeaveRoamWorld("");return;}
             PrepareRestart(); Race.AbandonEvent(); respawn.CancelRecovery(); respawn.PlaceOnNearestGround(); LockVehicle(true);
             RacePlaylists.Quit();Race.laps=Save.Settings.laps==0&&!Race.opponents?0:Mathf.Clamp(Save.Settings.laps,1,5);
             Race.FreeRoam=false;SetGateVisibility(true);

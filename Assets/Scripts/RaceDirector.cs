@@ -14,7 +14,9 @@ namespace Racer
         public RaceRoad ambientRoad;
         public RaceRoad throughRoad;
         public bool reverseCourse;
-        public bool Forest => (road&&road.forestTrail)||courseId=="lake-v2-forest" || courseId=="lake-v3-shallows";
+        public bool Forest => forestOverride>=0 ? forestOverride==1 : (road&&road.forestTrail)||courseId=="lake-v2-forest" || courseId=="lake-v3-shallows";
+        // 0.76 FreeRoamWorld: the selected course's vehicle rule (1 small vehicles only, 0 all); -1 = this scene's own course.
+        [System.NonSerialized] public int forestOverride=-1;
         public VehicleProfile[] EligibleVehicles => Forest ? VehicleProfile.All.Where(p=>p.Small).ToArray() : VehicleProfile.All;
         public string EligibleVehicle(string id)=>Forest&&!VehicleProfile.Find(id).Small?"moto":VehicleProfile.Find(id).Id;
         public string courseId="street-v8-landings";

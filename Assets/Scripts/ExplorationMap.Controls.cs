@@ -11,9 +11,20 @@ namespace Racer
     {
         InputActionMap mapActions;
         InputAction mapToggle,panAction,zoomOutAction,zoomInAction,selectAction,routeAction,waypointAction,centerAction,prevAction,nextAction,helpAction,backAction,navigateAction,trackAction,clearWaypointAction;
-        int previewCourse=-1;
-        CoursePreviewCatalog.Course PreviewCourse=>previewCourse>=0&&previewCourse<CoursePreviewCatalog.Courses.Length?CoursePreviewCatalog.Courses[previewCourse]:null;
-        string PreviewTitle=>PreviewCourse!=null?RacePlaylists.Titles[previewCourse]:race.courseName;
+        // 0.76: the routes of any courses chosen under Track are drawn over the one world, several at once, remembered with
+        // the map data. Choosing never loads a scene, changes the world or moves the player. During a race: that race only.
+        string CurrentScene=>race.Flow.InRoamWorld?RacePlaylists.Scenes[Mathf.Clamp(RaceFlow.RoamCourse,0,RacePlaylists.Scenes.Length-1)]:gameObject.scene.name;
+        List<string> ShownRoutes{get{if(!data.routesChosen)data.routes=new List<string>{CurrentScene};return data.routes??=new List<string>();}}
+        List<CoursePreviewCatalog.Course> RouteCourses=>race.Flow.TrackBrowsingLocked?null:CoursePreviewCatalog.Courses.Where(c=>ShownRoutes.Contains(c.scene)).ToList();
+        string RouteTitle{get{if(race.Flow.TrackBrowsingLocked)return race.courseName+"\nCurrent race\n\n";var shown=RouteCourses;return (shown.Count==0?"No race route chosen":shown.Count==1?RacePlaylists.Titles[Array.IndexOf(RacePlaylists.Scenes,shown[0].scene)]:shown.Count+" race routes")+"\nChoose routes with Track\n\n";}}
+        string RouteLegend=>!courseOverlay.gameObject.activeSelf?"Race routes hidden":"Cyan main route / Gold shortcuts\nWhite bar: start / finish"+(RouteCourses?.Any(c=>c.raceOnly)==true?"\nDashed: race-only route\n(no road in Free Roam)":"");
+        void ToggleCourseRoute(int course)
+        {
+            var routes=ShownRoutes;data.routesChosen=true;var scene=RacePlaylists.Scenes[course];bool on=!routes.Remove(scene);if(on)routes.Add(scene);
+            data.routesShown=true;courseOverlay.gameObject.SetActive(true);dirty=true;Save();
+            if(on){var c=CoursePreviewCatalog.Courses[course];var bounds=new Bounds(c.main[0],Vector3.zero);foreach(var p in c.main)bounds.Encapsulate(p);center=MapNormalized(bounds.center);var extent=Vector2.Scale(MapNormalized(bounds.max)-MapNormalized(bounds.min),picture.rectTransform.rect.size);zoom=Mathf.Clamp(Mathf.Min(picture.rectTransform.rect.width/Mathf.Max(1,extent.x),picture.rectTransform.rect.height/Mathf.Max(1,extent.y))*.8f,1,6);selected=-1;}
+            Draw();
+        }
         readonly MenuActionRegistry mapRegistry=new();
         readonly List<(MenuGlyph glyph,UnityEngine.UI.Text key,UnityEngine.UI.Text label,InputAction action)> mapPrompts=new();
         readonly List<UnityEngine.UI.Button> sheetButtons=new();
@@ -64,24 +75,24 @@ namespace Racer
             selected=Enumerable.Range(0,destinations.Length).Where(i=>Discovered(destinations[i].id)&&ScreenPoint(destinations[i].position).magnitude<=28).OrderBy(i=>ScreenPoint(destinations[i].position).sqrMagnitude).DefaultIfEmpty(-1).First();
             if(selected>=0)center=MapNormalized(destinations[selected].position);OpenMapSheet(false,true);Draw();
         }
-        void ToggleRoute(){courseOverlay.gameObject.SetActive(!courseOverlay.gameObject.activeSelf);Draw();}
+        void ToggleRoute(){courseOverlay.gameObject.SetActive(!courseOverlay.gameObject.activeSelf);data.routesShown=courseOverlay.gameObject.activeSelf;dirty=true;Save();Draw();}
         // 0.74: the waypoint goes at the cursor (the "+" in the middle of the map, moved by panning) or at the selected
         // destination - anywhere on the map, explored or not; pressing it again on the same spot clears it.
         void ToggleWaypoint(){var p=selected>=0?destinations[selected].position:MapWorldPoint(center);if(Waypoint.HasValue&&ScreenPoint(Waypoint.Value).magnitude<12&&selected<0)ClearWaypoint();else SetWaypoint(p);Draw();}
         void ClearWaypoint(){if(Waypoint.HasValue)errorMessage="Waypoint cleared.";Waypoint=null;Draw();}
         void CloseMapSheet(){sheetOpen=false;if(actionSheet)actionSheet.SetActive(false);MenuInput.ConsumeThroughRelease();EventSystem.current?.SetSelectedGameObject(null);}
-        void OpenMapSheet(bool confirm,bool location=false,bool tracks=false)
+        void OpenMapSheet(bool confirm,bool location=false,bool tracks=false,int focus=0)
         {
             if(tracks&&race.Flow.TrackBrowsingLocked)return;
             if(actionSheet){actionSheet.SetActive(false);Destroy(actionSheet);}sheetButtons.Clear();mapRegistry.Clear();
             actionSheet=RectUI("Map actions",panel.transform,Vector2.zero,new(730,600)).gameObject;actionSheet.AddComponent<UnityEngine.UI.Image>().color=new(.025f,.065f,.085f,.99f);
-            Text("Heading",actionSheet.transform,new(0,246),new(680,70),28).text=tracks?"MAP · SELECT TRACK":confirm?"Travel to "+destinations[pending].title+"?":location?(selected>=0?destinations[selected].title:"Map Point"):"MAP ACTIONS / HELP";
+            Text("Heading",actionSheet.transform,new(0,246),new(680,70),28).text=tracks?"MAP · SHOW TRACK ROUTES":confirm?"Travel to "+destinations[pending].title+"?":location?(selected>=0?destinations[selected].title:"Map Point"):"MAP ACTIONS / HELP";
             if(!tracks)Text("Help",actionSheet.transform,new(0,169),new(670,80),18).text=confirm?"Active activity and ghost attempts will end.\nArrival safety is checked again before travel.":"Unexplored areas are dimmed.\nExplored areas may still contain acorns.\nRoads and trails remain visible when the race route is hidden.";
             void Choice(string id,string label,Action action){int index=sheetButtons.Count;var r=RectUI(id,actionSheet.transform,new(0,(tracks?190:91)-index*49),new(650,43));var bg=r.gameObject.AddComponent<UnityEngine.UI.Image>();bg.color=new(.1f,.25f,.28f);var b=r.gameObject.AddComponent<UnityEngine.UI.Button>();b.targetGraphic=bg;var colors=b.colors;colors.selectedColor=new(.2f,.8f,.7f);b.colors=colors;b.navigation=new(){mode=UnityEngine.UI.Navigation.Mode.None};Text("Label",r,Vector2.zero,new(625,41),21).text=label;var entry=mapRegistry.Register(id,label,selectAction,action);b.onClick.AddListener(()=>entry.Execute());sheetButtons.Add(b);}
             Choice("cancel","CANCEL / BACK",()=>{if(Confirming)CancelTravel();else CloseMapSheet();});
             if(tracks)
             {
-                foreach(int i in RacePlaylists.DisplayOrder){int choice=i;if(i>=CoursePreviewCatalog.Courses.Length)continue;Choice("map-track-"+i,RacePlaylists.Titles[i],()=>{previewCourse=choice;courseOverlay.gameObject.SetActive(true);var points=PreviewCourse.main;var bounds=new Bounds(points[0],Vector3.zero);foreach(var p in points)bounds.Encapsulate(p);center=MapNormalized(bounds.center);var extent=Vector2.Scale(MapNormalized(bounds.max)-MapNormalized(bounds.min),picture.rectTransform.rect.size);zoom=Mathf.Clamp(Mathf.Min(picture.rectTransform.rect.width/Mathf.Max(1,extent.x),picture.rectTransform.rect.height/Mathf.Max(1,extent.y))*.8f,1,6);selected=-1;CloseMapSheet();Draw();});}
+                int row=1;foreach(int i in RacePlaylists.DisplayOrder){int choice=i,at=row++;if(i>=CoursePreviewCatalog.Courses.Length)continue;Choice("map-track-"+i,(ShownRoutes.Contains(RacePlaylists.Scenes[i])?"[x]  ":"[  ]  ")+RacePlaylists.Titles[i]+(CoursePreviewCatalog.Courses[i].raceOnly?"  (race-only)":""),()=>{ToggleCourseRoute(choice);OpenMapSheet(false,false,true,at);});}
             }
             else if(confirm)Choice("travel","TRAVEL",()=>ConfirmTravel());
             else
@@ -94,7 +105,7 @@ namespace Racer
                 Choice("destinations","Next Discovered Destination",()=>{SelectNext(1);CloseMapSheet();});
                 if(!race.Flow.TrackBrowsingLocked)Choice("tracks","Select Track",()=>OpenMapSheet(false,false,true));
             }
-            sheetOpen=true;sheetFocus=0;EventSystem.current.SetSelectedGameObject(sheetButtons[0].gameObject);MenuInput.ConsumeThroughRelease();
+            sheetOpen=true;sheetFocus=Mathf.Clamp(focus,0,sheetButtons.Count-1);EventSystem.current.SetSelectedGameObject(sheetButtons[sheetFocus].gameObject);MenuInput.ConsumeThroughRelease();
         }
         void BuildMapControls()
         {

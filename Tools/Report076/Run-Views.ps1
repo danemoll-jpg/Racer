@@ -1,0 +1,5 @@
+# 0.76 view captures: Part A restored House 3 driveway (same views as the 0.74 "before" = 0.73 shots) in two race scenes,
+# and FreeRoamWorld at Dan's 0.74 Free Roam report positions (storm-drain area) and along the winding driveway.
+$env:PROBE_NODEFAULT='1'; $env:PROBE_TAG='076'
+$env:PROBE_EXTRA='BUG-003-top|StreetLoopGreybox|470,300,-180|470,0,-179.99|80;BUG-003-west|StreetLoopGreybox|360,90,-150|470,55,-160;BUG-003-top-FLR|ForestLoopReverse|470,300,-180|470,0,-179.99|80;BUG-003-west-FLR|ForestLoopReverse|360,90,-150|470,55,-160;BUG-003-top-FRW|FreeRoamWorld|470,300,-180|470,0,-179.99|80;BUG-003-west-FRW|FreeRoamWorld|360,90,-150|470,55,-160;FRW-bug001|FreeRoamWorld|91.8,52.9,86.3|105,50.8,99.4;FRW-bug002|FreeRoamWorld|141.3,61.8,67.3|157.1,59.7,76.8;FRW-drain-top|FreeRoamWorld|130,260,60|130,0,60.01|70;FRW-drive-down|FreeRoamWorld|509.0,86.0,-129.0|480.0,72.0,-160.0;FRW-drive-lake|FreeRoamWorld|430.0,52.0,-250.0|380.0,36.0,-215.0'
+& (Join-Path $PSScriptRoot 'Run-Unity.ps1') -Method Report076Views.Run -Out views -Minutes 30

@@ -1,0 +1,13 @@
+case race-day scene StreetLoopGreybox mode Race look Clear Day Rain rain 1.00 hour 8.0
+seconds 120 strikes 12 first strike at 3.5 s; thunder played 9; bolts 17 (0 within 45 deg of the camera's view), lit for 0.11 s on average (max 0.12); flash peak 0.71
+speed median 122 km/h; time under cover 0.0 s; most voices playing at once 12 (real voices 32); thunder virtual (culled) in 0/3732 frames
+engine RMS median -28.5 dBFS; radio RMS median -120.0 dBFS
+  thunder at 7.6 s: peak -6.5 dBFS, engine -28.7, radio -120.0 -> over engine +22.2 dB, over radio +113.5 dB
+  thunder at 16.3 s: peak -8.5 dBFS, engine -28.4, radio -120.0 -> over engine +19.9 dB, over radio +111.5 dB
+  thunder at 38.6 s: peak -4.8 dBFS, engine -29.0, radio -120.0 -> over engine +24.2 dB, over radio +115.2 dB
+  thunder at 50.3 s: peak -5.1 dBFS, engine -29.1, radio -120.0 -> over engine +24.1 dB, over radio +114.9 dB
+  thunder at 56.0 s: peak -6.0 dBFS, engine -27.3, radio -120.0 -> over engine +21.3 dB, over radio +114.0 dB
+  thunder at 65.2 s: peak -5.7 dBFS, engine -28.8, radio -120.0 -> over engine +23.1 dB, over radio +114.3 dB
+  thunder at 67.9 s: peak -5.8 dBFS, engine -29.3, radio -120.0 -> over engine +23.6 dB, over radio +114.2 dB
+  thunder at 84.2 s: peak -7.7 dBFS, engine -28.9, radio -120.0 -> over engine +21.2 dB, over radio +112.3 dB
+  thunder at 104.4 s: peak -5.2 dBFS, engine -28.8, radio -120.0 -> over engine +23.7 dB, over radio +114.8 dB

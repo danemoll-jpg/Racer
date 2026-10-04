@@ -18,6 +18,7 @@ namespace Racer
         static LocalRadio persistent;
         string saveRoot;
         public float PlaybackSeconds=>source&&source.clip?source.time:0;
+        public static AudioSource Source=>persistent?persistent.source:null;
         // Course selection loads a scene. Own the streaming voice outside that scene
         // and bind its controls to the new menu without rescanning or choosing a song.
         public static LocalRadio Attach(RaceFlow owner)
@@ -247,7 +248,7 @@ namespace Racer
         void Update()
         {
             if(!flow||flow.Save==null)return;
-            source.volume=StartupTitle.SpeechPending?0:flow.Save.Settings.music*.32f;
+            source.volume=StartupTitle.SpeechPending?0:flow.Save.Settings.music*.32f*(1-.4f*WeatherEffects.Duck);// 0.76: dips under thunder
             if(scan!=null&&scan.IsCompleted)
             {
                 var result=scan.IsCompletedSuccessfully?scan.Result:new MusicCollection.Result{Error="Scan failed; try another folder"};scan=null;

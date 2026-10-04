@@ -1,0 +1,7 @@
+isolated save = copy of C:/Users/danmo/AppData/LocalLow/DefaultCompany/Racer\Phase7\street-loop-gates-v1-laps3
+PASS ride vehicle moto
+  held up at (82.5, 34.3, -109.1) (route metre 495), under: Memory loop - north is +Z/Ground_400_320; ahead: -
+FAIL RIDE Forward navigation only - no road mesh fwd moto pace 17: time in 184.7 s over 1256 m; slowest -3.9 m/s, fastest 18.6 m/s; time held under half pace on the ground 133.9 s; longest airborne 2.14 s; wipe-outs 0; resets 0
+FAIL RACE DansBackyardForward (Dan's Backyard Loop - Forward, 3 AI, 1 lap): finished 01:45.675, missed gates 1, recoveries 6, AI EMBER finished, GOLD finished, BLUE finished; record files for this course 10
+FAIL RACE DansBackyardReverse (Dan's Backyard Loop - Reverse, 3 AI, 1 lap): finished 01:16.705, missed gates 1, recoveries 2, AI EMBER finished, GOLD finished, BLUE finished; record files for this course 6
+done, failures 3

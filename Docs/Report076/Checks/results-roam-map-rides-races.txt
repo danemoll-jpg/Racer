@@ -1,0 +1,33 @@
+isolated save = copy of C:/Users/danmo/AppData/LocalLow/DefaultCompany/Racer\Phase7\street-loop-gates-v1-laps3
+PASS Free Roam from StreetLoopGreybox: scene FreeRoamWorld, start (320.2, 9.5, 536.3) (course start (320.2, 9.7, 536.0)), after 3 s (320.2, 8.7, 542.2) on 'PrototypeCar' -0.45 m up, resets 0, title 'Street Loop - Forward', small vehicles only False
+PASS   Race from Free Roam: back in StreetLoopGreybox, menu page 'race', Free Roam clock saved day 1 13.75 (was 1 13.75)
+PASS Free Roam from StreetLoopReverse: scene FreeRoamWorld, start (319.0, 23.2, 481.4) (course start (319.0, 23.5, 481.0)), after 3 s (319.0, 20.8, 490.8) on 'PrototypeCar' -0.46 m up, resets 0, title 'Street Loop - Reverse', small vehicles only False
+PASS   Race from Free Roam: back in StreetLoopReverse, menu page 'race', Free Roam clock saved day 1 13.82 (was 1 13.82)
+PASS Free Roam from LakeWoods: scene FreeRoamWorld, start (565.7, 80.7, -10.0) (course start (566.2, 82.7, -10.0)), after 3 s (565.7, 80.8, -10.9) on 'PrototypeCar' -0.45 m up, resets 0, title 'Forest Loop - Forward', small vehicles only True
+PASS   Race from Free Roam: back in LakeWoods, menu page 'race', Free Roam clock saved day 1 13.89 (was 1 13.89)
+PASS Free Roam from ForestLoopReverse: scene FreeRoamWorld, start (589.2, 79.4, -102.2) (course start (589.2, 81.5, -102.2)), after 3 s (588.9, 79.5, -101.7) on 'PrototypeCar' -0.45 m up, resets 0, title 'Forest Loop - Reverse', small vehicles only True
+PASS   Race from Free Roam: back in ForestLoopReverse, menu page 'race', Free Roam clock saved day 1 13.96 (was 1 13.96)
+PASS Free Roam from MountainLoop: scene FreeRoamWorld, start (724.5, 79.1, -6.1) (course start (724.5, 81.2, -6.1)), after 3 s (723.9, 78.8, -5.6) on 'PrototypeCar' -0.45 m up, resets 0, title 'Mountain Loop - Forward', small vehicles only True
+PASS   Race from Free Roam: back in MountainLoop, menu page 'race', Free Roam clock saved day 1 14.02 (was 1 14.02)
+PASS Free Roam from MountainLoopReverse: scene FreeRoamWorld, start (724.8, 79.2, -41.0) (course start (724.9, 79.7, -41.0)), after 3 s (724.4, 79.1, -40.9) on 'PrototypeCar' -0.46 m up, resets 0, title 'Mountain Loop - Reverse', small vehicles only True
+PASS   Race from Free Roam: back in MountainLoopReverse, menu page 'race', Free Roam clock saved day 1 14.09 (was 1 14.09)
+PASS Free Roam from DansBackyardForward: scene FreeRoamWorld, start (466.5, 80.3, 7.9) (course start (466.5, 80.3, 7.9)), after 3 s (465.2, 80.2, 8.2) on 'PrototypeCar' -0.45 m up, resets 0, title 'Dan's Backyard Loop - Forward', small vehicles only True
+PASS   Race from Free Roam: back in DansBackyardForward, menu page 'race', Free Roam clock saved day 1 14.16 (was 1 14.16)
+PASS Free Roam from DansBackyardReverse: scene FreeRoamWorld, start (473.6, 77.8, 27.0) (course start (473.6, 77.8, 26.9)), after 3 s (473.4, 77.6, 29.3) on 'PrototypeCar' -0.45 m up, resets 0, title 'Dan's Backyard Loop - Reverse', small vehicles only True
+PASS   Race from Free Roam: back in DansBackyardReverse, menu page 'race', Free Roam clock saved day 1 14.22 (was 1 14.22)
+PASS Free Roam clock resumes at 14.24 (saved 14.22)
+PASS Start Race from FreeRoamWorld starts the race in DansBackyardReverse (Countdown)
+PASS map: routes shown StreetLoopGreybox, LakeWoods, DansBackyardReverse, MountainLoop (one race-only, dashed); scene FreeRoamWorld; player moved 0.000 m
+PASS map choice remembered after leaving Free Roam and starting it from another course: StreetLoopGreybox, LakeWoods, DansBackyardReverse, MountainLoop
+PASS RIDE Storm Drain / Gully Jump fwd moto pace 9: complete in 30.6 s over 275 m; slowest 3.3 m/s, fastest 9.4 m/s; time held under half pace on the ground 0.3 s; longest airborne 1.10 s; wipe-outs 0; resets 0
+PASS RIDE Storm Drain / Gully Jump fwd atv pace 9: complete in 30.8 s over 275 m; slowest 3.3 m/s, fastest 9.3 m/s; time held under half pace on the ground 0.4 s; longest airborne 1.10 s; wipe-outs 0; resets 0
+PASS RIDE Reverse navigation only - no pavement fwd moto pace 10: complete in 126.1 s over 1256 m; slowest 1.0 m/s, fastest 13.0 m/s; time held under half pace on the ground 0.4 s; longest airborne 2.26 s; wipe-outs 0; resets 0
+FAIL RIDE Forward navigation only - no road mesh fwd atv pace 9: time in 348.8 s over 1256 m; slowest -0.8 m/s, fastest 10.7 m/s; time held under half pace on the ground 258.4 s; longest airborne 2.10 s; wipe-outs 0; resets 0
+PASS RIDE House 3 valley driveway fwd moto pace 9: complete in 36.5 s over 340 m; slowest 8.9 m/s, fastest 9.4 m/s; time held under half pace on the ground 0.0 s; longest airborne 0.02 s; wipe-outs 0; resets 0
+PASS RIDE House 3 valley driveway back moto pace 9: complete in 36.7 s over 340 m; slowest 8.5 m/s, fastest 9.3 m/s; time held under half pace on the ground 0.0 s; longest airborne 0.16 s; wipe-outs 0; resets 0
+PASS RIDE House 3 valley driveway back original pace 9: complete in 36.7 s over 340 m; slowest 8.5 m/s, fastest 9.3 m/s; time held under half pace on the ground 0.0 s; longest airborne 0.16 s; wipe-outs 0; resets 0
+PASS RACE ForestLoopReverse (Forest Loop - Reverse, 3 AI, 1 lap): finished 01:17.640, missed gates 0, recoveries 2, AI EMBER finished, GOLD finished, BLUE finished; record files for this course 7
+PASS RACE StreetLoopGreybox (Street Loop - Forward, solo, 1 lap): finished 02:05.317, missed gates 0, recoveries 0, AI ; record files for this course 14
+PASS RACE MountainLoop (Mountain Loop - Forward, solo, 1 lap): finished 01:54.436, missed gates 0, recoveries 0, AI ; record files for this course 10
+FAIL RACE DansBackyardReverse (Dan's Backyard Loop - Reverse, solo, 1 lap): finished 01:12.683, missed gates 1, recoveries 1, AI ; record files for this course 6
+done, failures 2

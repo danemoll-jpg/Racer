@@ -5,6 +5,9 @@ namespace Racer
     {
         public enum Kind { Jump, Smash, Speed }
         public string id,title;
+        // 0.76 FreeRoamWorld: the record keys ("site/course") this same site had in the course scenes; their results are
+        // shown as this site's own (read only, never changed).
+        public string[] legacyRecords;
         public Kind kind;
         public float radius=25,bronze=6,silver=14,gold=22;
         public Vector3 forward=Vector3.forward;

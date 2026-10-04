@@ -1,0 +1,739 @@
+
+######## DansBackyardForward
+  id=backyard-forward-v3-forest-shortcuts name=Dan's Backyard Loop - Forward reverse=False forestTrail=True vehicle=(466.5,80.3,7.9) yaw=273.0 spawn=(466.5,80.3,7.9) yaw=273.0 gate0=(459.6,81.3,8.1) roa
+  DIFFERS COMPONENT UndergroundLife | course: 0 | world: 1
+  DIFFERS COMPONENT BackyardReverseBarriers | course: 0 | world: 1
+  DIFFERS COMPONENT ShortcutUndergrowth | course: 3 | world: 4
+  DIFFERS COMPONENT RaceRoad | course: 8 | world: 9
+  DIFFERS COMPONENT JumpRecoveryExclusion | course: 0 | world: 1
+  DIFFERS COMPONENT ReverseShortcutGuidance | course: 0 | world: 2
+  DIFFERS ROOT Memory loop - north is +Z | course active=True | children=124 | renderers=124 | colliders=124 | tris=1943825 | bounds (-800.0,1.7,-750.0)..(1200.0,178.5,850.0) | world active=True | children=124 | renderers=124 | colliders=124 | tris=2016921 | bounds (-800.0,1.7,-750.0)..(1200.0,178.5,850.0)
+  DIFFERS ROOT Woods replacing later subdivisions | course active=True | children=11354 | renderers=90 | colliders=11264 | tris=769307 | bounds (-744.3,1.8,-684.1)..(757.7,105.2,528.7) | world active=True | children=11267 | renderers=90 | colliders=11177 | tris=762580 | bounds (-744.3,1.8,-684.1)..(757.7,105.2,528.7)
+  DIFFERS ROOT CR097 supported properties and camp | course active=True | children=135 | renderers=136 | colliders=136 | tris=16315 | bounds (365.5,32.8,-246.0)..(518.3,90.1,19.7) | world active=True | children=135 | renderers=136 | colliders=136 | tris=18267 | bounds (361.0,32.8,-246.0)..(518.3,90.1,19.7)
+  DIFFERS ROOT CR113 continuous highway seams | course active=True | children=136 | renderers=135 | colliders=3 | tris=12263 | bounds (-1090.9,7.9,-38.1)..(800.8,82.6,569.6) | world active=True | children=136 | renderers=135 | colliders=3 | tris=12209 | bounds (-1090.9,7.9,-38.1)..(800.8,82.6,569.6)
+  DIFFERS ROOT Dan's Backyard Forward - terrain trail | course active=True | children=11 | renderers=51 | colliders=0 | tris=64256 | bounds (23.5,37.9,-98.6)..(474.2,85.9,126.5) | world active=True | children=2 | renderers=8 | colliders=0 | tris=63740 | bounds (263.6,61.5,-7.0)..(304.4,70.5,30.9)
+  DIFFERS ROOT Forward teal navigation - no colliders | course active=True | children=27 | renderers=27 | colliders=0 | tris=135 | bounds (21.4,36.6,-110.3)..(474.3,84.6,122.9) | world active=False | children=28 | renderers=28 | colliders=0 | tris=140 | bounds (21.4,36.6,-110.3)..(474.3,84.6,122.9)
+  DIFFERS ROOT Backyard optional forest shortcuts | course active=True | children=233 | renderers=230 | colliders=36 | tris=57032 | bounds (170.8,47.3,-98.5)..(310.0,78.2,104.5) | world active=True | children=232 | renderers=229 | colliders=36 | tris=56962 | bounds (170.8,47.3,-98.5)..(310.0,78.2,104.5)
+  DIFFERS ROOT Reverse optional forest shortcuts | course active=True | children=221 | renderers=186 | colliders=41 | tris=135668 | bounds (25.8,28.3,-80.4)..(401.7,84.8,141.0) | world active=True | children=335 | renderers=300 | colliders=40 | tris=66551 | bounds (25.8,28.3,-80.4)..(401.7,84.8,141.0)
+  MISSING FEATURE CR097 supported properties and camp/House 3 valley driveway/Ground_House3 straight descending property driveway | on=1 off=0 tris=528
+  MISSING FEATURE Dan's Backyard Forward - terrain trail/Backyard blue CP 1/Non-colliding gate marking | on=3 off=0 tris=36
+  MISSING FEATURE Dan's Backyard Forward - terrain trail/Backyard blue CP 2/Non-colliding gate marking | on=3 off=0 tris=36
+  MISSING FEATURE Dan's Backyard Forward - terrain trail/Backyard blue CP 3/Non-colliding gate marking | on=3 off=0 tris=36
+  MISSING FEATURE Dan's Backyard Forward - terrain trail/Backyard blue CP 4/Non-colliding gate marking | on=3 off=0 tris=36
+  MISSING FEATURE Dan's Backyard Forward - terrain trail/Backyard blue CP 5/Non-colliding gate marking | on=3 off=0 tris=36
+  MISSING FEATURE Dan's Backyard Forward - terrain trail/Backyard blue CP 6/Non-colliding gate marking | on=3 off=0 tris=36
+  MISSING FEATURE Dan's Backyard Forward - terrain trail/Backyard blue CP 7/Non-colliding gate marking | on=3 off=0 tris=36
+  MISSING FEATURE Dan's Backyard Forward - terrain trail/Backyard blue CP 8/Non-colliding gate marking | on=3 off=0 tris=36
+  MISSING FEATURE Dan's Backyard Forward - terrain trail/Backyard START FINISH/Non-colliding finish paint | on=16 off=0 tris=192
+  MISSING FEATURE Dan's Backyard Forward - terrain trail/Backyard START FINISH/Non-colliding gate marking | on=3 off=0 tris=36
+  DIFFERS FEATURE Forward teal navigation - no colliders/Main teal trail arrow | course on=27 off=0 tris=135 | world on=0 off=28 tris=140
+  DIFFERS FEATURE Reverse optional forest shortcuts/Ground_Culvert seamless floor | course on=1 off=0 tris=35967 | world on=1 off=0 tris=7056
+  DIFFERS FEATURE Reverse optional forest shortcuts/Ground_Wide west bank landing | course on=1 off=0 tris=21571 | world on=1 off=0 tris=21605
+  DIFFERS FEATURE Reverse optional forest shortcuts/Long storm culvert walls and ceiling | course on=1 off=0 tris=978 | world on=1 off=0 tris=1630
+  MISSING FEATURE Reverse optional forest shortcuts/Shallow storm water | on=7 off=0 tris=566
+
+######## DansBackyardReverse
+  id=backyard-reverse-v4-continuous-shortcuts name=Dan's Backyard Loop - Reverse reverse=True forestTrail=True vehicle=(473.6,77.8,26.9) yaw=355.9 spawn=(473.6,77.8,26.9) yaw=355.9 gate0=(472.9,78.5,33.
+  DIFFERS ROOT CR097 supported properties and camp | course active=True | children=135 | renderers=136 | colliders=136 | tris=16315 | bounds (365.5,32.8,-246.0)..(518.3,90.1,19.7) | world active=True | children=135 | renderers=136 | colliders=136 | tris=18267 | bounds (361.0,32.8,-246.0)..(518.3,90.1,19.7)
+  MISSING FEATURE CR097 supported properties and camp/House 3 valley driveway/Ground_House3 straight descending property driveway | on=1 off=0 tris=528
+
+######## ForestLoopReverse
+  id=forest-reverse-v7-water-detour name=Forest Loop - Reverse reverse=True forestTrail=True vehicle=(589.2,81.5,-102.2) yaw=131.7 spawn=(589.2,81.5,-102.2) yaw=131.7 gate0=(607.9,79.8,-127.5) road=Reve
+  DIFFERS ACORN woodland-04 | course: Woodland nook | (508.0,52.7,-192.4) | world: Woodland nook | (508.0,54.2,-192.4)
+  DIFFERS ACORN woodland-24 | course: Old stone corner | (706.7,81.2,48.9) | world: Old stone corner | (706.7,81.2,48.8)
+  DIFFERS ACTIVITY jump-01 | course: Forest opening jump | Jump | (323.7,51.3,-253.1) | active=True | CR079 arcade sites/Forest opening jump | world: Trickum pavement jump | Jump | (-628.3,14.0,-70.0) | active=True | CR079 arcade sites/Trickum pavement jump
+  DIFFERS ACTIVITY speed-0 | course: Forest speed trap 1 | Speed | (477.1,78.1,172.5) | active=True | CR079 arcade sites/Forest speed trap 1 | world: Trickum / 92 speed trap 1 | Speed | (-396.3,8.4,534.1) | active=True | CR079 arcade sites/Trickum / 92 speed trap 1
+  DIFFERS ACTIVITY speed-1 | course: Forest speed trap 2 | Speed | (565.1,81.9,63.2) | active=True | CR079 arcade sites/Forest speed trap 2 | world: Trickum / 92 speed trap 2 | Speed | (-629.7,8.6,95.4) | active=True | CR079 arcade sites/Trickum / 92 speed trap 2
+  DIFFERS COMPONENT BackyardReverseBarriers | course: 0 | world: 1
+  DIFFERS COMPONENT ReverseShortcutWorldState | course: 0 | world: 1
+  DIFFERS COMPONENT DumpRefuse | course: 0 | world: 1
+  DIFFERS COMPONENT ShortcutUndergrowth | course: 0 | world: 4
+  DIFFERS COMPONENT BreakableProp | course: 204 | world: 203
+  DIFFERS COMPONENT ShallowWater | course: 7 | world: 41
+  DIFFERS COMPONENT PhysicalSign | course: 96 | world: 86
+  DIFFERS COMPONENT JumpRecoveryExclusion | course: 0 | world: 1
+  DIFFERS COMPONENT ReverseShortcutGuidance | course: 0 | world: 2
+  DIFFERS ROOT Memory loop - north is +Z | course active=True | children=124 | renderers=124 | colliders=124 | tris=2851544 | bounds (-800.0,1.7,-750.0)..(1200.0,178.5,850.0) | world active=True | children=124 | renderers=124 | colliders=124 | tris=2016921 | bounds (-800.0,1.7,-750.0)..(1200.0,178.5,850.0)
+  DIFFERS ROOT Woods replacing later subdivisions | course active=True | children=10534 | renderers=90 | colliders=10444 | tris=710995 | bounds (-744.3,1.8,-684.1)..(757.7,105.2,528.7) | world active=True | children=11267 | renderers=90 | colliders=11177 | tris=762580 | bounds (-744.3,1.8,-684.1)..(757.7,105.2,528.7)
+  DIFFERS ROOT Phase 3 - Race Systems | course active=True | children=19 | renderers=78 | colliders=0 | tris=936 | bounds (-639.0,6.9,-578.6)..(562.3,91.2,553.2) | world active=True | children=1 | renderers=0 | colliders=0 | tris=0 | bounds (0.0,0.0,0.0)..(0.0,0.0,0.0)
+  MISSING ROOT CR056 Forest Loop | active=True | children=1009 | renderers=459 | colliders=539 | tris=1515565 | bounds (-744.6,1.8,-682.9)..(757.6,105.3,528.1)
+  MISSING ROOT Cave warning sign | active=True | children=4 | renderers=4 | colliders=1 | tris=36 | bounds (150.8,45.5,281.4)..(158.7,50.8,289.2)
+  MISSING ROOT Reverse course authoring | active=True | children=22 | renderers=24 | colliders=0 | tris=216 | bounds (4.0,31.9,-202.2)..(594.6,68.0,231.5)
+  MISSING ROOT CR088-089 physical direction cues | active=True | children=9 | renderers=36 | colliders=0 | tris=324 | bounds (178.3,40.9,-197.2)..(604.0,78.8,-138.7)
+  DIFFERS ROOT CR097 supported properties and camp | course active=True | children=135 | renderers=136 | colliders=136 | tris=16315 | bounds (365.5,32.8,-246.0)..(518.3,90.1,19.7) | world active=True | children=135 | renderers=136 | colliders=136 | tris=18267 | bounds (361.0,32.8,-246.0)..(518.3,90.1,19.7)
+  DIFFERS ROOT CR113 continuous highway seams | course active=True | children=136 | renderers=135 | colliders=3 | tris=12263 | bounds (-1090.9,7.9,-38.1)..(800.8,82.6,569.6) | world active=True | children=136 | renderers=135 | colliders=3 | tris=12209 | bounds (-1090.9,7.9,-38.1)..(800.8,82.6,569.6)
+  DIFFERS ROOT Route atlas direction guidance | course active=True | children=23 | renderers=23 | colliders=0 | tris=115 | bounds (-127.0,16.6,-208.2)..(609.8,82.4,296.3) | world active=True | children=0 | renderers=0 | colliders=0 | tris=0 | bounds (0.0,0.0,0.0)..(0.0,0.0,0.0)
+  MISSING ROOT House 3 Detour | active=True | children=0 | renderers=0 | colliders=0 | tris=0 | bounds (0.0,0.0,0.0)..(0.0,0.0,0.0)
+  MISSING ROOT House 3 Detour optional visual guidance | active=True | children=5 | renderers=8 | colliders=0 | tris=56 | bounds (220.4,37.1,-281.3)..(571.1,55.9,-185.4)
+  DIFFERS ROOT Other gate black asphalt driveway - stops at parking | course active=True | children=1 | renderers=1 | colliders=1 | tris=15729 | bounds (387.8,78.7,-38.6)..(468.1,87.0,30.3) | world active=True | children=1 | renderers=1 | colliders=1 | tris=15721 | bounds (387.8,78.7,-38.6)..(468.1,87.0,30.3)
+  DIFFERS ROOT World cleanup additional woodland | course active=True | children=767 | renderers=71 | colliders=696 | tris=48672 | bounds (-1228.8,4.0,-633.6)..(1199.2,178.1,624.1) | world active=True | children=751 | renderers=55 | colliders=696 | tris=50400 | bounds (-1247.2,4.4,-563.6)..(1165.1,189.4,546.8)
+  DIFFERS ROOT Anderson wooded frontage screening | course active=True | children=22 | renderers=1 | colliders=22 | tris=1848 | bounds (481.1,79.5,-69.0)..(509.5,104.7,-11.1) | world active=True | children=22 | renderers=1 | colliders=22 | tris=1992 | bounds (478.9,78.7,-67.8)..(509.0,103.9,-11.1)
+  MISSING ROOT Forest Reverse natural cave atmosphere | active=True | children=60 | renderers=59 | colliders=0 | tris=6264 | bounds (32.7,31.7,48.2)..(47.2,47.9,63.3)
+  MISSING FEATURE Cave warning sign/Mounted warning board | on=1 off=0 tris=12
+  MISSING FEATURE Cave warning sign/Warning post | on=2 off=0 tris=24
+  DIFFERS FEATURE CR034-039 Woodland routes/Breakable sign - Fox Gully  > 108 km/h | course on=0 off=2 tris=24 | world on=2 off=0 tris=24
+  MISSING FEATURE CR056 Forest Loop/Cave rock buttress | on=38 off=0 tris=29184
+  MISSING FEATURE CR056 Forest Loop/Echo Cave enclosed rock | on=1 off=0 tris=4989
+  MISSING FEATURE CR056 Forest Loop/Forest detail batch | on=252 off=0 tris=1365152
+  MISSING FEATURE CR056 Forest Loop/Trail fern | on=151 off=0 tris=115968
+  MISSING FEATURE CR075 direction signs/Fern Gully >/OPTIONAL | on=0 off=2 tris=24
+  MISSING FEATURE CR097 supported properties and camp/House 3 valley driveway/Ground_House3 straight descending property driveway | on=1 off=0 tris=528
+  MISSING FEATURE Forest Reverse natural cave atmosphere/Cave branching root | on=12 off=0 tris=144
+  MISSING FEATURE Forest Reverse natural cave atmosphere/Cave dangling root | on=12 off=0 tris=144
+  MISSING FEATURE Forest Reverse natural cave atmosphere/Cave fallen angular stone | on=4 off=0 tris=48
+  MISSING FEATURE Forest Reverse natural cave atmosphere/Cave local damp earth skin | on=1 off=0 tris=48
+  MISSING FEATURE Forest Reverse natural cave atmosphere/Cave tapered ceiling stone | on=12 off=0 tris=1296
+  MISSING FEATURE Forest Reverse natural cave atmosphere/Damp cave gravel patch | on=4 off=0 tris=3072
+  MISSING FEATURE Forest Reverse natural cave atmosphere/Natural cave shoulder outcrop | on=14 off=0 tris=1512
+  DIFFERS FEATURE Phase 4 - Connector Jump/Breakable - Jump approach sign/Jump approach sign | course on=0 off=1 tris=12 | world on=1 off=0 tris=12
+  MISSING FEATURE Reverse course authoring/Fern Gully / OPTIONAL | on=1 off=0 tris=12
+  MISSING FEATURE Reverse course authoring/GAP / STRAIGHT LANDING | on=1 off=0 tris=12
+  MISSING FEATURE Route atlas direction guidance/Main teal / before Fern Gully fork | on=1 off=0 tris=5
+  MISSING FEATURE Route atlas direction guidance/Main teal / Fern Gully rejoin | on=1 off=0 tris=5
+  MISSING FEATURE Route atlas direction guidance/Main teal / main at Fern Gully fork | on=1 off=0 tris=5
+  MISSING FEATURE Route atlas direction guidance/Optional gold / Fern Gully | on=4 off=0 tris=20
+
+######## LakeWoods
+  id=lake-v7-discovery name=Forest Loop - Forward reverse=False forestTrail=True vehicle=(566.2,82.7,-10.0) yaw=2.0 spawn=(566.2,82.7,-10.0) yaw=2.0 gate0=(566.8,83.7,25.0) road=Forest race route ambien
+  DIFFERS ACORN woodland-24 | course: Old stone corner | (706.7,81.2,48.9) | world: Old stone corner | (706.7,81.2,48.8)
+  DIFFERS ACTIVITY jump-01 | course: Forest opening jump | Jump | (372.5,78.1,230.9) | active=True | CR079 arcade sites/Forest opening jump | world: Trickum pavement jump | Jump | (-628.3,14.0,-70.0) | active=True | CR079 arcade sites/Trickum pavement jump
+  DIFFERS ACTIVITY speed-0 | course: Forest speed trap 1 | Speed | (564.3,81.7,79.9) | active=True | CR079 arcade sites/Forest speed trap 1 | world: Trickum / 92 speed trap 1 | Speed | (-396.3,8.4,534.1) | active=True | CR079 arcade sites/Trickum / 92 speed trap 1
+  DIFFERS ACTIVITY speed-1 | course: Forest speed trap 2 | Speed | (479.9,78.2,170.8) | active=True | CR079 arcade sites/Forest speed trap 2 | world: Trickum / 92 speed trap 2 | Speed | (-629.7,8.6,95.4) | active=True | CR079 arcade sites/Trickum / 92 speed trap 2
+  DIFFERS COMPONENT UndergroundLife | course: 3 | world: 1
+  DIFFERS COMPONENT BackyardReverseBarriers | course: 0 | world: 1
+  DIFFERS COMPONENT ReverseShortcutWorldState | course: 0 | world: 1
+  DIFFERS COMPONENT DumpRefuse | course: 0 | world: 1
+  DIFFERS COMPONENT ShortcutUndergrowth | course: 0 | world: 4
+  DIFFERS COMPONENT BreakableProp | course: 204 | world: 203
+  DIFFERS COMPONENT ShallowWater | course: 7 | world: 41
+  DIFFERS COMPONENT PhysicalSign | course: 78 | world: 86
+  DIFFERS COMPONENT WoodlandRoute | course: 1 | world: 2
+  DIFFERS COMPONENT RaceRoad | course: 8 | world: 9
+  DIFFERS COMPONENT ReverseShortcutGuidance | course: 1 | world: 2
+  DIFFERS ROOT Memory loop - north is +Z | course active=True | children=124 | renderers=124 | colliders=124 | tris=2850025 | bounds (-800.0,1.7,-750.0)..(1200.0,178.5,850.0) | world active=True | children=124 | renderers=124 | colliders=124 | tris=2016921 | bounds (-800.0,1.7,-750.0)..(1200.0,178.5,850.0)
+  DIFFERS ROOT Woods replacing later subdivisions | course active=True | children=10591 | renderers=90 | colliders=10501 | tris=714955 | bounds (-744.3,1.8,-684.1)..(757.7,105.2,528.7) | world active=True | children=11267 | renderers=90 | colliders=11177 | tris=762580 | bounds (-744.3,1.8,-684.1)..(757.7,105.2,528.7)
+  DIFFERS ROOT Phase 3 - Race Systems | course active=True | children=19 | renderers=78 | colliders=0 | tris=936 | bounds (-639.0,6.9,-578.6)..(562.3,91.2,553.2) | world active=True | children=1 | renderers=0 | colliders=0 | tris=0 | bounds (0.0,0.0,0.0)..(0.0,0.0,0.0)
+  MISSING ROOT CR056 Forest Loop | active=True | children=1527 | renderers=904 | colliders=681 | tris=1514227 | bounds (-744.6,1.8,-682.9)..(757.6,105.3,528.1)
+  MISSING ROOT Cave warning sign | active=True | children=4 | renderers=4 | colliders=1 | tris=36 | bounds (150.8,46.0,281.4)..(158.7,50.8,289.2)
+  DIFFERS ROOT CR075 direction signs | course active=True | children=1 | renderers=3 | colliders=0 | tris=24 | bounds (245.2,56.2,297.7)..(245.8,59.8,304.7) | world active=True | children=4 | renderers=12 | colliders=0 | tris=96 | bounds (-532.6,6.6,-579.1)..(548.6,43.8,-226.5)
+  DIFFERS ROOT CR097 supported properties and camp | course active=True | children=135 | renderers=136 | colliders=136 | tris=16315 | bounds (365.5,32.8,-246.0)..(518.3,90.1,19.7) | world active=True | children=135 | renderers=136 | colliders=136 | tris=18267 | bounds (361.0,32.8,-246.0)..(518.3,90.1,19.7)
+  DIFFERS ROOT CR113 continuous highway seams | course active=True | children=136 | renderers=135 | colliders=3 | tris=12263 | bounds (-1090.9,7.9,-38.1)..(800.8,82.6,569.6) | world active=True | children=136 | renderers=135 | colliders=3 | tris=12209 | bounds (-1090.9,7.9,-38.1)..(800.8,82.6,569.6)
+  DIFFERS ROOT Route atlas direction guidance | course active=True | children=18 | renderers=18 | colliders=0 | tris=90 | bounds (-125.7,18.8,-266.8)..(610.0,82.1,296.5) | world active=True | children=0 | renderers=0 | colliders=0 | tris=0 | bounds (0.0,0.0,0.0)..(0.0,0.0,0.0)
+  DIFFERS ROOT Other gate black asphalt driveway - stops at parking | course active=True | children=1 | renderers=1 | colliders=1 | tris=15729 | bounds (387.8,78.7,-38.6)..(468.1,87.0,30.3) | world active=True | children=1 | renderers=1 | colliders=1 | tris=15721 | bounds (387.8,78.7,-38.6)..(468.1,87.0,30.3)
+  DIFFERS ROOT World cleanup additional woodland | course active=True | children=748 | renderers=56 | colliders=692 | tris=50100 | bounds (-1247.5,4.0,-563.5)..(1201.9,191.7,626.9) | world active=True | children=751 | renderers=55 | colliders=696 | tris=50400 | bounds (-1247.2,4.4,-563.6)..(1165.1,189.4,546.8)
+  DIFFERS ROOT Anderson wooded frontage screening | course active=True | children=22 | renderers=1 | colliders=22 | tris=1848 | bounds (481.1,79.5,-69.0)..(509.5,104.7,-11.1) | world active=True | children=22 | renderers=1 | colliders=22 | tris=1992 | bounds (478.9,78.7,-67.8)..(509.0,103.9,-11.1)
+  MISSING ROOT Ground_Echo wooded hillside | active=True | children=0 | renderers=1 | colliders=1 | tris=8828 | bounds (-83.6,21.4,-105.0)..(185.2,62.2,293.4)
+  MISSING ROOT Echo eroded hillside face 0 | active=True | children=0 | renderers=1 | colliders=1 | tris=182 | bounds (124.8,41.8,242.6)..(191.0,61.0,304.8)
+  MISSING ROOT Echo eroded hillside face 140 | active=True | children=0 | renderers=1 | colliders=1 | tris=192 | bounds (-86.7,20.7,-116.8)..(-12.2,39.5,-89.1)
+  MISSING FEATURE Cave warning sign/Mounted warning board | on=1 off=0 tris=12
+  MISSING FEATURE Cave warning sign/Warning post | on=2 off=0 tris=24
+  DIFFERS FEATURE CR034-039 Woodland routes/Breakable sign - Fox Gully  > 108 km/h | course on=0 off=2 tris=24 | world on=2 off=0 tris=24
+  MISSING FEATURE CR056 Forest Loop/Cave gravel floor patch | on=122 off=0 tris=1098
+  MISSING FEATURE CR056 Forest Loop/Cave natural gravel floor | on=1 off=0 tris=7296
+  MISSING FEATURE CR056 Forest Loop/Echo Cave enclosed rock | on=1 off=0 tris=3360
+  MISSING FEATURE CR056 Forest Loop/Echo Cave partial rockfall/Broken rear slab | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Echo Cave partial rockfall/Central fractured boulder | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Echo Cave partial rockfall/Opening-side fallen stone | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Echo Cave partial rockfall/Wall-side fallen slab | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Fallen cave stone | on=166 off=0 tris=1992
+  MISSING FEATURE CR056 Forest Loop/Forest detail batch | on=252 off=0 tris=1380528
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 0 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 1 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 10 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 11 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 12 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 13 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 14 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 15 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 16 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 17 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 18 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 19 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 2 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 20 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 21 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 22 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 23 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 24 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 25 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 26 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 27 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 28 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 29 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 3 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 30 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 31 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 32 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 33 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 34 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 35 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 36 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 37 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 38 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 39 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 4 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 40 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 41 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 42 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 43 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 44 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 5 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 6 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 7 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 8 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 9 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Hanging angular cave formation | on=42 off=0 tris=504
+  MISSING FEATURE CR056 Forest Loop/Shallow cave puddle | on=61 off=0 tris=549
+  MISSING FEATURE CR056 Forest Loop/Trail fern | on=151 off=0 tris=115968
+  MISSING FEATURE CR075 direction signs/Echo Cave </OPTIONAL | on=2 off=0 tris=24
+  MISSING FEATURE CR097 supported properties and camp/House 3 valley driveway/Ground_House3 straight descending property driveway | on=1 off=0 tris=528
+  MISSING FEATURE Echo eroded hillside face 0 | on=1 off=0 tris=182
+  MISSING FEATURE Echo eroded hillside face 140 | on=1 off=0 tris=192
+  MISSING FEATURE Ground_Echo wooded hillside | on=1 off=0 tris=8828
+  MISSING FEATURE Route atlas direction guidance/Main teal / before Echo Cave fork | on=1 off=0 tris=5
+  MISSING FEATURE Route atlas direction guidance/Main teal / Echo Cave rejoin | on=1 off=0 tris=5
+  MISSING FEATURE Route atlas direction guidance/Main teal / main at Echo Cave fork | on=1 off=0 tris=5
+  MISSING FEATURE Route atlas direction guidance/Optional gold / Echo Cave | on=2 off=0 tris=10
+
+######## MountainLoop
+  id=mountain-forward-v5-supported name=Mountain Loop - Forward reverse=False forestTrail=True vehicle=(724.5,81.2,-6.1) yaw=174.7 spawn=(724.5,81.2,-6.1) yaw=174.7 gate0=(726.4,80.6,-43.4) road=CR117 m
+  DIFFERS ACORN woodland-24 | course: Old stone corner | (706.7,81.2,48.9) | world: Old stone corner | (706.7,81.2,48.8)
+  DIFFERS ACTIVITY jump-01 | course: Forest opening jump | Jump | (372.5,78.1,230.9) | active=True | CR079 arcade sites/Forest opening jump | world: Trickum pavement jump | Jump | (-628.3,14.0,-70.0) | active=True | CR079 arcade sites/Trickum pavement jump
+  DIFFERS ACTIVITY speed-0 | course: Forest speed trap 1 | Speed | (564.3,81.7,79.9) | active=True | CR079 arcade sites/Forest speed trap 1 | world: Trickum / 92 speed trap 1 | Speed | (-396.3,8.4,534.1) | active=True | CR079 arcade sites/Trickum / 92 speed trap 1
+  DIFFERS ACTIVITY speed-1 | course: Forest speed trap 2 | Speed | (479.9,78.2,170.8) | active=True | CR079 arcade sites/Forest speed trap 2 | world: Trickum / 92 speed trap 2 | Speed | (-629.7,8.6,95.4) | active=True | CR079 arcade sites/Trickum / 92 speed trap 2
+  DIFFERS COMPONENT UndergroundLife | course: 3 | world: 1
+  DIFFERS COMPONENT BackyardReverseBarriers | course: 0 | world: 1
+  DIFFERS COMPONENT ReverseShortcutWorldState | course: 0 | world: 1
+  DIFFERS COMPONENT MountainFlights | course: 1 | world: 0
+  DIFFERS COMPONENT DumpRefuse | course: 0 | world: 1
+  DIFFERS COMPONENT ShortcutUndergrowth | course: 0 | world: 4
+  DIFFERS COMPONENT BreakableProp | course: 204 | world: 203
+  DIFFERS COMPONENT ShallowWater | course: 7 | world: 41
+  DIFFERS COMPONENT PhysicalSign | course: 87 | world: 86
+  DIFFERS COMPONENT RaceRoad | course: 10 | world: 9
+  DIFFERS COMPONENT JumpRecoveryExclusion | course: 3 | world: 1
+  DIFFERS COMPONENT ReverseShortcutGuidance | course: 0 | world: 2
+  DIFFERS ROOT Memory loop - north is +Z | course active=True | children=124 | renderers=124 | colliders=124 | tris=2800844 | bounds (-800.0,1.7,-750.0)..(1200.0,178.5,850.0) | world active=True | children=124 | renderers=124 | colliders=124 | tris=2016921 | bounds (-800.0,1.7,-750.0)..(1200.0,178.5,850.0)
+  DIFFERS ROOT Woods replacing later subdivisions | course active=True | children=10604 | renderers=90 | colliders=10514 | tris=715062 | bounds (-744.3,1.8,-684.1)..(757.7,105.2,528.7) | world active=True | children=11267 | renderers=90 | colliders=11177 | tris=762580 | bounds (-744.3,1.8,-684.1)..(757.7,105.2,528.7)
+  DIFFERS ROOT Phase 3 - Race Systems | course active=True | children=19 | renderers=78 | colliders=0 | tris=936 | bounds (-639.0,6.9,-578.6)..(562.3,91.2,553.2) | world active=True | children=1 | renderers=0 | colliders=0 | tris=0 | bounds (0.0,0.0,0.0)..(0.0,0.0,0.0)
+  MISSING ROOT CR056 Forest Loop | active=True | children=1522 | renderers=889 | colliders=681 | tris=1494907 | bounds (-744.6,1.8,-682.9)..(757.6,105.3,528.1)
+  MISSING ROOT Cave warning sign | active=True | children=4 | renderers=4 | colliders=1 | tris=36 | bounds (150.8,46.0,281.4)..(158.7,50.8,289.2)
+  DIFFERS ROOT CR075 direction signs | course active=True | children=1 | renderers=3 | colliders=0 | tris=24 | bounds (245.2,56.2,297.7)..(245.8,59.8,304.7) | world active=True | children=4 | renderers=12 | colliders=0 | tris=96 | bounds (-532.6,6.6,-579.1)..(548.6,43.8,-226.5)
+  DIFFERS ROOT CR081 mountain exploration | course active=True | children=47 | renderers=91 | colliders=624 | tris=71641 | bounds (540.2,78.1,-211.7)..(1115.4,186.6,223.8) | world active=True | children=47 | renderers=91 | colliders=865 | tris=103216 | bounds (540.2,78.1,-211.7)..(1115.4,179.6,223.8)
+  DIFFERS ROOT CR094 summit launch | course active=True | children=6 | renderers=4 | colliders=4 | tris=2206 | bounds (682.2,89.8,27.3)..(1212.8,189.0,220.8) | world active=True | children=5 | renderers=3 | colliders=3 | tris=23748 | bounds (681.7,77.8,27.0)..(1212.8,177.9,220.8)
+  DIFFERS ROOT CR097 supported properties and camp | course active=True | children=135 | renderers=136 | colliders=136 | tris=16315 | bounds (365.5,32.8,-246.0)..(518.3,90.1,19.7) | world active=True | children=135 | renderers=136 | colliders=136 | tris=18267 | bounds (361.0,32.8,-246.0)..(518.3,90.1,19.7)
+  MISSING ROOT CR110 mountain race geometry | active=True | children=4 | renderers=2 | colliders=2 | tris=1808 | bounds (685.1,78.2,-133.4)..(1057.5,164.2,159.8)
+  MISSING ROOT CR110 selected direction signs | active=False | children=7 | renderers=21 | colliders=0 | tris=168 | bounds (700.7,74.5,-123.7)..(1044.7,167.1,106.3)
+  MISSING ROOT CR117 main flights and alternatives | active=True | children=6 | renderers=4 | colliders=4 | tris=2600 | bounds (740.1,86.0,-294.0)..(1393.5,141.1,-23.0)
+  DIFFERS ROOT CR113 continuous highway seams | course active=True | children=136 | renderers=135 | colliders=3 | tris=12263 | bounds (-1090.9,7.9,-38.1)..(800.8,82.6,569.6) | world active=True | children=136 | renderers=135 | colliders=3 | tris=12209 | bounds (-1090.9,7.9,-38.1)..(800.8,82.6,569.6)
+  MISSING ROOT CR117 outer ravine landscape | active=True | children=2 | renderers=2 | colliders=1 | tris=140655 | bounds (798.8,33.0,-500.0)..(1530.0,141.7,380.0)
+  MISSING ROOT CR117 smooth route connections | active=True | children=2 | renderers=2 | colliders=2 | tris=1000 | bounds (708.1,79.0,-279.8)..(1396.5,146.3,-39.2)
+  MISSING ROOT CR117 downhill summit return | active=True | children=2 | renderers=2 | colliders=2 | tris=470 | bounds (673.1,79.0,-53.0)..(816.9,117.7,87.5)
+  MISSING ROOT CR117 selected-direction guidance | active=True | children=58 | renderers=76 | colliders=0 | tris=545 | bounds (681.7,79.1,-283.3)..(1387.7,165.3,198.9)
+  MISSING ROOT CR122 continuous mountain support | active=True | children=9 | renderers=7 | colliders=7 | tris=10936 | bounds (676.1,79.0,-299.0)..(1393.5,178.0,236.2)
+  MISSING ROOT CR129 forward straight approaches | active=True | children=0 | renderers=0 | colliders=0 | tris=0 | bounds (0.0,0.0,0.0)..(0.0,0.0,0.0)
+  MISSING ROOT CR133 structural mountain roads | active=True | children=2 | renderers=2 | colliders=2 | tris=100730 | bounds (665.7,33.9,-334.0)..(1404.7,178.0,291.2)
+  MISSING ROOT CR133 rerouted shortcut guidance | active=True | children=7 | renderers=7 | colliders=0 | tris=35 | bounds (688.8,86.6,26.6)..(847.0,125.9,45.1)
+  DIFFERS ROOT Route atlas direction guidance | course active=True | children=39 | renderers=39 | colliders=0 | tris=195 | bounds (682.1,79.1,-276.5)..(1387.5,177.9,221.7) | world active=True | children=0 | renderers=0 | colliders=0 | tris=0 | bounds (0.0,0.0,0.0)..(0.0,0.0,0.0)
+  DIFFERS ROOT Other gate black asphalt driveway - stops at parking | course active=True | children=1 | renderers=1 | colliders=1 | tris=15729 | bounds (387.8,78.7,-38.6)..(468.1,87.0,30.3) | world active=True | children=1 | renderers=1 | colliders=1 | tris=15721 | bounds (387.8,78.7,-38.6)..(468.1,87.0,30.3)
+  DIFFERS ROOT World cleanup additional woodland | course active=True | children=775 | renderers=69 | colliders=706 | tris=50232 | bounds (-1248.5,4.0,-635.3)..(1437.4,196.6,626.0) | world active=True | children=751 | renderers=55 | colliders=696 | tris=50400 | bounds (-1247.2,4.4,-563.6)..(1165.1,189.4,546.8)
+  DIFFERS ROOT Anderson wooded frontage screening | course active=True | children=22 | renderers=1 | colliders=22 | tris=1848 | bounds (481.1,79.5,-69.0)..(509.5,104.7,-11.1) | world active=True | children=22 | renderers=1 | colliders=22 | tris=1992 | bounds (478.9,78.7,-67.8)..(509.0,103.9,-11.1)
+  MISSING ROOT Mountain corridor earth support | active=True | children=1 | renderers=1 | colliders=1 | tris=12135 | bounds (672.1,35.5,-293.0)..(1397.5,175.5,223.3)
+  MISSING ROOT Ground_ReportCleanup MountainLoop continuous solid 0 | active=True | children=0 | renderers=1 | colliders=1 | tris=108396 | bounds (1168.0,45.0,-336.0)..(1412.0,121.1,-198.0)
+  MISSING ROOT Ground_ReportCleanup MountainLoop continuous solid 1 | active=True | children=0 | renderers=1 | colliders=1 | tris=84741 | bounds (1198.0,45.0,154.0)..(1342.0,152.0,284.0)
+  MISSING ROOT Ground_ReportCleanup MountainLoop continuous solid 2 | active=True | children=0 | renderers=1 | colliders=1 | tris=180717 | bounds (726.0,45.0,32.0)..(1082.0,177.7,164.0)
+  MISSING ROOT Ground_ReportCleanup MountainLoop natural edge 0 | active=True | children=0 | renderers=1 | colliders=1 | tris=56 | bounds (1000.1,157.3,111.4)..(1006.0,160.4,116.7)
+  MISSING ROOT Ground_ReportCleanup MountainLoop natural edge 1 | active=True | children=0 | renderers=1 | colliders=1 | tris=56 | bounds (993.8,157.3,107.1)..(1000.3,160.4,112.9)
+  MISSING ROOT Main teal arrow after bend | active=True | children=0 | renderers=1 | colliders=0 | tris=5 | bounds (1357.9,99.5,-262.5)..(1361.6,99.7,-257.3)
+  MISSING ROOT Ground_ReportCleanup MountainLoop receiving bank 0 | active=True | children=0 | renderers=1 | colliders=1 | tris=1696 | bounds (1170.0,57.7,-300.4)..(1187.5,123.9,-249.7)
+  MISSING ROOT Ground_ReportCleanup MountainLoop receiving bank 1 | active=True | children=0 | renderers=1 | colliders=1 | tris=1696 | bounds (851.1,174.7,88.1)..(881.1,177.7,141.3)
+  MISSING ROOT Ground_Report067 edge shoulders | active=True | children=0 | renderers=1 | colliders=1 | tris=7900 | bounds (677.1,47.3,-281.9)..(1397.3,161.0,216.4)
+  MISSING ROOT Ground_Report067 edge seams | active=True | children=0 | renderers=1 | colliders=0 | tris=6488 | bounds (700.6,78.8,-228.5)..(1394.1,160.4,214.2)
+  MISSING ROOT Ground_Report068 seam support | active=True | children=0 | renderers=0 | colliders=1 | tris=2680 | bounds (0.0,0.0,0.0)..(0.0,0.0,0.0)
+  MISSING ROOT Ground_Report068 landing zone | active=True | children=0 | renderers=1 | colliders=1 | tris=543 | bounds (682.6,88.0,48.0)..(738.0,100.7,96.8)
+  MISSING ROOT Ground_Report068 barrier Homeward Summit Flight bend | active=True | children=0 | renderers=1 | colliders=1 | tris=691 | bounds (680.4,87.1,47.3)..(737.5,100.1,98.6)
+  MISSING ROOT Ground_Report069 patch BUG-007 junction | active=True | children=0 | renderers=1 | colliders=1 | tris=1196 | bounds (754.0,86.3,-127.5)..(769.5,88.4,-113.5)
+  MISSING ROOT Ground_Report069 flush shoulders | active=True | children=0 | renderers=1 | colliders=1 | tris=53502 | bounds (692.9,52.0,-283.9)..(1402.4,156.8,196.1)
+  MISSING ROOT Ground_Report069 barrier Climbing Ridge Cut rejoin (BUG-008) | active=True | children=0 | renderers=1 | colliders=1 | tris=544 | bounds (1015.2,107.3,-80.9)..(1046.4,144.0,-44.2)
+  MISSING ROOT Ground_Report070 patch BUG-009 right gore | active=True | children=0 | renderers=1 | colliders=1 | tris=738 | bounds (1004.0,134.9,-55.0)..(1018.0,139.9,-44.5)
+  MISSING ROOT Ground_Report070 patch BUG-009 left gore | active=True | children=0 | renderers=1 | colliders=1 | tris=968 | bounds (997.5,135.3,-71.0)..(1011.5,138.4,-56.5)
+  MISSING ROOT Ground_Report071 patch BUG-001/002 Climbing Ridge Cut entrance | active=True | children=0 | renderers=1 | colliders=1 | tris=4778 | bounds (743.5,85.0,-131.5)..(786.5,93.3,-91.5)
+  MISSING ROOT Ground_Report071 patch BUG-003 Climbing Ridge Cut rejoin pit | active=True | children=0 | renderers=1 | colliders=1 | tris=13742 | bounds (990.5,121.8,-49.5)..(1043.5,147.5,4.5)
+  MISSING ROOT Ground_Echo wooded hillside | active=True | children=0 | renderers=1 | colliders=1 | tris=8828 | bounds (-83.6,21.4,-105.0)..(185.2,62.2,293.4)
+  MISSING ROOT Echo eroded hillside face 0 | active=True | children=0 | renderers=1 | colliders=1 | tris=182 | bounds (124.8,41.8,242.6)..(191.0,61.0,304.8)
+  MISSING ROOT Echo eroded hillside face 140 | active=True | children=0 | renderers=1 | colliders=1 | tris=192 | bounds (-86.7,20.7,-116.8)..(-12.2,39.5,-89.1)
+  MISSING ROOT Ground_Report071 patch BUG-004 main s 12 trail edge | active=True | children=0 | renderers=1 | colliders=1 | tris=1828 | bounds (728.0,78.6,-142.5)..(742.0,87.2,-121.5)
+  MISSING ROOT Ground_Report071 patch BUG-005 main s 1503 left bank | active=True | children=0 | renderers=1 | colliders=1 | tris=1634 | bounds (1030.5,146.1,21.5)..(1042.5,153.3,41.5)
+  MISSING FEATURE Cave warning sign/Mounted warning board | on=1 off=0 tris=12
+  MISSING FEATURE Cave warning sign/Warning post | on=2 off=0 tris=24
+  DIFFERS FEATURE CR034-039 Woodland routes/Breakable sign - Fox Gully  > 108 km/h | course on=0 off=2 tris=24 | world on=2 off=0 tris=24
+  MISSING FEATURE CR056 Forest Loop/Cave gravel floor patch | on=122 off=0 tris=1098
+  MISSING FEATURE CR056 Forest Loop/Cave natural gravel floor | on=1 off=0 tris=7296
+  MISSING FEATURE CR056 Forest Loop/Echo Cave enclosed rock | on=1 off=0 tris=3360
+  MISSING FEATURE CR056 Forest Loop/Echo Cave partial rockfall/Broken rear slab | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Echo Cave partial rockfall/Central fractured boulder | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Echo Cave partial rockfall/Opening-side fallen stone | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Echo Cave partial rockfall/Wall-side fallen slab | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Fallen cave stone | on=166 off=0 tris=1992
+  MISSING FEATURE CR056 Forest Loop/Forest detail batch | on=252 off=0 tris=1361388
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 0 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 1 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 10 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 11 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 12 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 13 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 14 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 15 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 16 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 17 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 18 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 19 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 2 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 20 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 21 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 22 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 23 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 24 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 25 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 26 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 27 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 28 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 29 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 3 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 30 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 31 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 32 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 33 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 34 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 35 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 36 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 37 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 38 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 39 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 4 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 40 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 41 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 42 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 43 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 44 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 5 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 6 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 7 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 8 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 9 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Hanging angular cave formation | on=42 off=0 tris=504
+  MISSING FEATURE CR056 Forest Loop/Shallow cave puddle | on=61 off=0 tris=549
+  MISSING FEATURE CR056 Forest Loop/Trail fern | on=151 off=0 tris=115968
+  MISSING FEATURE CR075 direction signs/Echo Cave </OPTIONAL | on=2 off=0 tris=24
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 0 0/Batched Mountain foliage | course on=1 off=0 tris=1224 | world on=1 off=0 tris=4104
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 0 0/Batched Weathered timber | course on=1 off=0 tris=144 | world on=1 off=0 tris=456
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 0 1/Batched Mountain foliage | course on=1 off=0 tris=1584 | world on=1 off=0 tris=2687
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 0 1/Batched Weathered timber | course on=1 off=0 tris=180 | world on=1 off=0 tris=300
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 0 2/Batched Mountain foliage | course on=1 off=0 tris=2376 | world on=1 off=0 tris=3780
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 0 2/Batched Weathered timber | course on=1 off=0 tris=264 | world on=1 off=0 tris=420
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 0 3/Batched Mountain foliage | course on=1 off=0 tris=540 | world on=1 off=0 tris=2268
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 0 3/Batched Weathered timber | course on=1 off=0 tris=60 | world on=1 off=0 tris=252
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 0 4/Batched Mountain foliage | course on=1 off=0 tris=1510 | world on=1 off=0 tris=1618
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 0 4/Batched Weathered timber | course on=1 off=0 tris=168 | world on=1 off=0 tris=180
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 1 1/Batched Mountain foliage | course on=1 off=0 tris=1910 | world on=1 off=0 tris=2808
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 1 1/Batched Weathered timber | course on=1 off=0 tris=204 | world on=1 off=0 tris=312
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 1 2/Batched Mountain foliage | course on=1 off=0 tris=4097 | world on=1 off=0 tris=4104
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 1 3/Batched Mountain foliage | course on=1 off=0 tris=1920 | world on=1 off=0 tris=3432
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 1 3/Batched Weathered timber | course on=1 off=0 tris=252 | world on=1 off=0 tris=384
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 2 1/Batched Mountain foliage | course on=1 off=0 tris=2901 | world on=1 off=0 tris=2906
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 2 2/Batched Mountain foliage | course on=1 off=0 tris=3121 | world on=1 off=0 tris=4104
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 2 2/Batched Weathered timber | course on=1 off=0 tris=340 | world on=1 off=0 tris=456
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 2 3/Batched Mountain foliage | course on=1 off=0 tris=3240 | world on=1 off=0 tris=4104
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 2 3/Batched Weathered timber | course on=1 off=0 tris=384 | world on=1 off=0 tris=456
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 3 0/Batched Mountain foliage | course on=1 off=0 tris=3996 | world on=1 off=0 tris=4104
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 3 0/Batched Weathered timber | course on=1 off=0 tris=444 | world on=1 off=0 tris=456
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 3 1/Batched Mountain foliage | course on=1 off=0 tris=1944 | world on=1 off=0 tris=2916
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 3 1/Batched Weathered timber | course on=1 off=0 tris=216 | world on=1 off=0 tris=324
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 3 2/Batched Mountain foliage | course on=1 off=0 tris=2626 | world on=1 off=0 tris=3564
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 3 2/Batched Weathered timber | course on=1 off=0 tris=300 | world on=1 off=0 tris=396
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 3 3/Batched Mountain foliage | course on=1 off=0 tris=3430 | world on=1 off=0 tris=4006
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 3 3/Batched Weathered timber | course on=1 off=0 tris=408 | world on=1 off=0 tris=444
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 3 4/Batched Mountain foliage | course on=1 off=0 tris=269 | world on=1 off=0 tris=1241
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 3 4/Batched Weathered timber | course on=1 off=0 tris=30 | world on=1 off=0 tris=138
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 4 0/Batched Mountain foliage | course on=1 off=0 tris=3132 | world on=1 off=0 tris=4104
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 4 0/Batched Weathered timber | course on=1 off=0 tris=396 | world on=1 off=0 tris=456
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 4 1/Batched Mountain foliage | course on=1 off=0 tris=684 | world on=1 off=0 tris=3132
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 4 1/Batched Weathered timber | course on=1 off=0 tris=84 | world on=1 off=0 tris=348
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 4 2/Batched Mountain foliage | course on=1 off=0 tris=1686 | world on=1 off=0 tris=3132
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 4 2/Batched Weathered timber | course on=1 off=0 tris=200 | world on=1 off=0 tris=348
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 4 3/Batched Mountain foliage | course on=1 off=0 tris=2363 | world on=1 off=0 tris=2651
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 4 3/Batched Weathered timber | course on=1 off=0 tris=272 | world on=1 off=0 tris=296
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 4 4/Batched Mountain foliage | course on=1 off=0 tris=180 | world on=1 off=0 tris=964
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 4 4/Batched Weathered timber | course on=1 off=0 tris=48 | world on=1 off=0 tris=108
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 5 1/Batched Mountain foliage | course on=1 off=0 tris=1548 | world on=1 off=0 tris=4104
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 5 1/Batched Weathered timber | course on=1 off=0 tris=180 | world on=1 off=0 tris=456
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 5 2/Batched Mountain foliage | course on=1 off=0 tris=180 | world on=1 off=0 tris=3456
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 5 2/Batched Weathered timber | course on=1 off=0 tris=36 | world on=1 off=0 tris=384
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 5 3/Batched Mountain foliage | course on=1 off=0 tris=2448 | world on=1 off=0 tris=3456
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 5 3/Batched Weathered timber | course on=1 off=0 tris=288 | world on=1 off=0 tris=384
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 5 4/Batched Mountain foliage | course on=1 off=0 tris=2196 | world on=1 off=0 tris=2995
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 5 4/Batched Weathered timber | course on=1 off=0 tris=252 | world on=1 off=0 tris=336
+  MISSING FEATURE CR094 summit launch/Ground_CR103 smooth landing | on=0 off=1 tris=740
+  DIFFERS FEATURE CR094 summit launch/Ground_CR103 supported connection | course on=0 off=1 tris=332 | world on=1 off=0 tris=332
+  DIFFERS FEATURE CR094 summit launch/Ground_CR103 supported return | course on=0 off=1 tris=254 | world on=1 off=0 tris=22536
+  DIFFERS FEATURE CR094 summit launch/Ground_Summit authored launch | course on=0 off=1 tris=880 | world on=1 off=0 tris=880
+  MISSING FEATURE CR097 supported properties and camp/House 3 valley driveway/Ground_House3 straight descending property driveway | on=1 off=0 tris=528
+  MISSING FEATURE CR110 mountain race geometry/Ground_CR110 main supported trail | on=0 off=1 tris=1400
+  MISSING FEATURE CR110 selected direction signs/MOUNTAIN LOOP OPTIONAL: HOMEWARD SUMMIT FLIGHT/Backed direction board | on=0 off=1 tris=12
+  MISSING FEATURE CR110 selected direction signs/MOUNTAIN LOOP OPTIONAL: HOMEWARD SUMMIT FLIGHT/Post | on=0 off=1 tris=12
+  MISSING FEATURE CR117 downhill summit return/Ground_CR117 downhill summit return | on=0 off=1 tris=270
+  MISSING FEATURE CR117 downhill summit return/Ground_CR117 Summit Traverse rejoin | on=0 off=1 tris=200
+  MISSING FEATURE CR117 main flights and alternatives/Ground_CR117 gully approach | on=0 off=1 tris=282
+  MISSING FEATURE CR117 main flights and alternatives/Ground_CR117 gully catch | on=0 off=1 tris=720
+  MISSING FEATURE CR117 main flights and alternatives/Ground_CR117 gully return | on=0 off=1 tris=718
+  MISSING FEATURE CR117 main flights and alternatives/Ground_CR117 gully takeoff | on=0 off=1 tris=880
+  MISSING FEATURE CR117 selected-direction guidance/Main teal trail arrow | on=0 off=43 tris=215
+  MISSING FEATURE CR117 selected-direction guidance/Optional gold trail arrow | on=0 off=6 tris=30
+  MISSING FEATURE CR117 selected-direction guidance/OPTIONAL SHORTCUT SUMMIT TRAVERSE/Physical sign backing | on=1 off=0 tris=12
+  MISSING FEATURE CR117 selected-direction guidance/OPTIONAL SHORTCUT SUMMIT TRAVERSE/Whole timber post | on=1 off=0 tris=12
+  MISSING FEATURE CR117 smooth route connections/Ground_CR117 tangent gully return | on=0 off=1 tris=880
+  MISSING FEATURE CR122 continuous mountain support/Ground_CR122 Summit Traverse | on=0 off=2 tris=1956
+  MISSING FEATURE Echo eroded hillside face 0 | on=1 off=0 tris=182
+  MISSING FEATURE Echo eroded hillside face 140 | on=1 off=0 tris=192
+  MISSING FEATURE Ground_Echo wooded hillside | on=1 off=0 tris=8828
+  MISSING FEATURE Ground_Report068 barrier Homeward Summit Flight bend | on=1 off=0 tris=691
+  MISSING FEATURE Ground_Report068 landing zone | on=1 off=0 tris=543
+  MISSING FEATURE Ground_Report071 patch BUG-004 main s 12 trail edge | on=1 off=0 tris=1828
+  MISSING FEATURE Route atlas direction guidance/Main teal / before Summit Traverse fork | on=1 off=0 tris=5
+  MISSING FEATURE Route atlas direction guidance/Main teal / main at Summit Traverse fork | on=1 off=0 tris=5
+  MISSING FEATURE Route atlas direction guidance/Main teal / Summit Traverse rejoin | on=1 off=0 tris=5
+  MISSING FEATURE Route atlas direction guidance/Optional gold / Summit Traverse | on=2 off=0 tris=10
+
+######## MountainLoopReverse
+  id=mountain-reverse-v4-natural-summit-merge name=Mountain Loop - Reverse reverse=True forestTrail=True vehicle=(724.9,79.7,-41.0) yaw=9.9 spawn=(724.9,79.7,-41.0) yaw=9.9 gate0=(724.5,79.9,-6.2) road=
+  DIFFERS ACORN woodland-24 | course: Old stone corner | (706.7,81.2,48.9) | world: Old stone corner | (706.7,81.2,48.8)
+  DIFFERS ACTIVITY jump-01 | course: Forest opening jump | Jump | (372.5,78.1,230.9) | active=True | CR079 arcade sites/Forest opening jump | world: Trickum pavement jump | Jump | (-628.3,14.0,-70.0) | active=True | CR079 arcade sites/Trickum pavement jump
+  DIFFERS ACTIVITY speed-0 | course: Forest speed trap 1 | Speed | (564.3,81.7,79.9) | active=True | CR079 arcade sites/Forest speed trap 1 | world: Trickum / 92 speed trap 1 | Speed | (-396.3,8.4,534.1) | active=True | CR079 arcade sites/Trickum / 92 speed trap 1
+  DIFFERS ACTIVITY speed-1 | course: Forest speed trap 2 | Speed | (479.9,78.2,170.8) | active=True | CR079 arcade sites/Forest speed trap 2 | world: Trickum / 92 speed trap 2 | Speed | (-629.7,8.6,95.4) | active=True | CR079 arcade sites/Trickum / 92 speed trap 2
+  MISSING ACTIVITY summit-southface | South Face Summit Flight | Jump | (990.0,177.9,65.0) | active=True | CR110 mountain race geometry/CR110 reverse summit launch/South Face Summit Flight activity
+  DIFFERS COMPONENT UndergroundLife | course: 3 | world: 1
+  DIFFERS COMPONENT BackyardReverseBarriers | course: 0 | world: 1
+  DIFFERS COMPONENT ReverseShortcutWorldState | course: 0 | world: 1
+  DIFFERS COMPONENT MountainFlights | course: 1 | world: 0
+  DIFFERS COMPONENT DumpRefuse | course: 0 | world: 1
+  DIFFERS COMPONENT ShortcutUndergrowth | course: 0 | world: 4
+  DIFFERS COMPONENT BreakableProp | course: 204 | world: 203
+  DIFFERS COMPONENT ShallowWater | course: 6 | world: 41
+  DIFFERS COMPONENT PhysicalSign | course: 94 | world: 86
+  DIFFERS COMPONENT RaceRoad | course: 10 | world: 9
+  DIFFERS COMPONENT JumpRecoveryExclusion | course: 3 | world: 1
+  DIFFERS COMPONENT ReverseShortcutGuidance | course: 1 | world: 2
+  DIFFERS ROOT Memory loop - north is +Z | course active=True | children=116 | renderers=116 | colliders=116 | tris=2755511 | bounds (-800.0,1.7,-750.0)..(1200.0,156.0,850.0) | world active=True | children=124 | renderers=124 | colliders=124 | tris=2016921 | bounds (-800.0,1.7,-750.0)..(1200.0,178.5,850.0)
+  DIFFERS ROOT Woods replacing later subdivisions | course active=True | children=10568 | renderers=90 | colliders=10478 | tris=713458 | bounds (-744.3,1.8,-684.1)..(757.7,105.2,528.7) | world active=True | children=11267 | renderers=90 | colliders=11177 | tris=762580 | bounds (-744.3,1.8,-684.1)..(757.7,105.2,528.7)
+  DIFFERS ROOT Phase 3 - Race Systems | course active=True | children=19 | renderers=78 | colliders=0 | tris=936 | bounds (-639.0,6.9,-578.6)..(562.3,91.2,553.2) | world active=True | children=1 | renderers=0 | colliders=0 | tris=0 | bounds (0.0,0.0,0.0)..(0.0,0.0,0.0)
+  MISSING ROOT CR056 Forest Loop | active=True | children=1522 | renderers=889 | colliders=681 | tris=1492663 | bounds (-744.6,1.8,-682.9)..(757.6,105.3,528.1)
+  MISSING ROOT Cave warning sign | active=True | children=4 | renderers=4 | colliders=1 | tris=36 | bounds (150.8,46.0,281.4)..(158.7,50.8,289.2)
+  DIFFERS ROOT CR075 direction signs | course active=True | children=1 | renderers=3 | colliders=0 | tris=24 | bounds (245.2,56.2,297.7)..(245.8,59.8,304.7) | world active=True | children=4 | renderers=12 | colliders=0 | tris=96 | bounds (-532.6,6.6,-579.1)..(548.6,43.8,-226.5)
+  DIFFERS ROOT CR081 mountain exploration | course active=True | children=46 | renderers=90 | colliders=528 | tris=61104 | bounds (540.2,52.7,-211.7)..(1115.4,181.6,223.8) | world active=True | children=47 | renderers=91 | colliders=865 | tris=103216 | bounds (540.2,78.1,-211.7)..(1115.4,179.6,223.8)
+  DIFFERS ROOT CR094 summit launch | course active=True | children=6 | renderers=4 | colliders=4 | tris=2206 | bounds (682.2,89.8,27.3)..(1212.8,189.0,220.8) | world active=True | children=5 | renderers=3 | colliders=3 | tris=23748 | bounds (681.7,77.8,27.0)..(1212.8,177.9,220.8)
+  DIFFERS ROOT CR097 supported properties and camp | course active=True | children=135 | renderers=136 | colliders=136 | tris=16315 | bounds (365.5,32.8,-246.0)..(518.3,90.1,19.7) | world active=True | children=135 | renderers=136 | colliders=136 | tris=18267 | bounds (361.0,32.8,-246.0)..(518.3,90.1,19.7)
+  DIFFERS ROOT CR102 summit signs | course active=False | children=5 | renderers=15 | colliders=0 | tris=120 | bounds (738.2,101.8,96.2)..(1173.0,157.5,215.4) | world active=True | children=1 | renderers=3 | colliders=0 | tris=24 | bounds (738.2,67.8,96.2)..(740.3,71.7,103.0)
+  MISSING ROOT CR110 mountain race geometry | active=True | children=9 | renderers=6 | colliders=6 | tris=4004 | bounds (685.1,78.2,-261.0)..(1077.0,178.0,331.4)
+  MISSING ROOT CR110 selected direction signs | active=False | children=8 | renderers=24 | colliders=0 | tris=192 | bounds (730.2,78.8,-160.1)..(1032.9,167.5,260.1)
+  MISSING ROOT CR117 main flights and alternatives | active=True | children=7 | renderers=5 | colliders=5 | tris=2928 | bounds (680.3,86.0,-319.0)..(1288.1,139.2,-62.1)
+  DIFFERS ROOT CR113 continuous highway seams | course active=True | children=136 | renderers=135 | colliders=3 | tris=12263 | bounds (-1090.9,7.9,-38.1)..(800.8,82.6,569.6) | world active=True | children=136 | renderers=135 | colliders=3 | tris=12209 | bounds (-1090.9,7.9,-38.1)..(800.8,82.6,569.6)
+  MISSING ROOT CR117 outer ravine landscape | active=True | children=2 | renderers=2 | colliders=1 | tris=143623 | bounds (798.8,33.0,-500.0)..(1530.0,151.9,380.0)
+  MISSING ROOT CR117 smooth route connections | active=True | children=1 | renderers=1 | colliders=1 | tris=120 | bounds (706.9,79.0,-128.4)..(757.9,86.1,-55.2)
+  MISSING ROOT CR117 selected-direction guidance | active=True | children=64 | renderers=82 | colliders=0 | tris=575 | bounds (687.8,78.4,-305.5)..(1282.3,173.3,325.5)
+  MISSING ROOT CR120 reverse local cleanup | active=True | children=6 | renderers=6 | colliders=0 | tris=30 | bounds (806.3,94.7,-161.1)..(857.5,103.8,-103.5)
+  MISSING ROOT CR121 continuous reverse guidance | active=True | children=37 | renderers=41 | colliders=1 | tris=368 | bounds (743.8,86.0,-211.2)..(1052.5,154.7,52.2)
+  MISSING ROOT CR122 continuous mountain support | active=True | children=18 | renderers=16 | colliders=8 | tris=12802 | bounds (680.3,78.2,-324.0)..(1288.1,177.7,331.4)
+  MISSING ROOT CR133 structural mountain roads | active=True | children=2 | renderers=2 | colliders=2 | tris=164687 | bounds (669.8,32.6,-379.0)..(1298.1,177.7,370.3)
+  MISSING ROOT First Reverse arrow local surface correction | active=True | children=1 | renderers=1 | colliders=1 | tris=520 | bounds (716.2,79.0,-26.2)..(733.6,81.0,40.1)
+  DIFFERS ROOT Route atlas direction guidance | course active=True | children=46 | renderers=46 | colliders=0 | tris=220 | bounds (0.0,0.0,-301.5)..(1282.6,165.2,324.6) | world active=True | children=0 | renderers=0 | colliders=0 | tris=0 | bounds (0.0,0.0,0.0)..(0.0,0.0,0.0)
+  DIFFERS ROOT Other gate black asphalt driveway - stops at parking | course active=True | children=1 | renderers=1 | colliders=1 | tris=15729 | bounds (387.8,78.7,-38.6)..(468.1,87.0,30.3) | world active=True | children=1 | renderers=1 | colliders=1 | tris=15721 | bounds (387.8,78.7,-38.6)..(468.1,87.0,30.3)
+  DIFFERS ROOT World cleanup additional woodland | course active=True | children=783 | renderers=69 | colliders=714 | tris=51384 | bounds (-1225.0,4.2,-646.6)..(1266.5,182.6,624.7) | world active=True | children=751 | renderers=55 | colliders=696 | tris=50400 | bounds (-1247.2,4.4,-563.6)..(1165.1,189.4,546.8)
+  DIFFERS ROOT Anderson wooded frontage screening | course active=True | children=22 | renderers=1 | colliders=22 | tris=1848 | bounds (481.1,79.5,-69.0)..(509.5,104.7,-11.1) | world active=True | children=22 | renderers=1 | colliders=22 | tris=1992 | bounds (478.9,78.7,-67.8)..(509.0,103.9,-11.1)
+  MISSING ROOT Summit merge gold arrow | active=True | children=0 | renderers=1 | colliders=0 | tris=5 | bounds (862.3,111.3,-79.7)..(864.5,111.5,-73.7)
+  MISSING ROOT Summit merge no recovery | active=True | children=0 | renderers=0 | colliders=0 | tris=0 | bounds (0.0,0.0,0.0)..(0.0,0.0,0.0)
+  MISSING ROOT Mountain corridor earth support | active=True | children=1 | renderers=1 | colliders=1 | tris=8891 | bounds (676.3,34.1,-328.0)..(1292.1,139.2,130.3)
+  MISSING ROOT Ground_MountainCut rock vault | active=True | children=0 | renderers=1 | colliders=1 | tris=2417 | bounds (966.6,150.0,107.0)..(1013.4,163.7,150.0)
+  MISSING ROOT Summit natural edge boulder | active=True | children=0 | renderers=1 | colliders=1 | tris=80 | bounds (1001.0,137.5,-60.8)..(1004.0,138.9,-57.6)
+  MISSING ROOT Ground_MountainCut mountain cap | active=True | children=0 | renderers=1 | colliders=1 | tris=2544 | bounds (973.0,161.8,110.0)..(1007.0,165.1,149.0)
+  MISSING ROOT Ground_MountainCut portal outcrops | active=True | children=0 | renderers=1 | colliders=1 | tris=1971 | bounds (954.0,137.0,101.0)..(1026.0,163.3,157.0)
+  MISSING ROOT Ground_MountainCleanup natural outcrop 2 | active=True | children=0 | renderers=1 | colliders=1 | tris=117 | bounds (738.9,85.3,-115.6)..(741.2,88.8,-112.5)
+  MISSING ROOT Ground_MountainCleanup natural outcrop 3 | active=True | children=0 | renderers=1 | colliders=1 | tris=117 | bounds (737.0,83.9,-113.2)..(739.5,87.5,-110.2)
+  MISSING ROOT Ground_MountainCleanup natural outcrop 6 | active=True | children=0 | renderers=1 | colliders=1 | tris=117 | bounds (727.2,85.7,-123.5)..(730.0,89.3,-120.8)
+  MISSING ROOT Ground_MountainCleanup natural outcrop 7 | active=True | children=0 | renderers=1 | colliders=1 | tris=117 | bounds (717.5,86.1,-133.2)..(720.1,89.6,-130.2)
+  MISSING ROOT Ground_MountainCleanup natural outcrop 8 | active=True | children=0 | renderers=1 | colliders=1 | tris=117 | bounds (798.5,96.0,-145.2)..(801.5,99.6,-139.6)
+  MISSING ROOT Ground_MountainCleanup natural outcrop 9 | active=True | children=0 | renderers=1 | colliders=1 | tris=117 | bounds (738.2,84.3,-115.1)..(740.5,87.8,-112.0)
+  MISSING ROOT Ground_MountainCleanup natural outcrop 10 | active=True | children=0 | renderers=1 | colliders=1 | tris=117 | bounds (719.9,86.0,-130.5)..(722.5,89.5,-127.5)
+  MISSING ROOT Ground_MountainCleanup natural outcrop 11 | active=True | children=0 | renderers=1 | colliders=1 | tris=117 | bounds (798.5,96.4,-165.3)..(801.6,100.0,-159.5)
+  MISSING ROOT Ground_MountainCleanup natural outcrop 12 | active=True | children=0 | renderers=1 | colliders=1 | tris=117 | bounds (698.8,87.4,-162.2)..(701.2,91.0,-159.1)
+  MISSING ROOT Ground_MountainCleanup natural outcrop 13 | active=True | children=0 | renderers=1 | colliders=1 | tris=117 | bounds (735.1,85.6,-117.7)..(738.0,89.1,-115.2)
+  MISSING ROOT Ground_MountainCleanup natural outcrop 14 | active=True | children=0 | renderers=1 | colliders=1 | tris=117 | bounds (711.5,86.4,-141.4)..(713.9,90.0,-138.2)
+  MISSING ROOT Ground_MountainCleanup natural outcrop 15 | active=True | children=0 | renderers=1 | colliders=1 | tris=117 | bounds (737.3,85.5,-116.1)..(740.5,89.0,-113.7)
+  MISSING ROOT Ground_MountainCleanup natural outcrop 16 | active=True | children=0 | renderers=1 | colliders=1 | tris=117 | bounds (798.6,95.8,-150.2)..(801.4,99.4,-144.9)
+  MISSING ROOT Ground_MountainCleanup natural outcrop 17 | active=True | children=0 | renderers=1 | colliders=1 | tris=117 | bounds (724.7,85.8,-125.7)..(727.7,89.3,-123.0)
+  MISSING ROOT Ground_MountainCleanup natural outcrop 18 | active=True | children=0 | renderers=1 | colliders=1 | tris=117 | bounds (739.1,85.0,-116.6)..(740.7,88.5,-113.1)
+  MISSING ROOT Ground_MountainCleanup natural outcrop 19 | active=True | children=0 | renderers=1 | colliders=1 | tris=117 | bounds (703.4,87.1,-154.3)..(705.8,90.6,-151.1)
+  MISSING ROOT Ground_MountainCleanup natural outcrop 20 | active=True | children=0 | renderers=1 | colliders=1 | tris=117 | bounds (722.2,85.9,-128.1)..(724.9,89.4,-125.2)
+  MISSING ROOT Ground_MountainCleanup natural outcrop 21 | active=True | children=0 | renderers=1 | colliders=1 | tris=117 | bounds (715.3,86.2,-135.7)..(718.0,89.7,-132.7)
+  MISSING ROOT Ground_MountainCleanup natural outcrop 22 | active=True | children=0 | renderers=1 | colliders=1 | tris=117 | bounds (798.6,93.7,-130.1)..(801.3,97.3,-124.9)
+  MISSING ROOT Ground_MountainCleanup natural outcrop 23 | active=True | children=0 | renderers=1 | colliders=1 | tris=117 | bounds (697.4,87.5,-165.1)..(699.6,91.1,-161.7)
+  MISSING ROOT Ground_MountainCleanup natural outcrop 24 | active=True | children=0 | renderers=1 | colliders=1 | tris=117 | bounds (700.4,87.3,-159.8)..(702.6,90.8,-156.5)
+  MISSING ROOT Ground_MountainCleanup natural outcrop 25 | active=True | children=0 | renderers=1 | colliders=1 | tris=117 | bounds (738.9,84.7,-116.5)..(740.8,88.2,-113.0)
+  MISSING ROOT Ground_MountainCleanup natural outcrop 26 | active=True | children=0 | renderers=1 | colliders=1 | tris=117 | bounds (708.3,86.7,-146.6)..(710.6,90.2,-143.3)
+  MISSING ROOT Ground_MountainCleanup natural outcrop 27 | active=True | children=0 | renderers=1 | colliders=1 | tris=117 | bounds (798.6,94.2,-175.5)..(801.6,97.7,-169.5)
+  MISSING ROOT Ground_MountainCleanup natural outcrop 28 | active=True | children=0 | renderers=1 | colliders=1 | tris=117 | bounds (729.7,85.7,-121.3)..(732.9,89.2,-118.9)
+  MISSING ROOT Ground_MountainCleanup natural outcrop 29 | active=True | children=0 | renderers=1 | colliders=1 | tris=117 | bounds (705.0,86.9,-151.7)..(707.4,90.5,-148.5)
+  MISSING ROOT Ground_MountainCleanup natural outcrop 30 | active=True | children=0 | renderers=1 | colliders=1 | tris=117 | bounds (798.5,93.3,-120.5)..(801.6,96.9,-114.7)
+  MISSING ROOT Ground_MountainCleanup natural outcrop 31 | active=True | children=0 | renderers=1 | colliders=1 | tris=117 | bounds (798.5,96.0,-140.2)..(801.5,99.5,-134.6)
+  MISSING ROOT Ground_MountainCleanup natural outcrop 32 | active=True | children=0 | renderers=1 | colliders=1 | tris=117 | bounds (798.7,95.3,-155.1)..(801.3,98.9,-150.0)
+  MISSING ROOT Ground_MountainCleanup natural outcrop 33 | active=True | children=0 | renderers=1 | colliders=1 | tris=117 | bounds (798.5,96.1,-170.4)..(801.5,99.6,-164.8)
+  MISSING ROOT Ground_MountainCleanup natural outcrop 34 | active=True | children=0 | renderers=1 | colliders=1 | tris=117 | bounds (732.4,85.6,-119.5)..(735.6,89.1,-117.1)
+  MISSING ROOT Ground_MountainCleanup natural outcrop 35 | active=True | children=0 | renderers=1 | colliders=1 | tris=117 | bounds (706.5,86.8,-149.0)..(709.0,90.3,-146.0)
+  MISSING ROOT Ground_MountainCleanup natural outcrop 36 | active=True | children=0 | renderers=1 | colliders=1 | tris=117 | bounds (738.8,85.4,-115.4)..(741.4,89.0,-112.5)
+  MISSING ROOT Ground_MountainCleanup natural outcrop 37 | active=True | children=0 | renderers=1 | colliders=1 | tris=117 | bounds (798.6,94.6,-135.5)..(801.6,98.1,-129.5)
+  MISSING ROOT Ground_MountainCleanup natural outcrop 38 | active=True | children=0 | renderers=1 | colliders=1 | tris=117 | bounds (713.2,86.3,-138.5)..(715.7,89.8,-135.6)
+  MISSING ROOT Ground_MountainCleanup natural outcrop 39 | active=True | children=0 | renderers=1 | colliders=1 | tris=117 | bounds (709.8,86.5,-143.9)..(712.2,90.1,-140.7)
+  MISSING ROOT Ground_MountainCleanup natural outcrop 40 | active=True | children=0 | renderers=1 | colliders=1 | tris=117 | bounds (798.5,93.8,-125.5)..(801.6,97.3,-119.6)
+  MISSING ROOT Ground_MountainCleanup natural outcrop 41 | active=True | children=0 | renderers=1 | colliders=1 | tris=117 | bounds (701.8,87.2,-157.0)..(704.1,90.7,-153.9)
+  MISSING ROOT Ground_MountainCleanup natural outcrop 42 | active=True | children=0 | renderers=1 | colliders=1 | tris=117 | bounds (798.7,95.9,-160.0)..(801.3,99.4,-154.9)
+  MISSING ROOT Ground_MountainCleanup landing rock shoulder | active=True | children=0 | renderers=1 | colliders=1 | tris=2592 | bounds (815.0,45.0,-354.0)..(920.4,123.6,-246.0)
+  MISSING ROOT Ground_ReportCleanup MountainLoopReverse natural edge 0 | active=True | children=0 | renderers=1 | colliders=1 | tris=56 | bounds (1007.7,159.0,106.1)..(1013.0,161.9,113.2)
+  MISSING ROOT Ground_ReportCleanup MountainLoopReverse natural edge 1 | active=True | children=0 | renderers=1 | colliders=1 | tris=56 | bounds (1003.5,162.4,80.3)..(1009.4,165.3,88.1)
+  MISSING ROOT Ground_ReportCleanup MountainLoopReverse natural edge 2 | active=True | children=0 | renderers=1 | colliders=1 | tris=56 | bounds (1018.5,156.4,93.6)..(1024.5,159.3,101.6)
+  MISSING ROOT Ground_ReportCleanup MountainLoopReverse natural edge 3 | active=True | children=0 | renderers=1 | colliders=1 | tris=56 | bounds (1029.5,154.2,81.2)..(1035.0,157.1,88.7)
+  MISSING ROOT Ground_ReportCleanup MountainLoopReverse natural edge 4 | active=True | children=0 | renderers=1 | colliders=1 | tris=56 | bounds (1044.4,138.8,-48.7)..(1049.6,142.3,-41.9)
+  MISSING ROOT Ground_ReportCleanup MountainLoopReverse natural edge 5 | active=True | children=0 | renderers=1 | colliders=1 | tris=56 | bounds (1039.4,137.5,-56.1)..(1044.4,141.0,-49.6)
+  MISSING ROOT Ground_ReportCleanup MountainLoopReverse natural edge 6 | active=True | children=0 | renderers=1 | colliders=1 | tris=56 | bounds (1033.1,136.7,-63.3)..(1038.5,140.2,-56.4)
+  MISSING ROOT Ground_ReportCleanup MountainLoopReverse natural edge 7 | active=True | children=0 | renderers=1 | colliders=1 | tris=56 | bounds (1025.8,138.9,-69.8)..(1031.8,142.3,-62.1)
+  MISSING ROOT Ground_ReportCleanup MountainLoopReverse continuous solid 0 | active=True | children=0 | renderers=1 | colliders=1 | tris=457279 | bounds (830.0,45.0,-144.0)..(1100.0,173.9,356.0)
+  MISSING ROOT Ground_ReportCleanup MountainLoopReverse continuous solid 1 | active=True | children=0 | renderers=1 | colliders=1 | tris=34446 | bounds (740.0,45.0,20.0)..(840.0,153.3,124.0)
+  MISSING ROOT Ground_ReportCleanup MountainLoopReverse continuous solid 2 | active=True | children=0 | renderers=1 | colliders=1 | tris=35190 | bounds (950.0,45.0,-212.0)..(1050.0,158.2,-84.0)
+  MISSING ROOT Roadside woodland trunk | active=True | children=0 | renderers=0 | colliders=1 | tris=0 | bounds (1003.3,124.0,-29.1)..(1003.3,124.0,-29.1)
+  MISSING ROOT Ground_ReportCleanup MountainLoopReverse receiving bank 0 | active=True | children=0 | renderers=1 | colliders=1 | tris=1696 | bounds (887.5,116.0,-325.4)..(905.0,123.9,-274.7)
+  MISSING ROOT Ground_ReportCleanup MountainLoopReverse receiving bank 1 | active=True | children=0 | renderers=1 | colliders=1 | tris=1696 | bounds (964.7,134.5,-102.5)..(1015.4,158.9,-85.0)
+  MISSING ROOT Ground_Report067 South Face hillside | active=True | children=0 | renderers=1 | colliders=1 | tris=6116 | bounds (944.0,44.8,-216.0)..(1024.0,157.9,-83.0)
+  MISSING ROOT Ground_Report067 South Face tunnel ceiling | active=True | children=0 | renderers=1 | colliders=1 | tris=17732 | bounds (944.0,0.0,-216.0)..(1024.0,157.9,-78.0)
+  MISSING ROOT Ground_Report067 edge shoulders | active=True | children=0 | renderers=1 | colliders=1 | tris=16918 | bounds (673.5,20.4,-213.6)..(1105.3,165.5,337.2)
+  MISSING ROOT Ground_Report067 edge seams | active=True | children=0 | renderers=1 | colliders=0 | tris=11756 | bounds (682.4,78.7,-276.6)..(1199.7,164.9,141.6)
+  MISSING ROOT Ground_Report068 seam support | active=True | children=0 | renderers=0 | colliders=1 | tris=2050 | bounds (0.0,0.0,0.0)..(0.0,0.0,0.0)
+  MISSING ROOT Ground_Report068 BUG-006 shoulder | active=True | children=0 | renderers=1 | colliders=1 | tris=1060 | bounds (965.6,154.8,114.6)..(1029.1,165.2,160.6)
+  MISSING ROOT Ground_Report068 barrier South Face Summit Flight bend | active=True | children=0 | renderers=1 | colliders=1 | tris=1210 | bounds (941.4,71.5,-272.5)..(1000.5,93.0,-212.7)
+  MISSING ROOT Ground_Report068 barrier Downhill Ridge Cut jumps | active=True | children=0 | renderers=1 | colliders=1 | tris=1281 | bounds (675.2,55.1,-150.3)..(715.6,88.0,-66.7)
+  MISSING ROOT Ground_Report069 patch BUG-006 gore | active=True | children=0 | renderers=1 | colliders=1 | tris=1370 | bounds (720.5,95.8,-293.0)..(737.5,99.5,-280.0)
+  MISSING ROOT Ground_Report069 flush shoulders | active=True | children=0 | renderers=1 | colliders=1 | tris=183001 | bounds (664.3,32.9,-301.8)..(1206.4,165.8,343.4)
+  MISSING ROOT Ground_Report070 barrier summit crest outcrop (0.70 BUG-005/006) | active=True | children=0 | renderers=1 | colliders=1 | tris=4984 | bounds (1005.3,145.4,88.5)..(1045.6,175.3,149.9)
+  MISSING ROOT Ground_Echo wooded hillside | active=True | children=0 | renderers=1 | colliders=1 | tris=8828 | bounds (-83.6,21.4,-105.0)..(185.2,62.2,293.4)
+  MISSING ROOT Echo eroded hillside face 0 | active=True | children=0 | renderers=1 | colliders=1 | tris=182 | bounds (124.8,41.8,242.6)..(191.0,61.0,304.8)
+  MISSING ROOT Echo eroded hillside face 140 | active=True | children=0 | renderers=1 | colliders=1 | tris=192 | bounds (-86.7,20.7,-116.8)..(-12.2,39.5,-89.1)
+  MISSING FEATURE Cave warning sign/Mounted warning board | on=1 off=0 tris=12
+  MISSING FEATURE Cave warning sign/Warning post | on=2 off=0 tris=24
+  DIFFERS FEATURE CR034-039 Woodland routes/Breakable sign - Fox Gully  > 108 km/h | course on=0 off=2 tris=24 | world on=2 off=0 tris=24
+  MISSING FEATURE CR056 Forest Loop/Cave gravel floor patch | on=122 off=0 tris=1098
+  MISSING FEATURE CR056 Forest Loop/Cave natural gravel floor | on=1 off=0 tris=7296
+  MISSING FEATURE CR056 Forest Loop/Echo Cave enclosed rock | on=1 off=0 tris=3360
+  MISSING FEATURE CR056 Forest Loop/Echo Cave partial rockfall/Broken rear slab | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Echo Cave partial rockfall/Central fractured boulder | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Echo Cave partial rockfall/Opening-side fallen stone | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Echo Cave partial rockfall/Wall-side fallen slab | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Fallen cave stone | on=166 off=0 tris=1992
+  MISSING FEATURE CR056 Forest Loop/Forest detail batch | on=252 off=0 tris=1359144
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 0 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 1 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 10 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 11 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 12 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 13 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 14 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 15 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 16 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 17 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 18 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 19 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 2 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 20 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 21 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 22 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 23 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 24 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 25 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 26 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 27 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 28 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 29 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 3 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 30 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 31 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 32 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 33 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 34 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 35 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 36 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 37 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 38 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 39 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 4 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 40 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 41 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 42 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 43 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 44 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 5 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 6 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 7 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 8 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Grounded cave edge boulder 9 | on=1 off=0 tris=44
+  MISSING FEATURE CR056 Forest Loop/Hanging angular cave formation | on=42 off=0 tris=504
+  MISSING FEATURE CR056 Forest Loop/Shallow cave puddle | on=61 off=0 tris=549
+  MISSING FEATURE CR056 Forest Loop/Trail fern | on=151 off=0 tris=115968
+  MISSING FEATURE CR075 direction signs/Echo Cave </OPTIONAL | on=2 off=0 tris=24
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 0 0/Batched Mountain foliage | course on=1 off=0 tris=1728 | world on=1 off=0 tris=4104
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 0 0/Batched Weathered timber | course on=1 off=0 tris=204 | world on=1 off=0 tris=456
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 0 1/Batched Mountain foliage | course on=1 off=0 tris=1188 | world on=1 off=0 tris=2687
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 0 1/Batched Weathered timber | course on=1 off=0 tris=132 | world on=1 off=0 tris=300
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 0 2/Batched Mountain foliage | course on=1 off=0 tris=3096 | world on=1 off=0 tris=3780
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 0 2/Batched Weathered timber | course on=1 off=0 tris=348 | world on=1 off=0 tris=420
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 0 3/Batched Mountain foliage | course on=1 off=0 tris=936 | world on=1 off=0 tris=2268
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 0 3/Batched Weathered timber | course on=1 off=0 tris=108 | world on=1 off=0 tris=252
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 1 0/Batched Mountain foliage | course on=1 off=0 tris=864 | world on=1 off=0 tris=4104
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 1 0/Batched Weathered timber | course on=1 off=0 tris=120 | world on=1 off=0 tris=456
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 1 1/Batched Mountain foliage | course on=1 off=0 tris=1226 | world on=1 off=0 tris=2808
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 1 1/Batched Weathered timber | course on=1 off=0 tris=144 | world on=1 off=0 tris=312
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 1 2/Batched Mountain foliage | course on=1 off=0 tris=4097 | world on=1 off=0 tris=4104
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 1 3/Batched Mountain foliage | course on=1 off=0 tris=2856 | world on=1 off=0 tris=3432
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 1 3/Batched Weathered timber | course on=1 off=0 tris=336 | world on=1 off=0 tris=384
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 1 4/Batched Mountain foliage | course on=1 off=0 tris=155 | world on=1 off=0 tris=227
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 2 0/Batched Mountain foliage | course on=1 off=0 tris=3888 | world on=1 off=0 tris=4104
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 2 0/Batched Weathered timber | course on=1 off=0 tris=432 | world on=1 off=0 tris=456
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 2 1/Batched Mountain foliage | course on=1 off=0 tris=1616 | world on=1 off=0 tris=2906
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 2 1/Batched Weathered timber | course on=1 off=0 tris=192 | world on=1 off=0 tris=324
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 2 2/Batched Mountain foliage | course on=1 off=0 tris=2460 | world on=1 off=0 tris=4104
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 2 2/Batched Weathered timber | course on=1 off=0 tris=268 | world on=1 off=0 tris=456
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 3 0/Batched Mountain foliage | course on=1 off=0 tris=2923 | world on=1 off=0 tris=4104
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 3 0/Batched Weathered timber | course on=1 off=0 tris=324 | world on=1 off=0 tris=456
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 3 1/Batched Mountain foliage | course on=1 off=0 tris=432 | world on=1 off=0 tris=2916
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 3 1/Batched Weathered timber | course on=1 off=0 tris=60 | world on=1 off=0 tris=324
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 3 2/Batched Mountain foliage | course on=1 off=0 tris=1142 | world on=1 off=0 tris=3564
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 3 2/Batched Weathered timber | course on=1 off=0 tris=120 | world on=1 off=0 tris=396
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 3 3/Batched Mountain foliage | course on=1 off=0 tris=2727 | world on=1 off=0 tris=4006
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 3 3/Batched Weathered timber | course on=1 off=0 tris=300 | world on=1 off=0 tris=444
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 3 4/Batched Mountain foliage | course on=1 off=0 tris=821 | world on=1 off=0 tris=1241
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 3 4/Batched Weathered timber | course on=1 off=0 tris=90 | world on=1 off=0 tris=138
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 4 0/Batched Mountain foliage | course on=1 off=0 tris=1371 | world on=1 off=0 tris=4104
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 4 0/Batched Weathered timber | course on=1 off=0 tris=156 | world on=1 off=0 tris=456
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 4 1/Batched Mountain foliage | course on=1 off=0 tris=972 | world on=1 off=0 tris=3132
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 4 1/Batched Weathered timber | course on=1 off=0 tris=108 | world on=1 off=0 tris=348
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 4 2/Batched Mountain foliage | course on=1 off=0 tris=147 | world on=1 off=0 tris=3132
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 4 2/Batched Weathered timber | course on=1 off=0 tris=24 | world on=1 off=0 tris=348
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 4 3/Batched Mountain foliage | course on=1 off=0 tris=215 | world on=1 off=0 tris=2651
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 4 3/Batched Weathered timber | course on=1 off=0 tris=24 | world on=1 off=0 tris=296
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 4 4/Batched Mountain foliage | course on=1 off=0 tris=486 | world on=1 off=0 tris=964
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 4 4/Batched Weathered timber | course on=1 off=0 tris=60 | world on=1 off=0 tris=108
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 5 1/Batched Mountain foliage | course on=1 off=0 tris=2160 | world on=1 off=0 tris=4104
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 5 1/Batched Weathered timber | course on=1 off=0 tris=252 | world on=1 off=0 tris=456
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 5 2/Batched Mountain foliage | course on=1 off=0 tris=1188 | world on=1 off=0 tris=3456
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 5 2/Batched Weathered timber | course on=1 off=0 tris=144 | world on=1 off=0 tris=384
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 5 3/Batched Mountain foliage | course on=1 off=0 tris=2736 | world on=1 off=0 tris=3456
+  DIFFERS FEATURE CR081 mountain exploration/Mountain woods 5 3/Batched Weathered timber | course on=1 off=0 tris=336 | world on=1 off=0 tris=384
+  MISSING FEATURE CR094 summit launch/Ground_CR103 smooth landing | on=0 off=1 tris=740
+  DIFFERS FEATURE CR094 summit launch/Ground_CR103 supported connection | course on=0 off=1 tris=332 | world on=1 off=0 tris=332
+  DIFFERS FEATURE CR094 summit launch/Ground_CR103 supported return | course on=0 off=1 tris=254 | world on=1 off=0 tris=22536
+  DIFFERS FEATURE CR094 summit launch/Ground_Summit authored launch | course on=0 off=1 tris=880 | world on=1 off=0 tris=880
+  MISSING FEATURE CR097 supported properties and camp/House 3 valley driveway/Ground_House3 straight descending property driveway | on=1 off=0 tris=528
+  MISSING FEATURE CR102 summit signs/01 approach/Backing | on=0 off=1 tris=12
+  MISSING FEATURE CR102 summit signs/01 approach/Post | on=0 off=1 tris=12
+  MISSING FEATURE CR102 summit signs/02 run-up/Backing | on=0 off=1 tris=12
+  MISSING FEATURE CR102 summit signs/02 run-up/Post | on=0 off=1 tris=12
+  MISSING FEATURE CR102 summit signs/03 launch/Backing | on=0 off=1 tris=12
+  MISSING FEATURE CR102 summit signs/03 launch/Post | on=0 off=1 tris=12
+  MISSING FEATURE CR102 summit signs/04 landing/Backing | on=0 off=1 tris=12
+  MISSING FEATURE CR102 summit signs/04 landing/Post | on=0 off=1 tris=12
+  DIFFERS FEATURE CR102 summit signs/05 return/Backing | course on=0 off=1 tris=12 | world on=1 off=0 tris=12
+  DIFFERS FEATURE CR102 summit signs/05 return/Post | course on=0 off=1 tris=12 | world on=1 off=0 tris=12
+  MISSING FEATURE CR110 mountain race geometry/Ground_CR110 main supported trail | on=0 off=1 tris=1400
+  MISSING FEATURE CR110 mountain race geometry/Ground_CR110 reverse landing | on=0 off=1 tris=540
+  MISSING FEATURE CR110 selected direction signs/MOUNTAIN LOOP REVERSE OPTIONAL: SOUTH FACE SUMMIT FLIGHT/Backed direction board | on=0 off=1 tris=12
+  MISSING FEATURE CR110 selected direction signs/MOUNTAIN LOOP REVERSE OPTIONAL: SOUTH FACE SUMMIT FLIGHT/Post | on=0 off=1 tris=12
+  MISSING FEATURE CR110 selected direction signs/SOUTH FACE FLIGHT FULL RUN-UP / FULL THROTTLE | on=0 off=2 tris=24
+  MISSING FEATURE CR117 main flights and alternatives/Ground_CR117 gully approach corrected | on=0 off=1 tris=898
+  MISSING FEATURE CR117 main flights and alternatives/Ground_CR117 gully catch | on=0 off=1 tris=720
+  MISSING FEATURE CR117 main flights and alternatives/Ground_CR117 gully return | on=0 off=1 tris=286
+  MISSING FEATURE CR117 main flights and alternatives/Ground_CR117 gully takeoff | on=0 off=1 tris=880
+  MISSING FEATURE CR117 main flights and alternatives/Ground_CR117 reverse ridge shortcut | on=0 off=1 tris=144
+  MISSING FEATURE CR117 selected-direction guidance/Main teal trail arrow | on=0 off=49 tris=245
+  MISSING FEATURE CR117 selected-direction guidance/Optional gold trail arrow | on=0 off=6 tris=30
+  MISSING FEATURE CR117 selected-direction guidance/OPTIONAL SHORTCUT SUMMIT TRAVERSE/Physical sign backing | on=1 off=0 tris=12
+  MISSING FEATURE CR117 selected-direction guidance/OPTIONAL SHORTCUT SUMMIT TRAVERSE/Whole timber post | on=1 off=0 tris=12
+  MISSING FEATURE CR122 continuous mountain support/Ground_CR122 reverse shortcut far-side landing | on=0 off=1 tris=205
+  MISSING FEATURE CR122 continuous mountain support/Ground_CR122 Summit Traverse | on=0 off=2 tris=2180
+  MISSING FEATURE Echo eroded hillside face 0 | on=1 off=0 tris=182
+  MISSING FEATURE Echo eroded hillside face 140 | on=1 off=0 tris=192
+  MISSING FEATURE Ground_Echo wooded hillside | on=1 off=0 tris=8828
+  MISSING FEATURE Ground_MountainCleanup landing rock shoulder | on=1 off=0 tris=2592
+  MISSING FEATURE Ground_Report067 South Face tunnel ceiling | on=1 off=0 tris=17732
+  MISSING FEATURE Ground_Report068 barrier Downhill Ridge Cut jumps | on=1 off=0 tris=1281
+  MISSING FEATURE Ground_Report068 barrier South Face Summit Flight bend | on=1 off=0 tris=1210
+  MISSING FEATURE Ground_Report070 barrier summit crest outcrop (0.70 BUG-005/006) | on=1 off=0 tris=4984
+  MISSING FEATURE Route atlas direction guidance/Main teal / before Summit Traverse fork | on=1 off=0 tris=5
+  MISSING FEATURE Route atlas direction guidance/Main teal / main at Summit Traverse fork | on=1 off=0 tris=5
+  MISSING FEATURE Route atlas direction guidance/Main teal / Summit Traverse rejoin | on=1 off=0 tris=5
+  MISSING FEATURE Route atlas direction guidance/Optional gold / Summit Traverse | on=2 off=0 tris=10
+  MISSING FEATURE Summit merge gold arrow | on=7 off=1 tris=40
+  MISSING FEATURE Summit natural edge boulder | on=8 off=0 tris=640
+
+######## StreetLoopGreybox
+  id=street-v14-discovery name=Street Loop - Forward reverse=False forestTrail=False vehicle=(320.2,9.7,536.0) yaw=180.5 spawn=(320.2,9.7,536.0) yaw=180.5 gate0=(319.7,16.8,512.8) road=Phase 3 - Race Sy
+  DIFFERS COMPONENT UndergroundLife | course: 0 | world: 1
+  DIFFERS COMPONENT BackyardReverseBarriers | course: 0 | world: 1
+  DIFFERS COMPONENT ReverseShortcutWorldState | course: 0 | world: 1
+  DIFFERS COMPONENT DumpRefuse | course: 0 | world: 1
+  DIFFERS COMPONENT ShortcutUndergrowth | course: 0 | world: 4
+  DIFFERS COMPONENT ShallowWater | course: 5 | world: 41
+  DIFFERS COMPONENT PhysicalSign | course: 84 | world: 86
+  DIFFERS COMPONENT WoodlandRoute | course: 4 | world: 2
+  DIFFERS COMPONENT RaceRoad | course: 7 | world: 9
+  DIFFERS COMPONENT JumpRecoveryExclusion | course: 0 | world: 1
+  DIFFERS COMPONENT ReverseShortcutGuidance | course: 0 | world: 2
+  DIFFERS ROOT Memory loop - north is +Z | course active=True | children=124 | renderers=124 | colliders=124 | tris=1440469 | bounds (-800.0,1.7,-750.0)..(1200.0,178.5,850.0) | world active=True | children=124 | renderers=124 | colliders=124 | tris=2016921 | bounds (-800.0,1.7,-750.0)..(1200.0,178.5,850.0)
+  DIFFERS ROOT Woods replacing later subdivisions | course active=True | children=11502 | renderers=90 | colliders=11412 | tris=780131 | bounds (-744.3,1.8,-684.1)..(757.7,105.2,528.7) | world active=True | children=11267 | renderers=90 | colliders=11177 | tris=762580 | bounds (-744.3,1.8,-684.1)..(757.7,105.2,528.7)
+  DIFFERS ROOT Phase 3 - Race Systems | course active=True | children=19 | renderers=78 | colliders=0 | tris=936 | bounds (-639.1,6.9,-578.7)..(562.4,91.2,553.3) | world active=True | children=1 | renderers=0 | colliders=0 | tris=0 | bounds (0.0,0.0,0.0)..(0.0,0.0,0.0)
+  DIFFERS ROOT CR097 supported properties and camp | course active=True | children=135 | renderers=136 | colliders=136 | tris=16315 | bounds (365.5,32.8,-246.0)..(518.3,90.1,19.7) | world active=True | children=135 | renderers=136 | colliders=136 | tris=18267 | bounds (361.0,32.8,-246.0)..(518.3,90.1,19.7)
+  DIFFERS ROOT CR113 continuous highway seams | course active=True | children=136 | renderers=135 | colliders=3 | tris=12263 | bounds (-1090.9,7.9,-38.1)..(800.8,82.6,569.6) | world active=True | children=136 | renderers=135 | colliders=3 | tris=12209 | bounds (-1090.9,7.9,-38.1)..(800.8,82.6,569.6)
+  DIFFERS ROOT Route atlas direction guidance | course active=True | children=55 | renderers=55 | colliders=0 | tris=275 | bounds (-633.0,6.0,-583.9)..(562.4,83.0,563.4) | world active=True | children=0 | renderers=0 | colliders=0 | tris=0 | bounds (0.0,0.0,0.0)..(0.0,0.0,0.0)
+  DIFFERS ROOT World cleanup additional woodland | course active=True | children=768 | renderers=67 | colliders=701 | tris=50136 | bounds (-1253.3,4.4,-637.2)..(1199.1,189.2,625.0) | world active=True | children=751 | renderers=55 | colliders=696 | tris=50400 | bounds (-1247.2,4.4,-563.6)..(1165.1,189.4,546.8)
+  MISSING FEATURE CR097 supported properties and camp/House 3 valley driveway/Ground_House3 straight descending property driveway | on=1 off=0 tris=528
+  MISSING FEATURE Route atlas direction guidance/Main teal / before Fox Gully fork | on=1 off=0 tris=5
+  MISSING FEATURE Route atlas direction guidance/Main teal / Fox Gully rejoin | on=1 off=0 tris=5
+  MISSING FEATURE Route atlas direction guidance/Main teal / main at Fox Gully fork | on=1 off=0 tris=5
+  MISSING FEATURE Route atlas direction guidance/Optional gold / Fox Gully | on=2 off=0 tris=10
+
+######## StreetLoopReverse
+  id=street-reverse-local-laurel-v6 name=Street Loop - Reverse reverse=True forestTrail=False vehicle=(319.0,23.5,481.0) yaw=0.1 spawn=(319.0,23.5,481.0) yaw=0.1 gate0=(319.7,17.0,512.5) road=Reverse ma
+  DIFFERS ACTIVITY jump-01 | course: Trickum pavement jump | Jump | (-628.5,11.0,-62.0) | active=True | CR079 arcade sites/Trickum pavement jump | world: Trickum pavement jump | Jump | (-628.3,14.0,-70.0) | active=True | CR079 arcade sites/Trickum pavement jump
+  DIFFERS ACTIVITY speed-0 | course: Trickum / 92 speed trap 1 | Speed | (-222.3,8.8,529.5) | active=True | CR079 arcade sites/Trickum / 92 speed trap 1 | world: Trickum / 92 speed trap 1 | Speed | (-396.3,8.4,534.1) | active=True | CR079 arcade sites/Trickum / 92 speed trap 1
+  DIFFERS ACTIVITY speed-1 | course: Trickum / 92 speed trap 2 | Speed | (-630.1,8.7,119.5) | active=True | CR079 arcade sites/Trickum / 92 speed trap 2 | world: Trickum / 92 speed trap 2 | Speed | (-629.7,8.6,95.4) | active=True | CR079 arcade sites/Trickum / 92 speed trap 2
+  DIFFERS COMPONENT UndergroundLife | course: 0 | world: 1
+  DIFFERS COMPONENT BackyardReverseBarriers | course: 0 | world: 1
+  DIFFERS COMPONENT ReverseShortcutWorldState | course: 0 | world: 1
+  DIFFERS COMPONENT DumpRefuse | course: 0 | world: 1
+  DIFFERS COMPONENT ShortcutUndergrowth | course: 0 | world: 4
+  DIFFERS COMPONENT ShallowWater | course: 5 | world: 41
+  DIFFERS COMPONENT PhysicalSign | course: 91 | world: 86
+  DIFFERS COMPONENT RaceRoad | course: 8 | world: 9
+  DIFFERS COMPONENT ReverseShortcutGuidance | course: 0 | world: 2
+  DIFFERS ROOT Memory loop - north is +Z | course active=True | children=124 | renderers=124 | colliders=124 | tris=1457000 | bounds (-800.0,1.7,-750.0)..(1200.0,178.5,850.0) | world active=True | children=124 | renderers=124 | colliders=124 | tris=2016921 | bounds (-800.0,1.7,-750.0)..(1200.0,178.5,850.0)
+  DIFFERS ROOT Woods replacing later subdivisions | course active=True | children=11344 | renderers=90 | colliders=11254 | tris=766365 | bounds (-744.3,1.8,-684.1)..(757.7,105.2,528.7) | world active=True | children=11267 | renderers=90 | colliders=11177 | tris=762580 | bounds (-744.3,1.8,-684.1)..(757.7,105.2,528.7)
+  DIFFERS ROOT Phase 3 - Race Systems | course active=True | children=18 | renderers=75 | colliders=0 | tris=900 | bounds (-639.1,6.9,-578.8)..(562.4,89.9,553.3) | world active=True | children=1 | renderers=0 | colliders=0 | tris=0 | bounds (0.0,0.0,0.0)..(0.0,0.0,0.0)
+  DIFFERS ROOT Phase 4 - Connector Jump | course active=True | children=23 | renderers=24 | colliders=2 | tris=746 | bounds (-640.7,7.5,-146.3)..(-614.6,14.2,35.7) | world active=True | children=23 | renderers=24 | colliders=2 | tris=1344 | bounds (-640.7,7.7,-146.3)..(-614.6,14.2,35.7)
+  MISSING ROOT Reverse course authoring | active=True | children=20 | renderers=22 | colliders=2 | tris=1324 | bounds (-638.3,7.9,-331.4)..(509.7,88.3,546.7)
+  DIFFERS ROOT CR075 direction signs | course active=False | children=2 | renderers=6 | colliders=0 | tris=48 | bounds (-48.5,7.7,-316.3)..(168.6,45.7,542.8) | world active=True | children=4 | renderers=12 | colliders=0 | tris=96 | bounds (-532.6,6.6,-579.1)..(548.6,43.8,-226.5)
+  MISSING ROOT CR088-089 physical direction cues | active=True | children=8 | renderers=32 | colliders=0 | tris=288 | bounds (-637.2,7.2,-325.9)..(233.3,47.2,520.7)
+  DIFFERS ROOT CR097 supported properties and camp | course active=True | children=135 | renderers=135 | colliders=135 | tris=21668 | bounds (365.5,32.8,-246.0)..(518.3,90.1,19.7) | world active=True | children=135 | renderers=136 | colliders=136 | tris=18267 | bounds (361.0,32.8,-246.0)..(518.3,90.1,19.7)
+  DIFFERS ROOT CR113 continuous highway seams | course active=True | children=136 | renderers=135 | colliders=3 | tris=12263 | bounds (-1090.9,7.9,-38.1)..(800.8,82.6,569.6) | world active=True | children=136 | renderers=135 | colliders=3 | tris=12209 | bounds (-1090.9,7.9,-38.1)..(800.8,82.6,569.6)
+  MISSING ROOT Local Laurel replacement | active=True | children=1 | renderers=0 | colliders=0 | tris=0 | bounds (0.0,0.0,0.0)..(0.0,0.0,0.0)
+  DIFFERS ROOT Route atlas direction guidance | course active=True | children=40 | renderers=40 | colliders=0 | tris=200 | bounds (-634.7,6.0,-583.3)..(544.5,82.1,560.7) | world active=True | children=0 | renderers=0 | colliders=0 | tris=0 | bounds (0.0,0.0,0.0)..(0.0,0.0,0.0)
+  DIFFERS ROOT World cleanup additional woodland | course active=True | children=757 | renderers=52 | colliders=705 | tris=49896 | bounds (-1215.6,4.0,-646.5)..(1198.5,182.3,626.8) | world active=True | children=751 | renderers=55 | colliders=696 | tris=50400 | bounds (-1247.2,4.4,-563.6)..(1165.1,189.4,546.8)
+  DIFFERS ROOT Anderson wooded frontage screening | course active=True | children=22 | renderers=1 | colliders=22 | tris=1920 | bounds (480.1,78.7,-67.8)..(509.5,103.4,-11.1) | world active=True | children=22 | renderers=1 | colliders=22 | tris=1992 | bounds (478.9,78.7,-67.8)..(509.0,103.9,-11.1)
+  DIFFERS FEATURE CR034-039 Woodland routes/Breakable sign - Fox Gully  > 108 km/h | course on=0 off=2 tris=24 | world on=2 off=0 tris=24
+  DIFFERS FEATURE CR097 supported properties and camp/House 3 valley driveway/Ground_House3 supported valley driveway | course on=1 off=0 tris=6020 | world on=1 off=0 tris=139
+  DIFFERS FEATURE Phase 4 - Connector Jump/Breakable - Jump approach sign/Jump approach sign | course on=0 off=1 tris=12 | world on=1 off=0 tris=12
+  DIFFERS FEATURE Phase 4 - Connector Jump/Takeoff - 40m x 6m, 6.2m rise | course on=1 off=0 tris=482 | world on=1 off=0 tris=1080
+  MISSING FEATURE Reverse course authoring/GAP / STRAIGHT LANDING | on=1 off=0 tris=12

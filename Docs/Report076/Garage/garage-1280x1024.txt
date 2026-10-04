@@ -1,0 +1,11 @@
+moto: preview 612x705 px at (74,156), texture 612x705 (aspect 0.868 vs panel 0.867, true proportions); wholly on screen True; separate from the list True
+atv: preview 612x705 px at (74,156), texture 612x705 (aspect 0.868 vs panel 0.867, true proportions); wholly on screen True; separate from the list True
+original: preview 612x705 px at (74,156), texture 612x705 (aspect 0.868 vs panel 0.867, true proportions); wholly on screen True; separate from the list True
+tourer: preview 612x705 px at (74,156), texture 612x705 (aspect 0.868 vs panel 0.867, true proportions); wholly on screen True; separate from the list True
+rider page on moto, first row 'Randomize' (row on screen True; preview moved 0.0 px): preview 612x705 px at (74,156), texture 612x705 (aspect 0.868 vs panel 0.867, true proportions); wholly on screen True; separate from the list True
+rider page on moto, middle row '‹   Hat: Flat cap   ›' (row on screen True; preview moved 0.0 px): preview 612x705 px at (74,156), texture 612x705 (aspect 0.868 vs panel 0.867, true proportions); wholly on screen True; separate from the list True
+rider page on moto, last row '‹   Pants colour: Blue   ›' (row on screen True; preview moved 0.0 px): preview 612x705 px at (74,156), texture 612x705 (aspect 0.868 vs panel 0.867, true proportions); wholly on screen True; separate from the list True
+rider page on tourer, first row 'Randomize' (row on screen True; preview moved 0.0 px): preview 612x705 px at (74,156), texture 612x705 (aspect 0.868 vs panel 0.867, true proportions); wholly on screen True; separate from the list True
+rider page on tourer, middle row '‹   Hat: Flat cap   ›' (row on screen True; preview moved 0.0 px): preview 612x705 px at (74,156), texture 612x705 (aspect 0.868 vs panel 0.867, true proportions); wholly on screen True; separate from the list True
+rider page on tourer, last row '‹   Pants colour: Blue   ›' (row on screen True; preview moved 0.0 px): preview 612x705 px at (74,156), texture 612x705 (aspect 0.868 vs panel 0.867, true proportions); wholly on screen True; separate from the list True
+done

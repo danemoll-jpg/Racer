@@ -250,19 +250,6 @@ namespace Racer
             EventSystem.current.SetSelectedGameObject(buttons[focus].gameObject);
             RestorePage();
         }
-        // 0.75: the Rider page frames the rider (through the side window in a car); the other garage pages frame the whole
-        // vehicle as before.
-        void FramePreview(VehicleProfile profile)
-        {
-            var eye=new Vector3(10000,10003,9994);var target=new Vector3(10000,10000.5f,10000);
-            if(page=="rider"&&VehicleVisual.NewModels&&previewRoot)
-            {
-                var head=profile.Id=="moto"?new Vector3(0,1.225f,-.005f):profile.Id=="atv"?new Vector3(0,1.255f,-.08f):profile.Id=="original"?new Vector3(-.40f,.78f,-.195f):new Vector3(-.43f,.82f,-.145f);
-                var rt=previewRoot.transform;target=rt.TransformPoint(head+new Vector3(0,-.3f,0));
-                eye=rt.TransformPoint(head+(profile.Small?new Vector3(-1.1f,.15f,1.05f):new Vector3(-1.55f,.2f,.62f)));
-            }
-            previewCamera.transform.position=eye;previewCamera.transform.LookAt(target);
-        }
         static float NextVolume(float value) => Mathf.Min(1, (Mathf.Floor(value*10+.01f)+1)/10);
         void FinishName(bool save)
         {
@@ -292,7 +279,7 @@ namespace Racer
         void LateUpdate()
         {
             if (!flow || !banner) return;
-            UpdateShell();
+            UpdateShell();UpdateGaragePreview();
             if(false&&musicPage&&flow.State==RaceFlow.Stage.Settings&&flow.Radio&&Time.unscaledTime>=nextMusicRefresh)
             {
                 nextMusicRefresh=Time.unscaledTime+.25f;

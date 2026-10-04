@@ -12,6 +12,9 @@ namespace Racer
             public string scene,id;
             public Vector3[] main,gates;
             public Path[] branches;
+            // 0.76: the course's start (Free Roam in FreeRoamWorld starts here), its vehicle rule, and whether its route
+            // runs on race-only geometry that FreeRoamWorld does not have (drawn dashed on the map).
+            public Vector3 start; public float startYaw; public bool forest,raceOnly;
         }
         public Course[] courses;
         static CoursePreviewCatalog cached;

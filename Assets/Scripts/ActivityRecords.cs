@@ -30,6 +30,7 @@ namespace Racer
             }
         }
         public List<Entry> Board(string key)=>Archive.entries.Where(e=>e.key==key).OrderByDescending(e=>e.value).Take(10).ToList();
+        public List<Entry> Board(string[] keys)=>Archive.entries.Where(e=>keys.Contains(e.key)).OrderByDescending(e=>e.value).Take(10).ToList();
         public bool Add(Entry e,bool save=true)
         {
             if(Error!=null||string.IsNullOrEmpty(e.id)||!float.IsFinite(e.value)||e.value<=0||Archive.entries.Any(x=>x.id==e.id))return false;

@@ -1,0 +1,63 @@
+FreeRoamWorld course id backyard-reverse-v4-continuous-shortcuts -> free-roam-world
+ACTIVITY jump-01 Trickum pavement jump at (-628.3,14.0,-70.0): records carried from StreetLoopGreybox (street-v14-discovery), StreetLoopReverse (street-reverse-local-laurel-v6), DansBackyardForward (backyard-forward-v3-forest-shortcuts), DansBackyardReverse (backyard-reverse-v4-continuous-shortcuts)
+ACTIVITY mountain-creek Fern Creek Leap at (880.2,115.5,-84.9): records carried from StreetLoopGreybox (street-v14-discovery), StreetLoopReverse (street-reverse-local-laurel-v6), LakeWoods (lake-v7-discovery), ForestLoopReverse (forest-reverse-v7-water-detour), MountainLoop (mountain-forward-v5-supported), MountainLoopReverse (mountain-reverse-v4-natural-summit-merge), DansBackyardForward (backyard-forward-v3-forest-shortcuts), DansBackyardReverse (backyard-reverse-v4-continuous-shortcuts)
+ACTIVITY mountain-ridge High Ridge Drop at (1011.0,163.7,93.7): records carried from StreetLoopGreybox (street-v14-discovery), StreetLoopReverse (street-reverse-local-laurel-v6), LakeWoods (lake-v7-discovery), ForestLoopReverse (forest-reverse-v7-water-detour), MountainLoop (mountain-forward-v5-supported), MountainLoopReverse (mountain-reverse-v4-natural-summit-merge), DansBackyardForward (backyard-forward-v3-forest-shortcuts), DansBackyardReverse (backyard-reverse-v4-continuous-shortcuts)
+ACTIVITY smash-01 Fence line smash at (481.3,88.1,-89.7): records carried from StreetLoopGreybox (street-v14-discovery), StreetLoopReverse (street-reverse-local-laurel-v6), LakeWoods (lake-v7-discovery), ForestLoopReverse (forest-reverse-v7-water-detour), MountainLoop (mountain-forward-v5-supported), MountainLoopReverse (mountain-reverse-v4-natural-summit-merge), DansBackyardForward (backyard-forward-v3-forest-shortcuts), DansBackyardReverse (backyard-reverse-v4-continuous-shortcuts)
+ACTIVITY speed-0 Trickum / 92 speed trap 1 at (-396.3,8.4,534.1): records carried from StreetLoopGreybox (street-v14-discovery), DansBackyardForward (backyard-forward-v3-forest-shortcuts), DansBackyardReverse (backyard-reverse-v4-continuous-shortcuts)
+ACTIVITY speed-1 Trickum / 92 speed trap 2 at (-629.7,8.6,95.4): records carried from StreetLoopGreybox (street-v14-discovery), DansBackyardForward (backyard-forward-v3-forest-shortcuts), DansBackyardReverse (backyard-reverse-v4-continuous-shortcuts)
+ACTIVITY summit-homeward Summit Homeward Flight at (980.4,177.9,147.3): records carried from StreetLoopGreybox (street-v14-discovery), StreetLoopReverse (street-reverse-local-laurel-v6), LakeWoods (lake-v7-discovery), ForestLoopReverse (forest-reverse-v7-water-detour), MountainLoop (mountain-forward-v5-supported), MountainLoopReverse (mountain-reverse-v4-natural-summit-merge), DansBackyardForward (backyard-forward-v3-forest-shortcuts), DansBackyardReverse (backyard-reverse-v4-continuous-shortcuts)
+NOT CARRIED activity speed-1 (Speed) at (-630.1,8.7,119.5) in StreetLoopReverse
+NOT CARRIED activity speed-0 (Speed) at (-222.3,8.8,529.5) in StreetLoopReverse
+NOT CARRIED activity speed-0 (Speed) at (564.3,81.7,79.9) in LakeWoods
+NOT CARRIED activity jump-01 (Jump) at (372.5,78.1,230.9) in LakeWoods
+NOT CARRIED activity speed-1 (Speed) at (479.9,78.2,170.8) in LakeWoods
+NOT CARRIED activity speed-1 (Speed) at (565.1,81.9,63.2) in ForestLoopReverse
+NOT CARRIED activity speed-0 (Speed) at (477.1,78.1,172.5) in ForestLoopReverse
+NOT CARRIED activity jump-01 (Jump) at (323.7,51.3,-253.1) in ForestLoopReverse
+NOT CARRIED activity speed-1 (Speed) at (479.9,78.2,170.8) in MountainLoop
+NOT CARRIED activity jump-01 (Jump) at (372.5,78.1,230.9) in MountainLoop
+NOT CARRIED activity speed-0 (Speed) at (564.3,81.7,79.9) in MountainLoop
+NOT CARRIED activity speed-1 (Speed) at (479.9,78.2,170.8) in MountainLoopReverse
+NOT CARRIED activity summit-southface (Jump) at (990.0,177.9,65.0) in MountainLoopReverse
+NOT CARRIED activity jump-01 (Jump) at (372.5,78.1,230.9) in MountainLoopReverse
+NOT CARRIED activity speed-0 (Speed) at (564.3,81.7,79.9) in MountainLoopReverse
+ARROWS Backyard optional forest shortcuts: 21 (Gold optional route chevron, Landing - Treehouse platforms and narrow bridges)
+ARROWS Backyard Reverse main route: 29 (Reverse teal ground arrow)
+ARROWS CR-015 modest roadside details/Simple bend warning: 2 (Simple bend chevron)
+ARROWS hidden: 29 Backyard Reverse teal ground arrows, 20 Backyard Forward gold shortcut chevrons
+DRIVE 159 points (515.1,81.8,-132.7)..(436.5,32.9,-152.3); trunks within 25 m: 49; within 4 m: 
+trunkless crown (379.9,61.1,-174.8) size (3.5,9.6,5.6) 22.7 m above the ground removed (Woods replacing later subdivisions/Complete authored trees)
+trunkless crown (360.4,55.3,-221.3) size (2.3,10.3,4.1) 16.4 m above the ground removed (Woods replacing later subdivisions/Complete authored trees)
+trunkless crown (379.0,44.3,-214.0) size (2.0,6.0,4.2) 7.8 m above the ground removed (Woods replacing later subdivisions/Complete authored trees)
+own mesh copy Assets/Track/FreeRoamWorld/FreeRoamWorld-OrphanCleanup-DansBackyardReverse 1.asset for Woods replacing later subdivisions/Complete authored trees
+lobe at (456.2,70.0,-194.4) follows its tree (455.2,67.0,-195.5) by (-2.4,0.0,2.4)
+lobe at (454.5,70.5,-196.8) follows its tree (455.2,67.0,-195.5) by (-2.4,0.0,2.4)
+lobe at (466.7,74.2,-191.4) follows its tree (466.0,70.6,-193.0) by (2.6,0.0,-2.0)
+lobe at (480.7,79.9,-164.9) follows its tree (479.4,77.5,-165.1) by (-6.4,0.0,3.4)
+lobe at (478.0,80.4,-165.0) follows its tree (479.4,77.5,-165.1) by (-6.4,0.0,3.4)
+TREE PIECE World cleanup additional woodland/Additional woodland canopy 4 verts at (480.5,69.9,-183.9) size (0.6,0.0,0.6) drive dist 9.9 ground 69.9 min 69.9: buried; 
+TREE PIECE World cleanup additional woodland/Additional woodland canopy 4 verts at (487.5,74.3,-167.2) size (0.6,0.0,0.6) drive dist 7.5 ground 74.4 min 74.3: buried; 
+TREE PIECE World cleanup additional woodland/Additional woodland canopy 4 verts at (486.5,72.7,-175.3) size (0.6,0.0,0.6) drive dist 10.5 ground 72.7 min 72.7: buried; 
+TREE PIECE Woods replacing later subdivisions/Complete authored trees 7 verts at (483.9,66.7,-176.3) size (5.4,9.4,3.8) drive dist 8.9 ground 72.2 min 61.9: buried; 
+TREE PIECE Woods replacing later subdivisions/Complete authored trees 3 verts at (408.7,35.9,-245.0) size (1.0,4.8,0.0) drive dist 9.0 ground 41.8 min 33.5: buried; 
+TREE PIECE Woods replacing later subdivisions/Complete authored trees 4 verts at (408.7,38.3,-245.5) size (1.0,0.0,1.0) drive dist 9.4 ground 41.7 min 38.3: buried; 
+TREE PIECE Woods replacing later subdivisions/Complete authored trees 4 verts at (408.7,35.9,-246.0) size (1.0,4.8,0.0) drive dist 9.8 ground 41.6 min 33.5: buried; 
+TREE PIECE Woods replacing later subdivisions/Complete authored trees 4 verts at (408.7,33.5,-245.5) size (1.0,0.0,1.0) drive dist 9.4 ground 41.7 min 33.5: buried; 
+TREE PIECE Woods replacing later subdivisions/Complete authored trees 3 verts at (408.2,35.9,-245.5) size (0.0,4.8,1.0) drive dist 9.1 ground 41.7 min 33.5: buried; 
+TREE PIECE Woods replacing later subdivisions/Complete authored trees 4 verts at (409.2,35.9,-245.5) size (0.0,4.8,1.0) drive dist 9.7 ground 41.8 min 33.5: buried; 
+TREE PIECE World cleanup additional woodland/Additional woodland canopy 4 verts at (489.3,75.9,-160.8) size (0.6,0.0,0.6) drive dist 6.5 ground 75.9 min 75.9: buried; 
+TREE PIECE World cleanup additional woodland/Additional woodland canopy 4 verts at (469.8,71.7,-169.8) size (0.6,0.0,0.6) drive dist 6.5 ground 71.7 min 71.7: buried; 
+TREE PIECE World cleanup additional woodland/Additional woodland canopy 4 verts at (462.4,67.6,-181.4) size (0.6,0.0,0.6) drive dist 6.5 ground 67.6 min 67.6: buried; 
+TREE PIECE World cleanup additional woodland/Additional woodland canopy 4 verts at (452.8,62.6,-193.1) size (0.6,0.0,0.6) drive dist 6.5 ground 62.6 min 62.6: buried; 
+TREE PIECE World cleanup additional woodland/Additional woodland canopy 4 verts at (458.6,66.4,-182.0) size (0.6,0.0,0.6) drive dist 9.3 ground 66.4 min 66.4: buried; 
+TREE PIECE World cleanup additional woodland/Additional woodland canopy 4 verts at (468.5,65.4,-195.0) size (0.6,0.0,0.6) drive dist 6.5 ground 65.4 min 65.4: buried; 
+TREE PIECE World cleanup additional woodland/Additional woodland canopy 4 verts at (463.5,69.0,-176.0) size (0.6,0.0,0.6) drive dist 8.6 ground 69.0 min 69.0: buried; 
+TREE PIECE World cleanup additional woodland/Additional woodland canopy 4 verts at (447.5,60.2,-197.5) size (0.6,0.0,0.6) drive dist 6.5 ground 60.2 min 60.2: buried; 
+TREE PIECE World cleanup additional woodland/Additional woodland canopy 4 verts at (440.3,32.9,-177.4) size (0.6,0.0,0.6) drive dist 5.0 ground 32.9 min 32.9: buried; 
+TREE PIECE World cleanup additional woodland/Additional woodland canopy 4 verts at (464.1,63.3,-200.7) size (0.6,0.0,0.6) drive dist 6.8 ground 63.3 min 63.3: buried; 
+TREE PIECE World cleanup additional woodland/Additional woodland canopy 4 verts at (448.1,57.8,-212.1) size (0.6,0.0,0.6) drive dist 5.9 ground 57.8 min 57.8: buried; 
+TREE PIECE World cleanup additional woodland/Additional woodland canopy 4 verts at (472.8,73.8,-162.2) size (0.6,0.0,0.6) drive dist 7.9 ground 73.8 min 73.8: buried; 
+TREE PIECE World cleanup additional woodland/Additional woodland canopy 4 verts at (446.6,32.9,-169.3) size (0.6,0.0,0.6) drive dist 9.8 ground 32.9 min 32.9: buried; 
+TREE PIECE World cleanup additional woodland/Additional woodland canopy 4 verts at (466.1,71.3,-169.4) size (0.6,0.0,0.6) drive dist 9.9 ground 71.3 min 71.3: buried; 
+TREE PIECE World cleanup additional woodland/Additional woodland canopy 4 verts at (473.0,74.0,-161.6) size (0.6,0.0,0.6) drive dist 8.0 ground 74.0 min 74.0: buried; 
+TREE PIECE World cleanup additional woodland/Additional woodland canopy 4 verts at (455.5,60.2,-208.3) size (0.6,0.0,0.6) drive dist 6.9 ground 60.2 min 60.2: buried; 

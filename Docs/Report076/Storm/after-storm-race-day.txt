@@ -1,0 +1,19 @@
+case race-day scene StreetLoopGreybox mode Race look Clear Day Rain rain 1.00 hour 8.0
+seconds 120 strikes 7 first strike at 5.9 s; thunder played 7; bolts 7 (5 within 45 deg of the camera's view), lit for 1.07 s on average (max 1.08); flash peak 0.90
+speed median 121 km/h; time under cover 0.0 s; most voices playing at once 11 (real voices 32); thunder virtual (culled) in 0/3034 frames
+engine RMS median -28.8 dBFS; radio RMS median -120.0 dBFS
+engine above 150 Hz median -35.1 dBFS (radio is streamed; its level is measured offline from the bundled songs)
+  thunder at 9.6 s above 150 Hz: peak -13.1 dBFS (0.3 s window peak of 1024-sample RMS), engine -33.6 -> over engine +20.4 dB
+  thunder at 23.3 s above 150 Hz: peak -12.8 dBFS (0.3 s window peak of 1024-sample RMS), engine -38.0 -> over engine +25.2 dB
+  thunder at 34.5 s above 150 Hz: peak -11.0 dBFS (0.3 s window peak of 1024-sample RMS), engine -38.1 -> over engine +27.1 dB
+  thunder at 60.1 s above 150 Hz: peak -13.0 dBFS (0.3 s window peak of 1024-sample RMS), engine -37.9 -> over engine +24.9 dB
+  thunder at 84.2 s above 150 Hz: peak -13.5 dBFS (0.3 s window peak of 1024-sample RMS), engine -35.6 -> over engine +22.1 dB
+  thunder at 94.6 s above 150 Hz: peak -13.1 dBFS (0.3 s window peak of 1024-sample RMS), engine -33.4 -> over engine +20.4 dB
+  thunder at 117.3 s above 150 Hz: peak -17.3 dBFS (0.3 s window peak of 1024-sample RMS), engine -37.0 -> over engine +19.7 dB
+  thunder at 9.6 s: peak -2.9 dBFS, engine -28.5, radio -120.0 -> over engine +25.6 dB, over radio +117.1 dB
+  thunder at 23.3 s: peak -2.8 dBFS, engine -31.0, radio -120.0 -> over engine +28.2 dB, over radio +117.2 dB
+  thunder at 34.5 s: peak -3.2 dBFS, engine -31.7, radio -120.0 -> over engine +28.5 dB, over radio +116.8 dB
+  thunder at 60.1 s: peak -2.6 dBFS, engine -30.6, radio -120.0 -> over engine +28.1 dB, over radio +117.4 dB
+  thunder at 84.2 s: peak -3.0 dBFS, engine -29.3, radio -120.0 -> over engine +26.3 dB, over radio +117.0 dB
+  thunder at 94.6 s: peak -3.3 dBFS, engine -28.0, radio -120.0 -> over engine +24.7 dB, over radio +116.7 dB
+  thunder at 117.3 s: peak -3.1 dBFS, engine -31.5, radio -120.0 -> over engine +28.4 dB, over radio +116.9 dB

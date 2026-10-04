@@ -87,7 +87,8 @@ namespace Racer
         void SetLevel(int index, float target, float volume, float dt, bool immediate = false)
         {
             levels[index] = immediate ? 0 : Mathf.MoveTowards(levels[index], target, dt * .4f);
-            voices[index].volume = levels[index] * volume;
+            // 0.76: the engine dips a little while thunder rolls (WeatherEffects.Duck), so the thunder stands out.
+            voices[index].volume = levels[index] * volume * (1 - .3f * WeatherEffects.Duck);
         }
         public void Silence()
         {

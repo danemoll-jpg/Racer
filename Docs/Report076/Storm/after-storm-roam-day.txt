@@ -1,0 +1,17 @@
+case roam-day scene FreeRoamWorld mode Free Roam look Day Rain rain 1.00 hour 15.0
+seconds 120 strikes 8 first strike at 9.9 s; thunder played 6; bolts 8 (6 within 45 deg of the camera's view), lit for 1.04 s on average (max 1.08); flash peak 0.95
+speed median 60 km/h; time under cover 0.0 s; most voices playing at once 11 (real voices 32); thunder virtual (culled) in 0/854 frames
+engine RMS median -29.0 dBFS; radio RMS median -120.0 dBFS
+engine above 150 Hz median -36.3 dBFS (radio is streamed; its level is measured offline from the bundled songs)
+  thunder at 14.7 s above 150 Hz: peak -17.3 dBFS (0.3 s window peak of 1024-sample RMS), engine -39.6 -> over engine +22.3 dB
+  thunder at 16.1 s above 150 Hz: peak -11.9 dBFS (0.3 s window peak of 1024-sample RMS), engine -38.8 -> over engine +26.9 dB
+  thunder at 39.3 s above 150 Hz: peak -12.9 dBFS (0.3 s window peak of 1024-sample RMS), engine -38.3 -> over engine +25.4 dB
+  thunder at 66.1 s above 150 Hz: peak -13.6 dBFS (0.3 s window peak of 1024-sample RMS), engine -35.7 -> over engine +22.2 dB
+  thunder at 86.4 s above 150 Hz: peak -13.7 dBFS (0.3 s window peak of 1024-sample RMS), engine -36.9 -> over engine +23.2 dB
+  thunder at 101.1 s above 150 Hz: peak -13.2 dBFS (0.3 s window peak of 1024-sample RMS), engine -36.2 -> over engine +23.1 dB
+  thunder at 14.7 s: peak -5.4 dBFS, engine -31.3, radio -120.0 -> over engine +25.9 dB, over radio +114.6 dB
+  thunder at 16.1 s: peak -2.7 dBFS, engine -32.3, radio -120.0 -> over engine +29.6 dB, over radio +117.3 dB
+  thunder at 39.3 s: peak -2.5 dBFS, engine -27.8, radio -120.0 -> over engine +25.3 dB, over radio +117.5 dB
+  thunder at 66.1 s: peak -3.6 dBFS, engine -28.0, radio -120.0 -> over engine +24.4 dB, over radio +116.4 dB
+  thunder at 86.4 s: peak -3.4 dBFS, engine -29.7, radio -120.0 -> over engine +26.3 dB, over radio +116.6 dB
+  thunder at 101.1 s: peak -3.1 dBFS, engine -30.8, radio -120.0 -> over engine +27.7 dB, over radio +116.9 dB

@@ -13,7 +13,7 @@ namespace Racer
     {
         const int Strips = 6;
         readonly List<LineRenderer> lines = new();
-        Material material; float shownAt = -100, strength; int pulses;
+        Material material; float shownAt = -100, strength, daylight; int pulses;
         public int Shown { get; private set; }
         public Vector3 LastBase { get; private set; }
         public static bool TestHold;
@@ -32,7 +32,7 @@ namespace Racer
             }
         }
         // A new bolt: azimuth (degrees), horizontal distance from the camera (m), strength 0..1 (near = 1), pulse count.
-        public void Strike(Vector3 cam, float azimuth, float distance, float s, int pulseCount, float cloudBase)
+        public void Strike(Vector3 cam, float azimuth, float distance, float s, int pulseCount, float cloudBase, float day = 0)
         {
             var dir = Quaternion.Euler(0, azimuth, 0) * Vector3.forward;
             var foot = cam + dir * distance; foot.y = cam.y - 40;
@@ -40,7 +40,8 @@ namespace Racer
             // the channel shows from just under the lowest clouds (410 m), so nearer clouds never hide it (cloudBase caps it)
             var top = new Vector3(foot.x + Random.Range(-60f, 60f), Mathf.Min(cloudBase, Mathf.Clamp(cam.y + 230, 330, 395)), foot.z + Random.Range(-60f, 60f));
             LastBase = foot;
-            float width = Mathf.Clamp(distance * .006f, 1.4f, 9f);
+            // 0.76: thick enough to read at any distance (about twice the 0.74 width)
+            float width = Mathf.Clamp(distance * .011f, 3.5f, 14f);
             var main = Channel(top, foot, 14, distance * .035f);
             Set(lines[0], main, width, 1);
             int branches = Random.Range(2, Strips);
@@ -52,7 +53,7 @@ namespace Racer
                 var end = start + away * Random.Range(.12f, .3f) * (top.y - foot.y) + Vector3.down * Random.Range(.15f, .35f) * (top.y - foot.y);
                 Set(lines[i], Channel(start, end, 7, distance * .025f), width * .55f, .6f);
             }
-            shownAt = Time.time; strength = s; pulses = pulseCount; Shown++;
+            shownAt = Time.time; strength = s; pulses = pulseCount; daylight = day; Shown++;
         }
         static List<Vector3> Channel(Vector3 a, Vector3 b, int n, float jitter)
         {
@@ -73,12 +74,15 @@ namespace Racer
         void LateUpdate()
         {
             float age = Time.time - shownAt;
-            float f = WeatherEffects.Pulse(age, 0, .14f);
+            // 0.76: the channel stays lit through the stroke (0.2 s), flickers back for the return stroke when there is one,
+            // and fades as an afterglow by about 0.9 s - long enough to register by day.
+            float f = age < 0 ? 0 : age < .03f ? age / .03f : age < .2f ? 1 : 0;
+            if (pulses > 1 && age >= .26f && age < .4f) f = Mathf.Max(f, .85f);
+            if (age >= .2f && age < 1.1f) f = Mathf.Max(f, .55f * Mathf.Exp(-(age - .2f) / .22f));
             if (TestHold) f = 1;// evidence only: keep the last bolt lit
-            if (pulses > 1) f = Mathf.Max(f, .75f * WeatherEffects.Pulse(age, .22f, .12f));
-            bool on = f > .005f;
-            // HDR so the bolt blooms; strength carries the distance (a far bolt is dimmer and thinner).
-            if (on) material.SetFloat("_Intensity", f * Mathf.Lerp(2.2f, 7f, strength));
+            bool on = f > .01f;
+            // HDR so the bolt blooms; strength carries the distance (a far bolt is dimmer). Brighter by day, against the overcast.
+            if (on) material.SetFloat("_Intensity", f * Mathf.Lerp(4f, 10f, strength) * Mathf.Lerp(1f, 1.6f, daylight));
             foreach (var l in lines) if (l.enabled != on && (on ? l.positionCount > 0 : true)) l.enabled = on && l.positionCount > 0;
         }
         void OnDestroy() { if (material) Destroy(material); }

@@ -1,0 +1,33 @@
+isolated save = copy of C:/Users/danmo/AppData/LocalLow/DefaultCompany/Racer\Phase7\street-loop-gates-v1-laps3
+PASS acorns 22/24 (course scene 22), explored map cells 4491 (course scene 4491), landmarks discovered 11/11 (course scene 10/..)
+PASS activity jump-01 Trickum pavement jump: personal best 165.77 in FreeRoamWorld (Street Loop Forward 145.97; carried from 4 course keys)
+PASS activity mountain-creek Fern Creek Leap: personal best 79.74 in FreeRoamWorld (Street Loop Forward 18.77; carried from 8 course keys)
+PASS activity mountain-ridge High Ridge Drop: personal best 67.97 in FreeRoamWorld (Street Loop Forward 50.50; carried from 8 course keys)
+PASS activity smash-01 Fence line smash: personal best 0.00 in FreeRoamWorld (Street Loop Forward 0.00; carried from 8 course keys)
+PASS activity speed-0 Trickum / 92 speed trap 1: personal best 50.21 in FreeRoamWorld (Street Loop Forward 46.70; carried from 3 course keys)
+PASS activity speed-1 Trickum / 92 speed trap 2: personal best 55.17 in FreeRoamWorld (Street Loop Forward 47.60; carried from 3 course keys)
+PASS activity summit-homeward Summit Homeward Flight: personal best 275.37 in FreeRoamWorld (Street Loop Forward 225.30; carried from 8 course keys)
+PASS Free Roam from StreetLoopGreybox: scene FreeRoamWorld, start (320.2, 9.5, 536.3) (course start (320.2, 9.7, 536.0)), after 3 s (320.2, 8.8, 541.8) on 'PrototypeCar' -0.45 m up, resets 0, title 'Street Loop - Forward', small vehicles only False
+PASS   Race from Free Roam: back in StreetLoopGreybox, menu page 'race', Free Roam clock saved day 1 13.75 (was 1 13.75)
+PASS Free Roam from StreetLoopReverse: scene FreeRoamWorld, start (319.0, 23.2, 481.4) (course start (319.0, 23.5, 481.0)), after 3 s (319.0, 21.0, 490.2) on 'PrototypeCar' -0.46 m up, resets 0, title 'Street Loop - Reverse', small vehicles only False
+PASS   Race from Free Roam: back in StreetLoopReverse, menu page 'race', Free Roam clock saved day 1 13.82 (was 1 13.82)
+PASS Free Roam from LakeWoods: scene FreeRoamWorld, start (565.7, 80.7, -10.0) (course start (566.2, 82.7, -10.0)), after 3 s (565.8, 80.8, -11.0) on 'PrototypeCar' -0.45 m up, resets 0, title 'Forest Loop - Forward', small vehicles only True
+PASS   Race from Free Roam: back in LakeWoods, menu page 'race', Free Roam clock saved day 1 13.89 (was 1 13.89)
+PASS Free Roam from ForestLoopReverse: scene FreeRoamWorld, start (589.2, 79.4, -102.2) (course start (589.2, 81.5, -102.2)), after 3 s (588.9, 79.5, -101.7) on 'PrototypeCar' -0.45 m up, resets 0, title 'Forest Loop - Reverse', small vehicles only True
+PASS   Race from Free Roam: back in ForestLoopReverse, menu page 'race', Free Roam clock saved day 1 13.95 (was 1 13.95)
+FAIL Free Roam from MountainLoop: scene FreeRoamWorld, start (589.2, 79.5, -102.2) (course start (724.5, 81.2, -6.1)), after 3 s (588.9, 79.5, -101.7) on 'PrototypeCar' -0.45 m up, resets 0, title 'Forest Loop - Reverse', small vehicles only True
+FAIL   Race from Free Roam: back in ForestLoopReverse, menu page 'race', Free Roam clock saved day 1 14.02 (was 1 14.02)
+FAIL Free Roam from MountainLoopReverse: scene FreeRoamWorld, start (589.2, 79.4, -102.2) (course start (724.9, 79.7, -41.0)), after 3 s (588.9, 79.5, -101.7) on 'PrototypeCar' -0.45 m up, resets 0, title 'Forest Loop - Reverse', small vehicles only True
+FAIL   Race from Free Roam: back in ForestLoopReverse, menu page 'race', Free Roam clock saved day 1 14.09 (was 1 14.09)
+PASS Free Roam from DansBackyardForward: scene FreeRoamWorld, start (466.5, 80.3, 7.9) (course start (466.5, 80.3, 7.9)), after 3 s (465.2, 80.2, 8.2) on 'PrototypeCar' -0.45 m up, resets 0, title 'Dan's Backyard Loop - Forward', small vehicles only True
+PASS   Race from Free Roam: back in DansBackyardForward, menu page 'race', Free Roam clock saved day 1 14.16 (was 1 14.16)
+PASS Free Roam from DansBackyardReverse: scene FreeRoamWorld, start (473.6, 77.8, 27.0) (course start (473.6, 77.8, 26.9)), after 3 s (473.5, 77.6, 29.3) on 'PrototypeCar' -0.45 m up, resets 0, title 'Dan's Backyard Loop - Reverse', small vehicles only True
+PASS   Race from Free Roam: back in DansBackyardReverse, menu page 'race', Free Roam clock saved day 1 14.22 (was 1 14.22)
+PASS Free Roam clock resumes at 14.24 (saved 14.22)
+PASS Start Race from FreeRoamWorld starts the race in DansBackyardReverse (Countdown)
+PASS map: routes shown StreetLoopGreybox, LakeWoods, DansBackyardReverse, MountainLoop (one race-only, dashed); scene FreeRoamWorld; player moved 0.000 m
+FAIL map choice remembered after leaving Free Roam and starting it from another course: StreetLoopGreybox, LakeWoods, DansBackyardReverse, MountainLoop
+PASS Free Roam weather Rain in FreeRoamWorld: look Day Rain rain 1.00, clock Day 1 14:18
+PASS waypoint set at (465, 83, 147), guide active
+PASS fast travel to Campsite: True, now (981, 165, 76)
+done, failures 5

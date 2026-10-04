@@ -1,0 +1,11 @@
+case roam-day scene FreeRoamWorld mode Free Roam look Day Rain rain 1.00 hour 15.0
+seconds 120 strikes 9 first strike at 11.0 s; thunder played 7; bolts 10 (5 within 45 deg of the camera's view), lit for 0.13 s on average (max 0.33); flash peak 0.68
+speed median 60 km/h; time under cover 0.0 s; most voices playing at once 10 (real voices 32); thunder virtual (culled) in 0/1063 frames
+engine RMS median -28.7 dBFS; radio RMS median -120.0 dBFS
+  thunder at 12.2 s: peak -5.3 dBFS, engine -27.7, radio -120.0 -> over engine +22.4 dB, over radio +114.7 dB
+  thunder at 29.9 s: peak -7.2 dBFS, engine -27.5, radio -120.0 -> over engine +20.3 dB, over radio +112.8 dB
+  thunder at 40.9 s: peak -5.9 dBFS, engine -28.7, radio -120.0 -> over engine +22.7 dB, over radio +114.1 dB
+  thunder at 61.7 s: peak -4.8 dBFS, engine -29.2, radio -120.0 -> over engine +24.4 dB, over radio +115.2 dB
+  thunder at 73.5 s: peak -6.0 dBFS, engine -29.0, radio -120.0 -> over engine +23.0 dB, over radio +114.0 dB
+  thunder at 96.2 s: peak -4.8 dBFS, engine -28.0, radio -120.0 -> over engine +23.1 dB, over radio +115.2 dB
+  thunder at 110.0 s: peak -7.1 dBFS, engine -27.8, radio -120.0 -> over engine +20.7 dB, over radio +112.9 dB

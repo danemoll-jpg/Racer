@@ -259,6 +259,8 @@ namespace Racer
             flow.Save.Settings.roamHour = Hour; flow.Save.Settings.roamDay = Day; flow.Save.SaveSettings();
         }
         void OnApplicationQuit() { if (session == "Free Roam") SaveClock(); }
+        // 0.76: leaving FreeRoamWorld for a course scene ends Free Roam; its clock is saved first.
+        public void SaveRoamClock() { if (session == "Free Roam") SaveClock(); }
         // Evidence / checks: set the Free Roam calendar directly.
         public void SetClock(int day, float hour) { Day = Mathf.Clamp(day, 1, CalendarDays); Hour = Mathf.Repeat(hour, 24); }
         // Evidence only (ConditionsBench): show one preset until unpinned.

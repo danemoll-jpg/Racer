@@ -1,0 +1,14 @@
+isolated save = copy of C:/Users/danmo/AppData/LocalLow/DefaultCompany/Racer\Phase7\street-loop-gates-v1-laps3
+PASS ride vehicle atv
+  held up at (279.9, 62.0, 11.4) (route metre 195), under: Memory loop - north is +Z/Ground_480_320; ahead: -
+FAIL RIDE Forward navigation only - no road mesh fwd atv pace 9: time in 348.8 s over 1256 m; slowest -0.8 m/s, fastest 10.7 m/s; time held under half pace on the ground 258.4 s; longest airborne 2.10 s; wipe-outs 0; resets 0
+PASS ride vehicle moto
+  held up at (278.8, 62.0, 11.2) (route metre 196), under: Memory loop - north is +Z/Ground_480_320; ahead: -
+FAIL RIDE Forward navigation only - no road mesh fwd moto pace 9: time in 348.8 s over 1256 m; slowest 0.0 m/s, fastest 12.4 m/s; time held under half pace on the ground 259.7 s; longest airborne 2.12 s; wipe-outs 0; resets 0
+PASS ride vehicle original
+PASS RIDE House 3 valley driveway fwd original pace 9: complete in 36.9 s over 340 m; slowest 8.9 m/s, fastest 9.3 m/s; time held under half pace on the ground 0.0 s; longest airborne 0.00 s; wipe-outs 0; resets 0
+PASS ride vehicle original
+PASS RIDE House 3 valley driveway back original pace 9: complete in 37.1 s over 340 m; slowest 7.7 m/s, fastest 9.2 m/s; time held under half pace on the ground 0.0 s; longest airborne 0.00 s; wipe-outs 0; resets 0
+FAIL RACE DansBackyardReverse (Dan's Backyard Loop - Reverse, solo, 1 lap): finished 01:10.412, missed gates 1, recoveries 0, AI ; record files for this course 6
+FAIL RACE DansBackyardForward (Dan's Backyard Loop - Forward, solo, 1 lap): finished 01:55.059, missed gates 4, recoveries 4, AI ; record files for this course 10
+done, failures 4

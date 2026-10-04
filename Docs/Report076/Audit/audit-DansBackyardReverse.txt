@@ -1,0 +1,331 @@
+RACE id=backyard-reverse-v4-continuous-shortcuts name=Dan's Backyard Loop - Reverse reverse=True forestTrail=True vehicle=(473.6,77.8,26.9) yaw=355.9 spawn=(473.6,77.8,26.9) yaw=355.9 gate0=(472.9,78.5,33.9) road=Reverse navigation only - no pavement ambient=Phase 3 - Race Systems through=CR113 highway through route
+LANDMARK home | Moll's | (433.8,83.7,-13.5) yaw 92
+LANDMARK lake | Lake gateway | (700.7,80.2,-100.4) yaw 118
+LANDMARK ridge | Ridge overlook | (891.5,150.4,152.6) yaw 262
+LANDMARK market | Highway market | (25.0,8.0,530.0) yaw 86
+LANDMARK west | Trickum woods | (-630.6,8.8,149.8) yaw 359
+LANDMARK summit-homeward | Summit Homeward Flight / run-up | (1187.2,152.0,206.0) yaw 254
+LANDMARK property-roger | Roger's | (458.0,88.0,-82.5) yaw 92
+LANDMARK property-mcfadden | McFadden's | (434.6,32.8,-153.1) yaw 67
+LANDMARK property-anderson | Anderson's | (498.8,78.7,-37.9) yaw 3
+LANDMARK campsite | Campsite | (982.0,164.2,76.0) yaw 90
+ACORN woodland-01 | Dan's fence | (473.6,78.3,26.9)
+ACORN woodland-02 | Anderson's | (472.3,86.1,-20.4)
+ACORN woodland-03 | Behind the pines | (464.9,88.8,-99.6)
+ACORN woodland-04 | Woodland nook | (508.0,54.2,-192.4)
+ACORN woodland-05 | Quiet gully | (436.4,82.9,67.4)
+ACORN woodland-06 | Old stone corner | (402.9,80.7,127.7)
+ACORN woodland-07 | Fallen log pocket | (289.6,60.8,342.3)
+ACORN woodland-08 | Cairn hollow | (290.2,8.5,536.1)
+ACORN woodland-09 | Behind the pines | (22.0,8.5,499.8)
+ACORN woodland-10 | Woodland nook | (-351.0,9.3,502.4)
+ACORN woodland-11 | Quiet gully | (-600.6,9.3,150.3)
+ACORN woodland-12 | Old stone corner | (-365.0,7.9,-531.2)
+ACORN woodland-13 | Fallen log pocket | (737.9,80.5,-85.2)
+ACORN woodland-14 | Cairn hollow | (808.2,91.8,-143.1)
+ACORN woodland-15 | Behind the pines | (882.3,112.9,-101.1)
+ACORN woodland-16 | Woodland nook | (894.2,111.4,-61.4)
+ACORN woodland-17 | Quiet gully | (1019.9,146.8,27.4)
+ACORN woodland-18 | Old stone corner | (1034.4,147.9,26.0)
+ACORN woodland-19 | Fallen log pocket | (985.2,165.3,77.5)
+ACORN woodland-20 | Cairn hollow | (932.6,156.1,118.4)
+ACORN woodland-21 | Behind the pines | (878.3,131.3,118.0)
+ACORN woodland-22 | Woodland nook | (848.7,116.0,68.8)
+ACORN woodland-23 | Quiet gully | (753.2,86.9,95.6)
+ACORN woodland-24 | Old stone corner | (706.7,81.2,48.8)
+ACTIVITY jump-01 | Trickum pavement jump | Jump | (-628.3,14.0,-70.0) | active=True | CR079 arcade sites/Trickum pavement jump
+ACTIVITY mountain-creek | Fern Creek Leap | Jump | (880.2,115.5,-84.9) | active=True | CR081 mountain exploration/Fern Creek Leap
+ACTIVITY mountain-ridge | High Ridge Drop | Jump | (1011.0,163.7,93.7) | active=True | CR081 mountain exploration/High Ridge Drop
+ACTIVITY smash-01 | Fence line smash | Smash | (481.3,88.1,-89.7) | active=True | CR079 arcade sites/Fence line smash
+ACTIVITY speed-0 | Trickum / 92 speed trap 1 | Speed | (-396.3,8.4,534.1) | active=True | CR079 arcade sites/Trickum / 92 speed trap 1
+ACTIVITY speed-1 | Trickum / 92 speed trap 2 | Speed | (-629.7,8.6,95.4) | active=True | CR079 arcade sites/Trickum / 92 speed trap 2
+ACTIVITY summit-homeward | Summit Homeward Flight | Jump | (980.4,177.9,147.3) | active=True | CR094 summit launch/Summit Homeward Flight
+COMPONENT AmbientLife x1: Phase 3 - Race Systems
+COMPONENT SnowScenes x0: 
+COMPONENT Wildlife x1: Phase 3 - Race Systems
+COMPONENT UndergroundLife x1: Storm Drain atmosphere/Drain entrance rat encounter
+COMPONENT WoodlandAmbience x1: Wooded neighborhood ambience
+COMPONENT BackyardReverseBarriers x1: Reverse-only divergence closures
+COMPONENT ReverseShortcutWorldState x1: Reverse optional forest shortcuts
+COMPONENT CircuitBoundary x3: Decorative road continuations/Jamerson Rd west; Decorative road continuations/Hwy 92 west; Decorative road continuations/Hwy 92 east
+COMPONENT MountainFlights x0: 
+COMPONENT DumpRefuse x1: Dan's Backyard Forward - terrain trail/Old dump - dense push-through refuse
+COMPONENT ShortcutUndergrowth x4: Backyard optional forest shortcuts/Tree-Top Trail traversable dense undergrowth; Reverse optional forest shortcuts/Recoverable rough ridge undergrowth; Backyard optional forest shortcuts/Abandoned Cabin Jump traversable dense undergrowth; Backyard Reverse main route/Reverse corridor traversable undergrowth
+COMPONENT BreakableProp x203
+COMPONENT ShallowWater x41
+COMPONENT PhysicalSign x86
+COMPONENT WoodlandRoute x2: Reverse optional forest shortcuts/Abandoned Logging Ridge; Reverse optional forest shortcuts/Storm Drain / Gully Jump
+COMPONENT RaceRoad x9: Dan's Backyard Forward - terrain trail/Forward navigation only - no road mesh; Phase 3 - Race Systems; CR094 summit launch/Summit approach and safe return; CR081 mountain exploration/Mountain return trails / exploration only; Backyard Reverse main route/Reverse navigation only - no pavement; Kyle descending driveway; CR097 supported properties and camp/House 3 valley driveway; CR113 continuous highway seams/CR113 highway through route; CR081 mountain exploration/Lake shore connection
+COMPONENT JumpRecoveryExclusion x1: Reverse optional forest shortcuts/Storm Drain / Gully Jump/Drain threshold recovery exclusion
+COMPONENT ReverseShortcutGuidance x2: Reverse optional forest shortcuts/Abandoned Logging Ridge; Reverse optional forest shortcuts/Storm Drain / Gully Jump
+BATS entrance=(0.0,0.0,0.0) roost=(0.0,0.0,0.0) forward=(0.0,0.0,0.0)
+ROOT Fixed roadside respawn - north entrance | active=True | children=0 | renderers=0 | colliders=0 | tris=0 | bounds (473.6,77.8,26.9)..(473.6,77.8,26.9)
+ROOT PrototypeCar | active=True | children=8 | renderers=12 | colliders=1 | tris=536 | bounds (472.4,77.3,25.0)..(474.8,78.7,28.9)
+ROOT Chase Camera | active=True | children=0 | renderers=0 | colliders=0 | tris=0 | bounds (320.3,15.3,543.5)..(320.3,15.3,543.5)
+ROOT Sun | active=True | children=0 | renderers=0 | colliders=0 | tris=0 | bounds (0.0,0.0,0.0)..(0.0,0.0,0.0)
+ROOT Memory loop - north is +Z | active=True | children=124 | renderers=124 | colliders=124 | tris=2016921 | bounds (-800.0,1.7,-750.0)..(1200.0,178.5,850.0)
+ROOT Remembered houses and approximate buildings | active=True | children=47 | renderers=501 | colliders=354 | tris=51260 | bounds (-676.2,5.0,-602.1)..(588.5,95.9,602.5)
+ROOT Woods replacing later subdivisions | active=True | children=11267 | renderers=90 | colliders=11177 | tris=762580 | bounds (-744.3,1.8,-684.1)..(757.7,105.2,528.7)
+ROOT Phase 3 - Race Systems | active=True | children=1 | renderers=0 | colliders=0 | tris=0 | bounds (0.0,0.0,0.0)..(0.0,0.0,0.0)
+ROOT Phase 4 - Connector Jump | active=True | children=23 | renderers=24 | colliders=2 | tris=1344 | bounds (-640.7,7.7,-146.3)..(-614.6,14.2,35.7)
+ROOT Phase 5 - Southwest woodland shortcut | active=True | children=14 | renderers=16 | colliders=2 | tris=168 | bounds (-621.1,6.1,-550.4)..(-532.0,11.1,-468.5)
+ROOT CR-015 modest roadside details | active=True | children=4 | renderers=19 | colliders=4 | tris=228 | bounds (308.5,71.1,-126.4)..(504.8,87.5,299.3)
+ROOT CR-017 lightweight fences | active=True | children=0 | renderers=0 | colliders=0 | tris=0 | bounds (0.0,0.0,0.0)..(0.0,0.0,0.0)
+ROOT Wooded neighborhood ambience | active=True | children=0 | renderers=0 | colliders=0 | tris=0 | bounds (0.0,0.0,0.0)..(0.0,0.0,0.0)
+ROOT CR034-039 Woodland routes | active=True | children=867 | renderers=881 | colliders=6 | tris=10428 | bounds (-630.0,5.6,-595.0)..(573.8,47.8,578.9)
+ROOT CR041-045 authored correction | active=True | children=20 | renderers=45 | colliders=45 | tris=1680 | bounds (-632.7,7.8,-158.5)..(509.5,87.5,-70.1)
+ROOT Phase 6 - architectural render batches | active=True | children=16 | renderers=16 | colliders=0 | tris=19008 | bounds (-676.2,5.0,-602.1)..(588.5,94.6,602.5)
+ROOT Decorative road continuations | active=True | children=3 | renderers=366 | colliders=27 | tris=7364 | bounds (-1090.9,-6.0,-560.5)..(800.8,46.7,575.6)
+ROOT Hairpin restored rear woodland | active=True | children=6 | renderers=1 | colliders=6 | tris=288 | bounds (496.5,26.8,-729.9)..(511.4,44.5,-631.0)
+ROOT CR075 direction signs | active=True | children=4 | renderers=12 | colliders=0 | tris=96 | bounds (-532.6,6.6,-579.1)..(548.6,43.8,-226.5)
+ROOT CR079 arcade sites | active=True | children=9 | renderers=15 | colliders=0 | tris=120 | bounds (-640.7,7.7,-108.0)..(-395.7,12.2,548.8)
+ROOT CR081 mountain exploration | active=True | children=47 | renderers=91 | colliders=865 | tris=103216 | bounds (540.2,78.1,-211.7)..(1115.4,179.6,223.8)
+ROOT CR094 summit launch | active=True | children=5 | renderers=3 | colliders=3 | tris=23748 | bounds (681.7,77.8,27.0)..(1212.8,177.9,220.8)
+ROOT CR091-096 exploration world | active=True | children=24 | renderers=152 | colliders=1 | tris=16284 | bounds (-622.7,7.3,-553.1)..(1046.3,166.3,536.9)
+ROOT Kyle descending driveway | active=True | children=1 | renderers=1 | colliders=1 | tris=8 | bounds (472.6,78.7,-38.1)..(503.7,82.3,-1.4)
+ROOT CR097 supported properties and camp | active=True | children=135 | renderers=136 | colliders=136 | tris=16315 | bounds (365.5,32.8,-246.0)..(518.3,90.1,19.7)
+ROOT CR101 local boundary extension | active=True | children=30 | renderers=28 | colliders=28 | tris=2016 | bounds (389.2,78.6,5.0)..(424.7,83.9,36.8)
+ROOT CR102 summit signs | active=True | children=1 | renderers=3 | colliders=0 | tris=24 | bounds (738.2,67.8,96.2)..(740.3,71.7,103.0)
+ROOT CR113 continuous highway seams | active=True | children=136 | renderers=135 | colliders=3 | tris=12209 | bounds (-1090.9,7.9,-38.1)..(800.8,82.6,569.6)
+ROOT CR113 supported outer continuations | active=True | children=52 | renderers=52 | colliders=4 | tris=600 | bounds (-1250.9,8.0,478.9)..(960.8,41.8,621.4)
+ROOT CR129 aligned Highway 92 junction | active=True | children=0 | renderers=0 | colliders=0 | tris=0 | bounds (0.0,0.0,0.0)..(0.0,0.0,0.0)
+ROOT Route atlas direction guidance | active=True | children=0 | renderers=0 | colliders=0 | tris=0 | bounds (0.0,0.0,0.0)..(0.0,0.0,0.0)
+ROOT Pine Ridge one-way exit | active=True | children=2 | renderers=5 | colliders=1 | tris=278 | bounds (-617.6,7.1,-259.1)..(-601.6,9.6,-240.1)
+ROOT Other gate black asphalt driveway - stops at parking | active=True | children=1 | renderers=1 | colliders=1 | tris=15721 | bounds (387.8,78.7,-38.6)..(468.1,87.0,30.3)
+ROOT Dan first gate straight beige driveway | active=True | children=2 | renderers=2 | colliders=1 | tris=16856 | bounds (390.4,79.4,4.2)..(469.2,82.8,31.3)
+ROOT Dan's Backyard Forward - terrain trail | active=True | children=2 | renderers=8 | colliders=0 | tris=63740 | bounds (263.6,61.5,-7.0)..(304.4,70.5,30.9)
+ROOT Forward teal navigation - no colliders | active=False | children=28 | renderers=28 | colliders=0 | tris=140 | bounds (21.4,36.6,-110.3)..(474.3,84.6,122.9)
+ROOT Backyard optional forest shortcuts | active=True | children=232 | renderers=229 | colliders=36 | tris=56962 | bounds (170.8,47.3,-98.5)..(310.0,78.2,104.5)
+ROOT World cleanup additional woodland | active=True | children=751 | renderers=55 | colliders=696 | tris=50400 | bounds (-1247.2,4.4,-563.6)..(1165.1,189.4,546.8)
+ROOT Anderson wooded frontage screening | active=True | children=22 | renderers=1 | colliders=22 | tris=1992 | bounds (478.9,78.7,-67.8)..(509.0,103.9,-11.1)
+ROOT House 3 pool and lake | active=True | children=10 | renderers=10 | colliders=8 | tris=188 | bounds (365.0,33.3,-205.6)..(425.6,34.9,-182.6)
+ROOT Backyard Reverse main route | active=True | children=39 | renderers=70 | colliders=0 | tris=18517 | bounds (12.0,36.7,-100.4)..(475.7,85.9,122.7)
+ROOT Reverse-only divergence closures | active=True | children=3 | renderers=9 | colliders=9 | tris=108 | bounds (18.0,37.0,-80.5)..(219.7,65.9,72.7)
+ROOT Reverse optional forest shortcuts | active=True | children=335 | renderers=300 | colliders=40 | tris=66551 | bounds (25.8,28.3,-80.4)..(401.7,84.8,141.0)
+ROOT Storm Drain atmosphere | active=True | children=336 | renderers=370 | colliders=0 | tris=100364 | bounds (118.5,30.7,-68.3)..(391.0,82.8,90.5)
+FEATURE Backyard optional forest shortcuts/Abandoned Cabin Jump grounded signpost | on=1 off=0 tris=12
+FEATURE Backyard optional forest shortcuts/Abandoned Cabin Jump timber sign | on=1 off=0 tris=12
+FEATURE Backyard optional forest shortcuts/Abandoned Cabin Jump traversable dense undergrowth | on=1 off=0 tris=22904
+FEATURE Backyard optional forest shortcuts/Cabin wooded landing and return | on=1 off=0 tris=160
+FEATURE Backyard optional forest shortcuts/Dirt jump grounded sides | on=1 off=0 tris=280
+FEATURE Backyard optional forest shortcuts/Landing - Treehouse platforms and narrow bridges | on=1 off=0 tris=326
+FEATURE Backyard optional forest shortcuts/Takeoff - Short treehouse dirt jump | on=1 off=0 tris=70
+FEATURE Backyard optional forest shortcuts/Tree-Top Trail grounded signpost | on=1 off=0 tris=12
+FEATURE Backyard optional forest shortcuts/Tree-Top Trail timber sign | on=1 off=0 tris=12
+FEATURE Backyard optional forest shortcuts/Tree-Top Trail traversable dense undergrowth | on=1 off=0 tris=30128
+FEATURE CR034-039 Woodland routes/Breakable sign - Fox Gully  > 108 km/h | on=2 off=0 tris=24
+FEATURE CR034-039 Woodland routes/Trail edge | on=110 off=0 tris=1320
+FEATURE CR075 direction signs/Fox Gully >/OPTIONAL  | on=2 off=0 tris=24
+FEATURE CR079 arcade sites/JUMP CHALLENGE/LAND CLEAN  | on=2 off=0 tris=24
+FEATURE CR081 mountain exploration/Fern creek bed | on=1 off=0 tris=12
+FEATURE CR081 mountain exploration/Fern Creek Leap/35 - 55 mph | on=2 off=0 tris=24
+FEATURE CR081 mountain exploration/High Ridge Drop/35 - 55 mph | on=2 off=0 tris=24
+FEATURE CR081 mountain exploration/LAKE SHORE/BOTH TRAILS RETURN HOME | on=2 off=0 tris=24
+FEATURE CR081 mountain exploration/MOUNTAIN TRAILS/Creek ascent  | on=2 off=0 tris=24
+FEATURE CR081 mountain exploration/Mountain woods 0 0/Batched Mountain foliage | on=1 off=0 tris=4104
+FEATURE CR081 mountain exploration/Mountain woods 0 0/Batched Weathered timber | on=1 off=0 tris=456
+FEATURE CR081 mountain exploration/Mountain woods 0 1/Batched Mountain foliage | on=1 off=0 tris=2687
+FEATURE CR081 mountain exploration/Mountain woods 0 1/Batched Weathered timber | on=1 off=0 tris=300
+FEATURE CR081 mountain exploration/Mountain woods 0 2/Batched Mountain foliage | on=1 off=0 tris=3780
+FEATURE CR081 mountain exploration/Mountain woods 0 2/Batched Weathered timber | on=1 off=0 tris=420
+FEATURE CR081 mountain exploration/Mountain woods 0 3/Batched Mountain foliage | on=1 off=0 tris=2268
+FEATURE CR081 mountain exploration/Mountain woods 0 3/Batched Weathered timber | on=1 off=0 tris=252
+FEATURE CR081 mountain exploration/Mountain woods 0 4/Batched Mountain foliage | on=1 off=0 tris=1618
+FEATURE CR081 mountain exploration/Mountain woods 0 4/Batched Weathered timber | on=1 off=0 tris=180
+FEATURE CR081 mountain exploration/Mountain woods 0 5/Batched Mountain foliage | on=1 off=0 tris=13
+FEATURE CR081 mountain exploration/Mountain woods 0 5/Batched Weathered timber | on=1 off=0 tris=0
+FEATURE CR081 mountain exploration/Mountain woods 1 0/Batched Mountain foliage | on=1 off=0 tris=4104
+FEATURE CR081 mountain exploration/Mountain woods 1 0/Batched Weathered timber | on=1 off=0 tris=456
+FEATURE CR081 mountain exploration/Mountain woods 1 1/Batched Mountain foliage | on=1 off=0 tris=2808
+FEATURE CR081 mountain exploration/Mountain woods 1 1/Batched Weathered timber | on=1 off=0 tris=312
+FEATURE CR081 mountain exploration/Mountain woods 1 2/Batched Mountain foliage | on=1 off=0 tris=4104
+FEATURE CR081 mountain exploration/Mountain woods 1 2/Batched Weathered timber | on=1 off=0 tris=456
+FEATURE CR081 mountain exploration/Mountain woods 1 3/Batched Mountain foliage | on=1 off=0 tris=3432
+FEATURE CR081 mountain exploration/Mountain woods 1 3/Batched Weathered timber | on=1 off=0 tris=384
+FEATURE CR081 mountain exploration/Mountain woods 1 4/Batched Mountain foliage | on=1 off=0 tris=227
+FEATURE CR081 mountain exploration/Mountain woods 1 4/Batched Weathered timber | on=1 off=0 tris=24
+FEATURE CR081 mountain exploration/Mountain woods 1 5/Batched Mountain foliage | on=1 off=0 tris=0
+FEATURE CR081 mountain exploration/Mountain woods 1 5/Batched Weathered timber | on=1 off=0 tris=0
+FEATURE CR081 mountain exploration/Mountain woods 2 0/Batched Mountain foliage | on=1 off=0 tris=4104
+FEATURE CR081 mountain exploration/Mountain woods 2 0/Batched Weathered timber | on=1 off=0 tris=456
+FEATURE CR081 mountain exploration/Mountain woods 2 1/Batched Mountain foliage | on=1 off=0 tris=2906
+FEATURE CR081 mountain exploration/Mountain woods 2 1/Batched Weathered timber | on=1 off=0 tris=324
+FEATURE CR081 mountain exploration/Mountain woods 2 2/Batched Mountain foliage | on=1 off=0 tris=4104
+FEATURE CR081 mountain exploration/Mountain woods 2 2/Batched Weathered timber | on=1 off=0 tris=456
+FEATURE CR081 mountain exploration/Mountain woods 2 3/Batched Mountain foliage | on=1 off=0 tris=4104
+FEATURE CR081 mountain exploration/Mountain woods 2 3/Batched Weathered timber | on=1 off=0 tris=456
+FEATURE CR081 mountain exploration/Mountain woods 2 4/Batched Mountain foliage | on=1 off=0 tris=456
+FEATURE CR081 mountain exploration/Mountain woods 2 4/Batched Weathered timber | on=1 off=0 tris=48
+FEATURE CR081 mountain exploration/Mountain woods 2 5/Batched Mountain foliage | on=1 off=0 tris=0
+FEATURE CR081 mountain exploration/Mountain woods 2 5/Batched Weathered timber | on=1 off=0 tris=0
+FEATURE CR081 mountain exploration/Mountain woods 3 0/Batched Mountain foliage | on=1 off=0 tris=4104
+FEATURE CR081 mountain exploration/Mountain woods 3 0/Batched Weathered timber | on=1 off=0 tris=456
+FEATURE CR081 mountain exploration/Mountain woods 3 1/Batched Mountain foliage | on=1 off=0 tris=2916
+FEATURE CR081 mountain exploration/Mountain woods 3 1/Batched Weathered timber | on=1 off=0 tris=324
+FEATURE CR081 mountain exploration/Mountain woods 3 2/Batched Mountain foliage | on=1 off=0 tris=3564
+FEATURE CR081 mountain exploration/Mountain woods 3 2/Batched Weathered timber | on=1 off=0 tris=396
+FEATURE CR081 mountain exploration/Mountain woods 3 3/Batched Mountain foliage | on=1 off=0 tris=4006
+FEATURE CR081 mountain exploration/Mountain woods 3 3/Batched Weathered timber | on=1 off=0 tris=444
+FEATURE CR081 mountain exploration/Mountain woods 3 4/Batched Mountain foliage | on=1 off=0 tris=1241
+FEATURE CR081 mountain exploration/Mountain woods 3 4/Batched Weathered timber | on=1 off=0 tris=138
+FEATURE CR081 mountain exploration/Mountain woods 3 5/Batched Mountain foliage | on=1 off=0 tris=0
+FEATURE CR081 mountain exploration/Mountain woods 3 5/Batched Weathered timber | on=1 off=0 tris=0
+FEATURE CR081 mountain exploration/Mountain woods 4 0/Batched Mountain foliage | on=1 off=0 tris=4104
+FEATURE CR081 mountain exploration/Mountain woods 4 0/Batched Weathered timber | on=1 off=0 tris=456
+FEATURE CR081 mountain exploration/Mountain woods 4 1/Batched Mountain foliage | on=1 off=0 tris=3132
+FEATURE CR081 mountain exploration/Mountain woods 4 1/Batched Weathered timber | on=1 off=0 tris=348
+FEATURE CR081 mountain exploration/Mountain woods 4 2/Batched Mountain foliage | on=1 off=0 tris=3132
+FEATURE CR081 mountain exploration/Mountain woods 4 2/Batched Weathered timber | on=1 off=0 tris=348
+FEATURE CR081 mountain exploration/Mountain woods 4 3/Batched Mountain foliage | on=1 off=0 tris=2651
+FEATURE CR081 mountain exploration/Mountain woods 4 3/Batched Weathered timber | on=1 off=0 tris=296
+FEATURE CR081 mountain exploration/Mountain woods 4 4/Batched Mountain foliage | on=1 off=0 tris=964
+FEATURE CR081 mountain exploration/Mountain woods 4 4/Batched Weathered timber | on=1 off=0 tris=108
+FEATURE CR081 mountain exploration/Mountain woods 4 5/Batched Mountain foliage | on=1 off=0 tris=0
+FEATURE CR081 mountain exploration/Mountain woods 4 5/Batched Weathered timber | on=1 off=0 tris=0
+FEATURE CR081 mountain exploration/Mountain woods 5 0/Batched Mountain foliage | on=1 off=0 tris=4104
+FEATURE CR081 mountain exploration/Mountain woods 5 0/Batched Weathered timber | on=1 off=0 tris=456
+FEATURE CR081 mountain exploration/Mountain woods 5 1/Batched Mountain foliage | on=1 off=0 tris=4104
+FEATURE CR081 mountain exploration/Mountain woods 5 1/Batched Weathered timber | on=1 off=0 tris=456
+FEATURE CR081 mountain exploration/Mountain woods 5 2/Batched Mountain foliage | on=1 off=0 tris=3456
+FEATURE CR081 mountain exploration/Mountain woods 5 2/Batched Weathered timber | on=1 off=0 tris=384
+FEATURE CR081 mountain exploration/Mountain woods 5 3/Batched Mountain foliage | on=1 off=0 tris=3456
+FEATURE CR081 mountain exploration/Mountain woods 5 3/Batched Weathered timber | on=1 off=0 tris=384
+FEATURE CR081 mountain exploration/Mountain woods 5 4/Batched Mountain foliage | on=1 off=0 tris=2995
+FEATURE CR081 mountain exploration/Mountain woods 5 4/Batched Weathered timber | on=1 off=0 tris=336
+FEATURE CR081 mountain exploration/Mountain woods 5 5/Batched Mountain foliage | on=1 off=0 tris=2
+FEATURE CR081 mountain exploration/Mountain woods 5 5/Batched Weathered timber | on=1 off=0 tris=0
+FEATURE CR081 mountain exploration/RIDGE RETURN/Lake  | on=2 off=0 tris=24
+FEATURE CR081 mountain exploration/SUMMIT/Both trails return to lake | on=2 off=0 tris=24
+FEATURE CR091-096 exploration world/Acorn clue / woodland-03 | on=3 off=0 tris=144
+FEATURE CR091-096 exploration world/Acorn clue / woodland-04 | on=3 off=0 tris=144
+FEATURE CR091-096 exploration world/Acorn clue / woodland-05 | on=3 off=0 tris=144
+FEATURE CR091-096 exploration world/Acorn clue / woodland-06 | on=3 off=0 tris=144
+FEATURE CR091-096 exploration world/Acorn clue / woodland-07 | on=3 off=0 tris=144
+FEATURE CR091-096 exploration world/Acorn clue / woodland-08 | on=3 off=0 tris=144
+FEATURE CR091-096 exploration world/Acorn clue / woodland-09 | on=3 off=0 tris=144
+FEATURE CR091-096 exploration world/Acorn clue / woodland-10 | on=3 off=0 tris=144
+FEATURE CR091-096 exploration world/Acorn clue / woodland-11 | on=3 off=0 tris=144
+FEATURE CR091-096 exploration world/Acorn clue / woodland-12 | on=3 off=0 tris=144
+FEATURE CR091-096 exploration world/Acorn clue / woodland-13 | on=3 off=0 tris=144
+FEATURE CR091-096 exploration world/Acorn clue / woodland-14 | on=3 off=0 tris=144
+FEATURE CR091-096 exploration world/Acorn clue / woodland-15 | on=3 off=0 tris=144
+FEATURE CR091-096 exploration world/Acorn clue / woodland-16 | on=3 off=0 tris=144
+FEATURE CR091-096 exploration world/Acorn clue / woodland-17 | on=3 off=0 tris=144
+FEATURE CR091-096 exploration world/Acorn clue / woodland-18 | on=3 off=0 tris=144
+FEATURE CR091-096 exploration world/Acorn clue / woodland-19 | on=3 off=0 tris=144
+FEATURE CR091-096 exploration world/Acorn clue / woodland-20 | on=3 off=0 tris=144
+FEATURE CR091-096 exploration world/Acorn clue / woodland-21 | on=3 off=0 tris=144
+FEATURE CR091-096 exploration world/Acorn clue / woodland-22 | on=3 off=0 tris=144
+FEATURE CR091-096 exploration world/Acorn clue / woodland-23 | on=3 off=0 tris=144
+FEATURE CR091-096 exploration world/Acorn clue / woodland-24 | on=3 off=0 tris=144
+FEATURE CR091-096 exploration world/House 3 / Rocky Way Acres entrance | on=3 off=0 tris=36
+FEATURE CR091-096 exploration world/Permanent mountainside camp / two seated guys | on=82 off=0 tris=13080
+FEATURE CR094 summit launch/Ground_CR103 supported connection | on=1 off=0 tris=332
+FEATURE CR094 summit launch/Ground_CR103 supported return | on=1 off=0 tris=22536
+FEATURE CR094 summit launch/Ground_Summit authored launch | on=1 off=0 tris=880
+FEATURE CR097 supported properties and camp/Grounded roadside chain-link | on=46 off=0 tris=9312
+FEATURE CR097 supported properties and camp/Grounded wood crossbuck | on=88 off=0 tris=6336
+FEATURE CR097 supported properties and camp/House 3 valley driveway/Ground_House3 straight descending property driveway | on=1 off=0 tris=528
+FEATURE CR097 supported properties and camp/House 3 valley driveway/Ground_House3 supported valley driveway | on=1 off=0 tris=139
+FEATURE CR102 summit signs/05 return/Backing | on=1 off=0 tris=12
+FEATURE CR102 summit signs/05 return/Post | on=1 off=0 tris=12
+FEATURE Dan's Backyard Forward - terrain trail/Old dump - dense push-through refuse/Refuse-0 | on=1 off=0 tris=19840
+FEATURE Dan's Backyard Forward - terrain trail/Old dump - dense push-through refuse/Refuse-1 | on=1 off=0 tris=3432
+FEATURE Dan's Backyard Forward - terrain trail/Old dump - dense push-through refuse/Refuse-2 | on=1 off=0 tris=3060
+FEATURE Dan's Backyard Forward - terrain trail/Old dump - dense push-through refuse/Refuse-3 | on=1 off=0 tris=1536
+FEATURE Dan's Backyard Forward - terrain trail/Old dump - dense push-through refuse/Refuse-4 | on=1 off=0 tris=25760
+FEATURE Dan's Backyard Forward - terrain trail/Old dump - dense push-through refuse/Refuse-5 | on=1 off=0 tris=4000
+FEATURE Dan's Backyard Forward - terrain trail/Old dump - dense push-through refuse/Refuse-6 | on=1 off=0 tris=4528
+FEATURE Dan's Backyard Forward - terrain trail/Old dump - dense push-through refuse/Refuse-7 | on=1 off=0 tris=1584
+FEATURE Decorative road continuations/Hwy 92 east/Decorative Road pavement | on=0 off=1 tris=236
+FEATURE Decorative road continuations/Hwy 92 east/Highway lane divider | on=0 off=94 tris=1128
+FEATURE Decorative road continuations/Hwy 92 east/Lane dash | on=0 off=42 tris=504
+FEATURE Decorative road continuations/Hwy 92 east/Profile shoulders | on=0 off=1 tris=472
+FEATURE Decorative road continuations/Hwy 92 east/Supported continuation embankment | on=0 off=1 tris=12
+FEATURE Decorative road continuations/Hwy 92 east/Traffic tunnel canopy | on=2 off=0 tris=24
+FEATURE Decorative road continuations/Hwy 92 east/Traffic tunnel left | on=2 off=0 tris=24
+FEATURE Decorative road continuations/Hwy 92 east/Traffic tunnel right | on=2 off=0 tris=24
+FEATURE Decorative road continuations/Hwy 92 west/Decorative Road pavement | on=0 off=1 tris=236
+FEATURE Decorative road continuations/Hwy 92 west/Highway lane divider | on=0 off=94 tris=1128
+FEATURE Decorative road continuations/Hwy 92 west/Lane dash | on=0 off=42 tris=504
+FEATURE Decorative road continuations/Hwy 92 west/Profile shoulders | on=0 off=1 tris=472
+FEATURE Decorative road continuations/Hwy 92 west/Supported continuation embankment | on=0 off=1 tris=12
+FEATURE Decorative road continuations/Hwy 92 west/Traffic tunnel canopy | on=2 off=0 tris=24
+FEATURE Decorative road continuations/Hwy 92 west/Traffic tunnel left | on=2 off=0 tris=24
+FEATURE Decorative road continuations/Hwy 92 west/Traffic tunnel right | on=2 off=0 tris=24
+FEATURE Decorative road continuations/Jamerson Rd west/Decorative Road pavement | on=1 off=0 tris=180
+FEATURE Decorative road continuations/Jamerson Rd west/Distant local traffic | on=24 off=0 tris=1376
+FEATURE Decorative road continuations/Jamerson Rd west/Distant tunnel backdrop | on=1 off=0 tris=12
+FEATURE Decorative road continuations/Jamerson Rd west/Lane dash | on=42 off=0 tris=504
+FEATURE Decorative road continuations/Jamerson Rd west/Profile shoulders | on=1 off=0 tris=360
+FEATURE Decorative road continuations/Jamerson Rd west/Supported continuation embankment | on=0 off=1 tris=12
+FEATURE Decorative road continuations/Jamerson Rd west/Traffic tunnel canopy | on=2 off=0 tris=24
+FEATURE Decorative road continuations/Jamerson Rd west/Traffic tunnel left | on=2 off=0 tris=24
+FEATURE Decorative road continuations/Jamerson Rd west/Traffic tunnel right | on=2 off=0 tris=24
+FEATURE Forward teal navigation - no colliders/Main teal trail arrow | on=0 off=28 tris=140
+FEATURE Phase 4 - Connector Jump/Approach | on=1 off=0 tris=12
+FEATURE Phase 4 - Connector Jump/Breakable - Jump approach sign/Jump approach sign | on=1 off=0 tris=12
+FEATURE Phase 4 - Connector Jump/Landing edge | on=20 off=0 tris=240
+FEATURE Phase 4 - Connector Jump/Takeoff - 40m x 6m, 6.2m rise | on=1 off=0 tris=1080
+FEATURE Phase 5 - Southwest woodland shortcut/Non-colliding path edge | on=12 off=0 tris=144
+FEATURE Phase 6 - architectural render batches/Blue glass | on=1 off=0 tris=3972
+FEATURE Phase 6 - architectural render batches/Charcoal roof | on=1 off=0 tris=720
+FEATURE Phase 6 - architectural render batches/Diner red | on=1 off=0 tris=216
+FEATURE Phase 6 - architectural render batches/Door timber | on=1 off=0 tris=252
+FEATURE Phase 6 - architectural render batches/Gully ivory | on=1 off=0 tris=84
+FEATURE Phase 6 - architectural render batches/Gully roof | on=1 off=0 tris=24
+FEATURE Phase 6 - architectural render batches/Gully timber | on=1 off=0 tris=912
+FEATURE Phase 6 - architectural render batches/Gully warm siding | on=1 off=0 tris=96
+FEATURE Phase 6 - architectural render batches/Ivory trim | on=1 off=0 tris=9240
+FEATURE Phase 6 - architectural render batches/Market teal | on=1 off=0 tris=216
+FEATURE Phase 6 - architectural render batches/Muted brick | on=1 off=0 tris=768
+FEATURE Phase 6 - architectural render batches/Sage siding | on=1 off=0 tris=192
+FEATURE Phase 6 - architectural render batches/Slate blue siding | on=1 off=0 tris=288
+FEATURE Phase 6 - architectural render batches/Stunt glass | on=1 off=0 tris=96
+FEATURE Phase 6 - architectural render batches/Warm plaster | on=1 off=0 tris=1860
+FEATURE Phase 6 - architectural render batches/Workshop ochre | on=1 off=0 tris=72
+FEATURE Remembered houses and approximate buildings/Dan - blue X/Reference architecture | on=8 off=0 tris=31332
+FEATURE Remembered houses and approximate buildings/Fox Gully drive-through house (former 44 -451)/Breakable second-story window | on=1 off=0 tris=12
+FEATURE Remembered houses and approximate buildings/Fox Gully drive-through house (former 44 -451)/Breakable sliding glass doors | on=2 off=0 tris=24
+FEATURE Remembered houses and approximate buildings/Fox Gully drive-through house (former 44 -451)/Entry upper facade | on=1 off=0 tris=12
+FEATURE Remembered houses and approximate buildings/Fox Gully drive-through house (former 44 -451)/Entry upper window | on=2 off=0 tris=24
+FEATURE Remembered houses and approximate buildings/Fox Gully drive-through house (former 44 -451)/Entry window trim | on=2 off=0 tris=24
+FEATURE Remembered houses and approximate buildings/Fox Gully drive-through house (former 44 -451)/Exit lower facade | on=1 off=0 tris=12
+FEATURE Remembered houses and approximate buildings/Fox Gully drive-through house (former 44 -451)/Exit upper lintel | on=1 off=0 tris=12
+FEATURE Remembered houses and approximate buildings/Fox Gully drive-through house (former 44 -451)/Foundation pier | on=18 off=0 tris=216
+FEATURE Remembered houses and approximate buildings/Fox Gully drive-through house (former 44 -451)/Gully supported ramp | on=1 off=0 tris=528
+FEATURE Remembered houses and approximate buildings/Fox Gully drive-through house (former 44 -451)/Opening side wall | on=4 off=0 tris=48
+FEATURE Remembered houses and approximate buildings/Fox Gully drive-through house (former 44 -451)/Pitched roof | on=2 off=0 tris=24
+FEATURE Remembered houses and approximate buildings/Fox Gully drive-through house (former 44 -451)/Second floor side room | on=2 off=0 tris=24
+FEATURE Remembered houses and approximate buildings/Fox Gully drive-through house (former 44 -451)/Sliding door frame | on=2 off=0 tris=24
+FEATURE Remembered houses and approximate buildings/Fox Gully drive-through house (former 44 -451)/Sliding door track | on=2 off=0 tris=24
+FEATURE Remembered houses and approximate buildings/Fox Gully drive-through house (former 44 -451)/Supported exterior wall | on=2 off=0 tris=24
+FEATURE Remembered houses and approximate buildings/Fox Gully drive-through house (former 44 -451)/Upper storey side window | on=6 off=0 tris=72
+FEATURE Remembered houses and approximate buildings/Fox Gully drive-through house (former 44 -451)/Visible ramp crossbeam | on=12 off=0 tris=144
+FEATURE Reverse optional forest shortcuts/Broken logging wheel paths | on=1 off=0 tris=706
+FEATURE Reverse optional forest shortcuts/Buried gully mouth crown lining | on=1 off=0 tris=12
+FEATURE Reverse optional forest shortcuts/Buried gully mouth lining | on=2 off=0 tris=24
+FEATURE Reverse optional forest shortcuts/Continuous shallow storm flow | on=1 off=0 tris=626
+FEATURE Reverse optional forest shortcuts/Culvert mouth lintel | on=2 off=0 tris=24
+FEATURE Reverse optional forest shortcuts/Culvert overhead expansion joint | on=12 off=0 tris=144
+FEATURE Reverse optional forest shortcuts/Culvert vertical seam | on=24 off=0 tris=288
+FEATURE Reverse optional forest shortcuts/Forward closed drainage grate/Visible steel grate | on=0 off=17 tris=204
+FEATURE Reverse optional forest shortcuts/Ground_Culvert seamless floor | on=1 off=0 tris=7056
+FEATURE Reverse optional forest shortcuts/Ground_Gully continuous curved takeoff | on=1 off=0 tris=276
+FEATURE Reverse optional forest shortcuts/Ground_Wide west bank landing | on=1 off=0 tris=21605
+FEATURE Reverse optional forest shortcuts/Long storm culvert walls and ceiling | on=1 off=0 tris=1630
+FEATURE Reverse optional forest shortcuts/Side stormwater inlet | on=6 off=0 tris=480
+FEATURE Reverse optional forest shortcuts/Supported culvert mouth pier | on=4 off=0 tris=48
+FEATURE Storm Drain atmosphere/Broken rusted pipe section | on=10 off=0 tris=800
+FEATURE Storm Drain atmosphere/Damp sediment and leaf cluster | on=96 off=0 tris=73728
+FEATURE Storm Drain atmosphere/Drain entrance rat encounter/Scurrying drain rat 1 | on=7 off=0 tris=4620
+FEATURE Storm Drain atmosphere/Drain entrance rat encounter/Scurrying drain rat 2 | on=7 off=0 tris=4620
+FEATURE Storm Drain atmosphere/Drain entrance rat encounter/Scurrying drain rat 3 | on=7 off=0 tris=4620
+FEATURE Storm Drain atmosphere/Drain entrance rat encounter/Scurrying drain rat 4 | on=7 off=0 tris=4620
+FEATURE Storm Drain atmosphere/Drain entrance rat encounter/Scurrying drain rat 5 | on=7 off=0 tris=4620
+FEATURE Storm Drain atmosphere/Drain wall mineral streak | on=30 off=0 tris=360
+FEATURE Storm Drain atmosphere/Logging Ridge grounded sign post | on=1 off=0 tris=12
+FEATURE Storm Drain atmosphere/Logging Ridge sign board | on=1 off=0 tris=12
+FEATURE Storm Drain atmosphere/Rat refuge dark recess | on=4 off=0 tris=48
+FEATURE Storm Drain atmosphere/Storm washed branch or board | on=96 off=0 tris=1152
+FEATURE Storm Drain atmosphere/Water edge litter | on=96 off=0 tris=1152
