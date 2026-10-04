@@ -10,7 +10,20 @@
 - Root AGENTS.md points future Codex tasks to both files.
 - From 2026-10-02 the coding agent is Claude Code. The same two files govern it; root CLAUDE.md (created in the 0.67 round) is its discovery pointer.
 
-## CURRENT — Time of day and weather + AI lost after jumps + 1 report — 0.72.0-review1 — IMPLEMENTED, RELEASE IN PROGRESS
+## CURRENT — Time of day and weather + AI lost after jumps + 1 report — 0.72.0-review1 — DELIVERED, AWAITING DAN'S REVIEW
+
+- **DELIVERED:**
+  - Source `859d068a2b758f73a9db7985b1f9fb69c3e367f7` pushed and verified on origin/main.
+  - Fresh 0.72.0-review1 Windows build: 0 errors, 33 warnings, 4m04s.
+  - Published [game-72000](https://github.com/danemoll-jpg/woodstock-rush-releases/releases/tag/game-72000) (known draft-lookup miss, completed with `--resume-draft`).
+  - All 234 Latest files match the public signed manifest; public download, signature, install and startup pass.
+  - [Delivery evidence](Docs/Report072/PUBLICATION.md).
+- **Play-Racer.cmd (unchanged):** launched a responsive managed 72000, muted, with settings restored byte-for-byte; no pending updates. Latest root, current 72000 and previous 71000 retained.
+- **Cleanup:**
+  - Builds 9,996,388,496 → 7,899,039,178 bytes.
+  - C: free 307,678,658,560 bytes.
+  - All debug report history preserved.
+- **SESSION HANDOFF: STOP.** Wait for Dan's review of 0.72 (time of day and weather, AI on the Mountain jumps, the Free Roam trail). A documentation-only delivery commit follows; playable source remains `859d068a`.
 
 - **Authorized by Dan (2026-10-03)** from debug session `2026-10-03_12-02-07-031_bc36a2` (CLOSED, exported as `..._bc36a2_f6f5231c.zip`; 1 report, captured on 0.71.0-review1 build `4f3fb34c`), his written request to investigate AI riders getting lost after big jumps, and his request to start the next feature. Folder with the full-size screenshot: `C:\Users\danmo\AppData\LocalLow\DefaultCompany\Racer\DebugReports\2026-10-03_12-02-07-031_bc36a2`.
 - **Dan is away for a few hours and wants this round to run unattended.** Every design decision needed is written below. Do not stop to ask about design; make the smallest reasonable choice, record it, and continue. Stop only for a real external blocker (rule 7).
