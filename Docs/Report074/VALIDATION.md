@@ -152,7 +152,7 @@ day 15 0.40 moonlight, day 22 0.33). Night races always use a full moon. Moon-ph
 
 | Check | Result |
 |---|---|
-| Place with the map cursor (controller / keys: Confirm on empty map) | waypoint at (540, 23, 536) |
+| Place with the map cursor (Waypoint: F / gamepad Y) | waypoint at (540, 23, 536) |
 | Place again | the old one is replaced |
 | Clear (Backspace / left stick press) | cleared |
 | Mouse click in an unexplored (fogged) area | placed at (−981, 0, −767) |

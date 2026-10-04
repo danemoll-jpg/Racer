@@ -1,0 +1,22 @@
+# 0.74.0-review1 — delivery evidence
+
+- **Source:**
+  - Completion commit `8d1fbf9b6d00ba7570542494f76ce676de2511a6`, pushed and verified equal to origin/main. It is the playable source.
+  - Safety checkpoint: `8da01e4e`.
+  - No temporary editor tool copies were committed (the release build script was copied into `Assets/Editor` only for the build and removed afterwards; the probe copies in `Assets/Editor/Report074Temp` were removed before the commit). The shared `VehicleGlazing.mat` written by play-mode checks was reverted after every run.
+- **Build:**
+  - Fresh Unity 6000.6.1f1 Windows build from `8d1fbf9b`: Succeeded, 0 errors, 37 warnings (35 are CS0618 "FindObjectsSortMode is obsolete" API notices across existing scripts, plus the usual collider pre-bake and pipeline notices), 2m44s.
+  - GUID `6deff3473eb442378b3dbf5d175d4ec8` ([build-release.txt](build-release.txt), [build-done.txt](build-done.txt)); the commit was passed in `REPORT074_COMMIT`. The first launch failed to compile the build script (a broken string in its VERSION text, a tool-only file); fixed and rebuilt into a fresh folder.
+- **Staged:** `Builds/Latest` root and `Builds/Latest/versions/74000` hold all 232 signed manifest files; 33 runtime files changed versus 73000 (all scene data level0–7, shared assets, resources, globalgamemanagers, boot.config, `Assembly-CSharp.dll`, README/VERSION/VALIDATION) ([runtime-identity.json](runtime-identity.json)). The named launcher is preserved.
+- **Release:**
+  - Published [game-74000](https://github.com/danemoll-jpg/woodstock-rush-releases/releases/tag/game-74000): `game-manifest.json` (46,917 bytes), `game.zip` (418,057,890 bytes), `update-catalog.json` (993 bytes).
+  - The first attempt hit the known draft-lookup miss after creating the draft; the empty draft (id 402957685) was inspected read-only and `--resume-draft` uploaded the three assets and published. The latest catalog was fetched back. Previous releases retained.
+- **Public verification** ([hosted/result.json](hosted/result.json)): the public catalog resolves to the 74000 manifest, pinned signature verified; all 232 Latest files match the public manifest; public download, install and startup check pass (exit 0). (A first run before staging stopped at the Latest comparison, as it must; rerun after staging passed.)
+- **Activation:** the production updater reports 74000 active in `Builds/Latest`, nothing added/changed/removed, nothing pending ([launcher-catalog-check.json](launcher-catalog-check.json)).
+- **Play-Racer.cmd (unchanged script):** launched a responsive `Builds/Latest/versions/74000/Racer.exe` ([play-racer-launch.json](play-racer-launch.json)); the muted check restored the original settings bytes ([settings-preserved.json](settings-preserved.json)). No game process left running.
+- **Cleanup** ([cleanup.json](cleanup.json)):
+  - Builds 10,315,067,277 → 8,098,028,572 bytes (2,217,038,705 recovered): build output folder, duplicate `game.zip`; plus the 1.80 GB hosted verification install in the project `Temp`.
+  - Also removed 1,879,257,120 bytes outside the project (`%LOCALAPPDATA%\Temp\report074`: probe output, the 4K test player and bench output); the evidence is copied into this folder.
+  - Retained: Latest root, managed 74000 + previous 73000, `LauncherRelease-74000` signed manifest and catalog, music, publisher tools/keys, launcher, metadata, source, evidence, saves.
+  - C: free 289,402,908,672 bytes at the start of cleanup → 295,299,096,576 bytes final.
+- **Debug report history:** untouched.

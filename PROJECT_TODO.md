@@ -10,7 +10,7 @@
 - Root AGENTS.md points future Codex tasks to both files.
 - From 2026-10-02 the coding agent is Claude Code. The same two files govern it; root CLAUDE.md (created in the 0.67 round) is its discovery pointer.
 
-## CURRENT — 6 reports, storm and rain sound, dawn, continuous Free Roam calendar with moon phases, map waypoints, tunnel and cave in Free Roam — target 0.74.0-review1 — IMPLEMENTED AND VERIFIED; BUILD / RELEASE IN PROGRESS
+## CURRENT — 6 reports, storm and rain sound, dawn, continuous Free Roam calendar with moon phases, map waypoints, tunnel and cave in Free Roam — target 0.74.0-review1 — DELIVERED, AWAITING DAN'S REVIEW
 
 - **Authorized by Dan (2026-10-04)** from debug session `2026-10-04_00-23-11-202_43e8e2` (CLOSED, exported as `..._43e8e2_8460ce84.zip`; 6 reports, all captured on 0.73.0-review1 build `557d959c`) plus eight written requests in chat. Folder with full-size screenshots: `C:\Users\danmo\AppData\LocalLow\DefaultCompany\Racer\DebugReports\2026-10-04_00-23-11-202_43e8e2`. READ every comment and LOOK at every screenshot before changing anything.
 - **Dan's verdict on 0.73:** "I really like the way things are looking. It looks so much better than it did when I started." The Blender motorcycle and rider approach is APPROVED; more vehicles and rider customization follow in the queued 0.75 round below. Snow scenes, frozen water and clouds drew no complaints; do not retune them except as written here.
@@ -18,6 +18,19 @@
 - **Starting point:** main `4fd27957` (documentation commit after the 0.73 delivery; playable source as recorded in the 0.73 DELIVERED entry, game-73000). This TODO edit and the archive move are uncommitted and belong in the safety checkpoint.
 - **Scope is exactly Parts A–G below.** Do geometry (A, B, C) first and verify it before the look/audio/UI parts. Section 5A applies to all geometry. Weather and time of day stay visual/audio only.
 - **When this round is fully delivered (published and verified), continue with the queued 0.75 section below, as a separate round with its own safety checkpoint, commit, build, release and report.** Dan authorized running both back to back.
+
+- **DELIVERED:**
+  - Source `8d1fbf9b6d00ba7570542494f76ce676de2511a6` pushed and verified on origin/main.
+  - Fresh 0.74.0-review1 Windows build: 0 errors, 37 warnings (obsolete-API notices), 2m44s.
+  - Published [game-74000](https://github.com/danemoll-jpg/woodstock-rush-releases/releases/tag/game-74000) (known draft-lookup miss, completed with `--resume-draft`).
+  - All 232 Latest files match the public signed manifest; public download, signature, install and startup pass.
+  - [Delivery evidence](Docs/Report074/PUBLICATION.md).
+- **Play-Racer.cmd (unchanged):** launched a responsive managed 74000, muted, with settings restored byte-for-byte; no pending updates. Latest root, current 74000 and previous 73000 retained.
+- **Cleanup:**
+  - Builds 10,315,067,277 → 8,098,028,572 bytes; 1.80 GB hosted check install and 1.88 GB scratch outside the project removed.
+  - C: free 295,299,096,576 bytes.
+  - All debug report history preserved.
+- **SESSION HANDOFF: STOP.** The 0.74 session prompt limited the work to this section, so the queued 0.75 round was not started; it is next. A documentation-only delivery commit follows; playable source remains `8d1fbf9b`.
 
 ### Results (2026-10-04, Claude Code)
 

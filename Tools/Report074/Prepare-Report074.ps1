@@ -12,9 +12,9 @@ Woodstock Rush 0.74.0-review1
 House 3 driveway: the steep straight drop is gone; the driveway winds down the hillside again (round the lake to the house), gentle enough for every vehicle both ways. The tree in the brick-house driveway moved onto the grass; the tall warning sign at the top of the House 3 driveway is gone. Mountain Forward: the holes at the trail edge after the start and the torn bank at the High Ridge stretch are smooth ground now.
 Free Roam everywhere: the Backyard storm-drain tunnel (with its gully, rats and frozen flow in Snow) and, in the Mountain scenes, the same Echo Cave as Forest Forward. Map: a Storm drain tunnel landmark.
 Rain: a softer, rounder rain sound; thunderstorms with presence - a strike every 8-25 s with a visible forked bolt, near cracks and far rumbles, distant rolls between strikes. Lightning flashes: Off keeps bolts and thunder without the screen flash.
-Dawn: a new Time of Day (Dawn / Day / Dusk / Night) - low eastern sun, pink-gold light, blue shadows, ground mist; Free Roam passes through it in the early morning.
+Dawn: a new Time of Day (Dawn / Day / Dusk / Night) - low eastern sun, cool lavender-pink light and pink clouds, ground mist; Free Roam passes through it in the early morning.
 Free Roam keeps its clock (saved when you start a race, return to the menu or quit) on a 30-day calendar (Day N on the HUD); the moon shows the day's phase and lights the night a little more near full. Night races use a full moon.
-Map: click anywhere (or move the cursor and press Waypoint) to set a destination; a tall beam marks it in the world and the HUD shows the distance and an arrow. Right-click / Clear removes it.
+Map: click anywhere (or move the cursor and press Waypoint: F / Y) to set a destination, fogged areas too; a tall beam marks it in the world and the HUD shows the distance and an arrow; it clears itself when you arrive. Right-click / Backspace / left-stick press clears it.
 F3: Debug Mode. F4: screenshot and comment. F6 / Start: Debug menu.
 See Review/VALIDATION.md for every item and the frame-rate measurements.
 Play-Racer.cmd uses the existing signed launcher/updater.
