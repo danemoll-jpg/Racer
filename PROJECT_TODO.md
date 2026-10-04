@@ -10,7 +10,47 @@
 - Root AGENTS.md points future Codex tasks to both files.
 - From 2026-10-02 the coding agent is Claude Code. The same two files govern it; root CLAUDE.md (created in the 0.67 round) is its discovery pointer.
 
-## CURRENT — 6 reports, storm and rain sound, dawn, continuous Free Roam calendar with moon phases, map waypoints, tunnel and cave in Free Roam — target 0.74.0-review1 — DELIVERED, AWAITING DAN'S REVIEW
+## CURRENT — Blender vehicles for the whole garage + rider customization — target 0.75.0-review1 — NOT STARTED
+
+- **Authorized by Dan (2026-10-04).** "I am anxious to build other vehicles and I would like to have a few different model choices (or maybe just a man or a woman) but have some simple customization, such as skin color, different hats (or no hat), different shirts, and different pants, with the ability to select colors. Oh and hair color. Nothing elaborate, just something to give some variety (the AI would be random)."
+- Runs unattended: no design questions; decisions are below. Stop only for a real external blocker (rule 7).
+- **Starting point:** main at the 0.74 documentation commit ("Record 0.74 delivery"); playable source `8d1fbf9b`, 0.74.0-review1 / game-74000. This TODO edit is uncommitted and belongs in the safety checkpoint. Dan has not reviewed 0.74 yet; do not change 0.74 work in this round.
+- Uses the approved 0.73 pipeline: Blender at `F:\blender\blender.exe`, scripts in `Tools/Blender/`, sources in `SourceArt/Blender/`, FBX under `Assets/Resources/VehicleModels/`, render-look-revise with at most three passes per model.
+
+### Part A — New Blender models for every remaining player vehicle
+
+- Build a new model for each remaining vehicle the player can select in the garage (the ATV and the cars; use the actual roster in the project). Same standard and rules as the 0.73 motorcycle: clearly better proportions and detail in the same stylized low-poly world; fitted to the existing vehicle so physics, colliders, wheel positions, ride height and camera framing do not change; wheels spin, front wheels/front end steer; paint on bodywork only, every colour including black; working headlights and tail lights for night; wipeout/reset fine.
+- Cars: a visible cabin with windows and a seated driver; the driver must fit the cabin (CR-082) and be visible through the glass.
+- Budget per vehicle with rider roughly 5–20k triangles; frame rate at 3840×2160 within noise of 0.74.
+- The garage "Model: Classic / New" choice now applies to every vehicle that has a new model (one setting, default New, remembered). Classic models stay in the project untouched. AI vehicles follow the same setting. Ambient traffic vehicles are NOT changed in this round.
+
+### Part B — Rider customization
+
+Simple, as Dan asked. One parametric rider built in Blender and assembled in Unity from parts, so options combine freely.
+
+- **Body:** Man / Woman (two body shapes; same height class so vehicle fit is unchanged).
+- **Skin tone:** 6 swatches from light to dark.
+- **Hair:** style Short / Medium / Long / Ponytail / Bald; hair colour 8 swatches (black, dark brown, brown, auburn, red, blonde, grey, white).
+- **Hat:** None / Flat cap / Baseball cap / Beanie / Cowboy hat; hat colour from the colour palette. Hair and hat must not poke through each other (hide or swap the hair top under a hat).
+- **Shirt:** T-shirt / Long sleeve / Jacket; colour from the palette.
+- **Pants:** Jeans / Shorts; colour from the palette.
+- **Colour palette:** reuse the vehicle colour swatches (including black and white) so the UI and saving work the same way.
+- **Poses:** the same rider works on every vehicle: motorcycle pose, ATV pose, seated car pose. Fixed poses are fine; keep existing lean/steer motion where it exists.
+- **Garage UI:** a new "Rider" page in the garage in the existing option-row style, with a live preview of the rider on the selected vehicle; controller, keyboard and mouse. A "Randomize" action. Everything is remembered between sessions. **Default = the current rider's identity** (man, flat cap, blue shirt, same hair and skin as now) so nothing changes until the player chooses.
+- **AI riders:** each AI gets a random combination per race, stable for that race (same rider from start to finish and in results), with good variety across the field; never an exact copy of the player's rider when avoidable.
+- Applies to the New models. With "Model: Classic" the old rider is shown and the Rider page says customization needs the New models.
+- Ambient people (household scenes, snow scenes, traffic drivers) are NOT changed in this round.
+- Ghosts and records: appearance is cosmetic only; no record categories change. A ghost may show the player's current rider.
+
+### Verification (targeted, rule 11)
+
+- Blender render sheets for every new vehicle (old vs new) and for the rider options (both bodies, each hair style, each hat, each shirt, each pants type) in `Docs/Report075/Models/`.
+- In game: each new vehicle in the garage, one race lap by day and one at night, colour change including black, wipeout and reset, Classic/New both ways.
+- Rider page: every row changes the preview; hat + each hair style without clipping; settings persist across relaunch; Randomize; an AI field showing varied riders on each vehicle type; a car with the rider visible in the cabin.
+- Frame-rate table against 0.74.
+- `Docs/Report075/VALIDATION.md`. One implementation, then stop (rule 12). Dan judges the look.
+
+## Previous delivery — 6 reports, storm and rain sound, dawn, continuous Free Roam calendar with moon phases, map waypoints, tunnel and cave in Free Roam — 0.74.0-review1 — DELIVERED, AWAITING DAN'S REVIEW
 
 - **Authorized by Dan (2026-10-04)** from debug session `2026-10-04_00-23-11-202_43e8e2` (CLOSED, exported as `..._43e8e2_8460ce84.zip`; 6 reports, all captured on 0.73.0-review1 build `557d959c`) plus eight written requests in chat. Folder with full-size screenshots: `C:\Users\danmo\AppData\LocalLow\DefaultCompany\Racer\DebugReports\2026-10-04_00-23-11-202_43e8e2`. READ every comment and LOOK at every screenshot before changing anything.
 - **Dan's verdict on 0.73:** "I really like the way things are looking. It looks so much better than it did when I started." The Blender motorcycle and rider approach is APPROVED; more vehicles and rider customization follow in the queued 0.75 round below. Snow scenes, frozen water and clouds drew no complaints; do not retune them except as written here.
@@ -136,45 +176,6 @@ Free Roam started from Mountain Loop Forward:
 - Awaiting Dan: review of 0.74 (especially the House 3 driveway feel, the Forest Loop Reverse crossing exception, Dawn look, storm sound and bolts); recheck of the Reverse s 1583 bump; whether he has seen any rival vanish after a jump since 0.72.
 - Open: CR-118 intermittent spoken-title clipping. Possibly stale: CR-010 slightly tighter steering.
 - Deferred: physical Steam Deck / controller / save-migration checks; friend test of the packaged build on another PC.
-
-## QUEUED NEXT — Blender vehicles for the whole garage + rider customization — target 0.75.0-review1 — NOT STARTED (start only after 0.74 is published and verified)
-
-- **Authorized by Dan (2026-10-04).** "I am anxious to build other vehicles and I would like to have a few different model choices (or maybe just a man or a woman) but have some simple customization, such as skin color, different hats (or no hat), different shirts, and different pants, with the ability to select colors. Oh and hair color. Nothing elaborate, just something to give some variety (the AI would be random)."
-- Runs unattended like 0.74: no design questions; decisions are below. When starting, rename this heading to `## CURRENT — ...`, and rename the delivered 0.74 heading to `## Previous delivery — ...`. Own safety checkpoint, completion commit, build, release, verification and final report, per every rule.
-- Uses the approved 0.73 pipeline: Blender at `F:\blender\blender.exe`, scripts in `Tools/Blender/`, sources in `SourceArt/Blender/`, FBX under `Assets/Resources/VehicleModels/`, render-look-revise with at most three passes per model.
-
-### Part A — New Blender models for every remaining player vehicle
-
-- Build a new model for each remaining vehicle the player can select in the garage (the ATV and the cars; use the actual roster in the project). Same standard and rules as the 0.73 motorcycle: clearly better proportions and detail in the same stylized low-poly world; fitted to the existing vehicle so physics, colliders, wheel positions, ride height and camera framing do not change; wheels spin, front wheels/front end steer; paint on bodywork only, every colour including black; working headlights and tail lights for night; wipeout/reset fine.
-- Cars: a visible cabin with windows and a seated driver; the driver must fit the cabin (CR-082) and be visible through the glass.
-- Budget per vehicle with rider roughly 5–20k triangles; frame rate at 3840×2160 within noise of 0.74.
-- The garage "Model: Classic / New" choice now applies to every vehicle that has a new model (one setting, default New, remembered). Classic models stay in the project untouched. AI vehicles follow the same setting. Ambient traffic vehicles are NOT changed in this round.
-
-### Part B — Rider customization
-
-Simple, as Dan asked. One parametric rider built in Blender and assembled in Unity from parts, so options combine freely.
-
-- **Body:** Man / Woman (two body shapes; same height class so vehicle fit is unchanged).
-- **Skin tone:** 6 swatches from light to dark.
-- **Hair:** style Short / Medium / Long / Ponytail / Bald; hair colour 8 swatches (black, dark brown, brown, auburn, red, blonde, grey, white).
-- **Hat:** None / Flat cap / Baseball cap / Beanie / Cowboy hat; hat colour from the colour palette. Hair and hat must not poke through each other (hide or swap the hair top under a hat).
-- **Shirt:** T-shirt / Long sleeve / Jacket; colour from the palette.
-- **Pants:** Jeans / Shorts; colour from the palette.
-- **Colour palette:** reuse the vehicle colour swatches (including black and white) so the UI and saving work the same way.
-- **Poses:** the same rider works on every vehicle: motorcycle pose, ATV pose, seated car pose. Fixed poses are fine; keep existing lean/steer motion where it exists.
-- **Garage UI:** a new "Rider" page in the garage in the existing option-row style, with a live preview of the rider on the selected vehicle; controller, keyboard and mouse. A "Randomize" action. Everything is remembered between sessions. **Default = the current rider's identity** (man, flat cap, blue shirt, same hair and skin as now) so nothing changes until the player chooses.
-- **AI riders:** each AI gets a random combination per race, stable for that race (same rider from start to finish and in results), with good variety across the field; never an exact copy of the player's rider when avoidable.
-- Applies to the New models. With "Model: Classic" the old rider is shown and the Rider page says customization needs the New models.
-- Ambient people (household scenes, snow scenes, traffic drivers) are NOT changed in this round.
-- Ghosts and records: appearance is cosmetic only; no record categories change. A ghost may show the player's current rider.
-
-### Verification (targeted, rule 11)
-
-- Blender render sheets for every new vehicle (old vs new) and for the rider options (both bodies, each hair style, each hat, each shirt, each pants type) in `Docs/Report075/Models/`.
-- In game: each new vehicle in the garage, one race lap by day and one at night, colour change including black, wipeout and reset, Classic/New both ways.
-- Rider page: every row changes the preview; hat + each hair style without clipping; settings persist across relaunch; Randomize; an AI field showing varied riders on each vehicle type; a car with the rider visible in the cabin.
-- Frame-rate table against 0.74.
-- `Docs/Report075/VALIDATION.md`. One implementation, then stop (rule 12). Dan judges the look.
 
 ## Previous delivery — Snow scenes and frozen water, thunderstorms, clouds, first Blender models (motorcycle + rider) — 0.73.0-review1 — DELIVERED, LOOK AND BLENDER APPROACH APPROVED BY DAN (follow-ups in 0.74)
 
