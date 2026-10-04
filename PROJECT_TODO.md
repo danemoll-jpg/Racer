@@ -10,7 +10,21 @@
 - Root AGENTS.md points future Codex tasks to both files.
 - From 2026-10-02 the coding agent is Claude Code. The same two files govern it; root CLAUDE.md (created in the 0.67 round) is its discovery pointer.
 
-## CURRENT — Restore the races, one dedicated Free Roam world, audible storms, garage screens — 0.76.0-review1 — IMPLEMENTED (delivery recorded below when published)
+## CURRENT — Restore the races, one dedicated Free Roam world, audible storms, garage screens — 0.76.0-review1 — DELIVERED, AWAITING DAN'S REVIEW
+
+- **DELIVERED:**
+  - Source `03696d00f91a3860845381fecb52d6f635b9eeec` pushed and verified on origin/main.
+  - Fresh 0.76.0-review1 Windows build: 0 errors, 39 warnings, 6m44s.
+  - Published [game-76000](https://github.com/danemoll-jpg/woodstock-rush-releases/releases/tag/game-76000) (known draft-lookup miss, completed with `--resume-draft`).
+  - All 235 Latest files match the public signed manifest; public download, signature, install and startup pass.
+  - [Delivery evidence](Docs/Report076/PUBLICATION.md).
+- **Play-Racer.cmd (unchanged):** launched a responsive managed 76000, muted, with settings restored byte-for-byte; no pending updates (first try the launcher waited on its window while the PC was in use; second try passed). Latest root, current 76000 and previous 75000 retained.
+- **Cleanup:**
+  - Builds 10,149,122,192 → 8,033,624,052 bytes; 1.72 GB hosted check install and 5.72 GB scratch outside the project removed.
+  - C: free 290,636,931,072 bytes.
+  - All debug report history preserved.
+- **SESSION HANDOFF: STOP.** Awaiting Dan's review of 0.76 (Free Roam World, the not-carried list and the visible culvert below, the storms, the garage). The queued 0.77 round below starts only when Dan starts it. A documentation-only delivery commit follows; playable source remains `03696d00`.
+
 
 ### Results (2026-10-04, Claude Code)
 
