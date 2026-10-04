@@ -1,0 +1,10 @@
+Free Roam in FreeRoamWorld, 3840x2160, vsync 1, frame cap 60
+0.77 cameras running, Trailer Mode off: mean 429.05 ms, median 432.16 ms, 95th 893.01 ms over 360 frames
+0.77 cameras switched off: mean 219.54 ms, median 204.60 ms, 95th 525.12 ms over 360 frames
+0.77 cameras running, Trailer Mode off: mean 36.97 ms, median 26.30 ms, 95th 92.26 ms over 360 frames
+0.77 cameras switched off: mean 36.69 ms, median 24.90 ms, 95th 105.47 ms over 360 frames
+Mode off vs components off: 233.01 ms vs 128.12 ms (+104.89 ms)
+day: look Day rain 0.0 snow 0.0; HUD canvas drawn False; screenshot key -> WoodstockRush_2026-10-04_17-54-38-420.png 3840x2160 (window 3840x2160) 2,906,151 bytes
+night-rain: look Night Rain rain 1.0 snow 0.0; HUD canvas drawn False; screenshot key -> WoodstockRush_2026-10-04_17-54-46-658.png 3840x2160 (window 3840x2160) 1,350,586 bytes
+dusk-snow: look Dusk Snow rain 0.0 snow 1.0; HUD canvas drawn False; screenshot key -> WoodstockRush_2026-10-04_17-54-54-615.png 3840x2160 (window 3840x2160) 1,561,453 bytes
+done

@@ -1,0 +1,114 @@
+---- views:moto
+PASS default view Chase (moto)
+PASS moto Chase (day): camera (319.4, 22.1, 504.6), 7.8 m from the vehicle, inside geometry False, ground below 5.1 m, clear view True, fov 65, near 0.10 -> view-moto-Chase-day.png
+PASS moto FarChase (day): camera (318.9, 36.5, 458.8), 11.4 m from the vehicle, inside geometry False, ground below 7.9 m, clear view True, fov 65, near 0.10; 11.4 m back (chase offset 7.2 m) -> view-moto-FarChase-day.png
+PASS moto FirstPerson (day): camera (318.6, 46.9, 399.8), 1.3 m from the vehicle, inside geometry False, ground below 0.9 m, clear view True, fov 72, near 0.05; 0.045 m from the rider's eyes; head parts drawn 0; own parts in view 5 -> view-moto-FirstPerson-day.png
+PASS moto Front (day): camera (319.5, 59.9, 350.1), 1.4 m from the vehicle, inside geometry False, ground below 0.6 m, clear view True, fov 70, near 0.05; local (0.00, 0.98, 1.02) (front of the body at z 1.13); own parts in front of the camera 0 -> view-moto-Front-day.png
+PASS moto Chase (night-rain): camera (320.7, 74.7, 307.4), 7.8 m from the vehicle, inside geometry False, ground below 5.2 m, clear view True, fov 65, near 0.10; look Night Rain rain 1.00, lamps 1.00 -> view-moto-Chase-night-rain.png
+PASS moto FarChase (night-rain): camera (326.0, 85.7, 261.3), 11.5 m from the vehicle, inside geometry False, ground below 6.4 m, clear view True, fov 65, near 0.10; 11.5 m back (chase offset 7.2 m); look Night Rain rain 1.00, lamps 1.00 -> view-moto-FarChase-night-rain.png
+PASS moto FirstPerson (night-rain): camera (348.5, 83.8, 204.8), 1.3 m from the vehicle, inside geometry False, ground below 0.9 m, clear view True, fov 72, near 0.05; 0.045 m from the rider's eyes; head parts drawn 0; own parts in view 6; look Night Rain rain 1.00, lamps 1.00 -> view-moto-FirstPerson-night-rain.png
+PASS moto Front (night-rain): camera (393.0, 77.6, 179.7), 1.4 m from the vehicle, inside geometry False, ground below 0.6 m, clear view True, fov 70, near 0.05; local (0.00, 0.98, 1.03) (front of the body at z 1.13); own parts in front of the camera 0; look Night Rain rain 1.00, lamps 1.00 -> view-moto-Front-night-rain.png
+---- views:atv
+PASS default view Chase (atv)
+PASS atv Chase (day): camera (319.3, 22.7, 503.2), 8.1 m from the vehicle, inside geometry False, ground below 5.3 m, clear view True, fov 65, near 0.10 -> view-atv-Chase-day.png
+PASS atv FarChase (day): camera (318.9, 37.0, 458.5), 11.9 m from the vehicle, inside geometry False, ground below 8.4 m, clear view True, fov 65, near 0.10; 11.9 m back (chase offset 7.5 m) -> view-atv-FarChase-day.png
+PASS atv FirstPerson (day): camera (318.6, 47.0, 399.4), 1.3 m from the vehicle, inside geometry False, ground below 1.0 m, clear view True, fov 72, near 0.05; 0.045 m from the rider's eyes; head parts drawn 0; own parts in view 1 -> view-atv-FirstPerson-day.png
+PASS atv Front (day): camera (319.5, 60.0, 349.6), 1.4 m from the vehicle, inside geometry False, ground below 0.6 m, clear view True, fov 70, near 0.05; local (0.00, 0.92, 1.07) (front of the body at z 1.18); own parts in front of the camera 0 -> view-atv-Front-day.png
+PASS atv Chase (night-rain): camera (320.7, 75.0, 307.5), 8.1 m from the vehicle, inside geometry False, ground below 5.5 m, clear view True, fov 65, near 0.10; look Night Rain rain 1.00, lamps 1.00 -> view-atv-Chase-night-rain.png
+PASS atv FarChase (night-rain): camera (325.9, 86.0, 261.6), 12.0 m from the vehicle, inside geometry False, ground below 6.8 m, clear view True, fov 65, near 0.10; 12.0 m back (chase offset 7.5 m); look Night Rain rain 1.00, lamps 1.00 -> view-atv-FarChase-night-rain.png
+PASS atv FirstPerson (night-rain): camera (348.8, 83.8, 204.4), 1.3 m from the vehicle, inside geometry False, ground below 1.0 m, clear view True, fov 72, near 0.05; 0.045 m from the rider's eyes; head parts drawn 0; own parts in view 5; look Night Rain rain 1.00, lamps 1.00 -> view-atv-FirstPerson-night-rain.png
+PASS atv Front (night-rain): camera (393.6, 77.5, 179.3), 1.4 m from the vehicle, inside geometry False, ground below 0.6 m, clear view True, fov 70, near 0.05; local (0.00, 0.92, 1.07) (front of the body at z 1.18); own parts in front of the camera 0; look Night Rain rain 1.00, lamps 1.00 -> view-atv-Front-night-rain.png
+---- views:original
+PASS default view Chase (original)
+PASS original Chase (day): camera (319.5, 22.3, 508.1), 8.9 m from the vehicle, inside geometry False, ground below 6.0 m, clear view True, fov 65, near 0.10 -> view-original-Chase-day.png
+PASS original FarChase (day): camera (318.9, 36.9, 462.8), 13.1 m from the vehicle, inside geometry False, ground below 9.4 m, clear view True, fov 65, near 0.10; 13.1 m back (chase offset 8.3 m) -> view-original-FarChase-day.png
+PASS original FirstPerson (day): camera (319.0, 45.7, 403.0), 0.9 m from the vehicle, inside geometry False, ground below 0.5 m, clear view True, fov 72, near 0.05; 0.045 m from the rider's eyes; head parts drawn 0; own parts in view 17 -> view-original-FirstPerson-day.png
+PASS original Front (day): camera (319.4, 58.7, 352.4), 1.9 m from the vehicle, inside geometry False, ground below 1.1 m, clear view True, fov 70, near 0.05; local (0.00, 0.30, 1.91) (front of the body at z 1.85); own parts in front of the camera 0 -> view-original-Front-day.png
+PASS original Chase (night-rain): camera (320.4, 74.6, 312.2), 8.9 m from the vehicle, inside geometry False, ground below 6.2 m, clear view True, fov 65, near 0.10; look Night Rain rain 1.00, lamps 1.00 -> view-original-Chase-night-rain.png
+PASS original FarChase (night-rain): camera (324.8, 86.3, 266.9), 13.2 m from the vehicle, inside geometry False, ground below 7.9 m, clear view True, fov 65, near 0.10; 13.2 m back (chase offset 8.3 m); look Night Rain rain 1.00, lamps 1.00 -> view-original-FarChase-night-rain.png
+PASS original FirstPerson (night-rain): camera (346.1, 83.6, 208.3), 0.9 m from the vehicle, inside geometry False, ground below 0.5 m, clear view True, fov 72, near 0.05; 0.045 m from the rider's eyes; head parts drawn 0; own parts in view 18; look Night Rain rain 1.00, lamps 1.00 -> view-original-FirstPerson-night-rain.png
+PASS original Front (night-rain): camera (389.7, 77.3, 181.8), 1.9 m from the vehicle, inside geometry False, ground below 1.0 m, clear view True, fov 70, near 0.05; local (0.00, 0.30, 1.91) (front of the body at z 1.85); own parts in front of the camera 0; look Night Rain rain 1.00, lamps 1.00 -> view-original-Front-night-rain.png
+---- views:tourer
+PASS default view Chase (tourer)
+PASS tourer Chase (day): camera (319.4, 22.9, 506.9), 9.6 m from the vehicle, inside geometry False, ground below 6.4 m, clear view True, fov 65, near 0.10 -> view-tourer-Chase-day.png
+PASS tourer FarChase (day): camera (318.9, 37.4, 463.3), 14.2 m from the vehicle, inside geometry False, ground below 10.0 m, clear view True, fov 65, near 0.10; 14.2 m back (chase offset 9.0 m) -> view-tourer-FarChase-day.png
+PASS tourer FirstPerson (day): camera (319.0, 46.0, 402.2), 1.0 m from the vehicle, inside geometry False, ground below 0.5 m, clear view True, fov 72, near 0.05; 0.045 m from the rider's eyes; head parts drawn 0; own parts in view 15 -> view-tourer-FirstPerson-day.png
+PASS tourer Front (day): camera (319.4, 59.0, 351.6), 2.3 m from the vehicle, inside geometry False, ground below 1.1 m, clear view True, fov 70, near 0.05; local (0.00, 0.30, 2.31) (front of the body at z 2.25); own parts in front of the camera 0 -> view-tourer-Front-day.png
+PASS tourer Chase (night-rain): camera (320.4, 74.8, 312.8), 9.6 m from the vehicle, inside geometry False, ground below 6.6 m, clear view True, fov 65, near 0.10; look Night Rain rain 1.00, lamps 1.00 -> view-tourer-Chase-night-rain.png
+PASS tourer FarChase (night-rain): camera (324.5, 86.6, 267.8), 14.3 m from the vehicle, inside geometry False, ground below 8.4 m, clear view True, fov 65, near 0.10; 14.3 m back (chase offset 9.0 m); look Night Rain rain 1.00, lamps 1.00 -> view-tourer-FarChase-night-rain.png
+PASS tourer FirstPerson (night-rain): camera (346.0, 83.6, 208.5), 1.0 m from the vehicle, inside geometry False, ground below 0.4 m, clear view True, fov 72, near 0.05; 0.045 m from the rider's eyes; head parts drawn 0; own parts in view 14; look Night Rain rain 1.00, lamps 1.00 -> view-tourer-FirstPerson-night-rain.png
+PASS tourer Front (night-rain): camera (390.1, 77.3, 181.6), 2.3 m from the vehicle, inside geometry False, ground below 1.0 m, clear view True, fov 70, near 0.05; local (0.00, 0.30, 2.31) (front of the body at z 2.25); own parts in front of the camera 0; look Night Rain rain 1.00, lamps 1.00 -> view-tourer-Front-night-rain.png
+---- raceviews:StreetLoopGreybox:moto
+PASS race StreetLoopGreybox night/rain moto Chase: camera (317.5, 60.7, 360.8), 11.3 m from the vehicle, inside geometry False, ground below 5.3 m, clear view True, fov 65, near 0.10; look Night Rain rain 1.0, lamps 1.00; records eligible True -> race-view-moto-Chase-night-rain.png
+PASS race StreetLoopGreybox night/rain moto FarChase: camera (326.2, 86.6, 251.7), 15.7 m from the vehicle, inside geometry False, ground below 6.2 m, clear view True, fov 65, near 0.10; look Night Rain rain 1.0, lamps 1.00; records eligible True -> race-view-moto-FarChase-night-rain.png
+PASS race StreetLoopGreybox night/rain moto FirstPerson: camera (413.9, 79.0, 162.0), 1.2 m from the vehicle, inside geometry False, ground below 0.8 m, clear view True, fov 72, near 0.05; 0.088 m from the eyes, head parts drawn 0; look Night Rain rain 1.0, lamps 1.00; records eligible True -> race-view-moto-FirstPerson-night-rain.png
+PASS race StreetLoopGreybox night/rain moto Front: camera (467.2, 81.7, 62.1), 1.5 m from the vehicle, inside geometry False, ground below 0.7 m, clear view True, fov 70, near 0.05; local (0.00, 1.06, 1.01); look Night Rain rain 1.0, lamps 1.00; records eligible True -> race-view-moto-Front-night-rain.png
+---- raceviews:StreetLoopGreybox:atv
+PASS race StreetLoopGreybox night/rain atv Chase: camera (317.4, 59.7, 365.6), 11.6 m from the vehicle, inside geometry False, ground below 5.6 m, clear view True, fov 65, near 0.10; look Night Rain rain 1.0, lamps 1.00; records eligible True -> race-view-atv-Chase-night-rain.png
+PASS race StreetLoopGreybox night/rain atv FarChase: camera (324.7, 86.4, 258.0), 16.0 m from the vehicle, inside geometry False, ground below 6.8 m, clear view True, fov 65, near 0.10; look Night Rain rain 1.0, lamps 1.00; records eligible True -> race-view-atv-FarChase-night-rain.png
+PASS race StreetLoopGreybox night/rain atv FirstPerson: camera (402.1, 77.7, 171.3), 1.3 m from the vehicle, inside geometry False, ground below 0.9 m, clear view True, fov 72, near 0.05; 0.049 m from the eyes, head parts drawn 0; look Night Rain rain 1.0, lamps 1.00; records eligible True -> race-view-atv-FirstPerson-night-rain.png
+PASS race StreetLoopGreybox night/rain atv Front: camera (459.7, 86.6, 88.6), 1.5 m from the vehicle, inside geometry False, ground below 0.7 m, clear view True, fov 70, near 0.05; local (0.00, 1.00, 1.07); look Night Rain rain 1.0, lamps 1.00; records eligible True -> race-view-atv-Front-night-rain.png
+---- raceviews:StreetLoopGreybox:original
+PASS race StreetLoopGreybox night/rain original Chase: camera (317.1, 56.9, 379.0), 12.3 m from the vehicle, inside geometry False, ground below 6.3 m, clear view True, fov 65, near 0.10; look Night Rain rain 1.0, lamps 1.00; records eligible True -> race-view-original-Chase-night-rain.png
+PASS race StreetLoopGreybox night/rain original FarChase: camera (321.8, 85.4, 273.2), 16.7 m from the vehicle, inside geometry False, ground below 8.2 m, clear view True, fov 65, near 0.10; look Night Rain rain 1.0, lamps 1.00; records eligible True -> race-view-original-FarChase-night-rain.png
+PASS race StreetLoopGreybox night/rain original FirstPerson: camera (389.0, 77.8, 179.7), 1.0 m from the vehicle, inside geometry False, ground below 0.6 m, clear view True, fov 72, near 0.05; 0.087 m from the eyes, head parts drawn 0; look Night Rain rain 1.0, lamps 1.00; records eligible True -> race-view-original-FirstPerson-night-rain.png
+PASS race StreetLoopGreybox night/rain original Front: camera (458.9, 86.4, 90.9), 1.9 m from the vehicle, inside geometry False, ground below 0.1 m, clear view True, fov 70, near 0.05; local (0.00, 0.38, 1.90); look Night Rain rain 1.0, lamps 1.00; records eligible True -> race-view-original-Front-night-rain.png
+---- raceviews:StreetLoopGreybox:tourer
+PASS race StreetLoopGreybox night/rain tourer Chase: camera (317.0, 56.0, 384.0), 13.0 m from the vehicle, inside geometry False, ground below 6.7 m, clear view True, fov 65, near 0.10; look Night Rain rain 1.0, lamps 1.00; records eligible True -> race-view-tourer-Chase-night-rain.png
+PASS race StreetLoopGreybox night/rain tourer FarChase: camera (322.1, 86.2, 270.9), 17.4 m from the vehicle, inside geometry False, ground below 8.6 m, clear view True, fov 65, near 0.10; look Night Rain rain 1.0, lamps 1.00; records eligible True -> race-view-tourer-FarChase-night-rain.png
+PASS race StreetLoopGreybox night/rain tourer FirstPerson: camera (393.0, 77.5, 178.0), 1.0 m from the vehicle, inside geometry False, ground below 0.5 m, clear view True, fov 72, near 0.05; 0.065 m from the eyes, head parts drawn 0; look Night Rain rain 1.0, lamps 1.00; records eligible True -> race-view-tourer-FirstPerson-night-rain.png
+PASS race StreetLoopGreybox night/rain tourer Front: camera (460.1, 86.0, 87.9), 2.3 m from the vehicle, inside geometry False, ground below 1.3 m, clear view True, fov 70, near 0.05; local (0.00, 0.38, 2.30); look Night Rain rain 1.0, lamps 1.00; records eligible True -> race-view-tourer-Front-night-rain.png
+---- trailer:moto
+PASS Trailer Mode on: HUD canvas drawn False, debug panel drawn False, first-time controls hint True
+PASS hint gone after its time; nothing else drawn
+PASS Free Roam, trailer camera Chase (on screen Chase): camera (319.3, 21.8, 503.3), 8.6 m from the vehicle, inside geometry False, ground below 4.5 m, clear view True, fov 71, near 0.10 -> roam-trailer-0-Chase.png
+PASS Free Roam, trailer camera Orbit (on screen Orbit): camera (324.7, 35.3, 445.7), 6.9 m from the vehicle, inside geometry False, ground below 3.1 m, clear view True, fov 65, near 0.10 -> roam-trailer-1-Orbit.png
+PASS Free Roam, trailer camera Side tracking (on screen Side tracking): camera (314.5, 48.7, 391.1), 4.3 m from the vehicle, inside geometry False, ground below 1.3 m, clear view True, fov 65, near 0.10 -> roam-trailer-2-Side-tracking.png
+PASS Free Roam, trailer camera Front (on screen Front): camera (319.8, 62.9, 334.5), 4.9 m from the vehicle, inside geometry False, ground below 0.4 m, clear view True, fov 65, near 0.10 -> roam-trailer-3-Front.png
+PASS Free Roam, trailer camera Fixed (on screen Fixed): camera (312.3, 67.8, 318.9), 33.9 m from the vehicle, inside geometry False, ground below 1.3 m, clear view True, fov 57, near 0.10 -> roam-trailer-4-Fixed.png
+PASS Free Roam, trailer camera Flyover (on screen Flyover): camera (324.7, 97.9, 251.1), 24.0 m from the vehicle, inside geometry False, ground below 17.4 m, clear view True, fov 60, near 0.10 -> roam-trailer-5-Flyover.png
+PASS Free Roam, trailer camera Free camera (on screen Free camera): camera (327.1, 89.0, 228.6), 23.0 m from the vehicle, inside geometry False, ground below 7.1 m, clear view True, fov 65, near 0.10 -> roam-trailer-6-Free-camera.png
+PASS Free Roam, trailer camera Auto (on screen Auto: Chase): camera (379.1, 79.8, 186.5), 8.8 m from the vehicle, inside geometry False, ground below 2.1 m, clear view True, fov 71, near 0.10 -> roam-trailer-7-Auto.png
+PASS Free Roam, trailer camera First person (on screen First person): camera (426.5, 82.1, 146.1), 1.3 m from the vehicle, inside geometry False, ground below 0.9 m, clear view True, fov 72, near 0.05 -> roam-trailer-8-First-person.png
+PASS free camera flown straight down for 3 s at 45 m/s stops at the ground: camera (426.5, 80.7, 146.1), 11.7 m from the vehicle, inside geometry False, ground below 0.4 m, clear view True, fov 65, near 0.10
+PASS vehicle controls off while the free camera is used
+PASS vehicle controls back after leaving the free camera
+PASS H: HUD shown again
+PASS H again: hidden
+PASS waypoint beacon hidden in Trailer Mode (2 lines; waypoint still active True)
+PASS G: beacon shown
+PASS screenshot key: C:/Users/danmo/AppData/LocalLow/DefaultCompany/Racer\Screenshots\WoodstockRush_2026-10-04_17-11-31-775.png 640x480 (screen 640x480)
+PASS 4K capture day (Day, rain 0.0 snow 0.0): HUD drawn False, debug drawn False -> 4k-hud-hidden-day.png
+PASS 4K capture night-rain (Night Rain, rain 1.0 snow 0.0): HUD drawn False, debug drawn False -> 4k-hud-hidden-night-rain.png
+PASS 4K capture dusk-snow (Dusk Snow, rain 0.0 snow 1.0): HUD drawn False, debug drawn False -> 4k-hud-hidden-dusk-snow.png
+PASS Trailer Mode off: HUD and debug panel back, conditions cleared, controls on
+---- racetrailer:StreetLoopGreybox:atv
+PASS race started in Trailer Mode: records disabled True (TRAILER MODE), HUD drawn False
+PASS race arrows and gates hidden in Trailer Mode: 80 of 80 renderers
+PASS G: arrows and gates shown again (80 of 80)
+PASS race, trailer camera Chase: camera (317.2, 24.7, 492.2), 14.8 m from the vehicle, inside geometry False, ground below 4.8 m, clear view True, fov 71, near 0.10 -> race-trailer-StreetLoopGreybox-0-Chase.png
+PASS race, trailer camera Orbit: camera (321.4, 51.0, 391.1), 9.2 m from the vehicle, inside geometry False, ground below 3.7 m, clear view True, fov 65, near 0.10 -> race-trailer-StreetLoopGreybox-1-Orbit.png
+PASS race, trailer camera Side tracking: camera (315.9, 75.1, 289.6), 5.7 m from the vehicle, inside geometry False, ground below 1.4 m, clear view True, fov 65, near 0.10 -> race-trailer-StreetLoopGreybox-2-Side-tracking.png
+PASS race, trailer camera Front: camera (356.3, 83.9, 192.6), 2.9 m from the vehicle, inside geometry False, ground below 2.7 m, clear view True, fov 65, near 0.10 -> race-trailer-StreetLoopGreybox-3-Front.png
+PASS race, trailer camera Fixed: camera (407.0, 80.0, 143.9), 16.7 m from the vehicle, inside geometry False, ground below 1.8 m, clear view True, fov 57, near 0.10 -> race-trailer-StreetLoopGreybox-4-Fixed.png
+PASS race, trailer camera Flyover: camera (450.5, 100.2, 91.4), 39.2 m from the vehicle, inside geometry False, ground below 14.8 m, clear view True, fov 60, near 0.10 -> race-trailer-StreetLoopGreybox-5-Flyover.png
+PASS race, trailer camera Free camera: camera (450.5, 100.2, 91.4), 109.2 m from the vehicle, inside geometry False, ground below 14.8 m, clear view True, fov 65, near 0.10 -> race-trailer-StreetLoopGreybox-6-Free-camera.png
+PASS race, trailer camera First person: camera (506.6, 87.3, -118.8), 1.4 m from the vehicle, inside geometry False, ground below 1.1 m, clear view True, fov 72, near 0.05 -> race-trailer-StreetLoopGreybox-8-First-person.png
+race, Auto: 5 cuts in 25 s, last 'time -> Chase'
+PASS race in Trailer Mode StreetLoopGreybox atv: finished True in 02:19.909; best race time before 0.00, after 0.00 (unchanged = no record); results say 'TRAILER MODE / competitive records disabled'
+---- conditions
+conditions set: 10:00  · Rain · Moon first quarter; look Day Rain, rain 1.00 snow 0.00
+PASS lightning now: strike after 0.33 s (weather Rain)
+PASS clock runs (10.028 -> 10.078 in 3 s) and pauses (10.078 -> 10.078)
+PASS moon phase cycles: First quarter -> Waxing gibbous
+PASS saved Free Roam clock untouched while filming: 1 23.818 (was 1 23.818)
+PASS pause menu during Trailer Mode: settings.json unchanged
+PASS Trailer Mode off: settings.json byte-identical (1958 bytes) after saving; clock 1 23.818, weather Clear, look Night (was Night)
+---- fpjump:atv
+PASS first person through the Summit Homeward giant jump (atv): landed, take-off 41.1 m/s, airtime 7.74 s, flight 223.5 m; camera stayed within 0.046 m of the eyes; camera turn rate max 218 deg/s (vehicle 222 deg/s)
+PASS wipeout in first person: camera eased out to the chase view (8.6 m from the eyes); camera turn rate max 49 deg/s (chase camera 22, tumbling vehicle 165)
+PASS after the reset the view is first person again (0.045 m from the eyes, upright 1.00)
+---- persist
+PASS settings.json read afresh: cameraView 2 (First person)
+PASS after loading another scene the view is FirstPerson
+done, failures 0

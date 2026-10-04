@@ -40,6 +40,7 @@ details.gameObject.SetActive(true);
                 ClearCore("DETAILS",helpCopy);details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=Mathf.Max(100,details.preferredHeight+20);
                 Row(0,"back","Back",()=>BackPage());return;
             }
+            if(page=="trailer"){RenderTrailer();return;}
             if(RenderLater())return;
             if(flow.State==RaceFlow.Stage.Ready)
             {
@@ -69,7 +70,8 @@ details.gameObject.SetActive(true);
                     ClearCore("WOODSTOCK RUSH","");
                     Row(0,"race","RACE",()=>{if(flow.InRoamWorld)flow.OpenRaceSetupFromRoam();else Navigate("race");});Row(1,"roam","FREE ROAM",()=>Navigate("roam"));Row(2,"garage","GARAGE",flow.OpenGarage);
                     Row(3,"records","RECORDS",flow.OpenBoards);Row(4,"exploration","EXPLORATION",flow.OpenExploration);Row(5,"settings","SETTINGS",flow.OpenSettings);Row(6,"quit","QUIT GAME",ConfirmQuit);
-                    if(flow.RoamMenu){Row(7,"resume","RESUME DRIVING",flow.Resume);buttons[7].transform.SetSiblingIndex(buttons[0].transform.GetSiblingIndex());}
+                    if(flow.RoamMenu){Row(7,"resume","RESUME DRIVING",flow.Resume);buttons[7].transform.SetSiblingIndex(buttons[0].transform.GetSiblingIndex());
+                        Row(8,"trailer","TRAILER MODE",()=>Navigate("trailer"));buttons[8].transform.SetSiblingIndex(buttons[7].transform.GetSiblingIndex()+1);}
                 }
             }
             else if(flow.State==RaceFlow.Stage.Paused)
@@ -85,6 +87,7 @@ details.gameObject.SetActive(true);
                 Row(0,"resume","RESUME",flow.Resume);
                 if(flow.Race.FreeRoam){Row(1,"map","MAP",()=>flow.GetComponent<ExplorationMap>()?.Open());Row(2,"activities","ACTIVITIES",()=>Navigate("activities"));}
                 else Row(1,"restart","RESTART RACE",()=>Confirm("RESTART RACE?","This restarts the current event and clears its progress.",flow.StartRace));
+                Row(flow.Race.FreeRoam?10:2,"trailer","TRAILER MODE",()=>Navigate("trailer"));
                 Row(3,"settings","SETTINGS",flow.OpenSettings);Row(4,"return",flow.Race.FreeRoam?"RETURN TO MENU":"END RACE / RETURN TO MENU",()=>Confirm(flow.Race.FreeRoam?"RETURN TO MENU?":"END RACE AND RETURN TO MENU?",RacePlaylists.Active!=null?"The active playlist and championship progress will end. Saved playlists are kept.":"The current event will end.",flow.QuitRace));
                 Row(5,"records","Records",flow.OpenBoards);Row(6,"exploration","Exploration",flow.OpenExploration);
                 if(!flow.Race.FreeRoam)Row(7,"penalties","Penalty Details",()=>Navigate("penalties"));
@@ -203,6 +206,8 @@ details.gameObject.SetActive(true);
             Binding("Menus / Select",submit);Binding("Menus / Back",cancelAction);Binding("Menus / Navigate",uiModule.move.action);
             Binding("Menus / Previous category",previousTab);Binding("Menus / Next category",tabsAction);
             Binding("Pause / Resume",flow.PauseAction);
+            if(CameraViews.Current)Binding("Camera / Change view",CameraViews.Current.CycleAction);
+            Binding("Trailer Mode / On or off (or pause menu)",null,"<Gamepad>/start","<Keyboard>/f8");
             foreach(var action in flow.GetComponent<ExplorationMap>().Bindings)Binding("Map / "+action.name,action);
             Binding("Radio / Previous",null,"<Gamepad>/dpad/left","<Keyboard>/leftBracket");Binding("Radio / Next",null,"<Gamepad>/dpad/right","<Keyboard>/rightBracket");Binding("Radio / Current song",null,"<Gamepad>/dpad/up","<Keyboard>/i");Binding("Radio / Channel or Off",null,"<Gamepad>/dpad/down","<Keyboard>/n");
             Row(row,"back","Back",flow.CloseSettings);

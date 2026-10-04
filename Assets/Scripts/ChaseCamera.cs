@@ -6,6 +6,8 @@ namespace Racer
     {
         public Transform target;
         public Vector3 offset = new(0, 3.6f, -7.5f);
+        // 0.77: Far chase and the Trailer Mode chase scale the profile offset; (1, 1, 1) is the normal chase camera.
+        public Vector3 offsetScale = Vector3.one;
         public float positionSmoothTime = 0.16f;
         public float headingResponse = 6;
         public float lookAhead = 3;
@@ -14,6 +16,13 @@ namespace Racer
         Vector3 velocity;
         Quaternion heading;
         VehicleRespawn respawn;
+        // 0.77: the chase pose is kept here, not read back from the camera, so it keeps tracking while another view
+        // (CameraViews) places the camera, and that view can ease back to it.
+        Vector3 position;
+        Quaternion rotation = Quaternion.identity;
+        public Vector3 ChasePosition => position;
+        public Quaternion ChaseRotation => rotation;
+        Vector3 Offset => Vector3.Scale(offset, offsetScale);
         void OnEnable()
         {
             if (!target) return;
@@ -26,25 +35,29 @@ namespace Racer
         {
             if (!target) return;
             heading = Quaternion.Euler(0, target.eulerAngles.y, 0); velocity = Vector3.zero;
-            transform.position = target.position + heading * offset;
-            Aim();
+            position = target.position + heading * Offset;
+            Aim(); transform.SetPositionAndRotation(position, rotation);
         }
         void LateUpdate()
         {
             if (!target) return;
             heading = Quaternion.Slerp(heading, Quaternion.Euler(0, target.eulerAngles.y, 0), 1 - Mathf.Exp(-headingResponse * Time.deltaTime));
-            Vector3 desired = target.position + heading * offset;
+            Vector3 desired = target.position + heading * Offset;
             Vector3 pivot = target.position + Vector3.up;
             Vector3 direction = desired - pivot;
             if (Physics.SphereCast(pivot, collisionRadius, direction.normalized, out RaycastHit hit, direction.magnitude, obstructionMask, QueryTriggerInteraction.Ignore))
                 desired = pivot + direction.normalized * Mathf.Max(0, hit.distance - 0.1f);
-            Vector3 smoothed = Vector3.SmoothDamp(transform.position, desired, ref velocity, positionSmoothTime);
+            Vector3 smoothed = Vector3.SmoothDamp(position, desired, ref velocity, positionSmoothTime);
             // Clip the smoothed path too, so smoothing cannot carry the camera through a wall.
             direction = smoothed - pivot;
             if (Physics.SphereCast(pivot, collisionRadius, direction.normalized, out hit, direction.magnitude, obstructionMask, QueryTriggerInteraction.Ignore))
                 smoothed = pivot + direction.normalized * Mathf.Max(0, hit.distance - 0.1f);
-            transform.position = smoothed; Aim();
+            position = smoothed; Aim(); transform.SetPositionAndRotation(position, rotation);
         }
-        void Aim() => transform.LookAt(target.position + Vector3.up * 0.7f + heading * Vector3.forward * lookAhead, Vector3.up);
+        void Aim()
+        {
+            var look = target.position + Vector3.up * 0.7f + heading * Vector3.forward * lookAhead - position;
+            if (look.sqrMagnitude > 1e-6f) rotation = Quaternion.LookRotation(look, Vector3.up);
+        }
     }
 }

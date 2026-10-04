@@ -40,15 +40,17 @@ namespace Racer
         public bool NewLapRecord { get; private set; }
         public bool NewRaceRecord { get; private set; }
         public bool DebugMovementUsed { get; private set; }
-        public void MarkDebugMovement()
+        // 0.77: Trailer Mode also ends a race's record eligibility; the notice and results name what did it.
+        public string DebugMovementReason { get; private set; } = "DEBUG RUN";
+        public void MarkDebugMovement(string reason = "DEBUG RUN")
         {
             if(!Race.FreeRoam&&!TrackBrowsingLocked)return;
             if (DebugMovementUsed) return;
-            DebugMovementUsed = true;
+            DebugMovementUsed = true; DebugMovementReason = reason;
             if(Race.FreeRoam)return;
             Boards?.RevokeAttempt(); Save?.RevokeAttempt(); Ghost?.RejectDebugRun();
             LapRank = RaceRank = 0; NewLapRecord = NewRaceRecord = false;
-            Notify("DEBUG RUN / competitive records disabled until restart", 8);
+            Notify(reason + " / competitive records disabled until restart", 8);
         }
         public bool MenuVisible => State != Stage.Countdown && State != Stage.Racing;
         Stage pausedStage, settingsReturn;
@@ -113,6 +115,7 @@ namespace Racer
             back.AddBinding("<Keyboard>/escape"); back.AddBinding("<Gamepad>/buttonEast"); back.Enable();
             menus = gameObject.AddComponent<RaceMenus>(); menus.Initialize(this);
             Activities=gameObject.AddComponent<ArcadeActivities>();Activities.Initialize(Race,root);
+            CameraViews.Attach(this); TrailerMode.Attach(this);
             Ghost=gameObject.AddComponent<CleanLapGhost>();Ghost.Initialize(Race,root);
             GetComponent<ExplorationCollection>()?.Initialize(Race,root);
             GetComponent<ExplorationMap>()?.Initialize(Race,root);
@@ -234,7 +237,7 @@ namespace Racer
         public void SelectMountain(bool reverse){if(State!=Stage.Courses)return;Save.SaveSettings();Time.timeScale=1;AudioListener.pause=false;UnityEngine.SceneManagement.SceneManager.LoadScene(reverse?"MountainLoopReverse":"MountainLoop");}
         public void SelectBackyardForward(){if(State!=Stage.Courses)return;Save.SaveSettings();Time.timeScale=1;AudioListener.pause=false;UnityEngine.SceneManagement.SceneManager.LoadScene("DansBackyardForward");}
         public readonly FinishPresentation FinishCards=new();
-        public string FinishSummary=>DebugMovementUsed?"DEBUG RUN / competitive records disabled":FinishCards.Summary;
+        public string FinishSummary=>DebugMovementUsed?DebugMovementReason+" / competitive records disabled":FinishCards.Summary;
         public bool SetupFromResults=>callers.Count>0&&callers.Peek()==Stage.Results;
         public void OpenResultsSetup(){PushMenu(Stage.Ready);menus.OpenSetup();}
         public void OpenPlaylists(){PushMenu(Stage.Playlists);}

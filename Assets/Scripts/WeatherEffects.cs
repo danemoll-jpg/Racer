@@ -170,7 +170,7 @@ namespace Racer
             if (look.Mode != "Menu")
             {
                 float phase = look.MoonPhase, mElev, mAz;
-                if (look.Mode == "Free Roam") (mElev, mAz) = WorldLook.Moon(look.Hour, phase); else { mElev = p.sunElevation; mAz = p.sunAzimuth; }
+                if (look.Mode == "Free Roam") (mElev, mAz) = WorldLook.Moon(look.LookHour, phase); else { mElev = p.sunElevation; mAz = p.sunAzimuth; }
                 if (TestMoonPhase >= 0) { phase = TestMoonPhase; mElev = TestMoonElevation; mAz = TestMoonAzimuth; }
                 float dark = Mathf.Clamp01(p.stars * 1.2f) * (1 - Mathf.Max(p.rain, p.snowfall));
                 moon.Show(cam, mElev, mAz, phase, dark * Mathf.SmoothStep(0, 1, Mathf.InverseLerp(-1, 4, mElev)));
@@ -190,6 +190,7 @@ namespace Racer
             Duck = Mathf.MoveTowards(Duck, now < duckUntil ? 1 : 0, Time.deltaTime * (now < duckUntil ? 6 : .6f));
             if (!storm) { nextStrike = -1; thunderAt = -1; nextRumble = -1; duckUntil = -1; if (FlashLevel > 0) Flash(0, look); if (thunderAudio.isPlaying && p.rain <= .5f) thunderAudio.Stop(); if (rumbleAudio.isPlaying && p.rain <= .5f) rumbleAudio.Stop(); return; }
             if (nextStrike < 0 || HoldStrikes && nextStrike < now + 5) nextStrike = now + Random.Range(4f, 12f);
+            if (strikeRequested) { strikeRequested = false; nextStrike = now; }
             if (nextRumble < 0) nextRumble = now + Random.Range(6f, 14f);
             float volume = flow && flow.Save != null ? flow.Save.Settings.ambience : 1;
             if (now >= nextStrike)
@@ -246,6 +247,9 @@ namespace Racer
             float f = Pulse(age, 0, .16f); if (pulses > 1) f = Mathf.Max(f, .75f * Pulse(age, .26f, .14f));
             return Mathf.Max(f, age < .1f ? 0 : .3f * Mathf.Exp(-(age - .1f) / .3f));
         }
+        // 0.77 Trailer Mode: a strike at once (kept until a storm is running, so it also works right after Rain is chosen).
+        bool strikeRequested;
+        public void StrikeNow() => strikeRequested = true;
         void Flash(float f, WorldLook look) { FlashLevel = f; SkyClouds.Flash = f; look.Lightning(f); }
         // Thunder made at start-up (no audio asset). Near: a sharp crack, a ripping tear and a full rolling rumble with deep
         // swells. Far: no crack, a slower onset and a long, low, softer roll.

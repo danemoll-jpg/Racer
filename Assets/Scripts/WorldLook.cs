@@ -179,7 +179,14 @@ namespace Racer
         // 0.74: the Free Roam calendar (1-30, advancing at midnight) and the moon (0 new .. 0.5 full .. 1 new again).
         public const int CalendarDays = 30;
         public int Day { get; private set; } = 1;
-        public float MoonPhase => Mode == "Free Roam" ? PhaseOf(Day, Hour) : .5f;// races: a fixed full moon
+        public float MoonPhase => Trailer != null && Mode == "Free Roam" ? Trailer.phase : Mode == "Free Roam" ? PhaseOf(Day, Hour) : .5f;// races: a fixed full moon
+        // 0.77 Trailer Mode conditions (Free Roam only): while set, the live cycle shows this hour, weather and moon phase. The
+        // saved Free Roam clock stands still and nothing is written to the settings; clearing it (Trailer Mode ends) leaves the
+        // saved clock, calendar and weather exactly as they were.
+        public sealed class TrailerConditions { public float hour; public Weather weather; public float phase; public bool paused; }
+        public TrailerConditions Trailer { get; set; }
+        // The hour the sky shows now (the Trailer Mode hour while one is set).
+        public float LookHour => Trailer != null && Mode == "Free Roam" ? Trailer.hour : Hour;
         public static float PhaseOf(int day, float hour) => Mathf.Repeat((day - 1 + hour / 24f) / CalendarDays, 1);
         public static float Illumination(float phase) => (1 - Mathf.Cos(phase * 2 * Mathf.PI)) * .5f;
         public string Clock => $"{Mathf.FloorToInt(Hour) % 24:00}:{Mathf.FloorToInt(Hour * 60) % 60:00}";
@@ -229,7 +236,12 @@ namespace Racer
             roamMenuSaved = roamMenu;
             Mode = stage == RaceFlow.Stage.Garage ? "Menu" : session;
             if (pinned != null) return;
-            if (Mode == "Free Roam")
+            if (Mode == "Free Roam" && Trailer != null)
+            {
+                if (stage == RaceFlow.Stage.Racing && !Trailer.paused) Trailer.hour = Mathf.Repeat(Trailer.hour + Time.deltaTime / 60f * FreeRoamHoursPerRealMinute, 24);
+                Apply(Cycle(Trailer.hour, Trailer.weather, Trailer.phase)); applied = "Trailer";
+            }
+            else if (Mode == "Free Roam")
             {
                 if (stage == RaceFlow.Stage.Racing)
                 {

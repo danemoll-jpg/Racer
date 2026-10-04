@@ -1,0 +1,64 @@
+---- trailer:moto
+PASS Trailer Mode on: HUD canvas drawn False, debug panel drawn False, first-time controls hint True
+PASS hint gone after its time; nothing else drawn
+PASS Free Roam, trailer camera Chase (on screen Chase): camera (319.3, 21.9, 503.1), 8.5 m from the vehicle, inside geometry False, ground below 4.5 m, clear view True, fov 71, near 0.10 -> roam-trailer-0-Chase.png
+PASS Free Roam, trailer camera Orbit (on screen Orbit): camera (324.7, 35.3, 445.9), 6.9 m from the vehicle, inside geometry False, ground below 3.1 m, clear view True, fov 65, near 0.10 -> roam-trailer-1-Orbit.png
+PASS Free Roam, trailer camera Side tracking (on screen Side tracking): camera (314.5, 48.5, 391.9), 4.3 m from the vehicle, inside geometry False, ground below 1.3 m, clear view True, fov 65, near 0.10 -> roam-trailer-2-Side-tracking.png
+PASS Free Roam, trailer camera Front (on screen Front): camera (319.7, 62.8, 334.9), 4.9 m from the vehicle, inside geometry False, ground below 0.5 m, clear view True, fov 65, near 0.10 -> roam-trailer-3-Front.png
+PASS Free Roam, trailer camera Fixed (on screen Fixed): camera (312.3, 68.1, 319.3), 33.9 m from the vehicle, inside geometry False, ground below 1.7 m, clear view True, fov 57, near 0.10 -> roam-trailer-4-Fixed.png
+PASS Free Roam, trailer camera Flyover (on screen Flyover): camera (328.8, 97.8, 253.3), 24.0 m from the vehicle, inside geometry False, ground below 17.5 m, clear view True, fov 60, near 0.10 -> roam-trailer-5-Flyover.png
+PASS Free Roam, trailer camera Free camera (on screen Free camera): camera (326.5, 89.0, 230.8), 25.6 m from the vehicle, inside geometry False, ground below 7.2 m, clear view True, fov 65, near 0.10 -> roam-trailer-6-Free-camera.png
+PASS Free Roam, trailer camera Auto (on screen Auto: Front): camera (393.5, 78.7, 180.0), 6.7 m from the vehicle, inside geometry False, ground below 2.6 m, clear view True, fov 65, near 0.10 -> roam-trailer-7-Auto.png
+PASS Free Roam, trailer camera First person (on screen First person): camera (427.0, 82.2, 145.5), 1.3 m from the vehicle, inside geometry False, ground below 0.9 m, clear view True, fov 72, near 0.05 -> roam-trailer-8-First-person.png
+PASS free camera flown straight down for 3 s at 45 m/s stops at the ground: camera (427.0, 80.8, 145.5), 11.8 m from the vehicle, inside geometry False, ground below 0.4 m, clear view True, fov 65, near 0.10
+PASS vehicle controls off while the free camera is used
+PASS vehicle controls back after leaving the free camera
+PASS H: HUD shown again
+PASS H again: hidden
+FAIL waypoint beacon hidden in Trailer Mode (2 lines; waypoint still active True)
+PASS G: beacon shown
+PASS screenshot key: C:/Users/danmo/AppData/LocalLow/DefaultCompany/Racer\Screenshots\WoodstockRush_2026-10-04_16-51-26-043.png 640x480 (screen 640x480)
+PASS 4K capture day (Day, rain 0.0 snow 0.0): HUD drawn False, debug drawn False -> 4k-hud-hidden-day.png
+PASS 4K capture night-rain (Night Rain, rain 1.0 snow 0.0): HUD drawn False, debug drawn False -> 4k-hud-hidden-night-rain.png
+PASS 4K capture dusk-snow (Dusk Snow, rain 0.0 snow 1.0): HUD drawn False, debug drawn False -> 4k-hud-hidden-dusk-snow.png
+PASS Trailer Mode off: HUD and debug panel back, conditions cleared, controls on
+---- auto:moto:70
+     0.0 s  Flyover          7.6 s  (start -> Flyover) rough
+     7.7 s  Orbit            5.7 s  (time -> Orbit)
+    13.3 s  Side tracking    5.3 s  (time -> Side tracking)
+    18.6 s  Orbit            7.0 s  (time -> Orbit)
+    25.6 s  First person     5.3 s  (time -> First person)
+    31.0 s  Side tracking    8.0 s  (time -> Side tracking)
+    39.0 s  Chase            5.3 s  (time -> Chase)
+    44.3 s  Side tracking    5.7 s  (time -> Side tracking)
+    50.0 s  Flyover          6.7 s  (time -> Flyover)
+    56.6 s  Fixed            6.3 s  (time -> Fixed)
+    63.0 s  Orbit            5.7 s  (rode past -> Orbit)
+    68.6 s  Side tracking    1.4 s  (time -> Side tracking)
+PASS Auto over 70 s: 12 shots; same camera twice in a row False; timed shots held 5.3-8.0 s; cut mid-air (not a take-off) False; shots used Flyover, Orbit, Side, FirstPerson, Chase, Fixed
+PASS hold: no cut in 10 s while held (Auto: Side tracking)
+PASS skip: cut at once to Auto: Fixed
+---- slowjump:moto
+PASS slow motion through the Summit Homeward jump (moto): landed; time scale down to 0.25, physics step 5.0 ms; flight 244.2 m, airtime 8.04 s (game time) vs 242.5 m / 8.00 s at normal speed; Auto at take-off: 'take-off -> Fixed', cuts during the flight after it 0; back to speed 1.00, step 20 ms
+PASS after Trailer Mode: time scale 1, physics step 20 ms
+---- fpjump:moto
+PASS first person through the Summit Homeward giant jump (moto): landed, take-off 43.0 m/s, airtime 8.00 s, flight 242.5 m; camera stayed within 0.046 m of the eyes; camera turn rate max 218 deg/s (vehicle 222 deg/s)
+PASS wipeout in first person: camera eased out to the chase view (8.3 m from the eyes); camera turn rate max 34 deg/s (chase camera 14, tumbling vehicle 178)
+PASS after the reset the view is first person again (0.045 m from the eyes, upright 1.00)
+---- race:StreetLoopGreybox:moto
+PASS race in first person StreetLoopGreybox moto: view FirstPerson, finished in 02:05.045, record saved 126.97 s (records eligible True), missed gates 0
+---- racetrailer:StreetLoopGreybox:atv
+PASS race started in Trailer Mode: records disabled True (TRAILER MODE), HUD drawn False
+FAIL race arrows hidden in Trailer Mode: 0 of 0
+PASS G: arrows shown again 0 of 0
+PASS race, trailer camera Chase: camera (317.3, 23.5, 497.2), 14.3 m from the vehicle, inside geometry False, ground below 4.7 m, clear view True, fov 71, near 0.10 -> race-trailer-StreetLoopGreybox-0-Chase.png
+PASS race, trailer camera Orbit: camera (321.6, 50.4, 393.2), 9.2 m from the vehicle, inside geometry False, ground below 3.6 m, clear view True, fov 65, near 0.10 -> race-trailer-StreetLoopGreybox-1-Orbit.png
+PASS race, trailer camera Side tracking: camera (315.8, 74.8, 290.7), 5.3 m from the vehicle, inside geometry False, ground below 1.4 m, clear view True, fov 65, near 0.10 -> race-trailer-StreetLoopGreybox-2-Side-tracking.png
+PASS race, trailer camera Front: camera (358.8, 83.7, 190.8), 3.0 m from the vehicle, inside geometry False, ground below 2.9 m, clear view True, fov 65, near 0.10 -> race-trailer-StreetLoopGreybox-3-Front.png
+PASS race, trailer camera Fixed: camera (423.0, 80.5, 158.9), 13.1 m from the vehicle, inside geometry False, ground below 2.0 m, clear view True, fov 57, near 0.10 -> race-trailer-StreetLoopGreybox-4-Fixed.png
+PASS race, trailer camera Flyover: camera (459.3, 100.0, 94.4), 40.3 m from the vehicle, inside geometry False, ground below 14.5 m, clear view True, fov 60, near 0.10 -> race-trailer-StreetLoopGreybox-5-Flyover.png
+PASS race, trailer camera Free camera: camera (459.3, 100.0, 94.4), 117.1 m from the vehicle, inside geometry False, ground below 14.5 m, clear view True, fov 65, near 0.10 -> race-trailer-StreetLoopGreybox-6-Free-camera.png
+PASS race, trailer camera First person: camera (509.1, 86.3, -123.7), 1.4 m from the vehicle, inside geometry False, ground below 1.1 m, clear view True, fov 72, near 0.05 -> race-trailer-StreetLoopGreybox-8-First-person.png
+race, Auto: 5 cuts in 25 s, last 'time -> Chase'
+PASS race in Trailer Mode StreetLoopGreybox atv: finished True in 02:19.847; best race time before 0.00, after 0.00 (unchanged = no record); results say 'TRAILER MODE / competitive records disabled'
+done, failures 2

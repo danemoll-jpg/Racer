@@ -268,7 +268,7 @@ namespace Racer
             if(picker!=null&&picker.IsCompleted){var path=picker.Result;picker=null;if(path!=null)SetFolder(path);}
             if(!Scanning&&flow.Save.Settings.radioOn&&loading==null&&!source.isPlaying&&library.Count>0&&Time.unscaledTime>=retryAt){retryAt=Time.unscaledTime+1;Next();}
             if(flow.State!=RaceFlow.Stage.Racing||MenuInput.Blocked||flow.GetComponent<ExplorationMap>()?.OwnsInput==true)return;
-            var k=Keyboard.current;var g=Gamepad.current;
+            var k=Keyboard.current;var g=TrailerMode.Active?null:Gamepad.current;// 0.77: the D-pad works the Trailer Mode cameras
             if(k?.rightBracketKey.wasPressedThisFrame==true||g?.dpad.right.wasPressedThisFrame==true)Next();
             else if(k?.leftBracketKey.wasPressedThisFrame==true||g?.dpad.left.wasPressedThisFrame==true)Previous();
             if(k?.iKey.wasPressedThisFrame==true||g?.dpad.up.wasPressedThisFrame==true)ShowSong();

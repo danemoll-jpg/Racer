@@ -43,6 +43,8 @@ namespace Racer
             // resumed next time (a missing value is day 1, 08:00; out-of-range values fall back to that too).
             public float roamHour = 8f;
             public int roamDay = 1;
+            // 0.77: the player's camera view (0 Chase, 1 Far chase, 2 First person, 3 Front); older saves = Chase.
+            public int cameraView = 0;
             public string[] opponentChoices = {"mixed","mixed","mixed"};
             public string[] opponentRoster = {"tourer","moto","atv"};
             public int[] bodyColors = {-1,-1,-1,-1};

@@ -10,7 +10,54 @@
 - Root AGENTS.md points future Codex tasks to both files.
 - From 2026-10-02 the coding agent is Claude Code. The same two files govern it; root CLAUDE.md (created in the 0.67 round) is its discovery pointer.
 
-## CURRENT — Trailer / photo mode, auto camera, first-person and other views — target 0.77.0-review1 — NOT STARTED
+## CURRENT — Trailer / photo mode, auto camera, first-person and other views — 0.77.0-review1 — IMPLEMENTED (delivery record below once published)
+
+### Results (2026-10-04, Claude Code)
+
+- **Safety checkpoint:** `9fe109d4` (this TODO plan and the archive move), pushed before any change. Version 0.77.0-review1 / build 77000.
+- Evidence: [Docs/Report077/VALIDATION.md](Docs/Report077/VALIDATION.md); bindings: [Docs/TrailerMode/TRAILER_MODE.md](Docs/TrailerMode/TRAILER_MODE.md).
+- Code:
+  - `CameraViews.cs` (Part C).
+  - `CameraViews.Trailer.cs` (trailer cameras, Auto).
+  - `TrailerMode.cs` (mode, clean screen, guides, slow motion, conditions, screenshots, hint).
+  - `RaceMenus.Trailer.cs` (pause-menu page).
+  - Small hooks:
+    - `ChaseCamera` keeps its pose internally and gains an offset scale; the chase view itself is unchanged.
+    - `WorldLook` gains Trailer conditions and `LookHour`.
+    - `WeatherEffects.StrikeNow`.
+    - `RaceFlow.MarkDebugMovement(reason)` and attaching the components.
+    - `RacerSave.cameraView`.
+    - `LocalRadio` leaves the D-pad to Trailer Mode.
+    - `RaceMenus.Core` adds the menu rows and the controls list.
+  - Checks: `Report077Checks.cs` and `Tools/Report077/`. In-game 4K probe: `TrailerShots.cs` (`-trailerShots`).
+- **Part A — Trailer Mode: PASS.**
+  - **Toggle:** F8 or pause menu > Trailer Mode (race and Free Roam menus). The page holds every setting for controller players.
+  - **Clean screen:** the HUD canvas and the debug panel are not drawn. H brings the HUD back; G shows the arrows, chevrons, gates and waypoint beacon.
+  - **Cameras:** Chase, Orbit, Side, Front, Fixed, Flyover, Free and Auto, plus First person (keys 1–9; D-pad on a controller). They are smoothed, kept out of terrain and blended when changed by hand. The free camera stops at the ground and the vehicle's controls are off meanwhile.
+  - **Slow motion:** Z / LB held gives 0.25×; X / RB toggles 0.5×. The physics step scales with it; giant-jump flight 244.2 m against 242.5 m at normal speed. Sound is turned down while slowed.
+  - **Free Roam conditions:** time, ±1 h, clock pause, weather, moon and lightning now. `settings.json` was byte-identical after a session, and the clock, calendar and weather were restored exactly.
+  - **Screenshot key:** P / F12 / R3 saves a PNG at the window's full resolution with no UI to `Screenshots` beside `DebugReports`. Checked at 3840×2160 in the game, with the HUD hidden at Day, Night/Rain and Dusk/Snow.
+  - **Records:** a race in Trailer Mode saves no record ("TRAILER MODE / competitive records disabled").
+  - **Frame time with the mode off:** within noise (+0.28 ms on a heavily loaded PC).
+- **Part B — Auto: PASS.** Over 70 s there were 12 shots, held 5.3–8.0 s, never the same camera twice in a row. It cuts at a jump's take-off and holds until landing, never mid-air or mid-wipeout, checks the line of sight, and leaves a blocked shot after 0.6 s. Hold and skip work. First person is used sparingly.
+- **Part C — views: PASS.**
+  - Chase (unchanged default), Far chase, First person and Front, cycled with V / X. The choice is saved and shown in Settings > Controls.
+  - All four vehicles were checked in Free Roam by day and at Night/Rain, and in a Night/Rain race.
+  - **First person:** the camera sits 4.5 cm ahead of the rider's eyes; eyes, mouth, brows, hair and hat are shadows-only. Bikes look down 16° (ATV 24°) so the bars, grips and hands are in view. Cars show the windscreen frame, bonnet, dash and wheel. It leans 40 % with the motorcycle and looks a little into corners.
+  - **Front:** ahead of the bodywork.
+  - **Wipeouts and resets:** the view eases out to the chase camera and comes back afterwards.
+  - Giant jump in first person: motorcycle and ATV pass.
+  - A first-person race saved its record.
+- **Decisions recorded:**
+  - Conditions on demand apply in Free Roam only (races keep Race Setup).
+  - Trailer Mode stays on across scene changes until turned off.
+  - The first-time hint shows once per game session, so nothing is written to the save.
+  - Manual Fixed: the camera stays where it is; the action key re-plants it beside the road ahead.
+  - Game sound is turned down, not pitched, in slow motion.
+- **Limitations / for Dan's eye:**
+  - The look of each camera and of first person is for Dan to judge (rule 12).
+  - Auto's line-of-sight check uses colliders: tree trunks, terrain and buildings, but not leafy crowns, which have no colliders.
+
 
 - **Authorized by Dan (2026-10-04).** He wants to record a short trailer of the game with OBS, "even just for the fun of it", and asked for the game to be made easy to film. **Dan's review of 0.76 (2026-10-04): "no bugs to report."** The restored races, the dedicated Free Roam world, the storms and the garage screens are accepted; do not rework them.
 - **Starting point:** main at the 0.76 documentation commit; playable source as recorded in the 0.76 DELIVERED entry (0.76.0-review1 / game-76000). This TODO edit and the archive move are uncommitted and belong in the safety checkpoint.
