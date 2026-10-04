@@ -10,7 +10,90 @@
 - Root AGENTS.md points future Codex tasks to both files.
 - From 2026-10-02 the coding agent is Claude Code. The same two files govern it; root CLAUDE.md (created in the 0.67 round) is its discovery pointer.
 
-## CURRENT — Time of day and weather + AI lost after jumps + 1 report — 0.72.0-review1 — DELIVERED, AWAITING DAN'S REVIEW
+## CURRENT — Snow scenes and frozen water, thunderstorms, clouds, first Blender models (motorcycle + rider) — target 0.73.0-review1 — NOT STARTED
+
+- **Authorized by Dan (2026-10-03)** from debug session `2026-10-03_20-51-21-371_00b27e` (CLOSED, exported as `..._00b27e_df2aae45.zip`; 2 entries, both captured on 0.72.0-review1 build `b6b54925`, both feature requests, not bugs) plus his written requests in chat. Folder with full-size screenshots: `C:\Users\danmo\AppData\LocalLow\DefaultCompany\Racer\DebugReports\2026-10-03_20-51-21-371_00b27e`. LOOK at both screenshots before placing anything.
+- **Dan's review of 0.72:** he played it and reported no bugs; he is adding to the weather feature. Treat 0.72 time of day / weather, the AI jump fixes and the Free Roam trail as working. Do not retune them.
+- **Starting point:** main `662281d2` (documentation commit; playable source `859d068a`, 0.72.0-review1 / game-72000). This TODO edit is uncommitted and belongs in the safety checkpoint.
+- **Scope is exactly Parts A–D below, in that order.** All design decisions needed are written here; do not stop to ask about design. Make the smallest reasonable choice, record it, continue. Stop only for a real external blocker (rule 7).
+- Weather stays **visual and audio only** (Dan's standing decision), with the single exception spelled out in Part A2.
+
+### Part A — Snow: frozen water and two winter scenes
+
+**A1. Every body of water freezes when the weather is Snow** (races and Free Roam, all courses): the lake, creeks, the pool at Dan's house and any other water surface. Ice look: pale blue-white, matte with a soft sheen, light snow dusting, no water animation or sky-mirror reflection, no splash effects or water sounds. In Clear and Rain, water is exactly as now.
+
+**A2. Riding on ice (Dan's decision, 2026-10-03): "slows you down but you don't sink."**
+- When frozen, the vehicle rides ON the ice surface instead of sinking into the water.
+- It is slowed by the same amount the water slows it today (same resistance values, same affected area), so lap times in Snow stay comparable with other conditions.
+- No slipperiness and no other handling change. AI treats it the same as the player.
+- This is the only physics-adjacent change allowed in this round. Verify one water crossing (motorcycle and ATV) in Snow against the same crossing in Clear: time through the crossing should match closely, and the vehicle stays on top.
+
+**A3. Scene: two guys sledding (Snow only).**
+- **Entry BUG-001** Dan's Backyard Loop Reverse, Free Roam (519.21, 74.77, -153.47), heading 172. "When it is snowing, can we have two guys sledding down this hill on a sled together, on the right side of the road?"
+- The road drops away downhill ahead of this point. Put the scene on the RIGHT side of the road as seen from this position and heading, on the grass slope beside it, never on the pavement or in the driving width.
+- Two figures seated together on one sled. They slide down the hill, then reset to the top and go again (walk/pull the sled back up, or fade and restart; simplest that looks natural). Loop while Snow is active.
+
+**A4. Scene: broom hockey on the frozen pool (Snow only).**
+- **Entry BUG-002** Dan's Backyard Loop Reverse, Free Roam (400.78, 80.17, -5.15), heading 197. "When it is snowing this and every other body of water should be frozen. Here, can we have 3 guys playing hockey with brooms and a ball?"
+- This is the rectangular pool beside the deck at Dan's house. Three figures on the ice holding brooms (not hockey sticks), knocking a ball between them: simple looping movement, the ball visibly passed around, figures stay on the ice.
+
+**Shared rules for A3/A4:**
+- Build them with the existing ambient-people system (`AmbientLife` and the household scenes: same figure style, same way of appearing). They exist only while the weather is Snow, in every scene of the shared world that contains these locations, in races and Free Roam.
+- Grounded on the snow/ice (rule 4). No colliders in the driving width; give the figures the same collision behaviour as the existing household figures.
+- They must not interfere with the existing household scenes at Dan's property (coffee / football / empty). If the pool scene and a household scene would overlap in space, the household scene keeps its spot.
+- Simple readable animation is enough; no new animation system.
+
+### Part B — Thunder and lightning in Rain
+
+- In Rain (any time of day; races and Free Roam): occasional lightning and thunder. Not constant: irregular gaps, roughly one strike every 20–60 seconds.
+- Lightning: a brief flash that lights the sky and the world (one or two quick pulses). Optionally a visible bolt in the distant sky. Strongest at Night and Dusk, subtle in Day.
+- Thunder: a rumble that follows each flash after a short, varying delay, on the Ambience volume like the rain sound. Use a generated or CC0 sound; no paid assets.
+- Comfort and readability: flashes must be short and not strobe; never more than two pulses per strike; the road, arrows and gates stay readable through a flash. Add a setting "Lightning flashes: On / Off" in the existing options menu (default On); Off keeps the thunder sound but removes the screen flash.
+- No gameplay effect. None under cover (cave, tunnel): thunder muffled there.
+
+### Part C — Clouds
+
+Dan asked how complicated clouds are. Answer recorded here: stylized clouds are a small addition on the 0.71/0.72 look system; true volumetric clouds are not worth their cost at 3840×2160 on this GPU and would not match the low-poly style. Build the stylized kind.
+
+- Stylized low-poly / soft-shaded clouds that match the world, drifting slowly with a consistent wind direction.
+- Per condition: Clear = scattered fair-weather clouds; Rain = heavy dark overcast (lightning lights it from within); Snow = pale even overcast.
+- Per time of day: lit by the sun colour at Day, warm at Dusk, dim and moonlit at Night without hiding all the stars in Clear.
+- In Free Roam they follow the day-night blend smoothly. Cloud shadows on the ground are optional; include them only if cheap and not distracting.
+- Clouds never dip into the playable space or the Mountain summit; they are sky only.
+- "Day / Clear" changes only by gaining the scattered clouds; everything else in that preset stays as accepted.
+
+### Part D — First Blender models: motorcycle and rider (pilot for Dan's approval)
+
+This is graphics upgrade step 2, pilot only. Dan has Blender installed on this PC. The goal is to find out how good a scripted Blender pipeline can make the motorcycle and its rider, and to let Dan compare old and new in the game.
+
+- **Pipeline:** locate the installed Blender (`blender.exe`, normally under `C:\Program Files\Blender Foundation\`; if it cannot be found, that is a rule-7 blocker for Part D only: finish Parts A–C, deliver, and report). Run it from the command line with Python scripts. Keep the scripts in `Tools/Blender/` and the generated `.blend` sources in a source-art folder in the repo so models can be regenerated and edited later. Export to a Unity-friendly format (FBX or glTF) under `Assets/`.
+- **Look at your own work:** render the model from Blender (front, side, three-quarter, top) and look at the renders; revise the model; repeat. At most three revision passes per model, then stop (rule 12). Keep the renders.
+- **Motorcycle:** a clearly better dirt-bike-style motorcycle in the same stylized low-poly world: real proportions, two proper wheels with tyres and rims, front fork and rear swingarm, handlebars with grips, engine block, tank, seat, exhaust, fenders, foot pegs, a headlight and tail light positioned to work with the 0.72 night lights. Wheels spin and the front end steers as the current one does.
+- **Rider:** a better-proportioned stylized person in a proper riding pose: hands on the grips, feet on the pegs, seated on the seat. Keep the current rider's identity (helmet-free, flat cap, blue shirt, visible face and hair per CR-072/CR-082). A fixed riding pose is acceptable; keep whatever lean/steer motion the current rider has if it can be kept simply. No skeletal animation system is required for the pilot.
+- **Must keep working:** player colour selection including black (paint goes on the bodywork, not the whole bike); vehicle physics, colliders, wheel positions, ride height and camera framing unchanged (the new model is fitted to the existing vehicle, not the other way round); night headlights; wipeout/reset behaviour; garage display; AI motorcycles and their different riders/colours.
+- **Budget:** roughly 5–15k triangles for bike plus rider; a small number of materials; no texture dependencies that need paid tools. Frame rate at 3840×2160 must stay within noise of 0.72.
+- **How Dan compares:** add a garage option for the motorcycle, **Model: Classic / New**, default New, remembered. It switches the player's motorcycle and rider, and AI motorcycles follow the same setting. The classic model stays in the project untouched. ATV and cars are NOT changed in this round.
+- **Evidence:** Blender render sheet old vs new, and in-game screenshots (garage, race Day, race Night, from the chase camera and one close side view) in `Docs/Report073/Models/`.
+- One implementation, then stop. Dan decides whether the approach is good enough to continue to the other vehicles.
+
+### Verification for this round (targeted, rule 11)
+
+- Part A: screenshots of each water body in Snow and in Clear; both scenes in Snow at Day and Night; confirm neither scene exists in Clear or Rain; the A2 crossing comparison; one Snow race on a course that crosses water finishes normally with records saved.
+- Part B: one Rain race at Night with at least three strikes observed; the Off setting; under-cover behaviour.
+- Part C: the 9 condition views from 0.72 retaken with clouds; Free Roam dusk-to-night with clouds; frame-rate table at 3840×2160 for Day/Clear, Night/Rain, Night/Snow (must stay well above 60 fps; report against 0.72).
+- Part D: one race lap on the new motorcycle at Day and at Night, one wipeout and reset, colour change including black, Classic/New switch both ways, an AI field containing motorcycles.
+- `Docs/Report073/VALIDATION.md` with a PASS/explained disposition per item.
+
+### Outstanding after this round (as of 2026-10-03)
+
+- Awaiting Dan: review of 0.73, especially his verdict on the Blender motorcycle and rider (continue to ATV/cars or change approach); recheck of the Reverse s 1583 bump.
+- From earlier results, not raised by Dan: the widest 32 m/s corner cut at the Climbing Ridge Cut entrance can cross into the far bank; the full-throttle line brushes the Downhill Ridge Cut berm; airborne riders at ~38 m/s can still clear the Homeward berm (race scenes); High Ridge Drop barrier is a suggestion only; remaining edge stations in `Docs/Report069/partA-remaining.txt`.
+- Open: CR-118 intermittent spoken-title clipping.
+- Possibly stale, needs Dan's yes/no: CR-010 slightly tighter steering.
+- Deferred: physical Steam Deck / controller / save-migration checks; friend test of the packaged build on another PC.
+- Later, not authorized: weather affecting grip; remaining vehicles and drivers in Blender; world scenery upgrade; stunt track; Trickum course; vehicle stats.
+
+## Previous delivery — Time of day and weather + AI lost after jumps + 1 report — 0.72.0-review1 — DELIVERED, REVIEWED BY DAN (no bugs reported; additions in 0.73)
 
 - **DELIVERED:**
   - Source `859d068a2b758f73a9db7985b1f9fb69c3e367f7` pushed and verified on origin/main.
@@ -243,270 +326,6 @@ Dan chose this as the first step of the graphics upgrade (2026-10-03). It is a l
 - Possibly stale, needs Dan's yes/no: CR-010 slightly tighter steering.
 - Deferred: physical Steam Deck / controller / save-migration checks; friend test of the packaged build on another PC.
 
-## Previous delivery — 9-report follow-up: quit confirmation, Free Roam mountain path, taller crest barrier, campsite, smoothing — 0.70.0-review1 — DELIVERED, REVIEWED BY DAN (follow-ups in 0.71)
-
-- **DELIVERED:**
-  - Source `459f3f873a91c0e34a9639339b2f16a8b0ffad5b` pushed and verified on origin/main. The completion commit is `67d08694`; `459f3f87` removes temporary editor tool copies it accidentally included.
-  - Fresh 0.70.0-review1 Windows build: 0 errors, 20 warnings, 4m08s.
-  - Published [game-70000](https://github.com/danemoll-jpg/woodstock-rush-releases/releases/tag/game-70000). The known draft-lookup miss was resolved with `--resume-draft`.
-  - All 233 Latest files match the public signed manifest; public download, signature, install and startup pass.
-  - [Delivery evidence](Docs/Report070/PUBLICATION.md).
-- **Play-Racer.cmd (unchanged):** launched a responsive managed 70000, muted, with settings restored byte-for-byte; no pending updates. Latest root, current 70000 and previous 69000 retained.
-- **Cleanup:**
-  - Builds 9,915,700,993 → 7,841,821,157 bytes.
-  - C: free 307,555,516,416 bytes.
-  - All debug report history preserved.
-- **SESSION HANDOFF: STOP.** Wait for Dan's review of 0.70 and his decision on Part B. A documentation-only delivery commit follows; playable source remains `459f3f87`.
-
-### Results (2026-10-02, Claude Code)
-
-- **Safety checkpoint:** `236ecc73` (this TODO plan and the archive move), pushed before any change. Version 0.70.0-review1 / build 70000.
-  - Evidence: [Docs/Report070/VALIDATION.md](Docs/Report070/VALIDATION.md) and [BARRIERS.md](Docs/Report070/BARRIERS.md).
-  - Tools in `Tools/Report070/`; play-mode checks `Assets/Scripts/Report070Checks.cs`, `Report070QuitChecks.cs`, `Report070CampChecks.cs`.
-- **Part A — quit confirmation: PASS (16/16 checks).**
-  - Main menu QUIT GAME and pause menu Quit Game now open the existing dialog: "QUIT WOODSTOCK RUSH?" [CANCEL] [QUIT].
-  - Focus starts on CANCEL; B / Esc cancel back to the same menu.
-  - Tested with keyboard, controller and mouse. QUIT exits. END RACE dialog unchanged; Alt+F4 not intercepted.
-- **Part B — BUG-001/002: STOPPED, nothing changed (TODO item 3).**
-  - The "mound" is the **catch landing of the Summit Homeward Flight** giant jump (CR-094/CR-103, `Ground_CR103 smooth landing` plus its shaped terrain). It is a Free Roam activity Dan asked for and approved on 2026-09-21.
-  - It is already inactive in both Mountain race scenes. It is unchanged since `752ca2f1` (0.18), so it is not a regression.
-  - **Needs Dan's decision:**
-    1. cut a rideable notch through its high end;
-    2. lower that end (this changes the catch area);
-    3. remove the jump from Free Roam.
-- **Part C — Reverse crest barrier: PASS.**
-  - **Reproduced first:** 8 full-throttle runs (4 moto, 4 ATV) left the crest at 31–35 m/s, crossed the outside of the bend 4–9.5 m above the road (Dan: about 9 m at 32 m/s), and all 8 landed 50–88 m off.
-  - **Built** one natural rock outcrop filling the gore between the main road and the Summit Traverse entrance:
-    - 12 m tall, sized from the measured flights;
-    - 85° cliff 7 m beyond the main edge (just behind the OPTIONAL SHORTCUT sign, which stays in front of it, unmoved) and 1 m beyond the Summit Traverse edge;
-    - grounded and collidable;
-    - the 0.69 berm here was absorbed.
-  - **After:** all 8 runs stay on the summit plateau (two wipe out against the cliff and are reset; two ATVs end in a pre-existing 3–4 m dip beside the sign). The Summit Traverse entrance and the clean lines complete. The crest itself is unchanged.
-- **Part D — campsite: PASS.**
-  - Mountain Forward: the camp floated 16–19 m. Each piece is now seated on the scene's own ground: tent, each figure with its log, campfire, each stone.
-  - Mountain Reverse: the pieces were sunk 0.3–1.7 m; now raised. That camp is hidden under the South Face run-up ramp.
-  - Terrain unchanged. The Street Loop / Free Roam camp is unmoved.
-  - **Landmark "Campsite":** an ordinary map destination in all 8 course scenes, with discovery and fast travel. 5/5 checks, run on an isolated map save.
-- **Part E — Climbing Ridge Cut entrance flips (BUG-008): PASS, cause found.**
-  - **Reproduced:** every entry at ≥ 14 m/s hit hidden faces just under the junction surface at branch s 9–11 and was launched, then rolled 38–86° (one 180°).
-  - **Cause:**
-    1. the 0.68 seam cover here is long slivers 5–11 cm under the pavement with faces tilted up to 39°;
-    2. **0.69 regression:** crumpled CR133 earth-bank faces 3–20 cm under the 0.69 BUG-007 patch.
-  - **Fix:** in the junction only:
-    - the seam-cover slivers were subdivided, and the parts under the pavement pushed 0.6 m down;
-    - earth-bank vertices whose triangles lie fully under the cover were lowered (127).
-    - Nothing within 0.4 m of an edge changed, so the left-edge slot stays closed and the view matches 0.69. (A wider pass made a visible notch; it was reverted.)
-  - **After:** all entries at 8–26 m/s, every line, moto and ATV, are clean (roll ≤ 8°).
-  - **Remains:** at 32 m/s (72 mph) entries still roll (71–180°), from faces under the 0.69 patch that cannot be lowered without visible notches. Dan to judge.
-  - The AI enters and rejoins; the Climbing Ridge Cut jump line and overshoot are unchanged.
-- **Part F — PASS.**
-  - **BUG-003 is not a trench:** it is a 3–6 m sawtooth cliff in the terrain 10–50 m off the highway.
-    - Smoothed to an even ~13° slope (no 1 m cell rises more than 0.49 m).
-    - 7–11 trees per scene were re-grounded: trunk collider plus their batched pieces.
-  - **BUG-004:** a 0.25–0.45 m lump where the highway strip ends. The verge now meets the strip within ±0.05 m and falls away smoothly.
-  - Both are applied in all 8 course scenes, since every scene carries this part of the shared world.
-  - **BUG-009:** both gores at the Climbing Ridge Cut rejoin are now one smooth surface each, flush 3 cm under the pavement edges. Terrain under them is 0.4 m down; the 0.69 berm is untouched.
-- **5A.6 neighbour checks:** the 0.69 sets were re-run unchanged (VALIDATION.md).
-  - **Same as 0.69:**
-    - Forward checks 20/20; Forward drives 9/10; Reverse checks and drives.
-    - This covers Summit Traverse, South Face, Downhill and Climbing Ridge Cut, Homeward, the 0.68 berms, the 0.69 BUG-008 berm, the lower main route and the edges.
-  - **Explained differences:**
-    - Forward AI Climbing Ridge Cut: a harness start-line wrap that leaves entry to the random shortcut roll. With the plan held, the AI enters and rejoins.
-    - Reverse crest line and ATV throttle drive: the outcrop at work. The crest still launches the full-throttle line; it lands upright with one brush in 3/3 repeats, but rolled once in the 0.69-harness session.
-    - Reverse Downhill Ridge Cut full-throttle moto line: rolls after brushing the 0.68 berm twice. Nothing there changed; this is a known marginal line.
-- **Discovery:** `Builds/LauncherRelease-69000/assets` was empty (the 0.69 signed manifest and catalog were missing locally). Both were restored, byte-identical to the published game-69000 assets and signature-verified, from `Builds/Latest/game-manifest.json` and the public release.
-
-- **Authorized by Dan** from debug session `2026-10-02_20-28-25-546_11ee21` (CLOSED, exported as `..._11ee21_f7519669.zip`) plus his written request for a quit confirmation. All 9 reports were captured on 0.69.0-review1 (build `dd3589a4`), so all 9 count. Folder with full-size screenshots: `C:\Users\danmo\AppData\LocalLow\DefaultCompany\Racer\DebugReports\2026-10-02_20-28-25-546_11ee21`. READ every comment and LOOK at every screenshot before changing anything. If the folder is missing, ask Dan for the ZIP.
-- **Starting point:** main `f3d5c38c` (documentation commit; playable source `be4f86e5`, 0.69.0-review1 / game-69000). This TODO edit and the archive move are uncommitted and belong in the safety checkpoint.
-- **Scope is exactly Parts A–F below.** Section 5A applies to all geometry. 0.68 is accepted and closed. The 0.69 edge/shoulder work stays; only the specific places below are corrected.
-- Dan's overall verdict on 0.69: the reports are getting fewer. Keep changes local so that continues.
-
-### Part A — Quit Game confirmation (written request)
-
-- Every control that quits the application (main menu "Quit Game" and any other quit-to-desktop path) must first show a confirmation, e.g. **"Quit Woodstock Rush?" — [Cancel] [Quit]**.
-- Focus defaults to **Cancel**. B / Esc cancels. Works with controller, keyboard and mouse, using the existing confirmation-dialog pattern (as used for END RACE / RETURN TO MENU). No other menu changes.
-- "END RACE / RETURN TO MENU" already confirms and is unchanged. Alt+F4 / closing the window is not intercepted.
-
-### Part B — Free Roam: restore the straight path up the mountain
-
-- **BUG-001** Street Loop Forward, Free Roam (895.79, 151.05, 154.34), heading 231. A very large, steep green/brown mound rises directly across the dirt path. Dan: "This was likely put there for the race tracks but it completely impedes Free Roam. Can we remove it in Free Roam only? But make sure it still exists in the races so it doesn't mess up the tracks."
-- **BUG-002** Street Loop Forward, Free Roam (761.93, 109.29, 80.45), heading 76. "This is the other side of this. It used to be a straight path up the mountain but now you can [only] get by on either side." The screenshot is the bike against the steep brown face of the same obstruction.
-- **Hint from the coordinates:** the two captures are ~150 m apart and lie along the Mountain Loop Reverse main climb (0.67 reports put that road at (746, 91, 64) s 136 → (922, 157, 155) s 369). The obstruction is probably race-authored mountain geometry (a raised roadbed/embankment, fill or shoulder) present in the Free Roam world. Identify exactly which object(s)/meshes it is and which commit introduced it (rule 5) before changing anything.
-- **Required:**
-  1. In **Free Roam**, the straight path up the mountain between these two points is open and rideable again, as it was before. Remove, hide or reshape the obstruction for Free Roam only, and make sure the ground left behind is continuous and supported (no hole, no floating objects; rule 4).
-  2. In **races** (Mountain Loop Forward and Reverse and any other course that uses that geometry) nothing changes: same road, same collision, same support. Verify by comparing the race scenes before/after.
-  3. If the obstruction turns out to be a Free Roam activity feature (e.g. a jump Dan asked for earlier), do not delete it: report what it is and stop on this item.
-
-### Part C — Mountain Loop Reverse: the crest barrier must actually stop a full-speed rider
-
-- **BUG-005** (1008.30, 163.05, 129.66) main s 463, heading 151. "This is not nearly high enough. I go flying over this still. Must be much higher. Test against the hill leading up here at full speed and see."
-- **BUG-006** (994.30, 172.40, 122.12) main s 449, heading 112, captured **airborne at 32.0 m/s (71.5 mph)**. "See?" The bike is about 9 m above the road surface (road ≈ 163 at this station) and far above the 1.8 m berm built in 0.69 at s 446–486.
-- The 0.69 verification used overshoot runs that did not reproduce Dan's real approach. **Reproduce first:** full throttle up the hill leading to this crest (motorcycle and ATV), and record where the vehicle is in the air at s 440–490 (height above road, lateral position, speed). The run must reach roughly Dan's captured state before any design is chosen.
-- **Then build a barrier sized from those measured trajectories**, with margin: a tall natural rock wall / cliff outcrop on the outside of the bend, high and long enough that a full-throttle motorcycle and ATV coming over the crest cannot clear it or pass its ends. Grounded, collidable, matching the mountain. A wipeout against it followed by the 0.68 nearest-point reset is an acceptable outcome; leaving the track is not.
-- Keep the driving width, the **Summit Traverse shortcut entrance** and its flight/approach, and the sign visible. Replace or absorb the 0.69 berm here rather than stacking mismatched pieces. If no barrier of sensible size can contain the measured launch, say so with the numbers and propose the smallest alternative (for example easing the crest) instead of building it; do not change the crest without Dan's approval.
-- Verify with at least three full-throttle passes per vehicle. Update BARRIERS.md.
-
-### Part D — Mountain campsite (Mountain Loop Forward; check Reverse)
-
-- **BUG-007** (1013.84, 160.89, 81.02) main s 1572, heading 285. The summit campsite (dome tent, figure, platform) floats in the air to the upper left. Dan: "Can we lower this scene for race mode so that it is on the ground, but in Free Roam don't move it. Looks like there are major differences in elevation here. Also in Free Roam can we mark this as Campsite landmark?"
-- **Race scenes:** seat the whole campsite group on the actual ground in Mountain Loop Forward, and in Reverse if it floats there too (rule 4 grounding: tent, figure, props, cairns, colliders together). Do not change the terrain to meet it.
-- **Free Roam:** do not move the campsite. Add it as a named landmark **"Campsite"** using the existing exploration-map / landmark system (same behaviour as other landmarks: map label, discovery, fast-travel destination if landmarks have one). No new system.
-
-### Part E — Something flips the bike at the Climbing Ridge Cut entrance (Mountain Loop Forward)
-
-- **BUG-008** Climbing Ridge Cut 3.9 m (750.42, 87.12, -119.04), heading 62. "Something around here is flipping me."
-- **Likely a 0.69 regression — check first (rule 5).** This is the junction where 0.69 replaced the ribbed earth-bank wedge with a new smooth surface (its BUG-007 at (759.37, 87.75, -113.37)) and built flush shoulders; 0.69 also listed "7 single stations where the new shoulder overlaps a pavement edge by 2–11 cm" and "a faint stepped rim on the far side of the BUG-007 patch". Compare contacts here against 0.68.
-- Reproduce with motorcycle (and ATV) entering the shortcut at several speeds and lines, find the surface that produces the impulse (lip, overlapping collider, hidden face under the pavement, sign/post collider), and remove that cause locally. If it cannot be reproduced in a bounded investigation, change nothing and say so. The Climbing Ridge Cut jump system is protected.
-
-### Part F — Smoothing
-
-- **BUG-003** Street Loop Forward, Race (226.34, 9.71, 544.45) main s 4574, heading 138. "Can we smooth this out." Beside the road the ground breaks into hard creases and a stepped, sawtooth-walled trench running through the trees. Blend it into a smooth natural slope/gully. Road surface unchanged; trees stay grounded.
-- **BUG-004** Street Loop Forward, Race (264.50, 8.75, 562.17) main s 4614, heading 284. "Smooth here as well." The right-hand verge of the highway is lumpy and uneven where it meets the asphalt. Smooth the verge and make it meet the road cleanly. Highway surface, lane markings and buildings unchanged.
-- **BUG-009** Mountain Loop Forward (1015.00, 139.88, -54.59) main s 1407, heading 275. "Smooth this out." Lumpy faceted green sheets on the right overlap the pavement edge, with a stepped patch on the left, at the Climbing Ridge Cut rejoin beside the 0.69 berm (s 1390–1434). Replace with smooth shoulders flush with the road; the berm keeps doing its job.
-- Shared-world note: BUG-003/004 geometry is in the Street Loop world. Check whether the same meshes appear in other scenes and keep them consistent.
-
-### Verification for this round (targeted, rule 11)
-
-- Before/after view at each of the 9 coordinates, with a PASS/explained disposition per bug in `Docs/Report070/VALIDATION.md`.
-- Part A: quit from every quit control with controller, keyboard and mouse: Cancel returns, Quit exits, default focus is Cancel.
-- Part B: ride the straight path between the BUG-002 and BUG-001 positions in Free Roam, both directions; then Mountain Loop Forward and Reverse climbs in Race are identical to 0.69 (motorcycle + ATV).
-- Part C as described. 5A.6 neighbour checks for every geometry change, covering at minimum Summit Traverse entry/rejoin, South Face Summit jump, Climbing and Downhill Ridge Cut jumps, and the 0.68/0.69 berms. Results must match 0.69 except where this round intentionally changes them.
-
-### Outstanding after this round (as of 2026-10-02)
-
-- Awaiting Dan: gameplay review of 0.70; recheck of the Reverse s 1583 bump.
-- **Needs Dan's decision (Part B):** what to do about the Summit Homeward Flight catch landing blocking the Free Roam path (notch / lower its end / remove from Free Roam). Nothing was changed.
-- From 0.70 results, for Dan's review:
-  - Climbing Ridge Cut entries at 72 mph still roll;
-  - the Reverse crest full-throttle line still launches (the outcrop now holds it);
-  - a pre-existing 3–5 m dip in the crest gore beside the sign;
-  - the Downhill Ridge Cut full-throttle moto line rolled in 0.70's runs.
-- From earlier results, not raised by Dan: the full-throttle line brushes the Downhill Ridge Cut berm; airborne riders at ~38 m/s can still clear the Homeward berm; High Ridge Drop barrier is a suggestion only; remaining edge stations in `Docs/Report069/partA-remaining.txt`; production AI stops at the Homeward deck and undershoots the South Face deck (both pre-existing).
-- Open: CR-118 intermittent spoken-title clipping.
-- Possibly stale, needs Dan's yes/no: CR-010 slightly tighter steering.
-- Deferred: physical Steam Deck / controller / save-migration checks; friend test of the packaged build on another PC.
-- Backlog (not authorized): graphics upgrade; see FUTURE EXPANSION.
-
-## Previous delivery — 8-report follow-up: road edges, barriers, signs, grass on road — 0.69.0-review1 — DELIVERED, REVIEWED BY DAN (follow-ups in 0.70)
-
-- **DELIVERED:**
-  - Source `be4f86e56849fa24fd13659b7e41e6b644ffd329` pushed and verified on origin/main.
-  - Fresh 0.69.0-review1 Windows build: 0 errors, 11 warnings, 3m28s.
-  - Published [game-69000](https://github.com/danemoll-jpg/woodstock-rush-releases/releases/tag/game-69000). The known draft-lookup miss was resolved with `--resume-draft`.
-  - All 233 Latest files match the public signed manifest; public download, signature, install and startup pass.
-  - [Delivery evidence](Docs/Report069/PUBLICATION.md).
-- **Play-Racer.cmd (unchanged):** launched a responsive managed 69000, muted, with settings restored byte-for-byte; no pending updates. Latest root, current 69000 and previous 68000 retained.
-- **Cleanup:**
-  - Builds 9,843,285,097 → 7,784,122,345 bytes.
-  - C: free 314,369,523,712 bytes.
-  - All debug report history preserved.
-- **SESSION HANDOFF: STOP.** Wait for Dan's review of 0.69. A documentation-only delivery commit follows; playable source remains `be4f86e5`.
-
-### Results (2026-10-02, Claude Code)
-
-- **Safety checkpoint:** `20277246` (this TODO plan), pushed before any change. Version 0.69.0-review1 / build 69000.
-  - Evidence: [Docs/Report069/VALIDATION.md](Docs/Report069/VALIDATION.md) and [BARRIERS.md](Docs/Report069/BARRIERS.md).
-  - Tools in `Tools/Report069/`; play-mode harness `Assets/Scripts/Report069Checks.cs`.
-- **Part A — BUG-004 and all Mountain edges: PASS (with listed remainders).**
-  - **Cause (not the voxel terrain):**
-    - The Reverse pavement (`reverse-branch-join.asset`) is a world-axis 0.5 m grid, so diagonal edges stair-step. The green notches are the 0.67 shoulder showing through.
-    - Separately, the 0.67 edge shoulders start 0.12 m under the edge and fall at 37° (median −0.47 m at 0.3 m out), so most edges were a step.
-  - **A1 (source fix):**
-    - Pavement boundary vertices on road sides move onto a local least-squares edge line: Reverse 438 vertices (≤ 0.40 m), Forward 8.
-    - No triangle flips. A "do no harm" pass undoes any move that makes the edge less straight.
-    - Centre line, width, grade and banking are unchanged.
-  - **A2 (flush shoulders):** collidable earth shoulder tucked under the edge, flush, 1 m verge at −4%, then 1:2 (1:1.33, 1:0.7 lower) to the ground, or rising 1:2 to a bank.
-    - Terrain above the verge is lowered under it, never toward a road below.
-    - Tree-aware: no trunk buried more than 1 m. Posts/signs in the footprint were raised.
-    - Built: Forward 1,909 stations, Reverse 4,332.
-  - **Open 0.5 m edge stations, before → after:**
-
-    | Scene | Steps | Sawtooth |
-    |---|---|---|
-    | Forward | 1,345 → 228 | 125 → 130 |
-    | Reverse | 3,776 → 520 | 283 → 193 |
-
-  - **What remains** is junction mouths, natural rock barriers, steep walls, tree stations and stretches where straightening was undone. It is listed with coordinates in `Docs/Report069/partA-remaining.txt`.
-  - **Protected, unchanged:** whole flight systems from the approach, activity jumps, jump-exclusion zones, multi-level and covered roads, 0.68 berms, junctions.
-  - **Rides:** BUG-004 rides off and straight back on (moto/ATV). So do the other Reverse samples except s 1665 (natural rock barrier) and Summit Traverse s 452.5 (protected Fern Creek zone, unchanged).
-  - **Resets** beside corrected edges restore in 0.82 s at the nearest point.
-  - **Discovery:** a first build moved 3 vertices on the South Face run-up. AI takeoffs dropped and stopped at s 1092. Fixed by protecting whole flight systems from their approach, then rebuilt from scratch.
-- **Part B — PASS, with limitations.**
-  - Earth berms (0.68 design, 1.8 m, 85° face):
-    - BUG-005: Reverse main s 446–486, right; Summit Traverse entrance open.
-    - BUG-008: Forward main s 1390–1434, right, opposite the Climbing Ridge Cut rejoin.
-  - **BUG-008:** shortcut overshoots that fell ~40 m are now kept at the rejoin.
-  - **BUG-005:** 3 of 4 overshoots that fell 24–43 m now stop within 2–7 m. One ATV at 30 m/s rides off the berm's far end (15.6 m).
-  - **Clean lines:** complete. The full-throttle Reverse crest line brushes the BUG-005 berm, and no longer rolls over.
-  - **Other direction:** not needed (Forward climbs into that bend; the Reverse road is straight at the BUG-008 place).
-- **Part C:**
-  - **BUG-001 — regression from 0.67:** `PalePatch` recoloured 276 vertices of `StreetLoopGreybox-CR129-junction-Ground_480_640.asset`, which carries the Street Loop asphalt as vertex colour.
-    - The asset was restored to 0.66 (`eec4e911`). The cairn stays grounded.
-    - The "pale rectangle" is flat street-level grass (lighting), not a pad; left.
-  - **BUG-006:** the torn gore at the deck end was replaced by a smooth collidable surface, flush with the pavement.
-  - **BUG-007:** the ribbed earth-bank wedge at the Climbing Ridge Cut junction was replaced by one smooth surface, flush with both trails. Production AI now enters and rejoins the Climbing Ridge Cut (it reset before entering in 0.68).
-- **Part D:**
-  - **BUG-002:** both signs and their posts removed in all 8 course scenes. The Fence Line Smash activity is untouched.
-  - **BUG-003:** LAKE SHORE board raised 3.0 m in all 8 scenes. It clears the hillside under its whole width; the post is visible and grounded.
-- **5A.6 neighbour drives** (same sets as 0.68) match 0.68: South Face (AI stop 1183, throttle 1144), lower main route, Summit Traverse both scenes, Downhill / Climbing Ridge Cut, Homeward landing / runout, the three 0.68 berms.
-- **Remaining for Dan's review:**
-  - the BUG-005 ATV overshoot past the berm end, and the crest line brushing that berm;
-  - a faint stepped rim on the far side of the BUG-007 patch;
-  - 7 single stations where the new shoulder overlaps a pavement edge by 2–11 cm.
-
-- **Authorized by Dan** from debug session `2026-10-02_17-29-13-319_325918` (CLOSED, exported as `..._325918_47fd0b7a.zip`). All 8 reports were captured on 0.68.0-review1 (build `fd4431e2`), so all 8 count. Folder with full-size screenshots: `C:\Users\danmo\AppData\LocalLow\DefaultCompany\Racer\DebugReports\2026-10-02_17-29-13-319_325918`. READ every comment and LOOK at every screenshot before changing anything. If the folder is missing, ask Dan for the ZIP.
-- **Starting point:** main `10538c77` (documentation commit; playable source `52393f8b`, 0.68.0-review1 / game-68000). This TODO edit is uncommitted and belongs in the safety checkpoint.
-- **Scope is exactly Parts A–D below.** Section 5A applies to all geometry: driving lines, jumps, flight corridors, tunnels and lower routes are protected. The 0.68 reset rule, failsafe, seam-cover colliders, landing runout, berms and arrow cleanup are accepted work; do not undo them.
-- **0.68 is CLOSED / ACCEPTED by Dan (2026-10-02).** The reset rule works as described; Dan will keep using it and will raise a flag himself if he wants it changed. Do not reopen or retune any 0.68 item.
-
-### Part A — Road edges: remove the sawtooth and make edges drivable (Mountain Loop, both directions)
-
-- **BUG-004** Mountain Loop Reverse (827.31, 124.59, 108.94) main s 254, heading 120. Dan: "can we get rid of this sawtooth stuff and smooth out the roads? If I fall off the track I should be able to just get right back on." The screenshot shows the jagged zigzag outline where pavement meets terrain. 0.67 recorded "jagged pavement outlines remain" as a known limitation; Dan now wants it gone.
-- **Outcome required, all Mountain routes (main and branches), Forward and Reverse scenes:**
-  1. The visible boundary between pavement and terrain is a clean, smooth line that follows the road. No sawtooth/stair-step outline, no slivers, no see-through seams.
-  2. Wherever terrain adjoins the road, the shoulder meets the pavement flush: no lip, step, trench or gap that stops a motorcycle or ATV from riding off the road and straight back on. Collision matches what is visible (rule 4).
-  3. Road centre line, width, grade and banking are unchanged. This is an edge and shoulder correction, not a road rebuild.
-- **Not edges to "fix":** jump lips and landings, flight gaps, tunnel mouths, bridges/elevated ribbons over a lower route, and the 0.68 berms. Leave those as they are.
-- Find the cause first (the 0.64 voxel terrain is clipped against pavement in grid steps) and fix it at the source for the affected meshes if that is the smallest reliable change; otherwise correct edges locally. Do NOT regenerate the mountain terrain broadly (5A.3).
-- Record before/after counts of sawtooth/step edge stations per scene in `Docs/Report069/VALIDATION.md`. If some stretch cannot be made flush without touching a protected feature, list it with coordinates and leave it.
-
-### Part B — Barriers at two crest-then-bend places (Mountain Loop)
-
-Dan asked in 0.68 for barriers after jumps that lead straight into a turn. These two are the same problem at a hill crest instead of a ramp.
-
-- **BUG-005** Mountain Loop Reverse (995.76, 163.84, 121.08) main s 450, heading 98. "This place in particular needs a barrier. When you come off the hill it is too easy to go flying off the edge here." The exposed edge is ahead/left of the "OPTIONAL SHORTCUT / SUMMIT TRAVERSE" sign. **The Summit Traverse shortcut entrance (gold arrow, right) must stay open and unobstructed.**
-- **BUG-008** Mountain Loop Forward (1021.31, 139.27, -66.87) main s 1403, heading 88. "Another place that needs a barrier, you come over the hill and there is no straight road so you go flying off the track." The road bends away just past the crest, with a drop on the outside.
-- Build as in 0.68 Part E: natural berm/rock on the OUTSIDE of the bend, grounded, with colliders, shaped to deflect along the road, high enough for a motorcycle and ATV arriving at full speed over the crest. Nothing in the driving width, flight corridors or shortcut entrances. Check whether the same location exists in the other direction's scene and needs the same barrier.
-- Add both to `Docs/Report068/BARRIERS.md` (or a 069 copy). Verify each with one full-throttle motorcycle and one ATV pass: clean line unobstructed, overshoot kept on track.
-
-### Part C — Terrain lying on the road
-
-- **BUG-001** Street Loop Forward, Free Roam (323.64, 8.73, 542.52) main s 8, heading 228. "What happened here? Why is the grass on the road now? Need to remove this." Grass-coloured terrain now covers part of the pavement near the start. **Regression — check Git first (rule 5).** This is the spot where 0.67 grounded the cairn (its BUG-001) and where 0.68 "seated the start on its support"; compare the ground/road meshes and materials here against 0.66 (`eec4e911`) and restore the road surface. The cairn stays grounded. The pale flat rectangle beside the cairn is still visible; blend or remove it if it is a leftover pad. Check the same location in the other Street Loop / shared-world scenes.
-- **BUG-006** Mountain Loop Reverse (730.36, 99.60, -294.35) main s 2740, heading 318. "Fix this." (Reading confirmed by Dan.) A lump of green terrain overlaps the right side of the pavement, with a torn/see-through patch in it. Remove the terrain from the driving surface and close the tear with a clean, collidable shoulder (Part A outcome).
-- **BUG-007** Mountain Loop Forward, Climbing Ridge Cut 14 m (759.37, 87.75, -113.37), heading 163. "Smooth out the grass." Lumpy grass sheets overlap the trail ahead and expose a ribbed, see-through underside at their edge. Replace with one smooth connected surface meeting the trail flush. The Climbing Ridge Cut jump system is protected.
-
-### Part D — Signs (Street Loop Forward, Free Roam; shared world)
-
-- **BUG-002** (471.15, 85.67, -20.84) main s 640, heading 220. "I think just remove these signs." Remove BOTH: "FENCE LINE SMASH / 3 / 6 / 10 PROPS IN 8 s" and "ANDERSON'S / LAKE / MOUNTAIN TRAILS", with their posts. Remove them in every scene where they appear. Signs only: the Fence Line Smash activity, its scoring and the fences stay.
-- **BUG-003** (538.99, 81.03, -83.76) main s 730, heading 164. "Raise this sign out of the dirt." The "LAKE … / BOTH TRAILS …" sign is half buried in the hillside. Reseat it on the ground with its post visible and the whole face readable from the trail; apply to every scene where it appears.
-
-### Verification for this round (targeted, rule 11)
-
-- Before/after view at each of the 8 coordinates, with a PASS/explained disposition per bug in `Docs/Report069/VALIDATION.md`.
-- Part A: ride off the road and back on (motorcycle and ATV) at BUG-004 and at four other sample points per scene chosen from the worst stations before the fix; edge-step probe counts before/after.
-- 5A.6 neighbour checks for every geometry change, covering at minimum the lower main route tunnel, South Face Summit jump, Summit Traverse entry/rejoin, Climbing and Downhill Ridge Cut jumps, Homeward landing runout and the three 0.68 berms. Results must match 0.68.
-- One reset from off-track beside a corrected edge in each Mountain scene, to confirm the 0.68 reset rule still places at the nearest point.
-
-### Outstanding after this round (as of 2026-10-02)
-
-- Awaiting Dan: gameplay review of 0.69 (edge feel, the two new berms, BUG-006/007 surfaces); recheck of the Reverse s 1583 bump.
-- From 0.69 results, not raised by Dan: BUG-005 ATV overshoot past the berm end; remaining junction/rock-barrier edge stations (partA-remaining.txt).
-- From the 0.68 results, not yet raised by Dan: the full-throttle line brushes the Downhill Ridge Cut berm; airborne riders at ~38 m/s can still clear the Homeward berm; High Ridge Drop barrier is a suggestion only; production AI stops at the Homeward deck (s 2316) and undershoots the South Face deck (both pre-existing).
-- Open: CR-118 intermittent spoken-title clipping.
-- Possibly stale, needs Dan's yes/no: CR-010 slightly tighter steering.
-- Deferred: physical Steam Deck / controller / save-migration checks; friend test of the packaged build on another PC.
-- Backlog (not authorized): graphics upgrade; see FUTURE EXPANSION.
-
 ## Previous delivery — Project cleanup and Mountain polish — 0.61.0-review1
 
 The following records the previous 0.61 delivery. Its polish acceptance is superseded by the urgent regression correction above; older completed backlog decisions remain closed.
@@ -553,6 +372,7 @@ The following records the previous 0.61 delivery. Its polish acceptance is super
 
 ## History archive
 
+- 2026-10-03 (fourth move): the 0.69 and 0.70 "Previous delivery" sections were moved verbatim to the end of the archive.
 - 2026-10-03 (third move): the 0.67 and 0.68 "Previous delivery" sections were moved verbatim to the end of the archive.
 - 2026-10-02 (second move): the 0.62–0.66 "Previous delivery" sections were moved verbatim to the end of the archive.
 - Everything formerly below this point (historical delivery records, phases 0-9, the old bug tracker, CR-001 through CR-121, the decision log and old session handoffs) was moved VERBATIM to [PROJECT_TODO_ARCHIVE.md](PROJECT_TODO_ARCHIVE.md) on 2026-10-02 at Dan's request, to keep this file small enough to read in full every round.
