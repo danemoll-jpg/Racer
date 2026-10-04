@@ -1,0 +1,24 @@
+# 0.73.0-review1 — delivery evidence
+
+- **Source:**
+  - Completion commit `a877a39dd5b3e7560c698559f9f8e688bc04f822`, pushed and verified equal to origin/main. It is the playable source.
+  - Safety checkpoint: `f850d54f`.
+  - No temporary editor tool copies were committed (the release build script was copied into `Assets/Editor` only for the build and removed afterwards). A shared-material change written by play-mode checks (`VehicleGlazing.mat`) was reverted before the commit.
+- **Build:**
+  - Fresh Unity 6000.6.1f1 Windows build from `a877a39d`: Succeeded, 0 errors, 2 warnings, 3m05s.
+  - GUID `557d959c49e24e40a7e52e4800d96cc5` ([build-release.txt](build-release.txt), [build-done.txt](build-done.txt)); the commit was passed to the build in `REPORT073_COMMIT`.
+- **Staged:**
+  - `Builds/Latest` root and `Builds/Latest/versions/73000` hold all 232 signed manifest files (0.72 had 234: its `Review/AI_JUMPS.md` and `Review/LOOK.md` are no longer shipped).
+  - 26 runtime files changed versus 72000: all scene data (level0–7), shared assets, resources (new FBX, ice and cloud materials), globalgamemanagers, boot.config, `Assembly-CSharp.dll`, README/VERSION/VALIDATION ([runtime-identity.json](runtime-identity.json)). The named launcher is preserved.
+- **Release:**
+  - Published [game-73000](https://github.com/danemoll-jpg/woodstock-rush-releases/releases/tag/game-73000): `game-manifest.json` (46,837 bytes), `game.zip` (395,263,636 bytes), `update-catalog.json` (993 bytes).
+  - The first attempt hit the known draft-lookup miss after creating the draft; the empty draft (id 402801347) was inspected read-only and `--resume-draft` uploaded the three assets and published. The latest catalog was fetched back and matched. Previous releases retained.
+- **Public verification** ([hosted/result.json](hosted/result.json)): the public catalog resolves to the 73000 manifest, pinned signature verified; all 232 Latest files match the public manifest; public download, install and startup check pass (exit 0).
+- **Activation:** the production updater activated 73000 in `Builds/Latest`, soundtrack state unchanged; nothing pending against the public catalog ([launcher-catalog-check.json](launcher-catalog-check.json)).
+- **Play-Racer.cmd (unchanged script):** launched a responsive `Builds/Latest/versions/73000/Racer.exe` ([play-racer-launch.json](play-racer-launch.json)); the muted check restored the original settings bytes ([settings-preserved.json](settings-preserved.json)).
+- **Cleanup** ([cleanup.json](cleanup.json)):
+  - Builds 10,003,661,968 → 7,905,379,910 bytes (2,098,282,058 recovered): build output folder, duplicate `game.zip`, hosted verification install. Managed 71000 had already been pruned by the updater.
+  - Also removed 1,730,422,206 bytes outside the project (probe scratch, the 4K test player and bench output in `%LOCALAPPDATA%\Temp\report073`); their evidence is copied into this folder.
+  - Retained: Latest root, managed 73000 + previous 72000, `LauncherRelease-73000` signed manifest and catalog, music, publisher tools/keys, launcher, metadata, source, evidence, saves.
+  - C: free 280,335,958,016 bytes at the start of cleanup → 285,870,125,056 bytes final.
+- **Debug report history:** untouched. Dan's session `..._00b27e` was already closed and exported by Dan.

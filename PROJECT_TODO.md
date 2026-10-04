@@ -10,7 +10,20 @@
 - Root AGENTS.md points future Codex tasks to both files.
 - From 2026-10-02 the coding agent is Claude Code. The same two files govern it; root CLAUDE.md (created in the 0.67 round) is its discovery pointer.
 
-## CURRENT — Snow scenes and frozen water, thunderstorms, clouds, first Blender models (motorcycle + rider) — target 0.73.0-review1 — IMPLEMENTED AND VERIFIED; BUILD / RELEASE IN PROGRESS
+## CURRENT — Snow scenes and frozen water, thunderstorms, clouds, first Blender models (motorcycle + rider) — 0.73.0-review1 — DELIVERED, AWAITING DAN'S REVIEW
+
+- **DELIVERED:**
+  - Source `a877a39dd5b3e7560c698559f9f8e688bc04f822` pushed and verified on origin/main.
+  - Fresh 0.73.0-review1 Windows build: 0 errors, 2 warnings, 3m05s.
+  - Published [game-73000](https://github.com/danemoll-jpg/woodstock-rush-releases/releases/tag/game-73000) (known draft-lookup miss, completed with `--resume-draft`).
+  - All 232 Latest files match the public signed manifest; public download, signature, install and startup pass.
+  - [Delivery evidence](Docs/Report073/PUBLICATION.md).
+- **Play-Racer.cmd (unchanged):** launched a responsive managed 73000, muted, with settings restored byte-for-byte; no pending updates. Latest root, current 73000 and previous 72000 retained.
+- **Cleanup:**
+  - Builds 10,003,661,968 → 7,905,379,910 bytes; 1.73 GB scratch outside the project removed.
+  - C: free 285,870,125,056 bytes.
+  - All debug report history preserved.
+- **SESSION HANDOFF: STOP.** Wait for Dan's review of 0.73 (frozen water and snow scenes, thunderstorms, clouds, the Blender motorcycle and rider). A documentation-only delivery commit follows; playable source remains `a877a39d`.
 
 - **Authorized by Dan (2026-10-03)** from debug session `2026-10-03_20-51-21-371_00b27e` (CLOSED, exported as `..._00b27e_df2aae45.zip`; 2 entries, both captured on 0.72.0-review1 build `b6b54925`, both feature requests, not bugs) plus his written requests in chat. Folder with full-size screenshots: `C:\Users\danmo\AppData\LocalLow\DefaultCompany\Racer\DebugReports\2026-10-03_20-51-21-371_00b27e`. LOOK at both screenshots before placing anything.
 - **Dan's review of 0.72:** he played it and reported no bugs; he is adding to the weather feature. Treat 0.72 time of day / weather, the AI jump fixes and the Free Roam trail as working. Do not retune them.
