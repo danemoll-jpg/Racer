@@ -10,7 +10,23 @@
 - Root AGENTS.md points future Codex tasks to both files.
 - From 2026-10-02 the coding agent is Claude Code. The same two files govern it; root CLAUDE.md (created in the 0.67 round) is its discovery pointer.
 
-## CURRENT — 0.78 scenery fixes (floating buildings, trees in driveways, road colour), street signs, on-screen camera controls, Free Roam HUD cleanup and minimap — 0.79.0-review1 — IMPLEMENTED, RELEASE IN PROGRESS
+## Previous delivery — 0.78 scenery fixes (floating buildings, trees in driveways, road colour), street signs, on-screen camera controls, Free Roam HUD cleanup and minimap — 0.79.0-review1 — DELIVERED, AWAITING DAN'S REVIEW
+
+- **DELIVERED:**
+  - Source `d00e017ec244737ef0ce43a7539eab9d3cc309f8` pushed and verified on origin/main.
+  - Fresh 0.79.0-review1 Windows build: 0 errors, 2 warnings, 2m17s.
+  - Published [game-79000](https://github.com/danemoll-jpg/woodstock-rush-releases/releases/tag/game-79000) (known draft-lookup miss, completed with `--resume-draft`).
+  - All 236 Latest files match the public signed manifest; public download, signature, install and startup pass.
+  - [Delivery evidence](Docs/Report079/PUBLICATION.md).
+- **Play-Racer.cmd (unchanged):** launched a responsive managed 79000, muted, with settings restored byte-for-byte; no pending updates. Latest root, current 79000 and previous 78000 retained.
+- **Cleanup:**
+  - Builds 10,067,841,381 → 7,951,064,918 bytes.
+  - Removed the 1.72 GB hosted check install, 2.66 GB of scratch outside the project, and nine test screenshots.
+  - C: free 262,017,355,776 bytes.
+- **SESSION HANDOFF: STOP.** Awaiting Dan's review of 0.79 (rule 12):
+  - foundations, the street signs, the road grey, the Free Roam clock and minimap (J / B), the camera hint and the Trailer Mode controls panel;
+  - also still 0.77 / 0.78.
+  A documentation-only delivery commit follows; the playable source remains `d00e017e`.
 
 ### Results (2026-10-05, Claude Code)
 
@@ -178,7 +194,7 @@ Dan: "there should be an obvious way of getting to the cameras. It should be on 
 - Frame rate at 3840×2160 in the 0.78 worst view stays above 100 fps.
 - Standard rule steps: TODO update, commit, push, build, publish, Play-Racer.cmd check, cleanup, final report.
 
-## Previous delivery — World scenery upgrade + rider gestures (fist wave, victory celebration) — 0.78.0-review1 — DELIVERED, REVIEWED BY DAN ("generally looks better"; floating buildings, trees in a driveway and road colour fixed in 0.79)
+## Previous delivery — World scenery upgrade + rider gestures (fist wave, victory celebration) — 0.78.0-review1 — DELIVERED, REVIEWED BY DAN ("generally looks better"; floating buildings, trees in a driveway and road colour fixed in 0.79.0-review1)
 
 - **Authorized by Dan (2026-10-04).** He accepted the recommendation to upgrade the world scenery next (graphics upgrade step 3), before filming the trailer, and asked for rider gestures: "a button for waving your fist at someone. And the AI drivers would do this if someone runs into them or something, and maybe a celebratory dance, two fists in the air, when someone wins a race."
 - **Starting point:** main at the 0.77 documentation commit; playable source as recorded in the 0.77 DELIVERED entry (0.77.0-review1 / game-77000). This TODO edit is uncommitted and belongs in the safety checkpoint. Dan has not reviewed 0.77 yet; do not change 0.77 work in this round.
