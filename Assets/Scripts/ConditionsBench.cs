@@ -46,6 +46,7 @@ namespace Racer
             Screen.SetResolution(3840, 2160, FullScreenMode.FullScreenWindow); yield return null; yield return null;
             WeatherEffects.HoldStrikes = true;
             bool fpsOnly = Array.IndexOf(Environment.GetCommandLineArgs(), "-conditionsFpsOnly") >= 0;
+            if (Array.IndexOf(Environment.GetCommandLineArgs(), "-conditionsScenery") >= 0) { yield return SceneryBench(rows); File.WriteAllLines(Path.Combine(outDir, "conditions.txt"), rows); Application.Quit(); yield break; }
             foreach (var v in Views)
             {
                 if (fpsOnly && !v.fps) continue;
@@ -120,6 +121,54 @@ namespace Racer
             if (Array.IndexOf(Environment.GetCommandLineArgs(), "-conditionsModels") >= 0) yield return Models(rows);
             File.WriteAllLines(Path.Combine(outDir, "conditions.txt"), rows);
             Application.Quit();
+        }
+        // 0.78 evidence ("-conditionsScenery"): GPU frame times with Scenery New and Classic at the three 0.71 views (as
+        // 0.74-0.77) plus a view inside the densest woods and one from the mountain summit (both in FreeRoamWorld), at
+        // Day/Clear, Night/Rain (a strike every 2 s) and Night/Snow, with a full-screen shot of each view by day.
+        IEnumerator SceneryBench(List<string> rows)
+        {
+            var views = new List<(string scene, string label)> { ("StreetLoopGreybox", "street"), ("LakeWoods", "forest"), ("MountainLoop", "mountain"), ("FreeRoamWorld", "woods"), ("FreeRoamWorld", "summit") };
+            foreach (var (scene, label) in views)
+            {
+                SceneManager.LoadScene(scene); yield return null; yield return null; yield return Hold(1);
+                var race = Prepare(); if (!race.FreeRoam) yield return Grid(race); else yield return Hold(2);
+                foreach (var c in FindObjectsByType<ChaseCamera>(FindObjectsSortMode.None)) c.enabled = false;
+                foreach (var c in FindObjectsByType<CameraViews>(FindObjectsSortMode.None)) c.enabled = false;
+                var cam = Camera.main; Vector3 eye, look;
+                if (label == "woods")
+                {
+                    // the trunk with the most trunks within 25 m; eye height, looking across the woods
+                    var trunks = FindObjectsByType<BoxCollider>(FindObjectsSortMode.None).Where(b => b.name.IndexOf("trunk", StringComparison.OrdinalIgnoreCase) >= 0).Select(b => b.bounds.center).ToList();
+                    var best = trunks.Where((p, i) => i % 7 == 0).OrderByDescending(p => trunks.Count(q => (q - p).sqrMagnitude < 625)).First();
+                    Physics.Raycast(best + Vector3.up * 40 + Vector3.right * 1.6f, Vector3.down, out var g, 120, 1, QueryTriggerInteraction.Ignore);
+                    eye = (g.collider ? g.point : best) + Vector3.up * 1.8f; look = eye + new Vector3(1, -.05f, .35f);
+                }
+                else if (label == "summit")
+                {
+                    var launch = GameObject.Find("CR094 summit launch").transform; eye = launch.position + Vector3.up * 4 - launch.forward * 6; look = eye + launch.forward * 10 + Vector3.down * 1.8f;
+                }
+                else { race.road.Initialize(); var p = race.road.At(12, out var f); f = Vector3.ProjectOnPlane(f, Vector3.up).normalized; eye = p - f * 9 + Vector3.up * (label == "mountain" ? 3.6f : 3.2f); look = p + f * 30 + Vector3.up * .5f; if (label == "mountain") { p = race.road.At(400, out f); f = Vector3.ProjectOnPlane(f, Vector3.up).normalized; eye = p - f * 9 + Vector3.up * 3.6f; look = p + f * 30 + Vector3.up * .5f; } }
+                cam.transform.SetPositionAndRotation(eye, Quaternion.LookRotation(look - eye));
+                foreach (bool fresh in new[] { true, false })
+                {
+                    Scenery.Set(fresh); yield return Hold(1.5f);
+                    WorldLook.Current.Pin(LookPresets.Compose(TimeOfDay.Day, Weather.Clear)); yield return Hold(2);
+                    yield return Full($"scenery-{label}-{(fresh ? "new" : "classic")}.jpg");
+                    foreach (var (t, w) in new[] { (TimeOfDay.Day, Weather.Clear), (TimeOfDay.Night, Weather.Rain), (TimeOfDay.Night, Weather.Snow) })
+                    {
+                        WorldLook.Current.Pin(LookPresets.Compose(t, w)); yield return Hold(3);
+                        bool strikes = t == TimeOfDay.Night && w == Weather.Rain; if (strikes) { WeatherEffects.HoldStrikes = false; WeatherEffects.TestStrikeInterval = 2; }
+                        var gpu = new List<float>(); var ft = new FrameTiming[1]; float t0 = Time.unscaledTime;
+                        while (Time.unscaledTime - t0 < 10) { yield return null; Keep(); cam.transform.SetPositionAndRotation(eye, Quaternion.LookRotation(look - eye)); FrameTimingManager.CaptureFrameTimings(); if (FrameTimingManager.GetLatestTimings(1, ft) > 0 && ft[0].gpuFrameTime > 0) gpu.Add((float)ft[0].gpuFrameTime); }
+                        if (strikes) { WeatherEffects.HoldStrikes = true; WeatherEffects.TestStrikeInterval = 0; }
+                        gpu.Sort(); float med = gpu.Count > 0 ? gpu[gpu.Count / 2] : float.NaN, p95 = gpu.Count > 0 ? gpu[(int)(gpu.Count * .95f)] : float.NaN;
+                        var world = SceneryWorld.Current;
+                        rows.Add($"FPS {label} {t}/{w}{(strikes ? " strikes every 2 s" : "")} scenery {(fresh ? "New" : "Classic")}: GPU median {med:F2} ms (95th {p95:F2}) = {1000 / med:F0} fps; {gpu.Count} timed frames; tree draw calls {(fresh && world && world.Trees ? world.Trees.DrawCalls : 0)}; screen {Screen.width}x{Screen.height}");
+                        File.WriteAllLines(Path.Combine(outDir, "conditions.txt"), rows);
+                    }
+                }
+                Scenery.Set(true);
+            }
         }
         // 0.75 evidence ("-conditionsModels"): a mixed grid (player Street Classic; AI Longroof GT, Needle 600, Trail Four)
         // from the chase camera at Day and Night, New vs Classic models: full-screen shots and GPU frame times.

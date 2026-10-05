@@ -85,6 +85,7 @@ namespace Racer
                 motor.centreOfMass=new(0,p.Small?-.28f:-.35f,0);
             }
             generated=VehicleVisual.Build(transform,p,wheels,riderLook,classicVisual);
+            if(!GetComponent<RiderGestures>()) gameObject.AddComponent<RiderGestures>();
             box.size=profileId=="original"?originalSize:p.Size;
             box.center=profileId=="original"?originalCenter:new Vector3(0,.05f,0);
             motor.Body.mass=profileId=="original"?originalMass:p.Mass;

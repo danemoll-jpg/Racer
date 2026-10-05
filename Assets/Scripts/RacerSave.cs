@@ -45,6 +45,8 @@ namespace Racer
             public int roamDay = 1;
             // 0.77: the player's camera view (0 Chase, 1 Far chase, 2 First person, 3 Front); older saves = Chase.
             public int cameraView = 0;
+            // 0.78: Settings > Display "Scenery" (false = New, the default; true = Classic, the original world visuals).
+            public bool classicScenery = false;
             public string[] opponentChoices = {"mixed","mixed","mixed"};
             public string[] opponentRoster = {"tourer","moto","atv"};
             public int[] bodyColors = {-1,-1,-1,-1};

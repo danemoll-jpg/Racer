@@ -186,6 +186,7 @@ details.gameObject.SetActive(true);
                 Row(4,"vsync","VSync: "+(s.vsync?"On":"Off"),()=>Adjust(()=>s.vsync=!s.vsync));
                 Step(5,"fps","Frame cap: "+s.frameLimit+" FPS",d=>Adjust(()=>{int[] caps={30,60,120};s.frameLimit=caps[Mathf.Clamp(Array.IndexOf(caps,s.frameLimit)+d,0,2)];}));
                 Row(6,"lightning","Lightning flashes: "+(s.lightningFlashes?"On":"Off"),()=>Adjust(()=>s.lightningFlashes=!s.lightningFlashes));
+                Row(7,"scenery","Scenery: "+(s.classicScenery?"Classic":"New"),()=>Adjust(()=>{s.classicScenery=!s.classicScenery;Scenery.Set(!s.classicScenery);}));
             }
             if(page=="settings-controls")RenderControls();
             if(page!="settings-controls")Row(14,"back","Back",flow.CloseSettings);

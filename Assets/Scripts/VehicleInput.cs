@@ -10,8 +10,8 @@ namespace Racer
         public float BrakeReverse { get; private set; }
         public float Steering { get; private set; }
         bool resetRequested;
-        InputAction throttle, brake, steering, reset;
-        public InputAction[] CurrentBindings => new[]{throttle,brake,steering,reset};
+        InputAction throttle, brake, steering, reset, fist;
+        public InputAction[] CurrentBindings => new[]{throttle,brake,steering,reset,fist};
         public bool UsingGamepad { get; private set; }
         public string ResetControlLabel
         {
@@ -41,23 +41,31 @@ namespace Racer
             reset = new InputAction("Reset", InputActionType.Button);
             reset.AddBinding("<Gamepad>/buttonNorth");
             reset.AddBinding("<Keyboard>/r");
-            throttle.performed+=Used; brake.performed+=Used; steering.performed+=Used; reset.performed+=Used;
+            // 0.78: shake a fist (cosmetic, RiderGestures). In Trailer Mode RB keeps its 0.5x toggle; F still works there.
+            fist = new InputAction("Fist wave", InputActionType.Button);
+            fist.AddBinding("<Gamepad>/rightShoulder");
+            fist.AddBinding("<Keyboard>/f");
+            throttle.performed+=Used; brake.performed+=Used; steering.performed+=Used; reset.performed+=Used; fist.performed+=Used;
         }
 
-        void OnEnable() { throttle.Enable(); brake.Enable(); steering.Enable(); reset.Enable(); }
+        void OnEnable() { throttle.Enable(); brake.Enable(); steering.Enable(); reset.Enable(); fist.Enable(); }
         void Update()
         {
             Throttle = throttle.ReadValue<float>();
             BrakeReverse = brake.ReadValue<float>();
             Steering = steering.ReadValue<float>();
             resetRequested |= reset.WasPressedThisFrame();
+            // Not while a menu, the debug overlay or the map has the controls (F is the map's waypoint key).
+            if (fist.WasPressedThisFrame() && !(TrailerMode.Active && fist.activeControl?.device is Gamepad) && !MenuInput.Blocked
+                && FindAnyObjectByType<ExplorationMap>()?.OwnsInput != true)
+                GetComponent<RiderGestures>()?.Wave();
         }
         public bool ConsumeReset() { bool result = resetRequested; resetRequested = false; return result; }
         void OnDisable()
         {
-            throttle.Disable(); brake.Disable(); steering.Disable(); reset.Disable();
+            throttle.Disable(); brake.Disable(); steering.Disable(); reset.Disable(); fist.Disable();
             Throttle = BrakeReverse = Steering = 0; resetRequested = false;
         }
-        void OnDestroy() { throttle.Dispose(); brake.Dispose(); steering.Dispose(); reset.Dispose(); }
+        void OnDestroy() { throttle.Dispose(); brake.Dispose(); steering.Dispose(); reset.Dispose(); fist.Dispose(); }
     }
 }

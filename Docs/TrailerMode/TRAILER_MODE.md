@@ -48,6 +48,7 @@ setting, so a controller player can reach everything.
 | H | HUD on / off |
 | G | Arrows, gates and waypoint beacon on / off |
 | P or F12 | Screenshot |
+| F | Shake a fist (0.78; the rider's gesture, also outside Trailer Mode) |
 | F1 | Controls hint on / off |
 
 **Free camera (7):** W A S D move, Q / E down / up, right mouse button to look, Shift fast, Ctrl precise. The
@@ -73,7 +74,7 @@ vehicle's own controls are off while the free camera is in use.
 | A | Camera action (Fixed re-plant, Side switch, Auto next shot) |
 | X (hold) | Auto: keep the current shot |
 | LB (hold) | Slow motion 0.25× |
-| RB | Slow motion 0.5× on / off |
+| RB | Slow motion 0.5× on / off (outside Trailer Mode RB shakes a fist; in Trailer Mode use F) |
 | D-pad ↑ / ↓ | Field of view narrower / wider |
 | Right stick | Camera distance (left / right) and height (up / down) |
 | R3 | Screenshot |
@@ -142,3 +143,10 @@ Auto cuts between Chase, Orbit, Side tracking, Front, Fixed, Flyover and, sparin
 2. Press F8.
 3. Pick a camera, or 8 for Auto, and ride.
 4. Use Z / LB for slow-motion moments.
+
+
+## Rider gestures (0.78)
+
+- **Shake a fist:** F on the keyboard, RB on a controller (in Trailer Mode RB keeps its 0.5× toggle, so use F). The rider raises the left fist and shakes it three times, then takes the bars again; in the cars the driver's fist goes out of the side window. A short cooldown stops spamming. Seen in first person the fist comes up in front of you. Needs Model: New.
+- **AI riders** shake a fist at whoever just ran into them (or after recovering from a wipe-out someone caused), now and then, not on every bump.
+- **Victory:** the winner of a race (player or AI) raises both fists and pumps them as they cross the line; in a car, a fist pumped out of the window.

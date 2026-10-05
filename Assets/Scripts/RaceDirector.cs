@@ -278,7 +278,11 @@ namespace Racer
                     r.Estimate.Sample(Clock,RemainingDistance(r),r.Car.GetComponent<VehicleConfiguration>().Profile.Speed,!float.IsNaN(r.RecoveryStart));
             if(Progress.Finished && Flow && Flow.Save.Settings.estimateAiFinishes) FinalizeUnfinishedAi();
             if (Racers.Any(r => r.Progress.Finished) && firstFinish < 0)
+            {
                 firstFinish = Clock;
+                // 0.78: the winner (first across the line, player or AI) raises both fists; others do nothing special.
+                if (Racers.Count > 1) Racers.Where(r => r.Progress.Finished).OrderBy(r => r.Progress.RaceTime(Clock)).First().Car.GetComponent<RiderGestures>()?.Celebrate();
+            }
             // Debug review time consumes neither the total race budget nor the post-finisher grace budget.
             if(DeveloperLocationHud.DebugEnabled){debugTimeoutOffset+=Time.fixedDeltaTime;if(firstFinish>=0)debugGraceOffset+=Time.fixedDeltaTime;}
             if (!DeveloperLocationHud.DebugEnabled && !Progress.Unlimited && (Clock - startedAt - debugTimeoutOffset >= maximumRaceSeconds*Mathf.Max(1,laps/3f) || (firstFinish >= 0 && Clock - firstFinish - debugGraceOffset >= finishGraceSeconds)))

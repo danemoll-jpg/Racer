@@ -23,8 +23,22 @@ Shader "Racer/MarkedGround" {
    float dash=1-smoothstep(1.5-longitudinal,1.5+longitudinal,phase);
    float edge=1-smoothstep(.07-width,.07+width,abs(abs(v.road.x)-3.65));
    float marking=saturate(v.road.z)*center*dash;
-   float3 albedo=lerp(v.color.rgb,float3(.73,.60,.27),marking);
-   albedo=lerp(albedo,float3(.67,.66,.59),edge*saturate(v.road.w));
+   float3 albedo=v.color.rgb;
+   if(_RacerScenery>.5)
+   {
+     // 0.78 New scenery: darker, smoother wheel tracks in each lane and a slightly crumbled edge; crisper, brighter paint.
+     float x=abs(v.road.x);
+     float tracks=exp(-pow((x-1.05)/.34,2))+exp(-pow((x-2.55)/.34,2));
+     albedo*=1-tracks*.07*saturate(v.road.w+v.road.z);
+     albedo*=1+(RacerNoise(v.world.xz*3.7)-.5)*.10*smoothstep(3.2,3.9,x);
+     albedo=lerp(albedo,float3(.86,.70,.30),marking);
+     albedo=lerp(albedo,float3(.84,.83,.78),edge*saturate(v.road.w));
+   }
+   else
+   {
+     albedo=lerp(albedo,float3(.73,.60,.27),marking);
+     albedo=lerp(albedo,float3(.67,.66,.59),edge*saturate(v.road.w));
+   }
    return half4(MixFog(RacerSurface(albedo,v.world,v.normalWS,0),v.fog),1);
  }
  ENDHLSL

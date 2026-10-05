@@ -10,6 +10,9 @@ Objects are named "<Pose>_<Category>_<Option>_<Body>__<slot>":
             Hair (Short / Medium / Long / Ponytail: everything BELOW the hat band), HairTop (the same styles ABOVE the band;
             hidden under a hat, so hair and hat never pass through each other), Hat (FlatCap / Baseball / Beanie / Cowboy)
   Body      Man / Woman, or Any (hair and hats fit both: the head is the same size)
+  Arm       0.78: arm parts carry a fifth key, "<Pose>_<Category>_<Option>_<Body>_<Arm>__<slot>", Arm = U / L / H (upper
+            arm, forearm, hand) + R / L (side). Their origin is the joint they turn about (U: shoulder, L: elbow, H: wrist),
+            so the game can move the arms (fist wave, victory) with a simple shoulder / elbow / wrist rig (RiderArms).
   slot      skin, hair, hat, trim, shirt, pants, shoes, eyes, pupil, mouth (the game colours them per rider)
 The head is always upright and faces forward, so hair and hats are the same shapes in every pose. The hat band is a plane
 through the head 5.5 cm above its centre, 12 degrees higher at the front; every hat covers the whole head above it.
@@ -68,6 +71,11 @@ def bust(G, P, body, slot, chest, grow=0.0):
     for s in (-1, 1): blob(G + ' bust', (s * .055, chest.y - .015, chest.z + d * .62), (.064 + grow * .5, .058 + grow * .3, .055 + grow * .5), G, slot, 12, 8)
 
 
+def arm(G, seg, s):
+    """Group of an arm part (0.78): seg U (upper arm), L (forearm) or H (hand), on side s (+1 right, -1 left)."""
+    return f'{G}_{seg}{"R" if s > 0 else "L"}'
+
+
 def arm_points(P, body, s):
     sh = add(M(P['S'], s), (s * body['sw'], -.02, 0)); el = M(P['elbow'], s); ha = M(P['hand'], s)
     wr = tuple(V(ha) - (V(ha) - V(el)).normalized() * .06)
@@ -81,21 +89,23 @@ def shirt(pose, P, bodyname, kind):
     if bodyname == 'Woman': bust(G, P, body, 'shirt', chest, grow)
     ua0, ua1, fa0, fa1 = body['arm']
     for s in (-1, 1):
-        sh, el, wr, ha = arm_points(P, body, s)
+        sh, el, wr, ha = arm_points(P, body, s); U, L = arm(G, 'U', s), arm(G, 'L', s)
         if kind == 'Tee':
             mid = lerp(sh, el, .48)
-            blob(G + ' shoulder', sh, (ua0 + .012,) * 3, G, 'shirt', 12, 8)
-            cyl(G + ' sleeve', sh, mid, ua0 + .012, G, 'shirt', 12, r1=ua0 + .014, cap=False)
-            cyl(G + ' hem', lerp(sh, el, .44), mid, ua0 + .017, G, 'shirt', 12)
-            limb(G + ' upper arm', lerp(sh, el, .4), el, ua0 * .95, ua1, G, 'skin', 10)
-            limb(G + ' forearm', el, wr, fa0, fa1, G, 'skin', 10)
+            blob(G + ' shoulder', sh, (ua0 + .012,) * 3, U, 'shirt', 12, 8)
+            cyl(G + ' sleeve', sh, mid, ua0 + .012, U, 'shirt', 12, r1=ua0 + .014, cap=False)
+            cyl(G + ' hem', lerp(sh, el, .44), mid, ua0 + .017, U, 'shirt', 12)
+            limb(G + ' upper arm', lerp(sh, el, .4), el, ua0 * .95, ua1, U, 'skin', 10)
+            limb(G + ' forearm', el, wr, fa0, fa1, L, 'skin', 10)
         else:
             g = .012 if kind == 'Jacket' else .004
-            blob(G + ' shoulder', sh, (ua0 + g + .004,) * 3, G, 'shirt', 12, 8)
-            limb(G + ' sleeve', sh, el, ua0 + g, ua1 + g, G, 'shirt', 12)
-            limb(G + ' sleeve lower', el, wr, fa0 + g, fa1 + g, G, 'shirt', 12, ends=False)
+            blob(G + ' shoulder', sh, (ua0 + g + .004,) * 3, U, 'shirt', 12, 8)
+            limb(G + ' sleeve', sh, el, ua0 + g, ua1 + g, U, 'shirt', 12)
+            # the elbow ball rides with the forearm so the bend stays closed
+            limb(G + ' sleeve lower', el, wr, fa0 + g, fa1 + g, L, 'shirt', 12, ends=False)
+            blob(G + ' elbow', el, (fa0 + g,) * 3, L, 'shirt', 12, 6)
             cuff = tuple(V(wr) - (V(wr) - V(el)).normalized() * .03)
-            cyl(G + ' cuff', cuff, wr, fa1 + g + .006, G, 'trim' if kind == 'Jacket' else 'shirt', 12)
+            cyl(G + ' cuff', cuff, wr, fa1 + g + .006, L, 'trim' if kind == 'Jacket' else 'shirt', 12)
     hip, S = V(P['hip']), V(P['S'])
     if kind == 'Jacket':
         hem = hip + (S - hip) * .12
@@ -166,10 +176,10 @@ def base(pose, P, bodyname):
     cyl(G + ' neck', tuple(neck0), tuple(neck1), body['neck'], G, 'skin', 10)
     k = body['hand']
     for s in (-1, 1):
-        sh, el, wr, ha = arm_points(P, body, s); d = (V(ha) - V(wr)).normalized()
-        limb(G + ' hand', wr, tuple(V(ha) + d * .02 * k), .034 * k, .04 * k, G, 'skin', 10)
-        blob(G + ' fist', tuple(V(ha) + d * .01), (.044 * k, .04 * k, .046 * k), G, 'skin', 12, 8)
-        blob(G + ' thumb', tuple(V(ha) + Vector((-s * .02, .03, .0)) * k), (.016 * k, .016 * k, .024 * k), G, 'skin', 8, 6)
+        sh, el, wr, ha = arm_points(P, body, s); d = (V(ha) - V(wr)).normalized(); Hd = arm(G, 'H', s)
+        limb(G + ' hand', wr, tuple(V(ha) + d * .02 * k), .034 * k, .04 * k, Hd, 'skin', 10)
+        blob(G + ' fist', tuple(V(ha) + d * .01), (.044 * k, .04 * k, .046 * k), Hd, 'skin', 12, 8)
+        blob(G + ' thumb', tuple(V(ha) + Vector((-s * .02, .03, .0)) * k), (.016 * k, .016 * k, .024 * k), Hd, 'skin', 8, 6)
         shoe(G, M(P['ankle'], s), P['foot'], body['shoe'])
 
 
@@ -323,7 +333,14 @@ def build():
             for k in SHIRTS: shirt(pose, P, bodyname, k)
             for k in PANTS: pants(pose, P, bodyname, k)
         hair(pose, P); hats(pose, P)
-    return kit.join_all()
+    objs = kit.join_all()
+    # arm parts turn about their joint: origin on the shoulder (U), elbow (L) or wrist (H)
+    for ob in objs:
+        key = ob.name.split('__')[0].split('_')
+        if len(key) != 5: continue
+        sh, el, wr, ha = arm_points(POSES[key[0]], BODY[key[3]], 1 if key[4][1] == 'R' else -1)
+        kit.set_origin(ob, {'U': sh, 'L': el, 'H': wr}[key[4][0]])
+    return objs
 
 
 def covered(H, p, bvh):
@@ -369,7 +386,7 @@ def check(objs):
 def counts(objs):
     """Triangles of each combination's worst case per pose (base + heaviest shirt/pants/hair top+rest/hat)."""
     t = {ob.name: kit.tris([ob]) for ob in objs}
-    def cat(pose, c, o, b): return sum(v for n, v in t.items() if n.startswith(f'{pose}_{c}_{o}_{b}__'))
+    def cat(pose, c, o, b): return sum(v for n, v in t.items() if n.startswith(f'{pose}_{c}_{o}_{b}_'))  # includes the arm parts
     out = []
     for pose in POSES:
         for b in BODY:

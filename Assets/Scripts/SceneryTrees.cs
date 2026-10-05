@@ -1,0 +1,334 @@
+using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
+
+namespace Racer
+{
+    // 0.78 Part A1: the new trees and bushes. The old forest is drawn by big combined vertex-colour meshes (the
+    // "Racer/GreyboxGround" shader with _Vegetation = 1: Phase6Vegetation, CR014, the mountain woods, ...): each old tree
+    // is a crown (one or a few closed blobs, green) over a bark box; the trunk colliders are separate invisible boxes.
+    // Build() reads those meshes once, finds every crown and bark box (connected pieces of the mesh), matches the crowns
+    // to their trunk (the trunk collider, or the bark box of a tree that never had one), and fits a tree from the Blender
+    // kit (Tools/Blender/scenery_trees.py) to each: the trunk exactly over the old trunk box (same place, height and
+    // width), the crown within the old crown's bounds. Crowns without a trunk become bushes (near the ground) or crown-only
+    // clumps. The old meshes are then hidden by SceneryWorld; no collider is touched.
+    // Drawing: instanced (Racer/Foliage), in 96 m cells; near cells use the detailed kit and cast shadows, far cells the
+    // simplified kit without shadows; cells beyond the draw distance are skipped.
+    public sealed class SceneryTrees : MonoBehaviour
+    {
+        public const float Cell = 96, FarCell = 256, NearDistance = 90, DrawDistance = 1100, FarTrunks = 450;
+        static readonly string[] Variants = { "Round", "Oak", "Maple", "Pine", "Poplar", "Young", "Bush", "Shrub" };
+        const int Round = 0, Oak = 1, Maple = 2, Pine = 3, Poplar = 4, Young = 5, Bush = 6, Shrub = 7;
+        static readonly Color[] Leaf = { new(.25f, .37f, .17f), new(.21f, .32f, .14f), new(.31f, .38f, .16f), new(.13f, .25f, .15f), new(.30f, .41f, .18f), new(.33f, .45f, .20f), new(.22f, .33f, .15f), new(.26f, .35f, .17f) };
+        static readonly Color[] Bark = { new(.27f, .21f, .15f), new(.24f, .19f, .14f), new(.29f, .22f, .16f), new(.26f, .18f, .13f), new(.36f, .33f, .29f), new(.30f, .24f, .17f), new(.27f, .21f, .15f), new(.27f, .21f, .15f) };
+
+        // ---------------------------------------------------------------- the kit
+        static Mesh[] crownNear, crownFar, trunkNear, trunkFar; static Material material;
+        static bool LoadKit()
+        {
+            if (material) return true;
+            var asset = Resources.Load<GameObject>("Scenery/SceneryTrees"); material = Resources.Load<Material>("Scenery/Foliage");
+            if (!asset || !material) { Debug.LogWarning("Scenery: tree kit or foliage material missing"); return false; }
+            Mesh Part(string name) => asset.GetComponentsInChildren<MeshFilter>(true).FirstOrDefault(f => f.name == name)?.sharedMesh;
+            int n = Variants.Length; crownNear = new Mesh[n]; crownFar = new Mesh[n]; trunkNear = new Mesh[n]; trunkFar = new Mesh[n];
+            for (int v = 0; v < n; v++)
+            {
+                crownNear[v] = Prepare(Variants[v] + " crown", v, Part(Variants[v] + "_Crown__leaf"), Part(Variants[v] + "_Crown__bark"), true);
+                crownFar[v] = Prepare(Variants[v] + " crown far", v, Part(Variants[v] + "_CrownFar__leaf"), Part(Variants[v] + "_CrownFar__bark"), true);
+                trunkNear[v] = Prepare(Variants[v] + " trunk", v, null, Part(Variants[v] + "_Trunk__bark"), false);
+                trunkFar[v] = Prepare(Variants[v] + " trunk far", v, null, Part(Variants[v] + "_TrunkFar__bark"), false);
+            }
+            return true;
+        }
+        // One mesh per part: per-face colours (leaf facets vary a little in shade so clumps read; bark is the species'
+        // bark), alpha = sway weight (leaves by height in the crown, branches half, trunks none), uv.x = 1 on leaves.
+        static Mesh Prepare(string name, int variant, Mesh leaf, Mesh bark, bool crown)
+        {
+            if (!leaf && !bark) return null;
+            var v = new List<Vector3>(); var nrm = new List<Vector3>(); var col = new List<Color>(); var uv = new List<Vector2>(); var tri = new List<int>();
+            void Add(Mesh m, bool isLeaf)
+            {
+                if (!m) return;
+                var mv = m.vertices; var mn = m.normals; var mt = m.triangles;
+                for (int i = 0; i < mt.Length; i += 3)
+                {
+                    Vector3 a = mv[mt[i]], b = mv[mt[i + 1]], c = mv[mt[i + 2]], centre = (a + b + c) / 3;
+                    float shade = isLeaf ? .86f + .28f * Mathf.PerlinNoise(centre.x * 3.1f + variant, centre.z * 3.1f + centre.y * 2.3f) : .9f + .2f * Mathf.PerlinNoise(centre.y * 4, variant);
+                    var baseColor = (isLeaf ? Leaf[variant] : Bark[variant]) * shade; baseColor.a = 1;
+                    foreach (int k in new[] { mt[i], mt[i + 1], mt[i + 2] })
+                    {
+                        var p = mv[k]; float sway = crown ? (isLeaf ? Mathf.Clamp01(.35f + p.y * .65f) : Mathf.Clamp01(p.y) * .5f) : 0;
+                        var c4 = baseColor; c4.a = sway;
+                        tri.Add(v.Count); v.Add(p); nrm.Add(mn != null && mn.Length > k ? mn[k] : Vector3.up); col.Add(c4); uv.Add(new Vector2(isLeaf ? 1 : 0, 0));
+                    }
+                }
+            }
+            Add(leaf, true); Add(bark, false);
+            var mesh = new Mesh { name = "Scenery " + name, indexFormat = v.Count > 65000 ? IndexFormat.UInt32 : IndexFormat.UInt16 };
+            mesh.SetVertices(v); mesh.SetNormals(nrm); mesh.SetColors(col); mesh.SetUVs(0, uv); mesh.SetTriangles(tri, 0); mesh.RecalculateBounds(); mesh.UploadMeshData(true);
+            return mesh;
+        }
+
+        // ---------------------------------------------------------------- instances
+        sealed class CellData
+        {
+            public Bounds bounds; public bool any;
+            public readonly List<Matrix4x4>[] crowns = Enumerable.Range(0, Variants.Length).Select(_ => new List<Matrix4x4>()).ToArray();
+            public readonly List<Matrix4x4>[] trunks = Enumerable.Range(0, Variants.Length).Select(_ => new List<Matrix4x4>()).ToArray();
+        }
+        readonly Dictionary<Vector2Int, CellData> cells = new();
+        // far away every tree is one of three simple shapes (broadleaf crown, conifer crown, trunk) in big cells
+        sealed class FarGroup { public Bounds bounds; public bool any; public readonly List<Matrix4x4> broad = new(), conifer = new(), trunks = new(), sb = new(), sc = new(), st = new(); }
+        readonly Dictionary<Vector2Int, FarGroup> far = new();
+        FarGroup FarAt(Vector3 p) { var k = new Vector2Int(Mathf.FloorToInt(p.x / FarCell), Mathf.FloorToInt(p.z / FarCell)); if (!far.TryGetValue(k, out var c)) far[k] = c = new FarGroup(); return c; }
+        public int TreeCount { get; private set; }
+        public int TrunkOnly { get; private set; }
+        public int CrownOnly { get; private set; }
+        public int Bushes { get; private set; }
+        public int[] PerVariant { get; } = new int[Variants.Length];
+        public string Summary => $"{TreeCount} trees ({string.Join(", ", Variants.Select((n, i) => n + " " + PerVariant[i]))}), {Bushes} bushes, {CrownOnly} crown-only, {TrunkOnly} trunks without crown";
+        public int DrawCalls { get; private set; }
+        public static string KitInfo => material ? $"kit: crown {crownNear?[0]?.vertexCount} verts, trunk {trunkNear?[0]?.vertexCount} verts, material {material.shader.name} supported {material.shader.isSupported} instancing {material.enableInstancing}" : "kit not loaded";
+        public static Mesh DebugCrown => crownNear?[0]; public static Material DebugMaterial => material;
+        public Bounds FirstCellBounds => cells.Values.FirstOrDefault(c => c.any)?.bounds ?? default;
+
+        CellData CellAt(Vector3 p)
+        {
+            var key = new Vector2Int(Mathf.FloorToInt(p.x / Cell), Mathf.FloorToInt(p.z / Cell));
+            if (!cells.TryGetValue(key, out var c)) cells[key] = c = new CellData();
+            return c;
+        }
+        void Grow(CellData c, Bounds b) { if (c.any) c.bounds.Encapsulate(b); else { c.bounds = b; c.any = true; } }
+        void AddCrown(int variant, Vector3 bottom, float radius, float height, float yaw)
+        {
+            var m = Matrix4x4.TRS(bottom, Quaternion.Euler(0, yaw, 0), new Vector3(radius, height, radius));
+            var c = CellAt(bottom); c.crowns[variant].Add(m); var b = new Bounds(bottom + Vector3.up * height * .5f, new Vector3(radius * 2.4f, height * 1.2f, radius * 2.4f));
+            Grow(c, b); var f = FarAt(bottom); (variant == Pine ? f.conifer : f.broad).Add(m); if (f.any) f.bounds.Encapsulate(b); else { f.bounds = b; f.any = true; }
+        }
+        void AddTrunk(int variant, Vector3 bottom, Vector3 up, float width, float height, float yaw)
+        {
+            var m = Matrix4x4.TRS(bottom, Quaternion.FromToRotation(Vector3.up, up) * Quaternion.Euler(0, yaw, 0), new Vector3(width, height, width));
+            var c = CellAt(bottom); c.trunks[variant].Add(m); var b = new Bounds(bottom + up * height * .5f, new Vector3(width * 2, height, width * 2));
+            Grow(c, b); var f = FarAt(bottom); f.trunks.Add(m); if (f.any) f.bounds.Encapsulate(b); else { f.bounds = b; f.any = true; }
+        }
+
+        // ---------------------------------------------------------------- reading the old forest
+        struct Piece { public Bounds b; public Color c; public int verts; public bool bark; }
+        struct Trunk { public Vector3 bottom, up; public float width, height; public bool collider; public Bounds crown; public bool hasCrown; }
+        public static bool IsOldVegetation(Renderer r)
+        {
+            // never the ground: some terrain tiles share the vegetation shading (CR117 outer ravine); a crown batch has no collider
+            if (r.GetComponent<Collider>() || r.name.StartsWith("Ground", System.StringComparison.OrdinalIgnoreCase)) return false;
+            var m = r.sharedMaterial;
+            return m && m.shader && m.shader.name == "Racer/GreyboxGround" && m.HasProperty("_Vegetation") && m.GetFloat("_Vegetation") > .5f
+                && r.TryGetComponent<MeshFilter>(out var f) && f.sharedMesh && f.sharedMesh.isReadable;
+        }
+        // The mountain woods (ExplorationAuthoring) are drawn on URP Lit materials: one batch of sphere crowns, one of cube
+        // trunks per "Mountain woods" group (Dan's house has batches of the same names, which stay as they are).
+        static int MountainKind(Renderer r)
+        {
+            if (!r.transform.parent || !r.transform.parent.name.StartsWith("Mountain woods")) return 0;
+            if (!r.TryGetComponent<MeshFilter>(out var f) || !f.sharedMesh || !f.sharedMesh.isReadable) return 0;
+            return r.name == "Batched Mountain foliage" ? 1 : r.name == "Batched Weathered timber" ? 2 : 0;
+        }
+        static bool IsTrunkCollider(BoxCollider b) => b.name.IndexOf("trunk", System.StringComparison.OrdinalIgnoreCase) >= 0;
+
+        public void Build(Scene scene, List<Renderer> hidden)
+        {
+            if (!LoadKit()) { enabled = false; return; }
+            var roots = scene.GetRootGameObjects();
+            // 1. old vegetation meshes, split into connected pieces (world bounds, mean colour)
+            var pieces = new List<Piece>();
+            foreach (var r in roots.SelectMany(g => g.GetComponentsInChildren<MeshRenderer>(true)))
+            {
+                if (!r.gameObject.activeInHierarchy || !r.enabled) continue;
+                int mountain = MountainKind(r); if (mountain == 0 && !IsOldVegetation(r)) continue;
+                var mesh = r.GetComponent<MeshFilter>().sharedMesh; Pieces(mesh, r.transform.localToWorldMatrix, pieces, mountain); hidden.Add(r);
+            }
+            // 2. bark boxes: a primitive cube's six faces are separate pieces; merge the touching ones into boxes
+            var barkBoxes = MergeTouching(pieces.Where(p => p.bark).Select(p => p.b).ToList());
+            // 3. trunks: every trunk collider, plus bark boxes that have no collider (visual-only trees stay visual-only)
+            var trunks = new List<Trunk>();
+            foreach (var box in roots.SelectMany(g => g.GetComponentsInChildren<BoxCollider>(true)))
+            {
+                if (!IsTrunkCollider(box) || !box.gameObject.activeInHierarchy) continue;
+                var t = box.transform; var size = Vector3.Scale(box.size, t.lossyScale); var up = t.up;
+                trunks.Add(new Trunk { bottom = t.TransformPoint(box.center - Vector3.up * box.size.y * .5f), up = up, width = Mathf.Min(Mathf.Abs(size.x), Mathf.Abs(size.z)), height = Mathf.Abs(size.y), collider = true });
+            }
+            var trunkGrid = new Dictionary<Vector2Int, List<int>>();
+            Vector2Int G(Vector3 p, float s) => new(Mathf.FloorToInt(p.x / s), Mathf.FloorToInt(p.z / s));
+            void Index(int i) { var k = G(trunks[i].bottom, 8); if (!trunkGrid.TryGetValue(k, out var l)) trunkGrid[k] = l = new(); l.Add(i); }
+            for (int i = 0; i < trunks.Count; i++) Index(i);
+            int Nearest(Vector3 p, float max, System.Func<Trunk, bool> ok)
+            {
+                int best = -1; float bd = max * max; var k = G(p, 8); int reach = Mathf.CeilToInt(max / 8);
+                for (int x = -reach; x <= reach; x++) for (int z = -reach; z <= reach; z++)
+                        if (trunkGrid.TryGetValue(new Vector2Int(k.x + x, k.y + z), out var l))
+                            foreach (int i in l) { var d = trunks[i].bottom - p; d.y = 0; if (d.sqrMagnitude < bd && ok(trunks[i])) { bd = d.sqrMagnitude; best = i; } }
+                return best;
+            }
+            foreach (var b in barkBoxes)
+            {
+                var bottom = new Vector3(b.center.x, b.min.y, b.center.z);
+                if (Nearest(bottom, Mathf.Max(.4f, b.extents.x), _ => true) >= 0) continue;
+                trunks.Add(new Trunk { bottom = bottom, up = Vector3.up, width = Mathf.Min(b.size.x, b.size.z), height = b.size.y }); Index(trunks.Count - 1);
+            }
+            // 4. crowns to the nearest trunk whose top reaches into or near them
+            var loose = new List<Bounds>();
+            foreach (var p in pieces)
+            {
+                if (p.bark) continue;
+                var c = new Vector3(p.b.center.x, p.b.min.y, p.b.center.z);
+                int i = Nearest(c, Mathf.Max(2.5f, p.b.extents.x * .9f), t => t.bottom.y + t.height * 1.6f + 1 >= p.b.min.y && t.bottom.y < p.b.max.y);
+                if (i < 0) { loose.Add(p.b); continue; }
+                var t = trunks[i]; if (t.hasCrown) t.crown.Encapsulate(p.b); else { t.crown = p.b; t.hasCrown = true; }
+                trunks[i] = t;
+            }
+            // 5. place the kit
+            foreach (var t in trunks)
+            {
+                float hash = Hash(t.bottom), yaw = hash * 360;
+                if (!t.hasCrown) { AddTrunk(Young, t.bottom, t.up, t.width, t.height, yaw); TrunkOnly++; continue; }
+                int v = Species(t, hash); PerVariant[v]++; TreeCount++;
+                var cb = t.crown; float radius = Mathf.Max(cb.extents.x, cb.extents.z);
+                AddTrunk(v, t.bottom, t.up, t.width, Mathf.Max(t.height, cb.min.y - t.bottom.y + cb.size.y * .25f), yaw);
+                AddCrown(v, new Vector3(cb.center.x, cb.min.y, cb.center.z), radius, cb.size.y, yaw);
+            }
+            // each crown without a trunk on its own (merging touching ones joined whole hillsides of overlapping mountain
+            // foliage into one giant crown)
+            foreach (var b in loose)
+            {
+                float hash = Hash(b.center), radius = Mathf.Max(b.extents.x, b.extents.z);
+                bool bush = b.size.y < 3.5f;
+                int v = bush ? (hash < .5f ? Bush : Shrub) : Round; if (bush) Bushes++; else CrownOnly++;
+                AddCrown(v, new Vector3(b.center.x, b.min.y, b.center.z), radius, b.size.y, hash * 360);
+            }
+        }
+
+        // Natural-looking mix: conifers where the old crowns were tall and narrow or on the mountain, oaks for the biggest
+        // spreading crowns, young trees for small ones; the rest broadleaves, in patches so species cluster.
+        static int Species(Trunk t, float hash)
+        {
+            var cb = t.crown; float radius = Mathf.Max(cb.extents.x, cb.extents.z), tall = cb.size.y / Mathf.Max(.1f, radius * 2);
+            float patch = Mathf.PerlinNoise((t.bottom.x + 311) / 140, (t.bottom.z - 97) / 140);
+            if (cb.max.y - t.bottom.y < 5.5f) return Young;
+            if (tall > 1.25f) return patch < .38f || hash < .15f ? Pine : hash < .6f ? Poplar : Round;
+            if (t.bottom.y > 60 && patch < .45f) return Pine;
+            if (radius > 4.2f && hash < .55f) return Oak;
+            return patch < .3f ? (hash < .4f ? Pine : Round) : patch > .62f ? (hash < .6f ? Maple : Oak) : (hash < .5f ? Round : Maple);
+        }
+        static float Hash(Vector3 p) => Mathf.Repeat(Mathf.Sin(p.x * 12.9898f + p.z * 78.233f) * 43758.5453f, 1);
+
+        // Connected pieces of a mesh (triangles sharing vertex indices), with world bounds and mean vertex colour.
+        // kind: 0 = by colour (bark brown, crowns green), 1 = all crowns, 2 = all bark.
+        static void Pieces(Mesh mesh, Matrix4x4 toWorld, List<Piece> output, int kind = 0)
+        {
+            var verts = mesh.vertices; var colors = mesh.colors; var tris = mesh.triangles;
+            var parent = new int[verts.Length]; for (int i = 0; i < parent.Length; i++) parent[i] = i;
+            int Find(int x) { while (parent[x] != x) { parent[x] = parent[parent[x]]; x = parent[x]; } return x; }
+            for (int i = 0; i < tris.Length; i += 3) { int a = Find(tris[i]), b = Find(tris[i + 1]), c = Find(tris[i + 2]); parent[b] = a; parent[Find(c)] = a; }
+            var index = new Dictionary<int, int>(); var acc = new List<(Bounds b, Color c, int n)>();
+            var used = new bool[verts.Length]; foreach (int t in tris) used[t] = true;
+            for (int i = 0; i < verts.Length; i++)
+            {
+                if (!used[i]) continue;
+                int root = Find(i); var w = toWorld.MultiplyPoint3x4(verts[i]); var col = colors.Length == verts.Length ? colors[i] : Color.gray;
+                if (!index.TryGetValue(root, out int k)) { index[root] = k = acc.Count; acc.Add((new Bounds(w, Vector3.zero), col, 1)); }
+                else { var e = acc[k]; e.b.Encapsulate(w); e.c += col; e.n++; acc[k] = e; }
+            }
+            foreach (var e in acc)
+            {
+                var c = e.c / e.n;
+                output.Add(new Piece { b = e.b, c = c, verts = e.n, bark = kind == 2 || (kind == 0 && c.r > c.g * 1.05f) });
+            }
+        }
+        // Unions boxes that touch (1 cm tolerance).
+        static List<Bounds> MergeTouching(List<Bounds> boxes)
+        {
+            var parent = Enumerable.Range(0, boxes.Count).ToArray();
+            int Find(int x) { while (parent[x] != x) { parent[x] = parent[parent[x]]; x = parent[x]; } return x; }
+            var grid = new Dictionary<Vector2Int, List<int>>();
+            for (int i = 0; i < boxes.Count; i++)
+            {
+                var b = boxes[i]; b.Expand(.02f);
+                for (int x = Mathf.FloorToInt(b.min.x / 4); x <= Mathf.FloorToInt(b.max.x / 4); x++)
+                    for (int z = Mathf.FloorToInt(b.min.z / 4); z <= Mathf.FloorToInt(b.max.z / 4); z++)
+                    {
+                        var k = new Vector2Int(x, z); if (!grid.TryGetValue(k, out var l)) grid[k] = l = new();
+                        foreach (int j in l) { var o = boxes[j]; o.Expand(.02f); if (o.Intersects(b)) parent[Find(j)] = Find(i); }
+                        l.Add(i);
+                    }
+            }
+            var merged = new Dictionary<int, Bounds>();
+            for (int i = 0; i < boxes.Count; i++) { int r = Find(i); if (merged.TryGetValue(r, out var m)) { m.Encapsulate(boxes[i]); merged[r] = m; } else merged[r] = boxes[i]; }
+            return merged.Values.ToList();
+        }
+
+        // ---------------------------------------------------------------- drawing
+        readonly HashSet<Vector2Int> nearKeys = new();
+        // instanced draws in batches of at most 1000
+        public static int Draw(RenderParams rp, Mesh mesh, List<Matrix4x4> list)
+        {
+            int n = 0; for (int start = 0; start < list.Count; start += 1000) { Graphics.RenderMeshInstanced(rp, mesh, 0, list, Mathf.Min(1000, list.Count - start), start); n++; }
+            return n;
+        }
+        // Whether p is under a tree crown (for the ground detail: leaf litter instead of grass).
+        public bool UnderCrown(Vector3 p)
+        {
+            var key = new Vector2Int(Mathf.FloorToInt(p.x / Cell), Mathf.FloorToInt(p.z / Cell)); if (!cells.TryGetValue(key, out var c)) return false;
+            for (int v = 0; v < Bush; v++) foreach (var m in c.crowns[v]) { var q = m.GetColumn(3); float r = m.GetColumn(0).magnitude * .8f; float dx = q.x - p.x, dz = q.z - p.z; if (dx * dx + dz * dz < r * r) return true; }
+            return false;
+        }
+        bool Overlaps(Vector2Int farKey)
+        {
+            foreach (var k in nearKeys) if (Mathf.FloorToInt(k.x * Cell / FarCell) == farKey.x && Mathf.FloorToInt(k.y * Cell / FarCell) == farKey.y) return true;
+            return false;
+        }
+        // the far cell the camera is in: its trees except those the near cells drew
+        void FarExcept(RenderParams rp, Vector2Int farKey, ref int calls)
+        {
+            var f = far[farKey]; var scratchBroad = f.sb; var scratchConifer = f.sc; var scratchTrunks = f.st; scratchBroad.Clear(); scratchConifer.Clear(); scratchTrunks.Clear();
+            bool Skip(Matrix4x4 m) { var p = m.GetColumn(3); return nearKeys.Contains(new Vector2Int(Mathf.FloorToInt(p.x / Cell), Mathf.FloorToInt(p.z / Cell))); }
+            foreach (var m in f.broad) if (!Skip(m)) scratchBroad.Add(m);
+            foreach (var m in f.conifer) if (!Skip(m)) scratchConifer.Add(m);
+            foreach (var m in f.trunks) if (!Skip(m)) scratchTrunks.Add(m);
+            if (scratchBroad.Count > 0) { calls += Draw(rp, crownFar[Round], scratchBroad); }
+            if (scratchConifer.Count > 0) { calls += Draw(rp, crownFar[Pine], scratchConifer); }
+            if (scratchTrunks.Count > 0) { calls += Draw(rp, trunkFar[Round], scratchTrunks); }
+        }
+        void LateUpdate()
+        {
+            var cam = Camera.main; if (!cam || !material) return;
+            var eye = cam.transform.position; float draw = Mathf.Min(DrawDistance, cam.farClipPlane + 100); int calls = 0;
+            var near = new RenderParams(material) { shadowCastingMode = ShadowCastingMode.On, receiveShadows = true, layer = 0 };
+            var farParams = new RenderParams(material) { shadowCastingMode = ShadowCastingMode.Off, receiveShadows = true, layer = 0 };
+            // near: the detailed kit per 96 m cell; the big far cells skip the trees those near cells already drew
+            nearKeys.Clear();
+            foreach (var pair in cells)
+            {
+                var c = pair.Value; if (!c.any || Mathf.Sqrt(c.bounds.SqrDistance(eye)) >= NearDistance) continue;
+                nearKeys.Add(pair.Key); var rp = near; rp.worldBounds = c.bounds;
+                for (int v = 0; v < Variants.Length; v++)
+                {
+                    if (c.crowns[v].Count > 0 && crownNear[v] is Mesh cm) { calls += Draw(rp, cm, c.crowns[v]); }
+                    if (c.trunks[v].Count > 0 && trunkNear[v] is Mesh tm) { calls += Draw(rp, tm, c.trunks[v]); }
+                }
+            }
+            foreach (var pair in far)
+            {
+                var f = pair.Value; if (!f.any || Mathf.Sqrt(f.bounds.SqrDistance(eye)) > draw) continue;
+                var rp = farParams; rp.worldBounds = f.bounds; bool trunks = Mathf.Sqrt(f.bounds.SqrDistance(eye)) < FarTrunks; // far away the crowns hide the trunks
+                if (nearKeys.Count == 0 || !Overlaps(pair.Key))
+                {
+                    if (f.broad.Count > 0) { calls += Draw(rp, crownFar[Round], f.broad); }
+                    if (f.conifer.Count > 0) { calls += Draw(rp, crownFar[Pine], f.conifer); }
+                    if (trunks && f.trunks.Count > 0) { calls += Draw(rp, trunkFar[Round], f.trunks); }
+                }
+                else FarExcept(rp, pair.Key, ref calls);
+            }
+            DrawCalls = calls;
+        }
+    }
+}

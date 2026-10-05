@@ -322,7 +322,7 @@ namespace Racer
                   + "1 Chase  2 Orbit  3 Side  4 Front  5 Fixed  6 Flyover  7 Free  8 Auto  9 First person\n"
                   + "Tab / same number again: Fixed re-plant · Side other side · Auto next shot\nLeft Shift (hold)  Auto: keep this shot\n"
                   + "Z (hold)  slow motion 0.25×   X  0.5× on / off\n− / =  field of view   PgUp / PgDn  distance   Home / End  height\n"
-                  + "H  HUD on / off   G  arrows, gates, waypoint beacon   P / F12  screenshot\n"
+                  + "H  HUD on / off   G  arrows, gates, waypoint beacon   P / F12  screenshot   F  shake a fist\n"
                   + "Free camera: WASD move · Q / E down / up · right mouse look · Shift fast · Ctrl precise" + conditions;
         }
     }

@@ -22,9 +22,9 @@ Car hat FlatCap: head points above band 90, outside the hat 0
 Car hat Baseball: head points above band 90, outside the hat 0
 Car hat Beanie: head points above band 90, outside the hat 0
 Car hat Cowboy: head points above band 90, outside the hat 0
-Moto Man: worst-case rider triangles 8636
-Moto Woman: worst-case rider triangles 9060
-Atv Man: worst-case rider triangles 8636
-Atv Woman: worst-case rider triangles 9060
-Car Man: worst-case rider triangles 8636
-Car Woman: worst-case rider triangles 9060
+Moto Man: worst-case rider triangles 8664
+Moto Woman: worst-case rider triangles 9088
+Atv Man: worst-case rider triangles 8664
+Atv Woman: worst-case rider triangles 9088
+Car Man: worst-case rider triangles 8664
+Car Woman: worst-case rider triangles 9088

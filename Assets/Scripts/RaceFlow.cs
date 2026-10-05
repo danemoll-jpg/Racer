@@ -91,6 +91,7 @@ namespace Racer
 #endif
             Save = new RacerSave(root, "street-loop-gates-v1-laps" + Race.laps);
             VehicleVisual.NewModels = Save.Settings.newMotorcycle; RiderLook.Player = Save.Settings.rider;
+            Scenery.Set(!Save.Settings.classicScenery); SceneryWorld.Attach(gameObject);
             Playlists=new RacePlaylists(root);
             Boards = new RecordBoards(root);
             Race.opponents = Save.Settings.opponents; Race.traffic = Save.Settings.traffic;
@@ -417,6 +418,7 @@ namespace Racer
 #endif
             Save = new RacerSave(directory, "street-loop-gates-v1-laps" + Race.laps);
             VehicleVisual.NewModels = Save.Settings.newMotorcycle; RiderLook.Player = Save.Settings.rider;
+            Scenery.Set(!Save.Settings.classicScenery);
             Boards = new RecordBoards(directory);
             Save.SelectRecords(Race.Category); Save.ApplySettings(); menus.Show();
         }

@@ -129,7 +129,8 @@ namespace Racer
                 if (root)
                 {
                     foreach (var r in root.GetComponentsInChildren<Renderer>(true))
-                        if (r.name.EndsWith("__eyes") && r.GetComponent<MeshFilter>() is MeshFilter f && f.sharedMesh) eyeParts.Add((r.transform, f.sharedMesh.bounds.center));
+                        // 0.78 fix: only the face's eyes (the Shorts socks share the "eyes" material slot).
+                        if (r.name.EndsWith("__eyes") && r.name.Contains("_Base_") && r.GetComponent<MeshFilter>() is MeshFilter f && f.sharedMesh) eyeParts.Add((r.transform, f.sharedMesh.bounds.center));
                     if (eyeParts.Count == 0)
                     {
                         var p = car.GetComponent<VehicleConfiguration>().Profile; classicEyes = true; eyeHost = root;

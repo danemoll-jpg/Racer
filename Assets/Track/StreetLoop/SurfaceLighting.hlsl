@@ -11,6 +11,9 @@ float RacerNoise(float2 p)
 float _RacerLook,_RacerSunBoost,_RacerAmbientScale,_RacerShadowLift,_RacerRoadSheen,_RacerGroundVariation;
 // 0.72 weather: wet surfaces (darker, glossier road) and snow cover (0 = clear, the 0.71 look).
 float _RacerWet,_RacerSnow;
+// 0.78 world scenery: 1 = Settings > Display "Scenery: New" (richer ground and road surfaces), 0 = Classic (unchanged).
+float _RacerScenery;
+float RacerDetailFilter(float2 uv){return 1-smoothstep(.3,1.2,max(length(ddx(uv)),length(ddy(uv))));}
 half3 RacerSurface(half3 color,float3 world,float3 normal,float vegetation)
 {
     Light light=GetMainLight();
@@ -22,6 +25,23 @@ half3 RacerSurface(half3 color,float3 world,float3 normal,float vegetation)
         float filter=1-smoothstep(.3,1.2,max(length(ddx(uv)),length(ddy(uv))));
         float grain=(RacerNoise(uv)-.5)*.07*filter;
         color*=1-road*(.10-grain);
+        if(_RacerScenery>.5)
+        {
+            // 0.78 New scenery: grass in tonal patches (greener and drier) with a fine blade speckle near the camera;
+            // dirt and gravel with pebbles; asphalt with aggregate, hairline cracks and darker repair patches.
+            float2 w=world.xz;
+            float grassN=saturate((color.g-max(color.r,color.b))*14), dirtN=saturate((color.r-color.g)*12)*(1-road);
+            float broad=RacerNoise(w*.035), mid=RacerNoise(w*.42);
+            float2 blades=w*9.1; float bladeFilter=RacerDetailFilter(blades);
+            color*=1+grassN*((broad-.5)*.20+(mid-.5)*.09+(RacerNoise(blades)-.5)*.16*bladeFilter);
+            color.r+=grassN*saturate(broad-.55)*.05;
+            float2 peb=w*13.7; float pebFilter=RacerDetailFilter(peb);
+            color*=1+dirtN*((RacerNoise(peb)-.5)*.30*pebFilter+(RacerNoise(w*1.3)-.5)*.10);
+            float2 agg=w*21; float aggFilter=RacerDetailFilter(agg);
+            float crackLine=(1-smoothstep(0,.012,abs(RacerNoise(w*.55+RacerNoise(w*1.9)*.35)-.5)))*smoothstep(.62,.75,RacerNoise(w*.08+7.7));
+            float repair=smoothstep(.70,.72,RacerNoise(floor(w/2.6)*.77+3.1))*smoothstep(.2,.8,RacerNoise(w*.5));
+            color*=1-road*(crackLine*.12*RacerDetailFilter(w*1.4)+repair*.07+(RacerNoise(agg)-.5)*.10*aggFilter);
+        }
         light.shadowAttenuation=lerp(MainLightRealtimeShadow(TransformWorldToShadowCoord(world)),1,GetMainLightShadowFade(world));
         // Look: grass and dirt read as different surfaces - broad, soft patchiness on grass, finer grain on dirt.
         float look=_RacerLook*_RacerGroundVariation*(1-road);

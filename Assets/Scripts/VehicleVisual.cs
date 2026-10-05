@@ -168,18 +168,21 @@ namespace Racer
             if(!riderLoaded){riderLoaded=true;riderAsset=Resources.Load<GameObject>("VehicleModels/Rider");}
             if(!riderAsset)return;
             var holder=new GameObject("Rider").transform;holder.SetParent(pose,false);holder.localPosition=seat;holder.localRotation=Quaternion.Euler(0,180,0);
-            var colors=VehiclePaint.Colors;
+            var colors=VehiclePaint.Colors;var arms=new List<(Transform part,string joint)>();
             foreach(Transform part in riderAsset.transform)
             {
                 string name=part.name;int cut=name.IndexOf("__");if(cut<0)continue;
-                var key=name.Substring(0,cut).Split('_');if(key.Length!=4||key[0]!=poseName||!look.Shows(key[1],key[2],key[3]))continue;
+                var key=name.Substring(0,cut).Split('_');if(key.Length<4||key.Length>5||key[0]!=poseName||!look.Shows(key[1],key[2],key[3]))continue;
                 var go=Object.Instantiate(part.gameObject,holder,false);go.name=name;
+                // 0.78: arm parts (fifth key U / L / H + side) have their origin on the joint they turn about.
+                if(key.Length==5)arms.Add((go.transform,key[4]));
                 go.GetComponent<Renderer>().sharedMaterial=name.Substring(cut+2) switch{
                     "skin"=>RiderMaterial("skin",RiderLook.Skins[look.skin]),"hair"=>RiderMaterial("hair",RiderLook.HairColors[look.hairColor]),
                     "hat"=>RiderMaterial("hat",colors[look.hatColor]),"shirt"=>RiderMaterial("shirt",colors[look.shirtColor]),
                     "pants"=>look.pants==0?RiderMaterial("jeans",Denim(colors[look.pantsColor])):RiderMaterial("shorts",colors[look.pantsColor]),
                     "trim"=>trim,"shoes"=>shoes[0],"eyes"=>eyes,"pupil"=>rubber,"mouth"=>mouth,_=>trim};
             }
+            RiderArms.Rig(holder,poseName,arms);
         }
         static void Person(Transform root,Vector3 hip,float scale,bool bike,float footSpan=.32f)
         {
