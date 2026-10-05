@@ -87,9 +87,15 @@ namespace Racer
         public int TrunkOnly { get; private set; }
         public int CrownOnly { get; private set; }
         public int Bushes { get; private set; }
+        public int DrivableSkipped { get; private set; }
         public int[] PerVariant { get; } = new int[Variants.Length];
         public string Summary => $"{TreeCount} trees ({string.Join(", ", Variants.Select((n, i) => n + " " + PerVariant[i]))}), {Bushes} bushes, {CrownOnly} crown-only, {TrunkOnly} trunks without crown";
         public int DrawCalls { get; private set; }
+        // every placed tree, bush and clump (for the checks): where it stands, how wide, and what it was made from
+        public struct Placement { public Vector3 bottom; public float radius, height; public int variant; public string source; }
+        public readonly List<Placement> Placements = new();
+        public List<string> TrunksNear(Vector3 p, float r) => Placements.Where(x => { var d = x.bottom - p; d.y = 0; return d.magnitude < r; })
+            .Select(x => $"{Variants[x.variant]} {x.source} at {x.bottom.x:F1},{x.bottom.y:F2},{x.bottom.z:F1} r {x.radius:F2} h {x.height:F1}").ToList();
         public static string KitInfo => material ? $"kit: crown {crownNear?[0]?.vertexCount} verts, trunk {trunkNear?[0]?.vertexCount} verts, material {material.shader.name} supported {material.shader.isSupported} instancing {material.enableInstancing}" : "kit not loaded";
         public static Mesh DebugCrown => crownNear?[0]; public static Material DebugMaterial => material;
         public Bounds FirstCellBounds => cells.Values.FirstOrDefault(c => c.any)?.bounds ?? default;
@@ -116,7 +122,7 @@ namespace Racer
 
         // ---------------------------------------------------------------- reading the old forest
         struct Piece { public Bounds b; public Color c; public int verts; public bool bark; }
-        struct Trunk { public Vector3 bottom, up; public float width, height; public bool collider; public Bounds crown; public bool hasCrown; }
+        struct Trunk { public Vector3 bottom, up; public float width, height; public bool collider, cleared; public Bounds crown; public bool hasCrown; }
         public static bool IsOldVegetation(Renderer r)
         {
             // never the ground: some terrain tiles share the vegetation shading (CR117 outer ravine); a crown batch has no collider
@@ -134,6 +140,101 @@ namespace Racer
             return r.name == "Batched Mountain foliage" ? 1 : r.name == "Batched Weathered timber" ? 2 : 0;
         }
         static bool IsTrunkCollider(BoxCollider b) => b.name.IndexOf("trunk", System.StringComparison.OrdinalIgnoreCase) >= 0;
+
+        // ---------------------------------------------------------------- 0.79 Part E: nothing grows on a drivable surface
+        // A tree, bush or clump "stands on" what is directly under its base (within 1.5 m). Drivable: paved terrain (the
+        // road colour), asphalt / gravel / concrete surfaces, road / driveway / parking / lane / trail meshes, and dirt
+        // terrain inside a trail's width. Verges, shoulders and open ground are not.
+        static readonly string[] PavedWords = { "asphalt", "gravel", "concrete", "pavement", "paving", "paved", "tarmac" };
+        static readonly string[] RoadWords = { "road", "driveway", "parking", "lane", "street", "highway", "hwy", "trail" };
+        static readonly string[] NotRoad = { "verge", "shoulder", "embankment", "bank", "kerb", "curb" };
+        static bool Has(string n, string[] words) => words.Any(w => n.IndexOf(w, System.StringComparison.OrdinalIgnoreCase) >= 0);
+        static readonly RaycastHit[] hits = new RaycastHit[32];
+        public static readonly IComparer<RaycastHit> ByDistance = Comparer<RaycastHit>.Create((a, b) => a.distance.CompareTo(b.distance));
+        public static bool OnDrivable(Vector3 bottom, IList<RaceRoad> trails, out string what)
+        {
+            what = null;
+            int n = Physics.RaycastNonAlloc(bottom + Vector3.up * 2.5f, Vector3.down, hits, 6, ~0, QueryTriggerInteraction.Ignore);
+            System.Array.Sort(hits, 0, n, ByDistance);
+            for (int k = 0; k < n; k++)
+            {
+                var h = hits[k];
+                var c = h.collider; if (c is BoxCollider b && IsTrunkCollider(b)) continue; if (c.attachedRigidbody && !c.attachedRigidbody.isKinematic) continue;
+                if (bottom.y - h.point.y > 1.5f) return false; // above the ground: not standing on it
+                var r = c.GetComponent<Renderer>(); var mat = r ? r.sharedMaterial : null;
+                if (mat && mat.shader && mat.shader.name.StartsWith("Racer/") && c is MeshCollider mc && mc.sharedMesh && h.triangleIndex >= 0 && SceneryGround.Terrain(mc.sharedMesh, out var cs, out var tr))
+                {
+                    int i = h.triangleIndex * 3; if (i + 2 >= tr.Length) return false; var bc = h.barycentricCoordinate; var col = cs[tr[i]] * bc.x + cs[tr[i + 1]] * bc.y + cs[tr[i + 2]] * bc.z;
+                    if (col.b - col.r > .005f) { what = "paved road (terrain)"; return true; }
+                    if (col.r > col.g + .02f && trails != null)
+                        foreach (var t in trails) { float s = t.Project(h.point, out _); var q = t.At(s, out _); var d = q - h.point; d.y = 0; if (d.magnitude < t.HalfWidth(s) - .5f) { what = "trail " + t.name; return true; } }
+                    return false;
+                }
+                string names = c.name + "/" + (c.transform.parent ? c.transform.parent.name : "");
+                var at = MaterialAt(h) ?? mat;
+                if (at && Has(at.name, NotRoad)) return false;
+                if (at && Has(at.name, PavedWords)) { what = at.name; return true; }
+                if (Has(names, RoadWords) && !Has(names, NotRoad)) { what = names; return true; }
+                return false;
+            }
+            return false;
+        }
+        // the material of the hit triangle (a mesh may carry the road and its verge as two materials)
+        static Material MaterialAt(RaycastHit h)
+        {
+            if (!(h.collider is MeshCollider mc) || !mc.sharedMesh || !mc.sharedMesh.isReadable || h.triangleIndex < 0) return null;
+            var r = h.collider.GetComponent<Renderer>(); if (!r) return null; var mats = r.sharedMaterials; var m = mc.sharedMesh;
+            if (mats.Length < 2 || m.subMeshCount < 2 || !r.TryGetComponent<MeshFilter>(out var f) || f.sharedMesh != m) return null;
+            int index = h.triangleIndex * 3;
+            for (int i = 0; i < m.subMeshCount && i < mats.Length; i++) { var sm = m.GetSubMesh(i); if (index >= sm.indexStart && index < sm.indexStart + sm.indexCount) return mats[i]; }
+            return null;
+        }
+        // The race lines of a course scene (main route and its branches): a tree near one keeps its visual (a hidden
+        // trunk with a live collider would be an invisible obstacle in a race).
+        static List<Vector3[]> RaceLines(Scene scene)
+        {
+            var lines = new List<Vector3[]>();
+            foreach (var g in scene.GetRootGameObjects())
+            {
+                foreach (var d in g.GetComponentsInChildren<RaceDirector>(true)) if (d.road && d.road.points != null) lines.Add(d.road.points);
+                foreach (var w in g.GetComponentsInChildren<WoodlandRoute>(true)) if (w.gameObject.activeInHierarchy && w.points != null) lines.Add(w.points);
+            }
+            return lines;
+        }
+        static float LineDistance(List<Vector3[]> lines, Vector3 p)
+        {
+            float best = float.MaxValue; var q = new Vector2(p.x, p.z);
+            foreach (var l in lines) for (int i = 0; i + 1 < l.Length; i++)
+                {
+                    Vector2 a = new(l[i].x, l[i].z), b = new(l[i + 1].x, l[i + 1].z), ab = b - a; float t = ab.sqrMagnitude < 1e-6f ? 0 : Mathf.Clamp01(Vector2.Dot(q - a, ab) / ab.sqrMagnitude);
+                    best = Mathf.Min(best, (a + ab * t - q).magnitude);
+                }
+            return best;
+        }
+        public const float RaceLineClearance = 12;
+        // what the rule found and did, per tree (for the checks)
+        public readonly List<string> DrivableReport = new();
+        // FreeRoamWorld only (any Scenery setting): trunk colliders standing on a drivable surface are removed; their
+        // places are remembered so the new scenery drops their crowns too.
+        public static readonly List<(Vector3 bottom, float width, float height, string what, string name)> Cleared = new();
+        public static void ClearFreeRoamTrunks(Scene scene)
+        {
+            Cleared.Clear(); if (scene.name != RaceFlow.RoamScene) return;
+            var trails = scene.GetRootGameObjects().SelectMany(g => g.GetComponentsInChildren<RaceRoad>()).Where(t => t.forestTrail && t.points != null && t.points.Length > 1).ToList();
+            foreach (var t in trails) t.Initialize();
+            foreach (var box in scene.GetRootGameObjects().SelectMany(g => g.GetComponentsInChildren<BoxCollider>()))
+            {
+                if (!IsTrunkCollider(box) || !box.enabled) continue;
+                var t = box.transform; var bottom = t.TransformPoint(box.center - Vector3.up * box.size.y * .5f);
+                if (!OnDrivable(bottom, trails, out var what)) continue;
+                var size = Vector3.Scale(box.size, t.lossyScale);
+                Cleared.Add((bottom, Mathf.Min(Mathf.Abs(size.x), Mathf.Abs(size.z)), Mathf.Abs(size.y), what, t.name));
+                // a trunk object holds just its collider: remove the object; otherwise only the collider
+                if (t.GetComponents<Component>().Length == 2 && t.childCount == 0) Destroy(t.gameObject); else Destroy(box);
+                box.enabled = false;
+            }
+            if (Cleared.Count > 0) Debug.Log($"Scenery: removed {Cleared.Count} tree trunk(s) standing on drivable surfaces in {scene.name}");
+        }
 
         public void Build(Scene scene, List<Renderer> hidden)
         {
@@ -153,10 +254,12 @@ namespace Racer
             var trunks = new List<Trunk>();
             foreach (var box in roots.SelectMany(g => g.GetComponentsInChildren<BoxCollider>(true)))
             {
-                if (!IsTrunkCollider(box) || !box.gameObject.activeInHierarchy) continue;
+                if (!IsTrunkCollider(box) || !box.gameObject.activeInHierarchy || !box.enabled) continue;
                 var t = box.transform; var size = Vector3.Scale(box.size, t.lossyScale); var up = t.up;
                 trunks.Add(new Trunk { bottom = t.TransformPoint(box.center - Vector3.up * box.size.y * .5f), up = up, width = Mathf.Min(Mathf.Abs(size.x), Mathf.Abs(size.z)), height = Mathf.Abs(size.y), collider = true });
             }
+            // trunks removed from FreeRoamWorld's drivable surfaces still take their crowns (which then go too)
+            foreach (var c in Cleared) trunks.Add(new Trunk { bottom = c.bottom, up = Vector3.up, width = c.width, height = c.height, collider = true, cleared = true });
             var trunkGrid = new Dictionary<Vector2Int, List<int>>();
             Vector2Int G(Vector3 p, float s) => new(Mathf.FloorToInt(p.x / s), Mathf.FloorToInt(p.z / s));
             void Index(int i) { var k = G(trunks[i].bottom, 8); if (!trunkGrid.TryGetValue(k, out var l)) trunkGrid[k] = l = new(); l.Add(i); }
@@ -186,24 +289,44 @@ namespace Racer
                 var t = trunks[i]; if (t.hasCrown) t.crown.Encapsulate(p.b); else { t.crown = p.b; t.hasCrown = true; }
                 trunks[i] = t;
             }
-            // 5. place the kit
+            // 5. place the kit, except on drivable surfaces (0.79 Part E)
+            var trails = roots.SelectMany(g => g.GetComponentsInChildren<RaceRoad>()).Where(t => t.forestTrail && t.points != null && t.points.Length > 1).ToList();
+            foreach (var t in trails) t.Initialize();
+            bool roam = scene.name == RaceFlow.RoamScene; var lines = roam ? null : RaceLines(scene);
+            // whether to leave a tree out: FreeRoamWorld's were already removed (collider too); in a course scene the
+            // collider stays and only the visual goes, unless a race line passes near (then it stays and is reported)
+            bool Skip(Vector3 bottom, bool collider, string kind, bool cleared, string clearedWhat)
+            {
+                string what = clearedWhat; if (!cleared && !OnDrivable(bottom, trails, out what)) return false;
+                string at = $"{kind} at {bottom.x:F1},{bottom.y:F2},{bottom.z:F1} on {what}";
+                if (cleared) { DrivableReport.Add("REMOVED (collider and visual) " + at); return true; }
+                if (roam || !collider) { DrivableReport.Add("REMOVED (visual; no collider) " + at); return true; }
+                float d = LineDistance(lines, bottom);
+                if (d < RaceLineClearance) { DrivableReport.Add($"KEPT (collider {d:F1} m from a race line; course scene) " + at); return false; }
+                DrivableReport.Add($"HIDDEN (visual only; collider kept, nearest race line {d:F0} m) " + at); return true;
+            }
             foreach (var t in trunks)
             {
                 float hash = Hash(t.bottom), yaw = hash * 360;
-                if (!t.hasCrown) { AddTrunk(Young, t.bottom, t.up, t.width, t.height, yaw); TrunkOnly++; continue; }
+                string clearedWhat = t.cleared ? Cleared.FirstOrDefault(c => (c.bottom - t.bottom).sqrMagnitude < .01f).what : null;
+                if (Skip(t.bottom, t.collider, t.collider ? "tree (trunk collider)" : "tree (bark box)", t.cleared, clearedWhat)) { DrivableSkipped++; continue; }
+                if (!t.hasCrown) { AddTrunk(Young, t.bottom, t.up, t.width, t.height, yaw); TrunkOnly++; Placements.Add(new Placement { bottom = t.bottom, radius = t.width * .5f, height = t.height, variant = Young, source = t.collider ? "trunk collider, no crown" : "bark box, no crown" }); continue; }
                 int v = Species(t, hash); PerVariant[v]++; TreeCount++;
                 var cb = t.crown; float radius = Mathf.Max(cb.extents.x, cb.extents.z);
                 AddTrunk(v, t.bottom, t.up, t.width, Mathf.Max(t.height, cb.min.y - t.bottom.y + cb.size.y * .25f), yaw);
                 AddCrown(v, new Vector3(cb.center.x, cb.min.y, cb.center.z), radius, cb.size.y, yaw);
+                Placements.Add(new Placement { bottom = t.bottom, radius = t.width * .5f, height = cb.max.y - t.bottom.y, variant = v, source = t.collider ? "trunk collider" : "bark box" });
             }
             // each crown without a trunk on its own (merging touching ones joined whole hillsides of overlapping mountain
-            // foliage into one giant crown)
+            // foliage into one giant crown); a bush or clump down on a drivable surface is left out
             foreach (var b in loose)
             {
                 float hash = Hash(b.center), radius = Mathf.Max(b.extents.x, b.extents.z);
-                bool bush = b.size.y < 3.5f;
+                bool bush = b.size.y < 3.5f; var bottom = new Vector3(b.center.x, b.min.y, b.center.z);
+                if (Skip(bottom, false, bush ? "bush" : "crown-only clump", false, null)) { DrivableSkipped++; continue; }
                 int v = bush ? (hash < .5f ? Bush : Shrub) : Round; if (bush) Bushes++; else CrownOnly++;
-                AddCrown(v, new Vector3(b.center.x, b.min.y, b.center.z), radius, b.size.y, hash * 360);
+                AddCrown(v, bottom, radius, b.size.y, hash * 360);
+                Placements.Add(new Placement { bottom = bottom, radius = radius, height = b.size.y, variant = v, source = bush ? "bush" : "crown-only clump" });
             }
         }
 

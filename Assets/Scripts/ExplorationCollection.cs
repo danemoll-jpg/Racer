@@ -23,7 +23,8 @@ namespace Racer
             try{AtomicSave.Write(path,JsonUtility.ToJson(fresh,true));data=fresh;sampled=false;feedback="Acorn hunt restarted / other saves preserved";feedbackUntil=Time.time+5;return true;}
             catch(Exception e){error="Collection could not restart: "+e.Message;return false;}
         }
-        public string Hud=>Time.time<feedbackUntil?feedback:$"WOODLAND ACORNS {Found}/{sites.Length} / progress in pause menu";
+        // 0.79 Part B: no standing counter; the count shows for a few seconds when an acorn is found (total: pause menu)
+        public string Hud=>Time.time<feedbackUntil?feedback:"";
         public string Summary=>$"Woodland acorns: {Found}/{sites.Length} found\n"+string.Join("\n",sites.GroupBy(s=>s.approach).Select(g=>$"{g.Key}: {g.Count(s=>data.found.Contains(s.id))}/{g.Count()}"))+"\n"+(error??"Discoveries persist across tracks and relaunch.");
         public void Initialize(RaceDirector owner,string root)
         {
@@ -54,7 +55,7 @@ namespace Racer
                 float t=delta.sqrMagnitude>.001f?Mathf.Clamp01(Vector3.Dot(sites[i].position-previous,delta)/delta.sqrMagnitude):0;
                 if(Vector3.Distance(previous+delta*t,sites[i].position)>2.8f)continue;
                 data.found.Add(sites[i].id);
-                try{AtomicSave.Write(path,JsonUtility.ToJson(data,true));feedback=$"ACORN FOUND / {sites[i].title}\n{Found}/{sites.Length} discovered";feedbackUntil=Time.time+5;}
+                try{AtomicSave.Write(path,JsonUtility.ToJson(data,true));feedback=$"WOODLAND ACORNS {Found}/{sites.Length}\nAcorn found / {sites[i].title}";feedbackUntil=Time.time+5;}
                 catch(Exception e){data.found.Remove(sites[i].id);error="Collection could not save: "+e.Message;}
             }
             previous=p;

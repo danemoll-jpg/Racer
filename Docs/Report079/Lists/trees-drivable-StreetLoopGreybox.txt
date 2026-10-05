@@ -1,0 +1,11 @@
+StreetLoopGreybox: rule found 9; removed or hidden 9; kept beside a race line 0
+HIDDEN (visual only; collider kept, nearest race line 35 m) tree (trunk collider) at -647.3,5.48,-551.9 on Asphalt
+HIDDEN (visual only; collider kept, nearest race line 19 m) tree (trunk collider) at 500.2,85.96,-60.0 on trail Lake shore connection
+HIDDEN (visual only; collider kept, nearest race line 16 m) tree (trunk collider) at 499.0,87.59,-64.2 on trail Lake shore connection
+HIDDEN (visual only; collider kept, nearest race line 15 m) tree (trunk collider) at 495.0,87.94,-58.4 on trail Lake shore connection
+HIDDEN (visual only; collider kept, nearest race line 17 m) tree (trunk collider) at 495.6,86.91,-53.0 on trail Lake shore connection
+HIDDEN (visual only; collider kept, nearest race line 12 m) tree (trunk collider) at 490.8,88.08,-54.7 on trail Lake shore connection
+HIDDEN (visual only; collider kept, nearest race line 24 m) tree (trunk collider) at 505.3,83.53,-60.5 on trail Lake shore connection
+HIDDEN (visual only; collider kept, nearest race line 14 m) tree (trunk collider) at 489.9,87.77,-47.5 on trail Lake shore connection
+HIDDEN (visual only; collider kept, nearest race line 15 m) tree (trunk collider) at 489.1,86.06,-40.6 on trail Lake shore connection
+-- still standing on a drivable surface (excluding the kept ones):

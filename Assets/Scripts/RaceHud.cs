@@ -12,6 +12,14 @@ namespace Racer
         UnityEngine.UI.Text wrongText,wrongArrow;
         UnityEngine.UI.Text activities;
         UnityEngine.UI.Text waypointText,waypointArrow;GameObject waypointPanel;
+        // 0.79 Part A: the Free Roam day and clock on their own (top left); Part H: the camera hint (above the speedometer)
+        GameObject clockPanel;UnityEngine.UI.Text clockDay,clockTime;MoonIcon moon;
+        UnityEngine.UI.Text cameraHint;float cameraHintLeft,roamHintLeft,seenSession=-1;string seenView;
+        public const float CameraHintSeconds=4,RoamHintSeconds=8;
+        public bool ClockVisible=>clockPanel&&clockPanel.activeInHierarchy;
+        public bool CameraHintVisible=>cameraHint&&cameraHint.gameObject.activeInHierarchy&&cameraHint.color.a>.01f;
+        public string CameraHintText=>cameraHint?cameraHint.text:"";
+        public RectTransform ClockRect=>clockPanel?(RectTransform)clockPanel.transform:null;
         void Start()
         {
             RacingMiniMap.Create(transform, race, display.font);
@@ -40,7 +48,44 @@ namespace Racer
             waypointPanel.GetComponent<UnityEngine.UI.Image>().color=new Color(.025f,.055f,.07f,.84f);
             UnityEngine.UI.Text WLabel(string name,Vector2 position,Vector2 dimensions,int fontSize){var t=new GameObject(name,typeof(RectTransform),typeof(UnityEngine.UI.Text)).GetComponent<UnityEngine.UI.Text>();t.transform.SetParent(wp,false);t.font=display.font;t.fontSize=fontSize;t.color=new(1,.86f,.3f);t.alignment=TextAnchor.MiddleCenter;t.raycastTarget=false;t.rectTransform.anchoredPosition=position;t.rectTransform.sizeDelta=dimensions;return t;}
             waypointArrow=WLabel("Waypoint direction",new(-132,0),new(50,50),40);waypointArrow.text="↑";waypointText=WLabel("Waypoint distance",new(26,0),new(270,50),24);waypointPanel.SetActive(false);
+            BuildClock();BuildCameraHint();
             var feedback=new GameObject("Arcade activity feedback",typeof(RectTransform),typeof(UnityEngine.UI.Text));feedback.transform.SetParent(transform,false);activities=feedback.GetComponent<UnityEngine.UI.Text>();activities.font=display.font;activities.fontSize=21;activities.color=new Color(1,.9f,.5f);activities.raycastTarget=false;activities.alignment=TextAnchor.LowerLeft;activities.rectTransform.anchorMin=activities.rectTransform.anchorMax=activities.rectTransform.pivot=Vector2.zero;activities.rectTransform.anchoredPosition=new(22,78);activities.rectTransform.sizeDelta=new(700,80);feedback.AddComponent<UnityEngine.UI.Outline>();
+        }
+        UnityEngine.UI.Text HudText(string name,Transform parent,int size,TextAnchor anchor,Color colour)
+        {
+            var t=new GameObject(name,typeof(RectTransform),typeof(UnityEngine.UI.Text)).GetComponent<UnityEngine.UI.Text>();t.transform.SetParent(parent,false);
+            t.font=display.font;t.fontSize=size;t.alignment=anchor;t.color=colour;t.raycastTarget=false;var o=t.gameObject.AddComponent<UnityEngine.UI.Outline>();o.effectColor=new(0,0,0,.85f);o.effectDistance=new(1.4f,-1.4f);return t;
+        }
+        // Day and time, large, white with an outline on a soft dark backing: readable on every sky; nothing else in it.
+        void BuildClock()
+        {
+            clockPanel=new GameObject("Free Roam day and clock",typeof(RectTransform),typeof(UnityEngine.UI.Image));var r=(RectTransform)clockPanel.transform;r.SetParent(transform,false);
+            r.anchorMin=r.anchorMax=r.pivot=new(0,1);r.anchoredPosition=new(18,-18);r.sizeDelta=new(150,78);
+            var image=clockPanel.GetComponent<UnityEngine.UI.Image>();image.color=new(.02f,.04f,.05f,.58f);image.raycastTarget=false;
+            clockDay=HudText("Day",r,19,TextAnchor.MiddleLeft,new(.88f,.92f,.96f));clockDay.rectTransform.anchorMin=clockDay.rectTransform.anchorMax=clockDay.rectTransform.pivot=new(0,1);clockDay.rectTransform.anchoredPosition=new(12,-5);clockDay.rectTransform.sizeDelta=new(100,24);
+            clockTime=HudText("Time",r,38,TextAnchor.MiddleLeft,Color.white);clockTime.fontStyle=FontStyle.Bold;clockTime.rectTransform.anchorMin=clockTime.rectTransform.anchorMax=clockTime.rectTransform.pivot=new(0,1);clockTime.rectTransform.anchoredPosition=new(10,-27);clockTime.rectTransform.sizeDelta=new(136,46);
+            moon=new GameObject("Moon phase",typeof(RectTransform)).AddComponent<MoonIcon>();moon.transform.SetParent(r,false);moon.raycastTarget=false;
+            moon.rectTransform.anchorMin=moon.rectTransform.anchorMax=moon.rectTransform.pivot=new(1,1);moon.rectTransform.anchoredPosition=new(-10,-7);moon.rectTransform.sizeDelta=new(20,20);
+            clockPanel.SetActive(false);
+        }
+        void BuildCameraHint()
+        {
+            cameraHint=HudText("Camera hint",transform,19,TextAnchor.MiddleRight,new(1,.92f,.62f));var r=cameraHint.rectTransform;
+            r.anchorMin=r.anchorMax=r.pivot=new(1,0);r.anchoredPosition=new(-20,86);r.sizeDelta=new(340,28);cameraHint.gameObject.SetActive(false);
+        }
+        // the camera control and the current view: a few seconds when driving starts and whenever the view changes
+        void UpdateCameraHint()
+        {
+            var flow=race.Flow;var views=CameraViews.Current;if(!cameraHint)return;
+            bool driving=flow.State==RaceFlow.Stage.Racing||flow.State==RaceFlow.Stage.Countdown;
+            if(flow.State==RaceFlow.Stage.Racing&&seenSession!=flow.SessionStartedAt){seenSession=flow.SessionStartedAt;cameraHintLeft=CameraHintSeconds;roamHintLeft=race.FreeRoam?RoamHintSeconds:0;}
+            string view=views?views.PlayerViewName:null;if(view!=null&&view!=seenView){if(seenView!=null)cameraHintLeft=CameraHintSeconds;seenView=view;}
+            // the hints count down in shown time only (at most 0.1 s a frame), so a loading hitch does not use them up
+            float step=Mathf.Min(Time.unscaledDeltaTime,.1f);
+            bool show=driving&&!flow.MenuVisible&&!TrailerMode.Active&&views&&cameraHintLeft>0;
+            if(driving&&!flow.MenuVisible){cameraHintLeft=Mathf.Max(0,cameraHintLeft-step);roamHintLeft=Mathf.Max(0,roamHintLeft-step);}
+            cameraHint.gameObject.SetActive(show);if(!show)return;
+            cameraHint.text="V / X: camera — "+view;var c=cameraHint.color;c.a=Mathf.Clamp01(cameraHintLeft);cameraHint.color=c;
         }
         public static string FormatTime(double seconds)
         { int ms = (int)(seconds * 1000); return $"{ms / 60000:00}:{ms / 1000 % 60:00}.{ms % 1000:000}"; }
@@ -56,8 +101,28 @@ namespace Racer
             if(!race || race.Progress==null || !display) return;
             display.text=BuildText();
             display.transform.parent.gameObject.SetActive(!race.FreeRoam&&!race.Flow.MenuVisible);
-            if(activities)activities.text=race.Flow.MenuVisible?"":race.Flow.Activities?.Hud;
-            if(activities&&!race.Flow.MenuVisible&&race.FreeRoam&&race.GetComponent<ExplorationCollection>() is ExplorationCollection collection){activities.rectTransform.sizeDelta=new(700,110);activities.text+="\n"+collection.Hud;}
+            UpdateCameraHint();
+            // 0.79 Part B: in Free Roam only what is relevant now: the activity you are at, the attempt, its result, an acorn
+            // just found, and the menu hint for a few seconds after Free Roam begins; the day and clock have their own box.
+            if(activities)
+            {
+                var lines=new System.Collections.Generic.List<string>();
+                if(!race.Flow.MenuVisible)
+                {
+                    string activity=race.Flow.Activities?.Hud;if(!string.IsNullOrEmpty(activity))lines.Add(activity);
+                    if(race.FreeRoam)
+                    {
+                        if(race.GetComponent<ExplorationCollection>() is ExplorationCollection collection&&!string.IsNullOrEmpty(collection.Hud))lines.Add(collection.Hud);
+                        if(roamHintLeft>0)lines.Add("Esc or Start: activities, retry, menu");
+                    }
+                }
+                if(race.FreeRoam)activities.rectTransform.sizeDelta=new(700,110);activities.text=string.Join("\n",lines);
+            }
+            if(clockPanel)
+            {
+                bool clock=race.FreeRoam&&!race.Flow.MenuVisible&&WorldLook.Current&&WorldLook.Current.Mode=="Free Roam";clockPanel.SetActive(clock);
+                if(clock){var look=WorldLook.Current;clockDay.text="Day "+look.Day;clockTime.text=look.Clock;moon.Phase=look.MoonPhase;}
+            }
             var guide=race.GetComponent<WaypointGuide>();if(!guide)guide=FindAnyObjectByType<WaypointGuide>();
             if(waypointPanel){bool show=guide&&guide.Active&&!race.Flow.MenuVisible;waypointPanel.SetActive(show);if(show){waypointText.text=guide.Hud;waypointArrow.rectTransform.localRotation=Quaternion.Euler(0,0,-guide.Bearing);}}
             var guidance=race.GetComponent<WrongWayGuidance>();

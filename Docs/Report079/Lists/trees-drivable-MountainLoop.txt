@@ -1,0 +1,24 @@
+MountainLoop: rule found 22; removed or hidden 22; kept beside a race line 0
+HIDDEN (visual only; collider kept, nearest race line 1438 m) tree (trunk collider) at -647.3,5.48,-551.9 on Asphalt
+HIDDEN (visual only; collider kept, nearest race line 12 m) tree (trunk collider) at 735.9,85.77,-133.7 on Ground_Report071 patch BUG-004 main s 12 trail edge/
+HIDDEN (visual only; collider kept, nearest race line 202 m) tree (trunk collider) at 489.6,87.66,-45.5 on trail Lake shore connection
+HIDDEN (visual only; collider kept, nearest race line 196 m) tree (trunk collider) at 500.6,86.04,-61.4 on trail Lake shore connection
+HIDDEN (visual only; collider kept, nearest race line 191 m) tree (trunk collider) at 506.7,83.22,-62.9 on trail Lake shore connection
+HIDDEN (visual only; collider kept, nearest race line 200 m) tree (trunk collider) at 495.0,88.00,-58.4 on trail Lake shore connection
+HIDDEN (visual only; collider kept, nearest race line 198 m) tree (trunk collider) at 495.6,86.91,-53.0 on trail Lake shore connection
+HIDDEN (visual only; collider kept, nearest race line 203 m) tree (trunk collider) at 490.8,88.08,-54.7 on trail Lake shore connection
+HIDDEN (visual only; collider kept, nearest race line 196 m) tree (trunk collider) at 498.9,85.72,-55.8 on trail Lake shore connection
+HIDDEN (visual only; collider kept, nearest race line 201 m) tree (trunk collider) at 491.1,87.79,-49.1 on trail Lake shore connection
+REMOVED (visual; no collider) tree (bark box) at 561.6,80.55,-94.6 on trail Lake shore connection
+REMOVED (visual; no collider) tree (bark box) at 570.6,80.89,-96.4 on trail Lake shore connection
+REMOVED (visual; no collider) tree (bark box) at 600.8,80.37,78.3 on trail Lake shore connection
+REMOVED (visual; no collider) tree (bark box) at 586.6,80.57,73.5 on trail Lake shore connection
+REMOVED (visual; no collider) tree (bark box) at 620.7,80.63,73.7 on trail Lake shore connection
+REMOVED (visual; no collider) tree (bark box) at 605.3,80.87,71.3 on trail Lake shore connection
+REMOVED (visual; no collider) tree (bark box) at 444.0,79.81,7.5 on Beige concrete
+REMOVED (visual; no collider) tree (bark box) at 650.5,79.55,73.6 on trail Lake shore connection
+REMOVED (visual; no collider) tree (bark box) at 664.4,78.66,68.0 on trail Lake shore connection
+REMOVED (visual; no collider) tree (bark box) at 664.5,78.73,62.9 on trail Lake shore connection
+REMOVED (visual; no collider) tree (bark box) at 643.8,80.10,70.0 on trail Lake shore connection
+REMOVED (visual; no collider) tree (bark box) at 632.4,80.46,72.2 on trail Lake shore connection
+-- still standing on a drivable surface (excluding the kept ones):

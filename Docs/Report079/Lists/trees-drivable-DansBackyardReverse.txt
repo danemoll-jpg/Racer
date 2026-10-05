@@ -1,0 +1,15 @@
+DansBackyardReverse: rule found 12; removed or hidden 11; kept beside a race line 1
+HIDDEN (visual only; collider kept, nearest race line 807 m) tree (trunk collider) at -647.3,5.48,-551.9 on Asphalt
+KEPT (collider 2.3 m from a race line; course scene) tree (trunk collider) at 208.0,72.35,89.8 on trail Reverse navigation only - no pavement
+HIDDEN (visual only; collider kept, nearest race line 40 m) tree (trunk collider) at 447.4,85.46,-31.7 on Local black asphalt
+HIDDEN (visual only; collider kept, nearest race line 36 m) tree (trunk collider) at 434.0,83.62,-30.6 on Local black asphalt
+HIDDEN (visual only; collider kept, nearest race line 74 m) tree (trunk collider) at 500.2,85.96,-60.0 on trail Lake shore connection
+HIDDEN (visual only; collider kept, nearest race line 78 m) tree (trunk collider) at 499.0,87.59,-64.2 on trail Lake shore connection
+HIDDEN (visual only; collider kept, nearest race line 71 m) tree (trunk collider) at 495.0,87.94,-58.4 on trail Lake shore connection
+HIDDEN (visual only; collider kept, nearest race line 66 m) tree (trunk collider) at 495.6,86.91,-53.0 on trail Lake shore connection
+HIDDEN (visual only; collider kept, nearest race line 66 m) tree (trunk collider) at 490.8,88.08,-54.7 on trail Lake shore connection
+HIDDEN (visual only; collider kept, nearest race line 77 m) tree (trunk collider) at 505.3,83.53,-60.5 on trail Lake shore connection
+HIDDEN (visual only; collider kept, nearest race line 59 m) tree (trunk collider) at 489.9,87.77,-47.5 on trail Lake shore connection
+HIDDEN (visual only; collider kept, nearest race line 52 m) tree (trunk collider) at 489.1,86.06,-40.6 on trail Lake shore connection
+-- still standing on a drivable surface (excluding the kept ones):
+trunk collider at 208.0,72.35,89.8 on trail Reverse navigation only - no pavement

@@ -1,16 +1,29 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Racer
 {
     // One clipped UI mesh, built from the active race's existing centrelines.
     // No camera, render texture, world-map artwork or duplicate route metadata.
+    // 0.79 Part C: the same minimap in Free Roam, drawing the world's roads (paved) and trails from the scene's own road
+    // centrelines, the activity sites and the map waypoint. J / B (controller) turns it off and on in Free Roam; the choice
+    // is saved (default on). Races are unchanged.
     [RequireComponent(typeof(CanvasRenderer))]
+    [DefaultExecutionOrder(-100)] // reads its toggle before the menus and the map act on the same press (B is also Back)
     public sealed class RacingMiniMap : UnityEngine.UI.MaskableGraphic
     {
         public RaceDirector race;
         readonly List<(Vector3 a, Vector3 b, bool shortcut)> segments = new();
+        readonly List<(Vector3 a, Vector3 b, bool shortcut)> roamSegments = new(); bool roamCached;
         static readonly Color Main = new(.2f, .86f, .86f), Optional = new(1, .69f, .17f);
+        static readonly Color Road = new(.84f, .86f, .88f), Trail = new(.80f, .60f, .34f), Waypoint = new(1, .84f, .2f);
+        public const string RaceKey = "<color=#33DBDB>MAIN</color>   <color=#FFB02B>SHORTCUT</color>   • RIVALS";
+        public const string RoamKey = "<color=#D6DBE0>ROADS</color>  <color=#CC9957>TRAILS</color>  <color=#FFB02B>◆</color>SITES  <color=#FFD633>◆</color>WAYPOINT";
+        UnityEngine.InputSystem.InputAction toggle;
+        public UnityEngine.InputSystem.InputAction ToggleAction => toggle;
+        public static RacingMiniMap Instance { get; private set; }
+        public bool Shown { get; private set; }
         Vector3 origin, forward, right;
         float nextUpdate;
         public const float Scale = .72f;
@@ -33,29 +46,55 @@ namespace Racer
             var label = new GameObject("Route key", typeof(RectTransform)).AddComponent<UnityEngine.UI.Text>();
             label.transform.SetParent(rect, false); label.font = font; label.fontSize = 13; label.alignment = TextAnchor.MiddleCenter;
             label.raycastTarget = false; label.supportRichText = true;
-            label.text = "<color=#33DBDB>MAIN</color>   <color=#FFB02B>SHORTCUT</color>   • RIVALS";
+            label.text = RaceKey;
             label.rectTransform.sizeDelta = new(232, 24); label.rectTransform.anchoredPosition = new(0, -95);
             map.CacheRoutes(); return map;
         }
 
+        protected override void Awake()
+        {
+            base.Awake(); if (!Application.isPlaying) return;
+            toggle = new UnityEngine.InputSystem.InputAction("Minimap on / off (Free Roam)", UnityEngine.InputSystem.InputActionType.Button);
+            toggle.AddBinding("<Keyboard>/j"); toggle.AddBinding("<Gamepad>/buttonEast"); toggle.Enable(); Instance = this;
+        }
+        protected override void OnDestroy() { toggle?.Dispose(); if (Instance == this) Instance = null; base.OnDestroy(); }
+        bool RoamHidden => race && race.Flow && race.Flow.Save != null && race.Flow.Save.Settings.roamMinimapHidden;
+        public void SetRoamShown(bool on) { if (!race || !race.Flow || race.Flow.Save == null) return; race.Flow.Save.Settings.roamMinimapHidden = !on; race.Flow.Save.SaveSettings(); }
+        void Update()
+        {
+            if (toggle == null || !race || !race.Flow || race.Flow.Save == null || !race.FreeRoam || !toggle.WasPressedThisFrame()) return;
+            var flow = race.Flow;
+            if (flow.State != RaceFlow.Stage.Racing || flow.MenuVisible || MenuInput.Blocked || TrailerMode.Active || flow.GetComponent<ExplorationMap>()?.OwnsInput == true) return;
+            SetRoamShown(RoamHidden); flow.Notify("Minimap: " + (RoamHidden ? "Off" : "On"), 1.5f);
+        }
+        // Free Roam: every road centreline in the world scene (paved roads and trails), collected once.
+        void CacheRoam()
+        {
+            roamCached = true;
+            foreach (var road in FindObjectsByType<RaceRoad>(FindObjectsSortMode.None))
+                if (road.isActiveAndEnabled && road.points != null && road.points.Length > 1) Add(roamSegments, road.points, road.points.Length > 2 && (road.points[0] - road.points[road.points.Length - 1]).sqrMagnitude < 4, road.forestTrail);
+        }
         void CacheRoutes()
         {
-            Add(race.road.points, true, false);
+            Add(segments, race.road.points, true, false);
             foreach (var route in race.Branches ?? System.Array.Empty<WoodlandRoute>())
-                if (route && route.isActiveAndEnabled) Add(route.points, false, true);
+                if (route && route.isActiveAndEnabled) Add(segments, route.points, false, true);
         }
-        void Add(Vector3[] points, bool closed, bool shortcut)
+        static void Add(List<(Vector3 a, Vector3 b, bool shortcut)> list, Vector3[] points, bool closed, bool shortcut)
         {
             if (points == null || points.Length < 2) return;
             var previous = points[0];
             for (int i = 1; i < points.Length; i++)
                 if ((points[i] - previous).sqrMagnitude >= 9 || i == points.Length - 1)
-                { segments.Add((previous, points[i], shortcut)); previous = points[i]; }
-            if (closed) segments.Add((previous, points[0], shortcut));
+                { list.Add((previous, points[i], shortcut)); previous = points[i]; }
+            if (closed) list.Add((previous, points[0], shortcut));
         }
         void LateUpdate()
         {
-            bool visible = race && race.vehicle && race.Flow && !race.Flow.MenuVisible && !race.FreeRoam;
+            bool roam = race && race.FreeRoam;
+            bool visible = race && race.vehicle && race.Flow && !race.Flow.MenuVisible && (!roam || !RoamHidden);
+            Shown = visible;
+            if (roam && !roamCached && visible) CacheRoam();
             // Keep this component active so it can restore its parent after menus.
             canvasRenderer.SetAlpha(visible ? 1 : 0);
             var panel = transform.parent.parent;
@@ -65,7 +104,7 @@ namespace Racer
             panel.localScale = Vector3.one * (narrow ? .72f : 1);
             ((RectTransform)panel).anchoredPosition = new(-18, narrow ? -174 : -18);
             panel.GetComponent<UnityEngine.UI.Image>().enabled = visible;
-            panel.GetComponentInChildren<UnityEngine.UI.Text>().enabled = visible;
+            var key = panel.GetComponentInChildren<UnityEngine.UI.Text>(); key.enabled = visible; key.text = roam ? RoamKey : RaceKey;
             if (!visible || Time.unscaledTime < nextUpdate) return;
             nextUpdate = Time.unscaledTime + .05f;
             origin = race.vehicle.transform.position;
@@ -82,14 +121,33 @@ namespace Racer
         protected override void OnPopulateMesh(UnityEngine.UI.VertexHelper vh)
         {
             vh.Clear(); if (!race || !race.vehicle) return;
-            var bounds = rectTransform.rect;
-            foreach (var s in segments)
+            var bounds = rectTransform.rect; bool roam = race.FreeRoam;
+            foreach (var s in roam ? roamSegments : segments)
             {
                 var a = Project(s.a); var b = Project(s.b);
                 if (Mathf.Max(a.x,b.x)<bounds.xMin-5 || Mathf.Min(a.x,b.x)>bounds.xMax+5 || Mathf.Max(a.y,b.y)<bounds.yMin-5 || Mathf.Min(a.y,b.y)>bounds.yMax+5) continue;
-                Line(vh, a, b, s.shortcut ? 3 : 5, s.shortcut ? Optional : Main);
+                Line(vh, a, b, s.shortcut ? 3 : 5, roam ? (s.shortcut ? Trail : Road) : s.shortcut ? Optional : Main);
             }
-            foreach (var r in race.Racers)
+            if (roam)
+            {
+                // activity sites, then the waypoint (kept at the edge of the window when it is further away)
+                var sites = race.Flow.Activities?.Sites;
+                if (sites != null) foreach (var site in sites) { if (!site) continue; var p = Project(site.transform.position); if (!bounds.Contains(p)) continue; Diamond(vh, p, 5.5f, new(.03f,.06f,.08f)); Diamond(vh, p, 4, Optional); }
+                var map = race.Flow.GetComponent<ExplorationMap>();
+                if (map && map.Waypoint.HasValue)
+                {
+                    var p = Project(map.Waypoint.Value); var inner = new Rect(bounds.xMin + 8, bounds.yMin + 8, bounds.width - 16, bounds.height - 16);
+                    if (!inner.Contains(p))
+                    {
+                        var d = p - PlayerPoint; float t = 1;
+                        if (d.x > 0) t = Mathf.Min(t, (inner.xMax - PlayerPoint.x) / d.x); if (d.x < 0) t = Mathf.Min(t, (inner.xMin - PlayerPoint.x) / d.x);
+                        if (d.y > 0) t = Mathf.Min(t, (inner.yMax - PlayerPoint.y) / d.y); if (d.y < 0) t = Mathf.Min(t, (inner.yMin - PlayerPoint.y) / d.y);
+                        p = PlayerPoint + d * t;
+                    }
+                    Diamond(vh, p, 8, new(.03f,.06f,.08f)); Diamond(vh, p, 6, Waypoint);
+                }
+            }
+            if (!roam) foreach (var r in race.Racers)
             {
                 if (!r.IsAi || !r.Car || r.Dnf) continue;
                 var p = Project(r.Car.transform.position);

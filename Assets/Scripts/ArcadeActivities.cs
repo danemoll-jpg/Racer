@@ -25,7 +25,13 @@ namespace Racer
         public string LastJumpDiagnostic {get;private set;}
         public int SmashCount=>smashed.Count;
         public string Location {get{if(!Selected||!car)return "";var delta=Selected.transform.position-car.Body.position;int compass=Mathf.RoundToInt(Mathf.Repeat(Mathf.Atan2(delta.x,delta.z)*Mathf.Rad2Deg,360)/45)%8;return $"{DisplayUnits.Distance(Vector3.ProjectOnPlane(delta,Vector3.up).magnitude)} {new[]{"N","NE","E","SE","S","SW","W","NW"}[compass]}";}}
-        public string Hud=>Time.time<feedbackUntil?Feedback:AttemptActive?$"{Selected.title} / {Mathf.Max(0,deadline-Time.time):0}s / {Location}\n{(Selected.kind==ActivitySite.Kind.Smash?SmashCount+" distinct props":"Land a clean jump in the marked area")}":race.FreeRoam?$"FREE ROAM {(WorldLook.Current?WorldLook.Current.RoamClock+" ":"")}/ {Selected?.title} / {Location}\nEsc or Start: activities, retry, menu":"";
+        public string Hud=>Time.time<feedbackUntil?Feedback:AttemptActive?$"{Selected.title} / {Mathf.Max(0,deadline-Time.time):0}s / {Location}\n{(Selected.kind==ActivitySite.Kind.Smash?SmashCount+" distinct props":"Land a clean jump in the marked area")}":race.FreeRoam?AtStart:"";
+        // 0.79 Part B: in Free Roam, the activity the player is at (within its start radius) and how to start it; nothing
+        // otherwise (the nearest one and its distance stay on the map and in the pause menu).
+        public ActivitySite AtSite{get{if(!car||Sites==null)return null;var p=car.Body.position;return Sites.Where(s=>s&&Vector3.Distance(p,s.transform.position)<s.radius).OrderBy(s=>Vector3.SqrMagnitude(p-s.transform.position)).FirstOrDefault();}}
+        // being at a jump or smash site makes it the selected activity, so pause menu > Activities starts this one
+        string AtStart{get{var site=AtSite;if(!site)return "";if(!AttemptActive&&site.kind!=ActivitySite.Kind.Speed)Selected=site;string menu=MenuInput.Controller?"Start":"Esc";
+            return site.title+"\n"+(site.kind==ActivitySite.Kind.Speed?"Speed trap: drive through it, either way":site.kind==ActivitySite.Kind.Jump?$"Jump: land it to score  ·  {menu} > Activities for a timed attempt":$"{menu} > Activities > Start to begin");}}
         RaceDirector race;ArcadeVehicle car;VehicleConfiguration configuration;
         readonly HashSet<BreakableProp> smashed=new();readonly Dictionary<ActivitySite,bool> armed=new();
         string path;Vector3 previous,takeoff,landing;float warm,air,stable,feedbackUntil,deadline,blockedUntil,impactSpeed;bool sampled,flying,invalid,touchedDown;

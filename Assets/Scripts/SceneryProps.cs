@@ -18,6 +18,7 @@ namespace Racer
         public int Rocks { get; private set; }
         public int Bevelled { get; private set; }
         readonly List<(MeshFilter f, Mesh classic, Mesh fresh)> swaps = new();
+        public IEnumerable<MeshFilter> Swapped => swaps.Select(x => x.f);
         static readonly Dictionary<(Mesh, Vector3Int), Mesh> bevelled = new();
         static readonly string[] RockWords = { "rock", "boulder", "outcrop", "stone", "cairn" };
         static readonly string[] NotRock = { "vault", "portal", "cave", "enclosed", "sign", "letter", "wall", "rocky way", "acres", "step", "edge stone", "coping" };
@@ -36,21 +37,50 @@ namespace Racer
                 if (r.GetComponentInParent<SceneryBuildings>() || r.GetComponentInParent<RaceGate>() || r.GetComponentInParent<ArcadeVehicle>()) continue;
                 if (Has(n, RockWords) && !Has(n, NotRock) && mesh.vertexCount < 6000)
                 {
-                    var fresh = Rock(mesh, r.transform, Mathf.Abs(Mathf.Sin(r.transform.position.x * .37f + r.transform.position.z * .71f)));
+                    var fresh = Rock(mesh, r.transform, Mathf.Abs(Mathf.Sin(r.transform.position.x * .37f + r.transform.position.z * .71f)), Cairn(r.transform));
                     swaps.Add((f, mesh, fresh)); Rocks++;
                 }
                 else if (Has(n, PropWords) && !Has(n, NotProp) && mesh.vertexCount == 24 && (mesh.name.StartsWith("Cube") || mesh.bounds.size.x > 0))
                 {
                     var sc = r.transform.lossyScale; var key = (mesh, new Vector3Int(Mathf.RoundToInt(sc.x * 50), Mathf.RoundToInt(sc.y * 50), Mathf.RoundToInt(sc.z * 50)));
-                    if (!bevelled.TryGetValue(key, out var fresh) || !fresh) bevelled[key] = fresh = Bevel(mesh, sc);
+                    Mesh fresh;
+                    // 0.79 Part D: a post on a slope reaches the ground at its lowest corner (its own, longer mesh)
+                    float down = n.IndexOf("post", System.StringComparison.OrdinalIgnoreCase) >= 0 ? PostGap(r) : 0;
+                    if (down > .01f) { fresh = Bevel(mesh, sc, (down + .05f) / Mathf.Max(1e-4f, Mathf.Abs(sc.y))); PostsGrounded++; }
+                    else if (!bevelled.TryGetValue(key, out fresh) || !fresh) bevelled[key] = fresh = Bevel(mesh, sc);
                     swaps.Add((f, mesh, fresh)); Bevelled++;
                 }
+            }
+            SeatCairns();
+        }
+
+        // 0.79 Part D: a clue cairn (three stacked stones, no collider) whose ground was raised or lowered after it was
+        // placed is drawn sitting on today's ground: the whole stack moves together, its bottom 2 cm into the ground.
+        public int CairnsSeated { get; private set; }
+        void SeatCairns()
+        {
+            foreach (var group in swaps.Select((s, i) => (s, i)).Where(x => x.s.f && Cairn(x.s.f.transform) && x.s.fresh.isReadable).GroupBy(x => x.s.f.transform.parent).ToList())
+            {
+                var clue = group.Key; float bottom = float.MaxValue;
+                foreach (var (s, _) in group) { var m = s.fresh; var t = s.f.transform; foreach (var v in m.vertices) bottom = Mathf.Min(bottom, t.TransformPoint(v).y); }
+                float ground = float.MinValue;
+                foreach (var h in Physics.RaycastAll(clue.position + Vector3.up * 12, Vector3.down, 24, ~0, QueryTriggerInteraction.Ignore).OrderBy(h => h.distance))
+                    if (!h.collider.transform.IsChildOf(clue) && !(h.collider.attachedRigidbody && !h.collider.attachedRigidbody.isKinematic)) { ground = h.point.y; break; }
+                float dy = ground == float.MinValue ? 0 : ground - .02f - bottom; bool seat = Mathf.Abs(dy) >= .03f;
+                foreach (var (s, _) in group)
+                {
+                    var m = s.fresh;
+                    if (seat) { var shift = s.f.transform.InverseTransformVector(Vector3.up * dy); var v = m.vertices; for (int k = 0; k < v.Length; k++) v[k] += shift; m.vertices = v; m.RecalculateBounds(); m.name += " (seated)"; }
+                    m.UploadMeshData(true);
+                }
+                if (seat) CairnsSeated++;
             }
         }
 
         // A faceted rock: vertices welded by position, pushed outward along their normal by a little noise (never inward),
         // then flat-shaded (each face its own vertices).
-        static Mesh Rock(Mesh old, Transform t, float seed)
+        static bool Cairn(Transform t) => t.parent && t.parent.name.StartsWith("Acorn clue / ");
+        static Mesh Rock(Mesh old, Transform t, float seed, bool keepReadable = false)
         {
             var v = old.vertices; var nrm = old.normals; var tri = old.triangles; var b = old.bounds;
             var scale = t.lossyScale; float world = Mathf.Min(Mathf.Abs(b.size.x * scale.x), Mathf.Abs(b.size.y * scale.y), Mathf.Abs(b.size.z * scale.z));
@@ -75,14 +105,26 @@ namespace Racer
             var fv = new List<Vector3>(tri.Length); var ft = new List<int>(tri.Length);
             for (int i = 0; i < tri.Length; i++) { fv.Add(moved[tri[i]]); ft.Add(i); }
             var m = new Mesh { name = old.name + " (faceted rock)", indexFormat = fv.Count > 65000 ? UnityEngine.Rendering.IndexFormat.UInt32 : UnityEngine.Rendering.IndexFormat.UInt16 };
-            m.SetVertices(fv); m.SetTriangles(ft, 0); m.RecalculateNormals(); m.RecalculateBounds(); m.UploadMeshData(true);
+            m.SetVertices(fv); m.SetTriangles(ft, 0); m.RecalculateNormals(); m.RecalculateBounds(); m.UploadMeshData(!keepReadable);
             return m;
         }
 
-        // A box mesh with bevelled edges inside the original box (a plain 24-vertex box / Unity cube).
-        static Mesh Bevel(Mesh old, Vector3 scale)
+        public int PostsGrounded { get; private set; }
+        // how far an upright post's bottom stands above the lowest ground under its four bottom corners
+        static float PostGap(Renderer r)
         {
-            var b = old.bounds; var s = Vector3.Scale(b.size, new Vector3(Mathf.Abs(scale.x), Mathf.Abs(scale.y), Mathf.Abs(scale.z)));
+            if (Vector3.Dot(r.transform.up, Vector3.up) < .95f) return 0;
+            var b = r.bounds; float lo = float.MaxValue;
+            foreach (var (x, z) in new[] { (b.min.x, b.min.z), (b.max.x, b.min.z), (b.min.x, b.max.z), (b.max.x, b.max.z) })
+                foreach (var h in Physics.RaycastAll(new Vector3(x, b.max.y + 1, z), Vector3.down, b.size.y + 4, ~0, QueryTriggerInteraction.Ignore))
+                    if (!h.collider.transform.IsChildOf(r.transform) && h.collider.transform != r.transform.parent && !(h.collider.attachedRigidbody && !h.collider.attachedRigidbody.isKinematic) && h.point.y < b.min.y + .3f) { lo = Mathf.Min(lo, h.point.y); }
+            return lo == float.MaxValue ? 0 : Mathf.Clamp(b.min.y - lo, 0, 1.5f);
+        }
+        // A box mesh with bevelled edges inside the original box (a plain 24-vertex box / Unity cube); extraDown lengthens
+        // it downward (mesh units).
+        static Mesh Bevel(Mesh old, Vector3 scale, float extraDown = 0)
+        {
+            var b = old.bounds; b.min -= new Vector3(0, extraDown, 0); var s = Vector3.Scale(b.size, new Vector3(Mathf.Abs(scale.x), Mathf.Abs(scale.y), Mathf.Abs(scale.z)));
             float bevel = Mathf.Min(.035f, Mathf.Min(s.x, Mathf.Min(s.y, s.z)) * .18f);
             var e = new Vector3(bevel / Mathf.Max(1e-4f, Mathf.Abs(scale.x)), bevel / Mathf.Max(1e-4f, Mathf.Abs(scale.y)), bevel / Mathf.Max(1e-4f, Mathf.Abs(scale.z)));
             Vector3 lo = b.min, hi = b.max; var pts = new List<Vector3>();

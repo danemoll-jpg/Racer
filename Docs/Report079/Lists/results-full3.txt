@@ -1,0 +1,100 @@
+---- hud
+PASS Free Roam start: clock shown True, camera hint 'V / X: camera — Chase' True, text block 'Esc or Start: activities, retry, menu'
+start hints cleared after 60.0 s of editor time
+PASS normal Free Roam driving: clock 'Day 1 08:24', other text '', minimap shown True; clock (x:12.00, y:416.00, width:100.00, height:52.00) clear of minimap (x:470.67, y:321.33, width:157.33, height:146.67) and speedometer (x:518.67, y:12.00, width:109.33, height:41.33)
+PASS at Fence line smash: 'Fence line smash / Esc > Activities > Start to begin'
+PASS being at the site selected it for pause menu > Activities: Fence line smash
+PASS during the attempt: 'Fence line smash / 4s / 10 ft N / 0 distinct props'
+acorn debug: found 1, hud 'WOODLAND ACORNS 1/24
+Acorn found / Woodland nook', until 39.83999 time 35.82552, car 508.0,53.57,-194.9 acorn 508.0,54.24,-192.4
+acorn debug 2: hud 'WOODLAND ACORNS 1/24
+Acorn found / Woodland nook' text 'WOODLAND ACORNS 1/24
+Acorn found / Woodland nook' car 508.0,53.57,-194.9
+PASS acorn collected (0 -> 1): 'WOODLAND ACORNS 1/24 / Acorn found / Woodland nook'
+PASS a few seconds later the acorn line is gone: ''
+PASS B turned the minimap off (False -> True, shown False); saved in the settings file True
+PASS B again: minimap back on (True)
+PASS minimap toggle bindings: <Keyboard>/j, <Gamepad>/buttonEast
+PASS view changed with X: hint 'V / X: camera — Far chase'
+PASS Free Roam pause menu: 'Camera view: Chase   (V / X)' (pressed: view now Far chase), 'TRAILER / PHOTO MODE   (F8)'
+PASS Trailer Mode on: controls panel shown True, HUD drawn False, pointer visible True; entries 21: 1  Chase | 2  Orbit | 3  Side tracking | 4  Front | 5  Fixed | 6  Flyover | 7  Free camera | 8  Auto | 9  First person | Tab   Camera action: Fixed re-plant · Side other side · Auto next shot | X   Slow motion 0.5×: Off | H   Hide the HUD and this panel (clean screen) | G   Arrows, gates, waypoint beacon: Hidden | P / F12   Screenshot (full resolution, no HUD, no panel) | T   Time of day: Day | ,   Clock −1 h | .   Clock +1 h   (08:47) | K   Clock: Running | B   Weather: Clear | O   Moon: New | L   Lightning strike now
+PASS clicking '3 Side tracking' selects it: Side
+PASS clicking Weather: Clear -> Rain
+PASS controller B gives the panel the focus: True, selected Camera 1
+PASS controller A on the selected entry: camera Chase
+PASS B again: back to driving
+P / F12 screenshot taken while the panel was open: C:/Users/danmo/AppData/LocalLow/DefaultCompany/Racer\Screenshots\WoodstockRush_2026-10-05_12-29-16-439.png (copied as trailer-screenshot-with-panel-open.png; the camera alone is rendered)
+PASS L3 (H): panel and HUD hidden: panel False, HUD False, line False
+FAIL a key while hidden: the 'show controls' line appears
+PASS and fades again
+PASS L3 again: HUD and panel back
+PASS Trailer Mode off: panel gone, HUD back
+PASS race start: no clock True, camera hint 'V / X: camera — Chase'
+PASS race later: hint gone, race minimap '<color=#33DBDB>MAIN</color>   <color=#FFB02B>SHORTCUT</color>   • RIVALS' shown True
+PASS race pause menu: Camera view and Trailer / Photo Mode rows
+PASS main menu: Trailer / Photo Mode row
+PASS Settings > Controls lists: Trailer / Photo Mode / On or off (or pause menu) | Camera / Change view (or pause menu) | Minimap / On or off (Free Roam)
+---- grounding:FreeRoamWorld
+PASS FreeRoamWorld: new scenery built
+PASS FreeRoamWorld: buildings with no daylight under them 47/47 (worst gap 0.00 m; list in grounding-buildings-FreeRoamWorld.txt)
+PASS FreeRoamWorld: posts and rocks checked 80 (clue cairns re-seated on today's ground: 5): floating 0, half buried 0 (grounding-props-FreeRoamWorld.txt)
+PASS FreeRoamWorld: trees / bushes / clumps on a drivable surface: found 12, removed or hidden 12, kept beside a race line 0; left standing on one now 0
+PASS FreeRoamWorld: ground detail placed so far 1284; on a drivable surface 0
+PASS FreeRoamWorld: every static collider identical New / Classic / New (13596 colliders)
+---- grounding:StreetLoopGreybox
+PASS StreetLoopGreybox: new scenery built
+PASS StreetLoopGreybox: buildings with no daylight under them 47/47 (worst gap 0.00 m; list in grounding-buildings-StreetLoopGreybox.txt)
+PASS StreetLoopGreybox: posts and rocks checked 76 (clue cairns re-seated on today's ground: 5): floating 0, half buried 0 (grounding-props-StreetLoopGreybox.txt)
+PASS StreetLoopGreybox: trees / bushes / clumps on a drivable surface: found 9, removed or hidden 9, kept beside a race line 0; left standing on one now 0
+PASS StreetLoopGreybox: ground detail placed so far 1466; on a drivable surface 0
+PASS StreetLoopGreybox: every static collider identical New / Classic / New (13763 colliders)
+---- grounding:StreetLoopReverse
+PASS StreetLoopReverse: new scenery built
+PASS StreetLoopReverse: buildings with no daylight under them 47/47 (worst gap 0.00 m; list in grounding-buildings-StreetLoopReverse.txt)
+PASS StreetLoopReverse: posts and rocks checked 73 (clue cairns re-seated on today's ground: 5): floating 0, half buried 0 (grounding-props-StreetLoopReverse.txt)
+PASS StreetLoopReverse: trees / bushes / clumps on a drivable surface: found 10, removed or hidden 10, kept beside a race line 0; left standing on one now 0
+PASS StreetLoopReverse: ground detail placed so far 984; on a drivable surface 0
+PASS StreetLoopReverse: every static collider identical New / Classic / New (13610 colliders)
+---- grounding:LakeWoods
+PASS LakeWoods: new scenery built
+PASS LakeWoods: buildings with no daylight under them 47/47 (worst gap 0.00 m; list in grounding-buildings-LakeWoods.txt)
+PASS LakeWoods: posts and rocks checked 77 (clue cairns re-seated on today's ground: 5): floating 0, half buried 0 (grounding-props-LakeWoods.txt)
+PASS LakeWoods: trees / bushes / clumps on a drivable surface: found 22, removed or hidden 22, kept beside a race line 0; left standing on one now 0
+PASS LakeWoods: ground detail placed so far 1460; on a drivable surface 0
+PASS LakeWoods: every static collider identical New / Classic / New (13527 colliders)
+---- grounding:ForestLoopReverse
+PASS ForestLoopReverse: new scenery built
+PASS ForestLoopReverse: buildings with no daylight under them 47/47 (worst gap 0.00 m; list in grounding-buildings-ForestLoopReverse.txt)
+PASS ForestLoopReverse: posts and rocks checked 75 (clue cairns re-seated on today's ground: 5): floating 0, half buried 0 (grounding-props-ForestLoopReverse.txt)
+PASS ForestLoopReverse: trees / bushes / clumps on a drivable surface: found 23, removed or hidden 23, kept beside a race line 0; left standing on one now 0
+PASS ForestLoopReverse: ground detail placed so far 1305; on a drivable surface 0
+PASS ForestLoopReverse: every static collider identical New / Classic / New (13329 colliders)
+---- grounding:DansBackyardForward
+PASS DansBackyardForward: new scenery built
+PASS DansBackyardForward: buildings with no daylight under them 47/47 (worst gap 0.00 m; list in grounding-buildings-DansBackyardForward.txt)
+PASS DansBackyardForward: posts and rocks checked 80 (clue cairns re-seated on today's ground: 5): floating 0, half buried 0 (grounding-props-DansBackyardForward.txt)
+PASS DansBackyardForward: trees / bushes / clumps on a drivable surface: found 11, removed or hidden 11, kept beside a race line 0; left standing on one now 0
+PASS DansBackyardForward: ground detail placed so far 1468; on a drivable surface 0
+PASS DansBackyardForward: every static collider identical New / Classic / New (13687 colliders)
+---- grounding:DansBackyardReverse
+PASS DansBackyardReverse: new scenery built
+PASS DansBackyardReverse: buildings with no daylight under them 47/47 (worst gap 0.00 m; list in grounding-buildings-DansBackyardReverse.txt)
+PASS DansBackyardReverse: posts and rocks checked 80 (clue cairns re-seated on today's ground: 5): floating 0, half buried 0 (grounding-props-DansBackyardReverse.txt)
+PASS DansBackyardReverse: trees / bushes / clumps on a drivable surface: found 12, removed or hidden 11, kept beside a race line 1; left standing on one now 1
+PASS DansBackyardReverse: ground detail placed so far 1468; on a drivable surface 0
+PASS DansBackyardReverse: every static collider identical New / Classic / New (13608 colliders)
+---- grounding:MountainLoop
+PASS MountainLoop: new scenery built
+PASS MountainLoop: buildings with no daylight under them 47/47 (worst gap 0.00 m; list in grounding-buildings-MountainLoop.txt)
+PASS MountainLoop: posts and rocks checked 80 (clue cairns re-seated on today's ground: 1): floating 0, half buried 0 (grounding-props-MountainLoop.txt)
+PASS MountainLoop: trees / bushes / clumps on a drivable surface: found 22, removed or hidden 22, kept beside a race line 0; left standing on one now 0
+PASS MountainLoop: ground detail placed so far 1929; on a drivable surface 0
+PASS MountainLoop: every static collider identical New / Classic / New (13355 colliders)
+---- grounding:MountainLoopReverse
+PASS MountainLoopReverse: new scenery built
+PASS MountainLoopReverse: buildings with no daylight under them 47/47 (worst gap 0.00 m; list in grounding-buildings-MountainLoopReverse.txt)
+FAIL MountainLoopReverse: posts and rocks checked 127 (clue cairns re-seated on today's ground: 6): floating 45, half buried 0 (grounding-props-MountainLoopReverse.txt)
+PASS MountainLoopReverse: trees / bushes / clumps on a drivable surface: found 22, removed or hidden 22, kept beside a race line 0; left standing on one now 0
+PASS MountainLoopReverse: ground detail placed so far 2457; on a drivable surface 0
+PASS MountainLoopReverse: every static collider identical New / Classic / New (13283 colliders)
+done, failures 2

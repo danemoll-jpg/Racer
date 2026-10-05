@@ -1,0 +1,48 @@
+StreetLoopGreybox: largest gap between the bottom of the drawn building and the ground, sampled every 0.5 m around the base, 1.5 cm outside the walls
+  OK  Dan - blue X (own model): largest gap 0.00 m over 164 points (136 with no wall drawn above)
+  OK  Original house 2: largest gap 0.00 m over 100 points
+  OK  Original house 3: largest gap 0.00 m over 100 points
+  OK  Friend across street - blue circle (own model): largest gap 0.00 m over 100 points
+  OK  Remembered house behind southern hairpin: largest gap 0.00 m over 100 points
+  OK  Approximate older residence: largest gap 0.00 m over 90 points
+  OK  Approximate older residence: largest gap 0.00 m over 102 points
+  OK  Approximate older residence: largest gap 0.00 m over 92 points
+  OK  Approximate older residence: largest gap 0.00 m over 98 points
+  OK  Approximate older residence: largest gap 0.00 m over 108 points
+  OK  Approximate older residence: largest gap 0.00 m over 106 points
+  OK  Approximate older residence: largest gap 0.00 m over 102 points
+  OK  Approximate older residence: largest gap 0.00 m over 98 points
+  OK  Approximate older residence: largest gap 0.00 m over 94 points
+  OK  Approximate older residence: largest gap 0.00 m over 100 points
+  OK  Approximate older residence: largest gap 0.00 m over 92 points
+  OK  Approximate older residence: largest gap 0.00 m over 106 points
+  OK  Approximate older residence: largest gap 0.00 m over 100 points
+  OK  Approximate older residence: largest gap 0.00 m over 106 points
+  OK  Approximate older residence: largest gap 0.00 m over 100 points
+  OK  Approximate older residence: largest gap 0.00 m over 108 points
+  OK  Approximate older residence: largest gap 0.00 m over 98 points
+  OK  Approximate older residence: largest gap 0.00 m over 102 points
+  OK  Approximate older residence: largest gap 0.00 m over 88 points
+  OK  CR019 S01 business: largest gap 0.00 m over 174 points
+  OK  CR019 N01 business: largest gap 0.00 m over 196 points
+  OK  CR019 S02 business: largest gap 0.00 m over 172 points
+  OK  CR019 N02 business: largest gap 0.00 m over 160 points
+  OK  CR019 S03 business: largest gap 0.00 m over 172 points
+  OK  CR019 N03 business: largest gap 0.00 m over 194 points
+  OK  CR019 S04 business: largest gap 0.00 m over 180 points
+  OK  CR019 N04 business: largest gap 0.00 m over 198 points
+  OK  CR019 S05 business: largest gap 0.00 m over 150 points
+  OK  CR019 N05 business: largest gap 0.00 m over 156 points
+  OK  CR019 S06 business: largest gap 0.00 m over 192 points
+  OK  CR019 N06 business: largest gap 0.00 m over 162 points
+  OK  CR019 S07 business: largest gap 0.00 m over 158 points
+  OK  CR019 N07 business: largest gap 0.00 m over 168 points
+  OK  CR019 S08 business: largest gap 0.00 m over 174 points
+  OK  CR019 N08 business: largest gap 0.00 m over 166 points
+  OK  CR019 S09 business: largest gap 0.00 m over 172 points
+  OK  CR019 N09 business: largest gap 0.00 m over 166 points
+  OK  CR019 S10 business: largest gap 0.00 m over 158 points
+  OK  CR019 N10 business: largest gap 0.00 m over 200 points
+  OK  CR019 S11 business: largest gap 0.00 m over 172 points
+  OK  CR019 N11 business: largest gap 0.00 m over 188 points
+  OK  Fox Gully drive-through house (former 44 -451) (own model): largest gap 0.00 m over 333 points (233 with no wall drawn above)

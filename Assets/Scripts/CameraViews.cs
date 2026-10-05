@@ -27,6 +27,8 @@ namespace Racer
         public InputAction CycleAction => cycle;
         // The saved choice (read from the settings, so a different save in use is followed too).
         public View PlayerView => (View)Mathf.Clamp(flow.Save.Settings.cameraView, 0, 3);
+        public string PlayerViewName => flow && flow.Save != null ? Names[(int)PlayerView] : null;
+        public void NextPlayerView() => SetPlayerView((View)(((int)PlayerView + 1) % Names.Length));
         View lastView;
         float baseFov, baseNear, baseSmooth, baseHeading;
         bool touched;
@@ -59,13 +61,12 @@ namespace Racer
             if (!flow || flow.Save == null || TrailerMode.Active) return;
             bool driving = flow.State == RaceFlow.Stage.Racing || flow.State == RaceFlow.Stage.Countdown;
             if (!driving || MenuInput.Blocked || flow.GetComponent<ExplorationMap>()?.OwnsInput == true) return;
-            if (cycle.WasPressedThisFrame()) SetPlayerView((View)(((int)PlayerView + 1) % Names.Length));
+            if (cycle.WasPressedThisFrame()) NextPlayerView();
         }
         public void SetPlayerView(View view)
         {
             if (view == PlayerView) return;
-            flow.Save.Settings.cameraView = (int)view; flow.Save.SaveSettings();
-            flow.Notify("View: " + Names[(int)view], 1.5f);
+            flow.Save.Settings.cameraView = (int)view; flow.Save.SaveSettings(); // 0.79: RaceHud shows the camera hint with the new view
         }
         void StartBlend(float length = .35f) { blendFrom = last; blend = 0; blendLength = length; }
 

@@ -33,6 +33,8 @@ namespace Racer
         public SceneryProps Props { get; private set; }
         public SceneryWater Water { get; private set; }
         public SceneryGround Ground { get; private set; }
+        public SceneryPaving Paving { get; private set; }
+        public StreetSigns Signs { get; private set; }
         public float BuildMilliseconds { get; private set; }
         public string Timings { get; private set; } = "";
         public readonly List<Renderer> Hidden = new();
@@ -45,7 +47,7 @@ namespace Racer
         }
         void OnEnable() { Current = this; Scenery.Changed += Apply; }
         void OnDisable() { Scenery.Changed -= Apply; if (Current == this) Current = null; }
-        void Start() => Apply();
+        void Start() { SceneryTrees.ClearFreeRoamTrunks(gameObject.scene); Signs = StreetSigns.Attach(gameObject); Apply(); }
 
         void Build()
         {
@@ -56,7 +58,8 @@ namespace Racer
             Buildings = town.AddComponent<SceneryBuildings>(); Buildings.Build(gameObject.scene, Hidden); string buildings = Lap();
             Props = town.AddComponent<SceneryProps>(); Props.Build(gameObject.scene, new HashSet<Renderer>(Hidden)); string props = Lap();
             Water = town.AddComponent<SceneryWater>(); Water.Build(gameObject.scene); string water = Lap();
-            Timings = $"trees {trees}, buildings {buildings}, rocks and props {props}, shores {water}";
+            Paving = town.AddComponent<SceneryPaving>(); Paving.Build(gameObject.scene); string paving = Lap();
+            Timings = $"trees {trees}, buildings {buildings}, rocks and props {props}, shores {water}, paving {paving}";
             Ground = town.AddComponent<SceneryGround>(); Ground.Trees = Trees;
             BuildMilliseconds = (float)watch.Elapsed.TotalMilliseconds;
             Debug.Log($"Scenery: built in {BuildMilliseconds:F0} ms ({Timings}); {Trees.Summary}; buildings redesigned {Buildings.Redesigned}, detailed {Buildings.Detailed}; rocks {Props.Rocks}, bevelled props {Props.Bevelled}; shores {Water.Shores} with {Water.Reeds} reed clumps; {Hidden.Count} old renderers replaced");
@@ -70,6 +73,7 @@ namespace Racer
             if (Buildings) Buildings.SetShown(Scenery.New);
             if (Props) Props.SetShown(Scenery.New);
             if (Water) Water.SetShown(Scenery.New);
+            if (Paving) Paving.SetShown(Scenery.New);
             if (Ground) Ground.enabled = Scenery.New;
         }
     }

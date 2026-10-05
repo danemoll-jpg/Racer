@@ -1,0 +1,81 @@
+---- hud
+PASS Free Roam start: clock shown True, camera hint 'V / X: camera — Chase' True, text block 'Esc or Start: activities, retry, menu'
+start hints cleared after 60.4 s of editor time
+PASS normal Free Roam driving: clock 'Day 1 08:26', other text '', minimap shown True; clock (x:12.00, y:416.00, width:100.00, height:52.00) clear of minimap (x:470.67, y:321.33, width:157.33, height:146.67) and speedometer (x:518.67, y:12.00, width:109.33, height:41.33)
+PASS at Fence line smash: 'Fence line smash / Esc > Activities > Start to begin'
+PASS being at the site selected it for pause menu > Activities: Fence line smash
+PASS during the attempt: 'Fence line smash / 4s / 10 ft N / 0 distinct props'
+acorn debug: found 1, hud 'WOODLAND ACORNS 1/24
+Acorn found / Woodland nook', until 41.83999 time 37.82773, car 508.0,53.57,-194.9 acorn 508.0,54.24,-192.4
+acorn debug 2: hud 'WOODLAND ACORNS 1/24
+Acorn found / Woodland nook' text 'WOODLAND ACORNS 1/24
+Acorn found / Woodland nook' car 508.0,53.57,-194.9
+PASS acorn collected (0 -> 1): 'WOODLAND ACORNS 1/24 / Acorn found / Woodland nook'
+PASS a few seconds later the acorn line is gone: ''
+PASS B turned the minimap off (False -> True, shown False); saved in the settings file True
+PASS B again: minimap back on (True)
+PASS minimap toggle bindings: <Keyboard>/j, <Gamepad>/buttonEast
+PASS view changed with X: hint 'V / X: camera — Far chase'
+PASS Free Roam pause menu: 'Camera view: Chase   (V / X)' (pressed: view now Far chase), 'TRAILER / PHOTO MODE   (F8)'
+PASS Trailer Mode on: controls panel shown True, HUD drawn False, pointer visible True; entries 21: 1  Chase | 2  Orbit | 3  Side tracking | 4  Front | 5  Fixed | 6  Flyover | 7  Free camera | 8  Auto | 9  First person | Tab   Camera action: Fixed re-plant · Side other side · Auto next shot | X   Slow motion 0.5×: Off | H   Hide the HUD and this panel (clean screen) | G   Arrows, gates, waypoint beacon: Hidden | P / F12   Screenshot (full resolution, no HUD, no panel) | T   Time of day: Day | ,   Clock −1 h | .   Clock +1 h   (08:49) | K   Clock: Running | B   Weather: Clear | O   Moon: New | L   Lightning strike now
+PASS clicking '3 Side tracking' selects it: Side
+PASS clicking Weather: Clear -> Rain
+PASS controller B gives the panel the focus: True, selected Camera 1
+PASS controller A on the selected entry: camera Chase
+PASS B again: back to driving
+P / F12 screenshot taken while the panel was open: C:/Users/danmo/AppData/LocalLow/DefaultCompany/Racer\Screenshots\WoodstockRush_2026-10-05_12-50-35-496.png (copied as trailer-screenshot-with-panel-open.png; the camera alone is rendered)
+PASS L3 (H): panel and HUD hidden: panel False, HUD False, line False
+PASS a key while hidden: the 'show controls' line appears
+FAIL and fades again
+PASS L3 again: HUD and panel back
+PASS Trailer Mode off: panel gone, HUD back
+PASS race start: no clock True, camera hint 'V / X: camera — Chase'
+PASS race later: hint gone, race minimap '<color=#33DBDB>MAIN</color>   <color=#FFB02B>SHORTCUT</color>   • RIVALS' shown True
+PASS race pause menu: Camera view and Trailer / Photo Mode rows
+PASS main menu: Trailer / Photo Mode row
+PASS Settings > Controls lists: Trailer / Photo Mode / On or off (or pause menu) | Minimap / On or off (Free Roam) | Camera / Change view (or pause menu)
+---- grounding:MountainLoopReverse
+PASS MountainLoopReverse: new scenery built
+PASS MountainLoopReverse: buildings with no daylight under them 47/47 (worst gap 0.00 m; list in grounding-buildings-MountainLoopReverse.txt)
+FAIL MountainLoopReverse: posts and rocks checked 127 (clue cairns re-seated on today's ground: 6): floating 45, half buried 0 (grounding-props-MountainLoopReverse.txt)
+PASS MountainLoopReverse: trees / bushes / clumps on a drivable surface: found 22, removed or hidden 22, kept beside a race line 0; left standing on one now 0
+PASS MountainLoopReverse: ground detail placed so far 2457; on a drivable surface 0
+PASS MountainLoopReverse: every static collider identical New / Classic / New (13283 colliders)
+---- grounding:MountainLoop
+PASS MountainLoop: new scenery built
+PASS MountainLoop: buildings with no daylight under them 47/47 (worst gap 0.00 m; list in grounding-buildings-MountainLoop.txt)
+PASS MountainLoop: posts and rocks checked 80 (clue cairns re-seated on today's ground: 1): floating 0, half buried 0 (grounding-props-MountainLoop.txt)
+PASS MountainLoop: trees / bushes / clumps on a drivable surface: found 22, removed or hidden 22, kept beside a race line 0; left standing on one now 0
+PASS MountainLoop: ground detail placed so far 1929; on a drivable surface 0
+PASS MountainLoop: every static collider identical New / Classic / New (13355 colliders)
+---- spots:after
+---- roads
+paving: 9 renderers use the one asphalt with New: Takeoff - 40m x 6m, 6.2m rise (Raised roadworks asphalt); Decorative Road pavement (Asphalt) x3; Ground_CR113 west four lane seam (CR113 highway asphalt); Ground_CR113 east four lane seam (CR113 highway asphalt); Ground_CR113 west level outer continuation (CR113 highway asphalt); Ground_CR113 east level outer continuation (CR113 highway asphalt); Ground_Black asphalt driveway and terminal parking (Local black asphalt)
+seam patches on: west Memory loop - north is +Z/Ground_400_640 [MeshCollider] mat Marked ground shader Racer/MarkedGround vcol 0.240,0.250,0.260 y 8.98; east CR113 continuous highway seams/Ground_CR113 east four lane seam [MeshCollider] mat Paved road (0.79) shader Racer/Paved y 9.01; driveway Other gate black asphalt driveway - stops at parking/Ground_Black asphalt driveway and terminal parking [MeshCollider] mat Paved driveway (0.79) shader Racer/Paved y 85.20; road by the driveway Memory loop - north is +Z/Ground_560_320 [MeshCollider] mat Marked ground shader Racer/MarkedGround vcol 0.240,0.250,0.260 y 87.31
+PASS hwy92-seam day New: road either side of the seam 114,119,121 | 114,119,121 (largest channel difference 0/255)
+hwy92-seam day Classic: road either side of the seam 114,119,121 | 101,114,128 (largest channel difference 13/255)
+PASS hwy92-seam-low day New: road either side of the seam 115,119,121 | 114,119,121 (largest channel difference 1/255)
+hwy92-seam-low day Classic: road either side of the seam 115,119,122 | 107,120,135 (largest channel difference 13/255)
+driveway day New: driveway vs road 119,123,126 | 124,128,128 (largest channel difference 5/255)
+driveway day Classic: driveway vs road 40,41,44 | 124,128,128 (largest channel difference 87/255)
+PASS hwy92-seam night New: road either side of the seam 59,65,84 | 58,65,84 (largest channel difference 0/255)
+hwy92-seam night Classic: road either side of the seam 59,66,84 | 82,100,129 (largest channel difference 45/255)
+PASS hwy92-seam-low night New: road either side of the seam 59,66,84 | 58,65,84 (largest channel difference 0/255)
+hwy92-seam-low night Classic: road either side of the seam 59,66,84 | 91,108,138 (largest channel difference 54/255)
+driveway night New: driveway vs road 63,70,90 | 64,71,90 (largest channel difference 1/255)
+driveway night Classic: driveway vs road 23,31,44 | 64,71,90 (largest channel difference 46/255)
+PASS hwy92-seam rain New: road either side of the seam 70,74,78 | 69,73,78 (largest channel difference 1/255)
+hwy92-seam rain Classic: road either side of the seam 70,74,78 | 92,103,118 (largest channel difference 40/255)
+PASS hwy92-seam-low rain New: road either side of the seam 70,74,78 | 69,73,78 (largest channel difference 0/255)
+hwy92-seam-low rain Classic: road either side of the seam 70,74,78 | 98,111,125 (largest channel difference 47/255)
+driveway rain New: driveway vs road 74,78,83 | 81,85,88 (largest channel difference 7/255)
+driveway rain Classic: driveway vs road 32,35,39 | 81,85,88 (largest channel difference 50/255)
+---- signs:FreeRoamWorld:shots
+PASS FreeRoamWorld: street-name signs placed 3/3
+  Hwy 92 / S Cherokee Ln: junction (319.5, 560.2), paved half-widths 8.2 / 3.8 m; post at (326.5, 8.02, 549.5), 7.3 m from the nearest race line (corner (325.1, 570.8): ok, 15.9 m from the nearest race line; corner (312.6, 570.9): ok, 11.6 m from the nearest race line; corner (326.5, 549.5) by the side road: ok, 7.3 m from the nearest race line; corner (312.6, 548.1) by the side road: ok, 6.6 m from the nearest race line)
+  Trickum Rd / Hwy 92: junction (-603.8, 543.9), paved half-widths 3.6 / 8.2 m; post at (-615.0, 7.90, 531.0), 9.9 m from the nearest race line (corner (-609.2, 555.9): ok, 22.4 m from the nearest race line; corner (-615.0, 531.0) by the side road: ok, 9.9 m from the nearest race line; corner (-597.2, 553.3): ok, 15.5 m from the nearest race line; corner (-597.0, 530.1) by the side road: 6.0 m from a race line)
+  S Cherokee Ln / Trickum Rd: junction (-616.9, -551.9), paved half-widths 4.4 / 4.4 m; post at (-625.5, 5.96, -543.8), 11.9 m from the nearest race line (corner (-623.6, -559.0): ok, 16.2 m from the nearest race line; corner (-609.9, -558.6): ok, 10.0 m from the nearest race line; corner (-625.5, -543.8) by the side road: ok, 11.9 m from the nearest race line; corner (-608.7, -543.3) by the side road: 4.7 m from a race line)
+PASS FreeRoamWorld: Hwy 92 / S Cherokee Ln sign at 326.5,8.02,549.5: no collider, on the verge, 7.3 m from the nearest race line or shortcut of any course
+PASS FreeRoamWorld: Trickum Rd / Hwy 92 sign at -615.0,7.90,531.0: no collider, on the verge, 9.9 m from the nearest race line or shortcut of any course
+PASS FreeRoamWorld: S Cherokee Ln / Trickum Rd sign at -625.5,5.96,-543.8: no collider, on the verge, 11.9 m from the nearest race line or shortcut of any course
+done, failures 2

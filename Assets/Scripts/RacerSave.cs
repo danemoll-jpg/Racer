@@ -47,6 +47,8 @@ namespace Racer
             public int cameraView = 0;
             // 0.78: Settings > Display "Scenery" (false = New, the default; true = Classic, the original world visuals).
             public bool classicScenery = false;
+            // 0.79: the minimap in Free Roam (J / B toggles it; false = shown, the default).
+            public bool roamMinimapHidden = false;
             public string[] opponentChoices = {"mixed","mixed","mixed"};
             public string[] opponentRoster = {"tourer","moto","atv"};
             public int[] bodyColors = {-1,-1,-1,-1};

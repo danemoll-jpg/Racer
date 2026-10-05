@@ -16,6 +16,8 @@ namespace Racer
         readonly Dictionary<Vector2Int, (List<Matrix4x4> tufts, List<Matrix4x4> flowers, List<Matrix4x4> litter)> cells = new();
         readonly List<Matrix4x4> tufts = new(), flowers = new(), leaves = new();
         public SceneryTrees Trees;
+        // every tuft, flower and litter patch placed so far (for the checks)
+        public IEnumerable<Vector3> PlacedPoints { get { foreach (var c in cells.Values) { foreach (var m in c.tufts) yield return m.GetColumn(3); foreach (var m in c.flowers) yield return m.GetColumn(3); foreach (var m in c.litter) yield return m.GetColumn(3); } } }
         public int Placed { get; private set; }
 
         static Mesh Make(string name, System.Action<List<Vector3>, List<Color>> build)
@@ -88,6 +90,7 @@ namespace Racer
             {
                 var p = new Vector3((key.x + (float)rnd.NextDouble()) * CellSize, 0, (key.y + (float)rnd.NextDouble()) * CellSize);
                 if (!Physics.Raycast(new Vector3(p.x, 700, p.z), Vector3.down, out var h, 1400, 1, QueryTriggerInteraction.Ignore) || !Grass(h)) continue;
+                if (SceneryTrees.OnDrivable(h.point, null, out _)) continue; // 0.79: never on (or under) a road, driveway or trail
                 var rot = Quaternion.FromToRotation(Vector3.up, h.normal) * Quaternion.Euler(0, (float)rnd.NextDouble() * 360, 0); float s = .45f + (float)rnd.NextDouble() * .4f;
                 if (Trees && Trees.UnderCrown(h.point)) { l.Add(Matrix4x4.TRS(h.point, rot, Vector3.one * (1.2f + s))); continue; }
                 if (rnd.NextDouble() < .1) f.Add(Matrix4x4.TRS(h.point, rot, Vector3.one * s)); else t.Add(Matrix4x4.TRS(h.point, rot, new Vector3(s, s * (.8f + (float)rnd.NextDouble() * .5f), s)));

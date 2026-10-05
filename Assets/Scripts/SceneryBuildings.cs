@@ -302,7 +302,8 @@ namespace Racer
             {
                 float sx = Mathf.Sign(x - w.center.x), sz = Mathf.Sign(z - w.center.z);
                 var c = new Vector3(x - sx * .25f, 0, z + sz * .02f);
-                m.Box(new Vector3(c.x - .05f, w.min.y + .15f, c.z), new Vector3(c.x + .05f, w.max.y - .1f, c.z + sz * .1f), col);
+                float foot = Mathf.Min(w.min.y + .15f, GroundAt(s, c.x, c.z + sz * .05f) - .05f); // down to the ground (0.79)
+                m.Box(new Vector3(c.x - .05f, foot, Mathf.Min(c.z, c.z + sz * .1f)), new Vector3(c.x + .05f, w.max.y - .1f, Mathf.Max(c.z, c.z + sz * .1f)), col, true);
             }
         }
         static void Chimney(Builder m, Bounds b, Color brick)
@@ -323,10 +324,60 @@ namespace Racer
                 m.Quad(q[0], q[1], q[5], q[4], st.trim, -up); m.Quad(q[3], q[7], q[6], q[2], st.trim, up); m.Quad(q[0], q[4], q[7], q[3], st.trim, -side); m.Quad(q[1], q[2], q[6], q[5], st.trim, side);
             }
         }
-        static void Steps(Builder m, Bounds b)
+        static void Steps(Builder m, Site s, Bounds b)
         {
             m.Box(b.min, b.max, new Color(.66f, .64f, .60f));
             m.Box(new Vector3(b.min.x - .02f, b.max.y - .04f, b.max.z - .05f), new Vector3(b.max.x + .02f, b.max.y + .005f, b.max.z + .02f), new Color(.58f, .56f, .53f));
+            // 0.79: the step stands on a block that reaches the ground (never hovering)
+            float ground = LowestGround(s, b.min.x, b.max.x, b.min.z, b.max.z);
+            if (ground < b.min.y + .01f) m.Box(new Vector3(b.min.x, ground - FoundationMargin, b.min.z), new Vector3(b.max.x, b.min.y + .01f, b.max.z), new Color(.60f, .58f, .55f), true);
+        }
+
+        // ---------------------------------------------------------------- 0.79 Part D: standing on the ground
+        // The walls are drawn from the wall collider, whose floor is level; on a slope the downhill side would hang in the
+        // air. Every generated building stands on a foundation from its floor down to below the lowest ground under its
+        // footprint (sampled at every corner and every ~0.75 m along the edges), within the wall footprint; steps, an
+        // exterior chimney and the downspouts reach the ground the same way. Nothing here touches a collider.
+        public const float FoundationMargin = .3f;
+        // The ground's height (building frame) under a point of the building frame: the first static surface below the
+        // floor that is not part of this building.
+        static readonly RaycastHit[] hits = new RaycastHit[32];
+        static float GroundAt(Site s, float x, float z)
+        {
+            var from = s.toWorld.MultiplyPoint3x4(new Vector3(x, s.wall.min.y + 2.5f, z));
+            int n = Physics.RaycastNonAlloc(from, Vector3.down, hits, 80, ~0, QueryTriggerInteraction.Ignore);
+            System.Array.Sort(hits, 0, n, SceneryTrees.ByDistance);
+            for (int k = 0; k < n; k++)
+            {
+                var h = hits[k];
+                if (h.collider.transform.IsChildOf(s.root) || (h.collider.attachedRigidbody && !h.collider.attachedRigidbody.isKinematic)) continue;
+                return s.toLocal.MultiplyPoint3x4(h.point).y;
+            }
+            return s.wall.min.y;
+        }
+        static float LowestGround(Site s, float x0, float x1, float z0, float z1)
+        {
+            float lo = float.MaxValue; int nx = Mathf.Max(1, Mathf.CeilToInt((x1 - x0) / 1f)), nz = Mathf.Max(1, Mathf.CeilToInt((z1 - z0) / 1f));
+            for (int i = 0; i <= nx; i++) { float x = Mathf.Lerp(x0, x1, (float)i / nx); lo = Mathf.Min(lo, Mathf.Min(GroundAt(s, x, z0), GroundAt(s, x, z1))); }
+            for (int k = 0; k <= nz; k++) { float z = Mathf.Lerp(z0, z1, (float)k / nz); lo = Mathf.Min(lo, Mathf.Min(GroundAt(s, x0, z), GroundAt(s, x1, z))); }
+            lo = Mathf.Min(lo, GroundAt(s, (x0 + x1) * .5f, (z0 + z1) * .5f));
+            return lo;
+        }
+        // Brick under a brick house, otherwise concrete block, in courses; a touch proud of the wall so the base trim
+        // still reads above it.
+        static void Foundation(Builder m, Site s, Style st)
+        {
+            var w = s.wall; float bottom = LowestGround(s, w.min.x, w.max.x, w.min.z, w.max.z) - FoundationMargin, top = w.min.y + .02f;
+            var block = st.brick ? Shade(st.wall, .78f) : new Color(.57f, .56f, .53f);
+            float course = st.brick ? .16f : .2f; const float proud = .03f;
+            var min = new Vector3(w.min.x - proud, bottom, w.min.z - proud); var max = new Vector3(w.max.x + proud, top, w.max.z + proud);
+            int n = Mathf.Max(1, Mathf.CeilToInt((top - bottom) / course));
+            for (int i = 0; i < n; i++)
+            {
+                float a = Mathf.Max(bottom, top - (i + 1) * course), b = top - i * course;
+                var col = Shade(block, i % 2 == 0 ? 1 : .93f);
+                m.Box(new Vector3(min.x, a, min.z), new Vector3(max.x, b, max.z), col, i == n - 1);
+            }
         }
 
         // ---------------------------------------------------------------- the town
@@ -350,13 +401,18 @@ namespace Racer
                     Downspouts(m, s, st); Corners(m, s, st);
                     LightGlass(site, hidden); Emit(m, s, "Kyle's house detail"); Detailed++; Names.Add(site.name + " (detail)"); continue;
                 }
-                Walls(m, s, st, true);
+                Foundation(m, s, st); Walls(m, s, st, true);
                 foreach (var (tri, porch) in s.roofs) { Roof(m, s, st, tri, porch, !porch); if (porch && st.porchBrackets) PorchBrackets(m, s, st, tri); }
                 if (s.roofs.Any(r => !r.porch)) Downspouts(m, s, st);
-                if (s.chimney is Bounds ch) Chimney(m, ch, st.brick ? Shade(st.wall, .9f) : new Color(.53f, .30f, .23f));
+                if (s.chimney is Bounds ch)
+                {
+                    var brickColour = st.brick ? Shade(st.wall, .9f) : new Color(.53f, .30f, .23f); Chimney(m, ch, brickColour);
+                    // an exterior chimney (starting near the floor) goes down to the ground
+                    if (ch.min.y < s.wall.min.y + 1) { float g = LowestGround(s, ch.min.x, ch.max.x, ch.min.z, ch.max.z); if (g < ch.min.y) m.Box(new Vector3(ch.min.x, g - FoundationMargin, ch.min.z), new Vector3(ch.max.x, ch.min.y + .01f, ch.max.z), Shade(brickColour, .92f), true); }
+                }
                 if (s.flatRoof is Bounds fr) { m.Box(fr.min, fr.max, Shade(st.roof, .85f)); m.Box(new Vector3(fr.min.x, fr.max.y, fr.min.z), new Vector3(fr.max.x, fr.max.y + .12f, fr.min.z + .25f), st.trim); }
                 foreach (var p in s.parapets) { m.Box(p.min, p.max, st.wall); m.Box(new Vector3(p.min.x - .05f, p.max.y, p.min.z - .05f), new Vector3(p.max.x + .05f, p.max.y + .12f, p.max.z + .05f), st.trim); }
-                foreach (var b in s.steps) Steps(m, b);
+                foreach (var b in s.steps) Steps(m, s, b);
                 Emit(m, s, "New " + site.name);
                 // the old model of this building (its own enabled renderers: the porch steps, House 2's unbatched parts)
                 foreach (var r in s.arch.GetComponentsInChildren<Renderer>(true)) if (r.enabled && r is MeshRenderer && !r.GetComponent<TextMesh>()) hidden.Add(r);

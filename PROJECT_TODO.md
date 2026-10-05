@@ -10,7 +10,71 @@
 - Root AGENTS.md points future Codex tasks to both files.
 - From 2026-10-02 the coding agent is Claude Code. The same two files govern it; root CLAUDE.md (created in the 0.67 round) is its discovery pointer.
 
-## CURRENT — 0.78 scenery fixes (floating buildings, trees in driveways, road colour), street signs, on-screen camera controls, Free Roam HUD cleanup and minimap — target 0.79.0-review1 — NOT STARTED
+## CURRENT — 0.78 scenery fixes (floating buildings, trees in driveways, road colour), street signs, on-screen camera controls, Free Roam HUD cleanup and minimap — 0.79.0-review1 — IMPLEMENTED, RELEASE IN PROGRESS
+
+### Results (2026-10-05, Claude Code)
+
+- **Safety checkpoint:** `4d7a941d` (this TODO plan), pushed before any change. Version 0.79.0-review1 / build 79000.
+- Evidence:
+  - [Docs/Report079/VALIDATION.md](Docs/Report079/VALIDATION.md);
+  - [Shots/](Docs/Report079/Shots/): before / after, roads, signs day and night, 4K HUD, menus, Trailer panel;
+  - [Lists/](Docs/Report079/Lists/): per-building gaps, posts and rocks, trees per scene, check results;
+  - [Bench/](Docs/Report079/Bench/).
+- Code:
+  - D: `SceneryBuildings` (foundations, steps, chimney, downspouts), `SceneryProps` (sloped posts, re-seated clue cairns).
+  - E: `SceneryTrees` (`OnDrivable`, FreeRoamWorld trunk removal), `SceneryGround` (tufts never on roads).
+  - F: `SceneryPaving` + `Assets/Scenery/Paved.shader` (`Resources/Scenery/Paved.mat`).
+  - G: `StreetSigns` (`Resources/Scenery/SignLettering.mat`).
+  - H: `TrailerMode.Panel.cs`, `TrailerMode` (H / L3 / F1 / B), `RaceHud` (camera hint), `RaceMenus.Core` / `.Trailer` (rows), `CameraViews`.
+  - A–C: `RaceHud` (clock box, filtered text), `MoonIcon`, `ArcadeActivities` / `ExplorationCollection` (HUD text), `RacingMiniMap` (Free Roam, J / B), save field `roamMinimapHidden`.
+  - Checks: `Report079Checks.cs`, `Tools/Report079/`.
+- **No course scene, collider or route changed:**
+  - Scene files and `CoursePreviews.json` are identical to 0.78.
+  - Every static collider is identical New / Classic / New in all nine scenes.
+  - Only `FreeRoamWorld` loses the trunk colliders standing on drivable surfaces (E.3).
+- **D — PASS.**
+  - Cause: the 0.78 house visual is drawn from the wall collider (level floor), and the old foundation was trimmed from the merged batches.
+  - Every generated building now stands on a brick or block foundation down to below the lowest ground under its footprint (sampled every metre). Steps, an exterior chimney and the downspouts reach the ground. Visual only.
+  - Automatic perimeter check: **47/47 buildings with a 0.00 m gap in all nine scenes** (Dan's, Kyle's and Fox Gully included).
+  - The four reported houses were 1.85–2.50 m up; the worst in the world was 5.30 m.
+  - Posts and rocks: 0 floating, 0 half buried in every scene. Fixed: the House 3 mailbox post, the Mountain summit "05 return" sign post (0.9 m), and clue cairns whose ground was raised after placement.
+- **E — PASS.**
+  - The driveway trunks were always there as invisible "Roadside woodland trunk" colliders. 0.78 drew trunks on every trunk collider, so they appeared.
+  - Universal rule: 163 trees, bushes or clumps found on drivable surfaces across the nine scenes, 162 fixed:
+    - FreeRoamWorld: removed with their colliders;
+    - course scenes: visual hidden, collider kept, only where no race line is within 12 m.
+  - **Kept and reported (5A):** one trunk collider at (208.0, 72.35, 89.8) on the Backyard Reverse trail, 2.3 m from its race line.
+  - Ground detail: 0 on a drivable surface.
+- **F — PASS.**
+  - Cause: Hwy 92's continuous pieces, the decorative roads and the roadworks used URP Lit "asphalt" materials (darker and bluer, no wet look). The driveway material was 0.065 grey.
+  - With Scenery New they now use the ground shader's road lighting in the terrain road colour; driveways get a shade lighter grey.
+  - Seam on Hwy 92: 0–1/255 apart at Day / Night / Rain (Classic 12–54).
+- **G — PASS.**
+  - Signs at S Cherokee Ln / Hwy 92 (326.5, 549.5), Trickum Rd / Hwy 92 (−615.0, 531.0) and S Cherokee Ln / Trickum Rd (−625.5, −543.8), in all nine scenes.
+  - Each is on a side-road corner, off pavement, 7.3–11.9 m from any course line, with no collider.
+  - **Unsigned public road:** the decorative "Jamerson Rd west" continuation, from the S Cherokee / Trickum corner west to about (−1000, −550), centre about (−800, −550).
+- **H — PASS.**
+  - `V / X: camera — <view>` hint above the speedometer when driving starts and when the view changes.
+  - Pause menu rows **Camera view** and **TRAILER / PHOTO MODE (F8)**, the latter also on the main menu.
+  - Trailer controls panel: clickable; controller B focuses it, then D-pad / A; H / L3 hide it with the HUD; F1 shows or hides it; "H: show controls" appears briefly while hidden; absent from P / F12 screenshots.
+  - Every 0.77 binding is kept. `TRAILER_MODE.md` updated.
+- **A–C — PASS.**
+  - Day / clock box top left with a moon disc (4K shots: Day, Night, Snow, Dawn, Dusk / Rain), clear of the minimap and speedometer.
+  - Other text only while relevant: an activity start (it also becomes the selected activity), an attempt, a result, an acorn for 5 s, the menu line for 8 s at the start.
+  - The minimap shows in Free Roam (roads, trails, sites, waypoint). **J / controller B** toggles it; the choice is saved, default on.
+  - The race HUD is unchanged apart from the camera hint.
+- **Frame rate (3840×2160): PASS.** Worst view (summit, Night / Snow) 8.43 ms = 119 fps (0.78: 8.57 ms). A first run with Chrome / OBS on the GPU read about a third slower for New and Classic alike; Dan closed them for the clean run.
+- **Decisions recorded:**
+  - Road colour, foundations and tree hiding apply with Scenery New; Classic stays the original look. Street signs and the HUD changes apply in both.
+  - B is the controller minimap key: it does nothing while driving and is not a Trailer key. In Trailer Mode B focuses the panel instead, and the minimap hides with the HUD there.
+  - H / L3 hide the HUD and the panel together. Trailer Mode now opens with the panel shown, which replaces the 0.77 first-time hint.
+  - The "show controls" line ignores the driving keys, so recordings stay clean while riding.
+  - Hint durations count shown time (at most 0.1 s a frame), so a loading hitch does not use them up.
+- **Limitations / for Dan's eye (rule 12):**
+  - The look of the foundations, the signs and the panel.
+  - The Hwy 92 / S Cherokee sign stands on the east corner of S Cherokee Ln; the inner corner is too close to the race line.
+  - Mountain-summit edge boulders overhang the cliff by design (they rest on the ground).
+  - A tree hidden in a course scene still has its collider (rare, ≥ 12 m from any race line).
 
 - **Authorized by Dan (2026-10-04 and 2026-10-05).** Written by Claude (chat). Parts A–C were queued on 2026-10-04; Parts D–H come from Dan's review of 0.78.0-review1 on 2026-10-05 (debug session `2026-10-05_08-47-44-658_ac0f19`, 7 reports, all on 0.78.0-review1 in `FreeRoamWorld`). His overall verdict on the new scenery: "generally looks better".
 - **Starting point:** main at the "Record 0.78 delivery" commit; playable source `1f2de343` (0.78.0-review1 / game-78000). This TODO edit is uncommitted and belongs in the safety checkpoint.
