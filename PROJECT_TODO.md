@@ -10,7 +10,92 @@
 - Root AGENTS.md points future Codex tasks to both files.
 - From 2026-10-02 the coding agent is Claude Code. The same two files govern it; root CLAUDE.md (created in the 0.67 round) is its discovery pointer.
 
-## Previous delivery — 0.78 scenery fixes (floating buildings, trees in driveways, road colour), street signs, on-screen camera controls, Free Roam HUD cleanup and minimap — 0.79.0-review1 — DELIVERED, AWAITING DAN'S REVIEW
+## CURRENT — Clean-up from the 0.79 review, fist wave on LB, cars allowed on every course — target 0.80.0-review1 — NOT STARTED
+
+- **Authorized by Dan (2026-10-05).** Written by Claude (chat) from his review of 0.79.0-review1: debug session `2026-10-05_14-24-33-951_f0ab5f`, 10 reports, all on 0.79.0-review1 (BUG-001–007 in `FreeRoamWorld`, BUG-008–010 in `MountainLoopReverse`, race, Night / Snow). "a little more clean up." He raised nothing against the 0.79 foundations, signs, clock, minimap or camera panel.
+- **Starting point:** main at the "Record 0.79 delivery" commit; playable source `d00e017e` (0.79.0-review1 / game-79000). This TODO edit is uncommitted and belongs in the safety checkpoint.
+- Runs unattended: design decisions are below; do not stop to ask about design. Stop only for a real external blocker (rule 7).
+- **Scope is exactly Parts A–C below.** The new vehicles and Blender traffic cars are the next round (QUEUED NEXT below); do not start them here.
+
+### Part A — Clean-up (the 10 reports)
+
+Screenshots are in the session folder. Positions are the vehicle's.
+
+1. **BUG-001, 002, 003 — posts standing in the road** (`FreeRoamWorld`): "remove the pole from the middle of the road" at (-259.4, 24.9, -577.3); "also this one" at (-581.6, 6.6, -551.0) (a yellow post and a dark one on the pavement at the S Cherokee / Trickum corner); "and these 2" at (-619.2, 6.6, -499.9) (a yellow post and a small one on Trickum Rd). Remove them. Then make it universal: no post, bollard, marker, sign post or prop stands on a paved road or driveway in `FreeRoamWorld`; check automatically and report the count. In the course scenes apply section 5A: if one of these is a race marker or has a collider near a race line, leave it and report it.
+2. **BUG-004, 005 — lane markings at Trickum Rd / Hwy 92**: "can we clean up the lane markings right here?" at (-609.0, 8.4, 523.8), and "the lane markings from bug-004 to here need to be fixed" at (-501.3, 8.4, 534.1). The junction shows overlapping and crossing lines (several painted sets on top of each other, lines running diagonally across lanes, a red/white striped strip across the corner). Repaint that junction and the stretch of Hwy 92 between the two positions as one clean, believable layout: continuous edge lines, lane lines that line up with the rest of Hwy 92, a proper stop line and turn where Trickum joins, nothing doubled. Paint only; no road shape or collider change. Then check the other two junctions (S Cherokee / Hwy 92, S Cherokee / Trickum) for the same doubling and fix them the same way.
+3. **BUG-006 — the giant-jump landing** at (786.5, 98.9, 81.9) (`FreeRoamWorld`): "what exactly is this I am driving on? Is it needed? Can we just make this match the roads and grass around it". Dan then recognised it (2026-10-05): "the mystery surface road is the landing for the big mountain jump" (the flat landing built in 0.71). **It stays: do not move, reshape, shrink or change the collision of the landing, and the jump must still land as it does now (about 243 m on the motorcycle).** Only its look changes so it stops reading as a strange dark red-brown slab: surface it as the same dirt as the other mountain roads, blended into grass at the edges so it sits in the hillside naturally. Re-run the giant jump to confirm distance and a clean landing.
+4. **BUG-007 — mountain road surface** at (1179.4, 152.5, 169.3): "This road should be just a dirt road just like the other roads in the mountain". Make it the same dirt road look. Then make every mountain road in `FreeRoamWorld` one consistent dirt look (list any others found).
+5. **BUG-008 — hole** in Mountain Loop Reverse at (1034.2, 154.7, 148.3): "fix this so there is no hole to fall into". A gap between rock/road pieces beside the course that a vehicle can drop into. Close it with solid ground that matches. Dan has asked for this race-scene change; section 5A applies: read the route data, keep the race line, jump and AI line as they are, fill only the gap.
+6. **BUG-009 — bump** at (808.3, 96.8, -189.9), Mountain Loop Reverse: "clean this up so it doesn't bump driver out of control". Smooth the seam/step in the driving surface there so a vehicle at race speed stays settled (same method as the 0.69 edge smoothing). Keep the line and the intended character of the section.
+7. **BUG-010 — floating road** seen from (1050.5, 152.3, 294.0), Mountain Loop Reverse, looking across the gap: "fix that road you see across from me so that it isn't floating". The road deck opposite is a thin slab with open air beneath. Give it ground: a rock/earth embankment or cliff under it down to the terrain, visual with matching collision where a vehicle could reach. Then check every elevated road section on the mountain the same way (Dan's history: the mountain had "hanging roads") and support any other that visibly floats.
+8. For 5–7: make the same fix at the same places in `MountainLoop` (forward) and `FreeRoamWorld` where the same geometry exists, and run a race lap forward and reverse with AI to show nothing changed for the race (0 missed gates, jumps still made).
+
+### Part B — Fist wave on the left shoulder button
+
+Dan: "Can we make the fist waving the Left shoulder button instead of the right? Your right finger will be on the trigger so it makes it awkward to hit it."
+
+- Controller fist wave moves from RB to **LB**. Keyboard F stays. Update Settings > Controls, hints and docs.
+- Check for clashes while driving (LB is "previous" in menus and the map, which is fine). In Trailer Mode LB keeps its 0.25× hold and RB its 0.5× toggle; F waves there, as now.
+
+### Part C — Cars allowed on every course
+
+Dan: "it is a bit of a problem that we have four different tracks, but only one allows cars. The lanes are a lot more wide on most races that I wonder if we can move the car restrictions? The only place I can think of that might be a problem is the cave shortcut."
+
+1. Remove the vehicle restriction so both cars (and every future car) can be chosen on all eight courses, for the player and for AI. Motorcycle and ATV availability is unchanged.
+2. **Do not reshape any course to make cars fit** (section 5A). Instead find out, by driving each course forward and reverse with each car and with a car AI field, where a car cannot get through or cannot make a jump: width, overhead clearance, turn radius, jump distance, ramp break-over.
+3. Where a **shortcut or alternate** does not work for a car (the Forest cave shortcut is the expected case): cars simply do not use it. Car AI never takes it; for the player it is marked as bikes/ATV only on the minimap legend and with a small sign or marking at its entrance, and a car that goes in anyway is handled by the normal reset. The main route stays open to everything.
+4. Where the **main route** does not work for a car (too narrow, a jump a car cannot clear): do not alter the track. Make the smallest non-geometry adjustment if one exists (AI line, car AI speed at that jump). If none works, that course keeps its car restriction for now; report the exact spot, with a screenshot and what would have to change, for Dan to decide. Expect most courses to pass.
+5. Mixed fields: an AI field may mix cars, ATVs and motorcycles where allowed, as on Street Loop today. Records stay separate per vehicle as now, so no existing record is affected.
+6. Reset (0.68 rule) must work for cars everywhere, including off narrow trails.
+7. Verify per course and direction: one race with the player in each car and at least two car AI: finishes, 0 missed gates, no car stuck for good, lap time recorded. Table in the validation report: course × direction × car → pass / shortcut closed to cars / still restricted (why).
+
+### Verification (targeted, rule 11)
+
+- Part A: before/after screenshots for each of the 10 reports from the reported positions (day, so they are easy to see), the automatic post-on-road count, and the mountain race laps in item 8.
+- Part B: LB waves, RB does nothing while driving, Trailer Mode unchanged.
+- Part C: the table above.
+- All other course scenes, colliders and routes identical to 0.79 (state which scene files changed and why). Frame rate in the 0.78 worst view stays above 100 fps at 3840×2160.
+- Standard rule steps: TODO update, commit, push, build, publish, Play-Racer.cmd check, cleanup, final report.
+
+## QUEUED NEXT — New vehicles (sporty and vintage-inspired cars, a convertible, two more motorcycles) + Blender traffic cars — target 0.81.0-review1 — NOT STARTED
+
+Written by Claude (chat) on 2026-10-05. Do not start this until 0.80 is delivered and Dan starts it. Runs unattended; design decisions are below.
+
+Dan (2026-10-05): "I am thinking we could fold into Blender NPC cars and while we are at it maybe add a couple more vehicles? I would want some cars that maybe look a little more sporty. Maybe a convertible. I would want a couple of cars inspired like these old vintage cars [1960s–70s sports and muscle cars, a 1950s finned cruiser]. Other motorcycles would be cool but I don't know how they would look different."
+
+Same pipeline and standard as 0.75 (`F:\blender\blender.exe`, `Tools/Blender/`, `SourceArt/Blender/`, FBX in `Assets/Resources/VehicleModels/`, render–look–revise, at most three passes each), same stylized low-poly style, with the parametric rider visible and gestures (0.78) working in each.
+
+**Important: original designs only.** "Inspired by" means the era and the body type. No real make or model names, badges, logos, or a copy of any one real car's exact shape; each gets an invented name in the style of the existing ones (Needle 600, Trail Four, Street Classic, Longroof GT).
+
+### Part A — Four new player cars
+
+1. **1960s long-bonnet roadster, a convertible** with the top down: long hood, short tail, low windscreen, rider visible from the chest up. Light and nimble.
+2. **1960s fastback pony/muscle coupe:** long hood, sloping fastback roof, wide stance. Strong acceleration, heavier steering.
+3. **1970s compact rear-engined sports coupe:** short, rounded, sloping tail. Quick turn-in, best car grip.
+4. **1950s finned cruiser:** big, chrome, two-tone paint, tailfins. Slow to turn, top stability and strongest contact.
+
+Each gets its own handling profile inside the range the existing cars already cover, different enough to feel distinct (rule 12: one considered set of numbers, Dan judges). Paint colours selectable as for the existing cars; the convertible must work with every hat and hair option and in Rain and Snow (no roof is fine). All four available wherever 0.80 allows cars. Fist wave: over the door on the convertible.
+
+### Part B — Two more motorcycles
+
+How they differ from the Needle 600 (a sport bike), so they read as different at a glance:
+1. **Dirt bike:** tall, long suspension, high front fender, knobbly tyres, upright rider. Best off-road and on landings, lower top speed.
+2. **Cruiser:** long and low, wide bars, big rear tyre, relaxed feet-forward rider. Stable and strong on contact for a bike, slower to lean.
+
+Each needs its rider pose (the rider rig from 0.78 supports new poses).
+
+### Part C — Traffic (NPC) cars in Blender
+
+Replace the blocky ambient traffic vehicles with a small kit in the same style: sedan, pickup truck, van, station wagon/hatchback, each in several paint colours, with headlights and tail lights at night and a simple driver silhouette. Same size class, colliders, behaviour and counts as the current traffic; visuals only. They follow the Model: Classic / New switch.
+
+### Garage and checks
+
+- Garage lists all new vehicles with the 0.76 rotating preview; names, class and description for each.
+- AI fields use the new vehicles too, where the course allows the class.
+- Verify: each new vehicle driven on a road course and a mountain course, wheels on the ground, rider seated correctly in chase and first person, gestures, headlights at night; a traffic pass on Street Loop day and night; frame rate above 100 fps at 3840×2160 in the worst view with traffic.
+- Render sheets and in-game shots in `Docs/Report081/`.
+
+## Previous delivery — 0.78 scenery fixes (floating buildings, trees in driveways, road colour), street signs, on-screen camera controls, Free Roam HUD cleanup and minimap — 0.79.0-review1 — DELIVERED, REVIEWED BY DAN (clean-up items in 0.80)
 
 - **DELIVERED:**
   - Source `d00e017ec244737ef0ce43a7539eab9d3cc309f8` pushed and verified on origin/main.
