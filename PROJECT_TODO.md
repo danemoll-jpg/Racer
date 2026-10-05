@@ -10,7 +10,111 @@
 - Root AGENTS.md points future Codex tasks to both files.
 - From 2026-10-02 the coding agent is Claude Code. The same two files govern it; root CLAUDE.md (created in the 0.67 round) is its discovery pointer.
 
-## CURRENT — World scenery upgrade + rider gestures (fist wave, victory celebration) — 0.78.0-review1 — DELIVERED, AWAITING DAN'S REVIEW
+## CURRENT — 0.78 scenery fixes (floating buildings, trees in driveways, road colour), street signs, on-screen camera controls, Free Roam HUD cleanup and minimap — target 0.79.0-review1 — NOT STARTED
+
+- **Authorized by Dan (2026-10-04 and 2026-10-05).** Written by Claude (chat). Parts A–C were queued on 2026-10-04; Parts D–H come from Dan's review of 0.78.0-review1 on 2026-10-05 (debug session `2026-10-05_08-47-44-658_ac0f19`, 7 reports, all on 0.78.0-review1 in `FreeRoamWorld`). His overall verdict on the new scenery: "generally looks better".
+- **Starting point:** main at the "Record 0.78 delivery" commit; playable source `1f2de343` (0.78.0-review1 / game-78000). This TODO edit is uncommitted and belongs in the safety checkpoint.
+- Runs unattended: design decisions are below; do not stop to ask about design. Stop only for a real external blocker (rule 7).
+- **Scope is exactly Parts A–H below. Order: D, E, F first (they fix 0.78), then G, H, then A, B, C.**
+- The 0.78 visual-only rule still holds for D–G: no terrain, road, collider or route changes in any course scene.
+
+**Dan's request, in his words (screenshot of the Free Roam text block, 0.77):** "I want the day and time separate from this other junk. It just too much text right here in general. I think if you are on an activity it is fine to have it somewhere but otherwise it should be hidden. I want the day and time clearly readable."
+
+What is on screen today in Free Roam, all in one yellow block: `FREE ROAM Day 1 08:21 / Trickum pavement jump / 0.66 mi SW`, `Esc or Start: activities, retry, menu`, `WOODLAND ACORNS 0/24 / progress in pause menu`.
+
+### Part A — Day and clock as their own element
+
+1. In Free Roam, show the day and the time as a separate, dedicated HUD element, away from any other text, for example `Day 1` and `08:21` in a top corner. Nothing else shares that element (no "FREE ROAM" label, no activity name, no distance).
+2. It must be clearly readable at 3840×2160 from a normal seat and against every sky: Dawn, Day, Dusk, Night, Rain, Snow. Larger than the present text, with an outline or a soft dark backing. Verify with screenshots at 4K in at least Day Clear, Night Clear and Day Snow.
+3. A small moon-phase icon beside it is welcome if it is cheap and stays clean; skip it otherwise.
+4. It must not overlap the speedometer, the radar/minimap, or the Trailer Mode help; it hides with the rest of the HUD in Trailer Mode (H).
+
+### Part B — Remove the standing text block
+
+1. The three standing lines go away during normal Free Roam driving. By default the only Free Roam text on screen is the day and clock from Part A (plus the existing speed/radar elements, unchanged).
+2. Activity text appears only while it is relevant, and in its own place (not attached to the clock):
+   - when the player is at an activity start (close enough to begin it): its name and how to start it;
+   - during an attempt: the existing timer/score line;
+   - for a few seconds after an attempt: the result.
+   The "nearest activity / distance / direction" line is no longer shown all the time. That information stays available on the map and in the pause menu. If a map waypoint is set, its existing guidance stays as it is.
+3. Acorns: no standing counter. Show `WOODLAND ACORNS n/24` for a few seconds when one is collected; the total stays in the pause menu.
+4. `Esc or Start: activities, retry, menu`: show it for a few seconds when Free Roam begins, then hide it.
+5. Races are not changed by this round.
+
+### Part C — Minimap in Free Roam, with an on/off toggle
+
+Dan (2026-10-04): "I wouldn't mind having the minimap in free roam as well which can be toggled on and off."
+
+1. Show the minimap in Free Roam, the same one races use (reuse it; do not build a second one). It shows the player, the roads, and the map waypoint when one is set. Activity starts on it are welcome if they are cheap and stay uncluttered.
+2. One key and one controller button toggle it on and off during Free Roam. Pick ones that are free in Free Roam and do not clash with the full map, camera views, reset or Trailer Mode keys; list the binding in the controls help and in the final report.
+3. The choice is saved and remembered across sessions. Default: on.
+4. It must not overlap the day and clock element from Part A or the speedometer, and it hides with the rest of the HUD in Trailer Mode (H).
+5. Race minimap behaviour is unchanged.
+
+Note on acorns: the `WOODLAND ACORNS 0/24` in Dan's screenshot came from one of Code's own test screenshots, not from his save. There is nothing to investigate.
+
+### Part D — Buildings must sit on the ground (0.78 review, BUG-001, 003, 004, 005) — DO THIS FIRST
+
+Dan (2026-10-05, on 0.78.0-review1, debug session `2026-10-05_08-47-44-658_ac0f19`, all in `FreeRoamWorld`): "nearly every house was floating in the air besides the main houses. I didn't take pictures of all of them but this needs to be a universal fix."
+
+What the screenshots show: on sloping ground the new house visual is a level box whose floor sits at the high side of the slope, so the downhill side hangs in the air with open space underneath and the front steps hover. Examples at X=576.5 Z=-414.3, X=491.5 Z=-589.9, X=396.7 Z=-501.5, X=256.7 Z=-413.8.
+
+1. **Universal fix, not per house.** Every generated building (houses, garages, sheds, businesses, outbuildings) in all nine scenes gets a foundation/skirt that runs from the floor down to below the lowest ground point under its footprint (sample the terrain under every corner and along the edges, add a margin). Brick, block or stone foundation that suits the house. No daylight under any wall from any side.
+2. Steps, porches, stoops, chimneys, posts, gutters' downpipes and any other attached piece reach the ground the same way (extend the steps or add a landing; never leave them hovering).
+3. Do not move or reshape terrain, and do not change any collider or route (0.78's visual-only rule and section 5A still apply). If a foundation would be visibly solid where the collider is not, keep it within the existing footprint.
+4. **Prove it for every building, automatically:** a check that, for each building in each scene, casts down from points around the base perimeter and reports the largest gap between the bottom of the visual and the ground. Target 0 gaps; list every building with its result in the validation report. Fix the cause until the list is clean; do not rely on spot checks.
+5. Dan's house and Kyle's house: he reports these look right. Run the same check on them but do not redesign them.
+6. Apply the same check to other generated ground-standing scenery from 0.78 (fences, mailboxes, signs, posts, props, rocks): nothing floats, nothing is half buried.
+
+### Part E — No trees in driveways or roads (BUG-002)
+
+"trees in driveway" at X=454.0 Z=-29.9 (`FreeRoamWorld`): tree trunks stand in the middle of the paved driveway by the fence.
+
+1. Find how they got there: a 0.78 visual placed where a classic crown-only clump had no trunk, or a tree that was always there. Say which.
+2. Universal rule: no tree, bush or ground-detail clump stands on any road, driveway, trail or other drivable surface, in any scene. Check every tree against the drivable surfaces automatically and report the count found and fixed.
+3. If the offending tree has a collider that a race route or AI line passes near, do not remove the collider in a course scene: hide the visual only where safe, and report it (section 5A). In `FreeRoamWorld` remove it properly.
+
+### Part F — Roads one consistent grey (BUG-006)
+
+"can we make the road the same color. It should be more like the grey color" at X=169.6 Z=551.4 on Hwy 92, Night Clear. The road changes from a lighter grey section to a darker blue-black section at a hard seam; the driveway in BUG-002 is near black.
+
+1. All paved roads use one consistent asphalt colour, the lighter grey one, with no visible seams where road pieces or scenes' sections meet, in every time of day and weather. Check the cause (two materials, vertex colour, the New ground branch, wetness) and fix it at the source.
+2. Paved driveways: the same family of grey (a slightly different shade is fine), not black.
+3. Lane lines and edges stay as readable as now. Dirt trails and gravel are not changed.
+
+### Part G — Green street-name signs at junctions (BUG-007)
+
+"lets put road signs. this road being turned onto is south cherokee lane, and turning off of Hwy 92. I would like the standard green road crossing signs. Would like this on every road." (junction at X=313.6 Z=549.4)
+
+1. Standard US street-name signs: a post at the corner with two green blades with white lettering at right angles, each blade parallel to the road it names. Readable from a vehicle approaching at speed, and lit well enough by headlights at night.
+2. Put one at every junction of named roads in the world, in all nine scenes (same world everywhere). Post on the verge, never on a drivable surface, never in a race line, AI line or a jump landing; the post has no collider (or a breakaway one that cannot affect a vehicle). Read the route data before placing each one (section 5A).
+3. Names, confirmed by Dan (2026-10-05). There are three real roads and these are the only names to use:
+   - **S Cherokee Ln** — South Cherokee Lane, Dan's road. Wherever the project says "Cherokee Lane" it is this road.
+   - **Hwy 92** — the four-lane road.
+   - **Trickum Rd** — the other road.
+   - **No Jamerson Road signs.** In reality S Cherokee Ln runs into Jamerson briefly before Trickum, but that stretch is too short to count: treat it as S Cherokee Ln all the way to Trickum Rd.
+   So the signed junctions are S Cherokee Ln / Hwy 92, S Cherokee Ln / Trickum Rd, and Trickum Rd / Hwy 92 if they meet in the world, plus any other place two of these three cross. Driveways, trails and race-only paths get no sign. **Do not invent names.** If some other paved public road exists that is none of the three, give it no sign and list it with a map position in the final report.
+4. Verify with screenshots of each signed junction, day and night.
+
+### Part H — Cameras reachable from the screen
+
+Dan: "there should be an obvious way of getting to the cameras. It should be on the screen somehow so I don't have to reference notes to know how to pull them up and use them."
+
+1. **Normal play:** a small on-screen hint that names the camera control and the current view, for example `V / X: camera — Chase`. Show it for a few seconds when driving starts and whenever the view changes, then fade. Also a "Camera view" row in the pause menu that cycles the views, and the binding listed in Settings > Controls.
+2. **Trailer Mode:** an obvious entry in the pause menu (and the main menu if cheap) named so a newcomer finds it ("Trailer / Photo Mode"), with its key (F8) shown beside it.
+3. **Inside Trailer Mode:** an on-screen control panel that makes the notes unnecessary: the nine cameras by number and name with the current one highlighted, and the other controls grouped and labelled (camera action, auto shot, slow motion, HUD, arrows/gates, screenshot, time, clock ±, pause clock, weather, moon, lightning). Selectable by mouse click and by controller as well as by key. It hides with H so recordings stay clean, and a single small line (`H: show controls`) reappears briefly when any key is pressed while hidden, then fades. Nothing from this panel appears in screenshots taken with P/F12.
+4. Keep every existing 0.77 binding working. Update `Docs/TrailerMode/TRAILER_MODE.md`.
+
+### Verification
+
+- 4K screenshots of Free Roam: normal driving (clock only), at an activity start, during an attempt, just after collecting an acorn, minimap on and minimap off, and Trailer Mode HUD off.
+- Confirm race HUDs are identical to 0.78 apart from the camera hint in Part H.
+- Parts D and E: the automatic per-building gap list and the tree-on-drivable-surface count, clean in all nine scenes; before/after screenshots at the four reported houses and the driveway. Static colliders and routes identical to 0.78 in every course scene.
+- Part F: screenshots along Hwy 92 at Day, Night and Rain showing no seam. Part G: signed junctions day and night. Part H: screenshots of the hint, the pause-menu rows and the Trailer Mode panel shown and hidden.
+- Frame rate at 3840×2160 in the 0.78 worst view stays above 100 fps.
+- Standard rule steps: TODO update, commit, push, build, publish, Play-Racer.cmd check, cleanup, final report.
+
+## Previous delivery — World scenery upgrade + rider gestures (fist wave, victory celebration) — 0.78.0-review1 — DELIVERED, REVIEWED BY DAN ("generally looks better"; floating buildings, trees in a driveway and road colour fixed in 0.79)
 
 - **Authorized by Dan (2026-10-04).** He accepted the recommendation to upgrade the world scenery next (graphics upgrade step 3), before filming the trailer, and asked for rider gestures: "a button for waving your fist at someone. And the AI drivers would do this if someone runs into them or something, and maybe a celebratory dance, two fists in the air, when someone wins a race."
 - **Starting point:** main at the 0.77 documentation commit; playable source as recorded in the 0.77 DELIVERED entry (0.77.0-review1 / game-77000). This TODO edit is uncommitted and belongs in the safety checkpoint. Dan has not reviewed 0.77 yet; do not change 0.77 work in this round.
@@ -101,51 +205,6 @@ Built on the 0.75 parametric rider (New models). Purely cosmetic: no effect on s
 - Small, not scheduled: bury the storm-drain culvert box; weather affecting grip; CR-118 spoken-title clipping; Mountain berm leftovers; a way to skip a day in Free Roam; CR-010 steering (needs Dan's yes/no).
 - Later: traffic vehicles in Blender; vehicle stats and more vehicles; acorn-completion special vehicle; stunt track (route shown on the map before building); Trickum course; split-screen/online; VR.
 - Deferred: Steam Deck checks; friend test of the packaged build.
-
-## QUEUED NEXT — Free Roam HUD cleanup: clear day and clock, minimap toggle, everything else hidden unless needed — target 0.79.0-review1 — NOT STARTED
-
-Written by Claude (chat) on 2026-10-04 while the 0.78 round was running. Do not start this until 0.78 is delivered. Small round. Do not stop for design questions; the decisions are below.
-
-**Dan's request, in his words (screenshot of the Free Roam text block, 0.77):** "I want the day and time separate from this other junk. It just too much text right here in general. I think if you are on an activity it is fine to have it somewhere but otherwise it should be hidden. I want the day and time clearly readable."
-
-What is on screen today in Free Roam, all in one yellow block: `FREE ROAM Day 1 08:21 / Trickum pavement jump / 0.66 mi SW`, `Esc or Start: activities, retry, menu`, `WOODLAND ACORNS 0/24 / progress in pause menu`.
-
-### Part A — Day and clock as their own element
-
-1. In Free Roam, show the day and the time as a separate, dedicated HUD element, away from any other text, for example `Day 1` and `08:21` in a top corner. Nothing else shares that element (no "FREE ROAM" label, no activity name, no distance).
-2. It must be clearly readable at 3840×2160 from a normal seat and against every sky: Dawn, Day, Dusk, Night, Rain, Snow. Larger than the present text, with an outline or a soft dark backing. Verify with screenshots at 4K in at least Day Clear, Night Clear and Day Snow.
-3. A small moon-phase icon beside it is welcome if it is cheap and stays clean; skip it otherwise.
-4. It must not overlap the speedometer, the radar/minimap, or the Trailer Mode help; it hides with the rest of the HUD in Trailer Mode (H).
-
-### Part B — Remove the standing text block
-
-1. The three standing lines go away during normal Free Roam driving. By default the only Free Roam text on screen is the day and clock from Part A (plus the existing speed/radar elements, unchanged).
-2. Activity text appears only while it is relevant, and in its own place (not attached to the clock):
-   - when the player is at an activity start (close enough to begin it): its name and how to start it;
-   - during an attempt: the existing timer/score line;
-   - for a few seconds after an attempt: the result.
-   The "nearest activity / distance / direction" line is no longer shown all the time. That information stays available on the map and in the pause menu. If a map waypoint is set, its existing guidance stays as it is.
-3. Acorns: no standing counter. Show `WOODLAND ACORNS n/24` for a few seconds when one is collected; the total stays in the pause menu.
-4. `Esc or Start: activities, retry, menu`: show it for a few seconds when Free Roam begins, then hide it.
-5. Races are not changed by this round.
-
-### Part C — Minimap in Free Roam, with an on/off toggle
-
-Dan (2026-10-04): "I wouldn't mind having the minimap in free roam as well which can be toggled on and off."
-
-1. Show the minimap in Free Roam, the same one races use (reuse it; do not build a second one). It shows the player, the roads, and the map waypoint when one is set. Activity starts on it are welcome if they are cheap and stay uncluttered.
-2. One key and one controller button toggle it on and off during Free Roam. Pick ones that are free in Free Roam and do not clash with the full map, camera views, reset or Trailer Mode keys; list the binding in the controls help and in the final report.
-3. The choice is saved and remembered across sessions. Default: on.
-4. It must not overlap the day and clock element from Part A or the speedometer, and it hides with the rest of the HUD in Trailer Mode (H).
-5. Race minimap behaviour is unchanged.
-
-Note on acorns: the `WOODLAND ACORNS 0/24` in Dan's screenshot came from one of Code's own test screenshots, not from his save. There is nothing to investigate.
-
-### Verification
-
-- 4K screenshots of Free Roam: normal driving (clock only), at an activity start, during an attempt, just after collecting an acorn, minimap on and minimap off, and Trailer Mode HUD off.
-- Confirm race HUDs are identical to 0.78.
-- Standard rule steps: TODO update, commit, push, build, publish, Play-Racer.cmd check, cleanup, final report.
 
 ## Previous delivery — Trailer / photo mode, auto camera, first-person and other views — 0.77.0-review1 — DELIVERED, AWAITING DAN'S REVIEW
 
