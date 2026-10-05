@@ -73,7 +73,7 @@ namespace Racer
         }
     }
 
-    // 0.78 Part B: fist wave (player button F / RB; an AI rider at whoever ran into it) and the winner's victory celebration.
+    // 0.78 Part B: fist wave (player button F / LB since 0.80; an AI rider at whoever ran into it) and the winner's victory celebration.
     // Purely visual: it reads the vehicle and never touches input, physics, AI driving or records. Needs the New models
     // (RiderArms); with Classic nothing happens. Added to every vehicle by VehicleConfiguration.Apply, so AI clones have it.
     public sealed class RiderGestures : MonoBehaviour

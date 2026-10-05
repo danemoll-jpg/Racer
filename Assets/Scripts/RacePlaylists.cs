@@ -39,7 +39,7 @@ namespace Racer
             if(index<0)library.playlists.Add(Clone(draft));else library.playlists[index]=Clone(draft);
             if(Save())return true;library.playlists=saved;return false;
         }
-        public static bool Eligible(Entry entry,string vehicle)=>entry.course<Scenes.Length&&(entry.course<2||VehicleProfile.Find(vehicle).Small);
+        public static bool Eligible(Entry entry,string vehicle)=>entry.course<Scenes.Length&&(CarAccess.CourseAllowsCars(Scenes[entry.course])||VehicleProfile.Find(vehicle).Small);
         public static void Begin(Definition d){if(!Valid(d)||d.entries.Count==0||d.entries.Any(e=>e.course>=Scenes.Length))throw new ArgumentException("Add at least one race");Active=JsonUtility.FromJson<Definition>(JsonUtility.ToJson(d));Position=0;Championship=new(d.entries.Count);}
         public static void Advance(){if(HasNext&&Championship.Events[Position]!=null)Position++;}
         public static void Record(RaceDirector race){if(Active==null||!race.ClassificationFinal)return;Championship.Record(Position,new PlaylistChampionship.Event{course=Current.Title,order=race.Ordered(true).Select((r,i)=>new PlaylistChampionship.Finish{id="racer-"+race.Racers.IndexOf(r),name=race.Racers.IndexOf(r)==0?"YOU":"Rival "+race.Racers.IndexOf(r),place=i+1,estimated=r.Estimated,dnf=r.Dnf,finalTime=r.ClassifiedTime(race.Clock),penalties=r.Progress.PenaltySeconds}).ToArray()});}

@@ -1,0 +1,8 @@
+DansBackyardForward	Abandoned Cabin Jump	moto	not entered	entered False, reached s 0 of 128, resets 0, max air 1.40s, min up 0.50, 41s
+DansBackyardReverse	Storm Drain / Gully Jump	moto	through	entered True, reached s 269 of 269, resets 1, max air 2.88s, min up 0.83, 26s
+DansBackyardForward	Abandoned Cabin Jump	atv	not entered	entered False, reached s 0 of 128, resets 1, max air 1.02s, min up 0.50, 45s
+DansBackyardReverse	Storm Drain / Gully Jump	atv	through	entered True, reached s 269 of 269, resets 1, max air 1.14s, min up 0.75, 31s
+DansBackyardForward	Abandoned Cabin Jump	original	through	entered True, reached s 127 of 128, resets 2, max air 1.72s, min up 0.57, 46s
+DansBackyardReverse	Storm Drain / Gully Jump	original	through	entered True, reached s 269 of 269, resets 1, max air 1.24s, min up 0.84, 28s
+DansBackyardForward	Abandoned Cabin Jump	tourer	through	entered True, reached s 127 of 128, resets 2, max air 2.60s, min up 0.62, 50s
+DansBackyardReverse	Storm Drain / Gully Jump	tourer	through	entered True, reached s 269 of 269, resets 0, max air 2.12s, min up 0.84, 24s

@@ -1,0 +1,15 @@
+---- carrace:DansBackyardForward:original:tourer,original,moto:1
+FAIL DansBackyardForward player original vs tourer/original/moto: PLAYER original: 01:26.520 missed 0 resets 2 longest stall 7s shortcuts []; EMBER tourer: 02:06.066 missed 0 resets 3 longest stall 6s shortcuts [Tree-Top Trail, Abandoned Cabin Jump]; GOLD original: 01:55.484 missed 1 resets 2 longest stall 6s shortcuts [Abandoned Cabin Jump]; BLUE moto: 01:32.009 missed 2 resets 2 longest stall 11s at 314.0,76.45,24.1 shortcuts [Tree-Top Trail]
+---- carrace:DansBackyardForward:tourer:original,tourer,atv:1
+FAIL DansBackyardForward player tourer vs original/tourer/atv: PLAYER tourer: 01:36.113 missed 1 resets 0 longest stall 5s shortcuts [Tree-Top Trail, Abandoned Cabin Jump]; EMBER original: 01:57.239 missed 1 resets 2 longest stall 32s at 233.6,76.06,118.3 shortcuts []; GOLD tourer: 01:24.221 missed 0 resets 2 longest stall 6s shortcuts []; BLUE atv: 01:49.019 missed 1 resets 1 longest stall 6s shortcuts [Tree-Top Trail]
+---- carrace:DansBackyardForward:moto:moto,atv,moto:1
+FAIL DansBackyardForward player moto vs moto/atv/moto: PLAYER moto: 01:25.573 missed 1 resets 0 longest stall 4s shortcuts [Tree-Top Trail]; EMBER moto: 01:01.180 missed 1 resets 0 longest stall 1s shortcuts [Tree-Top Trail]; GOLD atv: 01:20.600 missed 1 resets 2 longest stall 6s shortcuts []; BLUE moto: 01:53.150 missed 3 resets 2 longest stall 6s shortcuts [Abandoned Cabin Jump]
+---- carrace:DansBackyardReverse:original:tourer,original,moto:1
+PASS DansBackyardReverse player original vs tourer/original/moto: PLAYER original: 01:02.188 missed 0 resets 0 longest stall 2s shortcuts []; EMBER tourer: 01:15.263 missed 0 resets 1 longest stall 6s shortcuts [Storm Drain / Gully Jump]; GOLD original: 01:05.150 missed 0 resets 0 longest stall 1s shortcuts [Storm Drain / Gully Jump]; BLUE moto: 01:06.827 missed 0 resets 1 longest stall 7s shortcuts []
+---- carrace:DansBackyardReverse:tourer:original,tourer,atv:1
+FAIL DansBackyardReverse player tourer vs original/tourer/atv: PLAYER tourer: 01:07.754 missed 0 resets 0 longest stall 2s shortcuts [Storm Drain / Gully Jump]; EMBER original: 01:03.040 missed 0 resets 0 longest stall 2s shortcuts []; GOLD tourer: 01:00.733 missed 0 resets 0 longest stall 1s shortcuts []; BLUE atv: 01:11.834 missed 1 resets 0 longest stall 2s shortcuts []
+---- carrace:DansBackyardReverse:moto:moto,atv,moto:1
+FAIL DansBackyardReverse player moto vs moto/atv/moto: PLAYER moto: 01:28.422 missed 1 resets 3 longest stall 7s shortcuts [Storm Drain / Gully Jump]; EMBER moto: 01:29.368 missed 1 resets 3 longest stall 7s shortcuts [Storm Drain / Gully Jump]; GOLD atv: 01:12.458 missed 0 resets 1 longest stall 5s shortcuts []; BLUE moto: 01:01.334 missed 1 resets 0 longest stall 2s shortcuts []
+---- view:MountainLoopReverse:tree,861.3,125,-40,180,50|tree2,875,105,-58,270,10
+MountainLoopReverse: views written
+done, failures 5

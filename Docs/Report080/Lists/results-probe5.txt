@@ -1,0 +1,23 @@
+---- report:FreeRoamWorld
+FreeRoamWorld: posts removed 9, kept 0
+---- top:FreeRoamWorld:trickum,-570,535,160|cherokee,320,550,120|bug001,-259.4,-577.3,60|bug002,-590,-530,90
+FreeRoamWorld: top views written
+---- view:FreeRoamWorld:j4,-609,10.2,523.8,65,4|j5,-501.3,10.2,534.1,292,4|b1,-259.4,26.6,-577.3,93,4|b2,-581.6,8.3,-551,75,4|b3,-619.2,8.3,-499.9,8,4
+FreeRoamWorld: views written
+---- report:StreetLoopGreybox
+StreetLoopGreybox: posts removed 0, kept 9
+---- report:DansBackyardForward
+DansBackyardForward: posts removed 0, kept 9
+---- report:MountainLoop
+MountainLoop: posts removed 0, kept 10
+---- grid:MountainLoopReverse:floatwide,1000,300,110,1
+MountainLoopReverse: grids written
+---- ride:MountainLoopReverse:moto:Downhill Ridge Cut:0:40:30:-3
+MountainLoopReverse moto ride Downhill Ridge Cut 0->40 at 30 m/s offset -3 m: REACHED end s 39.2 in 1.4s, resets 0, stuck False, max air 0.42s, min up 1.00, max jolt 10 m/s² at 790.2,97.61,-189.6
+---- ride:MountainLoopReverse:moto:Downhill Ridge Cut:0:40:30:-2
+MountainLoopReverse moto ride Downhill Ridge Cut 0->40 at 30 m/s offset -2 m: REACHED end s 39.4 in 1.4s, resets 0, stuck False, max air 0.40s, min up 1.00, max jolt 10 m/s² at 789.9,97.61,-188.5
+---- ride:MountainLoopReverse:moto:Downhill Ridge Cut:0:40:30:2
+MountainLoopReverse moto ride Downhill Ridge Cut 0->40 at 30 m/s offset 2 m: REACHED end s 39.1 in 1.3s, resets 0, stuck False, max air 0.32s, min up 1.00, max jolt 10 m/s² at 789.8,97.63,-184.4
+---- ride:MountainLoopReverse:moto:Downhill Ridge Cut:0:40:30:3
+MountainLoopReverse moto ride Downhill Ridge Cut 0->40 at 30 m/s offset 3 m: REACHED end s 39.2 in 1.3s, resets 0, stuck False, max air 0.32s, min up 1.00, max jolt 10 m/s² at 790.1,97.63,-183.5
+done, failures 0

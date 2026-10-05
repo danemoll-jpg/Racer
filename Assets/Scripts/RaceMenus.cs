@@ -224,7 +224,7 @@ namespace Racer
                 title.text=profile.Name + " / " + profile.Class;
                 details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=80;
                 details.fontSize=18;
-                details.text=$"{profile.Description}\n{(flow.Race.Forest?flow.Race.courseName+": motorcycles / ATVs only (player and AI).":"Street Loop: all four profiles available.")}\nBody color: choose a swatch below.";
+                details.text=$"{profile.Description}\n{(flow.Race.CarsRestricted?flow.Race.courseName+": motorcycles / ATVs only (player and AI).":flow.Race.courseName+": all four profiles available.")}\nBody color: choose a swatch below.";
                 if(previewRoot) { previewRoot.SetActive(false); Destroy(previewRoot); }
                 previewRoot=new GameObject("Garage display model"); previewRoot.layer=31; previewRoot.transform.position=new(10000,10000,10000); previewRoot.transform.rotation=Quaternion.Euler(0,-30,0);
                 flow.Race.vehicle.GetComponent<VehicleConfiguration>().BuildPreview(previewRoot.transform);

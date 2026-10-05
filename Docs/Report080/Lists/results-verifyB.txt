@@ -1,0 +1,25 @@
+---- report:FreeRoamWorld
+FreeRoamWorld: posts removed 22, kept 0
+---- view:FreeRoamWorld:BUG-001,-259.35,26.45,-577.28,93,3|BUG-002,-581.61,8.24,-551,74.65,3|BUG-003,-619.16,8.21,-499.89,8,3|BUG-004,-609.04,10.03,523.76,65.3,3|BUG-005,-501.26,9.99,534.05,292.5,3|BUG-006,786.54,100.52,81.87,201,6|BUG-007,1179.44,154.13,169.27,29.2,3
+FreeRoamWorld: views written
+---- top:FreeRoamWorld:trickum,-570,535,160|trickeast,-450,535,160|cherokee,320,560,120|stc,-620,-544,120
+FreeRoamWorld: top views written
+---- view:MountainLoopReverse:BUG-008,1029.4,158.5,143.3,45.6,12|BUG-008wide,1018,166,133,50,18|BUG-009,808.25,98.36,-189.92,113.6,4|BUG-009race,825,98.4,-184,262,5|BUG-010,1050.51,153.89,293.98,272,3|BUG-010side,1030,160,240,300,10|tree,861.3,125,-40,180,50
+MountainLoopReverse: views written
+---- buried:MountainLoopReverse
+FAIL MountainLoopReverse: 27525 trees, trunks and objects checked against 4 new 0.80 surfaces: 2 buried more than 0.3 m, 3 standing above them in the air
+---- escape:MountainLoopReverse:moto:1032,145,10
+FAIL MountainLoopReverse moto: dropped at 21 points around (1032, 145) within 10 m (off the road), 20 rode back onto the course within 12 s
+---- ride:MountainLoopReverse:moto:Downhill Ridge Cut:0:60:30:0
+MountainLoopReverse moto ride Downhill Ridge Cut 0->60 at 30 m/s offset 0 m: REACHED end s 59.4 in 2.1s, resets 0, stuck False, max air 1.16s, min up 1.00, max jolt 11 m/s² at 789.9,97.60,-186.5
+---- ride:MountainLoopReverse:atv:Downhill Ridge Cut:0:60:30:-2
+MountainLoopReverse atv ride Downhill Ridge Cut 0->60 at 30 m/s offset -2 m: REACHED end s 58.6 in 2.2s, resets 0, stuck False, max air 1.22s, min up 1.00, max jolt 10 m/s² at 789.9,97.61,-188.5
+---- carrace:MountainLoopReverse:moto:moto,atv,moto:1
+PASS MountainLoopReverse player moto vs moto/atv/moto: PLAYER moto: 02:13.085 missed 0 resets 1 longest stall 5s shortcuts []; EMBER moto: 02:12.164 missed 0 resets 1 longest stall 7s shortcuts []; GOLD atv: 02:04.744 missed 0 resets 0 longest stall 1s shortcuts []; BLUE moto: 02:10.005 missed 0 resets 1 longest stall 1s shortcuts []
+---- carrace:MountainLoop:moto:moto,atv,moto:1
+PASS MountainLoop player moto vs moto/atv/moto: PLAYER moto: 01:57.692 missed 0 resets 0 longest stall 1s shortcuts []; EMBER moto: 02:00.244 missed 0 resets 0 longest stall 2s shortcuts []; GOLD atv: 02:01.372 missed 0 resets 0 longest stall 1s shortcuts []; BLUE moto: 02:16.404 missed 0 resets 1 longest stall 2s shortcuts []
+---- carrace:MountainLoopReverse:original:tourer,original,moto:1
+PASS MountainLoopReverse player original vs tourer/original/moto: PLAYER original: 02:11.003 missed 0 resets 1 longest stall 6s shortcuts []; EMBER tourer: 02:09.678 missed 0 resets 1 longest stall 5s shortcuts []; GOLD original: 02:09.314 missed 0 resets 1 longest stall 5s shortcuts []; BLUE moto: 02:13.789 missed 0 resets 1 longest stall 5s shortcuts []
+---- carrace:MountainLoopReverse:tourer:original,tourer,atv:1
+PASS MountainLoopReverse player tourer vs original/tourer/atv: PLAYER tourer: 02:12.813 missed 0 resets 1 longest stall 3s shortcuts []; EMBER original: 02:10.804 missed 0 resets 1 longest stall 5s shortcuts []; GOLD tourer: 02:09.255 missed 0 resets 1 longest stall 5s shortcuts []; BLUE atv: 02:13.754 missed 0 resets 1 longest stall 5s shortcuts []
+done, failures 2

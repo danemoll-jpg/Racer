@@ -1,0 +1,43 @@
+== FreeRoamWorld
+posts removed 22, kept 0
+  removed Phase 5 - Southwest woodland shortcut/Non-colliding path edge at (-577.4, 6.18, -550.3) on paved road (terrain), no collider
+  removed Phase 5 - Southwest woodland shortcut/Non-colliding path edge at (-573.7, 6.19, -544.0) on paved road (terrain) (4 m away), no collider
+  removed Phase 5 - Southwest woodland shortcut/Non-colliding path edge at (-616.0, 6.16, -491.3) on paved road (terrain), no collider
+  removed Phase 5 - Southwest woodland shortcut/Non-colliding path edge at (-620.9, 6.26, -472.3) on paved road (terrain), no collider
+  removed Phase 5 - Southwest woodland shortcut/Non-colliding path edge at (-613.9, 6.27, -470.9) on paved road (terrain) (2 m away), no collider
+  removed CR034-039 Woodland routes/Trail edge at (553.8, 28.11, -272.5) on paved road (terrain) (4 m away), no collider
+  removed CR034-039 Woodland routes/Trail edge at (555.1, 26.09, -296.7) on paved road (terrain) (1 m away), no collider
+  removed CR034-039 Woodland routes/Trail edge at (550.0, 25.06, -313.8) on paved road (terrain) (3 m away), no collider
+  removed CR034-039 Woodland routes/Trail edge at (544.1, 24.60, -343.9) on paved road (terrain) (2 m away), no collider
+  removed CR034-039 Woodland routes/Trail edge at (353.5, 33.78, -385.5) on paved road (terrain) (4 m away), no collider
+  removed CR034-039 Woodland routes/Trail edge at (331.2, 40.67, -397.7) on paved road (terrain), no collider
+  removed CR034-039 Woodland routes/Trail edge at (305.7, 39.54, -384.7) on paved road (terrain), no collider
+  removed CR034-039 Woodland routes/Trail edge at (202.1, 45.95, -328.9) on paved road (terrain) (3 m away), no collider
+  removed CR034-039 Woodland routes/Trail edge at (183.5, 44.10, -305.3) on paved road (terrain) (3 m away), no collider
+  removed CR034-039 Woodland routes/Trail edge at (157.5, 39.73, -301.2) on paved road (terrain), no collider
+  removed CR034-039 Woodland routes/Trail edge at (-7.8, 32.71, -485.4) on paved road (terrain), no collider
+  removed CR034-039 Woodland routes/Trail edge at (-59.4, 29.60, -571.8) on paved road (terrain) (3 m away), no collider
+  removed CR034-039 Woodland routes/Trail edge at (-87.5, 29.90, -573.3) on paved road (terrain) (3 m away), no collider
+  removed CR034-039 Woodland routes/Trail edge at (-196.9, 30.60, -575.6) on paved road (terrain) (3 m away), no collider
+  removed CR034-039 Woodland routes/Trail edge at (-225.8, 29.01, -586.2) on paved road (terrain) (2 m away), no collider
+  removed CR034-039 Woodland routes/Trail edge at (-250.7, 25.75, -577.3) on paved road (terrain), no collider
+  removed CR034-039 Woodland routes/Trail edge at (-628.1, 7.32, -246.7) on paved road (terrain), no collider
+  paint: Trickum Rd / Hwy 92: junction (-602.0, 541.2), side road half-width 4.1 m, mouth stations 633-659, stop line at (-603.7, 531.3)
+  paint: S Cherokee Ln / Hwy 92: junction (320.3, 558.6), side road half-width 4.5 m, mouth stations 1560-1586, stop line at (320.2, 548.6)
+  paint: terrain markings switched off on Hwy 92's pavement at 3381 vertices
+  paint: line CR113 white half 0.060: 317 points (-1250.9, 530.9) -> (-618.9, 533.2)
+  paint: line CR113 white half 0.060: 370 points (-1250.9, 546.9) -> (-512.6, 546.7)
+  paint: line CR113 white half 0.060: 40 points (-591.0, 533.1) -> (-513.5, 530.8)
+  paint: line CR113 white half 0.060: 72 points (163.7, 540.7) -> (304.9, 550.2)
+  paint: line CR113 white half 0.060: 400 points (162.2, 556.6) -> (958.9, 569.4)
+  paint: line CR113 white half 0.060: 314 points (334.8, 551.2) -> (958.9, 553.4)
+  paint: line CR113 white half 0.060: 43 points (-618.0, 533.2) -> (-614.4, 493.1)
+  paint: line CR113 white half 0.060: 43 points (-591.8, 533.1) -> (-605.9, 496.1)
+  paint: line CR113 white half 0.220: 2 points (-603.6, 531.3) -> (-600.0, 530.7)
+  paint: line CR113 white half 0.060: 43 points (306.5, 550.2) -> (315.5, 511.1)
+  paint: line CR113 white half 0.060: 43 points (333.1, 551.1) -> (324.1, 512.2)
+  paint: line CR113 white half 0.220: 2 points (320.3, 548.6) -> (324.3, 548.6)
+  paint: old 0.6 pieces: kept 558 on Hwy 92's own lines, hid 188 off them or duplicating CR113, recoloured 224 median pieces yellow; new: 12 lines, 0 lane dashes
+  dirt: Ground_Summit authored launch: drawn as mountain dirt (882 vertices), collider unchanged
+  dirt: Ground_CR103 supported connection: drawn as mountain dirt (334 vertices), collider unchanged
+  dirt: Ground_CR103 supported return: drawn as mountain dirt (11722 vertices), collider unchanged

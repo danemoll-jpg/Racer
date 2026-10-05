@@ -1,0 +1,5 @@
+BURIED 12.03 m: tree crown-only clump at 861.3,99.22,-57.8 under Ground_Report080 mountain decks embankment
+floating 4.55 m over it: object CR117 selected-direction guidance/CR117 CP 4/Non-colliding gate marking at 851.1,106.54,-98.5
+floating 1.56 m over it: object CR117 selected-direction guidance/CR117 CP 2/Non-colliding gate marking at 985.0,152.10,317.2
+floating 1.47 m over it: object CR117 selected-direction guidance/CR117 CP 2/Non-colliding gate marking at 1000.5,152.10,312.3
+BURIED 0.31 m: object CR117 selected-direction guidance/CR117 CP 1/Non-colliding gate marking at 966.5,163.22,143.6 under Ground_Report080 mountain decks embankment

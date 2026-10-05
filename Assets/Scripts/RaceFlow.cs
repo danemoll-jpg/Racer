@@ -132,7 +132,7 @@ namespace Racer
             RoamCourse=Mathf.Clamp(RoamCourse,0,RacePlaylists.Scenes.Length-1);
             Race.courseName=RacePlaylists.Titles[RoamCourse];
             var courses=CoursePreviewCatalog.Courses;if(RoamCourse>=courses.Length)return;var c=courses[RoamCourse];
-            Race.forestOverride=c.forest?1:0;
+            Race.forestOverride=c.forest?1:0;Race.carRuleScene=c.scene;
             var start=new GameObject("Free Roam start / "+c.scene).transform;start.SetPositionAndRotation(c.start,Quaternion.Euler(0,c.startYaw,0));respawn.spawnPoint=start;
         }
         void LoadScene(string scene){Save.SaveSettings();Time.timeScale=1;AudioListener.pause=false;UnityEngine.SceneManagement.SceneManager.LoadScene(scene);}
@@ -278,7 +278,7 @@ namespace Racer
         public void CycleOpponent(int slot)
         {
             if(State!=Stage.Roster || slot<0 || slot>=3) return;
-            var choices=Race.Forest?new[]{"moto","atv","random","mixed"}:new[]{"original","tourer","moto","atv","random","mixed"};
+            var choices=Race.CarsRestricted?new[]{"moto","atv","random","mixed"}:new[]{"original","tourer","moto","atv","random","mixed"};
             int i=System.Array.IndexOf(choices,Save.Settings.opponentChoices[slot]);
             Save.Settings.opponentChoices[slot]=choices[(i+1)%choices.Length]; ResolveRoster();
         }

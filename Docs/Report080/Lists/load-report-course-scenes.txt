@@ -1,0 +1,57 @@
+== FreeRoamWorld
+posts removed 9, kept 0
+  removed Phase 5 - Southwest woodland shortcut/Non-colliding path edge at (-577.4, 6.18, -550.3) on paved road (terrain), no collider
+  removed Phase 5 - Southwest woodland shortcut/Non-colliding path edge at (-616.0, 6.16, -491.3) on paved road (terrain), no collider
+  removed Phase 5 - Southwest woodland shortcut/Non-colliding path edge at (-620.9, 6.26, -472.3) on paved road (terrain), no collider
+  removed CR034-039 Woodland routes/Trail edge at (331.2, 40.67, -397.7) on paved road (terrain), no collider
+  removed CR034-039 Woodland routes/Trail edge at (305.7, 39.54, -384.7) on paved road (terrain), no collider
+  removed CR034-039 Woodland routes/Trail edge at (157.5, 39.73, -301.2) on paved road (terrain), no collider
+  removed CR034-039 Woodland routes/Trail edge at (-7.8, 32.71, -485.4) on paved road (terrain), no collider
+  removed CR034-039 Woodland routes/Trail edge at (-250.7, 25.75, -577.3) on paved road (terrain), no collider
+  removed CR034-039 Woodland routes/Trail edge at (-628.1, 7.32, -246.7) on paved road (terrain), no collider
+  paint: Trickum Rd / Hwy 92: junction (-602.0, 541.2), side road half-width 4.1 m, mouth stations 633-659, stop line at (-603.7, 531.3)
+  paint: S Cherokee Ln / Hwy 92: junction (320.9, 627.1), side road half-width 4.5 m, mouth stations 1563-1589, stop line at (320.8, 617.1)
+  paint: old 0.6 pieces: kept 554 on Hwy 92's own lines, hid 192 off them or duplicating CR113, recoloured 222 median pieces yellow; new: 12 lines, 0 lane dashes
+== StreetLoopGreybox
+posts removed 0, kept 9
+  kept Phase 5 - Southwest woodland shortcut/Non-colliding path edge at (-577.4, 6.18, -550.3) on paved road (terrain), no collider: race marker, kept
+  kept Phase 5 - Southwest woodland shortcut/Non-colliding path edge at (-616.0, 6.16, -491.3) on paved road (terrain), no collider: race marker, kept
+  kept Phase 5 - Southwest woodland shortcut/Non-colliding path edge at (-620.9, 6.26, -472.3) on paved road (terrain), no collider: race marker, kept
+  kept CR034-039 Woodland routes/Trail edge at (331.2, 40.67, -397.7) on paved road (terrain), no collider: race marker, kept
+  kept CR034-039 Woodland routes/Trail edge at (305.7, 39.54, -384.7) on paved road (terrain), no collider: race marker, kept
+  kept CR034-039 Woodland routes/Trail edge at (157.5, 39.73, -301.2) on paved road (terrain), no collider: race marker, kept
+  kept CR034-039 Woodland routes/Trail edge at (-7.8, 32.71, -485.4) on paved road (terrain), no collider: race marker, kept
+  kept CR034-039 Woodland routes/Trail edge at (-250.7, 25.75, -577.3) on paved road (terrain), no collider: race marker, kept
+  kept CR034-039 Woodland routes/Trail edge at (-628.1, 7.32, -246.7) on paved road (terrain), no collider: race marker, kept
+  paint: Trickum Rd / Hwy 92: junction (-602.0, 541.2), side road half-width 4.1 m, mouth stations 633-659, stop line at (-603.7, 531.3)
+  paint: S Cherokee Ln / Hwy 92: junction (320.9, 627.1), side road half-width 4.5 m, mouth stations 1563-1589, stop line at (320.8, 617.1)
+  paint: old 0.6 pieces: kept 554 on Hwy 92's own lines, hid 192 off them or duplicating CR113, recoloured 222 median pieces yellow; new: 12 lines, 0 lane dashes
+== DansBackyardForward
+posts removed 0, kept 9
+  kept Phase 5 - Southwest woodland shortcut/Non-colliding path edge at (-577.4, 6.18, -550.3) on paved road (terrain), no collider: race marker, kept
+  kept Phase 5 - Southwest woodland shortcut/Non-colliding path edge at (-616.0, 6.16, -491.3) on paved road (terrain), no collider: race marker, kept
+  kept Phase 5 - Southwest woodland shortcut/Non-colliding path edge at (-620.9, 6.26, -472.3) on paved road (terrain), no collider: race marker, kept
+  kept CR034-039 Woodland routes/Trail edge at (331.2, 40.67, -397.7) on paved road (terrain), no collider: race marker, kept
+  kept CR034-039 Woodland routes/Trail edge at (305.7, 39.54, -384.7) on paved road (terrain), no collider: race marker, kept
+  kept CR034-039 Woodland routes/Trail edge at (157.5, 39.73, -301.2) on paved road (terrain), no collider: race marker, kept
+  kept CR034-039 Woodland routes/Trail edge at (-7.8, 32.71, -485.4) on paved road (terrain), no collider: race marker, kept
+  kept CR034-039 Woodland routes/Trail edge at (-250.7, 25.75, -577.3) on paved road (terrain), no collider: race marker, kept
+  kept CR034-039 Woodland routes/Trail edge at (-628.1, 7.32, -246.7) on paved road (terrain), no collider: race marker, kept
+  paint: Trickum Rd / Hwy 92: junction (-602.0, 541.2), side road half-width 4.1 m, mouth stations 633-659, stop line at (-603.7, 531.3)
+  paint: S Cherokee Ln / Hwy 92: junction (320.9, 627.1), side road half-width 4.5 m, mouth stations 1563-1589, stop line at (320.8, 617.1)
+  paint: old 0.6 pieces: kept 554 on Hwy 92's own lines, hid 192 off them or duplicating CR113, recoloured 222 median pieces yellow; new: 12 lines, 0 lane dashes
+== MountainLoop
+posts removed 0, kept 10
+  kept Phase 5 - Southwest woodland shortcut/Non-colliding path edge at (-577.4, 6.18, -550.3) on paved road (terrain), no collider: race marker, kept
+  kept Phase 5 - Southwest woodland shortcut/Non-colliding path edge at (-616.0, 6.16, -491.3) on paved road (terrain), no collider: race marker, kept
+  kept Phase 5 - Southwest woodland shortcut/Non-colliding path edge at (-620.9, 6.26, -472.3) on paved road (terrain), no collider: race marker, kept
+  kept CR034-039 Woodland routes/Trail edge at (331.2, 40.67, -397.7) on paved road (terrain), no collider: race marker, kept
+  kept CR034-039 Woodland routes/Trail edge at (305.7, 39.54, -384.7) on paved road (terrain), no collider: race marker, kept
+  kept CR034-039 Woodland routes/Trail edge at (157.5, 39.73, -301.2) on paved road (terrain), no collider: race marker, kept
+  kept CR034-039 Woodland routes/Trail edge at (-7.8, 32.71, -485.4) on paved road (terrain), no collider: race marker, kept
+  kept CR034-039 Woodland routes/Trail edge at (-250.7, 25.75, -577.3) on paved road (terrain), no collider: race marker, kept
+  kept CR034-039 Woodland routes/Trail edge at (-628.1, 7.32, -246.7) on paved road (terrain), no collider: race marker, kept
+  kept CR117 selected-direction guidance/OPTIONAL SHORTCUT SUMMIT TRAVERSE/Whole timber post at (1008.3, 159.98, 110.6) on Ground_CR133 mountain driving surface/CR133 structural mountain roads, no collider: race marker, kept
+  paint: Trickum Rd / Hwy 92: junction (-602.0, 541.2), side road half-width 4.1 m, mouth stations 633-659, stop line at (-603.7, 531.3)
+  paint: S Cherokee Ln / Hwy 92: junction (320.9, 627.1), side road half-width 4.5 m, mouth stations 1563-1589, stop line at (320.8, 617.1)
+  paint: old 0.6 pieces: kept 554 on Hwy 92's own lines, hid 192 off them or duplicating CR113, recoloured 222 median pieces yellow; new: 12 lines, 0 lane dashes

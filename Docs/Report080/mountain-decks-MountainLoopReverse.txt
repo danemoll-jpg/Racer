@@ -1,0 +1,401 @@
+mountain decks: 11434 edge vertices in the box; embanked 1360 (gap 0.4-8 m, worst 7.7 m) as 1284 strips; deep gaps left 110; protected left 1573
+gap 1.1 m at (775.0, 102.1, 70.1): above Main, left
+gap 1.1 m at (775.0, 102.1, 70.0): above Main, left
+gap 1.1 m at (775.0, 102.1, 69.9): above Main, left
+gap 1.1 m at (775.0, 102.2, 69.8): above Main, left
+gap 1.1 m at (775.0, 102.2, 69.7): above Main, left
+gap 1.1 m at (775.0, 102.2, 69.7): above Main, left
+gap 1.1 m at (775.0, 102.2, 69.6): above Main, left
+gap 1.1 m at (775.0, 102.3, 68.8): above Main, left
+gap 1.1 m at (775.0, 102.3, 69.0): above Main, left
+gap 1.1 m at (775.0, 102.3, 68.7): above Main, left
+gap 1.1 m at (775.0, 102.4, 68.4): above Main, left
+gap 1.1 m at (775.0, 102.4, 68.3): above Main, left
+gap 1.1 m at (775.0, 102.4, 67.9): above Main, left
+gap 1.1 m at (775.0, 102.4, 67.9): above Main, left
+gap 1.1 m at (775.0, 102.4, 68.1): above Main, left
+gap 1.1 m at (775.0, 102.4, 67.9): above Main, left
+gap 1.1 m at (775.0, 102.5, 67.5): above Main, left
+gap 1.1 m at (775.0, 102.5, 67.1): above Main, left
+gap 1.1 m at (775.0, 102.5, 67.0): above Main, left
+gap 1.1 m at (775.0, 102.6, 66.7): above Main, left
+gap 1.1 m at (775.0, 102.2, 69.5): above Main, left
+gap 1.1 m at (775.0, 102.2, 69.3): above Main, left
+gap 1.1 m at (775.0, 102.3, 69.1): above Main, left
+gap 1.1 m at (775.0, 102.6, 66.6): above Main, left
+gap 1.1 m at (775.0, 102.6, 66.4): above Main, left
+gap 1.1 m at (775.0, 102.6, 66.7): above Main, left
+gap 1.1 m at (775.0, 102.6, 66.2): above Main, left
+gap 1.1 m at (775.0, 102.6, 66.1): above Main, left
+gap 1.1 m at (775.0, 102.6, 65.9): above Main, left
+gap 1.1 m at (775.0, 102.7, 65.9): above Main, left
+gap 1.1 m at (775.0, 102.7, 65.7): above Main, left
+gap 1.1 m at (775.0, 102.7, 65.6): above Main, left
+gap 1.1 m at (775.0, 102.7, 65.5): above Main, left
+gap 1.1 m at (775.0, 102.7, 65.5): above Main, left
+gap 1.1 m at (775.0, 102.7, 65.3): above Main, left
+gap 1.1 m at (775.0, 102.7, 65.4): above Main, left
+gap 1.1 m at (775.0, 102.7, 65.1): above Main, left
+gap 1.1 m at (775.0, 102.7, 65.0): above Main, left
+gap 1.1 m at (775.0, 102.7, 64.8): above Main, left
+gap 1.1 m at (775.0, 102.7, 64.6): above Main, left
+gap 1.1 m at (775.0, 102.8, 64.4): above Main, left
+gap 1.1 m at (775.0, 102.8, 64.2): above Main, left
+gap 1.1 m at (775.0, 102.8, 63.9): above Main, left
+gap 1.1 m at (775.0, 102.8, 63.7): above Main, left
+gap 1.1 m at (775.0, 102.8, 63.6): above Main, left
+gap 1.1 m at (775.0, 102.8, 63.5): above Main, left
+gap 1.1 m at (775.0, 102.8, 63.4): above Main, left
+gap 1.1 m at (775.0, 102.8, 63.3): above Main, left
+gap 1.1 m at (775.0, 102.8, 63.1): above Main, left
+gap 1.1 m at (775.0, 102.8, 63.0): above Main, left
+gap 1.1 m at (775.0, 102.8, 62.7): above Main, left
+gap 1.1 m at (775.0, 102.8, 62.6): above Main, left
+gap 1.1 m at (775.0, 102.8, 62.6): above Main, left
+gap 1.1 m at (775.0, 102.8, 62.2): above Main, left
+gap 1.1 m at (775.0, 102.8, 61.9): above Main, left
+gap 1.1 m at (775.0, 102.8, 61.7): above Main, left
+gap 1.1 m at (775.0, 102.8, 61.7): above Main, left
+gap 1.1 m at (775.0, 102.8, 61.5): above Main, left
+gap 1.1 m at (775.0, 102.8, 61.4): above Main, left
+gap 1.1 m at (775.0, 102.8, 61.3): above Main, left
+gap 1.1 m at (775.0, 102.8, 61.3): above Main, left
+gap 1.1 m at (775.0, 102.8, 61.3): above Main, left
+gap 1.1 m at (775.0, 102.8, 61.1): above Main, left
+gap 1.1 m at (775.0, 102.8, 60.8): above Main, left
+gap 1.1 m at (775.0, 102.8, 60.8): above Main, left
+gap 1.1 m at (775.0, 102.8, 60.4): above Main, left
+gap 1.1 m at (775.0, 102.8, 60.3): above Main, left
+gap 1.1 m at (775.0, 102.8, 60.3): above Main, left
+gap 1.1 m at (775.0, 102.8, 60.3): above Main, left
+gap 1.1 m at (775.0, 102.8, 59.2): above Main, left
+gap 1.1 m at (775.0, 102.8, 59.9): above Main, left
+gap 1.1 m at (775.0, 102.8, 59.8): above Main, left
+gap 1.1 m at (775.0, 102.8, 59.1): above Main, left
+gap 1.1 m at (775.0, 102.8, 58.9): above Main, left
+gap 1.1 m at (775.0, 102.8, 58.6): above Main, left
+gap 1.1 m at (775.0, 102.8, 58.4): above Main, left
+gap 1.1 m at (775.0, 102.8, 58.2): above Main, left
+gap 1.1 m at (775.0, 102.8, 58.1): above Main, left
+gap 1.1 m at (775.0, 102.8, 57.7): above Main, left
+gap 1.1 m at (775.0, 102.8, 57.5): above Main, left
+gap 0.7 m at (775.0, 102.7, 57.0): above Main, left
+gap 1.2 m at (845.0, 127.0, 121.9): above Main, left
+gap 1.2 m at (845.0, 127.0, 121.9): above Main, left
+gap 1.2 m at (845.0, 127.2, 122.6): above Main, left
+gap 1.2 m at (845.0, 127.2, 122.7): above Main, left
+gap 1.2 m at (845.0, 127.3, 123.4): above Main, left
+gap 1.2 m at (845.0, 127.3, 123.6): above Main, left
+gap 4.8 m at (836.2, 127.4, 130.0): above Main, left
+gap 1.2 m at (845.0, 127.5, 124.2): above Main, left
+gap 4.5 m at (836.3, 127.5, 130.0): above Main, left
+gap 1.2 m at (845.0, 127.5, 124.4): above Main, left
+gap 1.6 m at (837.6, 127.6, 130.0): above Main, left
+gap 1.2 m at (845.0, 127.6, 125.0): above Main, left
+gap 1.4 m at (837.8, 127.6, 130.0): above Main, left
+gap 1.2 m at (845.0, 127.6, 125.2): above Main, left
+gap 1.2 m at (838.8, 127.7, 130.0): above Main, left
+gap 1.2 m at (845.0, 127.8, 125.8): above Main, left
+gap 1.3 m at (839.1, 127.8, 130.0): above Main, left
+gap 1.2 m at (845.0, 127.8, 126.1): above Main, left
+gap 1.2 m at (840.2, 127.9, 130.0): above Main, left
+gap 1.2 m at (845.0, 127.9, 126.6): above Main, left
+gap 1.2 m at (840.5, 127.9, 130.0): above Main, left
+gap 1.2 m at (845.0, 128.0, 126.9): above Main, left
+gap 1.2 m at (841.3, 128.0, 130.0): above Main, left
+gap 1.2 m at (845.0, 128.1, 127.5): above Main, left
+gap 1.3 m at (841.7, 128.1, 130.0): above Main, left
+gap 1.2 m at (845.0, 128.1, 127.8): above Main, left
+gap 1.2 m at (842.5, 128.2, 130.0): above Main, left
+gap 1.2 m at (845.0, 128.2, 128.4): above Main, left
+gap 1.3 m at (842.9, 128.2, 130.0): above Main, left
+gap 1.2 m at (845.0, 128.3, 128.7): above Main, left
+gap 1.2 m at (843.6, 128.3, 130.0): above Main, left
+gap 1.2 m at (845.0, 128.4, 129.2): above Main, left
+gap 1.3 m at (844.1, 128.4, 130.0): above Main, left
+gap 1.2 m at (845.0, 128.5, 129.6): above Main, left
+gap 1.3 m at (844.6, 128.5, 130.0): above Main, left
+gap 1.1 m at (845.0, 128.6, 130.2): above Main, left
+gap 1.2 m at (845.0, 128.5, 130.0): above Main, left
+gap 0.5 m at (983.5, 164.2, 116.9): above Main, left
+gap 0.5 m at (984.3, 164.1, 116.9): above Main, left
+gap 0.5 m at (985.8, 164.0, 116.8): above Main, left
+gap 0.5 m at (986.6, 163.9, 116.8): above Main, left
+gap 0.5 m at (992.0, 163.5, 117.2): above Main, left
+gap 2.9 m at (992.8, 163.5, 117.3): above Main, left
+gap 2.9 m at (993.5, 163.4, 117.5): above Main, left
+gap 3.0 m at (994.3, 163.4, 117.7): above Main, left
+gap 0.5 m at (998.0, 163.1, 118.9): above Main, left
+gap 0.5 m at (998.7, 163.1, 119.3): above Main, left
+gap 0.5 m at (999.5, 163.0, 119.6): above Main, left
+gap 0.5 m at (1000.2, 163.0, 120.0): above Main, left
+gap 0.5 m at (1000.9, 162.9, 120.4): above Main, left
+gap 4.3 m at (1004.0, 152.0, 153.2): slope does not meet the ground within 10 m, left
+gap 4.0 m at (976.0, 152.0, 153.2): slope does not meet the ground within 10 m, left
+deep 8.6 m at (1004.0, 152.0, 152.4): left
+deep 8.6 m at (976.0, 152.0, 152.4): left
+deep 9.5 m at (1004.0, 152.0, 151.7): left
+deep 9.5 m at (976.0, 152.0, 151.7): left
+deep 10.4 m at (1004.0, 152.0, 150.9): left
+deep 10.4 m at (976.0, 152.0, 150.9): left
+deep 11.2 m at (1004.0, 152.0, 150.2): left
+deep 11.3 m at (976.0, 152.0, 150.2): left
+deep 12.1 m at (1004.0, 152.0, 149.4): left
+deep 12.2 m at (976.0, 152.0, 149.4): left
+deep 13.1 m at (1004.0, 152.0, 148.7): left
+deep 13.1 m at (976.0, 152.0, 148.7): left
+deep 14.0 m at (1004.0, 152.0, 147.9): left
+deep 14.0 m at (976.0, 152.0, 147.9): left
+deep 14.9 m at (1004.0, 152.0, 147.2): left
+deep 14.9 m at (976.0, 152.0, 147.2): left
+gap 1.0 m at (976.0, 152.0, 144.9): under a roof, left
+gap 0.5 m at (1004.0, 153.4, 111.3): under a roof, left
+gap 1.1 m at (976.0, 153.4, 111.3): under a roof, left
+deep 16.1 m at (1004.0, 153.6, 110.5): left
+deep 15.3 m at (1004.0, 153.7, 109.8): left
+deep 15.4 m at (976.0, 153.7, 109.8): left
+deep 14.6 m at (1004.0, 153.9, 109.1): left
+deep 13.9 m at (1004.0, 154.0, 108.3): left
+gap 0.6 m at (976.0, 154.0, 108.3): under a roof, left
+deep 13.1 m at (1004.0, 154.2, 107.6): left
+gap 1.0 m at (976.0, 154.2, 107.6): under a roof, left
+gap 0.7 m at (1004.0, 160.2, 91.4): flight South Face Summit Flight, left
+gap 0.7 m at (976.0, 160.2, 91.4): flight South Face Summit Flight, left
+gap 0.7 m at (1004.0, 160.5, 90.8): flight South Face Summit Flight, left
+gap 1.1 m at (976.0, 160.5, 90.8): flight South Face Summit Flight, left
+gap 0.7 m at (1004.0, 160.8, 90.1): flight South Face Summit Flight, left
+gap 1.1 m at (976.0, 160.8, 90.1): flight South Face Summit Flight, left
+gap 0.9 m at (1004.0, 161.2, 89.4): flight South Face Summit Flight, left
+gap 1.0 m at (976.0, 161.2, 89.4): flight South Face Summit Flight, left
+gap 0.9 m at (1004.0, 161.5, 88.8): flight South Face Summit Flight, left
+gap 1.0 m at (976.0, 161.5, 88.8): flight South Face Summit Flight, left
+gap 1.0 m at (1004.0, 161.9, 88.1): flight South Face Summit Flight, left
+gap 0.6 m at (976.0, 161.9, 88.1): flight South Face Summit Flight, left
+gap 1.0 m at (1004.0, 162.2, 87.4): flight South Face Summit Flight, left
+gap 1.0 m at (976.0, 162.2, 87.4): flight South Face Summit Flight, left
+gap 0.6 m at (1004.0, 162.6, 86.8): flight South Face Summit Flight, left
+gap 1.1 m at (976.0, 162.6, 86.8): flight South Face Summit Flight, left
+gap 0.7 m at (1004.0, 162.9, 86.1): flight South Face Summit Flight, left
+gap 1.1 m at (976.0, 162.9, 86.1): flight South Face Summit Flight, left
+gap 0.5 m at (1004.0, 163.3, 85.5): flight South Face Summit Flight, left
+gap 0.8 m at (976.0, 163.3, 85.5): flight South Face Summit Flight, left
+gap 0.8 m at (976.0, 163.7, 84.8): flight South Face Summit Flight, left
+gap 0.6 m at (976.0, 164.1, 84.2): flight South Face Summit Flight, left
+gap 0.9 m at (976.0, 164.4, 83.5): flight South Face Summit Flight, left
+gap 0.8 m at (1004.0, 164.8, 82.9): flight South Face Summit Flight, left
+gap 0.9 m at (976.0, 164.8, 82.9): flight South Face Summit Flight, left
+gap 0.8 m at (1004.0, 165.2, 82.2): flight South Face Summit Flight, left
+gap 0.9 m at (976.0, 165.2, 82.2): flight South Face Summit Flight, left
+gap 1.0 m at (1004.0, 165.6, 81.6): flight South Face Summit Flight, left
+gap 0.4 m at (976.0, 165.6, 81.6): flight South Face Summit Flight, left
+gap 1.0 m at (1004.0, 166.0, 81.0): flight South Face Summit Flight, left
+gap 0.8 m at (976.0, 166.0, 81.0): flight South Face Summit Flight, left
+gap 1.0 m at (976.0, 166.4, 80.3): flight South Face Summit Flight, left
+gap 0.9 m at (1004.0, 166.8, 79.7): flight South Face Summit Flight, left
+gap 0.8 m at (976.0, 166.8, 79.7): flight South Face Summit Flight, left
+gap 0.9 m at (1004.0, 167.2, 79.1): flight South Face Summit Flight, left
+gap 0.8 m at (976.0, 167.2, 79.1): flight South Face Summit Flight, left
+gap 0.9 m at (1004.0, 167.6, 78.4): flight South Face Summit Flight, left
+gap 0.8 m at (976.0, 167.6, 78.4): flight South Face Summit Flight, left
+gap 0.9 m at (1004.0, 168.1, 77.8): flight South Face Summit Flight, left
+gap 1.0 m at (1004.0, 168.5, 77.2): flight South Face Summit Flight, left
+gap 1.1 m at (976.0, 168.5, 77.2): flight South Face Summit Flight, left
+gap 1.1 m at (1004.0, 168.9, 76.6): flight South Face Summit Flight, left
+gap 1.1 m at (976.0, 168.9, 76.6): flight South Face Summit Flight, left
+gap 1.4 m at (1004.0, 169.3, 76.0): flight South Face Summit Flight, left
+gap 1.4 m at (976.0, 169.3, 76.0): flight South Face Summit Flight, left
+gap 1.8 m at (1004.0, 169.8, 75.4): flight South Face Summit Flight, left
+gap 1.8 m at (976.0, 169.8, 75.4): flight South Face Summit Flight, left
+gap 2.2 m at (1004.0, 170.2, 74.8): flight South Face Summit Flight, left
+gap 2.2 m at (976.0, 170.2, 74.8): flight South Face Summit Flight, left
+gap 2.6 m at (1004.0, 170.7, 74.2): flight South Face Summit Flight, left
+gap 2.6 m at (976.0, 170.7, 74.2): flight South Face Summit Flight, left
+gap 2.9 m at (1004.0, 171.1, 73.5): flight South Face Summit Flight, left
+gap 3.0 m at (976.0, 171.1, 73.5): flight South Face Summit Flight, left
+gap 3.1 m at (1004.0, 171.6, 72.9): flight South Face Summit Flight, left
+gap 3.2 m at (976.0, 171.6, 72.9): flight South Face Summit Flight, left
+gap 3.2 m at (1004.0, 172.0, 72.3): flight South Face Summit Flight, left
+gap 3.1 m at (976.0, 172.0, 72.3): flight South Face Summit Flight, left
+gap 3.2 m at (1004.0, 172.5, 71.8): flight South Face Summit Flight, left
+gap 3.2 m at (976.0, 172.5, 71.8): flight South Face Summit Flight, left
+gap 3.2 m at (1004.0, 172.9, 71.2): flight South Face Summit Flight, left
+gap 3.2 m at (976.0, 172.9, 71.2): flight South Face Summit Flight, left
+gap 3.1 m at (1004.0, 173.4, 70.6): flight South Face Summit Flight, left
+gap 3.2 m at (976.0, 173.4, 70.6): flight South Face Summit Flight, left
+gap 3.2 m at (1004.0, 173.8, 70.0): flight South Face Summit Flight, left
+gap 3.2 m at (976.0, 173.8, 70.0): flight South Face Summit Flight, left
+gap 3.2 m at (1004.0, 174.3, 69.4): flight South Face Summit Flight, left
+gap 3.2 m at (976.0, 174.3, 69.4): flight South Face Summit Flight, left
+gap 3.2 m at (1004.0, 174.8, 68.8): flight South Face Summit Flight, left
+gap 3.2 m at (976.0, 174.8, 68.8): flight South Face Summit Flight, left
+gap 3.2 m at (1004.0, 175.3, 68.2): flight South Face Summit Flight, left
+gap 3.2 m at (976.0, 175.3, 68.2): flight South Face Summit Flight, left
+gap 3.2 m at (1004.0, 175.7, 67.6): flight South Face Summit Flight, left
+gap 3.3 m at (976.0, 175.7, 67.6): flight South Face Summit Flight, left
+gap 3.2 m at (1004.0, 176.2, 67.1): flight South Face Summit Flight, left
+gap 3.3 m at (976.0, 176.2, 67.1): flight South Face Summit Flight, left
+gap 3.2 m at (1004.0, 176.7, 66.5): flight South Face Summit Flight, left
+gap 3.3 m at (976.0, 176.7, 66.5): flight South Face Summit Flight, left
+gap 3.4 m at (1004.0, 177.2, 65.9): flight South Face Summit Flight, left
+gap 3.4 m at (976.0, 177.2, 65.9): flight South Face Summit Flight, left
+gap 3.8 m at (1004.0, 177.5, 65.2): flight South Face Summit Flight, left
+gap 3.7 m at (976.0, 177.5, 65.2): flight South Face Summit Flight, left
+gap 4.4 m at (1004.0, 177.7, 64.9): flight South Face Summit Flight, left
+gap 4.3 m at (976.0, 177.7, 64.9): flight South Face Summit Flight, left
+gap 2.6 m at (1014.0, 159.0, -85.0): flight South Face Summit Flight, left
+gap 0.9 m at (1014.0, 158.6, -85.6): flight South Face Summit Flight, left
+gap 7.2 m at (966.0, 159.0, -85.0): flight South Face Summit Flight, left
+gap 0.8 m at (966.0, 158.6, -85.6): flight South Face Summit Flight, left
+gap 3.7 m at (1014.0, 158.1, -86.2): flight South Face Summit Flight, left
+gap 3.7 m at (1014.0, 157.7, -86.8): flight South Face Summit Flight, left
+gap 3.7 m at (1014.0, 157.2, -87.4): flight South Face Summit Flight, left
+gap 3.5 m at (1014.0, 156.8, -88.0): flight South Face Summit Flight, left
+gap 3.5 m at (1014.0, 156.3, -88.6): flight South Face Summit Flight, left
+gap 3.5 m at (1014.0, 155.9, -89.2): flight South Face Summit Flight, left
+gap 3.4 m at (1014.0, 155.4, -89.8): flight South Face Summit Flight, left
+gap 3.3 m at (1014.0, 155.0, -90.4): flight South Face Summit Flight, left
+gap 3.3 m at (1014.0, 154.5, -91.0): flight South Face Summit Flight, left
+gap 3.3 m at (1014.0, 154.1, -91.6): flight South Face Summit Flight, left
+gap 3.0 m at (1014.0, 153.6, -92.2): flight South Face Summit Flight, left
+gap 3.0 m at (1014.0, 153.2, -92.8): flight South Face Summit Flight, left
+gap 3.0 m at (1014.0, 152.7, -93.4): flight South Face Summit Flight, left
+gap 2.8 m at (1014.0, 152.3, -94.0): flight South Face Summit Flight, left
+gap 2.8 m at (1014.0, 151.8, -94.6): flight South Face Summit Flight, left
+gap 3.3 m at (966.0, 151.8, -94.6): flight South Face Summit Flight, left
+gap 2.8 m at (1014.0, 151.4, -95.2): flight South Face Summit Flight, left
+gap 3.3 m at (966.0, 151.4, -95.2): flight South Face Summit Flight, left
+gap 2.7 m at (1014.0, 150.9, -95.8): flight South Face Summit Flight, left
+gap 3.3 m at (966.0, 150.9, -95.8): flight South Face Summit Flight, left
+gap 2.6 m at (1014.0, 150.5, -96.4): flight South Face Summit Flight, left
+gap 3.1 m at (966.0, 150.5, -96.4): flight South Face Summit Flight, left
+gap 2.6 m at (1014.0, 150.0, -97.0): flight South Face Summit Flight, left
+gap 3.1 m at (966.0, 150.0, -97.0): flight South Face Summit Flight, left
+gap 2.6 m at (1014.0, 149.6, -97.6): flight South Face Summit Flight, left
+gap 3.1 m at (966.0, 149.6, -97.6): flight South Face Summit Flight, left
+gap 2.4 m at (1014.0, 149.1, -98.2): flight South Face Summit Flight, left
+gap 3.0 m at (966.0, 149.1, -98.2): flight South Face Summit Flight, left
+gap 2.4 m at (1014.0, 148.7, -98.8): flight South Face Summit Flight, left
+gap 2.9 m at (966.0, 148.7, -98.8): flight South Face Summit Flight, left
+gap 2.4 m at (1014.0, 148.2, -99.4): flight South Face Summit Flight, left
+gap 2.9 m at (966.0, 148.2, -99.4): flight South Face Summit Flight, left
+gap 1.6 m at (1014.0, 147.8, -100.0): flight South Face Summit Flight, left
+gap 2.9 m at (966.0, 147.8, -100.0): flight South Face Summit Flight, left
+gap 0.5 m at (1014.0, 147.3, -100.6): flight South Face Summit Flight, left
+gap 2.7 m at (966.0, 147.3, -100.6): flight South Face Summit Flight, left
+gap 2.7 m at (966.0, 146.9, -101.2): flight South Face Summit Flight, left
+gap 2.7 m at (966.0, 146.4, -101.8): flight South Face Summit Flight, left
+gap 2.4 m at (966.0, 146.0, -102.4): flight South Face Summit Flight, left
+gap 2.4 m at (966.0, 145.5, -103.0): flight South Face Summit Flight, left
+gap 2.4 m at (966.0, 145.1, -103.6): flight South Face Summit Flight, left
+gap 2.3 m at (966.0, 144.6, -104.2): flight South Face Summit Flight, left
+gap 2.2 m at (966.0, 144.2, -104.8): flight South Face Summit Flight, left
+gap 2.2 m at (966.0, 143.7, -105.4): flight South Face Summit Flight, left
+gap 2.2 m at (966.0, 143.3, -106.0): flight South Face Summit Flight, left
+gap 2.0 m at (966.0, 142.8, -106.6): flight South Face Summit Flight, left
+gap 2.0 m at (966.0, 142.4, -107.2): flight South Face Summit Flight, left
+gap 2.0 m at (966.0, 142.0, -107.8): flight South Face Summit Flight, left
+gap 0.5 m at (1014.0, 107.4, -166.5): flight South Face Summit Flight, left
+gap 0.7 m at (1014.0, 107.1, -167.2): flight South Face Summit Flight, left
+gap 0.6 m at (966.0, 107.1, -167.2): flight South Face Summit Flight, left
+gap 0.9 m at (1013.9, 106.8, -167.9): flight South Face Summit Flight, left
+gap 0.8 m at (966.1, 106.8, -167.9): flight South Face Summit Flight, left
+gap 1.0 m at (1013.8, 106.5, -168.6): flight South Face Summit Flight, left
+gap 1.0 m at (966.2, 106.5, -168.6): flight South Face Summit Flight, left
+gap 1.2 m at (1013.6, 106.2, -169.2): flight South Face Summit Flight, left
+gap 1.2 m at (966.4, 106.2, -169.2): flight South Face Summit Flight, left
+gap 1.2 m at (1013.4, 105.9, -169.9): flight South Face Summit Flight, left
+gap 1.2 m at (966.6, 105.9, -169.9): flight South Face Summit Flight, left
+gap 1.0 m at (1013.1, 105.6, -170.6): flight South Face Summit Flight, left
+gap 1.1 m at (966.9, 105.6, -170.6): flight South Face Summit Flight, left
+gap 0.9 m at (1012.8, 105.3, -171.3): flight South Face Summit Flight, left
+gap 0.9 m at (967.2, 105.3, -171.3): flight South Face Summit Flight, left
+gap 0.7 m at (1012.5, 105.0, -172.0): flight South Face Summit Flight, left
+gap 0.6 m at (967.5, 105.0, -172.0): flight South Face Summit Flight, left
+gap 0.7 m at (1012.1, 104.7, -172.7): flight South Face Summit Flight, left
+gap 0.6 m at (967.9, 104.7, -172.7): flight South Face Summit Flight, left
+gap 0.7 m at (1011.6, 104.4, -173.4): flight South Face Summit Flight, left
+gap 0.7 m at (968.4, 104.4, -173.4): flight South Face Summit Flight, left
+gap 0.8 m at (1011.1, 104.2, -174.1): flight South Face Summit Flight, left
+gap 0.7 m at (968.9, 104.2, -174.1): flight South Face Summit Flight, left
+gap 0.9 m at (1010.6, 103.9, -174.8): flight South Face Summit Flight, left
+gap 0.8 m at (969.4, 103.9, -174.8): flight South Face Summit Flight, left
+gap 0.9 m at (1010.1, 103.6, -175.5): flight South Face Summit Flight, left
+gap 0.9 m at (969.9, 103.6, -175.5): flight South Face Summit Flight, left
+gap 0.9 m at (1009.5, 103.3, -176.2): flight South Face Summit Flight, left
+gap 1.0 m at (970.5, 103.3, -176.2): flight South Face Summit Flight, left
+gap 0.7 m at (1009.0, 103.0, -176.9): flight South Face Summit Flight, left
+gap 1.0 m at (971.0, 103.0, -176.9): flight South Face Summit Flight, left
+gap 0.5 m at (1008.4, 102.8, -177.6): flight South Face Summit Flight, left
+gap 0.6 m at (971.6, 102.8, -177.6): flight South Face Summit Flight, left
+gap 0.6 m at (972.9, 102.2, -179.0): flight South Face Summit Flight, left
+gap 0.4 m at (1006.5, 102.0, -179.7): flight South Face Summit Flight, left
+gap 0.5 m at (973.5, 102.0, -179.7): flight South Face Summit Flight, left
+gap 0.4 m at (1005.9, 101.7, -180.4): flight South Face Summit Flight, left
+gap 0.4 m at (974.1, 101.7, -180.4): flight South Face Summit Flight, left
+gap 0.5 m at (1005.2, 101.4, -181.1): flight South Face Summit Flight, left
+gap 0.7 m at (974.8, 101.4, -181.1): flight South Face Summit Flight, left
+gap 0.5 m at (1004.6, 101.2, -181.8): flight South Face Summit Flight, left
+gap 1.1 m at (975.4, 101.2, -181.8): flight South Face Summit Flight, left
+gap 0.8 m at (1004.0, 100.9, -182.5): flight South Face Summit Flight, left
+gap 1.0 m at (976.0, 100.9, -182.5): flight South Face Summit Flight, left
+gap 0.8 m at (1003.3, 100.7, -183.2): flight South Face Summit Flight, left
+gap 0.8 m at (976.7, 100.7, -183.2): flight South Face Summit Flight, left
+gap 0.6 m at (1002.7, 100.4, -183.9): flight South Face Summit Flight, left
+gap 0.6 m at (977.3, 100.4, -183.9): flight South Face Summit Flight, left
+gap 1.1 m at (1002.1, 100.2, -184.6): flight South Face Summit Flight, left
+gap 1.3 m at (977.9, 100.2, -184.6): flight South Face Summit Flight, left
+gap 1.0 m at (1001.5, 99.9, -185.3): flight South Face Summit Flight, left
+gap 1.1 m at (978.5, 99.9, -185.3): flight South Face Summit Flight, left
+gap 0.8 m at (1001.0, 99.7, -186.0): flight South Face Summit Flight, left
+gap 1.2 m at (979.0, 99.7, -186.0): flight South Face Summit Flight, left
+gap 0.9 m at (1000.4, 99.4, -186.7): flight South Face Summit Flight, left
+gap 1.2 m at (979.6, 99.4, -186.7): flight South Face Summit Flight, left
+gap 1.0 m at (999.9, 99.2, -187.4): flight South Face Summit Flight, left
+gap 1.0 m at (980.1, 99.2, -187.4): flight South Face Summit Flight, left
+gap 1.1 m at (999.5, 99.0, -188.2): flight South Face Summit Flight, left
+gap 1.1 m at (980.5, 99.0, -188.2): flight South Face Summit Flight, left
+gap 1.1 m at (999.0, 98.7, -188.9): flight South Face Summit Flight, left
+gap 1.3 m at (981.0, 98.7, -188.9): flight South Face Summit Flight, left
+gap 1.2 m at (998.6, 98.5, -189.6): flight South Face Summit Flight, left
+gap 1.3 m at (981.4, 98.5, -189.6): flight South Face Summit Flight, left
+gap 1.2 m at (998.2, 98.3, -190.3): flight South Face Summit Flight, left
+gap 1.3 m at (981.8, 98.3, -190.3): flight South Face Summit Flight, left
+gap 1.2 m at (997.9, 98.0, -191.0): flight South Face Summit Flight, left
+gap 1.2 m at (982.1, 98.0, -191.0): flight South Face Summit Flight, left
+gap 1.1 m at (997.6, 97.8, -191.7): flight South Face Summit Flight, left
+gap 1.1 m at (982.4, 97.8, -191.7): flight South Face Summit Flight, left
+gap 1.2 m at (997.4, 97.6, -192.4): flight South Face Summit Flight, left
+gap 1.3 m at (982.6, 97.6, -192.4): flight South Face Summit Flight, left
+gap 1.3 m at (997.2, 97.4, -193.2): flight South Face Summit Flight, left
+gap 1.3 m at (982.8, 97.4, -193.2): flight South Face Summit Flight, left
+gap 1.1 m at (997.1, 97.1, -193.9): flight South Face Summit Flight, left
+gap 1.2 m at (982.9, 97.1, -193.9): flight South Face Summit Flight, left
+gap 1.3 m at (997.0, 96.9, -194.6): flight South Face Summit Flight, left
+gap 1.2 m at (983.0, 96.9, -194.6): flight South Face Summit Flight, left
+gap 1.2 m at (997.0, 96.7, -195.3): flight South Face Summit Flight, left
+gap 1.4 m at (983.0, 96.7, -195.3): flight South Face Summit Flight, left
+gap 1.1 m at (997.0, 96.5, -196.0): flight South Face Summit Flight, left
+gap 1.4 m at (983.0, 96.5, -196.0): flight South Face Summit Flight, left
+gap 1.1 m at (997.0, 96.3, -196.7): flight South Face Summit Flight, left
+gap 1.4 m at (983.0, 96.3, -196.7): flight South Face Summit Flight, left
+gap 1.1 m at (997.0, 96.1, -197.5): flight South Face Summit Flight, left
+gap 1.4 m at (983.0, 96.1, -197.5): flight South Face Summit Flight, left
+gap 1.2 m at (997.0, 95.9, -198.2): flight South Face Summit Flight, left
+gap 1.4 m at (983.0, 95.9, -198.2): flight South Face Summit Flight, left
+gap 1.3 m at (997.0, 95.7, -198.9): flight South Face Summit Flight, left
+gap 1.4 m at (983.0, 95.7, -198.9): flight South Face Summit Flight, left
+gap 0.8 m at (997.0, 95.5, -199.6): flight South Face Summit Flight, left
+gap 0.8 m at (983.0, 95.5, -199.6): flight South Face Summit Flight, left
+deep 29.7 m at (830.0, 99.0, -126.7): left
+deep 35.4 m at (830.0, 99.0, -126.5): left
+deep 37.4 m at (830.0, 99.0, -126.4): left
+deep 39.6 m at (830.0, 99.0, -126.4): left
+deep 39.5 m at (830.0, 100.3, -111.3): left
+deep 37.2 m at (830.0, 100.3, -111.2): left
+deep 36.4 m at (830.0, 100.3, -111.2): left
+deep 35.6 m at (830.0, 100.3, -111.2): left
+gap 1.3 m at (940.0, 125.3, -96.1): above Main, left
+gap 1.3 m at (940.0, 125.3, -96.3): above Main, left
+gap 1.3 m at (940.0, 125.3, -97.9): above Main, left
+gap 1.3 m at (940.0, 125.3, -98.2): above Main, left
+gap 1.3 m at (940.0, 125.3, -99.6): above Main, left

@@ -1,0 +1,181 @@
+---- force:StreetLoopReverse:original:Laurel Switchbacks
+StreetLoopReverse	Laurel Switchbacks	original	through	entered True, reached s 467 of 467, resets 1, max air 2.68s, min up 0.28, 48s
+---- force:StreetLoopReverse:tourer:Laurel Switchbacks
+StreetLoopReverse	Laurel Switchbacks	tourer	through	entered True, reached s 467 of 467, resets 1, max air 2.98s, min up 0.41, 41s
+---- force:StreetLoopReverse:original:Granite Creek Cut
+StreetLoopReverse	Granite Creek Cut	original	through	entered True, reached s 774 of 774, resets 0, max air 1.54s, min up 0.98, 27s
+---- force:StreetLoopReverse:tourer:Granite Creek Cut
+StreetLoopReverse	Granite Creek Cut	tourer	through	entered True, reached s 774 of 774, resets 0, max air 1.52s, min up 0.98, 27s
+---- force:LakeWoods:original:Echo Cave
+LakeWoods	Echo Cave	original	through	entered True, reached s 533 of 534, resets 0, max air 1.60s, min up 0.85, 24s
+---- force:LakeWoods:tourer:Echo Cave
+LakeWoods	Echo Cave	tourer	through	entered True, reached s 533 of 534, resets 0, max air 1.56s, min up 0.85, 24s
+---- force:ForestLoopReverse:original:Fern Gully
+ForestLoopReverse	Fern Gully	original	through	entered True, reached s 506 of 506, resets 0, max air 0.00s, min up 0.98, 22s
+---- force:ForestLoopReverse:tourer:Fern Gully
+ForestLoopReverse	Fern Gully	tourer	through	entered True, reached s 506 of 506, resets 0, max air 0.00s, min up 0.98, 22s
+---- force:ForestLoopReverse:original:McFadden Cut
+ForestLoopReverse	McFadden Cut	original	not entered	entered False, reached s 0 of 484, resets 0, max air 1.66s, min up 0.82, 120s
+---- force:ForestLoopReverse:tourer:McFadden Cut
+ForestLoopReverse	McFadden Cut	tourer	not entered	entered False, reached s 0 of 484, resets 0, max air 1.80s, min up 0.81, 120s
+---- force:MountainLoopReverse:original:Summit Traverse
+MountainLoopReverse	Summit Traverse	original	through	entered True, reached s 461 of 461, resets 0, max air 0.30s, min up 0.93, 36s
+---- force:MountainLoopReverse:tourer:Summit Traverse
+MountainLoopReverse	Summit Traverse	tourer	through	entered True, reached s 461 of 461, resets 0, max air 0.24s, min up 0.93, 37s
+---- force:DansBackyardForward:original:Abandoned Cabin Jump
+DansBackyardForward	Abandoned Cabin Jump	original	through	entered True, reached s 127 of 128, resets 2, max air 1.72s, min up 0.57, 46s
+---- force:DansBackyardForward:tourer:Abandoned Cabin Jump
+DansBackyardForward	Abandoned Cabin Jump	tourer	through	entered True, reached s 127 of 128, resets 2, max air 2.60s, min up 0.62, 50s
+---- force:DansBackyardForward:original:Tree-Top Trail
+DansBackyardForward	Tree-Top Trail	original	through	entered True, reached s 110 of 110, resets 0, max air 1.78s, min up 0.68, 17s
+---- force:DansBackyardForward:tourer:Tree-Top Trail
+DansBackyardForward	Tree-Top Trail	tourer	through	entered True, reached s 110 of 110, resets 0, max air 1.78s, min up 0.83, 17s
+---- force:DansBackyardReverse:original:Storm Drain / Gully Jump
+DansBackyardReverse	Storm Drain / Gully Jump	original	through	entered True, reached s 269 of 269, resets 1, max air 1.24s, min up 0.84, 28s
+---- force:DansBackyardReverse:tourer:Storm Drain / Gully Jump
+DansBackyardReverse	Storm Drain / Gully Jump	tourer	through	entered True, reached s 269 of 269, resets 0, max air 2.12s, min up 0.84, 24s
+---- force:DansBackyardReverse:original:Abandoned Logging Ridge
+DansBackyardReverse	Abandoned Logging Ridge	original	through	entered True, reached s 132 of 132, resets 0, max air 0.30s, min up 0.94, 14s
+---- force:DansBackyardReverse:tourer:Abandoned Logging Ridge
+DansBackyardReverse	Abandoned Logging Ridge	tourer	through	entered True, reached s 132 of 132, resets 0, max air 0.26s, min up 0.95, 14s
+---- force:StreetLoopReverse:moto:Laurel Switchbacks
+StreetLoopReverse	Laurel Switchbacks	moto	through	entered True, reached s 467 of 467, resets 1, max air 3.32s, min up 0.23, 44s
+---- ride:StreetLoopReverse:moto:Laurel Switchbacks:0:464:12
+StreetLoopReverse moto ride Laurel Switchbacks 0->464 at 12 m/s offset 0 m: NOT reached end s 359.7 in 41.8s, resets 0, stuck True, max air 5.52s, min up -0.01, max jolt 217 m/s² at 315.2,34.84,-282.1
+---- ride:StreetLoopReverse:moto:Laurel Switchbacks:0:464:15
+StreetLoopReverse moto ride Laurel Switchbacks 0->464 at 15 m/s offset 0 m: NOT reached end s 313.4 in 33.6s, resets 0, stuck True, max air 2.92s, min up -0.02, max jolt 401 m/s² at 440.6,35.84,-232.4
+---- ride:MountainLoopReverse:moto:Downhill Ridge Cut:0:218:16
+MountainLoopReverse moto ride Downhill Ridge Cut 0->218 at 16 m/s offset 0 m: NOT reached end s 118.0 in 13.6s, resets 0, stuck True, max air 1.72s, min up 0.71, max jolt 87 m/s² at 723.6,87.10,-128.3
+---- ride:MountainLoopReverse:moto:Downhill Ridge Cut:0:218:21
+MountainLoopReverse moto ride Downhill Ridge Cut 0->218 at 21 m/s offset 0 m: NOT reached end s 80.9 in 11.7s, resets 0, stuck True, max air 1.98s, min up 0.94, max jolt 683 m/s² at 750.3,78.76,-177.2
+---- ride:StreetLoopReverse:original:Laurel Switchbacks:0:464:12
+StreetLoopReverse original ride Laurel Switchbacks 0->464 at 12 m/s offset 0 m: REACHED end s 462.8 in 47.1s, resets 0, stuck False, max air 1.80s, min up 0.43, max jolt 428 m/s² at 441.7,36.55,-231.0
+---- ride:StreetLoopReverse:original:Laurel Switchbacks:0:464:15
+StreetLoopReverse original ride Laurel Switchbacks 0->464 at 15 m/s offset 0 m: REACHED end s 463.2 in 41.6s, resets 0, stuck False, max air 2.42s, min up 0.44, max jolt 931 m/s² at 325.4,36.16,-272.5
+---- ride:MountainLoopReverse:original:Downhill Ridge Cut:0:218:16
+MountainLoopReverse original ride Downhill Ridge Cut 0->218 at 16 m/s offset 0 m: NOT reached end s 117.4 in 13.6s, resets 0, stuck True, max air 1.72s, min up 0.94, max jolt 93 m/s² at 725.0,86.82,-129.1
+---- ride:MountainLoopReverse:original:Downhill Ridge Cut:0:218:21
+MountainLoopReverse original ride Downhill Ridge Cut 0->218 at 21 m/s offset 0 m: NOT reached end s 117.3 in 16.5s, resets 0, stuck True, max air 1.90s, min up 0.35, max jolt 785 m/s² at 751.6,79.36,-178.8
+---- ride:StreetLoopReverse:tourer:Laurel Switchbacks:0:464:12
+StreetLoopReverse tourer ride Laurel Switchbacks 0->464 at 12 m/s offset 0 m: NOT reached end s 266.8 in 30.6s, resets 0, stuck True, max air 1.60s, min up 0.38, max jolt 213 m/s² at 438.9,36.76,-233.8
+---- ride:StreetLoopReverse:tourer:Laurel Switchbacks:0:464:15
+StreetLoopReverse tourer ride Laurel Switchbacks 0->464 at 15 m/s offset 0 m: NOT reached end s 399.0 in 38.5s, resets 0, stuck True, max air 2.24s, min up 0.47, max jolt 608 m/s² at 440.1,36.06,-232.8
+---- ride:MountainLoopReverse:tourer:Downhill Ridge Cut:0:218:16
+MountainLoopReverse tourer ride Downhill Ridge Cut 0->218 at 16 m/s offset 0 m: NOT reached end s 116.9 in 13.6s, resets 0, stuck True, max air 1.70s, min up 0.93, max jolt 81 m/s² at 725.5,86.86,-129.3
+---- ride:MountainLoopReverse:tourer:Downhill Ridge Cut:0:218:21
+MountainLoopReverse tourer ride Downhill Ridge Cut 0->218 at 21 m/s offset 0 m: NOT reached end s 116.8 in 17.9s, resets 0, stuck True, max air 1.88s, min up 0.36, max jolt 113 m/s² at 736.1,79.32,-154.7
+---- resets:StreetLoopGreybox:original
+PASS StreetLoopGreybox	original	Pine Ridge (middle)	pass	respawned 1, at -421.9,6.92,-553.8, up 1.00, 0.0 m outside the nearest route edge
+PASS StreetLoopGreybox	original	Existing Southwest Cut (middle)	pass	respawned 1, at -615.5,6.78,-509.4, up 1.00, 0.0 m outside the nearest route edge
+PASS StreetLoopGreybox	original	Creek Leap (middle)	pass	respawned 1, at 389.6,34.21,-407.1, up 0.97, 0.0 m outside the nearest route edge
+PASS StreetLoopGreybox	original	Fox Gully (middle)	pass	respawned 1, at 0.7,34.81,-421.1, up 0.99, 0.0 m outside the nearest route edge
+PASS StreetLoopGreybox	original	main road s 701	pass	respawned 1, at 486.5,89.38,-79.6, up 1.00, 0.0 m outside the nearest route edge
+PASS StreetLoopGreybox	original	main road s 1870	pass	respawned 1, at 2.5,40.38,-380.2, up 1.00, 0.0 m outside the nearest route edge
+PASS StreetLoopGreybox	original	main road s 3038	pass	respawned 1, at -623.7,8.33,-166.5, up 1.00, 0.0 m outside the nearest route edge
+PASS StreetLoopGreybox	original	main road s 4207	pass	respawned 1, at -139.7,9.02,527.4, up 1.00, 0.0 m outside the nearest route edge
+---- resets:StreetLoopGreybox:tourer
+PASS StreetLoopGreybox	tourer	Pine Ridge (middle)	pass	respawned 1, at -422.0,6.92,-553.8, up 1.00, 0.0 m outside the nearest route edge
+PASS StreetLoopGreybox	tourer	Existing Southwest Cut (middle)	pass	respawned 1, at -615.5,6.78,-509.4, up 1.00, 0.0 m outside the nearest route edge
+PASS StreetLoopGreybox	tourer	Creek Leap (middle)	pass	respawned 1, at 389.7,34.24,-407.2, up 0.97, 0.0 m outside the nearest route edge
+PASS StreetLoopGreybox	tourer	Fox Gully (middle)	pass	respawned 1, at 0.8,34.87,-420.7, up 0.99, 0.0 m outside the nearest route edge
+PASS StreetLoopGreybox	tourer	main road s 701	pass	respawned 1, at 486.5,89.38,-79.6, up 1.00, 0.0 m outside the nearest route edge
+PASS StreetLoopGreybox	tourer	main road s 1870	pass	respawned 1, at 2.5,40.38,-380.2, up 1.00, 0.0 m outside the nearest route edge
+PASS StreetLoopGreybox	tourer	main road s 3038	pass	respawned 1, at -623.7,8.33,-166.5, up 1.00, 0.0 m outside the nearest route edge
+PASS StreetLoopGreybox	tourer	main road s 4207	pass	respawned 1, at -139.7,9.02,527.4, up 1.00, 0.0 m outside the nearest route edge
+---- resets:StreetLoopReverse:original
+PASS StreetLoopReverse	original	Granite Creek Cut (middle)	pass	respawned 1, at -322.9,9.60,529.8, up 1.00, 0.0 m outside the nearest route edge
+PASS StreetLoopReverse	original	Laurel Switchbacks (middle)	pass	respawned 1, at 549.8,37.13,-225.3, up 0.95, 0.0 m outside the nearest route edge
+PASS StreetLoopReverse	original	main road s 701	pass	respawned 1, at -373.4,9.32,534.9, up 1.00, 0.0 m outside the nearest route edge
+PASS StreetLoopReverse	original	main road s 1870	pass	respawned 1, at -622.9,7.38,-400.3, up 1.00, 0.0 m outside the nearest route edge
+PASS StreetLoopReverse	original	main road s 3038	pass	respawned 1, at 168.4,42.70,-308.1, up 0.98, 0.0 m outside the nearest route edge
+PASS StreetLoopReverse	original	main road s 4207	pass	respawned 1, at 430.9,81.82,143.4, up 0.99, 0.0 m outside the nearest route edge
+---- resets:StreetLoopReverse:tourer
+PASS StreetLoopReverse	tourer	Granite Creek Cut (middle)	pass	respawned 1, at -323.7,9.60,529.8, up 1.00, 0.0 m outside the nearest route edge
+PASS StreetLoopReverse	tourer	Laurel Switchbacks (middle)	pass	respawned 1, at 549.8,37.15,-225.2, up 0.95, 0.0 m outside the nearest route edge
+PASS StreetLoopReverse	tourer	main road s 701	pass	respawned 1, at -373.4,9.32,534.9, up 1.00, 0.0 m outside the nearest route edge
+PASS StreetLoopReverse	tourer	main road s 1870	pass	respawned 1, at -622.9,7.38,-400.3, up 1.00, 0.0 m outside the nearest route edge
+PASS StreetLoopReverse	tourer	main road s 3038	pass	respawned 1, at 168.4,42.70,-308.1, up 0.98, 0.0 m outside the nearest route edge
+PASS StreetLoopReverse	tourer	main road s 4207	pass	respawned 1, at 430.9,81.82,143.4, up 0.99, 0.0 m outside the nearest route edge
+---- resets:LakeWoods:original
+PASS LakeWoods	original	Echo Cave (middle)	pass	respawned 1, at -28.1,28.80,197.0, up 1.00, 0.0 m outside the nearest route edge
+PASS LakeWoods	original	main road s 318	pass	respawned 1, at 421.8,75.48,207.0, up 1.00, 0.0 m outside the nearest route edge
+PASS LakeWoods	original	main road s 848	pass	respawned 1, at -45.9,27.36,187.2, up 1.00, 0.0 m outside the nearest route edge
+PASS LakeWoods	original	main road s 1378	pass	respawned 1, at 104.1,30.83,-152.1, up 1.00, 0.0 m outside the nearest route edge
+PASS LakeWoods	original	main road s 1907	pass	respawned 1, at 566.3,37.09,-221.8, up 0.98, 0.0 m outside the nearest route edge
+---- resets:LakeWoods:tourer
+PASS LakeWoods	tourer	Echo Cave (middle)	pass	respawned 1, at -28.1,28.80,197.0, up 1.00, 0.0 m outside the nearest route edge
+PASS LakeWoods	tourer	main road s 318	pass	respawned 1, at 421.8,75.48,207.0, up 1.00, 0.0 m outside the nearest route edge
+PASS LakeWoods	tourer	main road s 848	pass	respawned 1, at -45.9,27.36,187.2, up 1.00, 0.0 m outside the nearest route edge
+PASS LakeWoods	tourer	main road s 1378	pass	respawned 1, at 104.8,30.88,-152.2, up 1.00, 0.0 m outside the nearest route edge
+PASS LakeWoods	tourer	main road s 1907	pass	respawned 1, at 566.3,37.08,-221.8, up 0.98, 0.0 m outside the nearest route edge
+---- resets:ForestLoopReverse:original
+PASS ForestLoopReverse	original	McFadden Cut (middle)	pass	respawned 1, at 365.0,34.06,-196.8, up 1.00, 0.0 m outside the nearest route edge
+PASS ForestLoopReverse	original	Fern Gully (middle)	pass	respawned 1, at 40.3,30.60,-136.2, up 1.00, 0.0 m outside the nearest route edge
+FAIL ForestLoopReverse	original	main road s 312	FAIL	respawned 1, at 498.7,60.80,-202.9, up 0.88, 0.0 m outside the nearest route edge
+PASS ForestLoopReverse	original	main road s 831	pass	respawned 1, at -10.9,27.21,-128.1, up 1.00, 0.0 m outside the nearest route edge
+PASS ForestLoopReverse	original	main road s 1350	pass	respawned 1, at 84.0,36.54,261.6, up 1.00, 0.0 m outside the nearest route edge
+PASS ForestLoopReverse	original	main road s 1869	pass	respawned 1, at 514.6,80.41,147.4, up 1.00, 0.0 m outside the nearest route edge
+---- resets:ForestLoopReverse:tourer
+PASS ForestLoopReverse	tourer	McFadden Cut (middle)	pass	respawned 1, at 364.9,34.05,-196.8, up 1.00, 0.0 m outside the nearest route edge
+PASS ForestLoopReverse	tourer	Fern Gully (middle)	pass	respawned 1, at 40.2,30.59,-136.2, up 1.00, 0.0 m outside the nearest route edge
+FAIL ForestLoopReverse	tourer	main road s 312	FAIL	respawned 1, at 498.7,60.80,-202.9, up 0.88, 0.0 m outside the nearest route edge
+PASS ForestLoopReverse	tourer	main road s 831	pass	respawned 1, at -10.9,27.21,-128.1, up 1.00, 0.0 m outside the nearest route edge
+PASS ForestLoopReverse	tourer	main road s 1350	pass	respawned 1, at 84.1,36.58,261.6, up 1.00, 0.0 m outside the nearest route edge
+PASS ForestLoopReverse	tourer	main road s 1869	pass	respawned 1, at 514.6,80.41,147.4, up 1.00, 0.0 m outside the nearest route edge
+---- resets:MountainLoop:original
+FAIL MountainLoop	original	Summit Traverse (middle)	FAIL	respawned 1, at 858.0,176.69,110.8, up 0.82, 0.0 m outside the nearest route edge
+PASS MountainLoop	original	Climbing Ridge Cut (middle)	pass	respawned 1, at 986.3,133.06,-104.1, up 1.00, 0.0 m outside the nearest route edge
+PASS MountainLoop	original	main road s 414	pass	respawned 1, at 1175.2,123.26,-276.7, up 0.96, 0.0 m outside the nearest route edge
+PASS MountainLoop	original	main road s 1104	pass	respawned 1, at 1190.2,144.44,-51.0, up 1.00, 0.0 m outside the nearest route edge
+PASS MountainLoop	original	main road s 1794	pass	respawned 1, at 1189.7,152.70,166.7, up 1.00, 0.0 m outside the nearest route edge
+PASS MountainLoop	original	main road s 2484	pass	respawned 1, at 729.3,97.52,78.7, up 0.96, 0.0 m outside the nearest route edge
+---- resets:MountainLoop:tourer
+PASS MountainLoop	tourer	Summit Traverse (middle)	pass	respawned 1, at 864.6,178.52,112.6, up 1.00, 0.0 m outside the nearest route edge
+PASS MountainLoop	tourer	Climbing Ridge Cut (middle)	pass	respawned 1, at 986.3,133.06,-104.0, up 1.00, 0.0 m outside the nearest route edge
+PASS MountainLoop	tourer	main road s 414	pass	respawned 1, at 1175.2,123.25,-276.7, up 0.96, 0.0 m outside the nearest route edge
+PASS MountainLoop	tourer	main road s 1104	pass	respawned 1, at 1190.2,144.44,-51.0, up 1.00, 0.0 m outside the nearest route edge
+PASS MountainLoop	tourer	main road s 1794	pass	respawned 1, at 1189.7,152.70,166.7, up 1.00, 0.0 m outside the nearest route edge
+PASS MountainLoop	tourer	main road s 2484	pass	respawned 1, at 729.1,97.47,78.6, up 0.96, 0.0 m outside the nearest route edge
+---- resets:MountainLoopReverse:original
+PASS MountainLoopReverse	original	Summit Traverse (middle)	pass	respawned 1, at 991.7,104.66,-174.8, up 0.93, 0.0 m outside the nearest route edge
+PASS MountainLoopReverse	original	Downhill Ridge Cut (middle)	pass	respawned 1, at 738.2,86.95,-126.2, up 1.00, 0.0 m outside the nearest route edge
+PASS MountainLoopReverse	original	main road s 455	pass	respawned 1, at 1022.2,161.76,155.3, up 0.99, 0.0 m outside the nearest route edge
+PASS MountainLoopReverse	original	main road s 1212	pass	respawned 1, at 988.3,104.20,-175.9, up 0.93, 0.0 m outside the nearest route edge
+PASS MountainLoopReverse	original	main road s 1970	pass	respawned 1, at 1210.8,133.08,-99.7, up 0.99, 0.0 m outside the nearest route edge
+PASS MountainLoopReverse	original	main road s 2728	pass	respawned 1, at 742.1,99.78,-298.3, up 1.00, 0.0 m outside the nearest route edge
+---- resets:MountainLoopReverse:tourer
+PASS MountainLoopReverse	tourer	Summit Traverse (middle)	pass	respawned 1, at 991.7,100.23,-186.7, up 0.95, 0.0 m outside the nearest route edge
+PASS MountainLoopReverse	tourer	Downhill Ridge Cut (middle)	pass	respawned 1, at 738.2,86.95,-126.2, up 1.00, 0.0 m outside the nearest route edge
+PASS MountainLoopReverse	tourer	main road s 455	pass	respawned 1, at 1022.2,161.76,155.2, up 0.99, 0.0 m outside the nearest route edge
+PASS MountainLoopReverse	tourer	main road s 1212	pass	respawned 1, at 988.3,100.22,-186.7, up 0.95, 0.0 m outside the nearest route edge
+PASS MountainLoopReverse	tourer	main road s 1970	pass	respawned 1, at 1210.6,133.11,-99.6, up 0.99, 0.0 m outside the nearest route edge
+PASS MountainLoopReverse	tourer	main road s 2728	pass	respawned 1, at 742.1,99.78,-298.3, up 1.00, 0.0 m outside the nearest route edge
+---- resets:DansBackyardForward:original
+PASS DansBackyardForward	original	Abandoned Cabin Jump (middle)	pass	respawned 1, at 233.7,76.08,114.6, up 1.00, 0.0 m outside the nearest route edge
+PASS DansBackyardForward	original	Tree-Top Trail (middle)	pass	respawned 1, at 205.7,52.41,-83.5, up 0.99, 0.0 m outside the nearest route edge
+FAIL DansBackyardForward	original	main road s 189	FAIL	respawned 1, at 266.3,65.23,11.2, up 0.83, 1.1 m outside the nearest route edge
+PASS DansBackyardForward	original	main road s 503	pass	respawned 1, at 73.6,37.73,-106.9, up 1.00, 0.0 m outside the nearest route edge
+PASS DansBackyardForward	original	main road s 817	pass	respawned 1, at 142.2,57.65,57.7, up 0.98, 0.0 m outside the nearest route edge
+PASS DansBackyardForward	original	main road s 1131	pass	respawned 1, at 405.7,83.64,80.5, up 0.99, 0.0 m outside the nearest route edge
+---- resets:DansBackyardForward:tourer
+PASS DansBackyardForward	tourer	Abandoned Cabin Jump (middle)	pass	respawned 1, at 234.4,76.11,114.9, up 1.00, 0.0 m outside the nearest route edge
+PASS DansBackyardForward	tourer	Tree-Top Trail (middle)	pass	respawned 1, at 205.7,52.42,-83.5, up 0.99, 0.0 m outside the nearest route edge
+PASS DansBackyardForward	tourer	main road s 189	pass	respawned 1, at 255.5,67.99,9.5, up 0.99, 0.0 m outside the nearest route edge
+PASS DansBackyardForward	tourer	main road s 503	pass	respawned 1, at 73.5,37.73,-106.9, up 1.00, 0.0 m outside the nearest route edge
+PASS DansBackyardForward	tourer	main road s 817	pass	respawned 1, at 142.2,57.64,57.7, up 0.98, 0.0 m outside the nearest route edge
+PASS DansBackyardForward	tourer	main road s 1131	pass	respawned 1, at 405.7,83.63,80.4, up 0.99, 0.0 m outside the nearest route edge
+---- resets:DansBackyardReverse:original
+PASS DansBackyardReverse	original	Storm Drain / Gully Jump (middle)	pass	respawned 1, at 129.5,43.03,-92.4, up 1.00, 0.0 m outside the nearest route edge
+PASS DansBackyardReverse	original	Abandoned Logging Ridge (middle)	pass	respawned 1, at 310.9,76.96,97.2, up 1.00, 0.0 m outside the nearest route edge
+PASS DansBackyardReverse	original	main road s 189	pass	respawned 1, at 375.3,79.05,69.0, up 0.99, 0.0 m outside the nearest route edge
+PASS DansBackyardReverse	original	main road s 503	pass	respawned 1, at 148.4,61.23,82.4, up 1.00, 0.0 m outside the nearest route edge
+PASS DansBackyardReverse	original	main road s 817	pass	respawned 1, at 47.9,37.70,-95.8, up 0.99, 0.0 m outside the nearest route edge
+PASS DansBackyardReverse	original	main road s 1131	pass	respawned 1, at 320.3,77.19,-17.4, up 0.98, 0.0 m outside the nearest route edge
+---- resets:DansBackyardReverse:tourer
+PASS DansBackyardReverse	tourer	Storm Drain / Gully Jump (middle)	pass	respawned 1, at 129.4,43.03,-92.4, up 1.00, 0.0 m outside the nearest route edge
+PASS DansBackyardReverse	tourer	Abandoned Logging Ridge (middle)	pass	respawned 1, at 310.7,76.96,97.4, up 1.00, 0.0 m outside the nearest route edge
+PASS DansBackyardReverse	tourer	main road s 189	pass	respawned 1, at 375.3,79.05,69.0, up 1.00, 0.0 m outside the nearest route edge
+PASS DansBackyardReverse	tourer	main road s 503	pass	respawned 1, at 148.4,61.23,82.4, up 1.00, 0.0 m outside the nearest route edge
+PASS DansBackyardReverse	tourer	main road s 817	pass	respawned 1, at 47.9,37.70,-95.8, up 0.99, 0.0 m outside the nearest route edge
+PASS DansBackyardReverse	tourer	main road s 1131	pass	respawned 1, at 320.2,77.18,-17.4, up 0.98, 0.0 m outside the nearest route edge
+done, failures 4

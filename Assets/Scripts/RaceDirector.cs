@@ -17,8 +17,12 @@ namespace Racer
         public bool Forest => forestOverride>=0 ? forestOverride==1 : (road&&road.forestTrail)||courseId=="lake-v2-forest" || courseId=="lake-v3-shallows";
         // 0.76 FreeRoamWorld: the selected course's vehicle rule (1 small vehicles only, 0 all); -1 = this scene's own course.
         [System.NonSerialized] public int forestOverride=-1;
-        public VehicleProfile[] EligibleVehicles => Forest ? VehicleProfile.All.Where(p=>p.Small).ToArray() : VehicleProfile.All;
-        public string EligibleVehicle(string id)=>Forest&&!VehicleProfile.Find(id).Small?"moto":VehicleProfile.Find(id).Id;
+        // 0.80: cars are allowed on every course unless CarAccess still restricts it (Forest keeps its other meanings).
+        // FreeRoamWorld uses the selected course's scene.
+        [System.NonSerialized] public string carRuleScene;
+        public bool CarsRestricted => !CarAccess.CourseAllowsCars(string.IsNullOrEmpty(carRuleScene)?gameObject.scene.name:carRuleScene);
+        public VehicleProfile[] EligibleVehicles => CarsRestricted ? VehicleProfile.All.Where(p=>p.Small).ToArray() : VehicleProfile.All;
+        public string EligibleVehicle(string id)=>CarsRestricted&&!VehicleProfile.Find(id).Small?"moto":VehicleProfile.Find(id).Id;
         public string courseId="street-v8-landings";
         public string courseName="Street Loop - Forward";
         public const double OrdinaryMissPenalty = 5;
@@ -109,7 +113,7 @@ namespace Racer
             DriverVariation.Seed=AmbientLife.ForcedSeed!=0?AmbientLife.ForcedSeed:System.Environment.TickCount;
             GetComponent<AmbientLife>()?.SelectScenes();
             GetComponent<Wildlife>()?.SelectPopulation(true);
-            if(Forest)
+            if(CarsRestricted)
             {
                 var configuration=vehicle.GetComponent<VehicleConfiguration>();
                 if(!configuration.Profile.Small)configuration.Apply(EligibleVehicle(configuration.profileId));
@@ -342,6 +346,8 @@ namespace Racer
                     {
                         int expected = System.Array.FindIndex(gateS, s => s > road.Relative(branch.entryRoad,origin));
                         if (expected <= 0 || p.NextGate < expected || p.NextGate > expected+1 || !branch.Enter(r.Previous,position,heading)) continue;
+                        // 0.80: a car gets no credit on a shortcut closed to cars; it is off the route until it resets.
+                        if (!CarAccess.Open(branch,r.Car)) continue;
                         r.Branch.Begin(branch);
                         // A recognized entry grants only this route's authored bypass list.
                         // Ordered Cross cannot consume an unrelated gate or a future lap.

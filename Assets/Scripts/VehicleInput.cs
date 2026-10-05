@@ -41,9 +41,10 @@ namespace Racer
             reset = new InputAction("Reset", InputActionType.Button);
             reset.AddBinding("<Gamepad>/buttonNorth");
             reset.AddBinding("<Keyboard>/r");
-            // 0.78: shake a fist (cosmetic, RiderGestures). In Trailer Mode RB keeps its 0.5x toggle; F still works there.
+            // 0.78: shake a fist (cosmetic, RiderGestures). 0.80: on LB, since the right finger is on the throttle trigger.
+            // In Trailer Mode LB keeps its 0.25x hold; F still works there.
             fist = new InputAction("Fist wave", InputActionType.Button);
-            fist.AddBinding("<Gamepad>/rightShoulder");
+            fist.AddBinding("<Gamepad>/leftShoulder");
             fist.AddBinding("<Keyboard>/f");
             throttle.performed+=Used; brake.performed+=Used; steering.performed+=Used; reset.performed+=Used; fist.performed+=Used;
         }

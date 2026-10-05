@@ -1,0 +1,65 @@
+---- fist:moto
+PASS fist wave bindings: <Gamepad>/leftShoulder, <Keyboard>/f
+PASS moto driving: LB started a wave (0 -> 1); RB did nothing (1 -> 1)
+Settings > Controls row 'Driving / Fist wave': <Keyboard>/f
+PASS Trailer Mode: LB held -> time scale 0.25 (0.25 expected), RB toggled 0.5x False -> True, waves 1 -> 1 (none)
+---- fist:original
+PASS fist wave bindings: <Gamepad>/leftShoulder, <Keyboard>/f
+PASS original driving: LB started a wave (0 -> 1); RB did nothing (1 -> 1)
+Settings > Controls row 'Driving / Fist wave': <Keyboard>/f
+PASS Trailer Mode: LB held -> time scale 0.25 (0.25 expected), RB toggled 0.5x False -> True, waves 1 -> 1 (none)
+---- force:DansBackyardForward:moto:Abandoned Cabin Jump
+DansBackyardForward	Abandoned Cabin Jump	moto	not entered	entered False, reached s 0 of 128, resets 0, max air 1.40s, min up 0.50, 41s
+---- force:DansBackyardReverse:moto:Storm Drain / Gully Jump
+DansBackyardReverse	Storm Drain / Gully Jump	moto	through	entered True, reached s 269 of 269, resets 1, max air 2.88s, min up 0.83, 26s
+---- force:DansBackyardForward:atv:Abandoned Cabin Jump
+DansBackyardForward	Abandoned Cabin Jump	atv	not entered	entered False, reached s 0 of 128, resets 1, max air 1.02s, min up 0.50, 45s
+---- force:DansBackyardReverse:atv:Storm Drain / Gully Jump
+DansBackyardReverse	Storm Drain / Gully Jump	atv	through	entered True, reached s 269 of 269, resets 1, max air 1.14s, min up 0.75, 31s
+---- force:DansBackyardForward:original:Abandoned Cabin Jump
+DansBackyardForward	Abandoned Cabin Jump	original	through	entered True, reached s 127 of 128, resets 2, max air 1.72s, min up 0.57, 46s
+---- force:DansBackyardReverse:original:Storm Drain / Gully Jump
+DansBackyardReverse	Storm Drain / Gully Jump	original	through	entered True, reached s 269 of 269, resets 1, max air 1.24s, min up 0.84, 28s
+---- force:DansBackyardForward:tourer:Abandoned Cabin Jump
+DansBackyardForward	Abandoned Cabin Jump	tourer	through	entered True, reached s 127 of 128, resets 2, max air 2.60s, min up 0.62, 50s
+---- force:DansBackyardReverse:tourer:Storm Drain / Gully Jump
+DansBackyardReverse	Storm Drain / Gully Jump	tourer	through	entered True, reached s 269 of 269, resets 0, max air 2.12s, min up 0.84, 24s
+---- escape:MountainLoopReverse:moto:1032,145,10
+FAIL MountainLoopReverse moto: dropped at 21 points around (1032, 145) within 10 m (off the road), 20 rode back onto the course within 12 s
+---- escape:MountainLoopReverse:atv:1032,145,10
+FAIL MountainLoopReverse atv: dropped at 21 points around (1032, 145) within 10 m (off the road), 20 rode back onto the course within 12 s
+---- buried:MountainLoopReverse
+FAIL MountainLoopReverse: 27559 trees, trunks and objects checked against 4 new 0.80 surfaces: 1 buried more than 0.3 m, 3 standing above them in the air
+---- carrace:StreetLoopGreybox:original:tourer,original,moto:3
+PASS StreetLoopGreybox player original vs tourer/original/moto: PLAYER original: 02:22.651 missed 0 resets 0 longest stall 1s shortcuts [Creek Leap, Fox Gully, Pine Ridge, Existing Southwest Cut]; EMBER tourer: 02:21.844 missed 0 resets 0 longest stall 1s shortcuts [Creek Leap, Fox Gully, Pine Ridge, Existing Southwest Cut]; GOLD original: 02:38.221 missed 0 resets 1 longest stall 3s shortcuts [Creek Leap, Fox Gully, Pine Ridge, Existing Southwest Cut]; BLUE moto: 02:06.643 missed 0 resets 0 longest stall 1s shortcuts [Creek Leap, Fox Gully, Pine Ridge, Existing Southwest Cut]
+---- carrace:StreetLoopGreybox:tourer:original,tourer,atv:3
+PASS StreetLoopGreybox player tourer vs original/tourer/atv: PLAYER tourer: 02:21.352 missed 0 resets 0 longest stall 1s shortcuts [Creek Leap, Fox Gully, Pine Ridge, Existing Southwest Cut]; EMBER original: 02:26.365 missed 0 resets 0 longest stall 1s shortcuts [Creek Leap, Fox Gully, Pine Ridge, Existing Southwest Cut]; GOLD tourer: 02:20.156 missed 0 resets 0 longest stall 1s shortcuts [Creek Leap, Fox Gully, Pine Ridge, Existing Southwest Cut]; BLUE atv: 02:18.651 missed 0 resets 0 longest stall 1s shortcuts [Creek Leap, Fox Gully, Pine Ridge, Existing Southwest Cut]
+---- carrace:StreetLoopReverse:original:tourer,original,moto:3
+PASS StreetLoopReverse player original vs tourer/original/moto: PLAYER original: 02:18.531 missed 0 resets 0 longest stall 1s shortcuts [Granite Creek Cut]; EMBER tourer: 02:19.250 missed 0 resets 0 longest stall 1s shortcuts []; GOLD original: 02:35.150 missed 0 resets 1 longest stall 5s shortcuts [Laurel Switchbacks]; BLUE moto: 02:08.451 missed 0 resets 0 longest stall 1s shortcuts []
+---- carrace:StreetLoopReverse:tourer:original,tourer,atv:3
+PASS StreetLoopReverse player tourer vs original/tourer/atv: PLAYER tourer: 02:20.794 missed 0 resets 0 longest stall 1s shortcuts []; EMBER original: 02:21.615 missed 0 resets 0 longest stall 1s shortcuts []; GOLD tourer: 02:19.205 missed 0 resets 0 longest stall 1s shortcuts []; BLUE atv: 02:19.965 missed 0 resets 0 longest stall 1s shortcuts []
+---- carrace:LakeWoods:original:tourer,original,moto:3
+PASS LakeWoods player original vs tourer/original/moto: PLAYER original: 01:35.513 missed 0 resets 1 longest stall 5s shortcuts [Echo Cave]; EMBER tourer: 01:32.558 missed 0 resets 0 longest stall 3s shortcuts [Echo Cave]; GOLD original: 01:13.166 missed 0 resets 0 longest stall 1s shortcuts []; BLUE moto: 01:09.530 missed 0 resets 0 longest stall 1s shortcuts []
+---- carrace:LakeWoods:tourer:original,tourer,atv:3
+PASS LakeWoods player tourer vs original/tourer/atv: PLAYER tourer: 01:12.333 missed 0 resets 0 longest stall 1s shortcuts [Echo Cave]; EMBER original: 01:12.003 missed 0 resets 0 longest stall 1s shortcuts [Echo Cave]; GOLD tourer: 01:10.116 missed 0 resets 0 longest stall 1s shortcuts [Echo Cave]; BLUE atv: 01:19.503 missed 0 resets 0 longest stall 1s shortcuts []
+---- carrace:ForestLoopReverse:original:tourer,original,moto:3
+PASS ForestLoopReverse player original vs tourer/original/moto: PLAYER original: 01:10.890 missed 0 resets 0 longest stall 1s shortcuts [McFadden Cut]; EMBER tourer: 01:19.815 missed 0 resets 2 longest stall 6s shortcuts [Fern Gully]; GOLD original: 01:11.233 missed 0 resets 0 longest stall 1s shortcuts []; BLUE moto: 01:08.234 missed 0 resets 0 longest stall 1s shortcuts [Fern Gully]
+---- carrace:ForestLoopReverse:tourer:original,tourer,atv:3
+PASS ForestLoopReverse player tourer vs original/tourer/atv: PLAYER tourer: 01:10.856 missed 0 resets 0 longest stall 1s shortcuts [McFadden Cut]; EMBER original: 01:19.392 missed 0 resets 0 longest stall 2s shortcuts []; GOLD tourer: 01:10.319 missed 0 resets 0 longest stall 1s shortcuts [McFadden Cut]; BLUE atv: 01:17.525 missed 0 resets 0 longest stall 2s shortcuts []
+---- carrace:MountainLoop:original:tourer,original,moto:3
+PASS MountainLoop player original vs tourer/original/moto: PLAYER original: 02:06.221 missed 0 resets 0 longest stall 2s shortcuts []; EMBER tourer: 02:27.849 missed 0 resets 1 longest stall 11s at 977.4,123.99,-90.8 shortcuts []; GOLD original: 02:04.489 missed 0 resets 0 longest stall 2s shortcuts []; BLUE moto: 02:02.642 missed 0 resets 0 longest stall 1s shortcuts []
+---- carrace:MountainLoop:tourer:original,tourer,atv:3
+PASS MountainLoop player tourer vs original/tourer/atv: PLAYER tourer: 02:05.955 missed 0 resets 0 longest stall 1s shortcuts []; EMBER original: 02:09.762 missed 0 resets 0 longest stall 3s shortcuts []; GOLD tourer: 02:05.258 missed 0 resets 0 longest stall 2s shortcuts []; BLUE atv: 02:07.257 missed 0 resets 0 longest stall 2s shortcuts []
+---- carrace:MountainLoopReverse:original:tourer,original,moto:3
+PASS MountainLoopReverse player original vs tourer/original/moto: PLAYER original: 02:08.692 missed 0 resets 1 longest stall 5s shortcuts []; EMBER tourer: 01:57.163 missed 0 resets 1 longest stall 6s shortcuts [Summit Traverse]; GOLD original: 02:09.779 missed 0 resets 1 longest stall 5s shortcuts []; BLUE moto: 01:57.964 missed 0 resets 0 longest stall 1s shortcuts []
+---- carrace:MountainLoopReverse:tourer:original,tourer,atv:3
+PASS MountainLoopReverse player tourer vs original/tourer/atv: PLAYER tourer: 01:48.370 missed 0 resets 0 longest stall 1s shortcuts [Summit Traverse]; EMBER original: 01:54.596 missed 0 resets 1 longest stall 6s shortcuts [Summit Traverse]; GOLD tourer: 01:52.372 missed 0 resets 1 longest stall 5s shortcuts [Summit Traverse]; BLUE atv: 02:00.100 missed 0 resets 0 longest stall 1s shortcuts []
+---- carrace:DansBackyardForward:original:tourer,original,moto:3
+FAIL DansBackyardForward player original vs tourer/original/moto: PLAYER original: 02:06.702 missed 0 resets 3 longest stall 8s shortcuts [Tree-Top Trail, Abandoned Cabin Jump]; EMBER tourer: 01:11.656 missed 0 resets 0 longest stall 5s shortcuts []; GOLD original: 01:14.804 missed 0 resets 1 longest stall 5s shortcuts []; BLUE moto: 01:57.017 missed 3 resets 4 longest stall 9s at 523.1,77.97,40.1 shortcuts []
+---- carrace:DansBackyardForward:tourer:original,tourer,atv:3
+FAIL DansBackyardForward player tourer vs original/tourer/atv: PLAYER tourer: 01:58.424 missed 0 resets 4 longest stall 6s shortcuts [Abandoned Cabin Jump]; EMBER original: 01:25.975 missed 1 resets 3 longest stall 5s shortcuts []; GOLD tourer: 01:47.012 missed 1 resets 2 longest stall 6s shortcuts [Abandoned Cabin Jump]; BLUE atv: 01:20.851 missed 1 resets 2 longest stall 6s shortcuts []
+---- carrace:DansBackyardReverse:original:tourer,original,moto:3
+FAIL DansBackyardReverse player original vs tourer/original/moto: PLAYER original: 01:05.845 missed 0 resets 0 longest stall 2s shortcuts [Storm Drain / Gully Jump]; EMBER tourer: 01:11.563 missed 0 resets 0 longest stall 3s shortcuts [Storm Drain / Gully Jump]; GOLD original: 01:08.799 missed 0 resets 1 longest stall 5s shortcuts [Storm Drain / Gully Jump]; BLUE moto: 00:59.393 missed 1 resets 0 longest stall 1s shortcuts []
+---- carrace:DansBackyardReverse:tourer:original,tourer,atv:3
+PASS DansBackyardReverse player tourer vs original/tourer/atv: PLAYER tourer: 01:14.715 missed 0 resets 1 longest stall 6s shortcuts [Storm Drain / Gully Jump]; EMBER original: 01:10.821 missed 0 resets 1 longest stall 7s shortcuts [Storm Drain / Gully Jump]; GOLD tourer: 00:59.864 missed 0 resets 0 longest stall 1s shortcuts []; BLUE atv: 01:11.616 missed 0 resets 1 longest stall 2s shortcuts [Storm Drain / Gully Jump]
+done, failures 6

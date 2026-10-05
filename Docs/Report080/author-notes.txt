@@ -1,0 +1,33 @@
+SCENE MountainLoopReverse (dry run, not saved)
+BUG-008 MountainLoopReverse: outcrop rim edges hanging above the ground (>0.15 m): 253, worst 16.28 m; closed 253 (1288 m² of rock face); left 0
+BUG-009 MountainLoopReverse: Downhill Ridge Cut s 0-24, both edges (98 stations); deepest notch/step within 2 m of the edge before: -3.45 m
+BUG-010 deck MountainLoopReverse: 586 driving-surface edge vertices in the box; 126 with 0.4-8 m of open air under the edge embanked (127 strips, worst 1.8 m); 16 deeper gaps and 200 protected places left (listed)
+mountain decks MountainLoopReverse: 11434 driving-surface edge vertices in the box; 1220 with 0.4-8 m of open air under the edge embanked (1134 strips, worst 6.6 m); 110 deeper gaps and 1713 protected places left (listed)
+SCENE MountainLoopReverse
+BUG-008 MountainLoopReverse: outcrop rim edges hanging above the ground (>0.15 m): 253, worst 16.28 m; closed 253 (1288 m² of rock face); left 0
+BUG-008 MountainLoopReverse: built 'Ground_Report080 BUG-008 outcrop skirt' (2024 vertices) with a mesh collider, outcrop material
+BUG-009 MountainLoopReverse: Downhill Ridge Cut s 0-24, both edges (71 stations); deepest notch/step within 2 m of the edge before: -3.45 m
+BUG-009 MountainLoopReverse: built 'Ground_Report080 BUG-009 edge seam cover' with a mesh collider, earth-bank material
+mountain decks MountainLoopReverse: 11434 driving-surface edge vertices in the box; 1360 with 0.4-8 m of open air under the edge embanked (1284 strips, worst 7.7 m); 110 deeper gaps and 1573 protected places left (listed)
+mountain decks MountainLoopReverse: built 'Ground_Report080 mountain decks embankment' with a mesh collider, earth-bank material
+SCENE MountainLoopReverse
+BUG-008 trench fill MountainLoopReverse: 83 grid cells (21 m²) in walled-in hollows within 16 m of (1028, 141), deepest 1.98 m
+BUG-008 trench fill MountainLoopReverse: built 'Ground_Report080 BUG-008 trench fill' (156 cells) with a mesh collider, shoulder material
+SCENE MountainLoopReverse
+BUG-008 MountainLoopReverse: outcrop rim edges hanging above the ground (>0.15 m): 253, worst 16.28 m; closed 253 (1288 m² of rock face); left 0
+BUG-008 MountainLoopReverse: built 'Ground_Report080 BUG-008 outcrop skirt' (2024 vertices) with a mesh collider, outcrop material
+BUG-008 trench fill MountainLoopReverse: 727 grid cells (182 m²) in walled-in hollows and narrow slots within 16 m of (1028, 141), deepest 5.34 m
+BUG-008 trench fill MountainLoopReverse: built 'Ground_Report080 BUG-008 trench fill' (930 cells) with a mesh collider, shoulder material
+BUG-009 MountainLoopReverse: Downhill Ridge Cut s 0-24, both edges (71 stations); deepest notch/step within 2 m of the edge before: -3.45 m
+BUG-009 MountainLoopReverse: built 'Ground_Report080 BUG-009 edge seam cover' with a mesh collider, earth-bank material
+mountain decks MountainLoopReverse: 11434 driving-surface edge vertices in the box; 1360 with 0.4-8 m of open air under the edge embanked (1284 strips, worst 7.7 m); 110 deeper gaps and 1573 protected places left (listed)
+mountain decks MountainLoopReverse: built 'Ground_Report080 mountain decks embankment' with a mesh collider, earth-bank material
+SCENE MountainLoopReverse
+BUG-008 MountainLoopReverse: outcrop rim edges hanging above the ground (>0.15 m): 253, worst 16.28 m; closed 253 (1288 m² of rock face); left 0
+BUG-008 MountainLoopReverse: built 'Ground_Report080 BUG-008 outcrop skirt' (2024 vertices) with a mesh collider, outcrop material
+BUG-008 trench fill MountainLoopReverse: 727 grid cells (182 m²) in walled-in hollows and narrow slots within 16 m of (1028, 141), deepest 5.34 m
+BUG-008 trench fill MountainLoopReverse: built 'Ground_Report080 BUG-008 trench fill' (930 cells) with a mesh collider, shoulder material
+BUG-009 MountainLoopReverse: Downhill Ridge Cut s 0-24, both edges (71 stations); deepest notch/step within 2 m of the edge before: -3.45 m
+BUG-009 MountainLoopReverse: built 'Ground_Report080 BUG-009 edge seam cover' with a mesh collider, earth-bank material
+mountain decks MountainLoopReverse: 11434 driving-surface edge vertices in the box; 1360 with 0.4-8 m of open air under the edge embanked (1284 strips, worst 7.7 m); 110 deeper gaps and 1573 protected places left (listed)
+mountain decks MountainLoopReverse: built 'Ground_Report080 mountain decks embankment' with a mesh collider, earth-bank material

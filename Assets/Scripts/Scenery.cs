@@ -47,7 +47,12 @@ namespace Racer
         }
         void OnEnable() { Current = this; Scenery.Changed += Apply; }
         void OnDisable() { Scenery.Changed -= Apply; if (Current == this) Current = null; }
-        void Start() { SceneryTrees.ClearFreeRoamTrunks(gameObject.scene); Signs = StreetSigns.Attach(gameObject); Apply(); }
+        public JunctionPaint Paint { get; private set; }
+        void Start()
+        {
+            SceneryTrees.ClearFreeRoamTrunks(gameObject.scene); RoadPosts.Clear(gameObject.scene); MountainDirt.Apply(gameObject.scene); // 0.80: before the new kit is fitted
+            Signs = StreetSigns.Attach(gameObject); Paint = JunctionPaint.Attach(gameObject); Apply();
+        }
 
         void Build()
         {

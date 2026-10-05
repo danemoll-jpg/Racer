@@ -1,0 +1,23 @@
+---- report:FreeRoamWorld
+FreeRoamWorld: posts removed 22, kept 0
+---- view:FreeRoamWorld:b006,786.5,101,81.9,201,8|b006up,770,120,110,160,30|b007,1179.4,154.2,169.3,29,4|b001,-259.4,26.6,-577.3,93,4|b002,-581.6,8.3,-551,75,4|b003,-619.2,8.3,-499.9,8,4|b004,-609,10.2,523.8,65,4|b005,-501.3,10.2,534.1,292,4
+FreeRoamWorld: views written
+---- top:FreeRoamWorld:trickeast,-450,535,160|cherokee,320,560,120
+FreeRoamWorld: top views written
+---- jump:moto
+FAIL Summit giant jump (moto): 242.5 m in 8.00 s, landed at 746.2,87.34,79.9, lowest up after landing -0.02
+---- view:MountainLoopReverse:b008,1030,157,140,45,10|b008dan,1034.2,156.4,148.3,45.6,5|b009,808.3,98.5,-189.9,113.6,5|b009fwd,820,98.5,-186,265,5|b010,1050.5,153.9,294,272,4|b010side,1030,160,240,300,10
+MountainLoopReverse: views written
+---- grid:MountainLoopReverse:hole2,1032,146,24,0.5
+MountainLoopReverse: grids written
+---- ride:MountainLoopReverse:moto:Downhill Ridge Cut:0:40:30:-3
+MountainLoopReverse moto ride Downhill Ridge Cut 0->40 at 30 m/s offset -3 m: REACHED end s 39.2 in 1.4s, resets 0, stuck False, max air 0.42s, min up 1.00, max jolt 10 m/s² at 790.2,97.61,-189.6
+---- ride:MountainLoopReverse:moto:Downhill Ridge Cut:0:60:30:0
+MountainLoopReverse moto ride Downhill Ridge Cut 0->60 at 30 m/s offset 0 m: REACHED end s 59.4 in 2.1s, resets 0, stuck False, max air 1.16s, min up 1.00, max jolt 11 m/s² at 789.9,97.60,-186.5
+---- ride:MountainLoopReverse:atv:Downhill Ridge Cut:0:60:30:-2
+MountainLoopReverse atv ride Downhill Ridge Cut 0->60 at 30 m/s offset -2 m: REACHED end s 58.6 in 2.2s, resets 0, stuck False, max air 1.22s, min up 1.00, max jolt 10 m/s² at 789.9,97.61,-188.5
+---- carrace:MountainLoopReverse:moto:moto,atv,moto:3
+PASS MountainLoopReverse player moto vs moto/atv/moto: PLAYER moto: 01:50.302 missed 0 resets 1 longest stall 2s shortcuts [Summit Traverse]; EMBER moto: 02:03.426 missed 0 resets 0 longest stall 1s shortcuts []; GOLD atv: 02:00.955 missed 0 resets 0 longest stall 1s shortcuts []; BLUE moto: 01:57.095 missed 0 resets 0 longest stall 1s shortcuts []
+---- carrace:MountainLoop:moto:moto,atv,moto:3
+PASS MountainLoop player moto vs moto/atv/moto: PLAYER moto: 01:57.927 missed 0 resets 0 longest stall 1s shortcuts []; EMBER moto: 01:59.837 missed 0 resets 0 longest stall 1s shortcuts []; GOLD atv: 02:00.419 missed 0 resets 0 longest stall 1s shortcuts []; BLUE moto: 02:18.057 missed 0 resets 1 longest stall 5s shortcuts []
+done, failures 1

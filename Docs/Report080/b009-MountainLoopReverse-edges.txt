@@ -1,0 +1,98 @@
+left s 0.0: no edge within 10 m (junction), none
+left s 0.5: no edge within 10 m (junction), none
+left s 1.0: no edge within 10 m (junction), none
+left s 1.5: no edge within 10 m (junction), none
+left s 2.0: no edge within 10 m (junction), none
+left s 2.5: edge 9.20 m out at y 95.86, deepest notch within 2 m -0.09 m, bank at 2.5 m -0.13 m
+left s 3.0: edge 8.25 m out at y 95.92, deepest notch within 2 m -0.09 m, bank at 2.5 m -0.12 m
+left s 3.5: edge 7.50 m out at y 95.96, deepest notch within 2 m -0.07 m, bank at 2.5 m -0.10 m
+left s 4.0: edge 6.55 m out at y 96.00, deepest notch within 2 m -0.05 m, bank at 2.5 m -0.08 m
+left s 4.5: edge 5.80 m out at y 96.03, deepest notch within 2 m -0.04 m, bank at 2.5 m -0.06 m
+left s 5.0: edge 4.95 m out at y 96.05, deepest notch within 2 m -0.02 m, bank at 2.5 m -0.03 m
+left s 5.5: edge 4.20 m out at y 96.07, deepest notch within 2 m -0.04 m, bank at 2.5 m -0.01 m
+left s 6.0: edge 4.20 m out at y 96.09, deepest notch within 2 m -0.05 m, bank at 2.5 m -0.02 m
+left s 6.5: edge 4.20 m out at y 96.12, deepest notch within 2 m -0.06 m, bank at 2.5 m -0.02 m
+left s 7.0: edge 4.20 m out at y 96.15, deepest notch within 2 m -0.47 m, bank at 2.5 m -0.02 m
+left s 7.5: edge 4.15 m out at y 96.17, deepest notch within 2 m -0.14 m, bank at 2.5 m -0.02 m
+left s 8.0: edge 4.20 m out at y 96.20, deepest notch within 2 m -0.01 m, bank at 2.5 m -0.03 m
+left s 8.5: edge 4.20 m out at y 96.23, deepest notch within 2 m -0.02 m, bank at 2.5 m -0.03 m
+left s 9.0: edge 4.20 m out at y 96.25, deepest notch within 2 m -0.02 m, bank at 2.5 m -0.04 m
+left s 9.5: edge 4.20 m out at y 96.28, deepest notch within 2 m -0.02 m, bank at 2.5 m -0.04 m
+left s 10.0: edge 4.20 m out at y 96.30, deepest notch within 2 m -0.03 m, bank at 2.5 m -0.05 m
+left s 10.5: edge 4.20 m out at y 96.33, deepest notch within 2 m -0.40 m, bank at 2.5 m -0.05 m
+left s 11.0: edge 4.20 m out at y 96.35, deepest notch within 2 m -0.36 m, bank at 2.5 m -0.06 m
+left s 11.5: edge 4.20 m out at y 96.38, deepest notch within 2 m -0.36 m, bank at 2.5 m -0.06 m
+left s 12.0: edge 4.20 m out at y 96.41, deepest notch within 2 m -0.40 m, bank at 2.5 m -0.07 m
+left s 12.5: edge 4.15 m out at y 96.43, deepest notch within 2 m -0.04 m, bank at 2.5 m -0.07 m
+left s 13.0: edge 4.20 m out at y 96.46, deepest notch within 2 m -0.05 m, bank at 2.5 m -0.08 m
+left s 13.5: edge 4.20 m out at y 96.48, deepest notch within 2 m -0.06 m, bank at 2.5 m -0.08 m
+left s 14.0: edge 4.20 m out at y 96.51, deepest notch within 2 m -0.06 m, bank at 2.5 m -0.08 m
+left s 14.5: edge 4.20 m out at y 96.53, deepest notch within 2 m -0.06 m, bank at 2.5 m -0.09 m
+left s 15.0: edge 4.15 m out at y 96.56, deepest notch within 2 m -0.06 m, bank at 2.5 m -0.09 m
+left s 15.5: edge 4.15 m out at y 96.58, deepest notch within 2 m -0.06 m, bank at 2.5 m -0.09 m
+left s 16.0: edge 4.20 m out at y 96.61, deepest notch within 2 m -0.29 m, bank at 2.5 m -0.10 m
+left s 16.5: edge 4.15 m out at y 96.63, deepest notch within 2 m -0.07 m, bank at 2.5 m -0.09 m
+left s 17.0: edge 4.15 m out at y 96.66, deepest notch within 2 m -0.07 m, bank at 2.5 m -0.09 m
+left s 17.5: edge 4.15 m out at y 96.68, deepest notch within 2 m -0.07 m, bank at 2.5 m -0.10 m
+left s 18.0: edge 4.15 m out at y 96.71, deepest notch within 2 m -0.07 m, bank at 2.5 m -0.30 m
+left s 18.5: edge 4.20 m out at y 96.73, deepest notch within 2 m -0.07 m, bank at 2.5 m -0.30 m
+left s 19.0: edge 4.15 m out at y 96.75, deepest notch within 2 m -0.05 m, bank at 2.5 m -0.30 m
+left s 19.5: edge 4.20 m out at y 96.78, deepest notch within 2 m -0.50 m, bank at 2.5 m -0.80 m
+left s 20.0: edge 4.20 m out at y 96.80, deepest notch within 2 m -0.50 m, bank at 2.5 m -0.80 m
+left s 20.5: edge 4.20 m out at y 96.82, deepest notch within 2 m -0.50 m, bank at 2.5 m -0.80 m
+left s 21.0: edge 4.20 m out at y 96.85, deepest notch within 2 m -0.50 m, bank at 2.5 m -0.80 m
+left s 21.5: edge 4.20 m out at y 96.87, deepest notch within 2 m -0.50 m, bank at 2.5 m -0.80 m
+left s 22.0: edge 4.20 m out at y 96.90, deepest notch within 2 m -0.50 m, bank at 2.5 m -0.80 m
+left s 22.5: edge 4.20 m out at y 96.92, deepest notch within 2 m -0.50 m, bank at 2.5 m -0.80 m
+left s 23.0: edge 4.20 m out at y 96.94, deepest notch within 2 m -0.50 m, bank at 2.5 m -0.80 m
+left s 23.5: edge 4.20 m out at y 96.97, deepest notch within 2 m -0.50 m, bank at 2.5 m -0.80 m
+left s 24.0: edge 4.20 m out at y 96.99, deepest notch within 2 m -0.50 m, bank at 2.5 m -0.80 m
+right s 0.0: no edge within 10 m (junction), none
+right s 0.5: no edge within 10 m (junction), none
+right s 1.0: no edge within 10 m (junction), none
+right s 1.5: no edge within 10 m (junction), none
+right s 2.0: no edge within 10 m (junction), none
+right s 2.5: no edge within 10 m (junction), none
+right s 3.0: no edge within 10 m (junction), none
+right s 3.5: no edge within 10 m (junction), none
+right s 4.0: no edge within 10 m (junction), none
+right s 4.5: no edge within 10 m (junction), none
+right s 5.0: no edge within 10 m (junction), none
+right s 5.5: no edge within 10 m (junction), none
+right s 6.0: no edge within 10 m (junction), none
+right s 6.5: no edge within 10 m (junction), none
+right s 7.0: no edge within 10 m (junction), none
+right s 7.5: no edge within 10 m (junction), none
+right s 8.0: no edge within 10 m (junction), none
+right s 8.5: no edge within 10 m (junction), none
+right s 9.0: no edge within 10 m (junction), none
+right s 9.5: no edge within 10 m (junction), none
+right s 10.0: no edge within 10 m (junction), none
+right s 10.5: no edge within 10 m (junction), none
+right s 11.0: edge 4.15 m out at y 95.93, deepest notch within 2 m -3.45 m, bank at 2.5 m -0.19 m
+right s 11.5: edge 4.20 m out at y 95.95, deepest notch within 2 m -1.34 m, bank at 2.5 m -0.20 m
+right s 12.0: edge 4.20 m out at y 95.98, deepest notch within 2 m -0.18 m, bank at 2.5 m -0.23 m
+right s 12.5: edge 4.20 m out at y 96.00, deepest notch within 2 m -0.18 m, bank at 2.5 m -0.24 m
+right s 13.0: edge 4.15 m out at y 96.03, deepest notch within 2 m -0.18 m, bank at 2.5 m -0.24 m
+right s 13.5: edge 4.20 m out at y 96.06, deepest notch within 2 m -0.18 m, bank at 2.5 m -0.25 m
+right s 14.0: edge 4.20 m out at y 96.09, deepest notch within 2 m -0.19 m, bank at 2.5 m -0.25 m
+right s 14.5: edge 4.20 m out at y 96.12, deepest notch within 2 m -0.19 m, bank at 2.5 m -0.25 m
+right s 15.0: edge 4.20 m out at y 96.15, deepest notch within 2 m -0.19 m, bank at 2.5 m -0.25 m
+right s 15.5: edge 4.20 m out at y 96.18, deepest notch within 2 m -0.19 m, bank at 2.5 m -0.26 m
+right s 16.0: edge 4.20 m out at y 96.22, deepest notch within 2 m -0.19 m, bank at 2.5 m -0.26 m
+right s 16.5: edge 4.20 m out at y 96.25, deepest notch within 2 m -0.20 m, bank at 2.5 m -0.26 m
+right s 17.0: edge 4.20 m out at y 96.28, deepest notch within 2 m -0.20 m, bank at 2.5 m -0.26 m
+right s 17.5: edge 4.20 m out at y 96.31, deepest notch within 2 m -0.20 m, bank at 2.5 m -0.26 m
+right s 18.0: edge 4.20 m out at y 96.34, deepest notch within 2 m -0.20 m, bank at 2.5 m -0.27 m
+right s 18.5: edge 4.20 m out at y 96.37, deepest notch within 2 m -0.20 m, bank at 2.5 m -0.27 m
+right s 19.0: edge 4.20 m out at y 96.41, deepest notch within 2 m -0.20 m, bank at 2.5 m -0.27 m
+right s 19.5: edge 4.20 m out at y 96.44, deepest notch within 2 m -0.20 m, bank at 2.5 m -0.27 m
+right s 20.0: edge 4.20 m out at y 96.48, deepest notch within 2 m -0.20 m, bank at 2.5 m -0.27 m
+right s 20.5: edge 4.20 m out at y 96.51, deepest notch within 2 m -0.21 m, bank at 2.5 m -0.28 m
+right s 21.0: edge 4.20 m out at y 96.54, deepest notch within 2 m -0.21 m, bank at 2.5 m -0.28 m
+right s 21.5: edge 4.20 m out at y 96.58, deepest notch within 2 m -0.21 m, bank at 2.5 m -0.28 m
+right s 22.0: edge 4.20 m out at y 96.61, deepest notch within 2 m -0.21 m, bank at 2.5 m -0.28 m
+right s 22.5: edge 4.20 m out at y 96.64, deepest notch within 2 m -0.21 m, bank at 2.5 m -0.28 m
+right s 23.0: edge 4.20 m out at y 96.68, deepest notch within 2 m -0.21 m, bank at 2.5 m -0.28 m
+right s 23.5: edge 4.20 m out at y 96.71, deepest notch within 2 m -0.21 m, bank at 2.5 m -0.28 m
+right s 24.0: edge 4.20 m out at y 96.75, deepest notch within 2 m -0.21 m, bank at 2.5 m -0.29 m

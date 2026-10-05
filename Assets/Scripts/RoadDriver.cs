@@ -313,7 +313,7 @@ namespace Racer
             {
                 if(!plannedBranch && Race.Branches!=null)
                     foreach(var branch in Race.Branches)
-                        if(branch && branch.isActiveAndEnabled && branch.gameObject.scene==Race.gameObject.scene && branch.aiValidated && s>=branch.entryRoad-55 && s<branch.entryRoad-5 && Racer.Branch.Route==null && !Shortcuts.Decided(branch,Racer.Progress.CompletedLaps))
+                        if(branch && branch.isActiveAndEnabled && branch.gameObject.scene==Race.gameObject.scene && branch.aiValidated && CarAccess.Open(branch,Car) && s>=branch.entryRoad-55 && s<branch.entryRoad-5 && Racer.Branch.Route==null && !Shortcuts.Decided(branch,Racer.Progress.CompletedLaps))
                         {
                             int expected=System.Array.FindIndex(Race.gates,g=>DriveRoad.Relative(DriveRoad.Project(g.transform.position,out _),Race.Origin)>DriveRoad.Relative(branch.entryRoad,Race.Origin));
                             if(expected<=0||Racer.Progress.NextGate<expected||Racer.Progress.NextGate>expected+1)continue;

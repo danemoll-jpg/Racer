@@ -1,0 +1,9 @@
+---- report:FreeRoamWorld
+FreeRoamWorld: posts removed 22, kept 0
+---- top:FreeRoamWorld:trickum,-570,535,160|trickeast,-450,535,160|seamend,-506,538,40|cherokee,320,560,120|cheroseam,163,555,40|stc,-620,-544,120
+FreeRoamWorld: top views written
+---- view:FreeRoamWorld:BUG-004,-609.04,10.03,523.76,65.3,3|BUG-005,-501.26,9.99,534.05,292.5,3
+FreeRoamWorld: views written
+---- view:FreeRoamWorld:BUG-004n,-609.04,10.03,523.76,65.3,3|BUG-005n,-501.26,9.99,534.05,292.5,3:night
+FreeRoamWorld: views written
+done, failures 0
