@@ -10,7 +10,20 @@
 - Root AGENTS.md points future Codex tasks to both files.
 - From 2026-10-02 the coding agent is Claude Code. The same two files govern it; root CLAUDE.md (created in the 0.67 round) is its discovery pointer.
 
-## Previous delivery — Clean-up from the 0.79 review, fist wave on LB, cars allowed on every course — 0.80.0-review1 — IMPLEMENTED, RELEASE STEPS FOLLOW
+## Previous delivery — Clean-up from the 0.79 review, fist wave on LB, cars allowed on every course — 0.80.0-review1 — DELIVERED, AWAITING DAN'S REVIEW
+
+- **DELIVERED:**
+  - Source `1397143ad3e061d460b3ad54cfa0478189178cd1` pushed and verified on origin/main.
+  - Fresh 0.80.0-review1 Windows build: 0 errors, 2 warnings, 2m24s.
+  - Published [game-80000](https://github.com/danemoll-jpg/woodstock-rush-releases/releases/tag/game-80000) (known draft-lookup miss, completed with `--resume-draft`).
+  - All 236 Latest files match the public signed manifest; public download, signature, install and startup pass.
+  - [Delivery evidence](Docs/Report080/PUBLICATION.md).
+- **Play-Racer.cmd (unchanged):** launched a responsive managed 80000, muted, with settings restored byte-for-byte; no pending updates. Latest root, current 80000 and previous 79000 retained.
+- **Cleanup:**
+  - Builds 10,069,775,295 → 7,952,276,087 bytes.
+  - Removed the 1.72 GB hosted check install and 1.88 GB of scratch outside the project.
+  - C: free 258,123,685,888 bytes.
+- **SESSION HANDOFF: STOP.** Awaiting Dan's review of 0.80 (rule 12): the Hwy 92 junction paint, the summit dirt look, the Mountain Loop Reverse fills / embankments, LB fist wave, cars on every course. QUEUED NEXT (new vehicles) waits for Dan to start it. A documentation-only delivery commit follows; the playable source remains `1397143a`.
 
 ### Results (2026-10-05, Claude Code)
 
