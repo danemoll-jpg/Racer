@@ -15,7 +15,59 @@
   - **Dan does:** driving every course and direction, trying every vehicle everywhere, checking that a universal fix holds everywhere, and judging look and feel. He reports through the debug ZIPs.
   - **Write-up:** the TODO results are a short list: what changed, the one check per item, decisions made, and anything Dan should look at. No separate VALIDATION.md unless a round asks. If a check would take more than a few minutes of play time, skip it and list it under "for Dan to check".
 
-## CURRENT — House 3 pool truly in-ground, ATV icon, Forest Forward second-shortcut survey, Forest Reverse jump approach — target 0.86.0-review1 — NOT STARTED
+## CURRENT — House 3 pool truly in-ground, ATV icon, Forest Forward second-shortcut survey, Forest Reverse jump approach — target 0.86.0-review1 — A, B, C, D DONE; release: see DELIVERED
+
+### Results (2026-10-06, Claude Code)
+
+- **Safety checkpoint:** `f3ec43d0` (this TODO plan and the two ATV icon files), pushed. Part A in `1e05a110`; **Part D alone in `8477896a`** (revert: `git revert 8477896a`); Part C (proposal only) in `0e5de373`. Version 0.86.0-review1 / build 86000.
+- Evidence: [Docs/Report086/](Docs/Report086/) ([Lists/](Docs/Report086/Lists/), [Shots/](Docs/Report086/Shots/)). Tools `Tools/Report086/`, checks `Assets/Scripts/Report086Checks.cs`. No VALIDATION.md.
+- **A — House 3 pool in-ground — DONE (all nine scenes).** Measured first: the ground under the pool was its own floor (33.35), the old coping 34.89; the basin floor north of it is level at 33.01–33.08; south, south-west and south-east the pool already sat against the House 3 hill (ground 35–41 at the coping, a near-vertical face behind it). So it was sunk (preferred), not filled around: [A-pool.txt](Docs/Report086/Lists/A-pool.txt).
+  - The 0.85 beach entry and outside apron are removed.
+  - The pool pieces (water, coping, shell) moved down by D, chosen per scene so the coping top sits 2 cm above that scene's basin floor: D 1.86 m in seven scenes, 1.79 in StreetLoopReverse, 1.81 in FreeRoamWorld. Coping top is now 33.03, water 32.83, floor 31.49.
+  - Position, outline, size, depth, materials, water, ice (it follows the water) and the reset are unchanged.
+  - The ground tile under the pool (one mesh asset per scene; DansBackyardForward/Reverse share one, edited once) is lowered by D inside the pool's footprint.
+  - Outside, ground that stood above the coping is brought down to it: flush within 0.4 m, and the hill foot is lowered by D fading out over 3 m, so the hill keeps its shape and meets the coping. The largest cut is 3.3 m, at the very edge of the south face. Ground below the coping is never touched and nothing is raised.
+  - Inside: a 15 % shallow-end slope across the full 18 m width of the north end, from the floor to the coping (dry for its last 1.3 m), in the pool's pale finish. Nothing stands above the coping.
+  - Nothing else stands on the changed ground. The only hits were orphaned, undrawn batch vertices.
+  - **Granite Saddle (Forest Reverse):** no surface under the flight was raised (every height change is a lowering), so it can only gain clearance. The Part D runs fly over it and land on the trail as before.
+  - Checks:
+    - Shots: [from Dan's position](Docs/Report086/Shots/A-pool-from-dan.png), [from above](Docs/Report086/Shots/A-pool-from-above.png), [top](Docs/Report086/Shots/A-pool-top.png).
+    - Driven in from the basin and reversed back out up the shallow end, Free Roam ([A-checks.txt](Docs/Report086/Lists/A-checks.txt)): Needle 600 out in 11.0 s, Trail Four 8.5 s, Skyfin Cruiser 7.3 s.
+    - From the deepest point forwards (as 0.85): out up the slope in 3.3 / 3.4 / 4.0 s. The other three headings face walls, as designed.
+    - Collider and route comparison, all nine scenes ([A-collider-comparison.txt](Docs/Report086/Lists/A-collider-comparison.txt)): only the pool pieces and that one ground tile changed; routes, gates, jumps and branches are identical.
+- **B — ATV icon — files confirmed; result after the build under DELIVERED.**
+  - `Assets/Branding/WoodstockRushIcon.png` and `SourceArt/Poster/WoodstockRushIcon.png` are identical (622,075 bytes, md5 `feb18da4…`), and the image shows the teal ATV with its rider (no car).
+  - The build step force-reimports the icon before building. The Player Settings references are unchanged.
+  - **The launcher** (`WoodstockRushLauncher.exe`) is compiled from `Launcher/*.cpp` with no icon resource at all, so Windows shows its generic program icon. It is not an updatable release component (only `game` and `soundtrack` are), and the release staging deliberately keeps the installed launcher byte for byte. Changing it is outside the existing release procedure, so it is not changed (see DELIVERED for what it would need).
+- **C — Forest Forward second shortcut — PROPOSAL, nothing built:** [ForestForward-shortcut-options.md](Docs/Report086/ForestForward-shortcut-options.md).
+  - Method: the whole lap was surveyed (5,000+ main-to-main lines), timed with the speed each class actually holds on each grade of the measured lap.
+  - Finding: away from Echo Cave the main is near the straight line everywhere. Round the House 3 bowl, its near-vertical edges cap any line at about 50 m / 2 s. The real saving is the hook before the finish.
+  - **A Ridge Jump** (the required ridge chord, over the tongue behind the pool): about 1.8–2.2 s, about 5,000 m³ of earthwork. The ATV (23 m/s at the lip) cannot clear the same jump as the bikes and cars (31 m/s), so it would need a long built landing and the ATV stays on the main.
+  - **B Channel Run and Crest Jump:** works for all ten vehicles on a natural landing with about 1,300 m³, but saves only about 0.5 s.
+  - **C Summit Climb** (no jump): about 2.8–3.1 s for every class, about 700 m³, bypasses CP4. **Code would build C**; if the second shortcut must have a ramp, B.
+  - No lake or dock jump is possible on this lap: the Friend's lake lies outside the lap, J1 already jumps the creek, and the House 3 lake would need a 20–25 m cut.
+- **D — Granite Saddle approach (Forest Reverse) — DONE.**
+  - Measured first ([D-approach.txt](Docs/Report086/Lists/D-approach.txt)): the trail has no dip at x ≈ 532. It bends right at the foot of the climb while its outside edge falls away: −28 % across the trail, then a 40–60 % side slope into lower ground 3–4 m below. Vehicles carried wide land on that slope; 0.85's ATV was 8–9 m wide there at 11 m/s.
+  - Fix: a local fill on the outside of the bend only (s 62–106, x 520–555; [D-fill.txt](Docs/Report086/Lists/D-fill.txt)). The trail's left half comes up to the centre-line height rising 4 % outward; the shoulder is level to 7 m from the centre; then a 1:1.2 batter to the hillside. Fill only, up to 3.55 m, about 820 m³.
+  - Never within the main's half-width + 4 m: the McFadden Cut main, CP1 and its sign run below the bend. One ground mesh changed; no objects or trees stood in the fill.
+  - Re-measured the three classes from the branch at full throttle (a player's approach, flying and slow entry):
+
+    | | Lowest speed through the bend | Lip speed |
+    |---|---|---|
+    | Trail Four | 31.2–31.5 m/s (was 23.9–30.2, running 3.3 m wide instead of up to 6.6) | 35.7–35.9 (was 33.0–34.1) |
+    | Street Classic | 29.4 (was 26.8–29.1) | 33.0–33.1 |
+    | Needle 600 | 34.3–34.6 (was 27.6–29.8) | 34.4–34.6 |
+
+    All three clear the pool and lake. ATV and car land on the trail at x 308–323.
+  - The race autopilot (as 0.85 measured) brakes the ATV on the final ramp by its own speed planning, so it still reaches the lip at 21 m/s. **AI stays off this line** (hard landing; not rebuilt this round).
+  - Checks: collider comparison ([D-collider-comparison.txt](Docs/Report086/Lists/D-collider-comparison.txt): only that mesh; routes identical). One race lap of Forest Loop Reverse with AI: 4 finishers, 0 missed gates, 0 resets.
+- **Decisions:** the pool was sunk, not the lawn raised. The pool's slope is 15 % (gentler than 0.85's 18.5 %). The Part D fill is outside the bend only, and Part D was measured with a full-throttle follower as well as the autopilot. The launcher is unchanged. In Part C, Code recommends C.
+- **For Dan to check:**
+  - the in-ground pool from his spot, and the hillside behind it, now lowered to meet the coping;
+  - the ATV icon on `Racer.exe` (Windows may show the old one from its icon cache; see DELIVERED);
+  - the Granite Saddle bend at x ≈ 532 on the ATV. At full throttle the **faster Needle 600 now catches air over the crest just before the ramp, takes off slightly diagonally and lands beside the trail at about (312, −223)**: upright, no reset, it rejoins. Ride it.
+  - Choose a Part C option.
+- Not done: no laps of the other course scenes after the pool change; Part A's own check list replaces them, and the change is off every race line.
 
 - **Authorized by Dan (2026-10-06).** Written by Claude (chat) from his review of 0.85.0-review1: debug session `2026-10-06_15-52-45-505_44e69e` (1 report, on 0.85.0-review1, `FreeRoamWorld`) and his message of 16:01. He raised nothing against 0.85 Parts A, B or C.
 - **Starting point:** main at the "Record 0.85 delivery" commit; playable source `f0e98977` (0.85.0-review1 / game-85000). This TODO edit and the two replaced icon files (Part B) are uncommitted and belong in the safety checkpoint.
@@ -72,6 +124,34 @@ This part produces a proposal for Dan to choose from. **Build nothing; change no
 ### Verification
 
 Light, per the Verification budget: the one check named in each part, compile, launch, release steps. Results as a short list, with "for Dan to check".
+
+## QUEUED NEXT — Kyle's house rebuilt from Dan's photo and description — target 0.87.0-review1 — NOT STARTED
+
+Written by Claude (chat) on 2026-10-06 while 0.86 was running. Do not start until 0.86 is delivered and Dan starts it; more items may be added first. The Verification budget applies. Runs unattended; decisions are below.
+
+Dan (2026-10-06, with a photo of the front): "this is the front of Kyle's house. It is two stories, which is visible on the left side and back of the house. On the right side is a screened-in porch. In the back it has a raised wooden porch (with a sliding glass door into the top floor). The left side of the house has two garage doors on the bottom level with a driveway leading up to it. The area is generally surrounded by trees and barely visible from the road as it sits down the hill a little, as it is placed currently."
+
+This is the backlog item "Kyle's house from photos" (the building named "Friend across street - blue circle"; 0.78 kept its shape and added detail only). Dan has now supplied the reference, so it may be redesigned.
+
+**Reference photo:** `SourceArt/Reference/KylesHouse-front-2026-10-06.jpg` (placed by Claude; uncommitted until the safety checkpoint). Look at it before modelling. "Left" and "right" below are as seen facing the front, as in the photo.
+
+**What the photo shows (front):** a single-storey-looking ranch from the front, long and low. Light grey horizontal lap siding, white trim, white gutters and downspouts, dark charcoal-grey shutters on every front window, grey shingle roof at a low pitch. Brick foundation showing at the bottom left. The roof is a long side-gable running left to right, with a front-facing gable projecting forward at the left third (the left wing sits a little forward of the rest). To the right of that gable a **covered front porch** runs along the rest of the front under the main roof's eave: four slim white square posts, a concrete or brick porch floor one low step above the ground, a white front door with a storm door near the middle, a wall lantern beside it, double-hung white windows with grilles either side. White wicker chairs and a small bench on the porch. A **red brick chimney** rises on the outside of the right-hand end wall, stepped at the shoulder, with a metal cap. Overgrown shrubs along the front; a gravel parking area in front at the right.
+
+**What Dan describes that the photo does not show:**
+- **Two storeys on the left side and the back:** the ground falls away, so the lower level is exposed there (a walk-out lower floor). From the front it stays one storey.
+- **Left side, lower level:** two garage doors side by side, with the driveway leading up to them.
+- **Right side:** a screened-in porch (framed screens, its own low roof), beside the chimney end.
+- **Back:** a raised wooden deck at the upper floor's level on posts, with a sliding glass door from the upper floor onto it, and **wooden steps from the deck down into the yard** (confirmed by Dan). Dan has only this one photo: "the rest can be derived based on the description. Doesn't need to be perfect." So design the left, right and back in keeping with the front and do not stop for more reference.
+
+**Build it:**
+1. Model it in Blender with the approved pipeline, in the game's stylized low-poly style, to the standard of the 0.78 buildings (roof overhangs, trim, frames, gutters, lit windows at night). It should be recognisably this house from the front photo.
+2. **Keep it where it is now:** same position, same orientation, sitting down the hill a little, surrounded by trees and barely visible from the road. Use the slope that is there for the walk-out lower level on the left and back; adjust the ground immediately around the house only as far as needed for the garage doors, the driveway meeting them and the deck posts (rule 4: everything grounded, no floating or buried parts, foundation to the ground on every side).
+3. **Driveway:** the existing drive to this house continues to the two garage doors on the left side. Gravel, as in the photo.
+4. Footprint may change to fit the real shape (the L of the front gable, the screened porch on the right, the deck behind). Colliders match the new shape: walls, porch posts, chimney, deck (the deck solid enough to stand on, its underside open or closed as is simplest and safe), garage doors closed.
+5. **Which scenes:** `FreeRoamWorld` certainly. In the course scenes the same building exists: replace it there too so the world matches, **but first read each scene's route data** (section 5A): if a race line, shortcut, jump or AI line passes close enough that the new footprint, deck, porch or driveway could touch it, keep the old collider outline on that side in that scene and report it.
+6. The two-men vignette at Kyle's (Dan and Kyle, 0.83) stays, moved to the front porch or the gravel in front if the new shape needs it. Trees stay dense around the house; remove only those inside the new footprint or driveway.
+7. Scenery: New shows the new house; Classic may keep showing the old one.
+8. Check: one shot from the photo's angle next to the photo, one of the left side with the garage doors, one of the back with the deck, one of the right side with the screened porch, one from the road showing it is still tucked away; collider comparison per scene listing only this house and its surround.
 
 ## Previous delivery — Forest Forward Lake Dock Jump shortcut (not built), Forest Reverse lake jump (left), escapable pools and lakes, trees off the shortcuts, hands on the steering wheel, Mountain Forward road edge — 0.85.0-review1 — DELIVERED, REVIEWED BY DAN (follow-ups in 0.86)
 
