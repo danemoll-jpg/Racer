@@ -17,6 +17,15 @@
 
 ## CURRENT — Forest Forward Lake Dock Jump shortcut, working Forest Reverse lake jump, escapable pools and lakes, trees off the shortcuts, hands on the steering wheel, Mountain Forward road edge — target 0.85.0-review1 — F, A, B, C DONE; D and E NOT BUILT (measured, options for Dan); release: see DELIVERED
 
+- **DELIVERED:**
+  - Source `f0e9897767f491b49a4993d9675f910be143fd5b` pushed and verified on origin/main (Part F alone is `9502ece4`).
+  - Fresh 0.85.0-review1 Windows build: 0 errors, 2m12s ([build-release.txt](Docs/Report085/build-release.txt)); the 110 warnings are the existing obsolete-API notes of a full recompile and the usual mesh-collider note.
+  - Published [game-85000](https://github.com/danemoll-jpg/woodstock-rush-releases/releases/tag/game-85000) with `python Tools/Publish-LauncherRelease.py` in one pass (no draft-lookup miss this time). Previous releases retained.
+  - All 234 Latest files match the public signed manifest; public download, signature, install and startup pass ([hosted/result.json](Docs/Report085/hosted/result.json)); catalog reports no pending game or music update.
+- **Play-Racer.cmd (unchanged):** launched a responsive `Builds/Latest/versions/85000/Racer.exe` (0.85.0-review1), muted, settings restored byte for byte. Latest root, current 85000 and previous 84000 retained.
+- **Cleanup:** Builds 10,127,487,845 -> 7,991,676,375 bytes (2.1 GB recovered); plus the hosted check install and 60 MB of check scratch outside the project. C: free 274,210,373,632 bytes.
+- **SESSION HANDOFF: STOP.** Awaiting Dan's review of 0.85 and his choice for D / E (rule 12).
+
 ### Results (2026-10-06, Claude Code)
 
 - **Safety checkpoint:** `228a4037` (this TODO plan), pushed. **Part F alone in `9502ece4`** (revert: `git revert 9502ece4`). A, B, C and this record: completion commit (see DELIVERED). Version 0.85.0-review1 / build 85000.

@@ -1,0 +1,27 @@
+{
+    "freeAfter":  274150035456,
+    "buildsAfter":  7991676375,
+    "freeBefore":  270279372800,
+    "removed":  [
+                    {
+                        "bytes":  1731352080,
+                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\Racer-0.85.0-review1-Windows"
+                    },
+                    {
+                        "bytes":  404459390,
+                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\LauncherRelease-85000\\assets\\game.zip"
+                    },
+                    {
+                        "bytes":  1733707800,
+                        "path":  "C:\\Users\\danmo\\Racer\\Temp\\report085-hosted-1791314366069687600"
+                    }
+                ],
+    "buildsBefore":  10127487845,
+    "buildsRecovered":  2135811470,
+    "retained":  [
+                     "Latest complete root runtime",
+                     "managed 85000",
+                     "managed 84000",
+                     "music, publisher keys/tools, launcher, metadata, source, evidence, saves"
+                 ]
+}
