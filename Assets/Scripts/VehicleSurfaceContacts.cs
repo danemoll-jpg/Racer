@@ -99,7 +99,10 @@ namespace Racer
                         +Mathf.Abs(Vector3.Dot(rotation*Vector3.forward,n))*box.Half.z;
                     pair.SetNormal(k,normal);
                     // Sweep separation belongs to time-of-impact, not the pre-sweep pose.
-                    if(!ccd)pair.SetSeparation(k,Vector3.Dot(center-surface.Point,n)-radius);
+                    // 0.85 Part C: never deeper than PhysX measured it. A face's plane runs on past the triangle, so a steep
+                    // facet buried under the real surface (overlapping old ground sheets; picked up as a speculative contact
+                    // at speed) measured against its plane made the body look sunk in it and threw the vehicle up and on.
+                    if(!ccd)pair.SetSeparation(k,Mathf.Max(pair.GetSeparation(k),Vector3.Dot(center-surface.Point,n)-radius));
                     if(rampIds.Contains(surfaceId))System.Threading.Interlocked.Increment(ref RampCorrections);
                 }
             }

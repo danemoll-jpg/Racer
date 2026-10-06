@@ -1,0 +1,15 @@
+---- drive:ForestLoopReverse:moto:Granite Saddle:100:18:25
+ForestLoopReverse moto Granite Saddle from 100 at 25 m/s: resets 0+0, max air 3.92s, min up 0.82, max vertical jolt 674 m/s² at 322.7,41.11,-193.9, end 180.0,42.70,-167.1
+---- drive:ForestLoopReverse:atv:Granite Saddle:100:18:25
+ForestLoopReverse atv Granite Saddle from 100 at 25 m/s: resets 0+0, max air 3.66s, min up 0.64, max vertical jolt 406 m/s² at 360.9,35.20,-194.6, end 352.8,40.96,-196.8
+---- drive:ForestLoopReverse:original:Granite Saddle:100:18:25
+ForestLoopReverse original Granite Saddle from 100 at 25 m/s: resets 0+0, max air 3.88s, min up 0.81, max vertical jolt 74 m/s² at 568.6,42.49,-201.9, end 187.0,43.62,-169.7
+---- drive:LakeWoods:moto:Main:1420:16:30
+LakeWoods moto Main from 1420 at 30 m/s: resets 0+0, max air 2.02s, min up 0.93, max vertical jolt 372 m/s² at 356.8,50.75,-274.0, end 574.6,39.94,-212.4
+---- drive:LakeWoods:atv:Main:1420:16:30
+LakeWoods atv Main from 1420 at 30 m/s: resets 0+0, max air 1.82s, min up 0.94, max vertical jolt 416 m/s² at 338.4,47.72,-261.9, end 533.2,32.85,-249.1
+---- drive:LakeWoods:original:Main:1420:16:30
+LakeWoods original Main from 1420 at 30 m/s: resets 0+0, max air 1.96s, min up 0.94, max vertical jolt 752 m/s² at 355.8,50.88,-272.8, end 569.9,38.27,-217.4
+---- view:MountainLoop:dan,744,89.2,-124,199,12|side,733,90,-133,90,25|top,742,105,-131,199,70:day
+MountainLoop: views written
+done, failures 0

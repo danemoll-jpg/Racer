@@ -1,0 +1,13 @@
+---- wide85:MountainLoop:drifter:22:95:24:6,8,10,12
+PASS MountainLoop drifter main 22->95 at 24 m/s, +6.0 m off the centre: through, resets 0, max air 0.00s, min up 0.98, max jolt 3 m/s² at 752.8,95.62,-192.9
+PASS MountainLoop drifter main 22->95 at 24 m/s, +8.0 m off the centre: through, resets 0, max air 0.32s, min up 0.95, max jolt 47 m/s² at 739.6,86.40,-126.9
+FAIL MountainLoop drifter main 22->95 at 24 m/s, +10.0 m off the centre: NOT through, resets 0, max air 1.12s, min up 0.76, max jolt 196 m/s² at 730.0,78.64,-170.4
+FAIL MountainLoop drifter main 22->95 at 24 m/s, +12.0 m off the centre: through, resets 0, max air 0.98s, min up 0.37, max jolt 177 m/s² at 735.6,85.86,-125.8
+---- wide85:MountainLoop:moto:22:95:30:8,11
+FAIL MountainLoop moto main 22->95 at 30 m/s, +8.0 m off the centre: through, resets 0, max air 1.94s, min up 0.51, max jolt 246 m/s² at 731.5,78.58,-183.3
+FAIL MountainLoop moto main 22->95 at 30 m/s, +11.0 m off the centre: through, resets 0, max air 1.70s, min up 0.29, max jolt 340 m/s² at 739.0,78.85,-190.4
+---- wide85:MountainLoop:drifter:-60:20:24:8
+PASS MountainLoop drifter main -60->20 at 24 m/s, +8.0 m off the centre: through, resets 0, max air 0.00s, min up 1.00, max jolt 0 m/s² at 0.0,0.00,0.0
+---- carrace:MountainLoop:drifter:moto,scrambler,atv
+PASS MountainLoop player drifter vs moto/scrambler/atv: PLAYER drifter: 02:04.700 missed 0 resets 1 longest stall 6s shortcuts []; EMBER moto: 01:59.038 missed 0 resets 0 longest stall 1s shortcuts []; GOLD scrambler: 01:59.543 missed 0 resets 0 longest stall 2s shortcuts []; BLUE atv: 02:01.615 missed 0 resets 0 longest stall 1s shortcuts []
+done, failures 4

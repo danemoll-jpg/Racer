@@ -1,0 +1,19 @@
+---- trees85:StreetLoopGreybox
+PASS StreetLoopGreybox: trees / bushes / clumps left out on a drivable surface or race line 9 (of which on a race line 0); drawn still on a race line 0; trunk colliders on a race line 0
+---- trees85:StreetLoopReverse
+PASS StreetLoopReverse: trees / bushes / clumps left out on a drivable surface or race line 10 (of which on a race line 0); drawn still on a race line 0; trunk colliders on a race line 0
+---- trees85:LakeWoods
+PASS LakeWoods: trees / bushes / clumps left out on a drivable surface or race line 22 (of which on a race line 0); drawn still on a race line 0; trunk colliders on a race line 0
+---- trees85:ForestLoopReverse
+PASS ForestLoopReverse: trees / bushes / clumps left out on a drivable surface or race line 89 (of which on a race line 54); drawn still on a race line 0; trunk colliders on a race line 0
+---- trees85:MountainLoop
+PASS MountainLoop: trees / bushes / clumps left out on a drivable surface or race line 22 (of which on a race line 0); drawn still on a race line 0; trunk colliders on a race line 0
+---- trees85:MountainLoopReverse
+PASS MountainLoopReverse: trees / bushes / clumps left out on a drivable surface or race line 22 (of which on a race line 0); drawn still on a race line 0; trunk colliders on a race line 0
+---- trees85:DansBackyardForward
+PASS DansBackyardForward: trees / bushes / clumps left out on a drivable surface or race line 11 (of which on a race line 3); drawn still on a race line 0; trunk colliders on a race line 0
+---- trees85:DansBackyardReverse
+PASS DansBackyardReverse: trees / bushes / clumps left out on a drivable surface or race line 12 (of which on a race line 0); drawn still on a race line 0; trunk colliders on a race line 0
+---- trees85:FreeRoamWorld
+PASS FreeRoamWorld: trees / bushes / clumps left out on a drivable surface or race line 12 (of which on a race line 0); drawn still on a race line 0; trunk colliders on a race line 0
+done, failures 0

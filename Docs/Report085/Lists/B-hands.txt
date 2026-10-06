@@ -1,0 +1,10 @@
+---- hands85:original,moto,atv
+original first person: steer -1 (shown -1.00): wrist to steering pivot Wrist L 0.175 Wrist R 0.175 | steer 0 (shown 0.00): wrist to steering pivot Wrist L 0.175 Wrist R 0.175 | steer +1 (shown 1.00): wrist to steering pivot Wrist L 0.175 Wrist R 0.175
+original outside: steer -1 (shown -1.00): wrist to steering pivot Wrist L 0.175 Wrist R 0.175 | steer 0 (shown 0.00): wrist to steering pivot Wrist L 0.175 Wrist R 0.175 | steer +1 (shown 1.00): wrist to steering pivot Wrist L 0.175 Wrist R 0.175
+moto first person: steer -1 (shown -1.00): wrist to steering pivot Wrist L 1.066 Wrist R 1.080 | steer 0 (shown 0.00): wrist to steering pivot Wrist L 1.066 Wrist R 1.066 | steer +1 (shown 1.00): wrist to steering pivot Wrist L 1.080 Wrist R 1.066
+moto outside: steer -1 (shown -1.00): wrist to steering pivot Wrist L 1.066 Wrist R 1.080 | steer 0 (shown 0.00): wrist to steering pivot Wrist L 1.066 Wrist R 1.066 | steer +1 (shown 1.00): wrist to steering pivot Wrist L 1.080 Wrist R 1.066
+atv first person: steer -1 (shown -1.00): wrist to steering pivot Wrist L 0.846 Wrist R 0.867 | steer 0 (shown 0.00): wrist to steering pivot Wrist L 0.846 Wrist R 0.846 | steer +1 (shown 1.00): wrist to steering pivot Wrist L 0.867 Wrist R 0.846
+atv outside: steer -1 (shown -1.00): wrist to steering pivot Wrist L 0.846 Wrist R 0.867 | steer 0 (shown 0.00): wrist to steering pivot Wrist L 0.846 Wrist R 0.846 | steer +1 (shown 1.00): wrist to steering pivot Wrist L 0.867 Wrist R 0.846
+---- view:MountainLoop:dan,744,89.2,-124,199,12:day
+MountainLoop: views written
+done, failures 0

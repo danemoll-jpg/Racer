@@ -1,0 +1,6 @@
+MountainLoop: static colliders before vs after Part C (path, type, enabled, trigger, bounds identical; only the mesh hash differs):
+< CR133 structural mountain roads/Ground_CR133 mountain earth banks	MeshCollider	Assets/Track/ReportCleanup/MountainLoop-solid-retained-2-4598165-12032.asset#MountainLoop-solid-retained-2-4598165-12032	85B98C97154DEC55
+> CR133 structural mountain roads/Ground_CR133 mountain earth banks	MeshCollider	Assets/Track/ReportCleanup/MountainLoop-solid-retained-2-4598165-12032.asset#MountainLoop-solid-retained-2-4598165-12032	9A2AFE36E7E028B5
+< Mountain corridor earth support/Ground_MountainPolish supported shoulders	MeshCollider	Assets/Track/ReportCleanup/MountainLoop-solid-retained-2-4558247-13056.asset#MountainLoop-solid-retained-2-4558247-13056	E1050F64AC694B46
+> Mountain corridor earth support/Ground_MountainPolish supported shoulders	MeshCollider	Assets/Track/ReportCleanup/MountainLoop-solid-retained-2-4558247-13056.asset#MountainLoop-solid-retained-2-4558247-13056	96BF90E1AF9792DD
+routes / gates / jumps / course id: 0 differing lines

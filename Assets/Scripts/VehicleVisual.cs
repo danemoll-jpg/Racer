@@ -347,12 +347,17 @@ namespace Racer
     {
         public Vector3 axis=new(0,.76f,-.305f);public float gain=9;ArcadeVehicle car;
         void Start(){car=GetComponentInParent<ArcadeVehicle>();axis=axis.normalized;}
-        void LateUpdate(){if(car)transform.localRotation=Quaternion.AngleAxis(car.VisualSteering*gain,axis);}
+        void LateUpdate(){if(car)transform.localRotation=Turn(car.VisualSteering);}
+        // 0.85: the same turn for the rider's hands (RiderGestures)
+        public Vector3 Axis=>axis.normalized;
+        public float Angle(float steer)=>steer*gain;
+        public Quaternion Turn(float steer)=>Quaternion.AngleAxis(Angle(steer),Axis);
     }
     public sealed class VehiclePose:MonoBehaviour
     {
         public bool bike;ArcadeVehicle car;
         void Start(){car=GetComponentInParent<ArcadeVehicle>();}
-        void LateUpdate(){if(car)transform.localRotation=Quaternion.Euler(0,car.VisualSteering*(bike?3:1.5f),bike?-car.VisualSteering*2:0);}
+        void LateUpdate(){if(car)transform.localRotation=Turn(car.VisualSteering,bike);}
+        public static Quaternion Turn(float steer,bool bike)=>Quaternion.Euler(0,steer*(bike?3:1.5f),bike?-steer*2:0);
     }
 }

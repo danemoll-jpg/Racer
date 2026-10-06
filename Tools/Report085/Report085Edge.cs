@@ -16,9 +16,9 @@ public static class Report085Edge {
    var names=new Dictionary<Collider,int>();
    for(float st=s0-f[2];st<=s0+f[2];st+=f[3]){var c=rd.At(st,out var fw);fw.y=0;fw.Normalize();var right=Vector3.Cross(Vector3.up,fw);float hw=rd.HalfWidth(st);
     var row=new StringBuilder();var steps=new List<string>();float prev=float.NaN;Collider prevC=null;
-    for(float x=-16;x<=16.001f;x+=.25f){var p=c+right*x;float y=Top(p,c.y,out var col);
+    float W=float.Parse(Environment.GetEnvironmentVariable("EDGE_W")??"16",System.Globalization.CultureInfo.InvariantCulture);for(float x=-W;x<=W+.001f;x+=.25f){var p=c+right*x;float y=Top(p,c.y,out var col);
      if(col!=null&&!names.ContainsKey(col))names[col]=names.Count;
-     if(Mathf.Abs(x%2f)<.01f)row.Append(float.IsNaN(y)?"   -  ":$"{y-c.y,6:F2}");
+     if(Mathf.Abs(x%(W>20?4f:2f))<.01f)row.Append(float.IsNaN(y)?"   -  ":$"{y-c.y,6:F2}");
      if(!float.IsNaN(prev)&&!float.IsNaN(y)&&Mathf.Abs(y-prev)>.15f)steps.Add($"{x-.125f:F2}m: {(y>prev?"+":"")}{y-prev:F2} ({(prevC?names[prevC]:-1)}->{(col?names[col]:-1)})");
      if(float.IsNaN(y)&&!float.IsNaN(prev))steps.Add($"{x:F2}m: GAP");prev=y;prevC=col;}
     sb.AppendLine($"s {st,7:F1} c {c.x:F1},{c.y:F2},{c.z:F1} hdg {(Mathf.Atan2(fw.x,fw.z)*Mathf.Rad2Deg+360)%360:F0} hw {hw:F1} | {row}");

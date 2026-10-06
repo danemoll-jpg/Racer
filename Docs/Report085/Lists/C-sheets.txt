@@ -1,0 +1,5 @@
+Ground_CR133 mountain earth banks: Assets/Track/ReportCleanup/MountainLoop-solid-retained-2-4598165-12032.asset (52955 vertices); renderer shares it: True
+  lowered 741 (largest 0.17 m), raised 465 (largest 1.17 m) to 3 cm under: Ground_CR133 mountain driving surface 470, Ground_Report071 patch BUG-001/002 Climbing Ridge Cut entrance 147, Ground_Report068 seam support 2, Ground_Report069 flush shoulders 21, Ground_Report069 patch BUG-007 junction 216, Ground_Report071 patch BUG-004 main s 12 trail edge 321, Ground_Report067 edge shoulders 29
+Ground_MountainPolish supported shoulders: Assets/Track/ReportCleanup/MountainLoop-solid-retained-2-4558247-13056.asset (36828 vertices); renderer shares it: True
+  lowered 1533 (largest 0.06 m), raised 394 (largest 2.77 m) to 3 cm under: Ground_CR133 mountain driving surface 1404, Ground_Report071 patch BUG-004 main s 12 trail edge 169, Ground_Report067 edge shoulders 29, Ground_Report071 patch BUG-001/002 Climbing Ridge Cut entrance 168, Ground_Report069 patch BUG-007 junction 133, Ground_Report069 flush shoulders 24
+saved

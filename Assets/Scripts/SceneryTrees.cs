@@ -156,6 +156,7 @@ namespace Racer
         public static bool OnDrivable(Vector3 bottom, IList<RaceRoad> trails, out string what)
         {
             what = null;
+            if (trails != null && OnRaceLine(bottom, out what)) return true;
             int n = Physics.RaycastNonAlloc(bottom + Vector3.up * 2.5f, Vector3.down, hits, 6, ~0, QueryTriggerInteraction.Ignore);
             System.Array.Sort(hits, 0, n, ByDistance);
             for (int k = 0; k < n; k++)
@@ -178,6 +179,30 @@ namespace Racer
                 if (at && Has(at.name, PavedWords)) { what = at.name; return true; }
                 if (Has(names, RoadWords) && !Has(names, NotRoad)) { what = names; return true; }
                 return false;
+            }
+            return false;
+        }
+        // 0.85 Part A: the driving surface of every optional line of a course scene (0.79 only knew the main, whose trail
+        // surface its dirt-colour test recognises, so 0.84's grounded trees could stand on Forest Reverse's optional lines),
+        // with a margin each side so a trail reads as open: within the line's own half-width + LineMargin of its centre line
+        // and 2.5 m of its height. Set when the trees are built; used wherever trees and clumps are tested (trails given),
+        // never for posts, signs or paint.
+        public const float LineMargin = 1.5f;
+        static readonly List<WoodlandRoute> raceLines = new();
+        static Scene raceLineScene;
+        public static void SetRaceLines(Scene scene)
+        {
+            raceLines.Clear(); raceLineScene = scene; if (scene.name == RaceFlow.RoamScene) return;
+            foreach (var g in scene.GetRootGameObjects())
+                foreach (var w in g.GetComponentsInChildren<WoodlandRoute>(true)) if (w.gameObject.activeInHierarchy && w.points != null && w.points.Length > 1) { w.Initialize(); raceLines.Add(w); }
+        }
+        public static bool OnRaceLine(Vector3 p, out string what, float margin = LineMargin)
+        {
+            what = null; if (raceLines.Count == 0 || !raceLineScene.IsValid() || !raceLineScene.isLoaded) return false;
+            foreach (var branch in raceLines)
+            {
+                float s = branch.Project(p, out _); var d = p - branch.At(s, out _); float lateral = new Vector2(d.x, d.z).magnitude;
+                if (lateral < branch.halfWidth + margin && Mathf.Abs(d.y) < 2.5f) { what = $"optional line {branch.title} (s {s:F0}, {lateral:F1} m from the centre)"; return true; }
             }
             return false;
         }
@@ -308,7 +333,8 @@ namespace Racer
                 var t = trunks[i]; if (t.hasCrown) t.crown.Encapsulate(p.b); else { t.crown = p.b; t.hasCrown = true; }
                 trunks[i] = t;
             }
-            // 5. place the kit, except on drivable surfaces (0.79 Part E)
+            // 5. place the kit, except on drivable surfaces (0.79 Part E) and the race lines (0.85 Part A)
+            SetRaceLines(scene);
             var trails = roots.SelectMany(g => g.GetComponentsInChildren<RaceRoad>()).Where(t => t.forestTrail && t.points != null && t.points.Length > 1).ToList();
             foreach (var t in trails) t.Initialize();
             bool roam = scene.name == RaceFlow.RoamScene; var lines = roam ? null : RaceLines(scene);

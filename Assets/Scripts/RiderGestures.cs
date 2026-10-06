@@ -47,6 +47,7 @@ namespace Racer
         // The camera is at this rider's eyes (first person, set by RiderGestures): gestures are aimed into that view.
         public bool SeenFromEyes { get; set; }
         public Vector3 RestWrist(int side) => restWrist[side];
+        public Vector3 RestElbow(int side) => restElbow[side];
         public float Reach(int side) => (restElbow[side] - Shoulder(side)).magnitude + (restWrist[side] - restElbow[side]).magnitude;
 
         public void Rest(int side) { shoulder[side].localRotation = elbow[side].localRotation = wrist[side].localRotation = Quaternion.identity; }
@@ -157,10 +158,11 @@ namespace Racer
             // first person on this vehicle (the player's view or the Trailer Mode first-person shot)
             var views = CameraViews.Current; race ??= FindAnyObjectByType<RaceDirector>();
             a.SeenFromEyes = views && race && race.vehicle == car && views.ShownView.EndsWith("First person");
-            if (Current == Kind.None) { if (Weight > 0) { Weight = 0; a.Rest(0); a.Rest(1); } return; }
+            bool holds = Steering(a);
+            if (Current == Kind.None) { if (holds) { Weight = 0; Hold(a, 0); Hold(a, 1); } else if (Weight > 0) { Weight = 0; a.Rest(0); a.Rest(1); } return; }
             float t = Time.time - started, length = Current == Kind.Wave ? WaveSeconds : CelebrateSeconds;
             // Wipe-outs drop the gesture at once (the rider grabs the bars).
-            if (t >= length || (Current == Kind.Wave && Rough)) { Current = Kind.None; Weight = 0; a.Rest(0); a.Rest(1); return; }
+            if (t >= length || (Current == Kind.Wave && Rough)) { Current = Kind.None; Weight = 0; if (holds) { Hold(a, 0); Hold(a, 1); } else { a.Rest(0); a.Rest(1); } return; }
             float rise = Current == Kind.Wave ? .3f : .35f, fall = .35f;
             float w = Mathf.SmoothStep(0, 1, Mathf.Min(t / rise, (length - t) / fall)); Weight = w;
             float beat = Mathf.Clamp01((t - rise * .8f) / (length - rise - fall));
@@ -175,13 +177,13 @@ namespace Racer
                     : carPose ? new Vector3(-.40f, .24f + .045f * shake, .10f) : new Vector3(-.20f, .30f + .05f * shake, .36f + .03f * shake);
                 if (!carPose && !a.SeenFromEyes) offset = Quaternion.Euler(0, aimYaw, 0) * offset;
                 Pose(a, 0, offset, carPose ? new Vector3(-1, -1, -.2f) : new Vector3(-1, -.7f, -.3f), w, 25 * shake);
-                a.Rest(1);
+                Free(a, 1);
             }
             else
             {
                 // Both fists up, pumped three times (no-handed on the bikes); in the cars a fist pumped out of the window.
                 float pump = Mathf.Abs(Mathf.Sin(beat * Mathf.PI * 3));
-                if (carPose) { Pose(a, 0, new Vector3(-.38f, .22f + .09f * pump, .10f), new Vector3(-1, -1, -.2f), w, 0); a.Rest(1); }
+                if (carPose) { Pose(a, 0, new Vector3(-.38f, .22f + .09f * pump, .10f), new Vector3(-1, -1, -.2f), w, 0); Free(a, 1); }
                 else for (int side = 0; side < 2; side++)
                     {
                         float s = side == 0 ? -1 : 1;
@@ -190,12 +192,49 @@ namespace Racer
             }
         }
 
-        // Swings the arm from rest toward wrist = shoulder + offset (vehicle-space metres), kept within the arm's reach.
-        static void Pose(RiderArms a, int side, Vector3 offset, Vector3 pole, float w, float twist)
+        // Swings the arm from its place on the wheel / bars (from rest with no steering part) toward wrist = shoulder + offset
+        // (vehicle-space metres), kept within the arm's reach.
+        void Pose(RiderArms a, int side, Vector3 offset, Vector3 pole, float w, float twist)
         {
             Vector3 S = a.Shoulder(side), goal = S + RiderArms.Out(offset);
             if ((goal - S).magnitude > a.Reach(side) * .96f) goal = S + (goal - S).normalized * a.Reach(side) * .96f;
-            a.Reach(side, goal, RiderArms.Out(pole), twist, w);
+            if (!steerTurn) { a.Reach(side, goal, RiderArms.Out(pole), twist, w); return; }
+            HoldTarget(a, side, out var hold, out var holdPole, out float holdTwist);
+            a.Reach(side, Vector3.Lerp(hold, goal, w), Vector3.Lerp(holdPole, RiderArms.Out(pole), w), Mathf.Lerp(holdTwist, twist, w), 1);
         }
+        // the hand a gesture does not use: on the wheel / bars, or at rest
+        void Free(RiderArms a, int side) { if (steerTurn) Hold(a, side); else a.Rest(side); }
+
+        // 0.85 Part B: the hands hold the steering. The steering wheel (cars) or the bars (bikes, ATV) turn about their
+        // axis with the visual steering (MotorcycleFrontEnd), and the rider's pose turns a little less (VehiclePose); each
+        // wrist goes where its rest place on the rim / grip has turned to (two-bone IK, elbow bent the way it is at rest),
+        // and the hand rolls with the wheel. At zero steering this is exactly the rest pose. Purely visual.
+        MotorcycleFrontEnd steerTurn; VehiclePose steerPose; RiderArms steerArms;
+        bool Steering(RiderArms a)
+        {
+            if (steerArms != a)
+            {
+                steerArms = a; steerTurn = null; steerPose = null;
+                var pose = a.transform.parent; var root = pose ? pose.parent : null;
+                if (root && pose.TryGetComponent(out steerPose))
+                    foreach (Transform child in root) if (child.TryGetComponent<MotorcycleFrontEnd>(out var turn)) { steerTurn = turn; break; }
+                if (!steerPose) steerTurn = null;
+            }
+            return steerTurn;
+        }
+        void HoldTarget(RiderArms a, int side, out Vector3 target, out Vector3 pole, out float twist)
+        {
+            // vehicle-visual (root) space: the rider holder sits under the steering pose
+            Transform holder = a.transform, pose = holder.parent; float steer = car ? car.VisualSteering : 0;
+            Vector3 rest = pose.localPosition + holder.localPosition + holder.localRotation * a.RestWrist(side);
+            Quaternion turn = steerTurn.Turn(steer); Vector3 pivot = steerTurn.transform.localPosition;
+            Vector3 onWheel = pivot + turn * (rest - pivot);
+            Quaternion toHolder = Quaternion.Inverse(holder.localRotation) * Quaternion.Inverse(VehiclePose.Turn(steer, steerPose.bike));
+            target = toHolder * (onWheel - pose.localPosition) - Quaternion.Inverse(holder.localRotation) * holder.localPosition;
+            pole = a.RestElbow(side) - a.Shoulder(side);
+            Vector3 forearm = (a.RestWrist(side) - a.RestElbow(side)).normalized, axis = toHolder * steerTurn.Axis;
+            twist = steerTurn.Angle(steer) * Vector3.Dot(axis, forearm);
+        }
+        void Hold(RiderArms a, int side) { HoldTarget(a, side, out var target, out var pole, out float twist); a.Reach(side, target, pole, twist, 1); }
     }
 }

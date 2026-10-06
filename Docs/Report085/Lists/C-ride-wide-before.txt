@@ -1,0 +1,9 @@
+---- wide85:MountainLoop:drifter:22:95:24:6,8,10,12
+PASS MountainLoop drifter main 22->95 at 24 m/s, +6.0 m off the centre: through, resets 0, max air 0.00s, min up 0.98, max jolt 3 m/s² at 752.8,95.62,-192.9
+FAIL MountainLoop drifter main 22->95 at 24 m/s, +8.0 m off the centre: through, resets 0, max air 2.52s, min up 0.57, max jolt 231 m/s² at 740.4,87.83,-138.9
+FAIL MountainLoop drifter main 22->95 at 24 m/s, +10.0 m off the centre: through, resets 0, max air 1.58s, min up -0.04, max jolt 168 m/s² at 730.0,78.64,-169.1
+FAIL MountainLoop drifter main 22->95 at 24 m/s, +12.0 m off the centre: through, resets 0, max air 3.40s, min up 0.31, max jolt 290 m/s² at 736.1,78.78,-182.1
+---- wide85:MountainLoop:moto:22:95:30:8,11
+FAIL MountainLoop moto main 22->95 at 30 m/s, +8.0 m off the centre: through, resets 0, max air 3.52s, min up 0.30, max jolt 418 m/s² at 740.3,87.80,-138.9
+FAIL MountainLoop moto main 22->95 at 30 m/s, +11.0 m off the centre: through, resets 0, max air 3.64s, min up -0.43, max jolt 283 m/s² at 739.1,87.48,-139.1
+done, failures 5
