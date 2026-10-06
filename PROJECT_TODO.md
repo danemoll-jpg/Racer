@@ -15,13 +15,22 @@
   - **Dan does:** driving every course and direction, trying every vehicle everywhere, checking that a universal fix holds everywhere, and judging look and feel. He reports through the debug ZIPs.
   - **Write-up:** the TODO results are a short list: what changed, the one check per item, decisions made, and anything Dan should look at. No separate VALIDATION.md unless a round asks. If a check would take more than a few minutes of play time, skip it and list it under "for Dan to check".
 
-## CURRENT — Scene characters (Dan, Kyle, brother), always-on track map, poster loading screen, winner's head, plain Top 10 records, two Mountain Forward fixes — 0.83.0-review1 — IMPLEMENTED, RELEASE IN PROGRESS
+## CURRENT — Scene characters (Dan, Kyle, brother), always-on track map, poster loading screen, winner's head, plain Top 10 records, two Mountain Forward fixes — 0.83.0-review1 — DELIVERED, AWAITING DAN'S REVIEW
 
 - **Authorized by Dan (2026-10-06).** Written by Claude (chat) from his review of 0.82.0-review1: debug session `2026-10-06_03-13-11-334_72b40c` (2 reports, both on 0.82.0-review1, Mountain Loop Forward, race, Night / Snow, Drifter Twin) and his written requests, quoted in each part.
 - **Starting point:** main at the "Record 0.82 delivery" commit; playable source `27a3fa98` (0.82.0-review1 / game-82000). This TODO edit and the new file `SourceArt/Poster/WoodstockRushPoster.png` are uncommitted and belong in the safety checkpoint.
 - Runs unattended: design decisions are below; do not stop to ask about design. Stop only for a real external blocker (rule 7).
 - **Scope is exactly Parts A–G below.** The Verification budget in "Mandatory standing workflow" applies in full.
 - **Publishing:** Dan has added `.claude/settings.local.json` (via Claude chat, 2026-10-06) allowing `python Tools/Publish-LauncherRelease.py` so the publish step should no longer be blocked or need him. If it is still blocked, do not wait silently: say exactly which command was refused and what rule would allow it.
+
+- **DELIVERED:**
+  - Source `da4c8d8ca239417cd5a96173b630f7fe6338a62f` pushed and verified on origin/main.
+  - Fresh 0.83.0-review1 Windows build: 0 errors, 3m00s ([build-release.txt](Docs/Report083/build-release.txt)); the 106 warnings are the existing obsolete-API compiler warnings of a full recompile and the usual mesh-collider note, none from this round's runtime code.
+  - Published [game-83000](https://github.com/danemoll-jpg/woodstock-rush-releases/releases/tag/game-83000) with `python Tools/Publish-LauncherRelease.py` (allowed by Dan's `.claude/settings.local.json`, gh from `Builds/PublisherTools` on PATH): the known draft-lookup miss after the draft was created, then `--resume-draft` uploaded the three assets and published, without needing Dan. Previous releases retained.
+  - All 234 Latest files match the public signed manifest; public download, signature, install and startup pass ([hosted/result.json](Docs/Report083/hosted/result.json)).
+- **Play-Racer.cmd (unchanged):** launched a responsive `Builds/Latest/versions/83000/Racer.exe` (0.83.0-review1), muted, settings restored byte for byte; no pending update. Latest root, current 83000 and previous 82000 retained.
+- **Cleanup:** Builds 10,121,260,414 → 7,985,672,669 bytes (2.1 GB recovered); plus the 1.7 GB hosted check install and the 58 MB check scratch outside the project. C: free 275,077,238,784 bytes.
+- **SESSION HANDOFF: STOP.** Awaiting Dan's review of 0.83 (rule 12). QUEUED NEXT (0.84) waits for Dan to start it.
 
 ### Results (2026-10-06, Claude Code)
 
