@@ -75,13 +75,13 @@ namespace Racer
                 motor.yawResponse=p.Small?11:8; motor.lateralGrip=p.Small?11:8;
                 motor.slowSteerAngle=p.Small?29:31; motor.fastSteerAngle=p.Small?9:9.5f;
                 motor.braking=p.Small?27:24;
-                float track=p.Id=="moto"?.16f:p.Id=="atv"?.6f:.9f;
+                float track=p.Motorcycle?.16f:p.Class=="ATV"?.6f:.9f;
                 float axle=p.Wheelbase*.5f;
                 motor.suspensionPoints=new[]{new Vector3(-track,0,axle),new Vector3(track,0,axle),new Vector3(-track,0,-axle),new Vector3(track,0,-axle)};
-                motor.suspensionLength=p.Small?.65f:.8f;
-                motor.uprightStrength=p.Id=="moto"?19:22;
+                motor.suspensionLength=p.Suspension>0?p.Suspension:p.Small?.65f:.8f;
+                motor.uprightStrength=p.Upright>0?p.Upright:p.Motorcycle?19:22;
                 motor.uprightDamping=p.Small?6:5;
-                motor.airStability=p.Id=="moto"?.1f:.18f;
+                motor.airStability=p.Air>0?p.Air:p.Motorcycle?.1f:.18f;
                 motor.centreOfMass=new(0,p.Small?-.28f:-.35f,0);
             }
             generated=VehicleVisual.Build(transform,p,wheels,riderLook,classicVisual);
@@ -107,7 +107,7 @@ namespace Racer
             roll += motor.ForwardSpeed * Time.deltaTime / .33f * Mathf.Rad2Deg;
             foreach(var wheel in wheels) if(wheel)
                 wheel.localRotation=Quaternion.Euler(0,wheel.localPosition.z>0?motor.VisualSteering*27:0,0)*Quaternion.Euler(roll,0,90);
-            if(generated && Profile.Id=="moto") generated.localRotation=Quaternion.Euler(0,0,-motor.VisualSteering*Mathf.Clamp(motor.ForwardSpeed,0,25)*.65f);
+            if(generated && Profile.Motorcycle) generated.localRotation=Quaternion.Euler(0,0,-motor.VisualSteering*Mathf.Clamp(motor.ForwardSpeed,0,25)*Profile.Lean);
         }
         public void BuildPreview(Transform parent)
         {

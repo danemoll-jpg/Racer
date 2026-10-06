@@ -18,7 +18,7 @@ namespace Racer
         static readonly Vector2[] Rink = { new(395.6f, -16.0f), new(399.1f, -12.5f), new(395.6f, -9.0f) };
         const string PoolName = "Rear swimming pool";
 
-        sealed class Figure { public Transform root, arm, otherArm, leftLeg, rightLeg; public Transform[] shoes; }
+        sealed class Figure { public Transform root, arm, otherArm, leftLeg, rightLeg; public Transform[] shoes; public ScenePerson person; }
         AmbientLife life; RaceDirector race;
         bool built; GameObject sledScene, hockeyScene;
         // Sled
@@ -50,6 +50,16 @@ namespace Racer
 
         // ---------- construction ----------
         Material Mat(Color c) => new(Shader.Find("Universal Render Pipeline/Lit")) { color = c, enableInstancing = true };
+        // 0.81 Part D: Dan, the friend and the brother in winter coats and knitted hats (ScenePeople). seated = also build
+        // the sled pose (the sled riders switch between sitting on the sled and standing).
+        Figure Character(Transform parent, int index, bool seated)
+        {
+            var root = new GameObject("Snow day resident").transform; root.SetParent(parent, false);
+            var person = ScenePerson.Build(root, ScenePeople.Of(index), true, "Stand", seated ? "Sled" : null);
+            if (!person) { Destroy(root.gameObject); return Person(parent, index + (seated ? 0 : 2)); }
+            var f = new Figure { root = root, person = person }; Refresh(f); return f;
+        }
+        static void Refresh(Figure f) { f.arm = f.person.Arm; f.otherArm = f.person.OtherArm; f.leftLeg = f.person.LeftLeg; f.rightLeg = f.person.RightLeg; }
         Figure Person(Transform parent, int index)
         {
             // The AmbientLife resident (Create), same proportions and materials.
@@ -105,7 +115,7 @@ namespace Racer
                 life.Part(sled, "Sled curl", PrimitiveType.Cube, new(0, .30f, .86f), new(.62f, .06f, .36f), sledPaint).localRotation = Quaternion.Euler(-55, 0, 0);
                 foreach (float side in new[] { -1f, 1f }) { life.Part(sled, "Runner", PrimitiveType.Cube, new(side * .26f, .05f, 0), new(.05f, .1f, 1.6f), rubber); life.Part(sled, "Side rail", PrimitiveType.Cube, new(side * .3f, .24f, -.05f), new(.04f, .05f, 1.2f), rubber); }
                 rope = life.Part(sledScene.transform, "Pull rope", PrimitiveType.Cylinder, Vector3.zero, new(.025f, .5f, .025f), rubber); rope.gameObject.SetActive(false);
-                riders = new[] { Person(sledScene.transform, 0), Person(sledScene.transform, 1) };
+                riders = new[] { Character(sledScene.transform, 0, true), Character(sledScene.transform, 1, true) };
                 Lod(sled); foreach (var r in riders) Lod(r.root);
                 sledScene.SetActive(false);
             }
@@ -119,10 +129,13 @@ namespace Racer
                 for (int i = 0; i < 3; i++)
                 {
                     homes[i] = new Vector3(Rink[i].x, ice, Rink[i].y);
-                    var f = players[i] = Person(hockeyScene.transform, i + 2); f.root.position = homes[i];
-                    // Broom in the gesture hand: handle down along the arm, straw head at the ice.
-                    life.Part(f.arm, "Broom handle", PrimitiveType.Cylinder, new(0, -.93f, .03f), new(.04f, .55f, .04f), broomStraw);
-                    var head = life.Part(f.arm, "Broom head", PrimitiveType.Cube, new(0, -1.5f, .03f), new(.34f, .13f, .1f), broomStraw); head.localRotation = Quaternion.Euler(0, 90, 0);
+                    var f = players[i] = Character(hockeyScene.transform, i, false); f.root.position = homes[i];
+                    // Broom in the gesture hand: handle down from the hand, straw head at the ice.
+                    var holdAt = f.person ? f.person.Hand : f.arm; var grip = f.person ? f.person.Grip(0) : f.arm.TransformPoint(new Vector3(0, -.39f, .01f));
+                    var handle = life.Part(holdAt, "Broom handle", PrimitiveType.Cylinder, Vector3.zero, Vector3.one, broomStraw);
+                    handle.SetPositionAndRotation(grip + Vector3.down * .5f + f.root.forward * .05f, f.root.rotation); handle.localScale = new Vector3(.04f, .55f, .04f);
+                    var head = life.Part(holdAt, "Broom head", PrimitiveType.Cube, Vector3.zero, Vector3.one, broomStraw);
+                    head.SetPositionAndRotation(grip + Vector3.down * 1.07f + f.root.forward * .05f, f.root.rotation * Quaternion.Euler(0, 90, 0)); head.localScale = new Vector3(.34f, .13f, .1f);
                     Lod(f.root);
                 }
                 ball = life.Part(hockeyScene.transform, "Hockey ball", PrimitiveType.Sphere, homes[0] + Vector3.up * .08f, Vector3.one * .16f, ballPaint);
@@ -163,9 +176,9 @@ namespace Racer
                 if (seated)
                 {
                     // Seated one behind the other, legs forward; the rear rider holds the front rider's shoulders.
-                    var seat = sled.TransformPoint(new Vector3(0, .19f, i == 0 ? .28f : -.38f));
-                    r.root.SetPositionAndRotation(seat - sled.up * .66f, sled.rotation);
-                    Legs(r, true, i == 0 ? .12f : .23f); r.arm.localRotation = Quaternion.Euler(i == 0 ? -55 : -80, 0, 0); r.otherArm.localRotation = Quaternion.Euler(i == 0 ? -55 : -80, 0, 0);
+                    var seat = sled.TransformPoint(new Vector3(0, .19f, r.person ? (i == 0 ? .22f : -.52f) : (i == 0 ? .28f : -.38f)));
+                    r.root.SetPositionAndRotation(seat - sled.up * (r.person ? .17f : .66f), sled.rotation);
+                    Legs(r, true, i == 0 ? .12f : .23f); float reach = r.person ? (i == 0 ? 0 : -30) : (i == 0 ? -55 : -80); r.arm.localRotation = Quaternion.Euler(reach, 0, 0); r.otherArm.localRotation = Quaternion.Euler(reach, 0, 0);
                 }
                 else
                 {
@@ -185,12 +198,13 @@ namespace Racer
             }
             if (pulling)
             {
-                var hand = riders[0].arm.TransformPoint(new Vector3(0, -.39f, .01f)); var hook = sled.TransformPoint(new Vector3(0, .3f, .95f));
+                var hand = riders[0].person ? riders[0].person.Grip(0) : riders[0].arm.TransformPoint(new Vector3(0, -.39f, .01f)); var hook = sled.TransformPoint(new Vector3(0, .3f, .95f));
                 rope.position = (hand + hook) * .5f; rope.up = (hand - hook).normalized; rope.localScale = new Vector3(.025f, Vector3.Distance(hand, hook) * .5f, .025f);
             }
         }
         static void Legs(Figure r, bool seated, float spread)
         {
+            if (r.person) { r.person.Use(seated ? 1 : 0); Refresh(r); return; }
             // Seated: legs forward along the sled at hip height (the rear rider's either side of the front rider).
             // Standing: the AmbientLife pose.
             r.leftLeg.localPosition = seated ? new Vector3(-spread, .70f, .34f) : new Vector3(-.12f, .45f, 0); r.rightLeg.localPosition = seated ? new Vector3(spread, .70f, .34f) : new Vector3(.12f, .45f, 0);

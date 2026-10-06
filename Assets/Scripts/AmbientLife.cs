@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 namespace Racer
 {
@@ -21,7 +22,7 @@ namespace Racer
             int at=Array.IndexOf(args,"-lifeSeed");if(at>=0&&at+1<args.Length)int.TryParse(args[at+1],out ForcedSeed);
             DriverVariation.Disabled=Array.IndexOf(args,"-errorsDisabled")>=0;
         }
-        sealed class Person {public Transform root, arm, otherArm, leftLeg, rightLeg, prop, smoke; public Vector3 home; public float phase;public int action;public bool selected;}
+        sealed class Person {public Transform root, arm, otherArm, leftLeg, rightLeg, prop, smoke; public Vector3 home; public float phase;public int action;public bool selected;public ScenePerson figure;}
         readonly List<Person> people=new();
         Transform ball; Transform[] bats, leftWings,rightWings; Vector3[] flightStarts;
         internal Material skin, hair, trousers, propMat, batMat; internal Material[] shirts;
@@ -73,6 +74,9 @@ namespace Racer
         }
         void Create(Vector3 at,int action,float scale)
         {
+            // 0.81 Part D: the scripted household vignettes (football, coffee, the two at Kyle's) are Dan, the friend and
+            // the brother (ScenePeople); the other ambient residents keep their figures.
+            if(action<=2&&CreateCharacter(at,action))return;
             var p=new Person{root=new GameObject("Ambient resident").transform,home=at,action=action,phase=people.Count*1.713f};p.root.SetParent(transform);p.root.position=at;p.root.localScale=new Vector3(scale*(.92f+people.Count%3*.08f),scale*(.96f+people.Count%3*.04f),scale);
             var shirt=shirts[people.Count%shirts.Length];
             Part(p.root,"Torso",PrimitiveType.Capsule,new(0,1.13f,0),new(.42f,.34f,.28f),shirt);
@@ -89,6 +93,19 @@ namespace Racer
             if(action==2){p.prop=Part(p.arm,"Cigarette",PrimitiveType.Cylinder,new(0,-.4f,.10f),new(.022f,.07f,.022f),propMat);p.prop.localRotation=Quaternion.Euler(90,0,0);p.smoke=Part(p.root,"Restrained smoke",PrimitiveType.Sphere,new(.15f,1.8f,.3f),Vector3.one*.04f,propMat);}
             var lod=p.root.gameObject.AddComponent<LODGroup>();lod.SetLODs(new[]{new LOD(.004f,p.root.GetComponentsInChildren<Renderer>())});lod.RecalculateBounds();
             people.Add(p);
+        }
+        bool CreateCharacter(Vector3 at,int action)
+        {
+            int k=people.Count(x=>x.action==action);
+            var p=new Person{root=new GameObject("Ambient resident").transform,home=at,action=action,phase=people.Count*1.713f};p.root.SetParent(transform);p.root.position=at;
+            var figure=ScenePerson.Build(p.root,ScenePeople.Of(k),false,"Stand");
+            if(!figure){Destroy(p.root.gameObject);return false;}
+            p.figure=figure;p.arm=figure.Arm;p.otherArm=figure.OtherArm;p.leftLeg=figure.LeftLeg;p.rightLeg=figure.RightLeg;
+            var hand=figure.Hand;var grip=figure.Grip(0);var up=p.root.up;var fwd=p.root.forward;
+            if(action==1){p.prop=Part(hand,"Coffee mug",PrimitiveType.Cylinder,Vector3.zero,Vector3.one,propMat);p.prop.SetPositionAndRotation(grip+fwd*.04f,p.root.rotation);p.prop.localScale=new Vector3(.09f,.055f,.09f);Part(p.prop,"Handle",PrimitiveType.Cube,new(.65f,0,0),new(.4f,.65f,.3f),propMat);}
+            if(action==2){p.prop=Part(hand,"Cigarette",PrimitiveType.Cylinder,Vector3.zero,Vector3.one,propMat);p.prop.SetPositionAndRotation(grip+fwd*.05f,p.root.rotation*Quaternion.Euler(90,0,0));p.prop.localScale=new Vector3(.012f,.04f,.012f);p.smoke=Part(p.root,"Restrained smoke",PrimitiveType.Sphere,new(.15f,1.8f,.3f),Vector3.one*.04f,propMat);}
+            var lod=p.root.gameObject.AddComponent<LODGroup>();lod.SetLODs(new[]{new LOD(.004f,p.root.GetComponentsInChildren<Renderer>(true))});lod.RecalculateBounds();
+            people.Add(p);return true;
         }
         public void SelectScenes()
         {
@@ -142,7 +159,12 @@ namespace Racer
                 float t=Time.time+p.phase;float gesture=.5f+.5f*Mathf.Sin(t*.9f);
                 int personIndex=people.IndexOf(p);var face=p.action==0?football[(personIndex+1)%3]:p.action==1?coffee[(personIndex-3+1)%2]:p.action==2?smoking[(personIndex-5+1)%2]:p.home+Vector3.forward;
                 p.root.rotation=Quaternion.Euler(0,Mathf.Atan2(face.x-p.home.x,face.z-p.home.z)*Mathf.Rad2Deg+Mathf.Sin(t*.6f)*9,0);
-                p.arm.localRotation=Quaternion.Euler(p.action==0?-75-25*Mathf.Sin(t*1.6f):p.action==1||p.action==2?-20-115*Mathf.Pow(gesture,5):Mathf.Sin(t*2)*18,0,0);
+                if(p.figure&&(p.action==1||p.action==2))
+                {
+                    // 0.81: the cup / cigarette comes up to the mouth with a bent elbow (same timing as before)
+                    float lift=Mathf.Pow(gesture,5);p.arm.localRotation=Quaternion.Euler(-12-38*lift,0,-6*lift);p.figure.SetElbow(0,25+105*lift);
+                }
+                else p.arm.localRotation=Quaternion.Euler(p.action==0?-75-25*Mathf.Sin(t*1.6f):p.action==1||p.action==2?-20-115*Mathf.Pow(gesture,5):Mathf.Sin(t*2)*18,0,0);
                 if(p.action==0){int thrower=Mathf.FloorToInt(Time.time/2.6f)%3;float moment=Mathf.Repeat(Time.time/2.6f,1);bool catchNext=personIndex==(thrower+1)%3;p.arm.localRotation=Quaternion.Euler(personIndex==thrower?-70-65*Mathf.Sin(Mathf.Clamp01(moment/.35f)*Mathf.PI):catchNext?-70-30*Mathf.Sin(moment*Mathf.PI):-15,0,0);p.otherArm.localRotation=Quaternion.Euler(catchNext?-60:0,0,0);}
                 if(p.action>=3 && personIndex%3==0){float walk=Mathf.Sin(t*.28f);var point=p.home+Vector3.forward*walk*.7f;if(Physics.Raycast(point+Vector3.up*2,Vector3.down,out var ground,4,1,QueryTriggerInteraction.Ignore))point.y=ground.point.y+.025f;p.root.position=point;p.root.rotation=Quaternion.Euler(0,Mathf.Cos(t*.28f)>0?0:180,0);p.leftLeg.localRotation=Quaternion.Euler(Mathf.Sin(t*2)*12,0,0);p.rightLeg.localRotation=Quaternion.Euler(-Mathf.Sin(t*2)*12,0,0);}
                 if(p.smoke){float puff=Mathf.Repeat(t,6)/6;p.smoke.localPosition=new(.15f,1.65f+puff*.8f,.3f);p.smoke.localScale=Vector3.one*(.06f+.16f*Mathf.Sin(puff*Mathf.PI));p.smoke.gameObject.SetActive(gesture>.65f);}

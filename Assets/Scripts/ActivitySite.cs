@@ -15,7 +15,7 @@ namespace Racer
         public BreakableProp[] props;
         public float Seconds=45;
         public float[] vehicleBronze,vehicleSilver,vehicleGold;
-        public void Targets(string vehicle,out float b,out float s,out float g){int i=System.Array.FindIndex(VehicleProfile.All,p=>p.Id==vehicle);b=vehicleBronze?.Length==4?vehicleBronze[i]:bronze;s=vehicleSilver?.Length==4?vehicleSilver[i]:silver;g=vehicleGold?.Length==4?vehicleGold[i]:gold;}
+        public void Targets(string vehicle,out float b,out float s,out float g){var profile=VehicleProfile.Find(vehicle);int i=VehicleProfile.IndexOf(profile.Base??profile.Id);b=vehicleBronze?.Length==4?vehicleBronze[i]:bronze;s=vehicleSilver?.Length==4?vehicleSilver[i]:silver;g=vehicleGold?.Length==4?vehicleGold[i]:gold;}
         public int Medal(float value,string vehicle){Targets(vehicle,out float b,out float s,out float g);return value>=g?3:value>=s?2:value>=b?1:0;}
     }
 }

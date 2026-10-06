@@ -11,8 +11,64 @@ namespace Racer {
 // 0.81 targeted checks, added to the 0.80 runner (same muted isolated save, same helpers): PROBE_CASES="case:args;...".
 public sealed partial class Report080Checks {
  partial void More(string[] a,ref IEnumerator run){
-  run=a[0] switch{"edge"=>Edge(a[1]),"overlap"=>Overlap(a[1],a[2]),"wall"=>Wall(a[1],a[2],a[3]),_=>null};}
+  run=a[0] switch{"edge"=>Edge(a[1]),"overlap"=>Overlap(a[1],a[2]),"wall"=>Wall(a[1],a[2],a[3]),"vehicle"=>VehicleCheck(a[1]),"garage"=>GarageCheck(),"traffic"=>TrafficCheck(a[1]),"people"=>PeopleCheck(),_=>null};}
 
+ // Part A/B: one new vehicle on one road (Free Roam from Street Loop): wheels on the ground, rider seated, headlights at
+ // night, fist wave; a day and a night shot. vehicle:id
+ IEnumerator VehicleCheck(string id){yield return EnterRoam("StreetLoopGreybox",id);yield return new WaitForSeconds(1.5f);
+  var car=race.vehicle;var cfg=car.GetComponent<VehicleConfiguration>();var visual=car.transform.Find("Vehicle visual");
+  var rider=visual?visual.GetComponentsInChildren<Transform>(true).FirstOrDefault(t=>t.name=="Rider"):null;int riderParts=rider?rider.GetComponentsInChildren<Renderer>().Length:0;
+  var model=visual?visual.GetComponentsInChildren<Transform>(true).FirstOrDefault(t=>t.name.EndsWith(" model")):null;
+  float worstGap=0;foreach(var r in visual.GetComponentsInChildren<Renderer>().Where(r=>r.name.StartsWith("Wheel"))){var b=r.bounds;if(Physics.Raycast(b.center+Vector3.up*2,Vector3.down,out var gh,6,~0,QueryTriggerInteraction.Ignore)&&!gh.collider.attachedRigidbody)worstGap=Mathf.Max(worstGap,Mathf.Abs(b.min.y-gh.point.y));}
+  Check(cfg.profileId==id&&model&&riderParts>0&&car.GroundedWheels>=2&&worstGap<(cfg.Profile.Small?.12f:.45f),$"{id} ({cfg.Profile.Name}, {cfg.Profile.Class}): model {(model?model.name:"MISSING")}, rider parts {riderParts}, grounded wheels {car.GroundedWheels}, wheel bottom to ground {worstGap:F3} m, box {V(car.GetComponent<BoxCollider>().size)}");
+  var g=car.GetComponent<RiderGestures>();int w0=g.Waves;bool waved=g.Wave();yield return new WaitForSeconds(.6f);float weight=g.Weight;
+  yield return Late(()=>Shot($"vehicle-{id}-wave"));
+  Check(waved&&g.Waves==w0+1&&weight>.5f,$"{id} fist wave: started {waved}, weight at 0.6 s {weight:F2}");
+  yield return new WaitForSeconds(2.5f);
+  var cam=Camera.main;var chase=FindAnyObjectByType<ChaseCamera>();if(chase)chase.enabled=false;var cv=CameraViews.Current;if(cv)cv.enabled=false;
+  foreach(var light in new[]{"day","night"}){WorldLook.Current?.Pin(LookPresets.Compose(light=="night"?TimeOfDay.Night:TimeOfDay.Day,Weather.Clear));yield return new WaitForSeconds(1.2f);
+   var t=car.transform;var eye=t.position+t.right*3.6f+t.forward*3.8f+Vector3.up*1.4f;yield return Late(()=>{cam.transform.position=eye;cam.transform.LookAt(t.position+Vector3.up*.5f);Shot($"vehicle-{id}-{light}");});
+   if(light=="day"){var top=t.position+Vector3.up*6.5f-t.forward*1.5f;yield return Late(()=>{cam.transform.position=top;cam.transform.LookAt(t.position);Shot($"vehicle-{id}-above");});}
+   if(light=="night"){var lamp=car.GetComponentsInChildren<Light>().FirstOrDefault(l=>l.name=="Headlight");Check(lamp&&lamp.enabled&&VehicleLights.Level>.5f,$"{id} night: headlight {(lamp&&lamp.enabled?"on":"off")}, lamp level {VehicleLights.Level:F2}");}}
+  WorldLook.Current?.Pin(LookPresets.Compose(TimeOfDay.Day,Weather.Clear));if(chase)chase.enabled=true;if(cv)cv.enabled=true;}
+ // Garage: every vehicle in the garage list with the rotating preview (one shot each). garage
+ IEnumerator GarageCheck(){yield return Load("StreetLoopGreybox");yield return Menu();flow.OpenGarage();yield return new WaitForSecondsRealtime(.5f);
+  var names=new List<string>();foreach(var p in race.EligibleVehicles){flow.SelectVehicle(p.Id);yield return new WaitForSecondsRealtime(.6f);names.Add(p.Name);var id=p.Id;yield return Late(()=>Shot($"garage-{id}"));}
+  Check(names.Count==VehicleProfile.All.Length,$"garage lists {names.Count} vehicles: {string.Join(", ",names)}");flow.SelectVehicle("original");flow.CloseGarage();}
+ // Part C: Street Loop with traffic, a view of one traffic car of each body by day or night. traffic:day|night
+ IEnumerator TrafficCheck(string light){yield return Load("StreetLoopGreybox");yield return Menu();
+  race.opponents=false;race.traffic=true;race.laps=1;flow.StartRace();float tr=Time.realtimeSinceStartup;while(flow.State!=RaceFlow.Stage.Racing&&Time.realtimeSinceStartup-tr<30){AudioListener.volume=0;yield return null;}
+  yield return new WaitForSeconds(4);WorldLook.Current?.Pin(LookPresets.Compose(light=="night"?TimeOfDay.Night:TimeOfDay.Day,Weather.Clear));yield return new WaitForSeconds(1.5f);
+  var cars=FindObjectsByType<AmbientVehicle>(FindObjectsSortMode.None);var kinds=cars.GroupBy(c=>AmbientVehicle.BodyNames[c.BodyType]).Select(g=>g.Key+" "+g.Count());
+  int modern=cars.Count(c=>c.GetComponentsInChildren<Transform>().Any(t=>t.name.StartsWith("Traffic")&&t.name.EndsWith(" model")));
+  Check(cars.Length>0&&modern==cars.Length,$"traffic ({light}): {cars.Length} cars [{string.Join(", ",kinds)}], Blender kit shown on {modern}");
+  var cam=Camera.main;var chase=FindAnyObjectByType<ChaseCamera>();if(chase)chase.enabled=false;var cv=CameraViews.Current;if(cv)cv.enabled=false;
+  int k=0;foreach(var c in cars.GroupBy(c=>c.BodyType).Select(g=>g.First()).ToArray()){var t=c.transform;var eye=t.position+t.right*4.5f+t.forward*5f+Vector3.up*1.8f;int n=k++;string kind=AmbientVehicle.BodyNames[c.BodyType].Replace(' ','_').Replace('/','_');yield return Late(()=>{cam.transform.position=eye;cam.transform.LookAt(t.position);Shot($"traffic-{light}-{n}-{kind}");});}
+  if(chase)chase.enabled=true;if(cv)cv.enabled=true;yield return Menu();}
+ // the player's vehicle parked (kinematic) on the ground near a scene, so the scene animates (it runs near the player)
+ void Park(Vector3 at){var car=race.vehicle;if(Physics.Raycast(at+Vector3.up*60,Vector3.down,out var gh,200,~0,QueryTriggerInteraction.Ignore))at=gh.point+Vector3.up*.8f;car.Body.isKinematic=true;car.transform.position=at;car.Body.position=at;Physics.SyncTransforms();}
+ // Part D: each scripted scene forced, one shot close enough to see the people. people
+ IEnumerator PeopleCheck(){yield return EnterRoam("StreetLoopGreybox","moto");yield return new WaitForSeconds(1);
+  var life=FindAnyObjectByType<AmbientLife>();var cam=Camera.main;var chase=FindAnyObjectByType<ChaseCamera>();if(chase)chase.enabled=false;var cv=CameraViews.Current;if(cv)cv.enabled=false;
+  WorldLook.Current?.Pin(LookPresets.Compose(TimeOfDay.Day,Weather.Clear));
+  Vector3 Mid(Vector3[] a)=>a.Aggregate(Vector3.zero,(x,y)=>x+y)/a.Length;
+  foreach(var (want,name,spots) in new[]{(0,"football",life.football),(1,"coffee",life.coffee),(2,"kyle",life.smoking)}){
+   for(int seed=1;seed<200;seed++){AmbientLife.ForcedSeed=seed;life.SelectScenes();if(want<2?life.DanScene==want:life.FriendScene)break;}
+   var c=Mid(spots)+Vector3.up*1.2f;var people=FindObjectsByType<ScenePerson>(FindObjectsSortMode.None).Where(p=>p.isActiveAndEnabled&&(p.transform.position-c).magnitude<15).ToArray();
+   Check(people.Length==spots.Length,$"{name}: {people.Length} characters ({string.Join(", ",people.Select(p=>p.Who.Name))}) at {V(c)}");
+   var dir=spots.Length>1?Vector3.Cross(Vector3.up,(spots[1]-spots[0]).normalized):Vector3.forward;if(name=="kyle")dir=-dir;var from=c+dir*(name=="football"?9f:5.5f)+Vector3.up*1.6f;
+   Park(c+dir*14);
+   yield return new WaitForSeconds(1.5f);yield return Late(()=>{cam.transform.position=from;cam.transform.LookAt(c);Shot("people-"+name);});}
+  AmbientLife.ForcedSeed=0;
+  var camp=FindObjectsByType<Transform>(FindObjectsSortMode.None).FirstOrDefault(t=>t.name=="Permanent mountainside camp / two seated guys");
+  if(camp){var sp=camp.GetComponentsInChildren<ScenePerson>();Check(sp.Length==2,$"camp: {sp.Length} characters ({string.Join(", ",sp.Select(p=>p.Who.Name))})");
+   var cc=camp.position+Vector3.up*1;var from=camp.position+camp.forward*5.5f+Vector3.up*2.2f;yield return new WaitForSeconds(.5f);yield return Late(()=>{cam.transform.position=from;cam.transform.LookAt(cc);Shot("people-camp");});}
+  WorldLook.Current?.Pin(LookPresets.Compose(TimeOfDay.Day,Weather.Snow));yield return new WaitForSeconds(2);
+  var snow=FindAnyObjectByType<SnowScenes>();
+  if(snow){Park(snow.SledPosition+new Vector3(14,0,0));yield return new WaitForSeconds(1);Check(snow.SledActive&&snow.HockeyActive,$"snow scenes: sled {snow.SledActive}, hockey {snow.HockeyActive}");
+   for(int i=0;i<3;i++){var sp=snow.SledPosition;int n=i;yield return Late(()=>{cam.transform.position=sp+new Vector3(4,2,1.5f);cam.transform.LookAt(sp+Vector3.up*.8f);Shot("people-sled-"+n);});yield return new WaitForSeconds(3.5f);}
+   Park(snow.BallPosition+new Vector3(-14,0,0));yield return new WaitForSeconds(2.5f);var bp=snow.BallPosition;yield return Late(()=>{cam.transform.position=bp+new Vector3(-6,3,0);cam.transform.LookAt(bp+Vector3.up*.9f);Shot("people-hockey");});}
+  WorldLook.Current?.Pin(LookPresets.Compose(TimeOfDay.Day,Weather.Clear));if(chase)chase.enabled=true;if(cv)cv.enabled=true;}
  // BUG-002: ride straight at the world's edge: wall:Scene:profile:x,z,yaw,speed. Full throttle for 8 s from the ground at
  // (x, z) heading yaw; pass = never below the ground's lowest point - 15 m (no fall reset), ends within 60 m of the start.
  IEnumerator Wall(string scene,string profile,string spec){

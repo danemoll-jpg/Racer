@@ -224,14 +224,20 @@ namespace Racer
                 title.text=profile.Name + " / " + profile.Class;
                 details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=80;
                 details.fontSize=18;
-                details.text=$"{profile.Description}\n{(flow.Race.CarsRestricted?flow.Race.courseName+": motorcycles / ATVs only (player and AI).":flow.Race.courseName+": all four profiles available.")}\nBody color: choose a swatch below.";
+                details.text=$"{profile.Description}\n{(flow.Race.CarsRestricted?flow.Race.courseName+": motorcycles / ATVs only (player and AI).":flow.Race.courseName+": every vehicle available.")}\nBody color: choose a swatch below.";
                 if(previewRoot) { previewRoot.SetActive(false); Destroy(previewRoot); }
                 previewRoot=new GameObject("Garage display model"); previewRoot.layer=31; previewRoot.transform.position=new(10000,10000,10000); previewRoot.transform.rotation=Quaternion.Euler(0,-30,0);
                 flow.Race.vehicle.GetComponent<VehicleConfiguration>().BuildPreview(previewRoot.transform);
                 FramePreview(profile);
                 if(page!="rider")
                 {
-                    for(int i=0;i<flow.Race.EligibleVehicles.Length;i++) { var choice=flow.Race.EligibleVehicles[i]; Action(i,(profile.Id==choice.Id?"✓ ":"")+choice.Name,()=>flow.SelectVehicle(choice.Id)); }
+                    // 0.81: ten vehicles - one row steps through them (left / right, or select for the next), with the class shown;
+                    // the title and description above name the one in the preview.
+                    var eligible=flow.Race.EligibleVehicles;int at=System.Array.FindIndex(eligible,v=>v.Id==profile.Id);
+                    void StepVehicle(int d){if(eligible.Length==0)return;flow.SelectVehicle(eligible[((at<0?0:at)+d+eligible.Length)%eligible.Length].Id);}
+                    adjustments.Clear();
+                    Action(0,$"‹   Vehicle: {profile.Name}  ({profile.Class}, {at+1} of {eligible.Length})   ›",()=>StepVehicle(1));adjustments[0]=StepVehicle;
+                    for(int k=1;k<4&&k<buttons.Count;k++)buttons[k].gameObject.SetActive(false);
                     Action(4,"Done / ready",flow.CloseGarage);
                     Action(5,"Model: "+flow.ModelLabel+"   (Classic / New)",flow.ToggleModel);
                     Action(6,"Rider…",()=>Navigate("rider"));

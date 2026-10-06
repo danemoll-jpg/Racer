@@ -1,0 +1,11 @@
+---- carrace:MountainLoopReverse:moto:atv,scrambler,drifter:2
+PASS MountainLoopReverse player moto vs atv/scrambler/drifter: PLAYER moto: 01:43.960 missed 0 resets 0 longest stall 1s shortcuts [Summit Traverse]; EMBER atv: 01:53.190 missed 0 resets 1 longest stall 7s shortcuts [Summit Traverse]; GOLD scrambler: 01:42.718 missed 0 resets 0 longest stall 1s shortcuts [Summit Traverse]; BLUE drifter: 02:07.246 missed 0 resets 1 longest stall 4s shortcuts []
+---- carrace:StreetLoopGreybox:roadster:pebble,skyfin,fastback:2
+PASS StreetLoopGreybox player roadster vs pebble/skyfin/fastback: PLAYER roadster: 02:20.293 missed 0 resets 0 longest stall 1s shortcuts [Creek Leap, Fox Gully, Pine Ridge, Existing Southwest Cut]; EMBER pebble: 02:23.109 missed 0 resets 0 longest stall 1s shortcuts [Creek Leap, Fox Gully, Pine Ridge, Existing Southwest Cut]; GOLD skyfin: 02:24.740 missed 0 resets 0 longest stall 1s shortcuts [Creek Leap, Fox Gully, Pine Ridge, Existing Southwest Cut]; BLUE fastback: 02:16.834 missed 0 resets 0 longest stall 1s shortcuts [Creek Leap, Fox Gully, Pine Ridge, Existing Southwest Cut]
+---- people
+PASS football: 3 characters (Dan, the brother, the friend) at 449.8,84.52,-12.2
+PASS coffee: 2 characters (Dan, the friend) at 463.9,85.05,-13.6
+PASS kyle: 2 characters (the friend, Dan) at 486.5,85.57,-18.8
+PASS camp: 2 characters (Dan, the friend)
+PASS snow scenes: sled True, hockey True
+done, failures 0

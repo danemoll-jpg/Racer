@@ -77,7 +77,7 @@ namespace Racer
         public int Add(string id,string category,bool race,double seconds,string vehicle,string date=null,bool legacy=false)
         {
             if(readFailed||string.IsNullOrEmpty(id)||!Valid(seconds))return 0;
-            if((category.StartsWith("lake-v2-forest-")||category.StartsWith("lake-v3-shallows-")||category.StartsWith("forest-reverse-v1-")||category.StartsWith("lake-v4-arcade-")||category.StartsWith("forest-reverse-v2-arcade-"))&&(!VehicleProfile.Find(vehicle).Small||category.Split('-').Any(p=>p=="original"||p=="tourer")))return 0;
+            if((category.StartsWith("lake-v2-forest-")||category.StartsWith("lake-v3-shallows-")||category.StartsWith("forest-reverse-v1-")||category.StartsWith("lake-v4-arcade-")||category.StartsWith("forest-reverse-v2-arcade-"))&&(!VehicleProfile.Find(vehicle).Small||category.Split('-').Any(p=>VehicleProfile.All.Any(v=>v.Id==p&&!v.Small))))return 0;
             string legacyFile="records-"+category+".json";
             if(!race)category=LapCategory(category);
             if(data.received.Contains(id))return 0;

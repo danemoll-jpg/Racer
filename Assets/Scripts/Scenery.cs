@@ -51,7 +51,7 @@ namespace Racer
         void Start()
         {
             SceneryTrees.ClearFreeRoamTrunks(gameObject.scene); RoadPosts.Clear(gameObject.scene); RoadPosts.RetireNameBoards(gameObject.scene); MountainDirt.Apply(gameObject.scene); // 0.80: before the new kit is fitted
-            Signs = StreetSigns.Attach(gameObject); Paint = JunctionPaint.Attach(gameObject); WorldEdge.Attach(gameObject); Apply();
+            Signs = StreetSigns.Attach(gameObject); Paint = JunctionPaint.Attach(gameObject); WorldEdge.Attach(gameObject); ScenePeople.DressCamp(gameObject.scene); Apply();
         }
 
         void Build()

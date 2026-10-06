@@ -17,7 +17,7 @@ L = dict(body='Man', hair='Short', hat='FlatCap', shirt='Tee', pants='Jeans')
 with bpy.data.libraries.load(os.path.join(kit.ROOT, 'SourceArt', 'Blender', 'Rider.blend')) as (src, dst):
     dst.objects = [n for n in src.objects if n.startswith(pose + '_')]
 for ob in dst.objects:
-    head, slot = ob.name.split('__'); p, cat, opt, body = head.split('_')
+    head, slot = ob.name.split('__'); p, cat, opt, body = head.split('_')[:4]
     on = (body in ('Any', L['body'])) and (cat == 'Base' or (cat == 'Shirt' and opt == L['shirt']) or (cat == 'Pants' and opt == L['pants'])
                                             or (cat == 'Hair' and opt == L['hair']) or (cat == 'Hat' and opt == L['hat']))
     if on:

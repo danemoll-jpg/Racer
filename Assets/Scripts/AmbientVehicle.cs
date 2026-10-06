@@ -18,6 +18,11 @@ namespace Racer
         static int previous=-1,previous2=-2,lastPaint=-1;
         readonly Transform[] bodies=new Transform[4];
         readonly List<Renderer>[] painted={new(),new(),new(),new()};
+        // 0.81 Part C: the Blender traffic kit (sedan, wagon, pickup, van; Tools/Blender/traffic.py) shown with Model: New,
+        // the classic bodies with Model: Classic. Same body types, colours, collider sizes and behaviour; visuals only.
+        static readonly string[] Models={"TrafficSedan","TrafficWagon","TrafficPickup","TrafficVan"};
+        readonly Transform[] modern=new Transform[4];
+        readonly List<Renderer>[] modernPainted={new(),new(),new(),new()};
         readonly List<Transform> wheels=new();
         MaterialPropertyBlock block;
         float roll;
@@ -61,6 +66,7 @@ namespace Racer
                 foreach(float x in new[]{-.92f,.92f})foreach(float z in new[]{-1.35f,1.35f})
                 {var wheel=Part(i,"Wheel",new(x,-.22f,z),new(.66f,.12f,.66f),rubber,PrimitiveType.Cylinder);wheel.localRotation=Quaternion.Euler(0,0,90);wheels.Add(wheel);}
             }
+            for(int i=0;i<4;i++){modern[i]=VehicleVisual.TrafficModel(transform,Models[i],wheels,modernPainted[i],paint);if(modern[i])modern[i].gameObject.SetActive(false);}
             Select();
         }
         Transform Part(int body,string name,Vector3 p,Vector3 size,Material material,PrimitiveType primitive=PrimitiveType.Cube)
@@ -78,8 +84,9 @@ namespace Racer
             if(previous==previous2&&deck[at]==previous){int other=deck.FindIndex(b=>b!=previous);if(other>=0)at=other;}
             BodyType=deck[at];deck.RemoveAt(at);previous2=previous;previous=BodyType;
             PaintIndex=random.Next(Paints.Length-1);if(PaintIndex>=lastPaint&&lastPaint>=0)PaintIndex++;lastPaint=PaintIndex;
-            for(int i=0;i<bodies.Length;i++)bodies[i].gameObject.SetActive(i==BodyType);
-            block.SetColor("_BaseColor",Paints[PaintIndex]);foreach(var r in painted[BodyType])r.SetPropertyBlock(block);
+            bool kit=VehicleVisual.NewModels&&modern[BodyType];
+            for(int i=0;i<bodies.Length;i++){bodies[i].gameObject.SetActive(!kit&&i==BodyType);if(modern[i])modern[i].gameObject.SetActive(kit&&i==BodyType);}
+            block.SetColor("_BaseColor",Paints[PaintIndex]);foreach(var r in kit?modernPainted[BodyType]:painted[BodyType])r.SetPropertyBlock(block);
             var box=GetComponent<BoxCollider>();
             if(box){float height=BodyType==3?1.72f:BodyType==2?1.32f:1.28f;box.size=new(2.08f,height,4.3f);box.center=new(0,(height-.55f)*.5f,0);motor.Body.ResetInertiaTensor();}
             AppearanceRevision++;

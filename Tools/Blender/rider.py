@@ -36,6 +36,20 @@ POSES = {
     # Cars (relative to the seat point H): leaning back a little, hands at ten to two, feet on the pedals.
     'Car': dict(hip=(0, 0, 0), S=(0, .50, -.10), head=(0, .74, -.045), elbow=(.25, .30, .13), hand=(.147, .437, .396),
                 hipj=(.10, -.01, .02), knee=(.14, .12, .44), ankle=(.13, -.22, .62), foot=(0, .34, .94), grip=(.5, .1, .86)),
+    # 0.81 Part B: the dirt bike (tall seat, upright, high wide bars) and the cruiser (low seat, leaning back a little,
+    # wide pulled-back bars, feet forward on forward controls), in their own vehicle spaces (Tools/Blender/bikes.py).
+    'Dirt': dict(hip=(0, .70, -.25), S=(0, 1.18, -.19), head=(0, 1.43, -.13), elbow=(.33, 1.00, .09), hand=(.42, .905, .35),
+                 hipj=(.10, .69, -.22), knee=(.22, .55, .18), ankle=(.21, .17, .02), foot=(0, 0, 1), grip=(1, 0, 0)),
+    'Cruiser': dict(hip=(0, .42, -.35), S=(0, .90, -.43), head=(0, 1.14, -.38), elbow=(.31, .73, -.13), hand=(.43, .76, .17),
+                    hipj=(.11, .41, -.32), knee=(.20, .50, .08), ankle=(.24, .17, .32), foot=(0, 0, 1), grip=(1, 0, 0)),
+    # 0.81 Part D: the people in the scripted scenes (ground at y = 0, facing +z): standing (arms at the sides; legs=True
+    # exports each leg as one part turning about its hip, for walking), seated on a log by the fire, seated on a sled.
+    'Stand': dict(hip=(0, .925, 0), S=(0, 1.425, -.01), head=(0, 1.67, .02), elbow=(.235, 1.115, -.005), hand=(.24, .80, .06),
+                  hipj=(.10, .915, 0), knee=(.105, .475, .03), ankle=(.11, .09, -.01), foot=(0, 0, 1), grip=(1, 0, 0), legs=True),
+    'Sit': dict(hip=(0, .64, 0), S=(0, 1.13, -.04), head=(0, 1.37, 0), elbow=(.22, .86, .15), hand=(.17, .62, .37),
+                hipj=(.10, .61, .02), knee=(.13, .48, .44), ankle=(.13, .09, .47), foot=(0, 0, 1), grip=(1, 0, 0)),
+    'Sled': dict(hip=(0, .30, 0), S=(0, .79, -.06), head=(0, 1.03, -.02), elbow=(.24, .58, .18), hand=(.20, .50, .45),
+                 hipj=(.10, .29, .02), knee=(.13, .42, .40), ankle=(.13, .17, .70), foot=(0, .25, 1), grip=(1, 0, 0)),
 }
 BODY = {  # Man / Woman: same height class, different build
     'Man': dict(sw=.195, hem=(.172, .118), waist=(.165, .11), chest=(.19, .122), upper=(.198, .11), top=(.178, .088), pelvis=(.17, .12, .15),
@@ -69,6 +83,11 @@ def torso(G, P, body, slot, grow=0.0):
 def bust(G, P, body, slot, chest, grow=0.0):
     d = body['chest'][1] + grow
     for s in (-1, 1): blob(G + ' bust', (s * .055, chest.y - .015, chest.z + d * .62), (.064 + grow * .5, .058 + grow * .3, .055 + grow * .5), G, slot, 12, 8)
+
+
+def leg(G, P, s):
+    """0.81: group of a leg part (thigh, shin, hem, shoe) for poses with legs=True: <group>_G<side>, else the group."""
+    return f'{G}_G{"R" if s > 0 else "L"}' if P.get('legs') else G
 
 
 def arm(G, seg, s):
@@ -131,28 +150,30 @@ def pants(pose, P, bodyname, kind):
     t0, t1 = body['thigh']; s0, s1 = body['shin']
     for s in (-1, 1):
         hj, kn, an = M(P['hipj'], s), M(P['knee'], s), M(P['ankle'], s)
+        L = leg(G, P, s)
         if kind == 'Jeans':
-            limb(G + ' thigh', hj, kn, t0, t1 + .002, G, 'pants', 12)
-            limb(G + ' shin', kn, an, s0 + .004, s1 + .008, G, 'pants', 12, ends=False)
+            limb(G + ' thigh', hj, kn, t0, t1 + .002, L, 'pants', 12)
+            limb(G + ' shin', kn, an, s0 + .004, s1 + .008, L, 'pants', 12, ends=False)
             hem = tuple(V(an) + (V(an) - V(kn)).normalized() * .01)
-            cyl(G + ' hem', lerp(kn, an, .9), hem, s1 + .012, G, 'pants', 12)
+            cyl(G + ' hem', lerp(kn, an, .9), hem, s1 + .012, L, 'pants', 12)
         else:
             end = lerp(hj, kn, .66)
-            limb(G + ' leg', hj, end, t0 + .004, t1 + .014, G, 'pants', 12, ends=False)
-            blob(G + ' hip', hj, (t0 + .004,) * 3, G, 'pants', 12, 8)
-            cyl(G + ' hem', lerp(hj, kn, .6), end, t1 + .018, G, 'pants', 12)
-            limb(G + ' thigh', lerp(hj, kn, .55), kn, t1 + .006, t1, G, 'skin', 10)
-            limb(G + ' shin', kn, an, s0, s1 - .002, G, 'skin', 10)
-            cyl(G + ' sock', lerp(kn, an, .88), an, s1 + .002, G, 'eyes', 10)
+            limb(G + ' leg', hj, end, t0 + .004, t1 + .014, L, 'pants', 12, ends=False)
+            blob(G + ' hip', hj, (t0 + .004,) * 3, L, 'pants', 12, 8)
+            cyl(G + ' hem', lerp(hj, kn, .6), end, t1 + .018, L, 'pants', 12)
+            limb(G + ' thigh', lerp(hj, kn, .55), kn, t1 + .006, t1, L, 'skin', 10)
+            limb(G + ' shin', kn, an, s0, s1 - .002, L, 'skin', 10)
+            cyl(G + ' sock', lerp(kn, an, .88), an, s1 + .002, L, 'eyes', 10)
 
 
-def shoe(G, an, fwd, scale):
+def shoe(G, an, fwd, scale, LG=None):
     f = V(fwd).normalized(); up = Vector((0, 1, 0)); up = (up - f * up.dot(f)).normalized(); side = f.cross(up)
     heel = V(an) - f * .065 * scale - up * .085 * scale; L, Wd, H = .27 * scale, .052 * scale, .115 * scale
     def P(a, b, c): return tuple(heel + f * a + side * b + up * c)
-    hull(G + ' shoe', [P(0, -Wd, 0), P(0, Wd, 0), P(L, Wd * 1.05, 0), P(L, -Wd * 1.05, 0),
+    G0, G = G, (LG or G)
+    hull(G0 + ' shoe', [P(0, -Wd, 0), P(0, Wd, 0), P(L, Wd * 1.05, 0), P(L, -Wd * 1.05, 0),
                        P(.01, -Wd * .95, H), P(.01, Wd * .95, H), P(L * .93, Wd, H * .48), P(L * .93, -Wd, H * .48)], G, 'shoes', .022, 2)
-    hull(G + ' sole', [P(-.004, -Wd - .003, -.012), P(-.004, Wd + .003, -.012), P(L + .006, Wd * 1.05 + .003, -.012), P(L + .006, -Wd * 1.05 - .003, -.012),
+    hull(G0 + ' sole', [P(-.004, -Wd - .003, -.012), P(-.004, Wd + .003, -.012), P(L + .006, Wd * 1.05 + .003, -.012), P(L + .006, -Wd * 1.05 - .003, -.012),
                        P(-.004, -Wd - .003, .014), P(-.004, Wd + .003, .014), P(L + .006, Wd * 1.05 + .003, .014), P(L + .006, -Wd * 1.05 - .003, .014)], G, 'trim', .006, 1)
 
 
@@ -180,7 +201,7 @@ def base(pose, P, bodyname):
         limb(G + ' hand', wr, tuple(V(ha) + d * .02 * k), .034 * k, .04 * k, Hd, 'skin', 10)
         blob(G + ' fist', tuple(V(ha) + d * .01), (.044 * k, .04 * k, .046 * k), Hd, 'skin', 12, 8)
         blob(G + ' thumb', tuple(V(ha) + Vector((-s * .02, .03, .0)) * k), (.016 * k, .016 * k, .024 * k), Hd, 'skin', 8, 6)
-        shoe(G, M(P['ankle'], s), P['foot'], body['shoe'])
+        shoe(G, M(P['ankle'], s), P['foot'], body['shoe'], leg(G, P, s))
 
 
 # ---------------------------------------------------------------- hair and hats (head frame: origin at the head centre)
@@ -338,7 +359,9 @@ def build():
     for ob in objs:
         key = ob.name.split('__')[0].split('_')
         if len(key) != 5: continue
-        sh, el, wr, ha = arm_points(POSES[key[0]], BODY[key[3]], 1 if key[4][1] == 'R' else -1)
+        s = 1 if key[4][1] == 'R' else -1
+        if key[4][0] == 'G': kit.set_origin(ob, M(POSES[key[0]]['hipj'], s)); continue
+        sh, el, wr, ha = arm_points(POSES[key[0]], BODY[key[3]], s)
         kit.set_origin(ob, {'U': sh, 'L': el, 'H': wr}[key[4][0]])
     return objs
 

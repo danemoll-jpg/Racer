@@ -155,7 +155,7 @@ namespace Racer
             if (!Eyes(car, out var eye, out _)) return fallback;
             // Leans a little with the motorcycle (40 %), a small look-ahead into corners; bumps and landings are softened.
             var config = car.GetComponent<VehicleConfiguration>();
-            float lean = visual && config.profileId == "moto" ? Mathf.DeltaAngle(0, visual.localEulerAngles.z) * .4f : 0;
+            float lean = visual && config.Profile.Motorcycle ? Mathf.DeltaAngle(0, visual.localEulerAngles.z) * .4f : 0;
             float look = Mathf.Clamp(car.Body.angularVelocity.y * Mathf.Rad2Deg * .22f, -10, 10);
             // Looking a little down: the bars, grips, hands and front wheel at the bottom of the view (cars: the wheel and dash).
             // The Trail Four's grips sit lower and nearer under the rider's eyes than the Needle 600's.
@@ -166,7 +166,7 @@ namespace Racer
         Pose FrontView(ArcadeVehicle car, Pose fallback)
         {
             var p = car.GetComponent<VehicleConfiguration>().Profile;
-            var local = p.Small ? new Vector3(0, p.Id == "moto" ? .98f : .92f, p.Size.z * .5f - .1f) : new Vector3(0, .3f, p.Size.z * .5f + .06f);
+            var local = p.Small ? new Vector3(0, p.Motorcycle ? (p.Id == "scrambler" ? 1.2f : .98f) : .92f, p.Size.z * .5f - .1f) : new Vector3(0, .3f, p.Size.z * .5f + .06f);
             float look = Mathf.Clamp(car.Body.angularVelocity.y * Mathf.Rad2Deg * .12f, -6, 6);
             return Mounted(car, car.transform.TransformPoint(local), Quaternion.Euler(0, look, 0), baseFov + 5);
         }

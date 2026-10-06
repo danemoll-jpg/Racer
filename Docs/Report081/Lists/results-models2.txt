@@ -1,0 +1,13 @@
+---- vehicle:original
+FAIL original (Street Classic, Car): model Street Classic model, rider parts 19, grounded wheels 4, wheel bottom to ground 0.313 m, box 1.9,0.65,3.7
+PASS original fist wave: started True, weight at 0.6 s 1.00
+PASS original night: headlight on, lamp level 1.00
+---- vehicle:tourer
+FAIL tourer (Longroof GT, Car): model Longroof GT model, rider parts 19, grounded wheels 4, wheel bottom to ground 0.379 m, box 2.0,0.80,4.5
+PASS tourer fist wave: started True, weight at 0.6 s 1.00
+PASS tourer night: headlight on, lamp level 1.00
+---- vehicle:moto
+PASS moto (Needle 600, Motorcycle): model Needle 600 model, rider parts 19, grounded wheels 4, wheel bottom to ground 0.000 m, box 0.7,0.80,2.3
+PASS moto fist wave: started True, weight at 0.6 s 1.00
+PASS moto night: headlight on, lamp level 1.00
+done, failures 2

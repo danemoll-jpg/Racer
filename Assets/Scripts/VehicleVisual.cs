@@ -7,7 +7,7 @@ namespace Racer
     // bound draw calls; every piece is visual only, with no collider changes.
     public static class VehicleVisual
     {
-        static Material paint,rubber,glass,metal,lamps,tail,eyes,mouth,engine,chrome,interior,trim;
+        static Material paint,rubber,glass,metal,lamps,tail,eyes,mouth,engine,chrome,interior,trim,cream,driverMat;
         // Garage "Model": true = the Blender-made models (0.73 Needle 600; 0.75 Trail Four, Street Classic, Longroof GT and
         // the customizable rider; Resources/VehicleModels, sources in SourceArt/Blender, scripts in Tools/Blender), false =
         // the classic generated ones (Bike / Car below, untouched). Applies to the player's and the AI vehicles; RaceFlow
@@ -32,6 +32,7 @@ namespace Racer
             engine=Mat("Garage engine",new(.21f,.22f,.24f),.45f);
             chrome=Mat("Garage chrome",new(.78f,.80f,.83f),.82f);chrome.SetFloat("_Metallic",.6f);interior=Mat("Garage interior",new(.11f,.11f,.12f),.2f);
             trim=Mat("Rider trim",new(.10f,.08f,.06f),.25f);
+            cream=Mat("Garage cream trim",new(.90f,.87f,.78f),.5f);driverMat=Mat("Traffic driver",new(.12f,.11f,.10f),.2f);
             hair=new[]{Mat("Driver hair chestnut",new(.18f,.065f,.028f)),Mat("Driver hair charcoal",new(.035f,.029f,.025f)),Mat("Driver hair gold",new(.62f,.36f,.09f))};
         }
         // look: the rider (null = the player's); classic: always the classic model (ambient traffic).
@@ -42,10 +43,10 @@ namespace Racer
             if(p.Small) Bike(root,p);else Car(root,p);
             // Merge fixed parts before adding independently rotating wheels.
             Merge(root);
-            float[] tracks=p.Id=="moto"?new[]{0f}:new[]{-p.Size.x*.5f,p.Size.x*.5f};
+            float[] tracks=p.Motorcycle?new[]{0f}:new[]{-p.Size.x*.5f,p.Size.x*.5f};
             foreach(float x in tracks)foreach(float z in new[]{-p.Wheelbase*.5f,p.Wheelbase*.5f})
             {
-                var wheel=Part(root,"Wheel",new(x,-.2f,z),new(.66f,p.Id=="moto"?.1f:.18f,.66f),rubber,PrimitiveType.Cylinder);
+                var wheel=Part(root,"Wheel",new(x,-.2f,z),new(.66f,p.Motorcycle?.1f:.18f,.66f),rubber,PrimitiveType.Cylinder);
                 wheel.localRotation=Quaternion.Euler(0,0,90);wheels?.Add(wheel);WheelDetail(wheel);
             }
             return root;
@@ -80,7 +81,7 @@ namespace Racer
         }
         static void Bike(Transform root,VehicleProfile p)
         {
-            bool moto=p.Id=="moto";float stance=moto?.22f:.48f;
+            bool moto=p.Motorcycle;float stance=moto?.22f:.48f;
             foreach(float side in new[]{-1f,1f})
             {
                 Link(root,"Frame rail",new(side*stance,-.05f,-.68f),new(side*stance,.35f,.5f),.07f,metal);
@@ -111,27 +112,24 @@ namespace Racer
         // parametric rider. Every slot gets the game's own shared material: paint is the body colour, lamps glow at night.
         static readonly Dictionary<string,GameObject> models=new();
         static GameObject Model(string name){if(!models.TryGetValue(name,out var m)){m=Resources.Load<GameObject>("VehicleModels/"+name);models[name]=m;}return m;}
-        static string ModelName(string id)=>id switch{"moto"=>"Needle600","atv"=>"TrailFour","original"=>"StreetClassic","tourer"=>"LongroofGT",_=>null};
-        // Trail Four steering column (Tools/Blender/trailfour.py FRONT_PIVOT/FRONT_TOP); car steering column direction and
-        // driver seat point H (Tools/Blender/cars.py), where the rider's Car pose is placed.
-        static readonly Vector3 AtvPivot=new(0,.10f,.62f),AtvAxis=new(0,.60f,-.28f),CarColumn=new(0,-.4226f,.9063f);
-        static Vector3 Seat(string id)=>id=="original"?new(-.40f,.04f,-.15f):id=="tourer"?new(-.43f,.08f,-.10f):Vector3.zero;
+        // Car steering column direction (Tools/Blender/cars.py); the steering pivots and seat points are in VehicleProfile.
+        static readonly Vector3 CarColumn=new(0,-.4226f,.9063f);
         static bool NewModel(Transform root,List<Transform> wheels,VehicleProfile p,RiderLook look)
         {
-            var name=ModelName(p.Id);var asset=name==null?null:Model(name);
+            var asset=string.IsNullOrEmpty(p.Model)?null:Model(p.Model);
             if(!asset)return false;
             // Blender's default FBX axes arrive in Unity turned half a turn about the vertical (a rotation, not a mirror).
             var model=Object.Instantiate(asset,root,false);model.name=p.Name+" model";model.transform.localRotation=Quaternion.Euler(0,180,0);
             var pose=new GameObject("Steering pose").transform;pose.SetParent(root,false);pose.gameObject.AddComponent<VehiclePose>().bike=p.Small;
             Transform front=null;
-            if(p.Id=="moto"){front=new GameObject("Front end").transform;front.SetParent(root,false);front.localPosition=new(0,-.2f,.825f);front.gameObject.AddComponent<MotorcycleFrontEnd>();}
-            if(p.Id=="atv"){front=new GameObject("Handlebars").transform;front.SetParent(root,false);front.localPosition=AtvPivot;var turn=front.gameObject.AddComponent<MotorcycleFrontEnd>();turn.axis=AtvAxis;turn.gain=14;}
+            // the bike front end / ATV bars turn about their steering axis (VehicleProfile.Front*)
+            if(p.FrontGain>0){front=new GameObject(p.Motorcycle?"Front end":"Handlebars").transform;front.SetParent(root,false);front.localPosition=p.FrontPivot;var turn=front.gameObject.AddComponent<MotorcycleFrontEnd>();turn.axis=p.FrontAxis;turn.gain=p.FrontGain;}
             foreach(var r in model.GetComponentsInChildren<MeshRenderer>(true))
             {
                 var t=r.transform;var parts=t.name.Split(new[]{"__"},System.StringSplitOptions.None);if(parts.Length!=2)continue;
                 string group=parts[0],slot=parts[1];
                 if(group=="Rider"){t.gameObject.SetActive(false);Object.Destroy(t.gameObject);continue;}
-                r.sharedMaterial=slot switch{"paint"=>paint,"metal"=>metal,"engine"=>engine,"rubber"=>rubber,"lamp"=>lamps,"tail"=>tail,"glass"=>glass,"chrome"=>chrome,"interior"=>interior,_=>metal};
+                r.sharedMaterial=slot switch{"paint"=>paint,"cream"=>cream,"driver"=>driverMat,"metal"=>metal,"engine"=>engine,"rubber"=>rubber,"lamp"=>lamps,"tail"=>tail,"glass"=>glass,"chrome"=>chrome,"interior"=>interior,_=>metal};
                 if(group=="Front"&&front)t.SetParent(front,true);
                 else if(group=="Steer")
                 {
@@ -143,14 +141,49 @@ namespace Racer
                 {
                     // One spinning pivot per wheel, oriented like the classic wheels (axle along local y after the
                     // Euler(roll,0,90) VehicleConfiguration applies), so wheel spin and steering need no other change.
-                    var host=p.Id=="moto"&&group=="WheelFront"?front:root;var pivot=host.Find(group);
+                    var host=p.Motorcycle&&group=="WheelFront"&&front?front:root;var pivot=host.Find(group);
                     if(!pivot){pivot=new GameObject(group).transform;pivot.SetParent(host,false);pivot.position=t.position;pivot.localRotation=Quaternion.Euler(0,0,90);wheels?.Add(pivot);}
                     t.SetParent(pivot,true);
                 }
             }
-            Rider(pose,p.Id=="moto"?"Moto":p.Id=="atv"?"Atv":"Car",Seat(p.Id),look);
+            Rider(pose,p.Pose,p.Pose=="Car"?p.Seat:Vector3.zero,look);
             foreach(var t in root.GetComponentsInChildren<Transform>(true))t.gameObject.layer=root.gameObject.layer;
             return true;
+        }
+        // ---------- 0.81 Part C: the Blender traffic kit (Tools/Blender/traffic.py) ----------
+        // One traffic body under its own root (visual only): slot materials as for the player's vehicles (lamps glow at
+        // night, the driver silhouette is dark), the paint slot gets the traffic's own paint material (painted lists those
+        // renderers for its colour), and each wheel gets a spinning pivot oriented like the classic traffic wheels.
+        public static Transform TrafficModel(Transform parent,string name,List<Transform> wheels,List<Renderer> painted,Material paintMaterial)
+        {
+            Materials();var asset=Model(name);if(!asset)return null;
+            var root=new GameObject(name).transform;root.SetParent(parent,false);
+            var model=Object.Instantiate(asset,root,false);model.name=name+" model";model.transform.localRotation=Quaternion.Euler(0,180,0);
+            foreach(var r in model.GetComponentsInChildren<MeshRenderer>(true))
+            {
+                var t=r.transform;var parts=t.name.Split(new[]{"__"},System.StringSplitOptions.None);if(parts.Length!=2)continue;
+                string group=parts[0],slot=parts[1];
+                r.sharedMaterial=slot switch{"paint"=>paintMaterial,"driver"=>driverMat,"metal"=>metal,"engine"=>engine,"rubber"=>rubber,"lamp"=>lamps,"tail"=>tail,"glass"=>glass,"chrome"=>chrome,"interior"=>interior,_=>metal};
+                if(slot=="paint")painted.Add(r);
+                r.shadowCastingMode=group.StartsWith("Wheel")?UnityEngine.Rendering.ShadowCastingMode.Off:UnityEngine.Rendering.ShadowCastingMode.On;
+                if(group.StartsWith("Wheel"))
+                {
+                    var pivot=root.Find(group);
+                    if(!pivot){pivot=new GameObject(group).transform;pivot.SetParent(root,false);pivot.position=t.position;pivot.localRotation=Quaternion.Euler(0,0,90);wheels.Add(pivot);}
+                    t.SetParent(pivot,true);
+                }
+            }
+            foreach(var t in root.GetComponentsInChildren<Transform>(true))t.gameObject.layer=parent.gameObject.layer;
+            return root;
+        }
+        // 0.81 Part D: a person in the scripted scenes from the same parametric rider (poses Stand / Sit / Sled in Rider.fbx,
+        // ground at the parent's origin, facing its +z). Returns the rider holder (with its RiderArms joints).
+        public static Transform PersonFigure(Transform parent,string pose,RiderLook look)
+        {
+            Materials();var root=new GameObject(pose+" pose").transform;root.SetParent(parent,false);root.gameObject.layer=parent.gameObject.layer;
+            Rider(root,pose,Vector3.zero,look);var holder=root.Find("Rider");
+            if(holder)foreach(var t in holder.GetComponentsInChildren<Transform>(true))t.gameObject.layer=parent.gameObject.layer;
+            return holder;
         }
         // ---------- 0.75 parametric rider ----------
         static GameObject riderAsset;static bool riderLoaded;

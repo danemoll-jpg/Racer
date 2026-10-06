@@ -1,0 +1,9 @@
+---- drive:MountainLoopReverse:moto:Main:560:9:30
+MountainLoopReverse moto Main from 560 at 30 m/s: resets 0+0, max air 1.20s, min up 0.11, max vertical jolt 225 m/s² at 997.8,152.63,319.7, end 993.5,152.54,294.1
+---- drive:MountainLoopReverse:moto:Main:560:9:38
+MountainLoopReverse moto Main from 560 at 38 m/s: resets 0+0, max air 1.52s, min up -0.20, max vertical jolt 204 m/s² at 997.8,152.62,319.7, end 969.8,142.03,296.3
+---- drive:MountainLoopReverse:moto:Main:620:6:34
+MountainLoopReverse moto Main from 620 at 34 m/s: resets 0+0, max air 1.26s, min up -0.26, max vertical jolt 150 m/s² at 997.8,152.60,319.8, end 976.2,147.47,300.2
+---- grid:MountainLoopReverse:b003e,1035,322,25,0.5
+MountainLoopReverse: grids written
+done, failures 0

@@ -261,7 +261,9 @@ namespace Racer
         void RestoreChoices()
         {
             Save.Settings.vehicleId=Race.EligibleVehicle(Save.Settings.vehicleId);
-            if(Save.Settings.bodyColors==null || Save.Settings.bodyColors.Length!=4) Save.Settings.bodyColors=new[]{-1,-1,-1,-1};
+            // 0.81: one colour per vehicle; a save from before the new vehicles keeps its colours and gets defaults for the rest
+            var colors=Save.Settings.bodyColors??new int[0];
+            if(colors.Length!=VehicleProfile.All.Length){var grown=new int[VehicleProfile.All.Length];for(int c=0;c<grown.Length;c++)grown[c]=c<colors.Length?colors[c]:-1;Save.Settings.bodyColors=grown;}
             if(Save.Settings.opponentChoices==null || Save.Settings.opponentChoices.Length!=3) Save.Settings.opponentChoices=new[]{"mixed","mixed","mixed"};
             if(Save.Settings.opponentRoster==null || Save.Settings.opponentRoster.Length!=3) Save.Settings.opponentRoster=new[]{"tourer","moto","atv"};
             Race.opponentRoster=(string[])Save.Settings.opponentRoster.Clone();
@@ -278,7 +280,7 @@ namespace Racer
         public void CycleOpponent(int slot)
         {
             if(State!=Stage.Roster || slot<0 || slot>=3) return;
-            var choices=Race.CarsRestricted?new[]{"moto","atv","random","mixed"}:new[]{"original","tourer","moto","atv","random","mixed"};
+            var choices=System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(System.Linq.Enumerable.Select(Race.EligibleVehicles,p=>p.Id),new[]{"random","mixed"}));
             int i=System.Array.IndexOf(choices,Save.Settings.opponentChoices[slot]);
             Save.Settings.opponentChoices[slot]=choices[(i+1)%choices.Length]; ResolveRoster();
         }

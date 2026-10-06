@@ -1,0 +1,18 @@
+---- view:FreeRoamWorld:b002,1185.6,82,326.8,21,4|summit,1100,182,170,80,6|west,-700,14,0,270,3|south,0,40,-700,180,4|b001,-618,10.5,508,211,8
+FreeRoamWorld: views written
+---- wall:FreeRoamWorld:moto:1180,305,21,22
+PASS FreeRoamWorld moto at the edge from 1180.0,81.85,305.0 heading 21 at 22 m/s: furthest 41.2 m out, lowest y 80.2, resets 0, end 1196.8,90.35,341.3, up 0.41
+world edge: grid 260 x 188; outside points 28956, edge points 758; ring 104648 triangles with 9374 trees; bank/wall cells 3447; cells left without a collider near a race line 0 | built in 470 ms
+---- wall:FreeRoamWorld:moto:-770,0,270,30
+PASS FreeRoamWorld moto at the edge from -770.0,8.75,0.0 heading 270 at 30 m/s: furthest 37.7 m out, lowest y 8.5, resets 0, end -806.3,19.23,1.1, up 0.36
+world edge: grid 260 x 188; outside points 28956, edge points 758; ring 104648 triangles with 9374 trees; bank/wall cells 3447; cells left without a collider near a race line 0 | built in 386 ms
+---- wall:FreeRoamWorld:original:0,-720,180,30
+PASS FreeRoamWorld original at the edge from 0.0,31.28,-720.0 heading 180 at 30 m/s: furthest 42.1 m out, lowest y 29.4, resets 0, end -0.8,40.63,-761.6, up 0.22
+world edge: grid 260 x 188; outside points 28956, edge points 758; ring 104648 triangles with 9374 trees; bank/wall cells 3447; cells left without a collider near a race line 0 | built in 390 ms
+---- drive:MountainLoopReverse:moto:Main:560:9:30
+MountainLoopReverse moto Main from 560 at 30 m/s: resets 0+0, max air 0.00s, min up 1.00, max vertical jolt 3 m/s² at 1057.9,155.05,216.3, end 994.8,152.54,240.2
+---- drive:MountainLoopReverse:moto:Main:560:9:38
+MountainLoopReverse moto Main from 560 at 38 m/s: resets 0+0, max air 0.00s, min up 1.00, max vertical jolt 3 m/s² at 1060.7,154.57,221.7, end 995.0,152.54,234.3
+---- drive:MountainLoopReverse:moto:Main:620:6:34
+MountainLoopReverse moto Main from 620 at 34 m/s: resets 0+0, max air 0.00s, min up 1.00, max vertical jolt 2 m/s² at 1063.7,152.07,280.3, end 993.3,152.54,258.0
+done, failures 0

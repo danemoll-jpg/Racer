@@ -1,0 +1,37 @@
+---- vehicle:roadster
+FAIL roadster (Sundown Roadster, Car): model Sundown Roadster model, rider parts 19, grounded wheels 4, wheel bottom to ground 0.223 m, box 1.8,0.60,3.9
+PASS roadster fist wave: started True, weight at 0.6 s 1.00
+PASS roadster night: headlight on, lamp level 1.00
+---- vehicle:fastback
+FAIL fastback (Highball Fastback, Car): model Highball Fastback model, rider parts 19, grounded wheels 4, wheel bottom to ground 0.246 m, box 2.0,0.75,4.6
+PASS fastback fist wave: started True, weight at 0.6 s 1.00
+PASS fastback night: headlight on, lamp level 1.00
+---- vehicle:pebble
+FAIL pebble (Pebble Coupe, Car): model Pebble Coupe model, rider parts 19, grounded wheels 4, wheel bottom to ground 0.369 m, box 1.7,0.65,3.7
+PASS pebble fist wave: started True, weight at 0.6 s 1.00
+PASS pebble night: headlight on, lamp level 1.00
+---- vehicle:skyfin
+FAIL skyfin (Skyfin Cruiser, Car): model Skyfin Cruiser model, rider parts 19, grounded wheels 4, wheel bottom to ground 0.269 m, box 2.1,0.80,5.0
+PASS skyfin fist wave: started True, weight at 0.6 s 1.00
+PASS skyfin night: headlight on, lamp level 1.00
+---- vehicle:scrambler
+PASS scrambler (Ridge Scrambler, Motorcycle): model Ridge Scrambler model, rider parts 19, grounded wheels 4, wheel bottom to ground 0.000 m, box 0.7,0.90,2.3
+PASS scrambler fist wave: started True, weight at 0.6 s 1.00
+PASS scrambler night: headlight on, lamp level 1.00
+---- vehicle:drifter
+PASS drifter (Drifter Twin, Motorcycle): model Drifter Twin model, rider parts 19, grounded wheels 4, wheel bottom to ground 0.000 m, box 0.8,0.80,2.6
+PASS drifter fist wave: started True, weight at 0.6 s 1.00
+PASS drifter night: headlight on, lamp level 1.00
+---- garage
+PASS garage lists 10 vehicles: Street Classic, Longroof GT, Needle 600, Trail Four, Sundown Roadster, Highball Fastback, Pebble Coupe, Skyfin Cruiser, Ridge Scrambler, Drifter Twin
+---- traffic:day
+PASS traffic (day): 24 cars [Wagon / SUV 6, Sedan 8, Van 5, Pickup 5], Blender kit shown on 24
+---- traffic:night
+PASS traffic (night): 24 cars [Wagon / SUV 7, Sedan 9, Pickup 3, Van 5], Blender kit shown on 24
+---- people
+PASS football: 3 characters (Dan, the brother, the friend) at 449.8,84.52,-12.2
+PASS coffee: 2 characters (the friend, Dan) at 463.9,85.05,-13.6
+PASS kyle: 2 characters (Dan, the friend) at 486.5,85.57,-18.8
+PASS camp: 2 characters (Dan, the friend)
+PASS snow scenes: sled True, hockey True
+done, failures 4

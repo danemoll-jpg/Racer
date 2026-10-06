@@ -46,6 +46,7 @@ namespace Racer
             Screen.SetResolution(3840, 2160, FullScreenMode.FullScreenWindow); yield return null; yield return null;
             WeatherEffects.HoldStrikes = true;
             bool fpsOnly = Array.IndexOf(Environment.GetCommandLineArgs(), "-conditionsFpsOnly") >= 0;
+            if (Array.IndexOf(Environment.GetCommandLineArgs(), "-conditionsTraffic") >= 0) { yield return Traffic(rows); File.WriteAllLines(Path.Combine(outDir, "conditions.txt"), rows); Application.Quit(); yield break; }
             if (Array.IndexOf(Environment.GetCommandLineArgs(), "-conditionsScenery") >= 0) { yield return SceneryBench(rows); File.WriteAllLines(Path.Combine(outDir, "conditions.txt"), rows); Application.Quit(); yield break; }
             foreach (var v in Views)
             {
@@ -169,6 +170,30 @@ namespace Racer
                 }
                 Scenery.Set(true);
             }
+        }
+        // 0.81 evidence ("-conditionsTraffic"): the Street Loop grid with traffic (the Blender traffic kit) and the new
+        // vehicles (player Skyfin Cruiser; AI Sundown Roadster, Highball Fastback, Drifter Twin), chase camera, at Day/Clear
+        // and at the worst conditions view (Night/Snow), New models: GPU frame times and a shot of each.
+        IEnumerator Traffic(List<string> rows)
+        {
+            SceneManager.LoadScene("StreetLoopGreybox"); yield return null; yield return null;
+            var race = Prepare(); var flow = race.Flow; var s = flow.Save.Settings; var roster = new[] { "roadster", "fastback", "drifter" };
+            s.opponentChoices = (string[])roster.Clone(); s.opponentRoster = (string[])roster.Clone(); race.opponentRoster = (string[])roster.Clone();
+            foreach (var (t, w) in new[] { (TimeOfDay.Day, Weather.Clear), (TimeOfDay.Night, Weather.Snow) })
+            {
+                VehicleVisual.NewModels = s.newMotorcycle = true; s.timeOfDay = (int)t; s.weather = (int)w;
+                flow.OpenGarage(); flow.SelectVehicle("skyfin"); flow.CloseGarage(); race.traffic = true;
+                yield return Grid(race); yield return Hold(3); WorldLook.Current.Pin(LookPresets.Compose(t, w)); yield return Hold(3);
+                string tag = $"{t}-{w}".ToLowerInvariant();
+                yield return Shot($"traffic-grid-{tag}-chase.jpg");
+                var gpu = new List<float>(); var ft = new FrameTiming[1]; float t0 = Time.unscaledTime;
+                while (Time.unscaledTime - t0 < 10) { yield return null; Keep(); FrameTimingManager.CaptureFrameTimings(); if (FrameTimingManager.GetLatestTimings(1, ft) > 0 && ft[0].gpuFrameTime > 0) gpu.Add((float)ft[0].gpuFrameTime); }
+                gpu.Sort(); float med = gpu.Count > 0 ? gpu[gpu.Count / 2] : float.NaN, p95 = gpu.Count > 0 ? gpu[(int)(gpu.Count * .95f)] : float.NaN;
+                rows.Add($"FPS 0.81 grid {t}/{w} chase (Skyfin Cruiser + Sundown Roadster, Highball Fastback, Drifter Twin AI; traffic {FindObjectsByType<AmbientVehicle>(FindObjectsSortMode.None).Length}): GPU median {med:F2} ms (95th {p95:F2}) = {1000 / med:F0} fps; {gpu.Count} timed frames; screen {Screen.width}x{Screen.height}");
+                File.WriteAllLines(Path.Combine(outDir, "conditions.txt"), rows);
+                flow.Pause(); flow.QuitRace(); yield return Hold(1);
+            }
+            s.timeOfDay = 0; s.weather = 0;
         }
         // 0.75 evidence ("-conditionsModels"): a mixed grid (player Street Classic; AI Longroof GT, Needle 600, Trail Four)
         // from the chase camera at Day and Night, New vs Classic models: full-screen shots and GPU frame times.

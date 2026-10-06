@@ -22,9 +22,59 @@ Car hat FlatCap: head points above band 90, outside the hat 0
 Car hat Baseball: head points above band 90, outside the hat 0
 Car hat Beanie: head points above band 90, outside the hat 0
 Car hat Cowboy: head points above band 90, outside the hat 0
+Dirt hair Short: split errors 0
+Dirt hair Medium: split errors 0
+Dirt hair Long: split errors 0
+Dirt hair Ponytail: split errors 0
+Dirt hat FlatCap: head points above band 90, outside the hat 0
+Dirt hat Baseball: head points above band 90, outside the hat 0
+Dirt hat Beanie: head points above band 90, outside the hat 0
+Dirt hat Cowboy: head points above band 90, outside the hat 0
+Cruiser hair Short: split errors 0
+Cruiser hair Medium: split errors 0
+Cruiser hair Long: split errors 0
+Cruiser hair Ponytail: split errors 0
+Cruiser hat FlatCap: head points above band 90, outside the hat 0
+Cruiser hat Baseball: head points above band 90, outside the hat 0
+Cruiser hat Beanie: head points above band 90, outside the hat 0
+Cruiser hat Cowboy: head points above band 90, outside the hat 0
+Stand hair Short: split errors 0
+Stand hair Medium: split errors 0
+Stand hair Long: split errors 0
+Stand hair Ponytail: split errors 0
+Stand hat FlatCap: head points above band 90, outside the hat 0
+Stand hat Baseball: head points above band 90, outside the hat 0
+Stand hat Beanie: head points above band 90, outside the hat 0
+Stand hat Cowboy: head points above band 90, outside the hat 0
+Sit hair Short: split errors 0
+Sit hair Medium: split errors 0
+Sit hair Long: split errors 0
+Sit hair Ponytail: split errors 0
+Sit hat FlatCap: head points above band 90, outside the hat 0
+Sit hat Baseball: head points above band 90, outside the hat 0
+Sit hat Beanie: head points above band 90, outside the hat 0
+Sit hat Cowboy: head points above band 90, outside the hat 0
+Sled hair Short: split errors 0
+Sled hair Medium: split errors 0
+Sled hair Long: split errors 0
+Sled hair Ponytail: split errors 0
+Sled hat FlatCap: head points above band 90, outside the hat 0
+Sled hat Baseball: head points above band 90, outside the hat 0
+Sled hat Beanie: head points above band 90, outside the hat 0
+Sled hat Cowboy: head points above band 90, outside the hat 0
 Moto Man: worst-case rider triangles 8664
 Moto Woman: worst-case rider triangles 9088
 Atv Man: worst-case rider triangles 8664
 Atv Woman: worst-case rider triangles 9088
 Car Man: worst-case rider triangles 8664
 Car Woman: worst-case rider triangles 9088
+Dirt Man: worst-case rider triangles 8664
+Dirt Woman: worst-case rider triangles 9088
+Cruiser Man: worst-case rider triangles 8664
+Cruiser Woman: worst-case rider triangles 9088
+Stand Man: worst-case rider triangles 8664
+Stand Woman: worst-case rider triangles 9088
+Sit Man: worst-case rider triangles 8664
+Sit Woman: worst-case rider triangles 9088
+Sled Man: worst-case rider triangles 8664
+Sled Woman: worst-case rider triangles 9088
