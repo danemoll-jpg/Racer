@@ -15,7 +15,14 @@
   - **Dan does:** driving every course and direction, trying every vehicle everywhere, checking that a universal fix holds everywhere, and judging look and feel. He reports through the debug ZIPs.
   - **Write-up:** the TODO results are a short list: what changed, the one check per item, decisions made, and anything Dan should look at. No separate VALIDATION.md unless a round asks. If a check would take more than a few minutes of play time, skip it and list it under "for Dan to check".
 
-## CURRENT — Loading screens, stutter check, junction lines fix, garage stat bars, winner camera — 0.82.0-review1 — IMPLEMENTED, RELEASE IN PROGRESS
+## CURRENT — Loading screens, stutter check, junction lines fix, garage stat bars, winner camera — 0.82.0-review1 — IMPLEMENTED AND BUILT, PUBLICATION WAITING FOR DAN
+
+- **Release state (2026-10-06):**
+  - Completion source `27a3fa98e9d357241e114034ebdadad8af8a6a99` pushed and verified equal to origin/main.
+  - Fresh 0.82.0-review1 Windows build from it: Succeeded, 0 errors, 2 warnings, 2m31s, GUID `1c1e3ddedf8b4f45abedd0d96d7221ca` ([build-release.txt](Docs/Report082/build-release.txt)).
+  - Signed update prepared in `Builds/LauncherRelease-82000` (tag game-82000, 234 files, game.zip 400,965,511 bytes); runtime staged into `Builds/Latest` and `Builds/Latest/versions/82000` ([runtime-identity.json](Docs/Report082/runtime-identity.json)).
+  - **Not done:** publishing game-82000. Claude Code's permission system refused `Tools/Publish-LauncherRelease.py ... --publish` as a production deploy. Until it is published, Builds/Latest holds 0.82 files while the public catalog and the updater state still point to 81000.
+  - **To finish:** Dan allows the publish (or runs `python Tools/Publish-LauncherRelease.py Builds/LauncherRelease-82000 --publish --confirm-repository danemoll-jpg/woodstock-rush-releases` from the project folder, with `Builds/PublisherTools/gh-2.101.0/bin` on PATH; add `--resume-draft` if the known draft-lookup miss stops it after creating the draft), then: `python Tools/Report082/Verify-Report082Publication.py`, `Tools/Report082/Activate-Report082.ps1`, `Tools/Report082/Verify-Report082MutedLaunch.ps1` (Play-Racer.cmd check), `Tools/Report082/Cleanup-Report082.ps1`.
 
 ### Results (2026-10-06, Claude Code)
 
