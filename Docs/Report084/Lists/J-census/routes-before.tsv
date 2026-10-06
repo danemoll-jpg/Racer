@@ -1,0 +1,22 @@
+road	Phase 3 - Race Systems	2331	40250E9477128960
+road	CR056 Forest Loop/Forest race route	2057	84C9007C51EEE6C3
+road	Reverse course authoring/Reverse main route	1872	96A32667FE162385
+road	CR081 mountain exploration/Mountain return trails / exploration only	539	E1C9F7214CE72621
+road	CR081 mountain exploration/Lake shore connection	403	9705E42E6CB1C66B
+road	CR094 summit launch/Summit approach and safe return	330	D8F7A16973FB5E2C
+road	Kyle descending driveway	5	931493FBB18519DC
+road	CR097 supported properties and camp/House 3 valley driveway	42	5E8E1B47366831FA
+road	CR113 continuous highway seams/CR113 highway through route	839	7F43DCC256E2AB8A
+branch	Reverse course authoring/Fern Gully	Fern Gully	340	F6719B09FAB42078	entry 610.522	exit 1331.707	hw 3.70
+branch	House 3 Detour	McFadden Cut	477	AA482E0E6B15BB08	entry 139.400	exit 610.522	hw 3.60
+course	forest-reverse-v7-water-detour
+gate	0	CR056 Forest Loop/Forest Loop Reverse START FINISH	607.949,79.753,-127.535	(0.00, 167.86, 0.00)	(1.00, 1.00, 1.00)
+gate	1	CR056 Forest Loop/Forest Loop Reverse CP 1	555.557,43.941,-206.746	(0.00, 253.54, 0.00)	(1.00, 1.00, 1.00)
+gate	2	CR056 Forest Loop/Forest Loop Reverse CP 2	124.277,40.644,-154.283	(0.00, 280.86, 0.00)	(1.00, 1.00, 1.00)
+gate	3	CR056 Forest Loop/Forest Loop Reverse CP 3	-45.532,28.173,185.334	(0.00, 50.20, 0.00)	(1.00, 1.00, 1.00)
+gate	4	CR056 Forest Loop/Forest Loop Reverse CP 4	471.421,79.389,175.890	(0.00, 120.79, 0.00)	(1.00, 1.00, 1.00)
+jump	Reverse ridge crossing	630.522	791.250
+jump	Reverse linked descent	936.251	1196.711
+jump	Reverse deep gully	1316.711	1483.801
+jump	Reverse creek crossing	1598.801	1751.816
+jump	House 3 pool and lake flight	297.311	537.905

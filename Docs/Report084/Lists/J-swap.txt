@@ -1,0 +1,20 @@
+before: main 1872 points, length 2076.8; McFadden 477 points 483.7 m, stations 139.4..610.5; Granite 291 points; course forest-reverse-v7-water-detour
+after: main 2060 points, length 2103.3; McFadden now stations 139.4..637.0
+gate 1 Forest Loop Reverse CP 1: 555.6,43.9,-206.7 (old station 212.2) -> 564.3,37.8,-221.5 (station 216.3), same order
+branch Fern Gully: entry 637.0 exit 1358.2 length 506.2 inset 38 bypasses [2,3] ai True
+branch Granite Saddle: entry 139.4 exit 637.0 length 426.6 inset 58 bypasses [1] ai False
+main jumps: Reverse ridge crossing 657.0->817.7; Reverse linked descent 962.7->1223.2; Reverse deep gully 1343.2->1510.3; Reverse creek crossing 1625.3->1778.3; moved off the main: House 3 pool and lake flight
+arrow Route atlas direction guidance/Main teal / Granite Saddle main at 578.6,46.4,-193.9: teal -> gold (Granite Saddle)
+arrow Route atlas direction guidance/Main teal / reassurance at 363.4,33.8,-195.1: teal -> gold (Granite Saddle)
+arrow Route atlas direction guidance/Main teal / reassurance at 266.2,46.5,-196.1: teal -> gold (Granite Saddle)
+arrow Route atlas direction guidance/Main teal / turn at 555.7,42.4,-206.7: teal -> gold (Granite Saddle)
+arrow House 3 Detour optional visual guidance/Optional gold / House 3 Detour at 313.7,46.1,-247.2: gold -> teal (McFadden Cut main)
+arrow House 3 Detour optional visual guidance/Optional gold / House 3 Detour at 223.1,45.6,-187.1: gold -> teal (McFadden Cut main)
+arrow House 3 Detour optional visual guidance/Optional gold / House 3 Detour at 461.7,55.3,-280.2: gold -> teal (McFadden Cut main)
+arrow House 3 Detour optional visual guidance/Optional gold / House 3 Detour at 569.1,37.8,-215.9: gold -> teal (McFadden Cut main)
+sign McFadden Cut main guidance/McFADDEN CUT/OPTIONAL/Mounted lettering: "McFADDEN CUT / OPTIONAL" -> "McFADDEN CUT / MAIN COURSE"
+sign CR088-089 physical direction cues/REVERSE/SHORTCUT/Mounted lettering: "REVERSE / MAIN COURSE" -> "GRANITE SADDLE / OPTIONAL"
+sign Reverse course authoring/Granite Saddle / OPTIONAL/Reverse physical sign text: "Granite Saddle / MAIN ROUTE": MAIN ROUTE -> OPTIONAL
+sign CR088-089 physical direction cues/MAIN COURSE/FOLLOW CURVE/Mounted lettering: "MAIN COURSE / GRANITE SADDLE" -> "MAIN COURSE / McFADDEN CUT"
+cue CR088-089 physical direction cues/MAIN  ^ at 579.8,47.6,-191.5: MAIN ^ on the Granite side, hidden
+course id forest-reverse-v7-water-detour -> forest-reverse-v8-mcfadden-main

@@ -1,0 +1,236 @@
+ForestLoopReverse: 12559 trunk colliders; seated 235, removed 0
+SEAT Woods replacing later subdivisions/Tree trunk [BoxCollider] base -134.73,24.67,54.96 down 4.86 m onto Ground_320_400
+SEAT Woods replacing later subdivisions/Tree trunk [BoxCollider] base -135.47,27.54,-32.64 down 0.31 m onto Ground_320_320
+SEAT Woods replacing later subdivisions/Tree trunk [BoxCollider] base 150.93,46.35,-79.56 down 0.41 m onto Ground_400_320
+SEAT Woods replacing later subdivisions/Tree trunk [BoxCollider] base 51.02,34.16,-125.48 down 1.66 m onto Ground_400_240
+SEAT Woods replacing later subdivisions/Tree trunk [BoxCollider] base 380.82,54.93,-159.42 down 0.31 m onto Ground_560_240
+SEAT Woods replacing later subdivisions/Tree trunk [BoxCollider] base 408.74,48.13,-245.54 down 6.39 m onto Ground_560_240
+SEAT Woods replacing later subdivisions/Tree trunk [BoxCollider] base 354.95,42.76,-231.21 down 2.00 m onto Ground_560_240
+SEAT Woods replacing later subdivisions/Tree trunk [BoxCollider] base 319.04,49.93,-184.21 down 0.73 m onto Ground_480_240
+SEAT Woods replacing later subdivisions/Tree trunk [BoxCollider] base 240.22,48.03,-155.87 down 0.69 m onto Ground_480_240
+SEAT Woods replacing later subdivisions/Tree trunk [BoxCollider] base -137.44,26.61,-23.19 down 0.64 m onto Ground_320_320
+SEAT Woods replacing later subdivisions/Tree trunk [BoxCollider] base 356.29,45.23,-214.06 down 8.54 m onto Ground_560_240
+SEAT Woods replacing later subdivisions/Tree trunk [BoxCollider] base -134.10,23.79,51.32 down 5.74 m onto Ground_320_400
+SEAT Woods replacing later subdivisions/Tree trunk [BoxCollider] base 7.15,37.16,126.58 down 5.01 m onto Ground_400_400
+SEAT Woods replacing later subdivisions/Tree trunk [BoxCollider] base 112.49,46.66,-30.98 down 9.07 m onto Ground_400_320
+SEAT Woods replacing later subdivisions/Tree trunk [BoxCollider] base 172.92,43.18,-122.39 down 0.89 m onto Ground_480_240
+SEAT Woods replacing later subdivisions/Tree trunk [BoxCollider] base 344.22,53.47,-181.33 down 0.44 m onto Ground_560_240
+SEAT Woods replacing later subdivisions/Tree trunk [BoxCollider] base 91.96,43.82,-28.20 down 8.10 m onto Ground_400_320
+SEAT Woods replacing later subdivisions/Tree trunk [BoxCollider] base 63.04,33.82,-128.83 down 2.32 m onto Ground_400_240
+SEAT Woods replacing later subdivisions/Tree trunk [BoxCollider] base 145.29,41.56,-112.86 down 2.32 m onto Ground_400_240
+SEAT Woods replacing later subdivisions/Tree trunk [BoxCollider] base 67.45,42.51,38.94 down 2.87 m onto Ground_400_320
+SEAT Woods replacing later subdivisions/Tree trunk [BoxCollider] base 354.09,79.26,136.91 down 2.56 m onto Ground_560_400
+SEAT Woods replacing later subdivisions/Tree trunk [BoxCollider] base 156.88,45.54,-90.03 down 0.53 m onto Ground_400_320
+SEAT Woods replacing later subdivisions/Tree trunk [BoxCollider] base 370.80,77.89,247.20 down 1.06 m onto Ground_560_480
+SEAT Woods replacing later subdivisions/Tree trunk [BoxCollider] base 278.14,47.65,-178.07 down 0.41 m onto Ground_480_240
+SEAT Woods replacing later subdivisions/Tree trunk [BoxCollider] base 359.94,41.83,-228.27 down 6.94 m onto Ground_560_240
+SEAT Woods replacing later subdivisions/Tree trunk [BoxCollider] base 95.56,44.18,-30.97 down 9.31 m onto Ground_400_320
+SEAT Woods replacing later subdivisions/Tree trunk [BoxCollider] base 52.83,34.69,-124.91 down 1.13 m onto Ground_400_240
+SEAT Woods replacing later subdivisions/Tree trunk [BoxCollider] base 90.57,45.16,5.24 down 5.72 m onto Ground_400_320
+SEAT Woods replacing later subdivisions/Tree trunk [BoxCollider] base 102.26,46.28,-14.07 down 8.13 m onto Ground_400_320
+SEAT Woods replacing later subdivisions/Tree trunk [BoxCollider] base 56.85,41.33,51.17 down 3.99 m onto Ground_400_400
+SEAT Woods replacing later subdivisions/Tree trunk [BoxCollider] base 134.98,45.77,-70.27 down 8.68 m onto Ground_400_320
+SEAT Woods replacing later subdivisions/Tree trunk [BoxCollider] base 127.36,42.42,-91.42 down 1.59 m onto Ground_400_320
+SEAT Woods replacing later subdivisions/Tree trunk [BoxCollider] base 461.11,71.93,-156.56 down 9.87 m onto Ground_560_240
+SEAT Woods replacing later subdivisions/Tree trunk [BoxCollider] base 238.14,49.27,-159.62 down 2.72 m onto Ground_480_240
+SEAT Woods replacing later subdivisions/Tree trunk [BoxCollider] base 65.06,42.46,44.32 down 1.45 m onto Ground_400_320
+SEAT Woods replacing later subdivisions/Tree trunk [BoxCollider] base 124.61,46.97,-46.70 down 6.48 m onto Ground_400_320
+SEAT Woods replacing later subdivisions/Tree trunk [BoxCollider] base 74.46,34.96,-130.37 down 2.47 m onto Ground_400_240
+SEAT Woods replacing later subdivisions/Tree trunk [BoxCollider] base 463.34,75.60,-157.13 down 4.19 m onto Ground_560_240
+SEAT Woods replacing later subdivisions/Tree trunk [BoxCollider] base 117.30,42.90,-78.07 down 0.96 m onto Ground_400_320
+SEAT Woods replacing later subdivisions/Tree trunk [BoxCollider] base 274.38,47.80,-176.29 down 0.57 m onto Ground_480_240
+SEAT Woods replacing later subdivisions/Tree trunk [BoxCollider] base 12.96,38.57,116.07 down 5.33 m onto Ground_400_400
+SEAT Woods replacing later subdivisions/CR014 trunk 00129 [BoxCollider] base -15.39,33.66,137.47 down 2.75 m onto Ground_320_400
+SEAT Woods replacing later subdivisions/CR014 trunk 00216 [BoxCollider] base -6.67,36.95,113.43 down 3.90 m onto Ground_320_400
+SEAT Woods replacing later subdivisions/CR014 trunk 00297 [BoxCollider] base 43.16,35.14,-122.41 down 0.48 m onto Ground_400_240
+SEAT Woods replacing later subdivisions/CR014 trunk 00352 [BoxCollider] base 180.55,50.31,308.38 down 1.04 m onto Ground_480_480
+SEAT Woods replacing later subdivisions/CR014 trunk 00405 [BoxCollider] base 122.23,45.40,232.90 down 0.71 m onto Ground_400_480
+SEAT Woods replacing later subdivisions/CR014 trunk 00477 [BoxCollider] base 334.32,45.05,-208.79 down 1.66 m onto Ground_560_240
+SEAT Woods replacing later subdivisions/CR014 trunk 00482 [BoxCollider] base -16.12,32.49,148.86 down 2.85 m onto Ground_320_400
+SEAT Woods replacing later subdivisions/CR014 trunk 00600 [BoxCollider] base 136.02,42.35,-98.95 down 3.33 m onto Ground_400_320
+SEAT Woods replacing later subdivisions/CR014 trunk 00772 [BoxCollider] base -137.34,24.41,29.92 down 5.67 m onto Ground_320_320
+SEAT Woods replacing later subdivisions/CR014 trunk 00786 [BoxCollider] base 109.24,46.92,-21.13 down 5.27 m onto Ground_400_320
+SEAT Woods replacing later subdivisions/CR014 trunk 01029 [BoxCollider] base -22.22,31.24,154.74 down 0.82 m onto Ground_320_400
+SEAT Woods replacing later subdivisions/CR014 trunk 01071 [BoxCollider] base 211.89,56.05,310.07 down 4.06 m onto Ground_480_480
+SEAT Woods replacing later subdivisions/CR014 trunk 01126 [BoxCollider] base 248.34,48.27,-161.44 down 0.92 m onto Ground_480_240
+SEAT Woods replacing later subdivisions/CR014 trunk 01155 [BoxCollider] base -22.43,30.32,164.15 down 0.62 m onto Ground_320_400
+SEAT Woods replacing later subdivisions/CR014 trunk 01192 [BoxCollider] base -112.20,21.09,-66.32 down 0.48 m onto Ground_320_320
+SEAT Woods replacing later subdivisions/CR014 trunk 01425 [BoxCollider] base 122.49,44.04,-72.74 down 7.17 m onto Ground_400_320
+SEAT Woods replacing later subdivisions/CR014 trunk 01434 [BoxCollider] base 128.33,46.22,-59.12 down 9.48 m onto Ground_400_320
+SEAT Woods replacing later subdivisions/CR014 trunk 01739 [BoxCollider] base -133.94,25.94,71.54 down 1.38 m onto Ground_320_400
+SEAT Woods replacing later subdivisions/CR014 trunk 02354 [BoxCollider] base 6.99,35.96,140.64 down 0.59 m onto Ground_400_400
+SEAT Woods replacing later subdivisions/CR014 trunk 02413 [BoxCollider] base 120.25,40.95,-125.60 down 2.20 m onto Ground_400_240
+SEAT Woods replacing later subdivisions/CR014 trunk 02516 [BoxCollider] base 0.47,33.71,158.67 down 1.35 m onto Ground_400_400
+SEAT Woods replacing later subdivisions/CR014 trunk 02721 [BoxCollider] base 308.54,54.20,-206.72 down 11.66 m onto Ground_480_240
+SEAT Woods replacing later subdivisions/CR014 trunk 02761 [BoxCollider] base 176.91,49.34,301.69 down 0.60 m onto Ground_480_480
+SEAT Woods replacing later subdivisions/CR014 trunk 02853 [BoxCollider] base 102.66,44.14,-45.28 down 7.27 m onto Ground_400_320
+SEAT Woods replacing later subdivisions/CR014 trunk 02918 [BoxCollider] base 330.86,45.32,-215.95 down 2.12 m onto Ground_560_240
+SEAT Woods replacing later subdivisions/CR014 trunk 03075 [BoxCollider] base -132.26,23.78,64.06 down 4.90 m onto Ground_320_400
+SEAT Woods replacing later subdivisions/CR014 trunk 03125 [BoxCollider] base 112.99,43.73,-65.14 down 4.24 m onto Ground_400_320
+SEAT Woods replacing later subdivisions/CR014 trunk 03145 [BoxCollider] base 85.16,43.18,-21.00 down 6.14 m onto Ground_400_320
+SEAT Woods replacing later subdivisions/CR014 trunk 03323 [BoxCollider] base 42.12,34.98,39.71 down 2.34 m onto Ground_400_320
+SEAT Woods replacing later subdivisions/CR014 trunk 03327 [BoxCollider] base 348.37,44.54,-228.45 down 3.40 m onto Ground_560_240
+SEAT Woods replacing later subdivisions/CR014 trunk 03607 [BoxCollider] base 86.94,42.76,-32.98 down 0.57 m onto Ground_400_320
+SEAT Woods replacing later subdivisions/CR014 trunk 03738 [BoxCollider] base 289.77,51.58,-192.07 down 7.05 m onto Ground_480_240
+SEAT Woods replacing later subdivisions/CR014 trunk 03758 [BoxCollider] base 46.08,39.50,25.58 down 1.16 m onto Ground_400_320
+SEAT Woods replacing later subdivisions/CR014 trunk 03784 [BoxCollider] base 8.89,39.65,80.08 down 2.43 m onto Ground_400_400
+SEAT Woods replacing later subdivisions/CR014 trunk 03803 [BoxCollider] base -125.08,28.48,-56.90 down 0.87 m onto Ground_320_320
+SEAT Woods replacing later subdivisions/CR014 trunk 04172 [BoxCollider] base 142.82,46.63,-70.62 down 2.37 m onto Ground_400_320
+SEAT Woods replacing later subdivisions/CR014 trunk 04383 [BoxCollider] base 155.70,44.34,-98.04 down 3.93 m onto Ground_400_320
+SEAT Woods replacing later subdivisions/CR014 trunk 04708 [BoxCollider] base 292.23,61.12,337.47 down 0.44 m onto Ground_480_480
+SEAT Woods replacing later subdivisions/CR014 trunk 04921 [BoxCollider] base -116.90,31.75,-74.76 down 0.56 m onto Ground_320_320
+SEAT Woods replacing later subdivisions/CR014 trunk 05116 [BoxCollider] base 15.23,38.22,123.97 down 0.31 m onto Ground_400_400
+SEAT Woods replacing later subdivisions/CR014 trunk 05302 [BoxCollider] base 10.09,39.63,89.51 down 8.24 m onto Ground_400_400
+SEAT Woods replacing later subdivisions/CR014 trunk 05387 [BoxCollider] base -15.14,34.53,129.16 down 1.83 m onto Ground_320_400
+SEAT Woods replacing later subdivisions/CR014 trunk 05450 [BoxCollider] base 79.53,42.58,-14.88 down 4.57 m onto Ground_400_320
+SEAT Woods replacing later subdivisions/CR014 trunk 05579 [BoxCollider] base 86.23,36.73,-130.51 down 0.68 m onto Ground_400_240
+SEAT Woods replacing later subdivisions/CR014 trunk 05642 [BoxCollider] base 188.77,51.29,307.84 down 1.50 m onto Ground_480_480
+SEAT Woods replacing later subdivisions/CR014 trunk 05786 [BoxCollider] base 121.50,47.33,-38.11 down 3.68 m onto Ground_400_320
+SEAT Woods replacing later subdivisions/CR014 trunk 05788 [BoxCollider] base 121.79,42.61,-84.94 down 0.94 m onto Ground_400_320
+SEAT Woods replacing later subdivisions/CR016 trunk 089 [BoxCollider] base 362.93,75.69,120.58 down 0.51 m onto Ground_560_400
+SEAT Woods replacing later subdivisions/CR016 trunk 090 [BoxCollider] base 370.93,78.32,119.83 down 2.27 m onto Ground_560_400
+SEAT Woods replacing later subdivisions/CR016 trunk 094 [BoxCollider] base 364.60,79.85,127.48 down 4.80 m onto Ground_560_400
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base 413.94,75.15,195.79 down 0.36 m onto Ground_560_400
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base 409.94,75.00,198.79 down 0.44 m onto Ground_560_400
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base 404.56,75.26,199.23 down 0.46 m onto Ground_560_400
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base 395.68,75.59,203.59 down 0.59 m onto Ground_560_400
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base 408.20,75.72,227.31 down 0.83 m onto Ground_560_480
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base 391.07,76.02,205.45 down 0.59 m onto Ground_560_400
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base 403.49,75.61,229.20 down 0.90 m onto Ground_560_480
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base 387.24,76.02,208.81 down 1.00 m onto Ground_560_400
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base 382.46,76.83,210.34 down 1.01 m onto Ground_560_480
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base 393.95,75.55,232.70 down 0.98 m onto Ground_560_480
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base 378.20,77.35,212.89 down 1.39 m onto Ground_560_480
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base 390.37,76.57,236.73 down 1.10 m onto Ground_560_480
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base 386.87,79.23,240.92 down 0.60 m onto Ground_560_480
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base 369.90,79.50,217.66 down 2.79 m onto Ground_560_480
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base 380.81,78.30,239.34 down 3.13 m onto Ground_560_480
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base 374.14,78.13,244.09 down 2.05 m onto Ground_560_480
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base 360.17,76.68,223.83 down 1.08 m onto Ground_560_480
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base 367.49,78.60,249.46 down 0.95 m onto Ground_560_480
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base 363.35,79.10,251.93 down 0.81 m onto Ground_560_480
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base 220.15,53.69,303.77 down 0.76 m onto Ground_480_480
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base 215.60,55.33,284.22 down 3.07 m onto Ground_480_480
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base 214.83,55.41,307.76 down 3.09 m onto Ground_480_480
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base 211.03,58.30,280.60 down 6.62 m onto Ground_480_480
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base 209.62,54.47,307.36 down 2.80 m onto Ground_480_480
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base 199.01,52.92,308.60 down 2.38 m onto Ground_480_480
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base 196.61,53.34,282.81 down 2.98 m onto Ground_480_480
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base 192.05,53.97,280.66 down 4.39 m onto Ground_480_480
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base 188.86,50.84,305.73 down 1.08 m onto Ground_480_480
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base 183.18,53.15,275.83 down 4.50 m onto Ground_480_480
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base 178.82,49.75,302.84 down 0.80 m onto Ground_480_480
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base 173.07,49.04,305.88 down 0.74 m onto Ground_480_480
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base 168.22,48.30,303.57 down 0.57 m onto Ground_480_480
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base 158.68,46.98,299.02 down 0.39 m onto Ground_400_480
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base 143.64,45.28,295.75 down 0.56 m onto Ground_400_480
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base 140.84,48.11,267.71 down 2.20 m onto Ground_400_480
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base 123.95,44.56,290.11 down 2.32 m onto Ground_400_480
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base 126.04,47.05,266.66 down 5.09 m onto Ground_400_480
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base 122.23,47.01,262.85 down 2.63 m onto Ground_400_480
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base 119.85,46.08,260.83 down 1.13 m onto Ground_400_480
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base 117.68,44.65,260.70 down 1.51 m onto Ground_400_480
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base 113.82,40.97,262.09 down 1.82 m onto Ground_400_480
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base 110.27,43.42,257.70 down 1.13 m onto Ground_400_480
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base 105.36,41.80,257.08 down 1.83 m onto Ground_400_480
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base 101.52,43.09,253.54 down 0.57 m onto Ground_400_480
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base 92.54,41.92,250.11 down 0.60 m onto Ground_400_480
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base 13.60,31.65,212.50 down 0.37 m onto Ground_400_480
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base 9.57,31.25,209.77 down 0.41 m onto Ground_400_400
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base -69.98,24.63,147.31 down 0.56 m onto Ground_320_400
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base -72.51,26.23,137.48 down 0.34 m onto Ground_320_400
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base -76.18,25.63,134.52 down 0.62 m onto Ground_320_400
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base -82.88,23.39,133.41 down 0.78 m onto Ground_320_400
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base -96.75,22.96,142.74 down 0.46 m onto Ground_320_400
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base -100.84,23.24,139.11 down 0.73 m onto Ground_320_400
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base -84.20,25.80,123.20 down 1.10 m onto Ground_320_400
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base -102.00,23.40,133.67 down 1.35 m onto Ground_320_400
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base -104.44,23.93,129.08 down 2.07 m onto Ground_320_400
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base -92.87,24.01,117.50 down 2.36 m onto Ground_320_400
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base -110.23,24.08,126.56 down 1.15 m onto Ground_320_400
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base -94.76,21.68,105.94 down 0.60 m onto Ground_320_400
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base -96.22,25.17,96.30 down 0.97 m onto Ground_320_400
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base -122.56,23.73,106.75 down 0.36 m onto Ground_320_400
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base -97.69,25.65,91.87 down 1.00 m onto Ground_320_400
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base -125.35,23.59,96.43 down 0.74 m onto Ground_320_400
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base -101.30,25.33,83.22 down 1.39 m onto Ground_320_400
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base -126.38,23.32,91.19 down 1.03 m onto Ground_320_400
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base -101.47,27.13,78.31 down 0.88 m onto Ground_320_400
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base -123.99,19.93,85.03 down 0.90 m onto Ground_320_400
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base -108.41,20.40,75.38 down 1.44 m onto Ground_320_400
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base -131.05,25.28,81.60 down 0.57 m onto Ground_320_400
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base -104.53,26.82,69.45 down 3.46 m onto Ground_320_400
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base -132.20,25.37,76.43 down 1.96 m onto Ground_320_400
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base -107.85,25.78,60.51 down 5.27 m onto Ground_320_400
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base -134.30,25.58,66.12 down 2.56 m onto Ground_320_400
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base -107.81,27.03,55.69 down 4.28 m onto Ground_320_400
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base -109.70,26.84,46.44 down 4.98 m onto Ground_320_320
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base -107.91,29.23,41.44 down 0.92 m onto Ground_320_320
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base -110.62,27.60,32.30 down 3.92 m onto Ground_320_320
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base -138.92,25.84,34.73 down 3.05 m onto Ground_320_320
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base -111.78,26.76,27.66 down 5.34 m onto Ground_320_320
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base -114.00,23.90,23.04 down 6.58 m onto Ground_320_320
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base -110.54,28.14,18.28 down 2.40 m onto Ground_320_320
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base -138.76,24.78,18.79 down 4.53 m onto Ground_320_320
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base -112.93,25.79,13.64 down 6.38 m onto Ground_320_320
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base -140.56,26.10,13.52 down 1.93 m onto Ground_320_320
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base -139.16,25.56,8.20 down 4.17 m onto Ground_320_320
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base -140.58,26.61,2.87 down 1.49 m onto Ground_320_320
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base -113.20,24.70,0.73 down 6.86 m onto Ground_320_320
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base -138.23,24.77,-1.32 down 4.52 m onto Ground_320_320
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base -140.10,25.58,-4.70 down 1.16 m onto Ground_320_320
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base -111.65,23.13,-5.93 down 4.42 m onto Ground_320_320
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base -108.56,27.63,-10.04 down 2.00 m onto Ground_320_320
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base -136.13,22.14,-14.63 down 3.59 m onto Ground_320_320
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base -109.51,25.68,-14.81 down 4.76 m onto Ground_320_320
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base -137.77,26.26,-20.49 down 1.15 m onto Ground_320_320
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base -106.18,29.59,-18.70 down 0.62 m onto Ground_320_320
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base -135.17,25.05,-25.54 down 1.02 m onto Ground_320_320
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base -135.78,27.38,-31.23 down 0.32 m onto Ground_320_320
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base -104.78,28.99,-27.71 down 1.75 m onto Ground_320_320
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base -129.82,25.12,-40.82 down 1.18 m onto Ground_320_320
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base -101.88,29.93,-36.22 down 0.73 m onto Ground_320_320
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base -126.33,23.24,-45.28 down 1.03 m onto Ground_320_320
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base -104.29,23.53,-42.05 down 1.50 m onto Ground_320_320
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base -123.00,21.81,-49.67 down 0.72 m onto Ground_320_320
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base -101.10,26.45,-45.78 down 2.11 m onto Ground_320_320
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base -124.23,27.02,-55.90 down 1.40 m onto Ground_320_320
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base -96.67,31.25,-48.74 down 0.93 m onto Ground_320_320
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base -122.14,27.85,-60.88 down 1.47 m onto Ground_320_320
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base -94.31,32.27,-52.58 down 0.70 m onto Ground_320_320
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base -117.94,25.81,-64.80 down 2.25 m onto Ground_320_320
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base -95.26,27.44,-58.24 down 2.70 m onto Ground_320_320
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base -111.57,21.16,-67.36 down 0.52 m onto Ground_320_320
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base -95.49,23.50,-63.75 down 2.04 m onto Ground_320_320
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base -110.25,23.11,-72.66 down 1.80 m onto Ground_320_320
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base -92.77,24.22,-67.65 down 2.34 m onto Ground_320_320
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base -112.31,31.37,-80.17 down 1.31 m onto Ground_320_320
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base 40.18,33.30,-124.84 down 2.18 m onto Ground_400_240
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base 36.51,33.33,-150.49 down 2.11 m onto Ground_400_240
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base 41.70,32.17,-149.23 down 2.00 m onto Ground_400_240
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base 46.25,33.72,-152.07 down 2.01 m onto Ground_400_240
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base 50.71,35.25,-155.33 down 0.47 m onto Ground_400_240
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base 59.97,33.18,-129.25 down 2.33 m onto Ground_400_240
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base 55.51,35.34,-156.05 down 0.48 m onto Ground_400_240
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base 65.00,33.46,-130.12 down 2.49 m onto Ground_400_240
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base 60.78,34.03,-153.88 down 2.34 m onto Ground_400_240
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base 70.79,35.66,-127.13 down 0.58 m onto Ground_400_240
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base 75.33,34.98,-130.74 down 2.63 m onto Ground_400_240
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base 80.74,36.11,-130.34 down 1.59 m onto Ground_400_240
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base 74.07,36.17,-158.92 down 1.13 m onto Ground_400_240
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base 84.80,36.12,-134.49 down 4.59 m onto Ground_400_240
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base 90.14,37.05,-132.18 down 1.38 m onto Ground_400_240
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base 94.54,37.58,-133.52 down 1.89 m onto Ground_400_240
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base 93.04,38.04,-162.16 down 2.89 m onto Ground_400_240
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base 101.77,37.18,-134.39 down 0.98 m onto Ground_400_240
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base 102.30,36.42,-165.71 down 0.58 m onto Ground_400_240
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base 107.49,35.84,-165.48 down 1.22 m onto Ground_400_240
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base 117.37,34.60,-140.84 down 1.50 m onto Ground_400_240
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base 112.11,37.00,-168.07 down 0.32 m onto Ground_400_240
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base 117.24,36.54,-167.87 down 0.84 m onto Ground_400_240
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base 182.15,41.51,-152.12 down 0.35 m onto Ground_480_240
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base 570.88,46.50,-190.07 down 1.68 m onto Ground_640_240
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base 574.92,49.72,-182.52 down 0.56 m onto Ground_640_240
+SEAT CR056 Forest Loop/Forest trunk collision [CapsuleCollider] base 581.49,51.75,-181.31 down 0.30 m onto Ground_640_240
+SEAT CR081 mountain exploration/Mountain woods 4 4/Mountain trunk [BoxCollider] base 1016.40,164.32,111.31 down 3.91 m onto Ground_Mountain_2_3
+SEAT CR081 mountain exploration/Mountain woods 4 4/Mountain trunk [BoxCollider] base 1018.94,162.58,113.33 down 4.13 m onto Ground_Mountain_2_3

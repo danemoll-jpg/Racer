@@ -1,0 +1,19 @@
+---- racelog:ForestLoopReverse:moto:atv,original,drifter
+PASS ForestLoopReverse player moto vs atv/original/drifter: PLAYER moto: 01:06.302 missed 0 resets 0 longest stall 1s shortcuts [Fern Gully]; EMBER atv: 01:08.058 missed 0 resets 0 longest stall 1s shortcuts [Fern Gully]; GOLD original: 01:14.157 missed 0 resets 0 longest stall 1s shortcuts []; BLUE drifter: 01:11.565 missed 0 resets 0 longest stall 1s shortcuts []
+---- racelog:ForestLoopReverse:atv:moto,fastback,scrambler
+PASS ForestLoopReverse player atv vs moto/fastback/scrambler: PLAYER atv: 01:08.591 missed 0 resets 0 longest stall 1s shortcuts [Fern Gully]; EMBER moto: 01:05.859 missed 0 resets 0 longest stall 1s shortcuts [Fern Gully]; GOLD fastback: 01:13.487 missed 0 resets 0 longest stall 1s shortcuts []; BLUE scrambler: 01:11.509 missed 0 resets 0 longest stall 1s shortcuts []
+---- racelog:ForestLoopReverse:original:drifter,atv,moto
+PASS ForestLoopReverse player original vs drifter/atv/moto: PLAYER original: 01:14.434 missed 0 resets 0 longest stall 1s shortcuts []; EMBER drifter: 01:12.688 missed 0 resets 0 longest stall 1s shortcuts []; GOLD atv: 01:14.191 missed 0 resets 0 longest stall 1s shortcuts []; BLUE moto: 01:09.825 missed 0 resets 0 longest stall 1s shortcuts []
+  238.3 YOU reset: was at 601.1,74.69,-149.1 (station 125), put at 601.5,71.69,-154.5
+---- drive:ForestLoopReverse:moto:Main:100:40
+ForestLoopReverse moto Main from 100 at 20 m/s: resets 0+0, max air 1.44s, min up 0.83, max vertical jolt 269 m/s² at 78.5,31.28,-145.7, end -57.0,26.03,175.6
+---- drive:ForestLoopReverse:atv:Main:100:40
+ForestLoopReverse atv Main from 100 at 20 m/s: resets 0+0, max air 1.44s, min up 0.80, max vertical jolt 379 m/s² at 78.6,31.20,-145.7, end -101.4,21.28,118.6
+---- drive:ForestLoopReverse:original:Main:100:40
+ForestLoopReverse original Main from 100 at 20 m/s: resets 0+0, max air 1.40s, min up 0.81, max vertical jolt 399 m/s² at -132.5,16.88,24.7, end -78.6,24.24,153.8
+---- drive:ForestLoopReverse:moto:Granite Saddle:100:40
+ForestLoopReverse moto Granite Saddle from 100 at 20 m/s: resets 0+0, max air 3.92s, min up 0.83, max vertical jolt 1009 m/s² at 322.4,41.15,-193.6, end 42.8,35.37,243.9
+---- jshots:after
+---- floaters:ForestLoopReverse:285.6,-196.7,250
+PASS ForestLoopReverse: crown-only clumps given a trunk 1300, visual-only trunks set down 164; 24934 other trees and trunk colliders checked: 1 float more than 0.3 m above the ground, 0 of them within 250 m of (285.6, -196.7) (floaters-ForestLoopReverse.txt)
+done, failures 0
