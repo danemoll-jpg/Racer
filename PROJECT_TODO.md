@@ -15,7 +15,60 @@
   - **Dan does:** driving every course and direction, trying every vehicle everywhere, checking that a universal fix holds everywhere, and judging look and feel. He reports through the debug ZIPs.
   - **Write-up:** the TODO results are a short list: what changed, the one check per item, decisions made, and anything Dan should look at. No separate VALIDATION.md unless a round asks. If a check would take more than a few minutes of play time, skip it and list it under "for Dan to check".
 
-## CURRENT — New vehicles (four cars incl. a convertible, two motorcycles), Blender traffic cars, detailed people in the scripted scenes, and three 0.80 fixes — 0.81.0-review1 — DELIVERED, AWAITING DAN'S REVIEW
+## CURRENT — Loading screens, stutter check, junction lines fix, garage stat bars, winner camera — target 0.82.0-review1 — NOT STARTED
+
+- **Authorized by Dan (2026-10-05).** Written by Claude (chat) from his first look at 0.81.0-review1 (debug session `2026-10-05_22-13-37-776_382761`, 1 report, on 0.81.0-review1) and his message: "things are a little stuttery but maybe because there are other processes on my computer. Now it seems to take a little bit of loading. Can we have loading screens or just something to show that something is loading as opposed to a spinning circle. Is there anything else we can roll into this?" Parts D and E are Claude's suggestions in answer to that question; Dan may strike them.
+- **Starting point:** main at the "Record 0.81 delivery" commit; playable source `badc4857` (0.81.0-review1 / game-81000). This TODO edit is uncommitted and belongs in the safety checkpoint. Dan has not finished reviewing 0.81; do not change the look or handling of the new vehicles, traffic or people here.
+- Runs unattended: design decisions are below; do not stop to ask about design. Stop only for a real external blocker (rule 7).
+- **Scope is exactly Parts A–E below.** The Verification budget in "Mandatory standing workflow" applies in full.
+
+### Part A — Junction lines at S Cherokee Ln / Hwy 92 (BUG-001)
+
+"ummm I think something is wrong with these lines" at (311.6, 8.7, 546.7), `FreeRoamWorld`, Day Clear. In the screenshot the white edge lines from the 0.80 `JunctionPaint` leave the pavement: one runs across the grass verge and round the outside of the corner, another runs straight up the grass hillside toward the trees, and the curved corner line sits out on the dirt instead of on the road edge.
+
+1. Fix this junction so every painted line lies on the pavement and follows the real edge of the asphalt: edge lines along the road edges, corner curves on the paved corner, a stop line across S Cherokee Ln, nothing on grass or dirt.
+2. Make it impossible by construction: `JunctionPaint` (and any other line painting) must only draw where there is paved surface under the line; clip or drop anything else. Then look once at the other two junctions (Trickum Rd / Hwy 92, S Cherokee Ln / Trickum Rd) and fix the same fault if present.
+3. Paint only; no road, collider or route change. Check: one shot of each of the three junctions from above the corner.
+
+### Part B — Loading screens
+
+Dan: loading now takes a little while (the 0.78 scenery, the 0.81 world edge, people and vehicles are built at load) and all he sees is a spinning circle.
+
+1. A proper full-screen loading screen whenever a scene loads: starting a race, starting Free Roam, restarting, returning to the menu, and the first load after launch.
+2. Content: the game's look (dark backing in the menu style), the name of what is loading ("Mountain Loop — Reverse", "Free Roam"), the chosen conditions and vehicle for a race, a real progress bar that moves with actual load progress (scene load, then the at-load building steps: scenery, world edge, people, vehicles), and one short rotating tip from a small list of true tips (controls and features that exist: reset, camera view V / X, fist wave F / LB, minimap J / B, Trailer Mode F8, map waypoints, weather and time options). A course picture if one already exists in the project (the route preview from the course select is fine); do not generate new art.
+3. It stays up until the world is fully built and the first frames have rendered, so the player never sees scenery popping in or a frozen first second; then a short fade. Music/radio behaviour during loading as now. No input needed to continue.
+4. Do the slow work while it is up: move anything that currently causes a hitch just after the start (shader warm-up, first-use model or audio loads, building scenery) to behind the loading screen.
+5. Check: start one race and Free Roam and watch the bar reach the end and fade; one shot of the screen.
+
+### Part C — Stutter
+
+Dan: "things are a little stuttery but maybe because there are other processes on my computer." 0.81 reported its worst view at 9.42 ms (106 fps) with traffic, a smaller margin than before, and average frame time does not show hitches.
+
+1. Measure hitches, not the average: one 60–90 s Free Roam drive along Hwy 92 and S Cherokee Ln with traffic, and one race start on Street Loop, at 3840×2160, recording every frame over 16.7 ms and what the main thread was doing (Unity profiler markers: GC collections, shader compilation, instantiation, scenery/LOD work, traffic or people spawning, physics spikes).
+2. Fix the top causes found (typical: per-frame allocations causing GC, first-time shader variants, objects created during play, mesh or collider building during play). Report before/after: number of frames over 16.7 ms and the worst frame.
+3. If the recording is clean (no spikes beyond a handful), say so plainly, do not invent work, and tell Dan it is likely other programs on his PC (Chrome and OBS on the GPU cost about a third in the 0.79 bench).
+4. Frame rate in the worst view must not get worse. No visual downgrade without saying which and why.
+
+### Part D — Vehicle stat bars in the garage (suggested by Claude)
+
+There are now ten vehicles in one stepper row and their differences are only in a line of text.
+
+- On the vehicle screen show five simple bars for the selected vehicle: Top speed, Acceleration, Grip, Handling (response), Weight / contact strength, drawn from the real profile numbers and scaled across all ten so they compare honestly. Class label (Car / Motorcycle / ATV) stays.
+- Readable at 4K, works with controller and mouse, does not cover the rotating preview. Display only: no handling numbers change.
+- Check: one shot of the garage with two different vehicles.
+
+### Part E — Show the winner's celebration (suggested by Claude)
+
+0.78 noted that the results panel partly covers the winner's two-fist celebration and the camera was not changed.
+
+- When the race is won, hold the results panel back for about 2.5 seconds and put the camera on the winner from the front three-quarter side (player or AI) so the celebration is seen, then bring the results up as now. Skippable with the confirm button. No change to finishing order, times or records.
+- Check: one player win and one AI win.
+
+### Verification
+
+Light, per the Verification budget: the one check named in each part, compile, launch, release steps. Results as a short list, with "for Dan to check".
+
+## Previous delivery — New vehicles (four cars incl. a convertible, two motorcycles), Blender traffic cars, detailed people in the scripted scenes, and three 0.80 fixes — 0.81.0-review1 — DELIVERED, DAN'S REVIEW IN PROGRESS (junction lines, loading and stutter follow in 0.82)
 
 - **DELIVERED:**
   - Source `badc48577f94a2840ee28e641cb2a9ccfe9e8031` pushed and verified on origin/main.
