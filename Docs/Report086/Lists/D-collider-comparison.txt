@@ -1,0 +1,4 @@
+== ForestLoopReverse (after Part A -> after Part D)
+< Memory loop - north is +Z/Ground_640_240 | MeshCollider | True | False | 560.000,57.488,-190.000 | 160.000,59.489,160.000 | Assets/Track/RouteAtlas/ForestLoopReverse-property-Ground_640_240.asset#ForestLoopReverse-property-Ground_640_240 | 505A75DB201D32F1
+> Memory loop - north is +Z/Ground_640_240 | MeshCollider | True | False | 560.000,57.488,-190.000 | 160.000,59.489,160.000 | Assets/Track/RouteAtlas/ForestLoopReverse-property-Ground_640_240.asset#ForestLoopReverse-property-Ground_640_240 | 729DB19FC91998FB
+routes, gates, jumps, branches: identical (the mesh bounds are unchanged; only its vertices beside the bend moved)

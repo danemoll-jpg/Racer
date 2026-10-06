@@ -1,0 +1,51 @@
+0.86 Part D: Granite Saddle approach, Forest Loop Reverse. Summaries by Tools/Report086/Summarise-Approach.py.
+full = player's approach: full throttle, steering along the centre line while a wheel is down (full86); fromS 5 at 25 m/s = flying approach, fromS 0 at 18 m/s = slow (lap-1-like) entry.
+drive = the race autopilot from main station 100 at 25 m/s, as 0.85 measured (it brakes on the final ramp by its own speed planning; AI stays off this line).
+
+== BEFORE the fill
+before-drive-ForestLoopReverse-atv-Granite_Saddle-100-25.csv: speed s50 25.7, s70 20.1, s90 26.4, s110 29.8, s150 30.8 m/s; lowest s50-130 19.7 at s 54 (568,-202); widest 1.4 m off the centre line at s 89; lip 19.1 m/s at (434,72.8,-198), flight 3.62s, down at (371,33.1,-196)
+before-drive-ForestLoopReverse-moto-Granite_Saddle-100-25.csv: speed s50 27.6, s70 28.8, s90 31.4, s110 31.4, s150 30.9 m/s; lowest s50-130 27.1 at s 51 (571,-200); widest 2.2 m off the centre line at s 88; lip 31.4 m/s at (434,72.8,-198), flight 3.92s, down at (323,41.1,-194)
+before-drive-ForestLoopReverse-original-Granite_Saddle-100-25.csv: speed s50 27.4, s70 28.1, s90 29.6, s110 30.6, s150 30.7 m/s; lowest s50-130 26.4 at s 52 (570,-201); widest 2.7 m off the centre line at s 85; lip 31.1 m/s at (433,73.1,-198), flight 3.86s, down at (324,41.4,-192)
+before-full-ForestLoopReverse-atv-Granite_Saddle-0-18.csv: speed s50 37.5, s70 34.7, s90 24.6, s110 26.5, s150 27.6 m/s; lowest s50-130 23.9 at s 97 (526,-215); widest 6.6 m off the centre line at s 98; lip 33.0 m/s at (434,72.6,-198), flight 3.84s, down at (320,45.1,-189)
+before-full-ForestLoopReverse-atv-Granite_Saddle-5-25.csv: speed s50 37.0, s70 34.5, s90 30.2, s110 32.1, s150 31.5 m/s; lowest s50-130 30.2 at s 88 (534,-212); widest 3.8 m off the centre line at s 88; lip 34.1 m/s at (435,72.5,-198), flight 3.86s, down at (316,46.2,-188)
+before-full-ForestLoopReverse-moto-Granite_Saddle-0-18.csv: speed s50 37.4, s70 35.2, s90 29.8, s110 32.3, s150 32.9 m/s; lowest s50-130 29.8 at s 90 (532,-213); widest 4.1 m off the centre line at s 90; lip 35.0 m/s at (435,72.5,-198), flight 3.96s, down at (310,44.9,-189)
+before-full-ForestLoopReverse-moto-Granite_Saddle-5-25.csv: speed s50 38.7, s70 35.8, s90 28.3, s110 29.2, s150 30.8 m/s; lowest s50-130 27.6 at s 98 (525,-213); widest 5.0 m off the centre line at s 98; lip 34.5 m/s at (434,72.6,-198), flight 3.90s, down at (313,45.9,-188)
+before-full-ForestLoopReverse-original-Granite_Saddle-0-18.csv: speed s50 34.6, s70 32.0, s90 26.9, s110 27.9, s150 30.5 m/s; lowest s50-130 26.8 at s 91 (531,-213); widest 4.2 m off the centre line at s 89; lip 32.9 m/s at (434,72.7,-198), flight 3.76s, down at (322,47.0,-188)
+before-full-ForestLoopReverse-original-Granite_Saddle-5-25.csv: speed s50 33.9, s70 32.4, s90 29.1, s110 29.9, s150 31.2 m/s; lowest s50-130 29.1 at s 91 (532,-212); widest 3.2 m off the centre line at s 87; lip 32.7 m/s at (434,72.9,-198), flight 3.74s, down at (323,47.0,-187)
+
+== AFTER the fill
+after-drive-ForestLoopReverse-atv-Granite_Saddle-100-25.csv: speed s50 25.7, s70 22.1, s90 18.7, s110 25.3, s150 30.0 m/s; lowest s50-130 16.2 at s 85 (538,-210); widest 1.5 m off the centre line at s 82; lip 21.1 m/s at (434,72.8,-198), flight 3.66s, down at (364,33.6,-196)
+after-drive-ForestLoopReverse-moto-Granite_Saddle-100-25.csv: speed s50 27.6, s70 28.4, s90 31.4, s110 31.0, s150 30.9 m/s; lowest s50-130 27.1 at s 51 (571,-200); widest 2.3 m off the centre line at s 89; lip 31.4 m/s at (434,72.8,-197), flight 3.92s, down at (323,41.1,-195)
+after-drive-ForestLoopReverse-original-Granite_Saddle-100-25.csv: speed s50 27.4, s70 27.2, s90 29.2, s110 30.6, s150 31.0 m/s; lowest s50-130 26.4 at s 52 (570,-201); widest 3.0 m off the centre line at s 82; lip 31.2 m/s at (433,73.1,-198), flight 3.86s, down at (324,41.8,-192)
+after-full-ForestLoopReverse-atv-Granite_Saddle-0-18.csv: speed s50 37.5, s70 34.4, s90 32.5, s110 34.2, s150 34.8 m/s; lowest s50-130 31.5 at s 81 (542,-212); widest 3.3 m off the centre line at s 81; lip 35.9 m/s at (434,72.5,-198), flight 3.92s, down at (308,46.9,-188)
+after-full-ForestLoopReverse-atv-Granite_Saddle-5-25.csv: speed s50 37.0, s70 34.4, s90 32.2, s110 34.0, s150 34.4 m/s; lowest s50-130 31.2 at s 82 (541,-212); widest 3.4 m off the centre line at s 82; lip 35.7 m/s at (434,72.6,-198), flight 3.92s, down at (308,46.8,-188)
+after-full-ForestLoopReverse-moto-Granite_Saddle-0-18.csv: speed s50 37.4, s70 35.7, s90 35.5, s110 37.3, s150 35.8 m/s; lowest s50-130 34.3 at s 79 (544,-211); widest 2.5 m off the centre line at s 79; lip 34.4 m/s at (435,72.6,-196), flight 4.00s, down at (313,41.7,-223)
+after-full-ForestLoopReverse-moto-Granite_Saddle-5-25.csv: speed s50 38.7, s70 35.7, s90 35.6, s110 37.3, s150 36.0 m/s; lowest s50-130 34.6 at s 78 (545,-211); widest 2.3 m off the centre line at s 81; lip 34.6 m/s at (435,72.5,-196), flight 4.00s, down at (312,41.9,-223)
+after-full-ForestLoopReverse-original-Granite_Saddle-0-18.csv: speed s50 34.6, s70 31.8, s90 30.0, s110 31.1, s150 31.9 m/s; lowest s50-130 29.4 at s 82 (541,-212); widest 3.2 m off the centre line at s 82; lip 33.0 m/s at (434,72.7,-198), flight 3.74s, down at (323,47.4,-187)
+after-full-ForestLoopReverse-original-Granite_Saddle-5-25.csv: speed s50 33.9, s70 31.4, s90 30.0, s110 31.1, s150 32.0 m/s; lowest s50-130 29.4 at s 82 (541,-212); widest 3.0 m off the centre line at s 82; lip 33.1 m/s at (434,72.7,-198), flight 3.74s, down at (322,47.5,-187)
+
+== Runner notes (after)
+---- drive:ForestLoopReverse:moto:Granite Saddle:100:18:25
+ForestLoopReverse moto Granite Saddle from 100 at 25 m/s: resets 0+0, max air 3.92s, min up 0.83, max vertical jolt 738 m/s² at 322.7,41.12,-194.6, end 180.1,42.73,-167.2
+---- drive:ForestLoopReverse:atv:Granite Saddle:100:18:25
+ForestLoopReverse atv Granite Saddle from 100 at 25 m/s: resets 0+0, max air 3.66s, min up 0.65, max vertical jolt 989 m/s² at 364.0,33.65,-195.7, end 327.0,40.89,-197.9
+---- drive:ForestLoopReverse:original:Granite Saddle:100:18:25
+ForestLoopReverse original Granite Saddle from 100 at 25 m/s: resets 0+0, max air 3.86s, min up 0.81, max vertical jolt 1094 m/s² at 324.4,41.76,-191.6, end 188.6,43.76,-170.3
+---- full86:ForestLoopReverse:moto:Granite Saddle:5:25:16
+ForestLoopReverse moto Granite Saddle full throttle from s 5 at 25 m/s: resets 0, max air 4.00s, min up 0.64, max vertical jolt 596 m/s² at 311.6,41.61,-222.7, end 239.9,46.93,-190.4
+---- full86:ForestLoopReverse:atv:Granite Saddle:5:25:16
+ForestLoopReverse atv Granite Saddle full throttle from s 5 at 25 m/s: resets 0, max air 3.92s, min up 0.57, max vertical jolt 328 m/s² at 166.9,41.02,-154.9, end 148.0,40.37,-130.5
+---- full86:ForestLoopReverse:original:Granite Saddle:5:25:16
+ForestLoopReverse original Granite Saddle full throttle from s 5 at 25 m/s: resets 0, max air 3.74s, min up 0.63, max vertical jolt 550 m/s² at 322.1,47.40,-187.0, end 140.1,39.77,-135.5
+---- full86:ForestLoopReverse:moto:Granite Saddle:0:18:16
+ForestLoopReverse moto Granite Saddle full throttle from s 0 at 18 m/s: resets 0, max air 4.00s, min up 0.64, max vertical jolt 753 m/s² at 312.4,41.52,-223.2, end 211.5,45.37,-181.4
+---- full86:ForestLoopReverse:atv:Granite Saddle:0:18:16
+ForestLoopReverse atv Granite Saddle full throttle from s 0 at 18 m/s: resets 0, max air 3.92s, min up 0.76, max vertical jolt 344 m/s² at 166.7,40.91,-155.3, end 166.5,41.13,-154.2
+---- full86:ForestLoopReverse:original:Granite Saddle:0:18:16
+ForestLoopReverse original Granite Saddle full throttle from s 0 at 18 m/s: resets 0, max air 3.74s, min up 0.65, max vertical jolt 171 m/s² at 570.0,42.81,-200.5, end 149.8,40.02,-140.9
+done, failures 0
+
+== One race lap with AI (after)
+---- carrace:ForestLoopReverse:atv:moto,original,skyfin
+PASS ForestLoopReverse player atv vs moto/original/skyfin: PLAYER atv: 01:08.568 missed 0 resets 0 longest stall 1s shortcuts [Fern Gully]; EMBER moto: 01:13.110 missed 0 resets 0 longest stall 2s shortcuts []; GOLD original: 01:13.814 missed 0 resets 0 longest stall 1s shortcuts []; BLUE skyfin: 01:12.718 missed 0 resets 0 longest stall 1s shortcuts []
+done, failures 0
