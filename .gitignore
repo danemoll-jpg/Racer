@@ -130,3 +130,6 @@ InitTestScene*.unity*
 
 # Final-two listener diagnostics contain local radio; never publish captures.
 /Docs/FinalTwo/audio/*.wav
+
+# Claude Code personal permissions (Dan, 2026-10-06)
+.claude/settings.local.json

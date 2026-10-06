@@ -15,7 +15,78 @@
   - **Dan does:** driving every course and direction, trying every vehicle everywhere, checking that a universal fix holds everywhere, and judging look and feel. He reports through the debug ZIPs.
   - **Write-up:** the TODO results are a short list: what changed, the one check per item, decisions made, and anything Dan should look at. No separate VALIDATION.md unless a round asks. If a check would take more than a few minutes of play time, skip it and list it under "for Dan to check".
 
-## CURRENT — Loading screens, stutter check, junction lines fix, garage stat bars, winner camera — 0.82.0-review1 — DELIVERED, AWAITING DAN'S REVIEW
+## CURRENT — Scene characters (Dan, Kyle, brother), always-on track map, poster loading screen, winner's head, plain Top 10 records, two Mountain Forward fixes — target 0.83.0-review1 — NOT STARTED
+
+- **Authorized by Dan (2026-10-06).** Written by Claude (chat) from his review of 0.82.0-review1: debug session `2026-10-06_03-13-11-334_72b40c` (2 reports, both on 0.82.0-review1, Mountain Loop Forward, race, Night / Snow, Drifter Twin) and his written requests, quoted in each part.
+- **Starting point:** main at the "Record 0.82 delivery" commit; playable source `27a3fa98` (0.82.0-review1 / game-82000). This TODO edit and the new file `SourceArt/Poster/WoodstockRushPoster.png` are uncommitted and belong in the safety checkpoint.
+- Runs unattended: design decisions are below; do not stop to ask about design. Stop only for a real external blocker (rule 7).
+- **Scope is exactly Parts A–G below.** The Verification budget in "Mandatory standing workflow" applies in full.
+- **Publishing:** Dan has added `.claude/settings.local.json` (via Claude chat, 2026-10-06) allowing `python Tools/Publish-LauncherRelease.py` so the publish step should no longer be blocked or need him. If it is still blocked, do not wait silently: say exactly which command was refused and what rule would allow it.
+
+### Part A — BUG-001: a spot that flips everyone (Mountain Loop Forward)
+
+"this is causing everyone to flip" at (1253.0, 152.5, 226.3), `MountainLoop`, lap 1, next checkpoint 6. Same kind of fault as the 0.81 Reverse bump (a lip or step in the driving surface that throws bikes). Find the lip or seam at that spot (check first for a collider edge or mesh seam standing above the surface, including anything added by 0.80/0.81 work that also loads in this scene), and make the surface continuous so a motorcycle at race speed stays upright. Section 5A: keep the race line and any jump as they are. Check: ride it at race speed on a motorcycle a few times; one lap of Mountain Loop Forward with AI; collider comparison for the scene.
+
+### Part B — BUG-002: broken road surface (Mountain Loop Forward)
+
+"fix this" at (989.1, 132.0, -115.6), `MountainLoop`, lap 2, next checkpoint 3. In the screenshot the road ahead has a visible break running across it: a strip where the surface is missing or mismatched, with a lighter band showing through and a blue patch beside it. Find what it is (gap between road pieces, a z-fighting or misplaced strip, a marking mesh lying across the road) and repair it so the road looks and drives as one continuous surface. Same 5A care and the same single check as Part A (the lap covers both).
+
+### Part C — The three scene characters
+
+Dan (2026-10-06): "I want to change the scene characters in this way: 1) Me - White, with brown hair and wearing a black Ramones t-shirt (I know it won't actually be the Ramones) but it would have a white circle with an eagle in the middle (or really whatever close it can do but remain vague) and blue jeans. 2) Kyle - White, with black hair and black leather jacket with blue jeans. 3) my brother - white, with brown hair, whatever clothes he is wearing doesn't matter."
+
+Change the three definitions in `ScenePeople.cs` (and add what the rider model needs to show them):
+
+1. **Dan:** light skin, brown hair, no hat. **Black T-shirt with a chest emblem: a plain white ring with a simple generic bird / eagle silhouette inside it.** Keep it vague and original: no lettering, no band name, no copy of any real logo's layout. Blue jeans.
+2. **Kyle** (the character called "the friend" in 0.81; rename him Kyle): light skin, black hair, no cap. **Black leather jacket** (a jacket shape with collar and a slight sheen, open over a plain dark or white T-shirt), blue jeans.
+3. **The brother:** light skin, brown hair (a slightly different shade or cut from Dan's so they are not twins), any plain clothes that are clearly different from the other two (keep the 0.81 white T-shirt; long trousers or shorts as it is now).
+4. Keep their different heights/builds from 0.81 so they can be told apart. In the Snow scenes (sled, broom hockey) they keep winter jackets and beanies as in 0.81, but recognisable: Dan's emblem on his jacket chest or a black jacket, Kyle in the black leather jacket, hair colour visible under the beanie.
+5. The emblem and the leather jacket are for these scene characters. If adding them as rider-customization options for the player is free, fine; do not spend time on it.
+6. Check: one close shot of the three together (the football scene), one of a two-person scene, one Snow scene.
+
+### Part D — Track select: the map is always visible
+
+Dan: "On the track select screen - Instead of having a button to show preview keep the map visible at all times and change the route on the map to the one that is highlighted."
+
+1. Remove the "Preview highlighted track" row and the separate preview page. The course map is part of the track select screen itself, always shown beside the list (the 0.76 garage layout is the model: list on one side, a fixed panel on the other).
+2. As the highlight moves through the list (keyboard, controller or mouse hover), the map immediately shows that course's route: main route and shortcuts in the existing overlay colours, with direction (forward or reverse) evident, for example a start marker and direction arrows. The course's name and its length or lap count sit with the map if that information already exists.
+3. Works for all eight courses and for the playlist/any other entries in that list (entries without a route show the plain map). No stutter when moving quickly through the list.
+4. Check: one shot with a Street Loop entry highlighted and one with a Mountain entry.
+
+### Part E — The game poster on loading screens
+
+Dan: "On the load screens I want to put the game poster."
+
+1. The poster is in the project at `SourceArt/Poster/WoodstockRushPoster.png` (1672×941, 16:9; placed there by Claude from the image Dan supplied on 2026-10-04). Import it into the game and use it as the full-screen background of every loading screen, scaled to fill 16:9 without stretching (crop evenly on other aspect ratios).
+2. The loading information from 0.82 stays, laid over the poster so the poster remains the picture: a dark gradient band along the bottom carrying what is loading, conditions and vehicle, the progress bar and the tip. Keep the poster's title lettering (upper centre) and the two vehicles (centre) uncovered. The route map from 0.82 becomes a small inset in a bottom corner, or is dropped if it crowds the poster.
+3. The image is only 1672 px wide and will be shown at 3840: use good filtering and no sharpening tricks; a slight softness is accepted.
+4. Do not alter the artwork itself. Check: one shot of a race loading screen and one of Free Roam.
+
+### Part F — Winner's celebration: head missing
+
+Dan: "On the victory dance, the driver is missing their face and whatever is on their head (including hair)."
+
+In the 0.82 winner shot the rider has no face, hair or hat. Likely cause: first-person view hides the player's head parts so the camera does not see inside them, and the winner shot (an outside camera) does not show them again; check also AI winners and riders in Shorts (0.78 noted the "eyes" material slot is shared). Fix so the whole rider is visible in the winner shot for the player and for AI, whatever camera view the player was using, and restore the first-person hiding afterwards. Check the same for any other outside camera that can show the player while first person is selected (Trailer Mode cameras, the finish panel). **Also (Dan, 2026-10-06): "when you are switching POV, you briefly see a bald head. Can we fix this also."** When cycling camera views (V / X), the head parts are hidden or shown a moment out of step with the camera move, so an outside view shows a bald, faceless rider for an instant (or first person shows the inside of the head). Switch the head parts in the same frame the camera actually changes (and if the view change is blended, keep the head visible until the camera is inside it), so no view ever shows a bald head. Check: win a race in first person and in chase view; one AI win. Cycle through all four views several times while watching the rider.
+
+### Part G — Records: a plain Top 10 that is never mysteriously blank
+
+Dan: "I still find the top 10 menu confusing. I just want to see top 10 scores there and I never understand why I see blank lists all the time."
+
+Why it is blank today: the Records screen (`RaceMenus.RecordsResults.cs`) shows one narrow slice at a time: one track and direction × lap times or race totals × one lap count × one vehicle × an era filter. Most slices have no entries, more so now that there are ten vehicles, so the list is usually empty even though records exist.
+
+1. **Opening Records shows a filled Top 10 straight away:** the best lap times on the track last raced (or the first track that has any records), **all vehicles together**, all race lengths, all eras. Columns: rank, time, vehicle, date. No filter has to be touched to see scores.
+2. **One obvious control to change track** (left / right through the eight courses, name and direction shown large). Tracks with no times yet say so in the track name line.
+3. **One toggle: Best laps / Best races.** Best races lists full-race totals across all lap counts, with the lap count shown as a column, instead of making the player pick a lap count first.
+4. **Vehicle filter is optional**, defaults to All vehicles, and offers only vehicles that actually have an entry on that track. The era filter and the separate "record filters" page go away from the main view (keep legacy entries in the list, marked as now).
+5. **An empty list always explains itself** in one plain line, for example "No times on Mountain Loop — Reverse yet. Finish a lap there to set one." Never a bare empty table.
+6. The same simplification for activity records if they use the same screen. No stored record is deleted, changed or re-ranked; this is display only. The post-race results screen still highlights a new record as now.
+7. Check: open Records from the main menu and step through the tracks; one shot of a filled board and one of an explained empty one.
+
+### Verification
+
+Light, per the Verification budget: the one check named in each part, compile, launch, release steps. Results as a short list, with "for Dan to check".
+
+## Previous delivery — Loading screens, stutter check, junction lines fix, garage stat bars, winner camera — 0.82.0-review1 — DELIVERED, REVIEWED BY DAN (follow-ups in 0.83)
 
 - **DELIVERED:**
   - Source `27a3fa98e9d357241e114034ebdadad8af8a6a99` pushed and verified on origin/main.
@@ -551,7 +622,7 @@ Built on the 0.75 parametric rider (New models). Purely cosmetic: no effect on s
 
 - Awaiting Dan: review of 0.77 (camera views, first person, Trailer Mode) and of 0.78 (the new scenery look and the gestures); then filming the trailer from the shot list in the project.
 - Possible follow-ups if Dan wants them (not scheduled): new fence models; cave / vault rock; a camera that frames the winner's celebration behind the results panel.
-- Small, not scheduled: bury the storm-drain culvert box; weather affecting grip; CR-118 spoken-title clipping; Mountain berm leftovers; a way to skip a day in Free Roam; CR-010 steering (needs Dan's yes/no).
+- Small, not scheduled: weather affecting grip; CR-118 spoken-title clipping; Mountain berm leftovers; CR-010 steering (needs Dan's yes/no).
 - Later: traffic vehicles in Blender; vehicle stats and more vehicles; acorn-completion special vehicle; stunt track (route shown on the map before building); Trickum course; split-screen/online; VR.
 - Deferred: Steam Deck checks; friend test of the packaged build.
 
