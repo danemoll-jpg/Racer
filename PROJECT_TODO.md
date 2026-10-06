@@ -15,7 +15,65 @@
   - **Dan does:** driving every course and direction, trying every vehicle everywhere, checking that a universal fix holds everywhere, and judging look and feel. He reports through the debug ZIPs.
   - **Write-up:** the TODO results are a short list: what changed, the one check per item, decisions made, and anything Dan should look at. No separate VALIDATION.md unless a round asks. If a check would take more than a few minutes of play time, skip it and list it under "for Dan to check".
 
-## CURRENT — Forest Forward Lake Dock Jump shortcut, working Forest Reverse lake jump, escapable pools and lakes, trees off the shortcuts, hands on the steering wheel, Mountain Forward road edge — target 0.85.0-review1 — F, A, B, C DONE; D and E NOT BUILT (measured, options for Dan); release: see DELIVERED
+## CURRENT — House 3 pool truly in-ground, ATV icon, Forest Forward second-shortcut survey, Forest Reverse jump approach — target 0.86.0-review1 — NOT STARTED
+
+- **Authorized by Dan (2026-10-06).** Written by Claude (chat) from his review of 0.85.0-review1: debug session `2026-10-06_15-52-45-505_44e69e` (1 report, on 0.85.0-review1, `FreeRoamWorld`) and his message of 16:01. He raised nothing against 0.85 Parts A, B or C.
+- **Starting point:** main at the "Record 0.85 delivery" commit; playable source `f0e98977` (0.85.0-review1 / game-85000). This TODO edit and the two replaced icon files (Part B) are uncommitted and belong in the safety checkpoint.
+- Runs unattended: design decisions are below; do not stop to ask about design. Stop only for a real external blocker (rule 7).
+- **Scope is exactly Parts A–D below.** The Verification budget in "Mandatory standing workflow" applies in full.
+- Permissions: scene edits and publishing are allowed by Dan's user settings (see the 0.85 note). Scene edits are the intended method.
+
+### Part A — The House 3 pool is an in-ground pool: no ramp (BUG-001)
+
+"i don't like the ramp. Its an inground pool. Why cant there just be a slope out?" at (401.4, 33.6, -185.9), `FreeRoamWorld`.
+
+What 0.85 built: the House 3 pool is a box whose rim stands about 1.9 m above the basin floor, so the way out became a 19 m wide paved apron ramping up the outside to the rim plus a beach entry inside (`Docs/Report085/Shots/F-pool-beach-entry.png`). It reads as an above-ground tank with a loading ramp.
+
+1. **Make it truly in-ground.** The coping sits flush with the ground around it on all four sides, the water surface just below the coping, the pool's depth below ground. Do it by sinking the pool into the basin floor (preferred: the ground is level there) or by bringing the surrounding ground up to the coping in a natural, gently graded lawn; whichever leaves the bowl, the lake shore and the trails least changed. No wall, tank side or apron visible above ground.
+2. **Remove the 0.85 outside apron entirely.**
+3. **The way out is just a slope inside the pool:** the floor at one end rises smoothly to the coping (a shallow end running out to nothing), full width, gentle enough for the weakest of the ten vehicles, in the pool's own surface colour. Nothing sticks up above the coping.
+4. Keep its position, outline and size, a narrow pale coping, the water, the ice in Snow and the reset as they are. All nine scenes carry this pool: make the same change in each. Race scenes: section 5A; the Forest Reverse Granite Saddle flight passes over it, so keep that line clear and say what the lower pool does to it (it should only add clearance).
+5. Check: one shot from Dan's position and one from above; a motorcycle, the ATV and the Skyfin Cruiser driven in and out; collider comparison per scene listing only the pool and its surround.
+
+### Part B — The icon is the car; it must be the ATV
+
+Dan: "Noticed that the icon being used is the car not the ATV as we discussed." "the icon is exactly the one you first proposed."
+
+**Cause (Claude chat's mistake, found 2026-10-06 16:07):** the file swap to the ATV on the night of 0.84 did not take effect on Dan's PC, so `SourceArt/Poster/WoodstockRushIcon.png` and the copy 0.84 made at `Assets/Branding/WoodstockRushIcon.png` were still the first proposal, the blue car (876,726 bytes). **Both files have now been replaced with the ATV crop (622,075 bytes, md5 `feb18da4bc898d80503378769a849136`), read back from Dan's disk and looked at: both show the ATV.** These two changed files are uncommitted and belong in the safety checkpoint.
+
+1. Confirm both files are the ATV (a teal quad with a rider in a blue shirt and dark hat, no car) and identical. Reimport `Assets/Branding/WoodstockRushIcon.png` so Unity does not build from its cached car import; the Player Settings icon references stay as 0.84 set them.
+2. After the build, extract the icon embedded in `Builds\Latest\versions\<n>\Racer.exe` and in `Builds\Latest\Racer.exe`, save them as PNGs in the report folder and confirm they show the ATV.
+3. Also extract the icon of `Builds\Latest\WoodstockRushLauncher.exe` (Dan starts the game through it). If it is the Unity logo, a car or anything but the ATV, give it the ATV icon too, **only** if that can be done inside the existing release procedure: never regenerate, replace or expose signing keys (rule). Otherwise report what it shows and what changing it would need.
+4. Tell Dan plainly if Windows may still show the old icon from its cache, and the one step to refresh it.
+
+### Part C — Forest Loop Forward second shortcut: survey and propose, do not build
+
+0.85 could not build the Lake Dock Jump: the House 3 lake and pool sit in a closed bowl, the far side is the pool and a hill rising 20–30 m, there is no bank that falls away for a landing, and any line through there is at best about 40 m (1.3–1.5 s) shorter than the main. Dan (16:01): "since it didn't do the shortcut help me figure out what we want." Dan still wants Forest Forward to have two shortcuts like the other courses, and "keeps thinking ramp".
+
+This part produces a proposal for Dan to choose from. **Build nothing; change no scene.**
+
+1. Survey the whole Forest Loop Forward lap in `LakeWoods`, not just the House 3 stretch: for every pair of points on the main where a line across open, drivable ground would be meaningfully shorter or faster than the main, measure the saving (metres and seconds at measured race speeds per class), the ground along it (grades, water, trees, buildings), and what would have to be built.
+2. Propose the best **three** candidate shortcuts, at least two of them with a jump, each as:
+   - a top-down map picture of the lap with the main, the existing Echo Cave shortcut and the candidate drawn on it, and one or two ground-level views of the spot as it is now;
+   - a one-paragraph description a player would understand (where it leaves, what you do, where it rejoins);
+   - numbers: length saved, seconds saved per class, approach speed at any jump and the gap and landing that speed supports, how much earth would move, what happens if you miss;
+   - risks to existing course features (5A) and to AI.
+3. One candidate must be the "ridge jump" 0.85 mentioned (the chord south of the House 3 ridge, no lake), worked out properly. If a lake or dock themed jump is possible anywhere on the lap (the Friend's lake, the J1 creek), include it, since Dan liked that idea.
+4. Rank them and say which Code would build and why. Put it all in `Docs/Report086/ForestForward-shortcut-options.md` with the pictures, and summarise in the TODO results.
+
+### Part D — Forest Loop Reverse: let the ATV carry speed to the Granite Saddle jump
+
+0.85 measured the optional Granite Saddle jump after the 0.84 route change: bikes and cars reach the lip at about 31 m/s, clear the pool and lake and land on the trail (hard, but nobody thrown); the Trail Four loses most of its speed in the dip at the foot of the climb (x ≈ 532, down to 11 m/s), reaches the lip at 20 m/s and drops in the lake. 0.85 offered a small local fix.
+
+1. Smooth the dip at x ≈ 532 on the Granite Saddle approach in `ForestLoopReverse` so the ATV (and anything else) keeps its speed up the climb. Local reshaping of that dip only; the main, gates, the lip, the landing, Fern Gully and the driveway are not touched.
+2. Re-measure the three classes to the lip. If all clear the water from a normal approach, leave AI off this line anyway (hard landing) and say so; the landing is not rebuilt in this round.
+3. Own commit. Check: the three approach traces and one full run each; collider comparison.
+
+### Verification
+
+Light, per the Verification budget: the one check named in each part, compile, launch, release steps. Results as a short list, with "for Dan to check".
+
+## Previous delivery — Forest Forward Lake Dock Jump shortcut (not built), Forest Reverse lake jump (left), escapable pools and lakes, trees off the shortcuts, hands on the steering wheel, Mountain Forward road edge — 0.85.0-review1 — DELIVERED, REVIEWED BY DAN (follow-ups in 0.86)
 
 - **DELIVERED:**
   - Source `f0e9897767f491b49a4993d9675f910be143fd5b` pushed and verified on origin/main (Part F alone is `9502ece4`).
