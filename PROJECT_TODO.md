@@ -15,7 +15,85 @@
   - **Dan does:** driving every course and direction, trying every vehicle everywhere, checking that a universal fix holds everywhere, and judging look and feel. He reports through the debug ZIPs.
   - **Write-up:** the TODO results are a short list: what changed, the one check per item, decisions made, and anything Dan should look at. No separate VALIDATION.md unless a round asks. If a check would take more than a few minutes of play time, skip it and list it under "for Dan to check".
 
-## Latest delivery — Forest Loop Reverse main route, small things (icon, no idle creep, Forest activities into Free Roam, fences, cave rock, title audio, Start Race pause, Backyard AI gates), roadster windshield — 0.84.0-review1 — DELIVERED, AWAITING DAN'S REVIEW
+## CURRENT — Forest Forward Lake Dock Jump shortcut, working Forest Reverse lake jump, escapable pools and lakes, trees off the shortcuts, hands on the steering wheel, Mountain Forward road edge — target 0.85.0-review1 — NOT STARTED
+
+- **Authorized by Dan (2026-10-06).** Written by Claude (chat) from his review of 0.84.0-review1: debug session `2026-10-06_12-34-02-995_3e8886` (1 report, on 0.84.0-review1) and his message of 12:54. Parts D–F were added at 13:01 after he chose the dock jump and reported being trapped in a pool.
+- **Starting point:** main at the "Record 0.84 delivery" commit; playable source `7f341522` (0.84.0-review1 / game-84000). This TODO edit is uncommitted and belongs in the safety checkpoint.
+- Runs unattended: design decisions are below; do not stop to ask about design. Stop only for a real external blocker (rule 7).
+- **Scope is exactly Parts A–F below. Order: F, then D, then E (D and E each in their own commit), then A, B, C.** The Verification budget in "Mandatory standing workflow" applies in full.
+- **Permissions:** Dan's user settings (`~/.claude/settings.json`, `autoMode.allow`) now allow Unity editor scripts and batch commands that modify and save scene, mesh, prefab, asset and build files in this project, and publishing to `danemoll-jpg/woodstock-rush-releases`. Scene edits are the intended method where a part needs them; do not build load-time workarounds to avoid one. If something is still refused, say exactly what and stop on that item only, carrying on with the rest.
+
+### Part A — Trees standing on the Forest Loop Reverse shortcut paths
+
+Dan: "I notice that there were trees scattered on both shortcut paths on forest reverse. They don't stop the driver though."
+
+Trees with no collision now stand on the driving surface of both optional lines in `ForestLoopReverse` (Granite Saddle and Fern Gully; check McFadden Cut, now the main, too). Most likely cause: 0.84 Part K gave about 1,300 floating crown-only clumps a trunk down to the ground and set 164 visual-only trunks down, and some of those came down on a trail; the 0.79 "nothing on drivable ground" check may not treat the optional lines as drivable in this scene.
+
+1. Remove every tree, trunk, bush and clump (drawn or collidable) from the driving surface of the main and of every optional line in `ForestLoopReverse`, with a margin each side so the trail reads as open. Trees beside the trail stay.
+2. Make the drivable-surface check cover main and optional lines in every course scene and `FreeRoamWorld`, run it once over all nine, fix what it finds, and report the counts per scene.
+3. Check: one shot along each Forest Reverse optional line.
+
+### Part B — First person in cars: hands turn with the steering wheel
+
+Dan: "noticed in the first POV in cars, the steering wheel moves but the hands don't. Is it possible to fix this?"
+
+1. In all six cars the driver's hands hold the wheel rim and move with it as it turns, with the arms following (the 0.78 arm rig and IK already exist for the gestures). Visible in first person and from outside. Limit wheel rotation shown so the arms never cross or stretch unnaturally; hands may slide on the rim at large angles if that looks better than a tangle.
+2. The fist wave still works: the waving hand leaves the wheel and returns to its place on the rim; the other hand keeps steering.
+3. Motorcycles and the ATV: confirm the hands stay on the grips as the bars turn in first person and outside; fix the same way if they do not.
+4. AI drivers and traffic drivers get the same where it is free; do not spend time on traffic.
+5. Purely visual: no steering, handling or input change. Check: first-person shots at full left, centre and full right in one car and on one motorcycle.
+
+### Part C — Mountain Loop Forward road edge (BUG-001)
+
+"fix this" at (740.0, 86.9, -132.5), `MountainLoop`, lap 1, next checkpoint 2, 29 m into the lap, facing 199°. The screenshot shows the bike stopped just off the right-hand edge of the red-brown road on the outside of the bend: the road ends in a hard straight edge with a grey-green shelf beside and below it that does not join the road smoothly, with the hillside dropping away beyond. A vehicle running wide drops off the lip onto the shelf.
+
+1. Find what is wrong there (a step between the road slab and the shoulder, a gap, a shoulder mesh at the wrong height) and make the road edge meet its shoulder in one smooth surface, wide enough that running slightly wide is recoverable. Same care as the 0.83 Mountain Forward fixes: section 5A, keep the race line, gate and the shortcut fork just ahead exactly as they are.
+2. Look along the next 100 m each way for the same fault and fix it the same way.
+3. Check: ride wide over that edge on a motorcycle at race speed; collider comparison for the scene; one lap of Mountain Loop Forward with AI.
+
+### Part D — Forest Loop Forward: a second shortcut, the Lake Dock Jump
+
+Dan (2026-10-06): "Forest forward currently just has the one shortcut whereas the other tracks all have two. I think there should be a shortcut that is roughly the same place the reverse shortcut is but I am out of new ideas. I keep thinking ramp but I am not sure." Claude offered three ideas; **Dan chose A, the dock jump** ("A is good"). His map screenshot shows the place: the main's long southern curve between the two gates either side of House 3, and the straight line across its chord past House 3, the pool and the lake.
+
+Build it in `LakeWoods` (Forest Loop Forward) only. This is new race geometry asked for by Dan; section 5A applies to everything already there.
+
+1. **Line:** leaves the main where the southern curve begins, runs straight across the chord past House 3 to the lake, and rejoins the main after the curve, so it is clearly shorter than the main. Read the route data first: do not move the main, its gates, the Echo Cave shortcut or any existing jump. Use existing ground and the existing straight path where they serve; the House 3 driveway keeps its straight line (never the winding 0.74 version).
+2. **The jump:** a wooden boat dock on the near shore that rises gently along its length and ends in a kicker over the water, like a dock built as a ramp: planks, posts into the lake bed, a rope or rail on the sides, a "LAKE DOCK JUMP" shortcut sign in the gold style. The flight crosses the lake (or its narrow arm) to a **proper landing**: a wide downhill landing slope on the far bank that matches the flight angle, then a smooth run-out back to the main.
+3. **It must work at the speed vehicles actually arrive with.** Measure the approach speed of each class on the shortcut first (bikes, ATV, cars; all ten vehicles), then size the gap, lip angle and landing from those numbers so that a clean approach at normal race speed clears it with margin in every vehicle, and only a slow, crooked or hesitant approach comes up short. (The Reverse jump on this ground failed exactly this: vehicles arrived at 19–29 m/s for a jump that needed about 34.) No speed pad or boost; the run-up itself must give the speed.
+4. **Coming up short is survivable:** the vehicle lands in the water, which slows it as water already does (ice in Snow, same slowdown), and can drive out on its own by a shelving bank (Part F). It costs time; it does not need a reset.
+5. **Risk and reward:** taken well it saves a worthwhile few seconds over the main; missed, it is slower than staying on the main. Report the measured time saved per class.
+6. **AI:** validated for AI with the usual shortcut choice rate, only for vehicle classes that clear it reliably in testing; otherwise leave that class on the main and say so.
+7. Minimap, track-select map and course preview show it as the second gold shortcut; fork and rejoin get the standard gold arrows and signs; the main stays the obvious straight-on choice at the fork. Free Roam map overlays updated if they draw this course.
+8. New course-rule ID for Forest Loop Forward (old times stay as legacy). `FreeRoamWorld` and the other scenes are not changed.
+9. **Checks (heavier allowed, new race geometry):** each class through the jump five times at race speed (cleared / short) and once deliberately slow (lands in the water, drives out); landing loads sensible, no vehicle thrown or flipped; three races with AI (0 missed gates, nobody stuck); collider and route comparison listing exactly what was added; shots of the fork, the dock, mid-flight and the landing. **Own commit**, with the revert command in the results.
+
+### Part E — Forest Loop Reverse: make the Granite Saddle pool-and-lake jump work
+
+Offered by Claude alongside Part D; it is the same water from the other side. 0.84 measured that no vehicle reaches the lip fast enough (19–29 m/s against about 34 needed): bikes and cars hit the 55 % far bank and are thrown back, the ATV drops in the lake. It is now on the optional line with AI switched off.
+
+1. In `ForestLoopReverse` only, rebuild this jump by the same method as Part D: measure real approach speeds, then reshape the approach, lip and landing so every vehicle clears it at normal race speed with margin, onto a proper downhill landing instead of the 55 % bank. Ease the 34 % climb on the approach where that is what kills the speed. The House 3 driveway may be adjusted at the crossing as Dan allowed for this scene (simple and direct, never winding). The main (McFadden Cut), gates and Fern Gully stay as they are.
+2. Coming up short lands in the water and can drive out (Part F).
+3. When it clears reliably, switch AI on for it for the classes that make it, at the usual rate.
+4. If it cannot be made to work without redrawing the route, leave it as it is and report why.
+5. Same checks as Part D. **Own commit.**
+
+### Part F — Every pool, pond and lake must be drivable out of
+
+Dan: "we need to make the pool escapable. I ended up in the pool and could only reset to get out."
+
+1. Find every body of water a vehicle can get into, in all nine scenes: Dan's pool, the House 3 pool and basin, the lake and its arms, ponds, creek pools, gully and storm-drain water, the mountain water. For each, test whether each vehicle class placed in its deepest part can drive out without a reset.
+2. Where it cannot: give it a way out that looks like it belongs.
+   - **Swimming pools:** a shallow end that slopes up to the deck (a beach-style entry or wide shallow steps a wheel rolls over), across the full width of one end, gentle enough for the weakest climber among the ten vehicles. Dan's own pool is the accurate one: keep its position, outline, deck and size; only the floor at one end slopes up.
+   - **Lakes, ponds, basins:** at least a shelving bank (about 25 % or gentler) on the sides a vehicle is likely to arrive at or leave by, especially under the Part D and E jumps; no vertical lips at the waterline.
+3. The water still slows vehicles exactly as now, and ice in Snow is unchanged. The broom-hockey scene on Dan's frozen pool still fits.
+4. Race scenes: section 5A. Do not change a race line or gate; these edits are in and around the water. `FreeRoamWorld` gets the same fixes.
+5. The reset still works in water as now. Check: for each water body fixed, one vehicle of each class driven in and out; a list of every water body with before / after (escapable yes / no).
+
+### Verification
+
+Light, per the Verification budget, except Parts D and E, which may check as their own lists say. Compile, launch, release steps. Results as a short list, with "for Dan to check".
+
+## Previous delivery — Forest Loop Reverse main route, small things (icon, no idle creep, Forest activities into Free Roam, fences, cave rock, title audio, Start Race pause, Backyard AI gates), roadster windshield — 0.84.0-review1 — DELIVERED, REVIEWED BY DAN (follow-ups in 0.85)
 
 - **Authorized by Dan (2026-10-06).** Written by Claude (chat). Parts A–I were queued during 0.83; Parts J–L come from his review of 0.83.0-review1 (debug session `2026-10-06_05-51-11-694_49829f`, 1 report, on 0.83.0-review1) and his message of 06:01. He raised nothing else against 0.83.
 - **Starting point:** main at the last 0.83 commit ("Remove the temporary 0.83 editor tools…"); playable source `da4c8d8c` (0.83.0-review1 / game-83000). This TODO edit and `SourceArt/Poster/WoodstockRushIcon.png` are uncommitted and belong in the safety checkpoint.
