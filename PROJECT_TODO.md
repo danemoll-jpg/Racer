@@ -15,7 +15,20 @@
   - **Dan does:** driving every course and direction, trying every vehicle everywhere, checking that a universal fix holds everywhere, and judging look and feel. He reports through the debug ZIPs.
   - **Write-up:** the TODO results are a short list: what changed, the one check per item, decisions made, and anything Dan should look at. No separate VALIDATION.md unless a round asks. If a check would take more than a few minutes of play time, skip it and list it under "for Dan to check".
 
-## CURRENT — New vehicles (four cars incl. a convertible, two motorcycles), Blender traffic cars, detailed people in the scripted scenes, and three 0.80 fixes — 0.81.0-review1 — IMPLEMENTED, RELEASE IN PROGRESS
+## CURRENT — New vehicles (four cars incl. a convertible, two motorcycles), Blender traffic cars, detailed people in the scripted scenes, and three 0.80 fixes — 0.81.0-review1 — DELIVERED, AWAITING DAN'S REVIEW
+
+- **DELIVERED:**
+  - Source `badc48577f94a2840ee28e641cb2a9ccfe9e8031` pushed and verified on origin/main.
+  - Fresh 0.81.0-review1 Windows build: 0 errors, 2 warnings, 2m43s.
+  - Published [game-81000](https://github.com/danemoll-jpg/woodstock-rush-releases/releases/tag/game-81000) (known draft-lookup miss, completed with `--resume-draft`).
+  - All 234 Latest files match the public signed manifest; public download, signature, install and startup pass.
+  - [Delivery evidence](Docs/Report081/PUBLICATION.md).
+- **Play-Racer.cmd (unchanged):** launched a responsive managed 81000, muted, with settings restored byte-for-byte; no pending updates. Latest root, current 81000 and previous 80000 retained.
+- **Cleanup:**
+  - Builds 10,092,961,132 → 7,966,638,546 bytes.
+  - Removed the 1.73 GB hosted check install and 1.87 GB of scratch outside the project.
+  - C: free 257,447,268,352 bytes.
+- **SESSION HANDOFF: STOP.** Awaiting Dan's review of 0.81 (rule 12): the six new vehicles and their handling, the traffic kit, the three characters in the scripted scenes, the world-edge hills, the Mountain Loop Reverse bump. A documentation-only delivery commit follows; the playable source remains `badc4857`.
 
 ### Results (2026-10-05, Claude Code)
 
