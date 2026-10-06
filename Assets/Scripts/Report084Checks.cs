@@ -13,7 +13,7 @@ using UnityEngine.InputSystem.LowLevel;
 namespace Racer {
 // 0.84 targeted checks, added to the 0.80 runner (same muted isolated save, same helpers): PROBE_CASES="case:args;...".
 public sealed partial class Report080Checks {
- IEnumerator Cases084(string[] a)=>a[0] switch{"creep"=>Creep(a[1],a[2]),"deadzone"=>DeadZone(),"startpress"=>StartPress(a[1],a[2]),"title84"=>Title084(F(a[1])),"lap84"=>Lap084(a[1],a[2]),"profile84"=>Profile084(a[1],a[2]),"jshots"=>JShots(a[1]),"floaters"=>Floaters(a[1],a[2]),"fpv"=>Fpv(a[1],a.Length>2?a[2]:"before"),"roamsurvey"=>RoamSurvey(),"gatelog"=>GateLog(a),"sites84"=>Sites084(a[1]),"cave84"=>Cave084(a[1],a[2]),"fence84"=>Fence084(),_=>null};
+ IEnumerator Cases084(string[] a)=>a[0] switch{"creep"=>Creep(a[1],a[2]),"deadzone"=>DeadZone(),"startpress"=>StartPress(a[1],a[2]),"title84"=>Title084(F(a[1])),"lap84"=>Lap084(a[1],a[2]),"profile84"=>Profile084(a[1],a[2]),"jshots"=>JShots(a[1]),"floaters"=>Floaters(a[1],a[2]),"fpv"=>Fpv(a[1],a.Length>2?a[2]:"before"),"roamsurvey"=>RoamSurvey(),"gatelog"=>GateLog(a),"sites84"=>Sites084(a[1]),"cave84"=>Cave084(a[1],a[2]),"fence84"=>Fence084(),_=>Cases085(a)};
 
  // Part B: release everything, from a stop and from 20 mph, on the flattest and on the steepest ordinary stretch of the main
  // road (grade up to 15 %): the vehicle steps exactly as the player's own step does (Simulate(0,0,0)), once as before

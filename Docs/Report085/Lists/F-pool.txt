@@ -1,0 +1,36 @@
+StreetLoopGreybox: pool 416.00,34.65,-197.00 surface 34.69 floor 33.35 coping 34.89; inner x 407.00..425.00, outer x 406.40..425.60; north wall z -189.00..-188.40; basin floor north 33.00
+  beach entry: top from z -197.32 (y 33.35) to z -189.00 (y 34.89), 18.5 %, width 18.00 m; dry beach above the water from z -190.08
+  apron: top from z -188.40 (y 34.89) down to z -178.48 (y 33.00), 19.0 %, width 19.20 m
+StreetLoopGreybox: saved
+StreetLoopReverse: pool 416.00,34.65,-197.00 surface 34.69 floor 33.35 coping 34.89; inner x 407.00..425.00, outer x 406.40..425.60; north wall z -189.00..-188.40; basin floor north 33.07
+  beach entry: top from z -197.32 (y 33.35) to z -189.00 (y 34.89), 18.5 %, width 18.00 m; dry beach above the water from z -190.08
+  apron: top from z -188.40 (y 34.89) down to z -178.82 (y 33.07), 19.0 %, width 19.20 m
+StreetLoopReverse: saved
+LakeWoods: pool 416.00,34.65,-197.00 surface 34.69 floor 33.35 coping 34.89; inner x 407.00..425.00, outer x 406.40..425.60; north wall z -189.00..-188.40; basin floor north 33.00
+  beach entry: top from z -197.32 (y 33.35) to z -189.00 (y 34.89), 18.5 %, width 18.00 m; dry beach above the water from z -190.08
+  apron: top from z -188.40 (y 34.89) down to z -178.48 (y 33.00), 19.0 %, width 19.20 m
+LakeWoods: saved
+ForestLoopReverse: pool 416.00,34.65,-197.00 surface 34.69 floor 33.35 coping 34.89; inner x 407.00..425.00, outer x 406.40..425.60; north wall z -189.00..-188.40; basin floor north 33.00
+  beach entry: top from z -197.32 (y 33.35) to z -189.00 (y 34.89), 18.5 %, width 18.00 m; dry beach above the water from z -190.08
+  apron: top from z -188.40 (y 34.89) down to z -178.48 (y 33.00), 19.0 %, width 19.20 m
+ForestLoopReverse: saved
+MountainLoop: pool 416.00,34.65,-197.00 surface 34.69 floor 33.35 coping 34.89; inner x 407.00..425.00, outer x 406.40..425.60; north wall z -189.00..-188.40; basin floor north 33.00
+  beach entry: top from z -197.32 (y 33.35) to z -189.00 (y 34.89), 18.5 %, width 18.00 m; dry beach above the water from z -190.08
+  apron: top from z -188.40 (y 34.89) down to z -178.48 (y 33.00), 19.0 %, width 19.20 m
+MountainLoop: saved
+MountainLoopReverse: pool 416.00,34.65,-197.00 surface 34.69 floor 33.35 coping 34.89; inner x 407.00..425.00, outer x 406.40..425.60; north wall z -189.00..-188.40; basin floor north 33.00
+  beach entry: top from z -197.32 (y 33.35) to z -189.00 (y 34.89), 18.5 %, width 18.00 m; dry beach above the water from z -190.08
+  apron: top from z -188.40 (y 34.89) down to z -178.48 (y 33.00), 19.0 %, width 19.20 m
+MountainLoopReverse: saved
+DansBackyardForward: pool 416.00,34.65,-197.00 surface 34.69 floor 33.35 coping 34.89; inner x 407.00..425.00, outer x 406.40..425.60; north wall z -189.00..-188.40; basin floor north 33.00
+  beach entry: top from z -197.32 (y 33.35) to z -189.00 (y 34.89), 18.5 %, width 18.00 m; dry beach above the water from z -190.08
+  apron: top from z -188.40 (y 34.89) down to z -178.48 (y 33.00), 19.0 %, width 19.20 m
+DansBackyardForward: saved
+DansBackyardReverse: pool 416.00,34.65,-197.00 surface 34.69 floor 33.35 coping 34.89; inner x 407.00..425.00, outer x 406.40..425.60; north wall z -189.00..-188.40; basin floor north 33.00
+  beach entry: top from z -197.32 (y 33.35) to z -189.00 (y 34.89), 18.5 %, width 18.00 m; dry beach above the water from z -190.08
+  apron: top from z -188.40 (y 34.89) down to z -178.48 (y 33.00), 19.0 %, width 19.20 m
+DansBackyardReverse: saved
+FreeRoamWorld: pool 416.00,34.65,-197.00 surface 34.69 floor 33.35 coping 34.89; inner x 407.00..425.00, outer x 406.40..425.60; north wall z -189.00..-188.40; basin floor north 33.05
+  beach entry: top from z -197.32 (y 33.35) to z -189.00 (y 34.89), 18.5 %, width 18.00 m; dry beach above the water from z -190.08
+  apron: top from z -188.40 (y 34.89) down to z -178.74 (y 33.05), 19.0 %, width 19.20 m
+FreeRoamWorld: saved

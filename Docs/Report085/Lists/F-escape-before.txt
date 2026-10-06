@@ -1,0 +1,38 @@
+---- escape85:FreeRoamWorld:moto,atv,skyfin:swimming pool:0,90,180,270
+FAIL FreeRoamWorld House 3 swimming pool (416.0,34.65,-197.0, surface 34.69, deepest 407.4,33.35,-203.3) moto: out in 0/4 headings [0:stuck 90:stuck 180:stuck 270:stuck]
+PASS FreeRoamWorld Rear swimming pool (397.3,79.88,-12.5, surface 79.90, deepest 394.8,79.84,-6.7) moto: out in 4/4 headings [0:out 1.4s 90:out 1.9s 180:out 2.3s 270:out 3.2s]
+FAIL FreeRoamWorld House 3 swimming pool (416.0,34.65,-197.0, surface 34.69, deepest 407.4,33.35,-203.3) atv: out in 0/4 headings [0:stuck 90:stuck 180:stuck 270:stuck]
+PASS FreeRoamWorld Rear swimming pool (397.3,79.88,-12.5, surface 79.90, deepest 394.8,79.84,-6.7) atv: out in 4/4 headings [0:out 1.5s 90:out 1.8s 180:out 2.4s 270:out 1.8s]
+PASS FreeRoamWorld House 3 swimming pool (416.0,34.65,-197.0, surface 34.69, deepest 407.4,33.35,-203.3) skyfin: out in 1/4 headings [0:out 1.0s 90:stuck 180:stuck 270:stuck]
+PASS FreeRoamWorld Rear swimming pool (397.3,79.88,-12.5, surface 79.90, deepest 394.8,79.84,-6.7) skyfin: out in 4/4 headings [0:out 2.1s 90:out 2.0s 180:out 2.8s 270:out 2.1s]
+---- escape85:FreeRoamWorld:moto,atv,skyfin:House 3 lake
+PASS FreeRoamWorld House 3 lake (384.0,33.35,-194.1, surface 33.37, deepest 374.8,32.80,-186.7) moto: out in 8/8 headings [0:out 3.1s 45:out 1.9s 90:out 10.5s 135:out 5.0s 180:out 5.3s 225:out 4.2s 270:out 2.0s 315:out 2.0s]
+PASS FreeRoamWorld House 3 lake (384.0,33.35,-194.1, surface 33.37, deepest 374.8,32.80,-186.7) atv: out in 8/8 headings [0:out 2.2s 45:out 2.5s 90:out 5.3s 135:out 5.0s 180:out 4.3s 225:out 4.1s 270:out 2.0s 315:out 2.3s]
+PASS FreeRoamWorld House 3 lake (384.0,33.35,-194.1, surface 33.37, deepest 374.8,32.80,-186.7) skyfin: out in 7/8 headings [0:out 2.0s 45:out 2.7s 90:out 6.1s 135:stuck 180:out 4.7s 225:out 3.3s 270:out 2.3s 315:out 7.1s]
+---- escape85:FreeRoamWorld:moto,atv,skyfin:creek:0,90,180,270
+PASS FreeRoamWorld Creek surface (460.6,20.61,-365.8, surface 20.64, deepest 460.0,20.51,-360.4) moto: out in 4/4 headings [0:out 1.9s 90:out 1.6s 180:out 2.7s 270:out 1.5s]
+PASS FreeRoamWorld Fern creek bed (880.2,111.49,-84.9, surface 111.51, deepest 886.2,111.44,-101.7) moto: out in 4/4 headings [0:out 1.0s 90:out 1.0s 180:out 1.3s 270:out 1.0s]
+PASS FreeRoamWorld Creek surface (460.6,20.61,-365.8, surface 20.64, deepest 460.0,20.51,-360.4) atv: out in 4/4 headings [0:out 1.9s 90:out 1.7s 180:out 2.7s 270:out 1.6s]
+PASS FreeRoamWorld Fern creek bed (880.2,111.49,-84.9, surface 111.51, deepest 886.2,111.44,-101.7) atv: out in 4/4 headings [0:out 1.0s 90:out 2.6s 180:out 1.6s 270:out 1.0s]
+PASS FreeRoamWorld Creek surface (460.6,20.61,-365.8, surface 20.64, deepest 460.0,20.51,-360.4) skyfin: out in 4/4 headings [0:out 2.0s 90:out 1.6s 180:out 2.9s 270:out 1.6s]
+PASS FreeRoamWorld Fern creek bed (880.2,111.49,-84.9, surface 111.51, deepest 886.2,111.44,-101.7) skyfin: out in 4/4 headings [0:out 4.6s 90:out 3.7s 180:out 2.8s 270:out 5.8s]
+done, failures 2
+---- escape85:LakeWoods:moto,atv,skyfin:lake
+PASS LakeWoods Friend's lake - visible shoreline (642.0,78.00,-20.0, surface 78.02, deepest 647.7,77.37,-9.8) moto: out in 6/8 headings [0:stuck 45:out 8.7s 90:out 9.1s 135:out 9.6s 180:out 11.2s 225:stuck 270:out 8.9s 315:out 9.4s]
+PASS LakeWoods House 3 lake (384.0,33.35,-194.1, surface 33.37, deepest 382.8,32.85,-194.5) moto: out in 6/8 headings [0:out 3.4s 45:out 4.1s 90:stuck 135:out 3.7s 180:out 3.2s 225:stuck 270:out 4.6s 315:out 3.7s]
+PASS LakeWoods Friend's lake - visible shoreline (642.0,78.00,-20.0, surface 78.02, deepest 647.7,77.37,-9.8) atv: out in 6/8 headings [0:stuck 45:out 9.1s 90:out 9.5s 135:out 10.7s 180:out 11.8s 225:stuck 270:out 9.3s 315:out 9.9s]
+PASS LakeWoods House 3 lake (384.0,33.35,-194.1, surface 33.37, deepest 382.8,32.85,-194.5) atv: out in 7/8 headings [0:out 3.6s 45:out 4.1s 90:stuck 135:out 3.7s 180:out 3.4s 225:out 3.7s 270:out 4.2s 315:out 3.7s]
+PASS LakeWoods Friend's lake - visible shoreline (642.0,78.00,-20.0, surface 78.02, deepest 647.7,77.37,-9.8) skyfin: out in 5/8 headings [0:stuck 45:out 11.4s 90:out 11.6s 135:stuck 180:out 14.6s 225:stuck 270:out 11.4s 315:out 12.1s]
+PASS LakeWoods House 3 lake (384.0,33.35,-194.1, surface 33.37, deepest 382.8,32.85,-194.5) skyfin: out in 6/8 headings [0:out 4.2s 45:out 4.7s 90:out 5.6s 135:stuck 180:out 3.9s 225:out 4.4s 270:stuck 315:out 4.6s]
+---- escape85:LakeWoods:moto,atv,skyfin:J1 flowing creek:0,90,180,270
+PASS LakeWoods J1 flowing creek (364.5,73.87,234.9, surface 73.90, deepest 366.8,73.25,238.0) moto: out in 4/4 headings [0:out 2.6s 90:out 2.4s 180:out 4.3s 270:out 3.0s]
+PASS LakeWoods J1 flowing creek (364.5,73.87,234.9, surface 73.90, deepest 366.8,73.25,238.0) atv: out in 4/4 headings [0:out 2.6s 90:out 2.4s 180:out 3.2s 270:out 3.1s]
+PASS LakeWoods J1 flowing creek (364.5,73.87,234.9, surface 73.90, deepest 366.8,73.25,238.0) skyfin: out in 3/4 headings [0:out 3.5s 90:stuck 180:out 4.2s 270:out 3.5s]
+---- escape85:ForestLoopReverse:moto,atv,skyfin:House 3:0,90,180,270
+PASS ForestLoopReverse House 3 lake (384.0,33.35,-194.1, surface 33.37, deepest 382.8,32.85,-194.5) moto: out in 3/4 headings [0:out 3.4s 90:stuck 180:out 3.7s 270:out 4.5s]
+FAIL ForestLoopReverse House 3 swimming pool (416.0,34.65,-197.0, surface 34.69, deepest 415.4,33.35,-198.0) moto: out in 0/4 headings [0:stuck 90:stuck 180:stuck 270:stuck]
+PASS ForestLoopReverse House 3 lake (384.0,33.35,-194.1, surface 33.37, deepest 382.8,32.85,-194.5) atv: out in 3/4 headings [0:out 3.6s 90:stuck 180:out 3.4s 270:out 4.2s]
+FAIL ForestLoopReverse House 3 swimming pool (416.0,34.65,-197.0, surface 34.69, deepest 415.4,33.35,-198.0) atv: out in 0/4 headings [0:stuck 90:stuck 180:stuck 270:stuck]
+PASS ForestLoopReverse House 3 lake (384.0,33.35,-194.1, surface 33.37, deepest 382.8,32.85,-194.5) skyfin: out in 3/4 headings [0:out 4.2s 90:out 5.6s 180:out 3.9s 270:stuck]
+FAIL ForestLoopReverse House 3 swimming pool (416.0,34.65,-197.0, surface 34.69, deepest 415.4,33.35,-198.0) skyfin: out in 0/4 headings [0:stuck 90:stuck 180:stuck 270:stuck]
+done, failures 3

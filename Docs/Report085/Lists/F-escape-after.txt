@@ -1,0 +1,11 @@
+---- escape85:FreeRoamWorld:moto,atv,skyfin:House 3 swimming pool:0,90,180,270
+PASS FreeRoamWorld House 3 swimming pool (416.0,34.65,-197.0, surface 34.69, deepest 415.4,33.35,-198.0) moto: out in 1/4 headings [0:out 3.1s 90:stuck 180:stuck 270:stuck]
+PASS FreeRoamWorld House 3 swimming pool (416.0,34.65,-197.0, surface 34.69, deepest 415.4,33.35,-198.0) atv: out in 1/4 headings [0:out 3.2s 90:stuck 180:stuck 270:stuck]
+PASS FreeRoamWorld House 3 swimming pool (416.0,34.65,-197.0, surface 34.69, deepest 415.4,33.35,-198.0) skyfin: out in 1/4 headings [0:out 3.8s 90:stuck 180:stuck 270:stuck]
+---- escape85:ForestLoopReverse:moto,atv,skyfin:House 3 swimming pool:0,90,180,270
+PASS ForestLoopReverse House 3 swimming pool (416.0,34.65,-197.0, surface 34.69, deepest 415.4,33.35,-198.0) moto: out in 1/4 headings [0:out 3.1s 90:stuck 180:stuck 270:stuck]
+PASS ForestLoopReverse House 3 swimming pool (416.0,34.65,-197.0, surface 34.69, deepest 415.4,33.35,-198.0) atv: out in 1/4 headings [0:out 3.2s 90:stuck 180:stuck 270:stuck]
+PASS ForestLoopReverse House 3 swimming pool (416.0,34.65,-197.0, surface 34.69, deepest 415.4,33.35,-198.0) skyfin: out in 1/4 headings [0:out 3.8s 90:stuck 180:stuck 270:stuck]
+---- view:FreeRoamWorld:poolN,416,40,-168,180,18|poolW,395,39,-197,90,12:day
+FreeRoamWorld: views written
+done, failures 0
