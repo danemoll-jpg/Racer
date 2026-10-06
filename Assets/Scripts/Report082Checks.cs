@@ -11,7 +11,7 @@ using UnityEngine.SceneManagement;
 namespace Racer {
 // 0.82 targeted checks, added to the 0.80 runner (same muted isolated save, same helpers): PROBE_CASES="case:args;...".
 public sealed partial class Report080Checks {
- IEnumerator Cases082(string[] a)=>a[0] switch{"project"=>ProjectCheck(a[1]),"loading"=>LoadingCheck(a[1]),"garage2"=>GarageStatsCheck(a[1],a[2]),"winner"=>WinnerCheck(a[1],a[2]),"faces"=>FacesCheck(a[1]),_=>null};
+ IEnumerator Cases082(string[] a)=>a[0] switch{"project"=>ProjectCheck(a[1]),"loading"=>LoadingCheck(a[1]),"garage2"=>GarageStatsCheck(a[1],a[2]),"winner"=>WinnerCheck(a[1],a[2]),"faces"=>FacesCheck(a[1]),_=>Cases083(a)};
 
  // Part C: RaceRoad.Project (grid) gives exactly the old full-scan result: every road in the scene, 20000 points each
  // around it (on the road, beside it, high above and far outside). project:Scene

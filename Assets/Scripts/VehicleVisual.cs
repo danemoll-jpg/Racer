@@ -191,11 +191,13 @@ namespace Racer
         static Material RiderMaterial(string kind,Color c)
         {
             string key=kind+ColorUtility.ToHtmlStringRGB(c);
-            if(!riderMaterials.TryGetValue(key,out var m)||!m){m=Mat("Rider "+kind,c,kind=="hair"?.38f:kind=="skin"?.3f:.18f);riderMaterials[key]=m;}
+            if(!riderMaterials.TryGetValue(key,out var m)||!m){m=Mat("Rider "+kind,c,kind=="hair"?.38f:kind=="skin"?.3f:kind=="leather"?.62f:.18f);riderMaterials[key]=m;}
             return m;
         }
         // Denim: the chosen swatch as a darker, bluer fabric (Blue gives the classic rider's jeans).
         static Color Denim(Color c)=>c*.42f+new Color(.05f,.06f,.08f);
+        // 0.83 leather: the swatch a little deeper (black stays near-black, so the sheen reads)
+        static Color Leather(Color c)=>c*.8f+new Color(.02f,.018f,.016f);
         static void Rider(Transform pose,string poseName,Vector3 seat,RiderLook look)
         {
             if(!riderLoaded){riderLoaded=true;riderAsset=Resources.Load<GameObject>("VehicleModels/Rider");}
@@ -211,7 +213,9 @@ namespace Racer
                 if(key.Length==5)arms.Add((go.transform,key[4]));
                 go.GetComponent<Renderer>().sharedMaterial=name.Substring(cut+2) switch{
                     "skin"=>RiderMaterial("skin",RiderLook.Skins[look.skin]),"hair"=>RiderMaterial("hair",RiderLook.HairColors[look.hairColor]),
-                    "hat"=>RiderMaterial("hat",colors[look.hatColor]),"shirt"=>RiderMaterial("shirt",colors[look.shirtColor]),
+                    "hat"=>RiderMaterial("hat",colors[look.hatColor]),"shirt"=>RiderMaterial(look.shirt==3?"leather":"shirt",look.shirt==3?Leather(colors[look.shirtColor]):colors[look.shirtColor]),
+                    // 0.83: the T-shirt under the open leather jacket (white, or dark grey under a white jacket) and the emblem
+                    "inner"=>RiderMaterial("shirt",look.shirtColor==4?new Color(.16f,.16f,.17f):colors[4]),"emblem"=>RiderMaterial("emblem",new Color(.93f,.93f,.9f)),
                     "pants"=>look.pants==0?RiderMaterial("jeans",Denim(colors[look.pantsColor])):RiderMaterial("shorts",colors[look.pantsColor]),
                     "trim"=>trim,"shoes"=>shoes[0],"eyes"=>eyes,"pupil"=>rubber,"mouth"=>mouth,_=>trim};
             }

@@ -1,0 +1,1 @@
+before (forward-bend-final original): moto 32 m/s through s1840-1990 kicked at 1255.9,152.6,231.8 (vy +2.05, 0 wheels 0.5 s, min up 0.79, jolt 112); drifter 28 m/s min up 0.93, jolt 82; contact normal 0.26/0.96/0.06 impulse 349 on sliver tri 5222

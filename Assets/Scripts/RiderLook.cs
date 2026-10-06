@@ -11,6 +11,9 @@ namespace Racer
     public sealed class RiderLook
     {
         public int body, skin = 2, hair, hairColor = 1, hat = 1, hatColor = 6, shirt, shirtColor = 3, pants, pantsColor = 3;
+        // 0.83: the chest emblem (a white ring with a bird, Rider.fbx "Emblem"), used by Dan in the scripted scenes; not a
+        // garage option (0 = none for the player and the AI).
+        public int emblem;
 
         public static readonly string[] Bodies = { "Man", "Woman" };
         public static readonly string[] SkinNames = { "Very light", "Light", "Medium", "Tan", "Brown", "Dark" };
@@ -19,18 +22,18 @@ namespace Racer
         public static readonly string[] HairColorNames = { "Black", "Dark brown", "Brown", "Auburn", "Red", "Blonde", "Grey", "White" };
         public static readonly Color[] HairColors = { new(.03f, .025f, .022f), new(.18f, .065f, .028f), new(.36f, .20f, .09f), new(.45f, .13f, .05f), new(.72f, .24f, .07f), new(.80f, .62f, .30f), new(.52f, .52f, .52f), new(.88f, .87f, .84f) };
         public static readonly string[] Hats = { "None", "Flat cap", "Baseball cap", "Beanie", "Cowboy hat" };
-        public static readonly string[] Shirts = { "T-shirt", "Long sleeve", "Jacket" };
+        public static readonly string[] Shirts = { "T-shirt", "Long sleeve", "Jacket", "Leather jacket" };
         public static readonly string[] Pants = { "Jeans", "Shorts" };
         // Part keys in the FBX object names: <Pose>_<Category>_<Option>_<Body>__<slot>.
         static readonly string[] HairKeys = { "Short", "Medium", "Long", "Ponytail", "Bald" }, HatKeys = { "None", "FlatCap", "Baseball", "Beanie", "Cowboy" },
-            ShirtKeys = { "Tee", "Long", "Jacket" }, PantsKeys = { "Jeans", "Shorts" };
+            ShirtKeys = { "Tee", "Long", "Jacket", "Leather" }, PantsKeys = { "Jeans", "Shorts" };
 
         // The default is the 0.73 rider's identity: man, short dark-brown hair, medium skin, flat cap, blue T-shirt, jeans.
         public static RiderLook Player = new();
 
         public RiderLook Copy() => (RiderLook)MemberwiseClone();
         public bool SameAs(RiderLook o) => o != null && body == o.body && skin == o.skin && hair == o.hair && hairColor == o.hairColor && hat == o.hat
-            && hatColor == o.hatColor && shirt == o.shirt && shirtColor == o.shirtColor && pants == o.pants && pantsColor == o.pantsColor;
+            && hatColor == o.hatColor && shirt == o.shirt && shirtColor == o.shirtColor && pants == o.pants && pantsColor == o.pantsColor && emblem == o.emblem;
         static int Wrap(int v, int n) => ((v % n) + n) % n;
         // Repairs out-of-range values from an edited or damaged settings file.
         public RiderLook Valid()
@@ -38,6 +41,7 @@ namespace Racer
             body = Wrap(body, 2); skin = Wrap(skin, Skins.Length); hair = Wrap(hair, Hairs.Length); hairColor = Wrap(hairColor, HairColors.Length);
             hat = Wrap(hat, Hats.Length); hatColor = Wrap(hatColor, VehiclePaint.Colors.Length); shirt = Wrap(shirt, Shirts.Length);
             shirtColor = Wrap(shirtColor, VehiclePaint.Colors.Length); pants = Wrap(pants, Pants.Length); pantsColor = Wrap(pantsColor, VehiclePaint.Colors.Length);
+            emblem = Wrap(emblem, 2);
             return this;
         }
 
@@ -79,6 +83,8 @@ namespace Racer
                 "Hair" => option == HairKeys[hair],
                 "HairTop" => option == HairKeys[hair] && hat == 0,
                 "Hat" => hat > 0 && option == HatKeys[hat],
+                // on the T-shirt / long sleeve centred, on the jacket on the left chest; none on the open leather jacket
+                "Emblem" => emblem == 1 && option == (shirt < 2 ? "Tee" : shirt == 2 ? "Jacket" : ""),
                 _ => false
             };
         }

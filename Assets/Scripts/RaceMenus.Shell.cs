@@ -134,14 +134,14 @@ namespace Racer
             if(!flow.MenuVisible||mapOpen||DeveloperLocationHud.OwnsInput)return;
             if(flow.State==RaceFlow.Stage.Settings&&(page=="library"||page=="music")&&Time.unscaledTime>=nextMusicRefresh){nextMusicRefresh=Time.unscaledTime+.25f;details.text=page=="music"?flow.Radio.ChannelName+"\n"+flow.Radio.Song:(flow.Radio.Bundled?"Bundled music":"Custom: "+System.IO.Path.GetFileName(flow.Radio.Folder.TrimEnd('\\','/')))+"\n"+flow.Radio.Status+"\n"+flow.Radio.ScanStatus;}
             var current=EventSystem.current?.currentSelectedGameObject;
-            // Focus is presentation only. Only the track row's Submit/click commits a course.
+            // Focus is presentation only. Only the track row's Submit/click commits a course. 0.83: the map follows the
+            // highlight; Back (no route) shows the plain map.
             if(flow.State==RaceFlow.Stage.Courses&&page==""&&current&&current.name.StartsWith("course-")
                 &&int.TryParse(current.name.Substring(7),out int focusedCourse))
             {
-                previewTrack=focusedCourse;
-                var previewButton=buttons.FirstOrDefault(b=>b.name=="preview-track"&&b.gameObject.activeSelf);
-                if(previewButton)previewButton.GetComponentInChildren<UnityEngine.UI.Text>(true).text="Preview: "+RacePlaylists.Titles[previewTrack];
+                previewTrack=focusedCourse;ShowCourseOnMap(focusedCourse);
             }
+            else if(flow.State==RaceFlow.Stage.Courses&&page==""&&current&&current.name=="back")ShowCourseOnMap(-1);
             if(current&&current!=lastFocus&&current.transform.IsChildOf(content))
             {
                 Canvas.ForceUpdateCanvases();var r=current.GetComponent<RectTransform>();
@@ -173,7 +173,7 @@ namespace Racer
             foreach(var b in buttons)b.gameObject.SetActive(false);adjustments.Clear();
             title.text=heading;details.text=summary;details.fontSize=20;details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=string.IsNullOrEmpty(summary)?0:Mathf.Min(200,30*(summary.Count(c=>c=='\n')+1));
             details.gameObject.SetActive(!string.IsNullOrEmpty(summary));
-            foreach(var b in buttons){var colors=b.colors;colors.normalColor=new(.10f,.20f,.25f);b.colors=colors;b.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=44;b.GetComponentInChildren<UnityEngine.UI.Text>(true).alignment=TextAnchor.MiddleLeft;}
+            foreach(var b in buttons){var colors=b.colors;colors.normalColor=new(.10f,.20f,.25f);b.colors=colors;b.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=44;var label=b.GetComponentInChildren<UnityEngine.UI.Text>(true);label.alignment=TextAnchor.MiddleLeft;label.fontSize=21;}
         }
         void Row(int index,string id,string label,Action callback){
             EnsureRows(index+1);var button=buttons[index];button.gameObject.SetActive(true);button.name=id;button.GetComponentInChildren<UnityEngine.UI.Text>(true).text=label;
@@ -211,6 +211,6 @@ namespace Racer
             else{Row(0,"model","Model: "+flow.ModelLabel+"   (Classic / New)",flow.ToggleModel);Row(1,"rider-back","Back",()=>BackPage());}
             LayoutGarageBody();
         }
-        void ResetGarageLayout()=>LeaveGarageView();
+        void ResetGarageLayout(){LeaveGarageView();LeaveCourseView();}
     }
 }

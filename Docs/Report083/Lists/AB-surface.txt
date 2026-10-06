@@ -1,0 +1,32 @@
+Assets/Track/ReportCleanup/forward-bend-final.asset: 9797 vertices, 9726 triangles; object Ground_CR133 mountain driving surface
+A: 18 vertex clusters within 45 m given one height (71 vertices, largest change 1.8 cm)
+A before: faces within 45 m tilted more than 8 degrees: 6, steepest normal y 0.861
+A after: faces within 45 m tilted more than 8 degrees: 0, steepest normal y 1.000
+B: vertex 3682 (990.993, 131.404, -117.639) put on vertex 3651 (990.805, 131.509, -117.637)
+B: vertex 3684 at (991.000, -117.072) 131.426 -> 131.505
+B: vertex 3686 at (991.006, -116.825) 131.453 -> 131.505
+B: vertex 3688 at (991.077, -116.442) 131.490 -> 131.517
+B: vertex 3667 at (991.003, -117.703) 131.384 -> 131.509
+B: vertex 3668 at (991.005, -117.712) 131.384 -> 131.509
+B: vertex 3677 at (990.958, -117.652) 131.383 -> 131.509
+B before: faces within 8 m tilted more than 8 degrees: 18, steepest normal y 0.014
+   tilted face at (991.61, 132.19, -123.00) normal y 0.988, heights 132.252 132.152 132.152
+   tilted face at (990.92, 132.09, -122.82) normal y 0.972, heights 132.152 132.054 132.054
+   tilted face at (990.32, 131.99, -122.62) normal y 0.983, heights 132.054 131.963 131.963
+   tilted face at (989.70, 131.90, -122.40) normal y 0.969, heights 131.963 131.872 131.872
+   tilted face at (989.14, 131.82, -122.15) normal y 0.511, heights 131.872 131.788 131.788
+   tilted face at (988.70, 131.74, -121.89) normal y 0.984, heights 131.788 131.709 131.709
+   tilted face at (987.11, 131.57, -121.22) normal y 0.883, heights 131.696 131.509 131.509
+   tilted face at (990.59, 131.58, -118.10) normal y 0.984, heights 131.696 131.509 131.542
+   tilted face at (990.63, 131.65, -118.15) normal y 0.014, heights 131.696 131.542 131.709
+   tilted face at (990.97, 131.52, -117.71) normal y 0.986, heights 131.528 131.509 131.509
+   tilted face at (990.95, 131.53, -117.74) normal y 0.937, heights 131.528 131.509 131.542
+   tilted face at (991.00, 131.59, -117.78) normal y 0.430, heights 131.542 131.509 131.724
+   tilted face at (990.93, 131.52, -117.71) normal y 0.946, heights 131.525 131.509 131.528
+   tilted face at (990.91, 131.52, -117.69) normal y 0.946, heights 131.509 131.525 131.515
+   tilted face at (990.87, 131.51, -117.66) normal y 0.972, heights 131.512 131.509 131.515
+   tilted face at (990.86, 131.51, -117.65) normal y 0.973, heights 131.509 131.512 131.509
+   tilted face at (990.86, 131.51, -117.64) normal y 0.000, heights 131.509 131.509 131.509
+B after: faces within 8 m tilted more than 8 degrees: 17, steepest normal y 0.000
+vertices changed 78, largest sideways movement 0.188 m
+saved Assets/Track/ReportCleanup/forward-bend-final.asset

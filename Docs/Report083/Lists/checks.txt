@@ -1,0 +1,97 @@
+== verifyAB2
+---- drive:MountainLoop:moto:Main:1250:14:30
+MountainLoop moto Main from 1250 at 30 m/s: resets 0+0, max air 0.00s, min up 0.99, max vertical jolt 7 m/s² at 982.9,131.83,-117.6, end 1023.0,159.83,78.0
+---- drive:MountainLoop:drifter:Main:1250:14:30
+MountainLoop drifter Main from 1250 at 30 m/s: resets 0+0, max air 0.00s, min up 0.99, max vertical jolt 8 m/s² at 983.7,131.84,-119.4, end 1023.5,159.71,77.3
+---- drive:MountainLoop:moto:Main:1760:22:32
+MountainLoop moto Main from 1760 at 32 m/s: resets 0+0, max air 3.44s, min up 0.78, max vertical jolt 35 m/s² at 1033.0,152.64,160.6, end 910.2,183.30,125.8
+---- drive:MountainLoop:drifter:Main:1760:22:28
+MountainLoop drifter Main from 1760 at 28 m/s: resets 0+0, max air 3.16s, min up 0.77, max vertical jolt 27 m/s² at 1032.7,152.67,160.6, end 916.2,187.23,127.5
+---- drive:MountainLoop:moto:Main:1760:22:36
+MountainLoop moto Main from 1760 at 36 m/s: resets 0+0, max air 3.44s, min up 0.78, max vertical jolt 37 m/s² at 1032.9,152.64,160.6, end 910.9,183.01,126.0
+---- view:MountainLoop:danB,989.1,133.4,-115.6,201.4,3|danB2,995,145,-100,205,25:day
+MountainLoop: views written
+---- view:MountainLoop:danB,989.1,133.4,-115.6,201.4,3:night
+MountainLoop: views written
+done, failures 0
+== lapAB2
+---- racelog:MountainLoop:drifter:moto,scrambler,atv
+PASS MountainLoop player drifter vs moto/scrambler/atv: PLAYER drifter: 02:09.532 missed 0 resets 1 longest stall 5s shortcuts []; EMBER moto: 01:58.836 missed 0 resets 0 longest stall 1s shortcuts []; GOLD scrambler: 02:08.955 missed 0 resets 1 longest stall 5s shortcuts []; BLUE atv: 02:05.073 missed 0 resets 0 longest stall 4s shortcuts []
+  94.5 YOU reset: was at 1268.5,152.53,227.3 (station 1899), put at 1212.4,152.52,181.6
+  94.6 GOLD reset: was at 1269.4,152.63,227.3 (station 1898), put at 1208.1,152.61,179.1
+done, failures 0
+== lapBefore
+---- racelog:MountainLoop:drifter:moto,scrambler,atv
+PASS MountainLoop player drifter vs moto/scrambler/atv: PLAYER drifter: 02:05.160 missed 0 resets 1 longest stall 6s shortcuts []; EMBER moto: 02:00.181 missed 0 resets 0 longest stall 1s shortcuts []; GOLD scrambler: 01:59.939 missed 0 resets 0 longest stall 2s shortcuts []; BLUE atv: 02:01.774 missed 0 resets 0 longest stall 2s shortcuts []
+  114.4 YOU reset: was at 878.0,174.57,116.7 (station 2312), put at 873.4,178.34,115.4
+done, failures 0
+== checks1
+---- tracks
+PASS Tracks, Street Loop - Forward highlighted: map panel shown True, map on course 0, preview row present False; caption "Street Loop - Forward | Lap 4.6 km (2.9 mi)   ·   Race Setup: 2 laps | Cyan: main route   ·   Gold: shortcuts   ·   White arrows: direction"
+PASS Tracks, Mountain Loop - Reverse highlighted: map panel shown True, map on course 5, preview row present False; caption "Mountain Loop - Reverse | Lap 3.0 km (1.8 mi)   ·   Race Setup: 2 laps | Cyan: main route   ·   Gold: shortcuts   ·   White arrows: direction"
+PASS Back highlighted: plain map (-1); worst frame while moving one row per frame through the list 3 times: 22 ms
+---- records83
+PASS Records opened: 5 rows on "‹   Street Loop — Forward   ›" (BEST LAPS · every race length · all vehicles | Left / right changes track · select a row for details)
+  ‹   Street Loop — Reverse   (no times yet)   ›: 0 rows; No lap times on Street Loop — Reverse yet. Finish a lap there to set one.
+  ‹   Dan's Backyard Loop — Forward   (no times yet)   ›: 0 rows; No lap times on Dan's Backyard Loop — Forward yet. Finish a lap there to set one.
+  ‹   Dan's Backyard Loop — Reverse   (no times yet)   ›: 0 rows; No lap times on Dan's Backyard Loop — Reverse yet. Finish a lap there to set one.
+  ‹   Forest Loop — Forward   (no times yet)   ›: 0 rows; No lap times on Forest Loop — Forward yet. Finish a lap there to set one.
+  ‹   Forest Loop — Reverse   (no times yet)   ›: 0 rows; No lap times on Forest Loop — Reverse yet. Finish a lap there to set one.
+  ‹   Mountain Loop — Forward   (no times yet)   ›: 0 rows; No lap times on Mountain Loop — Forward yet. Finish a lap there to set one.
+  ‹   Mountain Loop — Reverse   ›: 1 rows; BEST LAPS · every race length · all vehicles | Left / right changes track · select a row for details
+  ‹   Street Loop — Forward   ›: 5 rows; BEST LAPS · every race length · all vehicles | Left / right changes track · select a row for details
+PASS track control stepped through 8 tracks, 6 explained empty boards
+PASS RACE tab on "‹   Street Loop — Forward   ›": 2 rows (BEST RACES · full-race totals, every race length · all vehicles | Left / right changes track · select a row for details)
+---- people83
+PASS football: the brother [Shirt_Tee Emblem_ Hair_Medium Hat_]; Dan [Shirt_Tee Emblem_Tee Hair_Short Hat_]; Kyle [Shirt_Leather Emblem_ Hair_Medium Hat_]
+PASS coffee: Dan [Shirt_Tee Emblem_Tee Hair_Short Hat_]; Kyle [Shirt_Leather Emblem_ Hair_Medium Hat_]
+PASS sled: Dan [Shirt_Jacket Emblem_Jacket Hair_Short Hat_Beanie]; Kyle [Shirt_Leather Emblem_ Hair_Medium Hat_Beanie]
+---- loading:race
+PASS race: loading screen "Mountain Loop — Reverse" shown, bar 0.00 -> 0.99 over 68 frames (forward only True), steps [Loading | Clearing the old roadside | People | Trees | Buildings | Rocks and props | Paving | Street signs | Road paint | World edge | Vehicles | Getting ready | Ready], up 12.1 s, gone after the fade True, scene MountainLoopReverse, state Countdown
+---- loading:roam
+PASS roam: loading screen "Free Roam" shown, bar 0.00 -> 0.99 over 36 frames (forward only True), steps [Loading | Clearing the old roadside | People | Trees | Buildings | Rocks and props | Paving | Street signs | Road paint | World edge | Vehicles | Getting ready | Ready], up 7.6 s, gone after the fade True, scene FreeRoamWorld, state Racing
+---- pov:moto
+PASS moto: 16 view changes, 640 frames: head hidden in 95 (camera at most 0.16 m from the head centre), shown with the camera inside the head 0, hidden with the camera outside it (a bald head) 0; nearest shown 0.17 m
+---- pov:original
+PASS original: 16 view changes, 640 frames: head hidden in 98 (camera at most 0.16 m from the head centre), shown with the camera inside the head 0, hidden with the camera outside it (a bald head) 0; nearest shown 0.17 m
+---- winner83:player:StreetLoopGreybox:2
+PASS player win, view First person: winner YOU; head parts drawn in the shot 3 of 3 (player 3 of 3); hidden while racing True, during the shot False, after True (view shown First person, state Racing)
+---- winner83:player:StreetLoopGreybox:0
+FAIL player win, view Chase: winner EMBER; head parts drawn in the shot 3 of 3 (player 3 of 3); hidden while racing False, during the shot False, after False (view shown Chase, state Racing)
+---- winner83:ai:StreetLoopGreybox:2
+FAIL ai win, view First person: winner YOU; head parts drawn in the shot 3 of 3 (player 3 of 3); hidden while racing True, during the shot False, after True (view shown First person, state Racing)
+done, failures 2
+== checks2
+---- winner83:player:StreetLoopGreybox:0
+FAIL player win, view Chase: winner EMBER; head parts drawn in the shot 4 of 4 (player 3 of 3); hidden while racing False, during the shot False, after False (view shown Chase, state Racing)
+---- winner83:ai:StreetLoopGreybox:2
+PASS ai win, view First person: winner EMBER; head parts drawn in the shot 3 of 3 (player 3 of 3); hidden while racing True, during the shot False, after True (view shown First person, state Results)
+done, failures 1
+== checks3
+---- tracks
+PASS Tracks, Street Loop - Forward highlighted: map panel shown True, map on course 0, preview row present False; caption "Street Loop - Forward | Lap 4.6 km (2.9 mi)   ·   Race Setup: 2 laps | Cyan: main route  ·  Gold: shortcuts  ·  Arrows: direction"
+PASS Tracks, Mountain Loop - Reverse highlighted: map panel shown True, map on course 5, preview row present False; caption "Mountain Loop - Reverse | Lap 3.0 km (1.8 mi)   ·   Race Setup: 2 laps | Cyan: main route  ·  Gold: shortcuts  ·  Arrows: direction"
+PASS Back highlighted: plain map (-1); worst frame while moving one row per frame through the list 3 times: 22 ms
+---- records83
+PASS Records opened: 5 rows on "‹   Street Loop — Forward   ›" (BEST LAPS · every race length · all vehicles · ‹ › changes track)
+  ‹   Street Loop — Reverse   (no times yet)   ›: 0 rows; No lap times on Street Loop — Reverse yet. Finish a lap there to set one.
+  ‹   Dan's Backyard Loop — Forward   (no times yet)   ›: 0 rows; No lap times on Dan's Backyard Loop — Forward yet. Finish a lap there to set one.
+  ‹   Dan's Backyard Loop — Reverse   (no times yet)   ›: 0 rows; No lap times on Dan's Backyard Loop — Reverse yet. Finish a lap there to set one.
+  ‹   Forest Loop — Forward   (no times yet)   ›: 0 rows; No lap times on Forest Loop — Forward yet. Finish a lap there to set one.
+  ‹   Forest Loop — Reverse   (no times yet)   ›: 0 rows; No lap times on Forest Loop — Reverse yet. Finish a lap there to set one.
+  ‹   Mountain Loop — Forward   (no times yet)   ›: 0 rows; No lap times on Mountain Loop — Forward yet. Finish a lap there to set one.
+  ‹   Mountain Loop — Reverse   ›: 1 rows; BEST LAPS · every race length · all vehicles · ‹ › changes track
+  ‹   Street Loop — Forward   ›: 5 rows; BEST LAPS · every race length · all vehicles · ‹ › changes track
+PASS track control stepped through 8 tracks, 6 explained empty boards
+PASS RACE tab on "‹   Street Loop — Forward   ›": 2 rows (BEST RACES · full-race totals, every race length · all vehicles · ‹ › changes track)
+---- loading:race
+PASS race: loading screen "Mountain Loop — Reverse" shown, bar 0.00 -> 0.99 over 75 frames (forward only True), steps [Loading | Clearing the old roadside | People | Trees | Buildings | Rocks and props | Paving | Street signs | Road paint | World edge | Vehicles | Getting ready | Ready], up 11.8 s, gone after the fade True, scene MountainLoopReverse, state Countdown
+---- racelog:MountainLoop:drifter:moto,scrambler,atv
+PASS MountainLoop player drifter vs moto/scrambler/atv: PLAYER drifter: 02:02.972 missed 0 resets 0 longest stall 3s shortcuts []; EMBER moto: 02:01.863 missed 0 resets 0 longest stall 2s shortcuts []; GOLD scrambler: 01:59.385 missed 0 resets 0 longest stall 1s shortcuts []; BLUE atv: 02:01.303 missed 0 resets 0 longest stall 2s shortcuts []
+done, failures 0
+== checks4
+---- tracks
+PASS Tracks, Street Loop - Forward highlighted: map panel shown True, map on course 0, preview row present False; caption "Street Loop - Forward | Lap 4.6 km (2.9 mi)   ·   Race Setup: 2 laps | Cyan: main  ·  Gold: shortcuts  ·  Arrows: direction"
+PASS Tracks, Mountain Loop - Reverse highlighted: map panel shown True, map on course 5, preview row present False; caption "Mountain Loop - Reverse | Lap 3.0 km (1.8 mi)   ·   Race Setup: 2 laps | Cyan: main  ·  Gold: shortcuts  ·  Arrows: direction"
+PASS Back highlighted: plain map (-1); worst frame while moving one row per frame through the list 3 times: 20 ms
+done, failures 0

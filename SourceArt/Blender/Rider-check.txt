@@ -62,19 +62,19 @@ Sled hat FlatCap: head points above band 90, outside the hat 0
 Sled hat Baseball: head points above band 90, outside the hat 0
 Sled hat Beanie: head points above band 90, outside the hat 0
 Sled hat Cowboy: head points above band 90, outside the hat 0
-Moto Man: worst-case rider triangles 8664
-Moto Woman: worst-case rider triangles 9088
-Atv Man: worst-case rider triangles 8664
-Atv Woman: worst-case rider triangles 9088
-Car Man: worst-case rider triangles 8664
-Car Woman: worst-case rider triangles 9088
-Dirt Man: worst-case rider triangles 8664
-Dirt Woman: worst-case rider triangles 9088
-Cruiser Man: worst-case rider triangles 8664
-Cruiser Woman: worst-case rider triangles 9088
-Stand Man: worst-case rider triangles 8664
-Stand Woman: worst-case rider triangles 9088
-Sit Man: worst-case rider triangles 8664
-Sit Woman: worst-case rider triangles 9088
-Sled Man: worst-case rider triangles 8664
-Sled Woman: worst-case rider triangles 9088
+Moto Man: worst-case rider triangles 8916
+Moto Woman: worst-case rider triangles 9340
+Atv Man: worst-case rider triangles 8916
+Atv Woman: worst-case rider triangles 9340
+Car Man: worst-case rider triangles 8916
+Car Woman: worst-case rider triangles 9340
+Dirt Man: worst-case rider triangles 8916
+Dirt Woman: worst-case rider triangles 9340
+Cruiser Man: worst-case rider triangles 8916
+Cruiser Woman: worst-case rider triangles 9340
+Stand Man: worst-case rider triangles 8916
+Stand Woman: worst-case rider triangles 9340
+Sit Man: worst-case rider triangles 8916
+Sit Woman: worst-case rider triangles 9340
+Sled Man: worst-case rider triangles 8916
+Sled Woman: worst-case rider triangles 9340

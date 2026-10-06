@@ -33,6 +33,9 @@ namespace Racer
             if (!playerWon) winner.GetComponent<RiderGestures>()?.Celebrate();
             chase = FindAnyObjectByType<ChaseCamera>(); views = CameraViews.Current;
             chaseWas = chase && chase.enabled; viewsWas = views && views.enabled;
+            // 0.83 Part F: first person hides the player's head parts; this outside camera shows the whole rider (CameraViews
+            // hides them again only once its camera is back inside the head)
+            if (views) views.ShowHead();
             if (chase) chase.enabled = false; if (views) views.enabled = false;
             if (skip == null) { skip = new InputAction("Skip winner shot", InputActionType.Button); skip.AddBinding("<Gamepad>/buttonSouth"); skip.AddBinding("<Keyboard>/space"); skip.AddBinding("<Mouse>/leftButton"); }
             skip.Enable();

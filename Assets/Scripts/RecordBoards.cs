@@ -73,6 +73,11 @@ namespace Racer
             .OrderBy(e=>e.seconds).ThenBy(e=>e.order).Take(10).ToArray();
         public string[] Categories(bool race)=>data.entries.Where(e=>e.race==race).Select(e=>e.category).Distinct().OrderBy(s=>s,StringComparer.Ordinal).ToArray();
         public IReadOnlyList<Entry> View(string era,bool race,int laps,string vehicle=null)=>RecordView.Query(data.entries,era,race,laps,vehicle);
+        // 0.83 Part G (display only): a track's Top 10 across every layout version, rule era and race length, optionally
+        // one vehicle; and the vehicles that have an entry there.
+        public IReadOnlyList<Entry> Top(Func<string,bool> onTrack,bool race,string vehicle=null)=>data.entries.Where(e=>e.race==race&&onTrack(e.category)&&(vehicle==null||e.vehicle==vehicle))
+            .OrderBy(e=>e.seconds).ThenBy(e=>e.order).Take(10).ToArray();
+        public string[] TopVehicles(Func<string,bool> onTrack,bool race)=>data.entries.Where(e=>e.race==race&&onTrack(e.category)).Select(e=>e.vehicle).Distinct().OrderBy(v=>v,StringComparer.Ordinal).ToArray();
         public string[] ViewVehicles(string era,bool race)=>data.entries.Where(e=>e.race==race&&RecordView.Era(e.category)==era).Select(e=>e.vehicle).Distinct().OrderBy(v=>v,StringComparer.Ordinal).ToArray();
         public int Add(string id,string category,bool race,double seconds,string vehicle,string date=null,bool legacy=false)
         {

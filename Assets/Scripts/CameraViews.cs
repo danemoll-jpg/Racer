@@ -87,11 +87,14 @@ namespace Racer
                 chase.positionSmoothTime = baseSmooth; chase.headingResponse = baseHeading;
                 bool own = PlayerView == View.FirstPerson || PlayerView == View.Front;
                 pose = own ? Pose.Lerp(chasePose, PlayerView == View.FirstPerson ? FirstPerson(car, chasePose) : FrontView(car, chasePose), Mathf.SmoothStep(0, 1, viewWeight)) : chasePose;
-                Hide(car, PlayerView == View.FirstPerson && viewWeight > .5f);
                 shown = Names[(int)PlayerView];
-                if (!own && blend >= 1 && PlayerView == View.Chase) { if (touched) Release(); last = chasePose; ShownView = shown; return; }
+                if (!own && blend >= 1 && PlayerView == View.Chase) { Hide(null, false); if (touched) Release(); last = chasePose; ShownView = shown; return; }
             }
             if (blend < 1) { blend = Mathf.Min(1, blend + Time.unscaledDeltaTime / blendLength); pose = Pose.Lerp(blendFrom, pose, Mathf.SmoothStep(0, 1, blend)); }
+            // 0.83 Part F: the player's head parts are hidden exactly while this frame's camera is inside the head, decided
+            // from the pose actually used (after any blend), so no view - first person, a blend into or out of it, a wipeout
+            // ease-out or a Trailer Mode camera - ever shows a bald, faceless rider or the inside of the head.
+            Hide(car, InsideHead(car, pose.position));
             transform.SetPositionAndRotation(pose.position, pose.rotation);
             cam.fieldOfView = pose.fov; cam.nearClipPlane = pose.near; touched = true; last = pose; ShownView = shown;
         }
@@ -180,6 +183,15 @@ namespace Racer
             at.y += Mathf.Clamp(fpY - at.y, -.08f, .08f);
             return new Pose(at, fpRotation, fov, .05f);
         }
+        // The camera is inside the rider's head (hair and hat included): within 17 cm of the head centre, which is 13.5 cm
+        // behind the first-person eye point (Eyes: the camera sits 4.5 cm ahead of the eyes, the eyes 9 cm ahead of the centre).
+        bool InsideHead(ArcadeVehicle car, Vector3 camera)
+        {
+            if (!car || !Eyes(car, out var eye, out var forward) || classicEyes) return false;
+            return (camera - (eye - forward * .135f)).sqrMagnitude < .17f * .17f;
+        }
+        // 0.83 Part F: an outside camera that takes over from this one (the winner shot) shows the whole rider.
+        public void ShowHead() => Hide(null, false);
         // The player's own face details, hair, brows and hat cast their shadow but are not drawn in first person.
         readonly List<(Renderer renderer, ShadowCastingMode mode)> hidden = new();
         void Hide(ArcadeVehicle car, bool value)

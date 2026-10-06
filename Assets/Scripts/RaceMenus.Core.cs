@@ -12,6 +12,8 @@ namespace Racer
         {
             if(pageStage==flow.State)return;
             if(flow.State==RaceFlow.Stage.Activities)recordTab=2;
+            // 0.83 Part G: Records opens on the best laps of the track last raced, all vehicles
+            if(flow.State==RaceFlow.Stage.Boards){recordTab=0;recordTrack=-1;recordsVehicle="All vehicles";}
             stagePages[pageStage]=page;stageStacks[pageStage]=pages.Reverse().ToArray();
             pageStage=flow.State;page=stagePages.TryGetValue(pageStage,out var saved)?saved:"";
             pages.Clear();if(stageStacks.TryGetValue(pageStage,out var stack))foreach(var entry in stack)pages.Push(entry);
@@ -108,11 +110,13 @@ details.gameObject.SetActive(true);
             }
             else if(flow.State==RaceFlow.Stage.Courses)
             {
-                if(page=="course-preview"){RenderCoursePreview();return;}
+                if(page=="course-preview")page="";
                 ClearCore("TRACKS","Select to use a track. Highlighting does not change Race Setup. Difficulty: TBD.");int i=0;
-                foreach(int course in RacePlaylists.DisplayOrder){int choice=course;Row(i++,"course-"+course,RacePlaylists.Titles[course],()=>flow.SelectCourseEntry(choice));}
-                Row(i++,"preview-track","Preview highlighted track",()=>Navigate("course-preview"));
+                foreach(int course in RacePlaylists.DisplayOrder){int choice=course;Row(i++,"course-"+course,RacePlaylists.Titles[course],()=>flow.SelectCourseEntry(choice));
+                    if(!buttons[i-1].GetComponent<CourseRowHover>())buttons[i-1].gameObject.AddComponent<CourseRowHover>();}
                 Row(i,"back","Back",flow.CloseGarage);
+                // 0.83 Part D: the map beside the list, on the highlighted (else the last shown, else the active) course
+                details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=56;EnterCourseView();ShowCourseOnMap(previewTrack>=0?previewTrack:System.Array.IndexOf(RacePlaylists.Scenes,flow.Race.gameObject.scene.name));
             }
             else if(flow.State==RaceFlow.Stage.Garage)
             {

@@ -6,14 +6,17 @@ One FBX (Assets/Resources/VehicleModels/Rider.fbx, source SourceArt/Blender/Ride
 Objects are named "<Pose>_<Category>_<Option>_<Body>__<slot>":
   Pose      Moto (Needle 600 vehicle space), Atv (Trail Four vehicle space), Car (relative to the driver's seat point H,
             which each car places; the steering-wheel grips are at H + (+/-0.147, 0.437, 0.396))
-  Category  Base (head, face, neck, hands, shoes), Shirt (Tee / Long / Jacket), Pants (Jeans / Shorts),
+  Category  Base (head, face, neck, hands, shoes), Shirt (Tee / Long / Jacket / Leather), Pants (Jeans / Shorts),
             Hair (Short / Medium / Long / Ponytail: everything BELOW the hat band), HairTop (the same styles ABOVE the band;
             hidden under a hat, so hair and hat never pass through each other), Hat (FlatCap / Baseball / Beanie / Cowboy)
   Body      Man / Woman, or Any (hair and hats fit both: the head is the same size)
   Arm       0.78: arm parts carry a fifth key, "<Pose>_<Category>_<Option>_<Body>_<Arm>__<slot>", Arm = U / L / H (upper
             arm, forearm, hand) + R / L (side). Their origin is the joint they turn about (U: shoulder, L: elbow, H: wrist),
             so the game can move the arms (fist wave, victory) with a simple shoulder / elbow / wrist rig (RiderArms).
-  slot      skin, hair, hat, trim, shirt, pants, shoes, eyes, pupil, mouth (the game colours them per rider)
+            0.83: Emblem (Tee / Jacket, Man): a chest print, a plain white ring with a simple generic bird inside (no
+            lettering, not any real logo), on the T-shirt / long sleeve (centred) or the jacket (left chest, clear of the zip)
+  slot      skin, hair, hat, trim, shirt, pants, shoes, eyes, pupil, mouth (the game colours them per rider); 0.83 also
+            inner (the T-shirt under the open leather jacket) and emblem
 The head is always upright and faces forward, so hair and hats are the same shapes in every pose. The hat band is a plane
 through the head 5.5 cm above its centre, 12 degrees higher at the front; every hat covers the whole head above it.
 """
@@ -57,7 +60,7 @@ BODY = {  # Man / Woman: same height class, different build
     'Woman': dict(sw=.17, hem=(.172, .112), waist=(.138, .097), chest=(.158, .107), upper=(.166, .097), top=(.152, .080), pelvis=(.182, .125, .155),
                   arm=(.050, .042, .039, .031), thigh=(.077, .056), shin=(.053, .041), hand=.9, shoe=.92, neck=.042),
 }
-SHIRTS, PANTS = ('Tee', 'Long', 'Jacket'), ('Jeans', 'Shorts')
+SHIRTS, PANTS = ('Tee', 'Long', 'Jacket', 'Leather'), ('Jeans', 'Shorts')
 HAIRS, HATS = ('Short', 'Medium', 'Long', 'Ponytail'), ('FlatCap', 'Baseball', 'Beanie', 'Cowboy')
 
 
@@ -103,7 +106,8 @@ def arm_points(P, body, s):
 
 def shirt(pose, P, bodyname, kind):
     body = BODY[bodyname]; G = f'{pose}_Shirt_{kind}_{bodyname}'
-    grow = .02 if kind == 'Jacket' else .006
+    jacket = kind in ('Jacket', 'Leather')
+    grow = .02 if jacket else .006
     chest = torso(G, P, body, 'shirt', grow)
     if bodyname == 'Woman': bust(G, P, body, 'shirt', chest, grow)
     ua0, ua1, fa0, fa1 = body['arm']
@@ -117,14 +121,14 @@ def shirt(pose, P, bodyname, kind):
             limb(G + ' upper arm', lerp(sh, el, .4), el, ua0 * .95, ua1, U, 'skin', 10)
             limb(G + ' forearm', el, wr, fa0, fa1, L, 'skin', 10)
         else:
-            g = .012 if kind == 'Jacket' else .004
+            g = .012 if jacket else .004
             blob(G + ' shoulder', sh, (ua0 + g + .004,) * 3, U, 'shirt', 12, 8)
             limb(G + ' sleeve', sh, el, ua0 + g, ua1 + g, U, 'shirt', 12)
             # the elbow ball rides with the forearm so the bend stays closed
             limb(G + ' sleeve lower', el, wr, fa0 + g, fa1 + g, L, 'shirt', 12, ends=False)
             blob(G + ' elbow', el, (fa0 + g,) * 3, L, 'shirt', 12, 6)
             cuff = tuple(V(wr) - (V(wr) - V(el)).normalized() * .03)
-            cyl(G + ' cuff', cuff, wr, fa1 + g + .006, L, 'trim' if kind == 'Jacket' else 'shirt', 12)
+            cyl(G + ' cuff', cuff, wr, fa1 + g + .006, L, 'trim' if jacket else 'shirt', 12)
     hip, S = V(P['hip']), V(P['S'])
     if kind == 'Jacket':
         hem = hip + (S - hip) * .12
@@ -139,6 +143,41 @@ def shirt(pose, P, bodyname, kind):
             pts.append((0, c.y, c.z + fwd + dd + .002))
         pts.append((0, neck.y + .03, neck.z + .072))
         for a, b in zip(pts, pts[1:]): cyl(G + ' zip', a, b, .006, G, 'trim', 6)
+    elif kind == 'Leather':
+        # 0.83: a leather jacket worn open over a T-shirt: waistband, the T-shirt showing down the front between two
+        # lapel edges, and a fold-over collar with pointed wings (the game gives the shell a slight sheen).
+        hem = hip + (S - hip) * .12
+        loft(G + ' hem band', [ring(tuple(hem), body['hem'][0] + grow + .006, body['hem'][1] + grow + .006, 16, 'y'),
+                               ring(tuple(hem + Vector((0, .045, 0))), body['hem'][0] + grow + .004, body['hem'][1] + grow + .004, 16, 'y')], G, 'trim')
+        neck = S + Vector((0, .07, .012))
+        rows = [(.20, body['hem'], 0, .040), (.35, body['waist'], 0, .046), (.70, body['chest'], .012, .060), (.92, body['upper'], .006, .062)]
+        edges = {-1: [], 1: []}; verts, faces, k = [], [], 5
+        for t, (w, d), fwd, half in rows:
+            c = hip + (S - hip) * t
+            dd = d + grow + (.03 if (bodyname == 'Woman' and t == .70) else 0)
+            for j in range(k):
+                x = -half + 2 * half * j / (k - 1); z = c.z + fwd + (dd + .003) * math.sqrt(max(0.0, 1 - (x / (w + grow)) ** 2))
+                verts.append(B(x, c.y, z))
+            for sd in (-1, 1):
+                x = sd * (half + .004); edges[sd].append((x, c.y, c.z + fwd + (dd + .004) * math.sqrt(max(0.0, 1 - (x / (w + grow)) ** 2))))
+        verts.append(B(0, neck.y - .012, neck.z + .060))
+        for r in range(len(rows) - 1):
+            for j in range(k - 1): faces.append((r * k + j, (r + 1) * k + j, (r + 1) * k + j + 1, r * k + j + 1))
+        last = (len(rows) - 1) * k
+        for j in range(k - 1): faces.append((last + j, len(verts) - 1, last + j + 1))
+        ob = kit.mesh_ob(G + ' undershirt', verts, faces)
+        for poly in ob.data.polygons:
+            if poly.normal.y < 0: poly.flip()
+        kit.finish(ob, G, 'inner')
+        for sd in (-1, 1):
+            pts = edges[sd] + [(sd * .05, neck.y - .005, neck.z + .055)]
+            for a, b in zip(pts, pts[1:]): cyl(G + ' lapel', a, b, .011, G, 'shirt', 8)
+            # collar wing: from the side of the neck, folded down and out, pointed at the chest
+            root, outer, tip = (sd * .062, neck.y + .035, neck.z - .02), (sd * .115, neck.y - .025, neck.z + .02), (sd * .062, neck.y - .055, neck.z + .07)
+            o = Vector((0, 0, .012)); n = Vector((0, .006, 0)); mid = V(lerp(root, tip, .5))
+            kit.hull(G + ' collar wing', [tuple(V(root) - n), tuple(V(outer) - n), tuple(V(tip) - n), tuple(mid - n),
+                                         tuple(V(root) + n + o), tuple(V(outer) + n + o), tuple(V(tip) + n + o), tuple(mid + n + o)], G, 'shirt', .004, 1)
+        loft(G + ' collar', [ring(tuple(neck + Vector((0, -.01, 0))), .084, .074, 16, 'y'), ring(tuple(neck + Vector((0, .04, -.006))), .08, .07, 16, 'y')], G, 'shirt')
     else:
         neck = S + Vector((0, .07, .012))
         loft(G + ' neckline', [ring(tuple(neck + Vector((0, -.012, 0))), .072, .064, 16, 'y'), ring(tuple(neck + Vector((0, .006, 0))), .07, .062, 16, 'y')], G, 'shirt')
@@ -346,6 +385,47 @@ def hats(pose, P):
 
 
 # ---------------------------------------------------------------- build, check, export
+# 0.83: the chest emblem - a plain ring with a simple bird (spread wings, small head, fanned tail) inside, one generic
+# outline of our own; right half, from the top of the head round to the bottom of the tail, in units of the inner radius.
+BIRD = [(0, .66), (.09, .60), (.10, .47), (.26, .43), (.50, .55), (.76, .66), (.90, .60), (.80, .46), (.88, .36), (.70, .28),
+        (.76, .16), (.56, .11), (.58, .00), (.34, .02), (.20, -.16), (.26, -.52), (.10, -.42), (0, -.58)]
+
+
+def emblem(pose, P, kind):
+    body = BODY['Man']; G = f'{pose}_Emblem_{kind}_Man'
+    grow = .02 if kind == 'Jacket' else .006
+    hip, S = V(P['hip']), V(P['S'])
+    secs = [(.35, body['waist'], 0), (.70, body['chest'], .012), (.92, body['upper'], .006)]
+
+    def surface(x, t):  # the front of the shirt / jacket at height t along the spine, x across
+        (t0, (w0, d0), f0), (t1, (w1, d1), f1) = (secs[0], secs[1]) if t <= secs[1][0] else (secs[1], secs[2])
+        u = min(1.0, max(0.0, (t - t0) / (t1 - t0))); w = w0 + (w1 - w0) * u + grow; d = d0 + (d1 - d0) * u + grow; f = f0 + (f1 - f0) * u
+        c = hip + (S - hip) * t
+        return c.z + f + (d + .004) * math.sqrt(max(0.0, 1 - (x / w) ** 2))
+    span = (S - hip).length
+    cx, ct, R = (0.0, .66, .062) if kind == 'Tee' else (-.085, .74, .042)
+
+    def place2(x, y):  # emblem plane (x right, y up, metres from its centre) -> Unity point on the chest
+        t = ct + y / span; return (cx + x, (hip + (S - hip) * t).y, surface(cx + x, t))
+    ri, n = R * .79, 32
+    verts, faces = [], []
+    for i in range(n):
+        a = i * 2 * math.pi / n
+        verts += [B(*place2(math.cos(a) * R, math.sin(a) * R)), B(*place2(math.cos(a) * ri, math.sin(a) * ri))]
+    for i in range(n): faces.append((2 * i, 2 * ((i + 1) % n), 2 * ((i + 1) % n) + 1, 2 * i + 1))
+    ob = kit.mesh_ob(G + ' ring', verts, faces)
+    outline = BIRD[:-1] + [(-x, y) for x, y in reversed(BIRD[1:])]
+    sc = ri * .9
+    bm = bmesh.new(); vs = [bm.verts.new(B(*place2(x * sc, y * sc))) for x, y in outline]
+    f = bm.faces.new(vs); bmesh.ops.triangulate(bm, faces=[f])
+    me = bpy.data.meshes.new(G + ' bird'); bm.to_mesh(me); bm.free()
+    ob2 = bpy.data.objects.new(G + ' bird', me); bpy.context.collection.objects.link(ob2)
+    for o in (ob, ob2):  # face forward (Blender +y)
+        for poly in o.data.polygons:
+            if poly.normal.y < 0: poly.flip()
+        kit.finish(o, G, 'emblem', smooth=False)
+
+
 def build():
     bpy.ops.wm.read_factory_settings(use_empty=True)
     for pose, P in POSES.items():
@@ -353,6 +433,7 @@ def build():
             base(pose, P, bodyname)
             for k in SHIRTS: shirt(pose, P, bodyname, k)
             for k in PANTS: pants(pose, P, bodyname, k)
+        for k in ('Tee', 'Jacket'): emblem(pose, P, k)
         hair(pose, P); hats(pose, P)
     objs = kit.join_all()
     # arm parts turn about their joint: origin on the shoulder (U), elbow (L) or wrist (H)

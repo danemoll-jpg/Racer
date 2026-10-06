@@ -12,6 +12,11 @@ namespace Racer
     // rendered frames, which also compile the shaders of what is in view) and one rotating tip. It stays up until the
     // world is built and the first frames have rendered, then fades out; no input is needed. While it is up, RaceFlow
     // holds the countdown and the menus and the vehicle takes no input.
+    // 0.83 Part E: the game poster (Resources/LoadingPoster, SourceArt/Poster/WoodstockRushPoster.png unaltered) is the
+    // full-screen picture, scaled to cover the screen without stretching (cropped evenly on other aspect ratios), drawn
+    // with bilinear filtering and no sharpening. The loading information sits in a dark gradient band along the bottom,
+    // clear of the title lettering (upper centre) and the two vehicles (centre); the route map is a small inset in the
+    // bottom-right corner.
     public sealed class LoadingScreen : MonoBehaviour
     {
         static LoadingScreen instance;
@@ -65,7 +70,7 @@ namespace Racer
         {
             if (!instance) { instance = new GameObject("Loading screen (0.82)").AddComponent<LoadingScreen>(); DontDestroyOnLoad(instance.gameObject); instance.Build(); }
             var s = instance; s.StopAllCoroutines(); s.canvas.SetActive(true); s.group.alpha = 1; s.holding = true; s.worldReady = s.started = false;
-            s.shown = Time.realtimeSinceStartup; s.target = 0; s.bar = 0; s.title.text = what; s.detail.text = detail ?? ""; s.step.text = "Loading";
+            s.shown = Time.realtimeSinceStartup; s.target = 0; s.bar = 0; s.title.text = what; s.detail.text = (detail ?? "").Replace("\n", "   ·   "); s.step.text = "Loading";
             s.SetCourse(course); tipIndex = (tipIndex + 1 + Random.Range(0, Tips.Length - 1)) % Tips.Length; s.tip.text = Tips[tipIndex]; s.tipAt = Time.realtimeSinceStartup;
             Shown++; LastTitle = what; s.StartCoroutine(s.Watch());
         }
@@ -101,19 +106,19 @@ namespace Racer
             if (Time.realtimeSinceStartup - tipAt > 5) { tipIndex = (tipIndex + 1) % Tips.Length; tip.text = Tips[tipIndex]; tipAt = Time.realtimeSinceStartup; }
         }
 
-        RectTransform map; RawImage mapImage; WorldMapCourseOverlay route;
+        RectTransform map, mapFrame; RawImage mapImage; WorldMapCourseOverlay route;
         void SetCourse(CoursePreviewCatalog.Course course)
         {
             var visual = course != null ? Resources.Load<WorldMapVisual>("WorldMaps/PermanentWorld") : null;
-            map.gameObject.SetActive(visual);
+            mapFrame.gameObject.SetActive(visual);
             if (!visual) return;
-            map.sizeDelta = new Vector2(240 * visual.bounds.width / visual.bounds.height, 240); mapImage.texture = visual.image;
+            mapFrame.sizeDelta = new Vector2(110 * visual.bounds.width / visual.bounds.height + 8, 118); mapImage.texture = visual.image;
             var bounds = new Bounds(course.main[0], Vector3.zero); foreach (var p in course.main) bounds.Encapsulate(p); foreach (var b in course.branches) foreach (var p in b.points) bounds.Encapsulate(p);
             var center = visual.Normalized(bounds.center); var extent = visual.Normalized(bounds.max) - visual.Normalized(bounds.min); float zoom = Mathf.Clamp(.85f / Mathf.Max(extent.x, extent.y), 1, 6);
             mapImage.uvRect = new Rect(center - Vector2.one * .5f / zoom, Vector2.one / zoom); route.SetView(null, visual, center, zoom, course);
         }
 
-        // menu look: the title matte, a dark panel, cyan accent (as the menus and the route preview)
+        // 0.83: the poster behind everything; a gradient band at the bottom with the information, the menus' cyan accent
         void Build()
         {
             canvas = new GameObject("Loading screen", typeof(RectTransform), typeof(Canvas), typeof(CanvasScaler), typeof(CanvasGroup));
@@ -123,25 +128,41 @@ namespace Racer
             group = canvas.GetComponent<CanvasGroup>(); group.blocksRaycasts = true;
             var font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
             var matte = Rect("Matte", canvas.transform); Stretch(matte); matte.gameObject.AddComponent<Image>().color = new Color(.012f, .019f, .025f);
-            var panel = Rect("Panel", matte); panel.anchorMin = new Vector2(.06f, .1f); panel.anchorMax = new Vector2(.94f, .9f); panel.offsetMin = panel.offsetMax = Vector2.zero;
-            panel.gameObject.AddComponent<Image>().color = new Color(.035f, .05f, .065f, .96f);
-            var accent = Rect("Accent", panel); accent.anchorMin = new Vector2(0, 1); accent.anchorMax = new Vector2(1, 1); accent.pivot = new Vector2(.5f, 1); accent.sizeDelta = new Vector2(0, 4); accent.gameObject.AddComponent<Image>().color = new Color(.3f, 1, .88f);
+            var poster = Resources.Load<Texture2D>("LoadingPoster");
+            if (poster)
+            {
+                var art = Rect("Poster", matte); art.anchorMin = art.anchorMax = art.pivot = new Vector2(.5f, .5f);
+                art.gameObject.AddComponent<RawImage>().texture = poster; art.GetComponent<RawImage>().raycastTarget = false;
+                var fit = art.gameObject.AddComponent<AspectRatioFitter>(); fit.aspectMode = AspectRatioFitter.AspectMode.EnvelopeParent; fit.aspectRatio = poster.width / (float)poster.height;
+            }
+            // the band: transparent at its top edge, dark at the bottom of the screen
+            var shade = new Texture2D(1, 64, TextureFormat.RGBA32, false) { wrapMode = TextureWrapMode.Clamp, filterMode = FilterMode.Bilinear, name = "Loading band" };
+            for (int y = 0; y < 64; y++) { float u = y / 63f; shade.SetPixel(0, y, new Color(.01f, .016f, .022f, Mathf.Lerp(.9f, 0, Mathf.SmoothStep(0, 1, Mathf.InverseLerp(.35f, 1, u))))); }
+            shade.Apply();
+            var band = Rect("Band", matte); band.anchorMin = Vector2.zero; band.anchorMax = new Vector2(1, .27f); band.offsetMin = band.offsetMax = Vector2.zero;
+            var bandImage = band.gameObject.AddComponent<RawImage>(); bandImage.texture = shade; bandImage.raycastTarget = false;
+            var panel = band;
             Text Label(string name, Vector2 min, Vector2 max, int size, Color color, TextAnchor anchor, FontStyle style = FontStyle.Normal)
             {
                 var r = Rect(name, panel); r.anchorMin = min; r.anchorMax = max; r.offsetMin = r.offsetMax = Vector2.zero;
-                var t = r.gameObject.AddComponent<Text>(); t.font = font; t.fontSize = size; t.color = color; t.alignment = anchor; t.fontStyle = style; t.raycastTarget = false; t.horizontalOverflow = HorizontalWrapMode.Wrap; return t;
+                var t = r.gameObject.AddComponent<Text>(); t.font = font; t.fontSize = size; t.color = color; t.alignment = anchor; t.fontStyle = style; t.raycastTarget = false; t.horizontalOverflow = HorizontalWrapMode.Wrap;
+                r.gameObject.AddComponent<Shadow>().effectColor = new Color(0, 0, 0, .8f); return t;
             }
-            Label("Loading label", new Vector2(.05f, .8f), new Vector2(.6f, .92f), 18, new Color(.3f, 1, .88f), TextAnchor.LowerLeft, FontStyle.Bold).text = "LOADING";
-            title = Label("Title", new Vector2(.05f, .6f), new Vector2(.6f, .8f), 46, Color.white, TextAnchor.MiddleLeft, FontStyle.Bold);
-            detail = Label("Detail", new Vector2(.05f, .42f), new Vector2(.6f, .6f), 22, new Color(.86f, .86f, .8f), TextAnchor.UpperLeft);
-            tip = Label("Tip", new Vector2(.05f, .06f), new Vector2(.95f, .17f), 19, new Color(.75f, .78f, .74f), TextAnchor.MiddleLeft, FontStyle.Italic);
-            step = Label("Step", new Vector2(.05f, .27f), new Vector2(.6f, .33f), 18, new Color(.86f, .86f, .8f), TextAnchor.LowerLeft);
-            var track = Rect("Bar", panel); track.anchorMin = new Vector2(.05f, .21f); track.anchorMax = new Vector2(.95f, .25f); track.offsetMin = track.offsetMax = Vector2.zero; track.gameObject.AddComponent<Image>().color = new Color(1, 1, 1, .1f);
+            // band coordinates: 0 = bottom of the screen, 1 = 27 % up
+            Label("Loading label", new Vector2(.03f, .62f), new Vector2(.5f, .74f), 14, new Color(.3f, 1, .88f), TextAnchor.LowerLeft, FontStyle.Bold).text = "LOADING";
+            title = Label("Title", new Vector2(.03f, .40f), new Vector2(.62f, .64f), 32, Color.white, TextAnchor.MiddleLeft, FontStyle.Bold);
+            step = Label("Step", new Vector2(.55f, .40f), new Vector2(.80f, .50f), 15, new Color(.86f, .86f, .8f), TextAnchor.LowerRight);
+            detail = Label("Detail", new Vector2(.03f, .24f), new Vector2(.80f, .40f), 16, new Color(.9f, .9f, .84f), TextAnchor.MiddleLeft);
+            var track = Rect("Bar", panel); track.anchorMin = new Vector2(.03f, .17f); track.anchorMax = new Vector2(.80f, .21f); track.offsetMin = track.offsetMax = Vector2.zero; track.gameObject.AddComponent<Image>().color = new Color(1, 1, 1, .16f);
             fill = Rect("Fill", track); fill.anchorMin = Vector2.zero; fill.anchorMax = new Vector2(0, 1); fill.offsetMin = fill.offsetMax = Vector2.zero; fill.gameObject.AddComponent<Image>().color = new Color(.3f, 1, .88f);
-            map = Rect("Course", panel); map.anchorMin = map.anchorMax = new Vector2(.8f, .6f); map.pivot = new Vector2(.5f, .5f);
+            tip = Label("Tip", new Vector2(.03f, .02f), new Vector2(.80f, .15f), 15, new Color(.8f, .82f, .78f), TextAnchor.MiddleLeft, FontStyle.Italic);
+            // the route: a small inset in the bottom-right corner, in a dark frame
+            mapFrame = Rect("Course frame", matte); mapFrame.anchorMin = mapFrame.anchorMax = mapFrame.pivot = new Vector2(1, 0); mapFrame.anchoredPosition = new Vector2(-18, 14);
+            mapFrame.gameObject.AddComponent<Image>().color = new Color(.02f, .03f, .04f, .9f);
+            map = Rect("Course", mapFrame); Stretch(map); map.offsetMin = new Vector2(4, 4); map.offsetMax = new Vector2(-4, -4);
             mapImage = map.gameObject.AddComponent<RawImage>(); mapImage.raycastTarget = false; map.gameObject.AddComponent<RectMask2D>();
             var overlay = Rect("Route", map); Stretch(overlay); route = overlay.gameObject.AddComponent<WorldMapCourseOverlay>(); route.raycastTarget = false;
-            map.gameObject.SetActive(false);
+            mapFrame.gameObject.SetActive(false);
         }
         static RectTransform Rect(string name, Transform parent) { var r = new GameObject(name, typeof(RectTransform)).GetComponent<RectTransform>(); r.SetParent(parent, false); return r; }
         static void Stretch(RectTransform r) { r.anchorMin = Vector2.zero; r.anchorMax = Vector2.one; r.offsetMin = r.offsetMax = Vector2.zero; }

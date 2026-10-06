@@ -63,7 +63,6 @@ namespace Racer
             int i = (int)shot;
             chase.offsetScale = shot == Shot.Chase ? new Vector3(1, .8f * distance[i] + height[i] * .3f, distance[i]) : Vector3.one;
             chase.positionSmoothTime = shot == Shot.Chase ? .3f : baseSmooth; chase.headingResponse = shot == Shot.Chase ? 3.2f : baseHeading;
-            Hide(car, shot == Shot.FirstPerson && viewWeight > .5f);
             float d = distance[i], h = height[i];
             Pose pose = shot switch
             {
