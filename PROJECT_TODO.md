@@ -17,6 +17,24 @@
 
 ## CURRENT — House 3 pool truly in-ground, ATV icon, Forest Forward second-shortcut survey, Forest Reverse jump approach — target 0.86.0-review1 — A, B, C, D DONE; release: see DELIVERED
 
+- **DELIVERED:**
+  - Source `d491d500c7b8cf832b7f1d0a37eeb233b12cba2c` pushed and verified on origin/main (Part D alone is `8477896a`).
+  - Fresh 0.86.0-review1 Windows build: 0 errors, 2m41s ([build-release.txt](Docs/Report086/build-release.txt)). The 110 warnings are the existing obsolete-API notes of a full recompile and the usual mesh-collider note.
+  - Published [game-86000](https://github.com/danemoll-jpg/woodstock-rush-releases/releases/tag/game-86000) with `python Tools/Publish-LauncherRelease.py`: the known draft-lookup miss after the draft was created, then `--resume-draft` uploaded the three assets and published. Previous releases retained.
+  - All 234 Latest files match the public signed manifest. Public download, signature, install and startup pass ([hosted/result.json](Docs/Report086/hosted/result.json)). The catalog reports no pending game or music update.
+- **Icon (Part B):** the 256 px icon extracted from the build's `Racer.exe`, `Builds/Latest/versions/86000/Racer.exe` and `Builds/Latest/Racer.exe` is the ATV in all three, byte-identical ([Icons/](Docs/Report086/Icons/)). The 0.85 `Racer.exe` it replaced was the blue car, which is what Dan saw.
+  - `WoodstockRushLauncher.exe` has **no icon resource**, so Windows shows the generic program icon. While the game runs, its window and taskbar button use `Racer.exe`'s ATV.
+  - Giving the launcher the ATV would need three things, none involving the signing keys:
+    1. an `.ico` made from the ATV PNG and a resource script compiled into the launcher in `Tools/Build-Launcher.ps1`;
+    2. a rebuilt launcher;
+    3. a way to get it to players. It is not an updatable component (only `game` and `soundtrack` are), so that means a new starter package (`Tools/Package-LauncherStarter.py`) and replacing `Builds/Latest/WoodstockRushLauncher.exe`, which release staging deliberately keeps unchanged.
+  - Not done: it is outside the existing release procedure. Say if you want it as its own item.
+  - **Windows icon cache:** Explorer may keep showing the car for `Builds\Latest\Racer.exe`, the same path as before. One step refreshes it: run `ie4uinit.exe -show` (Win+R).
+- **Play-Racer.cmd (unchanged):** launched a responsive `Builds/Latest/versions/86000/Racer.exe` (0.86.0-review1), muted, settings restored byte for byte. Latest root, current 86000 and previous 85000 retained; 84000 had already been retired by the updater.
+- **Cleanup:** Builds 10,127,987,158 -> 7,992,014,436 bytes (2.1 GB recovered); also the 1.7 GB hosted-check install, about 50 MB of check scratch outside the project and the temporary editor tools. C: free 272,837,627,904 bytes.
+- **Not mine, left as found:** while this round ran, Claude (chat) added the "QUEUED NEXT — Kyle's house" section below and `SourceArt/Reference/KylesHouse-front-2026-10-06.jpg`. The section is kept as written and committed with this record; the photo is left uncommitted for its own round's safety checkpoint.
+- **SESSION HANDOFF: STOP.** Awaiting Dan's review of 0.86 and his choice of a Part C option (rule 12).
+
 ### Results (2026-10-06, Claude Code)
 
 - **Safety checkpoint:** `f3ec43d0` (this TODO plan and the two ATV icon files), pushed. Part A in `1e05a110`; **Part D alone in `8477896a`** (revert: `git revert 8477896a`); Part C (proposal only) in `0e5de373`. Version 0.86.0-review1 / build 86000.
@@ -35,7 +53,7 @@
     - Driven in from the basin and reversed back out up the shallow end, Free Roam ([A-checks.txt](Docs/Report086/Lists/A-checks.txt)): Needle 600 out in 11.0 s, Trail Four 8.5 s, Skyfin Cruiser 7.3 s.
     - From the deepest point forwards (as 0.85): out up the slope in 3.3 / 3.4 / 4.0 s. The other three headings face walls, as designed.
     - Collider and route comparison, all nine scenes ([A-collider-comparison.txt](Docs/Report086/Lists/A-collider-comparison.txt)): only the pool pieces and that one ground tile changed; routes, gates, jumps and branches are identical.
-- **B — ATV icon — files confirmed; result after the build under DELIVERED.**
+- **B — ATV icon — DONE (result under DELIVERED).**
   - `Assets/Branding/WoodstockRushIcon.png` and `SourceArt/Poster/WoodstockRushIcon.png` are identical (622,075 bytes, md5 `feb18da4…`), and the image shows the teal ATV with its rider (no car).
   - The build step force-reimports the icon before building. The Player Settings references are unchanged.
   - **The launcher** (`WoodstockRushLauncher.exe`) is compiled from `Launcher/*.cpp` with no icon resource at all, so Windows shows its generic program icon. It is not an updatable release component (only `game` and `soundtrack` are), and the release staging deliberately keeps the installed launcher byte for byte. Changing it is outside the existing release procedure, so it is not changed (see DELIVERED for what it would need).
