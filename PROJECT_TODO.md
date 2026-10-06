@@ -15,7 +15,67 @@
   - **Dan does:** driving every course and direction, trying every vehicle everywhere, checking that a universal fix holds everywhere, and judging look and feel. He reports through the debug ZIPs.
   - **Write-up:** the TODO results are a short list: what changed, the one check per item, decisions made, and anything Dan should look at. No separate VALIDATION.md unless a round asks. If a check would take more than a few minutes of play time, skip it and list it under "for Dan to check".
 
-## CURRENT — House 3 pool truly in-ground, ATV icon, Forest Forward second-shortcut survey, Forest Reverse jump approach — target 0.86.0-review1 — A, B, C, D DONE; release: see DELIVERED
+## CURRENT — Kyle's house from Dan's photo, Forest Forward Summit Climb shortcut (with a challenge), launcher icon — target 0.87.0-review1 — NOT STARTED
+
+- **Authorized by Dan (2026-10-06).** Written by Claude (chat). Part A (Kyle's house) was queued during 0.86; Parts B and C follow 0.86's survey and icon findings and Dan's choice at 18:13.
+- **Starting point:** main at the "Record 0.86 delivery" commit (0.86.0-review1 / game-86000). This TODO edit and `SourceArt/Reference/KylesHouse-front-2026-10-06.jpg` are uncommitted and belong in the safety checkpoint.
+- Runs unattended: design decisions are below; do not stop to ask about design. Stop only for a real external blocker (rule 7).
+- **Scope is exactly Parts A–C below. Order: B (own commit), then A, then C.**
+- The Verification budget applies, except Part B, which may check as its own list says.
+
+### Part A — Kyle's house
+
+Dan (2026-10-06, with a photo of the front): "this is the front of Kyle's house. It is two stories, which is visible on the left side and back of the house. On the right side is a screened-in porch. In the back it has a raised wooden porch (with a sliding glass door into the top floor). The left side of the house has two garage doors on the bottom level with a driveway leading up to it. The area is generally surrounded by trees and barely visible from the road as it sits down the hill a little, as it is placed currently."
+
+This is the backlog item "Kyle's house from photos" (the building named "Friend across street - blue circle"; 0.78 kept its shape and added detail only). Dan has now supplied the reference, so it may be redesigned.
+
+**Reference photo:** `SourceArt/Reference/KylesHouse-front-2026-10-06.jpg` (placed by Claude; uncommitted until the safety checkpoint). Look at it before modelling. "Left" and "right" below are as seen facing the front, as in the photo.
+
+**What the photo shows (front):** a single-storey-looking ranch from the front, long and low. Light grey horizontal lap siding, white trim, white gutters and downspouts, dark charcoal-grey shutters on every front window, grey shingle roof at a low pitch. Brick foundation showing at the bottom left. The roof is a long side-gable running left to right, with a front-facing gable projecting forward at the left third (the left wing sits a little forward of the rest). To the right of that gable a **covered front porch** runs along the rest of the front under the main roof's eave: four slim white square posts, a concrete or brick porch floor one low step above the ground, a white front door with a storm door near the middle, a wall lantern beside it, double-hung white windows with grilles either side. White wicker chairs and a small bench on the porch. A **red brick chimney** rises on the outside of the right-hand end wall, stepped at the shoulder, with a metal cap. Overgrown shrubs along the front; a gravel parking area in front at the right.
+
+**What Dan describes that the photo does not show:**
+- **Two storeys on the left side and the back:** the ground falls away, so the lower level is exposed there (a walk-out lower floor). From the front it stays one storey.
+- **Left side, lower level:** two garage doors side by side, with the driveway leading up to them.
+- **Right side:** a screened-in porch (framed screens, its own low roof), beside the chimney end.
+- **Back:** a raised wooden deck at the upper floor's level on posts, with a sliding glass door from the upper floor onto it, and **wooden steps from the deck down into the yard** (confirmed by Dan). Dan has only this one photo: "the rest can be derived based on the description. Doesn't need to be perfect." So design the left, right and back in keeping with the front and do not stop for more reference.
+
+**Build it:**
+1. Model it in Blender with the approved pipeline, in the game's stylized low-poly style, to the standard of the 0.78 buildings (roof overhangs, trim, frames, gutters, lit windows at night). It should be recognisably this house from the front photo.
+2. **Keep it where it is now:** same position, same orientation, sitting down the hill a little, surrounded by trees and barely visible from the road. Use the slope that is there for the walk-out lower level on the left and back; adjust the ground immediately around the house only as far as needed for the garage doors, the driveway meeting them and the deck posts (rule 4: everything grounded, no floating or buried parts, foundation to the ground on every side).
+3. **Driveway:** the existing drive to this house continues to the two garage doors on the left side. Gravel, as in the photo.
+4. Footprint may change to fit the real shape (the L of the front gable, the screened porch on the right, the deck behind). Colliders match the new shape: walls, porch posts, chimney, deck (the deck solid enough to stand on, its underside open or closed as is simplest and safe), garage doors closed.
+5. **Which scenes:** `FreeRoamWorld` certainly. In the course scenes the same building exists: replace it there too so the world matches, **but first read each scene's route data** (section 5A): if a race line, shortcut, jump or AI line passes close enough that the new footprint, deck, porch or driveway could touch it, keep the old collider outline on that side in that scene and report it.
+6. The two-men vignette at Kyle's (Dan and Kyle, 0.83) stays, moved to the front porch or the gravel in front if the new shape needs it. Trees stay dense around the house; remove only those inside the new footprint or driveway.
+7. Scenery: New shows the new house; Classic may keep showing the old one.
+8. Check: one shot from the photo's angle next to the photo, one of the left side with the garage doors, one of the back with the deck, one of the right side with the screened porch, one from the road showing it is still tucked away; collider comparison per scene listing only this house and its surround.
+
+### Part B — Forest Loop Forward second shortcut: the Summit Climb, with a real challenge
+
+Dan (2026-10-06, 18:13) chose **candidate C, the Summit Climb**, from `Docs/Report086/ForestForward-shortcut-options.md`: "I like the idea of the shortcut saving time, but it must have some challenge." The survey gave it about 3 s saved per class (bike 2.8, ATV 2.9, car 3.1), the least earthwork, and described it as a dead-straight climb with nothing to miss. **Build it, but not as a free 3 seconds.** Read the survey's section C and its two views first.
+
+Build in `LakeWoods` (Forest Loop Forward) only; section 5A applies to everything already there.
+
+1. **Line (from the survey):** leaves the main just before CP4 at about s 1850, goes up the wooded hillside (48 m up over about 190 m) and rejoins the main's last straight on the plateau about 90 m before the finish line (about s 2090). It bypasses CP4, listed as bypassed the way Echo Cave bypasses CP2; no gate is moved. Keep well clear of the House 3 driveway and its hilltop arch (45 m or more to the west).
+2. **The challenge, designed in (Claude's proposal, accepted in principle by Dan's "must have some challenge"):**
+   - **A narrow woodland chute.** About half the main's width, with the forest left standing close on both sides: solid trunks at the edges, so a sloppy line clips a tree. Remove only the trees on the trail itself.
+   - **Two kinks.** Not dead straight: route the trail round two large trees (or a tree and a boulder) as offset bends, one low and one about two thirds up, each needing a real steering input and a lift or brake for a car at full speed. Bikes may take them flat with a good line.
+   - **A rough middle.** The steepest 40–50 m is rooted and rocky ground (low bumps and one or two exposed slabs, not walls) that unsettles a vehicle that is not pointed straight. Ease the gradient here only as far as the survey said was needed (about 38 %) so the weakest car still climbs it.
+   - **A blind crest.** Where the climb breaks onto the plateau vehicles go light or take a short hop. The rejoin lies slightly off the straight-ahead line, so the driver has to set the vehicle up before the crest; arriving crooked or too fast runs wide into the trees. Keep it a hop, not a jump: nothing lands on rising ground.
+   - **The merge.** It joins the main's last straight from the inside with clear sight of traffic coming round the hook; shape it so two vehicles can merge without a wall between them.
+3. **Balance:** a clean run still saves a worthwhile amount: aim for about 2–2.5 s for bikes and cars and about 2 s for the ATV. One clipped tree, a botched kink or a wide crest should cost about as much as the shortcut saves, so it is a real choice. Nobody gets stuck: every mistake is recoverable by driving on, and the reset puts a vehicle back on the shortcut or the main as the nearest-point rule already does.
+4. **AI:** validated for all classes at the usual shortcut rate, driving it cleanly most of the time; an occasional AI mistake there is fine and in keeping.
+5. **Dressing:** a gold shortcut sign at the fork ("SUMMIT CLIMB"), gold arrows, the standard edge markers, a dirt trail surface like the other forest trails with roots and rock showing in the rough part. The main stays the obvious choice at the fork. Minimap, track-select map and course preview show it as the second gold shortcut.
+6. New course-rule ID for Forest Loop Forward (old times stay as legacy). No other scene changes.
+7. **Checks (heavier allowed, new race geometry):** timed runs for a bike, the ATV, the weakest car (Skyfin Cruiser) and the fastest car: clean (time saved against the main) and one deliberate mistake each (time lost); the weakest car climbs it from a standing start at the bottom; three races with AI (0 missed gates, nobody stuck, AI uses it); collider and route comparison listing what was added; shots of the fork, each kink, the rough section, the crest and the merge. **Own commit**, with the revert command in the results.
+
+### Part C — Launcher icon (optional, small)
+
+0.86 found `WoodstockRushLauncher.exe` has no icon at all, so Windows shows the generic program icon until the game window opens, and that giving it the ATV needs no signing keys: an `.ico` from the ATV PNG and a resource script in `Tools/Build-Launcher.ps1`, a rebuilt launcher, and replacing `Builds/Latest/WoodstockRushLauncher.exe` (which release staging normally leaves alone) plus a new starter package for anyone else.
+
+Do the first two and replace the launcher in `Builds/Latest` on Dan's PC so his own shortcut shows the ATV. Do not change the manifest format, the updater's component list or any key. Rebuild the starter package only if `Tools/Package-LauncherStarter.py` does it in one step without publishing anything new; otherwise leave it and say so. If anything here turns out to need a signing or release-procedure change, skip this part and report.
+
+
+## Previous delivery — House 3 pool truly in-ground, ATV icon, Forest Forward second-shortcut survey, Forest Reverse jump approach — 0.86.0-review1 — DELIVERED, REVIEWED BY DAN (chose shortcut C; built in 0.87)
 
 - **DELIVERED:**
   - Source `d491d500c7b8cf832b7f1d0a37eeb233b12cba2c` pushed and verified on origin/main (Part D alone is `8477896a`).
@@ -142,34 +202,6 @@ This part produces a proposal for Dan to choose from. **Build nothing; change no
 ### Verification
 
 Light, per the Verification budget: the one check named in each part, compile, launch, release steps. Results as a short list, with "for Dan to check".
-
-## QUEUED NEXT — Kyle's house rebuilt from Dan's photo and description — target 0.87.0-review1 — NOT STARTED
-
-Written by Claude (chat) on 2026-10-06 while 0.86 was running. Do not start until 0.86 is delivered and Dan starts it; more items may be added first. The Verification budget applies. Runs unattended; decisions are below.
-
-Dan (2026-10-06, with a photo of the front): "this is the front of Kyle's house. It is two stories, which is visible on the left side and back of the house. On the right side is a screened-in porch. In the back it has a raised wooden porch (with a sliding glass door into the top floor). The left side of the house has two garage doors on the bottom level with a driveway leading up to it. The area is generally surrounded by trees and barely visible from the road as it sits down the hill a little, as it is placed currently."
-
-This is the backlog item "Kyle's house from photos" (the building named "Friend across street - blue circle"; 0.78 kept its shape and added detail only). Dan has now supplied the reference, so it may be redesigned.
-
-**Reference photo:** `SourceArt/Reference/KylesHouse-front-2026-10-06.jpg` (placed by Claude; uncommitted until the safety checkpoint). Look at it before modelling. "Left" and "right" below are as seen facing the front, as in the photo.
-
-**What the photo shows (front):** a single-storey-looking ranch from the front, long and low. Light grey horizontal lap siding, white trim, white gutters and downspouts, dark charcoal-grey shutters on every front window, grey shingle roof at a low pitch. Brick foundation showing at the bottom left. The roof is a long side-gable running left to right, with a front-facing gable projecting forward at the left third (the left wing sits a little forward of the rest). To the right of that gable a **covered front porch** runs along the rest of the front under the main roof's eave: four slim white square posts, a concrete or brick porch floor one low step above the ground, a white front door with a storm door near the middle, a wall lantern beside it, double-hung white windows with grilles either side. White wicker chairs and a small bench on the porch. A **red brick chimney** rises on the outside of the right-hand end wall, stepped at the shoulder, with a metal cap. Overgrown shrubs along the front; a gravel parking area in front at the right.
-
-**What Dan describes that the photo does not show:**
-- **Two storeys on the left side and the back:** the ground falls away, so the lower level is exposed there (a walk-out lower floor). From the front it stays one storey.
-- **Left side, lower level:** two garage doors side by side, with the driveway leading up to them.
-- **Right side:** a screened-in porch (framed screens, its own low roof), beside the chimney end.
-- **Back:** a raised wooden deck at the upper floor's level on posts, with a sliding glass door from the upper floor onto it, and **wooden steps from the deck down into the yard** (confirmed by Dan). Dan has only this one photo: "the rest can be derived based on the description. Doesn't need to be perfect." So design the left, right and back in keeping with the front and do not stop for more reference.
-
-**Build it:**
-1. Model it in Blender with the approved pipeline, in the game's stylized low-poly style, to the standard of the 0.78 buildings (roof overhangs, trim, frames, gutters, lit windows at night). It should be recognisably this house from the front photo.
-2. **Keep it where it is now:** same position, same orientation, sitting down the hill a little, surrounded by trees and barely visible from the road. Use the slope that is there for the walk-out lower level on the left and back; adjust the ground immediately around the house only as far as needed for the garage doors, the driveway meeting them and the deck posts (rule 4: everything grounded, no floating or buried parts, foundation to the ground on every side).
-3. **Driveway:** the existing drive to this house continues to the two garage doors on the left side. Gravel, as in the photo.
-4. Footprint may change to fit the real shape (the L of the front gable, the screened porch on the right, the deck behind). Colliders match the new shape: walls, porch posts, chimney, deck (the deck solid enough to stand on, its underside open or closed as is simplest and safe), garage doors closed.
-5. **Which scenes:** `FreeRoamWorld` certainly. In the course scenes the same building exists: replace it there too so the world matches, **but first read each scene's route data** (section 5A): if a race line, shortcut, jump or AI line passes close enough that the new footprint, deck, porch or driveway could touch it, keep the old collider outline on that side in that scene and report it.
-6. The two-men vignette at Kyle's (Dan and Kyle, 0.83) stays, moved to the front porch or the gravel in front if the new shape needs it. Trees stay dense around the house; remove only those inside the new footprint or driveway.
-7. Scenery: New shows the new house; Classic may keep showing the old one.
-8. Check: one shot from the photo's angle next to the photo, one of the left side with the garage doors, one of the back with the deck, one of the right side with the screened porch, one from the road showing it is still tucked away; collider comparison per scene listing only this house and its surround.
 
 ## Previous delivery — Forest Forward Lake Dock Jump shortcut (not built), Forest Reverse lake jump (left), escapable pools and lakes, trees off the shortcuts, hands on the steering wheel, Mountain Forward road edge — 0.85.0-review1 — DELIVERED, REVIEWED BY DAN (follow-ups in 0.86)
 
