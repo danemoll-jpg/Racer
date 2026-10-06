@@ -11,7 +11,7 @@ namespace Racer {
 // 0.81 targeted checks, added to the 0.80 runner (same muted isolated save, same helpers): PROBE_CASES="case:args;...".
 public sealed partial class Report080Checks {
  partial void More(string[] a,ref IEnumerator run){
-  run=a[0] switch{"edge"=>Edge(a[1]),"overlap"=>Overlap(a[1],a[2]),"wall"=>Wall(a[1],a[2],a[3]),"vehicle"=>VehicleCheck(a[1]),"garage"=>GarageCheck(),"traffic"=>TrafficCheck(a[1]),"people"=>PeopleCheck(),_=>null};}
+  run=a[0] switch{"edge"=>Edge(a[1]),"overlap"=>Overlap(a[1],a[2]),"wall"=>Wall(a[1],a[2],a[3]),"vehicle"=>VehicleCheck(a[1]),"garage"=>GarageCheck(),"traffic"=>TrafficCheck(a[1]),"people"=>PeopleCheck(),_=>Cases082(a)};}
 
  // Part A/B: one new vehicle on one road (Free Roam from Street Loop): wheels on the ground, rider seated, headlights at
  // night, fist wave; a day and a night shot. vehicle:id

@@ -26,7 +26,7 @@ namespace Racer
         RaceDirector race;
         Vector3 initialPosition;
         Quaternion initialRotation;
-        float nextHistory, nextAttempt,lastRecoveryAt=-100;int recoveryEscalation;
+        float nextHistory, nextAttempt,lastRecoveryAt=-100;int recoveryEscalation;bool phased;static int phaseCounter;
         readonly Collider[] overlaps=new Collider[64];
         void Awake()
         {
@@ -62,6 +62,19 @@ namespace Racer
         WoodlandRoute stableBranch;
         JumpRecoveryExclusion[] jumpExclusions;
         Collider[] legacyLaunchSurfaces;
+        // 0.82 Part C: the legacy launch colliders, found once per scene for every vehicle (ordinal name tests) instead of
+        // each vehicle scanning every collider with culture-aware tests on its first racing step (a 0.8 s hitch at GO).
+        // RaceFlow warms it behind the loading screen.
+        static Collider[] sharedLaunch; static UnityEngine.SceneManagement.Scene sharedLaunchScene;
+        public static Collider[] LaunchSurfaces(UnityEngine.SceneManagement.Scene scene)
+        {
+            if (sharedLaunch == null || sharedLaunchScene != scene || !scene.isLoaded)
+            {
+                sharedLaunch = FindObjectsByType<Collider>().Where(c => { var n = c.name; return n.StartsWith("Takeoff -", StringComparison.Ordinal) || n.StartsWith("Gully supported ramp", StringComparison.Ordinal) || n == "Reverse supported roadworks transition"; }).ToArray();
+                sharedLaunchScene = scene;
+            }
+            return sharedLaunch;
+        }
         ForestLayout forestLayout;
         float[] forestLipStations;
         bool UnsafeJump(Vector3 p)
@@ -77,7 +90,7 @@ namespace Racer
             }
             jumpExclusions ??= FindObjectsByType<JumpRecoveryExclusion>();
             foreach(var zone in jumpExclusions)if(zone&&zone.Contains(p))return true;
-            legacyLaunchSurfaces ??= FindObjectsByType<Collider>().Where(c=>c.name.StartsWith("Takeoff -")||c.name.StartsWith("Gully supported ramp")||c.name=="Reverse supported roadworks transition").ToArray();
+            legacyLaunchSurfaces ??= LaunchSurfaces(gameObject.scene);
             foreach(var ramp in legacyLaunchSurfaces){
                 if(!ramp||!ramp.enabled||!ramp.gameObject.activeInHierarchy)continue;
                 var branch=race.Racers.FirstOrDefault(r=>r.Car==vehicle)?.Branch.Route;
@@ -150,7 +163,10 @@ namespace Racer
         {
             if(!race)race=FindAnyObjectByType<RaceDirector>();
             if(!race || !race.road || now<nextHistory)return;
+            // 0.82 Part C: AI and traffic sample on their own phase within the 0.1 s (in turn), so the cars no longer all do
+            // this search in the same physics step (a 20-30 ms frame every 0.1 s in Free Roam traffic); the player as before.
             nextHistory=now+.1f;
+            if(!phased){phased=true;if(race.vehicle!=vehicle)nextHistory+=(phaseCounter++%8)*.0125f;}
             if(race.FreeRoam){
                 if(vehicle.GroundedWheels<2){awaitingLanding=true;stableSince=-1;return;}
                 if(transform.up.y<.65f||vehicle.Body.angularVelocity.magnitude>2.5f||UnsafeJump(vehicle.Body.position)){stableSince=-1;return;}

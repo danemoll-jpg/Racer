@@ -39,15 +39,19 @@ namespace Racer
                 {
                     if(mesh.gameObject.scene!=box.gameObject.scene)continue;
                     if(mesh.attachedRigidbody || !mesh.sharedMesh || !mesh.sharedMesh.isReadable) continue;
-                    bool ramp=mesh.name.StartsWith("Takeoff -")||mesh.name=="Reverse supported roadworks transition";
-                    if(!mesh.name.StartsWith("Ground_") && !mesh.name.StartsWith("Takeoff -") && !mesh.name.StartsWith("Landing -") && !mesh.name.StartsWith("Gully supported ramp") && !(mesh.name=="Reverse supported roadworks transition"&&!legacyRampContacts)) continue;
+                    // 0.82 Part C: ordinal name tests, and each vertex transformed once (it was three TransformPoint calls per
+                    // triangle, seconds of the Free Roam load); the same TransformPoint, so the same points and faces.
+                    string n=mesh.name; const System.StringComparison O=System.StringComparison.Ordinal;
+                    bool ramp=n.StartsWith("Takeoff -",O)||n=="Reverse supported roadworks transition";
+                    if(!n.StartsWith("Ground_",O) && !n.StartsWith("Takeoff -",O) && !n.StartsWith("Landing -",O) && !n.StartsWith("Gully supported ramp",O) && !(n=="Reverse supported roadworks transition"&&!legacyRampContacts)) continue;
                     var vertices=mesh.sharedMesh.vertices; var indices=mesh.sharedMesh.triangles;
+                    var t=mesh.transform; for(int v=0;v<vertices.Length;v++) vertices[v]=t.TransformPoint(vertices[v]);
                     var faces=new Face[indices.Length/3];
                     for(int i=0;i<faces.Length;i++)
                     {
-                        var a=mesh.transform.TransformPoint(vertices[indices[i*3]]);
-                        var b=mesh.transform.TransformPoint(vertices[indices[i*3+1]]);
-                        var c=mesh.transform.TransformPoint(vertices[indices[i*3+2]]);
+                        var a=vertices[indices[i*3]];
+                        var b=vertices[indices[i*3+1]];
+                        var c=vertices[indices[i*3+2]];
                         faces[i]=new Face{Normal=Vector3.Cross(b-a,c-a).normalized,Point=a};
                     }
                     next[mesh.GetEntityId()]=faces;

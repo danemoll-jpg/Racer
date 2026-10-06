@@ -1,0 +1,7 @@
+---- project:FreeRoamWorld
+PASS FreeRoamWorld: RaceRoad.Project and ProjectNear identical to the full scans on 9 roads, 180000 points (0 different); time 6.88 µs vs 76.42 µs per call
+---- project:MountainLoopReverse
+PASS MountainLoopReverse: RaceRoad.Project and ProjectNear identical to the full scans on 10 roads, 200000 points (0 different); time 6.87 µs vs 93.76 µs per call
+---- report:FreeRoamWorld
+FreeRoamWorld: posts removed 22, kept 0
+done, failures 0

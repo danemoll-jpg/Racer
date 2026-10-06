@@ -1,0 +1,284 @@
+C:\Users\danmo\AppData\Local\Temp\report082\hitch-deep-dev\race.raw: frames 0..157
+frames read 158, median 19.4 ms
+   8962.2 ms total, worst frame  8466.8 ms  Assembly-CSharp.dll!Racer::RoadDriver.FixedUpdate()
+              8579.2  Assembly-CSharp.dll!Racer::VehicleRespawn.RecordSafePosition()
+              8576.5  Assembly-CSharp.dll!Racer::VehicleRespawn.RecordSafePosition() > Assembly-CSharp.dll!Racer::VehicleRespawn.RecordSafePosition()
+               204.8  Assembly-CSharp.dll!Racer::ArcadeVehicle.Simulate()
+               102.7  Assembly-CSharp.dll!Racer::ArcadeVehicle.Simulate() > Assembly-CSharp.dll!Racer::VehicleConfiguration.PrepareContacts()
+                31.7  Assembly-CSharp.dll!Racer::ArcadeVehicle.Simulate() > Assembly-CSharp.dll!Racer::ShallowWater.Sample()
+                24.2  Assembly-CSharp.dll!Racer::RaceRoad.At()
+                18.6  Assembly-CSharp.dll!Racer::ArcadeVehicle.Simulate() > UnityEngine.CoreModule.dll!UnityEngine::Component.get_transform()
+                17.0  Assembly-CSharp.dll!Racer::RaceRoad.Project()
+   1800.4 ms total, worst frame  1783.7 ms  CoroutinesDelayedCalls
+              1789.0  UnityEngine.CoreModule.dll!UnityEngine::SetupCoroutine.InvokeMoveNext()
+              1785.7  UnityEngine.CoreModule.dll!UnityEngine::SetupCoroutine.InvokeMoveNext() > Assembly-CSharp.dll!::<Start>d__14.MoveNext()
+                 9.0  Destroy
+                 2.7  UnityEngine.CoreModule.dll!UnityEngine::SetupCoroutine.InvokeMoveNext() > Assembly-CSharp.dll!::<Hold>d__29.MoveNext()
+                 0.3  Destroy > Scripting.GetRequiredComponents
+                 0.2  UnityEngine.CoreModule.dll!UnityEngine::SetupCoroutine.InvokeMoveNext() > Assembly-CSharp.dll!::<Capture>d__15.MoveNext()
+                 0.2  Destroy > Assembly-CSharp.dll!Racer::VehicleMeshLifetime.OnDestroy()
+                 0.1  UnityEngine.CoreModule.dll!UnityEngine::SetupCoroutine.InvokeGetCurrent()
+    868.2 ms total, worst frame     6.8 ms  Assembly-CSharp.dll!Racer::SceneryTrees.LateUpdate()
+               657.3  Assembly-CSharp.dll!Racer::SceneryTrees.FarExcept()
+               213.9  Assembly-CSharp.dll!Racer::SceneryTrees.FarExcept() > Assembly-CSharp.dll!Racer::SceneryTrees.<FarExcept>g__Skip|100_0()
+               155.0  Assembly-CSharp.dll!Racer::SceneryTrees.FarExcept() > mscorlib.dll!::Enumerator.MoveNext()
+               104.4  Assembly-CSharp.dll!Racer::SceneryTrees.Draw()
+                95.4  Assembly-CSharp.dll!Racer::SceneryTrees.Draw() > UnityEngine.CoreModule.dll!UnityEngine::Graphics.RenderMeshInstanced()
+                82.0  Assembly-CSharp.dll!Racer::SceneryTrees.FarExcept() > mscorlib.dll!::Enumerator.get_Current()
+                69.9  Assembly-CSharp.dll!Racer::SceneryTrees.FarExcept() > mscorlib.dll!System.Collections.Generic::List`1.Add()
+                57.9  Assembly-CSharp.dll!Racer::SceneryTrees.FarExcept() > mscorlib.dll!System::String.memcpy()
+    366.1 ms total, worst frame   328.7 ms  Assembly-CSharp.dll!Racer::VehicleRespawn.FixedUpdate()
+               365.5  Assembly-CSharp.dll!Racer::VehicleRespawn.RecordSafePosition()
+               365.5  Assembly-CSharp.dll!Racer::VehicleRespawn.RecordSafePosition() > Assembly-CSharp.dll!Racer::VehicleRespawn.RecordSafePosition()
+                 0.3  UnityEngine.CoreModule.dll!UnityEngine::Component.TryGetComponent()
+                 0.2  UnityEngine.CoreModule.dll!UnityEngine::Component.TryGetComponent() > UnityEngine.CoreModule.dll!UnityEngine::GameObject.TryGetComponent()
+                 0.1  UnityEngine.CoreModule.dll!UnityEngine::Component.get_transform()
+                 0.0  UnityEngine.CoreModule.dll!UnityEngine::Component.TryGetComponent() > UnityEngine.CoreModule.dll!UnityEngine::Component.get_gameObject()
+                 0.0  UnityEngine.CoreModule.dll!UnityEngine::Transform.get_position()
+                 0.0  UnityEngine.CoreModule.dll!UnityEngine::Component.get_transform() > UnityEngine.CoreModule.dll!::MarshalledUnityObject.Unmarshal()
+    279.7 ms total, worst frame     2.4 ms  Assembly-CSharp.dll!Racer::AmbientVehicle.LateUpdate()
+               166.6  UnityEngine.CoreModule.dll!UnityEngine::Component.get_gameObject()
+               116.3  UnityEngine.CoreModule.dll!UnityEngine::Component.get_gameObject() > UnityEngine.CoreModule.dll!::MarshalledUnityObject.Unmarshal()
+                26.8  UnityEngine.CoreModule.dll!UnityEngine::GameObject.get_activeInHierarchy()
+                26.5  mscorlib.dll!::Enumerator.MoveNext()
+                25.4  UnityEngine.CoreModule.dll!UnityEngine::Component.get_gameObject() > UnityEngine.CoreModule.dll!UnityEngine::Component.get_gameObject_Injected()
+                15.2  mscorlib.dll!::Enumerator.MoveNext() > mscorlib.dll!System::Object.wbarrier_conc()
+                 8.4  Assembly-CSharp.dll!Racer::ArcadeVehicle.get_ForwardSpeed()
+                 7.3  UnityEngine.CoreModule.dll!UnityEngine::GameObject.get_activeInHierarchy() > UnityEngine.CoreModule.dll!UnityEngine::GameObject.get_activeInHierarchy_Injected()
+    272.6 ms total, worst frame    24.4 ms  UnityEngine.UI.dll!UnityEngine.UI::CanvasUpdateRegistry.PerformUpdate()
+               269.2  Render
+               258.0  Render > CanvasUpdate.PreRender
+                10.0  Render > ClipperRegistry.Cull
+                 3.3  Layout
+                 1.6  Layout > CanvasUpdate.Layout
+                 0.3  Render > CanvasUpdate.LatePreRender
+                 0.3  Layout > UnityEngine.UI.dll!UnityEngine.UI.Collections::IndexedSet`1.Sort()
+                 0.2  Layout > UnityEngine.UI.dll!UnityEngine.UI::CanvasUpdateRegistry.CleanInvalidItems()
+    109.0 ms total, worst frame     2.0 ms  Assembly-CSharp.dll!Racer::RaceHud.LateUpdate()
+                74.0  UnityEngine.CoreModule.dll!UnityEngine::Object.FindAnyObjectByType()
+                73.9  UnityEngine.CoreModule.dll!UnityEngine::Object.FindAnyObjectByType() > UnityEngine.CoreModule.dll!UnityEngine::Object.FindAnyObjectByType()
+                20.0  Assembly-CSharp.dll!Racer::RaceHud.BuildText()
+                 8.1  Assembly-CSharp.dll!Racer::RaceHud.BuildText() > Assembly-CSharp.dll!Racer::RaceDirector.get_PlayerPosition()
+                 6.5  Assembly-CSharp.dll!Racer::RaceHud.BuildText() > Assembly-CSharp.dll!Racer::RaceHud.FormatTime()
+                 2.8  mscorlib.dll!System::String.Format()
+                 2.7  mscorlib.dll!System::String.Format() > mscorlib.dll!System::String.FormatHelper()
+                 2.5  UnityEngine.UI.dll!UnityEngine.UI::Text.set_text()
+    100.2 ms total, worst frame    52.7 ms  Assembly-CSharp.dll!Racer::WrongWayGuidance.FixedUpdate()
+                98.1  Assembly-CSharp.dll!Racer::RaceRoad.ProjectNear()
+                17.6  Assembly-CSharp.dll!Racer::RaceRoad.ProjectNear() > UnityEngine.CoreModule.dll!UnityEngine::Mathf.Repeat()
+                11.0  Assembly-CSharp.dll!Racer::RaceRoad.ProjectNear() > UnityEngine.CoreModule.dll!UnityEngine::Mathf.Abs()
+                 9.1  Assembly-CSharp.dll!Racer::RaceRoad.ProjectNear() > Assembly-CSharp.dll!Racer::RaceRoad.get_Length()
+                 6.6  Assembly-CSharp.dll!Racer::RaceRoad.ProjectNear() > UnityEngine.CoreModule.dll!UnityEngine::Vector3.op_Subtraction()
+                 3.6  Assembly-CSharp.dll!Racer::RaceRoad.ProjectNear() > UnityEngine.CoreModule.dll!UnityEngine::Vector3.get_sqrMagnitude()
+                 3.5  Assembly-CSharp.dll!Racer::RaceRoad.ProjectNear() > UnityEngine.CoreModule.dll!UnityEngine::Mathf.Max()
+                 3.2  Assembly-CSharp.dll!Racer::RaceRoad.ProjectNear() > UnityEngine.CoreModule.dll!UnityEngine::Vector3.Dot()
+     64.8 ms total, worst frame     0.8 ms  Assembly-CSharp.dll!Racer::VehicleConfiguration.LateUpdate()
+                14.4  Assembly-CSharp.dll!Racer::ArcadeVehicle.get_ForwardSpeed()
+                11.4  UnityEngine.CoreModule.dll!UnityEngine::Object.op_Implicit()
+                 9.6  UnityEngine.CoreModule.dll!UnityEngine::Object.op_Implicit() > UnityEngine.CoreModule.dll!UnityEngine::Object.CompareBaseObjects()
+                 7.7  UnityEngine.CoreModule.dll!UnityEngine::Quaternion.Euler()
+                 6.5  Assembly-CSharp.dll!Racer::ArcadeVehicle.get_ForwardSpeed() > UnityEngine.CoreModule.dll!UnityEngine::Component.get_transform()
+                 6.4  UnityEngine.CoreModule.dll!UnityEngine::Transform.get_localPosition()
+                 5.2  UnityEngine.CoreModule.dll!UnityEngine::Quaternion.Euler() > UnityEngine.CoreModule.dll!UnityEngine::Quaternion.Internal_FromEulerRad()
+                 4.0  mscorlib.dll!::Enumerator.MoveNext()
+     64.1 ms total, worst frame     1.4 ms  Assembly-CSharp.dll!Racer::RiderGestures.LateUpdate()
+                57.0  Assembly-CSharp.dll!Racer::RiderGestures.Arms()
+                29.8  Assembly-CSharp.dll!Racer::RiderGestures.Arms() > UnityEngine.CoreModule.dll!UnityEngine::Component.GetComponentInChildren()
+                11.5  Assembly-CSharp.dll!Racer::RiderGestures.Arms() > UnityEngine.CoreModule.dll!UnityEngine::Transform.Find()
+                 5.2  Assembly-CSharp.dll!Racer::RiderGestures.Arms() > UnityEngine.CoreModule.dll!UnityEngine::Component.get_transform()
+                 3.8  Assembly-CSharp.dll!Racer::RiderGestures.Arms() > UnityEngine.CoreModule.dll!UnityEngine::Object.op_Implicit()
+                 3.7  mscorlib.dll!System::String.EndsWith()
+                 3.7  mscorlib.dll!System::String.EndsWith() > mscorlib.dll!System::String.EndsWith()
+                 2.0  Assembly-CSharp.dll!Racer::RiderGestures.Arms() > Assembly-CSharp.dll!Racer::RiderArms.get_Ready()
+     48.9 ms total, worst frame     2.8 ms  Assembly-CSharp.dll!Racer::HitchBench.Update()
+                31.5  mscorlib.dll!System::String.Format()
+                29.6  mscorlib.dll!System::String.Format() > mscorlib.dll!System::String.FormatHelper()
+                 4.8  mscorlib.dll!System::String.Concat()
+                 2.2  mscorlib.dll!System::String.Concat() > mscorlib.dll!System::String.FillStringChecked()
+                 1.6  UnityEngine.CoreModule.dll!Unity.Profiling::ProfilerRecorder.get_LastValue()
+                 1.4  mscorlib.dll!System::String.Format() > mscorlib.dll!System::ParamsArray..ctor()
+                 1.3  mscorlib.dll!System::String.Join()
+                 1.3  UnityEngine.CoreModule.dll!Unity.Profiling::ProfilerRecorder.get_Valid()
+     46.6 ms total, worst frame     2.6 ms  Assembly-CSharp.dll!Racer::SceneryGround.LateUpdate()
+                14.6  mscorlib.dll!System.Collections.Generic::Dictionary`2.TryGetValue()
+                 9.8  mscorlib.dll!System.Collections.Generic::List`1.AddRange()
+                 6.3  mscorlib.dll!System.Collections.Generic::List`1.AddRange() > mscorlib.dll!System.Collections.Generic::List`1.InsertRange()
+                 6.1  mscorlib.dll!System.Collections.Generic::Dictionary`2.TryGetValue() > mscorlib.dll!System.Collections.Generic::Dictionary`2.FindEntry()
+                 5.3  mscorlib.dll!System.Collections.Generic::Dictionary`2.TryGetValue() > mscorlib.dll!System::Object.wbarrier_conc()
+                 2.3  Assembly-CSharp.dll!Racer::SceneryGround.Fill()
+                 1.8  Assembly-CSharp.dll!Racer::SceneryGround.Fill() > Assembly-CSharp.dll!Racer::SceneryGround.Grass()
+                 1.6  UnityEngine.CoreModule.dll!UnityEngine::Vector2Int.get_x()
+     38.8 ms total, worst frame     0.7 ms  Assembly-CSharp.dll!Racer::MenuInput.Update()
+                32.7  System.Core.dll!System.Linq::Enumerable.Any()
+                18.6  System.Core.dll!System.Linq::Enumerable.Any() > System.Core.dll!::<OfTypeIterator>d__32`1.MoveNext()
+                 9.5  System.Core.dll!System.Linq::Enumerable.Any() > Assembly-CSharp.dll!::<>c.<Update>b__23_1()
+                 3.0  Unity.InputSystem.dll!UnityEngine.InputSystem::InputControl`1.ReadValue()
+                 3.0  Unity.InputSystem.dll!UnityEngine.InputSystem::InputControl`1.ReadValue() > Unity.InputSystem.dll!UnityEngine.InputSystem::InputControl`1.get_value()
+                 0.9  System.Core.dll!System.Linq::Enumerable.Any() > System.Core.dll!::<OfTypeIterator>d__32`1.System.Collections.Generic.IEnumerator<TResult>.get_Current()
+                 0.9  System.Core.dll!System.Linq::Enumerable.OfType()
+                 0.8  System.Core.dll!System.Linq::Enumerable.OfType() > System.Core.dll!System.Linq::Enumerable.OfTypeIterator()
+     36.8 ms total, worst frame     2.0 ms  Assembly-CSharp.dll!Racer::RaceMenus.LateUpdate()
+                26.3  Assembly-CSharp.dll!Racer::RaceMenus.UpdateShell()
+                 9.1  Assembly-CSharp.dll!Racer::RaceMenus.UpdateShell() > Assembly-CSharp.dll!Racer::MenuInput.Binding()
+                 4.1  Assembly-CSharp.dll!Racer::RaceMenus.UpdateShell() > Assembly-CSharp.dll!Racer::MenuGlyph.Label()
+                 2.5  Assembly-CSharp.dll!Racer::RaceDirector.get_RosterLabel()
+                 2.2  Assembly-CSharp.dll!Racer::RaceMenus.UpdateShell() > UnityEngine.CoreModule.dll!UnityEngine::Behaviour.set_enabled()
+                 1.9  Assembly-CSharp.dll!Racer::RaceDirector.get_RosterLabel() > mscorlib.dll!System::String.Join()
+                 1.6  UnityEngine.UI.dll!UnityEngine.UI::Text.set_text()
+                 1.5  UnityEngine.UI.dll!UnityEngine.UI::Text.set_text() > mscorlib.dll!System::String.op_Inequality()
+     30.6 ms total, worst frame     0.4 ms  Assembly-CSharp.dll!Racer::SkyClouds.LateUpdate()
+                13.3  UnityEngine.CoreModule.dll!UnityEngine::Component.get_gameObject()
+                 9.9  UnityEngine.CoreModule.dll!UnityEngine::Component.get_gameObject() > UnityEngine.CoreModule.dll!::MarshalledUnityObject.Unmarshal()
+                 2.3  UnityEngine.CoreModule.dll!UnityEngine::GameObject.get_activeSelf()
+                 1.5  UnityEngine.CoreModule.dll!UnityEngine::Mathf.Repeat()
+                 1.3  UnityEngine.CoreModule.dll!UnityEngine::Component.get_gameObject() > UnityEngine.CoreModule.dll!UnityEngine::Component.get_gameObject_Injected()
+                 1.0  UnityEngine.CoreModule.dll!UnityEngine::Material.SetColor()
+                 1.0  UnityEngine.CoreModule.dll!UnityEngine::Transform.set_position()
+                 1.0  UnityEngine.CoreModule.dll!UnityEngine::Material.SetFloat()
+     25.0 ms total, worst frame    11.2 ms  Assembly-CSharp.dll!Racer::RaceDirector.FixedUpdate()
+                13.5  Assembly-CSharp.dll!Racer::RaceDirector.SampleRacer()
+                 8.2  Assembly-CSharp.dll!Racer::RaceDirector.SampleRacer() > Assembly-CSharp.dll!Racer::RaceGate.TryCross()
+                 7.8  Assembly-CSharp.dll!Racer::RaceDirector.Sample()
+                 5.5  Assembly-CSharp.dll!Racer::RaceDirector.Sample() > Assembly-CSharp.dll!Racer::RaceDirector.SampleRacer()
+                 2.6  Assembly-CSharp.dll!Racer::RaceDirector.SampleRacer() > Assembly-CSharp.dll!Racer::RaceRoad.Project()
+                 1.7  Assembly-CSharp.dll!Racer::RaceDirector.SampleRacer() > UnityEngine.CoreModule.dll!UnityEngine::Component.GetComponent()
+                 0.4  System.Core.dll!System.Linq::Enumerable.Any()
+                 0.3  Assembly-CSharp.dll!Racer::RaceDirector.SampleRacer() > UnityEngine.CoreModule.dll!UnityEngine::Object.op_Implicit()
+     20.3 ms total, worst frame     0.5 ms  Assembly-CSharp.dll!Racer::WaterFeedback.Update()
+                 7.8  UnityEngine.CoreModule.dll!UnityEngine::Renderer.set_enabled()
+                 4.8  UnityEngine.CoreModule.dll!UnityEngine::Renderer.get_enabled()
+                 3.6  UnityEngine.CoreModule.dll!UnityEngine::Renderer.set_enabled() > UnityEngine.CoreModule.dll!UnityEngine::Renderer.set_enabled_Injected()
+                 1.1  UnityEngine.CoreModule.dll!UnityEngine::Renderer.get_enabled() > UnityEngine.CoreModule.dll!UnityEngine::Renderer.get_enabled_Injected()
+                 1.1  UnityEngine.CoreModule.dll!UnityEngine::Time.get_time()
+                 0.8  UnityEngine.CoreModule.dll!UnityEngine::Renderer.get_enabled() > UnityEngine.CoreModule.dll!::MarshalledUnityObject.MarshalNotNull()
+                 0.8  UnityEngine.CoreModule.dll!UnityEngine::Renderer.set_enabled() > UnityEngine.CoreModule.dll!::MarshalledUnityObject.MarshalNotNull()
+                 0.4  Assembly-CSharp.dll!Racer::ArcadeVehicle.get_WaterImmersion()
+     16.2 ms total, worst frame     0.9 ms  UnityEngine.UI.dll!UnityEngine.EventSystems::EventSystem.Update()
+                13.3  Unity.InputSystem.dll!UnityEngine.InputSystem.UI::InputSystemUIInputModule.Process()
+                11.0  Unity.InputSystem.dll!UnityEngine.InputSystem.UI::InputSystemUIInputModule.Process() > Unity.InputSystem.dll!UnityEngine.InputSystem.UI::InputSystemUIInputModule.ProcessPointer()
+                 1.2  UnityEngine.UI.dll!UnityEngine.EventSystems::BaseInputModule.ShouldActivateModule()
+                 0.9  Unity.InputSystem.dll!UnityEngine.InputSystem.UI::InputSystemUIInputModule.Process() > Unity.InputSystem.dll!UnityEngine.InputSystem.UI::InputSystemUIInputModule.ProcessNavigation()
+                 0.8  Unity.InputSystem.dll!UnityEngine.InputSystem.UI::InputSystemUIInputModule.Process() > Unity.InputSystem.dll!UnityEngine.InputSystem.UI::InputSystemUIInputModule.FilterPointerStatesByType()
+                 0.7  UnityEngine.UI.dll!UnityEngine.EventSystems::BaseInputModule.ShouldActivateModule() > UnityEngine.CoreModule.dll!UnityEngine::Component.get_gameObject()
+                 0.5  UnityEngine.UI.dll!UnityEngine.EventSystems::EventSystem.get_current()
+                 0.3  UnityEngine.UI.dll!UnityEngine.EventSystems::EventSystem.TickModules()
+     14.5 ms total, worst frame     1.4 ms  Assembly-CSharp.dll!Racer::WeatherEffects.LateUpdate()
+                 1.7  Assembly-CSharp.dll!Racer::DawnMist.Set()
+                 1.7  UnityEngine.CoreModule.dll!UnityEngine::Object.FindObjectsByType()
+                 1.6  UnityEngine.CoreModule.dll!UnityEngine::Object.FindObjectsByType() > UnityEngine.CoreModule.dll!UnityEngine::Object.FindObjectsByType()
+                 1.2  UnityEngine.CoreModule.dll!UnityEngine::Component.get_transform()
+                 1.1  Assembly-CSharp.dll!Racer::WeatherEffects.Rate()
+                 1.0  UnityEngine.CoreModule.dll!UnityEngine::Material.HasProperty()
+                 0.8  UnityEngine.CoreModule.dll!UnityEngine::Component.get_transform() > UnityEngine.CoreModule.dll!::MarshalledUnityObject.Unmarshal()
+                 0.8  Assembly-CSharp.dll!Racer::DawnMist.Set() > UnityEngine.CoreModule.dll!UnityEngine::Material.GetTexture()
+     11.8 ms total, worst frame     4.4 ms  Assembly-CSharp.dll!Racer::HitchBench.FixedUpdate()
+                 9.1  Assembly-CSharp.dll!Racer::ArcadeVehicle.Simulate()
+                 1.8  Assembly-CSharp.dll!Racer::ArcadeVehicle.Simulate() > Assembly-CSharp.dll!Racer::ShallowWater.Sample()
+                 1.2  Assembly-CSharp.dll!Racer::ArcadeVehicle.Simulate() > Assembly-CSharp.dll!Racer::VehicleConfiguration.PrepareContacts()
+                 0.8  Assembly-CSharp.dll!Racer::ArcadeVehicle.Simulate() > UnityEngine.CoreModule.dll!UnityEngine::Component.get_transform()
+                 0.7  Assembly-CSharp.dll!Racer::ArcadeVehicle.Simulate() > UnityEngine.PhysicsModule.dll!UnityEngine::PhysicsScene.Raycast()
+                 0.7  Assembly-CSharp.dll!Racer::HitchBench.Keep()
+                 0.6  Assembly-CSharp.dll!Racer::HitchBench.Keep() > UnityEngine.AudioModule.dll!UnityEngine::AudioListener.set_volume()
+                 0.6  Assembly-CSharp.dll!Racer::ArcadeVehicle.Simulate() > UnityEngine.PhysicsModule.dll!UnityEngine::PhysicsSceneExtensions.GetPhysicsScene()
+     11.7 ms total, worst frame     0.3 ms  Assembly-CSharp.dll!Racer::AmbientLife.Update()
+                 2.0  UnityEngine.CoreModule.dll!UnityEngine::Component.get_gameObject()
+                 1.6  UnityEngine.PhysicsModule.dll!UnityEngine::Physics.Raycast()
+                 1.5  UnityEngine.PhysicsModule.dll!UnityEngine::Physics.Raycast() > UnityEngine.PhysicsModule.dll!UnityEngine::PhysicsScene.Raycast()
+                 1.2  UnityEngine.CoreModule.dll!UnityEngine::Component.get_gameObject() > UnityEngine.CoreModule.dll!::MarshalledUnityObject.Unmarshal()
+                 1.1  mscorlib.dll!System.Collections.Generic::List`1.IndexOf()
+                 1.0  mscorlib.dll!System.Collections.Generic::List`1.IndexOf() > mscorlib.dll!System::Array.IndexOf()
+                 0.6  mscorlib.dll!::Enumerator.MoveNext()
+                 0.5  UnityEngine.CoreModule.dll!UnityEngine::Component.get_transform()
+     11.6 ms total, worst frame     0.4 ms  Assembly-CSharp.dll!Racer::VehiclePose.LateUpdate()
+                 5.8  UnityEngine.CoreModule.dll!UnityEngine::Component.get_transform()
+                 3.8  UnityEngine.CoreModule.dll!UnityEngine::Component.get_transform() > UnityEngine.CoreModule.dll!::MarshalledUnityObject.Unmarshal()
+                 1.7  UnityEngine.CoreModule.dll!UnityEngine::Object.op_Implicit()
+                 1.4  UnityEngine.CoreModule.dll!UnityEngine::Object.op_Implicit() > UnityEngine.CoreModule.dll!UnityEngine::Object.CompareBaseObjects()
+                 1.3  UnityEngine.CoreModule.dll!UnityEngine::Transform.set_localRotation()
+                 1.1  UnityEngine.CoreModule.dll!UnityEngine::Quaternion.Euler()
+                 1.0  UnityEngine.CoreModule.dll!UnityEngine::Component.get_transform() > UnityEngine.CoreModule.dll!UnityEngine::Component.get_transform_Injected()
+                 0.7  UnityEngine.CoreModule.dll!UnityEngine::Quaternion.Euler() > UnityEngine.CoreModule.dll!UnityEngine::Quaternion.Internal_FromEulerRad()
+      9.5 ms total, worst frame     0.8 ms  UnityEngine.InputModule.dll!UnityEngineInternal.Input::NativeInputSystem.NotifyBeforeUpdate()
+                 8.6  Unity.InputSystem.dll!::<>c__DisplayClass13_0.<set_onBeforeUpdate>b__0()
+                 8.6  Unity.InputSystem.dll!::<>c__DisplayClass13_0.<set_onBeforeUpdate>b__0() > Unity.InputSystem.dll!UnityEngine.InputSystem::InputManager.OnBeforeUpdate()
+                 0.4  Unity.InputSystem.dll!::<>c__DisplayClass16_0.<set_onShouldRunUpdate>b__0()
+                 0.1  Unity.InputSystem.dll!::<>c__DisplayClass16_0.<set_onShouldRunUpdate>b__0() > Unity.InputSystem.dll!UnityEngine.InputSystem::InputManager.ShouldRunUpdate()
+      9.4 ms total, worst frame     0.2 ms  Assembly-CSharp.dll!Racer::BreakableProp.Update()
+                 4.1  Assembly-CSharp.dll!Racer::BreakableProp.get_PendingRestore()
+                 1.1  Assembly-CSharp.dll!Racer::BreakableProp.get_IsBroken()
+      9.0 ms total, worst frame     1.0 ms  Assembly-CSharp.dll!Racer::WorldLook.Update()
+                 5.7  mscorlib.dll!System::String.Format()
+                 5.6  mscorlib.dll!System::String.Format() > mscorlib.dll!System::String.FormatHelper()
+                 0.9  mscorlib.dll!System::String.op_Inequality()
+                 0.9  mscorlib.dll!System::String.op_Inequality() > mscorlib.dll!System::String.Equals()
+                 0.5  Assembly-CSharp.dll!Racer::LookPresets.Compose()
+                 0.2  Assembly-CSharp.dll!Racer::WorldLook.Apply()
+                 0.2  mscorlib.dll!System::String.op_Equality()
+                 0.2  mscorlib.dll!System::Object.__icall_wrapper_ves_icall_object_new_specific()
+slowest frames:
+  frame 156 8614.4 ms: Assembly-CSharp.dll!Racer::RoadDriver.FixedUpdate() 8466.8, Assembly-CSharp.dll!Racer::WrongWayGuidance.FixedUpdate() 52.7, Assembly-CSharp.dll!Racer::VehicleRespawn.FixedUpdate() 19.1
+  frame 1 1853.7 ms: CoroutinesDelayedCalls 1783.7, UnityEngine.UI.dll!UnityEngine.UI::CanvasUpdateRegistry.PerformUpdate() 24.4, CoroutinesDelayedCalls 9.2
+  frame 157 547.7 ms: Assembly-CSharp.dll!Racer::RoadDriver.FixedUpdate() 453.3, Assembly-CSharp.dll!Racer::WrongWayGuidance.FixedUpdate() 46.7, Assembly-CSharp.dll!Racer::VehicleRespawn.FixedUpdate() 18.3
+  frame 155 405.7 ms: Assembly-CSharp.dll!Racer::VehicleRespawn.FixedUpdate() 328.7, Assembly-CSharp.dll!Racer::RoadDriver.FixedUpdate() 33.4, Assembly-CSharp.dll!Racer::SceneryTrees.LateUpdate() 5.1
+  frame 2 40.8 ms: Assembly-CSharp.dll!Racer::SceneryTrees.LateUpdate() 5.3, UnityEngine.UI.dll!UnityEngine.UI::CanvasUpdateRegistry.PerformUpdate() 4.1, Assembly-CSharp.dll!Racer::AmbientVehicle.LateUpdate() 1.6
+  frame 6 26.4 ms: Assembly-CSharp.dll!Racer::SceneryTrees.LateUpdate() 5.1, UnityEngine.UI.dll!UnityEngine.UI::CanvasUpdateRegistry.PerformUpdate() 4.1, Assembly-CSharp.dll!Racer::AmbientVehicle.LateUpdate() 1.7
+  frame 154 26.3 ms: Assembly-CSharp.dll!Racer::SceneryTrees.LateUpdate() 5.8, UnityEngine.UI.dll!UnityEngine.UI::CanvasUpdateRegistry.PerformUpdate() 4.1, Assembly-CSharp.dll!Racer::RaceFlow.Update() 2.6
+  frame 63 26.1 ms: Assembly-CSharp.dll!Racer::SceneryTrees.LateUpdate() 5.9, UnityEngine.UI.dll!UnityEngine.UI::CanvasUpdateRegistry.PerformUpdate() 4.4, Assembly-CSharp.dll!Racer::AmbientVehicle.LateUpdate() 2.1
+  frame 5 26.1 ms: Assembly-CSharp.dll!Racer::SceneryTrees.LateUpdate() 5.0, Assembly-CSharp.dll!Racer::AmbientVehicle.LateUpdate() 1.7, Assembly-CSharp.dll!Racer::RaceHud.LateUpdate() 0.5
+  frame 4 25.6 ms: Assembly-CSharp.dll!Racer::SceneryTrees.LateUpdate() 5.4, UnityEngine.UI.dll!UnityEngine.UI::CanvasUpdateRegistry.PerformUpdate() 4.2, Assembly-CSharp.dll!Racer::AmbientVehicle.LateUpdate() 1.9
+  frame 69 25.0 ms: Assembly-CSharp.dll!Racer::SceneryTrees.LateUpdate() 6.4, UnityEngine.UI.dll!UnityEngine.UI::CanvasUpdateRegistry.PerformUpdate() 4.3, Assembly-CSharp.dll!Racer::AmbientVehicle.LateUpdate() 1.8
+  frame 3 25.0 ms: Assembly-CSharp.dll!Racer::SceneryTrees.LateUpdate() 5.4, Assembly-CSharp.dll!Racer::AmbientVehicle.LateUpdate() 1.8, Assembly-CSharp.dll!Racer::RaceHud.LateUpdate() 0.6
+  frame 0 24.2 ms: Assembly-CSharp.dll!Racer::SceneryTrees.LateUpdate() 6.6, Assembly-CSharp.dll!Racer::RaceHud.LateUpdate() 0.9, Assembly-CSharp.dll!Racer::RaceMenus.LateUpdate() 0.4
+  frame 45 24.0 ms: Assembly-CSharp.dll!Racer::SceneryTrees.LateUpdate() 6.2, UnityEngine.UI.dll!UnityEngine.UI::CanvasUpdateRegistry.PerformUpdate() 4.3, Assembly-CSharp.dll!Racer::AmbientVehicle.LateUpdate() 1.7
+  frame 66 24.0 ms: Assembly-CSharp.dll!Racer::SceneryTrees.LateUpdate() 5.6, UnityEngine.UI.dll!UnityEngine.UI::CanvasUpdateRegistry.PerformUpdate() 4.3, Assembly-CSharp.dll!Racer::AmbientVehicle.LateUpdate() 1.9
+chain of frame 156:
+  8614.3 ms (self 13.0) PlayerLoop
+   8566.6 ms (self 0.0) FixedUpdate.ScriptRunBehaviourFixedUpdate   [next: PreLateUpdate.ScriptRunBehaviourLateUpdate 10.1]
+    8566.6 ms (self 2.0) FixedBehaviourUpdate
+     8466.8 ms (self 18.0) Assembly-CSharp.dll!Racer::RoadDriver.FixedUpdate()   [next: Assembly-CSharp.dll!Racer::WrongWayGuidance.FixedUpdate() 52.7]
+      8287.0 ms (self 0.4) Assembly-CSharp.dll!Racer::VehicleRespawn.RecordSafePosition()   [next: Assembly-CSharp.dll!Racer::ArcadeVehicle.Simulate() 99.1]
+       8286.2 ms (self 2.2) Assembly-CSharp.dll!Racer::VehicleRespawn.RecordSafePosition()   [next: UnityEngine.PhysicsModule.dll!UnityEngine::Rigidbody.get_position() 0.2]
+        8007.9 ms (self 2.0) Assembly-CSharp.dll!Racer::VehicleRespawn.UnsafeJump()   [next: Assembly-CSharp.dll!Racer::RaceRoad.ProjectNear() 209.8]
+         7772.9 ms (self 0.0) System.Core.dll!System.Linq::Enumerable.ToArray()   [next: UnityEngine.CoreModule.dll!UnityEngine::Object.FindObjectsByType() 215.9]
+          7772.9 ms (self 28.3) System.Core.dll!::WhereArrayIterator`1.ToArray()   [next: mscorlib.dll!System::Object.__isinst_with_cache() 0.0]
+           7744.2 ms (self 168.3) Assembly-CSharp.dll!::<>c.<UnsafeJump>b__57_0()   [next: System.Core.dll!System.Collections.Generic::LargeArrayBuilder`1.Add() 0.2]
+            5756.4 ms (self 66.4) mscorlib.dll!System::String.StartsWith()   [next: UnityEngine.CoreModule.dll!UnityEngine::Object.get_name() 1784.6]
+             5689.9 ms (self 159.4) mscorlib.dll!System::String.StartsWith()
+              5058.1 ms (self 104.5) mscorlib.dll!System.Globalization::CompareInfo.IsPrefix()   [next: mscorlib.dll!System.Globalization::CultureInfo.get_CurrentCulture() 473.2]
+               4936.6 ms (self 136.7) mscorlib.dll!System.Globalization::CompareInfo.StartsWith()   [next: mscorlib.dll!System.Globalization::GlobalizationMode.get_Invariant() 29.9]
+                4765.8 ms (self 62.5) mscorlib.dll!Mono.Globalization.Unicode::SimpleCollator.IsPrefix()   [next: mscorlib.dll!System.Globalization::CompareInfo.get_UseManagedCollation() 28.7]
+                 4703.3 ms (self 200.5) mscorlib.dll!Mono.Globalization.Unicode::SimpleCollator.IsPrefix()
+                  4447.3 ms (self 58.7) mscorlib.dll!Mono.Globalization.Unicode::SimpleCollator.IsPrefix()   [next: mscorlib.dll!Mono.Globalization.Unicode::SimpleCollator.ClearBuffer() 57.3]
+                   4388.6 ms (self 819.5) mscorlib.dll!Mono.Globalization.Unicode::SimpleCollator.CompareInternal()
+                    854.3 ms (self 146.4) mscorlib.dll!Mono.Globalization.Unicode::SimpleCollator.IsIgnorable()   [next: mscorlib.dll!Mono.Globalization.Unicode::SimpleCollator.Category() 757.8]
+                     708.0 ms (self 253.7) mscorlib.dll!Mono.Globalization.Unicode::MSCompatUnicodeTable.IsIgnorable()
+                      378.0 ms (self 230.4) mscorlib.dll!System::Char.GetUnicodeCategory()   [next: mscorlib.dll!Mono.Globalization.Unicode::CodePointIndexer.ToIndex() 78.9]
+                       77.6 ms (self 77.6) mscorlib.dll!System::Char.GetLatin1UnicodeCategory()   [next: mscorlib.dll!System::Char.IsLatin1() 72.5]
+chain of frame 1:
+  1853.7 ms (self 0.1) PlayerLoop   [next: Profiler.SessionMetadata 0.0]
+   1783.7 ms (self 0.0) Update.ScriptRunDelayedDynamicFrameRate   [next: PostLateUpdate.PlayerUpdateCanvases 24.6]
+    1783.7 ms (self 0.0) CoroutinesDelayedCalls
+     1783.6 ms (self 0.0) UnityEngine.CoreModule.dll!UnityEngine::SetupCoroutine.InvokeMoveNext()   [next: UnityEngine.CoreModule.dll!UnityEngine::SetupCoroutine.InvokeGetCurrent() 0.0]
+      1783.6 ms (self 0.2) Assembly-CSharp.dll!::<Start>d__14.MoveNext()   [next: Assembly-CSharp.dll!::<Hold>d__29.MoveNext() 0.0]
+       1783.4 ms (self 2.5) Assembly-CSharp.dll!Racer::RaceFlow.StartRace()   [next: Assembly-CSharp.dll!Racer::HitchBench.Keep() 0.0]
+        1779.9 ms (self 4.9) Assembly-CSharp.dll!Racer::RaceDirector.RestartRace()   [next: Assembly-CSharp.dll!Racer::RaceFlow.Click() 0.6]
+         1005.1 ms (self 0.0) Assembly-CSharp.dll!Racer::SmashAudio.Prepare()   [next: Assembly-CSharp.dll!Racer::RaceDirector.CreateCars() 695.0]
+          1005.0 ms (self 0.0) UnityEngine.CoreModule.dll!UnityEngine::GameObject.AddComponent()   [next: UnityEngine.CoreModule.dll!UnityEngine::GameObject..ctor() 0.0]
+           1005.0 ms (self 0.0) UnityEngine.CoreModule.dll!UnityEngine::GameObject.AddComponent()   [next: mscorlib.dll!System::Object.__isinst_with_cache() 0.0]
+            1005.0 ms (self 0.0) UnityEngine.CoreModule.dll!UnityEngine::GameObject.Internal_AddComponentWithType()
+             1005.0 ms (self 0.1) UnityEngine.CoreModule.dll!UnityEngine::GameObject.Internal_AddComponentWithType_Injected()   [next: UnityEngine.CoreModule.dll!::MarshalledUnityObject.Unmarshal() 0.0]
+              1004.9 ms (self 0.5) GameObject.AddComponent
+               1004.4 ms (self 0.9) Assembly-CSharp.dll!Racer::SmashAudio.Awake()   [next: Assembly-CSharp.dll!Racer::SmashAudio..ctor() 0.0]
+                1001.9 ms (self 264.3) Assembly-CSharp.dll!Racer::SmashAudio.Synthesize()   [next: UnityEngine.CoreModule.dll!UnityEngine::Object.FindAnyObjectByType() 1.3]
+                 348.4 ms (self 223.1) UnityEngine.CoreModule.dll!UnityEngine::Mathf.Exp()   [next: UnityEngine.CoreModule.dll!UnityEngine::Mathf.Sin() 209.2]
+                  125.2 ms (self 125.2) mscorlib.dll!System::Math.Exp()
+chain of frame 157:
+  547.7 ms (self 0.1) PlayerLoop
+   535.1 ms (self 0.0) FixedUpdate.ScriptRunBehaviourFixedUpdate   [next: FixedUpdate.PhysicsFixedUpdate 8.8]
+    535.1 ms (self 1.4) FixedBehaviourUpdate
+     453.3 ms (self 12.7) Assembly-CSharp.dll!Racer::RoadDriver.FixedUpdate()   [next: Assembly-CSharp.dll!Racer::WrongWayGuidance.FixedUpdate() 46.7]
+      274.9 ms (self 0.2) Assembly-CSharp.dll!Racer::VehicleRespawn.RecordSafePosition()   [next: Assembly-CSharp.dll!Racer::ArcadeVehicle.Simulate() 99.4]
+       274.3 ms (self 0.7) Assembly-CSharp.dll!Racer::VehicleRespawn.RecordSafePosition()   [next: UnityEngine.PhysicsModule.dll!UnityEngine::Rigidbody.get_position() 0.2]
+        194.8 ms (self 80.3) Assembly-CSharp.dll!Racer::RaceRoad.ProjectNear()   [next: Assembly-CSharp.dll!Racer::VehicleRespawn.MeasureClearance() 30.3]
+         33.0 ms (self 19.2) UnityEngine.CoreModule.dll!UnityEngine::Mathf.Repeat()   [next: UnityEngine.CoreModule.dll!UnityEngine::Mathf.Abs() 20.5]
+          7.0 ms (self 7.0) UnityEngine.CoreModule.dll!UnityEngine::Mathf.Clamp()   [next: UnityEngine.CoreModule.dll!UnityEngine::Mathf.Floor() 6.8]

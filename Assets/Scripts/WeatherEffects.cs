@@ -62,13 +62,16 @@ namespace Racer
             rain = Make("Rain", rainMat, true);
             snow = Make("Snow", snowMat, false);
             stars = Stars();
-            rainAudio = gameObject.AddComponent<AudioSource>(); rainAudio.clip = RainClip(); rainAudio.loop = true; rainAudio.spatialBlend = 0; rainAudio.volume = 0; rainAudio.playOnAwake = false; rainAudio.priority = 170;
+            // 0.82 Part C: the rain loop and thunder are synthesised once per session (the same seeded sounds), not on every
+            // scene load (they were most of the frozen frame when Free Roam or a course loads)
+            if (sharedRain == null || !sharedRain) { sharedRain = Keep(RainClip()); sharedThunder = new[] { Keep(ThunderClip(7411, true)), Keep(ThunderClip(7413, true)), Keep(ThunderClip(7415, true)) }; sharedFar = new[] { Keep(ThunderClip(7412, false)), Keep(ThunderClip(7414, false)), Keep(ThunderClip(7416, false)) }; }
+            rainAudio = gameObject.AddComponent<AudioSource>(); rainAudio.clip = sharedRain; rainAudio.loop = true; rainAudio.spatialBlend = 0; rainAudio.volume = 0; rainAudio.playOnAwake = false; rainAudio.priority = 170;
             rainFilter = gameObject.AddComponent<AudioLowPassFilter>(); rainFilter.cutoffFrequency = 22000;
             var thunder = new GameObject("Thunder"); thunder.transform.SetParent(transform, false);
             thunderAudio = thunder.AddComponent<AudioSource>(); thunderAudio.spatialBlend = 0; thunderAudio.playOnAwake = false; thunderAudio.priority = 24;
             thunderFilter = thunder.AddComponent<AudioLowPassFilter>(); thunderFilter.cutoffFrequency = 5000;
-            thunderClips = new[] { ThunderClip(7411, true), ThunderClip(7413, true), ThunderClip(7415, true) };
-            farClips = new[] { ThunderClip(7412, false), ThunderClip(7414, false), ThunderClip(7416, false) };
+            thunderClips = sharedThunder;
+            farClips = sharedFar;
             var rumble = new GameObject("Distant thunder"); rumble.transform.SetParent(transform, false);
             rumbleAudio = rumble.AddComponent<AudioSource>(); rumbleAudio.spatialBlend = 0; rumbleAudio.playOnAwake = false; rumbleAudio.priority = 30;
             rumbleFilter = rumble.AddComponent<AudioLowPassFilter>(); rumbleFilter.cutoffFrequency = 700;
@@ -288,7 +291,9 @@ namespace Racer
             if (top > 0) for (int i = 0; i < data.Length; i++) data[i] *= .97f / top;
             var clip = AudioClip.Create("Thunder " + seed, data.Length, 1, rate, false); clip.SetData(data, 0); return clip;
         }
-        void OnDestroy() { if (FlashLevel > 0) SkyClouds.Flash = 0; if (thunderClips != null) foreach (var c in thunderClips) if (c) Destroy(c); if (farClips != null) foreach (var c in farClips) if (c) Destroy(c); if (rainAudio && rainAudio.clip) Destroy(rainAudio.clip); }
+        void OnDestroy() { if (FlashLevel > 0) SkyClouds.Flash = 0; }
+        static AudioClip sharedRain; static AudioClip[] sharedThunder, sharedFar;
+        static AudioClip Keep(AudioClip c) { c.hideFlags = HideFlags.DontUnloadUnusedAsset; return c; }
         static Texture2D dotTexture;
         static Texture2D Dot()
         {

@@ -23,7 +23,7 @@ namespace Racer
         void UpdateFinishPresentation()
         {
             UpdateRoamHint();
-            bool visible=flow.State==RaceFlow.Stage.Racing&&flow.Race.Progress.Finished&&flow.FinishCards.Lap!=null;
+            bool visible=flow.State==RaceFlow.Stage.Racing&&flow.Race.Progress.Finished&&flow.FinishCards.Lap!=null&&!WinnerShot.Active; // 0.82: held back during the winner shot
             if(!finishPanel)
             {
                 var r=Rect("Finish achievements",shade.transform.parent);r.anchorMin=r.anchorMax=new(.5f,.5f);r.sizeDelta=new(960,280);r.gameObject.AddComponent<UnityEngine.UI.Image>().color=new(.025f,.065f,.085f,.97f);finishPanel=r.gameObject;
@@ -40,7 +40,7 @@ namespace Racer
                 lapCard.text="BEST LAP\n"+flow.FinishCards.Lap.Text;raceCard.text="TOTAL RACE\n"+flow.FinishCards.Race.Text;
                 finishAccent.rectTransform.localScale=new(Mathf.Lerp(.08f,1,Mathf.Clamp01((Time.unscaledTime-flourishAt)/.8f)),1,1);
             }
-            if(CanSimulateRemaining)
+            if(CanSimulateRemaining&&!WinnerShot.Active)
             {
                 string binding=MenuInput.Binding(submit);completeGlyph.SetPath(binding);completeKey.text=MenuGlyph.Label(binding);
                 var text=simulateRemaining.transform.Find("Label").GetComponent<UnityEngine.UI.Text>();text.text="COMPLETE RACE";text.rectTransform.offsetMin=new(75,0);

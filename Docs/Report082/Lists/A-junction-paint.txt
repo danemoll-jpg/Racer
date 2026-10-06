@@ -1,0 +1,8 @@
+  paint: Trickum Rd / Hwy 92: junction (-602.0, 541.2), Hwy 92 paved edge 8.00 m (edge line at 8.00 m), side road half-width 4.1 m traced 32 m, corner radius left 0.6 m, right 4.0 m, mouth stations 642-654, stop line at (-604.7, 531.3)
+  paint: S Cherokee Ln / Hwy 92: junction (320.3, 558.6), Hwy 92 paved edge 8.00 m (edge line at 8.00 m), side road half-width 4.5 m traced 32 m, corner radius left 0.6 m, right 0.6 m, mouth stations 1568-1578, stop line at (320.1, 548.2)
+  paint: terrain markings switched off on Hwy 92's pavement at 3381 vertices
+  paint: paint on pavement only: 12 lines became 13 paved pieces, 5 points off pavement dropped
+  paint: CR113 paint: 0 triangles off pavement removed; old 0.6 pieces off pavement hidden: 3
+  paint: off pavement by 50 m square: (300, 550) 5, (50, 550) 1, (200, 550) 1, (250, 550) 1
+  paint: built in 404 ms (13164 pavement tests)
+  paint: old 0.6 pieces: kept 557 on Hwy 92's own lines, hid 189 off them or duplicating CR113, recoloured 224 median pieces yellow; new: 13 lines, 0 lane dashes

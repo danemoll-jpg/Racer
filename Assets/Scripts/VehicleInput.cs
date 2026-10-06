@@ -56,6 +56,7 @@ namespace Racer
             BrakeReverse = brake.ReadValue<float>();
             Steering = steering.ReadValue<float>();
             resetRequested |= reset.WasPressedThisFrame();
+            if (LoadingScreen.Holding) { Throttle = BrakeReverse = Steering = 0; resetRequested = false; return; } // 0.82: no driving behind the loading screen
             // Not while a menu, the debug overlay or the map has the controls (F is the map's waypoint key).
             if (fist.WasPressedThisFrame() && !(TrailerMode.Active && fist.activeControl?.device is Gamepad) && !MenuInput.Blocked
                 && FindAnyObjectByType<ExplorationMap>()?.OwnsInput != true)

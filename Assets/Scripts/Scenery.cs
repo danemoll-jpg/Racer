@@ -48,27 +48,48 @@ namespace Racer
         void OnEnable() { Current = this; Scenery.Changed += Apply; }
         void OnDisable() { Scenery.Changed -= Apply; if (Current == this) Current = null; }
         public JunctionPaint Paint { get; private set; }
-        void Start()
+        // 0.82 Part B: built over several frames behind the loading screen, one step per frame, each reported to it (the
+        // same steps in the same order as before: the signs, paint and world edge attached here build in their own Start on the
+        // next frame, after the new kit, as they did).
+        // RaceFlow starts the race / Free Roam / menu once Ready.
+        public bool Ready { get; private set; }
+        System.Collections.IEnumerator Start()
         {
+            const int steps = 10; int done = 0;
+            yield return null; // the loading screen is drawn first
+            LoadingScreen.Report("Clearing the old roadside", done++, steps); yield return null;
             SceneryTrees.ClearFreeRoamTrunks(gameObject.scene); RoadPosts.Clear(gameObject.scene); RoadPosts.RetireNameBoards(gameObject.scene); MountainDirt.Apply(gameObject.scene); // 0.80: before the new kit is fitted
-            Signs = StreetSigns.Attach(gameObject); Paint = JunctionPaint.Attach(gameObject); WorldEdge.Attach(gameObject); ScenePeople.DressCamp(gameObject.scene); Apply();
+            LoadingScreen.Report("People", done++, steps); yield return null;
+            ScenePeople.DressCamp(gameObject.scene);
+            if (Scenery.New && !built) { var e = BuildSteps(); while (e.MoveNext()) { LoadingScreen.Report(e.Current, done++, steps); yield return null; } }
+            LoadingScreen.Report("Street signs", done++, steps); Signs = StreetSigns.Attach(gameObject); yield return null;
+            LoadingScreen.Report("Road paint", done++, steps); Paint = JunctionPaint.Attach(gameObject); yield return null;
+            LoadingScreen.Report("World edge", done++, steps); WorldEdge.Attach(gameObject); yield return null;
+            Apply(); LoadingScreen.Report("World edge", steps, steps); Ready = true;
         }
 
-        void Build()
+        void Build() { var e = BuildSteps(); while (e.MoveNext()) { } }
+        IEnumerator<string> BuildSteps()
         {
-            built = true; var watch = System.Diagnostics.Stopwatch.StartNew();
-            var lap = System.Diagnostics.Stopwatch.StartNew(); string Lap() { var t = lap.ElapsedMilliseconds; lap.Restart(); return t + " ms"; }
+            built = true; total = 0; // the build time counts the work only, not the frames between the steps
+            var lap = System.Diagnostics.Stopwatch.StartNew(); string Lap() { var t = lap.ElapsedMilliseconds; total += t; lap.Restart(); return t + " ms"; }
+            yield return "Trees"; lap.Restart();
             Trees = gameObject.AddComponent<SceneryTrees>(); Trees.Build(gameObject.scene, Hidden); string trees = Lap();
+            yield return "Buildings"; lap.Restart();
             var town = new GameObject("New scenery (0.78)"); SceneManager.MoveGameObjectToScene(town, gameObject.scene);
             Buildings = town.AddComponent<SceneryBuildings>(); Buildings.Build(gameObject.scene, Hidden); string buildings = Lap();
+            yield return "Rocks and props"; lap.Restart();
             Props = town.AddComponent<SceneryProps>(); Props.Build(gameObject.scene, new HashSet<Renderer>(Hidden)); string props = Lap();
+            yield return "Shores"; lap.Restart();
             Water = town.AddComponent<SceneryWater>(); Water.Build(gameObject.scene); string water = Lap();
+            yield return "Paving"; lap.Restart();
             Paving = town.AddComponent<SceneryPaving>(); Paving.Build(gameObject.scene); string paving = Lap();
             Timings = $"trees {trees}, buildings {buildings}, rocks and props {props}, shores {water}, paving {paving}";
             Ground = town.AddComponent<SceneryGround>(); Ground.Trees = Trees;
-            BuildMilliseconds = (float)watch.Elapsed.TotalMilliseconds;
+            BuildMilliseconds = total;
             Debug.Log($"Scenery: built in {BuildMilliseconds:F0} ms ({Timings}); {Trees.Summary}; buildings redesigned {Buildings.Redesigned}, detailed {Buildings.Detailed}; rocks {Props.Rocks}, bevelled props {Props.Bevelled}; shores {Water.Shores} with {Water.Reeds} reed clumps; {Hidden.Count} old renderers replaced");
         }
+        float total;
 
         public void Apply()
         {

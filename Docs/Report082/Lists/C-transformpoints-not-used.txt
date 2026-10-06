@@ -1,0 +1,5 @@
+---- faces:FreeRoamWorld
+FAIL FreeRoamWorld: TransformPoints identical to TransformPoint on 218 meshes, 2564142 vertices (8360 different); 10 ms vs 368 ms
+---- faces:MountainLoopReverse
+FAIL MountainLoopReverse: TransformPoints identical to TransformPoint on 334 meshes, 2869653 vertices (253 different); 8 ms vs 426 ms
+done, failures 2

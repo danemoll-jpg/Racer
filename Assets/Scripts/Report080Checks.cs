@@ -25,7 +25,7 @@ public sealed partial class Report080Checks:MonoBehaviour {
  IEnumerator Start(){DontDestroyOnLoad(gameObject);AudioListener.volume=0;output=Environment.GetEnvironmentVariable("PROBE_OUT")+"/checks";Directory.CreateDirectory(output);Application.runInBackground=true;
   saveDir=Path.GetFullPath("Temp/Report080Save");if(Directory.Exists(saveDir))Directory.Delete(saveDir,true);Directory.CreateDirectory(saveDir);
   if(Scene!="StreetLoopGreybox"){SceneManager.LoadScene("StreetLoopGreybox");yield return null;yield return null;}
-  Bind();yield return null;flow.UseValidationSave(saveDir);
+  Bind();yield return null;{float t0=Time.realtimeSinceStartup;while((!flow.Started||LoadingScreen.Holding)&&Time.realtimeSinceStartup-t0<60){yield return null;Bind();}}flow.UseValidationSave(saveDir);
   var title=FindAnyObjectByType<StartupTitle>();if(title)Destroy(title.gameObject);typeof(StartupTitle).GetField("completed",BindingFlags.Static|BindingFlags.NonPublic).SetValue(null,true);flow.EnterMenuAfterTitle();
   flow.Save.Settings.master=0;flow.Save.SaveSettings();yield return null;
   foreach(var spec in (Environment.GetEnvironmentVariable("PROBE_CASES")??"").Split(';').Where(x=>x.Length>0)){var a=spec.Split(':');Note("---- "+spec);
@@ -297,11 +297,11 @@ public sealed partial class Report080Checks:MonoBehaviour {
  partial void More(string[] a,ref IEnumerator run);
  IEnumerator MoreCases(string[] a){IEnumerator run=null;More(a,ref run);return run;}
  void Bind(){race=FindAnyObjectByType<RaceDirector>();flow=race?race.Flow:null;}
- IEnumerator Load(string scene){if(Scene!=scene){SceneManager.LoadScene(scene);yield return null;yield return null;}Bind();float t0=Time.realtimeSinceStartup;while(flow.Save==null&&Time.realtimeSinceStartup-t0<20)yield return null;yield return null;AudioListener.volume=0;}
+ IEnumerator Load(string scene){if(Scene!=scene){SceneManager.LoadScene(scene);yield return null;yield return null;}Bind();float t0=Time.realtimeSinceStartup;while((flow.Save==null||!flow.Started||LoadingScreen.Holding)&&Time.realtimeSinceStartup-t0<60){yield return null;Bind();}yield return null;AudioListener.volume=0;}
  IEnumerator Menu(){Bind();if(flow.State!=RaceFlow.Stage.Ready){flow.Pause();flow.QuitRace();}yield return null;yield return null;Bind();}
  IEnumerator EnterRoam(string course,string vehicle){yield return Load(course);yield return Menu();
   flow.Save.Settings.vehicleId=vehicle;flow.Save.SaveSettings();flow.StartFreeRoam();float t0=Time.realtimeSinceStartup;
-  while((Scene!=RaceFlow.RoamScene||flow==null||flow.State!=RaceFlow.Stage.Racing)&&Time.realtimeSinceStartup-t0<60){yield return null;Bind();AudioListener.volume=0;}
+  while((Scene!=RaceFlow.RoamScene||flow==null||flow.State!=RaceFlow.Stage.Racing||LoadingScreen.Holding)&&Time.realtimeSinceStartup-t0<60){yield return null;Bind();AudioListener.volume=0;}
   Time.timeScale=1;yield return new WaitForSeconds(.5f);}
  IEnumerator EnterScene(string scene){
   if(scene==RaceFlow.RoamScene)yield return EnterRoam("StreetLoopGreybox","moto");

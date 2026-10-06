@@ -187,6 +187,7 @@ namespace Racer
             LayoutGarageBody();
             details.transform.SetSiblingIndex(0);int at=1;
             for(int i=0;i<4;i++)if(buttons[i].gameObject.activeSelf){buttons[i].transform.SetSiblingIndex(at++);buttons[i].name="profile-"+i;}
+            if(statBlock&&statBlock.gameObject.activeSelf)statBlock.SetSiblingIndex(at++);
             swatchRow.SetSiblingIndex(at++);
             if(buttons.Count>5&&buttons[5].gameObject.activeSelf)buttons[5].transform.SetSiblingIndex(at++);
             if(buttons.Count>6&&buttons[6].gameObject.activeSelf)buttons[6].transform.SetSiblingIndex(at++);

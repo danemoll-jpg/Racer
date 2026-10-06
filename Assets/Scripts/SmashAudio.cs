@@ -10,6 +10,7 @@ namespace Racer
         static readonly float[] WoodDelays={.055f,.12f,.20f,.29f}, MetalDelays={.08f,.17f,.29f,.43f,.61f};
         readonly AudioSource[] voices=new AudioSource[4];
         readonly AudioClip[,] clips=new AudioClip[5,3];
+        static AudioClip[,] shared;
         readonly float[] gains=new float[4];
         float next;
         RaceFlow flow;
@@ -32,7 +33,9 @@ namespace Racer
                 voices[i]=child.AddComponent<AudioSource>(); var v=voices[i];
                 v.playOnAwake=false; v.spatialBlend=.8f; v.dopplerLevel=0; v.minDistance=14; v.maxDistance=75; v.rolloffMode=AudioRolloffMode.Linear; v.priority=80;
             }
-            for(int i=0;i<5;i++) for(int j=0;j<3;j++) clips[i,j]=Synthesize((Surface)i,j);
+            // 0.82 Part C: synthesised once per session (the same seeded sounds), not at every race start
+            if(shared==null||!shared[0,0]){shared=new AudioClip[5,3];for(int i=0;i<5;i++) for(int j=0;j<3;j++){shared[i,j]=Synthesize((Surface)i,j);shared[i,j].hideFlags=HideFlags.DontUnloadUnusedAsset;}}
+            for(int i=0;i<5;i++) for(int j=0;j<3;j++) clips[i,j]=shared[i,j];
         }
         static AudioClip Synthesize(Surface kind,int variant)
         {
@@ -87,6 +90,6 @@ namespace Racer
                 if(flow && flow.State!=RaceFlow.Stage.Racing && flow.State!=RaceFlow.Stage.Paused && flow.State!=RaceFlow.Stage.Settings) voices[i].Stop();
             }
         }
-        void OnDestroy() { foreach(var clip in clips) if(clip) Destroy(clip); if(instance==this) instance=null; }
+        void OnDestroy() { if(instance==this) instance=null; }
     }
 }

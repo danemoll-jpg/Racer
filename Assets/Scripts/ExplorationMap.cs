@@ -59,7 +59,7 @@ namespace Racer
             bool continuous=Vector3.Distance(previous,p)<=Mathf.Max(3,race.vehicle.Body.linearVelocity.magnitude*Time.fixedDeltaTime*2+.3f);previous=p;
             if(!continuous){nextReveal=Time.time+1;return;}
             if(Time.time<nextReveal)return;nextReveal=Time.time+.4f;
-            Reveal(p);if(dirty&&Time.unscaledTime>nextSave){Save();nextSave=Time.unscaledTime+3;}
+            Reveal(p);if(dirty&&Time.unscaledTime>nextSave){SaveInBackground();nextSave=Time.unscaledTime+3;}
         }
         public void Reveal(Vector3 p)
         {
@@ -68,7 +68,16 @@ namespace Racer
                 if(Vector2.Distance(new(World.xMin+(x+.5f)*20,World.yMin+(y+.5f)*20),new(p.x,p.z))<=48)dirty|=visited.Add(y*Columns+x);
             foreach(var d in destinations)if(Vector3.Distance(d.position,p)<45&&!Discovered(d.id)){data.landmarks.Add(d.id);dirty=true;}
         }
-        public void Save(){if(!dirty||error!=null)return;try{data.visited=visited.OrderBy(i=>i).ToList();AtomicSave.Write(path,JsonUtility.ToJson(data));dirty=false;}catch(Exception e){error=e.Message;}}
+        // 0.82 Part C: the periodic save while exploring writes the file on a worker thread (the main-thread write was a
+        // hitch every 3 s in new land); one write at a time, and Save() (scene exit, pause, menu) waits for it first.
+        System.Threading.Tasks.Task pendingWrite;string backgroundError;
+        void SaveInBackground()
+        {
+            if(!dirty||error!=null||(pendingWrite!=null&&!pendingWrite.IsCompleted))return;
+            data.visited=visited.OrderBy(i=>i).ToList();string json=JsonUtility.ToJson(data),target=path;dirty=false;
+            pendingWrite=System.Threading.Tasks.Task.Run(()=>{try{AtomicSave.Write(target,json);}catch(Exception e){backgroundError=e.Message;}});
+        }
+        public void Save(){try{pendingWrite?.Wait();}catch(Exception){}if(backgroundError!=null&&error==null)error=backgroundError;if(!dirty||error!=null)return;try{data.visited=visited.OrderBy(i=>i).ToList();AtomicSave.Write(path,JsonUtility.ToJson(data));dirty=false;}catch(Exception e){error=e.Message;}}
         void OnApplicationPause(bool paused){if(paused)Save();}
         void OnDestroy(){Save();mapActions?.Dispose();mapActions=null;if(texture)Destroy(texture);if(panel)Destroy(panel);mapPrompts.Clear();}
         void Update()=>UpdateMapInput();

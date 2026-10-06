@@ -1,0 +1,15 @@
+---- project:FreeRoamWorld
+PASS FreeRoamWorld: RaceRoad.Project identical to the full scan on 9 roads, 180000 points (0 different); time 7.30 µs vs 81.16 µs per call
+---- garage2:roadster:drifter
+PASS garage Sundown Roadster: bars 0.19 0.44 0.41 0.56 0.57 (top speed 50, accel 14.8, grip 26, handling 9, mass 1000)
+PASS garage Drifter Twin: bars 0.78 0.65 0.80 0.63 0.19 (top speed 58, accel 16, grip 30, handling 9.5, mass 320)
+---- loading:roam
+PASS roam: loading screen "Free Roam" shown, bar 0.00 -> 0.99 over 45 frames (forward only True), steps [Loading | Clearing the old roadside | People | Trees | Buildings | Rocks and props | Paving | Street signs | Road paint | World edge | Vehicles | Getting ready | Ready], up 18.0 s, gone after the fade True, scene FreeRoamWorld, state Racing
+---- loading:race
+PASS race: loading screen "Mountain Loop — Reverse" shown, bar 0.00 -> 0.99 over 67 frames (forward only True), steps [Loading | Clearing the old roadside | People | Trees | Buildings | Rocks and props | Paving | Street signs | Road paint | World edge | Vehicles | Getting ready | Ready], up 15.6 s, gone after the fade True, scene MountainLoopReverse, state Countdown
+done, failures 0
+---- winner:player:StreetLoopGreybox
+PASS player win: winner YOU (player), shot started True, camera 5.3 m in front (0.76), celebration weight 1.00, finish panel held back True, back after 2.9 s True (state Racing); order YOU 144.56
+---- winner:ai:StreetLoopGreybox
+PASS ai win: winner EMBER (AI), shot started True, camera 5.3 m in front (0.85), celebration weight 1.00, finish panel held back True, back after 2.9 s True (state Racing); order EMBER 125.47, YOU 127.21
+done, failures 0

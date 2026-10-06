@@ -1,0 +1,45 @@
+# 0.82 Part C hitch bench (HitchBench, 3840x2160, GTX 1660 Ti, i7-9700; release players unless noted)
+## before-rel
+screen=3840x2160 gpu=NVIDIA GeForce GTX 1660 Ti cpu=Intel(R) Core(TM) i7-9700 CPU @ 3.00GHz development=False version=0.81.0-review1
+== race-start: 2172 frames over 22.5 s, median 8.18 ms, frames over 16.7 ms: 182, worst 792.7 ms, GC collections 21
+== free-roam-load: 2 frames over 14.5 s, median 14494.64 ms, frames over 16.7 ms: 1, worst 14494.6 ms, GC collections 91
+== free-roam-drive: 2233 frames over 69.1 s, median 25.71 ms, frames over 16.7 ms: 1539, worst 176.9 ms, GC collections 10
+## after-rel
+screen=3840x2160 gpu=NVIDIA GeForce GTX 1660 Ti cpu=Intel(R) Core(TM) i7-9700 CPU @ 3.00GHz development=False version=0.82.0-review1
+== race-start: 3772 frames over 28.3 s, median 6.91 ms, frames over 16.7 ms: 67, worst 323.7 ms, GC collections 11
+== free-roam-load: 443 frames over 13.5 s, median 8.20 ms, frames over 16.7 ms: 45, worst 6265.5 ms, GC collections 94
+== free-roam-drive: 8389 frames over 69.0 s, median 6.80 ms, frames over 16.7 ms: 690, worst 32.9 ms, GC collections 18
+## after2-rel
+screen=3840x2160 gpu=NVIDIA GeForce GTX 1660 Ti cpu=Intel(R) Core(TM) i7-9700 CPU @ 3.00GHz development=False version=0.82.0-review1
+== race-start: 3871 frames over 28.4 s, median 6.82 ms, frames over 16.7 ms: 26, worst 348.5 ms, GC collections 11
+== free-roam-load: 441 frames over 13.6 s, median 8.26 ms, frames over 16.7 ms: 44, worst 6320.7 ms, GC collections 94
+== free-roam-drive: 8307 frames over 69.0 s, median 6.86 ms, frames over 16.7 ms: 690, worst 33.6 ms, GC collections 17
+## after3-rel
+screen=3840x2160 gpu=NVIDIA GeForce GTX 1660 Ti cpu=Intel(R) Core(TM) i7-9700 CPU @ 3.00GHz development=False version=0.82.0-review1
+== race-start: 3945 frames over 28.3 s, median 7.09 ms, frames over 16.7 ms: 3, worst 285.0 ms, GC collections 11
+== free-roam-load: 448 frames over 13.6 s, median 8.78 ms, frames over 16.7 ms: 15, worst 6344.5 ms, GC collections 94
+== free-roam-drive: 8419 frames over 69.0 s, median 7.66 ms, frames over 16.7 ms: 2, worst 17.2 ms, GC collections 18
+## after5-rel
+screen=3840x2160 gpu=NVIDIA GeForce GTX 1660 Ti cpu=Intel(R) Core(TM) i7-9700 CPU @ 3.00GHz development=False version=0.82.0-review1
+== race-start: 3936 frames over 28.3 s, median 7.11 ms, frames over 16.7 ms: 3, worst 309.5 ms, GC collections 11
+== free-roam-load: 433 frames over 13.2 s, median 8.90 ms, frames over 16.7 ms: 14, worst 6256.5 ms, GC collections 92
+== free-roam-drive: 8341 frames over 69.0 s, median 7.65 ms, frames over 16.7 ms: 18, worst 18.1 ms, GC collections 18
+## after6-rel
+screen=3840x2160 gpu=NVIDIA GeForce GTX 1660 Ti cpu=Intel(R) Core(TM) i7-9700 CPU @ 3.00GHz development=False version=0.82.0-review1
+== race-start: 3989 frames over 28.3 s, median 6.98 ms, frames over 16.7 ms: 4, worst 268.8 ms, GC collections 11
+== free-roam-load: 453 frames over 12.2 s, median 8.71 ms, frames over 16.7 ms: 13, worst 5913.2 ms, GC collections 90
+== free-roam-drive: 8565 frames over 69.0 s, median 7.56 ms, frames over 16.7 ms: 22, worst 21.0 ms, GC collections 16
+## final-rel
+screen=3840x2160 gpu=NVIDIA GeForce GTX 1660 Ti cpu=Intel(R) Core(TM) i7-9700 CPU @ 3.00GHz development=False version=0.82.0-review1
+== race-start: 3931 frames over 28.3 s, median 7.08 ms, frames over 16.7 ms: 3, worst 304.5 ms, GC collections 11
+== free-roam-load: 448 frames over 6.8 s, median 8.87 ms, frames over 16.7 ms: 19, worst 699.8 ms, GC collections 91
+== free-roam-drive: 7059 frames over 69.0 s, median 8.82 ms, frames over 16.7 ms: 182, worst 57.1 ms, GC collections 16
+## final2-rel
+screen=3840x2160 gpu=NVIDIA GeForce GTX 1660 Ti cpu=Intel(R) Core(TM) i7-9700 CPU @ 3.00GHz development=False version=0.82.0-review1
+== race-start: 3461 frames over 28.3 s, median 7.54 ms, frames over 16.7 ms: 26, worst 280.7 ms, GC collections 10
+== free-roam-load: 380 frames over 7.0 s, median 11.76 ms, frames over 16.7 ms: 30, worst 683.3 ms, GC collections 90
+== free-roam-drive: 6577 frames over 69.0 s, median 10.60 ms, frames over 16.7 ms: 208, worst 48.6 ms, GC collections 14
+## 0.82 worst view (ConditionsBench -conditionsTraffic)
+screen=3840x2160 gpu=NVIDIA GeForce GTX 1660 Ti quality=PC
+FPS 0.81 grid Day/Clear chase (Skyfin Cruiser + Sundown Roadster, Highball Fastback, Drifter Twin AI; traffic 24): GPU median 7.43 ms (95th 7.90) = 135 fps; 1276 timed frames; screen 3840x2160
+FPS 0.81 grid Night/Snow chase (Skyfin Cruiser + Sundown Roadster, Highball Fastback, Drifter Twin AI; traffic 24): GPU median 8.33 ms (95th 8.76) = 120 fps; 1168 timed frames; screen 3840x2160

@@ -206,6 +206,7 @@ namespace Racer
             preview.gameObject.SetActive(shown==RaceFlow.Stage.Garage);
             previewCamera.enabled=shown==RaceFlow.Stage.Garage;
             swatchRow.gameObject.SetActive(shown==RaceFlow.Stage.Garage);
+            if(statBlock)statBlock.gameObject.SetActive(false);
             if (shown != RaceFlow.Stage.Results && shown!=RaceFlow.Stage.Paused) penaltyPage = -1;
             hudPanel.SetActive(!flow.MenuVisible);
             EventSystem.current.SetSelectedGameObject(null);
@@ -241,6 +242,7 @@ namespace Racer
                     Action(4,"Done / ready",flow.CloseGarage);
                     Action(5,"Model: "+flow.ModelLabel+"   (Classic / New)",flow.ToggleModel);
                     Action(6,"Rider…",()=>Navigate("rider"));
+                    ShowGarageStats(profile); // 0.82 Part D
                 }
             }
             RenderCore();
@@ -302,7 +304,7 @@ namespace Racer
             songBanner.gameObject.SetActive(!flow.MenuVisible);songBanner.text=flow.Radio?.Toast??"";
             var recovery=flow.Race.vehicle.GetComponent<VehicleRespawn>();
             if(!countdown && recovery.Pending) banner.text=recovery.LastRecovery+" — race clock continues";
-            bool waiting=CanSimulateRemaining&&!DeveloperLocationHud.OwnsInput;
+            bool waiting=CanSimulateRemaining&&!DeveloperLocationHud.OwnsInput&&!WinnerShot.Active;
             simulateRemaining.gameObject.SetActive(waiting);
             if(waiting)
             {

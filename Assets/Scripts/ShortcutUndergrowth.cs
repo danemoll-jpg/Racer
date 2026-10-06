@@ -15,14 +15,17 @@ namespace Racer
 
         public float Coverage(Vector3 position)
         {
+            float closest = float.MaxValue;
+            foreach (var p in centres)
+                closest = Mathf.Min(closest, new Vector2(position.x-p.x, position.z-p.z).magnitude);
+            // 0.82 Part C: away from the bush footprints the answer is 0 whatever the main road says, so the (costly) projection
+            // onto the main road is only made near them; same result as before.
+            if (closest >= radius) return 0;
             if (protectedMain)
             {
                 protectedMain.Project(position, out float lateral);
                 if (lateral < 4) return 0;
             }
-            float closest = float.MaxValue;
-            foreach (var p in centres)
-                closest = Mathf.Min(closest, new Vector2(position.x-p.x, position.z-p.z).magnitude);
             return 1-Mathf.SmoothStep(0, 1, Mathf.InverseLerp(radius-3, radius, closest));
         }
 

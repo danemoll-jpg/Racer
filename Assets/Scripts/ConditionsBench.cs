@@ -51,7 +51,7 @@ namespace Racer
             foreach (var v in Views)
             {
                 if (fpsOnly && !v.fps) continue;
-                SceneManager.LoadScene(v.scene); yield return null; yield return null;
+                SceneManager.LoadScene(v.scene); yield return null; yield return null; yield return WaitWorld();
                 var race = Prepare(); yield return Grid(race);
                 race.road.Initialize();
                 var p = race.road.At(v.s, out var f); f = Vector3.ProjectOnPlane(f, Vector3.up).normalized;
@@ -131,7 +131,7 @@ namespace Racer
             var views = new List<(string scene, string label)> { ("StreetLoopGreybox", "street"), ("LakeWoods", "forest"), ("MountainLoop", "mountain"), ("FreeRoamWorld", "woods"), ("FreeRoamWorld", "summit") };
             foreach (var (scene, label) in views)
             {
-                SceneManager.LoadScene(scene); yield return null; yield return null; yield return Hold(1);
+                SceneManager.LoadScene(scene); yield return null; yield return null; yield return WaitWorld(); yield return Hold(1);
                 var race = Prepare(); if (!race.FreeRoam) yield return Grid(race); else yield return Hold(2);
                 foreach (var c in FindObjectsByType<ChaseCamera>(FindObjectsSortMode.None)) c.enabled = false;
                 foreach (var c in FindObjectsByType<CameraViews>(FindObjectsSortMode.None)) c.enabled = false;
@@ -176,7 +176,7 @@ namespace Racer
         // and at the worst conditions view (Night/Snow), New models: GPU frame times and a shot of each.
         IEnumerator Traffic(List<string> rows)
         {
-            SceneManager.LoadScene("StreetLoopGreybox"); yield return null; yield return null;
+            SceneManager.LoadScene("StreetLoopGreybox"); yield return null; yield return null; yield return WaitWorld();
             var race = Prepare(); var flow = race.Flow; var s = flow.Save.Settings; var roster = new[] { "roadster", "fastback", "drifter" };
             s.opponentChoices = (string[])roster.Clone(); s.opponentRoster = (string[])roster.Clone(); race.opponentRoster = (string[])roster.Clone();
             foreach (var (t, w) in new[] { (TimeOfDay.Day, Weather.Clear), (TimeOfDay.Night, Weather.Snow) })
@@ -199,7 +199,7 @@ namespace Racer
         // from the chase camera at Day and Night, New vs Classic models: full-screen shots and GPU frame times.
         IEnumerator Models(List<string> rows)
         {
-            SceneManager.LoadScene("StreetLoopGreybox"); yield return null; yield return null;
+            SceneManager.LoadScene("StreetLoopGreybox"); yield return null; yield return null; yield return WaitWorld();
             var race = Prepare(); var flow = race.Flow; var s = flow.Save.Settings;
             s.opponentChoices = new[] { "tourer", "moto", "atv" }; s.opponentRoster = new[] { "tourer", "moto", "atv" }; race.opponentRoster = new[] { "tourer", "moto", "atv" };
             foreach (var t in new[] { TimeOfDay.Day, TimeOfDay.Night })
@@ -222,7 +222,7 @@ namespace Racer
         // 0.73 Part D evidence: the Needle 600 model in the garage and on the race grid; frame time New vs Classic.
         IEnumerator Motorcycle(List<string> rows)
         {
-            SceneManager.LoadScene("StreetLoopGreybox"); yield return null; yield return null;
+            SceneManager.LoadScene("StreetLoopGreybox"); yield return null; yield return null; yield return WaitWorld();
             var race = Prepare(); var flow = race.Flow; var s = flow.Save.Settings;
             foreach (bool model in new[] { true, false })
             {
@@ -279,6 +279,8 @@ namespace Racer
             foreach (var d in FindObjectsByType<RoadDriver>(FindObjectsSortMode.None)) { d.enabled = false; if (d.Car) d.Car.Body.isKinematic = true; }
             race.vehicle.Body.isKinematic = true; var input = race.vehicle.GetComponent<VehicleInput>(); if (input) input.enabled = false;
         }
+        // 0.82: the world is built over several frames behind the loading screen; wait until RaceFlow has started
+        static IEnumerator WaitWorld() { float t0 = Time.realtimeSinceStartup; while (Time.realtimeSinceStartup - t0 < 60) { var r = FindAnyObjectByType<RaceDirector>(); if (r && r.Flow != null && r.Flow.Started && !LoadingScreen.Holding) break; Keep(); yield return null; } }
         static void Keep() { AudioListener.volume = 0; QualitySettings.vSyncCount = 0; Application.targetFrameRate = -1; }
         static IEnumerator Hold(float seconds) { float t0 = Time.unscaledTime; while (Time.unscaledTime - t0 < seconds) { Keep(); yield return null; } }
         IEnumerator Shot(string name)

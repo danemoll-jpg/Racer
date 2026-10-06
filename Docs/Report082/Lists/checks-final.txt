@@ -1,0 +1,16 @@
+---- top:FreeRoamWorld:cherokee92,312,548,90|trickum92,-605,540,90|cherokeeTrickum,-614,-544,90|m200_520,-200,520,120
+FreeRoamWorld: top views written
+---- near:FreeRoamWorld:311.6,8.7,546.7,6
+FreeRoamWorld: near written
+---- report:FreeRoamWorld
+FreeRoamWorld: posts removed 22, kept 0
+---- loading:roam
+PASS roam: loading screen "Free Roam" shown, bar 0.00 -> 0.99 over 33 frames (forward only True), steps [Loading | Clearing the old roadside | People | Trees | Buildings | Rocks and props | Paving | Street signs | Road paint | World edge | Vehicles | Getting ready | Ready], up 7.5 s, gone after the fade True, scene FreeRoamWorld, state Racing
+---- loading:race
+PASS race: loading screen "Mountain Loop — Reverse" shown, bar 0.00 -> 0.99 over 66 frames (forward only True), steps [Loading | Clearing the old roadside | People | Trees | Buildings | Rocks and props | Paving | Street signs | Road paint | World edge | Vehicles | Getting ready | Ready], up 11.4 s, gone after the fade True, scene MountainLoopReverse, state Countdown
+---- garage2:pebble:scrambler
+PASS garage Pebble Coupe: bars 0.12 0.30 0.56 0.53 0.55 (top speed 49, accel 14, grip 27.5, handling 8.8, mass 950)
+PASS garage Ridge Scrambler: bars 0.63 0.91 0.90 0.93 0.12 (top speed 56, accel 17.5, grip 31, handling 11.5, mass 200)
+---- winner:player:StreetLoopGreybox
+PASS player win: winner YOU (player), shot started True, camera 5.3 m in front (0.76), celebration weight 1.00, finish panel held back True, back after 2.9 s True (state Racing); order YOU 148.71, EMBER 151.16
+done, failures 0

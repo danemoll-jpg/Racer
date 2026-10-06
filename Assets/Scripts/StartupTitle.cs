@@ -86,6 +86,7 @@ namespace Racer
             // Let artwork render and the audio device settle after asset/scene loading.
             // Human playback still clipped despite prior listener-tail captures.
             Canvas.ForceUpdateCanvases();yield return null;yield return null;
+            while(LoadingScreen.Holding)yield return null; // 0.82: the voice starts once the loading screen has gone
             double readyDsp=AudioSettings.dspTime;ArtworkReadyDsp=readyDsp;float ready=Time.realtimeSinceStartup;
             while(!Advancing&&(Time.realtimeSinceStartup-ready<ArtworkLeadIn||AudioSettings.dspTime-readyDsp<ArtworkLeadIn))yield return null;
             if(Advancing){speechComplete=true;yield break;}

@@ -121,10 +121,34 @@ namespace Racer
             GetComponent<ExplorationCollection>()?.Initialize(Race,root);
             GetComponent<ExplorationMap>()?.Initialize(Race,root);
             LockVehicle(true);
+            StartCoroutine(StartWhenBuilt());
+        }
+        // 0.82 Part B: the race, Free Roam, the title or the menu starts once the world is built (SceneryWorld builds it over
+        // several frames behind the loading screen); the loading screen then shows the first frames and fades out.
+        public bool Started { get; private set; }
+        System.Collections.IEnumerator StartWhenBuilt()
+        {
+            var world=GetComponent<SceneryWorld>();float t0=Time.realtimeSinceStartup;
+            while(world&&!world.Ready&&Time.realtimeSinceStartup-t0<60)yield return null;
+            LoadingScreen.WorldReady();
+            SmashAudio.Prepare();VehicleRespawn.LaunchSurfaces(gameObject.scene); // 0.82 Part C: first-use work behind the loading screen
+            yield return null;
             if(RacePlaylists.PendingStart){RacePlaylists.PendingStart=false;EnterMenuAfterTitle();Race.laps=RacePlaylists.Current.laps;StartRace();}
             else if(pendingRace){pendingRace=false;EnterMenuAfterTitle();StartRace();}
             else if(InRoamWorld){Radio=LocalRadio.Attach(this);StartFreeRoam();if(roamHint){roamHint=false;RoamMenuHintUntil=Time.unscaledTime+12;}}
             else if(StartupTitle.Begin(this))SetStage(Stage.Title);else EnterMenuAfterTitle();
+            Started=true;LoadingScreen.Started();
+        }
+        // 0.82 Part B: every scene change goes through the loading screen: what is loading, the conditions and the vehicle
+        void Go(string scene,bool roam=false)
+        {
+            Save.SaveSettings();Time.timeScale=1;AudioListener.pause=false;
+            int course=System.Array.IndexOf(RacePlaylists.Scenes,scene);var courses=CoursePreviewCatalog.Courses;
+            string vehicle=VehicleProfile.Find(Race.EligibleVehicle(Save.Settings.vehicleId)).Name;
+            string what=roam?"Free Roam":course>=0?RacePlaylists.Titles[course].Replace(" - "," — "):scene;
+            string from=RacePlaylists.Titles[Mathf.Clamp(RoamCourse,0,RacePlaylists.Titles.Length-1)].Replace(" - "," — ");
+            string detail=roam?$"Starting at {from}\nWeather: {RoamWeatherLabel}\n{vehicle}":$"{TimeOfDayLabel} · {WeatherLabel}\n{vehicle}"+(Race.opponents?$"\nAgainst: {Race.RosterLabel}":"");
+            LoadingScreen.LoadScene(scene,what,detail,!roam&&course>=0&&course<courses.Length?courses[course]:null);
         }
         // FreeRoamWorld shows the selected course's name and vehicle rules and starts the player at that course's start.
         void ApplyRoamCourse()
@@ -135,7 +159,7 @@ namespace Racer
             Race.forestOverride=c.forest?1:0;Race.carRuleScene=c.scene;
             var start=new GameObject("Free Roam start / "+c.scene).transform;start.SetPositionAndRotation(c.start,Quaternion.Euler(0,c.startYaw,0));respawn.spawnPoint=start;
         }
-        void LoadScene(string scene){Save.SaveSettings();Time.timeScale=1;AudioListener.pause=false;UnityEngine.SceneManagement.SceneManager.LoadScene(scene);}
+        void LoadScene(string scene)=>Go(scene,scene==RoamScene);
         // Leaving FreeRoamWorld for the selected course's scene (its menu page, or a race when pendingRace is set).
         void LeaveRoamWorld(string page)
         {
@@ -148,7 +172,7 @@ namespace Racer
         public void EnterFreeRoamAfterTitle(){Radio=LocalRadio.Attach(this);roamHint=!InRoamWorld;StartFreeRoam();RoamMenuHintUntil=Time.unscaledTime+12;}
         void Update()
         {
-            if (Save == null || State==Stage.Title || menus?.OwnsTextInput==true || DeveloperLocationHud.OwnsInput) return;
+            if (Save == null || !Started || LoadingScreen.Holding || State==Stage.Title || menus?.OwnsTextInput==true || DeveloperLocationHud.OwnsInput) return;
             if(GetComponent<ExplorationMap>()?.OwnsInput==true)return;
             if (finishAt > 0 && State != Stage.Paused && State != Stage.Settings && Time.unscaledTime >= finishAt) { finishAt = 0; Sound(finish); }
             if (MenuInput.Blocked) return;
@@ -235,11 +259,10 @@ namespace Racer
         public void SelectCourseEntry(int course)
         {
             if(State!=Stage.Courses || course<0 || course>=RacePlaylists.Scenes.Length)return;
-            menus.SaveSceneReturn();returnToSetup=true;Save.SaveSettings();Time.timeScale=1;AudioListener.pause=false;
-            UnityEngine.SceneManagement.SceneManager.LoadScene(RacePlaylists.Scenes[course]);
+            menus.SaveSceneReturn();returnToSetup=true;Go(RacePlaylists.Scenes[course]);
         }
-        public void SelectMountain(bool reverse){if(State!=Stage.Courses)return;Save.SaveSettings();Time.timeScale=1;AudioListener.pause=false;UnityEngine.SceneManagement.SceneManager.LoadScene(reverse?"MountainLoopReverse":"MountainLoop");}
-        public void SelectBackyardForward(){if(State!=Stage.Courses)return;Save.SaveSettings();Time.timeScale=1;AudioListener.pause=false;UnityEngine.SceneManagement.SceneManager.LoadScene("DansBackyardForward");}
+        public void SelectMountain(bool reverse){if(State!=Stage.Courses)return;Go(reverse?"MountainLoopReverse":"MountainLoop");}
+        public void SelectBackyardForward(){if(State!=Stage.Courses)return;Go("DansBackyardForward");}
         public readonly FinishPresentation FinishCards=new();
         public string FinishSummary=>DebugMovementUsed?DebugMovementReason+" / competitive records disabled":FinishCards.Summary;
         public bool SetupFromResults=>callers.Count>0&&callers.Peek()==Stage.Results;
@@ -247,15 +270,14 @@ namespace Racer
         public void OpenPlaylists(){PushMenu(Stage.Playlists);}
         public void StartPlaylist(RacePlaylists.Definition definition){if(definition.entries.Count==0){Notify("Add a race first",4);return;}if(definition.entries.Exists(e=>e.course>=RacePlaylists.Scenes.Length)){Notify("Remove the rolled-back course from this playlist",4);return;}RacePlaylists.Begin(definition);LoadPlaylistEntry();}
         public void NextPlaylistRace(){if(State!=Stage.Results||RacePlaylists.PendingStart||!RacePlaylists.HasNext||RacePlaylists.Championship.Events[RacePlaylists.Position]==null)return;RacePlaylists.Advance();LoadPlaylistEntry();}
-        void LoadPlaylistEntry(){var entry=RacePlaylists.Current;if(!RacePlaylists.Eligible(entry,Save.Settings.vehicleId)||(Race.opponents&&System.Array.Exists(Save.Settings.opponentRoster,id=>!RacePlaylists.Eligible(entry,id)))){SetStage(Stage.PlaylistVehicle);return;}Save.SaveSettings();RacePlaylists.PendingStart=true;Time.timeScale=1;UnityEngine.SceneManagement.SceneManager.LoadScene(RacePlaylists.Scenes[entry.course]);}
+        void LoadPlaylistEntry(){var entry=RacePlaylists.Current;if(!RacePlaylists.Eligible(entry,Save.Settings.vehicleId)||(Race.opponents&&System.Array.Exists(Save.Settings.opponentRoster,id=>!RacePlaylists.Eligible(entry,id)))){SetStage(Stage.PlaylistVehicle);return;}RacePlaylists.PendingStart=true;Go(RacePlaylists.Scenes[entry.course]);}
         public void ChoosePlaylistVehicle(string id){if(State!=Stage.PlaylistVehicle||!RacePlaylists.Eligible(RacePlaylists.Current,id))return;Save.Settings.vehicleId=id;for(int i=0;i<Save.Settings.opponentRoster.Length;i++)if(!RacePlaylists.Eligible(RacePlaylists.Current,Save.Settings.opponentRoster[i]))Save.Settings.opponentRoster[i]=id;LoadPlaylistEntry();}
         public void CancelPlaylist(){callers.Clear();menus.ResetPages();RacePlaylists.Quit();PrepareRestart();Race.AbandonEvent();LockVehicle(true);Race.laps=Save.Settings.laps==0&&!Race.opponents?0:Mathf.Clamp(Save.Settings.laps,1,5);SetStage(Stage.Ready);}
         public void SelectCourse(bool lake)=>SelectCourse(lake,false);
         public void SelectCourse(bool lake,bool reverse)
         {
             if(State!=Stage.Courses)return;
-            Save.SaveSettings(); Time.timeScale=1; AudioListener.pause=false;
-            UnityEngine.SceneManagement.SceneManager.LoadScene(reverse?(lake?"ForestLoopReverse":"StreetLoopReverse"):(lake?"LakeWoods":"StreetLoopGreybox"));
+            Go(reverse?(lake?"ForestLoopReverse":"StreetLoopReverse"):(lake?"LakeWoods":"StreetLoopGreybox"));
         }
         public int SelectedColor => Save.Settings.bodyColors[System.Array.FindIndex(VehicleProfile.All,p=>p.Id==Save.Settings.vehicleId)];
         void RestoreChoices()
@@ -403,12 +425,15 @@ namespace Racer
                 runoff.Racer=Race.Racers[0];
                 if (Time.time < nextBuzz) finishAt = Time.unscaledTime + .3f; else Sound(finish);
                 Notify("FINISHED — provisional standings; waiting up to 90s for opponents", 95);
+                // 0.82 Part E: the winner on camera for 2.5 s before the finish panel (player or the AI who won)
+                if(Race.Racers.Count>1){RacerState won=null;foreach(var r in Race.Racers)if(r.Progress.Finished&&(won==null||r.Progress.RaceTime(Race.Clock)<won.Progress.RaceTime(Race.Clock)))won=r;WinnerShot.Begin(this,won,won==Race.Racers[0]);}
                 if ((NewLapRecord || NewRaceRecord) && finishAt == 0) feedback.PlayOneShot(record, Save.Settings.feedback * .18f);
             }
             else if (best) { Notify("NEW PERSONAL BEST LAP  " + RaceHud.FormatTime(Race.Progress.LastLap), 4); Sound(record); }
             else if(LapRank>0)Notify("TOP 10 LAP / #"+LapRank+"  "+RaceHud.FormatTime(Race.Progress.LastLap),4);
         }
-        public void CompleteResults() { if(!DebugMovementUsed)RacePlaylists.Record(Race);LockVehicle(true); SetStage(Stage.Results); }
+        public void CompleteResults() { if(WinnerShot.Active){StartCoroutine(ResultsAfterWinnerShot());return;} if(!DebugMovementUsed)RacePlaylists.Record(Race);LockVehicle(true); SetStage(Stage.Results); }
+        System.Collections.IEnumerator ResultsAfterWinnerShot(){while(WinnerShot.Active)yield return null;CompleteResults();}
         public void Notify(string text, float duration) { Notice = text; noticeUntil = Time.unscaledTime + duration; }
         public void Click() => Sound(click);
 #if UNITY_EDITOR

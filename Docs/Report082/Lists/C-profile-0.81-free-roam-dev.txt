@@ -1,0 +1,103 @@
+C:\Users\danmo\AppData\Local\Temp\report082\hitch-before3-dev\roam.raw: frames 0..149
+frames read 150, median 38.8 ms
+   2395.9 ms total, worst frame    39.6 ms  Assembly-CSharp.dll!Racer::RoadDriver.FixedUpdate() [Invoke]
+                38.1  Physics.SphereCastNonAlloc
+                31.7  Physics.Raycast
+                13.1  FindObjectsOfType
+                 7.7  Physics.RaycastAll
+                 4.3  GC.Alloc
+                 3.5  Physics.OverlapBoxNonAlloc
+                 1.0  MeshRendererFinalizeUpdate
+                 0.0  FindMainCamera
+   2288.1 ms total, worst frame    32.2 ms  Assembly-CSharp.dll!Racer::ShortcutUndergrowth.FixedUpdate() [Invoke]
+                 0.5  FindObjectsOfType
+                 0.0  GC.Alloc
+    207.9 ms total, worst frame     3.4 ms  UnityEngine.CoreModule.dll!UnityEngine.Rendering::RenderPipelineManager.DoRenderLoop_Internal() [Invoke]
+               206.2  Inl_UniversalRenderTotal
+               203.3  Inl_UniversalRenderTotal > Inl_RenderCameraStack
+                 0.7  Inl_UniversalRenderTotal > Inl_UniversalRenderPipeline.SetupPerFrameShaderConstants
+                 0.1  Inl_UniversalRenderTotal > Inl_RenderPipeline.EndContextRendering
+                 0.0  Inl_UniversalRenderTotal > Inl_RenderPipeline.BeginContextRendering
+    121.0 ms total, worst frame     2.7 ms  Assembly-CSharp.dll!Racer::VehicleRespawn.FixedUpdate() [Invoke]
+                 1.3  FindObjectsOfType
+                 0.8  Physics.RaycastAll
+                 0.5  Physics.OverlapBoxNonAlloc
+                 0.3  GC.Alloc
+                 0.2  MeshRendererFinalizeUpdate
+     75.3 ms total, worst frame     1.1 ms  Assembly-CSharp.dll!Racer::SceneryTrees.LateUpdate() [Invoke]
+                 0.1  FindMainCamera
+     71.8 ms total, worst frame     0.9 ms  Assembly-CSharp.dll!Racer::RaceHud.LateUpdate() [Invoke]
+                 3.2  FindObjectsOfType
+                 0.2  GC.Alloc
+                 0.0  GameObject.Deactivate
+     47.9 ms total, worst frame     0.9 ms  UnityEngine.UIModule.dll!UnityEngine::Canvas.SendWillRenderCanvases() [Invoke]
+                47.3  Render
+                45.1  Render > CanvasUpdate.PreRender
+                 1.8  Render > ClipperRegistry.Cull
+                 0.4  Layout
+                 0.1  Render > CanvasUpdate.LatePreRender
+                 0.1  Layout > CanvasUpdate.Prelayout
+                 0.0  Layout > CanvasUpdate.Layout
+                 0.0  Layout > CanvasUpdate.PostLayout
+     33.3 ms total, worst frame     0.5 ms  Assembly-CSharp.dll!Racer::HitchBench.FixedUpdate() [Invoke]
+                 4.4  Physics.Raycast
+     32.5 ms total, worst frame     0.5 ms  Assembly-CSharp.dll!Racer::AmbientVehicle.LateUpdate() [Invoke]
+     26.7 ms total, worst frame    17.9 ms  Assembly-CSharp.dll!Racer::ExplorationMap.FixedUpdate() [Invoke]
+                 0.0  GC.Alloc
+     22.1 ms total, worst frame     0.4 ms  Assembly-CSharp.dll!Racer::RiderGestures.LateUpdate() [Invoke]
+     12.1 ms total, worst frame     0.2 ms  Assembly-CSharp.dll!Racer::WorldLook.Update() [Invoke]
+                 0.3  GC.Alloc
+     11.3 ms total, worst frame     0.2 ms  Assembly-CSharp.dll!Racer::VehicleConfiguration.LateUpdate() [Invoke]
+     11.1 ms total, worst frame     0.3 ms  Assembly-CSharp.dll!Racer::SceneryGround.LateUpdate() [Invoke]
+                 2.7  Physics.Raycast
+                 0.2  GC.Alloc
+                 0.1  FindMainCamera
+      9.2 ms total, worst frame     0.1 ms  Assembly-CSharp.dll!Racer::HitchBench.Update() [Invoke]
+                 0.5  GC.Alloc
+      7.7 ms total, worst frame     0.9 ms  Assembly-CSharp.dll!Racer::WeatherEffects.LateUpdate() [Invoke]
+                 0.1  FindMainCamera
+                 0.1  FindObjectsOfType
+                 0.1  Physics.Raycast
+                 0.0  GC.Alloc
+      6.5 ms total, worst frame     0.5 ms  Assembly-CSharp.dll!Racer::DumpRefuse.FixedUpdate() [Invoke]
+                 0.1  FindObjectsOfType
+                 0.0  GC.Alloc
+      5.7 ms total, worst frame     0.1 ms  Assembly-CSharp.dll!Racer::MenuInput.Update() [Invoke]
+                 0.1  GC.Alloc
+      5.7 ms total, worst frame     0.3 ms  Assembly-CSharp.dll!Racer::ArcadeActivities.FixedUpdate() [Invoke]
+                 0.1  GC.Alloc
+      5.0 ms total, worst frame     0.1 ms  Assembly-CSharp.dll!Racer::AmbientLife.Update() [Invoke]
+                 1.4  Physics.Raycast
+                 0.0  GameObject.Deactivate
+      5.0 ms total, worst frame     0.1 ms  Assembly-CSharp.dll!Racer::RaceMenus.LateUpdate() [Invoke]
+                 0.8  GameObject.Activate
+                 0.7  GameObject.Activate > GameObject.ActivateAwakeRecursively
+                 0.2  GC.Alloc
+                 0.0  GameObject.Deactivate
+      4.7 ms total, worst frame     0.1 ms  Assembly-CSharp.dll!Racer::WaterFeedback.Update() [Invoke]
+      4.4 ms total, worst frame     0.2 ms  Assembly-CSharp.dll!Racer::SkyClouds.LateUpdate() [Invoke]
+                 0.0  FindMainCamera
+                 0.0  GameObject.Deactivate
+                 0.0  GameObject.Deactivate > GameObject.ActivateAwakeRecursively
+      4.4 ms total, worst frame     0.2 ms  Assembly-CSharp.dll!Racer::VehicleAudio.Update() [Invoke]
+                 0.8  Physics.Raycast
+                 0.0  GC.Alloc
+      4.4 ms total, worst frame     0.1 ms  UnityEngine.InputModule.dll!UnityEngineInternal.Input::NativeInputSystem.NotifyBeforeUpdate() [Invoke]
+                 0.2  GC.Alloc
+                 0.1  Touchscreen.OnNextUpdate
+slowest frames:
+  frame 39 79.5 ms: Assembly-CSharp.dll!Racer::RoadDriver.FixedUpdate() [Invoke] 35.2, Assembly-CSharp.dll!Racer::ExplorationMap.FixedUpdate() [Invoke] 17.9, Assembly-CSharp.dll!Racer::ShortcutUndergrowth.FixedUpdate() [Invoke] 15.9
+  frame 1 68.5 ms: Assembly-CSharp.dll!Racer::RoadDriver.FixedUpdate() [Invoke] 36.3, Assembly-CSharp.dll!Racer::ShortcutUndergrowth.FixedUpdate() [Invoke] 21.6, Assembly-CSharp.dll!Racer::VehicleRespawn.FixedUpdate() [Invoke] 1.9
+  frame 76 66.7 ms: Assembly-CSharp.dll!Racer::RoadDriver.FixedUpdate() [Invoke] 38.6, Assembly-CSharp.dll!Racer::ShortcutUndergrowth.FixedUpdate() [Invoke] 15.8, Assembly-CSharp.dll!Racer::VehicleRespawn.FixedUpdate() [Invoke] 2.6
+  frame 144 66.1 ms: Assembly-CSharp.dll!Racer::RoadDriver.FixedUpdate() [Invoke] 39.4, Assembly-CSharp.dll!Racer::ShortcutUndergrowth.FixedUpdate() [Invoke] 15.9, Assembly-CSharp.dll!Racer::VehicleRespawn.FixedUpdate() [Invoke] 1.9
+  frame 117 64.6 ms: Assembly-CSharp.dll!Racer::RoadDriver.FixedUpdate() [Invoke] 37.2, Assembly-CSharp.dll!Racer::ShortcutUndergrowth.FixedUpdate() [Invoke] 15.2, Assembly-CSharp.dll!Racer::VehicleRespawn.FixedUpdate() [Invoke] 2.7
+  frame 123 64.0 ms: Assembly-CSharp.dll!Racer::RoadDriver.FixedUpdate() [Invoke] 32.1, Assembly-CSharp.dll!Racer::ShortcutUndergrowth.FixedUpdate() [Invoke] 13.6, Assembly-CSharp.dll!Racer::ExplorationMap.FixedUpdate() [Invoke] 8.5
+  frame 31 63.0 ms: Assembly-CSharp.dll!Racer::RoadDriver.FixedUpdate() [Invoke] 36.5, Assembly-CSharp.dll!Racer::ShortcutUndergrowth.FixedUpdate() [Invoke] 16.1, Assembly-CSharp.dll!Racer::VehicleRespawn.FixedUpdate() [Invoke] 2.0
+  frame 3 62.7 ms: Assembly-CSharp.dll!Racer::RoadDriver.FixedUpdate() [Invoke] 35.3, Assembly-CSharp.dll!Racer::ShortcutUndergrowth.FixedUpdate() [Invoke] 17.1, Assembly-CSharp.dll!Racer::VehicleRespawn.FixedUpdate() [Invoke] 2.2
+  frame 33 62.2 ms: Assembly-CSharp.dll!Racer::RoadDriver.FixedUpdate() [Invoke] 36.4, Assembly-CSharp.dll!Racer::ShortcutUndergrowth.FixedUpdate() [Invoke] 15.4, Assembly-CSharp.dll!Racer::VehicleRespawn.FixedUpdate() [Invoke] 2.0
+  frame 72 61.8 ms: Assembly-CSharp.dll!Racer::RoadDriver.FixedUpdate() [Invoke] 35.8, Assembly-CSharp.dll!Racer::ShortcutUndergrowth.FixedUpdate() [Invoke] 16.6, Assembly-CSharp.dll!Racer::VehicleRespawn.FixedUpdate() [Invoke] 1.9
+  frame 35 60.5 ms: Assembly-CSharp.dll!Racer::RoadDriver.FixedUpdate() [Invoke] 35.9, Assembly-CSharp.dll!Racer::ShortcutUndergrowth.FixedUpdate() [Invoke] 15.2, Assembly-CSharp.dll!Racer::VehicleRespawn.FixedUpdate() [Invoke] 2.1
+  frame 111 59.8 ms: Assembly-CSharp.dll!Racer::RoadDriver.FixedUpdate() [Invoke] 34.2, Assembly-CSharp.dll!Racer::ShortcutUndergrowth.FixedUpdate() [Invoke] 15.4, Assembly-CSharp.dll!Racer::VehicleRespawn.FixedUpdate() [Invoke] 1.7
+  frame 115 59.5 ms: Assembly-CSharp.dll!Racer::RoadDriver.FixedUpdate() [Invoke] 34.6, Assembly-CSharp.dll!Racer::ShortcutUndergrowth.FixedUpdate() [Invoke] 15.3, Assembly-CSharp.dll!Racer::VehicleRespawn.FixedUpdate() [Invoke] 1.8
+  frame 74 59.3 ms: Assembly-CSharp.dll!Racer::RoadDriver.FixedUpdate() [Invoke] 33.9, Assembly-CSharp.dll!Racer::ShortcutUndergrowth.FixedUpdate() [Invoke] 15.2, Assembly-CSharp.dll!Racer::VehicleRespawn.FixedUpdate() [Invoke] 2.3
+  frame 45 59.2 ms: Assembly-CSharp.dll!Racer::RoadDriver.FixedUpdate() [Invoke] 34.1, Assembly-CSharp.dll!Racer::ShortcutUndergrowth.FixedUpdate() [Invoke] 15.1, Assembly-CSharp.dll!Racer::VehicleRespawn.FixedUpdate() [Invoke] 2.1
