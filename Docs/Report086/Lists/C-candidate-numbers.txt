@@ -1,0 +1,77 @@
+Speed held on the main by grade (m/s, median of the measured lap; grade in %):
+  bike: -35:32  -30:32  -25:32  -20:32  -15:31  -10:32  -5:32  +0:33  +5:32  +10:32  +15:29  +20:31  +25:32  +30:31  +35:31  +40:31  +45:31  +50:21
+  ATV : -35:32  -30:31  -25:24  -20:23  -15:23  -10:32  -5:34  +0:32  +5:32  +10:26  +15:23  +20:23  +25:22  +30:19  +35:23  +40:25  +45:27  +50:19
+  car : -35:32  -30:32  -25:31  -20:30  -15:32  -10:32  -5:33  +0:32  +5:32  +10:31  +15:29  +20:31  +25:30  +30:30  +35:31  +40:31  +45:31  +50:20
+
+== A  Ridge Jump (CP3 to CP4, over the tongue behind the House 3 pool): leaves the main at s 1520 (236,46.3,-195), rejoins at s 1890 (555,34.3,-231); main between them 370 m
+   ground along the bowl's south-west arm: 116 m, height 46.3 -> 45.3 (min 43.0, max 46.8), steepest now +6 % / -17 %; timed as regraded to within +-35 %
+   ground down into the bowl (built 25 % ramp in place of the 11 m drop): 22 m, height 45.3 -> 33.3 (min 33.3, max 45.3), steepest now +0 % / -213 %; timed as regraded to within +-25 %
+   ground across the bowl floor south of the lake and pool, then up the tongue behind the pool (regraded, now up to 57 %): 78 m, height 33.3 -> 56.8 (min 33.3, max 56.8), steepest now +100 % / -1 %; timed as regraded to within +-35 %
+   JUMP Ridge Jump off the tongue over the east hollow: lip (452,55.5,-218) -> landing (512,42.7,-221): gap 60 m, +12.8 m lower, lip 8 deg
+      bike: run-up speed 31 m/s, needs 29.2 m/s to reach the landing (clears, margin 2.2 m/s)
+      ATV : run-up speed 23 m/s, needs 29.2 m/s to reach the landing (SHORT by 6.3 m/s)
+      car : run-up speed 31 m/s, needs 29.2 m/s to reach the landing (clears, margin 1.6 m/s)
+   ground down the far rim to CP4 (built landing, run-out): 45 m, height 42.7 -> 34.3 (min 34.3, max 42.7), steepest now +2 % / -29 %; timed as regraded to within +-35 %
+   shortcut length 322 m against 370 m of main: 48 m shorter
+   bike: main 11.9 s, shortcut 10.2 s -> saves 1.8 s
+   ATV : main 14.1 s, shortcut 11.8 s -> saves 2.2 s
+   car : main 12.2 s, shortcut 10.3 s -> saves 1.8 s
+
+== B  Channel Run and Crest Jump (below the south rim to CP4): leaves the main at s 1676 (362,51.2,-277), rejoins at s 1885 (551,33.6,-235); main between them 209 m
+   ground off the main after J6 and down the inner face of the rim into the channel (built 30 % ramp, about 14 m down): 41 m, height 51.2 -> 36.7 (min 36.6, max 51.5), steepest now +8 % / -124 %; timed as regraded to within +-30 %
+   ground along the low channel at the foot of the rim: 91 m, height 36.7 -> 39.7 (min 34.9, max 39.7), steepest now +18 % / -13 %
+   JUMP Crest Jump over the low crest: lip (484,41.3,-243) -> landing (509,36.9,-236): gap 26 m, +4.4 m lower, lip 10 deg
+      bike: run-up speed 32 m/s, needs 19.6 m/s to reach the landing (clears, margin 12.1 m/s)
+      ATV : run-up speed 26 m/s, needs 19.6 m/s to reach the landing (clears, margin 6.3 m/s)
+      car : run-up speed 31 m/s, needs 19.6 m/s to reach the landing (clears, margin 11.7 m/s)
+   ground down the natural slope, rejoining just before CP4: 43 m, height 37.8 -> 33.6 (min 32.8, max 37.8), steepest now +20 % / -25 %
+   shortcut length 200 m against 209 m of main: 9 m shorter
+   bike: main 6.8 s, shortcut 6.4 s -> saves 0.5 s
+   ATV : main 7.8 s, shortcut 7.3 s -> saves 0.5 s
+   car : main 7.1 s, shortcut 6.4 s -> saves 0.7 s
+
+== C  Summit Climb (cuts the hook before the finish; no jump): leaves the main at s 1850 (523,34.1,-254), rejoins at s 2090 (569,82.4,-69); main between them 240 m
+   ground straight up the hillside west of the main's climb (steepest 50 m regraded): 198 m, height 34.1 -> 82.4 (min 32.8, max 82.4), steepest now +45 % / -14 %; timed as regraded to within +-38 %
+   shortcut length 198 m against 240 m of main: 42 m shorter
+   bike: main 9.2 s, shortcut 6.3 s -> saves 2.8 s
+   ATV : main 10.9 s, shortcut 8.0 s -> saves 2.9 s
+   car : main 9.5 s, shortcut 6.4 s -> saves 3.1 s
+
+== D  Rim Chute and House 3 Hill (surveyed, not proposed): leaves the main at s 1690 (374,52.7,-283), rejoins at s 2090 (569,82.4,-69); main between them 400 m
+   ground down the rim into the south pocket (built chute; a jump cannot land here): 35 m, height 52.7 -> 37.2 (min 36.7, max 52.8), steepest now +13 % / -158 %; timed as regraded to within +-35 %
+   ground climb up the House 3 hill and across its top: 262 m, height 37.2 -> 82.4 (min 37.2, max 84.2), steepest now +72 % / -85 %; timed as regraded to within +-35 %
+   shortcut length 297 m against 400 m of main: 103 m shorter
+   bike: main 14.5 s, shortcut 9.4 s -> saves 5.1 s
+   ATV : main 16.4 s, shortcut 12.2 s -> saves 4.2 s
+   car : main 15.1 s, shortcut 9.7 s -> saves 5.4 s
+
+== Flights over the ground as it is now (no built landing): where each class comes down from the lip
+   A Ridge Jump, lip 8 deg: lip (452,55.5,-218) at +8 deg, heading 93 deg
+      slow      18.0 m/s: comes down  33.3 m out at y 43.2 on ground sloping +34 %, 1.87 s in the air, meets the ground at 61 deg (VERY HARD)
+      ATV       23.0 m/s: comes down  41.0 m out at y 45.6 on ground sloping +20 %, 1.80 s in the air, meets the ground at 44 deg (VERY HARD)
+      bike/car  31.0 m/s: comes down  68.2 m out at y 40.9 on ground sloping -21 %, 2.22 s in the air, meets the ground at 18 deg (firm)
+      fast      36.0 m/s: comes down  88.4 m out at y 37.9 on ground sloping -5 %, 2.48 s in the air, meets the ground at 26 deg (hard)
+   A Ridge Jump, lip 15 deg: lip (452,55.5,-218) at +15 deg, heading 93 deg
+      slow      18.0 m/s: comes down  36.0 m out at y 44.1 on ground sloping +31 %, 2.07 s in the air, meets the ground at 59 deg (VERY HARD)
+      ATV       23.0 m/s: comes down  48.0 m out at y 45.6 on ground sloping -23 %, 2.16 s in the air, meets the ground at 21 deg (firm)
+      bike/car  31.0 m/s: comes down  86.2 m out at y 38.0 on ground sloping -10 %, 2.88 s in the air, meets the ground at 28 deg (hard)
+      fast      36.0 m/s: comes down 110.6 m out at y 35.5 on ground sloping -1 %, 3.18 s in the air, meets the ground at 32 deg (hard)
+   B Crest Jump, lip 8 deg (1.5 m kicker on the crest): lip (484,41.3,-243) at +8 deg, heading 73 deg
+      slow      15.0 m/s: comes down  14.3 m out at y 38.8 on ground sloping -10 %, 0.96 s in the air, meets the ground at 21 deg (firm)
+      ATV       26.0 m/s: comes down  35.0 m out at y 37.2 on ground sloping -7 %, 1.36 s in the air, meets the ground at 17 deg (firm)
+      bike/car  31.0 m/s: comes down  46.7 m out at y 36.6 on ground sloping -4 %, 1.52 s in the air, meets the ground at 16 deg (firm)
+      fast      35.0 m/s: comes down  56.8 m out at y 36.2 on ground sloping +11 %, 1.64 s in the air, meets the ground at 24 deg (hard)
+   B Crest Jump, lip 10 deg (1.5 m kicker on the crest): lip (484,41.3,-243) at +10 deg, heading 73 deg
+      slow      15.0 m/s: comes down  15.4 m out at y 38.7 on ground sloping -9 %, 1.04 s in the air, meets the ground at 22 deg (hard)
+      ATV       26.0 m/s: comes down  38.7 m out at y 37.0 on ground sloping -5 %, 1.51 s in the air, meets the ground at 19 deg (firm)
+      bike/car  31.0 m/s: comes down  52.2 m out at y 36.2 on ground sloping -6 %, 1.71 s in the air, meets the ground at 17 deg (firm)
+      fast      35.0 m/s: comes down  60.7 m out at y 36.9 on ground sloping +15 %, 1.76 s in the air, meets the ground at 27 deg (hard)
+   B Crest Jump, lip 14 deg (1.5 m kicker on the crest): lip (484,41.3,-243) at +14 deg, heading 73 deg
+      slow      15.0 m/s: comes down  17.6 m out at y 38.5 on ground sloping -8 %, 1.21 s in the air, meets the ground at 25 deg (hard)
+      ATV       26.0 m/s: comes down  45.7 m out at y 36.6 on ground sloping -4 %, 1.81 s in the air, meets the ground at 22 deg (hard)
+      bike/car  31.0 m/s: comes down  60.2 m out at y 36.8 on ground sloping +16 %, 2.00 s in the air, meets the ground at 31 deg (hard)
+      fast      35.0 m/s: comes down  72.3 m out at y 37.1 on ground sloping +0 %, 2.13 s in the air, meets the ground at 20 deg (firm)
+   D Rim Drop if it were a jump (flat lip): lip (380,50.5,-276) at +0 deg, heading 43 deg
+      slow      15.0 m/s: comes down  24.8 m out at y 37.2 on ground sloping +20 %, 1.65 s in the air, meets the ground at 58 deg (VERY HARD)
+      ATV       29.0 m/s: comes down  40.0 m out at y 41.2 on ground sloping +24 %, 1.38 s in the air, meets the ground at 39 deg (VERY HARD)
+      bike/car  31.0 m/s: comes down  41.9 m out at y 41.7 on ground sloping +30 %, 1.35 s in the air, meets the ground at 40 deg (VERY HARD)
