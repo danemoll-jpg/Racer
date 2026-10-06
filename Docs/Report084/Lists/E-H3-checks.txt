@@ -1,0 +1,21 @@
+---- fence84
+fences rebuilt 146 (posts lengthened to the ground 532); nearest Dan's driveway CR101 local boundary extension/Grounded wood crossbuck at 422.1,82.74,19.2; steepest CR097 supported properties and camp/Grounded wood crossbuck at 388.9,79.89,-7.9, 6.6 m of fall across it
+PASS static colliders identical New / Classic / New taken back to back: True (13614 colliders, 0 differing lines)
+---- gatelog:DansBackyardForward:moto:atv,original,drifter
+FAIL DansBackyardForward player moto vs atv/original/drifter: PLAYER moto: 01:09.340 missed 1 resets 0 longest stall 3s shortcuts []; EMBER atv: 01:09.708 missed 0 resets 1 longest stall 4s shortcuts []; GOLD original: 01:20.921 missed 0 resets 2 longest stall 6s shortcuts []; BLUE drifter: 01:33.356 missed 0 resets 1 longest stall 15s at 318.4,76.93,23.5 shortcuts [Tree-Top Trail, Abandoned Cabin Jump]
+---- gatelog:DansBackyardForward:atv:moto,fastback,scrambler
+FAIL DansBackyardForward player atv vs moto/fastback/scrambler: PLAYER atv: 01:08.003 missed 0 resets 0 longest stall 2s shortcuts []; EMBER moto: 01:19.637 missed 1 resets 0 longest stall 3s shortcuts [Tree-Top Trail]; GOLD fastback: 02:14.305 missed 0 resets 3 longest stall 10s at 218.6,74.59,95.6 shortcuts [Tree-Top Trail, Abandoned Cabin Jump]; BLUE scrambler: 01:45.234 missed 1 resets 2 longest stall 11s at 203.9,51.95,-84.4 shortcuts []
+  MISS EMBER lap 1 CP8 (finish reconciliation, branch none) gate 470.7,79.48,49.1 half-width 3.3: crossed at x -29.9 m, y -1.4 m (opening +-3.5) on main; nearest 18.9 m
+  MISS BLUE lap 1 CP6 (later gate crossed, branch none) gate 269.0,77.57,123.0 half-width 3.3: crossed at x 34.6 m, y -0.9 m (opening +-3.5) on main; nearest 32.8 m
+---- gatelog:DansBackyardForward:original:drifter,atv,moto
+FAIL DansBackyardForward player original vs drifter/atv/moto: PLAYER original: 01:12.127 missed 0 resets 0 longest stall 5s shortcuts [Tree-Top Trail]; EMBER drifter: 01:15.714 missed 1 resets 1 longest stall 6s shortcuts []; GOLD atv: 01:09.437 missed 0 resets 1 longest stall 6s shortcuts []; BLUE moto: 01:32.215 missed 1 resets 2 longest stall 8s shortcuts [Tree-Top Trail]
+  MISS EMBER lap 1 CP2 (road gate passed outside span, branch none) gate 226.1,60.99,-31.9 half-width 3.3: crossed at x 6.3 m, y -1.9 m (opening +-3.5) on main; nearest 6.3 m
+  MISS BLUE lap 1 CP8 (finish reconciliation, branch none) gate 470.7,79.48,49.1 half-width 3.3: crossed at x -34.4 m, y -1.5 m (opening +-3.5) on main; nearest 20.7 m
+---- gatelog:DansBackyardReverse:moto:atv,original,drifter
+PASS DansBackyardReverse player moto vs atv/original/drifter: PLAYER moto: 01:15.496 missed 0 resets 1 longest stall 5s shortcuts []; EMBER atv: 01:09.762 missed 0 resets 0 longest stall 3s shortcuts [Storm Drain / Gully Jump]; GOLD original: 01:01.409 missed 0 resets 0 longest stall 1s shortcuts []; BLUE drifter: 01:07.588 missed 0 resets 1 longest stall 6s shortcuts []
+---- gatelog:DansBackyardReverse:atv:moto,fastback,scrambler
+FAIL DansBackyardReverse player atv vs moto/fastback/scrambler: PLAYER atv: 01:14.674 missed 0 resets 0 longest stall 7s shortcuts []; EMBER moto: 01:10.516 missed 1 resets 1 longest stall 7s shortcuts []; GOLD fastback: 01:04.666 missed 0 resets 0 longest stall 1s shortcuts [Storm Drain / Gully Jump]; BLUE scrambler: 01:03.990 missed 0 resets 1 longest stall 6s shortcuts []
+  MISS EMBER lap 1 CP5 (road gate passed outside span, branch none) gate 170.0,47.41,-96.8 half-width 3.3: crossed at x -5.4 m, y -0.2 m (opening +-3.5) on main; nearest 2.7 m
+---- gatelog:DansBackyardReverse:original:drifter,atv,moto
+PASS DansBackyardReverse player original vs drifter/atv/moto: PLAYER original: 01:06.534 missed 0 resets 0 longest stall 2s shortcuts [Storm Drain / Gully Jump]; EMBER drifter: 01:09.968 missed 0 resets 1 longest stall 7s shortcuts []; GOLD atv: 01:03.830 missed 0 resets 0 longest stall 2s shortcuts []; BLUE moto: 01:08.310 missed 0 resets 0 longest stall 2s shortcuts []
+done, failures 4

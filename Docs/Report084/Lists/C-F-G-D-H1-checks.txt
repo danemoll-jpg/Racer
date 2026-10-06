@@ -1,0 +1,63 @@
+---- fence84
+fences rebuilt 0 (posts lengthened to the ground 0); nearest Dan's driveway -; steepest -
+FAIL fence colliders identical New / Classic: True (13613 colliders)
+---- sites84:moto,atv,original
+PASS moto Pool-house jump (forward): scored; prompt at the site "Pool-house jump / Jump: land it to score  ·  Esc > Activities for a timed attempt"; result "Pool-house jump / 104.8 ft / PB 104.8 ft / SILVER / NEW BEST / 1.06s / 425 pts"; distance 31.9 m, airtime 1.06 s
+PASS moto S Cherokee hill speed trap (forward): scored; prompt at the site "S Cherokee hill speed trap / Speed trap: drive through it, either way"; result "S Cherokee hill speed trap / 60.3 mph / PB 60.3 mph / SILVER / NEW BEST"; speed 26.9 m/s
+PASS moto S Cherokee hill speed trap (opposite): scored; prompt at the site "S Cherokee hill speed trap / Speed trap: drive through it, either way"; result "S Cherokee hill speed trap / 60.7 mph / PB 60.7 mph / SILVER / NEW BEST"; speed 27.1 m/s
+PASS moto Hwy 92 east speed trap (forward): scored; prompt at the site "Hwy 92 east speed trap / Speed trap: drive through it, either way"; result "Hwy 92 east speed trap / 62.1 mph / PB 62.1 mph / BRONZE / NEW BEST"; speed 27.7 m/s
+PASS moto Hwy 92 east speed trap (opposite): scored; prompt at the site "Hwy 92 east speed trap / Speed trap: drive through it, either way"; result "Hwy 92 east speed trap / 62.8 mph / PB 62.8 mph / SILVER / NEW BEST"; speed 28.1 m/s
+PASS atv Pool-house jump (forward): scored; prompt at the site "Pool-house jump / Jump: land it to score  ·  Esc > Activities for a timed attempt"; result "Pool-house jump / 98.6 ft / PB 98.6 ft / SILVER / NEW BEST / 1.00s / 401 pts"; distance 30.1 m, airtime 1.00 s
+PASS atv S Cherokee hill speed trap (forward): scored; prompt at the site "S Cherokee hill speed trap / Speed trap: drive through it, either way"; result "S Cherokee hill speed trap / 60.5 mph / PB 60.5 mph / SILVER / NEW BEST"; speed 27.0 m/s
+PASS atv S Cherokee hill speed trap (opposite): scored; prompt at the site "S Cherokee hill speed trap / Speed trap: drive through it, either way"; result "S Cherokee hill speed trap / 60.2 mph / PB 60.2 mph / SILVER / NEW BEST"; speed 26.9 m/s
+PASS atv Hwy 92 east speed trap (forward): scored; prompt at the site "Hwy 92 east speed trap / Speed trap: drive through it, either way"; result "Hwy 92 east speed trap / 62.0 mph / PB 62.0 mph / BRONZE / NEW BEST"; speed 27.7 m/s
+PASS atv Hwy 92 east speed trap (opposite): scored; prompt at the site "Hwy 92 east speed trap / Speed trap: drive through it, either way"; result "Hwy 92 east speed trap / 62.2 mph / PB 62.2 mph / BRONZE / NEW BEST"; speed 27.8 m/s
+PASS original Pool-house jump (forward): scored; prompt at the site "Pool-house jump / Jump: land it to score  ·  Esc > Activities for a timed attempt"; result "Pool-house jump / 94.8 ft / PB 94.8 ft / SILVER / NEW BEST / 0.96s / 385 pts"; distance 28.9 m, airtime 0.96 s
+PASS original S Cherokee hill speed trap (forward): scored; prompt at the site "S Cherokee hill speed trap / Speed trap: drive through it, either way"; result "S Cherokee hill speed trap / 60.0 mph / PB 60.0 mph / SILVER / NEW BEST"; speed 26.8 m/s
+PASS original S Cherokee hill speed trap (opposite): scored; prompt at the site "S Cherokee hill speed trap / Speed trap: drive through it, either way"; result "S Cherokee hill speed trap / 60.4 mph / PB 60.4 mph / SILVER / NEW BEST"; speed 27.0 m/s
+PASS original Hwy 92 east speed trap (forward): scored; prompt at the site "Hwy 92 east speed trap / Speed trap: drive through it, either way"; result "Hwy 92 east speed trap / 62.8 mph / PB 62.8 mph / SILVER / NEW BEST"; speed 28.1 m/s
+PASS original Hwy 92 east speed trap (opposite): scored; prompt at the site "Hwy 92 east speed trap / Speed trap: drive through it, either way"; result "Hwy 92 east speed trap / 62.5 mph / PB 62.5 mph / BRONZE / NEW BEST"; speed 27.9 m/s
+---- cave84:LakeWoods:moto,original
+LakeWoods: Echo Cave enclosure centre 53.0,37.97,86.3 size 213.3,32.14,368.4; nearest route Echo Cave at s 269, 4.3 m off; restyled cave pieces 208
+LakeWoods moto ride Echo Cave 189.2746->349.2746 at 16 m/s offset 0 m: REACHED end s 348.4 in 9.9s, resets 0, stuck False, max air 0.00s, min up 1.00, max jolt 1 m/s² at 69.1,36.80,111.0
+PASS LakeWoods moto through the Echo Cave on Echo Cave: through, resets 0, stuck False, max air 0.00s, min up 1.00
+LakeWoods original ride Echo Cave 189.2746->349.2746 at 16 m/s offset 0 m: REACHED end s 348.1 in 10.0s, resets 0, stuck False, max air 0.00s, min up 1.00, max jolt 1 m/s² at 53.3,34.88,78.3
+PASS LakeWoods original through the Echo Cave on Echo Cave: through, resets 0, stuck False, max air 0.00s, min up 1.00
+---- cave84:ForestLoopReverse:moto,original
+ForestLoopReverse: Echo Cave enclosure centre 53.0,42.15,86.8 size 216.4,39.60,370.0; nearest route Fern Gully at s 305, 28.6 m off; restyled cave pieces 68
+ForestLoopReverse moto ride Fern Gully 225.1979->385.1979 at 16 m/s offset 0 m: REACHED end s 384.5 in 9.9s, resets 0, stuck False, max air 0.00s, min up 1.00, max jolt 2 m/s² at -7.2,30.52,139.9
+PASS ForestLoopReverse moto through the Echo Cave on Fern Gully: through, resets 0, stuck False, max air 0.00s, min up 1.00
+ForestLoopReverse original ride Fern Gully 225.1979->385.1979 at 16 m/s offset 0 m: REACHED end s 384.1 in 10.0s, resets 0, stuck False, max air 0.00s, min up 1.00, max jolt 2 m/s² at -7.2,30.68,139.6
+PASS ForestLoopReverse original through the Echo Cave on Fern Gully: through, resets 0, stuck False, max air 0.00s, min up 1.00
+---- startpress:StreetLoopGreybox:moto,atv,drifter
+PASS StreetLoopGreybox START RACE 1: the press itself 1 ms, loading screen up at once True; countdown running after 0.97 s with 3.0 s of it left; frames 17 572 18 15 17 18 16 14 23 9 20 ms; racers 4, drivers 23
+PASS StreetLoopGreybox START RACE 2: the press itself 1 ms, loading screen up at once True; countdown running after 0.75 s with 3.0 s of it left; frames 17 17 558 16 17 18 20 12 17 17 16 17 12 ms; racers 4, drivers 23
+PASS StreetLoopGreybox START RACE 3: the press itself 1 ms, loading screen up at once True; countdown running after 0.88 s with 3.0 s of it left; frames 42 5 667 11 21 17 17 17 17 17 17 17 17 ms; racers 4, drivers 23
+---- title84:1.5
+PASS title voice (2.75 s clip incl. 1 s lead silence), button pressed 1.5 s after the voice started, before: 101 frames while speaking, 0 with no active AudioListener; title listener frames 0; scene now StreetLoopGreybox
+PASS title voice (2.75 s clip incl. 1 s lead silence), button pressed 1.5 s after the voice started, NOW: 177 frames while speaking, 0 with no active AudioListener; title listener frames 0; scene now FreeRoamWorld
+---- gatelog:DansBackyardForward:moto:atv,original,drifter
+FAIL DansBackyardForward player moto vs atv/original/drifter: PLAYER moto: 01:17.188 missed 1 resets 2 longest stall 5s shortcuts []; EMBER atv: 01:10.299 missed 2 resets 0 longest stall 2s shortcuts []; GOLD original: 01:18.027 missed 0 resets 3 longest stall 6s shortcuts [Tree-Top Trail]; BLUE drifter: 01:57.641 missed 3 resets 1 longest stall 5s shortcuts [Tree-Top Trail]
+  MISS EMBER lap 1 CP2 (road gate passed outside span, branch none) gate 226.1,60.99,-31.9 half-width 3.3: crossed at x -53.5 m, y 10.7 m (opening +-3.5) on main; nearest 54.5 m
+  MISS EMBER lap 1 CP3 (road gate passed outside span, branch none) gate 182.2,49.00,-95.4 half-width 3.3: crossed at x -4.3 m, y -1.3 m (opening +-3.5) on main; nearest 4.5 m
+  MISS BLUE lap 1 CP1 (road gate passed outside span, branch none) gate 354.1,81.66,19.3 half-width 3.3: crossed at x -5.7 m, y 1.4 m (opening +-3.5) on main; nearest 5.9 m
+  MISS BLUE lap 1 CP6 (later gate crossed, branch none) gate 269.0,77.57,123.0 half-width 3.3: crossed at x 34.6 m, y -1.0 m (opening +-3.5) on main; nearest 34.7 m
+---- gatelog:DansBackyardForward:atv:moto,fastback,scrambler
+FAIL DansBackyardForward player atv vs moto/fastback/scrambler: PLAYER atv: 01:36.442 missed 2 resets 3 longest stall 6s shortcuts []; EMBER moto: 02:00.339 missed 3 resets 6 longest stall 7s shortcuts [Tree-Top Trail]; GOLD fastback: DNF missed 0 resets 21 longest stall 105s at 165.7,63.02,65.3 shortcuts [Tree-Top Trail]; BLUE scrambler: 01:27.028 missed 1 resets 1 longest stall 7s shortcuts [Tree-Top Trail]
+  MISS EMBER lap 1 CP1 (road gate passed outside span, branch none) gate 354.1,81.66,19.3 half-width 3.3: crossed at x -6.7 m, y 1.3 m (opening +-3.5) on main; nearest 6.8 m
+  MISS EMBER lap 1 CP6 (road gate passed outside span, branch none) gate 269.0,77.57,123.0 half-width 3.3: crossed at x 15.0 m, y -0.8 m (opening +-3.5) on main; nearest 11.9 m
+---- gatelog:DansBackyardForward:original:drifter,atv,moto
+FAIL DansBackyardForward player original vs drifter/atv/moto: PLAYER original: 01:13.551 missed 0 resets 1 longest stall 5s shortcuts [Tree-Top Trail]; EMBER drifter: 01:35.662 missed 2 resets 1 longest stall 5s shortcuts []; GOLD atv: 01:54.420 missed 2 resets 5 longest stall 9s at 222.8,75.20,109.4 shortcuts []; BLUE moto: 01:57.696 missed 3 resets 4 longest stall 6s shortcuts [Tree-Top Trail]
+  MISS EMBER lap 1 CP2 (road gate passed outside span, branch none) gate 226.1,60.99,-31.9 half-width 3.3: crossed at x -53.7 m, y 12.7 m (opening +-3.5) on main; nearest 54.7 m
+  MISS EMBER lap 1 CP8 (finish reconciliation, branch none) gate 470.7,79.48,49.1 half-width 3.3: crossed at x -39.1 m, y -1.3 m (opening +-3.5) on main; nearest 24.8 m
+  MISS GOLD lap 1 CP6 (road gate passed outside span, branch none) gate 269.0,77.57,123.0 half-width 3.3: crossed at x 27.4 m, y -0.9 m (opening +-3.5) on main; nearest 23.7 m
+  MISS BLUE lap 1 CP6 (road gate passed outside span, branch none) gate 269.0,77.57,123.0 half-width 3.3: crossed at x -16.6 m, y -1.3 m (opening +-3.5) on main; nearest 11.0 m
+  MISS BLUE lap 1 CP8 (finish reconciliation, branch none) gate 470.7,79.48,49.1 half-width 3.3: crossed at x -46.6 m, y -1.1 m (opening +-3.5) on main; nearest 24.7 m
+---- gatelog:DansBackyardReverse:moto:atv,original,drifter
+FAIL DansBackyardReverse player moto vs atv/original/drifter: PLAYER moto: 01:01.716 missed 1 resets 0 longest stall 2s shortcuts []; EMBER atv: 01:13.037 missed 0 resets 1 longest stall 5s shortcuts [Storm Drain / Gully Jump]; GOLD original: 01:08.009 missed 0 resets 1 longest stall 6s shortcuts []; BLUE drifter: 01:11.562 missed 0 resets 1 longest stall 6s shortcuts []
+---- gatelog:DansBackyardReverse:atv:moto,fastback,scrambler
+FAIL DansBackyardReverse player atv vs moto/fastback/scrambler: PLAYER atv: 01:16.046 missed 0 resets 1 longest stall 5s shortcuts [Storm Drain / Gully Jump]; EMBER moto: 01:11.544 missed 1 resets 0 longest stall 3s shortcuts [Storm Drain / Gully Jump]; GOLD fastback: 01:04.150 missed 0 resets 0 longest stall 2s shortcuts []; BLUE scrambler: 00:58.762 missed 0 resets 0 longest stall 2s shortcuts []
+  MISS EMBER lap 1 CP4 (road gate passed outside span, branch none) gate 30.0,38.25,-94.5 half-width 3.3: crossed at x -25.0 m, y -1.1 m (opening +-3.5) on Storm Drain / Gully Jump; nearest 25.0 m
+---- gatelog:DansBackyardReverse:original:drifter,atv,moto
+FAIL DansBackyardReverse player original vs drifter/atv/moto: PLAYER original: 01:03.132 missed 0 resets 0 longest stall 3s shortcuts []; EMBER drifter: 00:59.731 missed 0 resets 0 longest stall 2s shortcuts []; GOLD atv: 01:12.073 missed 0 resets 1 longest stall 5s shortcuts [Storm Drain / Gully Jump]; BLUE moto: 01:14.889 missed 1 resets 2 longest stall 6s shortcuts []
+done, failures 7

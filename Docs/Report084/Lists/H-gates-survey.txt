@@ -1,0 +1,39 @@
+== DansBackyardForward backyard-forward-v3-forest-shortcuts main 1257 m, origin 0.0
+gate 0 Backyard START FINISH at 459.6,81.31,8.1 station 10.5 offset 0.0 m from the main centre (road half-width 6.0), angle to road 0, half-width 2.6
+gate 1 Backyard blue CP 1 at 354.1,81.66,19.3 station 118.6 offset 0.0 m from the main centre (road half-width 3.6), angle to road 0, half-width 3.3
+gate 2 Backyard blue CP 2 at 226.1,60.99,-31.9 station 293.9 offset 0.0 m from the main centre (road half-width 5.0), angle to road 0, half-width 3.3
+gate 3 Backyard blue CP 3 at 182.2,49.00,-95.4 station 390.6 offset 0.0 m from the main centre (road half-width 3.6), angle to road 0, half-width 3.3
+gate 4 Backyard blue CP 4 at 26.9,39.38,-47.3 station 606.1 offset 0.0 m from the main centre (road half-width 3.6), angle to road 1, half-width 3.3
+gate 5 Backyard blue CP 5 at 155.1,61.12,60.0 station 827.2 offset 0.0 m from the main centre (road half-width 3.6), angle to road 1, half-width 3.3
+gate 6 Backyard blue CP 6 at 269.0,77.57,123.0 station 962.3 offset 0.0 m from the main centre (road half-width 3.6), angle to road 0, half-width 3.3
+gate 7 Backyard blue CP 7 at 398.0,83.24,80.0 station 1121.4 offset 0.0 m from the main centre (road half-width 3.6), angle to road 0, half-width 3.3
+gate 8 Backyard blue CP 8 at 470.7,79.48,49.1 station 1212.7 offset 0.0 m from the main centre (road half-width 3.6), angle to road 0, half-width 3.3
+branch Tree-Top Trail: entry 260.6 exit 405.3 bypasses [2,3] ai True; passes gates at CP1 138 m, CP2 19 m, CP3 5 m, CP4 152 m, CP5 91 m, CP6 138 m, CP7 199 m, CP8 258 m
+branch Abandoned Cabin Jump: entry 862.1 exit 1013.2 bypasses [6] ai True; passes gates at CP1 88 m, CP2 112 m, CP3 174 m, CP4 201 m, CP5 34 m, CP6 32 m, CP7 89 m, CP8 167 m
+flight 0: launch 164.1 landing 216.8 start 309.2,80.38,15.7 dir -1.0,0.00,-0.1
+flight 1: launch 457.5 landing 504.3 start 119.0,45.95,-108.6 dir -1.0,0.00,0.0
+flight 2: launch 761.5 landing 796.6 start 91.0,51.61,60.7 dir 1.0,0.00,0.0
+jump Old dump 164.1->216.8
+jump Big ravine 457.5->504.3
+jump Ravine return 761.5->797.0
+jump Dirt crest 104.5->118.5
+jump Downhill kicker 339.8->353.8
+jump West woods crest 605.6->619.6
+jump Return hill jump 977.8->991.8
+== DansBackyardReverse backyard-reverse-v4-continuous-shortcuts main 1257 m, origin 0.0
+gate 0 Reverse START FINISH at 472.9,78.50,33.9 station 57.8 offset 0.0 m from the main centre (road half-width 6.0), angle to road 0, half-width 2.6
+gate 1 Reverse blue CP 1 at 398.0,83.24,80.0 station 164.5 offset 0.0 m from the main centre (road half-width 3.6), angle to road 1, half-width 3.3
+gate 2 Reverse blue CP 2 at 186.0,69.51,80.7 station 423.1 offset 0.0 m from the main centre (road half-width 3.6), angle to road 0, half-width 3.3
+gate 3 Reverse blue CP 3 at 36.0,39.83,19.0 station 644.6 offset 0.0 m from the main centre (road half-width 3.6), angle to road 0, half-width 3.3
+gate 4 Reverse blue CP 4 at 30.0,38.25,-94.5 station 781.9 offset 0.0 m from the main centre (road half-width 5.0), angle to road 0, half-width 3.3
+gate 5 Reverse blue CP 5 at 170.0,47.41,-96.8 station 923.6 offset -1.0 m from the main centre (road half-width 3.6), angle to road 9, half-width 3.3
+gate 6 Reverse blue CP 6 at 266.0,67.64,-23.5 station 1072.9 offset 0.0 m from the main centre (road half-width 5.0), angle to road 0, half-width 3.3
+gate 7 Reverse blue CP 7 at 330.2,79.73,-14.6 station 1138.9 offset 0.0 m from the main centre (road half-width 3.6), angle to road 0, half-width 3.3
+branch Abandoned Logging Ridge: entry 168.6 exit 319.5 bypasses [] ai True; passes gates at CP1 4 m, CP2 96 m, CP3 258 m, CP4 326 m, CP5 242 m, CP6 144 m, CP7 113 m
+branch Storm Drain / Gully Jump: entry 430.6 exit 722.3 bypasses [3] ai True; passes gates at CP1 219 m, CP2 7 m, CP3 70 m, CP4 37 m, CP5 56 m, CP6 127 m, CP7 179 m
+flight 0: launch 482.3 landing 557.6 start 128.0,61.20,80.7 dir -1.0,0.00,0.0
+flight 1: launch 825.5 landing 881.2 start 72.4,44.07,-94.1 dir 1.0,0.00,0.0
+flight 2: launch 1198.3 landing 1250.3 start 388.2,86.17,-3.3 dir 1.0,0.00,0.2
+jump Reverse north gully 482.3->557.6
+jump Reverse south gully 825.5->881.2
+jump Pool-house flight 1198.3->1250.3

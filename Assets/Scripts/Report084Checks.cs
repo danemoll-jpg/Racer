@@ -13,7 +13,7 @@ using UnityEngine.InputSystem.LowLevel;
 namespace Racer {
 // 0.84 targeted checks, added to the 0.80 runner (same muted isolated save, same helpers): PROBE_CASES="case:args;...".
 public sealed partial class Report080Checks {
- IEnumerator Cases084(string[] a)=>a[0] switch{"creep"=>Creep(a[1],a[2]),"deadzone"=>DeadZone(),"startpress"=>StartPress(a[1],a[2]),"title84"=>Title084(F(a[1])),"lap84"=>Lap084(a[1],a[2]),"profile84"=>Profile084(a[1],a[2]),"jshots"=>JShots(a[1]),"floaters"=>Floaters(a[1],a[2]),"fpv"=>Fpv(a[1],a.Length>2?a[2]:"before"),"roamsurvey"=>RoamSurvey(),_=>null};
+ IEnumerator Cases084(string[] a)=>a[0] switch{"creep"=>Creep(a[1],a[2]),"deadzone"=>DeadZone(),"startpress"=>StartPress(a[1],a[2]),"title84"=>Title084(F(a[1])),"lap84"=>Lap084(a[1],a[2]),"profile84"=>Profile084(a[1],a[2]),"jshots"=>JShots(a[1]),"floaters"=>Floaters(a[1],a[2]),"fpv"=>Fpv(a[1],a.Length>2?a[2]:"before"),"roamsurvey"=>RoamSurvey(),"gatelog"=>GateLog(a),"sites84"=>Sites084(a[1]),"cave84"=>Cave084(a[1],a[2]),"fence84"=>Fence084(),_=>null};
 
  // Part B: release everything, from a stop and from 20 mph, on the flattest and on the steepest ordinary stretch of the main
  // road (grade up to 15 %): the vehicle steps exactly as the player's own step does (Simulate(0,0,0)), once as before
@@ -172,6 +172,92 @@ public sealed partial class Report080Checks {
   foreach(var r in FindObjectsByType<MeshRenderer>(FindObjectsSortMode.None)){if(r.name.IndexOf("fence",StringComparison.OrdinalIgnoreCase)<0&&!(r.transform.parent&&r.transform.parent.name.IndexOf("fence",StringComparison.OrdinalIgnoreCase)>=0))continue;var mf=r.GetComponent<MeshFilter>();var m=mf?mf.sharedMesh:null;
    sb.AppendLine($"FENCE {P(r.transform)} verts {(m?m.vertexCount:0)} mesh {(m?m.name:"-")} readable {(m&&m.isReadable)} mat {Mat(r)} colliders {string.Join(",",r.GetComponents<Collider>().Select(c=>c.GetType().Name))} comps {string.Join(",",r.GetComponents<Component>().Select(c=>c.GetType().Name))} center {V(r.bounds.center)} size {V(r.bounds.size)} on {r.enabled}");}
   File.WriteAllText($"{output}/roam-survey.txt",sb.ToString());Note("roam survey written");}
+
+ // Part H: carrace with every racer's path recorded; for each missed gate, where that racer crossed the gate's plane (gate
+ // space: x across, the opening is +-halfWidth + 0.2 m) or, if it never crossed it, how close it came and on which branch.
+ // gatelog:Scene:player:ai1,ai2,ai3
+ IEnumerator GateLog(string[] a){var paths=new Dictionary<RacerState,List<(Vector3 p,string branch)>>();bool hooked=false;
+  IEnumerator Watch(){float t0=Time.realtimeSinceStartup;while(!hooked&&Time.realtimeSinceStartup-t0<120){Bind();if(race&&flow.State==RaceFlow.Stage.Racing&&race.Racers.Count>1){hooked=true;foreach(var r in race.Racers)paths[r]=new();StartCoroutine(Rec());}yield return null;}}
+  IEnumerator Rec(){var racers=race.Racers.ToList();while(flow.State==RaceFlow.Stage.Racing||flow.State==RaceFlow.Stage.Countdown){foreach(var r in racers)if(r.Car&&!r.Progress.Finished)paths[r].Add((r.Car.Body.position,r.Branch.Route?r.Branch.Route.title:"main"));yield return new WaitForFixedUpdate();}}
+  StartCoroutine(Watch());var gates=race?race.gates:null;yield return Case(new[]{"carrace",a[1],a[2],a[3]});
+  {var csv=new StringBuilder("racer,i,x,y,z,branch\n");foreach(var kv in paths){int i=0;foreach(var q in kv.Value){if(i++%5==0)csv.AppendLine($"{kv.Key.Name},{i},{q.p.x:F1},{q.p.y:F1},{q.p.z:F1},{q.branch}");}}
+   var rd=race.road;rd.Initialize();for(float s0=0;s0<rd.Length;s0+=2){var q=rd.At(s0,out _);csv.AppendLine($"MAIN,{s0:F0},{q.x:F1},{q.y:F1},{q.z:F1},{rd.HalfWidth(s0):F1}");}
+   for(int gi=0;gi<race.gates.Length;gi++){var gt=race.gates[gi].transform;var gr=gt.right*race.gates[gi].GetComponent<RaceGate>().halfWidth;csv.AppendLine($"GATE,{gi},{gt.position.x+gr.x:F1},{gt.position.y:F1},{gt.position.z+gr.z:F1},{gt.position.x-gr.x:F1}/{gt.position.z-gr.z:F1}");}
+   foreach(var b in FindObjectsByType<WoodlandRoute>(FindObjectsSortMode.None))foreach(var q in b.points)csv.AppendLine($"BRANCH,{b.title},{q.x:F1},{q.y:F1},{q.z:F1},");
+   File.WriteAllText($"{output}/paths-{Scene}-{a[2]}-{RaceTable.Count}.csv",csv.ToString());}
+  foreach(var kv in paths){var r=kv.Key;foreach(var e in r.Progress.Ledger){if(e.Checkpoint<=0)continue;var g=race.gates[e.Checkpoint].GetComponent<RaceGate>();var t=g.transform;var path=kv.Value;string where="never crossed its plane";float near=1e9f,bestX=60;
+    for(int i=1;i<path.Count;i++){var q0=t.InverseTransformPoint(path[i-1].p);var q1=t.InverseTransformPoint(path[i].p);near=Mathf.Min(near,(path[i].p-t.position).magnitude);
+     if(Mathf.Sign(q0.z)!=Mathf.Sign(q1.z)&&Mathf.Abs(q1.z-q0.z)<10){float f=q0.z/(q0.z-q1.z);var x=Vector3.Lerp(q0,q1,f);if(Mathf.Abs(x.x)<bestX){bestX=Mathf.Abs(x.x);where=$"crossed at x {x.x:F1} m, y {x.y:F1} m (opening +-{g.halfWidth+RaceGate.EdgeTolerance:F1}) on {path[i].branch}";}}}
+    Note($"  MISS {r.Name} lap {e.Lap} CP{e.Checkpoint} ({e.Reason}, branch {e.Branch}) gate {V(t.position)} half-width {g.halfWidth}: {where}; nearest {near:F1} m");}}}
+
+ // Part C: the three relocated sites in Free Roam: each speed trap driven through both ways at 28 m/s, the jump taken from
+ // 90 m back at full throttle; the on-site prompt, the result shown, the distance (for the medal targets). sites84:profiles
+ IEnumerator Sites084(string profiles){foreach(var profile in profiles.Split(',')){yield return EnterRoam("StreetLoopGreybox",profile);yield return new WaitForSeconds(1);
+   var acts=flow.Activities;var car=race.vehicle;car.GetComponent<VehicleInput>().enabled=false;car.enabled=false;
+   foreach(var site in acts.Sites.Where(x=>x.id.StartsWith("forest-")).OrderBy(x=>x.id)){var f=site.forward.normalized;f.y=0;f.Normalize();
+    foreach(int dir in site.kind==ActivitySite.Kind.Speed?new[]{1,-1}:new[]{1}){var d=f*dir;var start=site.transform.position-d*(site.kind==ActivitySite.Kind.Jump?90:70);
+     if(Physics.Raycast(start+Vector3.up*30,Vector3.down,out var gh,80,~0,QueryTriggerInteraction.Ignore))start=gh.point;
+     RaceRoad trail=null;float ts=0;if(site.kind==ActivitySite.Kind.Jump){trail=FindObjectsByType<RaceRoad>(FindObjectsSortMode.None).First(r=>r.name=="Reverse navigation only - no pavement");trail.Initialize();ts=trail.Project(site.transform.position,out _)-110;start=trail.At(ts,out var tf);tf.y=0;d=tf.normalized;}
+     Put(car,start+Vector3.up*.8f,Quaternion.LookRotation(d),Vector3.zero);acts.NewSession();for(int i=0;i<40;i++){car.Simulate(0,0,0,Time.fixedDeltaTime);yield return new WaitForFixedUpdate();}
+     string prompt="";int awards=acts.Awards;float t0=Time.time;bool past=false;
+     car.Body.linearVelocity=d*(site.kind==ActivitySite.Kind.Jump?20:28);
+     while(Time.time-t0<14){var p=car.Body.position;var aim=site.transform.position+d*60;if(trail){float sp=trail.Project(p,out _);aim=trail.At(sp+12,out _);}float v=car.ForwardSpeed;float thr=v<(site.kind==ActivitySite.Kind.Jump?30:28)?1:0;
+      car.Simulate(thr,0,car.GroundedWheels>=2?Steer(car,aim):0,Time.fixedDeltaTime);yield return new WaitForFixedUpdate();
+      if(acts.AtSite==site&&prompt=="")prompt=FindAnyObjectByType<RaceHud>()?acts.Hud.Replace("\n"," / "):"";
+      if(Vector3.Dot(car.Body.position-site.transform.position,d)>(site.kind==ActivitySite.Kind.Jump?90:30)){past=true;if(acts.Awards>awards||site.kind==ActivitySite.Kind.Speed)break;}}
+     if(site.kind==ActivitySite.Kind.Jump){float t1=Time.time;while(acts.Awards==awards&&Time.time-t1<4){car.Simulate(0,.3f,0,Time.fixedDeltaTime);yield return new WaitForFixedUpdate();}}
+     bool got=acts.Awards>awards;
+     Check(got,$"{profile} {site.title} ({(dir>0?"forward":"opposite")}): {(got?"scored":"NO RESULT")}; prompt at the site \"{prompt}\"; result \"{acts.Feedback?.Replace("\n"," / ")}\"; {(site.kind==ActivitySite.Kind.Jump?$"distance {acts.LastJumpAward:F1} m, airtime {acts.LastAirtime:F2} s":$"speed {acts.LastSpeed:F1} m/s")}");
+     if(site.kind==ActivitySite.Kind.Jump&&profile==profiles.Split(',')[0])yield return Late(()=>{var cam=Camera.main;Shot($"C-{site.id}",1600,900);});}}
+   car.enabled=true;car.GetComponent<VehicleInput>().enabled=true;}}
+
+ // Part F: the Echo Cave: the route passing nearest its enclosure (a branch or the main), ridden from 80 m before to 80 m past
+ // it with each profile; a shot at the mouth (day) and one inside (night, headlights on); how many cave pieces were restyled.
+ // cave84:Scene:profile1,profile2
+ IEnumerator Cave084(string scene,string profiles){yield return Load(scene);yield return Menu();
+  var rock=FindObjectsByType<Renderer>(FindObjectsSortMode.None).Where(r=>r.name.Contains("Echo Cave enclosed rock")).ToArray();if(rock.Length==0){Note($"{scene}: no Echo Cave here");yield break;}
+  var b=rock[0].bounds;foreach(var r in rock)b.Encapsulate(r.bounds);var c=b.center;race.road.Initialize();
+  // the passage itself (Dan's Forest Loop Forward Echo Cave route, s 189-349, runs through (53.3, 34.9, 78.3)); the enclosure's
+  // bounds span 200 m and more, so their centre is not on the passage
+  c=new Vector3(53.3f,34.9f,78.3f);
+  WoodlandRoute best=null;float bestD=race.road.Project(c,out float mainLat)>=0?mainLat:999,bestS=race.road.Project(c,out _);
+  foreach(var w in FindObjectsByType<WoodlandRoute>(FindObjectsSortMode.None)){w.Initialize();float s=w.Project(c,out float lat);if(lat<bestD){bestD=lat;best=w;bestS=s;}}
+  Note($"{scene}: Echo Cave enclosure centre {V(c)} size {V(b.size)}; nearest route {(best?best.title:"main")} at s {bestS:F0}, {bestD:F1} m off; restyled cave pieces {SceneryWorld.Current?.Props?.CaveRocks}");
+  foreach(var profile in profiles.Split(',')){
+   if(best){yield return Case(new[]{"ride",scene,profile,best.title,Mathf.Max(0,bestS-80).ToString(System.Globalization.CultureInfo.InvariantCulture),Mathf.Min(best.Length-2,bestS+80).ToString(System.Globalization.CultureInfo.InvariantCulture),"16"});var r=LastRide;Check(r.reached&&r.resets==0&&!r.stuck,$"{scene} {profile} through the Echo Cave on {best.title}: {(r.reached?"through":"NOT through")}, resets {r.resets}, stuck {r.stuck}, max air {r.maxAir:F2}s, min up {r.minUp:F2}");}
+   else yield return Case(new[]{"drive",scene,profile,"Main",Mathf.Max(0,bestS-80).ToString(System.Globalization.CultureInfo.InvariantCulture),"14","16"});}
+  yield return EnterScene(scene);var cam=Camera.main;var chase=FindAnyObjectByType<ChaseCamera>();if(chase)chase.enabled=false;var cv=CameraViews.Current;if(cv)cv.enabled=false;foreach(var cv2 in FindObjectsByType<Canvas>(FindObjectsSortMode.None))cv2.enabled=false;
+  Vector3 At(float s,out Vector3 f){if(best)return best.At(s,out f);return race.road.At(s,out f);}
+  var pin=At(bestS,out var fin);var pmouth=At(Mathf.Max(0,bestS-40),out var fm);
+  Park(At(Mathf.Max(0,bestS-120),out _));yield return new WaitForSeconds(1);
+  WorldLook.Current?.Pin(LookPresets.Compose(TimeOfDay.Day,Weather.Clear));yield return new WaitForSeconds(.5f);
+  yield return Late(()=>{cam.transform.position=pmouth+Vector3.up*1.6f-fm.normalized*6;cam.transform.LookAt(pin+Vector3.up*1.2f);Shot($"F-{scene}-cave-mouth",1600,900);});
+  var car=race.vehicle;Put(car,pin-fin.normalized*4+Vector3.up*.8f,Quaternion.LookRotation(Vector3.ProjectOnPlane(fin,Vector3.up)),Vector3.zero);
+  WorldLook.Current?.Pin(LookPresets.Compose(TimeOfDay.Night,Weather.Clear));yield return new WaitForSeconds(1.5f);
+  yield return Late(()=>{cam.transform.position=car.transform.position-fin.normalized*5+Vector3.up*2.2f;cam.transform.LookAt(pin+fin.normalized*15+Vector3.up*1f);Shot($"F-{scene}-cave-inside-night",1600,900);});
+  WorldLook.Current?.Pin(LookPresets.Compose(TimeOfDay.Day,Weather.Clear));if(chase)chase.enabled=true;if(cv)cv.enabled=true;yield return Menu();}
+
+ // Part E: the rebuilt fences in Free Roam: the section nearest Dan's driveway and the one on the steepest ground, each shot
+ // with the new look and with Classic; posts lengthened to the ground; colliders identical New / Classic. fence84
+ IEnumerator Fence084(){yield return EnterRoam("StreetLoopGreybox","moto");yield return new WaitForSeconds(1);var props=SceneryWorld.Current.Props;
+  bool IsFence(Renderer r)=>r.GetComponent<MeshFilter>()&&r.GetComponent<MeshFilter>().sharedMesh&&r.GetComponent<MeshFilter>().sharedMesh.name.EndsWith("(0.84 fence)");
+  var fences=FindObjectsByType<MeshRenderer>(FindObjectsSortMode.None).Where(IsFence).ToArray();
+  float Slope(Renderer r){var bb=r.bounds;float lo=1e9f,hi=-1e9f;foreach(var (x,z) in new[]{(bb.min.x,bb.min.z),(bb.max.x,bb.max.z),(bb.min.x,bb.max.z),(bb.max.x,bb.min.z)})if(Physics.Raycast(new Vector3(x,bb.max.y+5,z),Vector3.down,out var h,30,~0,QueryTriggerInteraction.Ignore)){lo=Mathf.Min(lo,h.point.y);hi=Mathf.Max(hi,h.point.y);}return hi-lo;}
+  var dan=fences.OrderBy(r=>(r.bounds.center-new Vector3(440,80,12)).sqrMagnitude).FirstOrDefault();var steep=fences.OrderByDescending(Slope).FirstOrDefault();
+  Note($"fences rebuilt {props.Fences} (posts lengthened to the ground {props.FencePostsGrounded}); nearest Dan's driveway {(dan?P(dan.transform)+" at "+V(dan.bounds.center):"-")}; steepest {(steep?P(steep.transform)+" at "+V(steep.bounds.center)+$", {Slope(steep):F1} m of fall across it":"-")}");
+  static string Cols(){var sb2=new StringBuilder();foreach(var c in FindObjectsByType<Collider>(FindObjectsInactive.Include,FindObjectsSortMode.None).Where(c=>!c.attachedRigidbody||c.attachedRigidbody.isKinematic).OrderBy(c=>P(c.transform)).ThenBy(c=>c.bounds.center.x).ThenBy(c=>c.bounds.center.z))sb2.Append($"{P(c.transform)}|{c.enabled}|{c.bounds.center:F3}|{c.bounds.size:F3}\n");return sb2.ToString();}
+  var cam=Camera.main;var chase=FindAnyObjectByType<ChaseCamera>();if(chase)chase.enabled=false;var cv=CameraViews.Current;if(cv)cv.enabled=false;foreach(var cv2 in FindObjectsByType<Canvas>(FindObjectsSortMode.None))cv2.enabled=false;
+  WorldLook.Current?.Pin(LookPresets.Compose(TimeOfDay.Day,Weather.Clear));
+  string colsNew=Cols();
+  foreach(var (r,tag) in new[]{(dan,"dan-driveway"),(steep,"slope")}){if(!r)continue;var bb=r.bounds;var along=bb.size.x>bb.size.z?Vector3.right:Vector3.forward;var side=Vector3.Cross(Vector3.up,along);
+   Park(bb.center+side*25);yield return new WaitForSeconds(1);
+   foreach(bool on in new[]{true,false}){Scenery.Set(on);yield return null;yield return null;var eye=bb.center+side*5+along*3+Vector3.up*1.3f;yield return Late(()=>{cam.transform.position=eye;cam.transform.LookAt(bb.center);Shot($"E-fence-{tag}-{(on?"new":"classic")}",1600,900);});}
+   Scenery.Set(true);yield return null;}
+  // back to back, nothing moving in between: New, Classic, New
+  colsNew=Cols();Scenery.Set(false);yield return null;string colsClassic=Cols();Scenery.Set(true);yield return null;string colsNew2=Cols();
+  var diff=colsNew.Split('\n').Except(colsClassic.Split('\n')).Concat(colsClassic.Split('\n').Except(colsNew.Split('\n'))).ToArray();File.WriteAllLines($"{output}/fence-collider-diff.txt",diff);
+  Check(colsNew==colsClassic&&colsNew==colsNew2&&props.Fences>0,$"static colliders identical New / Classic / New taken back to back: {colsNew==colsClassic&&colsNew==colsNew2} ({colsNew.Split('\n').Length-1} colliders, {diff.Length} differing lines)");
+  if(chase)chase.enabled=true;if(cv)cv.enabled=true;}
 }
 }
 #endif

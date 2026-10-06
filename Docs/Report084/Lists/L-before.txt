@@ -1,0 +1,12 @@
+---- fpv:roadster,original,tourer,fastback,pebble,skyfin,moto,atv,scrambler,drifter:before
+roadster: view 72 deg tall; lowest edge above the view centre within +-12 deg of straight ahead: none; top of the view at 36.0 deg
+original: view 72 deg tall; lowest edge above the view centre within +-12 deg of straight ahead: none; top of the view at 36.0 deg
+tourer: view 72 deg tall; lowest edge above the view centre within +-12 deg of straight ahead: none; top of the view at 36.0 deg
+fastback: view 72 deg tall; lowest edge above the view centre within +-12 deg of straight ahead: none; top of the view at 36.0 deg
+pebble: view 72 deg tall; lowest edge above the view centre within +-12 deg of straight ahead: none; top of the view at 36.0 deg
+skyfin: view 72 deg tall; lowest edge above the view centre within +-12 deg of straight ahead: none; top of the view at 36.0 deg
+moto: view 75 deg tall; lowest edge above the view centre within +-12 deg of straight ahead: none; top of the view at 37.5 deg
+atv: view 80 deg tall; lowest edge above the view centre within +-12 deg of straight ahead: none; top of the view at 40.0 deg
+scrambler: view 75 deg tall; lowest edge above the view centre within +-12 deg of straight ahead: none; top of the view at 37.5 deg
+drifter: view 75 deg tall; lowest edge above the view centre within +-12 deg of straight ahead: none; top of the view at 37.5 deg
+done, failures 0

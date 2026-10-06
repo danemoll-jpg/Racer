@@ -1,0 +1,16 @@
+---- gatelog:DansBackyardForward:moto:atv,original,drifter
+FAIL DansBackyardForward player moto vs atv/original/drifter: PLAYER moto: 01:48.434 missed 1 resets 3 longest stall 6s shortcuts [Tree-Top Trail]; EMBER atv: 01:03.133 missed 0 resets 0 longest stall 2s shortcuts []; GOLD original: 01:35.825 missed 0 resets 1 longest stall 6s shortcuts [Abandoned Cabin Jump]; BLUE drifter: 01:25.925 missed 0 resets 2 longest stall 15s at 318.4,76.93,23.5 shortcuts [Tree-Top Trail]
+---- gatelog:DansBackyardForward:atv:moto,fastback,scrambler
+FAIL DansBackyardForward player atv vs moto/fastback/scrambler: PLAYER atv: 01:09.732 missed 0 resets 1 longest stall 6s shortcuts []; EMBER moto: 01:39.224 missed 1 resets 3 longest stall 7s shortcuts []; GOLD fastback: 01:31.731 missed 0 resets 2 longest stall 6s shortcuts []; BLUE scrambler: 01:37.431 missed 1 resets 1 longest stall 6s shortcuts []
+  MISS EMBER lap 1 CP6 (road gate passed outside span, branch none) gate 269.0,77.57,123.0 half-width 3.3: crossed at x 27.5 m, y -0.9 m (opening +-3.5) on main; nearest 23.9 m
+  MISS BLUE lap 1 CP6 (later gate crossed, branch none) gate 269.0,77.57,123.0 half-width 3.3: crossed at x 34.7 m, y -0.9 m (opening +-3.5) on main; nearest 32.3 m
+---- gatelog:DansBackyardForward:original:drifter,atv,moto
+FAIL DansBackyardForward player original vs drifter/atv/moto: PLAYER original: 01:18.456 missed 0 resets 2 longest stall 6s shortcuts []; EMBER drifter: 01:35.362 missed 1 resets 3 longest stall 7s shortcuts []; GOLD atv: 01:12.853 missed 0 resets 2 longest stall 6s shortcuts []; BLUE moto: 01:04.720 missed 0 resets 1 longest stall 6s shortcuts []
+  MISS EMBER lap 1 CP6 (road gate passed outside span, branch none) gate 269.0,77.57,123.0 half-width 3.3: crossed at x 14.9 m, y -0.8 m (opening +-3.5) on main; nearest 11.8 m
+---- gatelog:DansBackyardReverse:moto:atv,original,drifter
+PASS DansBackyardReverse player moto vs atv/original/drifter: PLAYER moto: 01:08.149 missed 0 resets 0 longest stall 2s shortcuts [Storm Drain / Gully Jump]; EMBER atv: 01:06.952 missed 0 resets 0 longest stall 2s shortcuts []; GOLD original: 01:01.721 missed 0 resets 0 longest stall 1s shortcuts []; BLUE drifter: 01:04.816 missed 0 resets 1 longest stall 7s shortcuts []
+---- gatelog:DansBackyardReverse:atv:moto,fastback,scrambler
+PASS DansBackyardReverse player atv vs moto/fastback/scrambler: PLAYER atv: 01:18.187 missed 0 resets 1 longest stall 7s shortcuts [Storm Drain / Gully Jump]; EMBER moto: 01:11.289 missed 0 resets 2 longest stall 7s shortcuts []; GOLD fastback: 01:10.603 missed 0 resets 1 longest stall 5s shortcuts [Storm Drain / Gully Jump]; BLUE scrambler: 00:57.829 missed 0 resets 0 longest stall 2s shortcuts []
+---- gatelog:DansBackyardReverse:original:drifter,atv,moto
+PASS DansBackyardReverse player original vs drifter/atv/moto: PLAYER original: 01:03.226 missed 0 resets 0 longest stall 2s shortcuts []; EMBER drifter: 01:06.667 missed 0 resets 0 longest stall 2s shortcuts [Storm Drain / Gully Jump]; GOLD atv: 01:05.607 missed 0 resets 0 longest stall 2s shortcuts []; BLUE moto: 01:03.934 missed 0 resets 0 longest stall 1s shortcuts []
+done, failures 3

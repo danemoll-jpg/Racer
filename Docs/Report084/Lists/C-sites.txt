@@ -1,0 +1,4 @@
+SITE forest-speed-0 "S Cherokee hill speed trap" Speed at (318.6, 43.70, 404.7) forward (0.0, 0.00, -1.0) radius 5.5 targets 18/26/34 m/s
+SITE forest-speed-1 "Hwy 92 east speed trap" Speed at (481.0, 18.87, 561.4) forward (1.0, 0.00, 0.0) radius 9.2 targets 20/28/36 m/s
+SITE forest-jump-01 "Pool-house jump" Jump at (388.2, 86.06, -3.3) forward (1.0, 0.00, 0.2) radius 32.0 targets 12/22/32 m
+map destinations now: Moll's, Lake gateway, Ridge overlook, Highway market, Trickum woods, Summit Homeward Flight / run-up, Roger's, McFadden's, Anderson's, Campsite, Storm drain tunnel, S Cherokee speed trap, Hwy 92 speed trap, Pool-house jump

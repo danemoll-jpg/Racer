@@ -174,7 +174,29 @@ namespace Racer
             if(reverseShortcut)target=reverseShortcut.Target(activeBranch,Car.Body.position,branchS,look);
             var ahead = tangent;
             if(activeBranch) activeBranch.At(branchS+look,out ahead); else DriveRoad.At(s+Direction*look,out ahead);
+            // 0.84 Part H (Dan's Backyard only): at the end of a shortcut the look-ahead used to stop at the shortcut's last
+            // point, so a racer aimed back at it (looping) or cut across to the far side of the next hairpin, missing its gate
+            // (Reverse CP 4 after Storm Drain / Gully Jump); now it carries on along the main from the rejoin.
+            bool backyardLine=racing&&backyard;
+            if(backyardLine&&activeBranch&&!reverseShortcut&&branchS+look>activeBranch.Length){float past=branchS+look-activeBranch.Length;target=DriveRoad.At(activeBranch.exitRoad+Direction*past,out ahead);}
             target += Vector3.Cross(Vector3.up, ahead).normalized * desiredLane;
+            // 0.84 Part H (Dan's Backyard only): the gates sit on the trail's centre line and span little more than the trail,
+            // but on its tight bends the look-ahead cut the inside by 4-7 m and passed beside the gate (Forward CP 1, 2, 3).
+            // When the racer's next gate is within its look-ahead on the main, it steers for the gate's centre.
+            if(backyardLine&&!activeBranch&&Racer!=null&&Race.gates!=null&&Race.gates.Length>0)
+            {
+                int next=Racer.Progress.NextGate;
+                if(next>=0&&next<Race.gates.Length)
+                {
+                    var gate=Race.gates[next].transform.position;float gs=DriveRoad.Project(gate,out float gateLateral);
+                    float toGate=Mathf.Repeat((gs-s)*Direction,DriveRoad.Length);
+                    // A crest or kicker before the gate sends the rider the way it faces at the lip: from the start of its
+                    // approach the rider already heads for the gate beyond it (Forward CP 1 after the Dirt crest, CP 3 after
+                    // the Downhill kicker, which otherwise flung riders 20 m wide of the gate).
+                    bool jumpFirst=forestLayout&&forestLayout.Approach(s)&&toGate<80;
+                    if(gateLateral<3&&toGate>2&&(toGate<look||jumpFirst)){target=gate;target.y=Car.Body.position.y;}
+                }
+            }
             // Use the launch's horizontal bearing across its airborne gap. A 3D
             // nearest-road projection can move behind an ascending vehicle and
             // make ordinary pursuit steer away from the aligned catch slope.
