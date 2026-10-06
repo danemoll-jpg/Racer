@@ -94,6 +94,8 @@ namespace Racer
         // every placed tree, bush and clump (for the checks): where it stands, how wide, and what it was made from
         public struct Placement { public Vector3 bottom; public float radius, height; public int variant; public string source; }
         public readonly List<Placement> Placements = new();
+        public int TrunksAdded { get; private set; }
+        public int BarkSeated { get; private set; }
         public List<string> TrunksNear(Vector3 p, float r) => Placements.Where(x => { var d = x.bottom - p; d.y = 0; return d.magnitude < r; })
             .Select(x => $"{Variants[x.variant]} {x.source} at {x.bottom.x:F1},{x.bottom.y:F2},{x.bottom.z:F1} r {x.radius:F2} h {x.height:F1}").ToList();
         public static string KitInfo => material ? $"kit: crown {crownNear?[0]?.vertexCount} verts, trunk {trunkNear?[0]?.vertexCount} verts, material {material.shader.name} supported {material.shader.isSupported} instancing {material.enableInstancing}" : "kit not loaded";
@@ -236,6 +238,20 @@ namespace Racer
             if (Cleared.Count > 0) Debug.Log($"Scenery: removed {Cleared.Count} tree trunk(s) standing on drivable surfaces in {scene.name}");
         }
 
+        // 0.84 Part K (BUG-001 "floating trees", ForestLoopReverse): later edits lowered the ground under some trees (the 0.31
+        // pool basin and lake-exit bank, the 0.29 hill smoothing, the cuttings). The trunk colliders were lowered onto the
+        // ground in the scene itself (Tools/Report084/Report084Trees.cs); what is only drawn is grounded here: a visual-only
+        // trunk (bark box) hanging over the ground is set down on it, a crown-only clump hanging more than 0.5 m gets a trunk
+        // down to the ground (a bush is set down), and one hanging over a trail or road is left out.
+        static readonly HashSet<string> GroundedScenes = new() { "ForestLoopReverse" };
+        static bool TreeLike(Collider c) => c.name.IndexOf("trunk", System.StringComparison.OrdinalIgnoreCase) >= 0 || c.name.IndexOf("tree", System.StringComparison.OrdinalIgnoreCase) >= 0;
+        static bool GroundBelow(Vector3 p, out float y)
+        {
+            y = 0; float best = float.MaxValue; bool any = false;
+            foreach (var h in Physics.RaycastAll(p + Vector3.up * .5f, Vector3.down, 80, ~0, QueryTriggerInteraction.Ignore))
+                if (!TreeLike(h.collider) && !h.collider.attachedRigidbody && h.distance < best) { best = h.distance; y = h.point.y; any = true; }
+            return any;
+        }
         public void Build(Scene scene, List<Renderer> hidden)
         {
             if (!LoadKit()) { enabled = false; return; }
@@ -276,7 +292,10 @@ namespace Racer
             {
                 var bottom = new Vector3(b.center.x, b.min.y, b.center.z);
                 if (Nearest(bottom, Mathf.Max(.4f, b.extents.x), _ => true) >= 0) continue;
-                trunks.Add(new Trunk { bottom = bottom, up = Vector3.up, width = Mathf.Min(b.size.x, b.size.z), height = b.size.y }); Index(trunks.Count - 1);
+                float h = b.size.y;
+                // 0.84 Part K: a visual-only trunk hanging over lowered ground is set down on it (and reaches as high as before)
+                if (GroundedScenes.Contains(scene.name) && GroundBelow(bottom, out float ground) && bottom.y - ground > .3f) { h += bottom.y - ground; bottom.y = ground; BarkSeated++; }
+                trunks.Add(new Trunk { bottom = bottom, up = Vector3.up, width = Mathf.Min(b.size.x, b.size.z), height = h }); Index(trunks.Count - 1);
             }
             // 4. crowns to the nearest trunk whose top reaches into or near them
             var loose = new List<Bounds>();
@@ -325,8 +344,19 @@ namespace Racer
                 bool bush = b.size.y < 3.5f; var bottom = new Vector3(b.center.x, b.min.y, b.center.z);
                 if (Skip(bottom, false, bush ? "bush" : "crown-only clump", false, null)) { DrivableSkipped++; continue; }
                 int v = bush ? (hash < .5f ? Bush : Shrub) : Round; if (bush) Bushes++; else CrownOnly++;
+                string source = bush ? "bush" : "crown-only clump";
+                // 0.84 Part K: hanging more than 0.5 m above the ground (not over a drivable surface): a bush is set down on
+                // the ground, a clump gets a trunk down to it
+                float ground = 0; bool hanging = GroundedScenes.Contains(scene.name) && GroundBelow(bottom, out ground) && bottom.y - ground > .5f;
+                // hanging over a trail or road (the ground under it was cut away): left out, as on a drivable surface
+                if (hanging && OnDrivable(new Vector3(bottom.x, ground, bottom.z), trails, out var over)) { DrivableReport.Add($"REMOVED (visual; hanging {bottom.y - ground:F1} m over {over}) {(bush ? "bush" : "crown-only clump")} at {bottom.x:F1},{bottom.y:F2},{bottom.z:F1}"); DrivableSkipped++; if (bush) Bushes--; else CrownOnly--; continue; }
+                if (hanging)
+                {
+                    if (bush) { bottom.y = ground; source = "bush (set down on the ground)"; }
+                    else { AddTrunk(v, new Vector3(bottom.x, ground, bottom.z), Vector3.up, Mathf.Clamp(radius * .14f, .25f, .6f), bottom.y - ground + b.size.y * .25f, hash * 360); TrunksAdded++; source = "crown-only clump (trunk added)"; }
+                }
                 AddCrown(v, bottom, radius, b.size.y, hash * 360);
-                Placements.Add(new Placement { bottom = bottom, radius = radius, height = b.size.y, variant = v, source = bush ? "bush" : "crown-only clump" });
+                Placements.Add(new Placement { bottom = bottom, radius = radius, height = b.size.y, variant = v, source = source });
             }
         }
 

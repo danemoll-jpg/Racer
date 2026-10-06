@@ -1,0 +1,39 @@
+---- deadzone
+PASS pad dead zone: triggers 0.06/0.09 -> throttle 0.00, brake 0.00; triggers 0.09/0.00 -> throttle 0.00, brake 0.00; triggers 1.00/0.00 -> throttle 1.00, brake 0.00; triggers 0.00/1.00 -> throttle 0.00, brake 1.00; triggers 0.55/0.00 -> throttle 0.50, brake 0.00
+---- creep:StreetLoopGreybox:original,atv,moto
+StreetLoopGreybox: flattest main-road station 4642 (grade 0.0 %), steepest under 15 % 2374 (grade 15.0 %) at -331.1,11.29,-565.8
+PASS original flat (flat) from 0 mph, before: at rest after 0.0 s; after 25 s 0.00 mph, moved 0.00 m in the last 5 s (fastest 0.00 mph)
+PASS original flat (flat) from 0 mph, NOW: at rest after 0.0 s; after 25 s 0.00 mph, moved 0.00 m in the last 5 s (fastest 0.00 mph)
+PASS original flat (flat) from 20 mph, before: at rest after 11.0 s; after 25 s 0.00 mph, moved 0.00 m in the last 5 s (fastest 0.00 mph)
+PASS original flat (flat) from 20 mph, NOW: at rest after 3.1 s; after 25 s 0.00 mph, moved 0.00 m in the last 5 s (fastest 0.00 mph)
+PASS original hill (15.0 % grade, facing downhill) from 0 mph, before: at rest after 0.0 s; after 25 s 2.46 mph, moved 6.15 m in the last 5 s (fastest 3.09 mph)
+PASS original hill (15.0 % grade, facing downhill) from 0 mph, NOW: at rest after 0.0 s; after 25 s 0.00 mph, moved 0.00 m in the last 5 s (fastest 0.00 mph)
+PASS original hill (15.0 % grade, facing downhill) from 20 mph, before: never stopped; after 25 s 1.86 mph, moved 4.61 m in the last 5 s (fastest 2.27 mph)
+PASS original hill (15.0 % grade, facing downhill) from 20 mph, NOW: at rest after 4.8 s; after 25 s 0.00 mph, moved 0.00 m in the last 5 s (fastest 0.00 mph)
+PASS atv flat (flat) from 0 mph, before: at rest after 0.0 s; after 25 s 0.00 mph, moved 0.00 m in the last 5 s (fastest 0.00 mph)
+PASS atv flat (flat) from 0 mph, NOW: at rest after 0.0 s; after 25 s 0.00 mph, moved 0.00 m in the last 5 s (fastest 0.00 mph)
+PASS atv flat (flat) from 20 mph, before: at rest after 11.0 s; after 25 s 0.00 mph, moved 0.00 m in the last 5 s (fastest 0.00 mph)
+PASS atv flat (flat) from 20 mph, NOW: at rest after 3.1 s; after 25 s 0.00 mph, moved 0.00 m in the last 5 s (fastest 0.00 mph)
+PASS atv hill (15.0 % grade, facing downhill) from 0 mph, before: at rest after 0.0 s; after 25 s 2.46 mph, moved 6.16 m in the last 5 s (fastest 3.10 mph)
+PASS atv hill (15.0 % grade, facing downhill) from 0 mph, NOW: at rest after 0.0 s; after 25 s 0.00 mph, moved 0.00 m in the last 5 s (fastest 0.00 mph)
+PASS atv hill (15.0 % grade, facing downhill) from 20 mph, before: never stopped; after 25 s 1.87 mph, moved 4.59 m in the last 5 s (fastest 2.27 mph)
+PASS atv hill (15.0 % grade, facing downhill) from 20 mph, NOW: at rest after 4.8 s; after 25 s 0.00 mph, moved 0.00 m in the last 5 s (fastest 0.00 mph)
+PASS moto flat (flat) from 0 mph, before: at rest after 0.0 s; after 25 s 0.00 mph, moved 0.00 m in the last 5 s (fastest 0.00 mph)
+PASS moto flat (flat) from 0 mph, NOW: at rest after 0.0 s; after 25 s 0.00 mph, moved 0.00 m in the last 5 s (fastest 0.00 mph)
+PASS moto flat (flat) from 20 mph, before: at rest after 11.0 s; after 25 s 0.00 mph, moved 0.00 m in the last 5 s (fastest 0.00 mph)
+PASS moto flat (flat) from 20 mph, NOW: at rest after 3.1 s; after 25 s 0.00 mph, moved 0.00 m in the last 5 s (fastest 0.00 mph)
+PASS moto hill (15.0 % grade, facing downhill) from 0 mph, before: at rest after 0.0 s; after 25 s 2.46 mph, moved 6.16 m in the last 5 s (fastest 3.10 mph)
+PASS moto hill (15.0 % grade, facing downhill) from 0 mph, NOW: at rest after 0.0 s; after 25 s 0.00 mph, moved 0.00 m in the last 5 s (fastest 0.00 mph)
+PASS moto hill (15.0 % grade, facing downhill) from 20 mph, before: never stopped; after 25 s 1.87 mph, moved 4.59 m in the last 5 s (fastest 2.27 mph)
+PASS moto hill (15.0 % grade, facing downhill) from 20 mph, NOW: at rest after 4.8 s; after 25 s 0.00 mph, moved 0.00 m in the last 5 s (fastest 0.00 mph)
+---- startpress:StreetLoopGreybox:moto,atv,drifter
+StreetLoopGreybox START RACE 1: StartRace() call 471 ms; the next 20 frames 525 13 20 17 16 17 17 17 17 17 17 17 17 17 17 17 17 17 17 17 ms; state Countdown, racers 4, drivers 23
+StreetLoopGreybox START RACE 2: StartRace() call 470 ms; the next 20 frames 501 16 17 17 17 17 17 16 17 17 16 17 17 17 17 17 17 17 17 17 ms; state Countdown, racers 4, drivers 23
+StreetLoopGreybox START RACE 3: StartRace() call 459 ms; the next 20 frames 487 16 17 17 17 17 16 17 17 17 16 16 18 15 17 17 17 17 16 17 ms; state Countdown, racers 4, drivers 23
+---- title84:1.5
+PASS title voice (2.75 s clip incl. 1 s lead silence), button pressed 1.5 s after the voice started, before: 103 frames while speaking, 0 with no active AudioListener; title listener frames 0; scene now StreetLoopGreybox
+PASS title voice (2.75 s clip incl. 1 s lead silence), button pressed 1.5 s after the voice started, NOW: 180 frames while speaking, 0 with no active AudioListener; title listener frames 0; scene now FreeRoamWorld
+---- lap84:StreetLoopGreybox:moto
+PASS StreetLoopGreybox moto lap on the autopilot, before: 02:06.878, missed 0, resets 0
+PASS StreetLoopGreybox moto lap on the autopilot, NOW (hold applied): 02:06.858, missed 0, resets 0
+done, failures 0

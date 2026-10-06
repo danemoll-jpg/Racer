@@ -55,6 +55,11 @@ namespace Racer
         {
             Show(what, detail, course); instance.StartCoroutine(instance.Load(scene));
         }
+        // 0.84 Part G: the screen over work in the same scene (building a race's vehicles); the caller reports Started().
+        public static void Cover(string what, string detail, CoursePreviewCatalog.Course course)
+        {
+            Show(what, detail, course); instance.target = WorldEnd; instance.bar = SceneShare; instance.step.text = "Vehicles";
+        }
         // world-building steps (SceneryWorld): done of total
         public static void Report(string label, int done, int total)
         {

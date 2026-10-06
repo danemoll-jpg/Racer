@@ -27,7 +27,7 @@ kit.COLORS['cream'] = (.93, .90, .80)
 
 CARS = {
     'Roadster': dict(style='roadster', track=.84, axle=1.15, H=(-.36, .02, -.55), length=1.95, hw=.90, belt=.40, roof=.72,
-                     wind=(.08, -.14), rear=(-1.10, -1.10), bpost=-.6, wagon=False,
+                     wind=(.08, -.21), rear=(-1.10, -1.10), bpost=-.6, wagon=False,
                      keys=[(1.95, .78, .26, .03, -.08), (1.88, .85, .33, .04, -.16), (1.70, .88, .36, .04, -.24), (1.0, .90, .38, .03, -.30),
                            (.1, .90, .40, .02, -.33), (-.6, .90, .41, .02, -.33), (-1.4, .89, .42, .03, -.26), (-1.80, .85, .40, .03, -.20),
                            (-1.96, .76, .33, .02, -.10)]),
@@ -52,8 +52,11 @@ CARS = {
 def cabin(C):
     G = 'Body'; st = C['style']; belt, roof = C['belt'], C['roof']; zf, zr0 = C['wind']; zr, zd = C['rear']; hw = C['hw']
     if st == 'roadster':
-        # a low framed windscreen across the cockpit, and a padded rim round the open cockpit
-        xb = hw * .80; top = belt + .30
+        # a framed windscreen across the cockpit, and a padded rim round the open cockpit. 0.84 (Part L): the top rail was at
+        # belt + .30 (0.70 m), 8 cm below the driver's eyes (H + (0, .77, .05)), so in first person it crossed the middle of
+        # the view; now it is raked further back and stands at 0.86 m, about 17 degrees above the eye line (the upper part of
+        # the view), with the same slim chrome posts and rail.
+        xb = hw * .80; top = belt + .46
         pane('Windscreen', [(-xb, belt + .02, zf), (xb, belt + .02, zf), (xb - .04, top, zr0), (-xb + .04, top, zr0)], G)
         for s in (-1, 1): cyl('Screen post', (s * xb, belt, zf + .01), (s * (xb - .04), top + .01, zr0), .022, G, 'chrome', 8)
         cyl('Screen top', (-xb + .04, top + .01, zr0), (xb - .04, top + .01, zr0), .018, G, 'chrome', 8)

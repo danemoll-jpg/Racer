@@ -143,12 +143,17 @@ namespace Racer
         void Go(string scene,bool roam=false)
         {
             Save.SaveSettings();Time.timeScale=1;AudioListener.pause=false;
+            var (what,detail,course)=LoadingText(scene,roam);
+            LoadingScreen.LoadScene(scene,what,detail,course);
+        }
+        (string what,string detail,CoursePreviewCatalog.Course course) LoadingText(string scene,bool roam)
+        {
             int course=System.Array.IndexOf(RacePlaylists.Scenes,scene);var courses=CoursePreviewCatalog.Courses;
             string vehicle=VehicleProfile.Find(Race.EligibleVehicle(Save.Settings.vehicleId)).Name;
             string what=roam?"Free Roam":course>=0?RacePlaylists.Titles[course].Replace(" - "," — "):scene;
             string from=RacePlaylists.Titles[Mathf.Clamp(RoamCourse,0,RacePlaylists.Titles.Length-1)].Replace(" - "," — ");
             string detail=roam?$"Starting at {from}\nWeather: {RoamWeatherLabel}\n{vehicle}":$"{TimeOfDayLabel} · {WeatherLabel}\n{vehicle}"+(Race.opponents?$"\nAgainst: {Race.RosterLabel}":"");
-            LoadingScreen.LoadScene(scene,what,detail,!roam&&course>=0&&course<courses.Length?courses[course]:null);
+            return (what,detail,!roam&&course>=0&&course<courses.Length?courses[course]:null);
         }
         // FreeRoamWorld shows the selected course's name and vehicle rules and starts the player at that course's start.
         void ApplyRoamCourse()
@@ -381,7 +386,19 @@ namespace Racer
             NewLapRecord = NewRaceRecord = false; CountdownRemaining = 3; lastTick = 3;
             Notice = null; LockVehicle(true); SetStage(Stage.Countdown); Sound(tick);
         }
-        public void StartRace() { if(InRoamWorld){pendingRace=true;LeaveRoamWorld(null);return;} SessionStartedAt=Time.unscaledTime;RoamMenu=false;callers.Clear();menus.ResetPages(); if(RacePlaylists.Active!=null)RacePlaylists.Championship.Restart(RacePlaylists.Position);Race.FreeRoam=false;SetGateVisibility(true);Click(); Race.RestartRace(); }
+        public void StartRace() { if(InRoamWorld){pendingRace=true;LeaveRoamWorld(null);return;} SessionStartedAt=Time.unscaledTime;RoamMenu=false;callers.Clear();menus.ResetPages(); if(RacePlaylists.Active!=null)RacePlaylists.Championship.Restart(RacePlaylists.Position);Race.FreeRoam=false;SetGateVisibility(true);Click(); if(LoadingScreen.Holding)Race.RestartRace();else StartCoroutine(RestartBehindLoadingScreen()); }
+        // 0.84 Part G: building the rivals and traffic for a race takes about half a second, then the first frame with them
+        // is slow too; START RACE used to freeze the menu for that time. The loading screen now comes up at once and the
+        // race is built behind it (the countdown waits for it, as after a scene load).
+        bool restarting;
+        System.Collections.IEnumerator RestartBehindLoadingScreen()
+        {
+            if(restarting)yield break;restarting=true;
+            var (what,detail,course)=LoadingText(gameObject.scene.name,false);
+            LoadingScreen.Cover(what,detail,course);
+            yield return null;yield return null; // the screen is drawn before the work starts
+            restarting=false;Race.RestartRace();LoadingScreen.Started();
+        }
         public void StartFreeRoam(){int course=System.Array.IndexOf(RacePlaylists.Scenes,gameObject.scene.name);if(!InRoamWorld&&course>=0){RoamCourse=course;LoadScene(RoamScene);return;}SessionStartedAt=Time.unscaledTime;RoamMenu=false;callers.Clear();menus.ResetPages();Race.FreeRoam=true;SetGateVisibility(false);Click();Race.RestartRace();}
         public void BeginRoaming(){DebugMovementUsed=false;attempt=null;CountdownRemaining=0;LapRank=RaceRank=0;NewLapRecord=NewRaceRecord=false;LockVehicle(false);Race.GetComponent<WrongWayGuidance>()?.Clear();SetStage(Stage.Racing);}
         void SetGateVisibility(bool visible){foreach(var gate in Race.gates)foreach(var renderer in gate.GetComponentsInChildren<Renderer>(true))renderer.enabled=visible;}

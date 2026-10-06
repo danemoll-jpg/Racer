@@ -1,0 +1,1 @@
+FLOATS 0.35 m: tree crown-only clump base -94.4,31.94,48.4 height 6.2, ground 31.59 (Ground_320_320), main station 1075 (32 m off)

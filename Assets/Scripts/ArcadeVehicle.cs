@@ -51,7 +51,15 @@ namespace Racer
             if(!GetComponent<WaterFeedback>())gameObject.AddComponent<WaterFeedback>();
         }
 
-        void FixedUpdate() => Simulate(input.Throttle, input.BrakeReverse, input.Steering, Time.fixedDeltaTime);
+        // 0.84: only the player's own step (input path) holds at rest; AI and traffic call Simulate directly and are unchanged.
+        bool playerStep;
+        /// <summary>Checks only: apply the player's hold-at-rest to an external Simulate call.</summary>
+        [System.NonSerialized] public bool ForceHoldAtRest;
+        void FixedUpdate() { playerStep = true; Simulate(input.Throttle, input.BrakeReverse, input.Steering, Time.fixedDeltaTime); playerStep = false; }
+        // 0.84 (no idle creep): with no throttle, brake or reverse, below HoldSpeed the ground holds the vehicle like an
+        // automatic with its foot off: the slope's pull is cancelled and a stopping force brings it fully to rest, both
+        // fading in from nothing at HoldSpeed, so coasting at speed and everything on the throttle are as before.
+        const float HoldSpeed = 5f, StopDeceleration = 3f, MaxHold = 4.5f;
 
         // Public step supports deterministic physics checks without coupling the motor to input devices.
         public void Simulate(float throttle, float brakeReverse, float steering, float dt)
@@ -95,6 +103,17 @@ namespace Racer
                 if (throttle < 0.05f && brakeReverse < 0.05f) drive -= speedForward * coastingDrag;
                 drive *= Mathf.Lerp(1,.48f,WaterImmersion);
                 Body.AddForce(forward * drive, ForceMode.Acceleration);
+                if ((playerStep || ForceHoldAtRest) && throttle < 0.05f && brakeReverse < 0.05f)
+                {
+                    Vector3 planar = Vector3.ProjectOnPlane(Body.linearVelocity, up);
+                    float rolling = planar.magnitude, hold = Mathf.Clamp01(1 - rolling / HoldSpeed);
+                    if (hold > 0)
+                    {
+                        Vector3 slope = Vector3.ProjectOnPlane(Physics.gravity, up);
+                        Vector3 stop = rolling > 1e-4f ? -planar / rolling * Mathf.Min(StopDeceleration * hold, rolling / dt) : Vector3.zero;
+                        Body.AddForce(Vector3.ClampMagnitude(-slope * hold + stop, MaxHold), ForceMode.Acceleration);
+                    }
+                }
                 Body.AddForce(-Vector3.ProjectOnPlane(Body.linearVelocity,up)*(.95f*WaterImmersion),ForceMode.Acceleration);
                 float sideways = Vector3.Dot(Body.linearVelocity, right);
                 Body.AddForce(-right * Mathf.Clamp(sideways * lateralGrip, -maxGripAcceleration, maxGripAcceleration), ForceMode.Acceleration);

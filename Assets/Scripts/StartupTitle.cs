@@ -70,6 +70,7 @@ namespace Racer
             var key=Rect("Key",glyphRect);Stretch(key);advanceKey=key.gameObject.AddComponent<Text>();advanceKey.font=text.font;advanceKey.fontSize=20;advanceKey.alignment=TextAnchor.MiddleCenter;advanceKey.color=Color.white;advanceKey.raycastTarget=false;
             Voice=gameObject.AddComponent<AudioSource>();Theme=gameObject.AddComponent<AudioSource>();ThemeOpening=gameObject.AddComponent<AudioSource>();
             foreach(var source in new[]{Voice,Theme,ThemeOpening}){source.playOnAwake=false;source.spatialBlend=0;source.ignoreListenerPause=true;source.priority=32;}
+            Voice.priority=0; // 0.84 (CR-118): never the voice that gets culled
             Voice.volume=.85f;Theme.volume=ThemeOpening.volume=.27f;Theme.loop=true;
             StartCoroutine(LoadAudio());
         }
@@ -111,6 +112,34 @@ namespace Racer
         static System.Collections.Generic.IEnumerable<ButtonControl> Buttons()=>InputSystem.devices.Where(d=>d is Keyboard || d is Gamepad || d is Mouse).SelectMany(d=>d.allControls.OfType<ButtonControl>()).Where(b=>!b.synthetic&&!(b.parent is StickControl));
         public static bool ButtonHeld()=>Buttons().Any(b=>b.isPressed);
         static bool ButtonPressed()=>Buttons().Any(b=>b.wasPressedThisFrame);
+        // 0.84 (CR-118): the voice is a process-lifetime source, but it is only heard while an AudioListener exists. Pressing a
+        // button during the speech loads Free Roam, and while one scene is unloaded and the next is built (behind the loading
+        // screen) there is no camera listener for a while, so the rest of the phrase played into silence: clipped. While the
+        // speech is pending and no other listener is active, this object listens itself (the voice is 2D, so where does not
+        // matter); it stops as soon as the scene's own listener is back. Also logs what happened (Player.log).
+        // The game is started by the launcher, so its window may not have focus yet (or loses it to the launcher) while the
+        // phrase plays; with Run In Background off, an unfocused player pauses its audio. While the speech is pending the
+        // player keeps running in the background; the project setting is restored as soon as it has ended.
+        public static bool KeepListener=true;
+        bool backgroundBefore,backgroundHeld;int focusLosses;
+        void OnApplicationFocus(bool focus){if(!focus&&!speechComplete)focusLosses++;}
+        AudioListener fallback;
+        public int FramesWithoutListener { get; private set; }
+        public int FramesOnFallback { get; private set; }
+        bool reported;
+        void LateUpdate()
+        {
+            bool pending=!speechComplete||(Voice&&Voice.isPlaying);
+            if(pending&&!backgroundHeld){backgroundHeld=true;backgroundBefore=Application.runInBackground;Application.runInBackground=true;}
+            else if(!pending&&backgroundHeld){backgroundHeld=false;Application.runInBackground=backgroundBefore;}
+            bool other=false;
+            if(pending)foreach(var l in FindObjectsByType<AudioListener>(FindObjectsSortMode.None))if(l!=fallback&&l.isActiveAndEnabled){other=true;break;}
+            bool need=pending&&!other&&KeepListener;
+            if(need&&!fallback)fallback=gameObject.AddComponent<AudioListener>();
+            if(fallback&&fallback.enabled!=need)fallback.enabled=need;
+            if(pending&&!other){if(need)FramesOnFallback++;else FramesWithoutListener++;}
+            if(!pending&&!reported&&VoiceStarts>0){reported=true;Debug.Log($"Title voice: {(cancelledBeforeSpeech?"cancelled before it began":"played to the end")} ({Voice.clip.length:F2} s clip); frames with no scene listener {FramesOnFallback+FramesWithoutListener} (title listener used {FramesOnFallback}, silent {FramesWithoutListener}); window focus lost {focusLosses} times meanwhile; listener volume {AudioListener.volume:F2}");}
+        }
         void Update()
         {
             if(advanceText){advanceText.text=MenuInput.Controller?"Continue / any button":"Press any key or click";advanceGlyph.gameObject.SetActive(MenuInput.Controller);advanceGlyph.SetPath("<Gamepad>/buttonSouth");advanceKey.text="A";}
@@ -136,6 +165,6 @@ namespace Racer
             while(!speechComplete)yield return null;
             instance=null;Destroy(gameObject);
         }
-        void OnDestroy(){StopAllCoroutines();if(Voice)Voice.Stop();if(Theme)Theme.Stop();if(ThemeOpening)ThemeOpening.Stop();if(instance==this)instance=null;}
+        void OnDestroy(){if(backgroundHeld)Application.runInBackground=backgroundBefore;StopAllCoroutines();if(Voice)Voice.Stop();if(Theme)Theme.Stop();if(ThemeOpening)ThemeOpening.Stop();if(instance==this)instance=null;}
     }
 }

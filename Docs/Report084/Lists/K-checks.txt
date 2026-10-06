@@ -1,0 +1,12 @@
+---- floaters:ForestLoopReverse:285.6,-196.7,250
+PASS ForestLoopReverse: trunks lowered at load 132, removed (ground cut away more than 2 m) 103, crown-only clumps given a trunk 1247, visual-only trunks set down 100; 24773 other trees and trunk colliders checked: 1 float more than 0.3 m above the ground, 0 of them within 250 m of (285.6, -196.7) (floaters-ForestLoopReverse.txt)
+---- jshots:afterK
+done, failures 0
+---- grounding:ForestLoopReverse
+PASS ForestLoopReverse: new scenery built
+PASS ForestLoopReverse: buildings with no daylight under them 47/47 (worst gap 0.00 m; list in grounding-buildings-ForestLoopReverse.txt)
+PASS ForestLoopReverse: posts and rocks checked 72 (clue cairns re-seated on today's ground: 5): floating 0, half buried 0 (grounding-props-ForestLoopReverse.txt)
+PASS ForestLoopReverse: trees / bushes / clumps on a drivable surface: found 145, removed or hidden 145, kept beside a race line 0; left standing on one now 0
+PASS ForestLoopReverse: ground detail placed so far 1303; on a drivable surface 0
+PASS ForestLoopReverse: every static collider identical New / Classic / New (13347 colliders)
+done, failures 0

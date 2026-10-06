@@ -27,11 +27,12 @@ namespace Racer
         void Awake()
         {
             throttle = new InputAction("Throttle", InputActionType.Value);
-            throttle.AddBinding("<Gamepad>/rightTrigger");
+            // 0.84: a resting trigger reads a few percent on some pads; below 0.1 it is released.
+            throttle.AddBinding("<Gamepad>/rightTrigger").WithProcessor("axisDeadzone(min=0.1,max=1)");
             throttle.AddBinding("<Keyboard>/w");
             throttle.AddBinding("<Keyboard>/upArrow");
             brake = new InputAction("BrakeReverse", InputActionType.Value);
-            brake.AddBinding("<Gamepad>/leftTrigger");
+            brake.AddBinding("<Gamepad>/leftTrigger").WithProcessor("axisDeadzone(min=0.1,max=1)");
             brake.AddBinding("<Keyboard>/s");
             brake.AddBinding("<Keyboard>/downArrow");
             steering = new InputAction("Steering", InputActionType.Value);

@@ -13,7 +13,7 @@ using System.Reflection;
 namespace Racer {
 // 0.83 targeted checks, added to the 0.80 runner (same muted isolated save, same helpers): PROBE_CASES="case:args;...".
 public sealed partial class Report080Checks {
- IEnumerator Cases083(string[] a)=>a[0] switch{"tris"=>Tris(a[1],a[2]),"contacts"=>Contacts(a),"racelog"=>RaceLog(a),"people83"=>People083(),"tracks"=>TracksCheck(),"winner83"=>Winner083(a[1],a[2],int.Parse(a[3])),"pov"=>PovCheck(a[1]),"records83"=>Records083(),_=>null};
+ IEnumerator Cases083(string[] a)=>a[0] switch{"tris"=>Tris(a[1],a[2]),"contacts"=>Contacts(a),"racelog"=>RaceLog(a),"people83"=>People083(),"tracks"=>TracksCheck(),"winner83"=>Winner083(a[1],a[2],int.Parse(a[3])),"pov"=>PovCheck(a[1]),"records83"=>Records083(),_=>Cases084(a)};
  // The drive trace (see Drive) with every body contact logged (collider, point in car space, normal, impulse):
  // contacts:Scene:profile:Main:from:seconds:speed
  IEnumerator Contacts(string[] a){var log=new List<string>{"t,x,y,z,collider,lx,ly,lz,nx,ny,nz,impulse"};
