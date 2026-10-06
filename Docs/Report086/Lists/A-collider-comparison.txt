@@ -1,0 +1,209 @@
+== StreetLoopGreybox
+< House 3 pool and lake/Pool beach entry (0.85) | BoxCollider | True | False | 416.000,33.191,-192.981 | 18.000,3.399,8.687 |  | 
+< House 3 pool and lake/Pool deck apron (0.85) | BoxCollider | True | False | 416.000,32.776,-183.671 | 19.200,4.229,10.387 |  | 
+< House 3 pool and lake/Pool edge | BoxCollider | True | False | 406.700,34.770,-197.000 | 0.600,0.240,17.200 |  | 
+< House 3 pool and lake/Pool edge | BoxCollider | True | False | 416.000,34.770,-205.300 | 18.000,0.240,0.600 |  | 
+< House 3 pool and lake/Pool edge | BoxCollider | True | False | 425.300,34.770,-197.000 | 0.600,0.240,17.200 |  | 
+< House 3 pool and lake/Pool edge | BoxCollider | True | False | 416.000,34.770,-188.700 | 18.000,0.240,0.600 |  | 
+< House 3 pool and lake/Supported pool shell | BoxCollider | True | False | 406.700,33.975,-197.000 | 0.600,1.450,17.200 |  | 
+< House 3 pool and lake/Supported pool shell | BoxCollider | True | False | 416.000,33.975,-205.300 | 18.000,1.450,0.600 |  | 
+< House 3 pool and lake/Supported pool shell | BoxCollider | True | False | 425.300,33.975,-197.000 | 0.600,1.450,17.200 |  | 
+< House 3 pool and lake/Supported pool shell | BoxCollider | True | False | 416.000,33.975,-188.700 | 18.000,1.450,0.600 |  | 
+> House 3 pool and lake/Pool edge | BoxCollider | True | False | 406.700,32.914,-197.000 | 0.600,0.240,17.200 |  | 
+> House 3 pool and lake/Pool edge | BoxCollider | True | False | 416.000,32.914,-205.300 | 18.000,0.240,0.600 |  | 
+> House 3 pool and lake/Pool edge | BoxCollider | True | False | 425.300,32.914,-197.000 | 0.600,0.240,17.200 |  | 
+> House 3 pool and lake/Pool edge | BoxCollider | True | False | 416.000,32.914,-188.700 | 18.000,0.240,0.600 |  | 
+> House 3 pool and lake/Pool shallow-end slope (0.86) | BoxCollider | True | False | 416.000,31.330,-193.983 | 18.000,3.409,10.567 |  | 
+> House 3 pool and lake/Supported pool shell | BoxCollider | True | False | 406.700,32.119,-197.000 | 0.600,1.450,17.200 |  | 
+> House 3 pool and lake/Supported pool shell | BoxCollider | True | False | 416.000,32.119,-205.300 | 18.000,1.450,0.600 |  | 
+> House 3 pool and lake/Supported pool shell | BoxCollider | True | False | 425.300,32.119,-197.000 | 0.600,1.450,17.200 |  | 
+> House 3 pool and lake/Supported pool shell | BoxCollider | True | False | 416.000,32.119,-188.700 | 18.000,1.450,0.600 |  | 
+< Memory loop - north is +Z/Ground_560_240 | MeshCollider | True | False | 400.000,60.026,-190.000 | 160.000,54.543,160.000 | Assets/Track/BackyardReverse/StreetLoopGreybox-permanent-water-support-1.asset#StreetLoopGreybox-permanent-water-support-1 | B0B2A315A9554900
+> Memory loop - north is +Z/Ground_560_240 | MeshCollider | True | False | 400.000,59.396,-190.000 | 160.000,55.803,160.000 | Assets/Track/BackyardReverse/StreetLoopGreybox-permanent-water-support-1.asset#StreetLoopGreybox-permanent-water-support-1 | 5BBFA4D8998D5D4E
+routes, gates, jumps, branches: identical
+== StreetLoopReverse
+< CR097 supported properties and camp/House 3 valley driveway/Ground_House3 supported valley driveway | MeshCollider | True | False | 439.030,57.860,-188.400 | 147.036,50.081,115.194 | Assets/Track/BackyardReverse/StreetLoopReverse-permanent-water-support-11.asset#StreetLoopReverse-permanent-water-support-11 | F691F38FF1AB85D1
+> CR097 supported properties and camp/House 3 valley driveway/Ground_House3 supported valley driveway | MeshCollider | True | False | 439.030,57.860,-188.400 | 147.036,50.081,115.194 | Assets/Track/BackyardReverse/StreetLoopReverse-permanent-water-support-11.asset#StreetLoopReverse-permanent-water-support-11 | 94720A2DFE86F13B
+< House 3 pool and lake/Pool beach entry (0.85) | BoxCollider | True | False | 416.000,33.191,-192.981 | 18.000,3.399,8.687 |  | 
+< House 3 pool and lake/Pool deck apron (0.85) | BoxCollider | True | False | 416.000,32.840,-183.836 | 19.200,4.100,10.033 |  | 
+< House 3 pool and lake/Pool edge | BoxCollider | True | False | 406.700,34.770,-197.000 | 0.600,0.240,17.200 |  | 
+< House 3 pool and lake/Pool edge | BoxCollider | True | False | 416.000,34.770,-205.300 | 18.000,0.240,0.600 |  | 
+< House 3 pool and lake/Pool edge | BoxCollider | True | False | 425.300,34.770,-197.000 | 0.600,0.240,17.200 |  | 
+< House 3 pool and lake/Pool edge | BoxCollider | True | False | 416.000,34.770,-188.700 | 18.000,0.240,0.600 |  | 
+< House 3 pool and lake/Supported pool shell | BoxCollider | True | False | 406.700,33.975,-197.000 | 0.600,1.450,17.200 |  | 
+< House 3 pool and lake/Supported pool shell | BoxCollider | True | False | 416.000,33.975,-205.300 | 18.000,1.450,0.600 |  | 
+< House 3 pool and lake/Supported pool shell | BoxCollider | True | False | 425.300,33.975,-197.000 | 0.600,1.450,17.200 |  | 
+< House 3 pool and lake/Supported pool shell | BoxCollider | True | False | 416.000,33.975,-188.700 | 18.000,1.450,0.600 |  | 
+> House 3 pool and lake/Pool edge | BoxCollider | True | False | 406.700,32.979,-197.000 | 0.600,0.240,17.200 |  | 
+> House 3 pool and lake/Pool edge | BoxCollider | True | False | 416.000,32.979,-205.300 | 18.000,0.240,0.600 |  | 
+> House 3 pool and lake/Pool edge | BoxCollider | True | False | 425.300,32.979,-197.000 | 0.600,0.240,17.200 |  | 
+> House 3 pool and lake/Pool edge | BoxCollider | True | False | 416.000,32.979,-188.700 | 18.000,0.240,0.600 |  | 
+> House 3 pool and lake/Pool shallow-end slope (0.86) | BoxCollider | True | False | 416.000,31.395,-193.983 | 18.000,3.409,10.567 |  | 
+> House 3 pool and lake/Supported pool shell | BoxCollider | True | False | 406.700,32.184,-197.000 | 0.600,1.450,17.200 |  | 
+> House 3 pool and lake/Supported pool shell | BoxCollider | True | False | 416.000,32.184,-205.300 | 18.000,1.450,0.600 |  | 
+> House 3 pool and lake/Supported pool shell | BoxCollider | True | False | 425.300,32.184,-197.000 | 0.600,1.450,17.200 |  | 
+> House 3 pool and lake/Supported pool shell | BoxCollider | True | False | 416.000,32.184,-188.700 | 18.000,1.450,0.600 |  | 
+< Memory loop - north is +Z/Ground_560_240 | MeshCollider | True | False | 400.000,60.026,-190.000 | 160.000,54.543,160.000 | Assets/Track/BackyardReverse/StreetLoopReverse-permanent-water-support-10.asset#StreetLoopReverse-permanent-water-support-10 | 38CA46B301BD7530
+> Memory loop - north is +Z/Ground_560_240 | MeshCollider | True | False | 400.000,59.428,-190.000 | 160.000,55.738,160.000 | Assets/Track/BackyardReverse/StreetLoopReverse-permanent-water-support-10.asset#StreetLoopReverse-permanent-water-support-10 | 657EB6D78533EE6A
+routes, gates, jumps, branches: identical
+== LakeWoods
+< House 3 pool and lake/Pool beach entry (0.85) | BoxCollider | True | False | 416.000,33.191,-192.981 | 18.000,3.399,8.687 |  | 
+< House 3 pool and lake/Pool deck apron (0.85) | BoxCollider | True | False | 416.000,32.776,-183.671 | 19.200,4.229,10.386 |  | 
+< House 3 pool and lake/Pool edge | BoxCollider | True | False | 406.700,34.770,-197.000 | 0.600,0.240,17.200 |  | 
+< House 3 pool and lake/Pool edge | BoxCollider | True | False | 416.000,34.770,-205.300 | 18.000,0.240,0.600 |  | 
+< House 3 pool and lake/Pool edge | BoxCollider | True | False | 425.300,34.770,-197.000 | 0.600,0.240,17.200 |  | 
+< House 3 pool and lake/Pool edge | BoxCollider | True | False | 416.000,34.770,-188.700 | 18.000,0.240,0.600 |  | 
+< House 3 pool and lake/Supported pool shell | BoxCollider | True | False | 406.700,33.975,-197.000 | 0.600,1.450,17.200 |  | 
+< House 3 pool and lake/Supported pool shell | BoxCollider | True | False | 416.000,33.975,-205.300 | 18.000,1.450,0.600 |  | 
+< House 3 pool and lake/Supported pool shell | BoxCollider | True | False | 425.300,33.975,-197.000 | 0.600,1.450,17.200 |  | 
+< House 3 pool and lake/Supported pool shell | BoxCollider | True | False | 416.000,33.975,-188.700 | 18.000,1.450,0.600 |  | 
+> House 3 pool and lake/Pool edge | BoxCollider | True | False | 406.700,32.914,-197.000 | 0.600,0.240,17.200 |  | 
+> House 3 pool and lake/Pool edge | BoxCollider | True | False | 416.000,32.914,-205.300 | 18.000,0.240,0.600 |  | 
+> House 3 pool and lake/Pool edge | BoxCollider | True | False | 425.300,32.914,-197.000 | 0.600,0.240,17.200 |  | 
+> House 3 pool and lake/Pool edge | BoxCollider | True | False | 416.000,32.914,-188.700 | 18.000,0.240,0.600 |  | 
+> House 3 pool and lake/Pool shallow-end slope (0.86) | BoxCollider | True | False | 416.000,31.330,-193.983 | 18.000,3.409,10.567 |  | 
+> House 3 pool and lake/Supported pool shell | BoxCollider | True | False | 406.700,32.119,-197.000 | 0.600,1.450,17.200 |  | 
+> House 3 pool and lake/Supported pool shell | BoxCollider | True | False | 416.000,32.119,-205.300 | 18.000,1.450,0.600 |  | 
+> House 3 pool and lake/Supported pool shell | BoxCollider | True | False | 425.300,32.119,-197.000 | 0.600,1.450,17.200 |  | 
+> House 3 pool and lake/Supported pool shell | BoxCollider | True | False | 416.000,32.119,-188.700 | 18.000,1.450,0.600 |  | 
+< Memory loop - north is +Z/Ground_560_240 | MeshCollider | True | False | 400.000,60.030,-190.000 | 160.000,54.550,160.000 | Assets/Track/BackyardReverse/LakeWoods-permanent-water-support-21.asset#LakeWoods-permanent-water-support-21 | 800BBC005C0401BB
+> Memory loop - north is +Z/Ground_560_240 | MeshCollider | True | False | 400.000,59.399,-190.000 | 160.000,55.810,160.000 | Assets/Track/BackyardReverse/LakeWoods-permanent-water-support-21.asset#LakeWoods-permanent-water-support-21 | 3D799DA02078F5CD
+routes, gates, jumps, branches: identical
+== ForestLoopReverse
+< House 3 pool and lake/Pool beach entry (0.85) | BoxCollider | True | False | 416.000,33.191,-192.981 | 18.000,3.399,8.687 |  | 
+< House 3 pool and lake/Pool deck apron (0.85) | BoxCollider | True | False | 416.000,32.776,-183.671 | 19.200,4.229,10.386 |  | 
+< House 3 pool and lake/Pool edge | BoxCollider | True | False | 406.700,34.770,-197.000 | 0.600,0.240,17.200 |  | 
+< House 3 pool and lake/Pool edge | BoxCollider | True | False | 416.000,34.770,-205.300 | 18.000,0.240,0.600 |  | 
+< House 3 pool and lake/Pool edge | BoxCollider | True | False | 425.300,34.770,-197.000 | 0.600,0.240,17.200 |  | 
+< House 3 pool and lake/Pool edge | BoxCollider | True | False | 416.000,34.770,-188.700 | 18.000,0.240,0.600 |  | 
+< House 3 pool and lake/Supported pool shell | BoxCollider | True | False | 406.700,33.975,-197.000 | 0.600,1.450,17.200 |  | 
+< House 3 pool and lake/Supported pool shell | BoxCollider | True | False | 416.000,33.975,-205.300 | 18.000,1.450,0.600 |  | 
+< House 3 pool and lake/Supported pool shell | BoxCollider | True | False | 425.300,33.975,-197.000 | 0.600,1.450,17.200 |  | 
+< House 3 pool and lake/Supported pool shell | BoxCollider | True | False | 416.000,33.975,-188.700 | 18.000,1.450,0.600 |  | 
+> House 3 pool and lake/Pool edge | BoxCollider | True | False | 406.700,32.914,-197.000 | 0.600,0.240,17.200 |  | 
+> House 3 pool and lake/Pool edge | BoxCollider | True | False | 416.000,32.914,-205.300 | 18.000,0.240,0.600 |  | 
+> House 3 pool and lake/Pool edge | BoxCollider | True | False | 425.300,32.914,-197.000 | 0.600,0.240,17.200 |  | 
+> House 3 pool and lake/Pool edge | BoxCollider | True | False | 416.000,32.914,-188.700 | 18.000,0.240,0.600 |  | 
+> House 3 pool and lake/Pool shallow-end slope (0.86) | BoxCollider | True | False | 416.000,31.330,-193.983 | 18.000,3.409,10.567 |  | 
+> House 3 pool and lake/Supported pool shell | BoxCollider | True | False | 406.700,32.119,-197.000 | 0.600,1.450,17.200 |  | 
+> House 3 pool and lake/Supported pool shell | BoxCollider | True | False | 416.000,32.119,-205.300 | 18.000,1.450,0.600 |  | 
+> House 3 pool and lake/Supported pool shell | BoxCollider | True | False | 425.300,32.119,-197.000 | 0.600,1.450,17.200 |  | 
+> House 3 pool and lake/Supported pool shell | BoxCollider | True | False | 416.000,32.119,-188.700 | 18.000,1.450,0.600 |  | 
+< Memory loop - north is +Z/Ground_560_240 | MeshCollider | True | False | 400.000,60.030,-190.000 | 160.000,54.550,160.000 | Assets/Track/BackyardReverse/ForestLoopReverse-permanent-water-support-33.asset#ForestLoopReverse-permanent-water-support-33 | 39E6B7DDA725C9E3
+> Memory loop - north is +Z/Ground_560_240 | MeshCollider | True | False | 400.000,59.399,-190.000 | 160.000,55.810,160.000 | Assets/Track/BackyardReverse/ForestLoopReverse-permanent-water-support-33.asset#ForestLoopReverse-permanent-water-support-33 | 6A1FD78C3A3E8F67
+routes, gates, jumps, branches: identical
+== MountainLoop
+< House 3 pool and lake/Pool beach entry (0.85) | BoxCollider | True | False | 416.000,33.191,-192.981 | 18.000,3.399,8.687 |  | 
+< House 3 pool and lake/Pool deck apron (0.85) | BoxCollider | True | False | 416.000,32.776,-183.671 | 19.200,4.229,10.386 |  | 
+< House 3 pool and lake/Pool edge | BoxCollider | True | False | 406.700,34.770,-197.000 | 0.600,0.240,17.200 |  | 
+< House 3 pool and lake/Pool edge | BoxCollider | True | False | 416.000,34.770,-205.300 | 18.000,0.240,0.600 |  | 
+< House 3 pool and lake/Pool edge | BoxCollider | True | False | 425.300,34.770,-197.000 | 0.600,0.240,17.200 |  | 
+< House 3 pool and lake/Pool edge | BoxCollider | True | False | 416.000,34.770,-188.700 | 18.000,0.240,0.600 |  | 
+< House 3 pool and lake/Supported pool shell | BoxCollider | True | False | 406.700,33.975,-197.000 | 0.600,1.450,17.200 |  | 
+< House 3 pool and lake/Supported pool shell | BoxCollider | True | False | 416.000,33.975,-205.300 | 18.000,1.450,0.600 |  | 
+< House 3 pool and lake/Supported pool shell | BoxCollider | True | False | 425.300,33.975,-197.000 | 0.600,1.450,17.200 |  | 
+< House 3 pool and lake/Supported pool shell | BoxCollider | True | False | 416.000,33.975,-188.700 | 18.000,1.450,0.600 |  | 
+> House 3 pool and lake/Pool edge | BoxCollider | True | False | 406.700,32.914,-197.000 | 0.600,0.240,17.200 |  | 
+> House 3 pool and lake/Pool edge | BoxCollider | True | False | 416.000,32.914,-205.300 | 18.000,0.240,0.600 |  | 
+> House 3 pool and lake/Pool edge | BoxCollider | True | False | 425.300,32.914,-197.000 | 0.600,0.240,17.200 |  | 
+> House 3 pool and lake/Pool edge | BoxCollider | True | False | 416.000,32.914,-188.700 | 18.000,0.240,0.600 |  | 
+> House 3 pool and lake/Pool shallow-end slope (0.86) | BoxCollider | True | False | 416.000,31.330,-193.983 | 18.000,3.409,10.567 |  | 
+> House 3 pool and lake/Supported pool shell | BoxCollider | True | False | 406.700,32.119,-197.000 | 0.600,1.450,17.200 |  | 
+> House 3 pool and lake/Supported pool shell | BoxCollider | True | False | 416.000,32.119,-205.300 | 18.000,1.450,0.600 |  | 
+> House 3 pool and lake/Supported pool shell | BoxCollider | True | False | 425.300,32.119,-197.000 | 0.600,1.450,17.200 |  | 
+> House 3 pool and lake/Supported pool shell | BoxCollider | True | False | 416.000,32.119,-188.700 | 18.000,1.450,0.600 |  | 
+< Memory loop - north is +Z/Ground_560_240 | MeshCollider | True | False | 400.000,60.030,-190.000 | 160.000,54.550,160.000 | Assets/Track/BackyardReverse/MountainLoop-permanent-water-support-45.asset#MountainLoop-permanent-water-support-45 | 800BBC005C0401BB
+> Memory loop - north is +Z/Ground_560_240 | MeshCollider | True | False | 400.000,59.399,-190.000 | 160.000,55.810,160.000 | Assets/Track/BackyardReverse/MountainLoop-permanent-water-support-45.asset#MountainLoop-permanent-water-support-45 | 3D799DA02078F5CD
+routes, gates, jumps, branches: identical
+== MountainLoopReverse
+< House 3 pool and lake/Pool beach entry (0.85) | BoxCollider | True | False | 416.000,33.191,-192.981 | 18.000,3.399,8.687 |  | 
+< House 3 pool and lake/Pool deck apron (0.85) | BoxCollider | True | False | 416.000,32.776,-183.671 | 19.200,4.229,10.386 |  | 
+< House 3 pool and lake/Pool edge | BoxCollider | True | False | 406.700,34.770,-197.000 | 0.600,0.240,17.200 |  | 
+< House 3 pool and lake/Pool edge | BoxCollider | True | False | 416.000,34.770,-205.300 | 18.000,0.240,0.600 |  | 
+< House 3 pool and lake/Pool edge | BoxCollider | True | False | 425.300,34.770,-197.000 | 0.600,0.240,17.200 |  | 
+< House 3 pool and lake/Pool edge | BoxCollider | True | False | 416.000,34.770,-188.700 | 18.000,0.240,0.600 |  | 
+< House 3 pool and lake/Supported pool shell | BoxCollider | True | False | 406.700,33.975,-197.000 | 0.600,1.450,17.200 |  | 
+< House 3 pool and lake/Supported pool shell | BoxCollider | True | False | 416.000,33.975,-205.300 | 18.000,1.450,0.600 |  | 
+< House 3 pool and lake/Supported pool shell | BoxCollider | True | False | 425.300,33.975,-197.000 | 0.600,1.450,17.200 |  | 
+< House 3 pool and lake/Supported pool shell | BoxCollider | True | False | 416.000,33.975,-188.700 | 18.000,1.450,0.600 |  | 
+> House 3 pool and lake/Pool edge | BoxCollider | True | False | 406.700,32.914,-197.000 | 0.600,0.240,17.200 |  | 
+> House 3 pool and lake/Pool edge | BoxCollider | True | False | 416.000,32.914,-205.300 | 18.000,0.240,0.600 |  | 
+> House 3 pool and lake/Pool edge | BoxCollider | True | False | 425.300,32.914,-197.000 | 0.600,0.240,17.200 |  | 
+> House 3 pool and lake/Pool edge | BoxCollider | True | False | 416.000,32.914,-188.700 | 18.000,0.240,0.600 |  | 
+> House 3 pool and lake/Pool shallow-end slope (0.86) | BoxCollider | True | False | 416.000,31.330,-193.983 | 18.000,3.409,10.567 |  | 
+> House 3 pool and lake/Supported pool shell | BoxCollider | True | False | 406.700,32.119,-197.000 | 0.600,1.450,17.200 |  | 
+> House 3 pool and lake/Supported pool shell | BoxCollider | True | False | 416.000,32.119,-205.300 | 18.000,1.450,0.600 |  | 
+> House 3 pool and lake/Supported pool shell | BoxCollider | True | False | 425.300,32.119,-197.000 | 0.600,1.450,17.200 |  | 
+> House 3 pool and lake/Supported pool shell | BoxCollider | True | False | 416.000,32.119,-188.700 | 18.000,1.450,0.600 |  | 
+< Memory loop - north is +Z/Ground_560_240 | MeshCollider | True | False | 400.000,60.030,-190.000 | 160.000,54.550,160.000 | Assets/Track/BackyardReverse/MountainLoopReverse-permanent-water-support-57.asset#MountainLoopReverse-permanent-water-support-57 | 800BBC005C0401BB
+> Memory loop - north is +Z/Ground_560_240 | MeshCollider | True | False | 400.000,59.399,-190.000 | 160.000,55.810,160.000 | Assets/Track/BackyardReverse/MountainLoopReverse-permanent-water-support-57.asset#MountainLoopReverse-permanent-water-support-57 | 3D799DA02078F5CD
+routes, gates, jumps, branches: identical
+== DansBackyardForward
+< House 3 pool and lake/Pool beach entry (0.85) | BoxCollider | True | False | 416.000,33.191,-192.981 | 18.000,3.399,8.687 |  | 
+< House 3 pool and lake/Pool deck apron (0.85) | BoxCollider | True | False | 416.000,32.776,-183.671 | 19.200,4.229,10.387 |  | 
+< House 3 pool and lake/Pool edge | BoxCollider | True | False | 406.700,34.770,-197.000 | 0.600,0.240,17.200 |  | 
+< House 3 pool and lake/Pool edge | BoxCollider | True | False | 416.000,34.770,-205.300 | 18.000,0.240,0.600 |  | 
+< House 3 pool and lake/Pool edge | BoxCollider | True | False | 425.300,34.770,-197.000 | 0.600,0.240,17.200 |  | 
+< House 3 pool and lake/Pool edge | BoxCollider | True | False | 416.000,34.770,-188.700 | 18.000,0.240,0.600 |  | 
+< House 3 pool and lake/Supported pool shell | BoxCollider | True | False | 406.700,33.975,-197.000 | 0.600,1.450,17.200 |  | 
+< House 3 pool and lake/Supported pool shell | BoxCollider | True | False | 416.000,33.975,-205.300 | 18.000,1.450,0.600 |  | 
+< House 3 pool and lake/Supported pool shell | BoxCollider | True | False | 425.300,33.975,-197.000 | 0.600,1.450,17.200 |  | 
+< House 3 pool and lake/Supported pool shell | BoxCollider | True | False | 416.000,33.975,-188.700 | 18.000,1.450,0.600 |  | 
+> House 3 pool and lake/Pool edge | BoxCollider | True | False | 406.700,32.914,-197.000 | 0.600,0.240,17.200 |  | 
+> House 3 pool and lake/Pool edge | BoxCollider | True | False | 416.000,32.914,-205.300 | 18.000,0.240,0.600 |  | 
+> House 3 pool and lake/Pool edge | BoxCollider | True | False | 425.300,32.914,-197.000 | 0.600,0.240,17.200 |  | 
+> House 3 pool and lake/Pool edge | BoxCollider | True | False | 416.000,32.914,-188.700 | 18.000,0.240,0.600 |  | 
+> House 3 pool and lake/Pool shallow-end slope (0.86) | BoxCollider | True | False | 416.000,31.330,-193.983 | 18.000,3.409,10.567 |  | 
+> House 3 pool and lake/Supported pool shell | BoxCollider | True | False | 406.700,32.119,-197.000 | 0.600,1.450,17.200 |  | 
+> House 3 pool and lake/Supported pool shell | BoxCollider | True | False | 416.000,32.119,-205.300 | 18.000,1.450,0.600 |  | 
+> House 3 pool and lake/Supported pool shell | BoxCollider | True | False | 425.300,32.119,-197.000 | 0.600,1.450,17.200 |  | 
+> House 3 pool and lake/Supported pool shell | BoxCollider | True | False | 416.000,32.119,-188.700 | 18.000,1.450,0.600 |  | 
+< Memory loop - north is +Z/Ground_560_240 | MeshCollider | True | False | 400.000,60.026,-190.000 | 160.000,54.543,160.000 | Assets/Track/BackyardReverse/DansBackyardForward-permanent-water-support-69.asset#DansBackyardForward-permanent-water-support-69 | B0B2A315A9554900
+> Memory loop - north is +Z/Ground_560_240 | MeshCollider | True | False | 400.000,59.396,-190.000 | 160.000,55.803,160.000 | Assets/Track/BackyardReverse/DansBackyardForward-permanent-water-support-69.asset#DansBackyardForward-permanent-water-support-69 | 5BBFA4D8998D5D4E
+routes, gates, jumps, branches: identical
+== DansBackyardReverse
+< House 3 pool and lake/Pool beach entry (0.85) | BoxCollider | True | False | 416.000,33.191,-192.981 | 18.000,3.399,8.687 |  | 
+< House 3 pool and lake/Pool deck apron (0.85) | BoxCollider | True | False | 416.000,32.776,-183.671 | 19.200,4.229,10.387 |  | 
+< House 3 pool and lake/Pool edge | BoxCollider | True | False | 406.700,34.770,-197.000 | 0.600,0.240,17.200 |  | 
+< House 3 pool and lake/Pool edge | BoxCollider | True | False | 416.000,34.770,-205.300 | 18.000,0.240,0.600 |  | 
+< House 3 pool and lake/Pool edge | BoxCollider | True | False | 425.300,34.770,-197.000 | 0.600,0.240,17.200 |  | 
+< House 3 pool and lake/Pool edge | BoxCollider | True | False | 416.000,34.770,-188.700 | 18.000,0.240,0.600 |  | 
+< House 3 pool and lake/Supported pool shell | BoxCollider | True | False | 406.700,33.975,-197.000 | 0.600,1.450,17.200 |  | 
+< House 3 pool and lake/Supported pool shell | BoxCollider | True | False | 416.000,33.975,-205.300 | 18.000,1.450,0.600 |  | 
+< House 3 pool and lake/Supported pool shell | BoxCollider | True | False | 425.300,33.975,-197.000 | 0.600,1.450,17.200 |  | 
+< House 3 pool and lake/Supported pool shell | BoxCollider | True | False | 416.000,33.975,-188.700 | 18.000,1.450,0.600 |  | 
+> House 3 pool and lake/Pool edge | BoxCollider | True | False | 406.700,32.914,-197.000 | 0.600,0.240,17.200 |  | 
+> House 3 pool and lake/Pool edge | BoxCollider | True | False | 416.000,32.914,-205.300 | 18.000,0.240,0.600 |  | 
+> House 3 pool and lake/Pool edge | BoxCollider | True | False | 425.300,32.914,-197.000 | 0.600,0.240,17.200 |  | 
+> House 3 pool and lake/Pool edge | BoxCollider | True | False | 416.000,32.914,-188.700 | 18.000,0.240,0.600 |  | 
+> House 3 pool and lake/Pool shallow-end slope (0.86) | BoxCollider | True | False | 416.000,31.330,-193.983 | 18.000,3.409,10.567 |  | 
+> House 3 pool and lake/Supported pool shell | BoxCollider | True | False | 406.700,32.119,-197.000 | 0.600,1.450,17.200 |  | 
+> House 3 pool and lake/Supported pool shell | BoxCollider | True | False | 416.000,32.119,-205.300 | 18.000,1.450,0.600 |  | 
+> House 3 pool and lake/Supported pool shell | BoxCollider | True | False | 425.300,32.119,-197.000 | 0.600,1.450,17.200 |  | 
+> House 3 pool and lake/Supported pool shell | BoxCollider | True | False | 416.000,32.119,-188.700 | 18.000,1.450,0.600 |  | 
+< Memory loop - north is +Z/Ground_560_240 | MeshCollider | True | False | 400.000,60.026,-190.000 | 160.000,54.543,160.000 | Assets/Track/BackyardReverse/DansBackyardForward-permanent-water-support-69.asset#DansBackyardForward-permanent-water-support-69 | B0B2A315A9554900
+> Memory loop - north is +Z/Ground_560_240 | MeshCollider | True | False | 400.000,59.396,-190.000 | 160.000,55.803,160.000 | Assets/Track/BackyardReverse/DansBackyardForward-permanent-water-support-69.asset#DansBackyardForward-permanent-water-support-69 | 5BBFA4D8998D5D4E
+routes, gates, jumps, branches: identical
+== FreeRoamWorld
+< House 3 pool and lake/Pool beach entry (0.85) | BoxCollider | True | False | 416.000,33.191,-192.981 | 18.000,3.399,8.687 |  | 
+< House 3 pool and lake/Pool deck apron (0.85) | BoxCollider | True | False | 416.000,32.825,-183.798 | 19.200,4.129,10.114 |  | 
+< House 3 pool and lake/Pool edge | BoxCollider | True | False | 406.700,34.770,-197.000 | 0.600,0.240,17.200 |  | 
+< House 3 pool and lake/Pool edge | BoxCollider | True | False | 416.000,34.770,-205.300 | 18.000,0.240,0.600 |  | 
+< House 3 pool and lake/Pool edge | BoxCollider | True | False | 425.300,34.770,-197.000 | 0.600,0.240,17.200 |  | 
+< House 3 pool and lake/Pool edge | BoxCollider | True | False | 416.000,34.770,-188.700 | 18.000,0.240,0.600 |  | 
+< House 3 pool and lake/Supported pool shell | BoxCollider | True | False | 406.700,33.975,-197.000 | 0.600,1.450,17.200 |  | 
+< House 3 pool and lake/Supported pool shell | BoxCollider | True | False | 416.000,33.975,-205.300 | 18.000,1.450,0.600 |  | 
+< House 3 pool and lake/Supported pool shell | BoxCollider | True | False | 425.300,33.975,-197.000 | 0.600,1.450,17.200 |  | 
+< House 3 pool and lake/Supported pool shell | BoxCollider | True | False | 416.000,33.975,-188.700 | 18.000,1.450,0.600 |  | 
+> House 3 pool and lake/Pool edge | BoxCollider | True | False | 406.700,32.960,-197.000 | 0.600,0.240,17.200 |  | 
+> House 3 pool and lake/Pool edge | BoxCollider | True | False | 416.000,32.960,-205.300 | 18.000,0.240,0.600 |  | 
+> House 3 pool and lake/Pool edge | BoxCollider | True | False | 425.300,32.960,-197.000 | 0.600,0.240,17.200 |  | 
+> House 3 pool and lake/Pool edge | BoxCollider | True | False | 416.000,32.960,-188.700 | 18.000,0.240,0.600 |  | 
+> House 3 pool and lake/Pool shallow-end slope (0.86) | BoxCollider | True | False | 416.000,31.375,-193.983 | 18.000,3.409,10.567 |  | 
+> House 3 pool and lake/Supported pool shell | BoxCollider | True | False | 406.700,32.165,-197.000 | 0.600,1.450,17.200 |  | 
+> House 3 pool and lake/Supported pool shell | BoxCollider | True | False | 416.000,32.165,-205.300 | 18.000,1.450,0.600 |  | 
+> House 3 pool and lake/Supported pool shell | BoxCollider | True | False | 425.300,32.165,-197.000 | 0.600,1.450,17.200 |  | 
+> House 3 pool and lake/Supported pool shell | BoxCollider | True | False | 416.000,32.165,-188.700 | 18.000,1.450,0.600 |  | 
+< Memory loop - north is +Z/Ground_560_240 | MeshCollider | True | False | 400.000,60.017,-190.000 | 160.000,54.561,160.000 | Assets/Track/FreeRoamWorld/FreeRoamWorld-DansBackyardForward-permanent-water-support-69.asset#DansBackyardForward-permanent-water-support-69 | 5200BBD4E204324C
+> Memory loop - north is +Z/Ground_560_240 | MeshCollider | True | False | 400.000,59.419,-190.000 | 160.000,55.758,160.000 | Assets/Track/FreeRoamWorld/FreeRoamWorld-DansBackyardForward-permanent-water-support-69.asset#DansBackyardForward-permanent-water-support-69 | 9785A4611906FA1D
+routes, gates, jumps, branches: identical

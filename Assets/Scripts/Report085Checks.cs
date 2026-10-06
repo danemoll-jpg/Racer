@@ -10,7 +10,7 @@ using UnityEngine;
 namespace Racer {
 // 0.85 targeted checks, added to the 0.80 runner (same muted isolated save, same helpers): PROBE_CASES="case:args;...".
 public sealed partial class Report080Checks {
- IEnumerator Cases085(string[] a)=>a[0] switch{"escape85"=>Escape085(a[1],a[2],a[3],a.Length>4?a[4]:"0,45,90,135,180,225,270,315"),"trees85"=>Trees085(a[1]),"lineshots"=>LineShots(a[1],a[2],a[3]),"hands85"=>Hands085(a[1]),"wide85"=>Wide085(a[1],a[2],F(a[3]),F(a[4]),F(a[5]),a[6]),_=>null};
+ IEnumerator Cases085(string[] a)=>a[0] switch{"escape85"=>Escape085(a[1],a[2],a[3],a.Length>4?a[4]:"0,45,90,135,180,225,270,315"),"trees85"=>Trees085(a[1]),"lineshots"=>LineShots(a[1],a[2],a[3]),"hands85"=>Hands085(a[1]),"wide85"=>Wide085(a[1],a[2],F(a[3]),F(a[4]),F(a[5]),a[6]),_=>Cases086(a)};
 
  // Part A: trees, bushes and clumps on the race lines (main and optional) of a scene with the new scenery: what the rule
  // found / left out / kept, anything drawn still standing on a race line, and trunk colliders on one. trees85:Scene

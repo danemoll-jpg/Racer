@@ -1,0 +1,10 @@
+---- view:FreeRoamWorld:dan,401.4,35.3,-185.9,127,8|above,416,52,-166,180,48|top,416,75,-197,0,90:day
+FreeRoamWorld: views written
+---- inout86:FreeRoamWorld:moto,atv,skyfin
+PASS FreeRoamWorld moto: drove in from the basin floor (in the water after 1.9s, lowest body y 31.89, immersion up to 1.00, stopped at 415.8,32.64,-204.5), reversed out up the shallow end: out in 11.0s, resets 0
+PASS FreeRoamWorld atv: drove in from the basin floor (in the water after 1.8s, lowest body y 31.86, immersion up to 1.00, stopped at 415.4,32.05,-203.5), reversed out up the shallow end: out in 8.5s, resets 0
+PASS FreeRoamWorld skyfin: drove in from the basin floor (in the water after 1.7s, lowest body y 31.97, immersion up to 1.00, stopped at 416.0,33.21,-202.5), reversed out up the shallow end: out in 7.3s, resets 0
+PASS FreeRoamWorld House 3 swimming pool (416.0,32.84,-197.0, surface 32.88, deepest 415.9,31.54,-199.3) moto: out in 1/4 headings [0:out 3.3s 90:stuck 180:stuck 270:stuck]
+PASS FreeRoamWorld House 3 swimming pool (416.0,32.84,-197.0, surface 32.88, deepest 415.9,31.54,-199.3) atv: out in 1/4 headings [0:out 3.4s 90:stuck 180:stuck 270:stuck]
+PASS FreeRoamWorld House 3 swimming pool (416.0,32.84,-197.0, surface 32.88, deepest 415.9,31.54,-199.3) skyfin: out in 1/4 headings [0:out 4.0s 90:stuck 180:stuck 270:stuck]
+done, failures 0

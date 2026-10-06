@@ -1,0 +1,77 @@
+StreetLoopGreybox: removing Pool beach entry (0.85)
+StreetLoopGreybox: removing Pool deck apron (0.85)
+StreetLoopGreybox: pool 416.00,34.65,-197.00 surface 34.69 coping top 34.89; outer x 406.40..425.60 z -205.60..-188.40; inner x 407.00..425.00, north inner face z -189.00; floor 33.35; basin floor north 33.01 (51 samples 33.01..33.02)
+  lower by D 1.86: coping top 33.03, water surface 32.83, ground at the coping 33.01
+  ground Memory loop - north is +Z/Ground_560_240 [Assets/Track/BackyardReverse/StreetLoopGreybox-permanent-water-support-1.asset#StreetLoopGreybox-permanent-water-support-1] floor 33.35;  vertices lowered 2607 (under the pool 1627), largest cut outside the coping 3.28 m
+  batch Woods replacing later subdivisions/Complete authored trees: 12 vertices near the ground in the changed zone (ground drops up to 1.86): 410.9,33.17,-189.5 g 31.49 ; 409.9,33.17,-189.5 g 31.49 ; 410.9,33.17,-190.5 g 31.49 ; 409.9,33.17,-190.5 g 31.49 ; 410.9,33.17,-190.5 g 31.49 ; 410.9,33.17,-189.5 g 31.49 ; 409.9,33.17,-189.5 g 31.49 ; 409.9,33.17,-190.5 g 31.49 ; 409.9,33.17,-189.5 g 31.49 ; 409.9,33.17,-190.5 g 31.49 ; 410.9,33.17,-190.5 g 31.49 ; 410.9,33.17,-189.5 g 31.49
+  now: coping top 33.03, water surface 32.83, floor 31.49; shallow-end slope from z -199.27 (y 31.49) to z -189.00 (y 33.03), 15.0 %, width 18.00 m; dry above the water from z -190.33
+StreetLoopGreybox: saved
+StreetLoopReverse: removing Pool beach entry (0.85)
+StreetLoopReverse: removing Pool deck apron (0.85)
+StreetLoopReverse: pool 416.00,34.65,-197.00 surface 34.69 coping top 34.89; outer x 406.40..425.60 z -205.60..-188.40; inner x 407.00..425.00, north inner face z -189.00; floor 33.35; basin floor north 33.08 (51 samples 33.07..33.08)
+  lower by D 1.79: coping top 33.10, water surface 32.90, ground at the coping 33.08
+  ground Memory loop - north is +Z/Ground_560_240 [Assets/Track/BackyardReverse/StreetLoopReverse-permanent-water-support-10.asset#StreetLoopReverse-permanent-water-support-10] floor 33.35;  vertices lowered 2914 (under the pool 1934), largest cut outside the coping 3.22 m
+  ground CR097 supported properties and camp/House 3 valley driveway/Ground_House3 supported valley driveway [Assets/Track/BackyardReverse/StreetLoopReverse-permanent-water-support-11.asset#StreetLoopReverse-permanent-water-support-11] floor NaN;  vertices lowered 147 (under the pool 8), largest cut outside the coping 1.57 m
+  batch Woods replacing later subdivisions/Complete authored trees: 12 vertices near the ground in the changed zone (ground drops up to 1.79): 410.9,33.17,-189.5 g 31.56 ; 409.9,33.17,-189.5 g 31.56 ; 410.9,33.17,-190.5 g 31.56 ; 409.9,33.17,-190.5 g 31.56 ; 410.9,33.17,-190.5 g 31.56 ; 410.9,33.17,-189.5 g 31.56 ; 409.9,33.17,-189.5 g 31.56 ; 409.9,33.17,-190.5 g 31.56 ; 409.9,33.17,-189.5 g 31.56 ; 409.9,33.17,-190.5 g 31.56 ; 410.9,33.17,-190.5 g 31.56 ; 410.9,33.17,-189.5 g 31.56
+  now: coping top 33.10, water surface 32.90, floor 31.56; shallow-end slope from z -199.27 (y 31.56) to z -189.00 (y 33.10), 15.0 %, width 18.00 m; dry above the water from z -190.33
+StreetLoopReverse: saved
+LakeWoods: removing Pool beach entry (0.85)
+LakeWoods: removing Pool deck apron (0.85)
+LakeWoods: pool 416.00,34.65,-197.00 surface 34.69 coping top 34.89; outer x 406.40..425.60 z -205.60..-188.40; inner x 407.00..425.00, north inner face z -189.00; floor 33.35; basin floor north 33.01 (51 samples 33.01..33.02)
+  lower by D 1.86: coping top 33.03, water surface 32.83, ground at the coping 33.01
+  ground Memory loop - north is +Z/Ground_560_240 [Assets/Track/BackyardReverse/LakeWoods-permanent-water-support-21.asset#LakeWoods-permanent-water-support-21] floor 33.35;  vertices lowered 4023 (under the pool 2512), largest cut outside the coping 3.29 m
+  batch Woods replacing later subdivisions/Complete authored trees: 12 vertices near the ground in the changed zone (ground drops up to 1.86): 410.9,33.17,-189.5 g 31.49 ; 409.9,33.17,-189.5 g 31.49 ; 410.9,33.17,-190.5 g 31.49 ; 409.9,33.17,-190.5 g 31.49 ; 410.9,33.17,-190.5 g 31.49 ; 410.9,33.17,-189.5 g 31.49 ; 409.9,33.17,-189.5 g 31.49 ; 409.9,33.17,-190.5 g 31.49 ; 409.9,33.17,-189.5 g 31.49 ; 409.9,33.17,-190.5 g 31.49 ; 410.9,33.17,-190.5 g 31.49 ; 410.9,33.17,-189.5 g 31.49
+  batch CR056 Forest Loop/Forest detail batch: 12 vertices near the ground in the changed zone (ground drops up to 1.86): 410.9,33.17,-189.5 g 31.49 ; 409.9,33.17,-189.5 g 31.49 ; 410.9,33.17,-190.5 g 31.49 ; 409.9,33.17,-190.5 g 31.49 ; 410.9,33.17,-190.5 g 31.49 ; 410.9,33.17,-189.5 g 31.49 ; 409.9,33.17,-189.5 g 31.49 ; 409.9,33.17,-190.5 g 31.49 ; 409.9,33.17,-189.5 g 31.49 ; 409.9,33.17,-190.5 g 31.49 ; 410.9,33.17,-190.5 g 31.49 ; 410.9,33.17,-189.5 g 31.49
+  now: coping top 33.03, water surface 32.83, floor 31.49; shallow-end slope from z -199.27 (y 31.49) to z -189.00 (y 33.03), 15.0 %, width 18.00 m; dry above the water from z -190.33
+LakeWoods: saved
+ForestLoopReverse: removing Pool beach entry (0.85)
+ForestLoopReverse: removing Pool deck apron (0.85)
+ForestLoopReverse: pool 416.00,34.65,-197.00 surface 34.69 coping top 34.89; outer x 406.40..425.60 z -205.60..-188.40; inner x 407.00..425.00, north inner face z -189.00; floor 33.35; basin floor north 33.01 (51 samples 33.01..33.02)
+  lower by D 1.86: coping top 33.03, water surface 32.83, ground at the coping 33.01
+  ground Memory loop - north is +Z/Ground_560_240 [Assets/Track/BackyardReverse/ForestLoopReverse-permanent-water-support-33.asset#ForestLoopReverse-permanent-water-support-33] floor 33.35;  vertices lowered 5460 (under the pool 3084), largest cut outside the coping 3.13 m
+  batch CR056 Forest Loop/Forest detail batch: 12 vertices near the ground in the changed zone (ground drops up to 1.86): 410.9,33.17,-189.5 g 31.49 ; 409.9,33.17,-189.5 g 31.49 ; 410.9,33.17,-190.5 g 31.49 ; 409.9,33.17,-190.5 g 31.49 ; 410.9,33.17,-190.5 g 31.49 ; 410.9,33.17,-189.5 g 31.49 ; 409.9,33.17,-189.5 g 31.49 ; 409.9,33.17,-190.5 g 31.49 ; 409.9,33.17,-189.5 g 31.49 ; 409.9,33.17,-190.5 g 31.49 ; 410.9,33.17,-190.5 g 31.49 ; 410.9,33.17,-189.5 g 31.49
+  now: coping top 33.03, water surface 32.83, floor 31.49; shallow-end slope from z -199.27 (y 31.49) to z -189.00 (y 33.03), 15.0 %, width 18.00 m; dry above the water from z -190.33
+ForestLoopReverse: saved
+MountainLoop: removing Pool beach entry (0.85)
+MountainLoop: removing Pool deck apron (0.85)
+MountainLoop: pool 416.00,34.65,-197.00 surface 34.69 coping top 34.89; outer x 406.40..425.60 z -205.60..-188.40; inner x 407.00..425.00, north inner face z -189.00; floor 33.35; basin floor north 33.01 (51 samples 33.01..33.02)
+  lower by D 1.86: coping top 33.03, water surface 32.83, ground at the coping 33.01
+  ground Memory loop - north is +Z/Ground_560_240 [Assets/Track/BackyardReverse/MountainLoop-permanent-water-support-45.asset#MountainLoop-permanent-water-support-45] floor 33.35;  vertices lowered 4023 (under the pool 2512), largest cut outside the coping 3.29 m
+  batch Woods replacing later subdivisions/Complete authored trees: 12 vertices near the ground in the changed zone (ground drops up to 1.86): 410.9,33.17,-189.5 g 31.49 ; 409.9,33.17,-189.5 g 31.49 ; 410.9,33.17,-190.5 g 31.49 ; 409.9,33.17,-190.5 g 31.49 ; 410.9,33.17,-190.5 g 31.49 ; 410.9,33.17,-189.5 g 31.49 ; 409.9,33.17,-189.5 g 31.49 ; 409.9,33.17,-190.5 g 31.49 ; 409.9,33.17,-189.5 g 31.49 ; 409.9,33.17,-190.5 g 31.49 ; 410.9,33.17,-190.5 g 31.49 ; 410.9,33.17,-189.5 g 31.49
+  batch CR056 Forest Loop/Forest detail batch: 12 vertices near the ground in the changed zone (ground drops up to 1.86): 410.9,33.17,-189.5 g 31.49 ; 409.9,33.17,-189.5 g 31.49 ; 410.9,33.17,-190.5 g 31.49 ; 409.9,33.17,-190.5 g 31.49 ; 410.9,33.17,-190.5 g 31.49 ; 410.9,33.17,-189.5 g 31.49 ; 409.9,33.17,-189.5 g 31.49 ; 409.9,33.17,-190.5 g 31.49 ; 409.9,33.17,-189.5 g 31.49 ; 409.9,33.17,-190.5 g 31.49 ; 410.9,33.17,-190.5 g 31.49 ; 410.9,33.17,-189.5 g 31.49
+  now: coping top 33.03, water surface 32.83, floor 31.49; shallow-end slope from z -199.27 (y 31.49) to z -189.00 (y 33.03), 15.0 %, width 18.00 m; dry above the water from z -190.33
+MountainLoop: saved
+MountainLoopReverse: removing Pool beach entry (0.85)
+MountainLoopReverse: removing Pool deck apron (0.85)
+MountainLoopReverse: pool 416.00,34.65,-197.00 surface 34.69 coping top 34.89; outer x 406.40..425.60 z -205.60..-188.40; inner x 407.00..425.00, north inner face z -189.00; floor 33.35; basin floor north 33.01 (51 samples 33.01..33.02)
+  lower by D 1.86: coping top 33.03, water surface 32.83, ground at the coping 33.01
+  ground Memory loop - north is +Z/Ground_560_240 [Assets/Track/BackyardReverse/MountainLoopReverse-permanent-water-support-57.asset#MountainLoopReverse-permanent-water-support-57] floor 33.35;  vertices lowered 4023 (under the pool 2512), largest cut outside the coping 3.29 m
+  batch Woods replacing later subdivisions/Complete authored trees: 12 vertices near the ground in the changed zone (ground drops up to 1.86): 410.9,33.17,-189.5 g 31.49 ; 409.9,33.17,-189.5 g 31.49 ; 410.9,33.17,-190.5 g 31.49 ; 409.9,33.17,-190.5 g 31.49 ; 410.9,33.17,-190.5 g 31.49 ; 410.9,33.17,-189.5 g 31.49 ; 409.9,33.17,-189.5 g 31.49 ; 409.9,33.17,-190.5 g 31.49 ; 409.9,33.17,-189.5 g 31.49 ; 409.9,33.17,-190.5 g 31.49 ; 410.9,33.17,-190.5 g 31.49 ; 410.9,33.17,-189.5 g 31.49
+  batch CR056 Forest Loop/Forest detail batch: 12 vertices near the ground in the changed zone (ground drops up to 1.86): 410.9,33.17,-189.5 g 31.49 ; 409.9,33.17,-189.5 g 31.49 ; 410.9,33.17,-190.5 g 31.49 ; 409.9,33.17,-190.5 g 31.49 ; 410.9,33.17,-190.5 g 31.49 ; 410.9,33.17,-189.5 g 31.49 ; 409.9,33.17,-189.5 g 31.49 ; 409.9,33.17,-190.5 g 31.49 ; 409.9,33.17,-189.5 g 31.49 ; 409.9,33.17,-190.5 g 31.49 ; 410.9,33.17,-190.5 g 31.49 ; 410.9,33.17,-189.5 g 31.49
+  now: coping top 33.03, water surface 32.83, floor 31.49; shallow-end slope from z -199.27 (y 31.49) to z -189.00 (y 33.03), 15.0 %, width 18.00 m; dry above the water from z -190.33
+MountainLoopReverse: saved
+DansBackyardForward: removing Pool beach entry (0.85)
+DansBackyardForward: removing Pool deck apron (0.85)
+DansBackyardForward: pool 416.00,34.65,-197.00 surface 34.69 coping top 34.89; outer x 406.40..425.60 z -205.60..-188.40; inner x 407.00..425.00, north inner face z -189.00; floor 33.35; basin floor north 33.01 (51 samples 33.01..33.02)
+  lower by D 1.86: coping top 33.03, water surface 32.83, ground at the coping 33.01
+  ground Memory loop - north is +Z/Ground_560_240 [Assets/Track/BackyardReverse/DansBackyardForward-permanent-water-support-69.asset#DansBackyardForward-permanent-water-support-69] floor 33.35;  vertices lowered 2607 (under the pool 1627), largest cut outside the coping 3.28 m
+  batch Woods replacing later subdivisions/Complete authored trees: 12 vertices near the ground in the changed zone (ground drops up to 1.86): 410.9,33.17,-189.5 g 31.49 ; 409.9,33.17,-189.5 g 31.49 ; 410.9,33.17,-190.5 g 31.49 ; 409.9,33.17,-190.5 g 31.49 ; 410.9,33.17,-190.5 g 31.49 ; 410.9,33.17,-189.5 g 31.49 ; 409.9,33.17,-189.5 g 31.49 ; 409.9,33.17,-190.5 g 31.49 ; 409.9,33.17,-189.5 g 31.49 ; 409.9,33.17,-190.5 g 31.49 ; 410.9,33.17,-190.5 g 31.49 ; 410.9,33.17,-189.5 g 31.49
+  now: coping top 33.03, water surface 32.83, floor 31.49; shallow-end slope from z -199.27 (y 31.49) to z -189.00 (y 33.03), 15.0 %, width 18.00 m; dry above the water from z -190.33
+DansBackyardForward: saved
+DansBackyardReverse: removing Pool beach entry (0.85)
+DansBackyardReverse: removing Pool deck apron (0.85)
+DansBackyardReverse: pool 416.00,34.65,-197.00 surface 34.69 coping top 34.89; outer x 406.40..425.60 z -205.60..-188.40; inner x 407.00..425.00, north inner face z -189.00; floor 31.49; basin floor north 33.01 (51 samples 33.01..33.02)
+  lower by D 1.86: coping top 33.03, water surface 32.83, ground at the coping 33.01
+  ground Memory loop - north is +Z/Ground_560_240 [Assets/Track/BackyardReverse/DansBackyardForward-permanent-water-support-69.asset#DansBackyardForward-permanent-water-support-69] floor 31.50; ALREADY EDITED (left alone) vertices lowered 2272 (under the pool 1627), largest cut outside the coping 1.70 m
+  batch Woods replacing later subdivisions/Complete authored trees: 12 vertices near the ground in the changed zone (ground drops up to 1.86): 410.9,33.17,-189.5 g 31.49 ; 409.9,33.17,-189.5 g 31.49 ; 410.9,33.17,-190.5 g 31.49 ; 409.9,33.17,-190.5 g 31.49 ; 410.9,33.17,-190.5 g 31.49 ; 410.9,33.17,-189.5 g 31.49 ; 409.9,33.17,-189.5 g 31.49 ; 409.9,33.17,-190.5 g 31.49 ; 409.9,33.17,-189.5 g 31.49 ; 409.9,33.17,-190.5 g 31.49 ; 410.9,33.17,-190.5 g 31.49 ; 410.9,33.17,-189.5 g 31.49
+  now: coping top 33.03, water surface 32.83, floor 31.49; shallow-end slope from z -199.27 (y 31.49) to z -189.00 (y 33.03), 15.0 %, width 18.00 m; dry above the water from z -190.33
+DansBackyardReverse: saved
+FreeRoamWorld: removing Pool beach entry (0.85)
+FreeRoamWorld: removing Pool deck apron (0.85)
+FreeRoamWorld: pool 416.00,34.65,-197.00 surface 34.69 coping top 34.89; outer x 406.40..425.60 z -205.60..-188.40; inner x 407.00..425.00, north inner face z -189.00; floor 33.35; basin floor north 33.06 (51 samples 32.96..33.07)
+  lower by D 1.81: coping top 33.08, water surface 32.88, ground at the coping 33.06
+  ground Memory loop - north is +Z/Ground_560_240 [Assets/Track/FreeRoamWorld/FreeRoamWorld-DansBackyardForward-permanent-water-support-69.asset#DansBackyardForward-permanent-water-support-69] floor 33.35;  vertices lowered 2601 (under the pool 1627), largest cut outside the coping 3.24 m
+  CR097 supported properties and camp/House 3 valley driveway/Ground_House3 gentle winding driveway: no vertex under the pool; left alone
+  batch Woods replacing later subdivisions/Complete authored trees: 12 vertices near the ground in the changed zone (ground drops up to 1.81): 410.9,33.17,-189.5 g 31.54 ; 409.9,33.17,-189.5 g 31.54 ; 410.9,33.17,-190.5 g 31.54 ; 409.9,33.17,-190.5 g 31.54 ; 410.9,33.17,-190.5 g 31.54 ; 410.9,33.17,-189.5 g 31.54 ; 409.9,33.17,-189.5 g 31.54 ; 409.9,33.17,-190.5 g 31.54 ; 409.9,33.17,-189.5 g 31.54 ; 409.9,33.17,-190.5 g 31.54 ; 410.9,33.17,-190.5 g 31.54 ; 410.9,33.17,-189.5 g 31.54
+  now: coping top 33.08, water surface 32.88, floor 31.54; shallow-end slope from z -199.27 (y 31.54) to z -189.00 (y 33.08), 15.0 %, width 18.00 m; dry above the water from z -190.33
+FreeRoamWorld: saved
