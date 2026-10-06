@@ -50,8 +50,8 @@ namespace Racer
         public JunctionPaint Paint { get; private set; }
         void Start()
         {
-            SceneryTrees.ClearFreeRoamTrunks(gameObject.scene); RoadPosts.Clear(gameObject.scene); MountainDirt.Apply(gameObject.scene); // 0.80: before the new kit is fitted
-            Signs = StreetSigns.Attach(gameObject); Paint = JunctionPaint.Attach(gameObject); Apply();
+            SceneryTrees.ClearFreeRoamTrunks(gameObject.scene); RoadPosts.Clear(gameObject.scene); RoadPosts.RetireNameBoards(gameObject.scene); MountainDirt.Apply(gameObject.scene); // 0.80: before the new kit is fitted
+            Signs = StreetSigns.Attach(gameObject); Paint = JunctionPaint.Attach(gameObject); WorldEdge.Attach(gameObject); Apply();
         }
 
         void Build()

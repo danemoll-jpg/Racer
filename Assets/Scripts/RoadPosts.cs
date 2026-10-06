@@ -72,6 +72,30 @@ namespace Racer
             }
             if (Removed.Count + Kept.Count > 0) Debug.Log($"Road posts ({scene.name}): removed {Removed.Count}, kept {Kept.Count}\n" + string.Join("\n", Removed.Concat(Kept)));
         }
+        // 0.81 Part 0.1 (BUG-001): the old dark road-name boards on a post ("Trickum Road" at Hwy 92, "South Cherokee Lane"
+        // at Hwy 92, "TO Jamerson Road" at S Cherokee / Trickum) are replaced by the 0.79 green street signs. They are
+        // breakable props whose only collider is their smash trigger (a vehicle drives through them), so removing them
+        // changes no race contact in any scene; one used by a Free Roam smash activity would be kept and listed.
+        public static readonly List<string> Boards = new();
+        // only the road-name boards; the shortcut speed boards ("Creek Leap > 76 mph" ...) stay
+        static readonly string[] NameBoards = { "Breakable sign - Hwy 92", "Breakable sign - Hwy 92 South Cherokee Lane", "Breakable sign - Jamerson Rd" };
+        public static void RetireNameBoards(Scene scene)
+        {
+            Boards.Clear();
+            var used = new HashSet<BreakableProp>(scene.GetRootGameObjects().SelectMany(g => g.GetComponentsInChildren<ActivitySite>(true)).SelectMany(s => s.props ?? new BreakableProp[0]).Where(p => p));
+            foreach (var text in scene.GetRootGameObjects().SelectMany(g => g.GetComponentsInChildren<TextMesh>(true)))
+            {
+                if (text.name != "Road lettering") continue;
+                var board = text.GetComponentInParent<BreakableProp>(true); if (!board || System.Array.IndexOf(NameBoards, board.name) < 0) continue;
+                if (!board.gameObject.activeSelf) continue;
+                var cols = board.GetComponentsInChildren<Collider>(true);
+                string line = $"{Path(board.transform)} \"{text.text.Replace("\n", " ")}\" at ({board.transform.position.x:F1}, {board.transform.position.y:F1}, {board.transform.position.z:F1}); colliders: {cols.Length} ({string.Join(", ", cols.Select(c => c.isTrigger ? "trigger" : "solid"))})";
+                if (used.Contains(board) || cols.Any(c => !c.isTrigger)) { Boards.Add(line + ": kept (activity prop or solid collider)"); continue; }
+                Boards.Add(line + ": removed");
+                board.gameObject.SetActive(false); Object.Destroy(board.gameObject);
+            }
+            if (Boards.Count > 0) Debug.Log($"Road-name boards ({scene.name}):\n" + string.Join("\n", Boards));
+        }
         static List<Vector3[]> RaceLines(Scene scene)
         {
             var lines = new List<Vector3[]>();
