@@ -15,7 +15,110 @@
   - **Dan does:** driving every course and direction, trying every vehicle everywhere, checking that a universal fix holds everywhere, and judging look and feel. He reports through the debug ZIPs.
   - **Write-up:** the TODO results are a short list: what changed, the one check per item, decisions made, and anything Dan should look at. No separate VALIDATION.md unless a round asks. If a check would take more than a few minutes of play time, skip it and list it under "for Dan to check".
 
-## CURRENT — Scene characters (Dan, Kyle, brother), always-on track map, poster loading screen, winner's head, plain Top 10 records, two Mountain Forward fixes — 0.83.0-review1 — DELIVERED, AWAITING DAN'S REVIEW
+## CURRENT — Forest Loop Reverse main route, small things (icon, no idle creep, Forest activities into Free Roam, fences, cave rock, title audio, Start Race pause, Backyard AI gates), roadster windshield — target 0.84.0-review1 — NOT STARTED
+
+- **Authorized by Dan (2026-10-06).** Written by Claude (chat). Parts A–I were queued during 0.83; Parts J–L come from his review of 0.83.0-review1 (debug session `2026-10-06_05-51-11-694_49829f`, 1 report, on 0.83.0-review1) and his message of 06:01. He raised nothing else against 0.83.
+- **Starting point:** main at the last 0.83 commit ("Remove the temporary 0.83 editor tools…"); playable source `da4c8d8c` (0.83.0-review1 / game-83000). This TODO edit and `SourceArt/Poster/WoodstockRushIcon.png` are uncommitted and belong in the safety checkpoint.
+- **Runs unattended overnight; Dan is asleep and said "This can be a long update".** Design decisions are below; do not stop to ask about design. Stop only for a real external blocker (rule 7).
+- **Scope is exactly Parts A–L below. Order: J first (the important one, own commit), then K, B, L, then the rest in any order.**
+- The Verification budget in "Mandatory standing workflow" applies, except where a part says it may check more.
+- Publishing: `.claude/settings.local.json` allows the publish script (it worked in 0.83).
+
+### Part A — Windows icon
+
+Dan (2026-10-06): "I want to change the Windows Icon so it isn't the unity logo also."
+
+1. The icon artwork is in the project: `SourceArt/Poster/WoodstockRushIcon.png` (1024×1024, the ATV and rider from the poster, cropped by Claude; Dan chose the ATV on 2026-10-06 and may revisit it). The source crop is small, so the large sizes are soft; that is accepted. Import it and set it as the default icon in Player Settings so `Racer.exe`, the window, the taskbar and Alt-Tab show it at every size Windows asks for (16 to 256).
+2. Also give the launcher the same icon where one applies: a desktop/Start shortcut if the launcher or `Play-Racer.cmd` creates one; do not change how the launcher works, its signing, or the release manifest format.
+3. **Do not change `productName` ("Racer") or the company name**: the save folder (`AppData\LocalLow\DefaultCompany\Racer`), records, settings and debug reports depend on them. The window title may be set to "Woodstock Rush" at runtime if that can be done without touching `productName`; otherwise leave it and report.
+4. Check: after the build, the exe in `Builds\Latest` shows the new icon in Explorer and on the taskbar while running. Windows caches icons, so judge from a freshly built path or after clearing the cache, and tell Dan if he may need to do the same.
+
+**More items for this round (Dan, 2026-10-06: "Maybe we can handle a bunch of the small things next"). The numbered list above is Part A; the parts below are B–I, and J–L were added from the 0.83 review.**
+
+### Part B — Vehicles must not creep with no throttle
+
+Dan: "When you don't have the gas pushed, the vehicles tend to move anyway, they shouldn't."
+
+1. With no throttle, no brake and no reverse input, a vehicle that is stopped stays stopped, on flat ground and on ordinary slopes (roads, driveways, trail grades), like an automatic holding itself. A moving vehicle coasts down and comes fully to rest; it does not keep crawling at a few mph.
+2. Find the cause before changing numbers (idle drive torque, a minimum-speed floor, analogue trigger or stick noise read as throttle, wheel friction too low at rest, slope force with no holding force). If it is input noise, add a proper dead zone for both triggers and the keyboard path.
+3. Do not change how the vehicles drive once the player is on the throttle: same acceleration, top speed, grip and coasting feel at speed, so lap times and records stay comparable. On very steep ground (the mountain's steepest faces, jump ramps) a stopped vehicle may still slide; that is fine.
+4. Applies to all ten vehicles. AI and traffic behaviour unchanged.
+5. Check: on flat road and on S Cherokee's hill, release everything from a stop and from 20 mph on a car, the ATV and a motorcycle: 0 mph and staying there. One Street Loop lap time on the Needle 600 against the same lap before the change, to show driving is unchanged.
+
+### Part C — Forest jump and speed traps moved into Free Roam
+
+0.76 reported that three Free Roam activities sit on race-only Forest trails and so do not exist in `FreeRoamWorld`: the Forest opening jump and Forest speed traps 1 and 2. Dan (2026-10-06): the Forest cave "was causing issues since it was in the area of backyard so I thought we were getting rid of it; move the jump and speed traps somewhere that is visible on free roam."
+
+1. **The cave stays out of Free Roam** (it remains in the Forest races only). Settled; do not raise it again.
+2. Give the jump and the two speed traps new homes in `FreeRoamWorld`, on ground that exists there, each in a place a player will actually see while roaming: beside or on a real road or a well-used trail, not hidden in woods. Speed traps on stretches where real speed is possible (Hwy 92 and a long run of Trickum Rd or S Cherokee Ln are the obvious candidates); the jump where there is already a natural launch or where an existing ramp-like feature can be used. **Do not build new terrain or ramps for this**; choose spots that work as they are.
+3. Each shows on the Free Roam map and minimap as a site, with the usual on-site prompt, and works with every vehicle. Keep their ids, names (rename only if "Forest" no longer fits the place), medal targets adjusted to the new spot, and existing saved results where an id is unchanged.
+4. Report where each one went (map position) so Dan can find them. Check: run each once.
+
+### Part D — Spoken title clipping (CR-118)
+
+The spoken title at startup is sometimes cut off. With 0.82's loading screen now up before the first frame, find where the clip is started or stopped early (scene change, audio source destroyed, another sound taking the channel, the loading screen) and make it always play in full. Check: five cold launches, heard in full each time; if it never reproduces, say so and close it.
+
+### Part E — Fences
+
+The 0.78 scenery round left the fences as the original merged blockout meshes. Give them the same treatment as the rest of the scenery (Scenery: New only): proper posts, rails and the diagonal braces where they have them, wood colour variation, posts that follow the ground (no floating or buried sections). Same lines, heights and colliders as now: visual only. Check: one shot of the fence by Dan's driveway and one on a slope.
+
+### Part F — Cave, vault and portal rock
+
+Also left unchanged in 0.78. Bring the cave / vault / portal rock in the Forest and Mountain race scenes up to the faceted-rock look of the other 0.78 rocks. Visual only, colliders and openings exactly as they are (section 5A), headlights and the cave atmosphere still working. **Dan (2026-10-06): fine "as long as it doesn't mess it up again"; the caves have been broken by well-meant changes before (0.74).** So: change only what is drawn. Do not edit, move, rebuild or re-save any cave collider, trigger, route, gate or the cave geometry in the scene files; draw the new look over or in place of the old renderers at load, as 0.78 did for other scenery, behind the Scenery: New switch so Classic still shows the original. The new rock must not narrow any opening or hang into the driving space: keep it on or behind the existing surfaces. If a piece cannot be restyled without that risk, leave that piece as it is and say so. Check: the collider comparison for each scene touched (identical), drive through each cave once each way on a motorcycle and a car without touching anything new, one shot at each cave mouth and one inside with headlights.
+
+### Part G — The pause when pressing Start Race
+
+0.82 left a pause of about 0.3 s when START RACE is pressed while the AI vehicles are built. Build them behind the loading screen (or spread the work over frames before the countdown) so the press responds at once. Check: press it and watch.
+
+### Part H — AI missing gates on Dan's Backyard
+
+0.80 and 0.76 both noted that AI rivals sometimes miss a gate on Dan's Backyard, forward and reverse, with any vehicle. Find which gates and why (AI line passes outside the gate, a gate set too narrow for the line, a shortcut merge) and fix it by correcting the AI line or the gate's tolerance at that spot. Do not move track geometry. Check: three AI-only or AI-led races on each direction, 0 missed gates; this one check is allowed to be heavier because the fault is intermittent.
+
+### Part I — One stray trunk on the Backyard Reverse trail
+
+0.79 kept a hidden tree-trunk collider at (208.0, 72.35, 89.8) in Dan's Backyard Reverse, 2.3 m from the race line, because it was in a race scene. **Dan has approved removing it (2026-10-06).** Remove that collider (and the same one in Dan's Backyard Forward if it is there too). Nothing else in those scenes changes.
+
+### Part J — Forest Loop Reverse: make the main route feel like the main route
+
+Dan (2026-10-06, after racing 0.83): "I still feel that the main track for Forest reverse is awkward mainly due to the hump that you have to hit going there. The shortcut is the much more natural way to go. Is there something that can be done to make the main route less weird and actually make the drivers think that is the intended route?" He has given the whole night to this round: "This can be a long update."
+
+**Background Code must read first (search the archive, do not guess):** the main here is the **Granite Saddle** line, promoted to main in `forest-reverse-v6-granite-main` (east fork L04 near (600, -162) to west rejoin L05 near (200, -175), passing House 3), later `forest-reverse-v7-water-detour`. Commit `14240a16` put the House 3 driveway support across that trail and created a hill on it; a "hill fix" followed and Dan accepted it only as "imperfect but humanly drivable for now … temporary usability acceptance, not acceptance of the whole area". `Docs/RouteAtlas/Granite-height-comparison.png` shows the old profile in this scene: a climb from about 42 m to about 64 m and then a drop to about 35 m within roughly 100 m, where the authored line wanted about 43 m. Also read what 0.74 did to the House 3 driveway and what 0.76 restored: **Dan hated the 0.74 result; the straight House 3 driveway he chose stays.** Dan's screenshot (session `2026-10-06_05-51-11-694_49829f`, BUG-001) is taken on the main at (285.6, 45.5, -196.7), main progress 522 m, with the gold shortcut forking right on the minimap.
+
+**Step 1 — measure and say what is wrong.** In `ForestLoopReverse`, sample the real driving surface along the main from L04 to L05 and along the shortcut(s) that fork from it: height profile, grade, crest sharpness (where a vehicle at race speed leaves the ground or bottoms out), width, and sight line at the fork. Identify "the hump" precisely (station, height, what object causes it) and which shortcut Dan means. Record both profiles in one chart.
+
+**Step 2 — fix the hump on the main (race-scene geometry change, explicitly requested by Dan; section 5A applies).**
+- Keep the main's X/Z line, gates, checkpoints, start/finish, jumps (J1 near the west rejoin stays a jump) and the shortcut exactly where they are. Change heights only, and only within the hump's span plus the blend each side.
+- Target: the main through here drives as a flowing fast trail. No crest that throws a vehicle or hides the road beyond it, no drop it falls off, no wall it climbs: grade no steeper than about 12 %, smooth vertical curves so all ten vehicles stay on their wheels at race speed, and a width at least equal to the main elsewhere.
+- Preferred method: a **cutting**. Lower the trail through the hump toward the authored line and shape banked earth sides (same look as the nearby banks), so the trail passes through the rise instead of over it. If the hump is the House 3 driveway's embankment, the driveway keeps its present straight line and slope and is carried over the cutting on a short, simple timber or concrete deck with posts (collidable, wide enough for a car), or meets the trail at a level crossing, whichever leaves the driveway least changed. **Dan (2026-10-06, 06:05): changing the driveway or moving a gate is fine "if it only needs to change it in the race instance but not in the free roam world".** So in `ForestLoopReverse` only, if the cutting needs it, the House 3 driveway may be regraded, shortened or shifted near the crossing, and a gate or checkpoint on this stretch may be moved to suit the reshaped trail. Limits: keep the driveway a simple, direct driveway (never the winding 0.74 version, never a loop round the lake), keep the lap the same route with the same gate order, and prefer the smallest change that makes the main flow.
+- Trees, rocks, signs and props on changed ground are re-seated or removed so nothing floats or is buried (rule 4). Colliders match what is drawn.
+- Only `ForestLoopReverse` changes. `LakeWoods` (Forest Forward), `FreeRoamWorld` and every other scene stay untouched.
+- **If this cannot be done cleanly even with that freedom** (it would break a jump or the shortcut, or need the route itself redrawn), change no geometry: report the measurements and the options, including the alternative of making the natural route the main and Granite Saddle the optional line, for Dan to choose.
+
+**Step 3 — make it read as the intended route (no blocking of the shortcut).**
+- At the fork, the main must be the obvious straight-on choice: its mouth at full width with a continuous surface, teal chevrons or arrows placed where a driver looks on approach, and the view down the main open (clear sight-blocking bushes or props on changed ground).
+- The shortcut reads as a side trail you choose: a visibly narrower mouth or a change of surface at its entrance, and the gold shortcut marking and sign as elsewhere. It stays fully drivable and as fast as it is now.
+- AI: the main line through the reshaped section is followed cleanly by all vehicle classes; AI shortcut choice rates unchanged.
+
+**Records:** the main's surface changes, so give Forest Loop Reverse a new course-rule ID (as v6 and v7 did); old times stay visible as legacy.
+
+**Checks (this part may use heavier checking than the budget, because it changes a race course):** the before/after height chart; collider and route comparison for the scene listing exactly what changed; each of a motorcycle, the ATV and a car through the section at race speed on the main without leaving the ground or resetting; three races of Forest Loop Reverse with AI (0 missed gates, nobody stuck at the old hump); one run through the shortcut; before/after shots from Dan's screenshot position and from the fork. **Make this part its own commit** so it can be reverted alone, and say how in the results.
+
+### Part K — Floating trees on Forest Loop Reverse (BUG-001)
+
+"floating trees" at (285.6, 45.5, -196.7), `ForestLoopReverse`, Dawn / Clear, session `2026-10-06_05-51-11-694_49829f`, on 0.83.0-review1. A tree trunk hangs in the air above the trail ahead with nothing under it, and crowns nearby sit off the ground. Find why (a trunk seated on ground that this scene does not have, a crown-only clump from 0.78, a tree left behind by earlier terrain edits here) and seat or remove them. Then run the 0.79 tree and prop grounding check over this scene and fix whatever it finds, since this area has had its ground changed several times. Do this after Part J's reshaping so the result is final. Check: one shot from the reported position.
+
+### Part L — Sundown Roadster: windshield blocks the first-person view
+
+Dan: "for the sundown roadster, the windshield is too low so if you are using first person pov, the top of windshield blocks your vision."
+
+1. In first person in the Sundown Roadster the windshield's top frame crosses the middle of the view. Fix it in the Blender model: a taller, properly raked windshield whose top frame sits clearly above the driver's eye line, with clear glass, so the road ahead is seen through the glass and the frame is at the top edge of the view. Keep it looking like a 1960s roadster (a slim chrome frame, not a tall modern screen). Adjust the first-person eye point only if needed and keep it at the rider's eyes.
+2. Then look once through first person in the other nine vehicles and fix any where a frame, roof edge, mirror, handlebar or gauge blocks the centre of the view the same way; list what was changed.
+3. No handling or collider change. Check: one first-person shot from each car on a straight road.
+
+
+**Closed by Dan on 2026-10-06, do not carry forward:** CR-010 tighter steering ("ancient history"); skip-ahead time in Free Roam; burying the storm-drain box.
+
+## Previous delivery — Scene characters (Dan, Kyle, brother), always-on track map, poster loading screen, winner's head, plain Top 10 records, two Mountain Forward fixes — 0.83.0-review1 — DELIVERED, REVIEWED BY DAN (follow-ups in 0.84)
 
 - **Authorized by Dan (2026-10-06).** Written by Claude (chat) from his review of 0.82.0-review1: debug session `2026-10-06_03-13-11-334_72b40c` (2 reports, both on 0.82.0-review1, Mountain Loop Forward, race, Night / Snow, Drifter Twin) and his written requests, quoted in each part.
 - **Starting point:** main at the "Record 0.82 delivery" commit; playable source `27a3fa98` (0.82.0-review1 / game-82000). This TODO edit and the new file `SourceArt/Poster/WoodstockRushPoster.png` are uncommitted and belong in the safety checkpoint.
@@ -112,64 +215,6 @@ Why it is blank today: the Records screen (`RaceMenus.RecordsResults.cs`) shows 
 ### Verification
 
 Light, per the Verification budget: the one check named in each part, compile, launch, release steps. Results as a short list, with "for Dan to check".
-
-## QUEUED NEXT — Small things: Windows icon, no creeping at idle, Forest activities into Free Roam, fences, cave rock, title audio, Start Race pause, Backyard AI gates — target 0.84.0-review1 — NOT STARTED
-
-Written by Claude (chat) on 2026-10-06 while 0.83 was running. Do not start until 0.83 is delivered and Dan starts it; more items may be added first. The Verification budget applies.
-
-Dan (2026-10-06): "I want to change the Windows Icon so it isn't the unity logo also."
-
-1. The icon artwork is in the project: `SourceArt/Poster/WoodstockRushIcon.png` (1024×1024, the ATV and rider from the poster, cropped by Claude; Dan chose the ATV on 2026-10-06 and may revisit it). The source crop is small, so the large sizes are soft; that is accepted. Import it and set it as the default icon in Player Settings so `Racer.exe`, the window, the taskbar and Alt-Tab show it at every size Windows asks for (16 to 256).
-2. Also give the launcher the same icon where one applies: a desktop/Start shortcut if the launcher or `Play-Racer.cmd` creates one; do not change how the launcher works, its signing, or the release manifest format.
-3. **Do not change `productName` ("Racer") or the company name**: the save folder (`AppData\LocalLow\DefaultCompany\Racer`), records, settings and debug reports depend on them. The window title may be set to "Woodstock Rush" at runtime if that can be done without touching `productName`; otherwise leave it and report.
-4. Check: after the build, the exe in `Builds\Latest` shows the new icon in Explorer and on the taskbar while running. Windows caches icons, so judge from a freshly built path or after clearing the cache, and tell Dan if he may need to do the same.
-
-**More items for this round (Dan, 2026-10-06: "Maybe we can handle a bunch of the small things next"). The numbered list above is Part A; the parts below are B–I. Scope is exactly Parts A–I. Runs unattended; decisions are below.**
-
-### Part B — Vehicles must not creep with no throttle
-
-Dan: "When you don't have the gas pushed, the vehicles tend to move anyway, they shouldn't."
-
-1. With no throttle, no brake and no reverse input, a vehicle that is stopped stays stopped, on flat ground and on ordinary slopes (roads, driveways, trail grades), like an automatic holding itself. A moving vehicle coasts down and comes fully to rest; it does not keep crawling at a few mph.
-2. Find the cause before changing numbers (idle drive torque, a minimum-speed floor, analogue trigger or stick noise read as throttle, wheel friction too low at rest, slope force with no holding force). If it is input noise, add a proper dead zone for both triggers and the keyboard path.
-3. Do not change how the vehicles drive once the player is on the throttle: same acceleration, top speed, grip and coasting feel at speed, so lap times and records stay comparable. On very steep ground (the mountain's steepest faces, jump ramps) a stopped vehicle may still slide; that is fine.
-4. Applies to all ten vehicles. AI and traffic behaviour unchanged.
-5. Check: on flat road and on S Cherokee's hill, release everything from a stop and from 20 mph on a car, the ATV and a motorcycle: 0 mph and staying there. One Street Loop lap time on the Needle 600 against the same lap before the change, to show driving is unchanged.
-
-### Part C — Forest jump and speed traps moved into Free Roam
-
-0.76 reported that three Free Roam activities sit on race-only Forest trails and so do not exist in `FreeRoamWorld`: the Forest opening jump and Forest speed traps 1 and 2. Dan (2026-10-06): the Forest cave "was causing issues since it was in the area of backyard so I thought we were getting rid of it; move the jump and speed traps somewhere that is visible on free roam."
-
-1. **The cave stays out of Free Roam** (it remains in the Forest races only). Settled; do not raise it again.
-2. Give the jump and the two speed traps new homes in `FreeRoamWorld`, on ground that exists there, each in a place a player will actually see while roaming: beside or on a real road or a well-used trail, not hidden in woods. Speed traps on stretches where real speed is possible (Hwy 92 and a long run of Trickum Rd or S Cherokee Ln are the obvious candidates); the jump where there is already a natural launch or where an existing ramp-like feature can be used. **Do not build new terrain or ramps for this**; choose spots that work as they are.
-3. Each shows on the Free Roam map and minimap as a site, with the usual on-site prompt, and works with every vehicle. Keep their ids, names (rename only if "Forest" no longer fits the place), medal targets adjusted to the new spot, and existing saved results where an id is unchanged.
-4. Report where each one went (map position) so Dan can find them. Check: run each once.
-
-### Part D — Spoken title clipping (CR-118)
-
-The spoken title at startup is sometimes cut off. With 0.82's loading screen now up before the first frame, find where the clip is started or stopped early (scene change, audio source destroyed, another sound taking the channel, the loading screen) and make it always play in full. Check: five cold launches, heard in full each time; if it never reproduces, say so and close it.
-
-### Part E — Fences
-
-The 0.78 scenery round left the fences as the original merged blockout meshes. Give them the same treatment as the rest of the scenery (Scenery: New only): proper posts, rails and the diagonal braces where they have them, wood colour variation, posts that follow the ground (no floating or buried sections). Same lines, heights and colliders as now: visual only. Check: one shot of the fence by Dan's driveway and one on a slope.
-
-### Part F — Cave, vault and portal rock
-
-Also left unchanged in 0.78. Bring the cave / vault / portal rock in the Forest and Mountain race scenes up to the faceted-rock look of the other 0.78 rocks. Visual only, colliders and openings exactly as they are (section 5A), headlights and the cave atmosphere still working. **Dan (2026-10-06): fine "as long as it doesn't mess it up again"; the caves have been broken by well-meant changes before (0.74).** So: change only what is drawn. Do not edit, move, rebuild or re-save any cave collider, trigger, route, gate or the cave geometry in the scene files; draw the new look over or in place of the old renderers at load, as 0.78 did for other scenery, behind the Scenery: New switch so Classic still shows the original. The new rock must not narrow any opening or hang into the driving space: keep it on or behind the existing surfaces. If a piece cannot be restyled without that risk, leave that piece as it is and say so. Check: the collider comparison for each scene touched (identical), drive through each cave once each way on a motorcycle and a car without touching anything new, one shot at each cave mouth and one inside with headlights.
-
-### Part G — The pause when pressing Start Race
-
-0.82 left a pause of about 0.3 s when START RACE is pressed while the AI vehicles are built. Build them behind the loading screen (or spread the work over frames before the countdown) so the press responds at once. Check: press it and watch.
-
-### Part H — AI missing gates on Dan's Backyard
-
-0.80 and 0.76 both noted that AI rivals sometimes miss a gate on Dan's Backyard, forward and reverse, with any vehicle. Find which gates and why (AI line passes outside the gate, a gate set too narrow for the line, a shortcut merge) and fix it by correcting the AI line or the gate's tolerance at that spot. Do not move track geometry. Check: three AI-only or AI-led races on each direction, 0 missed gates; this one check is allowed to be heavier because the fault is intermittent.
-
-### Part I — One stray trunk on the Backyard Reverse trail
-
-0.79 kept a hidden tree-trunk collider at (208.0, 72.35, 89.8) in Dan's Backyard Reverse, 2.3 m from the race line, because it was in a race scene. **Dan has approved removing it (2026-10-06).** Remove that collider (and the same one in Dan's Backyard Forward if it is there too). Nothing else in those scenes changes.
-
-**Closed by Dan on 2026-10-06, do not carry forward:** CR-010 tighter steering ("ancient history"); skip-ahead time in Free Roam; burying the storm-drain box.
 
 ## Previous delivery — Loading screens, stutter check, junction lines fix, garage stat bars, winner camera — 0.82.0-review1 — DELIVERED, REVIEWED BY DAN (follow-ups in 0.83)
 
