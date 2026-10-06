@@ -15,7 +15,7 @@
   - **Dan does:** driving every course and direction, trying every vehicle everywhere, checking that a universal fix holds everywhere, and judging look and feel. He reports through the debug ZIPs.
   - **Write-up:** the TODO results are a short list: what changed, the one check per item, decisions made, and anything Dan should look at. No separate VALIDATION.md unless a round asks. If a check would take more than a few minutes of play time, skip it and list it under "for Dan to check".
 
-## CURRENT — Forest Loop Reverse main route, small things (icon, no idle creep, Forest activities into Free Roam, fences, cave rock, title audio, Start Race pause, Backyard AI gates), roadster windshield — 0.84.0-review1 — DELIVERED, AWAITING DAN'S REVIEW
+## Latest delivery — Forest Loop Reverse main route, small things (icon, no idle creep, Forest activities into Free Roam, fences, cave rock, title audio, Start Race pause, Backyard AI gates), roadster windshield — 0.84.0-review1 — DELIVERED, AWAITING DAN'S REVIEW
 
 - **Authorized by Dan (2026-10-06).** Written by Claude (chat). Parts A–I were queued during 0.83; Parts J–L come from his review of 0.83.0-review1 (debug session `2026-10-06_05-51-11-694_49829f`, 1 report, on 0.83.0-review1) and his message of 06:01. He raised nothing else against 0.83.
 - **Starting point:** main at the last 0.83 commit ("Remove the temporary 0.83 editor tools…"); playable source `da4c8d8c` (0.83.0-review1 / game-83000). This TODO edit and `SourceArt/Poster/WoodstockRushIcon.png` are uncommitted and belong in the safety checkpoint.
@@ -24,7 +24,15 @@
 - The Verification budget in "Mandatory standing workflow" applies, except where a part says it may check more.
 - Publishing: `.claude/settings.local.json` allows the publish script (it worked in 0.83).
 
-- **DELIVERED:** (filled in below after the release.)
+- **DELIVERED:**
+  - Source `7f3415227bb695e24ffea03902c86fd98f13bf22` pushed and verified on origin/main (Part J alone is `e0338a9d`).
+  - Fresh 0.84.0-review1 Windows build: 0 errors, 2m16s ([build-release.txt](Docs/Report084/build-release.txt)); the 110 warnings are the existing obsolete-API notes of a full recompile and the usual mesh-collider note. `Racer.exe` carries the new icon (extracted and checked); the running window reads "Woodstock Rush" (it shows "Racer" for a moment while the first scene loads).
+  - Published [game-84000](https://github.com/danemoll-jpg/woodstock-rush-releases/releases/tag/game-84000) with `python Tools/Publish-LauncherRelease.py` (the known draft-lookup miss after the draft was created, then `--resume-draft` uploaded the three assets and published, without needing Dan). Previous releases retained.
+  - All 234 Latest files match the public signed manifest; public download, signature, install and startup pass ([hosted/result.json](Docs/Report084/hosted/result.json)).
+  - Title voice (Part D): five cold launches of the build, each "played to the end (2.75 s clip); frames with no scene listener 0; window focus lost 0 times" ([title-cold-launches.json](Docs/Report084/title-cold-launches.json)). Not reproduced; Dan to say if he still hears it cut.
+- **Play-Racer.cmd (unchanged):** launched a responsive `Builds/Latest/versions/84000/Racer.exe` (0.84.0-review1), muted, settings restored byte for byte; catalog reports no pending game or music update. Latest root, current 84000 and previous 83000 retained.
+- **Cleanup:** Builds 10,127,476,363 -> 7,991,660,292 bytes (2.1 GB recovered); plus the 1.7 GB hosted check install and 89 MB of check scratch outside the project. C: free 274,166,718,464 bytes.
+- **SESSION HANDOFF: STOP.** Awaiting Dan's review of 0.84 (rule 12).
 
 ### Results (2026-10-06, Claude Code)
 
@@ -142,7 +150,7 @@ Dan: "for the sundown roadster, the windshield is too low so if you are using fi
 
 **Closed by Dan on 2026-10-06, do not carry forward:** CR-010 tighter steering ("ancient history"); skip-ahead time in Free Roam; burying the storm-drain box.
 
-## Previous delivery — Scene characters (Dan, Kyle, brother), always-on track map, poster loading screen, winner's head, plain Top 10 records, two Mountain Forward fixes — 0.83.0-review1 — DELIVERED, REVIEWED BY DAN (follow-ups in 0.84)
+## Previous delivery — Scene characters (Dan, Kyle, brother), always-on track map, poster loading screen, winner's head, plain Top 10 records, two Mountain Forward fixes — 0.83.0-review1 — DELIVERED, REVIEWED BY DAN (follow-ups delivered in 0.84)
 
 - **Authorized by Dan (2026-10-06).** Written by Claude (chat) from his review of 0.82.0-review1: debug session `2026-10-06_03-13-11-334_72b40c` (2 reports, both on 0.82.0-review1, Mountain Loop Forward, race, Night / Snow, Drifter Twin) and his written requests, quoted in each part.
 - **Starting point:** main at the "Record 0.82 delivery" commit; playable source `27a3fa98` (0.82.0-review1 / game-82000). This TODO edit and the new file `SourceArt/Poster/WoodstockRushPoster.png` are uncommitted and belong in the safety checkpoint.
