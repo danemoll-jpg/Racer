@@ -9,8 +9,78 @@
 - Do not silently modify or weaken CODEX_RULES.md. Changes to standing rules require an explicit instruction from Dan.
 - Root AGENTS.md points future Codex tasks to both files.
 - From 2026-10-02 the coding agent is Claude Code. The same two files govern it; root CLAUDE.md (created in the 0.67 round) is its discovery pointer.
+- **Verification budget (explicit instruction from Dan, 2026-10-05; overrides heavier checking asked for in older rounds and narrows rule 11):** "I do want things fixed to have targeted testing. But things like racing all the tracks twice, I can take care of." "It is more about how many tokens I am spending for things I can do myself."
+  - **Do:** one targeted check per change, at the place it changed, showing the thing asked for now works (the hole cannot be fallen into, the bump no longer upsets the bike, the button does its job, a new vehicle loads and sits on its wheels). Compile, launch, and the release steps as always. When a course scene's geometry is touched: the quick "nothing else changed" comparison of that scene's colliders/routes, and one lap of that one course in that one direction.
+  - **Do not, unless the round explicitly asks:** race matrices (every course × direction × vehicle), repeat or confirmation runs, forced-shortcut sweeps, world-wide or all-nine-scene sweeps to re-prove a fix, before/after screenshot sets beyond one shot per fix, frame-rate tables on rounds that do not change rendering cost (one worst-view number when they do), reset batteries, or long validation documents.
+  - **Dan does:** driving every course and direction, trying every vehicle everywhere, checking that a universal fix holds everywhere, and judging look and feel. He reports through the debug ZIPs.
+  - **Write-up:** the TODO results are a short list: what changed, the one check per item, decisions made, and anything Dan should look at. No separate VALIDATION.md unless a round asks. If a check would take more than a few minutes of play time, skip it and list it under "for Dan to check".
 
-## Previous delivery — Clean-up from the 0.79 review, fist wave on LB, cars allowed on every course — 0.80.0-review1 — DELIVERED, AWAITING DAN'S REVIEW
+## CURRENT — New vehicles (four cars incl. a convertible, two motorcycles), Blender traffic cars, detailed people in the scripted scenes, and three 0.80 fixes — target 0.81.0-review1 — NOT STARTED
+
+- **Authorized by Dan (2026-10-05).** Written by Claude (chat). Parts A–C were queued earlier today; Part 0 is from his review of 0.80.0-review1 (debug session `2026-10-05_19-55-15-336_432f96`, 3 reports, all on 0.80.0-review1: "just a couple of things"); Part D is his request of the same evening.
+- **Starting point:** main at the "Record 0.80 delivery" commit; playable source `1397143a` (0.80.0-review1 / game-80000). This TODO edit is uncommitted and belongs in the safety checkpoint.
+- Runs unattended: design decisions are below; do not stop to ask about design. Stop only for a real external blocker (rule 7).
+- **Scope is exactly Parts 0 and A–D below. Do Part 0 first.**
+- **The Verification budget in "Mandatory standing workflow" applies to this round in full.** Keep checking light; Dan will test.
+
+### Part 0 — Three fixes from the 0.80 review
+
+1. **BUG-001 — old road-name sign** at (-621.0, 8.2, 503.2), `FreeRoamWorld`: "we can remove this sign now". The large dark board reading "Trickum Road" on a post, by the Trickum Rd / Hwy 92 corner. The green street signs from 0.79 replace it. Remove it, and any other old board-style road-name signs of the same kind (for S Cherokee, Hwy 92), in every scene; if one has a collider near a race line in a course scene, hide the visual and report it (5A). Check: one shot of that corner.
+2. **BUG-002 — the end of the world** at (1185.6, 80.4, 326.8), `FreeRoamWorld`: "can we do something to prevent the end of the world?" From the mountain the terrain simply stops at a straight edge with empty haze beyond, and the player can ride up to it. Decision:
+   - **Look:** the world never visibly ends. Beyond the playable edge add a ring of distant, non-collidable terrain (rolling wooded hills / ridgelines, low detail, fading into the existing haze) all the way round, so every view from the mountain and the roads has a horizon. Cheap geometry; no trees with colliders.
+   - **Edge:** the player cannot ride off. A natural barrier where it reads well (steep bank, dense tree line, rock) and, behind it, an invisible wall and the normal reset as a backstop, so nobody falls out of the world.
+   - Apply in `FreeRoamWorld` and in the course scenes (same world; visuals outside the playable area, so no route is affected; 5A still applies to anything near a race line).
+   - Check: one shot from the reported position, and ride at the edge once there.
+3. **BUG-003 — bump** at (997.8, 152.5, 319.2), Mountain Loop Reverse: "there must be a bump here. I flipped and watched 2 other cycles flip". This is on the reverse runway/entry deck area where 0.80 added the embankment (BUG-010) and near the 0.80 edge covers, so first check whether a 0.80 mesh (`Ground_Report080 …`) or its collider pokes above the driving surface or leaves a lip there; otherwise find the step in the original surface. Make the driving surface continuous so bikes at race speed stay upright. Check: ride it at race speed on the motorcycle a few times, one lap of Mountain Loop Reverse with AI, and the collider comparison for that scene.
+
+Dan (2026-10-05): "I am thinking we could fold into Blender NPC cars and while we are at it maybe add a couple more vehicles? I would want some cars that maybe look a little more sporty. Maybe a convertible. I would want a couple of cars inspired like these old vintage cars [1960s–70s sports and muscle cars, a 1950s finned cruiser]. Other motorcycles would be cool but I don't know how they would look different."
+
+Same pipeline and standard as 0.75 (`F:\blender\blender.exe`, `Tools/Blender/`, `SourceArt/Blender/`, FBX in `Assets/Resources/VehicleModels/`, render–look–revise, at most three passes each), same stylized low-poly style, with the parametric rider visible and gestures (0.78) working in each.
+
+**Important: original designs only.** "Inspired by" means the era and the body type. No real make or model names, badges, logos, or a copy of any one real car's exact shape; each gets an invented name in the style of the existing ones (Needle 600, Trail Four, Street Classic, Longroof GT).
+
+### Part A — Four new player cars
+
+1. **1960s long-bonnet roadster, a convertible** with the top down: long hood, short tail, low windscreen, rider visible from the chest up. Light and nimble.
+2. **1960s fastback pony/muscle coupe:** long hood, sloping fastback roof, wide stance. Strong acceleration, heavier steering.
+3. **1970s compact rear-engined sports coupe:** short, rounded, sloping tail. Quick turn-in, best car grip.
+4. **1950s finned cruiser:** big, chrome, two-tone paint, tailfins. Slow to turn, top stability and strongest contact.
+
+Each gets its own handling profile inside the range the existing cars already cover, different enough to feel distinct (rule 12: one considered set of numbers, Dan judges). Paint colours selectable as for the existing cars; the convertible must work with every hat and hair option and in Rain and Snow (no roof is fine). All four available wherever 0.80 allows cars. Fist wave: over the door on the convertible.
+
+### Part B — Two more motorcycles
+
+How they differ from the Needle 600 (a sport bike), so they read as different at a glance:
+1. **Dirt bike:** tall, long suspension, high front fender, knobbly tyres, upright rider. Best off-road and on landings, lower top speed.
+2. **Cruiser:** long and low, wide bars, big rear tyre, relaxed feet-forward rider. Stable and strong on contact for a bike, slower to lean.
+
+Each needs its rider pose (the rider rig from 0.78 supports new poses).
+
+### Part C — Traffic (NPC) cars in Blender
+
+Replace the blocky ambient traffic vehicles with a small kit in the same style: sedan, pickup truck, van, station wagon/hatchback, each in several paint colours, with headlights and tail lights at night and a simple driver silhouette. Same size class, colliders, behaviour and counts as the current traffic; visuals only. They follow the Model: Classic / New switch.
+
+### Part D — The people in the scripted scenes
+
+Dan: "since we are about to do a blender pass. Can we put a little more detail into the people in the random scripted scenes. Two of the guys (my friend and I) are in all of them, so you can just replicate the same two people, and the ones with three people include my brother so you can repeat him too for the 3 people scenes."
+
+The scenes are the scripted/random vignettes built from the `AmbientLife` figures: the household vignettes (two men with coffee at Dan's fence, two men at Kyle's, three playing football in Dan's yard), the campsite (two seated by the fire), and the Snow scenes (two on the sled, three at broom hockey). List any others found and treat them the same way.
+
+1. **Three recurring characters, built once and reused:** "Dan", "the friend" and "the brother". Every two-person scene is Dan and the friend; every three-person scene is Dan, the friend and the brother. The same person must be recognisably the same in every scene.
+2. **More detail:** replace the plain ambient figures in these scenes with the 0.75 parametric rider standard (same Blender rider, same stylized look): proper head and face, hair, hands, clothes with shape. Give the three clearly different looks (height/build, hair, clothing colours) so they can be told apart at a glance from a passing vehicle. **Do not try to make them look like real people; no likeness is known.** Pick three plain, distinct looks, record them in one place in code so Dan can change hair, skin, clothes and build later with a few values, and report what was chosen.
+3. Clothing fits the scene: ordinary clothes at the fence and campsite, winter coats and hats on the sled and at broom hockey; the same person keeps the same hair, build and face throughout. If a scene shows them as kids (the football game), keep that scene's ages as they are now: the same three, smaller.
+4. Poses and props as now (cups, football, sled, brooms, sitting by the fire), using the 0.78 arm rig so hands actually hold things. Keep each scene's behaviour, timing, placement, random selection and the no-collider rule exactly as they are. Other ambient people elsewhere are not changed.
+5. Check: one shot of each scene (forced), close enough to see the three.
+
+### Garage and checks (light, per the Verification budget)
+
+- Garage lists all new vehicles with the 0.76 rotating preview; names, class and description for each. AI fields use the new vehicles too, where the course allows the class.
+- Each new vehicle: load it once on one road, confirm wheels on the ground, rider seated, headlights on at night, fist wave works. One Blender render sheet per vehicle. No per-course runs.
+- Traffic: one look at Street Loop traffic by day and by night.
+- One worst-view frame-rate number at 3840×2160 with traffic (rendering cost changes this round); it must stay above 100 fps.
+- Everything else is listed under "for Dan to check" in the results.
+
+## Previous delivery — Clean-up from the 0.79 review, fist wave on LB, cars allowed on every course — 0.80.0-review1 — DELIVERED, REVIEWED BY DAN (three follow-ups in 0.81)
 
 - **DELIVERED:**
   - Source `1397143ad3e061d460b3ad54cfa0478189178cd1` pushed and verified on origin/main.
@@ -88,44 +158,6 @@ Dan: "it is a bit of a problem that we have four different tracks, but only one 
 - Part C: the table above.
 - All other course scenes, colliders and routes identical to 0.79 (state which scene files changed and why). Frame rate in the 0.78 worst view stays above 100 fps at 3840×2160.
 - Standard rule steps: TODO update, commit, push, build, publish, Play-Racer.cmd check, cleanup, final report.
-
-## QUEUED NEXT — New vehicles (sporty and vintage-inspired cars, a convertible, two more motorcycles) + Blender traffic cars — target 0.81.0-review1 — NOT STARTED
-
-Written by Claude (chat) on 2026-10-05. Do not start this until 0.80 is delivered and Dan starts it. Runs unattended; design decisions are below.
-
-Dan (2026-10-05): "I am thinking we could fold into Blender NPC cars and while we are at it maybe add a couple more vehicles? I would want some cars that maybe look a little more sporty. Maybe a convertible. I would want a couple of cars inspired like these old vintage cars [1960s–70s sports and muscle cars, a 1950s finned cruiser]. Other motorcycles would be cool but I don't know how they would look different."
-
-Same pipeline and standard as 0.75 (`F:\blender\blender.exe`, `Tools/Blender/`, `SourceArt/Blender/`, FBX in `Assets/Resources/VehicleModels/`, render–look–revise, at most three passes each), same stylized low-poly style, with the parametric rider visible and gestures (0.78) working in each.
-
-**Important: original designs only.** "Inspired by" means the era and the body type. No real make or model names, badges, logos, or a copy of any one real car's exact shape; each gets an invented name in the style of the existing ones (Needle 600, Trail Four, Street Classic, Longroof GT).
-
-### Part A — Four new player cars
-
-1. **1960s long-bonnet roadster, a convertible** with the top down: long hood, short tail, low windscreen, rider visible from the chest up. Light and nimble.
-2. **1960s fastback pony/muscle coupe:** long hood, sloping fastback roof, wide stance. Strong acceleration, heavier steering.
-3. **1970s compact rear-engined sports coupe:** short, rounded, sloping tail. Quick turn-in, best car grip.
-4. **1950s finned cruiser:** big, chrome, two-tone paint, tailfins. Slow to turn, top stability and strongest contact.
-
-Each gets its own handling profile inside the range the existing cars already cover, different enough to feel distinct (rule 12: one considered set of numbers, Dan judges). Paint colours selectable as for the existing cars; the convertible must work with every hat and hair option and in Rain and Snow (no roof is fine). All four available wherever 0.80 allows cars. Fist wave: over the door on the convertible.
-
-### Part B — Two more motorcycles
-
-How they differ from the Needle 600 (a sport bike), so they read as different at a glance:
-1. **Dirt bike:** tall, long suspension, high front fender, knobbly tyres, upright rider. Best off-road and on landings, lower top speed.
-2. **Cruiser:** long and low, wide bars, big rear tyre, relaxed feet-forward rider. Stable and strong on contact for a bike, slower to lean.
-
-Each needs its rider pose (the rider rig from 0.78 supports new poses).
-
-### Part C — Traffic (NPC) cars in Blender
-
-Replace the blocky ambient traffic vehicles with a small kit in the same style: sedan, pickup truck, van, station wagon/hatchback, each in several paint colours, with headlights and tail lights at night and a simple driver silhouette. Same size class, colliders, behaviour and counts as the current traffic; visuals only. They follow the Model: Classic / New switch.
-
-### Garage and checks
-
-- Garage lists all new vehicles with the 0.76 rotating preview; names, class and description for each.
-- AI fields use the new vehicles too, where the course allows the class.
-- Verify: each new vehicle driven on a road course and a mountain course, wheels on the ground, rider seated correctly in chase and first person, gestures, headlights at night; a traffic pass on Street Loop day and night; frame rate above 100 fps at 3840×2160 in the worst view with traffic.
-- Render sheets and in-game shots in `Docs/Report081/`.
 
 ## Previous delivery — 0.78 scenery fixes (floating buildings, trees in driveways, road colour), street signs, on-screen camera controls, Free Roam HUD cleanup and minimap — 0.79.0-review1 — DELIVERED, REVIEWED BY DAN (clean-up items in 0.80)
 
