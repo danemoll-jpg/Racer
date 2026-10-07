@@ -15,11 +15,21 @@
   - **Dan does:** driving every course and direction, trying every vehicle everywhere, checking that a universal fix holds everywhere, and judging look and feel. He reports through the debug ZIPs.
   - **Write-up:** the TODO results are a short list: what changed, the one check per item, decisions made, and anything Dan should look at. No separate VALIDATION.md unless a round asks. If a check would take more than a few minutes of play time, skip it and list it under "for Dan to check".
 
-## CURRENT — Kyle's house from Dan's photo, Forest Forward Summit Climb shortcut (with a challenge), launcher icon — 0.87.0-review1 — IMPLEMENTED, RELEASE IN PROGRESS
+## CURRENT — Kyle's house from Dan's photo, Forest Forward Summit Climb shortcut (with a challenge), launcher icon — 0.87.0-review1 — DELIVERED, AWAITING DAN'S REVIEW
+
+- **DELIVERED:**
+  - Source `c8357cc8da262d3d377deef0115255b65b48273f` pushed and verified on origin/main (Part B alone is `ad4b1374`, Part A `1b9c5581`).
+  - Fresh 0.87.0-review1 Windows build: 0 errors, 2m40s ([build-release.txt](Docs/Report087/build-release.txt)). The 110 warnings are the existing obsolete-API notes of a full recompile and the usual mesh-collider note.
+  - Published [game-87000](https://github.com/danemoll-jpg/woodstock-rush-releases/releases/tag/game-87000) with `python Tools/Publish-LauncherRelease.py`: the known draft-lookup miss after the draft was created, then `--resume-draft` uploaded the three assets and published. Previous releases retained.
+  - All 234 Latest files match the public signed manifest. Public download, signature, install and startup (with the new launcher) pass ([hosted/result.json](Docs/Report087/hosted/result.json)). The catalog reports no pending game or music update.
+- **Play-Racer.cmd (unchanged):** launched a responsive `Builds/Latest/versions/87000/Racer.exe` (0.87.0-review1) through the new launcher, muted, settings restored byte for byte. Latest root, current 87000 and previous 86000 retained; 85000 had already been retired by the updater.
+- **Launcher:** `Builds/Latest/WoodstockRushLauncher.exe` is the rebuilt one with the ATV icon (sha256 `ac5b88c9…`); release staging kept it byte for byte.
+- **Cleanup:** Builds 10,146,731,046 -> 8,003,768,811 bytes (2.1 GB recovered); also the 1.7 GB hosted-check install, about 100 MB of check scratch outside the project and the temporary editor tools. C: free 270,845,972,480 bytes after cleanup.
+- **SESSION HANDOFF: STOP.** Awaiting Dan's review of 0.87 (rule 12).
 
 ### Results (2026-10-06, Claude Code)
 
-- **Safety checkpoint:** `dd41e56b` (this plan and the reference photo), pushed. **Part B alone in `ad4b1374`** (revert: `git revert ad4b1374`); Part A in `1b9c5581`; Part C and this record: completion commit. Version 0.87.0-review1 / build 87000.
+- **Safety checkpoint:** `dd41e56b` (this plan and the reference photo), pushed. **Part B alone in `ad4b1374`** (revert: `git revert ad4b1374`); Part A in `1b9c5581`; Part C and the results: completion commit `c8357cc8`. Version 0.87.0-review1 / build 87000.
 - Evidence: [Docs/Report087/](Docs/Report087/) ([Lists/](Docs/Report087/Lists/), [Shots/](Docs/Report087/Shots/), [Icons/](Docs/Report087/Icons/)). Tools `Tools/Report087/`, `Tools/Blender/kyles_house.py`; checks `Assets/Scripts/Report087Checks.cs`. No VALIDATION.md.
 - **B — Summit Climb (Forest Loop Forward, `LakeWoods` only) — BUILT.** Design: [B-design.txt](Docs/Report087/Lists/B-design.txt), [map and profile](Docs/Report087/Shots/B-design-map-and-profile.png); build: [B-summit-author.txt](Docs/Report087/Lists/B-summit-author.txt).
   - Leaves the main at s 1828 on a 46–57 m radius left curve (the main carries straight on past the sign), climbs 217 m up the wooded hillside (40 → 82 m, at most 38 %) and joins the main's last straight at s 2096, about 90 m before the line. Bypasses CP4 (no gate moved). 45 m+ from the House 3 driveway and arch.
