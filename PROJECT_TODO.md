@@ -16,7 +16,74 @@
   - **Controller first (Dan, 2026-10-07):** Dan plays with a controller. Any new or changed menu, screen or prompt must be checked once with a controller only (no mouse, no keyboard) before delivery: every control reachable, focus visible, B goes back.
   - **Write-up:** the TODO results are a short list: what changed, the one check per item, decisions made, and anything Dan should look at. No separate VALIDATION.md unless a round asks. If a check would take more than a few minutes of play time, skip it and list it under "for Dan to check".
 
-## CURRENT — Race start stuck until reset, Abandoned Cabin Jump ends in the bushes, acorn areas shown on the map, minimap compass — target 0.93.0-review1 — DELIVERED, AWAITING DAN'S REVIEW
+## CURRENT — Cabin Jump shrubs restored part-way, player names (Top 10, rivals, name tags), split-screen stage 3 (Free Roam for two, camera views), Police Chase: cop vs runner — target 0.94.0-review1 — NOT STARTED
+
+- **Authorized by Dan (2026-10-07, 14:30–15:51).** Written by Claude (chat) from the conversation; his words are quoted in each part. His 0.93 review (16:39) is Part D; everything else in 0.93 was fine.
+- **Starting point:** main at the "Record 0.93 delivery" commit.
+- Runs unattended: design decisions are below; do not stop to ask about design. Stop only for a real external blocker (rule 7).
+- **Scope is exactly Parts A–D. Order D (small, first), A, B, C; B and C each in their own commit with the revert command.** If C cannot be finished well, deliver A and B and say what is left of C.
+- The Verification budget and the Controller-first rule apply. Checks never write Dan's real save (work on a copy, pointed at before anything loads).
+
+### Part A — Names
+
+Dan: "I would like to add names. And the names would go on the top 10. I would name myself, I would always be Dan, but if I do splitscreen on my computer, a friend will add their name. Additionally the campaign said I was racing against the same named AI racers but never once do I see their names that I am aware of having played the first 3 chapters. It would be good for multiplayer and campaign to have the options to put the avatars name over their head so you know who it is."
+
+1. **Player name:** Settings > Gameplay "Player name" (up to 12 characters), entered with the controller on an on-screen keyboard (keyboard typing also works). A new player is asked once, with the first-run hints. **On Dan's existing save the name is set to "Dan" without asking.**
+2. **Top 10:** every entry shows the name of who set it. All existing entries are Dan's and become "Dan". The player's own entries stay highlighted.
+3. **Split-screen names:** the setup screen has a name for each player. Player 1 defaults to the saved player name; player 2 picks from the names used before on this PC or enters a new one (remembered). The AI driver as player 2 is named "AI".
+4. **Split-screen times count on the Top 10 (change from 0.90 / 0.92):** a human's race total and best lap from a split-screen race go on that course's Top 10 under their name, in the same boards and under the same eligibility rules as a single-player race with those settings. Still not recorded from split-screen: ghosts, personal-best ghosts, campaign money, acorns, activity records. The AI driver's times are never recorded.
+5. **The rivals have names you can see.** The campaign says the same named drivers race against you; show them:
+   - the campaign event and championship pages list the rivals by name with their vehicles;
+   - a line-up card during the countdown (grid order, names, vehicles), gone at GO;
+   - the HUD shows who is directly ahead and directly behind with the gap ("▲ EMBER +1.2 s / ▼ ROOK −0.8 s");
+   - results, championship standings and the winner shot use the names;
+   - the same in Race Setup races and split-screen (rival names there as the game already assigns them).
+   If the campaign does not in fact keep a fixed cast, make it do so (one named cast for the whole campaign, each with a usual vehicle and colour) and list the cast in the results.
+6. **Name tags over the heads:** Settings > Gameplay "Name tags": Off / Players only / Everyone. Default Everyone. A small tag above each other racer (never your own), facing the camera, readable at 3840×2160, fading out beyond about 60 m, hidden behind solid scenery, not shown in Trailer Mode or the winner shot. In split-screen each half draws its own tags (the other human's tag shows in your half). Humans' tags in a distinct colour from AI tags.
+- Check (controller only): enter a name with the on-screen keyboard; Dan's copy shows "Dan" on the boards; one campaign event showing the rival list, line-up card, ahead / behind line, tags and results; one split-screen race with a second name that lands on the Top 10; the three tag settings.
+
+### Part B — Split-screen stage 3: Free Roam for two, and camera views
+
+Dan: "I would for sure like having split screen free roam."
+
+1. **Free Roam for two:** the split-screen setup gets Mode: Race / Free Roam / Police Chase (Part C). Free Roam puts both players in the Free Roam world (`FreeRoamWorld`) with the garage vehicle choice, time of day, weather and traffic as in stage 2. Everything unlocked, vehicles stock. Player 2 can be the AI driver (it cruises the roads) so Dan can test alone.
+2. **Per player:** own minimap with the compass and both players marked, speed, reset (nearest safe point), jump and speed-trap results shown to that player. A line showing the direction and distance to the other player.
+3. **Shared:** one radio as now. Pause from either. The world map from the pause menu (acorn areas hidden or shown as in single-player) with "bring both players here" for travel. Nothing is recorded: no acorns, activity records or discovery from split-screen Free Roam (say so once on entry).
+4. **Camera views per player:** each player changes their own view with their own view button, in split-screen races and Free Roam: chase, first person and the other views single-player has. First-person details (hands on the wheel, head hidden, floor) must be right in both halves at once.
+5. **Performance:** the 60 fps target from stage 2 holds in Free Roam for two (worst case Night / Snow with traffic). Lower split-screen-only detail if needed and say what. Single-player rendering unchanged.
+- Check: Free Roam for two with the AI as player 2, both layouts; each view in each half; pause, map, bring both here; frame time in the worst case; one single-player Free Roam session to show nothing regressed. **Own commit.**
+
+### Part C — Police Chase, round 1: cop vs runner
+
+Dan: "maybe we can even add a new game mode in free roam where there are police. If you have two players one can choose to be the cop and try to catch the other player." Decisions from the conversation: **Free Roam only** (not in the campaign); **roles swap** and the times are compared; the runner may go anywhere, off-road and over the jumps. Later rounds (not now): both players as cops catching speeding traffic for points; both players running from AI cops that radio ahead to cover the exits of trails and shortcuts.
+
+1. **Police vehicle:** a patrol car built with the project's Blender vehicle pipeline: black and white, a roof light bar that flashes red and blue, the word POLICE, no real department's name or badge. Performance close to the faster cars so chases are fair; report its stats. Used only by the cop in this mode (not in the garage, shop or races). Siren on while chasing, toggled by the cop with a button; heard by both, louder as the cop nears the runner.
+2. **Setup:** Mode: Police Chase. Choose who is the cop first, the runner's vehicle (any), time of day, weather, traffic, and the round limit (3 / 5 / 8 minutes, default 5).
+3. **A round:** the runner starts on the road; the cop starts about 80 m behind and is released 3 seconds after the runner. Each player's HUD shows their role, the clock, the distance and direction to the other player, and the **bust meter**.
+4. **Caught:** the bust meter fills while the cop is within 10 m of the runner and the runner is slower than 7 m/s; it takes 3 s to fill and drains at the same rate otherwise. Full = caught, round over. If the clock reaches the limit, the runner got away. Tune these numbers by play if they feel wrong and report the final values.
+5. **No cheap escapes:** a runner's reset holds them still for 2 s; water and out-of-world are handled as in Free Roam; neither player can leave the world.
+6. **Swap:** after round 1 the roles swap automatically (the new runner keeps their chosen vehicle; the new cop gets the patrol car). The player who lasted longer as the runner wins; getting away beats being caught; both getting away is a draw. Results show both times with Rematch / Change setup / Main menu. Names from Part A are used throughout.
+7. **Testing alone:** player 2 can be the AI. As the **runner** it drives the road network at speed, choosing turns that lead away from the cop (it stays on roads; simple is fine). As the **cop** it is not available this round (the chasing AI is a later round): the option is greyed with "coming later".
+8. Nothing is recorded to any board or save.
+- Check: one full match with the AI as the runner (caught in one round), the meter filling and draining, a reset by the runner, both layouts, a shot of the patrol car day and night with the lights on. Controller only. **Own commit.**
+
+### Part D — Abandoned Cabin Jump: put the shrubs back, but only as far as a well-hit jump can clear (do this first)
+
+Dan on 0.93: "the only thing I see wrong with that update is it cleared too much of the shrubs from the cabin jump. I didn't want to completely remove the challenge just make it not quite as far because it either couldn't be cleared or was nearly impossible. So I want the shrubs restored but to not stretch as far as they were. I want it to go a distance that you can clear it if you hit the ramp correctly."
+
+0.93 removed 1,579 bushes along the whole landing corridor of `DansBackyardForward` (lip at 41 m to the rejoin) and the slowing with them. The original brush reached past where any flight lands (landings measured 61–106 m).
+
+- **Restore the bushes and the slowing** in the corridor from the lip to a new far edge, at their original positions (the 0.43 mesh is the source). Beyond the far edge the corridor stays clear as in 0.93, through to the rejoin.
+- **Where the far edge goes:** fly the jump on the Needle 600, the Street Classic and the Trail Four at approach speeds of 24, 28, 31 and 34 m/s (34 is the branch's recommended speed) and record each landing. Set the far edge so that **every vehicle at 31 and 34 m/s lands at least 3 m beyond the last bush, and every vehicle at 24 m/s lands in the bushes**; 28 m/s may go either way. If one vehicle cannot clear at 31 m/s, use its 34 m/s landing and say so. Report the edge distance and the landing table.
+- **Reset from the bushes:** a reset by a vehicle that is inside the restored brush puts it on the clear ground just past the far edge, on the centre line, facing along the route, stationary (the lost time is the penalty). The 0.93 reset checks for the rest of the branch stay.
+- Tree-Top Trail's 0.93 clearing stays as delivered. Free Roam and Dan's Backyard Reverse untouched. No geometry, collider or route change (rule 5A).
+- Check: the twelve flights after the change; one reset from inside the brush; a shot from the ramp approach and one of the landing showing where the bushes end.
+
+### Verification
+
+Light, per the Verification budget and the Controller-first rule, except the performance measure in Part B. Compile, launch, release steps. Results as a short list, with "for Dan to check".
+
+## Previous delivery — Race start stuck until reset, Abandoned Cabin Jump ends in the bushes, acorn areas shown on the map, minimap compass — 0.93.0-review1 — DELIVERED, REVIEWED BY DAN (all good except the Cabin Jump lost too many shrubs; restored part-way in 0.94)
 
 - **Authorized by Dan (2026-10-07, 14:18).** Written by Claude (chat) from his play of 0.92.0-review1 and debug session `2026-10-07_14-03-20-518_a28604` (both reports are on 0.92.0-review1; ZIP in his Downloads / the game's report folder). His words are quoted in each part.
 - **Starting point:** main at the "Record 0.92 delivery" commit (0.92.0-review1 / game-92000). This TODO edit is uncommitted and belongs in the safety checkpoint.
@@ -108,61 +175,6 @@ Dan: "Can we put a compass on the minimap?"
 ### Verification
 
 Light, per the Verification budget and the Controller-first rule. Compile, launch, release steps. Results as a short list, with "for Dan to check".
-
-## QUEUED NEXT — Player names (Top 10, rivals, name tags), split-screen stage 3 (Free Roam for two, camera views), Police Chase: cop vs runner — target 0.94.0-review1 — NOT STARTED (do not start until 0.93 is delivered and Claude (chat) promotes this to CURRENT)
-
-- **Authorized by Dan (2026-10-07, 14:30–15:51).** Written by Claude (chat) from the conversation; his words are quoted in each part. Follow-ups from his 0.93 review will be added before this is promoted.
-- **Starting point:** main at the "Record 0.93 delivery" commit.
-- Runs unattended: design decisions are below; do not stop to ask about design. Stop only for a real external blocker (rule 7).
-- **Scope is exactly Parts A–C. Order A, B, C; B and C each in their own commit with the revert command.** If C cannot be finished well, deliver A and B and say what is left of C.
-- The Verification budget and the Controller-first rule apply. Checks never write Dan's real save (work on a copy, pointed at before anything loads).
-
-### Part A — Names
-
-Dan: "I would like to add names. And the names would go on the top 10. I would name myself, I would always be Dan, but if I do splitscreen on my computer, a friend will add their name. Additionally the campaign said I was racing against the same named AI racers but never once do I see their names that I am aware of having played the first 3 chapters. It would be good for multiplayer and campaign to have the options to put the avatars name over their head so you know who it is."
-
-1. **Player name:** Settings > Gameplay "Player name" (up to 12 characters), entered with the controller on an on-screen keyboard (keyboard typing also works). A new player is asked once, with the first-run hints. **On Dan's existing save the name is set to "Dan" without asking.**
-2. **Top 10:** every entry shows the name of who set it. All existing entries are Dan's and become "Dan". The player's own entries stay highlighted.
-3. **Split-screen names:** the setup screen has a name for each player. Player 1 defaults to the saved player name; player 2 picks from the names used before on this PC or enters a new one (remembered). The AI driver as player 2 is named "AI".
-4. **Split-screen times count on the Top 10 (change from 0.90 / 0.92):** a human's race total and best lap from a split-screen race go on that course's Top 10 under their name, in the same boards and under the same eligibility rules as a single-player race with those settings. Still not recorded from split-screen: ghosts, personal-best ghosts, campaign money, acorns, activity records. The AI driver's times are never recorded.
-5. **The rivals have names you can see.** The campaign says the same named drivers race against you; show them:
-   - the campaign event and championship pages list the rivals by name with their vehicles;
-   - a line-up card during the countdown (grid order, names, vehicles), gone at GO;
-   - the HUD shows who is directly ahead and directly behind with the gap ("▲ EMBER +1.2 s / ▼ ROOK −0.8 s");
-   - results, championship standings and the winner shot use the names;
-   - the same in Race Setup races and split-screen (rival names there as the game already assigns them).
-   If the campaign does not in fact keep a fixed cast, make it do so (one named cast for the whole campaign, each with a usual vehicle and colour) and list the cast in the results.
-6. **Name tags over the heads:** Settings > Gameplay "Name tags": Off / Players only / Everyone. Default Everyone. A small tag above each other racer (never your own), facing the camera, readable at 3840×2160, fading out beyond about 60 m, hidden behind solid scenery, not shown in Trailer Mode or the winner shot. In split-screen each half draws its own tags (the other human's tag shows in your half). Humans' tags in a distinct colour from AI tags.
-- Check (controller only): enter a name with the on-screen keyboard; Dan's copy shows "Dan" on the boards; one campaign event showing the rival list, line-up card, ahead / behind line, tags and results; one split-screen race with a second name that lands on the Top 10; the three tag settings.
-
-### Part B — Split-screen stage 3: Free Roam for two, and camera views
-
-Dan: "I would for sure like having split screen free roam."
-
-1. **Free Roam for two:** the split-screen setup gets Mode: Race / Free Roam / Police Chase (Part C). Free Roam puts both players in the Free Roam world (`FreeRoamWorld`) with the garage vehicle choice, time of day, weather and traffic as in stage 2. Everything unlocked, vehicles stock. Player 2 can be the AI driver (it cruises the roads) so Dan can test alone.
-2. **Per player:** own minimap with the compass and both players marked, speed, reset (nearest safe point), jump and speed-trap results shown to that player. A line showing the direction and distance to the other player.
-3. **Shared:** one radio as now. Pause from either. The world map from the pause menu (acorn areas hidden or shown as in single-player) with "bring both players here" for travel. Nothing is recorded: no acorns, activity records or discovery from split-screen Free Roam (say so once on entry).
-4. **Camera views per player:** each player changes their own view with their own view button, in split-screen races and Free Roam: chase, first person and the other views single-player has. First-person details (hands on the wheel, head hidden, floor) must be right in both halves at once.
-5. **Performance:** the 60 fps target from stage 2 holds in Free Roam for two (worst case Night / Snow with traffic). Lower split-screen-only detail if needed and say what. Single-player rendering unchanged.
-- Check: Free Roam for two with the AI as player 2, both layouts; each view in each half; pause, map, bring both here; frame time in the worst case; one single-player Free Roam session to show nothing regressed. **Own commit.**
-
-### Part C — Police Chase, round 1: cop vs runner
-
-Dan: "maybe we can even add a new game mode in free roam where there are police. If you have two players one can choose to be the cop and try to catch the other player." Decisions from the conversation: **Free Roam only** (not in the campaign); **roles swap** and the times are compared; the runner may go anywhere, off-road and over the jumps. Later rounds (not now): both players as cops catching speeding traffic for points; both players running from AI cops that radio ahead to cover the exits of trails and shortcuts.
-
-1. **Police vehicle:** a patrol car built with the project's Blender vehicle pipeline: black and white, a roof light bar that flashes red and blue, the word POLICE, no real department's name or badge. Performance close to the faster cars so chases are fair; report its stats. Used only by the cop in this mode (not in the garage, shop or races). Siren on while chasing, toggled by the cop with a button; heard by both, louder as the cop nears the runner.
-2. **Setup:** Mode: Police Chase. Choose who is the cop first, the runner's vehicle (any), time of day, weather, traffic, and the round limit (3 / 5 / 8 minutes, default 5).
-3. **A round:** the runner starts on the road; the cop starts about 80 m behind and is released 3 seconds after the runner. Each player's HUD shows their role, the clock, the distance and direction to the other player, and the **bust meter**.
-4. **Caught:** the bust meter fills while the cop is within 10 m of the runner and the runner is slower than 7 m/s; it takes 3 s to fill and drains at the same rate otherwise. Full = caught, round over. If the clock reaches the limit, the runner got away. Tune these numbers by play if they feel wrong and report the final values.
-5. **No cheap escapes:** a runner's reset holds them still for 2 s; water and out-of-world are handled as in Free Roam; neither player can leave the world.
-6. **Swap:** after round 1 the roles swap automatically (the new runner keeps their chosen vehicle; the new cop gets the patrol car). The player who lasted longer as the runner wins; getting away beats being caught; both getting away is a draw. Results show both times with Rematch / Change setup / Main menu. Names from Part A are used throughout.
-7. **Testing alone:** player 2 can be the AI. As the **runner** it drives the road network at speed, choosing turns that lead away from the cop (it stays on roads; simple is fine). As the **cop** it is not available this round (the chasing AI is a later round): the option is greyed with "coming later".
-8. Nothing is recorded to any board or save.
-- Check: one full match with the AI as the runner (caught in one round), the meter filling and draining, a reset by the runner, both layouts, a shot of the patrol car day and night with the lights on. Controller only. **Own commit.**
-
-### Verification
-
-Light, per the Verification budget and the Controller-first rule, except the performance measure in Part B. Compile, launch, release steps. Results as a short list, with "for Dan to check".
 
 ## Previous delivery — Menu fixes from Dan's 0.91 play (controller still skips two rows, garage for vehicle choice, no A-to-cycle, a vehicle for every chapter), Forest Reverse bump, split-screen stage 2 — 0.92.0-review1 — DELIVERED, REVIEW STARTED BY DAN (split-screen celebrations work; race-start stuck, Cabin Jump bushes and acorn areas on the map in 0.93)
 
