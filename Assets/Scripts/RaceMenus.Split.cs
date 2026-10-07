@@ -67,7 +67,8 @@ namespace Racer
         }
         void RenderSplit()
         {
-            ClearCore("SPLIT SCREEN", "Two players, one race on this PC: everything is unlocked and every vehicle is stock.\nLeft / right on a player's row changes their device; A or Start on another controller, or Enter, joins it.");
+            var mode = SplitScreen.Mode; bool race = mode == SplitScreen.Kind.Race;
+            ClearCore("SPLIT SCREEN", (race ? "Two players, one race on this PC: everything is unlocked and every vehicle is stock." : "Two players in Free Roam: everything is unlocked, vehicles stock; nothing is recorded (acorns, activity records, discovery).") + "\nLeft / right on a player's row changes their device; A or Start on another controller, or Enter, joins it.");
             if (SplitScreen.P1Color > VehiclePaint.Count - 1) SplitScreen.P1Color = 2; if (SplitScreen.P2Color > VehiclePaint.Count - 1) SplitScreen.P2Color = 2;
             details.fontSize = 18; details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight = 54;
             var vehicles = SplitScreen.Vehicles; int n = 0;
@@ -77,6 +78,8 @@ namespace Racer
             Step(n++, "split-p2", "Player 2:   " + (SplitScreen.P2Ai ? "the race AI drives" + Joins(SplitScreen.P1Device) : SplitScreen.P2Device != null ? SplitScreen.DeviceName(SplitScreen.P2Device) + "   ✓" : "press A on another controller, or Enter on the keyboard"), d => CycleSlot(2, d));
             Toggle(n++, "split-ai", "Player 2: AI driver", SplitScreen.P2Ai, () => { SplitScreen.P2Ai = !SplitScreen.P2Ai; flow.Click(); Show(); });
             if (SplitScreen.P2Device != null && !SplitScreen.P2Ai) Row(n++, "split-swap", "Swap the players' devices", () => { (SplitScreen.P1Device, SplitScreen.P2Device) = (SplitScreen.P2Device, SplitScreen.P1Device); flow.Click(); Show(); });
+            // 0.94 Parts B and C: what the two players do
+            Step(n++, "split-mode", "Mode:   " + (race ? "Race" : "Free Roam"), d => { SplitScreen.Mode = (SplitScreen.Kind)(((int)SplitScreen.Mode + d + 2) % 2); flow.Click(); Show(); });
             // 0.94 Part A: each player's name: ‹ › picks a name used before on this PC, A enters a new one (remembered); the AI
             // driver is "AI". Player 1 starts as the saved player name.
             if (string.IsNullOrEmpty(SplitScreen.P1Name)) SplitScreen.P1Name = PlayerNames.Player;
@@ -94,11 +97,11 @@ namespace Racer
             PreviewCard(strip, VehicleProfile.Find(SplitScreen.P1Vehicle), SplitScreen.P1Color, false, "Player 1: " + Vehicle(SplitScreen.P1Vehicle) + " · " + VehiclePaint.Name(SplitScreen.P1Color), new Color(.3f, .95f, .81f), 300);
             PreviewCard(strip, VehicleProfile.Find(SplitScreen.P2Vehicle), SplitScreen.P2Color, false, (SplitScreen.P2Ai ? "Player 2 (AI): " : "Player 2: ") + Vehicle(SplitScreen.P2Vehicle) + " · " + VehiclePaint.Name(SplitScreen.P2Color), new Color(1, .74f, .25f), 300);
             var order = RacePlaylists.DisplayOrder.ToArray();
-            Step(n++, "split-course", "Course:   " + RacePlaylists.Titles[SplitScreen.Course].Replace(" - ", " — "), d => { int i = System.Array.IndexOf(order, SplitScreen.Course); SplitScreen.Course = order[((i < 0 ? 0 : i) + d + order.Length) % order.Length]; flow.Click(); Show(); });
-            Step(n++, "split-laps", "Laps:   " + SplitScreen.Laps, d => { SplitScreen.Laps = Mathf.Clamp(SplitScreen.Laps + d, 1, 5); flow.Click(); Show(); });
+            Step(n++, "split-course", (race ? "Course:   " : "Start at:   ") + RacePlaylists.Titles[SplitScreen.Course].Replace(" - ", " — "), d => { int i = System.Array.IndexOf(order, SplitScreen.Course); SplitScreen.Course = order[((i < 0 ? 0 : i) + d + order.Length) % order.Length]; flow.Click(); Show(); });
+            if (race) Step(n++, "split-laps", "Laps:   " + SplitScreen.Laps, d => { SplitScreen.Laps = Mathf.Clamp(SplitScreen.Laps + d, 1, 5); flow.Click(); Show(); });
             // 0.92 Part F (stage 2): AI rivals, conditions and traffic, as in Race Setup
-            Step(n++, "split-rivals", "AI rivals:   " + (SplitScreen.Rivals == 0 ? "None" : SplitScreen.Rivals.ToString()), d => { SplitScreen.Rivals = Mathf.Clamp(SplitScreen.Rivals + d, 0, 4); flow.Click(); Show(); });
-            if (SplitScreen.Rivals > 0)
+            if (race) Step(n++, "split-rivals", "AI rivals:   " + (SplitScreen.Rivals == 0 ? "None" : SplitScreen.Rivals.ToString()), d => { SplitScreen.Rivals = Mathf.Clamp(SplitScreen.Rivals + d, 0, 4); flow.Click(); Show(); });
+            if (race && SplitScreen.Rivals > 0)
             {
                 Step(n++, "split-difficulty", "Rival difficulty:   " + new[] { "Easy", "Normal", "Hard" }[Mathf.Clamp(SplitScreen.RivalDifficulty, 0, 2)], d => { SplitScreen.RivalDifficulty = (SplitScreen.RivalDifficulty + d + 3) % 3; flow.Click(); Show(); });
                 Step(n++, "split-mix", "Rival vehicles:   " + (SplitScreen.RivalsRandom ? "Random (may repeat)" : "Mixed (each once first)"), d => { SplitScreen.RivalsRandom = !SplitScreen.RivalsRandom; flow.Click(); Show(); });
@@ -138,6 +141,15 @@ namespace Racer
             var split = SplitScreen.Race; string missing = split ? split.MissingText : null;
             ClearCore("SPLIT SCREEN / PAUSED", missing ?? $"Paused by {(split && split.PausedBy != null ? SplitScreen.DeviceName(split.PausedBy) : "a player")}: either player's device works this menu.");
             Row(0, "resume", "RESUME", flow.Resume); buttons[0].interactable = missing == null;
+            if (SplitScreen.Roaming)
+            {
+                // 0.94 Part B: the world map (travel brings both players), settings, change the setup, end
+                Row(1, "map", "MAP   (travel brings both players)", () => flow.GetComponent<ExplorationMap>()?.Open());
+                Row(2, "settings", "SETTINGS", flow.OpenSettings);
+                Row(3, "change-setup", "Change setup", () => Confirm("END AND CHANGE THE SETUP?", "Both players return to the split-screen setup.", () => flow.QuitSplit(true)));
+                Row(4, "return", "RETURN TO MENU", () => Confirm("END SPLIT-SCREEN FREE ROAM?", "Both players return to the menu.", () => flow.QuitSplit(false)));
+                Row(5, "quit", "Quit Game", ConfirmQuit); return;
+            }
             Row(1, "restart", "RESTART RACE", () => Confirm("RESTART RACE?", "Both players go back to the grid.", flow.StartRace));
             Row(2, "settings", "SETTINGS", flow.OpenSettings);
             Row(3, "return", "END RACE / RETURN TO MENU", () => Confirm("END THE SPLIT-SCREEN RACE?", "Both players return to the menu.", flow.QuitRace));

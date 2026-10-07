@@ -156,8 +156,9 @@ namespace Racer
         {
             var a = Arms(); if (!a) return;
             // first person on this vehicle (the player's view or the Trailer Mode first-person shot)
-            var views = CameraViews.Current; race ??= FindAnyObjectByType<RaceDirector>();
-            a.SeenFromEyes = views && race && race.vehicle == car && views.ShownView.EndsWith("First person");
+            // 0.94 Part B: the view of this vehicle (in split-screen each player's own)
+            var views = CameraViews.For(car); race ??= FindAnyObjectByType<RaceDirector>();
+            a.SeenFromEyes = views && views.ShownView.EndsWith("First person");
             bool holds = Steering(a);
             if (Current == Kind.None) { if (holds) { Weight = 0; Hold(a, 0); Hold(a, 1); } else if (Weight > 0) { Weight = 0; a.Rest(0); a.Rest(1); } return; }
             float t = Time.time - started, length = Current == Kind.Wave ? WaveSeconds : CelebrateSeconds;

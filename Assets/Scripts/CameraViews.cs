@@ -26,9 +26,26 @@ namespace Racer
         RaceFlow flow; Camera cam; ChaseCamera chase; InputAction cycle;
         public InputAction CycleAction => cycle;
         // The saved choice (read from the settings, so a different save in use is followed too).
-        public View PlayerView => SplitScreen.Active ? View.Chase : (View)Mathf.Clamp(flow.Save.Settings.cameraView, 0, 3); // 0.90 Part D: the chase view only in split-screen
+        // 0.94 Part B: in split-screen each player has their own view (this session only: not saved), changed with their own
+        // view button (X on their controller, V on the keyboard); player 1 starts in their saved view, player 2 in Chase.
+        // Target = the vehicle this camera views (null = player 1's); the second view is AttachSecond's.
+        public ArcadeVehicle Target; public int Player = 1; int splitView = -1;
+        ArcadeVehicle Car => Target ? Target : flow.Race.vehicle;
+        public View PlayerView => SplitScreen.Active ? (View)Mathf.Clamp(splitView < 0 ? (Player == 1 ? flow.Save.Settings.cameraView : 0) : splitView, 0, 3) : (View)Mathf.Clamp(flow.Save.Settings.cameraView, 0, 3);
         public string PlayerViewName => flow && flow.Save != null ? Names[(int)PlayerView] : null;
         public void NextPlayerView(int d = 1) => SetPlayerView((View)(((int)PlayerView + d + Names.Length) % Names.Length));
+        static readonly List<CameraViews> all = new();
+        public static CameraViews For(ArcadeVehicle car) { foreach (var v in all) if (v && v.isActiveAndEnabled && v.Car == car) return v; return null; }
+        // the second split-screen view (player 2's camera, following their vehicle)
+        public static CameraViews AttachSecond(RaceFlow owner, Camera camera, ChaseCamera chase, ArcadeVehicle car)
+        {
+            var views = camera.GetComponent<CameraViews>(); if (!views) views = camera.gameObject.AddComponent<CameraViews>();
+            views.flow = owner; views.cam = camera; views.chase = chase; views.Target = car; views.Player = 2; views.splitView = -1;
+            views.baseFov = camera.fieldOfView; views.baseNear = camera.nearClipPlane; views.baseSmooth = chase.positionSmoothTime; views.baseHeading = chase.headingResponse;
+            views.lastView = views.PlayerView; views.last = new Pose(camera.transform.position, camera.transform.rotation, camera.fieldOfView, camera.nearClipPlane);
+            return views;
+        }
+        public void ResetSplitView() { splitView = -1; }
         View lastView;
         float baseFov, baseNear, baseSmooth, baseHeading;
         bool touched;
@@ -54,18 +71,29 @@ namespace Racer
         {
             cycle = new InputAction("Change view", InputActionType.Button);
             cycle.AddBinding("<Keyboard>/v"); cycle.AddBinding("<Gamepad>/buttonWest"); cycle.Enable();
+            all.Add(this); RenderPipelineManager.beginCameraRendering += BeforeCamera;
         }
-        void OnDestroy() { cycle?.Dispose(); if (Current == this) Current = null; }
+        void OnDestroy() { cycle?.Dispose(); if (Current == this) Current = null; all.Remove(this); RenderPipelineManager.beginCameraRendering -= BeforeCamera; }
+        // 0.94 Part B: two views at once: a rider's head parts are hidden only from the camera inside that head (each camera
+        // is drawn with the right ones hidden), so first person in one half never shows a headless rider in the other.
+        void BeforeCamera(ScriptableRenderContext context, Camera rendering)
+        {
+            if (hidden.Count == 0 || !SplitScreen.Active) return;
+            bool mine = rendering == cam;
+            foreach (var (r, mode) in hidden) if (r) r.shadowCastingMode = mine ? ShadowCastingMode.ShadowsOnly : mode;
+        }
         void Update()
         {
             if (!flow || flow.Save == null || TrailerMode.Active) return;
             bool driving = flow.State == RaceFlow.Stage.Racing || flow.State == RaceFlow.Stage.Countdown;
-            if (!driving || MenuInput.Blocked || flow.GetComponent<ExplorationMap>()?.OwnsInput == true || SplitScreen.Active) return;
+            if (!driving || MenuInput.Blocked || flow.GetComponent<ExplorationMap>()?.OwnsInput == true) return;
+            if (SplitScreen.Active) { var input = Car ? Car.GetComponent<VehicleInput>() : null; if (input && input.Device != null && input.ConsumeView()) NextPlayerView(); return; }
             if (cycle.WasPressedThisFrame()) NextPlayerView();
         }
         public void SetPlayerView(View view)
         {
             if (view == PlayerView) return;
+            if (SplitScreen.Active) { splitView = (int)view; return; }
             flow.Save.Settings.cameraView = (int)view; flow.Save.SaveSettings(); // 0.79: RaceHud shows the camera hint with the new view
         }
         void StartBlend(float length = .35f) { blendFrom = last; blend = 0; blendLength = length; }
@@ -73,7 +101,7 @@ namespace Racer
         void LateUpdate()
         {
             if (!flow || flow.Save == null || !cam || !chase) return;
-            var car = flow.Race.vehicle;
+            var car = Car;
             if (!chase.enabled || !car) { Release(); return; }
             Settle(car);
             if (lastView != PlayerView) { lastView = PlayerView; StartBlend(); }

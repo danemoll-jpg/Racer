@@ -29,7 +29,13 @@ namespace Racer
         // 0.94 Part A: the players' names (player 1 starts as the saved player name; player 2 picks a name used before on
         // this PC or enters one; the AI driver is "AI").
         public static string P1Name = "", P2Pick = "";
+        // 0.94 Parts B and C (stage 3): what the two players do: a race, Free Roam (FreeRoamWorld, starting at Course's start)
+        // or Police Chase (Free Roam, cop vs runner: who is the cop first, and the round limit in minutes).
+        public enum Kind { Race, FreeRoam }
+        public static Kind Mode = Kind.Race;
+        public static bool Roaming => Active && Mode != Kind.Race;
         public static string P2Name => P2Ai ? PlayerNames.Ai : string.IsNullOrEmpty(P2Pick) ? "Player 2" : P2Pick;
+        public static UnityEngine.InputSystem.InputDevice DeviceOf(int player) => player == 1 ? P1Device : P2Ai ? null : P2Device;
         public static string NameOf(int player) => player == 1 ? (string.IsNullOrEmpty(P1Name) ? PlayerNames.Player : P1Name) : P2Name;
         // The two views' cameras while a split-screen race runs (empty otherwise).
         public static readonly List<Camera> Views = new();
@@ -78,6 +84,14 @@ namespace Racer
         public static void Configure(RaceFlow flow)
         {
             var race = flow.Race;
+            if (Mode != Kind.Race)
+            {
+                // 0.94 Part B: Free Roam for two (player 2's vehicle is made by SplitRoam); Part C: Police Chase on top of it
+                race.opponents = false; race.traffic = Traffic;
+                var c1 = race.vehicle.GetComponent<VehicleConfiguration>(); c1.Apply(P1Vehicle); c1.SetBodyColor(P1Color);
+                flow.gameObject.AddComponent<SplitRoam>().Initialize(flow);
+                Race = flow.gameObject.AddComponent<SplitRace>(); Race.Initialize(flow); return;
+            }
             // 0.92 Part F: player 2's vehicle is the first rival slot; the AI rivals follow it
             race.opponents = true; race.opponentRoster = new[] { P2Vehicle }.Concat(RivalRoster(flow.gameObject.scene.name)).ToArray(); race.traffic = Traffic; race.difficulty = Mathf.Clamp(RivalDifficulty, 0, 2); race.laps = Mathf.Clamp(Laps, 1, 5);
             var c = race.vehicle.GetComponent<VehicleConfiguration>(); c.Apply(P1Vehicle); c.SetBodyColor(P1Color);
@@ -86,6 +100,7 @@ namespace Racer
         public static void End()
         {
             if (Race) { Race.Teardown(); Object.Destroy(Race); }
+            if (SplitRoam.Current) { SplitRoam.Current.Clear(); Object.Destroy(SplitRoam.Current); }
             Race = null; Active = false; PendingStart = false; Views.Clear();
         }
         // The positions of every split-screen view (the scenery's near detail follows each of them); empty when not split.
@@ -103,7 +118,7 @@ namespace Racer
         public WrongWayGuidance P2Guidance { get; private set; }
         public int MissingPlayer { get; private set; } // 0 = both devices present
         public InputDevice PausedBy;
-        SplitHud hud; bool p2Done; GameObject divider;
+        SplitHud hud; bool p2Done; GameObject divider; CameraViews views2;
 
         public void Initialize(RaceFlow owner)
         {
@@ -122,6 +137,14 @@ namespace Racer
         // RaceDirector.RestartRace: player 2's vehicle is the one rival slot; make it player 2's (or leave the AI driving).
         public void PlayerTwo()
         {
+            if (SplitRoam.Current && race.FreeRoam)
+            {
+                // 0.94 Part B: Free Roam for two: player 2's vehicle beside player 1 (Police Chase: the round's vehicles and places)
+                P2Car = SplitRoam.Current.CreatePlayerTwo(SplitScreen.P2Vehicle, SplitScreen.P2Color); P2 = null;
+                if (!P2Car.GetComponent<VehicleAudio>()) P2Car.gameObject.AddComponent<VehicleAudio>();
+                finished1 = finished2 = false; EndShot(1); EndShot(2); Cameras();
+                return;
+            }
             if (race.Racers.Count < 2) return;
             var state = race.Racers[1]; var car = state.Car; P2Car = car; car.name = "PLAYER 2";
             var config = car.GetComponent<VehicleConfiguration>(); config.SetBodyColor(SplitScreen.P2Color); // 0.92: the champion's scheme too
@@ -143,7 +166,8 @@ namespace Racer
         public void ClearPlayerTwo()
         {
             if (P2Guidance) { Destroy(P2Guidance); P2Guidance = null; }
-            if (P2Car && !SplitScreen.P2Ai) { P2Car.gameObject.SetActive(false); Destroy(P2Car.gameObject); }
+            if (SplitRoam.Current) SplitRoam.Current.Clear();
+            else if (P2Car && !SplitScreen.P2Ai) { P2Car.gameObject.SetActive(false); Destroy(P2Car.gameObject); }
             P2Car = null; P2 = null;
         }
         void Cameras()
@@ -161,6 +185,8 @@ namespace Racer
             cam1.farClipPlane = cam2.farClipPlane = Mathf.Min(far1, FarClip);
             cam1.cullingMask = mask1 & ~(1 << View2Layer); cam2.cullingMask = (mask1 & ~(1 << View1Layer)) | (1 << View2Layer);
             chase2.enabled = false; chase2.target = P2Car.transform; chase2.offset = P2Car.GetComponent<VehicleConfiguration>().Profile.Camera; chase2.enabled = true; chase2.Snap();
+            // 0.94 Part B: player 2's own camera views (player 1's are the scene camera's CameraViews)
+            views2 = CameraViews.AttachSecond(flow, cam2, chase2, P2Car); if (CameraViews.Current) CameraViews.Current.Player = 1;
             // the wide top / bottom halves: the camera tips down a little in long flights so the landing stays in view
             float tilt = lr ? 0 : 9; cam1.GetComponent<ChaseCamera>().flightTilt = tilt; chase2.flightTilt = tilt;
             hud.Layout(lr);
@@ -169,6 +195,13 @@ namespace Racer
         {
             if (!race || P2Car == null) return;
             var stage = flow.State;
+            if (SplitRoam.Current)
+            {
+                // 0.94 Part B: Free Roam for two: the views only (no race to run)
+                SplitScreen.Eyes.Clear(); if (cam1) SplitScreen.Eyes.Add(cam1.transform.position); if (cam2) SplitScreen.Eyes.Add(cam2.transform.position);
+                SplitScreen.Views.Clear(); if (cam1) SplitScreen.Views.Add(cam1); if (cam2) SplitScreen.Views.Add(cam2);
+                return;
+            }
             if (!SplitScreen.P2Ai)
             {
                 bool driving = stage == RaceFlow.Stage.Racing && !P2.Progress.Finished;
@@ -236,13 +269,13 @@ namespace Racer
         void StartShot(int player)
         {
             if (player == 1) { shotUntil1 = Time.unscaledTime + WinnerShot.Seconds; var c = cam1.GetComponent<ChaseCamera>(); if (c) c.enabled = false; if (CameraViews.Current) { CameraViews.Current.ShowHead(); CameraViews.Current.enabled = false; } }
-            else { shotUntil2 = Time.unscaledTime + WinnerShot.Seconds; if (chase2) chase2.enabled = false; }
+            else { shotUntil2 = Time.unscaledTime + WinnerShot.Seconds; if (chase2) chase2.enabled = false; if (views2) { views2.ShowHead(); views2.enabled = false; } }
             Shots++;
         }
         void EndShot(int player)
         {
             if (player == 1) { if (shotUntil1 <= 0) return; shotUntil1 = 0; var c = cam1 ? cam1.GetComponent<ChaseCamera>() : null; if (c) c.enabled = true; if (CameraViews.Current) CameraViews.Current.enabled = true; }
-            else { if (shotUntil2 <= 0) return; shotUntil2 = 0; if (chase2) chase2.enabled = true; }
+            else { if (shotUntil2 <= 0) return; shotUntil2 = 0; if (chase2) chase2.enabled = true; if (views2) views2.enabled = true; }
         }
         void LateUpdate()
         {
@@ -284,6 +317,7 @@ namespace Racer
             ClearPlayerTwo();
             if (cam1) { cam1.rect = rect1; cam1.farClipPlane = far1; cam1.cullingMask = mask1; var c = cam1.GetComponent<ChaseCamera>(); if (c) c.flightTilt = 0; }
             if (cam2) Destroy(cam2.gameObject);
+            CameraViews.Current?.ResetSplitView();
             if (race && race.vehicle) race.vehicle.GetComponent<VehicleInput>().Bind(null);
             QualitySettings.lodBias = lodBias;
             { var urp = GraphicsSettings.currentRenderPipeline as UniversalRenderPipelineAsset; if (urp && shadowDistance >= 0) urp.shadowDistance = shadowDistance; shadowDistance = -1; }

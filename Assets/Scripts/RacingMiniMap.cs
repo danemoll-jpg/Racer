@@ -117,7 +117,7 @@ namespace Racer
         void LateUpdate()
         {
             bool roam = race && race.FreeRoam;
-            bool visible = race && Vehicle && race.Flow && !race.Flow.MenuVisible && (!roam || !RoamHidden) && SplitScreen.Active == Split;
+            bool visible = race && Vehicle && race.Flow && !race.Flow.MenuVisible && (!roam || !RoamHidden || Split) && SplitScreen.Active == Split;
             Shown = visible;
             if (roam && !roamCached && visible) CacheRoam();
             // Keep this component active so it can restore its parent after menus.
@@ -180,6 +180,20 @@ namespace Racer
                     }
                     Diamond(vh, p, 8, new(.03f,.06f,.08f)); Diamond(vh, p, 6, Waypoint);
                 }
+            }
+            // 0.94 Part B: split-screen Free Roam: the other player in their colour, kept at the rim when further away
+            if (roam && Split && SplitScreen.Race && SplitScreen.Race.P2Car)
+            {
+                var other = Vehicle == race.vehicle ? SplitScreen.Race.P2Car : race.vehicle; bool p1 = other == race.vehicle;
+                var p = Project(other.transform.position); var inner = new Rect(bounds.xMin + 8, bounds.yMin + 8, bounds.width - 16, bounds.height - 16);
+                if (!inner.Contains(p))
+                {
+                    var d = p - PlayerPoint; float t = 1;
+                    if (d.x > 0) t = Mathf.Min(t, (inner.xMax - PlayerPoint.x) / d.x); if (d.x < 0) t = Mathf.Min(t, (inner.xMin - PlayerPoint.x) / d.x);
+                    if (d.y > 0) t = Mathf.Min(t, (inner.yMax - PlayerPoint.y) / d.y); if (d.y < 0) t = Mathf.Min(t, (inner.yMin - PlayerPoint.y) / d.y);
+                    p = PlayerPoint + d * t;
+                }
+                Diamond(vh, p, 8, new(.03f,.06f,.08f)); Diamond(vh, p, 6, p1 ? new Color(.3f, .95f, .81f) : new Color(1, .74f, .25f));
             }
             if (!roam) foreach (var r in race.Racers)
             {

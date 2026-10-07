@@ -80,6 +80,7 @@ namespace Racer
             divider.SetActive(true); divider.transform.SetAsLastSibling();
             if (flow.State == RaceFlow.Stage.Racing && lastStage == RaceFlow.Stage.Countdown) goUntil = Time.unscaledTime + 1.5f;
             lastStage = flow.State;
+            if (SplitRoam.Current) { Roam(driving); return; }
             for (int i = 0; i < 2; i++)
             {
                 var h = halves[i]; var state = i == 0 ? race.Racers[0] : split.P2; var car = i == 0 ? race.vehicle : split.P2Car;
@@ -104,6 +105,34 @@ namespace Racer
                 else if (guidance && guidance.Visible) centre = $"<color=#FFD659>WRONG WAY</color>\n<size=20>{(input ? input.ResetControlLabel : "R")}: reset to the track</size>";
                 else if (i == 0 && flow.PenaltyNotice != null) centre = "<size=20>" + flow.PenaltyNotice + "</size>";
                 h.centre.text = centre; h.centre.fontSize = flow.State == RaceFlow.Stage.Countdown ? 64 : 30;
+            }
+        }
+        // 0.94 Part B: Free Roam for two: each half shows its player's name, the direction and distance to the other player,
+        // the player's own jump and speed-trap results, the speed and the minimap.
+        void Roam(bool driving)
+        {
+            var race = flow.Race; var roam = SplitRoam.Current;
+            for (int i = 0; i < 2; i++)
+            {
+                var h = halves[i]; int player = i + 1; var car = i == 0 ? race.vehicle : split.P2Car; var other = i == 0 ? split.P2Car : race.vehicle;
+                h.root.gameObject.SetActive(driving && car); h.captionRoot.gameObject.SetActive(false); h.gridPanel.SetActive(false); h.gapsPanel.SetActive(false);
+                if (!car || !driving) continue;
+                h.map.Focus = car;
+                var cam = i == 0 ? Camera.main : split.Camera2;
+                h.tag.text = (i == 0 ? "PLAYER 1 · " : "PLAYER 2 · ") + SplitScreen.NameOf(player);
+                var lines = new System.Collections.Generic.List<string>();
+                lines.Add("<b>FREE ROAM</b>");
+                lines.Add(SplitRoam.Toward(car.transform, cam ? cam.transform : car.transform, other ? other.transform : null, SplitScreen.NameOf(3 - player)));
+                var acts = i == 0 ? flow.Activities : roam.Activities2; string hud = acts ? acts.Hud : "";
+                h.info.text = string.Join("\n", lines); h.info.fontSize = 19;
+                ((RectTransform)h.infoPanel.transform).sizeDelta = new Vector2(330, 22 + 25 * lines.Count);
+                h.speed.text = $"{DisplayUnits.Mph(Mathf.Abs(car.ForwardSpeed)):0} <size=16>mph</size>";
+                string centre = "";
+                var respawn = car.GetComponent<VehicleRespawn>();
+                if (Time.unscaledTime - roam.StartedAt < 7) centre = "<size=20>Split-screen Free Roam: nothing is recorded\n(no acorns, activity records or map discovery)</size>";
+                if (centre == "" && respawn && respawn.Pending) centre = "<size=22>Recovering…</size>";
+                if (centre == "" && !string.IsNullOrEmpty(hud)) centre = "<size=19>" + hud + "</size>";
+                h.centre.text = centre; h.centre.fontSize = 30;
             }
         }
         public void Teardown()

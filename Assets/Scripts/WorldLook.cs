@@ -222,11 +222,15 @@ namespace Racer
             var s = flow.Save.Settings;
             RaceTime = (TimeOfDay)Mathf.Clamp(s.timeOfDay, 0, 3); RaceWeather = (Weather)Mathf.Clamp(s.weather, 0, 2);
             var campaign = CampaignRun.Active; if (campaign != null) { RaceTime = campaign.Time; RaceWeather = campaign.Weather; } // 0.89: the event's conditions
-            if (SplitScreen.Active) { RaceTime = SplitScreen.Time; RaceWeather = SplitScreen.Weather; } // 0.92 Part F: the setup screen's conditions (0.90: Day / Clear) RoamWeather = (Weather)Mathf.Clamp(s.roamWeather, 0, 2);
+            if (SplitScreen.Active) { RaceTime = SplitScreen.Time; RaceWeather = SplitScreen.Weather; } // 0.92 Part F: the setup screen's conditions (0.90: Day / Clear)
+            // 0.94: the Free Roam weather setting again (0.92 left this assignment inside the comment above, so Free Roam was
+            // always Clear)
+            RoamWeather = (Weather)Mathf.Clamp(s.roamWeather, 0, 2);
             var stage = flow.State;
             bool live = stage == RaceFlow.Stage.Countdown || stage == RaceFlow.Stage.Racing;
             string was = session;
-            if (live) { string next = flow.Race.FreeRoam ? "Free Roam" : "Race"; if (next == "Free Roam" && session != "Free Roam") Resume(s); session = next; }
+            // 0.94 Part B: split-screen Free Roam has the setup's fixed time and weather (its clock is not run or saved)
+            if (live) { string next = flow.Race.FreeRoam && !SplitScreen.Active ? "Free Roam" : "Race"; if (next == "Free Roam" && session != "Free Roam") Resume(s); session = next; }
             else if (stage == RaceFlow.Stage.Ready && !flow.RoamMenu) session = "Menu";
             // "Return to menu" from the Free Roam pause menu leaves Free Roam even while that menu is still up.
             if (session == "Free Roam" && !flow.Race.FreeRoam) session = "Menu";

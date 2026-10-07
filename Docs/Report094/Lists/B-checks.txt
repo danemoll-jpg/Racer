@@ -1,0 +1,32 @@
+== editor checks, emulated controllers, copy of Dan's save (BC-checks2: roam94:tb, solo94)
+---- roam94:tb
+  Dan's settings copy: playerName in file: False
+PASS setup: Mode FreeRoam chosen with the D-pad; rows [split-p1, split-p2, split-ai, split-swap, split-mode, split-p1-name, split-p2-name, split-vehicles, split-course, split-time, split-weather, split-traffic, split-layout, split-start, split-back]
+PASS tb: Free Roam for two in FreeRoamWorld: player 2's Trail Four 4.5 m from player 1
+PASS tb: player 2 moved 111 m in 12 s; each half: <b>FREE ROAM</b> / ↑  Player 2  60 ft | <b>FREE ROAM</b> / ↓  Dan  60 ft
+PASS tb: name tags shown now: 1
+PASS tb: view 1: player 1 First person (shown First person), player 2 Chase (shown Chase); head hidden: P1 True, P2 False
+PASS tb: X on player 1's controller changed only player 1's view (FirstPerson > Front); X on player 2's changed player 2's (Chase > FarChase)
+PASS tb: view 2: player 1 Front (shown Front), player 2 Far chase (shown Far chase); head hidden: P1 False, P2 False
+PASS tb: X on player 1's controller changed only player 1's view (Front > Chase); X on player 2's changed player 2's (FarChase > FirstPerson)
+PASS tb: view 3: player 1 Chase (shown Chase), player 2 First person (shown First person); head hidden: P1 False, P2 True
+PASS tb: X on player 1's controller changed only player 1's view (Chase > FarChase); X on player 2's changed player 2's (FirstPerson > Front)
+PASS tb: view 4: player 1 Far chase (shown Far chase), player 2 Front (shown Front); head hidden: P1 False, P2 False
+PASS tb: X on player 1's controller changed only player 1's view (FarChase > FirstPerson); X on player 2's changed player 2's (Front > Chase)
+PASS tb: first person in both halves: both heads hidden from their own cameras (P1 True, P2 True)
+PASS tb: Start on player 2's controller pauses: rows [resume, map, settings, change-setup, return, quit]
+PASS tb: MAP opens
+PASS tb: travel to Moll's: player 1 at 1 m from it, player 2 4.5 m from player 1
+---- roamai94:lr
+---- solo94
+  Dan's settings copy: playerName in file: False
+PASS single-player Free Roam: mode Free Roam, weather setting Rain shown as Rain, acorns 22/24, no second player True
+PASS single-player Free Roam: driving through Woodland nook found it (22 > 23): acorns still recorded
+== (BC-checks3: roamai94:lr; the back-to-menu check fixed: it now waits for the scene change)
+---- roamai94:lr
+  Dan's settings copy: playerName in file: False
+PASS setup: Mode FreeRoam chosen with the D-pad; rows [split-p1, split-p2, split-ai, split-mode, split-p1-name, split-vehicles, split-course, split-time, split-weather, split-traffic, split-layout, split-start, split-back]
+PASS lr-ai: Free Roam for two in FreeRoamWorld: player 2's Trail Four 30.9 m from player 1
+PASS lr-ai: player 2 moved 203 m in 12 s (the AI cruising the roads); each half: <b>FREE ROAM</b> / ←  AI  0.17 mi | <b>FREE ROAM</b> / ↓  Dan  0.17 mi
+PASS lr-ai: name tags shown now: 0
+PASS lr-ai: back to the menu (StreetLoopGreybox, Ready)

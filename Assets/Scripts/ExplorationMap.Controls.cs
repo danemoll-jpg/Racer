@@ -97,10 +97,10 @@ namespace Racer
             {
                 int row=1;foreach(int i in RacePlaylists.DisplayOrder){int choice=i,at=row++;if(i>=CoursePreviewCatalog.Courses.Length)continue;Choice("map-track-"+i,(ShownRoutes.Contains(RacePlaylists.Scenes[i])?"[x]  ":"[  ]  ")+RacePlaylists.Titles[i]+(CoursePreviewCatalog.Courses[i].raceOnly?"  (race-only)":""),()=>{ToggleCourseRoute(choice);OpenMapSheet(false,false,true,at);});}
             }
-            else if(confirm)Choice("travel","TRAVEL",()=>ConfirmTravel());
+            else if(confirm)Choice("travel",SplitRoam.Current?"BRING BOTH PLAYERS HERE":"TRAVEL",()=>ConfirmTravel());
             else
             {
-                if(location&&selected>=0)Choice("travel","Travel"+(race.FreeRoam?"":" — Free Roam only"),()=>{int target=selected;CloseMapSheet();RequestTravel(target);});
+                if(location&&selected>=0)Choice("travel",(SplitRoam.Current?"Bring both players here":"Travel")+(race.FreeRoam?"":" — Free Roam only"),()=>{int target=selected;CloseMapSheet();RequestTravel(target);});
                 Choice("waypoint","Set / Move / Clear Waypoint",()=>{ToggleWaypoint();CloseMapSheet();});
                 Choice("route",courseOverlay.gameObject.activeSelf?"Hide Race Route":"Show Race Route",()=>{ToggleRoute();CloseMapSheet();});
                 Choice("center","Center on Player",()=>{center=MapNormalized(race.vehicle.Body.position);selected=-1;CloseMapSheet();});

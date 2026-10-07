@@ -42,13 +42,17 @@ namespace Racer
                     // 0.92 Part F: the stage-2 conditions (-splitTime Night -splitWeather Snow -splitRivals 4 -splitTraffic)
                     SplitScreen.Time = (TimeOfDay)Enum.Parse(typeof(TimeOfDay), Arg("-splitTime", "Day")); SplitScreen.Weather = (Weather)Enum.Parse(typeof(Weather), Arg("-splitWeather", "Clear"));
                     SplitScreen.Rivals = int.Parse(Arg("-splitRivals", "0")); SplitScreen.Traffic = Array.IndexOf(Environment.GetCommandLineArgs(), "-splitTraffic") >= 0;
+                    // 0.94 Part B: -splitMode roam: Free Roam for two from the course's start (both vehicles cruise the roads)
+                    SplitScreen.Mode = Arg("-splitMode", "race") == "roam" ? SplitScreen.Kind.FreeRoam : SplitScreen.Kind.Race;
                     flow.StartSplit(); yield return null;
                     t0 = Time.realtimeSinceStartup;
                     while ((flow = FindAnyObjectByType<RaceFlow>()) == null || !flow.Started || LoadingScreen.Holding || flow.State != RaceFlow.Stage.Racing) { yield return null; if (Time.realtimeSinceStartup - t0 > 120) break; }
                     QualitySettings.vSyncCount = 0; Application.targetFrameRate = 300;
                     // player 1 driven by the race AI too, so both views move through the course
                     var race = flow.Race; var car = race.vehicle; car.GetComponent<VehicleInput>().enabled = false;
-                    var pilot = car.gameObject.AddComponent<RoadDriver>(); pilot.Initialize(race, car, true, 1, 1); pilot.Racer = race.Racers[0];
+                    var pilot = car.gameObject.AddComponent<RoadDriver>();
+                    if (race.FreeRoam) { pilot.Initialize(race, car, false, -1, 1.2f); var road = pilot.DriveRoad; float s = road.Project(car.Body.position, out _); pilot.Place(s, road.TrafficLane(s, -1)); }
+                    else { pilot.Initialize(race, car, true, 1, 1); pilot.Racer = race.Racers[0]; }
                     var gpu = new List<float>(); var frames = new List<float>(); var ft = new FrameTiming[1]; t0 = Time.unscaledTime;
                     while (Time.unscaledTime - t0 < 40 && flow.State == RaceFlow.Stage.Racing)
                     {
@@ -57,9 +61,20 @@ namespace Racer
                     }
                     gpu.Sort(); frames.Sort();
                     float med = gpu.Count > 0 ? gpu[gpu.Count / 2] : float.NaN, p95 = gpu.Count > 0 ? gpu[(int)(gpu.Count * .95f)] : float.NaN, worst = gpu.Count > 0 ? gpu[gpu.Count - 1] : float.NaN;
-                    rows.Add($"SPLIT {RacePlaylists.Titles[course]} {(leftRight ? "left/right" : "top/bottom")} {SplitScreen.Time}/{SplitScreen.Weather} rivals {SplitScreen.Rivals} traffic {SplitScreen.Traffic} ({race.Racers.Count} racers, {FindObjectsByType<AmbientVehicle>(FindObjectsSortMode.None).Length} traffic cars): GPU median {med:F2} ms (95th {p95:F2}, max {worst:F2}) = {1000 / med:F0} fps median, {1000 / p95:F0} fps 95th; wall-clock median {frames[frames.Count / 2] * 1000:F2} ms; {gpu.Count} frames");
+                    rows.Add($"SPLIT {SplitScreen.Mode} {RacePlaylists.Titles[course]} {(leftRight ? "left/right" : "top/bottom")} {SplitScreen.Time}/{SplitScreen.Weather} rivals {SplitScreen.Rivals} traffic {SplitScreen.Traffic} ({race.Racers.Count} racers, {FindObjectsByType<AmbientVehicle>(FindObjectsSortMode.None).Length} traffic cars): GPU median {med:F2} ms (95th {p95:F2}, max {worst:F2}) = {1000 / med:F0} fps median, {1000 / p95:F0} fps 95th; wall-clock median {frames[frames.Count / 2] * 1000:F2} ms; {gpu.Count} frames");
                     ScreenCapture.CaptureScreenshot(Path.Combine(outDir, $"split-{course}-{(leftRight ? "lr" : "tb")}-{SplitScreen.Time}-{SplitScreen.Weather}.png"));
                     yield return null; yield return null;
+                    if (race.FreeRoam && SplitScreen.Race && SplitScreen.Race.Camera2)
+                    {
+                        // 0.94 Part B: both halves in their own views at once (first person / front, then chase / first person)
+                        var v1 = CameraViews.Current; var v2 = SplitScreen.Race.Camera2.GetComponent<CameraViews>();
+                        foreach (var (a, b) in new[] { (CameraViews.View.FirstPerson, CameraViews.View.Front), (CameraViews.View.Chase, CameraViews.View.FirstPerson) })
+                        {
+                            v1.SetPlayerView(a); v2.SetPlayerView(b); float w0 = Time.unscaledTime; while (Time.unscaledTime - w0 < 2) yield return null;
+                            ScreenCapture.CaptureScreenshot(Path.Combine(outDir, $"views-{(leftRight ? "lr" : "tb")}-{a}-{b}.png")); yield return null; yield return null;
+                        }
+                        rows.Add($"  views: player 1 {v1.ShownView} (head hidden {v1.HeadHidden}), player 2 {v2.ShownView} (head hidden {v2.HeadHidden})");
+                    }
                     File.WriteAllLines(Path.Combine(outDir, "split.txt"), rows);
                     Destroy(pilot); flow.Pause(); yield return null; flow.QuitRace(); yield return null;
                 }

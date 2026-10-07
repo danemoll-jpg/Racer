@@ -10,7 +10,7 @@ namespace Racer
         public float BrakeReverse { get; private set; }
         public float Steering { get; private set; }
         bool resetRequested;
-        InputAction throttle, brake, steering, reset, fist;
+        InputAction throttle, brake, steering, reset, fist, view; bool viewRequested;
         public InputAction[] CurrentBindings => new[]{throttle,brake,steering,reset,fist};
         public bool UsingGamepad { get; private set; }
         public string ResetControlLabel
@@ -30,7 +30,7 @@ namespace Racer
         public void Bind(InputDevice device)
         {
             if (device == Device && throttle != null) return;
-            bool on = isActiveAndEnabled; if (throttle != null) { OnDisable(); foreach (var a in CurrentBindings) a.Dispose(); }
+            bool on = isActiveAndEnabled; if (throttle != null) { OnDisable(); foreach (var a in CurrentBindings) a.Dispose(); view.Dispose(); }
             Create(device); if (on) OnEnable();
         }
         void Create(InputDevice device)
@@ -52,17 +52,19 @@ namespace Racer
             // In Trailer Mode LB keeps its 0.25x hold; F still works there.
             fist = new InputAction("Fist wave", InputActionType.Button);
             Add(fist, "<Gamepad>/leftShoulder"); Add(fist, "<Keyboard>/f");
+            // 0.94 Part B: the camera view button, read per player in split-screen (CameraViews)
+            view = new InputAction("Change view", InputActionType.Button); Add(view, "<Gamepad>/buttonWest"); Add(view, "<Keyboard>/v");
             if (device != null) UsingGamepad = device is Gamepad;
             throttle.performed+=Used; brake.performed+=Used; steering.performed+=Used; reset.performed+=Used; fist.performed+=Used;
         }
 
-        void OnEnable() { throttle.Enable(); brake.Enable(); steering.Enable(); reset.Enable(); fist.Enable(); }
+        void OnEnable() { throttle.Enable(); brake.Enable(); steering.Enable(); reset.Enable(); fist.Enable(); view.Enable(); }
         void Update()
         {
             Throttle = throttle.ReadValue<float>();
             BrakeReverse = brake.ReadValue<float>();
             Steering = steering.ReadValue<float>();
-            resetRequested |= reset.WasPressedThisFrame();
+            resetRequested |= reset.WasPressedThisFrame(); viewRequested |= view.WasPressedThisFrame();
             if (LoadingScreen.Holding) { Throttle = BrakeReverse = Steering = 0; resetRequested = false; return; } // 0.82: no driving behind the loading screen
             // Not while a menu, the debug overlay or the map has the controls (F is the map's waypoint key).
             // 0.92 Part F: in split-screen too, each player on their own device (LB, or F on the keyboard)
@@ -71,11 +73,12 @@ namespace Racer
                 GetComponent<RiderGestures>()?.Wave();
         }
         public bool ConsumeReset() { bool result = resetRequested; resetRequested = false; return result; }
+        public bool ConsumeView() { bool result = viewRequested; viewRequested = false; return result; }
         void OnDisable()
         {
-            throttle.Disable(); brake.Disable(); steering.Disable(); reset.Disable(); fist.Disable();
+            throttle.Disable(); brake.Disable(); steering.Disable(); reset.Disable(); fist.Disable(); view.Disable(); viewRequested = false;
             Throttle = BrakeReverse = Steering = 0; resetRequested = false;
         }
-        void OnDestroy() { throttle.Dispose(); brake.Dispose(); steering.Dispose(); reset.Dispose(); fist.Dispose(); }
+        void OnDestroy() { throttle.Dispose(); brake.Dispose(); steering.Dispose(); reset.Dispose(); fist.Dispose(); view.Dispose(); }
     }
 }

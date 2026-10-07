@@ -50,9 +50,10 @@ namespace Racer
             foreach(var point in car.suspensionPoints)if(Physics.Raycast(car.transform.TransformPoint(point),-car.transform.up,out var hit,car.suspensionLength,car.groundMask,QueryTriggerInteraction.Ignore)&&hit.normal.y>.45f){normal+=hit.normal;count++;}
             return count>=2&&Vector3.Dot(car.transform.up,normal.normalized)>.85f;
         }
-        public void Initialize(RaceDirector director,string root)
+        // 0.94 Part B: car = another player's vehicle (split-screen Free Roam player 2: results shown to them, never recorded)
+        public void Initialize(RaceDirector director,string root,ArcadeVehicle vehicle=null)
         {
-            race=director;car=race.vehicle;configuration=car.GetComponent<VehicleConfiguration>();path=Path.Combine(root,"activities-v1.json");
+            race=director;car=vehicle?vehicle:race.vehicle;configuration=car.GetComponent<VehicleConfiguration>();path=Path.Combine(root,"activities-v1.json");
             Sites=FindObjectsByType<ActivitySite>().OrderBy(s=>s.id).ToArray();Selected=Sites.FirstOrDefault(s=>s.kind!=ActivitySite.Kind.Speed);
             if(File.Exists(path))try{Results=JsonUtility.FromJson<Archive>(File.ReadAllText(path))??new();if(Results.results==null)Results.results=new();}catch(Exception e){Debug.LogWarning("Activity save could not be read: "+e.Message);}
             Records=new ActivityRecords(root,Results);

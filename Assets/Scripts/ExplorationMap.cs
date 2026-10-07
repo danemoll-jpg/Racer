@@ -59,7 +59,7 @@ namespace Racer
         void FixedUpdate()
         {
             if(DeveloperLocationHud.Inspecting){sampled=false;return;}
-            if(!race||race.Flow.State!=RaceFlow.Stage.Racing)return;
+            if(!race||race.Flow.State!=RaceFlow.Stage.Racing||SplitScreen.Active)return; // 0.94 Part B: no discovery from split-screen Free Roam
             var p=race.vehicle.Body.position;
             if(!sampled){previous=p;sampled=true;return;}
             bool continuous=Vector3.Distance(previous,p)<=Mathf.Max(3,race.vehicle.Body.linearVelocity.magnitude*Time.fixedDeltaTime*2+.3f);previous=p;
@@ -120,6 +120,8 @@ namespace Racer
             if(error!=null||!race.FreeRoam||index<0||index>=destinations.Length||!Discovered(destinations[index].id)){errorMessage="Travel needs free roam and a discovered destination.";return false;}
             var d=destinations[index];var recovery=race.vehicle.GetComponent<VehicleRespawn>();
             if(!recovery.TryFastTravel(d.position,Quaternion.Euler(0,d.yaw,0))){errorMessage="Arrival blocked or unsupported. Try again after traffic clears.";return false;}
+            // 0.94 Part B: split-screen Free Roam brings both players here (player 2 beside player 1)
+            SplitRoam.Current?.BringBeside(d.position,Quaternion.Euler(0,d.yaw,0));
             race.Flow.Activities.NewSession();race.Flow.Ghost.ResetSession();race.GetComponent<ExplorationCollection>()?.ResetMovement();
             race.Racers[0].Branch.Clear();race.Racers[0].FinishArmed=false;race.Racers[0].FinishApproach=0;
             race.ResetSampling(race.vehicle.Body.position,Time.timeAsDouble);ResetMovement();

@@ -139,7 +139,7 @@ namespace Racer
             LoadingScreen.WorldReady();
             SmashAudio.Prepare();VehicleRespawn.LaunchSurfaces(gameObject.scene); // 0.82 Part C: first-use work behind the loading screen
             yield return null;
-            if(SplitScreen.PendingStart&&SplitScreen.Active){SplitScreen.PendingStart=false;EnterMenuAfterTitle();SplitScreen.Configure(this);StartRace();}
+            if(SplitScreen.PendingStart&&SplitScreen.Active){SplitScreen.PendingStart=false;EnterMenuAfterTitle();SplitScreen.Configure(this);if(SplitScreen.Roaming&&InRoamWorld)StartFreeRoam();else StartRace();}
             else if(CampaignRun.PendingStart&&CampaignRun.Active!=null){CampaignRun.PendingStart=false;EnterMenuAfterTitle();CampaignRun.Configure(Race);Race.vehicle.GetComponent<VehicleConfiguration>().SetBodyColor(SelectedColor);StartRace();}
             else if(RacePlaylists.PendingStart){RacePlaylists.PendingStart=false;EnterMenuAfterTitle();Race.laps=RacePlaylists.Current.laps;StartRace();}
             else if(pendingRace){pendingRace=false;EnterMenuAfterTitle();StartRace();}
@@ -452,7 +452,7 @@ namespace Racer
         // 0.90 Part D: it cannot be resumed while a player's controller is missing. 0.91 Part B: the pause menu answers
         // either player's device (it names the one that paused).
         public void Pause() { if(SplitScreen.Race){var by=menu.activeControl?.device;SplitScreen.Race.PausedBy=SplitScreen.Race.MissingPlayer==1?SplitScreen.P2Device:SplitScreen.Race.MissingPlayer==2?SplitScreen.P1Device:by!=null&&menu.WasPressedThisFrame()?by:SplitScreen.P1Device;menus.RestrictMenuDevices(SplitScreen.P1Device,SplitScreen.P2Ai?null:SplitScreen.P2Device);}
-            pausedStage = State; RoamMenuHintUntil=0;RoamMenu=Race.FreeRoam;if(RoamMenu)menus.ResetPages();SetStage(RoamMenu?Stage.Ready:Stage.Paused); Click(); }
+            pausedStage = State; RoamMenuHintUntil=0;RoamMenu=Race.FreeRoam&&!SplitScreen.Active;if(RoamMenu)menus.ResetPages();SetStage(RoamMenu?Stage.Ready:Stage.Paused); Click(); }
         public void Resume() { if(SplitScreen.Race&&SplitScreen.Race.MissingPlayer!=0)return; if(SplitScreen.Race){SplitScreen.Race.PausedBy=null;menus.RestrictMenuDevices(null);} RoamMenu=false;SetStage(pausedStage); Click(); }
         public void OpenSettings() { PushMenu(Stage.Settings); }
         public void CloseSettings() { Save.SaveSettings(); PopMenu(); }
@@ -502,9 +502,17 @@ namespace Racer
         {
             if(!SplitScreen.Ready)return;
             if(InRoamWorld){WorldLook.Current?.SaveRoamClock();GetComponent<ExplorationMap>()?.Save();}
-            RacePlaylists.Quit();CampaignRun.End();SplitScreen.Begin();callers.Clear();menus.ResetPages();Click();Go(RacePlaylists.Scenes[SplitScreen.Course]);
+            RacePlaylists.Quit();CampaignRun.End();SplitScreen.Begin();callers.Clear();menus.ResetPages();Click();
+            // 0.94 Parts B and C: Free Roam for two and Police Chase start at the chosen course's start in FreeRoamWorld
+            if(SplitScreen.Mode!=SplitScreen.Kind.Race){RoamCourse=SplitScreen.Course;Go(RoamScene,true);return;}
+            Go(RacePlaylists.Scenes[SplitScreen.Course]);
         }
-        public void QuitSplit(bool setup){if(!SplitScreen.Active)return;QuitRace();if(setup)menus.OpenSplitSetup(true);}
+        public void QuitSplit(bool setup)
+        {
+            if(!SplitScreen.Active)return;
+            if(InRoamWorld){callers.Clear();menus.ResetPages();EndSplit();LeaveRoamWorld(setup?"split":"");return;}
+            QuitRace();if(setup)menus.OpenSplitSetup(true);
+        }
         void EndSplit()
         {
             SplitScreen.End();menus.RestrictMenuDevices(null);
@@ -517,7 +525,7 @@ namespace Racer
         {
             callers.Clear();menus.ResetPages();
             if(State!=Stage.Paused && State!=Stage.Results && State!=Stage.Settings) return;
-            if(InRoamWorld){LeaveRoamWorld("");return;}
+            if(InRoamWorld){if(SplitScreen.Active)EndSplit();LeaveRoamWorld("");return;}
             // 0.90: leaving a championship round before its result counts as did not finish (no retries in a championship)
             // (when that was the last round, its final standings and payout are still shown)
             if(CampaignRun.Cup!=null&&!CampaignRun.Done&&State!=Stage.Results){var forfeit=CampaignRun.Forfeit(this);if(forfeit!=null&&forfeit.CupFinished){LockVehicle(true);SetStage(Stage.Results);return;}}

@@ -41,7 +41,7 @@ namespace Racer
         }
         public void CameraAction()
         {
-            if (TrailerCamera == Shot.Fixed) { PlantAhead(flow.Race.vehicle, out plant); StartBlend(.4f); }
+            if (TrailerCamera == Shot.Fixed) { PlantAhead(Car, out plant); StartBlend(.4f); }
             else if (TrailerCamera == Shot.Side) { sideSign = -sideSign; StartBlend(.6f); }
             else if (TrailerCamera == Shot.Auto) autoSkip = true;
         }
