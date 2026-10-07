@@ -15,7 +15,96 @@
   - **Dan does:** driving every course and direction, trying every vehicle everywhere, checking that a universal fix holds everywhere, and judging look and feel. He reports through the debug ZIPs.
   - **Write-up:** the TODO results are a short list: what changed, the one check per item, decisions made, and anything Dan should look at. No separate VALIDATION.md unless a round asks. If a check would take more than a few minutes of play time, skip it and list it under "for Dan to check".
 
-## CURRENT — Campaign, round 1 of 3 (framework, locking, money, vehicle shop, Street Loop chapter); remaining flickering car surfaces — 0.89.0-review1 — DELIVERED, AWAITING DAN'S REVIEW
+## CURRENT — Locked-vehicle silhouettes, new-player hints, campaign round 2 (championships, chapters 2–4, upgrades), split-screen stage 1 — target 0.90.0-review1 — NOT STARTED
+
+- **Authorized by Dan (2026-10-07, 02:53).** Written by Claude (chat). His words are quoted in each part. He is asleep while this runs and his weekly limit has just reset: a long round is fine.
+- **Starting point:** main at the "Record 0.89 delivery" commit; playable source `a9f40b34` (0.89.0-review1 / game-89000). This TODO edit is uncommitted and belongs in the safety checkpoint.
+- Runs unattended: design decisions are below; do not stop to ask about design. Stop only for a real external blocker (rule 7).
+- **Scope is exactly Parts A–D below. Order: A, B, C (campaign), then D (split-screen). Commit C and D separately so either can be reverted alone.**
+- The Verification budget applies in full. Dan tests by playing.
+- Dan has now played chapter 1 through, so campaign round 2 **is** in this round (Part C), with the championships he asked for.
+
+### Part A — Locks: silhouettes for every locked vehicle, and state that is obvious
+
+Dan (03:43): "ok... actually now I could see it was locked off. All locked cars should be silhouetted like the lawnmower." So the 0.89 locks do work with "Unlock everything (testing)" off; what misled him was that locked vehicles are drawn in their real colours. (History: on first launch he believed everything was unlocked and turned the testing switch on himself; Claude chat set it back to off in his `settings.json` at 02:58, original kept as `settings.before-claude-2026-10-07.json`. He has since played chapter 1 through, so his save now has a real `campaign-v1.json`: **keep it and never reset or overwrite it.**)
+
+1. **Every locked vehicle is shown as a silhouette, exactly like the locked mower:** in the Garage (Race and Free Roam), the Shop and anywhere else a vehicle is previewed. Dark silhouette on the rotating preview, a padlock mark, and the line saying how to get it (price in the Shop, or the prize event). Its real look is revealed when it is bought or won. In the Shop the stat bars and price stay visible so the player can choose what to save for.
+2. **Locked tracks** in Tracks and the playlist editor: clearly dimmed with a padlock and the one-line reason; the map panel shows the route in grey.
+3. **No leaks:** walk every path (main menu, pause menu, Free Roam → Race, playlists, results → retry / next, the map, a saved last choice) and make sure a locked course or vehicle can never be started; Race Setup and the Garage open on something owned.
+4. **Status line on the main menu** under CAMPAIGN: for example "Chapter 2: Forest Loop · 3 of 7 events · $4,200". With the testing switch on it reads "TESTING: everything unlocked" instead, so that state can never be mistaken again.
+5. Check: shots of the Garage, the Shop and Tracks with locked items; the main menu line in both states.
+
+### Part B — New-player hints that lead to the campaign
+
+Dan: "When a new person starts the game, it should give some quick new player hints and direct them to the race events."
+
+1. **First launch as a new player** (no campaign progress; Dan now has progress, so check this on a fresh isolated save): after the title, a short welcome panel in the menu style, three or four lines: what the game is, that events earn money and open tracks and vehicles, and one button, **Start the campaign**, which goes to chapter 1's first event. A second, smaller choice: "Look around first" (Free Roam). The main menu then has CAMPAIGN highlighted as the default selection until the first event has been finished.
+2. **Controls card** shown once before the first event starts (behind or after the loading screen, dismissed with one press): steer, accelerate, brake / reverse, reset, camera view, pause; drawn for the device in use (controller glyphs or keys), from the real bindings.
+3. **In-play hints, once each, small and timed, never blocking:** the first time the player is stuck or off course for a few seconds ("Hold <reset> to return to the track"); the first shortcut fork ("Gold arrows mark a shortcut"); the first time money is earned ("Spend it in the Shop"); the first time a track or vehicle is unlocked; the first time Free Roam is entered (map, minimap, activities); the first time a locked item is selected (how to get it). Keep the list short; no hint repeats once shown.
+4. **Settings > Gameplay:** "Hints: On / Off" and "Show hints again". Starting a New Campaign offers to show them again. Hints never appear in Trailer Mode or split-screen.
+5. Write hint text plainly, in the game's existing tone, true to the actual controls and features.
+6. Check: a fresh save from launch to the first event's start, with shots of the welcome panel, the controls card and one in-play hint.
+
+### Part C — Campaign round 2: championships, chapters 2–4, upgrades
+
+Dan (03:43): "I actually went through the whole first section and saw that there was no other events for the other tracks yet. I want there to be championship race events as more tracks are unlocked."
+
+He has finished chapter 1 on his real save. Build the rest of the campaign on the 0.89 framework. **His existing `campaign-v1.json` must load and carry on** (money, owned vehicles, chapter 1 results, the Needle 600 if won): migrate the save format if needed, never reset it.
+
+**1. Championships (the new event type Dan asked for).**
+- A championship is a series of races on the tracks unlocked so far, scored on points, with one overall winner. One per chapter, opening when that chapter's final is passed:
+  - **Street Cup** (after chapter 1): Street Loop Forward and Reverse.
+  - **Woodland Cup** (after chapter 2): the two Street Loop and the two Forest Loop courses.
+  - **Backyard Cup** (after chapter 3): those four plus Dan's Backyard Forward and Reverse.
+  - **Woodstock Grand Championship** (after chapter 4): all eight courses.
+- Rules: the player enters with one owned vehicle and keeps it for the whole championship (with its upgrades). The same named rivals (5) race every round, in vehicles suited to the series, so there is a table to fight for. Points per race for places 1–6: 10, 7, 5, 3, 2, 1. Laps and conditions are set per round and vary (at least one night or weather round in each cup from the Woodland Cup on). After each race: that race's result and the **standings table**, then "Next race". Ties on points are broken by most wins, then best last race.
+- Progress is saved after every race: the player can quit to the menu and **resume the championship** later from the next race, or abandon it (asks first). Retrying a single race inside a championship is not allowed; restarting the whole championship is.
+- Pays by final championship position (a large payout, the biggest money in the campaign), with a first-win bonus and a trophy mark on the campaign screen. Winning is not required to open the next chapter (the chapter final does that), but the Grand Championship is the campaign's last event.
+- Since Dan has already passed chapter 1's final, the **Street Cup is available to him as soon as this lands**.
+- Campaign screen: championships appear as their own rows at the end of each chapter with the trophy state; a championship in progress shows "Round n of m" and Resume.
+
+**2. Chapters 2–4, complete.** Same pattern as chapter 1 (six events each, each needing the one before, the last a final that opens the next chapter), using each area's own courses, shortcuts, sites and character. Use these, adjusting details where the course makes another choice clearly better and saying so:
+- **Chapter 2, Forest Loop:** (1) Into the Woods: race, Forest Loop Forward, Day / Clear. (2) Cave Run: time trial, Forest Forward, three targets. (3) a Forest activity event (speed trap or jump on that course). (4) Rain in the Pines: race, Forest Forward, Rain, Dusk. (5) The Long Way Back: race, Forest Loop Reverse (unlocks it). (6) Forest Final: race, Forest Forward, 5 rivals. Prize: a large money bonus.
+- **Chapter 3, Dan's Backyard:** (1) Backyard Dash: race, Backyard Forward. (2) time trial, Backyard Forward. (3) Two Wheels Only: race for motorcycles and the ATV on Backyard Reverse (unlocks it). (4) Snow Day: race, Backyard Forward, Day / Snow (the sledding and broom-hockey scenes are out). (5) an activity event on the Backyard's jump or smash site. (6) Backyard Final. Prize: **Ridge Scrambler**.
+- **Chapter 4, Mountain Loop:** (1) First Ascent: race, Mountain Forward, Dawn. (2) time trial, Mountain Forward. (3) Downhill: race, Mountain Reverse (unlocks it). (4) Whiteout: race, Mountain Forward, Night / Snow. (5) a Mountain activity event. (6) Summit Final: race, Mountain Forward, 5 rivals at the campaign's hardest. Prize: **Highball Fastback**.
+- Rival speed, field vehicles and targets step up by chapter; set time-trial and activity targets from measured runs of vehicles a player could plausibly own at that point.
+- **Ending:** winning the Woodstock Grand Championship shows a short "Champion of Woodstock" screen (the poster, the final table, total time played, money earned) and marks the campaign complete; everything stays replayable.
+
+**3. Upgrades.**
+- Bought per owned vehicle in the Shop / Garage: **three levels each for Top speed, Acceleration, Grip and Handling**. Each level is a modest, noticeable step; prices rise per level and scale with the vehicle's price; fully upgrading a starter makes it competitive late on but never better than the best vehicles fully upgraded. Stat bars show the stock value and the upgraded part in a second tone.
+- **Campaign only:** upgrades apply in campaign events and championships. Race, Free Roam, split-screen and the existing Top 10 boards always use stock vehicles.
+- Rivals in later chapters are tuned on the assumption of some upgrades, not all.
+
+**4. Economy.** One considered set of numbers (rule 12; Dan judges): by the end of chapter 2 a player can afford a second bought vehicle or a few upgrade levels, not everything; the whole campaign played through once, winning most events, buys roughly half the garage plus a fully upgraded favourite; replays (half pay) and championships make the rest reachable. Put the payout, price and upgrade tables in the results.
+
+**5. Checks (light):** each new event type run once; one championship played start to finish on an isolated save with a quit and resume in the middle; one upgrade bought and felt (a timed straight before / after); Dan's real campaign save copied, loaded and shown to carry on with the Street Cup available; the "for Dan to check" list.
+
+### Part D — Split-screen, stage 1: two players, one race
+
+Dan: "we can go ahead and start the first part of split screen." His earlier decisions (2026-10-06, in the backlog entry): the point is to play with a friend on one PC; **one shared radio that either player can control**, never two; **it must be testable by Dan alone**; **top / bottom by default with a setting for left / right**; **everything is unlocked in split-screen**.
+
+Stage 1 is the plumbing and one good race. Stages 2 and 3 (all conditions, AI rivals, the full garage for both players, Free Roam for two, per-player views and gestures) come later; build so they fit.
+
+1. **Menu:** main menu entry **SPLIT SCREEN** → a setup screen: Player 1 and Player 2 each join by pressing a button on their device (controller 1, controller 2, or keyboard); each picks a vehicle from **all eleven-minus-reward vehicles plus the mower if earned, all unlocked regardless of the campaign**, and a colour; then the course (all eight selectable, all unlocked), laps, and split direction. Start when both are ready.
+2. **Devices:** any two of: controller, second controller, keyboard. Each player's input drives only their vehicle. A device dropping out pauses the race with a clear message until it is back or the race is ended.
+3. **Solo testing (required):** on the setup screen a switch "Player 2: AI driver". With it on, the game's AI drives player 2's vehicle through the normal race AI, with player 2's camera, HUD, laps, resets and finish all running for real. Dan can also join player 2 on the keyboard while playing player 1 on the controller.
+4. **Screen:** two cameras, **top / bottom by default** (player 1 on top), **left / right as a setting** on the setup screen and in Settings, remembered. Each half has its own chase camera (the normal chase view only in stage 1), with the camera tilting down slightly during long flights so the landing stays in view in the wide top / bottom layout. A thin divider between the halves.
+5. **HUD per half:** speed, lap, position, lap time, wrong-way and reset prompts, countdown, a small minimap showing both players; sized and placed for the half's shape. No campaign, hint or Free Roam text.
+6. **Race rules:** both players on the grid with no AI rivals in stage 1 (unless "Player 2: AI driver" is on, which is still just the two vehicles). Gates, laps, shortcuts, resets (the nearest-point rule) and finish work per player. The race ends when both have finished, or a set time after the first finishes. Results screen shows both: place, total time, best lap. Rematch / change setup / quit.
+7. **Conditions in stage 1:** Day / Clear only, no traffic. (Weather, night and traffic need per-view work; stage 2.)
+8. **Sound:** one listener arrangement that works for two views; both engines audible, each mixed down so neither drowns the other; **one radio**, and either player's radio buttons change station or skip, the first press winning and a second press within about half a second ignored.
+9. **Pause:** either player can pause; the pause menu is controlled by whoever paused.
+10. **Records:** split-screen results are not written to the Top 10 boards, ghosts, activities, acorns or the campaign in stage 1.
+11. **Things built around one camera, in stage 1:** first person, the other camera views, Trailer Mode, the winner shot, gestures and the loading-screen route inset are simply off or single in split-screen; say which. Nothing may break or show in the wrong half.
+12. **Performance:** two views roughly double the drawing cost. Target 60 fps or better at 3840×2160 on the GTX 1660 Ti on the worst course view in Day / Clear; if needed, lower per-view detail in split-screen only (draw distance, shadow distance, ground detail) and say what was lowered. Single-player rendering must not change.
+13. **Everything single-player keeps working exactly as before.** The game assumed one human in many places (reset, guidance, gates, HUD, audio, camera, input); change those to per-player without altering single-player behaviour.
+14. **Checks (this part may check a little more than the budget, since it touches the core):** split-screen has everything unlocked and uses stock vehicles (no campaign upgrades); a full two-player race on Street Loop – Forward and one on a Mountain course with "Player 2: AI driver" on, both finishing with correct laps and results; one race with the keyboard as player 2 driven by hand for a lap; both split directions; the shared radio from each side; pause from each side; a device unplugged and replugged if that can be emulated; frame time in the worst view; then one normal single-player race and one campaign event to show nothing regressed. Shots of the setup screen and both layouts.
+
+### Verification
+
+Light, per the Verification budget, except Part D as its own list says. Compile, launch, release steps. Results as a short list, with "for Dan to check".
+
+## Previous delivery — Campaign, round 1 of 3 (framework, locking, money, vehicle shop, Street Loop chapter); remaining flickering car surfaces — 0.89.0-review1 — DELIVERED, DAN COULD NOT TEST IT (everything appeared unlocked on his PC; see 0.90 Part A)
 
 - **Authorized by Dan (2026-10-06 / 07).** Written by Claude (chat). Dan reviewed 0.88.0-review1 and had nothing further ("i dont have anything left over"); he kept the Granite Saddle jump as it is. Part F is the one addition from that review.
 - **Starting point:** main at the "Record 0.88 delivery" commit (0.88.0-review1 / game-88000). This TODO edit is uncommitted and belongs in the safety checkpoint.
@@ -145,8 +234,8 @@ Upgrades; chapters 2–4; story text, cutscenes or characters; difficulty settin
 - Results: the payout and price table, and a "for Dan to check" list.
 
 ### Planned next
-- **Round 2 (0.90):** upgrades; chapters 2 (Forest), 3 (Dan's Backyard), 4 (Mountain) with their events, reverse courses, conditions events and the two remaining prize vehicles; an ending when the Mountain final is won.
-- **Round 3 (0.91):** balancing from Dan's play (payouts, prices, targets, rival speed), and polish.
+- **Round 2 (now 0.91; 0.90 went to the new-player fix, hints and split-screen stage 1):** upgrades; chapters 2 (Forest), 3 (Dan's Backyard), 4 (Mountain) with their events, reverse courses, conditions events and the two remaining prize vehicles; an ending when the Mountain final is won.
+- **Round 3 (after that):** balancing from Dan's play (payouts, prices, targets, rival speed), and polish.
 
 ## Previous delivery — Kyle's driveway, yard and mailbox; flashing car floorboards; Forest Reverse lake-jump landing (study only); acorn reward riding lawnmower — 0.88.0-review1 — DELIVERED, REVIEWED BY DAN (nothing further; Granite Saddle jump kept)
 
