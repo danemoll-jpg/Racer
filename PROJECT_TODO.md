@@ -16,7 +16,84 @@
   - **Controller first (Dan, 2026-10-07):** Dan plays with a controller. Any new or changed menu, screen or prompt must be checked once with a controller only (no mouse, no keyboard) before delivery: every control reachable, focus visible, B goes back.
   - **Write-up:** the TODO results are a short list: what changed, the one check per item, decisions made, and anything Dan should look at. No separate VALIDATION.md unless a round asks. If a check would take more than a few minutes of play time, skip it and list it under "for Dan to check".
 
-## CURRENT — Controller can't reach Campaign or Split Screen; split-screen controller join; campaign jump never scores — 0.91.0-review1 — DELIVERED, AWAITING DAN'S REVIEW
+## CURRENT — Menu fixes from Dan's 0.91 play (controller still skips two rows, garage for vehicle choice, no A-to-cycle, a vehicle for every chapter), Forest Reverse bump, split-screen stage 2 — target 0.92.0-review1 — NOT STARTED
+
+- **Authorized by Dan (2026-10-07, 10:38).** Written by Claude (chat) from his play of 0.91.0-review1 and debug session `2026-10-06_22-05-15-141_e9fd05`. That session has two reports: **BUG-001 is from 0.87 and Dan says to ignore it**; BUG-002 is on 0.91.0-review1 and is Part E. His words are quoted in each part: "I want to fold these things into the next round (I assume phase 2 of split screen)."
+- **Starting point:** main at the "Record 0.91 delivery" commit (0.91.0-review1 / game-91000). This TODO edit is uncommitted and belongs in the safety checkpoint.
+- Runs unattended: design decisions are below; do not stop to ask about design. Stop only for a real external blocker (rule 7).
+- **Scope is exactly Parts A–F below. Order: A, B, C, D, E, then F (split-screen stage 2, own commit).**
+- The Verification budget and the Controller-first rule apply. **For this round, controller checks are made in the built Windows player, not only in the editor** (see Part A).
+- Dan's real campaign save keeps loading and is never reset; test on a copy.
+
+### Part A — The controller still skips CAMPAIGN and SPLIT SCREEN
+
+Dan (on 0.91): "Scrolling through the menu still skips both online and campaign unless you keep scrolling down and around. This needs to be fixed." ("Online" here is the SPLIT SCREEN row; there is no online mode.)
+
+0.91 reported this fixed (up / down follow the rows as drawn; a structural check; a controller-only walk). Dan still gets the old behaviour in the released build: going down from the top passes over the two rows, and they are reached only by carrying on round past the bottom. So the 0.91 fix or its check did not cover what he does.
+
+1. **Reproduce it the way Dan plays: in the built player** (`Builds/Latest`), from a cold launch, with a real or XInput-emulated controller, using **both the D-pad and the left stick**, starting from whatever row is focused when the main menu first appears, on a copy of his save (campaign in progress, so the status line is present). Also from the pause menu and the Free Roam pause menu. Do not accept an editor-only result.
+2. Find why the build differs from 0.91's check (for example: the explicit links are replaced by Unity's automatic navigation at runtime or after the page is rebuilt; the first-focused row is set before the rows are reordered; stick navigation takes a different path from the D-pad; the two-line CAMPAIGN row or the status text is a separate selectable; rows are re-sorted after the links are made; a different code path builds the menu on first show than on return). Fix the cause.
+3. Required behaviour, main menu and every other page: pressing down from any row goes to the row drawn directly below it, up to the row directly above, with wrap only at the ends; the first press of down from the top row lands on the second drawn row. The focused row is always visibly highlighted.
+4. Make the 0.91 structural check test **order**, not only reachability: for each page, the sequence produced by pressing down repeatedly from the top must equal the rows in drawn order. Run it in the built player through the check runner.
+5. Check: a short screen recording or frame sequence from the built player showing down, down, down… from the top of the main menu with the highlight on each row in turn, CAMPAIGN and SPLIT SCREEN included.
+
+### Part B — Choose vehicles in the garage, not from a line of text
+
+Dan: "Both the splitscreen and the campaign should actually take you to the garage so you can see the vehicle and its stats. Just words are kind of lame."
+
+1. **Campaign:** on an event or championship page, choosing the vehicle opens the garage view (the 0.76 rotating preview, the name, class, the stat bars with campaign upgrades shown in their second tone, colour) limited to the vehicles the player owns that fit the event; ineligible owned ones appear dimmed with the reason; locked ones do not appear here. Confirm returns to the event page with that vehicle shown as a small preview and name. The Shop is one press away from that garage view.
+2. **Split-screen:** each player picks in a garage view of their own: the rotating preview, stat bars (stock), colour, every vehicle unlocked. On the setup screen each player's slot shows their chosen vehicle's preview, not just its name. With two human players both can be choosing at once, each in their own half of the screen with their own device; with the AI as Player 2, Player 1 also picks the AI's vehicle.
+3. Reuse the existing garage code and layout; do not build a second garage. Rider look stays as set in the main garage.
+4. **Campaign defaults to the last vehicle driven (Dan, 10:43): "campaign should default to the last driven vehicle."** Each event and championship page opens with the vehicle the player last drove in the campaign already selected, saved in the campaign save. If that vehicle is not allowed in this event (class rule) or is no longer owned, use the most recently driven one that is allowed, else the first eligible. The player only opens the garage view when they want to change it.
+5. Check with a controller: pick a vehicle for a campaign event and for both split-screen slots; start a second event and see the same vehicle preselected.
+
+### Part C — One way to choose everywhere: scroll, never press A to cycle
+
+Dan: "There are some selection screens where you click through using the A button instead of scrolling through. Lets make this consistent: scroll through and not clicking A to cycle through options."
+
+1. **Rule for every menu in the game:** up / down moves between rows. A row that holds a value (a vehicle, colour, course, laps, difficulty, weather, time of day, device, split direction, a setting, On / Off) shows it as `‹ value ›` and is changed with **left / right** (D-pad or stick; A / D and arrows on the keyboard; clicking the arrows with the mouse). **A never cycles a value.** A activates buttons and opens sub-pages only; B goes back.
+2. Where a row has many options (courses, vehicles, playlists), A may open a list to scroll through and pick from; it must not step to the next option.
+3. Find every row that currently changes on A (0.91's own walk names "Unlock everything", "Hints toggled with A", colour and model rows, split-screen rows, race setup rows) and convert them; list what was converted. Hold-to-repeat on left / right for long lists. A short hint line at the bottom of menus shows the controls for the focused row ("‹ › change · A select · B back").
+4. Check with a controller: one pass through Race Setup, Garage, Settings (all tabs), Campaign, Shop, Split Screen setup, the playlist editor and the Records screen, confirming no row changes on A.
+
+### Part D — Every chapter final awards a vehicle
+
+Dan: "I feel like the end of every chapter should unlock a vehicle (but maybe that is the championship that does this?)"
+
+Today: chapter 1's final awards the Needle 600, chapter 2's a money bonus, chapter 3's the Ridge Scrambler, chapter 4's the Highball Fastback; championships pay money.
+
+1. **Every chapter final awards a vehicle:** chapter 1 Needle 600; **chapter 2 the Pebble Coupe** (replacing most of the money bonus; keep a small one); chapter 3 Ridge Scrambler; chapter 4 Highball Fastback. The event page and the campaign screen show the prize as a silhouette with "Prize" before it is won, and the win shows the vehicle revealed.
+2. **Championships stay the big money**, and the **Woodstock Grand Championship** also awards a one-off champion's paint scheme (gold with a number roundel) usable on any owned vehicle. That leaves four vehicles to buy (Longroof GT, Sundown Roadster, Skyfin Cruiser, Drifter Twin), so money still matters for vehicles as well as upgrades. Re-check prices and payouts so that holds; say what changed.
+3. **Retroactive:** on loading a save, grant any prize whose final is already passed and say so once. If Dan had already bought a vehicle that is now a prize, refund its price.
+4. Check on a copy of Dan's save: prizes shown for all four finals; passing chapter 2's final awards the Pebble Coupe.
+
+### Part E — Forest Loop Reverse: a stray bump that flips bikes (BUG-002)
+
+"somewhere in this area there is a stray bump that has made me flip more than once" at about (157.4, 46.3, 277.0), `ForestLoopReverse`, race, lap 1, next checkpoint 4, main progress 1489 m, Needle 600, facing 95°. The screenshot is taken stopped on the dirt main with a rock cutting and cave mouth to the right. He does not know the exact spot.
+
+1. Search the main's driving surface from about 80 m before to 80 m after that point for what throws a bike: tilted sliver triangles between near-duplicate vertices (the 0.83 Mountain cause), a mesh or collider edge standing above the surface, a seam between two ground pieces, a buried sheet poking through (the 0.85 cause), a root or prop collider. Ride it on a motorcycle at race speed on several lines across the width and log vertical jolts to find it.
+2. Fix it so the surface is continuous. Section 5A: keep the race line, gates, jumps and the nearby cave as they are; change only what is needed. If the same fault is found elsewhere on this course by the same scan, fix those too and list them.
+3. Check: the motorcycle through the stretch at race speed on three lines, before / after jolts; one lap with AI; collider comparison.
+
+### Part F — Split-screen stage 2
+
+Dan: "(I assume phase 2 of split screen)". Stage 1 (0.90, with 0.91's controller join) is two players, one race, Day / Clear, no rivals, chase camera, nothing recorded. Stage 2 makes it a full race night. Stage 3 (later) is Free Roam for two, per-player camera views and gestures.
+
+1. **AI rivals:** the setup screen gets Rivals: 0–4 and their difficulty and vehicle mix, as in Race Setup. Both humans and the AI share one race with correct positions for everyone in both HUDs and on both minimaps.
+2. **Conditions:** time of day (Dawn / Day / Dusk / Night) and weather (Clear / Rain / Snow) selectable, each working correctly in both views at once: sky, lighting, headlights for every vehicle, rain and snow following each camera, wet and snow looks, ice on water, lightning and thunder (one thunder, both views flash), the Snow scenes. Anything that was built around one camera gets a two-view version; nothing shows in only one half or doubled.
+3. **Traffic:** on / off, as in Race Setup.
+4. **Vehicle choice in the garage** for each player (Part B), including colour.
+5. **Race options:** laps, and the course's reverse variants as now; a rematch keeps everything; "change setup" returns with choices kept.
+6. **Results:** all finishers including AI, with each human highlighted; best lap for each human.
+7. **Still not recorded:** no Top 10, ghosts, campaign money or acorns from split-screen. Everything unlocked, vehicles stock.
+8. **Performance:** two views with weather, night lighting, traffic and rivals is the heaviest thing the game does. Target 60 fps or better at 3840×2160 on the GTX 1660 Ti in the worst case (Night / Snow, traffic on, 4 rivals, the heaviest course view). Lower split-screen-only detail as needed (draw and shadow distance, particle counts, ground detail, traffic count) and say what was lowered. Single-player rendering must not change. Report the measured worst case.
+9. **Checks (may exceed the budget a little; core systems):** with Player 2 as the AI driver: one race Day / Clear with 4 rivals and traffic; one Night / Snow; one Dusk / Rain; both split directions; pause, rematch, change setup; frame time in the worst case; then one single-player race and one campaign event to show nothing regressed. All menus by controller. Shots of both layouts in Night / Snow. **Own commit**, with the revert command.
+
+### Verification
+
+Light, per the Verification budget and the Controller-first rule, except where a part says otherwise. Compile, launch, release steps. Results as a short list, with "for Dan to check".
+
+## Previous delivery — Controller can't reach Campaign or Split Screen; split-screen controller join; campaign jump never scores — 0.91.0-review1 — DELIVERED, REVIEWED BY DAN (the controller still skips two main-menu rows in the built game; follow-ups in 0.92)
 
 ### Results (2026-10-07, Claude Code)
 
