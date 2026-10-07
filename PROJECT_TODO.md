@@ -61,6 +61,14 @@ Likely cause, from the code and 0.90's own note: `ArcadeActivities` rejects a ju
 
 Light, per the Verification budget, with the controller-only rule above. Compile, launch, release steps. Results as a short list, with "for Dan to check".
 
+### Side fix (asked separately by Dan, 2026-10-07; outside Parts A–C) — map NullReferenceException on mouse scroll in the main menu — DONE in source, ships with 0.91
+
+- **Bug:** Dan's 0.90.0-review1 Player.log: `NullReferenceException at ExplorationMap.Draw()` from `ExplorationMap.OnScroll` (InputSystemUIInputModule scroll), in StreetLoopGreybox just after the main menu loaded.
+- **Cause:** `Race HUD` (which hosts the main menu and HUD) is a child of `Phase 3 - Race Systems`, the object carrying `ExplorationMap`, and Unity bubbles pointer events up the hierarchy (`ExecuteHierarchy`). A mouse-wheel scroll over a menu element that has no scroll handler reached `ExplorationMap.OnScroll`, which called `Draw()` before the map panel had ever been built (`picture` null). Harmless otherwise; one logged exception.
+- **Fix (smallest local):** `ExplorationMap.OnScroll`, `OnDrag` and `OnPointerClick` ignore events while the map is not open (`!Opened`). Click and drag reach these handlers by the same bubbling path and would hit the same unbuilt `picture`. Nothing else changed.
+- **Check:** `Assembly-CSharp` compiles (dotnet build against the project's Unity references, 0 errors). Not run in game; for Dan to check: scroll the mouse wheel over the main menu, with no new exception in Player.log; the open map still zooms, drags and clicks as before.
+- **Source:** branch `claude/competent-booth-724aff` (from `8add3a0d`); no build or release of its own. It goes out in the 0.91.0-review1 release once merged into main.
+
 ## Previous delivery — Locked-vehicle silhouettes, new-player hints, campaign round 2 (championships, chapters 2–4, upgrades), split-screen stage 1 — 0.90.0-review1 — DELIVERED, REVIEW STARTED (controller navigation and the campaign jump fixed in 0.91)
 
 - **Authorized by Dan (2026-10-07, 02:53).** Written by Claude (chat). His words are quoted in each part. He is asleep while this runs and his weekly limit has just reset: a long round is fine.

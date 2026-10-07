@@ -177,12 +177,15 @@ namespace Racer
             string wpt=Waypoint.HasValue?"Waypoint "+DisplayUnits.Distance(Vector3.ProjectOnPlane(Waypoint.Value-race.vehicle.Body.position,Vector3.up).magnitude)+(race.FreeRoam?"":" (Free Roam only)")+"\n\n":"Mouse: click the map to set a waypoint, right-click to clear\n\n";
             status.text=wpt+RouteTitle+(selected>=0?destinations[selected].title:"Map Point")+"\n"+(race.FreeRoam?"Select for location actions":"Travel available in Free Roam")+"\n\n"+RouteLegend+"\n\n"+(race.GetComponent<ExplorationCollection>()?.Summary??"")+"\n\n"+(error??errorMessage);
             RefreshMapPrompts();
-        }        public void OnScroll(PointerEventData e){if(sheetOpen)return;zoom=Mathf.Clamp(zoom+e.scrollDelta.y*.25f,1,6);Draw();}
-        public void OnDrag(PointerEventData e){if(sheetOpen)return;center-=new Vector2(e.delta.x/picture.rectTransform.rect.width,e.delta.y/picture.rectTransform.rect.height)/zoom;selected=-1;Draw();}
+        }
+        // 0.91: UI events bubble up the hierarchy, and the Race HUD (main menu) is a child of this object: ignore them while the
+        // map is closed (its panel may not even be built yet - Dan's 0.90 Player.log NullReferenceException in Draw).
+        public void OnScroll(PointerEventData e){if(sheetOpen||!Opened)return;zoom=Mathf.Clamp(zoom+e.scrollDelta.y*.25f,1,6);Draw();}
+        public void OnDrag(PointerEventData e){if(sheetOpen||!Opened)return;center-=new Vector2(e.delta.x/picture.rectTransform.rect.width,e.delta.y/picture.rectTransform.rect.height)/zoom;selected=-1;Draw();}
         // 0.74 mouse: a click on a discovered landmark opens its actions (as before); a click anywhere else puts the waypoint
         // there; a right-click clears it.
         public void OnPointerClick(PointerEventData e)
-        {if(sheetOpen||e.dragging)return;if(e.button==PointerEventData.InputButton.Right){ClearWaypoint();return;}if(e.button!=PointerEventData.InputButton.Left)return;if(!RectTransformUtility.ScreenPointToLocalPointInRectangle(picture.rectTransform,e.position,e.pressEventCamera,out var q))return;
+        {if(sheetOpen||!Opened||e.dragging)return;if(e.button==PointerEventData.InputButton.Right){ClearWaypoint();return;}if(e.button!=PointerEventData.InputButton.Left)return;if(!RectTransformUtility.ScreenPointToLocalPointInRectangle(picture.rectTransform,e.position,e.pressEventCamera,out var q))return;
             var uv=center+new Vector2(q.x/picture.rectTransform.rect.width,q.y/picture.rectTransform.rect.height)/zoom;
             bool landmark=Enumerable.Range(0,destinations.Length).Any(i=>Discovered(destinations[i].id)&&(ScreenPoint(destinations[i].position)-q).magnitude<=20);
             if(landmark){center=uv;SelectReticle();return;}
