@@ -15,7 +15,41 @@
   - **Dan does:** driving every course and direction, trying every vehicle everywhere, checking that a universal fix holds everywhere, and judging look and feel. He reports through the debug ZIPs.
   - **Write-up:** the TODO results are a short list: what changed, the one check per item, decisions made, and anything Dan should look at. No separate VALIDATION.md unless a round asks. If a check would take more than a few minutes of play time, skip it and list it under "for Dan to check".
 
-## CURRENT — Kyle's driveway, yard and mailbox; flashing car floorboards; Forest Reverse lake-jump landing; acorn reward riding lawnmower — target 0.88.0-review1 — NOT STARTED
+## CURRENT — Kyle's driveway, yard and mailbox; flashing car floorboards; Forest Reverse lake-jump landing; acorn reward riding lawnmower — 0.88.0-review1 — BUILT, RELEASE IN PROGRESS
+
+### Results (2026-10-07, Claude Code)
+
+- **Safety checkpoint:** `85a56cfb` (this plan), pushed. Part A `b5bb60e4`, Part B `e36d981e`, **Part C alone `e689cf15`** (study only, nothing to revert), Part D `81b20897`. Version 0.88.0-review1 / build 88000.
+- Evidence: [Docs/Report088/](Docs/Report088/) ([Lists/](Docs/Report088/Lists/), [Shots/](Docs/Report088/Shots/)). Tools `Tools/Report088/`, `Tools/Blender/mower.py`; checks `Assets/Scripts/Report088Checks.cs`. No VALIDATION.md.
+- **A — Kyle's place — DONE, all nine scenes** ([A-kyle-build.txt](Docs/Report088/Lists/A-kyle-build.txt)). House model untouched.
+  - **One driveway at Dan's BUG-002 spot:** from the street edge at (476.8, −21.0) straight down to the 0.87 garage apron: 30.6 m, 4.8 m wide, one gravel ("Driveway gravel", as before), heading 95°. Even grade 22.7 % (12.8°) with 1.8 m rounded ends. At the mouth it takes the street's cross-fall (−18 %, the street is steep there) and is level by 8 m, so both edges meet the street. Ground cut / filled under it with 1:1.5 / 1:2 batters.
+  - **Everything else removed:** the old drive ribbon, the 0.87 garage leg and the CR113 gravel "edge join" (26 × 36 m of gravel). The ground under them and their batters (about 790 m²) is refilled smooth from the ground round it (no shelf or step left). Route points and the map's "Anderson's" arrival now follow the new drive (arrival on the apron as before).
+  - **Lawn:** flat at 2.31 m above the pad (two 0.17 m steps below the porch floor at 2.65) from the house front to the foot of the bank (about z 7–19 in the house frame), filling the hollow there; the bank meets it in a plain toe. One broad step (4 × 0.45 m, top 2.48, concrete like the porch, solid) in front of the door.
+  - **Trees:** 3–4 per scene stood in the drive's line; re-planted 6–9 m beside it. 11–14 more planted on its left (north), where the old drive was (copies of nearby trees, with trunks). The frontage trees between house and street stay except in the drive's opening.
+  - **Mailbox:** the CR-015 roadside mailbox (trigger collider, breakaway, as the others), on the verge left of the mouth, 1 m off the street edge, door to the street.
+  - **Dan-and-Kyle vignette:** it stood on the new drive's line, so it moved to the verge beside the mouth, near the mailbox.
+  - Race data: the drive's mouth is at the street edge, off the race surface. Nearest gate 30–101 m away; "Fence line smash" props 57 m; no branch within 40 m. Every scene's routes are identical before and after except Kyle's own drive points.
+  - Checks: [Dan's three spots](Docs/Report088/Shots/) (`A-dan-BUG-00n.png`, with `-before`), [above](Docs/Report088/Shots/A-above.png), [straight down](Docs/Report088/Shots/A-straight-down.png), [mailbox](Docs/Report088/Shots/A-mailbox.png). Street → garage → street in Free Roam ([A-driveway-drive.txt](Docs/Report088/Lists/A-driveway-drive.txt)): Skyfin Cruiser and Needle 600 both ways, nothing touched, 0 resets, steepest pitch 13–14°, roll 10° at the mouth. Rule-4 grounding, nine scenes ([A-grounding.txt](Docs/Report088/Lists/A-grounding.txt)): about 975 points each, nothing floating; drive within 0.08–0.11 m of the ground; the one flag is 6 cm of grass over the far corner of the apron in five scenes. Collider comparison per scene ([A-collider-comparison/](Docs/Report088/Lists/A-collider-comparison/)): only the property (drive, ground tiles there, trees, mailbox, step).
+  - How it got here: a first build mis-sampled the four scenes that share an already-edited ground tile and placed planted trunks before their templates were re-seated; all of it was reverted and rebuilt once in one pass.
+- **B — car floorboards — FIXED in all six cars** (Street Classic, Longroof GT, Sundown Roadster, Highball Fastback, Pebble Coupe, Skyfin Cruiser). Cause: the carpet's top and the body shell's cabin floor were both at H.y − 0.30, coplanar (z-fighting). In `Tools/Blender/cars.py` (and the Roadster's floor in `cars81.py`) the carpet now straddles the shell floor, its top 1.5 cm above it. A scan of every vehicle model for same-facing coplanar overlaps ([before](Docs/Report088/Lists/B-coplanar-before.txt) / [after](Docs/Report088/Lists/B-coplanar-after.txt)): the floor overlap is gone in all six; the bikes, the ATV and the traffic kit never had it.
+  - **Pebble Coupe roof:** the roof was there but covered only the front 0.6 m; behind it a 1.1 m nearly clear rear glass lay over the rear seats, so from above-behind it looked open. The roof now runs back over the rear seats (to −0.85; the rear glass is shorter and steeper). The other closed cars show their cabins through clear rear glass as intended (the Fastback by design).
+  - Visual only. Checks: orbit by day and night with headlights and one above-behind shot per car ([before](Docs/Report088/Shots/B-cars-above-behind-day-before.png) / [after](Docs/Report088/Shots/B-cars-above-behind-day-after.png), `B-<car>-orbit-day/night.png`).
+  - Not fixed (outside this part, reported): smaller same-facing overlaps elsewhere: the Fastback's tail lamps on its tail panel, small chrome trims at the back of the Street Classic and Longroof GT, wheel chrome on the Roadster and Longroof, two traffic bodies.
+- **C — Granite Saddle landing — NOT BUILT (item 7); measurements and options in [C-granite-study.txt](Docs/Report088/Lists/C-granite-study.txt).**
+  - The lip (72.3 m, rising 21°) throws vehicles over the pool and lake to a rim trail about 30 m lower that rises gently westward; they come down at 35–45° after 3.7–4.0 s.
+  - Landing loads: Granite Saddle 550–1094 m/s² against 276 / 347 (bike / car) on the course's first main jump.
+  - A landing that matches the real lip speeds (30–37 m/s) would need a hill 25–31 m high on the lake's west shore and a surface descending about 120–140 m below today's rim trail. No straight face, no flatter or lower lip changes that (flatter lips drop the slow vehicles in the lake). So nothing changed; AI stays off; course id unchanged.
+  - Options for Dan in the study: leave it; a landing hill for typical race speed only; or make it a drop into the lake shallows.
+- **D — the acorn reward riding mower — DONE.** "Turf Rocket", class "Mower" (`Tools/Blender/mower.py`, [Blender sheet](Docs/Report088/Shots/D-mower-blender-sheet.png)): lawn tractor with bonnet, grille, headlights, steering wheel, big sprung seat, small front and big knobbly rear tyres, mid deck with a side chute, tow hitch; paint selectable; no make or badge.
+  - **Unlock:** read from the acorn save (`woodland-acorns-v1.json` gets `rewardEarned`; a save at 24 found counts too). Until then the garage list shows it as a dark silhouette, "LOCKED: Find all 24 Woodland Acorns (n/24)", not selectable; the player and the AI cannot get it. The 24th acorn shows "ALL 24 WOODLAND ACORNS FOUND! / Unlocked: the Turf Rocket riding mower / Choose it in the Garage" for 10 s. Restart Acorn Hunt keeps it. Dan's save was never written.
+  - **Numbers (rule 12, one set):** top speed 61, acceleration 18, grip 32, handling 12 (all equal-best with the Needle 600), mass 760 kg and car-class contact (it holds its own against the cars), upright 27 and air stability 0.24 for flat landings, wheelbase 1.6, track 0.5. Garage bars rescale to eleven (the mower is full on the first four).
+  - Rider: the cars' seated pose on the centre line, hands on its wheel (0.85 logic), feet on footboards; all customization, fist wave and first person (bonnet and wheel in view).
+  - Everywhere: every course and Free Roam; records per vehicle as before; activity medal targets use the Needle 600's. AI: Random / Mixed fields include it only now and then (one in four when drawn), only once earned.
+  - Touches: the engine note is the shared engine audio pitched up (1.75). **No grass clippings:** the game has no ground-surface types (the roads are part of the ground tiles), so it was not cheap.
+  - Checks on an isolated save ([D-mower-checks.txt](Docs/Report088/Lists/D-mower-checks.txt)): locked at 23/24 (not eligible, choosing it leaves the Street Classic, [locked in the garage](Docs/Report088/Shots/D-garage-locked.png)); the 24th acorn unlocks it ([message](Docs/Report088/Shots/D-celebration.png)); selected in the garage; kept after Restart Acorn Hunt and a fresh load. Loads with 4 wheels down, rider seated, fist wave, headlights at night ([day](Docs/Report088/Shots/D-vehicle-mower-day.png), [night](Docs/Report088/Shots/D-vehicle-mower-night.png)); first person: 640 frames, head hidden correctly. Summit giant jump: 252 m in 8.2 s, lowest up after landing 0.98. One Street Loop race lap with AI: 2:15.9, 0 missed gates, 0 resets (the Needle 600 AI 2:06.4, Street Classic 2:21.5, Trail Four 2:18.0). The 0.81 vehicle check flags "wheel bottom 0.28 m above ground": it counts the hub caps; the tyres sit on the road.
+- **Decisions:** A: lawn two steps *below* the porch (Dan: "the area in front of the house just like two steps down"), the vignette moved, a step block rather than reshaping the porch; B: the carpet raised 1.5 cm rather than the shell floor lowered (the shell floor sits on the underbody on the Pebble); C: nothing built; D: equal-best stats rather than above the best.
+- **For Dan to check:** the new drive and lawn from the street and the house; the mower's feel (absurdly quick but controllable?) and whether one in four is "now and then" for the AI; the Granite Saddle options; the Pebble Coupe's new roof line.
+
 
 - **Authorized by Dan (2026-10-06).** Written by Claude (chat) from his review of 0.87.0-review1: debug session `2026-10-06_21-33-52-142_17cb14` (4 reports, all on 0.87.0-review1, `FreeRoamWorld`) and his message of 22:08: "the only thing I have is cleaning up Kyle's driveway, and yard, and adding a mailbox. The house itself looks fine. There is also a weird graphic glitch on the floorboard when looking at cars from certain angles. Other than that, nothing." The Summit Climb and the launcher icon drew no comment.
 - **Starting point:** main at the "Record 0.87 delivery" commit; playable source `c8357cc8` (0.87.0-review1 / game-87000). This TODO edit is uncommitted and belongs in the safety checkpoint. More parts may be added before Dan starts it.
@@ -80,6 +114,75 @@ Dan: "a riding lawnmower would be cool, but with like top stats since it is an u
 ### Verification
 
 Light, per the Verification budget, except Part C, which may check as its own list says. Compile, launch, release steps. Results as a short list, with "for Dan to check".
+
+## QUEUED NEXT — Campaign, round 1 of 3: framework, locking, money, vehicle shop, and the Street Loop chapter — target 0.89.0-review1 — NOT STARTED
+
+Written by Claude (chat) on 2026-10-06 while 0.88 was running. Do not start until 0.88 is delivered and Dan starts it; items from his 0.88 review may be added first. Runs unattended; the design decisions are below. The Verification budget applies.
+
+**Dan's request (2026-10-06, 22:36):** "A single player campaign. The game starts with one track available (the street loop) and limited vehicles, as you go through the campaign you will unlock the different tracks (based on whatever tracks that you encounter in the campaign). You will also occasionally unlock some vehicles this way. But mostly you will earn money for race events which you can use to buy more vehicles and generic upgrades to your vehicle stats."
+
+**Dan's decisions (2026-10-06, answered in chat):**
+- **Locking:** "I would like it to be locked, but with free roam and splitscreen having everything unlocked. I need a separate mode for testing though." **Corrected by Dan at 22:45: "Wait, I want the locked vehicles to stay locked in free roam."** So: the normal race modes follow campaign progress; **Free Roam always has the whole world open, but only the vehicles the player owns**; **split-screen, when it exists, has everything unlocked**; and there is a **testing mode that unlocks everything**.
+- **Upgrades apply in the campaign only.** Races outside the campaign use stock vehicles and keep today's records. Campaign times get their own board.
+- **Events are chosen from a menu list by chapter** (not by driving to markers).
+
+### The whole design (rounds 1–3), so round 1 is built to carry it
+
+- **Chapters, one per area, in this order:** 1 Street Loop → 2 Forest Loop → 3 Dan's Backyard → 4 Mountain Loop. Each chapter is a list of events on that area's courses; its last event (the "final") opens the next chapter. A course becomes available everywhere else the first time the campaign puts the player on it; forward first, the reverse version as a later event of the same chapter.
+- **Event types, all from things the game already has:** race against AI (laps, field size and rival vehicles set per event); time trial against bronze / silver / gold targets; activity events (speed traps, jumps, smash runs) with the same three targets; conditions events (a set time of day and weather: night, rain, snow, dawn); class events (cars only, bikes only, ATV).
+- **Money:** every event pays by result. Races pay by finishing place (most for first, something for every finisher); timed and scored events pay by medal. The first time an event is won or golded it pays a one-off bonus. Replays pay a reduced amount so grinding works but progress is better. One currency, shown as dollars.
+- **Vehicles:** the player starts owning two modest vehicles. A few are prizes for specific events; the rest are bought. Ownership is per campaign save.
+- **Upgrades (round 2):** bought per vehicle, three levels each for Top speed, Acceleration, Grip and Handling, each level a modest step, priced upward, capped so a fully upgraded starter is competitive late on but not better than the best vehicles fully upgraded.
+- **The riding lawnmower** stays the acorn reward (0.88), outside the shop and the campaign.
+- **Rivals** get faster by chapter and use vehicles that suit the event; they never use upgrades beyond what the event defines.
+
+### Round 1 scope (this round)
+
+**Part A — Campaign save and menu**
+1. Main menu gets **CAMPAIGN** as its first entry: Continue / New Campaign (with a confirmation before overwriting) and the chapter list.
+2. A separate campaign save (own file, written atomically like the other saves, versioned): money, owned vehicles, events done with best result, unlocked courses, current chapter. Losing or resetting it never touches records, acorns, settings or Free Roam.
+3. The campaign screen: chapters down one side (locked ones shown locked with what opens them), the selected chapter's events listed with type, course, conditions, entry rule, payout and the player's best result/medal; the course map panel from the Tracks screen shows the event's route. Money shown at the top. Controller and mouse.
+4. Starting an event goes through the normal loading screen and race flow with the event's settings fixed; the player picks only from vehicles they own that fit the event. After it: a results-and-payout screen (place or medal, money earned, bonus, anything unlocked), then back to the campaign screen.
+
+**Part B — Locking**
+1. With a campaign in progress, **Race** (the normal quick race / Tracks / playlists) offers only the courses the campaign has unlocked and only the vehicles the player owns, always stock (no upgrades, today's records).
+2. **Free Roam:** the whole world and all its activities are always open, as now, whatever the campaign has reached. **Vehicles are locked the same way as in Race:** only owned vehicles can be chosen (plus the riding lawnmower once the acorns have earned it), always stock. Locked ones show as locked with how to get them. (Split-screen, when built, has every vehicle and course unlocked.)
+3. A locked course or vehicle shows in the lists as locked with one line saying how to get it; it is never just missing.
+4. **Testing mode:** Settings gets "Unlock everything (testing)": while on, Race and Free Roam offer every course and vehicle regardless of the campaign, and nothing done in that state changes the campaign save. Default off. Also add campaign entries to the F6 debug menu, working only in debug mode: add money, unlock all campaign content, mark the selected event won, reset the campaign.
+5. **Dan's existing install:** with no campaign save present the game starts as a new player (Street Loop and the two starter vehicles in Race; the two starter vehicles in Free Roam, with the whole world open). His records, acorns, settings and Free Roam clock are untouched, and the testing switch gives him everything back at once. Say this in the results so it is not a surprise.
+
+**Part C — Money and the vehicle shop**
+1. Payouts as designed above; pick one considered set of numbers so chapter 1 earns enough for one cheaper vehicle by its end (rule 12; Dan judges).
+2. **Shop** (from the campaign screen and the garage): all vehicles with the 0.76 rotating preview, stat bars, price, and Owned / Buy / Prize from "<event>" / Locked. Prices follow how good the vehicle is. Buying asks for confirmation.
+3. **Starters:** Street Classic and Trail Four. **Prize vehicles (placed in later chapters; define them now in data):** Needle 600 for the chapter 1 final, Ridge Scrambler in chapter 3, Highball Fastback in chapter 4. Everything else is bought. The mower is not in the shop.
+4. Upgrades are **not** in this round; leave the data and UI room for them.
+
+**Part D — Chapter 1: Street Loop**
+Build chapter 1 complete, six events, in this order, each needing the one before:
+1. **First Lap:** race, Street Loop Forward, 2 laps, 3 easy rivals, Day / Clear, any owned vehicle.
+2. **Hwy 92 Speed Trap:** activity event on the Street Loop's speed trap, bronze / silver / gold.
+3. **Against the Clock:** time trial, Street Loop Forward, 1 flying lap, three targets set from measured laps of the starter vehicles.
+4. **Night Shift:** race, Street Loop Forward, 3 laps, 3 rivals, Night / Clear with traffic.
+5. **Wrong Way Round:** race, Street Loop Reverse (unlocks it), 2 laps, 3 rivals, Dusk / Rain.
+6. **Street Loop Final:** race, Street Loop Forward, 3 laps, 5 rivals at this chapter's hardest, Day / Clear. Winning (top three is enough to pass; first pays the bonus and the prize) awards the **Needle 600** and opens chapter 2.
+Chapters 2–4 appear on the campaign screen as locked placeholders with their names; their events come in round 2.
+
+**Part E — Campaign records**
+Campaign events record best place / time / score per event in the campaign save and show it on the event row. They do not write to the existing Top 10 boards.
+
+### Not in this round
+Upgrades; chapters 2–4; story text, cutscenes or characters; difficulty settings; split-screen.
+
+### Checks (light, per the Verification budget)
+- New campaign → play event 1 → payout → event 2 unlocks; one event of each type started and finished once.
+- Buy a vehicle with enough money; refused without.
+- Locked Race lists with a campaign in progress; Free Roam: whole world open, only owned vehicles selectable; testing switch on / off; the F6 entries.
+- Dan's existing records and acorn count still there after starting a campaign.
+- Results: the payout and price table, and a "for Dan to check" list.
+
+### Planned next
+- **Round 2 (0.90):** upgrades; chapters 2 (Forest), 3 (Dan's Backyard), 4 (Mountain) with their events, reverse courses, conditions events and the two remaining prize vehicles; an ending when the Mountain final is won.
+- **Round 3 (0.91):** balancing from Dan's play (payouts, prices, targets, rival speed), and polish.
 
 ## Previous delivery — Kyle's house from Dan's photo, Forest Forward Summit Climb shortcut (with a challenge), launcher icon — 0.87.0-review1 — DELIVERED, REVIEWED BY DAN (house accepted; yard, drive and mailbox in 0.88)
 
