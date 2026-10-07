@@ -121,8 +121,11 @@ def interior(C):
                        (-C['hw'] * .9, belt + .05, dz + .03), (C['hw'] * .9, belt + .05, dz + .03), (C['hw'] * .9, belt + .02, dz + .30), (-C['hw'] * .9, belt + .02, dz + .30)], G, 'interior', .02, 1)
     box('Binnacle', (H.x, belt + .07, dz + .06), (.30, .06, .14), G, 'interior', .02)
     box('Dials', (H.x, belt + .07, dz - .012), (.24, .045, .01), G, 'metal', .004)
-    hull('Floor', [(-C['hw'] * .9, H.y - .34, H.z - 1.2), (C['hw'] * .9, H.y - .34, H.z - 1.2), (C['hw'] * .9, H.y - .34, dz + .25), (-C['hw'] * .9, H.y - .34, dz + .25),
-                   (-C['hw'] * .9, H.y - .30, H.z - 1.2), (C['hw'] * .9, H.y - .30, H.z - 1.2), (C['hw'] * .9, H.y - .30, dz + .25), (-C['hw'] * .9, H.y - .30, dz + .25)], G, 'interior', 0, 1)
+    # 0.88 (BUG-004): the carpet's top was at H.y - .30, the same height as the body shell's cabin floor (section(), floor
+    # H.y - .30), and the two fought for the same pixels (flashing floorboards). The carpet now straddles the shell floor:
+    # its top 1.5 cm above it, its bottom below it, so it is the one floor seen from inside.
+    hull('Floor', [(-C['hw'] * .9, H.y - .325, H.z - 1.2), (C['hw'] * .9, H.y - .325, H.z - 1.2), (C['hw'] * .9, H.y - .325, dz + .25), (-C['hw'] * .9, H.y - .325, dz + .25),
+                   (-C['hw'] * .9, H.y - .285, H.z - 1.2), (C['hw'] * .9, H.y - .285, H.z - 1.2), (C['hw'] * .9, H.y - .285, dz + .25), (-C['hw'] * .9, H.y - .285, dz + .25)], G, 'interior', 0, 1)
     # steering column (fixed) and wheel (Steer: origin on the wheel centre, turns about the column)
     t = math.radians(25); c = H + Vector((0, .36, .36)); u = Vector((0, math.cos(t), math.sin(t))); n = Vector((0, -math.sin(t), math.cos(t)))
     cyl('Steering column', tuple(c + n * .02), tuple(c + n * .30), .026, G, 'interior', 10)

@@ -10,7 +10,21 @@ using UnityEngine;
 namespace Racer {
 // 0.88 targeted checks, added to the 0.80 runner (same muted isolated save, same helpers): PROBE_CASES="case:args;...".
 public sealed partial class Report080Checks {
- IEnumerator Cases088(string[] a)=>a[0] switch{"kyleviews88"=>KyleViews088(a.Length>1?a[1]:"day",a.Length>2?a[2]:""),"kyledrive88"=>KyleDrive088(a[1]),_=>null};
+ IEnumerator Cases088(string[] a)=>a[0] switch{"kyleviews88"=>KyleViews088(a.Length>1?a[1]:"day",a.Length>2?a[2]:""),"kyledrive88"=>KyleDrive088(a[1]),"carshots88"=>CarShots088(a[1],a.Length>2?a[2]:""),_=>null};
+
+ // Part B: each car parked at Dan's BUG-004 spot (Free Roam), the camera orbiting it (8 views at 7 m, 2.6 m up) and one
+ // from above and behind (as Dan's chase view), by day and at night with the headlights on. carshots88:profiles:tag
+ IEnumerator CarShots088(string profiles,string tag){foreach(var profile in profiles.Split(',')){yield return EnterRoam("StreetLoopGreybox",profile);yield return new WaitForSeconds(1);
+   var car=race.vehicle;var spot=new Vector3(320.72f,0,471.31f);spot.y=Ground085(spot,80);var rot=Quaternion.Euler(0,205.67f,0);
+   car.GetComponent<VehicleInput>().enabled=false;car.Body.position=spot+Vector3.up*(car.suspensionLength*.7f);car.Body.rotation=rot;car.transform.SetPositionAndRotation(car.Body.position,rot);car.Body.linearVelocity=Vector3.zero;car.Body.angularVelocity=Vector3.zero;
+   for(int i=0;i<90;i++){car.Simulate(0,1,0,Time.fixedDeltaTime);yield return new WaitForFixedUpdate();}car.Body.isKinematic=true;
+   var cam=Camera.main;var chase=FindAnyObjectByType<ChaseCamera>();if(chase)chase.enabled=false;var cv=CameraViews.Current;if(cv)cv.enabled=false;var hud=FindObjectsByType<Canvas>(FindObjectsSortMode.None);foreach(var c in hud)c.enabled=false;
+   foreach(var when in new[]{"day","night"}){if(when=="night"){if(WorldLook.Current)WorldLook.Current.Pin(LookPresets.Compose(TimeOfDay.Night,Weather.Clear));}else Day();yield return new WaitForSeconds(.6f);
+    var c0=car.Body.position+Vector3.up*.3f;var f=Vector3.ProjectOnPlane(car.Body.rotation*Vector3.forward,Vector3.up).normalized;
+    var views=new List<(string n,Vector3 eye)>();for(int k=0;k<8;k++){var d=Quaternion.Euler(0,k*45,0)*(-f);views.Add(($"orbit{k}",c0+d*7+Vector3.up*2.1f));}
+    views.Add(("above-behind",c0-f*5.2f+Vector3.up*4.4f));
+    foreach(var v in views)yield return Late(()=>{cam.transform.position=v.eye;cam.transform.LookAt(c0);Shot($"B-{profile}-{when}-{v.n}{(tag==""?"":"-"+tag)}",960,540);});}
+   foreach(var c in hud)if(c)c.enabled=true;if(chase)chase.enabled=true;if(cv)cv.enabled=true;car.Body.isKinematic=false;car.GetComponent<VehicleInput>().enabled=true;Note($"{profile}: 18 views ({tag})");}}
 
  // Part A: Kyle's driveway in Free Roam, both ways, following its route points: from the street 6 m before the mouth down to
  // the garage apron (stops there), then from the apron back up and 8 m out onto the street. Up to 9 m/s (4 on the apron),
