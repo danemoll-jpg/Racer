@@ -13,9 +13,55 @@
   - **Do:** one targeted check per change, at the place it changed, showing the thing asked for now works (the hole cannot be fallen into, the bump no longer upsets the bike, the button does its job, a new vehicle loads and sits on its wheels). Compile, launch, and the release steps as always. When a course scene's geometry is touched: the quick "nothing else changed" comparison of that scene's colliders/routes, and one lap of that one course in that one direction.
   - **Do not, unless the round explicitly asks:** race matrices (every course × direction × vehicle), repeat or confirmation runs, forced-shortcut sweeps, world-wide or all-nine-scene sweeps to re-prove a fix, before/after screenshot sets beyond one shot per fix, frame-rate tables on rounds that do not change rendering cost (one worst-view number when they do), reset batteries, or long validation documents.
   - **Dan does:** driving every course and direction, trying every vehicle everywhere, checking that a universal fix holds everywhere, and judging look and feel. He reports through the debug ZIPs.
+  - **Controller first (Dan, 2026-10-07):** Dan plays with a controller. Any new or changed menu, screen or prompt must be checked once with a controller only (no mouse, no keyboard) before delivery: every control reachable, focus visible, B goes back.
   - **Write-up:** the TODO results are a short list: what changed, the one check per item, decisions made, and anything Dan should look at. No separate VALIDATION.md unless a round asks. If a check would take more than a few minutes of play time, skip it and list it under "for Dan to check".
 
-## CURRENT — Locked-vehicle silhouettes, new-player hints, campaign round 2 (championships, chapters 2–4, upgrades), split-screen stage 1 — 0.90.0-review1 — DELIVERED, AWAITING DAN'S REVIEW
+## CURRENT — Controller can't reach Campaign or Split Screen; split-screen controller join; campaign jump never scores — target 0.91.0-review1 — NOT STARTED
+
+- **Authorized by Dan (2026-10-07, 08:11).** Written by Claude (chat) from his first play of 0.90.0-review1. His words are quoted in each part. These block him from playing the campaign and split-screen, so this is a short fix round.
+- **Starting point:** main at the "Record 0.90 delivery" commit (0.90.0-review1 / game-90000). This TODO edit is uncommitted and belongs in the safety checkpoint.
+- Runs unattended: design decisions are below; do not stop to ask about design. Stop only for a real external blocker (rule 7).
+- **Scope is exactly Parts A–C below.** The Verification budget applies. **Every menu check in this round is done with a controller only, no mouse and no keyboard**, because that is how Dan plays and that is what 0.89 and 0.90 missed.
+- Dan's real campaign save (`campaign-v1.json`, version 2: chapter 2, $15,770, owns Street Classic, Trail Four, Needle 600) must keep loading. Never reset or overwrite it; test on a copy.
+
+### Part A — The controller skips CAMPAIGN and SPLIT SCREEN on the main menu
+
+Dan: "Splitscreen can only be selected by mouse not controller (the controller just would skip that menu item)." "Also can't select campaign with the controller."
+
+1. On the main menu, D-pad / stick navigation passes over the CAMPAIGN and SPLIT SCREEN rows; only the mouse can pick them. Find why (likely the 0.90 status line or the new rows being built outside the navigable row list, a non-selectable element taking the slot, or explicit navigation links that skip them) and fix it so every main-menu row is reached in order, top to bottom, with wrap-around as the other menus do, and A selects it.
+2. Same check on the pause menu and the Free Roam pause menu (where CAMPAIGN also appears).
+3. Then walk **every screen added in 0.89 and 0.90 with a controller only**: campaign screen (chapters, events, championships, Continue, Shop, New Campaign, Back), event page (vehicle row, START EVENT), results and payout, championship standings / Next race / Resume / Restart / Abandon, the Shop (buy, upgrades), the welcome panel and controls card, Settings rows added (testing switch, hints), split-screen setup and results. Every control must be reachable and usable with D-pad / stick, A, B (back), and LB / RB where tabs exist; focus must always be visible and never lost; B always goes back one level. Fix everything found and list it.
+4. Make it structural where it is cheap: one check that fails if any menu page has a visible interactive row that controller navigation cannot reach.
+5. Check: the walk above, done with an emulated or real controller only; list of screens walked.
+
+### Part B — Split-screen: a controller must be able to be Player 1
+
+Dan: "Couldn't use the controller as the first player (only keyboard option exists, with no option to switch)."
+
+1. On the split-screen setup screen, **whoever opens it is Player 1 on the device they used**: opened with a controller, Player 1 is that controller. Each player slot shows its device (with the controller's glyph or "Keyboard") and can be changed: a slot's device row cycles through the available devices (each connected controller, keyboard), and pressing A / Enter on an unassigned device joins it to the first free slot. Two slots can never hold the same device.
+2. Supported pairs: controller + controller, controller + keyboard (either way round), and one human on any device with "Player 2: AI driver" on. With one controller and no second device, Player 2 defaults to the AI driver so Dan can start at once.
+3. The whole setup screen (vehicles, colours, course, laps, split direction, AI switch, Start) is driven by Player 1's device; Player 2's device controls only Player 2's own choices. The results screen and the pause menu work from either player's device.
+4. In the race each device drives only its own vehicle (confirm the controller drives Player 1 when assigned so, not Player 2).
+5. Check with a controller only: open Split Screen, be Player 1, AI as Player 2, race a lap, finish, rematch, quit; then controller as Player 1 with keyboard as Player 2.
+
+### Part C — Campaign: "The Opening Jump" never registers a clean jump
+
+Dan: "Stuck on the campaign. First jump requires you to make a jump, but no matter how I land it doesn't register a clean jump for there even when I land perfectly straight in the middle of the road."
+
+Likely cause, from the code and 0.90's own note: `ArcadeActivities` rejects a jump when the vertical impact speed is over 18 m/s (and when wet, tilted or wiped out), and 0.90 measured that this jump only lands "clean" between about 16 and 28 m/s: "faster lands unclean". A player naturally takes a jump event flat out, so every attempt is thrown away as a hard landing, with only the generic "Jump not scored / unstable, wet or hard landing". Confirm on a copy of Dan's save with a controller, driving it as a player would, before changing anything.
+
+1. **A jump counts if the vehicle survives it.** For jump scoring everywhere (campaign events and Free Roam activities): a jump is scored when the vehicle takes off from the site, comes down on its wheels (upright), is not wiped out, and drives on. **Remove the hard-landing rejection** (the 18 m/s impact limit) for ordinary jumps; keep the wipeout, upside-down and wrong-direction rejections; keep the summit flights' own rules. A landing that ends in the water does not count, but say so specifically.
+2. **Say why, every time.** Replace the generic message with the actual reason: "Landed on your side", "Wiped out on landing", "Landed in the water", "Took off outside the marked area", "Too short to count", and for a scored jump the distance and medal. In a campaign jump event also show the three targets and the best so far on the HUD during the attempt.
+3. **More than one attempt per run.** A campaign jump event does not end on the first jump: the player may go round and jump again until the time limit, with the best scored jump counting, and can end the event early from the pause menu keeping the best. A failed attempt never ends the event.
+4. **Re-set the targets from flat-out runs** of vehicles a player owns at that point (Street Classic, Trail Four, Needle 600) now that fast jumps count: bronze reachable on a clean ordinary attempt, gold needing a committed fast run. Do the same review for chapter 4's Summit Homeward Flight (0.90 noted the Needle 600 "did not land clean flat out") and the Free Roam jump sites' medal targets if this change moves them a lot; say what changed. Existing Free Roam jump records stay.
+5. Check the other event kinds for the same trap (a result the player cannot get by playing naturally): the speed-trap events (direction, the 45 s limit, the 200 m run-up), the smash event, the time trials' flying-lap start. Fix what is found.
+6. Check, with a controller, on a copy of Dan's save: take The Opening Jump flat out in each of his three vehicles: scored, medal shown, event passed, next event unlocked.
+
+### Verification
+
+Light, per the Verification budget, with the controller-only rule above. Compile, launch, release steps. Results as a short list, with "for Dan to check".
+
+## Previous delivery — Locked-vehicle silhouettes, new-player hints, campaign round 2 (championships, chapters 2–4, upgrades), split-screen stage 1 — 0.90.0-review1 — DELIVERED, REVIEW STARTED (controller navigation and the campaign jump fixed in 0.91)
 
 - **Authorized by Dan (2026-10-07, 02:53).** Written by Claude (chat). His words are quoted in each part. He is asleep while this runs and his weekly limit has just reset: a long round is fine.
 - **Starting point:** main at the "Record 0.89 delivery" commit; playable source `a9f40b34` (0.89.0-review1 / game-89000). This TODO edit is uncommitted and belongs in the safety checkpoint.
