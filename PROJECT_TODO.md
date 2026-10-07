@@ -16,7 +16,7 @@
   - **Controller first (Dan, 2026-10-07):** Dan plays with a controller. Any new or changed menu, screen or prompt must be checked once with a controller only (no mouse, no keyboard) before delivery: every control reachable, focus visible, B goes back.
   - **Write-up:** the TODO results are a short list: what changed, the one check per item, decisions made, and anything Dan should look at. No separate VALIDATION.md unless a round asks. If a check would take more than a few minutes of play time, skip it and list it under "for Dan to check".
 
-## CURRENT — Cabin Jump shrubs restored part-way, player names (Top 10, rivals, name tags), split-screen stage 3 (Free Roam for two, camera views), Police Chase: cop vs runner — target 0.94.0-review1 — IMPLEMENTED (release follows)
+## CURRENT — Cabin Jump shrubs restored part-way, player names (Top 10, rivals, name tags), split-screen stage 3 (Free Roam for two, camera views), Police Chase: cop vs runner — target 0.94.0-review1 — DELIVERED, AWAITING DAN'S REVIEW
 
 - **Authorized by Dan (2026-10-07, 14:30–15:51).** Written by Claude (chat) from the conversation; his words are quoted in each part. His 0.93 review (16:39) is Part D; everything else in 0.93 was fine.
 - **Starting point:** main at the "Record 0.93 delivery" commit.
@@ -26,7 +26,14 @@
 
 ### Results (2026-10-07, Claude Code)
 
-- **DELIVERY:** see the release lines added with the "Record 0.94 delivery" commit.
+- **DELIVERED:**
+  - Source `ddf9d32ae1a268ed4c1c04a98dac0b52f96f9fcb` pushed and verified on origin/main.
+  - Fresh 0.94.0-review1 Windows build from that commit: 0 errors, 3m17s ([build-release.txt](Docs/Report094/build-release.txt)).
+  - Published [game-94000](https://github.com/danemoll-jpg/woodstock-rush-releases/releases/tag/game-94000) with `Tools/Publish-LauncherRelease.py` (the project's `gh`): the known draft-lookup miss, then `--resume-draft` uploaded the three assets and published. Previous releases retained.
+  - All 234 Latest files match the public signed manifest; public download, signature, install and startup pass ([hosted/result.json](Docs/Report094/hosted/result.json)); the production updater has 94000 active, the public catalog reports nothing newer ([launcher-catalog-check.json](Docs/Report094/launcher-catalog-check.json)).
+- **Play-Racer.cmd (unchanged):** launched a responsive `Builds/Latest/versions/94000/Racer.exe` (0.94.0-review1) through the launcher, muted, settings restored byte for byte ([play-racer-launch.json](Docs/Report094/play-racer-launch.json)). Dan's save folder hash (all files) the same after the last check and after this launch (`41a2e450ada6ef36`). Latest root, current 94000 and previous 93000 retained (the updater had already removed 92000).
+- **Cleanup:** Builds 10,166,407,495 → 8,019,460,655 bytes (2.1 GB recovered: the build output and game.zip); also the hosted-check install (1.7 GB), 2.0 GB of check scratch outside the project (test player, logs) and the temporary editor tools. C: free 263,820,480,512 bytes after cleanup ([cleanup.json](Docs/Report094/cleanup.json)).
+- **SESSION HANDOFF: STOP.** Awaiting Dan's review of 0.94 (rule 12).
 - **Safety checkpoint:** `03310234` (this plan), pushed. Commits: `2f508067` Parts D and A, `c3eaba3b` Part B (own commit), `ce4a35e1` Part C (own commit). **Revert C alone:** `git revert ce4a35e1`; **B too:** `git revert ce4a35e1 c3eaba3b` (C sits on B's Free Roam for two). Evidence: [Docs/Report094/](Docs/Report094/) ([Lists/](Docs/Report094/Lists/), [Shots/](Docs/Report094/Shots/)). Checks: `Report094Checks.cs` / `Report094Walk.cs` (A) / `Report094Roam.cs` (B, C), editor, emulated controllers; `SplitBench.cs` (`-splitMode roam`) in a built test player; tools `Tools/Report094/`. Version 0.94.0-review1 / build 94000.
 - **Dan's save:** every check ran on a copy (the editor runner and the test player started on copies; the checks copy Dan's files into their own folder). His save folder was last written at 16:36:59, before the first check (16:45); its files hashed after the last check and again after the launcher check (see the delivery lines).
 - **D — Abandoned Cabin Jump shrubs back part-way — DONE (first).**
