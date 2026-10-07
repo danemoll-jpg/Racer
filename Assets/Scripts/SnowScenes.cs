@@ -44,8 +44,9 @@ namespace Racer
             if (!snow || Time.timeScale == 0 || Time.time < nextAnimation) return;
             nextAnimation = Time.time + 1 / 30f;
             Vector3 player = race && race.vehicle ? race.vehicle.transform.position : Vector3.zero;
-            if (sledScene && (player - path[0]).sqrMagnitude < 260 * 260) Sled(Time.time);
-            if (hockeyScene && (player - ball.position).sqrMagnitude < 220 * 220) Hockey(Time.time);
+            // 0.92 Part F: in split-screen the scenes play when either player is near
+            if (sledScene && SplitScreen.DistanceToPlayers(path[0], player) < 260) Sled(Time.time);
+            if (hockeyScene && SplitScreen.DistanceToPlayers(ball.position, player) < 220) Hockey(Time.time);
         }
 
         // ---------- construction ----------

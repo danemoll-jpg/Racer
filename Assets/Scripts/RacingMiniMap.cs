@@ -154,7 +154,9 @@ namespace Racer
                 if ((Split ? r.Car == Vehicle : !r.IsAi) || !r.Car || r.Dnf) continue;
                 var p = Project(r.Car.transform.position);
                 if (!bounds.Contains(p)) continue;
-                Diamond(vh, p, Split ? 7 : 5, new(.03f,.06f,.08f)); Diamond(vh, p, Split ? 5 : 3.5f, Split ? (r == race.Racers[0] ? new Color(.3f, .95f, .81f) : new Color(1, .74f, .25f)) : Color.white);
+                // 0.92 Part F: in split-screen the other player in their colour, the AI rivals small and white
+                bool player = Split && (r == race.Racers[0] || (SplitScreen.Race && r == SplitScreen.Race.P2));
+                Diamond(vh, p, player ? 7 : 5, new(.03f,.06f,.08f)); Diamond(vh, p, player ? 5 : 3.5f, player ? (r == race.Racers[0] ? new Color(.3f, .95f, .81f) : new Color(1, .74f, .25f)) : Color.white);
             }
             // Fixed heading-up player arrow, below centre to favour upcoming turns.
             Triangle(vh, PlayerPoint + new Vector2(0, 9), PlayerPoint + new Vector2(-7, -6), PlayerPoint + new Vector2(7, -6), new(.02f,.04f,.05f));

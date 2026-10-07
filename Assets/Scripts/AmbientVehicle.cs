@@ -93,6 +93,7 @@ namespace Racer
         }
         public static bool Offscreen(Vector3 point)
         {
+            if(SplitScreen.Views.Count>0)return !SplitScreen.InAView(point,.2f); // 0.92 Part F: neither player's view
             var camera=Camera.main;if(!camera)return false;var view=camera.WorldToViewportPoint(point);
             return view.z< -8||view.x<-.2f||view.x>1.2f||view.y<-.2f||view.y>1.2f;
         }

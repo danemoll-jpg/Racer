@@ -39,6 +39,9 @@ namespace Racer
                     flow.Save.Settings.splitLeftRight = leftRight; flow.Save.Settings.hints = false; flow.Save.Settings.vsync = false; flow.Save.Settings.frameLimit = 120; flow.Save.ApplySettings();
                     SplitScreen.P1Device = Keyboard.current; SplitScreen.P2Ai = true; SplitScreen.Course = course; SplitScreen.Laps = 3;
                     SplitScreen.P1Vehicle = "moto"; SplitScreen.P2Vehicle = "tourer";
+                    // 0.92 Part F: the stage-2 conditions (-splitTime Night -splitWeather Snow -splitRivals 4 -splitTraffic)
+                    SplitScreen.Time = (TimeOfDay)Enum.Parse(typeof(TimeOfDay), Arg("-splitTime", "Day")); SplitScreen.Weather = (Weather)Enum.Parse(typeof(Weather), Arg("-splitWeather", "Clear"));
+                    SplitScreen.Rivals = int.Parse(Arg("-splitRivals", "0")); SplitScreen.Traffic = Array.IndexOf(Environment.GetCommandLineArgs(), "-splitTraffic") >= 0;
                     flow.StartSplit(); yield return null;
                     t0 = Time.realtimeSinceStartup;
                     while ((flow = FindAnyObjectByType<RaceFlow>()) == null || !flow.Started || LoadingScreen.Holding || flow.State != RaceFlow.Stage.Racing) { yield return null; if (Time.realtimeSinceStartup - t0 > 120) break; }
@@ -54,8 +57,8 @@ namespace Racer
                     }
                     gpu.Sort(); frames.Sort();
                     float med = gpu.Count > 0 ? gpu[gpu.Count / 2] : float.NaN, p95 = gpu.Count > 0 ? gpu[(int)(gpu.Count * .95f)] : float.NaN, worst = gpu.Count > 0 ? gpu[gpu.Count - 1] : float.NaN;
-                    rows.Add($"SPLIT {RacePlaylists.Titles[course]} {(leftRight ? "left/right" : "top/bottom")}: GPU median {med:F2} ms (95th {p95:F2}, max {worst:F2}) = {1000 / med:F0} fps median, {1000 / p95:F0} fps 95th; wall-clock median {frames[frames.Count / 2] * 1000:F2} ms; {gpu.Count} frames");
-                    ScreenCapture.CaptureScreenshot(Path.Combine(outDir, $"split-{course}-{(leftRight ? "lr" : "tb")}.png"));
+                    rows.Add($"SPLIT {RacePlaylists.Titles[course]} {(leftRight ? "left/right" : "top/bottom")} {SplitScreen.Time}/{SplitScreen.Weather} rivals {SplitScreen.Rivals} traffic {SplitScreen.Traffic} ({race.Racers.Count} racers, {FindObjectsByType<AmbientVehicle>(FindObjectsSortMode.None).Length} traffic cars): GPU median {med:F2} ms (95th {p95:F2}, max {worst:F2}) = {1000 / med:F0} fps median, {1000 / p95:F0} fps 95th; wall-clock median {frames[frames.Count / 2] * 1000:F2} ms; {gpu.Count} frames");
+                    ScreenCapture.CaptureScreenshot(Path.Combine(outDir, $"split-{course}-{(leftRight ? "lr" : "tb")}-{SplitScreen.Time}-{SplitScreen.Weather}.png"));
                     yield return null; yield return null;
                     File.WriteAllLines(Path.Combine(outDir, "split.txt"), rows);
                     Destroy(pilot); flow.Pause(); yield return null; flow.QuitRace(); yield return null;

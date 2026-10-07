@@ -65,7 +65,8 @@ namespace Racer
             resetRequested |= reset.WasPressedThisFrame();
             if (LoadingScreen.Holding) { Throttle = BrakeReverse = Steering = 0; resetRequested = false; return; } // 0.82: no driving behind the loading screen
             // Not while a menu, the debug overlay or the map has the controls (F is the map's waypoint key).
-            if (fist.WasPressedThisFrame() && !SplitScreen.Active && !(TrailerMode.Active && fist.activeControl?.device is Gamepad) && !MenuInput.Blocked
+            // 0.92 Part F: in split-screen too, each player on their own device (LB, or F on the keyboard)
+            if (fist.WasPressedThisFrame() && !(TrailerMode.Active && fist.activeControl?.device is Gamepad) && !MenuInput.Blocked
                 && FindAnyObjectByType<ExplorationMap>()?.OwnsInput != true)
                 GetComponent<RiderGestures>()?.Wave();
         }

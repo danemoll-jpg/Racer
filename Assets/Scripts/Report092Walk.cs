@@ -16,8 +16,10 @@ namespace Racer {
 //  pick92        campaign: the vehicle in the garage view, the Shop from it, the event started, the next event preselected
 //  splitpick92   split-screen: the players' garages with the AI as player 2, then with two controllers at once
 //  noacycle92    one pass through the menus pressing A on every value row: none changes (left / right do)
+//  split92:course:time:weather:rivals:traffic(0/1):lr(0/1)   a split-screen stage-2 race, results, rematch, change setup
 public sealed partial class Report080Checks {
- IEnumerator Walk092(string[] a)=>a[0] switch{"save92"=>Save092(),"prize92"=>Prize092(),"pick92"=>Pick092(),"splitpick92"=>SplitPick092(),"noacycle92"=>NoACycle092(),"paint92"=>Paint092(),_=>null};
+ IEnumerator Walk092(string[] a)=>a[0] switch{"save92"=>Save092(),"prize92"=>Prize092(),"pick92"=>Pick092(),"splitpick92"=>SplitPick092(),"noacycle92"=>NoACycle092(),"paint92"=>Paint092(),
+  "celebrate92"=>Celebrate092(a[1]=="p1"),"split92"=>Split092(int.Parse(a[1]),(TimeOfDay)Enum.Parse(typeof(TimeOfDay),a[2]),(Weather)Enum.Parse(typeof(Weather),a[3]),int.Parse(a[4]),a[5]=="1",a[6]=="1"),_=>null};
  // the champion's paint (offered while Testing is on, as when the Grand Championship is won): gold with a roundel each side
  IEnumerator Paint092(){
   Pad091();yield return Load("StreetLoopGreybox");yield return Menu();flow.Save.Settings.unlockEverything=true;Campaign.Testing=true;
@@ -156,6 +158,62 @@ public sealed partial class Report080Checks {
   yield return Choose091("race");yield return Choose091("playlists");yield return Choose091("new");yield return Choose091("add");yield return ValueRows092("Playlist editor (entry)");
   yield return Choose091("cancel");Note($"value rows converted and checked: {cycledRows}; changed by A: {aChanged}");File.WriteAllLines(output+"/value-rows.txt",converted);}
 
+ // Part F item 10: no rivals, player 2 the AI driver; p1: player 1 (race AI pilot, Needle 600) wins against player 2 held
+ // back 25 s, the winner shot in player 1's half; else player 2 (AI) wins while player 1 waits: it celebrates on the road and
+ // no camera is taken. A picture of the winner's half each time (rendered from that half's camera).
+ void ViewShot092(Camera cam,string name){var rect=cam.rect;var rt=new RenderTexture(1600,(int)(1600*cam.pixelHeight/(float)Mathf.Max(1,cam.pixelWidth)),24);var was=cam.targetTexture;cam.rect=new Rect(0,0,1,1);cam.targetTexture=rt;cam.Render();cam.targetTexture=was;cam.rect=rect;
+  var prev=RenderTexture.active;RenderTexture.active=rt;var tex=new Texture2D(rt.width,rt.height,TextureFormat.RGB24,false);tex.ReadPixels(new Rect(0,0,rt.width,rt.height),0,0);tex.Apply();RenderTexture.active=prev;
+  File.WriteAllBytes($"{output}/{name}.png",tex.EncodeToPNG());Destroy(tex);rt.Release();Destroy(rt);}
+ IEnumerator Celebrate092(bool p1Wins){
+  Pad091();yield return Load("StreetLoopGreybox");yield return Menu();flow.Save.Settings.splitLeftRight=false;flow.Save.SaveSettings();
+  SplitScreen.P1Device=pad91;SplitScreen.P2Device=null;SplitScreen.P2Ai=true;SplitScreen.Course=0;SplitScreen.Laps=1;SplitScreen.Rivals=0;SplitScreen.Time=TimeOfDay.Day;SplitScreen.Weather=Weather.Clear;SplitScreen.Traffic=false;
+  SplitScreen.P1Vehicle="moto";SplitScreen.P2Vehicle=p1Wins?"atv":"moto";
+  flow.StartSplit();yield return SplitRunning090();var split=SplitScreen.Race;var p2=split.P2Car;
+  RoadDriver pilot=null;if(p1Wins)pilot=Pilot089(2);else race.vehicle.GetComponent<VehicleInput>().enabled=false;
+  if(p1Wins){p2.Body.isKinematic=true;p2.GetComponent<RoadDriver>().enabled=false;}
+  float t0=Time.time;bool released=!p1Wins;var winner=p1Wins?race.Racers[0]:split.P2;bool shot=false,celebrated=false,otherShot=false;Time.timeScale=3;
+  while(flow.State==RaceFlow.Stage.Racing&&Time.time-t0<400){yield return null;AudioListener.volume=0;
+   if(!released&&Time.time-t0>25){released=true;p2.Body.isKinematic=false;p2.GetComponent<RoadDriver>().enabled=true;}
+   if(winner.Progress.Finished&&!shot){Time.timeScale=1;yield return new WaitForSeconds(.6f);celebrated=winner.Car.GetComponent<RiderGestures>().Current==RiderGestures.Kind.Celebrate;
+    otherShot=split.ShotActive(p1Wins?2:1);bool myShot=split.ShotActive(1);var cam=p1Wins?Camera.main:split.Camera2;ViewShot092(cam,p1Wins?"F-celebration-player1-wins":"F-celebration-ai-wins");shot=true;
+    Check(celebrated&&(p1Wins?myShot:!myShot)&&!otherShot,p1Wins?$"player 1 won: raises both fists, the winner shot in player 1's half ({myShot}), player 2's half untouched (still racing: {!split.P2.Progress.Finished})":$"player 2 (the AI driver) won: raises both fists on the road ({celebrated}); no camera taken from player 1 ({!myShot})");
+    break;}}
+  Time.timeScale=1;if(pilot)Unpilot089(pilot);race.vehicle.GetComponent<VehicleInput>().enabled=true;
+  Check(shot,$"{(p1Wins?"player 1":"player 2 (AI)")} finished first");
+  // the fist wave on player 1's own controller (LB) in split-screen
+  var rg=race.vehicle.GetComponent<RiderGestures>();int before=rg.Waves;yield return new WaitForSeconds(4);
+  if(flow.State==RaceFlow.Stage.Racing){InputSystem.QueueStateEvent(pad91,new GamepadState().WithButton(GamepadButton.LeftShoulder));yield return null;yield return null;InputSystem.QueueStateEvent(pad91,new GamepadState());yield return new WaitForSeconds(.3f);
+   Check(rg.Waves>before,$"LB on player 1's controller: player 1's rider waves a fist ({before} > {rg.Waves})");}
+  flow.Pause();yield return null;flow.QuitRace();yield return null;}
+ IEnumerator Split092(int course,TimeOfDay time,Weather weather,int rivals,bool traffic,bool lr){
+  Pad091();yield return Load("StreetLoopGreybox");yield return Menu();flow.Save.Settings.splitLeftRight=lr;flow.Save.SaveSettings();
+  SplitScreen.P1Device=pad91;SplitScreen.P2Device=null;SplitScreen.P2Ai=true;SplitScreen.Course=course;SplitScreen.Laps=1;SplitScreen.Rivals=rivals;SplitScreen.Time=time;SplitScreen.Weather=weather;SplitScreen.Traffic=traffic;
+  string label=$"{RacePlaylists.Titles[course]} {time}/{weather}, {rivals} rivals, traffic {(traffic?"on":"off")}, {(lr?"left / right":"top / bottom")}";
+  flow.StartSplit();yield return SplitRunning090();var split=SplitScreen.Race;yield return new WaitForSeconds(5);
+  var look=WorldLook.Current;var weatherFx=FindAnyObjectByType<WeatherEffects>();
+  ParticleSystem Ps(string f)=>(ParticleSystem)typeof(WeatherEffects).GetField(f,Any).GetValue(weatherFx);
+  var cams=SplitScreen.Views;bool masks=cams.Count==2&&(cams[0].cullingMask&(1<<SplitRace.View2Layer))==0&&(cams[1].cullingMask&(1<<SplitRace.View1Layer))==0&&(cams[1].cullingMask&(1<<SplitRace.View2Layer))!=0;
+  var r1=Ps("rain");var r2=Ps("rain2");var s1=Ps("snow");var s2=Ps("snow2");
+  int falling1=weather==Weather.Rain?r1.particleCount:weather==Weather.Snow?s1.particleCount:0,falling2=weather==Weather.Rain?(r2?r2.particleCount:0):weather==Weather.Snow?(s2?s2.particleCount:0):0;
+  Check(race.Racers.Count==2+rivals&&look.RaceTime==time&&look.RaceWeather==weather&&masks&&(weather==Weather.Clear||falling1>0&&falling2>0)&&r1.gameObject.layer==SplitRace.View1Layer&&(!r2||r2.gameObject.layer==SplitRace.View2Layer),
+   $"{label}: racing with {race.Racers.Count} (2 players + {rivals} AI); conditions {look.RaceTime}/{look.RaceWeather}; each view's falling weather on its own layer (view 1 {falling1}, view 2 {falling2} particles), camera masks {masks}");
+  int cars=FindObjectsByType<AmbientVehicle>(FindObjectsSortMode.None).Count(v=>v.gameObject.activeInHierarchy&&v.GetComponent<RoadDriver>()); /* the Mountain's scenery loop cars are not traffic */Check(traffic?cars>0:cars==0,$"{label}: traffic {cars} cars");
+  var lights=FindObjectsByType<VehicleLights>(FindObjectsSortMode.None).Length;Note($"  vehicle lamps on {lights} vehicles, level {VehicleLights.Level:F2}; thunder strikes so far {weatherFx.Strikes}");
+  yield return Late(()=>Shot($"F-{time}-{weather}-{(lr?"lr":"tb")}"));
+  // pause from the controller and resume
+  yield return Press091(GamepadButton.Start);Check(flow.State==RaceFlow.Stage.Paused,"Start: the split-screen pause menu");yield return Walk091("split-screen pause (stage 2)",true);yield return Press091(GamepadButton.Start);
+  // player 1 driven by the race AI (3x) to the finish; both players done, the rivals' finishes estimated
+  var pilot=Pilot089(1);yield return Results089(600,3);Unpilot089(pilot);
+  Check(flow.State==RaceFlow.Stage.Results&&race.Racers.All(r=>r.Classified||r.Dnf),$"{label}: results with everyone classified ({string.Join(", ",race.Ordered(true).Select(r=>(r==race.Racers[0]?"P1":r==split.P2?"P2":r.Name)+(r.Dnf?" DNF":r.Estimated?" est.":"")))})");
+  var standings=FindObjectsByType<UnityEngine.UI.Button>(FindObjectsSortMode.None).Count(b=>b.gameObject.activeInHierarchy&&b.name.StartsWith("split-standing-"));
+  Check(standings==2+rivals,$"results table: {standings} rows (every finisher, the AI too)");yield return Late(()=>Shot($"F-results-{time}-{weather}"));
+  yield return Choose091("rematch");yield return SplitRunning090();
+  Check(SplitScreen.Active&&race.Racers.Count==2+rivals&&WorldLook.Current.RaceWeather==weather,"REMATCH: the same race again (rivals and conditions kept)");
+  var p2=Pilot089(1);yield return Results089(600,3);Unpilot089(p2);
+  Check(flow.State==RaceFlow.Stage.Results,"the rematch finished: results again");
+  yield return Choose091("change-setup");Check(Ready91("split")&&SplitScreen.Rivals==rivals&&SplitScreen.Weather==weather&&SplitScreen.Time==time&&SplitScreen.Traffic==traffic,"Change setup: the setup screen with every choice kept");
+  yield return Late(()=>Shot("F-setup-kept"));yield return Press091(GamepadButton.East);
+  flow.Save.Settings.splitLeftRight=false;flow.Save.SaveSettings();}
 }
 }
 #endif

@@ -113,6 +113,8 @@ namespace Racer
             material.SetFloat("_Flash", Flash);
             int visible = Mathf.RoundToInt(Mathf.Lerp(22, Count, overcast)); float grow = Mathf.Lerp(1, 3.6f, overcast); Visible = 0;
             var c = cam.transform.position; var drift = Wind * Time.time;
+            // 0.92 Part F: in split-screen one cloud layer for both views, centred between them
+            if (SplitScreen.Eyes.Count > 1) c = (SplitScreen.Eyes[0] + SplitScreen.Eyes[1]) * .5f;
             bool deckOn = overcast > .3f; if (deck.gameObject.activeSelf != deckOn) deck.gameObject.SetActive(deckOn);
             if (deckOn) { deck.position = new Vector3(c.x, DeckHeight, c.z); deck.localScale = new Vector3(DeckRadius, 1, DeckRadius); }
             if (skirt.gameObject.activeSelf != deckOn) skirt.gameObject.SetActive(deckOn);

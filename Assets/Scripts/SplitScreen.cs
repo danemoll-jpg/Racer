@@ -22,6 +22,43 @@ namespace Racer
         public static bool P2Ai;
         public static string P1Vehicle = "original", P2Vehicle = "atv";
         public static int P1Color = 1, P2Color = 4, Course, Laps = 2;
+        // 0.92 Part F (stage 2): AI rivals (0-4, their difficulty and vehicle mix), the time of day and weather, traffic.
+        // Kept for rematches and "Change setup"; never saved.
+        public static int Rivals, RivalDifficulty = 1; public static bool RivalsRandom, Traffic;
+        public static TimeOfDay Time = TimeOfDay.Day; public static Weather Weather = Weather.Clear;
+        // The two views' cameras while a split-screen race runs (empty otherwise).
+        public static readonly List<Camera> Views = new();
+        // The nearer of the two players (player 1 at p1) to a point.
+        public static float DistanceToPlayers(Vector3 point, Vector3 p1)
+        {
+            float d = Vector3.Distance(point, p1);
+            if (Race && Race.P2Car) d = Mathf.Min(d, Vector3.Distance(point, Race.P2Car.transform.position));
+            return d;
+        }
+        // Whether either view shows a point (margin as a fraction of the screen); false when not split.
+        public static bool InAView(Vector3 point, float margin)
+        {
+            foreach (var cam in Views)
+            {
+                if (!cam) continue; var v = cam.WorldToViewportPoint(point);
+                if (v.z > 0 && v.x > -margin && v.x < 1 + margin && v.y > -margin && v.y < 1 + margin) return true;
+            }
+            return false;
+        }
+        // The rivals' vehicles: Mixed takes each vehicle once before repeating, Random may repeat; only vehicles the course
+        // allows (motorcycles and ATVs on the restricted courses).
+        static string[] RivalRoster(string scene)
+        {
+            var pool = VehicleProfile.All.Where(p => !p.Reward && (CarAccess.CourseAllowsCars(scene) || p.Small)).Select(p => p.Id).ToList();
+            var list = new List<string>(); var deck = new List<string>();
+            for (int i = 0; i < Mathf.Clamp(Rivals, 0, 4); i++)
+            {
+                if (RivalsRandom) { list.Add(pool[Random.Range(0, pool.Count)]); continue; }
+                if (deck.Count == 0) deck.AddRange(pool.OrderBy(_ => Random.value));
+                list.Add(deck[0]); deck.RemoveAt(0);
+            }
+            return list.ToArray();
+        }
         public static SplitRace Race { get; private set; }
         public static bool LeftRight => Hints.Flow && Hints.Flow.Save != null && Hints.Flow.Save.Settings.splitLeftRight;
         // Every vehicle except the acorn reward, which joins once earned; every course.
@@ -36,14 +73,15 @@ namespace Racer
         public static void Configure(RaceFlow flow)
         {
             var race = flow.Race;
-            race.opponents = true; race.opponentRoster = new[] { P2Vehicle }; race.traffic = false; race.difficulty = 1; race.laps = Mathf.Clamp(Laps, 1, 5);
+            // 0.92 Part F: player 2's vehicle is the first rival slot; the AI rivals follow it
+            race.opponents = true; race.opponentRoster = new[] { P2Vehicle }.Concat(RivalRoster(flow.gameObject.scene.name)).ToArray(); race.traffic = Traffic; race.difficulty = Mathf.Clamp(RivalDifficulty, 0, 2); race.laps = Mathf.Clamp(Laps, 1, 5);
             var c = race.vehicle.GetComponent<VehicleConfiguration>(); c.Apply(P1Vehicle); c.SetBodyColor(P1Color);
             Race = flow.gameObject.AddComponent<SplitRace>(); Race.Initialize(flow);
         }
         public static void End()
         {
             if (Race) { Race.Teardown(); Object.Destroy(Race); }
-            Race = null; Active = false; PendingStart = false;
+            Race = null; Active = false; PendingStart = false; Views.Clear();
         }
         // The positions of every split-screen view (the scenery's near detail follows each of them); empty when not split.
         public static readonly List<Vector3> Eyes = new();
@@ -51,7 +89,10 @@ namespace Racer
 
     public sealed class SplitRace : MonoBehaviour
     {
-        RaceFlow flow; RaceDirector race; Camera cam1, cam2; ChaseCamera chase2; Rect rect1; float far1, lodBias;
+        RaceFlow flow; RaceDirector race; Camera cam1, cam2; ChaseCamera chase2; Rect rect1; float far1, lodBias; int mask1;
+        public Camera Camera2 => cam2;
+        // 0.92 Part F: the layers a view's own weather is drawn on (rain, snow, stars, moon, mist), each hidden from the other view
+        public const int View1Layer = 29, View2Layer = 30;
         public ArcadeVehicle P2Car { get; private set; }
         public RacerState P2 { get; private set; }
         public WrongWayGuidance P2Guidance { get; private set; }
@@ -66,10 +107,12 @@ namespace Racer
             InputSystem.onDeviceChange += DeviceChanged;
             // per-view detail, lowered for the two views only (restored in Teardown); single-player rendering is unchanged
             lodBias = QualitySettings.lodBias; QualitySettings.lodBias = lodBias * LodScale;
-            cam1 = Camera.main; rect1 = cam1.rect; far1 = cam1.farClipPlane;
+            // 0.92 Part F: two views with weather, night lamps, traffic and rivals: shadows drawn to 60 % of the distance (built players only: in the editor it would change the asset itself)
+            var urp = Application.isEditor ? null : GraphicsSettings.currentRenderPipeline as UniversalRenderPipelineAsset; if (urp) { shadowDistance = urp.shadowDistance; urp.shadowDistance = shadowDistance * ShadowScale; }
+            cam1 = Camera.main; rect1 = cam1.rect; far1 = cam1.farClipPlane; mask1 = cam1.cullingMask;
             hud = gameObject.AddComponent<SplitHud>(); hud.Initialize(flow, this);
         }
-        public const float LodScale = .7f, FarClip = 1400;
+        public const float LodScale = .6f, FarClip = 1000, ShadowScale = .6f; float shadowDistance = -1;
 
         // RaceDirector.RestartRace: player 2's vehicle is the one rival slot; make it player 2's (or leave the AI driving).
         public void PlayerTwo()
@@ -88,7 +131,7 @@ namespace Racer
             else { P2 = state; car.name = "PLAYER 2 (AI)"; }
             if (!car.GetComponent<VehicleAudio>()) car.gameObject.AddComponent<VehicleAudio>();
             P2Guidance = gameObject.AddComponent<WrongWayGuidance>(); P2Guidance.Target = P2;
-            p2Done = false; Cameras();
+            p2Done = false; finished1 = finished2 = false; EndShot(1); EndShot(2); Cameras();
         }
         // RaceDirector.RestartRace / AbandonEvent: player 2's vehicle goes (a human one is no longer in the AI list).
         public void ClearPlayerTwo()
@@ -110,6 +153,7 @@ namespace Racer
             }
             cam2.rect = lr ? new Rect(.5f, 0, .5f, 1) : new Rect(0, 0, 1, .5f);
             cam1.farClipPlane = cam2.farClipPlane = Mathf.Min(far1, FarClip);
+            cam1.cullingMask = mask1 & ~(1 << View2Layer); cam2.cullingMask = (mask1 & ~(1 << View1Layer)) | (1 << View2Layer);
             chase2.enabled = false; chase2.target = P2Car.transform; chase2.offset = P2Car.GetComponent<VehicleConfiguration>().Profile.Camera; chase2.enabled = true; chase2.Snap();
             // the wide top / bottom halves: the camera tips down a little in long flights so the landing stays in view
             float tilt = lr ? 0 : 9; cam1.GetComponent<ChaseCamera>().flightTilt = tilt; chase2.flightTilt = tilt;
@@ -135,6 +179,45 @@ namespace Racer
                 }
             }
             SplitScreen.Eyes.Clear(); if (cam1) SplitScreen.Eyes.Add(cam1.transform.position); if (cam2) SplitScreen.Eyes.Add(cam2.transform.position);
+            SplitScreen.Views.Clear(); if (cam1) SplitScreen.Views.Add(cam1); if (cam2) SplitScreen.Views.Add(cam2);
+            // 0.92 Part F: with AI rivals the race is decided once both players have finished: the rivals still running get
+            // the game's estimate of their finish (as single-player's "Complete Race")
+            // 0.92 Part F: a player who wins gets the winner shot in their own half when they finish
+            bool f1 = race.Racers[0].Progress.Finished, f2 = P2 != null && P2.Progress.Finished;
+            if (f1 && !finished1) { finished1 = true; if (Winner() == race.Racers[0]) StartShot(1); }
+            if (f2 && !finished2) { finished2 = true; if (!SplitScreen.P2Ai && Winner() == P2) StartShot(2); }
+            if (stage == RaceFlow.Stage.Racing && race.Racers.Count > 2 && race.Progress.Finished && P2 != null && P2.Progress.Finished && !race.ClassificationFinal) race.FinalizeUnfinishedAi();
+        }
+        // ---------- 0.92 Part F: the winner shot in a player's own half ----------
+        // When a human player wins, their half shows them from the front three-quarter side for 2.5 s (their two-fist
+        // celebration from the line is playing) before their finished panel; the other half is untouched and keeps racing.
+        // An AI winner (a rival or player 2 as the AI driver) only celebrates on the road: no camera is taken from anyone.
+        bool finished1, finished2; float shotUntil1, shotUntil2;
+        public bool ShotActive(int player) => (player == 1 ? shotUntil1 : shotUntil2) > Time.unscaledTime;
+        public int Shots { get; private set; }
+        RacerState Winner() { RacerState won = null; foreach (var r in race.Racers) if (r.Progress.Finished && (won == null || r.Progress.RaceTime(race.Clock) < won.Progress.RaceTime(race.Clock))) won = r; return won; }
+        void StartShot(int player)
+        {
+            if (player == 1) { shotUntil1 = Time.unscaledTime + WinnerShot.Seconds; var c = cam1.GetComponent<ChaseCamera>(); if (c) c.enabled = false; if (CameraViews.Current) { CameraViews.Current.ShowHead(); CameraViews.Current.enabled = false; } }
+            else { shotUntil2 = Time.unscaledTime + WinnerShot.Seconds; if (chase2) chase2.enabled = false; }
+            Shots++;
+        }
+        void EndShot(int player)
+        {
+            if (player == 1) { if (shotUntil1 <= 0) return; shotUntil1 = 0; var c = cam1 ? cam1.GetComponent<ChaseCamera>() : null; if (c) c.enabled = true; if (CameraViews.Current) CameraViews.Current.enabled = true; }
+            else { if (shotUntil2 <= 0) return; shotUntil2 = 0; if (chase2) chase2.enabled = true; }
+        }
+        void LateUpdate()
+        {
+            for (int player = 1; player <= 2; player++)
+            {
+                float until = player == 1 ? shotUntil1 : shotUntil2; if (until <= 0) continue;
+                if (Time.unscaledTime >= until || flow.State != RaceFlow.Stage.Racing) { EndShot(player); continue; }
+                var cam = player == 1 ? cam1 : cam2; var car = player == 1 ? race.vehicle : P2Car; if (!cam || !car) continue;
+                var w = car.transform; var fwd = Vector3.ProjectOnPlane(w.forward, Vector3.up).normalized; var right = Vector3.Cross(Vector3.up, fwd);
+                var size = car.GetComponent<VehicleConfiguration>()?.Profile.Size ?? new Vector3(1, 1, 3); float reach = Mathf.Max(4.5f, size.z * 1.3f);
+                cam.transform.position = w.position + fwd * reach + right * reach * .6f + Vector3.up * 1.5f; cam.transform.LookAt(w.position + Vector3.up * .9f);
+            }
         }
         // ---------- devices ----------
         void DeviceChanged(InputDevice device, InputDeviceChange change)
@@ -160,13 +243,15 @@ namespace Racer
         public void Teardown()
         {
             InputSystem.onDeviceChange -= DeviceChanged;
+            EndShot(1); EndShot(2);
             ClearPlayerTwo();
-            if (cam1) { cam1.rect = rect1; cam1.farClipPlane = far1; var c = cam1.GetComponent<ChaseCamera>(); if (c) c.flightTilt = 0; }
+            if (cam1) { cam1.rect = rect1; cam1.farClipPlane = far1; cam1.cullingMask = mask1; var c = cam1.GetComponent<ChaseCamera>(); if (c) c.flightTilt = 0; }
             if (cam2) Destroy(cam2.gameObject);
             if (race && race.vehicle) race.vehicle.GetComponent<VehicleInput>().Bind(null);
             QualitySettings.lodBias = lodBias;
+            { var urp = GraphicsSettings.currentRenderPipeline as UniversalRenderPipelineAsset; if (urp && shadowDistance >= 0) urp.shadowDistance = shadowDistance; shadowDistance = -1; }
             if (hud) { hud.Teardown(); Destroy(hud); }
-            SplitScreen.Eyes.Clear(); PausedBy = null;
+            SplitScreen.Eyes.Clear(); SplitScreen.Views.Clear(); PausedBy = null;
         }
         void OnDestroy() { InputSystem.onDeviceChange -= DeviceChanged; }
     }

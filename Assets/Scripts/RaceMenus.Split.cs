@@ -85,6 +85,17 @@ namespace Racer
             var order = RacePlaylists.DisplayOrder.ToArray();
             Step(n++, "split-course", "Course:   " + RacePlaylists.Titles[SplitScreen.Course].Replace(" - ", " — "), d => { int i = System.Array.IndexOf(order, SplitScreen.Course); SplitScreen.Course = order[((i < 0 ? 0 : i) + d + order.Length) % order.Length]; flow.Click(); Show(); });
             Step(n++, "split-laps", "Laps:   " + SplitScreen.Laps, d => { SplitScreen.Laps = Mathf.Clamp(SplitScreen.Laps + d, 1, 5); flow.Click(); Show(); });
+            // 0.92 Part F (stage 2): AI rivals, conditions and traffic, as in Race Setup
+            Step(n++, "split-rivals", "AI rivals:   " + (SplitScreen.Rivals == 0 ? "None" : SplitScreen.Rivals.ToString()), d => { SplitScreen.Rivals = Mathf.Clamp(SplitScreen.Rivals + d, 0, 4); flow.Click(); Show(); });
+            if (SplitScreen.Rivals > 0)
+            {
+                Step(n++, "split-difficulty", "Rival difficulty:   " + new[] { "Easy", "Normal", "Hard" }[Mathf.Clamp(SplitScreen.RivalDifficulty, 0, 2)], d => { SplitScreen.RivalDifficulty = (SplitScreen.RivalDifficulty + d + 3) % 3; flow.Click(); Show(); });
+                Step(n++, "split-mix", "Rival vehicles:   " + (SplitScreen.RivalsRandom ? "Random (may repeat)" : "Mixed (each once first)"), d => { SplitScreen.RivalsRandom = !SplitScreen.RivalsRandom; flow.Click(); Show(); });
+            }
+            var times = LookPresets.MenuOrder;
+            Step(n++, "split-time", "Time of day:   " + SplitScreen.Time, d => { int i = System.Array.IndexOf(times, SplitScreen.Time); SplitScreen.Time = times[((i < 0 ? 1 : i) + d + times.Length) % times.Length]; flow.Click(); Show(); });
+            Step(n++, "split-weather", "Weather:   " + SplitScreen.Weather, d => { SplitScreen.Weather = (Weather)(((int)SplitScreen.Weather + d + 3) % 3); flow.Click(); Show(); });
+            Toggle(n++, "split-traffic", "Traffic", SplitScreen.Traffic, () => { SplitScreen.Traffic = !SplitScreen.Traffic; flow.Click(); Show(); });
             Step(n++, "split-layout", "Screen:   " + (SplitScreen.LeftRight ? "Left / right" : "Top / bottom (player 1 on top)"), d => { flow.Save.Settings.splitLeftRight = !flow.Save.Settings.splitLeftRight; flow.Save.SaveSettings(); flow.Click(); Show(); });
             Row(n, "split-start", SplitScreen.Ready ? "START" : "START   (waiting for player 2)", flow.StartSplit);
             var colors = buttons[n].colors; colors.normalColor = new(.1f, .38f, .35f); buttons[n].colors = colors; buttons[n].GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight = 54; buttons[n++].interactable = SplitScreen.Ready;
@@ -119,14 +130,15 @@ namespace Racer
         void RenderSplitResults()
         {
             var race = flow.Race; var split = SplitScreen.Race;
-            ClearCore("SPLIT SCREEN RESULTS", race.courseName + "  ·  " + race.laps + " lap" + (race.laps == 1 ? "" : "s"));
+            ClearCore("SPLIT SCREEN RESULTS", race.courseName + "  ·  " + race.laps + " lap" + (race.laps == 1 ? "" : "s") + "  ·  " + SplitScreen.Time + " / " + SplitScreen.Weather + (race.Racers.Count > 2 ? $"  ·  {race.Racers.Count - 2} AI rival{(race.Racers.Count == 3 ? "" : "s")}" : ""));
             int n = 0; var w = new[] { .1f, .4f, .26f, .24f };
             TableRow(n++, "header", new[] { "Place", "Player", "Total time", "Best lap" }, w, () => { }); int rank = 0;
             foreach (var r in race.Ordered(true))
             {
-                int place = ++rank; bool p1 = r == race.Racers[0]; var laps = r.Progress.LapTimes;
-                string who = (p1 ? "Player 1" : SplitScreen.P2Ai ? "Player 2 (AI)" : "Player 2") + " · " + VehicleProfile.Find(r.Car.GetComponent<VehicleConfiguration>().profileId).Name;
-                TableRow(n++, "split-standing-" + place, new[] { place.ToString(), who, r.Dnf || !r.Classified ? "DNF" : RaceHud.FormatTime(r.ClassifiedTime(race.Clock)), laps.Count > 0 ? RaceHud.FormatTime(laps.Min()) : "—" }, w, () => { }, place == 1);
+                // 0.92 Part F: every finisher, the AI rivals too; the two players highlighted with their best laps
+                int place = ++rank; bool p1 = r == race.Racers[0], p2 = split && r == split.P2; var laps = r.Progress.LapTimes;
+                string who = (p1 ? "Player 1" : p2 ? (SplitScreen.P2Ai ? "Player 2 (AI)" : "Player 2") : "Rival " + r.Name) + " · " + VehicleProfile.Find(r.Car.GetComponent<VehicleConfiguration>().profileId).Name;
+                TableRow(n++, "split-standing-" + place, new[] { place.ToString(), who, r.Dnf || !r.Classified ? "DNF" : RaceHud.FormatTime(r.ClassifiedTime(race.Clock)) + (r.Estimated ? " (est.)" : ""), (p1 || p2) && laps.Count > 0 ? RaceHud.FormatTime(laps.Min()) : "—" }, w, () => { }, p1 || p2);
             }
             Row(n, "rematch", "REMATCH", flow.StartRace); var colors = buttons[n].colors; colors.normalColor = new(.1f, .38f, .35f); buttons[n].colors = colors; buttons[n].GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight = 54; n++;
             Row(n++, "change-setup", "Change setup", () => flow.QuitSplit(true));

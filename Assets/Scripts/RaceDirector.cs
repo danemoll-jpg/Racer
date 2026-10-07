@@ -60,7 +60,7 @@ namespace Racer
         float[] gateS;
         public WoodlandRoute[] Branches { get; private set; }
         public float Origin => origin;
-        double startedAt, firstFinish = -1;
+        double startedAt, firstFinish = -1; bool winnerCelebrated;
         double debugTimeoutOffset, debugGraceOffset;
         GameObject gridVisual;
         static Material gridPaint;
@@ -174,7 +174,7 @@ namespace Racer
                 r.Branch.Clear();
             }
 
-            firstFinish = -1;
+            firstFinish = -1; winnerCelebrated = false;
             debugTimeoutOffset=debugGraceOffset=0;
             ClassificationFinal = false;
             startedAt = Time.timeAsDouble + 3;
@@ -196,7 +196,7 @@ namespace Racer
             Drivers.Clear(); Racers.RemoveRange(1,Racers.Count-1);
             if(gridVisual) { gridVisual.SetActive(false); Destroy(gridVisual); }
             Progress.Restart(); Racers[0].Branch.Clear(); Racers[0].Dnf=false; Racers[0].FinishArmed=false;
-            Clock=0; firstFinish=-1; ClassificationFinal=false;
+            Clock=0; firstFinish=-1; winnerCelebrated=false; ClassificationFinal=false;
         }
 
         void CreateCars()
@@ -302,12 +302,17 @@ namespace Racer
                 if(r.IsAi && !r.Classified && !r.Dnf)
                     r.Estimate.Sample(Clock,RemainingDistance(r),r.Car.GetComponent<VehicleConfiguration>().Profile.Speed,!float.IsNaN(r.RecoveryStart));
             if(Progress.Finished && Flow && Flow.Save.Settings.estimateAiFinishes && !SplitScreen.Active) FinalizeUnfinishedAi();
-            if (Racers.Any(r => r.Progress.Finished) && firstFinish < 0)
+            if (Racers.Any(r => r.Progress.Finished) && !winnerCelebrated)
             {
-                firstFinish = Clock;
+                winnerCelebrated = true;
                 // 0.78: the winner (first across the line, player or AI) raises both fists; others do nothing special.
-                if (Racers.Count > 1 && !SplitScreen.Active) Racers.Where(r => r.Progress.Finished).OrderBy(r => r.Progress.RaceTime(Clock)).First().Car.GetComponent<RiderGestures>()?.Celebrate();
+                // 0.92 Part F: in split-screen too
+                if (Racers.Count > 1) Racers.Where(r => r.Progress.Finished).OrderBy(r => r.Progress.RaceTime(Clock)).First().Car.GetComponent<RiderGestures>()?.Celebrate();
             }
+            // 0.92 Part F: in split-screen the 90 s to finish count from the first player home (an AI rival finishing first
+            // does not start them); single-player unchanged
+            if (Racers.Any(r => r.Progress.Finished && (!SplitScreen.Active || r == Racers[0] || (SplitScreen.Race && r == SplitScreen.Race.P2))) && firstFinish < 0)
+                firstFinish = Clock;
             // Debug review time consumes neither the total race budget nor the post-finisher grace budget.
             if(DeveloperLocationHud.DebugEnabled){debugTimeoutOffset+=Time.fixedDeltaTime;if(firstFinish>=0)debugGraceOffset+=Time.fixedDeltaTime;}
             if (!DeveloperLocationHud.DebugEnabled && !Progress.Unlimited && (Clock - startedAt - debugTimeoutOffset >= maximumRaceSeconds*Mathf.Max(1,laps/3f) || (firstFinish >= 0 && Clock - firstFinish - debugGraceOffset >= finishGraceSeconds)))

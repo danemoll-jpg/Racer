@@ -69,7 +69,7 @@ namespace Racer
             for (int i = 0; i < 2; i++)
             {
                 var h = halves[i]; var state = i == 0 ? race.Racers[0] : split.P2; var car = i == 0 ? race.vehicle : split.P2Car;
-                h.root.gameObject.SetActive(driving && state != null && car);
+                h.root.gameObject.SetActive(driving && state != null && car && !split.ShotActive(i + 1)); // 0.92 Part F: not over the winner shot
                 if (!h.root.gameObject.activeSelf) continue;
                 h.map.Focus = car;
                 var p = state.Progress; int position = race.Ordered(false).IndexOf(state) + 1;

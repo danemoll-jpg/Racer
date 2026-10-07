@@ -413,10 +413,13 @@ namespace Racer
                     return;
             if (!racing)
             {
-                if (Vector3.Distance(p, Race.vehicle.transform.position) < 200 || Vector3.Distance(transform.position, Race.vehicle.transform.position) < 200)
+                // 0.92 Part F: in split-screen, near either player or in either view
+                if (SplitScreen.DistanceToPlayers(p, Race.vehicle.transform.position) < 200 || SplitScreen.DistanceToPlayers(transform.position, Race.vehicle.transform.position) < 200)
+                    return;
+                if (SplitScreen.Views.Count > 0 && (SplitScreen.InAView(p, .1f) || SplitScreen.InAView(transform.position, .1f)))
                     return;
                 var camera = Camera.main;
-                if (camera)
+                if (camera && SplitScreen.Views.Count == 0)
                 {
                     foreach (var point in new[]{p, transform.position})
                     {
@@ -446,8 +449,9 @@ namespace Racer
             var camera=Camera.main;
             foreach(var point in new[]{p,transform.position})
             {
-                float distance=Vector3.Distance(point,Race.vehicle.transform.position);
+                float distance=SplitScreen.DistanceToPlayers(point,Race.vehicle.transform.position); // 0.92 Part F: either player
                 if(distance<220) return;
+                if(SplitScreen.Views.Count>0){if(distance<500&&SplitScreen.InAView(point,.15f))return;continue;}
                 // A far horizon point must not hold the entire highway population on
                 // neighborhood roads. Visible recycling remains excluded within 500m.
                 if(camera && distance<500) { var v=camera.WorldToViewportPoint(point); if(v.z>0&&v.x>-.15f&&v.x<1.15f&&v.y>-.15f&&v.y<1.15f)return; }
