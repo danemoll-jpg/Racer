@@ -9,6 +9,7 @@ namespace Racer
     // jump and speed-trap results (shown in their half), the direction and distance to the other player, and both are on
     // each minimap. Nothing is recorded: no acorns, activity records or discovery (ExplorationCollection, ExplorationMap and
     // ArcadeActivities check SplitScreen.Active). The world map's travel brings both players (BringBeside).
+    // Police Chase (Part C) runs on this too (PoliceChase).
     public sealed class SplitRoam : MonoBehaviour
     {
         public static SplitRoam Current { get; private set; }
@@ -28,11 +29,12 @@ namespace Racer
             var clone = Instantiate(race.vehicle.gameObject); clone.name = "PLAYER 2";
             foreach (var c in clone.GetComponents<ActivityLandingContact>()) Destroy(c);
             foreach (var d in clone.GetComponents<RoadDriver>()) { d.enabled = false; Destroy(d); }
+            foreach (var p in clone.GetComponents<PoliceLights>()) Destroy(p);
             var sound = clone.GetComponent<VehicleAudio>(); if (sound) { sound.enabled = false; DestroyImmediate(sound); }
             foreach (var s in clone.GetComponents<AudioSource>()) DestroyImmediate(s);
             var car = clone.GetComponent<ArcadeVehicle>(); var config = clone.GetComponent<VehicleConfiguration>();
             config.riderLook = RiderLook.Field(DriverVariation.Seed, 3, RiderLook.Player)[1]; config.classicVisual = false;
-            config.Apply(vehicle); config.SetBodyColor(colour);
+            config.Apply(vehicle); if (vehicle == VehicleProfile.Police.Id) config.SetPaint(new Color(.03f, .03f, .035f)); else config.SetBodyColor(colour);
             clone.AddComponent<VehicleAudio>();
             Car = car;
             var input = clone.GetComponent<VehicleInput>(); var respawn = clone.GetComponent<VehicleRespawn>();
@@ -77,7 +79,7 @@ namespace Racer
         {
             if (!Car || !flow) return;
             bool driving = flow.State == RaceFlow.Stage.Racing;
-            if (!SplitScreen.P2Ai) { var input = Car.GetComponent<VehicleInput>(); if (input.enabled != driving) input.enabled = driving; }
+            if (!SplitScreen.P2Ai) { var input = Car.GetComponent<VehicleInput>(); if (input.enabled != driving && !(PoliceChase.Current && PoliceChase.Current.Holds(Car))) input.enabled = driving; }
         }
         // "→ Kyle  240 m": the direction (from this player's view) and distance to the other player
         public static string Toward(Transform from, Transform viewer, Transform to, string name)

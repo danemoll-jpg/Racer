@@ -31,8 +31,9 @@ namespace Racer
         public static string P1Name = "", P2Pick = "";
         // 0.94 Parts B and C (stage 3): what the two players do: a race, Free Roam (FreeRoamWorld, starting at Course's start)
         // or Police Chase (Free Roam, cop vs runner: who is the cop first, and the round limit in minutes).
-        public enum Kind { Race, FreeRoam }
+        public enum Kind { Race, FreeRoam, Police }
         public static Kind Mode = Kind.Race;
+        public static int CopFirst = 1, PoliceMinutes = 5;
         public static bool Roaming => Active && Mode != Kind.Race;
         public static string P2Name => P2Ai ? PlayerNames.Ai : string.IsNullOrEmpty(P2Pick) ? "Player 2" : P2Pick;
         public static UnityEngine.InputSystem.InputDevice DeviceOf(int player) => player == 1 ? P1Device : P2Ai ? null : P2Device;
@@ -90,6 +91,7 @@ namespace Racer
                 race.opponents = false; race.traffic = Traffic;
                 var c1 = race.vehicle.GetComponent<VehicleConfiguration>(); c1.Apply(P1Vehicle); c1.SetBodyColor(P1Color);
                 flow.gameObject.AddComponent<SplitRoam>().Initialize(flow);
+                if (Mode == Kind.Police) { if (P2Ai) CopFirst = 1; flow.gameObject.AddComponent<PoliceChase>().Initialize(flow); }
                 Race = flow.gameObject.AddComponent<SplitRace>(); Race.Initialize(flow); return;
             }
             // 0.92 Part F: player 2's vehicle is the first rival slot; the AI rivals follow it
@@ -100,7 +102,7 @@ namespace Racer
         public static void End()
         {
             if (Race) { Race.Teardown(); Object.Destroy(Race); }
-            if (SplitRoam.Current) { SplitRoam.Current.Clear(); Object.Destroy(SplitRoam.Current); }
+            if (PoliceChase.Current) Object.Destroy(PoliceChase.Current); if (SplitRoam.Current) { SplitRoam.Current.Clear(); Object.Destroy(SplitRoam.Current); }
             Race = null; Active = false; PendingStart = false; Views.Clear();
         }
         // The positions of every split-screen view (the scenery's near detail follows each of them); empty when not split.
@@ -140,9 +142,11 @@ namespace Racer
             if (SplitRoam.Current && race.FreeRoam)
             {
                 // 0.94 Part B: Free Roam for two: player 2's vehicle beside player 1 (Police Chase: the round's vehicles and places)
-                P2Car = SplitRoam.Current.CreatePlayerTwo(SplitScreen.P2Vehicle, SplitScreen.P2Color); P2 = null;
+                var police = PoliceChase.Current; if (police) police.ApplyPlayerOne();
+                P2Car = SplitRoam.Current.CreatePlayerTwo(police ? police.VehicleFor(2) : SplitScreen.P2Vehicle, SplitScreen.P2Color); P2 = null;
                 if (!P2Car.GetComponent<VehicleAudio>()) P2Car.gameObject.AddComponent<VehicleAudio>();
                 finished1 = finished2 = false; EndShot(1); EndShot(2); Cameras();
+                if (police) police.BeginRound();
                 return;
             }
             if (race.Racers.Count < 2) return;

@@ -1,0 +1,16 @@
+0.94 Part D: Abandoned Cabin Jump landings (simple follower on the centre line from the branch start). Far edge 84 m; the last restored bush reaches 85.1 m.
+vehicle  approach  takeoff speed  landing s  bushes touched after takeoff (first at s)
+Needle 600      24 m/s   24.1 m/s   75.9 m   269 (71)   resets 0
+Needle 600      28 m/s   27.9 m/s   86.2 m   24 (81)   resets 0
+Needle 600      31 m/s   30.7 m/s   95.2 m   0 (-)   resets 0
+Needle 600      34 m/s   33.5 m/s   105.7 m   0 (-)   resets 0
+Street Classic  24 m/s   23.8 m/s   74.0 m   300 (71)   resets 0
+Street Classic  28 m/s   27.7 m/s   83.9 m   54 (79)   resets 0
+Street Classic  31 m/s   28.8 m/s   91.5 m   0 (-)   resets 0
+Street Classic  34 m/s   30.8 m/s   99.0 m   0 (-)   resets 0
+Trail Four      24 m/s   24.0 m/s   75.4 m   285 (71)   resets 0
+Trail Four      28 m/s   28.0 m/s   86.4 m   24 (81)   resets 0
+Trail Four      31 m/s   30.7 m/s   95.2 m   0 (-)   resets 0
+Trail Four      34 m/s   31.3 m/s   99.2 m   0 (-)   resets 0
+
+PASS reset from Dan's position: now at 270.7,76.71,90.1 heading 76, route Abandoned Cabin Jump s 88.0 lat +0.0 (Recovered past the brush); crowns on it or within 5 m ahead: none; solid within 5 m ahead: none

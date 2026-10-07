@@ -35,6 +35,13 @@ namespace Racer
             cream=Mat("Garage cream trim",new(.90f,.87f,.78f),.5f);driverMat=Mat("Traffic driver",new(.12f,.11f,.10f),.2f);
             hair=new[]{Mat("Driver hair chestnut",new(.18f,.065f,.028f)),Mat("Driver hair charcoal",new(.035f,.029f,.025f)),Mat("Driver hair gold",new(.62f,.36f,.09f))};
         }
+        // 0.94 Part C: the patrol car's white doors and roof and its light bar lenses (PoliceLights flashes the lenses with
+        // per-renderer emission)
+        static Material white,sirenRed,sirenBlue;
+        static Material White=>white?white:white=Mat("Patrol white",new(.93f,.93f,.91f),.55f);
+        static Material SirenRed=>sirenRed?sirenRed:sirenRed=Lens("Light bar red",new(.75f,.05f,.05f));
+        static Material SirenBlue=>sirenBlue?sirenBlue:sirenBlue=Lens("Light bar blue",new(.06f,.18f,.85f));
+        static Material Lens(string name,Color c){var m=Mat(name,c,.8f);m.EnableKeyword("_EMISSION");m.SetColor("_EmissionColor",Color.black);m.globalIlluminationFlags=MaterialGlobalIlluminationFlags.None;return m;}
         // look: the rider (null = the player's); classic: always the classic model (ambient traffic).
         public static Transform Build(Transform parent,VehicleProfile p,List<Transform> wheels=null,RiderLook look=null,bool classic=false)
         {
@@ -129,7 +136,7 @@ namespace Racer
                 var t=r.transform;var parts=t.name.Split(new[]{"__"},System.StringSplitOptions.None);if(parts.Length!=2)continue;
                 string group=parts[0],slot=parts[1];
                 if(group=="Rider"){t.gameObject.SetActive(false);Object.Destroy(t.gameObject);continue;}
-                r.sharedMaterial=slot switch{"paint"=>paint,"cream"=>cream,"driver"=>driverMat,"metal"=>metal,"engine"=>engine,"rubber"=>rubber,"lamp"=>lamps,"tail"=>tail,"glass"=>glass,"chrome"=>chrome,"interior"=>interior,_=>metal};
+                r.sharedMaterial=slot switch{"paint"=>paint,"cream"=>cream,"driver"=>driverMat,"metal"=>metal,"engine"=>engine,"rubber"=>rubber,"lamp"=>lamps,"tail"=>tail,"glass"=>glass,"chrome"=>chrome,"interior"=>interior,"white"=>White,"sirenred"=>SirenRed,"sirenblue"=>SirenBlue,_=>metal};
                 if(group=="Front"&&front)t.SetParent(front,true);
                 else if(group=="Steer")
                 {

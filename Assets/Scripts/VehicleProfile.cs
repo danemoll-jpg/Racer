@@ -50,8 +50,16 @@ namespace Racer
             new() { Id="mower", Name="Turf Rocket", Class="Mower", Description="Riding mower / the acorn reward / top speed, grip and handling, solid in contact", Speed=61, Acceleration=18, Grip=32, Response=12, Mass=760, Wheelbase=1.6f, Pitch=1.75f, Size=new(1.15f,.65f,2.1f), Camera=new(0,3.1f,-6.6f),
                 Model="TurfRocket", Seat=new(0,.22f,-.52f), Base="moto", Upright=27, Air=.24f, Reward=true, SolidContact=true }
         };
+        // 0.94 Part C: the patrol car (Tools/Blender/police.py), the cop's vehicle in Police Chase only: kept out of All, so it
+        // is never in the garage, the shop, races, rival rosters or split-screen choices. Close to the faster vehicles so a
+        // chase is fair: top speed between the cars (49-52) and the Trail Four / Ridge Scrambler (56), the Highball Fastback's
+        // acceleration and a little more, car grip plus one. Black and white (its paint is set black, the doors and roof are
+        // white in the model).
+        public static readonly VehicleProfile Police = new() { Id="police", Name="Patrol Car", Class="Car", Description="Police Chase only / fast and planted / strong contact", Speed=55, Acceleration=16.5f, Grip=26, Response=8.2f, Mass=1550, Wheelbase=2.8f, Pitch=.9f, Size=new(2,.75f,4.7f), Camera=new(0,3.8f,-8.2f),
+                Model="PatrolCar", Seat=new(-.42f,.05f,-.15f), Base="tourer" };
         public static VehicleProfile Find(string id)
         {
+            if(id==Police.Id) return Police;
             foreach(var profile in All) if(profile.Id==id) return profile;
             return All[0];
         }

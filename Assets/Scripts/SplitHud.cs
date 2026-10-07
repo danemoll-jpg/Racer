@@ -107,11 +107,12 @@ namespace Racer
                 h.centre.text = centre; h.centre.fontSize = flow.State == RaceFlow.Stage.Countdown ? 64 : 30;
             }
         }
-        // 0.94 Part B: Free Roam for two: each half shows its player's name, the direction and distance to the other player,
-        // the player's own jump and speed-trap results, the speed and the minimap.
+        // 0.94 Parts B and C: Free Roam for two / Police Chase: each half shows its player's name (and role, the round clock and
+        // the bust meter in a chase), the direction and distance to the other player, the player's own jump and speed-trap
+        // results, the speed and the minimap; the centre shows the chase's start, GO and the round's end.
         void Roam(bool driving)
         {
-            var race = flow.Race; var roam = SplitRoam.Current;
+            var race = flow.Race; var roam = SplitRoam.Current; var police = PoliceChase.Current;
             for (int i = 0; i < 2; i++)
             {
                 var h = halves[i]; int player = i + 1; var car = i == 0 ? race.vehicle : split.P2Car; var other = i == 0 ? split.P2Car : race.vehicle;
@@ -121,7 +122,14 @@ namespace Racer
                 var cam = i == 0 ? Camera.main : split.Camera2;
                 h.tag.text = (i == 0 ? "PLAYER 1 · " : "PLAYER 2 · ") + SplitScreen.NameOf(player);
                 var lines = new System.Collections.Generic.List<string>();
-                lines.Add("<b>FREE ROAM</b>");
+                if (police)
+                {
+                    bool cop = police.Cop == player;
+                    lines.Add($"<b>{(cop ? "<color=#7FB2FF>COP</color>" : "<color=#FFC747>RUNNER</color>")}</b>   round {police.Round + 1}/{police.Rounds}   {RaceHud.FormatTime(police.Clock).Substring(0, 5)} / {police.Limit / 60:0}:00");
+                    int filled = Mathf.RoundToInt(police.Meter * 10);
+                    lines.Add("BUST  <color=#FF5A4A>" + new string('■', filled) + "</color><color=#5A6066>" + new string('■', 10 - filled) + "</color>");
+                }
+                else lines.Add("<b>FREE ROAM</b>");
                 lines.Add(SplitRoam.Toward(car.transform, cam ? cam.transform : car.transform, other ? other.transform : null, SplitScreen.NameOf(3 - player)));
                 var acts = i == 0 ? flow.Activities : roam.Activities2; string hud = acts ? acts.Hud : "";
                 h.info.text = string.Join("\n", lines); h.info.fontSize = 19;
@@ -129,7 +137,17 @@ namespace Racer
                 h.speed.text = $"{DisplayUnits.Mph(Mathf.Abs(car.ForwardSpeed)):0} <size=16>mph</size>";
                 string centre = "";
                 var respawn = car.GetComponent<VehicleRespawn>();
-                if (Time.unscaledTime - roam.StartedAt < 7) centre = "<size=20>Split-screen Free Roam: nothing is recorded\n(no acorns, activity records or map discovery)</size>";
+                if (police)
+                {
+                    bool cop = police.Cop == player; float t = police.Clock;
+                    if (police.State == PoliceChase.Phase.Starting) centre = police.Clock <= 0 ? (cop ? "<size=26>YOU ARE THE COP</size>\nwait for the runner" : "<size=26>YOU ARE THE RUNNER</size>\nget away!") : cop ? $"GO IN {Mathf.CeilToInt(PoliceChase.CopDelay - t)}" : (t < 1.5f ? "GO!" : "");
+                    else if (police.State == PoliceChase.Phase.Running && cop && t < PoliceChase.CopDelay + 1.5f) centre = "GO!";
+                    else if (police.State == PoliceChase.Phase.Caught) centre = "<color=#FF5A4A>CAUGHT!</color>\n<size=22>" + RaceHud.FormatTime(police.Clock) + "</size>";
+                    else if (police.State == PoliceChase.Phase.Away) centre = "<color=#7FFFB0>GOT AWAY!</color>\n<size=22>" + RaceHud.FormatTime(police.Clock) + "</size>";
+                    else if (!cop && police.Holds(car)) centre = "<size=22>Reset: held for 2 s</size>";
+                    else if (cop && police.State == PoliceChase.Phase.Running && Time.unscaledTime - roam.StartedAt < 12) centre = "<size=20>" + (SplitScreen.DeviceOf(player) is UnityEngine.InputSystem.Keyboard ? "H" : "RB") + ": siren on / off</size>";
+                }
+                else if (Time.unscaledTime - roam.StartedAt < 7) centre = "<size=20>Split-screen Free Roam: nothing is recorded\n(no acorns, activity records or map discovery)</size>";
                 if (centre == "" && respawn && respawn.Pending) centre = "<size=22>Recovering…</size>";
                 if (centre == "" && !string.IsNullOrEmpty(hud)) centre = "<size=19>" + hud + "</size>";
                 h.centre.text = centre; h.centre.fontSize = 30;

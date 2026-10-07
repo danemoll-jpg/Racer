@@ -11,7 +11,7 @@ namespace Racer {
 //  landshot94:Scene:branch:label:s1,s2,...   shots along a branch from the given stations (eye 2 m above the ground, looking
 //                                            along the branch, the HUD hidden)
 public sealed partial class Report080Checks {
- IEnumerator Run094(string[] a)=>a[0] switch{"landshot94"=>LandShot094(a[1],a[2],a[3],a[4]),_=>Walk094(a)??Run093(a)};
+ IEnumerator Run094(string[] a)=>a[0] switch{"landshot94"=>LandShot094(a[1],a[2],a[3],a[4]),_=>Walk094(a)??Roam094(a)??Run093(a)};
  IEnumerator LandShot094(string scene,string title,string label,string stations){
   yield return StartOn093(scene,"moto");var wr=Branch093(title);wr.Initialize();
   var cam=Camera.main;var chase=FindAnyObjectByType<ChaseCamera>();if(chase)chase.enabled=false;var cv=CameraViews.Current;if(cv)cv.enabled=false;

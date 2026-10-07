@@ -1,0 +1,25 @@
+---- police94:Night
+  Dan's settings copy: playerName in file: False
+PASS setup: Mode Police chosen with the D-pad; rows [split-p1, split-p2, split-ai, split-mode, split-p1-name, split-vehicles, police-cop, police-limit, split-course, split-time, split-weather, split-traffic, split-layout, split-start, split-back]
+PASS police: player 1 is the cop (the AI can only run: one round), the cop's vehicle Patrol Car, the runner's Trail Four
+PASS police: the cop starts 63 m behind the runner
+PASS police: the runner released, the cop 3.0 s later; siren True
+PASS police: the runner stopped, the cop within 3.5 m: the meter filled to 53 %
+PASS police: the cop 20 m away: the meter drains 53 % > 32 %
+PASS police: the runner's reset held it for 2 s (resets 1, held after the reset True, released after 2 s True)
+PASS police: CAUGHT after 00:37.880 (meter max 100 %)
+PASS police: results: POLICE CHASE RESULTS / Caught!   ·   5-minute rounds   ·   Night / Clear With the AI as player 2 the match is one round (the AI as the cop is coming later). || Round | Runner | Cop | Result | 1 | AI · Trail Four | Dan · Patrol Car | CAUGHT after 00:37.880
+PASS police: Main menu: back in StreetLoopGreybox
+---- police94:Day
+  Dan's settings copy: playerName in file: False
+PASS setup: Mode Police chosen with the D-pad; rows [split-p1, split-p2, split-ai, split-mode, split-p1-name, split-vehicles, police-cop, police-limit, split-course, split-time, split-weather, split-traffic, split-layout, split-start, split-back]
+PASS police: player 1 is the cop (the AI can only run: one round), the cop's vehicle Patrol Car, the runner's Trail Four
+PASS police: the cop starts 63 m behind the runner
+PASS police: the runner released, the cop 3.0 s later; siren True
+PASS police: the runner stopped, the cop within 3.5 m: the meter filled to 52 %
+PASS police: the cop 20 m away: the meter drains 52 % > 30 %
+PASS police: the runner's reset held it for 2 s (resets 1, held after the reset True, released after 2 s True)
+PASS police: CAUGHT after 00:37.833 (meter max 100 %)
+PASS police: results: POLICE CHASE RESULTS / Caught!   ·   5-minute rounds   ·   Day / Clear With the AI as player 2 the match is one round (the AI as the cop is coming later). || Round | Runner | Cop | Result | 1 | AI · Trail Four | Dan · Patrol Car | CAUGHT after 00:37.833
+PASS police: Main menu: back in StreetLoopGreybox
+done, failures 0
