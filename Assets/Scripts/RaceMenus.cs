@@ -268,12 +268,18 @@ namespace Racer
                     if(locked==null)ShowGarageStats(profile); // 0.82 Part D
                 }
             }
-            RenderCore();
+            RenderCore();SplitSetupDevices();
             var active = buttons.FindAll(b=>b.gameObject.activeSelf&&b.interactable);
             if(shown==RaceFlow.Stage.Garage&&page!="rider"&&page!="shop"&&garageLocked==null) active.AddRange(swatches);
+            // 0.91 Part A: up / down follow the rows as drawn (rows moved on screen, like CAMPAIGN and SPLIT SCREEN, were
+            // skipped when this followed the row numbers)
+            active.Sort((x,y)=>ScreenOrder(x.transform,y.transform));
             for (int i=0;i<active.Count;i++) active[i].navigation = new UnityEngine.UI.Navigation { mode=UnityEngine.UI.Navigation.Mode.Explicit, selectOnUp=active[(i+active.Count-1)%active.Count], selectOnDown=active[(i+1)%active.Count] };
             if(shown==RaceFlow.Stage.Garage&&page!="rider"&&page!="shop") for(int i=0;i<swatches.Count;i++) { var nav=swatches[i].navigation; nav.selectOnLeft=swatches[(i+swatches.Count-1)%swatches.Count]; nav.selectOnRight=swatches[(i+1)%swatches.Count]; swatches[i].navigation=nav; }
             ConfigureCoreFocus();ConfigureLaterFocus();
+#if UNITY_EDITOR || DEVELOPMENT_BUILD
+            {var missed=UnreachableRows();if(missed.Count>0)Debug.LogError($"MENU NAVIGATION: {PageKey}: not reachable with a controller: {string.Join(", ",missed)}");}
+#endif
             int focus = selections.TryGetValue(shown,out var prior)?prior:0;
             // 0.90 Part B: until the first campaign event is finished, CAMPAIGN is the main menu's default selection
             bool campaignDefault=shown==RaceFlow.Stage.Ready&&page==""&&!flow.RoamMenu&&NewToCampaign&&buttons[10].gameObject.activeSelf&&renderedKey!=PageKey;
@@ -283,6 +289,25 @@ namespace Racer
             EventSystem.current.SetSelectedGameObject(buttons[focus].gameObject);
             RestorePage();
             if(campaignDefault)EventSystem.current.SetSelectedGameObject(buttons[10].gameObject);
+        }
+        // Hierarchy order (the order rows are drawn top to bottom, left to right within a row group).
+        static int ScreenOrder(Transform a,Transform b)
+        {
+            var pa=new List<int>();for(var t=a;t;t=t.parent)pa.Insert(0,t.GetSiblingIndex());
+            var pb=new List<int>();for(var t=b;t;t=t.parent)pb.Insert(0,t.GetSiblingIndex());
+            for(int i=0;i<Mathf.Min(pa.Count,pb.Count);i++)if(pa[i]!=pb[i])return pa[i].CompareTo(pb[i]);
+            return pa.Count.CompareTo(pb.Count);
+        }
+        // 0.91 Part A: the visible, usable rows of the current page that D-pad / stick navigation cannot reach from the
+        // first one (followed through each row's up / down / left / right links). Empty when every row can be reached.
+        public List<string> UnreachableRows()
+        {
+            var visible=buttons.Concat(swatches).Where(b=>b&&b.gameObject.activeInHierarchy&&b.interactable&&b.transform.IsChildOf(card)).ToList();
+            if(visible.Count==0)return new List<string>();
+            var seen=new HashSet<UnityEngine.UI.Selectable>{visible[0]};var queue=new Queue<UnityEngine.UI.Selectable>(seen);
+            while(queue.Count>0){var s=queue.Dequeue();foreach(var next in new[]{s.FindSelectableOnUp(),s.FindSelectableOnDown(),s.FindSelectableOnLeft(),s.FindSelectableOnRight()})
+                if(next&&next.gameObject.activeInHierarchy&&next.interactable&&seen.Add(next))queue.Enqueue(next);}
+            return visible.Where(b=>!seen.Contains(b)).Select(b=>b.name).ToList();
         }
         static float NextVolume(float value) => Mathf.Min(1, (Mathf.Floor(value*10+.01f)+1)/10);
         void FinishName(bool save)

@@ -195,8 +195,10 @@ namespace Racer
             if(GetComponent<ExplorationMap>()?.OwnsInput==true)return;
             if (finishAt > 0 && State != Stage.Paused && State != Stage.Settings && Time.unscaledTime >= finishAt) { finishAt = 0; Sound(finish); }
             if (MenuInput.Blocked) return;
-            // 0.90 Part D: a paused split-screen race: Back / Start count only from the device that paused
-            if (SplitScreen.Race && SplitScreen.Race.PausedBy != null && (State == Stage.Paused || State == Stage.Settings) && ((back.WasPressedThisFrame() && back.activeControl?.device != SplitScreen.Race.PausedBy) || (menu.WasPressedThisFrame() && menu.activeControl?.device != SplitScreen.Race.PausedBy))) return;
+            // 0.91 Part B: a paused split-screen race: Back / Start count from either player's device (no other); the setup
+            // screen's Back only from player 1's
+            if (SplitScreen.Race && (State == Stage.Paused || State == Stage.Settings) && ((back.WasPressedThisFrame() && !SplitScreen.PlayerDevice(back.activeControl?.device)) || (menu.WasPressedThisFrame() && !SplitScreen.PlayerDevice(menu.activeControl?.device)))) return;
+            if (State == Stage.Ready && menus.SplitSetupOpen && SplitScreen.P1Device != null && back.WasPressedThisFrame() && back.activeControl?.device != SplitScreen.P1Device && !(SplitScreen.P1Device is Keyboard && back.activeControl?.device is Mouse)) return;
             if (MenuVisible && back.WasPressedThisFrame()) { MenuInput.ConsumeThroughRelease(back); Back(); return; }
             // 0.90 Part B: the controls card before a new player's first event holds the countdown until one press
             if (ControlsCard)
@@ -443,9 +445,9 @@ namespace Racer
         public void StartFreeRoam(){int course=System.Array.IndexOf(RacePlaylists.Scenes,gameObject.scene.name);if(!InRoamWorld&&course>=0){RoamCourse=course;LoadScene(RoamScene);return;}SessionStartedAt=Time.unscaledTime;RoamMenu=false;callers.Clear();menus.ResetPages();Race.FreeRoam=true;SetGateVisibility(false);Click();Race.RestartRace();}
         public void BeginRoaming(){Hints.FreeRoam();DebugMovementUsed=false;attempt=null;CountdownRemaining=0;LapRank=RaceRank=0;NewLapRecord=NewRaceRecord=false;LockVehicle(false);Race.GetComponent<WrongWayGuidance>()?.Clear();SetStage(Stage.Racing);}
         void SetGateVisibility(bool visible){foreach(var gate in Race.gates)foreach(var renderer in gate.GetComponentsInChildren<Renderer>(true))renderer.enabled=visible;}
-        // 0.90 Part D: in split-screen the pause menu answers only the device that paused (the other player's when a
-        // controller dropped out); it cannot be resumed while a player's controller is missing.
-        public void Pause() { if(SplitScreen.Race){var by=menu.activeControl?.device;SplitScreen.Race.PausedBy=SplitScreen.Race.MissingPlayer==1?SplitScreen.P2Device:SplitScreen.Race.MissingPlayer==2?SplitScreen.P1Device:by!=null&&menu.WasPressedThisFrame()?by:SplitScreen.P1Device;menus.RestrictMenuDevices(SplitScreen.Race.PausedBy);}
+        // 0.90 Part D: it cannot be resumed while a player's controller is missing. 0.91 Part B: the pause menu answers
+        // either player's device (it names the one that paused).
+        public void Pause() { if(SplitScreen.Race){var by=menu.activeControl?.device;SplitScreen.Race.PausedBy=SplitScreen.Race.MissingPlayer==1?SplitScreen.P2Device:SplitScreen.Race.MissingPlayer==2?SplitScreen.P1Device:by!=null&&menu.WasPressedThisFrame()?by:SplitScreen.P1Device;menus.RestrictMenuDevices(SplitScreen.P1Device,SplitScreen.P2Ai?null:SplitScreen.P2Device);}
             pausedStage = State; RoamMenuHintUntil=0;RoamMenu=Race.FreeRoam;if(RoamMenu)menus.ResetPages();SetStage(RoamMenu?Stage.Ready:Stage.Paused); Click(); }
         public void Resume() { if(SplitScreen.Race&&SplitScreen.Race.MissingPlayer!=0)return; if(SplitScreen.Race){SplitScreen.Race.PausedBy=null;menus.RestrictMenuDevices(null);} RoamMenu=false;SetStage(pausedStage); Click(); }
         public void OpenSettings() { PushMenu(Stage.Settings); }
@@ -498,7 +500,7 @@ namespace Racer
             if(InRoamWorld){WorldLook.Current?.SaveRoamClock();GetComponent<ExplorationMap>()?.Save();}
             RacePlaylists.Quit();CampaignRun.End();SplitScreen.Begin();callers.Clear();menus.ResetPages();Click();Go(RacePlaylists.Scenes[SplitScreen.Course]);
         }
-        public void QuitSplit(bool setup){if(!SplitScreen.Active)return;QuitRace();if(setup)menus.OpenSplitSetup();}
+        public void QuitSplit(bool setup){if(!SplitScreen.Active)return;QuitRace();if(setup)menus.OpenSplitSetup(true);}
         void EndSplit()
         {
             SplitScreen.End();menus.RestrictMenuDevices(null);
@@ -555,7 +557,10 @@ namespace Racer
             else if (best) { Notify("NEW PERSONAL BEST LAP  " + RaceHud.FormatTime(Race.Progress.LastLap), 4); Sound(record); }
             else if(LapRank>0)Notify("TOP 10 LAP / #"+LapRank+"  "+RaceHud.FormatTime(Race.Progress.LastLap),4);
         }
-        public void CompleteResults() { if(WinnerShot.Active){StartCoroutine(ResultsAfterWinnerShot());return;} if(!DebugMovementUsed)RacePlaylists.Record(Race);if(CampaignRun.Active!=null)CampaignRun.Finish(this);LockVehicle(true); SetStage(Stage.Results); }
+        public void CompleteResults() { if(WinnerShot.Active){StartCoroutine(ResultsAfterWinnerShot());return;} if(!DebugMovementUsed)RacePlaylists.Record(Race);if(CampaignRun.Active!=null)CampaignRun.Finish(this,GetComponent<CampaignTrapWatch>()?.Best??0);LockVehicle(true); SetStage(Stage.Results); }
+        // 0.91 Part C: pause menu > End event in a campaign jump event (its best scored jump counts).
+        public CampaignTrapWatch JumpEvent=>CampaignRun.Active?.Kind==CampaignEventKind.Jump&&!CampaignRun.Done?GetComponent<CampaignTrapWatch>():null;
+        public void EndJumpEvent(){var watch=JumpEvent;if(watch)watch.EndNow();}
         System.Collections.IEnumerator ResultsAfterWinnerShot(){while(WinnerShot.Active)yield return null;CompleteResults();}
         public void Notify(string text, float duration) { Notice = text; noticeUntil = Time.unscaledTime + duration; }
         public void Click() => Sound(click);

@@ -1,0 +1,58 @@
+---- splitpad91
+  Dan's save copy loaded: money 15770, chapter 2, owned [original,atv,moto], error none
+PASS opened with the controller: player 1 Controller 1, player 2 the AI by default, START ready
+PASS Laps row with the D-pad: 1
+PASS race: player 1's vehicle reads the controller
+PASS player 1 drove the lap with the controller: 02:47.460, missed gates 0
+PASS split results
+PASS split-screen results: 6 rows [header, split-standing-1, split-standing-2, rematch, change-setup, menu]; reached all True, focus kept True, in drawn order True (header>split-standing-1>split-standing-2>rematch>change-setup>menu), structural check clean
+PASS REMATCH with A: racing again
+PASS split-screen pause menu: 5 rows [resume, restart, settings, return, quit]; reached all True, focus kept True, in drawn order True (resume>restart>settings>return>quit), structural check clean
+PASS END RACE with A: main menu
+PASS Enter on the keyboard: player 2 = Keyboard
+PASS player 2's right arrow: its vehicle atv > roadster; the menu focus stays (split-back)
+PASS player 2's Esc does not leave the setup (player 1's device works the screen)
+PASS player 2's device row: left to the AI driver, right back to the keyboard
+PASS race: player 1 reads the controller, player 2 the keyboard
+PASS the controller's trigger moved only player 1; the keyboard's W moved player 2 (30.8 m)
+PASS paused from the keyboard (player 2); the controller (player 1) works the pause menu (restart)
+PASS END RACE with the controller: main menu
+---- jumpend91:c2-opening-jump:original:menu
+  Dan's save copy loaded: money 15770, chapter 2, owned [original,atv,moto], error none
+  running after 11 s: state Racing, campaign c2-opening-jump
+PASS c2-opening-jump running in the Street Classic
+  message: Forest speed trap 2 / 50.6 mph
+  flight: site=jump-01 invalid=False why= verticalImpact=23.81 contactImpact=20.14 contactUp=0.99 up=0.99 wiped=False air=3.84 distance=123.55
+  message: Forest opening jump / SCORED: 405.3 ft / GOLD
+PASS flat out: scored 405.3 ft and the event goes on; HUD: Forest opening jump / SCORED: 405.3 ft / GOLD / THE OPENING JUMP  ·  Bronze 98.4 ft · silver 196.9 ft · gold 360.9 ft / Best: 405.3 ft GOLD  ·  109 s left  ·  Y: back to the run-up
+PASS Pause > END EVENT with A: GOLD  ·  405.3 ft, passed True
+PASS next event open: Rain in the Pines
+PASS jump event results (original): 2 rows [campaign-continue, campaign-retry]; reached all True, focus kept True, in drawn order True (campaign-continue>campaign-retry), structural check clean
+PASS CONTINUE: the campaign screen
+---- jumpend91:c2-opening-jump:atv
+  Dan's save copy loaded: money 15770, chapter 2, owned [original,atv,moto], error none
+  running after 22 s: state Racing, campaign c2-opening-jump
+PASS c2-opening-jump running in the Trail Four
+  message: Forest speed trap 2 / 55.5 mph
+  flight: site=jump-01 invalid=False why= verticalImpact=25.51 contactImpact=21.95 contactUp=0.99 up=0.99 wiped=False air=4.20 distance=149.62
+  message: Forest opening jump / SCORED: 490.9 ft / GOLD
+PASS flat out: scored 490.9 ft and the event goes on; HUD: Forest opening jump / SCORED: 490.9 ft / GOLD / THE OPENING JUMP  ·  Bronze 98.4 ft · silver 196.9 ft · gold 360.9 ft / Best: 490.9 ft GOLD  ·  110 s left  ·  Y: back to the run-up
+PASS Pause > END EVENT with A: GOLD  ·  490.9 ft, passed True
+PASS next event open: Rain in the Pines
+PASS jump event results (atv): 2 rows [campaign-continue, campaign-retry]; reached all True, focus kept True, in drawn order True (campaign-continue>campaign-retry), structural check clean
+PASS CONTINUE: the campaign screen
+---- jumpend91:c2-opening-jump:moto
+  Dan's save copy loaded: money 15770, chapter 2, owned [original,atv,moto], error none
+  running after 16 s: state Racing, campaign c2-opening-jump
+PASS c2-opening-jump running in the Needle 600
+  message: Forest speed trap 2 / 57.3 mph
+  flight: site=jump-01 invalid=False why= verticalImpact=24.86 contactImpact=31.18 contactUp=0.00 up=0.99 wiped=False air=4.48 distance=152.98
+  message: Forest opening jump / SCORED: 501.9 ft / GOLD
+PASS flat out: scored 501.9 ft and the event goes on; HUD: Forest opening jump / SCORED: 501.9 ft / GOLD / THE OPENING JUMP  ·  Bronze 98.4 ft · silver 196.9 ft · gold 360.9 ft / Best: 501.9 ft GOLD  ·  110 s left  ·  Y: back to the run-up
+PASS Pause > END EVENT with A: GOLD  ·  501.9 ft, passed True
+PASS next event open: Rain in the Pines
+PASS jump event results (moto): 2 rows [campaign-continue, campaign-retry]; reached all True, focus kept True, in drawn order True (campaign-continue>campaign-retry), structural check clean
+PASS CONTINUE: the campaign screen
+---- navsummary91
+PASS every menu page shown in this session: every visible row reachable with the controller (no failures)
+done, failures 0

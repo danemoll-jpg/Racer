@@ -1,0 +1,75 @@
+---- walk91
+  Dan's save copy loaded: money 15770, chapter 2, owned [original,atv,moto], error none
+PASS main menu: 10 rows [campaign, race, roam, split, garage, records, exploration, trailer, settings, quit]; reached all True, focus kept True, in drawn order True (campaign>race>roam>split>garage>records>exploration>trailer>settings>quit), structural check clean
+PASS main menu shows CAMPAIGN and SPLIT SCREEN
+PASS A on CAMPAIGN opened the campaign screen ('campaign')
+PASS B from the campaign screen: main menu
+PASS A on SPLIT SCREEN opened the setup with player 1 = the controller (Controller 1)
+PASS split-screen setup: 12 rows [split-p1, split-p2, split-ai, split-v1, split-c1, split-v2, split-c2, split-course, split-laps, split-layout, split-start, split-back]; reached all True, focus kept True, in drawn order True (split-back>split-p1>split-p2>split-ai>split-v1>split-c1>split-v2>split-c2>split-course>split-laps>split-layout>split-start), structural check clean
+PASS split-screen setup: B went back one level (now Ready / '')
+PASS A on SETTINGS
+PASS settings / gameplay (testing switch, hints rows): 10 rows [tab-gameplay, tab-audio, tab-display, tab-controls, estimate, unlock-everything, hints, hints-again, split-layout, back]; reached all True, focus kept True, in drawn order True (tab-gameplay>tab-audio>tab-display>tab-controls>estimate>unlock-everything>hints>hints-again>split-layout>back), structural check clean
+PASS Hints row toggles with A (Hints: Off > Hints: On > back)
+PASS RB / LB change the Settings tab
+PASS B from Settings: main menu
+PASS A on GARAGE opened the garage
+PASS garage (vehicles, colours, Model, Rider, Shop, Done): 12 rows [profile-0, Teal, Red, Gold, Blue, White, Violet, Black, settings, quit, trailer, exploration]; reached all True, focus kept True, structural check clean
+PASS garage (vehicles, colours, Model, Rider, Shop, Done): B went back one level (now Ready / '')
+PASS campaign screen: 15 rows [continue, shop, new-campaign, back, chapter-1, cev-c2-into-woods, chapter-2, cev-c2-cave-run, cev-c2-opening-jump, chapter-3, cev-c2-rain-pines, chapter-4, cev-c2-long-way-back, cev-c2-forest-final, ccup-cup-woodland]; reached all True, focus kept True, structural check clean
+PASS A on chapter 1 shows its events with the focus on the first (cev-c1-first-lap)
+PASS A on the Street Cup row: its page
+PASS championship page (vehicle, START CHAMPIONSHIP, Back): 3 rows [event-vehicle, cup-start, cup-back]; reached all True, focus kept True, in drawn order True (event-vehicle>cup-start>cup-back), structural check clean
+PASS championship page (vehicle, START CHAMPIONSHIP, Back): B went back one level (now Ready / 'campaign')
+PASS A on The Opening Jump: its event page
+PASS event page: right on the vehicle row changes it (‹   Vehicle: Street Classic  (Car, 1 of 3)   › > ‹   Vehicle: Needle 600  (Motorcycle, 2 of 3)   ›)
+PASS event page (vehicle, START EVENT, Back): 3 rows [event-vehicle, start-event, event-back]; reached all True, focus kept True, in drawn order True (event-vehicle>start-event>event-back), structural check clean
+PASS event page (vehicle, START EVENT, Back): B went back one level (now Ready / 'campaign')
+PASS A on Shop: the Shop
+PASS Shop: right on the vehicle row steps the vehicle
+PASS Shop (vehicle, buy, upgrades, Back): 6 rows [shop-vehicle, upgrade-0, upgrade-1, upgrade-2, upgrade-3, shop-back]; reached all True, focus kept True, in drawn order True (shop-vehicle>upgrade-0>upgrade-1>upgrade-2>upgrade-3>shop-back), structural check clean
+PASS A on an upgrade: the confirmation
+PASS upgrade confirmation: 2 rows [cancel, confirm]; reached all True, focus kept True, in drawn order True (cancel>confirm), structural check clean
+PASS upgrade confirmation: B went back one level (now Garage / 'shop')
+PASS B from the Shop (opened from the campaign): campaign screen (Ready / 'campaign')
+PASS New Campaign confirmation: 2 rows [cancel, confirm]; reached all True, focus kept True, in drawn order True (cancel>confirm), structural check clean
+PASS New Campaign confirmation: B went back one level (now Ready / 'campaign')
+PASS cancelled: Dan's campaign copy untouched
+PASS Continue: the next event's page (The Opening Jump)
+PASS B, B: back to the main menu
+PASS GARAGE after visiting the Shop opens the garage ('')
+  running after 4 s: state Racing, campaign cup-street-r1
+PASS A on START CHAMPIONSHIP: round 1 racing
+PASS Start: paused
+PASS championship race pause menu: 9 rows [resume, camera-view, trailer, settings, return, records, exploration, penalties, quit]; reached all True, focus kept True, in drawn order True (resume>camera-view>trailer>settings>return>records>exploration>penalties>quit), structural check clean
+FAIL left from the pause menu: round result with the standings and Next race
+FAIL championship round result and standings: 15 rows [continue, shop, new-campaign, back, chapter-1, cev-c1-first-lap, chapter-2, cev-c1-hwy92-trap, cev-c1-against-clock, chapter-3, cev-c1-night-shift, chapter-4, cev-c1-wrong-way, cev-c1-street-final, ccup-cup-street]; reached all True, focus kept True, in drawn order False (continue>shop>new-campaign>back>chapter-1>chapter-2>chapter-3>chapter-4>cev-c1-first-lap>cev-c1-hwy92-trap>cev-c1-against-clock>cev-c1-night-shift>cev-c1-wrong-way>cev-c1-street-final>ccup-cup-street), structural check clean
+FAIL D-pad could not reach 'campaign-continue' (focus on shop, page 'campaign')
+FAIL Campaign screen (resume later)
+FAIL D-pad could not reach 'ccup-cup-street' (focus on shop-vehicle, page 'shop')
+PASS championship page in progress (Resume, standings, Restart, Abandon): 6 rows [shop-vehicle, upgrade-0, upgrade-1, upgrade-2, upgrade-3, shop-back]; reached all True, focus kept True, in drawn order True (shop-vehicle>upgrade-0>upgrade-1>upgrade-2>upgrade-3>shop-back), structural check clean
+FAIL D-pad could not reach 'cup-abandon' (focus on upgrade-0, page 'shop')
+PASS Abandon confirmation: 2 rows [cancel, confirm]; reached all True, focus kept True, in drawn order True (cancel>confirm), structural check clean
+FAIL Abandon confirmation: B went back one level (now Garage / 'shop')
+FAIL D-pad could not reach 'cup-restart' (focus on upgrade-0, page 'shop')
+PASS Restart confirmation: 2 rows [cancel, confirm]; reached all True, focus kept True, in drawn order True (cancel>confirm), structural check clean
+FAIL Restart confirmation: B went back one level (now Garage / 'shop')
+PASS B, B: main menu
+screens walked: main menu | split-screen setup | settings / gameplay (testing switch, hints rows) | garage (vehicles, colours, Model, Rider, Shop, Done) | campaign screen | championship page (vehicle, START CHAMPIONSHIP, Back) | event page (vehicle, START EVENT, Back) | Shop (vehicle, buy, upgrades, Back) | upgrade confirmation | New Campaign confirmation | championship race pause menu | championship round result and standings | championship page in progress (Resume, standings, Restart, Abandon) | Abandon confirmation | Restart confirmation
+---- newplayer91
+PASS welcome panel: 2 rows [welcome-campaign, welcome-roam]; reached all True, focus kept True, in drawn order True (welcome-campaign>welcome-roam), structural check clean
+PASS START THE CAMPAIGN: chapter 1's first event page
+PASS the controls card holds the first event's countdown
+PASS one press (A) dismissed it
+  running after 2 s: state Racing, campaign c1-first-lap
+PASS campaign race pause menu: 10 rows [resume, camera-view, restart, trailer, settings, return, records, exploration, penalties, quit]; reached all True, focus kept True, in drawn order True (resume>camera-view>restart>trailer>settings>return>records>exploration>penalties>quit), structural check clean
+PASS END RACE from the pause menu: campaign screen ('campaign')
+---- roam91
+  Dan's save copy loaded: money 15770, chapter 2, owned [original,atv,moto], error none
+PASS Start in Free Roam: its menu
+PASS Free Roam pause menu: 12 rows [resume, trailer, camera-view, campaign, race, roam, split, garage, records, exploration, settings, quit]; reached all True, focus kept True, in drawn order True (race>roam>split>garage>records>exploration>settings>quit>resume>trailer>camera-view>campaign), structural check clean
+PASS Free Roam menu: A on CAMPAIGN opens the campaign screen
+PASS Free Roam menu: A on SPLIT SCREEN opens the setup (player 1 the controller)
+PASS RESUME DRIVING
+---- navsummary91
+PASS every menu page shown in this session: every visible row reachable with the controller (no failures)
+done, failures 9

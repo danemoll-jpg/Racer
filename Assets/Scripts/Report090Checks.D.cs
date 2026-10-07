@@ -13,7 +13,7 @@ namespace Racer {
 // 0.90 Part D checks: split-screen on the runner's muted isolated save, with emulated controllers (InputSystem test devices).
 public sealed partial class Report080Checks {
  partial void Split090(string[] a,ref IEnumerator run){
-  run=a[0] switch{"splitsetup90"=>SplitSetup090(),"splitrace90"=>SplitRace090(int.Parse(a[1]),a[2],a[3]=="lr",int.Parse(a[4])),"splitkeys90"=>SplitKeys090(),"splitafter90"=>SplitAfter090(),_=>null};}
+  run=a[0] switch{"splitsetup90"=>SplitSetup090(),"splitrace90"=>SplitRace090(int.Parse(a[1]),a[2],a[3]=="lr",int.Parse(a[4])),"splitkeys90"=>SplitKeys090(),"splitafter90"=>SplitAfter090(),_=>Run091(a)};}
  Gamepad pad1,pad2;
  void Pads090(){if(pad1==null||!pad1.added)pad1=InputSystem.AddDevice<Gamepad>("Report090 pad 1");if(pad2==null||!pad2.added)pad2=InputSystem.AddDevice<Gamepad>("Report090 pad 2");}
  IEnumerator Press090(InputDevice d,GamepadButton b){InputSystem.QueueStateEvent((Gamepad)d,new GamepadState().WithButton(b));yield return null;yield return null;InputSystem.QueueStateEvent((Gamepad)d,new GamepadState());yield return null;yield return null;}

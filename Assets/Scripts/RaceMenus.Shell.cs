@@ -45,6 +45,8 @@ namespace Racer
             if(flow.State==RaceFlow.Stage.Ready&&page=="race"&&flow.SetupFromResults){flow.PopMenu();return true;}
             if(page=="folder"){FolderBack();return true;}
             if(page=="keyboard"){CloseKeyboard(false);return true;}
+            // 0.91 Part A: B in the Shop is its Back row (it left the Garage on the Shop page, so GARAGE later opened the Shop)
+            if(flow.State==RaceFlow.Stage.Garage&&page=="shop"&&pages.Count==0){ShopBack();return true;}
             if(pages.Count>0){CapturePage();page=pages.Pop();MenuInput.ConsumeThroughRelease();Show();return true;}
             if(flow.State==RaceFlow.Stage.Ready&&page!=""){page="";Show();return true;}
             return false;

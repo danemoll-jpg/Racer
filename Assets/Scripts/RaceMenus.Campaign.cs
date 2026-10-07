@@ -141,7 +141,7 @@ namespace Racer
                 $"Chapter {e.Chapter}  ·  {e.CourseTitle}", e.KindLabel, "Conditions: " + e.Conditions, "Entry: " + e.Entry, "Pays: " + Campaign.PayText(e) };
             if (e.Timed) lines.Add(Campaign.TargetsText(e));
             if (e.Kind == CampaignEventKind.SpeedTrap) lines.Add($"Standing start {DisplayUnits.Distance(e.RunUp)} before the trap; {e.TimeLimit:0} s to reach it.");
-            if (e.Kind == CampaignEventKind.Jump) lines.Add($"Start {DisplayUnits.Distance(e.RunUp)} before the jump; your first clean landing within {e.TimeLimit:0} s counts.");
+            if (e.Kind == CampaignEventKind.Jump) lines.Add($"Start {DisplayUnits.Distance(e.RunUp)} before the jump; jump as often as you like in {e.TimeLimit:0} s: your best counts. Reset takes you back to the run-up; Pause > End event keeps your best. Land it on your wheels to score.");
             if (e.Kind == CampaignEventKind.Smash) lines.Add($"Leave the road for the fence line beside it: {e.TimeLimit:0} s to smash as many different props as you can.");
             if (e.Kind == CampaignEventKind.TimeTrial) lines.Add("Flying start: the lap clock starts at the START line.");
             lines.Add(e.Kind == CampaignEventKind.Race ? "Pass: finish in the top three" : "Pass: bronze or better");

@@ -45,7 +45,7 @@ namespace Racer
             // AI owns its retry/cooldown bookkeeping. A second automatic respawn
             // here could otherwise move it without clearing its stuck counters.
             if(TryGetComponent<RoadDriver>(out var driver)&&driver.enabled)return;
-            if(input.enabled && input.ConsumeReset()) ResetVehicle();
+            if(input.enabled && input.ConsumeReset()){if(!RunUp())ResetVehicle();}
             else if(Pending && Time.time>=nextAttempt) TryRecoverLocal();
         }
         float nextFailsafe,aiFailingSince=-1;Vector3 lastAbove;bool haveAbove;
@@ -236,6 +236,14 @@ namespace Racer
             MeasureClearance();
             if(!Supported(candidate,facing*Vector3.forward,out var position,out var rotation)||!Clear(position,rotation))return false;
             CancelRecovery();Place(position,rotation);RecordRoaming();Respawned?.Invoke();return true;
+        }
+        // 0.91 Part C: in a campaign jump event the player's reset puts them back at the run-up to jump again.
+        bool RunUp()
+        {
+            if(!race)race=FindAnyObjectByType<RaceDirector>();
+            if(!race||race.vehicle!=vehicle||!CampaignRun.RunUpStart(race,out var position,out var rotation))return false;
+            CancelRecovery();Place(position,rotation);SeedCoursePosition(position);LastRecovery="Back to the run-up";Respawned?.Invoke();
+            FindAnyObjectByType<ChaseCamera>()?.Snap();return true;
         }
         public void ResetVehicle()
         {

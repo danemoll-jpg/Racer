@@ -1,0 +1,48 @@
+---- campaignwalk91
+  Dan's save copy loaded: money 15770, chapter 2, owned [original,atv,moto], error none
+PASS campaign screen: 15 rows [continue, shop, new-campaign, back, chapter-1, cev-c2-into-woods, chapter-2, cev-c2-cave-run, cev-c2-opening-jump, chapter-3, cev-c2-rain-pines, chapter-4, cev-c2-long-way-back, cev-c2-forest-final, ccup-cup-woodland]; reached all True, focus kept True, structural check clean
+PASS A on chapter 1 shows its events with the focus on the first (cev-c1-first-lap)
+PASS A on the Street Cup row: its page
+PASS championship page (vehicle, START CHAMPIONSHIP, Back): 3 rows [event-vehicle, cup-start, cup-back]; reached all True, focus kept True, in drawn order True (event-vehicle>cup-start>cup-back), structural check clean
+PASS championship page (vehicle, START CHAMPIONSHIP, Back): B went back one level (now Ready / 'campaign')
+PASS A on The Opening Jump: its event page
+PASS event page: right on the vehicle row changes it (‹   Vehicle: Street Classic  (Car, 1 of 3)   › > ‹   Vehicle: Needle 600  (Motorcycle, 2 of 3)   ›)
+PASS event page (vehicle, START EVENT, Back): 3 rows [event-vehicle, start-event, event-back]; reached all True, focus kept True, in drawn order True (event-vehicle>start-event>event-back), structural check clean
+PASS event page (vehicle, START EVENT, Back): B went back one level (now Ready / 'campaign')
+PASS A on Shop: the Shop
+PASS Shop: right on the vehicle row steps the vehicle
+PASS Shop (vehicle, buy, upgrades, Back): 6 rows [shop-vehicle, upgrade-0, upgrade-1, upgrade-2, upgrade-3, shop-back]; reached all True, focus kept True, in drawn order True (shop-vehicle>upgrade-0>upgrade-1>upgrade-2>upgrade-3>shop-back), structural check clean
+PASS A on an upgrade: the confirmation
+PASS upgrade confirmation: 2 rows [cancel, confirm]; reached all True, focus kept True, in drawn order True (cancel>confirm), structural check clean
+PASS upgrade confirmation: B went back one level (now Garage / 'shop')
+PASS B from the Shop (opened from the campaign): campaign screen (Ready / 'campaign')
+PASS New Campaign confirmation: 2 rows [cancel, confirm]; reached all True, focus kept True, in drawn order True (cancel>confirm), structural check clean
+PASS New Campaign confirmation: B went back one level (now Ready / 'campaign')
+PASS cancelled: Dan's campaign copy untouched
+PASS Continue: the next event's page (The Opening Jump)
+PASS B, B: back to the main menu
+PASS GARAGE after visiting the Shop opens the garage ('')
+  running after 4 s: state Racing, campaign cup-street-r1
+PASS A on START CHAMPIONSHIP: round 1 racing
+PASS Start: paused
+PASS championship race pause menu: 9 rows [resume, camera-view, trailer, settings, return, records, exploration, penalties, quit]; reached all True, focus kept True, in drawn order True (resume>camera-view>trailer>settings>return>records>exploration>penalties>quit), structural check clean
+PASS Start again: racing
+PASS round 1 finished: its result with the standings and Next race
+PASS championship round result and standings: 16 rows [next-race, campaign-continue, header, standing-1, standing-2, standing-3, standing-4, standing-5, standing-6, cup-header, cup-standing-1, cup-standing-2, cup-standing-3, cup-standing-4, cup-standing-5, cup-standing-6]; reached all True, focus kept True, structural check clean
+  running after 10 s: state Racing, campaign cup-street-r2
+PASS A on NEXT RACE: round 2 racing
+PASS round 2 left from the pause menu (did not finish): the campaign screen
+PASS championship page in progress (Resume, standings, Restart, Abandon): 11 rows [cup-resume, cup-header, cup-standing-1, cup-standing-2, cup-standing-3, cup-standing-4, cup-standing-5, cup-standing-6, cup-restart, cup-abandon, cup-back]; reached all True, focus kept True, in drawn order True (cup-resume>cup-header>cup-standing-1>cup-standing-2>cup-standing-3>cup-standing-4>cup-standing-5>cup-standing-6>cup-restart>cup-abandon>cup-back), structural check clean
+PASS Abandon confirmation: 2 rows [cancel, confirm]; reached all True, focus kept True, in drawn order True (cancel>confirm), structural check clean
+PASS Abandon confirmation: B went back one level (now Ready / 'campaign-cup')
+PASS Restart confirmation: 2 rows [cancel, confirm]; reached all True, focus kept True, in drawn order True (cancel>confirm), structural check clean
+PASS Restart confirmation: B went back one level (now Ready / 'campaign-cup')
+PASS B, B: main menu
+screens walked: campaign screen | championship page (vehicle, START CHAMPIONSHIP, Back) | event page (vehicle, START EVENT, Back) | Shop (vehicle, buy, upgrades, Back) | upgrade confirmation | New Campaign confirmation | championship race pause menu | championship round result and standings | championship page in progress (Resume, standings, Restart, Abandon) | Abandon confirmation | Restart confirmation
+---- runup91
+  Dan's save copy loaded: money 15770, chapter 2, owned [original,atv,moto], error none
+  running after 17 s: state Racing, campaign c2-opening-jump
+PASS Y in the jump event: 173 m down the road, then back at the run-up (0.0 m from the start), event still running
+---- navsummary91
+PASS every menu page shown in this session: every visible row reachable with the controller (no failures)
+done, failures 0

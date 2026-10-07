@@ -84,7 +84,7 @@ details.gameObject.SetActive(true);
                     {var t=buttons[10].GetComponentInChildren<UnityEngine.UI.Text>(true);t.alignment=TextAnchor.MiddleCenter;buttons[10].GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=62;var c=buttons[10].colors;c.normalColor=new(.1f,.38f,.35f);buttons[10].colors=c;}
                     // 0.90 Part A: Race Setup always opens on a course the campaign has opened
                     Row(0,"race","RACE",()=>{int here=System.Array.IndexOf(RacePlaylists.Scenes,flow.gameObject.scene.name);if(flow.InRoamWorld)flow.OpenRaceSetupFromRoam();else if(here>=0&&!Campaign.CourseOpen(here))flow.OpenRaceSetupOnOpenCourse();else Navigate("race");});Row(1,"roam","FREE ROAM",()=>Navigate("roam"));
-                    Row(11,"split","SPLIT SCREEN",OpenSplitSetup);buttons[11].transform.SetSiblingIndex(buttons[1].transform.GetSiblingIndex()+1);Row(2,"garage","GARAGE",flow.OpenGarage);
+                    Row(11,"split","SPLIT SCREEN",()=>OpenSplitSetup());buttons[11].transform.SetSiblingIndex(buttons[1].transform.GetSiblingIndex()+1);Row(2,"garage","GARAGE",flow.OpenGarage);
                     Row(3,"records","RECORDS",flow.OpenBoards);Row(4,"exploration","EXPLORATION",flow.OpenExploration);Row(5,"settings","SETTINGS",flow.OpenSettings);Row(6,"quit","QUIT GAME",ConfirmQuit);
                     if(flow.RoamMenu){Row(7,"resume","RESUME DRIVING",flow.Resume);buttons[7].transform.SetSiblingIndex(buttons[10].transform.GetSiblingIndex());
                         Row(8,"trailer",TrailerLabel,()=>Navigate("trailer"));buttons[8].transform.SetSiblingIndex(buttons[7].transform.GetSiblingIndex()+1);
@@ -106,6 +106,8 @@ details.gameObject.SetActive(true);
                 Row(0,"resume","RESUME",flow.Resume);
                 if(flow.Race.FreeRoam){Row(1,"map","MAP",()=>flow.GetComponent<ExplorationMap>()?.Open());Row(2,"activities","ACTIVITIES",()=>Navigate("activities"));}
                 else if(CampaignRun.Cup==null)Row(1,"restart","RESTART RACE",()=>Confirm("RESTART RACE?","This restarts the current event and clears its progress.",flow.StartRace));
+                // 0.91 Part C: a campaign jump event can be ended early, keeping its best scored jump
+                if(flow.JumpEvent is CampaignTrapWatch jumpEvent){var e=CampaignRun.Active;Row(12,"end-event",jumpEvent.Best>0?"END EVENT   ·   keep your best, "+Campaign.Measure(e,jumpEvent.Best):"END EVENT   (no scored jump yet)",()=>{if(jumpEvent.Best>0)flow.EndJumpEvent();else Confirm("END THE EVENT?","You have no scored jump yet, so it ends with no result.",flow.EndJumpEvent,"END EVENT");});buttons[12].transform.SetSiblingIndex(buttons[0].transform.GetSiblingIndex()+1);}
                 Row(flow.Race.FreeRoam?10:2,"trailer",TrailerLabel,()=>Navigate("trailer"));
                 if(CameraViews.Current){Row(11,"camera-view",CameraViewLabel,CycleCameraView);buttons[11].transform.SetSiblingIndex(buttons[0].transform.GetSiblingIndex()+1);}
                 Row(3,"settings","SETTINGS",flow.OpenSettings);Row(4,"return",flow.Race.FreeRoam?"RETURN TO MENU":"END RACE / RETURN TO MENU",()=>Confirm(flow.Race.FreeRoam?"RETURN TO MENU?":"END RACE AND RETURN TO MENU?",RacePlaylists.Active!=null?"The active playlist and championship progress will end. Saved playlists are kept.":CampaignRun.Cup!=null?"This round counts as did not finish (no points). The championship goes on from the next race.":"The current event will end.",flow.QuitRace));

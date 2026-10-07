@@ -64,10 +64,11 @@ namespace Racer
             new() { Id = "c1-wrong-way", Name = "Wrong Way Round", Chapter = 1, Kind = CampaignEventKind.Race, Course = 1, Laps = 2, Rivals = new[] { "pebble", "skyfin", "atv" }, Difficulty = 1, Time = TimeOfDay.Dusk, Weather = Weather.Rain, Pay = 1400, Bonus = 700 },
             new() { Id = "c1-street-final", Name = "Street Loop Final", Chapter = 1, Kind = CampaignEventKind.Race, Course = 0, Laps = 3, Rivals = new[] { "atv", "tourer", "roadster", "pebble", "drifter" }, Difficulty = 1, Pay = 2500, Bonus = 1500, Prize = "moto", Final = true },
 
-            // Chapter 2, Forest Loop (Normal rivals)
+            // Chapter 2, Forest Loop (Normal rivals). 0.91: the jump events' targets and time limits re-set from flat-out runs now
+            // that a jump counts when the vehicle survives it (several attempts per run, the best counts).
             new() { Id = "c2-into-woods", Name = "Into the Woods", Chapter = 2, Kind = CampaignEventKind.Race, Course = 2, Laps = 2, Rivals = new[] { "tourer", "pebble", "atv" }, Difficulty = 1, Pay = 1500, Bonus = 750 },
             new() { Id = "c2-cave-run", Name = "Cave Run", Chapter = 2, Kind = CampaignEventKind.TimeTrial, Course = 2, RunUp = 150, Targets = new[] { 76f, 69f, 64f }, Pay = 1300, Bonus = 650 },
-            new() { Id = "c2-opening-jump", Name = "The Opening Jump", Chapter = 2, Kind = CampaignEventKind.Jump, Course = 2, Site = "jump-01", RunUp = 150, TimeLimit = 40, Targets = new[] { 25f, 35f, 44f }, Pay = 1300, Bonus = 650 },
+            new() { Id = "c2-opening-jump", Name = "The Opening Jump", Chapter = 2, Kind = CampaignEventKind.Jump, Course = 2, Site = "jump-01", RunUp = 150, TimeLimit = 120, Targets = new[] { 30f, 60f, 110f }, Pay = 1300, Bonus = 650 },
             new() { Id = "c2-rain-pines", Name = "Rain in the Pines", Chapter = 2, Kind = CampaignEventKind.Race, Course = 2, Laps = 3, Rivals = new[] { "skyfin", "drifter", "atv" }, Difficulty = 1, Time = TimeOfDay.Dusk, Weather = Weather.Rain, Pay = 1700, Bonus = 850 },
             new() { Id = "c2-long-way-back", Name = "The Long Way Back", Chapter = 2, Kind = CampaignEventKind.Race, Course = 3, Laps = 2, Rivals = new[] { "roadster", "drifter", "atv" }, Difficulty = 1, Pay = 1700, Bonus = 850 },
             new() { Id = "c2-forest-final", Name = "Forest Final", Chapter = 2, Kind = CampaignEventKind.Race, Course = 2, Laps = 3, Rivals = new[] { "drifter", "tourer", "atv", "moto", "skyfin" }, Difficulty = 1, Pay = 2800, Bonus = 4000, Final = true },
@@ -85,7 +86,7 @@ namespace Racer
             new() { Id = "c4-summit-clock", Name = "Summit Clock", Chapter = 4, Kind = CampaignEventKind.TimeTrial, Course = 4, RunUp = 150, Targets = new[] { 134f, 124f, 118f }, Pay = 2000, Bonus = 1000 },
             new() { Id = "c4-downhill", Name = "Downhill", Chapter = 4, Kind = CampaignEventKind.Race, Course = 5, Laps = 2, Rivals = new[] { "moto", "scrambler", "drifter" }, Difficulty = 2, Pay = 2400, Bonus = 1200 },
             new() { Id = "c4-whiteout", Name = "Whiteout", Chapter = 4, Kind = CampaignEventKind.Race, Course = 4, Laps = 2, Rivals = new[] { "atv", "scrambler", "fastback" }, Difficulty = 2, Time = TimeOfDay.Night, Weather = Weather.Snow, Pay = 2600, Bonus = 1300 },
-            new() { Id = "c4-summit-flight", Name = "Summit Homeward Flight", Chapter = 4, Kind = CampaignEventKind.Jump, Course = 4, Site = "summit-homeward", RunUp = 250, TimeLimit = 50, Targets = new[] { 120f, 170f, 210f }, Pay = 2000, Bonus = 1000 },
+            new() { Id = "c4-summit-flight", Name = "Summit Homeward Flight", Chapter = 4, Kind = CampaignEventKind.Jump, Course = 4, Site = "summit-homeward", RunUp = 250, TimeLimit = 150, Targets = new[] { 90f, 140f, 200f }, Pay = 2000, Bonus = 1000 },
             new() { Id = "c4-summit-final", Name = "Summit Final", Chapter = 4, Kind = CampaignEventKind.Race, Course = 4, Laps = 3, Rivals = new[] { "moto", "scrambler", "drifter", "fastback", "atv" }, Difficulty = 2, Pay = 4200, Bonus = 2100, Prize = "fastback", Final = true },
         };
         // Share of Pay by finishing place (every finisher earns something) and by medal (none, bronze, silver, gold).

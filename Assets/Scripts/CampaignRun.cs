@@ -49,7 +49,8 @@ namespace Racer
             var e = Active; if (e == null) return;
             race.opponents = e.Kind == CampaignEventKind.Race && e.Rivals.Length > 0;
             race.opponentRoster = race.opponents ? (string[])e.Rivals.Clone() : new[] { "tourer", "moto", "atv" };
-            race.laps = e.Laps; race.difficulty = e.Difficulty; race.traffic = e.Traffic;
+            // 0.91 Part C: a jump event has no laps (the player may go round and jump again until the time limit)
+            race.laps = e.Kind == CampaignEventKind.Jump ? 0 : e.Laps; race.difficulty = e.Difficulty; race.traffic = e.Traffic;
             var configuration = race.vehicle.GetComponent<VehicleConfiguration>();
             configuration.Apply(Vehicle);
             Campaign.ApplyUpgrades(configuration); // 0.90: campaign runs only
@@ -65,6 +66,15 @@ namespace Racer
             }
             else station = race.Origin - e.RunUp;
             return true;
+        }
+        // 0.91 Part C: in a jump event the reset button puts the vehicle back at the run-up start, facing the jump.
+        public static bool RunUpStart(RaceDirector race, out Vector3 position, out Quaternion rotation)
+        {
+            position = default; rotation = Quaternion.identity;
+            if (Active?.Kind != CampaignEventKind.Jump || Done || !StartStation(race, out float station)) return false;
+            var at = race.road.At(station, out var heading); var car = race.vehicle;
+            position = at + Vector3.up * Mathf.Max(.4f, car.suspensionLength - Physics.gravity.magnitude / car.springStrength);
+            rotation = Quaternion.LookRotation(Vector3.ProjectOnPlane(heading, Vector3.up)); return true;
         }
         public static ActivitySite Site(RaceDirector race) => Active?.Site == null ? null : race.Flow?.Activities?.Sites?.FirstOrDefault(s => s && s.id == Active.Site);
 
@@ -105,13 +115,28 @@ namespace Racer
         }
     }
 
-    // Ends a speed-trap or jump event: the first scored crossing of the event's trap, or the first scored jump from its
-    // site (shown for a moment, then the results), or no result when the time limit runs out. Added to the race flow
-    // object while such an event runs.
+    // Ends a speed-trap event at the first scored crossing of its trap (shown for a moment, then the results), or with no
+    // result when the time limit runs out. 0.91 Part C: a jump event goes on until its time limit (or End event in the pause
+    // menu), however many jumps the player makes: the best scored jump counts, a failed one never ends it. Added to the race
+    // flow object while such an event runs.
     public sealed class CampaignTrapWatch : MonoBehaviour
     {
-        RaceFlow flow; int awards; float endAt = -1, score; bool smashStarted;
-        public void Initialize(RaceFlow owner) { flow = owner; awards = flow.Activities ? flow.Activities.Awards : 0; endAt = -1; score = 0; smashStarted = false; }
+        RaceFlow flow; int awards, jumps; float endAt = -1, score; bool smashStarted;
+        public float Best { get; private set; }
+        public void Initialize(RaceFlow owner) { flow = owner; awards = flow.Activities ? flow.Activities.Awards : 0; endAt = -1; score = 0; smashStarted = false; Best = 0; jumps = 0; }
+        // The jump event's HUD line: targets, best so far, time left, how to go again.
+        public string Hud
+        {
+            get
+            {
+                var e = CampaignRun.Active; if (!flow || e == null || e.Kind != CampaignEventKind.Jump || CampaignRun.Done || flow.State != RaceFlow.Stage.Racing) return null;
+                float left = Mathf.Max(0, e.TimeLimit - (float)flow.Race.Progress.RaceTime(flow.Race.Clock));
+                string reset = MenuInput.Binding(flow.Race.vehicle.GetComponent<VehicleInput>().CurrentBindings[3]);
+                return $"{e.Name.ToUpperInvariant()}  ·  {Campaign.TargetsText(e)}\nBest: {(Best > 0 ? Campaign.Measure(e, Best) + " " + new[] { "(no medal)", "BRONZE", "SILVER", "GOLD" }[Campaign.MedalFor(e, Best)] : "none yet")}  ·  {left:0} s left  ·  {MenuGlyph.Label(reset)}: back to the run-up";
+            }
+        }
+        // Pause menu > End event: the best scored jump counts (none: no result).
+        public void EndNow() { if (CampaignRun.Done) return; CampaignRun.Finish(flow, Best); flow.CompleteResults(); Destroy(this); }
         void Update()
         {
             var e = CampaignRun.Active;
@@ -130,9 +155,17 @@ namespace Racer
             if (endAt < 0 && a && a.Awards != awards)
             {
                 awards = a.Awards;
-                if (a.LastAwardSite && a.LastAwardSite.id == e.Site) { score = e.Kind == CampaignEventKind.Jump ? a.LastJumpAward : a.LastSpeed; endAt = Time.unscaledTime + 1.6f; }
+                if (a.LastAwardSite && a.LastAwardSite.id == e.Site)
+                {
+                    if (e.Kind == CampaignEventKind.Jump) { jumps++; Best = Mathf.Max(Best, a.LastJumpAward); }
+                    else { score = a.LastSpeed; endAt = Time.unscaledTime + 1.6f; }
+                }
             }
-            if (endAt < 0 && flow.Race.Progress.RaceTime(flow.Race.Clock) > e.TimeLimit) { score = 0; endAt = Time.unscaledTime; flow.Notify(e.Kind == CampaignEventKind.Jump ? "Time is up — no scored jump" : "Time is up — no trap speed recorded", 3); }
+            if (endAt < 0 && flow.Race.Progress.RaceTime(flow.Race.Clock) > e.TimeLimit)
+            {
+                score = e.Kind == CampaignEventKind.Jump ? Best : 0; endAt = Time.unscaledTime + (score > 0 ? 1.6f : 0);
+                flow.Notify(e.Kind == CampaignEventKind.Jump ? (Best > 0 ? "Time is up — your best jump counts: " + Campaign.Measure(e, Best) : "Time is up — no scored jump") : "Time is up — no trap speed recorded", 3);
+            }
             if (endAt >= 0 && Time.unscaledTime >= endAt) { CampaignRun.Finish(flow, score); flow.CompleteResults(); Destroy(this); }
         }
     }

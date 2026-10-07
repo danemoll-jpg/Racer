@@ -1,0 +1,48 @@
+---- jump91:c2-opening-jump:original:before
+  Dan's save copy loaded: money 15770, chapter 2, owned [original,atv,moto], error none
+  waiting: scene StreetLoopGreybox, flow yes, started True, holding True, state Ready, timeScale 1, campaign c2-opening-jump pending True
+  waiting: scene StreetLoopGreybox, flow yes, started True, holding True, state Ready, timeScale 1, campaign c2-opening-jump pending True
+  waiting: scene StreetLoopGreybox, flow yes, started True, holding True, state Ready, timeScale 1, campaign c2-opening-jump pending True
+  waiting: scene StreetLoopGreybox, flow yes, started True, holding True, state Ready, timeScale 1, campaign c2-opening-jump pending True
+  waiting: scene StreetLoopGreybox, flow yes, started True, holding True, state Ready, timeScale 1, campaign c2-opening-jump pending True
+  waiting: scene LakeWoods, flow yes, started False, holding True, state Ready, timeScale 1, campaign c2-opening-jump pending True
+  waiting: scene LakeWoods, flow yes, started False, holding True, state Ready, timeScale 1, campaign c2-opening-jump pending True
+  running after 38 s: state Racing, campaign c2-opening-jump
+  message: Forest speed trap 2 / 50.6 mph
+  flight: site=jump-01 invalid=True verticalImpact=23.81 contactImpact=20.14 contactUp=0.99 up=0.99 wiped=False air=3.84 distance=123.56
+  message: Jump not scored / unstable, wet or hard landing
+  flight: site= invalid=False verticalImpact=5.75 contactImpact=3.21 contactUp=1.00 up=1.00 wiped=False air=0.18 distance=7.96
+  flight: site= invalid=True verticalImpact=18.04 contactImpact=22.88 contactUp=0.00 up=1.00 wiped=False air=2.60 distance=96.29
+  flight: site= invalid=True verticalImpact=10.74 contactImpact=36.91 contactUp=0.00 up=0.97 wiped=False air=1.70 distance=55.20
+  flight: site= invalid=True verticalImpact=8.98 contactImpact=24.87 contactUp=0.00 up=0.93 wiped=False air=2.04 distance=42.93
+c2-opening-jump original flat out (before): result no score, medal 0, passed False
+---- jump91:c2-opening-jump:atv:before
+  Dan's save copy loaded: money 15770, chapter 2, owned [original,atv,moto], error none
+  waiting: scene StreetLoopGreybox, flow yes, started True, holding True, state Ready, timeScale 1, campaign c2-opening-jump pending True
+  waiting: scene LakeWoods, flow yes, started False, holding True, state Ready, timeScale 1, campaign c2-opening-jump pending True
+  waiting: scene LakeWoods, flow yes, started True, holding False, state Countdown, timeScale 1, campaign c2-opening-jump pending False
+  running after 15 s: state Racing, campaign c2-opening-jump
+  message: Forest speed trap 2 / 55.5 mph
+  flight: site=jump-01 invalid=True verticalImpact=25.52 contactImpact=21.77 contactUp=0.99 up=0.99 wiped=False air=4.20 distance=149.95
+  message: Jump not scored / unstable, wet or hard landing
+  flight: site= invalid=False verticalImpact=5.54 contactImpact=0.00 contactUp=1.00 up=1.00 wiped=False air=0.34 distance=13.47
+  message: CLEAN JUMP / 44.2 ft / 0.34 s / 169 pts
+  flight: site= invalid=True verticalImpact=18.38 contactImpact=26.80 contactUp=0.00 up=1.00 wiped=False air=2.64 distance=100.44
+c2-opening-jump atv flat out (before): result no score, medal 0, passed False
+---- jump91:c2-opening-jump:moto:before
+  Dan's save copy loaded: money 15770, chapter 2, owned [original,atv,moto], error none
+  waiting: scene LakeWoods, flow yes, started False, holding True, state Ready, timeScale 1, campaign c2-opening-jump pending True
+  waiting: scene LakeWoods, flow yes, started False, holding True, state Ready, timeScale 1, campaign c2-opening-jump pending True
+  waiting: scene LakeWoods, flow yes, started True, holding False, state Countdown, timeScale 1, campaign c2-opening-jump pending False
+  running after 16 s: state Racing, campaign c2-opening-jump
+  message: Forest speed trap 2 / 57.3 mph
+  flight: site=jump-01 invalid=True verticalImpact=24.91 contactImpact=31.35 contactUp=0.00 up=0.98 wiped=False air=4.48 distance=153.01
+  message: Jump not scored / unstable, wet or hard landing
+  flight: site= invalid=False verticalImpact=5.04 contactImpact=0.00 contactUp=1.00 up=1.00 wiped=False air=0.28 distance=9.88
+  message: CLEAN JUMP / 32.4 ft / 0.28 s / 127 pts
+  flight: site= invalid=True verticalImpact=16.13 contactImpact=32.62 contactUp=0.00 up=1.00 wiped=False air=2.66 distance=98.33
+  flight: site= invalid=True verticalImpact=7.77 contactImpact=44.85 contactUp=0.00 up=0.63 wiped=False air=1.66 distance=60.86
+  flight: site= invalid=True verticalImpact=13.68 contactImpact=14.41 contactUp=0.00 up=0.97 wiped=False air=1.18 distance=24.15
+  flight: site= invalid=True verticalImpact=9.61 contactImpact=18.69 contactUp=0.00 up=0.68 wiped=False air=1.34 distance=28.24
+c2-opening-jump moto flat out (before): result no score, medal 0, passed False
+done, failures 0

@@ -26,7 +26,9 @@ namespace Racer
         public string LastJumpDiagnostic {get;private set;}
         public int SmashCount=>smashed.Count;
         public string Location {get{if(!Selected||!car)return "";var delta=Selected.transform.position-car.Body.position;int compass=Mathf.RoundToInt(Mathf.Repeat(Mathf.Atan2(delta.x,delta.z)*Mathf.Rad2Deg,360)/45)%8;return $"{DisplayUnits.Distance(Vector3.ProjectOnPlane(delta,Vector3.up).magnitude)} {new[]{"N","NE","E","SE","S","SW","W","NW"}[compass]}";}}
-        public string Hud=>Time.time<feedbackUntil?Feedback:AttemptActive?$"{Selected.title} / {Mathf.Max(0,deadline-Time.time):0}s / {Location}\n{(Selected.kind==ActivitySite.Kind.Smash?SmashCount+" distinct props":"Land a clean jump in the marked area")}":race.FreeRoam?AtStart:"";
+        public string Hud=>CampaignHud(Time.time<feedbackUntil?Feedback:AttemptActive?$"{Selected.title} / {Mathf.Max(0,deadline-Time.time):0}s / {Location}\n{(Selected.kind==ActivitySite.Kind.Smash?SmashCount+" distinct props":"Land a jump from the marked ramp")}":race.FreeRoam?AtStart:"");
+        // 0.91 Part C: during a campaign jump event its targets, the best so far and the time left stay on the HUD.
+        string CampaignHud(string line){var watch=race&&race.Flow?race.Flow.GetComponent<CampaignTrapWatch>():null;var extra=watch?watch.Hud:null;return string.IsNullOrEmpty(extra)?line:string.IsNullOrEmpty(line)?extra:line+"\n"+extra;}
         // 0.79 Part B: in Free Roam, the activity the player is at (within its start radius) and how to start it; nothing
         // otherwise (the nearest one and its distance stay on the map and in the pause menu).
         public ActivitySite AtSite{get{if(!car||Sites==null)return null;var p=car.Body.position;return Sites.Where(s=>s&&Vector3.Distance(p,s.transform.position)<s.radius).OrderBy(s=>Vector3.SqrMagnitude(p-s.transform.position)).FirstOrDefault();}}
@@ -36,7 +38,9 @@ namespace Racer
         RaceDirector race;ArcadeVehicle car;VehicleConfiguration configuration;
         readonly HashSet<BreakableProp> smashed=new();readonly Dictionary<ActivitySite,bool> armed=new();
         string path;Vector3 previous,takeoff,landing;float warm,air,stable,feedbackUntil,deadline,blockedUntil,impactSpeed;bool sampled,flying,invalid,touchedDown;
-        ActivitySite jumpSite;
+        ActivitySite jumpSite;string rejected;
+        // 0.91 Part C: the first reason this flight cannot score (null = none so far)
+        void Reject(string why){invalid=true;rejected??=why;}
         float contactImpact,minimumContactUp=1;
         bool oppositeAttempt;
         static bool Summit(ActivitySite site)=>site&&(site.id=="summit-homeward"||site.id=="summit-southface");
@@ -86,8 +90,13 @@ namespace Racer
         public void Cancel(){AttemptActive=false;smashed.Clear();warm=0;ResetFlight();}
         public void NewSession(){Cancel();armed.Clear();sampled=false;warm=0;blockedUntil=Time.time+1;Feedback=null;feedbackUntil=0;LastDistance=LastAirtime=LastSpeed=LastJumpAward=0;}
         void Recovered(){if(AttemptActive)Message("Attempt cancelled by recovery / retry from pause menu",4);Cancel();armed.Clear();sampled=false;warm=0;blockedUntil=Time.time+2;}
-        void ResetFlight(){flying=false;invalid=touchedDown=false;air=stable=0;jumpSite=null;}
-        public void SolidContact(Vector3 normal,float relativeSpeed){if(!flying)return;contactImpact=Mathf.Max(contactImpact,relativeSpeed);minimumContactUp=Mathf.Min(minimumContactUp,normal.y);if(normal.y<.45f||(!Summit(jumpSite)&&relativeSpeed>21))invalid=true;}
+        void ResetFlight(){flying=false;invalid=touchedDown=false;air=stable=0;jumpSite=null;rejected=null;}
+        // The jump the player is going for: the campaign event's, or Free Roam's timed attempt.
+        ActivitySite TargetJump=>CampaignRun.Active?.Kind==CampaignEventKind.Jump?CampaignRun.Site(race):AttemptActive&&Selected&&Selected.kind==ActivitySite.Kind.Jump?Selected:null;
+        // 0.91 Part C: an ordinary jump counts if the vehicle survives it, so a hard or glancing contact no longer rejects it;
+        // the two summit flights keep their own rules (a wall or steep bank in the flight rejects them).
+        public void SolidContact(Vector3 normal,float relativeSpeed){if(!flying)return;contactImpact=Mathf.Max(contactImpact,relativeSpeed);minimumContactUp=Mathf.Min(minimumContactUp,normal.y);if(normal.y<.45f&&Summit(jumpSite))Reject("Hit a wall or a steep bank");}
+        ActivitySite SiteAt(Vector3 at)=>Sites.Where(s=>s.kind==ActivitySite.Kind.Jump&&Vector3.Distance(at,s.transform.position)<s.radius&&Vector3.Dot(car.Body.linearVelocity,s.forward.normalized)>2).OrderBy(s=>Vector3.SqrMagnitude(at-s.transform.position)).FirstOrDefault();
         void Smash(BreakableProp prop,ArcadeVehicle source)
         {
             if(source!=car||!(race.FreeRoam||CampaignRun.Active?.Kind==CampaignEventKind.Smash)||!AttemptActive||Selected.kind!=ActivitySite.Kind.Smash||race.Flow.State!=RaceFlow.Stage.Racing||Time.time<blockedUntil||warm<.5f)return;
@@ -110,36 +119,45 @@ namespace Racer
             if(grounded&&!flying){bool summitRunup=Sites.Any(s=>Summit(s)&&Vector3.Distance(p,s.transform.position)<s.radius&&Vector3.Dot(car.Body.linearVelocity,s.forward)>2);warm=car.transform.up.y>(summitRunup?.65f:.8f)?warm+dt:0;}
             if(!grounded&&!flying&&warm>=.5f&&Vector3.ProjectOnPlane(car.Body.linearVelocity,Vector3.up).magnitude>4)
             {
-                flying=true;invalid=touchedDown=false;takeoff=previous;air=stable=0;impactSpeed=contactImpact=0;minimumContactUp=1;
-                jumpSite=Sites.Where(s=>s.kind==ActivitySite.Kind.Jump&&Vector3.Distance(takeoff,s.transform.position)<s.radius&&Vector3.Dot(car.Body.linearVelocity,s.forward.normalized)>2).OrderBy(s=>Vector3.SqrMagnitude(takeoff-s.transform.position)).FirstOrDefault();
+                flying=true;invalid=touchedDown=false;rejected=null;takeoff=previous;air=stable=0;impactSpeed=contactImpact=0;minimumContactUp=1;
+                jumpSite=SiteAt(takeoff);
             }
             if(flying)
             {
-                invalid|=configuration.WipedOut;
+                if(configuration.WipedOut)Reject("Wiped out on landing");
+                // 0.91 Part C: a hop off the ramp's lip (under 0.25 s in the air) that takes off again before settling is not
+                // the jump: the real flight starts here (0.90 measured the hop, and the jump after it was never scored).
+                if(!grounded&&touchedDown&&air<.25f){takeoff=previous;air=0;touchedDown=false;impactSpeed=0;var site=SiteAt(takeoff);if(site)jumpSite=site;}
                 if(!grounded){if(!touchedDown)air+=dt;stable=0;impactSpeed=Mathf.Max(impactSpeed,-car.Body.linearVelocity.y);}
                 else
                 {
                     // Freeze measurement at first touchdown. Subsequent settling or
                     // suspension bounces must not extend the jump's distance/airtime.
                     if(!touchedDown){landing=p;touchedDown=true;}stable+=dt;
-                    // The two authored giant flights use sustained supported settling: their
-                    // accepted landing impacts exceed ordinary-jump thresholds. Wall contacts,
-                    // wipeouts and water still reject them; all other jumps keep their limits.
-                    invalid|=configuration.WipedOut||car.transform.up.y<.65f||car.WaterImmersion>.05f||(!Summit(jumpSite)&&impactSpeed>18);
+                    // 0.91 Part C: a jump counts if the vehicle survives it: down on its wheels, upright, not wiped out, not in
+                    // the water. No hard-landing limit (0.90 rejected a vertical impact over 18 m/s, so a jump taken flat out
+                    // never scored). The two summit flights also need sustained level support (below).
+                    if(car.WaterImmersion>.05f)Reject("Landed in the water");
+                    if(configuration.WipedOut)Reject("Wiped out on landing");
+                    if(car.transform.up.y<.65f)Reject(car.transform.up.y<0?"Landed upside down":"Landed on your side");
                     if(stable>=(Summit(jumpSite)?.75f:.3f))
                     {
                         float distance=Vector3.ProjectOnPlane(landing-takeoff,Vector3.up).magnitude;
-                        if(Summit(jumpSite))invalid|=!AlignedWithSupport();
-                        LastJumpDiagnostic=$"site={jumpSite?.id} invalid={invalid} verticalImpact={impactSpeed:F2} contactImpact={contactImpact:F2} contactUp={minimumContactUp:F2} up={car.transform.up.y:F2} wiped={configuration.WipedOut} air={air:F2} distance={distance:F2}";
-                        if(jumpSite)invalid|=Vector3.Dot(landing-takeoff,jumpSite.forward.normalized)<3;
+                        if(Summit(jumpSite)&&!AlignedWithSupport())Reject("Not level on the landing");
+                        LastJumpDiagnostic=$"site={jumpSite?.id} invalid={invalid} why={rejected} verticalImpact={impactSpeed:F2} contactImpact={contactImpact:F2} contactUp={minimumContactUp:F2} up={car.transform.up.y:F2} wiped={configuration.WipedOut} air={air:F2} distance={distance:F2}";
+                        bool tooShort=air<.25f||distance<3||(jumpSite&&Vector3.Dot(landing-takeoff,jumpSite.forward.normalized)<3);
+                        bool hop=air<.25f&&!invalid;
+                        bool tooLong=air>=(Summit(jumpSite)?20:12)||distance>=(Summit(jumpSite)?2000:250);
                         // The two summit giant flights are meant to go as far as possible (0.71: no 250 m cap for them).
-                        if(!invalid&&air>=.25f&&air<(Summit(jumpSite)?20:12)&&distance>=3&&distance<(Summit(jumpSite)?2000:250))
+                        if(!invalid&&!tooShort&&!tooLong)
                         {
                             LastDistance=distance;LastAirtime=air;Message($"CLEAN JUMP / {DisplayUnits.Jump(distance)} / {air:0.00} s / {Mathf.RoundToInt(distance*10+air*100)} pts",4);
                             if(jumpSite){AttemptActive=false;Award(jumpSite,distance,"m");}
                         }
-                        else if(jumpSite){AttemptActive=false;Message("Jump not scored / unstable, wet or hard landing",4);}
-                        ResetFlight();warm=0;
+                        else if(jumpSite&&!hop){AttemptActive=false;Message($"{jumpSite.title} / NOT SCORED: {rejected??(tooShort?"Too short to count":"Left the course")}",5);}
+                        // a real flight beside the jump being attempted, but not from its ramp
+                        else if(!tooShort&&TargetJump is ActivitySite target&&Vector3.Distance(takeoff,target.transform.position)<target.radius*3&&Vector3.Dot(landing-takeoff,target.forward.normalized)>3)Message($"{target.title} / NOT SCORED: Took off outside the marked area",5);
+                        ResetFlight();warm=hop?.5f:0; // a hop is no jump: the next takeoff still counts
                     }
                 }
             }
@@ -165,7 +183,9 @@ namespace Racer
             if(DeveloperLocationHud.Inspecting)return;
             if(!float.IsFinite(value)||value<=0)return;int medal=site.Medal(value,configuration.profileId);var best=PersonalBest(site);
             // 0.89: a campaign event never writes activity records or personal bests; its result goes to the campaign save.
-            if(CampaignRun.Active!=null){LastAwardSite=site;if(site.kind==ActivitySite.Kind.Jump)LastJumpAward=value;if(site.kind==ActivitySite.Kind.Smash)LastSmashScore=value;Awards++;Message(site.title+" / "+Measurement(site,value),6);return;}
+            if(CampaignRun.Active!=null){LastAwardSite=site;if(site.kind==ActivitySite.Kind.Jump)LastJumpAward=value;if(site.kind==ActivitySite.Kind.Smash)LastSmashScore=value;Awards++;
+                var e=CampaignRun.Active;string award=e.Site==site.id&&e.Kind!=CampaignEventKind.Race&&e.Kind!=CampaignEventKind.TimeTrial?" / "+new[]{"NO MEDAL","BRONZE","SILVER","GOLD"}[Campaign.MedalFor(e,value)]:"";
+                Message(site.title+" / "+(site.kind==ActivitySite.Kind.Jump?"SCORED: ":"")+Measurement(site,value)+award,6);return;}
             // 0.90 Part D: split-screen results are not written to the activity records either.
             if(SplitScreen.Active){Awards++;Message(site.title+" / "+Measurement(site,value),6);return;}
             bool improved=best==null||value>best.value;

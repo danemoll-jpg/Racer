@@ -28,6 +28,8 @@ namespace Racer
         public static VehicleProfile[] Vehicles => VehicleProfile.All.Where(p => !VehicleUnlocks.Locked(p)).ToArray();
         public static string DeviceName(InputDevice d) => d == null ? "—" : d is Keyboard ? "Keyboard" : d is Gamepad g ? "Controller " + (Gamepad.all.ToList().IndexOf(g) + 1) : d.displayName;
         public static bool Ready => P1Device != null && (P2Ai || P2Device != null);
+        // One of the players' own devices (the mouse goes with the keyboard).
+        public static bool PlayerDevice(InputDevice d) => d != null && (d == P1Device || (!P2Ai && d == P2Device) || (d is Mouse && (P1Device is Keyboard || (!P2Ai && P2Device is Keyboard))));
 
         public static void Begin() { Active = true; PendingStart = true; }
         // Called in the course scene, before the race is built.
