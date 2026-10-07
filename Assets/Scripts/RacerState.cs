@@ -4,7 +4,7 @@ namespace Racer
 {
     public sealed class RacerState
     {
-        public readonly string Name;
+        public string Name; // 0.94 Part A: the player's own name is set at each start (it can change between races)
         public readonly ArcadeVehicle Car;
         public readonly RaceProgress Progress;
         public bool Dnf, FinishArmed;

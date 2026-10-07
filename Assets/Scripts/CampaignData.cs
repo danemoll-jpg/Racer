@@ -110,6 +110,20 @@ namespace Racer
         // ---------- 0.90 championships ----------
         // The same five named rivals in every championship (in roster order).
         public static readonly string[] RivalNames = { "Rusty Vance", "Mia Torres", "Big Ed Kowalski", "June Park", "Hollis Gray" };
+        // 0.94 Part A: the campaign's one cast, in every event and championship: each driver has a usual vehicle and their own
+        // colour (the five race colours: red, gold, blue, green, violet). An event's rival slots go first to the drivers whose
+        // usual vehicle it has, then to the others in cast order; the slot keeps the event's vehicle.
+        public static readonly string[] CastVehicles = { "tourer", "moto", "drifter", "atv", "scrambler" };
+        public static readonly string[] CastColours = { "red", "gold", "blue", "green", "violet" };
+        public static int[] CastFor(string[] rivals)
+        {
+            rivals ??= new string[0]; var member = Enumerable.Repeat(-1, rivals.Length).ToArray(); var used = new bool[RivalNames.Length];
+            for (int i = 0; i < rivals.Length; i++) for (int m = 0; m < RivalNames.Length; m++) if (!used[m] && CastVehicles[m] == rivals[i]) { member[i] = m; used[m] = true; break; }
+            for (int i = 0; i < rivals.Length; i++) if (member[i] < 0) for (int m = 0; m < RivalNames.Length; m++) if (!used[m]) { member[i] = m; used[m] = true; break; }
+            for (int i = 0; i < rivals.Length; i++) if (member[i] < 0) member[i] = i % RivalNames.Length;
+            return member;
+        }
+        public static string CastLine(string[] rivals) { var cast = CastFor(rivals); return string.Join(", ", rivals.Select((v, i) => RivalNames[cast[i]] + " (" + VehicleProfile.Find(v).Name + ")")); }
         // Points for places 1-6 (a did-not-finish scores nothing).
         public static readonly int[] CupPoints = { 10, 7, 5, 3, 2, 1 };
         static CampaignCupRound R(int course, int laps, TimeOfDay time = TimeOfDay.Day, Weather weather = Weather.Clear) => new() { Course = course, Laps = laps, Time = time, Weather = weather };

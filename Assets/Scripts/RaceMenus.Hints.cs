@@ -9,7 +9,8 @@ namespace Racer
     // event (an overlay that holds the countdown until one press) and the small timed hint line (Hints.cs).
     public sealed partial class RaceMenus
     {
-        public void OpenWelcome() { page = "welcome"; pages.Clear(); stagePages[RaceFlow.Stage.Ready] = page; modalConfirm = null; Show(); }
+        // 0.94 Part A: a new player is asked their name first (once, with the welcome); Cancel leaves it for Settings.
+        public void OpenWelcome() { page = "welcome"; pages.Clear(); stagePages[RaceFlow.Stage.Ready] = page; modalConfirm = null; Show(); if (!PlayerNames.Named) OpenNameEntry("", PlayerNames.SetPlayer, null, "WELCOME: WHAT'S YOUR NAME?", "Up to 12 characters: it goes on the Top 10 and over your vehicle. Change it any time in Settings > Gameplay."); }
         void RenderWelcome()
         {
             ClearCore("WELCOME TO WOODSTOCK RUSH",

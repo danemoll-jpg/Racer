@@ -362,6 +362,8 @@ namespace Racer
             else
             {
                 var branch=state?.Branch.Route;
+                // 0.94 Part D: stopped in the Abandoned Cabin Jump's restored brush: onto the clear ground past its far edge
+                if(branch&&!fell&&ShortcutUndergrowth.ResetPast(branch,from,out float past)){var bt=BranchTrack(branch);var edge=branch.At(past,out _);if(PlaceAt(bt,past,1,edge,state,past)){LastRecovery="Recovered past the brush";return true;}}
                 if(branch)tracks.Add((BranchTrack(branch),Nearest(BranchTrack(branch),from,branch.Project(from,out _),branch.Length),0,branch.Length,1));
                 var main=MainTrack(race.road);
                 float window=tracking&&!trackingBranch?Mathf.Clamp(Mathf.Max(75,untrackedTravel*1.5f+15),75,main.length*.5f):main.length*.5f;

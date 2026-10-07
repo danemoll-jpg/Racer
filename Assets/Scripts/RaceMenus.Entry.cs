@@ -78,10 +78,14 @@ namespace Racer
         Func<string,bool> saveText;
         Action afterText;
         const string Keys="1234567890qwertyuiopasdfghjkl;zxcvbnm,./\\:-_@()[]";
-        void OpenKeyboard(string value,int limit,Func<string,bool> save,Action after=null)
+        string keyboardTitle="TEXT ENTRY";
+        void OpenKeyboard(string value,int limit,Func<string,bool> save,Action after=null,string heading=null,string prompt=null)
         {
-            keyboardDraft=value??"";caret=keyboardDraft.Length;keyboardLimit=limit;saveText=save;afterText=after;keyboardError="";Navigate("keyboard");
+            keyboardDraft=value??"";caret=keyboardDraft.Length;keyboardLimit=limit;saveText=save;afterText=after;keyboardTitle=heading??"TEXT ENTRY";keyboardError=prompt??"";Navigate("keyboard");
         }
+        // 0.94 Part A: the player's name with the on-screen keyboard (or typed): up to 12 characters
+        void OpenNameEntry(string value,Func<string,bool> save,Action after=null,string heading="YOUR NAME",string prompt=null)=>
+            OpenKeyboard(value,PlayerNames.MaxLength,v=>{var name=PlayerNames.Clean(v);if(name.Length==0){keyboardError="Enter a name (up to 12 characters).";return false;}return save(name);},after,heading,prompt??"Up to 12 characters. It goes on the Top 10 and over your vehicle.");
         void EnsureKeyboard()
         {
             if(keyGrid)return;
@@ -97,7 +101,7 @@ namespace Racer
         }
         void RenderKeyboard()
         {
-            EnsureKeyboard();ClearCore("TEXT ENTRY",keyboardError);keyGrid.gameObject.SetActive(true);keyUtility.gameObject.SetActive(true);draftField.gameObject.SetActive(true);
+            EnsureKeyboard();ClearCore(keyboardTitle,keyboardError);keyGrid.gameObject.SetActive(true);keyUtility.gameObject.SetActive(true);draftField.gameObject.SetActive(true);
             draftField.characterLimit=keyboardLimit;draftField.SetTextWithoutNotify(keyboardDraft);draftField.caretPosition=caret;
             draftField.transform.SetSiblingIndex(1);keyGrid.SetSiblingIndex(2);keyUtility.SetSiblingIndex(3);
             for(int i=0;i<Keys.Length;i++){char key=shift?char.ToUpperInvariant(Keys[i]):Keys[i];Row(i,"key-"+i,key.ToString(),()=>InsertText(key.ToString()));buttons[i].transform.SetParent(keyGrid,false);}

@@ -141,6 +141,7 @@ namespace Racer
             respawn.RestartAtStart();
             laps=opponents?Mathf.Clamp(laps,1,5):Mathf.Clamp(laps,0,5);
             Progress.ConfigureLaps(laps);
+            Racers[0].Name = SplitScreen.Active ? SplitScreen.NameOf(1) : PlayerNames.Player; // 0.94 Part A
             Racers[0].Dnf=false; Racers[0].FinishArmed=false; Racers[0].RecoveryStart=float.NaN; Racers[0].Recoveries=0;
             if (road && opponents && !FreeRoam)
             {
@@ -222,7 +223,9 @@ namespace Racer
                 // Every opponent uses the resolved real physics/visual profile. Ambient traffic keeps the classic car.
                 configuration.riderLook = racing ? riders[n] : null; configuration.classicVisual = !racing;
                 configuration.Apply(racing ? opponentRoster[n] : "original");
-                configuration.SetPaint(racing?colors[n % colors.Length]:new Color(.55f,.55f,.5f));
+                // 0.94 Part A: a campaign rival wears their cast colour
+                int member = racing ? CampaignRun.RivalMember(n) : -1; var paint = racing ? colors[(member >= 0 ? member : n) % colors.Length] : new Color(.55f,.55f,.5f);
+                configuration.SetPaint(paint);
                 // Explicit test pilots must never be duplicated into opponents.
                 foreach (var inherited in clone.GetComponents<RoadDriver>()) { inherited.enabled = false; Destroy(inherited); }
                 clone.GetComponent<VehicleInput>().enabled = false;
@@ -240,7 +243,7 @@ namespace Racer
                     if (VehiclePaint.IsBodyPaint(renderer.sharedMaterial))
                     {
                         var block = new MaterialPropertyBlock();
-                        block.SetColor("_BaseColor", racing ? colors[n % colors.Length] : new Color(.55f, .55f, .5f));
+                        block.SetColor("_BaseColor", paint);
                         renderer.SetPropertyBlock(block);
                     }
 
@@ -568,7 +571,7 @@ namespace Racer
             if(Racers.All(r=>r.Classified||r.Dnf)) { ClassificationFinal=true; Flow?.CompleteResults(); }
         }
         public List<RacerState> Ordered(bool final) => final ? Racers.OrderBy(r => !r.Classified).ThenBy(r => r.Classified ? r.ClassifiedTime(Clock) : -Score(r)).ToList() : Racers.OrderByDescending(Score).ThenBy(r => r.Classified ? r.ClassifiedTime(Clock) : 0).ToList();
-        float Score(RacerState r) => r.Progress.Finished ? laps * (road ? road.Length : 4000) : r.Progress.CompletedLaps * (road ? road.Length : 4000) + (r.Progress.LapActive ? r.RoadPosition : -1);
+        public float Score(RacerState r) => r.Progress.Finished ? laps * (road ? road.Length : 4000) : r.Progress.CompletedLaps * (road ? road.Length : 4000) + (r.Progress.LapActive ? r.RoadPosition : -1);
         public string Standings() => string.Join("\n", Ordered(true).Select((r, i) => $"{i + 1}. {r.Name}  {(r.Dnf ? "DNF" : r.Classified ? (r.Estimated?"~ ":"")+RaceHud.FormatTime(r.ClassifiedTime(Clock))+(r.Estimated?" Estimated":"") : "racing")}  (+{r.Progress.PenaltySeconds:0.0}s / {r.Progress.MissedGates} misses)"));
     }
 }

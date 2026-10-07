@@ -57,6 +57,12 @@ namespace Racer
             public string[] hintsSeen = new string[0];
             // 0.90 Part D: split-screen layout (false = top / bottom, the default; true = left / right), remembered.
             public bool splitLeftRight = false;
+            // 0.94 Part A: Settings > Gameplay "Player name" (up to 12 characters; empty until set: a new player is asked with
+            // the welcome, an existing save becomes "Dan"), the names used on this PC (split-screen player 2 picks from them,
+            // most recent first) and "Name tags" over the other racers (0 Off, 1 Players only, 2 Everyone).
+            public string playerName = "";
+            public string[] knownNames = new string[0];
+            public int nameTags = 2;
             public string[] opponentChoices = {"mixed","mixed","mixed"};
             public string[] opponentRoster = {"tourer","moto","atv"};
             public int[] bodyColors = {-1,-1,-1,-1};

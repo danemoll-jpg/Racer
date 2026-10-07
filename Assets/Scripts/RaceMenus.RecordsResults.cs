@@ -66,14 +66,16 @@ namespace Racer
                 details.text=flow.Boards.Error??(board.Count==0
                     ?$"No {(race?"race":"lap")} times on {track}{vehicleName} yet. Finish a {(race?"race":"lap")} there to set one."
                     :(race?"BEST RACES · full-race totals, every race length":"BEST LAPS · every race length")+(recordsVehicle=="All vehicles"?" · all vehicles":" · "+VehicleProfile.Find(recordsVehicle).Name)+" · ‹ › changes track");
-                var widths=race?new[]{.09f,.24f,.11f,.30f,.26f}:new[]{.10f,.27f,.35f,.28f};
-                int firstRow=row;if(board.Count>0)TableRow(row++,"header",race?new[]{"Rank","Time","Laps","Vehicle","Date"}:new[]{"Rank","Time","Vehicle","Date"},widths,()=>{});
+                // 0.94 Part A: who set each time; the player's own entries highlighted
+                var widths=race?new[]{.08f,.21f,.17f,.08f,.24f,.22f}:new[]{.09f,.23f,.19f,.27f,.22f};
+                int firstRow=row;if(board.Count>0)TableRow(row++,"header",race?new[]{"Rank","Time","Name","Laps","Vehicle","Date"}:new[]{"Rank","Time","Name","Vehicle","Date"},widths,()=>{});
                 for(int i=0;i<board.Count;i++)
                 {
                     var e=board[i];int laps=RecordView.RaceLaps(e.category);string time=RaceHud.FormatTime(e.seconds)+(flow.Boards.IsNew(e.id)?"  NEW":"");
                     string vehicle=VehicleProfile.Find(e.vehicle).Name,date=RecordDate(e.date)+(e.legacy?" · legacy":"");
-                    TableRow(row++,"record-"+e.id,race?new[]{(i+1).ToString(),time,laps>0?laps.ToString():"?",vehicle,date}:new[]{(i+1).ToString(),time,vehicle,date},widths,
-                        ()=>Help((e.legacy?"Legacy record (identity unknown)":"Your local attempt")+"\nDate: "+(e.date??"Unknown")+"\n"+RecordBoards.Describe(e.category)+"\nLayout / rules: "+e.category+"\nExact ties retain original insertion order."),i<3||flow.Boards.IsNew(e.id));
+                    string who=string.IsNullOrEmpty(e.name)?PlayerNames.Player:e.name;bool own=who==PlayerNames.Player;
+                    TableRow(row++,"record-"+e.id,race?new[]{(i+1).ToString(),time,who,laps>0?laps.ToString():"?",vehicle,date}:new[]{(i+1).ToString(),time,who,vehicle,date},widths,
+                        ()=>Help((e.legacy?"Legacy record (identity unknown)":who+"'s attempt on this PC")+"\nDate: "+(e.date??"Unknown")+"\n"+RecordBoards.Describe(e.category)+"\nLayout / rules: "+e.category+"\nExact ties retain original insertion order."),own||flow.Boards.IsNew(e.id));
                 }
                 Table(firstRow,row);buttons[backRow].transform.SetAsLastSibling();
             }
@@ -121,7 +123,7 @@ namespace Racer
             if(resultTab==0)
             {
                 TableRow(n++,"header",new[]{"Place","Driver","Time","Status"},new[]{.1f,.32f,.30f,.28f},()=>{});int rank=0;
-                foreach(var r in flow.Race.Ordered(true)){int place=++rank;TableRow(n++,"standing-"+place,new[]{place.ToString(),r.IsAi?"Rival "+flow.Race.Racers.IndexOf(r):"You",r.Dnf?"—":RaceHud.FormatTime(r.ClassifiedTime(flow.Race.Clock)),r.Dnf?"DNF":r.Estimated?"Estimated":"Measured"},new[]{.1f,.32f,.30f,.28f},()=>{},!r.IsAi);}
+                foreach(var r in flow.Race.Ordered(true)){int place=++rank;TableRow(n++,"standing-"+place,new[]{place.ToString(),r.Name+" · "+VehicleProfile.Find(r.Car.GetComponent<VehicleConfiguration>().profileId).Name,r.Dnf?"—":RaceHud.FormatTime(r.ClassifiedTime(flow.Race.Clock)),r.Dnf?"DNF":r.Estimated?"Estimated":"Measured"},new[]{.1f,.32f,.30f,.28f},()=>{},!r.IsAi);}
             }
             else if(resultTab==1)
             {

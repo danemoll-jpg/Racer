@@ -13,8 +13,26 @@ namespace Racer
         // 0.93 (BUG-002): an optional cleared corridor along a shortcut, from clearFrom (m along clearRoute) to its end, within
         // clearHalfWidth of its centre line: no bushes are drawn there and nothing is slowed (the Abandoned Cabin Jump's
         // landing and run-out to the rejoin). Unset = as before.
+        // 0.94 Part D: the Abandoned Cabin Jump's brush is back from the lip to a far edge (clearFrom = that edge, set so a
+        // well-hit jump clears it); brushFrom = the lip. A reset by a vehicle inside that restored brush (on clearRoute from
+        // brushFrom to clearFrom, within clearHalfWidth of its centre) puts it on the clear ground just past the far edge,
+        // on the centre line, facing along the route. 0 = no such reset (Tree-Top Trail).
         public WoodlandRoute clearRoute;
-        public float clearFrom, clearHalfWidth;
+        public float clearFrom, clearHalfWidth, brushFrom;
+        public const float ResetPastEdge = 4; // metres past the far edge: the last bushes (up to 1.2 m reach) and half a long car
+        // The station a reset from inside a restored brush goes to (false = not inside one: the normal reset).
+        public static bool ResetPast(WoodlandRoute route, Vector3 position, out float station)
+        {
+            station = 0; if (!route) return false;
+            foreach (var u in FindObjectsByType<ShortcutUndergrowth>(FindObjectsSortMode.None))
+            {
+                if (u.clearRoute != route || u.brushFrom <= 0 || u.clearFrom <= u.brushFrom) continue;
+                float s = route.Project(position, out _); var centre = route.At(s, out _);
+                if (s < u.brushFrom || s >= u.clearFrom || new Vector2(position.x - centre.x, position.z - centre.z).magnitude > u.clearHalfWidth) continue;
+                station = Mathf.Min(route.Length, u.clearFrom + ResetPastEdge); return true;
+            }
+            return false;
+        }
         ArcadeVehicle[] vehicles;
         float nextScan;
 

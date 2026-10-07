@@ -172,6 +172,7 @@ namespace Racer
             var list = EventVehicles(e); PickVehicle(list);
             var lines = new System.Collections.Generic.List<string> {
                 $"Chapter {e.Chapter}  ·  {e.CourseTitle}", e.KindLabel, "Conditions: " + e.Conditions, "Entry: " + e.Entry, "Pays: " + Campaign.PayText(e) };
+            if (e.Kind == CampaignEventKind.Race && e.Rivals.Length > 0) lines.Add("Rivals: " + CampaignData.CastLine(e.Rivals)); // 0.94 Part A
             if (e.Timed) lines.Add(Campaign.TargetsText(e));
             if (e.Kind == CampaignEventKind.SpeedTrap) lines.Add($"Standing start {DisplayUnits.Distance(e.RunUp)} before the trap; {e.TimeLimit:0} s to reach it.");
             if (e.Kind == CampaignEventKind.Jump) lines.Add($"Start {DisplayUnits.Distance(e.RunUp)} before the jump; jump as often as you like in {e.TimeLimit:0} s: your best counts. Reset takes you back to the run-up; Pause > End event keeps your best. Land it on your wheels to score.");
@@ -186,7 +187,7 @@ namespace Racer
             if (list.Length > 0) lines.Add("Your " + VehicleProfile.Find(campaignVehicle).Name + ": " + Campaign.UpgradeSummary(campaignVehicle));
             if (!Campaign.Available(e)) lines.Add("LOCKED: " + Campaign.EventLock(e) + (Campaign.Testing ? " (Testing mode: can be run, nothing is saved)" : ""));
             ClearCore(e.Name.ToUpperInvariant(), string.Join("\n", lines));
-            details.fontSize = 18; details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight = 24 * lines.Count + 8;
+            details.fontSize = 18; details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight = 24 * lines.Count + 8 + (e.Kind == CampaignEventKind.Race && e.Rivals.Length > 3 ? 24 : 0);
             VehicleStepper(0, list, "No owned vehicle fits this event", false, e.Prize);
             Row(1, "start-event", "START EVENT", () => flow.StartCampaignEvent(e, campaignVehicle));
             var startColors = buttons[1].colors; startColors.normalColor = new(.1f, .38f, .35f); buttons[1].colors = startColors; buttons[1].GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight = 54;
@@ -201,7 +202,7 @@ namespace Racer
             bool open = Campaign.CupOpen(c); var progress = Campaign.ActiveCup(c);
             var lines = new System.Collections.Generic.List<string> { $"Championship after chapter {c.AfterChapter}  ·  {c.Rounds.Length} races  ·  {new[] { "Easy", "Normal", "Hard" }[c.Difficulty]} rivals" };
             for (int i = 0; i < c.Rounds.Length; i++) { var r = c.Rounds[i]; string done = progress != null && i < progress.races.Count ? $"   ✓ {(progress.races[i].places[0] > 0 ? Campaign.Ordinal(progress.races[i].places[0]) : "DNF")}" : progress != null && i == progress.races.Count ? "   ‹ next" : ""; lines.Add($"{i + 1}. {RacePlaylists.Titles[r.Course].Replace(" - ", " — ")} · {r.Laps} laps · {r.Conditions}{done}"); }
-            lines.Add("Rivals: " + string.Join(", ", c.Rivals.Select((v, i) => CampaignData.RivalNames[i] + " (" + VehicleProfile.Find(v).Name + ")")));
+            lines.Add("Rivals: " + CampaignData.CastLine(c.Rivals));
             lines.Add("Points per race: 10 / 7 / 5 / 3 / 2 / 1; ties: most wins, then the better last race.");
             lines.Add($"Pays by final position: 1st {Campaign.Money(c.Pay)}, then " + string.Join(", ", Enumerable.Range(1, 5).Select(i => Campaign.Money(Mathf.RoundToInt(c.Pay * CampaignData.PlaceShare[i] / 10f) * 10))) + $" · first win +{Campaign.Money(c.Bonus)} and the trophy" + (c.Grand ? " · the campaign's final event" : ""));
             lines.Add("One vehicle for the whole championship (with its upgrades). No retries: a race left early counts as did not finish.");
@@ -218,7 +219,7 @@ namespace Racer
                 if (progress.races.Count > 0)
                 {
                     TableRow(n++, "cup-header", new[] { "Pos", "Driver", "Points", "Wins" }, new[] { .1f, .5f, .2f, .2f }, () => { }); int pos = 0;
-                    foreach (var s in Campaign.Standings(progress)) { pos++; TableRow(n++, "cup-standing-" + pos, new[] { pos.ToString(), Campaign.DriverName(s.driver), s.points.ToString(), s.wins.ToString() }, new[] { .1f, .5f, .2f, .2f }, () => { }, s.driver == 0); }
+                    foreach (var s in Campaign.Standings(progress)) { pos++; TableRow(n++, "cup-standing-" + pos, new[] { pos.ToString(), Campaign.DriverName(progress, s.driver), s.points.ToString(), s.wins.ToString() }, new[] { .1f, .5f, .2f, .2f }, () => { }, s.driver == 0); }
                 }
                 Row(n++, "cup-restart", "Restart the championship…", () => Confirm("RESTART THE " + c.Name.ToUpperInvariant() + "?", "The points so far are cleared and it starts again from round 1 (you can choose the vehicle again).", () => { Campaign.AbandonCup(c); Show(); }, "RESTART"));
                 Row(n++, "cup-abandon", "Abandon it…", () => Confirm("ABANDON THE " + c.Name.ToUpperInvariant() + "?", "The points so far are cleared. You can start it again at any time.", () => { Campaign.AbandonCup(c); Show(); }, "ABANDON"));
@@ -268,7 +269,7 @@ namespace Racer
             if (e.Kind == CampaignEventKind.Race)
             {
                 TableRow(n++, "header", new[] { "Place", "Driver", "Time", "Status" }, new[] { .1f, .32f, .30f, .28f }, () => { }); int rank = 0;
-                foreach (var r in flow.Race.Ordered(true)) { int place = ++rank; TableRow(n++, "standing-" + place, new[] { place.ToString(), r.IsAi ? r.Car.name + " · " + VehicleProfile.Find(r.Car.GetComponent<VehicleConfiguration>().profileId).Name : "You", r.Dnf ? "—" : RaceHud.FormatTime(r.ClassifiedTime(flow.Race.Clock)), r.Dnf ? "DNF" : r.Estimated ? "Estimated" : "Measured" }, new[] { .1f, .32f, .30f, .28f }, () => { }, !r.IsAi); }
+                foreach (var r in flow.Race.Ordered(true)) { int place = ++rank; TableRow(n++, "standing-" + place, new[] { place.ToString(), (r.IsAi ? r.Name : PlayerNames.Player) + " · " + VehicleProfile.Find(r.Car.GetComponent<VehicleConfiguration>().profileId).Name, r.Dnf ? "—" : RaceHud.FormatTime(r.ClassifiedTime(flow.Race.Clock)), r.Dnf ? "DNF" : r.Estimated ? "Estimated" : "Measured" }, new[] { .1f, .32f, .30f, .28f }, () => { }, !r.IsAi); }
             }
             else if (e.Kind == CampaignEventKind.TimeTrial && flow.Race.Progress.MissedGates > 0) Row(n++, "penalties", "Penalty Details · " + flow.Race.Progress.MissedGates + " missed / +" + flow.Race.Progress.PenaltySeconds.ToString("0") + "s", () => Navigate("penalties"));
         }
@@ -308,14 +309,14 @@ namespace Racer
             var colors = buttons[0].colors; colors.normalColor = new(.1f, .38f, .35f); buttons[0].colors = colors; buttons[0].GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight = 54;
             var w = new[] { .1f, .36f, .27f, .27f };
             TableRow(n++, "header", new[] { "Place", "Driver", "Time", "Status" }, w, () => { }); int rank = 0;
-            foreach (var r in flow.Race.Ordered(true)) { int place = ++rank; TableRow(n++, "standing-" + place, new[] { place.ToString(), r.IsAi ? r.Name + " · " + VehicleProfile.Find(r.Car.GetComponent<VehicleConfiguration>().profileId).Name : "You", r.Dnf ? "—" : RaceHud.FormatTime(r.ClassifiedTime(flow.Race.Clock)), r.Dnf ? "DNF" : r.Estimated ? "Estimated" : "Measured" }, w, () => { }, !r.IsAi); }
+            foreach (var r in flow.Race.Ordered(true)) { int place = ++rank; TableRow(n++, "standing-" + place, new[] { place.ToString(), (r.IsAi ? r.Name : PlayerNames.Player) + " · " + VehicleProfile.Find(r.Car.GetComponent<VehicleConfiguration>().profileId).Name, r.Dnf ? "—" : RaceHud.FormatTime(r.ClassifiedTime(flow.Race.Clock)), r.Dnf ? "DNF" : r.Estimated ? "Estimated" : "Measured" }, w, () => { }, !r.IsAi); }
             if (progress != null && progress.races.Count > 0) CupTable(ref n, progress, o != null && o.CupFinished ? "FINAL STANDINGS" : "CHAMPIONSHIP STANDINGS");
         }
         void CupTable(ref int n, Campaign.Cup progress, string heading)
         {
             var w = new[] { .1f, .5f, .2f, .2f };
             TableRow(n++, "cup-header", new[] { "Pos", heading, "Points", "Wins" }, w, () => { }); int pos = 0;
-            foreach (var s in Campaign.Standings(progress)) { pos++; TableRow(n++, "cup-standing-" + pos, new[] { pos.ToString(), Campaign.DriverName(s.driver), s.points.ToString(), s.wins.ToString() }, w, () => { }, s.driver == 0); }
+            foreach (var s in Campaign.Standings(progress)) { pos++; TableRow(n++, "cup-standing-" + pos, new[] { pos.ToString(), Campaign.DriverName(progress, s.driver), s.points.ToString(), s.wins.ToString() }, w, () => { }, s.driver == 0); }
         }
         // 0.90: the ending: the poster, the final table, time racing and money earned; the campaign stays replayable.
         GameObject championArt;

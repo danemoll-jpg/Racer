@@ -309,7 +309,9 @@ namespace Racer
             int Last(int d) { var x = r.races.LastOrDefault(); return x == null || x.places[d] <= 0 ? 7 : x.places[d]; }
             return list.OrderByDescending(s => s.points).ThenByDescending(s => s.wins).ThenBy(s => Last(s.driver)).ThenBy(s => s.driver).ToList();
         }
-        public static string DriverName(int driver) => driver == 0 ? "You" : CampaignData.RivalNames[driver - 1];
+        public static string DriverName(int driver) => driver == 0 ? PlayerNames.Player : CampaignData.RivalNames[driver - 1];
+        // 0.94 Part A: a championship's driver (0 the player, 1-5 its roster slots) by the cast member in that slot
+        public static string DriverName(Cup r, int driver) { var cup = r == null ? null : CampaignData.FindCup(r.id); if (driver == 0 || cup == null) return DriverName(driver); var cast = CampaignData.CastFor(cup.Rivals); return driver - 1 < cast.Length ? CampaignData.RivalNames[cast[driver - 1]] : DriverName(driver); }
         // A round's result: saved at once. The last round ends the championship: paid by final position (half on a replay),
         // the first win pays its bonus and marks the trophy; winning the Grand Championship completes the campaign.
         public static Outcome CommitCupRace(Outcome o)

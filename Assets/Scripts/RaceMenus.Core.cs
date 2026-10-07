@@ -192,6 +192,7 @@ details.gameObject.SetActive(true);
         string CameraViewLabel=>"Camera view:   "+(CameraViews.Current?.PlayerViewName??"Chase")+"   (V / X)";
         void CycleCameraView(int d){CameraViews.Current?.NextPlayerView(d);Show();}
         // Every quit-to-desktop control asks first; focus starts on CANCEL and B / Esc cancels (0.70 Part A).
+        static readonly string[] NameTagLabels={"Off","Players only","Everyone"};
         void ConfirmQuit()=>Confirm("QUIT WOODSTOCK RUSH?","",flow.Quit,"QUIT");
         void Help(string text){helpCopy=text;Navigate("help");}
         void RenderSettings()
@@ -222,7 +223,10 @@ details.gameObject.SetActive(true);
             // 0.90 Part B: the new-player hints; Part D: the split-screen layout (also on the split-screen setup screen)
             if(page=="settings-gameplay"){Toggle(6,"hints","Hints",s.hints,()=>Adjust(()=>s.hints=!s.hints));
                 Row(7,"hints-again","Show hints again",()=>{Hints.Reset();flow.Notify("Hints will be shown again",3);flow.Click();Show();});
-                Step(8,"split-layout","Split screen:   "+(s.splitLeftRight?"Left / right":"Top / bottom"),d=>Adjust(()=>s.splitLeftRight=!s.splitLeftRight));}
+                Step(8,"split-layout","Split screen:   "+(s.splitLeftRight?"Left / right":"Top / bottom"),d=>Adjust(()=>s.splitLeftRight=!s.splitLeftRight));
+                // 0.94 Part A: the player's name (A: the on-screen keyboard) and the name tags over the other racers
+                Row(9,"player-name","Player name:   "+PlayerNames.Player+"   (A: change)",()=>OpenNameEntry(s.playerName,PlayerNames.SetPlayer));
+                Step(10,"name-tags","Name tags:   "+NameTagLabels[Mathf.Clamp(s.nameTags,0,2)],d=>Adjust(()=>s.nameTags=(s.nameTags+d+3)%3));}
             if(page=="settings-audio")
             {
                 Step(4,"master",$"Master {s.master:P0}",d=>Adjust(()=>s.master=Mathf.Clamp01(s.master+d*.1f)));

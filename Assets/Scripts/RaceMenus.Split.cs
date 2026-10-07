@@ -77,6 +77,17 @@ namespace Racer
             Step(n++, "split-p2", "Player 2:   " + (SplitScreen.P2Ai ? "the race AI drives" + Joins(SplitScreen.P1Device) : SplitScreen.P2Device != null ? SplitScreen.DeviceName(SplitScreen.P2Device) + "   ✓" : "press A on another controller, or Enter on the keyboard"), d => CycleSlot(2, d));
             Toggle(n++, "split-ai", "Player 2: AI driver", SplitScreen.P2Ai, () => { SplitScreen.P2Ai = !SplitScreen.P2Ai; flow.Click(); Show(); });
             if (SplitScreen.P2Device != null && !SplitScreen.P2Ai) Row(n++, "split-swap", "Swap the players' devices", () => { (SplitScreen.P1Device, SplitScreen.P2Device) = (SplitScreen.P2Device, SplitScreen.P1Device); flow.Click(); Show(); });
+            // 0.94 Part A: each player's name: ‹ › picks a name used before on this PC, A enters a new one (remembered); the AI
+            // driver is "AI". Player 1 starts as the saved player name.
+            if (string.IsNullOrEmpty(SplitScreen.P1Name)) SplitScreen.P1Name = PlayerNames.Player;
+            Step(n++, "split-p1-name", "Player 1 name:   " + SplitScreen.NameOf(1) + "   (A: new name)", d => { SplitScreen.P1Name = NextKnownName(SplitScreen.P1Name, d, SplitScreen.P2Ai ? null : SplitScreen.P2Pick); flow.Click(); Show(); },
+                () => OpenNameEntry("", v => { PlayerNames.Remember(v); flow.Save.SaveSettings(); SplitScreen.P1Name = v; return true; }, null, "PLAYER 1'S NAME"));
+            if (!SplitScreen.P2Ai)
+            {
+                if (string.IsNullOrEmpty(SplitScreen.P2Pick) || SplitScreen.P2Pick == SplitScreen.NameOf(1)) SplitScreen.P2Pick = PlayerNames.Known.FirstOrDefault(k => k != SplitScreen.NameOf(1)) ?? "";
+                Step(n++, "split-p2-name", "Player 2 name:   " + (string.IsNullOrEmpty(SplitScreen.P2Pick) ? "press A to enter it" : SplitScreen.P2Pick + "   (A: new name)"), d => { SplitScreen.P2Pick = NextKnownName(SplitScreen.P2Pick, d, SplitScreen.NameOf(1)); flow.Click(); Show(); },
+                    () => OpenNameEntry("", v => { if (v == SplitScreen.NameOf(1)) { keyboardError = "Player 1 already has that name."; return false; } PlayerNames.Remember(v); flow.Save.SaveSettings(); SplitScreen.P2Pick = v; return true; }, null, "PLAYER 2'S NAME"));
+            }
             // 0.92 Part B: the vehicles and colours are chosen in each player's garage view; both are shown here
             Row(n, "split-vehicles", "VEHICLES AND COLOURS…   (each player's garage)", OpenSplitPick); int vehiclesRow = n++;
             var strip = PreviewStrip("Players' vehicles", buttons[vehiclesRow].transform.GetSiblingIndex() + 1);
@@ -103,6 +114,12 @@ namespace Racer
             DeviceGlyph(buttons[0], SplitScreen.P1Device); DeviceGlyph(buttons[1], SplitScreen.P2Ai ? null : SplitScreen.P2Device);
             buttons[0].GetComponentInChildren<UnityEngine.UI.Text>(true).color = new Color(.3f, .95f, .81f);
             buttons[1].GetComponentInChildren<UnityEngine.UI.Text>(true).color = SplitScreen.P2Ai || SplitScreen.P2Device != null ? new Color(1, .74f, .25f) : new Color(.75f, .75f, .72f);
+        }
+        // The next name used before on this PC (not the other player's).
+        static string NextKnownName(string current, int d, string other)
+        {
+            var names = PlayerNames.Known.Where(k => k != other).ToList(); if (names.Count == 0) return current;
+            int i = names.IndexOf(current); return names[((i < 0 ? 0 : i) + d + names.Count) % names.Count];
         }
         // 0.91 Part B: a player row's device as a glyph at its left: a controller's stick with its number, or the keyboard.
         void DeviceGlyph(UnityEngine.UI.Button row, InputDevice device)
@@ -137,9 +154,11 @@ namespace Racer
             {
                 // 0.92 Part F: every finisher, the AI rivals too; the two players highlighted with their best laps
                 int place = ++rank; bool p1 = r == race.Racers[0], p2 = split && r == split.P2; var laps = r.Progress.LapTimes;
-                string who = (p1 ? "Player 1" : p2 ? (SplitScreen.P2Ai ? "Player 2 (AI)" : "Player 2") : "Rival " + r.Name) + " · " + VehicleProfile.Find(r.Car.GetComponent<VehicleConfiguration>().profileId).Name;
+                string who = (p1 ? SplitScreen.NameOf(1) : p2 ? SplitScreen.P2Name : r.Name) + " · " + VehicleProfile.Find(r.Car.GetComponent<VehicleConfiguration>().profileId).Name;
                 TableRow(n++, "split-standing-" + place, new[] { place.ToString(), who, r.Dnf || !r.Classified ? "DNF" : RaceHud.FormatTime(r.ClassifiedTime(race.Clock)) + (r.Estimated ? " (est.)" : ""), (p1 || p2) && laps.Count > 0 ? RaceHud.FormatTime(laps.Min()) : "—" }, w, () => { }, p1 || p2);
             }
+            // 0.94 Part A: the players' times count on the Top 10 (as single-player with these settings); the AI's never
+            if (split && split.TopTen.Count > 0) { details.text += "\nTop 10: " + string.Join("   ·   ", split.TopTen); details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight += 30; }
             Row(n, "rematch", "REMATCH", flow.StartRace); var colors = buttons[n].colors; colors.normalColor = new(.1f, .38f, .35f); buttons[n].colors = colors; buttons[n].GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight = 54; n++;
             Row(n++, "change-setup", "Change setup", () => flow.QuitSplit(true));
             Row(n, "menu", "Main menu", () => flow.QuitSplit(false));

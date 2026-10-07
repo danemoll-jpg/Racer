@@ -96,6 +96,9 @@ namespace Racer
             Scenery.Set(!Save.Settings.classicScenery); SceneryWorld.Attach(gameObject);
             Playlists=new RacePlaylists(root);
             Boards = new RecordBoards(root);
+            // 0.94 Part A: a save from before names is Dan's (campaign, records or the welcome already seen): named "Dan", and
+            // its Top 10 entries are his; a new player is asked with the welcome
+            PlayerNames.Adopt(Save, Campaign.HasProgress || Boards.Any || (Save.Settings.hintsSeen ?? new string[0]).Length > 0); Boards.Owner(Save.Settings.playerName);
             Race.opponents = Save.Settings.opponents; Race.traffic = Save.Settings.traffic;
             Save.Settings.lastFiniteLaps=Mathf.Clamp(Save.Settings.lastFiniteLaps,1,5);
             Race.laps=Save.Settings.laps==0&&!Race.opponents?0:Mathf.Clamp(Save.Settings.laps==0?Save.Settings.lastFiniteLaps:Save.Settings.laps,1,5);
@@ -118,7 +121,7 @@ namespace Racer
             back.AddBinding("<Keyboard>/escape"); back.AddBinding("<Gamepad>/buttonEast"); back.Enable();
             menus = gameObject.AddComponent<RaceMenus>(); menus.Initialize(this);
             Activities=gameObject.AddComponent<ArcadeActivities>();Activities.Initialize(Race,root);
-            CameraViews.Attach(this); TrailerMode.Attach(this);
+            CameraViews.Attach(this); TrailerMode.Attach(this); NameTags.Attach(this);
             Ghost=gameObject.AddComponent<CleanLapGhost>();Ghost.Initialize(Race,root);
             GetComponent<ExplorationCollection>()?.Initialize(Race,root);
             GetComponent<ExplorationMap>()?.Initialize(Race,root);
@@ -580,6 +583,7 @@ namespace Racer
             VehicleVisual.NewModels = Save.Settings.newMotorcycle; RiderLook.Player = Save.Settings.rider;
             Scenery.Set(!Save.Settings.classicScenery);
             Boards = new RecordBoards(directory);
+            PlayerNames.Adopt(Save, Campaign.HasProgress || Boards.Any || (Save.Settings.hintsSeen ?? new string[0]).Length > 0); Boards.Owner(Save.Settings.playerName);
             Save.SelectRecords(Race.Category); Save.ApplySettings(); menus.Show();
         }
 #endif

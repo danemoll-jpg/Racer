@@ -48,13 +48,34 @@ namespace Racer
             waypointPanel.GetComponent<UnityEngine.UI.Image>().color=new Color(.025f,.055f,.07f,.84f);
             UnityEngine.UI.Text WLabel(string name,Vector2 position,Vector2 dimensions,int fontSize){var t=new GameObject(name,typeof(RectTransform),typeof(UnityEngine.UI.Text)).GetComponent<UnityEngine.UI.Text>();t.transform.SetParent(wp,false);t.font=display.font;t.fontSize=fontSize;t.color=new(1,.86f,.3f);t.alignment=TextAnchor.MiddleCenter;t.raycastTarget=false;t.rectTransform.anchoredPosition=position;t.rectTransform.sizeDelta=dimensions;return t;}
             waypointArrow=WLabel("Waypoint direction",new(-132,0),new(50,50),40);waypointArrow.text="↑";waypointText=WLabel("Waypoint distance",new(26,0),new(270,50),24);waypointPanel.SetActive(false);
-            BuildClock();BuildCameraHint();
+            BuildClock();BuildCameraHint();BuildNames();
             var feedback=new GameObject("Arcade activity feedback",typeof(RectTransform),typeof(UnityEngine.UI.Text));feedback.transform.SetParent(transform,false);activities=feedback.GetComponent<UnityEngine.UI.Text>();activities.font=display.font;activities.fontSize=21;activities.color=new Color(1,.9f,.5f);activities.raycastTarget=false;activities.alignment=TextAnchor.LowerLeft;activities.rectTransform.anchorMin=activities.rectTransform.anchorMax=activities.rectTransform.pivot=Vector2.zero;activities.rectTransform.anchoredPosition=new(22,78);activities.rectTransform.sizeDelta=new(700,80);feedback.AddComponent<UnityEngine.UI.Outline>();
         }
         UnityEngine.UI.Text HudText(string name,Transform parent,int size,TextAnchor anchor,Color colour)
         {
             var t=new GameObject(name,typeof(RectTransform),typeof(UnityEngine.UI.Text)).GetComponent<UnityEngine.UI.Text>();t.transform.SetParent(parent,false);
             t.font=display.font;t.fontSize=size;t.alignment=anchor;t.color=colour;t.raycastTarget=false;var o=t.gameObject.AddComponent<UnityEngine.UI.Outline>();o.effectColor=new(0,0,0,.85f);o.effectDistance=new(1.4f,-1.4f);return t;
+        }
+        // 0.94 Part A: the driver directly ahead / behind with the gap (under the race panel) and the starting grid card (left,
+        // during the countdown only)
+        UnityEngine.UI.Text aheadText,gridText;GameObject aheadPanel,gridPanel;
+        void BuildNames()
+        {
+            aheadPanel=new GameObject("Ahead and behind",typeof(RectTransform),typeof(UnityEngine.UI.Image));var a=(RectTransform)aheadPanel.transform;a.SetParent(transform,false);
+            a.anchorMin=a.anchorMax=a.pivot=new(0,1);a.sizeDelta=new(300,58);var ai=aheadPanel.GetComponent<UnityEngine.UI.Image>();ai.color=new(.025f,.055f,.07f,.72f);ai.raycastTarget=false;
+            aheadText=HudText("Gaps",a,19,TextAnchor.MiddleLeft,Color.white);Stretch(aheadText.rectTransform,12,2,-8,-2);aheadPanel.SetActive(false);
+            gridPanel=new GameObject("Starting grid",typeof(RectTransform),typeof(UnityEngine.UI.Image));var g=(RectTransform)gridPanel.transform;g.SetParent(transform,false);
+            g.anchorMin=g.anchorMax=g.pivot=new(0,.5f);g.anchoredPosition=new(18,-20);g.sizeDelta=new(360,200);var gi=gridPanel.GetComponent<UnityEngine.UI.Image>();gi.color=new(.025f,.055f,.07f,.84f);gi.raycastTarget=false;
+            gridText=HudText("Grid",g,20,TextAnchor.UpperLeft,Color.white);gridText.supportRichText=true;Stretch(gridText.rectTransform,14,8,-10,-10);gridPanel.SetActive(false);
+        }
+        static void Stretch(RectTransform r,float l,float b,float rt,float t){r.anchorMin=Vector2.zero;r.anchorMax=Vector2.one;r.offsetMin=new(l,b);r.offsetMax=new(rt,t);}
+        void UpdateNames()
+        {
+            var flow=race.Flow;bool split=SplitScreen.Active;
+            bool grid=!split&&!race.FreeRoam&&flow.State==RaceFlow.Stage.Countdown&&race.opponents&&race.Racers.Count>1&&!flow.MenuVisible&&!TrailerMode.Active;
+            gridPanel.SetActive(grid);if(grid){gridText.text=RaceNames.GridText(race,race.Racers[0]);((RectTransform)gridPanel.transform).sizeDelta=new(360,36+25*race.Racers.Count);}
+            string gaps=!split&&!race.FreeRoam&&flow.State==RaceFlow.Stage.Racing&&race.opponents&&!flow.MenuVisible&&!TrailerMode.Active?RaceNames.AheadBehind(race,race.Racers[0]):"";
+            aheadPanel.SetActive(gaps!="");if(gaps!=""){aheadText.text=gaps;var panel=(RectTransform)display.transform.parent;((RectTransform)aheadPanel.transform).anchoredPosition=new(18,-18-panel.sizeDelta.y-6);((RectTransform)aheadPanel.transform).sizeDelta=new(300,gaps.Contains("\n")?58:32);}
         }
         // Day and time, large, white with an outline on a soft dark backing: readable on every sky; nothing else in it.
         void BuildClock()
@@ -99,6 +120,7 @@ namespace Racer
         void LateUpdate()
         {
             if(!race || race.Progress==null || !display) return;
+            if(aheadPanel)UpdateNames();
             if(SplitScreen.Active)
             {
                 display.transform.parent.gameObject.SetActive(false);if(speedPanel)speedPanel.SetActive(false);if(wrongPanel)wrongPanel.SetActive(false);

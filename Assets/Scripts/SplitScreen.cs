@@ -26,6 +26,11 @@ namespace Racer
         // Kept for rematches and "Change setup"; never saved.
         public static int Rivals, RivalDifficulty = 1; public static bool RivalsRandom, Traffic;
         public static TimeOfDay Time = TimeOfDay.Day; public static Weather Weather = Weather.Clear;
+        // 0.94 Part A: the players' names (player 1 starts as the saved player name; player 2 picks a name used before on
+        // this PC or enters one; the AI driver is "AI").
+        public static string P1Name = "", P2Pick = "";
+        public static string P2Name => P2Ai ? PlayerNames.Ai : string.IsNullOrEmpty(P2Pick) ? "Player 2" : P2Pick;
+        public static string NameOf(int player) => player == 1 ? (string.IsNullOrEmpty(P1Name) ? PlayerNames.Player : P1Name) : P2Name;
         // The two views' cameras while a split-screen race runs (empty otherwise).
         public static readonly List<Camera> Views = new();
         // The nearer of the two players (player 1 at p1) to a point.
@@ -123,15 +128,16 @@ namespace Racer
             if (!SplitScreen.P2Ai)
             {
                 var driver = car.GetComponent<RoadDriver>(); race.Drivers.Remove(driver); if (driver) { driver.enabled = false; Destroy(driver); }
-                P2 = new RacerState("PLAYER 2", car, race.gates.Length - 1, race.laps); race.Racers[1] = P2; P2.SampleOrigin(Time.timeAsDouble);
+                P2 = new RacerState(SplitScreen.P2Name, car, race.gates.Length - 1, race.laps); race.Racers[1] = P2; P2.SampleOrigin(Time.timeAsDouble);
                 var input = car.GetComponent<VehicleInput>(); input.Bind(SplitScreen.P2Device); input.enabled = false;
                 car.enabled = false; car.Body.isKinematic = true;
                 var respawn = car.GetComponent<VehicleRespawn>(); respawn.enabled = true; respawn.SeedCoursePosition(car.Body.position);
             }
-            else { P2 = state; car.name = "PLAYER 2 (AI)"; }
+            else { P2 = state; P2.Name = PlayerNames.Ai; car.name = "PLAYER 2 (AI)"; }
             if (!car.GetComponent<VehicleAudio>()) car.gameObject.AddComponent<VehicleAudio>();
             P2Guidance = gameObject.AddComponent<WrongWayGuidance>(); P2Guidance.Target = P2;
             p2Done = false; finished1 = finished2 = false; EndShot(1); EndShot(2); Cameras();
+            attempt1 = System.Guid.NewGuid().ToString("N"); attempt2 = System.Guid.NewGuid().ToString("N"); laps1 = laps2 = 0; raced1 = raced2 = false; TopTen.Clear();
         }
         // RaceDirector.RestartRace / AbandonEvent: player 2's vehicle goes (a human one is no longer in the AI list).
         public void ClearPlayerTwo()
@@ -178,6 +184,7 @@ namespace Racer
                     var runoff = P2Car.gameObject.AddComponent<RoadDriver>(); runoff.Initialize(race, P2Car, true, 1, 1); runoff.Racer = P2;
                 }
             }
+            Record(1); Record(2);
             SplitScreen.Eyes.Clear(); if (cam1) SplitScreen.Eyes.Add(cam1.transform.position); if (cam2) SplitScreen.Eyes.Add(cam2.transform.position);
             SplitScreen.Views.Clear(); if (cam1) SplitScreen.Views.Add(cam1); if (cam2) SplitScreen.Views.Add(cam2);
             // 0.92 Part F: with AI rivals the race is decided once both players have finished: the rivals still running get
@@ -187,6 +194,36 @@ namespace Racer
             if (f1 && !finished1) { finished1 = true; if (Winner() == race.Racers[0]) StartShot(1); }
             if (f2 && !finished2) { finished2 = true; if (!SplitScreen.P2Ai && Winner() == P2) StartShot(2); }
             if (stage == RaceFlow.Stage.Racing && race.Racers.Count > 2 && race.Progress.Finished && P2 != null && P2.Progress.Finished && !race.ClassificationFinal) race.FinalizeUnfinishedAi();
+        }
+        // ---------- 0.94 Part A: the players' times on the Top 10 ----------
+        // A human's laps and race total go on the course's Top 10 under their name, in the board a single-player race with
+        // these settings uses (their vehicle, the AI rivals - not the other player - their difficulty, traffic, laps) and under
+        // the same rules (no debug movement). Not recorded: the AI driver, ghosts, personal-best files, campaign, acorns.
+        string attempt1, attempt2; int laps1, laps2; bool raced1, raced2;
+        public readonly List<string> TopTen = new();
+        public string Category(int player)
+        {
+            var car = player == 1 ? race.vehicle : P2Car; var rivals = race.opponentRoster.Skip(1).ToArray();
+            return $"{race.courseId}-{car.GetComponent<VehicleConfiguration>().profileId}-{(rivals.Length > 0 ? "race4-d" + race.difficulty + "-" + string.Join("-", rivals) : "solo")}-{(race.traffic ? "traffic" : "clear")}-laps{race.laps}";
+        }
+        void Record(int player)
+        {
+            var state = player == 1 ? race.Racers[0] : P2; if (state == null || (player == 2 && SplitScreen.P2Ai) || flow.DebugMovementUsed || flow.Boards == null) return;
+            var p = state.Progress; ref int seen = ref (player == 1 ? ref laps1 : ref laps2); ref bool raced = ref (player == 1 ? ref raced1 : ref raced2);
+            string attempt = player == 1 ? attempt1 : attempt2; string name = SplitScreen.NameOf(player); var car = player == 1 ? race.vehicle : P2Car;
+            if (string.IsNullOrEmpty(attempt) || !car) return;
+            string vehicle = car.GetComponent<VehicleConfiguration>().profileId, category = Category(player);
+            if (p.CompletedLaps > seen && p.LapTimes.Count == p.CompletedLaps)
+            {
+                seen = p.CompletedLaps; int rank = flow.Boards.CompletedLap("split-" + attempt, category, vehicle, p, name);
+                if (rank > 0) TopTen.Add($"{name} lap #{rank}");
+            }
+            if (p.Finished && !raced)
+            {
+                raced = true; int rank = flow.Boards.CompletedRace("split-" + attempt, category, vehicle, p, race.Clock, name);
+                if (rank > 0) TopTen.Add($"{name} race #{rank}");
+                if (flow.State == RaceFlow.Stage.Results) flow.RefreshMenu();
+            }
         }
         // ---------- 0.92 Part F: the winner shot in a player's own half ----------
         // When a human player wins, their half shows them from the front three-quarter side for 2.5 s (their two-fist

@@ -11,7 +11,7 @@ namespace Racer
     {
         sealed class Half
         {
-            public RectTransform root; public Text info, speed, centre, tag; public RacingMiniMap map; public GameObject infoPanel, speedPanel;
+            public RectTransform root, captionRoot; public Text info, speed, centre, tag, gaps, grid, caption; public RacingMiniMap map; public GameObject infoPanel, speedPanel, gapsPanel, gridPanel;
         }
         RaceFlow flow; SplitRace split; Font font; readonly Half[] halves = new Half[2]; GameObject divider; RectTransform canvas;
         float goUntil; RaceFlow.Stage lastStage;
@@ -42,6 +42,18 @@ namespace Racer
             h.speed = Label(s, 28, TextAnchor.MiddleCenter, Color.white); h.speed.rectTransform.anchorMin = Vector2.zero; h.speed.rectTransform.anchorMax = Vector2.one; h.speed.rectTransform.offsetMin = h.speed.rectTransform.offsetMax = Vector2.zero;
             h.centre = Label(h.root, 30, TextAnchor.MiddleCenter, new Color(.4f, 1, .85f)); h.centre.rectTransform.anchorMin = new Vector2(.1f, .3f); h.centre.rectTransform.anchorMax = new Vector2(.9f, .7f); h.centre.rectTransform.offsetMin = h.centre.rectTransform.offsetMax = Vector2.zero;
             h.tag = Label(h.root, 18, TextAnchor.LowerLeft, player == 0 ? new Color(.3f, .95f, .81f) : new Color(1, .74f, .25f)); h.tag.rectTransform.anchorMin = h.tag.rectTransform.anchorMax = h.tag.rectTransform.pivot = Vector2.zero; h.tag.rectTransform.anchoredPosition = new Vector2(16, 12); h.tag.rectTransform.sizeDelta = new Vector2(300, 26);
+            // 0.94 Part A: the driver ahead / behind with the gap (under the race panel), the starting grid (countdown) and the
+            // winner's name over a player's own winner shot
+            h.gapsPanel = new GameObject("Ahead and behind", typeof(RectTransform), typeof(Image)); var g = (RectTransform)h.gapsPanel.transform; g.SetParent(h.root, false);
+            g.anchorMin = g.anchorMax = g.pivot = new Vector2(0, 1); g.anchoredPosition = new Vector2(14, -122); g.sizeDelta = new Vector2(290, 54);
+            h.gapsPanel.GetComponent<Image>().color = new Color(.025f, .055f, .07f, .72f); h.gapsPanel.GetComponent<Image>().raycastTarget = false;
+            h.gaps = Label(g, 18, TextAnchor.MiddleLeft, Color.white); h.gaps.rectTransform.anchorMin = Vector2.zero; h.gaps.rectTransform.anchorMax = Vector2.one; h.gaps.rectTransform.offsetMin = new Vector2(10, 2); h.gaps.rectTransform.offsetMax = new Vector2(-8, -2);
+            h.gridPanel = new GameObject("Starting grid", typeof(RectTransform), typeof(Image)); var gr = (RectTransform)h.gridPanel.transform; gr.SetParent(h.root, false);
+            gr.anchorMin = gr.anchorMax = gr.pivot = new Vector2(0, 1); gr.anchoredPosition = new Vector2(14, -126); gr.sizeDelta = new Vector2(330, 160);
+            h.gridPanel.GetComponent<Image>().color = new Color(.025f, .055f, .07f, .84f); h.gridPanel.GetComponent<Image>().raycastTarget = false;
+            h.grid = Label(gr, 17, TextAnchor.UpperLeft, Color.white); h.grid.rectTransform.anchorMin = Vector2.zero; h.grid.rectTransform.anchorMax = Vector2.one; h.grid.rectTransform.offsetMin = new Vector2(10, 6); h.grid.rectTransform.offsetMax = new Vector2(-8, -6);
+            h.captionRoot = new GameObject("Player " + (player + 1) + " winner caption", typeof(RectTransform)).GetComponent<RectTransform>(); h.captionRoot.SetParent(canvas, false);
+            h.caption = Label(h.captionRoot, 30, TextAnchor.UpperCenter, new Color(.4f, 1, .85f)); h.caption.rectTransform.anchorMin = new Vector2(.1f, .7f); h.caption.rectTransform.anchorMax = new Vector2(.9f, .95f); h.caption.rectTransform.offsetMin = h.caption.rectTransform.offsetMax = Vector2.zero;
             h.map = RacingMiniMap.Create(h.root, flow.Race, font); h.map.Split = true;
             var panel = (RectTransform)h.map.transform.parent.parent; panel.localScale = Vector3.one * .78f;
             return h;
@@ -50,10 +62,12 @@ namespace Racer
         {
             for (int i = 0; i < 2; i++)
             {
-                var r = halves[i].root;
-                r.anchorMin = leftRight ? new Vector2(i * .5f, 0) : new Vector2(0, i == 0 ? .5f : 0);
-                r.anchorMax = leftRight ? new Vector2(i * .5f + .5f, 1) : new Vector2(1, i == 0 ? 1 : .5f);
-                r.offsetMin = r.offsetMax = Vector2.zero;
+                foreach (var r in new[] { halves[i].root, halves[i].captionRoot })
+                {
+                    r.anchorMin = leftRight ? new Vector2(i * .5f, 0) : new Vector2(0, i == 0 ? .5f : 0);
+                    r.anchorMax = leftRight ? new Vector2(i * .5f + .5f, 1) : new Vector2(1, i == 0 ? 1 : .5f);
+                    r.offsetMin = r.offsetMax = Vector2.zero;
+                }
             }
             var d = (RectTransform)divider.transform;
             d.anchorMin = leftRight ? new Vector2(.5f, 0) : new Vector2(0, .5f); d.anchorMax = leftRight ? new Vector2(.5f, 1) : new Vector2(1, .5f);
@@ -70,10 +84,15 @@ namespace Racer
             {
                 var h = halves[i]; var state = i == 0 ? race.Racers[0] : split.P2; var car = i == 0 ? race.vehicle : split.P2Car;
                 h.root.gameObject.SetActive(driving && state != null && car && !split.ShotActive(i + 1)); // 0.92 Part F: not over the winner shot
+                h.captionRoot.gameObject.SetActive(driving && split.ShotActive(i + 1)); if (h.captionRoot.gameObject.activeSelf) h.caption.text = "WINNER\n" + state.Name;
                 if (!h.root.gameObject.activeSelf) continue;
+                bool countdown = flow.State == RaceFlow.Stage.Countdown && race.Racers.Count > 1;
+                h.gridPanel.SetActive(countdown); if (countdown) { h.grid.text = RaceNames.GridText(race, state); ((RectTransform)h.gridPanel.transform).sizeDelta = new Vector2(330, 30 + 22 * race.Racers.Count); }
+                string gaps = flow.State == RaceFlow.Stage.Racing ? RaceNames.AheadBehind(race, state) : "";
+                h.gapsPanel.SetActive(gaps != ""); if (gaps != "") { h.gaps.text = gaps; ((RectTransform)h.gapsPanel.transform).sizeDelta = new Vector2(290, gaps.Contains("\n") ? 54 : 30); }
                 h.map.Focus = car;
                 var p = state.Progress; int position = race.Ordered(false).IndexOf(state) + 1;
-                h.tag.text = i == 0 ? "PLAYER 1" : SplitScreen.P2Ai ? "PLAYER 2 (AI)" : "PLAYER 2";
+                h.tag.text = (i == 0 ? "PLAYER 1 · " : "PLAYER 2 · ") + SplitScreen.NameOf(i + 1);
                 h.info.text = $"LAP {Mathf.Min(p.CompletedLaps + 1, p.TargetLaps)}/{p.TargetLaps}     POS {position}/{race.Racers.Count}\nLap   {RaceHud.FormatTime(p.Finished ? p.LastLap : p.LapTime(race.Clock))}\nRace  {RaceHud.FormatTime(p.RaceTime(race.Clock))}" + (p.PenaltySeconds > 0 ? $"   +{p.PenaltySeconds:0}s" : "");
                 h.speed.text = $"{DisplayUnits.Mph(Mathf.Abs(car.ForwardSpeed)):0} <size=16>mph</size>";
                 string centre = "";
@@ -89,7 +108,7 @@ namespace Racer
         }
         public void Teardown()
         {
-            foreach (var h in halves) if (h != null && h.root) Destroy(h.root.gameObject);
+            foreach (var h in halves) { if (h != null && h.root) Destroy(h.root.gameObject); if (h != null && h.captionRoot) Destroy(h.captionRoot.gameObject); }
             if (divider) Destroy(divider);
         }
     }

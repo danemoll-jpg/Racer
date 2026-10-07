@@ -1,0 +1,29 @@
+---- names94
+  Dan's settings copy: playerName in file: False
+PASS Dan's existing save is named "Dan" without asking (welcome due: False)
+PASS Records: 10 entries named Dan on the shown board (Rank | Time | Name | Vehicle | Date | 1 | 01:50.696 | Dan | Needle 600 | 23 Sep 2026 | 2 | 01:53.006 | Dan | Needle 600 | 22 Sep 2026 | 3 | 01:53.331 | Dan | Ne…)
+PASS A on Player name opens the on-screen keyboard (page 'keyboard', focus key-9)
+PASS SAVE: the name is now "kyle" (page 'settings-gameplay'); known names kyle, Dan
+PASS Name tags Everyone: 3 tags shown (three AI rivals ahead, no other player)
+PASS Name tags Players only: 0 tags shown (three AI rivals ahead, no other player)
+PASS Name tags Off: 0 tags shown (three AI rivals ahead, no other player)
+---- splitnames94
+  Dan's settings copy: playerName in file: False
+PASS player 2 joined with A on the second controller (Controller 3)
+PASS player 1's name row: Player 1 name:   Dan   (A: new name)
+PASS A on player 2's name: the keyboard
+PASS player 2 is "kyle" (remembered: Dan, kyle)
+PASS split-screen: 2 name tags (each half draws its own) mode 2 state Racing menu False views 2 [view 1 kyle: 11 m, screen 892,8,-4.6 in (x:0.00, y:0.00, width:320.00, height:480.00) False, hidden False] [view 1 GOLD: 17 m, screen 122,252,16.8 in (x:0.00, y:0.00, width:320.00, height:480.00) True, hidden False] [view 2 Dan: 28 m, screen 555,221,27.9 in (x:320.00, y:0.00, width:320.00, height:480.00) True, hidden False] [view 2 GOLD: 33 m, screen 509,215,33.2 in (x:320.00, y:0.00, width:320.00, height:480.00) True, hidden True] 
+PASS split-screen times on the Top 10: Dan race 01:20.180 backyard-forward-v3-forest-shortcuts-moto-race4-d1-fastback-clear-laps1; kyle race 01:47.802 backyard-forward-v3-forest-shortcuts-atv-race4-d1-fastback-clear-laps1; Dan lap 01:18.749 backyard-forward-v3-forest-shortcuts-moto-race4-d1-fastback-clear
+  results: Dan's Backyard Loop - Forward  ·  1 lap  ·  Day / Clear  ·  1 AI rival / Top 10: Dan lap #1   ·   Dan race #1 || Place | Player | Total time | Best lap | 1 | GOLD · Highball Fastback | 01:13.440 | — | 2 | Dan · Needle 600 | 01:20.180 | 01:18.749 | 3 | kyle · Trail Four | 01:47.802 | 01:46.636
+  records after: Rank | Time | Name | Vehicle | Date | 1 | 01:15.673 | Dan | Skyfin Cruiser | 5 Oct 2026 | 2 | 01:17.459 | Dan | Trail Four | 3 Oct 2026 | 3 | 01:17.473 | Dan | Trail Four | 3 Oct 2026 | 4 | 01:17.662 | Dan | Needle 600 | 1 Oct 2026 | 5 | 01:18.285 | Dan | Needle 600 | 29 Sep 2026 | 6 | 01:18.749  NEW | Dan | Needle 600 | 7 Oct 2026 | 7 | 01:19.869 | Dan | Needle 600 | 29 Sep 2026 | 8 | 01:19.907 | Dan | Needle 600 | 29 Sep 2026 | 9 | 01:23.179 | Dan | Needle 600 | 29 Sep 2026 | 10 | 01:23.475 | Dan | Needle 600 | 29 Sep 2026
+---- rivals94:c3-backyard-dash
+  Dan's settings copy: playerName in file: False
+PASS Backyard Dash's page lists the rivals: Rivals: Mia Torres (Needle 600), June Park (Trail Four), Big Ed Kowalski (Drifter Twin)
+PASS countdown: the starting grid card: <b>STARTING GRID</b> / 1   June Park   <size=16>Trail Four</size> / 2   Big Ed Kowalski   <size=16>Drifter Twin</size> / <color=#FFC747>3   Dan   <size=16>Needle 600</size></color> / 4   Mia Torres   <size=16>Needle 600</size>
+PASS GO: the grid card is gone
+PASS racing: the ahead / behind line: ▲ Mia Torres  +0.6 s
+PASS racing: 3 name tags shown (Everyone)
+  winner shot caption: WINNER June Park
+PASS results: Place | Driver | Time | Status | 1 | June Park · Trail Four | 02:09.322 | Measured | 2 | Dan · Needle 600 | 02:21.852 | Measured | 3 | Mia Torres · Needle 600 | 02:24.616 | Estimated | 4 | Big Ed Kowalski · Drifter Twin | 02:31.929 | Estimated
+done, failures 0

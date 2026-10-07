@@ -13,6 +13,8 @@ namespace Racer
         [Serializable] public sealed class Entry
         {
             public string id, category, vehicle, date;
+            // 0.94 Part A: who set it (entries from before names are the save owner's: Owner names them)
+            public string name;
             public bool race, legacy;
             public double seconds;
             public long order;
@@ -79,14 +81,18 @@ namespace Racer
             .OrderBy(e=>e.seconds).ThenBy(e=>e.order).Take(10).ToArray();
         public string[] TopVehicles(Func<string,bool> onTrack,bool race)=>data.entries.Where(e=>e.race==race&&onTrack(e.category)).Select(e=>e.vehicle).Distinct().OrderBy(v=>v,StringComparer.Ordinal).ToArray();
         public string[] ViewVehicles(string era,bool race)=>data.entries.Where(e=>e.race==race&&RecordView.Era(e.category)==era).Select(e=>e.vehicle).Distinct().OrderBy(v=>v,StringComparer.Ordinal).ToArray();
-        public int Add(string id,string category,bool race,double seconds,string vehicle,string date=null,bool legacy=false)
+        public bool Any=>data.entries.Count>0;
+        // 0.94 Part A: entries from before names belong to the save's owner (Dan's existing save: "Dan"). In memory; written
+        // with the next record.
+        public void Owner(string name){if(string.IsNullOrEmpty(name))return;foreach(var e in data.entries)if(string.IsNullOrEmpty(e.name))e.name=name;}
+        public int Add(string id,string category,bool race,double seconds,string vehicle,string date=null,bool legacy=false,string name=null)
         {
             if(readFailed||string.IsNullOrEmpty(id)||!Valid(seconds))return 0;
             if((category.StartsWith("lake-v2-forest-")||category.StartsWith("lake-v3-shallows-")||category.StartsWith("forest-reverse-v1-")||category.StartsWith("lake-v4-arcade-")||category.StartsWith("forest-reverse-v2-arcade-"))&&(!VehicleProfile.Find(vehicle).Small||category.Split('-').Any(p=>VehicleProfile.All.Any(v=>v.Id==p&&!v.Small))))return 0;
             string legacyFile="records-"+category+".json";
             if(!race)category=LapCategory(category);
             if(data.received.Contains(id))return 0;
-            var entry=new Entry{id=id,category=category,race=race,seconds=seconds,vehicle=vehicle,date=date,legacy=legacy,order=++data.sequence};
+            var entry=new Entry{id=id,category=category,race=race,seconds=seconds,vehicle=vehicle,date=date,legacy=legacy,name=name??PlayerNames.Player,order=++data.sequence};
             data.received.Add(id);data.entries.Add(entry);
             var ordered=Board(category,race);int rank=Array.FindIndex(ordered.ToArray(),e=>e.id==id)+1;
             var retained=new HashSet<string>(ordered.Select(e=>e.id));
@@ -101,15 +107,15 @@ namespace Racer
             }
             Write();return rank;
         }
-        public int CompletedLap(string attempt,string category,string vehicle,RaceProgress progress)
+        public int CompletedLap(string attempt,string category,string vehicle,RaceProgress progress,string name=null)
         {
             if(progress.CompletedLaps<=0||progress.LapTimes.Count!=progress.CompletedLaps)return 0;
-            return Add(attempt+"/lap/"+progress.CompletedLaps,category,false,progress.LastLap,vehicle,DateTime.UtcNow.ToString("o"));
+            return Add(attempt+"/lap/"+progress.CompletedLaps,category,false,progress.LastLap,vehicle,DateTime.UtcNow.ToString("o"),false,name);
         }
-        public int CompletedRace(string attempt,string category,string vehicle,RaceProgress progress,double now)
+        public int CompletedRace(string attempt,string category,string vehicle,RaceProgress progress,double now,string name=null)
         {
             if(!progress.Finished)return 0;
-            return Add(attempt+"/race",category,true,progress.AdjustedTime(now),vehicle,DateTime.UtcNow.ToString("o"));
+            return Add(attempt+"/race",category,true,progress.AdjustedTime(now),vehicle,DateTime.UtcNow.ToString("o"),false,name);
         }
         void Migrate(string directory)
         {

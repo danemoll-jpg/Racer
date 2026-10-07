@@ -41,8 +41,10 @@ namespace Racer
         // A retry: the same event again (a new run; its result counts as a replay once one has been recorded). Never for a
         // championship round.
         public static void Retry() { if (Cup == null) Last = null; }
-        // The named rival for a championship round's roster slot (null outside a championship).
-        public static string RivalName(int slot) => Cup != null && slot >= 0 && slot < CampaignData.RivalNames.Length ? CampaignData.RivalNames[slot] : null;
+        // The named rival for a campaign race's roster slot (null outside the campaign). 0.94 Part A: every campaign race
+        // (0.90-0.93: championships only), from the one cast (CampaignData.CastFor); RivalMember = the cast member (colour).
+        public static int RivalMember(int slot) { var e = Active; if (e == null || e.Kind != CampaignEventKind.Race || slot < 0 || slot >= e.Rivals.Length) return -1; return CampaignData.CastFor(e.Rivals)[slot]; }
+        public static string RivalName(int slot) { int m = RivalMember(slot); return m < 0 ? null : CampaignData.RivalNames[m]; }
 
         public static void Configure(RaceDirector race)
         {
