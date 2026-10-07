@@ -15,7 +15,7 @@
   - **Dan does:** driving every course and direction, trying every vehicle everywhere, checking that a universal fix holds everywhere, and judging look and feel. He reports through the debug ZIPs.
   - **Write-up:** the TODO results are a short list: what changed, the one check per item, decisions made, and anything Dan should look at. No separate VALIDATION.md unless a round asks. If a check would take more than a few minutes of play time, skip it and list it under "for Dan to check".
 
-## CURRENT — Campaign, round 1 of 3 (framework, locking, money, vehicle shop, Street Loop chapter); remaining flickering car surfaces — 0.89.0-review1 — DONE, RELEASE IN PROGRESS
+## CURRENT — Campaign, round 1 of 3 (framework, locking, money, vehicle shop, Street Loop chapter); remaining flickering car surfaces — 0.89.0-review1 — DELIVERED, AWAITING DAN'S REVIEW
 
 - **Authorized by Dan (2026-10-06 / 07).** Written by Claude (chat). Dan reviewed 0.88.0-review1 and had nothing further ("i dont have anything left over"); he kept the Granite Saddle jump as it is. Part F is the one addition from that review.
 - **Starting point:** main at the "Record 0.88 delivery" commit (0.88.0-review1 / game-88000). This TODO edit is uncommitted and belongs in the safety checkpoint.
@@ -28,6 +28,15 @@
 - **Locking:** "I would like it to be locked, but with free roam and splitscreen having everything unlocked. I need a separate mode for testing though." **Corrected by Dan at 22:45: "Wait, I want the locked vehicles to stay locked in free roam."** So: the normal race modes follow campaign progress; **Free Roam always has the whole world open, but only the vehicles the player owns**; **split-screen, when it exists, has everything unlocked**; and there is a **testing mode that unlocks everything**.
 - **Upgrades apply in the campaign only.** Races outside the campaign use stock vehicles and keep today's records. Campaign times get their own board.
 - **Events are chosen from a menu list by chapter** (not by driving to markers).
+
+- **DELIVERED:**
+  - Source `a9f40b347de3c6474acf23cc1792524658bec63e` pushed and verified on origin/main.
+  - Fresh 0.89.0-review1 Windows build: 0 errors, 4m06s ([build-release.txt](Docs/Report089/build-release.txt)).
+  - Published [game-89000](https://github.com/danemoll-jpg/woodstock-rush-releases/releases/tag/game-89000) with `python Tools/Publish-LauncherRelease.py` (the project's `gh` on PATH): the known draft-lookup miss after the draft was created, then `--resume-draft` uploaded the three assets and published. Previous releases retained.
+  - All 234 Latest files match the public signed manifest. Public download, signature, install and startup pass ([hosted/result.json](Docs/Report089/hosted/result.json)). The catalog reports no pending game or music update.
+- **Play-Racer.cmd (unchanged):** launched a responsive `Builds/Latest/versions/89000/Racer.exe` (0.89.0-review1) through the launcher, muted, settings restored byte for byte; no campaign file was written to Dan's save. Latest root, current 89000 and previous 88000 retained (87000 had already been retired by the updater).
+- **Cleanup:** Builds 10,151,346,143 -> 8,008,845,775 bytes (2.1 GB recovered); also the hosted-check install (1.7 GB), about 78 MB of check scratch outside the project and the temporary editor tools. C: free 268,866,433,024 bytes after cleanup.
+- **SESSION HANDOFF: STOP.** Awaiting Dan's review of 0.89 (rule 12).
 
 ### Results (2026-10-07, Claude Code)
 
