@@ -1,0 +1,13 @@
+---- lap87:moto:main,clean
+PASS moto main: lap 01:06.504, main s 1826 -> 2110 10.58 s, branch taken 'Echo Cave', missed gates 0, resets 0, autopilot recoveries 0, longest air 2.40 s at 163.5,39.87,-162.7, hit: nothing
+PASS moto clean: lap 01:08.801, main s 1826 -> 2110 9.63 s, branch taken 'Summit Climb', missed gates 0, resets 0, autopilot recoveries 0, longest air 2.40 s at 312.1,78.35,264.2, hit: 99.12 Forest trunk collision at 38.3,35.1,249.4 impulse 219; 110.80 CR014 trunk 05771 at -123.8,22.2,-44.8 impulse 1135
+---- lap87:atv:main,clean
+PASS atv main: lap 01:20.683, main s 1826 -> 2110 12.77 s, branch taken '', missed gates 0, resets 0, autopilot recoveries 0, longest air 2.08 s at 71.2,34.73,260.6, hit: nothing
+PASS atv clean: lap 01:13.450, main s 1826 -> 2110 10.23 s, branch taken 'Summit Climb', missed gates 0, resets 0, autopilot recoveries 0, longest air 2.03 s at 132.4,34.08,-157.1, hit: nothing
+---- lap87:skyfin:main,clean
+PASS skyfin main: lap 01:14.081, main s 1826 -> 2110 11.20 s, branch taken '', missed gates 0, resets 0, autopilot recoveries 0, longest air 2.47 s at 310.6,78.52,264.0, hit: 345.10 CR014 trunk 05771 at -123.8,22.1,-44.8 impulse 52626
+PASS skyfin clean: lap 01:14.354, main s 1826 -> 2110 11.53 s, branch taken 'Summit Climb', missed gates 0, resets 0, autopilot recoveries 0, longest air 2.47 s at 310.6,78.52,264.0, hit: 422.58 CR014 trunk 05771 at -124.1,22.1,-44.8 impulse 52636
+---- lap87:fastback:main,clean
+PASS fastback main: lap 01:11.920, main s 1826 -> 2110 10.95 s, branch taken '', missed gates 0, resets 0, autopilot recoveries 0, longest air 2.47 s at 309.2,78.24,264.9, hit: 499.50 CR014 trunk 05771 at -123.9,22.2,-44.8 impulse 42228
+PASS fastback clean: lap 01:11.835, main s 1826 -> 2110 10.85 s, branch taken 'Summit Climb', missed gates 0, resets 0, autopilot recoveries 0, longest air 2.48 s at 309.2,78.24,264.9, hit: 574.84 CR014 trunk 05771 at -123.9,22.2,-44.8 impulse 42228
+done, failures 0

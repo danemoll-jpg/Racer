@@ -1,0 +1,62 @@
+LakeWoods: colliders before 13529, after 13543; rows only before 19, only after 33
+-- changed (same path, different shape or mesh):
+  before CR056 Forest Loop/Forest trunk collision	CapsuleCollider	True	False	519.536,37.044,-247.576	0.500,5.889,0.500		
+  before CR056 Forest Loop/Forest trunk collision	CapsuleCollider	True	False	521.019,38.416,-240.769	0.500,9.083,0.500		
+  before CR056 Forest Loop/Forest trunk collision	CapsuleCollider	True	False	524.449,38.103,-237.450	0.500,8.045,0.500		
+  before CR056 Forest Loop/Forest trunk collision	CapsuleCollider	True	False	533.354,37.571,-234.108	0.500,8.115,0.500		
+  before CR056 Forest Loop/Forest trunk collision	CapsuleCollider	True	False	563.506,85.752,-81.698	0.500,7.640,0.500		
+  after  CR056 Forest Loop/Forest trunk collision	CapsuleCollider	True	False	521.019,38.287,-240.769	0.500,9.083,0.500		
+  after  CR056 Forest Loop/Forest trunk collision	CapsuleCollider	True	False	533.354,37.880,-234.108	0.500,8.115,0.500		
+  before Memory loop - north is +Z/Ground_640_240	MeshCollider	True	False	560.000,57.488,-190.000	160.000,59.489,160.000	Assets/Track/RouteAtlas/LakeWoods-property-Ground_640_240.asset#LakeWoods-property-Ground_640_240	FF9AB6B35A635CBA
+  after  Memory loop - north is +Z/Ground_640_240	MeshCollider	True	False	560.000,57.488,-190.000	160.000,59.489,160.000	Assets/Track/SummitClimb/LakeWoods-summit-Ground_640_240.asset#LakeWoods-summit-Ground_640_240	08BF3779E0B52C7B
+  before Memory loop - north is +Z/Ground_640_320	MeshCollider	True	False	560.000,76.794,-30.000	160.000,23.752,160.000	Assets/Track/Discovery/LakeWoods-kyle-smooth-drive-Ground_640_320.asset#LakeWoods-kyle-smooth-drive-Ground_640_320(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)	0032448B1BE8CE06
+  after  Memory loop - north is +Z/Ground_640_320	MeshCollider	True	False	560.000,76.794,-30.000	160.000,23.752,160.000	Assets/Track/SummitClimb/LakeWoods-summit-Ground_640_320.asset#LakeWoods-summit-Ground_640_320	21E8D6D1102A25E7
+  before Woods replacing later subdivisions/CR014 trunk 03507	BoxCollider	True	False	560.943,76.387,-139.125	0.750,8.397,0.750		
+  after  Woods replacing later subdivisions/CR014 trunk 03507	BoxCollider	True	False	560.943,76.111,-139.125	0.750,8.397,0.750		
+  before World cleanup additional woodland/Roadside woodland trunk	BoxCollider	True	False	550.144,81.214,-130.060	0.600,7.822,0.600		
+  before World cleanup additional woodland/Roadside woodland trunk	BoxCollider	True	False	534.185,41.606,-226.727	0.600,9.796,0.600		
+  after  World cleanup additional woodland/Roadside woodland trunk	BoxCollider	True	False	550.144,80.535,-130.060	0.600,7.822,0.600		
+  after  World cleanup additional woodland/Roadside woodland trunk	BoxCollider	True	False	534.185,41.945,-226.727	0.600,9.796,0.600		
+-- removed:
+  Woods replacing later subdivisions/CR014 trunk 00532	BoxCollider	True	False	553.786,70.684,-156.165	0.750,9.044,0.750		
+  Woods replacing later subdivisions/CR014 trunk 03845	BoxCollider	True	False	525.389,41.446,-228.636	0.750,8.216,0.750		
+  Woods replacing later subdivisions/CR014 trunk 04804	BoxCollider	True	False	556.307,79.589,-132.552	0.750,8.408,0.750		
+  Woods replacing later subdivisions/CR014 trunk 05764	BoxCollider	True	False	553.898,65.843,-164.693	0.750,7.630,0.750		
+  Woods replacing later subdivisions/Tree trunk	BoxCollider	True	False	551.275,83.340,-123.617	1.000,8.887,1.000		
+  Woods replacing later subdivisions/Tree trunk	BoxCollider	True	False	553.284,73.813,-146.830	1.000,6.680,1.000		
+  Woods replacing later subdivisions/Tree trunk	BoxCollider	True	False	557.248,82.543,-115.573	1.000,6.249,1.000		
+  Woods replacing later subdivisions/Tree trunk	BoxCollider	True	False	558.443,82.488,-112.523	1.000,5.723,1.000		
+  Woods replacing later subdivisions/Tree trunk	BoxCollider	True	False	562.231,81.370,-113.811	1.000,5.441,1.000		
+-- added:
+  CR056 Forest Loop/Summit Climb shortcut/Summit Climb edge tree trunks/Tree trunk	BoxCollider	True	False	524.533,40.394,-229.400	1.000,6.756,1.000		
+  CR056 Forest Loop/Summit Climb shortcut/Summit Climb edge tree trunks/Tree trunk	BoxCollider	True	False	528.188,45.995,-215.943	0.750,8.273,0.750		
+  CR056 Forest Loop/Summit Climb shortcut/Summit Climb edge tree trunks/Tree trunk	BoxCollider	True	False	531.489,48.264,-208.217	0.750,7.577,0.750		
+  CR056 Forest Loop/Summit Climb shortcut/Summit Climb edge tree trunks/Tree trunk	BoxCollider	True	False	535.874,42.764,-221.626	0.750,8.280,0.750		
+  CR056 Forest Loop/Summit Climb shortcut/Summit Climb edge tree trunks/Tree trunk	BoxCollider	True	False	538.010,45.733,-213.309	1.000,6.589,1.000		
+  CR056 Forest Loop/Summit Climb shortcut/Summit Climb edge tree trunks/Tree trunk	BoxCollider	True	False	538.684,52.279,-199.886	1.000,8.232,1.000		
+  CR056 Forest Loop/Summit Climb shortcut/Summit Climb edge tree trunks/Tree trunk	BoxCollider	True	False	540.660,56.585,-191.721	0.750,9.589,0.750		
+  CR056 Forest Loop/Summit Climb shortcut/Summit Climb edge tree trunks/Tree trunk	BoxCollider	True	False	542.168,58.990,-184.870	1.000,8.232,1.000		
+  CR056 Forest Loop/Summit Climb shortcut/Summit Climb edge tree trunks/Tree trunk	BoxCollider	True	False	543.897,60.219,-178.081	1.000,4.774,1.000		
+  CR056 Forest Loop/Summit Climb shortcut/Summit Climb edge tree trunks/Tree trunk	BoxCollider	True	False	545.458,50.594,-205.164	0.750,8.860,0.750		
+  CR056 Forest Loop/Summit Climb shortcut/Summit Climb edge tree trunks/Tree trunk	BoxCollider	True	False	545.850,63.628,-171.354	1.000,6.756,1.000		
+  CR056 Forest Loop/Summit Climb shortcut/Summit Climb edge tree trunks/Tree trunk	BoxCollider	True	False	547.281,67.322,-164.493	0.750,8.273,0.750		
+  CR056 Forest Loop/Summit Climb shortcut/Summit Climb edge tree trunks/Tree trunk	BoxCollider	True	False	548.328,53.658,-197.406	0.750,9.441,0.750		
+  CR056 Forest Loop/Summit Climb shortcut/Summit Climb edge tree trunks/Tree trunk	BoxCollider	True	False	549.219,70.020,-157.763	0.750,8.860,0.750		
+  CR056 Forest Loop/Summit Climb shortcut/Summit Climb edge tree trunks/Tree trunk	BoxCollider	True	False	550.093,55.690,-190.453	0.750,8.273,0.750		
+  CR056 Forest Loop/Summit Climb shortcut/Summit Climb edge tree trunks/Tree trunk	BoxCollider	True	False	550.894,81.910,-123.513	1.000,8.232,1.000		
+  CR056 Forest Loop/Summit Climb shortcut/Summit Climb edge tree trunks/Tree trunk	BoxCollider	True	False	550.948,73.032,-150.945	0.750,9.589,0.750		
+  CR056 Forest Loop/Summit Climb shortcut/Summit Climb edge tree trunks/Tree trunk	BoxCollider	True	False	551.782,57.454,-183.705	1.000,6.589,1.000		
+  CR056 Forest Loop/Summit Climb shortcut/Summit Climb edge tree trunks/Tree trunk	BoxCollider	True	False	552.875,74.319,-141.854	1.000,4.774,1.000		
+  CR056 Forest Loop/Summit Climb shortcut/Summit Climb edge tree trunks/Tree trunk	BoxCollider	True	False	553.252,59.832,-176.866	1.000,5.705,1.000		
+  CR056 Forest Loop/Summit Climb shortcut/Summit Climb edge tree trunks/Tree trunk	BoxCollider	True	False	555.104,63.637,-170.111	0.750,8.280,0.750		
+  CR056 Forest Loop/Summit Climb shortcut/Summit Climb edge tree trunks/Tree trunk	BoxCollider	True	False	556.451,66.262,-163.232	0.750,7.577,0.750		
+  CR056 Forest Loop/Summit Climb shortcut/Summit Climb edge tree trunks/Tree trunk	BoxCollider	True	False	558.423,69.857,-156.551	0.750,9.441,0.750		
+  CR056 Forest Loop/Summit Climb shortcut/Summit Climb edge tree trunks/Tree trunk	BoxCollider	True	False	558.447,78.775,-129.071	1.000,5.705,1.000		
+  CR056 Forest Loop/Summit Climb shortcut/Summit Climb edge tree trunks/Tree trunk	BoxCollider	True	False	559.850,78.366,-133.893	0.750,8.273,0.750		
+  CR056 Forest Loop/Summit Climb shortcut/Summit Climb kink boulder	MeshCollider	True	False	537.612,51.149,-195.715	4.763,3.491,3.804	Assets/Track/SummitClimb/LakeWoods-summit-part-7.asset#LakeWoods-summit-part-7	7D82905428B5D485
+-- route data lines only before:
+  course lake-v7-discovery road CR056 Forest Loop/Forest race route length 2119.4 points 2057 forestTrail True
+-- route data lines only after:
+  course lake-v8-summit-climb road CR056 Forest Loop/Forest race route length 2119.4 points 2057 forestTrail True
+  branch 'Summit Climb' CR056 Forest Loop/Summit Climb shortcut/Summit Climb route active True entry 1828.0 exit 2096.0 length 215.4 hw 2.75 ai True speed 33 bypassed [4] entryInset 24 first 504.5,40.37,-263.8 last 567.8,8
+     pts 504.5,40.37,-263.8 505.0,40.16,-263.5 505.5,39.95,-263.2 506.1,39.73,-262.9 506.6,39.50,-262.6 507.1,39.29,-262.2 507.7,39.09,-261.9 508.2,38.87,-261.5 508.8,38.65,-261.2 509.3,38.43,-260.8 509.9,38.20,-260.4 510.

@@ -1,0 +1,25 @@
+---- lap87:moto:late1,late2
+  moto late1: the mistake ended 0.5 s after branch s 56 at 537.7,46.43,-204.4, speed 33.3; hits 
+PASS moto late1: lap 01:20.199, main s 1826 -> 2110 23.15 s, branch taken 'Summit Climb', missed gates 0, resets 2, autopilot recoveries 2, longest air 2.83 s at 564.5,52.03,-182.5, hit: 63.60 Tree trunk at 538.6,48.2,-200.4 impulse 0; 66.34 CR014 trunk 00854 at 563.9,53.5,-184.6 impulse 0; 80.00 Tree trunk at 556.4,82.9,-60.2 impulse 0
+  moto late2: the mistake ended 0.5 s after branch s 128 at 557.5,74.25,-135.0, speed 32.2; hits 
+PASS moto late2: lap 01:20.207, main s 1826 -> 2110 14.55 s, branch taken 'Summit Climb', missed gates 0, resets 2, autopilot recoveries 2, longest air 2.40 s at 163.0,39.97,-162.6, hit: 112.92 Forest trunk collision at 38.2,34.3,249.6 impulse 2096; 130.38 CR014 trunk 05771 at -123.9,22.1,-44.8 impulse 4082; 159.02 Tree trunk at 558.1,75.9,-129.6 impulse 0; 161.80 Tree trunk at 557.9,75.9,-129.6 impulse 231
+---- lap87:atv:late1
+  atv late1: the mistake ended 0.5 s after branch s 56 at 536.6,44.96,-208.5, speed 24.3; hits 
+PASS atv late1: lap 01:12.633, main s 1826 -> 2110 9.43 s, branch taken 'Summit Climb', missed gates 0, resets 0, autopilot recoveries 0, longest air 2.05 s at 132.4,34.08,-157.0, hit: 238.68 Tree trunk at 539.2,48.2,-200.4 impulse 0
+---- lap87:skyfin:late1
+  skyfin late1: the mistake ended 0.5 s after branch s 56 at 537.7,46.26,-205.4, speed 29.6; hits 
+PASS skyfin late1: lap 01:11.950, main s 1826 -> 2110 9.22 s, branch taken 'Summit Climb', missed gates 0, resets 0, autopilot recoveries 0, longest air 2.47 s at 310.6,78.52,264.0, hit: 285.32 CR014 trunk 05771 at -123.8,22.1,-44.8 impulse 52626; 313.50 Tree trunk at 539.2,48.4,-200.1 impulse 0
+---- lap87:fastback:late1,late2
+  fastback late1: the mistake ended 0.5 s after branch s 56 at 537.8,46.36,-205.1, speed 30.7; hits 
+PASS fastback late1: lap 01:14.314, main s 1826 -> 2110 16.37 s, branch taken 'Summit Climb', missed gates 0, resets 1, autopilot recoveries 1, longest air 2.55 s at 308.2,78.20,265.9, hit: 384.14 Tree trunk at 538.8,48.2,-200.4 impulse 22569; 388.14 Tree trunk at 552.3,54.2,-184.2 impulse 20881
+  fastback late2: the mistake ended 0.5 s after branch s 128 at 556.8,73.44,-137.7, speed 28.2; hits 
+PASS fastback late2: lap 01:17.103, main s 1826 -> 2110 15.85 s, branch taken 'Summit Climb', missed gates 0, resets 1, autopilot recoveries 1, longest air 2.55 s at 308.2,78.20,265.9, hit: 437.44 CR014 trunk 05771 at -123.9,22.2,-44.8 impulse 42246; 467.66 Tree trunk at 558.9,76.2,-129.6 impulse 34693; 471.04 Tree trunk at 558.5,76.1,-129.6 impulse 0
+---- gatelog:LakeWoods:moto:atv,scrambler,original
+PASS LakeWoods player moto vs atv/scrambler/original: PLAYER moto: 01:12.146 missed 0 resets 0 longest stall 1s shortcuts []; EMBER atv: 01:21.868 missed 0 resets 0 longest stall 1s shortcuts []; GOLD scrambler: 01:06.430 missed 0 resets 0 longest stall 1s shortcuts [Summit Climb]; BLUE original: 01:12.419 missed 0 resets 0 longest stall 1s shortcuts []
+---- gatelog:LakeWoods:fastback:skyfin,drifter,atv
+PASS LakeWoods player fastback vs skyfin/drifter/atv: PLAYER fastback: 01:11.603 missed 0 resets 0 longest stall 1s shortcuts []; EMBER skyfin: 01:11.332 missed 0 resets 0 longest stall 1s shortcuts [Echo Cave]; GOLD drifter: 01:09.118 missed 0 resets 0 longest stall 1s shortcuts [Echo Cave, Summit Climb]; BLUE atv: 01:16.708 missed 0 resets 0 longest stall 1s shortcuts [Summit Climb]
+---- gatelog:LakeWoods:atv:moto,pebble,tourer
+PASS LakeWoods player atv vs moto/pebble/tourer: PLAYER atv: 01:17.518 missed 0 resets 0 longest stall 1s shortcuts [Summit Climb]; EMBER moto: 01:18.633 missed 0 resets 0 longest stall 1s shortcuts []; GOLD pebble: 01:11.059 missed 0 resets 0 longest stall 1s shortcuts [Echo Cave]; BLUE tourer: 01:09.660 missed 0 resets 0 longest stall 1s shortcuts [Summit Climb]
+---- shots87
+Summit Climb views: B-fork-from-main, B-kink1, B-rough-middle, B-kink2, B-crest-from-below, B-crest-top-to-merge, B-merge-sight-to-hook, B-overview
+done, failures 0

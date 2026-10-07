@@ -1,0 +1,61 @@
+length 217.2 m, start [ 504.53 -263.81] end [567.75 -63.33], ground 40.36 -> 82.29
+cut 259 m3 (max 1.30 m) fill 281 m3 (max 1.32 m) over the trail width only
+max grade 38.0 %, min -33.8 %; crest at s 163 y 80.00 (crest smoothing 33 m); run-out grade 4.2 %
+tightest centreline radius 11.1 m
+trunk colliders on the trail (11):
+  s 22.5 d 1.9 CR056 Forest Loop/Forest trunk collision at 519.5,-247.6 r 0.25
+  s 34.7 d 2.0 CR056 Forest Loop/Forest trunk collision at 524.5,-237.4 r 0.25
+  s 113.5 d 2.0 Woods replacing later subdivisions/CR014 trunk 05764 at 553.9,-164.7 r 0.375
+  s 121.8 d 0.1 Woods replacing later subdivisions/CR014 trunk 00532 at 553.8,-156.2 r 0.375
+  s 130.8 d 2.8 Woods replacing later subdivisions/Tree trunk at 553.3,-146.8 r 0.5
+  s 145.9 d 1.3 Woods replacing later subdivisions/CR014 trunk 04804 at 556.3,-132.6 r 0.375
+  s 154.2 d 3.8 Woods replacing later subdivisions/Tree trunk at 551.3,-123.6 r 0.5
+  s 163.8 d 0.5 Woods replacing later subdivisions/Tree trunk at 557.2,-115.6 r 0.5
+  s 166.5 d 0.4 Woods replacing later subdivisions/Tree trunk at 558.4,-112.5 r 0.5
+  s 166.5 d 3.7 Woods replacing later subdivisions/Tree trunk at 562.2,-113.8 r 0.5
+  s 198.4 d 3.2 CR056 Forest Loop/Forest trunk collision at 563.5,-81.7 r 0.25
+trunks at the edges (within 2.75+4 m): 12
+  s     0 x  504.53 z  -263.81 head   60.0 R   162 ground  40.36 trail  40.36 (+0.00) grade -33.8
+  s     5 x  508.78 z  -261.18 head   56.1 R    57 ground  38.65 trail  38.68 (+0.03) grade -33.2
+  s    10 x  512.95 z  -258.02 head   49.0 R    42 ground  37.08 trail  37.07 (-0.01) grade -30.6
+  s    15 x  516.21 z  -254.89 head   43.4 R    47 ground  35.70 trail  35.67 (-0.03) grade -24.8
+  s    20 x  519.53 z  -250.95 head   36.8 R    41 ground  34.52 trail  34.59 (+0.07) grade -18.9
+  s    25 x  522.35 z  -246.67 head   30.3 R    50 ground  33.55 trail  33.76 (+0.21) grade -12.4
+  s    30 x  524.71 z  -242.12 head   24.1 R    38 ground  33.02 trail  33.48 (+0.46) grade   2.3
+  s    35 x  526.56 z  -237.32 head   19.0 R   132 ground  33.56 trail  34.03 (+0.47) grade  19.4
+  s    40 x  527.99 z  -233.06 head   18.0 R   108 ground  35.24 trail  35.31 (+0.08) grade  30.2
+  s    45 x  529.47 z  -228.19 head   16.1 R   220 ground  36.97 trail  36.92 (-0.05) grade  33.2
+  s    50 x  530.78 z  -223.43 head   13.9 R    63 ground  38.51 trail  38.61 (+0.09) grade  34.3
+  s    55 x  531.89 z  -218.58 head   13.9 R    46 ground  40.32 trail  40.37 (+0.04) grade  36.1
+  s    60 x  533.54 z  -213.38 head   22.0 R    21 ground  42.24 trail  42.17 (-0.06) grade  35.9
+  s    65 x  536.03 z  -209.33 head   41.5 R    24 ground  43.99 trail  43.98 (-0.01) grade  36.7
+  s    70 x  539.34 z  -205.68 head   43.0 R   999 ground  45.30 trail  45.85 (+0.55) grade  38.0
+  s    75 x  542.19 z  -201.83 head   26.9 R    16 ground  46.69 trail  47.75 (+1.06) grade  38.0
+  s    80 x  543.87 z  -197.14 head   16.3 R    75 ground  48.64 trail  49.65 (+1.01) grade  38.0
+  s    85 x  545.15 z  -192.13 head   13.3 R   353 ground  50.75 trail  51.55 (+0.80) grade  38.0
+  s    90 x  546.23 z  -187.49 head   13.3 R   412 ground  52.89 trail  53.45 (+0.56) grade  38.0
+  s    95 x  547.44 z  -182.52 head   13.7 R   999 ground  54.90 trail  55.35 (+0.45) grade  38.0
+  s   100 x  548.66 z  -177.54 head   13.7 R   999 ground  56.88 trail  57.25 (+0.37) grade  38.0
+  s   105 x  549.89 z  -172.50 head   13.7 R   999 ground  58.95 trail  59.15 (+0.21) grade  38.0
+  s   110 x  551.11 z  -167.49 head   13.7 R   999 ground  61.08 trail  61.05 (-0.03) grade  38.0
+  s   115 x  552.19 z  -163.08 head   13.7 R   999 ground  63.21 trail  62.96 (-0.25) grade  38.0
+  s   120 x  553.36 z  -158.28 head   13.8 R   445 ground  65.33 trail  64.86 (-0.47) grade  38.0
+  s   125 x  554.71 z  -152.95 head   14.3 R   896 ground  67.37 trail  66.76 (-0.62) grade  38.0
+  s   130 x  555.89 z  -148.13 head   12.7 R    80 ground  69.36 trail  68.65 (-0.71) grade  37.8
+  s   135 x  556.79 z  -143.23 head    6.4 R    18 ground  71.27 trail  70.53 (-0.74) grade  37.2
+  s   140 x  556.60 z  -138.75 head  -12.3 R    16 ground  73.27 trail  72.36 (-0.91) grade  35.7
+  s   145 x  555.20 z  -133.38 head  -15.6 R   999 ground  75.22 trail  74.08 (-1.14) grade  33.0
+  s   150 x  554.43 z  -128.65 head   -0.8 R    20 ground  76.92 trail  75.63 (-1.29) grade  28.8
+  s   155 x  555.12 z  -123.71 head   13.9 R    35 ground  78.13 trail  76.95 (-1.19) grade  24.0
+  s   160 x  556.46 z  -119.27 head   18.4 R   169 ground  78.93 trail  78.06 (-0.86) grade  20.9
+  s   165 x  558.22 z  -114.13 head   18.8 R   352 ground  79.44 trail  79.04 (-0.40) grade  17.9
+  s   170 x  559.85 z  -109.32 head   19.4 R   372 ground  79.68 trail  79.84 (+0.16) grade  14.2
+  s   175 x  561.49 z  -104.61 head   18.5 R   119 ground  79.71 trail  80.46 (+0.75) grade  10.7
+  s   180 x  562.82 z  -100.27 head   15.8 R   184 ground  79.65 trail  80.93 (+1.28) grade   8.1
+  s   185 x  564.16 z   -95.36 head   14.5 R   181 ground  80.18 trail  81.29 (+1.12) grade   6.7
+  s   190 x  565.38 z   -90.28 head   12.3 R   105 ground  81.18 trail  81.61 (+0.43) grade   6.1
+  s   195 x  566.31 z   -85.26 head    8.5 R    69 ground  81.87 trail  81.88 (+0.01) grade   4.4
+  s   200 x  566.89 z   -80.19 head    5.0 R   129 ground  82.25 trail  82.04 (-0.21) grade   2.1
+  s   205 x  567.28 z   -75.21 head    4.2 R   611 ground  82.34 trail  82.13 (-0.22) grade   1.6
+  s   210 x  567.57 z   -70.65 head    3.0 R   187 ground  82.35 trail  82.20 (-0.15) grade   1.4
+  s   215 x  567.75 z   -65.57 head    0.9 R    94 ground  82.31 trail  82.26 (-0.05) grade   1.0

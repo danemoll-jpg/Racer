@@ -1,0 +1,2 @@
+Summit Climb branch points -> AI line (346 points, largest sideways move 1.20 m, ground under it within 0.22 m of the centre profile); length 215.4; recommendedSpeed 33
+saved

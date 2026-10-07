@@ -10,7 +10,7 @@ using UnityEngine;
 namespace Racer {
 // 0.86 targeted checks, added to the 0.80 runner (same muted isolated save, same helpers): PROBE_CASES="case:args;...".
 public sealed partial class Report080Checks {
- IEnumerator Cases086(string[] a)=>a[0] switch{"inout86"=>InOut086(a[1],a[2]),"full86"=>Full086(a[1],a[2],a[3],F(a[4]),F(a[5]),F(a[6])),_=>null};
+ IEnumerator Cases086(string[] a)=>a[0] switch{"inout86"=>InOut086(a[1],a[2]),"full86"=>Full086(a[1],a[2],a[3],F(a[4]),F(a[5]),F(a[6])),_=>Cases087(a)};
 
  // Part D: a player's approach: full throttle the whole way, steering along the branch centre line (look-ahead 10 m) while
  // any wheel is down (bars held straight in the air), no braking. full86:Scene:profile:branch:fromS:startSpeed:seconds. Starts on the branch at fromS at startSpeed; every physics

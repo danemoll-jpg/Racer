@@ -1,0 +1,23 @@
+---- lap87:moto:clean,kink1,crest
+PASS moto clean: lap 01:13.352, main s 1826 -> 2110 8.73 s, branch taken 'Summit Climb', missed gates 0, resets 1, autopilot recoveries 1, longest air 2.43 s at 163.9,39.91,-162.8, hit: 29.22 Forest trunk collision at 38.2,34.3,249.6 impulse 2096; 46.64 CR014 trunk 05771 at -123.8,22.1,-44.8 impulse 1303
+  moto kink1: the mistake ended 0.6 s after branch s 56 at 538.7,47.92,-201.5, speed 28.2; hits 143.88 Tree trunk at 538.5,48.2,-200.4 impulse 1197
+PASS moto kink1: lap 01:17.392, main s 1826 -> 2110 17.75 s, branch taken 'Summit Climb', missed gates 0, resets 1, autopilot recoveries 1, longest air 2.60 s at 559.4,49.86,-189.2, hit: 106.02 Forest trunk collision at 38.3,35.1,249.4 impulse 219; 117.74 CR014 trunk 05771 at -123.9,22.2,-44.8 impulse 910; 143.88 Tree trunk at 538.5,48.2,-200.4 impulse 1197; 147.62 Roadside woodland trunk at 558.7,53.4,-180.7 impulse 0; 148.28 Tree trunk at 553.8,57.0,-177.4 impulse 727
+  moto crest: the mistake ended 1.5 s after branch s 150 at 552.7,87.57,-87.8, speed 7.9; hits 
+PASS moto crest: lap 01:07.929, main s 1826 -> 2110 11.52 s, branch taken 'Summit Climb', missed gates 0, resets 0, autopilot recoveries 0, longest air 2.40 s at 312.1,78.35,264.2, hit: 226.28 Roadside woodland trunk at 549.3,85.8,-63.8 impulse 0; 226.62 CR014 trunk 01132 at 550.8,83.9,-54.4 impulse 2590; 227.86 Roadside woodland trunk at 549.3,83.2,-63.3 impulse 0
+---- lap87:atv:clean,kink1
+PASS atv clean: lap 01:12.249, main s 1826 -> 2110 8.88 s, branch taken 'Summit Climb', missed gates 0, resets 0, autopilot recoveries 0, longest air 2.03 s at 132.4,34.10,-157.0, hit: nothing
+  atv kink1: the mistake ended 0.8 s after branch s 56 at 539.4,47.84,-201.6, speed 21.4; hits 380.96 Tree trunk at 538.9,48.6,-200.4 impulse 1611
+PASS atv kink1: lap 01:23.320, main s 1826 -> 2110 15.08 s, branch taken 'Summit Climb', missed gates 0, resets 0, autopilot recoveries 0, longest air 2.27 s at 554.2,50.16,-191.0, hit: 380.96 Tree trunk at 538.9,48.6,-200.4 impulse 1611; 382.20 Tree trunk at 548.0,54.5,-197.0 impulse 0
+---- lap87:skyfin:clean,kink1
+PASS skyfin clean: lap 01:11.846, main s 1826 -> 2110 9.17 s, branch taken 'Summit Climb', missed gates 0, resets 0, autopilot recoveries 0, longest air 2.47 s at 310.7,78.51,264.2, hit: 433.28 CR014 trunk 05771 at -123.8,22.1,-44.8 impulse 52650
+  skyfin kink1: the mistake ended 0.6 s after branch s 56 at 539.1,47.46,-202.9, speed 12.7; hits 533.62 Tree trunk at 538.8,48.3,-200.4 impulse 30425
+PASS skyfin kink1: lap 01:20.260, main s 1826 -> 2110 20.62 s, branch taken 'Summit Climb', missed gates 0, resets 1, autopilot recoveries 1, longest air 2.45 s at 310.7,78.51,264.2, hit: 498.74 Echo Cave enclosed rock at 80.5,39.7,147.5 impulse 1116; 533.62 Tree trunk at 538.8,48.3,-200.4 impulse 30425; 534.46 Tree trunk at 545.1,49.1,-204.8 impulse 635; 538.92 Tree trunk at 544.4,59.0,-177.6 impulse 4017; 539.18 Tree trunk at 545.7,60.3,-171.9 impulse 13279
+---- lap87:fastback:clean,kink1,crest
+PASS fastback clean: lap 01:09.612, main s 1826 -> 2110 8.75 s, branch taken 'Summit Climb', missed gates 0, resets 0, autopilot recoveries 0, longest air 2.53 s at 308.2,78.20,265.9, hit: 591.28 CR014 trunk 05771 at -123.9,22.2,-44.8 impulse 42246
+  fastback kink1: the mistake ended 0.6 s after branch s 56 at 539.2,47.58,-202.5, speed 13.7; hits 691.62 Tree trunk at 538.8,48.3,-200.4 impulse 24925
+PASS fastback kink1: lap 01:21.148, main s 1826 -> 2110 20.27 s, branch taken 'Summit Climb', missed gates 0, resets 1, autopilot recoveries 1, longest air 2.55 s at 308.2,78.20,265.9, hit: 664.30 CR014 trunk 05771 at -123.9,22.2,-44.8 impulse 42246; 691.62 Tree trunk at 538.8,48.3,-200.4 impulse 24925; 696.04 Tree trunk at 551.6,54.2,-184.2 impulse 10963; 697.86 Tree trunk at 544.4,57.8,-178.6 impulse 13031
+  fastback crest: the mistake ended 1.5 s after branch s 150 at 557.5,82.58,-88.6, speed 21.0; hits 
+PASS fastback crest: lap 01:11.525, main s 1826 -> 2110 10.12 s, branch taken 'Summit Climb', missed gates 0, resets 0, autopilot recoveries 0, longest air 2.53 s at 308.2,78.20,265.9, hit: 748.88 CR014 trunk 05771 at -123.8,22.1,-44.8 impulse 42224
+---- climb87:skyfin
+PASS skyfin standing start at Summit Climb s 24 (foot of the climb), full throttle: reached s 155 (the crest is s 150) in 6.8 s, resets 0, slowest after 40 m 22.6 m/s; speed by station: s30:12.8 s50:20.4 s70:23.7 s90:25.5 s110:27.2 s130:28.6 s150:27.7
+done, failures 0

@@ -58,7 +58,9 @@ namespace Racer
         // Reverse Street's changed ramp shoulder gets a new activity category.
         public static string ActivityCourse(string course)=>course switch{
             "street-v12-corrections"=>"street-v11-arcade", "lake-v5-corrections"=>"lake-v4-arcade",
-            "forest-reverse-v3-corrections"=>"forest-reverse-v2-arcade", _=>course};
+            "forest-reverse-v3-corrections"=>"forest-reverse-v2-arcade",
+            // 0.87: the Summit Climb shortcut does not move any activity site, so their results stay with the v7 course.
+            "lake-v8-summit-climb"=>"lake-v7-discovery", _=>course};
         string Suffix(ActivitySite s)=>"/activities-v2/"+configuration.profileId+(s.kind==ActivitySite.Kind.Speed&&oppositeAttempt?"/opposite":"/forward");
         public string Key(ActivitySite s)=>s.id+"/"+ActivityCourse(race.courseId)+Suffix(s);
         // The site's own key plus, in FreeRoamWorld, the keys it had in the course scenes.
