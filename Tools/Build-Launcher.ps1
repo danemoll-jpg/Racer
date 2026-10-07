@@ -8,6 +8,10 @@ $script=Join-Path $root 'Temp/build-launcher.cmd'
 $entry=if($CoreOnly){'core_cli.cpp'}else{'launcher.cpp'}
 $subsystem=if($CoreOnly){'CONSOLE'}else{'WINDOWS'}
 $exe=if($CoreOnly){'LauncherChecks.exe'}else{'WoodstockRushLauncher.exe'}
+# 0.87: the launcher carries the game's ATV icon (Launcher/launcher.rc -> WoodstockRush.ico), compiled with the SDK's rc.exe.
+$rc=Join-Path $root 'Builds/LauncherSDK/microsoft.windows.sdk.cpp/c/bin/10.0.28000.0/x64/rc.exe'
+$rcStep=if($CoreOnly){''}else{"`"$rc`" /nologo /fo `"$out\launcher.res`" `"$root\Launcher\launcher.rc`"`r`nif errorlevel 1 exit /b %errorlevel%"}
+$res=if($CoreOnly){''}else{"`"$out\launcher.res`""}
 @"
 @echo off
 call "$vc" >nul
@@ -16,7 +20,8 @@ set "INCLUDE=$root\Builds\LauncherSDK\microsoft.windows.sdk.cpp\c\Include\10.0.2
 set "LIB=$root\Builds\LauncherSDK\microsoft.windows.sdk.cpp.x64\c\um\x64;$root\Builds\LauncherSDK\microsoft.windows.sdk.cpp.x64\c\ucrt\x64;%LIB%"
 cl /nologo /TC /O2 /MT /c /Fo:"$out\miniz.obj" "$root\Launcher\vendor\miniz.c"
 if errorlevel 1 exit /b %errorlevel%
-cl /nologo /utf-8 /std:c++17 /EHsc /O2 /MT /W4 /Fe:"$out\$exe" /Fo:"$out\\" "$root\Launcher\$entry" "$root\Launcher\core.cpp" "$root\Launcher\store.cpp" "$out\miniz.obj" /link /SUBSYSTEM:$subsystem
+$rcStep
+cl /nologo /utf-8 /std:c++17 /EHsc /O2 /MT /W4 /Fe:"$out\$exe" /Fo:"$out\\" "$root\Launcher\$entry" "$root\Launcher\core.cpp" "$root\Launcher\store.cpp" "$out\miniz.obj" $res /link /SUBSYSTEM:$subsystem
 "@ | Set-Content -LiteralPath $script
 & cmd.exe /d /c $script
 if($LASTEXITCODE -ne 0){throw "Launcher compilation failed: $LASTEXITCODE"}
