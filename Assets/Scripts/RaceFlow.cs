@@ -136,7 +136,8 @@ namespace Racer
             LoadingScreen.WorldReady();
             SmashAudio.Prepare();VehicleRespawn.LaunchSurfaces(gameObject.scene); // 0.82 Part C: first-use work behind the loading screen
             yield return null;
-            if(CampaignRun.PendingStart&&CampaignRun.Active!=null){CampaignRun.PendingStart=false;EnterMenuAfterTitle();CampaignRun.Configure(Race);Race.vehicle.GetComponent<VehicleConfiguration>().SetBodyColor(SelectedColor);StartRace();}
+            if(SplitScreen.PendingStart&&SplitScreen.Active){SplitScreen.PendingStart=false;EnterMenuAfterTitle();SplitScreen.Configure(this);StartRace();}
+            else if(CampaignRun.PendingStart&&CampaignRun.Active!=null){CampaignRun.PendingStart=false;EnterMenuAfterTitle();CampaignRun.Configure(Race);Race.vehicle.GetComponent<VehicleConfiguration>().SetBodyColor(SelectedColor);StartRace();}
             else if(RacePlaylists.PendingStart){RacePlaylists.PendingStart=false;EnterMenuAfterTitle();Race.laps=RacePlaylists.Current.laps;StartRace();}
             else if(pendingRace){pendingRace=false;EnterMenuAfterTitle();StartRace();}
             else if(InRoamWorld){Radio=LocalRadio.Attach(this);StartFreeRoam();if(roamHint){roamHint=false;RoamMenuHintUntil=Time.unscaledTime+12;}}
@@ -156,6 +157,8 @@ namespace Racer
             string vehicle=VehicleProfile.Find(CampaignRun.Active!=null?CampaignRun.Vehicle:PlayerVehicleId).Name;
             string what=roam?"Free Roam":course>=0?RacePlaylists.Titles[course].Replace(" - "," — "):scene;
             string from=RacePlaylists.Titles[Mathf.Clamp(RoamCourse,0,RacePlaylists.Titles.Length-1)].Replace(" - "," — ");
+            // 0.90 Part D: split-screen: both players' vehicles
+            if(SplitScreen.Active&&!roam)return ("Split screen: "+(course>=0?RacePlaylists.Titles[course].Replace(" - "," — "):scene),$"Player 1: {VehicleProfile.Find(SplitScreen.P1Vehicle).Name}\nPlayer 2: {VehicleProfile.Find(SplitScreen.P2Vehicle).Name}{(SplitScreen.P2Ai?" (AI)":"")}\nDay · Clear · {SplitScreen.Laps} lap{(SplitScreen.Laps==1?"":"s")}",course>=0&&course<courses.Length?courses[course]:null);
             var campaign=CampaignRun.Active;if(campaign!=null&&!roam)return ("Campaign: "+campaign.Name,$"{RacePlaylists.Titles[campaign.Course].Replace(" - "," — ")}\n{campaign.Time} · {campaign.Weather}\n{vehicle}"+(Race.opponents?$"\nAgainst: {Race.RosterLabel}":""),course>=0&&course<courses.Length?courses[course]:null);
             string detail=roam?$"Starting at {from}\nWeather: {RoamWeatherLabel}\n{vehicle}":$"{TimeOfDayLabel} · {WeatherLabel}\n{vehicle}"+(Race.opponents?$"\nAgainst: {Race.RosterLabel}":"");
             return (what,detail,!roam&&course>=0&&course<courses.Length?courses[course]:null);
@@ -192,6 +195,8 @@ namespace Racer
             if(GetComponent<ExplorationMap>()?.OwnsInput==true)return;
             if (finishAt > 0 && State != Stage.Paused && State != Stage.Settings && Time.unscaledTime >= finishAt) { finishAt = 0; Sound(finish); }
             if (MenuInput.Blocked) return;
+            // 0.90 Part D: a paused split-screen race: Back / Start count only from the device that paused
+            if (SplitScreen.Race && SplitScreen.Race.PausedBy != null && (State == Stage.Paused || State == Stage.Settings) && ((back.WasPressedThisFrame() && back.activeControl?.device != SplitScreen.Race.PausedBy) || (menu.WasPressedThisFrame() && menu.activeControl?.device != SplitScreen.Race.PausedBy))) return;
             if (MenuVisible && back.WasPressedThisFrame()) { MenuInput.ConsumeThroughRelease(back); Back(); return; }
             // 0.90 Part B: the controls card before a new player's first event holds the countdown until one press
             if (ControlsCard)
@@ -438,8 +443,11 @@ namespace Racer
         public void StartFreeRoam(){int course=System.Array.IndexOf(RacePlaylists.Scenes,gameObject.scene.name);if(!InRoamWorld&&course>=0){RoamCourse=course;LoadScene(RoamScene);return;}SessionStartedAt=Time.unscaledTime;RoamMenu=false;callers.Clear();menus.ResetPages();Race.FreeRoam=true;SetGateVisibility(false);Click();Race.RestartRace();}
         public void BeginRoaming(){Hints.FreeRoam();DebugMovementUsed=false;attempt=null;CountdownRemaining=0;LapRank=RaceRank=0;NewLapRecord=NewRaceRecord=false;LockVehicle(false);Race.GetComponent<WrongWayGuidance>()?.Clear();SetStage(Stage.Racing);}
         void SetGateVisibility(bool visible){foreach(var gate in Race.gates)foreach(var renderer in gate.GetComponentsInChildren<Renderer>(true))renderer.enabled=visible;}
-        public void Pause() { pausedStage = State; RoamMenuHintUntil=0;RoamMenu=Race.FreeRoam;if(RoamMenu)menus.ResetPages();SetStage(RoamMenu?Stage.Ready:Stage.Paused); Click(); }
-        public void Resume() { RoamMenu=false;SetStage(pausedStage); Click(); }
+        // 0.90 Part D: in split-screen the pause menu answers only the device that paused (the other player's when a
+        // controller dropped out); it cannot be resumed while a player's controller is missing.
+        public void Pause() { if(SplitScreen.Race){var by=menu.activeControl?.device;SplitScreen.Race.PausedBy=SplitScreen.Race.MissingPlayer==1?SplitScreen.P2Device:SplitScreen.Race.MissingPlayer==2?SplitScreen.P1Device:by!=null&&menu.WasPressedThisFrame()?by:SplitScreen.P1Device;menus.RestrictMenuDevices(SplitScreen.Race.PausedBy);}
+            pausedStage = State; RoamMenuHintUntil=0;RoamMenu=Race.FreeRoam;if(RoamMenu)menus.ResetPages();SetStage(RoamMenu?Stage.Ready:Stage.Paused); Click(); }
+        public void Resume() { if(SplitScreen.Race&&SplitScreen.Race.MissingPlayer!=0)return; if(SplitScreen.Race){SplitScreen.Race.PausedBy=null;menus.RestrictMenuDevices(null);} RoamMenu=false;SetStage(pausedStage); Click(); }
         public void OpenSettings() { PushMenu(Stage.Settings); }
         public void CloseSettings() { Save.SaveSettings(); PopMenu(); }
         public void Back() { if(State==Stage.Results){QuitRace();return;} if(menus.BackPage())return; if(State==Stage.PlaylistVehicle)CancelPlaylist();else if(State==Stage.Paused||(State==Stage.Ready&&RoamMenu))Resume();else if(State!=Stage.Ready&&MenuVisible)PopMenu(); }
@@ -447,7 +455,7 @@ namespace Racer
         // 0.89: outside the campaign, Race uses only courses the campaign has opened and the player's own vehicles (stock).
         bool CampaignAllows()
         {
-            if(CampaignRun.Active!=null)return true;
+            if(CampaignRun.Active!=null||SplitScreen.Active)return true; // 0.90: split-screen has everything unlocked
             int course=InRoamWorld?RoamCourse:System.Array.IndexOf(RacePlaylists.Scenes,gameObject.scene.name);
             if(course>=0&&!Campaign.CourseOpen(course)){Notify("LOCKED: "+RacePlaylists.Titles[course]+" — "+Campaign.CourseHowTo(course),6);menus.Show();return false;}
             var configuration=Race.vehicle.GetComponent<VehicleConfiguration>();string allowed=Race.PlayerVehicle(configuration.profileId);
@@ -482,6 +490,23 @@ namespace Racer
             configuration.Apply(PlayerVehicleId);configuration.SetBodyColor(SelectedColor);
             SelectRecords(Race.Category);menus.OpenCampaign(chapter);
         }
+        // 0.90 Part D: start a split-screen race (through the loading screen into its course) and leave one (back to the
+        // menu, or to the setup screen to change it). Race's own settings were never changed and are put back.
+        public void StartSplit()
+        {
+            if(!SplitScreen.Ready)return;
+            if(InRoamWorld){WorldLook.Current?.SaveRoamClock();GetComponent<ExplorationMap>()?.Save();}
+            RacePlaylists.Quit();CampaignRun.End();SplitScreen.Begin();callers.Clear();menus.ResetPages();Click();Go(RacePlaylists.Scenes[SplitScreen.Course]);
+        }
+        public void QuitSplit(bool setup){if(!SplitScreen.Active)return;QuitRace();if(setup)menus.OpenSplitSetup();}
+        void EndSplit()
+        {
+            SplitScreen.End();menus.RestrictMenuDevices(null);
+            Race.opponents=Save.Settings.opponents;Race.traffic=Save.Settings.traffic;Race.difficulty=Mathf.Clamp(Save.Settings.difficulty,0,2);
+            Race.laps=Save.Settings.laps==0&&!Race.opponents?0:Mathf.Clamp(Save.Settings.laps==0?Save.Settings.lastFiniteLaps:Save.Settings.laps,1,5);
+            RestoreChoices();var configuration=Race.vehicle.GetComponent<VehicleConfiguration>();configuration.Apply(PlayerVehicleId);configuration.SetBodyColor(SelectedColor);
+            SelectRecords(Race.Category);
+        }
         public void QuitRace()
         {
             callers.Clear();menus.ResetPages();
@@ -495,6 +520,7 @@ namespace Racer
             Race.FreeRoam=false;SetGateVisibility(true);
             NewLapRecord=NewRaceRecord=false; Save.SaveSettings(); SetStage(Stage.Ready);
             Race.vehicle.GetComponent<VehicleAudio>()?.Silence();
+            if(SplitScreen.Active)EndSplit();
             if(CampaignRun.Active!=null)EndCampaignEvent();
         }
         public void ResetFeedback()
@@ -507,7 +533,7 @@ namespace Racer
             if(string.IsNullOrEmpty(attempt)||Race.Progress.CompletedLaps<=0)return;
             string profile=Race.vehicle.GetComponent<VehicleConfiguration>().profileId;
             // 0.89: campaign events never write the Top 10 boards or personal bests (they keep their own in the campaign save)
-            bool records=!DebugMovementUsed&&CampaignRun.Active==null;
+            bool records=!DebugMovementUsed&&CampaignRun.Active==null&&!SplitScreen.Active; // 0.90: nor split-screen
             LapRank=records?Boards.CompletedLap(attempt,Race.Category,profile,Race.Progress):0;
             bool best = records && Save.RecordLap(Race.Progress.LastLap); NewLapRecord |= best;
             if (Race.Progress.Finished)
@@ -523,7 +549,7 @@ namespace Racer
                 if (Time.time < nextBuzz) finishAt = Time.unscaledTime + .3f; else Sound(finish);
                 Notify("FINISHED — provisional standings; waiting up to 90s for opponents", 95);
                 // 0.82 Part E: the winner on camera for 2.5 s before the finish panel (player or the AI who won)
-                if(Race.Racers.Count>1){RacerState won=null;foreach(var r in Race.Racers)if(r.Progress.Finished&&(won==null||r.Progress.RaceTime(Race.Clock)<won.Progress.RaceTime(Race.Clock)))won=r;WinnerShot.Begin(this,won,won==Race.Racers[0]);}
+                if(Race.Racers.Count>1&&!SplitScreen.Active){RacerState won=null;foreach(var r in Race.Racers)if(r.Progress.Finished&&(won==null||r.Progress.RaceTime(Race.Clock)<won.Progress.RaceTime(Race.Clock)))won=r;WinnerShot.Begin(this,won,won==Race.Racers[0]);}
                 if ((NewLapRecord || NewRaceRecord) && finishAt == 0) feedback.PlayOneShot(record, Save.Settings.feedback * .18f);
             }
             else if (best) { Notify("NEW PERSONAL BEST LAP  " + RaceHud.FormatTime(Race.Progress.LastLap), 4); Sound(record); }

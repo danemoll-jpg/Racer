@@ -23,6 +23,9 @@ namespace Racer
         UnityEngine.InputSystem.InputAction toggle;
         public UnityEngine.InputSystem.InputAction ToggleAction => toggle;
         public static RacingMiniMap Instance { get; private set; }
+        // 0.90 Part D: a split-screen half's own minimap: centred on Focus, the other player drawn as a coloured marker.
+        [System.NonSerialized] public bool Split; [System.NonSerialized] public ArcadeVehicle Focus;
+        ArcadeVehicle Vehicle => Focus ? Focus : race ? race.vehicle : null;
         public bool Shown { get; private set; }
         Vector3 origin, forward, right;
         float nextUpdate;
@@ -55,14 +58,14 @@ namespace Racer
         {
             base.Awake(); if (!Application.isPlaying) return;
             toggle = new UnityEngine.InputSystem.InputAction("Minimap on / off (Free Roam)", UnityEngine.InputSystem.InputActionType.Button);
-            toggle.AddBinding("<Keyboard>/j"); toggle.AddBinding("<Gamepad>/buttonEast"); toggle.Enable(); Instance = this;
+            toggle.AddBinding("<Keyboard>/j"); toggle.AddBinding("<Gamepad>/buttonEast"); toggle.Enable(); if (!Instance) Instance = this;
         }
         protected override void OnDestroy() { toggle?.Dispose(); if (Instance == this) Instance = null; base.OnDestroy(); }
         bool RoamHidden => race && race.Flow && race.Flow.Save != null && race.Flow.Save.Settings.roamMinimapHidden;
         public void SetRoamShown(bool on) { if (!race || !race.Flow || race.Flow.Save == null) return; race.Flow.Save.Settings.roamMinimapHidden = !on; race.Flow.Save.SaveSettings(); }
         void Update()
         {
-            if (toggle == null || !race || !race.Flow || race.Flow.Save == null || !race.FreeRoam || !toggle.WasPressedThisFrame()) return;
+            if (toggle == null || Split || !race || !race.Flow || race.Flow.Save == null || !race.FreeRoam || !toggle.WasPressedThisFrame()) return;
             var flow = race.Flow;
             if (flow.State != RaceFlow.Stage.Racing || flow.MenuVisible || MenuInput.Blocked || TrailerMode.Active || flow.GetComponent<ExplorationMap>()?.OwnsInput == true) return;
             SetRoamShown(RoamHidden); flow.Notify("Minimap: " + (RoamHidden ? "Off" : "On"), 1.5f);
@@ -92,7 +95,7 @@ namespace Racer
         void LateUpdate()
         {
             bool roam = race && race.FreeRoam;
-            bool visible = race && race.vehicle && race.Flow && !race.Flow.MenuVisible && (!roam || !RoamHidden);
+            bool visible = race && Vehicle && race.Flow && !race.Flow.MenuVisible && (!roam || !RoamHidden) && SplitScreen.Active == Split;
             Shown = visible;
             if (roam && !roamCached && visible) CacheRoam();
             // Keep this component active so it can restore its parent after menus.
@@ -101,14 +104,13 @@ namespace Racer
             // Narrow windows need vertical separation from the fixed left-hand lap panel.
             var canvasRect = panel.parent as RectTransform;
             bool narrow = canvasRect && canvasRect.rect.width < 680;
-            panel.localScale = Vector3.one * (narrow ? .72f : 1);
-            ((RectTransform)panel).anchoredPosition = new(-18, narrow ? -174 : -18);
+            if (!Split) { panel.localScale = Vector3.one * (narrow ? .72f : 1); ((RectTransform)panel).anchoredPosition = new(-18, narrow ? -174 : -18); }
             panel.GetComponent<UnityEngine.UI.Image>().enabled = visible;
             var key = panel.GetComponentInChildren<UnityEngine.UI.Text>(); key.enabled = visible; key.text = roam ? RoamKey : RaceKey;
             if (!visible || Time.unscaledTime < nextUpdate) return;
             nextUpdate = Time.unscaledTime + .05f;
-            origin = race.vehicle.transform.position;
-            forward = Vector3.ProjectOnPlane(race.vehicle.transform.forward, Vector3.up).normalized;
+            origin = Vehicle.transform.position;
+            forward = Vector3.ProjectOnPlane(Vehicle.transform.forward, Vector3.up).normalized;
             if (forward.sqrMagnitude < .5f) forward = Vector3.forward;
             right = Vector3.Cross(Vector3.up, forward);
             SetVerticesDirty();
@@ -120,7 +122,7 @@ namespace Racer
         }
         protected override void OnPopulateMesh(UnityEngine.UI.VertexHelper vh)
         {
-            vh.Clear(); if (!race || !race.vehicle) return;
+            vh.Clear(); if (!race || !Vehicle) return;
             var bounds = rectTransform.rect; bool roam = race.FreeRoam;
             foreach (var s in roam ? roamSegments : segments)
             {
@@ -149,10 +151,10 @@ namespace Racer
             }
             if (!roam) foreach (var r in race.Racers)
             {
-                if (!r.IsAi || !r.Car || r.Dnf) continue;
+                if ((Split ? r.Car == Vehicle : !r.IsAi) || !r.Car || r.Dnf) continue;
                 var p = Project(r.Car.transform.position);
                 if (!bounds.Contains(p)) continue;
-                Diamond(vh, p, 5, new(.03f,.06f,.08f)); Diamond(vh, p, 3.5f, Color.white);
+                Diamond(vh, p, Split ? 7 : 5, new(.03f,.06f,.08f)); Diamond(vh, p, Split ? 5 : 3.5f, Split ? (r == race.Racers[0] ? new Color(.3f, .95f, .81f) : new Color(1, .74f, .25f)) : Color.white);
             }
             // Fixed heading-up player arrow, below centre to favour upcoming turns.
             Triangle(vh, PlayerPoint + new Vector2(0, 9), PlayerPoint + new Vector2(-7, -6), PlayerPoint + new Vector2(7, -6), new(.02f,.04f,.05f));

@@ -481,13 +481,15 @@ namespace Racer
         {
             var cam = Camera.main; if (!cam || !material) return;
             var eye = cam.transform.position; float draw = Mathf.Min(DrawDistance, cam.farClipPlane + 100); int calls = 0;
+            // 0.90 Part D: in split-screen the near detail and the far trees follow both views (the nearer one counts)
+            float Distance(Bounds b) { if (SplitScreen.Eyes.Count == 0) return Mathf.Sqrt(b.SqrDistance(eye)); float d = float.MaxValue; foreach (var e in SplitScreen.Eyes) d = Mathf.Min(d, Mathf.Sqrt(b.SqrDistance(e))); return d; }
             var near = new RenderParams(material) { shadowCastingMode = ShadowCastingMode.On, receiveShadows = true, layer = 0 };
             var farParams = new RenderParams(material) { shadowCastingMode = ShadowCastingMode.Off, receiveShadows = true, layer = 0 };
             // near: the detailed kit per 96 m cell; the big far cells skip the trees those near cells already drew
             nearKeys.Clear();
             foreach (var pair in cells)
             {
-                var c = pair.Value; if (!c.any || Mathf.Sqrt(c.bounds.SqrDistance(eye)) >= NearDistance) continue;
+                var c = pair.Value; if (!c.any || Distance(c.bounds) >= NearDistance) continue;
                 nearKeys.Add(pair.Key); var rp = near; rp.worldBounds = c.bounds;
                 for (int v = 0; v < Variants.Length; v++)
                 {
@@ -497,8 +499,8 @@ namespace Racer
             }
             foreach (var pair in far)
             {
-                var f = pair.Value; if (!f.any || Mathf.Sqrt(f.bounds.SqrDistance(eye)) > draw) continue;
-                var rp = farParams; rp.worldBounds = f.bounds; bool trunks = Mathf.Sqrt(f.bounds.SqrDistance(eye)) < FarTrunks; // far away the crowns hide the trunks
+                var f = pair.Value; float fd = Distance(f.bounds); if (!f.any || fd > draw) continue;
+                var rp = farParams; rp.worldBounds = f.bounds; bool trunks = fd < FarTrunks; // far away the crowns hide the trunks
                 if (nearKeys.Count == 0 || !Overlaps(pair.Key))
                 {
                     if (f.broad.Count > 0) { calls += Draw(rp, crownFar[Round], f.broad); }

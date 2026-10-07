@@ -62,7 +62,7 @@ namespace Racer
                 for (int k = 0; k < rows[i].paths.Length; k++)
                 {
                     string path = rows[i].paths[k];
-                    var icon = Rect("Key", row); icon.anchorMin = icon.anchorMax = icon.pivot = new(1, .5f); icon.sizeDelta = new(path.Contains("Gamepad") && !path.Contains("Trigger") && !path.Contains("start") ? 40 : 62, 40); icon.anchoredPosition = new(-16 - k * 78, 0);
+                    var icon = Rect("Key", row); icon.anchorMin = icon.anchorMax = icon.pivot = new(1, .5f); icon.sizeDelta = new(path.Contains("Gamepad") && !path.Contains("Trigger") && !path.Contains("start") ? 40 : 62, 40); icon.anchoredPosition = new(-16 - (rows[i].paths.Length - 1 - k) * 78, 0);
                     var glyph = icon.gameObject.AddComponent<MenuGlyph>(); glyph.raycastTarget = false; glyph.SetPath(path);
                     var key = Label("Key text", icon, 18, 0); Stretch(key.rectTransform, 0, 0, 0, 0); key.alignment = TextAnchor.MiddleCenter; key.text = MenuGlyph.Label(path);
                 }

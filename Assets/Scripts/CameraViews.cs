@@ -26,7 +26,7 @@ namespace Racer
         RaceFlow flow; Camera cam; ChaseCamera chase; InputAction cycle;
         public InputAction CycleAction => cycle;
         // The saved choice (read from the settings, so a different save in use is followed too).
-        public View PlayerView => (View)Mathf.Clamp(flow.Save.Settings.cameraView, 0, 3);
+        public View PlayerView => SplitScreen.Active ? View.Chase : (View)Mathf.Clamp(flow.Save.Settings.cameraView, 0, 3); // 0.90 Part D: the chase view only in split-screen
         public string PlayerViewName => flow && flow.Save != null ? Names[(int)PlayerView] : null;
         public void NextPlayerView() => SetPlayerView((View)(((int)PlayerView + 1) % Names.Length));
         View lastView;
@@ -60,7 +60,7 @@ namespace Racer
         {
             if (!flow || flow.Save == null || TrailerMode.Active) return;
             bool driving = flow.State == RaceFlow.Stage.Racing || flow.State == RaceFlow.Stage.Countdown;
-            if (!driving || MenuInput.Blocked || flow.GetComponent<ExplorationMap>()?.OwnsInput == true) return;
+            if (!driving || MenuInput.Blocked || flow.GetComponent<ExplorationMap>()?.OwnsInput == true || SplitScreen.Active) return;
             if (cycle.WasPressedThisFrame()) NextPlayerView();
         }
         public void SetPlayerView(View view)

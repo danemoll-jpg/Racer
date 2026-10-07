@@ -14,6 +14,8 @@ namespace Racer
         WoodlandRoute branch; bool lastFallback;
         Vector3 lastRouteSupport,lastRouteForward;
         void Awake(){race=GetComponent<RaceDirector>();}
+        // 0.90 Part D: the racer this one watches (null = player 1, as before).
+        [System.NonSerialized] public RacerState Target;
         public void Clear(){Visible=false;WrongSeconds=correctSeconds=uncertainSeconds=lostSeconds=0;sampled=false;branch=null;lastFallback=false;SignedSpeed=0;SampleValid=false;}
         public void Observe(float signedSpeed,bool grounded,bool valid,float dt)
         {
@@ -33,10 +35,11 @@ namespace Racer
         {
             if(!race||!race.Flow||!race.road)return;
             if(race.Flow.State==RaceFlow.Stage.Paused)return;
-            if(race.FreeRoam||race.Flow.State!=RaceFlow.Stage.Racing||race.Progress.Finished){Clear();return;}
-            var car=race.vehicle;var respawn=car.GetComponent<VehicleRespawn>();
-            if(respawn.Pending){Clear();return;}
-            var p=car.Body.position;var active=race.Racers[0].Branch.Route;
+            var who=Target??race.Racers[0];
+            if(race.FreeRoam||race.Flow.State!=RaceFlow.Stage.Racing||who.Progress.Finished||!who.Car){Clear();return;}
+            var car=who.Car;var respawn=car.GetComponent<VehicleRespawn>();
+            if(respawn&&respawn.Pending){Clear();return;}
+            var p=car.Body.position;var active=who.Branch.Route;
             if(!sampled||Vector3.Distance(p,previous)>12)
             {
                 Clear();branch=active;station=branch?branch.Project(p,out _):race.road.Project(p,out _);

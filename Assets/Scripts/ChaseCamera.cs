@@ -13,6 +13,9 @@ namespace Racer
         public float lookAhead = 3;
         public LayerMask obstructionMask = 1;
         public float collisionRadius = 0.3f;
+        // 0.90 Part D: degrees the camera tips down during a long flight (set only for the wide split-screen halves).
+        [System.NonSerialized] public float flightTilt;
+        float airborne, tilt; ArcadeVehicle car;
         Vector3 velocity;
         Quaternion heading;
         VehicleRespawn respawn;
@@ -52,7 +55,15 @@ namespace Racer
             direction = smoothed - pivot;
             if (Physics.SphereCast(pivot, collisionRadius, direction.normalized, out hit, direction.magnitude, obstructionMask, QueryTriggerInteraction.Ignore))
                 smoothed = pivot + direction.normalized * Mathf.Max(0, hit.distance - 0.1f);
-            position = smoothed; Aim(); transform.SetPositionAndRotation(position, rotation);
+            position = smoothed; Aim();
+            if (flightTilt > 0 || tilt > 0)
+            {
+                if (!car) car = target.GetComponent<ArcadeVehicle>();
+                airborne = car && car.GroundedWheels == 0 ? airborne + Time.deltaTime : 0;
+                tilt = Mathf.MoveTowards(tilt, airborne > .45f ? flightTilt : 0, Time.deltaTime * 12);
+                rotation = rotation * Quaternion.Euler(tilt, 0, 0);
+            }
+            transform.SetPositionAndRotation(position, rotation);
         }
         void Aim()
         {

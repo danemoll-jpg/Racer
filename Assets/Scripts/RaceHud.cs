@@ -99,6 +99,11 @@ namespace Racer
         void LateUpdate()
         {
             if(!race || race.Progress==null || !display) return;
+            if(SplitScreen.Active)
+            {
+                display.transform.parent.gameObject.SetActive(false);if(speedPanel)speedPanel.SetActive(false);if(wrongPanel)wrongPanel.SetActive(false);
+                if(cameraHint)cameraHint.gameObject.SetActive(false);if(activities)activities.text="";if(waypointPanel)waypointPanel.SetActive(false);if(clockPanel)clockPanel.SetActive(false);return;
+            }
             display.text=BuildText();
             display.transform.parent.gameObject.SetActive(!race.FreeRoam&&!race.Flow.MenuVisible);
             UpdateCameraHint();

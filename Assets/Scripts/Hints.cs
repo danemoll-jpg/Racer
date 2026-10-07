@@ -13,7 +13,7 @@ namespace Racer
         public static string Text { get; private set; }
         public static float Until { get; private set; }
         static RacerSave.Options Settings => Flow && Flow.Save != null ? Flow.Save.Settings : null;
-        public static bool Enabled => Settings != null && Settings.hints && !TrailerMode.Active;
+        public static bool Enabled => Settings != null && Settings.hints && !TrailerMode.Active && !SplitScreen.Active;
         public static bool Seen(string id) => Settings?.hintsSeen != null && Settings.hintsSeen.Contains(id);
         public static void MarkSeen(string id)
         {
@@ -30,7 +30,7 @@ namespace Racer
         }
         // One at a time: the next waiting hint follows when the shown one ends.
         public static void Tick() { if (queue.Count > 0 && (Text == null || Time.unscaledTime >= Until)) { var (t, s) = queue.Dequeue(); Text = t; Until = Time.unscaledTime + s; } }
-        public static bool Visible => Text != null && Time.unscaledTime < Until && !TrailerMode.Active;
+        public static bool Visible => Text != null && Time.unscaledTime < Until && !TrailerMode.Active && !SplitScreen.Active;
         public static void Reset() { var s = Settings; if (s == null) return; s.hintsSeen = new string[0]; Flow.Save.SaveSettings(); Text = null; queue.Clear(); }
         public static bool AnySeen => Settings?.hintsSeen != null && Settings.hintsSeen.Length > 0;
 

@@ -45,7 +45,7 @@ namespace Racer
         public void Toggle() { if (Active) End(); else Begin(); }
         public void Begin()
         {
-            if (Active) return;
+            if (Active || SplitScreen.Active) return; // 0.90 Part D: not in split-screen (stage 1)
             Active = true; Began(); flow.Click(); flow.RefreshMenu();
         }
         void Began()

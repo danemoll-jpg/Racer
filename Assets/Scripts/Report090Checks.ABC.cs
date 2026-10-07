@@ -86,7 +86,9 @@ public sealed partial class Report080Checks {
   t0=Time.realtimeSinceStartup;while(flow.State!=RaceFlow.Stage.Racing&&Time.realtimeSinceStartup-t0<8)yield return null;
   Check(!flow.ControlsCard&&Hints.Seen("controls")&&flow.State==RaceFlow.Stage.Racing,$"one press dismissed it; the countdown ran: {flow.State}");
   InputSystem.RemoveDevice(kb);
-  // sitting still on the grid: the stuck hint once, small and timed
+  // off the course (set down 25 m beside the road): the stuck hint once, small and timed
+  {var car=race.vehicle;float st=race.road.Project(car.Body.position,out _);var at=race.road.At(st,out var f);var side=at+Vector3.Cross(Vector3.up,f).normalized*(race.road.HalfWidth(st)+25);
+   if(Physics.Raycast(side+Vector3.up*60,Vector3.down,out var hit,200))side=hit.point+Vector3.up*.8f;car.Body.position=side;car.transform.position=side;car.Body.linearVelocity=Vector3.zero;}
   t0=Time.realtimeSinceStartup;while(!Hints.Visible&&Time.realtimeSinceStartup-t0<25)yield return null;
   yield return Late(()=>Shot("B-hint-stuck"));
   Check(Hints.Visible&&Hints.Text.Contains("Stuck")&&Hints.Seen("stuck"),$"in-play hint: '{Hints.Text}'");

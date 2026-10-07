@@ -41,12 +41,13 @@ namespace Racer
         {
             if (!car || !car.Body) return;
             float dt = Mathf.Min(Time.unscaledDeltaTime, .05f);
-            float volume = flow && flow.Save != null ? flow.Save.Settings.vehicle : .75f;
+            float volume = (flow && flow.Save != null ? flow.Save.Settings.vehicle : .75f) * (SplitScreen.Active ? .6f : 1); // 0.90 Part D: two engines
             bool paused = flow && (flow.State == RaceFlow.Stage.Paused || flow.State == RaceFlow.Stage.Settings);
             if (paused) return; // Listener pauses all six voices, preserving playback position.
             float speed = Racing ? Mathf.Abs(car.ForwardSpeed) : 0;
             bool grounded = Racing && car.GroundedWheels >= 2;
-            float pedal = Racing ? (car.ForwardSpeed < -.6f ? input.BrakeReverse : input.Throttle) : 0;
+            var ai = GetComponent<RoadDriver>(); bool driven = ai && ai.enabled;
+            float pedal = Racing ? (driven ? ai.LastThrottle : car.ForwardSpeed < -.6f ? input.BrakeReverse : input.Throttle) : 0;
             load = Mathf.MoveTowards(load, pedal, dt * 3);
             // Audio-only rev estimate; no forces, gear changes or motor edits.
             float revs = .82f + Mathf.Sqrt(Mathf.Clamp01(speed / car.topSpeed)) * 1.25f + load * .22f;

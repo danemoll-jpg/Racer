@@ -166,6 +166,8 @@ namespace Racer
             if(!float.IsFinite(value)||value<=0)return;int medal=site.Medal(value,configuration.profileId);var best=PersonalBest(site);
             // 0.89: a campaign event never writes activity records or personal bests; its result goes to the campaign save.
             if(CampaignRun.Active!=null){LastAwardSite=site;if(site.kind==ActivitySite.Kind.Jump)LastJumpAward=value;if(site.kind==ActivitySite.Kind.Smash)LastSmashScore=value;Awards++;Message(site.title+" / "+Measurement(site,value),6);return;}
+            // 0.90 Part D: split-screen results are not written to the activity records either.
+            if(SplitScreen.Active){Awards++;Message(site.title+" / "+Measurement(site,value),6);return;}
             bool improved=best==null||value>best.value;
             if(site.kind!=ActivitySite.Kind.Smash)Records.Add(new ActivityRecords.Entry{id=Guid.NewGuid().ToString("N"),key=Key(site),site=site.id,vehicle=configuration.profileId,date=DateTime.UtcNow.ToString("o"),value=value,airtime=site.kind==ActivitySite.Kind.Jump?LastAirtime:0,medal=medal});
             if(site.kind==ActivitySite.Kind.Jump)LastJumpAward=value;

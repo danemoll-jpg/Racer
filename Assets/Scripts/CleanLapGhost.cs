@@ -51,7 +51,7 @@ namespace Racer
         }
         public void Boundary(double time,Vector3 crossing,Quaternion rotation,bool completed,bool finished)
         {
-            if(race.Flow.DebugMovementUsed||CampaignRun.Active!=null){active=false;invalid=true;return;} // 0.89: no ghosts from campaign events
+            if(race.Flow.DebugMovementUsed||CampaignRun.Active!=null||SplitScreen.Active){active=false;invalid=true;return;} // 0.89: no ghosts from campaign events
             Refresh();
             if(completed&&active)
             {
@@ -87,7 +87,7 @@ namespace Racer
         void LateUpdate()
         {
             if(!race||!race.Flow)return;Refresh();
-            bool show=Enabled&&best!=null&&active&&!race.FreeRoam&&race.Flow.State==RaceFlow.Stage.Racing;
+            bool show=Enabled&&best!=null&&active&&!race.FreeRoam&&race.Flow.State==RaceFlow.Stage.Racing&&!SplitScreen.Active;
             if(!show){if(visual)visual.gameObject.SetActive(false);return;}
             if(!visual)
             {

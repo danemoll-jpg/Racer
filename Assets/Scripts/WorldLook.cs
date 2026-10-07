@@ -221,7 +221,8 @@ namespace Racer
             if (!flow || flow.Save == null) return;
             var s = flow.Save.Settings;
             RaceTime = (TimeOfDay)Mathf.Clamp(s.timeOfDay, 0, 3); RaceWeather = (Weather)Mathf.Clamp(s.weather, 0, 2);
-            var campaign = CampaignRun.Active; if (campaign != null) { RaceTime = campaign.Time; RaceWeather = campaign.Weather; } // 0.89: the event's conditions RoamWeather = (Weather)Mathf.Clamp(s.roamWeather, 0, 2);
+            var campaign = CampaignRun.Active; if (campaign != null) { RaceTime = campaign.Time; RaceWeather = campaign.Weather; } // 0.89: the event's conditions
+            if (SplitScreen.Active) { RaceTime = TimeOfDay.Day; RaceWeather = Weather.Clear; } // 0.90 Part D: Day / Clear in stage 1 RoamWeather = (Weather)Mathf.Clamp(s.roamWeather, 0, 2);
             var stage = flow.State;
             bool live = stage == RaceFlow.Stage.Countdown || stage == RaceFlow.Stage.Racing;
             string was = session;

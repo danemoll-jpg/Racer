@@ -245,6 +245,7 @@ namespace Racer
         }
         void Fail(string path){failed.Add(path);loading=null;Status="Skipped unreadable or oversized audio";song=Status;SongToast(4);retryAt=Time.unscaledTime+.5f;}
         void StopLoad(){revision++;if(request!=null){request.Abort();request.Dispose();request=null;}if(loading!=null){StopCoroutine(loading);loading=null;}}
+        float sharedUntil;public int SharedPresses{get;private set;}
         void Update()
         {
             if(!flow||flow.Save==null)return;
@@ -269,6 +270,12 @@ namespace Racer
             if(!Scanning&&flow.Save.Settings.radioOn&&loading==null&&!source.isPlaying&&library.Count>0&&Time.unscaledTime>=retryAt){retryAt=Time.unscaledTime+1;Next();}
             if(flow.State!=RaceFlow.Stage.Racing||MenuInput.Blocked||flow.GetComponent<ExplorationMap>()?.OwnsInput==true)return;
             var k=Keyboard.current;var g=TrailerMode.Active?null:Gamepad.current;// 0.77: the D-pad works the Trailer Mode cameras
+            // 0.90 Part D: split-screen has one radio that either player works (every controller); the first press wins and
+            // another within half a second is ignored
+            if(SplitScreen.Active){bool Pad(System.Func<Gamepad,bool> f){foreach(var pad in Gamepad.all)if(f(pad))return true;return false;}
+                int command=k?.rightBracketKey.wasPressedThisFrame==true||Pad(p=>p.dpad.right.wasPressedThisFrame)?1:k?.leftBracketKey.wasPressedThisFrame==true||Pad(p=>p.dpad.left.wasPressedThisFrame)?2:k?.iKey.wasPressedThisFrame==true||Pad(p=>p.dpad.up.wasPressedThisFrame)?3:k?.nKey.wasPressedThisFrame==true||Pad(p=>p.dpad.down.wasPressedThisFrame)?4:0;
+                if(command==0||Time.unscaledTime<sharedUntil)return;sharedUntil=Time.unscaledTime+.5f;SharedPresses++;
+                if(command==1)Next();else if(command==2)Previous();else if(command==3)ShowSong();else Toggle();return;}
             if(k?.rightBracketKey.wasPressedThisFrame==true||g?.dpad.right.wasPressedThisFrame==true)Next();
             else if(k?.leftBracketKey.wasPressedThisFrame==true||g?.dpad.left.wasPressedThisFrame==true)Previous();
             if(k?.iKey.wasPressedThisFrame==true||g?.dpad.up.wasPressedThisFrame==true)ShowSong();

@@ -128,6 +128,7 @@ namespace Racer
             }
             if (Flow)
                 Flow.PrepareRestart();
+            SplitScreen.Race?.ClearPlayerTwo(); // 0.90 Part D
             foreach (var d in Drivers)
                 if (d)
                 {
@@ -162,6 +163,7 @@ namespace Racer
             }
             if (road)
                 CreateCars();
+            if (SplitScreen.Active) SplitScreen.Race?.PlayerTwo(); // 0.90 Part D: the rival slot becomes player 2
             ShowGrid();
             foreach (var r in Racers)
             {
@@ -189,6 +191,7 @@ namespace Racer
 
         public void AbandonEvent()
         {
+            SplitScreen.Race?.ClearPlayerTwo();
             foreach(var driver in Drivers) if(driver) { driver.gameObject.SetActive(false); Destroy(driver.gameObject); }
             Drivers.Clear(); Racers.RemoveRange(1,Racers.Count-1);
             if(gridVisual) { gridVisual.SetActive(false); Destroy(gridVisual); }
@@ -298,12 +301,12 @@ namespace Racer
             foreach(var r in Racers)
                 if(r.IsAi && !r.Classified && !r.Dnf)
                     r.Estimate.Sample(Clock,RemainingDistance(r),r.Car.GetComponent<VehicleConfiguration>().Profile.Speed,!float.IsNaN(r.RecoveryStart));
-            if(Progress.Finished && Flow && Flow.Save.Settings.estimateAiFinishes) FinalizeUnfinishedAi();
+            if(Progress.Finished && Flow && Flow.Save.Settings.estimateAiFinishes && !SplitScreen.Active) FinalizeUnfinishedAi();
             if (Racers.Any(r => r.Progress.Finished) && firstFinish < 0)
             {
                 firstFinish = Clock;
                 // 0.78: the winner (first across the line, player or AI) raises both fists; others do nothing special.
-                if (Racers.Count > 1) Racers.Where(r => r.Progress.Finished).OrderBy(r => r.Progress.RaceTime(Clock)).First().Car.GetComponent<RiderGestures>()?.Celebrate();
+                if (Racers.Count > 1 && !SplitScreen.Active) Racers.Where(r => r.Progress.Finished).OrderBy(r => r.Progress.RaceTime(Clock)).First().Car.GetComponent<RiderGestures>()?.Celebrate();
             }
             // Debug review time consumes neither the total race budget nor the post-finisher grace budget.
             if(DeveloperLocationHud.DebugEnabled){debugTimeoutOffset+=Time.fixedDeltaTime;if(firstFinish>=0)debugGraceOffset+=Time.fixedDeltaTime;}

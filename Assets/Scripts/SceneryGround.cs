@@ -15,6 +15,7 @@ namespace Racer
         static Mesh tuft, flower, litter; static Material material;
         readonly Dictionary<Vector2Int, (List<Matrix4x4> tufts, List<Matrix4x4> flowers, List<Matrix4x4> litter)> cells = new();
         readonly List<Matrix4x4> tufts = new(), flowers = new(), leaves = new();
+        readonly List<Vector3> eyes = new(); readonly HashSet<Vector2Int> visited = new();
         public SceneryTrees Trees;
         // every tuft, flower and litter patch placed so far (for the checks)
         public IEnumerable<Vector3> PlacedPoints { get { foreach (var c in cells.Values) { foreach (var m in c.tufts) yield return m.GetColumn(3); foreach (var m in c.flowers) yield return m.GetColumn(3); foreach (var m in c.litter) yield return m.GetColumn(3); } } }
@@ -102,17 +103,23 @@ namespace Racer
         void LateUpdate()
         {
             Kit(); var cam = Camera.main; if (!cam || !material) return;
-            var eye = cam.transform.position; int reach = Mathf.CeilToInt(Radius / CellSize); var c0 = new Vector2Int(Mathf.FloorToInt(eye.x / CellSize), Mathf.FloorToInt(eye.z / CellSize));
-            tufts.Clear(); flowers.Clear(); leaves.Clear(); int made = 0;
-            for (int x = -reach; x <= reach; x++) for (int z = -reach; z <= reach; z++)
-                {
-                    var k = new Vector2Int(c0.x + x, c0.y + z); var centre = new Vector3((k.x + .5f) * CellSize, eye.y, (k.y + .5f) * CellSize);
-                    if ((new Vector2(centre.x - eye.x, centre.z - eye.z)).sqrMagnitude > (Radius + CellSize) * (Radius + CellSize)) continue;
-                    if (!cells.TryGetValue(k, out var cell)) { if (made >= 6) continue; cells[k] = cell = Fill(k); made++; } // a few new cells per frame
-                    tufts.AddRange(cell.tufts); flowers.AddRange(cell.flowers); leaves.AddRange(cell.litter);
-                }
-            if (cells.Count > 600) { var drop = new List<Vector2Int>(); foreach (var k in cells.Keys) if (Mathf.Abs(k.x - c0.x) > reach + 3 || Mathf.Abs(k.y - c0.y) > reach + 3) drop.Add(k); foreach (var k in drop) cells.Remove(k); }
-            var rp = new RenderParams(material) { shadowCastingMode = ShadowCastingMode.Off, receiveShadows = true, layer = 0, worldBounds = new Bounds(eye, Vector3.one * (Radius * 2 + 40)) };
+            // 0.90 Part D: around each split-screen view (one view otherwise, as before)
+            eyes.Clear(); if (SplitScreen.Eyes.Count > 0) eyes.AddRange(SplitScreen.Eyes); else eyes.Add(cam.transform.position);
+            int reach = Mathf.CeilToInt(Radius / CellSize); visited.Clear();
+            tufts.Clear(); flowers.Clear(); leaves.Clear(); int made = 0; var bounds = new Bounds(eyes[0], Vector3.one * (Radius * 2 + 40));
+            foreach (var eye in eyes)
+            {
+                var c0 = new Vector2Int(Mathf.FloorToInt(eye.x / CellSize), Mathf.FloorToInt(eye.z / CellSize)); bounds.Encapsulate(new Bounds(eye, Vector3.one * (Radius * 2 + 40)));
+                for (int x = -reach; x <= reach; x++) for (int z = -reach; z <= reach; z++)
+                    {
+                        var k = new Vector2Int(c0.x + x, c0.y + z); var centre = new Vector3((k.x + .5f) * CellSize, eye.y, (k.y + .5f) * CellSize);
+                        if ((new Vector2(centre.x - eye.x, centre.z - eye.z)).sqrMagnitude > (Radius + CellSize) * (Radius + CellSize) || !visited.Add(k)) continue;
+                        if (!cells.TryGetValue(k, out var cell)) { if (made >= 6) continue; cells[k] = cell = Fill(k); made++; } // a few new cells per frame
+                        tufts.AddRange(cell.tufts); flowers.AddRange(cell.flowers); leaves.AddRange(cell.litter);
+                    }
+            }
+            if (cells.Count > 600 * eyes.Count) { var drop = new List<Vector2Int>(); foreach (var k in cells.Keys) { bool near = false; foreach (var eye in eyes) if (Mathf.Abs(k.x - Mathf.FloorToInt(eye.x / CellSize)) <= reach + 3 && Mathf.Abs(k.y - Mathf.FloorToInt(eye.z / CellSize)) <= reach + 3) near = true; if (!near) drop.Add(k); } foreach (var k in drop) cells.Remove(k); }
+            var rp = new RenderParams(material) { shadowCastingMode = ShadowCastingMode.Off, receiveShadows = true, layer = 0, worldBounds = bounds };
             if (tufts.Count > 0) SceneryTrees.Draw(rp, tuft, tufts);
             if (flowers.Count > 0) SceneryTrees.Draw(rp, flower, flowers);
             if (leaves.Count > 0) SceneryTrees.Draw(rp, litter, leaves);

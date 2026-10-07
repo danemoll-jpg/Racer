@@ -106,6 +106,7 @@ namespace Racer
         void RenderResults()
         {
             if(CampaignRun.Active!=null){RenderCampaignResults();return;}
+            if(SplitScreen.Active){RenderSplitResults();return;}
             ClearCore("RESULTS",flow.Race.courseName);bool playlist=RacePlaylists.Active!=null;
             string[] tabs=playlist?new[]{"STANDINGS","LAP TIMES","PENALTIES","CHAMPIONSHIP"}:new[]{"STANDINGS","LAP TIMES","PENALTIES"};resultTab=Mathf.Clamp(resultTab,0,tabs.Length-1);
             TabRow(tabs,resultTab,i=>{resultTab=i;Show();});int n=4;

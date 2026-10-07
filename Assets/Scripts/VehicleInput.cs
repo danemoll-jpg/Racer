@@ -17,36 +17,42 @@ namespace Racer
         {
             get
             {
-                if(!UsingGamepad)return reset.GetBindingDisplayString(1);
+                if(!UsingGamepad)return Device is Keyboard?"R":reset.GetBindingDisplayString(1);
                 string label=Gamepad.current?.buttonNorth.displayName;
                 return string.IsNullOrEmpty(label)||label=="Button North"?"Y":label;
             }
         }
         void Used(InputAction.CallbackContext context) { UsingGamepad=context.control.device is Gamepad; }
 
-        void Awake()
+        void Awake() => Create(null);
+        // 0.90 Part D: in split-screen each player's vehicle answers only its own device (null = every device, as before).
+        public InputDevice Device { get; private set; }
+        public void Bind(InputDevice device)
         {
+            if (device == Device && throttle != null) return;
+            bool on = isActiveAndEnabled; if (throttle != null) { OnDisable(); foreach (var a in CurrentBindings) a.Dispose(); }
+            Create(device); if (on) OnEnable();
+        }
+        void Create(InputDevice device)
+        {
+            Device = device; bool pad = device == null || device is Gamepad, keys = device == null || device is Keyboard;
+            string P(string path) => device is Gamepad ? path.Replace("<Gamepad>", device.path) : path;
+            void Add(InputAction a, string path, string processor = null) { if (path.Contains("<Gamepad>") ? !pad : !keys) return; var b = a.AddBinding(P(path)); if (processor != null) b.WithProcessor(processor); }
             throttle = new InputAction("Throttle", InputActionType.Value);
             // 0.84: a resting trigger reads a few percent on some pads; below 0.1 it is released.
-            throttle.AddBinding("<Gamepad>/rightTrigger").WithProcessor("axisDeadzone(min=0.1,max=1)");
-            throttle.AddBinding("<Keyboard>/w");
-            throttle.AddBinding("<Keyboard>/upArrow");
+            Add(throttle, "<Gamepad>/rightTrigger", "axisDeadzone(min=0.1,max=1)"); Add(throttle, "<Keyboard>/w"); Add(throttle, "<Keyboard>/upArrow");
             brake = new InputAction("BrakeReverse", InputActionType.Value);
-            brake.AddBinding("<Gamepad>/leftTrigger").WithProcessor("axisDeadzone(min=0.1,max=1)");
-            brake.AddBinding("<Keyboard>/s");
-            brake.AddBinding("<Keyboard>/downArrow");
+            Add(brake, "<Gamepad>/leftTrigger", "axisDeadzone(min=0.1,max=1)"); Add(brake, "<Keyboard>/s"); Add(brake, "<Keyboard>/downArrow");
             steering = new InputAction("Steering", InputActionType.Value);
-            steering.AddBinding("<Gamepad>/leftStick/x").WithProcessor("axisDeadzone(min=0.12,max=0.95)");
-            steering.AddCompositeBinding("1DAxis").With("Negative", "<Keyboard>/a").With("Positive", "<Keyboard>/d");
-            steering.AddCompositeBinding("1DAxis").With("Negative", "<Keyboard>/leftArrow").With("Positive", "<Keyboard>/rightArrow");
+            Add(steering, "<Gamepad>/leftStick/x", "axisDeadzone(min=0.12,max=0.95)");
+            if (keys) { steering.AddCompositeBinding("1DAxis").With("Negative", "<Keyboard>/a").With("Positive", "<Keyboard>/d"); steering.AddCompositeBinding("1DAxis").With("Negative", "<Keyboard>/leftArrow").With("Positive", "<Keyboard>/rightArrow"); }
             reset = new InputAction("Reset", InputActionType.Button);
-            reset.AddBinding("<Gamepad>/buttonNorth");
-            reset.AddBinding("<Keyboard>/r");
+            Add(reset, "<Gamepad>/buttonNorth"); Add(reset, "<Keyboard>/r");
             // 0.78: shake a fist (cosmetic, RiderGestures). 0.80: on LB, since the right finger is on the throttle trigger.
             // In Trailer Mode LB keeps its 0.25x hold; F still works there.
             fist = new InputAction("Fist wave", InputActionType.Button);
-            fist.AddBinding("<Gamepad>/leftShoulder");
-            fist.AddBinding("<Keyboard>/f");
+            Add(fist, "<Gamepad>/leftShoulder"); Add(fist, "<Keyboard>/f");
+            if (device != null) UsingGamepad = device is Gamepad;
             throttle.performed+=Used; brake.performed+=Used; steering.performed+=Used; reset.performed+=Used; fist.performed+=Used;
         }
 
@@ -59,7 +65,7 @@ namespace Racer
             resetRequested |= reset.WasPressedThisFrame();
             if (LoadingScreen.Holding) { Throttle = BrakeReverse = Steering = 0; resetRequested = false; return; } // 0.82: no driving behind the loading screen
             // Not while a menu, the debug overlay or the map has the controls (F is the map's waypoint key).
-            if (fist.WasPressedThisFrame() && !(TrailerMode.Active && fist.activeControl?.device is Gamepad) && !MenuInput.Blocked
+            if (fist.WasPressedThisFrame() && !SplitScreen.Active && !(TrailerMode.Active && fist.activeControl?.device is Gamepad) && !MenuInput.Blocked
                 && FindAnyObjectByType<ExplorationMap>()?.OwnsInput != true)
                 GetComponent<RiderGestures>()?.Wave();
         }

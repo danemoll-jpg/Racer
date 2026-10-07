@@ -176,7 +176,7 @@ namespace Racer
             foreach(var b in buttons)b.gameObject.SetActive(false);adjustments.Clear();
             title.text=heading;details.text=summary;details.fontSize=20;details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=string.IsNullOrEmpty(summary)?0:Mathf.Min(200,30*(summary.Count(c=>c=='\n')+1));
             details.gameObject.SetActive(!string.IsNullOrEmpty(summary));
-            foreach(var b in buttons){var colors=b.colors;colors.normalColor=new(.10f,.20f,.25f);b.colors=colors;b.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=44;var label=b.GetComponentInChildren<UnityEngine.UI.Text>(true);label.alignment=TextAnchor.MiddleLeft;label.fontSize=21;}
+            foreach(var b in buttons){var colors=b.colors;colors.normalColor=new(.10f,.20f,.25f);b.colors=colors;b.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=44;var label=b.GetComponentInChildren<UnityEngine.UI.Text>(true);label.alignment=TextAnchor.MiddleLeft;label.fontSize=21;label.color=Color.white;}
         }
         void Row(int index,string id,string label,Action callback){
             EnsureRows(index+1);var button=buttons[index];button.gameObject.SetActive(true);button.name=id;button.GetComponentInChildren<UnityEngine.UI.Text>(true).text=label;

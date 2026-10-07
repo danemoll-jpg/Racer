@@ -55,7 +55,7 @@ namespace Racer
                 return "Press "+(string.IsNullOrEmpty(pad)?keys:pad+" / "+keys)+" to Complete Race";
             }
         }
-        public bool CanSimulateRemaining => flow && flow.State==RaceFlow.Stage.Racing && flow.Race.Progress.Finished
+        public bool CanSimulateRemaining => flow && !SplitScreen.Active && flow.State==RaceFlow.Stage.Racing && flow.Race.Progress.Finished
             && !flow.Race.ClassificationFinal && flow.Race.Racers.Any(r=>r.IsAi&&!r.Classified&&!r.Dnf);
         GameObject hudPanel;
         UnityEngine.UI.RawImage preview;
@@ -293,7 +293,7 @@ namespace Racer
         void Update()
         {
             if(DeveloperLocationHud.OwnsInput)return;
-            UpdateCore();
+            UpdateCore();UpdateSplitJoin();
             if(!editingPlaylistName)return;
             if(!controllerName&&Gamepad.current?.startButton.wasPressedThisFrame==true){controllerName=true;playlistName.DeactivateInputField();Show();return;}
             if(Keyboard.current?.escapeKey.wasPressedThisFrame==true||Gamepad.current?.buttonEast.wasPressedThisFrame==true)FinishName(false);
@@ -320,7 +320,7 @@ namespace Racer
                 var radio=flow.Radio;
                 details.text=MusicDetails();
             }
-            banner.gameObject.SetActive(!flow.MenuVisible);
+            banner.gameObject.SetActive(!flow.MenuVisible&&!SplitScreen.Active); // 0.90 Part D: each half has its own
             bool countdown=flow.State==RaceFlow.Stage.Countdown;
             banner.fontSize=countdown?26:20;
             banner.rectTransform.anchorMin=countdown?new Vector2(.04f,.35f):new Vector2(.2f,.88f);
