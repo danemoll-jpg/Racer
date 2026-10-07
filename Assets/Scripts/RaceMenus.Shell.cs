@@ -142,6 +142,8 @@ namespace Racer
                 previewTrack=focusedCourse;ShowCourseOnMap(focusedCourse);
             }
             else if(flow.State==RaceFlow.Stage.Courses&&page==""&&current&&current.name=="back")ShowCourseOnMap(-1);
+            // 0.89: the campaign screen's map and caption follow the highlighted event
+            else if(flow.State==RaceFlow.Stage.Ready&&page=="campaign"&&current&&current.name.StartsWith("cev-")&&current!=lastFocus)ShowCampaignEvent(CampaignData.Find(current.name.Substring(4)));
             if(current&&current!=lastFocus&&current.transform.IsChildOf(content))
             {
                 Canvas.ForceUpdateCanvases();var r=current.GetComponent<RectTransform>();
@@ -191,6 +193,7 @@ namespace Racer
             swatchRow.SetSiblingIndex(at++);
             if(buttons.Count>5&&buttons[5].gameObject.activeSelf)buttons[5].transform.SetSiblingIndex(at++);
             if(buttons.Count>6&&buttons[6].gameObject.activeSelf)buttons[6].transform.SetSiblingIndex(at++);
+            if(buttons.Count>7&&buttons[7].gameObject.activeSelf)buttons[7].transform.SetSiblingIndex(at++);
             buttons[4].transform.SetSiblingIndex(at);
         }
         void LayoutGarageBody()=>EnterGarageView();

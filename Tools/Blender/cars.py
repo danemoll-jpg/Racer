@@ -158,8 +158,10 @@ def details(C):
         for s in (-1, 1): box('Bumper guard', (s * hw * .45, -.09, zf + sgn * .055), (.06, .16, .06), G, 'rubber', .015)
     # grille and lamps on the nose
     yh = nose[1] - .13
-    box('Grille', (0, yh, L - .005), (hw * 1.1, .17, .06), G, 'engine', .01)
-    for i in range(5): box('Grille bar', (0, yh - .06 + i * .03, L + .02), (hw * 1.08, .008, .012), G, 'chrome', 0)
+    # 0.89 Part F: the grille face 1 cm behind the bezel fronts and the bars (it was on their plane: flicker), and the bars
+    # end short of the inner bezels instead of running across their faces.
+    box('Grille', (0, yh, L - .015), (hw * 1.1, .17, .06), G, 'engine', .01)
+    for i in range(5): box('Grille bar', (0, yh - .06 + i * .03, L + .02), (2 * (hw * .52 - .07), .008, .012), G, 'chrome', 0)
     for s in (-1, 1):
         for k, x in enumerate((.70, .52)):
             cyl('Headlamp bezel', (s * hw * x, yh, L - .03), (s * hw * x, yh, L + .025), .075 if k == 0 else .062, G, 'chrome', 16)
@@ -206,7 +208,7 @@ def wheel(group, pos, left, wagon):
     for i in range(n):
         a = i * 2 * math.pi / n
         if wagon:  # five-spoke alloy
-            box(group + ' spoke', (.083, math.cos(a) * .11, math.sin(a) * .11), (.02, .055, .14), group, 'metal', .006, (math.degrees(a) - 90, 0, 0))
+            box(group + ' spoke', (.082, math.cos(a) * .11, math.sin(a) * .11), (.016, .055, .14), group, 'metal', .006, (math.degrees(a) - 90, 0, 0))  # 0.89: clear of both hub faces (4-5 mm)
         else:  # rally wheel: slots between the hub and the rim
             box(group + ' slot', (.077, math.cos(a + .6) * .13, math.sin(a + .6) * .13), (.012, .04, .07), group, 'engine', .006, (math.degrees(a + .6) - 90, 0, 0))
         cyl(group + ' nut', (.093, math.cos(a) * .035, math.sin(a) * .035), (.104, math.cos(a) * .035, math.sin(a) * .035), .008, group, 'metal', 6)

@@ -1,0 +1,15 @@
+---- targets89:original,atv
+  running after 10 s: state Racing, campaign c1-hwy92-trap
+trap original: start -595.7,8.65,537.4, result 91.9 mph (41.10 m/s), medal 3
+  running after 9 s: state Racing, campaign c1-against-clock
+time trial original AI skill 1: 02:18.537 (138.54 s), missed gates 0, laps 1
+  running after 8 s: state Racing, campaign c1-against-clock
+time trial original AI skill 2: 02:13.518 (133.52 s), missed gates 0, laps 1
+  running after 9 s: state Racing, campaign c1-hwy92-trap
+trap atv: start -595.7,8.50,537.4, result 103.1 mph (46.11 m/s), medal 3
+  running after 9 s: state Racing, campaign c1-against-clock
+time trial atv AI skill 1: 02:16.371 (136.37 s), missed gates 0, laps 1
+  running after 9 s: state Racing, campaign c1-against-clock
+time trial atv AI skill 2: 02:12.191 (132.19 s), missed gates 0, laps 1
+done, failures 0
+Set: speed trap bronze 34 / silver 39 / gold 44 m/s; time trial bronze 2:30 / silver 2:20 / gold 2:14.

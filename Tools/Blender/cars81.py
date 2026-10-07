@@ -131,10 +131,10 @@ def details(C):
         bumper(L + .02, 1, hw * .95, -.14, -.03, .08); bumper(-L - .02, -1, hw * .95, -.12, -.01, .08)
         box('Grille', (0, nose[1] - .14, L - .005), (hw * 1.5, .16, .06), G, 'engine', .01)
         for s in (-1, 1):
-            cyl('Headlamp', (s * hw * .70, nose[1] - .14, L - .02), (s * hw * .70, nose[1] - .14, L + .025), .07, G, 'lamp', 16)
+            cyl('Headlamp', (s * hw * .70, nose[1] - .14, L - .02), (s * hw * .70, nose[1] - .14, L + .035), .07, G, 'lamp', 16)  # 0.89: 1 cm proud of the grille
             cyl('Headlamp bezel', (s * hw * .70, nose[1] - .14, L - .03), (s * hw * .70, nose[1] - .14, L + .015), .082, G, 'chrome', 16)
             box('Side scoop', (s * (hw + .006), .20, -.75), (.03, .10, .26), G, 'engine', .01)
-            box('Side stripe', (s * (hw + .004), .30, .2), (.008, .045, 3.4), G, 'engine', .002)
+            box('Side stripe', (s * (hw + .004), .30, 0), (.008, .045, 1.76), G, 'engine', .002)  # 0.89: between the arch flares (it ran through them)
         box('Tail lamp bar', (0, tail[1] - .12, -L - .005), (hw * 1.5, .10, .04), G, 'tail', .012)
         box('Tail lamp divider', (0, tail[1] - .12, -L - .03), (.12, .11, .02), G, 'chrome', .004)
         hull('Ducktail', [(-.85, tail[1], -L + .18), (.85, tail[1], -L + .18), (.85, tail[1], -L + .02), (-.85, tail[1], -L + .02),
@@ -188,7 +188,7 @@ def wheel(group, pos, left, st):
         for i in range(24):
             a = i * 2 * math.pi / 24; x0 = .02 if i % 2 else .075
             cyl(group + ' wire', (x0, math.cos(a) * .05, math.sin(a) * .05), (.06, math.cos(a + .3) * .185, math.sin(a + .3) * .185), .004, group, 'chrome', 4, smooth=False)
-        for k in range(2): box(group + ' spinner', (.11, 0, 0), (.02, .16, .03), group, 'chrome', .006, (90 * k, 0, 0))
+        for k in range(2): box(group + ' spinner', (.11 + .004 * k, 0, 0), (.02, .16, .03), group, 'chrome', .006, (90 * k, 0, 0))  # 0.89: bars 4 mm apart
     else:
         n = 5
         for i in range(n):

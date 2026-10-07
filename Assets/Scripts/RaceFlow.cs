@@ -1,4 +1,5 @@
 using System.IO;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -90,7 +91,7 @@ namespace Racer
             if(!string.IsNullOrEmpty(ValidationSaveRoot))root=ValidationSaveRoot;
 #endif
             Save = new RacerSave(root, "street-loop-gates-v1-laps" + Race.laps);
-            VehicleUnlocks.Load(root);
+            VehicleUnlocks.Load(root); Campaign.Load(root); Campaign.Testing = Save.Settings.unlockEverything;
             VehicleVisual.NewModels = Save.Settings.newMotorcycle; RiderLook.Player = Save.Settings.rider;
             Scenery.Set(!Save.Settings.classicScenery); SceneryWorld.Attach(gameObject);
             Playlists=new RacePlaylists(root);
@@ -101,7 +102,7 @@ namespace Racer
             Race.difficulty = Mathf.Clamp(Save.Settings.difficulty,0,2);
             var configuration = Race.vehicle.GetComponent<VehicleConfiguration>();
             if (!configuration) configuration = Race.vehicle.gameObject.AddComponent<VehicleConfiguration>();
-            configuration.Apply(Race.EligibleVehicle(Save.Settings.vehicleId));
+            configuration.Apply(PlayerVehicleId);
             RestoreChoices();
             configuration.SetBodyColor(SelectedColor);
             Save.SelectRecords(Race.Category); Save.ApplySettings();
@@ -134,7 +135,8 @@ namespace Racer
             LoadingScreen.WorldReady();
             SmashAudio.Prepare();VehicleRespawn.LaunchSurfaces(gameObject.scene); // 0.82 Part C: first-use work behind the loading screen
             yield return null;
-            if(RacePlaylists.PendingStart){RacePlaylists.PendingStart=false;EnterMenuAfterTitle();Race.laps=RacePlaylists.Current.laps;StartRace();}
+            if(CampaignRun.PendingStart&&CampaignRun.Active!=null){CampaignRun.PendingStart=false;EnterMenuAfterTitle();CampaignRun.Configure(Race);Race.vehicle.GetComponent<VehicleConfiguration>().SetBodyColor(SelectedColor);StartRace();}
+            else if(RacePlaylists.PendingStart){RacePlaylists.PendingStart=false;EnterMenuAfterTitle();Race.laps=RacePlaylists.Current.laps;StartRace();}
             else if(pendingRace){pendingRace=false;EnterMenuAfterTitle();StartRace();}
             else if(InRoamWorld){Radio=LocalRadio.Attach(this);StartFreeRoam();if(roamHint){roamHint=false;RoamMenuHintUntil=Time.unscaledTime+12;}}
             else if(StartupTitle.Begin(this))SetStage(Stage.Title);else EnterMenuAfterTitle();
@@ -150,9 +152,10 @@ namespace Racer
         (string what,string detail,CoursePreviewCatalog.Course course) LoadingText(string scene,bool roam)
         {
             int course=System.Array.IndexOf(RacePlaylists.Scenes,scene);var courses=CoursePreviewCatalog.Courses;
-            string vehicle=VehicleProfile.Find(Race.EligibleVehicle(Save.Settings.vehicleId)).Name;
+            string vehicle=VehicleProfile.Find(CampaignRun.Active!=null?CampaignRun.Vehicle:PlayerVehicleId).Name;
             string what=roam?"Free Roam":course>=0?RacePlaylists.Titles[course].Replace(" - "," — "):scene;
             string from=RacePlaylists.Titles[Mathf.Clamp(RoamCourse,0,RacePlaylists.Titles.Length-1)].Replace(" - "," — ");
+            var campaign=CampaignRun.Active;if(campaign!=null&&!roam)return ("Campaign: "+campaign.Name,$"{RacePlaylists.Titles[campaign.Course].Replace(" - "," — ")}\n{campaign.Time} · {campaign.Weather}\n{vehicle}"+(Race.opponents?$"\nAgainst: {Race.RosterLabel}":""),course>=0&&course<courses.Length?courses[course]:null);
             string detail=roam?$"Starting at {from}\nWeather: {RoamWeatherLabel}\n{vehicle}":$"{TimeOfDayLabel} · {WeatherLabel}\n{vehicle}"+(Race.opponents?$"\nAgainst: {Race.RosterLabel}":"");
             return (what,detail,!roam&&course>=0&&course<courses.Length?courses[course]:null);
         }
@@ -171,7 +174,8 @@ namespace Racer
         {
             WorldLook.Current?.SaveRoamClock();GetComponent<ExplorationMap>()?.Save();
             callers.Clear();menus.ResetPages();returnToSetup=page!=null;if(returnToSetup)menus.SetSceneReturn(page);
-            LoadScene(RacePlaylists.Scenes[RoamCourse]);
+            // 0.89: Race Setup opens on a course the campaign has opened (Free Roam itself always has the whole world).
+            LoadScene(RacePlaylists.Scenes[page=="race"&&!Campaign.CourseOpen(RoamCourse)?Campaign.FirstOpenCourse:RoamCourse]);
         }
         public void OpenRaceSetupFromRoam()=>LeaveRoamWorld("race");
         public void EnterMenuAfterTitle(){Radio=LocalRadio.Attach(this);SetStage(Stage.Ready);if(returnToSetup){returnToSetup=false;menus.RestoreSceneReturn();}}
@@ -198,7 +202,7 @@ namespace Racer
                 if (CountdownRemaining <= 0)
                 {
                     LockVehicle(false); Race.ResetSampling(Race.vehicle.Body.position, Time.timeAsDouble);
-                    foreach (var racer in Race.Racers) racer.Progress.BeginTiming(Time.timeAsDouble); SetStage(Stage.Racing); Notify("GO!  Shared race clock started", 3); Sound(go);
+                    foreach (var racer in Race.Racers) racer.Progress.BeginTiming(Time.timeAsDouble); SetStage(Stage.Racing); Notify(GoNotice, 3); Sound(go);
                 }
             }
             if (Notice != null && Time.unscaledTime > noticeUntil) Notice = null;
@@ -245,6 +249,7 @@ namespace Racer
         public void CycleLaps(){Race.laps=(Race.laps+1)%(Race.opponents?6:6);if(Race.opponents&&Race.laps==0)Race.laps=1;Save.Settings.laps=Race.laps;if(Race.laps>0)Save.Settings.lastFiniteLaps=Race.laps;Save.SaveSettings();SelectRecords(Race.Category);Click();}
         public void ToggleOpponents() { Race.opponents = !Race.opponents; if(Race.opponents&&Race.laps==0){Race.laps=Save.Settings.lastFiniteLaps;Save.Settings.laps=Race.laps;Notify("AI race: restored "+Race.laps+" finite laps",4);} Save.Settings.opponents = Race.opponents; Save.SaveSettings(); SelectRecords(Race.Category); Click(); }
         public void ToggleTraffic() { Race.traffic = !Race.traffic; Save.Settings.traffic = Race.traffic; Save.SaveSettings(); SelectRecords(Race.Category); Click(); }
+        string GoNotice=>CampaignRun.Active==null?"GO!  Shared race clock started":CampaignRun.Active.Kind==CampaignEventKind.SpeedTrap?"GO!  Hit the speed trap ahead as fast as you can":CampaignRun.Active.Kind==CampaignEventKind.TimeTrial?"GO!  Flying lap: the clock starts at the START line":"GO!  "+CampaignRun.Active.Name;
         public string TimeOfDayLabel => ((TimeOfDay)Mathf.Clamp(Save.Settings.timeOfDay,0,3)).ToString();
         public string WeatherLabel => ((Weather)Mathf.Clamp(Save.Settings.weather,0,2)).ToString();
         public string RoamWeatherLabel => ((Weather)Mathf.Clamp(Save.Settings.roamWeather,0,2)).ToString();
@@ -265,6 +270,7 @@ namespace Racer
         public void SelectCourseEntry(int course)
         {
             if(State!=Stage.Courses || course<0 || course>=RacePlaylists.Scenes.Length)return;
+            if(!menus.RoamTrackPick&&!Campaign.CourseOpen(course))return; // 0.89: Race picks only courses the campaign has opened
             menus.SaveSceneReturn();returnToSetup=true;Go(RacePlaylists.Scenes[course]);
         }
         public void SelectMountain(bool reverse){if(State!=Stage.Courses)return;Go(reverse?"MountainLoopReverse":"MountainLoop");}
@@ -274,7 +280,7 @@ namespace Racer
         public bool SetupFromResults=>callers.Count>0&&callers.Peek()==Stage.Results;
         public void OpenResultsSetup(){PushMenu(Stage.Ready);menus.OpenSetup();}
         public void OpenPlaylists(){PushMenu(Stage.Playlists);}
-        public void StartPlaylist(RacePlaylists.Definition definition){if(definition.entries.Count==0){Notify("Add a race first",4);return;}if(definition.entries.Exists(e=>e.course>=RacePlaylists.Scenes.Length)){Notify("Remove the rolled-back course from this playlist",4);return;}RacePlaylists.Begin(definition);LoadPlaylistEntry();}
+        public void StartPlaylist(RacePlaylists.Definition definition){if(definition.entries.Count==0){Notify("Add a race first",4);return;}var shut=definition.entries.FirstOrDefault(e=>e.course<RacePlaylists.Scenes.Length&&!Campaign.CourseOpen(e.course));if(shut!=null){Notify("LOCKED: "+RacePlaylists.Titles[shut.course]+" — "+Campaign.CourseHowTo(shut.course),6);return;}if(definition.entries.Exists(e=>e.course>=RacePlaylists.Scenes.Length)){Notify("Remove the rolled-back course from this playlist",4);return;}RacePlaylists.Begin(definition);LoadPlaylistEntry();}
         public void NextPlaylistRace(){if(State!=Stage.Results||RacePlaylists.PendingStart||!RacePlaylists.HasNext||RacePlaylists.Championship.Events[RacePlaylists.Position]==null)return;RacePlaylists.Advance();LoadPlaylistEntry();}
         void LoadPlaylistEntry(){var entry=RacePlaylists.Current;if(!RacePlaylists.Eligible(entry,Save.Settings.vehicleId)||(Race.opponents&&System.Array.Exists(Save.Settings.opponentRoster,id=>!RacePlaylists.Eligible(entry,id)))){SetStage(Stage.PlaylistVehicle);return;}RacePlaylists.PendingStart=true;Go(RacePlaylists.Scenes[entry.course]);}
         public void ChoosePlaylistVehicle(string id){if(State!=Stage.PlaylistVehicle||!RacePlaylists.Eligible(RacePlaylists.Current,id))return;Save.Settings.vehicleId=id;for(int i=0;i<Save.Settings.opponentRoster.Length;i++)if(!RacePlaylists.Eligible(RacePlaylists.Current,Save.Settings.opponentRoster[i]))Save.Settings.opponentRoster[i]=id;LoadPlaylistEntry();}
@@ -285,7 +291,10 @@ namespace Racer
             if(State!=Stage.Courses)return;
             Go(reverse?(lake?"ForestLoopReverse":"StreetLoopReverse"):(lake?"LakeWoods":"StreetLoopGreybox"));
         }
-        public int SelectedColor => Save.Settings.bodyColors[System.Array.FindIndex(VehicleProfile.All,p=>p.Id==Save.Settings.vehicleId)];
+        // 0.89: the colour of the vehicle being driven (the saved choice may be a vehicle the campaign has not given yet).
+        public int SelectedColor => Save.Settings.bodyColors[Mathf.Max(0,VehicleProfile.IndexOf(Race.vehicle.GetComponent<VehicleConfiguration>().profileId))];
+        // The player's vehicle: the saved choice when the campaign (or Testing) allows it, else the first one allowed.
+        public string PlayerVehicleId => Race.PlayerVehicle(Save.Settings.vehicleId);
         void RestoreChoices()
         {
             Save.Settings.vehicleId=Race.EligibleVehicle(Save.Settings.vehicleId);
@@ -300,7 +309,7 @@ namespace Racer
         public void SetColor(int color)
         {
             if(State!=Stage.Garage) return;
-            int i=System.Array.FindIndex(VehicleProfile.All,p=>p.Id==Save.Settings.vehicleId);
+            int i=Mathf.Max(0,VehicleProfile.IndexOf(Race.vehicle.GetComponent<VehicleConfiguration>().profileId));
             Save.Settings.bodyColors[i]=Mathf.Clamp(color,0,VehiclePaint.Colors.Length-1);
             Race.vehicle.GetComponent<VehicleConfiguration>().SetBodyColor(SelectedColor);
             Save.SaveSettings(); menus.Show(); Click();
@@ -337,7 +346,8 @@ namespace Racer
         public void SelectVehicle(string id)
         {
             if(State!=Stage.Garage) return;
-            id=Race.EligibleVehicle(id);
+            if(Campaign.VehicleLocked(VehicleProfile.Find(id))) return;
+            id=Race.PlayerVehicle(id);
             Race.vehicle.GetComponent<VehicleConfiguration>().Apply(id);
             Save.Settings.vehicleId=VehicleProfile.Find(id).Id; Save.SaveSettings(); SelectRecords(Race.Category); Click();
             Race.vehicle.GetComponent<VehicleConfiguration>().SetBodyColor(SelectedColor); menus.Show();
@@ -387,9 +397,10 @@ namespace Racer
             DebugMovementUsed=false; Save.BeginAttempt();
             attempt=System.Guid.NewGuid().ToString("N");LapRank=RaceRank=0;Boards.BeginAttempt();FinishCards.Begin(Boards,Race.Category,Save.Best);
             NewLapRecord = NewRaceRecord = false; CountdownRemaining = 3; lastTick = 3;
+            if(CampaignRun.Active?.Kind==CampaignEventKind.SpeedTrap){var watch=GetComponent<CampaignTrapWatch>();if(!watch)watch=gameObject.AddComponent<CampaignTrapWatch>();watch.Initialize(this);}
             Notice = null; LockVehicle(true); SetStage(Stage.Countdown); Sound(tick);
         }
-        public void StartRace() { if(InRoamWorld){pendingRace=true;LeaveRoamWorld(null);return;} SessionStartedAt=Time.unscaledTime;RoamMenu=false;callers.Clear();menus.ResetPages(); if(RacePlaylists.Active!=null)RacePlaylists.Championship.Restart(RacePlaylists.Position);Race.FreeRoam=false;SetGateVisibility(true);Click(); if(LoadingScreen.Holding)Race.RestartRace();else StartCoroutine(RestartBehindLoadingScreen()); }
+        public void StartRace() { if(!CampaignAllows())return; if(InRoamWorld){pendingRace=true;LeaveRoamWorld(null);return;} SessionStartedAt=Time.unscaledTime;RoamMenu=false;callers.Clear();menus.ResetPages(); if(RacePlaylists.Active!=null)RacePlaylists.Championship.Restart(RacePlaylists.Position);Race.FreeRoam=false;SetGateVisibility(true);Click(); if(LoadingScreen.Holding)Race.RestartRace();else StartCoroutine(RestartBehindLoadingScreen()); }
         // 0.84 Part G: building the rivals and traffic for a race takes about half a second, then the first frame with them
         // is slow too; START RACE used to freeze the menu for that time. The loading screen now comes up at once and the
         // race is built behind it (the countdown waits for it, as after a scene load).
@@ -411,6 +422,34 @@ namespace Racer
         public void CloseSettings() { Save.SaveSettings(); PopMenu(); }
         public void Back() { if(State==Stage.Results){QuitRace();return;} if(menus.BackPage())return; if(State==Stage.PlaylistVehicle)CancelPlaylist();else if(State==Stage.Paused||(State==Stage.Ready&&RoamMenu))Resume();else if(State!=Stage.Ready&&MenuVisible)PopMenu(); }
 
+        // 0.89: outside the campaign, Race uses only courses the campaign has opened and the player's own vehicles (stock).
+        bool CampaignAllows()
+        {
+            if(CampaignRun.Active!=null)return true;
+            int course=InRoamWorld?RoamCourse:System.Array.IndexOf(RacePlaylists.Scenes,gameObject.scene.name);
+            if(course>=0&&!Campaign.CourseOpen(course)){Notify("LOCKED: "+RacePlaylists.Titles[course]+" — "+Campaign.CourseHowTo(course),6);menus.Show();return false;}
+            var configuration=Race.vehicle.GetComponent<VehicleConfiguration>();string allowed=Race.PlayerVehicle(configuration.profileId);
+            if(allowed!=configuration.profileId){configuration.Apply(allowed);configuration.SetBodyColor(SelectedColor);}
+            return true;
+        }
+        // 0.89: a campaign event, through the loading screen into its course (from any scene, Free Roam included).
+        public void StartCampaignEvent(CampaignEvent e,string vehicle)
+        {
+            if(e==null||!Campaign.Available(e)&&!Campaign.Testing)return;
+            if(InRoamWorld){WorldLook.Current?.SaveRoamClock();GetComponent<ExplorationMap>()?.Save();}
+            CampaignRun.Begin(e,vehicle);callers.Clear();menus.ResetPages();Click();Go(RacePlaylists.Scenes[e.Course]);
+        }
+        public void RetryCampaignEvent(){if(CampaignRun.Active==null||State!=Stage.Results)return;CampaignRun.Retry();StartRace();}
+        // Back to normal Race settings (the event's were never saved) and the campaign screen.
+        void EndCampaignEvent()
+        {
+            CampaignRun.End();
+            Race.opponents=Save.Settings.opponents;Race.traffic=Save.Settings.traffic;Race.difficulty=Mathf.Clamp(Save.Settings.difficulty,0,2);
+            Race.laps=Save.Settings.laps==0&&!Race.opponents?0:Mathf.Clamp(Save.Settings.laps==0?Save.Settings.lastFiniteLaps:Save.Settings.laps,1,5);
+            RestoreChoices();var configuration=Race.vehicle.GetComponent<VehicleConfiguration>();
+            if(configuration.profileId!=PlayerVehicleId)configuration.Apply(PlayerVehicleId);configuration.SetBodyColor(SelectedColor);
+            SelectRecords(Race.Category);menus.OpenCampaign();
+        }
         public void QuitRace()
         {
             callers.Clear();menus.ResetPages();
@@ -421,6 +460,7 @@ namespace Racer
             Race.FreeRoam=false;SetGateVisibility(true);
             NewLapRecord=NewRaceRecord=false; Save.SaveSettings(); SetStage(Stage.Ready);
             Race.vehicle.GetComponent<VehicleAudio>()?.Silence();
+            if(CampaignRun.Active!=null)EndCampaignEvent();
         }
         public void ResetFeedback()
         {
@@ -431,13 +471,15 @@ namespace Racer
             if (State != Stage.Racing || Race.FreeRoam) return;
             if(string.IsNullOrEmpty(attempt)||Race.Progress.CompletedLaps<=0)return;
             string profile=Race.vehicle.GetComponent<VehicleConfiguration>().profileId;
-            LapRank=DebugMovementUsed?0:Boards.CompletedLap(attempt,Race.Category,profile,Race.Progress);
-            bool best = !DebugMovementUsed && Save.RecordLap(Race.Progress.LastLap); NewLapRecord |= best;
+            // 0.89: campaign events never write the Top 10 boards or personal bests (they keep their own in the campaign save)
+            bool records=!DebugMovementUsed&&CampaignRun.Active==null;
+            LapRank=records?Boards.CompletedLap(attempt,Race.Category,profile,Race.Progress):0;
+            bool best = records && Save.RecordLap(Race.Progress.LastLap); NewLapRecord |= best;
             if (Race.Progress.Finished)
             {
-                NewRaceRecord = !DebugMovementUsed && Save.RecordRace(Race.Progress.AdjustedTime(Race.Clock));
-                RaceRank=DebugMovementUsed?0:Boards.CompletedRace(attempt,Race.Category,profile,Race.Progress,Race.Clock);
-                if(!DebugMovementUsed)FinishCards.Finish(Boards,Race.Category,attempt,Race.Progress,Race.Clock);
+                NewRaceRecord = records && Save.RecordRace(Race.Progress.AdjustedTime(Race.Clock));
+                RaceRank=records?Boards.CompletedRace(attempt,Race.Category,profile,Race.Progress,Race.Clock):0;
+                if(records)FinishCards.Finish(Boards,Race.Category,attempt,Race.Progress,Race.Clock);
                 input.enabled = respawn.enabled = false;
                 // Clear the finish with normal pedals/steering so following racers are not blocked.
                 var runoff=Race.vehicle.GetComponent<RoadDriver>();
@@ -452,7 +494,7 @@ namespace Racer
             else if (best) { Notify("NEW PERSONAL BEST LAP  " + RaceHud.FormatTime(Race.Progress.LastLap), 4); Sound(record); }
             else if(LapRank>0)Notify("TOP 10 LAP / #"+LapRank+"  "+RaceHud.FormatTime(Race.Progress.LastLap),4);
         }
-        public void CompleteResults() { if(WinnerShot.Active){StartCoroutine(ResultsAfterWinnerShot());return;} if(!DebugMovementUsed)RacePlaylists.Record(Race);LockVehicle(true); SetStage(Stage.Results); }
+        public void CompleteResults() { if(WinnerShot.Active){StartCoroutine(ResultsAfterWinnerShot());return;} if(!DebugMovementUsed)RacePlaylists.Record(Race);if(CampaignRun.Active!=null)CampaignRun.Finish(this);LockVehicle(true); SetStage(Stage.Results); }
         System.Collections.IEnumerator ResultsAfterWinnerShot(){while(WinnerShot.Active)yield return null;CompleteResults();}
         public void Notify(string text, float duration) { Notice = text; noticeUntil = Time.unscaledTime + duration; }
         public void Click() => Sound(click);
@@ -467,7 +509,7 @@ namespace Racer
             ValidationSaveRoot=directory;
 #endif
             Save = new RacerSave(directory, "street-loop-gates-v1-laps" + Race.laps);
-            VehicleUnlocks.Load(directory);
+            VehicleUnlocks.Load(directory); Campaign.Load(directory); Campaign.Testing = Save.Settings.unlockEverything;
             VehicleVisual.NewModels = Save.Settings.newMotorcycle; RiderLook.Player = Save.Settings.rider;
             Scenery.Set(!Save.Settings.classicScenery);
             Boards = new RecordBoards(directory);

@@ -194,8 +194,9 @@ def bike():
     # radiator behind the shrouds
     for s in (-1, 1): box('Radiator', (s * .11, .30, .30), (.035, .22, .12), 'Body', 'engine', .008, (0, 0, 0))
     # chain (left side) from the front sprocket to the rear sprocket
-    cyl('Chain upper', (-.085, .06, -.07), (-.085, -.10, -.825), .011, 'Body', 'engine', 6)
-    cyl('Chain lower', (-.085, -.02, -.07), (-.085, -.30, -.825), .011, 'Body', 'engine', 6)
+    # 0.89: the chain 7 mm outboard (a side of it lay on the rear sprocket's face)
+    cyl('Chain upper', (-.092, .06, -.07), (-.092, -.10, -.825), .011, 'Body', 'engine', 6)
+    cyl('Chain lower', (-.092, -.02, -.07), (-.092, -.30, -.825), .011, 'Body', 'engine', 6)
     # exhaust (right side): header forward and down, back along the side, up into the silencer under the seat
     tube('Exhaust header', [(.05, .27, .25), (.10, .21, .34), (.16, .09, .30), (.19, .08, .10), (.20, .17, -.18), (.20, .26, -.38)], .026, 'Body', 'metal', 8)
     cyl('Silencer', (.20, .26, -.38), (.20, .37, -.80), .055, 'Body', 'metal', 14)
@@ -219,9 +220,9 @@ def bike():
     for s in (-1, 1):
         x = s * .088
         cyl('Fork slider', (x, -.20, .825), (x, axis(.42)[1], axis(.42)[2]), .029, 'Front', 'engine', 12)
-        cyl('Fork tube', (x, axis(.40)[1], axis(.40)[2]), (x, axis(1.08)[1], axis(1.08)[2]), .022, 'Front', 'metal', 12)
+        cyl('Fork tube', (x, axis(.40)[1], axis(.40)[2]), (x, axis(1.075)[1], axis(1.075)[2]), .022, 'Front', 'metal', 12)  # 0.89: its top 5 mm inside the upper clamp (was on the clamp's top face)
         box('Axle lug', (x, -.20, .835), (.04, .06, .06), 'Front', 'engine', .008)
-    cyl('Axle front', (-.11, -.20, .825), (.11, -.20, .825), .014, 'Front', 'metal', 8)
+    cyl('Axle front', (-.115, -.20, .825), (.115, -.20, .825), .014, 'Front', 'metal', 8)  # 0.89: ends 7 mm past the lugs (were flush)
     for t, h in ((.84, .035), (1.06, .04)):
         p = axis(t); box('Triple clamp', p, (.26, h, .09), 'Front', 'metal', .01, (-22, 0, 0))
     # bar risers and handlebars (slight rise and sweep back to the grips at +/-0.40, 0.72, 0.58)
@@ -232,7 +233,7 @@ def bike():
         cyl('Handlebar bend', (s * .24, .685, .555), (s * .33, .715, .575), .013, 'Front', 'metal', 10)
         cyl('Grip', (s * .33, .715, .575), (s * .45, .725, .583), .021, 'Front', 'rubber', 10)
         box('Lever', (s * .34, .72, .62), (.13, .012, .02), 'Front', 'metal', .004, (0, s * 18, 0))
-    cyl('Bar pad', (-.09, .70, .56), (.09, .70, .56), .026, 'Front', 'engine', 10)
+    cyl('Bar pad', (-.09, .69, .556), (.09, .69, .556), .026, 'Front', 'engine', 10)  # 0.89: wraps the bar (was flush below it)
     # number plate with the headlight, square to the fork
     plate_c = Vector(axis(1.0)) + Vector((0, -.05, .085))
     hull('Number plate', [(-.13, plate_c.y - .15, plate_c.z + .03), (.13, plate_c.y - .15, plate_c.z + .03), (.13, plate_c.y - .15, plate_c.z + .06), (-.13, plate_c.y - .15, plate_c.z + .06),

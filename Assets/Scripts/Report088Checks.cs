@@ -10,7 +10,7 @@ using UnityEngine;
 namespace Racer {
 // 0.88 targeted checks, added to the 0.80 runner (same muted isolated save, same helpers): PROBE_CASES="case:args;...".
 public sealed partial class Report080Checks {
- IEnumerator Cases088(string[] a)=>a[0] switch{"kyleviews88"=>KyleViews088(a.Length>1?a[1]:"day",a.Length>2?a[2]:""),"kyledrive88"=>KyleDrive088(a[1]),"carshots88"=>CarShots088(a[1],a.Length>2?a[2]:""),"mower88"=>Mower088(),_=>null};
+ IEnumerator Cases088(string[] a)=>a[0] switch{"kyleviews88"=>KyleViews088(a.Length>1?a[1]:"day",a.Length>2?a[2]:""),"kyledrive88"=>KyleDrive088(a[1]),"carshots88"=>CarShots088(a[1],a.Length>2?a[2]:""),"mower88"=>Mower088(),_=>Cases089(a)};
 
  // Part D on the isolated save: the acorn save written with 23 of the 24 found; in Free Roam the mower is locked (not
  // eligible, not selectable, shown locked in the garage with the count); the 24th acorn is driven through: the celebration

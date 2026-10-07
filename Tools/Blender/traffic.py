@@ -62,8 +62,8 @@ def common(front, rear):
     box('Rear plate', (0, -.02, rear - .03), (.34, .13, .02), 'Body', 'metal', .006)
     for s in (-1, 1):
         blob('Mirror', (s * 1.03, .52, .62), (.05, .045, .08), 'Body', 'paint', 10, 6)
-        box('Arch shadow F', (s * .95, -.06, AXLE), (.06, .1, .82), 'Body', 'rubber', .02)
-        box('Arch shadow R', (s * .95, -.06, -AXLE), (.06, .1, .82), 'Body', 'rubber', .02)
+        box('Arch shadow F', (s * .955, -.06, AXLE), (.06, .1, .82), 'Body', 'rubber', .02)  # 0.89: 5 mm proud of the body sides
+        box('Arch shadow R', (s * .955, -.06, -AXLE), (.06, .1, .82), 'Body', 'rubber', .02)
 
 
 def sedan():
@@ -86,8 +86,8 @@ def pickup():
     box('Bed floor', (0, .02, -1.30), (1.80, .06, 1.75), 'Body', 'engine', .01)
     slab('Bed base', .98, -.33, .02, -2.14, -.40, bevel=.03, taper=0)
     for s in (-1, 1): box('Bed side', (s * .92, .22, -1.27), (.12, .44, 1.78), 'Body', 'paint', .03)
-    box('Tailgate', (0, .22, -2.10), (1.95, .44, .08), 'Body', 'paint', .02)
-    box('Cab back', (0, .22, -.43), (1.95, .44, .06), 'Body', 'paint', .02)
+    box('Tailgate', (0, .22, -2.10), (1.95, .42, .08), 'Body', 'paint', .02)  # 0.89: 1 cm inside the bed sides' top and bottom
+    box('Cab back', (0, .22, -.43), (1.95, .42, .06), 'Body', 'paint', .02)
     lamps(2.14, -2.15, .14, .22, .78, round_=True); bumpers(2.14, -2.14); common(2.14, -2.14); driver((-.40, .06, .10))
 
 
@@ -95,7 +95,7 @@ def van():
     x, t = .99, .06
     hull('Body', [(-x, -.33, -2.14), (x, -.33, -2.14), (x, -.33, 1.95), (-x, -.33, 1.95),
                   (-x + t, 1.30, -2.14 + t), (x - t, 1.30, -2.14 + t), (x - t, 1.30, 1.30), (-x + t, 1.30, 1.30)], 'Body', 'paint', .10, 2)
-    slab('Hood', .97, -.33, .40, 1.2, 2.14, y1front=.32, z1top=2.04)
+    slab('Hood', .97, -.32, .40, 1.2, 2.14, y1front=.32, z1top=2.04)  # 0.89: underside 1 cm above the body's
     # windscreen on the sloped front (z = 1.95 - 0.399 (y + 0.33)), side windows along the top
     def zs(y): return 1.95 - .399 * (y + .33) + .012
     hull('Windscreen', [(-.84, .48, zs(.48)), (.84, .48, zs(.48)), (.80, 1.18, zs(1.18)), (-.80, 1.18, zs(1.18)),

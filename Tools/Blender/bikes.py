@@ -108,7 +108,7 @@ def scrambler(B):
     for s in (-1, 1): cyl('Bar riser', (s * .035, top[1], top[2]), (s * .035, top[1] + .07, top[2] + .02), .016, 'Front', 'metal', 8)
     by, bz = top[1] + .07, top[2] + .02
     cyl('Handlebar', (-.24, by, bz), (.24, by, bz), .013, 'Front', 'metal', 10)
-    cyl('Bar pad', (-.1, by + .015, bz), (.1, by + .015, bz), .027, 'Front', 'engine', 10)
+    cyl('Bar pad', (-.1, by + .006, bz), (.1, by + .006, bz), .027, 'Front', 'engine', 10)  # 0.89: wraps the bar (was flush below it)
     for s in (-1, 1):
         cyl('Handlebar bend', (s * .24, by, bz), (s * (gx - .1), gy - .005, gz - .005), .013, 'Front', 'metal', 10)
         cyl('Grip', (s * (gx - .1), gy - .005, gz - .005), (s * (gx + .04), gy, gz), .021, 'Front', 'rubber', 10)

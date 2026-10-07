@@ -1,0 +1,33 @@
+---- flow89
+protected files: records-street-v14-discovery-original-race4-d1-moto-atv-tourer-traffic-laps2.json FAE95BA7FFB20727, top-ten-v1.json 55A44C09734A68C3, woodland-acorns-v1.json 432DDA80E080915B
+PASS no campaign save: new player: money 0, owned [original,atv], open courses [Street Loop - Forward]
+PASS main menu first entry: 'campaign'
+campaign screen: shop=Shop | chapter-3=3  Dan's Backyard / Locked: Pass the Forest Loop final (chapter 2) | cev-c1-night-shift=4. Night Shift   ·   Street Loop — Forward / Race · 3 laps · 3 rivals  ·  Locked: Pass "Against the Clock" first | cev-c1-wrong-way=5. Wrong Way Round   ·   Street Loop — Reverse / Race · 2 laps · 3 rivals  ·  Locked: Pass "Night Shift" first | cev-c1-street-final=6. Street Loop Final   ·   Street Loop — Forward / Race · 3 laps · 5 rivals  ·  Locked: Pass "Wrong Way Round" first | cev-c1-against-clock=3. Against the Clock   ·   Street Loop — Forward / Time trial  ·  Locked: Pass "Hwy 92 Speed Trap" first | chapter-1=› 1  Street Loop / Open | continue=START | chapter-4=4  Mountain Loop / Locked: Pass the Dan's Backyard final (chapter 3) | chapter-2=2  Forest Loop / Locked: Finish top three in the Street Loop Final | new-campaign=New Campaign | cev-c1-hwy92-trap=2. Hwy 92 Speed Trap   ·   Street Loop — Forward / Speed trap  ·  Locked: Pass "First Lap" first | cev-c1-first-lap=1. First Lap   ·   Street Loop — Forward / Race · 2 laps · 3 rivals  ·  Not run yet
+PASS event 1 page: START EVENT offered
+  waiting: scene StreetLoopGreybox, flow yes, started False, holding True, state Ready, timeScale 1, campaign c1-first-lap pending True
+  running after 9 s: state Racing, campaign c1-first-lap
+PASS event 1 running: 4 racers (Street Classic / Pebble Coupe / Sundown Roadster), 2 laps, difficulty 0, traffic False, vehicle atv, Day/Clear
+PASS event 1 result: 2nd of 4, pay 720, bonus 0, unlocked [Next event: Hwy 92 Speed Trap]; saved money 720; best 'Best 2nd of 4 · 04:40.162'
+PASS event 2 opens when event 1 is passed: passed True, event 2 available True
+PASS Continue: back on the campaign screen; Race settings restored (opponents True, laps 3, difficulty 1)
+  waiting: scene StreetLoopGreybox, flow yes, started False, holding True, state Ready, timeScale 1, campaign c1-hwy92-trap pending True
+  running after 9 s: state Racing, campaign c1-hwy92-trap
+PASS event 2 (speed trap): start -595.7,8.65,537.4, SILVER  ·  91.9 mph, pay 650 + bonus 0, money 1370
+  waiting: scene StreetLoopGreybox, flow yes, started False, holding True, state Ready, timeScale 1, campaign c1-against-clock pending True
+  running after 9 s: state Racing, campaign c1-against-clock
+PASS event 3 (time trial): start 213.8,9.72,555.6 (150 m before START), SILVER  ·  02:16.360, pay 650 + bonus 0, money 2020
+PASS F6 Mark event won: 'Night Shift' passed, event 5 open
+PASS Street Loop - Reverse locked before event 5
+  waiting: scene StreetLoopReverse, flow yes, started False, holding True, state Ready, timeScale 1, campaign c1-wrong-way pending True
+  waiting: scene StreetLoopReverse, flow yes, started True, holding False, state Countdown, timeScale 1, campaign c1-wrong-way pending False
+  running after 13 s: state Racing, campaign c1-wrong-way
+PASS event 5 started: scene StreetLoopReverse, Reverse now open True, Dusk/Rain, 4 racers
+PASS event 5 ended from the pause menu: no result, no payout, campaign screen
+  running after 2 s: state Racing, campaign c1-street-final
+PASS final: 6 racers (Trail Four / Longroof GT / Sundown Roadster / Pebble Coupe / Drifter Twin); grid metres before the line [-46, -38, -31, -24, -17, -10]; every rival's lap started after GO True
+PASS shop with $2,020: Pebble Coupe ($6,000) refused: 'Not enough money: $6,000 needed, you have $2,020', Buy enabled False
+PASS bought with $7,020: Pebble owned (saved), money $1,020; garage offers [Street Classic, Trail Four, Pebble Coupe]
+PASS Shop Back returns to the campaign screen
+PASS records, boards, ghosts and acorns unchanged after the campaign runs: all 3 files identical; acorns 22/24
+PASS F6 Unlock campaign: every course, vehicle and chapter
+PASS F6 Reset campaign: a new campaign written

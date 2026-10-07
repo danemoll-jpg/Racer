@@ -113,7 +113,7 @@ namespace Racer
             if(page=="playlist-editor")
             {
                 ClearCore("RACE ENTRY",entryDraft.Title);int i=0;
-                foreach(int course in RacePlaylists.DisplayOrder){int c=course;Row(i++,"edit-course-"+c,(entryDraft.course==c?"✓ ":"")+RacePlaylists.Titles[c],()=>{entryDraft.course=c;Show();});}
+                foreach(int course in RacePlaylists.DisplayOrder){int c=course;bool open=Campaign.CourseOpen(c);Row(i++,"edit-course-"+c,(entryDraft.course==c?"✓ ":"")+RacePlaylists.Titles[c]+(open?"":"   ·   LOCKED"),()=>{if(open){entryDraft.course=c;Show();}else flow.Notify("LOCKED: "+RacePlaylists.Titles[c]+" — "+Campaign.CourseHowTo(c),5);});}
                 Step(i++,"entry-laps","Laps: "+entryDraft.laps,d=>{entryDraft.laps=Mathf.Clamp(entryDraft.laps+d,1,5);Show();});
                 Row(i++,"apply","APPLY",()=>{if(entryIndex<0)playlistDraft.entries.Add(entryDraft);else playlistDraft.entries[entryIndex]=entryDraft;BackPage();});Row(i,"cancel","Cancel",()=>BackPage());return;
             }

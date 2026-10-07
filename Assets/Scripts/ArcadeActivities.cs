@@ -22,6 +22,7 @@ namespace Racer
         public float LastAirtime {get;private set;}
         public float LastSpeed {get;private set;}
         public float LastJumpAward {get;private set;}
+        public ActivitySite LastAwardSite {get;private set;}
         public string LastJumpDiagnostic {get;private set;}
         public int SmashCount=>smashed.Count;
         public string Location {get{if(!Selected||!car)return "";var delta=Selected.transform.position-car.Body.position;int compass=Mathf.RoundToInt(Mathf.Repeat(Mathf.Atan2(delta.x,delta.z)*Mathf.Rad2Deg,360)/45)%8;return $"{DisplayUnits.Distance(Vector3.ProjectOnPlane(delta,Vector3.up).magnitude)} {new[]{"N","NE","E","SE","S","SW","W","NW"}[compass]}";}}
@@ -159,6 +160,8 @@ namespace Racer
         {
             if(DeveloperLocationHud.Inspecting)return;
             if(!float.IsFinite(value)||value<=0)return;int medal=site.Medal(value,configuration.profileId);var best=PersonalBest(site);
+            // 0.89: a campaign event never writes activity records or personal bests; its result goes to the campaign save.
+            if(CampaignRun.Active!=null){LastAwardSite=site;Awards++;Message(site.title+" / "+Measurement(site,value),6);return;}
             bool improved=best==null||value>best.value;
             if(site.kind!=ActivitySite.Kind.Smash)Records.Add(new ActivityRecords.Entry{id=Guid.NewGuid().ToString("N"),key=Key(site),site=site.id,vehicle=configuration.profileId,date=DateTime.UtcNow.ToString("o"),value=value,airtime=site.kind==ActivitySite.Kind.Jump?LastAirtime:0,medal=medal});
             if(site.kind==ActivitySite.Kind.Jump)LastJumpAward=value;

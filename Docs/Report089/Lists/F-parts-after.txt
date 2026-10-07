@@ -1,0 +1,15 @@
+StreetClassic: 132 parts, 10296 triangles; same-facing coplanar overlaps 0 triangle pairs, about 0 cm2
+LongroofGT: 141 parts, 10804 triangles; same-facing coplanar overlaps 0 triangle pairs, about 0 cm2
+Roadster: 167 parts, 10252 triangles; same-facing coplanar overlaps 0 triangle pairs, about 0 cm2
+Fastback: 118 parts, 9516 triangles; same-facing coplanar overlaps 0 triangle pairs, about 0 cm2
+Pebble: 122 parts, 9904 triangles; same-facing coplanar overlaps 0 triangle pairs, about 0 cm2
+Skyfin: 108 parts, 10607 triangles; same-facing coplanar overlaps 0 triangle pairs, about 0 cm2
+Scrambler: 205 parts, 6240 triangles; same-facing coplanar overlaps 0 triangle pairs, about 0 cm2
+Drifter: 90 parts, 8060 triangles; same-facing coplanar overlaps 0 triangle pairs, about 0 cm2
+needle600: 255 parts, 11420 triangles; same-facing coplanar overlaps 0 triangle pairs, about 0 cm2
+trailfour: 304 parts, 9740 triangles; same-facing coplanar overlaps 0 triangle pairs, about 0 cm2
+mower: 185 parts, 7752 triangles; same-facing coplanar overlaps 0 triangle pairs, about 0 cm2
+TrafficSedan: 42 parts, 4112 triangles; same-facing coplanar overlaps 0 triangle pairs, about 0 cm2
+TrafficWagon: 44 parts, 4152 triangles; same-facing coplanar overlaps 0 triangle pairs, about 0 cm2
+TrafficPickup: 48 parts, 4728 triangles; same-facing coplanar overlaps 0 triangle pairs, about 0 cm2
+TrafficVan: 47 parts, 4372 triangles; same-facing coplanar overlaps 0 triangle pairs, about 0 cm2

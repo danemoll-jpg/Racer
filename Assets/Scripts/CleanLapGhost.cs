@@ -51,7 +51,7 @@ namespace Racer
         }
         public void Boundary(double time,Vector3 crossing,Quaternion rotation,bool completed,bool finished)
         {
-            if(race.Flow.DebugMovementUsed){active=false;invalid=true;return;}
+            if(race.Flow.DebugMovementUsed||CampaignRun.Active!=null){active=false;invalid=true;return;} // 0.89: no ghosts from campaign events
             Refresh();
             if(completed&&active)
             {

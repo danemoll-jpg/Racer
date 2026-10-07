@@ -24,6 +24,10 @@ namespace Racer
         // 0.88: a reward vehicle not yet earned (VehicleUnlocks) is not eligible for the player or the AI.
         public VehicleProfile[] EligibleVehicles => VehicleProfile.All.Where(p=>(!CarsRestricted||p.Small)&&!VehicleUnlocks.Locked(p)).ToArray();
         public string EligibleVehicle(string id)=>VehicleUnlocks.Locked(id)?(CarsRestricted?"moto":"original"):CarsRestricted&&!VehicleProfile.Find(id).Small?"moto":VehicleProfile.Find(id).Id;
+        // 0.89 campaign: the player may choose only the vehicles the campaign has given them (plus the earned mower); the AI
+        // keeps every eligible vehicle. Testing ("Unlock everything") lifts the campaign lock.
+        public VehicleProfile[] PlayerVehicles => EligibleVehicles.Where(p=>!Campaign.VehicleLocked(p)).ToArray();
+        public string PlayerVehicle(string id){var e=EligibleVehicle(id);if(!Campaign.VehicleLocked(VehicleProfile.Find(e)))return e;var first=PlayerVehicles.FirstOrDefault();return first!=null?first.Id:e;}
         public string courseId="street-v8-landings";
         public string courseName="Street Loop - Forward";
         public const double OrdinaryMissPenalty = 5;
@@ -33,7 +37,9 @@ namespace Racer
         public string[] opponentRoster = {"tourer","moto","atv"};
         public string RosterLabel => string.Join(" / ",opponentRoster.Select(id=>VehicleProfile.Find(id).Name));
         public string DifficultyName => new[]{"Easy", "Normal", "Hard"}[Mathf.Clamp(difficulty,0,2)];
-        public string ModeLabel => opponents ? "Race vs 3 AI / " + DifficultyName : "Solo / time trial";
+        public string ModeLabel => opponents ? $"Race vs {RivalCount} AI / " + DifficultyName : "Solo / time trial";
+        // 0.89: the number of rivals is the roster's length (3 normally; a campaign event may set another field size).
+        public int RivalCount => opponents ? opponentRoster.Length : 0;
         [Range(0, 6)]
         public int trafficCount = 4;
         [Range(0,24)] public int highwayTrafficCount = 16;
@@ -138,10 +144,20 @@ namespace Racer
             if (road && opponents && !FreeRoam)
             {
                 var backyard=GetComponent<BackyardForwardCourse>();
-                var grid = road.At(backyard?backyard.GridStation(this,0):origin - 32, out var direction);
+                var grid = road.At(backyard?backyard.GridStation(this,0):origin - 32 - 7*Mathf.Max(0,RivalCount-3), out var direction);
                 vehicle.Body.position = grid + Vector3.Cross(Vector3.up,direction).normalized * (backyard?backyard.GridSide(0):-2.2f) + Vector3.up * Mathf.Max(.4f,vehicle.suspensionLength-Physics.gravity.magnitude/vehicle.springStrength);
                 vehicle.Body.rotation = Quaternion.LookRotation(Vector3.ProjectOnPlane(direction,Vector3.up));
                 vehicle.transform.SetPositionAndRotation(vehicle.Body.position,vehicle.Body.rotation);
+                FindAnyObjectByType<ChaseCamera>()?.Snap();
+            }
+            // 0.89 campaign: a speed trap or flying-lap event starts on the road a run-up before the trap / the start line.
+            if (road && !FreeRoam && CampaignRun.StartStation(this, out float station))
+            {
+                var at = road.At(station, out var heading);
+                vehicle.Body.position = at + Vector3.up * Mathf.Max(.4f,vehicle.suspensionLength-Physics.gravity.magnitude/vehicle.springStrength);
+                vehicle.Body.rotation = Quaternion.LookRotation(Vector3.ProjectOnPlane(heading,Vector3.up));
+                vehicle.transform.SetPositionAndRotation(vehicle.Body.position,vehicle.Body.rotation);
+                respawn.SeedCoursePosition(vehicle.Body.position);
                 FindAnyObjectByType<ChaseCamera>()?.Snap();
             }
             if (road)
@@ -186,15 +202,16 @@ namespace Racer
             float spawn = road.Project(vehicle.transform.position, out _);
             int localPopulation = Mathf.Clamp(trafficCount, 0, 6);
             int population = localPopulation + Mathf.Clamp(highwayTrafficCount,0,24);
-            Color[] colors = {new(.95f, .25f, .12f), new(.95f, .75f, .1f), new(.2f, .55f, 1)};
+            Color[] colors = {new(.95f, .25f, .12f), new(.95f, .75f, .1f), new(.2f, .55f, 1), new(.2f, .78f, .38f), new(.66f, .36f, .9f)};
             // 0.75: each AI gets a random rider for this race (varied across the field, never the player's exact look).
-            var riders = RiderLook.Field(DriverVariation.Seed, 3, RiderLook.Player);
-            for (int i = 0; i < (opponents ? 3 : 0) + (traffic ? population : 0); i++)
+            int rivals = opponents ? opponentRoster.Length : 0;
+            var riders = RiderLook.Field(DriverVariation.Seed, Mathf.Max(3,rivals), RiderLook.Player);
+            for (int i = 0; i < rivals + (traffic ? population : 0); i++)
             {
-                bool racing = opponents && i < 3;
-                int n = racing ? i : i - (opponents ? 3 : 0);
+                bool racing = opponents && i < rivals;
+                int n = racing ? i : i - rivals;
                 var clone = Instantiate(vehicle.gameObject);
-                clone.name = racing ? new[]{"EMBER", "GOLD", "BLUE"}[n] : "Traffic " + (n + 1);
+                clone.name = racing ? new[]{"EMBER", "GOLD", "BLUE", "JADE", "VIOLET"}[n % 5] : "Traffic " + (n + 1);
                 var car = clone.GetComponent<ArcadeVehicle>();
                 foreach(var activityContact in clone.GetComponents<ActivityLandingContact>())Destroy(activityContact);
                 var configuration = clone.GetComponent<VehicleConfiguration>();
@@ -202,7 +219,7 @@ namespace Racer
                 // Every opponent uses the resolved real physics/visual profile. Ambient traffic keeps the classic car.
                 configuration.riderLook = racing ? riders[n] : null; configuration.classicVisual = !racing;
                 configuration.Apply(racing ? opponentRoster[n] : "original");
-                configuration.SetPaint(racing?colors[n]:new Color(.55f,.55f,.5f));
+                configuration.SetPaint(racing?colors[n % colors.Length]:new Color(.55f,.55f,.5f));
                 // Explicit test pilots must never be duplicated into opponents.
                 foreach (var inherited in clone.GetComponents<RoadDriver>()) { inherited.enabled = false; Destroy(inherited); }
                 clone.GetComponent<VehicleInput>().enabled = false;
@@ -220,7 +237,7 @@ namespace Racer
                     if (VehiclePaint.IsBodyPaint(renderer.sharedMaterial))
                     {
                         var block = new MaterialPropertyBlock();
-                        block.SetColor("_BaseColor", racing ? colors[n] : new Color(.55f, .55f, .5f));
+                        block.SetColor("_BaseColor", racing ? colors[n % colors.Length] : new Color(.55f, .55f, .5f));
                         renderer.SetPropertyBlock(block);
                     }
 

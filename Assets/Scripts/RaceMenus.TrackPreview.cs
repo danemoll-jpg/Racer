@@ -17,7 +17,7 @@ namespace Racer
         UnityEngine.UI.Text courseCaption; WorldMapVisual courseVisual; bool courseView; int shownCourse = -2;
         public int ShownCourse => shownCourse;
 
-        void EnterCourseView()
+        void EnterCourseView(float share = .5f)
         {
             if (!coursePanel)
             {
@@ -40,8 +40,8 @@ namespace Racer
             var parent = (RectTransform)card.parent;
             float width = Mathf.Min(1220, parent.rect.width - 40), height = Mathf.Min(menuCardSize.y, parent.rect.height - 24);
             card.sizeDelta = new Vector2(width, height);
-            float panel = Mathf.Clamp(width * .5f, 340, 600);
-            coursePanel.gameObject.SetActive(true);
+            float panel = Mathf.Clamp(width * share, 340, 600);
+            coursePanel.gameObject.SetActive(true); courseCaption.fontSize = 18;
             coursePanel.anchorMin = new Vector2(0, 0); coursePanel.anchorMax = new Vector2(0, 1); coursePanel.pivot = new Vector2(0, .5f);
             coursePanel.offsetMin = new Vector2(32, 78); coursePanel.offsetMax = new Vector2(32 + panel, -82);
             ((RectTransform)scroll.transform).offsetMin = new Vector2(32 + panel + 24, 78);
@@ -86,6 +86,6 @@ namespace Racer
     // Mouse hover moves the highlight in the Tracks list (so the map follows the pointer as well as the keys).
     public sealed class CourseRowHover : MonoBehaviour, IPointerEnterHandler
     {
-        public void OnPointerEnter(PointerEventData e) { if (name.StartsWith("course-") && EventSystem.current && GetComponent<UnityEngine.UI.Selectable>()?.interactable == true) EventSystem.current.SetSelectedGameObject(gameObject); }
+        public void OnPointerEnter(PointerEventData e) { if ((name.StartsWith("course-") || name.StartsWith("cev-")) && EventSystem.current && GetComponent<UnityEngine.UI.Selectable>()?.interactable == true) EventSystem.current.SetSelectedGameObject(gameObject); }
     }
 }

@@ -1,0 +1,137 @@
+StreetClassic: 132 parts, 10296 triangles; same-facing coplanar overlaps 60 triangle pairs, about 3068 cm2
+  Grille [Body/engine] | Headlamp bezel.001 [Body/chrome]: 11 pairs, about 859.2 cm2, e.g. at -0.17,0.18,1.90
+  Grille [Body/engine] | Headlamp bezel.003 [Body/chrome]: 11 pairs, about 859.2 cm2, e.g. at 0.17,0.23,1.90
+  Grille [Body/engine] | Grille bar.002 [Body/chrome]: 4 pairs, about 468.7 cm2, e.g. at -0.17,0.18,1.90
+  Grille [Body/engine] | Grille bar.001 [Body/chrome]: 3 pairs, about 234.3 cm2, e.g. at -0.17,0.18,1.90
+  Grille [Body/engine] | Grille bar.003 [Body/chrome]: 3 pairs, about 234.3 cm2, e.g. at -0.17,0.18,1.90
+  Grille [Body/engine] | Grille bar [Body/chrome]: 2 pairs, about 156.2 cm2, e.g. at -0.17,0.18,1.90
+  Grille [Body/engine] | Grille bar.004 [Body/chrome]: 2 pairs, about 156.2 cm2, e.g. at 0.17,0.23,1.90
+  Grille bar.001 [Body/chrome] | Headlamp bezel.001 [Body/chrome]: 3 pairs, about 12.5 cm2, e.g. at -0.17,0.17,1.91
+  Grille bar.002 [Body/chrome] | Headlamp bezel.001 [Body/chrome]: 3 pairs, about 12.5 cm2, e.g. at -0.17,0.20,1.91
+  Grille bar.002 [Body/chrome] | Headlamp bezel.003 [Body/chrome]: 3 pairs, about 12.5 cm2, e.g. at 0.17,0.20,1.91
+  Grille bar.003 [Body/chrome] | Headlamp bezel.003 [Body/chrome]: 3 pairs, about 12.5 cm2, e.g. at -0.17,0.23,1.91
+  Grille bar.004 [Body/chrome] | Headlamp bezel.001 [Body/chrome]: 2 pairs, about 8.3 cm2, e.g. at -0.17,0.26,1.91
+  Grille bar.004 [Body/chrome] | Headlamp bezel.003 [Body/chrome]: 2 pairs, about 8.3 cm2, e.g. at 0.17,0.26,1.91
+  Grille bar [Body/chrome] | Headlamp bezel.001 [Body/chrome]: 2 pairs, about 8.3 cm2, e.g. at -0.17,0.14,1.91
+  Grille bar [Body/chrome] | Headlamp bezel.003 [Body/chrome]: 2 pairs, about 8.3 cm2, e.g. at 0.17,0.14,1.91
+  Grille bar.001 [Body/chrome] | Headlamp bezel.003 [Body/chrome]: 2 pairs, about 8.3 cm2, e.g. at 0.17,0.17,1.91
+  Grille bar.003 [Body/chrome] | Headlamp bezel.001 [Body/chrome]: 2 pairs, about 8.3 cm2, e.g. at -0.17,0.23,1.91
+LongroofGT: 141 parts, 10804 triangles; same-facing coplanar overlaps 81 triangle pairs, about 3328 cm2
+  Grille [Body/engine] | Headlamp bezel.001 [Body/chrome]: 11 pairs, about 922.8 cm2, e.g. at -0.19,0.24,2.29
+  Grille [Body/engine] | Headlamp bezel.003 [Body/chrome]: 11 pairs, about 922.8 cm2, e.g. at 0.19,0.29,2.29
+  Grille [Body/engine] | Grille bar.002 [Body/chrome]: 4 pairs, about 503.3 cm2, e.g. at -0.19,0.24,2.29
+  Grille [Body/engine] | Grille bar.001 [Body/chrome]: 3 pairs, about 251.7 cm2, e.g. at -0.19,0.24,2.29
+  Grille [Body/engine] | Grille bar.003 [Body/chrome]: 3 pairs, about 251.7 cm2, e.g. at -0.19,0.24,2.29
+  Grille [Body/engine] | Grille bar [Body/chrome]: 2 pairs, about 167.8 cm2, e.g. at -0.19,0.24,2.29
+  Grille [Body/engine] | Grille bar.004 [Body/chrome]: 2 pairs, about 167.8 cm2, e.g. at 0.19,0.29,2.29
+  Grille bar.002 [Body/chrome] | Headlamp bezel.001 [Body/chrome]: 3 pairs, about 13.4 cm2, e.g. at -0.19,0.26,2.29
+  Grille bar.002 [Body/chrome] | Headlamp bezel.003 [Body/chrome]: 3 pairs, about 13.4 cm2, e.g. at 0.19,0.26,2.29
+  Grille bar.003 [Body/chrome] | Headlamp bezel.003 [Body/chrome]: 3 pairs, about 13.4 cm2, e.g. at -0.19,0.29,2.29
+  Grille bar.001 [Body/chrome] | Headlamp bezel.001 [Body/chrome]: 3 pairs, about 13.4 cm2, e.g. at -0.19,0.23,2.29
+  Grille bar.003 [Body/chrome] | Headlamp bezel.001 [Body/chrome]: 2 pairs, about 8.9 cm2, e.g. at -0.19,0.29,2.29
+  Grille bar.004 [Body/chrome] | Headlamp bezel.001 [Body/chrome]: 2 pairs, about 8.9 cm2, e.g. at -0.19,0.32,2.29
+  Grille bar.004 [Body/chrome] | Headlamp bezel.003 [Body/chrome]: 2 pairs, about 8.9 cm2, e.g. at 0.19,0.32,2.29
+  Grille bar [Body/chrome] | Headlamp bezel.001 [Body/chrome]: 2 pairs, about 8.9 cm2, e.g. at -0.19,0.20,2.29
+  Grille bar [Body/chrome] | Headlamp bezel.003 [Body/chrome]: 2 pairs, about 8.9 cm2, e.g. at 0.19,0.20,2.29
+  Grille bar.001 [Body/chrome] | Headlamp bezel.003 [Body/chrome]: 2 pairs, about 8.9 cm2, e.g. at 0.19,0.23,2.29
+  WheelFL hub [WheelFL/chrome] | WheelFL spoke.002 [WheelFL/metal]: 2 pairs, about 5.5 cm2, e.g. at -1.10,-0.23,1.46
+  WheelRL hub [WheelRL/chrome] | WheelRL spoke.002 [WheelRL/metal]: 2 pairs, about 5.5 cm2, e.g. at -1.10,-0.23,-1.54
+  WheelFL hub [WheelFL/chrome] | WheelFL spoke [WheelFL/metal]: 4 pairs, about 4.4 cm2, e.g. at -1.09,-0.15,1.48
+  WheelFR hub [WheelFR/chrome] | WheelFR spoke [WheelFR/metal]: 4 pairs, about 4.4 cm2, e.g. at 1.09,-0.15,1.52
+  WheelFL hub [WheelFL/chrome] | WheelFL spoke.004 [WheelFL/metal]: 1 pairs, about 2.1 cm2, e.g. at -1.09,-0.21,1.54
+  WheelRR hub [WheelRR/chrome] | WheelRR spoke.004 [WheelRR/metal]: 1 pairs, about 2.1 cm2, e.g. at 1.09,-0.21,-1.54
+  WheelRL hub [WheelRL/chrome] | WheelRL spoke.004 [WheelRL/metal]: 1 pairs, about 1.5 cm2, e.g. at -1.09,-0.19,-1.45
+  WheelFR hub [WheelFR/chrome] | WheelFR spoke.004 [WheelFR/metal]: 1 pairs, about 1.5 cm2, e.g. at 1.09,-0.19,1.45
+  WheelFL hub [WheelFL/chrome] | WheelFL spoke.001 [WheelFL/metal]: 1 pairs, about 1.5 cm2, e.g. at -1.10,-0.19,1.45
+  WheelRL hub [WheelRL/chrome] | WheelRL spoke.001 [WheelRL/metal]: 1 pairs, about 1.5 cm2, e.g. at -1.10,-0.19,-1.55
+  WheelFL hub [WheelFL/chrome] | WheelFL spoke.003 [WheelFL/metal]: 1 pairs, about 1.1 cm2, e.g. at -1.09,-0.21,1.54
+  WheelRR hub [WheelRR/chrome] | WheelRR spoke.003 [WheelRR/metal]: 1 pairs, about 1.1 cm2, e.g. at 1.09,-0.21,-1.54
+  WheelRR hub [WheelRR/chrome] | WheelRR spoke [WheelRR/metal]: 1 pairs, about 0.6 cm2, e.g. at 1.09,-0.15,-1.52
+Roadster: 167 parts, 10252 triangles; same-facing coplanar overlaps 32 triangle pairs, about 64 cm2
+  WheelFL spinner [WheelFL/chrome] | WheelFL spinner.001 [WheelFL/chrome]: 8 pairs, about 16.0 cm2, e.g. at -0.94,-0.22,1.15
+  WheelRL spinner [WheelRL/chrome] | WheelRL spinner.001 [WheelRL/chrome]: 8 pairs, about 16.0 cm2, e.g. at -0.94,-0.22,-1.15
+  WheelFR spinner [WheelFR/chrome] | WheelFR spinner.001 [WheelFR/chrome]: 8 pairs, about 16.0 cm2, e.g. at 0.94,-0.22,1.15
+  WheelRR spinner [WheelRR/chrome] | WheelRR spinner.001 [WheelRR/chrome]: 8 pairs, about 16.0 cm2, e.g. at 0.94,-0.22,-1.15
+Fastback: 118 parts, 9516 triangles; same-facing coplanar overlaps 26 triangle pairs, about 2541 cm2
+  Grille [Body/engine] | Headlamp [Body/lamp]: 12 pairs, about 1243.2 cm2, e.g. at -0.25,0.23,2.33
+  Grille [Body/engine] | Headlamp.001 [Body/lamp]: 12 pairs, about 1243.2 cm2, e.g. at -0.25,0.23,2.33
+  Body shell [Body/paint] | Side stripe.001 [Body/engine]: 1 pairs, about 27.5 cm2, e.g. at 1.01,0.20,-0.91
+  Body shell [Body/paint] | Side stripe [Body/engine]: 1 pairs, about 27.5 cm2, e.g. at -1.01,0.20,-0.92
+Pebble: 122 parts, 9904 triangles; same-facing coplanar overlaps 0 triangle pairs, about 0 cm2
+Skyfin: 108 parts, 10607 triangles; same-facing coplanar overlaps 0 triangle pairs, about 0 cm2
+Scrambler: 205 parts, 6240 triangles; same-facing coplanar overlaps 6 triangle pairs, about 46 cm2
+  Bar pad [Front/engine] | Handlebar [Front/metal]: 6 pairs, about 46.3 cm2, e.g. at 0.08,1.05,0.35
+Drifter: 90 parts, 8060 triangles; same-facing coplanar overlaps 0 triangle pairs, about 0 cm2
+needle600: 255 parts, 11420 triangles; same-facing coplanar overlaps 438 triangle pairs, about 3037 cm2
+  WheelFront rim [WheelFront/metal] | WheelRear rim [WheelRear/metal]: 56 pairs, about 929.5 cm2, e.g. at 0.01,0.22,0.02
+  WheelFront rim inner [WheelFront/metal] | WheelRear rim inner [WheelRear/metal]: 56 pairs, about 737.4 cm2, e.g. at 0.01,0.19,0.01
+  WheelFront hub [WheelFront/metal] | WheelRear hub [WheelRear/metal]: 44 pairs, about 512.8 cm2, e.g. at 0.02,0.04,0.01
+  WheelFront spoke.009 [WheelFront/metal] | WheelRear spoke.009 [WheelRear/metal]: 12 pairs, about 42.7 cm2, e.g. at -0.03,-0.13,-0.06
+  WheelFront spoke.007 [WheelFront/metal] | WheelRear spoke.007 [WheelRear/metal]: 12 pairs, about 42.7 cm2, e.g. at -0.03,-0.13,0.06
+  WheelFront spoke.002 [WheelFront/metal] | WheelRear spoke.002 [WheelRear/metal]: 12 pairs, about 42.7 cm2, e.g. at 0.03,0.10,0.10
+  WheelFront spoke.010 [WheelFront/metal] | WheelRear spoke.010 [WheelRear/metal]: 12 pairs, about 42.7 cm2, e.g. at 0.03,-0.10,-0.11
+  WheelFront spoke.011 [WheelFront/metal] | WheelRear spoke.011 [WheelRear/metal]: 12 pairs, about 42.7 cm2, e.g. at -0.03,-0.05,-0.14
+  WheelFront spoke.001 [WheelFront/metal] | WheelRear spoke.001 [WheelRear/metal]: 12 pairs, about 42.7 cm2, e.g. at -0.03,0.13,0.06
+  WheelFront spoke.008 [WheelFront/metal] | WheelRear spoke.008 [WheelRear/metal]: 12 pairs, about 42.7 cm2, e.g. at 0.03,-0.15,-0.00
+  WheelFront spoke.013 [WheelFront/metal] | WheelRear spoke.013 [WheelRear/metal]: 12 pairs, about 42.7 cm2, e.g. at -0.03,0.06,-0.13
+  WheelFront spoke.014 [WheelFront/metal] | WheelRear spoke.014 [WheelRear/metal]: 12 pairs, about 42.7 cm2, e.g. at 0.03,0.11,-0.10
+  WheelFront spoke.015 [WheelFront/metal] | WheelRear spoke.015 [WheelRear/metal]: 12 pairs, about 42.7 cm2, e.g. at -0.03,0.14,-0.05
+  WheelFront spoke.003 [WheelFront/metal] | WheelRear spoke.003 [WheelRear/metal]: 12 pairs, about 42.7 cm2, e.g. at -0.03,0.06,0.14
+  WheelFront spoke.005 [WheelFront/metal] | WheelRear spoke.005 [WheelRear/metal]: 12 pairs, about 42.7 cm2, e.g. at -0.03,-0.06,0.14
+  WheelFront spoke [WheelFront/metal] | WheelRear spoke [WheelRear/metal]: 12 pairs, about 42.7 cm2, e.g. at 0.03,0.15,0.00
+  WheelFront spoke.012 [WheelFront/metal] | WheelRear spoke.012 [WheelRear/metal]: 12 pairs, about 42.7 cm2, e.g. at 0.03,0.01,-0.15
+  WheelFront spoke.004 [WheelFront/metal] | WheelRear spoke.004 [WheelRear/metal]: 12 pairs, about 42.7 cm2, e.g. at 0.03,-0.00,0.15
+  WheelFront spoke.006 [WheelFront/metal] | WheelRear spoke.006 [WheelRear/metal]: 12 pairs, about 42.7 cm2, e.g. at 0.03,-0.10,0.10
+  Bar pad [Front/engine] | Handlebar [Front/metal]: 4 pairs, about 15.4 cm2, e.g. at 0.08,0.67,0.56
+  WheelFront knob.046 [WheelFront/rubber] | WheelRear knob.042 [WheelRear/rubber]: 2 pairs, about 7.7 cm2, e.g. at -0.01,-0.07,0.31
+  WheelFront knob.047 [WheelFront/rubber] | WheelRear knob.043 [WheelRear/rubber]: 2 pairs, about 7.7 cm2, e.g. at 0.01,-0.02,0.32
+  WheelFront knob.024 [WheelFront/rubber] | WheelRear knob.022 [WheelRear/rubber]: 2 pairs, about 7.7 cm2, e.g. at -0.01,-0.02,-0.32
+  WheelFront knob.023 [WheelFront/rubber] | WheelRear knob.021 [WheelRear/rubber]: 2 pairs, about 7.7 cm2, e.g. at 0.01,0.02,-0.32
+  WheelFront knob.022 [WheelFront/rubber] | WheelRear knob.020 [WheelRear/rubber]: 2 pairs, about 7.7 cm2, e.g. at -0.01,0.07,-0.31
+  WheelFront knob.025 [WheelFront/rubber] | WheelRear knob.023 [WheelRear/rubber]: 2 pairs, about 7.7 cm2, e.g. at 0.01,-0.07,-0.31
+  WheelFront knob [WheelFront/rubber] | WheelRear knob [WheelRear/rubber]: 2 pairs, about 7.7 cm2, e.g. at -0.01,0.02,0.32
+  WheelFront knob.001 [WheelFront/rubber] | WheelRear knob.001 [WheelRear/rubber]: 2 pairs, about 7.7 cm2, e.g. at 0.01,0.07,0.31
+  Axle front [Front/metal] | Axle lug.001 [Front/engine]: 6 pairs, about 6.8 cm2, e.g. at 0.11,-0.21,0.84
+  WheelFront knob.026 [WheelFront/rubber] | WheelRear knob.024 [WheelRear/rubber]: 3 pairs, about 5.8 cm2, e.g. at -0.01,-0.10,-0.31
+  WheelFront knob.045 [WheelFront/rubber] | WheelRear knob.041 [WheelRear/rubber]: 3 pairs, about 5.8 cm2, e.g. at 0.01,-0.10,0.31
+  WheelFront knob.021 [WheelFront/rubber] | WheelRear knob.019 [WheelRear/rubber]: 3 pairs, about 5.8 cm2, e.g. at 0.01,0.10,-0.31
+  WheelFront knob.002 [WheelFront/rubber] | WheelRear knob.002 [WheelRear/rubber]: 3 pairs, about 5.8 cm2, e.g. at -0.01,0.10,0.31
+  WheelFront knob.020 [WheelFront/rubber] | WheelRear knob.018 [WheelRear/rubber]: 3 pairs, about 5.4 cm2, e.g. at -0.01,0.15,-0.29
+  WheelFront knob.044 [WheelFront/rubber] | WheelRear knob.040 [WheelRear/rubber]: 3 pairs, about 5.4 cm2, e.g. at -0.01,-0.15,0.29
+  WheelFront knob.027 [WheelFront/rubber] | WheelRear knob.025 [WheelRear/rubber]: 3 pairs, about 5.4 cm2, e.g. at 0.01,-0.15,-0.29
+  WheelFront knob.003 [WheelFront/rubber] | WheelRear knob.003 [WheelRear/rubber]: 3 pairs, about 5.4 cm2, e.g. at 0.01,0.15,0.29
+  Chain upper [Body/engine] | WheelRear sprocket [WheelRear/engine]: 1 pairs, about 4.2 cm2, e.g. at -0.08,0.00,-0.32
+  WheelFront knob.004 [WheelFront/rubber] | WheelRear knob.004 [WheelRear/rubber]: 3 pairs, about 3.1 cm2, e.g. at -0.01,0.17,0.27
+  WheelFront knob.028 [WheelFront/rubber] | WheelRear knob.026 [WheelRear/rubber]: 3 pairs, about 3.1 cm2, e.g. at -0.01,-0.17,-0.27
+  WheelFront knob.018 [WheelFront/rubber] | WheelRear knob.016 [WheelRear/rubber]: 3 pairs, about 3.1 cm2, e.g. at -0.01,0.21,-0.24
+  WheelFront knob.005 [WheelFront/rubber] | WheelRear knob.005 [WheelRear/rubber]: 3 pairs, about 3.1 cm2, e.g. at 0.01,0.21,0.24
+  WheelFront knob.029 [WheelFront/rubber] | WheelRear knob.027 [WheelRear/rubber]: 3 pairs, about 3.1 cm2, e.g. at 0.01,-0.21,-0.24
+  WheelFront knob.042 [WheelFront/rubber] | WheelRear knob.038 [WheelRear/rubber]: 3 pairs, about 3.1 cm2, e.g. at -0.01,-0.21,0.24
+  WheelFront knob.043 [WheelFront/rubber] | WheelRear knob.039 [WheelRear/rubber]: 3 pairs, about 3.1 cm2, e.g. at 0.01,-0.17,0.27
+  WheelFront knob.019 [WheelFront/rubber] | WheelRear knob.017 [WheelRear/rubber]: 3 pairs, about 3.1 cm2, e.g. at 0.01,0.17,-0.27
+  Axle front [Front/metal] | Axle lug [Front/engine]: 3 pairs, about 2.9 cm2, e.g. at -0.11,-0.21,0.83
+  WheelFront knob.030 [WheelFront/rubber] | WheelRear knob.028 [WheelRear/rubber]: 1 pairs, about 1.5 cm2, e.g. at -0.01,-0.25,-0.21
+  WheelFront knob.041 [WheelFront/rubber] | WheelRear knob.037 [WheelRear/rubber]: 1 pairs, about 1.5 cm2, e.g. at 0.01,-0.25,0.21
+  WheelFront knob.016 [WheelFront/rubber] | WheelRear knob.014 [WheelRear/rubber]: 1 pairs, about 1.5 cm2, e.g. at -0.01,0.27,-0.17
+  WheelFront knob.007 [WheelFront/rubber] | WheelRear knob.007 [WheelRear/rubber]: 1 pairs, about 1.5 cm2, e.g. at 0.01,0.27,0.17
+  WheelFront knob.040 [WheelFront/rubber] | WheelRear knob.036 [WheelRear/rubber]: 1 pairs, about 1.5 cm2, e.g. at -0.01,-0.27,0.17
+  WheelFront knob.031 [WheelFront/rubber] | WheelRear knob.029 [WheelRear/rubber]: 1 pairs, about 1.5 cm2, e.g. at 0.01,-0.27,-0.17
+  WheelFront knob.006 [WheelFront/rubber] | WheelRear knob.006 [WheelRear/rubber]: 1 pairs, about 1.5 cm2, e.g. at -0.01,0.25,0.21
+  WheelFront knob.017 [WheelFront/rubber] | WheelRear knob.015 [WheelRear/rubber]: 1 pairs, about 1.5 cm2, e.g. at 0.01,0.25,-0.21
+  Fork tube [Front/metal] | Triple clamp.001 [Front/metal]: 2 pairs, about 0.6 cm2, e.g. at -0.10,0.61,0.48
+  Fork tube.001 [Front/metal] | Triple clamp.001 [Front/metal]: 2 pairs, about 0.6 cm2, e.g. at 0.08,0.61,0.48
+trailfour: 304 parts, 9740 triangles; same-facing coplanar overlaps 2 triangle pairs, about 756 cm2
+  Cooling fin.003 [Body/metal] | Tank [Body/paint]: 2 pairs, about 756.0 cm2, e.g. at -0.05,0.25,0.22
+mower: 185 parts, 7752 triangles; same-facing coplanar overlaps 13 triangle pairs, about 232 cm2
+  Seat pan [Body/engine] | Spring coil.001 [Body/metal]: 13 pairs, about 232.3 cm2, e.g. at -0.04,0.10,-0.59
+TrafficSedan: 42 parts, 4112 triangles; same-facing coplanar overlaps 0 triangle pairs, about 0 cm2
+TrafficWagon: 44 parts, 4152 triangles; same-facing coplanar overlaps 0 triangle pairs, about 0 cm2
+TrafficPickup: 48 parts, 4728 triangles; same-facing coplanar overlaps 36 triangle pairs, about 2093 cm2
+  Arch shadow R [Body/rubber] | Bed base [Body/paint]: 2 pairs, about 730.8 cm2, e.g. at -0.98,-0.11,-0.99
+  Arch shadow R.001 [Body/rubber] | Bed base [Body/paint]: 2 pairs, about 730.8 cm2, e.g. at 0.98,-0.11,-1.55
+  Bed side [Body/paint] | Tailgate [Body/paint]: 8 pairs, about 158.0 cm2, e.g. at -0.97,0.02,-1.56
+  Bed side.001 [Body/paint] | Cab back [Body/paint]: 8 pairs, about 158.0 cm2, e.g. at 0.96,0.00,-0.98
+  Bed side [Body/paint] | Cab back [Body/paint]: 8 pairs, about 158.0 cm2, e.g. at -0.98,0.02,-0.98
+  Bed side.001 [Body/paint] | Tailgate [Body/paint]: 8 pairs, about 158.0 cm2, e.g. at 0.96,0.01,-1.56
+TrafficVan: 47 parts, 4372 triangles; same-facing coplanar overlaps 4 triangle pairs, about 7219 cm2
+  Body [Body/paint] | Hood [Body/paint]: 4 pairs, about 7219.5 cm2, e.g. at -0.30,-0.33,0.55

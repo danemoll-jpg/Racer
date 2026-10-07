@@ -84,7 +84,7 @@ def body():
         box('Reflector', (s * .45, -.02, -1.06), (.08, .05, .015), G, 'tail', .004)
     # seat: pan on a coil spring, cushion and a high back
     cyl('Seat spring', (0, .03, H.z), (0, H.y - .13, H.z), .075, G, 'chrome', 12)
-    for k in range(3): cyl('Spring coil', (0, .05 + k * .04, H.z), (0, .065 + k * .04, H.z), .088, G, 'metal', 12)
+    for k in range(3): cyl('Spring coil', (0, .05 + k * .035, H.z), (0, .065 + k * .035, H.z), .088, G, 'metal', 12)  # 0.89: clear of the seat pan's faces
     box('Seat pan', (0, H.y - .13, H.z + .02), (.50, .03, .44), G, 'engine', .01)
     hull('Seat cushion', [(-.25, H.y - .12, H.z - .22), (.25, H.y - .12, H.z - .22), (.25, H.y - .12, H.z + .23), (-.25, H.y - .12, H.z + .23),
                           (-.25, H.y - .02, H.z - .22), (.25, H.y - .02, H.z - .22), (.25, H.y - .03, H.z + .23), (-.25, H.y - .03, H.z + .23)], G, 'interior', .04, 2)

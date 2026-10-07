@@ -49,6 +49,9 @@ namespace Racer
             public bool classicScenery = false;
             // 0.79: the minimap in Free Roam (J / B toggles it; false = shown, the default).
             public bool roamMinimapHidden = false;
+            // 0.89: Settings > Gameplay "Unlock everything (testing)": every course and vehicle in Race and Free Roam,
+            // whatever the campaign has reached; the campaign save is not written while it is on.
+            public bool unlockEverything = false;
             public string[] opponentChoices = {"mixed","mixed","mixed"};
             public string[] opponentRoster = {"tourer","moto","atv"};
             public int[] bodyColors = {-1,-1,-1,-1};

@@ -46,7 +46,9 @@ details.gameObject.SetActive(true);
             if(RenderLater())return;
             if(flow.State==RaceFlow.Stage.Ready)
             {
-                if(page=="race")
+                if(page=="campaign")RenderCampaign();
+                else if(page=="campaign-event")RenderCampaignEvent();
+                else if(page=="race")
                 {
                     ClearCore("RACE SETUP",flow.Race.courseName+"\n"+flow.Race.vehicle.GetComponent<VehicleConfiguration>().Profile.Name+"  ·  "+flow.LapLabel+" laps\n"+(flow.Race.opponents?"3 AI · "+flow.Race.DifficultyName:"Solo / time trial")+"  ·  Traffic "+(flow.Race.traffic?"On":"Off"));
                     Row(0,"start","START RACE",flow.StartRace);var startColors=buttons[0].colors;startColors.normalColor=new(.1f,.38f,.35f);buttons[0].colors=startColors;buttons[0].GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=54;Row(1,"tracks","Tracks",flow.OpenCourses);Row(2,"garage","Garage",flow.OpenGarage);Row(3,"opponents","Opponents",flow.OpenRoster);
@@ -54,6 +56,9 @@ details.gameObject.SetActive(true);
                     Row(6,"difficulty","Difficulty: "+flow.Race.DifficultyName,flow.CycleDifficulty);Row(7,"traffic","Traffic: "+(flow.Race.traffic?"On":"Off"),flow.ToggleTraffic);
                     Row(8,"timeofday","Time of Day: "+flow.TimeOfDayLabel,flow.CycleTimeOfDay);Row(9,"weather","Weather: "+flow.WeatherLabel,flow.CycleWeather);
                     Row(10,"playlists","Playlists",flow.OpenPlaylists);Row(11,"back","Back",()=>BackPage());
+                    // 0.89: a course the campaign has not opened is not raced (Free Roam may still start there)
+                    int here=System.Array.IndexOf(RacePlaylists.Scenes,flow.gameObject.scene.name);
+                    if(here>=0&&!Campaign.CourseOpen(here)){details.text+="\nLOCKED: "+Campaign.CourseHowTo(here)+". Choose an open track in Tracks.";details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=150;buttons[0].interactable=false;}
                     if(flow.SetupFromResults&&RacePlaylists.Active!=null)
                     {
                         details.text+="\nActive playlist: this event keeps its saved track and lap count.\nReturn to Main to edit or start another playlist.";
@@ -70,9 +75,11 @@ details.gameObject.SetActive(true);
                 else
                 {
                     ClearCore("WOODSTOCK RUSH","");
+                    // 0.89: CAMPAIGN is the first entry (after RESUME DRIVING when Free Roam is paused)
+                    Row(10,"campaign","CAMPAIGN",OpenCampaign);buttons[10].transform.SetSiblingIndex(buttons[0].transform.GetSiblingIndex());
                     Row(0,"race","RACE",()=>{if(flow.InRoamWorld)flow.OpenRaceSetupFromRoam();else Navigate("race");});Row(1,"roam","FREE ROAM",()=>Navigate("roam"));Row(2,"garage","GARAGE",flow.OpenGarage);
                     Row(3,"records","RECORDS",flow.OpenBoards);Row(4,"exploration","EXPLORATION",flow.OpenExploration);Row(5,"settings","SETTINGS",flow.OpenSettings);Row(6,"quit","QUIT GAME",ConfirmQuit);
-                    if(flow.RoamMenu){Row(7,"resume","RESUME DRIVING",flow.Resume);buttons[7].transform.SetSiblingIndex(buttons[0].transform.GetSiblingIndex());
+                    if(flow.RoamMenu){Row(7,"resume","RESUME DRIVING",flow.Resume);buttons[7].transform.SetSiblingIndex(buttons[10].transform.GetSiblingIndex());
                         Row(8,"trailer",TrailerLabel,()=>Navigate("trailer"));buttons[8].transform.SetSiblingIndex(buttons[7].transform.GetSiblingIndex()+1);
                         if(CameraViews.Current){Row(9,"camera-view",CameraViewLabel,CycleCameraView);buttons[9].transform.SetSiblingIndex(buttons[8].transform.GetSiblingIndex()+1);}}
                     else{Row(7,"trailer",TrailerLabel,()=>Navigate("trailer"));buttons[7].transform.SetSiblingIndex(buttons[5].transform.GetSiblingIndex());}
@@ -111,8 +118,13 @@ details.gameObject.SetActive(true);
             else if(flow.State==RaceFlow.Stage.Courses)
             {
                 if(page=="course-preview")page="";
-                ClearCore("TRACKS","Select to use a track. Highlighting does not change Race Setup. Difficulty: TBD.");int i=0;
-                foreach(int course in RacePlaylists.DisplayOrder){int choice=course;Row(i++,"course-"+course,RacePlaylists.Titles[course],()=>flow.SelectCourseEntry(choice));
+                // 0.89: for Race, courses the campaign has not opened are listed locked with how to get them; picking where
+                // Free Roam starts (from its page) offers the whole world.
+                bool roamPick=RoamTrackPick;
+                ClearCore("TRACKS","Select to use a track. Highlighting does not change Race Setup. Difficulty: TBD."+(roamPick||Campaign.Testing?"":"\nLocked tracks open as the campaign reaches them."));int i=0;
+                foreach(int course in RacePlaylists.DisplayOrder){int choice=course;bool open=roamPick||Campaign.CourseOpen(course);
+                    Row(i++,"course-"+course,RacePlaylists.Titles[course]+(open?"":"   ·   LOCKED: "+Campaign.CourseHowTo(course).Replace("Campaign: ","")),()=>{if(open)flow.SelectCourseEntry(choice);else{flow.Notify("LOCKED: "+RacePlaylists.Titles[choice]+" — "+Campaign.CourseHowTo(choice),5);flow.Click();}});
+                    if(!open){buttons[i-1].GetComponentInChildren<UnityEngine.UI.Text>(true).fontSize=18;var c=buttons[i-1].colors;c.normalColor=new(.07f,.11f,.14f);buttons[i-1].colors=c;}
                     if(!buttons[i-1].GetComponent<CourseRowHover>())buttons[i-1].gameObject.AddComponent<CourseRowHover>();}
                 Row(i,"back","Back",flow.CloseGarage);
                 // 0.83 Part D: the map beside the list, on the highlighted (else the last shown, else the active) course
@@ -121,6 +133,7 @@ details.gameObject.SetActive(true);
             else if(flow.State==RaceFlow.Stage.Garage)
             {
                 if(page=="rider"){RenderRider();return;}
+                if(page=="shop"){RenderShop();return;}
                 buttons[4].GetComponentInChildren<UnityEngine.UI.Text>(true).text="Back";
                 LayoutGarage();
                 for(int i=0;i<swatches.Count;i++){var text=swatches[i].GetComponentInChildren<UnityEngine.UI.Text>(true);text.text=(flow.SelectedColor==i?"✓ ":"")+VehiclePaint.Names[i];}
@@ -182,6 +195,9 @@ details.gameObject.SetActive(true);
             string[] cats={"gameplay","audio","display","controls"};
             for(int i=0;i<cats.Length;i++){string category=cats[i];Row(i,"tab-"+category,(page=="settings-"+category?"✓ ":"")+category.ToUpperInvariant(),()=>{page="settings-"+category;Show();});}
             if(page=="settings-gameplay")Row(4,"estimate","Estimate AI at Your Finish: "+(s.estimateAiFinishes?"On":"Off"),()=>Adjust(()=>s.estimateAiFinishes=!s.estimateAiFinishes));
+            // 0.89: every course and vehicle in Race and Free Roam whatever the campaign has reached; the campaign save is
+            // not written while it is on.
+            if(page=="settings-gameplay")Row(5,"unlock-everything","Unlock everything (testing): "+(s.unlockEverything?"On":"Off"),()=>Adjust(()=>{s.unlockEverything=!s.unlockEverything;Campaign.Testing=s.unlockEverything;}));
             if(page=="settings-audio")
             {
                 Step(4,"master",$"Master {s.master:P0}",d=>Adjust(()=>s.master=Mathf.Clamp01(s.master+d*.1f)));

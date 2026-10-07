@@ -1,0 +1,12 @@
+---- locks89
+Tracks: course-1=Street Loop - Reverse   ·   LOCKED: reach it in "Wrong Way Round" (chapter 1) | course-6=Dan's Backyard Loop - Forward   ·   LOCKED: reach it in chapter 3, Dan's Backyard | course-0=Street Loop - Forward | course-5=Mountain Loop - Reverse   ·   LOCKED: reach it in chapter 4, Mountain Loop | course-2=Forest Loop - Forward   ·   LOCKED: reach it in chapter 2, Forest Loop | course-7=Dan's Backyard Loop - Reverse   ·   LOCKED: reach it in chapter 3, Dan's Backyard | course-3=Forest Loop - Reverse   ·   LOCKED: reach it in chapter 2, Forest Loop | course-4=Mountain Loop - Forward   ·   LOCKED: reach it in chapter 4, Mountain Loop
+PASS Race Tracks: 7 of 8 locked with how to get them
+PASS picking a locked track does nothing but say how to get it
+PASS Race garage: choosing the Needle 600 refused; selectable [Street Classic, Trail Four]; locked line 'LOCKED: Prize: win "Street Loop Final" (campaign chapter 1). / Campaign vehicle: buy it in the Shop or win it in an event.'
+PASS Free Roam with the Needle 600 as the saved choice: driving 'original'; selectable 2
+PASS Free Roam start list: 8 courses, none locked
+PASS Testing on: 10 vehicles selectable (the mower stays the acorn reward), all 8 courses, campaign save not written
+PASS Testing off: back to the campaign's 2 vehicles and Street Loop; no campaign file written
+---- screen89
+campaign screen: cev-c1-against-clock=3. Against the Clock / Time trial  ·  not run yet | cev-c1-street-final=6. Street Loop Final / Race, 3 laps  ·  Locked | new-campaign=New Campaign | chapter-4=4  Mountain Loop / Locked: Pass the Dan's Backyard final (chapter 3) | chapter-2=2  Forest Loop / Locked: Finish top three in the Street Loop Final | chapter-3=3  Dan's Backyard / Locked: Pass the Forest Loop final (chapter 2) | continue=Continue | cev-c1-night-shift=4. Night Shift / Race, 3 laps  ·  Locked | cev-c1-first-lap=1. ✓ First Lap / Race, 2 laps  ·  best 1st | cev-c1-hwy92-trap=2. ✓ Hwy 92 Speed Trap / Speed trap  ·  best: gold | chapter-1=› 1  Street Loop / Open | cev-c1-wrong-way=5. Wrong Way Round  (Reverse) / Race, 2 laps  ·  Locked
+done, failures 0
