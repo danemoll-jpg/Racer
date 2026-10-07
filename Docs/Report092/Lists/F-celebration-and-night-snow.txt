@@ -1,0 +1,20 @@
+---- celebrate92:p1
+PASS player 1 won: raises both fists, the winner shot in player 1's half (True), player 2's half untouched (still racing: True)
+PASS player 1 finished first
+PASS LB on player 1's controller: player 1's rider waves a fist (0 > 1)
+---- celebrate92:ai
+PASS player 2 (the AI driver) won: raises both fists on the road (True); no camera taken from player 1 (True)
+PASS player 2 (AI) finished first
+PASS LB on player 1's controller: player 1's rider waves a fist (0 > 1)
+---- split92:2:Night:Snow:2:1:1
+PASS Forest Loop - Forward Night/Snow, 2 rivals, traffic on, left / right: racing with 4 (2 players + 2 AI); conditions Night/Snow; each view's falling weather on its own layer (view 1 5000, view 2 5000 particles), camera masks True
+PASS Forest Loop - Forward Night/Snow, 2 rivals, traffic on, left / right: traffic 4 cars
+  vehicle lamps on 8 vehicles, level 1.00; thunder strikes so far 0
+PASS Start: the split-screen pause menu
+PASS split-screen pause (stage 2): 5 rows [resume, restart, settings, return, quit]; reached all True, focus kept True, in drawn order True (resume>restart>settings>return>quit), structural check clean
+PASS Forest Loop - Forward Night/Snow, 2 rivals, traffic on, left / right: results with everyone classified (P2, GOLD, P1, BLUE est.)
+PASS results table: 4 rows (every finisher, the AI too)
+PASS REMATCH: the same race again (rivals and conditions kept)
+PASS the rematch finished: results again
+PASS Change setup: the setup screen with every choice kept
+done, failures 0

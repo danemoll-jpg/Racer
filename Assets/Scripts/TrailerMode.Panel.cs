@@ -89,13 +89,13 @@ namespace Racer
             Entry("Screenshot", 12, Width - 24, () => Keys("P / F12", "R3") + "Screenshot (full resolution, no HUD, no panel)", Screenshot); y -= Row;
             float conditionsTop = y; int first = entries.Count;
             Section("TIME AND WEATHER (Free Roam)");
-            Entry("Time of day", 12, Width - 24, () => Keys("T", "") + "Time of day: " + TimeLabel, CycleTimeOfDay); y -= Row;
+            Entry("Time of day", 12, Width - 24, () => Keys("T", "") + "Time of day: " + TimeLabel, () => CycleTimeOfDay()); y -= Row;
             float half = (Width - 28) / 2;
             Entry("Clock back", 12, half, () => Keys(",", "") + "Clock −1 h", () => NudgeClock(-1));
             Entry("Clock on", 16 + half, half, () => Keys(".", "") + "Clock +1 h   (" + ClockLabel + ")", () => NudgeClock(1)); y -= Row;
             Entry("Clock pause", 12, Width - 24, () => Keys("K", "") + "Clock: " + (ClockPaused ? "Paused" : "Running"), ToggleClock); y -= Row;
-            Entry("Weather", 12, Width - 24, () => Keys("B", "") + "Weather: " + WeatherLabel, CycleWeather); y -= Row;
-            Entry("Moon", 12, Width - 24, () => Keys("O", "") + "Moon: " + MoonLabel, CycleMoon); y -= Row;
+            Entry("Weather", 12, Width - 24, () => Keys("B", "") + "Weather: " + WeatherLabel, () => CycleWeather()); y -= Row;
+            Entry("Moon", 12, Width - 24, () => Keys("O", "") + "Moon: " + MoonLabel, () => CycleMoon()); y -= Row;
             Entry("Lightning", 12, Width - 24, () => Keys("L", "") + "Lightning strike now", LightningNow); y -= Row;
             conditionsHeight = conditionsTop - y; conditionsFirst = first;
             foreach (Transform c in root) if (((RectTransform)c).anchoredPosition.y <= conditionsTop) conditionRows.Add(c.gameObject);

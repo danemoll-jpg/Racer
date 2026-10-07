@@ -22,7 +22,7 @@ namespace Racer
 
         public static void Begin(CampaignEvent e, string vehicle)
         {
-            RacePlaylists.Quit(); Active = e; Vehicle = vehicle; Last = null; PendingStart = true; Campaign.Selected = e.Id;
+            RacePlaylists.Quit(); Active = e; Vehicle = vehicle; Last = null; PendingStart = true; Campaign.Selected = e.Id; Campaign.Drove(vehicle);
             OpenedCourse = Campaign.OpenCourse(e.Course);
         }
         // A championship round: the next one of the championship in progress (its saved vehicle).

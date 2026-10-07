@@ -18,22 +18,22 @@ namespace Racer
             if (mode.LastScreenshot != null) summary += "\nLast screenshot: " + System.IO.Path.GetFileName(mode.LastScreenshot);
             ClearCore("TRAILER / PHOTO MODE", summary);
             int i = 0;
-            Row(i++, "trailer-toggle", "Trailer / Photo Mode: " + (on ? "On" : "Off") + "   (F8)", () => { mode.Toggle(); Show(); });
+            Step(i++, "trailer-toggle", "Trailer / Photo Mode:   " + (on ? "On" : "Off") + "   (F8)", d => { mode.Toggle(); Show(); });
             if (on && views)
             {
                 Step(i++, "trailer-camera", "Camera: " + CameraViews.ShotNames[(int)views.TrailerCamera], d => { views.SelectTrailerCamera((CameraViews.Shot)(((int)views.TrailerCamera + d + 9) % 9)); Show(); });
-                Row(i++, "trailer-slow", "Slow motion 0.5×: " + (mode.HalfSpeed ? "On" : "Off"), () => { mode.ToggleHalfSpeed(); Show(); });
-                Row(i++, "trailer-hud", "HUD: " + (mode.HudShown ? "Shown" : "Hidden"), () => { mode.ToggleHud(); Show(); });
-                Row(i++, "trailer-panel", "Controls panel: " + (mode.PanelShown ? "Shown" : "Hidden") + "   (H hides it with the HUD)", () => { mode.TogglePanel(); Show(); });
-                Row(i++, "trailer-guides", "Arrows, gates, waypoint beacon: " + (mode.GuidesShown ? "Shown" : "Hidden"), () => { mode.ToggleGuides(); Show(); });
+                Toggle(i++, "trailer-slow", "Slow motion 0.5×", mode.HalfSpeed, () => { mode.ToggleHalfSpeed(); Show(); });
+                Step(i++, "trailer-hud", "HUD:   " + (mode.HudShown ? "Shown" : "Hidden"), d => { mode.ToggleHud(); Show(); });
+                Step(i++, "trailer-panel", "Controls panel:   " + (mode.PanelShown ? "Shown" : "Hidden") + "   (H hides it with the HUD)", d => { mode.TogglePanel(); Show(); });
+                Step(i++, "trailer-guides", "Arrows, gates, waypoint beacon:   " + (mode.GuidesShown ? "Shown" : "Hidden"), d => { mode.ToggleGuides(); Show(); });
                 if (mode.ConditionsAvailable)
                 {
                     var look = WorldLook.Current; float hour = look.Trailer?.hour ?? look.Hour;
-                    Row(i++, "trailer-time", "Time of day: " + mode.TimeLabel, () => { mode.CycleTimeOfDay(); Show(); });
+                    Step(i++, "trailer-time", "Time of day:   " + mode.TimeLabel, d => { mode.CycleTimeOfDay(d); Show(); });
                     Step(i++, "trailer-clock", $"Clock {Mathf.FloorToInt(hour) % 24:00}:{Mathf.FloorToInt(hour * 60) % 60:00}   (−1 h / +1 h)", d => { mode.NudgeClock(d); Show(); });
-                    Row(i++, "trailer-clock-run", "Clock: " + (mode.ClockPaused ? "Paused" : "Running"), () => { mode.ToggleClock(); Show(); });
-                    Row(i++, "trailer-weather", "Weather: " + mode.WeatherLabel, () => { mode.CycleWeather(); Show(); });
-                    Row(i++, "trailer-moon", "Moon: " + mode.MoonLabel, () => { mode.CycleMoon(); Show(); });
+                    Step(i++, "trailer-clock-run", "Clock:   " + (mode.ClockPaused ? "Paused" : "Running"), d => { mode.ToggleClock(); Show(); });
+                    Step(i++, "trailer-weather", "Weather:   " + mode.WeatherLabel, d => { mode.CycleWeather(d); Show(); });
+                    Step(i++, "trailer-moon", "Moon:   " + mode.MoonLabel, d => { mode.CycleMoon(d); Show(); });
                     Row(i++, "trailer-lightning", "Lightning strike now", () => { mode.LightningNow(); Show(); });
                 }
                 Row(i++, "trailer-shot", "Take screenshot (no menus or HUD)", () => { mode.Screenshot(); Show(); });

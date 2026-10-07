@@ -1,0 +1,16 @@
+Split-screen worst case: test player (frame-timing stats, otherwise as the release), GTX 1660 Ti, 3840x2160 full screen,
+Forest Loop - Forward, Night / Snow, 4 AI rivals + player 2 (AI) + player 1 (driven by the race AI), traffic on (8 cars),
+40 s per layout, GPU time per frame (SplitBench).
+
+Stage-2 conditions, 0.90 split-only lowering (far clip 1,400 m, LOD x0.7), falling weather 70 %:
+  top/bottom  run 1: median 11.04 ms (91 fps), 95th 12.63 ms (79 fps)   [run ended reloading for the second layout, no error]
+  top/bottom  run 2: median 14.20 ms (70 fps), 95th 17.89 ms (56 fps)
+  left/right  run 2: median 11.37 ms (88 fps), 95th 14.46 ms (69 fps)
++ shadow distance 60 % (built players):
+  top/bottom: median 14.10 ms (71 fps), 95th 17.97 ms (56 fps)
+  left/right: median 11.14 ms (90 fps), 95th 14.38 ms (70 fps)
++ far clip 1,000 m, LOD x0.6, falling weather 50 % (as delivered):
+  top/bottom: median 14.02 ms (71 fps), 95th 17.30 ms (58 fps), max 42.3 ms
+  left/right: median 10.84 ms (92 fps), 95th 13.86 ms (72 fps), max 28.3 ms
+Run-to-run spread is larger than the gain from each step (the views differ with where the AI cars are). Stopped tuning here
+(rule 12): the median is above 60 fps in both layouts; top / bottom dips just under 60 fps at its 95th percentile.

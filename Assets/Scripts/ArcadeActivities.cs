@@ -78,7 +78,7 @@ namespace Racer
         }
         public static string Measurement(ActivitySite site,float value)=>site.kind==ActivitySite.Kind.Speed?DisplayUnits.Speed(value):site.kind==ActivitySite.Kind.Jump?DisplayUnits.Jump(value):value.ToString("0")+" props";
         public string Targets{get{if(!Selected)return "";Selected.Targets(configuration.profileId,out float b,out float s,out float g);return Selected.kind==ActivitySite.Kind.Jump?$"Bronze {DisplayUnits.Target(b)} / silver {DisplayUnits.Target(s)} / gold {DisplayUnits.Target(g)}":$"Bronze {Measurement(Selected,b)} / silver {Measurement(Selected,s)} / gold {Measurement(Selected,g)} / {Selected.Seconds:0}s";}}
-        public void Cycle(){var choices=Sites.Where(s=>s.kind!=ActivitySite.Kind.Speed).ToArray();if(choices.Length==0)return;Cancel();Selected=choices[(Array.IndexOf(choices,Selected)+1)%choices.Length];}
+        public void Cycle(int d=1){var choices=Sites.Where(s=>s.kind!=ActivitySite.Kind.Speed).ToArray();if(choices.Length==0)return;Cancel();Selected=choices[(Math.Max(0,Array.IndexOf(choices,Selected))+d+choices.Length)%choices.Length];}
         public void BeginAttempt()
         {
             if(!race.FreeRoam||!Selected)return;Cancel();smashed.Clear();BreakableProp.RestoreRace();AttemptActive=true;deadline=Time.time+Selected.Seconds;Message(Selected.title+" / attempt started",3);

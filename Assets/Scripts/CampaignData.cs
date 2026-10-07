@@ -17,7 +17,7 @@ namespace Racer
         // Bronze / silver / gold: seconds for a time trial (lower is better), m/s for a speed trap, metres for a jump, props
         // for a smash.
         public float[] Targets;
-        // Pay = first place / gold; Bonus = paid once, the first time it is won / golded; Prize = vehicle id (won with first).
+        // Pay = first place / gold; Bonus = paid once, the first time it is won / golded; Prize = vehicle id (0.92: awarded when the event is passed: every chapter final has one).
         public int Pay, Bonus; public string Prize, Entry = "Any owned vehicle";
         // 0.90: vehicle classes allowed (null = any): "Two Wheels Only" takes motorcycles and the ATV.
         public string[] Classes;
@@ -71,7 +71,7 @@ namespace Racer
             new() { Id = "c2-opening-jump", Name = "The Opening Jump", Chapter = 2, Kind = CampaignEventKind.Jump, Course = 2, Site = "jump-01", RunUp = 150, TimeLimit = 120, Targets = new[] { 30f, 60f, 110f }, Pay = 1300, Bonus = 650 },
             new() { Id = "c2-rain-pines", Name = "Rain in the Pines", Chapter = 2, Kind = CampaignEventKind.Race, Course = 2, Laps = 3, Rivals = new[] { "skyfin", "drifter", "atv" }, Difficulty = 1, Time = TimeOfDay.Dusk, Weather = Weather.Rain, Pay = 1700, Bonus = 850 },
             new() { Id = "c2-long-way-back", Name = "The Long Way Back", Chapter = 2, Kind = CampaignEventKind.Race, Course = 3, Laps = 2, Rivals = new[] { "roadster", "drifter", "atv" }, Difficulty = 1, Pay = 1700, Bonus = 850 },
-            new() { Id = "c2-forest-final", Name = "Forest Final", Chapter = 2, Kind = CampaignEventKind.Race, Course = 2, Laps = 3, Rivals = new[] { "drifter", "tourer", "atv", "moto", "skyfin" }, Difficulty = 1, Pay = 2800, Bonus = 4000, Final = true },
+            new() { Id = "c2-forest-final", Name = "Forest Final", Chapter = 2, Kind = CampaignEventKind.Race, Course = 2, Laps = 3, Rivals = new[] { "drifter", "tourer", "atv", "moto", "skyfin" }, Difficulty = 1, Pay = 2800, Bonus = 1400, Prize = "pebble", Final = true },
 
             // Chapter 3, Dan's Backyard (Normal, then Hard)
             new() { Id = "c3-backyard-dash", Name = "Backyard Dash", Chapter = 3, Kind = CampaignEventKind.Race, Course = 6, Laps = 2, Rivals = new[] { "moto", "atv", "drifter" }, Difficulty = 1, Pay = 1800, Bonus = 900 },
@@ -96,10 +96,14 @@ namespace Racer
         public static readonly string[] Starters = { "original", "atv" };
         // Shop prices (dollars) by how good the vehicle is; Chapter = the chapter that must be open before it can be bought.
         // Prize vehicles are not sold; the mower is the acorn reward, outside the shop and the campaign.
+        // 0.92 Part D: every chapter final awards a vehicle, so the Pebble Coupe (chapter 2's prize) left the Shop; four are
+        // bought: Sundown Roadster, Skyfin Cruiser, Longroof GT, Drifter Twin.
         public static readonly (string id, int price, int chapter)[] Prices =
         {
-            ("pebble", 6000, 1), ("roadster", 7000, 1), ("skyfin", 8000, 1), ("tourer", 10000, 1), ("drifter", 16000, 2),
+            ("roadster", 7000, 1), ("skyfin", 8000, 1), ("tourer", 10000, 1), ("drifter", 16000, 2),
         };
+        // 0.92 Part D: the vehicles that were sold before and are now prizes, with what a save that bought one paid (refunded).
+        public static readonly (string id, int price)[] FormerlySold = { ("pebble", 6000) };
         public static CampaignEvent Find(string id) => Events.FirstOrDefault(e => e.Id == id);
         public static CampaignEvent[] InChapter(int chapter) => Events.Where(e => e.Chapter == chapter).ToArray();
 
@@ -135,7 +139,7 @@ namespace Racer
         public static readonly float[] UpgradeStep = { .03f, .06f, .05f, .06f };
         public static readonly float[] UpgradeCostShare = { .10f, .18f, .28f };
         public const int UpgradeLevels = 3;
-        static readonly (string id, int value)[] Values = { ("original", 4000), ("atv", 5000), ("moto", 15000), ("scrambler", 13000), ("fastback", 14000) };
+        static readonly (string id, int value)[] Values = { ("original", 4000), ("atv", 5000), ("pebble", 6000), ("moto", 15000), ("scrambler", 13000), ("fastback", 14000) };
         public static int VehicleValue(string id) { var p = Prices.FirstOrDefault(x => x.id == id); if (p.id != null) return p.price; var v = Values.FirstOrDefault(x => x.id == id); return v.id != null ? v.value : 0; }
         public static int UpgradeCost(string id, int level) => level < 1 || level > UpgradeLevels ? 0 : (int)(System.Math.Round(VehicleValue(id) * UpgradeCostShare[level - 1] / 50.0) * 50);
     }

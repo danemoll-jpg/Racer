@@ -1,0 +1,4 @@
+Ground_480_480: mesh Assets/Track/Discovery/ForestLoopReverse-baseline-protected-Ground_480_480.asset, 25921 vertices, transform (0.00, 0.00, 0.00) (1.00, 1.00, 1.00)
+band 1500-1518 m, ±8 m (fading to ±11 m): 346 vertices moved, raised up to 9.7 cm, lowered up to 27.1 cm
+normals recomputed for 450 vertices; the rest of the chunk keeps its normals
+after, centre line: 1496:46.63, 1497:46.75, 1498:46.87, 1499:46.99, 1500:47.10, 1501:47.22, 1502:47.34, 1503:47.46, 1504:47.58, 1505:47.70, 1506:47.82, 1507:47.93, 1508:48.05, 1509:48.17, 1510:48.28, 1511:48.39, 1512:48.50, 1513:48.60, 1514:48.70, 1515:48.80, 1516:48.89, 1517:48.97, 1518:49.06, 1519:49.13, 1520:49.21, 1521:49.30

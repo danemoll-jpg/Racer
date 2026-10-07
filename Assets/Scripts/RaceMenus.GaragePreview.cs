@@ -71,7 +71,7 @@ namespace Racer
         // The right stick turns the preview, so it does not also move the menu selection while the garage is open.
         void StickNavigation(bool on)
         {
-            var action = uiModule ? uiModule.move.action : null; if (action == null) return;
+            var action = uiModule ? NavigateAction : null; if (action == null) return;
             if (!on) { for (int i = 0; i < action.bindings.Count; i++) if ((action.bindings[i].path ?? "").Contains("rightStick") && !stickOverrides.Contains(i)) { action.ApplyBindingOverride(i, ""); stickOverrides.Add(i); } }
             else { foreach (int i in stickOverrides) action.RemoveBindingOverride(i); stickOverrides.Clear(); }
         }

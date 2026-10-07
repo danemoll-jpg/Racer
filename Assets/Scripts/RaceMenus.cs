@@ -121,7 +121,8 @@ namespace Racer
                 rect.gameObject.AddComponent<UnityEngine.UI.LayoutElement>().preferredHeight = 44;
                 var img = rect.gameObject.AddComponent<UnityEngine.UI.Image>(); img.color = Color.white;
                 var button = rect.gameObject.AddComponent<UnityEngine.UI.Button>(); button.targetGraphic = img;
-                var colors = button.colors; colors.normalColor = new Color(.10f,.20f,.25f); colors.highlightedColor = new Color(.17f,.43f,.46f);
+                var colors = button.colors; colors.normalColor = new Color(.10f,.20f,.25f); colors.highlightedColor = new Color(.13f,.27f,.32f); // 0.92 Part A: hover is not the focus look
+                rect.gameObject.AddComponent<MenuHoverSelect>();
                 colors.selectedColor = new Color(.17f,.43f,.46f); colors.pressedColor = new Color(.2f,.6f,.55f); colors.fadeDuration = .06f; button.colors = colors;
                 var text = Label("Label", rect, 21, 0); Stretch(text.rectTransform, 10, 0, -10, 0); text.alignment = TextAnchor.MiddleCenter;
                 buttons.Add(button);
@@ -194,7 +195,7 @@ namespace Racer
         {
             if (!shade) return;
             ClearBindingRows();
-            registry.Clear();
+            registry.Clear();adjustments.Clear();listRows.Clear();minisUsed=0;ShowPrize(null);
             CapturePage();
             PreparePage();
             ResetLaterLayout();ResetEntryLayout();ResetGarageLayout();
@@ -241,7 +242,7 @@ namespace Racer
                 details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=80;
                 details.fontSize=18;
                 details.text=locked!=null?(locked.Reward?$"LOCKED: {VehicleUnlocks.LockedText}.\nThe acorn reward: a riding mower.":$"LOCKED: {Campaign.HowToGet(locked)}.\nCampaign vehicle: buy it in the Shop or win it in an event.")
-                    :$"{profile.Description}\n{(flow.Race.CarsRestricted?flow.Race.courseName+": motorcycles / ATVs only (player and AI).":flow.Race.courseName+": every vehicle available.")}\nBody color: choose a swatch below.";
+                    :$"{profile.Description}\n{(flow.Race.CarsRestricted?flow.Race.courseName+": motorcycles / ATVs only (player and AI).":flow.Race.courseName+": every vehicle available.")}\nColour: left / right on the Colour row.";
                 if(previewRoot) { previewRoot.SetActive(false); Destroy(previewRoot); }
                 previewRoot=new GameObject("Garage display model"); previewRoot.layer=31; previewRoot.transform.position=new(10000,10000,10000); previewRoot.transform.rotation=Quaternion.Euler(0,-30,0);
                 // 0.90 Part A: every locked vehicle is a dark silhouette with a padlock and how to get it (as the mower was)
@@ -259,32 +260,36 @@ namespace Racer
                     void StepVehicle(int d){if(list.Length==0)return;var next=list[((at<0?0:at)+d+list.Length)%list.Length];
                         if(VehicleUnlocks.Locked(next)||Campaign.VehicleLocked(next)){garageLocked=next.Id;flow.Click();Show();Hints.LockedItem();}else{garageLocked=null;flow.SelectVehicle(next.Id);}}
                     adjustments.Clear();
-                    Action(0,locked!=null?$"‹   Vehicle: {shownProfile.Name}  (locked, {at+1} of {list.Length})   ›":$"‹   Vehicle: {shownProfile.Name}  ({shownProfile.Class}, {at+1} of {list.Length})   ›",()=>StepVehicle(1));adjustments[0]=StepVehicle;
+                    // 0.92 Part C: the vehicle, colour and model rows change with left / right; A never steps them
+                    Step(0,"profile-0",locked!=null?$"{shownProfile.Name}  (locked)   ·   {at+1} / {list.Length}":$"{shownProfile.Name}   ·   {at+1} / {list.Length}",StepVehicle);
                     for(int k=1;k<4&&k<buttons.Count;k++)buttons[k].gameObject.SetActive(false);
-                    Action(4,"Done / ready",flow.CloseGarage);
-                    Action(5,"Model: "+flow.ModelLabel+"   (Classic / New)",flow.ToggleModel);
-                    Action(6,"Rider…",()=>Navigate("rider"));
-                    Action(7,"Shop…   ("+Campaign.Money(Campaign.Current.money)+")",()=>{shopVehicle=locked!=null&&!locked.Reward?locked.Id:shopVehicle;shopFromCampaign=false;Navigate("shop");});
+                    Row(4,"done","Done / ready",flow.CloseGarage);
+                    Step(5,"model","Model:   "+flow.ModelLabel+"   (Classic / New)",d=>flow.ToggleModel());
+                    if(locked==null){int colour=flow.SelectedColor;Step(8,"colour","Colour:   "+VehiclePaint.Name(colour),d=>flow.SetColor(VehiclePaint.Next(colour,d)));}
+                    Row(6,"rider","Rider…",()=>Navigate("rider"));
+                    Row(7,"garage-shop","Shop…   ("+Campaign.Money(Campaign.Current.money)+")",()=>{shopVehicle=locked!=null&&!locked.Reward?locked.Id:shopVehicle;shopFromCampaign=false;Navigate("shop");});
                     if(locked==null)ShowGarageStats(profile); // 0.82 Part D
                 }
             }
             RenderCore();SplitSetupDevices();
             var active = buttons.FindAll(b=>b.gameObject.activeSelf&&b.interactable);
-            if(shown==RaceFlow.Stage.Garage&&page!="rider"&&page!="shop"&&garageLocked==null) active.AddRange(swatches);
             // 0.91 Part A: up / down follow the rows as drawn (rows moved on screen, like CAMPAIGN and SPLIT SCREEN, were
             // skipped when this followed the row numbers)
             active.Sort((x,y)=>ScreenOrder(x.transform,y.transform));
             for (int i=0;i<active.Count;i++) active[i].navigation = new UnityEngine.UI.Navigation { mode=UnityEngine.UI.Navigation.Mode.Explicit, selectOnUp=active[(i+active.Count-1)%active.Count], selectOnDown=active[(i+1)%active.Count] };
-            if(shown==RaceFlow.Stage.Garage&&page!="rider"&&page!="shop") for(int i=0;i<swatches.Count;i++) { var nav=swatches[i].navigation; nav.selectOnLeft=swatches[(i+swatches.Count-1)%swatches.Count]; nav.selectOnRight=swatches[(i+1)%swatches.Count]; swatches[i].navigation=nav; }
+            // 0.92 Part C: the colour swatches only show the colours (the Colour row changes it; the mouse can still click one)
+            foreach(var swatch in swatches){swatch.navigation=new UnityEngine.UI.Navigation{mode=UnityEngine.UI.Navigation.Mode.None};swatch.gameObject.SetActive(swatches.IndexOf(swatch)<VehiclePaint.Count);}
             ConfigureCoreFocus();ConfigureLaterFocus();
 #if UNITY_EDITOR || DEVELOPMENT_BUILD
-            {var missed=UnreachableRows();if(missed.Count>0)Debug.LogError($"MENU NAVIGATION: {PageKey}: not reachable with a controller: {string.Join(", ",missed)}");}
+            {var missed=UnreachableRows();if(missed.Count>0)Debug.LogError($"MENU NAVIGATION: {PageKey}: not reachable with a controller: {string.Join(", ",missed)}");
+             var order=NavigationOrderFault();if(order!=null)Debug.LogError($"MENU NAVIGATION: {PageKey}: down does not follow the drawn order: {order}");}
 #endif
             int focus = selections.TryGetValue(shown,out var prior)?prior:0;
             // 0.90 Part B: until the first campaign event is finished, CAMPAIGN is the main menu's default selection
             bool campaignDefault=shown==RaceFlow.Stage.Ready&&page==""&&!flow.RoamMenu&&NewToCampaign&&buttons[10].gameObject.activeSelf&&renderedKey!=PageKey;
             if(editingPlaylistName&&!controllerName&&shown==RaceFlow.Stage.Playlists){playlistName.SetTextWithoutNotify(nameDraft);EventSystem.current.SetSelectedGameObject(playlistName.gameObject);playlistName.ActivateInputField();return;}
-            if(shown==RaceFlow.Stage.Garage && page!="rider" && page!="shop" && focus>=buttons.Count && focus<buttons.Count+swatches.Count) { EventSystem.current.SetSelectedGameObject(swatches[focus-buttons.Count].gameObject);RestorePage(); return; }
+            // 0.92 Part B: in the split-screen garages each device works its own half (no row has the focus)
+            if(SplitPickOpen){EventSystem.current.SetSelectedGameObject(null);RestorePage();EventSystem.current.SetSelectedGameObject(null);return;}
             if (focus >= buttons.Count || (!buttons[focus].gameObject.activeSelf||!buttons[focus].interactable)) focus=buttons.FindIndex(b=>b.gameObject.activeInHierarchy&&b.interactable);if(focus<0)return;
             EventSystem.current.SetSelectedGameObject(buttons[focus].gameObject);
             RestorePage();
@@ -302,13 +307,25 @@ namespace Racer
         // first one (followed through each row's up / down / left / right links). Empty when every row can be reached.
         public List<string> UnreachableRows()
         {
-            var visible=buttons.Concat(swatches).Where(b=>b&&b.gameObject.activeInHierarchy&&b.interactable&&b.transform.IsChildOf(card)).ToList();
+            var visible=buttons.Where(b=>b&&b.gameObject.activeInHierarchy&&b.interactable&&b.transform.IsChildOf(card)).ToList();
             if(visible.Count==0)return new List<string>();
             var seen=new HashSet<UnityEngine.UI.Selectable>{visible[0]};var queue=new Queue<UnityEngine.UI.Selectable>(seen);
             while(queue.Count>0){var s=queue.Dequeue();foreach(var next in new[]{s.FindSelectableOnUp(),s.FindSelectableOnDown(),s.FindSelectableOnLeft(),s.FindSelectableOnRight()})
                 if(next&&next.gameObject.activeInHierarchy&&next.interactable&&seen.Add(next))queue.Enqueue(next);}
             return visible.Where(b=>!seen.Contains(b)).Select(b=>b.name).ToList();
         }
+        // 0.92 Part A: the check tests order, not only reachability: from the first row drawn, down (rows) times must visit
+        // the rows in the order they are drawn (top to bottom) and come back to the first. Null when it does; else the walk.
+        public string NavigationOrderFault()
+        {
+            var drawn=buttons.Where(b=>b&&b.gameObject.activeInHierarchy&&b.interactable&&b.transform.IsChildOf(card)&&b.navigation.mode!=UnityEngine.UI.Navigation.Mode.None).OrderBy(b=>b.transform,Drawn).ToList();
+            if(drawn.Count<2||page=="keyboard"||leftPaneButtons.Count>0)return null; // the keyboard grid and the two-pane pages are walked by their own links
+            var seen=new List<UnityEngine.UI.Selectable>{drawn[0]};UnityEngine.UI.Selectable at=drawn[0];
+            for(int i=0;i<drawn.Count;i++){at=at?at.FindSelectableOnDown():null;seen.Add(at);}
+            bool ok=true;for(int i=0;i<=drawn.Count;i++)if(seen[i]!=drawn[i%drawn.Count])ok=false;
+            return ok?null:string.Join(" > ",seen.Select(s=>s?s.name:"(none)"))+"   drawn: "+string.Join(" > ",drawn.Select(b=>b.name));
+        }
+        public string PageName=>PageKey;
         static float NextVolume(float value) => Mathf.Min(1, (Mathf.Floor(value*10+.01f)+1)/10);
         void FinishName(bool save)
         {
@@ -318,7 +335,7 @@ namespace Racer
         void Update()
         {
             if(DeveloperLocationHud.OwnsInput)return;
-            UpdateCore();UpdateSplitJoin();
+            UpdateCore();UpdateSplitJoin();UpdateSplitPick();
             if(!editingPlaylistName)return;
             if(!controllerName&&Gamepad.current?.startButton.wasPressedThisFrame==true){controllerName=true;playlistName.DeactivateInputField();Show();return;}
             if(Keyboard.current?.escapeKey.wasPressedThisFrame==true||Gamepad.current?.buttonEast.wasPressedThisFrame==true)FinishName(false);
@@ -338,7 +355,7 @@ namespace Racer
         void LateUpdate()
         {
             if (!flow || !banner) return;
-            UpdateShell();UpdateGaragePreview();
+            UpdateShell();UpdateGaragePreview();UpdateMinis();
             if(false&&musicPage&&flow.State==RaceFlow.Stage.Settings&&flow.Radio&&Time.unscaledTime>=nextMusicRefresh)
             {
                 nextMusicRefresh=Time.unscaledTime+.25f;
@@ -367,7 +384,7 @@ namespace Racer
             waitingShown=waiting;UpdateFinishPresentation();UpdateControlsCard();UpdateHint();
             if(flow.ControlsCard)banner.text="";
             if(!countdown && flow.PenaltyNotice!=null)banner.text=flow.PenaltyNotice;
-            if (!DeveloperLocationHud.OwnsInput && flow.MenuVisible && flow.State!=RaceFlow.Stage.Title && flow.GetComponent<ExplorationMap>()?.OwnsInput!=true && EventSystem.current && !EventSystem.current.currentSelectedGameObject) EventSystem.current.SetSelectedGameObject(buttons[0].gameObject);
+            if (!DeveloperLocationHud.OwnsInput && flow.MenuVisible && flow.State!=RaceFlow.Stage.Title && !SplitPickOpen && flow.GetComponent<ExplorationMap>()?.OwnsInput!=true && EventSystem.current && !EventSystem.current.currentSelectedGameObject) EventSystem.current.SetSelectedGameObject(buttons[0].gameObject);
         }
         void OnDestroy() { if(roamHint)Destroy(roamHint);if(finishPanel)Destroy(finishPanel);playlistAdd?.Dispose();playlistContext?.Dispose();if(ownedUiActions){ownedUiActions.Disable();Destroy(ownedUiActions);} if(textKeyboard!=null)textKeyboard.onTextInput-=TypedCharacter; tabsAction?.Dispose();adjustAction?.Dispose();previousTab?.Dispose();deleteAction?.Dispose();spaceAction?.Dispose(); if(menuActions) { menuActions.Disable(); Destroy(menuActions); } if(submitReference) Destroy(submitReference); if(previewRoot) Destroy(previewRoot); if(previewCamera) Destroy(previewCamera.gameObject); if(previewTexture) { previewTexture.Release(); Destroy(previewTexture); } }
     }

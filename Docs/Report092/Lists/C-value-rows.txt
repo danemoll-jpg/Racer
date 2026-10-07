@@ -1,0 +1,53 @@
+Race Setup/laps
+Race Setup/mode
+Race Setup/difficulty
+Race Setup/traffic
+Race Setup/timeofday
+Race Setup/weather
+Opponents/slot-0
+Opponents/slot-1
+Opponents/slot-2
+Garage/profile-0
+Garage/model
+Garage/colour
+Garage / Rider/rider-0
+Garage / Rider/rider-1
+Garage / Rider/rider-2
+Garage / Rider/rider-3
+Garage / Rider/rider-4
+Garage / Rider/rider-5
+Garage / Rider/rider-6
+Garage / Rider/rider-7
+Garage / Rider/rider-8
+Garage / Rider/rider-9
+Settings settings-gameplay/estimate
+Settings settings-gameplay/hints
+Settings settings-gameplay/split-layout
+Settings settings-audio/master
+Settings settings-audio/vehicle
+Settings settings-audio/ambience
+Settings settings-audio/feedback
+Settings settings-audio/music-volume
+Settings settings-display/vsync
+Settings settings-display/fps
+Settings settings-display/lightning
+Settings settings-display/scenery
+Campaign vehicle choice/pick-vehicle
+Campaign vehicle choice/pick-colour
+Shop/shop-vehicle
+Split Screen setup/split-p1
+Split Screen setup/split-p2
+Split Screen setup/split-ai
+Split Screen setup/split-course
+Split Screen setup/split-laps
+Split Screen setup/split-rivals
+Split Screen setup/split-time
+Split Screen setup/split-weather
+Split Screen setup/split-traffic
+Split Screen setup/split-layout
+Records/record-track
+Records tab 2/record-track
+Records tab 3/activity-site
+Records tab 4/activity-site
+Records tab 5/ghost
+Playlist editor (entry)/entry-laps

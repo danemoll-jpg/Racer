@@ -21,7 +21,7 @@ namespace Racer
             previewRoot = new GameObject("Shop display model"); previewRoot.layer = 31; previewRoot.transform.position = new(10000, 10000, 10000);
             VehicleVisual.Build(previewRoot.transform, p);
             var colors = flow.Save.Settings.bodyColors; int i = VehicleProfile.IndexOf(p.Id);
-            if (colors != null && i >= 0 && i < colors.Length && colors[i] >= 0 && colors[i] < VehiclePaint.Colors.Length) VehiclePaint.Apply(previewRoot.transform, VehiclePaint.Colors[colors[i]]);
+            if (colors != null && i >= 0 && i < colors.Length && colors[i] >= 0 && colors[i] <= VehiclePaint.Champion) VehiclePaint.Scheme(previewRoot.transform, colors[i]);
             // 0.90 Part A: not yet bought or won = a silhouette with a padlock (its real look is revealed when it is the player's);
             // the stat bars and the price stay visible so the player can choose what to save for.
             if (!Campaign.Owns(p.Id) && !Campaign.Testing) { Silhouette(previewRoot.transform); int price = Campaign.Price(p.Id); previewLock = price > 0 ? (Campaign.ChapterOpen(Campaign.PriceChapter(p.Id)) ? "Price " + Campaign.Money(price) : $"In the Shop from chapter {Campaign.PriceChapter(p.Id)}: {Campaign.Money(price)}") : Campaign.HowToGet(p); }
@@ -77,8 +77,9 @@ namespace Racer
         void ShopBack()
         {
             if (pages.Count > 0) { BackPage(); return; }
-            page = ""; bool toCampaign = shopFromCampaign; shopFromCampaign = false; flow.PopMenu();
-            if (toCampaign) OpenCampaign();
+            page = ""; bool toCampaign = shopFromCampaign, toPick = shopToPick; shopFromCampaign = shopToPick = false; flow.PopMenu();
+            if (toPick) ReturnToPick(); // 0.92 Part B: back to the vehicle choice it was opened from
+            else if (toCampaign) OpenCampaign();
         }
     }
 }

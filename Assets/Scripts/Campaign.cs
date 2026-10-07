@@ -22,7 +22,9 @@ namespace Racer
         // 0.90: version 2 adds upgrades, championships, completion, time and money earned. A version 1 save (0.89) loads and
         // carries on (money, vehicles, results, opened courses kept); it is written as version 2 from the next save. The
         // file keeps its name.
-        public const int Version = 2;
+        // 0.92: version 3 adds the vehicles last driven in the campaign (newest first) and grants the chapter-final prize
+        // vehicles of finals already passed (refunding a vehicle bought before it became a prize); both said once.
+        public const int Version = 3;
         [Serializable] public sealed class Upgrade { public string id; public int[] levels = new int[4]; }
         [Serializable] public sealed class CupRace { public int[] places = new int[6]; public double time; }
         [Serializable] public sealed class Cup
@@ -37,7 +39,12 @@ namespace Racer
             public string started;
             public List<Upgrade> upgrades = new(); public List<Cup> cups = new();
             public bool complete; public double secondsRacing; public int earned;
+            public List<string> driven = new();
         }
+        // 0.92 Part D: what loading a save granted (prize vehicles, refunds), shown once on the menu; null when nothing.
+        public static string LoadNotice;
+        // The player has seen it: written now, so it is not said again.
+        public static void NoticeSeen() { LoadNotice = null; Save(); }
         public static State Current { get; private set; } = NewState();
         public static bool Exists { get; private set; }
         public static string Error { get; private set; }
@@ -49,13 +56,14 @@ namespace Racer
         static State NewState() => new() { owned = CampaignData.Starters.ToList(), courses = new() { RacePlaylists.Scenes[0] } };
         public static void Load(string root)
         {
-            path = Path.Combine(root, File); Error = null; Exists = false; readFailed = false; Current = NewState();
+            path = Path.Combine(root, File); Error = null; Exists = false; readFailed = false; Current = NewState(); LoadNotice = null;
             try
             {
                 if (!System.IO.File.Exists(path)) return;
                 var data = JsonUtility.FromJson<State>(System.IO.File.ReadAllText(path));
                 if (data == null || data.version < 1 || data.version > Version) throw new IOException("unknown campaign save version");
-                data.owned ??= new(); data.courses ??= new(); data.results ??= new(); data.upgrades ??= new(); data.cups ??= new();
+                data.owned ??= new(); data.courses ??= new(); data.results ??= new(); data.upgrades ??= new(); data.cups ??= new(); data.driven ??= new();
+                int loadedVersion = data.version;
                 foreach (var u in data.upgrades) if (u.levels == null || u.levels.Length != 4) u.levels = new int[4];
                 foreach (var c in data.cups) { c.races ??= new(); foreach (var r in c.races) if (r.places == null || r.places.Length != 6) r.places = new int[6]; }
                 if (data.version == 1)
@@ -70,6 +78,14 @@ namespace Racer
                 if (!data.courses.Contains(RacePlaylists.Scenes[0])) data.courses.Add(RacePlaylists.Scenes[0]);
                 data.chapter = Mathf.Clamp(data.chapter, 1, CampaignData.Chapters.Length); data.money = Mathf.Max(0, data.money);
                 Current = data; Exists = true;
+                // 0.92 Part D: a save from before the prize change: a vehicle bought that is now a prize is refunded (it stays
+                // owned), and every prize of a final already passed is granted. Loading never writes: the menu says so once and
+                // the save is written when the player has seen it (NoticeSeen), or with the next result.
+                var notes = new List<string>();
+                if (loadedVersion < 3) foreach (var (id, price) in CampaignData.FormerlySold) if (data.owned.Contains(id)) { data.money += price; notes.Add($"{VehicleProfile.Find(id).Name} is now a prize: the {Money(price)} you paid is refunded"); }
+                foreach (var e in CampaignData.Events) if (e.Prize != null && Passed(e) && !data.owned.Contains(e.Prize)) { data.owned.Add(e.Prize); notes.Add($"Prize for passing the {e.Name}: the {VehicleProfile.Find(e.Prize).Name}"); }
+                data.version = Version;
+                if (notes.Count > 0) LoadNotice = string.Join("\n", notes);
             }
             catch (Exception e) { readFailed = true; Exists = true; Error = "Campaign save could not be read (" + e.Message + "); it is left as it is. New Campaign replaces it."; }
         }
@@ -123,7 +139,7 @@ namespace Racer
             if (p.Reward) return VehicleUnlocks.LockedText;
             int price = Price(p.Id);
             if (price > 0) return ChapterOpen(PriceChapter(p.Id)) ? $"Buy it in the Shop for {Money(price)}" : $"In the Shop from chapter {PriceChapter(p.Id)}: {Money(price)}";
-            var prize = PrizeEvent(p.Id); if (prize != null) return $"Prize: win \"{prize.Name}\" (campaign chapter {prize.Chapter})";
+            var prize = PrizeEvent(p.Id); if (prize != null) return $"Prize: pass \"{prize.Name}\" (campaign chapter {prize.Chapter})";
             return "Campaign";
         }
         public static string Money(int dollars) => "$" + dollars.ToString("N0", System.Globalization.CultureInfo.InvariantCulture);
@@ -158,6 +174,8 @@ namespace Racer
             // (index 0 the player, 1-5 the rivals in roster order; 0 = did not finish), whether it ended the championship
             // and the final position.
             public double RaceSeconds; public int[] Places; public bool CupFinished, Forfeit; public int CupPosition;
+            // 0.92 Part D: the prize vehicle this run won (shown revealed on the results), or the champion's paint scheme.
+            public string PrizeWon; public bool ChampionPaint;
             public string Headline => Debug ? "DEBUG RUN — no result or payout" : Event.Kind == CampaignEventKind.Race
                 ? (Dnf ? "Did not finish" : $"{Ordinal(Place)} of {Field}")
                 : (Dnf ? "No result" : new[] { "No medal", "BRONZE", "SILVER", "GOLD" }[Medal] + "  ·  " + Measure(Event, Event.Kind == CampaignEventKind.TimeTrial ? (float)Time : Score));
@@ -210,7 +228,7 @@ namespace Racer
             }
             Current.money += o.Pay + o.Bonus; Current.earned += o.Pay + o.Bonus; Current.secondsRacing += o.RaceSeconds;
             if (o.Passed && e.Final) foreach (var cup in CampaignData.CupsAfter(e.Chapter)) if (CupResult(cup.Id) == null && !o.Unlocked.Contains("Championship: " + cup.Name)) o.Unlocked.Add("Championship: " + cup.Name);
-            if (o.Won && e.Prize != null && !Owns(e.Prize)) { Current.owned.Add(e.Prize); o.Unlocked.Add("Vehicle: " + VehicleProfile.Find(e.Prize).Name); }
+            if (o.Passed && e.Prize != null && !Owns(e.Prize)) { Current.owned.Add(e.Prize); o.Unlocked.Add("Vehicle: " + VehicleProfile.Find(e.Prize).Name); o.PrizeWon = e.Prize; }
             if (o.Passed && e.Final && Current.chapter == e.Chapter && e.Chapter < CampaignData.Chapters.Length) Current.chapter = e.Chapter + 1;
             if (Current.chapter > chapterBefore) { var c = CampaignData.Chapters[Current.chapter - 1]; o.Unlocked.Add($"Chapter {c.Number}: {c.Name}"); }
             if (CampaignData.Events.Count(Available) > nextBefore) { var n = CampaignData.Events.FirstOrDefault(x => Available(x) && ResultOf(x.Id) == null); if (n != null) o.Unlocked.Add("Next event: " + n.Name); }
@@ -224,6 +242,22 @@ namespace Racer
             string scene = RacePlaylists.Scenes[course];
             if (Testing || Current.courses.Contains(scene)) return null;
             Current.courses.Add(scene); Save(); return RacePlaylists.Titles[course];
+        }
+
+        // ---------- 0.92 Part B: the campaign's vehicle defaults to the last one driven ----------
+        public static bool ChampionPaint => Testing || CupResult("cup-grand")?.won == true;
+        public static void Drove(string id)
+        {
+            if (Testing || string.IsNullOrEmpty(id)) return;
+            Current.driven.Remove(id); Current.driven.Insert(0, id); if (Current.driven.Count > 12) Current.driven.RemoveRange(12, Current.driven.Count - 12);
+        }
+        // The default for an event's (or championship's) list of allowed owned vehicles: the most recently driven one in it,
+        // else the first.
+        public static string DefaultVehicle(VehicleProfile[] allowed)
+        {
+            if (allowed == null || allowed.Length == 0) return null;
+            foreach (var id in Current.driven) if (allowed.Any(p => p.Id == id)) return id;
+            return allowed[0].Id;
         }
 
         // ---------- 0.90 upgrades (campaign only: Race, Free Roam, split-screen and the Top 10 boards stay stock) ----------
@@ -293,6 +327,7 @@ namespace Racer
                 r.runs++; r.finished = true; r.won |= o.Won; r.bestPosition = r.bestPosition == 0 ? position : Mathf.Min(r.bestPosition, position); r.active = false;
                 Current.money += o.Pay + o.Bonus; Current.earned += o.Pay + o.Bonus;
                 if (cup.Grand && o.Won && !Current.complete) { Current.complete = true; o.Unlocked.Add("The campaign: you are the Champion of Woodstock"); }
+                if (cup.Grand && o.Won && !o.Replay) { o.ChampionPaint = true; o.Unlocked.Add("Paint: the champion's scheme (gold with a number roundel), for any owned vehicle"); }
             }
             o.Saved = Save();
             return o;

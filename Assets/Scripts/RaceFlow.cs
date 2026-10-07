@@ -265,7 +265,8 @@ namespace Racer
             Save.SelectRecords(category); menus?.Show();
         }
         public string LapLabel => Race.laps==0?"Unlimited":Race.laps.ToString();
-        public void CycleLaps(){Race.laps=(Race.laps+1)%(Race.opponents?6:6);if(Race.opponents&&Race.laps==0)Race.laps=1;Save.Settings.laps=Race.laps;if(Race.laps>0)Save.Settings.lastFiniteLaps=Race.laps;Save.SaveSettings();SelectRecords(Race.Category);Click();}
+        // 0.92 Part C: the cycles step either way (left / right on their rows)
+        public void CycleLaps(int d=1){Race.laps=(Race.laps+d+6)%6;if(Race.opponents&&Race.laps==0)Race.laps=d>0?1:5;Save.Settings.laps=Race.laps;if(Race.laps>0)Save.Settings.lastFiniteLaps=Race.laps;Save.SaveSettings();SelectRecords(Race.Category);Click();}
         public void ToggleOpponents() { Race.opponents = !Race.opponents; if(Race.opponents&&Race.laps==0){Race.laps=Save.Settings.lastFiniteLaps;Save.Settings.laps=Race.laps;Notify("AI race: restored "+Race.laps+" finite laps",4);} Save.Settings.opponents = Race.opponents; Save.SaveSettings(); SelectRecords(Race.Category); Click(); }
         public void ToggleTraffic() { Race.traffic = !Race.traffic; Save.Settings.traffic = Race.traffic; Save.SaveSettings(); SelectRecords(Race.Category); Click(); }
         string GoNotice=>CampaignRun.Active==null?"GO!  Shared race clock started":CampaignRun.Active.Kind==CampaignEventKind.SpeedTrap?"GO!  Hit the speed trap ahead as fast as you can":CampaignRun.Active.Kind==CampaignEventKind.Jump?"GO!  Land the jump ahead as far as you can":CampaignRun.Active.Kind==CampaignEventKind.Smash?"GO!  Smash as many fence-line props as you can":CampaignRun.Active.Kind==CampaignEventKind.TimeTrial?"GO!  Flying lap: the clock starts at the START line":"GO!  "+CampaignRun.Active.Name;
@@ -273,10 +274,10 @@ namespace Racer
         public string WeatherLabel => ((Weather)Mathf.Clamp(Save.Settings.weather,0,2)).ToString();
         public string RoamWeatherLabel => ((Weather)Mathf.Clamp(Save.Settings.roamWeather,0,2)).ToString();
         // 0.74: Dawn / Day / Dusk / Night (the saved value of Dawn is 3, so older saves keep their choice).
-        public void CycleTimeOfDay() { var order=LookPresets.MenuOrder; int i=System.Array.IndexOf(order,(TimeOfDay)Mathf.Clamp(Save.Settings.timeOfDay,0,3)); Save.Settings.timeOfDay=(int)order[(i+1)%order.Length]; Save.SaveSettings(); menus?.Show(); Click(); }
-        public void CycleWeather() { Save.Settings.weather=(Mathf.Clamp(Save.Settings.weather,0,2)+1)%3; Save.SaveSettings(); menus?.Show(); Click(); }
-        public void CycleRoamWeather() { Save.Settings.roamWeather=(Mathf.Clamp(Save.Settings.roamWeather,0,2)+1)%3; Save.SaveSettings(); menus?.Show(); Click(); }
-        public void CycleDifficulty() { if(State!=Stage.Ready && State!=Stage.Results) return; Race.difficulty=(Race.difficulty+1)%3; Save.Settings.difficulty=Race.difficulty; Save.SaveSettings(); SelectRecords(Race.Category); Click(); }
+        public void CycleTimeOfDay(int d=1) { var order=LookPresets.MenuOrder; int i=System.Array.IndexOf(order,(TimeOfDay)Mathf.Clamp(Save.Settings.timeOfDay,0,3)); Save.Settings.timeOfDay=(int)order[(i+d+order.Length)%order.Length]; Save.SaveSettings(); menus?.Show(); Click(); }
+        public void CycleWeather(int d=1) { Save.Settings.weather=(Mathf.Clamp(Save.Settings.weather,0,2)+d+3)%3; Save.SaveSettings(); menus?.Show(); Click(); }
+        public void CycleRoamWeather(int d=1) { Save.Settings.roamWeather=(Mathf.Clamp(Save.Settings.roamWeather,0,2)+d+3)%3; Save.SaveSettings(); menus?.Show(); Click(); }
+        public void CycleDifficulty(int d=1) { if(State!=Stage.Ready && State!=Stage.Results) return; Race.difficulty=(Race.difficulty+d+3)%3; Save.Settings.difficulty=Race.difficulty; Save.SaveSettings(); SelectRecords(Race.Category); Click(); }
         public void OpenGarage() { if(State!=Stage.Ready && State!=Stage.Results) return; PushMenu(Stage.Garage); }
         public void CloseGarage() { PopMenu(); }
         public void OpenRoster() { if(State!=Stage.Ready && State!=Stage.Results) return; PushMenu(Stage.Roster); }
@@ -329,16 +330,16 @@ namespace Racer
         {
             if(State!=Stage.Garage) return;
             int i=Mathf.Max(0,VehicleProfile.IndexOf(Race.vehicle.GetComponent<VehicleConfiguration>().profileId));
-            Save.Settings.bodyColors[i]=Mathf.Clamp(color,0,VehiclePaint.Colors.Length-1);
+            Save.Settings.bodyColors[i]=Mathf.Clamp(color,0,VehiclePaint.Count-1);
             Race.vehicle.GetComponent<VehicleConfiguration>().SetBodyColor(SelectedColor);
             Save.SaveSettings(); menus.Show(); Click();
         }
-        public void CycleOpponent(int slot)
+        public void CycleOpponent(int slot,int d=1)
         {
             if(State!=Stage.Roster || slot<0 || slot>=3) return;
             var choices=System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(System.Linq.Enumerable.Select(Race.EligibleVehicles,p=>p.Id),new[]{"random","mixed"}));
             int i=System.Array.IndexOf(choices,Save.Settings.opponentChoices[slot]);
-            Save.Settings.opponentChoices[slot]=choices[(i+1)%choices.Length]; ResolveRoster();
+            Save.Settings.opponentChoices[slot]=choices[(i+d+choices.Length)%choices.Length]; ResolveRoster();
         }
         public void MixedRoster() { if(State!=Stage.Roster) return; Save.Settings.opponentChoices=new[]{"mixed","mixed","mixed"}; ResolveRoster(); }
         public void ResolveRoster()

@@ -259,15 +259,16 @@ namespace Racer
         }
         static readonly (string name, float hour)[] Times = { ("Dawn", 6.6f), ("Day", 12), ("Dusk", 19.2f), ("Night", 23.5f) };
         public static readonly string[] MoonNames = { "New", "Waxing crescent", "First quarter", "Waxing gibbous", "Full", "Waning gibbous", "Last quarter", "Waning crescent" };
-        public void CycleTimeOfDay()
+        public void CycleTimeOfDay(int d = 1)
         {
             var c = Conditions(); if (c == null) return;
+            if (d < 0) { int j = Array.FindLastIndex(Times, t => t.hour < c.hour - .01f); c.hour = Times[j < 0 ? Times.Length - 1 : j].hour; return; }
             int i = Array.FindIndex(Times, t => t.hour > c.hour + .01f); c.hour = Times[i < 0 ? 0 : i].hour;
         }
         public void NudgeClock(int hours) { var c = Conditions(); if (c != null) c.hour = Mathf.Repeat(Mathf.Round(c.hour) + hours, 24); }
         public void ToggleClock() { var c = Conditions(); if (c != null) c.paused = !c.paused; }
-        public void CycleWeather() { var c = Conditions(); if (c != null) c.weather = (Weather)(((int)c.weather + 1) % 3); }
-        public void CycleMoon() { var c = Conditions(); if (c != null) c.phase = Mathf.Repeat(Mathf.Round(c.phase * 8) + 1, 8) / 8f; }
+        public void CycleWeather(int d = 1) { var c = Conditions(); if (c != null) c.weather = (Weather)(((int)c.weather + d + 3) % 3); }
+        public void CycleMoon(int d = 1) { var c = Conditions(); if (c != null) c.phase = Mathf.Repeat(Mathf.Round(c.phase * 8) + d, 8) / 8f; }
         // A strike now; lightning needs a storm, so this turns the weather to Rain first if it is not raining.
         public void LightningNow()
         {

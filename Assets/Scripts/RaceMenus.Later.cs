@@ -20,7 +20,7 @@ namespace Racer
         bool PlaylistDirty=>playlistDraft!=null&&JsonUtility.ToJson(playlistDraft)!=savedDraft;
         void EnsureRows(int count)
         {
-            while(buttons.Count<count){var r=Rect("Action "+buttons.Count,content);r.gameObject.AddComponent<UnityEngine.UI.LayoutElement>().preferredHeight=44;var image=r.gameObject.AddComponent<UnityEngine.UI.Image>();var b=r.gameObject.AddComponent<UnityEngine.UI.Button>();b.targetGraphic=image;b.colors=buttons[0].colors;var label=Label("Label",r,21,0);Stretch(label.rectTransform,10,0,-10,0);buttons.Add(b);}
+            while(buttons.Count<count){var r=Rect("Action "+buttons.Count,content);r.gameObject.AddComponent<UnityEngine.UI.LayoutElement>().preferredHeight=44;var image=r.gameObject.AddComponent<UnityEngine.UI.Image>();var b=r.gameObject.AddComponent<UnityEngine.UI.Button>();b.targetGraphic=image;b.colors=buttons[0].colors;r.gameObject.AddComponent<MenuHoverSelect>();var label=Label("Label",r,21,0);Stretch(label.rectTransform,10,0,-10,0);buttons.Add(b);}
         }
         void UpdateLater()
         {

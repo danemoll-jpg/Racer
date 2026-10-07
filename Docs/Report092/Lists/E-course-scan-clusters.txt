@@ -1,0 +1,8 @@
+Forest Loop Reverse, the whole main (0-2103 m), +/-4 m across, after the 1500-1518 m fix: stations where most lines show a
+kink over 8 cm in 0.5 m (second difference of height). Every one is a takeoff crest followed 7-8 m later by its landing
+(authored jumps); the 1509 m lip (a 24 cm step up with no crest before it) no longer appears.
+s 493.0: crest (down 34 cm)            Ground_480_240
+s 716.5 / 724.0: crest / landing       Ground_400_240
+s 1022.5-1024.0 / 1029.5-1030.5        Ground_320_320
+s 1403.5-1404.0 / 1410.5-1411.5        Ground_400_480 (the lake jump)
+s 1685.0 / 1693.0                      Ground_560_480

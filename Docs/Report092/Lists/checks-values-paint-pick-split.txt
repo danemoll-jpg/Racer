@@ -1,0 +1,80 @@
+---- noacycle92
+  Dan's save copy loaded: money 22630, chapter 3, owned [original,atv,moto,pebble], error none
+PASS Race Setup: 6 value rows, A changed none; right changed 6 (laps, mode, difficulty, traffic, timeofday, weather)
+PASS Opponents: 3 value rows, A changed none; right changed 3 (slot-0, slot-1, slot-2)
+PASS Garage: 3 value rows, A changed none; right changed 3 (profile-0, model, colour)
+PASS Garage / Rider: 10 value rows, A changed none; right changed 10 (rider-0, rider-1, rider-2, rider-3, rider-4, rider-5, rider-6, rider-7, rider-8, rider-9)
+PASS Settings settings-gameplay: 4 value rows, A changed none; right changed 3 (estimate, unlock-everything, hints, split-layout)
+PASS Settings settings-audio: 5 value rows, A changed none; right changed 4 (master, vehicle, ambience, feedback, music-volume)
+PASS Settings settings-display: 4 value rows, A changed none; right changed 4 (vsync, fps, lightning, scenery)
+PASS Settings settings-controls: 0 value rows, A changed none; right changed 0 ()
+FAIL Campaign event page: A changed 'event-vehicle' (Vehicle:   Needle 600   ·   A: garage > )
+PASS Campaign event page: 1 value rows, A changed none; right changed 0 (event-vehicle)
+FAIL D-pad could not reach 'event-vehicle' (focus on pick-vehicle, page 'vehicle-pick')
+PASS Campaign vehicle choice: 2 value rows, A changed none; right changed 2 (pick-vehicle, pick-colour)
+PASS Shop: 1 value rows, A changed none; right changed 1 (shop-vehicle)
+PASS Split Screen setup: 10 value rows, A changed none; right changed 8 (split-p1, split-p2, split-ai, split-course, split-laps, split-rivals, split-time, split-weather, split-traffic, split-layout)
+PASS Records: 1 value rows, A changed none; right changed 1 (record-track)
+PASS Records tab 2: 1 value rows, A changed none; right changed 1 (record-track)
+PASS Records tab 3: 1 value rows, A changed none; right changed 1 (activity-site)
+PASS Records tab 4: 1 value rows, A changed none; right changed 1 (activity-site)
+PASS Records tab 5: 1 value rows, A changed none; right changed 1 (ghost)
+PASS Playlist editor (entry): 1 value rows, A changed none; right changed 1 (entry-laps)
+value rows converted and checked: 53; changed by A: 1
+---- paint92
+PASS Street Classic: the champion's scheme on the vehicle and the garage preview (roundels 2), Colour row 'Colour:   Champion gold  #1'
+PASS Needle 600: the champion's scheme on the vehicle and the garage preview (roundels 2), Colour row 'Colour:   Champion gold  #1'
+PASS another colour removes the roundels
+---- pick92
+  Dan's save copy loaded: money 22630, chapter 3, owned [original,atv,moto,pebble], error none
+PASS Continue: the next event's page (c3-backyard-dash)
+PASS the event page shows the chosen vehicle as a small preview (Needle 600)
+PASS A on the vehicle row: the garage view
+PASS vehicle choice (garage view): 5 rows [pick-vehicle, pick-colour, pick-use, pick-shop, pick-back]; reached all True, focus kept True, in drawn order True (pick-shop>pick-back>pick-vehicle>pick-colour>pick-use), structural check clean
+PASS right: the next owned vehicle (moto > atv), its stats and preview
+  Trail Four: 'USE THIS VEHICLE', usable True
+PASS Shop… from the garage view: the Shop
+PASS B from that Shop: back to the garage view (Ready / 'vehicle-pick')
+PASS USE THIS VEHICLE: back to the event page with the Trail Four
+  running after 5 s: state Racing, campaign c3-backyard-dash
+PASS the event runs in the Trail Four
+PASS left from the pause menu: the campaign screen ('campaign')
+PASS First Lap's page opens on the vehicle last driven: Trail Four
+---- split92:0:Day:Clear:4:1:0
+PASS Street Loop - Forward Day/Clear, 4 rivals, traffic on, top / bottom: racing with 6 (2 players + 4 AI); conditions Day/Clear; each view's falling weather on its own layer (view 1 0, view 2 0 particles), camera masks True
+PASS Street Loop - Forward Day/Clear, 4 rivals, traffic on, top / bottom: traffic 24 cars
+  vehicle lamps on 26 vehicles, level 0.00; thunder strikes so far 0
+PASS Start: the split-screen pause menu
+PASS split-screen pause (stage 2): 5 rows [resume, restart, settings, return, quit]; reached all True, focus kept True, in drawn order True (resume>restart>settings>return>quit), structural check clean
+PASS Street Loop - Forward Day/Clear, 4 rivals, traffic on, top / bottom: results with everyone classified (VIOLET, JADE, GOLD, BLUE, P1, P2 DNF)
+PASS results table: 6 rows (every finisher, the AI too)
+PASS REMATCH: the same race again (rivals and conditions kept)
+PASS the rematch finished: results again
+PASS Change setup: the setup screen with every choice kept
+---- split92:2:Night:Snow:2:1:1
+PASS Forest Loop - Forward Night/Snow, 2 rivals, traffic on, left / right: racing with 4 (2 players + 2 AI); conditions Night/Snow; each view's falling weather on its own layer (view 1 5000, view 2 5000 particles), camera masks True
+PASS Forest Loop - Forward Night/Snow, 2 rivals, traffic on, left / right: traffic 8 cars
+  vehicle lamps on 8 vehicles, level 1.00; thunder strikes so far 0
+PASS Start: the split-screen pause menu
+PASS split-screen pause (stage 2): 5 rows [resume, restart, settings, return, quit]; reached all True, focus kept True, in drawn order True (resume>restart>settings>return>quit), structural check clean
+PASS Forest Loop - Forward Night/Snow, 2 rivals, traffic on, left / right: results with everyone classified (GOLD, BLUE, P2, P1)
+PASS results table: 4 rows (every finisher, the AI too)
+PASS REMATCH: the same race again (rivals and conditions kept)
+PASS the rematch finished: results again
+PASS Change setup: the setup screen with every choice kept
+---- split92:4:Dusk:Rain:1:0:0
+PASS Mountain Loop - Forward Dusk/Rain, 1 rivals, traffic off, top / bottom: racing with 3 (2 players + 1 AI); conditions Dusk/Rain; each view's falling weather on its own layer (view 1 3150, view 2 3150 particles), camera masks True
+FAIL Mountain Loop - Forward Dusk/Rain, 1 rivals, traffic off, top / bottom: traffic 4 cars
+  vehicle lamps on 3 vehicles, level 0.55; thunder strikes so far 0
+PASS Start: the split-screen pause menu
+PASS split-screen pause (stage 2): 5 rows [resume, restart, settings, return, quit]; reached all True, focus kept True, in drawn order True (resume>restart>settings>return>quit), structural check clean
+PASS Mountain Loop - Forward Dusk/Rain, 1 rivals, traffic off, top / bottom: results with everyone classified (P2, GOLD, P1)
+PASS results table: 3 rows (every finisher, the AI too)
+PASS REMATCH: the same race again (rivals and conditions kept)
+PASS the rematch finished: results again
+PASS Change setup: the setup screen with every choice kept
+---- carrace:StreetLoopGreybox:original:tourer,atv,moto:3
+FAIL StreetLoopGreybox player original vs tourer/atv/moto: PLAYER original: 02:28.751 missed 1 resets 0 longest stall 1s shortcuts [Creek Leap, Fox Gully, Pine Ridge, Existing Southwest Cut]; EMBER tourer: 02:20.229 missed 0 resets 0 longest stall 1s shortcuts [Creek Leap, Fox Gully, Pine Ridge, Existing Southwest Cut]; GOLD atv: 02:21.658 missed 0 resets 0 longest stall 1s shortcuts [Creek Leap, Fox Gully, Pine Ridge, Existing Southwest Cut]; BLUE moto: 02:06.390 missed 0 resets 0 longest stall 1s shortcuts [Creek Leap, Fox Gully, Pine Ridge, Existing Southwest Cut]
+---- navsummary91
+PASS every menu page shown in this session: every visible row reachable with the controller (no failures)
+done, failures 4

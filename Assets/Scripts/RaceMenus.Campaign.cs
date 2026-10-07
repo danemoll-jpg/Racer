@@ -24,12 +24,32 @@ namespace Racer
             ShowCourseOnMap(e.Course); Campaign.Selected = e.Id;
             courseCaption.fontSize = 16;
             courseCaption.text = $"{e.Name}  ·  {e.CourseTitle}\n{e.KindLabel}  ·  {e.Conditions}\n{e.Entry}  ·  {Campaign.PayText(e)}\n{Campaign.BestText(e)}";
+            ShowPrize(e);
+        }
+        // 0.92 Part D: a final's prize vehicle in the corner of the map (a silhouette marked PRIZE until it is won).
+        Mini prizeMini; RectTransform prizeOverlay; UnityEngine.UI.Text prizeCaption;
+        void ShowPrize(CampaignEvent e)
+        {
+            bool show = e != null && e.Prize != null && courseView && flow.State == RaceFlow.Stage.Ready && page == "campaign";
+            if (!show) { if (prizeOverlay) prizeOverlay.gameObject.SetActive(false); return; }
+            if (!prizeOverlay)
+            {
+                prizeOverlay = Rect("Prize preview", coursePanel); prizeOverlay.anchorMin = prizeOverlay.anchorMax = prizeOverlay.pivot = new Vector2(1, 1); prizeOverlay.anchoredPosition = new Vector2(-10, -10); prizeOverlay.sizeDelta = new Vector2(230, 150);
+                prizeOverlay.gameObject.AddComponent<UnityEngine.UI.Image>().color = new Color(.03f, .05f, .07f, .92f);
+                prizeMini = new Mini(); prizeMini.cam = new GameObject("Prize preview camera").AddComponent<Camera>(); prizeMini.cam.cullingMask = 1 << 31; prizeMini.cam.clearFlags = CameraClearFlags.SolidColor; prizeMini.cam.backgroundColor = new Color(.06f, .1f, .13f); prizeMini.cam.fieldOfView = 30;
+                prizeMini.rt = new RenderTexture(345, 174, 16) { antiAliasing = 4 }; prizeMini.cam.targetTexture = prizeMini.rt; prizeMini.cam.aspect = 345 / 174f;
+                var raw = Rect("Picture", prizeOverlay); raw.anchorMin = Vector2.zero; raw.anchorMax = Vector2.one; raw.offsetMin = new Vector2(4, 32); raw.offsetMax = new Vector2(-4, -4); var image = raw.gameObject.AddComponent<UnityEngine.UI.RawImage>(); image.texture = prizeMini.rt; image.raycastTarget = false;
+                prizeCaption = Label("Caption", prizeOverlay, 16, 0); prizeCaption.rectTransform.anchorMin = Vector2.zero; prizeCaption.rectTransform.anchorMax = new Vector2(1, 0); prizeCaption.rectTransform.pivot = new Vector2(.5f, 0); prizeCaption.rectTransform.sizeDelta = new Vector2(-8, 32); prizeCaption.alignment = TextAnchor.MiddleCenter; prizeCaption.color = new Color(1, .82f, .35f);
+            }
+            var p = VehicleProfile.Find(e.Prize); bool won = Campaign.Owns(e.Prize) && !Campaign.Testing;
+            SetMini(prizeMini, 50, p, SchemeOf(p.Id), !won); prizeCaption.text = won ? "PRIZE ✓  " + p.Name : "PRIZE:  " + p.Name;
+            prizeOverlay.gameObject.SetActive(true); prizeOverlay.SetAsLastSibling();
         }
         void ShowCampaignCup(CampaignCup c)
         {
             if (c == null || !courseView) return;
             var progress = Campaign.ActiveCup(c); int round = progress != null ? Mathf.Min(progress.races.Count, c.Rounds.Length - 1) : 0;
-            ShowCourseOnMap(c.Rounds[round].Course); Campaign.Selected = c.Id;
+            ShowCourseOnMap(c.Rounds[round].Course); Campaign.Selected = c.Id; ShowPrize(null);
             courseCaption.fontSize = 16;
             courseCaption.text = $"{c.Name}  ·  championship, {c.Rounds.Length} races\n{(progress != null ? $"Next: round {round + 1}, {RacePlaylists.Titles[c.Rounds[round].Course].Replace(" - ", " — ")}" : "Points 10 / 7 / 5 / 3 / 2 / 1 per race")}\nWins {Campaign.Money(c.Pay)} · first win +{Campaign.Money(c.Bonus)}\n{CupBest(c)}";
         }
@@ -47,6 +67,7 @@ namespace Racer
         void RenderCampaign()
         {
             var st = Campaign.Current; var chapters = CampaignData.Chapters;
+            campaignVehicle = null; // 0.92 Part B: each event and championship page opens on the vehicle last driven in the campaign
             if (campaignChapter < 1 || campaignChapter > chapters.Length) campaignChapter = Mathf.Clamp(Campaign.Next?.Chapter ?? st.chapter, 1, chapters.Length);
             int passed = CampaignData.Events.Count(Campaign.Passed), trophies = st.cups.Count(c => c.won);
             ClearCore("CAMPAIGN   ·   " + Campaign.Money(st.money), Campaign.Error ?? (Campaign.Testing
@@ -120,17 +141,29 @@ namespace Racer
         VehicleProfile[] EventVehicles(CampaignEvent e) => VehicleProfile.All.Where(p => !p.Reward && (Campaign.Testing || Campaign.Owns(p.Id)) && e.Allows(p) && (CarAccess.CourseAllowsCars(RacePlaylists.Scenes[e.Course]) || p.Small)).ToArray();
         // A championship: owned vehicles allowed on every one of its courses.
         VehicleProfile[] CupVehicles(CampaignCup c) => VehicleProfile.All.Where(p => !p.Reward && (Campaign.Testing || Campaign.Owns(p.Id)) && (c.Rounds.All(r => CarAccess.CourseAllowsCars(RacePlaylists.Scenes[r.Course])) || p.Small)).ToArray();
+        // 0.92 Part B: the vehicle last driven in the campaign that the event allows (else, before any campaign driving is
+        // recorded, the Race vehicle when allowed, else the first allowed).
         string PickVehicle(VehicleProfile[] list)
         {
-            if (list.Length > 0 && !list.Any(p => p.Id == campaignVehicle)) campaignVehicle = list.Any(p => p.Id == flow.Race.vehicle.GetComponent<VehicleConfiguration>().profileId) ? flow.Race.vehicle.GetComponent<VehicleConfiguration>().profileId : list[0].Id;
+            if (list.Length > 0 && !list.Any(p => p.Id == campaignVehicle))
+            {
+                string race = flow.Race.vehicle.GetComponent<VehicleConfiguration>().profileId;
+                campaignVehicle = Campaign.Current.driven.Any(id => list.Any(p => p.Id == id)) || !list.Any(p => p.Id == race) ? Campaign.DefaultVehicle(list) : race;
+            }
             return campaignVehicle;
         }
-        void VehicleStepper(int row, VehicleProfile[] list, string empty)
+        // The vehicle row: left / right steps through the allowed vehicles; A opens the garage view to choose (with the
+        // previews and stats). Below it the chosen vehicle as a small preview, and the prize (a silhouette until it is won).
+        void VehicleStepper(int row, VehicleProfile[] list, string empty, bool cup, string prize = null)
         {
             int at = System.Array.FindIndex(list, p => p.Id == campaignVehicle);
             void StepVehicle(int d) { if (list.Length == 0) return; campaignVehicle = list[((at < 0 ? 0 : at) + d + list.Length) % list.Length].Id; flow.Click(); Show(); }
             var v = VehicleProfile.Find(campaignVehicle);
-            Step(row, "event-vehicle", list.Length == 0 ? empty : $"Vehicle: {v.Name}  ({v.Class}, {at + 1} of {list.Length})" + (Campaign.Upgraded(v.Id) ? "  ·  upgraded" : ""), StepVehicle);
+            Step(row, "event-vehicle", list.Length == 0 ? empty : $"Vehicle:   {v.Name}" + (Campaign.Upgraded(v.Id) ? "  (upgraded)" : "") + "   ·   A: garage", StepVehicle, list.Length == 0 ? null : () => OpenVehiclePick(cup));
+            if (list.Length == 0 && prize == null) return;
+            var strip = PreviewStrip("Event vehicles", buttons[row].transform.GetSiblingIndex() + 1);
+            if (list.Length > 0) PreviewCard(strip, v, SchemeOf(v.Id), false, "Your vehicle: " + v.Name, new Color(.3f, .95f, .81f));
+            if (prize != null) { var p = VehicleProfile.Find(prize); bool won = Campaign.Owns(prize) && !Campaign.Testing; PreviewCard(strip, p, SchemeOf(prize), !won, won ? "PRIZE: " + p.Name + "  ✓ won" : "PRIZE: " + p.Name + "  (pass it to win)", new Color(1, .82f, .35f)); }
         }
         void RenderCampaignEvent()
         {
@@ -145,15 +178,16 @@ namespace Racer
             if (e.Kind == CampaignEventKind.Smash) lines.Add($"Leave the road for the fence line beside it: {e.TimeLimit:0} s to smash as many different props as you can.");
             if (e.Kind == CampaignEventKind.TimeTrial) lines.Add("Flying start: the lap clock starts at the START line.");
             lines.Add(e.Kind == CampaignEventKind.Race ? "Pass: finish in the top three" : "Pass: bronze or better");
-            if (e.Prize != null) lines.Add($"Win it: the {VehicleProfile.Find(e.Prize).Name}" + (e.Final ? $"; top three opens chapter {e.Chapter + 1}" : ""));
-            else if (e.Final && e.Chapter < CampaignData.Chapters.Length) lines.Add($"Top three opens chapter {e.Chapter + 1}" + (e.Bonus >= 4000 ? $"; winning pays a {Campaign.Money(e.Bonus)} bonus" : ""));
+            // 0.92 Part D: every chapter final's prize is a vehicle, won by passing it (top three)
+            if (e.Prize != null) lines.Add($"Prize: the {VehicleProfile.Find(e.Prize).Name} for passing it (top three)" + (e.Final && e.Chapter < CampaignData.Chapters.Length ? $"; it also opens chapter {e.Chapter + 1}" : ""));
+            else if (e.Final && e.Chapter < CampaignData.Chapters.Length) lines.Add($"Top three opens chapter {e.Chapter + 1}");
             if (e.Final) lines.Add("Passing it also opens the " + string.Join(", ", CampaignData.CupsAfter(e.Chapter).Select(c => c.Name)));
             lines.Add(Campaign.BestText(e));
             if (list.Length > 0) lines.Add("Your " + VehicleProfile.Find(campaignVehicle).Name + ": " + Campaign.UpgradeSummary(campaignVehicle));
             if (!Campaign.Available(e)) lines.Add("LOCKED: " + Campaign.EventLock(e) + (Campaign.Testing ? " (Testing mode: can be run, nothing is saved)" : ""));
             ClearCore(e.Name.ToUpperInvariant(), string.Join("\n", lines));
             details.fontSize = 18; details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight = 24 * lines.Count + 8;
-            VehicleStepper(0, list, "No owned vehicle fits this event");
+            VehicleStepper(0, list, "No owned vehicle fits this event", false, e.Prize);
             Row(1, "start-event", "START EVENT", () => flow.StartCampaignEvent(e, campaignVehicle));
             var startColors = buttons[1].colors; startColors.normalColor = new(.1f, .38f, .35f); buttons[1].colors = startColors; buttons[1].GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight = 54;
             buttons[1].interactable = available && list.Length > 0;
@@ -192,7 +226,7 @@ namespace Racer
             else
             {
                 var list = CupVehicles(c); PickVehicle(list);
-                VehicleStepper(n++, list, "No owned vehicle fits this championship");
+                VehicleStepper(n++, list, "No owned vehicle fits this championship", true);
                 Row(n, "cup-start", "START CHAMPIONSHIP", () => { Campaign.StartCup(c, campaignVehicle); flow.StartCupRound(c); });
                 var colors = buttons[n].colors; colors.normalColor = new(.1f, .38f, .35f); buttons[n].colors = colors; buttons[n].GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight = 54;
                 buttons[n++].interactable = open && list.Length > 0 && !Campaign.Testing;
@@ -225,6 +259,8 @@ namespace Racer
             ClearCore("CAMPAIGN RESULT", e.Name + "  ·  " + e.CourseTitle);
             var head = Label("Campaign payout", content, 22, 0); laterLayouts.Add(head.gameObject); head.transform.SetSiblingIndex(1);
             head.text = string.Join("\n", lines); head.color = new(.3f, .95f, .81f); head.gameObject.AddComponent<UnityEngine.UI.LayoutElement>().preferredHeight = 28 * lines.Count + 6;
+            // 0.92 Part D: a prize won is shown revealed
+            if (o != null && o.PrizeWon != null && !o.Testing) { var strip = PreviewStrip("Prize won", 2, 170); var p = VehicleProfile.Find(o.PrizeWon); PreviewCard(strip, p, SchemeOf(p.Id), false, "PRIZE WON: " + p.Name + "  ·  yours in the Garage", new Color(1, .82f, .35f), 330); }
             int n = 0;
             Row(n++, "campaign-continue", "CONTINUE", flow.QuitRace);
             var colors = buttons[0].colors; colors.normalColor = new(.1f, .38f, .35f); buttons[0].colors = colors;
@@ -261,6 +297,8 @@ namespace Racer
             ClearCore(cup.Name.ToUpperInvariant(), e.CourseTitle + "  ·  " + e.Conditions);
             var head = Label("Championship result", content, 22, 0); laterLayouts.Add(head.gameObject); head.transform.SetSiblingIndex(1);
             head.text = string.Join("\n", lines); head.color = new(.3f, .95f, .81f); head.gameObject.AddComponent<UnityEngine.UI.LayoutElement>().preferredHeight = 28 * lines.Count + 6;
+            // 0.92 Part D: the champion's paint scheme, shown on the championship vehicle
+            if (o != null && o.ChampionPaint && CampaignRun.Vehicle != null) { var strip = PreviewStrip("Champion's paint", 2, 170); PreviewCard(strip, VehicleProfile.Find(CampaignRun.Vehicle), VehiclePaint.Champion, false, "CHAMPION'S PAINT: yours for any vehicle (Garage > Colour)", new Color(1, .82f, .35f), 330); }
             int n = 0;
             bool more = progress != null && progress.active && progress.races.Count < cup.Rounds.Length;
             bool champion = o != null && o.CupFinished && cup.Grand && o.Won;

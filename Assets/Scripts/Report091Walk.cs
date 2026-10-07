@@ -14,13 +14,13 @@ namespace Racer {
 // LB / RB, Start), plus split-screen with a controller as player 1 and The Opening Jump on a copy of Dan's save.
 public sealed partial class Report080Checks {
  partial void Cases091(string[] a,ref IEnumerator run){
-  run=a[0] switch{"pausediag91"=>PauseDiag091(),"walk91"=>Walk091(),"campaignwalk91"=>CampaignWalk091(),"newplayer91"=>NewPlayer091(),"splitpad91"=>SplitPad091(),"jumpend91"=>JumpEnd091(a[1],a[2],a.Length>3&&a[3]=="menu"),"roam91"=>Roam091(),"runup91"=>RunUp091(),_=>null};}
+  run=a[0] switch{"pausediag91"=>PauseDiag091(),"walk91"=>Walk091(),"campaignwalk91"=>CampaignWalk091(),"newplayer91"=>NewPlayer091(),"splitpad91"=>SplitPad091(),"jumpend91"=>JumpEnd091(a[1],a[2],a.Length>3&&a[3]=="menu"),"roam91"=>Roam091(),"runup91"=>RunUp091(),_=>Run092(a)};}
  readonly List<string> walked=new();
  GameObject Sel91=>EventSystem.current?EventSystem.current.currentSelectedGameObject:null;
  string Sel91Name=>Sel91?Sel91.name:"(nothing)";
  // the menu's visible, usable rows, as drawn: top to bottom, then left to right
  List<UnityEngine.UI.Button> Rows091(){Canvas.ForceUpdateCanvases();var card=Menus089.transform;var menuCard=(RectTransform)typeof(RaceMenus).GetField("card",Any).GetValue(Menus089);
-  return FindObjectsByType<UnityEngine.UI.Button>(FindObjectsSortMode.None).Where(b=>b.gameObject.activeInHierarchy&&b.interactable&&b.transform.IsChildOf(menuCard)).OrderByDescending(b=>Mathf.Round(b.transform.position.y)).ThenBy(b=>b.transform.position.x).ToList();}
+  return FindObjectsByType<UnityEngine.UI.Button>(FindObjectsSortMode.None).Where(b=>b.gameObject.activeInHierarchy&&b.interactable&&b.transform.IsChildOf(menuCard)&&b.navigation.mode!=UnityEngine.UI.Navigation.Mode.None).OrderByDescending(b=>Mathf.Round(b.transform.position.y)).ThenBy(b=>b.transform.position.x).ToList();}
  IEnumerator Settle091(){yield return null;yield return null;yield return new WaitForSecondsRealtime(.15f);}
  IEnumerator Press091(GamepadButton b){if(b==GamepadButton.Start)yield return new WaitForSecondsRealtime(.5f);yield return Tap091(b);yield return Settle091();}
  // Down through every row (rows + 1 presses): every row reached, focus never lost; ordered = each press moves to the next

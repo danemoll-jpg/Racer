@@ -1,0 +1,52 @@
+---- save92
+PASS Dan's save copy: the Forest Final passed, so the Pebble Coupe is granted (owned [original,atv,moto,pebble]); money unchanged $22,630 (he never bought it); notice: Prize for passing the Forest Final: the Pebble Coupe
+PASS loading never writes: the file is still version 2
+PASS the main menu shows it once: 'CAMPAIGN UPDATED' with one OK row
+PASS A on OK closes it and writes the save (version 3, Pebble Coupe owned, money $22,630), so it is said once
+PASS loading again: nothing more to say
+PASS every chapter final awards a vehicle: Street Loop Final > Needle 600, Forest Final > Pebble Coupe, Backyard Final > Ridge Scrambler, Summit Final > Highball Fastback
+PASS the Shop sells four: Sundown Roadster $7,000, Skyfin Cruiser $8,000, Longroof GT $10,000, Drifter Twin $16,000
+FAIL campaign screen, Forest Final highlighted: the prize beside the map '' (won, shown)
+FAIL campaign screen, Backyard Final highlighted: the prize beside the map '' (a silhouette until won)
+FAIL campaign screen, Summit Final highlighted: the prize beside the map '' (a silhouette until won)
+PASS the Backyard Final's page: the Ridge Scrambler as a PRIZE card (silhouette)
+---- prize92
+PASS 2nd in the Forest Final: passed, the Pebble Coupe won (Championship: Woodland Cup; Vehicle: Pebble Coupe); bonus 0 (first win only)
+PASS a 0.91 save that bought it: $1,000 > $7,000, still owned; 'Pebble Coupe is now a prize: the $6,000 you paid is refunded'
+PASS the champion's paint is not offered before the Grand Championship is won
+---- pick92
+  Dan's save copy loaded: money 22630, chapter 3, owned [original,atv,moto,pebble], error none
+PASS Continue: the next event's page (c3-backyard-dash)
+PASS the event page shows the chosen vehicle as a small preview (Needle 600)
+PASS A on the vehicle row: the garage view
+FAIL vehicle choice (garage view): 9 rows [Previous value, pick-vehicle, Next value, Previous value, pick-colour, Next value, pick-use, pick-shop, pick-back]; reached all False MISSED Previous value,Next value,Previous value,Next value, focus kept True, in drawn order False (pick-vehicle>pick-colour>pick-use>pick-shop>pick-back>pick-vehicle>pick-colour>pick-use>pick-shop), structural check clean
+PASS right: the next owned vehicle (moto > atv), its stats and preview
+  Trail Four: 'USE THIS VEHICLE', usable True
+PASS Shop… from the garage view: the Shop
+PASS B from that Shop: back to the garage view (Ready / 'vehicle-pick')
+PASS USE THIS VEHICLE: back to the event page with the Trail Four
+  waiting: scene DansBackyardForward, flow yes, started True, holding False, state Countdown, timeScale 1, campaign c3-backyard-dash pending False
+  running after 7 s: state Racing, campaign c3-backyard-dash
+PASS the event runs in the Trail Four
+PASS left from the pause menu: the campaign screen ('campaign')
+PASS First Lap's page opens on the vehicle last driven: Trail Four
+---- splitpick92
+  Dan's save copy loaded: money 22630, chapter 3, owned [original,atv,moto,pebble], error none
+PASS the setup screen shows both players' vehicles as previews
+PASS A on VEHICLES AND COLOURS: the players' garages
+PASS player 1's pad: right the vehicle (original > tourer), down the colour (Red > Gold); player 2's unchanged
+PASS A: player 1 ready, now the AI's half
+PASS player 1 chooses the AI's vehicle too (atv > roadster)
+FAIL A: both chosen, back to the setup
+FAIL A on a second controller: player 2 joins
+FAIL D-pad could not reach 'split-vehicles' (focus on (nothing), page 'split-garage')
+PASS the players' garages, two players
+FAIL both at once: player 1 right (tourer > moto), player 2 left (roadster > roadster)
+PASS player 2 ready (A on its controller)
+FAIL player 2's B takes its ready back, the screen stays
+FAIL both ready: back to the setup
+---- noacycle92
+  Dan's save copy loaded: money 22630, chapter 3, owned [original,atv,moto,pebble], error none
+FAIL D-pad could not reach 'race' (focus on ok, page '')
+PASS Race Setup: 0 value rows, A changed none; right changed 0 ()
+FAIL D-pad could not reach 'opponents' (focus on split, page '')

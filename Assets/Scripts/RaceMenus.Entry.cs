@@ -137,16 +137,7 @@ namespace Racer
         }
         void ConfigureCoreFocus()
         {
-            if(flow.State==RaceFlow.Stage.Garage&&page!="rider"&&page!="shop"){
-                var profiles=buttons.Take(4).Where(b=>b.gameObject.activeSelf).ToArray();
-                var chosen=swatches[Mathf.Clamp(flow.SelectedColor,0,swatches.Count-1)];
-                // The Model row (0.73) and the Rider row (0.75) sit between the swatches and Done, in that order.
-                var rows=new[]{5,6,7}.Where(i=>buttons.Count>i&&buttons[i].gameObject.activeSelf).Select(i=>buttons[i]).ToList();var below=rows.Count>0?rows[0]:buttons[4];
-                for(int i=0;i<swatches.Count;i++){var nav=swatches[i].navigation;nav.selectOnUp=profiles.Last();nav.selectOnDown=below;swatches[i].navigation=nav;}
-                var last=profiles.Last().navigation;last.selectOnDown=chosen;profiles.Last().navigation=last;
-                for(int i=0;i<rows.Count;i++){var m=rows[i].navigation;m.selectOnUp=i==0?chosen:rows[i-1];m.selectOnDown=i+1<rows.Count?rows[i+1]:buttons[4];rows[i].navigation=m;}
-                var back=buttons[4].navigation;back.selectOnUp=rows.Count==0?chosen:rows[^1];buttons[4].navigation=back;
-            }
+            // 0.92 Part C: the garage's rows (vehicle, colour, model, rider, shop, done) follow the drawn order like every page
             if(page!="keyboard")return;
             for(int i=Keys.Length;i<=Keys.Length+6;i++){
                 var nav=buttons[i].navigation;nav.selectOnLeft=buttons[Math.Max(Keys.Length,i-1)];nav.selectOnRight=buttons[Math.Min(Keys.Length+6,i+1)];nav.selectOnUp=buttons[Math.Max(0,i-4)];nav.selectOnDown=buttons[Math.Min(Keys.Length+6,i+4)];buttons[i].navigation=nav;

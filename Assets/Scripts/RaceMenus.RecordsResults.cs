@@ -44,7 +44,7 @@ namespace Racer
             if(recordTrack<0||recordTrack>=RacePlaylists.Titles.Length||(flow.TrackBrowsingLocked&&RacePlaylists.Titles[recordTrack]!=TrackTitle(flow.Race.Category)))ChooseRecordTrack();
             ClearCore("RECORDS","");TabRow(new[]{"LAP","RACE","SPEED TRAPS","JUMPS","GHOST"},recordTab,i=>{recordTab=i;activityKey="";Show();});int row=5;
             int backRow=row;Row(row++,"back","Back",flow.CloseExtras);
-            if(recordTab==4){details.gameObject.SetActive(true);details.text="Race your best compatible clean lap.\n"+flow.Ghost.Status+"\nNo resets, teleports or missed gates. Legal shortcuts qualify.";details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=120;Row(row,"ghost",flow.Ghost.Enabled?"Ghost: On":"Ghost: Off",flow.ToggleGhost);return;}
+            if(recordTab==4){details.gameObject.SetActive(true);details.text="Race your best compatible clean lap.\n"+flow.Ghost.Status+"\nNo resets, teleports or missed gates. Legal shortcuts qualify.";details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=120;Toggle(row,"ghost","Ghost",flow.Ghost.Enabled,flow.ToggleGhost);return;}
             if(recordTab<2)
             {
                 bool race=recordTab==1;string track=RacePlaylists.Titles[recordTrack].Replace(" - "," — ");

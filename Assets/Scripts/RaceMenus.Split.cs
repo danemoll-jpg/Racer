@@ -37,12 +37,7 @@ namespace Racer
             if (SplitScreen.P2Device != null && !SplitScreen.P2Device.added) { SplitScreen.P2Device = null; SplitScreen.P2Ai = true; Show(); return; }
             foreach (var pad in Gamepad.all) if (!Assigned(pad) && (pad.buttonSouth.wasPressedThisFrame || pad.startButton.wasPressedThisFrame)) { Join(pad); return; }
             var k = Keyboard.current; if (k != null && !Assigned(k) && (k.enterKey.wasPressedThisFrame || k.numpadEnterKey.wasPressedThisFrame)) { Join(k); return; }
-            if (SplitScreen.P2Ai || SplitScreen.P2Device == null) return;
-            int dx = 0, dy = 0;
-            if (SplitScreen.P2Device is Gamepad g) { dx = g.dpad.right.wasPressedThisFrame ? 1 : g.dpad.left.wasPressedThisFrame ? -1 : 0; dy = g.dpad.up.wasPressedThisFrame ? 1 : g.dpad.down.wasPressedThisFrame ? -1 : 0; }
-            else if (SplitScreen.P2Device is Keyboard kb) { dx = kb.rightArrowKey.wasPressedThisFrame ? 1 : kb.leftArrowKey.wasPressedThisFrame ? -1 : 0; dy = kb.upArrowKey.wasPressedThisFrame ? 1 : kb.downArrowKey.wasPressedThisFrame ? -1 : 0; }
-            if (dx != 0) { SplitScreen.P2Vehicle = NextSplitVehicle(SplitScreen.P2Vehicle, dx); flow.Click(); Show(); }
-            else if (dy != 0) { SplitScreen.P2Color = (SplitScreen.P2Color + dy + VehiclePaint.Colors.Length) % VehiclePaint.Colors.Length; flow.Click(); Show(); }
+            // 0.92 Part B: the vehicles and colours are chosen in the players' garages (Vehicles and colours…)
         }
         void Join(InputDevice d)
         {
@@ -63,30 +58,30 @@ namespace Racer
         }
         // While the setup screen is up only player 1's device (and the mouse with the keyboard) works it.
         bool splitSetupDevices;
-        public bool SplitSetupOpen => flow.State == RaceFlow.Stage.Ready && page == "split" && modalConfirm == null;
+        public bool SplitSetupOpen => flow.State == RaceFlow.Stage.Ready && (page == "split" || page == "split-garage") && modalConfirm == null;
         void SplitSetupDevices()
         {
-            bool setup = flow.State == RaceFlow.Stage.Ready && page == "split";
+            bool setup = flow.State == RaceFlow.Stage.Ready && (page == "split" || page == "split-garage");
             if (setup) { var p1 = SplitScreen.P1Device; RestrictMenuDevices(p1 != null && p1.added ? p1 : null); splitSetupDevices = true; }
             else if (splitSetupDevices) { splitSetupDevices = false; if (!SplitScreen.Race) RestrictMenuDevices(); }
         }
         void RenderSplit()
         {
             ClearCore("SPLIT SCREEN", "Two players, one race on this PC: everything is unlocked and every vehicle is stock.\nLeft / right on a player's row changes their device; A or Start on another controller, or Enter, joins it.");
+            if (SplitScreen.P1Color > VehiclePaint.Count - 1) SplitScreen.P1Color = 2; if (SplitScreen.P2Color > VehiclePaint.Count - 1) SplitScreen.P2Color = 2;
             details.fontSize = 18; details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight = 54;
             var vehicles = SplitScreen.Vehicles; int n = 0;
             string Vehicle(string id) { var p = VehicleProfile.Find(id); return $"{p.Name} ({p.Class})"; }
-            string Next(string id, int d) => NextSplitVehicle(id, d);
-            int Colour(int c, int d) => (c + d + VehiclePaint.Colors.Length) % VehiclePaint.Colors.Length;
             string Joins(InputDevice d) => d is Gamepad ? "   (A on another controller joins it)" : "";
             Step(n++, "split-p1", "Player 1:   " + (SplitScreen.P1Device == null ? "press A on a controller, or Enter" : SplitScreen.DeviceName(SplitScreen.P1Device) + "   ✓"), d => CycleSlot(1, d));
-            Step(n++, "split-p2", "Player 2:   " + (SplitScreen.P2Ai ? "the race AI drives" + Joins(SplitScreen.P1Device) : SplitScreen.P2Device != null ? SplitScreen.DeviceName(SplitScreen.P2Device) + "   ✓   (its ← → vehicle, ↑ ↓ colour)" : "press A on another controller, or Enter on the keyboard"), d => CycleSlot(2, d));
-            Row(n++, "split-ai", "Player 2: AI driver:   " + (SplitScreen.P2Ai ? "On" : "Off") + "   (play alone and test)", () => { SplitScreen.P2Ai = !SplitScreen.P2Ai; flow.Click(); Show(); });
+            Step(n++, "split-p2", "Player 2:   " + (SplitScreen.P2Ai ? "the race AI drives" + Joins(SplitScreen.P1Device) : SplitScreen.P2Device != null ? SplitScreen.DeviceName(SplitScreen.P2Device) + "   ✓" : "press A on another controller, or Enter on the keyboard"), d => CycleSlot(2, d));
+            Toggle(n++, "split-ai", "Player 2: AI driver", SplitScreen.P2Ai, () => { SplitScreen.P2Ai = !SplitScreen.P2Ai; flow.Click(); Show(); });
             if (SplitScreen.P2Device != null && !SplitScreen.P2Ai) Row(n++, "split-swap", "Swap the players' devices", () => { (SplitScreen.P1Device, SplitScreen.P2Device) = (SplitScreen.P2Device, SplitScreen.P1Device); flow.Click(); Show(); });
-            Step(n++, "split-v1", "Player 1 vehicle:   " + Vehicle(SplitScreen.P1Vehicle), d => { SplitScreen.P1Vehicle = Next(SplitScreen.P1Vehicle, d); flow.Click(); Show(); });
-            Step(n++, "split-c1", "Player 1 colour:   " + VehiclePaint.Names[SplitScreen.P1Color], d => { SplitScreen.P1Color = Colour(SplitScreen.P1Color, d); flow.Click(); Show(); });
-            Step(n++, "split-v2", "Player 2 vehicle:   " + Vehicle(SplitScreen.P2Vehicle), d => { SplitScreen.P2Vehicle = Next(SplitScreen.P2Vehicle, d); flow.Click(); Show(); });
-            Step(n++, "split-c2", "Player 2 colour:   " + VehiclePaint.Names[SplitScreen.P2Color], d => { SplitScreen.P2Color = Colour(SplitScreen.P2Color, d); flow.Click(); Show(); });
+            // 0.92 Part B: the vehicles and colours are chosen in each player's garage view; both are shown here
+            Row(n, "split-vehicles", "VEHICLES AND COLOURS…   (each player's garage)", OpenSplitPick); int vehiclesRow = n++;
+            var strip = PreviewStrip("Players' vehicles", buttons[vehiclesRow].transform.GetSiblingIndex() + 1);
+            PreviewCard(strip, VehicleProfile.Find(SplitScreen.P1Vehicle), SplitScreen.P1Color, false, "Player 1: " + Vehicle(SplitScreen.P1Vehicle) + " · " + VehiclePaint.Name(SplitScreen.P1Color), new Color(.3f, .95f, .81f), 300);
+            PreviewCard(strip, VehicleProfile.Find(SplitScreen.P2Vehicle), SplitScreen.P2Color, false, (SplitScreen.P2Ai ? "Player 2 (AI): " : "Player 2: ") + Vehicle(SplitScreen.P2Vehicle) + " · " + VehiclePaint.Name(SplitScreen.P2Color), new Color(1, .74f, .25f), 300);
             var order = RacePlaylists.DisplayOrder.ToArray();
             Step(n++, "split-course", "Course:   " + RacePlaylists.Titles[SplitScreen.Course].Replace(" - ", " — "), d => { int i = System.Array.IndexOf(order, SplitScreen.Course); SplitScreen.Course = order[((i < 0 ? 0 : i) + d + order.Length) % order.Length]; flow.Click(); Show(); });
             Step(n++, "split-laps", "Laps:   " + SplitScreen.Laps, d => { SplitScreen.Laps = Mathf.Clamp(SplitScreen.Laps + d, 1, 5); flow.Click(); Show(); });
@@ -143,6 +138,7 @@ namespace Racer
             ReadOnlyArray<InputDevice>? only = null;
             var list = (devices ?? new InputDevice[0]).Where(d => d != null && d.added).Distinct().ToList();
             if (list.Count > 0) { if (list.Any(d => d is Keyboard) && Mouse.current != null) list.Add(Mouse.current); only = new ReadOnlyArray<InputDevice>(list.ToArray()); }
+            menuDevices = only?.ToArray();
             if (ownedUiActions) ownedUiActions.devices = only;
             if (menuActions) menuActions.devices = only;
         }

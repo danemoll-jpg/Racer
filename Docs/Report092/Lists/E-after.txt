@@ -1,0 +1,13 @@
+---- unlock92
+Testing on: every vehicle and course
+---- surface92:ForestLoopReverse:1490:1530:5
+ForestLoopReverse main 1490-1530 m, ±5 m: 41 finds; worst: kink 6.4 cm at s 1490.5 lat +4.50 ((157.46, 45.95, 282.50)) on Ground_400_480 | kink 6.4 cm at s 1490.5 lat +4.75 ((157.52, 45.95, 282.25)) on Ground_400_480 | kink 6.4 cm at s 1490.5 lat +4.25 ((157.41, 45.95, 282.74)) on Ground_400_480 | kink 6.3 cm at s 1490.5 lat +4.00 ((157.35, 45.96, 282.98)) on Ground_400_480 | kink 6.3 cm at s 1490.5 lat +5.00 ((157.58, 45.95, 282.01)) on Ground_400_480 | kink 6.3 cm at s 1490.5 lat +3.75 ((157.30, 45.95, 283.23)) on Ground_400_480 | kink 6.3 cm at s 1490.5 lat +3.25 ((157.18, 45.95, 283.71)) on Ground_400_480 | kink 6.3 cm at s 1490.5 lat +3.50 ((157.24, 45.95, 283.47)) on Ground_400_480 | kink 6.3 cm at s 1490.5 lat +3.00 ((157.13, 45.95, 283.96)) on Ground_400_480 | kink 6.3 cm at s 1490.5 lat +2.75 ((157.07, 45.95, 284.20)) on Ground_400_480 | kink 6.3 cm at s 1490.5 lat +2.50 ((157.02, 45.95, 284.44)) on Ground_400_480 | kink 6.3 cm at s 1490.5 lat +1.75 ((156.85, 45.95, 285.18)) on Ground_400_480 | kink 6.3 cm at s 1490.5 lat +2.00 ((156.90, 45.95, 284.93)) on Ground_400_480 | kink 6.3 cm at s 1490.5 lat +2.25 ((156.96, 45.95, 284.69)) on Ground_400_480 | kink 6.3 cm at s 1490.5 lat +1.50 ((156.79, 45.95, 285.42)) on Ground_400_480
+---- wide85:ForestLoopReverse:moto:1400:1580:30:-2.5,0,2.5
+PASS ForestLoopReverse moto main 1400->1580 at 30 m/s, -2.5 m off the centre: through, resets 0, max air 1.36s, min up 0.97, max jolt 223 m/s² at 114.8,40.63,279.8
+PASS ForestLoopReverse moto main 1400->1580 at 30 m/s, +0.0 m off the centre: through, resets 0, max air 1.36s, min up 0.91, max jolt 268 m/s² at 115.8,40.68,277.6
+PASS ForestLoopReverse moto main 1400->1580 at 30 m/s, +2.5 m off the centre: through, resets 0, max air 1.36s, min up 0.97, max jolt 262 m/s² at 116.9,40.74,275.3
+---- wide85:ForestLoopReverse:moto:1470:1580:38:0
+PASS ForestLoopReverse moto main 1470->1580 at 38 m/s, +0.0 m off the centre: through, resets 0, max air 0.18s, min up 0.99, max jolt 58 m/s² at 220.4,53.27,295.4
+---- carrace:ForestLoopReverse:moto:tourer,atv,scrambler:2
+PASS ForestLoopReverse player moto vs tourer/atv/scrambler: PLAYER moto: 01:12.293 missed 0 resets 0 longest stall 1s shortcuts []; EMBER tourer: 01:13.121 missed 0 resets 0 longest stall 1s shortcuts []; GOLD atv: 01:07.838 missed 0 resets 0 longest stall 1s shortcuts [Fern Gully]; BLUE scrambler: 01:04.316 missed 0 resets 0 longest stall 1s shortcuts [Fern Gully]
+done, failures 0

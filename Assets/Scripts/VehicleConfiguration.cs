@@ -25,9 +25,10 @@ namespace Racer
         readonly List<Transform> wheels = new();
         float roll, crashUntil;
         float overturned, upright;
-        Color? selectedPaint;
-        public void SetBodyColor(int index) { if(index>=0 && index<VehiclePaint.Colors.Length) SetPaint(VehiclePaint.Colors[index]); }
-        public void SetPaint(Color color) { selectedPaint=color; VehiclePaint.Apply(transform,color); }
+        Color? selectedPaint; int selectedScheme=-1;
+        // 0.92 Part D: an index past the plain colours is the champion's scheme (gold with a number roundel)
+        public void SetBodyColor(int index) { if(index>=0 && index<=VehiclePaint.Champion) { SetPaint(VehiclePaint.Of(index)); selectedScheme=index; VehiclePaint.Scheme(transform,index); } }
+        public void SetPaint(Color color) { selectedPaint=color; selectedScheme=-1; VehiclePaint.Apply(transform,color); VehiclePaint.Roundel(transform,false); }
         public bool WipedOut => Time.time < crashUntil;
         public int VehicleContactEvents { get; private set; }
         public void Recover() { crashUntil=0; overturned=upright=0; }
@@ -57,7 +58,7 @@ namespace Racer
             }
             JsonUtility.FromJsonOverwrite(originalMotor, motor);
             profileId = VehicleProfile.Find(id).Id;
-            selectedPaint=null; UpgradeScale=new float[]{1,1,1,1};
+            selectedPaint=null; selectedScheme=-1; VehiclePaint.Roundel(transform,false); UpgradeScale=new float[]{1,1,1,1};
             foreach(var renderer in GetComponentsInChildren<Renderer>(true))
                 if(VehiclePaint.IsBodyPaint(renderer.sharedMaterial)) renderer.SetPropertyBlock(null);
             var p = Profile;
@@ -121,7 +122,7 @@ namespace Racer
         public void BuildPreview(Transform parent)
         {
             VehicleVisual.Build(parent,Profile,null,riderLook,classicVisual);
-            if(selectedPaint.HasValue) VehiclePaint.Apply(parent,selectedPaint.Value);
+            if(selectedScheme>=0) VehiclePaint.Scheme(parent,selectedScheme); else if(selectedPaint.HasValue) VehiclePaint.Apply(parent,selectedPaint.Value);
         }
         void OnCollisionEnter(Collision collision)
         {

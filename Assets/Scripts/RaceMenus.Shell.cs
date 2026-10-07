@@ -41,6 +41,7 @@ namespace Racer
         public bool BackPage()
         {
             if(modalConfirm!=null){modalConfirm=null;MenuInput.ConsumeThroughRelease();Show();return true;}
+            if(SplitPickBack())return true;
             if(LaterBack())return true;
             if(flow.State==RaceFlow.Stage.Ready&&page=="race"&&flow.SetupFromResults){flow.PopMenu();return true;}
             if(page=="folder"){FolderBack();return true;}
@@ -81,7 +82,9 @@ namespace Racer
             previousTab=new InputAction("Previous category",InputActionType.Button,"<Keyboard>/q");previousTab.AddBinding("<Gamepad>/leftShoulder");previousTab.Enable();
             deleteAction=new InputAction("Delete",InputActionType.Button,"<Keyboard>/backspace");deleteAction.AddBinding("<Gamepad>/buttonWest");deleteAction.Enable();
             spaceAction=new InputAction("Space",InputActionType.Button,"<Keyboard>/space");spaceAction.AddBinding("<Gamepad>/buttonNorth");spaceAction.Enable();
-            adjustAction=new InputAction("Adjust",InputActionType.Value);adjustAction.AddCompositeBinding("1DAxis").With("Negative","<Keyboard>/leftArrow").With("Positive","<Keyboard>/rightArrow");adjustAction.AddBinding("<Gamepad>/dpad/x");adjustAction.Enable();
+            adjustAction=new InputAction("Adjust",InputActionType.Value);adjustAction.AddCompositeBinding("1DAxis").With("Negative","<Keyboard>/leftArrow").With("Positive","<Keyboard>/rightArrow");adjustAction.AddBinding("<Gamepad>/dpad/x");
+            // 0.92 Part C: the left stick and A / D change a value too
+            adjustAction.AddCompositeBinding("1DAxis").With("Negative","<Keyboard>/a").With("Positive","<Keyboard>/d");adjustAction.AddBinding("<Gamepad>/leftStick/x");adjustAction.Enable();
             card.sizeDelta=new Vector2(1020,656);
             card.GetComponent<UnityEngine.UI.VerticalLayoutGroup>().enabled=false;
             title.transform.SetParent(card,false);title.rectTransform.anchorMin=new(0,1);title.rectTransform.anchorMax=new(1,1);title.rectTransform.pivot=new(.5f,1);title.rectTransform.sizeDelta=new(-64,50);title.rectTransform.anchoredPosition=new(0,-20);
@@ -98,7 +101,9 @@ namespace Racer
             help.gameObject.SetActive(false);
             var footer=Rect("Context actions",card);footer.anchorMin=new(0,0);footer.anchorMax=new(1,0);footer.pivot=new(.5f,0);footer.sizeDelta=new(-64,48);footer.anchoredPosition=new(0,16);
             var row=footer.gameObject.AddComponent<UnityEngine.UI.HorizontalLayoutGroup>();row.spacing=16;row.childControlWidth=true;row.childControlHeight=false;row.childForceExpandWidth=false;
-            AddPrompt(footer,submit,"Select","");AddPrompt(footer,cancelAction,"Back","");AddPrompt(footer,uiModule.move.action,"Navigate","");AddPrompt(footer,tabsAction,"Next tab","");
+            AddPrompt(footer,submit,"Select","");AddPrompt(footer,cancelAction,"Back","");AddPrompt(footer,NavigateAction,"Navigate","");AddPrompt(footer,tabsAction,"Next tab","");
+            // 0.92 Part C: on a value row the footer leads with how to change it
+            AddPrompt(footer,null,"Change","");prompts[^1].glyph.transform.parent.SetAsFirstSibling();
         }
         void AddPrompt(Transform parent,InputAction action,string label,string fallback)
         {
@@ -115,14 +120,21 @@ namespace Racer
             foreach(var row in bindingRows){string path=row.action!=null?MenuInput.Binding(row.action):MenuInput.Controller?row.pad:row.keyboard;row.glyph.SetPath(path);row.key.text=MenuGlyph.Label(path);}
             if(uiModule&&flow.State!=RaceFlow.Stage.Title)uiModule.enabled=!MenuInput.UiBlocked;
             if(EventSystem.current)EventSystem.current.sendNavigationEvents=!MenuInput.UiBlocked&&(DeveloperLocationHud.Interactive||flow.GetComponent<ExplorationMap>()?.OwnsInput!=true);
+            // 0.92 Part A: while a menu page is up the menu moves the focus itself (RaceMenus.Navigation), one row per press;
+            // the UI module keeps A / B (submit) and only its own move input is set aside
+            ModuleMove(!OwnsNavigation);
+            UpdateFocusFrame();
+            int focusRow=FocusedRow;bool valueRow=flow.MenuVisible&&adjustments.ContainsKey(focusRow),listRow=valueRow&&listRows.Contains(focusRow);
             for(int pi=0;pi<prompts.Count;pi++)
             {
                 var p=prompts[pi];
+                if(pi==4){p.glyph.transform.parent.gameObject.SetActive(valueRow&&page!="keyboard");string change=MenuInput.Controller?"<Gamepad>/dpad":"<Keyboard>/leftRight";p.glyph.SetPath(change);p.key.text=MenuGlyph.Label(change);continue;}
                 bool keyboard=page=="keyboard";bool tabs=(flow.State==RaceFlow.Stage.Settings&&page.StartsWith("settings"))||(page==""&&(flow.State==RaceFlow.Stage.Boards||flow.State==RaceFlow.Stage.Activities||flow.State==RaceFlow.Stage.Results));bool playlist=flow.State==RaceFlow.Stage.Playlists&&page==""&&playlistDraft!=null;
                 bool garage=garageView&&!keyboard;
-                p.glyph.transform.parent.gameObject.SetActive(pi<3||keyboard||tabs||playlist||garage);
+                p.glyph.transform.parent.gameObject.SetActive((pi<3||keyboard||tabs||playlist||garage)&&!(pi==0&&valueRow&&!listRow));
+                if(pi==0)p.label.text=listRow?"Choose…":"Select";
                 if(pi==1)p.label.text=flow.State==RaceFlow.Stage.Results?"Main Menu":"Back";
-                if(pi==2){p.action=keyboard?deleteAction:playlist?playlistAdd:tabs?previousTab:uiModule.move.action;p.label.text=keyboard?"Delete":playlist?"Add Race":tabs?"Previous tab":"Navigate";}
+                if(pi==2){p.action=keyboard?deleteAction:playlist?playlistAdd:tabs?previousTab:NavigateAction;p.label.text=keyboard?"Delete":playlist?"Add Race":tabs?"Previous tab":"Navigate";}
                 if(pi==3){p.action=keyboard?spaceAction:playlist?playlistContext:tabsAction;p.label.text=keyboard?"Space":playlist?"Actions":"Next tab";}
                 string path=p.action!=null?MenuInput.Binding(p.action):MenuInput.Controller?p.fallback:"<Keyboard>/arrows";
                 // 0.76 garage: the preview turns with the right stick, Q / E or a mouse drag.
@@ -159,32 +171,58 @@ namespace Racer
         void UpdateCore()
         {
             if(MenuInput.Blocked||flow.GetComponent<ExplorationMap>()?.OwnsInput==true)return;
+            UpdateNavigation();
             UpdateFolder();UpdateKeyboard();UpdateLater();
             if(!flow.MenuVisible||modalConfirm!=null||page=="keyboard")return;
+            // 0.92 Part D: what loading the campaign save granted (prize vehicles, a refund), said once
+            if(Campaign.LoadNotice!=null&&flow.State==RaceFlow.Stage.Ready&&(page==""||page=="campaign")){var notice=Campaign.LoadNotice;Campaign.LoadNotice=null;Confirm("CAMPAIGN UPDATED",notice+"\nEvery chapter final now awards a vehicle.",Campaign.NoticeSeen,null);return;}
             if(flow.State==RaceFlow.Stage.Settings&&page.StartsWith("settings"))
             {
                 var k=Keyboard.current;var g=Gamepad.current;
                 int d=tabsAction.WasPressedThisFrame()?1:previousTab.WasPressedThisFrame()?-1:0;
                 if(d!=0){string[] cats={"settings-gameplay","settings-audio","settings-display","settings-controls"};int i=Array.IndexOf(cats,page);page=cats[(i+d+4)%4];Show();MenuInput.ConsumeThroughRelease();return;}
             }
-            if(adjustAction.WasPressedThisFrame())
-            {
-                int i=buttons.FindIndex(b=>EventSystem.current.currentSelectedGameObject==b.gameObject);
-                if(adjustments.TryGetValue(i,out var change)){change(adjustAction.ReadValue<float>()<0?-1:1);MenuInput.ConsumeThroughRelease();}
-            }
+            UpdateAdjust();
         }
         void ClearCore(string heading,string summary)
         {
-            foreach(var b in buttons)b.gameObject.SetActive(false);adjustments.Clear();
+            foreach(var b in buttons)b.gameObject.SetActive(false);adjustments.Clear();listRows.Clear();
             title.text=heading;details.text=summary;details.fontSize=20;details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=string.IsNullOrEmpty(summary)?0:Mathf.Min(200,30*(summary.Count(c=>c=='\n')+1));
             details.gameObject.SetActive(!string.IsNullOrEmpty(summary));
-            foreach(var b in buttons){var colors=b.colors;colors.normalColor=new(.10f,.20f,.25f);b.colors=colors;b.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=44;var label=b.GetComponentInChildren<UnityEngine.UI.Text>(true);label.alignment=TextAnchor.MiddleLeft;label.fontSize=21;label.color=Color.white;}
+            foreach(var b in buttons){var colors=b.colors;colors.normalColor=new(.10f,.20f,.25f);b.colors=colors;b.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=44;var label=b.GetComponentInChildren<UnityEngine.UI.Text>(true);label.alignment=TextAnchor.MiddleLeft;label.fontSize=21;label.color=Color.white;label.resizeTextForBestFit=false;label.horizontalOverflow=HorizontalWrapMode.Wrap;}
         }
         void Row(int index,string id,string label,Action callback){
             EnsureRows(index+1);var button=buttons[index];button.gameObject.SetActive(true);button.name=id;button.GetComponentInChildren<UnityEngine.UI.Text>(true).text=label;
             var entry=registry.Register(id,label,submit,callback,()=>button.interactable);button.onClick.RemoveAllListeners();button.onClick.AddListener(()=>entry.Execute());
         }
-        void Step(int index,string id,string label,Action<int> change){Row(index,id,"‹   "+label+"   ›",()=>change(1));adjustments[index]=change;}
+        // 0.92 Part C: one way to choose everywhere. A row that holds a value shows it as ‹ value › and is changed with left /
+        // right (D-pad or stick, A / D or the arrow keys, or the arrows clicked with the mouse), held to repeat. A never steps
+        // it: A only opens a list to pick from where the row has one (open), else does nothing.
+        readonly HashSet<int> listRows=new();
+        void Step(int index,string id,string label,Action<int> change,Action open=null)
+        {
+            Row(index,id,label,open??(()=>{}));adjustments[index]=change;if(open!=null)listRows.Add(index);
+            var row=buttons[index];var text=row.GetComponentInChildren<UnityEngine.UI.Text>(true);text.rectTransform.offsetMin=new(58,0);text.rectTransform.offsetMax=new(-58,0);
+            text.resizeTextForBestFit=true;text.resizeTextMinSize=14;text.resizeTextMaxSize=Mathf.Max(14,text.fontSize);
+            for(int side=-1;side<=1;side+=2){int d=side;var r=Rect(d<0?"Previous value":"Next value",row.transform);r.anchorMin=r.anchorMax=r.pivot=new(d<0?0:1,.5f);r.anchoredPosition=Vector2.zero;r.sizeDelta=new(52,0);r.anchorMin=new(d<0?0:1,0);r.anchorMax=new(d<0?0:1,1);
+                var image=r.gameObject.AddComponent<UnityEngine.UI.Image>();image.color=new(1,1,1,.001f);var arrow=r.gameObject.AddComponent<UnityEngine.UI.Button>();arrow.targetGraphic=image;arrow.navigation=new UnityEngine.UI.Navigation{mode=UnityEngine.UI.Navigation.Mode.None};
+                arrow.onClick.AddListener(()=>{if(MenuInput.Blocked)return;change(d);});var glyph=Label("Arrow",r,30,0);Stretch(glyph.rectTransform,0,0,0,0);glyph.alignment=TextAnchor.MiddleCenter;glyph.text=d<0?"‹":"›";glyph.color=new(.55f,1,.9f);tableCells.Add(r.gameObject);}
+        }
+        // An On / Off row (a value: left / right flips it).
+        void Toggle(int index,string id,string label,bool on,Action flip)=>Step(index,id,label+":   "+(on?"On":"Off"),d=>flip());
+        float adjustNext;int adjustHeld;
+        // the menus answer only these devices while split-screen restricts them (null = every device)
+        InputDevice[] menuDevices;
+        int FocusedRow=>EventSystem.current?buttons.FindIndex(b=>EventSystem.current.currentSelectedGameObject==b.gameObject):-1;
+        void UpdateAdjust()
+        {
+            float v=adjustAction.ReadValue<float>();int dir=v>.5f?1:v<-.5f?-1:0;
+            if(dir!=0&&menuDevices!=null&&adjustAction.activeControl!=null&&!menuDevices.Contains(adjustAction.activeControl.device))dir=0;
+            if(dir==0){adjustHeld=0;return;}
+            bool first=dir!=adjustHeld;if(!first&&Time.unscaledTime<adjustNext)return;
+            adjustHeld=dir;adjustNext=Time.unscaledTime+(first?.42f:.11f);
+            if(adjustments.TryGetValue(FocusedRow,out var change)){change(dir);if(first)MenuInput.ConsumeThroughRelease();}
+        }
         // 0.76: the preview has its own fixed panel (RaceMenus.GaragePreview); the list reads: description, the vehicles,
         // colours, Model, Rider..., Back.
         void LayoutGarage()
@@ -193,6 +231,7 @@ namespace Racer
             details.transform.SetSiblingIndex(0);int at=1;
             for(int i=0;i<4;i++)if(buttons[i].gameObject.activeSelf){buttons[i].transform.SetSiblingIndex(at++);buttons[i].name="profile-"+i;}
             if(statBlock&&statBlock.gameObject.activeSelf)statBlock.SetSiblingIndex(at++);
+            if(buttons.Count>8&&buttons[8].gameObject.activeSelf)buttons[8].transform.SetSiblingIndex(at++);
             swatchRow.SetSiblingIndex(at++);
             if(buttons.Count>5&&buttons[5].gameObject.activeSelf)buttons[5].transform.SetSiblingIndex(at++);
             if(buttons.Count>6&&buttons[6].gameObject.activeSelf)buttons[6].transform.SetSiblingIndex(at++);
@@ -214,7 +253,7 @@ namespace Racer
                 Row(0,"randomize","Randomize",flow.RandomizeRider);Row(1,"rider-back","Back",()=>BackPage());
                 for(int i=0;i<RiderLook.Fields;i++){int field=i;Step(2+i,"rider-"+i,look.Label(i),d=>flow.StepRider(field,d));}
             }
-            else{Row(0,"model","Model: "+flow.ModelLabel+"   (Classic / New)",flow.ToggleModel);Row(1,"rider-back","Back",()=>BackPage());}
+            else{Step(0,"model","Model:   "+flow.ModelLabel+"   (Classic / New)",d=>flow.ToggleModel());Row(1,"rider-back","Back",()=>BackPage());}
             LayoutGarageBody();
         }
         void ResetGarageLayout(){LeaveGarageView();LeaveCourseView();}

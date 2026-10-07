@@ -1,0 +1,21 @@
+---- split92:0:Day:Clear:4:1:0
+PASS Street Loop - Forward Day/Clear, 4 rivals, traffic on, top / bottom: racing with 6 (2 players + 4 AI); conditions Day/Clear; each view's falling weather on its own layer (view 1 0, view 2 0 particles), camera masks True
+  vehicle lamps on 26 vehicles, level 0.00; thunder strikes so far 0
+PASS Start: the split-screen pause menu
+PASS split-screen pause (stage 2): 5 rows [resume, restart, settings, return, quit]; reached all True, focus kept True, in drawn order True (resume>restart>settings>return>quit), structural check clean
+PASS Street Loop - Forward Day/Clear, 4 rivals, traffic on, top / bottom: results with everyone classified (JADE, BLUE, P2, GOLD, VIOLET, P1)
+PASS results table: 6 rows (every finisher, the AI too)
+PASS REMATCH: the same race again (rivals and conditions kept)
+PASS the rematch finished: results again
+PASS Change setup: the setup screen with every choice kept
+---- split92:4:Dusk:Rain:1:0:0
+PASS Mountain Loop - Forward Dusk/Rain, 1 rivals, traffic off, top / bottom: racing with 3 (2 players + 1 AI); conditions Dusk/Rain; each view's falling weather on its own layer (view 1 3150, view 2 3150 particles), camera masks True
+  vehicle lamps on 3 vehicles, level 0.55; thunder strikes so far 0
+PASS Start: the split-screen pause menu
+PASS split-screen pause (stage 2): 5 rows [resume, restart, settings, return, quit]; reached all True, focus kept True, in drawn order True (resume>restart>settings>return>quit), structural check clean
+PASS Mountain Loop - Forward Dusk/Rain, 1 rivals, traffic off, top / bottom: results with everyone classified (P2, GOLD, P1)
+PASS results table: 3 rows (every finisher, the AI too)
+PASS REMATCH: the same race again (rivals and conditions kept)
+PASS the rematch finished: results again
+PASS Change setup: the setup screen with every choice kept
+done, failures 0

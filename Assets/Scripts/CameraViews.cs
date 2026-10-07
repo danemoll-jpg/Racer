@@ -28,7 +28,7 @@ namespace Racer
         // The saved choice (read from the settings, so a different save in use is followed too).
         public View PlayerView => SplitScreen.Active ? View.Chase : (View)Mathf.Clamp(flow.Save.Settings.cameraView, 0, 3); // 0.90 Part D: the chase view only in split-screen
         public string PlayerViewName => flow && flow.Save != null ? Names[(int)PlayerView] : null;
-        public void NextPlayerView() => SetPlayerView((View)(((int)PlayerView + 1) % Names.Length));
+        public void NextPlayerView(int d = 1) => SetPlayerView((View)(((int)PlayerView + d + Names.Length) % Names.Length));
         View lastView;
         float baseFov, baseNear, baseSmooth, baseHeading;
         bool touched;

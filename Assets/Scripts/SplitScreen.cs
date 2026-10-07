@@ -76,8 +76,7 @@ namespace Racer
         {
             if (race.Racers.Count < 2) return;
             var state = race.Racers[1]; var car = state.Car; P2Car = car; car.name = "PLAYER 2";
-            var config = car.GetComponent<VehicleConfiguration>(); config.SetBodyColor(SplitScreen.P2Color);
-            foreach (var r in car.GetComponentsInChildren<Renderer>()) if (VehiclePaint.IsBodyPaint(r.sharedMaterial)) { var block = new MaterialPropertyBlock(); block.SetColor("_BaseColor", VehiclePaint.Colors[SplitScreen.P2Color]); r.SetPropertyBlock(block); }
+            var config = car.GetComponent<VehicleConfiguration>(); config.SetBodyColor(SplitScreen.P2Color); // 0.92: the champion's scheme too
             if (!SplitScreen.P2Ai)
             {
                 var driver = car.GetComponent<RoadDriver>(); race.Drivers.Remove(driver); if (driver) { driver.enabled = false; Destroy(driver); }

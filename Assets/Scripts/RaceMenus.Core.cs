@@ -25,6 +25,7 @@ details.gameObject.SetActive(true);
             if(modalConfirm!=null)
             {
                 ClearCore(modalTitle,modalMessage);preview.gameObject.SetActive(false);swatchRow.gameObject.SetActive(false);
+                if(modalConfirmLabel==null){Row(0,"ok","OK",()=>{var seen=modalConfirm;modalConfirm=null;seen();Show();});return;} // 0.92: a notice (one button)
                 Row(0,"cancel","CANCEL",()=>{modalConfirm=null;Show();});
                 Row(1,"confirm",modalConfirmLabel,()=>{var commit=modalConfirm;modalConfirm=null;commit();Show();});return;
             }
@@ -51,13 +52,16 @@ details.gameObject.SetActive(true);
                 else if(page=="campaign-event")RenderCampaignEvent();
                 else if(page=="campaign-cup")RenderCampaignCup();
                 else if(page=="split")RenderSplit();
+                else if(page=="vehicle-pick")RenderVehiclePick(); // 0.92 Part B
+                else if(page=="split-garage")RenderSplitPick();
                 else if(page=="race")
                 {
                     ClearCore("RACE SETUP",flow.Race.courseName+"\n"+flow.Race.vehicle.GetComponent<VehicleConfiguration>().Profile.Name+"  ·  "+flow.LapLabel+" laps\n"+(flow.Race.opponents?"3 AI · "+flow.Race.DifficultyName:"Solo / time trial")+"  ·  Traffic "+(flow.Race.traffic?"On":"Off"));
                     Row(0,"start","START RACE",flow.StartRace);var startColors=buttons[0].colors;startColors.normalColor=new(.1f,.38f,.35f);buttons[0].colors=startColors;buttons[0].GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=54;Row(1,"tracks","Tracks",flow.OpenCourses);Row(2,"garage","Garage",flow.OpenGarage);Row(3,"opponents","Opponents",flow.OpenRoster);
-                    Row(4,"laps","Laps: "+flow.LapLabel,flow.CycleLaps);Row(5,"mode",flow.Race.opponents?"Mode: Race vs 3 AI":"Mode: Solo / time trial",flow.ToggleOpponents);
-                    Row(6,"difficulty","Difficulty: "+flow.Race.DifficultyName,flow.CycleDifficulty);Row(7,"traffic","Traffic: "+(flow.Race.traffic?"On":"Off"),flow.ToggleTraffic);
-                    Row(8,"timeofday","Time of Day: "+flow.TimeOfDayLabel,flow.CycleTimeOfDay);Row(9,"weather","Weather: "+flow.WeatherLabel,flow.CycleWeather);
+                    // 0.92 Part C: values change with left / right only
+                    Step(4,"laps","Laps:   "+flow.LapLabel,d=>{flow.CycleLaps(d);Show();});Step(5,"mode",flow.Race.opponents?"Mode:   Race vs 3 AI":"Mode:   Solo / time trial",d=>{flow.ToggleOpponents();Show();});
+                    Step(6,"difficulty","Difficulty:   "+flow.Race.DifficultyName,d=>{flow.CycleDifficulty(d);Show();});Toggle(7,"traffic","Traffic",flow.Race.traffic,()=>{flow.ToggleTraffic();Show();});
+                    Step(8,"timeofday","Time of Day:   "+flow.TimeOfDayLabel,d=>flow.CycleTimeOfDay(d));Step(9,"weather","Weather:   "+flow.WeatherLabel,d=>flow.CycleWeather(d));
                     Row(10,"playlists","Playlists",flow.OpenPlaylists);Row(11,"back","Back",()=>BackPage());
                     // 0.89: a course the campaign has not opened is not raced (Free Roam may still start there)
                     int here=System.Array.IndexOf(RacePlaylists.Scenes,flow.gameObject.scene.name);
@@ -73,7 +77,7 @@ details.gameObject.SetActive(true);
                 else if(page=="roam")
                 {
                     ClearCore("FREE ROAM",flow.Race.courseName+"\n"+flow.Race.vehicle.GetComponent<VehicleConfiguration>().Profile.Name+"\nExplore, collect acorns and score activities.");
-                    Row(0,"explore","EXPLORE",flow.StartFreeRoam);Row(1,"roam-weather","Weather: "+flow.RoamWeatherLabel,flow.CycleRoamWeather);Row(2,"tracks","Tracks",flow.OpenCourses);Row(3,"garage","Garage",flow.OpenGarage);Row(4,"back","Back",()=>BackPage());
+                    Row(0,"explore","EXPLORE",flow.StartFreeRoam);Step(1,"roam-weather","Weather:   "+flow.RoamWeatherLabel,d=>flow.CycleRoamWeather(d));Row(2,"tracks","Tracks",flow.OpenCourses);Row(3,"garage","Garage",flow.OpenGarage);Row(4,"back","Back",()=>BackPage());
                 }
                 else
                 {
@@ -88,7 +92,7 @@ details.gameObject.SetActive(true);
                     Row(3,"records","RECORDS",flow.OpenBoards);Row(4,"exploration","EXPLORATION",flow.OpenExploration);Row(5,"settings","SETTINGS",flow.OpenSettings);Row(6,"quit","QUIT GAME",ConfirmQuit);
                     if(flow.RoamMenu){Row(7,"resume","RESUME DRIVING",flow.Resume);buttons[7].transform.SetSiblingIndex(buttons[10].transform.GetSiblingIndex());
                         Row(8,"trailer",TrailerLabel,()=>Navigate("trailer"));buttons[8].transform.SetSiblingIndex(buttons[7].transform.GetSiblingIndex()+1);
-                        if(CameraViews.Current){Row(9,"camera-view",CameraViewLabel,CycleCameraView);buttons[9].transform.SetSiblingIndex(buttons[8].transform.GetSiblingIndex()+1);}}
+                        if(CameraViews.Current){Step(9,"camera-view",CameraViewLabel,CycleCameraView);buttons[9].transform.SetSiblingIndex(buttons[8].transform.GetSiblingIndex()+1);}}
                     else{Row(7,"trailer",TrailerLabel,()=>Navigate("trailer"));buttons[7].transform.SetSiblingIndex(buttons[5].transform.GetSiblingIndex());}
                 }
             }
@@ -98,7 +102,7 @@ details.gameObject.SetActive(true);
                 {
                     var site=flow.Activities.Selected;var best=site?flow.Activities.PersonalBest(site):null;
                     ClearCore("ACTIVITIES","Traps and authored jumps score automatically while driving.\n"+(site?site.title+"\n"+flow.Activities.Location+"\n"+flow.Activities.Targets+" · PB "+ArcadeActivities.Measurement(site,best?.value??0):"No activity selected."));
-                    Row(0,"activity","Activity: "+(site?site.title:"None"),()=>{flow.Activities.Cycle();Show();});
+                    Step(0,"activity","Activity:   "+(site?site.title:"None"),d=>{flow.Activities.Cycle(d);Show();});
                     Row(1,"start","Start / Retry",()=>{flow.Activities.BeginAttempt();flow.Resume();});Row(2,"cancel","Cancel activity",()=>{flow.Activities.Cancel();Show();});Row(3,"back","Back",()=>BackPage());return;
                 }
                 if(SplitScreen.Active){RenderSplitPause();return;}
@@ -109,7 +113,7 @@ details.gameObject.SetActive(true);
                 // 0.91 Part C: a campaign jump event can be ended early, keeping its best scored jump
                 if(flow.JumpEvent is CampaignTrapWatch jumpEvent){var e=CampaignRun.Active;Row(12,"end-event",jumpEvent.Best>0?"END EVENT   ·   keep your best, "+Campaign.Measure(e,jumpEvent.Best):"END EVENT   (no scored jump yet)",()=>{if(jumpEvent.Best>0)flow.EndJumpEvent();else Confirm("END THE EVENT?","You have no scored jump yet, so it ends with no result.",flow.EndJumpEvent,"END EVENT");});buttons[12].transform.SetSiblingIndex(buttons[0].transform.GetSiblingIndex()+1);}
                 Row(flow.Race.FreeRoam?10:2,"trailer",TrailerLabel,()=>Navigate("trailer"));
-                if(CameraViews.Current){Row(11,"camera-view",CameraViewLabel,CycleCameraView);buttons[11].transform.SetSiblingIndex(buttons[0].transform.GetSiblingIndex()+1);}
+                if(CameraViews.Current){Step(11,"camera-view",CameraViewLabel,CycleCameraView);buttons[11].transform.SetSiblingIndex(buttons[0].transform.GetSiblingIndex()+1);}
                 Row(3,"settings","SETTINGS",flow.OpenSettings);Row(4,"return",flow.Race.FreeRoam?"RETURN TO MENU":"END RACE / RETURN TO MENU",()=>Confirm(flow.Race.FreeRoam?"RETURN TO MENU?":"END RACE AND RETURN TO MENU?",RacePlaylists.Active!=null?"The active playlist and championship progress will end. Saved playlists are kept.":CampaignRun.Cup!=null?"This round counts as did not finish (no points). The championship goes on from the next race.":"The current event will end.",flow.QuitRace));
                 Row(5,"records","Records",flow.OpenBoards);Row(6,"exploration","Exploration",flow.OpenExploration);
                 if(!flow.Race.FreeRoam)Row(7,"penalties","Penalty Details",()=>Navigate("penalties"));
@@ -152,7 +156,7 @@ details.gameObject.SetActive(true);
             {
                 ClearCore("OPPONENT VEHICLES","Slot      Choice                         Resolved vehicle      Status");
                 for(int i=0;i<3;i++){int slot=i;string choice=flow.Save.Settings.opponentChoices[i];string resolved=flow.Race.opponentRoster[i];
-                    Row(i,"slot-"+i,$"{i+1}     {(choice=="random"?"Random":choice=="mixed"?"Mixed":VehicleProfile.Find(choice).Name)}     →     {VehicleProfile.Find(resolved).Name}     Ready",()=>flow.CycleOpponent(slot));}
+                    Step(i,"slot-"+i,$"{i+1}     {(choice=="random"?"Random":choice=="mixed"?"Mixed":VehicleProfile.Find(choice).Name)}     →     {VehicleProfile.Find(resolved).Name}     Ready",d=>flow.CycleOpponent(slot,d));}
                 Row(3,"mixed","Mixed roster",flow.MixedRoster);Row(4,"reroll","Reroll Random / Mixed",flow.ResolveRoster);
                 Row(5,"help","Details",()=>Help("Random may repeat. Mixed uses eligible profiles before repeating.\nResolved vehicles stay fixed for rematches."));Row(6,"back","Back",flow.CloseGarage);
             }
@@ -171,7 +175,7 @@ details.gameObject.SetActive(true);
             else if(flow.State==RaceFlow.Stage.Boards)
             {
                 Row(5,"back","Back",flow.CloseGarage);Row(6,"activity-records","Speed Trap / Jump Records",flow.OpenActivities);
-                Row(7,"ghost","Ghost: "+(flow.Ghost.Enabled?"On":"Off"),flow.ToggleGhost);
+                Toggle(7,"ghost","Ghost",flow.Ghost.Enabled,flow.ToggleGhost);
                 Row(8,"ghost-help","Ghost Details",()=>Help("Race your best clean lap.\n"+flow.Ghost.Status+"\nNo resets, teleports or missed gates; legal shortcuts qualify."));
             }
         }
@@ -180,8 +184,8 @@ details.gameObject.SetActive(true);
         void LockRow(UnityEngine.UI.Button b){b.GetComponentInChildren<UnityEngine.UI.Text>(true).rectTransform.offsetMin=new(48,0);tableCells.Add(PadlockMark.Add(b.transform,new(0,.5f),new(14,0),26,new Color(1,.82f,.35f,.92f)).gameObject);}
         // 0.79 Part H: the cameras within reach from the menus: the view (cycles like V / X) and Trailer / Photo Mode with its key
         const string TrailerLabel="TRAILER / PHOTO MODE   (F8)";
-        string CameraViewLabel=>"Camera view: "+(CameraViews.Current?.PlayerViewName??"Chase")+"   (V / X)";
-        void CycleCameraView(){CameraViews.Current?.NextPlayerView();Show();}
+        string CameraViewLabel=>"Camera view:   "+(CameraViews.Current?.PlayerViewName??"Chase")+"   (V / X)";
+        void CycleCameraView(int d){CameraViews.Current?.NextPlayerView(d);Show();}
         // Every quit-to-desktop control asks first; focus starts on CANCEL and B / Esc cancels (0.70 Part A).
         void ConfirmQuit()=>Confirm("QUIT WOODSTOCK RUSH?","",flow.Quit,"QUIT");
         void Help(string text){helpCopy=text;Navigate("help");}
@@ -191,14 +195,14 @@ details.gameObject.SetActive(true);
             if(page=="music")
             {
                 ClearCore("LOCAL MUSIC",radio.ChannelName+"\n"+radio.Song);
-                Row(0,"channel","Channel: "+radio.ChannelName+" / Off",()=>{radio.Toggle();Show();});Row(1,"previous","Previous",()=>{radio.Previous();Show();});Row(2,"next","Next",()=>{radio.Next();Show();});
+                Step(0,"channel","Channel:   "+radio.ChannelName+" / Off",d=>{radio.Toggle();Show();});Row(1,"previous","Previous",()=>{radio.Previous();Show();});Row(2,"next","Next",()=>{radio.Next();Show();});
                 Step(3,"volume",$"Music {s.music:P0}",d=>Adjust(()=>s.music=Mathf.Clamp01(s.music+d*.1f)));Row(4,"library","Music Library",()=>Navigate("library"));Row(5,"back","Back",()=>BackPage());return;
             }
             if(page=="library")
             {
                 string friendly=System.IO.Path.GetFileName(radio.Folder.TrimEnd('\\','/'));
                 ClearCore("MUSIC LIBRARY",(radio.Bundled?"Bundled music":"Custom: "+friendly)+"\n"+radio.Status+"\n"+radio.ScanStatus);
-                Row(0,"source","Source: "+(radio.Bundled?"Bundled":"Custom"),()=>{radio.SetSource(!radio.Bundled);Show();});Row(1,"folder","Choose Folder",OpenFolderPicker);
+                Step(0,"source","Source:   "+(radio.Bundled?"Bundled":"Custom"),d=>{radio.SetSource(!radio.Bundled);Show();});Row(1,"folder","Choose Folder",OpenFolderPicker);
                 Row(2,"rescan","Rescan",()=>{radio.Rescan();Show();});Row(3,"cancel-scan","Cancel Scan",()=>{radio.CancelScan();Show();});Row(4,"open-folder","Open Folder on Computer",radio.OpenFolder);
                 Row(5,"help","Details",()=>Help(radio.Folder+"\nMP3 / WAV / Ogg. Nested folders are included as channels.\nAdd music files on your computer, then Rescan. See RADIO.md beside the game."));Row(6,"back","Back",()=>BackPage());return;
             }
@@ -206,14 +210,14 @@ details.gameObject.SetActive(true);
             ClearCore("SETTINGS","");
             string[] cats={"gameplay","audio","display","controls"};
             for(int i=0;i<cats.Length;i++){string category=cats[i];Row(i,"tab-"+category,(page=="settings-"+category?"✓ ":"")+category.ToUpperInvariant(),()=>{page="settings-"+category;Show();});}
-            if(page=="settings-gameplay")Row(4,"estimate","Estimate AI at Your Finish: "+(s.estimateAiFinishes?"On":"Off"),()=>Adjust(()=>s.estimateAiFinishes=!s.estimateAiFinishes));
+            if(page=="settings-gameplay")Toggle(4,"estimate","Estimate AI at Your Finish",s.estimateAiFinishes,()=>Adjust(()=>s.estimateAiFinishes=!s.estimateAiFinishes));
             // 0.89: every course and vehicle in Race and Free Roam whatever the campaign has reached; the campaign save is
             // not written while it is on.
-            if(page=="settings-gameplay")Row(5,"unlock-everything","Unlock everything (testing): "+(s.unlockEverything?"On":"Off"),()=>Adjust(()=>{s.unlockEverything=!s.unlockEverything;Campaign.Testing=s.unlockEverything;}));
+            if(page=="settings-gameplay")Toggle(5,"unlock-everything","Unlock everything (testing)",s.unlockEverything,()=>Adjust(()=>{s.unlockEverything=!s.unlockEverything;Campaign.Testing=s.unlockEverything;}));
             // 0.90 Part B: the new-player hints; Part D: the split-screen layout (also on the split-screen setup screen)
-            if(page=="settings-gameplay"){Row(6,"hints","Hints: "+(s.hints?"On":"Off"),()=>Adjust(()=>s.hints=!s.hints));
+            if(page=="settings-gameplay"){Toggle(6,"hints","Hints",s.hints,()=>Adjust(()=>s.hints=!s.hints));
                 Row(7,"hints-again","Show hints again",()=>{Hints.Reset();flow.Notify("Hints will be shown again",3);flow.Click();Show();});
-                Row(8,"split-layout","Split screen: "+(s.splitLeftRight?"Left / right":"Top / bottom"),()=>Adjust(()=>s.splitLeftRight=!s.splitLeftRight));}
+                Step(8,"split-layout","Split screen:   "+(s.splitLeftRight?"Left / right":"Top / bottom"),d=>Adjust(()=>s.splitLeftRight=!s.splitLeftRight));}
             if(page=="settings-audio")
             {
                 Step(4,"master",$"Master {s.master:P0}",d=>Adjust(()=>s.master=Mathf.Clamp01(s.master+d*.1f)));
@@ -226,10 +230,10 @@ details.gameObject.SetActive(true);
             if(page=="settings-display")
             {
                 details.gameObject.SetActive(true);details.text="VSync uses your display refresh. The frame cap applies with VSync off.";details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=58;
-                Row(4,"vsync","VSync: "+(s.vsync?"On":"Off"),()=>Adjust(()=>s.vsync=!s.vsync));
+                Toggle(4,"vsync","VSync",s.vsync,()=>Adjust(()=>s.vsync=!s.vsync));
                 Step(5,"fps","Frame cap: "+s.frameLimit+" FPS",d=>Adjust(()=>{int[] caps={30,60,120};s.frameLimit=caps[Mathf.Clamp(Array.IndexOf(caps,s.frameLimit)+d,0,2)];}));
-                Row(6,"lightning","Lightning flashes: "+(s.lightningFlashes?"On":"Off"),()=>Adjust(()=>s.lightningFlashes=!s.lightningFlashes));
-                Row(7,"scenery","Scenery: "+(s.classicScenery?"Classic":"New"),()=>Adjust(()=>{s.classicScenery=!s.classicScenery;Scenery.Set(!s.classicScenery);}));
+                Toggle(6,"lightning","Lightning flashes",s.lightningFlashes,()=>Adjust(()=>s.lightningFlashes=!s.lightningFlashes));
+                Step(7,"scenery","Scenery:   "+(s.classicScenery?"Classic":"New"),d=>Adjust(()=>{s.classicScenery=!s.classicScenery;Scenery.Set(!s.classicScenery);}));
             }
             if(page=="settings-controls")RenderControls();
             if(page!="settings-controls")Row(14,"back","Back",flow.CloseSettings);
@@ -247,7 +251,7 @@ details.gameObject.SetActive(true);
                 bindingRows.Add((graphic,key,action,pad,keyboard));
             }
             foreach(var action in flow.Race.vehicle.GetComponent<VehicleInput>().CurrentBindings)Binding("Driving / "+action.name,action);
-            Binding("Menus / Select",submit);Binding("Menus / Back",cancelAction);Binding("Menus / Navigate",uiModule.move.action);
+            Binding("Menus / Select",submit);Binding("Menus / Back",cancelAction);Binding("Menus / Navigate",NavigateAction);
             Binding("Menus / Previous category",previousTab);Binding("Menus / Next category",tabsAction);
             Binding("Pause / Resume",flow.PauseAction);
             if(CameraViews.Current)Binding("Camera / Change view (or pause menu)",CameraViews.Current.CycleAction);
@@ -260,7 +264,7 @@ details.gameObject.SetActive(true);
         void ClearBindingRows()
         {
             foreach(var row in bindingRows)if(row.glyph)Destroy(row.glyph.gameObject);bindingRows.Clear();
-            foreach(var b in buttons)b.GetComponentInChildren<UnityEngine.UI.Text>(true).rectTransform.offsetMin=new(10,0);
+            foreach(var b in buttons){var t=b.GetComponentInChildren<UnityEngine.UI.Text>(true).rectTransform;t.offsetMin=new(10,0);t.offsetMax=new(-10,0);}
         }
     }
 }
