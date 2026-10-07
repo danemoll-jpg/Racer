@@ -1,0 +1,17 @@
+---- drive:ForestLoopReverse:moto:Main:630:12:30
+ForestLoopReverse moto Main from 630 at 30 m/s: resets 0+0, max air 1.42s, min up 0.99, max vertical jolt 276 m/s² at 78.5,31.27,-145.7, end -121.3,22.62,-25.0
+---- drive:ForestLoopReverse:atv:Main:630:12:30
+ForestLoopReverse atv Main from 630 at 30 m/s: resets 0+0, max air 0.00s, min up 0.99, max vertical jolt 12 m/s² at 171.4,41.17,-155.3, end 1.4,30.89,118.4
+---- drive:ForestLoopReverse:original:Main:630:12:30
+ForestLoopReverse original Main from 630 at 30 m/s: resets 0+0, max air 1.38s, min up 0.99, max vertical jolt 347 m/s² at 78.2,31.18,-145.7, end -120.5,22.44,-28.4
+---- full86:ForestLoopReverse:moto:Granite Saddle:5:25:16
+ForestLoopReverse moto Granite Saddle full throttle from s 5 at 25 m/s: resets 0, max air 4.00s, min up 0.64, max vertical jolt 596 m/s� at 311.6,41.61,-222.7, end 239.9,46.93,-190.4
+---- full86:ForestLoopReverse:atv:Granite Saddle:5:25:16
+ForestLoopReverse atv Granite Saddle full throttle from s 5 at 25 m/s: resets 0, max air 3.92s, min up 0.57, max vertical jolt 328 m/s� at 166.9,41.02,-154.9, end 148.1,40.35,-130.7
+---- full86:ForestLoopReverse:original:Granite Saddle:5:25:16
+ForestLoopReverse original Granite Saddle full throttle from s 5 at 25 m/s: resets 0, max air 3.74s, min up 0.65, max vertical jolt 550 m/s� at 321.5,47.44,-187.0, end 138.2,39.84,-134.3
+---- drive:ForestLoopReverse:moto:Granite Saddle:100:18:25
+ForestLoopReverse moto Granite Saddle from 100 at 25 m/s: resets 0+0, max air 3.92s, min up 0.83, max vertical jolt 739 m/s² at 322.7,41.12,-194.6, end 180.7,42.81,-167.4
+---- drive:ForestLoopReverse:original:Granite Saddle:100:18:25
+ForestLoopReverse original Granite Saddle from 100 at 25 m/s: resets 0+0, max air 3.86s, min up 0.81, max vertical jolt 1094 m/s² at 324.4,41.76,-191.6, end 188.6,43.76,-170.3
+done, failures 0

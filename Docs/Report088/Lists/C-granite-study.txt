@@ -1,0 +1,41 @@
+0.88 Part C: Forest Loop Reverse, Granite Saddle pool-and-lake jump. Design study; NO GEOMETRY CHANGED (Part C item 7).
+
+The jump as it is (C-granite-line.csv, the branch sampled every metre; C-granite.txt):
+- Lip: branch s 188, (435.4, 72.3, -198), the ramp rising 21 deg (0.39 m/m) at the lip; then the ramp's front face drops to the
+  pool (coping 33.0, water 32.8, x 407-425) and the lake (water 33.4, x 365-403).
+- Far side: the lake's exit bank rises 33 -> 39.3 m from x 365 to 352; then the rim trail climbs gently WEST, 39.3 m (x 352)
+  to 46.7 m (x 256), and descends to the rejoin (44.2 m, x 203). So vehicles land on a gentle UPhill.
+- The main (McFadden Cut) is 48 m from the line at x 324, 25 m at x 284 and joins it at x 221; Fern Gully 105-125 m away.
+- Speeds at the lip (0.86): race autopilot 31 m/s (bike, car; the ATV autopilot brakes to 21), full throttle 33-36.
+- Flight: 3.7-4.0 s, down at x 308-323 on the rim trail, about 30 m below the lip, descending at 35-45 deg.
+
+Landing loads, same measure as 0.85 (largest vertical velocity change per physics step with a wheel down), C-landing-loads.txt:
+- Reference, the course's first main jump (Reverse ridge crossing, main from s 630 at 30 m/s): Needle 600 276 m/s2, Street
+  Classic 347 m/s2, Trail Four 12 (no air at that speed); air 1.4 s.
+- Granite Saddle, full throttle from branch s 5: Needle 600 596, Street Classic 550, Trail Four 328 (the ATV's largest was
+  later, at the rejoin); race autopilot from main s 100: Needle 600 739, Street Classic 1094. Air 3.7-4.0 s. 2-3 times J1.
+
+What a matched landing needs here (Tools: the trajectories from the measured lip; matched = the surface meets each speed's
+path at the same small perpendicular speed, 4.5-6 m/s, the "equal fall height" profile used for terrain-park jumps):
+- With the lip as it is, the speeds 30 -> 37 m/s come down over 140+ m of distance (u 72 -> 216 from the lip), and the
+  surface that meets all of them softly has to fall from 65 m (a hill 25-31 m high on the lake's west shore) to about
+  -80 m, i.e. some 120-140 m below today's rim trail. Even 31 -> 34 m/s alone needs it from 42 m down to -78 m.
+- A flatter lip (10, 5, 0 deg) or a lower lip (64-68 m) only moves the problem: the hill gets lower (6-18 m) but the cut
+  for the fast end stays 130-145 m deep; a level or downward lip (0 to -15 deg) at 64-72 m drops the slow vehicles in the
+  lake (they no longer clear it).
+- Straight landing faces (any angle 10-46 deg, knuckle 70-135 m beyond the lip, 0-40 m high, lip 45-72 m and 0-25 deg):
+  none keeps the mismatch between path and face under 12 deg for 30-37.5 m/s; the closest needed a 21-29 m hill and
+  still left 20 deg.
+- Why: a 21 deg lip throws everything up for 1.2 s before the long fall, so a 1 m/s difference in speed is 10-20 m of
+  distance at the far side; with 30 m of drop to the rim the paths are already at 35-45 deg there, and the ground beyond
+  rises. Matching them needs about 30-40 m of downhill relief at the touchdown zone in a place that has none.
+- So every version is either a ~30 m hill plus a trench far below the lake, or a jump that no longer clears the water.
+  Item 7 applies: nothing was changed. AI stays off the line; the course id is unchanged.
+
+Options for Dan (not built):
+1. Leave it as the hard optional line it is (present state): clears the water, lands hard, nobody is thrown.
+2. A smaller jump on the same line: keep the lip, but give the far side a landing hill only for the typical race speed
+   (about 31-33 m/s), about 20-25 m high on the lake's west shore with its back falling into the lake. Faster vehicles
+   would overshoot it and land as hard as today; slower ones would hit its back face. Big change to the basin.
+3. Make it a "drop": lower the lip to about 45-50 m and land in the lake shallows / on the exit bank on purpose (a splash,
+   not a flight over the water), so speed differences matter little. Changes the line's character.
