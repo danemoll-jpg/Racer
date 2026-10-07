@@ -16,7 +16,63 @@
   - **Controller first (Dan, 2026-10-07):** Dan plays with a controller. Any new or changed menu, screen or prompt must be checked once with a controller only (no mouse, no keyboard) before delivery: every control reachable, focus visible, B goes back.
   - **Write-up:** the TODO results are a short list: what changed, the one check per item, decisions made, and anything Dan should look at. No separate VALIDATION.md unless a round asks. If a check would take more than a few minutes of play time, skip it and list it under "for Dan to check".
 
-## CURRENT — Menu fixes from Dan's 0.91 play (controller still skips two rows, garage for vehicle choice, no A-to-cycle, a vehicle for every chapter), Forest Reverse bump, split-screen stage 2 — 0.92.0-review1 — DELIVERED, AWAITING DAN'S REVIEW
+## CURRENT — Race start stuck until reset, Abandoned Cabin Jump ends in the bushes, acorn areas shown on the map, minimap compass — target 0.93.0-review1 — NOT STARTED
+
+- **Authorized by Dan (2026-10-07, 14:18).** Written by Claude (chat) from his play of 0.92.0-review1 and debug session `2026-10-07_14-03-20-518_a28604` (both reports are on 0.92.0-review1; ZIP in his Downloads / the game's report folder). His words are quoted in each part.
+- **Starting point:** main at the "Record 0.92 delivery" commit (0.92.0-review1 / game-92000). This TODO edit is uncommitted and belongs in the safety checkpoint.
+- Runs unattended: design decisions are below; do not stop to ask about design. Stop only for a real external blocker (rule 7).
+- **Scope is exactly Parts A–D below.** The Verification budget and the Controller-first rule apply.
+- Dan's real campaign save is never written by a check (see the 0.92 incident): checks run on a copy, and the check runner must be pointed at the copy before anything loads.
+- Dan on 0.92: the split-screen celebrations work ("it picked up the celebrations anyway"). The controller rows, the garage vehicle choice and left / right values: "yes everything is fine."
+
+### Part A — Race start: every vehicle is stuck until it resets (BUG-001)
+
+Dan: "beginning of race all vehicles stuck at first and don't move until after they reset."
+
+- Where: campaign event **"Backyard Final"**, Dan's Backyard Loop - Forward (`DansBackyardForward`), Race, Day / Clear, 6 on the grid, Dan on `moto` at (466.44, 80.39, 6.82) heading 272.5°, 0 mph with GO! showing and the lap clock at 00:00.000; two rival cars directly ahead are also stationary. Screenshot `BUG-001.png`.
+- Reproduce it first, in the built player, in that event with that vehicle on a copy of his save. Find the cause; do not guess. Things to rule out: the idle hold from 0.84 (vehicles must not creep with no throttle) not releasing at GO; a championship / campaign grid placing vehicles into the ground or into each other; upgraded-vehicle setup; a 0.92 change to start or input ownership (split-screen stage 2 touched who reads which device).
+- Check whether it happens in every campaign event and championship, in a plain Race Setup race, and in split-screen, and fix it wherever it does. After GO every vehicle, player and AI, pulls away with no reset.
+- Check: the Backyard Final start, one other campaign event, one Race Setup race and one split-screen race (Player 2 as AI): all move at GO with zero resets in the first 10 s. Say what the cause was.
+
+### Part B — Abandoned Cabin Jump (Dan's Backyard Forward): the landing and the reset put you in the bushes (BUG-002)
+
+Dan: "reset here should remove you from the bushes. I don't think I have been able to clear this shortcut once without ending up in the bushes."
+
+- Where: `DansBackyardForward`, branch Abandoned Cabin Jump at 64.30 m, vehicle stopped at (248.02, 75.68, 82.79) heading 96.9°, inside dense bushes just after a scored clean jump (65.2 ft, 1.72 s). Screenshot `BUG-002.png`.
+- Two faults, fix both:
+  1. **The reset:** a reset on this shortcut left him in the bushes. A reset anywhere on a shortcut must put the vehicle on clear, drivable ground on that branch (or on the main at the rejoin), facing along the route, with nothing solid or view-blocking within the vehicle's length ahead. Check the reset points along this branch and move any that sit in vegetation. Apply the same test to the reset points of every shortcut on all eight courses and report any others moved.
+  2. **The landing:** a normally driven jump must not end in bushes. Fly the jump on the Needle 600, the Street Classic and the Trail Four at a slow, a typical and a flat-out approach, record where each lands and runs out, and clear the bushes and other scenery from that landing and run-out corridor (with a margin of about 3 m each side) through to the rejoin. Trees that frame the corridor outside it stay. If the fast landings fall outside any sensible corridor, lengthen or re-aim the landing ground inside this race scene only (rule 5A; Free Roam untouched) and say so.
+- Check Dan's Backyard Reverse for the same jump the other way and treat it the same.
+- Check: the nine flights after the fix, all rolling out to the rejoin without touching vegetation; one reset at Dan's reported position ends on clear ground. One shot of the landing before and after.
+
+### Part C — The map shows where the acorn areas are
+
+Dan: "The map gives us locations where acorns are. There, however, is no indications of where these areas are. It is just made up names that mean nothing to anyone, there should be some markings to show where, for example, the western gullies are."
+
+The acorn list names four areas (Neighborhood woodland, Western gullies, Creek pockets, Ridge woodland; `DiscoveryDetails.cs`), but nothing on the map says where they are.
+
+1. **Areas drawn on the map:** on the Free Roam world map, each acorn area is a softly tinted region with an outline and its name written inside it, with its count (found / total, for example "Western gullies 2 / 4"). Derive each region from the positions of that area's acorns with a generous margin (about 60 m, rounded shape) so it shows where to look without giving away exact spots. Regions must not hide roads, trails or the player marker. A fully collected area is drawn dimmer with a tick.
+2. **List and map linked:** wherever the acorn areas are listed (the map's acorn panel, the Codes / collection page), choosing an area with the controller highlights its region on the map and centres the map on it. Each list line also gets a short plain direction from a place the player knows, for example "west of S Cherokee Ln, behind Kyle's house" (ground the wording in the real positions; use only the three road names, Dan's house, Kyle's house, the lake and the mountain).
+3. **Place names on the map:** label the things the directions refer to: S Cherokee Ln, Hwy 92, Trickum Rd, Dan's house, Kyle's house, the lake, the mountain summit. Small, readable at 3840×2160, not overlapping at the default zoom.
+4. **Minimap:** when the Free Roam minimap is on and the player is inside an area that still has acorns, show the area name and count under the minimap ("Western gullies 2 / 4"). Nothing when all are found.
+5. Rename an area only if its name is wrong for where its acorns really are (say which and why). No change to acorn positions, the count of 24, or the Turf Rocket unlock. Dan is at 22 / 24: do not grant anything in his save.
+- Check: map shots at default zoom and zoomed on one area with the list selection; the four regions each contain all of their acorns; minimap line inside and outside an area. Controller only.
+
+### Part D — A compass on the minimap
+
+Dan: "Can we put a compass on the minimap?"
+
+- The minimap (race and Free Roam) gets a compass: an **N** marker on its rim showing where north is, with small ticks for E, S and W. If the minimap is drawn north-up the N sits at the top and the player arrow turns; if it turns with the vehicle, the N moves round the rim. Do not change which of the two the minimap does.
+- The world map gets a small fixed north arrow in a corner.
+- North is the world's +Z direction unless the project already defines north differently (the road names and the "west of…" directions in Part C must agree with it; say which convention is used).
+- In split-screen each player's minimap has it. Readable at 3840×2160, and at the smaller split-screen size.
+- Check: one shot heading north and one heading east, in a race and in Free Roam.
+
+### Verification
+
+Light, per the Verification budget and the Controller-first rule. Compile, launch, release steps. Results as a short list, with "for Dan to check".
+
+## Previous delivery — Menu fixes from Dan's 0.91 play (controller still skips two rows, garage for vehicle choice, no A-to-cycle, a vehicle for every chapter), Forest Reverse bump, split-screen stage 2 — 0.92.0-review1 — DELIVERED, REVIEW STARTED BY DAN (split-screen celebrations work; race-start stuck, Cabin Jump bushes and acorn areas on the map in 0.93)
 
 - **Authorized by Dan (2026-10-07, 10:38).** Written by Claude (chat) from his play of 0.91.0-review1 and debug session `2026-10-06_22-05-15-141_e9fd05`. That session has two reports: **BUG-001 is from 0.87 and Dan says to ignore it**; BUG-002 is on 0.91.0-review1 and is Part E. His words are quoted in each part: "I want to fold these things into the next round (I assume phase 2 of split screen)."
 - **Starting point:** main at the "Record 0.91 delivery" commit (0.91.0-review1 / game-91000). This TODO edit is uncommitted and belongs in the safety checkpoint.
