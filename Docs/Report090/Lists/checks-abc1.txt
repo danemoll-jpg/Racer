@@ -1,0 +1,45 @@
+---- jumps90:c2-opening-jump:atv:16,20,24,28,32
+  running after 16 s: state Racing, campaign c2-opening-jump
+c2-opening-jump atv at 16 m/s: 70.9 ft; last jump: site=jump-01 invalid=False verticalImpact=8.31 contactImpact=11.55 contactUp=0.98 up=0.98 wiped=False air=1.42 distance=21.61
+  running after 10 s: state Racing, campaign c2-opening-jump
+c2-opening-jump atv at 20 m/s: 94.3 ft; last jump: site=jump-01 invalid=False verticalImpact=7.77 contactImpact=13.47 contactUp=0.88 up=0.83 wiped=False air=1.54 distance=28.75
+  running after 10 s: state Racing, campaign c2-opening-jump
+c2-opening-jump atv at 24 m/s: 114.2 ft; last jump: site=jump-01 invalid=False verticalImpact=9.82 contactImpact=13.40 contactUp=0.82 up=0.99 wiped=False air=1.56 distance=34.80
+  running after 10 s: state Racing, campaign c2-opening-jump
+c2-opening-jump atv at 28 m/s: 151.2 ft; last jump: site=jump-01 invalid=False verticalImpact=7.23 contactImpact=5.16 contactUp=0.99 up=0.99 wiped=False air=1.76 distance=46.08
+  running after 10 s: state Racing, campaign c2-opening-jump
+c2-opening-jump atv at 32 m/s: no score; last jump: site= invalid=True verticalImpact=13.48 contactImpact=15.53 contactUp=0.00 up=0.72 wiped=False air=0.28 distance=5.17
+---- jumps90:c2-opening-jump:original:16,20,24,28
+  running after 10 s: state Racing, campaign c2-opening-jump
+c2-opening-jump original at 16 m/s: 69.2 ft; last jump: site=jump-01 invalid=False verticalImpact=8.27 contactImpact=10.93 contactUp=0.98 up=0.98 wiped=False air=1.40 distance=21.08
+  running after 11 s: state Racing, campaign c2-opening-jump
+c2-opening-jump original at 20 m/s: 112.3 ft; last jump: site=jump-01 invalid=False verticalImpact=7.58 contactImpact=13.97 contactUp=0.79 up=0.84 wiped=False air=2.04 distance=34.23
+  running after 10 s: state Racing, campaign c2-opening-jump
+c2-opening-jump original at 24 m/s: 115.6 ft; last jump: site=jump-01 invalid=False verticalImpact=8.83 contactImpact=9.28 contactUp=0.92 up=0.99 wiped=False air=1.60 distance=35.23
+  running after 10 s: state Racing, campaign c2-opening-jump
+c2-opening-jump original at 28 m/s: 152.4 ft; last jump: site=jump-01 invalid=False verticalImpact=7.65 contactImpact=3.31 contactUp=0.99 up=0.99 wiped=False air=1.82 distance=46.45
+---- locks90
+PASS main menu line under CAMPAIGN: 'CAMPAIGN / Chapter 1: Street Loop  ·  2 of 7 events  ·  $4,200'
+PASS Testing on: 'CAMPAIGN / TESTING: everything unlocked'
+PASS Garage: a locked Longroof GT is a silhouette True with the padlock and how to get it True
+PASS Garage: the player's own vehicle in its real colours, no padlock
+PASS Shop: the Skyfin Cruiser (not owned) is a silhouette True with the padlock True; stat bars shown True
+PASS Shop: the Trail Four (owned) in its real colours
+PASS Tracks: highlighted Mountain Loop - Forward drawn grey True; padlocks on 7 locked rows
+PASS Tracks: the open Street Loop - Forward in colour
+PASS RACE in the (locked) Mountain Loop scene opened Race Setup on StreetLoopGreybox, page 'race', START enabled True
+---- hints90
+FAIL main menu default selection for a new player: 'race'
+PASS after the title: welcome panel 'welcome' with Start the campaign / Look around first
+PASS Start the campaign: page 'campaign-event', event 'c1-first-lap'
+PASS controls card up, countdown held at 3.0
+FAIL one press dismissed it; the countdown ran: Countdown
+FAIL in-play hint: ''
+PASS Settings > Gameplay: 'Hints: On', 'Show hints again'
+PASS Show hints again: every hint can show again
+---- events90
+PASS Two Wheels Only offers: Motorcycle, ATV
+chapter 2: Into the Woods (Race · 2 laps · 3 rivals (Normal), Forest Loop — Forward, Day / Clear) | Cave Run (Time trial · 1 flying lap, Forest Loop — Forward, Day / Clear) | The Opening Jump (Jump · run-up start, Forest Loop — Forward, Day / Clear) | Rain in the Pines (Race · 3 laps · 3 rivals (Normal), Forest Loop — Forward, Dusk / Rain) | The Long Way Back (Race · 2 laps · 3 rivals (Normal), Forest Loop — Reverse, Day / Clear) | Forest Final (Race · 3 laps · 5 rivals (Normal), Forest Loop — Forward, Day / Clear)
+chapter 3: Backyard Dash (Race · 2 laps · 3 rivals (Normal), Dan's Backyard Loop — Forward, Day / Clear) | Round the Yard (Time trial · 1 flying lap, Dan's Backyard Loop — Forward, Day / Clear) | Two Wheels Only (Race · 2 laps · 3 rivals (Normal), Dan's Backyard Loop — Reverse, Day / Clear) | Snow Day (Race · 2 laps · 3 rivals (Hard), Dan's Backyard Loop — Forward, Day / Snow) | Fence Line Smash (Smash · as many props as you can, Dan's Backyard Loop — Forward, Day / Clear) | Backyard Final (Race · 3 laps · 5 rivals (Hard), Dan's Backyard Loop — Forward, Day / Clear)
+chapter 4: First Ascent (Race · 2 laps · 3 rivals (Hard), Mountain Loop — Forward, Dawn / Clear) | Summit Clock (Time trial · 1 flying lap, Mountain Loop — Forward, Day / Clear) | Downhill (Race · 2 laps · 3 rivals (Hard), Mountain Loop — Reverse, Day / Clear) | Whiteout (Race · 2 laps · 3 rivals (Hard), Mountain Loop — Forward, Night / Snow) | Summit Homeward Flight (Jump · run-up start, Mountain Loop — Forward, Day / Clear) | Summit Final (Race · 3 laps · 5 rivals (Hard), Mountain Loop — Forward, Day / Clear)
+---- dan90:C:\Users\danmo\AppData\Local\Temp\claude\C--Users-danmo-Racer\52bc1ded-c02a-4181-a622-46e12ffa5155\scratchpad\dan-campaign-v1.json

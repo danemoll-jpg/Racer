@@ -1,0 +1,40 @@
+---- splitsetup90
+PASS main menu: SPLIT SCREEN entry
+PASS setup screen; START waits for player 2
+PASS player 2 joined with Start on the second controller: Controller 2
+PASS player 1's own Start does not take player 2
+PASS every vehicle offered (10; the mower once earned) although the campaign owns 2
+setup rows: split-start=START | split-c2=‹   Player 2 colour:   White   › | split-layout=‹   Screen:   Top / bottom (player 1 on top)   › | split-v2=‹   Player 2 vehicle:   Skyfin Cruiser (Car)   › | split-laps=‹   Laps:   2   › | split-back=Back | split-c1=‹   Player 1 colour:   Red   › | split-p2=Player 2:   the race AI drives | split-ai=Player 2: AI driver:   On   (play alone and test) | split-p1=Player 1:   Controller 1   ✓ joined | split-v1=‹   Player 1 vehicle:   Longroof GT (Car)   › | split-course=‹   Course:   Dan's Backyard Loop — Forward   ›
+---- splitrace90:0:pad:tb:2
+PASS StreetLoopGreybox: 2 racers (YOU / PLAYER 2), cameras [Chase Camera (x:0.00, y:0.50, width:1.00, height:0.50), Player 2 camera (x:0.00, y:0.00, width:1.00, height:0.50)], Day/Clear, traffic False
+PASS player 1's Longroof GT stock in split-screen (campaign upgrades all level 3): top speed 52.0, acceleration 13.50
+PASS one radio: pad 1 then pad 2 within 0.5 s = 1 command; pad 2 later = 1 more
+PASS pause: from player 2 True; player 1's B / Start ignored True; player 2 resumed True; from player 1 True; resumed Racing
+PASS player 2's controller unplugged: paused, Resume off True; plugged in again: player 2 back on it True, Resume on True, racing Racing
+PASS results: 1. PLAYER 2 04:34.581 laps 2 misses 0 | 2. YOU 04:41.057 laps 2 misses 0
+PASS no record, board, ghost, activity or acorn file written: all 0 identical
+PASS back to the menu: one full-screen camera, player 2's camera and vehicle gone, player 1's input on every device again
+---- splitrace90:4:ai:lr:1
+PASS MountainLoop: 2 racers (YOU / EMBER), cameras [Player 2 camera (x:0.50, y:0.00, width:0.50, height:1.00), Chase Camera (x:0.00, y:0.00, width:0.50, height:1.00)], Day/Clear, traffic False
+PASS player 1's Longroof GT stock in split-screen (campaign upgrades all level 3): top speed 52.0, acceleration 13.50
+PASS one radio: pad 1 then pad 2 within 0.5 s = 1 command; pad 2 later = 1 more
+PASS pause: from player 2 True; player 1's B / Start ignored True; player 2 resumed True; from player 1 True; resumed Racing
+PASS results: 1. EMBER 01:58.810 laps 1 misses 0 | 2. YOU 02:05.070 laps 1 misses 0
+FAIL no record, board, ghost, activity or acorn file written: CHANGED exploration-map-woodstock-world-v2.json
+PASS back to the menu: one full-screen camera, player 2's camera and vehicle gone, player 1's input on every device again
+---- splitkeys90
+FAIL player 2 on the keyboard drove the lap: finished False in -, missed gates 0, resets 0; player 1's AI meanwhile at lap 1
+---- splitafter90
+PASS single-player race after split-screen: 4 racers, finished True, one camera (x:0.00, y:0.00, width:1.00, height:1.00)
+  running after 8 s: state Racing, campaign c1-first-lap
+PASS a campaign event starts as before
+---- hints90
+PASS main menu default selection for a new player: 'campaign'
+PASS after the title: welcome panel 'welcome' with Start the campaign / Look around first
+PASS Start the campaign: page 'campaign-event', event 'c1-first-lap'
+PASS controls card up, countdown held at 3.0
+PASS one press dismissed it; the countdown ran: Racing
+FAIL in-play hint: ''
+PASS Settings > Gameplay: 'Hints: On', 'Show hints again'
+PASS Show hints again: every hint can show again
+done, failures 3

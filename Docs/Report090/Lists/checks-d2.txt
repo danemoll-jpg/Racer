@@ -1,0 +1,12 @@
+---- hints90
+PASS main menu default selection for a new player: 'campaign'
+PASS after the title: welcome panel 'welcome' with Start the campaign / Look around first
+PASS Start the campaign: page 'campaign-event', event 'c1-first-lap'
+PASS controls card up, countdown held at 3.0
+PASS one press dismissed it; the countdown ran: Racing
+PASS in-play hint: 'Stuck or off the course? Press R to go back to the nearest point of the track.'
+PASS Settings > Gameplay: 'Hints: On', 'Show hints again'
+PASS Show hints again: every hint can show again
+---- splitkeys90
+PASS player 2 on the keyboard drove the lap: finished True in 02:18.483, missed gates 0, resets 0; player 1's AI meanwhile at lap 0
+done, failures 0

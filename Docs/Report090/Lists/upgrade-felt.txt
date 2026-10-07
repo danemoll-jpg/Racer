@@ -1,0 +1,2 @@
+stock: motor top speed 49.0, acceleration 14.50; 0-30 m/s 3.37 s; trap 41.10 m/s
+upgraded (Top speed 3, Acceleration 3): motor top speed 53.4, acceleration 17.11; 0-30 m/s 2.68 s; trap 44.89 m/s

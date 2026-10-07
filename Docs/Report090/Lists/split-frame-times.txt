@@ -1,0 +1,7 @@
+screen=3840x2160 gpu=NVIDIA GeForce GTX 1660 Ti
+SPLIT Street Loop - Forward top/bottom: GPU median 8.50 ms (95th 10.51, max 13.93) = 118 fps median, 95 fps 95th; wall-clock median 8.60 ms; 4052 frames
+SPLIT Street Loop - Forward left/right: GPU median 7.17 ms (95th 8.60, max 12.25) = 139 fps median, 116 fps 95th; wall-clock median 7.21 ms; 4976 frames
+SPLIT Forest Loop - Forward top/bottom: GPU median 10.13 ms (95th 11.43, max 13.41) = 99 fps median, 87 fps 95th; wall-clock median 10.17 ms; 3496 frames
+SPLIT Forest Loop - Forward left/right: GPU median 7.84 ms (95th 9.13, max 12.99) = 127 fps median, 110 fps 95th; wall-clock median 7.94 ms; 4220 frames
+SPLIT Mountain Loop - Forward top/bottom: GPU median 6.78 ms (95th 10.23, max 13.81) = 148 fps median, 98 fps 95th; wall-clock median 6.82 ms; 5220 frames
+SPLIT Mountain Loop - Forward left/right: GPU median 5.48 ms (95th 7.14, max 11.12) = 182 fps median, 140 fps 95th; wall-clock median 5.52 ms; 6302 frames

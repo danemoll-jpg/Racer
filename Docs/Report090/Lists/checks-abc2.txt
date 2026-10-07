@@ -1,0 +1,42 @@
+---- hints90
+PASS main menu default selection for a new player: 'campaign'
+PASS after the title: welcome panel 'welcome' with Start the campaign / Look around first
+PASS Start the campaign: page 'campaign-event', event 'c1-first-lap'
+PASS controls card up, countdown held at 3.0
+FAIL one press dismissed it; the countdown ran: Countdown
+FAIL in-play hint: ''
+PASS Settings > Gameplay: 'Hints: On', 'Show hints again'
+PASS Show hints again: every hint can show again
+---- dan90:C:\Users\danmo\AppData\Local\Temp\claude\C--Users-danmo-Racer\52bc1ded-c02a-4181-a622-46e12ffa5155\scratchpad\dan-campaign-v1.json
+PASS Dan's save loaded: money 13000, owned [original,atv,moto], chapter 2, results 6 passed, version 2 in memory, earned 13000, racing 1306 s
+PASS loading did not write the file
+PASS Street Cup open; chapter 2 open at its first event
+main menu: CAMPAIGN / Chapter 2: Forest Loop  ·  0 of 7 events  ·  $13,000
+PASS saved once (as version 2)
+PASS the version 2 file loads again with the same progress
+---- upgrade90
+  running after 11 s: state Racing, campaign c1-hwy92-trap
+stock: motor top speed 49.0, acceleration 14.50; 0-30 m/s 3.37 s; trap 41.10 m/s
+  running after 8 s: state Racing, campaign c1-hwy92-trap
+upgraded (Top speed 3, Acceleration 3): motor top speed 53.4, acceleration 17.11; 0-30 m/s 2.68 s; trap 44.89 m/s
+PASS after the event the Race vehicle is stock again: top speed 49.0, acceleration 14.50
+---- champion90
+  running after 27 s: state Racing, campaign cup-grand-r8
+PASS Grand Championship: last round left early (DNF), final 1st, campaign complete True
+main menu after: 
+---- cups90
+PASS Street Cup open once the chapter 1 final is passed; the Woodland Cup still locked
+  running after 9 s: state Racing, campaign cup-street-r1
+PASS round 1: StreetLoopGreybox, 6 racers [Rusty Vance pebble, Mia Torres roadster, Big Ed Kowalski skyfin, June Park tourer, Hollis Gray atv], 2 laps, Day/Clear
+PASS round 1 result: 6th of 6, places [6,4,3,5,1,2], table: June Park 10 | Hollis Gray 7 | Mia Torres 5 | Rusty Vance 3 | Big Ed Kowalski 2 | You 1
+PASS round 1 results: Next race offered, no retry
+FAIL quit after round 1: saved (1 race), row ''
+PASS Continue opens the championship with Resume
+  running after 23 s: state Racing, campaign cup-street-r2
+PASS round 2: StreetLoopReverse, 6 racers [Rusty Vance pebble, Mia Torres roadster, Big Ed Kowalski skyfin, June Park tourer, Hollis Gray atv], 2 laps, Dusk/Clear
+PASS round 2 result: 3rd of 6, places [3,0,1,0,2,4], table: June Park 17 | Mia Torres 15 | Hollis Gray 10 | You 6 | Rusty Vance 3 | Big Ed Kowalski 2
+  running after 10 s: state Racing, campaign cup-street-r3
+PASS round 3: StreetLoopGreybox, 6 racers [Rusty Vance pebble, Mia Torres roadster, Big Ed Kowalski skyfin, June Park tourer, Hollis Gray atv], 3 laps, Day/Clear
+PASS round 3 result: 3rd of 6, places [3,5,4,6,1,2], table: June Park 27 | Mia Torres 18 | Hollis Gray 17 | You 11 | Rusty Vance 5 | Big Ed Kowalski 3
+PASS final: 4th overall, pay 1000 + bonus 0, trophy False, money 1000
+done, failures 3

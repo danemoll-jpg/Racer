@@ -1,0 +1,42 @@
+---- smash90:atv
+  running after 10 s: state Racing, campaign c3-fence-smash
+smash atv: start 466.7,81.25,65.7, site props 14, result SILVER  ·  9 props, smashed by script 3
+---- targets90:c2-opening-jump,c4-summit-flight:atv,moto,original
+  running after 14 s: state Racing, campaign c2-opening-jump
+c2-opening-jump atv: start 502.2,79.69,157.4, result no score, medal 0
+  running after 10 s: state Racing, campaign c2-opening-jump
+c2-opening-jump moto: start 502.2,79.69,157.4, result no score, medal 0
+  running after 10 s: state Racing, campaign c2-opening-jump
+c2-opening-jump original: start 502.2,79.84,157.4, result no score, medal 0
+  running after 12 s: state Racing, campaign c4-summit-flight
+c4-summit-flight atv: start 1214.3,152.50,213.7, result 705.1 ft (214.90), medal 3
+  running after 10 s: state Racing, campaign c4-summit-flight
+c4-summit-flight moto: start 1214.3,152.50,213.7, result no score, medal 0
+  running after 10 s: state Racing, campaign c4-summit-flight
+c4-summit-flight original: start 1214.3,152.65,213.7, result 490.8 ft (149.60), medal 3
+---- targets90:c2-cave-run,c3-backyard-clock,c4-summit-clock:atv,moto
+  running after 11 s: state Racing, campaign c2-cave-run
+c2-cave-run atv AI skill 1: 01:12.554 (72.55 s), missed gates 0
+  running after 10 s: state Racing, campaign c2-cave-run
+c2-cave-run atv AI skill 2: 01:11.842 (71.84 s), missed gates 0
+  running after 9 s: state Racing, campaign c2-cave-run
+c2-cave-run moto AI skill 1: 01:01.881 (61.88 s), missed gates 0
+  running after 10 s: state Racing, campaign c2-cave-run
+c2-cave-run moto AI skill 2: 01:06.804 (66.80 s), missed gates 0
+  running after 11 s: state Racing, campaign c3-backyard-clock
+c3-backyard-clock atv AI skill 1: 01:06.549 (66.55 s), missed gates 0
+  running after 8 s: state Racing, campaign c3-backyard-clock
+c3-backyard-clock atv AI skill 2: 00:58.486 (58.49 s), missed gates 0
+  running after 8 s: state Racing, campaign c3-backyard-clock
+c3-backyard-clock moto AI skill 1: 01:11.069 (71.07 s), missed gates 0
+  running after 8 s: state Racing, campaign c3-backyard-clock
+c3-backyard-clock moto AI skill 2: 01:24.045 (84.05 s), missed gates 1
+  running after 15 s: state Racing, campaign c4-summit-clock
+c4-summit-clock atv AI skill 1: 02:03.586 (123.59 s), missed gates 0
+  running after 10 s: state Racing, campaign c4-summit-clock
+c4-summit-clock atv AI skill 2: 01:59.711 (119.71 s), missed gates 0
+  running after 10 s: state Racing, campaign c4-summit-clock
+c4-summit-clock moto AI skill 1: 02:00.209 (120.21 s), missed gates 0
+  running after 10 s: state Racing, campaign c4-summit-clock
+c4-summit-clock moto AI skill 2: 01:58.652 (118.65 s), missed gates 0
+done, failures 0

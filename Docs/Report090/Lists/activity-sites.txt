@@ -1,0 +1,32 @@
+== LakeWoods (Forest Loop - Forward) road length 2119
+  jump-01 [Jump] 'Forest opening jump' at 372.5,78.09,230.9 r 32 station 374 lateral 0.0 forward·road 1.00 both False targets(atv) 15.0/28.0/36.0
+  mountain-creek [Jump] 'Fern Creek Leap' at 880.2,115.49,-84.9 r 20 station 2018 lateral 278.1 forward·road 0.09 both True targets(atv) 5.0/14.0/25.0
+  mountain-ridge [Jump] 'High Ridge Drop' at 1011.0,163.73,93.7 r 20 station 113 lateral 454.2 forward·road 0.77 both True targets(atv) 5.0/14.0/25.0
+  smash-01 [Smash] 'Fence line smash' at 481.3,88.11,-89.7 r 85 station 2089 lateral 90.0 forward·road -0.97 both False targets(atv) 3.0/6.0/10.0
+  speed-0 [Speed] 'Forest speed trap 1' at 564.3,81.75,79.9 r 4.6 station 120 lateral 0.0 forward·road 1.00 both True targets(atv) 12.0/18.0/24.0
+  speed-1 [Speed] 'Forest speed trap 2' at 479.9,78.22,170.8 r 4.6 station 250 lateral 0.0 forward·road 1.00 both True targets(atv) 12.0/18.0/24.0
+  summit-homeward [Jump] 'Summit Homeward Flight' at 980.4,177.92,147.3 r 28 station 126 lateral 432.1 forward·road -0.13 both True targets(atv) 30.0/65.0/100.0
+== DansBackyardForward (Dan's Backyard Loop - Forward) road length 1257
+  jump-01 [Jump] 'Trickum pavement jump' at -628.3,14.00,-70.0 r 32 station 576 lateral 649.8 forward·road 1.00 both False targets(atv) 20.0/45.0/75.0
+  mountain-creek [Jump] 'Fern Creek Leap' at 880.2,115.49,-84.9 r 20 station 1252 lateral 419.4 forward·road -0.53 both True targets(atv) 5.0/14.0/25.0
+  mountain-ridge [Jump] 'High Ridge Drop' at 1011.0,163.73,93.7 r 20 station 1231 lateral 548.3 forward·road -0.81 both True targets(atv) 5.0/14.0/25.0
+  smash-01 [Smash] 'Fence line smash' at 481.3,88.11,-89.7 r 85 station 1255 lateral 98.5 forward·road -0.39 both False targets(atv) 3.0/6.0/10.0
+  speed-0 [Speed] 'Trickum / 92 speed trap 1' at -396.3,8.44,534.1 r 9.2 station 718 lateral 658.4 forward·road 0.72 both True targets(atv) 20.0/28.0/36.0
+  speed-1 [Speed] 'Trickum / 92 speed trap 2' at -629.7,8.62,95.4 r 5.5 station 684 lateral 670.6 forward·road 0.99 both True targets(atv) 20.0/28.0/36.0
+  summit-homeward [Jump] 'Summit Homeward Flight' at 980.4,177.92,147.3 r 28 station 1200 lateral 528.1 forward·road 0.11 both True targets(atv) 30.0/65.0/100.0
+== MountainLoop (Mountain Loop - Forward) road length 2760
+  jump-01 [Jump] 'Forest opening jump' at 372.5,78.09,230.9 r 32 station 2543 lateral 367.6 forward·road 0.06 both False targets(atv) 15.0/28.0/36.0
+  mountain-creek [Jump] 'Fern Creek Leap' at 880.2,115.49,-84.9 r 20 station 1342 lateral 109.3 forward·road 0.52 both True targets(atv) 5.0/14.0/25.0
+  mountain-ridge [Jump] 'High Ridge Drop' at 1011.0,163.73,93.7 r 20 station 1583 lateral 2.7 forward·road 0.93 both True targets(atv) 5.0/14.0/25.0
+  smash-01 [Smash] 'Fence line smash' at 481.3,88.11,-89.7 r 85 station 2590 lateral 224.1 forward·road 1.00 both False targets(atv) 3.0/6.0/10.0
+  speed-0 [Speed] 'Forest speed trap 1' at 564.3,81.75,79.9 r 4.6 station 2553 lateral 128.8 forward·road -0.91 both True targets(atv) 12.0/18.0/24.0
+  speed-1 [Speed] 'Forest speed trap 2' at 479.9,78.22,170.8 r 4.6 station 2543 lateral 244.6 forward·road -0.01 both True targets(atv) 12.0/18.0/24.0
+  summit-homeward [Jump] 'Summit Homeward Flight' at 980.4,177.92,147.3 r 28 station 2205 lateral 0.0 forward·road 1.00 both True targets(atv) 30.0/65.0/100.0
+== ForestLoopReverse (Forest Loop - Reverse) road length 2103
+  jump-01 [Jump] 'Forest opening jump' at 323.7,51.33,-253.1 r 32 station 488 lateral 0.0 forward·road 1.00 both False targets(atv) 18.0/30.0/40.0
+  mountain-creek [Jump] 'Fern Creek Leap' at 880.2,115.49,-84.9 r 20 station 102 lateral 278.1 forward·road -0.13 both True targets(atv) 5.0/14.0/25.0
+  mountain-ridge [Jump] 'High Ridge Drop' at 1011.0,163.73,93.7 r 20 station 1990 lateral 454.2 forward·road -0.77 both True targets(atv) 5.0/14.0/25.0
+  smash-01 [Smash] 'Fence line smash' at 481.3,88.11,-89.7 r 85 station 30 lateral 90.0 forward·road 0.97 both False targets(atv) 3.0/6.0/10.0
+  speed-0 [Speed] 'Forest speed trap 1' at 477.1,78.08,172.5 r 4.6 station 1850 lateral 0.0 forward·road 1.00 both True targets(atv) 12.0/18.0/24.0
+  speed-1 [Speed] 'Forest speed trap 2' at 565.1,81.87,63.2 r 7 station 2000 lateral 0.0 forward·road 1.00 both True targets(atv) 12.0/18.0/24.0
+  summit-homeward [Jump] 'Summit Homeward Flight' at 980.4,177.92,147.3 r 28 station 1977 lateral 432.1 forward·road 0.14 both True targets(atv) 30.0/65.0/100.0

@@ -1,0 +1,27 @@
+c2-opening-jump atv: start 502.2,79.69,157.4, result no score, medal 0
+c2-opening-jump moto: start 502.2,79.69,157.4, result no score, medal 0
+c2-opening-jump original: start 502.2,79.84,157.4, result no score, medal 0
+c4-summit-flight atv: start 1214.3,152.50,213.7, result 705.1 ft (214.90), medal 3
+c4-summit-flight moto: start 1214.3,152.50,213.7, result no score, medal 0
+c4-summit-flight original: start 1214.3,152.65,213.7, result 490.8 ft (149.60), medal 3
+c2-cave-run atv AI skill 1: 01:12.554 (72.55 s), missed gates 0
+c2-cave-run atv AI skill 2: 01:11.842 (71.84 s), missed gates 0
+c2-cave-run moto AI skill 1: 01:01.881 (61.88 s), missed gates 0
+c2-cave-run moto AI skill 2: 01:06.804 (66.80 s), missed gates 0
+c3-backyard-clock atv AI skill 1: 01:06.549 (66.55 s), missed gates 0
+c3-backyard-clock atv AI skill 2: 00:58.486 (58.49 s), missed gates 0
+c3-backyard-clock moto AI skill 1: 01:11.069 (71.07 s), missed gates 0
+c3-backyard-clock moto AI skill 2: 01:24.045 (84.05 s), missed gates 1
+c4-summit-clock atv AI skill 1: 02:03.586 (123.59 s), missed gates 0
+c4-summit-clock atv AI skill 2: 01:59.711 (119.71 s), missed gates 0
+c4-summit-clock moto AI skill 1: 02:00.209 (120.21 s), missed gates 0
+c4-summit-clock moto AI skill 2: 01:58.652 (118.65 s), missed gates 0
+c2-opening-jump atv at 16 m/s: 70.9 ft; last jump: site=jump-01 invalid=False verticalImpact=8.31 contactImpact=11.55 contactUp=0.98 up=0.98 wiped=False air=1.42 distance=21.61
+c2-opening-jump atv at 20 m/s: 94.3 ft; last jump: site=jump-01 invalid=False verticalImpact=7.77 contactImpact=13.47 contactUp=0.88 up=0.83 wiped=False air=1.54 distance=28.75
+c2-opening-jump atv at 24 m/s: 114.2 ft; last jump: site=jump-01 invalid=False verticalImpact=9.82 contactImpact=13.40 contactUp=0.82 up=0.99 wiped=False air=1.56 distance=34.80
+c2-opening-jump atv at 28 m/s: 151.2 ft; last jump: site=jump-01 invalid=False verticalImpact=7.23 contactImpact=5.16 contactUp=0.99 up=0.99 wiped=False air=1.76 distance=46.08
+c2-opening-jump atv at 32 m/s: no score; last jump: site= invalid=True verticalImpact=13.48 contactImpact=15.53 contactUp=0.00 up=0.72 wiped=False air=0.28 distance=5.17
+c2-opening-jump original at 16 m/s: 69.2 ft; last jump: site=jump-01 invalid=False verticalImpact=8.27 contactImpact=10.93 contactUp=0.98 up=0.98 wiped=False air=1.40 distance=21.08
+c2-opening-jump original at 20 m/s: 112.3 ft; last jump: site=jump-01 invalid=False verticalImpact=7.58 contactImpact=13.97 contactUp=0.79 up=0.84 wiped=False air=2.04 distance=34.23
+c2-opening-jump original at 24 m/s: 115.6 ft; last jump: site=jump-01 invalid=False verticalImpact=8.83 contactImpact=9.28 contactUp=0.92 up=0.99 wiped=False air=1.60 distance=35.23
+c2-opening-jump original at 28 m/s: 152.4 ft; last jump: site=jump-01 invalid=False verticalImpact=7.65 contactImpact=3.31 contactUp=0.99 up=0.99 wiped=False air=1.82 distance=46.45
