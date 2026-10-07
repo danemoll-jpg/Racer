@@ -393,6 +393,9 @@ namespace Racer
                 if (dan) { LightGlass(site, hidden); continue; }
                 var s = Read(site); if (s == null) continue;
                 var st = StyleFor(site.name, s.business); var m = new Builder();
+                // 0.87: Kyle's house is its own model in the scene (Assets/Scenery/KylesHouse, from Dan's photo), with its
+                // gutters, trim and lit windows; nothing is added or hidden here, in either scenery setting.
+                if (kyle && site.Find("Kyle's house (0.87)")) continue;
                 if (kyle)
                 {
                     // detail only: the house keeps its own model and colours

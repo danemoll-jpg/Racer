@@ -1,0 +1,42 @@
+FreeRoamWorld: 581 points checked (25 trunk colliders within 30 m): floating 0, buried 5; new drive leg vs ground worst -0.12 m at local 22.00,0.00,4.50, kept old drive worst +0.00 m
+  UNDER GROUND 0.06 m: new drive leg / apron at local (21.5, 4)
+  UNDER GROUND 0.06 m: new drive leg / apron at local (21.5, 4.5)
+  UNDER GROUND 0.07 m: new drive leg / apron at local (22, 4)
+  UNDER GROUND 0.12 m: new drive leg / apron at local (22, 4.5)
+  UNDER GROUND 0.11 m: new drive leg / apron at local (22, 5)
+LakeWoods: 583 points checked (27 trunk colliders within 30 m): floating 0, buried 2; new drive leg vs ground worst -0.16 m at local 22.00,0.00,3.50, kept old drive worst +0.00 m
+  UNDER GROUND 0.16 m: new drive leg / apron at local (22, 3.5)
+  UNDER GROUND 0.14 m: new drive leg / apron at local (22, 4)
+ForestLoopReverse: 582 points checked (26 trunk colliders within 30 m): floating 0, buried 2; new drive leg vs ground worst -0.16 m at local 22.00,0.00,3.50, kept old drive worst +0.00 m
+  UNDER GROUND 0.16 m: new drive leg / apron at local (22, 3.5)
+  UNDER GROUND 0.14 m: new drive leg / apron at local (22, 4)
+MountainLoop: 580 points checked (24 trunk colliders within 30 m): floating 0, buried 2; new drive leg vs ground worst -0.16 m at local 22.00,0.00,3.50, kept old drive worst +0.00 m
+  UNDER GROUND 0.16 m: new drive leg / apron at local (22, 3.5)
+  UNDER GROUND 0.14 m: new drive leg / apron at local (22, 4)
+MountainLoopReverse: 583 points checked (27 trunk colliders within 30 m): floating 0, buried 2; new drive leg vs ground worst -0.16 m at local 22.00,0.00,3.50, kept old drive worst +0.00 m
+  UNDER GROUND 0.16 m: new drive leg / apron at local (22, 3.5)
+  UNDER GROUND 0.14 m: new drive leg / apron at local (22, 4)
+StreetLoopGreybox: 583 points checked (27 trunk colliders within 30 m): floating 0, buried 5; new drive leg vs ground worst -0.12 m at local 22.00,0.00,4.50, kept old drive worst +0.00 m
+  UNDER GROUND 0.06 m: new drive leg / apron at local (21.5, 4)
+  UNDER GROUND 0.06 m: new drive leg / apron at local (21.5, 4.5)
+  UNDER GROUND 0.07 m: new drive leg / apron at local (22, 4)
+  UNDER GROUND 0.12 m: new drive leg / apron at local (22, 4.5)
+  UNDER GROUND 0.11 m: new drive leg / apron at local (22, 5)
+StreetLoopReverse: 582 points checked (26 trunk colliders within 30 m): floating 0, buried 5; new drive leg vs ground worst -0.12 m at local 22.00,0.00,4.50, kept old drive worst +0.00 m
+  UNDER GROUND 0.06 m: new drive leg / apron at local (21.5, 4)
+  UNDER GROUND 0.06 m: new drive leg / apron at local (21.5, 4.5)
+  UNDER GROUND 0.07 m: new drive leg / apron at local (22, 4)
+  UNDER GROUND 0.12 m: new drive leg / apron at local (22, 4.5)
+  UNDER GROUND 0.11 m: new drive leg / apron at local (22, 5)
+DansBackyardForward: 581 points checked (25 trunk colliders within 30 m): floating 0, buried 5; new drive leg vs ground worst -0.12 m at local 22.00,0.00,4.50, kept old drive worst +0.00 m
+  UNDER GROUND 0.06 m: new drive leg / apron at local (21.5, 4)
+  UNDER GROUND 0.06 m: new drive leg / apron at local (21.5, 4.5)
+  UNDER GROUND 0.07 m: new drive leg / apron at local (22, 4)
+  UNDER GROUND 0.12 m: new drive leg / apron at local (22, 4.5)
+  UNDER GROUND 0.11 m: new drive leg / apron at local (22, 5)
+DansBackyardReverse: 581 points checked (25 trunk colliders within 30 m): floating 0, buried 5; new drive leg vs ground worst -0.12 m at local 22.00,0.00,4.50, kept old drive worst +0.00 m
+  UNDER GROUND 0.06 m: new drive leg / apron at local (21.5, 4)
+  UNDER GROUND 0.06 m: new drive leg / apron at local (21.5, 4.5)
+  UNDER GROUND 0.07 m: new drive leg / apron at local (22, 4)
+  UNDER GROUND 0.12 m: new drive leg / apron at local (22, 4.5)
+  UNDER GROUND 0.11 m: new drive leg / apron at local (22, 5)

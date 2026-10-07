@@ -1,0 +1,411 @@
+model: 18 parts from Assets/Scenery/KylesHouse/KylesHouse.fbx, 12048 vertices, 6120 triangles; FBX turned half a turn: True (undone); bounds (-11.47, -2.65, -8.47) - (8.06, 5.97, 7.04) -> Assets/Scenery/KylesHouse/KylesHouse-0.87.asset
+collision shapes: 22 (18 boxes, 4 prisms)
+== FreeRoamWorld
+  old colliders: 7
+    Foundation BoxCollider 504.66,78.57,-43.20 - 518.34,79.27,-27.20
+    Phase 6 architecture/Wall collision BoxCollider 505.25,79.17,-42.60 - 517.75,83.97,-27.80
+    Phase 6 architecture/Pitched roof MeshCollider 504.66,83.97,-43.20 - 518.34,86.17,-27.20
+    Phase 6 architecture/Pitched roof MeshCollider 505.00,82.37,-38.08 - 507.53,83.17,-34.56
+    Phase 6 architecture/Chimney BoxCollider 513.02,83.97,-38.80 - 514.14,87.77,-37.67
+    Entrance step 1 BoxCollider 505.73,78.62,-37.41 - 506.81,79.22,-35.22
+    Entrance step 2 BoxCollider 505.14,78.62,-37.54 - 506.22,78.98,-35.35
+  drive: the new leg leaves the existing drive at local (22.5, 1.62, 8.0) and descends to the apron at the pad (0) over 11.8 m
+  ground Memory loop - north is +Z/Ground_560_320 [Assets/Track/SevenCorrections/Exact compact pool release.asset] (scenes DansBackyardReverse,FreeRoamWorld): 0 vertices, raised 0 / lowered 0 (vertex-metres), largest 0.00 m
+  ground Memory loop - north is +Z/Ground_640_320 [Assets/Track/Discovery/StreetLoopGreybox-kyle-smooth-drive-Ground_640_320.asset] (scenes DansBackyardForward,DansBackyardReverse,FreeRoamWorld,StreetLoopGreybox): 187 vertices, raised 137 / lowered 178 (vertex-metres), largest 6.06 m
+  ground CR113 continuous highway seams/Ground_CR113 Kyle driveway edge join [Assets/Track/Backyard/StreetLoopGreybox-Kyle-edge.asset] (scenes DansBackyardForward,DansBackyardReverse,FreeRoamWorld,StreetLoopGreybox): 1423 vertices, raised 940 / lowered 398 (vertex-metres), largest 2.43 m
+  re-seat tree Anderson wooded frontage screening/Anderson frontage trunk at local -8.08,0.00,10.70 by +1.90
+  vegetation Anderson wooded frontage screening: pieces cut 0, moved 4, bushes moved 0 -> Assets/Scenery/KylesHouse/FreeRoamWorld-kyle-vegetation-Anderson wooded frontage screening-42681.asset
+  trees removed 0, re-seated 1
+  new colliders: 22
+    Porch post BoxCollider 505.19,81.32,-36.33 - 505.35,83.35,-36.16
+    Porch post BoxCollider 505.76,81.32,-39.00 - 505.92,83.35,-38.83
+    Porch post BoxCollider 506.30,81.32,-41.54 - 506.47,83.35,-41.37
+    Porch post BoxCollider 506.81,81.32,-43.92 - 506.98,83.35,-43.75
+    Chimney BoxCollider 509.81,78.67,-44.26 - 511.58,86.77,-43.00
+    Screened porch BoxCollider 511.67,78.67,-46.65 - 517.99,84.22,-41.75
+    Deck post BoxCollider 520.51,78.47,-38.27 - 520.73,81.27,-38.05
+    Deck post BoxCollider 519.82,78.47,-35.04 - 520.04,81.27,-34.82
+    Deck post BoxCollider 519.13,78.47,-31.81 - 519.35,81.27,-31.60
+    Deck post BoxCollider 517.09,78.47,-39.00 - 517.30,81.27,-38.78
+    Deck post BoxCollider 515.71,78.47,-32.54 - 515.92,81.27,-32.33
+    Deck railing BoxCollider 519.26,81.57,-37.22 - 520.57,82.55,-31.53
+    Deck railing BoxCollider 515.54,81.57,-32.44 - 519.38,82.55,-31.53
+    Deck railing BoxCollider 516.96,81.57,-39.09 - 519.62,82.55,-38.43
+    Deck BoxCollider 515.60,81.27,-39.03 - 520.74,81.57,-31.59
+    Deck stairs MeshCollider 519.66,78.67,-42.69 - 521.64,81.57,-38.24
+    Wall collision BoxCollider 505.41,78.67,-43.59 - 517.59,84.32,-26.81
+    Wing wall collision BoxCollider 503.65,78.67,-34.39 - 506.54,84.32,-28.73
+    Porch floor BoxCollider 505.06,80.52,-43.99 - 508.59,81.32,-35.77
+    Pitched roof MeshCollider 504.96,84.17,-44.04 - 518.04,86.07,-26.36
+    Pitched roof MeshCollider 503.20,84.17,-34.84 - 509.26,85.34,-27.79
+    Porch roof MeshCollider 504.69,83.30,-44.44 - 508.30,84.17,-35.85
+  old drive ribbon: cut along local x = 22.5 (the leg to the front removed: 2 triangles, 2 clipped) -> Assets/Scenery/KylesHouse/FreeRoamWorld-kyle-driveway-0.87.asset; cut ends 22.50,1.65,4.17 / 22.50,1.60,11.78
+  new drive leg and apron: Assets/Scenery/KylesHouse/FreeRoamWorld-kyle-garage-drive.asset, gravel 'Driveway gravel', apron local x 7.6..15.2, z -5.2..1.6 at the pad
+  drive route points 477.31,82.27,-5.50 479.81,82.22,-5.65 496.78,79.22,-6.64 499.94,80.67,-18.33 498.79,78.67,-37.92 -> 477.31,82.27,-5.50 479.81,82.22,-5.65 496.78,79.22,-6.64 499.00,80.32,-14.86 502.92,79.51,-18.01 507.26,78.70,-20.15 510.51,78.70,-22.94
+  map destination property-anderson 498.79,78.67,-37.92 -> 510.51,78.70,-22.94 yaw 311
+  saved
+== LakeWoods
+  old colliders: 7
+    Foundation BoxCollider 504.66,78.57,-43.20 - 518.34,79.27,-27.20
+    Phase 6 architecture/Wall collision BoxCollider 505.25,79.17,-42.60 - 517.75,83.97,-27.80
+    Phase 6 architecture/Pitched roof MeshCollider 504.66,83.97,-43.20 - 518.34,86.17,-27.20
+    Phase 6 architecture/Pitched roof MeshCollider 505.00,82.37,-38.08 - 507.53,83.17,-34.56
+    Phase 6 architecture/Chimney BoxCollider 513.02,83.97,-38.80 - 514.14,87.77,-37.67
+    Entrance step 1 BoxCollider 505.73,78.62,-37.41 - 506.81,79.22,-35.22
+    Entrance step 2 BoxCollider 505.14,78.62,-37.54 - 506.22,78.98,-35.35
+  drive: the new leg leaves the existing drive at local (22.5, 1.62, 8.0) and descends to the apron at the pad (0) over 11.8 m
+  ground Memory loop - north is +Z/Ground_560_320 [Assets/Track/BackyardReverse/LakeWoods-roger-support-20.asset] (scenes LakeWoods): 0 vertices, raised 0 / lowered 0 (vertex-metres), largest 0.00 m
+  ground Memory loop - north is +Z/Ground_640_320 [Assets/Track/SummitClimb/LakeWoods-summit-Ground_640_320.asset] (scenes LakeWoods): 744 vertices, raised 553 / lowered 710 (vertex-metres), largest 6.15 m
+  ground CR113 continuous highway seams/Ground_CR113 Kyle driveway edge join [Assets/Track/Backyard/LakeWoods-Kyle-edge.asset] (scenes LakeWoods): 1423 vertices, raised 940 / lowered 398 (vertex-metres), largest 2.43 m
+  re-seat tree World cleanup additional woodland/Anderson woodland trunk at local -10.32,0.04,11.10 by +1.66
+  re-seat tree World cleanup additional woodland/Roadside woodland trunk at local -13.89,0.00,2.05 by +1.80
+  remove tree (bark box) at local 23.29,4.76,10.47 (in the new footprint / apron / drive), pieces 4
+  vegetation CR056 Forest Loop/Forest detail batch: pieces cut 4, moved 0, bushes moved 0 -> Assets/Scenery/KylesHouse/LakeWoods-kyle-vegetation-Forest detail batch-70414.asset
+  vegetation World cleanup additional woodland/Additional woodland canopy: pieces cut 0, moved 6, bushes moved 0 -> Assets/Scenery/KylesHouse/LakeWoods-kyle-vegetation-Additional woodland canopy-42465.asset
+  trees removed 1, re-seated 2
+  new colliders: 22
+    Porch post BoxCollider 505.19,81.32,-36.33 - 505.35,83.35,-36.16
+    Porch post BoxCollider 505.76,81.32,-39.00 - 505.92,83.35,-38.83
+    Porch post BoxCollider 506.30,81.32,-41.54 - 506.47,83.35,-41.37
+    Porch post BoxCollider 506.81,81.32,-43.92 - 506.98,83.35,-43.75
+    Chimney BoxCollider 509.81,78.67,-44.26 - 511.58,86.77,-43.00
+    Screened porch BoxCollider 511.67,78.67,-46.65 - 517.99,84.22,-41.75
+    Deck post BoxCollider 520.51,78.47,-38.27 - 520.73,81.27,-38.05
+    Deck post BoxCollider 519.82,78.47,-35.04 - 520.04,81.27,-34.82
+    Deck post BoxCollider 519.13,78.47,-31.81 - 519.35,81.27,-31.60
+    Deck post BoxCollider 517.09,78.47,-39.00 - 517.30,81.27,-38.78
+    Deck post BoxCollider 515.71,78.47,-32.54 - 515.92,81.27,-32.33
+    Deck railing BoxCollider 519.26,81.57,-37.22 - 520.57,82.55,-31.53
+    Deck railing BoxCollider 515.54,81.57,-32.44 - 519.38,82.55,-31.53
+    Deck railing BoxCollider 516.96,81.57,-39.09 - 519.62,82.55,-38.43
+    Deck BoxCollider 515.60,81.27,-39.03 - 520.74,81.57,-31.59
+    Deck stairs MeshCollider 519.66,78.67,-42.69 - 521.64,81.57,-38.24
+    Wall collision BoxCollider 505.41,78.67,-43.59 - 517.59,84.32,-26.81
+    Wing wall collision BoxCollider 503.65,78.67,-34.39 - 506.54,84.32,-28.73
+    Porch floor BoxCollider 505.06,80.52,-43.99 - 508.59,81.32,-35.77
+    Pitched roof MeshCollider 504.96,84.17,-44.04 - 518.04,86.07,-26.36
+    Pitched roof MeshCollider 503.20,84.17,-34.84 - 509.26,85.34,-27.79
+    Porch roof MeshCollider 504.69,83.30,-44.44 - 508.30,84.17,-35.85
+  old drive ribbon: cut along local x = 22.5 (the leg to the front removed: 2 triangles, 2 clipped) -> Assets/Scenery/KylesHouse/LakeWoods-kyle-driveway-0.87.asset; cut ends 22.50,1.65,4.17 / 22.50,1.60,11.78
+  new drive leg and apron: Assets/Scenery/KylesHouse/LakeWoods-kyle-garage-drive.asset, gravel 'Driveway gravel', apron local x 7.6..15.2, z -5.2..1.6 at the pad
+  drive route points 477.31,82.27,-5.50 479.81,82.22,-5.65 496.78,79.22,-6.64 499.94,80.67,-18.33 498.79,78.67,-37.92 -> 477.31,82.27,-5.50 479.81,82.22,-5.65 496.78,79.22,-6.64 499.00,80.32,-14.86 502.92,79.51,-18.01 507.26,78.70,-20.15 510.51,78.70,-22.94
+  map destination property-anderson 498.79,78.67,-37.92 -> 510.51,78.70,-22.94 yaw 311
+  saved
+== ForestLoopReverse
+  old colliders: 7
+    Foundation BoxCollider 504.66,78.57,-43.20 - 518.34,79.27,-27.20
+    Phase 6 architecture/Wall collision BoxCollider 505.25,79.17,-42.60 - 517.75,83.97,-27.80
+    Phase 6 architecture/Pitched roof MeshCollider 504.66,83.97,-43.20 - 518.34,86.17,-27.20
+    Phase 6 architecture/Pitched roof MeshCollider 505.00,82.37,-38.08 - 507.53,83.17,-34.56
+    Phase 6 architecture/Chimney BoxCollider 513.02,83.97,-38.80 - 514.14,87.77,-37.67
+    Entrance step 1 BoxCollider 505.73,78.62,-37.41 - 506.81,79.22,-35.22
+    Entrance step 2 BoxCollider 505.14,78.62,-37.54 - 506.22,78.98,-35.35
+  drive: the new leg leaves the existing drive at local (22.5, 1.62, 8.0) and descends to the apron at the pad (0) over 11.8 m
+  ground Memory loop - north is +Z/Ground_560_320 [Assets/Track/BackyardReverse/ForestLoopReverse-roger-support-32.asset] (scenes ForestLoopReverse): 0 vertices, raised 0 / lowered 0 (vertex-metres), largest 0.00 m
+  ground Memory loop - north is +Z/Ground_640_320 [Assets/Track/Discovery/ForestLoopReverse-kyle-smooth-drive-Ground_640_320.asset] (scenes ForestLoopReverse): 744 vertices, raised 553 / lowered 710 (vertex-metres), largest 6.15 m
+  ground CR113 continuous highway seams/Ground_CR113 Kyle driveway edge join [Assets/Track/Backyard/ForestLoopReverse-Kyle-edge.asset] (scenes ForestLoopReverse): 1423 vertices, raised 940 / lowered 398 (vertex-metres), largest 2.43 m
+  re-seat tree World cleanup additional woodland/Anderson woodland trunk at local -10.32,0.04,11.10 by +1.66
+  re-seat tree World cleanup additional woodland/Roadside woodland trunk at local -13.59,0.00,-1.67 by +0.74
+  remove tree (bark box) at local 23.29,4.76,10.47 (in the new footprint / apron / drive), pieces 4
+  vegetation CR056 Forest Loop/Forest detail batch: pieces cut 4, moved 0, bushes moved 0 -> Assets/Scenery/KylesHouse/ForestLoopReverse-kyle-vegetation-Forest detail batch-70414.asset
+  vegetation World cleanup additional woodland/Additional woodland canopy: pieces cut 0, moved 8, bushes moved 0 -> Assets/Scenery/KylesHouse/ForestLoopReverse-kyle-vegetation-Additional woodland canopy-96608.asset
+  trees removed 1, re-seated 2
+  new colliders: 22
+    Porch post BoxCollider 505.19,81.32,-36.33 - 505.35,83.35,-36.16
+    Porch post BoxCollider 505.76,81.32,-39.00 - 505.92,83.35,-38.83
+    Porch post BoxCollider 506.30,81.32,-41.54 - 506.47,83.35,-41.37
+    Porch post BoxCollider 506.81,81.32,-43.92 - 506.98,83.35,-43.75
+    Chimney BoxCollider 509.81,78.67,-44.26 - 511.58,86.77,-43.00
+    Screened porch BoxCollider 511.67,78.67,-46.65 - 517.99,84.22,-41.75
+    Deck post BoxCollider 520.51,78.47,-38.27 - 520.73,81.27,-38.05
+    Deck post BoxCollider 519.82,78.47,-35.04 - 520.04,81.27,-34.82
+    Deck post BoxCollider 519.13,78.47,-31.81 - 519.35,81.27,-31.60
+    Deck post BoxCollider 517.09,78.47,-39.00 - 517.30,81.27,-38.78
+    Deck post BoxCollider 515.71,78.47,-32.54 - 515.92,81.27,-32.33
+    Deck railing BoxCollider 519.26,81.57,-37.22 - 520.57,82.55,-31.53
+    Deck railing BoxCollider 515.54,81.57,-32.44 - 519.38,82.55,-31.53
+    Deck railing BoxCollider 516.96,81.57,-39.09 - 519.62,82.55,-38.43
+    Deck BoxCollider 515.60,81.27,-39.03 - 520.74,81.57,-31.59
+    Deck stairs MeshCollider 519.66,78.67,-42.69 - 521.64,81.57,-38.24
+    Wall collision BoxCollider 505.41,78.67,-43.59 - 517.59,84.32,-26.81
+    Wing wall collision BoxCollider 503.65,78.67,-34.39 - 506.54,84.32,-28.73
+    Porch floor BoxCollider 505.06,80.52,-43.99 - 508.59,81.32,-35.77
+    Pitched roof MeshCollider 504.96,84.17,-44.04 - 518.04,86.07,-26.36
+    Pitched roof MeshCollider 503.20,84.17,-34.84 - 509.26,85.34,-27.79
+    Porch roof MeshCollider 504.69,83.30,-44.44 - 508.30,84.17,-35.85
+  old drive ribbon: cut along local x = 22.5 (the leg to the front removed: 2 triangles, 2 clipped) -> Assets/Scenery/KylesHouse/ForestLoopReverse-kyle-driveway-0.87.asset; cut ends 22.50,1.65,4.17 / 22.50,1.60,11.78
+  new drive leg and apron: Assets/Scenery/KylesHouse/ForestLoopReverse-kyle-garage-drive.asset, gravel 'Driveway gravel', apron local x 7.6..15.2, z -5.2..1.6 at the pad
+  drive route points 477.31,82.27,-5.50 479.81,82.22,-5.65 496.78,79.22,-6.64 499.94,80.67,-18.33 498.79,78.67,-37.92 -> 477.31,82.27,-5.50 479.81,82.22,-5.65 496.78,79.22,-6.64 499.00,80.32,-14.86 502.92,79.51,-18.01 507.26,78.70,-20.15 510.51,78.70,-22.94
+  map destination property-anderson 498.79,78.67,-37.92 -> 510.51,78.70,-22.94 yaw 311
+  saved
+== MountainLoop
+  old colliders: 7
+    Foundation BoxCollider 504.66,78.57,-43.20 - 518.34,79.27,-27.20
+    Phase 6 architecture/Wall collision BoxCollider 505.25,79.17,-42.60 - 517.75,83.97,-27.80
+    Phase 6 architecture/Pitched roof MeshCollider 504.66,83.97,-43.20 - 518.34,86.17,-27.20
+    Phase 6 architecture/Pitched roof MeshCollider 505.00,82.37,-38.08 - 507.53,83.17,-34.56
+    Phase 6 architecture/Chimney BoxCollider 513.02,83.97,-38.80 - 514.14,87.77,-37.67
+    Entrance step 1 BoxCollider 505.73,78.62,-37.41 - 506.81,79.22,-35.22
+    Entrance step 2 BoxCollider 505.14,78.62,-37.54 - 506.22,78.98,-35.35
+  drive: the new leg leaves the existing drive at local (22.5, 1.62, 8.0) and descends to the apron at the pad (0) over 11.8 m
+  ground Memory loop - north is +Z/Ground_560_320 [Assets/Track/BackyardReverse/MountainLoop-roger-support-44.asset] (scenes MountainLoop): 0 vertices, raised 0 / lowered 0 (vertex-metres), largest 0.00 m
+  ground Memory loop - north is +Z/Ground_640_320 [Assets/Track/Discovery/LakeWoods-kyle-smooth-drive-Ground_640_320.asset] (scenes MountainLoop,MountainLoopReverse): 744 vertices, raised 553 / lowered 710 (vertex-metres), largest 6.15 m
+  ground CR113 continuous highway seams/Ground_CR113 Kyle driveway edge join [Assets/Track/Backyard/MountainLoop-Kyle-edge.asset] (scenes MountainLoop): 1423 vertices, raised 940 / lowered 398 (vertex-metres), largest 2.43 m
+  re-seat tree World cleanup additional woodland/Anderson woodland trunk at local -10.32,0.04,11.10 by +1.66
+  remove tree (bark box) at local 23.29,4.76,10.47 (in the new footprint / apron / drive), pieces 4
+  vegetation CR056 Forest Loop/Forest detail batch: pieces cut 4, moved 0, bushes moved 0 -> Assets/Scenery/KylesHouse/MountainLoop-kyle-vegetation-Forest detail batch-70414.asset
+  vegetation World cleanup additional woodland/Additional woodland canopy: pieces cut 0, moved 4, bushes moved 0 -> Assets/Scenery/KylesHouse/MountainLoop-kyle-vegetation-Additional woodland canopy-11122.asset
+  trees removed 1, re-seated 1
+  new colliders: 22
+    Porch post BoxCollider 505.19,81.32,-36.33 - 505.35,83.35,-36.16
+    Porch post BoxCollider 505.76,81.32,-39.00 - 505.92,83.35,-38.83
+    Porch post BoxCollider 506.30,81.32,-41.54 - 506.47,83.35,-41.37
+    Porch post BoxCollider 506.81,81.32,-43.92 - 506.98,83.35,-43.75
+    Chimney BoxCollider 509.81,78.67,-44.26 - 511.58,86.77,-43.00
+    Screened porch BoxCollider 511.67,78.67,-46.65 - 517.99,84.22,-41.75
+    Deck post BoxCollider 520.51,78.47,-38.27 - 520.73,81.27,-38.05
+    Deck post BoxCollider 519.82,78.47,-35.04 - 520.04,81.27,-34.82
+    Deck post BoxCollider 519.13,78.47,-31.81 - 519.35,81.27,-31.60
+    Deck post BoxCollider 517.09,78.47,-39.00 - 517.30,81.27,-38.78
+    Deck post BoxCollider 515.71,78.47,-32.54 - 515.92,81.27,-32.33
+    Deck railing BoxCollider 519.26,81.57,-37.22 - 520.57,82.55,-31.53
+    Deck railing BoxCollider 515.54,81.57,-32.44 - 519.38,82.55,-31.53
+    Deck railing BoxCollider 516.96,81.57,-39.09 - 519.62,82.55,-38.43
+    Deck BoxCollider 515.60,81.27,-39.03 - 520.74,81.57,-31.59
+    Deck stairs MeshCollider 519.66,78.67,-42.69 - 521.64,81.57,-38.24
+    Wall collision BoxCollider 505.41,78.67,-43.59 - 517.59,84.32,-26.81
+    Wing wall collision BoxCollider 503.65,78.67,-34.39 - 506.54,84.32,-28.73
+    Porch floor BoxCollider 505.06,80.52,-43.99 - 508.59,81.32,-35.77
+    Pitched roof MeshCollider 504.96,84.17,-44.04 - 518.04,86.07,-26.36
+    Pitched roof MeshCollider 503.20,84.17,-34.84 - 509.26,85.34,-27.79
+    Porch roof MeshCollider 504.69,83.30,-44.44 - 508.30,84.17,-35.85
+  old drive ribbon: cut along local x = 22.5 (the leg to the front removed: 2 triangles, 2 clipped) -> Assets/Scenery/KylesHouse/MountainLoop-kyle-driveway-0.87.asset; cut ends 22.50,1.65,4.17 / 22.50,1.60,11.78
+  new drive leg and apron: Assets/Scenery/KylesHouse/MountainLoop-kyle-garage-drive.asset, gravel 'Driveway gravel', apron local x 7.6..15.2, z -5.2..1.6 at the pad
+  drive route points 477.31,82.27,-5.50 479.81,82.22,-5.65 496.78,79.22,-6.64 499.94,80.67,-18.33 498.79,78.67,-37.92 -> 477.31,82.27,-5.50 479.81,82.22,-5.65 496.78,79.22,-6.64 499.00,80.32,-14.86 502.92,79.51,-18.01 507.26,78.70,-20.15 510.51,78.70,-22.94
+  map destination property-anderson 498.79,78.67,-37.92 -> 510.51,78.70,-22.94 yaw 311
+  saved
+== MountainLoopReverse
+  old colliders: 7
+    Foundation BoxCollider 504.66,78.57,-43.20 - 518.34,79.27,-27.20
+    Phase 6 architecture/Wall collision BoxCollider 505.25,79.17,-42.60 - 517.75,83.97,-27.80
+    Phase 6 architecture/Pitched roof MeshCollider 504.66,83.97,-43.20 - 518.34,86.17,-27.20
+    Phase 6 architecture/Pitched roof MeshCollider 505.00,82.37,-38.08 - 507.53,83.17,-34.56
+    Phase 6 architecture/Chimney BoxCollider 513.02,83.97,-38.80 - 514.14,87.77,-37.67
+    Entrance step 1 BoxCollider 505.73,78.62,-37.41 - 506.81,79.22,-35.22
+    Entrance step 2 BoxCollider 505.14,78.62,-37.54 - 506.22,78.98,-35.35
+  drive: the new leg leaves the existing drive at local (22.5, 1.62, 8.0) and descends to the apron at the pad (0) over 11.8 m
+  ground Memory loop - north is +Z/Ground_560_320 [Assets/Track/BackyardReverse/MountainLoopReverse-roger-support-56.asset] (scenes MountainLoopReverse): 0 vertices, raised 0 / lowered 0 (vertex-metres), largest 0.00 m
+  ground Memory loop - north is +Z/Ground_640_320 [Assets/Track/Discovery/LakeWoods-kyle-smooth-drive-Ground_640_320.asset]: already edited for an earlier scene (744 changed vertices; their changes are used here to re-seat trees and objects)
+  ground CR113 continuous highway seams/Ground_CR113 Kyle driveway edge join [Assets/Track/Backyard/MountainLoopReverse-Kyle-edge.asset] (scenes MountainLoopReverse): 1423 vertices, raised 940 / lowered 398 (vertex-metres), largest 2.43 m
+  re-seat tree World cleanup additional woodland/Anderson woodland trunk at local -10.32,0.04,11.10 by +1.66
+  re-seat tree World cleanup additional woodland/Roadside woodland trunk at local -13.74,0.00,2.02 by +1.88
+  remove tree (bark box) at local 23.29,4.76,10.47 (in the new footprint / apron / drive), pieces 4
+  vegetation CR056 Forest Loop/Forest detail batch: pieces cut 4, moved 0, bushes moved 0 -> Assets/Scenery/KylesHouse/MountainLoopReverse-kyle-vegetation-Forest detail batch-70414.asset
+  vegetation World cleanup additional woodland/Additional woodland canopy: pieces cut 0, moved 6, bushes moved 0 -> Assets/Scenery/KylesHouse/MountainLoopReverse-kyle-vegetation-Additional woodland canopy-70458.asset
+  trees removed 1, re-seated 2
+  new colliders: 22
+    Porch post BoxCollider 505.19,81.32,-36.33 - 505.35,83.35,-36.16
+    Porch post BoxCollider 505.76,81.32,-39.00 - 505.92,83.35,-38.83
+    Porch post BoxCollider 506.30,81.32,-41.54 - 506.47,83.35,-41.37
+    Porch post BoxCollider 506.81,81.32,-43.92 - 506.98,83.35,-43.75
+    Chimney BoxCollider 509.81,78.67,-44.26 - 511.58,86.77,-43.00
+    Screened porch BoxCollider 511.67,78.67,-46.65 - 517.99,84.22,-41.75
+    Deck post BoxCollider 520.51,78.47,-38.27 - 520.73,81.27,-38.05
+    Deck post BoxCollider 519.82,78.47,-35.04 - 520.04,81.27,-34.82
+    Deck post BoxCollider 519.13,78.47,-31.81 - 519.35,81.27,-31.60
+    Deck post BoxCollider 517.09,78.47,-39.00 - 517.30,81.27,-38.78
+    Deck post BoxCollider 515.71,78.47,-32.54 - 515.92,81.27,-32.33
+    Deck railing BoxCollider 519.26,81.57,-37.22 - 520.57,82.55,-31.53
+    Deck railing BoxCollider 515.54,81.57,-32.44 - 519.38,82.55,-31.53
+    Deck railing BoxCollider 516.96,81.57,-39.09 - 519.62,82.55,-38.43
+    Deck BoxCollider 515.60,81.27,-39.03 - 520.74,81.57,-31.59
+    Deck stairs MeshCollider 519.66,78.67,-42.69 - 521.64,81.57,-38.24
+    Wall collision BoxCollider 505.41,78.67,-43.59 - 517.59,84.32,-26.81
+    Wing wall collision BoxCollider 503.65,78.67,-34.39 - 506.54,84.32,-28.73
+    Porch floor BoxCollider 505.06,80.52,-43.99 - 508.59,81.32,-35.77
+    Pitched roof MeshCollider 504.96,84.17,-44.04 - 518.04,86.07,-26.36
+    Pitched roof MeshCollider 503.20,84.17,-34.84 - 509.26,85.34,-27.79
+    Porch roof MeshCollider 504.69,83.30,-44.44 - 508.30,84.17,-35.85
+  old drive ribbon: cut along local x = 22.5 (the leg to the front removed: 2 triangles, 2 clipped) -> Assets/Scenery/KylesHouse/MountainLoopReverse-kyle-driveway-0.87.asset; cut ends 22.50,1.65,4.17 / 22.50,1.60,11.78
+  new drive leg and apron: Assets/Scenery/KylesHouse/MountainLoopReverse-kyle-garage-drive.asset, gravel 'Driveway gravel', apron local x 7.6..15.2, z -5.2..1.6 at the pad
+  drive route points 477.31,82.27,-5.50 479.81,82.22,-5.65 496.78,79.22,-6.64 499.94,80.67,-18.33 498.79,78.67,-37.92 -> 477.31,82.27,-5.50 479.81,82.22,-5.65 496.78,79.22,-6.64 499.00,80.32,-14.86 502.92,79.51,-18.01 507.26,78.70,-20.15 510.51,78.70,-22.94
+  map destination property-anderson 498.79,78.67,-37.92 -> 510.51,78.70,-22.94 yaw 311
+  saved
+== StreetLoopGreybox
+  old colliders: 7
+    Foundation BoxCollider 504.66,78.57,-43.20 - 518.34,79.27,-27.20
+    Phase 6 architecture/Wall collision BoxCollider 505.25,79.17,-42.60 - 517.75,83.97,-27.80
+    Phase 6 architecture/Pitched roof MeshCollider 504.66,83.97,-43.20 - 518.34,86.17,-27.20
+    Phase 6 architecture/Pitched roof MeshCollider 505.00,82.37,-38.08 - 507.53,83.17,-34.56
+    Phase 6 architecture/Chimney BoxCollider 513.02,83.97,-38.80 - 514.14,87.77,-37.67
+    Entrance step 1 BoxCollider 505.73,78.62,-37.41 - 506.81,79.22,-35.22
+    Entrance step 2 BoxCollider 505.14,78.62,-37.54 - 506.22,78.98,-35.35
+  drive: the new leg leaves the existing drive at local (22.5, 1.62, 8.0) and descends to the apron at the pad (0) over 11.8 m
+  ground Memory loop - north is +Z/Ground_560_320 [Assets/Track/BackyardReverse/StreetLoopGreybox-roger-support-0.asset] (scenes StreetLoopGreybox): 0 vertices, raised 0 / lowered 0 (vertex-metres), largest 0.00 m
+  ground Memory loop - north is +Z/Ground_640_320 [Assets/Track/Discovery/StreetLoopGreybox-kyle-smooth-drive-Ground_640_320.asset]: already edited for an earlier scene (187 changed vertices; their changes are used here to re-seat trees and objects)
+  ground CR113 continuous highway seams/Ground_CR113 Kyle driveway edge join [Assets/Track/Backyard/StreetLoopGreybox-Kyle-edge.asset]: already edited for an earlier scene (1423 changed vertices; their changes are used here to re-seat trees and objects)
+  re-seat tree World cleanup additional woodland/Roadside woodland trunk at local -13.05,0.00,5.60 by +2.05
+  re-seat tree Anderson wooded frontage screening/Anderson frontage trunk at local -8.08,0.00,10.70 by +1.90
+  vegetation World cleanup additional woodland/Additional woodland canopy: pieces cut 0, moved 2, bushes moved 0 -> Assets/Scenery/KylesHouse/StreetLoopGreybox-kyle-vegetation-Additional woodland canopy-93684.asset
+  vegetation Anderson wooded frontage screening: pieces cut 0, moved 4, bushes moved 0 -> Assets/Scenery/KylesHouse/StreetLoopGreybox-kyle-vegetation-Anderson wooded frontage screening-40172.asset
+  trees removed 0, re-seated 2
+  new colliders: 22
+    Porch post BoxCollider 505.19,81.32,-36.33 - 505.35,83.35,-36.16
+    Porch post BoxCollider 505.76,81.32,-39.00 - 505.92,83.35,-38.83
+    Porch post BoxCollider 506.30,81.32,-41.54 - 506.47,83.35,-41.37
+    Porch post BoxCollider 506.81,81.32,-43.92 - 506.98,83.35,-43.75
+    Chimney BoxCollider 509.81,78.67,-44.26 - 511.58,86.77,-43.00
+    Screened porch BoxCollider 511.67,78.67,-46.65 - 517.99,84.22,-41.75
+    Deck post BoxCollider 520.51,78.47,-38.27 - 520.73,81.27,-38.05
+    Deck post BoxCollider 519.82,78.47,-35.04 - 520.04,81.27,-34.82
+    Deck post BoxCollider 519.13,78.47,-31.81 - 519.35,81.27,-31.60
+    Deck post BoxCollider 517.09,78.47,-39.00 - 517.30,81.27,-38.78
+    Deck post BoxCollider 515.71,78.47,-32.54 - 515.92,81.27,-32.33
+    Deck railing BoxCollider 519.26,81.57,-37.22 - 520.57,82.55,-31.53
+    Deck railing BoxCollider 515.54,81.57,-32.44 - 519.38,82.55,-31.53
+    Deck railing BoxCollider 516.96,81.57,-39.09 - 519.62,82.55,-38.43
+    Deck BoxCollider 515.60,81.27,-39.03 - 520.74,81.57,-31.59
+    Deck stairs MeshCollider 519.66,78.67,-42.69 - 521.64,81.57,-38.24
+    Wall collision BoxCollider 505.41,78.67,-43.59 - 517.59,84.32,-26.81
+    Wing wall collision BoxCollider 503.65,78.67,-34.39 - 506.54,84.32,-28.73
+    Porch floor BoxCollider 505.06,80.52,-43.99 - 508.59,81.32,-35.77
+    Pitched roof MeshCollider 504.96,84.17,-44.04 - 518.04,86.07,-26.36
+    Pitched roof MeshCollider 503.20,84.17,-34.84 - 509.26,85.34,-27.79
+    Porch roof MeshCollider 504.69,83.30,-44.44 - 508.30,84.17,-35.85
+  old drive ribbon: cut along local x = 22.5 (the leg to the front removed: 2 triangles, 2 clipped) -> Assets/Scenery/KylesHouse/StreetLoopGreybox-kyle-driveway-0.87.asset; cut ends 22.50,1.65,4.17 / 22.50,1.60,11.78
+  new drive leg and apron: Assets/Scenery/KylesHouse/StreetLoopGreybox-kyle-garage-drive.asset, gravel 'Driveway gravel', apron local x 7.6..15.2, z -5.2..1.6 at the pad
+  drive route points 477.31,82.27,-5.50 479.81,82.22,-5.65 496.78,79.22,-6.64 499.94,80.67,-18.33 498.79,78.67,-37.92 -> 477.31,82.27,-5.50 479.81,82.22,-5.65 496.78,79.22,-6.64 499.00,80.32,-14.86 502.92,79.51,-18.01 507.26,78.70,-20.15 510.51,78.70,-22.94
+  map destination property-anderson 498.79,78.67,-37.92 -> 510.51,78.70,-22.94 yaw 311
+  saved
+== StreetLoopReverse
+  old colliders: 7
+    Foundation BoxCollider 504.66,78.57,-43.20 - 518.34,79.27,-27.20
+    Phase 6 architecture/Wall collision BoxCollider 505.25,79.17,-42.60 - 517.75,83.97,-27.80
+    Phase 6 architecture/Pitched roof MeshCollider 504.66,83.97,-43.20 - 518.34,86.17,-27.20
+    Phase 6 architecture/Pitched roof MeshCollider 505.00,82.37,-38.08 - 507.53,83.17,-34.56
+    Phase 6 architecture/Chimney BoxCollider 513.02,83.97,-38.80 - 514.14,87.77,-37.67
+    Entrance step 1 BoxCollider 505.73,78.62,-37.41 - 506.81,79.22,-35.22
+    Entrance step 2 BoxCollider 505.14,78.62,-37.54 - 506.22,78.98,-35.35
+  drive: the new leg leaves the existing drive at local (22.5, 1.62, 8.0) and descends to the apron at the pad (0) over 11.8 m
+  ground Memory loop - north is +Z/Ground_560_320 [Assets/Track/BackyardReverse/StreetLoopReverse-roger-support-9.asset] (scenes StreetLoopReverse): 0 vertices, raised 0 / lowered 0 (vertex-metres), largest 0.00 m
+  ground Memory loop - north is +Z/Ground_640_320 [Assets/Track/Discovery/StreetLoopReverse-kyle-smooth-drive-Ground_640_320.asset] (scenes StreetLoopReverse): 187 vertices, raised 137 / lowered 178 (vertex-metres), largest 6.06 m
+  ground CR113 continuous highway seams/Ground_CR113 Kyle driveway edge join [Assets/Track/Backyard/StreetLoopReverse-Kyle-edge.asset] (scenes StreetLoopReverse): 1423 vertices, raised 940 / lowered 398 (vertex-metres), largest 2.43 m
+  re-seat tree Anderson wooded frontage screening/Anderson frontage trunk at local -8.08,0.00,10.70 by +1.90
+  vegetation Anderson wooded frontage screening: pieces cut 0, moved 4, bushes moved 0 -> Assets/Scenery/KylesHouse/StreetLoopReverse-kyle-vegetation-Anderson wooded frontage screening-7422.asset
+  trees removed 0, re-seated 1
+  new colliders: 22
+    Porch post BoxCollider 505.19,81.32,-36.33 - 505.35,83.35,-36.16
+    Porch post BoxCollider 505.76,81.32,-39.00 - 505.92,83.35,-38.83
+    Porch post BoxCollider 506.30,81.32,-41.54 - 506.47,83.35,-41.37
+    Porch post BoxCollider 506.81,81.32,-43.92 - 506.98,83.35,-43.75
+    Chimney BoxCollider 509.81,78.67,-44.26 - 511.58,86.77,-43.00
+    Screened porch BoxCollider 511.67,78.67,-46.65 - 517.99,84.22,-41.75
+    Deck post BoxCollider 520.51,78.47,-38.27 - 520.73,81.27,-38.05
+    Deck post BoxCollider 519.82,78.47,-35.04 - 520.04,81.27,-34.82
+    Deck post BoxCollider 519.13,78.47,-31.81 - 519.35,81.27,-31.60
+    Deck post BoxCollider 517.09,78.47,-39.00 - 517.30,81.27,-38.78
+    Deck post BoxCollider 515.71,78.47,-32.54 - 515.92,81.27,-32.33
+    Deck railing BoxCollider 519.26,81.57,-37.22 - 520.57,82.55,-31.53
+    Deck railing BoxCollider 515.54,81.57,-32.44 - 519.38,82.55,-31.53
+    Deck railing BoxCollider 516.96,81.57,-39.09 - 519.62,82.55,-38.43
+    Deck BoxCollider 515.60,81.27,-39.03 - 520.74,81.57,-31.59
+    Deck stairs MeshCollider 519.66,78.67,-42.69 - 521.64,81.57,-38.24
+    Wall collision BoxCollider 505.41,78.67,-43.59 - 517.59,84.32,-26.81
+    Wing wall collision BoxCollider 503.65,78.67,-34.39 - 506.54,84.32,-28.73
+    Porch floor BoxCollider 505.06,80.52,-43.99 - 508.59,81.32,-35.77
+    Pitched roof MeshCollider 504.96,84.17,-44.04 - 518.04,86.07,-26.36
+    Pitched roof MeshCollider 503.20,84.17,-34.84 - 509.26,85.34,-27.79
+    Porch roof MeshCollider 504.69,83.30,-44.44 - 508.30,84.17,-35.85
+  old drive ribbon: cut along local x = 22.5 (the leg to the front removed: 2 triangles, 2 clipped) -> Assets/Scenery/KylesHouse/StreetLoopReverse-kyle-driveway-0.87.asset; cut ends 22.50,1.65,4.17 / 22.50,1.60,11.78
+  new drive leg and apron: Assets/Scenery/KylesHouse/StreetLoopReverse-kyle-garage-drive.asset, gravel 'Driveway gravel', apron local x 7.6..15.2, z -5.2..1.6 at the pad
+  drive route points 477.31,82.27,-5.50 479.81,82.22,-5.65 496.78,79.22,-6.64 499.94,80.67,-18.33 498.79,78.67,-37.92 -> 477.31,82.27,-5.50 479.81,82.22,-5.65 496.78,79.22,-6.64 499.00,80.32,-14.86 502.92,79.51,-18.01 507.26,78.70,-20.15 510.51,78.70,-22.94
+  map destination property-anderson 498.79,78.67,-37.92 -> 510.51,78.70,-22.94 yaw 311
+  saved
+== DansBackyardForward
+  old colliders: 7
+    Foundation BoxCollider 504.66,78.57,-43.20 - 518.34,79.27,-27.20
+    Phase 6 architecture/Wall collision BoxCollider 505.25,79.17,-42.60 - 517.75,83.97,-27.80
+    Phase 6 architecture/Pitched roof MeshCollider 504.66,83.97,-43.20 - 518.34,86.17,-27.20
+    Phase 6 architecture/Pitched roof MeshCollider 505.00,82.37,-38.08 - 507.53,83.17,-34.56
+    Phase 6 architecture/Chimney BoxCollider 513.02,83.97,-38.80 - 514.14,87.77,-37.67
+    Entrance step 1 BoxCollider 505.73,78.62,-37.41 - 506.81,79.22,-35.22
+    Entrance step 2 BoxCollider 505.14,78.62,-37.54 - 506.22,78.98,-35.35
+  drive: the new leg leaves the existing drive at local (22.5, 1.62, 8.0) and descends to the apron at the pad (0) over 11.8 m
+  ground Memory loop - north is +Z/Ground_560_320 [Assets/Track/BackyardReverse/DansBackyardForward-roger-support-68.asset] (scenes DansBackyardForward): 0 vertices, raised 0 / lowered 0 (vertex-metres), largest 0.00 m
+  ground Memory loop - north is +Z/Ground_640_320 [Assets/Track/Discovery/StreetLoopGreybox-kyle-smooth-drive-Ground_640_320.asset]: already edited for an earlier scene (187 changed vertices; their changes are used here to re-seat trees and objects)
+  ground CR113 continuous highway seams/Ground_CR113 Kyle driveway edge join [Assets/Track/Backyard/StreetLoopGreybox-Kyle-edge.asset]: already edited for an earlier scene (1423 changed vertices; their changes are used here to re-seat trees and objects)
+  re-seat tree Anderson wooded frontage screening/Anderson frontage trunk at local -8.08,0.00,10.70 by +1.90
+  vegetation Anderson wooded frontage screening: pieces cut 0, moved 4, bushes moved 0 -> Assets/Scenery/KylesHouse/DansBackyardForward-kyle-vegetation-Anderson wooded frontage screening-42681.asset
+  trees removed 0, re-seated 1
+  new colliders: 22
+    Porch post BoxCollider 505.19,81.32,-36.33 - 505.35,83.35,-36.16
+    Porch post BoxCollider 505.76,81.32,-39.00 - 505.92,83.35,-38.83
+    Porch post BoxCollider 506.30,81.32,-41.54 - 506.47,83.35,-41.37
+    Porch post BoxCollider 506.81,81.32,-43.92 - 506.98,83.35,-43.75
+    Chimney BoxCollider 509.81,78.67,-44.26 - 511.58,86.77,-43.00
+    Screened porch BoxCollider 511.67,78.67,-46.65 - 517.99,84.22,-41.75
+    Deck post BoxCollider 520.51,78.47,-38.27 - 520.73,81.27,-38.05
+    Deck post BoxCollider 519.82,78.47,-35.04 - 520.04,81.27,-34.82
+    Deck post BoxCollider 519.13,78.47,-31.81 - 519.35,81.27,-31.60
+    Deck post BoxCollider 517.09,78.47,-39.00 - 517.30,81.27,-38.78
+    Deck post BoxCollider 515.71,78.47,-32.54 - 515.92,81.27,-32.33
+    Deck railing BoxCollider 519.26,81.57,-37.22 - 520.57,82.55,-31.53
+    Deck railing BoxCollider 515.54,81.57,-32.44 - 519.38,82.55,-31.53
+    Deck railing BoxCollider 516.96,81.57,-39.09 - 519.62,82.55,-38.43
+    Deck BoxCollider 515.60,81.27,-39.03 - 520.74,81.57,-31.59
+    Deck stairs MeshCollider 519.66,78.67,-42.69 - 521.64,81.57,-38.24
+    Wall collision BoxCollider 505.41,78.67,-43.59 - 517.59,84.32,-26.81
+    Wing wall collision BoxCollider 503.65,78.67,-34.39 - 506.54,84.32,-28.73
+    Porch floor BoxCollider 505.06,80.52,-43.99 - 508.59,81.32,-35.77
+    Pitched roof MeshCollider 504.96,84.17,-44.04 - 518.04,86.07,-26.36
+    Pitched roof MeshCollider 503.20,84.17,-34.84 - 509.26,85.34,-27.79
+    Porch roof MeshCollider 504.69,83.30,-44.44 - 508.30,84.17,-35.85
+  old drive ribbon: cut along local x = 22.5 (the leg to the front removed: 2 triangles, 2 clipped) -> Assets/Scenery/KylesHouse/DansBackyardForward-kyle-driveway-0.87.asset; cut ends 22.50,1.65,4.17 / 22.50,1.60,11.78
+  new drive leg and apron: Assets/Scenery/KylesHouse/DansBackyardForward-kyle-garage-drive.asset, gravel 'Driveway gravel', apron local x 7.6..15.2, z -5.2..1.6 at the pad
+  drive route points 477.31,82.27,-5.50 479.81,82.22,-5.65 496.78,79.22,-6.64 499.94,80.67,-18.33 498.79,78.67,-37.92 -> 477.31,82.27,-5.50 479.81,82.22,-5.65 496.78,79.22,-6.64 499.00,80.32,-14.86 502.92,79.51,-18.01 507.26,78.70,-20.15 510.51,78.70,-22.94
+  map destination property-anderson 498.79,78.67,-37.92 -> 510.51,78.70,-22.94 yaw 311
+  saved
+== DansBackyardReverse
+  old colliders: 7
+    Foundation BoxCollider 504.66,78.57,-43.20 - 518.34,79.27,-27.20
+    Phase 6 architecture/Wall collision BoxCollider 505.25,79.17,-42.60 - 517.75,83.97,-27.80
+    Phase 6 architecture/Pitched roof MeshCollider 504.66,83.97,-43.20 - 518.34,86.17,-27.20
+    Phase 6 architecture/Pitched roof MeshCollider 505.00,82.37,-38.08 - 507.53,83.17,-34.56
+    Phase 6 architecture/Chimney BoxCollider 513.02,83.97,-38.80 - 514.14,87.77,-37.67
+    Entrance step 1 BoxCollider 505.73,78.62,-37.41 - 506.81,79.22,-35.22
+    Entrance step 2 BoxCollider 505.14,78.62,-37.54 - 506.22,78.98,-35.35
+  drive: the new leg leaves the existing drive at local (22.5, 1.62, 8.0) and descends to the apron at the pad (0) over 11.8 m
+  ground Memory loop - north is +Z/Ground_560_320 [Assets/Track/SevenCorrections/Exact compact pool release.asset]: already edited for an earlier scene (0 changed vertices; their changes are used here to re-seat trees and objects)
+  ground Memory loop - north is +Z/Ground_640_320 [Assets/Track/Discovery/StreetLoopGreybox-kyle-smooth-drive-Ground_640_320.asset]: already edited for an earlier scene (187 changed vertices; their changes are used here to re-seat trees and objects)
+  ground CR113 continuous highway seams/Ground_CR113 Kyle driveway edge join [Assets/Track/Backyard/StreetLoopGreybox-Kyle-edge.asset]: already edited for an earlier scene (1423 changed vertices; their changes are used here to re-seat trees and objects)
+  re-seat tree Anderson wooded frontage screening/Anderson frontage trunk at local -8.08,0.00,10.70 by +1.90
+  vegetation Anderson wooded frontage screening: pieces cut 0, moved 4, bushes moved 0 -> Assets/Scenery/KylesHouse/DansBackyardReverse-kyle-vegetation-Anderson wooded frontage screening-42681.asset
+  trees removed 0, re-seated 1
+  new colliders: 22
+    Porch post BoxCollider 505.19,81.32,-36.33 - 505.35,83.35,-36.16
+    Porch post BoxCollider 505.76,81.32,-39.00 - 505.92,83.35,-38.83
+    Porch post BoxCollider 506.30,81.32,-41.54 - 506.47,83.35,-41.37
+    Porch post BoxCollider 506.81,81.32,-43.92 - 506.98,83.35,-43.75
+    Chimney BoxCollider 509.81,78.67,-44.26 - 511.58,86.77,-43.00
+    Screened porch BoxCollider 511.67,78.67,-46.65 - 517.99,84.22,-41.75
+    Deck post BoxCollider 520.51,78.47,-38.27 - 520.73,81.27,-38.05
+    Deck post BoxCollider 519.82,78.47,-35.04 - 520.04,81.27,-34.82
+    Deck post BoxCollider 519.13,78.47,-31.81 - 519.35,81.27,-31.60
+    Deck post BoxCollider 517.09,78.47,-39.00 - 517.30,81.27,-38.78
+    Deck post BoxCollider 515.71,78.47,-32.54 - 515.92,81.27,-32.33
+    Deck railing BoxCollider 519.26,81.57,-37.22 - 520.57,82.55,-31.53
+    Deck railing BoxCollider 515.54,81.57,-32.44 - 519.38,82.55,-31.53
+    Deck railing BoxCollider 516.96,81.57,-39.09 - 519.62,82.55,-38.43
+    Deck BoxCollider 515.60,81.27,-39.03 - 520.74,81.57,-31.59
+    Deck stairs MeshCollider 519.66,78.67,-42.69 - 521.64,81.57,-38.24
+    Wall collision BoxCollider 505.41,78.67,-43.59 - 517.59,84.32,-26.81
+    Wing wall collision BoxCollider 503.65,78.67,-34.39 - 506.54,84.32,-28.73
+    Porch floor BoxCollider 505.06,80.52,-43.99 - 508.59,81.32,-35.77
+    Pitched roof MeshCollider 504.96,84.17,-44.04 - 518.04,86.07,-26.36
+    Pitched roof MeshCollider 503.20,84.17,-34.84 - 509.26,85.34,-27.79
+    Porch roof MeshCollider 504.69,83.30,-44.44 - 508.30,84.17,-35.85
+  old drive ribbon: cut along local x = 22.5 (the leg to the front removed: 2 triangles, 2 clipped) -> Assets/Scenery/KylesHouse/DansBackyardReverse-kyle-driveway-0.87.asset; cut ends 22.50,1.65,4.17 / 22.50,1.60,11.78
+  new drive leg and apron: Assets/Scenery/KylesHouse/DansBackyardReverse-kyle-garage-drive.asset, gravel 'Driveway gravel', apron local x 7.6..15.2, z -5.2..1.6 at the pad
+  drive route points 477.31,82.27,-5.50 479.81,82.22,-5.65 496.78,79.22,-6.64 499.94,80.67,-18.33 498.79,78.67,-37.92 -> 477.31,82.27,-5.50 479.81,82.22,-5.65 496.78,79.22,-6.64 499.00,80.32,-14.86 502.92,79.51,-18.01 507.26,78.70,-20.15 510.51,78.70,-22.94
+  map destination property-anderson 498.79,78.67,-37.92 -> 510.51,78.70,-22.94 yaw 311
+  saved

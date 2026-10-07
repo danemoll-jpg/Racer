@@ -10,7 +10,7 @@ using UnityEngine;
 namespace Racer {
 // 0.87 targeted checks, added to the 0.80 runner (same muted isolated save, same helpers): PROBE_CASES="case:args;...".
 public sealed partial class Report080Checks {
- IEnumerator Cases087(string[] a)=>a[0] switch{"summit87"=>Summit087(a[1],a[2],a.Length>3?a[3]:"clean,main",a.Length>4?F(a[4]):30),"climb87"=>Climb087(a[1]),"shots87"=>Shots087(),"lap87"=>Lap087(a[1],a.Length>2?a[2]:"main,clean"),_=>null};
+ IEnumerator Cases087(string[] a)=>a[0] switch{"summit87"=>Summit087(a[1],a[2],a.Length>3?a[3]:"clean,main",a.Length>4?F(a[4]):30),"climb87"=>Climb087(a[1]),"shots87"=>Shots087(),"kyledrive87"=>KyleDrive087(a[1]),"kyleshots87"=>KyleShots087(a.Length>1?a[1]:"FreeRoamWorld",a.Length>2?a[2]:"day"),"lap87"=>Lap087(a[1],a.Length>2?a[2]:"main,clean"),_=>null};
 
  // A driver for the timed runs: full throttle, steering at a point ahead on the path (8 m + 0.3 s), braking only when the
  // path's bend in the next 30 m needs a lower speed than this vehicle's grip allows (v = sqrt(0.9 grip R)). Same driver on
@@ -117,6 +117,36 @@ public sealed partial class Report080Checks {
    var line=$"{profile} {mode}: lap {lap}, main s 1826 -> 2110 {(tA>=0&&tB>=0?(tB-tA).ToString("F2")+" s":"n/a")}, branch taken '{seen}', missed gates {r.Progress.MissedGates}, resets {r.Recoveries}, autopilot recoveries {pilot.RecoveryCount}, longest air {maxAir:F2} s{(maxAir>.4f?" at "+V(airAt):"")}, hit: {(touch.hits.Count==0?"nothing":string.Join("; ",touch.hits.Take(5)))}";
    SummitTable.Add($"{profile}	{mode}	{lapS:F2}	{(tA>=0&&tB>=0?(tB-tA).ToString("F2"):"")}	{r.Recoveries}	{line}");File.WriteAllLines(output+"/summit-table.tsv",SummitTable);
    Check(r.Progress.Finished&&r.Progress.MissedGates==0,line);yield return Menu();}}
+
+ // Part A: Kyle's house: the photo's angle (front, from the right), the left side (garage doors), the back (deck), the
+ // right side (screened porch), from the road; poses in the house frame. kyleshots87:scene:day|night
+ IEnumerator KyleShots087(string scene,string when){if(scene==RaceFlow.RoamScene)yield return EnterRoam("StreetLoopGreybox","moto");else yield return EnterScene(scene);yield return new WaitForSeconds(1.5f);
+  if(when=="night"){if(WorldLook.Current)WorldLook.Current.Pin(LookPresets.Compose(TimeOfDay.Night,Weather.Clear));}else Day();
+  var site=GameObject.Find("Friend across street - blue circle")?.transform;if(!site){Note("no Kyle's house in "+scene);yield break;}
+  var cam=Camera.main;var chase=FindAnyObjectByType<ChaseCamera>();if(chase)chase.enabled=false;var cv=CameraViews.Current;if(cv)cv.enabled=false;var hud=FindObjectsByType<Canvas>(FindObjectsSortMode.None);foreach(var c in hud)c.enabled=false;
+  if(race&&race.vehicle)race.vehicle.gameObject.SetActive(false);yield return new WaitForSeconds(.5f);
+  var views=new List<(string n,Vector3 eye,Vector3 look)>{("A-kyle-photo-angle",new(-5.5f,4.3f,13.5f),new(-.5f,3.4f,3f)),("A-kyle-left-garage",new(27f,4.2f,9.5f),new(7.6f,1.0f,-1.6f)),
+   ("A-kyle-back-deck",new(-1f,6.8f,-16f),new(-1f,2.4f,-4f)),("A-kyle-right-screened-porch",new(-25f,4.6f,4f),new(-9.5f,3.2f,-1f)),("A-kyle-from-the-road",new(0f,12.5f,37f),new(0f,3.5f,0f)),("A-kyle-from-the-drive-entrance",new(40f,7f,30f),new(2f,3.5f,0f))};
+  foreach(var v in views)yield return Late(()=>{cam.transform.position=site.TransformPoint(v.eye);cam.transform.LookAt(site.TransformPoint(v.look));Shot(v.n+(when=="night"?"-night":""));});
+  if(race&&race.vehicle)race.vehicle.gameObject.SetActive(true);foreach(var c in hud)if(c)c.enabled=true;if(chase)chase.enabled=true;if(cv)cv.enabled=true;Note($"Kyle's house views ({scene}, {when}): {string.Join(", ",views.Select(v=>v.n))}");
+  if(scene!=RaceFlow.RoamScene)yield return Menu();}
+
+ // Part A: down Kyle's driveway from the street to the garage doors in Free Roam, following the drive's route points at up
+ // to 9 m/s and stopping on the apron: reaches it, what it touched, the steepest pitch. kyledrive87:profiles
+ IEnumerator KyleDrive087(string profiles){foreach(var profile in profiles.Split(',')){yield return EnterRoam("StreetLoopGreybox",profile);yield return new WaitForSeconds(1);
+  var road=GameObject.Find("Kyle descending driveway")?.GetComponent<RaceRoad>();if(!road){Note("no Kyle driveway");yield break;}var path=new Path087(road.points);var car=race.vehicle;
+  car.GetComponent<VehicleInput>().enabled=false;car.enabled=false;var resp=car.GetComponent<VehicleRespawn>();int resets=0;Action onR=()=>resets++;resp.Respawned+=onR;var touch=car.gameObject.AddComponent<Touch087>();
+  var start=path.At(1);var f0=path.At(4)-start;f0.y=0;start.y=Ground085(start,start.y+5);var rot=Quaternion.LookRotation(f0.normalized);car.Body.position=start+Vector3.up*(car.suspensionLength*.7f);car.Body.rotation=rot;car.transform.SetPositionAndRotation(car.Body.position,rot);car.Body.linearVelocity=Vector3.zero;car.Body.angularVelocity=Vector3.zero;car.ClearSteering();resp.SeedCoursePosition(start);
+  for(int i=0;i<25;i++){car.Simulate(0,1,0,Time.fixedDeltaTime);yield return new WaitForFixedUpdate();}
+  float t0=Time.time,d=0,maxPitch=0;bool reached=false;
+  while(Time.time-t0<40&&resets==0){AudioListener.volume=0;var p=car.Body.position;d=path.Project(p,d,20,out float lat);if(d>=path.Length-1.5f){reached=true;break;}
+   var tgt=path.At(d+5);var to=tgt-p;to.y=0;float ang=Vector3.SignedAngle(Vector3.ProjectOnPlane(car.transform.forward,Vector3.up),to,Vector3.up);float v=car.ForwardSpeed;float lim=d>path.Length-12?4:9;
+   car.Simulate(v<lim?.6f:0,v>lim+1?.6f:0,Mathf.Clamp(ang/25f,-1,1),Time.fixedDeltaTime);yield return new WaitForFixedUpdate();maxPitch=Mathf.Max(maxPitch,Vector3.Angle(car.transform.forward,Vector3.ProjectOnPlane(car.transform.forward,Vector3.up)));}
+  for(int i=0;i<60;i++){car.Simulate(0,1,0,Time.fixedDeltaTime);yield return new WaitForFixedUpdate();}
+  var site=GameObject.Find("Friend across street - blue circle").transform;var l=site.InverseTransformPoint(car.Body.position);
+  resp.Respawned-=onR;Destroy(touch);car.enabled=true;car.GetComponent<VehicleInput>().enabled=true;
+  Check(reached&&resets==0&&touch.hits.Count==0,$"{profile} down Kyle's driveway ({path.Length:F0} m) to the garage: {(reached?$"on the apron in {Time.time-t0:F1} s, stopped at house-frame {V(l)} ({l.x-7.6f:F1} m from the garage doors)":"NOT reached")}, resets {resets}, steepest pitch {maxPitch:F0} deg, touched {(touch.hits.Count==0?"nothing":string.Join("; ",touch.hits.Take(3)))}");
+  yield return Late(()=>{var cam=Camera.main;var ch=FindAnyObjectByType<ChaseCamera>();if(ch)ch.enabled=false;cam.transform.position=site.TransformPoint(new Vector3(24f,4.6f,4f));cam.transform.LookAt(site.TransformPoint(new Vector3(8f,1.2f,-1.5f)));Shot("A-kyle-drive-"+profile+"-at-the-garage");if(ch)ch.enabled=true;});}}
 }
 }
 #endif

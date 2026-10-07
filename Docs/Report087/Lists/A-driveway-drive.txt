@@ -1,0 +1,4 @@
+---- kyledrive87:skyfin,moto
+PASS skyfin down Kyle's driveway (42 m) to the garage: on the apron in 7.8 s, stopped at house-frame 15.0,0.75,1.3 (7.4 m from the garage doors), resets 0, steepest pitch 11 deg, touched nothing
+PASS moto down Kyle's driveway (42 m) to the garage: on the apron in 7.2 s, stopped at house-frame 15.2,0.56,1.3 (7.6 m from the garage doors), resets 0, steepest pitch 13 deg, touched nothing
+done, failures 0

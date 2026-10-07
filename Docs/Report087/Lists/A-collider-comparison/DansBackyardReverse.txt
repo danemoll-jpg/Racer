@@ -1,0 +1,44 @@
+DansBackyardReverse: colliders before 13609, after 13625; rows only before 11, only after 27
+-- changed (same path, different shape or mesh):
+  before Anderson wooded frontage screening/Anderson frontage trunk	BoxCollider	True	False	502.724,83.757,-45.342	0.520,10.180,0.520		
+  after  Anderson wooded frontage screening/Anderson frontage trunk	BoxCollider	True	False	502.724,85.654,-45.342	0.520,10.180,0.520		
+  before CR113 continuous highway seams/Ground_CR113 Kyle driveway edge join	MeshCollider	True	False	490.410,80.649,-19.925	26.638,3.925,36.432	Assets/Track/Backyard/StreetLoopGreybox-Kyle-edge.asset#StreetLoopGreybox-Kyle-edge	68E38E1F5CC27EFF
+  after  CR113 continuous highway seams/Ground_CR113 Kyle driveway edge join	MeshCollider	True	False	490.410,80.649,-19.925	26.638,3.925,36.432	Assets/Track/Backyard/StreetLoopGreybox-Kyle-edge.asset#StreetLoopGreybox-Kyle-edge	1B835D1F32A4A4A7
+  before Kyle descending driveway/Ground_Kyle descending drive	MeshCollider	False	False	0.000,0.000,0.000	0.000,0.000,0.000	Assets/Track/Discovery/StreetLoopGreybox-kyle-driveway.asset#	C0F097BF1CF6D9FB
+  after  Kyle descending driveway/Ground_Kyle descending drive	MeshCollider	False	False	0.000,0.000,0.000	0.000,0.000,0.000	Assets/Scenery/KylesHouse/DansBackyardReverse-kyle-driveway-0.87.asset#DansBackyardReverse-kyle-driveway-0.87	1EB3BFDC34C79A41
+  before Memory loop - north is +Z/Ground_640_320	MeshCollider	True	False	560.000,76.512,-30.000	160.000,24.315,160.000	Assets/Track/Discovery/StreetLoopGreybox-kyle-smooth-drive-Ground_640_320.asset#StreetLoopGreybox-kyle-smooth-drive-Ground_640_320(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)	1F2E41F10B005D98
+  after  Memory loop - north is +Z/Ground_640_320	MeshCollider	True	False	560.000,76.512,-30.000	160.000,24.315,160.000	Assets/Track/Discovery/StreetLoopGreybox-kyle-smooth-drive-Ground_640_320.asset#StreetLoopGreybox-kyle-smooth-drive-Ground_640_320(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)	65B9DDCB19924EC9
+  before Remembered houses and approximate buildings/Friend across street - blue circle/Phase 6 architecture/Chimney	BoxCollider	True	False	513.580,85.867,-38.232	1.128,3.800,1.128		
+  after  Remembered houses and approximate buildings/Friend across street - blue circle/Phase 6 architecture/Chimney	BoxCollider	True	False	510.695,82.716,-43.630	1.763,8.098,1.264		
+  before Remembered houses and approximate buildings/Friend across street - blue circle/Phase 6 architecture/Pitched roof	MeshCollider	True	False	511.500,85.067,-35.200	13.684,2.200,15.990	Assets/Buildings/Phase6/Gable roof.asset#Gable roof	A02E8EF94805B345
+  before Remembered houses and approximate buildings/Friend across street - blue circle/Phase 6 architecture/Pitched roof	MeshCollider	True	False	506.268,82.767,-36.319	2.527,0.800,3.527	Assets/Buildings/Phase6/Gable roof.asset#Gable roof	20A8CEC7E38DADEF
+  after  Remembered houses and approximate buildings/Friend across street - blue circle/Phase 6 architecture/Pitched roof	MeshCollider	True	False	511.500,85.119,-35.200	13.077,1.892,17.690	Assets/Scenery/KylesHouse/KylesHouse-collider-1.asset#Kyle's house Pitched roof	D17DCDC286F72787
+  after  Remembered houses and approximate buildings/Friend across street - blue circle/Phase 6 architecture/Pitched roof	MeshCollider	True	False	506.231,84.758,-31.316	6.060,1.170,7.044	Assets/Scenery/KylesHouse/KylesHouse-collider-2.asset#Kyle's house Pitched roof	33C9AFFE89BA25B5
+  before Remembered houses and approximate buildings/Friend across street - blue circle/Phase 6 architecture/Wall collision	BoxCollider	True	False	511.500,81.567,-35.200	12.497,4.800,14.803		
+  after  Remembered houses and approximate buildings/Friend across street - blue circle/Phase 6 architecture/Wall collision	BoxCollider	True	False	511.500,81.492,-35.200	12.175,5.650,16.788		
+-- removed:
+  Remembered houses and approximate buildings/Friend across street - blue circle/Entrance step 1	BoxCollider	True	False	506.268,78.917,-36.319	1.075,0.600,2.189		
+  Remembered houses and approximate buildings/Friend across street - blue circle/Entrance step 2	BoxCollider	True	False	505.682,78.797,-36.444	1.075,0.360,2.189		
+  Remembered houses and approximate buildings/Friend across street - blue circle/Foundation	BoxCollider	True	False	511.500,78.917,-35.200	13.684,0.700,15.990		
+-- added:
+  Kyle descending driveway/Ground_Kyle garage drive (0.87)	MeshCollider	True	False	505.138,79.507,-20.161	19.716,1.620,15.883	Assets/Scenery/KylesHouse/DansBackyardReverse-kyle-garage-drive.asset#DansBackyardReverse-kyle-garage-drive	12688144544C20AF
+  Remembered houses and approximate buildings/Friend across street - blue circle/Phase 6 architecture/Deck	BoxCollider	True	False	518.170,81.417,-35.308	5.138,0.300,7.444		
+  Remembered houses and approximate buildings/Friend across street - blue circle/Phase 6 architecture/Deck post	BoxCollider	True	False	515.818,79.867,-32.436	0.214,2.800,0.214		
+  Remembered houses and approximate buildings/Friend across street - blue circle/Phase 6 architecture/Deck post	BoxCollider	True	False	517.198,79.867,-38.890	0.214,2.800,0.214		
+  Remembered houses and approximate buildings/Friend across street - blue circle/Phase 6 architecture/Deck post	BoxCollider	True	False	519.240,79.867,-31.704	0.214,2.800,0.214		
+  Remembered houses and approximate buildings/Friend across street - blue circle/Phase 6 architecture/Deck post	BoxCollider	True	False	519.930,79.867,-34.932	0.214,2.800,0.214		
+  Remembered houses and approximate buildings/Friend across street - blue circle/Phase 6 architecture/Deck post	BoxCollider	True	False	520.620,79.867,-38.159	0.214,2.800,0.214		
+  Remembered houses and approximate buildings/Friend across street - blue circle/Phase 6 architecture/Deck railing	BoxCollider	True	False	517.459,82.057,-31.983	3.835,0.980,0.913		
+  Remembered houses and approximate buildings/Friend across street - blue circle/Phase 6 architecture/Deck railing	BoxCollider	True	False	518.294,82.057,-38.758	2.661,0.980,0.662		
+  Remembered houses and approximate buildings/Friend across street - blue circle/Phase 6 architecture/Deck railing	BoxCollider	True	False	519.913,82.057,-34.373	1.310,0.980,5.693		
+  Remembered houses and approximate buildings/Friend across street - blue circle/Phase 6 architecture/Deck stairs	MeshCollider	True	False	520.653,80.117,-40.463	1.979,2.900,4.455	Assets/Scenery/KylesHouse/KylesHouse-collider-0.asset#Kyle's house Deck stairs	6785EE76D2B43B4E
+  Remembered houses and approximate buildings/Friend across street - blue circle/Phase 6 architecture/Porch floor	BoxCollider	True	False	506.825,80.917,-39.881	3.531,0.800,8.220		
+  Remembered houses and approximate buildings/Friend across street - blue circle/Phase 6 architecture/Porch post	BoxCollider	True	False	505.271,82.334,-36.245	0.166,2.034,0.166		
+  Remembered houses and approximate buildings/Friend across street - blue circle/Phase 6 architecture/Porch post	BoxCollider	True	False	505.842,82.334,-38.915	0.166,2.034,0.166		
+  Remembered houses and approximate buildings/Friend across street - blue circle/Phase 6 architecture/Porch post	BoxCollider	True	False	506.385,82.334,-41.458	0.166,2.034,0.166		
+  Remembered houses and approximate buildings/Friend across street - blue circle/Phase 6 architecture/Porch post	BoxCollider	True	False	506.893,82.334,-43.834	0.166,2.034,0.166		
+  Remembered houses and approximate buildings/Friend across street - blue circle/Phase 6 architecture/Porch roof	MeshCollider	True	False	506.494,83.737,-40.146	3.610,0.872,8.592	Assets/Scenery/KylesHouse/KylesHouse-collider-3.asset#Kyle's house Porch roof	5BF3059EF03B8115
+  Remembered houses and approximate buildings/Friend across street - blue circle/Phase 6 architecture/Screened porch	BoxCollider	True	False	514.831,81.442,-44.203	6.320,5.550,4.897		
+  Remembered houses and approximate buildings/Friend across street - blue circle/Phase 6 architecture/Wing wall collision	BoxCollider	True	False	505.097,81.492,-31.558	2.889,5.650,5.657		
+-- route data lines only before:
+-- route data lines only after:
