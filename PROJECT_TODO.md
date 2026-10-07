@@ -15,7 +15,7 @@
   - **Dan does:** driving every course and direction, trying every vehicle everywhere, checking that a universal fix holds everywhere, and judging look and feel. He reports through the debug ZIPs.
   - **Write-up:** the TODO results are a short list: what changed, the one check per item, decisions made, and anything Dan should look at. No separate VALIDATION.md unless a round asks. If a check would take more than a few minutes of play time, skip it and list it under "for Dan to check".
 
-## CURRENT — Locked-vehicle silhouettes, new-player hints, campaign round 2 (championships, chapters 2–4, upgrades), split-screen stage 1 — 0.90.0-review1 — IMPLEMENTED, RELEASE IN PROGRESS
+## CURRENT — Locked-vehicle silhouettes, new-player hints, campaign round 2 (championships, chapters 2–4, upgrades), split-screen stage 1 — 0.90.0-review1 — DELIVERED, AWAITING DAN'S REVIEW
 
 - **Authorized by Dan (2026-10-07, 02:53).** Written by Claude (chat). His words are quoted in each part. He is asleep while this runs and his weekly limit has just reset: a long round is fine.
 - **Starting point:** main at the "Record 0.89 delivery" commit; playable source `a9f40b34` (0.89.0-review1 / game-89000). This TODO edit is uncommitted and belongs in the safety checkpoint.
@@ -25,6 +25,15 @@
 - Dan has now played chapter 1 through, so campaign round 2 **is** in this round (Part C), with the championships he asked for.
 
 ### Results (2026-10-07, Claude Code)
+
+- **DELIVERED:**
+  - Source `3c3bceb4defb86a058e1174ae0c6612480ce62e1` pushed and verified on origin/main (Parts A–C `0c0ddd00`, Part D `65bc5326`).
+  - Fresh 0.90.0-review1 Windows build from that commit: 0 errors, 2m42s ([build-release.txt](Docs/Report090/build-release.txt)).
+  - Published [game-90000](https://github.com/danemoll-jpg/woodstock-rush-releases/releases/tag/game-90000) with `Tools/Publish-LauncherRelease.py` (the project's `gh`): the known draft-lookup miss, then `--resume-draft` uploaded the three assets and published. Previous releases retained.
+  - All 234 Latest files match the public signed manifest; public download, signature, install and startup pass ([hosted/result.json](Docs/Report090/hosted/result.json)); the catalog reports no pending game or music update.
+- **Play-Racer.cmd (unchanged):** launched a responsive `Builds/Latest/versions/90000/Racer.exe` (0.90.0-review1) through the launcher, muted; settings restored byte for byte; Dan's `campaign-v1.json` unchanged (hash before / after). Latest root, current 90000 and previous 89000 retained (88000 already retired by the updater).
+- **Cleanup:** Builds 10,151,700,323 → 8,009,092,440 bytes (2.1 GB recovered); also the hosted-check install (1.7 GB), 1.7 GB of check scratch outside the project (bench player, logs) and the temporary editor tools. C: free 267,456,528,384 bytes after cleanup.
+- **SESSION HANDOFF: STOP.** Awaiting Dan's review of 0.90 (rule 12).
 
 - **Safety checkpoint:** `563ee8e8` (this plan), pushed. Commits: `0c0ddd00` Parts A–C, `65bc5326` Part D (split-screen, revertible alone; it also carries two small fixes to A–C files: the controls card's key order and a check). Version 0.90.0-review1 / build 90000.
 - Evidence: [Docs/Report090/](Docs/Report090/) ([Shots/](Docs/Report090/Shots/), [Lists/](Docs/Report090/Lists/)). Code: `PadlockMark.cs`, `Hints.cs`, `RaceMenus.Hints.cs`, `CampaignData.cs` / `Campaign.cs` / `CampaignRun.cs` / `RaceMenus.Campaign.cs` / `RaceMenus.Shop.cs`, `SplitScreen.cs`, `SplitHud.cs`, `RaceMenus.Split.cs`, `SplitBench.cs` (evidence only: needs `-splitBench` and `-racerTestSave`); checks `Report090Checks*.cs`; tools `Tools/Report090/`. No VALIDATION.md.
