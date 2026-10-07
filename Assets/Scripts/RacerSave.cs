@@ -52,6 +52,11 @@ namespace Racer
             // 0.89: Settings > Gameplay "Unlock everything (testing)": every course and vehicle in Race and Free Roam,
             // whatever the campaign has reached; the campaign save is not written while it is on.
             public bool unlockEverything = false;
+            // 0.90 Part B: Settings > Gameplay "Hints" (default On) and the hints already shown once (ids, see Hints.cs).
+            public bool hints = true;
+            public string[] hintsSeen = new string[0];
+            // 0.90 Part D: split-screen layout (false = top / bottom, the default; true = left / right), remembered.
+            public bool splitLeftRight = false;
             public string[] opponentChoices = {"mixed","mixed","mixed"};
             public string[] opponentRoster = {"tourer","moto","atv"};
             public int[] bodyColors = {-1,-1,-1,-1};

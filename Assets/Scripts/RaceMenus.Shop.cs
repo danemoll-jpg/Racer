@@ -22,6 +22,9 @@ namespace Racer
             VehicleVisual.Build(previewRoot.transform, p);
             var colors = flow.Save.Settings.bodyColors; int i = VehicleProfile.IndexOf(p.Id);
             if (colors != null && i >= 0 && i < colors.Length && colors[i] >= 0 && colors[i] < VehiclePaint.Colors.Length) VehiclePaint.Apply(previewRoot.transform, VehiclePaint.Colors[colors[i]]);
+            // 0.90 Part A: not yet bought or won = a silhouette with a padlock (its real look is revealed when it is the player's);
+            // the stat bars and the price stay visible so the player can choose what to save for.
+            if (!Campaign.Owns(p.Id) && !Campaign.Testing) { Silhouette(previewRoot.transform); int price = Campaign.Price(p.Id); previewLock = price > 0 ? (Campaign.ChapterOpen(Campaign.PriceChapter(p.Id)) ? "Price " + Campaign.Money(price) : $"In the Shop from chapter {Campaign.PriceChapter(p.Id)}: {Campaign.Money(price)}") : Campaign.HowToGet(p); }
             FramePreview(p);
         }
         string ShopStatus(VehicleProfile p, out bool canBuy)
@@ -37,10 +40,10 @@ namespace Racer
         void RenderShop()
         {
             var p = ShopProfile; var list = ShopList; int at = System.Array.IndexOf(list, p);
-            ClearCore("SHOP   ·   " + Campaign.Money(Campaign.Current.money), $"{p.Name} / {p.Class}\n{p.Description}\n{ShopStatus(p, out bool canBuy)}");
+            ClearCore("SHOP   ·   " + Campaign.Money(Campaign.Current.money), $"{p.Name} / {p.Class}\n{p.Description}\n{ShopStatus(p, out bool canBuy)}" + (Campaign.Upgraded(p.Id) ? "  ·  upgraded (gold on the bars)" : ""));
             details.fontSize = 18; details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight = 84;
             swatchRow.gameObject.SetActive(false); preview.gameObject.SetActive(true);
-            void StepShop(int d) { shopVehicle = list[(at + d + list.Length) % list.Length].Id; flow.Click(); Show(); }
+            void StepShop(int d) { shopVehicle = list[(at + d + list.Length) % list.Length].Id; flow.Click(); Show(); if (!Campaign.Owns(shopVehicle) && !Campaign.Testing) Hints.LockedItem(); }
             Step(0, "shop-vehicle", $"{p.Name}  ({at + 1} of {list.Length})", StepShop);
             buttons[0].GetComponentInChildren<UnityEngine.UI.Text>(true).alignment = TextAnchor.MiddleCenter;
             int price = Campaign.Price(p.Id);
@@ -51,9 +54,25 @@ namespace Racer
                     else { Campaign.CanBuy(p, out string why); flow.Notify(Campaign.Error ?? why, 5); }
                 }, "BUY"));
             buttons[1].interactable = canBuy;
-            Row(2, "shop-back", "Back", ShopBack);
-            LayoutGarageBody(); ShowGarageStats(p);
-            details.transform.SetSiblingIndex(0); buttons[0].transform.SetSiblingIndex(1); statBlock.SetSiblingIndex(2); buttons[1].transform.SetSiblingIndex(3); buttons[2].transform.SetSiblingIndex(4);
+            // 0.90: upgrades, three levels per stat, for an owned vehicle (campaign only)
+            int row = 2; bool upgradable = CampaignData.VehicleValue(p.Id) > 0;
+            if (upgradable)
+                for (int s = 0; s < 4; s++)
+                {
+                    int stat = s, level = Campaign.Levels(p.Id)[s]; bool can = Campaign.CanUpgrade(p, stat, out string why, out int cost);
+                    string pips = new string('■', level) + new string('□', CampaignData.UpgradeLevels - level);
+                    string label = $"{CampaignData.UpgradeNames[stat]}   {pips}   " + (level >= CampaignData.UpgradeLevels ? "fully upgraded" : !Campaign.Owns(p.Id) || Campaign.Testing ? why : $"level {level + 1}: +{CampaignData.UpgradeStep[stat] * 100:0}%   ·   {Campaign.Money(cost)}");
+                    Row(row, "upgrade-" + stat, label, () => Confirm($"UPGRADE {CampaignData.UpgradeNames[stat].ToUpperInvariant()}?", $"{p.Name}: {CampaignData.UpgradeNames[stat]} level {level + 1} of {CampaignData.UpgradeLevels} (+{CampaignData.UpgradeStep[stat] * 100:0}% over stock per level) for {Campaign.Money(cost)} of your {Campaign.Money(Campaign.Current.money)}.\nUpgrades count in campaign events and championships only.", () =>
+                    {
+                        if (Campaign.BuyUpgrade(p, stat)) flow.Notify($"Upgraded: {p.Name} {CampaignData.UpgradeNames[stat]} level {level + 1}", 4);
+                        else { Campaign.CanUpgrade(p, stat, out string no, out _); flow.Notify(Campaign.Error ?? no, 5); }
+                    }, "UPGRADE"));
+                    buttons[row].GetComponentInChildren<UnityEngine.UI.Text>(true).fontSize = 18; buttons[row].GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight = 36; buttons[row].interactable = can; row++;
+                }
+            Row(row, "shop-back", "Back", ShopBack);
+            LayoutGarageBody(); ShowGarageStats(p, Campaign.Owns(p.Id) && !Campaign.Testing ? p.Id : null);
+            details.transform.SetSiblingIndex(0); buttons[0].transform.SetSiblingIndex(1); statBlock.SetSiblingIndex(2); buttons[1].transform.SetSiblingIndex(3);
+            for (int k = 2; k <= row; k++) buttons[k].transform.SetSiblingIndex(2 + k);
         }
         void ShopBack()
         {

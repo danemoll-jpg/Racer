@@ -251,7 +251,7 @@ namespace Racer
                 Drivers.Add(driver);
                 if (racing)
                 {
-                    var state = new RacerState(RacePlaylists.Active!=null?"Rival "+Racers.Count:clone.name, car, gates.Length - 1, laps, true);
+                    var state = new RacerState(CampaignRun.RivalName(n)??(RacePlaylists.Active!=null?"Rival "+Racers.Count:clone.name), car, gates.Length - 1, laps, true);
                     Racers.Add(state);
                     driver.Racer = state;
                 }

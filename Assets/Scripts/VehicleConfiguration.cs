@@ -57,7 +57,7 @@ namespace Racer
             }
             JsonUtility.FromJsonOverwrite(originalMotor, motor);
             profileId = VehicleProfile.Find(id).Id;
-            selectedPaint=null;
+            selectedPaint=null; UpgradeScale=new float[]{1,1,1,1};
             foreach(var renderer in GetComponentsInChildren<Renderer>(true))
                 if(VehiclePaint.IsBodyPaint(renderer.sharedMaterial)) renderer.SetPropertyBlock(null);
             var p = Profile;
@@ -100,6 +100,15 @@ namespace Racer
             foreach(var c in GetComponentsInChildren<Collider>()) c.hasModifiableContacts=true;
             var camera=FindAnyObjectByType<ChaseCamera>();
             if(camera && camera.target==transform) { camera.offset=p.Camera; camera.Snap(); }
+        }
+        // 0.90 campaign upgrades: scale the applied profile's top speed, acceleration, grip and handling (steering response).
+        // Campaign runs only; any Apply puts the stock values back.
+        public float[] UpgradeScale { get; private set; } = { 1, 1, 1, 1 };
+        public void ApplyUpgrades(float speed, float acceleration, float grip, float handling)
+        {
+            if(!motor) motor=GetComponent<ArcadeVehicle>();
+            motor.topSpeed*=speed; motor.acceleration*=acceleration; motor.maxGripAcceleration*=grip; motor.steeringResponse*=handling;
+            UpgradeScale=new[]{speed,acceleration,grip,handling};
         }
         void LateUpdate()
         {

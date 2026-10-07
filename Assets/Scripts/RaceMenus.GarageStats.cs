@@ -16,15 +16,16 @@ namespace Racer
             ("Top speed", p => p.Speed), ("Acceleration", p => p.Acceleration), ("Grip", p => p.Grip),
             ("Handling", p => p.Response), ("Weight / contact", p => p.Mass),
         };
-        RectTransform statBlock; readonly List<RectTransform> statFills = new();
-        public static float StatFraction(int stat, VehicleProfile p)
+        RectTransform statBlock; readonly List<RectTransform> statFills = new(), statUpgrades = new();
+        // 0.90: the scale also covers the best vehicle fully upgraded (campaign upgrades, stats 0-3), so an upgraded bar fits.
+        public static float StatFraction(int stat, VehicleProfile p, float scale = 1)
         {
-            var values = VehicleProfile.All.Select(GarageStats[stat].value).ToArray(); float min = values.Min(), max = values.Max();
-            return max > min ? Mathf.Lerp(.12f, 1, (GarageStats[stat].value(p) - min) / (max - min)) : 1;
+            var values = VehicleProfile.All.Select(GarageStats[stat].value).ToArray(); float min = values.Min(), max = values.Max() * (stat < 4 ? 1 + CampaignData.UpgradeStep[stat] * CampaignData.UpgradeLevels : 1);
+            return max > min ? Mathf.Lerp(.12f, 1, (GarageStats[stat].value(p) * scale - min) / (max - min)) : 1;
         }
         public float[] ShownStats => statFills.Select(f => f.anchorMax.x).ToArray();
 
-        void ShowGarageStats(VehicleProfile profile)
+        void ShowGarageStats(VehicleProfile profile, string upgraded = null)
         {
             if (!statBlock)
             {
@@ -40,10 +41,17 @@ namespace Racer
                     track.gameObject.AddComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, .12f);
                     var fill = Rect("Fill", track); fill.anchorMin = Vector2.zero; fill.anchorMax = new Vector2(0, 1); fill.offsetMin = fill.offsetMax = Vector2.zero;
                     fill.gameObject.AddComponent<UnityEngine.UI.Image>().color = new Color(.3f, 1, .88f); statFills.Add(fill);
+                    var up = Rect("Upgraded", track); up.offsetMin = up.offsetMax = Vector2.zero; up.gameObject.AddComponent<UnityEngine.UI.Image>().color = new Color(1, .74f, .25f); statUpgrades.Add(up);
                 }
             }
             statBlock.gameObject.SetActive(true);
-            for (int i = 0; i < statFills.Count; i++) statFills[i].anchorMax = new Vector2(StatFraction(i, profile), 1);
+            // 0.90: the campaign's upgrades in a second tone after the stock bar (the Shop only; null = stock)
+            for (int i = 0; i < statFills.Count; i++)
+            {
+                float stock = StatFraction(i, profile), up = upgraded != null && i < 4 ? StatFraction(i, profile, Campaign.Multiplier(profile.Id, i)) : stock;
+                statFills[i].anchorMax = new Vector2(stock, 1);
+                statUpgrades[i].anchorMin = new Vector2(stock, 0); statUpgrades[i].anchorMax = new Vector2(up, 1); statUpgrades[i].gameObject.SetActive(up > stock + .001f);
+            }
         }
     }
 }

@@ -79,6 +79,10 @@ namespace Racer
         {
             if(!race.FreeRoam||!Selected)return;Cancel();smashed.Clear();BreakableProp.RestoreRace();AttemptActive=true;deadline=Time.time+Selected.Seconds;Message(Selected.title+" / attempt started",3);
         }
+        // 0.90: a campaign smash event: the site's attempt runs from GO for the event's time limit (Free Roam starts its own
+        // attempts from the pause menu). Its count goes to the campaign, never to the activity records.
+        public void BeginCampaignSmash(ActivitySite site,float seconds){if(!site)return;Cancel();smashed.Clear();Selected=site;AttemptActive=true;deadline=Time.time+seconds;warm=.5f;blockedUntil=0;Message(site.title+" / smash as many as you can",3);}
+        public float LastSmashScore {get;private set;}
         public void Cancel(){AttemptActive=false;smashed.Clear();warm=0;ResetFlight();}
         public void NewSession(){Cancel();armed.Clear();sampled=false;warm=0;blockedUntil=Time.time+1;Feedback=null;feedbackUntil=0;LastDistance=LastAirtime=LastSpeed=LastJumpAward=0;}
         void Recovered(){if(AttemptActive)Message("Attempt cancelled by recovery / retry from pause menu",4);Cancel();armed.Clear();sampled=false;warm=0;blockedUntil=Time.time+2;}
@@ -86,7 +90,7 @@ namespace Racer
         public void SolidContact(Vector3 normal,float relativeSpeed){if(!flying)return;contactImpact=Mathf.Max(contactImpact,relativeSpeed);minimumContactUp=Mathf.Min(minimumContactUp,normal.y);if(normal.y<.45f||(!Summit(jumpSite)&&relativeSpeed>21))invalid=true;}
         void Smash(BreakableProp prop,ArcadeVehicle source)
         {
-            if(source!=car||!race.FreeRoam||!AttemptActive||Selected.kind!=ActivitySite.Kind.Smash||race.Flow.State!=RaceFlow.Stage.Racing||Time.time<blockedUntil||warm<.5f)return;
+            if(source!=car||!(race.FreeRoam||CampaignRun.Active?.Kind==CampaignEventKind.Smash)||!AttemptActive||Selected.kind!=ActivitySite.Kind.Smash||race.Flow.State!=RaceFlow.Stage.Racing||Time.time<blockedUntil||warm<.5f)return;
             if(Selected.props==null||!Selected.props.Contains(prop)||!smashed.Add(prop))return;
             Message(Selected.title+" / "+smashed.Count+" distinct props",2);
             if(smashed.Count>=Selected.gold)FinishSmash();
@@ -161,7 +165,7 @@ namespace Racer
             if(DeveloperLocationHud.Inspecting)return;
             if(!float.IsFinite(value)||value<=0)return;int medal=site.Medal(value,configuration.profileId);var best=PersonalBest(site);
             // 0.89: a campaign event never writes activity records or personal bests; its result goes to the campaign save.
-            if(CampaignRun.Active!=null){LastAwardSite=site;Awards++;Message(site.title+" / "+Measurement(site,value),6);return;}
+            if(CampaignRun.Active!=null){LastAwardSite=site;if(site.kind==ActivitySite.Kind.Jump)LastJumpAward=value;if(site.kind==ActivitySite.Kind.Smash)LastSmashScore=value;Awards++;Message(site.title+" / "+Measurement(site,value),6);return;}
             bool improved=best==null||value>best.value;
             if(site.kind!=ActivitySite.Kind.Smash)Records.Add(new ActivityRecords.Entry{id=Guid.NewGuid().ToString("N"),key=Key(site),site=site.id,vehicle=configuration.profileId,date=DateTime.UtcNow.ToString("o"),value=value,airtime=site.kind==ActivitySite.Kind.Jump?LastAirtime:0,medal=medal});
             if(site.kind==ActivitySite.Kind.Jump)LastJumpAward=value;

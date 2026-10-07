@@ -36,7 +36,7 @@ namespace Racer
         public void SetSceneReturn(string target){sceneReturnPage=target;sceneMemory=null;}
         public void RestoreSceneReturn(){page=sceneReturnPage??"race";stagePages[RaceFlow.Stage.Ready]=page;if(sceneMemory!=null)foreach(var entry in sceneMemory)pageMemory[entry.Key]=entry.Value;sceneMemory=null;Show();}
         public void OpenSetup(){page="race";stagePages[RaceFlow.Stage.Ready]=page;Show();}
-        public void ResetPages(){page="";pages.Clear();stagePages.Clear();stageStacks.Clear();modalConfirm=null;}
+        public void ResetPages(){page="";renderedKey="";pages.Clear();stagePages.Clear();stageStacks.Clear();modalConfirm=null;}
         void Navigate(string next){CapturePage();pages.Push(page);page=next;MenuInput.ConsumeThroughRelease();Show();}
         public bool BackPage()
         {
@@ -139,11 +139,12 @@ namespace Racer
             if(flow.State==RaceFlow.Stage.Courses&&page==""&&current&&current.name.StartsWith("course-")
                 &&int.TryParse(current.name.Substring(7),out int focusedCourse))
             {
-                previewTrack=focusedCourse;ShowCourseOnMap(focusedCourse);
+                previewTrack=focusedCourse;ShowCourseOnMap(focusedCourse,!RoamTrackPick);
             }
             else if(flow.State==RaceFlow.Stage.Courses&&page==""&&current&&current.name=="back")ShowCourseOnMap(-1);
             // 0.89: the campaign screen's map and caption follow the highlighted event
             else if(flow.State==RaceFlow.Stage.Ready&&page=="campaign"&&current&&current.name.StartsWith("cev-")&&current!=lastFocus)ShowCampaignEvent(CampaignData.Find(current.name.Substring(4)));
+            else if(flow.State==RaceFlow.Stage.Ready&&page=="campaign"&&current&&current.name.StartsWith("ccup-")&&current!=lastFocus)ShowCampaignCup(CampaignData.FindCup(current.name.Substring(5)));
             if(current&&current!=lastFocus&&current.transform.IsChildOf(content))
             {
                 Canvas.ForceUpdateCanvases();var r=current.GetComponent<RectTransform>();

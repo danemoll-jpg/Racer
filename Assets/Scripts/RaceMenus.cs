@@ -228,6 +228,7 @@ namespace Racer
             details.fontSize=20;
             details.supportRichText=false;
             if(shown!=RaceFlow.Stage.Garage)garageLocked=null;
+            previewLock=null;
             if (shown == RaceFlow.Stage.Garage && page=="shop") BuildShopPreview(); // 0.89 campaign Shop
             else if (shown == RaceFlow.Stage.Garage)
             {
@@ -243,7 +244,8 @@ namespace Racer
                     :$"{profile.Description}\n{(flow.Race.CarsRestricted?flow.Race.courseName+": motorcycles / ATVs only (player and AI).":flow.Race.courseName+": every vehicle available.")}\nBody color: choose a swatch below.";
                 if(previewRoot) { previewRoot.SetActive(false); Destroy(previewRoot); }
                 previewRoot=new GameObject("Garage display model"); previewRoot.layer=31; previewRoot.transform.position=new(10000,10000,10000); previewRoot.transform.rotation=Quaternion.Euler(0,-30,0);
-                if(locked!=null){VehicleVisual.Build(previewRoot.transform,locked);if(locked.Reward)Silhouette(previewRoot.transform);swatchRow.gameObject.SetActive(false);}
+                // 0.90 Part A: every locked vehicle is a dark silhouette with a padlock and how to get it (as the mower was)
+                if(locked!=null){VehicleVisual.Build(previewRoot.transform,locked);Silhouette(previewRoot.transform);swatchRow.gameObject.SetActive(false);previewLock=locked.Reward?VehicleUnlocks.LockedText:Campaign.HowToGet(locked);}
                 else flow.Race.vehicle.GetComponent<VehicleConfiguration>().BuildPreview(previewRoot.transform);
                 FramePreview(shownProfile);
                 if(page!="rider")
@@ -255,7 +257,7 @@ namespace Racer
                     var list=eligible.Concat(VehicleProfile.All.Where(v=>(VehicleUnlocks.Locked(v)||Campaign.VehicleLocked(v))&&(!flow.Race.CarsRestricted||v.Small))).ToArray();
                     int at=System.Array.FindIndex(list,v=>v.Id==shownProfile.Id);
                     void StepVehicle(int d){if(list.Length==0)return;var next=list[((at<0?0:at)+d+list.Length)%list.Length];
-                        if(VehicleUnlocks.Locked(next)||Campaign.VehicleLocked(next)){garageLocked=next.Id;flow.Click();Show();}else{garageLocked=null;flow.SelectVehicle(next.Id);}}
+                        if(VehicleUnlocks.Locked(next)||Campaign.VehicleLocked(next)){garageLocked=next.Id;flow.Click();Show();Hints.LockedItem();}else{garageLocked=null;flow.SelectVehicle(next.Id);}}
                     adjustments.Clear();
                     Action(0,locked!=null?$"‹   Vehicle: {shownProfile.Name}  (locked, {at+1} of {list.Length})   ›":$"‹   Vehicle: {shownProfile.Name}  ({shownProfile.Class}, {at+1} of {list.Length})   ›",()=>StepVehicle(1));adjustments[0]=StepVehicle;
                     for(int k=1;k<4&&k<buttons.Count;k++)buttons[k].gameObject.SetActive(false);
@@ -273,11 +275,14 @@ namespace Racer
             if(shown==RaceFlow.Stage.Garage&&page!="rider"&&page!="shop") for(int i=0;i<swatches.Count;i++) { var nav=swatches[i].navigation; nav.selectOnLeft=swatches[(i+swatches.Count-1)%swatches.Count]; nav.selectOnRight=swatches[(i+1)%swatches.Count]; swatches[i].navigation=nav; }
             ConfigureCoreFocus();ConfigureLaterFocus();
             int focus = selections.TryGetValue(shown,out var prior)?prior:0;
+            // 0.90 Part B: until the first campaign event is finished, CAMPAIGN is the main menu's default selection
+            bool campaignDefault=shown==RaceFlow.Stage.Ready&&page==""&&!flow.RoamMenu&&NewToCampaign&&buttons[10].gameObject.activeSelf&&renderedKey!=PageKey;
             if(editingPlaylistName&&!controllerName&&shown==RaceFlow.Stage.Playlists){playlistName.SetTextWithoutNotify(nameDraft);EventSystem.current.SetSelectedGameObject(playlistName.gameObject);playlistName.ActivateInputField();return;}
             if(shown==RaceFlow.Stage.Garage && page!="rider" && page!="shop" && focus>=buttons.Count && focus<buttons.Count+swatches.Count) { EventSystem.current.SetSelectedGameObject(swatches[focus-buttons.Count].gameObject);RestorePage(); return; }
             if (focus >= buttons.Count || (!buttons[focus].gameObject.activeSelf||!buttons[focus].interactable)) focus=buttons.FindIndex(b=>b.gameObject.activeInHierarchy&&b.interactable);if(focus<0)return;
             EventSystem.current.SetSelectedGameObject(buttons[focus].gameObject);
             RestorePage();
+            if(campaignDefault)EventSystem.current.SetSelectedGameObject(buttons[10].gameObject);
         }
         static float NextVolume(float value) => Mathf.Min(1, (Mathf.Floor(value*10+.01f)+1)/10);
         void FinishName(bool save)
@@ -334,7 +339,8 @@ namespace Racer
                 Cursor.visible=true;
                 if(!waitingShown&&EventSystem.current)EventSystem.current.SetSelectedGameObject(simulateRemaining.gameObject);
             }
-            waitingShown=waiting;UpdateFinishPresentation();
+            waitingShown=waiting;UpdateFinishPresentation();UpdateControlsCard();UpdateHint();
+            if(flow.ControlsCard)banner.text="";
             if(!countdown && flow.PenaltyNotice!=null)banner.text=flow.PenaltyNotice;
             if (!DeveloperLocationHud.OwnsInput && flow.MenuVisible && flow.State!=RaceFlow.Stage.Title && flow.GetComponent<ExplorationMap>()?.OwnsInput!=true && EventSystem.current && !EventSystem.current.currentSelectedGameObject) EventSystem.current.SetSelectedGameObject(buttons[0].gameObject);
         }

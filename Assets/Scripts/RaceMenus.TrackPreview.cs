@@ -60,10 +60,11 @@ namespace Racer
             coursePanel.gameObject.SetActive(false);
         }
         // The highlighted course on the map (-1: the plain map).
-        void ShowCourseOnMap(int index)
+        // 0.90 Part A: greyLocked (Tracks) draws a course the campaign has not opened in grey, with how to reach it.
+        void ShowCourseOnMap(int index, bool greyLocked = false)
         {
             if (!courseView || index == shownCourse || !courseVisual) return;
-            shownCourse = index;
+            shownCourse = index; bool locked = greyLocked && index >= 0 && index < RacePlaylists.Scenes.Length && !Campaign.CourseOpen(index); courseOverlay.SetLocked(locked);
             var courses = CoursePreviewCatalog.Courses;
             if (index < 0 || index >= courses.Length)
             {
@@ -80,12 +81,12 @@ namespace Racer
             courseOverlay.SetView(flow.Race, courseVisual, center, zoom, course);
             float length = 0; for (int i = 0; i < course.main.Length; i++) { var a = course.main[i]; var b = course.main[(i + 1) % course.main.Length]; a.y = b.y = 0; length += Vector3.Distance(a, b); }
             int laps = flow.Race.laps;
-            courseCaption.text = $"{RacePlaylists.Titles[index]}\nLap {length / 1000f:0.0} km ({length / 1609.344f:0.0} mi)   ·   Race Setup: {laps} lap{(laps == 1 ? "" : "s")}\nCyan: main  ·  Gold: shortcuts  ·  Arrows: direction";
+            courseCaption.text = locked ? $"{RacePlaylists.Titles[index]}   ·   LOCKED\n{Campaign.CourseHowTo(index).Replace("Campaign: ", "")}\nLap {length / 1000f:0.0} km ({length / 1609.344f:0.0} mi)" : $"{RacePlaylists.Titles[index]}\nLap {length / 1000f:0.0} km ({length / 1609.344f:0.0} mi)   ·   Race Setup: {laps} lap{(laps == 1 ? "" : "s")}\nCyan: main  ·  Gold: shortcuts  ·  Arrows: direction";
         }
     }
     // Mouse hover moves the highlight in the Tracks list (so the map follows the pointer as well as the keys).
     public sealed class CourseRowHover : MonoBehaviour, IPointerEnterHandler
     {
-        public void OnPointerEnter(PointerEventData e) { if ((name.StartsWith("course-") || name.StartsWith("cev-")) && EventSystem.current && GetComponent<UnityEngine.UI.Selectable>()?.interactable == true) EventSystem.current.SetSelectedGameObject(gameObject); }
+        public void OnPointerEnter(PointerEventData e) { if ((name.StartsWith("course-") || name.StartsWith("cev-") || name.StartsWith("ccup-")) && EventSystem.current && GetComponent<UnityEngine.UI.Selectable>()?.interactable == true) EventSystem.current.SetSelectedGameObject(gameObject); }
     }
 }

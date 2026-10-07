@@ -19,11 +19,24 @@ namespace Racer
             public string id; public int runs; public bool passed, won, bonusPaid;
             public int bestPlace, field, bestMedal; public double bestTime; public float bestScore;
         }
+        // 0.90: version 2 adds upgrades, championships, completion, time and money earned. A version 1 save (0.89) loads and
+        // carries on (money, vehicles, results, opened courses kept); it is written as version 2 from the next save. The
+        // file keeps its name.
+        public const int Version = 2;
+        [Serializable] public sealed class Upgrade { public string id; public int[] levels = new int[4]; }
+        [Serializable] public sealed class CupRace { public int[] places = new int[6]; public double time; }
+        [Serializable] public sealed class Cup
+        {
+            public string id; public bool active; public string vehicle; public List<CupRace> races = new();
+            public int runs, bestPosition; public bool finished, won, bonusPaid;
+        }
         [Serializable] public sealed class State
         {
-            public int version = 1; public int money; public int chapter = 1;
+            public int version = Version; public int money; public int chapter = 1;
             public List<string> owned = new(), courses = new(); public List<Result> results = new();
             public string started;
+            public List<Upgrade> upgrades = new(); public List<Cup> cups = new();
+            public bool complete; public double secondsRacing; public int earned;
         }
         public static State Current { get; private set; } = NewState();
         public static bool Exists { get; private set; }
@@ -41,8 +54,18 @@ namespace Racer
             {
                 if (!System.IO.File.Exists(path)) return;
                 var data = JsonUtility.FromJson<State>(System.IO.File.ReadAllText(path));
-                if (data == null || data.version != 1) throw new IOException("unknown campaign save version");
-                data.owned ??= new(); data.courses ??= new(); data.results ??= new();
+                if (data == null || data.version < 1 || data.version > Version) throw new IOException("unknown campaign save version");
+                data.owned ??= new(); data.courses ??= new(); data.results ??= new(); data.upgrades ??= new(); data.cups ??= new();
+                foreach (var u in data.upgrades) if (u.levels == null || u.levels.Length != 4) u.levels = new int[4];
+                foreach (var c in data.cups) { c.races ??= new(); foreach (var r in c.races) if (r.places == null || r.places.Length != 6) r.places = new int[6]; }
+                if (data.version == 1)
+                {
+                    // 0.89 save: what it has earned so far is its money plus what it spent in the Shop; its racing time is
+                    // estimated from its best times (the 0.89 save did not keep it).
+                    data.earned = data.money + data.owned.Sum(Price);
+                    data.secondsRacing = data.results.Sum(r => r.bestTime);
+                    data.version = Version;
+                }
                 foreach (var s in CampaignData.Starters) if (!data.owned.Contains(s)) data.owned.Add(s);
                 if (!data.courses.Contains(RacePlaylists.Scenes[0])) data.courses.Add(RacePlaylists.Scenes[0]);
                 data.chapter = Mathf.Clamp(data.chapter, 1, CampaignData.Chapters.Length); data.money = Mathf.Max(0, data.money);
@@ -101,7 +124,6 @@ namespace Racer
             int price = Price(p.Id);
             if (price > 0) return ChapterOpen(PriceChapter(p.Id)) ? $"Buy it in the Shop for {Money(price)}" : $"In the Shop from chapter {PriceChapter(p.Id)}: {Money(price)}";
             var prize = PrizeEvent(p.Id); if (prize != null) return $"Prize: win \"{prize.Name}\" (campaign chapter {prize.Chapter})";
-            var later = CampaignData.LaterPrizes.FirstOrDefault(l => l.id == p.Id); if (later.id != null) return "Prize from " + later.from;
             return "Campaign";
         }
         public static string Money(int dollars) => "$" + dollars.ToString("N0", System.Globalization.CultureInfo.InvariantCulture);
@@ -132,12 +154,16 @@ namespace Racer
             public CampaignEvent Event; public string Vehicle;
             public int Place, Field, Medal; public bool Dnf, Passed, Won, Replay, Saved, Testing, Debug; public double Time; public float Score;
             public int Pay, Bonus; public readonly List<string> Unlocked = new();
+            // 0.90: the run's racing time (campaign total) and, for a championship round, the six finishing places
+            // (index 0 the player, 1-5 the rivals in roster order; 0 = did not finish), whether it ended the championship
+            // and the final position.
+            public double RaceSeconds; public int[] Places; public bool CupFinished, Forfeit; public int CupPosition;
             public string Headline => Debug ? "DEBUG RUN — no result or payout" : Event.Kind == CampaignEventKind.Race
                 ? (Dnf ? "Did not finish" : $"{Ordinal(Place)} of {Field}")
                 : (Dnf ? "No result" : new[] { "No medal", "BRONZE", "SILVER", "GOLD" }[Medal] + "  ·  " + Measure(Event, Event.Kind == CampaignEventKind.TimeTrial ? (float)Time : Score));
         }
         public static string Ordinal(int n) => n + (n % 100 is >= 11 and <= 13 ? "th" : (n % 10) switch { 1 => "st", 2 => "nd", 3 => "rd", _ => "th" });
-        public static string Measure(CampaignEvent e, float value) => e.Kind == CampaignEventKind.TimeTrial ? RaceHud.FormatTime(value) : e.Kind == CampaignEventKind.SpeedTrap ? DisplayUnits.Speed(value) : RaceHud.FormatTime(value);
+        public static string Measure(CampaignEvent e, float value) => e.Kind == CampaignEventKind.TimeTrial ? RaceHud.FormatTime(value) : e.Kind == CampaignEventKind.SpeedTrap ? DisplayUnits.Speed(value) : e.Kind == CampaignEventKind.Jump ? DisplayUnits.Jump(value) : e.Kind == CampaignEventKind.Smash ? value.ToString("0") + " props" : RaceHud.FormatTime(value);
         public static int MedalFor(CampaignEvent e, float value)
         {
             if (e.Targets == null || e.Targets.Length != 3 || value <= 0) return 0;
@@ -182,7 +208,8 @@ namespace Racer
                 if (e.Kind == CampaignEventKind.TimeTrial) { if (r.bestTime <= 0 || o.Time < r.bestTime) r.bestTime = o.Time; }
                 else if (o.Score > r.bestScore) r.bestScore = o.Score;
             }
-            Current.money += o.Pay + o.Bonus;
+            Current.money += o.Pay + o.Bonus; Current.earned += o.Pay + o.Bonus; Current.secondsRacing += o.RaceSeconds;
+            if (o.Passed && e.Final) foreach (var cup in CampaignData.CupsAfter(e.Chapter)) if (CupResult(cup.Id) == null && !o.Unlocked.Contains("Championship: " + cup.Name)) o.Unlocked.Add("Championship: " + cup.Name);
             if (o.Won && e.Prize != null && !Owns(e.Prize)) { Current.owned.Add(e.Prize); o.Unlocked.Add("Vehicle: " + VehicleProfile.Find(e.Prize).Name); }
             if (o.Passed && e.Final && Current.chapter == e.Chapter && e.Chapter < CampaignData.Chapters.Length) Current.chapter = e.Chapter + 1;
             if (Current.chapter > chapterBefore) { var c = CampaignData.Chapters[Current.chapter - 1]; o.Unlocked.Add($"Chapter {c.Number}: {c.Name}"); }
@@ -197,6 +224,78 @@ namespace Racer
             string scene = RacePlaylists.Scenes[course];
             if (Testing || Current.courses.Contains(scene)) return null;
             Current.courses.Add(scene); Save(); return RacePlaylists.Titles[course];
+        }
+
+        // ---------- 0.90 upgrades (campaign only: Race, Free Roam, split-screen and the Top 10 boards stay stock) ----------
+        public static int[] Levels(string id) => Current.upgrades.FirstOrDefault(u => u.id == id)?.levels ?? new int[4];
+        public static float Multiplier(string id, int stat) => 1 + CampaignData.UpgradeStep[stat] * Mathf.Clamp(Levels(id)[stat], 0, CampaignData.UpgradeLevels);
+        public static bool Upgraded(string id) => Levels(id).Any(l => l > 0);
+        public static string UpgradeSummary(string id) { var l = Levels(id); return l.All(x => x == 0) ? "stock" : string.Join(", ", Enumerable.Range(0, 4).Where(i => l[i] > 0).Select(i => CampaignData.UpgradeNames[i] + " " + l[i])); }
+        public static bool CanUpgrade(VehicleProfile p, int stat, out string why, out int cost)
+        {
+            why = ""; int level = Levels(p.Id)[stat]; cost = CampaignData.UpgradeCost(p.Id, level + 1);
+            if (Testing) { why = "Testing mode is on: upgrades are off"; return false; }
+            if (p.Reward || CampaignData.VehicleValue(p.Id) <= 0) { why = "No upgrades for this vehicle"; return false; }
+            if (!Owns(p.Id)) { why = "Buy or win it first"; return false; }
+            if (level >= CampaignData.UpgradeLevels) { why = "Fully upgraded"; return false; }
+            if (Current.money < cost) { why = $"Not enough money: {Money(cost)} needed"; return false; }
+            return true;
+        }
+        public static bool BuyUpgrade(VehicleProfile p, int stat)
+        {
+            if (!CanUpgrade(p, stat, out _, out int cost)) return false;
+            var keep = JsonUtility.ToJson(Current);
+            var u = Current.upgrades.FirstOrDefault(x => x.id == p.Id); if (u == null) Current.upgrades.Add(u = new Upgrade { id = p.Id });
+            u.levels[stat]++; Current.money -= cost;
+            if (Save()) return true;
+            Current = JsonUtility.FromJson<State>(keep); return false;
+        }
+        public static void ApplyUpgrades(VehicleConfiguration configuration)
+        {
+            if (!configuration || Testing) return; string id = configuration.profileId;
+            configuration.ApplyUpgrades(Multiplier(id, 0), Multiplier(id, 1), Multiplier(id, 2), Multiplier(id, 3));
+        }
+
+        // ---------- 0.90 championships ----------
+        public static Cup CupResult(string id) => Current.cups.FirstOrDefault(c => c.id == id);
+        public static bool CupOpen(CampaignCup c) { var final = CampaignData.InChapter(c.AfterChapter).FirstOrDefault(e => e.Final); return final != null && Passed(final); }
+        public static Cup ActiveCup(CampaignCup c) { var r = CupResult(c.Id); return r != null && r.active ? r : null; }
+        // Starting (or restarting) a championship: a new table, the chosen vehicle kept for every round. Saved at once.
+        public static Cup StartCup(CampaignCup c, string vehicle)
+        {
+            var r = CupResult(c.Id); if (r == null) Current.cups.Add(r = new Cup { id = c.Id });
+            r.active = true; r.vehicle = vehicle; r.races.Clear(); Save(); return r;
+        }
+        public static void AbandonCup(CampaignCup c) { var r = CupResult(c.Id); if (r == null) return; r.active = false; r.races.Clear(); Save(); }
+        // Points per driver (0 the player, 1-5 the rivals), ordered: most points, then most wins, then the better place in the
+        // last race (did not finish counts as last).
+        public static List<(int driver, int points, int wins)> Standings(Cup r)
+        {
+            var list = Enumerable.Range(0, 6).Select(d => (driver: d, points: r.races.Sum(x => x.places[d] > 0 ? CampaignData.CupPoints[Mathf.Min(x.places[d], 6) - 1] : 0), wins: r.races.Count(x => x.places[d] == 1))).ToList();
+            int Last(int d) { var x = r.races.LastOrDefault(); return x == null || x.places[d] <= 0 ? 7 : x.places[d]; }
+            return list.OrderByDescending(s => s.points).ThenByDescending(s => s.wins).ThenBy(s => Last(s.driver)).ThenBy(s => s.driver).ToList();
+        }
+        public static string DriverName(int driver) => driver == 0 ? "You" : CampaignData.RivalNames[driver - 1];
+        // A round's result: saved at once. The last round ends the championship: paid by final position (half on a replay),
+        // the first win pays its bonus and marks the trophy; winning the Grand Championship completes the campaign.
+        public static Outcome CommitCupRace(Outcome o)
+        {
+            var cup = o.Event.Cup; o.Testing = Testing; if (o.Debug || Testing) return o;
+            var r = CupResult(cup.Id); if (r == null || !r.active) return o;
+            r.races.Add(new CupRace { places = (int[])o.Places.Clone(), time = o.Time });
+            Current.secondsRacing += o.RaceSeconds;
+            if (r.races.Count >= cup.Rounds.Length)
+            {
+                var table = Standings(r); int position = table.FindIndex(s => s.driver == 0) + 1;
+                o.CupFinished = true; o.CupPosition = position; o.Replay = r.runs > 0; o.Won = position == 1;
+                o.Pay = Share(cup.Pay, CampaignData.PlaceShare[Mathf.Clamp(position - 1, 0, CampaignData.PlaceShare.Length - 1)] * (o.Replay ? CampaignData.ReplayShare : 1));
+                if (o.Won && !r.bonusPaid) { o.Bonus = cup.Bonus; r.bonusPaid = true; }
+                r.runs++; r.finished = true; r.won |= o.Won; r.bestPosition = r.bestPosition == 0 ? position : Mathf.Min(r.bestPosition, position); r.active = false;
+                Current.money += o.Pay + o.Bonus; Current.earned += o.Pay + o.Bonus;
+                if (cup.Grand && o.Won && !Current.complete) { Current.complete = true; o.Unlocked.Add("The campaign: you are the Champion of Woodstock"); }
+            }
+            o.Saved = Save();
+            return o;
         }
 
         // ---------- F6 debug entries (debug mode only; they write even while Testing is on) ----------

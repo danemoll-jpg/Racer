@@ -122,6 +122,7 @@ namespace Racer
             Ghost=gameObject.AddComponent<CleanLapGhost>();Ghost.Initialize(Race,root);
             GetComponent<ExplorationCollection>()?.Initialize(Race,root);
             GetComponent<ExplorationMap>()?.Initialize(Race,root);
+            Hints.Flow=this;gameObject.AddComponent<HintWatch>().Initialize(this);
             LockVehicle(true);
             StartCoroutine(StartWhenBuilt());
         }
@@ -178,8 +179,13 @@ namespace Racer
             LoadScene(RacePlaylists.Scenes[page=="race"&&!Campaign.CourseOpen(RoamCourse)?Campaign.FirstOpenCourse:RoamCourse]);
         }
         public void OpenRaceSetupFromRoam()=>LeaveRoamWorld("race");
+        // 0.90 Part A: RACE on the main menu of a course the campaign has not opened (reached from Free Roam) goes to Race
+        // Setup on an open course instead, so Race Setup never opens on something locked.
+        public void OpenRaceSetupOnOpenCourse(){callers.Clear();menus.ResetPages();menus.SetSceneReturn("race");returnToSetup=true;LoadScene(RacePlaylists.Scenes[Campaign.FirstOpenCourse]);}
         public void EnterMenuAfterTitle(){Radio=LocalRadio.Attach(this);SetStage(Stage.Ready);if(returnToSetup){returnToSetup=false;menus.RestoreSceneReturn();}}
-        public void EnterFreeRoamAfterTitle(){Radio=LocalRadio.Attach(this);roamHint=!InRoamWorld;StartFreeRoam();RoamMenuHintUntil=Time.unscaledTime+12;}
+        // 0.90 Part B: a new player gets the welcome panel after the title (Start the campaign / Look around first) instead
+        // of going straight into Free Roam.
+        public void EnterFreeRoamAfterTitle(){if(Hints.WelcomeDue){EnterMenuAfterTitle();menus.OpenWelcome();return;}Radio=LocalRadio.Attach(this);roamHint=!InRoamWorld;StartFreeRoam();RoamMenuHintUntil=Time.unscaledTime+12;}
         void Update()
         {
             if (Save == null || !Started || LoadingScreen.Holding || State==Stage.Title || menus?.OwnsTextInput==true || DeveloperLocationHud.OwnsInput) return;
@@ -187,6 +193,12 @@ namespace Racer
             if (finishAt > 0 && State != Stage.Paused && State != Stage.Settings && Time.unscaledTime >= finishAt) { finishAt = 0; Sound(finish); }
             if (MenuInput.Blocked) return;
             if (MenuVisible && back.WasPressedThisFrame()) { MenuInput.ConsumeThroughRelease(back); Back(); return; }
+            // 0.90 Part B: the controls card before a new player's first event holds the countdown until one press
+            if (ControlsCard)
+            {
+                if (Time.unscaledTime - controlsShownAt > .4f && AnyPress()) { ControlsCard = false; Hints.MarkSeen("controls"); MenuInput.ConsumeThroughRelease(); Sound(tick); }
+                return;
+            }
             if (menu.WasPressedThisFrame() && !menus.ModalOpen)
             {
                 if (State == Stage.Racing || State == Stage.Countdown) { MenuInput.ConsumeThroughRelease(menu); Pause(); }
@@ -249,7 +261,7 @@ namespace Racer
         public void CycleLaps(){Race.laps=(Race.laps+1)%(Race.opponents?6:6);if(Race.opponents&&Race.laps==0)Race.laps=1;Save.Settings.laps=Race.laps;if(Race.laps>0)Save.Settings.lastFiniteLaps=Race.laps;Save.SaveSettings();SelectRecords(Race.Category);Click();}
         public void ToggleOpponents() { Race.opponents = !Race.opponents; if(Race.opponents&&Race.laps==0){Race.laps=Save.Settings.lastFiniteLaps;Save.Settings.laps=Race.laps;Notify("AI race: restored "+Race.laps+" finite laps",4);} Save.Settings.opponents = Race.opponents; Save.SaveSettings(); SelectRecords(Race.Category); Click(); }
         public void ToggleTraffic() { Race.traffic = !Race.traffic; Save.Settings.traffic = Race.traffic; Save.SaveSettings(); SelectRecords(Race.Category); Click(); }
-        string GoNotice=>CampaignRun.Active==null?"GO!  Shared race clock started":CampaignRun.Active.Kind==CampaignEventKind.SpeedTrap?"GO!  Hit the speed trap ahead as fast as you can":CampaignRun.Active.Kind==CampaignEventKind.TimeTrial?"GO!  Flying lap: the clock starts at the START line":"GO!  "+CampaignRun.Active.Name;
+        string GoNotice=>CampaignRun.Active==null?"GO!  Shared race clock started":CampaignRun.Active.Kind==CampaignEventKind.SpeedTrap?"GO!  Hit the speed trap ahead as fast as you can":CampaignRun.Active.Kind==CampaignEventKind.Jump?"GO!  Land the jump ahead as far as you can":CampaignRun.Active.Kind==CampaignEventKind.Smash?"GO!  Smash as many fence-line props as you can":CampaignRun.Active.Kind==CampaignEventKind.TimeTrial?"GO!  Flying lap: the clock starts at the START line":"GO!  "+CampaignRun.Active.Name;
         public string TimeOfDayLabel => ((TimeOfDay)Mathf.Clamp(Save.Settings.timeOfDay,0,3)).ToString();
         public string WeatherLabel => ((Weather)Mathf.Clamp(Save.Settings.weather,0,2)).ToString();
         public string RoamWeatherLabel => ((Weather)Mathf.Clamp(Save.Settings.roamWeather,0,2)).ToString();
@@ -392,12 +404,22 @@ namespace Racer
             if (accepted) { if (!Race.Progress.Finished) { CheckpointDings++; Sound(ding); } }
             else { if(Time.unscaledTime>=penaltyUntil) pendingMisses=0; pendingMisses+=count; penaltyUntil=Time.unscaledTime+5; if (Time.time >= nextBuzz) { CheckpointBuzzes++; Sound(buzz); nextBuzz = Time.time + .5f; } }
         }
+        public bool ControlsCard { get; private set; }
+        float controlsShownAt;
+        static bool AnyPress()
+        {
+            if (Mouse.current?.leftButton.wasPressedThisFrame == true) return true;
+            foreach (var k in InputSystem.devices) if (k is Keyboard kb && kb.anyKey.wasPressedThisFrame) return true;
+            foreach (var pad in Gamepad.all) if (pad.buttonSouth.wasPressedThisFrame || pad.buttonEast.wasPressedThisFrame || pad.buttonNorth.wasPressedThisFrame || pad.buttonWest.wasPressedThisFrame || pad.startButton.wasPressedThisFrame) return true;
+            return false;
+        }
         public void BeginCountdown()
         {
+            ControlsCard = Hints.ControlsDue; controlsShownAt = Time.unscaledTime;
             DebugMovementUsed=false; Save.BeginAttempt();
             attempt=System.Guid.NewGuid().ToString("N");LapRank=RaceRank=0;Boards.BeginAttempt();FinishCards.Begin(Boards,Race.Category,Save.Best);
             NewLapRecord = NewRaceRecord = false; CountdownRemaining = 3; lastTick = 3;
-            if(CampaignRun.Active?.Kind==CampaignEventKind.SpeedTrap){var watch=GetComponent<CampaignTrapWatch>();if(!watch)watch=gameObject.AddComponent<CampaignTrapWatch>();watch.Initialize(this);}
+            if(CampaignRun.Active?.Kind==CampaignEventKind.SpeedTrap||CampaignRun.Active?.Kind==CampaignEventKind.Jump||CampaignRun.Active?.Kind==CampaignEventKind.Smash){var watch=GetComponent<CampaignTrapWatch>();if(!watch)watch=gameObject.AddComponent<CampaignTrapWatch>();watch.Initialize(this);}
             Notice = null; LockVehicle(true); SetStage(Stage.Countdown); Sound(tick);
         }
         public void StartRace() { if(!CampaignAllows())return; if(InRoamWorld){pendingRace=true;LeaveRoamWorld(null);return;} SessionStartedAt=Time.unscaledTime;RoamMenu=false;callers.Clear();menus.ResetPages(); if(RacePlaylists.Active!=null)RacePlaylists.Championship.Restart(RacePlaylists.Position);Race.FreeRoam=false;SetGateVisibility(true);Click(); if(LoadingScreen.Holding)Race.RestartRace();else StartCoroutine(RestartBehindLoadingScreen()); }
@@ -414,7 +436,7 @@ namespace Racer
             restarting=false;Race.RestartRace();LoadingScreen.Started();
         }
         public void StartFreeRoam(){int course=System.Array.IndexOf(RacePlaylists.Scenes,gameObject.scene.name);if(!InRoamWorld&&course>=0){RoamCourse=course;LoadScene(RoamScene);return;}SessionStartedAt=Time.unscaledTime;RoamMenu=false;callers.Clear();menus.ResetPages();Race.FreeRoam=true;SetGateVisibility(false);Click();Race.RestartRace();}
-        public void BeginRoaming(){DebugMovementUsed=false;attempt=null;CountdownRemaining=0;LapRank=RaceRank=0;NewLapRecord=NewRaceRecord=false;LockVehicle(false);Race.GetComponent<WrongWayGuidance>()?.Clear();SetStage(Stage.Racing);}
+        public void BeginRoaming(){Hints.FreeRoam();DebugMovementUsed=false;attempt=null;CountdownRemaining=0;LapRank=RaceRank=0;NewLapRecord=NewRaceRecord=false;LockVehicle(false);Race.GetComponent<WrongWayGuidance>()?.Clear();SetStage(Stage.Racing);}
         void SetGateVisibility(bool visible){foreach(var gate in Race.gates)foreach(var renderer in gate.GetComponentsInChildren<Renderer>(true))renderer.enabled=visible;}
         public void Pause() { pausedStage = State; RoamMenuHintUntil=0;RoamMenu=Race.FreeRoam;if(RoamMenu)menus.ResetPages();SetStage(RoamMenu?Stage.Ready:Stage.Paused); Click(); }
         public void Resume() { RoamMenu=false;SetStage(pausedStage); Click(); }
@@ -439,22 +461,35 @@ namespace Racer
             if(InRoamWorld){WorldLook.Current?.SaveRoamClock();GetComponent<ExplorationMap>()?.Save();}
             CampaignRun.Begin(e,vehicle);callers.Clear();menus.ResetPages();Click();Go(RacePlaylists.Scenes[e.Course]);
         }
-        public void RetryCampaignEvent(){if(CampaignRun.Active==null||State!=Stage.Results)return;CampaignRun.Retry();StartRace();}
+        public void RetryCampaignEvent(){if(CampaignRun.Active==null||CampaignRun.Cup!=null||State!=Stage.Results)return;CampaignRun.Retry();StartRace();}
+        // 0.90: a championship: its next round (the first after Start / Restart), through the loading screen into its course.
+        public void StartCupRound(CampaignCup cup)
+        {
+            if(cup==null||Campaign.Testing)return;
+            if(InRoamWorld){WorldLook.Current?.SaveRoamClock();GetComponent<ExplorationMap>()?.Save();}
+            if(!CampaignRun.BeginCupRound(cup))return;
+            callers.Clear();menus.ResetPages();Click();Go(RacePlaylists.Scenes[CampaignRun.Active.Course]);
+        }
+        public void NextCupRace(){var cup=CampaignRun.Cup;if(cup==null||State!=Stage.Results||Campaign.ActiveCup(cup)==null)return;CampaignRun.End();StartCupRound(cup);}
         // Back to normal Race settings (the event's were never saved) and the campaign screen.
         void EndCampaignEvent()
         {
-            CampaignRun.End();
+            int chapter=CampaignRun.Cup!=null?CampaignRun.Cup.AfterChapter:CampaignRun.Active?.Chapter??0;CampaignRun.End();
             Race.opponents=Save.Settings.opponents;Race.traffic=Save.Settings.traffic;Race.difficulty=Mathf.Clamp(Save.Settings.difficulty,0,2);
             Race.laps=Save.Settings.laps==0&&!Race.opponents?0:Mathf.Clamp(Save.Settings.laps==0?Save.Settings.lastFiniteLaps:Save.Settings.laps,1,5);
+            // 0.90: always re-applied, so the campaign's upgrades never stay on the vehicle outside the campaign
             RestoreChoices();var configuration=Race.vehicle.GetComponent<VehicleConfiguration>();
-            if(configuration.profileId!=PlayerVehicleId)configuration.Apply(PlayerVehicleId);configuration.SetBodyColor(SelectedColor);
-            SelectRecords(Race.Category);menus.OpenCampaign();
+            configuration.Apply(PlayerVehicleId);configuration.SetBodyColor(SelectedColor);
+            SelectRecords(Race.Category);menus.OpenCampaign(chapter);
         }
         public void QuitRace()
         {
             callers.Clear();menus.ResetPages();
             if(State!=Stage.Paused && State!=Stage.Results && State!=Stage.Settings) return;
             if(InRoamWorld){LeaveRoamWorld("");return;}
+            // 0.90: leaving a championship round before its result counts as did not finish (no retries in a championship)
+            // (when that was the last round, its final standings and payout are still shown)
+            if(CampaignRun.Cup!=null&&!CampaignRun.Done&&State!=Stage.Results){var forfeit=CampaignRun.Forfeit(this);if(forfeit!=null&&forfeit.CupFinished){LockVehicle(true);SetStage(Stage.Results);return;}}
             PrepareRestart(); Race.AbandonEvent(); respawn.CancelRecovery(); respawn.PlaceOnNearestGround(); LockVehicle(true);
             RacePlaylists.Quit();Race.laps=Save.Settings.laps==0&&!Race.opponents?0:Mathf.Clamp(Save.Settings.laps,1,5);
             Race.FreeRoam=false;SetGateVisibility(true);

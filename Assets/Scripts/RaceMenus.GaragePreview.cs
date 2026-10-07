@@ -43,12 +43,27 @@ namespace Racer
             preview.GetComponent<UnityEngine.UI.LayoutElement>().ignoreLayout = true; preview.raycastTarget = true;
             if (!preview.GetComponent<GaragePreviewDrag>()) preview.gameObject.AddComponent<GaragePreviewDrag>().owner = this;
             if (!garageView) { garageView = true; rotateAction.Enable(); StickNavigation(false); }
-            MatchPreviewTexture();
+            MatchPreviewTexture(); ShowPreviewLock();
+        }
+        // 0.90 Part A: a locked vehicle in the preview (Garage or Shop): its silhouette with a padlock and how to get it.
+        string previewLock; GameObject lockBadge; UnityEngine.UI.Text lockText;
+        void ShowPreviewLock()
+        {
+            if (!lockBadge)
+            {
+                var r = Rect("Locked vehicle badge", garagePanel); r.anchorMin = new Vector2(0, 0); r.anchorMax = new Vector2(1, 0); r.pivot = new Vector2(.5f, 0); r.sizeDelta = new Vector2(0, 74); r.anchoredPosition = Vector2.zero;
+                r.gameObject.AddComponent<UnityEngine.UI.Image>().color = new Color(.02f, .04f, .05f, .82f); r.GetComponent<UnityEngine.UI.Image>().raycastTarget = false;
+                PadlockMark.Add(r, new Vector2(0, .5f), new Vector2(18, 0), 46, new Color(1, .82f, .35f));
+                lockText = Label("How to get it", r, 19, 0); lockText.rectTransform.anchorMin = Vector2.zero; lockText.rectTransform.anchorMax = Vector2.one; lockText.rectTransform.offsetMin = new Vector2(70, 4); lockText.rectTransform.offsetMax = new Vector2(-12, -4);
+                lockText.alignment = TextAnchor.MiddleLeft; lockText.color = new Color(1, .9f, .62f); lockBadge = r.gameObject;
+            }
+            lockBadge.SetActive(previewLock != null); lockBadge.transform.SetAsLastSibling();
+            if (previewLock != null) lockText.text = "LOCKED\n" + previewLock;
         }
         void LeaveGarageView()
         {
             if (!garageView) return;
-            garageView = false; rotateAction.Disable(); StickNavigation(true);
+            garageView = false; rotateAction.Disable(); StickNavigation(true); if (lockBadge) lockBadge.SetActive(false);
             card.sizeDelta = menuCardSize; ((RectTransform)scroll.transform).offsetMin = new Vector2(32, 78);
             garagePanel.gameObject.SetActive(false);
             preview.transform.SetParent(content, false); preview.GetComponent<UnityEngine.UI.LayoutElement>().ignoreLayout = false; preview.raycastTarget = false;

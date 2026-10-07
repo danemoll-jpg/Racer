@@ -11,7 +11,7 @@ using UnityEngine.EventSystems;
 namespace Racer {
 // 0.89 targeted checks, added to the 0.80 runner (same muted isolated save, same helpers): PROBE_CASES="case:args;...".
 public sealed partial class Report080Checks {
- IEnumerator Cases089(string[] a)=>a[0] switch{"targets89"=>Targets089(a[1]),"flow89"=>Flow089(),"locks89"=>Locks089(),"screen89"=>Screen089(),"carshots89"=>CarShots089(a[1]),_=>null};
+ IEnumerator Cases089(string[] a)=>a[0] switch{"targets89"=>Targets089(a[1]),"flow89"=>Flow089(),"locks89"=>Locks089(),"screen89"=>Screen089(),"carshots89"=>CarShots089(a[1]),_=>Cases090(a)};
  // Part F: the 0.88 orbit shots (day and night with headlights) for any vehicle, with Testing on and the acorn reward set
  // in memory so the campaign and the mower lock do not swap the vehicle.
  IEnumerator CarShots089(string profiles){flow.Save.Settings.unlockEverything=true;Campaign.Testing=true;flow.Save.SaveSettings();File.WriteAllText(Path.Combine(saveDir,VehicleUnlocks.AcornFile),JsonUtility.ToJson(new ExplorationCollection.Save{rewardEarned=true},true));
