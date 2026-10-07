@@ -15,7 +15,73 @@
   - **Dan does:** driving every course and direction, trying every vehicle everywhere, checking that a universal fix holds everywhere, and judging look and feel. He reports through the debug ZIPs.
   - **Write-up:** the TODO results are a short list: what changed, the one check per item, decisions made, and anything Dan should look at. No separate VALIDATION.md unless a round asks. If a check would take more than a few minutes of play time, skip it and list it under "for Dan to check".
 
-## CURRENT — Kyle's house from Dan's photo, Forest Forward Summit Climb shortcut (with a challenge), launcher icon — 0.87.0-review1 — DELIVERED, AWAITING DAN'S REVIEW
+## CURRENT — Kyle's driveway, yard and mailbox; flashing car floorboards; Forest Reverse lake-jump landing; acorn reward riding lawnmower — target 0.88.0-review1 — NOT STARTED
+
+- **Authorized by Dan (2026-10-06).** Written by Claude (chat) from his review of 0.87.0-review1: debug session `2026-10-06_21-33-52-142_17cb14` (4 reports, all on 0.87.0-review1, `FreeRoamWorld`) and his message of 22:08: "the only thing I have is cleaning up Kyle's driveway, and yard, and adding a mailbox. The house itself looks fine. There is also a weird graphic glitch on the floorboard when looking at cars from certain angles. Other than that, nothing." The Summit Climb and the launcher icon drew no comment.
+- **Starting point:** main at the "Record 0.87 delivery" commit; playable source `c8357cc8` (0.87.0-review1 / game-87000). This TODO edit is uncommitted and belongs in the safety checkpoint. More parts may be added before Dan starts it.
+- Runs unattended: design decisions are below; do not stop to ask about design. Stop only for a real external blocker (rule 7).
+- **Scope is exactly Parts A–D below (C and D added at 22:12 at Dan's choice). Order: A, B, then C (own commit), then D.** The Verification budget in "Mandatory standing workflow" applies in full.
+
+### Part A — Kyle's place: one straight driveway, a tidy yard, a mailbox
+
+**The house model is accepted. Do not change it.** Only the ground, drive, trees and props around it.
+
+Dan's three reports, taken in order (the second replaces part of the first):
+- BUG-001 at (472.0, 82.0, -0.6), facing 104°: "I want to add more trees to the left of the driveway. Clean up the driveway so that it is a straight, not broken driveway, all the way down to the parking area by the garage doors."
+- BUG-002 at (477.7, 85.9, -21.1), facing 80°: "actually lets move these trees and move the driveway here, straight down to the driveway." (The view is from the road edge straight down toward the garage side of the house, through a stand of trees.)
+- BUG-003 at (492.7, 81.1, -17.6), facing 154°: "other than the straight driveway down to the garage lets just get rid of all this other random road and make it grass... also make the area in front of the house just like two steps down and the grassy area should be flat at the base of the hill. Also I kept forgetting to say that Kyle's house needs a mailbox."
+
+What to build:
+1. **One driveway, in the BUG-002 position.** It leaves the road at about (477.7, -21.1) and runs in a single straight line down the hill to the parking apron at the two garage doors. One continuous gravel surface at one width, even gradient, clean edges, no kink, no patched join, no change of material part-way. Remove the trees standing in that line (re-plant them beside it). Keep the pitch drivable for every vehicle (0.87 measured 11–13° on the old line; do not make it steeper than that if the ground allows, cutting or filling the drive itself as needed).
+2. **Remove every other piece of road, drive or track on the property:** the old drive and its dog-leg, the cut-off leg to the front door, the 0.87 link and its edge-join patch, and any other gravel or pavement there. Turn all of it to grass matching the lawn, with the ground smoothed so no trace or step is left. Move the map's "Anderson's" arrival point and any route points that followed the old drive onto the new one.
+3. **More trees to the left of the driveway** (as seen driving down it from the road) so the house stays tucked away, and keep the woods dense between the house and the road everywhere except the drive's own opening.
+4. **Front yard:** a flat lawn at the base of the hill in front of the house, and the front of the house reached by going **two steps down** from the yard/parking level to the porch level (two broad steps across the approach, not a flight). The hill behind the lawn ends in a clean toe, not a ramp into the porch. No floating or buried parts on the house: re-run the 0.87 grounding check after the ground changes.
+5. **Mailbox:** a standard roadside mailbox on a post at the mouth of the driveway, on the verge, on the side a mail carrier would reach from the road, not on the drive or the road. Same style as the other mailboxes in the world; no collider or a breakaway one.
+6. The Dan-and-Kyle scene at this house stays; move it only if the yard change needs it.
+7. **Scenes:** 0.87 changed this property in all nine scenes through shared ground tiles. Make this the same everywhere, but read each course scene's route data first (section 5A): BUG-002's position is at the road edge, so check that the new driveway mouth, its apron and the removed trees do not touch a race line, AI line, gate or the nearby "Fence line smash" activity. If they would in some scene, keep that scene's old mouth and report it.
+8. Check: one shot from each of Dan's three positions, one from above showing the single straight drive and the yard, one of the mailbox; a car and a motorcycle driven road → garage → road; collider comparison per scene listing only this property.
+
+### Part B — Flashing on car floorboards (BUG-004)
+
+"when you look at some cars there is some weird flashing on the floorboards" at (320.7, 26.0, 471.3), Pebble Coupe, chase view, Day Clear. Dan's message: "a weird graphic glitch on the floorboard when looking at cars from certain angles."
+
+1. Find the cause in the car models: almost certainly two surfaces at the same height inside the cabin (floor pan and a second floor, carpet, seat base or the chassis top) fighting for the same pixels, or a shadow-only/hidden rider part flickering against the floor. Fix it in the Blender sources so there is one floor surface with clear separation from anything above or below it, in **all six 0.81/0.75 cars** (check each; list which had it), and in the traffic kit if it shows there.
+2. **Also look at the Pebble Coupe's roof.** In Dan's screenshot the Pebble Coupe is seen from above and behind with the seats and floor in plain view, as if it had no roof or the roof were see-through from outside. It is meant to be a closed coupe. If the roof is missing, single-sided, or being hidden by the first-person head/cabin logic while in chase view, fix it; if the open top is deliberate, say so in the results. Check the other closed cars for the same thing.
+3. Visual only: no collider, handling or seat-position change. Check: orbit the camera (Trailer Mode) round each car by day and at night with headlights; one shot per car from above and behind.
+
+### Part C — Forest Loop Reverse: a proper landing for the Granite Saddle lake jump
+
+Dan (2026-10-06, 22:12) chose this from Claude's list: "Bikes and cars clear the lake jump now but land hard, and AI is still kept off it. A rebuilt landing would finish that line."
+
+State after 0.86: on the optional Granite Saddle line in `ForestLoopReverse`, all classes reach the lip with speed (the dip at x ≈ 532 was smoothed) and clear the pool and lake, but come down hard on the west rim trail near x ≈ 323 (0.85 measured a Needle 600 jolt of 674 m/s²); AI is off for the line. 0.85 judged that a matching landing for the present lip needs a face matching a 30–40° descent from a 25–30 m drop, i.e. heavy earthworks.
+
+1. **Goal:** every one of the ten vehicles, arriving at normal race speed, flies the water and lands on a downhill face that matches its descent, rolls out under control and carries speed back to the main. Landing loads in line with the other accepted jumps on this course (measure one, such as J1, as the reference).
+2. **Design the jump as a whole, not just the landing.** Choose whatever combination gives a clean result with the least disruption: lower or flatten the lip so the flight is longer and shallower; and/or build a landing mound or cut a landing face on the west rim; and/or shift the touchdown zone. Earthworks in `ForestLoopReverse` only are allowed (Dan's standing permission for this scene, including small changes to the House 3 driveway at the crossing; simple and direct, never winding). The flight must still clear the sunk House 3 pool and the lake with margin.
+3. Keep the main (McFadden Cut), every gate, Fern Gully and the fork and rejoin points where they are. Re-seat trees and props on changed ground; nothing floating or buried.
+4. **Coming up short** still ends in the water and can be driven out (0.85/0.86). A slow approach must not hit a wall.
+5. **AI on:** when all classes land cleanly, switch AI on for the line for the classes that make it reliably, at the usual shortcut rate.
+6. New course-rule ID for Forest Loop Reverse only if the optional line's timing changes materially; say which.
+7. If no version of this can be made to work without redrawing the route, change nothing and report the measurements.
+8. **Checks (heavier allowed, race geometry):** each class through the jump five times at race speed with landing loads and roll-out speed, once slow (water, drives out); three races with AI; collider and route comparison; shots of approach, flight and landing. **Own commit**, with the revert command.
+
+### Part D — Acorn reward: the riding lawnmower
+
+Dan: "a riding lawnmower would be cool, but with like top stats since it is an unlockable."
+
+1. **Unlock:** finding all 24 Woodland Acorns unlocks an eleventh vehicle. Until then it shows in the garage list as a locked silhouette with "Find all 24 Woodland Acorns (n/24)". The moment the 24th is collected: a celebration message naming the unlock, and it is selectable from then on. Read the unlock from the existing acorn save (no new progress to lose); restarting the acorn hunt from the menu does not re-lock it once earned. Dan is at 22/24 and will earn it by play: **do not grant it in his save.** For testing use an isolated save.
+2. **The vehicle:** a riding lawnmower (lawn tractor) built in Blender in the game's style: bonnet with a little grille and headlights, steering wheel, big sprung seat, small front wheels and large rear tyres, mowing deck slung under the middle with a side discharge chute, rear tow hitch. Selectable paint colour like the other vehicles. An invented name in the house style (for example "Turf Rocket"); no real make, badge or logo.
+3. **Rider:** the parametric rider seated upright with hands on the wheel (the 0.85 hands-follow-the-wheel logic), fully visible, with all customization, gestures and first person working. First person sees the bonnet and wheel.
+4. **Top stats, because it is the reward:** the best or equal-best of all eleven in top speed, acceleration, grip and handling response, with enough weight to hold its own in contact, and stable over jumps and landings. It should feel absurdly quick for a mower but controllable, not a twitchy joke. Garage stat bars rescale to include it. Rule 12: one considered set of numbers; Dan judges.
+5. **Where it counts:** allowed on every course and in Free Roam. Its own class label ("Mower"). Records stay per vehicle, so its times do not displace other vehicles' on a per-vehicle view; in the all-vehicles Top 10 it appears like any other with its name shown. Activity medal targets use the nearest existing vehicle's, as 0.81 did.
+6. **AI:** rivals do not drive it unless the player has unlocked it; after that it may appear in Random / Mixed fields occasionally.
+7. **Touches, only if cheap:** a mower-like engine note made from the existing engine audio, and a puff of grass clippings from the chute while driving on grass. No gameplay effect.
+8. Check: on an isolated save, collect the 24th acorn and see the unlock; the locked state at 23; the mower loads, sits on its wheels, rider seated, headlights at night, fist wave, first person; one lap of a road course and one mountain jump; a Blender render sheet.
+
+### Verification
+
+Light, per the Verification budget, except Part C, which may check as its own list says. Compile, launch, release steps. Results as a short list, with "for Dan to check".
+
+## Previous delivery — Kyle's house from Dan's photo, Forest Forward Summit Climb shortcut (with a challenge), launcher icon — 0.87.0-review1 — DELIVERED, REVIEWED BY DAN (house accepted; yard, drive and mailbox in 0.88)
 
 - **DELIVERED:**
   - Source `c8357cc8da262d3d377deef0115255b65b48273f` pushed and verified on origin/main (Part B alone is `ad4b1374`, Part A `1b9c5581`).
