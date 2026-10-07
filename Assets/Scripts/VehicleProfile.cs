@@ -18,6 +18,9 @@ namespace Racer
         public string Model, Pose = "Car", Base;
         public Vector3 Seat, FrontPivot, FrontAxis;
         public float FrontGain, Upright, Air, Suspension, Lean = .65f;
+        // 0.88 Part D: Reward = locked until earned (VehicleUnlocks); SolidContact = holds its own against the cars in contact
+        // (registered with the car contact class although it is a small vehicle for course access and handling).
+        public bool Reward, SolidContact;
         public static readonly VehicleProfile[] All = {
             new() { Id="original", Name="Street Classic", Class="Car", Description="Balanced handling / high stability / strong contact", Speed=49, Acceleration=14.5f, Grip=25, Response=8, Mass=1200, Wheelbase=2.6f, Pitch=1, Size=new(1.85f,.65f,3.7f), Camera=new(0,3.6f,-7.5f),
                 Model="StreetClassic", Seat=new(-.40f,.04f,-.15f) },
@@ -40,7 +43,12 @@ namespace Racer
             new() { Id="scrambler", Name="Ridge Scrambler", Class="Motorcycle", Description="Dirt bike / long suspension / best on rough ground and landings / lower top speed", Speed=56, Acceleration=17.5f, Grip=31, Response=11.5f, Mass=200, Wheelbase=1.56f, Pitch=1.3f, Size=new(.7f,.9f,2.3f), Camera=new(0,3.2f,-6.6f),
                 Model="Scrambler", Pose="Dirt", FrontPivot=new(0,-.16f,.80f), FrontAxis=new(0,.80f,-.33f), FrontGain=9, Base="moto", Upright=23, Air=.2f, Suspension=.75f, Lean=.6f },
             new() { Id="drifter", Name="Drifter Twin", Class="Motorcycle", Description="Cruiser / stable / strongest contact for a bike / slower to lean", Speed=58, Acceleration=16, Grip=30, Response=9.5f, Mass=320, Wheelbase=1.85f, Pitch=1.2f, Size=new(.8f,.8f,2.6f), Camera=new(0,3.1f,-7f),
-                Model="Drifter", Pose="Cruiser", FrontPivot=new(0,-.20f,.95f), FrontAxis=new(0,.70f,-.42f), FrontGain=8, Base="moto", Upright=22, Air=.14f, Lean=.4f }
+                Model="Drifter", Pose="Cruiser", FrontPivot=new(0,-.20f,.95f), FrontAxis=new(0,.70f,-.42f), FrontGain=8, Base="moto", Upright=22, Air=.14f, Lean=.4f },
+            // 0.88 Part D: the acorn reward (Tools/Blender/mower.py). Equal-best top speed, acceleration, grip and handling of
+            // the eleven, a car's weight in contact, a strong upright and air stability so it lands flat; the cars' seated
+            // pose on the centre line, hands on its wheel. Engine note: the shared engine audio pitched up (Pitch).
+            new() { Id="mower", Name="Turf Rocket", Class="Mower", Description="Riding mower / the acorn reward / top speed, grip and handling, solid in contact", Speed=61, Acceleration=18, Grip=32, Response=12, Mass=760, Wheelbase=1.6f, Pitch=1.75f, Size=new(1.15f,.65f,2.1f), Camera=new(0,3.1f,-6.6f),
+                Model="TurfRocket", Seat=new(0,.22f,-.52f), Base="moto", Upright=27, Air=.24f, Reward=true, SolidContact=true }
         };
         public static VehicleProfile Find(string id)
         {

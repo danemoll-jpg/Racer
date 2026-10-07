@@ -21,8 +21,9 @@ namespace Racer
         // FreeRoamWorld uses the selected course's scene.
         [System.NonSerialized] public string carRuleScene;
         public bool CarsRestricted => !CarAccess.CourseAllowsCars(string.IsNullOrEmpty(carRuleScene)?gameObject.scene.name:carRuleScene);
-        public VehicleProfile[] EligibleVehicles => CarsRestricted ? VehicleProfile.All.Where(p=>p.Small).ToArray() : VehicleProfile.All;
-        public string EligibleVehicle(string id)=>CarsRestricted&&!VehicleProfile.Find(id).Small?"moto":VehicleProfile.Find(id).Id;
+        // 0.88: a reward vehicle not yet earned (VehicleUnlocks) is not eligible for the player or the AI.
+        public VehicleProfile[] EligibleVehicles => VehicleProfile.All.Where(p=>(!CarsRestricted||p.Small)&&!VehicleUnlocks.Locked(p)).ToArray();
+        public string EligibleVehicle(string id)=>VehicleUnlocks.Locked(id)?(CarsRestricted?"moto":"original"):CarsRestricted&&!VehicleProfile.Find(id).Small?"moto":VehicleProfile.Find(id).Id;
         public string courseId="street-v8-landings";
         public string courseName="Street Loop - Forward";
         public const double OrdinaryMissPenalty = 5;

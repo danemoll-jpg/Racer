@@ -90,6 +90,7 @@ namespace Racer
             if(!string.IsNullOrEmpty(ValidationSaveRoot))root=ValidationSaveRoot;
 #endif
             Save = new RacerSave(root, "street-loop-gates-v1-laps" + Race.laps);
+            VehicleUnlocks.Load(root);
             VehicleVisual.NewModels = Save.Settings.newMotorcycle; RiderLook.Player = Save.Settings.rider;
             Scenery.Set(!Save.Settings.classicScenery); SceneryWorld.Attach(gameObject);
             Playlists=new RacePlaylists(root);
@@ -327,6 +328,8 @@ namespace Racer
                 var candidates=new System.Collections.Generic.List<string>();
                 foreach(var p in Race.EligibleVehicles) if(choice=="random" || !used.Contains(p.Id)) candidates.Add(p.Id);
                 if(candidates.Count==0) foreach(var p in Race.EligibleVehicles) candidates.Add(p.Id);
+                // 0.88: once earned, the riding mower turns up in Random / Mixed fields only now and then
+                if(candidates.Count>1&&candidates.Contains("mower")&&Random.value<.75f) candidates.Remove("mower");
                 Race.opponentRoster[i]=candidates[Random.Range(0,candidates.Count)]; used.Add(Race.opponentRoster[i]);
             }
             Save.Settings.opponentRoster=(string[])Race.opponentRoster.Clone(); Save.SaveSettings(); SelectRecords(Race.Category); Click();
@@ -464,6 +467,7 @@ namespace Racer
             ValidationSaveRoot=directory;
 #endif
             Save = new RacerSave(directory, "street-loop-gates-v1-laps" + Race.laps);
+            VehicleUnlocks.Load(directory);
             VehicleVisual.NewModels = Save.Settings.newMotorcycle; RiderLook.Player = Save.Settings.rider;
             Scenery.Set(!Save.Settings.classicScenery);
             Boards = new RecordBoards(directory);

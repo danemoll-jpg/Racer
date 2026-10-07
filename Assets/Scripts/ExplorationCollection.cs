@@ -8,7 +8,8 @@ namespace Racer
     public sealed class ExplorationCollection:MonoBehaviour
     {
         [Serializable] public sealed class Site {public string id,title,approach;public Vector3 position,access;}
-        [Serializable] public sealed class Save {public int version=1;public List<string> found=new();}
+        // 0.88: rewardEarned = all acorns found once (the riding mower unlocked); kept when the hunt is restarted
+        [Serializable] public sealed class Save {public int version=1;public List<string> found=new();public bool rewardEarned;}
         public Site[] sites=Array.Empty<Site>();
         public RaceRoad[] routes=Array.Empty<RaceRoad>();
         Save data=new();string path,error;RaceDirector race;Transform[] tokens;Vector3 previous;bool sampled;float feedbackUntil;string feedback;
@@ -19,7 +20,7 @@ namespace Racer
         public bool RestartCollection(bool confirmed)
         {
             if(!confirmed||error!=null)return false;
-            var fresh=new Save();
+            var fresh=new Save{rewardEarned=data.rewardEarned};
             try{AtomicSave.Write(path,JsonUtility.ToJson(fresh,true));data=fresh;sampled=false;feedback="Acorn hunt restarted / other saves preserved";feedbackUntil=Time.time+5;return true;}
             catch(Exception e){error="Collection could not restart: "+e.Message;return false;}
         }
@@ -30,6 +31,7 @@ namespace Racer
         {
             race=owner;path=Path.Combine(root,"woodland-acorns-v1.json");
             try{if(File.Exists(path))data=JsonUtility.FromJson<Save>(File.ReadAllText(path))??new();data.found??=new();}catch(Exception e){error="Collection save unavailable: "+e.Message;}
+            VehicleUnlocks.Set(Found,data.rewardEarned||(sites.Length>0&&Found>=sites.Length));
             tokens=new Transform[sites.Length];
             var gold=new Material(Shader.Find("Universal Render Pipeline/Lit")){color=new Color(1,.63f,.13f),enableInstancing=true};
             var cap=new Material(gold){color=new Color(.32f,.12f,.025f)};
@@ -54,9 +56,12 @@ namespace Racer
                 if(data.found.Contains(sites[i].id))continue;
                 float t=delta.sqrMagnitude>.001f?Mathf.Clamp01(Vector3.Dot(sites[i].position-previous,delta)/delta.sqrMagnitude):0;
                 if(Vector3.Distance(previous+delta*t,sites[i].position)>2.8f)continue;
-                data.found.Add(sites[i].id);
-                try{AtomicSave.Write(path,JsonUtility.ToJson(data,true));feedback=$"WOODLAND ACORNS {Found}/{sites.Length}\nAcorn found / {sites[i].title}";feedbackUntil=Time.time+5;}
-                catch(Exception e){data.found.Remove(sites[i].id);error="Collection could not save: "+e.Message;}
+                data.found.Add(sites[i].id);bool reward=!data.rewardEarned&&Found>=sites.Length;if(reward)data.rewardEarned=true;
+                try{AtomicSave.Write(path,JsonUtility.ToJson(data,true));VehicleUnlocks.Set(Found,data.rewardEarned);
+                    // 0.88 Part D: the last acorn unlocks the riding mower
+                    if(reward){feedback=$"ALL {sites.Length} WOODLAND ACORNS FOUND!\nUnlocked: the Turf Rocket riding mower\nChoose it in the Garage";feedbackUntil=Time.time+10;}
+                    else{feedback=$"WOODLAND ACORNS {Found}/{sites.Length}\nAcorn found / {sites[i].title}";feedbackUntil=Time.time+5;}}
+                catch(Exception e){data.found.Remove(sites[i].id);if(reward)data.rewardEarned=false;error="Collection could not save: "+e.Message;}
             }
             previous=p;
         }

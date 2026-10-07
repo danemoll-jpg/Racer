@@ -10,7 +10,40 @@ using UnityEngine;
 namespace Racer {
 // 0.88 targeted checks, added to the 0.80 runner (same muted isolated save, same helpers): PROBE_CASES="case:args;...".
 public sealed partial class Report080Checks {
- IEnumerator Cases088(string[] a)=>a[0] switch{"kyleviews88"=>KyleViews088(a.Length>1?a[1]:"day",a.Length>2?a[2]:""),"kyledrive88"=>KyleDrive088(a[1]),"carshots88"=>CarShots088(a[1],a.Length>2?a[2]:""),_=>null};
+ IEnumerator Cases088(string[] a)=>a[0] switch{"kyleviews88"=>KyleViews088(a.Length>1?a[1]:"day",a.Length>2?a[2]:""),"kyledrive88"=>KyleDrive088(a[1]),"carshots88"=>CarShots088(a[1],a.Length>2?a[2]:""),"mower88"=>Mower088(),_=>null};
+
+ // Part D on the isolated save: the acorn save written with 23 of the 24 found; in Free Roam the mower is locked (not
+ // eligible, not selectable, shown locked in the garage with the count); the 24th acorn is driven through: the celebration
+ // and the unlock; the garage then selects it (stat bars rescaled); Restart Acorn Hunt keeps it; a fresh scene load
+ // still has it (read from the acorn save). Leaves the isolated save with the mower earned for the later cases.
+ IEnumerator Mower088(){
+  var col0=FindAnyObjectByType<ExplorationCollection>();if(!col0){Check(false,"no acorn collection");yield break;}
+  var ids=col0.sites.Select(x=>x.id).ToList();var last=ids[^1];
+  File.WriteAllText(Path.Combine(saveDir,VehicleUnlocks.AcornFile),JsonUtility.ToJson(new ExplorationCollection.Save{found=ids.Take(ids.Count-1).ToList()},true));
+  yield return EnterRoam("StreetLoopGreybox","original");yield return new WaitForSeconds(1);
+  var col=FindAnyObjectByType<ExplorationCollection>();
+  Check(!VehicleUnlocks.RewardEarned&&VehicleUnlocks.AcornsFound==ids.Count-1&&!race.EligibleVehicles.Any(p=>p.Id=="mower")&&race.EligibleVehicle("mower")!="mower",$"at {VehicleUnlocks.AcornsFound}/{ids.Count}: mower locked, not eligible for the player or the AI ({race.EligibleVehicles.Length} eligible); '{VehicleUnlocks.LockedText}'");
+  var menus=FindAnyObjectByType<RaceMenus>();var lockField=typeof(RaceMenus).GetField("garageLocked",System.Reflection.BindingFlags.NonPublic|System.Reflection.BindingFlags.Instance);
+  flow.Pause();yield return null;flow.OpenGarage();yield return null;flow.SelectVehicle("mower");yield return null;
+  string afterTry=race.vehicle.GetComponent<VehicleConfiguration>().profileId;
+  lockField.SetValue(menus,"mower");menus.Show();yield return new WaitForSecondsRealtime(.5f);yield return Late(()=>Shot("D-garage-locked"));
+  var titleText=FindObjectsByType<UnityEngine.UI.Text>(FindObjectsSortMode.None).Select(t=>t.text).FirstOrDefault(t=>t.Contains("Turf Rocket / Mower"))??"";
+  Check(afterTry=="original"&&titleText.Contains("locked"),$"garage at 23: choosing the mower leaves '{afterTry}'; the list shows '{titleText.Replace("\n"," ")}' as a locked silhouette");
+  lockField.SetValue(menus,null);flow.CloseGarage();yield return null;flow.Resume();yield return new WaitForSeconds(.5f);
+  // the 24th acorn: carry the vehicle through it in 1 m steps
+  var site=col.sites.First(x=>x.id==last);var car=race.vehicle;var dir=Vector3.forward;
+  for(int k=0;k<=12;k++){var p=site.position+dir*(6-k);car.Body.position=p+Vector3.up*.2f;car.Body.linearVelocity=-dir*20;yield return new WaitForFixedUpdate();}
+  yield return new WaitForSeconds(.3f);var hud=col.Hud;yield return Late(()=>Shot("D-celebration"));
+  Check(VehicleUnlocks.RewardEarned&&hud.Contains("Turf Rocket"),$"24th acorn ({site.title}): unlocked {VehicleUnlocks.RewardEarned}, message '{hud.Replace("\n"," / ")}'");
+  flow.Pause();yield return null;flow.OpenGarage();yield return null;flow.SelectVehicle("mower");yield return new WaitForSecondsRealtime(.8f);
+  bool chosen=race.vehicle.GetComponent<VehicleConfiguration>().profileId=="mower";var mower=VehicleProfile.Find("mower");
+  string bars=string.Join(", ",Enumerable.Range(0,5).Select(i=>$"{RaceMenus.StatFraction(i,mower):F2}"));yield return Late(()=>Shot("D-garage-unlocked"));
+  Check(chosen&&RaceMenus.StatFraction(0,mower)>.99f&&RaceMenus.StatFraction(1,mower)>.99f&&RaceMenus.StatFraction(2,mower)>.99f&&RaceMenus.StatFraction(3,mower)>.99f,$"garage after the unlock: mower selected {chosen}; bars (speed, accel, grip, handling, weight) {bars}");
+  flow.CloseGarage();yield return null;
+  bool restarted=col.RestartCollection(true);var saved=JsonUtility.FromJson<ExplorationCollection.Save>(File.ReadAllText(Path.Combine(saveDir,VehicleUnlocks.AcornFile)));
+  Check(restarted&&saved.found.Count==0&&saved.rewardEarned&&VehicleUnlocks.RewardEarned,$"Restart Acorn Hunt: found {saved.found.Count}, reward kept {saved.rewardEarned}");
+  yield return EnterRoam("StreetLoopGreybox","mower");yield return new WaitForSeconds(1);
+  Check(VehicleUnlocks.RewardEarned&&race.vehicle.GetComponent<VehicleConfiguration>().profileId=="mower",$"fresh load after the restart: still unlocked {VehicleUnlocks.RewardEarned}, driving '{race.vehicle.GetComponent<VehicleConfiguration>().profileId}'");}
 
  // Part B: each car parked at Dan's BUG-004 spot (Free Roam), the camera orbiting it (8 views at 7 m, 2.6 m up) and one
  // from above and behind (as Dan's chase view), by day and at night with the headlights on. carshots88:profiles:tag

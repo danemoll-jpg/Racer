@@ -120,7 +120,7 @@ namespace Racer
             if(!asset)return false;
             // Blender's default FBX axes arrive in Unity turned half a turn about the vertical (a rotation, not a mirror).
             var model=Object.Instantiate(asset,root,false);model.name=p.Name+" model";model.transform.localRotation=Quaternion.Euler(0,180,0);
-            var pose=new GameObject("Steering pose").transform;pose.SetParent(root,false);pose.gameObject.AddComponent<VehiclePose>().bike=p.Small;
+            var pose=new GameObject("Steering pose").transform;pose.SetParent(root,false);pose.gameObject.AddComponent<VehiclePose>().bike=p.Small&&p.Pose!="Car";
             Transform front=null;
             // the bike front end / ATV bars turn about their steering axis (VehicleProfile.Front*)
             if(p.FrontGain>0){front=new GameObject(p.Motorcycle?"Front end":"Handlebars").transform;front.SetParent(root,false);front.localPosition=p.FrontPivot;var turn=front.gameObject.AddComponent<MotorcycleFrontEnd>();turn.axis=p.FrontAxis;turn.gain=p.FrontGain;}

@@ -1,0 +1,18 @@
+---- mower88
+PASS at 23/24: mower locked, not eligible for the player or the AI (10 eligible); 'Find all 24 Woodland Acorns (23/24)'
+PASS garage at 23: choosing the mower leaves 'original'; the list shows 'Turf Rocket / Mower  (locked)' as a locked silhouette
+PASS 24th acorn (Old stone corner): unlocked True, message 'ALL 24 WOODLAND ACORNS FOUND! / Unlocked: the Turf Rocket riding mower / Choose it in the Garage'
+PASS garage after the unlock: mower selected True; bars (speed, accel, grip, handling, weight) 1.00, 1.00, 1.00, 1.00, 0.44
+PASS Restart Acorn Hunt: found 0, reward kept True
+PASS fresh load after the restart: still unlocked True, driving 'mower'
+---- vehicle:mower
+FAIL mower (Turf Rocket, Mower): model Turf Rocket model, rider parts 19, grounded wheels 4, wheel bottom to ground 0.277 m, box 1.2,0.65,2.1
+PASS mower fist wave: started True, weight at 0.6 s 1.00
+PASS mower night: headlight on, lamp level 1.00
+---- pov:mower
+PASS mower: 16 view changes, 640 frames: head hidden in 94 (camera at most 0.17 m from the head centre), shown with the camera inside the head 0, hidden with the camera outside it (a bald head) 0; nearest shown 0.17 m
+---- jump:mower
+PASS Summit giant jump (mower, full throttle from rest, coasting after the landing as in 0.71): 252.1 m in 8.18 s, landed at 736.9,85.26,77.7, rolled out 88 m, lowest up after landing 0.98
+---- carrace:StreetLoopGreybox:mower:original,moto,atv
+PASS StreetLoopGreybox player mower vs original/moto/atv: PLAYER mower: 02:15.852 missed 0 resets 0 longest stall 1s shortcuts [Creek Leap, Fox Gully, Pine Ridge, Existing Southwest Cut]; EMBER original: 02:21.509 missed 0 resets 0 longest stall 1s shortcuts [Creek Leap, Fox Gully, Pine Ridge, Existing Southwest Cut]; GOLD moto: 02:06.425 missed 0 resets 0 longest stall 1s shortcuts [Creek Leap, Fox Gully, Pine Ridge, Existing Southwest Cut]; BLUE atv: 02:18.014 missed 0 resets 0 longest stall 1s shortcuts [Creek Leap, Fox Gully, Pine Ridge, Existing Southwest Cut]
+done, failures 1

@@ -75,7 +75,7 @@ namespace Racer
                 motor.yawResponse=p.Small?11:8; motor.lateralGrip=p.Small?11:8;
                 motor.slowSteerAngle=p.Small?29:31; motor.fastSteerAngle=p.Small?9:9.5f;
                 motor.braking=p.Small?27:24;
-                float track=p.Motorcycle?.16f:p.Class=="ATV"?.6f:.9f;
+                float track=p.Motorcycle?.16f:p.Class=="ATV"?.6f:p.Class=="Mower"?.5f:.9f;
                 float axle=p.Wheelbase*.5f;
                 motor.suspensionPoints=new[]{new Vector3(-track,0,axle),new Vector3(track,0,axle),new Vector3(-track,0,-axle),new Vector3(track,0,-axle)};
                 motor.suspensionLength=p.Suspension>0?p.Suspension:p.Small?.65f:.8f;
@@ -95,7 +95,7 @@ namespace Racer
             motor.Body.centerOfMass=motor.centreOfMass;
             motor.Body.ResetInertiaTensor(); motor.ClearSteering(); roll=crashUntil=0;
             VehicleContactEvents=0;
-            VehicleContact.Register(motor.Body, p.Small);
+            VehicleContact.Register(motor.Body, p.Small&&!p.SolidContact);
             VehicleSurfaceContacts.Register(box);
             foreach(var c in GetComponentsInChildren<Collider>()) c.hasModifiableContacts=true;
             var camera=FindAnyObjectByType<ChaseCamera>();

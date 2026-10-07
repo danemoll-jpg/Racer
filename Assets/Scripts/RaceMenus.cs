@@ -39,6 +39,14 @@ namespace Racer
         Font font;
         UnityEngine.UI.Button simulateRemaining;
         bool waitingShown;
+        // 0.88 Part D: the locked reward vehicle shown in the garage (null = the player's own vehicle) and its dark silhouette
+        string garageLocked;static Material silhouette;
+        public string GarageLockedVehicle=>garageLocked;
+        static void Silhouette(Transform root)
+        {
+            if(!silhouette){silhouette=new Material(Shader.Find("Universal Render Pipeline/Unlit")){name="Locked vehicle silhouette"};silhouette.SetColor("_BaseColor",new Color(.16f,.17f,.19f));}
+            foreach(var r in root.GetComponentsInChildren<Renderer>(true)){var m=new Material[r.sharedMaterials.Length];for(int i=0;i<m.Length;i++)m[i]=silhouette;r.sharedMaterials=m;}
+        }
         // Show both available bindings: no guessed controller letter or new input scheme.
         public string CompleteRacePrompt {
             get {
@@ -219,35 +227,45 @@ namespace Racer
             details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight = 160;
             details.fontSize=20;
             details.supportRichText=false;
+            if(shown!=RaceFlow.Stage.Garage)garageLocked=null;
             if (shown == RaceFlow.Stage.Garage)
             {
                 var profile=flow.Race.vehicle.GetComponent<VehicleConfiguration>().Profile;
-                title.text=profile.Name + " / " + profile.Class;
+                // 0.88 Part D: a reward vehicle not yet earned is in the list as a locked silhouette (not selectable)
+                var locked=garageLocked!=null&&VehicleUnlocks.Locked(garageLocked)?VehicleProfile.Find(garageLocked):null;if(locked==null)garageLocked=null;
+                var shownProfile=locked??profile;
+                title.text=shownProfile.Name + " / " + shownProfile.Class+(locked!=null?"  (locked)":"");
                 details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=80;
                 details.fontSize=18;
-                details.text=$"{profile.Description}\n{(flow.Race.CarsRestricted?flow.Race.courseName+": motorcycles / ATVs only (player and AI).":flow.Race.courseName+": every vehicle available.")}\nBody color: choose a swatch below.";
+                details.text=locked!=null?$"LOCKED: {VehicleUnlocks.LockedText}.\nThe acorn reward: a riding mower."
+                    :$"{profile.Description}\n{(flow.Race.CarsRestricted?flow.Race.courseName+": motorcycles / ATVs only (player and AI).":flow.Race.courseName+": every vehicle available.")}\nBody color: choose a swatch below.";
                 if(previewRoot) { previewRoot.SetActive(false); Destroy(previewRoot); }
                 previewRoot=new GameObject("Garage display model"); previewRoot.layer=31; previewRoot.transform.position=new(10000,10000,10000); previewRoot.transform.rotation=Quaternion.Euler(0,-30,0);
-                flow.Race.vehicle.GetComponent<VehicleConfiguration>().BuildPreview(previewRoot.transform);
-                FramePreview(profile);
+                if(locked!=null){VehicleVisual.Build(previewRoot.transform,locked);Silhouette(previewRoot.transform);swatchRow.gameObject.SetActive(false);}
+                else flow.Race.vehicle.GetComponent<VehicleConfiguration>().BuildPreview(previewRoot.transform);
+                FramePreview(shownProfile);
                 if(page!="rider")
                 {
                     // 0.81: ten vehicles - one row steps through them (left / right, or select for the next), with the class shown;
-                    // the title and description above name the one in the preview.
-                    var eligible=flow.Race.EligibleVehicles;int at=System.Array.FindIndex(eligible,v=>v.Id==profile.Id);
-                    void StepVehicle(int d){if(eligible.Length==0)return;flow.SelectVehicle(eligible[((at<0?0:at)+d+eligible.Length)%eligible.Length].Id);}
+                    // the title and description above name the one in the preview. 0.88: locked reward vehicles are in the
+                    // list after the others; stepping onto one shows it locked and leaves the chosen vehicle as it was.
+                    var eligible=flow.Race.EligibleVehicles;
+                    var list=eligible.Concat(VehicleProfile.All.Where(v=>VehicleUnlocks.Locked(v)&&(!flow.Race.CarsRestricted||v.Small))).ToArray();
+                    int at=System.Array.FindIndex(list,v=>v.Id==shownProfile.Id);
+                    void StepVehicle(int d){if(list.Length==0)return;var next=list[((at<0?0:at)+d+list.Length)%list.Length];
+                        if(VehicleUnlocks.Locked(next)){garageLocked=next.Id;flow.Click();Show();}else{garageLocked=null;flow.SelectVehicle(next.Id);}}
                     adjustments.Clear();
-                    Action(0,$"‹   Vehicle: {profile.Name}  ({profile.Class}, {at+1} of {eligible.Length})   ›",()=>StepVehicle(1));adjustments[0]=StepVehicle;
+                    Action(0,locked!=null?$"‹   Vehicle: {shownProfile.Name}  (locked, {at+1} of {list.Length})   ›":$"‹   Vehicle: {shownProfile.Name}  ({shownProfile.Class}, {at+1} of {list.Length})   ›",()=>StepVehicle(1));adjustments[0]=StepVehicle;
                     for(int k=1;k<4&&k<buttons.Count;k++)buttons[k].gameObject.SetActive(false);
                     Action(4,"Done / ready",flow.CloseGarage);
                     Action(5,"Model: "+flow.ModelLabel+"   (Classic / New)",flow.ToggleModel);
                     Action(6,"Rider…",()=>Navigate("rider"));
-                    ShowGarageStats(profile); // 0.82 Part D
+                    if(locked==null)ShowGarageStats(profile); // 0.82 Part D
                 }
             }
             RenderCore();
             var active = buttons.FindAll(b=>b.gameObject.activeSelf&&b.interactable);
-            if(shown==RaceFlow.Stage.Garage&&page!="rider") active.AddRange(swatches);
+            if(shown==RaceFlow.Stage.Garage&&page!="rider"&&garageLocked==null) active.AddRange(swatches);
             for (int i=0;i<active.Count;i++) active[i].navigation = new UnityEngine.UI.Navigation { mode=UnityEngine.UI.Navigation.Mode.Explicit, selectOnUp=active[(i+active.Count-1)%active.Count], selectOnDown=active[(i+1)%active.Count] };
             if(shown==RaceFlow.Stage.Garage&&page!="rider") for(int i=0;i<swatches.Count;i++) { var nav=swatches[i].navigation; nav.selectOnLeft=swatches[(i+swatches.Count-1)%swatches.Count]; nav.selectOnRight=swatches[(i+1)%swatches.Count]; swatches[i].navigation=nav; }
             ConfigureCoreFocus();ConfigureLaterFocus();
