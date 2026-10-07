@@ -123,11 +123,16 @@ details.gameObject.SetActive(true);
             else if(flow.State==RaceFlow.Stage.Settings)RenderSettings();
             else if(flow.State==RaceFlow.Stage.Exploration)
             {
-                ClearCore("EXPLORATION",flow.GetComponent<ExplorationCollection>()?.Summary??"Collection loading");
-                details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=Mathf.Max(110,details.preferredHeight+20);
-                Row(0,"map","World Map",()=>flow.GetComponent<ExplorationMap>()?.Open());
-                Row(1,"restart-acorns","Restart Acorn Hunt…",()=>Confirm("RESTART ACORN HUNT?","Only acorn-hunt progress will reset. Map discoveries, records, ghosts and settings are preserved.",()=>flow.GetComponent<ExplorationCollection>()?.RestartCollection(true)));
-                Row(2,"back","Back",flow.CloseExtras);
+                // 0.93 Part C: each acorn area with its count and where it is; choosing one opens the map on it
+                var collection=flow.GetComponent<ExplorationCollection>();var map=flow.GetComponent<ExplorationMap>();
+                ClearCore("EXPLORATION",collection?collection.Header+"\nChoose an area to see it on the World Map.":"Collection loading");
+                details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=Mathf.Max(70,details.preferredHeight+10);
+                Row(0,"map","World Map",()=>map?.Open());int row=1;var areas=AcornAreas.Of(collection);
+                for(int i=0;i<areas.Length;i++){int choice=i;var a=areas[i];bool done=a.Done(collection);
+                    Row(row,"area-"+i,(done?"✓  ":"")+a.name+"   "+a.Count(collection)+"\n<size=16><color=#A9C9C4>"+a.direction+"</color></size>",()=>map?.OpenArea(choice));
+                    buttons[row].GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=66;var label=buttons[row].GetComponentInChildren<UnityEngine.UI.Text>(true);label.supportRichText=true;label.fontSize=20;row++;}
+                Row(row++,"restart-acorns","Restart Acorn Hunt…",()=>Confirm("RESTART ACORN HUNT?","Only acorn-hunt progress will reset. Map discoveries, records, ghosts and settings are preserved.",()=>flow.GetComponent<ExplorationCollection>()?.RestartCollection(true)));
+                Row(row,"back","Back",flow.CloseExtras);
             }
             else if(flow.State==RaceFlow.Stage.Courses)
             {

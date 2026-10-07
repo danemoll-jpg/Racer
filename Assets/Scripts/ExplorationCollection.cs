@@ -26,6 +26,8 @@ namespace Racer
         }
         // 0.79 Part B: no standing counter; the count shows for a few seconds when an acorn is found (total: pause menu)
         public string Hud=>Time.time<feedbackUntil?feedback:"";
+        // 0.93 Part C: the count and any save problem (the areas are listed by the map and the Exploration page)
+        public string Header=>$"Woodland acorns: {Found}/{sites.Length} found"+(error!=null?"\n"+error:"");
         public string Summary=>$"Woodland acorns: {Found}/{sites.Length} found\n"+string.Join("\n",sites.GroupBy(s=>s.approach).Select(g=>$"{g.Key}: {g.Count(s=>data.found.Contains(s.id))}/{g.Count()}"))+"\n"+(error??"Discoveries persist across tracks and relaunch.");
         public void Initialize(RaceDirector owner,string root)
         {

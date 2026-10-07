@@ -1,0 +1,23 @@
+---- map93
+PASS Neighborhood woodland: 0 / 8, 3 region(s), every acorn inside: True
+PASS Western gullies: 0 / 4, 4 region(s), every acorn inside: True
+PASS Creek pockets: 0 / 6, 2 region(s), every acorn inside: True
+PASS Ridge woodland: 0 / 6, 1 region(s), every acorn inside: True
+PASS the map opens with the controller's Back / Select
+PASS D-pad down 1: Neighborhood woodland chosen in the list (highlighted and centred)
+PASS D-pad down 2: Western gullies chosen in the list (highlighted and centred)
+PASS D-pad down 3: Creek pockets chosen in the list (highlighted and centred)
+PASS D-pad down 4: Ridge woodland chosen in the list (highlighted and centred)
+PASS B closes the map
+PASS Exploration page: D-pad down reaches the Western gullies row (focus area-1)
+PASS A on it opens the map on Western gullies
+PASS minimap inside Neighborhood woodland: "Neighborhood woodland  0 / 8"
+PASS the outside point is in no area
+PASS minimap outside every area: no line ("")
+---- compass93
+PASS race heading north: the N at (-0.03, 81.00) on the rim (top)
+PASS race heading east: the N at (-101.00, 0.04) on the rim (left)
+PASS Free Roam heading north: the N at (-0.02, 81.00) on the rim (top)
+PASS Free Roam heading east: the N at (-101.00, 0.04) on the rim (left)
+PASS split-screen: 2 minimaps show the N
+done, failures 0

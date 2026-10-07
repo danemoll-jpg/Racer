@@ -1,0 +1,1052 @@
+acorn [Creek pockets] woodland-13 'Fallen log pocket' at 738,81,-85
+acorn [Creek pockets] woodland-14 'Cairn hollow' at 808,92,-143
+acorn [Creek pockets] woodland-15 'Behind the pines' at 882,113,-101
+acorn [Creek pockets] woodland-16 'Woodland nook' at 894,111,-61
+acorn [Creek pockets] woodland-17 'Quiet gully' at 1020,147,27
+acorn [Creek pockets] woodland-18 'Old stone corner' at 1034,148,26
+acorn [Neighborhood woodland] woodland-01 'Dan's fence' at 474,78,27
+acorn [Neighborhood woodland] woodland-02 'Anderson's' at 472,86,-20
+acorn [Neighborhood woodland] woodland-03 'Behind the pines' at 465,89,-100
+acorn [Neighborhood woodland] woodland-04 'Woodland nook' at 508,54,-192
+acorn [Neighborhood woodland] woodland-05 'Quiet gully' at 436,83,67
+acorn [Neighborhood woodland] woodland-06 'Old stone corner' at 403,81,128
+acorn [Neighborhood woodland] woodland-07 'Fallen log pocket' at 290,61,342
+acorn [Neighborhood woodland] woodland-08 'Cairn hollow' at 290,9,536
+acorn [Ridge woodland] woodland-19 'Fallen log pocket' at 985,165,77
+acorn [Ridge woodland] woodland-20 'Cairn hollow' at 933,156,118
+acorn [Ridge woodland] woodland-21 'Behind the pines' at 878,131,118
+acorn [Ridge woodland] woodland-22 'Woodland nook' at 849,116,69
+acorn [Ridge woodland] woodland-23 'Quiet gully' at 753,87,96
+acorn [Ridge woodland] woodland-24 'Old stone corner' at 707,81,49
+acorn [Western gullies] woodland-09 'Behind the pines' at 22,9,500
+acorn [Western gullies] woodland-10 'Woodland nook' at -351,9,502
+acorn [Western gullies] woodland-11 'Quiet gully' at -601,9,150
+acorn [Western gullies] woodland-12 'Old stone corner' at -365,8,-531
+destination home 'Moll's' at 434,84,-14
+destination lake 'Lake gateway' at 701,80,-100
+destination ridge 'Ridge overlook' at 891,150,153
+destination market 'Highway market' at 25,8,530
+destination west 'Trickum woods' at -631,9,150
+destination summit-homeward 'Summit Homeward Flight / run-up' at 1187,152,206
+destination property-roger 'Roger's' at 458,88,-83
+destination property-mcfadden 'McFadden's' at 435,33,-153
+destination property-anderson 'Anderson's' at 511,79,-23
+destination campsite 'Campsite' at 982,164,76
+destination storm-drain 'Storm drain tunnel' at 183,67,84
+destination forest-speed-0 'S Cherokee speed trap' at 319,44,405
+destination forest-speed-1 'Hwy 92 speed trap' at 481,19,561
+destination forest-jump-01 'Pool-house jump' at 388,86,-3
+road 'CR081 mountain exploration/Lake shore connection' trail True points 403 from 472,-23 mid 715,34 to 472,-23 | (472,-23) (514,-70) (573,-100) (638,-113) (696,-91) (727,-36) (719,30) (667,65) (603,74) (550,38) (527,-19) (528,-77) (477,-31)
+road 'Kyle descending driveway' trail False points 4 from 477,-21 mid 507,-23 to 511,-23 | (477,-21) (492,-22) (507,-23) (511,-23)
+road 'CR094 summit launch/Summit approach and safe return' trail True points 330 from 990,115 mid 1193,207 to 820,66 | (990,115) (1026,127) (1066,132) (1106,136) (1147,145) (1179,166) (1193,203) (860,113) (717,84) (696,102) (738,93) (778,81) (815,68)
+road 'Phase 3 - Race Systems' trail False points 2331 from 319,550 mid -301,-571 to 318,553 | (319,550) (374,188) (523,-151) (516,-519) (234,-342) (-4,-463) (-299,-571) (-619,-484) (-627,-83) (-633,313) (-453,536) (-58,529) (316,557)
+road 'Dan's Backyard Forward - terrain trail/Forward navigation only - no road mesh' trail True points 1684 from 470,8 mid 42,-26 to 471,8 | (470,8) (369,13) (267,9) (236,-48) (156,-107) (53,-110) (41,-27) (66,60) (166,65) (253,122) (334,67) (432,82) (473,8)
+road 'CR113 continuous highway seams/CR113 highway through route' trail False points 839 from -1251,539 mid -144,529 to 961,561 | (-1251,539) (-906,539) (-705,540) (-568,541) (-430,535) (-292,531) (-154,529) (-16,529) (120,546) (257,556) (395,561) (566,561) (911,561)
+road 'Backyard Reverse main route/Reverse navigation only - no pavement' trail True points 1749 from 441,9 mid 56,81 to 440,8 | (441,9) (474,18) (467,66) (368,64) (277,121) (174,81) (59,81) (45,-3) (32,-95) (146,-96) (236,-44) (325,-15) (437,6)
+road 'CR081 mountain exploration/Mountain return trails / exploration only' trail True points 539 from 690,-95 mid 1006,99 to 690,-95 | (690,-95) (769,-125) (845,-108) (926,-78) (1015,-63) (1051,15) (1013,91) (944,146) (864,144) (818,74) (743,65) (718,17) (690,-82)
+road 'CR097 supported properties and camp/House 3 valley driveway' trail True points 159 from 515,-133 mid 396,-242 to 436,-152 | (515,-133) (491,-144) (478,-169) (463,-191) (442,-209) (418,-223) (398,-241) (375,-230) (366,-205) (375,-183) (403,-181) (431,-182) (436,-157)
+object 'CR081 mountain exploration/Mountain woods 3 3/Mountain trunk' at 921,155,75
+object 'CR081 mountain exploration/Mountain woods 0 4/Batched Mountain foliage' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 0 3/Mountain trunk' at 740,87,21
+object 'CR081 mountain exploration/Mountain woods 3 0/Mountain trunk' at 958,84,-204
+object 'CR081 mountain exploration/Mountain woods 0 1/Mountain trunk' at 789,88,-83
+object 'CR081 mountain exploration/Mountain woods 2 3/Mountain trunk' at 913,134,9
+object 'CR081 mountain exploration/Mountain woods 5 0/Mountain trunk' at 1086,87,-158
+object 'CR081 mountain exploration/Mountain woods 1 2/Mountain trunk' at 819,98,-25
+object 'CR081 mountain exploration/Mountain woods 2 2/Batched Mountain foliage' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 2 3/Mountain trunk' at 882,122,13
+object 'CR081 mountain exploration/Mountain woods 0 2/Mountain trunk' at 761,87,-57
+object 'CR081 mountain exploration/Mountain woods 5 3/Mountain trunk' at 1109,118,34
+object 'CR081 mountain exploration/Mountain woods 4 1/Mountain trunk' at 1027,96,-117
+object 'CR081 mountain exploration/Mountain woods 1 2/Mountain trunk' at 806,94,-15
+object 'CR081 mountain exploration/Mountain woods 5 0/Mountain trunk' at 1080,86,-160
+object 'CR081 mountain exploration/Mountain woods 2 3/Mountain trunk' at 889,131,31
+object 'CR081 mountain exploration/Mountain woods 0 3/Mountain trunk' at 737,87,37
+object 'Memory loop - north is +Z/Ground_Mountain_3_4' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 3 2/Mountain trunk' at 957,128,-29
+object 'CR081 mountain exploration/Mountain woods 5 4/Mountain trunk' at 1054,153,93
+object 'CR081 mountain exploration/Mountain woods 3 1/Mountain trunk' at 980,93,-135
+object 'CR081 mountain exploration/Mountain woods 2 1/Mountain trunk' at 889,120,-70
+object 'CR081 mountain exploration/Mountain woods 5 2/Mountain trunk' at 1098,103,-44
+object 'CR081 mountain exploration/Mountain woods 4 3/Mountain trunk' at 1009,155,31
+object 'Memory loop - north is +Z/Ground_Mountain_0_1' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 3 1/Mountain trunk' at 943,94,-124
+object 'CR081 mountain exploration/Mountain woods 4 0/Mountain trunk' at 988,88,-169
+object 'CR081 mountain exploration/Mountain woods 3 0/Mountain trunk' at 956,90,-154
+object 'Street name signs (0.79)/Street sign - Hwy 92 / S Cherokee Ln/Blade lettering - S Cherokee Ln' at 327,11,549
+object 'CR081 mountain exploration/Mountain woods 0 3/Mountain trunk' at 744,89,46
+object 'CR081 mountain exploration/Mountain woods 1 0/Mountain trunk' at 826,85,-151
+object 'CR081 mountain exploration/Mountain woods 3 0/Mountain trunk' at 925,88,-171
+object 'Memory loop - north is +Z/Ground_Mountain_3_0' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 5 2/Batched Mountain foliage' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 4 0/Mountain trunk' at 997,85,-193
+object 'CR081 mountain exploration/Mountain woods 5 1/Mountain trunk' at 1097,89,-127
+object 'CR081 mountain exploration/Mountain woods 0 1/Mountain trunk' at 764,84,-98
+object 'CR081 mountain exploration/Mountain woods 5 4/Mountain trunk' at 1075,143,120
+object 'CR081 mountain exploration/Mountain woods 1 3' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 2 2/Mountain trunk' at 911,112,-52
+object 'CR081 mountain exploration/Mountain woods 4 1/Mountain trunk' at 1016,97,-115
+object 'CR081 mountain exploration/Mountain woods 4 0/Mountain trunk' at 1029,90,-146
+object 'CR081 mountain exploration/Mountain woods 3 3/Mountain trunk' at 982,146,8
+object 'CR081 mountain exploration/Mountain woods 4 3/Mountain trunk' at 995,156,31
+object 'CR081 mountain exploration/Mountain woods 4 2/Mountain trunk' at 991,130,-55
+object 'CR081 mountain exploration/Mountain woods 4 0/Mountain trunk' at 1032,87,-167
+object 'CR081 mountain exploration/Mountain woods 3 0/Mountain trunk' at 924,87,-194
+object 'CR081 mountain exploration/Mountain woods 3 3/Mountain trunk' at 984,145,8
+object 'CR081 mountain exploration/Mountain woods 4 1/Mountain trunk' at 1034,92,-133
+object 'CR081 mountain exploration/Mountain woods 5 0/Mountain trunk' at 1104,88,-153
+object 'CR081 mountain exploration/Mountain woods 1 1/Mountain trunk' at 820,104,-110
+object 'CR081 mountain exploration/Mountain woods 5 3/Mountain trunk' at 1061,150,59
+object 'CR081 mountain exploration/Mountain woods 5 3/Mountain trunk' at 1088,127,29
+object 'CR081 mountain exploration/Mountain woods 1 2/Mountain trunk' at 811,95,-31
+object 'CR081 mountain exploration/Mountain woods 5 1/Mountain trunk' at 1078,92,-118
+object 'CR081 mountain exploration/Mountain woods 3 2/Mountain trunk' at 967,128,-27
+object 'CR081 mountain exploration/Mountain woods 0 2/Mountain trunk' at 757,90,-10
+object 'CR081 mountain exploration/Mountain woods 3 1/Mountain trunk' at 955,95,-119
+object 'CR081 mountain exploration/Mountain woods 5 1/Mountain trunk' at 1048,103,-85
+object 'CR081 mountain exploration/Mountain woods 4 2/Mountain trunk' at 1032,146,-22
+object 'CR081 mountain exploration/Mountain woods 2 2/Mountain trunk' at 885,111,-29
+object 'CR081 mountain exploration/Mountain woods 1 0/Mountain trunk' at 811,83,-190
+object 'CR081 mountain exploration/Mountain woods 5 0/Batched Mountain foliage' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 3 3/Mountain trunk' at 953,161,54
+object 'CR081 mountain exploration/Mountain woods 0 0/Mountain trunk' at 756,84,-154
+object 'CR081 mountain exploration/Mountain woods 4 1/Mountain trunk' at 990,95,-133
+object 'CR081 mountain exploration/Mountain woods 5 4/Mountain trunk' at 1052,155,78
+object 'CR081 mountain exploration/Mountain woods 5 4/Mountain trunk' at 1087,136,81
+object 'CR081 mountain exploration/Mountain woods 4 4/Mountain trunk' at 1037,161,96
+object 'CR081 mountain exploration/Mountain woods 5 1/Mountain trunk' at 1084,91,-123
+object 'CR081 mountain exploration/Mountain woods 3 2/Mountain trunk' at 966,131,-27
+object 'Memory loop - north is +Z/Ground_Mountain_0_3' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 3 1/Mountain trunk' at 946,95,-122
+object 'CR081 mountain exploration/Mountain woods 5 1/Mountain trunk' at 1077,91,-126
+object 'CR081 mountain exploration/Mountain woods 3 4/Mountain trunk' at 945,164,93
+object 'CR081 mountain exploration/Mountain woods 4 0/Mountain trunk' at 1008,92,-146
+object 'Street name signs (0.79)/Street sign - Trickum Rd / Hwy 92' at -615,8,531
+object 'CR081 mountain exploration/Mountain woods 1 2' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 2 1/Mountain trunk' at 904,93,-122
+object 'CR081 mountain exploration/Mountain woods 4 0/Mountain trunk' at 995,88,-166
+object 'CR081 mountain exploration/Mountain woods 1 1/Mountain trunk' at 848,105,-77
+object 'CR081 mountain exploration/Mountain woods 2 0/Mountain trunk' at 873,86,-166
+object 'CR081 mountain exploration/Mountain woods 1 1/Mountain trunk' at 803,89,-75
+object 'CR081 mountain exploration/Mountain woods 2 2/Mountain trunk' at 892,124,5
+object 'CR081 mountain exploration/Mountain woods 0 3/Mountain trunk' at 746,88,45
+object 'CR081 mountain exploration/Mountain woods 5 0/Mountain trunk' at 1105,87,-158
+object 'Memory loop - north is +Z/Ground_Mountain_1_4' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 4 2' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 4 4/Mountain trunk' at 988,168,99
+object 'CR081 mountain exploration/Mountain woods 2 4' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 4 3/Mountain trunk' at 1003,166,74
+object 'CR081 mountain exploration/Mountain woods 1 3/Mountain trunk' at 806,99,24
+object 'CR081 mountain exploration/Mountain woods 3 0/Mountain trunk' at 950,86,-200
+object 'CR081 mountain exploration/Mountain woods 2 0/Mountain trunk' at 860,85,-169
+object 'CR081 mountain exploration/Mountain woods 0 1/Mountain trunk' at 746,85,-99
+object 'CR081 mountain exploration/Mountain woods 2 2/Mountain trunk' at 909,120,-23
+object 'CR081 mountain exploration/Mountain woods 0 2/Mountain trunk' at 774,89,-63
+object 'CR081 mountain exploration/Mountain woods 3 0' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 1 0/Mountain trunk' at 808,86,-154
+object 'CR081 mountain exploration/Mountain woods 2 1/Mountain trunk' at 911,92,-133
+object 'CR081 mountain exploration/Mountain woods 0 2/Mountain trunk' at 763,87,-53
+object 'CR081 mountain exploration/Mountain woods 4 3' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 0 2/Mountain trunk' at 784,89,-24
+object 'Memory loop - north is +Z/Ground_Mountain_3_5' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 0 0' at 0,0,0
+object 'Remembered houses and approximate buildings/Friend across street - blue circle/Kyle's house (0.87)' at 512,81,-35
+object 'CR081 mountain exploration/Mountain woods 0 4/Mountain trunk' at 735,89,139
+object 'CR081 mountain exploration/Mountain woods 0 1/Batched Mountain foliage' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 5 3/Mountain trunk' at 1101,119,23
+object 'CR081 mountain exploration/Mountain woods 3 0/Mountain trunk' at 929,84,-204
+object 'CR081 mountain exploration/Mountain woods 0 2/Mountain trunk' at 769,92,2
+object 'CR081 mountain exploration/Mountain woods 2 2/Mountain trunk' at 873,105,-48
+object 'CR081 mountain exploration/Mountain woods 2 0/Mountain trunk' at 904,88,-173
+object 'CR081 mountain exploration/Mountain woods 1 1/Mountain trunk' at 843,105,-82
+object 'CR081 mountain exploration/Mountain woods 0 0/Mountain trunk' at 784,82,-201
+object 'Memory loop - north is +Z/Ground_Mountain_0_5' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 3 1/Mountain trunk' at 970,97,-112
+object 'CR081 mountain exploration/Mountain woods 1 4' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 4 2/Mountain trunk' at 1001,123,-44
+object 'CR081 mountain exploration/Mountain woods 3 3/Mountain trunk' at 957,165,63
+object 'CR081 mountain exploration/Mountain woods 5 1/Mountain trunk' at 1064,102,-84
+object 'CR081 mountain exploration/Mountain woods 2 0/Mountain trunk' at 897,86,-182
+object 'CR081 mountain exploration/Mountain woods 5 1/Mountain trunk' at 1048,93,-130
+object 'CR081 mountain exploration/Mountain woods 2 2/Mountain trunk' at 882,113,-24
+object 'CR081 mountain exploration/Mountain woods 4 0/Mountain trunk' at 1015,86,-192
+object 'CR081 mountain exploration/Mountain woods 4 1/Mountain trunk' at 997,100,-103
+object 'CR081 mountain exploration/Mountain woods 3 0/Mountain trunk' at 964,90,-164
+object 'CR081 mountain exploration/Mountain woods 3 0/Mountain trunk' at 924,85,-203
+object 'CR081 mountain exploration/Mountain woods 5 0/Mountain trunk' at 1066,91,-142
+object 'CR081 mountain exploration/Mountain woods 5 2/Mountain trunk' at 1077,117,-18
+object 'CR079 arcade sites/Trickum / 92 speed trap 1' at -396,8,534
+object 'CR081 mountain exploration/Mountain woods 2 0/Batched Mountain foliage' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 2 0/Mountain trunk' at 879,86,-173
+object 'CR081 mountain exploration/Mountain woods 2 3/Mountain trunk' at 907,138,29
+object 'CR081 mountain exploration/Mountain woods 1 3/Mountain trunk' at 841,107,8
+object 'CR094 summit launch/Summit Homeward Flight' at 980,178,147
+object 'CR081 mountain exploration/Mountain woods 0 1/Mountain trunk' at 780,85,-100
+object 'CR081 mountain exploration/Mountain woods 0 2/Mountain trunk' at 773,91,-21
+object 'CR081 mountain exploration/Mountain woods 2 1/Mountain trunk' at 879,92,-114
+object 'CR081 mountain exploration/Mountain woods 0 2/Mountain trunk' at 737,86,-65
+object 'CR081 mountain exploration/Mountain woods 5 3/Mountain trunk' at 1051,156,72
+object 'CR081 mountain exploration/Mountain woods 0 2' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 1 0/Mountain trunk' at 798,83,-177
+object 'CR081 mountain exploration/Mountain woods 2 0/Mountain trunk' at 919,91,-153
+object 'CR081 mountain exploration/Mountain woods 1 0/Mountain trunk' at 848,86,-193
+object 'CR081 mountain exploration/Mountain woods 0 1/Mountain trunk' at 751,91,-135
+object 'CR081 mountain exploration/Mountain woods 2 2/Mountain trunk' at 920,131,0
+object 'CR081 mountain exploration/Mountain woods 2 0/Mountain trunk' at 910,84,-209
+object 'CR081 mountain exploration/Mountain woods 0 2/Mountain trunk' at 738,85,-16
+object 'CR081 mountain exploration/Mountain woods 1 0/Mountain trunk' at 852,84,-209
+object 'CR081 mountain exploration/Mountain woods 1 0/Mountain trunk' at 806,86,-152
+object 'CR081 mountain exploration/Mountain woods 0 2/Mountain trunk' at 792,95,-11
+object 'CR081 mountain exploration/Mountain woods 3 2/Mountain trunk' at 957,126,-60
+object 'CR081 mountain exploration/Mountain woods 0 4/Mountain trunk' at 763,95,123
+object 'CR081 mountain exploration/Mountain woods 0 3/Mountain trunk' at 748,90,41
+object 'CR081 mountain exploration/Mountain woods 5 4/Mountain trunk' at 1087,135,112
+object 'CR081 mountain exploration/Mountain woods 5 3/Mountain trunk' at 1093,123,17
+object 'CR081 mountain exploration/Mountain woods 5 0' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 4 0/Mountain trunk' at 1014,91,-143
+object 'CR081 mountain exploration/Mountain woods 2 3/Mountain trunk' at 871,125,30
+object 'CR081 mountain exploration/Mountain woods 3 3/Mountain trunk' at 954,158,46
+object 'CR081 mountain exploration/Mountain woods 2 0/Mountain trunk' at 889,87,-151
+object 'CR081 mountain exploration/Mountain woods 1 3/Mountain trunk' at 833,117,69
+object 'CR081 mountain exploration/Mountain woods 2 0/Mountain trunk' at 869,85,-168
+object 'CR081 mountain exploration/Mountain woods 1 3/Mountain trunk' at 806,99,17
+object 'CR081 mountain exploration/Mountain woods 3 0/Mountain trunk' at 943,88,-162
+object 'CR081 mountain exploration/Mountain woods 2 0/Mountain trunk' at 911,91,-140
+object 'CR081 mountain exploration/Mountain woods 0 1/Mountain trunk' at 767,85,-83
+object 'CR081 mountain exploration/Mountain woods 0 4/Mountain trunk' at 761,93,121
+object 'CR081 mountain exploration/Mountain woods 3 2/Mountain trunk' at 970,140,-4
+object 'CR081 mountain exploration/Mountain woods 5 1/Mountain trunk' at 1090,99,-80
+object 'CR081 mountain exploration/Mountain woods 1 3/Mountain trunk' at 792,96,19
+object 'CR081 mountain exploration/Mountain woods 5 2/Mountain trunk' at 1108,100,-60
+object 'CR081 mountain exploration/Mountain woods 0 2/Mountain trunk' at 748,86,-34
+object 'CR081 mountain exploration/Mountain woods 4 0/Mountain trunk' at 1003,88,-161
+object 'CR081 mountain exploration/Mountain woods 0 1/Mountain trunk' at 767,88,-70
+object 'CR081 mountain exploration/Mountain woods 4 0/Mountain trunk' at 1028,90,-147
+object 'CR081 mountain exploration/Mountain woods 4 1/Mountain trunk' at 1015,127,-81
+object 'CR081 mountain exploration/Mountain woods 4 3/Mountain trunk' at 998,156,33
+object 'CR081 mountain exploration/Mountain woods 2 0/Mountain trunk' at 886,88,-140
+object 'Kyle descending driveway/Ground_Kyle driveway (0.88)' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 5 3/Mountain trunk' at 1051,156,74
+object 'CR081 mountain exploration/Mountain woods 4 0/Mountain trunk' at 993,85,-198
+object 'CR081 mountain exploration/Mountain woods 1 0/Batched Mountain foliage' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 0 1/Mountain trunk' at 732,87,-132
+object 'CR081 mountain exploration/Mountain woods 2 0/Mountain trunk' at 875,86,-178
+object 'CR081 mountain exploration/Mountain woods 1 2/Mountain trunk' at 843,101,-35
+object 'CR081 mountain exploration/Mountain woods 1 2/Mountain trunk' at 831,96,-49
+object 'CR081 mountain exploration/Mountain woods 5 2/Mountain trunk' at 1052,128,-51
+object 'CR081 mountain exploration/Mountain woods 3 0/Mountain trunk' at 973,93,-144
+object 'Remembered houses and approximate buildings/Kyle's place (0.88)' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 3 3/Mountain trunk' at 966,160,41
+object 'CR081 mountain exploration/Mountain woods 0 0/Mountain trunk' at 782,85,-159
+object 'CR081 mountain exploration/Mountain woods 5 0/Mountain trunk' at 1055,90,-151
+object 'CR081 mountain exploration/Mountain woods 5 3/Mountain trunk' at 1066,149,28
+object 'CR081 mountain exploration/Mountain woods 0 5/Batched Mountain foliage' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 0 4/Mountain trunk' at 741,89,147
+object 'CR081 mountain exploration/Mountain woods 2 1/Mountain trunk' at 887,100,-106
+object 'CR081 mountain exploration/Mountain woods 5 0/Mountain trunk' at 1105,86,-204
+object 'CR081 mountain exploration/Mountain woods 1 4/Mountain trunk' at 829,129,145
+object 'CR081 mountain exploration/Mountain woods 4 1/Batched Mountain foliage' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 1 3/Mountain trunk' at 830,109,41
+object 'CR081 mountain exploration/Mountain woods 2 0/Mountain trunk' at 872,86,-180
+object 'CR081 mountain exploration/Mountain woods 2 1/Mountain trunk' at 865,90,-133
+object 'CR081 mountain exploration/Mountain woods 3 3/Mountain trunk' at 943,162,67
+object 'CR081 mountain exploration/Mountain woods 2 5' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 0 0/Mountain trunk' at 761,83,-162
+object 'CR081 mountain exploration/Mountain woods 3 2/Mountain trunk' at 934,121,-35
+object 'CR081 mountain exploration/Mountain woods 0 0/Mountain trunk' at 760,83,-157
+object 'CR081 mountain exploration/Mountain woods 2 3/Mountain trunk' at 886,136,51
+object 'CR081 mountain exploration/Mountain woods 3 2/Mountain trunk' at 974,128,-32
+object 'CR081 mountain exploration/Mountain woods 3 1/Mountain trunk' at 927,94,-129
+object 'Memory loop - north is +Z/Ground_Mountain_0_4' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 4 2/Batched Mountain foliage' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 1 3/Mountain trunk' at 855,124,75
+object 'CR081 mountain exploration/Mountain woods 0 2/Mountain trunk' at 740,87,-46
+object 'Remembered houses and approximate buildings/Kyle's place (0.88)/Kyle's place trees 0' at 0,0,0
+object 'Memory loop - north is +Z/Ground_Mountain_2_3' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 4 1/Mountain trunk' at 1010,102,-95
+object 'CR081 mountain exploration/Mountain woods 5 1/Mountain trunk' at 1053,102,-82
+object 'CR081 mountain exploration/Mountain woods 1 2/Mountain trunk' at 796,91,-54
+object 'CR081 mountain exploration/Mountain woods 0 2/Mountain trunk' at 784,93,-15
+object 'CR081 mountain exploration/Mountain woods 4 1/Mountain trunk' at 1043,103,-86
+object 'CR081 mountain exploration/Mountain woods 1 3/Mountain trunk' at 845,114,46
+object 'CR081 mountain exploration/Mountain woods 5 4/Mountain trunk' at 1070,145,86
+object 'CR081 mountain exploration/Mountain woods 3 2/Mountain trunk' at 929,121,-36
+object 'Memory loop - north is +Z/Ground_Mountain_1_0' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 4 0/Mountain trunk' at 1026,88,-169
+object 'CR081 mountain exploration/Mountain woods 5 0/Mountain trunk' at 1059,89,-161
+object 'CR081 mountain exploration/Mountain woods 4 0/Mountain trunk' at 1024,92,-145
+object 'Memory loop - north is +Z/Ground_Mountain_3_1' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 0 0/Mountain trunk' at 740,84,-200
+object 'CR081 mountain exploration/Mountain woods 2 1/Mountain trunk' at 866,118,-74
+object 'CR081 mountain exploration/Mountain woods 1 1/Mountain trunk' at 849,111,-82
+object 'CR081 mountain exploration/Mountain woods 3 1/Mountain trunk' at 946,98,-109
+object 'CR081 mountain exploration/Mountain woods 4 3/Mountain trunk' at 997,159,39
+object 'CR081 mountain exploration/Mountain woods 3 4/Mountain trunk' at 945,165,81
+object 'CR081 mountain exploration/Mountain woods 4 3/Mountain trunk' at 998,167,66
+object 'CR081 mountain exploration/Mountain woods 3 0/Mountain trunk' at 976,88,-164
+object 'CR081 mountain exploration/Mountain woods 4 5/Batched Mountain foliage' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 2 3/Mountain trunk' at 915,137,20
+object 'CR081 mountain exploration/Mountain woods 5 3/Mountain trunk' at 1082,136,54
+object 'CR081 mountain exploration/Mountain woods 5 2/Mountain trunk' at 1105,103,-40
+object 'CR081 mountain exploration/Mountain woods 2 2/Mountain trunk' at 892,119,-16
+object 'CR081 mountain exploration/Mountain woods 1 1/Mountain trunk' at 803,88,-90
+object 'CR081 mountain exploration/Mountain woods 2 3/Mountain trunk' at 878,129,45
+object 'CR081 mountain exploration/Mountain woods 5 3/Mountain trunk' at 1073,136,18
+object 'CR081 mountain exploration/Mountain woods 1 2/Mountain trunk' at 799,94,0
+object 'CR081 mountain exploration/Mountain woods 0 4/Mountain trunk' at 733,88,123
+object 'CR081 mountain exploration/Mountain woods 4 1/Mountain trunk' at 1035,100,-93
+object 'CR081 mountain exploration/Mountain woods 5 2/Mountain trunk' at 1068,114,-36
+object 'CR081 mountain exploration/Mountain woods 4 1/Mountain trunk' at 1047,92,-124
+object 'CR081 mountain exploration/Mountain woods 2 0/Mountain trunk' at 899,87,-166
+object 'CR081 mountain exploration/Mountain woods 5 0/Mountain trunk' at 1099,84,-174
+object 'CR081 mountain exploration/Mountain woods 3 2/Mountain trunk' at 962,123,-57
+object 'CR081 mountain exploration/Mountain woods 3 2/Mountain trunk' at 947,118,-47
+object 'CR081 mountain exploration/Mountain woods 3 3/Mountain trunk' at 973,166,66
+object 'CR081 mountain exploration/Mountain woods 0 1/Mountain trunk' at 749,85,-87
+object 'CR079 arcade sites/Trickum pavement jump' at -628,14,-70
+object 'CR081 mountain exploration/Mountain woods 2 3/Mountain trunk' at 898,143,64
+object 'CR081 mountain exploration/Mountain woods 5 4/Mountain trunk' at 1096,133,120
+object 'CR081 mountain exploration/Mountain woods 1 2/Mountain trunk' at 804,95,-12
+object 'Memory loop - north is +Z/Ground_Mountain_2_2' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 2 2/Mountain trunk' at 886,122,3
+object 'CR081 mountain exploration/Mountain woods 5 1/Mountain trunk' at 1082,101,-69
+object 'CR081 mountain exploration/Mountain woods 2 1/Mountain trunk' at 876,121,-71
+object 'CR081 mountain exploration/Mountain woods 0 0/Mountain trunk' at 729,84,-182
+object 'CR081 mountain exploration/Mountain woods 4 2/Mountain trunk' at 1010,144,6
+object 'CR081 mountain exploration/Mountain woods 4 2/Mountain trunk' at 1004,128,-33
+object 'CR081 mountain exploration/Mountain woods 4 3/Mountain trunk' at 1024,147,22
+object 'CR081 mountain exploration/Mountain woods 2 3/Mountain trunk' at 887,126,10
+object 'CR081 mountain exploration/Mountain woods 0 1/Mountain trunk' at 755,85,-68
+object 'CR081 mountain exploration/Mountain woods 3 3/Mountain trunk' at 969,157,36
+object 'CR081 mountain exploration/Mountain woods 3 0/Mountain trunk' at 923,88,-182
+object 'CR081 mountain exploration/Mountain woods 4 3/Mountain trunk' at 1011,160,50
+object 'Street name signs (0.79)/Street sign - S Cherokee Ln / Trickum Rd/Blade lettering - Trickum Rd' at -625,9,-544
+object 'CR081 mountain exploration/Mountain woods 5 1/Mountain trunk' at 1097,90,-118
+object 'CR081 mountain exploration/Mountain woods 0 1/Mountain trunk' at 767,84,-98
+object 'CR081 mountain exploration/Mountain woods 3 3/Mountain trunk' at 946,159,58
+object 'CR081 mountain exploration/Mountain woods 4 0/Mountain trunk' at 1004,88,-176
+object 'CR081 mountain exploration/Mountain woods 3 2/Mountain trunk' at 941,140,3
+object 'CR081 mountain exploration/Mountain woods 5 4/Mountain trunk' at 1063,149,120
+object 'CR081 mountain exploration/Mountain woods 5 1/Mountain trunk' at 1049,97,-106
+object 'CR081 mountain exploration/Mountain woods 4 2/Mountain trunk' at 998,128,-32
+object 'CR081 mountain exploration/Mountain woods 0 3/Mountain trunk' at 737,86,15
+object 'CR081 mountain exploration/Mountain woods 1 3/Mountain trunk' at 851,124,75
+object 'CR081 mountain exploration/Mountain woods 2 2/Mountain trunk' at 873,108,-63
+object 'CR081 mountain exploration/Mountain woods 2 1/Batched Mountain foliage' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 5 1/Mountain trunk' at 1107,90,-109
+object 'CR081 mountain exploration/Mountain woods 3 3/Mountain trunk' at 982,152,22
+object 'Street name signs (0.79)/Street sign - S Cherokee Ln / Trickum Rd/Blade lettering - S Cherokee Ln' at -625,9,-544
+object 'CR081 mountain exploration/Mountain woods 3 0/Mountain trunk' at 979,88,-169
+object 'CR081 mountain exploration/Mountain woods 0 2/Mountain trunk' at 788,91,-45
+object 'CR081 mountain exploration/Mountain woods 1 3/Mountain trunk' at 838,114,52
+object 'CR081 mountain exploration/Mountain woods 0 2/Mountain trunk' at 777,89,-15
+object 'CR081 mountain exploration/Mountain woods 3 2/Mountain trunk' at 944,126,-30
+object 'CR081 mountain exploration/Mountain woods 4 4/Batched Mountain foliage' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 3 3/Mountain trunk' at 950,157,44
+object 'CR081 mountain exploration/Mountain woods 0 0/Mountain trunk' at 790,82,-171
+object 'Remembered houses and approximate buildings/Dan - blue X/Reference architecture/Batched Mountain foliage' at 416,84,-13
+object 'CR081 mountain exploration/Mountain woods 5 3/Mountain trunk' at 1067,145,71
+object 'CR081 mountain exploration/Mountain woods 0 2/Mountain trunk' at 737,84,-41
+object 'CR081 mountain exploration/Mountain woods 0 3' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 0 0/Mountain trunk' at 770,83,-196
+object 'CR081 mountain exploration/Mountain woods 5 1/Mountain trunk' at 1106,91,-113
+object 'CR081 mountain exploration/Mountain woods 4 4/Mountain trunk' at 1041,159,97
+object 'CR081 mountain exploration/Mountain woods 1 2/Mountain trunk' at 807,96,-17
+object 'CR081 mountain exploration/Mountain woods 0 2/Mountain trunk' at 782,91,-5
+object 'CR081 mountain exploration/Mountain woods 5 0/Mountain trunk' at 1070,85,-197
+object 'CR081 mountain exploration/Mountain woods 3 3/Mountain trunk' at 935,141,7
+object 'Street name signs (0.79)/Street sign - S Cherokee Ln / Trickum Rd/Blade lettering - Trickum Rd' at -625,9,-544
+object 'CR081 mountain exploration/Mountain woods 5 4/Mountain trunk' at 1093,134,105
+object 'CR081 mountain exploration/Mountain woods 3 1/Mountain trunk' at 981,100,-107
+object 'CR081 mountain exploration/Mountain woods 0 1/Mountain trunk' at 746,87,-100
+object 'CR081 mountain exploration/Mountain woods 5 2/Mountain trunk' at 1066,105,-63
+object 'CR081 mountain exploration/Mountain woods 3 2/Mountain trunk' at 937,136,-1
+object 'CR081 mountain exploration/Mountain woods 4 1/Mountain trunk' at 1044,94,-116
+object 'CR081 mountain exploration/Mountain woods 0 2/Mountain trunk' at 771,88,-21
+object 'CR081 mountain exploration/Mountain woods 4 5' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 3 0/Mountain trunk' at 958,84,-200
+object 'CR081 mountain exploration/Mountain woods 1 2/Mountain trunk' at 797,90,-32
+object 'CR081 mountain exploration/Mountain woods 2 2/Mountain trunk' at 861,107,-28
+object 'CR081 mountain exploration/Mountain woods 0 3/Mountain trunk' at 760,90,44
+object 'CR081 mountain exploration/Mountain woods 5 3/Mountain trunk' at 1103,126,47
+object 'CR081 mountain exploration/Mountain woods 3 3/Mountain trunk' at 963,158,35
+object 'CR081 mountain exploration/Mountain woods 3 4/Mountain trunk' at 937,161,82
+object 'CR081 mountain exploration/Mountain woods 3 2/Mountain trunk' at 925,128,-15
+object 'CR081 mountain exploration/Mountain woods 5 2/Mountain trunk' at 1077,112,-35
+object 'CR081 mountain exploration/Mountain woods 3 2/Mountain trunk' at 983,141,-4
+object 'CR081 mountain exploration/Mountain woods 2 0/Mountain trunk' at 887,85,-171
+object 'CR081 mountain exploration/Mountain woods 4 1/Mountain trunk' at 1003,97,-114
+object 'CR081 mountain exploration/Mountain woods 3 1/Mountain trunk' at 922,101,-100
+object 'CR081 mountain exploration/Mountain woods 1 1/Mountain trunk' at 813,100,-113
+object 'CR081 mountain exploration/Mountain woods 1 0/Mountain trunk' at 819,85,-170
+object 'CR081 mountain exploration/Mountain woods 0 2/Mountain trunk' at 779,91,3
+object 'CR081 mountain exploration/Mountain woods 4 0/Mountain trunk' at 991,91,-146
+object 'CR081 mountain exploration/Mountain woods 2 0/Mountain trunk' at 880,85,-183
+object 'CR081 mountain exploration/Mountain woods 2 1/Mountain trunk' at 911,91,-137
+object 'CR081 mountain exploration/Mountain woods 5 2/Mountain trunk' at 1075,112,-36
+object 'CR081 mountain exploration/Mountain woods 2 2/Mountain trunk' at 872,114,-13
+object 'CR081 mountain exploration/Mountain woods 3 2/Mountain trunk' at 948,137,-6
+object 'CR081 mountain exploration/Mountain woods 0 0/Mountain trunk' at 773,84,-163
+object 'CR081 mountain exploration/Mountain woods 3 3/Mountain trunk' at 941,154,38
+object 'CR081 mountain exploration/Mountain woods 5 4/Mountain trunk' at 1087,137,124
+object 'CR081 mountain exploration/Mountain woods 2 4/Batched Mountain foliage' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 3 0/Mountain trunk' at 940,85,-182
+object 'CR081 mountain exploration/Mountain woods 5 4/Mountain trunk' at 1081,140,85
+object 'CR081 mountain exploration/Mountain woods 1 0/Mountain trunk' at 854,87,-164
+object 'CR081 mountain exploration/Mountain woods 0 0/Mountain trunk' at 791,83,-193
+object 'CR081 mountain exploration/Mountain woods 5 2/Mountain trunk' at 1088,104,-54
+object 'CR081 mountain exploration/Mountain woods 2 0/Mountain trunk' at 868,87,-162
+object 'CR081 mountain exploration/Mountain woods 3 3/Mountain trunk' at 961,160,48
+object 'CR081 mountain exploration/Mountain woods 3 0/Mountain trunk' at 975,92,-142
+object 'CR081 mountain exploration/Mountain woods 5 0/Mountain trunk' at 1076,87,-180
+object 'CR081 mountain exploration/Mountain woods 3 5' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 3 2/Mountain trunk' at 956,124,-36
+object 'CR081 mountain exploration/Mountain woods 0 4/Mountain trunk' at 752,89,134
+object 'CR081 mountain exploration/Mountain woods 5 0/Mountain trunk' at 1075,87,-145
+object 'CR081 mountain exploration/Mountain woods 2 0/Mountain trunk' at 878,85,-181
+object 'CR081 mountain exploration/Mountain woods 1 0/Mountain trunk' at 799,83,-195
+object 'CR081 mountain exploration/Mountain woods 2 0/Mountain trunk' at 872,87,-153
+object 'CR081 mountain exploration/Mountain woods 1 2/Mountain trunk' at 820,95,-38
+object 'CR081 mountain exploration/Mountain woods 0 4/Mountain trunk' at 748,88,146
+object 'CR081 mountain exploration/Mountain woods 2 2/Mountain trunk' at 891,107,-51
+object 'CR081 mountain exploration/Mountain woods 1 1/Mountain trunk' at 850,113,-81
+object 'Memory loop - north is +Z/Ground_Mountain_1_2' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 1 3/Mountain trunk' at 810,101,26
+object 'CR081 mountain exploration/Mountain woods 1 3/Mountain trunk' at 826,103,17
+object 'CR081 mountain exploration/Lake shore connection' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 3 1/Mountain trunk' at 953,110,-95
+object 'Street name signs (0.79)/Street sign - Trickum Rd / Hwy 92/Blade lettering - Hwy 92' at -615,11,531
+object 'CR081 mountain exploration/Mountain woods 2 2/Mountain trunk' at 886,107,-51
+object 'CR081 mountain exploration/Mountain woods 1 1/Mountain trunk' at 839,93,-70
+object 'CR081 mountain exploration/Mountain woods 4 1/Mountain trunk' at 1027,100,-99
+object 'CR081 mountain exploration/Mountain woods 2 0/Mountain trunk' at 908,88,-145
+object 'CR081 mountain exploration/Mountain woods 1 3/Mountain trunk' at 835,109,28
+object 'CR081 mountain exploration/Mountain woods 0 0/Mountain trunk' at 747,84,-155
+object 'CR081 mountain exploration/Mountain woods 0 3/Mountain trunk' at 771,90,15
+object 'CR081 mountain exploration/Mountain woods 5 3/Mountain trunk' at 1069,140,21
+object 'CR081 mountain exploration/Mountain woods 4 0/Batched Mountain foliage' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 1 0/Mountain trunk' at 793,85,-155
+object 'CR081 mountain exploration/Mountain woods 2 1/Mountain trunk' at 910,119,-92
+object 'CR081 mountain exploration/Mountain woods 5 1/Mountain trunk' at 1081,98,-84
+object 'CR081 mountain exploration/Mountain woods 2 3/Mountain trunk' at 916,139,25
+object 'CR081 mountain exploration/Mountain woods 1 5/Batched Mountain foliage' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 0 2/Mountain trunk' at 774,90,-5
+object 'CR081 mountain exploration/Mountain woods 0 1/Mountain trunk' at 773,86,-71
+object 'CR081 mountain exploration/Mountain woods 5 4/Batched Mountain foliage' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 2 2/Mountain trunk' at 915,113,-53
+object 'CR081 mountain exploration/Mountain woods 3 2/Mountain trunk' at 933,120,-41
+object 'CR081 mountain exploration/Mountain woods 4 2/Mountain trunk' at 1019,136,-10
+object 'CR081 mountain exploration/Mountain woods 0 3/Mountain trunk' at 758,91,50
+object 'CR081 mountain exploration/Mountain woods 5 3/Mountain trunk' at 1090,125,26
+object 'CR081 mountain exploration/Mountain woods 1 0/Mountain trunk' at 837,85,-177
+object 'CR081 mountain exploration/Mountain woods 0 0/Mountain trunk' at 780,94,-138
+object 'CR081 mountain exploration/Mountain woods 5 4/Mountain trunk' at 1055,153,93
+object 'CR081 mountain exploration/Mountain woods 3 0/Mountain trunk' at 981,91,-151
+object 'CR081 mountain exploration/Mountain woods 5 1/Mountain trunk' at 1091,101,-67
+object 'CR081 mountain exploration/Mountain woods 2 0/Mountain trunk' at 908,85,-183
+object 'CR081 mountain exploration/Mountain woods 0 2/Mountain trunk' at 777,90,-16
+object 'CR081 mountain exploration/Mountain woods 1 2/Batched Mountain foliage' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 4 1/Mountain trunk' at 1042,94,-117
+object 'CR081 mountain exploration/Mountain woods 3 1/Mountain trunk' at 979,100,-109
+object 'CR081 mountain exploration/Mountain woods 3 0/Mountain trunk' at 951,86,-187
+object 'CR081 mountain exploration/Mountain woods 2 0/Mountain trunk' at 884,87,-166
+object 'CR081 mountain exploration/Mountain woods 5 3/Mountain trunk' at 1101,118,19
+object 'Remembered houses and approximate buildings/Kyle's place (0.88)/Kyle's place trees 1' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 3 3/Mountain trunk' at 928,151,48
+object 'CR081 mountain exploration/Mountain woods 1 3/Mountain trunk' at 815,101,33
+object 'CR081 mountain exploration/Mountain woods 1 3/Batched Mountain foliage' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 1 2/Mountain trunk' at 850,107,-7
+object 'CR081 mountain exploration/Mountain woods 3 4' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 3 3/Mountain trunk' at 978,152,17
+object 'CR081 mountain exploration/Mountain woods 5 0/Mountain trunk' at 1088,87,-149
+object 'CR081 mountain exploration/Mountain woods 2 3/Mountain trunk' at 892,132,30
+object 'CR081 mountain exploration/Mountain woods 3 2/Mountain trunk' at 962,140,-5
+object 'CR081 mountain exploration/Mountain woods 2 4/Mountain trunk' at 897,144,86
+object 'CR081 mountain exploration/Mountain woods 3 1/Mountain trunk' at 940,102,-101
+object 'CR-015 modest roadside details/Mailbox - Kyle' at 478,84,-17
+object 'CR081 mountain exploration/Mountain woods 1 3/Mountain trunk' at 798,95,12
+object 'CR081 mountain exploration/Mountain woods 4 2/Mountain trunk' at 1000,130,-24
+object 'CR081 mountain exploration/Mountain woods 5 1/Mountain trunk' at 1091,95,-94
+object 'CR081 mountain exploration/Mountain woods 5 2/Mountain trunk' at 1061,138,-27
+object 'CR081 mountain exploration/Mountain woods 5 2/Mountain trunk' at 1098,114,-13
+object 'CR081 mountain exploration/Mountain woods 1 1' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 2 2/Mountain trunk' at 883,118,-8
+object 'CR081 mountain exploration/Mountain woods 0 3/Mountain trunk' at 741,89,29
+object 'CR081 mountain exploration/Mountain woods 4 1/Mountain trunk' at 1024,96,-118
+object 'CR081 mountain exploration/Mountain woods 2 2/Mountain trunk' at 888,116,-17
+object 'CR081 mountain exploration/Mountain woods 2 2/Mountain trunk' at 878,118,-5
+object 'Memory loop - north is +Z/Ground_Mountain_0_0' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 5 4/Mountain trunk' at 1083,138,98
+object 'CR081 mountain exploration/Mountain woods 3 2/Mountain trunk' at 957,121,-40
+object 'CR081 mountain exploration/Mountain woods 5 2/Mountain trunk' at 1082,118,-13
+object 'CR081 mountain exploration/Mountain woods 1 2/Mountain trunk' at 797,94,-18
+object 'CR081 mountain exploration/Mountain woods 1 0/Mountain trunk' at 839,83,-208
+object 'CR081 mountain exploration/Mountain woods 1 3/Mountain trunk' at 835,113,50
+object 'CR081 mountain exploration/Mountain woods 2 0/Mountain trunk' at 916,87,-168
+object 'CR081 mountain exploration/Mountain woods 0 2/Mountain trunk' at 758,90,3
+object 'CR081 mountain exploration/Mountain woods 5 3/Mountain trunk' at 1111,123,55
+object 'CR081 mountain exploration/Mountain woods 5 3/Mountain trunk' at 1057,151,76
+object 'CR081 mountain exploration/Mountain woods 5 4/Mountain trunk' at 1099,131,85
+object 'CR081 mountain exploration/Mountain woods 5 0/Mountain trunk' at 1092,86,-159
+object 'CR081 mountain exploration/Mountain woods 1 1/Mountain trunk' at 805,97,-111
+object 'CR081 mountain exploration/Mountain woods 1 1/Mountain trunk' at 832,92,-69
+object 'CR081 mountain exploration/Mountain woods 5 2/Mountain trunk' at 1052,110,-64
+object 'CR081 mountain exploration/Mountain woods 3 2' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 5 2/Mountain trunk' at 1067,111,-45
+object 'CR081 mountain exploration/Mountain woods 2 1/Mountain trunk' at 875,116,-104
+object 'CR081 mountain exploration/Mountain woods 0 4/Mountain trunk' at 758,92,147
+object 'CR081 mountain exploration/Mountain woods 0 0/Mountain trunk' at 733,83,-205
+object 'CR081 mountain exploration/Mountain woods 1 0/Mountain trunk' at 831,83,-209
+object 'CR081 mountain exploration/Mountain woods 5 3/Mountain trunk' at 1080,127,16
+object 'CR081 mountain exploration/Mountain woods 2 1/Mountain trunk' at 886,90,-132
+object '0.84 relocated activity sites/S Cherokee hill speed trap' at 319,44,405
+object 'CR081 mountain exploration/Mountain woods 0 3/Mountain trunk' at 730,86,37
+object 'CR081 mountain exploration/Mountain woods 5 1/Mountain trunk' at 1063,106,-67
+object 'CR081 mountain exploration/Mountain woods 1 2/Mountain trunk' at 846,104,-15
+object 'CR081 mountain exploration/Mountain woods 1 2/Mountain trunk' at 805,90,-58
+object 'Street name signs (0.79)/Street sign - Trickum Rd / Hwy 92/Blade lettering - Trickum Rd' at -615,11,531
+object 'CR081 mountain exploration/Mountain woods 1 1/Mountain trunk' at 817,90,-89
+object 'CR081 mountain exploration/Mountain woods 0 2/Mountain trunk' at 781,90,-9
+object 'CR081 mountain exploration/Mountain woods 4 4/Mountain trunk' at 1032,164,94
+object 'CR081 mountain exploration/Mountain woods 2 4/Mountain trunk' at 876,134,79
+object 'CR081 mountain exploration/Mountain woods 1 0/Mountain trunk' at 853,86,-195
+object 'CR081 mountain exploration/Mountain woods 0 2/Batched Mountain foliage' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 1 2/Mountain trunk' at 821,96,-21
+object 'CR081 mountain exploration/Mountain woods 3 0/Mountain trunk' at 937,89,-153
+object 'CR081 mountain exploration/Mountain woods 4 3/Mountain trunk' at 998,151,18
+object 'CR081 mountain exploration/Mountain woods 4 4/Mountain trunk' at 1040,159,91
+object 'CR081 mountain exploration/Mountain woods 4 3/Mountain trunk' at 995,155,29
+object 'CR081 mountain exploration/Mountain woods 3 1/Mountain trunk' at 974,99,-105
+object 'CR081 mountain exploration/Mountain woods 3 1/Mountain trunk' at 983,103,-99
+object 'CR081 mountain exploration/Mountain woods 1 1/Batched Mountain foliage' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 4 3/Mountain trunk' at 999,155,29
+object 'CR079 arcade sites/Trickum / 92 speed trap 2' at -630,9,95
+object 'CR081 mountain exploration/Mountain woods 1 0/Mountain trunk' at 854,86,-157
+object 'CR081 mountain exploration/Mountain woods 5 1/Mountain trunk' at 1108,96,-69
+object 'CR081 mountain exploration/Mountain woods 4 0' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 3 1/Mountain trunk' at 958,116,-93
+object 'CR081 mountain exploration/Mountain woods 3 3/Mountain trunk' at 964,166,72
+object 'CR081 mountain exploration/Mountain woods 1 0/Mountain trunk' at 810,84,-181
+object 'CR081 mountain exploration/Mountain woods 2 1/Mountain trunk' at 884,91,-115
+object 'CR081 mountain exploration/Mountain woods 4 2/Mountain trunk' at 1021,131,-17
+object 'CR081 mountain exploration/Mountain woods 4 2/Mountain trunk' at 988,134,-19
+object 'CR081 mountain exploration/Mountain woods 2 1/Mountain trunk' at 901,93,-122
+object 'CR081 mountain exploration/Mountain woods 3 2/Mountain trunk' at 977,123,-39
+object 'CR081 mountain exploration/Mountain woods 5 2/Mountain trunk' at 1079,120,-12
+object 'CR081 mountain exploration/Mountain woods 3 2/Mountain trunk' at 943,133,-14
+object 'CR081 mountain exploration/LAKE SHORE
+BOTH TRAILS RETURN HOME' at 542,80,-93
+object 'CR081 mountain exploration/Mountain woods 5 1/Mountain trunk' at 1050,92,-136
+object 'CR081 mountain exploration/Mountain woods 4 4' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 4 0/Mountain trunk' at 1021,86,-202
+object 'CR081 mountain exploration/Mountain woods 1 1/Mountain trunk' at 814,89,-88
+object 'CR081 mountain exploration/Mountain woods 4 2/Mountain trunk' at 1033,144,5
+object 'Street name signs (0.79)/Street sign - Hwy 92 / S Cherokee Ln/Blade lettering - Hwy 92' at 327,11,549
+object 'CR081 mountain exploration/Mountain woods 3 0/Mountain trunk' at 958,84,-197
+object 'CR081 mountain exploration/Mountain woods 1 1/Mountain trunk' at 850,96,-133
+object 'CR081 mountain exploration/Mountain woods 3 0/Mountain trunk' at 938,90,-140
+object 'CR081 mountain exploration/Mountain woods 0 0/Mountain trunk' at 785,89,-146
+object 'CR081 mountain exploration/Mountain woods 5 4/Mountain trunk' at 1064,148,84
+object 'CR081 mountain exploration/Mountain woods 2 3/Mountain trunk' at 896,143,66
+object 'CR081 mountain exploration/Mountain woods 2 2/Mountain trunk' at 879,116,-9
+object '0.84 relocated activity sites/Hwy 92 east speed trap' at 481,19,561
+object 'CR081 mountain exploration/Mountain woods 0 0/Mountain trunk' at 736,83,-150
+object 'CR081 mountain exploration/Mountain woods 5 5/Batched Mountain foliage' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 1 0/Mountain trunk' at 846,90,-141
+object 'CR081 mountain exploration/Mountain woods 5 0/Mountain trunk' at 1076,90,-139
+object 'CR081 mountain exploration/Mountain woods 2 2/Mountain trunk' at 911,118,-33
+object 'CR081 mountain exploration/Mountain woods 0 2/Mountain trunk' at 766,86,-62
+object 'CR081 mountain exploration/Mountain woods 1 0/Mountain trunk' at 843,84,-177
+object 'CR081 mountain exploration/Mountain woods 4 3/Mountain trunk' at 992,152,19
+object 'CR081 mountain exploration/Mountain woods 0 1/Mountain trunk' at 763,86,-75
+object 'CR081 mountain exploration/Mountain woods 2 3/Mountain trunk' at 890,131,25
+object 'CR081 mountain exploration/Mountain woods 4 3/Mountain trunk' at 1010,151,25
+object 'CR081 mountain exploration/Mountain woods 1 2/Mountain trunk' at 807,89,-59
+object 'CR081 mountain exploration/Mountain woods 5 0/Mountain trunk' at 1100,88,-142
+object 'CR081 mountain exploration/Mountain woods 4 2/Mountain trunk' at 1001,129,-29
+object 'CR081 mountain exploration/Mountain woods 2 0/Mountain trunk' at 860,84,-205
+object 'CR081 mountain exploration/Mountain woods 5 4/Mountain trunk' at 1087,136,91
+object 'CR081 mountain exploration/Mountain woods 1 3/Mountain trunk' at 803,97,10
+object 'CR081 mountain exploration/Mountain woods 1 2/Mountain trunk' at 800,97,-1
+object 'CR081 mountain exploration/Mountain woods 1 3/Mountain trunk' at 843,112,39
+object 'CR081 mountain exploration/Mountain woods 4 2/Mountain trunk' at 1046,124,-62
+object 'CR081 mountain exploration/Mountain woods 4 3/Mountain trunk' at 996,148,14
+object 'CR081 mountain exploration/Mountain woods 2 2/Mountain trunk' at 865,108,-28
+object 'CR081 mountain exploration/Mountain woods 3 3/Mountain trunk' at 923,157,75
+object 'CR081 mountain exploration/Mountain woods 5 0/Mountain trunk' at 1065,89,-145
+object 'CR081 mountain exploration/Mountain woods 3 0/Mountain trunk' at 921,89,-150
+object 'Memory loop - north is +Z/Ground_Mountain_2_0' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 1 1/Mountain trunk' at 827,94,-93
+object 'CR081 mountain exploration/Mountain woods 0 1/Mountain trunk' at 753,84,-100
+object 'CR081 mountain exploration/Mountain woods 0 3/Batched Mountain foliage' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 0 3/Mountain trunk' at 744,90,39
+object 'CR081 mountain exploration/Mountain woods 1 2/Mountain trunk' at 808,93,-44
+object 'CR081 mountain exploration/Mountain woods 0 0/Mountain trunk' at 770,84,-170
+object 'CR081 mountain exploration/Mountain woods 4 0/Mountain trunk' at 1018,90,-147
+object 'CR081 mountain exploration/Mountain woods 5 3/Mountain trunk' at 1058,154,54
+object 'CR081 mountain exploration/Mountain woods 2 0/Mountain trunk' at 882,84,-184
+object 'CR081 mountain exploration/Mountain woods 2 4/Mountain trunk' at 918,154,89
+object 'CR081 mountain exploration/Mountain woods 3 4/Mountain trunk' at 966,169,83
+object 'CR081 mountain exploration/Mountain woods 0 3/Mountain trunk' at 753,91,39
+object 'CR081 mountain exploration/Mountain woods 1 2/Mountain trunk' at 826,98,-23
+object 'CR081 mountain exploration/Mountain woods 3 2/Mountain trunk' at 939,121,-61
+object 'CR081 mountain exploration/Mountain woods 1 3/Mountain trunk' at 812,110,53
+object 'New scenery (0.78)/Shore of House 3 lake' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 5 1/Mountain trunk' at 1066,93,-120
+object 'Memory loop - north is +Z/Ground_Mountain_1_5' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 1 4/Batched Mountain foliage' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 2 3/Mountain trunk' at 904,136,27
+object 'CR081 mountain exploration/Mountain woods 3 2/Mountain trunk' at 926,129,-15
+object 'CR081 mountain exploration/Mountain woods 0 3/Mountain trunk' at 776,92,15
+object 'CR081 mountain exploration/RIDGE RETURN
+Lake / Neighborhood' at 681,79,-55
+object 'CR081 mountain exploration/Mountain woods 5 2/Mountain trunk' at 1089,115,-11
+object 'CR081 mountain exploration/Mountain woods 0 3/Mountain trunk' at 735,86,19
+object 'CR081 mountain exploration/Mountain woods 5 1/Mountain trunk' at 1105,93,-95
+object 'CR081 mountain exploration/Mountain woods 1 1/Mountain trunk' at 803,89,-70
+object 'CR081 mountain exploration/Mountain woods 0 0/Mountain trunk' at 729,83,-203
+object 'CR081 mountain exploration/Mountain woods 4 0/Mountain trunk' at 1029,91,-141
+object 'CR081 mountain exploration/Mountain woods 1 1/Mountain trunk' at 814,93,-104
+object 'CR081 mountain exploration/Mountain woods 1 3/Mountain trunk' at 845,113,33
+object 'CR081 mountain exploration/Mountain woods 5 1/Mountain trunk' at 1060,93,-129
+object 'CR081 mountain exploration/Mountain woods 4 3/Batched Mountain foliage' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 1 2/Mountain trunk' at 801,96,-3
+object 'CR081 mountain exploration/Mountain woods 3 1/Mountain trunk' at 932,97,-113
+object 'CR081 mountain exploration/Mountain woods 0 0/Mountain trunk' at 741,83,-166
+object 'CR081 mountain exploration/Mountain woods 0 0/Mountain trunk' at 780,83,-202
+object 'CR081 mountain exploration/Mountain woods 4 0/Mountain trunk' at 1004,90,-160
+object 'CR081 mountain exploration/Mountain woods 4 1/Mountain trunk' at 986,98,-117
+object 'CR081 mountain exploration/Mountain woods 2 3/Mountain trunk' at 905,140,41
+object 'CR081 mountain exploration/Mountain woods 2 3/Mountain trunk' at 913,140,28
+object 'CR081 mountain exploration/Mountain woods 2 0/Mountain trunk' at 857,85,-158
+object 'CR081 mountain exploration/Mountain woods 3 0/Mountain trunk' at 980,86,-192
+object 'CR081 mountain exploration/Mountain woods 2 4/Mountain trunk' at 899,146,87
+object 'CR081 mountain exploration/Mountain woods 2 1' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 2 2/Mountain trunk' at 913,116,-38
+object 'Street name signs (0.79)/Street sign - S Cherokee Ln / Trickum Rd/Blade lettering - S Cherokee Ln' at -625,9,-544
+object 'CR081 mountain exploration/Mountain woods 4 4/Mountain trunk' at 1016,168,111
+object 'CR081 mountain exploration/Mountain woods 4 1/Mountain trunk' at 1024,95,-117
+object 'CR081 mountain exploration/Mountain woods 1 2/Mountain trunk' at 850,103,-37
+object 'CR081 mountain exploration/Mountain woods 0 0/Mountain trunk' at 781,83,-199
+object 'CR081 mountain exploration/Mountain woods 3 0/Mountain trunk' at 931,87,-171
+object 'CR081 mountain exploration/Mountain woods 5 1/Mountain trunk' at 1093,92,-110
+object 'CR081 mountain exploration/Mountain woods 2 3/Mountain trunk' at 864,127,67
+object 'CR081 mountain exploration/Mountain woods 4 1/Mountain trunk' at 1047,103,-79
+object 'CR081 mountain exploration/Mountain woods 3 1/Mountain trunk' at 975,93,-135
+object 'CR081 mountain exploration/Mountain woods 5 0/Mountain trunk' at 1076,85,-185
+object 'CR081 mountain exploration/Mountain woods 2 1/Mountain trunk' at 887,91,-118
+object 'CR081 mountain exploration/Mountain woods 3 2/Mountain trunk' at 938,138,3
+object 'CR081 mountain exploration/Mountain woods 2 3/Mountain trunk' at 913,151,68
+object 'CR081 mountain exploration/Mountain woods 1 3/Mountain trunk' at 835,116,68
+object 'CR081 mountain exploration/Mountain woods 2 2/Mountain trunk' at 861,98,-57
+object 'CR081 mountain exploration/Mountain woods 3 2/Mountain trunk' at 964,122,-50
+object 'CR081 mountain exploration/Mountain woods 2 3' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 3 3/Mountain trunk' at 939,151,35
+object 'CR081 mountain exploration/Mountain woods 1 1/Mountain trunk' at 836,104,-135
+object 'CR081 mountain exploration/Mountain woods 2 1/Mountain trunk' at 897,106,-102
+object 'CR081 mountain exploration/Mountain woods 2 2/Mountain trunk' at 904,114,-56
+object 'CR081 mountain exploration/Mountain woods 3 1/Mountain trunk' at 961,97,-116
+object 'CR081 mountain exploration/Mountain woods 1 0/Mountain trunk' at 835,89,-145
+object 'CR081 mountain exploration/Mountain woods 0 4/Mountain trunk' at 738,89,125
+object 'CR081 mountain exploration/MOUNTAIN TRAILS
+Creek ascent / Ridge return' at 708,82,-114
+object 'CR081 mountain exploration/Mountain woods 5 4/Mountain trunk' at 1069,144,123
+object 'CR081 mountain exploration/Mountain woods 0 1/Mountain trunk' at 736,83,-77
+object 'CR081 mountain exploration/Mountain woods 2 2/Mountain trunk' at 875,115,-9
+object 'CR081 mountain exploration/Mountain woods 4 2/Mountain trunk' at 1010,132,-46
+object 'CR081 mountain exploration/Mountain woods 0 1/Mountain trunk' at 741,84,-67
+object 'CR081 mountain exploration/Mountain woods 4 2/Mountain trunk' at 1047,136,-54
+object 'CR081 mountain exploration/Mountain woods 4 0/Mountain trunk' at 1016,87,-193
+object 'CR081 mountain exploration/Mountain woods 2 0/Mountain trunk' at 860,88,-146
+object 'CR081 mountain exploration/Mountain woods 4 0/Mountain trunk' at 1043,90,-154
+object 'CR081 mountain exploration/Mountain woods 5 0/Mountain trunk' at 1072,86,-167
+object 'CR081 mountain exploration/Mountain woods 2 2/Mountain trunk' at 883,106,-48
+object 'CR081 mountain exploration/Mountain woods 3 2/Mountain trunk' at 944,119,-46
+object 'CR081 mountain exploration/Mountain woods 3 2/Mountain trunk' at 945,120,-58
+object 'CR081 mountain exploration/Mountain woods 0 0/Mountain trunk' at 742,84,-177
+object 'CR081 mountain exploration/Mountain woods 5 4/Mountain trunk' at 1090,133,121
+object 'CR081 mountain exploration/Mountain woods 4 1/Mountain trunk' at 1033,122,-73
+object 'CR081 mountain exploration/Mountain woods 5 3/Mountain trunk' at 1084,135,63
+object 'CR081 mountain exploration/Mountain woods 4 2/Mountain trunk' at 1010,124,-34
+object 'CR081 mountain exploration/Mountain woods 2 2/Mountain trunk' at 863,106,-33
+object 'CR081 mountain exploration/Mountain woods 0 5' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 2 3/Mountain trunk' at 883,135,67
+object 'CR081 mountain exploration/Mountain woods 2 2/Mountain trunk' at 866,103,-64
+object 'CR081 mountain exploration/Mountain woods 5 0/Mountain trunk' at 1072,85,-205
+object 'CR081 mountain exploration/Mountain woods 4 0/Mountain trunk' at 1015,91,-150
+object 'CR081 mountain exploration/Mountain woods 3 0/Mountain trunk' at 931,88,-177
+object 'CR081 mountain exploration/Mountain woods 2 0/Mountain trunk' at 894,89,-138
+object 'CR081 mountain exploration/Mountain woods 1 1/Mountain trunk' at 812,92,-69
+object 'CR081 mountain exploration/Mountain woods 4 2/Mountain trunk' at 993,124,-45
+object 'CR081 mountain exploration/Mountain woods 2 3/Mountain trunk' at 895,133,22
+object 'CR081 mountain exploration/Mountain woods 4 3/Mountain trunk' at 1002,157,37
+object 'CR081 mountain exploration/Mountain woods 4 0/Mountain trunk' at 1005,92,-147
+object 'CR081 mountain exploration/Mountain woods 1 2/Mountain trunk' at 798,95,-6
+object 'CR081 mountain exploration/Mountain woods 1 2/Mountain trunk' at 798,88,-65
+object 'CR081 mountain exploration/Mountain woods 3 1/Mountain trunk' at 981,123,-88
+object 'CR081 mountain exploration/Mountain woods 1 4/Mountain trunk' at 817,116,141
+object 'CR081 mountain exploration/Mountain woods 5 3/Mountain trunk' at 1055,158,54
+object 'CR081 mountain exploration/Mountain woods 0 2/Mountain trunk' at 773,90,-22
+object 'CR081 mountain exploration/Mountain woods 0 0/Mountain trunk' at 752,83,-176
+object 'Remembered houses and approximate buildings/Kyle's place (0.88)/Kyle's place trees 2' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 0 0/Mountain trunk' at 765,85,-159
+object 'CR081 mountain exploration/Mountain woods 2 0/Mountain trunk' at 882,86,-207
+object 'CR081 mountain exploration/Mountain woods 2 2/Mountain trunk' at 862,111,-11
+object 'CR081 mountain exploration/Mountain woods 2 0/Mountain trunk' at 909,88,-147
+object 'CR081 mountain exploration/Mountain woods 5 2/Mountain trunk' at 1092,109,-37
+object 'Street name signs (0.79)/Street sign - Hwy 92 / S Cherokee Ln/Blade lettering - Hwy 92' at 327,11,549
+object 'Memory loop - north is +Z/Ground_Mountain_1_3' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 5 4' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 1 0/Mountain trunk' at 851,86,-148
+object 'CR081 mountain exploration/Mountain woods 1 3/Mountain trunk' at 850,119,53
+object 'Memory loop - north is +Z/Ground_Mountain_3_2' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 5 1/Mountain trunk' at 1074,92,-128
+object 'CR081 mountain exploration/Mountain woods 0 4' at 0,0,0
+object 'Street name signs (0.79)/Street sign - Hwy 92 / S Cherokee Ln/Blade lettering - S Cherokee Ln' at 326,11,549
+object 'CR081 mountain exploration/Mountain woods 2 3/Mountain trunk' at 877,127,30
+object 'CR081 mountain exploration/Mountain woods 4 3/Mountain trunk' at 1013,155,38
+object 'CR081 mountain exploration/Mountain woods 4 1/Mountain trunk' at 1038,103,-91
+object 'CR081 mountain exploration/Mountain woods 2 3/Mountain trunk' at 871,123,20
+object 'CR081 mountain exploration/Mountain woods 0 3/Mountain trunk' at 748,89,18
+object 'CR081 mountain exploration/Mountain woods 4 1' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 0 2/Mountain trunk' at 758,85,-45
+object 'CR081 mountain exploration/Mountain woods 3 0/Mountain trunk' at 961,85,-194
+object 'CR081 mountain exploration/Mountain woods 2 3/Mountain trunk' at 891,126,13
+object 'CR081 mountain exploration/Mountain woods 3 4/Mountain trunk' at 931,158,79
+object 'CR081 mountain exploration/Mountain woods 5 2/Mountain trunk' at 1083,109,-46
+object 'CR081 mountain exploration/Mountain woods 5 1/Mountain trunk' at 1078,95,-111
+object 'CR081 mountain exploration/Mountain woods 5 2' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 5 0/Mountain trunk' at 1068,88,-154
+object 'CR081 mountain exploration/Mountain woods 1 0/Mountain trunk' at 812,84,-165
+object 'CR081 mountain exploration/Mountain woods 0 2/Mountain trunk' at 749,87,-32
+object 'CR081 mountain exploration/Mountain woods 2 3/Mountain trunk' at 883,133,53
+object 'CR081 mountain exploration/Mountain woods 3 1/Mountain trunk' at 935,92,-132
+object 'CR081 mountain exploration/Mountain woods 0 0/Mountain trunk' at 787,94,-139
+object 'CR081 mountain exploration/Mountain woods 1 3/Mountain trunk' at 833,114,61
+object 'CR081 mountain exploration/Mountain woods 0 0/Mountain trunk' at 769,85,-197
+object 'CR081 mountain exploration/Mountain woods 5 2/Mountain trunk' at 1096,106,-37
+object 'CR081 mountain exploration/Mountain woods 4 0/Mountain trunk' at 994,86,-198
+object 'CR081 mountain exploration/Mountain woods 5 1/Mountain trunk' at 1101,96,-84
+object 'CR081 mountain exploration/Mountain woods 4 0/Mountain trunk' at 1017,85,-191
+object 'CR081 mountain exploration/Mountain woods 1 2/Mountain trunk' at 808,91,-48
+object 'CR081 mountain exploration/Mountain woods 3 1' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 5 0/Mountain trunk' at 1095,86,-160
+object 'CR081 mountain exploration/Mountain woods 5 2/Mountain trunk' at 1095,118,0
+object 'CR081 mountain exploration/Mountain woods 2 2/Mountain trunk' at 902,117,-31
+object 'CR081 mountain exploration/Mountain woods 4 2/Mountain trunk' at 991,130,-28
+object 'CR081 mountain exploration/Mountain woods 1 0/Mountain trunk' at 800,97,-140
+object 'CR081 mountain exploration/Mountain woods 2 1/Mountain trunk' at 898,94,-110
+object 'CR081 mountain exploration/Mountain woods 5 4/Mountain trunk' at 1083,140,88
+object 'CR081 mountain exploration/Mountain woods 5 4/Mountain trunk' at 1048,157,84
+object 'CR081 mountain exploration/Mountain woods 0 2/Mountain trunk' at 758,89,-16
+object 'CR081 mountain exploration/Mountain woods 4 4/Mountain trunk' at 1043,158,86
+object 'CR081 mountain exploration/Mountain woods 0 2/Mountain trunk' at 740,88,-8
+object 'CR081 mountain exploration/Mountain woods 2 2/Mountain trunk' at 907,117,-35
+object 'CR081 mountain exploration/Mountain woods 4 2/Mountain trunk' at 995,137,-15
+object 'CR081 mountain exploration/Mountain woods 5 0/Mountain trunk' at 1080,88,-140
+object 'CR081 mountain exploration/Mountain woods 5 1/Mountain trunk' at 1112,91,-113
+object 'CR081 mountain exploration/Mountain woods 2 1/Mountain trunk' at 897,93,-129
+object 'Memory loop - north is +Z/Ground_Mountain_0_2' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 2 0/Mountain trunk' at 887,90,-142
+object 'CR081 mountain exploration/Mountain woods 4 1/Mountain trunk' at 1036,95,-115
+object 'Memory loop - north is +Z/Ground_Mountain_2_5' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 0 3/Mountain trunk' at 783,98,40
+object 'CR081 mountain exploration/Mountain return trails / exploration only' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 0 1/Mountain trunk' at 743,83,-77
+object 'Memory loop - north is +Z/Ground_Mountain_1_1' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 4 1/Mountain trunk' at 1047,101,-93
+object 'CR081 mountain exploration/Mountain woods 5 1/Mountain trunk' at 1081,89,-136
+object 'CR081 mountain exploration/Mountain woods 2 3/Mountain trunk' at 879,136,72
+object 'CR081 mountain exploration/Mountain woods 3 0/Mountain trunk' at 962,91,-148
+object 'CR081 mountain exploration/Mountain woods 1 2/Mountain trunk' at 798,91,-49
+object 'CR081 mountain exploration/Mountain woods 4 0/Mountain trunk' at 1042,91,-147
+object 'CR081 mountain exploration/Mountain woods 4 3/Mountain trunk' at 993,166,68
+object 'CR081 mountain exploration/SUMMIT
+Both trails return to lake' at 922,156,162
+object 'CR081 mountain exploration/Mountain woods 2 3/Mountain trunk' at 916,136,13
+object 'CR081 mountain exploration/Mountain woods 5 0/Mountain trunk' at 1055,84,-190
+object 'CR081 mountain exploration/Mountain woods 3 1/Mountain trunk' at 926,117,-92
+object 'Street name signs (0.79)/Street sign - Trickum Rd / Hwy 92/Blade lettering - Hwy 92' at -615,11,531
+object 'CR081 mountain exploration/Mountain woods 2 3/Mountain trunk' at 920,155,74
+object 'CR081 mountain exploration/Mountain woods 0 0/Mountain trunk' at 730,84,-140
+object 'CR081 mountain exploration/Mountain woods 3 2/Mountain trunk' at 983,131,-57
+object 'CR081 mountain exploration/Mountain woods 3 4/Mountain trunk' at 983,169,96
+object 'CR081 mountain exploration/Mountain woods 3 3/Mountain trunk' at 934,159,68
+object 'CR081 mountain exploration/Mountain woods 3 3/Mountain trunk' at 951,154,37
+object 'CR081 mountain exploration/Mountain woods 5 2/Mountain trunk' at 1109,104,-39
+object 'CR081 mountain exploration/Mountain woods 3 3/Mountain trunk' at 925,155,73
+object 'Memory loop - north is +Z/Ground_Mountain_2_1' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 4 1/Mountain trunk' at 1046,93,-131
+object 'CR081 mountain exploration/Mountain woods 1 1/Mountain trunk' at 828,108,-102
+object 'CR081 mountain exploration/Mountain woods 3 1/Batched Mountain foliage' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 2 1/Mountain trunk' at 910,93,-125
+object 'CR081 mountain exploration/Mountain woods 0 0/Mountain trunk' at 775,84,-178
+object 'CR081 mountain exploration/Mountain woods 2 3/Mountain trunk' at 906,131,11
+object 'CR081 mountain exploration/Mountain woods 5 1/Mountain trunk' at 1087,98,-86
+object 'CR081 mountain exploration/Mountain woods 0 4/Mountain trunk' at 755,91,122
+object 'CR081 mountain exploration/Mountain woods 2 1/Mountain trunk' at 880,92,-126
+object 'CR081 mountain exploration/Mountain woods 5 4/Mountain trunk' at 1110,124,112
+object 'CR081 mountain exploration/Mountain woods 3 1/Mountain trunk' at 939,97,-112
+object 'CR081 mountain exploration/Mountain woods 5 4/Mountain trunk' at 1063,147,78
+object 'CR081 mountain exploration/Mountain woods 3 4/Mountain trunk' at 969,169,104
+object 'CR081 mountain exploration/Mountain woods 1 2/Mountain trunk' at 840,105,0
+object 'CR081 mountain exploration/Mountain woods 1 2/Mountain trunk' at 820,97,-23
+object 'CR081 mountain exploration/Mountain woods 1 0' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 5 1/Mountain trunk' at 1056,103,-79
+object 'CR081 mountain exploration/Mountain woods 4 3/Mountain trunk' at 1002,166,75
+object 'CR081 mountain exploration/Mountain woods 3 2/Mountain trunk' at 961,143,6
+object 'CR081 mountain exploration/Mountain woods 5 2/Mountain trunk' at 1099,114,-4
+object 'CR081 mountain exploration/Mountain woods 5 2/Mountain trunk' at 1069,131,-12
+object 'CR081 mountain exploration/Mountain woods 5 0/Mountain trunk' at 1105,84,-188
+object 'CR081 mountain exploration/Mountain woods 1 0/Mountain trunk' at 841,82,-199
+object 'CR081 mountain exploration/Mountain woods 3 3/Mountain trunk' at 954,144,10
+object 'CR081 mountain exploration/Mountain woods 3 1/Mountain trunk' at 939,107,-98
+object 'CR081 mountain exploration/Mountain woods 1 2/Mountain trunk' at 855,109,-17
+object 'CR081 mountain exploration/Mountain woods 5 0/Mountain trunk' at 1060,85,-188
+object 'CR081 mountain exploration/Mountain woods 4 0/Mountain trunk' at 1034,86,-199
+object 'CR081 mountain exploration/Mountain woods 2 0/Mountain trunk' at 871,86,-159
+object 'Street name signs (0.79)/Street sign - Trickum Rd / Hwy 92/Blade lettering - Trickum Rd' at -615,11,531
+object 'CR081 mountain exploration/Mountain woods 2 3/Mountain trunk' at 893,131,26
+object 'CR081 mountain exploration/Mountain woods 3 0/Mountain trunk' at 983,91,-143
+object 'CR081 mountain exploration/Mountain woods 4 2/Mountain trunk' at 1048,124,-60
+object 'CR081 mountain exploration/Mountain woods 1 1/Mountain trunk' at 804,91,-106
+object 'CR081 mountain exploration/Mountain woods 5 1/Mountain trunk' at 1056,102,-82
+object 'Remembered houses and approximate buildings/Kyle's place (0.88)/Kyle's place tree trunks' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 1 3/Mountain trunk' at 848,122,75
+object 'CR081 mountain exploration/Mountain woods 1 1/Mountain trunk' at 816,89,-82
+object 'CR081 mountain exploration/Mountain woods 2 2/Mountain trunk' at 901,114,-57
+object 'CR081 mountain exploration/Mountain woods 4 0/Mountain trunk' at 987,88,-179
+object 'CR081 mountain exploration/Mountain woods 1 2/Mountain trunk' at 831,95,-45
+object 'CR081 mountain exploration/Mountain woods 3 3/Mountain trunk' at 956,151,21
+object 'CR081 mountain exploration/Mountain woods 5 3/Mountain trunk' at 1075,128,10
+object 'CR081 mountain exploration/Mountain woods 2 1/Mountain trunk' at 900,93,-126
+object 'CR081 mountain exploration/Mountain woods 3 3/Mountain trunk' at 924,138,6
+object 'CR081 mountain exploration/Mountain woods 0 2/Mountain trunk' at 770,89,-9
+object 'CR081 mountain exploration/Mountain woods 4 0/Mountain trunk' at 990,88,-172
+object 'CR081 mountain exploration/Mountain woods 3 0/Mountain trunk' at 972,88,-156
+object 'CR081 mountain exploration/Mountain woods 3 3/Mountain trunk' at 932,159,66
+object 'CR081 mountain exploration/Mountain woods 4 0/Mountain trunk' at 1029,86,-204
+object 'CR081 mountain exploration/Mountain woods 0 1/Mountain trunk' at 787,86,-74
+object 'CR081 mountain exploration/Mountain woods 4 0/Mountain trunk' at 995,88,-163
+object 'CR081 mountain exploration/Mountain woods 5 5' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 1 1/Mountain trunk' at 808,88,-98
+object 'CR081 mountain exploration/Mountain woods 0 0/Mountain trunk' at 733,82,-209
+object 'CR081 mountain exploration/Mountain woods 0 0/Mountain trunk' at 742,85,-162
+object 'CR094 summit launch/Summit approach and safe return' at 215,7,-268
+object 'CR081 mountain exploration/Mountain woods 5 4/Mountain trunk' at 1107,124,146
+object 'CR081 mountain exploration/Mountain woods 1 2/Mountain trunk' at 818,94,-47
+object 'CR081 mountain exploration/Mountain woods 0 0/Mountain trunk' at 758,84,-175
+object 'CR091-096 exploration world/Permanent mountainside camp / two seated guys' at 989,164,75
+object 'CR081 mountain exploration/Mountain woods 3 0/Mountain trunk' at 929,87,-180
+object 'Memory loop - north is +Z/Ground_Mountain_2_4' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 1 1/Mountain trunk' at 805,87,-96
+object 'CR081 mountain exploration/Mountain woods 3 3/Mountain trunk' at 922,151,61
+object 'CR081 mountain exploration/Mountain woods 2 2/Mountain trunk' at 914,131,4
+object 'CR081 mountain exploration/Mountain woods 4 3/Mountain trunk' at 1005,157,42
+object 'CR081 mountain exploration/Mountain woods 5 0/Mountain trunk' at 1102,87,-153
+object 'CR081 mountain exploration/Mountain woods 4 1/Mountain trunk' at 985,125,-87
+object 'CR081 mountain exploration/Mountain woods 4 2/Mountain trunk' at 996,134,-20
+object 'CR081 mountain exploration/Mountain woods 0 3/Mountain trunk' at 768,92,25
+object 'New scenery (0.78)/Reeds of House 3 lake' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 5 2/Mountain trunk' at 1061,145,-17
+object 'CR081 mountain exploration/Mountain woods 2 0/Mountain trunk' at 908,85,-193
+object 'CR081 mountain exploration/Mountain woods 3 0/Mountain trunk' at 925,87,-165
+object 'CR081 mountain exploration/Mountain woods 0 2/Mountain trunk' at 771,89,-25
+object 'CR081 mountain exploration/Mountain woods 1 0/Mountain trunk' at 856,85,-157
+object 'CR081 mountain exploration/Mountain woods 1 0/Mountain trunk' at 803,84,-202
+object 'CR081 mountain exploration/Mountain woods 5 3' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 4 3/Mountain trunk' at 1030,147,20
+object 'CR081 mountain exploration/Mountain woods 3 3/Mountain trunk' at 922,151,57
+object 'CR081 mountain exploration/Mountain woods 5 3/Mountain trunk' at 1089,134,58
+object 'CR081 mountain exploration/Mountain woods 4 0/Mountain trunk' at 1017,89,-156
+object 'CR081 mountain exploration/Mountain woods 5 3/Mountain trunk' at 1077,127,11
+object 'CR081 mountain exploration/Mountain woods 1 2/Mountain trunk' at 807,93,-39
+object 'CR081 mountain exploration/Mountain woods 5 3/Mountain trunk' at 1089,130,40
+object 'CR081 mountain exploration/Mountain woods 4 2/Mountain trunk' at 1003,134,-53
+object 'CR081 mountain exploration/Mountain woods 1 5' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 0 4/Mountain trunk' at 785,112,141
+object 'CR081 mountain exploration/Mountain woods 1 0/Mountain trunk' at 814,83,-198
+object 'CR081 mountain exploration/Mountain woods 0 1/Mountain trunk' at 728,85,-93
+object 'CR081 mountain exploration/Mountain woods 3 2/Mountain trunk' at 951,126,-32
+object 'CR081 mountain exploration/Mountain woods 5 0/Mountain trunk' at 1051,87,-182
+object 'CR081 mountain exploration/Mountain woods 1 0/Mountain trunk' at 849,89,-139
+object 'CR081 mountain exploration/Mountain woods 0 1/Mountain trunk' at 770,86,-79
+object 'CR081 mountain exploration/Mountain woods 4 2/Mountain trunk' at 990,129,-29
+object 'CR081 mountain exploration/Mountain woods 2 0/Mountain trunk' at 908,84,-207
+object 'CR081 mountain exploration/Mountain woods 3 0/Mountain trunk' at 958,86,-193
+object 'CR081 mountain exploration/Mountain woods 3 2/Mountain trunk' at 972,126,-56
+object 'CR081 mountain exploration/Mountain woods 4 1/Mountain trunk' at 989,99,-109
+object 'CR081 mountain exploration/Mountain woods 5 3/Mountain trunk' at 1077,131,20
+object 'CR081 mountain exploration/Mountain woods 4 3/Mountain trunk' at 993,155,28
+object 'CR081 mountain exploration/Mountain woods 3 3/Batched Mountain foliage' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 0 2/Mountain trunk' at 742,86,-2
+object 'CR081 mountain exploration/Mountain woods 5 3/Batched Mountain foliage' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 5 4/Mountain trunk' at 1053,153,95
+object 'CR081 mountain exploration/Mountain woods 3 0/Mountain trunk' at 958,90,-145
+object 'CR081 mountain exploration/Mountain woods 0 0/Mountain trunk' at 781,82,-208
+object 'CR081 mountain exploration/Mountain woods 2 0/Mountain trunk' at 873,87,-163
+object 'CR081 mountain exploration/Mountain woods 5 2/Mountain trunk' at 1092,100,-62
+object 'CR081 mountain exploration/Mountain woods 5 3/Mountain trunk' at 1081,128,27
+object 'CR081 mountain exploration/Mountain woods 0 0/Mountain trunk' at 770,83,-201
+object 'CR081 mountain exploration/Mountain woods 3 0/Batched Mountain foliage' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 5 4/Mountain trunk' at 1075,144,87
+object 'CR081 mountain exploration/Mountain woods 3 3/Mountain trunk' at 940,159,68
+object 'CR081 mountain exploration/Mountain woods 2 3/Mountain trunk' at 900,137,35
+object 'CR081 mountain exploration/Mountain woods 0 2/Mountain trunk' at 771,86,-63
+object 'CR081 mountain exploration/Mountain woods 2 0' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 2 2/Mountain trunk' at 863,103,-44
+object 'CR081 mountain exploration/Mountain woods 2 3/Batched Mountain foliage' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 3 4/Batched Mountain foliage' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 0 1' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 1 2/Mountain trunk' at 853,105,-22
+object 'CR081 mountain exploration/Mountain woods 4 1/Mountain trunk' at 1012,99,-102
+object 'CR081 mountain exploration/Mountain woods 1 0/Mountain trunk' at 837,82,-209
+object 'CR081 mountain exploration/Mountain woods 4 4/Mountain trunk' at 1039,160,86
+object 'CR081 mountain exploration/Mountain woods 2 1/Mountain trunk' at 920,91,-132
+object 'CR081 mountain exploration/Mountain woods 2 0/Mountain trunk' at 912,87,-163
+object 'CR081 mountain exploration/Mountain woods 2 5/Batched Mountain foliage' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 5 0/Mountain trunk' at 1062,88,-146
+object 'CR081 mountain exploration/Mountain woods 2 2/Mountain trunk' at 906,119,-29
+object 'CR081 mountain exploration/Mountain woods 2 0/Mountain trunk' at 894,89,-144
+object 'CR081 mountain exploration/Mountain woods 1 2/Mountain trunk' at 832,103,-13
+object 'CR081 mountain exploration/Mountain woods 5 0/Mountain trunk' at 1065,84,-199
+object 'CR081 mountain exploration/Mountain woods 4 0/Mountain trunk' at 998,88,-168
+object 'CR081 mountain exploration/Mountain woods 3 0/Mountain trunk' at 931,89,-154
+object 'CR081 mountain exploration/Mountain woods 0 1/Mountain trunk' at 776,88,-67
+object 'CR081 mountain exploration/Mountain woods 5 1/Batched Mountain foliage' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 5 0/Mountain trunk' at 1082,87,-170
+object 'CR081 mountain exploration/Mountain woods 0 3/Mountain trunk' at 779,92,10
+object 'CR081 mountain exploration/Mountain woods 5 2/Mountain trunk' at 1068,108,-55
+object 'CR081 mountain exploration/Mountain woods 2 3/Mountain trunk' at 868,132,77
+object 'CR081 mountain exploration/Mountain woods 3 1/Mountain trunk' at 945,114,-93
+object 'CR081 mountain exploration/Mountain woods 3 2/Mountain trunk' at 967,125,-38
+object 'CR081 mountain exploration/Mountain woods 5 2/Mountain trunk' at 1104,99,-59
+object 'CR081 mountain exploration/Mountain woods 5 4/Mountain trunk' at 1076,143,87
+object 'CR081 mountain exploration/Mountain woods 2 2/Mountain trunk' at 895,116,-23
+object 'CR081 mountain exploration/Mountain woods 0 4/Mountain trunk' at 737,87,148
+object 'CR081 mountain exploration/Mountain woods 5 2/Mountain trunk' at 1094,106,-43
+object 'CR081 mountain exploration/Mountain woods 2 1/Mountain trunk' at 887,99,-106
+object 'CR081 mountain exploration/Mountain woods 3 1/Mountain trunk' at 982,101,-101
+object 'CR081 mountain exploration/Mountain woods 2 3/Mountain trunk' at 862,121,38
+object 'CR081 mountain exploration/Mountain woods 3 3/Mountain trunk' at 972,156,33
+object 'CR081 mountain exploration/Mountain woods 1 3/Mountain trunk' at 844,111,18
+object 'CR081 mountain exploration/Mountain woods 5 1/Mountain trunk' at 1072,98,-95
+object 'CR081 mountain exploration/Mountain woods 5 1/Mountain trunk' at 1061,92,-133
+object 'CR081 mountain exploration/Mountain woods 0 0/Batched Mountain foliage' at 0,0,0
+object 'Decorative road continuations/Hwy 92 east' at 361,8,561
+object 'CR081 mountain exploration/Mountain woods 2 1/Mountain trunk' at 882,122,-69
+object 'CR081 mountain exploration/Mountain woods 5 0/Mountain trunk' at 1110,86,-178
+object 'CR094 summit launch/Ground_Summit authored launch' at 1192,152,207
+object 'House 3 pool and lake/House 3 lake' at 384,33,-194
+object 'CR081 mountain exploration/Mountain woods 0 2/Mountain trunk' at 761,88,-13
+object 'CR081 mountain exploration/Mountain woods 1 3/Mountain trunk' at 820,106,30
+object 'CR081 mountain exploration/Mountain woods 2 2/Mountain trunk' at 865,106,-41
+object 'CR081 mountain exploration/Mountain woods 0 0/Mountain trunk' at 780,83,-155
+object 'CR081 mountain exploration/Mountain woods 5 2/Mountain trunk' at 1077,114,-33
+object 'CR081 mountain exploration/Mountain woods 1 3/Mountain trunk' at 807,97,12
+object 'CR081 mountain exploration/Mountain woods 4 0/Mountain trunk' at 1010,88,-166
+object 'CR081 mountain exploration/Mountain woods 2 3/Mountain trunk' at 886,131,40
+object 'CR081 mountain exploration/Mountain woods 2 1/Mountain trunk' at 878,90,-121
+object 'CR081 mountain exploration/Mountain woods 5 1/Mountain trunk' at 1059,92,-127
+object 'CR081 mountain exploration/Mountain woods 3 0/Mountain trunk' at 927,84,-206
+object 'CR081 mountain exploration/Mountain woods 1 1/Mountain trunk' at 801,87,-83
+object 'CR081 mountain exploration/Mountain woods 3 4/Mountain trunk' at 943,163,88
+object 'CR081 mountain exploration/Mountain woods 1 0/Mountain trunk' at 796,82,-192
+object 'CR081 mountain exploration/Mountain woods 1 0/Mountain trunk' at 796,83,-160
+object 'CR081 mountain exploration/Mountain woods 5 3/Mountain trunk' at 1089,122,13
+object 'CR081 mountain exploration/Mountain woods 4 1/Mountain trunk' at 1043,108,-73
+object 'CR081 mountain exploration/Mountain woods 3 3/Mountain trunk' at 940,143,13
+object 'CR081 mountain exploration/Mountain woods 3 3/Mountain trunk' at 921,147,43
+object 'CR081 mountain exploration/Mountain woods 1 0/Mountain trunk' at 852,85,-189
+object 'CR081 mountain exploration/Mountain woods 2 2/Mountain trunk' at 879,108,-44
+object 'CR081 mountain exploration/Mountain woods 3 0/Mountain trunk' at 956,92,-142
+object 'CR081 mountain exploration/Mountain woods 4 3/Mountain trunk' at 1003,163,51
+object 'CR081 mountain exploration/Mountain woods 3 4/Mountain trunk' at 937,161,85
+object 'CR081 mountain exploration/Mountain woods 5 1/Mountain trunk' at 1073,99,-90
+object 'CR081 mountain exploration/Mountain woods 4 4/Mountain trunk' at 1019,166,113
+object 'CR081 mountain exploration/Mountain woods 0 4/Mountain trunk' at 778,94,145
+object 'Remembered houses and approximate buildings/Friend across street - blue circle/Kyle's front step (0.88)' at 512,79,-35
+object 'CR081 mountain exploration/Mountain woods 1 3/Mountain trunk' at 807,98,30
+object 'CR081 mountain exploration/Mountain woods 0 0/Mountain trunk' at 780,85,-151
+object 'CR081 mountain exploration/Mountain woods 1 3/Mountain trunk' at 850,121,62
+object 'CR081 mountain exploration/Mountain woods 0 3/Mountain trunk' at 753,88,17
+object 'CR081 mountain exploration/Mountain woods 0 2/Mountain trunk' at 753,89,-7
+object 'CR081 mountain exploration/Mountain woods 0 4/Mountain trunk' at 764,94,121
+object 'CR081 mountain exploration/Mountain woods 1 2/Mountain trunk' at 801,91,-43
+object 'CR081 mountain exploration/Mountain woods 1 1/Mountain trunk' at 818,89,-82
+object 'CR081 mountain exploration/Mountain woods 0 3/Mountain trunk' at 742,88,27
+object 'CR081 mountain exploration/Mountain woods 5 0/Mountain trunk' at 1068,88,-144
+object 'CR081 mountain exploration/Mountain woods 2 3/Mountain trunk' at 883,127,19
+object 'CR081 mountain exploration/Mountain woods 0 1/Mountain trunk' at 785,95,-114
+object 'CR081 mountain exploration/Mountain woods 5 1/Mountain trunk' at 1068,101,-79
+object 'CR081 mountain exploration/Mountain woods 1 3/Mountain trunk' at 804,103,42
+object 'CR081 mountain exploration/Mountain woods 0 0/Mountain trunk' at 735,84,-140
+object 'CR081 mountain exploration/Mountain woods 2 1/Mountain trunk' at 874,121,-72
+object 'CR081 mountain exploration/Mountain woods 3 3/Mountain trunk' at 956,165,69
+object 'CR081 mountain exploration/Mountain woods 1 0/Mountain trunk' at 801,84,-173
+object 'CR081 mountain exploration/Mountain woods 5 1/Mountain trunk' at 1095,90,-134
+object 'CR081 mountain exploration/Mountain woods 1 2/Mountain trunk' at 798,90,-65
+object 'CR081 mountain exploration/Mountain woods 3 0/Mountain trunk' at 936,88,-170
+object 'CR081 mountain exploration/Mountain woods 2 1/Mountain trunk' at 875,116,-100
+object 'CR081 mountain exploration/Mountain woods 2 3/Mountain trunk' at 884,126,24
+object 'CR081 mountain exploration/Mountain woods 2 2' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 1 2/Mountain trunk' at 842,100,-48
+object 'CR081 mountain exploration/Mountain woods 3 5/Batched Mountain foliage' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 2 0/Mountain trunk' at 908,83,-205
+object 'CR081 mountain exploration/Mountain woods 1 0/Mountain trunk' at 799,85,-164
+object 'CR081 mountain exploration/Mountain woods 5 2/Mountain trunk' at 1087,117,-14
+object 'CR081 mountain exploration/Mountain woods 5 3/Mountain trunk' at 1109,125,78
+object 'CR081 mountain exploration/Mountain woods 3 1/Mountain trunk' at 933,94,-124
+object 'CR081 mountain exploration/Mountain woods 4 1/Mountain trunk' at 989,131,-84
+object 'CR081 mountain exploration/Mountain woods 3 4/Mountain trunk' at 976,170,100
+object 'CR081 mountain exploration/Mountain woods 2 3/Mountain trunk' at 904,145,63
+object 'CR081 mountain exploration/Mountain woods 5 3/Mountain trunk' at 1056,154,57
+object 'CR081 mountain exploration/Mountain woods 0 4/Mountain trunk' at 732,89,113
+object 'Decorative road continuations/Hwy 92 west' at -651,8,539
+object 'CR081 mountain exploration/Mountain woods 3 0/Mountain trunk' at 943,90,-153
+object 'CR081 mountain exploration/Mountain woods 0 1/Mountain trunk' at 785,86,-103
+object 'Street name signs (0.79)/Street sign - S Cherokee Ln / Trickum Rd' at -625,6,-544
+object 'CR081 mountain exploration/Mountain woods 5 3/Mountain trunk' at 1069,142,19
+object 'CR081 mountain exploration/Mountain woods 5 4/Mountain trunk' at 1082,140,89
+object 'CR081 mountain exploration/Mountain woods 5 0/Mountain trunk' at 1063,88,-143
+object 'CR081 mountain exploration/Mountain woods 4 0/Mountain trunk' at 1036,84,-204
+object 'CR081 mountain exploration/Mountain woods 1 3/Mountain trunk' at 847,113,26
+object 'CR081 mountain exploration/Mountain woods 5 1' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 1 0/Mountain trunk' at 819,82,-190
+object 'CR081 mountain exploration/Mountain woods 1 0/Mountain trunk' at 820,91,-149
+object 'CR081 mountain exploration/Mountain woods 3 2/Batched Mountain foliage' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 5 0/Mountain trunk' at 1050,86,-168
+object 'CR081 mountain exploration/Mountain woods 4 0/Mountain trunk' at 998,88,-167
+object 'CR081 mountain exploration/Mountain woods 5 2/Mountain trunk' at 1087,116,-13
+object 'CR081 mountain exploration/Mountain woods 3 3' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 4 0/Mountain trunk' at 1044,89,-159
+object 'CR081 mountain exploration/Mountain woods 4 2/Mountain trunk' at 1006,136,-51
+object 'CR081 mountain exploration/Mountain woods 4 3/Mountain trunk' at 1004,150,21
+object 'CR081 mountain exploration/Mountain woods 2 3/Mountain trunk' at 891,127,9
+object 'CR081 mountain exploration/Mountain woods 5 4/Mountain trunk' at 1107,128,115
+object 'CR081 mountain exploration/Mountain woods 5 3/Mountain trunk' at 1091,129,42
+object 'CR081 mountain exploration/Mountain woods 3 4/Mountain trunk' at 928,159,80
+object 'CR081 mountain exploration/Mountain woods 4 1/Mountain trunk' at 1008,133,-80
+object 'CR081 mountain exploration/Mountain woods 1 0/Mountain trunk' at 855,84,-187
+object 'CR081 mountain exploration/Mountain woods 4 2/Mountain trunk' at 1016,131,-36
+object 'CR081 mountain exploration/Mountain woods 5 0/Mountain trunk' at 1060,83,-206
+object 'CR081 mountain exploration/Mountain woods 4 0/Mountain trunk' at 1004,91,-139
+object 'Memory loop - north is +Z/Ground_Mountain_3_3' at 0,0,0
+object 'CR081 mountain exploration/Mountain woods 3 3/Mountain trunk' at 965,167,66
+object 'CR081 mountain exploration/Mountain woods 1 0/Mountain trunk' at 825,88,-148
+object 'CR081 mountain exploration/Mountain woods 1 2/Mountain trunk' at 834,95,-54
+object 'CR081 mountain exploration/Mountain woods 1 3/Mountain trunk' at 808,111,50
+object 'CR081 mountain exploration/Mountain woods 5 0/Mountain trunk' at 1090,87,-178
+object 'CR081 mountain exploration/Mountain woods 0 0/Mountain trunk' at 758,84,-169
+object 'CR081 mountain exploration/Mountain woods 0 0/Mountain trunk' at 747,84,-153
+object 'CR081 mountain exploration/Mountain woods 4 2/Mountain trunk' at 1029,145,-32
+object 'Street name signs (0.79)/Street sign - Hwy 92 / S Cherokee Ln' at 327,8,549
+object 'CR081 mountain exploration/Mountain woods 4 3/Mountain trunk' at 1001,164,55
+object 'CR081 mountain exploration/Mountain woods 4 2/Mountain trunk' at 999,124,-44
+object 'CR081 mountain exploration/Mountain woods 4 2/Mountain trunk' at 1005,141,-5
+object 'CR081 mountain exploration/Mountain woods 3 1/Mountain trunk' at 957,98,-116
+object 'CR081 mountain exploration/Mountain woods 0 1/Mountain trunk' at 783,89,-105
+object 'CR081 mountain exploration/Mountain woods 4 3/Mountain trunk' at 1011,154,35
+object 'CR081 mountain exploration/Mountain woods 5 0/Mountain trunk' at 1055,84,-193
+object 'CR081 mountain exploration/Mountain woods 4 2/Mountain trunk' at 999,142,-2
+map visual bounds (x:-1350.00, y:-850.00, width:3000.00, height:1800.00) image 5200x3120

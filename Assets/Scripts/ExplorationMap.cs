@@ -26,6 +26,12 @@ namespace Racer
         GameObject panel; UnityEngine.UI.RawImage picture; UnityEngine.UI.Text status,heading,waypointLabel;
         readonly List<UnityEngine.UI.Text> markers=new(); Texture2D texture; int selected=-1;
         readonly List<UnityEngine.UI.Text> acorns=new();
+        // 0.93 Part C: the acorn areas drawn on the map (regions, their names and counts), the places their directions name, the
+        // list of areas in the side column (the chosen one highlighted and centred); 0.93 Part D: a fixed north arrow
+        WorldMapAreaOverlay areaOverlay;readonly List<(UnityEngine.UI.Text text,AcornAreas.Area area,AcornAreas.Region region)> areaLabels=new();
+        readonly List<(UnityEngine.UI.Text text,Vector3 at)> placeLabels=new();UnityEngine.UI.Text areaList,northArrow;int selectedArea=-1;
+        ExplorationCollection Collection=>race?race.GetComponent<ExplorationCollection>():null;
+        AcornAreas.Area[] Areas=>AcornAreas.Of(Collection);
         int closedFrame=-1;
         GameObject confirmation; UnityEngine.UI.Text confirmationText; int pending=-1,confirmationFrame=-1;
         public bool Confirming=>pending>=0;
@@ -86,8 +92,18 @@ namespace Racer
             MenuInput.ConsumeThroughRelease();
             if(!visual)visual=Resources.Load<WorldMapVisual>("WorldMaps/PermanentWorld");
             resume=race.Flow.State==RaceFlow.Stage.Racing;if(resume)race.Flow.Pause();if(!panel){BuildUI();BuildMapControls();}
-            center=MapNormalized(race.vehicle.Body.position);selected=-1;panel.SetActive(true);EventSystem.current?.SetSelectedGameObject(null);Repaint();Draw();Save();
+            center=MapNormalized(race.vehicle.Body.position);selected=-1;selectedArea=-1;panel.SetActive(true);EventSystem.current?.SetSelectedGameObject(null);Repaint();Draw();Save();
         }
+        // 0.93 Part C: open the map on one acorn area (from the Exploration page's list)
+        public void OpenArea(int index){Open();SelectArea(index);}
+        void SelectArea(int index)
+        {
+            var all=Areas;if(index<0||index>=all.Length){selectedArea=-1;Draw();return;}
+            selectedArea=index;selected=-1;var b=all[index].bounds;center=MapNormalized(b.center);
+            var extent=Vector2.Scale(MapNormalized(b.max)-MapNormalized(b.min),picture.rectTransform.rect.size);
+            zoom=Mathf.Clamp(Mathf.Min(picture.rectTransform.rect.width/Mathf.Max(1,extent.x),picture.rectTransform.rect.height/Mathf.Max(1,extent.y))*.8f,1,6);Draw();
+        }
+        void StepArea(int d){int n=Areas.Length;if(n==0)return;SelectArea(selectedArea<0?(d>0?0:n-1):(selectedArea+d+n)%n);}
         public void Close(){MenuInput.ConsumeThroughRelease();CancelTravel();closedFrame=Time.frameCount;if(panel)panel.SetActive(false);Save();if(resume)race.Flow.Resume();}
         // 0.74: a custom destination anywhere in the world (map cursor, mouse click or a destination): the ground height under
         // it is found here. Drive-to only (no travel); not saved; shown in Free Roam only (WaypointGuide).
@@ -139,12 +155,24 @@ namespace Racer
             Text("Title",panel.transform,new(0,323),new(1200,42),26).text="WOODSTOCK / EXPLORATION MAP";
             var r=RectUI("Terrain",panel.transform,new(-150,10),new(740,visual?740*visual.bounds.height/visual.bounds.width:540));picture=r.gameObject.AddComponent<UnityEngine.UI.RawImage>();r.gameObject.AddComponent<UnityEngine.UI.RectMask2D>();
             var events=r.gameObject.AddComponent<MapPointer>();events.owner=this;
+            var areaRect=RectUI("Acorn areas",r,Vector2.zero,r.sizeDelta);areaOverlay=areaRect.gameObject.AddComponent<WorldMapAreaOverlay>();areaOverlay.raycastTarget=false;
             var overlay=RectUI("Current course overlay",r,Vector2.zero,new(740,visual?740*visual.bounds.height/visual.bounds.width:540));courseOverlay=overlay.gameObject.AddComponent<WorldMapCourseOverlay>();courseOverlay.raycastTarget=false;overlay.gameObject.SetActive(data.routesShown);
+            UnityEngine.UI.Text Label(string name,string text,int size,Color color,int side)
+            {
+                var t=Text(name,r,Vector2.zero,new(230,24),size);t.text=text;t.color=color;t.supportRichText=true;
+                t.rectTransform.pivot=new(side<0?1:side>0?0:.5f,.5f);t.alignment=side<0?TextAnchor.MiddleRight:side>0?TextAnchor.MiddleLeft:TextAnchor.MiddleCenter;
+                var edge=t.gameObject.AddComponent<UnityEngine.UI.Outline>();edge.effectColor=new(0,0,0,.85f);edge.effectDistance=new(1,-1);return t;
+            }
+            foreach(var area in Areas)foreach(var region in area.regions.Where(x=>x.named)){var t=Label("Area "+area.name,area.name,14,area.tint,area.labelSide);t.fontStyle=FontStyle.Bold;areaLabels.Add((t,area,region));}
+            foreach(var place in AcornAreas.Places){var t=Label("Place "+place.label,(place.side>0?"· ":"")+place.label+(place.side<0?" ·":""),13,new(1,1,.86f,.95f),place.side);t.fontStyle=FontStyle.Italic;placeLabels.Add((t,place.at));}
             heading=Text("Player heading",r,Vector2.zero,new(35,35),27);heading.color=Color.cyan;heading.text="▲";
             waypointLabel=Text("Waypoint",r,Vector2.zero,new(25,25),24);waypointLabel.color=Color.yellow;waypointLabel.text="+";
             foreach(var d in destinations){var t=Text(d.id,r,Vector2.zero,new(170,35),16);markers.Add(t);}
             foreach(var item in race.GetComponent<ExplorationCollection>().sites){var t=Text(item.id,r,Vector2.zero,new(16,16),15);t.text="●";t.color=new(1,.72f,.2f);acorns.Add(t);}
             Text("Cursor",r,Vector2.zero,new(25,25),20).text="+";
+            northArrow=Text("North",r,Vector2.zero,new(40,52),18);northArrow.text="▲\nN";northArrow.fontStyle=FontStyle.Bold;northArrow.lineSpacing=.8f;
+            {var edge=northArrow.gameObject.AddComponent<UnityEngine.UI.Outline>();edge.effectColor=new(0,0,0,.9f);edge.effectDistance=new(1.2f,-1.2f);}
+            areaList=Text("Acorn areas list",panel.transform,new(485,-150),new(240,210),15);areaList.alignment=TextAnchor.UpperLeft;areaList.supportRichText=true;
             status=Text("Map status",panel.transform,new(460,38),new(255,410),18);
             Button("Previous destination",new(460,-188),()=>SelectNext(-1));Button("Next destination",new(460,-232),()=>SelectNext(1));Button("Travel (free roam)",new(460,-276),TravelSelected);
             Button("Close map / M / B",new(-420,-316),Close);Button("Center on player",new(-150,-316),()=>center=MapNormalized(race.vehicle.Body.position));Button("Clear waypoint",new(120,-316),()=>Waypoint=null);
@@ -171,11 +199,25 @@ namespace Racer
         {
             picture.uvRect=new Rect(center-Vector2.one*.5f/zoom,Vector2.one/zoom);Marker(heading,race.vehicle.Body.position);heading.rectTransform.localRotation=Quaternion.Euler(0,0,-race.vehicle.transform.eulerAngles.y);
             courseOverlay.SetView(race,visual,center,zoom,RouteCourses);
+            var collection=Collection;var all=Areas;areaOverlay.SetView(all,collection,visual,center,zoom,selectedArea);
+            foreach(var (t,area,region) in areaLabels){bool done=area.Done(collection);t.text=(done?"✓ ":"")+area.name+"  "+area.Count(collection);t.color=done?new Color(.75f,.77f,.75f,.8f):area.tint;Marker(t,region.label);}
+            foreach(var (t,at) in placeLabels)Marker(t,at);
+            northArrow.rectTransform.anchoredPosition=picture.rectTransform.rect.size*.5f-new Vector2(26,34);
+            var list=new System.Text.StringBuilder("<b>ACORN AREAS</b>   D-pad ↑ ↓\n");
+            for(int i=0;i<all.Length;i++){var a=all[i];bool done=a.Done(collection);list.Append(i==selectedArea?"<color=#FFFFFF><b>▶ ":"<color=#"+ColorUtility.ToHtmlStringRGB(done?new Color(.75f,.77f,.75f):a.tint)+">   ").Append(a.name).Append("  ").Append(a.Count(collection)).Append(done?"  ✓":"").Append(i==selectedArea?"</b>":"").Append("</color>\n").Append("<size=13><color=#9FB7B4>").Append(a.direction).Append("</color></size>\n");}
+            areaList.text=list.ToString();
             if(Waypoint.HasValue)Marker(waypointLabel,Waypoint.Value);else waypointLabel.gameObject.SetActive(false);
             for(int i=0;i<destinations.Length;i++){markers[i].text=(selected==i?"◆ ":"● ")+destinations[i].title;Marker(markers[i],destinations[i].position);if(!Discovered(destinations[i].id))markers[i].gameObject.SetActive(false);}
-            var collection=race.GetComponent<ExplorationCollection>();for(int i=0;i<acorns.Count;i++){var s=collection.sites[i];Marker(acorns[i],s.position);if(!collection.Discovered(s.id)||!Visited(s.position))acorns[i].gameObject.SetActive(false);}
+            for(int i=0;i<acorns.Count;i++){var s=collection.sites[i];Marker(acorns[i],s.position);if(!collection.Discovered(s.id)||!Visited(s.position))acorns[i].gameObject.SetActive(false);}
             string wpt=Waypoint.HasValue?"Waypoint "+DisplayUnits.Distance(Vector3.ProjectOnPlane(Waypoint.Value-race.vehicle.Body.position,Vector3.up).magnitude)+(race.FreeRoam?"":" (Free Roam only)")+"\n\n":"Mouse: click the map to set a waypoint, right-click to clear\n\n";
-            status.text=wpt+RouteTitle+(selected>=0?destinations[selected].title:"Map Point")+"\n"+(race.FreeRoam?"Select for location actions":"Travel available in Free Roam")+"\n\n"+RouteLegend+"\n\n"+(race.GetComponent<ExplorationCollection>()?.Summary??"")+"\n\n"+(error??errorMessage);
+            status.text=wpt+RouteTitle+(selected>=0?destinations[selected].title:"Map Point")+"\n"+(race.FreeRoam?"Select for location actions":"Travel available in Free Roam")+"\n\n"+RouteLegend+"\n\n"+(collection?collection.Header:"")+"\n\n"+(error??errorMessage);
+            // 0.93 Part C: no two names on top of each other: area names first, then place names (one that would overlap is left
+            // out at this zoom), then the discovered landmarks (one that would overlap shows only its dot until zoomed in)
+            var taken=new List<Rect>();
+            bool Fits(UnityEngine.UI.Text t){var rt=t.rectTransform;float w=Mathf.Min(t.preferredWidth,rt.rect.width)+4,h=t.preferredHeight+2;var at=rt.anchoredPosition;var box=new Rect(at.x-w*rt.pivot.x,at.y-h*.5f,w,h);if(taken.Any(o=>o.Overlaps(box)))return false;taken.Add(box);return true;}
+            foreach(var (t,_,_) in areaLabels)if(t.gameObject.activeSelf&&!Fits(t))t.gameObject.SetActive(false);
+            foreach(var (t,_) in placeLabels)if(t.gameObject.activeSelf&&!Fits(t))t.gameObject.SetActive(false);
+            for(int i=0;i<markers.Count;i++)if(markers[i].gameObject.activeSelf&&!Fits(markers[i])){markers[i].text=selected==i?"◆":"●";Fits(markers[i]);}
             RefreshMapPrompts();
         }        public void OnScroll(PointerEventData e){if(sheetOpen)return;zoom=Mathf.Clamp(zoom+e.scrollDelta.y*.25f,1,6);Draw();}
         public void OnDrag(PointerEventData e){if(sheetOpen)return;center-=new Vector2(e.delta.x/picture.rectTransform.rect.width,e.delta.y/picture.rectTransform.rect.height)/zoom;selected=-1;Draw();}

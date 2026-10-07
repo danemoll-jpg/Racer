@@ -1,0 +1,17 @@
+---- map93
+PASS Neighborhood woodland: 8 / 8, 3 region(s), every acorn inside: True
+PASS Western gullies: 3 / 4, 4 region(s), every acorn inside: True
+PASS Creek pockets: 6 / 6, 2 region(s), every acorn inside: True
+PASS Ridge woodland: 5 / 6, 1 region(s), every acorn inside: True
+PASS the map opens with the controller's Back / Select
+PASS D-pad down 1: Neighborhood woodland chosen in the list (highlighted and centred)
+PASS D-pad down 2: Western gullies chosen in the list (highlighted and centred)
+PASS D-pad down 3: Creek pockets chosen in the list (highlighted and centred)
+PASS D-pad down 4: Ridge woodland chosen in the list (highlighted and centred)
+PASS B closes the map
+PASS Exploration page: D-pad down reaches the Western gullies row (focus area-1)
+PASS A on it opens the map on Western gullies
+PASS minimap inside Western gullies: "Western gullies  3 / 4"
+PASS the outside point is in no area
+PASS minimap outside every area: no line ("")
+done, failures 0

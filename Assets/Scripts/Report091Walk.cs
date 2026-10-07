@@ -14,7 +14,7 @@ namespace Racer {
 // LB / RB, Start), plus split-screen with a controller as player 1 and The Opening Jump on a copy of Dan's save.
 public sealed partial class Report080Checks {
  partial void Cases091(string[] a,ref IEnumerator run){
-  run=a[0] switch{"pausediag91"=>PauseDiag091(),"walk91"=>Walk091(),"campaignwalk91"=>CampaignWalk091(),"newplayer91"=>NewPlayer091(),"splitpad91"=>SplitPad091(),"jumpend91"=>JumpEnd091(a[1],a[2],a.Length>3&&a[3]=="menu"),"roam91"=>Roam091(),"runup91"=>RunUp091(),_=>Run092(a)};}
+  run=a[0] switch{"pausediag91"=>PauseDiag091(),"walk91"=>Walk091(),"campaignwalk91"=>CampaignWalk091(),"newplayer91"=>NewPlayer091(),"splitpad91"=>SplitPad091(),"jumpend91"=>JumpEnd091(a[1],a[2],a.Length>3&&a[3]=="menu"),"roam91"=>Roam091(),"runup91"=>RunUp091(),_=>Run093(a)};}
  readonly List<string> walked=new();
  GameObject Sel91=>EventSystem.current?EventSystem.current.currentSelectedGameObject:null;
  string Sel91Name=>Sel91?Sel91.name:"(nothing)";

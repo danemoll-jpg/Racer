@@ -1,0 +1,14 @@
+Neighborhood woodland (8 / 8): Around Dan's and Kyle's houses, and west of S Cherokee Ln up toward Hwy 92
+  region 343..568 x -252..188 (label at 460,96): Old stone corner (403,128) found, Quiet gully (436,67) found, Woodland nook (508,-192) found, Behind the pines (465,-100) found, Anderson's (472,-20) found, Dan's fence (474,27) found
+  region 215..385 x 296..466 (label at 300,428): Fallen log pocket (290,342) found
+  region 215..385 x 490..660 (label at 300,622): Cairn hollow (290,536) found
+Western gullies (3 / 4): West of S Cherokee Ln, spread along Hwy 92 and Trickum Rd
+  region -54..116 x 454..624 (label at 31,585): Behind the pines (22,500) found
+  region -442..-272 x 457..627 (label at -357,589): Woodland nook (-351,502)
+  region -693..-523 x 105..275 (label at -608,236): Quiet gully (-601,150) found
+  region -458..-288 x -577..-407 (label at -373,-445): Old stone corner (-365,-531) found
+Creek pockets (6 / 6): East of the lake, and two higher up the mountain
+  region 678..954 x -203..-1 (label at 831,-45): Woodland nook (894,-61) found, Behind the pines (882,-101) found, Cairn hollow (808,-143) found, Fallen log pocket (738,-85) found
+  region 960..1094 x -34..87 (label at 1027,60): Old stone corner (1034,26) found, Quiet gully (1020,27) found
+Ridge woodland (5 / 6): North-east of the lake, up the mountain toward the summit
+  region 647..1045 x -11..178 (label at 851,138): Old stone corner (707,49) found, Quiet gully (753,96), Woodland nook (849,69) found, Behind the pines (878,118) found, Cairn hollow (933,118) found, Fallen log pocket (985,77) found

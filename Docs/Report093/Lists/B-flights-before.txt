@@ -1,0 +1,17 @@
+moto 24 m/s: takeoff s 41.2 (224.9,77.6,81.0) at 24.1 m/s, air 1.52 s, landing s 75.9 lat +1.8 (259.2,76.5,85.7), run-out to the rejoin within 1.9 m of the centre, reached the rejoin, resets 0, min up 0.95; crowns passed through: none
+moto 34 m/s: takeoff s 41.0 (224.6,77.5,80.8) at 33.5 m/s, air 2.06 s, landing s 105.7 lat +1.4 (288.2,77.1,93.0), run-out to the rejoin within 2.3 m of the centre, reached the rejoin, resets 0, min up 0.95; crowns passed through: none
+moto 44 m/s: takeoff s 33.5 (217.4,75.7,77.9) at 14.7 m/s, air 1.76 s, landing s 57.1 lat +4.1 (241.3,75.2,79.4), run-out to the rejoin within 4.3 m of the centre, reached the rejoin, resets 0, min up 0.37; crowns passed through: none
+original 24 m/s: takeoff s 41.4 (225.0,77.8,81.0) at 23.8 m/s, air 1.44 s, landing s 74.0 lat +1.3 (257.3,76.8,85.8), run-out to the rejoin within 1.6 m of the centre, reached the rejoin, resets 0, min up 0.95; crowns passed through: none
+original 34 m/s: takeoff s 41.2 (224.9,77.9,80.4) at 30.8 m/s, air 2.02 s, landing s 99.0 lat +3.0 (280.7,77.5,95.7), run-out to the rejoin within 3.0 m of the centre, reached the rejoin, resets 0, min up 0.94; crowns passed through: none
+original 44 m/s: takeoff s 29.7 (213.7,74.1,77.1) at 2.1 m/s, air 1.36 s, landing s 28.6 lat +7.6 (213.3,73.0,71.9), run-out to the rejoin within 9.1 m of the centre, NOT reached, resets 0, min up 0.01; crowns passed through: none
+atv 24 m/s: takeoff s 41.0 (224.6,77.5,81.0) at 24.0 m/s, air 1.52 s, landing s 75.4 lat +1.7 (258.8,76.4,85.6), run-out to the rejoin within 1.9 m of the centre, reached the rejoin, resets 0, min up 0.95; crowns passed through: none
+atv 34 m/s: takeoff s 37.2 (220.9,76.6,80.0) at 31.3 m/s, air 2.16 s, landing s 99.2 lat +0.1 (281.6,77.1,92.7), run-out to the rejoin within 0.7 m of the centre, reached the rejoin, resets 0, min up 0.92; crowns passed through: none
+atv 44 m/s: takeoff s 6.6 (190.4,69.6,78.1) at 43.6 m/s, air 0.48 s, landing s 26.8 lat +1.6 (210.7,73.1,77.6), run-out to the rejoin within 6.8 m of the centre, NOT reached, resets 0, min up 0.80; crowns passed through: none
+---- crowns within half width + 3 m of the centre line from s 30: 7
+s    57 centre 4.7 m, crown edge 4.2 m: trunk collider at 239.5,75.1,88.0 r 0.5 h 15.6
+s    62 centre 5.0 m, crown edge 4.5 m: trunk collider at 246.0,74.9,79.5 r 0.5 h 13.0
+s    75 centre 4.7 m, crown edge 4.2 m: trunk collider at 258.9,75.6,82.6 r 0.5 h 17.5
+s    89 centre 5.0 m, crown edge 4.6 m: trunk collider at 273.2,76.2,85.6 r 0.4 h 15.0
+s    91 centre 5.5 m, crown edge 5.1 m: trunk collider at 271.9,76.3,96.0 r 0.4 h 18.3
+s   104 centre 6.5 m, crown edge 6.2 m: trunk collider at 287.7,76.5,87.5 r 0.4 h 17.7
+s   128 centre 4.4 m, crown edge 3.9 m: trunk collider at 314.1,76.1,96.8 r 0.5 h 13.0

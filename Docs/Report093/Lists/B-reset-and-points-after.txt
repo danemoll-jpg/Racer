@@ -1,0 +1,10 @@
+---- reset93:DansBackyardForward:Abandoned Cabin Jump:248.02,75.68,82.79,96.9:70
+stopped at 248.0,75.67,82.8: route Abandoned Cabin Jump; inside crowns: 
+PASS reset from Dan's position: now at 248.0,75.70,83.3 heading 78, route Abandoned Cabin Jump s 64.3 lat +1.7 (Recovered to nearest course point); crowns on it or within 5 m ahead: none; solid within 5 m ahead: none
+---- resetpoints93:DansBackyardForward
+DansBackyardForward Abandoned Cabin Jump: 33 reset points, 3 with crowns or solid scenery on them or within 5 m ahead
+DansBackyardForward Tree-Top Trail: 29 reset points, 2 with crowns or solid scenery on them or within 5 m ahead
+DansBackyardForward: 5 reset points blocked (resetpoints-DansBackyardForward.txt)
+---- places93
+places: 1048 lines (places.txt)
+done, failures 0

@@ -10,7 +10,7 @@ namespace Racer
     public sealed partial class ExplorationMap
     {
         InputActionMap mapActions;
-        InputAction mapToggle,panAction,zoomOutAction,zoomInAction,selectAction,routeAction,waypointAction,centerAction,prevAction,nextAction,helpAction,backAction,navigateAction,trackAction,clearWaypointAction;
+        InputAction areaPrevAction,areaNextAction,mapToggle,panAction,zoomOutAction,zoomInAction,selectAction,routeAction,waypointAction,centerAction,prevAction,nextAction,helpAction,backAction,navigateAction,trackAction,clearWaypointAction;
         // 0.76: the routes of any courses chosen under Track are drawn over the one world, several at once, remembered with
         // the map data. Choosing never loads a scene, changes the world or moves the player. During a race: that race only.
         string CurrentScene=>race.Flow.InRoamWorld?RacePlaylists.Scenes[Mathf.Clamp(RaceFlow.RoamCourse,0,RacePlaylists.Scenes.Length-1)]:gameObject.scene.name;
@@ -32,7 +32,7 @@ namespace Racer
         public IEnumerable<InputAction> Bindings {get{EnsureMapActions();return mapActions.actions;}}
         void EnsureMapActions()
         {
-            if(mapActions!=null&&routeAction!=null&&routeAction.bindings.Count>0&&clearWaypointAction!=null)return;mapActions?.Dispose();mapActions=new InputActionMap("World Map");
+            if(mapActions!=null&&routeAction!=null&&routeAction.bindings.Count>0&&clearWaypointAction!=null&&areaNextAction!=null)return;mapActions?.Dispose();mapActions=new InputActionMap("World Map");
             InputAction ButtonAction(string name,string keyboard,string controller){var a=mapActions.AddAction(name,InputActionType.Button);a.AddBinding(keyboard);a.AddBinding(controller);return a;}
             mapToggle=ButtonAction("Open / close","<Keyboard>/m","<Gamepad>/select");
             selectAction=ButtonAction("Select location","<Keyboard>/space","<Gamepad>/buttonSouth");
@@ -45,6 +45,8 @@ namespace Racer
             helpAction=ButtonAction("Actions / Help","<Keyboard>/enter","<Gamepad>/start");
             trackAction=ButtonAction("Select map track","<Keyboard>/t","<Gamepad>/dpad/right");
             backAction=ButtonAction("Back","<Keyboard>/escape","<Gamepad>/buttonEast");
+            // 0.93 Part C: step through the acorn areas (each highlighted and centred)
+            areaPrevAction=ButtonAction("Previous acorn area","<Keyboard>/pageUp","<Gamepad>/dpad/up");areaNextAction=ButtonAction("Next acorn area","<Keyboard>/pageDown","<Gamepad>/dpad/down");
             panAction=mapActions.AddAction("Pan",InputActionType.Value);panAction.AddBinding("<Gamepad>/leftStick");panAction.AddCompositeBinding("2DVector").With("Up","<Keyboard>/w").With("Down","<Keyboard>/s").With("Left","<Keyboard>/a").With("Right","<Keyboard>/d");
             zoomOutAction=ButtonAction("Zoom out","<Keyboard>/minus","<Gamepad>/leftTrigger");zoomInAction=ButtonAction("Zoom in","<Keyboard>/equals","<Gamepad>/rightTrigger");
             navigateAction=mapActions.AddAction("Actions navigation",InputActionType.Value);navigateAction.AddBinding("<Gamepad>/dpad/y");navigateAction.AddBinding("<Gamepad>/leftStick/y");navigateAction.AddCompositeBinding("1DAxis").With("Positive","<Keyboard>/upArrow").With("Negative","<Keyboard>/downArrow");mapActions.Enable();
@@ -67,6 +69,7 @@ namespace Racer
             if(prevAction.WasPressedThisFrame())SelectNext(-1);else if(nextAction.WasPressedThisFrame())SelectNext(1);
             else if(routeAction.WasPressedThisFrame())ToggleRoute();else if(waypointAction.WasPressedThisFrame())ToggleWaypoint();else if(clearWaypointAction.WasPressedThisFrame())ClearWaypoint();
             else if(centerAction.WasPressedThisFrame()){center=MapNormalized(race.vehicle.Body.position);selected=-1;}
+            else if(areaNextAction.WasPressedThisFrame())StepArea(1);else if(areaPrevAction.WasPressedThisFrame())StepArea(-1);
             else if(trackAction.WasPressedThisFrame())OpenMapSheet(false,false,true);else if(helpAction.WasPressedThisFrame())OpenMapSheet(false);else if(selectAction.WasPressedThisFrame())SelectReticle();
             Draw();
         }
@@ -112,12 +115,13 @@ namespace Racer
             EnsureMapActions();confirmation.SetActive(false);
             foreach(Transform child in panel.transform){if(child.GetComponent<UnityEngine.UI.Button>()||child.name=="Map controls"||child.name=="Controller controls"){child.gameObject.SetActive(false);Destroy(child.gameObject);}}
             picture.rectTransform.sizeDelta=new(930,visual?930*visual.bounds.height/visual.bounds.width:540);picture.rectTransform.anchoredPosition=new(-150,15);courseOverlay.rectTransform.sizeDelta=picture.rectTransform.sizeDelta;
-            status.rectTransform.anchoredPosition=new(485,25);status.rectTransform.sizeDelta=new(235,500);status.fontSize=18;
+            status.rectTransform.anchoredPosition=new(485,120);status.rectTransform.sizeDelta=new(235,300);status.fontSize=17;
+            areaOverlay.rectTransform.sizeDelta=picture.rectTransform.sizeDelta;areaList.rectTransform.anchoredPosition=new(487,-150);
             var footer=RectUI("Map bindings",panel.transform,new(0,-302),new(1220,94));
-            var items=new[]{(selectAction,"Select"),(backAction,"Back"),(routeAction,"Race route"),(waypointAction,"Waypoint"),(prevAction,"Previous"),(nextAction,"Next"),(clearWaypointAction,"Clear wpt"),(panAction,"Move cursor"),(zoomOutAction,"Zoom out"),(zoomInAction,"Zoom in"),(centerAction,"Center"),(helpAction,"Actions / Help"),(trackAction,"Track")};
-            for(int i=0;i<items.Length;i++){var item=items[i];var r=RectUI(item.Item2,footer,new(-522+(i%7)*174,23-(i/7)*46),new(170,40));var icon=RectUI("Glyph",r,new(-69,0),new(54,34));var glyph=icon.gameObject.AddComponent<MenuGlyph>();glyph.raycastTarget=false;var key=Text("Key",icon,Vector2.zero,new(54,34),15);var label=Text("Action",r,new(30,0),new(112,36),16);label.text=item.Item2;mapPrompts.Add((glyph,key,label,item.Item1));var b=r.gameObject.AddComponent<UnityEngine.UI.Button>();b.navigation=new(){mode=UnityEngine.UI.Navigation.Mode.None};int n=i;b.onClick.AddListener(()=>{if(sheetOpen)return;switch(n){case 0:SelectReticle();break;case 1:Close();break;case 2:ToggleRoute();break;case 3:ToggleWaypoint();break;case 4:SelectNext(-1);break;case 5:SelectNext(1);break;case 6:ClearWaypoint();break;case 10:center=MapNormalized(race.vehicle.Body.position);selected=-1;break;case 11:OpenMapSheet(false);break;case 12:OpenMapSheet(false,false,true);break;}Draw();});var hit=r.gameObject.AddComponent<UnityEngine.UI.Image>();hit.color=new(0,0,0,.01f);b.targetGraphic=hit;}
+            var items=new[]{(selectAction,"Select"),(backAction,"Back"),(routeAction,"Race route"),(waypointAction,"Waypoint"),(prevAction,"Previous"),(nextAction,"Next"),(clearWaypointAction,"Clear wpt"),(panAction,"Move cursor"),(zoomOutAction,"Zoom out"),(zoomInAction,"Zoom in"),(centerAction,"Center"),(helpAction,"Actions / Help"),(trackAction,"Track"),(areaNextAction,"Acorn area")};
+            for(int i=0;i<items.Length;i++){var item=items[i];var r=RectUI(item.Item2,footer,new(-522+(i%7)*174,23-(i/7)*46),new(170,40));var icon=RectUI("Glyph",r,new(-69,0),new(54,34));var glyph=icon.gameObject.AddComponent<MenuGlyph>();glyph.raycastTarget=false;var key=Text("Key",icon,Vector2.zero,new(54,34),15);var label=Text("Action",r,new(30,0),new(112,36),16);label.text=item.Item2;mapPrompts.Add((glyph,key,label,item.Item1));var b=r.gameObject.AddComponent<UnityEngine.UI.Button>();b.navigation=new(){mode=UnityEngine.UI.Navigation.Mode.None};int n=i;b.onClick.AddListener(()=>{if(sheetOpen)return;switch(n){case 0:SelectReticle();break;case 1:Close();break;case 2:ToggleRoute();break;case 3:ToggleWaypoint();break;case 4:SelectNext(-1);break;case 5:SelectNext(1);break;case 6:ClearWaypoint();break;case 10:center=MapNormalized(race.vehicle.Body.position);selected=-1;break;case 11:OpenMapSheet(false);break;case 12:OpenMapSheet(false,false,true);break;case 13:StepArea(1);break;}Draw();});var hit=r.gameObject.AddComponent<UnityEngine.UI.Image>();hit.color=new(0,0,0,.01f);b.targetGraphic=hit;}
             RefreshMapPrompts();
         }
-        void RefreshMapPrompts(){foreach(var p in mapPrompts){string binding=MenuInput.Binding(p.action);p.glyph.SetPath(binding);p.key.text=binding=="<Gamepad>/dpad/right"?"D→":MenuGlyph.Label(binding);if(p.action==trackAction)p.glyph.transform.parent.gameObject.SetActive(!race.Flow.TrackBrowsingLocked);}}
+        void RefreshMapPrompts(){foreach(var p in mapPrompts){string binding=MenuInput.Binding(p.action);p.glyph.SetPath(binding);p.key.text=binding=="<Gamepad>/dpad/right"?"D→":binding=="<Gamepad>/dpad/down"?"D↑↓":MenuGlyph.Label(binding);if(p.action==trackAction)p.glyph.transform.parent.gameObject.SetActive(!race.Flow.TrackBrowsingLocked);}}
     }
 }

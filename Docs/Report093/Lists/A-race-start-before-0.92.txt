@@ -1,0 +1,74 @@
+version 0.92.0-review1, screen 1920x1080
+---- event:c3-backyard-final:moto
+Backyard Final: Dan's Backyard Loop — Forward, 5 rivals, available on this save True
+DansBackyardForward: 6 on the grid (origin 10.5 m)
+  YOU [moto] at (466.5, 80.3, 6.8), station 3.5 m, side +1.2 m
+  EMBER [moto] at (466.6, 80.3, 9.0), station 3.5 m, side +1.2 m
+  GOLD [drifter] at (462.5, 80.2, 6.9), station 7.5 m, side +1.2 m
+  BLUE [atv] at (462.6, 80.2, 9.1), station 7.5 m, side +1.2 m
+  JADE [tourer] at (462.5, 80.4, 6.9), station 7.5 m, side +1.3 m
+  VIOLET [fastback] at (462.6, 80.4, 9.1), station 7.5 m, side +1.3 m
+  OVERLAP GOLD / JADE by 0.65 m
+  OVERLAP BLUE / VIOLET by 0.55 m
+  grid overlaps: 2
+  STUCK / RESET YOU: 0.5 m in 3 s, 69.2 m in 10 s, resets 0
+  STUCK / RESET EMBER: 0.2 m in 3 s, 62.3 m in 10 s, resets 0
+  STUCK / RESET GOLD: 0.1 m in 3 s, 50.8 m in 10 s, resets 1
+  STUCK / RESET BLUE: 0.2 m in 3 s, 58.5 m in 10 s, resets 1
+  STUCK / RESET JADE: 0.0 m in 3 s, 43.7 m in 10 s, resets 1
+  STUCK / RESET VIOLET: 0.0 m in 3 s, 75.4 m in 10 s, resets 0
+  the player's throttle as read from the controller in the first second: 1.00
+FAIL event-c3-backyard-final-moto: 6 vehicles, grid overlaps 2, all moved at GO with no reset in 10 s: False
+---- event:c1-street-final:original
+Street Loop Final: Street Loop — Forward, 5 rivals, available on this save True
+StreetLoopGreybox: 6 on the grid (origin 38.5 m)
+  YOU [original] at (318.3, 8.6, 558.1), station 4666.8 m, side +2.3 m
+  EMBER [atv] at (316.9, 8.5, 549.1), station 0.5 m, side +2.3 m
+  GOLD [tourer] at (322.2, 8.9, 542.7), station 7.5 m, side +2.3 m
+  BLUE [roadster] at (318.0, 9.7, 535.6), station 14.6 m, side +2.3 m
+  JADE [pebble] at (322.4, 11.4, 528.8), station 21.7 m, side +2.3 m
+  VIOLET [drifter] at (317.8, 13.3, 522.2), station 28.7 m, side +2.3 m
+  grid overlaps: 0
+  moved YOU: 47.4 m in 3 s, 192.0 m in 10 s, resets 0
+  moved EMBER: 34.1 m in 3 s, 243.4 m in 10 s, resets 0
+  moved GOLD: 39.1 m in 3 s, 248.8 m in 10 s, resets 0
+  moved BLUE: 42.7 m in 3 s, 256.0 m in 10 s, resets 0
+  moved JADE: 39.1 m in 3 s, 248.3 m in 10 s, resets 0
+  moved VIOLET: 46.7 m in 3 s, 265.5 m in 10 s, resets 0
+  the player's throttle as read from the controller in the first second: 1.00
+PASS event-c1-street-final-original: 6 vehicles, grid overlaps 0, all moved at GO with no reset in 10 s: True
+---- setup:6:tourer:tourer,skyfin,fastback
+DansBackyardForward: 4 on the grid (origin 10.5 m)
+  YOU [original] at (466.5, 80.4, 6.8), station 3.4 m, side +1.3 m
+  EMBER [tourer] at (466.6, 80.4, 9.0), station 3.4 m, side +1.3 m
+  GOLD [skyfin] at (462.5, 80.4, 6.9), station 7.5 m, side +1.3 m
+  BLUE [fastback] at (462.6, 80.4, 9.1), station 7.5 m, side +1.3 m
+  OVERLAP YOU / GOLD by 0.41 m
+  OVERLAP EMBER / BLUE by 0.55 m
+  grid overlaps: 2
+  moved YOU: 38.4 m in 3 s, 149.3 m in 10 s, resets 0
+  moved EMBER: 30.9 m in 3 s, 144.2 m in 10 s, resets 0
+  moved GOLD: 38.8 m in 3 s, 150.0 m in 10 s, resets 0
+  moved BLUE: 39.2 m in 3 s, 153.8 m in 10 s, resets 0
+  the player's throttle as read from the controller in the first second: 1.00
+FAIL setup-6-tourer-tourer-skyfin-fastback: 4 vehicles, grid overlaps 2, all moved at GO with no reset in 10 s: False
+---- split:6:moto:4
+DansBackyardForward: 6 on the grid (origin 10.5 m)
+  YOU [moto] at (466.5, 80.3, 6.8), station 3.5 m, side +1.2 m
+  EMBER [atv] at (466.6, 80.3, 9.0), station 3.5 m, side +1.2 m
+  GOLD [atv] at (462.5, 80.2, 6.9), station 7.5 m, side +1.2 m
+  BLUE [skyfin] at (462.6, 80.4, 9.1), station 7.5 m, side +1.3 m
+  JADE [fastback] at (462.5, 80.4, 6.9), station 7.5 m, side +1.3 m
+  VIOLET [original] at (462.6, 80.4, 9.1), station 7.5 m, side +1.3 m
+  OVERLAP GOLD / JADE by 0.55 m
+  OVERLAP BLUE / VIOLET by 0.72 m
+  grid overlaps: 2
+  STUCK / RESET YOU: 0.5 m in 3 s, 76.2 m in 10 s, resets 0
+  STUCK / RESET EMBER: 0.2 m in 3 s, 65.6 m in 10 s, resets 0
+  STUCK / RESET GOLD: 0.2 m in 3 s, 57.6 m in 10 s, resets 1
+  STUCK / RESET BLUE: 0.1 m in 3 s, 41.7 m in 10 s, resets 1
+  STUCK / RESET JADE: 0.0 m in 3 s, 33.7 m in 10 s, resets 1
+  STUCK / RESET VIOLET: 0.6 m in 3 s, 57.5 m in 10 s, resets 0
+  the player's throttle as read from the controller in the first second: 1.00
+FAIL split-6-moto-4: 6 vehicles, grid overlaps 2, all moved at GO with no reset in 10 s: False
+FAILURES 3
