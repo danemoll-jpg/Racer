@@ -15,7 +15,16 @@
   - **Dan does:** driving every course and direction, trying every vehicle everywhere, checking that a universal fix holds everywhere, and judging look and feel. He reports through the debug ZIPs.
   - **Write-up:** the TODO results are a short list: what changed, the one check per item, decisions made, and anything Dan should look at. No separate VALIDATION.md unless a round asks. If a check would take more than a few minutes of play time, skip it and list it under "for Dan to check".
 
-## CURRENT — Kyle's driveway, yard and mailbox; flashing car floorboards; Forest Reverse lake-jump landing; acorn reward riding lawnmower — 0.88.0-review1 — BUILT, RELEASE IN PROGRESS
+## Previous delivery — Kyle's driveway, yard and mailbox; flashing car floorboards; Forest Reverse lake-jump landing (study only); acorn reward riding lawnmower — 0.88.0-review1 — DELIVERED, AWAITING DAN'S REVIEW
+
+- **DELIVERED:**
+  - Source `a7d017321e109fb9d96d409e5bb0c0a36141eade` pushed and verified on origin/main.
+  - Fresh 0.88.0-review1 Windows build: 0 errors, 2m37s ([build-release.txt](Docs/Report088/build-release.txt)).
+  - Published [game-88000](https://github.com/danemoll-jpg/woodstock-rush-releases/releases/tag/game-88000) with `python Tools/Publish-LauncherRelease.py` (the project's `gh` put on PATH): the known draft-lookup miss after the draft was created, then `--resume-draft` uploaded the three assets and published. Previous releases retained.
+  - All 234 Latest files match the public signed manifest. Public download, signature, install and startup pass ([hosted/result.json](Docs/Report088/hosted/result.json)). The catalog reports no pending game or music update.
+- **Play-Racer.cmd (unchanged):** launched a responsive `Builds/Latest/versions/88000/Racer.exe` (0.88.0-review1) through the launcher, muted, settings restored byte for byte. Latest root, current 88000 and previous 87000 retained; 86000 had already been retired by the updater.
+- **Cleanup:** Builds 10,151,368,259 -> 8,008,926,954 bytes (2.1 GB recovered); also the hosted-check install, about 190 MB of check scratch outside the project and the temporary editor tools. C: free 270,695,219,200 bytes after cleanup.
+- **SESSION HANDOFF: STOP.** Awaiting Dan's review of 0.88 (rule 12).
 
 ### Results (2026-10-07, Claude Code)
 
