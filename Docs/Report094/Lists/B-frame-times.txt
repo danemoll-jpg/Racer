@@ -1,0 +1,5 @@
+screen=3840x2160 gpu=NVIDIA GeForce GTX 1660 Ti
+SPLIT FreeRoam Street Loop - Forward top/bottom Night/Snow rivals 0 traffic True (1 racers, 24 traffic cars): GPU median 10.76 ms (95th 12.70, max 19.65) = 93 fps median, 79 fps 95th; wall-clock median 11.13 ms; 2619 frames
+  views: player 1 Chase (head hidden False), player 2 First person (head hidden True)
+SPLIT FreeRoam Street Loop - Forward left/right Night/Snow rivals 0 traffic True (1 racers, 24 traffic cars): GPU median 8.72 ms (95th 10.99, max 55.85) = 115 fps median, 91 fps 95th; wall-clock median 9.59 ms; 2912 frames
+  views: player 1 Chase (head hidden False), player 2 First person (head hidden True)

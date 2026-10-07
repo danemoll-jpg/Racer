@@ -132,6 +132,7 @@ namespace Racer
                 else lines.Add("<b>FREE ROAM</b>");
                 lines.Add(SplitRoam.Toward(car.transform, cam ? cam.transform : car.transform, other ? other.transform : null, SplitScreen.NameOf(3 - player)));
                 var acts = i == 0 ? flow.Activities : roam.Activities2; string hud = acts ? acts.Hud : "";
+                if (hud.Contains("> Activities")) hud = hud.Split('\n')[0]; // timed attempts are single-player only (no Activities in the split-screen pause menu)
                 h.info.text = string.Join("\n", lines); h.info.fontSize = 19;
                 ((RectTransform)h.infoPanel.transform).sizeDelta = new Vector2(330, 22 + 25 * lines.Count);
                 h.speed.text = $"{DisplayUnits.Mph(Mathf.Abs(car.ForwardSpeed)):0} <size=16>mph</size>";
