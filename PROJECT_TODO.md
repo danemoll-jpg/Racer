@@ -16,9 +16,19 @@
   - **Controller first (Dan, 2026-10-07):** Dan plays with a controller. Any new or changed menu, screen or prompt must be checked once with a controller only (no mouse, no keyboard) before delivery: every control reachable, focus visible, B goes back.
   - **Write-up:** the TODO results are a short list: what changed, the one check per item, decisions made, and anything Dan should look at. No separate VALIDATION.md unless a round asks. If a check would take more than a few minutes of play time, skip it and list it under "for Dan to check".
 
-## CURRENT — Controller can't reach Campaign or Split Screen; split-screen controller join; campaign jump never scores — target 0.91.0-review1 — IMPLEMENTED AND CHECKED (release steps below)
+## CURRENT — Controller can't reach Campaign or Split Screen; split-screen controller join; campaign jump never scores — 0.91.0-review1 — DELIVERED, AWAITING DAN'S REVIEW
 
 ### Results (2026-10-07, Claude Code)
+
+- **DELIVERED:**
+  - Source `afc470c66ead0eacada0b15ad7f03f264b676bf1` pushed and verified on origin/main.
+  - Fresh 0.91.0-review1 Windows build from that commit: 0 errors, 4m45s ([build-release.txt](Docs/Report091/build-release.txt)).
+  - Published [game-91000](https://github.com/danemoll-jpg/woodstock-rush-releases/releases/tag/game-91000) with `Tools/Publish-LauncherRelease.py` (the project's `gh`): three assets uploaded and published in one pass. Previous releases retained.
+  - All 234 Latest files match the public signed manifest; public download, signature, install and startup pass ([hosted/result.json](Docs/Report091/hosted/result.json)); the production updater activated 91000 ([launcher-catalog-check.json](Docs/Report091/launcher-catalog-check.json)).
+- **Play-Racer.cmd (unchanged):** launched a responsive `Builds/Latest/versions/91000/Racer.exe` (0.91.0-review1) through the launcher, muted, settings restored byte for byte ([play-racer-launch.json](Docs/Report091/play-racer-launch.json)). The first attempt took longer than the script's 50 s to show its window (the game did start, from 91000); the second passed. Latest root, current 91000 and previous 90000 retained (89000 already retired by the updater).
+- **Dan's save:** while this round ran, Dan played on (0.90): his real `campaign-v1.json` now has The Opening Jump passed (gold, 52.6 m), Rain in the Pines, The Long Way Back and the Forest Final: chapter 3, $22,630. This round only ever read it (the checks used a copy taken at the start); his result stays as recorded.
+- **Cleanup:** Builds 10,151,860,021 → 8,009,238,152 bytes (2.1 GB recovered: the build output and game.zip); also the hosted-check install (1.7 GB), 45 MB of check scratch and the temporary editor tools. C: free 251,640,315,904 bytes after cleanup.
+- **SESSION HANDOFF: STOP.** Awaiting Dan's review of 0.91 (rule 12).
 
 - **Safety checkpoint:** `8add3a0d` (this plan), pushed. Evidence: [Docs/Report091/](Docs/Report091/) (Lists/, Shots/). Checks: `Report091Checks.cs`, `Report091Walk.cs` (editor only, emulated controller = an InputSystem test gamepad; menus with D-pad / A / B / LB / RB / Start, driving with stick and triggers). Version 0.91.0-review1 / build 91000.
 - **A — Controller reaches every row — DONE.**
