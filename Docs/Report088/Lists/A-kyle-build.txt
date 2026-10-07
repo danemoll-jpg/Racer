@@ -1,0 +1,365 @@
+== FreeRoamWorld
+  removed surfaces: Kyle descending driveway/Ground_Kyle descending drive [Assets/Scenery/KylesHouse/FreeRoamWorld-kyle-driveway-0.87.asset] Driveway gravel; Kyle descending driveway/Ground_Kyle garage drive (0.87) [Assets/Scenery/KylesHouse/FreeRoamWorld-kyle-garage-drive.asset] Driveway gravel; CR113 continuous highway seams/Ground_CR113 Kyle driveway edge join [Assets/Track/Backyard/StreetLoopGreybox-Kyle-edge.asset] Driveway gravel
+  street edge at the mouth: left 6.10, right 6.95: the drive takes a cross-fall of -17.7 % there, level by 8 m
+  ground cells without a tile hit: 0; tiles: Ground_560_320 [Assets/Track/SevenCorrections/Exact compact pool release.asset]; Ground_640_320 [Assets/Track/Discovery/StreetLoopGreybox-kyle-smooth-drive-Ground_640_320.asset]
+  drive: mouth M local 21.14,0.00,30.95 (world 476.81,78.67,-20.99, street gap 0.00) at 6.54 m above the pad; end E local 12.41,0.00,1.60 at the apron edge; length 30.6 m, width 4.8 m, heading 95 deg; grade 22.7 % (12.8 deg) with 1.8 m rounded ends
+  ground: cleaned zone (old drive and gravel, smoothed) 792 m2; fill 429 m3, cut 190 m3, largest change 2.70 m
+  drive profile (s: drive / ground before): 0:6.54/6.54 3:6.06/6.55 6:5.38/6.44 9:4.70/6.31 12:4.02/4.80 15:3.34/1.71 18:2.66/1.55 21:1.98/1.55 24:1.30/1.48 27:0.62/0.70 30:0.02/0.04
+  lawn (z: ground before -> after at x -4 / 4): 7:2.45->2.31/2.45->2.31 9:2.37->2.31/2.42->2.31 11:1.75->2.31/1.75->2.31 13:0.76->2.31/0.76->2.31 15:0.08->2.31/0.34->2.31 17:0.91->2.31/0.29->2.31 19:2.95->2.95/1.27->2.31 21:5.73->5.73/5.24->5.24 23:8.30->8.30/7.77->7.77
+  course free-roam-world: nearest gate to the mouth 55.0 m (Reverse START FINISH); street gap at the mouth 0.00 m
+  activity 'Fence line smash' centre 68.1 m from the drive line (radius 85); props nearest 56.8 m
+  activity 'Pool-house jump' centre 90.4 m from the drive line (radius 32); props nearest - m
+  mailbox at local 24.48,0.00,29.18 (street gap 1.02 m, 1.3 m off the drive edge); vignette spots local 26.66,0.00,24.93 / 28.37,0.00,22.96
+  re-plant tree Anderson wooded frontage screening/Anderson frontage trunk from local 22.69,5.78,24.16 (drive s 6.1, lateral +3.4) to 12.32,7.66,27.25 (lateral -7.4), pieces 2
+  re-plant tree World cleanup additional woodland/Anderson woodland trunk from local 18.21,6.19,20.20 (drive s 11.1, lateral +0.3) to 21.39,1.59,11.43 (lateral +5.8), pieces 4
+  re-plant tree Anderson wooded frontage screening/Anderson frontage trunk from local 19.06,2.12,16.36 (drive s 14.6, lateral +2.2) to 25.09,1.47,11.96 (lateral +9.2), pieces 4
+  trees: 27 sites within the region; in the drive's line 3 (re-planted beside it 3); re-seated on changed ground 6
+  planted on the left of the drive: 12 (templates: 24 nearby trees)
+    plant at local 34.88,3.27,23.71 (drive s 3.0, lateral +15.2)
+    plant at local 29.82,2.75,19.50 (drive s 8.5, lateral +11.6)
+    plant at local 37.10,2.32,17.52 (drive s 8.3, lateral +19.1)
+    plant at local 30.89,1.94,14.86 (drive s 12.6, lateral +13.9)
+    plant at local 31.27,1.40,10.21 (drive s 17.0, lateral +15.6)
+    plant at local 35.71,1.01,8.23 (drive s 17.6, lateral +20.4)
+    plant at local 25.77,1.28,6.90 (drive s 21.7, lateral +11.3)
+    plant at local 18.95,1.20,3.79 (drive s 26.7, lateral +5.6)
+    plant at local 23.16,1.28,3.04 (drive s 26.2, lateral +9.9)
+    plant at local 17.76,0.90,-0.57 (drive s 31.2, lateral +5.7)
+    plant at local 16.00,0.00,-4.87 (drive s 35.8, lateral +5.3)
+    plant at local 21.53,1.24,-7.02 (drive s 36.3, lateral +11.2)
+  ground Memory loop - north is +Z/Ground_560_320 [Assets/Track/SevenCorrections/Exact compact pool release.asset] (scenes DansBackyardReverse,FreeRoamWorld): 77 vertices moved, largest 0.80 m
+  ground Memory loop - north is +Z/Ground_640_320 [Assets/Track/Discovery/StreetLoopGreybox-kyle-smooth-drive-Ground_640_320.asset] (scenes DansBackyardForward,DansBackyardReverse,FreeRoamWorld,StreetLoopGreybox): 276 vertices moved, largest 2.73 m
+  vegetation World cleanup additional woodland/Additional woodland canopy: pieces cut 4, moved 2, bushes moved 0 -> Assets/Scenery/KylesHouse/FreeRoamWorld-kyle-vegetation-0.88-Additional woodland canopy-28509.asset
+  vegetation Anderson wooded frontage screening: pieces cut 6, moved 24, bushes moved 0 -> Assets/Scenery/KylesHouse/FreeRoamWorld-kyle-vegetation-0.88-Anderson wooded frontage screening-79846.asset
+  new drive and apron: Assets/Scenery/KylesHouse/FreeRoamWorld-kyle-driveway-0.88.asset, gravel 'Driveway gravel'
+  front step: local x -5.3..-1.3, z 6.5..6.95, top 2.48 (lawn 2.31, porch 2.65)
+  mailbox at 477.85,84.49,-17.36 yaw 275 (door to the street), trigger collider + breakaway as the other mailboxes
+  drive route points 477.31,82.27,-5.50 479.81,82.22,-5.65 496.78,79.22,-6.64 499.00,80.32,-14.86 502.92,79.51,-18.01 507.26,78.70,-20.15 510.51,78.70,-22.94 -> 476.81,85.23,-20.99 492.08,81.96,-22.20 507.34,78.70,-23.40 510.51,78.70,-22.94
+  map destination property-anderson 510.51,78.70,-22.94 -> 510.51,78.70,-22.94 yaw 262
+  Dan-and-Kyle vignette 486.78,84.65,-20.03 486.26,84.09,-17.59 -> 481.55,83.24,-14.35 483.12,82.19,-12.26
+  saved
+== DansBackyardReverse
+  removed surfaces: Kyle descending driveway/Ground_Kyle descending drive [Assets/Scenery/KylesHouse/DansBackyardReverse-kyle-driveway-0.87.asset] Driveway gravel; Kyle descending driveway/Ground_Kyle garage drive (0.87) [Assets/Scenery/KylesHouse/DansBackyardReverse-kyle-garage-drive.asset] Driveway gravel; CR113 continuous highway seams/Ground_CR113 Kyle driveway edge join [Assets/Track/Backyard/StreetLoopGreybox-Kyle-edge.asset] Driveway gravel
+  street edge at the mouth: left 6.10, right 6.95: the drive takes a cross-fall of -17.7 % there, level by 8 m
+  ground cells without a tile hit: 0; tiles: Ground_560_320 [Assets/Track/SevenCorrections/Exact compact pool release.asset]; Ground_640_320 [Assets/Track/Discovery/StreetLoopGreybox-kyle-smooth-drive-Ground_640_320.asset] (sampled from the original of 2 tile(s) already edited for an earlier scene)
+  drive: mouth M local 21.14,0.00,30.95 (world 476.81,78.67,-20.99, street gap 0.00) at 6.54 m above the pad; end E local 12.41,0.00,1.60 at the apron edge; length 30.6 m, width 4.8 m, heading 95 deg; grade 22.7 % (12.8 deg) with 1.8 m rounded ends
+  ground: cleaned zone (old drive and gravel, smoothed) 792 m2; fill 429 m3, cut 190 m3, largest change 2.70 m
+  drive profile (s: drive / ground before): 0:6.54/6.54 3:6.06/6.55 6:5.38/6.44 9:4.70/6.31 12:4.02/4.80 15:3.34/1.71 18:2.66/1.55 21:1.98/1.55 24:1.30/1.48 27:0.62/0.70 30:0.02/0.04
+  lawn (z: ground before -> after at x -4 / 4): 7:2.45->2.31/2.45->2.31 9:2.37->2.31/2.42->2.31 11:1.75->2.31/1.75->2.31 13:0.76->2.31/0.76->2.31 15:0.08->2.31/0.34->2.31 17:0.91->2.31/0.29->2.31 19:2.95->2.95/1.27->2.31 21:5.73->5.73/5.24->5.24 23:8.30->8.30/7.77->7.77
+  course backyard-reverse-v4-continuous-shortcuts: nearest gate to the mouth 55.0 m (Reverse START FINISH); street gap at the mouth 0.00 m
+  activity 'Fence line smash' centre 68.1 m from the drive line (radius 85); props nearest 56.8 m
+  mailbox at local 24.48,0.00,29.18 (street gap 1.02 m, 1.3 m off the drive edge); vignette spots local 26.66,0.00,24.93 / 28.37,0.00,22.96
+  re-plant tree Anderson wooded frontage screening/Anderson frontage trunk from local 22.69,5.78,24.16 (drive s 6.1, lateral +3.4) to 12.32,7.66,27.25 (lateral -7.4), pieces 2
+  re-plant tree World cleanup additional woodland/Anderson woodland trunk from local 18.21,6.19,20.20 (drive s 11.1, lateral +0.3) to 21.39,1.59,11.43 (lateral +5.8), pieces 4
+  re-plant tree Anderson wooded frontage screening/Anderson frontage trunk from local 19.06,2.12,16.36 (drive s 14.6, lateral +2.2) to 25.09,1.47,11.96 (lateral +9.2), pieces 4
+  trees: 27 sites within the region; in the drive's line 3 (re-planted beside it 3); re-seated on changed ground 6
+  planted on the left of the drive: 12 (templates: 24 nearby trees)
+    plant at local 34.88,3.27,23.71 (drive s 3.0, lateral +15.2)
+    plant at local 29.82,2.75,19.50 (drive s 8.5, lateral +11.6)
+    plant at local 37.10,2.32,17.52 (drive s 8.3, lateral +19.1)
+    plant at local 30.89,1.94,14.86 (drive s 12.6, lateral +13.9)
+    plant at local 31.27,1.40,10.21 (drive s 17.0, lateral +15.6)
+    plant at local 35.71,1.01,8.23 (drive s 17.6, lateral +20.4)
+    plant at local 25.77,1.28,6.90 (drive s 21.7, lateral +11.3)
+    plant at local 18.95,1.20,3.79 (drive s 26.7, lateral +5.6)
+    plant at local 23.16,1.28,3.04 (drive s 26.2, lateral +9.9)
+    plant at local 17.76,0.90,-0.57 (drive s 31.2, lateral +5.7)
+    plant at local 16.00,0.00,-4.87 (drive s 35.8, lateral +5.3)
+    plant at local 21.53,1.24,-7.02 (drive s 36.3, lateral +11.2)
+  ground Memory loop - north is +Z/Ground_560_320 [Assets/Track/SevenCorrections/Exact compact pool release.asset] (scenes DansBackyardReverse,FreeRoamWorld): already edited for an earlier scene
+  ground Memory loop - north is +Z/Ground_640_320 [Assets/Track/Discovery/StreetLoopGreybox-kyle-smooth-drive-Ground_640_320.asset] (scenes DansBackyardForward,DansBackyardReverse,FreeRoamWorld,StreetLoopGreybox): already edited for an earlier scene
+  vegetation World cleanup additional woodland/Additional woodland canopy: pieces cut 4, moved 2, bushes moved 0 -> Assets/Scenery/KylesHouse/DansBackyardReverse-kyle-vegetation-0.88-Additional woodland canopy-90643.asset
+  vegetation Anderson wooded frontage screening: pieces cut 6, moved 24, bushes moved 0 -> Assets/Scenery/KylesHouse/DansBackyardReverse-kyle-vegetation-0.88-Anderson wooded frontage screening-18036.asset
+  new drive and apron: Assets/Scenery/KylesHouse/DansBackyardReverse-kyle-driveway-0.88.asset, gravel 'Driveway gravel'
+  front step: local x -5.3..-1.3, z 6.5..6.95, top 2.48 (lawn 2.31, porch 2.65)
+  mailbox at 477.85,84.49,-17.36 yaw 275 (door to the street), trigger collider + breakaway as the other mailboxes
+  drive route points 477.31,82.27,-5.50 479.81,82.22,-5.65 496.78,79.22,-6.64 499.00,80.32,-14.86 502.92,79.51,-18.01 507.26,78.70,-20.15 510.51,78.70,-22.94 -> 476.81,85.23,-20.99 492.08,81.96,-22.20 507.34,78.70,-23.40 510.51,78.70,-22.94
+  map destination property-anderson 510.51,78.70,-22.94 -> 510.51,78.70,-22.94 yaw 262
+  Dan-and-Kyle vignette 486.78,84.65,-20.03 486.26,84.09,-17.59 -> 481.55,83.24,-14.35 483.12,82.19,-12.26
+  saved
+== DansBackyardForward
+  removed surfaces: Kyle descending driveway/Ground_Kyle descending drive [Assets/Scenery/KylesHouse/DansBackyardForward-kyle-driveway-0.87.asset] Driveway gravel; Kyle descending driveway/Ground_Kyle garage drive (0.87) [Assets/Scenery/KylesHouse/DansBackyardForward-kyle-garage-drive.asset] Driveway gravel; CR113 continuous highway seams/Ground_CR113 Kyle driveway edge join [Assets/Track/Backyard/StreetLoopGreybox-Kyle-edge.asset] Driveway gravel
+  street edge at the mouth: left 6.10, right 6.95: the drive takes a cross-fall of -17.7 % there, level by 8 m
+  ground cells without a tile hit: 0; tiles: Ground_560_320 [Assets/Track/BackyardReverse/DansBackyardForward-roger-support-68.asset]; Ground_640_320 [Assets/Track/Discovery/StreetLoopGreybox-kyle-smooth-drive-Ground_640_320.asset] (sampled from the original of 1 tile(s) already edited for an earlier scene)
+  drive: mouth M local 21.14,0.00,30.95 (world 476.81,78.67,-20.99, street gap 0.00) at 6.54 m above the pad; end E local 12.41,0.00,1.60 at the apron edge; length 30.6 m, width 4.8 m, heading 95 deg; grade 22.7 % (12.8 deg) with 1.8 m rounded ends
+  ground: cleaned zone (old drive and gravel, smoothed) 792 m2; fill 429 m3, cut 190 m3, largest change 2.70 m
+  drive profile (s: drive / ground before): 0:6.54/6.54 3:6.06/6.55 6:5.38/6.44 9:4.70/6.31 12:4.02/4.80 15:3.34/1.71 18:2.66/1.55 21:1.98/1.55 24:1.30/1.48 27:0.62/0.70 30:0.02/0.04
+  lawn (z: ground before -> after at x -4 / 4): 7:2.45->2.31/2.45->2.31 9:2.37->2.31/2.42->2.31 11:1.75->2.31/1.75->2.31 13:0.76->2.31/0.76->2.31 15:0.08->2.31/0.34->2.31 17:0.91->2.31/0.29->2.31 19:2.95->2.95/1.27->2.31 21:5.73->5.73/5.24->5.24 23:8.30->8.30/7.77->7.77
+  course backyard-forward-v3-forest-shortcuts: nearest gate to the mouth 33.8 m (Backyard START FINISH); street gap at the mouth 0.00 m
+  activity 'Fence line smash' centre 68.1 m from the drive line (radius 85); props nearest 56.8 m
+  mailbox at local 24.48,0.00,29.18 (street gap 1.02 m, 1.3 m off the drive edge); vignette spots local 26.66,0.00,24.93 / 28.37,0.00,22.96
+  re-plant tree Anderson wooded frontage screening/Anderson frontage trunk from local 22.69,5.78,24.16 (drive s 6.1, lateral +3.4) to 12.32,7.66,27.25 (lateral -7.4), pieces 2
+  re-plant tree World cleanup additional woodland/Anderson woodland trunk from local 18.21,6.19,20.20 (drive s 11.1, lateral +0.3) to 21.39,1.59,11.43 (lateral +5.8), pieces 4
+  re-plant tree Anderson wooded frontage screening/Anderson frontage trunk from local 19.06,2.12,16.36 (drive s 14.6, lateral +2.2) to 25.09,1.47,11.96 (lateral +9.2), pieces 4
+  trees: 27 sites within the region; in the drive's line 3 (re-planted beside it 3); re-seated on changed ground 6
+  planted on the left of the drive: 12 (templates: 24 nearby trees)
+    plant at local 34.88,3.27,23.71 (drive s 3.0, lateral +15.2)
+    plant at local 29.82,2.75,19.50 (drive s 8.5, lateral +11.6)
+    plant at local 37.10,2.32,17.52 (drive s 8.3, lateral +19.1)
+    plant at local 30.89,1.94,14.86 (drive s 12.6, lateral +13.9)
+    plant at local 31.27,1.40,10.21 (drive s 17.0, lateral +15.6)
+    plant at local 35.71,1.01,8.23 (drive s 17.6, lateral +20.4)
+    plant at local 25.77,1.28,6.90 (drive s 21.7, lateral +11.3)
+    plant at local 18.95,1.20,3.79 (drive s 26.7, lateral +5.6)
+    plant at local 23.16,1.28,3.04 (drive s 26.2, lateral +9.9)
+    plant at local 17.76,0.90,-0.57 (drive s 31.2, lateral +5.7)
+    plant at local 16.00,0.00,-4.87 (drive s 35.8, lateral +5.3)
+    plant at local 21.53,1.24,-7.02 (drive s 36.3, lateral +11.2)
+  ground Memory loop - north is +Z/Ground_560_320 [Assets/Track/BackyardReverse/DansBackyardForward-roger-support-68.asset] (scenes DansBackyardForward): 22 vertices moved, largest 0.80 m
+  ground Memory loop - north is +Z/Ground_640_320 [Assets/Track/Discovery/StreetLoopGreybox-kyle-smooth-drive-Ground_640_320.asset] (scenes DansBackyardForward,DansBackyardReverse,FreeRoamWorld,StreetLoopGreybox): already edited for an earlier scene
+  vegetation World cleanup additional woodland/Additional woodland canopy: pieces cut 4, moved 2, bushes moved 0 -> Assets/Scenery/KylesHouse/DansBackyardForward-kyle-vegetation-0.88-Additional woodland canopy-90643.asset
+  vegetation Anderson wooded frontage screening: pieces cut 6, moved 24, bushes moved 0 -> Assets/Scenery/KylesHouse/DansBackyardForward-kyle-vegetation-0.88-Anderson wooded frontage screening-2805.asset
+  new drive and apron: Assets/Scenery/KylesHouse/DansBackyardForward-kyle-driveway-0.88.asset, gravel 'Driveway gravel'
+  front step: local x -5.3..-1.3, z 6.5..6.95, top 2.48 (lawn 2.31, porch 2.65)
+  mailbox at 477.85,84.49,-17.36 yaw 275 (door to the street), trigger collider + breakaway as the other mailboxes
+  drive route points 477.31,82.27,-5.50 479.81,82.22,-5.65 496.78,79.22,-6.64 499.00,80.32,-14.86 502.92,79.51,-18.01 507.26,78.70,-20.15 510.51,78.70,-22.94 -> 476.81,85.23,-20.99 492.08,81.96,-22.20 507.34,78.70,-23.40 510.51,78.70,-22.94
+  map destination property-anderson 510.51,78.70,-22.94 -> 510.51,78.70,-22.94 yaw 262
+  Dan-and-Kyle vignette 486.78,84.65,-20.03 486.26,84.09,-17.59 -> 481.55,83.24,-14.35 483.12,82.19,-12.26
+  saved
+== StreetLoopGreybox
+  removed surfaces: Kyle descending driveway/Ground_Kyle descending drive [Assets/Scenery/KylesHouse/StreetLoopGreybox-kyle-driveway-0.87.asset] Driveway gravel; Kyle descending driveway/Ground_Kyle garage drive (0.87) [Assets/Scenery/KylesHouse/StreetLoopGreybox-kyle-garage-drive.asset] Driveway gravel; CR113 continuous highway seams/Ground_CR113 Kyle driveway edge join [Assets/Track/Backyard/StreetLoopGreybox-Kyle-edge.asset] Driveway gravel
+  street edge at the mouth: left 6.10, right 6.95: the drive takes a cross-fall of -17.7 % there, level by 8 m
+  ground cells without a tile hit: 0; tiles: Ground_560_320 [Assets/Track/BackyardReverse/StreetLoopGreybox-roger-support-0.asset]; Ground_640_320 [Assets/Track/Discovery/StreetLoopGreybox-kyle-smooth-drive-Ground_640_320.asset] (sampled from the original of 1 tile(s) already edited for an earlier scene)
+  drive: mouth M local 21.14,0.00,30.95 (world 476.81,78.67,-20.99, street gap 0.00) at 6.54 m above the pad; end E local 12.41,0.00,1.60 at the apron edge; length 30.6 m, width 4.8 m, heading 95 deg; grade 22.7 % (12.8 deg) with 1.8 m rounded ends
+  ground: cleaned zone (old drive and gravel, smoothed) 792 m2; fill 429 m3, cut 190 m3, largest change 2.70 m
+  drive profile (s: drive / ground before): 0:6.54/6.54 3:6.06/6.55 6:5.38/6.44 9:4.70/6.31 12:4.02/4.80 15:3.34/1.71 18:2.66/1.55 21:1.98/1.55 24:1.30/1.48 27:0.62/0.70 30:0.02/0.04
+  lawn (z: ground before -> after at x -4 / 4): 7:2.45->2.31/2.45->2.31 9:2.37->2.31/2.42->2.31 11:1.75->2.31/1.75->2.31 13:0.76->2.31/0.76->2.31 15:0.08->2.31/0.34->2.31 17:0.91->2.31/0.29->2.31 19:2.95->2.95/1.27->2.31 21:5.73->5.73/5.24->5.24 23:8.30->8.30/7.77->7.77
+  course street-v14-discovery: nearest gate to the mouth 89.4 m (Street Loop CP 3); street gap at the mouth 0.00 m
+  activity 'Fence line smash' centre 68.1 m from the drive line (radius 85); props nearest 56.8 m
+  mailbox at local 24.48,0.00,29.18 (street gap 1.02 m, 1.3 m off the drive edge); vignette spots local 26.66,0.00,24.93 / 28.37,0.00,22.96
+  re-plant tree Anderson wooded frontage screening/Anderson frontage trunk from local 22.69,5.78,24.16 (drive s 6.1, lateral +3.4) to 12.32,7.66,27.25 (lateral -7.4), pieces 2
+  re-plant tree World cleanup additional woodland/Anderson woodland trunk from local 18.21,6.19,20.20 (drive s 11.1, lateral +0.3) to 21.39,1.59,11.43 (lateral +5.8), pieces 4
+  re-plant tree Anderson wooded frontage screening/Anderson frontage trunk from local 19.06,2.12,16.36 (drive s 14.6, lateral +2.2) to 25.09,1.47,11.96 (lateral +9.2), pieces 4
+  trees: 29 sites within the region; in the drive's line 3 (re-planted beside it 3); re-seated on changed ground 7
+  planted on the left of the drive: 12 (templates: 26 nearby trees)
+    plant at local 34.88,3.27,23.71 (drive s 3.0, lateral +15.2)
+    plant at local 29.82,2.75,19.50 (drive s 8.5, lateral +11.6)
+    plant at local 37.10,2.32,17.52 (drive s 8.3, lateral +19.1)
+    plant at local 30.89,1.94,14.86 (drive s 12.6, lateral +13.9)
+    plant at local 31.27,1.40,10.21 (drive s 17.0, lateral +15.6)
+    plant at local 35.71,1.01,8.23 (drive s 17.6, lateral +20.4)
+    plant at local 25.77,1.28,6.90 (drive s 21.7, lateral +11.3)
+    plant at local 18.95,1.20,3.79 (drive s 26.7, lateral +5.6)
+    plant at local 23.16,1.28,3.04 (drive s 26.2, lateral +9.9)
+    plant at local 17.76,0.90,-0.57 (drive s 31.2, lateral +5.7)
+    plant at local 16.00,0.00,-4.87 (drive s 35.8, lateral +5.3)
+    plant at local 21.53,1.24,-7.02 (drive s 36.3, lateral +11.2)
+  ground Memory loop - north is +Z/Ground_560_320 [Assets/Track/BackyardReverse/StreetLoopGreybox-roger-support-0.asset] (scenes StreetLoopGreybox): 16 vertices moved, largest 0.80 m
+  ground Memory loop - north is +Z/Ground_640_320 [Assets/Track/Discovery/StreetLoopGreybox-kyle-smooth-drive-Ground_640_320.asset] (scenes DansBackyardForward,DansBackyardReverse,FreeRoamWorld,StreetLoopGreybox): already edited for an earlier scene
+  vegetation World cleanup additional woodland/Additional woodland canopy: pieces cut 4, moved 4, bushes moved 0 -> Assets/Scenery/KylesHouse/StreetLoopGreybox-kyle-vegetation-0.88-Additional woodland canopy-37884.asset
+  vegetation Anderson wooded frontage screening: pieces cut 6, moved 24, bushes moved 0 -> Assets/Scenery/KylesHouse/StreetLoopGreybox-kyle-vegetation-0.88-Anderson wooded frontage screening-66159.asset
+  new drive and apron: Assets/Scenery/KylesHouse/StreetLoopGreybox-kyle-driveway-0.88.asset, gravel 'Driveway gravel'
+  front step: local x -5.3..-1.3, z 6.5..6.95, top 2.48 (lawn 2.31, porch 2.65)
+  mailbox at 477.85,84.49,-17.36 yaw 275 (door to the street), trigger collider + breakaway as the other mailboxes
+  drive route points 477.31,82.27,-5.50 479.81,82.22,-5.65 496.78,79.22,-6.64 499.00,80.32,-14.86 502.92,79.51,-18.01 507.26,78.70,-20.15 510.51,78.70,-22.94 -> 476.81,85.23,-20.99 492.08,81.96,-22.20 507.34,78.70,-23.40 510.51,78.70,-22.94
+  map destination property-anderson 510.51,78.70,-22.94 -> 510.51,78.70,-22.94 yaw 262
+  Dan-and-Kyle vignette 486.78,84.65,-20.03 486.26,84.09,-17.59 -> 481.55,83.24,-14.35 483.12,82.19,-12.26
+  saved
+== StreetLoopReverse
+  removed surfaces: Kyle descending driveway/Ground_Kyle descending drive [Assets/Scenery/KylesHouse/StreetLoopReverse-kyle-driveway-0.87.asset] Driveway gravel; Kyle descending driveway/Ground_Kyle garage drive (0.87) [Assets/Scenery/KylesHouse/StreetLoopReverse-kyle-garage-drive.asset] Driveway gravel; CR113 continuous highway seams/Ground_CR113 Kyle driveway edge join [Assets/Track/Backyard/StreetLoopReverse-Kyle-edge.asset] Driveway gravel
+  street edge at the mouth: left 6.10, right 6.95: the drive takes a cross-fall of -17.7 % there, level by 8 m
+  ground cells without a tile hit: 0; tiles: Ground_560_320 [Assets/Track/BackyardReverse/StreetLoopReverse-roger-support-9.asset]; Ground_640_320 [Assets/Track/Discovery/StreetLoopReverse-kyle-smooth-drive-Ground_640_320.asset]
+  drive: mouth M local 21.14,0.00,30.95 (world 476.81,78.67,-20.99, street gap 0.00) at 6.54 m above the pad; end E local 12.41,0.00,1.60 at the apron edge; length 30.6 m, width 4.8 m, heading 95 deg; grade 22.7 % (12.8 deg) with 1.8 m rounded ends
+  ground: cleaned zone (old drive and gravel, smoothed) 792 m2; fill 429 m3, cut 190 m3, largest change 2.70 m
+  drive profile (s: drive / ground before): 0:6.54/6.54 3:6.06/6.55 6:5.38/6.44 9:4.70/6.31 12:4.02/4.80 15:3.34/1.71 18:2.66/1.55 21:1.98/1.55 24:1.30/1.48 27:0.62/0.70 30:0.02/0.04
+  lawn (z: ground before -> after at x -4 / 4): 7:2.45->2.31/2.45->2.31 9:2.37->2.31/2.42->2.31 11:1.75->2.31/1.75->2.31 13:0.76->2.31/0.76->2.31 15:0.08->2.31/0.34->2.31 17:0.91->2.31/0.29->2.31 19:2.95->2.95/1.27->2.31 21:5.73->5.73/5.24->5.24 23:8.30->8.30/7.77->7.77
+  course street-reverse-local-laurel-v6: nearest gate to the mouth 10.9 m (Street Loop Reverse CP 14); street gap at the mouth 0.00 m
+  branch Laurel Switchbacks passes 42.0 m from the drive line
+  activity 'Fence line smash' centre 68.1 m from the drive line (radius 85); props nearest 56.8 m
+  mailbox at local 24.48,0.00,29.18 (street gap 1.02 m, 1.3 m off the drive edge); vignette spots local 26.66,0.00,24.93 / 28.37,0.00,22.96
+  re-plant tree Anderson wooded frontage screening/Anderson frontage trunk from local 22.76,5.61,23.07 (drive s 7.1, lateral +3.8) to 24.68,4.78,22.50 (lateral +5.8), pieces 4
+  re-plant tree Anderson wooded frontage screening/Anderson frontage trunk from local 17.56,6.68,24.54 (drive s 7.2, lateral -1.6) to 13.54,6.31,25.73 (lateral -5.8), pieces 2
+  re-plant tree World cleanup additional woodland/Anderson woodland trunk from local 14.44,6.90,21.83 (drive s 10.7, lateral -3.8) to 10.71,8.00,28.16 (lateral -9.2), pieces 2
+  re-plant tree World cleanup additional woodland/Anderson woodland trunk from local 18.84,2.62,17.41 (drive s 13.6, lateral +1.7) to 12.41,5.39,21.93 (lateral -5.8), pieces 2
+  trees: 30 sites within the region; in the drive's line 4 (re-planted beside it 4); re-seated on changed ground 4
+  planted on the left of the drive: 14 (templates: 26 nearby trees)
+    plant at local 34.88,3.27,23.71 (drive s 3.0, lateral +15.2)
+    plant at local 29.82,2.75,19.50 (drive s 8.5, lateral +11.6)
+    plant at local 37.10,2.32,17.52 (drive s 8.3, lateral +19.1)
+    plant at local 30.89,1.94,14.86 (drive s 12.6, lateral +13.9)
+    plant at local 26.19,1.46,11.22 (drive s 17.5, lateral +10.5)
+    plant at local 31.27,1.40,10.21 (drive s 17.0, lateral +15.6)
+    plant at local 35.71,1.01,8.23 (drive s 17.6, lateral +20.4)
+    plant at local 20.66,1.38,8.47 (drive s 21.7, lateral +5.9)
+    plant at local 25.77,1.28,6.90 (drive s 21.7, lateral +11.3)
+    plant at local 18.95,1.20,3.79 (drive s 26.7, lateral +5.6)
+    plant at local 23.16,1.28,3.04 (drive s 26.2, lateral +9.9)
+    plant at local 17.76,0.90,-0.57 (drive s 31.2, lateral +5.7)
+    plant at local 16.00,0.00,-4.87 (drive s 35.8, lateral +5.3)
+    plant at local 21.53,1.24,-7.02 (drive s 36.3, lateral +11.2)
+  re-seat object Phase 3 - Race Systems/Street Loop Reverse CP 14/Non-colliding gate marking at local 30.35,4.77,27.11 by -0.06
+  ground Memory loop - north is +Z/Ground_560_320 [Assets/Track/BackyardReverse/StreetLoopReverse-roger-support-9.asset] (scenes StreetLoopReverse): 16 vertices moved, largest 0.80 m
+  ground Memory loop - north is +Z/Ground_640_320 [Assets/Track/Discovery/StreetLoopReverse-kyle-smooth-drive-Ground_640_320.asset] (scenes StreetLoopReverse): 276 vertices moved, largest 2.73 m
+  vegetation World cleanup additional woodland/Additional woodland canopy: pieces cut 4, moved 0, bushes moved 0 -> Assets/Scenery/KylesHouse/StreetLoopReverse-kyle-vegetation-0.88-Additional woodland canopy-97306.asset
+  vegetation Anderson wooded frontage screening: pieces cut 6, moved 18, bushes moved 0 -> Assets/Scenery/KylesHouse/StreetLoopReverse-kyle-vegetation-0.88-Anderson wooded frontage screening-23632.asset
+  new drive and apron: Assets/Scenery/KylesHouse/StreetLoopReverse-kyle-driveway-0.88.asset, gravel 'Driveway gravel'
+  front step: local x -5.3..-1.3, z 6.5..6.95, top 2.48 (lawn 2.31, porch 2.65)
+  mailbox at 477.85,84.49,-17.36 yaw 275 (door to the street), trigger collider + breakaway as the other mailboxes
+  drive route points 477.31,82.27,-5.50 479.81,82.22,-5.65 496.78,79.22,-6.64 499.00,80.32,-14.86 502.92,79.51,-18.01 507.26,78.70,-20.15 510.51,78.70,-22.94 -> 476.81,85.23,-20.99 492.08,81.96,-22.20 507.34,78.70,-23.40 510.51,78.70,-22.94
+  map destination property-anderson 510.51,78.70,-22.94 -> 510.51,78.70,-22.94 yaw 262
+  Dan-and-Kyle vignette 486.78,84.65,-20.03 486.26,84.09,-17.59 -> 481.55,83.24,-14.35 483.12,82.19,-12.26
+  saved
+== LakeWoods
+  removed surfaces: Kyle descending driveway/Ground_Kyle descending drive [Assets/Scenery/KylesHouse/LakeWoods-kyle-driveway-0.87.asset] Driveway gravel; Kyle descending driveway/Ground_Kyle garage drive (0.87) [Assets/Scenery/KylesHouse/LakeWoods-kyle-garage-drive.asset] Driveway gravel; CR113 continuous highway seams/Ground_CR113 Kyle driveway edge join [Assets/Track/Backyard/LakeWoods-Kyle-edge.asset] Driveway gravel
+  street edge at the mouth: left 6.10, right 6.95: the drive takes a cross-fall of -17.7 % there, level by 8 m
+  ground cells without a tile hit: 0; tiles: Ground_560_320 [Assets/Track/BackyardReverse/LakeWoods-roger-support-20.asset]; Ground_640_320 [Assets/Track/SummitClimb/LakeWoods-summit-Ground_640_320.asset]
+  drive: mouth M local 21.14,0.00,30.95 (world 476.81,78.67,-20.99, street gap 0.00) at 6.54 m above the pad; end E local 12.41,0.00,1.60 at the apron edge; length 30.6 m, width 4.8 m, heading 95 deg; grade 22.7 % (12.8 deg) with 1.8 m rounded ends
+  ground: cleaned zone (old drive and gravel, smoothed) 792 m2; fill 444 m3, cut 200 m3, largest change 2.73 m
+  drive profile (s: drive / ground before): 0:6.54/6.54 3:6.06/6.55 6:5.38/6.44 9:4.70/6.31 12:4.02/5.38 15:3.34/1.64 18:2.66/1.55 21:1.98/1.55 24:1.30/1.51 27:0.62/0.56 30:0.02/-0.03
+  lawn (z: ground before -> after at x -4 / 4): 7:2.45->2.31/2.45->2.31 9:2.45->2.31/2.44->2.31 11:1.75->2.31/1.75->2.31 13:0.75->2.31/0.76->2.31 15:0.02->2.31/0.34->2.31 17:0.67->2.31/0.28->2.31 19:2.85->2.85/1.23->2.31 21:5.68->5.68/5.27->5.27 23:8.32->8.32/7.80->7.80
+  course lake-v8-summit-climb: nearest gate to the mouth 101.1 m (Forest Loop START FINISH); street gap at the mouth 0.00 m
+  activity 'Forest speed trap 1' centre 118.0 m from the drive line (radius 4.6); props nearest - m
+  activity 'Fence line smash' centre 68.1 m from the drive line (radius 85); props nearest 56.8 m
+  mailbox at local 24.48,0.00,29.18 (street gap 1.02 m, 1.3 m off the drive edge); vignette spots local 26.66,0.00,24.93 / 28.37,0.00,22.96
+  re-plant tree Anderson wooded frontage screening/Anderson frontage trunk from local 22.76,5.63,23.07 (drive s 7.1, lateral +3.8) to 13.56,6.34,25.81 (lateral -5.8), pieces 4
+  re-plant tree Anderson wooded frontage screening/Anderson frontage trunk from local 16.42,6.87,24.63 (drive s 7.4, lateral -2.7) to 10.93,8.02,28.87 (lateral -9.2), pieces 4
+  re-plant tree World cleanup additional woodland/Anderson woodland trunk from local 18.21,6.20,20.20 (drive s 11.1, lateral +0.3) to 21.39,1.59,11.43 (lateral +5.8), pieces 4
+  re-plant tree Anderson wooded frontage screening/Anderson frontage trunk from local 18.25,1.75,15.15 (drive s 16.0, lateral +1.7) to 23.98,1.34,8.23 (lateral +9.2), pieces 4
+  trees: 33 sites within the region; in the drive's line 4 (re-planted beside it 4); re-seated on changed ground 6
+  planted on the left of the drive: 11 (templates: 25 nearby trees)
+    plant at local 34.88,3.27,23.71 (drive s 3.0, lateral +15.2)
+    plant at local 29.82,2.74,19.50 (drive s 8.5, lateral +11.6)
+    plant at local 37.10,2.34,17.52 (drive s 8.3, lateral +19.1)
+    plant at local 30.89,1.94,14.86 (drive s 12.6, lateral +13.9)
+    plant at local 28.86,1.09,5.48 (drive s 22.2, lateral +14.7)
+    plant at local 34.24,0.71,4.44 (drive s 21.7, lateral +20.1)
+    plant at local 18.95,1.18,3.79 (drive s 26.7, lateral +5.6)
+    plant at local 23.16,1.28,3.04 (drive s 26.2, lateral +9.9)
+    plant at local 17.76,0.89,-0.57 (drive s 31.2, lateral +5.7)
+    plant at local 16.00,0.00,-4.87 (drive s 35.8, lateral +5.3)
+    plant at local 21.53,1.26,-7.02 (drive s 36.3, lateral +11.2)
+  ground Memory loop - north is +Z/Ground_560_320 [Assets/Track/BackyardReverse/LakeWoods-roger-support-20.asset] (scenes LakeWoods): 56 vertices moved, largest 0.89 m
+  ground Memory loop - north is +Z/Ground_640_320 [Assets/Track/SummitClimb/LakeWoods-summit-Ground_640_320.asset] (scenes LakeWoods): 1069 vertices moved, largest 2.73 m
+  vegetation CR056 Forest Loop/Forest detail batch: pieces cut 0, moved 4, bushes moved 0 -> Assets/Scenery/KylesHouse/LakeWoods-kyle-vegetation-0.88-Forest detail batch-5805.asset
+  vegetation World cleanup additional woodland/Additional woodland canopy: pieces cut 4, moved 6, bushes moved 0 -> Assets/Scenery/KylesHouse/LakeWoods-kyle-vegetation-0.88-Additional woodland canopy-14557.asset
+  vegetation Anderson wooded frontage screening: pieces cut 12, moved 8, bushes moved 0 -> Assets/Scenery/KylesHouse/LakeWoods-kyle-vegetation-0.88-Anderson wooded frontage screening-40048.asset
+  new drive and apron: Assets/Scenery/KylesHouse/LakeWoods-kyle-driveway-0.88.asset, gravel 'Driveway gravel'
+  front step: local x -5.3..-1.3, z 6.5..6.95, top 2.48 (lawn 2.31, porch 2.65)
+  mailbox at 477.85,84.51,-17.36 yaw 275 (door to the street), trigger collider + breakaway as the other mailboxes
+  drive route points 477.31,82.27,-5.50 479.81,82.22,-5.65 496.78,79.22,-6.64 499.00,80.32,-14.86 502.92,79.51,-18.01 507.26,78.70,-20.15 510.51,78.70,-22.94 -> 476.81,85.23,-20.99 492.08,81.96,-22.20 507.34,78.70,-23.40 510.51,78.70,-22.94
+  map destination property-anderson 510.51,78.70,-22.94 -> 510.51,78.70,-22.94 yaw 262
+  Dan-and-Kyle vignette 486.78,84.66,-20.03 486.26,84.14,-17.59 -> 481.55,83.25,-14.35 483.12,82.12,-12.26
+  saved
+== ForestLoopReverse
+  removed surfaces: Kyle descending driveway/Ground_Kyle descending drive [Assets/Scenery/KylesHouse/ForestLoopReverse-kyle-driveway-0.87.asset] Driveway gravel; Kyle descending driveway/Ground_Kyle garage drive (0.87) [Assets/Scenery/KylesHouse/ForestLoopReverse-kyle-garage-drive.asset] Driveway gravel; CR113 continuous highway seams/Ground_CR113 Kyle driveway edge join [Assets/Track/Backyard/ForestLoopReverse-Kyle-edge.asset] Driveway gravel
+  street edge at the mouth: left 6.10, right 6.95: the drive takes a cross-fall of -17.7 % there, level by 8 m
+  ground cells without a tile hit: 0; tiles: Ground_560_320 [Assets/Track/BackyardReverse/ForestLoopReverse-roger-support-32.asset]; Ground_640_320 [Assets/Track/Discovery/ForestLoopReverse-kyle-smooth-drive-Ground_640_320.asset]
+  drive: mouth M local 21.14,0.00,30.95 (world 476.81,78.67,-20.99, street gap 0.00) at 6.54 m above the pad; end E local 12.41,0.00,1.60 at the apron edge; length 30.6 m, width 4.8 m, heading 95 deg; grade 22.7 % (12.8 deg) with 1.8 m rounded ends
+  ground: cleaned zone (old drive and gravel, smoothed) 792 m2; fill 444 m3, cut 200 m3, largest change 2.73 m
+  drive profile (s: drive / ground before): 0:6.54/6.54 3:6.06/6.55 6:5.38/6.44 9:4.70/6.31 12:4.02/5.38 15:3.34/1.64 18:2.66/1.55 21:1.98/1.55 24:1.30/1.51 27:0.62/0.56 30:0.02/-0.03
+  lawn (z: ground before -> after at x -4 / 4): 7:2.45->2.31/2.45->2.31 9:2.45->2.31/2.44->2.31 11:1.75->2.31/1.75->2.31 13:0.75->2.31/0.76->2.31 15:0.02->2.31/0.34->2.31 17:0.67->2.31/0.28->2.31 19:2.85->2.85/1.23->2.31 21:5.68->5.68/5.27->5.27 23:8.32->8.32/7.80->7.80
+  course forest-reverse-v8-mcfadden-main: nearest gate to the mouth 169.0 m (Forest Loop Reverse START FINISH); street gap at the mouth 0.00 m
+  activity 'Forest speed trap 2' centre 104.1 m from the drive line (radius 7); props nearest - m
+  activity 'Fence line smash' centre 68.1 m from the drive line (radius 85); props nearest 56.8 m
+  mailbox at local 24.48,0.00,29.18 (street gap 1.02 m, 1.3 m off the drive edge); vignette spots local 26.66,0.00,24.93 / 28.37,0.00,22.96
+  re-plant tree Anderson wooded frontage screening/Anderson frontage trunk from local 22.76,5.63,23.07 (drive s 7.1, lateral +3.8) to 13.56,6.34,25.81 (lateral -5.8), pieces 4
+  re-plant tree Anderson wooded frontage screening/Anderson frontage trunk from local 16.42,6.87,24.63 (drive s 7.4, lateral -2.7) to 10.93,8.02,28.87 (lateral -9.2), pieces 4
+  re-plant tree World cleanup additional woodland/Anderson woodland trunk from local 18.21,6.20,20.20 (drive s 11.1, lateral +0.3) to 21.39,1.59,11.43 (lateral +5.8), pieces 4
+  re-plant tree Anderson wooded frontage screening/Anderson frontage trunk from local 18.25,1.75,15.15 (drive s 16.0, lateral +1.7) to 23.98,1.34,8.23 (lateral +9.2), pieces 4
+  trees: 32 sites within the region; in the drive's line 4 (re-planted beside it 4); re-seated on changed ground 6
+  planted on the left of the drive: 11 (templates: 24 nearby trees)
+    plant at local 34.88,3.27,23.71 (drive s 3.0, lateral +15.2)
+    plant at local 29.82,2.74,19.50 (drive s 8.5, lateral +11.6)
+    plant at local 37.10,2.34,17.52 (drive s 8.3, lateral +19.1)
+    plant at local 30.89,1.94,14.86 (drive s 12.6, lateral +13.9)
+    plant at local 28.86,1.09,5.48 (drive s 22.2, lateral +14.7)
+    plant at local 34.24,0.71,4.44 (drive s 21.7, lateral +20.1)
+    plant at local 18.95,1.18,3.79 (drive s 26.7, lateral +5.6)
+    plant at local 23.16,1.28,3.04 (drive s 26.2, lateral +9.9)
+    plant at local 17.76,0.89,-0.57 (drive s 31.2, lateral +5.7)
+    plant at local 16.00,0.00,-4.87 (drive s 35.8, lateral +5.3)
+    plant at local 21.53,1.26,-7.02 (drive s 36.3, lateral +11.2)
+  ground Memory loop - north is +Z/Ground_560_320 [Assets/Track/BackyardReverse/ForestLoopReverse-roger-support-32.asset] (scenes ForestLoopReverse): 56 vertices moved, largest 0.89 m
+  ground Memory loop - north is +Z/Ground_640_320 [Assets/Track/Discovery/ForestLoopReverse-kyle-smooth-drive-Ground_640_320.asset] (scenes ForestLoopReverse): 1069 vertices moved, largest 2.73 m
+  vegetation CR056 Forest Loop/Forest detail batch: pieces cut 0, moved 4, bushes moved 0 -> Assets/Scenery/KylesHouse/ForestLoopReverse-kyle-vegetation-0.88-Forest detail batch-61985.asset
+  vegetation World cleanup additional woodland/Additional woodland canopy: pieces cut 4, moved 6, bushes moved 0 -> Assets/Scenery/KylesHouse/ForestLoopReverse-kyle-vegetation-0.88-Additional woodland canopy-71105.asset
+  vegetation Anderson wooded frontage screening: pieces cut 12, moved 8, bushes moved 0 -> Assets/Scenery/KylesHouse/ForestLoopReverse-kyle-vegetation-0.88-Anderson wooded frontage screening-47208.asset
+  new drive and apron: Assets/Scenery/KylesHouse/ForestLoopReverse-kyle-driveway-0.88.asset, gravel 'Driveway gravel'
+  front step: local x -5.3..-1.3, z 6.5..6.95, top 2.48 (lawn 2.31, porch 2.65)
+  mailbox at 477.85,84.51,-17.36 yaw 275 (door to the street), trigger collider + breakaway as the other mailboxes
+  drive route points 477.31,82.27,-5.50 479.81,82.22,-5.65 496.78,79.22,-6.64 499.00,80.32,-14.86 502.92,79.51,-18.01 507.26,78.70,-20.15 510.51,78.70,-22.94 -> 476.81,85.23,-20.99 492.08,81.96,-22.20 507.34,78.70,-23.40 510.51,78.70,-22.94
+  map destination property-anderson 510.51,78.70,-22.94 -> 510.51,78.70,-22.94 yaw 262
+  Dan-and-Kyle vignette 486.78,84.66,-20.03 486.26,84.14,-17.59 -> 481.55,83.25,-14.35 483.12,82.12,-12.26
+  saved
+== MountainLoop
+  removed surfaces: Kyle descending driveway/Ground_Kyle descending drive [Assets/Scenery/KylesHouse/MountainLoop-kyle-driveway-0.87.asset] Driveway gravel; Kyle descending driveway/Ground_Kyle garage drive (0.87) [Assets/Scenery/KylesHouse/MountainLoop-kyle-garage-drive.asset] Driveway gravel; CR113 continuous highway seams/Ground_CR113 Kyle driveway edge join [Assets/Track/Backyard/MountainLoop-Kyle-edge.asset] Driveway gravel
+  street edge at the mouth: left 6.10, right 6.95: the drive takes a cross-fall of -17.7 % there, level by 8 m
+  ground cells without a tile hit: 0; tiles: Ground_560_320 [Assets/Track/BackyardReverse/MountainLoop-roger-support-44.asset]; Ground_640_320 [Assets/Track/Discovery/LakeWoods-kyle-smooth-drive-Ground_640_320.asset]
+  drive: mouth M local 21.14,0.00,30.95 (world 476.81,78.67,-20.99, street gap 0.00) at 6.54 m above the pad; end E local 12.41,0.00,1.60 at the apron edge; length 30.6 m, width 4.8 m, heading 95 deg; grade 22.7 % (12.8 deg) with 1.8 m rounded ends
+  ground: cleaned zone (old drive and gravel, smoothed) 792 m2; fill 444 m3, cut 200 m3, largest change 2.73 m
+  drive profile (s: drive / ground before): 0:6.54/6.54 3:6.06/6.55 6:5.38/6.44 9:4.70/6.31 12:4.02/5.38 15:3.34/1.64 18:2.66/1.55 21:1.98/1.55 24:1.30/1.51 27:0.62/0.56 30:0.02/-0.03
+  lawn (z: ground before -> after at x -4 / 4): 7:2.45->2.31/2.45->2.31 9:2.45->2.31/2.44->2.31 11:1.75->2.31/1.75->2.31 13:0.75->2.31/0.76->2.31 15:0.02->2.31/0.34->2.31 17:0.67->2.31/0.28->2.31 19:2.85->2.85/1.23->2.31 21:5.68->5.68/5.27->5.27 23:8.32->8.32/7.80->7.80
+  course mountain-forward-v5-supported: nearest gate to the mouth 226.1 m (CR117 CP 6); street gap at the mouth 0.00 m
+  activity 'Forest speed trap 1' centre 118.0 m from the drive line (radius 4.6); props nearest - m
+  activity 'Fence line smash' centre 68.1 m from the drive line (radius 85); props nearest 56.8 m
+  mailbox at local 24.48,0.00,29.18 (street gap 1.02 m, 1.3 m off the drive edge); vignette spots local 26.66,0.00,24.93 / 28.37,0.00,22.96
+  re-plant tree Anderson wooded frontage screening/Anderson frontage trunk from local 22.76,5.63,23.07 (drive s 7.1, lateral +3.8) to 13.56,6.34,25.81 (lateral -5.8), pieces 4
+  re-plant tree Anderson wooded frontage screening/Anderson frontage trunk from local 16.42,6.87,24.63 (drive s 7.4, lateral -2.7) to 10.93,8.02,28.87 (lateral -9.2), pieces 4
+  re-plant tree World cleanup additional woodland/Anderson woodland trunk from local 18.21,6.20,20.20 (drive s 11.1, lateral +0.3) to 21.39,1.59,11.43 (lateral +5.8), pieces 4
+  re-plant tree Anderson wooded frontage screening/Anderson frontage trunk from local 18.25,1.75,15.15 (drive s 16.0, lateral +1.7) to 23.98,1.34,8.23 (lateral +9.2), pieces 4
+  trees: 29 sites within the region; in the drive's line 4 (re-planted beside it 4); re-seated on changed ground 6
+  planted on the left of the drive: 11 (templates: 21 nearby trees)
+    plant at local 34.88,3.27,23.71 (drive s 3.0, lateral +15.2)
+    plant at local 29.82,2.74,19.50 (drive s 8.5, lateral +11.6)
+    plant at local 37.10,2.34,17.52 (drive s 8.3, lateral +19.1)
+    plant at local 30.89,1.94,14.86 (drive s 12.6, lateral +13.9)
+    plant at local 28.86,1.09,5.48 (drive s 22.2, lateral +14.7)
+    plant at local 34.24,0.71,4.44 (drive s 21.7, lateral +20.1)
+    plant at local 18.95,1.18,3.79 (drive s 26.7, lateral +5.6)
+    plant at local 23.16,1.28,3.04 (drive s 26.2, lateral +9.9)
+    plant at local 17.76,0.89,-0.57 (drive s 31.2, lateral +5.7)
+    plant at local 16.00,0.00,-4.87 (drive s 35.8, lateral +5.3)
+    plant at local 21.53,1.26,-7.02 (drive s 36.3, lateral +11.2)
+  ground Memory loop - north is +Z/Ground_560_320 [Assets/Track/BackyardReverse/MountainLoop-roger-support-44.asset] (scenes MountainLoop): 56 vertices moved, largest 0.89 m
+  ground Memory loop - north is +Z/Ground_640_320 [Assets/Track/Discovery/LakeWoods-kyle-smooth-drive-Ground_640_320.asset] (scenes MountainLoop,MountainLoopReverse): 1069 vertices moved, largest 2.73 m
+  vegetation CR056 Forest Loop/Forest detail batch: pieces cut 0, moved 4, bushes moved 0 -> Assets/Scenery/KylesHouse/MountainLoop-kyle-vegetation-0.88-Forest detail batch-24093.asset
+  vegetation World cleanup additional woodland/Additional woodland canopy: pieces cut 4, moved 6, bushes moved 0 -> Assets/Scenery/KylesHouse/MountainLoop-kyle-vegetation-0.88-Additional woodland canopy-13419.asset
+  vegetation Anderson wooded frontage screening: pieces cut 12, moved 8, bushes moved 0 -> Assets/Scenery/KylesHouse/MountainLoop-kyle-vegetation-0.88-Anderson wooded frontage screening-26406.asset
+  new drive and apron: Assets/Scenery/KylesHouse/MountainLoop-kyle-driveway-0.88.asset, gravel 'Driveway gravel'
+  front step: local x -5.3..-1.3, z 6.5..6.95, top 2.48 (lawn 2.31, porch 2.65)
+  mailbox at 477.85,84.51,-17.36 yaw 275 (door to the street), trigger collider + breakaway as the other mailboxes
+  drive route points 477.31,82.27,-5.50 479.81,82.22,-5.65 496.78,79.22,-6.64 499.00,80.32,-14.86 502.92,79.51,-18.01 507.26,78.70,-20.15 510.51,78.70,-22.94 -> 476.81,85.23,-20.99 492.08,81.96,-22.20 507.34,78.70,-23.40 510.51,78.70,-22.94
+  map destination property-anderson 510.51,78.70,-22.94 -> 510.51,78.70,-22.94 yaw 262
+  Dan-and-Kyle vignette 486.78,84.66,-20.03 486.26,84.14,-17.59 -> 481.55,83.25,-14.35 483.12,82.12,-12.26
+  saved
+== MountainLoopReverse
+  removed surfaces: Kyle descending driveway/Ground_Kyle descending drive [Assets/Scenery/KylesHouse/MountainLoopReverse-kyle-driveway-0.87.asset] Driveway gravel; Kyle descending driveway/Ground_Kyle garage drive (0.87) [Assets/Scenery/KylesHouse/MountainLoopReverse-kyle-garage-drive.asset] Driveway gravel; CR113 continuous highway seams/Ground_CR113 Kyle driveway edge join [Assets/Track/Backyard/MountainLoopReverse-Kyle-edge.asset] Driveway gravel
+  street edge at the mouth: left 6.10, right 6.95: the drive takes a cross-fall of -17.7 % there, level by 8 m
+  ground cells without a tile hit: 0; tiles: Ground_560_320 [Assets/Track/BackyardReverse/MountainLoopReverse-roger-support-56.asset]; Ground_640_320 [Assets/Track/Discovery/LakeWoods-kyle-smooth-drive-Ground_640_320.asset] (sampled from the original of 1 tile(s) already edited for an earlier scene)
+  drive: mouth M local 21.14,0.00,30.95 (world 476.81,78.67,-20.99, street gap 0.00) at 6.54 m above the pad; end E local 12.41,0.00,1.60 at the apron edge; length 30.6 m, width 4.8 m, heading 95 deg; grade 22.7 % (12.8 deg) with 1.8 m rounded ends
+  ground: cleaned zone (old drive and gravel, smoothed) 792 m2; fill 444 m3, cut 200 m3, largest change 2.73 m
+  drive profile (s: drive / ground before): 0:6.54/6.54 3:6.06/6.55 6:5.38/6.44 9:4.70/6.31 12:4.02/5.38 15:3.34/1.64 18:2.66/1.55 21:1.98/1.55 24:1.30/1.51 27:0.62/0.56 30:0.02/-0.03
+  lawn (z: ground before -> after at x -4 / 4): 7:2.45->2.31/2.45->2.31 9:2.45->2.31/2.44->2.31 11:1.75->2.31/1.75->2.31 13:0.75->2.31/0.76->2.31 15:0.02->2.31/0.34->2.31 17:0.67->2.31/0.28->2.31 19:2.85->2.85/1.23->2.31 21:5.68->5.68/5.27->5.27 23:8.32->8.32/7.80->7.80
+  course mountain-reverse-v4-natural-summit-merge: nearest gate to the mouth 248.2 m (CR117 START FINISH); street gap at the mouth 0.00 m
+  activity 'Forest speed trap 1' centre 118.0 m from the drive line (radius 4.6); props nearest - m
+  activity 'Fence line smash' centre 68.1 m from the drive line (radius 85); props nearest 56.8 m
+  mailbox at local 24.48,0.00,29.18 (street gap 1.02 m, 1.3 m off the drive edge); vignette spots local 26.66,0.00,24.93 / 28.37,0.00,22.96
+  re-plant tree Anderson wooded frontage screening/Anderson frontage trunk from local 22.76,5.63,23.07 (drive s 7.1, lateral +3.8) to 13.56,6.34,25.81 (lateral -5.8), pieces 4
+  re-plant tree Anderson wooded frontage screening/Anderson frontage trunk from local 16.42,6.87,24.63 (drive s 7.4, lateral -2.7) to 10.93,8.02,28.87 (lateral -9.2), pieces 4
+  re-plant tree World cleanup additional woodland/Anderson woodland trunk from local 18.21,6.20,20.20 (drive s 11.1, lateral +0.3) to 21.39,1.59,11.43 (lateral +5.8), pieces 4
+  re-plant tree Anderson wooded frontage screening/Anderson frontage trunk from local 18.25,1.75,15.15 (drive s 16.0, lateral +1.7) to 23.98,1.34,8.23 (lateral +9.2), pieces 4
+  trees: 33 sites within the region; in the drive's line 4 (re-planted beside it 4); re-seated on changed ground 6
+  planted on the left of the drive: 11 (templates: 25 nearby trees)
+    plant at local 34.88,3.27,23.71 (drive s 3.0, lateral +15.2)
+    plant at local 29.82,2.74,19.50 (drive s 8.5, lateral +11.6)
+    plant at local 37.10,2.34,17.52 (drive s 8.3, lateral +19.1)
+    plant at local 30.89,1.94,14.86 (drive s 12.6, lateral +13.9)
+    plant at local 28.86,1.09,5.48 (drive s 22.2, lateral +14.7)
+    plant at local 34.24,0.71,4.44 (drive s 21.7, lateral +20.1)
+    plant at local 18.95,1.18,3.79 (drive s 26.7, lateral +5.6)
+    plant at local 23.16,1.28,3.04 (drive s 26.2, lateral +9.9)
+    plant at local 17.76,0.89,-0.57 (drive s 31.2, lateral +5.7)
+    plant at local 16.00,0.00,-4.87 (drive s 35.8, lateral +5.3)
+    plant at local 21.53,1.26,-7.02 (drive s 36.3, lateral +11.2)
+  ground Memory loop - north is +Z/Ground_560_320 [Assets/Track/BackyardReverse/MountainLoopReverse-roger-support-56.asset] (scenes MountainLoopReverse): 56 vertices moved, largest 0.89 m
+  ground Memory loop - north is +Z/Ground_640_320 [Assets/Track/Discovery/LakeWoods-kyle-smooth-drive-Ground_640_320.asset] (scenes MountainLoop,MountainLoopReverse): already edited for an earlier scene
+  vegetation CR056 Forest Loop/Forest detail batch: pieces cut 0, moved 4, bushes moved 0 -> Assets/Scenery/KylesHouse/MountainLoopReverse-kyle-vegetation-0.88-Forest detail batch-22093.asset
+  vegetation World cleanup additional woodland/Additional woodland canopy: pieces cut 4, moved 6, bushes moved 0 -> Assets/Scenery/KylesHouse/MountainLoopReverse-kyle-vegetation-0.88-Additional woodland canopy-73404.asset
+  vegetation Anderson wooded frontage screening: pieces cut 12, moved 8, bushes moved 0 -> Assets/Scenery/KylesHouse/MountainLoopReverse-kyle-vegetation-0.88-Anderson wooded frontage screening-21678.asset
+  new drive and apron: Assets/Scenery/KylesHouse/MountainLoopReverse-kyle-driveway-0.88.asset, gravel 'Driveway gravel'
+  front step: local x -5.3..-1.3, z 6.5..6.95, top 2.48 (lawn 2.31, porch 2.65)
+  mailbox at 477.85,84.51,-17.36 yaw 275 (door to the street), trigger collider + breakaway as the other mailboxes
+  drive route points 477.31,82.27,-5.50 479.81,82.22,-5.65 496.78,79.22,-6.64 499.00,80.32,-14.86 502.92,79.51,-18.01 507.26,78.70,-20.15 510.51,78.70,-22.94 -> 476.81,85.23,-20.99 492.08,81.96,-22.20 507.34,78.70,-23.40 510.51,78.70,-22.94
+  map destination property-anderson 510.51,78.70,-22.94 -> 510.51,78.70,-22.94 yaw 262
+  Dan-and-Kyle vignette 486.78,84.66,-20.03 486.26,84.14,-17.59 -> 481.55,83.25,-14.35 483.12,82.12,-12.26
+  saved

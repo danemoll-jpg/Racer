@@ -1,0 +1,45 @@
+ForestLoopReverse: colliders before 13347, after 13358; rows only before 14, only after 25
+-- changed (same path, different shape or mesh):
+  before Anderson wooded frontage screening/Anderson frontage trunk	BoxCollider	True	False	490.968,85.534,-14.821	0.520,10.811,0.520		
+  before Anderson wooded frontage screening/Anderson frontage trunk	BoxCollider	True	False	484.177,88.400,-17.766	0.520,8.203,0.520		
+  before Anderson wooded frontage screening/Anderson frontage trunk	BoxCollider	True	False	492.869,84.372,-20.523	0.520,7.917,0.520		
+  before Anderson wooded frontage screening/Anderson frontage trunk	BoxCollider	True	False	483.983,90.916,-24.289	0.520,10.757,0.520		
+  before Anderson wooded frontage screening/Anderson frontage trunk	BoxCollider	True	False	498.804,84.830,-45.830	0.520,7.876,0.520		
+  before Anderson wooded frontage screening/Anderson frontage trunk	BoxCollider	True	False	491.294,83.644,-29.218	0.520,8.215,0.520		
+  after  Anderson wooded frontage screening/Anderson frontage trunk	BoxCollider	True	False	490.968,86.060,-14.821	0.520,10.811,0.520		
+  after  Anderson wooded frontage screening/Anderson frontage trunk	BoxCollider	True	False	498.804,84.960,-45.830	0.520,7.876,0.520		
+  after  Anderson wooded frontage screening/Anderson frontage trunk	BoxCollider	True	False	491.294,85.085,-29.218	0.520,8.215,0.520		
+  before Memory loop - north is +Z/Ground_560_320	MeshCollider	True	False	400.000,79.225,-30.000	160.000,18.874,160.000	Assets/Track/BackyardReverse/ForestLoopReverse-roger-support-32.asset#ForestLoopReverse-roger-support-32	EBF1946125C88649
+  after  Memory loop - north is +Z/Ground_560_320	MeshCollider	True	False	400.000,79.225,-30.000	160.000,18.874,160.000	Assets/Track/BackyardReverse/ForestLoopReverse-roger-support-32.asset#ForestLoopReverse-roger-support-32	ADF36AD9EEFCFA6E
+  before Memory loop - north is +Z/Ground_640_320	MeshCollider	True	False	560.000,76.794,-30.000	160.000,23.752,160.000	Assets/Track/Discovery/ForestLoopReverse-kyle-smooth-drive-Ground_640_320.asset#ForestLoopReverse-kyle-smooth-drive-Ground_640_320(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)	E82100B227045CE2
+  after  Memory loop - north is +Z/Ground_640_320	MeshCollider	True	False	560.000,76.794,-30.000	160.000,23.752,160.000	Assets/Track/Discovery/ForestLoopReverse-kyle-smooth-drive-Ground_640_320.asset#ForestLoopReverse-kyle-smooth-drive-Ground_640_320(Clone)(Clone)(Clone)(Clone)(Clone)(Clone)	24BD216BFD82246F
+  before World cleanup additional woodland/Anderson woodland trunk	BoxCollider	True	False	487.938,90.103,-21.616	0.600,10.482,0.600		
+  before World cleanup additional woodland/Anderson woodland trunk	BoxCollider	True	False	502.801,85.243,-47.611	0.600,9.754,0.600		
+  before World cleanup additional woodland/Anderson woodland trunk	BoxCollider	True	False	487.937,90.833,-27.178	0.600,10.203,0.600		
+  after  World cleanup additional woodland/Anderson woodland trunk	BoxCollider	True	False	502.801,85.854,-47.611	0.600,9.754,0.600		
+  after  World cleanup additional woodland/Anderson woodland trunk	BoxCollider	True	False	487.937,88.718,-27.178	0.600,10.203,0.600		
+-- removed:
+  CR113 continuous highway seams/Ground_CR113 Kyle driveway edge join	MeshCollider	True	False	490.410,80.649,-19.925	26.638,3.925,36.432	Assets/Track/Backyard/ForestLoopReverse-Kyle-edge.asset#ForestLoopReverse-Kyle-edge	A4E96CED0327C030
+  Kyle descending driveway/Ground_Kyle descending drive	MeshCollider	False	False	0.000,0.000,0.000	0.000,0.000,0.000	Assets/Scenery/KylesHouse/ForestLoopReverse-kyle-driveway-0.87.asset#ForestLoopReverse-kyle-driveway-0.87	1EB3BFDC34C79A41
+  Kyle descending driveway/Ground_Kyle garage drive (0.87)	MeshCollider	True	False	505.138,79.507,-20.161	19.716,1.620,15.883	Assets/Scenery/KylesHouse/ForestLoopReverse-kyle-garage-drive.asset#ForestLoopReverse-kyle-garage-drive	12688144544C20AF
+-- added:
+  CR-015 modest roadside details/Mailbox - Kyle	BoxCollider	True	True	477.844,85.274,-17.351	0.805,1.520,0.593		
+  Kyle descending driveway/Ground_Kyle driveway (0.88)	MeshCollider	True	False	495.810,82.166,-23.345	38.372,6.937,9.515	Assets/Scenery/KylesHouse/ForestLoopReverse-kyle-driveway-0.88.asset#ForestLoopReverse-kyle-driveway-0.88	8A1A3719986038D2
+  Remembered houses and approximate buildings/Friend across street - blue circle/Kyle's front step (0.88)	BoxCollider	True	False	505.614,80.887,-39.833	1.276,0.520,4.006		
+  Remembered houses and approximate buildings/Kyle's place (0.88)/Kyle's place tree trunks/Tree trunk	BoxCollider	True	False	480.982,92.069,-30.551	0.520,10.757,0.520		
+  Remembered houses and approximate buildings/Kyle's place (0.88)/Kyle's place tree trunks/Tree trunk	BoxCollider	True	False	481.021,86.812,-6.053	0.600,9.754,0.600		
+  Remembered houses and approximate buildings/Kyle's place (0.88)/Kyle's place tree trunks/Tree trunk	BoxCollider	True	False	483.424,89.110,-27.332	0.520,8.203,0.520		
+  Remembered houses and approximate buildings/Kyle's place (0.88)/Kyle's place tree trunks/Tree trunk	BoxCollider	True	False	486.193,86.309,-10.116	0.520,9.808,0.520		
+  Remembered houses and approximate buildings/Kyle's place (0.88)/Kyle's place tree trunks/Tree trunk	BoxCollider	True	False	486.605,85.018,-2.579	0.520,8.033,0.520		
+  Remembered houses and approximate buildings/Kyle's place (0.88)/Kyle's place tree trunks/Tree trunk	BoxCollider	True	False	490.513,85.641,-8.097	0.520,10.069,0.520		
+  Remembered houses and approximate buildings/Kyle's place (0.88)/Kyle's place tree trunks/Tree trunk	BoxCollider	True	False	495.850,85.536,-16.675	0.600,10.482,0.600		
+  Remembered houses and approximate buildings/Kyle's place (0.88)/Kyle's place tree trunks/Tree trunk	BoxCollider	True	False	498.440,83.967,-13.468	0.520,7.917,0.520		
+  Remembered houses and approximate buildings/Kyle's place (0.88)/Kyle's place tree trunks/Tree trunk	BoxCollider	True	False	499.998,83.820,-2.644	0.520,8.886,0.520		
+  Remembered houses and approximate buildings/Kyle's place (0.88)/Kyle's place tree trunks/Tree trunk	BoxCollider	True	False	500.102,84.021,-8.120	0.600,8.522,0.600		
+  Remembered houses and approximate buildings/Kyle's place (0.88)/Kyle's place tree trunks/Tree trunk	BoxCollider	True	False	503.680,85.441,-13.185	0.600,10.992,0.600		
+  Remembered houses and approximate buildings/Kyle's place (0.88)/Kyle's place tree trunks/Tree trunk	BoxCollider	True	False	503.837,85.153,-17.463	0.520,10.608,0.520		
+  Remembered houses and approximate buildings/Kyle's place (0.88)/Kyle's place tree trunks/Tree trunk	BoxCollider	True	False	508.345,84.342,-17.714	0.520,9.603,0.520		
+  Remembered houses and approximate buildings/Kyle's place (0.88)/Kyle's place tree trunks/Tree trunk	BoxCollider	True	False	512.918,84.242,-18.533	0.520,10.934,0.520		
+  Remembered houses and approximate buildings/Kyle's place (0.88)/Kyle's place tree trunks/Tree trunk	BoxCollider	True	False	513.864,85.131,-12.679	0.520,10.461,0.520		
+-- route data lines only before:
+-- route data lines only after:

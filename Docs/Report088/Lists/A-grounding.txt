@@ -1,0 +1,23 @@
+FreeRoamWorld: lawn in front of the step 2.31, step top 2.48, porch top 2.65
+FreeRoamWorld: 974 points checked (38 trunk colliders within 30 m): floating 0, buried 1; drive and apron vs ground worst +0.11 m at local 19.00,0.00,31.00
+  UNDER GROUND 0.06 m: drive / apron at local (15, -5)
+DansBackyardReverse: lawn in front of the step 2.31, step top 2.48, porch top 2.65
+DansBackyardReverse: 974 points checked (38 trunk colliders within 30 m): floating 0, buried 1; drive and apron vs ground worst +0.11 m at local 19.00,0.00,31.00
+  UNDER GROUND 0.06 m: drive / apron at local (15, -5)
+DansBackyardForward: lawn in front of the step 2.31, step top 2.48, porch top 2.65
+DansBackyardForward: 974 points checked (38 trunk colliders within 30 m): floating 0, buried 1; drive and apron vs ground worst +0.11 m at local 19.00,0.00,31.00
+  UNDER GROUND 0.06 m: drive / apron at local (15, -5)
+StreetLoopGreybox: lawn in front of the step 2.31, step top 2.48, porch top 2.65
+StreetLoopGreybox: 976 points checked (40 trunk colliders within 30 m): floating 0, buried 1; drive and apron vs ground worst +0.11 m at local 19.00,0.00,31.00
+  UNDER GROUND 0.06 m: drive / apron at local (15, -5)
+StreetLoopReverse: lawn in front of the step 2.31, step top 2.48, porch top 2.65
+StreetLoopReverse: 977 points checked (41 trunk colliders within 30 m): floating 0, buried 1; drive and apron vs ground worst +0.11 m at local 19.00,0.00,31.00
+  UNDER GROUND 0.06 m: drive / apron at local (15, -5)
+LakeWoods: lawn in front of the step 2.31, step top 2.48, porch top 2.65
+LakeWoods: 976 points checked (40 trunk colliders within 30 m): floating 0, buried 0; drive and apron vs ground worst +0.08 m at local 22.50,0.00,29.00
+ForestLoopReverse: lawn in front of the step 2.31, step top 2.48, porch top 2.65
+ForestLoopReverse: 974 points checked (38 trunk colliders within 30 m): floating 0, buried 0; drive and apron vs ground worst +0.08 m at local 22.50,0.00,29.00
+MountainLoop: lawn in front of the step 2.31, step top 2.48, porch top 2.65
+MountainLoop: 972 points checked (36 trunk colliders within 30 m): floating 0, buried 0; drive and apron vs ground worst +0.08 m at local 22.50,0.00,29.00
+MountainLoopReverse: lawn in front of the step 2.31, step top 2.48, porch top 2.65
+MountainLoopReverse: 977 points checked (41 trunk colliders within 30 m): floating 0, buried 0; drive and apron vs ground worst +0.08 m at local 22.50,0.00,29.00

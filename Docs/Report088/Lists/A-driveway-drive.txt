@@ -1,0 +1,5 @@
+---- kyledrive88:skyfin,moto
+PASS skyfin street -> down Kyle's driveway -> garage apron (40 m): through in 7.2 s, ended at house-frame 12.5,0.78,2.4, resets 0, steepest pitch 13 deg, most roll 10 deg, widest 0.3 m off the line, touched nothing
+PASS skyfin garage apron -> up the driveway -> out onto the street (48 m): through in 7.2 s, ended at house-frame 25.1,6.89,42.9, resets 0, steepest pitch 13 deg, most roll 10 deg, widest 0.3 m off the line, touched nothing
+PASS moto street -> down Kyle's driveway -> garage apron (40 m): through in 7.1 s, ended at house-frame 12.7,0.58,2.5, resets 0, steepest pitch 14 deg, most roll 10 deg, widest 0.2 m off the line, touched nothing
+PASS moto garage apron -> up the driveway -> out onto the street (48 m): through in 7.0 s, ended at house-frame 24.9,6.79,42.5, resets 0, steepest pitch 13 deg, most roll 10 deg, widest 0.2 m off the line, touched nothing

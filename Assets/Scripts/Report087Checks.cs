@@ -10,7 +10,7 @@ using UnityEngine;
 namespace Racer {
 // 0.87 targeted checks, added to the 0.80 runner (same muted isolated save, same helpers): PROBE_CASES="case:args;...".
 public sealed partial class Report080Checks {
- IEnumerator Cases087(string[] a)=>a[0] switch{"summit87"=>Summit087(a[1],a[2],a.Length>3?a[3]:"clean,main",a.Length>4?F(a[4]):30),"climb87"=>Climb087(a[1]),"shots87"=>Shots087(),"kyledrive87"=>KyleDrive087(a[1]),"kyleshots87"=>KyleShots087(a.Length>1?a[1]:"FreeRoamWorld",a.Length>2?a[2]:"day"),"lap87"=>Lap087(a[1],a.Length>2?a[2]:"main,clean"),_=>null};
+ IEnumerator Cases087(string[] a)=>a[0] switch{"summit87"=>Summit087(a[1],a[2],a.Length>3?a[3]:"clean,main",a.Length>4?F(a[4]):30),"climb87"=>Climb087(a[1]),"shots87"=>Shots087(),"kyledrive87"=>KyleDrive087(a[1]),"kyleshots87"=>KyleShots087(a.Length>1?a[1]:"FreeRoamWorld",a.Length>2?a[2]:"day"),"lap87"=>Lap087(a[1],a.Length>2?a[2]:"main,clean"),_=>Cases088(a)};
 
  // A driver for the timed runs: full throttle, steering at a point ahead on the path (8 m + 0.3 s), braking only when the
  // path's bend in the next 30 m needs a lower speed than this vehicle's grip allows (v = sqrt(0.9 grip R)). Same driver on
