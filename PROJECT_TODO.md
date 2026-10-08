@@ -16,7 +16,99 @@
   - **Controller first (Dan, 2026-10-07):** Dan plays with a controller. Any new or changed menu, screen or prompt must be checked once with a controller only (no mouse, no keyboard) before delivery: every control reachable, focus visible, B goes back.
   - **Write-up:** the TODO results are a short list: what changed, the one check per item, decisions made, and anything Dan should look at. No separate VALIDATION.md unless a round asks. If a check would take more than a few minutes of play time, skip it and list it under "for Dan to check".
 
-## CURRENT — Cabin Jump shrubs restored part-way, player names (Top 10, rivals, name tags), split-screen stage 3 (Free Roam for two, camera views), Police Chase: cop vs runner — target 0.94.0-review1 — DELIVERED, AWAITING DAN'S REVIEW
+## CURRENT — Police Chase findable and playable alone, names only in campaign and split-screen, Free Roam lake, holes and traps, acorn notices, Speed Patrol — target 0.95.0-review1 — NOT STARTED
+
+- **Authorized by Dan (2026-10-07, 19:13, 20:20 and 20:32).** Written by Claude (chat) from his play of 0.94.0-review1, debug session `2026-10-07_19-59-23-590_0bbbbc` (seven reports, all on 0.94.0-review1, all in Free Roam) and his message. His words are quoted in each part.
+- **Starting point:** main at the "Record 0.94 delivery" commit. This TODO edit is uncommitted and belongs in the safety checkpoint.
+- Runs unattended: design decisions are below; do not stop to ask about design. Stop only for a real external blocker (rule 7).
+- **Scope is exactly Parts A–G. Order A–F, then G (own commit).** The Verification budget and the Controller-first rule apply. Checks never write Dan's real save (work on a copy, pointed at before anything loads).
+- World fixes are in `FreeRoamWorld` only unless a part says otherwise; rule 5A applies.
+
+### Part A — Police Chase: roles swap only when two people play
+
+Dan: "for the cops switch between cop and speeder, I want this only as a multiplayer option. If you choose to be the cop or the speeder in single player you will not switch out."
+
+- **Two humans:** as 0.94: round 1, automatic swap, round 2, the longer-lasting runner wins.
+- **One human (the other is the AI):** the player chooses cop or runner and keeps that role. One round, no swap. Result: as cop, "CAUGHT in m:ss" or "GOT AWAY"; as runner, "ESCAPED" (clock ran out) or "CAUGHT after m:ss". Rematch keeps the same role; the role is changed only in the setup.
+- This rule holds for every police mode added later (speeders, AI cops): solo play never swaps roles.
+- Until the chasing AI exists, a solo player can only be the cop (the runner role stays greyed with "coming later", as 0.94).
+
+### Part B — Police Chase must be findable, and playable alone on a full screen
+
+Dan on 0.94: "I couldn't figure out how to activate cop mode. There were no police vehicles in the garage and I saw no option to actually start any kind of event."
+
+0.94 put it under Main menu > SPLIT SCREEN > Mode: Police Chase, which nobody would guess, and playing alone there still splits the screen.
+
+1. **Entries:** a **POLICE CHASE** row on the main menu (after SPLIT SCREEN) and on the Free Roam menu / Free Roam pause menu. Both open the Police Chase setup. A one-time hint the first time the main menu is shown after this update: "New: Police Chase".
+2. **Setup screen:** Players: 1 / 2. Role (1 player) or who is the cop first (2 players). The runner's vehicle, chosen in the garage view. Time of day, weather, traffic, round limit. START CHASE. The patrol car is shown turning on this screen with its stat bars, so the player sees the police vehicle (it stays out of the normal garage, as decided).
+3. **One player = full screen.** No split, no second half: the player's normal HUD plus role, clock, bust meter and the direction and distance to the AI. Part A's rule applies (one role, one round, no swap). Until the chasing AI exists the Runner role is greyed "coming later". Dan found the 0.94 route to it after asking ("I found the cop"); the entries are still wanted.
+4. **Two players** = split-screen as 0.94, with the swap. The Split Screen setup's Mode row keeps Race / Free Roam and sends Police Chase to this setup.
+5. Starting it from inside Free Roam asks once ("Leave Free Roam and start a Police Chase?") and returns to Free Roam afterwards.
+- Check (controller only): reach the setup from the main menu and from Free Roam; one full-screen solo chase as the cop to a catch; a two-player start still swaps.
+
+### Part C — Names only where Dan wants them
+
+Dan on 0.94: "I don't want names in quick races. I only want the competition names in the main campaign, and on splitscreen just the other person."
+
+- **Campaign:** as 0.94 (rival list on the event page, line-up card, ahead / behind line with names, tags, named results).
+- **Quick races (Race Setup, playlists):** none of it: no rival names, no line-up card, no ahead / behind line, no tags; results as they were before 0.94.
+- **Split-screen (race, Free Roam, Police Chase):** only the other person: their name tag and their name in results and on the HUD lines that refer to them. AI rivals there have no tags and no names.
+- **Setting:** "Name tags: On / Off" replaces Off / Players only / Everyone (a saved Everyone or Players only becomes On).
+- Unchanged: the player name, names on the Top 10, split-screen times on the Top 10.
+- Check: one campaign event, one quick race, one split-screen race with two AI rivals: what is shown in each.
+
+### Part D — Free Roam: the lake has no water
+
+Dan (BUG-005, map open at (667.39, 73.03, −18.02), driving at 17.7 mph where the map draws "The lake"): "there should be a lake here. It should exist in free roam." BUG-004 at (710.50, 79.65, −79.22), looking at the dry basin by the RIDGE RETURN sign: "this space too. notice too."
+
+- In `FreeRoamWorld` the lake basin is dry: he drove across the lake bed. Find out why (missing or disabled water object, a 0.94 split-screen / two-view change, a Free Roam-only rule) and since which version, and restore the lake in Free Roam: visible water at the level the race scenes use, the escapable-water behaviour from 0.85, ice in Snow, in single-player and in split-screen.
+- Check every other water body the race scenes have (pool, creek, pond) against Free Roam and restore any that are missing.
+- BUG-004's basin: once the water is back, check a vehicle can always drive or reset out of the shore there.
+- Check: a shot of the lake from Dan's BUG-004 position day and night; a vehicle driven in and out.
+
+### Part E — Free Roam: holes, traps and floating trees (BUG-001, 002, 003, 006, 007)
+
+All in `FreeRoamWorld`, version 0.94.0-review1. Screenshots in the session ZIP `2026-10-07_19-59-23-590_0bbbbc`.
+
+- **BUG-001 "Seal this hole"** at (1193.72, 89.38, 149.28), heading 65°: an open gap in the hillside showing dark void and sky.
+- **BUG-006 "seal"** at (806.89, 64.03, 328.19), heading 62°: a long straight dark seam between two ground pieces.
+- **BUG-002 "can we make this escapable?"** at (811.92, 94.46, 231.21): the Street Classic stuck nose-up in a steep pit, off the roads, at night.
+- **BUG-003 "make escapable"** at (1158.74, 109.96, 166.14): the same kind of trap, about 40 m from BUG-001.
+- **BUG-007 "floating trees"** at (1008.87, 164.63, 107.92), beside High Ridge Drop: trees standing above the ground on the slope.
+
+1. Seal the two gaps by closing the ground mesh there (no see-through, no fall-through), matching the surrounding ground. Then scan the whole Free Roam ground for other open seams and holes (edges with no neighbour inside the playable area) and close them; list what was found.
+2. **Escapable everywhere:** in Free Roam a stuck vehicle must always get out. The reset in Free Roam must never put the vehicle back into the same pit: if the nearest safe point is inside a hollow the vehicle could not drive out of, go to the nearest road or trail instead. Confirm at BUG-002 and BUG-003 that a reset frees the vehicle. Where a pit is only a mesh fault (a crease or a spike of ground rather than intended terrain), smooth it. Do not reshape intended terrain, jumps or the race scenes (rule 5A).
+3. Re-ground the floating trees at BUG-007, then run the existing trees-on-ground check over all of Free Roam and fix any others; list the count.
+- Check: a shot at each of the five positions after; one reset at BUG-002 and BUG-003.
+
+### Part F — Acorns: you must notice a pickup, and you cannot miss the unlock
+
+Dan: "not sure I saw that I had 2 acorns left, found 1, went to the last area and never noticed I picked it up. There needs to be some sort of notification that was unlocked." His save has 24 / 24 with the reward earned (20:12); he drove through the last acorn and the mower unlock without seeing either. The acorns themselves are fine: no reachability work.
+
+1. **Every pickup:** a clear banner at the top centre for about 4 s with a distinct sound: "ACORN FOUND 23 / 24" and under it the area and its count ("Ridge woodland 5 / 6"). Readable at 3840×2160 at speed, day and night.
+2. **The 24th:** a panel that stays until the player presses A: "ALL 24 WOODLAND ACORNS FOUND" / "UNLOCKED: TURF ROCKET" with the mower turning as in the garage view and its stat bars, and "Choose it in the Garage". The vehicle is stopped safely while it is up. A fanfare, not the pickup sound.
+3. **Dan missed his:** on a save where the reward is earned and this panel has never been shown, show it once the next time the main menu or Free Roam opens. Remember that it was shown.
+4. The same panel style is used for any future one-off unlock that happens while driving. Campaign prize reveals stay as they are.
+- Check on a copy of an isolated save: a pickup banner; the 24th; a copy of Dan's save showing the missed panel once and not again.
+
+### Part G — Police, round 2: Speed Patrol (catching speeders for points)
+
+Dan: "both are cops that try to catch speeders (you get points for different things and after a certain amount of time the one with the most points win)." 20:32: "Can we go ahead and fold phase 2 into this update." Points as agreed: per catch, more for faster speeders, a penalty for hitting innocent traffic. Free Roam only. **Own commit**, with the revert command. If it cannot be finished well, deliver Parts A–F and say what is left.
+
+1. **Where:** the Police Chase setup (Part B) gets Game: Cop vs Runner / Speed Patrol. Speed Patrol: Players 1 / 2, time of day, weather, round length 3 / 5 / 8 minutes (default 5). Traffic is always on. One player = full screen; two players = split-screen, both in patrol cars (the second in a different livery colour so they can be told apart).
+2. **Speed limits:** each road has a limit (Hwy 92 55 mph, Trickum Rd 45, S Cherokee Ln and the small roads 30; adjust if the roads' real feel says otherwise and report). The HUD shows the limit of the road the cop is on.
+3. **Speeders:** ordinary traffic keeps to the limit. From time to time a traffic vehicle near a cop becomes a speeder (10 to 40 mph over; about one new speeder every 20–30 s per cop, at most three alive at once). The cop's HUD has a **radar**: the speed of the vehicle the patrol car is pointing at within 80 m, turning red over the limit. Speeders are not marked on the minimap until a cop has clocked them on the radar.
+4. **Catching:** lights and siren on (the button from 0.94) within 30 m of a clocked speeder starts the pursuit: the speeder runs (faster ones run harder and longer, on roads only, choosing turns away from the cop, using the 0.94 AI runner). A **pull-over meter** fills while the cop stays within 20 m; filling takes 4 s for a slow speeder up to 8 s for the fastest; it drains when the cop falls back. Full = the speeder slows, pulls to the side and stops: caught. A speeder not caught within 60 s of being clocked gets away. In a two-player game the catch goes to the cop who fills the meter; both can chase the same one.
+5. **Points:** catch 100 + 10 per mph over the limit when clocked. Hitting any vehicle that is not a clocked speeder −50. Pulling over a vehicle that was not speeding (lights on it within 20 m for 4 s) −25, "NO VIOLATION". Ramming a speeder to a stop counts as a catch at half points. Each event shows a short line on that cop's HUD with the points.
+6. **End:** when the clock runs out, a chase in progress may finish (up to 15 s). Results: each cop's points, catches, fastest speeder caught, penalties. Two players: most points wins. One player: the score, with a **Speed Patrol Top 10** per round length under the player's name (two-player scores go on it too under each name). Rematch / Change setup / Main menu.
+7. Free Roam rules as in Cop vs Runner (reset holds 2 s, nobody leaves the world). Nothing else is recorded. Part A's no-swap rule is moot here (everyone is a cop).
+- Check (controller only): one solo 3-minute patrol with at least one catch, one get-away, one traffic-hit penalty and one "no violation", its score on the Top 10; a two-player start with both radars working. Shots of the radar and a pull-over.
+
+### Verification
+
+Light, per the Verification budget and the Controller-first rule. Compile, launch, release steps. Results as a short list, with "for Dan to check".
+
+## Previous delivery — Cabin Jump shrubs restored part-way, player names (Top 10, rivals, name tags), split-screen stage 3 (Free Roam for two, camera views), Police Chase: cop vs runner — 0.94.0-review1 — DELIVERED, REVIEWED BY DAN (Police Chase could not be found; names wanted only in the campaign and for the other split-screen player; Free Roam lake dry, holes and traps; follow-ups in 0.95)
 
 - **Authorized by Dan (2026-10-07, 14:30–15:51).** Written by Claude (chat) from the conversation; his words are quoted in each part. His 0.93 review (16:39) is Part D; everything else in 0.93 was fine.
 - **Starting point:** main at the "Record 0.93 delivery" commit.
