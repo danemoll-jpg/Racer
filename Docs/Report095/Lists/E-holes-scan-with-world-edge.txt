@@ -1,0 +1,40 @@
+world edge: grid 260 x 188; outside points 28956, edge points 758; ring 104648 triangles with 9374 trees; bank/wall cells 3447; cells left without a collider near a race line 0
+hills given scan colliders: 29
+ENCLOSED 725 empty cells beside 10 world-ground cells (-1092.0, 0.0, 536.0)..(-800.0, 0.0, 544.0) mean y 8.0
+ENCLOSED 585 empty cells beside 5 world-ground cells (-800.0, 0.0, -556.0)..(-800.0, 0.0, -548.0) mean y 6.9
+ENCLOSED 17 empty cells beside 18 world-ground cells (102.0, 0.0, -72.0)..(112.0, 0.0, -60.0) mean y 34.0
+ENCLOSED 980 empty cells beside 264 world-ground cells (204.0, 0.0, 544.0)..(446.0, 0.0, 570.0) mean y 10.4
+== bins x,z: ground cells beside nothing
+   -1100,520: 2
+   -1100,540: 3
+   -800,-560: 5
+   -800,520: 2
+   -800,540: 3
+   100,-80: 13
+   100,-60: 4
+   200,540: 14
+   200,560: 8
+   220,540: 10
+   220,560: 10
+   240,540: 10
+   240,560: 10
+   260,540: 10
+   260,560: 10
+   280,540: 10
+   280,560: 10
+   300,540: 10
+   300,560: 10
+   320,540: 10
+   320,560: 10
+   340,540: 10
+   340,560: 10
+   360,540: 10
+   360,560: 10
+   380,540: 10
+   380,560: 10
+   400,540: 10
+   400,560: 10
+   420,540: 10
+   420,560: 10
+   440,540: 6
+   440,560: 8

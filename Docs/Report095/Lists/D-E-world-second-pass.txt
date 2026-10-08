@@ -1,0 +1,10 @@
+pit fill: Ground_640_320 (Assets/Track/Report095/FreeRoamWorld-lake-Ground_640_320.asset)
+pit fill: Ground_720_320 (Assets/Track/Report095/FreeRoamWorld-lake-Ground_720_320.asset)
+pit fill: Ground_720_400 (Assets/Track/Report095/FreeRoamWorld-lake-Ground_720_400.asset)
+pit fill: 362 ground vertices raised (up to 14.39 m) to the lake bed / just above the water
+   Woods replacing later subdivisions/Complete authored trees: 250 pieces on the filled pit taken out
+   Woods replacing later subdivisions/Complete authored trees: 5 pieces on the filled pit taken out
+   Woods replacing later subdivisions/Complete authored trees: 318 pieces on the filled pit taken out
+   World cleanup additional woodland/Additional woodland canopy: 28 pieces on the filled pit taken out
+   World cleanup additional woodland/Additional woodland canopy: 127 pieces on the filled pit taken out
+annex aprons: 1202 open ground edges at x >= 790, 33 pieces

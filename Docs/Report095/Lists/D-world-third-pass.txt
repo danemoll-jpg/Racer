@@ -1,0 +1,10 @@
+flood fill: 285 ground vertices raised to 78.10 m (up to 15.09 m); 0 of them beyond 106 m (at the limit)
+   Ground_640_320 (Assets/Track/Report095/FreeRoamWorld-lake-Ground_640_320.asset)
+   Ground_720_320 (Assets/Track/Report095/FreeRoamWorld-lake-Ground_720_320.asset)
+   Woods replacing later subdivisions/Complete authored trees: 198 pieces on the filled ground taken out
+   Woods replacing later subdivisions/Complete authored trees: 21 pieces on the filled ground taken out
+   World cleanup additional woodland/Additional woodland canopy: 96 pieces on the filled ground taken out
+   remove Woods replacing later subdivisions/Tree trunk at (576.8, 79.79, -86.6)
+   remove Woods replacing later subdivisions/Tree trunk at (585.2, 77.82, -91.3)
+   remove Woods replacing later subdivisions/Tree trunk at (590.6, 77.94, -94.1)
+   remove World cleanup additional woodland/Roadside woodland trunk at (582.6, 79.77, -84.8)

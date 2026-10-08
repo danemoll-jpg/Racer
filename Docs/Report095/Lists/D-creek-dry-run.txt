@@ -1,0 +1,8 @@
+Forest creek (364.5, 73.87, 234.9) scale (65.0, 0.05, 20.0) surface 73.90; 4825 forest heights within 16 m
+80 road/trail samples within 40 m of the creek
+creek channel: 405 ground vertices lowered (deepest 6.52 m) in 2 tiles: Ground_560_400 (Assets/Track/BackyardReverse/DansBackyardReverse-Integrated ridge descent-1.asset), Ground_560_480 (Assets/Track/Discovery/StreetLoopGreybox-baseline-protected-Ground_560_480.asset)
+   inside the footprint after: 0 vertices under the water, 332 above it
+   vegetation Woods replacing later subdivisions/Complete authored trees: 14 pieces in the water taken out, 7 set down with the ground
+   remove Woods replacing later subdivisions/Tree trunk at (370.8, 84.02, 247.2) (ground lowered 3.54 m)
+   move Woods replacing later subdivisions/Tree trunk at (386.4, 83.81, 235.4) (ground lowered 1.58 m)
+   remove Woods replacing later subdivisions/Tree trunk at (361.7, 85.43, 239.8) (ground lowered 5.77 m)

@@ -1,0 +1,6 @@
+---- missed95
+  Dan's settings copy: playerName in file: True
+PASS Dan's save: the main menu shows the missed panel: ALL 24 WOODLAND ACORNS FOUND / UNLOCKED:  TURF ROCKET / Choose it in the Garage.
+PASS A: back to the main menu (page ''), remembered in settings
+PASS the main menu again (another scene, same save): no panel (page '')
+done, failures 0

@@ -1,0 +1,11 @@
+---- lake95
+PASS Free Roam has the lake: Friend's lake - visible shoreline surface 78.02; shores built 4
+PASS driven in from the west shore: in the water at 656.6,77.87,-20.1, immersion up to 100 %
+PASS driven back out without a reset: dry ground after 8.1 s at 574.8,81.91,-20.0
+PASS a reset at the BUG-004 shore: Recovered to nearest course point at 690.0,79.23,-66.0
+PASS Snow: the lake has its ice (yes)
+---- holes95
+PASS BUG-002: in the pit (a hollow: True); reset: Recovered to nearest course point to 859.5,141.02,140.4, 113 m away, not a hollow; route=Mountain return trails / exploration only; nearest=716.12; selected=716.12; along=0.00m; from=(811.80, 93.68, 231.83); to=(859.50, 141.04, 140.45); displacement=113.44m
+PASS BUG-003: in the pit (a hollow: False); reset: Recovered to nearest course point to 1152.1,152.52,148.9, 46 m away, not a hollow; route=Summit approach and safe return; nearest=167.86; selected=167.86; along=0.00m; from=(1146.59, 117.74, 165.56); to=(1152.14, 152.52, 148.87); displacement=38.98m
+PASS FreeRoamWorld: crown-only clumps given a trunk 1289, visual-only trunks set down 0; 25615 other trees and trunk colliders checked: 0 float more than 0.3 m above the ground, 0 of them within 60 m of (1008.87, 107.92) (floaters-FreeRoamWorld.txt)
+done, failures 0

@@ -1,0 +1,35 @@
+---- patrol95
+PASS Game: Speed Patrol chosen with the D-pad: SPEED PATROL / rows [police-game, police-players, split-course, split-time, split-weather, police-limit, police-start, police-back]
+PASS speed patrol setup (1 player): 8 rows [police-game, police-players, split-course, split-time, split-weather, police-limit, police-start, police-back]; reached all True, focus kept True, in drawn order True (police-game>police-players>split-course>split-time>split-weather>police-limit>police-start>police-back), structural check clean
+PASS round length: Round length:   3 minutes
+PASS solo patrol: one cop in the Patrol Car, full screen, traffic True (20 cars)
+PASS ordinary traffic at or under the limit: 28/30, 29/30, 39/45, 43/45, 53/55, 53/55, 53/55, 53/55, 53/55, 53/55
+PASS radar: 76 mph in a 55 (red True); speeder clocked 21 over; on the minimap 1
+PASS lights on within 30 m: the pursuit starts
+PASS pulled over: +310  CAUGHT  (21 mph over) (points 310, fastest 21)
+PASS a clocked speeder not caught in 60 s gets away (1); line "A SPEEDER GOT AWAY"
+PASS hitting traffic: −50  HIT TRAFFIC (310 > 260)
+PASS lights on a car that was not speeding: −25  NO VIOLATION (260 > 235)
+PASS results: SPEED PATROL RESULTS / SCORE  235   ·   3-minute round   ·   Day / Clear   ·   speeders that got away: 1 || Cop | Points | Catches | Fastest caught | Penalties | Dan  (Top 10 #1) | 235 | 1 | 21 mph over | 1 hit, 1 no violation | Top 10 | 3 min | Points | Catches | Date | #1 | Dan | 235 | 1 | 2026-10-07
+PASS two players: both in patrol cars; radars 30 mph and 32 mph
+---- police95
+PASS main menu rows: [campaign, race, roam, split, police, garage, records, exploration, trailer, settings, quit]; hint now: "New: Police Chase. Be the cop in a patrol car and catch the runner, alone or with a friend: main menu > POLICE CHASE (also in Free Roam's menu)." (seen True)
+PASS POLICE CHASE opens its setup: POLICE CHASE / One player against the AI on the full screen. You keep your role for the one round. / Nothing is recorded.
+PASS police setup (1 player): 11 rows [police-game, police-players, police-role, police-vehicles, split-course, split-time, split-weather, split-traffic, police-limit, police-start, police-back]; reached all True, focus kept True, in drawn order True (police-game>police-players>police-role>police-vehicles>split-course>split-time>split-weather>split-traffic>police-limit>police-start>police-back), structural check clean
+PASS police setup (1 player): B went back one level (now Ready / '')
+PASS the Free Roam page: rows [explore, roam-weather, tracks, garage, police, back]
+PASS one player: Players:   1   (full screen, against the AI) / Your role:   Cop   ·   Runner: coming later (the AI as the cop)
+PASS the patrol car turns on the setup screen with its stat bars
+PASS Free Roam paused: rows [resume, trailer, camera-view, campaign, race, roam, split, police, garage, records, exploration, settings, quit]
+PASS from Free Roam it asks: POLICE CHASE / Leave Free Roam and start a Police Chase? / You come back to Free Roam afterwards.
+PASS confirmed: the setup (One player against the AI on the full screen. You keep your role for the one round. / Nothing is recorded.  Afterwards you go back to Free Roam.)
+PASS solo chase: full screen (camera (x:0.00, y:0.00, width:1.00, height:1.00), second camera drawn False), player 1 the cop in the Patrol Car, the AI runs in the Street Classic; rounds 1
+PASS one HUD: <b><color=#7FB2FF>COP</color></b>   round 1/1   00:04 / 3:00 / BUST  <color=#FF5A4A></color><color=#5A6066>■■■■■■■■■■</color> / ↗  AI  356 ft
+PASS caught: CAUGHT in 0:07 (meter 100 %)
+PASS results: POLICE CHASE RESULTS / CAUGHT in 0:07   ·   3-minute round   ·   Day / Clear / One player keeps one role: change it in the setup. Rematch plays it again. || Round | Runner | Cop | Result | 1 | AI · Street Classic | Dan · Patrol Car | CAUGHT after 00:07.860 || last row "Back to Free Roam"
+PASS back in single-player Free Roam (FreeRoamWorld, Racing, start 0)
+PASS two players: Players:   2   (split screen), player 2 Controller 3, Cop first:   Dan   (then the roles swap)
+PASS police setup (2 players): 17 rows [police-game, police-players, split-p1, split-p2, split-swap, split-p1-name, split-p2-name, police-cop, police-vehicles, split-course, split-time, split-weather, split-traffic, police-limit, split-layout, police-start, police-back]; reached all True, focus kept True, in drawn order True (police-players>split-p1>split-p2>split-swap>split-p1-name>split-p2-name>police-cop>police-vehicles>split-course>split-time>split-weather>split-traffic>police-limit>split-layout>police-start>police-back>police-game), structural check clean
+PASS two players: split-screen, 2 rounds, cop 1
+PASS round 2: the roles swapped (cop 2; player 1 now in the Street Classic)
+done, failures 0

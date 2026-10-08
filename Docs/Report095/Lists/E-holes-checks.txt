@@ -1,0 +1,5 @@
+---- holes95
+PASS BUG-002: in the pit (a hollow: True); reset: Recovered to nearest course point to 859.5,141.01,140.4, 113 m away, not a hollow; route=Mountain return trails / exploration only; nearest=716.12; selected=716.12; along=0.00m; from=(811.80, 93.68, 231.83); to=(859.50, 141.04, 140.45); displacement=113.44m
+PASS BUG-003: in the pit (a hollow: False); reset: Recovered to nearest course point to 1152.3,152.52,148.9, 46 m away, not a hollow; route=Summit approach and safe return; nearest=168.04; selected=168.04; along=0.00m; from=(1146.74, 117.96, 165.69); to=(1152.31, 152.52, 148.93); displacement=38.81m
+PASS FreeRoamWorld: crown-only clumps given a trunk 1289, visual-only trunks set down 0; 25623 other trees and trunk colliders checked: 0 float more than 0.3 m above the ground, 0 of them within 60 m of (1008.87, 107.92) (floaters-FreeRoamWorld.txt)
+---- acorns95
