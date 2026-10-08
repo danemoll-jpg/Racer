@@ -92,8 +92,8 @@ namespace Racer
                     :(recordTab==2?"FASTEST":"LONGEST")+" · all vehicles · ‹ › changes "+(recordTab==2?"speed trap":"jump"));
                 var widths=new[]{.08f,.23f,.27f,.17f,.25f};
                 int firstRow=row;if(entries.Count>0)TableRow(row++,"header",new[]{"Rank",recordTab==2?"Speed":"Distance","Vehicle","Medal","Date"},widths,()=>{});
-                for(int i=0;i<entries.Count;i++){var e=entries[i];TableRow(row++,"activity-"+e.id,new[]{(i+1).ToString(),site?ArcadeActivities.Measurement(site,e.value):e.value.ToString("0.#"),VehicleProfile.Find(e.vehicle).Name,new[]{"—","Bronze","Silver","Gold"}[Mathf.Clamp(e.medal,0,3)],RecordDate(e.date)+(e.historical?" · legacy":"")},widths,
-                    ()=>Help("Date: "+(e.date??"Unknown")+"\nConfiguration: "+e.key+(recordTab==3&&e.airtime>0?"\nAirtime: "+e.airtime.ToString("0.000")+"s":"")+"\nEqual values retain attempt order."),i<3);}
+                for(int i=0;i<entries.Count;i++){var e=entries[i];TableRow(row++,"activity-"+e.id,new[]{(i+1).ToString(),site?ArcadeActivities.Measurement(site,e.value):e.value.ToString("0.#"),VehicleProfile.Find(e.vehicle).Name,"",RecordDate(e.date)+(e.historical?" · legacy":"")},widths,
+                    ()=>Help("Date: "+(e.date??"Unknown")+"\nConfiguration: "+e.key+(recordTab==3&&e.airtime>0?"\nAirtime: "+e.airtime.ToString("0.000")+"s":"")+"\nEqual values retain attempt order."),i<3);CellBadge(row-1,widths,3,Mathf.Clamp(e.medal,0,3));}
                 Table(firstRow,row);buttons[backRow].transform.SetAsLastSibling();
             }
         }

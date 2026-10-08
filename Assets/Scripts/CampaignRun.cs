@@ -20,9 +20,30 @@ namespace Racer
         public static bool Done => Last != null;
         public static CampaignCup Cup => Active?.Cup;
 
+        // 0.96 Part A: what this event run has scored so far, for the event panel and the attempt banner. A run is one
+        // start of the event (Begin / Retry); RunSerial tells the panel a new one began.
+        public sealed class AttemptResult { public int Number; public float Value; public bool Scored; public string Reason; public int Medal; public bool FirstCompleting, Better; }
+        public static readonly System.Collections.Generic.List<AttemptResult> Attempts = new();
+        public static float RunBest; public static int RunBestMedal, RunSerial, LiveCount;
+        public static void NewRun() { Attempts.Clear(); RunBest = 0; RunBestMedal = 0; LiveCount = 0; RunSerial++; }
+        // An attempt is scored (value > 0 and scored) or not (a jump flown but not counted). Returns it.
+        public static AttemptResult RecordAttempt(float value, bool scored, string reason = null)
+        {
+            var e = Active; if (e == null) return null;
+            var a = new AttemptResult { Number = Attempts.Count + 1, Value = value, Scored = scored, Reason = reason };
+            if (scored)
+            {
+                bool lower = e.Kind == CampaignEventKind.TimeTrial; a.Medal = Campaign.MedalFor(e, value);
+                bool improves = RunBest <= 0 || (lower ? value < RunBest : value > RunBest);
+                a.FirstCompleting = a.Medal >= 1 && RunBestMedal < 1; a.Better = a.Medal > RunBestMedal && RunBestMedal >= 1;
+                if (improves) RunBest = value; RunBestMedal = Mathf.Max(RunBestMedal, a.Medal);
+            }
+            Attempts.Add(a); return a;
+        }
+
         public static void Begin(CampaignEvent e, string vehicle)
         {
-            RacePlaylists.Quit(); Active = e; Vehicle = vehicle; Last = null; PendingStart = true; Campaign.Selected = e.Id; Campaign.Drove(vehicle);
+            NewRun(); RacePlaylists.Quit(); Active = e; Vehicle = vehicle; Last = null; PendingStart = true; Campaign.Selected = e.Id; Campaign.Drove(vehicle);
             OpenedCourse = Campaign.OpenCourse(e.Course);
         }
         // A championship round: the next one of the championship in progress (its saved vehicle).
@@ -37,10 +58,10 @@ namespace Racer
             var progress = Campaign.ActiveCup(cup); if (progress == null || progress.races.Count >= cup.Rounds.Length) return false;
             Begin(RoundEvent(cup, progress.races.Count), progress.vehicle); Campaign.Selected = cup.Id; return true;
         }
-        public static void End() { Active = null; Vehicle = null; Last = null; PendingStart = false; OpenedCourse = null; }
+        public static void End() { NewRun(); Active = null; Vehicle = null; Last = null; PendingStart = false; OpenedCourse = null; }
         // A retry: the same event again (a new run; its result counts as a replay once one has been recorded). Never for a
         // championship round.
-        public static void Retry() { if (Cup == null) Last = null; }
+        public static void Retry() { if (Cup == null) { Last = null; NewRun(); } }
         // The named rival for a campaign race's roster slot (null outside the campaign). 0.94 Part A: every campaign race
         // (0.90-0.93: championships only), from the one cast (CampaignData.CastFor); RivalMember = the cast member (colour).
         public static int RivalMember(int slot) { var e = Active; if (e == null || e.Kind != CampaignEventKind.Race || slot < 0 || slot >= e.Rivals.Length) return -1; return CampaignData.CastFor(e.Rivals)[slot]; }
@@ -123,20 +144,11 @@ namespace Racer
     // flow object while such an event runs.
     public sealed class CampaignTrapWatch : MonoBehaviour
     {
-        RaceFlow flow; int awards, jumps; float endAt = -1, score; bool smashStarted;
+        RaceFlow flow; int awards, jumps, misses; float endAt = -1, score; bool smashStarted;
         public float Best { get; private set; }
-        public void Initialize(RaceFlow owner) { flow = owner; awards = flow.Activities ? flow.Activities.Awards : 0; endAt = -1; score = 0; smashStarted = false; Best = 0; jumps = 0; }
-        // The jump event's HUD line: targets, best so far, time left, how to go again.
-        public string Hud
-        {
-            get
-            {
-                var e = CampaignRun.Active; if (!flow || e == null || e.Kind != CampaignEventKind.Jump || CampaignRun.Done || flow.State != RaceFlow.Stage.Racing) return null;
-                float left = Mathf.Max(0, e.TimeLimit - (float)flow.Race.Progress.RaceTime(flow.Race.Clock));
-                string reset = MenuInput.Binding(flow.Race.vehicle.GetComponent<VehicleInput>().CurrentBindings[3]);
-                return $"{e.Name.ToUpperInvariant()}  ·  {Campaign.TargetsText(e)}\nBest: {(Best > 0 ? Campaign.Measure(e, Best) + " " + new[] { "(no medal)", "BRONZE", "SILVER", "GOLD" }[Campaign.MedalFor(e, Best)] : "none yet")}  ·  {left:0} s left  ·  {MenuGlyph.Label(reset)}: back to the run-up";
-            }
-        }
+        public void Initialize(RaceFlow owner) { flow = owner; awards = flow.Activities ? flow.Activities.Awards : 0; misses = flow.Activities ? flow.Activities.Misses : 0; endAt = -1; score = 0; smashStarted = false; Best = 0; jumps = 0; CampaignRun.NewRun(); }
+        // 0.96 Part A: the event panel (CampaignEventUi) replaces the HUD line this used to give
+        public string Hud => null;
         // Pause menu > End event: the best scored jump counts (none: no result).
         public void EndNow() { if (CampaignRun.Done) return; CampaignRun.Finish(flow, Best); flow.CompleteResults(); Destroy(this); }
         void Update()
@@ -149,8 +161,9 @@ namespace Racer
             if (e.Kind == CampaignEventKind.Smash)
             {
                 if (!smashStarted) { smashStarted = true; a.BeginCampaignSmash(CampaignRun.Site(flow.Race), e.TimeLimit); awards = a.Awards; }
-                if (endAt < 0 && a.Awards != awards) { awards = a.Awards; score = a.LastSmashScore; endAt = Time.unscaledTime + 1.6f; }
-                if (endAt < 0 && flow.Race.Progress.RaceTime(flow.Race.Clock) > e.TimeLimit + 1) { score = 0; endAt = Time.unscaledTime; flow.Notify("Time is up — nothing smashed", 3); }
+                if (endAt < 0) CampaignRun.LiveCount = a.SmashCount;
+                if (endAt < 0 && a.Awards != awards) { awards = a.Awards; score = a.LastSmashScore; endAt = Time.unscaledTime + CampaignEventUi.BannerSeconds; CampaignRun.RecordAttempt(score, true); }
+                if (endAt < 0 && flow.Race.Progress.RaceTime(flow.Race.Clock) > e.TimeLimit + 1) { score = 0; endAt = Time.unscaledTime + CampaignEventUi.BannerSeconds; CampaignRun.RecordAttempt(0, false, "nothing smashed"); }
                 if (endAt >= 0 && Time.unscaledTime >= endAt) { CampaignRun.Finish(flow, score); flow.CompleteResults(); Destroy(this); }
                 return;
             }
@@ -159,13 +172,16 @@ namespace Racer
                 awards = a.Awards;
                 if (a.LastAwardSite && a.LastAwardSite.id == e.Site)
                 {
-                    if (e.Kind == CampaignEventKind.Jump) { jumps++; Best = Mathf.Max(Best, a.LastJumpAward); }
-                    else { score = a.LastSpeed; endAt = Time.unscaledTime + 1.6f; }
+                    if (e.Kind == CampaignEventKind.Jump) { jumps++; Best = Mathf.Max(Best, a.LastJumpAward); CampaignRun.RecordAttempt(a.LastJumpAward, true); }
+                    else { score = a.LastSpeed; endAt = Time.unscaledTime + CampaignEventUi.BannerSeconds; CampaignRun.RecordAttempt(score, true); }
                 }
             }
+            // a jump flown from the event's ramp that did not count (crashed, landed in the water, too short ...)
+            if (a && e.Kind == CampaignEventKind.Jump && a.Misses != misses) { misses = a.Misses; if (endAt < 0 && a.LastMissSite && a.LastMissSite.id == e.Site) CampaignRun.RecordAttempt(0, false, a.LastMiss.ToLowerInvariant()); }
             if (endAt < 0 && flow.Race.Progress.RaceTime(flow.Race.Clock) > e.TimeLimit)
             {
-                score = e.Kind == CampaignEventKind.Jump ? Best : 0; endAt = Time.unscaledTime + (score > 0 ? 1.6f : 0);
+                score = e.Kind == CampaignEventKind.Jump ? Best : 0; endAt = Time.unscaledTime + (score > 0 ? 1.6f : e.Kind == CampaignEventKind.Jump ? 0 : CampaignEventUi.BannerSeconds);
+                if (e.Kind == CampaignEventKind.SpeedTrap) CampaignRun.RecordAttempt(0, false, "time ran out before the trap");
                 flow.Notify(e.Kind == CampaignEventKind.Jump ? (Best > 0 ? "Time is up — your best jump counts: " + Campaign.Measure(e, Best) : "Time is up — no scored jump") : "Time is up — no trap speed recorded", 3);
             }
             if (endAt >= 0 && Time.unscaledTime >= endAt) { CampaignRun.Finish(flow, score); flow.CompleteResults(); Destroy(this); }

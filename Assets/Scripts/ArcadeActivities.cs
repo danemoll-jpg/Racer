@@ -26,7 +26,18 @@ namespace Racer
         public string LastJumpDiagnostic {get;private set;}
         public int SmashCount=>smashed.Count;
         public string Location {get{if(!Selected||!car)return "";var delta=Selected.transform.position-car.Body.position;int compass=Mathf.RoundToInt(Mathf.Repeat(Mathf.Atan2(delta.x,delta.z)*Mathf.Rad2Deg,360)/45)%8;return $"{DisplayUnits.Distance(Vector3.ProjectOnPlane(delta,Vector3.up).magnitude)} {new[]{"N","NE","E","SE","S","SW","W","NW"}[compass]}";}}
-        public string Hud=>CampaignHud(Time.time<feedbackUntil?Feedback:AttemptActive?$"{Selected.title} / {Mathf.Max(0,deadline-Time.time):0}s / {Location}\n{(Selected.kind==ActivitySite.Kind.Smash?SmashCount+" distinct props":"Land a jump from the marked ramp")}":race.FreeRoam?AtStart:"");
+        public string Hud=>CampaignEventHidesHud?"":CampaignHud(Time.time<feedbackUntil?Feedback:AttemptActive?$"{Selected.title} / {Mathf.Max(0,deadline-Time.time):0}s / {Location}\n{(Selected.kind==ActivitySite.Kind.Smash?SmashCount+" distinct props":"Land a jump from the marked ramp")}":race.FreeRoam?AtStart:"");
+        // 0.96 Part A: a campaign jump / speed trap / smash event shows its own panel and attempt banner (CampaignEventUi), not
+        // these lines
+        static bool CampaignEventHidesHud=>CampaignRun.Active!=null&&CampaignRun.Active.Kind!=CampaignEventKind.Race&&CampaignRun.Active.Kind!=CampaignEventKind.TimeTrial;
+        // 0.96 Part A: attempts that were not scored (a jump flown but not counted), for the event's attempt banner
+        public int Misses{get;private set;}public string LastMiss{get;private set;}public ActivitySite LastMissSite{get;private set;}
+        void Miss(ActivitySite site,string why){Misses++;LastMiss=why;LastMissSite=site;}
+        // 0.96 Part B: the medal of the last scored result in Free Roam (-1 = none), for the HUD's medal badge, and the three
+        // targets of a site as the medal displays write them (gold, silver, bronze)
+        public int LastMedal{get;private set;}=-1;public string ResultValue{get;private set;}="";public bool ResultShowing=>LastMedal>=0&&Time.time<feedbackUntil;
+        public string[] TargetStrings(ActivitySite s){if(!s||!car)return null;s.Targets(configuration.profileId,out float b,out float si,out float g);
+            return s.kind==ActivitySite.Kind.Jump?new[]{MedalUi.Feet(g),MedalUi.Feet(si),MedalUi.Feet(b)}:s.kind==ActivitySite.Kind.Speed?new[]{MedalUi.Mph(g),MedalUi.Mph(si),MedalUi.Mph(b)}:new[]{Mathf.RoundToInt(g)+" props",Mathf.RoundToInt(si)+" props",Mathf.RoundToInt(b)+" props"};}
         // 0.91 Part C: during a campaign jump event its targets, the best so far and the time left stay on the HUD.
         string CampaignHud(string line){var watch=race&&race.Flow?race.Flow.GetComponent<CampaignTrapWatch>():null;var extra=watch?watch.Hud:null;return string.IsNullOrEmpty(extra)?line:string.IsNullOrEmpty(line)?extra:line+"\n"+extra;}
         // 0.79 Part B: in Free Roam, the activity the player is at (within its start radius) and how to start it; nothing
@@ -77,7 +88,7 @@ namespace Racer
             var keys=Keys(s);var all=Results.results.Where(b=>keys.Contains(b.key)).ToList();if(all.Count==0)return null;
             return new Best{key=Key(s),value=all.Max(b=>b.value),medal=all.Max(b=>b.medal)};
         }
-        public static string Measurement(ActivitySite site,float value)=>site.kind==ActivitySite.Kind.Speed?DisplayUnits.Speed(value):site.kind==ActivitySite.Kind.Jump?DisplayUnits.Jump(value):value.ToString("0")+" props";
+        public static string Measurement(ActivitySite site,float value)=>site.kind==ActivitySite.Kind.Speed?MedalUi.Mph(value):site.kind==ActivitySite.Kind.Jump?MedalUi.Feet(value):value.ToString("0")+" props"; // 0.96 Part B: whole feet and mph
         public string Targets{get{if(!Selected)return "";Selected.Targets(configuration.profileId,out float b,out float s,out float g);return Selected.kind==ActivitySite.Kind.Jump?$"Bronze {DisplayUnits.Target(b)} / silver {DisplayUnits.Target(s)} / gold {DisplayUnits.Target(g)}":$"Bronze {Measurement(Selected,b)} / silver {Measurement(Selected,s)} / gold {Measurement(Selected,g)} / {Selected.Seconds:0}s";}}
         public void Cycle(int d=1){var choices=Sites.Where(s=>s.kind!=ActivitySite.Kind.Speed).ToArray();if(choices.Length==0)return;Cancel();Selected=choices[(Math.Max(0,Array.IndexOf(choices,Selected))+d+choices.Length)%choices.Length];}
         public void BeginAttempt()
@@ -155,9 +166,9 @@ namespace Racer
                             LastDistance=distance;LastAirtime=air;Message($"CLEAN JUMP / {DisplayUnits.Jump(distance)} / {air:0.00} s / {Mathf.RoundToInt(distance*10+air*100)} pts",4);
                             if(jumpSite){AttemptActive=false;Award(jumpSite,distance,"m");}
                         }
-                        else if(jumpSite&&!hop){AttemptActive=false;Message($"{jumpSite.title} / NOT SCORED: {rejected??(tooShort?"Too short to count":"Left the course")}",5);}
+                        else if(jumpSite&&!hop){AttemptActive=false;Miss(jumpSite,rejected??(tooShort?"Too short to count":"Left the course"));Message($"{jumpSite.title} / NOT SCORED: {rejected??(tooShort?"Too short to count":"Left the course")}",5);}
                         // a real flight beside the jump being attempted, but not from its ramp
-                        else if(!tooShort&&TargetJump is ActivitySite target&&Vector3.Distance(takeoff,target.transform.position)<target.radius*3&&Vector3.Dot(landing-takeoff,target.forward.normalized)>3)Message($"{target.title} / NOT SCORED: Took off outside the marked area",5);
+                        else if(!tooShort&&TargetJump is ActivitySite target&&Vector3.Distance(takeoff,target.transform.position)<target.radius*3&&Vector3.Dot(landing-takeoff,target.forward.normalized)>3){Miss(target,"took off outside the marked area");Message($"{target.title} / NOT SCORED: Took off outside the marked area",5);}
                         ResetFlight();warm=hop?.5f:0; // a hop is no jump: the next takeoff still counts
                     }
                 }
@@ -194,10 +205,10 @@ namespace Racer
             if(site.kind==ActivitySite.Kind.Jump)LastJumpAward=value;
             var own=Results.results.FirstOrDefault(b=>b.key==Key(site));if(own==null){own=new Best{key=Key(site)};Results.results.Add(own);}own.value=Mathf.Max(own.value,value);own.medal=Mathf.Max(own.medal,medal);Awards++;
             string measurement=Measurement(site,value)+" / PB "+Measurement(site,Mathf.Max(own.value,best?.value??0));
-            Message(site.title+" / "+measurement+"\n"+new[]{"No medal yet","BRONZE","SILVER","GOLD"}[medal]+(improved?" / NEW BEST":" / personal best retained")+(site.kind==ActivitySite.Kind.Jump?$" / {LastAirtime:0.00}s / {Mathf.RoundToInt(value*10+LastAirtime*100)} pts":""),6);
+            Message(site.title+" / "+measurement+"\n"+(improved?"NEW BEST":"personal best retained")+(site.kind==ActivitySite.Kind.Jump?$" / {LastAirtime:0.00}s / {Mathf.RoundToInt(value*10+LastAirtime*100)} pts":""),6);LastMedal=medal;ResultValue=Measurement(site,value);
             try{AtomicSave.Write(path,JsonUtility.ToJson(Results,true));}catch(Exception e){Message("Activity result could not be saved: "+e.Message,6);}
         }
-        void Message(string value,float seconds){Feedback=value;feedbackUntil=Time.time+seconds;}
+        void Message(string value,float seconds){Feedback=value;feedbackUntil=Time.time+seconds;LastMedal=-1;}
         void OnDestroy(){BreakableProp.BrokenByVehicle-=Smash;if(car&&car.TryGetComponent<VehicleRespawn>(out var respawn))respawn.Respawned-=Recovered;}
     }
     public sealed class ActivityLandingContact:MonoBehaviour {public ArcadeActivities activities;void OnCollisionEnter(Collision c){if(!activities||activities.PlayerObject!=gameObject)return;foreach(var contact in c.contacts)activities.SolidContact(contact.normal,Mathf.Abs(Vector3.Dot(c.relativeVelocity,contact.normal)));}}

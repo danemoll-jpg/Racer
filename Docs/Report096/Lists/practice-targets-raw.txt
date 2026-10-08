@@ -1,0 +1,54 @@
+---- targets90:c1-practice-reverse,c2-practice-reverse:original,atv
+  waiting: scene StreetLoopGreybox, flow yes, started True, holding True, state Ready, timeScale 1, campaign c1-practice-reverse pending True
+  waiting: scene StreetLoopGreybox, flow yes, started True, holding True, state Ready, timeScale 1, campaign c1-practice-reverse pending True
+  waiting: scene StreetLoopGreybox, flow yes, started True, holding True, state Ready, timeScale 1, campaign c1-practice-reverse pending True
+  waiting: scene StreetLoopGreybox, flow yes, started True, holding True, state Ready, timeScale 1, campaign c1-practice-reverse pending True
+  waiting: scene StreetLoopGreybox, flow yes, started True, holding True, state Ready, timeScale 1, campaign c1-practice-reverse pending True
+  waiting: scene StreetLoopGreybox, flow yes, started True, holding True, state Ready, timeScale 1, campaign c1-practice-reverse pending True
+  waiting: scene StreetLoopReverse, flow yes, started False, holding True, state Ready, timeScale 1, campaign c1-practice-reverse pending True
+  waiting: scene StreetLoopReverse, flow yes, started False, holding True, state Ready, timeScale 1, campaign c1-practice-reverse pending True
+  running after 44 s: state Racing, campaign c1-practice-reverse
+c1-practice-reverse original AI skill 1: 02:18.263 (138.26 s), missed gates 0
+  waiting: scene StreetLoopReverse, flow yes, started False, holding True, state Ready, timeScale 1, campaign c1-practice-reverse pending True
+  waiting: scene StreetLoopReverse, flow yes, started True, holding False, state Countdown, timeScale 1, campaign c1-practice-reverse pending False
+  running after 12 s: state Racing, campaign c1-practice-reverse
+c1-practice-reverse original AI skill 2: 02:13.683 (133.68 s), missed gates 0
+  waiting: scene StreetLoopReverse, flow yes, started True, holding True, state Ready, timeScale 1, campaign c1-practice-reverse pending True
+  waiting: scene StreetLoopReverse, flow yes, started False, holding True, state Ready, timeScale 1, campaign c1-practice-reverse pending True
+  waiting: scene StreetLoopReverse, flow yes, started False, holding True, state Ready, timeScale 1, campaign c1-practice-reverse pending True
+  running after 19 s: state Racing, campaign c1-practice-reverse
+c1-practice-reverse atv AI skill 1: 02:16.906 (136.91 s), missed gates 0
+  waiting: scene StreetLoopReverse, flow yes, started False, holding True, state Ready, timeScale 1, campaign c1-practice-reverse pending True
+  waiting: scene StreetLoopReverse, flow yes, started False, holding True, state Ready, timeScale 1, campaign c1-practice-reverse pending True
+  waiting: scene StreetLoopReverse, flow yes, started True, holding False, state Countdown, timeScale 1, campaign c1-practice-reverse pending False
+  running after 15 s: state Racing, campaign c1-practice-reverse
+c1-practice-reverse atv AI skill 2: 03:45.636 (225.64 s), missed gates 0
+  waiting: scene StreetLoopReverse, flow yes, started True, holding True, state Ready, timeScale 1, campaign c2-practice-reverse pending True
+  waiting: scene StreetLoopReverse, flow yes, started True, holding True, state Ready, timeScale 1, campaign c2-practice-reverse pending True
+  waiting: scene StreetLoopReverse, flow yes, started True, holding True, state Ready, timeScale 1, campaign c2-practice-reverse pending True
+  waiting: scene StreetLoopReverse, flow yes, started True, holding True, state Ready, timeScale 1, campaign c2-practice-reverse pending True
+  waiting: scene StreetLoopReverse, flow yes, started True, holding True, state Ready, timeScale 1, campaign c2-practice-reverse pending True
+  waiting: scene StreetLoopReverse, flow yes, started True, holding True, state Ready, timeScale 1, campaign c2-practice-reverse pending True
+  waiting: scene StreetLoopReverse, flow yes, started True, holding True, state Ready, timeScale 1, campaign c2-practice-reverse pending True
+  waiting: scene StreetLoopReverse, flow yes, started True, holding True, state Ready, timeScale 1, campaign c2-practice-reverse pending True
+  waiting: scene ForestLoopReverse, flow yes, started False, holding True, state Ready, timeScale 1, campaign c2-practice-reverse pending True
+  waiting: scene ForestLoopReverse, flow yes, started False, holding True, state Ready, timeScale 1, campaign c2-practice-reverse pending True
+  waiting: scene ForestLoopReverse, flow yes, started True, holding True, state Countdown, timeScale 1, campaign c2-practice-reverse pending False
+  running after 58 s: state Racing, campaign c2-practice-reverse
+c2-practice-reverse original AI skill 1: 01:05.773 (65.77 s), missed gates 0
+  waiting: scene ForestLoopReverse, flow yes, started True, holding True, state Ready, timeScale 1, campaign c2-practice-reverse pending True
+  waiting: scene ForestLoopReverse, flow yes, started False, holding True, state Ready, timeScale 1, campaign c2-practice-reverse pending True
+  waiting: scene ForestLoopReverse, flow yes, started False, holding True, state Ready, timeScale 1, campaign c2-practice-reverse pending True
+  running after 19 s: state Racing, campaign c2-practice-reverse
+c2-practice-reverse original AI skill 2: 01:09.906 (69.91 s), missed gates 0
+  waiting: scene ForestLoopReverse, flow yes, started True, holding True, state Ready, timeScale 1, campaign c2-practice-reverse pending True
+  waiting: scene ForestLoopReverse, flow yes, started False, holding True, state Ready, timeScale 1, campaign c2-practice-reverse pending True
+  waiting: scene ForestLoopReverse, flow yes, started True, holding False, state Countdown, timeScale 1, campaign c2-practice-reverse pending False
+  running after 17 s: state Racing, campaign c2-practice-reverse
+c2-practice-reverse atv AI skill 1: 01:11.302 (71.30 s), missed gates 0
+  waiting: scene ForestLoopReverse, flow yes, started True, holding True, state Ready, timeScale 1, campaign c2-practice-reverse pending True
+  waiting: scene ForestLoopReverse, flow yes, started False, holding True, state Ready, timeScale 1, campaign c2-practice-reverse pending True
+  waiting: scene ForestLoopReverse, flow yes, started False, holding True, state Ready, timeScale 1, campaign c2-practice-reverse pending True
+  running after 19 s: state Racing, campaign c2-practice-reverse
+c2-practice-reverse atv AI skill 2: 01:10.533 (70.53 s), missed gates 0
+---- targets90:c3-practice-reverse,c4-practice-reverse:atv,moto

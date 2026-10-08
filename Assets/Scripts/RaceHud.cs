@@ -7,7 +7,7 @@ namespace Racer
         public RaceDirector race;
         public UnityEngine.UI.Text display;
         UnityEngine.UI.Text speedometer;
-        GameObject speedPanel;
+        GameObject speedPanel;RectTransform medalHolder;string medalKey; // 0.96 Part B: Free Roam activity targets / result as medals
         GameObject wrongPanel;
         UnityEngine.UI.Text wrongText,wrongArrow;
         UnityEngine.UI.Text activities;
@@ -50,6 +50,20 @@ namespace Racer
             waypointArrow=WLabel("Waypoint direction",new(-132,0),new(50,50),40);waypointArrow.text="↑";waypointText=WLabel("Waypoint distance",new(26,0),new(270,50),24);waypointPanel.SetActive(false);
             BuildClock();BuildCameraHint();BuildNames();
             var feedback=new GameObject("Arcade activity feedback",typeof(RectTransform),typeof(UnityEngine.UI.Text));feedback.transform.SetParent(transform,false);activities=feedback.GetComponent<UnityEngine.UI.Text>();activities.font=display.font;activities.fontSize=21;activities.color=new Color(1,.9f,.5f);activities.raycastTarget=false;activities.alignment=TextAnchor.LowerLeft;activities.rectTransform.anchorMin=activities.rectTransform.anchorMax=activities.rectTransform.pivot=Vector2.zero;activities.rectTransform.anchoredPosition=new(22,78);activities.rectTransform.sizeDelta=new(700,80);feedback.AddComponent<UnityEngine.UI.Outline>();
+            medalHolder=new GameObject("Activity medals",typeof(RectTransform)).GetComponent<RectTransform>();medalHolder.SetParent(transform,false);medalHolder.anchorMin=medalHolder.anchorMax=medalHolder.pivot=Vector2.zero;medalHolder.anchoredPosition=new(22,28);medalHolder.sizeDelta=new(700,44);
+        }
+        // 0.96 Part B: at a Free Roam activity its three medal targets, highest first; after a result the medal won and its value
+        void UpdateMedals()
+        {
+            if(!medalHolder)return;var a=race.Flow.Activities;string key="";string[] texts=null;int[] medals=null;
+            if(race.FreeRoam&&!race.Flow.MenuVisible&&a!=null)
+            {
+                if(a.ResultShowing){key="r"+a.LastMedal+a.ResultValue;medals=new[]{a.LastMedal};texts=new[]{a.ResultValue+(a.LastMedal==0?"   (no medal yet)":"")};}
+                else{var site=a.AttemptActive?a.Selected:a.AtSite;var t=site?a.TargetStrings(site):null;if(t!=null){key="t"+site.id+t[0]+t[1]+t[2];medals=new[]{3,2,1};texts=t;}}
+            }
+            if(key==medalKey)return;medalKey=key;for(int i=medalHolder.childCount-1;i>=0;i--){var c=medalHolder.GetChild(i).gameObject;c.SetActive(false);Destroy(c);}
+            if(key=="")return;medalHolder.gameObject.SetActive(true);var row=MedalUi.Row(medalHolder,display.font,medals,texts,medals.Length==1?26:22,medals.Length==1?34:30,0,new Color(1,.9f,.5f));
+            row.anchorMin=Vector2.zero;row.anchorMax=Vector2.one;row.offsetMin=row.offsetMax=Vector2.zero;
         }
         UnityEngine.UI.Text HudText(string name,Transform parent,int size,TextAnchor anchor,Color colour)
         {
@@ -125,10 +139,10 @@ namespace Racer
             if(SplitScreen.Active)
             {
                 display.transform.parent.gameObject.SetActive(false);if(speedPanel)speedPanel.SetActive(false);if(wrongPanel)wrongPanel.SetActive(false);
-                if(cameraHint)cameraHint.gameObject.SetActive(false);if(activities)activities.text="";if(waypointPanel)waypointPanel.SetActive(false);if(clockPanel)clockPanel.SetActive(false);return;
+                if(cameraHint)cameraHint.gameObject.SetActive(false);if(activities)activities.text="";if(medalHolder)medalHolder.gameObject.SetActive(false);if(waypointPanel)waypointPanel.SetActive(false);if(clockPanel)clockPanel.SetActive(false);return;
             }
             display.text=BuildText();
-            display.transform.parent.gameObject.SetActive(!race.FreeRoam&&!race.Flow.MenuVisible);
+            display.transform.parent.gameObject.SetActive(!race.FreeRoam&&!race.Flow.MenuVisible&&!CampaignEventUi.ReplacesRacePanel);UpdateMedals();
             UpdateCameraHint();
             // 0.79 Part B: in Free Roam only what is relevant now: the activity you are at, the attempt, its result, an acorn
             // just found, and the menu hint for a few seconds after Free Roam begins; the day and clock have their own box.

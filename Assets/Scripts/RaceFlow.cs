@@ -124,7 +124,7 @@ namespace Racer
             CameraViews.Attach(this); TrailerMode.Attach(this); NameTags.Attach(this);
             Ghost=gameObject.AddComponent<CleanLapGhost>();Ghost.Initialize(Race,root);
             GetComponent<ExplorationCollection>()?.Initialize(Race,root);
-            AcornBanner.Attach(this);UnlockNotice.Pending.Clear();UnlockNotice.Showing=null;UnlockNotice.Missed(Save); // 0.95 Part F
+            AcornBanner.Attach(this);CampaignEventUi.Attach(this);UnlockNotice.Pending.Clear();UnlockNotice.Showing=null;UnlockNotice.Missed(Save); // 0.95 Part F
             GetComponent<ExplorationMap>()?.Initialize(Race,root);
             Hints.Flow=this;gameObject.AddComponent<HintWatch>().Initialize(this);
             LockVehicle(true);
@@ -428,7 +428,7 @@ namespace Racer
         public void BeginCountdown()
         {
             ControlsCard = Hints.ControlsDue; controlsShownAt = Time.unscaledTime;
-            DebugMovementUsed=false; Save.BeginAttempt();
+            DebugMovementUsed=false; ttBannerShown=false; if(CampaignRun.Active!=null&&CampaignRun.Cup==null)CampaignRun.NewRun(); Save.BeginAttempt();
             attempt=System.Guid.NewGuid().ToString("N");LapRank=RaceRank=0;Boards.BeginAttempt();FinishCards.Begin(Boards,Race.Category,Save.Best);
             NewLapRecord = NewRaceRecord = false; CountdownRemaining = 3; lastTick = 3;
             if(CampaignRun.Active?.Kind==CampaignEventKind.SpeedTrap||CampaignRun.Active?.Kind==CampaignEventKind.Jump||CampaignRun.Active?.Kind==CampaignEventKind.Smash){var watch=GetComponent<CampaignTrapWatch>();if(!watch)watch=gameObject.AddComponent<CampaignTrapWatch>();watch.Initialize(this);}
@@ -573,10 +573,13 @@ namespace Racer
             else if (best) { Notify("NEW PERSONAL BEST LAP  " + RaceHud.FormatTime(Race.Progress.LastLap), 4); Sound(record); }
             else if(LapRank>0)Notify("TOP 10 LAP / #"+LapRank+"  "+RaceHud.FormatTime(Race.Progress.LastLap),4);
         }
-        public void CompleteResults() { if(WinnerShot.Active){StartCoroutine(ResultsAfterWinnerShot());return;} if(!DebugMovementUsed)RacePlaylists.Record(Race);if(CampaignRun.Active!=null)CampaignRun.Finish(this,GetComponent<CampaignTrapWatch>()?.Best??0);LockVehicle(true); SetStage(Stage.Results); }
+        public void CompleteResults() { if(WinnerShot.Active){StartCoroutine(ResultsAfterWinnerShot());return;}
+            // 0.96 Part A: a time trial's lap is its attempt: its result (the medal) shows for 3 s at the line before the results
+            if(CampaignRun.Active?.Kind==CampaignEventKind.TimeTrial&&!CampaignRun.Done&&!ttBannerShown&&!DebugMovementUsed&&Race.Progress.Finished&&Race.Progress.LapTimes.Count>0&&State==Stage.Racing){ttBannerShown=true;CampaignRun.RecordAttempt((float)Race.Progress.LapTimes[0],true);StartCoroutine(ResultsAfterBanner());return;} if(!DebugMovementUsed)RacePlaylists.Record(Race);if(CampaignRun.Active!=null)CampaignRun.Finish(this,GetComponent<CampaignTrapWatch>()?.Best??0);LockVehicle(true); SetStage(Stage.Results); }
         // 0.91 Part C: pause menu > End event in a campaign jump event (its best scored jump counts).
         public CampaignTrapWatch JumpEvent=>CampaignRun.Active?.Kind==CampaignEventKind.Jump&&!CampaignRun.Done?GetComponent<CampaignTrapWatch>():null;
         public void EndJumpEvent(){var watch=JumpEvent;if(watch)watch.EndNow();}
+        bool ttBannerShown;System.Collections.IEnumerator ResultsAfterBanner(){float until=Time.unscaledTime+CampaignEventUi.BannerSeconds;while(Time.unscaledTime<until&&State==Stage.Racing)yield return null;if(State==Stage.Racing||State==Stage.Paused)CompleteResults();}
         System.Collections.IEnumerator ResultsAfterWinnerShot(){while(WinnerShot.Active)yield return null;CompleteResults();}
         public void Notify(string text, float duration) { Notice = text; noticeUntil = Time.unscaledTime + duration; }
         public void Click() => Sound(click);

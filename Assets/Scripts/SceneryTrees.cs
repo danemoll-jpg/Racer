@@ -270,7 +270,7 @@ namespace Racer
         // down to the ground (a bush is set down), and one hanging over a trail or road is left out.
         // 0.95 Part E (BUG-007, Free Roam's floating trees): Free Roam is grounded the same way (its trunk colliders were set
         // down in the scene by Tools/Report095/Report095World.cs)
-        static readonly HashSet<string> GroundedScenes = new() { "ForestLoopReverse", RaceFlow.RoamScene };
+        static readonly HashSet<string> GroundedScenes = new() { "ForestLoopReverse", RaceFlow.RoamScene, "MountainLoop", "MountainLoopReverse" }; // 0.96 Part D: the Mountain scenes too (BUG-008)
         static bool TreeLike(Collider c) => c.name.IndexOf("trunk", System.StringComparison.OrdinalIgnoreCase) >= 0 || c.name.IndexOf("tree", System.StringComparison.OrdinalIgnoreCase) >= 0;
         static bool GroundBelow(Vector3 p, out float y)
         {

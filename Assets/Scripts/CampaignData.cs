@@ -57,37 +57,54 @@ namespace Racer
         // own by then: the starters, the Needle 600 and a bought car).
         public static readonly CampaignEvent[] Events =
         {
+            // 0.96 Part C: on every course a time trial (a lap to learn it) comes before the first race there; the practice laps on
+            // the reverse courses are new (pay about half a normal event, generous medal times: Docs/Report096/Lists/practice-targets.txt).
+            // Chapter 1, Street Loop
+            new() { Id = "c1-against-clock", Name = "Against the Clock", Chapter = 1, Kind = CampaignEventKind.TimeTrial, Course = 0, RunUp = 150, Targets = new[] { 150f, 140f, 134f }, Pay = 1000, Bonus = 500 },
             new() { Id = "c1-first-lap", Name = "First Lap", Chapter = 1, Kind = CampaignEventKind.Race, Course = 0, Laps = 2, Rivals = new[] { "original", "pebble", "roadster" }, Difficulty = 0, Pay = 1200, Bonus = 600 },
             new() { Id = "c1-hwy92-trap", Name = "Hwy 92 Speed Trap", Chapter = 1, Kind = CampaignEventKind.SpeedTrap, Course = 0, Site = "speed-0", RunUp = 200, TimeLimit = 45, Targets = new[] { 34f, 39f, 44f }, Pay = 1000, Bonus = 500 },
-            new() { Id = "c1-against-clock", Name = "Against the Clock", Chapter = 1, Kind = CampaignEventKind.TimeTrial, Course = 0, RunUp = 150, Targets = new[] { 150f, 140f, 134f }, Pay = 1000, Bonus = 500 },
             new() { Id = "c1-night-shift", Name = "Night Shift", Chapter = 1, Kind = CampaignEventKind.Race, Course = 0, Laps = 3, Rivals = new[] { "roadster", "tourer", "atv" }, Difficulty = 0, Time = TimeOfDay.Night, Traffic = true, Pay = 1400, Bonus = 700 },
+            new() { Id = "c1-practice-reverse", Name = "Practice: Street Loop Reverse", Chapter = 1, Kind = CampaignEventKind.TimeTrial, Course = 1, RunUp = 150, Targets = new[] { 180f, 155f, 138f }, Pay = 500, Bonus = 250 },
             new() { Id = "c1-wrong-way", Name = "Wrong Way Round", Chapter = 1, Kind = CampaignEventKind.Race, Course = 1, Laps = 2, Rivals = new[] { "pebble", "skyfin", "atv" }, Difficulty = 1, Time = TimeOfDay.Dusk, Weather = Weather.Rain, Pay = 1400, Bonus = 700 },
             new() { Id = "c1-street-final", Name = "Street Loop Final", Chapter = 1, Kind = CampaignEventKind.Race, Course = 0, Laps = 3, Rivals = new[] { "atv", "tourer", "roadster", "pebble", "drifter" }, Difficulty = 1, Pay = 2500, Bonus = 1500, Prize = "moto", Final = true },
 
             // Chapter 2, Forest Loop (Normal rivals). 0.91: the jump events' targets and time limits re-set from flat-out runs now
             // that a jump counts when the vehicle survives it (several attempts per run, the best counts).
-            new() { Id = "c2-into-woods", Name = "Into the Woods", Chapter = 2, Kind = CampaignEventKind.Race, Course = 2, Laps = 2, Rivals = new[] { "tourer", "pebble", "atv" }, Difficulty = 1, Pay = 1500, Bonus = 750 },
             new() { Id = "c2-cave-run", Name = "Cave Run", Chapter = 2, Kind = CampaignEventKind.TimeTrial, Course = 2, RunUp = 150, Targets = new[] { 76f, 69f, 64f }, Pay = 1300, Bonus = 650 },
+            new() { Id = "c2-into-woods", Name = "Into the Woods", Chapter = 2, Kind = CampaignEventKind.Race, Course = 2, Laps = 2, Rivals = new[] { "tourer", "pebble", "atv" }, Difficulty = 1, Pay = 1500, Bonus = 750 },
             new() { Id = "c2-opening-jump", Name = "The Opening Jump", Chapter = 2, Kind = CampaignEventKind.Jump, Course = 2, Site = "jump-01", RunUp = 150, TimeLimit = 120, Targets = new[] { 30f, 60f, 110f }, Pay = 1300, Bonus = 650 },
             new() { Id = "c2-rain-pines", Name = "Rain in the Pines", Chapter = 2, Kind = CampaignEventKind.Race, Course = 2, Laps = 3, Rivals = new[] { "skyfin", "drifter", "atv" }, Difficulty = 1, Time = TimeOfDay.Dusk, Weather = Weather.Rain, Pay = 1700, Bonus = 850 },
+            new() { Id = "c2-practice-reverse", Name = "Practice: Forest Loop Reverse", Chapter = 2, Kind = CampaignEventKind.TimeTrial, Course = 3, RunUp = 150, Targets = new[] { 90f, 76f, 68f }, Pay = 650, Bonus = 325 },
             new() { Id = "c2-long-way-back", Name = "The Long Way Back", Chapter = 2, Kind = CampaignEventKind.Race, Course = 3, Laps = 2, Rivals = new[] { "roadster", "drifter", "atv" }, Difficulty = 1, Pay = 1700, Bonus = 850 },
             new() { Id = "c2-forest-final", Name = "Forest Final", Chapter = 2, Kind = CampaignEventKind.Race, Course = 2, Laps = 3, Rivals = new[] { "drifter", "tourer", "atv", "moto", "skyfin" }, Difficulty = 1, Pay = 2800, Bonus = 1400, Prize = "pebble", Final = true },
 
             // Chapter 3, Dan's Backyard (Normal, then Hard)
-            new() { Id = "c3-backyard-dash", Name = "Backyard Dash", Chapter = 3, Kind = CampaignEventKind.Race, Course = 6, Laps = 2, Rivals = new[] { "moto", "atv", "drifter" }, Difficulty = 1, Pay = 1800, Bonus = 900 },
             new() { Id = "c3-backyard-clock", Name = "Round the Yard", Chapter = 3, Kind = CampaignEventKind.TimeTrial, Course = 6, RunUp = 150, Targets = new[] { 72f, 64f, 59f }, Pay = 1600, Bonus = 800 },
+            new() { Id = "c3-backyard-dash", Name = "Backyard Dash", Chapter = 3, Kind = CampaignEventKind.Race, Course = 6, Laps = 2, Rivals = new[] { "moto", "atv", "drifter" }, Difficulty = 1, Pay = 1800, Bonus = 900 },
+            new() { Id = "c3-practice-reverse", Name = "Practice: Backyard Reverse", Chapter = 3, Kind = CampaignEventKind.TimeTrial, Course = 7, RunUp = 150, Targets = new[] { 95f, 82f, 72f }, Pay = 800, Bonus = 400 },
             new() { Id = "c3-two-wheels", Name = "Two Wheels Only", Chapter = 3, Kind = CampaignEventKind.Race, Course = 7, Laps = 2, Rivals = new[] { "moto", "drifter", "atv" }, Difficulty = 1, Classes = TwoWheels, Entry = "Motorcycles and the ATV only", Pay = 2000, Bonus = 1000 },
             new() { Id = "c3-snow-day", Name = "Snow Day", Chapter = 3, Kind = CampaignEventKind.Race, Course = 6, Laps = 2, Rivals = new[] { "atv", "moto", "tourer" }, Difficulty = 2, Weather = Weather.Snow, Pay = 2000, Bonus = 1000 },
             new() { Id = "c3-fence-smash", Name = "Fence Line Smash", Chapter = 3, Kind = CampaignEventKind.Smash, Course = 6, Site = "smash-01", RunUp = 60, TimeLimit = 45, Targets = new[] { 3f, 6f, 10f }, Pay = 1600, Bonus = 800 },
             new() { Id = "c3-backyard-final", Name = "Backyard Final", Chapter = 3, Kind = CampaignEventKind.Race, Course = 6, Laps = 3, Rivals = new[] { "moto", "drifter", "atv", "tourer", "fastback" }, Difficulty = 2, Pay = 3400, Bonus = 1700, Prize = "scrambler", Final = true },
 
             // Chapter 4, Mountain Loop (Hard: the campaign's hardest)
-            new() { Id = "c4-first-ascent", Name = "First Ascent", Chapter = 4, Kind = CampaignEventKind.Race, Course = 4, Laps = 2, Rivals = new[] { "scrambler", "atv", "tourer" }, Difficulty = 2, Time = TimeOfDay.Dawn, Pay = 2200, Bonus = 1100 },
             new() { Id = "c4-summit-clock", Name = "Summit Clock", Chapter = 4, Kind = CampaignEventKind.TimeTrial, Course = 4, RunUp = 150, Targets = new[] { 134f, 124f, 118f }, Pay = 2000, Bonus = 1000 },
+            new() { Id = "c4-first-ascent", Name = "First Ascent", Chapter = 4, Kind = CampaignEventKind.Race, Course = 4, Laps = 2, Rivals = new[] { "scrambler", "atv", "tourer" }, Difficulty = 2, Time = TimeOfDay.Dawn, Pay = 2200, Bonus = 1100 },
+            new() { Id = "c4-practice-reverse", Name = "Practice: Mountain Loop Reverse", Chapter = 4, Kind = CampaignEventKind.TimeTrial, Course = 5, RunUp = 150, Targets = new[] { 160f, 140f, 125f }, Pay = 1000, Bonus = 500 },
             new() { Id = "c4-downhill", Name = "Downhill", Chapter = 4, Kind = CampaignEventKind.Race, Course = 5, Laps = 2, Rivals = new[] { "moto", "scrambler", "drifter" }, Difficulty = 2, Pay = 2400, Bonus = 1200 },
             new() { Id = "c4-whiteout", Name = "Whiteout", Chapter = 4, Kind = CampaignEventKind.Race, Course = 4, Laps = 2, Rivals = new[] { "atv", "scrambler", "fastback" }, Difficulty = 2, Time = TimeOfDay.Night, Weather = Weather.Snow, Pay = 2600, Bonus = 1300 },
             new() { Id = "c4-summit-flight", Name = "Summit Homeward Flight", Chapter = 4, Kind = CampaignEventKind.Jump, Course = 4, Site = "summit-homeward", RunUp = 250, TimeLimit = 150, Targets = new[] { 90f, 140f, 200f }, Pay = 2000, Bonus = 1000 },
             new() { Id = "c4-summit-final", Name = "Summit Final", Chapter = 4, Kind = CampaignEventKind.Race, Course = 4, Laps = 3, Rivals = new[] { "moto", "scrambler", "drifter", "fastback", "atv" }, Difficulty = 2, Pay = 4200, Bonus = 2100, Prize = "fastback", Final = true },
+        };
+        // 0.96 Part C: the order the events had before the practice laps (0.89-0.95). A save that already had progress when
+        // this order came in (Campaign.State.legacyOrder) keeps every event it could play: each event is also open when the
+        // one before it in this old order is passed; a new practice event is open when the race after it is open that way.
+        public static readonly string[][] LegacyOrder =
+        {
+            new[] { "c1-first-lap", "c1-hwy92-trap", "c1-against-clock", "c1-night-shift", "c1-wrong-way", "c1-street-final" },
+            new[] { "c2-into-woods", "c2-cave-run", "c2-opening-jump", "c2-rain-pines", "c2-long-way-back", "c2-forest-final" },
+            new[] { "c3-backyard-dash", "c3-backyard-clock", "c3-two-wheels", "c3-snow-day", "c3-fence-smash", "c3-backyard-final" },
+            new[] { "c4-first-ascent", "c4-summit-clock", "c4-downhill", "c4-whiteout", "c4-summit-flight", "c4-summit-final" },
         };
         // Share of Pay by finishing place (every finisher earns something) and by medal (none, bronze, silver, gold).
         public static readonly float[] PlaceShare = { 1f, .6f, .4f, .25f, .15f, .1f };

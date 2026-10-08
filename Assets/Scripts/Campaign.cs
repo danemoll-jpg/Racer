@@ -40,6 +40,10 @@ namespace Racer
             public List<Upgrade> upgrades = new(); public List<Cup> cups = new();
             public bool complete; public double secondsRacing; public int earned;
             public List<string> driven = new();
+            // 0.96 Part C: orderVersion 96 = this save has been read by a build that has the practice laps; legacyOrder = it
+            // already had progress then, so it keeps every event it could play under the old order (see CampaignData.LegacyOrder).
+            // The save's version number stays 3, so 0.95 can still read it.
+            public int orderVersion; public bool legacyOrder;
         }
         // 0.92 Part D: what loading a save granted (prize vehicles, refunds), shown once on the menu; null when nothing.
         public static string LoadNotice;
@@ -53,7 +57,7 @@ namespace Racer
         public static string Selected;
         static string path; static bool readFailed;
 
-        static State NewState() => new() { owned = CampaignData.Starters.ToList(), courses = new() { RacePlaylists.Scenes[0] } };
+        static State NewState() => new() { owned = CampaignData.Starters.ToList(), courses = new() { RacePlaylists.Scenes[0] }, orderVersion = 96 };
         public static void Load(string root)
         {
             path = Path.Combine(root, File); Error = null; Exists = false; readFailed = false; Current = NewState(); LoadNotice = null;
@@ -85,6 +89,7 @@ namespace Racer
                 if (loadedVersion < 3) foreach (var (id, price) in CampaignData.FormerlySold) if (data.owned.Contains(id)) { data.money += price; notes.Add($"{VehicleProfile.Find(id).Name} is now a prize: the {Money(price)} you paid is refunded"); }
                 foreach (var e in CampaignData.Events) if (e.Prize != null && Passed(e) && !data.owned.Contains(e.Prize)) { data.owned.Add(e.Prize); notes.Add($"Prize for passing the {e.Name}: the {VehicleProfile.Find(e.Prize).Name}"); }
                 data.version = Version;
+                if (data.orderVersion == 0) { data.legacyOrder = data.results.Count > 0; data.orderVersion = 96; }
                 if (notes.Count > 0) LoadNotice = string.Join("\n", notes);
             }
             catch (Exception e) { readFailed = true; Exists = true; Error = "Campaign save could not be read (" + e.Message + "); it is left as it is. New Campaign replaces it."; }
@@ -114,14 +119,23 @@ namespace Racer
         {
             if (!ChapterOpen(e.Chapter)) return false;
             var list = CampaignData.InChapter(e.Chapter); int i = Array.IndexOf(list, e);
-            return i <= 0 || Passed(list[i - 1]);
+            if (i <= 0 || Passed(list[i - 1])) return true;
+            return Current.legacyOrder && LegacyAvailable(e, list, i);
+        }
+        // 0.96 Part C: open the way it was open before the practice laps (the event before it in the old order is passed); a
+        // practice lap added in 0.96 is open when the event after it is, so it is available but never required.
+        static bool LegacyAvailable(CampaignEvent e, CampaignEvent[] list, int i)
+        {
+            var old = CampaignData.LegacyOrder[Mathf.Clamp(e.Chapter, 1, CampaignData.LegacyOrder.Length) - 1]; int at = Array.IndexOf(old, e.Id);
+            if (at >= 0) { if (at == 0) return true; var before = CampaignData.Find(old[at - 1]); return before != null && Passed(before); }
+            return i + 1 < list.Length && LegacyAvailable(list[i + 1], list, i + 1);
         }
         public static CampaignEvent Next => CampaignData.Events.FirstOrDefault(e => Available(e) && !Passed(e)) ?? CampaignData.Events.LastOrDefault(Available);
         public static string EventLock(CampaignEvent e)
         {
             if (!ChapterOpen(e.Chapter)) return "Chapter " + e.Chapter + " is locked";
             var list = CampaignData.InChapter(e.Chapter); int i = Array.IndexOf(list, e);
-            return i > 0 && !Passed(list[i - 1]) ? $"Pass \"{list[i - 1].Name}\" first" : "";
+            return Available(e) ? "" : $"Pass \"{list[i - 1].Name}\" first";
         }
         public static string CourseHowTo(int course)
         {
@@ -178,7 +192,7 @@ namespace Racer
             public string PrizeWon; public bool ChampionPaint;
             public string Headline => Debug ? "DEBUG RUN — no result or payout" : Event.Kind == CampaignEventKind.Race
                 ? (Dnf ? "Did not finish" : $"{Ordinal(Place)} of {Field}")
-                : (Dnf ? "No result" : new[] { "No medal", "BRONZE", "SILVER", "GOLD" }[Medal] + "  ·  " + Measure(Event, Event.Kind == CampaignEventKind.TimeTrial ? (float)Time : Score));
+                : (Dnf ? "No result" : MedalUi.Name(Medal) + "  ·  " + MedalUi.Value(Event.Kind, Event.Kind == CampaignEventKind.TimeTrial ? (float)Time : Score));
         }
         public static string Ordinal(int n) => n + (n % 100 is >= 11 and <= 13 ? "th" : (n % 10) switch { 1 => "st", 2 => "nd", 3 => "rd", _ => "th" });
         public static string Measure(CampaignEvent e, float value) => e.Kind == CampaignEventKind.TimeTrial ? RaceHud.FormatTime(value) : e.Kind == CampaignEventKind.SpeedTrap ? DisplayUnits.Speed(value) : e.Kind == CampaignEventKind.Jump ? DisplayUnits.Jump(value) : e.Kind == CampaignEventKind.Smash ? value.ToString("0") + " props" : RaceHud.FormatTime(value);
@@ -191,13 +205,15 @@ namespace Racer
         public static string TargetsText(CampaignEvent e) => e.Targets == null ? "" : $"Bronze {Measure(e, e.Targets[0])} · silver {Measure(e, e.Targets[1])} · gold {Measure(e, e.Targets[2])}";
         public static string PayText(CampaignEvent e) => e.Kind == CampaignEventKind.Race
             ? $"1st {Money(e.Pay)}, then {string.Join(", ", Enumerable.Range(1, e.Rivals.Length).Select(i => Money(Share(e.Pay, CampaignData.PlaceShare[Mathf.Min(i, CampaignData.PlaceShare.Length - 1)]))))}" + $" · first win +{Money(e.Bonus)}"
-            : $"Gold {Money(e.Pay)}, silver {Money(Share(e.Pay, CampaignData.MedalShare[2]))}, bronze {Money(Share(e.Pay, CampaignData.MedalShare[1]))} · first gold +{Money(e.Bonus)}";
+            : $"by medal (shown beside) · first gold +{Money(e.Bonus)}"; // 0.96 Part B: the medals are drawn, not written
+        // 0.96 Part B: what a medal pays (the medal rows on the event page and the campaign screen)
+        public static int MedalPay(CampaignEvent e, int medal) => Share(e.Pay, CampaignData.MedalShare[Mathf.Clamp(medal, 0, 3)]);
         static int Share(int pay, float share) => Mathf.RoundToInt(pay * share / 10f) * 10;
         public static string BestText(CampaignEvent e)
         {
             var r = ResultOf(e.Id); if (r == null || r.runs == 0) return "Not run yet";
             if (e.Kind == CampaignEventKind.Race) return r.bestPlace > 0 ? $"Best {Ordinal(r.bestPlace)} of {r.field}" + (r.bestTime > 0 ? " · " + RaceHud.FormatTime(r.bestTime) : "") : "Best: did not finish";
-            return r.bestMedal > 0 || r.bestScore > 0 || r.bestTime > 0 ? new[] { "No medal", "Bronze", "Silver", "Gold" }[r.bestMedal] + " · " + Measure(e, e.Kind == CampaignEventKind.TimeTrial ? (float)r.bestTime : r.bestScore) : "Best: no result";
+            return r.bestMedal > 0 || r.bestScore > 0 || r.bestTime > 0 ? "Best: " + MedalUi.Value(e.Kind, e.Kind == CampaignEventKind.TimeTrial ? (float)r.bestTime : r.bestScore) : "Best: no result"; // 0.96 Part B: the medal itself is drawn beside it
         }
 
         // Applies a finished run: money, the event's best, passing, the first-win bonus, the prize, the next event and

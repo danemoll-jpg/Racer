@@ -285,6 +285,8 @@ namespace Racer
              var order=NavigationOrderFault();if(order!=null)Debug.LogError($"MENU NAVIGATION: {PageKey}: down does not follow the drawn order: {order}");}
 #endif
             int focus = selections.TryGetValue(shown,out var prior)?prior:0;
+            // 0.96 Part A: once a jump event is complete, START opens the pause menu on FINISH EVENT
+            if(shown==RaceFlow.Stage.Paused&&page==""&&renderedKey!=PageKey&&CampaignRun.RunBestMedal>=1&&flow.JumpEvent!=null&&buttons.Count>12&&buttons[12].gameObject.activeSelf)focus=12;
             // 0.90 Part B: until the first campaign event is finished, CAMPAIGN is the main menu's default selection
             bool campaignDefault=shown==RaceFlow.Stage.Ready&&page==""&&!flow.RoamMenu&&NewToCampaign&&buttons[10].gameObject.activeSelf&&renderedKey!=PageKey;
             if(editingPlaylistName&&!controllerName&&shown==RaceFlow.Stage.Playlists){playlistName.SetTextWithoutNotify(nameDraft);EventSystem.current.SetSelectedGameObject(playlistName.gameObject);playlistName.ActivateInputField();return;}

@@ -1,0 +1,103 @@
+---- getaway96:road:moto:1
+PASS the road network: 1302 nodes on 9 roads, 1 connected parts (largest 1302 nodes)
+roads: CR113 highway through route 1 parts, 223 nodes; Forward navigation only - no road mesh 1 parts, 126 nodes; House 3 valley driveway 1 parts, 35 nodes; Kyle descending driveway 1 parts, 7 nodes; Lake shore connection 1 parts, 80 nodes; Mountain return trails / exploration only 1 parts, 111 nodes; Phase 3 - Race Systems 1 parts, 467 nodes; Reverse navigation only - no pavement 1 parts, 126 nodes; Summit approach and safe return 1 parts, 127 nodes
+PASS solo=True: 2 cops waiting behind the runner, one view True, runners 1
+   t 5s heat 1 cops 2+0 blocks, seen True escape 0.00 bust 0.00 offroad False roles [C*,F] dist 78/125 speed 5 fails 0/0 copV 5/5 goal->runner 6/6
+   radio: Lost visual. Last seen near S Cherokee speed trap
+   t 15s heat 1 cops 2+0 blocks, seen False escape 0.07 bust 0.00 offroad False roles [S,S] dist 168/209 speed 21 fails 0/0 copV 25/17 goal->runner 3/22
+   radio: Visual on the suspect
+   t 25s heat 1 cops 2+0 blocks, seen True escape 0.00 bust 0.00 offroad False roles [C*,F] dist 27/83 speed 20 fails 0/0 copV 26/36 goal->runner 6/6
+   t 35s heat 1 cops 2+0 blocks, seen True escape 0.00 bust 0.00 offroad False roles [F*,C*] dist 30/27 speed 21 fails 0/0 copV 9/8 goal->runner 14/14
+   t 46s heat 1 cops 2+0 blocks, seen True escape 0.00 bust 0.00 offroad False roles [C,C*] dist 228/4 speed 23 fails 0/0 copV 0/23 goal->runner 205/10
+   radio: Backup: another unit joins
+   t 57s heat 2 cops 3+0 blocks, seen True escape 0.00 bust 0.00 offroad False roles [C,C*,C] dist 442/35/457 speed 21 fails 0/0/0 copV 0/27/29 goal->runner 108/14/135
+   t 67s heat 2 cops 3+0 blocks, seen True escape 0.00 bust 0.00 offroad False roles [C,C*,C] dist 512/30/505 speed 16 fails 0/0/0 copV 2/19/0 goal->runner 186/7/155
+   t 78s heat 2 cops 3+0 blocks, seen True escape 0.00 bust 0.00 offroad False roles [C,C*,C] dist 419/22/413 speed 15 fails 0/0/0 copV 0/8/0 goal->runner 191/10/142
+   radio: Lost visual. Last seen near McFadden's
+   t 88s heat 2 cops 3+0 blocks, seen True escape 0.00 bust 0.00 offroad False roles [C,C*,C] dist 427/25/421 speed 15 fails 0/0/0 copV 3/8/0 goal->runner 184/5/162
+   radio: Roadblock set up on the Street Loop, ahead of the suspect
+   t 98s heat 3 cops 4+2 blocks, seen True escape 0.00 bust 0.00 offroad False roles [C,C*,C,C,B,B] dist 498/15/489/411/185/188 speed 15 fails 0/0/0/0/0/0 copV 0/8/39/23/0/0 goal->runner 262/19/205/167/-1/-1
+   t 108s heat 3 cops 4+2 blocks, seen True escape 0.00 bust 0.00 offroad False roles [C,C*,C,C,B*,B*] dist 583/29/503/256/52/51 speed 16 fails 0/0/0/0/0/0 copV 49/20/13/29/0/0 goal->runner 207/9/180/150/-1/-1
+   radio: Dan is in custody
+PASS mode road (moto, difficulty 1): ended Over at 114 s: CAUGHT 114s heat 3 dodged 3 blocks 0
+PASS caught within about 2 minutes on Normal: caught at 114 s
+PASS results: GETAWAY RESULTS / CAUGHT after 1:54   ·   5-minute round   ·   Normal   ·   Day / Clear || Runner | Result | Time free | Top heat | Dodged | Blocks passed | Dan | CAUGHT after 1:54 | 01:54 | 3 | 3 | 0 | Top 10 | 5 min | Time free | Heat | Date | #1 | Dan | 01:54 | 3 | 2026-10-08
+---- getaway96:road:atv:1
+PASS the road network: 1302 nodes on 9 roads, 1 connected parts (largest 1302 nodes)
+roads: CR113 highway through route 1 parts, 223 nodes; Forward navigation only - no road mesh 1 parts, 126 nodes; House 3 valley driveway 1 parts, 35 nodes; Kyle descending driveway 1 parts, 7 nodes; Lake shore connection 1 parts, 80 nodes; Mountain return trails / exploration only 1 parts, 111 nodes; Phase 3 - Race Systems 1 parts, 467 nodes; Reverse navigation only - no pavement 1 parts, 126 nodes; Summit approach and safe return 1 parts, 127 nodes
+PASS solo=True: 2 cops waiting behind the runner, one view True, runners 1
+   radio: Dispatch: all units, runner on the road
+   t 5s heat 1 cops 2+0 blocks, seen True escape 0.00 bust 0.00 offroad False roles [C*,F] dist 78/125 speed 6 fails 0/0 copV 6/6 goal->runner 6/6
+   radio: Lost visual. Last seen near S Cherokee speed trap
+   t 15s heat 1 cops 2+0 blocks, seen False escape 0.07 bust 0.00 offroad False roles [S,S] dist 166/208 speed 21 fails 0/0 copV 26/16 goal->runner 10/41
+   radio: Visual on the suspect
+   radio: Lost visual. Last seen near S Cherokee speed trap
+   t 25s heat 1 cops 2+0 blocks, seen True escape 0.00 bust 0.00 offroad False roles [C*,F] dist 26/80 speed 20 fails 0/0 copV 13/35 goal->runner 14/7
+   t 36s heat 1 cops 2+0 blocks, seen True escape 0.00 bust 0.00 offroad False roles [F*,C*] dist 47/22 speed 21 fails 0/0 copV 20/10 goal->runner 7/14
+   t 46s heat 1 cops 2+0 blocks, seen True escape 0.00 bust 0.00 offroad False roles [F*,C*] dist 37/4 speed 21 fails 0/0 copV 38/22 goal->runner 6/6
+   radio: Backup: another unit joins
+   t 56s heat 2 cops 3+0 blocks, seen True escape 0.00 bust 0.00 offroad False roles [F*,C*,C] dist 28/27/568 speed 21 fails 0/0/0 copV 24/24/12 goal->runner 15/15/120
+   t 67s heat 2 cops 3+0 blocks, seen True escape 0.00 bust 0.00 offroad False roles [C*,F*,C] dist 28/31/613 speed 17 fails 0/0/0 copV 9/8/33 goal->runner 13/13/203
+   t 77s heat 2 cops 3+0 blocks, seen True escape 0.00 bust 0.00 offroad False roles [F*,C*,C] dist 30/22/353 speed 15 fails 0/0/0 copV 20/22/20 goal->runner 5/5/197
+   t 88s heat 2 cops 3+0 blocks, seen True escape 0.00 bust 0.00 offroad False roles [C*,F*,C] dist 22/22/347 speed 15 fails 0/0/0 copV 11/10/44 goal->runner 11/11/176
+   radio: Roadblock set up on the Street Loop, ahead of the suspect
+   t 98s heat 3 cops 4+2 blocks, seen True escape 0.00 bust 0.00 offroad False roles [C*,F*,C,C,B,B] dist 26/38/486/388/185/188 speed 15 fails 0/0/0/0/0/0 copV 11/8/12/11/0/0 goal->runner 4/4/252/196/-1/-1
+   t 108s heat 3 cops 4+2 blocks, seen True escape 0.00 bust 0.00 offroad False roles [F*,C*,C,C,B*,B*] dist 25/24/306/538/47/47 speed 16 fails 0/0/0/0/0/0 copV 12/11/24/0/0/0 goal->runner 7/7/185/214/-1/-1
+   radio: The suspect got through the roadblock
+   t 119s heat 3 cops 4+2 blocks, seen True escape 0.00 bust 0.00 offroad False roles [C*,F,C,C,B,B] dist 35/116/264/690/110/109 speed 18 fails 0/0/0/0/0/0 copV 19/0/27/0/0/0 goal->runner 8/8/231/279/-1/-1
+   t 129s heat 3 cops 4+0 blocks, seen True escape 0.00 bust 0.00 offroad False roles [C*,F,C,C] dist 28/126/150/795 speed 21 fails 0/0/0/0 copV 21/37/33/0 goal->runner 13/13/247/307
+   t 139s heat 3 cops 4+0 blocks, seen True escape 0.00 bust 0.00 offroad False roles [C*,F*,C*,C] dist 14/25/30/910 speed 21 fails 0/0/0/0 copV 16/25/8/1 goal->runner 15/15/208/246
+   radio: Backup: another unit joins
+   radio: Roadblock set up on the Street Loop, ahead of the suspect
+   t 150s heat 4 cops 5+2 blocks, seen True escape 0.00 bust 0.00 offroad False roles [C*,C*,F*,C,C,B,B] dist 18/11/14/1028/449/225/225 speed 16 fails 0/0/0/0/0/0/0 copV 11/9/14/0/41/0/0 goal->runner 205/5/5/325/265/-1/-1
+   t 160s heat 4 cops 5+2 blocks, seen True escape 0.00 bust 0.00 offroad False roles [C*,F*,C*,C,C,B*,B*] dist 17/27/28/916/227/12/10 speed 21 fails 0/0/0/0/0/0/0 copV 19/8/24/0/11/0/0 goal->runner 10/10/270/390/330/-1/-1
+   radio: The suspect got through the roadblock
+   t 170s heat 4 cops 5+0 blocks, seen True escape 0.00 bust 0.00 offroad False roles [C,C,C*,C,F*] dist 148/159/24/843/87 speed 21 fails 0/0/0/0/0 copV 33/28/26/1/48 goal->runner 246/306/15/356/5
+   t 181s heat 4 cops 5+0 blocks, seen True escape 0.00 bust 0.00 offroad False roles [C*,F*,C*,C,C*] dist 71/33/24/828/74 speed 15 fails 0/0/0/0/0 copV 10/0/0/0/11 goal->runner 200/12/12/330/270
+   radio: Backup: another unit joins
+   t 191s heat 5 cops 6+0 blocks, seen True escape 0.00 bust 0.00 offroad False roles [F*,C,C,C,C*,C] dist 97/243/229/826/72/360 speed 21 fails 0/0/0/0/0/0 copV 15/0/0/0/16/16 goal->runner 10/299/240/380/10/358
+   t 201s heat 5 cops 6+0 blocks, seen True escape 0.00 bust 0.00 offroad False roles [C*,C,C,C,F*,C] dist 29/452/451/875/37/166 speed 21 fails 0/0/0/0/0/0 copV 18/0/0/0/19/15 goal->runner 12/269/245/320/9/201
+   radio: Roadblock set up on Hwy 92, ahead of the suspect
+   t 211s heat 5 cops 6+2 blocks, seen True escape 0.00 bust 0.00 offroad False roles [C*,C,C,C,F*,C,B,B] dist 35/606/607/871/39/133/172/172 speed 31 fails 0/0/0/0/0/0/0/0 copV 18/0/0/2/15/13/0/0 goal->runner 8/422/482/542/8/362/-1/-1
+   radio: The suspect got through the roadblock
+   radio: Lost visual. Last seen near Highway market
+   t 222s heat 5 cops 6+0 blocks, seen False escape 0.03 bust 0.00 offroad False roles [C,C,C,C,C,C] dist 185/731/740/577/197/172 speed 36 fails 0/0/0/0/0/0 copV 21/0/0/0/16/24 goal->runner 344/524/544/464/404/16
+   radio: Visual on the suspect
+   t 232s heat 5 cops 6+0 blocks, seen True escape 0.00 bust 0.00 offroad False roles [F,C,C,C,C,C*] dist 157/971/984/454/276/92 speed 35 fails 0/0/0/0/0/0 copV 29/0/0/0/11/31 goal->runner 9/516/506/456/386/9
+   t 242s heat 5 cops 6+0 blocks, seen True escape 0.00 bust 0.00 offroad False roles [F*,C,C,C,C,C*] dist 52/1113/1127/456/155/10 speed 10 fails 0/0/0/0/0/0 copV 35/0/0/0/42/12 goal->runner 2/281/337/222/172/2
+   t 253s heat 5 cops 6+0 blocks, seen True escape 0.00 bust 0.00 offroad False roles [F*,C,C,C,C,C*] dist 46/1019/1034/264/126/32 speed 21 fails 0/0/0/0/0/0 copV 34/0/0/0/31/22 goal->runner 7/340/394/284/225/7
+   t 263s heat 5 cops 6+0 blocks, seen True escape 0.00 bust 0.00 offroad False roles [C*,C,C,C,F*,C*] dist 38/1058/1074/228/31/30 speed 21 fails 0/0/0/0/0/0 copV 24/0/0/0/27/24 goal->runner 234/358/414/293/14/7
+   t 274s heat 5 cops 6+0 blocks, seen True escape 0.00 bust 0.00 offroad False roles [C*,C,C,C,C*,F*] dist 51/1096/1112/313/21/35 speed 21 fails 0/0/0/0/0/0 copV 6/0/0/0/30/9 goal->runner 244/379/435/315/12/9
+   t 285s heat 5 cops 6+0 blocks, seen True escape 0.00 bust 0.00 offroad False roles [F*,C,C,C,C*,C*] dist 20/1188/1204/496/27/4 speed 28 fails 0/0/0/0/0/0 copV 9/0/0/0/9/28 goal->runner 12/243/234/270/309/10
+   t 295s heat 5 cops 6+0 blocks, seen True escape 0.00 bust 0.00 offroad False roles [F*,C,C,C,C*,C*] dist 39/1222/1237/566/47/15 speed 21 fails 0/0/0/0/0/0 copV 19/0/0/21/18/30 goal->runner 14/253/310/196/120/14
+   radio: Time: the suspect is gone
+PASS mode road (atv, difficulty 1): ended Over at 300 s: ESCAPED 300s heat 5 dodged 16 blocks 3
+FAIL caught within about 2 minutes on Normal: NOT caught: ESCAPED
+PASS results: GETAWAY RESULTS / ESCAPED (time up)   ·   5-minute round   ·   Normal   ·   Day / Clear || Runner | Result | Time free | Top heat | Dodged | Blocks passed | Dan | ESCAPED (time up) | 05:00 | 5 | 16 | 3 | Top 10 | 5 min | Time free | Heat | Date | #1 | Dan | 05:00 | 5 | 2026-10-08 | #2 | Dan | 01:54 | 3 | 2026-10-08
+---- getaway96:road:original:1
+PASS the road network: 1302 nodes on 9 roads, 1 connected parts (largest 1302 nodes)
+roads: CR113 highway through route 1 parts, 223 nodes; Forward navigation only - no road mesh 1 parts, 126 nodes; House 3 valley driveway 1 parts, 35 nodes; Kyle descending driveway 1 parts, 7 nodes; Lake shore connection 1 parts, 80 nodes; Mountain return trails / exploration only 1 parts, 111 nodes; Phase 3 - Race Systems 1 parts, 467 nodes; Reverse navigation only - no pavement 1 parts, 126 nodes; Summit approach and safe return 1 parts, 127 nodes
+PASS solo=True: 2 cops waiting behind the runner, one view True, runners 1
+   radio: Dispatch: all units, runner on the road
+   t 5s heat 1 cops 2+0 blocks, seen True escape 0.00 bust 0.00 offroad False roles [C*,F] dist 78/125 speed 5 fails 0/0 copV 6/6 goal->runner 6/6
+   radio: Lost visual. Last seen near S Cherokee speed trap
+   t 15s heat 1 cops 2+0 blocks, seen False escape 0.06 bust 0.00 offroad False roles [S,S] dist 161/215 speed 21 fails 0/0 copV 24/11 goal->runner 3/71
+   radio: Visual on the suspect
+   radio: Lost visual. Last seen near S Cherokee speed trap
+   t 26s heat 1 cops 2+0 blocks, seen True escape 0.00 bust 0.00 offroad False roles [C*,F] dist 28/95 speed 21 fails 0/0 copV 9/40 goal->runner 9/9
+   t 36s heat 1 cops 2+0 blocks, seen True escape 0.00 bust 0.00 offroad False roles [C*,F*] dist 26/43 speed 21 fails 0/0 copV 6/16 goal->runner 10/10
+   t 47s heat 1 cops 2+0 blocks, seen True escape 0.00 bust 0.00 offroad False roles [C*,F*] dist 18/20 speed 21 fails 0/0 copV 30/46 goal->runner 8/8
+   radio: Backup: another unit joins
+   t 58s heat 2 cops 3+0 blocks, seen True escape 0.00 bust 0.00 offroad False roles [F*,C*,C] dist 31/31/457 speed 21 fails 0/0/0 copV 15/15/8 goal->runner 10/10/117
+   t 68s heat 2 cops 3+0 blocks, seen True escape 0.00 bust 0.00 offroad False roles [C*,F*,C] dist 35/39/238 speed 18 fails 0/0/0 copV 19/19/35 goal->runner 8/8/205
+   t 79s heat 2 cops 3+0 blocks, seen True escape 0.00 bust 0.00 offroad False roles [C*,F*,C] dist 25/25/179 speed 15 fails 0/0/0 copV 8/8/26 goal->runner 22/22/163
+   radio: Lost visual. Last seen near McFadden's
+   t 89s heat 2 cops 3+0 blocks, seen True escape 0.00 bust 0.00 offroad False roles [C*,F*,C*] dist 30/32/94 speed 16 fails 0/0/0 copV 8/8/21 goal->runner 7/7/181
+   radio: Roadblock set up on the Street Loop, ahead of the suspect
+   t 100s heat 3 cops 4+2 blocks, seen True escape 0.00 bust 0.00 offroad False roles [C*,C*,F*,C,B,B] dist 18/13/17/323/167/169 speed 16 fails 0/0/0/0/0/0 copV 16/16/8/25/0/0 goal->runner 187/20/20/246/-1/-1
+   t 111s heat 3 cops 4+2 blocks, seen True escape 0.00 bust 0.27 offroad False roles [C*,C*,F*,C,B*,B*] dist 19/3/15/173/15/12 speed 6 fails 0/0/0/0/0/0 copV 8/8/18/27/0/0 goal->runner 151/4/4/155/-1/-1
+   radio: Dan is in custody
+PASS mode road (original, difficulty 1): ended Over at 114 s: CAUGHT 114s heat 3 dodged 1 blocks 0
+PASS caught within about 2 minutes on Normal: caught at 114 s
+PASS results: GETAWAY RESULTS / CAUGHT after 1:53   ·   5-minute round   ·   Normal   ·   Day / Clear || Runner | Result | Time free | Top heat | Dodged | Blocks passed | Dan | CAUGHT after 1:53 | 01:53 | 3 | 1 | 0 | Top 10 | 5 min | Time free | Heat | Date | #1 | Dan | 05:00 | 5 | 2026-10-08 | #2 | Dan | 01:54 | 3 | 2026-10-08 | #3 | Dan | 01:54 | 3 | 2026-10-08
+done, failures 1
