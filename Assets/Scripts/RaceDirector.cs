@@ -54,7 +54,7 @@ namespace Racer
         public bool ClassificationFinal { get; private set; }
 
         public int PlayerPosition => Ordered(false).IndexOf(Racers[0]) + 1;
-        public string Category => $"{courseId}-{(vehicle.GetComponent<VehicleConfiguration>() ? vehicle.GetComponent<VehicleConfiguration>().profileId : "original")}-{(opponents ? "race4-d" + difficulty+"-"+string.Join("-",opponentRoster) : "solo")}-{(traffic ? "traffic" : "clear")}-laps{laps}";
+        public string Category => $"{courseId}-{(vehicle.GetComponent<VehicleConfiguration>() ? vehicle.GetComponent<VehicleConfiguration>().profileId : "original")}-{(opponents ? "race4-d" + difficulty+"-"+string.Join("-",opponentRoster) : "solo")}-{(traffic ? "traffic" : "clear")}{(FreeRoam ? "" : WeatherGrip.RecordTag(WeatherGrip.ChosenFor(this)))}-laps{laps}";
         VehicleRespawn respawn;
         float origin;
         float[] gateS;

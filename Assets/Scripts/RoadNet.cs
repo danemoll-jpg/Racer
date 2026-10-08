@@ -54,7 +54,7 @@ namespace Racer
                 {
                     if (j <= i) continue; if (Mathf.Abs(net.P[i].y - net.P[j].y) > 5) continue;
                     if (net.Road[i] == net.Road[j] && Mathf.Abs(net.S[i] - net.S[j]) < 100) continue;
-                    net.Link(i, j, 1.5f);
+                    net.Link(i, j, 5f); // 0.97: a hop between roads costs about 45 m, so the cops do not zig-zag between parallel roads (Hwy 92 beside the loop)
                 }
             }
             for (int r = 0; r < roads.Count && r < net.Roads.Count; r++)

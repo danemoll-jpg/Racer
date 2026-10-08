@@ -217,8 +217,8 @@ namespace Racer
             // the U-turn onto the Homeward run-up went straight off the deck. Beyond 90 degrees it turns at full lock.
             if(racing&&mountainFlights&&Mathf.Abs(angle)>Mathf.PI*.5f)steering=Mathf.Sign(angle);
             int skill = racing ? Mathf.Clamp(Race.difficulty,0,2) : 0;
-            float cornerGrip = racing ? Car.maxGripAcceleration*cornerUse[skill] : 7.5f;
-            float judgment = racing ? Car.braking*brakeUse[skill] : 8f;
+            float cornerGrip = (racing ? Car.maxGripAcceleration*cornerUse[skill] : 7.5f)*Car.GripScale; // 0.97: the weather's grip
+            float judgment = (racing ? Car.braking*brakeUse[skill] : 8f)*Car.GripScale;
             judgment*=Variation.Judgment;
             TargetSpeed = (racing ? Car.topSpeed * speedUse[skill] : Mathf.Lerp(17,29,DriveRoad.HighwayBlend(s))) * pace;
             if(!racing&&SpeedOverride>=0)TargetSpeed=SpeedOverride;

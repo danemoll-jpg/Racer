@@ -187,6 +187,7 @@ namespace Racer
             if (roam && GetawayChase.Current)
             {
                 foreach (var (pos, sees) in GetawayChase.Current.CopMarks) { var p = Project(pos); if (!bounds.Contains(p)) continue; Diamond(vh, p, sees ? 7.5f : 6, new(.03f,.06f,.08f)); Diamond(vh, p, sees ? 5.5f : 4, sees ? new Color(1, .16f, .12f) : new Color(.45f, .2f, .2f, .85f)); }
+                if (GetawayChase.Current.HeliMark is Vector3 heli) { var hp = Project(heli); if (bounds.Contains(hp)) { Diamond(vh, hp, 8, new(.03f,.06f,.08f)); Diamond(vh, hp, 5.5f, new Color(.85f, .95f, 1f)); } } // 0.97: the helicopter
                 foreach (var e in GetawayChase.Current.ExitPoints) { var p = Project(e); if (!bounds.Contains(p)) continue; Diamond(vh, p, 7, new Color(1, .85f, .2f)); Diamond(vh, p, 4, new(.03f,.06f,.08f)); }
             }
             // 0.94 Part B: split-screen Free Roam: the other player in their colour, kept at the rim when further away

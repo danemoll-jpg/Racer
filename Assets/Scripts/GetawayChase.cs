@@ -22,22 +22,22 @@ namespace Racer
     // other's half full screen. Player 2 as the AI also runs (and draws cops) but never ends the round.
     public sealed class GetawayChase : MonoBehaviour
     {
-        public const float SightRange = 120, SightRangeHard = 120, EscapeSeconds = 20, NearCops = 230, CatchDistance = 10, CatchSpeed = 7, BoxSpeed = 14, ContactSpeed = 18, RunnerRelease = 3, CopDelay = 4, EndPause = 4, ResetHold = 2, HeatSeconds = 45;
+        public const float SightRange = 120, SightRangeHard = 120, NearCops = 150, CatchDistance = 10, CatchSpeed = 7, BoxSpeed = 18, ContactSpeed = 22, PinDistance = 14, PinSpeed = 99, HeldSpeed = 15, HeldDistance = 20, RunnerRelease = 3, CopDelay = 2, EndPause = 4, ResetHold = 2, HeatSeconds = 45;
         public static GetawayChase Current { get; private set; }
         public enum Phase { Starting, Running, Over, Done }
         public enum Variant { Getaway, CopRunner }
         public sealed class Runner
         {
             public int player; public ArcadeVehicle car; public bool human; public Rigidbody body;
-            public float bust, escape, freeSeconds, endedAt, seenAt = -99, lastSeenAt = -99, offSince = -1, onSince, holdUntil, contactAt = -99, unseenFor;
+            public float bust, escape, freeSeconds, endedAt, seenAt = -99, lastSeenAt = -99, offSince = -1, onSince, holdUntil, contactAt = -99, unseenFor, offSeen, lastCallIn = -99, lastRam = -99;
             public Vector3 lastSeenPos, lastSeenVelocity, offFrom; public int offFromNode = -1;
-            public bool seen, offRoad, caught, escaped, wasSeen; public int topHeat = 1, dodged, blocks, copsChasing; public string outcome = "";
+            public bool seen, offRoad, caught, escaped, wasSeen, heliSees, offBumped; public int topHeat = 1, dodged, blocks, copsChasing; public string outcome = "";
             public readonly HashSet<Cop> near = new(); public readonly HashSet<Roadblock> passedBlocks = new();
             public bool Done => caught || escaped; public bool limit; public System.Action resetHook;
         }
         public sealed class Cop
         {
-            public int id; public ArcadeVehicle car; public CopDriver driver; public PoliceLights lights; public Runner assigned; public bool sees; public bool block; public float closeAt = -99; public bool wasClose; public float nextPlan, searchUntil;
+            public int id; public ArcadeVehicle car; public CopDriver driver; public PoliceLights lights; public Runner assigned; public bool sees; public bool block, exitUnit, catching; public float closeAt = -99, bornAt, boost = 1, farSince = -1; public bool wasClose; public float nextPlan, searchUntil;
             public Vector3 Position => car ? car.Body.position : Vector3.zero;
         }
         public sealed class Roadblock { public Vector3 centre, tangent; public Cop a, b; public float born; public Runner target; public bool passed; public float closest = 999; public int node; }
@@ -49,14 +49,15 @@ namespace Racer
         public int Heat { get; private set; } = 1;
         public float Limit => SplitScreen.PoliceMinutes * 60;
         public int Difficulty => Mathf.Clamp(SplitScreen.PoliceDifficulty, 0, 2);
-        // Easy / Normal / Hard: the cops' speed (a share of the patrol car's 55 m/s top), the most cops, the seconds per heat level,
-        // how fast the bust meter fills (a multiplier)
-        public static readonly float[] SpeedByDifficulty = { .80f, .95f, 1.08f }; public static readonly int[] CopCap = { 4, 6, 6 }; public static readonly float[] HeatEvery = { 55, 45, 38 }; public static readonly float[] BustRate = { .8f, 1f, 1.25f };
-        public float CopSpeed => SpeedByDifficulty[Difficulty]; public int MaxCops => Mode == Variant.CopRunner ? 1 : CopCap[Difficulty];
+        // 0.97: Easy / Normal / Hard change the most cops, the seconds per heat level, the seconds unseen to escape and how fast the
+        // bust meter fills; never the cops' speed (every cop has the runner's vehicle's top speed and acceleration).
+        public static readonly int[] CopCap = { 4, 6, 6 }; public static readonly float[] HeatEvery = { 45, 30, 20 }; public static readonly float[] EscapeBy = { 20, 30, 40 }; public static readonly float[] BustRate = { .8f, 1f, 1.25f };
+        public float CopSpeed => 1f; public int MaxCops => Mode == Variant.CopRunner ? 1 : CopCap[Difficulty];
+        public readonly List<string> TraceLog = new(); void Trace(string s) { TraceLog.Add(s); if (TraceLog.Count > 200) TraceLog.RemoveAt(0); }
         public List<string> RadioLog = new(); public string Radio => RadioLog.Count > 0 && Time.unscaledTime - radioAt < 9 ? RadioLog[RadioLog.Count - 1] : ""; float radioAt;
         public readonly List<Vector3> ExitPoints = new();
         public readonly List<(string name, float seconds, int heat, string outcome)> Results = new();
-        RaceFlow flow; RaceDirector race; float phaseAt, nextTick, heatClock, nextBlock, nextBackup; int copSerial; readonly HashSet<ArcadeVehicle> held = new(); readonly RaycastHit[] rays = new RaycastHit[24];
+        public PoliceHelicopter Heli; public bool HeliSays; float nextPrune; RaceFlow flow; RaceDirector race; float phaseAt, nextTick, heatClock, nextBlock, nextBackup; int copSerial; readonly HashSet<ArcadeVehicle> held = new(); readonly RaycastHit[] rays = new RaycastHit[24];
         public bool Siren => State == Phase.Running; public bool Holds(ArcadeVehicle car) => held.Contains(car);
         public bool IsCop(Rigidbody body) => body && Cops.Any(c => c.car && c.car.Body == body);
 
@@ -91,7 +92,7 @@ namespace Racer
                 respawn.Respawned -= r.resetHook; r.resetHook = reset; respawn.Respawned += reset;
                 var lights = r.car.GetComponent<PoliceLights>(); if (lights) Destroy(lights);
             }
-            Clock = 0; Heat = 1; heatClock = 0; nextBlock = 0; nextBackup = 0; State = Phase.Starting; phaseAt = Time.time; nextTick = 0; copSerial = 0;
+            Clock = 0; Heat = 1; heatClock = 0; nextBlock = 0; nextBackup = 0; nextPrune = 0; Heli = null; HeliSays = false; State = Phase.Starting; phaseAt = Time.time; nextTick = 0; copSerial = 0;
             // the first cops wait behind the runner (released CopDelay after the runners); the cop count by heat
             int node = Net.Nearest(r1.car.Body.position, out _, 200);
             int want = StartingCops();
@@ -135,21 +136,37 @@ namespace Racer
             var input = clone.GetComponent<VehicleInput>(); if (input) { input.Bind(null); input.enabled = false; }
             var respawn = clone.GetComponent<VehicleRespawn>(); if (respawn) respawn.enabled = false;
             car.Body.isKinematic = false; car.enabled = false;
-            var driver = clone.AddComponent<CopDriver>(); driver.Car = car; driver.Race = race; driver.Net = Net; driver.Boss = this; driver.SpeedFactor = CopSpeed;
+            MatchRunner(car);
+            var driver = clone.AddComponent<CopDriver>(); driver.BaseTop = car.topSpeed; driver.Car = car; driver.Race = race; driver.Net = Net; driver.Boss = this; driver.SpeedFactor = CopSpeed;
             var lights = clone.AddComponent<PoliceLights>(); lights.Siren = !quiet; lights.Target = null; driver.Lights = lights;
-            var cop = new Cop { id = copSerial, car = car, driver = driver, lights = lights };
+            var cop = new Cop { id = copSerial, car = car, driver = driver, lights = lights, bornAt = Time.time };
             driver.Place(at, forward);
             Cops.Add(cop); return cop;
         }
+        // 0.97: every cop has the top speed and acceleration of the runner's vehicle (the faster of the two when two people run), and at
+        // least its grip and braking, whatever the vehicle (the mower included) and on every difficulty
+        void MatchRunner(ArcadeVehicle car)
+        {
+            float top = 0, acc = 0, grip = 0, brake = 0, lat = 0;
+            foreach (var r in Runners) { var m = r.car; if (!m) continue; top = Mathf.Max(top, m.topSpeed); acc = Mathf.Max(acc, m.acceleration); grip = Mathf.Max(grip, m.maxGripAcceleration); brake = Mathf.Max(brake, m.braking); lat = Mathf.Max(lat, m.lateralGrip); }
+            if (top <= 0) return;
+            car.topSpeed = top; car.acceleration = acc; car.maxGripAcceleration = Mathf.Max(car.maxGripAcceleration, grip); car.braking = Mathf.Max(car.braking, brake); car.lateralGrip = Mathf.Max(car.lateralGrip, lat);
+        }
         void ClearCops()
         {
+            if (Heli) { Destroy(Heli.gameObject); Heli = null; }
             foreach (var c in Cops) if (c.car) { c.car.gameObject.SetActive(false); Destroy(c.car.gameObject); }
             Cops.Clear(); Blocks.Clear();
         }
         public void Contact(CopDriver driver, Collision c)
         {
             var other = c.collider.GetComponentInParent<ArcadeVehicle>(); if (!other) return;
-            foreach (var r in Runners) if (r.car == other) r.contactAt = Time.time;
+            foreach (var r in Runners)
+                if (r.car == other)
+                {
+                    r.contactAt = Time.time;
+                    if (Mode == Variant.Getaway && Difficulty > 0 && State == Phase.Running && c.relativeVelocity.magnitude > 5 && Time.time - r.lastRam > 6) { r.lastRam = Time.time; BumpHeat("the suspect rammed a unit"); }
+                }
         }
 
         // ---------- the round ----------
@@ -185,14 +202,18 @@ namespace Racer
                 float speed = r.body.linearVelocity.magnitude; int near = 0; bool anyNear = false;
                 foreach (var c in Cops) { if (!c.car) continue; float d = Vector3.Distance(c.car.Body.position, r.body.position); if (d < CatchDistance) { near++; anyNear = true; } }
                 float rate = -1f / 3f;
+                int pin = 0; foreach (var c in Cops) if (c.car && !c.block && Vector3.Distance(c.car.Body.position, r.body.position) < PinDistance) pin++;
                 if (near >= 1 && speed < CatchSpeed) rate = 1f / 3f;
                 else if (near >= 2 && speed < BoxSpeed) rate = 1f / 6f;
                 else if (near >= 1 && Time.time - r.contactAt < .6f && speed < ContactSpeed) rate = 1f / 9f;
+                else if (pin >= 2 && speed < PinSpeed) rate = 1f / 8f;
+                else if (speed < HeldSpeed && Cops.Any(c => c.car && !c.block && Vector3.Distance(c.car.Body.position, r.body.position) < HeldDistance)) rate = 1f / 6f; // 0.97: held up with a cop on its tail (a jam of cruisers) fills it too // 0.97: two cops hemming the runner in (alongside, ahead or behind) however fast it still goes
                 if (rate > 0) rate *= BustRate[Difficulty];
                 r.bust = Mathf.Clamp01(r.bust + rate * dt);
                 if (r.bust >= 1) Caught(r);
                             }
-            // escape meter: fills over 20 s while no cop sees the runner (any cop seeing it resets it)
+            // escape meter (Easy 20 s, Normal 30, Hard 40): fills while no cop (or the helicopter) sees the runner and no cop is within
+            // 150 m, seen or not; any cop seeing the runner resets it
             if (Mode == Variant.Getaway)
                 foreach (var r in Runners)
                 {
@@ -200,21 +221,24 @@ namespace Racer
                     if (r.seen) r.escape = 0;
                     else
                     {
-                        // a cop still close behind (out of sight round a bend) slows the fade: you only lose them with some distance
                         float nearest = float.MaxValue; foreach (var c in Cops) if (c.car && !c.block) nearest = Mathf.Min(nearest, Vector3.Distance(c.car.Body.position, r.body.position));
-                        r.escape = Mathf.Clamp01(r.escape + dt / EscapeSeconds * (nearest < NearCops ? .3f : 1f));
+                        if (nearest >= NearCops) r.escape = Mathf.Clamp01(r.escape + dt / EscapeBy[Difficulty]);
                     }
                     if (r.escape >= 1) Escaped(r, false);
                 }
             if (Time.time >= nextTick) { nextTick = Time.time + .2f; Tick(); }
-            // heat: every HeatEvery seconds of a runner staying free (max 5); a cop a level (max MaxCops)
+            // heat (0.97): +1 every HeatEvery seconds while being chased (Easy 45, Normal 30, Hard 20; max 5), and on Normal and Hard +1 for
+            // ramming a cop, passing a roadblock and 10 s off-road while seen; it never drops during a chase
             if (Mode == Variant.Getaway && Runners.Any(r => !r.Done))
             {
-                heatClock += dt;
-                if (heatClock >= HeatEvery[Difficulty] && Heat < 5) { heatClock = 0; Heat++; foreach (var r in Runners) r.topHeat = Mathf.Max(r.topHeat, Heat); Say($"Heat {Heat}: more units on the way" + (Heat >= 3 ? ", roadblocks" : "")); }
+                if (Runners.Any(r => !r.Done && r.copsChasing > 0)) heatClock += dt;
+                if (heatClock >= HeatEvery[Difficulty]) BumpHeat("more units on the way");
+                foreach (var r in Runners) if (!r.Done && r.offRoad && r.seen && !r.offBumped && Difficulty > 0) { r.offSeen += dt; if (r.offSeen >= 10) { r.offBumped = true; BumpHeat("the suspect is running cross-country"); } }
+                if (Heat >= 4 && !Heli) SpawnHelicopter();
             }
-            if (Mode == Variant.Getaway && Cops.Count(c => !c.block) < Mathf.Min(MaxCops, Heat + 1) && Time.time >= nextBackup) { nextBackup = Time.time + 6; SpawnBackup(); }
+            if (Mode == Variant.Getaway && Time.time >= nextBackup) { nextBackup = Time.time + 4; Backups(); }
             if (Mode == Variant.Getaway && Heat >= 3 && Time.time >= nextBlock && Blocks.Count < 2) { nextBlock = Time.time + 38; TryRoadblock(); }
+            if (Mode == Variant.Getaway && Time.time >= nextPrune) { nextPrune = Time.time + 2; Prune(); }
             UpdateBlocks();
             // the end
             var humans = Runners.Where(r => r.human).ToList();
@@ -292,9 +316,15 @@ namespace Racer
                     if (d <= SightRange && LineOfSight(c.car.Body.position + Vector3.up * 1.5f, r.body.position + Vector3.up * 1.1f, r.car.transform)) { c.sees = true; seen = true; }
                     if (c.sees || (c.assigned == r && c.driver.Role != CopDriver.Task.Idle && d < 220)) chasing++;
                 }
+                r.heliSees = Heli && Heli.Sees(r, nextHeliCheck <= Time.time); if (r.heliSees) { seen = true; chasing++; }
                 bool was = r.seen; r.seen = seen; r.copsChasing = chasing; r.wasSeen |= seen;
                 if (seen) { r.lastSeenAt = Time.time; r.lastSeenPos = r.body.position; r.lastSeenVelocity = r.body.linearVelocity; r.unseenFor = 0; if (!was && Time.time - r.seenAt > 4 && r.seenAt > 0 && r.human) Say("Visual on the suspect"); r.seenAt = Time.time; }
-                else { r.unseenFor += .2f; if (was && r.human) Say("Lost visual. Last seen near " + Net.PlaceName(race, r.lastSeenPos)); }
+                else
+                {
+                    r.unseenFor += .2f; if (was && r.human) Say("Lost visual. Last seen near " + Net.PlaceName(race, r.lastSeenPos));
+                    // 0.97: breaking sight is a call-in too: within about 2 s units are posted ahead of the runner's heading
+                    if (Mode == Variant.Getaway && r.human && r.wasSeen && r.unseenFor >= 1.6f && Time.time - r.lastCallIn > 14) { ComputeExits(r); CallIn(r); }
+                }
                 // on / off the road
                 float off = Net.OffNet(r.body.position);
                 if (!r.offRoad && off > 14) { if (r.offSince < 0) r.offSince = Time.time; if (Time.time - r.offSince > 1.2f) GoOffRoad(r); }
@@ -313,21 +343,37 @@ namespace Racer
                 c.lights.Silent = r != null && Cops.Count(o => o != c && o.car && r != null && Vector3.Distance(o.car.Body.position, r.body.position) < Vector3.Distance(c.car.Body.position, r.body.position)) >= 2;
             }
             foreach (var r in Runners) r.topHeat = Mathf.Max(r.topHeat, Heat);
+            if (nextHeliCheck <= Time.time) nextHeliCheck = Time.time + .6f;
+            Boosts();
+        }
+        float nextHeliCheck;
+        // catch-up: a cop more than 150 m behind its runner gains speed (up to 30 %) until it is within 80 m
+        void Boosts()
+        {
+            foreach (var c in Cops)
+            {
+                if (!c.car || c.block) continue; c.boost = 1; var r = c.assigned; if (r == null || r.Done) { c.driver.Boost = 1; continue; }
+                float d = Vector3.Distance(c.car.Body.position, r.body.position);
+                if (d > 150) c.catching = true; else if (d < 80) c.catching = false;
+                if (c.catching) c.boost = 1 + .3f * Mathf.Clamp01((d - 80) / 220f);
+                c.driver.Boost = c.boost;
+            }
         }
         void GoOffRoad(Runner r)
         {
-            r.offRoad = true; r.onSince = 0;
+            r.offRoad = true; r.onSince = 0; r.offSeen = 0; r.offBumped = false;
             if (r.seen || Time.time - r.lastSeenAt < 6)
             {
                 var ahead = r.body.position + (r.body.linearVelocity.sqrMagnitude > 4 ? r.body.linearVelocity.normalized : r.car.transform.forward) * 260;
                 Say("Suspect off-road heading toward " + Net.PlaceName(race, ahead), r.player);
             }
-            ComputeExits(r);
+            ComputeExits(r); if (Mode == Variant.Getaway && r.human) CallIn(r);
         }
-        void BackOnRoad(Runner r) { r.offRoad = false; r.offSince = -1; ExitPoints.Clear(); if (r.seen || Time.time - r.lastSeenAt < 8) Say("Suspect back on the road near " + Net.PlaceName(race, r.body.position), r.player); }
-        void Say(string line, int player = 0) { RadioLog.Add(line); if (RadioLog.Count > 30) RadioLog.RemoveAt(0); radioAt = Time.unscaledTime; }
+        void BackOnRoad(Runner r) { r.offRoad = false; r.offSince = -1; ExitPoints.Clear(); foreach (var c in Cops) c.exitUnit = false; if (r.seen || Time.time - r.lastSeenAt < 8) Say("Suspect back on the road near " + Net.PlaceName(race, r.body.position), r.player); }
+        void Say(string line, int player = 0) { if (RadioLog.Count > 0 && RadioLog[RadioLog.Count - 1] == line && Time.unscaledTime - radioAt < 8) return; RadioLog.Add(line); if (RadioLog.Count > 30) RadioLog.RemoveAt(0); radioAt = Time.unscaledTime; }
 
         readonly List<int> exitNodes = new(); readonly Dictionary<Cop, int> exitOf = new();
+        // the exits: road points ahead of the runner's heading (road ends and junctions first), nearest first, up to four, 90 m apart
         void ComputeExits(Runner r)
         {
             exitNodes.Clear(); ExitPoints.Clear(); var pos = r.body.position; var heading = r.body.linearVelocity; heading.y = 0; bool moving = heading.sqrMagnitude > 9; if (moving) heading.Normalize();
@@ -335,21 +381,41 @@ namespace Racer
             foreach (int i in Net.Near(pos, 900))
             {
                 if (Net.Component[i] != comp) continue;
-                var d = Net.P[i] - pos; d.y = 0; float dist = d.magnitude; if (dist < 90) continue;
+                var d = Net.P[i] - pos; d.y = 0; float dist = d.magnitude; if (dist < 120) continue;
                 float cone = moving ? Vector3.Angle(heading, d) : 0; if (cone > 80) continue;
-                // road ends, junctions (3+ links) and ordinary road points; the ones where roads meet first
                 float junction = Net.Adj[i].Count >= 3 ? -60f : 0;
                 cands.Add((dist + cone * 2.5f + junction, i));
             }
             foreach (var cand in cands.OrderBy(c => c.score))
             {
-                if (exitNodes.Count >= Mathf.Max(1, Cops.Count - 1)) break;
+                if (exitNodes.Count >= 4) break;
                 if (exitNodes.Any(n => Vector3.Distance(Net.P[n], Net.P[cand.node]) < 90)) continue;
                 exitNodes.Add(cand.node);
             }
             foreach (int n in exitNodes) ExitPoints.Add(Net.P[n]);
-            if (exitNodes.Count > 0 && r.human) Say($"{exitNodes.Count} unit{(exitNodes.Count == 1 ? "" : "s")} covering the exits", r.player);
             exitOf.Clear();
+        }
+        // 0.97 call-in: units are PLACED (out of sight, lights on) at the nearest two to four exits, so something always happens near
+        // the runner, wherever the existing cops are. Two at heat 1-2, three from heat 3, four at heat 5.
+        void CallIn(Runner r)
+        {
+            r.lastCallIn = Time.time; if (exitNodes.Count == 0) { Trace($"{Clock:F0}s call-in: no exits ahead"); return; }
+            int want = Mathf.Min(exitNodes.Count, Mathf.Clamp(2 + (Heat >= 3 ? 1 : 0) + (Heat >= 5 ? 1 : 0), 2, 4)); int placed = 0; var names = new List<string>();
+            foreach (int node in exitNodes.OrderBy(n => Vector3.Distance(Net.P[n], r.body.position)))
+            {
+                if (placed >= want) break;
+                if (Cops.Count(c => c.car && !c.block) >= MaxCops + 4) break;
+                if (Cops.Any(c => c.car && !c.block && Vector3.Distance(c.car.Body.position, Net.P[node]) < 45)) { placed++; continue; } // a unit is already there
+                int at = node; if (Seen(Net.P[at])) { at = HiddenNear(node); if (at < 0) continue; }
+                var face = r.body.position - Net.P[at]; face.y = 0; var t = Net.Tangent(at); if (Vector3.Dot(t, face) < 0) t = -t;
+                // parked on the verge, not in the lane: the runner can pass it (and is then chased), it does not make a wall of its own
+                var edge = Vector3.Cross(Vector3.up, t).normalized * Mathf.Max(0, Net.Half[at] - 1.6f) * (Random.value < .5f ? -1 : 1);
+                var cop = SpawnCop(Net.P[at] + edge, t); if (cop == null) continue;
+                cop.exitUnit = true; cop.driver.Frozen = false; cop.driver.Role = CopDriver.Task.Exit; cop.driver.Hold = true; cop.lights.Siren = true; cop.lights.Silent = false; placed++; names.Add(Net.PlaceName(race, Net.P[at]));
+            }
+            Trace($"{Clock:F0}s call-in: exits {exitNodes.Count}, wanted {want}, placed {names.Count}, already covered {placed - names.Count}, cops now {Cops.Count(c => c.car && !c.block)}");
+            if (names.Count > 0 && r.human) Say($"{names.Count} unit{(names.Count == 1 ? "" : "s")} posted at the exits near {string.Join(" and ", names.Distinct())}", r.player);
+            else if (placed > 0 && r.human) Say($"{placed} unit{(placed == 1 ? "" : "s")} covering the exits", r.player);
         }
         float nextExitRefresh;
         void AssignRoles()
@@ -386,7 +452,7 @@ namespace Racer
                 if (i == 0 || (i == 1 && d < 160))
                 {
                     c.driver.Chasing = r.car.transform; c.driver.ChasingBody = r.body; c.driver.Offset = i == 0 ? 0 : (Vector3.Dot(Vector3.Cross(Vector3.up, heading.normalized), c.car.Body.position - r.body.position) > 0 ? 3.4f : -3.4f);
-                    c.driver.Catchup = Mathf.Lerp(1f, 1.15f, Mathf.InverseLerp(40, 160, d));
+                    c.driver.Catchup = 1;
                     Plan(c, runnerNode, i == 0 ? CopDriver.Task.Chase : CopDriver.Task.Flank, false, .8f);
                 }
                 else
@@ -404,14 +470,14 @@ namespace Racer
             float radius = Mathf.Clamp(110 + 22 * r.unseenFor, 110, 700);
             for (int i = 0; i < mine.Count; i++)
             {
-                var c = mine[i]; c.driver.Chasing = null; c.driver.Pushy = false; c.driver.Catchup = 1.05f;
+                var c = mine[i]; c.driver.Chasing = null; c.driver.Pushy = false; c.driver.Catchup = 1;
                 if (i <= 1 && r.unseenFor < 45 && last >= 0)
                 {
                     // just lost it: it keeps going the way it was heading, so the first two drive on along that road, hard
                     var v = r.lastSeenVelocity; float ahead = Mathf.Clamp(v.magnitude * (r.unseenFor + 4) * (i == 0 ? .8f : 1.2f), 40, 900);
                     int guess = Net.Ahead(last, v, ahead); if (i == 0 && !r.offRoad && r.unseenFor < 45) { int on = Net.Nearest(r.body.position, out _, 300, 40); if (on >= 0) guess = on; }
                     // dispatch keeps the lead unit on the road the runner is on
-                    c.driver.Catchup = 1.2f; Plan(c, guess >= 0 ? guess : last, CopDriver.Task.Search, false, 1.5f); continue;
+                    c.driver.Catchup = 1; Plan(c, guess >= 0 ? guess : last, CopDriver.Task.Search, false, 1.5f); continue;
                 }
                 if (i == 0) { Plan(c, last, CopDriver.Task.Search, false, 2f); continue; }
                 if (Time.time >= c.searchUntil || c.driver.Arrived || c.driver.GoalNode < 0)
@@ -425,16 +491,16 @@ namespace Racer
         }
         void OffRoadRoles(Runner r, List<Cop> mine)
         {
-            if (Time.time >= nextExitRefresh) { nextExitRefresh = Time.time + 4; ComputeExits(r); }
+            if (Time.time >= nextExitRefresh) { nextExitRefresh = Time.time + 4; ComputeExits(r); if (Mode == Variant.Getaway && r.human && Time.time - r.lastCallIn > 10) CallIn(r); }
             // the nearest cop stops at the edge, lights on, radioing; the others take the exits nearest first, one each
-            var free = new List<Cop>(mine); var edge = free[0]; free.RemoveAt(0); edge.driver.Chasing = null; edge.driver.Pushy = false;
+            var free = new List<Cop>(mine); var edgeCandidates = free.Where(c => !c.exitUnit).ToList(); var edge = edgeCandidates.Count > 0 ? edgeCandidates[0] : free[0]; free.Remove(edge); edge.driver.Chasing = null; edge.driver.Pushy = false;
             Plan(edge, r.offFromNode, CopDriver.Task.Edge, true, 2f);
             var taken = new HashSet<Cop>();
             foreach (int node in exitNodes.OrderBy(n => Vector3.Distance(Net.P[n], r.body.position)))
             {
                 Cop best = null; float bd = float.MaxValue;
                 foreach (var c in free) { if (taken.Contains(c)) continue; float d = Vector3.Distance(c.car.Body.position, Net.P[node]); if (d < bd) { bd = d; best = c; } }
-                if (best == null) break; taken.Add(best); best.driver.Chasing = null; best.driver.Pushy = false; best.driver.Catchup = 1.05f; Plan(best, node, CopDriver.Task.Exit, true, 3f);
+                if (best == null) break; taken.Add(best); best.driver.Chasing = null; best.driver.Pushy = false; best.driver.Catchup = 1; Plan(best, node, CopDriver.Task.Exit, true, 3f);
             }
             foreach (var c in free) if (!taken.Contains(c)) { c.driver.Chasing = null; SearchAround(c, r); }
         }
@@ -447,21 +513,99 @@ namespace Racer
         }
 
         // ---------- backup and roadblocks ----------
-        void SpawnBackup()
+        // 0.97 backups: heat sets how many cops are NEAR the runner (within 600 m): heat 1 = 2, 2 = 3 ... 5 = 6. A new unit is placed out of
+        // sight on the road network 250-450 m from the runner, ahead of its heading or on the roads that join its route, never behind,
+        // and joins with lights and siren and a radio line. A cop more than 600 m behind that cannot see the runner is placed ahead again.
+        int NearCount(Runner r) => Cops.Count(c => c.car && !c.block && Vector3.Distance(c.car.Body.position, r.body.position) <= 600);
+        void Backups()
         {
-            var r = Runners.FirstOrDefault(x => !x.Done && x.human) ?? Runners.FirstOrDefault(x => !x.Done); if (r == null) return;
-            var heading = r.body.linearVelocity; heading.y = 0; if (heading.sqrMagnitude < 4) heading = r.car.transform.forward; heading.Normalize();
-            int centre = Net.Nearest(r.body.position, out _, 200); if (centre < 0) return;
-            for (int attempt = 0; attempt < 24; attempt++)
+            Runner r = null; int fewest = int.MaxValue;
+            foreach (var x in Runners) { if (x.Done || !x.human) continue; int n = NearCount(x); if (n < fewest) { fewest = n; r = x; } } // the runner who needs them most
+            if (r == null) return;
+            int want = Mathf.Min(MaxCops, Heat + 1);
+            if (fewest < want && Cops.Count(c => c.car && !c.block) < MaxCops + 4)
             {
-                var around = Net.Near(r.body.position, 520).Where(i => Net.Component[i] == Net.Component[centre] && Vector3.Distance(Net.P[i], r.body.position) > 260).ToList(); if (around.Count == 0) return;
-                int node = around[Random.Range(0, around.Count)];
-                if (SplitScreen.InAView(Net.P[node], .25f) || InMainView(Net.P[node])) continue;
-                var cop = SpawnCop(Net.P[node], Net.Tangent(node)); if (cop != null) { cop.driver.Frozen = false; Say(Heat >= 2 ? "Backup: another unit joins" : "Backup requested"); }
+                int node = PlaceAhead(r); if (node < 0) return;
+                var cop = SpawnCop(Net.P[node], FaceRunner(node, r)); if (cop != null) { cop.driver.Frozen = false; cop.catching = false; Say($"Unit {cop.id} joining from {Net.RoadName(node)}", r.player); }
                 return;
             }
+            // withdraw and re-place a stray
+            foreach (var c in Cops)
+            {
+                if (!c.car || c.block || c.exitUnit || c.driver.Role == CopDriver.Task.Exit || c.sees) { if (c.sees) c.farSince = -1; continue; }
+                var cr = c.assigned ?? r; if (cr == null) continue; var heading = cr.body.linearVelocity; heading.y = 0; if (heading.sqrMagnitude < 4) heading = cr.car.transform.forward;
+                var to = c.car.Body.position - cr.body.position; to.y = 0;
+                bool behind = Vector3.Dot(to, heading) < 0 && to.magnitude > 600;
+                if (!behind) { c.farSince = -1; continue; }
+                if (c.farSince < 0) c.farSince = Time.time; if (Time.time - c.farSince < 3) continue;
+                if (Seen(c.car.Body.position)) continue;
+                int node = PlaceAhead(cr); if (node < 0) continue;
+                c.driver.Place(Net.P[node], FaceRunner(node, cr)); c.driver.Stop(); c.farSince = -1; c.catching = false; Say($"Unit {c.id} rejoining from {Net.RoadName(node)}", cr.player);
+                break;
+            }
         }
-        bool InMainView(Vector3 p) { var cam = Camera.main; if (!cam) return false; var v = cam.WorldToViewportPoint(p); return v.z > -50 && v.x > -.3f && v.x < 1.3f && v.y > -.3f && v.y < 1.3f && v.z < 400; }
+        Vector3 FaceRunner(int node, Runner r) { var face = r.body.position - Net.P[node]; face.y = 0; var t = Net.Tangent(node); return Vector3.Dot(t, face) < 0 ? -t : t; }
+        // a node 250-450 m from the runner, out of every view, ahead of its heading (never behind), preferring its own route and the roads joining it
+        public int PlaceAhead(Runner r)
+        {
+            var heading = r.body.linearVelocity; heading.y = 0; if (heading.sqrMagnitude < 9) heading = r.car.transform.forward; heading.y = 0; heading.Normalize();
+            int centre = r.offRoad && r.offFromNode >= 0 ? r.offFromNode : Net.Nearest(r.body.position, out _, 400); if (centre < 0) return -1;
+            int route = Net.Ahead(centre, heading, 380);
+            var best = new List<(float score, int node)>();
+            foreach (int i in Net.Near(r.body.position, 450))
+            {
+                if (Net.Component[i] != Net.Component[centre]) continue; var d = Net.P[i] - r.body.position; d.y = 0; float dist = d.magnitude; if (dist < 250) continue;
+                float ahead = Vector3.Dot(d / dist, heading); if (ahead < -.05f) continue; // never behind
+                if (Seen(Net.P[i]) && dist < 380) continue; // out of sight, or too far to read as more than a speck
+                if (Cops.Any(c => c.car && Vector3.Distance(c.car.Body.position, Net.P[i]) < 70)) continue;
+                float score = ahead * 60 + Mathf.Max(0, 120 - Vector3.Distance(Net.P[i], Net.P[route])) * .6f - Mathf.Abs(dist - 350) * .15f;
+                best.Add((score, i));
+            }
+            if (best.Count == 0) return -1;
+            var top = best.OrderByDescending(x => x.score).Take(5).ToList(); return top[Random.Range(0, top.Count)].node;
+        }
+        // too many units (exit units that are no longer needed): the farthest one out of sight goes
+        void Prune()
+        {
+            var live = Cops.Where(c => c.car && !c.block).ToList(); if (live.Count <= MaxCops + 2) return;
+            var r = Runners.FirstOrDefault(x => !x.Done && x.human); if (r == null) return;
+            foreach (var c in live.OrderByDescending(c => Vector3.Distance(c.car.Body.position, r.body.position)))
+            {
+                if (c.sees || Seen(c.car.Body.position) || Vector3.Distance(c.car.Body.position, r.body.position) < 200) continue;
+                Cops.Remove(c); c.car.gameObject.SetActive(false); Destroy(c.car.gameObject); break;
+            }
+        }
+        public void BumpHeat(string why)
+        {
+            heatClock = 0; if (Mode != Variant.Getaway || Heat >= 5) return;
+            Heat++; foreach (var r in Runners) r.topHeat = Mathf.Max(r.topHeat, Heat);
+            Say($"Heat {Heat}: {why}" + (Heat >= 3 ? ", roadblocks" : "") + (Heat == 4 ? ", air support" : ""));
+        }
+        void SpawnHelicopter()
+        {
+            var r = Runners.FirstOrDefault(x => !x.Done && x.human); if (r == null) return;
+            var go = new GameObject("Police helicopter"); Heli = go.AddComponent<PoliceHelicopter>(); Heli.Begin(this, r);
+            Say("Air support is on the way");
+        }
+        // 0.97: is this point in sight of anyone's screen (the main camera, or either split-screen view): inside the frustum within 450 m with a clear line
+        // of sight (hills, buildings and trees hide it; cars do not)
+        bool Seen(Vector3 p)
+        {
+            var cams = new List<Camera>(); if (Camera.main) cams.Add(Camera.main); foreach (var c in SplitScreen.Views) if (c && !cams.Contains(c)) cams.Add(c);
+            foreach (var cam in cams)
+            {
+                var v = cam.WorldToViewportPoint(p); if (v.z <= 0 || v.z > 450 || v.x < -.1f || v.x > 1.1f || v.y < -.1f || v.y > 1.1f) continue;
+                if (LineOfSight(cam.transform.position, p + Vector3.up * 1.2f, null)) return true;
+            }
+            return false;
+        }
+        // the nearest road point within 90 m of this one that nobody can see (-1 when there is none)
+        int HiddenNear(int node)
+        {
+            int best = -1; float bd = float.MaxValue;
+            foreach (int i in Net.Near(Net.P[node], 90)) { if (Net.Component[i] != Net.Component[node]) continue; float d = Vector3.Distance(Net.P[i], Net.P[node]); if (d < bd && !Seen(Net.P[i])) { bd = d; best = i; } }
+            return best;
+        }
         void TryRoadblock()
         {
             var r = Runners.FirstOrDefault(x => !x.Done && x.human && !x.offRoad); if (r == null) return;
@@ -470,7 +614,7 @@ namespace Racer
             float distance = Mathf.Clamp(r.body.linearVelocity.magnitude * 11f, 240, 420);
             int node = Net.Ahead(here, heading, distance); if (node < 0 || node == here) return;
             if (Vector3.Distance(Net.P[node], r.body.position) < 180) return;
-            if (SplitScreen.InAView(Net.P[node], .15f) || InMainView(Net.P[node])) { nextBlock = Time.time + 4; return; }
+            if (Seen(Net.P[node])) { nextBlock = Time.time + 4; return; }
             var tangent = Net.Tangent(node); var right = Vector3.Cross(Vector3.up, tangent).normalized; float half = Net.Half[node];
             float gap = 2.7f, centreLane = Random.Range(-Mathf.Max(0, half - gap - .8f), Mathf.Max(0, half - gap - .8f));
             var block = new Roadblock { centre = Net.P[node], tangent = tangent, born = Time.time, target = r, node = node };
@@ -489,11 +633,13 @@ namespace Racer
             for (int i = Blocks.Count - 1; i >= 0; i--)
             {
                 var b = Blocks[i]; var r = b.target; bool remove = Time.time - b.born > 80 || r == null || r.Done;
+                // a roadblock is lifted once a regular unit gets to it with the runner well past it (the unit would only queue behind its own block)
+                if (!remove && r != null && Vector3.Distance(r.body.position, b.centre) > 80) foreach (var c in Cops) if (c.car && !c.block && Vector3.Distance(c.car.Body.position, b.centre) < 45) { remove = true; break; }
                 if (r != null && !r.Done)
                 {
                     float d = Vector3.Distance(r.body.position, b.centre); b.closest = Mathf.Min(b.closest, d);
                     var along = Vector3.Dot(r.body.position - b.centre, r.body.linearVelocity.normalized);
-                    if (b.closest < 22 && d > 45 && !b.passed && r.bust < .9f) { b.passed = true; r.blocks++; Say("The suspect got through the roadblock"); }
+                    if (b.closest < 22 && d > 45 && !b.passed && r.bust < .9f) { b.passed = true; r.blocks++; Say("The suspect got through the roadblock"); if (Difficulty > 0) BumpHeat("the suspect ran the roadblock"); }
                     if (b.passed && d > 120) remove = true;
                     if (!remove && d > 420 && Time.time - b.born > 25) remove = true;
                 }
@@ -540,6 +686,18 @@ namespace Racer
 
         // ---------- what the HUD and the minimap show ----------
         public IEnumerable<(Vector3 position, bool sees)> CopMarks => Cops.Where(c => c.car).Select(c => (c.car.Body.position, c.sees));
+        public Vector3? HeliMark => Heli ? Heli.transform.position : null;
+        // F3 debug mode, Getaway only: heat, the cops and what each is doing
+        public string DebugText
+        {
+            get
+            {
+                var sb = new System.Text.StringBuilder(); var r = Runners.FirstOrDefault(x => x.human) ?? Runners.FirstOrDefault(); if (r == null) return "";
+                sb.AppendLine($"GETAWAY t {Clock:F0}s heat {Heat} cops {Cops.Count(c => !c.block)} (near {NearCount(r)}) seen {r.seen} heli {(Heli ? (r.heliSees ? "SEES" : "up") : "-")} escape {r.escape:F2} bust {r.bust:F2} off {r.offRoad}");
+                foreach (var c in Cops) { if (!c.car) continue; float d = Vector3.Distance(c.car.Body.position, r.body.position); sb.AppendLine($" #{c.id} {c.driver.Role}{(c.exitUnit ? "(exit)" : "")}{(c.block ? "(block)" : "")} {d:F0}m {c.car.Body.linearVelocity.magnitude:F0}m/s x{c.boost:F2}{(c.sees ? " sees" : "")}"); }
+                return sb.ToString();
+            }
+        }
         public string HeatBars => new string('★', Heat) + new string('☆', 5 - Heat);
     }
 }

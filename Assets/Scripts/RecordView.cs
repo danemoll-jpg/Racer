@@ -9,7 +9,7 @@ namespace Racer
     public static class RecordView
     {
         const string Vehicle = "(?:original|tourer|moto|atv)";
-        static readonly Regex Key = new Regex("^(?<era>.+)-(?<vehicle>"+Vehicle+")-(?:solo|race4-d[0-2]-"+Vehicle+"-"+Vehicle+"-"+Vehicle+")-(?:traffic|clear)(?:-laps(?<laps>[0-9]+))?$");
+        static readonly Regex Key = new Regex("^(?<era>.+)-(?<vehicle>"+Vehicle+")-(?:solo|race4-d[0-2]-"+Vehicle+"-"+Vehicle+"-"+Vehicle+")-(?:traffic|clear)(?:-rain|-snow)?(?:-laps(?<laps>[0-9]+))?$");
         public static string Era(string category)
         {
             var match=Key.Match(category??"");

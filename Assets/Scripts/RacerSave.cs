@@ -64,6 +64,7 @@ namespace Racer
             public string playerName = "";
             public string[] knownNames = new string[0];
             public int nameTags = 2;
+            public bool weatherGrip = true; // 0.97 Part B: Settings > Gameplay > Weather affects grip (Off = the 0.95 behaviour)
             public string[] opponentChoices = {"mixed","mixed","mixed"};
             public string[] opponentRoster = {"tourer","moto","atv"};
             public int[] bodyColors = {-1,-1,-1,-1};

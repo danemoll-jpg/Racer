@@ -281,7 +281,7 @@ namespace Racer
         public string Category(int player)
         {
             var car = player == 1 ? race.vehicle : P2Car; var rivals = race.opponentRoster.Skip(1).ToArray();
-            return $"{race.courseId}-{car.GetComponent<VehicleConfiguration>().profileId}-{(rivals.Length > 0 ? "race4-d" + race.difficulty + "-" + string.Join("-", rivals) : "solo")}-{(race.traffic ? "traffic" : "clear")}-laps{race.laps}";
+            return $"{race.courseId}-{car.GetComponent<VehicleConfiguration>().profileId}-{(rivals.Length > 0 ? "race4-d" + race.difficulty + "-" + string.Join("-", rivals) : "solo")}-{(race.traffic ? "traffic" : "clear")}{WeatherGrip.RecordTag(SplitScreen.Weather)}-laps{race.laps}";
         }
         void Record(int player)
         {

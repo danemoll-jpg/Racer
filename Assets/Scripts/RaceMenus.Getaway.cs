@@ -5,7 +5,7 @@ namespace Racer
 {
     // 0.96 Part E: the Getaway game of the Police Chase setup (every human runs, the cops are AI) and the results of Getaway and of a
     // solo Runner against the AI cop. Players 1 / 2 (the second may be the AI, which runs too), the vehicles (garage view), where
-    // it starts, time of day, weather, traffic, Difficulty (Easy / Normal / Hard: the cops' speed and numbers), round limit.
+    // it starts, time of day, weather, traffic, Difficulty (Easy / Normal / Hard: heat, escape time and numbers; the cops are as fast as you), round limit.
     public sealed partial class RaceMenus
     {
         void RenderGetawaySetup()
@@ -46,7 +46,7 @@ namespace Racer
             Step(n++, "split-time", "Time of day:   " + SplitScreen.Time, d => { int i = System.Array.IndexOf(times, SplitScreen.Time); SplitScreen.Time = times[((i < 0 ? 1 : i) + d + times.Length) % times.Length]; flow.Click(); Show(); });
             Step(n++, "split-weather", "Weather:   " + SplitScreen.Weather, d => { SplitScreen.Weather = (Weather)(((int)SplitScreen.Weather + d + 3) % 3); flow.Click(); Show(); });
             Toggle(n++, "split-traffic", "Traffic", SplitScreen.Traffic, () => { SplitScreen.Traffic = !SplitScreen.Traffic; flow.Click(); Show(); });
-            string[] names = { "Easy   (slower cops, at most 4)", "Normal", "Hard   (faster cops, heat rises sooner)" };
+            string[] names = { "Easy   (heat every 45 s, escape in 20 s, at most 4 cops)", "Normal   (heat every 30 s, escape in 30 s)", "Hard   (heat every 20 s, escape in 40 s)" };
             Step(n++, "police-difficulty", "Difficulty:   " + names[SplitScreen.PoliceDifficulty], d => { SplitScreen.PoliceDifficulty = Mathf.Clamp(SplitScreen.PoliceDifficulty + d, 0, 2); flow.Click(); Show(); });
             int[] limits = { 3, 5, 8 };
             Step(n++, "police-limit", "Round limit:   " + SplitScreen.PoliceMinutes + " minutes", d => { int i = System.Array.IndexOf(limits, SplitScreen.PoliceMinutes); SplitScreen.PoliceMinutes = limits[Mathf.Clamp((i < 0 ? 1 : i) + d, 0, 2)]; flow.Click(); Show(); });

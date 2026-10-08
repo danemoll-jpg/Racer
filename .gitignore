@@ -133,3 +133,7 @@ InitTestScene*.unity*
 
 # Claude Code personal permissions (Dan, 2026-10-06)
 .claude/settings.local.json
+
+# 0.97 trailer capture output and the bundled ffmpeg (pip target)
+/Trailer/
+/Tools/Trailer/pylib/

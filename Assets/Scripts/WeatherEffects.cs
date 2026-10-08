@@ -356,6 +356,7 @@ namespace Racer
         // so nothing in the game can collide with or sense them). Candidates: cave / tunnel / canopy / ceiling pieces and the
         // underground surface shader.
         System.Collections.Generic.List<(Transform t, Vector3[] v, int[] tri, Renderer r)> caveMeshes;
+        public bool CoveredAt(Vector3 at) => UnderCaveMesh(at); // 0.97: the police helicopter cannot see under a roof
         bool UnderCaveMesh(Vector3 at)
         {
             if (caveMeshes == null)

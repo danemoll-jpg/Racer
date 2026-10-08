@@ -433,6 +433,7 @@ namespace Racer
                 + (race.FreeRoam ? "Exploration" : $"Lap {race.Progress.CompletedLaps + 1} / Next CP {race.Progress.NextGate}")
                 + "\n" + (WorldLook.Current ? WorldLook.Current.Conditions : "Look off")
                 + "\n" + SessionText + "\nF3 mode / F4 capture / Timeout OFF\n"
+                + (GetawayChase.Current && GetawayChase.Current.State == GetawayChase.Phase.Running ? "\n" + GetawayChase.Current.DebugText : "") // 0.97: the Getaway log (F3, Getaway only)
                 + (Flying ? "FLY: WASD · Q/E · RMB look\nShift fast / Ctrl precise · F6 return" : race.Flow.DebugMovementUsed ? "DEBUG RUN / records disabled" : "Vehicle view / records eligible");
         }
         void OnDestroy()

@@ -234,7 +234,9 @@ details.gameObject.SetActive(true);
                 // 0.94 Part A: the player's name (A: the on-screen keyboard) and the name tags over the other racers
                 Row(9,"player-name","Player name:   "+PlayerNames.Player+"   (A: change)",()=>OpenNameEntry(s.playerName,PlayerNames.SetPlayer));
                 // 0.95 Part C: On / Off (a saved Everyone or Players only is On): the campaign's rivals, the other split-screen player
-                Step(10,"name-tags","Name tags:   "+(s.nameTags>0?"On":"Off"),d=>Adjust(()=>s.nameTags=s.nameTags>0?0:2));}
+                Step(10,"name-tags","Name tags:   "+(s.nameTags>0?"On":"Off"),d=>Adjust(()=>s.nameTags=s.nameTags>0?0:2));
+                // 0.97 Part B: rain and snow change how vehicles grip (Off = the 0.95 behaviour)
+                Step(11,"weather-grip","Weather affects grip:   "+(s.weatherGrip?"On":"Off"),d=>Adjust(()=>s.weatherGrip=!s.weatherGrip));}
             if(page=="settings-audio")
             {
                 Step(4,"master",$"Master {s.master:P0}",d=>Adjust(()=>s.master=Mathf.Clamp01(s.master+d*.1f)));

@@ -11,7 +11,7 @@ namespace Racer
     public sealed class CopDriver : MonoBehaviour
     {
         public ArcadeVehicle Car; public RaceDirector Race; public RoadNet Net; public GetawayChase Boss; public PoliceLights Lights;
-        public float SpeedFactor = 1, Catchup = 1;
+        public float SpeedFactor = 1, Catchup = 1, BaseTop = 0, Boost = 1; // 0.97: Car.topSpeed = BaseTop (the runner's vehicle's) x Boost (catch-up, up to 1.3)
         public enum Task { Idle, Chase, Flank, Cutoff, Search, Edge, Exit, Block }
         public Task Role = Task.Idle; public string Label => Role.ToString();
         public bool Hold;                 // stop at the end of the path and wait there
@@ -19,7 +19,7 @@ namespace Racer
         public Transform Chasing; public Rigidbody ChasingBody; public float Offset; public bool Pushy;
         public bool Arrived { get; private set; }
         public int Recoveries { get; private set; }
-        public float TargetSpeed { get; private set; }
+        public float TargetSpeed { get; private set; } public string Limit { get; private set; } = ""; // what holds the speed down: corner / angle / lateral / obstacle / end (debug)
         public Vector3 GoalPoint => path.Count > 0 ? path[path.Count - 1] : Car ? Car.Body.position : Vector3.zero;
         public int GoalNode { get; private set; } = -1; public int GoFails;
         public bool HasPath => path.Count > 1;
@@ -76,7 +76,7 @@ namespace Racer
         void FixedUpdate()
         {
             if (!Car || !Race || !Race.Flow) return;
-            Car.enabled = false;
+            Car.enabled = false; if (BaseTop > 0) Car.topSpeed = BaseTop * Mathf.Clamp(Boost, 1f, 1.3f);
             if (Race.Flow.State != RaceFlow.Stage.Racing || Frozen) { Car.Body.isKinematic = true; return; }
             Car.Body.isKinematic = false;
             float dt = Time.fixedDeltaTime; var p = Car.Body.position; float speed = Mathf.Abs(Car.ForwardSpeed);
@@ -124,20 +124,25 @@ namespace Racer
             if (Mathf.Abs(angle) > Mathf.PI * .5f) steering = Mathf.Sign(angle);
 
             // the speed: top (pursuit) speed, held down by the bends ahead and the end of the path
-            float vmax = Car.topSpeed * SpeedFactor * Catchup; float cornerGrip = Mathf.Min(Car.maxGripAcceleration * .62f, 11f), decel = Mathf.Max(6f, Car.braking * .75f);
-            float v = vmax; float dist = Vector3.Distance(p, path[Mathf.Min(seg + 1, path.Count - 1)]); float climbed = 0;
-            for (int k = seg; k + 2 < path.Count && climbed < 120; k++)
+            float vmax = Car.topSpeed * SpeedFactor * Catchup; float cornerGrip = Mathf.Min(Car.maxGripAcceleration * .62f, 14f) * Car.GripScale, decel = Mathf.Max(6f, Car.braking * .75f) * Car.GripScale; // GripScale: the weather's grip (0.97)
+            float v = vmax; string why = "top"; int v0 = Mathf.Min(seg + 1, path.Count - 1); float dist = Vector3.Distance(p, path[v0]);
+            // 0.97: the bend ahead is measured over two nodes each side of a vertex, not between neighbours: where the network hops between
+            // two parallel roads the path zig-zags a few metres, which neighbour-to-neighbour read as a hairpin (cops crawled at 11 m/s)
+            for (int k = v0; k < path.Count - 1 && dist < 130; k++)
             {
-                var a = path[k + 1] - path[k]; var b = path[k + 2] - path[k + 1]; a.y = 0; b.y = 0; if (a.sqrMagnitude < .01f || b.sqrMagnitude < .01f) { dist += b.magnitude; continue; }
-                float curvature = Vector3.Angle(a, b) * Mathf.Deg2Rad / Mathf.Max(5f, (a.magnitude + b.magnitude) * .5f);
+                if (k > v0) { var step = path[k] - path[k - 1]; step.y = 0; dist += step.magnitude; }
+                int i0 = Mathf.Max(0, k - 2), i1 = Mathf.Min(path.Count - 1, k + 2);
+                var a = path[k] - path[i0]; var b = path[i1] - path[k]; a.y = 0; b.y = 0; if (a.sqrMagnitude < .01f || b.sqrMagnitude < .01f) continue;
+                float curvature = Vector3.Angle(a, b) * Mathf.Deg2Rad / Mathf.Max(8f, (a.magnitude + b.magnitude) * .5f);
                 float curveSpeed = Mathf.Sqrt(cornerGrip / Mathf.Max(.00025f, curvature));
-                v = Mathf.Min(v, Mathf.Sqrt(curveSpeed * curveSpeed + 2 * decel * Mathf.Max(0, dist - 10)));
-                dist += b.magnitude; climbed = dist;
+                float cap = Mathf.Sqrt(curveSpeed * curveSpeed + 2 * decel * Mathf.Max(0, dist - 10)); if (cap < v) { v = cap; why = "corner"; }
             }
-            if (Hold) v = Mathf.Min(v, Mathf.Sqrt(2 * decel * .6f * Mathf.Max(0, remaining - 5)));
-            else if (path.Count > 1 && seg + 2 >= path.Count) v = Mathf.Min(v, Mathf.Max(8, Mathf.Sqrt(2 * decel * .6f * Mathf.Max(0, remaining - 5))));
-            if (Mathf.Abs(angle) > .7f) v = Mathf.Min(v, 11);
-            if (lateral > 6) v = Mathf.Min(v, 16);
+            if (Hold) { float cap = Mathf.Sqrt(2 * decel * .6f * Mathf.Max(0, remaining - 5)); if (cap < v) { v = cap; why = "end"; } }
+            else if (path.Count > 1 && seg + 2 >= path.Count) { float cap = Mathf.Max(8, Mathf.Sqrt(2 * decel * .6f * Mathf.Max(0, remaining - 5))); if (cap < v) { v = cap; why = "end"; } }
+            // a sharp swing to the aim point slows a cop following the path; one going straight at the runner (direct) steers and keeps its speed:
+            // 0.97: it used to be capped at 11 m/s whenever the runner was off to the side, which let a fast runner leave every cop alongside it
+            if (!direct && Mathf.Abs(angle) > .9f && v > 14) { v = 14; why = "angle"; }
+            if (!direct && lateral > 6 && v > 16) { v = 16; why = "lateral"; }
             // the obstacle ahead (traffic, the odd solid thing): slow to its speed; chasing, push traffic aside rather than stop
             int count = Physics.SphereCastNonAlloc(p + Vector3.up * .45f, .75f, Car.transform.forward, hits, 7 + speed * 1.3f, ~0, QueryTriggerInteraction.Ignore);
             for (int i = 0; i < count; i++)
@@ -148,9 +153,9 @@ namespace Racer
                 float allowed = Mathf.Sqrt(Mathf.Max(0, aheadSpeed * aheadSpeed + 2 * decel * (hit.distance - 4)));
                 bool car = hit.rigidbody && hit.rigidbody.GetComponent<ArcadeVehicle>();
                 if (Pushy && car && !Boss.IsCop(hit.rigidbody)) allowed = Mathf.Max(allowed, 9);
-                v = Mathf.Min(v, allowed);
+                if (allowed < v) { v = allowed; why = "obstacle"; }
             }
-            TargetSpeed = v;
+            TargetSpeed = v; Limit = why;
             float throttle = speed < v ? Mathf.Clamp01((v - speed) * .6f) : 0;
             float brake = speed > v + .5f ? Mathf.Clamp01((speed - v) * .25f) : 0;
             // stuck: nearly stopped while it should be going: back up, then recover

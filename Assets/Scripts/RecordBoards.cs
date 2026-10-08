@@ -51,7 +51,7 @@ namespace Racer
             else if(course=="backyard-reverse-v1")track="Dan's Backyard - Reverse";
             string mode=bits[0]=="solo"?"Solo":bits.Length>=5?"3 AI / "+new[]{"Easy","Normal","Hard"}[Mathf.Clamp(bits[1].Last()-'0',0,2)]:"Legacy race";
             string roster=bits[0]=="race4"&&bits.Length>=5?"\nAI: "+string.Join(" / ",bits.Skip(2).Take(3).Select(id=>VehicleProfile.Find(id).Name)):"";
-            return track+" / "+VehicleProfile.Find(match.Groups[2].Value).Name+"\n"+mode+" / "+(bits.Contains("traffic")?"Traffic":"Clear")+(bits.Last().StartsWith("laps")?" / "+bits.Last().Substring(4)+" laps":" / completed laps")+roster;
+            return track+" / "+VehicleProfile.Find(match.Groups[2].Value).Name+"\n"+mode+" / "+(bits.Contains("traffic")?"Traffic":"Clear")+(bits.Contains("rain")?" / Rain":bits.Contains("snow")?" / Snow":"")+(bits.Last().StartsWith("laps")?" / "+bits.Last().Substring(4)+" laps":" / completed laps")+roster;
         }
         static bool Valid(double n)=>n>0 && n<31536000 && !double.IsNaN(n) && !double.IsInfinity(n);
         public RecordBoards(string directory)
