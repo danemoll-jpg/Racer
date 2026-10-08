@@ -32,7 +32,7 @@ namespace Racer
         // colour (D-pad or arrow keys). Everything else on the screen answers player 1's device only.
         void UpdateSplitJoin()
         {
-            if (flow.State != RaceFlow.Stage.Ready || page != "split" || modalConfirm != null) return;
+            if (flow.State != RaceFlow.Stage.Ready || (page != "split" && page != "police") || modalConfirm != null) return;
             if (SplitScreen.P1Device != null && !SplitScreen.P1Device.added) { SplitScreen.P1Device = null; Show(); return; }
             if (SplitScreen.P2Device != null && !SplitScreen.P2Device.added) { SplitScreen.P2Device = null; SplitScreen.P2Ai = true; Show(); return; }
             foreach (var pad in Gamepad.all) if (!Assigned(pad) && (pad.buttonSouth.wasPressedThisFrame || pad.startButton.wasPressedThisFrame)) { Join(pad); return; }
@@ -41,7 +41,7 @@ namespace Racer
         }
         void Join(InputDevice d)
         {
-            if (SplitScreen.P1Device == null) SplitScreen.P1Device = d; else { SplitScreen.P2Device = d; SplitScreen.P2Ai = false; }
+            if (SplitScreen.P1Device == null) SplitScreen.P1Device = d; else { SplitScreen.P2Device = d; SplitScreen.P2Ai = false; if (page == "police") SplitScreen.Solo = false; } // 0.95: a second player joining a Police Chase makes it two players
             MenuInput.ConsumeThroughRelease(); flow.Click(); flow.Notify((SplitScreen.P1Device == d ? "Player 1" : "Player 2") + " joined: " + SplitScreen.DeviceName(d), 3); Show();
         }
         static string NextSplitVehicle(string id, int d) { var vehicles = SplitScreen.Vehicles; int i = System.Array.FindIndex(vehicles, v => v.Id == id); return vehicles[((i < 0 ? 0 : i) + d + vehicles.Length) % vehicles.Length].Id; }
@@ -58,17 +58,19 @@ namespace Racer
         }
         // While the setup screen is up only player 1's device (and the mouse with the keyboard) works it.
         bool splitSetupDevices;
-        public bool SplitSetupOpen => flow.State == RaceFlow.Stage.Ready && (page == "split" || page == "split-garage") && modalConfirm == null;
+        public bool SplitSetupOpen => flow.State == RaceFlow.Stage.Ready && (page == "split" || page == "split-garage" || page == "police") && modalConfirm == null;
         void SplitSetupDevices()
         {
-            bool setup = flow.State == RaceFlow.Stage.Ready && (page == "split" || page == "split-garage");
+            bool setup = flow.State == RaceFlow.Stage.Ready && (page == "split" || page == "split-garage" || page == "police");
             if (setup) { var p1 = SplitScreen.P1Device; RestrictMenuDevices(p1 != null && p1.added ? p1 : null); splitSetupDevices = true; }
             else if (splitSetupDevices) { splitSetupDevices = false; if (!SplitScreen.Race) RestrictMenuDevices(); }
         }
         void RenderSplit()
         {
+            // 0.95 Part B: Police Chase has its own setup (the Mode row sends it there); back here it is Race / Free Roam
+            if (SplitScreen.Mode == SplitScreen.Kind.Police) SplitScreen.Mode = SplitScreen.Kind.Race;
             var mode = SplitScreen.Mode; bool race = mode == SplitScreen.Kind.Race;
-            ClearCore("SPLIT SCREEN", (race ? "Two players, one race on this PC: everything is unlocked and every vehicle is stock." : mode == SplitScreen.Kind.FreeRoam ? "Two players in Free Roam: everything is unlocked, vehicles stock; nothing is recorded (acorns, activity records, discovery)." : "Police Chase: one player is the cop in the patrol car, the other runs; then the roles swap. Nothing is recorded.") + "\nLeft / right on a player's row changes their device; A or Start on another controller, or Enter, joins it.");
+            ClearCore("SPLIT SCREEN", (race ? "Two players, one race on this PC: everything is unlocked and every vehicle is stock." : "Two players in Free Roam: everything is unlocked, vehicles stock; nothing is recorded (acorns, activity records, discovery).") + "\nLeft / right on a player's row changes their device; A or Start on another controller, or Enter, joins it.");
             if (SplitScreen.P1Color > VehiclePaint.Count - 1) SplitScreen.P1Color = 2; if (SplitScreen.P2Color > VehiclePaint.Count - 1) SplitScreen.P2Color = 2;
             details.fontSize = 18; details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight = 54;
             var vehicles = SplitScreen.Vehicles; int n = 0;
@@ -79,7 +81,7 @@ namespace Racer
             Toggle(n++, "split-ai", "Player 2: AI driver", SplitScreen.P2Ai, () => { SplitScreen.P2Ai = !SplitScreen.P2Ai; flow.Click(); Show(); });
             if (SplitScreen.P2Device != null && !SplitScreen.P2Ai) Row(n++, "split-swap", "Swap the players' devices", () => { (SplitScreen.P1Device, SplitScreen.P2Device) = (SplitScreen.P2Device, SplitScreen.P1Device); flow.Click(); Show(); });
             // 0.94 Parts B and C: what the two players do
-            Step(n++, "split-mode", "Mode:   " + (race ? "Race" : mode == SplitScreen.Kind.FreeRoam ? "Free Roam" : "Police Chase"), d => { SplitScreen.Mode = (SplitScreen.Kind)(((int)SplitScreen.Mode + d + 3) % 3); flow.Click(); Show(); });
+            Step(n++, "split-mode", "Mode:   " + (race ? "Race" : "Free Roam") + "   ·   Police Chase has its own setup", d => { var next = (SplitScreen.Kind)(((int)SplitScreen.Mode + d + 3) % 3); flow.Click(); if (next == SplitScreen.Kind.Police) { SplitToPolice(); return; } SplitScreen.Mode = next; Show(); });
             // 0.94 Part A: each player's name: ‹ › picks a name used before on this PC, A enters a new one (remembered); the AI
             // driver is "AI". Player 1 starts as the saved player name.
             if (string.IsNullOrEmpty(SplitScreen.P1Name)) SplitScreen.P1Name = PlayerNames.Player;
@@ -92,20 +94,11 @@ namespace Racer
                     () => OpenNameEntry("", v => { if (v == SplitScreen.NameOf(1)) { keyboardError = "Player 1 already has that name."; return false; } PlayerNames.Remember(v); flow.Save.SaveSettings(); SplitScreen.P2Pick = v; return true; }, null, "PLAYER 2'S NAME"));
             }
             // 0.92 Part B: the vehicles and colours are chosen in each player's garage view; both are shown here
-            Row(n, "split-vehicles", "VEHICLES AND COLOURS…   (each player's garage)", OpenSplitPick); int vehiclesRow = n++;
+            Row(n, "split-vehicles", "VEHICLES AND COLOURS…   (each player's garage)", () => OpenSplitPick()); int vehiclesRow = n++;
             var strip = PreviewStrip("Players' vehicles", buttons[vehiclesRow].transform.GetSiblingIndex() + 1);
             PreviewCard(strip, VehicleProfile.Find(SplitScreen.P1Vehicle), SplitScreen.P1Color, false, "Player 1: " + Vehicle(SplitScreen.P1Vehicle) + " · " + VehiclePaint.Name(SplitScreen.P1Color), new Color(.3f, .95f, .81f), 300);
             PreviewCard(strip, VehicleProfile.Find(SplitScreen.P2Vehicle), SplitScreen.P2Color, false, (SplitScreen.P2Ai ? "Player 2 (AI): " : "Player 2: ") + Vehicle(SplitScreen.P2Vehicle) + " · " + VehiclePaint.Name(SplitScreen.P2Color), new Color(1, .74f, .25f), 300);
             var order = RacePlaylists.DisplayOrder.ToArray();
-            if (mode == SplitScreen.Kind.Police)
-            {
-                // 0.94 Part C: who is the cop first (the AI can only run this round: the chasing AI is a later round), the round limit
-                if (SplitScreen.P2Ai) SplitScreen.CopFirst = 1;
-                Step(n++, "police-cop", "Cop first:   " + SplitScreen.NameOf(SplitScreen.CopFirst) + (SplitScreen.P2Ai ? "   ·   the AI as the cop: coming later" : "   (then the roles swap)"), d => { if (SplitScreen.P2Ai) { flow.Notify("The AI as the cop is coming later: with the AI, player 1 is the cop", 3); return; } SplitScreen.CopFirst = 3 - SplitScreen.CopFirst; flow.Click(); Show(); });
-                if (SplitScreen.P2Ai) buttons[n - 1].GetComponentInChildren<UnityEngine.UI.Text>(true).color = new Color(.62f, .64f, .62f);
-                int[] limits = { 3, 5, 8 };
-                Step(n++, "police-limit", "Round limit:   " + SplitScreen.PoliceMinutes + " minutes", d => { int i = System.Array.IndexOf(limits, SplitScreen.PoliceMinutes); SplitScreen.PoliceMinutes = limits[Mathf.Clamp((i < 0 ? 1 : i) + d, 0, 2)]; flow.Click(); Show(); });
-            }
             Step(n++, "split-course", (race ? "Course:   " : "Start at:   ") + RacePlaylists.Titles[SplitScreen.Course].Replace(" - ", " — "), d => { int i = System.Array.IndexOf(order, SplitScreen.Course); SplitScreen.Course = order[((i < 0 ? 0 : i) + d + order.Length) % order.Length]; flow.Click(); Show(); });
             if (race) Step(n++, "split-laps", "Laps:   " + SplitScreen.Laps, d => { SplitScreen.Laps = Mathf.Clamp(SplitScreen.Laps + d, 1, 5); flow.Click(); Show(); });
             // 0.92 Part F (stage 2): AI rivals, conditions and traffic, as in Race Setup
@@ -148,7 +141,7 @@ namespace Racer
         void RenderSplitPause()
         {
             var split = SplitScreen.Race; string missing = split ? split.MissingText : null;
-            ClearCore("SPLIT SCREEN / PAUSED", missing ?? $"Paused by {(split && split.PausedBy != null ? SplitScreen.DeviceName(split.PausedBy) : "a player")}: either player's device works this menu.");
+            ClearCore(PoliceChase.Current ? "POLICE CHASE / PAUSED" : "SPLIT SCREEN / PAUSED", missing ?? (SplitScreen.OneView ? "" : $"Paused by {(split && split.PausedBy != null ? SplitScreen.DeviceName(split.PausedBy) : "a player")}: either player's device works this menu."));
             Row(0, "resume", "RESUME", flow.Resume); buttons[0].interactable = missing == null;
             if (SplitScreen.Roaming)
             {
@@ -157,8 +150,9 @@ namespace Racer
                 if (police) Row(1, "restart", "RESTART THE CHASE", () => Confirm("RESTART THE CHASE?", "Back to round 1; the times so far are cleared.", police.Rematch));
                 else Row(1, "map", "MAP   (travel brings both players)", () => flow.GetComponent<ExplorationMap>()?.Open());
                 Row(2, "settings", "SETTINGS", flow.OpenSettings);
-                Row(3, "change-setup", "Change setup", () => Confirm("END AND CHANGE THE SETUP?", "Both players return to the split-screen setup.", () => flow.QuitSplit(true)));
-                Row(4, "return", "RETURN TO MENU", () => Confirm(police ? "END THE CHASE?" : "END SPLIT-SCREEN FREE ROAM?", "Both players return to the menu.", () => flow.QuitSplit(false)));
+                string back = police && SplitScreen.FromRoam ? "Back to Free Roam." : SplitScreen.OneView ? "Back to the menu." : "Both players return to the menu.";
+                Row(3, "change-setup", "Change setup", () => Confirm("END AND CHANGE THE SETUP?", police ? "Back to the Police Chase setup." : "Both players return to the split-screen setup.", () => flow.QuitSplit(true)));
+                Row(4, "return", police && SplitScreen.FromRoam ? "BACK TO FREE ROAM" : "RETURN TO MENU", () => Confirm(police ? "END THE CHASE?" : "END SPLIT-SCREEN FREE ROAM?", back, () => flow.QuitSplit(false)));
                 Row(5, "quit", "Quit Game", ConfirmQuit); return;
             }
             Row(1, "restart", "RESTART RACE", () => Confirm("RESTART RACE?", "Both players go back to the grid.", flow.StartRace));
@@ -170,8 +164,10 @@ namespace Racer
         void RenderPoliceResults()
         {
             var police = PoliceChase.Current; int w = police.Winner;
-            string verdict = police.Runs.Count < 2 ? (police.Runs.Count == 1 && police.Runs[0].caught ? "Caught!" : "Got away!") : w == 0 ? "A DRAW" : SplitScreen.NameOf(w).ToUpperInvariant() + " WINS";
-            ClearCore("POLICE CHASE RESULTS", verdict + "   ·   " + SplitScreen.PoliceMinutes + "-minute rounds   ·   " + SplitScreen.Time + " / " + SplitScreen.Weather + (police.Runs.Count < 2 ? "\nWith the AI as player 2 the match is one round (the AI as the cop is coming later)." : "\nThe longer run as the runner wins; getting away beats being caught."));
+            // 0.95 Part A: one human against the AI keeps one role for one round: as the cop "CAUGHT in m:ss" / "GOT AWAY", as
+            // the runner "ESCAPED" / "CAUGHT after m:ss"
+            string verdict = police.Runs.Count < 2 ? police.SoloVerdict : w == 0 ? "A DRAW" : SplitScreen.NameOf(w).ToUpperInvariant() + " WINS";
+            ClearCore("POLICE CHASE RESULTS", verdict + "   ·   " + SplitScreen.PoliceMinutes + "-minute round" + (police.Runs.Count < 2 ? "" : "s") + "   ·   " + SplitScreen.Time + " / " + SplitScreen.Weather + (police.Runs.Count < 2 ? "\nOne player keeps one role: change it in the setup. Rematch plays it again." : "\nThe longer run as the runner wins; getting away beats being caught."));
             int n = 0; var widths = new[] { .14f, .22f, .22f, .42f };
             TableRow(n++, "header", new[] { "Round", "Runner", "Cop", "Result" }, widths, () => { });
             for (int i = 0; i < police.Runs.Count; i++)
@@ -181,7 +177,7 @@ namespace Racer
             }
             Row(n, "rematch", "REMATCH", police.Rematch); var colors = buttons[n].colors; colors.normalColor = new(.1f, .38f, .35f); buttons[n].colors = colors; buttons[n].GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight = 54; n++;
             Row(n++, "change-setup", "Change setup", () => flow.QuitSplit(true));
-            Row(n, "menu", "Main menu", () => flow.QuitSplit(false));
+            Row(n, "menu", SplitScreen.FromRoam ? "Back to Free Roam" : "Main menu", () => flow.QuitSplit(false));
         }
         // Both players: place, total time and best lap; Rematch / Change setup / Main menu.
         void RenderSplitResults()
@@ -194,7 +190,7 @@ namespace Racer
             {
                 // 0.92 Part F: every finisher, the AI rivals too; the two players highlighted with their best laps
                 int place = ++rank; bool p1 = r == race.Racers[0], p2 = split && r == split.P2; var laps = r.Progress.LapTimes;
-                string who = (p1 ? SplitScreen.NameOf(1) : p2 ? SplitScreen.P2Name : r.Name) + " · " + VehicleProfile.Find(r.Car.GetComponent<VehicleConfiguration>().profileId).Name;
+                string who = (p1 ? SplitScreen.NameOf(1) : p2 ? SplitScreen.P2Name : "AI rival") + " · " + VehicleProfile.Find(r.Car.GetComponent<VehicleConfiguration>().profileId).Name;
                 TableRow(n++, "split-standing-" + place, new[] { place.ToString(), who, r.Dnf || !r.Classified ? "DNF" : RaceHud.FormatTime(r.ClassifiedTime(race.Clock)) + (r.Estimated ? " (est.)" : ""), (p1 || p2) && laps.Count > 0 ? RaceHud.FormatTime(laps.Min()) : "—" }, w, () => { }, p1 || p2);
             }
             // 0.94 Part A: the players' times count on the Top 10 (as single-player with these settings); the AI's never

@@ -30,6 +30,7 @@ details.gameObject.SetActive(true);
                 Row(1,"confirm",modalConfirmLabel,()=>{var commit=modalConfirm;modalConfirm=null;commit();Show();});return;
             }
             if(page=="keyboard"){RenderKeyboard();return;}
+            if(page=="unlock"){RenderUnlock();return;} // 0.95 Part F
             if(page=="folder"){RenderFolder();return;}
             if(page=="penalties")
             {
@@ -52,6 +53,7 @@ details.gameObject.SetActive(true);
                 else if(page=="campaign-event")RenderCampaignEvent();
                 else if(page=="campaign-cup")RenderCampaignCup();
                 else if(page=="split")RenderSplit();
+                else if(page=="police")RenderPolice(); // 0.95 Part B
                 else if(page=="vehicle-pick")RenderVehiclePick(); // 0.92 Part B
                 else if(page=="split-garage")RenderSplitPick();
                 else if(page=="race")
@@ -77,7 +79,8 @@ details.gameObject.SetActive(true);
                 else if(page=="roam")
                 {
                     ClearCore("FREE ROAM",flow.Race.courseName+"\n"+flow.Race.vehicle.GetComponent<VehicleConfiguration>().Profile.Name+"\nExplore, collect acorns and score activities.");
-                    Row(0,"explore","EXPLORE",flow.StartFreeRoam);Step(1,"roam-weather","Weather:   "+flow.RoamWeatherLabel,d=>flow.CycleRoamWeather(d));Row(2,"tracks","Tracks",flow.OpenCourses);Row(3,"garage","Garage",flow.OpenGarage);Row(4,"back","Back",()=>BackPage());
+                    Row(0,"explore","EXPLORE",flow.StartFreeRoam);Step(1,"roam-weather","Weather:   "+flow.RoamWeatherLabel,d=>flow.CycleRoamWeather(d));Row(2,"tracks","Tracks",flow.OpenCourses);Row(3,"garage","Garage",flow.OpenGarage);
+                    Row(4,"police","POLICE CHASE…",()=>OpenPoliceSetup());Row(5,"back","Back",()=>BackPage()); // 0.95 Part B
                 }
                 else
                 {
@@ -89,6 +92,9 @@ details.gameObject.SetActive(true);
                     // 0.90 Part A: Race Setup always opens on a course the campaign has opened
                     Row(0,"race","RACE",()=>{int here=System.Array.IndexOf(RacePlaylists.Scenes,flow.gameObject.scene.name);if(flow.InRoamWorld)flow.OpenRaceSetupFromRoam();else if(here>=0&&!Campaign.CourseOpen(here))flow.OpenRaceSetupOnOpenCourse();else Navigate("race");});Row(1,"roam","FREE ROAM",()=>Navigate("roam"));
                     Row(11,"split","SPLIT SCREEN",()=>OpenSplitSetup());buttons[11].transform.SetSiblingIndex(buttons[1].transform.GetSiblingIndex()+1);Row(2,"garage","GARAGE",flow.OpenGarage);
+                    // 0.95 Part B: POLICE CHASE after SPLIT SCREEN (from inside Free Roam it asks first); "New: Police Chase" once
+                    Row(13,"police","POLICE CHASE",()=>OpenPoliceSetup());buttons[13].transform.SetSiblingIndex(buttons[11].transform.GetSiblingIndex()+1);
+                    Hints.Show("police-new","New: Police Chase. Be the cop in a patrol car and catch the runner, alone or with a friend: main menu > POLICE CHASE (also in Free Roam's menu).",9);
                     Row(3,"records","RECORDS",flow.OpenBoards);Row(4,"exploration","EXPLORATION",flow.OpenExploration);Row(5,"settings","SETTINGS",flow.OpenSettings);Row(6,"quit","QUIT GAME",ConfirmQuit);
                     if(flow.RoamMenu){Row(7,"resume","RESUME DRIVING",flow.Resume);buttons[7].transform.SetSiblingIndex(buttons[10].transform.GetSiblingIndex());
                         Row(8,"trailer",TrailerLabel,()=>Navigate("trailer"));buttons[8].transform.SetSiblingIndex(buttons[7].transform.GetSiblingIndex()+1);
@@ -192,7 +198,6 @@ details.gameObject.SetActive(true);
         string CameraViewLabel=>"Camera view:   "+(CameraViews.Current?.PlayerViewName??"Chase")+"   (V / X)";
         void CycleCameraView(int d){CameraViews.Current?.NextPlayerView(d);Show();}
         // Every quit-to-desktop control asks first; focus starts on CANCEL and B / Esc cancels (0.70 Part A).
-        static readonly string[] NameTagLabels={"Off","Players only","Everyone"};
         void ConfirmQuit()=>Confirm("QUIT WOODSTOCK RUSH?","",flow.Quit,"QUIT");
         void Help(string text){helpCopy=text;Navigate("help");}
         void RenderSettings()
@@ -226,7 +231,8 @@ details.gameObject.SetActive(true);
                 Step(8,"split-layout","Split screen:   "+(s.splitLeftRight?"Left / right":"Top / bottom"),d=>Adjust(()=>s.splitLeftRight=!s.splitLeftRight));
                 // 0.94 Part A: the player's name (A: the on-screen keyboard) and the name tags over the other racers
                 Row(9,"player-name","Player name:   "+PlayerNames.Player+"   (A: change)",()=>OpenNameEntry(s.playerName,PlayerNames.SetPlayer));
-                Step(10,"name-tags","Name tags:   "+NameTagLabels[Mathf.Clamp(s.nameTags,0,2)],d=>Adjust(()=>s.nameTags=(s.nameTags+d+3)%3));}
+                // 0.95 Part C: On / Off (a saved Everyone or Players only is On): the campaign's rivals, the other split-screen player
+                Step(10,"name-tags","Name tags:   "+(s.nameTags>0?"On":"Off"),d=>Adjust(()=>s.nameTags=s.nameTags>0?0:2));}
             if(page=="settings-audio")
             {
                 Step(4,"master",$"Master {s.master:P0}",d=>Adjust(()=>s.master=Mathf.Clamp01(s.master+d*.1f)));

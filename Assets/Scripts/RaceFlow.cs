@@ -124,6 +124,7 @@ namespace Racer
             CameraViews.Attach(this); TrailerMode.Attach(this); NameTags.Attach(this);
             Ghost=gameObject.AddComponent<CleanLapGhost>();Ghost.Initialize(Race,root);
             GetComponent<ExplorationCollection>()?.Initialize(Race,root);
+            AcornBanner.Attach(this);UnlockNotice.Pending.Clear();UnlockNotice.Showing=null;UnlockNotice.Missed(Save); // 0.95 Part F
             GetComponent<ExplorationMap>()?.Initialize(Race,root);
             Hints.Flow=this;gameObject.AddComponent<HintWatch>().Initialize(this);
             LockVehicle(true);
@@ -510,7 +511,10 @@ namespace Racer
         public void QuitSplit(bool setup)
         {
             if(!SplitScreen.Active)return;
-            if(InRoamWorld){callers.Clear();menus.ResetPages();EndSplit();LeaveRoamWorld(setup?"split":"");return;}
+            // 0.95 Part B: Change setup goes to the Police Chase setup for a chase; a chase started from inside Free Roam goes back to it
+            if(InRoamWorld){callers.Clear();menus.ResetPages();bool police=SplitScreen.Mode==SplitScreen.Kind.Police,roam=police&&SplitScreen.FromRoam&&!setup;EndSplit();
+                if(roam){SplitScreen.FromRoam=false;RoamCourse=SplitScreen.RoamReturn;LoadScene(RoamScene);return;}
+                LeaveRoamWorld(setup?(police?"police":"split"):"");return;}
             QuitRace();if(setup)menus.OpenSplitSetup(true);
         }
         void EndSplit()
@@ -592,6 +596,7 @@ namespace Racer
             Scenery.Set(!Save.Settings.classicScenery);
             Boards = new RecordBoards(directory);
             PlayerNames.Adopt(Save, Campaign.HasProgress || Boards.Any || (Save.Settings.hintsSeen ?? new string[0]).Length > 0); Boards.Owner(Save.Settings.playerName);
+            UnlockNotice.Pending.Clear(); UnlockNotice.Showing = null; UnlockNotice.Missed(Save); // 0.95 Part F: as at load, for this save
             Save.SelectRecords(Race.Category); Save.ApplySettings(); menus.Show();
         }
 #endif

@@ -139,24 +139,27 @@ namespace Racer
         public bool SplitPickOpen => flow && flow.State == RaceFlow.Stage.Ready && page == "split-garage" && modalConfirm == null;
         bool pickReady1, pickReady2; int pickFocus = 1; // with the AI as player 2: the half player 1 is choosing
         readonly Dictionary<InputDevice, float> pickRepeat = new();
-        void OpenSplitPick() { pickReady1 = pickReady2 = false; pickFocus = 1; Navigate("split-garage"); }
+        // 0.95 Part B: runnerOnly = a solo Police Chase: only the AI runner's vehicle is chosen (player 1 drives the patrol car)
+        bool pickRunnerOnly;
+        void OpenSplitPick(bool runnerOnly = false) { pickRunnerOnly = runnerOnly; pickReady1 = runnerOnly; pickReady2 = false; pickFocus = runnerOnly ? 2 : 1; Navigate("split-garage"); }
         void RenderSplitPick()
         {
             bool ai = SplitScreen.P2Ai || SplitScreen.P2Device == null;
-            ClearCore("SPLIT SCREEN · VEHICLES", ai
+            if (pickRunnerOnly) ClearCore("POLICE CHASE · THE RUNNER'S VEHICLE", "The AI runs from you in this vehicle: left / right the vehicle, up / down the colour, A when done. B goes back.");
+            else ClearCore(SplitScreen.Mode == SplitScreen.Kind.Police ? "POLICE CHASE · THE RUNNERS' VEHICLES" : "SPLIT SCREEN · VEHICLES", ai
                 ? "Player 1 chooses both vehicles: left / right the vehicle, up / down the colour, A when done (then the AI's). B goes back."
                 : "Each player on their own device: left / right the vehicle, up / down the colour, A when ready. Both ready returns to the setup.");
             details.fontSize = 18; details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight = 54;
             var halves = LaterGroup("Players' garages", content, true, 430); halves.SetSiblingIndex(1);
             var layout = halves.GetComponent<UnityEngine.UI.HorizontalLayoutGroup>(); layout.spacing = 16; layout.childForceExpandWidth = true;
-            for (int player = 1; player <= 2; player++)
+            for (int player = pickRunnerOnly ? 2 : 1; player <= 2; player++)
             {
                 int who = player; string id = who == 1 ? SplitScreen.P1Vehicle : SplitScreen.P2Vehicle; int colour = who == 1 ? SplitScreen.P1Color : SplitScreen.P2Color; var p = VehicleProfile.Find(id);
                 bool ready = who == 1 ? pickReady1 : pickReady2; bool focused = !ai || pickFocus == who;
                 var half = Rect("Player " + who, halves); half.gameObject.AddComponent<UnityEngine.UI.Image>().color = focused && !ready ? new Color(.09f, .19f, .23f) : new Color(.06f, .1f, .13f);
                 var v = half.gameObject.AddComponent<UnityEngine.UI.VerticalLayoutGroup>(); v.padding = new RectOffset(10, 10, 8, 8); v.spacing = 4; v.childControlWidth = v.childControlHeight = true; v.childForceExpandHeight = false;
                 var head = Label("Player", half, 20, 26); head.alignment = TextAnchor.MiddleCenter; head.color = who == 1 ? new Color(.3f, .95f, .81f) : new Color(1, .74f, .25f);
-                head.text = $"PLAYER {who}   ·   " + (who == 2 && ai ? "the race AI (player 1 chooses)" : SplitScreen.DeviceName(who == 1 ? SplitScreen.P1Device : SplitScreen.P2Device));
+                head.text = pickRunnerOnly ? "THE RUNNER   ·   the AI (you choose)" : $"PLAYER {who}   ·   " + (who == 2 && ai ? "the race AI (player 1 chooses)" : SplitScreen.DeviceName(who == 1 ? SplitScreen.P1Device : SplitScreen.P2Device));
                 var cell = Rect("Preview", half); cell.gameObject.AddComponent<UnityEngine.UI.LayoutElement>().preferredHeight = 190;
                 var raw = MiniPreview(cell, p, colour, false, 640, 280); var rr = raw.rectTransform; rr.anchorMin = Vector2.zero; rr.anchorMax = Vector2.one; rr.offsetMin = rr.offsetMax = Vector2.zero;
                 ValueLine(half, $"{p.Name}  ({p.Class})", d => PickStep(who, d, 0));
@@ -187,7 +190,7 @@ namespace Racer
                 var row = Rect(GarageStats[i].label, parent); row.gameObject.AddComponent<UnityEngine.UI.LayoutElement>().preferredHeight = 20;
                 var text = Label("Label", row, 16, 0); text.rectTransform.anchorMin = Vector2.zero; text.rectTransform.anchorMax = new Vector2(.4f, 1); text.rectTransform.offsetMin = text.rectTransform.offsetMax = Vector2.zero; text.text = GarageStats[i].label; text.color = new Color(.86f, .86f, .8f);
                 var track = Rect("Bar", row); track.anchorMin = new Vector2(.42f, .2f); track.anchorMax = new Vector2(1, .8f); track.offsetMin = track.offsetMax = Vector2.zero; track.gameObject.AddComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, .12f);
-                var fill = Rect("Fill", track); fill.anchorMin = Vector2.zero; fill.anchorMax = new Vector2(StatFraction(i, p), 1); fill.offsetMin = fill.offsetMax = Vector2.zero; fill.gameObject.AddComponent<UnityEngine.UI.Image>().color = new Color(.3f, 1, .88f);
+                var fill = Rect("Fill", track); fill.anchorMin = Vector2.zero; fill.anchorMax = new Vector2(Mathf.Clamp01(StatFraction(i, p)), 1); fill.offsetMin = fill.offsetMax = Vector2.zero; fill.gameObject.AddComponent<UnityEngine.UI.Image>().color = new Color(.3f, 1, .88f);
             }
         }
         // what: 0 = vehicle, 1 = colour
@@ -212,7 +215,7 @@ namespace Racer
         {
             if (!SplitPickOpen) return false;
             bool ai = SplitScreen.P2Ai || SplitScreen.P2Device == null;
-            if (ai && pickFocus == 2) { pickFocus = 1; pickReady1 = false; flow.Click(); Show(); return true; }
+            if (ai && pickFocus == 2 && !pickRunnerOnly) { pickFocus = 1; pickReady1 = false; flow.Click(); Show(); return true; }
             return false;
         }
         // Each device works its own half: left / right the vehicle, up / down the colour (held to repeat), A ready; player 2's B

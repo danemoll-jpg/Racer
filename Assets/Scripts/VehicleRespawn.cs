@@ -411,6 +411,7 @@ namespace Racer
                 if(!Supported(candidate,forward,out var position,out var rotation))continue;
                 if(!Clear(position,rotation))continue;
                 if(Mathf.Abs(position.y-point.y)>5)continue;
+                if(race.FreeRoam&&Hollow(position))continue; // 0.95 Part E: never back into a pit it could not drive out of
                 Place(position,rotation);Pending=false;aiFailingSince=-1;lastRecoveryAt=Time.time;
                 history.Clear();awaitingLanding=false;stableSince=-1;untrackedTravel=0;
                 if(race.FreeRoam){roamRoad=t.road;roamBranch=t.branch;roamStation=s;roamDirection=facing;roamValid=true;roamHistory.Clear();RecordRoaming();}
@@ -472,10 +473,29 @@ namespace Racer
                 var p=roamBranch?roamBranch.At(s,out var f):roamRoad.At(s,out f);f=Vector3.ProjectOnPlane(f*sample.direction,Vector3.up).normalized;
                 if(UnsafeJump(p))continue;
                 float width=roamBranch?roamBranch.halfWidth:roamRoad.HalfWidth(s);float side=Mathf.Max(0,Mathf.Min(2,width-clearance.size.x*.5f-.5f));
-                foreach(float offset in new[]{0f,side,-side})if(Supported(p+Vector3.Cross(Vector3.up,f)*offset,f,out var position,out var rotation)&&Clear(position,rotation))
+                foreach(float offset in new[]{0f,side,-side})if(Supported(p+Vector3.Cross(Vector3.up,f)*offset,f,out var position,out var rotation)&&Clear(position,rotation)&&!Hollow(position))
                 {Place(position,rotation);roamStation=s;Pending=false;LastRecovery="Recovered to recent safe road/trail";Respawned?.Invoke();return true;}
             }
             Pending=true;nextAttempt=Time.time+.5f;LastRecovery="Waiting for clear recent route";return false;
+        }
+        // 0.95 Part E (BUG-002, BUG-003): a Free Roam reset point inside a hollow the vehicle could not drive out of (every
+        // way out climbs steeper than 30 degrees within 24 m) is not used: the search goes on to the next point of that road
+        // or trail, then the next road or trail.
+        public static bool Hollow(Vector3 at)
+        {
+            const float step=2,reach=24,steep=.58f; // tan 30 degrees
+            for(int a=0;a<16;a++)
+            {
+                var dir=Quaternion.Euler(0,a*22.5f,0)*Vector3.forward;float prev=at.y;bool open=true;
+                for(float r=step;r<=reach;r+=step)
+                {
+                    var q=at+dir*r;if(!Physics.Raycast(new Vector3(q.x,prev+3,q.z),Vector3.down,out var h,30,~0,QueryTriggerInteraction.Ignore)||h.collider.attachedRigidbody){open=false;break;}
+                    if(h.point.y-prev>steep*step){open=false;break;}
+                    prev=h.point.y;
+                }
+                if(open)return false;
+            }
+            return true;
         }
         bool Supported(Vector3 candidate,Vector3 forward,out Vector3 position,out Quaternion rotation)
         {

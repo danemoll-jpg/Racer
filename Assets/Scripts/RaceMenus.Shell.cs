@@ -41,6 +41,7 @@ namespace Racer
         public bool BackPage()
         {
             if(modalConfirm!=null){modalConfirm=null;MenuInput.ConsumeThroughRelease();Show();return true;}
+            if(page=="unlock"&&UnlockNotice.Showing!=null)return true; // 0.95 Part F: the unlock panel closes with A only
             if(SplitPickBack())return true;
             if(LaterBack())return true;
             if(flow.State==RaceFlow.Stage.Ready&&page=="race"&&flow.SetupFromResults){flow.PopMenu();return true;}
@@ -171,6 +172,7 @@ namespace Racer
         void UpdateCore()
         {
             if(MenuInput.Blocked||flow.GetComponent<ExplorationMap>()?.OwnsInput==true)return;
+            UpdateUnlock(); // 0.95 Part F
             UpdateNavigation();
             UpdateFolder();UpdateKeyboard();UpdateLater();
             if(!flow.MenuVisible||modalConfirm!=null||page=="keyboard")return;
@@ -187,7 +189,7 @@ namespace Racer
         void ClearCore(string heading,string summary)
         {
             foreach(var b in buttons)b.gameObject.SetActive(false);adjustments.Clear();listRows.Clear();
-            title.text=heading;details.text=summary;details.fontSize=20;details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=string.IsNullOrEmpty(summary)?0:Mathf.Min(200,30*(summary.Count(c=>c=='\n')+1));
+            title.text=heading;details.text=summary;details.fontSize=20;details.color=Color.white;details.alignment=TextAnchor.UpperLeft;details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=string.IsNullOrEmpty(summary)?0:Mathf.Min(200,30*(summary.Count(c=>c=='\n')+1));
             details.gameObject.SetActive(!string.IsNullOrEmpty(summary));
             foreach(var b in buttons){var colors=b.colors;colors.normalColor=new(.10f,.20f,.25f);b.colors=colors;b.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=44;var label=b.GetComponentInChildren<UnityEngine.UI.Text>(true);label.alignment=TextAnchor.MiddleLeft;label.fontSize=21;label.color=Color.white;label.resizeTextForBestFit=false;label.horizontalOverflow=HorizontalWrapMode.Wrap;}
         }

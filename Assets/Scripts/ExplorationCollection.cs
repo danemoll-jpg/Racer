@@ -60,9 +60,10 @@ namespace Racer
                 if(Vector3.Distance(previous+delta*t,sites[i].position)>2.8f)continue;
                 data.found.Add(sites[i].id);bool reward=!data.rewardEarned&&Found>=sites.Length;if(reward)data.rewardEarned=true;
                 try{AtomicSave.Write(path,JsonUtility.ToJson(data,true));VehicleUnlocks.Set(Found,data.rewardEarned);
-                    // 0.88 Part D: the last acorn unlocks the riding mower
-                    if(reward){feedback=$"ALL {sites.Length} WOODLAND ACORNS FOUND!\nUnlocked: the Turf Rocket riding mower\nChoose it in the Garage";feedbackUntil=Time.time+10;}
-                    else{feedback=$"WOODLAND ACORNS {Found}/{sites.Length}\nAcorn found / {sites[i].title}";feedbackUntil=Time.time+5;}}
+                    // 0.88 Part D: the last acorn unlocks the riding mower. 0.95 Part F: every pickup has the banner (area and its
+                    // count); the last one the unlock panel (UnlockNotice, shown by the menus) instead
+                    if(reward)UnlockNotice.Raise(race.Flow.Save,UnlockNotice.Acorns(sites.Length));
+                    else{var area=AcornAreas.At(this,sites[i].position);AcornBanner.Attach(race.Flow).Show(Found,sites.Length,area?.name,area?.Count(this));}}
                 catch(Exception e){data.found.Remove(sites[i].id);if(reward)data.rewardEarned=false;error="Collection could not save: "+e.Message;}
             }
             previous=p;

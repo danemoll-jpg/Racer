@@ -11,6 +11,8 @@ namespace Racer
     // caught. At the round limit the runner got away. A runner's reset holds them still for 2 s. The longer run as the runner
     // wins; getting away beats being caught; both away is a draw. With player 2 as the AI it is the runner (the chasing AI is
     // a later round), so the match is that one round. Nothing is recorded.
+    // 0.95 Part A: roles swap only when two people play; a solo player keeps their role for one round (every police mode).
+    // Part B: solo is one full-screen view (SplitScreen.OneView).
     public sealed class PoliceChase : MonoBehaviour
     {
         public const float CatchDistance = 10, CatchSpeed = 7, FillSeconds = 3, CopDelay = 3, CopBehind = 80, ResetHold = 2, EndPause = 4;
@@ -139,6 +141,17 @@ namespace Racer
                 return a.seconds > b.seconds ? a.runner : b.seconds > a.seconds ? b.runner : 0;
             }
         }
+        // 0.95 Part A: a solo chase's one round, from the player's side
+        public string SoloVerdict
+        {
+            get
+            {
+                if (Runs.Count == 0) return "";
+                var r = Runs[0]; bool cop = r.runner != 1;
+                return cop ? (r.caught ? "CAUGHT in " + Mss(r.seconds) : "GOT AWAY") : (r.caught ? "CAUGHT after " + Mss(r.seconds) : "ESCAPED");
+            }
+        }
+        public static string Mss(float seconds) { int s = Mathf.FloorToInt(seconds); return $"{s / 60}:{s % 60:00}"; }
         public string Line(Run r) => $"{SplitScreen.NameOf(r.runner)} ran ({VehicleProfile.Find(r.runnerVehicle).Name}) from {SplitScreen.NameOf(3 - r.runner)} (Patrol Car): {(r.caught ? "CAUGHT after " + RaceHud.FormatTime(r.seconds) : "GOT AWAY (" + RaceHud.FormatTime(r.seconds) + ")")}";
     }
 }

@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -60,14 +61,16 @@ namespace Racer
         }
         public void Layout(bool leftRight)
         {
+            bool one = SplitScreen.OneView; // 0.95 Part B: a solo Police Chase: player 1's HUD on the whole screen, no divider
             for (int i = 0; i < 2; i++)
             {
                 foreach (var r in new[] { halves[i].root, halves[i].captionRoot })
                 {
-                    r.anchorMin = leftRight ? new Vector2(i * .5f, 0) : new Vector2(0, i == 0 ? .5f : 0);
-                    r.anchorMax = leftRight ? new Vector2(i * .5f + .5f, 1) : new Vector2(1, i == 0 ? 1 : .5f);
+                    r.anchorMin = one ? Vector2.zero : leftRight ? new Vector2(i * .5f, 0) : new Vector2(0, i == 0 ? .5f : 0);
+                    r.anchorMax = one ? Vector2.one : leftRight ? new Vector2(i * .5f + .5f, 1) : new Vector2(1, i == 0 ? 1 : .5f);
                     r.offsetMin = r.offsetMax = Vector2.zero;
                 }
+                var map = (RectTransform)halves[i].map.transform.parent.parent; map.localScale = Vector3.one * (one ? 1 : .78f);
             }
             var d = (RectTransform)divider.transform;
             d.anchorMin = leftRight ? new Vector2(.5f, 0) : new Vector2(0, .5f); d.anchorMax = leftRight ? new Vector2(.5f, 1) : new Vector2(1, .5f);
@@ -77,7 +80,7 @@ namespace Racer
         {
             if (!flow || !split) return;
             var race = flow.Race; bool driving = !flow.MenuVisible;
-            divider.SetActive(true); divider.transform.SetAsLastSibling();
+            divider.SetActive(!SplitScreen.OneView); divider.transform.SetAsLastSibling();
             if (flow.State == RaceFlow.Stage.Racing && lastStage == RaceFlow.Stage.Countdown) goUntil = Time.unscaledTime + 1.5f;
             lastStage = flow.State;
             if (SplitRoam.Current) { Roam(driving); return; }
@@ -87,9 +90,11 @@ namespace Racer
                 h.root.gameObject.SetActive(driving && state != null && car && !split.ShotActive(i + 1)); // 0.92 Part F: not over the winner shot
                 h.captionRoot.gameObject.SetActive(driving && split.ShotActive(i + 1)); if (h.captionRoot.gameObject.activeSelf) h.caption.text = "WINNER\n" + state.Name;
                 if (!h.root.gameObject.activeSelf) continue;
-                bool countdown = flow.State == RaceFlow.Stage.Countdown && race.Racers.Count > 1;
-                h.gridPanel.SetActive(countdown); if (countdown) { h.grid.text = RaceNames.GridText(race, state); ((RectTransform)h.gridPanel.transform).sizeDelta = new Vector2(330, 30 + 22 * race.Racers.Count); }
-                string gaps = flow.State == RaceFlow.Stage.Racing ? RaceNames.AheadBehind(race, state) : "";
+                // 0.95 Part C: in split-screen only the other person is named: no starting grid card, and the ahead / behind
+                // line only when it is the other player (never an AI rival or the AI player 2)
+                h.gridPanel.SetActive(false);
+                var person = SplitScreen.P2Ai ? null : i == 0 ? split.P2 : race.Racers[0];
+                string gaps = flow.State == RaceFlow.Stage.Racing && person != null ? string.Join("\n", RaceNames.AheadBehind(race, state).Split('\n').Where(l => l.Contains(" " + person.Name + "  "))) : "";
                 h.gapsPanel.SetActive(gaps != ""); if (gaps != "") { h.gaps.text = gaps; ((RectTransform)h.gapsPanel.transform).sizeDelta = new Vector2(290, gaps.Contains("\n") ? 54 : 30); }
                 h.map.Focus = car;
                 var p = state.Progress; int position = race.Ordered(false).IndexOf(state) + 1;
@@ -116,11 +121,12 @@ namespace Racer
             for (int i = 0; i < 2; i++)
             {
                 var h = halves[i]; int player = i + 1; var car = i == 0 ? race.vehicle : split.P2Car; var other = i == 0 ? split.P2Car : race.vehicle;
+                bool one = SplitScreen.OneView; if (one && i == 1) car = null; // 0.95 Part B: one view (the AI has no half)
                 h.root.gameObject.SetActive(driving && car); h.captionRoot.gameObject.SetActive(false); h.gridPanel.SetActive(false); h.gapsPanel.SetActive(false);
                 if (!car || !driving) continue;
                 h.map.Focus = car;
                 var cam = i == 0 ? Camera.main : split.Camera2;
-                h.tag.text = (i == 0 ? "PLAYER 1 · " : "PLAYER 2 · ") + SplitScreen.NameOf(player);
+                h.tag.text = one ? "" : (i == 0 ? "PLAYER 1 · " : "PLAYER 2 · ") + SplitScreen.NameOf(player);
                 var lines = new System.Collections.Generic.List<string>();
                 if (police)
                 {

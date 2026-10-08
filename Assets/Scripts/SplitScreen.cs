@@ -34,6 +34,12 @@ namespace Racer
         public enum Kind { Race, FreeRoam, Police }
         public static Kind Mode = Kind.Race;
         public static int CopFirst = 1, PoliceMinutes = 5;
+        // 0.95 Parts A and B: Police Chase has its own setup (main menu / Free Roam > POLICE CHASE). Solo = one player against
+        // the AI on a full screen (no split, one role kept, one round); two players = split-screen with the swap. SoloRole:
+        // 1 = cop, 2 = runner (the runner needs the chasing AI: coming later). FromRoam: started from inside Free Roam, so the
+        // menu after it goes back to Free Roam (at RoamReturn's start).
+        public static bool Solo = true, FromRoam; public static int SoloRole = 1, RoamReturn;
+        public static bool OneView => Active && Solo && Mode == Kind.Police;
         public static bool Roaming => Active && Mode != Kind.Race;
         public static string P2Name => P2Ai ? PlayerNames.Ai : string.IsNullOrEmpty(P2Pick) ? "Player 2" : P2Pick;
         public static UnityEngine.InputSystem.InputDevice DeviceOf(int player) => player == 1 ? P1Device : P2Ai ? null : P2Device;
@@ -91,7 +97,7 @@ namespace Racer
                 race.opponents = false; race.traffic = Traffic;
                 var c1 = race.vehicle.GetComponent<VehicleConfiguration>(); c1.Apply(P1Vehicle); c1.SetBodyColor(P1Color);
                 flow.gameObject.AddComponent<SplitRoam>().Initialize(flow);
-                if (Mode == Kind.Police) { if (P2Ai) CopFirst = 1; flow.gameObject.AddComponent<PoliceChase>().Initialize(flow); }
+                if (Mode == Kind.Police) { if (Solo) P2Ai = true; if (P2Ai) CopFirst = SoloRole == 2 ? 2 : 1; flow.gameObject.AddComponent<PoliceChase>().Initialize(flow); }
                 Race = flow.gameObject.AddComponent<SplitRace>(); Race.Initialize(flow); return;
             }
             // 0.92 Part F: player 2's vehicle is the first rival slot; the AI rivals follow it
@@ -128,9 +134,9 @@ namespace Racer
             race.vehicle.GetComponent<VehicleInput>().Bind(SplitScreen.P1Device);
             InputSystem.onDeviceChange += DeviceChanged;
             // per-view detail, lowered for the two views only (restored in Teardown); single-player rendering is unchanged
-            lodBias = QualitySettings.lodBias; QualitySettings.lodBias = lodBias * LodScale;
+            lodBias = QualitySettings.lodBias; if (!SplitScreen.OneView) QualitySettings.lodBias = lodBias * LodScale; // 0.95 Part B: one view = single-player detail
             // 0.92 Part F: two views with weather, night lamps, traffic and rivals: shadows drawn to 60 % of the distance (built players only: in the editor it would change the asset itself)
-            var urp = Application.isEditor ? null : GraphicsSettings.currentRenderPipeline as UniversalRenderPipelineAsset; if (urp) { shadowDistance = urp.shadowDistance; urp.shadowDistance = shadowDistance * ShadowScale; }
+            var urp = Application.isEditor || SplitScreen.OneView ? null : GraphicsSettings.currentRenderPipeline as UniversalRenderPipelineAsset; if (urp) { shadowDistance = urp.shadowDistance; urp.shadowDistance = shadowDistance * ShadowScale; }
             cam1 = Camera.main; rect1 = cam1.rect; far1 = cam1.farClipPlane; mask1 = cam1.cullingMask;
             hud = gameObject.AddComponent<SplitHud>(); hud.Initialize(flow, this);
         }
@@ -176,8 +182,9 @@ namespace Racer
         }
         void Cameras()
         {
-            bool lr = SplitScreen.LeftRight;
-            cam1.rect = lr ? new Rect(0, 0, .5f, 1) : new Rect(0, .5f, 1, .5f);
+            bool lr = SplitScreen.LeftRight, one = SplitScreen.OneView;
+            // 0.95 Part B: a solo Police Chase is one full-screen view (player 2 is the AI: its camera is never drawn)
+            cam1.rect = one ? rect1 : lr ? new Rect(0, 0, .5f, 1) : new Rect(0, .5f, 1, .5f);
             if (!cam2)
             {
                 var go = new GameObject("Player 2 camera"); cam2 = go.AddComponent<Camera>(); cam2.CopyFrom(cam1);
@@ -185,14 +192,14 @@ namespace Racer
                 d2.renderPostProcessing = d1.renderPostProcessing; d2.antialiasing = d1.antialiasing; d2.renderShadows = d1.renderShadows;
                 chase2 = go.AddComponent<ChaseCamera>(); var chase1 = cam1.GetComponent<ChaseCamera>(); chase2.obstructionMask = chase1.obstructionMask;
             }
-            cam2.rect = lr ? new Rect(.5f, 0, .5f, 1) : new Rect(0, 0, 1, .5f);
-            cam1.farClipPlane = cam2.farClipPlane = Mathf.Min(far1, FarClip);
+            cam2.rect = lr ? new Rect(.5f, 0, .5f, 1) : new Rect(0, 0, 1, .5f); cam2.enabled = !one;
+            cam1.farClipPlane = cam2.farClipPlane = one ? far1 : Mathf.Min(far1, FarClip);
             cam1.cullingMask = mask1 & ~(1 << View2Layer); cam2.cullingMask = (mask1 & ~(1 << View1Layer)) | (1 << View2Layer);
             chase2.enabled = false; chase2.target = P2Car.transform; chase2.offset = P2Car.GetComponent<VehicleConfiguration>().Profile.Camera; chase2.enabled = true; chase2.Snap();
             // 0.94 Part B: player 2's own camera views (player 1's are the scene camera's CameraViews)
             views2 = CameraViews.AttachSecond(flow, cam2, chase2, P2Car); if (CameraViews.Current) CameraViews.Current.Player = 1;
             // the wide top / bottom halves: the camera tips down a little in long flights so the landing stays in view
-            float tilt = lr ? 0 : 9; cam1.GetComponent<ChaseCamera>().flightTilt = tilt; chase2.flightTilt = tilt;
+            float tilt = lr || one ? 0 : 9; cam1.GetComponent<ChaseCamera>().flightTilt = tilt; chase2.flightTilt = tilt;
             hud.Layout(lr);
         }
         void Update()
@@ -202,8 +209,9 @@ namespace Racer
             if (SplitRoam.Current)
             {
                 // 0.94 Part B: Free Roam for two: the views only (no race to run)
-                SplitScreen.Eyes.Clear(); if (cam1) SplitScreen.Eyes.Add(cam1.transform.position); if (cam2) SplitScreen.Eyes.Add(cam2.transform.position);
-                SplitScreen.Views.Clear(); if (cam1) SplitScreen.Views.Add(cam1); if (cam2) SplitScreen.Views.Add(cam2);
+                bool two = !SplitScreen.OneView;
+                SplitScreen.Eyes.Clear(); if (cam1) SplitScreen.Eyes.Add(cam1.transform.position); if (cam2 && two) SplitScreen.Eyes.Add(cam2.transform.position);
+                SplitScreen.Views.Clear(); if (cam1) SplitScreen.Views.Add(cam1); if (cam2 && two) SplitScreen.Views.Add(cam2);
                 return;
             }
             if (!SplitScreen.P2Ai)

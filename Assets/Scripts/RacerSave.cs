@@ -55,6 +55,7 @@ namespace Racer
             // 0.90 Part B: Settings > Gameplay "Hints" (default On) and the hints already shown once (ids, see Hints.cs).
             public bool hints = true;
             public string[] hintsSeen = new string[0];
+            public string[] unlocksSeen = new string[0]; // 0.95 Part F: one-off unlock panels already shown (UnlockNotice)
             // 0.90 Part D: split-screen layout (false = top / bottom, the default; true = left / right), remembered.
             public bool splitLeftRight = false;
             // 0.94 Part A: Settings > Gameplay "Player name" (up to 12 characters; empty until set: a new player is asked with

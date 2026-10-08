@@ -65,7 +65,8 @@ namespace Racer
         }
     }
 
-    // Name tags over the other racers (never your own): Settings > Gameplay "Name tags" Off / Players only / Everyone. Facing
+    // Name tags over the other racers (never your own): Settings > Gameplay "Name tags" On / Off (0.95 Part C: the campaign's rivals and the
+    // other split-screen player only). Facing
     // the camera (drawn on the screen over the vehicle), fading out from 45 to 60 m, hidden behind solid scenery, not in
     // Trailer Mode or a winner shot. In split-screen each half draws its own (the other player shows in your half). People
     // gold, AI drivers white-blue.
@@ -104,13 +105,15 @@ namespace Racer
         List<Target> Targets()
         {
             var list = new List<Target>(); var race = flow.Race; var split = SplitScreen.Race;
-            if (!race.FreeRoam) foreach (var r in race.Racers) if (r.Car) list.Add(new Target { car = r.Car, name = r.Name, human = !r.IsAi || (split && r == split.P2 && !SplitScreen.P2Ai), player = r == race.Racers[0] || (split && r == split.P2) });
-            // 0.94 Part B: split-screen Free Roam / Police Chase: the two players
-            if (race.FreeRoam && split && split.P2Car)
+            // 0.95 Part C: the campaign tags every rival; split-screen (race, Free Roam, Police Chase) only the other person (no
+            // AI: rivals, the AI player 2); quick races none
+            if (split)
             {
-                list.Add(new Target { car = race.vehicle, name = SplitScreen.NameOf(1), human = true, player = true });
-                list.Add(new Target { car = split.P2Car, name = SplitScreen.NameOf(2), human = !SplitScreen.P2Ai, player = true });
+                var p2 = split.P2Car;
+                if (p2 && !SplitScreen.P2Ai) { list.Add(new Target { car = race.vehicle, name = SplitScreen.NameOf(1), human = true, player = true }); list.Add(new Target { car = p2, name = SplitScreen.NameOf(2), human = true, player = true }); }
+                return list;
             }
+            if (!race.FreeRoam && CampaignRun.Active != null) foreach (var r in race.Racers) if (r.Car) list.Add(new Target { car = r.Car, name = r.Name, human = !r.IsAi, player = r == race.Racers[0] });
             if (Extra != null) foreach (var t in Extra()) if (t.car && !list.Any(x => x.car == t.car)) list.Add(t);
             return list;
         }
@@ -132,7 +135,7 @@ namespace Racer
                     var px = cam.pixelRect; var placed = new List<Rect>(); var near = new List<(Target t, Vector3 sp, float d)>();
                     foreach (var t in targets)
                     {
-                        if (t.car == own || (mode == 1 && !t.player)) continue;
+                        if (t.car == own) continue;
                         var size = t.car.GetComponent<VehicleConfiguration>()?.Profile.Size ?? new Vector3(1, 1, 3);
                         var head = t.car.transform.position + t.car.transform.up * (size.y + 1.45f);
                         float d = Vector3.Distance(cam.transform.position, head); var sp = cam.WorldToScreenPoint(head);

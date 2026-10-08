@@ -383,7 +383,7 @@ namespace Racer
             }
             waitingShown=waiting;UpdateFinishPresentation();UpdateControlsCard();UpdateHint();
             if(flow.ControlsCard)banner.text="";
-            if(WinnerShot.Active&&!SplitScreen.Active)banner.text="WINNER\n"+WinnerShot.LastWinner; // 0.94 Part A
+            if(WinnerShot.Active&&!SplitScreen.Active&&CampaignRun.Active!=null)banner.text="WINNER\n"+WinnerShot.LastWinner; // 0.94 Part A; 0.95 Part C: the campaign only
             if(!countdown && flow.PenaltyNotice!=null)banner.text=flow.PenaltyNotice;
             if (!DeveloperLocationHud.OwnsInput && flow.MenuVisible && flow.State!=RaceFlow.Stage.Title && !SplitPickOpen && flow.GetComponent<ExplorationMap>()?.OwnsInput!=true && EventSystem.current && !EventSystem.current.currentSelectedGameObject) EventSystem.current.SetSelectedGameObject(buttons[0].gameObject);
         }

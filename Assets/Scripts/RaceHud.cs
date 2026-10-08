@@ -72,9 +72,10 @@ namespace Racer
         void UpdateNames()
         {
             var flow=race.Flow;bool split=SplitScreen.Active;
-            bool grid=!split&&!race.FreeRoam&&flow.State==RaceFlow.Stage.Countdown&&race.opponents&&race.Racers.Count>1&&!flow.MenuVisible&&!TrailerMode.Active;
+            bool campaign=CampaignRun.Active!=null; // 0.95 Part C: names in the campaign only (quick races have none)
+            bool grid=campaign&&!split&&!race.FreeRoam&&flow.State==RaceFlow.Stage.Countdown&&race.opponents&&race.Racers.Count>1&&!flow.MenuVisible&&!TrailerMode.Active;
             gridPanel.SetActive(grid);if(grid){gridText.text=RaceNames.GridText(race,race.Racers[0]);((RectTransform)gridPanel.transform).sizeDelta=new(360,36+25*race.Racers.Count);}
-            string gaps=!split&&!race.FreeRoam&&flow.State==RaceFlow.Stage.Racing&&race.opponents&&!flow.MenuVisible&&!TrailerMode.Active?RaceNames.AheadBehind(race,race.Racers[0]):"";
+            string gaps=campaign&&!split&&!race.FreeRoam&&flow.State==RaceFlow.Stage.Racing&&race.opponents&&!flow.MenuVisible&&!TrailerMode.Active?RaceNames.AheadBehind(race,race.Racers[0]):"";
             aheadPanel.SetActive(gaps!="");if(gaps!=""){aheadText.text=gaps;var panel=(RectTransform)display.transform.parent;((RectTransform)aheadPanel.transform).anchoredPosition=new(18,-18-panel.sizeDelta.y-6);((RectTransform)aheadPanel.transform).sizeDelta=new(300,gaps.Contains("\n")?58:32);}
         }
         // Day and time, large, white with an outline on a soft dark backing: readable on every sky; nothing else in it.
