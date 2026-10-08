@@ -16,7 +16,75 @@
   - **Controller first (Dan, 2026-10-07):** Dan plays with a controller. Any new or changed menu, screen or prompt must be checked once with a controller only (no mouse, no keyboard) before delivery: every control reachable, focus visible, B goes back.
   - **Write-up:** the TODO results are a short list: what changed, the one check per item, decisions made, and anything Dan should look at. No separate VALIDATION.md unless a round asks. If a check would take more than a few minutes of play time, skip it and list it under "for Dan to check".
 
-## CURRENT — Police Chase findable and playable alone, names only in campaign and split-screen, Free Roam lake, holes and traps, acorn notices, Speed Patrol — target 0.95.0-review1 — DELIVERED, AWAITING DAN'S REVIEW
+## CURRENT — Campaign event HUD and medals, practice lap before each chapter's race, Mountain Loop and Free Roam ground fixes, Police round 3: AI cops chase you — target 0.96.0-review1 — NOT STARTED
+
+- **Authorized by Dan (2026-10-08, 01:18).** Written by Claude (chat) from his play of 0.95.0-review1, debug session `2026-10-08_00-26-31-837_7f4941` (nine reports, all on 0.95.0-review1: two in Free Roam, seven on Mountain Loop - Forward) and his message. His words are quoted in each part. **He is asleep: "it is fine if this is an extra long session."**
+- **Starting point:** main at the "Record 0.95 delivery" commit. This TODO edit is uncommitted and belongs in the safety checkpoint.
+- Runs unattended: design decisions are below; do not stop to ask about design. Stop only for a real external blocker (rule 7).
+- **Scope is exactly Parts A–E. Order A, B, C, D, then E (own commit, with the revert command).** If E cannot be finished well, deliver A–D and say what is left of E.
+- The Verification budget and the Controller-first rule apply. Checks never write Dan's real save (work on a copy, pointed at before anything loads). Rule 5A applies to all world work; race-scene fixes stay in that race scene unless a part says otherwise.
+
+### Part A — Campaign activity events: say what is being measured, and say clearly when you succeed (BUG-005)
+
+Dan: "I was mistaken about the event not registering, but it just didn't seem that way, maybe because of the display showing lap 0:00. If it isn't measuring anything why is it there, and why is there not useful information? From the way it read, it was hard to tell if the distance was from this or like an all-time best. There was literally no indicator, and I didn't realize I actually succeeded until I exited the event." Report BUG-005: "Summit Homeward Flight" (chapter 4, Jump), Mountain Loop - Forward at (720.69, 94.70, 73.14); the HUD showed "LAP 1 · 0 completed SOLO / Lap 00:00.000" and, bottom left, "SUMMIT HOMEWARD FLIGHT · Bronze 295.3 ft · silver 459.3 ft · gold 656.2 ft / Best: 704.9 ft GOLD · 67 s left · R: back to the run-up".
+
+For every campaign event that is not a race (Jump, Speed Trap, Smash; Time Trial keeps its lap clock because the lap is what it measures):
+1. **No race panel.** The lap / position / lap-time panel is replaced by an event panel: the event name, the medal targets (Part B style), the time left, and **THIS RUN: best so far in this event, with its medal**. Never a lap clock that is not measuring anything.
+2. **Each attempt gets a result** the moment it is scored: a large centre banner for about 3 s, "ATTEMPT 2 — 704.9 ft" with the medal won (or "NO MEDAL" / "NOT SCORED: crashed"), with a sound per medal. A first medal or a better medal than before in this event says so ("GOLD — EVENT COMPLETE").
+3. **Completion is unmistakable:** once a medal that completes the event is won, a line stays on the event panel: "COMPLETE — GOLD. Keep trying or press START to finish", and finishing goes straight to the results with the medal and the pay.
+4. **Words:** "Best" on the event panel means this event run only. The all-time record for the event, if shown, is labelled "Record" and shown separately and smaller.
+- Check: one Jump, one Speed Trap and one Time Trial event on a copy of Dan's save: shots of the panel before, the attempt banner, and the complete line.
+
+### Part B — Medals as medals, everywhere
+
+Dan: "I think on any screen instead of the gold, silver, bronze times being written out in long sentences, it should just be the different color medals and the time / distance needed."
+
+- Make one small medal graphic (a coloured disc with a ribbon, gold / silver / bronze, readable at 3840×2160 and at split-screen size) and use it wherever medal targets or medals won are shown: the event panel (Part A), campaign event and championship pages, the campaign chapter list (the medal won per event), results, Free Roam activity prompts and their results, the Activities menu, Records. Targets read as three medal-and-value pairs: [gold] 656 ft [silver] 459 ft [bronze] 295 ft, highest first; medals won show the medal, not the word.
+- Round distances to whole feet / metres and times to tenths on these displays.
+- Check: one shot of each screen listed.
+
+### Part C — Each chapter: practice lap first, then the race
+
+Dan: "To me the flow of running a lap after the race seems backwards. It would make more sense for the first event to be a lap to get a new person used to the track and then the race."
+
+- In each chapter, **the first event on a course the player has not raced on in the campaign is a solo lap of that course** (a Time Trial, one flying lap, generous medal times), followed by the race(s). Reorder the existing events so that on every course a Time Trial comes before the first Race on that course. Where a course has no Time Trial before its first race, add one ("Practice: <course>", 1 lap, medal times set so a first-time player can get bronze on a clean lap; pay about half a normal event). Report the new order of every chapter.
+- Unlocking follows the new order. **Saves in progress (Dan's):** events already completed stay completed with their medals and pay; nothing that is unlocked now becomes locked; a newly added practice event before an already-raced course is simply available, not required.
+- Check: the chapter list of each chapter; a fresh campaign's first two events; a copy of Dan's save opens with everything he had still open.
+
+### Part D — Ground and track fixes
+
+**Free Roam (`FreeRoamWorld`):**
+1. **BUG-001** at (87.07, 45.44, 17.44), mower, heading 15°: "all along the ridges of this gully are these holes, can we clean this up?" Thin light slivers (sky showing through) run along the top edges of the gully banks. Close every open seam along that gully's banks for its whole length, then look for the same sliver pattern along every other gully and cut bank in Free Roam and close those too; list where.
+2. **BUG-002** at (143.19, 58.19, 67.90), heading 45°: "Well, before you were talking about burying this in free roam. I didn't realize how awful it was around it. We need to clean up around this so there are no holes." The big dark storm-drain box beside the trail, with jagged ground cut-outs and light slivers around its base. In Free Roam only: sink the box into the ground (or replace it with a low concrete headwall, whichever looks right) so its top is at ground level and the ground meets it with no gap; no holes or slivers around it. If the box belongs to a route (the storm-drain tunnel), keep the route drivable and say so.
+- **0.95 note:** the 0.95 whole-world scan reported no remaining holes inside the playable area; these were missed, so the scan must look for slivers between neighbouring ground pieces and at mesh-to-ground joins, not only open outer edges. Say what the scan now catches.
+
+**Mountain Loop - Forward (`MountainLoop` race scene; check `MountainLoopReverse` for the same places):**
+3. **BUG-003** at (1055.64, 152.62, 134.36), main 1654 m: "Don't recall having this huge gap here before. Is this new?" A deep dark trench beside the road. Say when it appeared (compare with earlier builds' scene or evidence shots), then fill it so the roadside is solid ground.
+4. **BUG-006** at (726.64, 84.24, −119.49), main 2759 m, by the RIDGE CUT shortcut sign: "gap in road": a gap / dip at the road's right-hand edge where the road meets the ground. Close it.
+5. **BUG-007** at (1000.96, 158.89, 93.88), main 1586 m: "gap": the mower dropped into a hole beside the road. Fill it. **BUG-008** at (1008.07, 161.85, 92.34): "floating tree": ground it, and run the trees-on-ground check over the whole Mountain Loop scenes.
+6. **BUG-004** at (765.48, 89.04, −119.56), on Climbing Ridge Cut at 16.7 m: "Why is this road not blocked off? It isn't part of either the main road or the shortcut." A dirt road climbs away from the route there. In the race scenes, block every road or trail that leaves the route and is not the main or a shortcut, using the course's existing barrier style (fence or barrier with a "Road closed" sign), set back so it reads before you reach it; check all eight courses for other unblocked off-route roads and block them too; list them. Free Roam keeps them open.
+7. **BUG-009** at (966.33, 190.21, 142.51), main 2220 m, the big summit jump: "see AI not clearing this (in cars)". Measure the AI car rivals' take-off speed and landing on this jump; make the AI in cars reach the speed that clears it (approach speed target for this jump, no braking before the lip), as the bikes do. If a car cannot clear it at all, have the AI cars take the lower line around it and say so. No change to the jump.
+- Check: a shot at each position after; three AI car runs over the summit jump; the list of off-route roads blocked.
+
+### Part E — Police, round 3: the AI cops chase you
+
+Dan: "I still want to go on to the next phase of the police chase. I really want to have the AI chasing me." The design agreed on 2026-10-07: AI cops chase on roads; when the runner goes off-road they radio it in and other cops head for the places where those trails and shortcuts come back out; a search closes in on the last place the runner was seen; the runner escapes by staying out of every cop's sight long enough; more cops join the longer it goes (heat); roadblocks at higher heat. Free Roam only. Solo play never swaps roles (0.95 Part A). **Own commit.**
+
+1. **Modes (Police Chase setup, Game row):** Cop vs Runner (as now), Speed Patrol (as now), and **Getaway** (new): every human is a runner, the cops are AI. One player = full screen; two players = split-screen, both running, **the one who stays free longest wins** (a caught player watches the other's half full screen until it ends). In Cop vs Runner, the solo Runner role, greyed since 0.94, now works with the AI as the cop.
+2. **AI cops:** the 0.94 patrol car, lights and siren on when chasing. They drive the road network at pursuit speed, follow the runner on roads, try to get alongside and box the runner in, and use the 0.94 bust meter to catch. They avoid traffic where they can but may push it aside. They never leave roads and trails that the road network knows about.
+3. **Off-road:** when the runner leaves the road network, the cop following stops at the edge and radios: a line on the runner's HUD, "Suspect off-road heading toward <nearest named place or road>". Other cops drive to the exits: the points where trails, shortcuts and cross-country areas the runner could be crossing meet the road network, nearest first, one cop per exit, waiting with lights on. A runner who comes out at a covered exit is in trouble; a long cross-country run can beat them there. Jumps and shortcuts a car cannot follow are allowed and are how you gain distance.
+4. **Sight and escape:** a cop sees the runner within about 120 m with a clear line of sight (hills, buildings and dense trees block it). While no cop sees the runner, an **ESCAPE meter** fills over 20 s; any cop seeing the runner resets it. Full = escaped. While unseen, the cops search: they drive toward the last seen position and spread along the roads around it, widening with time. The HUD shows the escape meter, how many cops are chasing, the heat level and the last radio line. The minimap shows cops that can see you (red) and cops that cannot (dim).
+5. **Heat:** starts at 1 (2 cops). Every 45 s of the runner staying free, heat goes up (max 5), adding a cop each level (max 6). From heat 3: **roadblocks**, two cruisers parked across a road ahead of the runner on their likely route, with a gap a skilled driver can thread or a way around. Heat shows as stars or bars.
+6. **End:** caught (the bust meter fills) or escaped (the escape meter fills) or the round limit (3 / 5 / 8 min) runs out, which counts as escaped. Results: time free, top heat reached, cops dodged, roadblocks passed, the outcome. Two players: who lasted longer; both escaping ends at whoever escaped first. A **Getaway Top 10** (time free, then heat) per round limit under the player's name.
+7. **Pacing check by play, not just by test:** with Dan's usual vehicles (Needle 600, Street Classic, Trail Four): a runner who does nothing clever is caught within about 2 minutes on Normal; a runner who uses shortcuts and breaks sight can escape. Add Difficulty (Easy / Normal / Hard) on the setup to set cop speed and numbers. Report the numbers chosen.
+8. **Performance:** up to 6 AI cops plus traffic in Free Roam must hold the Free Roam frame rate (single view) and the split-screen 60 fps target with two runners; reduce cop count in split-screen if needed and say so.
+- Check (controller only): solo Getaway on Normal: one run caught on the road, one escape by going off-road and breaking sight, a covered exit seen on the minimap, a roadblock at heat 3, the radio line; solo Cop vs Runner as the runner; a two-player Getaway start with the AI as player 2 running too. Shots of the HUD, a roadblock, and cops waiting at an exit.
+
+### Verification
+
+Light, per the Verification budget and the Controller-first rule, except the AI pacing and performance checks in Part E. Compile, launch, release steps. Results as a short list, with "for Dan to check".
+
+## Previous delivery — Police Chase findable and playable alone, names only in campaign and split-screen, Free Roam lake, holes and traps, acorn notices, Speed Patrol — 0.95.0-review1 — DELIVERED, REVIEWED BY DAN (event HUD unclear, medals as words, chapter order, more holes and Mountain Loop gaps; AI cops next; all in 0.96)
 
 - **Authorized by Dan (2026-10-07, 19:13, 20:20 and 20:32).** Written by Claude (chat) from his play of 0.94.0-review1, debug session `2026-10-07_19-59-23-590_0bbbbc` (seven reports, all on 0.94.0-review1, all in Free Roam) and his message. His words are quoted in each part.
 - **Starting point:** main at the "Record 0.94 delivery" commit. This TODO edit is uncommitted and belongs in the safety checkpoint.
