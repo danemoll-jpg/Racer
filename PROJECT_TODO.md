@@ -16,7 +16,7 @@
   - **Controller first (Dan, 2026-10-07):** Dan plays with a controller. Any new or changed menu, screen or prompt must be checked once with a controller only (no mouse, no keyboard) before delivery: every control reachable, focus visible, B goes back.
   - **Write-up:** the TODO results are a short list: what changed, the one check per item, decisions made, and anything Dan should look at. No separate VALIDATION.md unless a round asks. If a check would take more than a few minutes of play time, skip it and list it under "for Dan to check".
 
-## CURRENT — Police Chase findable and playable alone, names only in campaign and split-screen, Free Roam lake, holes and traps, acorn notices, Speed Patrol — target 0.95.0-review1 — IMPLEMENTED (release below)
+## CURRENT — Police Chase findable and playable alone, names only in campaign and split-screen, Free Roam lake, holes and traps, acorn notices, Speed Patrol — target 0.95.0-review1 — DELIVERED, AWAITING DAN'S REVIEW
 
 - **Authorized by Dan (2026-10-07, 19:13, 20:20 and 20:32).** Written by Claude (chat) from his play of 0.94.0-review1, debug session `2026-10-07_19-59-23-590_0bbbbc` (seven reports, all on 0.94.0-review1, all in Free Roam) and his message. His words are quoted in each part.
 - **Starting point:** main at the "Record 0.94 delivery" commit. This TODO edit is uncommitted and belongs in the safety checkpoint.
@@ -26,7 +26,14 @@
 
 ### Results (2026-10-07/08, Claude Code)
 
-- **Release:** see the delivery lines added after publication.
+- **DELIVERED:**
+  - Source `6b899297c0a610a0d3235930346b3d7be77a160a` pushed and verified on origin/main.
+  - Fresh 0.95.0-review1 Windows build from that commit: 0 errors, 4m40s ([build-release.txt](Docs/Report095/build-release.txt)).
+  - Published [game-95000](https://github.com/danemoll-jpg/woodstock-rush-releases/releases/tag/game-95000) with `Tools/Publish-LauncherRelease.py` (the project's `gh`): the known draft-lookup miss, then `--resume-draft` uploaded the three assets and published. Previous releases retained.
+  - All 234 Latest files match the public signed manifest; public download, pinned signature, install and startup pass ([hosted/result.json](Docs/Report095/hosted/result.json)); the production updater has 95000 active, the public catalog reports nothing newer ([launcher-catalog-check.json](Docs/Report095/launcher-catalog-check.json)).
+- **Play-Racer.cmd (unchanged):** launched a responsive `Builds/Latest/versions/95000/Racer.exe` (0.95.0-review1) through the launcher, muted, settings restored byte for byte ([play-racer-launch.json](Docs/Report095/play-racer-launch.json)). Dan's save folder hash unchanged after the launch too. Latest root, current 95000 and previous 94000 retained (93000 already removed by the updater).
+- **Cleanup:** Builds 10,185,173,344 → 8,031,358,239 bytes (2.15 GB recovered: the build output and game.zip); also the hosted-check install (1.7 GB), 0.2 GB of check scratch outside the project and the temporary editor tools. C: free 266,224,537,600 bytes after cleanup ([cleanup.json](Docs/Report095/cleanup.json)).
+- **SESSION HANDOFF: STOP.** Awaiting Dan's review of 0.95 (rule 12).
 - **Commits:** safety checkpoint `6148e26d`; `b8c71fbb` Parts A–F; `85932c6a` Parts D and E second pass (from the check shots); `f4510061` Part G (own commit). **Revert G alone:** `git revert f4510061`. Version 0.95.0-review1 / build 95000. Evidence: [Docs/Report095/](Docs/Report095/) ([Lists/](Docs/Report095/Lists/), [Shots/](Docs/Report095/Shots/)). Checks: `Report095Checks.cs` (police95, names95, lake95, holes95, acorns95, missed95), `Report095Patrol.cs` (patrol95); world tool `Tools/Report095/Report095World.cs` (Run, Fix2, Fix3).
 - **Dan's save:** every check ran on copies (the editor started on a copy via `-racerTestSave`; checks copy his files into their own folder). His save folder hashed before the first check and after the last one: identical (`448cffe2…`).
 - **A — DONE.** Solo (one human against the AI): one role kept, one round, no swap; results "CAUGHT in m:ss" / "GOT AWAY" (as the runner "ESCAPED" / "CAUGHT after m:ss"); Rematch keeps the role. The runner role stays greyed "coming later". Two humans: as 0.94 (swap, longer run wins). Speed Patrol: everyone a cop, no swap.
