@@ -20,7 +20,7 @@ namespace Racer {
 //  holes95    a shot at each of the five reported positions; a reset at BUG-002 and BUG-003; the floating-tree check
 //  acorns95   on an isolated save: a pickup banner, the 24th (the unlock panel); a copy of Dan's save: the missed panel once
 public sealed partial class Report080Checks {
- IEnumerator Run095(string[] a)=>a[0] switch{"police95"=>Police095(),"names95"=>Names095(),"lake95"=>Lake095(),"holes95"=>Holes095(),"acorns95"=>Acorns095(),"missed95"=>Missed095(),_=>Run094(a)};
+ IEnumerator Run095(string[] a)=>a[0] switch{"police95"=>Police095(),"names95"=>Names095(),"lake95"=>Lake095(),"holes95"=>Holes095(),"acorns95"=>Acorns095(),"missed95"=>Missed095(),"edgeprobe95"=>EdgeProbe095(),"patrol95"=>Patrol095(),_=>Run094(a)};
  IEnumerator DanCopy095(){
   var copy=Path.Combine(Environment.GetEnvironmentVariable("PROBE_OUT"),"save-copy");
   foreach(var f in Directory.GetFiles(copy))File.Copy(f,Path.Combine(saveDir,Path.GetFileName(f)),true);
@@ -142,6 +142,24 @@ public sealed partial class Report080Checks {
   Check(Page90=="unlock"&&VehicleUnlocks.RewardEarned&&!UnlockNotice.Seen(flow.Save,UnlockNotice.AcornMower),$"Dan's save: the main menu shows the missed panel: {Title095} / {Details095}");yield return Late(()=>Shot4k("F-missed-panel-dans-save"));
   yield return Press091(GamepadButton.A);yield return Settle091();Check(Page90==""&&UnlockNotice.Seen(flow.Save,UnlockNotice.AcornMower),$"A: back to the main menu (page '{Page90}'), remembered in settings");
   yield return Load("DansBackyardForward");yield return Menu();Bind();yield return Settle091();yield return Settle091();Check(Page90!="unlock"&&UnlockNotice.Showing==null,$"the main menu again (another scene, same save): no panel (page '{Page90}')");}
+ IEnumerator EdgeProbe095(){
+  yield return DanCopy095();flow.StartFreeRoam();yield return WaitScene095(()=>Scene==RaceFlow.RoamScene&&flow.State==RaceFlow.Stage.Racing);
+  var root=GameObject.Find("World edge (0.81)");Note($"  world edge root: {(root?root.transform.childCount:-1)} pieces; report: {string.Join(" | ",WorldEdge.Report)}");
+  var meshes=root?root.GetComponentsInChildren<MeshFilter>():new MeshFilter[0];
+  foreach(var (id,c) in new[]{("BUG-006",new Vector3(806.89f,64f,328.19f)),("BUG-001",new Vector3(1193.72f,89.4f,149.28f))}){
+   for(int dz=-30;dz<=40;dz+=10){var sb=new System.Text.StringBuilder($"  {id} dz {dz,3}: ");for(int dx=-10;dx<=50;dx+=5){var q=c+new Vector3(dx,0,dz);
+     var hits=Physics.RaycastAll(q+Vector3.up*300,Vector3.down,600,~0,QueryTriggerInteraction.Ignore).OrderBy(h=>h.distance).ToList();
+     string g=hits.Count==0?"----":hits[0].collider.transform.IsChildOf(root.transform)?"E"+(hits[0].point.y-c.y).ToString("+0;-0"):"G"+(hits[0].point.y-c.y).ToString("+0;-0");
+     int vis=0;foreach(var m in meshes){var b=m.GetComponent<Renderer>().bounds;if(q.x>=b.min.x&&q.x<=b.max.x&&q.z>=b.min.z&&q.z<=b.max.z)vis++;}
+     sb.Append($"{g,5}/{vis} ");}Note(sb.ToString());}}
+  var cam=Camera.main;var chase=cam.GetComponent<ChaseCamera>();var views=CameraViews.Current;chase.enabled=false;if(views)views.enabled=false;
+  foreach(var (id,p,yaw) in Spots095.Where(x=>x.id=="BUG-001"||x.id=="BUG-006")){yield return Put093(p,yaw);
+   yield return Late(()=>{cam.transform.SetPositionAndRotation(p+Vector3.up*1.7f,Quaternion.Euler(4,yaw,0));Shot($"edge-{id}-normal");});
+   var rs=root.GetComponentsInChildren<MeshRenderer>();var mats=rs.Select(r=>r.sharedMaterial).ToArray();var magenta=new Material(Shader.Find("Universal Render Pipeline/Unlit"));magenta.color=Color.magenta;foreach(var r in rs)r.sharedMaterial=magenta;
+   yield return Late(()=>{cam.transform.SetPositionAndRotation(p+Vector3.up*1.7f,Quaternion.Euler(4,yaw,0));Shot($"edge-{id}-ring-magenta");});
+   for(int i=0;i<rs.Length;i++)rs[i].sharedMaterial=mats[i];}
+  chase.enabled=true;if(views)views.enabled=true;
+  yield return Menu();}
  IEnumerator Acorns095(){
   // an isolated save: two acorns short of the reward
   // (the check's own save: its acorns set to 22 of 24 and the reward not earned, in memory; nothing of Dan's is written)

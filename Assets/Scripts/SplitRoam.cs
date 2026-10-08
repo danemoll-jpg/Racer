@@ -79,7 +79,7 @@ namespace Racer
         {
             if (!Car || !flow) return;
             bool driving = flow.State == RaceFlow.Stage.Racing;
-            if (!SplitScreen.P2Ai) { var input = Car.GetComponent<VehicleInput>(); if (input.enabled != driving && !(PoliceChase.Current && PoliceChase.Current.Holds(Car))) input.enabled = driving; }
+            if (!SplitScreen.P2Ai) { var input = Car.GetComponent<VehicleInput>(); if (input.enabled != driving && !(PoliceChase.Current && PoliceChase.Current.Holds(Car)) && !(SpeedPatrol.Current && SpeedPatrol.Current.Holds(Car))) input.enabled = driving; }
         }
         // "→ Kyle  240 m": the direction (from this player's view) and distance to the other player
         public static string Toward(Transform from, Transform viewer, Transform to, string name)

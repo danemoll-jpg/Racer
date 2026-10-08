@@ -35,6 +35,7 @@ namespace Racer
         void SplitToPolice() { SplitScreen.Solo = false; PolicePage(true); }
         void RenderPolice()
         {
+            if (SplitScreen.PoliceGame == SplitScreen.Game.SpeedPatrol) { RenderPatrolSetup(); return; } // 0.95 Part G
             bool solo = SplitScreen.Solo; SplitScreen.Mode = SplitScreen.Kind.Police; SplitScreen.P2Ai = solo;
             if (solo) { SplitScreen.SoloRole = 1; SplitScreen.CopFirst = 1; } // the runner needs the chasing AI (coming later)
             ClearCore("POLICE CHASE", (solo
@@ -42,7 +43,7 @@ namespace Racer
                 : "Two players, split-screen: one is the cop in the patrol car, the other runs; then the roles swap.")
                 + "\nNothing is recorded." + (SplitScreen.FromRoam ? "  Afterwards you go back to Free Roam." : ""));
             details.fontSize = 18; details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight = 54;
-            int n = 0;
+            int n = 0; GameRow(n++);
             Step(n++, "police-players", "Players:   " + (solo ? "1   (full screen, against the AI)" : "2   (split screen)"), d => { SplitScreen.Solo = !SplitScreen.Solo; SplitScreen.P2Ai = SplitScreen.Solo; flow.Click(); Show(); });
             if (solo)
             {
@@ -85,8 +86,8 @@ namespace Racer
             Row(n, "police-start", SplitScreen.Ready ? "START CHASE" : "START CHASE   (waiting for player 2)", flow.StartSplit);
             var colors = buttons[n].colors; colors.normalColor = new(.1f, .38f, .35f); buttons[n].colors = colors; buttons[n].GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight = 54; buttons[n++].interactable = SplitScreen.Ready;
             Row(n, "police-back", "Back", () => BackPage());
-            if (solo) buttons[1].GetComponentInChildren<UnityEngine.UI.Text>(true).color = new Color(.78f, .8f, .78f);
-            else { DeviceGlyph(buttons[1], SplitScreen.P1Device); DeviceGlyph(buttons[2], SplitScreen.P2Device); buttons[1].GetComponentInChildren<UnityEngine.UI.Text>(true).color = new Color(.3f, .95f, .81f); buttons[2].GetComponentInChildren<UnityEngine.UI.Text>(true).color = SplitScreen.P2Device != null ? new Color(1, .74f, .25f) : new Color(.75f, .75f, .72f); }
+            if (solo) buttons[2].GetComponentInChildren<UnityEngine.UI.Text>(true).color = new Color(.78f, .8f, .78f);
+            else { DeviceGlyph(buttons[2], SplitScreen.P1Device); DeviceGlyph(buttons[3], SplitScreen.P2Device); buttons[2].GetComponentInChildren<UnityEngine.UI.Text>(true).color = new Color(.3f, .95f, .81f); buttons[3].GetComponentInChildren<UnityEngine.UI.Text>(true).color = SplitScreen.P2Device != null ? new Color(1, .74f, .25f) : new Color(.75f, .75f, .72f); }
         }
     }
 }

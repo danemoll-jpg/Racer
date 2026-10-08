@@ -181,6 +181,8 @@ namespace Racer
                     Diamond(vh, p, 8, new(.03f,.06f,.08f)); Diamond(vh, p, 6, Waypoint);
                 }
             }
+            // 0.95 Part G: Speed Patrol: the clocked speeders (red)
+            if (roam && SpeedPatrol.Current) foreach (var m in SpeedPatrol.Current.ClockedMarks) { var p = Project(m); if (!bounds.Contains(p)) continue; Diamond(vh, p, 7, new(.03f,.06f,.08f)); Diamond(vh, p, 5, new Color(1, .2f, .15f)); }
             // 0.94 Part B: split-screen Free Roam: the other player in their colour, kept at the rim when further away
             if (roam && Split && SplitScreen.Race && SplitScreen.Race.P2Car)
             {

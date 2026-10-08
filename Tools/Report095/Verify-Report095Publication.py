@@ -21,7 +21,7 @@ catalog=json.loads(cli('verify',catalog_path))
 manifest_path=WORK/'game-manifest.json'
 fetch(catalog['game'],manifest_path)
 manifest=json.loads(cli('verify',manifest_path))
-assert manifest['build']==94000 and manifest['version']=='0.95.0-review1'
+assert manifest['build']==95000 and manifest['version']=='0.95.0-review1'
 # Confirm the ordinary Play-Racer.cmd target contains the exact public files.
 for item in manifest['files']:
     path=ROOT/'Builds/Latest'/item['path']
@@ -31,7 +31,7 @@ print('Public signed manifest matches every installed Latest game file.',flush=T
 # Exercise the existing updater's actual download, signature, extraction and activation.
 cli('game',manifest_path)
 state=json.loads((INSTALL/'state.json').read_text())
-assert state['game']['manifest']['build']==94000
+assert state['game']['manifest']['build']==95000
 shutil.copy2(ROOT/'Builds/Launcher/WoodstockRushLauncher.exe',INSTALL)
 shutil.copy2(ROOT/'Builds/Latest/WoodstockRush-Cover.png',INSTALL)
 si=subprocess.STARTUPINFO();si.dwFlags=subprocess.STARTF_USESHOWWINDOW;si.wShowWindow=0
@@ -40,7 +40,7 @@ code=p.wait(timeout=115)
 assert code==0 and (EVIDENCE/'startup.json').exists() and not (EVIDENCE/'failure.txt').exists()
 log=(EVIDENCE/'game.log').read_text(errors='replace')
 assert 'NullReferenceException' not in log and 'MissingReferenceException' not in log
-result=dict(version=manifest['version'],build=94000,catalog=CATALOG,manifest=catalog['game'],publicDownload=True,pinnedSignatureVerified=True,allLatestFilesMatch=True,files=len(manifest['files']),startupReady=True,exit=code,work=str(WORK))
+result=dict(version=manifest['version'],build=95000,catalog=CATALOG,manifest=catalog['game'],publicDownload=True,pinnedSignatureVerified=True,allLatestFilesMatch=True,files=len(manifest['files']),startupReady=True,exit=code,work=str(WORK))
 (EVIDENCE/'result.json').write_text(json.dumps(result,indent=2))
 print(json.dumps(result))
 

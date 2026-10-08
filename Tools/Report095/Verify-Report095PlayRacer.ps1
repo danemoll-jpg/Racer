@@ -2,7 +2,7 @@ $ErrorActionPreference='Stop'
 $root=[IO.Path]::GetFullPath((Join-Path $PSScriptRoot '../..'))
 $latest=Join-Path $root 'Builds/Latest'
 $state=Get-Content (Join-Path $latest 'state.json') -Raw | ConvertFrom-Json
-if($state.game.manifest.build -ne 94000 -or $state.game.manifest.version -ne '0.95.0-review1'){throw 'Installed signed version mismatch'}
+if($state.game.manifest.build -ne 95000 -or $state.game.manifest.version -ne '0.95.0-review1'){throw 'Installed signed version mismatch'}
 $expected=[IO.Path]::GetFullPath((Join-Path $latest ($state.game.directory+'/Racer.exe')))
 if(!$expected.StartsWith($latest+'\',[StringComparison]::OrdinalIgnoreCase)){throw 'Game path outside stable launcher installation'}
 $before=@(Get-Process Racer,WoodstockRushLauncher -ErrorAction SilentlyContinue | ForEach-Object Id)
@@ -16,7 +16,7 @@ do {
  if($found.Count -eq 1){$launched=$found[0];$launched.Refresh()}
 }while((!$launched -or !$launched.MainWindowHandle -or !$launched.Responding) -and (Get-Date) -lt $deadline)
 if(!$launched -or !$launched.MainWindowHandle -or !$launched.Responding){throw 'New signed release did not present a responsive game window'}
-$record=[ordered]@{entryPoint=(Join-Path $root 'Play-Racer.cmd');path=$launched.Path;version='0.95.0-review1';build=94000;pid=$launched.Id;responsive=$launched.Responding;window=$launched.MainWindowTitle;stableLauncherRoot=$latest;futureSignedUpdatesPreserved=$true;verifiedAt=(Get-Date -Format o)}
+$record=[ordered]@{entryPoint=(Join-Path $root 'Play-Racer.cmd');path=$launched.Path;version='0.95.0-review1';build=95000;pid=$launched.Id;responsive=$launched.Responding;window=$launched.MainWindowTitle;stableLauncherRoot=$latest;futureSignedUpdatesPreserved=$true;verifiedAt=(Get-Date -Format o)}
 $record | ConvertTo-Json | Set-Content (Join-Path $root 'Docs/Report095/play-racer-launch.json')
 $null=$launched.CloseMainWindow()
 if(!$launched.WaitForExit(5000)){$remaining=Get-Process -Id $launched.Id -ErrorAction SilentlyContinue;if($remaining -and $remaining.Path -eq $expected){$remaining.Kill()}}

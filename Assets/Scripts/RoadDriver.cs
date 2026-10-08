@@ -21,6 +21,8 @@ namespace Racer
         public string LastObstacle { get; private set; }
         public float BrakingSeconds { get; private set; }
         public bool HighwayTraffic;
+        // 0.95 Part G: Speed Patrol sets traffic's speed (the limit, a speeder's excess, 0 to pull over); -1 = its own
+        [System.NonSerialized] public float SpeedOverride=-1;
         public int HighwayRecycles { get; private set; }
         public float MinimumRecyclePlayerDistance { get; private set; } = float.MaxValue;
 
@@ -219,6 +221,7 @@ namespace Racer
             float judgment = racing ? Car.braking*brakeUse[skill] : 8f;
             judgment*=Variation.Judgment;
             TargetSpeed = (racing ? Car.topSpeed * speedUse[skill] : Mathf.Lerp(17,29,DriveRoad.HighwayBlend(s))) * pace;
+            if(!racing&&SpeedOverride>=0)TargetSpeed=SpeedOverride;
             // These exposed climbing connectors need a settled approach. The mandatory
             // run-ups retain full acceleration; this is AI pedal planning, not a change
             // to the player's vehicle or to takeoff forces.

@@ -141,18 +141,20 @@ namespace Racer
         void RenderSplitPause()
         {
             var split = SplitScreen.Race; string missing = split ? split.MissingText : null;
-            ClearCore(PoliceChase.Current ? "POLICE CHASE / PAUSED" : "SPLIT SCREEN / PAUSED", missing ?? (SplitScreen.OneView ? "" : $"Paused by {(split && split.PausedBy != null ? SplitScreen.DeviceName(split.PausedBy) : "a player")}: either player's device works this menu."));
+            ClearCore(SpeedPatrol.Current ? "SPEED PATROL / PAUSED" : PoliceChase.Current ? "POLICE CHASE / PAUSED" : "SPLIT SCREEN / PAUSED", missing ?? (SplitScreen.OneView ? "" : $"Paused by {(split && split.PausedBy != null ? SplitScreen.DeviceName(split.PausedBy) : "a player")}: either player's device works this menu."));
             Row(0, "resume", "RESUME", flow.Resume); buttons[0].interactable = missing == null;
             if (SplitScreen.Roaming)
             {
                 // 0.94 Parts B and C: the world map (travel brings both players), camera views, restart the chase, end
-                var police = PoliceChase.Current;
-                if (police) Row(1, "restart", "RESTART THE CHASE", () => Confirm("RESTART THE CHASE?", "Back to round 1; the times so far are cleared.", police.Rematch));
+                var police = PoliceChase.Current; var patrol = SpeedPatrol.Current;
+                if (patrol) Row(1, "restart", "RESTART THE PATROL", () => Confirm("RESTART THE PATROL?", "A new round; the points so far are cleared.", patrol.Rematch));
+                else if (police) Row(1, "restart", "RESTART THE CHASE", () => Confirm("RESTART THE CHASE?", "Back to round 1; the times so far are cleared.", police.Rematch));
                 else Row(1, "map", "MAP   (travel brings both players)", () => flow.GetComponent<ExplorationMap>()?.Open());
                 Row(2, "settings", "SETTINGS", flow.OpenSettings);
-                string back = police && SplitScreen.FromRoam ? "Back to Free Roam." : SplitScreen.OneView ? "Back to the menu." : "Both players return to the menu.";
-                Row(3, "change-setup", "Change setup", () => Confirm("END AND CHANGE THE SETUP?", police ? "Back to the Police Chase setup." : "Both players return to the split-screen setup.", () => flow.QuitSplit(true)));
-                Row(4, "return", police && SplitScreen.FromRoam ? "BACK TO FREE ROAM" : "RETURN TO MENU", () => Confirm(police ? "END THE CHASE?" : "END SPLIT-SCREEN FREE ROAM?", back, () => flow.QuitSplit(false)));
+                bool chase = police || patrol;
+                string back = chase && SplitScreen.FromRoam ? "Back to Free Roam." : SplitScreen.OneView ? "Back to the menu." : "Both players return to the menu.";
+                Row(3, "change-setup", "Change setup", () => Confirm("END AND CHANGE THE SETUP?", chase ? "Back to the Police Chase setup." : "Both players return to the split-screen setup.", () => flow.QuitSplit(true)));
+                Row(4, "return", chase && SplitScreen.FromRoam ? "BACK TO FREE ROAM" : "RETURN TO MENU", () => Confirm(patrol ? "END THE PATROL?" : police ? "END THE CHASE?" : "END SPLIT-SCREEN FREE ROAM?", back, () => flow.QuitSplit(false)));
                 Row(5, "quit", "Quit Game", ConfirmQuit); return;
             }
             Row(1, "restart", "RESTART RACE", () => Confirm("RESTART RACE?", "Both players go back to the grid.", flow.StartRace));

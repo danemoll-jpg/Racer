@@ -5,11 +5,11 @@ $evidence=Join-Path $root 'Docs/Report095'
 $launch=Get-Content (Join-Path $evidence 'play-racer-launch.json') -Raw | ConvertFrom-Json
 $hosted=Get-Content (Join-Path $evidence 'hosted/result.json') -Raw | ConvertFrom-Json
 $state=Get-Content (Join-Path $builds 'Latest/state.json') -Raw | ConvertFrom-Json
-if($state.game.manifest.build -ne 94000 -or !$hosted.startupReady){throw 'Delivery gates missing'}
-if(($launch | ConvertTo-Json -Depth 20) -notmatch '94000'){throw 'Production launcher verification missing'}
+if($state.game.manifest.build -ne 95000 -or !$hosted.startupReady){throw 'Delivery gates missing'}
+if(($launch | ConvertTo-Json -Depth 20) -notmatch '95000'){throw 'Production launcher verification missing'}
 function Bytes([string]$p){$n=(Get-ChildItem -LiteralPath $p -File -Recurse | Measure-Object -Property Length -Sum).Sum;if($null -eq $n){return 0};return [long]$n}
 $before=Bytes $builds;$freeBefore=(Get-PSDrive C).Free
-$targets=@((Join-Path $builds 'Racer-0.95.0-review1-Windows'),(Join-Path $builds 'LauncherRelease-94000/assets/game.zip'),(Join-Path $builds 'Latest/versions/92000'),(Join-Path $root 'Temp/Report095Save'),[string]$hosted.work)
+$targets=@((Join-Path $builds 'Racer-0.95.0-review1-Windows'),(Join-Path $builds 'LauncherRelease-95000/assets/game.zip'),(Join-Path $builds 'Latest/versions/93000'),(Join-Path $root 'Temp/Report095Save'),[string]$hosted.work)
 $running=Get-CimInstance Win32_Process | Where-Object {$_.ExecutablePath -and $_.ExecutablePath.StartsWith($root,[StringComparison]::OrdinalIgnoreCase)}
 $removed=@()
 foreach($candidate in $targets){
@@ -19,7 +19,7 @@ foreach($candidate in $targets){
  if(Test-Path -LiteralPath $path){$size=if((Get-Item -LiteralPath $path).PSIsContainer){Bytes $path}else{(Get-Item -LiteralPath $path).Length};Remove-Item -LiteralPath $path -Recurse -Force;$removed+=@{path=$path;bytes=$size}}
 }
 $after=Bytes $builds;$freeAfter=(Get-PSDrive C).Free
-@{buildsBefore=$before;buildsAfter=$after;freeBefore=$freeBefore;freeAfter=$freeAfter;buildsRecovered=$before-$after;removed=$removed;retained=@('Latest complete root runtime','managed 94000','managed 93000','music, publisher keys/tools, launcher, metadata, source, evidence, saves')} | ConvertTo-Json -Depth 8 | Set-Content (Join-Path $evidence 'cleanup.json')
+@{buildsBefore=$before;buildsAfter=$after;freeBefore=$freeBefore;freeAfter=$freeAfter;buildsRecovered=$before-$after;removed=$removed;retained=@('Latest complete root runtime','managed 95000','managed 94000','music, publisher keys/tools, launcher, metadata, source, evidence, saves')} | ConvertTo-Json -Depth 8 | Set-Content (Join-Path $evidence 'cleanup.json')
 Get-Content (Join-Path $evidence 'cleanup.json')
 
 

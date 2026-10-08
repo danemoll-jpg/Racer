@@ -117,7 +117,7 @@ namespace Racer
         // results, the speed and the minimap; the centre shows the chase's start, GO and the round's end.
         void Roam(bool driving)
         {
-            var race = flow.Race; var roam = SplitRoam.Current; var police = PoliceChase.Current;
+            var race = flow.Race; var roam = SplitRoam.Current; var police = PoliceChase.Current; var patrol = SpeedPatrol.Current;
             for (int i = 0; i < 2; i++)
             {
                 var h = halves[i]; int player = i + 1; var car = i == 0 ? race.vehicle : split.P2Car; var other = i == 0 ? split.P2Car : race.vehicle;
@@ -135,8 +135,19 @@ namespace Racer
                     int filled = Mathf.RoundToInt(police.Meter * 10);
                     lines.Add("BUST  <color=#FF5A4A>" + new string('■', filled) + "</color><color=#5A6066>" + new string('■', 10 - filled) + "</color>");
                 }
+                else if (patrol)
+                {
+                    // 0.95 Part G: the clock, the score, the road's limit, the radar (red over the limit), the pull-over meter
+                    var cop = patrol.CopOf(player); float left = Mathf.Max(0, patrol.Limit - patrol.Clock); int sec = Mathf.CeilToInt(left);
+                    lines.Add($"<b>SPEED PATROL</b>   {sec / 60}:{sec % 60:00} left   <b>{(cop != null ? cop.points : 0)}</b> pts");
+                    if (cop != null)
+                    {
+                        lines.Add($"LIMIT {(cop.limit > 0 ? cop.limit + " mph" : "—")}     RADAR {(cop.radar < 0 ? "—" : (cop.radarOver ? "<color=#FF4A3A>" : "<color=#9CFFB0>") + Mathf.RoundToInt(cop.radar) + "</color> mph")}");
+                        float meter = patrol.MeterFor(player); if (meter > 0) { int filled = Mathf.RoundToInt(meter * 10); lines.Add("PULL OVER  <color=#FFC747>" + new string('■', filled) + "</color><color=#5A6066>" + new string('■', 10 - filled) + "</color>"); }
+                    }
+                }
                 else lines.Add("<b>FREE ROAM</b>");
-                lines.Add(SplitRoam.Toward(car.transform, cam ? cam.transform : car.transform, other ? other.transform : null, SplitScreen.NameOf(3 - player)));
+                if (other) lines.Add(SplitRoam.Toward(car.transform, cam ? cam.transform : car.transform, other ? other.transform : null, SplitScreen.NameOf(3 - player)));
                 var acts = i == 0 ? flow.Activities : roam.Activities2; string hud = acts ? acts.Hud : "";
                 if (hud.Contains("> Activities")) hud = hud.Split('\n')[0]; // timed attempts are single-player only (no Activities in the split-screen pause menu)
                 h.info.text = string.Join("\n", lines); h.info.fontSize = 19;
@@ -154,7 +165,14 @@ namespace Racer
                     else if (!cop && police.Holds(car)) centre = "<size=22>Reset: held for 2 s</size>";
                     else if (cop && police.State == PoliceChase.Phase.Running && Time.unscaledTime - roam.StartedAt < 12) centre = "<size=20>" + (SplitScreen.DeviceOf(player) is UnityEngine.InputSystem.Keyboard ? "H" : "RB") + ": siren on / off</size>";
                 }
-                else if (Time.unscaledTime - roam.StartedAt < 7) centre = "<size=20>Split-screen Free Roam: nothing is recorded\n(no acorns, activity records or map discovery)</size>";
+                else if (patrol)
+                {
+                    var cop = patrol.CopOf(player);
+                    if (patrol.State == SpeedPatrol.Phase.Starting) centre = "<size=26>SPEED PATROL</size>\n<size=20>point the radar at a car to clock it · " + (SplitScreen.DeviceOf(player) is UnityEngine.InputSystem.Keyboard ? "H" : "RB") + ": lights</size>";
+                    else if (cop != null && Time.unscaledTime < cop.lineUntil) centre = "<size=24>" + cop.line + "</size>";
+                    else if (cop != null && patrol.Holds(car)) centre = "<size=22>Reset: held for 2 s</size>";
+                }
+                else if (roam.Car && Time.unscaledTime - roam.StartedAt < 7) centre = "<size=20>Split-screen Free Roam: nothing is recorded\n(no acorns, activity records or map discovery)</size>";
                 if (centre == "" && respawn && respawn.Pending) centre = "<size=22>Recovering…</size>";
                 if (centre == "" && !string.IsNullOrEmpty(hud)) centre = "<size=19>" + hud + "</size>";
                 h.centre.text = centre; h.centre.fontSize = 30;
