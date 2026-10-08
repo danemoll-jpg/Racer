@@ -1,0 +1,7 @@
+screen=3840x2160 gpu=NVIDIA GeForce GTX 1660 Ti
+SPLIT Police Street Loop - Forward top/bottom Night/Rain rivals 0 traffic True (1 racers, 24 traffic cars): GPU median NaN ms (95th NaN, max NaN) = NaN fps median, NaN fps 95th; wall-clock median 11.83 ms; 0 frames
+  getaway: 8 cops, heat 5, runners 2, state Running
+  views: player 1 Chase (head hidden False), player 2 First person (head hidden True)
+SPLIT Police Street Loop - Forward left/right Night/Rain rivals 0 traffic True (1 racers, 24 traffic cars): GPU median NaN ms (95th NaN, max NaN) = NaN fps median, NaN fps 95th; wall-clock median 11.97 ms; 0 frames
+  getaway: 8 cops, heat 5, runners 2, state Running
+  views: player 1 Chase (head hidden False), player 2 First person (head hidden True)
