@@ -213,6 +213,108 @@ public static class Report095World {
    EditorSceneManager.MarkSceneDirty(scene);EditorSceneManager.SaveScene(scene);AssetDatabase.SaveAssets();log.Add($"APPLIED: {tiles.Count} tiles, {vegChanges.Count} vegetation meshes, {objects.Count} things, creek added");Write2(log);EditorApplication.Exit(0);
   }catch(Exception e){log.Add("FAILED "+e);Write2(log);EditorApplication.Exit(1);}
  }
+ // 0.95 second pass (from the check shots): (1) the dry pit left between the restored lake and the Lake shore trail (seen from
+ // Dan's BUG-004 position: the Forest scenes' own hollow there) is filled: within 80 m of the lake centre, ground under the
+ // lake bed is raised to the bed (77.4 m) inside the water's circle and to just above the water (78.1 m) outside it (never a
+ // road's or trail's band); trees on it go. (2) The open cut faces of the mountain annex's outer edges (x >= 790; BUG-001,
+ // BUG-006: the runtime world-edge ring leaves holes there) get earth aprons instead of the first pass's curtains: from each
+ // open ground edge a bank rising 6 m over 12 m, then 16 m more over 24 m, with the corners filled, drawn and collidable.
+ public static void Fix2(){
+  var log=new List<string>();
+  try{
+   var scene=EditorSceneManager.OpenScene(Scene);Physics.SyncTransforms();var roots=scene.GetRootGameObjects();var loop=roots.First(g=>g.name=="Memory loop - north is +Z").transform;
+   var lakeObj=GameObject.Find("Friend's lake - visible shoreline").transform;float radius=lakeObj.lossyScale.x*.5f,surface=lakeObj.GetComponent<Racer.ShallowWater>().Surface;
+   var lanes=new List<(Vector3 p,float hw)>();
+   foreach(var r in roots.SelectMany(g=>g.GetComponentsInChildren<Racer.RaceRoad>(true)).Where(r=>r.points!=null&&r.points.Length>1)){r.Initialize();for(float s=0;s<r.Length;s+=1.5f){var p=r.At(s,out _);if(Flat(p,Lake)<100)lanes.Add((p,r.HalfWidth(s)));}}
+   foreach(var w in roots.SelectMany(g=>g.GetComponentsInChildren<Racer.WoodlandRoute>(true)).Where(w=>w.points!=null&&w.points.Length>1)){w.Initialize();for(float s=0;s<w.Length;s+=1.5f){var p=w.At(s,out _);if(Flat(p,Lake)<100)lanes.Add((p,w.halfWidth));}}
+   bool InLane(Vector3 w)=>lanes.Any(l=>Flat(w,l.p)<l.hw+3);
+   var delta=new Dictionary<(int,int),float>();var oldY=new Dictionary<(int,int),float>();int raised=0;float maxUp=0;
+   foreach(Transform t in loop){var mf=t.GetComponent<MeshFilter>();if(!mf||!t.name.StartsWith("Ground_")||!mf.sharedMesh)continue;var m=t.localToWorldMatrix;var inv=t.worldToLocalMatrix;var v=mf.sharedMesh.vertices;bool any=false;
+    for(int i=0;i<v.Length;i++){var w=m.MultiplyPoint3x4(v[i]);float r=Flat(w,Lake);if(r>84)continue;oldY[K(w.x,w.z)]=w.y;if(r>80)continue;float target=r<radius-1?77.4f:surface+.08f;if(w.y>=target-.05f||InLane(w))continue;
+     float d=target-w.y;v[i]=inv.MultiplyPoint3x4(new Vector3(w.x,target,w.z));delta[K(w.x,w.z)]=d;raised++;maxUp=Mathf.Max(maxUp,d);any=true;}
+    if(any){var mesh=mf.sharedMesh;string path=AssetDatabase.GetAssetPath(mesh);if(!path.StartsWith(AssetDir)){var copy=UnityEngine.Object.Instantiate(mesh);copy.name="FreeRoamWorld-lake-"+mf.name;AssetDatabase.CreateAsset(copy,$"{AssetDir}/{copy.name}.asset");mesh=copy;mf.sharedMesh=copy;}
+     mesh.vertices=v;mesh.RecalculateNormals();mesh.RecalculateBounds();EditorUtility.SetDirty(mesh);var mc=mf.GetComponent<MeshCollider>();if(mc){mc.sharedMesh=null;mc.sharedMesh=mesh;EditorUtility.SetDirty(mc);}EditorUtility.SetDirty(mf);log.Add($"pit fill: {mf.name} ({AssetDatabase.GetAssetPath(mesh)})");}}
+   log.Add($"pit fill: {raised} ground vertices raised (up to {maxUp:F2} m) to the lake bed / just above the water");
+   float D(float x,float z){float gx=Mathf.Floor(x/2)*2,gz=Mathf.Floor(z/2)*2,u=(x-gx)/2,w=(z-gz)/2;float Q(float a,float b)=>delta.TryGetValue(K(a,b),out var q)?q:0;return Mathf.Lerp(Mathf.Lerp(Q(gx,gz),Q(gx+2,gz),u),Mathf.Lerp(Q(gx,gz+2),Q(gx+2,gz+2),u),w);}
+   // trees and things on the filled ground
+   var veg=roots.SelectMany(g=>g.GetComponentsInChildren<MeshRenderer>(true)).Where(r=>r.enabled&&(Racer.SceneryTrees.IsOldVegetation(r)||Mountain(r))&&r.bounds.SqrDistance(Lake)<95*95).ToList();
+   foreach(var r in veg){var mf=r.GetComponent<MeshFilter>();var mesh=mf.sharedMesh;var v=mesh.vertices;var t=mesh.triangles;var m=r.transform.localToWorldMatrix;
+    var parent=Enumerable.Range(0,v.Length).ToArray();int Find(int i){while(parent[i]!=i){parent[i]=parent[parent[i]];i=parent[i];}return i;}
+    for(int i=0;i<t.Length;i+=3){int a=Find(t[i]),b=Find(t[i+1]),c=Find(t[i+2]);parent[b]=a;parent[Find(c)]=a;}
+    var drop=new HashSet<int>();int removed=0;
+    foreach(var piece in Enumerable.Range(0,v.Length).GroupBy(Find)){var c=piece.Select(i=>m.MultiplyPoint3x4(v[i])).Aggregate(Vector3.zero,(x,y)=>x+y)/piece.Count();if(D(c.x,c.z)>.3f){foreach(var i in piece)drop.Add(i);removed++;}}
+    if(removed==0)continue;string path=AssetDatabase.GetAssetPath(mesh);if(!path.StartsWith(AssetDir)){var copy=UnityEngine.Object.Instantiate(mesh);copy.name="FreeRoamWorld-pit-vegetation-"+Path.GetFileNameWithoutExtension(path);AssetDatabase.CreateAsset(copy,$"{AssetDir}/{San(copy.name)}.asset");mesh=copy;mf.sharedMesh=copy;}
+    var tri=new List<int>();for(int i=0;i<t.Length;i+=3)if(!drop.Contains(t[i]))tri.AddRange(new[]{t[i],t[i+1],t[i+2]});mesh.SetTriangles(tri,0);mesh.RecalculateBounds();EditorUtility.SetDirty(mesh);EditorUtility.SetDirty(mf);log.Add($"   {P(r.transform)}: {removed} pieces on the filled pit taken out");}
+   foreach(var c in roots.SelectMany(g=>g.GetComponentsInChildren<Collider>(true)).Where(c=>(c is BoxCollider||c is CapsuleCollider)&&TreeLike(c.name)).ToList()){var b=c.bounds;if(Flat(b.center,Lake)>84||D(b.center.x,b.center.z)<=.3f)continue;log.Add($"   remove {P(c.transform)} at {V(b.center)}");var g=c.gameObject;if(g.GetComponents<Component>().Length==2&&g.transform.childCount==0)UnityEngine.Object.DestroyImmediate(g);else UnityEngine.Object.DestroyImmediate(c);}
+   // the annex aprons (replacing the first pass's curtains)
+   var old=GameObject.Find("0.95 World edge seal");if(old){foreach(var mf in old.GetComponentsInChildren<MeshFilter>()){var p=AssetDatabase.GetAssetPath(mf.sharedMesh);if(p.StartsWith(AssetDir))AssetDatabase.DeleteAsset(p);}UnityEngine.Object.DestroyImmediate(old);}
+   Physics.SyncTransforms();
+   bool Beyond(Vector3 p){foreach(var h in Physics.RaycastAll(new Vector3(p.x,p.y+30,p.z),Vector3.down,60,~0,QueryTriggerInteraction.Ignore))if(!h.collider.attachedRigidbody&&!h.collider.isTrigger&&h.collider is MeshCollider&&h.collider.name.StartsWith("Ground"))return true;return false;}
+   var edges=new List<(Vector3 a,Vector3 b,Vector3 o,Color c)>();
+   foreach(Transform t in loop){var mf=t.GetComponent<MeshFilter>();if(!mf||!t.name.StartsWith("Ground_")||!mf.sharedMesh)continue;var mesh=mf.sharedMesh;var v=mesh.vertices;var tr=mesh.triangles;var cols=mesh.colors;var m=t.localToWorldMatrix;
+    var count=new Dictionary<(int,int),(int n,int third)>();
+    for(int i=0;i<tr.Length;i+=3)for(int k=0;k<3;k++){int a=tr[i+k],b=tr[i+(k+1)%3];var key=a<b?(a,b):(b,a);count[key]=count.TryGetValue(key,out var e)?(e.n+1,e.third):(1,tr[i+(k+2)%3]);}
+    foreach(var e in count){if(e.Value.n!=1)continue;var a=m.MultiplyPoint3x4(v[e.Key.Item1]);var b=m.MultiplyPoint3x4(v[e.Key.Item2]);if(Mathf.Min(a.x,b.x)<790)continue;var third=m.MultiplyPoint3x4(v[e.Value.third]);
+     var mid=(a+b)*.5f;var along=b-a;along.y=0;var o=Vector3.Cross(Vector3.up,along).normalized;if(Vector3.Dot(o,third-mid)>0)o=-o;if(Beyond(mid+o*.6f))continue;
+     edges.Add((a,b,o,cols!=null&&cols.Length==v.Length?cols[e.Key.Item1]:new Color(.33f,.43f,.2f)));}}
+   var earth=new Color(.36f,.31f,.22f);var hill=new Color(.24f,.34f,.15f);var mat=loop.GetComponentsInChildren<MeshRenderer>().First(r=>r.name.StartsWith("Ground_")).sharedMaterial;
+   var sroot=new GameObject("0.95 World edge seal");UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(sroot,scene);int chunkNo=0;
+   Vector3 Mid(Vector3 p,Vector3 o)=>p+o*12+Vector3.up*6;Vector3 Far(Vector3 p,Vector3 o)=>p+o*36+Vector3.up*22;
+   // corners: endpoints shared by two open edges that turn
+   var ends=new Dictionary<(int,int),List<Vector3>>();foreach(var e in edges)foreach(var p in new[]{e.a,e.b}){var k=K(p.x,p.z);if(!ends.TryGetValue(k,out var l))ends[k]=l=new List<Vector3>();l.Add(e.o);}
+   foreach(var group in edges.GroupBy(e=>((int)Mathf.Floor((e.a.x+e.b.x)*.5f/80),(int)Mathf.Floor((e.a.z+e.b.z)*.5f/80)))){
+    var vs=new List<Vector3>();var cs=new List<Color>();var ts=new List<int>();
+    void Quad(Vector3 p0,Vector3 p1,Vector3 p2,Vector3 p3,Color c0,Color c1){int i=vs.Count;vs.AddRange(new[]{p0,p1,p2,p3});cs.AddRange(new[]{c0,c0,c1,c1});ts.AddRange(new[]{i,i+1,i+2,i,i+2,i+3,i,i+2,i+1,i,i+3,i+2});}
+    foreach(var e in group){var ca=Color.Lerp(e.c,earth,.3f);Quad(e.a+Vector3.down*.05f,e.b+Vector3.down*.05f,Mid(e.b,e.o),Mid(e.a,e.o),ca,earth);Quad(Mid(e.a,e.o),Mid(e.b,e.o),Far(e.b,e.o),Far(e.a,e.o),earth,hill);
+     // a curtain below the edge too, so no light shows under it
+     Quad(e.a+Vector3.down*.05f,e.b+Vector3.down*.05f,e.b+e.o*2+Vector3.down*20,e.a+e.o*2+Vector3.down*20,ca,earth);
+     foreach(var p in new[]{e.a,e.b}){var l=ends[K(p.x,p.z)];if(l.Count<2)continue;var o2=l.FirstOrDefault(x=>Vector3.Angle(x,e.o)>30);if(o2==Vector3.zero)continue;
+      Quad(p+Vector3.down*.05f,Mid(p,e.o),Mid(p,(e.o+o2).normalized),Mid(p,o2),ca,earth);Quad(Mid(p,e.o),Far(p,e.o),Far(p,(e.o+o2).normalized),Mid(p,(e.o+o2).normalized),earth,hill);Quad(Mid(p,(e.o+o2).normalized),Far(p,(e.o+o2).normalized),Far(p,o2),Mid(p,o2),earth,hill);}}
+    var mesh=new Mesh{name=$"FreeRoamWorld world edge apron {chunkNo}"};mesh.SetVertices(vs);mesh.SetColors(cs);mesh.SetTriangles(ts,0);mesh.SetUVs(1,Enumerable.Repeat(Vector4.zero,vs.Count).ToList());mesh.RecalculateNormals();mesh.RecalculateBounds();
+    AssetDatabase.CreateAsset(mesh,$"{AssetDir}/{mesh.name}.asset");
+    var go=new GameObject("Ground_Edge apron "+chunkNo,typeof(MeshFilter),typeof(MeshRenderer),typeof(MeshCollider));go.transform.SetParent(sroot.transform,false);go.GetComponent<MeshFilter>().sharedMesh=mesh;go.GetComponent<MeshRenderer>().sharedMaterial=mat;go.GetComponent<MeshCollider>().sharedMesh=mesh;go.isStatic=true;chunkNo++;}
+   log.Add($"annex aprons: {edges.Count} open ground edges at x >= 790, {chunkNo} pieces");
+   EditorSceneManager.MarkSceneDirty(scene);EditorSceneManager.SaveScene(scene);AssetDatabase.SaveAssets();Directory.CreateDirectory(Out);File.WriteAllLines(Out+"/fix2.txt",log);EditorApplication.Exit(0);
+  }catch(Exception e){log.Add("FAILED "+e);Directory.CreateDirectory(Out);File.WriteAllLines(Out+"/fix2.txt",log);EditorApplication.Exit(1);}
+ }
+ // 0.95 third pass: the dry pits joined to the lake hollow beyond 80 m (the one in front of Dan's BUG-004 view, the channel
+ // south of the lake) are filled to just above the water (78.1 m): a flood from the lake's edge through ground under 78.05 m,
+ // up to 110 m from the centre, never into a road's or trail's band; trees on the filled ground go.
+ public static void Fix3(){
+  var log=new List<string>();
+  try{
+   var scene=EditorSceneManager.OpenScene(Scene);Physics.SyncTransforms();var roots=scene.GetRootGameObjects();var loop=roots.First(g=>g.name=="Memory loop - north is +Z").transform;
+   var lakeObj=GameObject.Find("Friend's lake - visible shoreline").transform;float surface=lakeObj.GetComponent<Racer.ShallowWater>().Surface,target=surface+.08f;
+   var lanes=new List<(Vector3 p,float hw)>();
+   foreach(var r in roots.SelectMany(g=>g.GetComponentsInChildren<Racer.RaceRoad>(true)).Where(r=>r.points!=null&&r.points.Length>1)){r.Initialize();for(float s=0;s<r.Length;s+=1.5f){var p=r.At(s,out _);if(Flat(p,Lake)<125)lanes.Add((p,r.HalfWidth(s)));}}
+   foreach(var w in roots.SelectMany(g=>g.GetComponentsInChildren<Racer.WoodlandRoute>(true)).Where(w=>w.points!=null&&w.points.Length>1)){w.Initialize();for(float s=0;s<w.Length;s+=1.5f){var p=w.At(s,out _);if(Flat(p,Lake)<125)lanes.Add((p,w.halfWidth));}}
+   bool InLane(Vector3 w)=>lanes.Any(l=>Flat(w,l.p)<l.hw+3);
+   var y=new Dictionary<(int,int),float>();
+   foreach(Transform t in loop){var mf=t.GetComponent<MeshFilter>();if(!mf||!t.name.StartsWith("Ground_")||!mf.sharedMesh)continue;var m=t.localToWorldMatrix;foreach(var v in mf.sharedMesh.vertices){var w=m.MultiplyPoint3x4(v);if(Flat(w,Lake)<=112&&Mathf.Abs(w.x/2-Mathf.Round(w.x/2))<.01f&&Mathf.Abs(w.z/2-Mathf.Round(w.z/2))<.01f)y[K(w.x,w.z)]=w.y;}}
+   bool Cand((int,int) k){if(!y.TryGetValue(k,out var h)||h>=target-.05f)return false;var w=new Vector3(k.Item1/10f,h,k.Item2/10f);return Flat(w,Lake)<=110&&!InLane(w);}
+   var fill=new HashSet<(int,int)>();var q=new Queue<(int,int)>();
+   foreach(var k in y.Keys){var w=new Vector3(k.Item1/10f,0,k.Item2/10f);float r=Flat(w,Lake);if(r>=78&&r<=86&&Cand(k)){fill.Add(k);q.Enqueue(k);}}
+   int atLimit=0;while(q.Count>0){var k=q.Dequeue();for(int a=-1;a<=1;a++)for(int b=-1;b<=1;b++){var n=(k.Item1+a*20,k.Item2+b*20);if(fill.Contains(n)||!Cand(n))continue;fill.Add(n);q.Enqueue(n);}}
+   foreach(var k in fill)if(Flat(new Vector3(k.Item1/10f,0,k.Item2/10f),Lake)>106)atLimit++;
+   var delta=new Dictionary<(int,int),float>();foreach(var k in fill)delta[k]=target-y[k];
+   log.Add($"flood fill: {fill.Count} ground vertices raised to {target:F2} m (up to {(delta.Count>0?delta.Values.Max():0):F2} m); {atLimit} of them beyond 106 m (at the limit)");
+   foreach(Transform t in loop){var mf=t.GetComponent<MeshFilter>();if(!mf||!t.name.StartsWith("Ground_")||!mf.sharedMesh)continue;var m=t.localToWorldMatrix;var inv=t.worldToLocalMatrix;var v=mf.sharedMesh.vertices;bool any=false;
+    for(int i=0;i<v.Length;i++){var w=m.MultiplyPoint3x4(v[i]);if(!delta.ContainsKey(K(w.x,w.z)))continue;v[i]=inv.MultiplyPoint3x4(new Vector3(w.x,target,w.z));any=true;}
+    if(!any)continue;var mesh=mf.sharedMesh;string path=AssetDatabase.GetAssetPath(mesh);if(!path.StartsWith(AssetDir)){var copy=UnityEngine.Object.Instantiate(mesh);copy.name="FreeRoamWorld-lake-"+mf.name;AssetDatabase.CreateAsset(copy,$"{AssetDir}/{copy.name}.asset");mesh=copy;mf.sharedMesh=copy;}
+    mesh.vertices=v;mesh.RecalculateNormals();mesh.RecalculateBounds();EditorUtility.SetDirty(mesh);var mc=mf.GetComponent<MeshCollider>();if(mc){mc.sharedMesh=null;mc.sharedMesh=mesh;EditorUtility.SetDirty(mc);}EditorUtility.SetDirty(mf);log.Add($"   {mf.name} ({AssetDatabase.GetAssetPath(mesh)})");}
+   float D(float x,float z){float gx=Mathf.Floor(x/2)*2,gz=Mathf.Floor(z/2)*2,u=(x-gx)/2,w=(z-gz)/2;float Q(float a,float b)=>delta.TryGetValue(K(a,b),out var qq)?qq:0;return Mathf.Lerp(Mathf.Lerp(Q(gx,gz),Q(gx+2,gz),u),Mathf.Lerp(Q(gx,gz+2),Q(gx+2,gz+2),u),w);}
+   var veg=roots.SelectMany(g=>g.GetComponentsInChildren<MeshRenderer>(true)).Where(r=>r.enabled&&(Racer.SceneryTrees.IsOldVegetation(r)||Mountain(r))&&r.bounds.SqrDistance(Lake)<125*125).ToList();
+   foreach(var r in veg){var mf=r.GetComponent<MeshFilter>();var mesh=mf.sharedMesh;var v=mesh.vertices;var t=mesh.triangles;var m=r.transform.localToWorldMatrix;
+    var parent=Enumerable.Range(0,v.Length).ToArray();int Find(int i){while(parent[i]!=i){parent[i]=parent[parent[i]];i=parent[i];}return i;}
+    for(int i=0;i<t.Length;i+=3){int a=Find(t[i]),b=Find(t[i+1]),c=Find(t[i+2]);parent[b]=a;parent[Find(c)]=a;}
+    var drop=new HashSet<int>();int removed=0;
+    foreach(var piece in Enumerable.Range(0,v.Length).GroupBy(Find)){var c=piece.Select(i=>m.MultiplyPoint3x4(v[i])).Aggregate(Vector3.zero,(x,yy)=>x+yy)/piece.Count();if(D(c.x,c.z)>.3f){foreach(var i in piece)drop.Add(i);removed++;}}
+    if(removed==0)continue;string path=AssetDatabase.GetAssetPath(mesh);if(!path.StartsWith(AssetDir)){var copy=UnityEngine.Object.Instantiate(mesh);copy.name="FreeRoamWorld-pit-vegetation-"+Path.GetFileNameWithoutExtension(path);AssetDatabase.CreateAsset(copy,$"{AssetDir}/{San(copy.name)}.asset");mesh=copy;mf.sharedMesh=copy;}
+    var tri=new List<int>();for(int i=0;i<t.Length;i+=3)if(!drop.Contains(t[i]))tri.AddRange(new[]{t[i],t[i+1],t[i+2]});mesh.SetTriangles(tri,0);mesh.RecalculateBounds();EditorUtility.SetDirty(mesh);EditorUtility.SetDirty(mf);log.Add($"   {P(r.transform)}: {removed} pieces on the filled ground taken out");}
+   foreach(var c in roots.SelectMany(g=>g.GetComponentsInChildren<Collider>(true)).Where(c=>(c is BoxCollider||c is CapsuleCollider)&&TreeLike(c.name)).ToList()){var b=c.bounds;if(Flat(b.center,Lake)>112||D(b.center.x,b.center.z)<=.3f)continue;log.Add($"   remove {P(c.transform)} at {V(b.center)}");var g=c.gameObject;if(g.GetComponents<Component>().Length==2&&g.transform.childCount==0)UnityEngine.Object.DestroyImmediate(g);else UnityEngine.Object.DestroyImmediate(c);}
+   EditorSceneManager.MarkSceneDirty(scene);EditorSceneManager.SaveScene(scene);AssetDatabase.SaveAssets();Directory.CreateDirectory(Out);File.WriteAllLines(Out+"/fix3.txt",log);EditorApplication.Exit(0);
+  }catch(Exception e){log.Add("FAILED "+e);Directory.CreateDirectory(Out);File.WriteAllLines(Out+"/fix3.txt",log);EditorApplication.Exit(1);}
+ }
  static float OldY(Dictionary<(int,int),float> y,float x,float z){var h=Height(y,x,z);return float.IsNaN(h)?(y.TryGetValue(K(Mathf.Round(x/2)*2,Mathf.Round(z/2)*2),out var q)?q:0):h;}
  static void Write2(List<string> log){Directory.CreateDirectory(Out);File.WriteAllLines(Out+"/creek.txt",log);}
  static bool Near(Dictionary<(int,int),float> d,Vector3 w){for(int a=-1;a<=1;a++)for(int b=-1;b<=1;b++)if(d.ContainsKey(K(w.x+a*2,w.z+b*2)))return true;return false;}
