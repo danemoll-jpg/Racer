@@ -22,7 +22,7 @@ namespace Racer
     // other's half full screen. Player 2 as the AI also runs (and draws cops) but never ends the round.
     public sealed class GetawayChase : MonoBehaviour
     {
-        public const float SightRange = 120, SightRangeHard = 120, NearCops = 150, CatchDistance = 10, CatchSpeed = 7, BoxSpeed = 18, ContactSpeed = 22, PinDistance = 14, PinSpeed = 99, HeldSpeed = 15, HeldDistance = 20, RunnerRelease = 3, CopDelay = 2, EndPause = 4, ResetHold = 2, HeatSeconds = 45;
+        public const float SightRange = 120, SightRangeHard = 120, NearCops = 150, CatchDistance = 10, CatchSpeed = 7, BoxSpeed = 18, ContactSpeed = 22, PinDistance = 20, PinSpeed = 99, HeldSpeed = 15, HeldDistance = 20, RunnerRelease = 3, CopDelay = 2, EndPause = 4, ResetHold = 2, HeatSeconds = 45;
         public static GetawayChase Current { get; private set; }
         public enum Phase { Starting, Running, Over, Done }
         public enum Variant { Getaway, CopRunner }
@@ -30,7 +30,7 @@ namespace Racer
         {
             public int player; public ArcadeVehicle car; public bool human; public Rigidbody body;
             public float bust, escape, freeSeconds, endedAt, seenAt = -99, lastSeenAt = -99, offSince = -1, onSince, holdUntil, contactAt = -99, unseenFor, offSeen, lastCallIn = -99, lastRam = -99;
-            public Vector3 lastSeenPos, lastSeenVelocity, offFrom; public int offFromNode = -1;
+            public Vector3 lastSeenPos, lastSeenVelocity, offFrom, prevVel; public int offFromNode = -1;
             public bool seen, offRoad, caught, escaped, wasSeen, heliSees, offBumped; public int topHeat = 1, dodged, blocks, copsChasing; public string outcome = "";
             public readonly HashSet<Cop> near = new(); public readonly HashSet<Roadblock> passedBlocks = new();
             public bool Done => caught || escaped; public bool limit; public System.Action resetHook;
@@ -165,9 +165,17 @@ namespace Racer
                 if (r.car == other)
                 {
                     r.contactAt = Time.time;
-                    if (Mode == Variant.Getaway && Difficulty > 0 && State == Phase.Running && c.relativeVelocity.magnitude > 5 && Time.time - r.lastRam > 6) { r.lastRam = Time.time; BumpHeat("the suspect rammed a unit"); }
+                    if (Mode == Variant.Getaway && Difficulty > 0 && State == Phase.Running && c.relativeVelocity.magnitude > 5 && Time.time - r.lastRam > 6 && r.body && driver.Car && RunnerRammed(r, driver)) { r.lastRam = Time.time; BumpHeat("the suspect rammed a unit"); }
                 }
         }
+
+        // heat goes up only when the runner drove into the cop (the runner closes on the cop faster than the cop closes on the runner), from the velocities before this physics step
+        static bool RunnerRammed(Runner r, CopDriver cop)
+        {
+            var toCop = cop.Car.Body.position - r.body.position; toCop.y = 0; if (toCop.sqrMagnitude < .01f) return false; toCop.Normalize();
+            return Vector3.Dot(r.prevVel, toCop) > Vector3.Dot(cop.PrevVel, -toCop);
+        }
+        void FixedUpdate() { foreach (var r in Runners) if (r.body) r.prevVel = r.body.linearVelocity; }
 
         // ---------- the round ----------
         void Update()
@@ -206,7 +214,8 @@ namespace Racer
                 if (near >= 1 && speed < CatchSpeed) rate = 1f / 3f;
                 else if (near >= 2 && speed < BoxSpeed) rate = 1f / 6f;
                 else if (near >= 1 && Time.time - r.contactAt < .6f && speed < ContactSpeed) rate = 1f / 9f;
-                else if (pin >= 2 && speed < PinSpeed) rate = 1f / 8f;
+                else if (pin >= 2 && speed < PinSpeed) rate = 1f / 6f;
+                else if (near >= 1) rate = 1f / 12f; // a cop glued to the runner's bumper (within 10 m) at any speed: a runner who cannot shake it is caught in about 12 s
                 else if (speed < HeldSpeed && Cops.Any(c => c.car && !c.block && Vector3.Distance(c.car.Body.position, r.body.position) < HeldDistance)) rate = 1f / 6f; // 0.97: held up with a cop on its tail (a jam of cruisers) fills it too // 0.97: two cops hemming the runner in (alongside, ahead or behind) however fast it still goes
                 if (rate > 0) rate *= BustRate[Difficulty];
                 r.bust = Mathf.Clamp01(r.bust + rate * dt);

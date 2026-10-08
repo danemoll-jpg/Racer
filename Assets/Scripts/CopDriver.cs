@@ -10,7 +10,7 @@ namespace Racer
     // the road. With no path it stops. The director (GetawayChase) chooses the paths and the roles.
     public sealed class CopDriver : MonoBehaviour
     {
-        public ArcadeVehicle Car; public RaceDirector Race; public RoadNet Net; public GetawayChase Boss; public PoliceLights Lights;
+        public Vector3 PrevVel; public ArcadeVehicle Car; public RaceDirector Race; public RoadNet Net; public GetawayChase Boss; public PoliceLights Lights;
         public float SpeedFactor = 1, Catchup = 1, BaseTop = 0, Boost = 1; // 0.97: Car.topSpeed = BaseTop (the runner's vehicle's) x Boost (catch-up, up to 1.3)
         public enum Task { Idle, Chase, Flank, Cutoff, Search, Edge, Exit, Block }
         public Task Role = Task.Idle; public string Label => Role.ToString();
@@ -75,6 +75,7 @@ namespace Racer
 
         void FixedUpdate()
         {
+            if (Car && Car.Body) PrevVel = Car.Body.linearVelocity;
             if (!Car || !Race || !Race.Flow) return;
             Car.enabled = false; if (BaseTop > 0) Car.topSpeed = BaseTop * Mathf.Clamp(Boost, 1f, 1.3f);
             if (Race.Flow.State != RaceFlow.Stage.Racing || Frozen) { Car.Body.isKinematic = true; return; }
