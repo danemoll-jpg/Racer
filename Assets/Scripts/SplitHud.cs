@@ -64,13 +64,14 @@ namespace Racer
             bool one = SplitScreen.OneView; // 0.95 Part B: a solo Police Chase: player 1's HUD on the whole screen, no divider
             for (int i = 0; i < 2; i++)
             {
+                bool watched = SplitScreen.Watching == i + 1;
                 foreach (var r in new[] { halves[i].root, halves[i].captionRoot })
                 {
-                    r.anchorMin = one ? Vector2.zero : leftRight ? new Vector2(i * .5f, 0) : new Vector2(0, i == 0 ? .5f : 0);
-                    r.anchorMax = one ? Vector2.one : leftRight ? new Vector2(i * .5f + .5f, 1) : new Vector2(1, i == 0 ? 1 : .5f);
+                    r.anchorMin = one || watched ? Vector2.zero : leftRight ? new Vector2(i * .5f, 0) : new Vector2(0, i == 0 ? .5f : 0);
+                    r.anchorMax = one || watched ? Vector2.one : leftRight ? new Vector2(i * .5f + .5f, 1) : new Vector2(1, i == 0 ? 1 : .5f);
                     r.offsetMin = r.offsetMax = Vector2.zero;
                 }
-                var map = (RectTransform)halves[i].map.transform.parent.parent; map.localScale = Vector3.one * (one ? 1 : .78f);
+                var map = (RectTransform)halves[i].map.transform.parent.parent; map.localScale = Vector3.one * (one || watched ? 1 : .78f);
             }
             var d = (RectTransform)divider.transform;
             d.anchorMin = leftRight ? new Vector2(.5f, 0) : new Vector2(0, .5f); d.anchorMax = leftRight ? new Vector2(.5f, 1) : new Vector2(1, .5f);
@@ -80,7 +81,7 @@ namespace Racer
         {
             if (!flow || !split) return;
             var race = flow.Race; bool driving = !flow.MenuVisible;
-            divider.SetActive(!SplitScreen.OneView); divider.transform.SetAsLastSibling();
+            divider.SetActive(!SplitScreen.OneView && SplitScreen.Watching == 0); divider.transform.SetAsLastSibling();
             if (flow.State == RaceFlow.Stage.Racing && lastStage == RaceFlow.Stage.Countdown) goUntil = Time.unscaledTime + 1.5f;
             lastStage = flow.State;
             if (SplitRoam.Current) { Roam(driving); return; }
@@ -117,18 +118,27 @@ namespace Racer
         // results, the speed and the minimap; the centre shows the chase's start, GO and the round's end.
         void Roam(bool driving)
         {
-            var race = flow.Race; var roam = SplitRoam.Current; var police = PoliceChase.Current; var patrol = SpeedPatrol.Current;
+            var race = flow.Race; var roam = SplitRoam.Current; var police = PoliceChase.Current; var patrol = SpeedPatrol.Current; var getaway = GetawayChase.Current;
             for (int i = 0; i < 2; i++)
             {
                 var h = halves[i]; int player = i + 1; var car = i == 0 ? race.vehicle : split.P2Car; var other = i == 0 ? split.P2Car : race.vehicle;
-                bool one = SplitScreen.OneView; if (one && i == 1) car = null; // 0.95 Part B: one view (the AI has no half)
+                bool one = SplitScreen.OneView; if (one && i == 1) car = null; if (SplitScreen.Watching != 0 && SplitScreen.Watching != player) car = null; var runner = getaway != null ? getaway.RunnerOf(player) : null; if (getaway != null && (runner == null || !runner.human)) car = null; // 0.95 Part B: one view (the AI has no half)
                 h.root.gameObject.SetActive(driving && car); h.captionRoot.gameObject.SetActive(false); h.gridPanel.SetActive(false); h.gapsPanel.SetActive(false);
                 if (!car || !driving) continue;
                 h.map.Focus = car;
                 var cam = i == 0 ? Camera.main : split.Camera2;
                 h.tag.text = one ? "" : (i == 0 ? "PLAYER 1 · " : "PLAYER 2 · ") + SplitScreen.NameOf(player);
                 var lines = new System.Collections.Generic.List<string>();
-                if (police)
+                if (getaway != null && runner != null)
+                {
+                    bool ga = getaway.Mode == GetawayChase.Variant.Getaway;
+                    lines.Add($"<b>{(ga ? "GETAWAY" : "<color=#FFC747>RUNNER</color>")}</b>   {RaceHud.FormatTime(getaway.Clock).Substring(0, 5)} / {getaway.Limit / 60:0}:00" + (ga ? $"   HEAT <color=#FFC747>{getaway.HeatBars}</color>" : ""));
+                    lines.Add($"COPS  <b>{runner.copsChasing}</b> on you   ·   {getaway.Cops.Count(c => !c.block)} out");
+                    if (ga) { int e = Mathf.RoundToInt(runner.escape * 10); lines.Add("ESCAPE  <color=#7FFFB0>" + new string('■', e) + "</color><color=#5A6066>" + new string('■', 10 - e) + "</color>" + (runner.seen ? "   <color=#FF5A4A>SEEN</color>" : "   <color=#9CFFB0>hidden</color>")); }
+                    int b = Mathf.RoundToInt(runner.bust * 10); lines.Add("BUST  <color=#FF5A4A>" + new string('■', b) + "</color><color=#5A6066>" + new string('■', 10 - b) + "</color>");
+                    if (getaway.Radio != "") lines.Add("<color=#7FB2FF>RADIO</color>  " + getaway.Radio);
+                }
+                else if (police)
                 {
                     bool cop = police.Cop == player;
                     lines.Add($"<b>{(cop ? "<color=#7FB2FF>COP</color>" : "<color=#FFC747>RUNNER</color>")}</b>   round {police.Round + 1}/{police.Rounds}   {RaceHud.FormatTime(police.Clock).Substring(0, 5)} / {police.Limit / 60:0}:00");
@@ -147,15 +157,23 @@ namespace Racer
                     }
                 }
                 else lines.Add("<b>FREE ROAM</b>");
-                if (other) lines.Add(SplitRoam.Toward(car.transform, cam ? cam.transform : car.transform, other ? other.transform : null, SplitScreen.NameOf(3 - player)));
+                if (other && getaway == null) lines.Add(SplitRoam.Toward(car.transform, cam ? cam.transform : car.transform, other ? other.transform : null, SplitScreen.NameOf(3 - player)));
                 var acts = i == 0 ? flow.Activities : roam.Activities2; string hud = acts ? acts.Hud : "";
                 if (hud.Contains("> Activities")) hud = hud.Split('\n')[0]; // timed attempts are single-player only (no Activities in the split-screen pause menu)
                 h.info.text = string.Join("\n", lines); h.info.fontSize = 19;
                 ((RectTransform)h.infoPanel.transform).sizeDelta = new Vector2(330, 22 + 25 * lines.Count);
+                if (getaway != null && !SplitScreen.OneView && h.map) { var mp = (RectTransform)h.map.transform.parent.parent; mp.anchorMin = mp.anchorMax = mp.pivot = new Vector2(1, 0); mp.anchoredPosition = new Vector2(-14, 78); } // a half view: the map sits above the speed, clear of the chase panel
                 h.speed.text = $"{DisplayUnits.Mph(Mathf.Abs(car.ForwardSpeed)):0} <size=16>mph</size>";
                 string centre = "";
                 var respawn = car.GetComponent<VehicleRespawn>();
-                if (police)
+                if (getaway != null && runner != null)
+                {
+                    if (getaway.State == GetawayChase.Phase.Starting) centre = getaway.Clock <= 0 ? "<size=26>YOU ARE THE RUNNER</size>\nget away!" : getaway.Clock < 1.5f ? "GO!" : "";
+                    else if (runner.caught) centre = "<color=#FF5A4A>CAUGHT!</color>\n<size=22>" + RaceHud.FormatTime(runner.freeSeconds) + "</size>";
+                    else if (runner.escaped) centre = "<color=#7FFFB0>" + (runner.limit ? "TIME UP: ESCAPED" : "ESCAPED!") + "</color>\n<size=22>" + RaceHud.FormatTime(runner.freeSeconds) + "</size>";
+                    else if (getaway.Holds(car)) centre = "<size=22>Reset: held for 2 s</size>";
+                }
+                else if (police)
                 {
                     bool cop = police.Cop == player; float t = police.Clock;
                     if (police.State == PoliceChase.Phase.Starting) centre = police.Clock <= 0 ? (cop ? "<size=26>YOU ARE THE COP</size>\nwait for the runner" : "<size=26>YOU ARE THE RUNNER</size>\nget away!") : cop ? $"GO IN {Mathf.CeilToInt(PoliceChase.CopDelay - t)}" : (t < 1.5f ? "GO!" : "");

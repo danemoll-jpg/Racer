@@ -140,19 +140,20 @@ namespace Racer
         bool pickReady1, pickReady2; int pickFocus = 1; // with the AI as player 2: the half player 1 is choosing
         readonly Dictionary<InputDevice, float> pickRepeat = new();
         // 0.95 Part B: runnerOnly = a solo Police Chase: only the AI runner's vehicle is chosen (player 1 drives the patrol car)
-        bool pickRunnerOnly;
-        void OpenSplitPick(bool runnerOnly = false) { pickRunnerOnly = runnerOnly; pickReady1 = runnerOnly; pickReady2 = false; pickFocus = runnerOnly ? 2 : 1; Navigate("split-garage"); }
+        bool pickRunnerOnly, pickPlayerOne;
+        void OpenSplitPick(bool runnerOnly = false, int only = 0) { pickRunnerOnly = runnerOnly; pickPlayerOne = only == 1; pickReady1 = runnerOnly; pickReady2 = pickPlayerOne; pickFocus = runnerOnly ? 2 : 1; Navigate("split-garage"); }
         void RenderSplitPick()
         {
             bool ai = SplitScreen.P2Ai || SplitScreen.P2Device == null;
-            if (pickRunnerOnly) ClearCore("POLICE CHASE · THE RUNNER'S VEHICLE", "The AI runs from you in this vehicle: left / right the vehicle, up / down the colour, A when done. B goes back.");
+            if (pickPlayerOne) ClearCore("POLICE CHASE · YOUR VEHICLE", "You run in this vehicle: left / right the vehicle, up / down the colour, A when done. B goes back.");
+            else if (pickRunnerOnly) ClearCore("POLICE CHASE · THE RUNNER'S VEHICLE", "The AI runs from you in this vehicle: left / right the vehicle, up / down the colour, A when done. B goes back.");
             else ClearCore(SplitScreen.Mode == SplitScreen.Kind.Police ? "POLICE CHASE · THE RUNNERS' VEHICLES" : "SPLIT SCREEN · VEHICLES", ai
                 ? "Player 1 chooses both vehicles: left / right the vehicle, up / down the colour, A when done (then the AI's). B goes back."
                 : "Each player on their own device: left / right the vehicle, up / down the colour, A when ready. Both ready returns to the setup.");
             details.fontSize = 18; details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight = 54;
             var halves = LaterGroup("Players' garages", content, true, 430); halves.SetSiblingIndex(1);
             var layout = halves.GetComponent<UnityEngine.UI.HorizontalLayoutGroup>(); layout.spacing = 16; layout.childForceExpandWidth = true;
-            for (int player = pickRunnerOnly ? 2 : 1; player <= 2; player++)
+            for (int player = pickRunnerOnly ? 2 : 1; player <= (pickPlayerOne ? 1 : 2); player++)
             {
                 int who = player; string id = who == 1 ? SplitScreen.P1Vehicle : SplitScreen.P2Vehicle; int colour = who == 1 ? SplitScreen.P1Color : SplitScreen.P2Color; var p = VehicleProfile.Find(id);
                 bool ready = who == 1 ? pickReady1 : pickReady2; bool focused = !ai || pickFocus == who;

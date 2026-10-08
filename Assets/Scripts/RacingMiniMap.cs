@@ -183,6 +183,12 @@ namespace Racer
             }
             // 0.95 Part G: Speed Patrol: the clocked speeders (red)
             if (roam && SpeedPatrol.Current) foreach (var m in SpeedPatrol.Current.ClockedMarks) { var p = Project(m); if (!bounds.Contains(p)) continue; Diamond(vh, p, 7, new(.03f,.06f,.08f)); Diamond(vh, p, 5, new Color(1, .2f, .15f)); }
+            // 0.96 Part E: Getaway: the cops that can see the runner (red) and the ones that cannot (dim); the exits they cover (yellow rings)
+            if (roam && GetawayChase.Current)
+            {
+                foreach (var (pos, sees) in GetawayChase.Current.CopMarks) { var p = Project(pos); if (!bounds.Contains(p)) continue; Diamond(vh, p, sees ? 7.5f : 6, new(.03f,.06f,.08f)); Diamond(vh, p, sees ? 5.5f : 4, sees ? new Color(1, .16f, .12f) : new Color(.45f, .2f, .2f, .85f)); }
+                foreach (var e in GetawayChase.Current.ExitPoints) { var p = Project(e); if (!bounds.Contains(p)) continue; Diamond(vh, p, 7, new Color(1, .85f, .2f)); Diamond(vh, p, 4, new(.03f,.06f,.08f)); }
+            }
             // 0.94 Part B: split-screen Free Roam: the other player in their colour, kept at the rim when further away
             if (roam && Split && SplitScreen.Race && SplitScreen.Race.P2Car)
             {

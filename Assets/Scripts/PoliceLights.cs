@@ -9,6 +9,7 @@ namespace Racer
     public sealed class PoliceLights : MonoBehaviour
     {
         public bool Siren;
+        public bool Silent; // 0.96: lights only (the AI cops further from the runner)
         public Transform Target;
         public float Volume = .55f;
         Renderer[] red, blue; Light redLight, blueLight; AudioSource source; MaterialPropertyBlock block;
@@ -59,7 +60,7 @@ namespace Racer
             if (redLight) redLight.intensity = r ? 3.5f : 0; if (blueLight) blueLight.intensity = b ? 3.5f : 0;
             if (!source) return;
             float near = Target ? 1 - Mathf.InverseLerp(15, 250, Vector3.Distance(transform.position, Target.position)) : 1;
-            float want = Siren && !AudioListener.pause ? Volume * Mathf.Lerp(.25f, 1, near) : 0;
+            float want = Siren && !Silent && !AudioListener.pause ? Volume * Mathf.Lerp(.25f, 1, near) : 0;
             source.volume = Mathf.MoveTowards(source.volume, want, Time.unscaledDeltaTime * 2);
             if (source.volume > 0 && !source.isPlaying) source.Play(); else if (source.volume <= 0 && source.isPlaying) source.Stop();
         }

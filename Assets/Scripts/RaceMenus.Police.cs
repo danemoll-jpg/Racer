@@ -36,10 +36,12 @@ namespace Racer
         void RenderPolice()
         {
             if (SplitScreen.PoliceGame == SplitScreen.Game.SpeedPatrol) { RenderPatrolSetup(); return; } // 0.95 Part G
+            if (SplitScreen.PoliceGame == SplitScreen.Game.Getaway) { RenderGetawaySetup(); return; } // 0.96 Part E
             bool solo = SplitScreen.Solo; SplitScreen.Mode = SplitScreen.Kind.Police; SplitScreen.P2Ai = solo;
-            if (solo) { SplitScreen.SoloRole = 1; SplitScreen.CopFirst = 1; } // the runner needs the chasing AI (coming later)
+            if (solo) SplitScreen.CopFirst = SplitScreen.SoloRole == 2 ? 2 : 1; // 0.96: the Runner role works now (the AI is the cop)
+            bool runnerRole = solo && SplitScreen.SoloRole == 2;
             ClearCore("POLICE CHASE", (solo
-                ? "One player against the AI on the full screen. You keep your role for the one round."
+                ? (runnerRole ? "One player against an AI cop on the full screen. You run: stay free until the clock runs out. You keep your role for the one round." : "One player against the AI on the full screen. You keep your role for the one round.")
                 : "Two players, split-screen: one is the cop in the patrol car, the other runs; then the roles swap.")
                 + "\nNothing is recorded." + (SplitScreen.FromRoam ? "  Afterwards you go back to Free Roam." : ""));
             details.fontSize = 18; details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight = 54;
@@ -48,7 +50,7 @@ namespace Racer
             if (solo)
             {
                 // Part A: one role, kept; the runner role is greyed until the chasing AI exists
-                Step(n++, "police-role", "Your role:   Cop   ·   Runner: coming later (the AI as the cop)", d => { flow.Notify("Runner against an AI cop is coming later: for now you are the cop", 3); flow.Click(); });
+                Step(n++, "police-role", "Your role:   " + (runnerRole ? "Runner   (the AI is the cop)" : "Cop   (the AI runs)"), d => { SplitScreen.SoloRole = 3 - SplitScreen.SoloRole; flow.Click(); Show(); });
             }
             else
             {
@@ -65,14 +67,14 @@ namespace Racer
                 Step(n++, "police-cop", "Cop first:   " + SplitScreen.NameOf(SplitScreen.CopFirst) + "   (then the roles swap)", d => { SplitScreen.CopFirst = 3 - SplitScreen.CopFirst; flow.Click(); Show(); });
             }
             // the runner's vehicle in the garage view; the patrol car shown turning with its stat bars
-            Row(n, "police-vehicles", solo ? "RUNNER'S VEHICLE…   (the AI runs in it)" : "RUNNERS' VEHICLES…   (each player's garage)", () => OpenSplitPick(solo)); int vehiclesRow = n++;
+            Row(n, "police-vehicles", solo ? (runnerRole ? "YOUR VEHICLE…   (you run in it)" : "RUNNER'S VEHICLE…   (the AI runs in it)") : "RUNNERS' VEHICLES…   (each player's garage)", () => OpenSplitPick(solo && !runnerRole, runnerRole ? 1 : 0)); int vehiclesRow = n++;
             var strip = PreviewStrip("Police Chase vehicles", buttons[vehiclesRow].transform.GetSiblingIndex() + 1, 170);
             PreviewCard(strip, VehicleProfile.Police, -1, false, "The cop: Patrol Car", new Color(.5f, .7f, 1), 250);
             var stats = Rect("Patrol car stats", strip); stats.gameObject.AddComponent<UnityEngine.UI.LayoutElement>().preferredWidth = 230;
             var v = stats.gameObject.AddComponent<UnityEngine.UI.VerticalLayoutGroup>(); v.padding = new RectOffset(4, 4, 14, 4); v.spacing = 4; v.childControlWidth = v.childControlHeight = true; v.childForceExpandHeight = false;
             StatBars(stats, VehicleProfile.Police);
             string Vehicle(string id) { var p = VehicleProfile.Find(id); return $"{p.Name} ({p.Class})"; }
-            PreviewCard(strip, VehicleProfile.Find(SplitScreen.P2Vehicle), SplitScreen.P2Color, false, (solo ? "The runner (AI): " : SplitScreen.NameOf(2) + " runs in: ") + Vehicle(SplitScreen.P2Vehicle), new Color(1, .74f, .25f), solo ? 250 : 200);
+            PreviewCard(strip, runnerRole ? VehicleProfile.Find(SplitScreen.P1Vehicle) : VehicleProfile.Find(SplitScreen.P2Vehicle), runnerRole ? SplitScreen.P1Color : SplitScreen.P2Color, false, (solo ? (runnerRole ? "You run in: " : "The runner (AI): ") : SplitScreen.NameOf(2) + " runs in: ") + Vehicle(runnerRole ? SplitScreen.P1Vehicle : SplitScreen.P2Vehicle), new Color(1, .74f, .25f), solo ? 250 : 200);
             if (!solo) PreviewCard(strip, VehicleProfile.Find(SplitScreen.P1Vehicle), SplitScreen.P1Color, false, SplitScreen.NameOf(1) + " runs in: " + Vehicle(SplitScreen.P1Vehicle), new Color(.3f, .95f, .81f), 200);
             var order = RacePlaylists.DisplayOrder.ToArray();
             Step(n++, "split-course", "Start at:   " + RacePlaylists.Titles[SplitScreen.Course].Replace(" - ", " — "), d => { int i = System.Array.IndexOf(order, SplitScreen.Course); SplitScreen.Course = order[((i < 0 ? 0 : i) + d + order.Length) % order.Length]; flow.Click(); Show(); });
@@ -80,6 +82,7 @@ namespace Racer
             Step(n++, "split-time", "Time of day:   " + SplitScreen.Time, d => { int i = System.Array.IndexOf(times, SplitScreen.Time); SplitScreen.Time = times[((i < 0 ? 1 : i) + d + times.Length) % times.Length]; flow.Click(); Show(); });
             Step(n++, "split-weather", "Weather:   " + SplitScreen.Weather, d => { SplitScreen.Weather = (Weather)(((int)SplitScreen.Weather + d + 3) % 3); flow.Click(); Show(); });
             Toggle(n++, "split-traffic", "Traffic", SplitScreen.Traffic, () => { SplitScreen.Traffic = !SplitScreen.Traffic; flow.Click(); Show(); });
+            if (runnerRole) Step(n++, "police-difficulty", "Difficulty:   " + new[] { "Easy", "Normal", "Hard" }[SplitScreen.PoliceDifficulty], d => { SplitScreen.PoliceDifficulty = Mathf.Clamp(SplitScreen.PoliceDifficulty + d, 0, 2); flow.Click(); Show(); });
             int[] limits = { 3, 5, 8 };
             Step(n++, "police-limit", "Round limit:   " + SplitScreen.PoliceMinutes + " minutes", d => { int i = System.Array.IndexOf(limits, SplitScreen.PoliceMinutes); SplitScreen.PoliceMinutes = limits[Mathf.Clamp((i < 0 ? 1 : i) + d, 0, 2)]; flow.Click(); Show(); });
             if (!solo) Step(n++, "split-layout", "Screen:   " + (SplitScreen.LeftRight ? "Left / right" : "Top / bottom (player 1 on top)"), d => { flow.Save.Settings.splitLeftRight = !flow.Save.Settings.splitLeftRight; flow.Save.SaveSettings(); flow.Click(); Show(); });

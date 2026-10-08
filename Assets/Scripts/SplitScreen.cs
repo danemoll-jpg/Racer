@@ -39,7 +39,11 @@ namespace Racer
         // 1 = cop, 2 = runner (the runner needs the chasing AI: coming later). FromRoam: started from inside Free Roam, so the
         // menu after it goes back to Free Roam (at RoamReturn's start).
         // 0.95 Part G: the Police Chase game: cop vs runner, or Speed Patrol (everyone a cop catching speeders for points)
-        public enum Game { CopRunner, SpeedPatrol }
+        public enum Game { CopRunner, SpeedPatrol, Getaway }
+        // 0.96 Part E: Getaway (every human a runner, AI cops) and the solo Runner role; difficulty 0 Easy / 1 Normal / 2 Hard; the second
+        // player of a two-player Getaway may be the AI (it runs too); Watching = a caught player's half is gone, this player's fills the screen
+        public static int PoliceDifficulty = 1, Watching; public static bool P2AiRunner;
+        public static bool AiCops => Mode == Kind.Police && (PoliceGame == Game.Getaway || (PoliceGame == Game.CopRunner && Solo && SoloRole == 2));
         public static Game PoliceGame = Game.CopRunner;
         public static bool Solo = true, FromRoam; public static int SoloRole = 1, RoamReturn;
         public static bool OneView => Active && Solo && Mode == Kind.Police;
@@ -100,7 +104,7 @@ namespace Racer
                 race.opponents = false; race.traffic = Traffic;
                 var c1 = race.vehicle.GetComponent<VehicleConfiguration>(); c1.Apply(P1Vehicle); c1.SetBodyColor(P1Color);
                 flow.gameObject.AddComponent<SplitRoam>().Initialize(flow);
-                if (Mode == Kind.Police) { if (Solo) P2Ai = true; if (PoliceGame == Game.SpeedPatrol) { race.traffic = true; flow.gameObject.AddComponent<SpeedPatrol>().Initialize(flow); } else { if (P2Ai) CopFirst = SoloRole == 2 ? 2 : 1; flow.gameObject.AddComponent<PoliceChase>().Initialize(flow); } }
+                if (Mode == Kind.Police) { if (Solo) P2Ai = true; else if (PoliceGame == Game.Getaway && P2AiRunner) P2Ai = true; Watching = 0; if (AiCops) { race.traffic = Traffic; flow.gameObject.AddComponent<GetawayChase>().Initialize(flow); } else if (PoliceGame == Game.SpeedPatrol) { race.traffic = true; flow.gameObject.AddComponent<SpeedPatrol>().Initialize(flow); } else { if (P2Ai) CopFirst = SoloRole == 2 ? 2 : 1; flow.gameObject.AddComponent<PoliceChase>().Initialize(flow); } }
                 Race = flow.gameObject.AddComponent<SplitRace>(); Race.Initialize(flow); return;
             }
             // 0.92 Part F: player 2's vehicle is the first rival slot; the AI rivals follow it
@@ -111,7 +115,7 @@ namespace Racer
         public static void End()
         {
             if (Race) { Race.Teardown(); Object.Destroy(Race); }
-            if (PoliceChase.Current) Object.Destroy(PoliceChase.Current); if (SpeedPatrol.Current) Object.Destroy(SpeedPatrol.Current); if (SplitRoam.Current) { SplitRoam.Current.Clear(); Object.Destroy(SplitRoam.Current); }
+            if (GetawayChase.Current) Object.Destroy(GetawayChase.Current); Watching = 0; if (PoliceChase.Current) Object.Destroy(PoliceChase.Current); if (SpeedPatrol.Current) Object.Destroy(SpeedPatrol.Current); if (SplitRoam.Current) { SplitRoam.Current.Clear(); Object.Destroy(SplitRoam.Current); }
             Race = null; Active = false; PendingStart = false; Views.Clear();
         }
         // The positions of every split-screen view (the scenery's near detail follows each of them); empty when not split.
@@ -148,6 +152,14 @@ namespace Racer
         // RaceDirector.RestartRace: player 2's vehicle is the one rival slot; make it player 2's (or leave the AI driving).
         public void PlayerTwo()
         {
+            if (SplitRoam.Current && race.FreeRoam && GetawayChase.Current)
+            {
+                // 0.96 Part E: the runners in their own vehicles (player 2 may be the AI); the cops are the director's
+                var chase = GetawayChase.Current; chase.ApplyPlayerOne(); finished1 = finished2 = false;
+                if (SplitScreen.Solo) { P2Car = null; P2 = null; hud.Layout(false); }
+                else { P2Car = SplitRoam.Current.CreatePlayerTwo(chase.VehicleFor(2), SplitScreen.P2Color); P2 = null; if (!P2Car.GetComponent<VehicleAudio>()) P2Car.gameObject.AddComponent<VehicleAudio>(); EndShot(1); EndShot(2); Cameras(); }
+                chase.BeginRound(); return;
+            }
             if (SplitRoam.Current && race.FreeRoam && SpeedPatrol.Current)
             {
                 // 0.95 Part G: Speed Patrol: player 1 (and player 2 with two players, in the second livery) in a patrol car
@@ -211,6 +223,15 @@ namespace Racer
             views2 = CameraViews.AttachSecond(flow, cam2, chase2, P2Car); if (CameraViews.Current) CameraViews.Current.Player = 1;
             // the wide top / bottom halves: the camera tips down a little in long flights so the landing stays in view
             float tilt = lr || one ? 0 : 9; cam1.GetComponent<ChaseCamera>().flightTilt = tilt; chase2.flightTilt = tilt;
+            hud.Layout(lr); ApplyWatching();
+        }
+        // 0.96 Part E: a caught runner's half goes; the other player's view fills the screen until the round ends
+        public void ApplyWatching()
+        {
+            int w = SplitScreen.Watching; if (!cam1 || !cam2) return; bool lr = SplitScreen.LeftRight;
+            if (w == 0) { cam1.rect = SplitScreen.OneView ? rect1 : lr ? new Rect(0, 0, .5f, 1) : new Rect(0, .5f, 1, .5f); cam2.rect = lr ? new Rect(.5f, 0, .5f, 1) : new Rect(0, 0, 1, .5f); cam2.enabled = !SplitScreen.OneView; cam1.cullingMask = mask1 & ~(1 << View2Layer); }
+            else if (w == 1) { cam1.rect = new Rect(0, 0, 1, 1); cam2.enabled = false; }
+            else { cam2.rect = new Rect(0, 0, 1, 1); cam2.depth = cam1.depth + 1; cam1.cullingMask = 0; cam1.rect = new Rect(0, 0, 1, 1); cam2.enabled = true; }
             hud.Layout(lr);
         }
         void Update()

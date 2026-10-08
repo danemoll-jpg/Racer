@@ -9,7 +9,7 @@ namespace Racer
     // catches, fastest speeder caught, penalties, and the Speed Patrol Top 10 for that round length.
     public sealed partial class RaceMenus
     {
-        void GameRow(int n) => Step(n, "police-game", "Game:   " + (SplitScreen.PoliceGame == SplitScreen.Game.SpeedPatrol ? "Speed Patrol   (catch speeders for points)" : "Cop vs Runner"), d => { SplitScreen.PoliceGame = SplitScreen.PoliceGame == SplitScreen.Game.SpeedPatrol ? SplitScreen.Game.CopRunner : SplitScreen.Game.SpeedPatrol; flow.Click(); Show(); });
+        void GameRow(int n) => Step(n, "police-game", "Game:   " + (SplitScreen.PoliceGame == SplitScreen.Game.SpeedPatrol ? "Speed Patrol   (catch speeders for points)" : SplitScreen.PoliceGame == SplitScreen.Game.Getaway ? "Getaway   (you run; the cops are AI)" : "Cop vs Runner"), d => { SplitScreen.PoliceGame = (SplitScreen.Game)(((int)SplitScreen.PoliceGame + d + 3) % 3); flow.Click(); Show(); });
         void RenderPatrolSetup()
         {
             bool solo = SplitScreen.Solo; SplitScreen.Mode = SplitScreen.Kind.Police; SplitScreen.P2Ai = solo;

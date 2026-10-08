@@ -44,6 +44,9 @@ namespace Racer
                     SplitScreen.Rivals = int.Parse(Arg("-splitRivals", "0")); SplitScreen.Traffic = Array.IndexOf(Environment.GetCommandLineArgs(), "-splitTraffic") >= 0;
                     // 0.94 Part B: -splitMode roam: Free Roam for two from the course's start (both vehicles cruise the roads)
                     SplitScreen.Mode = Arg("-splitMode", "race") == "roam" ? SplitScreen.Kind.FreeRoam : SplitScreen.Kind.Race;
+                    // 0.96 Part E: -splitMode getaway (two runners, the AI as player 2) / getaway1 (one runner): AI cops, heat forced to 5 (six cops)
+                    string benchMode = Arg("-splitMode", "race"); bool getaway = benchMode == "getaway" || benchMode == "getaway1";
+                    if (getaway) { SplitScreen.Mode = SplitScreen.Kind.Police; SplitScreen.PoliceGame = SplitScreen.Game.Getaway; SplitScreen.Solo = benchMode == "getaway1"; SplitScreen.P2AiRunner = !SplitScreen.Solo; SplitScreen.P2Ai = true; SplitScreen.PoliceDifficulty = 1; SplitScreen.PoliceMinutes = 8; SplitScreen.Traffic = true; }
                     flow.StartSplit(); yield return null;
                     t0 = Time.realtimeSinceStartup;
                     while ((flow = FindAnyObjectByType<RaceFlow>()) == null || !flow.Started || LoadingScreen.Holding || flow.State != RaceFlow.Stage.Racing) { yield return null; if (Time.realtimeSinceStartup - t0 > 120) break; }
@@ -51,10 +54,12 @@ namespace Racer
                     // player 1 driven by the race AI too, so both views move through the course
                     var race = flow.Race; var car = race.vehicle; car.GetComponent<VehicleInput>().enabled = false;
                     var pilot = car.gameObject.AddComponent<RoadDriver>();
+                    if (getaway && GetawayChase.Current) typeof(GetawayChase).GetProperty("Heat").SetValue(GetawayChase.Current, 5);
                     if (race.FreeRoam) { pilot.Initialize(race, car, false, -1, 1.2f); var road = pilot.DriveRoad; float s = road.Project(car.Body.position, out _); pilot.Place(s, road.TrafficLane(s, -1)); }
                     else { pilot.Initialize(race, car, true, 1, 1); pilot.Racer = race.Racers[0]; }
-                    var gpu = new List<float>(); var frames = new List<float>(); var ft = new FrameTiming[1]; t0 = Time.unscaledTime;
-                    while (Time.unscaledTime - t0 < 40 && flow.State == RaceFlow.Stage.Racing)
+                    var gpu = new List<float>(); var frames = new List<float>(); var ft = new FrameTiming[1]; t0 = Time.unscaledTime; float benchSeconds = getaway ? 70 : 40;
+                    if (getaway) { float warm = Time.unscaledTime; while (Time.unscaledTime - warm < 30 && flow.State == RaceFlow.Stage.Racing) yield return null; t0 = Time.unscaledTime; benchSeconds = 40; } // the cops join one by one: measure with them all out
+                    while (Time.unscaledTime - t0 < benchSeconds && flow.State == RaceFlow.Stage.Racing)
                     {
                         yield return null; frames.Add(Time.unscaledDeltaTime);
                         FrameTimingManager.CaptureFrameTimings(); if (FrameTimingManager.GetLatestTimings(1, ft) > 0 && ft[0].gpuFrameTime > 0) gpu.Add((float)ft[0].gpuFrameTime);
@@ -62,6 +67,7 @@ namespace Racer
                     gpu.Sort(); frames.Sort();
                     float med = gpu.Count > 0 ? gpu[gpu.Count / 2] : float.NaN, p95 = gpu.Count > 0 ? gpu[(int)(gpu.Count * .95f)] : float.NaN, worst = gpu.Count > 0 ? gpu[gpu.Count - 1] : float.NaN;
                     rows.Add($"SPLIT {SplitScreen.Mode} {RacePlaylists.Titles[course]} {(leftRight ? "left/right" : "top/bottom")} {SplitScreen.Time}/{SplitScreen.Weather} rivals {SplitScreen.Rivals} traffic {SplitScreen.Traffic} ({race.Racers.Count} racers, {FindObjectsByType<AmbientVehicle>(FindObjectsSortMode.None).Length} traffic cars): GPU median {med:F2} ms (95th {p95:F2}, max {worst:F2}) = {1000 / med:F0} fps median, {1000 / p95:F0} fps 95th; wall-clock median {frames[frames.Count / 2] * 1000:F2} ms; {gpu.Count} frames");
+                    if (getaway && GetawayChase.Current) rows.Add($"  getaway: {GetawayChase.Current.Cops.Count} cops, heat {GetawayChase.Current.Heat}, runners {GetawayChase.Current.Runners.Count}, state {GetawayChase.Current.State}");
                     ScreenCapture.CaptureScreenshot(Path.Combine(outDir, $"split-{course}-{(leftRight ? "lr" : "tb")}-{SplitScreen.Time}-{SplitScreen.Weather}.png"));
                     yield return null; yield return null;
                     if (race.FreeRoam && SplitScreen.Race && SplitScreen.Race.Camera2)

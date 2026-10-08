@@ -16,7 +16,7 @@ namespace Racer {
 //  screens96  the medal displays: campaign screen and event page, results, Free Roam prompt, Activities menu, Records
 //  chapters96 each chapter's new order; a fresh campaign's first events; Dan's copy and an old save in progress keep what they had open
 public sealed partial class Report080Checks {
- IEnumerator Run096(string[] a)=>a[0] switch{"events96"=>Events096(),"screens96"=>Screens096(),"chapters96"=>Chapters096(),"practice96"=>Practice096(a[1],a[2]),"look96"=>Look096(a[1],a[2],a.Length>3?a[3]:"day"),"culprit96"=>Culprit096(a[1],a[2]),"aijump96"=>AiJump096(a[1],int.Parse(a[2]),int.Parse(a[3])),_=>Run095(a)};
+ IEnumerator Run096(string[] a)=>a[0] switch{"events96"=>Events096(),"screens96"=>Screens096(),"chapters96"=>Chapters096(),"practice96"=>Practice096(a[1],a[2]),"look96"=>Look096(a[1],a[2],a.Length>3?a[3]:"day"),"culprit96"=>Culprit096(a[1],a[2]),"getaway96"=>Getaway096(a[1],a[2],int.Parse(a[3])),"getawaysetup96"=>GetawaySetup096(),"aijump96"=>AiJump096(a[1],int.Parse(a[2]),int.Parse(a[3])),_=>Run095(a)};
  string Sel096=>EventSystem.current&&EventSystem.current.currentSelectedGameObject?EventSystem.current.currentSelectedGameObject.name:"";
  IEnumerator Banner096(float seconds){float t0=Time.realtimeSinceStartup;while(Time.realtimeSinceStartup-t0<seconds&&(CampaignEventUi.Current==null||CampaignEventUi.Current.BannerShown==""))yield return null;}
  IEnumerator Chapters096(){

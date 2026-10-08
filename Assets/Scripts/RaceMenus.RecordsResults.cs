@@ -108,6 +108,7 @@ namespace Racer
         void RenderResults()
         {
             if(CampaignRun.Active!=null){RenderCampaignResults();return;}
+            if(SplitScreen.Active&&GetawayChase.Current){RenderGetawayResults();return;} // 0.96 Part E
             if(SplitScreen.Active&&PoliceChase.Current){RenderPoliceResults();return;} // 0.94 Part C
             if(SplitScreen.Active&&SpeedPatrol.Current){RenderPatrolResults();return;} // 0.95 Part G
             if(SplitScreen.Active){RenderSplitResults();return;}
