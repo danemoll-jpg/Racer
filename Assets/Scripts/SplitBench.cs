@@ -24,6 +24,8 @@ namespace Racer
             var g = new GameObject("Split-screen bench"); DontDestroyOnLoad(g); g.AddComponent<SplitBench>().outDir = a[i + 1];
         }
         static string Arg(string key, string fallback) { var a = Environment.GetCommandLineArgs(); int i = Array.IndexOf(a, key); return i >= 0 && i + 1 < a.Length ? a[i + 1] : fallback; }
+        // 0.97: the bench measures with the whole chase running, so the AI runners are neither caught nor escaped
+        static void HoldFree() { var g = GetawayChase.Current; if (g == null) return; foreach (var r in g.Runners) { r.bust = 0; r.escape = 0; } }
         IEnumerator Start()
         {
             Directory.CreateDirectory(outDir); AudioListener.volume = 0;
@@ -58,10 +60,10 @@ namespace Racer
                     if (race.FreeRoam) { pilot.Initialize(race, car, false, -1, 1.2f); var road = pilot.DriveRoad; float s = road.Project(car.Body.position, out _); pilot.Place(s, road.TrafficLane(s, -1)); }
                     else { pilot.Initialize(race, car, true, 1, 1); pilot.Racer = race.Racers[0]; }
                     var gpu = new List<float>(); var frames = new List<float>(); var ft = new FrameTiming[1]; t0 = Time.unscaledTime; float benchSeconds = getaway ? 70 : 40;
-                    if (getaway) { float warm = Time.unscaledTime; while (Time.unscaledTime - warm < 30 && flow.State == RaceFlow.Stage.Racing) yield return null; t0 = Time.unscaledTime; benchSeconds = 40; } // the cops join one by one: measure with them all out
+                    if (getaway) { float warm = Time.unscaledTime; while (Time.unscaledTime - warm < 30 && flow.State == RaceFlow.Stage.Racing) { HoldFree(); yield return null; } t0 = Time.unscaledTime; benchSeconds = 40; } // the cops join one by one: measure with them all out
                     while (Time.unscaledTime - t0 < benchSeconds && flow.State == RaceFlow.Stage.Racing)
                     {
-                        yield return null; frames.Add(Time.unscaledDeltaTime);
+                        if (getaway) HoldFree(); yield return null; frames.Add(Time.unscaledDeltaTime);
                         FrameTimingManager.CaptureFrameTimings(); if (FrameTimingManager.GetLatestTimings(1, ft) > 0 && ft[0].gpuFrameTime > 0) gpu.Add((float)ft[0].gpuFrameTime);
                     }
                     gpu.Sort(); frames.Sort();
