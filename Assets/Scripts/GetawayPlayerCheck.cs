@@ -53,16 +53,16 @@ namespace Racer
                 {
                     var names = Enumerable.Range(0, g.Net.Roads.Count).Select(i => g.Net.RoadNames[i]).Distinct().OrderByDescending(n => n.Length).Take(2).ToArray();
                     string longest = $"4 units posted at the exits near {names[0]} and {names[1]}"; var say = typeof(GetawayChase).GetMethod("Say", BindingFlags.NonPublic | BindingFlags.Instance);
-                    say.Invoke(g, new object[] { longest, 0 }); typeof(GetawayChase).GetMethod("BumpHeat").Invoke(g, new object[] { "more units on the way" }); say.Invoke(g, new object[] { longest, 0 });
-                    yield return new WaitForSecondsRealtime(.6f); Note($"radio line ({longest.Length} characters): {longest}; screen {Screen.width}x{Screen.height}"); yield return Snap("radio-" + (two ? "split" : "full"));
+                    typeof(GetawayChase).GetMethod("BumpHeat").Invoke(g, new object[] { "more units on the way" }); yield return new WaitForSecondsRealtime(.3f); say.Invoke(g, new object[] { longest, 0 });
+                    yield return new WaitForSecondsRealtime(.3f); say.Invoke(g, new object[] { longest, 0 }); yield return null; Note($"radio line ({longest.Length} characters): {longest}; screen {Screen.width}x{Screen.height}"); yield return Snap("radio-" + (two ? "split" : "full"));
                     flow.QuitSplit(false); yield return new WaitForSecondsRealtime(3); continue;
                 }
                 var pilot = car.gameObject.AddComponent<RoadDriver>(); pilot.Initialize(race, car, false, 1, kind == "roadhalf" ? .8f : 2f); car.GetComponent<VehicleInput>().enabled = false;
                 var csv = new StringBuilder("t,heat,alert,cops,near150,near600,nearest,runnerSpeed,seen,escape,bust,heli,heliDist,heliOnScreen,heliLOS,heliAudio,heliVol,radio\n"); var cam = Camera.main;
-                int lastHeat = 1; float next = 0, heliAt = -1, seqNext = -1; int seq = 0, maxNear = 0; var heatAt = new Dictionary<int, float> { { 1, 0 } }; int radioSeen = 0; var shots = new HashSet<int>(); float real0 = Time.realtimeSinceStartup;
-                while (g.State != GetawayChase.Phase.Over && g.State != GetawayChase.Phase.Done && flow.State == RaceFlow.Stage.Racing && Time.realtimeSinceStartup - real0 < minutes * 60 + 30)
+                bool hold = Arg("-gcHold", "0") == "1"; int lastHeat = 1; float next = 0, heliAt = -1, seqNext = -1; int seq = 0, maxNear = 0; var heatAt = new Dictionary<int, float> { { 1, 0 } }; int radioSeen = 0; var shots = new HashSet<int>(); float real0 = Time.realtimeSinceStartup;
+                while (g.State != GetawayChase.Phase.Over && g.State != GetawayChase.Phase.Done && flow.State == RaceFlow.Stage.Racing && Time.realtimeSinceStartup - real0 < (hold ? 150 : minutes * 60 + 30))
                 {
-                    yield return null;
+                    yield return null; if (hold) { runner.bust = 0; runner.escape = 0; }
                     if (g.Heat != lastHeat) { lastHeat = g.Heat; heatAt[g.Heat] = g.Clock; Note($"[{g.Clock:F0}s] HEAT {g.Heat}: alert '{g.Alert}', cops {g.Cops.Count(c => !c.block)}"); if (g.Heat >= 2 && shots.Add(g.Heat)) { yield return new WaitForSecondsRealtime(.4f); yield return Snap($"{kind}-heat{g.Heat}-alert"); } }
                     if (g.Heli && heliAt < 0) { heliAt = g.Clock; seqNext = Time.realtimeSinceStartup + 2f; Note($"[{g.Clock:F0}s] HELICOPTER spawned at {g.Heli.transform.position}, {Vector3.Distance(g.Heli.transform.position, runner.body.position):F0} m from the runner"); }
                     if (g.Heli && seq < 5 && Time.realtimeSinceStartup >= seqNext) { seq++; seqNext = Time.realtimeSinceStartup + 1.5f; yield return Snap($"{kind}-heli-seq{seq}"); }

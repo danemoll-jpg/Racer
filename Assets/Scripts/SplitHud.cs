@@ -144,7 +144,7 @@ namespace Racer
                     lines.Add($"<b>{(ga ? "GETAWAY" : "<color=#FFC747>RUNNER</color>")}</b>   {RaceHud.FormatTime(getaway.Clock).Substring(0, 5)} / {getaway.Limit / 60:0}:00");
                     lines.Add($"COPS  <b>{runner.copsChasing}</b> on you   ·   {getaway.Cops.Count(c => !c.block)} out");
                     if (ga && !runner.seen) { int e = Mathf.RoundToInt(runner.escape * 10); lines.Add("ESCAPE  <color=#7FFFB0>" + new string('■', e) + "</color><color=#5A6066>" + new string('■', 10 - e) + "</color>   <color=#9CFFB0>hidden</color>"); } // 0.98: only while unseen
-                    else if (ga) lines.Add("<color=#FF5A4A>SEEN</color>   hide to start the escape meter");
+                    else if (ga) lines.Add("<color=#FF5A4A>SEEN</color>   get out of sight");
                     if (ga && getaway.Heli) lines.Add("AIR  " + (runner.heliSees ? "<color=#FF5A4A>helicopter has you</color>" : "<color=#FFC747>helicopter overhead</color>"));
                     int b = Mathf.RoundToInt(runner.bust * 10); lines.Add("BUST  <color=#FF5A4A>" + new string('■', b) + "</color><color=#5A6066>" + new string('■', 10 - b) + "</color>");
                 }
