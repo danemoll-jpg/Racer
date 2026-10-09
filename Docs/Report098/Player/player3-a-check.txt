@@ -1,0 +1,6 @@
+screen=3840x2160 gpu=NVIDIA GeForce GTX 1660 Ti kind=roadhalf vehicle=original
+start: 2 cops, nearest 68 m behind, sirens True, state Starting
+[0s] radio: Dispatch: unit in pursuit, runner on the road
+[2s] radio: Lost visual. Last seen near S Cherokee speed trap
+[20s] radio: Dan is in custody
+roadhalf original: CAUGHT at 20 s, top heat 1, heat reached at [H1@0s], helicopter never, most cops within 600 m 2

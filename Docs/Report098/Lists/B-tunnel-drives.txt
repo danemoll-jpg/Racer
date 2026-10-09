@@ -1,0 +1,25 @@
+---- tunnel98:moto:1:day
+drain path: 45 points from 179.0,66.42,80.7 to 71.0,37.96,-66.5, lowest 30.7
+PASS moto down the storm drain, day: reached the far end in 18.5 s, resets 0, stuck 0 s, lowest up 0.81, slowest 8.1 m/s, end at 74.4,42.61,-68.0
+---- tunnel98:moto:-1:day
+drain path: 45 points from 71.0,37.96,-66.5 to 179.0,66.42,80.7, lowest 30.7
+PASS moto up the storm drain, day: reached the far end in 18.2 s, resets 0, stuck 0 s, lowest up 0.74, slowest 7.6 m/s, end at 176.2,66.32,78.3
+---- tunnel98:original:1:day
+drain path: 45 points from 179.0,66.42,80.7 to 71.0,37.96,-66.5, lowest 30.7
+PASS original down the storm drain, day: reached the far end in 21.5 s, resets 0, stuck 0 s, lowest up 0.70, slowest 5.7 m/s, end at 74.2,39.69,-68.5
+---- tunnel98:original:-1:day
+drain path: 45 points from 71.0,37.96,-66.5 to 179.0,66.42,80.7, lowest 30.7
+PASS original up the storm drain, day: reached the far end in 21.0 s, resets 0, stuck 0 s, lowest up 0.95, slowest 6.8 m/s, end at 176.2,66.32,78.4
+---- tunnel98:moto:1:night
+drain path: 45 points from 179.0,66.42,80.7 to 71.0,37.96,-66.5, lowest 30.7
+PASS moto down the storm drain, night: reached the far end in 18.5 s, resets 0, stuck 0 s, lowest up 0.81, slowest 8.1 m/s, end at 74.4,42.61,-68.0
+---- tunnel98:moto:-1:night
+drain path: 45 points from 71.0,37.96,-66.5 to 179.0,66.42,80.7, lowest 30.7
+PASS moto up the storm drain, night: reached the far end in 18.1 s, resets 0, stuck 0 s, lowest up 0.75, slowest 7.6 m/s, end at 176.2,66.32,78.3
+---- tunnel98:original:1:night
+drain path: 45 points from 179.0,66.42,80.7 to 71.0,37.96,-66.5, lowest 30.7
+PASS original down the storm drain, night: reached the far end in 21.5 s, resets 0, stuck 0 s, lowest up 0.70, slowest 5.7 m/s, end at 74.2,39.69,-68.5
+---- tunnel98:original:-1:night
+drain path: 45 points from 71.0,37.96,-66.5 to 179.0,66.42,80.7, lowest 30.7
+PASS original up the storm drain, night: reached the far end in 21.0 s, resets 0, stuck 0 s, lowest up 0.95, slowest 6.8 m/s, end at 176.2,66.32,78.4
+done, failures 0

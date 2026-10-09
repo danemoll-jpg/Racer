@@ -1,0 +1,30 @@
+screen=3840x2160 gpu=NVIDIA GeForce GTX 1660 Ti kind=roadfast vehicle=moto
+start: 2 cops, nearest 68 m behind, sirens True, state Starting
+[0s] radio: Dispatch: unit in pursuit, runner on the road
+[2s] radio: Lost visual. Last seen near S Cherokee speed trap
+[7s] radio: 2 units posted at the exits near S Cherokee speed trap and Pool-house jump
+[13s] radio: Suspect off-road heading toward Hwy 92 speed trap
+[13s] radio: 1 unit posted at the exits near S Cherokee speed trap
+[16s] radio: Suspect back on the road near S Cherokee speed trap
+[30s] HEAT 2: alert 'HEAT 2 — backup requested', cops 5
+[30s] radio: Heat 2: more units on the way
+[44s] HEAT 3: alert 'HEAT 3 — roadblocks and more units', cops 5
+[45s] radio: Heat 3: the suspect rammed a unit
+[48s] radio: Roadblock set up on the Street Loop, ahead of the suspect
+[68s] HEAT 4: alert 'HEAT 4 — air support inbound', cops 5
+helicopter material: PrototypeCar / Universal Render Pipeline/Lit supported True
+[69s] HELICOPTER spawned at (559.98, 66.70, -647.66), 205 m from the runner
+[69s] radio: The suspect got through the roadblock
+[69s] radio: Heat 4: the suspect ran the roadblock
+[69s] radio: Air support inbound: eyes on the suspect
+[74s] radio: Lost visual. Last seen near McFadden's
+[75s] radio: 3 units posted at the exits near McFadden's
+[86s] radio: Roadblock set up on the Street Loop, ahead of the suspect
+[89s] radio: Suspect off-road heading toward the Street Loop
+[89s] radio: 2 units posted at the exits near the Street Loop
+[98s] HEAT 5: alert 'HEAT 5 — every unit responding', cops 8
+[99s] radio: Heat 5: more units on the way
+[102s] radio: 2 units posted at the exits near McFadden's
+[110s] radio: Suspect back on the road near McFadden's
+[124s] radio: Roadblock set up on the Street Loop, ahead of the suspect
+roadfast moto:  at 150 s, top heat 5, heat reached at [H1@0s, H2@30s, H3@44s, H4@68s, H5@98s], helicopter spawned at 69 s, most cops within 600 m 10

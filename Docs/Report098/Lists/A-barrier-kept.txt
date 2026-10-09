@@ -1,0 +1,4 @@
+MountainLoop: kept Road closed barrier 4 (road s106), rebuilt facing a driver coming up from Climbing Ridge Cut
+MountainLoop: Road closed barrier 4 now at (789.09,92.40,-127.08) facing 94 (travel direction), width 14.4 m
+MountainLoopReverse: new barrier on the same road at s64 (748.2,86.2,-120.3)
+MountainLoopReverse: Road closed barrier 1 now at (748.16,85.75,-120.27) facing 103 (travel direction), width 14.4 m

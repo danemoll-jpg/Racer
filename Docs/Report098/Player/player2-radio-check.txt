@@ -1,0 +1,5 @@
+screen=3840x2160 gpu=NVIDIA GeForce GTX 1660 Ti kind=radio vehicle=moto
+start: 2 cops, nearest 68 m behind, sirens True, state Starting
+radio line (117 characters): 4 units posted at the exits near Mountain return trails / exploration only and Forward navigation only - no road mesh; screen 3840x2160
+start: 2 cops, nearest 59 m behind, sirens True, state Starting
+radio line (117 characters): 4 units posted at the exits near Mountain return trails / exploration only and Forward navigation only - no road mesh; screen 3840x2160
