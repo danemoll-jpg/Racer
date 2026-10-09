@@ -1,0 +1,3 @@
+MountainLoop strip LeftTrench: s 1650-1850, lateral -50..-6, 3420 cells filled (deepest 44.7 m), 1424 cells left because another route is there
+   cells left for road Summit approach and safe return: 1424
+   mesh MountainLoop-Report099-LeftTrench: 9045 vertices, 7490 triangles, material MountainLoop-earth

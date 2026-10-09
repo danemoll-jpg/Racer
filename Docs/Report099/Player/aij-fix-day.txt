@@ -1,0 +1,13 @@
+screen=1280x720 gpu=NVIDIA GeForce GTX 1660 Ti kind=aijump
+MountainLoop time 0 weather 0: flight 'Homeward Summit Flight' approach 1908 end 2488 lip (980.38, 177.92, 147.27) landing end (730.26, 96.75, 76.27) aiEntrySpeed 29.5 aiTakeoffSpeed 29.5; rivals original,fastback,pebble,tourer
+Dan: out of the window 0.2 s after landing, recoveries during the flight and landing 0, lowest up-vector 0.77, speed 31.5 m/s
+GOLD: out of the window 1.9 s after landing, recoveries during the flight and landing 0, lowest up-vector 0.80, speed 18.9 m/s
+EMBER: out of the window 2.8 s after landing, recoveries during the flight and landing 0, lowest up-vector 0.79, speed 19.1 m/s
+JADE: out of the window 3.3 s after landing, recoveries during the flight and landing 0, lowest up-vector 0.72, speed 17.3 m/s
+BLUE: out of the window 2.8 s after landing, recoveries during the flight and landing 0, lowest up-vector 0.79, speed 19.2 m/s
+Dan (moto): speed at the lip 45.2 m/s (101 mph), took off at 45.2, air 7.96 s, landed at 737,99,74 (station 2482, end 2488), 8 m short of the landing end, recoveries so far 0
+GOLD (fastback): speed at the lip 40.8 m/s (91 mph), took off at 40.8, air 6.96 s, landed at 784,122,87 (station 2428, end 2488), 61 m short of the landing end, recoveries so far 0
+JADE (tourer): speed at the lip 37.3 m/s (83 mph), took off at 37.3, air 5.54 s, landed at 836,159,101 (station 2363, end 2488), 125 m short of the landing end, recoveries so far 0
+EMBER (original): speed at the lip 38.4 m/s (86 mph), took off at 38.4, air 6.10 s, landed at 819,146,97 (station 2384, end 2488), 103 m short of the landing end, recoveries so far 0
+BLUE (pebble): speed at the lip 38.2 m/s (85 mph), took off at 38.2, air 6.06 s, landed at 821,147,97 (station 2382, end 2488), 105 m short of the landing end, recoveries so far 0
+race clock 119s, window done for 5/5

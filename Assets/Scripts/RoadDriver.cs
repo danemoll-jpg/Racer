@@ -281,6 +281,8 @@ namespace Racer
                 var hit = hits[i];
                 if (hit.rigidbody == Car.Body || hit.normal.y > .55f)
                     continue;
+                // 0.99: the summit flight's own run-up and lip are not obstacles: a car's wider sensor read the rising lip face as a wall 20 m ahead and braked from 40 to 26 m/s, landing short
+                if(committedMountain&&!hit.rigidbody&&hit.collider.name.StartsWith("Ground_")&&mountainFlights.At(DriveRoad,s)?.aiEntrySpeed>0)continue;
                 // The ATV's wide sensor can start overlapping its own curved runway.
                 // Confirm a walkable surface beneath us before ignoring that zero-
                 // distance hit; cars, trees and genuine walls remain obstacles.
