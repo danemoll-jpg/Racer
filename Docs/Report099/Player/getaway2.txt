@@ -1,0 +1,39 @@
+screen=1920x1080 gpu=NVIDIA GeForce GTX 1660 Ti kind=getaway
+start: heat 1, cops 2, police, police
+[0s] radio text: Dispatch, unit in pursuit. Suspect on the road.
+   voice: 13.6s R01 2.79s [R01:dan]
+[2s] radio text: Lost visual. Last seen near South Cherokee Lane.
+   voice: 18.2s P01+L12 3.74s [P01:dan,L12:dan]
+[7s] radio text: Units posted at the exits near South Cherokee Lane and the pool house.
+   voice: 23.2s P04+L12+P05+L14 5.91s [P04:dan,L12:dan,P05:dan,L14:dan]
+[12s] radio text: Pull over! Pull over now!
+   voice: 29.3s R17 1.93s [R17:dan]
+[30s] HEAT 2: alert 'HEAT 2 — backup requested'
+[30s] radio text: Backup requested.
+   voice: 46.4s R13 1.26s [R13:dan]
+[53s] radio text: Stop the vehicle!
+   voice: 69.2s R18 1.44s [R18:dan]
+[60s] HEAT 3: alert 'HEAT 3 — roadblocks and more units'
+[61s] radio text: Requesting roadblocks and more units.
+[61s] radio text: Roadblock set up on the Street Loop ahead of the suspect.
+   voice: 76.7s R14 2.73s [R14:dan]
+   voice: 79.7s P06+D02+P07 4.70s [P06:dan,D02:dan,P07:dan]
+[90s] HEAT 4: alert 'HEAT 4 — air support inbound'
+[90s] radio text: Air support inbound. Eyes on the suspect.
+[90s] radio text: Air one, I have the suspect in the light.
+   voice: 106.4s R06 2.32s [R06:dan]
+[92s] radio text: Pull over! Pull over now!
+[92s] radio text: Unit one, joining from the Street Loop.
+   voice: 109.0s R07 2.11s [R07:dan]
+   voice: 111.4s R17 1.93s [R17:dan]
+   voice: 113.6s U1+P08+D02 3.76s [U1:dan,P08:dan,D02:dan]
+[98s] radio text: Roadblock set up on the Street Loop ahead of the suspect.
+   voice: 117.6s P06+D02+P07 4.70s [P06:dan,D02:dan,P07:dan]
+[110s] radio text: Air one, lost them under the trees.
+   voice: 126.7s R08 2.39s [R08:dan]
+six new units at heat 4: police, policebike, police, police, policebike, police
+cops by profile at the end: police 9, policebike 2; police bikes seen 2
+   voice: 135.3s R04 1.53s [R04:dan]
+[118s] radio text: We lost the suspect.
+one processed line written to radio-sample.wav
+15 lines spoken; one clip at a time by construction (queue of 3, a priority line replaces the waiting ones)

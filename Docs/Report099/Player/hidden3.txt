@@ -1,0 +1,16 @@
+screen=1920x1080 gpu=NVIDIA GeForce GTX 1660 Ti kind=hidden
+hiding places: 12 (4 Hwy 92, 4 Street Loop, 2 Trickum Rd, 2 Lake road); active this session: 4 at Trickum Rd (-612, 6, -442) | Street Loop (-12, 31, -460) | Lake road (611, 78, -103) | Hwy 92 (811, 42, 549)
+setting On, difficulty 1
+spot 1 on Trickum Rd at (-612, 6, -442), limit 45 mph
+cop prop exists True, 45 m from the player
+pass UNDER the limit (39 in a 45): chase started = False (expected False)
+off-road start point (-659, 6, -503) found True, 37 m beyond every road
+pass OFF the road at 67 mph: chase started = False (expected False)
+pass OVER the limit (67 in a 45): chase started = True (expected True); flash 'CLOCKED 67 in a 45'; embedded True, heat 1, cops 1
+bust: caught True after 4 s real, banner 'BUSTED', radio 'Suspect in custody.'
+after the bust: chase gone = True, vehicle at (-614, 7, -412), speed 0.0 m/s, 3.1 m beyond the road net, kinematic False, input enabled True, state Racing
+second pass over the limit (54 in a 30): chase = True
+escape: escaped True, banner 'YOU LOST THEM', radio 'Suspect's gone. Back to patrol.'
+after the escape: chase gone = True, cops left in the world 0, vehicle speed 3.8, kinematic False
+setting Off: hidden cop cars standing = 0 (expected 0); a pass at 67 in a 45: chase started = False (expected False)
+PoliceProgress: car earned False, bike earned False

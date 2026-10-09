@@ -82,8 +82,6 @@ namespace Racer
                 default: yield return RunMore99(kind); break;
             }
         }
-        partial void RunMoreHook();
-        IEnumerator RunMore99(string kind) { Note("unknown kind " + kind); yield break; }
 
         IEnumerator Views()
         {

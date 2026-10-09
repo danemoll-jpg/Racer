@@ -249,7 +249,7 @@ namespace Racer
         void Update()
         {
             if(!flow||flow.Save==null)return;
-            source.volume=StartupTitle.SpeechPending?0:flow.Save.Settings.music*.32f*(1-.4f*WeatherEffects.Duck);// 0.76: dips under thunder
+            source.volume=StartupTitle.SpeechPending?0:flow.Save.Settings.music*.32f*(1-.4f*WeatherEffects.Duck)*(1-.45f*PoliceRadioVoice.Duck);// 0.76: dips under thunder; 0.99: and a little while the police radio speaks
             if(scan!=null&&scan.IsCompleted)
             {
                 var result=scan.IsCompletedSuccessfully?scan.Result:new MusicCollection.Result{Error="Scan failed; try another folder"};scan=null;

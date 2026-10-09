@@ -150,7 +150,7 @@ namespace Racer
         // One line: how to get a vehicle the player does not own.
         public static string HowToGet(VehicleProfile p)
         {
-            if (p.Reward) return VehicleUnlocks.LockedText;
+            if (p.Reward) return VehicleUnlocks.LockedTextFor(p);
             int price = Price(p.Id);
             if (price > 0) return ChapterOpen(PriceChapter(p.Id)) ? $"Buy it in the Shop for {Money(price)}" : $"In the Shop from chapter {PriceChapter(p.Id)}: {Money(price)}";
             var prize = PrizeEvent(p.Id); if (prize != null) return $"Prize: pass \"{prize.Name}\" (campaign chapter {prize.Chapter})";

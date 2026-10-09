@@ -1,0 +1,13 @@
+screen=1920x1080 gpu=NVIDIA GeForce GTX 1660 Ti kind=unlocks
+fresh isolated save: car locked True, bike locked True; texts 'Escape the police at heat 3+ (Normal or Hard)' / 'Catch 20 speeders in Speed Patrol (0 / 20)'
+in the garage list: original, moto, atv, fastback, pebble, scrambler, mower; locked silhouettes: police, policebike
+19 catches: bike earned False, text 'Catch 20 speeders in Speed Patrol (19 / 20)'
+20 catches: bike earned True; pending panels police-bike
+panel open: True showing policebike
+patrol car earned before the escape: False
+escape at heat 3 on difficulty 1
+runner escaped True, outcome ESCAPED
+patrol car earned after an escape at heat 3 on Normal: True; pending panels 
+after both: in the garage list original, moto, atv, fastback, pebble, scrambler, mower, police, policebike; locked 
+Race Setup race: player vehicle policebike, rivals original,moto
+bike on its wheels: grounded wheels 4, up 1.00

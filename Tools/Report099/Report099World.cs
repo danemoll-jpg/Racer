@@ -133,3 +133,14 @@ public static class Report099Strip {
    if(!dry){Physics.SyncTransforms();EditorSceneManager.MarkSceneDirty(sc);EditorSceneManager.SaveScene(sc);}}
   Directory.CreateDirectory(Out);File.WriteAllLines(Out+"/strip.txt",log);AssetDatabase.SaveAssets();EditorApplication.Exit(0);}
 }
+public static class Report099Dump {
+ static string Out=>Environment.GetEnvironmentVariable("PROBE_OUT");
+ // the map destinations (the places the radio names) and the race roads' names in each scene
+ public static void Places(){
+  var log=new List<string>();
+  foreach(var scene in Environment.GetEnvironmentVariable("PROBE_SCENES").Split(',')){
+   EditorSceneManager.OpenScene("Assets/Scenes/"+scene+".unity");log.Add("==== "+scene);
+   foreach(var m in UnityEngine.Object.FindObjectsByType<Racer.ExplorationMap>(FindObjectsInactive.Include,FindObjectsSortMode.None))if(m.destinations!=null)foreach(var d in m.destinations)log.Add($"  place '{d.title}' id {d.id} at ({d.position.x:F0},{d.position.y:F0},{d.position.z:F0})");
+   foreach(var r in UnityEngine.Object.FindObjectsByType<Racer.RaceRoad>(FindObjectsInactive.Exclude,FindObjectsSortMode.None))if(r.points!=null&&r.points.Length>3){r.Initialize();log.Add($"  road '{r.name}' length {r.Length:F0} highway {r.openHighway} halfwidth {r.HalfWidth(0):F1}");}}
+  Directory.CreateDirectory(Out);File.WriteAllLines(Out+"/places.txt",log);EditorApplication.Exit(0);}
+}

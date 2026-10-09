@@ -35,7 +35,7 @@ namespace Racer
         public void Initialize(RaceFlow owner) { flow = owner; race = owner.Race; Current = this; Runs.Clear(); Round = 0; }
         void OnDestroy() { if (Current == this) Current = null; }
         public ArcadeVehicle CarOf(int player) => player == 1 ? race.vehicle : SplitRoam.Current ? SplitRoam.Current.Car : null;
-        public string VehicleFor(int player) => player == Cop ? VehicleProfile.Police.Id : player == 1 ? SplitScreen.P1Vehicle : SplitScreen.P2Vehicle;
+        public string VehicleFor(int player) => player == Cop ? SplitScreen.CopVehicle : player == 1 ? SplitScreen.P1Vehicle : SplitScreen.P2Vehicle;
         public bool Holds(ArcadeVehicle car) => held.Contains(car);
         public string Role(int player) => player == Cop ? "COP" : "RUNNER";
 

@@ -47,8 +47,12 @@ namespace Racer
         public RoadNet Net { get; private set; }
         public float Clock { get; private set; }
         public int Heat { get; private set; } = 1;
-        public float Limit => SplitScreen.PoliceMinutes * 60;
-        public int Difficulty => Mathf.Clamp(SplitScreen.PoliceDifficulty, 0, 2);
+        // 0.99 Part D: Embedded = a chase started from inside ordinary Free Roam by a hidden patrol car (HiddenPolice): the one runner is the player's own vehicle
+        // where it is (nothing is moved or held at the start), no round clock but a 5-minute limit that counts as escaped, the difficulty from Settings; when it ends
+        // Free Roam carries on (nothing recorded, no results screen)
+        public bool Embedded { get; private set; } int embeddedDifficulty = 1; public string Banner = ""; public float BannerAt = -99; public const float EmbeddedEndPause = 3.2f;
+        public float Limit => Embedded ? 300 : SplitScreen.PoliceMinutes * 60;
+        public int Difficulty => Embedded ? Mathf.Clamp(embeddedDifficulty, 0, 2) : Mathf.Clamp(SplitScreen.PoliceDifficulty, 0, 2);
         // 0.97: Easy / Normal / Hard change the most cops, the seconds per heat level, the seconds unseen to escape and how fast the
         // bust meter fills; never the cops' speed (every cop has the runner's vehicle's top speed and acceleration).
         public static readonly int[] CopCap = { 4, 6, 6 }; public static readonly float[] HeatEvery = { 45, 30, 20 }; public static readonly float[] EscapeBy = { 20, 30, 40 }; public static readonly float[] BustRate = { .8f, 1f, 1.25f };
@@ -64,7 +68,7 @@ namespace Racer
         public bool IsCop(Rigidbody body) => body && Cops.Any(c => c.car && c.car.Body == body);
 
         public void Initialize(RaceFlow owner) { flow = owner; race = owner.Race; Current = this; }
-        void OnDestroy() { ClearCops(); if (Current == this) Current = null; }
+        void OnDestroy() { ClearCops(); if (Current == this) Current = null; if (Embedded) PoliceProgress.HoldNotices(false); }
         public ArcadeVehicle CarOf(int player) => player == 1 ? race.vehicle : SplitRoam.Current ? SplitRoam.Current.Car : null;
         public string VehicleFor(int player) => player == 1 ? SplitScreen.P1Vehicle : SplitScreen.P2Vehicle;
         public Runner RunnerOf(int player) => Runners.FirstOrDefault(r => r.player == player);
@@ -94,7 +98,7 @@ namespace Racer
                 respawn.Respawned -= r.resetHook; r.resetHook = reset; respawn.Respawned += reset;
                 var lights = r.car.GetComponent<PoliceLights>(); if (lights) Destroy(lights);
             }
-            Clock = 0; Heat = 1; heatClock = 0; nextBlock = 0; nextBackup = 0; nextPrune = 0; Heli = null; HeliSays = false; State = Phase.Starting; phaseAt = Time.time; nextTick = 0; copSerial = 0;
+            Clock = 0; Heat = 1; heatFiveAt = -1; heatFiveSaid = false; heliSaw = false; heliCalm = 0; nextLoud = 20; heatClock = 0; nextBlock = 0; nextBackup = 0; nextPrune = 0; Heli = null; HeliSays = false; State = Phase.Starting; phaseAt = Time.time; nextTick = 0; copSerial = 0;
             // the first cops wait behind the runner (released CopDelay after the runners); the cop count by heat
             int node = Net.Nearest(r1.car.Body.position, out _, 200);
             int want = StartingCops();
@@ -105,7 +109,20 @@ namespace Racer
                 int at = node >= 0 ? Net.Ahead(node, -f, back) : -1;
                 var cop = SpawnCop(at >= 0 ? Net.P[at] : p - f * back, at >= 0 ? TowardsHeading(at, f) : f); if (cop != null) cop.driver.Frozen = true;
             }
-            Alert = Mode == Variant.Getaway ? "HEAT 1 — unit in pursuit" : ""; AlertAt = Time.unscaledTime; Say(Mode == Variant.Getaway ? "Dispatch: unit in pursuit, runner on the road" : "Dispatch: unit on the runner");
+            Alert = Mode == Variant.Getaway ? "HEAT 1 — unit in pursuit" : ""; AlertAt = Time.unscaledTime; if (Mode == Variant.Getaway) Say("R01", 1, true); else SayText("Dispatch: unit on the runner");
+        }
+        // a patrol car pulls out of its hiding place at `at` (the parked car it replaces is already gone) and the chase starts where the player is
+        public static GetawayChase BeginEmbedded(RaceFlow owner, RoadNet net, Vector3 at, Vector3 forward, int difficulty)
+        {
+            var g = owner.gameObject.AddComponent<GetawayChase>(); g.Embedded = true; g.embeddedDifficulty = difficulty; g.Initialize(owner); g.BeginEmbeddedRound(net, at, forward); return g;
+        }
+        void BeginEmbeddedRound(RoadNet net, Vector3 at, Vector3 forward)
+        {
+            ClearCops(); Runners.Clear(); Results.Clear(); RadioLog.Clear(); ExitPoints.Clear(); Mode = Variant.Getaway; Net = net ?? RoadNet.Build(race);
+            var r1 = new Runner { player = 1, car = race.vehicle, human = true, body = race.vehicle.Body }; Runners.Add(r1);
+            Clock = 0; Heat = 1; heatFiveAt = -1; heatFiveSaid = false; heliSaw = false; heliCalm = 0; nextLoud = 25; heatClock = 0; nextBlock = 0; nextBackup = 2; nextPrune = 0; Heli = null; HeliSays = false; State = Phase.Running; phaseAt = Time.time; nextTick = 0; copSerial = 0;
+            var cop = SpawnCop(at, forward); if (cop != null) { cop.driver.Frozen = false; cop.lights.Siren = true; }
+            Alert = "HEAT 1 — unit in pursuit"; AlertAt = Time.unscaledTime; PoliceProgress.HoldNotices(true); Say("H02", 1, true);
         }
         int StartingCops() => Mode == Variant.CopRunner ? 1 : Mathf.Min(MaxCops, 2);
         Vector3 TowardsHeading(int node, Vector3 f) { var t = Net.Tangent(node); return Vector3.Dot(t, f) < 0 ? -t : t; }
@@ -125,8 +142,11 @@ namespace Racer
         void RunnerReset(Runner r) { if (State != Phase.Running || r.Done) return; r.holdUntil = Time.time + ResetHold; Hold(r.car, true); }
 
         // ---------- the cops ----------
-        Cop SpawnCop(Vector3 at, Vector3 forward, bool quiet = false)
+        // 0.99 Part E: from heat 3 one in three new units is a police bike (the Needle 600's handling family; the same road-network driving and speed rules)
+        int newUnits;
+        Cop SpawnCop(Vector3 at, Vector3 forward, bool quiet = false, bool allowBike = true)
         {
+            bool bike = allowBike && Mode == Variant.Getaway && Heat >= 3 && ++newUnits % 3 == 0;
             var clone = Instantiate(race.vehicle.gameObject); clone.name = "COP " + (++copSerial);
             foreach (var c in clone.GetComponents<ActivityLandingContact>()) Destroy(c);
             foreach (var d in clone.GetComponents<RoadDriver>()) { d.enabled = false; Destroy(d); }
@@ -135,7 +155,7 @@ namespace Racer
             var sound = clone.GetComponent<VehicleAudio>(); if (sound) { sound.enabled = false; DestroyImmediate(sound); }
             foreach (var a in clone.GetComponents<AudioSource>()) DestroyImmediate(a);
             var car = clone.GetComponent<ArcadeVehicle>(); var config = clone.GetComponent<VehicleConfiguration>(); config.classicVisual = false;
-            config.Apply(VehicleProfile.Police.Id); config.SetPaint(new Color(.03f, .03f, .035f));
+            config.Apply(bike ? VehicleProfile.PoliceBike.Id : VehicleProfile.Police.Id); config.SetPaint(new Color(.03f, .03f, .035f));
             clone.AddComponent<VehicleAudio>();
             var input = clone.GetComponent<VehicleInput>(); if (input) { input.Bind(null); input.enabled = false; }
             var respawn = clone.GetComponent<VehicleRespawn>(); if (respawn) respawn.enabled = false;
@@ -146,6 +166,23 @@ namespace Racer
             var cop = new Cop { id = copSerial, car = car, driver = driver, lights = lights, bornAt = Time.time };
             driver.Place(at, forward);
             Cops.Add(cop); return cop;
+        }
+        // 0.99 Part D: a parked patrol car for a hiding place: the patrol car model with a driver, lights off, held still (no driver script); the chase's own cop replaces it where it stands
+        public static ArcadeVehicle MakePatrolProp(RaceDirector race, Vector3 at, Vector3 forward)
+        {
+            var clone = Instantiate(race.vehicle.gameObject); clone.name = "HIDDEN COP";
+            foreach (var c in clone.GetComponents<ActivityLandingContact>()) Destroy(c);
+            foreach (var d in clone.GetComponents<RoadDriver>()) { d.enabled = false; Destroy(d); }
+            foreach (var d in clone.GetComponents<CopDriver>()) Destroy(d);
+            foreach (var l in clone.GetComponents<PoliceLights>()) Destroy(l);
+            var sound = clone.GetComponent<VehicleAudio>(); if (sound) { sound.enabled = false; DestroyImmediate(sound); }
+            foreach (var a in clone.GetComponents<AudioSource>()) DestroyImmediate(a);
+            var car = clone.GetComponent<ArcadeVehicle>(); var config = clone.GetComponent<VehicleConfiguration>(); config.classicVisual = false; config.Apply(VehicleProfile.Police.Id); config.SetPaint(new Color(.03f, .03f, .035f));
+            var input = clone.GetComponent<VehicleInput>(); if (input) { input.Bind(null); input.enabled = false; }
+            var respawn = clone.GetComponent<VehicleRespawn>(); if (respawn) respawn.enabled = false;
+            car.enabled = false; clone.AddComponent<PoliceLights>().Siren = false;
+            var rot = Quaternion.LookRotation(forward); clone.transform.SetPositionAndRotation(at + Vector3.up * .5f, rot); car.Body.position = at + Vector3.up * .5f; car.Body.rotation = rot; car.Body.linearVelocity = car.Body.angularVelocity = Vector3.zero; car.Body.isKinematic = true;
+            return car;
         }
         // 0.97: every cop has the top speed and acceleration of the runner's vehicle (the faster of the two when two people run), and at
         // least its grip and braking, whatever the vehicle (the mower included) and on every difficulty
@@ -199,7 +236,7 @@ namespace Racer
                     break;
                 case Phase.Running: RunningUpdate(); break;
                 case Phase.Over:
-                    if (t >= EndPause) Finish();
+                    if (t >= (Embedded ? EmbeddedEndPause : EndPause)) Finish();
                     break;
             }
             foreach (var r in Runners) if (r.holdUntil > 0 && Time.time >= r.holdUntil && !r.Done) { r.holdUntil = 0; Hold(r.car, false); }
@@ -250,6 +287,13 @@ namespace Racer
                 if (Heat >= 4 && !Heli) SpawnHelicopter();
             }
             if (Mode == Variant.Getaway && Time.time >= nextBackup) { nextBackup = Time.time + 4; Backups(); }
+            // 0.99: heat 5 for a while ("still at large"), and now and then a loudspeaker call from a cop close behind
+            if (Mode == Variant.Getaway && Heat >= 5 && heatFiveAt > 0 && !heatFiveSaid && Time.time - heatFiveAt > 25) { heatFiveSaid = true; Say("R12"); }
+            if (Mode == Variant.Getaway && Time.time >= nextLoud)
+            {
+                nextLoud = Time.time + Random.Range(28f, 45f); var lr = Runners.FirstOrDefault(x => !x.Done && x.human);
+                if (lr != null && Cops.Any(c => c.car && !c.block && c.driver.Role == CopDriver.Task.Chase && Vector3.Distance(c.car.Body.position, lr.body.position) < 35)) { loudLast = loudLast == "R17" ? "R18" : "R17"; Say(loudLast); }
+            }
             if (Mode == Variant.Getaway && Heat >= 3 && Time.time >= nextBlock && Blocks.Count < 2) { nextBlock = Time.time + 38; TryRoadblock(); }
             if (Mode == Variant.Getaway && Time.time >= nextPrune) { nextPrune = Time.time + 2; Prune(); }
             UpdateBlocks();
@@ -272,15 +316,34 @@ namespace Racer
         }
         void Finish()
         {
+            if (Embedded) { FinishEmbedded(); return; }
             State = Phase.Done; foreach (var r in Runners) Hold(r.car, false);
             if (Mode == Variant.Getaway) RecordTop10();
             flow.CompleteResults();
+        }
+        // Free Roam carries on: escaped, the cops leave; caught, the vehicle is set at the roadside, stopped. Nothing is recorded.
+        void FinishEmbedded()
+        {
+            State = Phase.Done; var r = Runners.FirstOrDefault();
+            if (r != null && r.caught) SetAtRoadside(r);
+            if (r != null) Hold(r.car, false);
+            HiddenPolice.Ended(r != null && r.caught); PoliceProgress.HoldNotices(false); Destroy(this);
+        }
+        void SetAtRoadside(Runner r)
+        {
+            int node = Net.Nearest(r.body.position, out _, 400); if (node < 0) return;
+            var t = Net.Tangent(node); var right = Vector3.Cross(Vector3.up, t).normalized; float side = Vector3.Dot(r.body.position - Net.P[node], right) >= 0 ? 1 : -1;
+            var at = Net.P[node] + right * side * (Net.Half[node] + 2.6f); at.y += 2; if (Physics.Raycast(at + Vector3.up * 20, Vector3.down, out var hit, 60, ~0, QueryTriggerInteraction.Ignore)) at = hit.point + Vector3.up * .8f;
+            var facing = Quaternion.LookRotation(Vector3.Dot(r.car.transform.forward, t) >= 0 ? t : -t); var respawn = r.car.GetComponent<VehicleRespawn>(); respawn.CancelRecovery();
+            if (!respawn.TryFastTravel(at, facing)) { r.car.Body.position = at; r.car.Body.rotation = facing; r.car.transform.SetPositionAndRotation(at, facing); }
+            r.car.Body.linearVelocity = r.car.Body.angularVelocity = Vector3.zero; r.car.ClearSteering(); FindAnyObjectByType<ChaseCamera>()?.Snap();
         }
         public void Rematch() { flow.StartFreeRoam(); }
         void Caught(Runner r)
         {
             if (r.Done) return; r.caught = true; r.endedAt = Clock; r.freeSeconds = Clock; r.outcome = "CAUGHT"; Hold(r.car, true);
-            Say(r.human ? $"{SplitScreen.NameOf(r.player)} is in custody" : "Suspect in custody");
+            if (r.human) Say(Embedded ? "H04" : "R03", r.player, true); else SayText("Suspect in custody");
+            if (Embedded) { Banner = "BUSTED"; BannerAt = Time.unscaledTime; }
             foreach (var c in Cops) if (c.assigned == r) c.assigned = null;
             CheckWatching();
         }
@@ -294,10 +357,11 @@ namespace Racer
         void Escaped(Runner r, bool limit)
         {
             if (r.Done) return;
-            if (!limit && !r.human) { r.escape = 0; Say("Unit lost the AI runner"); return; } // the AI player 2 never ends the round
+            if (!limit && !r.human) { r.escape = 0; SayText("Unit lost the AI runner"); return; } // the AI player 2 never ends the round
             r.escaped = true; r.limit = limit; r.endedAt = Clock; r.freeSeconds = Clock; r.outcome = "ESCAPED";
-            Say(limit ? "Time: the suspect is gone" : "We lost the suspect");
-            if (!limit) Hold(r.car, true);
+            Say(Embedded ? "H03" : limit ? "R05" : "R04", r.player, true); PoliceProgress.Escaped(this, r);
+            if (!limit && !Embedded) Hold(r.car, true);
+            if (Embedded) { Banner = "YOU LOST THEM"; BannerAt = Time.unscaledTime; }
             CheckWatching();
         }
 
@@ -330,11 +394,12 @@ namespace Racer
                     if (c.sees || (c.assigned == r && c.driver.Role != CopDriver.Task.Idle && d < 220)) chasing++;
                 }
                 r.heliSees = Heli && Heli.Sees(r, nextHeliCheck <= Time.time); if (r.heliSees) { seen = true; chasing++; }
+                if (r.human && Heli && Time.time >= heliCalm) { if (r.heliSees && !heliSaw) { heliSaw = true; heliCalm = Time.time + 20; Say("R07"); } else if (!r.heliSees && heliSaw) { heliSaw = false; heliCalm = Time.time + 20; Say("R08"); } }
                 bool was = r.seen; r.seen = seen; r.copsChasing = chasing; r.wasSeen |= seen;
-                if (seen) { r.lastSeenAt = Time.time; r.lastSeenPos = r.body.position; r.lastSeenVelocity = r.body.linearVelocity; r.unseenFor = 0; if (!was && Time.time - r.seenAt > 4 && r.seenAt > 0 && r.human) Say("Visual on the suspect"); r.seenAt = Time.time; }
+                if (seen) { r.lastSeenAt = Time.time; r.lastSeenPos = r.body.position; r.lastSeenVelocity = r.body.linearVelocity; r.unseenFor = 0; if (!was && Time.time - r.seenAt > 4 && r.seenAt > 0 && r.human) Say("R02"); r.seenAt = Time.time; }
                 else
                 {
-                    r.unseenFor += .2f; if (was && r.human) Say("Lost visual. Last seen near " + Net.PlaceName(race, r.lastSeenPos));
+                    r.unseenFor += .2f; if (was && r.human) Say(new[] { "P01", Place(r.lastSeenPos) });
                     // 0.97: breaking sight is a call-in too: within about 2 s units are posted ahead of the runner's heading
                     if (Mode == Variant.Getaway && r.human && r.wasSeen && r.unseenFor >= 1.6f && Time.time - r.lastCallIn > 14) { ComputeExits(r); CallIn(r); }
                 }
@@ -378,12 +443,24 @@ namespace Racer
             if (r.seen || Time.time - r.lastSeenAt < 6)
             {
                 var ahead = r.body.position + (r.body.linearVelocity.sqrMagnitude > 4 ? r.body.linearVelocity.normalized : r.car.transform.forward) * 260;
-                Say("Suspect off-road heading toward " + Net.PlaceName(race, ahead), r.player);
+                Say(new[] { "P02", Place(ahead) }, r.player);
             }
             ComputeExits(r); if (Mode == Variant.Getaway && r.human) CallIn(r);
         }
-        void BackOnRoad(Runner r) { r.offRoad = false; r.offSince = -1; ExitPoints.Clear(); foreach (var c in Cops) c.exitUnit = false; if (r.seen || Time.time - r.lastSeenAt < 8) Say("Suspect back on the road near " + Net.PlaceName(race, r.body.position), r.player); }
-        void Say(string line, int player = 0) { if (RadioLog.Count > 0 && RadioLog[RadioLog.Count - 1] == line && Time.unscaledTime - radioAt < 8) return; RadioLog.Add(line); if (RadioLog.Count > 30) RadioLog.RemoveAt(0); radioAt = Time.unscaledTime; }
+        void BackOnRoad(Runner r) { r.offRoad = false; r.offSince = -1; ExitPoints.Clear(); foreach (var c in Cops) c.exitUnit = false; if (r.seen || Time.time - r.lastSeenAt < 8) Say(new[] { "P03", Place(r.body.position) }, r.player); }
+        // 0.99: a radio line is the script's IDs (PoliceRadio): the words on screen are built from them and the same IDs are spoken
+        void Say(string[] ids, int player = 0, bool priority = false)
+        {
+            string line = PoliceRadio.TextOf(ids); if (line == "") return;
+            if (RadioLog.Count > 0 && RadioLog[RadioLog.Count - 1] == line && Time.unscaledTime - radioAt < 8) return;
+            RadioLog.Add(line); if (RadioLog.Count > 30) RadioLog.RemoveAt(0); radioAt = Time.unscaledTime; if (Mode == Variant.Getaway || Embedded) PoliceRadio.Speak(ids, priority);
+        }
+        void Say(string id, int player = 0, bool priority = false) => Say(new[] { id }, player, priority);
+        // a line that is not in the script (shown, not spoken)
+        void SayText(string line) { if (RadioLog.Count > 0 && RadioLog[RadioLog.Count - 1] == line && Time.unscaledTime - radioAt < 8) return; RadioLog.Add(line); if (RadioLog.Count > 30) RadioLog.RemoveAt(0); radioAt = Time.unscaledTime; }
+        string Place(Vector3 p) => PoliceRadio.PlaceId(Net, race, p);
+        static string UnitId(int serial) => "U" + (((serial - 1) % 6) + 1);
+        float heatFiveAt = -1, nextLoud = 20, heliCalm; bool heliSaw, heatFiveSaid; string loudLast = "R18";
 
         readonly List<int> exitNodes = new(); readonly Dictionary<Cop, int> exitOf = new();
         // the exits: road points ahead of the runner's heading (road ends and junctions first), nearest first, up to four, 90 m apart
@@ -424,11 +501,12 @@ namespace Racer
                 // parked on the verge, not in the lane: the runner can pass it (and is then chased), it does not make a wall of its own
                 var edge = Vector3.Cross(Vector3.up, t).normalized * Mathf.Max(0, Net.Half[at] - 1.6f) * (Random.value < .5f ? -1 : 1);
                 var cop = SpawnCop(Net.P[at] + edge, t); if (cop == null) continue;
-                cop.exitUnit = true; cop.driver.Frozen = false; cop.driver.Role = CopDriver.Task.Exit; cop.driver.Hold = true; cop.lights.Siren = true; cop.lights.Silent = false; placed++; names.Add(Net.PlaceName(race, Net.P[at]));
+                cop.exitUnit = true; cop.driver.Frozen = false; cop.driver.Role = CopDriver.Task.Exit; cop.driver.Hold = true; cop.lights.Siren = true; cop.lights.Silent = false; placed++; names.Add(Place(Net.P[at]));
             }
             Trace($"{Clock:F0}s call-in: exits {exitNodes.Count}, wanted {want}, placed {names.Count}, already covered {placed - names.Count}, cops now {Cops.Count(c => c.car && !c.block)}");
-            if (names.Count > 0 && r.human) Say($"{names.Count} unit{(names.Count == 1 ? "" : "s")} posted at the exits near {string.Join(" and ", names.Distinct())}", r.player);
-            else if (placed > 0 && r.human) Say($"{placed} unit{(placed == 1 ? "" : "s")} covering the exits", r.player);
+            var named = names.Distinct().Take(2).ToList();
+            if (named.Count > 0 && r.human) Say(named.Count == 1 ? new[] { "P04", named[0] } : new[] { "P04", named[0], "P05", named[1] }, r.player);
+            else if (placed > 0 && r.human) Say("R10", r.player);
         }
         float nextExitRefresh;
         void AssignRoles()
@@ -539,7 +617,7 @@ namespace Racer
             if (fewest < want && Cops.Count(c => c.car && !c.block) < MaxCops + 4)
             {
                 int node = PlaceAhead(r); if (node < 0) return;
-                var cop = SpawnCop(Net.P[node], FaceRunner(node, r)); if (cop != null) { cop.driver.Frozen = false; cop.catching = false; Say($"Unit {cop.id} joining from {Net.RoadName(node)}", r.player); }
+                var cop = SpawnCop(Net.P[node], FaceRunner(node, r)); if (cop != null) { cop.driver.Frozen = false; cop.catching = false; Say(new[] { UnitId(cop.id), "P08", PoliceRadio.RoadId(Net, node) }, r.player); }
                 return;
             }
             // withdraw and re-place a stray
@@ -553,7 +631,7 @@ namespace Racer
                 if (c.farSince < 0) c.farSince = Time.time; if (Time.time - c.farSince < 3) continue;
                 if (Seen(c.car.Body.position)) continue;
                 int node = PlaceAhead(cr); if (node < 0) continue;
-                c.driver.Place(Net.P[node], FaceRunner(node, cr)); c.driver.Stop(); c.farSince = -1; c.catching = false; Say($"Unit {c.id} rejoining from {Net.RoadName(node)}", cr.player);
+                c.driver.Place(Net.P[node], FaceRunner(node, cr)); c.driver.Stop(); c.farSince = -1; c.catching = false; Say(new[] { UnitId(c.id), "P09", PoliceRadio.RoadId(Net, node) }, cr.player);
                 break;
             }
         }
@@ -594,13 +672,15 @@ namespace Racer
             Heat++; foreach (var r in Runners) r.topHeat = Mathf.Max(r.topHeat, Heat);
             string[] says = { "", "", "backup requested", "roadblocks and more units", "air support inbound", "every unit responding" };
             Alert = $"HEAT {Heat} — {says[Heat]}"; AlertAt = Time.unscaledTime; radioAt = -99;
-            Say($"Heat {Heat}: {why}");
+            // 0.99: the heat line is the script's (R13 heat 2, R14 heat 3, R15 heat 5; heat 4 is the helicopter's R06); a ram or cross-country call says that instead
+            if (why.Contains("rammed")) Say("R11", 0, true); else if (why.Contains("cross-country")) Say("R16", 0, true);
+            else if (Heat == 2) Say("R13", 0, true); else if (Heat == 3) Say("R14", 0, true); else if (Heat == 5) { Say("R15", 0, true); heatFiveAt = Time.time; }
         }
         void SpawnHelicopter()
         {
             var r = Runners.FirstOrDefault(x => !x.Done && x.human); if (r == null) return;
             var go = new GameObject("Police helicopter"); Heli = go.AddComponent<PoliceHelicopter>(); Heli.Begin(this, r);
-            Say("Air support inbound: eyes on the suspect");
+            Say("R06", r.player, true);
         }
         // 0.97: is this point in sight of anyone's screen (the main camera, or either split-screen view): inside the frustum within 450 m with a clear line
         // of sight (hills, buildings and trees hide it; cars do not)
@@ -637,11 +717,11 @@ namespace Racer
             {
                 float lateral = centreLane + side * (gap + 2.3f); var at = Net.P[node] + right * lateral;
                 var facing = Quaternion.LookRotation(Quaternion.Euler(0, 90 + Random.Range(-14f, 14f), 0) * tangent);
-                var cop = SpawnCop(at, facing * Vector3.forward); if (cop == null) continue;
+                var cop = SpawnCop(at, facing * Vector3.forward, false, false); if (cop == null) continue;
                 cop.block = true; cop.driver.Role = CopDriver.Task.Block; cop.driver.Frozen = true; cop.car.Body.isKinematic = true; cop.lights.Siren = true; cop.lights.Silent = true;
                 if (side < 0) block.a = cop; else block.b = cop;
             }
-            Blocks.Add(block); Say("Roadblock set up on " + Net.RoadName(node) + ", ahead of the suspect");
+            Blocks.Add(block); Say(new[] { "P06", PoliceRadio.RoadId(Net, node), "P07" });
         }
         void UpdateBlocks()
         {
@@ -654,7 +734,7 @@ namespace Racer
                 {
                     float d = Vector3.Distance(r.body.position, b.centre); b.closest = Mathf.Min(b.closest, d);
                     var along = Vector3.Dot(r.body.position - b.centre, r.body.linearVelocity.normalized);
-                    if (b.closest < 22 && d > 45 && !b.passed && r.bust < .9f) { b.passed = true; r.blocks++; Say("The suspect got through the roadblock"); if (Difficulty > 0) BumpHeat("the suspect ran the roadblock"); }
+                    if (b.closest < 22 && d > 45 && !b.passed && r.bust < .9f) { b.passed = true; r.blocks++; Say("R09"); if (Difficulty > 0) BumpHeat("the suspect ran the roadblock"); }
                     if (b.passed && d > 120) remove = true;
                     if (!remove && d > 420 && Time.time - b.born > 25) remove = true;
                 }

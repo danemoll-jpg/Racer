@@ -46,7 +46,7 @@ namespace Racer
         public static Transform Build(Transform parent,VehicleProfile p,List<Transform> wheels=null,RiderLook look=null,bool classic=false)
         {
             Materials();var root=new GameObject("Vehicle visual").transform;root.SetParent(parent,false);root.gameObject.layer=parent.gameObject.layer;
-            if(NewModels&&!classic&&NewModel(root,wheels,p,look??RiderLook.Player))return root;
+            if(NewModels&&!classic&&NewModel(root,wheels,p,look??RiderLook.Player)){if(p.IsPolice)VehiclePaint.Apply(root,new Color(.03f,.03f,.035f));return root;} // 0.99: police vehicles are black and white in every preview too
             if(p.Small) Bike(root,p);else Car(root,p);
             // Merge fixed parts before adding independently rotating wheels.
             Merge(root);

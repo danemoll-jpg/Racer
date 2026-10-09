@@ -1,0 +1,6 @@
+screen=1920x1080 gpu=NVIDIA GeForce GTX 1660 Ti kind=patrol
+player vehicle profile policebike
+   voice: 13.0s S01 3.81s [S01:dan]
+speeders caught before 0
+   voice: 17.6s S04 2.20s [S04:dan]
+speeders caught after 1; cop line 'Suspect pulled over. Nice work.  +320  (22 mph over)'

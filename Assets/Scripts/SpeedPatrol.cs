@@ -71,7 +71,7 @@ namespace Racer
         // SplitRoam) as patrol cars, held for the start
         public void ApplyPlayerOne()
         {
-            var c = race.vehicle.GetComponent<VehicleConfiguration>(); c.Apply(VehicleProfile.Police.Id); c.SetPaint(new Color(.03f, .03f, .035f));
+            var c = race.vehicle.GetComponent<VehicleConfiguration>(); c.Apply(SplitScreen.CopVehicle); c.SetPaint(new Color(.03f, .03f, .035f));
         }
         public static readonly Color SecondLivery = new(.04f, .09f, .32f);
         public void BeginRound()
@@ -79,6 +79,7 @@ namespace Racer
             foreach (var s in Speeders) Release(s); Speeders.Clear(); Cops.Clear(); GotAway = 0;
             AddCop(1, race.vehicle); if (!SplitScreen.Solo && SplitRoam.Current && SplitRoam.Current.Car) AddCop(2, SplitRoam.Current.Car);
             Clock = 0; State = Phase.Starting; phaseAt = Time.time; nextTraffic = 0;
+            if (Cops.Count > 0) Say(Cops[0], "S01");
             foreach (var c in Cops) { Hold(c.car, true); c.nextSpawn = Time.time + StartPause + Random.Range(5f, 9f) + (c.player - 1) * 4; }
         }
         void AddCop(int player, ArcadeVehicle car)
@@ -117,7 +118,7 @@ namespace Racer
             }
             foreach (var s in Speeders.ToList()) Run(s);
             if (Time.time >= nextTraffic) { nextTraffic = Time.time + .5f; Pace(); }
-            if (State == Phase.Running && Clock >= Limit) { State = Phase.Overtime; overtimeAt = Time.time; foreach (var c in Cops) Say(c, "TIME UP: finish your chase"); }
+            if (State == Phase.Running && Clock >= Limit) { State = Phase.Overtime; overtimeAt = Time.time; foreach (var c in Cops) Say(c, "S08"); }
             if (State == Phase.Overtime && (!Speeders.Any(s => s.pursuit && !s.caught && !s.gone) || Time.time - overtimeAt >= Overtime)) Finish();
         }
         bool Toggle(int player)
@@ -161,7 +162,7 @@ namespace Racer
             if (!target) { c.radar = -1; c.radarOver = false; return; }
             c.radar = Mph(target.Car.Body.linearVelocity.magnitude); c.radarLimit = LimitAt(race, target.Car.Body.position, out _); c.radarOver = c.radar > c.radarLimit + 1;
             var s = SpeederOf(target);
-            if (s != null && !s.clocked && c.radarOver) { s.clocked = true; s.clockedAt = Time.time; s.clockedOver = Mathf.Max(1, Mathf.RoundToInt(c.radar - c.radarLimit)); Say(c, $"CLOCKED  {Mathf.RoundToInt(c.radar)} in a {c.radarLimit}  (+{s.clockedOver})"); c.log.Add($"clocked {s.clockedOver} over"); }
+            if (s != null && !s.clocked && c.radarOver) { s.clocked = true; s.clockedAt = Time.time; s.clockedOver = Mathf.Max(1, Mathf.RoundToInt(c.radar - c.radarLimit)); Say(c, "S02", $"  {Mathf.RoundToInt(c.radar)} in a {c.radarLimit}  (+{s.clockedOver})"); c.log.Add($"clocked {s.clockedOver} over"); }
         }
         // lights on a car that was not speeding: within 20 m for 4 s (not while chasing a speeder close by) costs 25, once a car
         void LightsOnTraffic(Cop c)
@@ -173,7 +174,7 @@ namespace Racer
                 {
                     if (Vector3.Distance(d.Car.Body.position, c.car.Body.position) > MeterRange) continue; var s = SpeederOf(d); if (s != null && s.clocked) continue;
                     near.Add(d); c.lightsOn[d] = (c.lightsOn.TryGetValue(d, out var t) ? t : 0) + Time.deltaTime;
-                    if (c.lightsOn[d] >= NoViolationSeconds && c.penalised.Add(d)) { c.points -= NoViolationPenalty; c.penalties++; c.noViolations++; Say(c, $"−{NoViolationPenalty}  NO VIOLATION"); c.log.Add("no violation"); }
+                    if (c.lightsOn[d] >= NoViolationSeconds && c.penalised.Add(d)) { c.points -= NoViolationPenalty; c.penalties++; c.noViolations++; Say(c, "S07", $"  −{NoViolationPenalty}"); c.log.Add("no violation"); }
                 }
             foreach (var d in c.lightsOn.Keys.ToList()) if (!near.Contains(d)) c.lightsOn.Remove(d);
         }
@@ -183,7 +184,7 @@ namespace Racer
             var car = s.Car; if (!car) { Speeders.Remove(s); return; }
             if (s.caught || s.gone) return;
             if (!s.clocked && Time.time - s.since > GetAwaySeconds) { Release(s); return; } // never clocked: back to ordinary traffic
-            if (s.clocked && !s.pursuit && Cops.Any(c => c.siren && Vector3.Distance(c.car.Body.position, car.Body.position) < PursuitRange)) s.pursuit = true;
+            if (s.clocked && !s.pursuit && Cops.Any(c => c.siren && Vector3.Distance(c.car.Body.position, car.Body.position) < PursuitRange)) s.pursuit = true; if (Cops.Count > 0) Say(Cops[0], "S03");
             if (s.pursuit)
             {
                 float fill = Mathf.Lerp(4, 8, Mathf.InverseLerp(10, 40, s.clockedOver));
@@ -203,13 +204,13 @@ namespace Racer
             }
             // rammed to a stop: a catch at half points
             if (s.rammedAt > 0 && Time.time - s.rammedAt < 3 && car.Body.linearVelocity.magnitude < 2) { Catch(s, CopOf(s.rammedBy), true); return; }
-            if (s.clocked && Time.time - s.clockedAt >= GetAwaySeconds) { s.gone = true; GotAway++; foreach (var c in Cops) Say(c, "A SPEEDER GOT AWAY"); foreach (var c in Cops) c.log.Add("got away"); Release(s); }
+            if (s.clocked && Time.time - s.clockedAt >= GetAwaySeconds) { s.gone = true; GotAway++; foreach (var c in Cops) Say(c, "S05"); foreach (var c in Cops) c.log.Add("got away"); Release(s); }
         }
         void Catch(Speeder s, Cop c, bool rammed)
         {
             if (c == null) return; s.caught = true; s.pursuit = false; s.stoppedUntil = Time.time + 6;
             int points = (CatchPoints + PerMph * s.clockedOver) / (rammed ? 2 : 1); c.points += points; c.catches++; c.fastest = Mathf.Max(c.fastest, s.clockedOver);
-            Say(c, $"+{points}  CAUGHT{(rammed ? " (rammed: half points)" : "")}  ({s.clockedOver} mph over)"); c.log.Add($"caught {s.clockedOver} over{(rammed ? " rammed" : "")}");
+            Say(c, "S04", $"  +{points}{(rammed ? " (rammed: half points)" : "")}  ({s.clockedOver} mph over)"); PoliceProgress.SpeederCaught(c.player); c.log.Add($"caught {s.clockedOver} over{(rammed ? " rammed" : "")}");
             if (s.driver) s.driver.SpeedOverride = 0;
         }
         // PatrolContacts: a cop hit another vehicle
@@ -220,9 +221,14 @@ namespace Racer
             if (c.lastHit.TryGetValue(other, out var t) && Time.time - t < 3) return; c.lastHit[other] = Time.time;
             var s = SpeederOf(other);
             if (s != null && s.clocked && !s.caught) { s.rammedAt = Time.time; s.rammedBy = c.player; return; }
-            c.points -= HitPenalty; c.penalties++; c.hits++; Say(c, $"−{HitPenalty}  HIT TRAFFIC"); c.log.Add("hit traffic");
+            c.points -= HitPenalty; c.penalties++; c.hits++; Say(c, "S06", $"  −{HitPenalty}"); c.log.Add("hit traffic");
         }
-        void Say(Cop c, string line) { c.line = line; c.lineUntil = Time.unscaledTime + 3.5f; }
+        // 0.99 Part F: a radio line is the script's ID (shown with a score note after it, and spoken); S01 opens the round
+        void Say(Cop c, string id, string note = "")
+        {
+            c.line = PoliceRadio.TextOf(id) + note; c.lineUntil = Time.unscaledTime + 3.5f;
+            if (c == Cops[0]) PoliceRadio.Speak(new[] { id }, id == "S04" || id == "S05" || id == "S08"); // one voice for the round, however many cops
+        }
         public IEnumerable<Vector3> ClockedMarks => Speeders.Where(s => s.clocked && !s.caught && !s.gone && s.Car).Select(s => s.Car.transform.position);
         public float MeterFor(int player) => Speeders.Where(s => s.pursuit && !s.caught && !s.gone).Select(s => s.meter[player]).DefaultIfEmpty(0).Max();
 

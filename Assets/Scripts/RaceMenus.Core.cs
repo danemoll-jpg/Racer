@@ -236,7 +236,10 @@ details.gameObject.SetActive(true);
                 // 0.95 Part C: On / Off (a saved Everyone or Players only is On): the campaign's rivals, the other split-screen player
                 Step(10,"name-tags","Name tags:   "+(s.nameTags>0?"On":"Off"),d=>Adjust(()=>s.nameTags=s.nameTags>0?0:2));
                 // 0.97 Part B: rain and snow change how vehicles grip (Off = the 0.95 behaviour)
-                Step(11,"weather-grip","Weather affects grip:   "+(s.weatherGrip?"On":"Off"),d=>Adjust(()=>s.weatherGrip=!s.weatherGrip));}
+                Step(11,"weather-grip","Weather affects grip:   "+(s.weatherGrip?"On":"Off"),d=>Adjust(()=>s.weatherGrip=!s.weatherGrip));
+                // 0.99 Part D: patrol cars hiding beside the roads in Free Roam, and how hard their chase is
+                Step(12,"hidden-police","Hidden police in Free Roam:   "+(s.hiddenPolice?"On":"Off"),d=>Adjust(()=>s.hiddenPolice=!s.hiddenPolice));
+                Step(13,"hidden-police-difficulty","Hidden police difficulty:   "+new[]{"Easy","Normal","Hard"}[Mathf.Clamp(s.hiddenPoliceDifficulty,0,2)],d=>Adjust(()=>s.hiddenPoliceDifficulty=(Mathf.Clamp(s.hiddenPoliceDifficulty,0,2)+(d==0?1:d)+3)%3));}
             if(page=="settings-audio")
             {
                 Step(4,"master",$"Master {s.master:P0}",d=>Adjust(()=>s.master=Mathf.Clamp01(s.master+d*.1f)));

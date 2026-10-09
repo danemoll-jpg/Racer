@@ -64,13 +64,14 @@ namespace Racer
             // the runner's vehicle in the garage view; the patrol car shown turning with its stat bars
             Row(n, "police-vehicles", solo ? (runnerRole ? "YOUR VEHICLE…   (you run in it)" : "RUNNER'S VEHICLE…   (the AI runs in it)") : "RUNNERS' VEHICLES…   (each player's garage)", () => OpenSplitPick(solo && !runnerRole, runnerRole ? 1 : 0)); int vehiclesRow = n++;
             var strip = PreviewStrip("Police Chase vehicles", buttons[vehiclesRow].transform.GetSiblingIndex() + 1, 170);
-            PreviewCard(strip, VehicleProfile.Police, -1, false, "The cop: Patrol Car", new Color(.5f, .7f, 1), 250);
+            PreviewCard(strip, VehicleProfile.Find(SplitScreen.CopVehicle), -1, false, "The cop: " + VehicleProfile.Find(SplitScreen.CopVehicle).Name, new Color(.5f, .7f, 1), 250);
             var stats = Rect("Patrol car stats", strip); stats.gameObject.AddComponent<UnityEngine.UI.LayoutElement>().preferredWidth = 230;
             var v = stats.gameObject.AddComponent<UnityEngine.UI.VerticalLayoutGroup>(); v.padding = new RectOffset(4, 4, 14, 4); v.spacing = 4; v.childControlWidth = v.childControlHeight = true; v.childForceExpandHeight = false;
-            StatBars(stats, VehicleProfile.Police);
+            StatBars(stats, VehicleProfile.Find(SplitScreen.CopVehicle));
             string Vehicle(string id) { var p = VehicleProfile.Find(id); return $"{p.Name} ({p.Class})"; }
             PreviewCard(strip, runnerRole ? VehicleProfile.Find(SplitScreen.P1Vehicle) : VehicleProfile.Find(SplitScreen.P2Vehicle), runnerRole ? SplitScreen.P1Color : SplitScreen.P2Color, false, (solo ? (runnerRole ? "You run in: " : "The runner (AI): ") : SplitScreen.NameOf(2) + " runs in: ") + Vehicle(runnerRole ? SplitScreen.P1Vehicle : SplitScreen.P2Vehicle), new Color(1, .74f, .25f), solo ? 250 : 200);
             if (!solo) PreviewCard(strip, VehicleProfile.Find(SplitScreen.P1Vehicle), SplitScreen.P1Color, false, SplitScreen.NameOf(1) + " runs in: " + Vehicle(SplitScreen.P1Vehicle), new Color(.3f, .95f, .81f), 200);
+            Step(n++, "police-copvehicle", "Cop vehicle:   " + VehicleProfile.Find(SplitScreen.CopVehicle).Name, d => { SplitScreen.CopVehicle = SplitScreen.CopVehicle == VehicleProfile.Police.Id ? VehicleProfile.PoliceBike.Id : VehicleProfile.Police.Id; flow.Click(); Show(); });
             var times = LookPresets.MenuOrder;
             Step(n++, "split-time", "Time of day:   " + SplitScreen.Time, d => { int i = System.Array.IndexOf(times, SplitScreen.Time); SplitScreen.Time = times[((i < 0 ? 1 : i) + d + times.Length) % times.Length]; flow.Click(); Show(); });
             Step(n++, "split-weather", "Weather:   " + SplitScreen.Weather, d => { SplitScreen.Weather = (Weather)(((int)SplitScreen.Weather + d + 3) % 3); flow.Click(); Show(); });

@@ -359,8 +359,8 @@ namespace Racer
             {
                 string choice=Save.Settings.opponentChoices[i]; if(choice!="random" && choice!="mixed") continue;
                 var candidates=new System.Collections.Generic.List<string>();
-                foreach(var p in Race.EligibleVehicles) if(choice=="random" || !used.Contains(p.Id)) candidates.Add(p.Id);
-                if(candidates.Count==0) foreach(var p in Race.EligibleVehicles) candidates.Add(p.Id);
+                foreach(var p in Race.EligibleVehicles) if(!p.IsPolice&&(choice=="random" || !used.Contains(p.Id))) candidates.Add(p.Id);
+                if(candidates.Count==0) foreach(var p in Race.EligibleVehicles) if(!p.IsPolice) candidates.Add(p.Id);
                 // 0.88: once earned, the riding mower turns up in Random / Mixed fields only now and then
                 if(candidates.Count>1&&candidates.Contains("mower")&&Random.value<.75f) candidates.Remove("mower");
                 Race.opponentRoster[i]=candidates[Random.Range(0,candidates.Count)]; used.Add(Race.opponentRoster[i]);
@@ -448,7 +448,7 @@ namespace Racer
             restarting=false;Race.RestartRace();LoadingScreen.Started();
         }
         public void StartFreeRoam(){int course=System.Array.IndexOf(RacePlaylists.Scenes,gameObject.scene.name);if(!InRoamWorld&&course>=0){RoamCourse=course;LoadScene(RoamScene);return;}SessionStartedAt=Time.unscaledTime;RoamMenu=false;callers.Clear();menus.ResetPages();Race.FreeRoam=true;SetGateVisibility(false);Click();Race.RestartRace();}
-        public void BeginRoaming(){Hints.FreeRoam();DebugMovementUsed=false;attempt=null;CountdownRemaining=0;LapRank=RaceRank=0;NewLapRecord=NewRaceRecord=false;LockVehicle(false);Race.GetComponent<WrongWayGuidance>()?.Clear();SetStage(Stage.Racing);}
+        public void BeginRoaming(){HiddenPolice.Attach(this);Hints.FreeRoam();DebugMovementUsed=false;attempt=null;CountdownRemaining=0;LapRank=RaceRank=0;NewLapRecord=NewRaceRecord=false;LockVehicle(false);Race.GetComponent<WrongWayGuidance>()?.Clear();SetStage(Stage.Racing);}
         void SetGateVisibility(bool visible){foreach(var gate in Race.gates)foreach(var renderer in gate.GetComponentsInChildren<Renderer>(true))renderer.enabled=visible;}
         // 0.90 Part D: it cannot be resumed while a player's controller is missing. 0.91 Part B: the pause menu answers
         // either player's device (it names the one that paused).

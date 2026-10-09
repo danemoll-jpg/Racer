@@ -1,0 +1,29 @@
+---- setup99
+PASS Hidden police row: right on the D-pad flips it (True -> False); label 'Hidden police in Free Roam:   Off'
+PASS Hidden police row: left flips it back
+PASS Hidden police difficulty row: right steps Easy / Normal / Hard and wraps (Normal -> Hard -> Easy); label 'Hidden police difficulty:   Easy'
+PASS Settings-Gameplay: 15 rows [tab-gameplay, tab-audio, tab-display, tab-controls, estimate, unlock-everything, hints, hints-again, split-layout, player-name, name-tags, weather-grip, hidden-police, hidden-police-difficulty, back]; reached all True, focus kept True, structural check clean
+PASS POLICE CHASE opens its setup (police)
+PASS Cop vs Runner setup has the 'Cop vehicle' row, Patrol Car first (row label 'Cop vehicle:   Patrol Car')
+PASS right on the D-pad chooses the Police Bike (policebike); details 'One player as the cop, chasing the AI runner on the full screen. To be chased, play Getaway. / Nothing is recorded.'
+PASS Cop vs Runner setup (1 player), bike chosen: 10 rows [police-game, police-players, police-vehicles, police-copvehicle, split-time, split-weather, split-traffic, police-limit, police-start, police-back]; reached all True, focus kept True, in drawn order True (police-copvehicle>split-time>split-weather>split-traffic>police-limit>police-start>police-back>police-game>police-players>police-vehicles), structural check clean
+PASS Cop vs Runner setup (1 player), bike chosen: B went back one level (now Ready / '')
+PASS Speed Patrol setup: the Cop vehicle row steps back to the Patrol Car with left
+PASS Speed Patrol setup: right chooses the Police Bike
+PASS Speed Patrol setup (1 player), bike chosen: 8 rows [police-game, police-players, police-copvehicle, split-time, split-weather, police-limit, police-start, police-back]; reached all True, focus kept True, in drawn order True (police-copvehicle>split-time>split-weather>police-limit>police-start>police-back>police-game>police-players), structural check clean
+PASS Speed Patrol setup (1 player), bike chosen: B went back one level (now Ready / '')
+garage: locked 'tourer' -> title 'Longroof GT / Car  (locked)'; details 'LOCKED: Buy it in the Shop for $10,000. / Campaign vehicle: buy it in the Shop or win it in an event.'
+garage: locked 'roadster' -> title 'Sundown Roadster / Car  (locked)'; details 'LOCKED: Buy it in the Shop for $7,000. / Campaign vehicle: buy it in the Shop or win it in an event.'
+FAIL the garage list ends with the locked police vehicles: tourer, roadster; the goals read 'Escape the police at heat 3+ (Normal or Hard)' / 'Catch 20 speeders in Speed Patrol (0 / 20)'
+PASS Garage with a locked vehicle: 5 rows [profile-0, model, rider, garage-shop, done]; reached all True, focus kept True, structural check clean
+done, failures 1
+---- garage99
+garage: locked 'tourer' -> title 'Longroof GT / Car  (locked)'; details 'LOCKED: Buy it in the Shop for $10,000. / Campaign vehicle: buy it in the Shop or win it in an event.'
+garage: locked 'roadster' -> title 'Sundown Roadster / Car  (locked)'; details 'LOCKED: Buy it in the Shop for $7,000. / Campaign vehicle: buy it in the Shop or win it in an event.'
+garage: locked 'skyfin' -> title 'Skyfin Cruiser / Car  (locked)'; details 'LOCKED: Buy it in the Shop for $8,000. / Campaign vehicle: buy it in the Shop or win it in an event.'
+garage: locked 'drifter' -> title 'Drifter Twin / Motorcycle  (locked)'; details 'LOCKED: Buy it in the Shop for $16,000. / Campaign vehicle: buy it in the Shop or win it in an event.'
+garage: locked 'police' -> title 'Patrol Car / Car  (locked)'; details 'LOCKED: Escape the police at heat 3+ (Normal or Hard). / A police goal: the patrol car.'
+garage: locked 'policebike' -> title 'Patrol Cycle / Motorcycle  (locked)'; details 'LOCKED: Catch 20 speeders in Speed Patrol (0 / 20). / A police goal: the patrol cycle.'
+PASS the garage list ends with the locked police vehicles: tourer, roadster, skyfin, drifter, police, policebike; the goals read 'Escape the police at heat 3+ (Normal or Hard)' / 'Catch 20 speeders in Speed Patrol (0 / 20)'
+PASS Garage with a locked vehicle: 5 rows [profile-0, model, rider, garage-shop, done]; reached all True, focus kept True, structural check clean
+done, failures 0

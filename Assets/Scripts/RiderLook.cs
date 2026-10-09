@@ -30,6 +30,8 @@ namespace Racer
 
         // The default is the 0.73 rider's identity: man, short dark-brown hair, medium skin, flat cap, blue T-shirt, jeans.
         public static RiderLook Player = new();
+        // 0.99 Part E: the police bike's rider: a black jacket and black jeans, no hair (the white helmet is in the bike's model); not a garage option
+        public static readonly RiderLook Police = new() { body = 0, skin = 2, hair = 4, hairColor = 0, hat = 0, shirt = 2, shirtColor = 6, pants = 0, pantsColor = 6 };
 
         public RiderLook Copy() => (RiderLook)MemberwiseClone();
         public bool SameAs(RiderLook o) => o != null && body == o.body && skin == o.skin && hair == o.hair && hairColor == o.hairColor && hat == o.hat

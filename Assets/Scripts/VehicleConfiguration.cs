@@ -27,7 +27,7 @@ namespace Racer
         float overturned, upright;
         Color? selectedPaint; int selectedScheme=-1;
         // 0.92 Part D: an index past the plain colours is the champion's scheme (gold with a number roundel)
-        public void SetBodyColor(int index) { if(index>=0 && index<=VehiclePaint.Champion) { SetPaint(VehiclePaint.Of(index)); selectedScheme=index; VehiclePaint.Scheme(transform,index); } }
+        public void SetBodyColor(int index) { if(Profile.IsPolice) return; if(index>=0 && index<=VehiclePaint.Champion) { SetPaint(VehiclePaint.Of(index)); selectedScheme=index; VehiclePaint.Scheme(transform,index); } }
         public void SetPaint(Color color) { selectedPaint=color; selectedScheme=-1; VehiclePaint.Apply(transform,color); VehiclePaint.Roundel(transform,false); }
         public bool WipedOut => Time.time < crashUntil;
         public int VehicleContactEvents { get; private set; }
@@ -85,7 +85,8 @@ namespace Racer
                 motor.airStability=p.Air>0?p.Air:p.Motorcycle?.1f:.18f;
                 motor.centreOfMass=new(0,p.Small?-.28f:-.35f,0);
             }
-            generated=VehicleVisual.Build(transform,p,wheels,riderLook,classicVisual);
+            generated=VehicleVisual.Build(transform,p,wheels,p.IsPolice&&p.Small?RiderLook.Police:riderLook,classicVisual);
+            if(p.IsPolice) VehiclePaint.Apply(transform,new Color(.03f,.03f,.035f)); // 0.99: police vehicles are black and white whoever drives them
             if(!GetComponent<RiderGestures>()) gameObject.AddComponent<RiderGestures>();
             box.size=profileId=="original"?originalSize:p.Size;
             box.center=profileId=="original"?originalCenter:new Vector3(0,.05f,0);
@@ -121,7 +122,7 @@ namespace Racer
         }
         public void BuildPreview(Transform parent)
         {
-            VehicleVisual.Build(parent,Profile,null,riderLook,classicVisual);
+            VehicleVisual.Build(parent,Profile,null,Profile.IsPolice&&Profile.Small?RiderLook.Police:riderLook,classicVisual);
             if(selectedScheme>=0) VehiclePaint.Scheme(parent,selectedScheme); else if(selectedPaint.HasValue) VehiclePaint.Apply(parent,selectedPaint.Value);
         }
         void OnCollisionEnter(Collision collision)

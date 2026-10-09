@@ -13,12 +13,19 @@ namespace Racer
         public const int AcornsNeeded = 24;
         public static bool RewardEarned { get; private set; }
         public static int AcornsFound { get; private set; }
-        public static bool Locked(VehicleProfile p) => p != null && p.Reward && !RewardEarned;
+        // 0.99: the acorn reward and the two police vehicles (PoliceProgress); "Unlock everything (testing)" opens the police vehicles too
+        public static bool Earned(VehicleProfile p) => p.Unlock == "police-car" ? PoliceProgress.CarEarned || Campaign.Testing : p.Unlock == "police-bike" ? PoliceProgress.BikeEarned || Campaign.Testing : RewardEarned;
+        public static bool Locked(VehicleProfile p) => p != null && p.Reward && !Earned(p);
+        // split-screen has everything unlocked except the acorn reward (as before)
+        public static bool LockedInSplit(VehicleProfile p) => p != null && p.Reward && !p.IsPolice && !RewardEarned;
+        public static string LockedTextFor(VehicleProfile p) => p.Unlock == "police-car" ? PoliceProgress.CarGoal : p.Unlock == "police-bike" ? PoliceProgress.BikeGoal : LockedText;
+        public static string RewardNote(VehicleProfile p) => p.Unlock == "police-car" ? "A police goal: the patrol car." : p.Unlock == "police-bike" ? "A police goal: the patrol cycle." : "The acorn reward: a riding mower.";
         public static bool Locked(string id) => Locked(VehicleProfile.Find(id));
         public static string LockedText => $"Find all {AcornsNeeded} Woodland Acorns ({Mathf.Min(AcornsFound, AcornsNeeded)}/{AcornsNeeded})";
         public static void Set(int found, bool earned) { AcornsFound = found; RewardEarned = earned || found >= AcornsNeeded; }
         public static void Load(string root)
         {
+            PoliceProgress.Load(root);
             int found = 0; bool earned = false;
             try
             {

@@ -241,12 +241,12 @@ namespace Racer
                 title.text=shownProfile.Name + " / " + shownProfile.Class+(locked!=null?"  (locked)":"");
                 details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=80;
                 details.fontSize=18;
-                details.text=locked!=null?(locked.Reward?$"LOCKED: {VehicleUnlocks.LockedText}.\nThe acorn reward: a riding mower.":$"LOCKED: {Campaign.HowToGet(locked)}.\nCampaign vehicle: buy it in the Shop or win it in an event.")
+                details.text=locked!=null?(locked.Reward?$"LOCKED: {VehicleUnlocks.LockedTextFor(locked)}.\n{VehicleUnlocks.RewardNote(locked)}":$"LOCKED: {Campaign.HowToGet(locked)}.\nCampaign vehicle: buy it in the Shop or win it in an event.")
                     :$"{profile.Description}\n{(flow.Race.CarsRestricted?flow.Race.courseName+": motorcycles / ATVs only (player and AI).":flow.Race.courseName+": every vehicle available.")}\nColour: left / right on the Colour row.";
                 if(previewRoot) { previewRoot.SetActive(false); Destroy(previewRoot); }
                 previewRoot=new GameObject("Garage display model"); previewRoot.layer=31; previewRoot.transform.position=new(10000,10000,10000); previewRoot.transform.rotation=Quaternion.Euler(0,-30,0);
                 // 0.90 Part A: every locked vehicle is a dark silhouette with a padlock and how to get it (as the mower was)
-                if(locked!=null){VehicleVisual.Build(previewRoot.transform,locked);Silhouette(previewRoot.transform);swatchRow.gameObject.SetActive(false);previewLock=locked.Reward?VehicleUnlocks.LockedText:Campaign.HowToGet(locked);}
+                if(locked!=null){VehicleVisual.Build(previewRoot.transform,locked);Silhouette(previewRoot.transform);swatchRow.gameObject.SetActive(false);previewLock=locked.Reward?VehicleUnlocks.LockedTextFor(locked):Campaign.HowToGet(locked);}
                 else flow.Race.vehicle.GetComponent<VehicleConfiguration>().BuildPreview(previewRoot.transform);
                 FramePreview(shownProfile);
                 if(page!="rider")
@@ -265,7 +265,7 @@ namespace Racer
                     for(int k=1;k<4&&k<buttons.Count;k++)buttons[k].gameObject.SetActive(false);
                     Row(4,"done","Done / ready",flow.CloseGarage);
                     Step(5,"model","Model:   "+flow.ModelLabel+"   (Classic / New)",d=>flow.ToggleModel());
-                    if(locked==null){int colour=flow.SelectedColor;Step(8,"colour","Colour:   "+VehiclePaint.Name(colour),d=>flow.SetColor(VehiclePaint.Next(colour,d)));}
+                    if(locked==null&&!shownProfile.IsPolice){int colour=flow.SelectedColor;Step(8,"colour","Colour:   "+VehiclePaint.Name(colour),d=>flow.SetColor(VehiclePaint.Next(colour,d)));}
                     Row(6,"rider","Rider…",()=>Navigate("rider"));
                     Row(7,"garage-shop","Shop…   ("+Campaign.Money(Campaign.Current.money)+")",()=>{shopVehicle=locked!=null&&!locked.Reward?locked.Id:shopVehicle;shopFromCampaign=false;Navigate("shop");});
                     if(locked==null)ShowGarageStats(profile); // 0.82 Part D

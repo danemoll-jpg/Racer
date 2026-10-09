@@ -21,7 +21,11 @@ namespace Racer
         // 0.88 Part D: Reward = locked until earned (VehicleUnlocks); SolidContact = holds its own against the cars in contact
         // (registered with the car contact class although it is a small vehicle for course access and handling).
         public bool Reward, SolidContact;
-        public static readonly VehicleProfile[] All = {
+        // 0.99 Part E: what earns a Reward vehicle: "acorn" (the mower), "police-car" or "police-bike" (PoliceProgress)
+        public string Unlock = "acorn";
+        public bool IsPolice => Unlock != null && Unlock.StartsWith("police");
+        static VehicleProfile[] all; public static VehicleProfile[] All => all ??= BuildAll(); // built on first use: the police profiles are defined after the list
+        static VehicleProfile[] BuildAll() => new VehicleProfile[] {
             new() { Id="original", Name="Street Classic", Class="Car", Description="Balanced handling / high stability / strong contact", Speed=49, Acceleration=14.5f, Grip=25, Response=8, Mass=1200, Wheelbase=2.6f, Pitch=1, Size=new(1.85f,.65f,3.7f), Camera=new(0,3.6f,-7.5f),
                 Model="StreetClassic", Seat=new(-.40f,.04f,-.15f) },
             new() { Id="tourer", Name="Longroof GT", Class="Car", Description="Long, fast cruiser / deliberate turn-in / strongest contact", Speed=52, Acceleration=13.5f, Grip=24, Response=6.5f, Mass=1500, Wheelbase=3, Pitch=.85f, Size=new(2,.8f,4.5f), Camera=new(0,3.8f,-8.2f),
@@ -48,7 +52,9 @@ namespace Racer
             // the eleven, a car's weight in contact, a strong upright and air stability so it lands flat; the cars' seated
             // pose on the centre line, hands on its wheel. Engine note: the shared engine audio pitched up (Pitch).
             new() { Id="mower", Name="Turf Rocket", Class="Mower", Description="Riding mower / the acorn reward / top speed, grip and handling, solid in contact", Speed=61, Acceleration=18, Grip=32, Response=12, Mass=760, Wheelbase=1.6f, Pitch=1.75f, Size=new(1.15f,.65f,2.1f), Camera=new(0,3.1f,-6.6f),
-                Model="TurfRocket", Seat=new(0,.22f,-.52f), Base="moto", Upright=27, Air=.24f, Reward=true, SolidContact=true }
+                Model="TurfRocket", Seat=new(0,.22f,-.52f), Base="moto", Upright=27, Air=.24f, Reward=true, SolidContact=true },
+            // 0.99 Part E: the two police vehicles, unlocked by police goals (PoliceProgress): not in the campaign, the shop or the rivals' rosters, stock only
+            Police, PoliceBike
         };
         // 0.94 Part C: the patrol car (Tools/Blender/police.py), the cop's vehicle in Police Chase only: kept out of All, so it
         // is never in the garage, the shop, races, rival rosters or split-screen choices. Close to the faster vehicles so a
@@ -56,10 +62,12 @@ namespace Racer
         // acceleration and a little more, car grip plus one. Black and white (its paint is set black, the doors and roof are
         // white in the model).
         public static readonly VehicleProfile Police = new() { Id="police", Name="Patrol Car", Class="Car", Description="Police Chase only / fast and planted / strong contact", Speed=55, Acceleration=16.5f, Grip=26, Response=8.2f, Mass=1550, Wheelbase=2.8f, Pitch=.9f, Size=new(2,.75f,4.7f), Camera=new(0,3.8f,-8.2f),
-                Model="PatrolCar", Seat=new(-.42f,.05f,-.15f), Base="tourer" };
+                Model="PatrolCar", Seat=new(-.42f,.05f,-.15f), Base="tourer", Reward=true, Unlock="police-car" };
+        // 0.99 Part E: the police motorcycle (Tools/Blender/policebike.py), the Needle 600's handling family with a patrol rider and light bar
+        public static readonly VehicleProfile PoliceBike = new() { Id="policebike", Name="Patrol Cycle", Class="Motorcycle", Description="Police motorcycle / Needle 600 family / quick and nimble / fragile on impacts", Speed=58, Acceleration=17.5f, Grip=31, Response=11.5f, Mass=240, Wheelbase=1.65f, Pitch=1.4f, Size=new(.65f,.8f,2.25f), Camera=new(0,3,-6.5f),
+                Model="PoliceBike", Pose="Moto", FrontPivot=new(0,-.2f,.825f), FrontAxis=new(0,.76f,-.305f), FrontGain=9, Base="moto", Reward=true, Unlock="police-bike" };
         public static VehicleProfile Find(string id)
         {
-            if(id==Police.Id) return Police;
             foreach(var profile in All) if(profile.Id==id) return profile;
             return All[0];
         }

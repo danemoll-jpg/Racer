@@ -34,7 +34,7 @@ namespace Racer
             foreach (var s in clone.GetComponents<AudioSource>()) DestroyImmediate(s);
             var car = clone.GetComponent<ArcadeVehicle>(); var config = clone.GetComponent<VehicleConfiguration>();
             config.riderLook = RiderLook.Field(DriverVariation.Seed, 3, RiderLook.Player)[1]; config.classicVisual = false;
-            config.Apply(vehicle); if (vehicle == VehicleProfile.Police.Id) config.SetPaint(new Color(.03f, .03f, .035f)); else config.SetBodyColor(colour);
+            config.Apply(vehicle); if (VehicleProfile.Find(vehicle).IsPolice) config.SetPaint(new Color(.03f, .03f, .035f)); else config.SetBodyColor(colour);
             clone.AddComponent<VehicleAudio>();
             Car = car;
             var input = clone.GetComponent<VehicleInput>(); var respawn = clone.GetComponent<VehicleRespawn>();

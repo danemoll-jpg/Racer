@@ -45,6 +45,8 @@ namespace Racer
         public static int PoliceDifficulty = 1, Watching; public static bool P2AiRunner;
         public static bool AiCops => Mode == Kind.Police && PoliceGame == Game.Getaway; // 0.98: being chased by AI cops is Getaway only
         public static Game PoliceGame = Game.CopRunner;
+        // 0.99 Part E: the cop's vehicle in Cop vs Runner and Speed Patrol: the Patrol Car or the Police Bike (everything is unlocked in split-screen)
+        public static string CopVehicle = "police";
         public static bool Solo = true, FromRoam; public static int SoloRole = 1, RoamReturn;
         public static bool OneView => Active && Solo && Mode == Kind.Police;
         public static bool Roaming => Active && Mode != Kind.Race;
@@ -87,7 +89,7 @@ namespace Racer
         public static SplitRace Race { get; private set; }
         public static bool LeftRight => Hints.Flow && Hints.Flow.Save != null && Hints.Flow.Save.Settings.splitLeftRight;
         // Every vehicle except the acorn reward, which joins once earned; every course.
-        public static VehicleProfile[] Vehicles => VehicleProfile.All.Where(p => !VehicleUnlocks.Locked(p)).ToArray();
+        public static VehicleProfile[] Vehicles => VehicleProfile.All.Where(p => !VehicleUnlocks.LockedInSplit(p)).ToArray();
         public static string DeviceName(InputDevice d) => d == null ? "—" : d is Keyboard ? "Keyboard" : d is Gamepad g ? "Controller " + (Gamepad.all.ToList().IndexOf(g) + 1) : d.displayName;
         public static bool Ready => P1Device != null && (P2Ai || P2Device != null);
         // One of the players' own devices (the mouse goes with the keyboard).
@@ -165,7 +167,7 @@ namespace Racer
                 // 0.95 Part G: Speed Patrol: player 1 (and player 2 with two players, in the second livery) in a patrol car
                 var patrol = SpeedPatrol.Current; patrol.ApplyPlayerOne(); finished1 = finished2 = false;
                 if (SplitScreen.Solo) { P2Car = null; P2 = null; hud.Layout(false); }
-                else { P2Car = SplitRoam.Current.CreatePlayerTwo(VehicleProfile.Police.Id, SplitScreen.P2Color); P2Car.GetComponent<VehicleConfiguration>().SetPaint(SpeedPatrol.SecondLivery); P2 = null; if (!P2Car.GetComponent<VehicleAudio>()) P2Car.gameObject.AddComponent<VehicleAudio>(); Cameras(); }
+                else { P2Car = SplitRoam.Current.CreatePlayerTwo(SplitScreen.CopVehicle, SplitScreen.P2Color); P2Car.GetComponent<VehicleConfiguration>().SetPaint(SpeedPatrol.SecondLivery); P2 = null; if (!P2Car.GetComponent<VehicleAudio>()) P2Car.gameObject.AddComponent<VehicleAudio>(); Cameras(); }
                 patrol.BeginRound(); return;
             }
             if (SplitRoam.Current && race.FreeRoam)
