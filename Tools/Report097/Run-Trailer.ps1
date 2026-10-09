@@ -6,4 +6,4 @@ $env:PROBE_TRAILER=Join-Path $root 'Trailer'
 $env:PROBE_FFMPEG=(Get-ChildItem (Join-Path $root 'Tools/Trailer/pylib/imageio_ffmpeg/binaries') -Filter 'ffmpeg*.exe' | Select-Object -First 1).FullName
 $env:PROBE_CAPW=$Width; $env:PROBE_CAPH=$Height
 $env:PROBE_CASES=$Cases
-& (Join-Path $PSScriptRoot 'Run-Unity.ps1') -Method Report097Play.Run -Scenes StreetLoopGreybox -Play Report080Checks -Out $Out -Minutes $Minutes
+& (Join-Path $PSScriptRoot 'Run-Unity.ps1') -Method Report097Play.Run -Scenes StreetLoopGreybox -Play Report080Checks -Out $Out -Minutes $Minutes -Windowed -AudioCheck

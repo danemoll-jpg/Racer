@@ -16,7 +16,61 @@
   - **Controller first (Dan, 2026-10-07):** Dan plays with a controller. Any new or changed menu, screen or prompt must be checked once with a controller only (no mouse, no keyboard) before delivery: every control reachable, focus visible, B goes back.
   - **Write-up:** the TODO results are a short list: what changed, the one check per item, decisions made, and anything Dan should look at. No separate VALIDATION.md unless a round asks. If a check would take more than a few minutes of play time, skip it and list it under "for Dan to check".
 
-## CURRENT — Getaway is far too easy: backups that actually arrive, cops that keep up, call-ins that do something; weather changes grip; Code films the trailer — target 0.97.0-review1 — A and B DELIVERED as 0.97.0-review1 (build 97000); Part C in progress
+## CURRENT — Put back what 0.96–0.97 broke (road-closed barriers, storm drain), police chase: Getaway only, starts at once, visible escalation and helicopter — target 0.98.0-review1 — NOT STARTED
+
+- **Authorized by Dan (2026-10-08, 20:29 and 20:54).** Written by Claude (chat) from his play of 0.97.0-review1. Dan: "This was a really disappointing round. I see literally no difference with the chase." His words are quoted in each part.
+- **Starting point:** main at the latest commit (0.97 Parts A–B delivered as game-97000; Part C, the trailer, was in progress: commit or keep the recorder code as it stands, but **discard every clip filmed so far**, they show the broken world).
+- Runs unattended: design decisions are below; do not stop to ask about design. Stop only for a real external blocker (rule 7).
+- **Scope is exactly Parts A–D, in that order. No filming (Part E).**
+- The Verification budget applies, except Part C's checks, which must be in the **built Windows player**. Controller-first applies. Checks never write Dan's real save.
+- **New standing rule (Part A item 4) applies from this round on.**
+
+### Part A — Revert the road-closed barriers, keep only the one Dan asked for, and do it properly
+
+Dan: "As far as the closed roads signs, I want this change reverted. The ones I noticed were not in places that made sense. There was literally one on the side and bottom of the gully. Not only that, it paid no attention to the words fitting on the signs, and hiding the words unless you are right on the sign. I really only want the one road blocked that I asked about, and just leave it to me to point it out in the future. And even the one that I asked for was messed up. The words were pointing in the opposite direction, and the same issue of the words being too big for the sign and being seen from a mile away."
+
+**Debug session `2026-10-08_20-33-41-102_f6e335` (0.97.0-review1):** BUG-004 (Backyard Reverse, Storm Drain / Gully Jump branch 32.7 m, (153.07, 58.60, 63.47)): "I would rather manage where the signs are needed than rely on it to put crap wherever"; BUG-005 (Backyard Reverse main 506 m, (108.21, 40.60, 57.16)): "Let's revert all road closed signs except the one I specifically asked for"; BUG-003 (Backyard Reverse main 1035 m, (224.18, 59.89, −28.25)): a 0.96 rail barrier next to the course's own older barrier block, "we already have this anyway, so kind of redundant"; BUG-006 (Mountain Loop Forward, (761.17, 88.87, −124.98)): "and the one I asked for it did backwards". BUG-002 (Backyard Reverse main 1037 m, (220.28, 61.08, −14.31)): "make the sign bigger to fit words": a dark sign board beside the trail whose board shows no readable words (tiny "ROAD CLOSED" text floats low on its left); if that board is older than 0.96 and stays, make its words fit and read on the board; if it came with 0.96, it goes with the rest.
+
+(0.96 Part D item 6 asked for every off-route road on all eight courses to be blocked. That was Claude (chat)'s over-reach, not Dan's request.)
+
+1. **Remove every barrier and road-closed sign added in 0.96** from all eight race scenes, except the one at **Mountain Loop - Forward, Climbing Ridge Cut, about (765.48, 89.04, −119.56)** (BUG-004). Restore whatever they replaced or moved. List each removed one with its scene and position.
+2. **Fix that one barrier and sign:** the text faces a driver approaching on the route (readable as you come up to it, not mirrored, not from behind); the words fit inside the sign board with a margin, at a size like the game's other road signs (readable from about 20–30 m, not from across the map); the barrier stands across the dirt road's mouth, not on the route and not on a bank. Check `MountainLoopReverse` for the same road mouth: block it there the same way only if the same road meets that route.
+3. One shot from the approach at 30 m and one at 10 m, day.
+4. **New standing rule, add to the "Mandatory standing workflow" list in this file:** *World changes only where Dan pointed (Dan, 2026-10-08): fix exactly the place Dan reported. Do not extend a fix to "every similar place" in other scenes or across the world unless the round says so in Dan's words. If a similar problem is seen elsewhere, list it for Dan; do not change it.*
+
+### Part B — The storm drain in Free Roam: put it back, then clean it up properly
+
+Debug BUG-001 (Free Roam, (182.09, 67.41, 76.61)): "yeah this is awful. It doesn't even look good. At least it was functional before" (shot: the lid wall across the drain, a dark sunken apron and jagged edges in front). Dan: "As we already discussed the storm drain is a mess. Not only is it sealed but it looks awful. There are all kinds of gaps around it." (20:29: "the storm drain is now broken", seen in the trailer test clip `08-storm-drain.mp4`: the entrance is closed by a pale wall; jagged dark ground edges in front.)
+
+1. **Revert 0.96's storm-drain work in `FreeRoamWorld` completely:** remove the lid (`FreeRoamWorld-Report096-culvert-lid.asset`) and restore the box, the culvert floor (`Ground_Culvert seamless floor-conformed` back to its 0.95 mesh) and the ground tiles around it to their 0.95 state, so the tunnel is open and drives exactly as in 0.95.
+2. **Then fix only the gaps:** close the slivers and holes between the concrete and the ground around the box and the entrance (BUG-002, 0.95 report at (143.19, 58.19, 67.90)), by joining the ground to the concrete; do not move, sink, lid or reshape the box or the tunnel. If a gap can only be closed by changing the tunnel, leave it and say so.
+3. **Check every other ground change 0.96 and 0.97 made in Free Roam** (the gully seams, the "conformed" ground tiles in `Assets/Scenery/Report096/`) against what drives through them: the tunnel, trails, shortcuts, jumps. Anything they closed, narrowed or made rough: put it back. List what was checked.
+4. Check: drive through the tunnel both ways (bike and car), day and night; shots of the entrance and its edges from the trail, day and night.
+
+### Part C — Police chase: one way to be chased (Getaway), started at once, escalation you can see
+
+Dan (20:54): "I see literally no difference with the chase. Just one police car and I had to go find him. I was even driving down the road barely pressing the gas. No escalation of heat, just seemed kind of pointless. Also I didn't understand the point of picking a track for that; it just started you on the road anyway." **Then (21:09), after trying again: he had been in Cop vs Runner as the solo runner, not Getaway. "I tried Getaway and it was better, though I thought it had mentioned helicopters but I guess not. Definitely remove the other option for the way I played it, that was completely pointless."**
+
+1. **Remove the solo Runner role from Cop vs Runner.** Cop vs Runner is two players, or one player as the cop chasing the AI runner. Being chased by AI cops is **Getaway** only. Getaway's setup description: "Escape the police. More cops join the longer you stay free."
+2. **No track choice in any police mode:** remove the "Start at" / track row. Getaway starts with the first cop **already in pursuit about 60–80 m behind, lights and siren on**; nobody has to go find a cop.
+3. **Make the escalation visible:** heat shown big on the HUD with a short alert at each rise ("HEAT 2 — backup requested"); each backup announced and shown on the minimap as it joins; the escape meter only while unseen.
+4. **The helicopter must be noticed:** Dan did not see one. Announce it ("HEAT 4 — air support inbound"), make it audible (rotor sound, louder overhead) and visible (body and spotlight in daylight as well as at night), and show it on the minimap. **Dan (21:10): "I had all 5 stars, so the heat should have been all the way up"**, and still saw no helicopter. So in the built player the helicopter does not appear (or cannot be seen or heard) even at heat 5: find out which (not spawned, spawned far away or below ground, invisible in daylight, culled, silent) and fix it. Also check that heat 5 really has its 6 cops near the runner in the built player.
+4a. **Police radio lines out of the box:** Dan (21:12): "on the police radio, the lines kept getting cut off in the little box it was in. I say remove the police radio lines out of the little box so they are fully readable." Show each radio line on its own, outside the chase panel: one line of text with a dark outline or shadow (no box), top centre under the heat display, wide enough for the longest line, never clipped or wrapped mid-word; about 4 s each, the newest replacing the old. Same in each half of split-screen. Check the longest radio line at 3840×2160 and in a split half.
+5. **Checks in the built Windows player, controller only:** (a) Getaway, Normal, Street Classic, driving down the main road at half throttle: caught, with the time and heat; (b) Needle 600 flat out: heat rises with alerts, backups join, the helicopter appears when heat 4 is reached (time it), caught or still chased at 2 min; (c) Cop vs Runner's setup no longer offers the solo Runner. Per-second log and a short frame sequence of (b).
+
+### Part D — Build, release
+
+- Build and publish 0.98.0-review1 after A–C. Their checks pass first.
+
+### Part E — Trailer: not in this round
+
+Dan (21:15): "Let's stop filming altogether until I confirm that it looks good and functions properly." **Do not film anything.** Keep the recorder code (commit it unchanged if it is not committed yet) and delete the 0.97 test clips in `Trailer/Clips/`. Filming waits for a later round that Dan starts after he has checked the game.
+
+### Verification
+
+As above: light, except Part C in the built player. Results as a short list, with "for Dan to check".
+
+## Previous delivery — Getaway is far too easy: backups that actually arrive, cops that keep up, call-ins that do something; weather changes grip; Code films the trailer — target 0.97.0-review1 — A and B DELIVERED as 0.97.0-review1 (build 97000); Part C in progress — REVIEWED BY DAN ("really disappointing": chase unchanged in his play, barriers wrong, storm drain sealed; Part C clips discarded; all in 0.98)
 
 - **Authorized by Dan (2026-10-08, 09:20).** Written by Claude (chat) from his first play of 0.96.0-review1's Getaway. The rest of 0.96 is not reviewed yet; anything he finds will be added here before this starts, or go in the next round.
 - **Starting point:** main at the "Record 0.96 delivery" commit. This TODO edit is uncommitted and belongs in the safety checkpoint.

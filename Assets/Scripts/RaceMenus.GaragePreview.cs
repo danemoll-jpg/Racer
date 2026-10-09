@@ -76,12 +76,18 @@ namespace Racer
             else { foreach (int i in stickOverrides) action.RemoveBindingOverride(i); stickOverrides.Clear(); }
         }
         // Render texture = the panel's size in screen pixels (true proportions, sharp at 3840x2160).
+#if UNITY_EDITOR
+        public static Vector2Int CaptureSize;
+#endif
         void MatchPreviewTexture()
         {
             Canvas.ForceUpdateCanvases();
             var canvas = preview.canvas ? preview.canvas.rootCanvas : null; float scale = canvas ? canvas.scaleFactor : 1;
             var size = preview.rectTransform.rect.size * scale;
             int w = Mathf.Clamp(Mathf.RoundToInt(size.x), 64, 2400), h = Mathf.Clamp(Mathf.RoundToInt(size.y), 64, 2400);
+#if UNITY_EDITOR
+            if (CaptureSize.x > 0) { w = CaptureSize.x; h = CaptureSize.y; } // 0.97 trailer capture (editor only): the preview renders at the clip's size
+#endif
             if (previewTexture.width == w && previewTexture.height == h) return;
             previewTexture.Release(); previewTexture.width = w; previewTexture.height = h; previewTexture.antiAliasing = 4; previewTexture.Create();
             // re-assigned so the camera picks up the new size (it otherwise keeps the old aspect and squeezes the picture)
