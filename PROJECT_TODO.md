@@ -17,7 +17,73 @@
   - **World changes only where Dan pointed (Dan, 2026-10-08):** fix exactly the place Dan reported. Do not extend a fix to "every similar place" in other scenes or across the world unless the round says so in Dan's words. If a similar problem is seen elsewhere, list it for Dan; do not change it.
   - **Write-up:** the TODO results are a short list: what changed, the one check per item, decisions made, and anything Dan should look at. No separate VALIDATION.md unless a round asks. If a check would take more than a few minutes of play time, skip it and list it under "for Dan to check".
 
-## CURRENT — Put back what 0.96–0.97 broke (road-closed barriers, storm drain), police chase: Getaway only, starts at once, visible escalation and helicopter — target 0.98.0-review1 — DELIVERED as 0.98.0-review1 (build 98000), awaiting Dan's review
+## CURRENT — Ridge Cut sign seen from across the track, two Mountain Loop pits, AI cars on the summit jump, hidden police in Free Roam, police bike, unlockable police vehicles, radio voice playback — target 0.99.0-review1 — NOT STARTED
+
+- **Authorized by Dan (2026-10-09, 01:10).** Written by Claude (chat) from his play of 0.98.0-review1, debug session `2026-10-09_00-57-21-697_e7b8f4` (three reports, all Mountain Loop - Forward, 0.98.0-review1) and his message. "All is good from last round except…" His words are quoted in each part.
+- **Starting point:** main at the "Record 0.98 delivery" commit. This TODO edit is uncommitted and belongs in the safety checkpoint.
+- Runs unattended: design decisions are below; do not stop to ask about design. Stop only for a real external blocker (rule 7).
+- **Scope is exactly Parts A–F. Order A, B, C (fixes, one commit), then D, E, F (police features, own commit).** If the police features cannot all be finished well, deliver A–C and what is done of D–F, and say what is left.
+- The Verification budget and the Controller-first rule apply. **World changes only where Dan pointed** (standing rule from 0.98). **Every world fix is checked in the built Windows player** with a shot from where Dan stood.
+- **Trailer: closed.** Dan (01:10): "I think as long as it took to do the video, I will just do this on my own." No filming in any future round unless Dan asks. Keep the recorder code; nothing to do with it.
+
+### Part A — The Ridge Cut road-closed sign can be seen from across the track (BUG-001)
+
+Dan: "I can see the road closed sign from here. I thought we had a rule against being able to see a sign if you can't see it in front of you." Report at (987.48, 131.99, −116.75), main 1338 m, heading 275°, looking across at the Climbing Ridge Cut sign (the one kept in 0.98).
+
+1. Find why it reads from there: text drawn on top of everything (no depth test / overlay layer), text on both faces, text larger than the board, or a light-emitting material. Fix this sign so its words are only seen from the front, are hidden by terrain and objects like any other object, fit inside the board, and are readable from about 20–30 m like the other road signs. The back of the board is plain.
+2. **Standing rule, add to the "Mandatory standing workflow" list:** *Signs (Dan, 2026-10-09): sign text is part of the sign: one-sided (the back is plain), hidden by terrain and objects like the board, never drawn on top, sized to fit inside its board with a margin, readable at normal sign distance (about 20–30 m), not from across the map.*
+3. Check every sign 0.98 changed or kept against the rule (only the Ridge Cut one, if 0.98 removed the rest); do not add or move any other sign.
+- Check (built player): a shot from Dan's position (sign not readable) and from the approach at 20 m (readable).
+
+### Part B — Two pits beside the Mountain Loop road (BUG-002, BUG-003)
+
+- **BUG-002** "seal this up" at (1200.14, 151.96, 188.59), main 1814 m, heading 243°: a deep pit / channel opening right beside the road ahead, with dark cut faces.
+- **BUG-003** "and seal this" at (1049.73, 152.51, 138.59), main ~1650 m, heading 64°: the deep trench beside the road. **This is the same place as 0.95's BUG-003 (1055.64, 152.62, 134.36), which 0.96 reported as filled; it is not.** Say why the 0.96 fill did not take (wrong scene, overwritten, only part of it).
+1. Fill both so the roadside is solid ground level with the road's verge, in `MountainLoop` only (check `MountainLoopReverse` at the same places and fill there only if the same pits exist). Do not change the road, the route, jumps or trees beyond what sits in the pits.
+- Check (built player): a shot from each of Dan's positions after.
+
+### Part C — AI cars still do not clear the summit jump on Mountain Loop Forward
+
+Dan: "I noticed that the cars still don't appear to be clearing that second jump on Mountain Forward." 0.96 set `aiEntrySpeed` 29.5 m/s for the summit flight and reported the cars clear it "in the snow event", checked in the editor. **Check it the way Dan sees it: a normal race in the built player**, Mountain Loop - Forward, 3–4 AI rivals in cars (Street Classic, Highball Fastback, Pebble Coupe, Longroof GT), Day / Clear and Dusk / Snow, watching each AI car at the second jump (main about 2220 m, (966, 190, 142)): its speed at the lip, where it lands or what it hits. Fix whatever stops them (braking before the lip, the speed cap not applied in races, a different line, the weather grip from 0.97). Target: every AI car that reaches the jump on its wheels clears it, in both conditions. Report a short table (car, speed at the lip, outcome) before and after.
+
+### Part D — Hidden police in Free Roam (own commit with E and F)
+
+Dan: "for the police chase we can randomly sometimes have police hiding in Free Roam that will see you speeding and trip the police chase event … You can turn off the hidden police in the options."
+
+1. **Hiding spots:** 10–14 spots beside roads with a speed limit (Hwy 92, Trickum Rd, S Cherokee Ln, the lake road, the Street Loop roads): a driveway mouth, a gap in the trees, behind a sign, the market lot. A patrol car parked, nose to the road, lights off, the officer in it. Each Free Roam session places 2–4 of them at random spots; they move to new spots now and then while out of the player's sight.
+2. **Tripping it:** a hidden cop sees the player within about 70 m in front of it with a clear line of sight. If the player passes over the road's limit by more than 10 mph, a short "CLOCKED 58 in a 35" flash shows and the cop pulls out, lights and siren on, and a **Getaway chase** starts there in Free Roam (heat 1, the difficulty set in Settings, the normal escalation, helicopter and all). Nothing happens under the threshold, and driving off-road past a cop does not trip it.
+3. **Ending:** escaped: "You lost them", the cops leave, Free Roam carries on. Caught: "Busted", the vehicle is set at the roadside, stopped, and Free Roam carries on. No money or save penalty. Escapes and busts count toward Part E's goals.
+4. **Not during:** a timed Free Roam activity or attempt, the first 60 s after loading, 3 minutes after the last chase ended, split-screen Free Roam (single player only for now), Trailer Mode.
+5. **Setting:** Settings > Gameplay "Hidden police in Free Roam: On / Off", default On, with the chase difficulty "Hidden police difficulty: Easy / Normal / Hard" (default Normal).
+- Check (built player, controller): pass a hidden cop under the limit (nothing), over it (chase starts), one escape and one bust that return to Free Roam, the setting Off (no hidden cops placed). A shot of a hidden cop in its spot.
+
+### Part E — Police bike, and both police vehicles unlockable for races
+
+Dan: "I wouldn't be opposed to having a police cycle as well. And both the police car and police cycle become unlockable for races after you reach a certain goal (2 separate goals) related to police chases."
+
+1. **Police bike:** a police motorcycle from the Needle 600's handling family, built with the Blender vehicle pipeline: black and white, POLICE on the fairing, red and blue lights front and rear, siren, the rider in a police helmet and jacket; no real department's name or badge. In police modes the player who is a cop chooses Patrol car or Police bike. AI cops: from heat 3 in Getaway, one in three new units is a bike (same road-network driving, same speed rules).
+2. **Goals (decided by Claude (chat); Dan may change them):**
+   - **Patrol car** unlocks when you **escape the police at heat 3 or higher on Normal or Hard** (Getaway or hidden police).
+   - **Police bike** unlocks when you have **caught 20 speeders in Speed Patrol** (counted across all rounds; split-screen catches count for each player's own save only if it is their save, i.e. player 1).
+3. **Once unlocked:** usable in Race Setup races, Free Roam and the garage like any other vehicle (stock, upgradable only if the campaign allows; **not used in campaign events**). Until then: a dark silhouette in the garage list with its goal and progress ("Escape the police at heat 3+ (Normal or Hard)", "Catch 20 speeders in Speed Patrol (7 / 20)"), as the mower was. The unlock moment uses the 0.95 unlock panel (stays until A, turning preview, "Choose it in the Garage"). In split-screen everything is unlocked as now.
+4. Progress is saved in a small file of its own; **Dan's save gets no grant**; earlier play does not count retroactively (no records of it were kept), say so.
+- Check: both silhouettes with progress; each goal met on an isolated save shows the panel and the vehicle in Race Setup; a police bike as cop in Speed Patrol; AI bikes appearing at heat 3.
+
+### Part F — Police radio voices (playback ready for Dan's recordings)
+
+Dan: "I would like to add some actual voices for the police radio. I think if I can get a list of the different things they say and all the different locations that they mention I could get some voice clips." Claude (chat) wrote the script with IDs: `Docs/Audio/police-radio-script.md` (also in the claude.ai Project as `claude/police-radio-script.md`). Dan will record the files himself into `SourceArt/Audio/PoliceRadio/`.
+
+1. **Make the game speak the script:** every radio line in Getaway, Cop vs Runner, Speed Patrol and hidden police (Part D) maps to the script's IDs, built from pieces where the script says (phrase + unit number + place or road). Change the on-screen radio text to match the script's wording, including the spoken place names (for example "the summit run-up", "South Cherokee Lane", "Kyle's house"); add the script's new lines (R07, R08, R12, R17, R18, S01–S08, H01–H04) where they fit, at sensible moments and not too often.
+2. **Playback:** files are loaded from `SourceArt/Audio/PoliceRadio/` (imported into the build); a missing file plays nothing and the text still shows. Takes `R05a`, `R05b` … are picked at random. A radio effect is applied in the game (band-pass about 300–3,400 Hz, light distortion, a click and a short burst of static at start and end), heard over the engine, ducking the music radio a little while it speaks; one line at a time, queued, newer important lines (caught, escaped, heat) skipping the queue.
+3. **Test voice until Dan records:** generate placeholder clips for every ID with the PC's built-in text-to-speech (Windows SAPI, offline) into `SourceArt/Audio/PoliceRadio/_placeholder/`, used only when Dan's file for that ID is missing, so the system can be heard and checked now. Dan's files always win.
+4. If the script needs a line it does not have, add it to `Docs/Audio/police-radio-script.md` with a new ID and say so (Claude (chat) will update the Project copy).
+- Check (built player): a Getaway chase with placeholder voices: radio on start, heat rises, off-road call with a place name, a unit joining, the helicopter, caught; one Speed Patrol catch; a hidden-police trip. Each line heard once, no overlaps.
+
+### Verification
+
+Light, per the Verification budget and the Controller-first rule; world fixes and AI jump checks in the built player. Compile, launch, release steps. Results as a short list, with "for Dan to check".
+
+## Previous delivery — Put back what 0.96–0.97 broke (road-closed barriers, storm drain), police chase: Getaway only, starts at once, visible escalation and helicopter — target 0.98.0-review1 — DELIVERED as 0.98.0-review1 (build 98000), awaiting Dan's review — REVIEWED BY DAN ("all is good" except the Ridge Cut sign seen from across the track; follow-ups in 0.99)
 
 - **Authorized by Dan (2026-10-08, 20:29 and 20:54).** Written by Claude (chat) from his play of 0.97.0-review1. Dan: "This was a really disappointing round. I see literally no difference with the chase." His words are quoted in each part.
 - **Starting point:** main at the latest commit (0.97 Parts A–B delivered as game-97000; Part C, the trailer, was in progress: commit or keep the recorder code as it stands, but **discard every clip filmed so far**, they show the broken world).
