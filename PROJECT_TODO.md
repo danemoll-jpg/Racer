@@ -18,7 +18,74 @@
   - **Signs (Dan, 2026-10-09):** sign text is part of the sign: one-sided (the back is plain), hidden by terrain and objects like the board, never drawn on top, sized to fit inside its board with a margin, readable at normal sign distance (about 20–30 m), not from across the map. (Mechanism: lettering uses the depth-tested, back-face-culled `Assets/Environment/Phase8/Depth tested world lettering 0.mat`, never a TextMesh's default font material.)
   - **Write-up:** the TODO results are a short list: what changed, the one check per item, decisions made, and anything Dan should look at. No separate VALIDATION.md unless a round asks. If a check would take more than a few minutes of play time, skip it and list it under "for Dan to check".
 
-## CURRENT — Ridge Cut sign seen from across the track, two Mountain Loop pits, AI cars on the summit jump, hidden police in Free Roam, police bike, unlockable police vehicles, radio voice playback — target 0.99.0-review1 — DELIVERED as 0.99.0-review1 (build 99000), awaiting Dan's review
+## CURRENT — Mountain Loop trench (third time), squished vehicle pictures, the moon, hidden police only see one way, free look while driving, storm-drain top — target 0.100.0-review1 (build 100000, or the next number the version scheme allows) — NOT STARTED
+
+- **Authorized by Dan (2026-10-09, 17:55 and 17:59).** Written by Claude (chat) from his play of 0.99.0-review1, debug session `2026-10-09_17-35-51-484_362517` (one report) and his message. His words are quoted in each part.
+- **Starting point:** main at the "Record 0.99 delivery" commit. This TODO edit is uncommitted and belongs in the safety checkpoint.
+- Runs unattended: design decisions are below; do not stop to ask about design. Stop only for a real external blocker (rule 7).
+- **Scope is exactly Parts A–F.** The Verification budget and the Controller-first rule apply. World changes only where Dan pointed. **Every check in the built Windows player.**
+
+### Part A — The Mountain Loop trench is still there (BUG-001, third report)
+
+Dan: "this gap still isn't fixed!" Report at (1043.55, 153.31, 134.23), heading 44°, Mountain Loop - Forward, lap 2, Dusk / Snow, in the Patrol Car. The screenshot looks along the road: on the left, between this road and the parallel road further left, a deep dark channel with cut faces runs ahead for a long way. Reported before as 0.95 BUG-003 (1055.64, 152.62, 134.36), 0.98 BUG-002 / BUG-003 (1200.14, 151.96, 188.59 and 1049.73, 152.51, 138.59). 0.96 added a shelf; 0.99 added `Ground_Report099 fill LeftTrench` over main 1650–1850 m and itself reported "a 1–3 m ledge remains … at its start (main 1625–1650 m)". Dan is at about main 1640 m and the channel is still plainly visible.
+
+1. **Stand where Dan stood**, in the built player, same heading, and take the before shot. Then look along the whole channel from there and from 1814 m looking back. Find every part of it that is still open: the start before 1650 m, the far side, anything past 1850 m, and anything between this road and the parallel road on the left.
+2. **Fill all of it** so there is no channel and no ledge: the ground between this road's left verge and the parallel road is continuous solid ground, level with the verges (a gentle fall where the two roads differ in height), drawn and collidable, for the full length of the channel. Re-seat trees on it. Do not change either road's surface, the route, jumps or the summit approach.
+3. Check `MountainLoopReverse` at the same place; fill it the same way only if the channel exists there too.
+4. **Check (built player):** shots from Dan's position and heading, from 1814 m looking back, and from the parallel road, before and after. **Do not report this fixed unless the after shot from Dan's exact spot shows no channel.**
+
+### Part B — Vehicle pictures are never squished
+
+Dan: "When selecting the vehicle in the police chase menu the vehicle is squished as it was previously. I noticed this was on another menu for vehicle selection. Let's make sure anywhere there is a vehicle selection that the picture is never squished."
+
+1. Find every place a vehicle preview is drawn (turning garage view, garage list, campaign event page and its small preview, Shop, split-screen garages and setup previews, the Police Chase / Getaway / Speed Patrol setups including the patrol car and cop-vehicle rows, the unlock panel, Race Setup, results / winner panels, the track-select or loading screens if they show a vehicle) and list them.
+2. Fix the cause once, in the shared preview code if there is one: the render texture's aspect must match the on-screen image's aspect (or the image keeps the texture's aspect, letterboxed), at every screen size and in split-screen halves. No preview may stretch or squash a vehicle.
+3. **Check (built player, controller):** a shot of each preview location with the same vehicle (a car and a bike), at 3840×2160 and in a split-screen half.
+
+### Part C — The moon
+
+Dan: "Is there actually a moon? I have yet to see it when I have played."
+
+There is a moon (`WeatherSky.MoonDisc`): races at night have a fixed full moon; Free Roam follows a 30-day calendar (new on day 1, full around day 15). Dan's recent Free Roam play was on days 3–4, a thin crescent near new moon.
+
+1. In the built player, at night, **look for the moon** in a race (Night, Clear: full moon) and in Free Roam: is it drawn, where in the sky, how big, does it rise and set, is it hidden by the far clip, fog, the sky, clouds or the weather. Fix whatever stops a clearly visible moon on a clear night.
+2. Make it noticeable: a size and brightness that reads clearly at 3840×2160 (about the apparent size players expect; a little larger than real is fine), high enough in the sky for a good part of the night that you can see it while driving, not only behind you.
+3. Free Roam: start a new game's calendar near a full moon (about day 12) so a new player sees it; keep Dan's calendar as it is. Crescents should still be visible as thin bright shapes, not vanish; only the night of new moon has none.
+4. **Check:** shots from the driving view, in a race at night and in Free Roam on a full-moon night and a crescent night.
+
+### Part D — Hidden police only see you going one way
+
+Dan: "The auto police chase worked, but it only worked going one way. I passed him and he ignored me; he only paid attention when I circled back and drove past him again going the opposite direction."
+
+Cause found by Claude (chat), to confirm: `HiddenPolice` only sees the player "in front of the cop", `Vector3.Dot(prop.forward, toPlayer) < .45f` (about a 63° half-cone), so with the car angled at its spot it covers one direction of the road only.
+
+1. A hidden cop sees a speeder in **both directions** along its road: detection within about 70 m with a clear line of sight, on either side, regardless of which way the car is parked (radar both ways). Keep the speed threshold (more than 10 mph over).
+2. **Check (built player):** at two hiding places, pass each one over the limit in both directions: four trips, four chases.
+
+### Part E — Free look while driving
+
+Dan: "Is there any way to get a free look camera while driving as opposed to having to reach it through the menu?"
+
+1. **Right stick looks around** while driving (chase and first person): push it and the camera swings around the vehicle (chase) or the head turns (first person), up to looking backward; let go and it eases back behind the vehicle within about a second. Driving is not affected. Keyboard / mouse: hold the right mouse button and move the mouse, same behaviour.
+2. **Click the right stick (R3)** for a quick look behind while held.
+3. If the right stick or R3 is already used for something while driving, say what, and choose the least disruptive mapping; list it on the controls card and in the pause menu's controls.
+4. Works in races, Free Roam, police modes and each half of split-screen (each player's own stick). Not in Trailer Mode (it has its own cameras).
+- **Check (built player, controller):** look left, right and behind in chase and first person while driving; release returns; split-screen both players at once.
+
+### Part F — Free Roam storm drain: driving onto it drops you into it
+
+Dan (17:59): "The storm drain during Free Roam. If you were to try to drive onto it, you fall into it." No report position; the drain is the box and tunnel entrance around (143.19, 58.19, 67.90) to (182.09, 67.41, 76.61) in `FreeRoamWorld` (0.95 BUG-002, 0.97 BUG-001), restored to its 0.95 shape in 0.98.
+
+1. In the built player, drive onto the top of the storm-drain structure from the ground around it (the box, the headwall over the entrance, the ground above the tunnel) from several sides, and find where a vehicle falls through or drops inside: a missing or partial collider on the top, an opening in the roof, or ground that does not meet the concrete.
+2. Make the top solid: a vehicle can drive onto and across the top of the structure and the ground above the tunnel, and off again, without falling in. Use colliders matching the visible concrete and ground; where the top is an opening on purpose, close it with a visible solid top (a concrete slab or grate) **over the roof only**.
+3. **Do not close, narrow or lower the tunnel or its entrance.** The tunnel stays drivable through both ways, exactly as now (0.96's lid sealed it; do not repeat that). Do not change the race scenes' storm drain.
+4. **Check (built player):** drive onto and across the top from three sides with a car and the bike: no fall; then drive through the tunnel both ways: unchanged. Shots of the top and of the open entrance.
+
+### Verification
+
+Light, per the Verification budget and the Controller-first rule; all checks in the built player. Compile, launch, release steps. Results as a short list, with "for Dan to check".
+
+## Previous delivery — Ridge Cut sign seen from across the track, two Mountain Loop pits, AI cars on the summit jump, hidden police in Free Roam, police bike, unlockable police vehicles, radio voice playback — target 0.99.0-review1 — DELIVERED as 0.99.0-review1 (build 99000), awaiting Dan's review — REVIEWED BY DAN (hidden police work but one way only; trench still open; squished vehicle previews; moon not seen; follow-ups in 0.100)
 
 - **Authorized by Dan (2026-10-09, 01:10).** Written by Claude (chat) from his play of 0.98.0-review1, debug session `2026-10-09_00-57-21-697_e7b8f4` (three reports, all Mountain Loop - Forward, 0.98.0-review1) and his message. "All is good from last round except…" His words are quoted in each part.
 - **Starting point:** main at the "Record 0.98 delivery" commit. This TODO edit is uncommitted and belongs in the safety checkpoint.
