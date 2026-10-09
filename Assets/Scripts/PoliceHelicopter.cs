@@ -23,11 +23,21 @@ namespace Racer
             aim = p; transform.position = p + back.normalized * 220 + Vector3.up * (FlyHeight + 25); started = true;
             Build();
         }
+        static Material baseMaterial;
+        static Material FindBaseMaterial()
+        {
+            foreach (var car in Object.FindObjectsByType<ArcadeVehicle>(FindObjectsSortMode.None)) foreach (var mr in car.GetComponentsInChildren<MeshRenderer>(true)) { var m = mr.sharedMaterial; if (m && m.shader && m.shader.isSupported && m.HasProperty("_BaseColor") && !m.name.ToLower().Contains("glass") && !m.name.ToLower().Contains("glaz")) return m; }
+            return null;
+        }
         Renderer Part(string name, PrimitiveType type, Vector3 pos, Vector3 scale, Color colour, Transform parent = null)
         {
             var go = GameObject.CreatePrimitive(type); go.name = name; var c = go.GetComponent<Collider>(); if (c) Destroy(c);
             go.transform.SetParent(parent ? parent : transform, false); go.transform.localPosition = pos; go.transform.localScale = scale;
-            var r = go.GetComponent<Renderer>(); r.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off; r.material.color = colour; if (r.material.HasProperty("_BaseColor")) r.material.SetColor("_BaseColor", colour); return r;
+            var r = go.GetComponent<Renderer>(); r.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
+            // 0.98: a primitive's default material is the pink error shader in the built player (the helicopter was a pink blob): use a lit material the game already ships
+            if (baseMaterial == null) baseMaterial = FindBaseMaterial();
+            if (baseMaterial) { var m = new Material(baseMaterial); if (m.HasProperty("_BaseColor")) m.SetColor("_BaseColor", colour); if (m.HasProperty("_Color")) m.SetColor("_Color", colour); r.sharedMaterial = m; } else r.material.color = colour;
+            return r;
         }
         void Build()
         {

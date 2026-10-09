@@ -64,7 +64,7 @@ namespace Racer
                 {
                     yield return null; if (hold) { runner.bust = 0; runner.escape = 0; }
                     if (g.Heat != lastHeat) { lastHeat = g.Heat; heatAt[g.Heat] = g.Clock; Note($"[{g.Clock:F0}s] HEAT {g.Heat}: alert '{g.Alert}', cops {g.Cops.Count(c => !c.block)}"); if (g.Heat >= 2 && shots.Add(g.Heat)) { yield return new WaitForSecondsRealtime(.4f); yield return Snap($"{kind}-heat{g.Heat}-alert"); } }
-                    if (g.Heli && heliAt < 0) { heliAt = g.Clock; seqNext = Time.realtimeSinceStartup + 2f; Note($"[{g.Clock:F0}s] HELICOPTER spawned at {g.Heli.transform.position}, {Vector3.Distance(g.Heli.transform.position, runner.body.position):F0} m from the runner"); }
+                    if (g.Heli && heliAt < 0) { heliAt = g.Clock; seqNext = Time.realtimeSinceStartup + 2f; { var hr = g.Heli.GetComponentInChildren<MeshRenderer>(); Note($"helicopter material: {(hr && hr.sharedMaterial ? hr.sharedMaterial.name + " / " + hr.sharedMaterial.shader.name + " supported " + hr.sharedMaterial.shader.isSupported : "none")}"); } Note($"[{g.Clock:F0}s] HELICOPTER spawned at {g.Heli.transform.position}, {Vector3.Distance(g.Heli.transform.position, runner.body.position):F0} m from the runner"); }
                     if (g.Heli && seq < 5 && Time.realtimeSinceStartup >= seqNext) { seq++; seqNext = Time.realtimeSinceStartup + 1.5f; yield return Snap($"{kind}-heli-seq{seq}"); }
                     int near600 = g.Cops.Count(c => c.car && !c.block && Vector3.Distance(c.car.Body.position, runner.body.position) <= 600); maxNear = Mathf.Max(maxNear, near600);
                     if (g.Clock >= next)
