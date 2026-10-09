@@ -186,8 +186,11 @@ namespace Racer
             // 0.96 Part E: Getaway: the cops that can see the runner (red) and the ones that cannot (dim); the exits they cover (yellow rings)
             if (roam && GetawayChase.Current)
             {
-                foreach (var (pos, sees) in GetawayChase.Current.CopMarks) { var p = Project(pos); if (!bounds.Contains(p)) continue; Diamond(vh, p, sees ? 7.5f : 6, new(.03f,.06f,.08f)); Diamond(vh, p, sees ? 5.5f : 4, sees ? new Color(1, .16f, .12f) : new Color(.45f, .2f, .2f, .85f)); }
-                if (GetawayChase.Current.HeliMark is Vector3 heli) { var hp = Project(heli); if (bounds.Contains(hp)) { Diamond(vh, hp, 8, new(.03f,.06f,.08f)); Diamond(vh, hp, 5.5f, new Color(.85f, .95f, 1f)); } } // 0.97: the helicopter
+                // 0.98: every unit is drawn, at the rim of the map when it is further away; a unit that has just joined pulses with a white ring; the helicopter is a big pale marker
+                var rim = new Rect(bounds.xMin + 7, bounds.yMin + 7, bounds.width - 14, bounds.height - 14);
+                Vector2 RimOf(Vector2 q, out bool edge) { edge = !rim.Contains(q); if (!edge) return q; var d = q - PlayerPoint; float t = 1; if (d.x > 0) t = Mathf.Min(t, (rim.xMax - PlayerPoint.x) / d.x); if (d.x < 0) t = Mathf.Min(t, (rim.xMin - PlayerPoint.x) / d.x); if (d.y > 0) t = Mathf.Min(t, (rim.yMax - PlayerPoint.y) / d.y); if (d.y < 0) t = Mathf.Min(t, (rim.yMin - PlayerPoint.y) / d.y); return PlayerPoint + d * Mathf.Max(0, t); }
+                foreach (var (pos, sees, age) in GetawayChase.Current.CopMarksAged) { var p = RimOf(Project(pos), out bool edge); float r = edge ? 4.5f : sees ? 7.5f : 6; if (age < 8 && Mathf.Repeat(Time.unscaledTime * 3, 1) < .6f) Diamond(vh, p, 11, Color.white); Diamond(vh, p, r + 1.5f, new(.03f,.06f,.08f)); Diamond(vh, p, r - 1.5f, sees ? new Color(1, .16f, .12f) : edge ? new Color(.9f, .35f, .3f) : new Color(.45f, .2f, .2f, .85f)); }
+                if (GetawayChase.Current.HeliMark is Vector3 heli) { var hp = RimOf(Project(heli), out _); Diamond(vh, hp, 12, new(.03f,.06f,.08f)); Diamond(vh, hp, 9, new Color(.85f, .95f, 1f)); Diamond(vh, hp, 4, new Color(.2f, .45f, 1f)); }
                 foreach (var e in GetawayChase.Current.ExitPoints) { var p = Project(e); if (!bounds.Contains(p)) continue; Diamond(vh, p, 7, new Color(1, .85f, .2f)); Diamond(vh, p, 4, new(.03f,.06f,.08f)); }
             }
             // 0.94 Part B: split-screen Free Roam: the other player in their colour, kept at the rim when further away

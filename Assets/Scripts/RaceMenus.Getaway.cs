@@ -11,10 +11,10 @@ namespace Racer
         void RenderGetawaySetup()
         {
             bool solo = SplitScreen.Solo; SplitScreen.Mode = SplitScreen.Kind.Police; SplitScreen.P2Ai = solo || SplitScreen.P2AiRunner;
-            ClearCore("GETAWAY", (solo ? "You run on the full screen." : "Two runners, split-screen: the one who stays free longest wins.")
-                + " The cops are AI: they chase on the roads, cover the exits when you go off-road, search where they last saw you, and more join as the heat rises (roadblocks from heat 3)."
-                + " Stay out of every cop's sight for 20 s to escape; the round limit counts as escaped. Nothing is recorded but the Getaway Top 10." + (SplitScreen.FromRoam ? "  Afterwards you go back to Free Roam." : ""));
-            details.fontSize = 17; details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight = 100;
+            ClearCore("GETAWAY", "Escape the police. More cops join the longer you stay free."
+                + (solo ? "\nYou run on the full screen." : "\nTwo runners, split-screen: the one who stays free longest wins.")
+                + "\nA cop is already behind you when it starts. Stay out of every cop's sight to escape; the round limit counts as escaped. Nothing is recorded but the Getaway Top 10." + (SplitScreen.FromRoam ? "  Afterwards you go back to Free Roam." : ""));
+            details.fontSize = 17; details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight = 84;
             int n = 0; GameRow(n++);
             Step(n++, "police-players", "Players:   " + (solo ? "1   (full screen)" : "2   (split screen)"), d => { SplitScreen.Solo = !SplitScreen.Solo; SplitScreen.P2Ai = SplitScreen.Solo || SplitScreen.P2AiRunner; flow.Click(); Show(); });
             int devices = -1;
@@ -40,8 +40,6 @@ namespace Racer
             PreviewCard(strip, VehicleProfile.Find(SplitScreen.P1Vehicle), SplitScreen.P1Color, false, (solo ? "You run in: " : SplitScreen.NameOf(1) + " runs in: ") + Vehicle(SplitScreen.P1Vehicle), new Color(.3f, .95f, .81f), 250);
             if (!solo) PreviewCard(strip, VehicleProfile.Find(SplitScreen.P2Vehicle), SplitScreen.P2Color, false, SplitScreen.NameOf(2) + " runs in: " + Vehicle(SplitScreen.P2Vehicle), new Color(1, .74f, .25f), 200);
             PreviewCard(strip, VehicleProfile.Police, -1, false, "The cops: Patrol Car", new Color(.5f, .7f, 1), 200);
-            var order = RacePlaylists.DisplayOrder.ToArray();
-            Step(n++, "split-course", "Start at:   " + RacePlaylists.Titles[SplitScreen.Course].Replace(" - ", " — "), d => { int i = System.Array.IndexOf(order, SplitScreen.Course); SplitScreen.Course = order[((i < 0 ? 0 : i) + d + order.Length) % order.Length]; flow.Click(); Show(); });
             var times = LookPresets.MenuOrder;
             Step(n++, "split-time", "Time of day:   " + SplitScreen.Time, d => { int i = System.Array.IndexOf(times, SplitScreen.Time); SplitScreen.Time = times[((i < 0 ? 1 : i) + d + times.Length) % times.Length]; flow.Click(); Show(); });
             Step(n++, "split-weather", "Weather:   " + SplitScreen.Weather, d => { SplitScreen.Weather = (Weather)(((int)SplitScreen.Weather + d + 3) % 3); flow.Click(); Show(); });

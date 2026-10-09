@@ -38,21 +38,16 @@ namespace Racer
             if (SplitScreen.PoliceGame == SplitScreen.Game.SpeedPatrol) { RenderPatrolSetup(); return; } // 0.95 Part G
             if (SplitScreen.PoliceGame == SplitScreen.Game.Getaway) { RenderGetawaySetup(); return; } // 0.96 Part E
             bool solo = SplitScreen.Solo; SplitScreen.Mode = SplitScreen.Kind.Police; SplitScreen.P2Ai = solo;
-            if (solo) SplitScreen.CopFirst = SplitScreen.SoloRole == 2 ? 2 : 1; // 0.96: the Runner role works now (the AI is the cop)
-            bool runnerRole = solo && SplitScreen.SoloRole == 2;
+            if (solo) { SplitScreen.SoloRole = 1; SplitScreen.CopFirst = 1; } // 0.98: Cop vs Runner is the cop role only; being chased by AI cops is Getaway
+            bool runnerRole = false;
             ClearCore("POLICE CHASE", (solo
-                ? (runnerRole ? "One player against an AI cop on the full screen. You run: stay free until the clock runs out. You keep your role for the one round." : "One player against the AI on the full screen. You keep your role for the one round.")
+                ? "One player as the cop, chasing the AI runner on the full screen. To be chased, play Getaway."
                 : "Two players, split-screen: one is the cop in the patrol car, the other runs; then the roles swap.")
                 + "\nNothing is recorded." + (SplitScreen.FromRoam ? "  Afterwards you go back to Free Roam." : ""));
             details.fontSize = 18; details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight = 54;
             int n = 0; GameRow(n++);
             Step(n++, "police-players", "Players:   " + (solo ? "1   (full screen, against the AI)" : "2   (split screen)"), d => { SplitScreen.Solo = !SplitScreen.Solo; SplitScreen.P2Ai = SplitScreen.Solo; flow.Click(); Show(); });
-            if (solo)
-            {
-                // Part A: one role, kept; the runner role is greyed until the chasing AI exists
-                Step(n++, "police-role", "Your role:   " + (runnerRole ? "Runner   (the AI is the cop)" : "Cop   (the AI runs)"), d => { SplitScreen.SoloRole = 3 - SplitScreen.SoloRole; flow.Click(); Show(); });
-            }
-            else
+            if (!solo)
             {
                 string Joins(InputDevice dev) => dev is Gamepad ? "   (A on another controller joins)" : "";
                 Step(n++, "split-p1", "Player 1:   " + (SplitScreen.P1Device == null ? "press A on a controller, or Enter" : SplitScreen.DeviceName(SplitScreen.P1Device) + "   ✓"), d => CycleSlot(1, d));
@@ -76,8 +71,6 @@ namespace Racer
             string Vehicle(string id) { var p = VehicleProfile.Find(id); return $"{p.Name} ({p.Class})"; }
             PreviewCard(strip, runnerRole ? VehicleProfile.Find(SplitScreen.P1Vehicle) : VehicleProfile.Find(SplitScreen.P2Vehicle), runnerRole ? SplitScreen.P1Color : SplitScreen.P2Color, false, (solo ? (runnerRole ? "You run in: " : "The runner (AI): ") : SplitScreen.NameOf(2) + " runs in: ") + Vehicle(runnerRole ? SplitScreen.P1Vehicle : SplitScreen.P2Vehicle), new Color(1, .74f, .25f), solo ? 250 : 200);
             if (!solo) PreviewCard(strip, VehicleProfile.Find(SplitScreen.P1Vehicle), SplitScreen.P1Color, false, SplitScreen.NameOf(1) + " runs in: " + Vehicle(SplitScreen.P1Vehicle), new Color(.3f, .95f, .81f), 200);
-            var order = RacePlaylists.DisplayOrder.ToArray();
-            Step(n++, "split-course", "Start at:   " + RacePlaylists.Titles[SplitScreen.Course].Replace(" - ", " — "), d => { int i = System.Array.IndexOf(order, SplitScreen.Course); SplitScreen.Course = order[((i < 0 ? 0 : i) + d + order.Length) % order.Length]; flow.Click(); Show(); });
             var times = LookPresets.MenuOrder;
             Step(n++, "split-time", "Time of day:   " + SplitScreen.Time, d => { int i = System.Array.IndexOf(times, SplitScreen.Time); SplitScreen.Time = times[((i < 0 ? 1 : i) + d + times.Length) % times.Length]; flow.Click(); Show(); });
             Step(n++, "split-weather", "Weather:   " + SplitScreen.Weather, d => { SplitScreen.Weather = (Weather)(((int)SplitScreen.Weather + d + 3) % 3); flow.Click(); Show(); });
@@ -89,8 +82,7 @@ namespace Racer
             Row(n, "police-start", SplitScreen.Ready ? "START CHASE" : "START CHASE   (waiting for player 2)", flow.StartSplit);
             var colors = buttons[n].colors; colors.normalColor = new(.1f, .38f, .35f); buttons[n].colors = colors; buttons[n].GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight = 54; buttons[n++].interactable = SplitScreen.Ready;
             Row(n, "police-back", "Back", () => BackPage());
-            if (solo) buttons[2].GetComponentInChildren<UnityEngine.UI.Text>(true).color = new Color(.78f, .8f, .78f);
-            else { DeviceGlyph(buttons[2], SplitScreen.P1Device); DeviceGlyph(buttons[3], SplitScreen.P2Device); buttons[2].GetComponentInChildren<UnityEngine.UI.Text>(true).color = new Color(.3f, .95f, .81f); buttons[3].GetComponentInChildren<UnityEngine.UI.Text>(true).color = SplitScreen.P2Device != null ? new Color(1, .74f, .25f) : new Color(.75f, .75f, .72f); }
+            if (!solo) { DeviceGlyph(buttons[2], SplitScreen.P1Device); DeviceGlyph(buttons[3], SplitScreen.P2Device); buttons[2].GetComponentInChildren<UnityEngine.UI.Text>(true).color = new Color(.3f, .95f, .81f); buttons[3].GetComponentInChildren<UnityEngine.UI.Text>(true).color = SplitScreen.P2Device != null ? new Color(1, .74f, .25f) : new Color(.75f, .75f, .72f); }
         }
     }
 }

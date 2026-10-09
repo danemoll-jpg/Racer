@@ -22,7 +22,7 @@ namespace Racer
     // other's half full screen. Player 2 as the AI also runs (and draws cops) but never ends the round.
     public sealed class GetawayChase : MonoBehaviour
     {
-        public const float SightRange = 120, SightRangeHard = 120, NearCops = 150, CatchDistance = 10, CatchSpeed = 7, BoxSpeed = 18, ContactSpeed = 22, PinDistance = 20, PinSpeed = 99, HeldSpeed = 15, HeldDistance = 20, RunnerRelease = 3, CopDelay = 2, EndPause = 4, ResetHold = 2, HeatSeconds = 45;
+        public const float SightRange = 120, SightRangeHard = 120, NearCops = 150, CatchDistance = 10, CatchSpeed = 7, BoxSpeed = 18, ContactSpeed = 22, PinDistance = 20, PinSpeed = 99, HeldSpeed = 15, HeldDistance = 20, RunnerRelease = 3, CopDelay = 0, EndPause = 4, ResetHold = 2, HeatSeconds = 45;
         public static GetawayChase Current { get; private set; }
         public enum Phase { Starting, Running, Over, Done }
         public enum Variant { Getaway, CopRunner }
@@ -54,7 +54,9 @@ namespace Racer
         public static readonly int[] CopCap = { 4, 6, 6 }; public static readonly float[] HeatEvery = { 45, 30, 20 }; public static readonly float[] EscapeBy = { 20, 30, 40 }; public static readonly float[] BustRate = { .8f, 1f, 1.25f };
         public float CopSpeed => 1f; public int MaxCops => Mode == Variant.CopRunner ? 1 : CopCap[Difficulty];
         public readonly List<string> TraceLog = new(); void Trace(string s) { TraceLog.Add(s); if (TraceLog.Count > 200) TraceLog.RemoveAt(0); }
-        public List<string> RadioLog = new(); public string Radio => RadioLog.Count > 0 && Time.unscaledTime - radioAt < 9 ? RadioLog[RadioLog.Count - 1] : ""; float radioAt;
+        public List<string> RadioLog = new(); public string Radio => RadioLog.Count > 0 && Time.unscaledTime - radioAt < RadioSeconds ? RadioLog[RadioLog.Count - 1] : ""; float radioAt; public const float RadioSeconds = 4, AlertSeconds = 4.5f;
+        // 0.98: the big heat alert ("HEAT 2 — backup requested"), shown for a few seconds at each rise
+        public string Alert = ""; public float AlertAt = -99; public bool AlertShown => Alert != "" && Time.unscaledTime - AlertAt < AlertSeconds;
         public readonly List<Vector3> ExitPoints = new();
         public readonly List<(string name, float seconds, int heat, string outcome)> Results = new();
         public PoliceHelicopter Heli; public bool HeliSays; float nextPrune; RaceFlow flow; RaceDirector race; float phaseAt, nextTick, heatClock, nextBlock, nextBackup; int copSerial; readonly HashSet<ArcadeVehicle> held = new(); readonly RaycastHit[] rays = new RaycastHit[24];
@@ -98,10 +100,12 @@ namespace Racer
             int want = StartingCops();
             for (int i = 0; i < want; i++)
             {
-                int at = node >= 0 ? Net.Ahead(node, -f, 85 + 45 * i) : -1;
-                var cop = SpawnCop(at >= 0 ? Net.P[at] : p - f * (85 + 45 * i), at >= 0 ? TowardsHeading(at, f) : f, true); if (cop != null) cop.driver.Frozen = true;
+                // 0.98: the first cop is already in pursuit 60-80 m behind, lights and siren on (it is held only until the runner is released); a second one further back
+                float back = i == 0 ? Random.Range(62f, 78f) : 120 + 45 * (i - 1);
+                int at = node >= 0 ? Net.Ahead(node, -f, back) : -1;
+                var cop = SpawnCop(at >= 0 ? Net.P[at] : p - f * back, at >= 0 ? TowardsHeading(at, f) : f); if (cop != null) cop.driver.Frozen = true;
             }
-            Say(Mode == Variant.Getaway ? "Dispatch: all units, runner on the road" : "Dispatch: unit on the runner");
+            Alert = Mode == Variant.Getaway ? "HEAT 1 — unit in pursuit" : ""; AlertAt = Time.unscaledTime; Say(Mode == Variant.Getaway ? "Dispatch: unit in pursuit, runner on the road" : "Dispatch: unit on the runner");
         }
         int StartingCops() => Mode == Variant.CopRunner ? 1 : Mathf.Min(MaxCops, 2);
         Vector3 TowardsHeading(int node, Vector3 f) { var t = Net.Tangent(node); return Vector3.Dot(t, f) < 0 ? -t : t; }
@@ -588,13 +592,15 @@ namespace Racer
         {
             heatClock = 0; if (Mode != Variant.Getaway || Heat >= 5) return;
             Heat++; foreach (var r in Runners) r.topHeat = Mathf.Max(r.topHeat, Heat);
-            Say($"Heat {Heat}: {why}" + (Heat >= 3 ? ", roadblocks" : "") + (Heat == 4 ? ", air support" : ""));
+            string[] says = { "", "", "backup requested", "roadblocks and more units", "air support inbound", "every unit responding" };
+            Alert = $"HEAT {Heat} — {says[Heat]}"; AlertAt = Time.unscaledTime; radioAt = -99;
+            Say($"Heat {Heat}: {why}");
         }
         void SpawnHelicopter()
         {
             var r = Runners.FirstOrDefault(x => !x.Done && x.human); if (r == null) return;
             var go = new GameObject("Police helicopter"); Heli = go.AddComponent<PoliceHelicopter>(); Heli.Begin(this, r);
-            Say("Air support is on the way");
+            Say("Air support inbound: eyes on the suspect");
         }
         // 0.97: is this point in sight of anyone's screen (the main camera, or either split-screen view): inside the frustum within 450 m with a clear line
         // of sight (hills, buildings and trees hide it; cars do not)
@@ -694,6 +700,7 @@ namespace Racer
         public string Verdict(Runner r) => r.caught ? "CAUGHT after " + Mss(r.freeSeconds) : r.limit ? "ESCAPED (time up)" : "ESCAPED after " + Mss(r.freeSeconds);
 
         // ---------- what the HUD and the minimap show ----------
+        public IEnumerable<(Vector3 position, bool sees, float age)> CopMarksAged => Cops.Where(c => c.car).Select(c => (c.car.Body.position, c.sees, Time.time - c.bornAt));
         public IEnumerable<(Vector3 position, bool sees)> CopMarks => Cops.Where(c => c.car).Select(c => (c.car.Body.position, c.sees));
         public Vector3? HeliMark => Heli ? Heli.transform.position : null;
         // F3 debug mode, Getaway only: heat, the cops and what each is doing

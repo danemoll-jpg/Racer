@@ -15,7 +15,7 @@ namespace Racer {
 // One summary line per run is appended to PROBE_OUT/pace97.txt (vehicle, runner, outcome, time, top heat, cops near at each heat, chased at 2:00,
 // off-road episodes with the seconds until exit units stood at an exit).
 public sealed class Runner097 : MonoBehaviour {
- public GetawayChase G; public ArcadeVehicle Car; public bool Human, Trails;
+ public GetawayChase G; public ArcadeVehicle Car; public bool Human, Trails; public float Cap; // 0.98: Cap = a top speed the runner will not exceed (a human barely pressing the gas)
  enum Mode{Road,Country,Return}
  Mode mode; readonly List<Vector3> path=new(); int seg; Vector3 country; float modeUntil,nextCountry,stalled,lastTeleport=-99,flipped; public int Resets, Countrys; public float LastVmax; float startedAt=-1;
  RoadNet Net=>G.Net; readonly RaycastHit[] hits=new RaycastHit[8];
@@ -48,7 +48,7 @@ public sealed class Runner097 : MonoBehaviour {
    if(mode==Mode.Road&&seg+2>=path.Count)NewRoadPath();
    if(path.Count<2){Brake(speed);return;}
   }
-  float look=Mathf.Clamp(7+speed*.5f,9,30);Vector3 target;float vmax=Car.topSpeed;
+  float look=Mathf.Clamp(7+speed*.5f,9,30);Vector3 target;float vmax=Car.topSpeed;if(Cap>0)vmax=Mathf.Min(vmax,Cap);
   if(mode==Mode.Country){
    var d0=country-p;d0.y=0;if(d0.magnitude<20){modeUntil=0;}d0.Normalize();Vector3 dir=d0;
    foreach(float off in new[]{0f,20f,-20f,40f,-40f,65f,-65f,95f,-95f}){var d=Quaternion.Euler(0,off,0)*d0;

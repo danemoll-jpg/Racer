@@ -43,7 +43,7 @@ namespace Racer
         // 0.96 Part E: Getaway (every human a runner, AI cops) and the solo Runner role; difficulty 0 Easy / 1 Normal / 2 Hard; the second
         // player of a two-player Getaway may be the AI (it runs too); Watching = a caught player's half is gone, this player's fills the screen
         public static int PoliceDifficulty = 1, Watching; public static bool P2AiRunner;
-        public static bool AiCops => Mode == Kind.Police && (PoliceGame == Game.Getaway || (PoliceGame == Game.CopRunner && Solo && SoloRole == 2));
+        public static bool AiCops => Mode == Kind.Police && PoliceGame == Game.Getaway; // 0.98: being chased by AI cops is Getaway only
         public static Game PoliceGame = Game.CopRunner;
         public static bool Solo = true, FromRoam; public static int SoloRole = 1, RoamReturn;
         public static bool OneView => Active && Solo && Mode == Kind.Police;

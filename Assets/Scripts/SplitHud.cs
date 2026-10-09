@@ -12,7 +12,7 @@ namespace Racer
     {
         sealed class Half
         {
-            public RectTransform root, captionRoot; public Text info, speed, centre, tag, gaps, grid, caption; public RacingMiniMap map; public GameObject infoPanel, speedPanel, gapsPanel, gridPanel;
+            public RectTransform root, captionRoot; public Text info, speed, centre, tag, gaps, grid, caption, heat, alert, radio; public RacingMiniMap map; public GameObject infoPanel, speedPanel, gapsPanel, gridPanel;
         }
         RaceFlow flow; SplitRace split; Font font; readonly Half[] halves = new Half[2]; GameObject divider; RectTransform canvas;
         float goUntil; RaceFlow.Stage lastStage;
@@ -29,6 +29,9 @@ namespace Racer
             t.font = font; t.fontSize = size; t.alignment = anchor; t.color = colour; t.raycastTarget = false; t.supportRichText = true;
             var o = t.gameObject.AddComponent<Outline>(); o.effectColor = new Color(0, 0, 0, .85f); o.effectDistance = new Vector2(1.4f, -1.4f); return t;
         }
+        // shrink a one-line label until it fits the width (never clipped, never wrapped)
+        static void Fit(Text t, float avail) { float w = t.preferredWidth; if (w > avail) t.fontSize = Mathf.Max(11, Mathf.FloorToInt(t.fontSize * avail / w)); }
+        static void Wide(Text t, float top, float height) { var r = t.rectTransform; r.anchorMin = new Vector2(0, 1); r.anchorMax = new Vector2(1, 1); r.pivot = new Vector2(.5f, 1); r.anchoredPosition = new Vector2(0, top); r.sizeDelta = new Vector2(-40, height); }
         Half Build(int player)
         {
             var h = new Half();
@@ -53,6 +56,12 @@ namespace Racer
             gr.anchorMin = gr.anchorMax = gr.pivot = new Vector2(0, 1); gr.anchoredPosition = new Vector2(14, -126); gr.sizeDelta = new Vector2(330, 160);
             h.gridPanel.GetComponent<Image>().color = new Color(.025f, .055f, .07f, .84f); h.gridPanel.GetComponent<Image>().raycastTarget = false;
             h.grid = Label(gr, 17, TextAnchor.UpperLeft, Color.white); h.grid.rectTransform.anchorMin = Vector2.zero; h.grid.rectTransform.anchorMax = Vector2.one; h.grid.rectTransform.offsetMin = new Vector2(10, 6); h.grid.rectTransform.offsetMax = new Vector2(-8, -6);
+            // 0.98 Getaway: the heat big at the top centre, the alert for each rise under it, and the police radio as one outlined line (no box) under that
+            h.heat = Label(h.root, 44, TextAnchor.UpperCenter, new Color(1f, .78f, .28f)); Wide(h.heat, -10, 64);
+            h.alert = Label(h.root, 28, TextAnchor.UpperCenter, new Color(1f, .45f, .3f)); Wide(h.alert, -74, 40);
+            h.radio = Label(h.root, 24, TextAnchor.UpperCenter, new Color(.62f, .8f, 1f)); Wide(h.radio, -116, 36); h.radio.horizontalOverflow = HorizontalWrapMode.Overflow; h.radio.verticalOverflow = VerticalWrapMode.Overflow;
+            h.heat.horizontalOverflow = h.alert.horizontalOverflow = HorizontalWrapMode.Overflow; h.heat.verticalOverflow = h.alert.verticalOverflow = VerticalWrapMode.Overflow;
+            h.heat.gameObject.SetActive(false); h.alert.gameObject.SetActive(false); h.radio.gameObject.SetActive(false);
             h.captionRoot = new GameObject("Player " + (player + 1) + " winner caption", typeof(RectTransform)).GetComponent<RectTransform>(); h.captionRoot.SetParent(canvas, false);
             h.caption = Label(h.captionRoot, 30, TextAnchor.UpperCenter, new Color(.4f, 1, .85f)); h.caption.rectTransform.anchorMin = new Vector2(.1f, .7f); h.caption.rectTransform.anchorMax = new Vector2(.9f, .95f); h.caption.rectTransform.offsetMin = h.caption.rectTransform.offsetMax = Vector2.zero;
             h.map = RacingMiniMap.Create(h.root, flow.Race, font); h.map.Split = true;
@@ -132,11 +141,12 @@ namespace Racer
                 if (getaway != null && runner != null)
                 {
                     bool ga = getaway.Mode == GetawayChase.Variant.Getaway;
-                    lines.Add($"<b>{(ga ? "GETAWAY" : "<color=#FFC747>RUNNER</color>")}</b>   {RaceHud.FormatTime(getaway.Clock).Substring(0, 5)} / {getaway.Limit / 60:0}:00" + (ga ? $"   HEAT <color=#FFC747>{getaway.HeatBars}</color>" : ""));
+                    lines.Add($"<b>{(ga ? "GETAWAY" : "<color=#FFC747>RUNNER</color>")}</b>   {RaceHud.FormatTime(getaway.Clock).Substring(0, 5)} / {getaway.Limit / 60:0}:00");
                     lines.Add($"COPS  <b>{runner.copsChasing}</b> on you   ·   {getaway.Cops.Count(c => !c.block)} out");
-                    if (ga) { int e = Mathf.RoundToInt(runner.escape * 10); lines.Add("ESCAPE  <color=#7FFFB0>" + new string('■', e) + "</color><color=#5A6066>" + new string('■', 10 - e) + "</color>" + (runner.seen ? "   <color=#FF5A4A>SEEN</color>" : "   <color=#9CFFB0>hidden</color>")); }
+                    if (ga && !runner.seen) { int e = Mathf.RoundToInt(runner.escape * 10); lines.Add("ESCAPE  <color=#7FFFB0>" + new string('■', e) + "</color><color=#5A6066>" + new string('■', 10 - e) + "</color>   <color=#9CFFB0>hidden</color>"); } // 0.98: only while unseen
+                    else if (ga) lines.Add("<color=#FF5A4A>SEEN</color>   hide to start the escape meter");
+                    if (ga && getaway.Heli) lines.Add("AIR  " + (runner.heliSees ? "<color=#FF5A4A>helicopter has you</color>" : "<color=#FFC747>helicopter overhead</color>"));
                     int b = Mathf.RoundToInt(runner.bust * 10); lines.Add("BUST  <color=#FF5A4A>" + new string('■', b) + "</color><color=#5A6066>" + new string('■', 10 - b) + "</color>");
-                    if (getaway.Radio != "") lines.Add("<color=#7FB2FF>RADIO</color>  " + getaway.Radio);
                 }
                 else if (police)
                 {
@@ -161,6 +171,22 @@ namespace Racer
                 var acts = i == 0 ? flow.Activities : roam.Activities2; string hud = acts ? acts.Hud : "";
                 if (hud.Contains("> Activities")) hud = hud.Split('\n')[0]; // timed attempts are single-player only (no Activities in the split-screen pause menu)
                 h.info.text = string.Join("\n", lines); h.info.fontSize = 19;
+                {
+                    bool ga2 = getaway != null && runner != null && getaway.Mode == GetawayChase.Variant.Getaway && getaway.State != GetawayChase.Phase.Done; float hh = Mathf.Max(300, h.root.rect.height); float k = Mathf.Clamp(hh / 700f, .55f, 1.2f);
+                    h.heat.gameObject.SetActive(ga2); h.alert.gameObject.SetActive(ga2 && getaway.AlertShown); h.radio.gameObject.SetActive(ga2 && getaway.Radio != "");
+                    if (ga2)
+                    {
+                        // a narrow half: the heat block sits under the info panel and may use the whole width; a wide view: between the info panel and the minimap
+                        bool narrow = h.root.rect.width < 900; float y0 = narrow ? -(22 + 25 * lines.Count + 10) : -8, avail = Mathf.Max(220, narrow ? h.root.rect.width - 24 : h.root.rect.width - 2 * 380);
+                        h.heat.fontSize = Mathf.RoundToInt(46 * k); h.heat.text = $"HEAT {getaway.Heat}   <color=#FFC747>{getaway.HeatBars}</color>"; Wide(h.heat, y0, 64 * k); Fit(h.heat, avail);
+                        h.alert.fontSize = Mathf.RoundToInt(30 * k); Wide(h.alert, y0 - 62 * k, 42 * k);
+                        if (getaway.AlertShown) { float age = Time.unscaledTime - getaway.AlertAt; var c = h.alert.color; c.a = Mathf.Clamp01((GetawayChase.AlertSeconds - age) * 2) * (age < .6f ? .6f + .4f * Mathf.Abs(Mathf.Sin(age * 14)) : 1); h.alert.color = c; h.alert.text = getaway.Alert; Fit(h.alert, avail); }
+                        if (getaway.Radio != "")
+                        {
+                            h.radio.fontSize = Mathf.RoundToInt(26 * k); Wide(h.radio, y0 - (getaway.AlertShown ? 104 : 62) * k, 38 * k); h.radio.text = "<color=#7FB2FF>RADIO</color>  " + getaway.Radio; Fit(h.radio, avail);
+                        }
+                    }
+                }
                 ((RectTransform)h.infoPanel.transform).sizeDelta = new Vector2(330, 22 + 25 * lines.Count);
                 if (getaway != null && !SplitScreen.OneView && h.map) { var mp = (RectTransform)h.map.transform.parent.parent; mp.anchorMin = mp.anchorMax = mp.pivot = new Vector2(1, 0); mp.anchoredPosition = new Vector2(-14, 78); } // a half view: the map sits above the speed, clear of the chase panel
                 h.speed.text = $"{DisplayUnits.Mph(Mathf.Abs(car.ForwardSpeed)):0} <size=16>mph</size>";

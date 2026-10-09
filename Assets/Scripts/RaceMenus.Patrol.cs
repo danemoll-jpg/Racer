@@ -32,9 +32,7 @@ namespace Racer
                 Step(n++, "split-p2-name", "Player 2 name:   " + (string.IsNullOrEmpty(SplitScreen.P2Pick) ? "press A to enter it" : SplitScreen.P2Pick + "   (A: new name)"), d => { SplitScreen.P2Pick = NextKnownName(SplitScreen.P2Pick, d, SplitScreen.NameOf(1)); flow.Click(); Show(); },
                     () => OpenNameEntry("", v => { if (v == SplitScreen.NameOf(1)) { keyboardError = "Player 1 already has that name."; return false; } PlayerNames.Remember(v); flow.Save.SaveSettings(); SplitScreen.P2Pick = v; return true; }, null, "PLAYER 2'S NAME"));
             }
-            var order = RacePlaylists.DisplayOrder.ToArray();
-            Step(n, "split-course", "Start at:   " + RacePlaylists.Titles[SplitScreen.Course].Replace(" - ", " — "), d => { int i = System.Array.IndexOf(order, SplitScreen.Course); SplitScreen.Course = order[((i < 0 ? 0 : i) + d + order.Length) % order.Length]; flow.Click(); Show(); }); int startRow = n++;
-            var strip = PreviewStrip("Speed Patrol cars", buttons[startRow].transform.GetSiblingIndex(), 170);
+            var strip = PreviewStrip("Speed Patrol cars", buttons[n - 1].transform.GetSiblingIndex() + 1, 170);
             PreviewCard(strip, VehicleProfile.Police, -1, false, solo ? "Your patrol car" : SplitScreen.NameOf(1) + ": Patrol Car (black)", new Color(.5f, .7f, 1), 250);
             var stats = Rect("Patrol car stats", strip); stats.gameObject.AddComponent<UnityEngine.UI.LayoutElement>().preferredWidth = 230;
             var v = stats.gameObject.AddComponent<UnityEngine.UI.VerticalLayoutGroup>(); v.padding = new RectOffset(4, 4, 14, 4); v.spacing = 4; v.childControlWidth = v.childControlHeight = true; v.childForceExpandHeight = false;
