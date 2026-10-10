@@ -18,7 +18,56 @@
   - **Signs (Dan, 2026-10-09):** sign text is part of the sign: one-sided (the back is plain), hidden by terrain and objects like the board, never drawn on top, sized to fit inside its board with a margin, readable at normal sign distance (about 20–30 m), not from across the map. (Mechanism: lettering uses the depth-tested, back-face-culled `Assets/Environment/Phase8/Depth tested world lettering 0.mat`, never a TextMesh's default font material.)
   - **Write-up:** the TODO results are a short list: what changed, the one check per item, decisions made, and anything Dan should look at. No separate VALIDATION.md unless a round asks. If a check would take more than a few minutes of play time, skip it and list it under "for Dan to check".
 
-## CURRENT — Abandoned Cabin Jump: a run-up you can line up and bushes you can clear (race and Free Roam), spikes by the garage, Dan's kennel/garage turned to the parking area with chain-link fence — target 0.101.0-review1 — DELIVERED as 0.101.0-review1 (build 101000), awaiting Dan's review
+## CURRENT — Dan's Backyard Forward: bump before the ramp, edge that catches on the left, the gap beside the gate (and the gate closed on Forward), Cabin reset and Cabin board transition — target 0.102.0-review1 — NOT STARTED
+
+- **Authorized by Dan (2026-10-10, 10:59).** Written by Claude (chat) from his play of 0.101.0-review1, debug session `2026-10-10_10-44-32-440_a775cd` (five reports, all Dan's Backyard Loop - Forward race, Dusk / Snow, Turf Rocket mower). Dan: "the jump is vastly improved." His words are quoted in each part.
+- **Starting point:** main at the "Record 0.101 delivery" commit. This TODO edit is uncommitted and belongs in the safety checkpoint.
+- Runs unattended: design decisions are below; do not stop to ask about design. Stop only for a real external blocker (rule 7).
+- **Scope is exactly Parts A–E, all in `DansBackyardForward`.** For each, check whether the same spot exists in `FreeRoamWorld` (0.101 made the Cabin run-up and brush match there); apply the same fix there only where it is the same object or ground, and say so. The Verification budget and the Controller-first rule apply. World changes only where Dan pointed. **Every check in the built Windows player, from Dan's position, with the mower and one other vehicle, at racing speed.**
+- **Do not undo what 0.101 got right:** the Cabin run-up, the wider ramp, the markers and the brush edge stay.
+
+### Part A — Smooth the bump before the ramp (BUG-001)
+
+Dan: "Can we smooth this out some? It always causes the driver to jump off trail, which makes it hard to hit the ramp." At (370.47, 79.69, 13.23), main 101 m, heading 292°, looking along the dirt trail at a crest just before the next gate.
+
+1. Find the crest or kink in the trail surface ahead of Dan's position (the one that throws a vehicle into the air and off the trail line before the ramp he means, which is the next jump along the main). Smooth it so a vehicle at racing speed stays on the ground and on the trail; keep the trail's overall height and the following ramp, its lip and landing exactly as they are.
+- Check: Dan's position before and after; three runs at racing speed: wheels stay down, line held to the ramp.
+
+### Part B — The left edge that catches you (BUG-002)
+
+Dan: "Fix this so you don't get caught if you take the far left part that is mixed with the ground." At (210.92, 59.92, −21.20), main 277 m, heading 206°: a dark ramp or platform on the trail whose left side blends into the ground; driving on its far left catches the vehicle.
+
+1. Find the lip or step where the platform's left edge meets the ground (or where the ground pokes through it), and make the transition smooth across its whole width, so a vehicle on the far left rolls on and off like one on the centre line. Do not narrow the platform or change its top.
+- Check: drive it at racing speed on the far left, centre and far right: no snag, no loss of speed.
+
+### Part C — The gap along the side of the gate, and the gate closed on the Forward track (BUG-003)
+
+Dan: "Was able to glitch into here by accident." (11:07): "I don't want it possible to be able to glitch into in the first place. I don't want the gate open when [I] do the Forward track." (11:09): "It wasn't through the gate, it was along the side. I was trying to redo the Cabin ramp and got too close to the side and fell in." At (167.25, 63.60, 69.03), main 843 m, heading 66°, shortly before the Abandoned Cabin branch: the mower dropped into a gap beside the gate (tall dark vertical bars) and a pale wall.
+
+1. **Close the gap along the side:** find the opening a vehicle drops into when it runs close to the edge there (between the gate or its fence and the wall, or a hole in the ground beside them). Make it solid and level with the ground around it so a vehicle that strays to that side just drives on (or is stopped by a solid fence or wall), never falls in. Fix it at its source: ground, fence and wall colliders meeting with no gap.
+2. **The gate is closed in `DansBackyardForward`:** shut in its frame, drawn closed, with a solid collider across the opening and no gap at the hinges, latch side or underneath. If another scene's route uses this gate open (`DansBackyardReverse`, `FreeRoamWorld`), leave it open there and say so.
+3. A reset near it puts the vehicle back on the route.
+- Check (built player): drive along that side close to the edge at speed in both directions (as a player turning back to retry the Cabin jump would), and drive at the gate head-on and at an angle: no fall, no way through; shots of the spot and the closed gate after.
+
+### Part D — The first reset in the Cabin bushes leaves you in them (BUG-004)
+
+Dan: "Sometimes, usually the first time you try to reset when in the bushes, it doesn't reset you to the road; you rest still in the bushes." At (240.99, 75.26, 81.84), Abandoned Cabin Jump branch at 61 m, heading 79°, in the brush.
+
+1. Find why the first reset does not use the "reset past the brush" rule from 0.94 (`ShortcutUndergrowth.ResetPast`): a reset path that runs before it, the brush test failing when the vehicle is slow or stopped, a reset during the landing settling, or the brush edge changed in 0.101 without the reset following it. **Every** reset from inside the brush, the first and any after, must put the vehicle on clear trail just past the brush's far edge, facing along the route, stopped. Same in `FreeRoamWorld`.
+- Check: ten resets from different spots and speeds inside the brush, including the first one after landing in it: all ten end past the brush.
+
+### Part E — Losing speed onto the Cabin run-up boards (BUG-005)
+
+Dan: "Depending on your angle, sometimes you get slowed down on the transition, which messes up your jump." At (213.13, 73.91, 79.10), Cabin branch at 33 m, heading 73°: the start of the raised wooden boards of the run-up.
+
+1. Make the transition from the trail onto the boards smooth from any reasonable angle: no step at the board ends or their sides, the ground meeting the boards' leading edge and side edges, colliders matching. A vehicle entering at an angle keeps its speed. Do not change the boards' line, height or the ramp after them.
+- Check: enter the boards straight, 15° from the left and 15° from the right at the run-up speed: speed kept (report the speed before and after the transition), then the jump clears the brush.
+
+### Verification
+
+Light, per the Verification budget and the Controller-first rule; all checks in the built player. Compile, launch, release steps. Results as a short list, with "for Dan to check".
+
+## Previous delivery — Abandoned Cabin Jump: a run-up you can line up and bushes you can clear (race and Free Roam), spikes by the garage, Dan's kennel/garage turned to the parking area with chain-link fence — target 0.101.0-review1 — DELIVERED as 0.101.0-review1 (build 101000), awaiting Dan's review — REVIEWED BY DAN ("the jump is vastly improved"; five Backyard Forward follow-ups in 0.102)
 
 - **Authorized by Dan (2026-10-09, 21:58–22:00).** Written by Claude (chat) from his play of 0.100.0-review1, debug session `2026-10-09_21-41-38-253_8e922d` (three reports, all in Free Roam) and his messages. His words are quoted in each part.
 - **Starting point:** main at the "Record 0.100 delivery" commit. This TODO edit is uncommitted and belongs in the safety checkpoint.
