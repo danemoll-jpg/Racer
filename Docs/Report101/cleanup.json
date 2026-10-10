@@ -1,0 +1,99 @@
+{
+    "freeAfter":  250205192192,
+    "buildsAfter":  8313649897,
+    "freeBefore":  216616325120,
+    "removed":  [
+                    {
+                        "bytes":  1838156323,
+                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\Racer-0.101.0-review1-Windows"
+                    },
+                    {
+                        "bytes":  428052686,
+                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\LauncherRelease-101000\\assets\\game.zip"
+                    },
+                    {
+                        "bytes":  1838113855,
+                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\Latest\\versions\\99000"
+                    },
+                    {
+                        "bytes":  41324424,
+                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\Check101"
+                    },
+                    {
+                        "bytes":  49158968,
+                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\Check101b"
+                    },
+                    {
+                        "bytes":  1840674761,
+                        "path":  "C:\\Users\\danmo\\Racer\\Temp\\report101-hosted-1791637073493069000"
+                    },
+                    {
+                        "bytes":  1836317348,
+                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\Check101-022359"
+                    },
+                    {
+                        "bytes":  1836317860,
+                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\Check101-031602"
+                    },
+                    {
+                        "bytes":  1836317860,
+                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\Check101-035206"
+                    },
+                    {
+                        "bytes":  1836318372,
+                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\Check101-040635"
+                    },
+                    {
+                        "bytes":  1836318372,
+                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\Check101-041645"
+                    },
+                    {
+                        "bytes":  1836319236,
+                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\Check101-060139"
+                    },
+                    {
+                        "bytes":  1836319748,
+                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\Check101-062211"
+                    },
+                    {
+                        "bytes":  1836319748,
+                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\Check101-070425"
+                    },
+                    {
+                        "bytes":  1836320420,
+                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\Check101-074926"
+                    },
+                    {
+                        "bytes":  1836320420,
+                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\Check101-081059"
+                    },
+                    {
+                        "bytes":  1836320420,
+                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\Check101-083007"
+                    },
+                    {
+                        "bytes":  1836320420,
+                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\Check101-084103"
+                    },
+                    {
+                        "bytes":  1836319887,
+                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\Check101-ai"
+                    },
+                    {
+                        "bytes":  1836317860,
+                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\Check101-t2"
+                    },
+                    {
+                        "bytes":  1836317348,
+                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\Check101-trace"
+                    }
+                ],
+    "buildsBefore":  40053241472,
+    "buildsRecovered":  31739591575,
+    "retained":  [
+                     "Latest complete root runtime",
+                     "managed 101000",
+                     "managed 100000",
+                     "music, publisher keys/tools, launcher, metadata, source, evidence, saves"
+                 ]
+}

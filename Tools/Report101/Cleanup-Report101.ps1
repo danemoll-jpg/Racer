@@ -9,7 +9,7 @@ if($state.game.manifest.build -ne 101000 -or !$hosted.startupReady){throw 'Deliv
 if(($launch | ConvertTo-Json -Depth 20) -notmatch '101000'){throw 'Production launcher verification missing'}
 function Bytes([string]$p){$n=(Get-ChildItem -LiteralPath $p -File -Recurse | Measure-Object -Property Length -Sum).Sum;if($null -eq $n){return 0};return [long]$n}
 $before=Bytes $builds;$freeBefore=(Get-PSDrive C).Free
-$targets=@((Join-Path $builds 'Racer-0.101.0-review1-Windows'),(Join-Path $builds 'LauncherRelease-101000/assets/game.zip'),(Join-Path $builds 'Latest/versions/99000'),(Join-Path $builds 'Check101'),(Join-Path $builds 'Racer-0.101.0-check1-Windows'),(Join-Path $builds 'Racer-0.101.0-check2-Windows'),(Join-Path $root 'Temp/Report101Save'),[string]$hosted.work)
+$targets=@((Join-Path $builds 'Racer-0.101.0-review1-Windows'),(Join-Path $builds 'LauncherRelease-101000/assets/game.zip'),(Join-Path $builds 'Latest/versions/99000'),(Join-Path $builds 'Check101'),(Join-Path $builds 'Check101b'),(Join-Path $builds 'Racer-0.101.0-check1-Windows'),(Join-Path $builds 'Racer-0.101.0-check2-Windows'),(Join-Path $root 'Temp/Report101Save'),[string]$hosted.work)+@(Get-ChildItem $builds -Directory -Filter 'Check101-*' | ForEach-Object FullName)
 $running=Get-CimInstance Win32_Process | Where-Object {$_.ExecutablePath -and $_.ExecutablePath.StartsWith($root,[StringComparison]::OrdinalIgnoreCase)}
 $removed=@()
 foreach($candidate in $targets){
