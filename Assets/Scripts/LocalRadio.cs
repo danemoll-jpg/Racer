@@ -116,7 +116,7 @@ namespace Racer
             var personal=Bundled&&LocalFolder(LauncherBridge.PersonalMusic)?LauncherBridge.PersonalMusic:null;
             scan=Task.Run(()=>personal==null?MusicCollection.Scan(folder,recursive,token,progress):MusicCollection.ScanShared(folder,personal,token,progress));
         }
-        public void CancelScan(){scanRevision++;rescanPending=false;scanCancellation?.Cancel();scanSummary="Scan cancelled; previous collection retained";}
+        public void CancelScan(){scanRevision++;rescanPending=false;scanCancellation?.Cancel();scanSummary="Scan canceled; previous collection retained";}
         public void SetRecursive(bool recursive){flow.Save.Settings.musicRecursive=recursive;flow.Save.SaveSettings();Rescan();}
         public void SetSource(bool bundled)
         {

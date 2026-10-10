@@ -1,0 +1,378 @@
+==== main menu
+  Esc
+  QUIT GAME
+  EXPLORATION
+  TRAILER / PHOTO MODE   (F8)
+  WOODSTOCK RUSH
+  RECORDS
+  SPLIT SCREEN
+  CAMPAIGN / Chapter 4: Mountain Loop  ·  6 of 8 events  ·  $60,230
+  Select
+  RACE
+  W
+  POLICE CHASE
+  SETTINGS
+  Navigate
+  Space
+  Back
+  GARAGE
+  FREE ROAM
+==== garage
+  Esc
+  Rider…
+  Back
+  ✓ Red
+  Handling
+  Change
+  Shop…   ($60,230)
+  Turf Rocket / Mower
+  ›
+  Gold
+  ›
+  Blue
+  Color:   Red
+  Teal
+  Riding mower / the acorn reward / top speed, grip and handling, solid in contact / Street Loop - Forward: every vehicle available. / Color: left / right on the Color row.
+  White
+  Grip
+  / E  Rotate
+  Black
+  ‹
+  Turf Rocket   ·   11 / 13
+  ›
+  ‹
+  Acceleration
+  W
+  Model:   New   (Classic / New)
+  Navigate
+  Weight / contact
+  ← →
+  Q
+  Back
+  Violet
+  Top speed
+  ‹
+==== settings
+  B
+  ›
+  Hints:   Off
+  Estimate AI at Your Finish:   Off
+  Hidden police in Free Roam:   On
+  Show hints again
+  ‹
+  SETTINGS
+  CONTROLS
+  ›
+  Weather affects grip:   On
+  ›
+  Name tags:   On
+  Select
+  ‹
+  Split screen:   Left / right
+  ‹
+  ‹
+  ›
+  ›
+  ‹
+  Next tab
+  ‹
+  ✓ GAMEPLAY
+  ‹
+  ›
+  ›
+  LB
+  Hidden police difficulty:   Normal
+  Unlock everything (testing):   Off
+  Previous tab
+  A
+  RB
+  Back
+  Player name:   Dan   (A: change)
+  ‹
+  DISPLAY
+  ›
+  AUDIO
+  Back
+==== settings, after 8 presses down
+  B
+  ›
+  Hints:   Off
+  Estimate AI at Your Finish:   Off
+  Hidden police in Free Roam:   On
+  Change
+  Show hints again
+  ‹
+  SETTINGS
+  CONTROLS
+  ›
+  Weather affects grip:   On
+  ›
+  Name tags:   On
+  ‹
+  Split screen:   Left / right
+  ‹
+  ‹
+  ›
+  ›
+  ‹
+  Next tab
+  ‹
+  ✓ GAMEPLAY
+  ‹
+  ›
+  ›
+  LB
+  Hidden police difficulty:   Normal
+  Unlock everything (testing):   Off
+  Previous tab
+  RB
+  Back
+  Player name:   Dan   (A: change)
+  ‹
+  DISPLAY
+  ›
+  AUDIO
+  Back
+==== settings, after 16 presses down
+  B
+  ›
+  Hints:   Off
+  Estimate AI at Your Finish:   Off
+  Hidden police in Free Roam:   On
+  Show hints again
+  ‹
+  SETTINGS
+  CONTROLS
+  ›
+  Weather affects grip:   On
+  ›
+  Name tags:   On
+  Select
+  ‹
+  Split screen:   Left / right
+  ‹
+  ‹
+  ›
+  ›
+  ‹
+  Next tab
+  ‹
+  ✓ GAMEPLAY
+  ‹
+  ›
+  ›
+  LB
+  Hidden police difficulty:   Normal
+  Unlock everything (testing):   Off
+  Previous tab
+  A
+  RB
+  Back
+  Player name:   Dan   (A: change)
+  ‹
+  DISPLAY
+  ›
+  AUDIO
+  Back
+==== settings, after 24 presses down
+  B
+  ›
+  Hints:   Off
+  Estimate AI at Your Finish:   Off
+  Hidden police in Free Roam:   On
+  Show hints again
+  ‹
+  SETTINGS
+  CONTROLS
+  ›
+  Weather affects grip:   On
+  ›
+  Name tags:   On
+  Select
+  ‹
+  Split screen:   Left / right
+  ‹
+  ‹
+  ›
+  ›
+  ‹
+  Next tab
+  ‹
+  ✓ GAMEPLAY
+  ‹
+  ›
+  ›
+  LB
+  Hidden police difficulty:   Normal
+  Unlock everything (testing):   Off
+  Previous tab
+  A
+  RB
+  Back
+  Player name:   Dan   (A: change)
+  ‹
+  DISPLAY
+  ›
+  AUDIO
+  Back
+==== campaign
+  B
+  PAYS
+  3  Dan's Backyard / Open
+  › 1  Street Loop / Open
+  5. Practice: Street Loop Reverse  (Reverse) / Time trial  ·  not run yet
+  3:00.0
+  BEST   not run yet
+  4  Mountain Loop / Open
+  CAMPAIGN   ·   $60,230
+  Back
+  $500
+  4. ✓ Night Shift / Race, 3 laps  ·  best 1st
+  2:35.0
+  3. ✓ Hwy 92 Speed Trap / Speed trap  ·  best
+  Select
+  1. ✓ Against the Clock / Time trial  ·  best
+  $200
+  Testing mode is on (Settings): events can be run, but nothing is saved or paid.
+  2:18.0
+  ★  Street Cup / Championship, 3 races  ·  Open
+  Practice: Street Loop Reverse  ·  Street Loop — Reverse / Time trial · 1 flying lap  ·  Day / Clear / Any owned vehicle  ·  first gold +$250
+  Continue
+  L
+  6. ✓ Wrong Way Round  (Reverse) / Race, 2 laps  ·  best 1st
+  2  Forest Loop / Open
+  Navigate
+  A
+  Back
+  2. ✓ First Lap / Race, 2 laps  ·  best 1st
+  New Campaign
+  $320
+  Shop
+  7. ✓ Street Loop Final / Race, 3 laps  ·  best 1st
+  TARGETS
+==== campaign event page
+  B
+  Change
+  $500
+  2:18.0
+  PRACTICE: STREET LOOP REVERSE
+  ›
+  $200
+  PAYS
+  TARGETS
+  Choose…
+  Chapter 1  ·  Street Loop — Reverse / Time trial · 1 flying lap / Conditions: Day / Clear / Entry: Any owned vehicle / First gold bonus: $250 / Flying start: the lap clock starts at the START line. / Pass: win any medal / Your Ridge Scrambler: stock
+  Your vehicle: Ridge Scrambler
+  2:35.0
+  Practice: Street Loop Reverse  ·  Street Loop — Reverse / Time trial · 1 flying lap  ·  Day / Clear / Any owned vehicle  ·  first gold +$250
+  Vehicle:   Ridge Scrambler   ·   A: garage
+  ‹
+  L
+  Navigate
+  A
+  BEST   not run yet
+  Back
+  Back
+  START EVENT
+  3:00.0
+  $320
+==== split-screen setup
+  B
+  ‹
+  ‹
+  Course:   Street Loop — Forward
+  ›
+  Player 1 name:   Dan   (A: new name)
+  ›
+  Screen:   Left / right
+  ›
+  ‹
+  Change
+  ›
+  Player 2 (AI): Trail Four (ATV) · White
+  Laps:   2
+  ›
+  SPLIT SCREEN
+  Mode:   Race   ·   Police Chase has its own setup
+  ›
+  ‹
+  2
+  ›
+  ›
+  Traffic:   Off
+  Weather:   Clear
+  ‹
+  AI rivals:   None
+  Two players, one race on this PC: everything is unlocked and every vehicle is stock. / Left / right on a player's row changes their device; A or Start on another controller, or Enter, joins it.
+  ‹
+  ›
+  ‹
+  ‹
+  ›
+  ‹
+  ‹
+  Player 1:   Controller 2   ✓
+  ›
+  L
+  START
+  VEHICLES AND COLORS…   (each player's garage)
+  Navigate
+  Back
+  Time of day:   Day
+  Player 2: AI driver:   On
+  ‹
+  Player 2:   the race AI drives   (A on another controller joins it)
+  ›
+  Back
+  ‹
+  Player 1: Street Classic (Car) · Red
+==== split-screen setup, 3 down
+  B
+  ‹
+  ‹
+  Course:   Street Loop — Forward
+  ›
+  Player 1 name:   Dan   (A: new name)
+  ›
+  Screen:   Left / right
+  ›
+  ‹
+  Change
+  ›
+  Player 2 (AI): Trail Four (ATV) · White
+  Laps:   2
+  ›
+  SPLIT SCREEN
+  Mode:   Race   ·   Police Chase has its own setup
+  ›
+  ‹
+  2
+  ›
+  ›
+  Traffic:   Off
+  Weather:   Clear
+  ‹
+  AI rivals:   None
+  Two players, one race on this PC: everything is unlocked and every vehicle is stock. / Left / right on a player's row changes their device; A or Start on another controller, or Enter, joins it.
+  ‹
+  ›
+  ‹
+  ‹
+  ›
+  ‹
+  ‹
+  Player 1:   Controller 2   ✓
+  ›
+  L
+  START
+  VEHICLES AND COLORS…   (each player's garage)
+  Navigate
+  Back
+  Time of day:   Day
+  Player 2: AI driver:   On
+  ‹
+  Player 2:   the race AI drives   (A on another controller joins it)
+  ›
+  Back
+  ‹
+  Player 1: Street Classic (Car) · Red

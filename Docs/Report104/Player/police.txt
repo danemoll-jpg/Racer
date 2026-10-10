@@ -1,0 +1,14 @@
+screen=1920x1080 kind=police roadside=on version=0.104.0-review1
+roadside: built in 321 ms: 120 buildings, 5 canopies, 44 lights, 160 trees, 49 pylon signs, 8 signal poles; 179797 triangles, 473 solids, 183 lettered faces; removed 20 old businesses
+hiding place Hwy 92: -720.2,4.5,559.5 facing 0.0,0.0,-1.0
+hiding place Hwy 92: 247.7,8.2,535.6 facing -0.1,0.0,1.0
+hiding place Hwy 92: -443.1,7.7,555.6 facing 0.0,0.0,-1.0
+hiding place Street Loop: 569.8,27.2,-282.6 facing -1.0,0.0,0.0
+hiding place Street Loop: -301.5,16.6,-579.3 facing 0.2,0.0,1.0
+hiding place Street Loop: -477.8,6.9,-542.3 facing -0.1,0.0,-1.0
+hiding place Street Loop: 335.0,79.5,261.1 facing -1.0,0.0,-0.2
+hiding place Trickum Rd: -632.1,7.1,-292.2 facing 1.0,0.0,0.0
+hiding place Trickum Rd: -636.8,8.2,8.0 facing 1.0,0.0,0.0
+hiding place Lake road: 577.2,81.4,51.3 facing -0.6,0.0,0.8
+hiding place Street Loop: -2.5,40.0,-369.8 facing 1.0,0.0,-0.2
+hiding place Street Loop: 241.1,41.6,-337.0 facing -0.6,0.0,-0.8

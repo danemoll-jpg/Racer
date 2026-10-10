@@ -94,7 +94,7 @@ namespace Racer
                     () => OpenNameEntry("", v => { if (v == SplitScreen.NameOf(1)) { keyboardError = "Player 1 already has that name."; return false; } PlayerNames.Remember(v); flow.Save.SaveSettings(); SplitScreen.P2Pick = v; return true; }, null, "PLAYER 2'S NAME"));
             }
             // 0.92 Part B: the vehicles and colours are chosen in each player's garage view; both are shown here
-            Row(n, "split-vehicles", "VEHICLES AND COLOURS…   (each player's garage)", () => OpenSplitPick()); int vehiclesRow = n++;
+            Row(n, "split-vehicles", "VEHICLES AND COLORS…   (each player's garage)", () => OpenSplitPick()); int vehiclesRow = n++;
             var strip = PreviewStrip("Players' vehicles", buttons[vehiclesRow].transform.GetSiblingIndex() + 1);
             PreviewCard(strip, VehicleProfile.Find(SplitScreen.P1Vehicle), SplitScreen.P1Color, false, "Player 1: " + Vehicle(SplitScreen.P1Vehicle) + " · " + VehiclePaint.Name(SplitScreen.P1Color), new Color(.3f, .95f, .81f), 300);
             PreviewCard(strip, VehicleProfile.Find(SplitScreen.P2Vehicle), SplitScreen.P2Color, false, (SplitScreen.P2Ai ? "Player 2 (AI): " : "Player 2: ") + Vehicle(SplitScreen.P2Vehicle) + " · " + VehiclePaint.Name(SplitScreen.P2Color), new Color(1, .74f, .25f), 300);

@@ -114,7 +114,7 @@ In Trailer Mode the D-pad drives the cameras, not the radio. The radio keys [ ] 
 
 ### Cameras
 
-| Camera | Behaviour |
+| Camera | Behavior |
 | --- | --- |
 | Chase | The normal camera, but smoother, a little lower and wider. |
 | Orbit | Circles the vehicle slowly. Distance and height are adjustable. |

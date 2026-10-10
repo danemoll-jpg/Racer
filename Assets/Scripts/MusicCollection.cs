@@ -19,7 +19,7 @@ namespace Racer
             public bool Limited, Cancelled;
             public string Error;
             public string Summary => $"{Paths.Count:N0} tracks · skipped {Unsupported:N0} other, {Links:N0} links, {Inaccessible:N0} inaccessible, {Oversized:N0} size"
-                +(Cancelled?" · cancelled":Limited?" · LIMIT reached; unvisited files not counted. Choose a smaller root.":Error!=null?" · "+Error:"");
+                +(Cancelled?" · canceled":Limited?" · LIMIT reached; unvisited files not counted. Choose a smaller root.":Error!=null?" · "+Error:"");
         }
         public sealed class Channel
         {

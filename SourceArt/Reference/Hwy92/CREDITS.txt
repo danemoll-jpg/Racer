@@ -1,0 +1,9 @@
+Hwy 92 roadside (Woodstock Rush 0.104)
+
+The placement of the buildings, lots, entrances, side streets and traffic lights along Hwy 92 follows the real road today, taken from:
+
+- OpenStreetMap: map data (c) OpenStreetMap contributors, available under the Open Database License (ODbL) 1.0,
+  https://www.openstreetmap.org/copyright
+- USGS National Agriculture Imagery Program (NAIP) aerial imagery via The National Map (U.S. Geological Survey), public domain.
+
+Neither is shown in the game; they were used for placement only. Every business name in the game is invented; no real brands, logos or trade dress are used.

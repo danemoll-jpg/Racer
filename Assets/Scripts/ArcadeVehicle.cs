@@ -6,7 +6,7 @@ namespace Racer
     [RequireComponent(typeof(Rigidbody), typeof(VehicleInput))]
     public sealed class ArcadeVehicle : MonoBehaviour
     {
-        [Header("Drive (metres, seconds)")]
+        [Header("Drive (meters, seconds)")]
         [Min(1)] public float topSpeed = 38;
         [Min(1)] public float reverseSpeed = 11;
         [Min(0)] public float acceleration = 12;

@@ -53,9 +53,12 @@ namespace Racer
         void BuildSpots()
         {
             var rng = new System.Random(990909); var found = new List<(Spot s, string group)>();
+            // 0.104: on Hwy 92 the places are in today's lots (Hwy92Roadside), nose to the road
+            var roadside = Hwy92Roadside.PoliceSpots(gameObject.scene).ToList();
+            foreach (var (pos, forward) in roadside) found.Add((new Spot { pos = pos, forward = forward, road = "Hwy 92" }, "Hwy 92"));
             for (int i = 0; i < net.Count; i += 3)
             {
-                string group = Group(net.RoadNames[net.Road[i]], net.P[i]); if (group == null) continue;
+                string group = Group(net.RoadNames[net.Road[i]], net.P[i]); if (group == null || group == "Hwy 92" && roadside.Count > 0) continue;
                 bool junction = false; foreach (int j in net.Near(net.P[i], 45)) if (net.Adj[j].Count >= 3) { junction = true; break; } if (junction) continue;
                 var t = net.Tangent(i); var right = Vector3.Cross(Vector3.up, t).normalized;
                 foreach (int side in new[] { -1, 1 })

@@ -1,0 +1,10 @@
+screen=1920x1080 kind=lap roadside=on version=0.104.0-review1
+roadside: built in 368 ms: 120 buildings, 5 canopies, 44 lights, 160 trees, 49 pylon signs, 8 signal poles; 179797 triangles, 473 solids, 183 lettered faces; removed 20 old businesses
+  ... 9 s: stage Racing, timeScale 3, player lap 0, at -284.8,16.6,287.3
+  ... 39 s: stage Racing, timeScale 3, player lap 0, at 503.0,81.8,-151.0
+ended in stage Results after 51 s
+StreetLoopReverse lap: rivals 3, traffic True; finished True; resets 1
+  reset: Dan at 454.6,35.8,-225.2
+  touches of the new roadside: 0
+  took Granite Creek Cut: GOLD (AI), EMBER (AI), Dan (player)
+results screen (StreetLoopReverse): 41 texts on screen, British spellings: none

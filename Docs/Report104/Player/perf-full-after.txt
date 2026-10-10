@@ -1,0 +1,16 @@
+screen=3840x2160 kind=perf roadside=on version=0.104.0-review1
+roadside: built in 382 ms: 120 buildings, 5 canopies, 42 lights, 155 trees, 48 pylon signs, 8 signal poles; 179417 triangles, 465 solids, 182 lettered faces; removed 20 old businesses
+  east-780: mean 8.77 ms (114 fps), 95th percentile 15.73 ms, 344 frames
+  east-520: mean 10.26 ms (97 fps), 95th percentile 15.51 ms, 293 frames
+  east-260: mean 8.33 ms (120 fps), 95th percentile 13.38 ms, 362 frames
+  east+0: mean 8.28 ms (121 fps), 95th percentile 13.04 ms, 362 frames
+  east+260: mean 7.71 ms (130 fps), 95th percentile 12.53 ms, 390 frames
+  east+520: mean 7.34 ms (136 fps), 95th percentile 12.86 ms, 411 frames
+  east+780: mean 10.44 ms (96 fps), 95th percentile 12.82 ms, 288 frames
+  west+650: mean 10.49 ms (95 fps), 95th percentile 13.19 ms, 286 frames
+  west+390: mean 8.58 ms (117 fps), 95th percentile 13.04 ms, 350 frames
+  west+130: mean 8.39 ms (119 fps), 95th percentile 12.51 ms, 358 frames
+  west-130: mean 8.14 ms (123 fps), 95th percentile 12.81 ms, 369 frames
+  west-390: mean 7.97 ms (126 fps), 95th percentile 13.12 ms, 377 frames
+  west-650: mean 10.39 ms (96 fps), 95th percentile 14.83 ms, 289 frames
+WORST VIEW full screen 3840x2160: west+650 mean 10.49 ms (95 fps), 95th 13.19 ms; all stations mean 8.85 ms

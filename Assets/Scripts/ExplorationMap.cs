@@ -125,7 +125,7 @@ namespace Racer
             race.Flow.Activities.NewSession();race.Flow.Ghost.ResetSession();race.GetComponent<ExplorationCollection>()?.ResetMovement();
             race.Racers[0].Branch.Clear();race.Racers[0].FinishArmed=false;race.Racers[0].FinishApproach=0;
             race.ResetSampling(race.vehicle.Body.position,Time.timeAsDouble);ResetMovement();
-            errorMessage="Arrived at "+d.title+". Active attempts cancelled.";center=MapNormalized(race.vehicle.Body.position);Save();return true;
+            errorMessage="Arrived at "+d.title+". Active attempts canceled.";center=MapNormalized(race.vehicle.Body.position);Save();return true;
         }
         string errorMessage="";
         void TravelSelected(){RequestTravel(selected);}

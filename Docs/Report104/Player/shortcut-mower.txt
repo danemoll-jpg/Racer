@@ -1,0 +1,5 @@
+screen=1920x1080 kind=shortcut roadside=on version=0.104.0-review1
+roadside: built in 374 ms: 120 buildings, 5 canopies, 42 lights, 155 trees, 48 pylon signs, 8 signal poles; 179417 triangles, 465 solids, 182 lettered faces; removed 20 old businesses
+Turf Rocket run 1: through Granite Creek Cut to Trickum Rd in 30.0 s, 23.8 m/s at the entrance, slowest 22.3 m/s in the cut, resets 0, touches of the new roadside 0
+Turf Rocket run 2: through Granite Creek Cut to Trickum Rd in 30.8 s, 24.1 m/s at the entrance, slowest 23.9 m/s in the cut, resets 0, touches of the new roadside 0
+Turf Rocket run 3: through Granite Creek Cut to Trickum Rd in 31.8 s, 24.3 m/s at the entrance, slowest 24.1 m/s in the cut, resets 0, touches of the new roadside 0

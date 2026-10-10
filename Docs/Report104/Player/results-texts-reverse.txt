@@ -1,0 +1,42 @@
+==== results screen (StreetLoopReverse)
+  LAP TIMES
+  Status
+  Exploration
+  Space
+  02:17.326
+  02:10.268
+  Q
+  Rival 3
+  RACE AGAIN
+  You
+  Return to Menu
+  Esc
+  Measured
+  Previous tab
+  Settings
+  2
+  Main Menu
+  Records
+  1
+  TOTAL RACE / FIRST COURSE RECORD! / #1  02:28.076 / First recorded time.
+  PENALTIES
+  Race Setup
+  3
+  02:28.076
+  ✓ STANDINGS
+  E
+  Measured
+  Rival 1
+  Select
+  4
+  BEST LAP / FIRST COURSE RECORD! / #1  02:21.864 / First recorded time.
+  Place
+  Rival 2
+  02:19.014
+  Driver
+  Next tab
+  Measured
+  Measured
+  Time
+  Street Loop - Reverse
+  RESULTS

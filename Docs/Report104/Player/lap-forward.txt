@@ -1,0 +1,8 @@
+screen=1920x1080 kind=lap roadside=on version=0.104.0-review1
+roadside: built in 406 ms: 120 buildings, 5 canopies, 44 lights, 160 trees, 49 pylon signs, 8 signal poles; 179797 triangles, 473 solids, 183 lettered faces; removed 20 old businesses
+  ... 14 s: stage Racing, timeScale 3, player lap 0, at 469.0,26.1,-529.8
+  ... 44 s: stage Racing, timeScale 3, player lap 0, at 93.4,9.7,542.4
+ended in stage Results after 50 s
+StreetLoopGreybox lap: rivals 3, traffic True; finished True; resets 0
+  touches of the new roadside: 0
+results screen (StreetLoopGreybox): 41 texts on screen, British spellings: none

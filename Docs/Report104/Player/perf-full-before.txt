@@ -1,0 +1,16 @@
+screen=3840x2160 kind=perf roadside=OFF (before) version=0.104.0-review1
+roadside: ; removed 0 old businesses
+  east-780: mean 8.42 ms (119 fps), 95th percentile 12.85 ms, 357 frames
+  east-520: mean 10.31 ms (97 fps), 95th percentile 14.31 ms, 291 frames
+  east-260: mean 8.40 ms (119 fps), 95th percentile 13.47 ms, 358 frames
+  east+0: mean 8.16 ms (123 fps), 95th percentile 13.76 ms, 369 frames
+  east+260: mean 8.17 ms (122 fps), 95th percentile 13.64 ms, 367 frames
+  east+520: mean 8.76 ms (114 fps), 95th percentile 14.48 ms, 341 frames
+  east+780: mean 12.00 ms (83 fps), 95th percentile 14.51 ms, 250 frames
+  west+650: mean 11.14 ms (90 fps), 95th percentile 13.90 ms, 270 frames
+  west+390: mean 10.57 ms (95 fps), 95th percentile 17.34 ms, 285 frames
+  west+130: mean 10.20 ms (98 fps), 95th percentile 19.32 ms, 295 frames
+  west-130: mean 8.77 ms (114 fps), 95th percentile 14.58 ms, 343 frames
+  west-390: mean 10.51 ms (95 fps), 95th percentile 20.60 ms, 286 frames
+  west-650: mean 11.42 ms (88 fps), 95th percentile 15.33 ms, 264 frames
+WORST VIEW full screen 3840x2160: east+780 mean 12.00 ms (83 fps), 95th 14.51 ms; all stations mean 9.76 ms

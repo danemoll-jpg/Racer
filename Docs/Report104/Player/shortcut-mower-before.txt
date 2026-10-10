@@ -1,0 +1,5 @@
+screen=1920x1080 kind=shortcut roadside=OFF (before) version=0.104.0-review1
+roadside: ; removed 0 old businesses
+Turf Rocket run 1: through Granite Creek Cut to Trickum Rd in 30.5 s, 23.8 m/s at the entrance, slowest 18.5 m/s in the cut, resets 0, touches of the new roadside 0
+Turf Rocket run 2: through Granite Creek Cut to Trickum Rd in 30.8 s, 24.1 m/s at the entrance, slowest 23.9 m/s in the cut, resets 0, touches of the new roadside 0
+Turf Rocket run 3: through Granite Creek Cut to Trickum Rd in 31.8 s, 24.3 m/s at the entrance, slowest 24.1 m/s in the cut, resets 0, touches of the new roadside 0

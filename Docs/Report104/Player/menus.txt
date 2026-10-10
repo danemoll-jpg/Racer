@@ -1,0 +1,16 @@
+screen=1920x1080 kind=menus roadside=on version=0.104.0-review1
+main menu: 18 texts on screen, British spellings: none
+garage: 34 texts on screen, British spellings: none
+garage Color row: 'Color:   Red'
+after B: state Ready
+settings: 40 texts on screen, British spellings: none
+settings, after 8 presses down: 39 texts on screen, British spellings: none
+settings, after 16 presses down: 40 texts on screen, British spellings: none
+settings, after 24 presses down: 40 texts on screen, British spellings: none
+after B: state Ready
+campaign: 34 texts on screen, British spellings: none
+campaign event page: 25 texts on screen, British spellings: none
+after B: state Ready
+split-screen setup: 49 texts on screen, British spellings: none
+split-screen setup, 3 down: 49 texts on screen, British spellings: none
+after B: state Ready

@@ -389,7 +389,7 @@ namespace Racer
             foreach (Transform site in root.transform)
             {
                 bool dan = site.name.StartsWith("Dan"), kyle = site.name.StartsWith("Friend"), fox = site.name.StartsWith("Fox Gully");
-                if (fox) continue;
+                if (fox || !site.gameObject.activeSelf) continue; // 0.104: the old Hwy 92 businesses Hwy92Roadside removed
                 if (dan) { LightGlass(site, hidden); continue; }
                 var s = Read(site); if (s == null) continue;
                 var st = StyleFor(site.name, s.business); var m = new Builder();

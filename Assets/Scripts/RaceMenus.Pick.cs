@@ -133,7 +133,7 @@ namespace Racer
             Step(0, "pick-vehicle", $"{p.Name}   ·   {at + 1} of {owned.Length}" + (ok ? "" : "   ·   not allowed"), StepPick);
             if (!ok) buttons[0].GetComponentInChildren<UnityEngine.UI.Text>(true).color = new Color(.62f, .66f, .66f);
             ShowGarageStats(p, Campaign.Testing ? null : p.Id);
-            Step(1, "pick-colour", "Colour:   " + (scheme < 0 ? "Factory" : VehiclePaint.Name(scheme)), d => { int i = VehicleProfile.IndexOf(p.Id); if (i >= 0) { flow.Save.Settings.bodyColors[i] = VehiclePaint.Next(scheme, d); flow.Save.SaveSettings(); } flow.Click(); Show(); });
+            Step(1, "pick-colour", "Color:   " + (scheme < 0 ? "Factory" : VehiclePaint.Name(scheme)), d => { int i = VehicleProfile.IndexOf(p.Id); if (i >= 0) { flow.Save.Settings.bodyColors[i] = VehiclePaint.Next(scheme, d); flow.Save.SaveSettings(); } flow.Click(); Show(); });
             Row(2, "pick-use", ok ? "USE THIS VEHICLE" : "NOT ALLOWED HERE", () => { campaignVehicle = p.Id; BackPage(); });
             var colors = buttons[2].colors; colors.normalColor = new(.1f, .38f, .35f); buttons[2].colors = colors; buttons[2].GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight = 54; buttons[2].interactable = ok;
             Row(3, "pick-shop", "Shop…   (" + Campaign.Money(Campaign.Current.money) + ")", () => { shopToPick = true; shopFromCampaign = false; shopVehicle = p.Id; flow.OpenGarage(); page = "shop"; pages.Clear(); Show(); });
@@ -157,11 +157,11 @@ namespace Racer
         void RenderSplitPick()
         {
             bool ai = SplitScreen.P2Ai || SplitScreen.P2Device == null;
-            if (pickPlayerOne) ClearCore("POLICE CHASE · YOUR VEHICLE", "You run in this vehicle: left / right the vehicle, up / down the colour, A when done. B goes back.");
-            else if (pickRunnerOnly) ClearCore("POLICE CHASE · THE RUNNER'S VEHICLE", "The AI runs from you in this vehicle: left / right the vehicle, up / down the colour, A when done. B goes back.");
+            if (pickPlayerOne) ClearCore("POLICE CHASE · YOUR VEHICLE", "You run in this vehicle: left / right the vehicle, up / down the color, A when done. B goes back.");
+            else if (pickRunnerOnly) ClearCore("POLICE CHASE · THE RUNNER'S VEHICLE", "The AI runs from you in this vehicle: left / right the vehicle, up / down the color, A when done. B goes back.");
             else ClearCore(SplitScreen.Mode == SplitScreen.Kind.Police ? "POLICE CHASE · THE RUNNERS' VEHICLES" : "SPLIT SCREEN · VEHICLES", ai
-                ? "Player 1 chooses both vehicles: left / right the vehicle, up / down the colour, A when done (then the AI's). B goes back."
-                : "Each player on their own device: left / right the vehicle, up / down the colour, A when ready. Both ready returns to the setup.");
+                ? "Player 1 chooses both vehicles: left / right the vehicle, up / down the color, A when done (then the AI's). B goes back."
+                : "Each player on their own device: left / right the vehicle, up / down the color, A when ready. Both ready returns to the setup.");
             details.fontSize = 18; details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight = 54;
             var halves = LaterGroup("Players' garages", content, true, 430); halves.SetSiblingIndex(1);
             var layout = halves.GetComponent<UnityEngine.UI.HorizontalLayoutGroup>(); layout.spacing = 16; layout.childForceExpandWidth = true;
@@ -177,7 +177,7 @@ namespace Racer
                 var raw = MiniPreview(cell, p, colour, false, 640, 280); var rr = raw.rectTransform; rr.anchorMin = Vector2.zero; rr.anchorMax = Vector2.one; rr.offsetMin = rr.offsetMax = Vector2.zero;
                 ValueLine(half, $"{p.Name}  ({p.Class})", d => PickStep(who, d, 0));
                 StatBars(half, p);
-                ValueLine(half, "Colour:   " + VehiclePaint.Name(colour), d => PickStep(who, d, 1));
+                ValueLine(half, "Color:   " + VehiclePaint.Name(colour), d => PickStep(who, d, 1));
                 var state = Label("State", half, 20, 30); state.alignment = TextAnchor.MiddleCenter;
                 state.text = ready ? "READY  ✓" : focused ? "A: ready" : "waiting"; state.color = ready ? new Color(.4f, 1, .6f) : Color.white;
             }

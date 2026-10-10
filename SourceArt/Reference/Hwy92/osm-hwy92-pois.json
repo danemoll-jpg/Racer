@@ -1,0 +1,1801 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-10-10T20:55:53Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+
+{
+  "type": "node",
+  "id": 358720006,
+  "lat": 34.0908024,
+  "lon": -84.4902757,
+  "tags": {
+    "amenity": "place_of_worship",
+    "denomination": "baptist",
+    "ele": "289",
+    "gnis:feature_id": "333985",
+    "name": "Woodstock First Baptist Church",
+    "religion": "christian"
+  }
+},
+{
+  "type": "node",
+  "id": 2301659652,
+  "lat": 34.0880018,
+  "lon": -84.4681317,
+  "tags": {
+    "amenity": "fast_food",
+    "name": "Grand Slam Pizza"
+  }
+},
+{
+  "type": "node",
+  "id": 4009799473,
+  "lat": 34.0861810,
+  "lon": -84.4836862,
+  "tags": {
+    "direction": "both",
+    "highway": "stop",
+    "stop": "all"
+  }
+},
+{
+  "type": "node",
+  "id": 4031913874,
+  "lat": 34.0844863,
+  "lon": -84.4863365,
+  "tags": {
+    "direction": "forward",
+    "highway": "stop"
+  }
+},
+{
+  "type": "node",
+  "id": 4031914104,
+  "lat": 34.0848033,
+  "lon": -84.4863495,
+  "tags": {
+    "direction": "both",
+    "highway": "stop",
+    "stop": "all"
+  }
+},
+{
+  "type": "node",
+  "id": 5177147236,
+  "lat": 34.0881806,
+  "lon": -84.4879962,
+  "tags": {
+    "direction": "backward",
+    "highway": "stop"
+  }
+},
+{
+  "type": "node",
+  "id": 5649894677,
+  "lat": 34.0878190,
+  "lon": -84.4671850,
+  "tags": {
+    "addr:city": "Woodstock",
+    "addr:country": "US",
+    "addr:housenumber": "170",
+    "addr:postcode": "30188",
+    "addr:state": "GA",
+    "addr:street": "Village Center West",
+    "brand": "Express Oil Change & Tire Engineers",
+    "brand:wikidata": "Q39057654",
+    "name": "Express Oil Change & Tire Engineers",
+    "opening_hours": "Mo-Fr 08:00-18:00;Sa 08:00-17:00",
+    "operator": "Express Oil Change & Tire Engineers",
+    "phone": "+1-770-517-4747",
+    "ref:expressoil": "EOC6024",
+    "shop": "tyres",
+    "website": "https://www.expressoil.com/stores/woodstock/ga/6024/"
+  }
+},
+{
+  "type": "node",
+  "id": 5700962420,
+  "lat": 34.0835927,
+  "lon": -84.4865275,
+  "tags": {
+    "amenity": "fountain"
+  }
+},
+{
+  "type": "node",
+  "id": 5700962421,
+  "lat": 34.0836037,
+  "lon": -84.4867286,
+  "tags": {
+    "leisure": "picnic_table"
+  }
+},
+{
+  "type": "node",
+  "id": 5700962438,
+  "lat": 34.0832222,
+  "lon": -84.4878220,
+  "tags": {
+    "direction": "backward",
+    "highway": "stop"
+  }
+},
+{
+  "type": "node",
+  "id": 5715875660,
+  "lat": 34.0832692,
+  "lon": -84.4879348,
+  "tags": {
+    "crossing": "uncontrolled",
+    "highway": "crossing",
+    "kerb": "no",
+    "tactile_paving": "no"
+  }
+},
+{
+  "type": "node",
+  "id": 5715876226,
+  "lat": 34.0831962,
+  "lon": -84.4873451,
+  "tags": {
+    "access": "private",
+    "amenity": "waste_disposal"
+  }
+},
+{
+  "type": "node",
+  "id": 5715876281,
+  "lat": 34.0832959,
+  "lon": -84.4880960,
+  "tags": {
+    "access": "private",
+    "leisure": "fitness_centre",
+    "sport": "fitness"
+  }
+},
+{
+  "type": "node",
+  "id": 5715876282,
+  "lat": 34.0831747,
+  "lon": -84.4880698,
+  "tags": {
+    "access": "private",
+    "payment:credit_cards": "yes",
+    "shop": "laundry"
+  }
+},
+{
+  "type": "node",
+  "id": 5715876283,
+  "lat": 34.0831785,
+  "lon": -84.4881399,
+  "tags": {
+    "access": "private",
+    "amenity": "toilets",
+    "fee": "no",
+    "toilets:disposal": "flush"
+  }
+},
+{
+  "type": "node",
+  "id": 5715876508,
+  "lat": 34.0832999,
+  "lon": -84.4846847,
+  "tags": {
+    "direction": "forward",
+    "highway": "stop"
+  }
+},
+{
+  "type": "node",
+  "id": 5716254835,
+  "lat": 34.0841184,
+  "lon": -84.4881237,
+  "tags": {
+    "access": "private",
+    "leisure": "picnic_table"
+  }
+},
+{
+  "type": "node",
+  "id": 5716254844,
+  "lat": 34.0836496,
+  "lon": -84.4876999,
+  "tags": {
+    "access": "private",
+    "leisure": "picnic_table"
+  }
+},
+{
+  "type": "node",
+  "id": 5716254845,
+  "lat": 34.0836492,
+  "lon": -84.4876638,
+  "tags": {
+    "access": "private",
+    "leisure": "picnic_table"
+  }
+},
+{
+  "type": "node",
+  "id": 5716254875,
+  "lat": 34.0835249,
+  "lon": -84.4877594,
+  "tags": {
+    "access": "private",
+    "amenity": "waste_basket"
+  }
+},
+{
+  "type": "node",
+  "id": 5716254876,
+  "lat": 34.0835684,
+  "lon": -84.4877937,
+  "tags": {
+    "access": "private",
+    "amenity": "post_box",
+    "drive_through": "no"
+  }
+},
+{
+  "type": "node",
+  "id": 5716254877,
+  "lat": 34.0834061,
+  "lon": -84.4879377,
+  "tags": {
+    "crossing": "uncontrolled",
+    "highway": "crossing",
+    "kerb": "no",
+    "tactile_paving": "no"
+  }
+},
+{
+  "type": "node",
+  "id": 5716254879,
+  "lat": 34.0833788,
+  "lon": -84.4879028,
+  "tags": {
+    "crossing": "uncontrolled",
+    "highway": "crossing",
+    "kerb": "no",
+    "tactile_paving": "no"
+  }
+},
+{
+  "type": "node",
+  "id": 5716254915,
+  "lat": 34.0848225,
+  "lon": -84.4863497,
+  "tags": {
+    "crossing": "stop_sign",
+    "highway": "crossing",
+    "kerb": "lowered",
+    "tactile_paving": "no"
+  }
+},
+{
+  "type": "node",
+  "id": 5716255003,
+  "lat": 34.0895300,
+  "lon": -84.4837659,
+  "tags": {
+    "addr:city": "Woodstock",
+    "addr:housenumber": "12165",
+    "addr:postcode": "30188",
+    "addr:state": "GA",
+    "addr:street": "GA-92",
+    "amenity": "pharmacy",
+    "brand": "Publix",
+    "brand:wikidata": "Q672170",
+    "dispensing": "yes",
+    "drive_through": "no",
+    "healthcare": "pharmacy",
+    "name": "Publix",
+    "operator": "Publix",
+    "phone": "+1-770-517-1606"
+  }
+},
+{
+  "type": "node",
+  "id": 5716255006,
+  "lat": 34.0882586,
+  "lon": -84.4833197,
+  "tags": {
+    "direction": "forward",
+    "highway": "stop"
+  }
+},
+{
+  "type": "node",
+  "id": 5718922441,
+  "lat": 34.0891004,
+  "lon": -84.4861451,
+  "tags": {
+    "barrier": "kerb",
+    "crossing": "uncontrolled",
+    "highway": "crossing",
+    "kerb": "lowered",
+    "tactile_paving": "no",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 5718922444,
+  "lat": 34.0891028,
+  "lon": -84.4862818,
+  "tags": {
+    "barrier": "kerb",
+    "crossing": "uncontrolled",
+    "highway": "crossing",
+    "kerb": "lowered",
+    "tactile_paving": "no",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 5718922514,
+  "lat": 34.0882806,
+  "lon": -84.4855048,
+  "tags": {
+    "direction": "backward",
+    "highway": "stop"
+  }
+},
+{
+  "type": "node",
+  "id": 5721574426,
+  "lat": 34.0888473,
+  "lon": -84.4862909,
+  "tags": {
+    "direction": "forward",
+    "highway": "stop"
+  }
+},
+{
+  "type": "node",
+  "id": 5721574427,
+  "lat": 34.0888463,
+  "lon": -84.4861526,
+  "tags": {
+    "direction": "backward",
+    "highway": "stop"
+  }
+},
+{
+  "type": "node",
+  "id": 5721574434,
+  "lat": 34.0890575,
+  "lon": -84.4854695,
+  "tags": {
+    "access": "private",
+    "amenity": "waste_disposal"
+  }
+},
+{
+  "type": "node",
+  "id": 5727090064,
+  "lat": 34.0823065,
+  "lon": -84.4844737,
+  "tags": {
+    "direction": "forward",
+    "highway": "stop"
+  }
+},
+{
+  "type": "node",
+  "id": 5732530029,
+  "lat": 34.0837035,
+  "lon": -84.4885094,
+  "tags": {
+    "crossing": "uncontrolled",
+    "highway": "crossing",
+    "kerb": "lowered",
+    "tactile_paving": "no"
+  }
+},
+{
+  "type": "node",
+  "id": 5732530096,
+  "lat": 34.0825261,
+  "lon": -84.4842912,
+  "tags": {
+    "crossing": "uncontrolled",
+    "highway": "crossing",
+    "kerb": "lowered",
+    "tactile_paving": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 5732995074,
+  "lat": 34.0882983,
+  "lon": -84.4863236,
+  "tags": {
+    "direction": "backward",
+    "highway": "stop"
+  }
+},
+{
+  "type": "node",
+  "id": 5732995091,
+  "lat": 34.0884623,
+  "lon": -84.4861534,
+  "tags": {
+    "direction": "forward",
+    "highway": "stop"
+  }
+},
+{
+  "type": "node",
+  "id": 5732995092,
+  "lat": 34.0882945,
+  "lon": -84.4861564,
+  "tags": {
+    "direction": "forward",
+    "highway": "stop"
+  }
+},
+{
+  "type": "node",
+  "id": 5732995093,
+  "lat": 34.0884509,
+  "lon": -84.4855446,
+  "tags": {
+    "direction": "backward",
+    "highway": "stop"
+  }
+},
+{
+  "type": "node",
+  "id": 5732999836,
+  "lat": 34.0889037,
+  "lon": -84.4860838,
+  "tags": {
+    "amenity": "waste_disposal"
+  }
+},
+{
+  "type": "node",
+  "id": 5732999837,
+  "lat": 34.0886572,
+  "lon": -84.4860545,
+  "tags": {
+    "addr:city": "Woodstock",
+    "addr:housenumber": "12035",
+    "addr:postcode": "30188",
+    "addr:state": "GA",
+    "addr:street": "GA-92",
+    "amenity": "restaurant",
+    "cuisine": "wings",
+    "delivery": "no",
+    "name": "Buffalo's Cafe",
+    "outdoor_seating": "yes",
+    "smoking": "no",
+    "takeaway": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 5732999868,
+  "lat": 34.0902691,
+  "lon": -84.4851315,
+  "tags": {
+    "addr:city": "Woodstock",
+    "addr:floor": "G;1",
+    "addr:housenumber": "3342",
+    "addr:postcode": "30188",
+    "addr:state": "GA",
+    "addr:street": "Trickum Road",
+    "amenity": "restaurant",
+    "check_date": "2025-08-23",
+    "cuisine": "mexican",
+    "delivery": "no",
+    "level": "0;1",
+    "name": "Los Bravos",
+    "outdoor_seating": "yes",
+    "payment:cash": "yes",
+    "payment:credit_cards": "yes",
+    "payment:debit_cards": "yes",
+    "phone": "+1 678-213-1329",
+    "smoking": "no",
+    "takeaway": "yes",
+    "website": "https://www.losbravosatlanta.net/",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 5746202333,
+  "lat": 34.0866719,
+  "lon": -84.4859430,
+  "tags": {
+    "addr:city": "Woodstock",
+    "addr:housenumber": "12050",
+    "addr:postcode": "30188",
+    "addr:state": "GA",
+    "addr:street": "GA-92",
+    "amenity": "pharmacy",
+    "brand": "Kroger",
+    "brand:wikidata": "Q153417",
+    "dispensing": "yes",
+    "drive_through": "yes",
+    "healthcare": "pharmacy",
+    "name": "Kroger Pharmacy",
+    "payment:cash": "yes",
+    "payment:credit_cards": "yes",
+    "payment:debit_cards": "yes",
+    "website": "https://www.kroger.com/stores/pharmacy/ga/woodstock/011/00419"
+  }
+},
+{
+  "type": "node",
+  "id": 5746202335,
+  "lat": 34.0868044,
+  "lon": -84.4847220,
+  "tags": {
+    "crossing": "stop_sign",
+    "highway": "crossing",
+    "kerb": "lowered",
+    "tactile_paving": "no"
+  }
+},
+{
+  "type": "node",
+  "id": 5746202348,
+  "lat": 34.0861813,
+  "lon": -84.4844312,
+  "tags": {
+    "crossing": "stop_sign",
+    "highway": "crossing",
+    "kerb": "lowered",
+    "tactile_paving": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 5746202350,
+  "lat": 34.0861806,
+  "lon": -84.4844064,
+  "tags": {
+    "direction": "forward",
+    "highway": "stop"
+  }
+},
+{
+  "type": "node",
+  "id": 5746202353,
+  "lat": 34.0865392,
+  "lon": -84.4844279,
+  "tags": {
+    "crossing": "stop_sign",
+    "highway": "crossing",
+    "kerb": "lowered",
+    "tactile_paving": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 5746202355,
+  "lat": 34.0868042,
+  "lon": -84.4847519,
+  "tags": {
+    "direction": "forward",
+    "highway": "stop"
+  }
+},
+{
+  "type": "node",
+  "id": 5746202360,
+  "lat": 34.0869595,
+  "lon": -84.4844426,
+  "tags": {
+    "crossing": "stop_sign",
+    "highway": "crossing",
+    "kerb": "lowered",
+    "tactile_paving": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 5746202395,
+  "lat": 34.0874911,
+  "lon": -84.4859418,
+  "tags": {
+    "direction": "forward",
+    "highway": "stop"
+  }
+},
+{
+  "type": "node",
+  "id": 5746202396,
+  "lat": 34.0874618,
+  "lon": -84.4854738,
+  "tags": {
+    "direction": "backward",
+    "highway": "stop"
+  }
+},
+{
+  "type": "node",
+  "id": 5746202397,
+  "lat": 34.0871637,
+  "lon": -84.4855129,
+  "tags": {
+    "direction": "backward",
+    "highway": "stop"
+  }
+},
+{
+  "type": "node",
+  "id": 5746202398,
+  "lat": 34.0871414,
+  "lon": -84.4856377,
+  "tags": {
+    "direction": "forward",
+    "highway": "stop"
+  }
+},
+{
+  "type": "node",
+  "id": 5746202399,
+  "lat": 34.0868235,
+  "lon": -84.4861461,
+  "tags": {
+    "direction": "backward",
+    "highway": "stop"
+  }
+},
+{
+  "type": "node",
+  "id": 5746202400,
+  "lat": 34.0868467,
+  "lon": -84.4864142,
+  "tags": {
+    "direction": "forward",
+    "highway": "stop"
+  }
+},
+{
+  "type": "node",
+  "id": 5746202403,
+  "lat": 34.0885944,
+  "lon": -84.4855369,
+  "tags": {
+    "addr:city": "Woodstock",
+    "addr:floor": "G;1",
+    "addr:housenumber": "12035",
+    "addr:postcode": "30188",
+    "addr:state": "GA",
+    "addr:street": "GA-92",
+    "check_date": "2025-08-23",
+    "level": "0;1",
+    "name": "Q Cleaners",
+    "payment:cash": "yes",
+    "payment:credit_cards": "yes",
+    "payment:debit_cards": "yes",
+    "phone": "+1-770-516-5525",
+    "shop": "dry_cleaning",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 5784539945,
+  "lat": 34.0780064,
+  "lon": -84.4866579,
+  "tags": {
+    "direction": "forward",
+    "highway": "stop"
+  }
+},
+{
+  "type": "node",
+  "id": 5784539949,
+  "lat": 34.0781562,
+  "lon": -84.4878836,
+  "tags": {
+    "direction": "forward",
+    "highway": "stop"
+  }
+},
+{
+  "type": "node",
+  "id": 5784539952,
+  "lat": 34.0772340,
+  "lon": -84.4880852,
+  "tags": {
+    "direction": "backward",
+    "highway": "stop"
+  }
+},
+{
+  "type": "node",
+  "id": 5784540753,
+  "lat": 34.0775161,
+  "lon": -84.4854485,
+  "tags": {
+    "direction": "forward",
+    "highway": "stop"
+  }
+},
+{
+  "type": "node",
+  "id": 5784540754,
+  "lat": 34.0774500,
+  "lon": -84.4853546,
+  "tags": {
+    "highway": "stop"
+  }
+},
+{
+  "type": "node",
+  "id": 5784540755,
+  "lat": 34.0772972,
+  "lon": -84.4854550,
+  "tags": {
+    "direction": "backward",
+    "highway": "stop"
+  }
+},
+{
+  "type": "node",
+  "id": 5784540756,
+  "lat": 34.0773549,
+  "lon": -84.4848984,
+  "tags": {
+    "highway": "stop"
+  }
+},
+{
+  "type": "node",
+  "id": 6240067655,
+  "lat": 34.0904297,
+  "lon": -84.4844754,
+  "tags": {
+    "direction": "backward",
+    "highway": "stop"
+  }
+},
+{
+  "type": "node",
+  "id": 6240073638,
+  "lat": 34.0938847,
+  "lon": -84.4847155,
+  "tags": {
+    "direction": "backward",
+    "highway": "stop"
+  }
+},
+{
+  "type": "node",
+  "id": 6325210261,
+  "lat": 34.0836187,
+  "lon": -84.4852906,
+  "tags": {
+    "addr:city": "Woodstock",
+    "addr:housenumber": "3380",
+    "addr:postcode": "30188",
+    "addr:state": "GA",
+    "addr:street": "Trickum Road",
+    "addr:unit": "Bldg 800-102",
+    "name": "Goodwin Investment Advisory",
+    "office": "financial",
+    "opening_hours": "Mo-Fr 08:00-17:00",
+    "phone": "+1 678-741-2370",
+    "website": "https://www.goodwininvestment.com"
+  }
+},
+{
+  "type": "node",
+  "id": 6386797068,
+  "lat": 34.0823064,
+  "lon": -84.4845009,
+  "tags": {
+    "crossing": "uncontrolled",
+    "highway": "crossing",
+    "kerb": "lowered",
+    "tactile_paving": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 6386797070,
+  "lat": 34.0822377,
+  "lon": -84.4845008,
+  "tags": {
+    "crossing": "uncontrolled",
+    "highway": "crossing",
+    "kerb": "lowered",
+    "tactile_paving": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 6533995101,
+  "lat": 34.0866744,
+  "lon": -84.4854206,
+  "tags": {
+    "addr:city": "Woodstock",
+    "addr:housenumber": "12050",
+    "addr:postcode": "30188",
+    "addr:state": "GA",
+    "addr:street": "GA-92",
+    "addr:unit": "132",
+    "air_conditioning": "yes",
+    "brand": "Great Clips",
+    "brand:wikidata": "Q5598967",
+    "check_date": "2025-08-23",
+    "name": "Great Clips",
+    "payment:cash": "yes",
+    "payment:credit_cards": "yes",
+    "payment:debit_cards": "yes",
+    "shop": "hairdresser",
+    "website": "https://www.greatclips.com/"
+  }
+},
+{
+  "type": "node",
+  "id": 6533995120,
+  "lat": 34.0844510,
+  "lon": -84.4850025,
+  "tags": {
+    "access": "private",
+    "amenity": "waste_disposal"
+  }
+},
+{
+  "type": "node",
+  "id": 7922936696,
+  "lat": 34.0869705,
+  "lon": -84.4737059,
+  "tags": {
+    "amenity": "bank",
+    "check_date": "2025-09-13",
+    "name": "LGE Community Credit Union"
+  }
+},
+{
+  "type": "node",
+  "id": 7922936699,
+  "lat": 34.0872830,
+  "lon": -84.4707552,
+  "tags": {
+    "leisure": "fitness_centre",
+    "name": "Fit Body Camp"
+  }
+},
+{
+  "type": "node",
+  "id": 7922936711,
+  "lat": 34.0868182,
+  "lon": -84.4865927,
+  "tags": {
+    "beauty": "nails",
+    "name": "Pavillion Nail Lounge",
+    "shop": "beauty"
+  }
+},
+{
+  "type": "node",
+  "id": 7922936714,
+  "lat": 34.0871011,
+  "lon": -84.4833657,
+  "tags": {
+    "alt_name": "Verizon Wireless",
+    "brand": "Verizon",
+    "brand:wikidata": "Q919641",
+    "name": "Verizon",
+    "shop": "mobile_phone"
+  }
+},
+{
+  "type": "node",
+  "id": 7923866927,
+  "lat": 34.0867138,
+  "lon": -84.4796835,
+  "tags": {
+    "addr:city": "Woodstock",
+    "addr:housenumber": "12180",
+    "addr:postcode": "30188",
+    "addr:state": "GA",
+    "addr:street": "Alabama Road",
+    "amenity": "fast_food",
+    "brand": "Arby's",
+    "brand:wikidata": "Q630866",
+    "check_date": "2024-06-21",
+    "cuisine": "sandwich",
+    "drive_through": "yes",
+    "name": "Arby's",
+    "opening_hours": "09:30-23:00",
+    "phone": "+1 770-926-6647",
+    "takeaway": "yes",
+    "website": "https://www.arbys.com/locations/us/ga/woodstock/12180-highway-92/store-7587/"
+  }
+},
+{
+  "type": "node",
+  "id": 7923866932,
+  "lat": 34.0866536,
+  "lon": -84.4801881,
+  "tags": {
+    "amenity": "bank",
+    "brand": "Truist",
+    "brand:wikidata": "Q795486",
+    "name": "Truist",
+    "official_name": "Branch Banking and Trust Company"
+  }
+},
+{
+  "type": "node",
+  "id": 7923866941,
+  "lat": 34.0870483,
+  "lon": -84.4999463,
+  "tags": {
+    "addr:housenumber": "11299",
+    "addr:street": "Alabama Road",
+    "name": "Creative Award and Promotions",
+    "office": "advertising_agency"
+  }
+},
+{
+  "type": "node",
+  "id": 7923866959,
+  "lat": 34.0876090,
+  "lon": -84.4663602,
+  "tags": {
+    "amenity": "bank",
+    "check_date": "2025-11-08",
+    "name": "Renasant Bank"
+  }
+},
+{
+  "type": "node",
+  "id": 7923866969,
+  "lat": 34.0866271,
+  "lon": -84.4787654,
+  "tags": {
+    "addr:city": "Woodstock",
+    "addr:housenumber": "12400",
+    "addr:postcode": "30188",
+    "addr:state": "GA",
+    "addr:street": "Highway 92",
+    "amenity": "cafe",
+    "branch": "Highway 92 & Trickum Road",
+    "brand": "Starbucks",
+    "brand:wikidata": "Q37158",
+    "cuisine": "coffee_shop",
+    "name": "Starbucks",
+    "official_name": "Starbucks Coffee",
+    "phone": "+1 770-592-0655",
+    "ref": "6769",
+    "takeaway": "yes",
+    "website": "https://www.starbucks.com/store-locator/store/6769/hwy-92-trickum-rd-12400-highway-92-woodstock-ga-301886911-us"
+  }
+},
+{
+  "type": "node",
+  "id": 8042517658,
+  "lat": 34.0878571,
+  "lon": -84.4760440,
+  "tags": {
+    "brand": "Allstate",
+    "brand:wikidata": "Q2645636",
+    "name": "Allstate",
+    "office": "insurance"
+  }
+},
+{
+  "type": "node",
+  "id": 8042517660,
+  "lat": 34.0875723,
+  "lon": -84.4953737,
+  "tags": {
+    "addr:city": "Woodstock",
+    "addr:housenumber": "11517",
+    "addr:postcode": "30188",
+    "addr:state": "GA",
+    "addr:street": "Georgia Highway 92",
+    "addr:unit": "102",
+    "check_date:currency:XBT": "2026-09-28",
+    "contact:email": "info@ancientawakenings.net",
+    "contact:facebook": "https://www.facebook.com/AncientAwakenings/",
+    "currency:XBT": "yes",
+    "name": "Ancient Awakenings Natural Food Store",
+    "opening_hours": "Mo-Sa 09:00-17:00",
+    "payment:lightning": "yes",
+    "payment:lightning:operator": "square",
+    "payment:lightning_contactless": "no",
+    "payment:onchain": "no",
+    "phone": "+1-404-310-8100",
+    "shop": "health_food",
+    "website": "https://ancientawakenings.net"
+  }
+},
+{
+  "type": "node",
+  "id": 8042517665,
+  "lat": 34.0871487,
+  "lon": -84.4831770,
+  "tags": {
+    "addr:city": "Woodstock",
+    "addr:housenumber": "12156",
+    "addr:postcode": "30188",
+    "addr:state": "GA",
+    "addr:street": "Highway 92",
+    "amenity": "fast_food",
+    "brand": "McDonald's",
+    "brand:wikidata": "Q38076",
+    "cuisine": "burger",
+    "drive_through": "yes",
+    "internet_access": "wlan",
+    "name": "McDonald's",
+    "opening_hours": "Mo-Th 06:00-23:00; Fr-Sa 06:00-24:00; Su 06:00-23:00",
+    "phone": "+1 770-924-6912",
+    "takeaway": "yes",
+    "website": "https://www.mcdonalds.com/us/en-us/location/28435.html"
+  }
+},
+{
+  "type": "node",
+  "id": 8042517672,
+  "lat": 34.0870484,
+  "lon": -84.4826494,
+  "tags": {
+    "addr:city": "Woodstock",
+    "addr:housenumber": "12162",
+    "addr:postcode": "30188",
+    "addr:state": "GA",
+    "addr:street": "Highway 92",
+    "amenity": "fast_food",
+    "branch": "Highway 92 & Trickum",
+    "brand": "Panda Express",
+    "brand:wikidata": "Q1358690",
+    "cuisine": "chinese",
+    "name": "Panda Express",
+    "opening_hours": "Mo-Th 10:00-21:30; Fr 10:00-22:00; Sa 10:30-22:00; Su 10:30-21:30",
+    "phone": "+1 770-592-1619",
+    "takeaway": "yes",
+    "website": "https://www.pandaexpress.com/locations/ga/woodstock/1008"
+  }
+},
+{
+  "type": "node",
+  "id": 8042517677,
+  "lat": 34.0866384,
+  "lon": -84.4633505,
+  "tags": {
+    "amenity": "social_facility",
+    "check_date": "2025-11-08",
+    "name": "Brickmont Assisted Living",
+    "social_facility": "group_home",
+    "social_facility:for": "senior"
+  }
+},
+{
+  "type": "node",
+  "id": 8042517679,
+  "lat": 34.0866894,
+  "lon": -84.4854887,
+  "tags": {
+    "shop": "massage"
+  }
+},
+{
+  "type": "node",
+  "id": 8042517683,
+  "lat": 34.0880925,
+  "lon": -84.4685837,
+  "tags": {
+    "amenity": "restaurant",
+    "name": "Sidelines Grille"
+  }
+},
+{
+  "type": "node",
+  "id": 8042531189,
+  "lat": 34.0880679,
+  "lon": -84.4684638,
+  "tags": {
+    "alt_name": "MetroPCS",
+    "brand": "Metro by T-Mobile",
+    "brand:wikidata": "Q1925685",
+    "name": "Metro by T-Mobile",
+    "shop": "mobile_phone"
+  }
+},
+{
+  "type": "node",
+  "id": 8042531191,
+  "lat": 34.0866707,
+  "lon": -84.4853031,
+  "tags": {
+    "addr:city": "Woodstock",
+    "addr:housenumber": "12050",
+    "addr:postcode": "30188",
+    "addr:state": "GA",
+    "addr:street": "Highway 92",
+    "amenity": "restaurant",
+    "brand": "Pizza Hut",
+    "brand:wikidata": "Q191615",
+    "cuisine": "pizza",
+    "name": "Pizza Hut",
+    "phone": "+1 770-591-3900",
+    "website": "https://locations.pizzahut.com/ga/woodstock/12050-highway-92"
+  }
+},
+{
+  "type": "node",
+  "id": 8715764317,
+  "lat": 34.0881576,
+  "lon": -84.4676310,
+  "tags": {
+    "direction": "backward",
+    "highway": "stop"
+  }
+},
+{
+  "type": "node",
+  "id": 8715764318,
+  "lat": 34.0877442,
+  "lon": -84.4679028,
+  "tags": {
+    "direction": "backward",
+    "highway": "stop"
+  }
+},
+{
+  "type": "node",
+  "id": 8715764319,
+  "lat": 34.0877752,
+  "lon": -84.4680568,
+  "tags": {
+    "direction": "forward",
+    "highway": "stop"
+  }
+},
+{
+  "type": "node",
+  "id": 8715764385,
+  "lat": 34.0879673,
+  "lon": -84.4689728,
+  "tags": {
+    "direction": "backward",
+    "highway": "stop"
+  }
+},
+{
+  "type": "node",
+  "id": 8715764386,
+  "lat": 34.0880004,
+  "lon": -84.4691268,
+  "tags": {
+    "direction": "forward",
+    "highway": "stop"
+  }
+},
+{
+  "type": "node",
+  "id": 8715764387,
+  "lat": 34.0887354,
+  "lon": -84.4694175,
+  "tags": {
+    "direction": "forward",
+    "highway": "stop"
+  }
+},
+{
+  "type": "node",
+  "id": 8715764388,
+  "lat": 34.0887113,
+  "lon": -84.4695247,
+  "tags": {
+    "direction": "forward",
+    "highway": "stop"
+  }
+},
+{
+  "type": "node",
+  "id": 8715764389,
+  "lat": 34.0881503,
+  "lon": -84.4695928,
+  "tags": {
+    "direction": "backward",
+    "highway": "stop"
+  }
+},
+{
+  "type": "node",
+  "id": 8715764390,
+  "lat": 34.0881874,
+  "lon": -84.4698099,
+  "tags": {
+    "direction": "backward",
+    "highway": "stop"
+  }
+},
+{
+  "type": "node",
+  "id": 8715764391,
+  "lat": 34.0881837,
+  "lon": -84.4699662,
+  "tags": {
+    "direction": "backward",
+    "highway": "stop"
+  }
+},
+{
+  "type": "node",
+  "id": 9385012460,
+  "lat": 34.0845491,
+  "lon": -84.4812996,
+  "tags": {
+    "amenity": "payment_terminal",
+    "brand": "Coinstar",
+    "brand:wikidata": "Q5141641",
+    "name": "Coinstar",
+    "website": "https://coinstar.com/kiosk-info?KioskId=29517"
+  }
+},
+{
+  "type": "node",
+  "id": 10602117806,
+  "lat": 34.0942056,
+  "lon": -84.4873931,
+  "tags": {
+    "crossing": "uncontrolled",
+    "highway": "crossing"
+  }
+},
+{
+  "type": "node",
+  "id": 10602117807,
+  "lat": 34.0938826,
+  "lon": -84.4846794,
+  "tags": {
+    "crossing": "uncontrolled",
+    "highway": "crossing"
+  }
+},
+{
+  "type": "node",
+  "id": 10602117808,
+  "lat": 34.0933949,
+  "lon": -84.4847323,
+  "tags": {
+    "direction": "forward",
+    "highway": "stop"
+  }
+},
+{
+  "type": "node",
+  "id": 10602117809,
+  "lat": 34.0920064,
+  "lon": -84.4847491,
+  "tags": {
+    "direction": "forward",
+    "highway": "stop"
+  }
+},
+{
+  "type": "node",
+  "id": 10602117810,
+  "lat": 34.0904109,
+  "lon": -84.4844524,
+  "tags": {
+    "crossing": "uncontrolled",
+    "highway": "crossing"
+  }
+},
+{
+  "type": "node",
+  "id": 10602117811,
+  "lat": 34.0910954,
+  "lon": -84.4820708,
+  "tags": {
+    "direction": "backward",
+    "highway": "stop"
+  }
+},
+{
+  "type": "node",
+  "id": 10602117812,
+  "lat": 34.0911250,
+  "lon": -84.4820777,
+  "tags": {
+    "crossing": "uncontrolled",
+    "highway": "crossing"
+  }
+},
+{
+  "type": "node",
+  "id": 10602152462,
+  "lat": 34.0888104,
+  "lon": -84.4912929,
+  "tags": {
+    "crossing": "uncontrolled",
+    "highway": "crossing"
+  }
+},
+{
+  "type": "node",
+  "id": 10602152463,
+  "lat": 34.0888075,
+  "lon": -84.4913494,
+  "tags": {
+    "direction": "forward",
+    "highway": "stop"
+  }
+},
+{
+  "type": "node",
+  "id": 10602152472,
+  "lat": 34.0882965,
+  "lon": -84.4912989,
+  "tags": {
+    "crossing": "uncontrolled",
+    "highway": "crossing"
+  }
+},
+{
+  "type": "node",
+  "id": 11328923528,
+  "lat": 34.0885591,
+  "lon": -84.4844240,
+  "tags": {
+    "direction": "backward",
+    "highway": "stop",
+    "stop": "minor"
+  }
+},
+{
+  "type": "node",
+  "id": 11967451352,
+  "lat": 34.0880309,
+  "lon": -84.4816283,
+  "tags": {
+    "addr:city": "Woodstock",
+    "addr:housenumber": "12201",
+    "addr:postcode": "30188",
+    "addr:state": "GA",
+    "addr:street": "Highway 92",
+    "addr:unit": "A",
+    "amenity": "fast_food",
+    "brand": "Jimmy John's",
+    "brand:wikidata": "Q1689380",
+    "cuisine": "sandwich",
+    "name": "Jimmy John's",
+    "official_name": "Jimmy John's Gourmet Sandwiches",
+    "phone": "+1 678-504-7586",
+    "takeaway": "yes",
+    "website": "https://locations.jimmyjohns.com/ga/woodstock/sandwiches-1969.html"
+  }
+},
+{
+  "type": "node",
+  "id": 11967451353,
+  "lat": 34.0891602,
+  "lon": -84.4830264,
+  "tags": {
+    "addr:city": "Woodstock",
+    "addr:housenumber": "12195",
+    "addr:postcode": "30188",
+    "addr:state": "GA",
+    "addr:street": "Highway 92",
+    "amenity": "fast_food",
+    "brand": "Domino's",
+    "brand:wikidata": "Q839466",
+    "check_date": "2025-09-27",
+    "cuisine": "pizza",
+    "name": "Domino's",
+    "opening_hours": "Mo-Th 10:00-24:00; Fr-Sa 10:00-01:00; Su 10:00-24:00",
+    "phone": "+1 770-924-3300",
+    "ref": "4125",
+    "takeaway": "yes",
+    "website": "https://pizza.dominos.com/georgia/woodstock/12195-hwy-92"
+  }
+},
+{
+  "type": "node",
+  "id": 11967451354,
+  "lat": 34.0885010,
+  "lon": -84.4912033,
+  "tags": {
+    "addr:city": "Woodstock",
+    "addr:country": "US",
+    "addr:floor": "G;1",
+    "addr:housenumber": "11799",
+    "addr:postcode": "30188",
+    "addr:state": "GA",
+    "addr:street": "Highway 92",
+    "amenity": "fast_food",
+    "branch": "Woodstock, GA - Hwy 92",
+    "brand": "Culver's",
+    "brand:wikidata": "Q1143589",
+    "check_date": "2025-08-23",
+    "cuisine": "burger",
+    "delivery": "no",
+    "drive_through": "yes",
+    "indoor_seating": "yes",
+    "level": "0;1",
+    "name": "Culver's",
+    "opening_hours": "Mo-Su 10:30-22:00",
+    "opening_hours:drive_through": "Mo-Su 10:30-22:00",
+    "payment:mastercard": "yes",
+    "payment:visa": "yes",
+    "phone": "+1 470-377-4176",
+    "ref": "809",
+    "takeaway": "yes",
+    "toilets": "yes",
+    "website": "https://www.culvers.com/restaurants/woodstock-ga-hwy-92",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 13092860751,
+  "lat": 34.0886031,
+  "lon": -84.4856471,
+  "tags": {
+    "addr:floor": "G;1",
+    "addr:housenumber": "12035",
+    "addr:street": "GA-92",
+    "amenity": "fast_food",
+    "brand": "Little Caesars",
+    "brand:wikidata": "Q1393809",
+    "check_date": "2025-08-23",
+    "cuisine": "pizza",
+    "level": "0;1",
+    "name": "Little Caesars",
+    "payment:cash": "yes",
+    "payment:credit_cards": "yes",
+    "payment:debit_cards": "yes",
+    "takeaway": "yes",
+    "website": "https://littlecaesars.com/en-us/store/8445",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 13092860752,
+  "lat": 34.0885936,
+  "lon": -84.4858073,
+  "tags": {
+    "addr:floor": "G;1",
+    "check_date": "2025-08-23",
+    "level": "0;1",
+    "name": "Salon 92",
+    "payment:cash": "yes",
+    "payment:credit_cards": "yes",
+    "payment:debit_cards": "yes",
+    "shop": "hairdresser",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 13092860753,
+  "lat": 34.0885957,
+  "lon": -84.4859231,
+  "tags": {
+    "amenity": "fast_food",
+    "brand": "Subway",
+    "brand:wikidata": "Q244457",
+    "check_date": "2025-08-23",
+    "cuisine": "sandwich",
+    "name": "Subway",
+    "takeaway": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 13092860754,
+  "lat": 34.0866523,
+  "lon": -84.4852114,
+  "tags": {
+    "amenity": "fast_food",
+    "brand": "Jersey Mike's Subs",
+    "brand:wikidata": "Q6184897",
+    "check_date": "2025-08-23",
+    "cuisine": "sandwich",
+    "name": "Jersey Mike's Subs",
+    "short_name": "Jersey Mike's",
+    "takeaway": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 13092860755,
+  "lat": 34.0915983,
+  "lon": -84.4797850,
+  "tags": {
+    "addr:floor": "G;1",
+    "amenity": "kindergarten",
+    "check_date": "2025-08-23",
+    "level": "0;1",
+    "name": "Woodhaven Academy",
+    "payment:cash": "yes",
+    "payment:credit_cards": "yes",
+    "payment:debit_cards": "yes",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 13092860756,
+  "lat": 34.0898871,
+  "lon": -84.4850712,
+  "tags": {
+    "addr:floor": "G;1",
+    "beauty": "nails",
+    "check_date": "2025-08-23",
+    "level": "0;1",
+    "name": "Spa Nails",
+    "payment:cash": "yes",
+    "payment:credit_cards": "yes",
+    "payment:debit_cards": "yes",
+    "shop": "beauty",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 13092860757,
+  "lat": 34.0866723,
+  "lon": -84.4853598,
+  "tags": {
+    "addr:floor": "G;1",
+    "check_date": "2025-08-23",
+    "level": "0;1",
+    "name": "Salon Brownline",
+    "payment:cash": "yes",
+    "payment:credit_cards": "yes",
+    "payment:debit_cards": "yes",
+    "shop": "hairdresser",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 13141408496,
+  "lat": 34.0875142,
+  "lon": -84.4991041,
+  "tags": {
+    "amenity": "place_of_worship",
+    "check_date": "2025-09-13",
+    "name": "Abiding Church",
+    "religion": "christian"
+  }
+},
+{
+  "type": "node",
+  "id": 13141408497,
+  "lat": 34.0877016,
+  "lon": -84.4948207,
+  "tags": {
+    "beauty": "tanning",
+    "check_date": "2025-09-13",
+    "name": "Spalon & Tan",
+    "shop": "beauty"
+  }
+},
+{
+  "type": "node",
+  "id": 13141408498,
+  "lat": 34.0876153,
+  "lon": -84.4952009,
+  "tags": {
+    "check_date": "2025-09-13",
+    "name": "Enigma Fireworks",
+    "shop": "pyrotechnics"
+  }
+},
+{
+  "type": "node",
+  "id": 13141408499,
+  "lat": 34.0885268,
+  "lon": -84.4703681,
+  "tags": {
+    "brand": "Public Storage",
+    "brand:wikidata": "Q1156045",
+    "check_date": "2025-09-13",
+    "name": "Public Storage",
+    "shop": "storage_rental"
+  }
+},
+{
+  "type": "node",
+  "id": 13175838992,
+  "lat": 34.0894560,
+  "lon": -84.4834086,
+  "tags": {
+    "beauty": "waxing",
+    "check_date": "2025-09-27",
+    "name": "Brazil Body Wax",
+    "shop": "beauty"
+  }
+},
+{
+  "type": "node",
+  "id": 13175838993,
+  "lat": 34.0888650,
+  "lon": -84.4827473,
+  "tags": {
+    "addr:floor": "G;1",
+    "addr:housenumber": "12195",
+    "addr:street": "Highway 92",
+    "addr:unit": "156",
+    "amenity": "restaurant",
+    "bar": "yes",
+    "check_date": "2025-09-27",
+    "cuisine": "american",
+    "level": "0;1",
+    "name": "Guston's Grille & Tap",
+    "opening_hours": "11:00-22:00",
+    "payment:cash": "yes",
+    "payment:credit_cards": "yes",
+    "payment:debit_cards": "yes",
+    "phone": "+1-770-485-3079",
+    "website": "https://www.gustons.com/Woodstock/",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 13175838994,
+  "lat": 34.0889791,
+  "lon": -84.4828856,
+  "tags": {
+    "addr:floor": "G;1",
+    "addr:housenumber": "12195",
+    "addr:street": "Highway 92",
+    "addr:unit": "148",
+    "amenity": "dentist",
+    "check_date": "2025-09-27",
+    "healthcare": "dentist",
+    "level": "0;1",
+    "name": "Coast Dental & Orthodontics",
+    "opening_hours": "Mo 08:30-16:00; Tu-Fr 08:30-17:00; Sa-Su off",
+    "payment:cash": "yes",
+    "payment:credit_cards": "yes",
+    "payment:debit_cards": "yes",
+    "phone": "+1-770-517-2772",
+    "website": "https://www.coastdental.com/dentist-office/woodstock-ga-30188",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 13175838995,
+  "lat": 34.0894514,
+  "lon": -84.4833225,
+  "tags": {
+    "amenity": "fast_food",
+    "check_date": "2025-09-27",
+    "cuisine": "burger",
+    "name": "Crave Burgers &Wings"
+  }
+},
+{
+  "type": "node",
+  "id": 13175838996,
+  "lat": 34.0894508,
+  "lon": -84.4832245,
+  "tags": {
+    "check_date": "2025-09-27",
+    "leisure": "fitness_centre",
+    "name": "All About Health"
+  }
+},
+{
+  "type": "node",
+  "id": 13175838997,
+  "lat": 34.0893755,
+  "lon": -84.4831745,
+  "tags": {
+    "amenity": "post_office",
+    "brand": "The UPS Store",
+    "brand:short": "UPS",
+    "brand:wikidata": "Q7771029",
+    "check_date": "2025-09-27",
+    "name": "The UPS Store",
+    "shop": "copyshop"
+  }
+},
+{
+  "type": "node",
+  "id": 13175838998,
+  "lat": 34.0892880,
+  "lon": -84.4831217,
+  "tags": {
+    "amenity": "restaurant",
+    "check_date": "2025-09-27",
+    "cuisine": "asian",
+    "name": "Icgiban Grill Hibachi & Sushi"
+  }
+},
+{
+  "type": "node",
+  "id": 13175838999,
+  "lat": 34.0892167,
+  "lon": -84.4830668,
+  "tags": {
+    "beauty": "nails",
+    "check_date": "2025-09-27",
+    "name": "Z Nails",
+    "shop": "beauty"
+  }
+},
+{
+  "type": "node",
+  "id": 13175839000,
+  "lat": 34.0890602,
+  "lon": -84.4829620,
+  "tags": {
+    "amenity": "restaurant",
+    "check_date": "2025-09-27",
+    "cuisine": "vietnamese",
+    "name": "Saigon Cafe"
+  }
+},
+{
+  "type": "node",
+  "id": 13818216874,
+  "lat": 34.0804879,
+  "lon": -84.4889529,
+  "tags": {
+    "addr:floor": "G;1",
+    "addr:housenumber": "204",
+    "addr:street": "Trickum Hills Lane",
+    "check_date": "2026-05-11",
+    "contact:facebook": "https://www.facebook.com/lizziethebakerga",
+    "contact:instagram": "https://www.instagram.com/lizzie.the.baker",
+    "diet:allergen_free": "only",
+    "diet:gluten_free": "only",
+    "diet:vegan": "only",
+    "email": "lizzie@lizziethebaker.com",
+    "level": "0;1",
+    "name": "Lizzie The Baker",
+    "opening_hours": "\"by appointment\"",
+    "payment:cash": "yes",
+    "payment:credit_cards": "yes",
+    "payment:debit_cards": "yes",
+    "phone": "+1-470-815-5228",
+    "shop": "bakery",
+    "website": "https://www.lizziethebaker.com/",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 14079079535,
+  "lat": 34.0860455,
+  "lon": -84.4652605,
+  "tags": {
+    "check_date": "2026-08-07",
+    "name": "Christian Brothers Automotive",
+    "shop": "car_repair"
+  }
+},
+{
+  "type": "node",
+  "id": 14097669984,
+  "lat": 34.0866700,
+  "lon": -84.4823000,
+  "tags": {
+    "amenity": "charging_station",
+    "brand": "Electrify America",
+    "brand:wikidata": "Q59773555",
+    "capacity": "4",
+    "ref:afdc": "171479",
+    "socket:type1_combo": "4"
+  }
+}
+
+  ]
+}

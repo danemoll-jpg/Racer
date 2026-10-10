@@ -307,7 +307,7 @@ namespace Racer
             var head = Label("Championship result", content, 22, 0); laterLayouts.Add(head.gameObject); head.transform.SetSiblingIndex(1);
             head.text = string.Join("\n", lines); head.color = new(.3f, .95f, .81f); head.gameObject.AddComponent<UnityEngine.UI.LayoutElement>().preferredHeight = 28 * lines.Count + 6;
             // 0.92 Part D: the champion's paint scheme, shown on the championship vehicle
-            if (o != null && o.ChampionPaint && CampaignRun.Vehicle != null) { var strip = PreviewStrip("Champion's paint", 2, 170); PreviewCard(strip, VehicleProfile.Find(CampaignRun.Vehicle), VehiclePaint.Champion, false, "CHAMPION'S PAINT: yours for any vehicle (Garage > Colour)", new Color(1, .82f, .35f), 330); }
+            if (o != null && o.ChampionPaint && CampaignRun.Vehicle != null) { var strip = PreviewStrip("Champion's paint", 2, 170); PreviewCard(strip, VehicleProfile.Find(CampaignRun.Vehicle), VehiclePaint.Champion, false, "CHAMPION'S PAINT: yours for any vehicle (Garage > Color)", new Color(1, .82f, .35f), 330); }
             int n = 0;
             bool more = progress != null && progress.active && progress.races.Count < cup.Rounds.Length;
             bool champion = o != null && o.CupFinished && cup.Grand && o.Won;

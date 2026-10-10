@@ -1,0 +1,17 @@
+screen=3840x2160 kind=perf roadside=OFF (before) version=0.104.0-review1
+split-screen race running: True, player 2 car PLAYER 2 (AI)
+roadside: ; removed 0 old businesses
+  east-780: mean 8.21 ms (122 fps), 95th percentile 15.13 ms, 366 frames
+  east-520: mean 13.27 ms (75 fps), 95th percentile 26.59 ms, 227 frames
+  east-260: mean 10.92 ms (92 fps), 95th percentile 24.25 ms, 275 frames
+  east+0: mean 8.40 ms (119 fps), 95th percentile 14.57 ms, 358 frames
+  east+260: mean 9.13 ms (110 fps), 95th percentile 17.62 ms, 329 frames
+  east+520: mean 9.82 ms (102 fps), 95th percentile 19.67 ms, 306 frames
+  east+780: mean 13.50 ms (74 fps), 95th percentile 34.04 ms, 228 frames
+  west+650: mean 11.87 ms (84 fps), 95th percentile 23.86 ms, 253 frames
+  west+390: mean 8.92 ms (112 fps), 95th percentile 18.02 ms, 338 frames
+  west+130: mean 8.73 ms (115 fps), 95th percentile 15.45 ms, 344 frames
+  west-130: mean 7.34 ms (136 fps), 95th percentile 10.71 ms, 409 frames
+  west-390: mean 7.51 ms (133 fps), 95th percentile 13.46 ms, 400 frames
+  west-650: mean 9.62 ms (104 fps), 95th percentile 10.78 ms, 312 frames
+WORST VIEW split-screen 3840x2160: east+780 mean 13.50 ms (74 fps), 95th 34.04 ms; all stations mean 9.79 ms

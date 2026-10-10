@@ -1,0 +1,17 @@
+screen=3840x2160 kind=perf roadside=on version=0.104.0-review1
+split-screen race running: True, player 2 car PLAYER 2 (AI)
+roadside: built in 478 ms: 120 buildings, 5 canopies, 42 lights, 155 trees, 48 pylon signs, 8 signal poles; 179417 triangles, 465 solids, 182 lettered faces; removed 20 old businesses
+  east-780: mean 7.51 ms (133 fps), 95th percentile 11.40 ms, 400 frames
+  east-520: mean 10.35 ms (97 fps), 95th percentile 16.05 ms, 290 frames
+  east-260: mean 7.52 ms (133 fps), 95th percentile 9.53 ms, 399 frames
+  east+0: mean 7.28 ms (137 fps), 95th percentile 9.28 ms, 412 frames
+  east+260: mean 6.23 ms (160 fps), 95th percentile 7.01 ms, 482 frames
+  east+520: mean 7.20 ms (139 fps), 95th percentile 12.44 ms, 417 frames
+  east+780: mean 7.78 ms (129 fps), 95th percentile 8.58 ms, 386 frames
+  west+650: mean 9.39 ms (107 fps), 95th percentile 12.73 ms, 320 frames
+  west+390: mean 7.71 ms (130 fps), 95th percentile 13.28 ms, 390 frames
+  west+130: mean 7.85 ms (127 fps), 95th percentile 12.98 ms, 383 frames
+  west-130: mean 6.64 ms (151 fps), 95th percentile 8.06 ms, 452 frames
+  west-390: mean 6.67 ms (150 fps), 95th percentile 7.52 ms, 450 frames
+  west-650: mean 9.65 ms (104 fps), 95th percentile 10.37 ms, 311 frames
+WORST VIEW split-screen 3840x2160: east-520 mean 10.35 ms (97 fps), 95th 16.05 ms; all stations mean 7.83 ms

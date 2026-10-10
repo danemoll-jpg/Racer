@@ -1,0 +1,30 @@
+shortcut Granite Creek Cut (Street Loop Reverse branch 1): 539 points from [-76.4, 529.1] to [-628.4, 25.4]
+plot (Weatherstone subdivision across from S Cherokee Ln) in game: [[-52.1, 605.3], [-57.4, 611.4], [-62.5, 630.6], [-60.9, 636.1], [-18.2, 802.8], [22.2, 848.0], [312.1, 848.0], [321.0, 638.7], [170.8, 644.4], [169.5, 570.6], [27.5, 567.3]], area 86550 m2
+buildings planned: 120 (auto 2, bank 3, church 1, civic 1, convenience 2, fastfood 8, fitness 1, grocery 3, house 47, liquor 1, office 26, pharmacy 1, retail 18, strip 4, venue 1, vet 1); canopies 5; skipped 102
+side street of today: Trickum Road at x -606 (north side), 14 m drawn
+side street of today: Claremore Drive at x 705 (south side), 74 m drawn
+side street of today: Claremore Drive at x 712 (south side), 74 m drawn
+side street of today: unclassified at x 633 (south side), 82 m drawn
+side street of today: unclassified at x 738 (south side), 38 m drawn
+side street of today: Trickum Road at x -601 (north side), 14 m drawn
+side street of today: Trickum Road at x -606 (north side), 16 m drawn
+side street of today: Trickum Road at x -601 (north side), 59 m drawn
+side street of today: Claremore Drive at x 708 (north side), 14 m drawn
+side street of today: Claremore Drive at x 705 (south side), 14 m drawn
+side street of today: Claremore Drive at x 712 (south side), 14 m drawn
+side street of today: Claremore Drive at x 708 (north side), 14 m drawn
+side street of today: Ragsdale Road at x 708 (north side), 40 m drawn
+paved lots and drives: 84757 m2 in 51 pieces; 29 entrances from Hwy 92; side streets 2830 m2
+parking: 1695 stalls painted, 58 islands with trees
+sidewalks: 4317 m2 along both sides
+street lights: 42
+trees 155, shrubs 352
+pylon signs: 48
+traffic lights at x 322 (real junction at [797.0, 205.0], 2 signal nodes)
+traffic lights at x 709 (real junction at [1293.0, 96.0], 4 signal nodes)
+traffic lights at x -230 (real junction at [68.0, 138.0], 2 signal nodes)
+traffic lights at x -606 (real junction at [-424.0, 190.0], 5 signal nodes)
+traffic light poles: 8
+hidden-police places on Hwy 92: [[85.1, 523.2], [-666.8, 560.4], [392.8, 540.9], [-404.1, 511.2]]
+old placeholder roadside removed: 20 (CR019 N01 business, CR019 N02 business, CR019 N03 business, CR019 N04 business, CR019 N05 business, CR019 N06 business, CR019 N07 business, CR019 N08 business, CR019 N11 business, CR019 S01 business, CR019 S02 business, CR019 S03 business, CR019 S04 business, CR019 S05 business, CR019 S06 business, CR019 S07 business, CR019 S08 business, CR019 S09 business, CR019 S10 business, CR019 S11 business); inside the stunt plot, left as they are: CR019 N09 business, CR019 N10 business
+written C:/Users/danmo/Racer/Assets/Resources/Hwy92/Hwy92Roadside.json: 0.52 MB; flat triangles: asphalt 2732, street 177, sidewalk 2531, island 116, white 3950, yellow 454

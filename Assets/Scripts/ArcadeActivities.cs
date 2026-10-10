@@ -101,7 +101,7 @@ namespace Racer
         public float LastSmashScore {get;private set;}
         public void Cancel(){AttemptActive=false;smashed.Clear();warm=0;ResetFlight();}
         public void NewSession(){Cancel();armed.Clear();sampled=false;warm=0;blockedUntil=Time.time+1;Feedback=null;feedbackUntil=0;LastDistance=LastAirtime=LastSpeed=LastJumpAward=0;}
-        void Recovered(){if(AttemptActive)Message("Attempt cancelled by recovery / retry from pause menu",4);Cancel();armed.Clear();sampled=false;warm=0;blockedUntil=Time.time+2;}
+        void Recovered(){if(AttemptActive)Message("Attempt canceled by recovery / retry from pause menu",4);Cancel();armed.Clear();sampled=false;warm=0;blockedUntil=Time.time+2;}
         void ResetFlight(){flying=false;invalid=touchedDown=false;air=stable=0;jumpSite=null;rejected=null;}
         // The jump the player is going for: the campaign event's, or Free Roam's timed attempt.
         ActivitySite TargetJump=>CampaignRun.Active?.Kind==CampaignEventKind.Jump?CampaignRun.Site(race):AttemptActive&&Selected&&Selected.kind==ActivitySite.Kind.Jump?Selected:null;

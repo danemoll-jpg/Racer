@@ -1,0 +1,5 @@
+screen=1920x1080 kind=shortcut roadside=on version=0.104.0-review1
+roadside: built in 328 ms: 120 buildings, 5 canopies, 42 lights, 155 trees, 48 pylon signs, 8 signal poles; 179417 triangles, 465 solids, 182 lettered faces; removed 20 old businesses
+Street Classic run 1: through Granite Creek Cut to Trickum Rd in 30.7 s, 23.9 m/s at the entrance, slowest 18.5 m/s in the cut, resets 0, touches of the new roadside 0
+Street Classic run 2: through Granite Creek Cut to Trickum Rd in 31.3 s, 24.2 m/s at the entrance, slowest 22.9 m/s in the cut, resets 0, touches of the new roadside 0
+Street Classic run 3: through Granite Creek Cut to Trickum Rd in 32.3 s, 24.1 m/s at the entrance, slowest 23.0 m/s in the cut, resets 0, touches of the new roadside 0
