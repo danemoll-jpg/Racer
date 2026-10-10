@@ -324,7 +324,7 @@ namespace Racer
             float floor = hi + .15f, h = b.h, top = floor + h; bool house = b.kind == "house";
             string seed = b.osm + b.kind; var m = Layer(pts[0].x, "solid");
             Color wall = house ? Pick(seed, HouseWalls) : b.kind is "office" or "civic" or "senior" or "apartments" or "bank" or "church" ? Pick(seed, Brick.Concat(Stucco).ToArray()) : b.kind is "storage" or "auto" or "fitness" ? Pick(seed, Panel) : Pick(seed, Stucco.Concat(Brick).ToArray());
-            Color trim = Pick(seed + "t", C(.90f, .89f, .85f), C(.30f, .28f, .26f), C(.82f, .78f, .70f)), accent = Pick(seed + "a", Accent), foundation = C(.50f, .49f, .47f), roof = C(.62f, .62f, .60f);
+            Color trim = Pick(seed + "t", C(.90f, .89f, .85f), C(.30f, .28f, .26f), C(.82f, .78f, .70f)), accent = Pick(seed + "a", Accent), foundation = C(.50f, .49f, .47f), roof = C(.84f, .84f, .82f); // flat roofs light, like the real ones from above
             float parapet = house ? 0 : .8f, eave = top;
             for (int i = 0; i < n; i++)
             {
