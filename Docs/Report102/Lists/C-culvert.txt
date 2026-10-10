@@ -1,0 +1,4 @@
+===== DansBackyardForward culvert
+roof: ceiling triangles turned up 28 (under the ground, skipped 298); skirts 26; wall outside faces 49; wall feet 24; bounds (149.86,53.13,63.91)-(168.76,69.41,77.94); material Damp layered concrete
+grate: 17 bars, the floor across the mouth lowest 63.21, lintel bottom 69.32, bars from 63.27 to 69.27
+solid grate box (166.80,66.06,73.00)-(166.80,66.06,73.00); active in the editor False (follows the grate: closed in the Forward race only)

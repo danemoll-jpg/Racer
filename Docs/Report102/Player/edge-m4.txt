@@ -1,0 +1,5 @@
+screen=1280x720 kind=edge vehicle=mower version=0.102.0-review1
+Part B, Turf Rocket: the Tree-Top Trail from s 0 at 16 m/s, flat out; held on a line offset from the trail centre through the dirt jump (s 15-29)
+  far left (-1.9 m): 18.1 m/s at s 12, slowest on the jump 18.6, 25.5 m/s at s 28 (the lip at s 29); off its line by up to 0.5 m; lowest up-vector 0.99; resets 0; struck: nothing
+  centre (0 m): 18.7 m/s at s 12, slowest on the jump 19.2, 26.1 m/s at s 28 (the lip at s 29); off its line by up to 0.5 m; lowest up-vector 0.99; resets 0; struck: nothing
+  far right (+1.9 m): 19.3 m/s at s 12, slowest on the jump 20.0, 26.2 m/s at s 28 (the lip at s 29); off its line by up to 0.8 m; lowest up-vector 0.92; resets 0; struck: nothing

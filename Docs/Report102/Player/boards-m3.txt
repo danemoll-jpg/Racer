@@ -1,0 +1,5 @@
+screen=1920x1080 kind=boards vehicle=mower version=0.102.0-review1
+Part E, Turf Rocket: onto the boards (their foot at s 25.8, the lip at s 44.7, the last bush s 85.0) at 33 m/s held; an angled entry holds its angle to the foot of the boards, then lines up
+  straight: 31.6 m/s before the boards (s 22), slowest over s 23-34 31.9, 33.0 m/s on the boards (s 32); take-off s 46.3 at 32.6 m/s, landing s 108.8 (3.2 m off): clear of the brush by 23.8 m; resets 0; struck: CR014 trunk 04087 (3998 N s)
+  15 deg from the left: 31.1 m/s before the boards (s 22), slowest over s 23-34 31.3, 31.7 m/s on the boards (s 32); take-off s 43.5 at 28.4 m/s, landing s 82.0 (0.2 m off): IN the brush (2.9 m short); resets 0; struck: Abandoned cabin wall (750 N s), Abandoned cabin wall (1450 N s), Abandoned cabin wall (1241 N s), Tree trunk (6683 N s), Ground_480_400 (574 N s)
+  15 deg from the right: 30.9 m/s before the boards (s 22), slowest over s 23-34 31.1, 31.4 m/s on the boards (s 32); take-off s 46.4 at 31.7 m/s, landing s 91.6 (14.8 m off): clear of the brush by 6.6 m; resets 0; struck: Tree trunk (11331 N s)

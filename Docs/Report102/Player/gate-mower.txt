@@ -1,0 +1,10 @@
+screen=1280x720 kind=gate vehicle=mower version=0.102.0-review1
+Part C, Turf Rocket: the grate is closed (shown, solid) in this race
+  along the drain side forward, 3.4 m left of the trail centre (forward sense), 22 m/s: stayed out, lowest +0.47 m against the trail centre over s 830-860; resets 0; struck: nothing; ended at 159.4,61.93,64.8
+  along the drain side forward, 4.4 m left of the trail centre (forward sense), 18 m/s: stayed out, lowest +99.00 m against the trail centre over s 830-860; resets 0; struck: CR014 trunk 04754 (4228 N s); ended at 155.1,60.42,64.1
+  along the drain side back the other way (retrying the Cabin), 3.4 m left of the trail centre (forward sense), 22 m/s: stayed out, lowest +0.29 m against the trail centre over s 830-860; resets 0; struck: Solid closed grate (0.102) (6656 N s); ended at 169.3,64.21,70.3
+  along the drain side back the other way (retrying the Cabin), 4.4 m left of the trail centre (forward sense), 18 m/s: stayed out, lowest +0.07 m against the trail centre over s 830-860; resets 0; struck: Solid closed grate (0.102) (2262 N s); ended at 169.3,64.14,70.4
+  at the grate head-on, 14 m/s from 22 m out: stopped; the vehicle's centre came to -1.20 m of the grate line (+ = inside); struck: Visible steel grate (855 N s), Solid closed grate (0.102) (5277 N s)
+  at the grate at +30 deg, 14 m/s from 22 m out: stopped; the vehicle's centre came to -1.20 m of the grate line (+ = inside); struck: Solid closed grate (0.102) (1941 N s)
+  at the grate at -30 deg, 14 m/s from 22 m out: stopped; the vehicle's centre came to -18.82 m of the grate line (+ = inside); struck: nothing
+  reset from inside the drain at 163.8,62.49,67.9 (inside True): to 159.8,61.39,63.2, main s 832.7, -1.7 m from the centre, facing 1 deg from the route, inside the drain False; 'Recovered to nearest course point'

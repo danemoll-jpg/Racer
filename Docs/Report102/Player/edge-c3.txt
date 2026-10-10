@@ -1,0 +1,5 @@
+screen=1920x1080 kind=edge vehicle=original version=0.102.0-review1
+Part B, Street Classic: the Tree-Top Trail from s 0 at 16 m/s, flat out; held on a line offset from the trail centre through the dirt jump (s 15-29)
+  far left (-1.9 m): 18.3 m/s at s 12, slowest on the jump 18.5, 23.8 m/s at s 28 (the lip at s 29); off its line by up to 0.6 m; lowest up-vector 1.00; resets 0; struck: Ground_480_320 (584 N s)
+  centre (0 m): 18.5 m/s at s 12, slowest on the jump 18.8, 24.2 m/s at s 28 (the lip at s 29); off its line by up to 0.6 m; lowest up-vector 0.99; resets 0; struck: nothing
+  far right (+1.9 m): 19.0 m/s at s 12, slowest on the jump 19.6, 24.2 m/s at s 28 (the lip at s 29); off its line by up to 1.1 m; lowest up-vector 0.94; resets 0; struck: Ground_Tree-Top jump shoulders (0.102) (428 N s)

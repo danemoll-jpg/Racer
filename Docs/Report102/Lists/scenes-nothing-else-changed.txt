@@ -1,0 +1,46 @@
+===== DansBackyardForward: 13705 colliders/routes identical, 40 lines differ
+  - C Backyard optional forest shortcuts/Dirt jump grounded sides MeshCollider: (204.50,57.30,-32.50)-(212.30,60.15,-18.10) True 144
+  + C Backyard optional forest shortcuts/Dirt jump grounded sides MeshCollider: (0.00,0.00,0.00)-(0.00,0.00,0.00) False 144
+  + C Backyard optional forest shortcuts/Ground_Cabin board shoulders (0.102) MeshCollider: (204.75,70.30,70.15)-(216.25,73.95,88.20) True 2300
+  + C Backyard optional forest shortcuts/Ground_Tree-Top jump shoulders (0.102) MeshCollider: (198.80,56.90,-34.25)-(217.80,60.15,-15.65) True 3370
+  + C Reverse optional forest shortcuts/Culvert roof top (0.102) MeshCollider: (149.85,53.15,63.90)-(168.75,69.40,77.95) True 431
+  + C Reverse optional forest shortcuts/Forward closed drainage grate/Solid closed grate (0.102) BoxCollider: (166.80,66.05,73.00)-(166.80,66.05,73.00) False 0
+  - C Reverse optional forest shortcuts/Forward closed drainage grate/Visible steel grate BoxCollider: (165.00,66.25,77.00)-(165.00,66.25,77.00) False 0
+  - C Reverse optional forest shortcuts/Forward closed drainage grate/Visible steel grate BoxCollider: (165.20,66.25,76.50)-(165.20,66.25,76.50) False 0
+  - C Reverse optional forest shortcuts/Forward closed drainage grate/Visible steel grate BoxCollider: (165.45,66.25,76.00)-(165.45,66.25,76.00) False 0
+  - C Reverse optional forest shortcuts/Forward closed drainage grate/Visible steel grate BoxCollider: (165.65,66.25,75.50)-(165.65,66.25,75.50) False 0
+  - C Reverse optional forest shortcuts/Forward closed drainage grate/Visible steel grate BoxCollider: (165.90,66.25,75.00)-(165.90,66.25,75.00) False 0
+  - C Reverse optional forest shortcuts/Forward closed drainage grate/Visible steel grate BoxCollider: (166.10,66.25,74.50)-(166.10,66.25,74.50) False 0
+  - C Reverse optional forest shortcuts/Forward closed drainage grate/Visible steel grate BoxCollider: (166.35,66.25,74.00)-(166.35,66.25,74.00) False 0
+  - C Reverse optional forest shortcuts/Forward closed drainage grate/Visible steel grate BoxCollider: (166.55,66.25,73.50)-(166.55,66.25,73.50) False 0
+  - C Reverse optional forest shortcuts/Forward closed drainage grate/Visible steel grate BoxCollider: (166.80,66.25,73.00)-(166.80,66.25,73.00) False 0
+  - C Reverse optional forest shortcuts/Forward closed drainage grate/Visible steel grate BoxCollider: (167.05,66.25,72.50)-(167.05,66.25,72.50) False 0
+  - C Reverse optional forest shortcuts/Forward closed drainage grate/Visible steel grate BoxCollider: (167.25,66.25,72.00)-(167.25,66.25,72.00) False 0
+  - C Reverse optional forest shortcuts/Forward closed drainage grate/Visible steel grate BoxCollider: (167.50,66.25,71.50)-(167.50,66.25,71.50) False 0
+  - C Reverse optional forest shortcuts/Forward closed drainage grate/Visible steel grate BoxCollider: (167.70,66.25,71.00)-(167.70,66.25,71.00) False 0
+  - C Reverse optional forest shortcuts/Forward closed drainage grate/Visible steel grate BoxCollider: (167.95,66.25,70.50)-(167.95,66.25,70.50) False 0
+  - C Reverse optional forest shortcuts/Forward closed drainage grate/Visible steel grate BoxCollider: (168.15,66.25,70.00)-(168.15,66.25,70.00) False 0
+  - C Reverse optional forest shortcuts/Forward closed drainage grate/Visible steel grate BoxCollider: (168.40,66.25,69.50)-(168.40,66.25,69.50) False 0
+  - C Reverse optional forest shortcuts/Forward closed drainage grate/Visible steel grate BoxCollider: (168.60,66.25,69.00)-(168.60,66.25,69.00) False 0
+  + C Reverse optional forest shortcuts/Forward closed drainage grate/Visible steel grate BoxCollider: (165.00,66.10,77.00)-(165.00,66.10,77.00) False 0
+  + C Reverse optional forest shortcuts/Forward closed drainage grate/Visible steel grate BoxCollider: (165.20,66.10,76.50)-(165.20,66.10,76.50) False 0
+  + C Reverse optional forest shortcuts/Forward closed drainage grate/Visible steel grate BoxCollider: (165.45,66.10,76.00)-(165.45,66.10,76.00) False 0
+  + C Reverse optional forest shortcuts/Forward closed drainage grate/Visible steel grate BoxCollider: (165.65,66.10,75.50)-(165.65,66.10,75.50) False 0
+  + C Reverse optional forest shortcuts/Forward closed drainage grate/Visible steel grate BoxCollider: (165.90,66.10,75.00)-(165.90,66.10,75.00) False 0
+  + C Reverse optional forest shortcuts/Forward closed drainage grate/Visible steel grate BoxCollider: (166.10,66.10,74.50)-(166.10,66.10,74.50) False 0
+  + C Reverse optional forest shortcuts/Forward closed drainage grate/Visible steel grate BoxCollider: (166.35,66.10,74.00)-(166.35,66.10,74.00) False 0
+  + C Reverse optional forest shortcuts/Forward closed drainage grate/Visible steel grate BoxCollider: (166.55,66.10,73.50)-(166.55,66.10,73.50) False 0
+  + C Reverse optional forest shortcuts/Forward closed drainage grate/Visible steel grate BoxCollider: (166.80,66.10,73.00)-(166.80,66.10,73.00) False 0
+  + C Reverse optional forest shortcuts/Forward closed drainage grate/Visible steel grate BoxCollider: (167.05,66.10,72.50)-(167.05,66.10,72.50) False 0
+  + C Reverse optional forest shortcuts/Forward closed drainage grate/Visible steel grate BoxCollider: (167.25,66.10,72.00)-(167.25,66.10,72.00) False 0
+  + C Reverse optional forest shortcuts/Forward closed drainage grate/Visible steel grate BoxCollider: (167.50,66.10,71.50)-(167.50,66.10,71.50) False 0
+  + C Reverse optional forest shortcuts/Forward closed drainage grate/Visible steel grate BoxCollider: (167.70,66.10,71.00)-(167.70,66.10,71.00) False 0
+  + C Reverse optional forest shortcuts/Forward closed drainage grate/Visible steel grate BoxCollider: (167.95,66.10,70.50)-(167.95,66.10,70.50) False 0
+  + C Reverse optional forest shortcuts/Forward closed drainage grate/Visible steel grate BoxCollider: (168.15,66.10,70.00)-(168.15,66.10,70.00) False 0
+  + C Reverse optional forest shortcuts/Forward closed drainage grate/Visible steel grate BoxCollider: (168.40,66.10,69.50)-(168.40,66.10,69.50) False 0
+  + C Reverse optional forest shortcuts/Forward closed drainage grate/Visible steel grate BoxCollider: (168.60,66.10,69.00)-(168.60,66.10,69.00) False 0
+===== FreeRoamWorld: 13515 colliders/routes identical, 4 lines differ
+  - C Backyard optional forest shortcuts/Dirt jump grounded sides MeshCollider: (204.50,57.30,-32.50)-(212.30,60.15,-18.10) True 144
+  + C Backyard optional forest shortcuts/Dirt jump grounded sides MeshCollider: (0.00,0.00,0.00)-(0.00,0.00,0.00) False 144
+  + C Backyard optional forest shortcuts/Ground_Cabin board shoulders (0.102) MeshCollider: (204.75,70.30,70.15)-(216.25,73.95,88.20) True 2300
+  + C Backyard optional forest shortcuts/Ground_Tree-Top jump shoulders (0.102) MeshCollider: (198.80,56.90,-34.25)-(217.80,60.15,-15.65) True 3370

@@ -1,0 +1,5 @@
+screen=1280x720 kind=crest vehicle=original version=0.102.0-review1
+Part A, Street Classic: from main s 40 at 15 m/s, flat out along the trail centre (aim 12 m ahead) to the dirt jump at s 164
+  run 1 (aimed 0 m from the centre): 29.0 m/s over the crest; in the air over s 95-140 0.00 s in total, longest 0.00 s (leaving the ground at s 0.0), 0 hops over 0.08 s; furthest off its line 2.0 m; at s 160 (the jump run-in) -0.2 m from the centre; resets 0; struck: Ground_Dan beige concrete descent and parking (1751 N s)
+  run 2 (aimed -1.2 m from the centre): 29.3 m/s over the crest; in the air over s 95-140 0.00 s in total, longest 0.00 s (leaving the ground at s 0.0), 0 hops over 0.08 s; furthest off its line 2.2 m; at s 160 (the jump run-in) -1.2 m from the centre; resets 0; struck: Ground_Dan beige concrete descent and parking (3084 N s)
+  run 3 (aimed +1.2 m from the centre): 28.8 m/s over the crest; in the air over s 95-140 0.00 s in total, longest 0.00 s (leaving the ground at s 0.0), 0 hops over 0.08 s; furthest off its line 1.7 m; at s 160 (the jump run-in) 1.1 m from the centre; resets 0; struck: Ground_Dan beige concrete descent and parking (1546 N s)

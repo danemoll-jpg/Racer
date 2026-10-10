@@ -1,0 +1,5 @@
+screen=1280x720 kind=crest vehicle=mower version=0.102.0-review1
+Part A, Turf Rocket: from main s 40 at 15 m/s, flat out along the trail centre (aim 12 m ahead) to the dirt jump at s 164
+  run 1 (aimed 0 m from the centre): 32.7 m/s over the crest; in the air over s 95-140 0.18 s in total, longest 0.18 s (leaving the ground at s 117.9), 1 hops over 0.08 s; furthest off its line 3.6 m; at s 160 (the jump run-in) 1.1 m from the centre; resets 0; struck: nothing
+  run 2 (aimed -1.2 m from the centre): 32.8 m/s over the crest; in the air over s 95-140 0.20 s in total, longest 0.20 s (leaving the ground at s 118.7), 1 hops over 0.08 s; furthest off its line 4.4 m; at s 160 (the jump run-in) 0.1 m from the centre; resets 0; struck: nothing
+  run 3 (aimed +1.2 m from the centre): 32.5 m/s over the crest; in the air over s 95-140 0.16 s in total, longest 0.16 s (leaving the ground at s 117.3), 1 hops over 0.08 s; furthest off its line 3.0 m; at s 160 (the jump run-in) 2.6 m from the centre; resets 0; struck: nothing

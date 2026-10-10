@@ -1,0 +1,17 @@
+screen=1280x720 kind=reset vehicle=mower version=0.102.0-review1
+Part D, Turf Rocket: brush from the lip s 44.7 to the far edge s 84.0, the last bush reaches s 85.0; footprint radius 18
+  the real jump: landed at s 64.1, 6.6 m off the line; it settles in the brush (1 s)
+  1 (the first reset after landing) : in the brush at s 67.6, 6.0 m off the line -> s 87.4, 0.0 m off, facing 0 deg from the line, 2.7 m/s; 'Recovered past the brush': PAST THE BRUSH
+  2 (s 52, 0 m, turned +20 deg, 0 m/s): in the brush at s 50.8, 0.4 m off the line -> s 87.4, 0.0 m off, facing 0 deg from the line, 2.7 m/s; 'Recovered past the brush': PAST THE BRUSH
+  3 (s 60, -5 m, turned -40 deg, 0 m/s): in the brush at s 58.9, 4.2 m off the line -> s 87.4, 0.0 m off, facing 0 deg from the line, 2.8 m/s; 'Recovered past the brush': PAST THE BRUSH
+  4 (s 66, +9 m, turned +60 deg, 0 m/s): in the brush at s 65.4, 8.1 m off the line -> s 87.4, 0.0 m off, facing 0 deg from the line, 2.6 m/s; 'Recovered past the brush': PAST THE BRUSH
+  5 (s 72, -12 m, turned +120 deg, 0 m/s): in the brush at s 72.5, 13.0 m off the line -> s 87.4, 0.0 m off, facing 0 deg from the line, 2.7 m/s; 'Recovered past the brush': PAST THE BRUSH
+  6 (s 78, +4 m, turned 0 deg, 6 m/s): in the brush at s 78.0, 3.5 m off the line -> s 87.4, 0.0 m off, facing 0 deg from the line, 2.7 m/s; 'Recovered past the brush': PAST THE BRUSH
+  7 (s 58, +13 m, turned -90 deg, 0 m/s): in the brush at s 57.9, 14.3 m off the line -> s 87.4, 0.0 m off, facing 0 deg from the line, 2.7 m/s; 'Recovered past the brush': PAST THE BRUSH
+  8 (s 70, -8 m, turned +30 deg, 4 m/s): in the brush at s 70.0, 8.0 m off the line -> s 87.3, 0.0 m off, facing 0 deg from the line, 2.8 m/s; 'Recovered past the brush': PAST THE BRUSH
+  9 (s 82, -10 m, turned +160 deg, 0 m/s): in the brush at s 83.1, 10.4 m off the line -> s 87.5, 0.0 m off, facing 0 deg from the line, 2.5 m/s; 'Recovered past the brush': PAST THE BRUSH
+  10 (s 62, +6 m, turned +10 deg, 0 m/s): in the brush at s 60.7, 5.8 m off the line -> s 87.4, 0.0 m off, facing 0 deg from the line, 2.7 m/s; 'Recovered past the brush': PAST THE BRUSH
+Free Roam:
+  Free Roam (s 60, -9 m): in the brush at s 58.6, 9.0 m off the line -> s 87.3, 0.0 m off, facing 0 deg from the line, 2.8 m/s; 'Recovered past the brush': PAST THE BRUSH
+  Free Roam (s 70, +11 m): in the brush at s 69.1, 10.2 m off the line -> s 87.3, 0.0 m off, facing 0 deg from the line, 2.8 m/s; 'Recovered past the brush': PAST THE BRUSH
+  Free Roam (s 56, 0 m): in the brush at s 54.9, 0.7 m off the line -> s 87.4, 0.0 m off, facing 0 deg from the line, 2.7 m/s; 'Recovered past the brush': PAST THE BRUSH

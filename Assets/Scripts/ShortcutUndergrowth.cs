@@ -42,8 +42,26 @@ namespace Racer
             station = 0; var route = clearRoute;
             if (!route || brushFrom <= 0 || clearFrom <= brushFrom) return false;
             float s = route.Project(position, out _); var centre = route.At(s, out _);
-            if (s < brushFrom || s >= clearFrom || new Vector2(position.x - centre.x, position.z - centre.z).magnitude > clearHalfWidth) return false;
+            if (s < brushFrom || s >= clearFrom) return false;
+            // 0.102 Part D: anywhere in this brush, not only within clearHalfWidth of the line (a landing wide of the line was put
+            // back on the line inside the brush by the first reset, and only the second went past it)
+            if (new Vector2(position.x - centre.x, position.z - centre.z).magnitude > clearHalfWidth && !InFootprint(position, centre)) return false;
             station = Mathf.Min(route.Length, clearFrom + ResetPastEdge); return true;
+        }
+        // inside the bush footprint, at the brush's level, and not on a road or trail
+        bool InFootprint(Vector3 position, Vector3 centre)
+        {
+            if (Mathf.Abs(position.y - centre.y) > 6) return false;
+            float closest = float.MaxValue;
+            foreach (var p in centres) closest = Mathf.Min(closest, new Vector2(position.x - p.x, position.z - p.z).magnitude);
+            if (closest >= radius) return false;
+            foreach (var road in FindObjectsByType<RaceRoad>(FindObjectsSortMode.None))
+            {
+                if (road.points == null || road.points.Length < 2) continue;
+                float rs = road.Project(position, out float lateral);
+                if (lateral < road.HalfWidth(rs) + 2 && Mathf.Abs(road.At(rs, out _).y - position.y) < 4) return false;
+            }
+            return true;
         }
         ArcadeVehicle[] vehicles;
         float nextScan;

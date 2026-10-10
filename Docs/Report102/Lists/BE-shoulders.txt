@@ -1,0 +1,58 @@
+===== DansBackyardForward shoulders
+  Ground_Tree-Top jump shoulders (0.102): 3370 vertices, 5584 triangles, 1331 points above the ground (shoulder up to 2.80 m high), 18 held under the ground at obstacles, 52 cap quads; bounds (198.78,56.91,-34.25)-(217.79,60.14,-15.65)
+    side -1 row 0: edge 1.24 m out at 59.57, shoulder up to 0.02 m above the ground
+    side -1 row 8: edge 1.58 m out at 59.43, shoulder up to 0.01 m above the ground
+    side -1 row 16: edge 1.90 m out at 59.41, shoulder up to 0.56 m above the ground
+    side -1 row 24: edge 2.24 m out at 59.47, shoulder up to 0.86 m above the ground
+    side -1 row 32: edge 2.24 m out at 59.60, shoulder up to 1.24 m above the ground
+    side -1 row 40: edge 2.24 m out at 59.77, shoulder up to 1.66 m above the ground
+    side -1 row 48: edge 2.24 m out at 59.96, shoulder up to 2.10 m above the ground
+    side -1 row 56: edge 2.24 m out at 60.15, shoulder up to 2.54 m above the ground
+    side 1 row 0: edge 1.24 m out at 59.57, shoulder up to 0.10 m above the ground
+    side 1 row 8: edge 1.58 m out at 59.43, shoulder up to 0.51 m above the ground
+    side 1 row 16: edge 1.90 m out at 59.41, shoulder up to 0.77 m above the ground
+    side 1 row 24: edge 2.24 m out at 59.47, shoulder up to 1.11 m above the ground
+    side 1 row 32: edge 2.24 m out at 59.60, shoulder up to 1.50 m above the ground
+    side 1 row 40: edge 2.24 m out at 59.77, shoulder up to 1.92 m above the ground
+    side 1 row 48: edge 2.24 m out at 59.96, shoulder up to 2.36 m above the ground
+    side 1 row 56: edge 2.24 m out at 60.15, shoulder up to 2.80 m above the ground
+  Ground_Cabin board shoulders (0.102): 2300 vertices, 3788 triangles, 1111 points above the ground (shoulder up to 1.75 m high), 6 held under the ground at obstacles, 35 cap quads; bounds (204.73,70.29,70.15)-(216.27,73.94,88.18)
+    side -1 row 0: edge 2.48 m out at 72.17, shoulder up to 0.84 m above the ground
+    side -1 row 8: edge 2.48 m out at 72.45, shoulder up to 0.97 m above the ground
+    side -1 row 16: edge 2.48 m out at 72.75, shoulder up to 0.88 m above the ground
+    side -1 row 24: edge 2.48 m out at 73.10, shoulder up to 0.93 m above the ground
+    side -1 row 32: edge 2.48 m out at 73.54, shoulder up to 1.11 m above the ground
+    side 1 row 0: edge 2.50 m out at 72.17, shoulder up to 1.15 m above the ground
+    side 1 row 8: edge 2.50 m out at 72.45, shoulder up to 1.28 m above the ground
+    side 1 row 16: edge 2.50 m out at 72.75, shoulder up to 1.29 m above the ground
+    side 1 row 24: edge 2.50 m out at 73.10, shoulder up to 1.36 m above the ground
+    side 1 row 32: edge 2.50 m out at 73.54, shoulder up to 1.53 m above the ground
+===== FreeRoamWorld shoulders
+  Ground_Tree-Top jump shoulders (0.102): 3370 vertices, 5584 triangles, 1331 points above the ground (shoulder up to 2.80 m high), 56 held under the ground at obstacles, 52 cap quads; bounds (198.78,56.91,-34.25)-(217.79,60.14,-15.65)
+    side -1 row 0: edge 1.24 m out at 59.57, shoulder up to 0.02 m above the ground
+    side -1 row 8: edge 1.58 m out at 59.43, shoulder up to 0.01 m above the ground
+    side -1 row 16: edge 1.90 m out at 59.41, shoulder up to 0.56 m above the ground
+    side -1 row 24: edge 2.24 m out at 59.47, shoulder up to 0.86 m above the ground
+    side -1 row 32: edge 2.24 m out at 59.60, shoulder up to 1.24 m above the ground
+    side -1 row 40: edge 2.24 m out at 59.77, shoulder up to 1.66 m above the ground
+    side -1 row 48: edge 2.24 m out at 59.96, shoulder up to 2.10 m above the ground
+    side -1 row 56: edge 2.24 m out at 60.15, shoulder up to 2.54 m above the ground
+    side 1 row 0: edge 1.24 m out at 59.57, shoulder up to 0.10 m above the ground
+    side 1 row 8: edge 1.58 m out at 59.43, shoulder up to 0.51 m above the ground
+    side 1 row 16: edge 1.90 m out at 59.41, shoulder up to 0.77 m above the ground
+    side 1 row 24: edge 2.24 m out at 59.47, shoulder up to 1.11 m above the ground
+    side 1 row 32: edge 2.24 m out at 59.60, shoulder up to 1.50 m above the ground
+    side 1 row 40: edge 2.24 m out at 59.77, shoulder up to 1.92 m above the ground
+    side 1 row 48: edge 2.24 m out at 59.96, shoulder up to 2.36 m above the ground
+    side 1 row 56: edge 2.24 m out at 60.15, shoulder up to 2.80 m above the ground
+  Ground_Cabin board shoulders (0.102): 2300 vertices, 3788 triangles, 1111 points above the ground (shoulder up to 1.75 m high), 6 held under the ground at obstacles, 35 cap quads; bounds (204.73,70.29,70.15)-(216.27,73.94,88.18)
+    side -1 row 0: edge 2.48 m out at 72.17, shoulder up to 0.83 m above the ground
+    side -1 row 8: edge 2.48 m out at 72.45, shoulder up to 0.97 m above the ground
+    side -1 row 16: edge 2.48 m out at 72.75, shoulder up to 0.86 m above the ground
+    side -1 row 24: edge 2.48 m out at 73.10, shoulder up to 0.93 m above the ground
+    side -1 row 32: edge 2.48 m out at 73.54, shoulder up to 1.11 m above the ground
+    side 1 row 0: edge 2.50 m out at 72.17, shoulder up to 1.15 m above the ground
+    side 1 row 8: edge 2.50 m out at 72.45, shoulder up to 1.28 m above the ground
+    side 1 row 16: edge 2.50 m out at 72.75, shoulder up to 1.29 m above the ground
+    side 1 row 24: edge 2.50 m out at 73.10, shoulder up to 1.36 m above the ground
+    side 1 row 32: edge 2.50 m out at 73.54, shoulder up to 1.53 m above the ground

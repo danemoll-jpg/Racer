@@ -1,0 +1,2 @@
+screen=1920x1080 kind=lap vehicle=mower version=0.102.0-review1
+Dan's Backyard Forward lap by the road AI (Street Classic): state Results, game time 72 s, recoveries 0, lowest up-vector 0.76, finished True
