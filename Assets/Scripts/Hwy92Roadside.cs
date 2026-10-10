@@ -342,16 +342,18 @@ namespace Racer
             }
             // roof
             if (house) eave = GableRoof(m, pts, top, Pick(seed + "r", HouseRoofs));
-            else for (int i = 0; i + 5 < p.roof.Length; i += 6) m.Tri(new Vector3(p.roof[i], top, p.roof[i + 1]), new Vector3(p.roof[i + 4], top, p.roof[i + 5]), new Vector3(p.roof[i + 2], top, p.roof[i + 3]), roof);
+            else for (int i = 0; i + 5 < p.roof.Length; i += 6) Up(m, new Vector3(p.roof[i], top, p.roof[i + 1]), new Vector3(p.roof[i + 2], top, p.roof[i + 3]), new Vector3(p.roof[i + 4], top, p.roof[i + 5]), roof);
             if (b.kind == "church") Steeple(m, pts, p.fronts, top);
             // one solid: the walls from the foundation to the roof
             var col = new Mb();
             for (int i = 0; i < n; i++) { var a = pts[i]; var c = pts[(i + 1) % n]; var e = c - a; if (e.sqrMagnitude < .0025f) continue; col.Quad(new Vector3(a.x, lo - .4f, a.y), new Vector3(c.x, lo - .4f, c.y), new Vector3(c.x, top, c.y), new Vector3(a.x, top, a.y), Color.white, new Vector3(e.y, 0, -e.x)); }
-            for (int i = 0; i + 5 < p.roof.Length; i += 6) col.Tri(new Vector3(p.roof[i], top, p.roof[i + 1]), new Vector3(p.roof[i + 4], top, p.roof[i + 5]), new Vector3(p.roof[i + 2], top, p.roof[i + 3]), Color.white);
+            for (int i = 0; i + 5 < p.roof.Length; i += 6) Up(col, new Vector3(p.roof[i], top, p.roof[i + 1]), new Vector3(p.roof[i + 2], top, p.roof[i + 3]), new Vector3(p.roof[i + 4], top, p.roof[i + 5]), Color.white);
             var g = new GameObject(string.IsNullOrEmpty(b.name) ? b.kind : b.name); g.transform.SetParent(solids.transform, false);
             g.AddComponent<MeshCollider>().sharedMesh = col.Mesh(g.name + " collider", true); Solids++;
             Buildings.Add((g.name, b.kind, new Bounds(new Vector3((min.x + max.x) / 2, (lo + top) / 2, (min.y + max.y) / 2), new Vector3(max.x - min.x, top - lo, max.y - min.y)), floor - hi, lo));
         }
+        // a flat triangle facing up whatever order its corners come in
+        static void Up(Mb m, Vector3 a, Vector3 b, Vector3 c, Color col) { if (Vector3.Cross(b - a, c - a).y > 0) m.Tri(a, b, c, col); else m.Tri(a, c, b, col); }
         public readonly List<(string name, string kind, Bounds bounds, float lift, float lowest)> Buildings = new();
         static bool Inside(Vector2[] poly, Vector2 p)
         {

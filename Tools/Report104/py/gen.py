@@ -478,7 +478,7 @@ def tris(geom):
             for t in shapely.constrained_delaunay_triangles(q).geoms:
                 cs=list(t.exterior.coords)[:3]
                 if t.area<1e-3:continue
-                # counter-clockwise seen from above (x right, z up) so the faces point up in Unity
+                # clockwise seen from above (x right, z up), the order Unity draws facing up (the game also checks)
                 (ax,az),(bx,bz),(cx,cz)=cs
                 if (bx-ax)*(cz-az)-(bz-az)*(cx-ax)>0:cs=[cs[0],cs[2],cs[1]]
                 out+= [round(v,2) for c in cs for v in c]
