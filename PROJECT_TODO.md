@@ -18,7 +18,51 @@
   - **Signs (Dan, 2026-10-09):** sign text is part of the sign: one-sided (the back is plain), hidden by terrain and objects like the board, never drawn on top, sized to fit inside its board with a margin, readable at normal sign distance (about 20–30 m), not from across the map. (Mechanism: lettering uses the depth-tested, back-face-culled `Assets/Environment/Phase8/Depth tested world lettering 0.mat`, never a TextMesh's default font material.)
   - **Write-up:** the TODO results are a short list: what changed, the one check per item, decisions made, and anything Dan should look at. No separate VALIDATION.md unless a round asks. If a check would take more than a few minutes of play time, skip it and list it under "for Dan to check".
 
-## Previous delivery — Mountain Loop trench (third time), squished vehicle pictures, the moon, hidden police only see one way, free look while driving, storm-drain top — target 0.100.0-review1 (build 100000, or the next number the version scheme allows) — DELIVERED as 0.100.0-review1 (build 100000), awaiting Dan's review
+## CURRENT — Abandoned Cabin Jump: a run-up you can line up and bushes you can clear (race and Free Roam), spikes by the garage, Dan's kennel/garage turned to the parking area with chain-link fence — target 0.101.0-review1 — NOT STARTED
+
+- **Authorized by Dan (2026-10-09, 21:58–22:00).** Written by Claude (chat) from his play of 0.100.0-review1, debug session `2026-10-09_21-41-38-253_8e922d` (three reports, all in Free Roam) and his messages. His words are quoted in each part.
+- **Starting point:** main at the "Record 0.100 delivery" commit. This TODO edit is uncommitted and belongs in the safety checkpoint.
+- Runs unattended: design decisions are below; do not stop to ask about design. Stop only for a real external blocker (rule 7).
+- **Scope is exactly Parts A–C.** The Verification budget and the Controller-first rule apply. World changes only where Dan pointed. **Every check in the built Windows player**, with a shot from where Dan stood.
+
+### Part A — Abandoned Cabin Jump: make it possible to line up, and clearable when hit well
+
+Dan: "I still want to trim this back some. Right now you have to make a perfect jump to just barely clear it and it is very hard to do this." (BUG-003, Free Roam, (268.96, 76.26, 78.92), heading 311°, looking at the brush in front of the cabin.) Then: "I was trying this in a race too, but my race ended so I wanted to keep trying without the race. Either way it is nearly impossible to line up a straight shot to it."
+
+History: 0.93 cleared the landing corridor (race scene only); 0.94 restored the brush out to a far edge at 84 m from the branch start with a reset to 88 m (race scene `DansBackyardForward` only); **Free Roam still has the original brush (landings measured 61–106 m)**. 0.93 also found: at 40–44 m/s the crest at the branch entry throws vehicles onto the cabin roof; the approach is built for 31–34 m/s.
+
+**Dan's request overrides rule 5A's jump protection for this one jump** (approach, ramp and brush only; not the cabin, the landing ground or the rejoin).
+
+1. **Measure the approach first** (race and Free Roam): where the branch leaves the main, the turn and the crest at the entry, the distance from the turn to the lip, the ramp's width and its angle to the run-up. Say why lining up is hard (a turn too close to the lip, a crest that unsettles the vehicle, a narrow ramp, a ramp not square to the run-up).
+2. **Give it a straight, readable run-up:** at least about 50 m of straight trail square to the ramp before the lip, reached from the main by an easy turn; smooth the entry crest so a vehicle at full speed stays on the ground and does not get thrown onto the cabin roof; widen the ramp and its lip by about half so a slightly off line still takes off cleanly. Add simple lead-in markers (two posts or painted chevrons at the run-up start and on the ramp) so the line reads at speed. Keep the jump's height and launch angle as they are unless the straight run-up needs a small change to land on the existing landing ground; say what changed.
+3. **Bushes, the same in the race and Free Roam:** a decent jump clears them. With the new run-up, fly the Needle 600, the Street Classic, the Trail Four and the Turf Rocket at 24, 28, 31 and 34 m/s and set the brush's far edge so **every vehicle at 28 m/s and above lands at least 3 m past the last bush**; 24 m/s may land in it. Clear the corridor past the far edge to the rejoin. The reset from inside the brush goes to clear ground just past it, as in 0.94. Apply the same brush and reset in `DansBackyardForward` and `FreeRoamWorld` (Free Roam keeps its own copy; make the two match). Check `DansBackyardReverse` has no Cabin branch (0.93 said it has none).
+4. **AI:** rivals that take this shortcut still do, and land clear.
+5. **Check (built player, controller, Dan's usual vehicles):** from Dan's BUG-003 position before and after; three normal attempts each in the race and in Free Roam, driving it the way a player would (from the main, no scripted line): line up, take off, clear the bushes; one flat-out attempt that stays off the roof; the landing table.
+
+### Part B — Spikes in the ground by the garage (BUG-001)
+
+Dan: "what are these spikes for?" Free Roam at (406.92, 79.96, 11.88), heading 343°, beside the Pool-house jump, in front of the long garage with three doors: thin green triangular spikes stick up out of the ground at the edge of the paved area.
+
+1. Find what they are (ground mesh faces pulled up at a seam, grass or brush cards, a tree trunk base) and remove or flatten them so the ground there is smooth. Only at this spot; list any similar spikes seen elsewhere for Dan.
+- Check: a shot from Dan's position after.
+
+### Part C — Dan's kennel / garage: doors facing the parking area, sidewalk, chain-link fence (BUG-002)
+
+Dan: "This kennel/garage should actually be rotated. The garage doors should face this way and make the parking area reach it. There really shouldn't be a driveway to the left of it. There was however a small sidewalk, and the building probably reached out all the way to the fence. And this fencing here should actually be chain-link fence and not the white fence." Free Roam at (397.11, 79.95, 5.88), heading 16°, looking at the plain end wall of the long building with three garage doors (the doors currently face along the side, see BUG-001's view from (406.92, 79.96, 11.88)). This is part of Dan's house (deck, pool, pool house, kennel and garage), the one property modelled on the real place.
+
+1. **Turn the building** so its three garage doors face the direction Dan was looking from (toward his position at heading 16°, i.e. facing the parking area), keeping it on the same lot.
+2. **Parking area reaches the doors:** extend the paved parking area up to the doors. **Remove the driveway to the left of the building** (left as seen from Dan's position).
+3. **Small sidewalk** along the building (a narrow concrete path on the side that is not the doors, about 1 m wide, joining the parking area).
+4. **The building reaches the fence:** extend or move it so its back end meets the fence line it sits by (no gap between building and fence).
+5. **Chain-link fence** replaces the white rail fence in this area (the fence runs Dan was looking at, on both sides of the building in his BUG-002 shot): galvanized grey chain-link with posts and a top rail, same line and height range, still solid to vehicles.
+6. Keep the building's style, colours and roof; ground everything (rule 4). **Apply to every scene where this same building and fence appear** (it is the same place: Free Roam and any race scene that shows Dan's house); list the scenes. Do not change the Pool-house jump, its run-up or landing, or any route.
+- Check (built player): shots from Dan's BUG-002 and BUG-001 positions before and after, and one from the parking area.
+
+### Verification
+
+Light, per the Verification budget and the Controller-first rule; all checks in the built player. Compile, launch, release steps. Results as a short list, with "for Dan to check".
+
+## Previous delivery — Mountain Loop trench (third time), squished vehicle pictures, the moon, hidden police only see one way, free look while driving, storm-drain top — target 0.100.0-review1 (build 100000, or the next number the version scheme allows) — DELIVERED as 0.100.0-review1 (build 100000), awaiting Dan's review — REVIEWED BY DAN (Cabin Jump still too hard to line up and clear; spikes and kennel/garage; follow-ups in 0.101)
 
 - **Authorized by Dan (2026-10-09, 17:55 and 17:59).** Written by Claude (chat) from his play of 0.99.0-review1, debug session `2026-10-09_17-35-51-484_362517` (one report) and his message. His words are quoted in each part.
 - **Starting point:** main at the "Record 0.99 delivery" commit. This TODO edit is uncommitted and belongs in the safety checkpoint.
