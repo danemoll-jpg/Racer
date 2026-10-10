@@ -1,0 +1,1102 @@
+===== DansBackyardForward
+takeoff collider Takeoff - Leaning boards through cabin roof (0.101) (Assets/Track/BackyardShortcuts/Takeoff - Leaning boards through cabin roof (0.101).asset), 102 vertices; foot along -19.00, joint (roof starts) along -9.00, lip along 0; route s = along + 44.72
+  collider row along -11.80 y 73.347
+  collider row along -11.40 y 73.439 slope 0.229
+  collider row along -11.00 y 73.536 slope 0.241 (change +0.012)
+  collider row along -10.60 y 73.637 slope 0.254 (change +0.013)
+  collider row along -10.20 y 73.744 slope 0.267 (change +0.013)
+  collider row along -9.80 y 73.857 slope 0.281 (change +0.014)
+  collider row along -9.40 y 73.975 slope 0.296 (change +0.015)
+  collider row along -9.00 y 74.100 slope 0.312 (change +0.016)
+  collider row along -8.60 y 74.228 slope 0.320 (change +0.008)
+  collider row along -8.20 y 74.356 slope 0.320 (change +0.000)
+  collider row along -7.80 y 74.484 slope 0.320 (change +0.000)
+  collider row along -7.40 y 74.612 slope 0.320 (change +0.000)
+  collider row along -7.00 y 74.740 slope 0.320 (change +0.000)
+  collider row along -6.60 y 74.868 slope 0.320 (change +0.000)
+  collider row along -6.20 y 74.996 slope 0.320 (change +0.000)
+--- colliders near the joint (within 5 m, either side of the axis)
+   C Backyard optional forest shortcuts/Abandoned cabin wall BoxCollider en True b (217.400,72.887,82.997)-(218.532,74.786,83.296) along -6.90..-5.74 box c (0.000,0.000,0.000) s (1.000,1.000,1.000) rot (342.255,82.848,0.000)
+   C Backyard optional forest shortcuts/Abandoned cabin wall BoxCollider en True b (217.998,72.961,83.073)-(219.168,74.982,83.375) along -6.29..-5.10 box c (0.000,0.000,0.000) s (1.000,1.000,1.000) rot (342.256,82.889,0.000)
+   C Backyard optional forest shortcuts/Abandoned cabin wall BoxCollider en True b (216.299,72.214,76.807)-(217.455,74.189,77.112) along -8.76..-7.58 box c (0.000,0.000,0.000) s (1.000,1.000,1.000) rot (342.255,82.663,0.000)
+   C Backyard optional forest shortcuts/Abandoned cabin wall BoxCollider en True b (215.706,72.134,76.730)-(216.825,73.994,77.031) along -9.36..-8.21 box c (0.000,0.000,0.000) s (1.000,1.000,1.000) rot (342.255,82.609,0.000)
+   C Backyard optional forest shortcuts/Abandoned cabin wall BoxCollider en True b (216.892,72.293,76.884)-(218.085,74.385,77.192) along -8.17..-6.94 box c (0.000,0.000,0.000) s (1.000,1.000,1.000) rot (342.255,82.730,0.000)
+   C Backyard optional forest shortcuts/Abandoned cabin wall BoxCollider en True b (219.788,73.179,83.296)-(221.075,75.568,83.611) along -4.49..-3.17 box c (0.000,0.000,0.000) s (1.000,1.000,1.000) rot (342.256,82.940,0.000)
+   C Backyard optional forest shortcuts/Abandoned cabin wall BoxCollider en True b (217.485,72.372,76.960)-(218.716,74.580,77.272) along -7.57..-6.31 box c (0.000,0.000,0.000) s (1.000,1.000,1.000) rot (342.256,82.796,0.000)
+   C Backyard optional forest shortcuts/Abandoned cabin wall BoxCollider en True b (215.601,72.655,82.767)-(216.621,74.200,83.054) along -8.71..-7.66 box c (0.000,0.000,0.000) s (1.000,1.000,1.000) rot (342.255,82.663,0.000)
+   C Backyard optional forest shortcuts/Abandoned cabin wall BoxCollider en True b (220.458,72.746,77.333)-(221.880,75.557,77.665) along -4.57..-3.12 box c (0.000,0.000,0.000) s (1.000,1.000,1.000) rot (342.256,82.940,0.000)
+   C Backyard optional forest shortcuts/Abandoned cabin wall BoxCollider en True b (220.383,73.249,83.369)-(221.710,75.763,83.690) along -3.89..-2.53 box c (0.000,0.000,0.000) s (1.000,1.000,1.000) rot (342.255,82.933,0.000)
+   C Backyard optional forest shortcuts/Abandoned cabin wall BoxCollider en True b (219.268,72.599,77.185)-(220.612,75.167,77.508) along -5.77..-4.40 box c (0.000,0.000,0.000) s (1.000,1.000,1.000) rot (342.255,82.918,0.000)
+   C Backyard optional forest shortcuts/Abandoned cabin wall BoxCollider en True b (218.595,73.035,83.147)-(219.804,75.177,83.454) along -5.69..-4.45 box c (0.000,0.000,0.000) s (1.000,1.000,1.000) rot (342.255,82.918,0.000)
+   C Backyard optional forest shortcuts/Abandoned cabin wall BoxCollider en True b (219.192,73.108,83.222)-(220.440,75.373,83.533) along -5.09..-3.81 box c (0.000,0.000,0.000) s (1.000,1.000,1.000) rot (342.255,82.935,0.000)
+   C Backyard optional forest shortcuts/Abandoned cabin wall BoxCollider en True b (216.201,72.733,82.844)-(217.258,74.396,83.135) along -8.11..-7.02 box c (0.000,0.000,0.000) s (1.000,1.000,1.000) rot (342.255,82.730,0.000)
+   C Backyard optional forest shortcuts/Abandoned cabin wall BoxCollider en True b (219.863,72.673,77.259)-(221.245,75.362,77.587) along -5.17..-3.76 box c (0.000,0.000,0.000) s (1.000,1.000,1.000) rot (342.255,82.935,0.000)
+   C Backyard optional forest shortcuts/Abandoned cabin wall BoxCollider en True b (218.673,72.524,77.110)-(219.979,74.971,77.430) along -6.37..-5.03 box c (0.000,0.000,0.000) s (1.000,1.000,1.000) rot (342.256,82.889,0.000)
+   C Backyard optional forest shortcuts/Abandoned cabin wall BoxCollider en True b (218.079,72.448,77.036)-(219.347,74.776,77.351) along -6.97..-5.67 box c (0.000,0.000,0.000) s (1.000,1.000,1.000) rot (342.255,82.848,0.000)
+   C Backyard optional forest shortcuts/Abandoned cabin wall BoxCollider en True b (216.801,72.810,82.921)-(217.895,74.591,83.216) along -7.50..-6.38 box c (0.000,0.000,0.000) s (1.000,1.000,1.000) rot (342.256,82.796,0.000)
+   C Backyard optional forest shortcuts/Abandoned cabin wall BoxCollider en True b (215.002,72.576,82.689)-(215.985,74.005,82.972) along -9.32..-8.30 box c (0.000,0.000,0.000) s (1.000,1.000,1.000) rot (342.255,82.609,0.000)
+   C Backyard optional forest shortcuts/Cabin end wall below roof BoxCollider en True b (215.456,72.411,76.948)-(216.545,73.043,82.793) along -9.58..-7.77 box c (0.000,-0.283,0.000) s (1.000,0.434,1.000) rot (342.255,82.609,0.000)
+   C Backyard optional forest shortcuts/Ground_Cabin board shoulders (0.102) MeshCollider en True b (204.725,70.292,70.149)-(216.273,73.944,88.183) along -21.08..-7.37 DansBackyardForward Cabin board shoulders (0.102)
+   C Backyard optional forest shortcuts/Takeoff - Leaning boards through cabin roof MeshCollider en True b (205.447,72.161,75.063)-(225.210,76.980,85.712) along -19.75..1.19 Takeoff - Leaning boards through cabin roof (0.101)
+   C Memory loop - north is +Z/Ground_480_400 MeshCollider en True b (160.000,59.833,50.000)-(320.000,81.716,210.000) along -67.97..110.77 DansBackyardForward-Ground_480_400-cabin-runup
+--- renderers near the joint
+   R Backyard optional forest shortcuts/Abandoned Cabin Jump traversable dense undergrowth pos (0.000,0.000,0.000) rot (0.000,0.000,0.000) sc (1.000,1.000,1.000) b (217.860,72.469,64.451)-(270.278,78.170,104.533) along -8.76..48.26 mesh Abandoned Cabin Jump dense brush (0.101) col -
+   R Backyard optional forest shortcuts/Abandoned cabin modest shed roof pos (0.000,0.000,0.000) rot (0.000,0.000,0.000) sc (1.000,1.000,1.000) b (215.081,74.100,75.066)-(225.210,76.788,85.716) along -10.19..1.19 mesh Abandoned cabin modest shed roof (0.101) col -
+   R Backyard optional forest shortcuts/Abandoned cabin wall pos (216.111,73.428,82.910) rot (342.255,82.663,0.000) sc (0.160,1.430,0.600) b (215.601,72.655,82.767)-(216.621,74.200,83.054) along -8.71..-7.66 mesh Cube col yes
+   R Backyard optional forest shortcuts/Abandoned cabin wall pos (219.816,74.240,83.377) rot (342.255,82.935,0.000) sc (0.160,2.186,0.600) b (219.192,73.108,83.222)-(220.440,75.373,83.533) along -5.09..-3.81 mesh Cube col yes
+   R Backyard optional forest shortcuts/Abandoned cabin wall pos (221.047,74.506,83.530) rot (342.255,82.933,0.000) sc (0.160,2.448,0.600) b (220.383,73.249,83.369)-(221.710,75.763,83.690) along -3.89..-2.53 mesh Cube col yes
+   R Backyard optional forest shortcuts/Abandoned cabin wall pos (217.348,73.701,83.069) rot (342.256,82.796,0.000) sc (0.160,1.678,0.600) b (216.801,72.810,82.921)-(217.895,74.591,83.216) along -7.50..-6.38 mesh Cube col yes
+   R Backyard optional forest shortcuts/Abandoned cabin wall pos (221.169,74.151,77.499) rot (342.256,82.940,0.000) sc (0.160,2.760,0.600) b (220.458,72.746,77.333)-(221.880,75.557,77.665) along -4.57..-3.12 mesh Cube col yes
+   R Backyard optional forest shortcuts/Abandoned cabin wall pos (218.583,73.972,83.224) rot (342.256,82.889,0.000) sc (0.160,1.929,0.600) b (217.998,72.961,83.073)-(219.168,74.982,83.375) along -6.29..-5.10 mesh Cube col yes
+   R Backyard optional forest shortcuts/Abandoned cabin wall pos (216.730,73.564,82.990) rot (342.255,82.730,0.000) sc (0.160,1.553,0.600) b (216.201,72.733,82.844)-(217.258,74.396,83.135) along -8.11..-7.02 mesh Cube col yes
+   R Backyard optional forest shortcuts/Abandoned cabin wall pos (220.554,74.017,77.423) rot (342.255,82.935,0.000) sc (0.160,2.631,0.600) b (219.863,72.673,77.259)-(221.245,75.362,77.587) along -5.17..-3.76 mesh Cube col yes
+   R Backyard optional forest shortcuts/Abandoned cabin wall pos (219.200,74.106,83.301) rot (342.255,82.918,0.000) sc (0.160,2.057,0.600) b (218.595,73.035,83.147)-(219.804,75.177,83.454) along -5.69..-4.45 mesh Cube col yes
+   R Backyard optional forest shortcuts/Abandoned cabin wall pos (215.494,73.290,82.830) rot (342.255,82.609,0.000) sc (0.160,1.308,0.600) b (215.002,72.576,82.689)-(215.985,74.005,82.972) along -9.32..-8.30 mesh Cube col yes
+   R Backyard optional forest shortcuts/Abandoned cabin wall pos (217.489,73.339,77.038) rot (342.255,82.730,0.000) sc (0.160,2.004,0.600) b (216.892,72.293,76.884)-(218.085,74.385,77.192) along -8.17..-6.94 mesh Cube col yes
+   R Backyard optional forest shortcuts/Abandoned cabin wall pos (219.326,73.747,77.270) rot (342.256,82.889,0.000) sc (0.160,2.378,0.600) b (218.673,72.524,77.110)-(219.979,74.971,77.430) along -6.37..-5.03 mesh Cube col yes
+   R Backyard optional forest shortcuts/Abandoned cabin wall pos (218.713,73.612,77.193) rot (342.255,82.848,0.000) sc (0.160,2.252,0.600) b (218.079,72.448,77.036)-(219.347,74.776,77.351) along -6.97..-5.67 mesh Cube col yes
+   R Backyard optional forest shortcuts/Abandoned cabin wall pos (217.966,73.837,83.146) rot (342.255,82.848,0.000) sc (0.160,1.802,0.600) b (217.400,72.887,82.997)-(218.532,74.786,83.296) along -6.90..-5.74 mesh Cube col yes
+   R Backyard optional forest shortcuts/Abandoned cabin wall pos (218.100,73.476,77.116) rot (342.256,82.796,0.000) sc (0.160,2.127,0.600) b (217.485,72.372,76.960)-(218.716,74.580,77.272) along -7.57..-6.31 mesh Cube col yes
+   R Backyard optional forest shortcuts/Abandoned cabin wall pos (219.940,73.883,77.346) rot (342.255,82.918,0.000) sc (0.160,2.503,0.600) b (219.268,72.599,77.185)-(220.612,75.167,77.508) along -5.77..-4.40 mesh Cube col yes
+   R Backyard optional forest shortcuts/Abandoned cabin wall pos (216.877,73.202,76.959) rot (342.255,82.663,0.000) sc (0.160,1.882,0.600) b (216.299,72.214,76.807)-(217.455,74.189,77.112) along -8.76..-7.58 mesh Cube col yes
+   R Backyard optional forest shortcuts/Abandoned cabin wall pos (220.432,74.374,83.453) rot (342.256,82.940,0.000) sc (0.160,2.316,0.600) b (219.788,73.179,83.296)-(221.075,75.568,83.611) along -4.49..-3.17 mesh Cube col yes
+   R Backyard optional forest shortcuts/Abandoned cabin wall pos (216.265,73.064,76.880) rot (342.255,82.609,0.000) sc (0.160,1.760,0.600) b (215.706,72.134,76.730)-(216.825,73.994,77.031) along -9.36..-8.21 mesh Cube col yes
+   R Backyard optional forest shortcuts/Boarded cabin window pos (218.271,73.860,83.286) rot (342.255,82.848,0.000) sc (0.100,0.900,1.200) b (217.562,73.249,83.148)-(218.980,74.472,83.423) along -6.72..-5.28 mesh Cube col -
+   R Backyard optional forest shortcuts/Boarded cabin window pos (221.253,74.820,83.656) rot (342.255,82.933,0.000) sc (0.100,0.900,1.200) b (220.543,74.209,83.519)-(221.962,75.432,83.793) along -3.71..-2.27 mesh Cube col -
+   R Backyard optional forest shortcuts/Cabin end wall below roof pos (215.879,73.108,79.855) rot (342.255,82.609,0.000) sc (5.850,1.413,0.160) b (215.214,72.411,76.917)-(216.545,73.805,82.793) along -9.83..-7.77 mesh Cube col yes
+   R Backyard optional forest shortcuts/Cabin weathered roof board pos (218.211,74.861,80.148) rot (0.000,82.821,0.000) sc (9.670,0.110,0.530) b (217.344,74.806,75.317)-(219.078,74.916,84.978) along -7.91..-4.98 mesh Cube col -
+   R Backyard optional forest shortcuts/Cabin weathered roof board pos (216.515,74.314,79.934) rot (0.000,82.821,0.000) sc (9.670,0.110,0.530) b (215.647,74.259,75.104)-(217.382,74.369,84.764) along -9.62..-6.69 mesh Cube col -
+   R Backyard optional forest shortcuts/Cabin weathered roof board pos (219.342,75.226,80.290) rot (0.000,82.821,0.000) sc (9.600,0.110,0.530) b (218.479,75.171,75.494)-(220.205,75.281,85.085) along -6.76..-3.85 mesh Cube col -
+   R Backyard optional forest shortcuts/Cabin weathered roof board pos (215.949,74.132,79.863) rot (0.000,82.821,0.000) sc (9.600,0.110,0.530) b (215.086,74.077,75.067)-(216.812,74.187,84.658) along -10.18..-7.27 mesh Cube col -
+   R Backyard optional forest shortcuts/Cabin weathered roof board pos (219.908,75.408,80.361) rot (0.000,82.821,0.000) sc (9.670,0.110,0.530) b (219.041,75.353,75.531)-(220.775,75.463,85.191) along -6.20..-3.27 mesh Cube col -
+   R Backyard optional forest shortcuts/Cabin weathered roof board pos (217.646,74.679,80.076) rot (0.000,82.821,0.000) sc (9.600,0.110,0.530) b (216.783,74.624,75.281)-(218.508,74.734,84.872) along -8.47..-5.56 mesh Cube col -
+   R Backyard optional forest shortcuts/Cabin weathered roof board pos (220.473,75.591,80.432) rot (0.000,82.821,0.000) sc (9.740,0.110,0.530) b (219.602,75.536,75.568)-(221.345,75.646,85.297) along -5.64..-2.70 mesh Cube col -
+   R Backyard optional forest shortcuts/Cabin weathered roof board pos (218.777,75.044,80.219) rot (0.000,82.821,0.000) sc (9.740,0.110,0.530) b (217.905,74.989,75.354)-(219.648,75.099,85.084) along -7.35..-4.41 mesh Cube col -
+   R Backyard optional forest shortcuts/Cabin weathered roof board pos (221.039,75.773,80.504) rot (0.000,82.821,0.000) sc (9.600,0.110,0.530) b (220.176,75.718,75.708)-(221.902,75.828,85.299) along -5.05..-2.14 mesh Cube col -
+   R Backyard optional forest shortcuts/Cabin weathered roof board pos (217.080,74.496,80.005) rot (0.000,82.821,0.000) sc (9.740,0.110,0.530) b (216.209,74.441,75.140)-(217.952,74.551,84.870) along -9.06..-6.12 mesh Cube col -
+   R Backyard optional forest shortcuts/Gold optional route chevron pos (220.438,75.820,80.075) rot (0.000,54.520,0.000) sc (0.110,0.110,1.476) b (219.805,75.765,79.602)-(221.071,75.875,80.548) along -4.94..-3.56 mesh Cube col -
+   R Backyard optional forest shortcuts/Gold optional route chevron pos (220.350,75.820,80.770) rot (0.000,111.121,0.000) sc (0.110,0.110,1.476) b (219.642,75.765,80.452)-(221.059,75.875,81.087) along -4.99..-3.51 mesh Cube col -
+   R Backyard optional forest shortcuts/Ground_Cabin board shoulders (0.102) pos (0.000,0.000,0.000) rot (0.000,0.000,0.000) sc (1.000,1.000,1.000) b (204.725,70.292,70.149)-(216.273,73.944,88.183) along -21.08..-7.37 mesh DansBackyardForward Cabin board shoulders (0.102) col yes
+   R Backyard optional forest shortcuts/Long loose leaning board 0 pos (0.000,0.000,0.000) rot (0.000,0.000,0.000) sc (1.000,1.000,1.000) b (206.002,72.161,76.135)-(215.988,74.100,77.900) along -19.06..-8.94 mesh Leaning weathered board (0.101) 0 col -
+   R Backyard optional forest shortcuts/Long loose leaning board 1 pos (0.000,0.000,0.000) rot (0.000,0.000,0.000) sc (1.000,1.000,1.000) b (205.933,72.161,76.680)-(215.919,74.100,78.446) along -19.06..-8.94 mesh Leaning weathered board (0.101) 1 col -
+   R Backyard optional forest shortcuts/Long loose leaning board 2 pos (0.000,0.000,0.000) rot (0.000,0.000,0.000) sc (1.000,1.000,1.000) b (205.864,72.161,77.226)-(215.851,74.100,78.992) along -19.06..-8.94 mesh Leaning weathered board (0.101) 2 col -
+   R Backyard optional forest shortcuts/Long loose leaning board 3 pos (0.000,0.000,0.000) rot (0.000,0.000,0.000) sc (1.000,1.000,1.000) b (205.795,72.161,77.772)-(215.782,74.100,79.537) along -19.06..-8.94 mesh Leaning weathered board (0.101) 3 col -
+   R Backyard optional forest shortcuts/Long loose leaning board 4 pos (0.000,0.000,0.000) rot (0.000,0.000,0.000) sc (1.000,1.000,1.000) b (205.727,72.161,78.317)-(215.713,74.100,80.083) along -19.06..-8.94 mesh Leaning weathered board (0.101) 4 col -
+   R Backyard optional forest shortcuts/Long loose leaning board 5 pos (0.000,0.000,0.000) rot (0.000,0.000,0.000) sc (1.000,1.000,1.000) b (205.658,72.161,78.863)-(215.644,74.100,80.629) along -19.06..-8.94 mesh Leaning weathered board (0.101) 5 col -
+   R Backyard optional forest shortcuts/Long loose leaning board 6 pos (0.000,0.000,0.000) rot (0.000,0.000,0.000) sc (1.000,1.000,1.000) b (205.589,72.161,79.409)-(215.576,74.100,81.174) along -19.06..-8.94 mesh Leaning weathered board (0.101) 6 col -
+   R Backyard optional forest shortcuts/Long loose leaning board 7 pos (0.000,0.000,0.000) rot (0.000,0.000,0.000) sc (1.000,1.000,1.000) b (205.520,72.161,79.954)-(215.507,74.100,81.720) along -19.06..-8.94 mesh Leaning weathered board (0.101) 7 col -
+   R Backyard optional forest shortcuts/Long loose leaning board 8 pos (0.000,0.000,0.000) rot (0.000,0.000,0.000) sc (1.000,1.000,1.000) b (205.452,72.161,80.500)-(215.438,74.100,82.266) along -19.06..-8.94 mesh Leaning weathered board (0.101) 8 col -
+--- colliders: top surface every 2 cm from along -11.00 to -7.00 (step = height change over 2 cm minus the expected from the local slope; flagged over 1 cm, slope change over 0.05, name change, no hit)
+  lateral 0.0 (+ = right of the axis looking at the lip)
+    along -11.00 y   73.536 slope-normal 0.237 Takeoff - Leaning boards through cabin roof
+    along -10.80 y   73.586 slope-normal 0.249 Takeoff - Leaning boards through cabin roof
+    along -10.60 y   73.637 slope-normal 0.261 Takeoff - Leaning boards through cabin roof
+    along -10.40 y   73.691 slope-normal 0.261 Takeoff - Leaning boards through cabin roof
+    along -10.20 y   73.744 slope-normal 0.274 Takeoff - Leaning boards through cabin roof
+    along -10.00 y   73.800 slope-normal 0.274 Takeoff - Leaning boards through cabin roof
+    along  -9.80 y   73.857 slope-normal 0.274 Takeoff - Leaning boards through cabin roof
+    along  -9.60 y   73.916 slope-normal 0.288 Takeoff - Leaning boards through cabin roof
+    along  -9.40 y   73.975 slope-normal 0.288 Takeoff - Leaning boards through cabin roof
+    along  -9.20 y   74.038 slope-normal 0.302 Takeoff - Leaning boards through cabin roof
+    along  -9.00 y   74.100 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -8.80 y   74.164 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -8.60 y   74.228 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -8.40 y   74.292 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -8.20 y   74.356 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -8.00 y   74.420 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -7.80 y   74.484 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -7.60 y   74.548 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -7.40 y   74.612 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -7.20 y   74.676 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -7.00 y   74.740 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    summary lateral 0.0: 0 flagged, largest step +0.03 cm, slope over 2 cm 0.253..0.320
+    parallel ray 3 cm above, slope 0.254: hits Takeoff - Leaning boards through cabin roof at along -9.48 y 73.952 normal (-0.282,0.959,-0.036)
+    parallel ray 8 cm above, slope 0.254: hits Takeoff - Leaning boards through cabin roof at along -8.65 y 74.213 normal (-0.302,0.952,-0.038)
+    parallel ray 15 cm above, slope 0.254: hits Takeoff - Leaning boards through cabin roof at along -7.59 y 74.552 normal (-0.302,0.952,-0.038)
+    parallel ray 30 cm above, slope 0.254: clear for 4.2 m
+  lateral -0.5 (+ = right of the axis looking at the lip)
+    along -11.00 y   73.536 slope-normal 0.237 Takeoff - Leaning boards through cabin roof
+    along -10.80 y   73.586 slope-normal 0.249 Takeoff - Leaning boards through cabin roof
+    along -10.60 y   73.637 slope-normal 0.261 Takeoff - Leaning boards through cabin roof
+    along -10.40 y   73.691 slope-normal 0.261 Takeoff - Leaning boards through cabin roof
+    along -10.20 y   73.744 slope-normal 0.274 Takeoff - Leaning boards through cabin roof
+    along -10.00 y   73.800 slope-normal 0.274 Takeoff - Leaning boards through cabin roof
+    along  -9.80 y   73.857 slope-normal 0.274 Takeoff - Leaning boards through cabin roof
+    along  -9.60 y   73.916 slope-normal 0.288 Takeoff - Leaning boards through cabin roof
+    along  -9.40 y   73.975 slope-normal 0.302 Takeoff - Leaning boards through cabin roof
+    along  -9.20 y   74.038 slope-normal 0.302 Takeoff - Leaning boards through cabin roof
+    along  -9.00 y   74.100 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -8.80 y   74.164 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -8.60 y   74.228 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -8.40 y   74.292 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -8.20 y   74.356 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -8.00 y   74.420 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -7.80 y   74.484 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -7.60 y   74.548 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -7.40 y   74.612 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -7.20 y   74.676 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -7.00 y   74.740 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    summary lateral -0.5: 0 flagged, largest step +0.03 cm, slope over 2 cm 0.254..0.321
+    parallel ray 3 cm above, slope 0.254: hits Takeoff - Leaning boards through cabin roof at along -9.48 y 73.952 normal (-0.282,0.959,-0.036)
+    parallel ray 8 cm above, slope 0.254: hits Takeoff - Leaning boards through cabin roof at along -8.65 y 74.213 normal (-0.302,0.952,-0.038)
+    parallel ray 15 cm above, slope 0.254: hits Takeoff - Leaning boards through cabin roof at along -7.59 y 74.552 normal (-0.302,0.952,-0.038)
+    parallel ray 30 cm above, slope 0.254: clear for 4.2 m
+  lateral +0.5 (+ = right of the axis looking at the lip)
+    along -11.00 y   73.536 slope-normal 0.237 Takeoff - Leaning boards through cabin roof
+    along -10.80 y   73.586 slope-normal 0.249 Takeoff - Leaning boards through cabin roof
+    along -10.60 y   73.637 slope-normal 0.261 Takeoff - Leaning boards through cabin roof
+    along -10.40 y   73.691 slope-normal 0.261 Takeoff - Leaning boards through cabin roof
+    along -10.20 y   73.744 slope-normal 0.274 Takeoff - Leaning boards through cabin roof
+    along -10.00 y   73.800 slope-normal 0.274 Takeoff - Leaning boards through cabin roof
+    along  -9.80 y   73.857 slope-normal 0.274 Takeoff - Leaning boards through cabin roof
+    along  -9.60 y   73.916 slope-normal 0.288 Takeoff - Leaning boards through cabin roof
+    along  -9.40 y   73.975 slope-normal 0.302 Takeoff - Leaning boards through cabin roof
+    along  -9.20 y   74.038 slope-normal 0.302 Takeoff - Leaning boards through cabin roof
+    along  -9.00 y   74.100 slope-normal 0.302 Takeoff - Leaning boards through cabin roof
+    along  -8.80 y   74.164 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -8.60 y   74.228 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -8.40 y   74.292 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -8.20 y   74.356 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -8.00 y   74.420 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -7.80 y   74.484 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -7.60 y   74.548 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -7.40 y   74.612 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -7.20 y   74.676 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -7.00 y   74.740 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    summary lateral +0.5: 0 flagged, largest step +0.03 cm, slope over 2 cm 0.253..0.320
+    parallel ray 3 cm above, slope 0.254: hits Takeoff - Leaning boards through cabin roof at along -9.48 y 73.952 normal (-0.282,0.959,-0.036)
+    parallel ray 8 cm above, slope 0.254: hits Takeoff - Leaning boards through cabin roof at along -8.64 y 74.214 normal (-0.302,0.952,-0.038)
+    parallel ray 15 cm above, slope 0.254: hits Takeoff - Leaning boards through cabin roof at along -7.59 y 74.553 normal (-0.302,0.952,-0.038)
+    parallel ray 30 cm above, slope 0.254: clear for 4.2 m
+  lateral -1.0 (+ = right of the axis looking at the lip)
+    along -11.00 y   73.536 slope-normal 0.237 Takeoff - Leaning boards through cabin roof
+    along -10.80 y   73.586 slope-normal 0.249 Takeoff - Leaning boards through cabin roof
+    along -10.60 y   73.637 slope-normal 0.261 Takeoff - Leaning boards through cabin roof
+    along -10.40 y   73.691 slope-normal 0.261 Takeoff - Leaning boards through cabin roof
+    along -10.20 y   73.744 slope-normal 0.261 Takeoff - Leaning boards through cabin roof
+    along -10.00 y   73.800 slope-normal 0.274 Takeoff - Leaning boards through cabin roof
+    along  -9.80 y   73.857 slope-normal 0.274 Takeoff - Leaning boards through cabin roof
+    along  -9.60 y   73.916 slope-normal 0.288 Takeoff - Leaning boards through cabin roof
+    along  -9.40 y   73.975 slope-normal 0.302 Takeoff - Leaning boards through cabin roof
+    along  -9.20 y   74.038 slope-normal 0.302 Takeoff - Leaning boards through cabin roof
+    along  -9.00 y   74.100 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -8.80 y   74.164 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -8.60 y   74.228 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -8.40 y   74.292 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -8.20 y   74.356 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -8.00 y   74.420 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -7.80 y   74.484 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -7.60 y   74.548 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -7.40 y   74.612 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -7.20 y   74.676 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -7.00 y   74.740 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    summary lateral -1.0: 0 flagged, largest step +0.03 cm, slope over 2 cm 0.253..0.320
+    parallel ray 3 cm above, slope 0.254: hits Takeoff - Leaning boards through cabin roof at along -9.48 y 73.952 normal (-0.282,0.959,-0.036)
+    parallel ray 8 cm above, slope 0.254: hits Takeoff - Leaning boards through cabin roof at along -8.64 y 74.214 normal (-0.302,0.952,-0.038)
+    parallel ray 15 cm above, slope 0.254: hits Takeoff - Leaning boards through cabin roof at along -7.59 y 74.553 normal (-0.302,0.952,-0.038)
+    parallel ray 30 cm above, slope 0.254: clear for 4.2 m
+  lateral +1.0 (+ = right of the axis looking at the lip)
+    along -11.00 y   73.536 slope-normal 0.249 Takeoff - Leaning boards through cabin roof
+    along -10.80 y   73.586 slope-normal 0.249 Takeoff - Leaning boards through cabin roof
+    along -10.60 y   73.637 slope-normal 0.261 Takeoff - Leaning boards through cabin roof
+    along -10.40 y   73.691 slope-normal 0.261 Takeoff - Leaning boards through cabin roof
+    along -10.20 y   73.744 slope-normal 0.274 Takeoff - Leaning boards through cabin roof
+    along -10.00 y   73.800 slope-normal 0.274 Takeoff - Leaning boards through cabin roof
+    along  -9.80 y   73.857 slope-normal 0.274 Takeoff - Leaning boards through cabin roof
+    along  -9.60 y   73.916 slope-normal 0.288 Takeoff - Leaning boards through cabin roof
+    along  -9.40 y   73.975 slope-normal 0.288 Takeoff - Leaning boards through cabin roof
+    along  -9.20 y   74.038 slope-normal 0.302 Takeoff - Leaning boards through cabin roof
+    along  -9.00 y   74.100 slope-normal 0.302 Takeoff - Leaning boards through cabin roof
+    along  -8.80 y   74.164 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -8.60 y   74.228 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -8.40 y   74.292 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -8.20 y   74.356 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -8.00 y   74.420 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -7.80 y   74.484 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -7.60 y   74.548 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -7.40 y   74.612 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -7.20 y   74.676 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -7.00 y   74.740 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    summary lateral +1.0: 0 flagged, largest step +0.03 cm, slope over 2 cm 0.253..0.320
+    parallel ray 3 cm above, slope 0.254: hits Takeoff - Leaning boards through cabin roof at along -9.48 y 73.952 normal (-0.282,0.959,-0.036)
+    parallel ray 8 cm above, slope 0.254: hits Takeoff - Leaning boards through cabin roof at along -8.64 y 74.214 normal (-0.302,0.952,-0.038)
+    parallel ray 15 cm above, slope 0.254: hits Takeoff - Leaning boards through cabin roof at along -7.59 y 74.553 normal (-0.302,0.952,-0.038)
+    parallel ray 30 cm above, slope 0.254: clear for 4.2 m
+  lateral -1.5 (+ = right of the axis looking at the lip)
+    along -11.00 y   73.536 slope-normal 0.249 Takeoff - Leaning boards through cabin roof
+    along -10.80 y   73.586 slope-normal 0.249 Takeoff - Leaning boards through cabin roof
+    along -10.60 y   73.637 slope-normal 0.261 Takeoff - Leaning boards through cabin roof
+    along -10.40 y   73.691 slope-normal 0.261 Takeoff - Leaning boards through cabin roof
+    along -10.20 y   73.744 slope-normal 0.274 Takeoff - Leaning boards through cabin roof
+    along -10.00 y   73.800 slope-normal 0.274 Takeoff - Leaning boards through cabin roof
+    along  -9.80 y   73.857 slope-normal 0.274 Takeoff - Leaning boards through cabin roof
+    along  -9.60 y   73.916 slope-normal 0.288 Takeoff - Leaning boards through cabin roof
+    along  -9.40 y   73.975 slope-normal 0.302 Takeoff - Leaning boards through cabin roof
+    along  -9.20 y   74.038 slope-normal 0.302 Takeoff - Leaning boards through cabin roof
+    along  -9.00 y   74.100 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -8.80 y   74.164 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -8.60 y   74.228 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -8.40 y   74.292 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -8.20 y   74.356 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -8.00 y   74.420 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -7.80 y   74.484 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -7.60 y   74.548 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -7.40 y   74.612 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -7.20 y   74.676 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -7.00 y   74.740 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    summary lateral -1.5: 0 flagged, largest step +0.03 cm, slope over 2 cm 0.254..0.321
+    parallel ray 3 cm above, slope 0.254: hits Takeoff - Leaning boards through cabin roof at along -9.48 y 73.952 normal (-0.282,0.959,-0.036)
+    parallel ray 8 cm above, slope 0.254: hits Takeoff - Leaning boards through cabin roof at along -8.65 y 74.213 normal (-0.302,0.952,-0.038)
+    parallel ray 15 cm above, slope 0.254: hits Takeoff - Leaning boards through cabin roof at along -7.59 y 74.552 normal (-0.302,0.952,-0.038)
+    parallel ray 30 cm above, slope 0.254: clear for 4.2 m
+  lateral +1.5 (+ = right of the axis looking at the lip)
+    along -11.00 y   73.536 slope-normal 0.237 Takeoff - Leaning boards through cabin roof
+    along -10.80 y   73.586 slope-normal 0.249 Takeoff - Leaning boards through cabin roof
+    along -10.60 y   73.637 slope-normal 0.261 Takeoff - Leaning boards through cabin roof
+    along -10.40 y   73.691 slope-normal 0.261 Takeoff - Leaning boards through cabin roof
+    along -10.20 y   73.744 slope-normal 0.274 Takeoff - Leaning boards through cabin roof
+    along -10.00 y   73.800 slope-normal 0.274 Takeoff - Leaning boards through cabin roof
+    along  -9.80 y   73.857 slope-normal 0.274 Takeoff - Leaning boards through cabin roof
+    along  -9.60 y   73.916 slope-normal 0.288 Takeoff - Leaning boards through cabin roof
+    along  -9.40 y   73.975 slope-normal 0.288 Takeoff - Leaning boards through cabin roof
+    along  -9.20 y   74.038 slope-normal 0.302 Takeoff - Leaning boards through cabin roof
+    along  -9.00 y   74.100 slope-normal 0.302 Takeoff - Leaning boards through cabin roof
+    along  -8.80 y   74.164 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -8.60 y   74.228 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -8.40 y   74.292 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -8.20 y   74.356 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -8.00 y   74.420 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -7.80 y   74.484 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -7.60 y   74.548 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -7.40 y   74.612 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -7.20 y   74.676 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -7.00 y   74.740 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    summary lateral +1.5: 0 flagged, largest step +0.03 cm, slope over 2 cm 0.253..0.320
+    parallel ray 3 cm above, slope 0.254: hits Takeoff - Leaning boards through cabin roof at along -9.48 y 73.952 normal (-0.282,0.959,-0.036)
+    parallel ray 8 cm above, slope 0.254: hits Takeoff - Leaning boards through cabin roof at along -8.64 y 74.214 normal (-0.302,0.952,-0.038)
+    parallel ray 15 cm above, slope 0.254: hits Takeoff - Leaning boards through cabin roof at along -7.59 y 74.553 normal (-0.302,0.952,-0.038)
+    parallel ray 30 cm above, slope 0.254: clear for 4.2 m
+--- visible: top surface every 2 cm from along -11.00 to -7.00 (step = height change over 2 cm minus the expected from the local slope; flagged over 1 cm, slope change over 0.05, name change, no hit)
+  lateral 0.0 (+ = right of the axis looking at the lip)
+    along -11.00 y   73.536 slope-normal 0.239 Long loose leaning board 4
+    along -10.80 y   73.586 slope-normal 0.246 Long loose leaning board 4
+    along -10.60 y   73.638 slope-normal 0.254 Long loose leaning board 4
+    along -10.40 y   73.690 slope-normal 0.262 Long loose leaning board 4
+    along -10.20 y   73.744 slope-normal 0.270 Long loose leaning board 4
+    along -10.00 y   73.800 slope-normal 0.270 Long loose leaning board 4
+    along  -9.80 y   73.857 slope-normal 0.279 Long loose leaning board 4
+    along  -9.60 y   73.915 slope-normal 0.287 Long loose leaning board 4
+    along  -9.40 y   73.976 slope-normal 0.296 Long loose leaning board 4
+    along  -9.20 y   74.037 slope-normal 0.305 Long loose leaning board 4
+    along  -9.00 y   74.100 slope-normal 0.305 Long loose leaning board 4
+    along  -8.98 y   74.187 slope-normal 0.000 Cabin weathered roof board STEP +8.0 cm NAME Long loose leaning board 4 -> Cabin weathered roof board
+    along  -8.96 y   74.187 slope-normal 0.000 Cabin weathered roof board STEP -8.7 cm
+    along  -8.80 y   74.187 slope-normal 0.000 Cabin weathered roof board
+    along  -8.72 y   74.190 slope-normal 0.310 Abandoned cabin modest shed roof SLOPE 0.000->0.143 NAME Cabin weathered roof board -> Abandoned cabin modest shed roof
+    along  -8.70 y   74.196 slope-normal 0.310 Abandoned cabin modest shed roof SLOPE 0.143->0.320
+    along  -8.60 y   74.228 slope-normal 0.310 Abandoned cabin modest shed roof
+    along  -8.42 y   74.369 slope-normal 0.000 Cabin weathered roof board STEP +8.4 cm NAME Abandoned cabin modest shed roof -> Cabin weathered roof board
+    along  -8.40 y   74.369 slope-normal 0.000 Cabin weathered roof board STEP -9.0 cm
+    along  -8.20 y   74.369 slope-normal 0.000 Cabin weathered roof board
+    along  -8.14 y   74.375 slope-normal 0.310 Abandoned cabin modest shed roof SLOPE 0.000->0.303 NAME Cabin weathered roof board -> Abandoned cabin modest shed roof
+    along  -8.00 y   74.420 slope-normal 0.310 Abandoned cabin modest shed roof
+    along  -7.84 y   74.551 slope-normal 0.000 Cabin weathered roof board STEP +8.0 cm NAME Abandoned cabin modest shed roof -> Cabin weathered roof board
+    along  -7.82 y   74.551 slope-normal 0.000 Cabin weathered roof board STEP -8.7 cm
+    along  -7.80 y   74.551 slope-normal 0.000 Cabin weathered roof board
+    along  -7.60 y   74.551 slope-normal 0.000 Cabin weathered roof board
+    along  -7.58 y   74.554 slope-normal 0.310 Abandoned cabin modest shed roof SLOPE 0.000->0.143 NAME Cabin weathered roof board -> Abandoned cabin modest shed roof
+    along  -7.56 y   74.561 slope-normal 0.310 Abandoned cabin modest shed roof SLOPE 0.143->0.320
+    along  -7.40 y   74.612 slope-normal 0.310 Abandoned cabin modest shed roof
+    along  -7.28 y   74.734 slope-normal 0.000 Cabin weathered roof board STEP +8.4 cm NAME Abandoned cabin modest shed roof -> Cabin weathered roof board
+    along  -7.26 y   74.734 slope-normal 0.000 Cabin weathered roof board STEP -9.0 cm
+    along  -7.20 y   74.734 slope-normal 0.000 Cabin weathered roof board
+    along  -7.00 y   74.740 slope-normal 0.310 Abandoned cabin modest shed roof SLOPE 0.000->0.304 NAME Cabin weathered roof board -> Abandoned cabin modest shed roof
+    summary lateral 0.0: 14 flagged, largest step -8.99 cm, slope over 2 cm 0.000..4.496
+    parallel ray 3 cm above, slope 0.251: hits Long loose leaning board 4 at along -9.55 y 73.931 normal (-0.281,0.959,-0.035); hits Cabin weathered roof board at along -8.97 y 74.077 normal (0.000,-1.000,0.000); hits Cabin weathered roof board at along -8.24 y 74.259 normal (0.000,-1.000,0.000)
+    parallel ray 8 cm above, slope 0.251: hits Cabin weathered roof board at along -8.99 y 74.120 normal (-0.992,0.000,-0.125); hits Abandoned cabin modest shed roof at along -8.73 y 74.187 normal (-0.302,0.952,-0.038); hits Cabin weathered roof board at along -8.42 y 74.263 normal (-0.992,0.000,-0.125)
+    parallel ray 15 cm above, slope 0.251: hits Cabin weathered roof board at along -8.42 y 74.333 normal (-0.992,0.000,-0.125); hits Cabin weathered roof board at along -7.85 y 74.477 normal (-0.992,0.000,-0.125); hits Abandoned cabin modest shed roof at along -7.71 y 74.514 normal (-0.302,0.952,-0.038)
+    parallel ray 30 cm above, slope 0.251: clear for 4.2 m
+  lateral -0.5 (+ = right of the axis looking at the lip)
+    along -11.00 y   73.536 slope-normal 0.239 Long loose leaning board 3
+    along -10.80 y   73.586 slope-normal 0.246 Long loose leaning board 3
+    along -10.60 y   73.638 slope-normal 0.254 Long loose leaning board 3
+    along -10.40 y   73.690 slope-normal 0.262 Long loose leaning board 3
+    along -10.20 y   73.744 slope-normal 0.270 Long loose leaning board 3
+    along -10.00 y   73.800 slope-normal 0.279 Long loose leaning board 3
+    along  -9.80 y   73.857 slope-normal 0.279 Long loose leaning board 3
+    along  -9.60 y   73.915 slope-normal 0.287 Long loose leaning board 3
+    along  -9.40 y   73.976 slope-normal 0.296 Long loose leaning board 3
+    along  -9.20 y   74.037 slope-normal 0.305 Long loose leaning board 3
+    along  -9.00 y   74.100 slope-normal 0.305 Long loose leaning board 3
+    along  -8.98 y   74.187 slope-normal 0.000 Cabin weathered roof board STEP +8.0 cm NAME Long loose leaning board 3 -> Cabin weathered roof board
+    along  -8.96 y   74.187 slope-normal 0.000 Cabin weathered roof board STEP -8.7 cm
+    along  -8.80 y   74.187 slope-normal 0.000 Cabin weathered roof board
+    along  -8.72 y   74.190 slope-normal 0.310 Abandoned cabin modest shed roof SLOPE 0.000->0.143 NAME Cabin weathered roof board -> Abandoned cabin modest shed roof
+    along  -8.70 y   74.196 slope-normal 0.310 Abandoned cabin modest shed roof SLOPE 0.143->0.320
+    along  -8.60 y   74.228 slope-normal 0.310 Abandoned cabin modest shed roof
+    along  -8.42 y   74.369 slope-normal 0.000 Cabin weathered roof board STEP +8.4 cm NAME Abandoned cabin modest shed roof -> Cabin weathered roof board
+    along  -8.40 y   74.369 slope-normal 0.000 Cabin weathered roof board STEP -9.0 cm
+    along  -8.20 y   74.369 slope-normal 0.000 Cabin weathered roof board
+    along  -8.14 y   74.375 slope-normal 0.310 Abandoned cabin modest shed roof SLOPE 0.000->0.304 NAME Cabin weathered roof board -> Abandoned cabin modest shed roof
+    along  -8.00 y   74.420 slope-normal 0.310 Abandoned cabin modest shed roof
+    along  -7.84 y   74.551 slope-normal 0.000 Cabin weathered roof board STEP +8.0 cm NAME Abandoned cabin modest shed roof -> Cabin weathered roof board
+    along  -7.82 y   74.551 slope-normal 0.000 Cabin weathered roof board STEP -8.7 cm
+    along  -7.80 y   74.551 slope-normal 0.000 Cabin weathered roof board
+    along  -7.60 y   74.551 slope-normal 0.000 Cabin weathered roof board
+    along  -7.58 y   74.554 slope-normal 0.310 Abandoned cabin modest shed roof SLOPE 0.000->0.143 NAME Cabin weathered roof board -> Abandoned cabin modest shed roof
+    along  -7.56 y   74.561 slope-normal 0.310 Abandoned cabin modest shed roof SLOPE 0.143->0.320
+    along  -7.40 y   74.612 slope-normal 0.310 Abandoned cabin modest shed roof
+    along  -7.28 y   74.734 slope-normal 0.000 Cabin weathered roof board STEP +8.4 cm NAME Abandoned cabin modest shed roof -> Cabin weathered roof board
+    along  -7.26 y   74.734 slope-normal 0.000 Cabin weathered roof board STEP -9.0 cm
+    along  -7.20 y   74.734 slope-normal 0.000 Cabin weathered roof board
+    along  -7.00 y   74.740 slope-normal 0.310 Abandoned cabin modest shed roof SLOPE 0.000->0.304 NAME Cabin weathered roof board -> Abandoned cabin modest shed roof
+    summary lateral -0.5: 14 flagged, largest step -8.99 cm, slope over 2 cm 0.000..4.496
+    parallel ray 3 cm above, slope 0.251: hits Long loose leaning board 3 at along -9.55 y 73.930 normal (-0.281,0.959,-0.035); hits Cabin weathered roof board at along -8.97 y 74.077 normal (0.000,-1.000,0.000); hits Cabin weathered roof board at along -8.24 y 74.259 normal (0.000,-1.000,0.000)
+    parallel ray 8 cm above, slope 0.251: hits Cabin weathered roof board at along -8.99 y 74.120 normal (-0.992,0.000,-0.125); hits Abandoned cabin modest shed roof at along -8.73 y 74.187 normal (-0.302,0.952,-0.038); hits Cabin weathered roof board at along -8.42 y 74.263 normal (-0.992,0.000,-0.125)
+    parallel ray 15 cm above, slope 0.251: hits Cabin weathered roof board at along -8.42 y 74.333 normal (-0.992,0.000,-0.125); hits Cabin weathered roof board at along -7.85 y 74.477 normal (-0.992,0.000,-0.125); hits Abandoned cabin modest shed roof at along -7.71 y 74.514 normal (-0.302,0.952,-0.038)
+    parallel ray 30 cm above, slope 0.251: clear for 4.2 m
+  lateral +0.5 (+ = right of the axis looking at the lip)
+    along -11.00 y   73.536 slope-normal 0.239 Long loose leaning board 5
+    along -10.80 y   73.586 slope-normal 0.246 Long loose leaning board 5
+    along -10.60 y   73.638 slope-normal 0.254 Long loose leaning board 5
+    along -10.40 y   73.690 slope-normal 0.262 Long loose leaning board 5
+    along -10.20 y   73.744 slope-normal 0.270 Long loose leaning board 5
+    along -10.00 y   73.800 slope-normal 0.270 Long loose leaning board 5
+    along  -9.80 y   73.857 slope-normal 0.279 Long loose leaning board 5
+    along  -9.60 y   73.915 slope-normal 0.287 Long loose leaning board 5
+    along  -9.40 y   73.976 slope-normal 0.296 Long loose leaning board 5
+    along  -9.20 y   74.037 slope-normal 0.305 Long loose leaning board 5
+    along  -9.00 y   74.100 slope-normal 0.305 Long loose leaning board 5
+    along  -8.98 y   74.187 slope-normal 0.000 Cabin weathered roof board STEP +8.0 cm NAME Long loose leaning board 5 -> Cabin weathered roof board
+    along  -8.96 y   74.187 slope-normal 0.000 Cabin weathered roof board STEP -8.7 cm
+    along  -8.80 y   74.187 slope-normal 0.000 Cabin weathered roof board
+    along  -8.72 y   74.190 slope-normal 0.310 Abandoned cabin modest shed roof SLOPE 0.000->0.143 NAME Cabin weathered roof board -> Abandoned cabin modest shed roof
+    along  -8.70 y   74.196 slope-normal 0.310 Abandoned cabin modest shed roof SLOPE 0.143->0.320
+    along  -8.60 y   74.228 slope-normal 0.310 Abandoned cabin modest shed roof
+    along  -8.42 y   74.369 slope-normal 0.000 Cabin weathered roof board STEP +8.4 cm NAME Abandoned cabin modest shed roof -> Cabin weathered roof board
+    along  -8.40 y   74.369 slope-normal 0.000 Cabin weathered roof board STEP -9.0 cm
+    along  -8.20 y   74.369 slope-normal 0.000 Cabin weathered roof board
+    along  -8.14 y   74.375 slope-normal 0.310 Abandoned cabin modest shed roof SLOPE 0.000->0.303 NAME Cabin weathered roof board -> Abandoned cabin modest shed roof
+    along  -8.00 y   74.420 slope-normal 0.310 Abandoned cabin modest shed roof
+    along  -7.84 y   74.551 slope-normal 0.000 Cabin weathered roof board STEP +8.0 cm NAME Abandoned cabin modest shed roof -> Cabin weathered roof board
+    along  -7.82 y   74.551 slope-normal 0.000 Cabin weathered roof board STEP -8.7 cm
+    along  -7.80 y   74.551 slope-normal 0.000 Cabin weathered roof board
+    along  -7.60 y   74.551 slope-normal 0.000 Cabin weathered roof board
+    along  -7.58 y   74.554 slope-normal 0.310 Abandoned cabin modest shed roof SLOPE 0.000->0.143 NAME Cabin weathered roof board -> Abandoned cabin modest shed roof
+    along  -7.56 y   74.561 slope-normal 0.310 Abandoned cabin modest shed roof SLOPE 0.143->0.319
+    along  -7.40 y   74.612 slope-normal 0.310 Abandoned cabin modest shed roof
+    along  -7.28 y   74.734 slope-normal 0.000 Cabin weathered roof board STEP +8.4 cm NAME Abandoned cabin modest shed roof -> Cabin weathered roof board
+    along  -7.26 y   74.734 slope-normal 0.000 Cabin weathered roof board STEP -9.0 cm
+    along  -7.20 y   74.734 slope-normal 0.000 Cabin weathered roof board
+    along  -7.00 y   74.740 slope-normal 0.310 Abandoned cabin modest shed roof SLOPE 0.000->0.304 NAME Cabin weathered roof board -> Abandoned cabin modest shed roof
+    summary lateral +0.5: 14 flagged, largest step -8.99 cm, slope over 2 cm 0.000..4.497
+    parallel ray 3 cm above, slope 0.251: hits Long loose leaning board 5 at along -9.55 y 73.930 normal (-0.281,0.959,-0.035); hits Cabin weathered roof board at along -8.97 y 74.077 normal (0.000,-1.000,0.000); hits Cabin weathered roof board at along -8.24 y 74.259 normal (0.000,-1.000,0.000)
+    parallel ray 8 cm above, slope 0.251: hits Cabin weathered roof board at along -8.99 y 74.120 normal (-0.992,0.000,-0.125); hits Abandoned cabin modest shed roof at along -8.73 y 74.187 normal (-0.302,0.952,-0.038); hits Cabin weathered roof board at along -8.42 y 74.263 normal (-0.992,0.000,-0.125)
+    parallel ray 15 cm above, slope 0.251: hits Cabin weathered roof board at along -8.42 y 74.333 normal (-0.992,0.000,-0.125); hits Cabin weathered roof board at along -7.85 y 74.477 normal (-0.992,0.000,-0.125); hits Abandoned cabin modest shed roof at along -7.71 y 74.514 normal (-0.302,0.952,-0.038)
+    parallel ray 30 cm above, slope 0.251: clear for 4.2 m
+  lateral -1.0 (+ = right of the axis looking at the lip)
+    along -11.00 y   73.536 slope-normal 0.239 Long loose leaning board 2
+    along -10.80 y   73.586 slope-normal 0.246 Long loose leaning board 2
+    along -10.60 y   73.638 slope-normal 0.254 Long loose leaning board 2
+    along -10.40 y   73.690 slope-normal 0.262 Long loose leaning board 2
+    along -10.20 y   73.744 slope-normal 0.270 Long loose leaning board 2
+    along -10.00 y   73.800 slope-normal 0.270 Long loose leaning board 2
+    along  -9.80 y   73.857 slope-normal 0.279 Long loose leaning board 2
+    along  -9.60 y   73.915 slope-normal 0.287 Long loose leaning board 2
+    along  -9.40 y   73.976 slope-normal 0.296 Long loose leaning board 2
+    along  -9.20 y   74.037 slope-normal 0.305 Long loose leaning board 2
+    along  -9.00 y   74.100 slope-normal 0.305 Long loose leaning board 2
+    along  -8.98 y   74.187 slope-normal 0.000 Cabin weathered roof board STEP +8.0 cm NAME Long loose leaning board 2 -> Cabin weathered roof board
+    along  -8.96 y   74.187 slope-normal 0.000 Cabin weathered roof board STEP -8.7 cm
+    along  -8.80 y   74.187 slope-normal 0.000 Cabin weathered roof board
+    along  -8.72 y   74.190 slope-normal 0.310 Abandoned cabin modest shed roof SLOPE 0.000->0.143 NAME Cabin weathered roof board -> Abandoned cabin modest shed roof
+    along  -8.70 y   74.196 slope-normal 0.310 Abandoned cabin modest shed roof SLOPE 0.143->0.320
+    along  -8.60 y   74.228 slope-normal 0.310 Abandoned cabin modest shed roof
+    along  -8.42 y   74.369 slope-normal 0.000 Cabin weathered roof board STEP +8.4 cm NAME Abandoned cabin modest shed roof -> Cabin weathered roof board
+    along  -8.40 y   74.369 slope-normal 0.000 Cabin weathered roof board STEP -9.0 cm
+    along  -8.20 y   74.369 slope-normal 0.000 Cabin weathered roof board
+    along  -8.14 y   74.375 slope-normal 0.310 Abandoned cabin modest shed roof SLOPE 0.000->0.303 NAME Cabin weathered roof board -> Abandoned cabin modest shed roof
+    along  -8.00 y   74.420 slope-normal 0.310 Abandoned cabin modest shed roof
+    along  -7.84 y   74.551 slope-normal 0.000 Cabin weathered roof board STEP +8.0 cm NAME Abandoned cabin modest shed roof -> Cabin weathered roof board
+    along  -7.82 y   74.551 slope-normal 0.000 Cabin weathered roof board STEP -8.7 cm
+    along  -7.80 y   74.551 slope-normal 0.000 Cabin weathered roof board
+    along  -7.60 y   74.551 slope-normal 0.000 Cabin weathered roof board
+    along  -7.58 y   74.554 slope-normal 0.310 Abandoned cabin modest shed roof SLOPE 0.000->0.143 NAME Cabin weathered roof board -> Abandoned cabin modest shed roof
+    along  -7.56 y   74.561 slope-normal 0.310 Abandoned cabin modest shed roof SLOPE 0.143->0.320
+    along  -7.40 y   74.612 slope-normal 0.310 Abandoned cabin modest shed roof
+    along  -7.28 y   74.734 slope-normal 0.000 Cabin weathered roof board STEP +8.4 cm NAME Abandoned cabin modest shed roof -> Cabin weathered roof board
+    along  -7.26 y   74.734 slope-normal 0.000 Cabin weathered roof board STEP -9.0 cm
+    along  -7.20 y   74.734 slope-normal 0.000 Cabin weathered roof board
+    along  -7.00 y   74.740 slope-normal 0.310 Abandoned cabin modest shed roof SLOPE 0.000->0.304 NAME Cabin weathered roof board -> Abandoned cabin modest shed roof
+    summary lateral -1.0: 14 flagged, largest step -8.99 cm, slope over 2 cm 0.000..4.497
+    parallel ray 3 cm above, slope 0.251: hits Long loose leaning board 2 at along -9.55 y 73.930 normal (-0.281,0.959,-0.035); hits Cabin weathered roof board at along -8.97 y 74.077 normal (0.000,-1.000,0.000); hits Cabin weathered roof board at along -8.24 y 74.259 normal (0.000,-1.000,0.000)
+    parallel ray 8 cm above, slope 0.251: hits Cabin weathered roof board at along -8.99 y 74.120 normal (-0.992,0.000,-0.125); hits Abandoned cabin modest shed roof at along -8.73 y 74.187 normal (-0.302,0.952,-0.038); hits Cabin weathered roof board at along -8.42 y 74.263 normal (-0.992,0.000,-0.125)
+    parallel ray 15 cm above, slope 0.251: hits Cabin weathered roof board at along -8.42 y 74.333 normal (-0.992,0.000,-0.125); hits Cabin weathered roof board at along -7.85 y 74.477 normal (-0.992,0.000,-0.125); hits Abandoned cabin modest shed roof at along -7.71 y 74.514 normal (-0.302,0.952,-0.038)
+    parallel ray 30 cm above, slope 0.251: clear for 4.2 m
+  lateral +1.0 (+ = right of the axis looking at the lip)
+    along -11.00 y   73.536 slope-normal 0.246 Long loose leaning board 6
+    along -10.80 y   73.586 slope-normal 0.246 Long loose leaning board 6
+    along -10.60 y   73.638 slope-normal 0.254 Long loose leaning board 6
+    along -10.40 y   73.690 slope-normal 0.262 Long loose leaning board 6
+    along -10.20 y   73.744 slope-normal 0.270 Long loose leaning board 6
+    along -10.00 y   73.800 slope-normal 0.270 Long loose leaning board 6
+    along  -9.80 y   73.857 slope-normal 0.279 Long loose leaning board 6
+    along  -9.60 y   73.916 slope-normal 0.287 Long loose leaning board 6
+    along  -9.40 y   73.976 slope-normal 0.296 Long loose leaning board 6
+    along  -9.20 y   74.037 slope-normal 0.305 Long loose leaning board 6
+    along  -9.00 y   74.100 slope-normal 0.305 Long loose leaning board 6
+    along  -8.98 y   74.187 slope-normal 0.000 Cabin weathered roof board STEP +8.0 cm NAME Long loose leaning board 6 -> Cabin weathered roof board
+    along  -8.96 y   74.187 slope-normal 0.000 Cabin weathered roof board STEP -8.7 cm
+    along  -8.80 y   74.187 slope-normal 0.000 Cabin weathered roof board
+    along  -8.72 y   74.190 slope-normal 0.310 Abandoned cabin modest shed roof SLOPE 0.000->0.143 NAME Cabin weathered roof board -> Abandoned cabin modest shed roof
+    along  -8.70 y   74.196 slope-normal 0.310 Abandoned cabin modest shed roof SLOPE 0.143->0.320
+    along  -8.60 y   74.228 slope-normal 0.310 Abandoned cabin modest shed roof
+    along  -8.42 y   74.369 slope-normal 0.000 Cabin weathered roof board STEP +8.4 cm NAME Abandoned cabin modest shed roof -> Cabin weathered roof board
+    along  -8.40 y   74.369 slope-normal 0.000 Cabin weathered roof board STEP -9.0 cm
+    along  -8.20 y   74.369 slope-normal 0.000 Cabin weathered roof board
+    along  -8.14 y   74.375 slope-normal 0.310 Abandoned cabin modest shed roof SLOPE 0.000->0.303 NAME Cabin weathered roof board -> Abandoned cabin modest shed roof
+    along  -8.00 y   74.420 slope-normal 0.310 Abandoned cabin modest shed roof
+    along  -7.84 y   74.551 slope-normal 0.000 Cabin weathered roof board STEP +8.0 cm NAME Abandoned cabin modest shed roof -> Cabin weathered roof board
+    along  -7.82 y   74.551 slope-normal 0.000 Cabin weathered roof board STEP -8.7 cm
+    along  -7.80 y   74.551 slope-normal 0.000 Cabin weathered roof board
+    along  -7.60 y   74.551 slope-normal 0.000 Cabin weathered roof board
+    along  -7.58 y   74.554 slope-normal 0.310 Abandoned cabin modest shed roof SLOPE 0.000->0.143 NAME Cabin weathered roof board -> Abandoned cabin modest shed roof
+    along  -7.56 y   74.561 slope-normal 0.310 Abandoned cabin modest shed roof SLOPE 0.143->0.320
+    along  -7.40 y   74.612 slope-normal 0.310 Abandoned cabin modest shed roof
+    along  -7.28 y   74.734 slope-normal 0.000 Cabin weathered roof board STEP +8.4 cm NAME Abandoned cabin modest shed roof -> Cabin weathered roof board
+    along  -7.26 y   74.734 slope-normal 0.000 Cabin weathered roof board STEP -9.0 cm
+    along  -7.20 y   74.734 slope-normal 0.000 Cabin weathered roof board
+    along  -7.00 y   74.740 slope-normal 0.310 Abandoned cabin modest shed roof SLOPE 0.000->0.304 NAME Cabin weathered roof board -> Abandoned cabin modest shed roof
+    summary lateral +1.0: 14 flagged, largest step -8.99 cm, slope over 2 cm 0.000..4.497
+    parallel ray 3 cm above, slope 0.251: hits Long loose leaning board 6 at along -9.55 y 73.930 normal (-0.281,0.959,-0.035); hits Cabin weathered roof board at along -8.97 y 74.077 normal (0.000,-1.000,0.000); hits Cabin weathered roof board at along -8.24 y 74.259 normal (0.000,-1.000,0.000)
+    parallel ray 8 cm above, slope 0.251: hits Cabin weathered roof board at along -8.99 y 74.120 normal (-0.992,0.000,-0.125); hits Abandoned cabin modest shed roof at along -8.73 y 74.187 normal (-0.302,0.952,-0.038); hits Cabin weathered roof board at along -8.42 y 74.263 normal (-0.992,0.000,-0.125)
+    parallel ray 15 cm above, slope 0.251: hits Cabin weathered roof board at along -8.42 y 74.333 normal (-0.992,0.000,-0.125); hits Cabin weathered roof board at along -7.85 y 74.477 normal (-0.992,0.000,-0.125); hits Abandoned cabin modest shed roof at along -7.71 y 74.514 normal (-0.302,0.952,-0.038)
+    parallel ray 30 cm above, slope 0.251: clear for 4.2 m
+  lateral -1.5 (+ = right of the axis looking at the lip)
+    along -11.00 y   73.536 slope-normal 0.239 Long loose leaning board 1
+    along -10.80 y   73.586 slope-normal 0.246 Long loose leaning board 1
+    along -10.60 y   73.638 slope-normal 0.254 Long loose leaning board 1
+    along -10.40 y   73.690 slope-normal 0.262 Long loose leaning board 1
+    along -10.20 y   73.744 slope-normal 0.270 Long loose leaning board 1
+    along -10.00 y   73.800 slope-normal 0.270 Long loose leaning board 1
+    along  -9.80 y   73.857 slope-normal 0.279 Long loose leaning board 1
+    along  -9.60 y   73.916 slope-normal 0.287 Long loose leaning board 1
+    along  -9.40 y   73.976 slope-normal 0.296 Long loose leaning board 1
+    along  -9.20 y   74.037 slope-normal 0.305 Long loose leaning board 1
+    along  -9.00 y   74.100 slope-normal 0.305 Long loose leaning board 1
+    along  -8.98 y   74.187 slope-normal 0.000 Cabin weathered roof board STEP +8.0 cm NAME Long loose leaning board 1 -> Cabin weathered roof board
+    along  -8.96 y   74.187 slope-normal 0.000 Cabin weathered roof board STEP -8.7 cm
+    along  -8.80 y   74.187 slope-normal 0.000 Cabin weathered roof board
+    along  -8.72 y   74.190 slope-normal 0.310 Abandoned cabin modest shed roof SLOPE 0.000->0.143 NAME Cabin weathered roof board -> Abandoned cabin modest shed roof
+    along  -8.70 y   74.196 slope-normal 0.310 Abandoned cabin modest shed roof SLOPE 0.143->0.320
+    along  -8.60 y   74.228 slope-normal 0.310 Abandoned cabin modest shed roof
+    along  -8.42 y   74.369 slope-normal 0.000 Cabin weathered roof board STEP +8.4 cm NAME Abandoned cabin modest shed roof -> Cabin weathered roof board
+    along  -8.40 y   74.369 slope-normal 0.000 Cabin weathered roof board STEP -9.0 cm
+    along  -8.20 y   74.369 slope-normal 0.000 Cabin weathered roof board
+    along  -8.14 y   74.375 slope-normal 0.310 Abandoned cabin modest shed roof SLOPE 0.000->0.304 NAME Cabin weathered roof board -> Abandoned cabin modest shed roof
+    along  -8.00 y   74.420 slope-normal 0.310 Abandoned cabin modest shed roof
+    along  -7.84 y   74.551 slope-normal 0.000 Cabin weathered roof board STEP +8.0 cm NAME Abandoned cabin modest shed roof -> Cabin weathered roof board
+    along  -7.82 y   74.551 slope-normal 0.000 Cabin weathered roof board STEP -8.7 cm
+    along  -7.80 y   74.551 slope-normal 0.000 Cabin weathered roof board
+    along  -7.60 y   74.551 slope-normal 0.000 Cabin weathered roof board
+    along  -7.58 y   74.554 slope-normal 0.310 Abandoned cabin modest shed roof SLOPE 0.000->0.144 NAME Cabin weathered roof board -> Abandoned cabin modest shed roof
+    along  -7.56 y   74.561 slope-normal 0.310 Abandoned cabin modest shed roof SLOPE 0.144->0.320
+    along  -7.40 y   74.612 slope-normal 0.310 Abandoned cabin modest shed roof
+    along  -7.28 y   74.734 slope-normal 0.000 Cabin weathered roof board STEP +8.4 cm NAME Abandoned cabin modest shed roof -> Cabin weathered roof board
+    along  -7.26 y   74.734 slope-normal 0.000 Cabin weathered roof board STEP -9.0 cm
+    along  -7.20 y   74.734 slope-normal 0.000 Cabin weathered roof board
+    along  -7.00 y   74.740 slope-normal 0.310 Abandoned cabin modest shed roof SLOPE 0.000->0.304 NAME Cabin weathered roof board -> Abandoned cabin modest shed roof
+    summary lateral -1.5: 14 flagged, largest step -8.99 cm, slope over 2 cm 0.000..4.496
+    parallel ray 3 cm above, slope 0.251: hits Long loose leaning board 1 at along -9.55 y 73.930 normal (-0.281,0.959,-0.035); hits Cabin weathered roof board at along -8.97 y 74.077 normal (0.000,-1.000,0.000); hits Cabin weathered roof board at along -8.24 y 74.259 normal (0.000,-1.000,0.000)
+    parallel ray 8 cm above, slope 0.251: hits Cabin weathered roof board at along -8.99 y 74.120 normal (-0.992,0.000,-0.125); hits Abandoned cabin modest shed roof at along -8.73 y 74.187 normal (-0.302,0.952,-0.038); hits Cabin weathered roof board at along -8.42 y 74.263 normal (-0.992,0.000,-0.125)
+    parallel ray 15 cm above, slope 0.251: hits Cabin weathered roof board at along -8.42 y 74.333 normal (-0.992,0.000,-0.125); hits Cabin weathered roof board at along -7.85 y 74.477 normal (-0.992,0.000,-0.125); hits Abandoned cabin modest shed roof at along -7.71 y 74.514 normal (-0.302,0.952,-0.038)
+    parallel ray 30 cm above, slope 0.251: clear for 4.2 m
+  lateral +1.5 (+ = right of the axis looking at the lip)
+    along -11.00 y   73.536 slope-normal 0.239 Long loose leaning board 7
+    along -10.80 y   73.586 slope-normal 0.246 Long loose leaning board 7
+    along -10.60 y   73.638 slope-normal 0.254 Long loose leaning board 7
+    along -10.40 y   73.690 slope-normal 0.262 Long loose leaning board 7
+    along -10.20 y   73.744 slope-normal 0.270 Long loose leaning board 7
+    along -10.00 y   73.800 slope-normal 0.270 Long loose leaning board 7
+    along  -9.80 y   73.857 slope-normal 0.279 Long loose leaning board 7
+    along  -9.60 y   73.915 slope-normal 0.287 Long loose leaning board 7
+    along  -9.40 y   73.976 slope-normal 0.296 Long loose leaning board 7
+    along  -9.20 y   74.037 slope-normal 0.305 Long loose leaning board 7
+    along  -9.00 y   74.100 slope-normal 0.305 Long loose leaning board 7
+    along  -8.98 y   74.187 slope-normal 0.000 Cabin weathered roof board STEP +8.0 cm NAME Long loose leaning board 7 -> Cabin weathered roof board
+    along  -8.96 y   74.187 slope-normal 0.000 Cabin weathered roof board STEP -8.7 cm
+    along  -8.80 y   74.187 slope-normal 0.000 Cabin weathered roof board
+    along  -8.72 y   74.190 slope-normal 0.310 Abandoned cabin modest shed roof SLOPE 0.000->0.143 NAME Cabin weathered roof board -> Abandoned cabin modest shed roof
+    along  -8.70 y   74.196 slope-normal 0.310 Abandoned cabin modest shed roof SLOPE 0.143->0.320
+    along  -8.60 y   74.228 slope-normal 0.310 Abandoned cabin modest shed roof
+    along  -8.42 y   74.369 slope-normal 0.000 Cabin weathered roof board STEP +8.4 cm NAME Abandoned cabin modest shed roof -> Cabin weathered roof board
+    along  -8.40 y   74.369 slope-normal 0.000 Cabin weathered roof board STEP -9.0 cm
+    along  -8.20 y   74.369 slope-normal 0.000 Cabin weathered roof board
+    along  -8.14 y   74.375 slope-normal 0.310 Abandoned cabin modest shed roof SLOPE 0.000->0.303 NAME Cabin weathered roof board -> Abandoned cabin modest shed roof
+    along  -8.00 y   74.420 slope-normal 0.310 Abandoned cabin modest shed roof
+    along  -7.84 y   74.551 slope-normal 0.000 Cabin weathered roof board STEP +8.0 cm NAME Abandoned cabin modest shed roof -> Cabin weathered roof board
+    along  -7.82 y   74.551 slope-normal 0.000 Cabin weathered roof board STEP -8.7 cm
+    along  -7.80 y   74.551 slope-normal 0.000 Cabin weathered roof board
+    along  -7.60 y   74.551 slope-normal 0.000 Cabin weathered roof board
+    along  -7.58 y   74.554 slope-normal 0.310 Abandoned cabin modest shed roof SLOPE 0.000->0.143 NAME Cabin weathered roof board -> Abandoned cabin modest shed roof
+    along  -7.56 y   74.561 slope-normal 0.310 Abandoned cabin modest shed roof SLOPE 0.143->0.320
+    along  -7.40 y   74.612 slope-normal 0.310 Abandoned cabin modest shed roof
+    along  -7.28 y   74.734 slope-normal 0.000 Cabin weathered roof board STEP +8.4 cm NAME Abandoned cabin modest shed roof -> Cabin weathered roof board
+    along  -7.26 y   74.734 slope-normal 0.000 Cabin weathered roof board STEP -9.0 cm
+    along  -7.20 y   74.734 slope-normal 0.000 Cabin weathered roof board
+    along  -7.00 y   74.740 slope-normal 0.310 Abandoned cabin modest shed roof SLOPE 0.000->0.304 NAME Cabin weathered roof board -> Abandoned cabin modest shed roof
+    summary lateral +1.5: 14 flagged, largest step -8.99 cm, slope over 2 cm 0.000..4.497
+    parallel ray 3 cm above, slope 0.251: hits Long loose leaning board 7 at along -9.55 y 73.931 normal (-0.281,0.959,-0.035); hits Cabin weathered roof board at along -8.97 y 74.077 normal (0.000,-1.000,0.000); hits Cabin weathered roof board at along -8.24 y 74.259 normal (0.000,-1.000,0.000)
+    parallel ray 8 cm above, slope 0.251: hits Cabin weathered roof board at along -8.99 y 74.120 normal (-0.992,0.000,-0.125); hits Abandoned cabin modest shed roof at along -8.73 y 74.187 normal (-0.302,0.952,-0.038); hits Cabin weathered roof board at along -8.42 y 74.263 normal (-0.992,0.000,-0.125)
+    parallel ray 15 cm above, slope 0.251: hits Cabin weathered roof board at along -8.42 y 74.333 normal (-0.992,0.000,-0.125); hits Cabin weathered roof board at along -7.85 y 74.477 normal (-0.992,0.000,-0.125); hits Abandoned cabin modest shed roof at along -7.71 y 74.514 normal (-0.302,0.952,-0.038)
+    parallel ray 30 cm above, slope 0.251: clear for 4.2 m
+===== FreeRoamWorld
+takeoff collider Takeoff - Leaning boards through cabin roof (0.101) (Assets/Track/BackyardShortcuts/Takeoff - Leaning boards through cabin roof (0.101).asset), 102 vertices; foot along -19.00, joint (roof starts) along -9.00, lip along 0; route s = along + 44.72
+  collider row along -11.80 y 73.347
+  collider row along -11.40 y 73.439 slope 0.229
+  collider row along -11.00 y 73.536 slope 0.241 (change +0.012)
+  collider row along -10.60 y 73.637 slope 0.254 (change +0.013)
+  collider row along -10.20 y 73.744 slope 0.267 (change +0.013)
+  collider row along -9.80 y 73.857 slope 0.281 (change +0.014)
+  collider row along -9.40 y 73.975 slope 0.296 (change +0.015)
+  collider row along -9.00 y 74.100 slope 0.312 (change +0.016)
+  collider row along -8.60 y 74.228 slope 0.320 (change +0.008)
+  collider row along -8.20 y 74.356 slope 0.320 (change +0.000)
+  collider row along -7.80 y 74.484 slope 0.320 (change +0.000)
+  collider row along -7.40 y 74.612 slope 0.320 (change +0.000)
+  collider row along -7.00 y 74.740 slope 0.320 (change +0.000)
+  collider row along -6.60 y 74.868 slope 0.320 (change +0.000)
+  collider row along -6.20 y 74.996 slope 0.320 (change +0.000)
+--- colliders near the joint (within 5 m, either side of the axis)
+   C Backyard optional forest shortcuts/Abandoned cabin wall BoxCollider en True b (218.595,73.035,83.147)-(219.804,75.177,83.454) along -5.69..-4.45 box c (0.000,0.000,0.000) s (1.000,1.000,1.000) rot (342.255,82.918,0.000)
+   C Backyard optional forest shortcuts/Abandoned cabin wall BoxCollider en True b (217.400,72.887,82.997)-(218.532,74.786,83.296) along -6.90..-5.74 box c (0.000,0.000,0.000) s (1.000,1.000,1.000) rot (342.255,82.848,0.000)
+   C Backyard optional forest shortcuts/Abandoned cabin wall BoxCollider en True b (216.801,72.810,82.921)-(217.895,74.591,83.216) along -7.50..-6.38 box c (0.000,0.000,0.000) s (1.000,1.000,1.000) rot (342.256,82.796,0.000)
+   C Backyard optional forest shortcuts/Abandoned cabin wall BoxCollider en True b (217.998,72.961,83.073)-(219.168,74.982,83.375) along -6.29..-5.10 box c (0.000,0.000,0.000) s (1.000,1.000,1.000) rot (342.256,82.889,0.000)
+   C Backyard optional forest shortcuts/Abandoned cabin wall BoxCollider en True b (218.673,72.524,77.110)-(219.979,74.971,77.430) along -6.37..-5.03 box c (0.000,0.000,0.000) s (1.000,1.000,1.000) rot (342.256,82.889,0.000)
+   C Backyard optional forest shortcuts/Abandoned cabin wall BoxCollider en True b (216.299,72.214,76.807)-(217.455,74.189,77.112) along -8.76..-7.58 box c (0.000,0.000,0.000) s (1.000,1.000,1.000) rot (342.255,82.663,0.000)
+   C Backyard optional forest shortcuts/Abandoned cabin wall BoxCollider en True b (219.268,72.599,77.185)-(220.612,75.167,77.508) along -5.77..-4.40 box c (0.000,0.000,0.000) s (1.000,1.000,1.000) rot (342.255,82.918,0.000)
+   C Backyard optional forest shortcuts/Abandoned cabin wall BoxCollider en True b (219.788,73.179,83.296)-(221.075,75.568,83.611) along -4.49..-3.17 box c (0.000,0.000,0.000) s (1.000,1.000,1.000) rot (342.256,82.940,0.000)
+   C Backyard optional forest shortcuts/Abandoned cabin wall BoxCollider en True b (218.079,72.448,77.036)-(219.347,74.776,77.351) along -6.97..-5.67 box c (0.000,0.000,0.000) s (1.000,1.000,1.000) rot (342.255,82.848,0.000)
+   C Backyard optional forest shortcuts/Abandoned cabin wall BoxCollider en True b (216.201,72.733,82.844)-(217.258,74.396,83.135) along -8.11..-7.02 box c (0.000,0.000,0.000) s (1.000,1.000,1.000) rot (342.255,82.730,0.000)
+   C Backyard optional forest shortcuts/Abandoned cabin wall BoxCollider en True b (217.485,72.372,76.960)-(218.716,74.580,77.272) along -7.57..-6.31 box c (0.000,0.000,0.000) s (1.000,1.000,1.000) rot (342.256,82.796,0.000)
+   C Backyard optional forest shortcuts/Abandoned cabin wall BoxCollider en True b (219.192,73.108,83.222)-(220.440,75.373,83.533) along -5.09..-3.81 box c (0.000,0.000,0.000) s (1.000,1.000,1.000) rot (342.255,82.935,0.000)
+   C Backyard optional forest shortcuts/Abandoned cabin wall BoxCollider en True b (220.383,73.249,83.369)-(221.710,75.763,83.690) along -3.89..-2.53 box c (0.000,0.000,0.000) s (1.000,1.000,1.000) rot (342.255,82.933,0.000)
+   C Backyard optional forest shortcuts/Abandoned cabin wall BoxCollider en True b (215.706,72.134,76.730)-(216.825,73.994,77.031) along -9.36..-8.21 box c (0.000,0.000,0.000) s (1.000,1.000,1.000) rot (342.255,82.609,0.000)
+   C Backyard optional forest shortcuts/Abandoned cabin wall BoxCollider en True b (220.458,72.746,77.333)-(221.880,75.557,77.665) along -4.57..-3.12 box c (0.000,0.000,0.000) s (1.000,1.000,1.000) rot (342.256,82.940,0.000)
+   C Backyard optional forest shortcuts/Abandoned cabin wall BoxCollider en True b (216.892,72.293,76.884)-(218.085,74.385,77.192) along -8.17..-6.94 box c (0.000,0.000,0.000) s (1.000,1.000,1.000) rot (342.255,82.730,0.000)
+   C Backyard optional forest shortcuts/Abandoned cabin wall BoxCollider en True b (215.002,72.576,82.689)-(215.985,74.005,82.972) along -9.32..-8.30 box c (0.000,0.000,0.000) s (1.000,1.000,1.000) rot (342.255,82.609,0.000)
+   C Backyard optional forest shortcuts/Abandoned cabin wall BoxCollider en True b (219.863,72.673,77.259)-(221.245,75.362,77.587) along -5.17..-3.76 box c (0.000,0.000,0.000) s (1.000,1.000,1.000) rot (342.255,82.935,0.000)
+   C Backyard optional forest shortcuts/Abandoned cabin wall BoxCollider en True b (215.601,72.655,82.767)-(216.621,74.200,83.054) along -8.71..-7.66 box c (0.000,0.000,0.000) s (1.000,1.000,1.000) rot (342.255,82.663,0.000)
+   C Backyard optional forest shortcuts/Cabin end wall below roof BoxCollider en True b (215.456,72.411,76.948)-(216.545,73.043,82.793) along -9.58..-7.77 box c (0.000,-0.283,0.000) s (1.000,0.434,1.000) rot (342.255,82.609,0.000)
+   C Backyard optional forest shortcuts/Ground_Cabin board shoulders (0.102) MeshCollider en True b (204.725,70.292,70.149)-(216.273,73.944,88.183) along -21.08..-7.37 FreeRoamWorld Cabin board shoulders (0.102)
+   C Backyard optional forest shortcuts/Takeoff - Leaning boards through cabin roof MeshCollider en True b (205.447,72.161,75.063)-(225.210,76.980,85.712) along -19.75..1.19 Takeoff - Leaning boards through cabin roof (0.101)
+   C Memory loop - north is +Z/Ground_480_400 MeshCollider en True b (160.000,59.833,50.000)-(320.000,82.103,210.000) along -67.97..110.77 FreeRoamWorld-Ground_480_400-cabin-runup
+--- renderers near the joint
+   R Backyard optional forest shortcuts/Abandoned Cabin Jump traversable dense undergrowth pos (0.000,0.000,0.000) rot (0.000,0.000,0.000) sc (1.000,1.000,1.000) b (217.860,72.469,64.451)-(270.278,78.170,104.533) along -8.76..48.26 mesh Abandoned Cabin Jump dense brush (0.101) col -
+   R Backyard optional forest shortcuts/Abandoned cabin modest shed roof pos (0.000,0.000,0.000) rot (0.000,0.000,0.000) sc (1.000,1.000,1.000) b (215.081,74.100,75.066)-(225.210,76.788,85.716) along -10.19..1.19 mesh Abandoned cabin modest shed roof (0.101) col -
+   R Backyard optional forest shortcuts/Abandoned cabin wall pos (221.047,74.506,83.530) rot (342.255,82.933,0.000) sc (0.160,2.448,0.600) b (220.383,73.249,83.369)-(221.710,75.763,83.690) along -3.89..-2.53 mesh Cube col yes
+   R Backyard optional forest shortcuts/Abandoned cabin wall pos (216.730,73.564,82.990) rot (342.255,82.730,0.000) sc (0.160,1.553,0.600) b (216.201,72.733,82.844)-(217.258,74.396,83.135) along -8.11..-7.02 mesh Cube col yes
+   R Backyard optional forest shortcuts/Abandoned cabin wall pos (221.169,74.151,77.499) rot (342.256,82.940,0.000) sc (0.160,2.760,0.600) b (220.458,72.746,77.333)-(221.880,75.557,77.665) along -4.57..-3.12 mesh Cube col yes
+   R Backyard optional forest shortcuts/Abandoned cabin wall pos (220.554,74.017,77.423) rot (342.255,82.935,0.000) sc (0.160,2.631,0.600) b (219.863,72.673,77.259)-(221.245,75.362,77.587) along -5.17..-3.76 mesh Cube col yes
+   R Backyard optional forest shortcuts/Abandoned cabin wall pos (219.816,74.240,83.377) rot (342.255,82.935,0.000) sc (0.160,2.186,0.600) b (219.192,73.108,83.222)-(220.440,75.373,83.533) along -5.09..-3.81 mesh Cube col yes
+   R Backyard optional forest shortcuts/Abandoned cabin wall pos (218.583,73.972,83.224) rot (342.256,82.889,0.000) sc (0.160,1.929,0.600) b (217.998,72.961,83.073)-(219.168,74.982,83.375) along -6.29..-5.10 mesh Cube col yes
+   R Backyard optional forest shortcuts/Abandoned cabin wall pos (215.494,73.290,82.830) rot (342.255,82.609,0.000) sc (0.160,1.308,0.600) b (215.002,72.576,82.689)-(215.985,74.005,82.972) along -9.32..-8.30 mesh Cube col yes
+   R Backyard optional forest shortcuts/Abandoned cabin wall pos (216.877,73.202,76.959) rot (342.255,82.663,0.000) sc (0.160,1.882,0.600) b (216.299,72.214,76.807)-(217.455,74.189,77.112) along -8.76..-7.58 mesh Cube col yes
+   R Backyard optional forest shortcuts/Abandoned cabin wall pos (219.940,73.883,77.346) rot (342.255,82.918,0.000) sc (0.160,2.503,0.600) b (219.268,72.599,77.185)-(220.612,75.167,77.508) along -5.77..-4.40 mesh Cube col yes
+   R Backyard optional forest shortcuts/Abandoned cabin wall pos (220.432,74.374,83.453) rot (342.256,82.940,0.000) sc (0.160,2.316,0.600) b (219.788,73.179,83.296)-(221.075,75.568,83.611) along -4.49..-3.17 mesh Cube col yes
+   R Backyard optional forest shortcuts/Abandoned cabin wall pos (217.966,73.837,83.146) rot (342.255,82.848,0.000) sc (0.160,1.802,0.600) b (217.400,72.887,82.997)-(218.532,74.786,83.296) along -6.90..-5.74 mesh Cube col yes
+   R Backyard optional forest shortcuts/Abandoned cabin wall pos (217.489,73.339,77.038) rot (342.255,82.730,0.000) sc (0.160,2.004,0.600) b (216.892,72.293,76.884)-(218.085,74.385,77.192) along -8.17..-6.94 mesh Cube col yes
+   R Backyard optional forest shortcuts/Abandoned cabin wall pos (219.200,74.106,83.301) rot (342.255,82.918,0.000) sc (0.160,2.057,0.600) b (218.595,73.035,83.147)-(219.804,75.177,83.454) along -5.69..-4.45 mesh Cube col yes
+   R Backyard optional forest shortcuts/Abandoned cabin wall pos (216.111,73.428,82.910) rot (342.255,82.663,0.000) sc (0.160,1.430,0.600) b (215.601,72.655,82.767)-(216.621,74.200,83.054) along -8.71..-7.66 mesh Cube col yes
+   R Backyard optional forest shortcuts/Abandoned cabin wall pos (219.326,73.747,77.270) rot (342.256,82.889,0.000) sc (0.160,2.378,0.600) b (218.673,72.524,77.110)-(219.979,74.971,77.430) along -6.37..-5.03 mesh Cube col yes
+   R Backyard optional forest shortcuts/Abandoned cabin wall pos (218.100,73.476,77.116) rot (342.256,82.796,0.000) sc (0.160,2.127,0.600) b (217.485,72.372,76.960)-(218.716,74.580,77.272) along -7.57..-6.31 mesh Cube col yes
+   R Backyard optional forest shortcuts/Abandoned cabin wall pos (218.713,73.612,77.193) rot (342.255,82.848,0.000) sc (0.160,2.252,0.600) b (218.079,72.448,77.036)-(219.347,74.776,77.351) along -6.97..-5.67 mesh Cube col yes
+   R Backyard optional forest shortcuts/Abandoned cabin wall pos (217.348,73.701,83.069) rot (342.256,82.796,0.000) sc (0.160,1.678,0.600) b (216.801,72.810,82.921)-(217.895,74.591,83.216) along -7.50..-6.38 mesh Cube col yes
+   R Backyard optional forest shortcuts/Abandoned cabin wall pos (216.265,73.064,76.880) rot (342.255,82.609,0.000) sc (0.160,1.760,0.600) b (215.706,72.134,76.730)-(216.825,73.994,77.031) along -9.36..-8.21 mesh Cube col yes
+   R Backyard optional forest shortcuts/Boarded cabin window pos (218.271,73.860,83.286) rot (342.255,82.848,0.000) sc (0.100,0.900,1.200) b (217.562,73.249,83.148)-(218.980,74.472,83.423) along -6.72..-5.28 mesh Cube col -
+   R Backyard optional forest shortcuts/Boarded cabin window pos (221.253,74.820,83.656) rot (342.255,82.933,0.000) sc (0.100,0.900,1.200) b (220.543,74.209,83.519)-(221.962,75.432,83.793) along -3.71..-2.27 mesh Cube col -
+   R Backyard optional forest shortcuts/Cabin end wall below roof pos (215.879,73.108,79.855) rot (342.255,82.609,0.000) sc (5.850,1.413,0.160) b (215.214,72.411,76.917)-(216.545,73.805,82.793) along -9.83..-7.77 mesh Cube col yes
+   R Backyard optional forest shortcuts/Cabin weathered roof board pos (221.039,75.773,80.504) rot (0.000,82.821,0.000) sc (9.600,0.110,0.530) b (220.176,75.718,75.708)-(221.902,75.828,85.299) along -5.05..-2.14 mesh Cube col -
+   R Backyard optional forest shortcuts/Cabin weathered roof board pos (215.949,74.132,79.863) rot (0.000,82.821,0.000) sc (9.600,0.110,0.530) b (215.086,74.077,75.067)-(216.812,74.187,84.658) along -10.18..-7.27 mesh Cube col -
+   R Backyard optional forest shortcuts/Cabin weathered roof board pos (218.211,74.861,80.148) rot (0.000,82.821,0.000) sc (9.670,0.110,0.530) b (217.344,74.806,75.317)-(219.078,74.916,84.978) along -7.91..-4.98 mesh Cube col -
+   R Backyard optional forest shortcuts/Cabin weathered roof board pos (217.646,74.679,80.076) rot (0.000,82.821,0.000) sc (9.600,0.110,0.530) b (216.783,74.624,75.281)-(218.508,74.734,84.872) along -8.47..-5.56 mesh Cube col -
+   R Backyard optional forest shortcuts/Cabin weathered roof board pos (219.342,75.226,80.290) rot (0.000,82.821,0.000) sc (9.600,0.110,0.530) b (218.479,75.171,75.494)-(220.205,75.281,85.085) along -6.76..-3.85 mesh Cube col -
+   R Backyard optional forest shortcuts/Cabin weathered roof board pos (217.080,74.496,80.005) rot (0.000,82.821,0.000) sc (9.740,0.110,0.530) b (216.209,74.441,75.140)-(217.952,74.551,84.870) along -9.06..-6.12 mesh Cube col -
+   R Backyard optional forest shortcuts/Cabin weathered roof board pos (220.473,75.591,80.432) rot (0.000,82.821,0.000) sc (9.740,0.110,0.530) b (219.602,75.536,75.568)-(221.345,75.646,85.297) along -5.64..-2.70 mesh Cube col -
+   R Backyard optional forest shortcuts/Cabin weathered roof board pos (216.515,74.314,79.934) rot (0.000,82.821,0.000) sc (9.670,0.110,0.530) b (215.647,74.259,75.104)-(217.382,74.369,84.764) along -9.62..-6.69 mesh Cube col -
+   R Backyard optional forest shortcuts/Cabin weathered roof board pos (219.908,75.408,80.361) rot (0.000,82.821,0.000) sc (9.670,0.110,0.530) b (219.041,75.353,75.531)-(220.775,75.463,85.191) along -6.20..-3.27 mesh Cube col -
+   R Backyard optional forest shortcuts/Cabin weathered roof board pos (218.777,75.044,80.219) rot (0.000,82.821,0.000) sc (9.740,0.110,0.530) b (217.905,74.989,75.354)-(219.648,75.099,85.084) along -7.35..-4.41 mesh Cube col -
+   R Backyard optional forest shortcuts/Ground_Cabin board shoulders (0.102) pos (0.000,0.000,0.000) rot (0.000,0.000,0.000) sc (1.000,1.000,1.000) b (204.725,70.292,70.149)-(216.273,73.944,88.183) along -21.08..-7.37 mesh FreeRoamWorld Cabin board shoulders (0.102) col yes
+   R Backyard optional forest shortcuts/Long loose leaning board 0 pos (0.000,0.000,0.000) rot (0.000,0.000,0.000) sc (1.000,1.000,1.000) b (206.002,72.161,76.135)-(215.988,74.100,77.900) along -19.06..-8.94 mesh Leaning weathered board (0.101) 0 col -
+   R Backyard optional forest shortcuts/Long loose leaning board 1 pos (0.000,0.000,0.000) rot (0.000,0.000,0.000) sc (1.000,1.000,1.000) b (205.933,72.161,76.680)-(215.919,74.100,78.446) along -19.06..-8.94 mesh Leaning weathered board (0.101) 1 col -
+   R Backyard optional forest shortcuts/Long loose leaning board 2 pos (0.000,0.000,0.000) rot (0.000,0.000,0.000) sc (1.000,1.000,1.000) b (205.864,72.161,77.226)-(215.851,74.100,78.992) along -19.06..-8.94 mesh Leaning weathered board (0.101) 2 col -
+   R Backyard optional forest shortcuts/Long loose leaning board 3 pos (0.000,0.000,0.000) rot (0.000,0.000,0.000) sc (1.000,1.000,1.000) b (205.795,72.161,77.772)-(215.782,74.100,79.537) along -19.06..-8.94 mesh Leaning weathered board (0.101) 3 col -
+   R Backyard optional forest shortcuts/Long loose leaning board 4 pos (0.000,0.000,0.000) rot (0.000,0.000,0.000) sc (1.000,1.000,1.000) b (205.727,72.161,78.317)-(215.713,74.100,80.083) along -19.06..-8.94 mesh Leaning weathered board (0.101) 4 col -
+   R Backyard optional forest shortcuts/Long loose leaning board 5 pos (0.000,0.000,0.000) rot (0.000,0.000,0.000) sc (1.000,1.000,1.000) b (205.658,72.161,78.863)-(215.644,74.100,80.629) along -19.06..-8.94 mesh Leaning weathered board (0.101) 5 col -
+   R Backyard optional forest shortcuts/Long loose leaning board 6 pos (0.000,0.000,0.000) rot (0.000,0.000,0.000) sc (1.000,1.000,1.000) b (205.589,72.161,79.409)-(215.576,74.100,81.174) along -19.06..-8.94 mesh Leaning weathered board (0.101) 6 col -
+   R Backyard optional forest shortcuts/Long loose leaning board 7 pos (0.000,0.000,0.000) rot (0.000,0.000,0.000) sc (1.000,1.000,1.000) b (205.520,72.161,79.954)-(215.507,74.100,81.720) along -19.06..-8.94 mesh Leaning weathered board (0.101) 7 col -
+   R Backyard optional forest shortcuts/Long loose leaning board 8 pos (0.000,0.000,0.000) rot (0.000,0.000,0.000) sc (1.000,1.000,1.000) b (205.452,72.161,80.500)-(215.438,74.100,82.266) along -19.06..-8.94 mesh Leaning weathered board (0.101) 8 col -
+--- colliders: top surface every 2 cm from along -11.00 to -7.00 (step = height change over 2 cm minus the expected from the local slope; flagged over 1 cm, slope change over 0.05, name change, no hit)
+  lateral 0.0 (+ = right of the axis looking at the lip)
+    along -11.00 y   73.536 slope-normal 0.237 Takeoff - Leaning boards through cabin roof
+    along -10.80 y   73.586 slope-normal 0.249 Takeoff - Leaning boards through cabin roof
+    along -10.60 y   73.637 slope-normal 0.261 Takeoff - Leaning boards through cabin roof
+    along -10.40 y   73.691 slope-normal 0.261 Takeoff - Leaning boards through cabin roof
+    along -10.20 y   73.744 slope-normal 0.274 Takeoff - Leaning boards through cabin roof
+    along -10.00 y   73.800 slope-normal 0.274 Takeoff - Leaning boards through cabin roof
+    along  -9.80 y   73.857 slope-normal 0.274 Takeoff - Leaning boards through cabin roof
+    along  -9.60 y   73.916 slope-normal 0.288 Takeoff - Leaning boards through cabin roof
+    along  -9.40 y   73.975 slope-normal 0.288 Takeoff - Leaning boards through cabin roof
+    along  -9.20 y   74.038 slope-normal 0.302 Takeoff - Leaning boards through cabin roof
+    along  -9.00 y   74.100 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -8.80 y   74.164 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -8.60 y   74.228 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -8.40 y   74.292 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -8.20 y   74.356 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -8.00 y   74.420 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -7.80 y   74.484 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -7.60 y   74.548 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -7.40 y   74.612 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -7.20 y   74.676 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -7.00 y   74.740 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    summary lateral 0.0: 0 flagged, largest step +0.03 cm, slope over 2 cm 0.253..0.320
+    parallel ray 3 cm above, slope 0.254: hits Takeoff - Leaning boards through cabin roof at along -9.48 y 73.952 normal (-0.282,0.959,-0.036)
+    parallel ray 8 cm above, slope 0.254: hits Takeoff - Leaning boards through cabin roof at along -8.65 y 74.213 normal (-0.302,0.952,-0.038)
+    parallel ray 15 cm above, slope 0.254: hits Takeoff - Leaning boards through cabin roof at along -7.59 y 74.552 normal (-0.302,0.952,-0.038)
+    parallel ray 30 cm above, slope 0.254: clear for 4.2 m
+  lateral -0.5 (+ = right of the axis looking at the lip)
+    along -11.00 y   73.536 slope-normal 0.237 Takeoff - Leaning boards through cabin roof
+    along -10.80 y   73.586 slope-normal 0.249 Takeoff - Leaning boards through cabin roof
+    along -10.60 y   73.637 slope-normal 0.261 Takeoff - Leaning boards through cabin roof
+    along -10.40 y   73.691 slope-normal 0.261 Takeoff - Leaning boards through cabin roof
+    along -10.20 y   73.744 slope-normal 0.274 Takeoff - Leaning boards through cabin roof
+    along -10.00 y   73.800 slope-normal 0.274 Takeoff - Leaning boards through cabin roof
+    along  -9.80 y   73.857 slope-normal 0.274 Takeoff - Leaning boards through cabin roof
+    along  -9.60 y   73.916 slope-normal 0.288 Takeoff - Leaning boards through cabin roof
+    along  -9.40 y   73.975 slope-normal 0.302 Takeoff - Leaning boards through cabin roof
+    along  -9.20 y   74.038 slope-normal 0.302 Takeoff - Leaning boards through cabin roof
+    along  -9.00 y   74.100 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -8.80 y   74.164 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -8.60 y   74.228 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -8.40 y   74.292 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -8.20 y   74.356 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -8.00 y   74.420 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -7.80 y   74.484 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -7.60 y   74.548 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -7.40 y   74.612 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -7.20 y   74.676 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -7.00 y   74.740 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    summary lateral -0.5: 0 flagged, largest step +0.03 cm, slope over 2 cm 0.254..0.321
+    parallel ray 3 cm above, slope 0.254: hits Takeoff - Leaning boards through cabin roof at along -9.48 y 73.952 normal (-0.282,0.959,-0.036)
+    parallel ray 8 cm above, slope 0.254: hits Takeoff - Leaning boards through cabin roof at along -8.65 y 74.213 normal (-0.302,0.952,-0.038)
+    parallel ray 15 cm above, slope 0.254: hits Takeoff - Leaning boards through cabin roof at along -7.59 y 74.552 normal (-0.302,0.952,-0.038)
+    parallel ray 30 cm above, slope 0.254: clear for 4.2 m
+  lateral +0.5 (+ = right of the axis looking at the lip)
+    along -11.00 y   73.536 slope-normal 0.237 Takeoff - Leaning boards through cabin roof
+    along -10.80 y   73.586 slope-normal 0.249 Takeoff - Leaning boards through cabin roof
+    along -10.60 y   73.637 slope-normal 0.261 Takeoff - Leaning boards through cabin roof
+    along -10.40 y   73.691 slope-normal 0.261 Takeoff - Leaning boards through cabin roof
+    along -10.20 y   73.744 slope-normal 0.274 Takeoff - Leaning boards through cabin roof
+    along -10.00 y   73.800 slope-normal 0.274 Takeoff - Leaning boards through cabin roof
+    along  -9.80 y   73.857 slope-normal 0.274 Takeoff - Leaning boards through cabin roof
+    along  -9.60 y   73.916 slope-normal 0.288 Takeoff - Leaning boards through cabin roof
+    along  -9.40 y   73.975 slope-normal 0.302 Takeoff - Leaning boards through cabin roof
+    along  -9.20 y   74.038 slope-normal 0.302 Takeoff - Leaning boards through cabin roof
+    along  -9.00 y   74.100 slope-normal 0.302 Takeoff - Leaning boards through cabin roof
+    along  -8.80 y   74.164 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -8.60 y   74.228 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -8.40 y   74.292 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -8.20 y   74.356 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -8.00 y   74.420 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -7.80 y   74.484 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -7.60 y   74.548 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -7.40 y   74.612 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -7.20 y   74.676 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -7.00 y   74.740 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    summary lateral +0.5: 0 flagged, largest step +0.03 cm, slope over 2 cm 0.253..0.320
+    parallel ray 3 cm above, slope 0.254: hits Takeoff - Leaning boards through cabin roof at along -9.48 y 73.952 normal (-0.282,0.959,-0.036)
+    parallel ray 8 cm above, slope 0.254: hits Takeoff - Leaning boards through cabin roof at along -8.64 y 74.214 normal (-0.302,0.952,-0.038)
+    parallel ray 15 cm above, slope 0.254: hits Takeoff - Leaning boards through cabin roof at along -7.59 y 74.553 normal (-0.302,0.952,-0.038)
+    parallel ray 30 cm above, slope 0.254: clear for 4.2 m
+  lateral -1.0 (+ = right of the axis looking at the lip)
+    along -11.00 y   73.536 slope-normal 0.237 Takeoff - Leaning boards through cabin roof
+    along -10.80 y   73.586 slope-normal 0.249 Takeoff - Leaning boards through cabin roof
+    along -10.60 y   73.637 slope-normal 0.261 Takeoff - Leaning boards through cabin roof
+    along -10.40 y   73.691 slope-normal 0.261 Takeoff - Leaning boards through cabin roof
+    along -10.20 y   73.744 slope-normal 0.261 Takeoff - Leaning boards through cabin roof
+    along -10.00 y   73.800 slope-normal 0.274 Takeoff - Leaning boards through cabin roof
+    along  -9.80 y   73.857 slope-normal 0.274 Takeoff - Leaning boards through cabin roof
+    along  -9.60 y   73.916 slope-normal 0.288 Takeoff - Leaning boards through cabin roof
+    along  -9.40 y   73.975 slope-normal 0.302 Takeoff - Leaning boards through cabin roof
+    along  -9.20 y   74.038 slope-normal 0.302 Takeoff - Leaning boards through cabin roof
+    along  -9.00 y   74.100 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -8.80 y   74.164 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -8.60 y   74.228 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -8.40 y   74.292 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -8.20 y   74.356 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -8.00 y   74.420 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -7.80 y   74.484 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -7.60 y   74.548 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -7.40 y   74.612 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -7.20 y   74.676 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -7.00 y   74.740 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    summary lateral -1.0: 0 flagged, largest step +0.03 cm, slope over 2 cm 0.253..0.320
+    parallel ray 3 cm above, slope 0.254: hits Takeoff - Leaning boards through cabin roof at along -9.48 y 73.952 normal (-0.282,0.959,-0.036)
+    parallel ray 8 cm above, slope 0.254: hits Takeoff - Leaning boards through cabin roof at along -8.64 y 74.214 normal (-0.302,0.952,-0.038)
+    parallel ray 15 cm above, slope 0.254: hits Takeoff - Leaning boards through cabin roof at along -7.59 y 74.553 normal (-0.302,0.952,-0.038)
+    parallel ray 30 cm above, slope 0.254: clear for 4.2 m
+  lateral +1.0 (+ = right of the axis looking at the lip)
+    along -11.00 y   73.536 slope-normal 0.249 Takeoff - Leaning boards through cabin roof
+    along -10.80 y   73.586 slope-normal 0.249 Takeoff - Leaning boards through cabin roof
+    along -10.60 y   73.637 slope-normal 0.261 Takeoff - Leaning boards through cabin roof
+    along -10.40 y   73.691 slope-normal 0.261 Takeoff - Leaning boards through cabin roof
+    along -10.20 y   73.744 slope-normal 0.274 Takeoff - Leaning boards through cabin roof
+    along -10.00 y   73.800 slope-normal 0.274 Takeoff - Leaning boards through cabin roof
+    along  -9.80 y   73.857 slope-normal 0.274 Takeoff - Leaning boards through cabin roof
+    along  -9.60 y   73.916 slope-normal 0.288 Takeoff - Leaning boards through cabin roof
+    along  -9.40 y   73.975 slope-normal 0.288 Takeoff - Leaning boards through cabin roof
+    along  -9.20 y   74.038 slope-normal 0.302 Takeoff - Leaning boards through cabin roof
+    along  -9.00 y   74.100 slope-normal 0.302 Takeoff - Leaning boards through cabin roof
+    along  -8.80 y   74.164 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -8.60 y   74.228 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -8.40 y   74.292 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -8.20 y   74.356 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -8.00 y   74.420 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -7.80 y   74.484 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -7.60 y   74.548 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -7.40 y   74.612 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -7.20 y   74.676 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -7.00 y   74.740 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    summary lateral +1.0: 0 flagged, largest step +0.03 cm, slope over 2 cm 0.253..0.320
+    parallel ray 3 cm above, slope 0.254: hits Takeoff - Leaning boards through cabin roof at along -9.48 y 73.952 normal (-0.282,0.959,-0.036)
+    parallel ray 8 cm above, slope 0.254: hits Takeoff - Leaning boards through cabin roof at along -8.64 y 74.214 normal (-0.302,0.952,-0.038)
+    parallel ray 15 cm above, slope 0.254: hits Takeoff - Leaning boards through cabin roof at along -7.59 y 74.553 normal (-0.302,0.952,-0.038)
+    parallel ray 30 cm above, slope 0.254: clear for 4.2 m
+  lateral -1.5 (+ = right of the axis looking at the lip)
+    along -11.00 y   73.536 slope-normal 0.249 Takeoff - Leaning boards through cabin roof
+    along -10.80 y   73.586 slope-normal 0.249 Takeoff - Leaning boards through cabin roof
+    along -10.60 y   73.637 slope-normal 0.261 Takeoff - Leaning boards through cabin roof
+    along -10.40 y   73.691 slope-normal 0.261 Takeoff - Leaning boards through cabin roof
+    along -10.20 y   73.744 slope-normal 0.274 Takeoff - Leaning boards through cabin roof
+    along -10.00 y   73.800 slope-normal 0.274 Takeoff - Leaning boards through cabin roof
+    along  -9.80 y   73.857 slope-normal 0.274 Takeoff - Leaning boards through cabin roof
+    along  -9.60 y   73.916 slope-normal 0.288 Takeoff - Leaning boards through cabin roof
+    along  -9.40 y   73.975 slope-normal 0.302 Takeoff - Leaning boards through cabin roof
+    along  -9.20 y   74.038 slope-normal 0.302 Takeoff - Leaning boards through cabin roof
+    along  -9.00 y   74.100 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -8.80 y   74.164 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -8.60 y   74.228 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -8.40 y   74.292 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -8.20 y   74.356 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -8.00 y   74.420 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -7.80 y   74.484 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -7.60 y   74.548 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -7.40 y   74.612 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -7.20 y   74.676 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -7.00 y   74.740 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    summary lateral -1.5: 0 flagged, largest step +0.03 cm, slope over 2 cm 0.254..0.321
+    parallel ray 3 cm above, slope 0.254: hits Takeoff - Leaning boards through cabin roof at along -9.48 y 73.952 normal (-0.282,0.959,-0.036)
+    parallel ray 8 cm above, slope 0.254: hits Takeoff - Leaning boards through cabin roof at along -8.65 y 74.213 normal (-0.302,0.952,-0.038)
+    parallel ray 15 cm above, slope 0.254: hits Takeoff - Leaning boards through cabin roof at along -7.59 y 74.552 normal (-0.302,0.952,-0.038)
+    parallel ray 30 cm above, slope 0.254: clear for 4.2 m
+  lateral +1.5 (+ = right of the axis looking at the lip)
+    along -11.00 y   73.536 slope-normal 0.237 Takeoff - Leaning boards through cabin roof
+    along -10.80 y   73.586 slope-normal 0.249 Takeoff - Leaning boards through cabin roof
+    along -10.60 y   73.637 slope-normal 0.261 Takeoff - Leaning boards through cabin roof
+    along -10.40 y   73.691 slope-normal 0.261 Takeoff - Leaning boards through cabin roof
+    along -10.20 y   73.744 slope-normal 0.274 Takeoff - Leaning boards through cabin roof
+    along -10.00 y   73.800 slope-normal 0.274 Takeoff - Leaning boards through cabin roof
+    along  -9.80 y   73.857 slope-normal 0.274 Takeoff - Leaning boards through cabin roof
+    along  -9.60 y   73.916 slope-normal 0.288 Takeoff - Leaning boards through cabin roof
+    along  -9.40 y   73.975 slope-normal 0.288 Takeoff - Leaning boards through cabin roof
+    along  -9.20 y   74.038 slope-normal 0.302 Takeoff - Leaning boards through cabin roof
+    along  -9.00 y   74.100 slope-normal 0.302 Takeoff - Leaning boards through cabin roof
+    along  -8.80 y   74.164 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -8.60 y   74.228 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -8.40 y   74.292 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -8.20 y   74.356 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -8.00 y   74.420 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -7.80 y   74.484 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -7.60 y   74.548 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -7.40 y   74.612 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -7.20 y   74.676 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    along  -7.00 y   74.740 slope-normal 0.310 Takeoff - Leaning boards through cabin roof
+    summary lateral +1.5: 0 flagged, largest step +0.03 cm, slope over 2 cm 0.253..0.320
+    parallel ray 3 cm above, slope 0.254: hits Takeoff - Leaning boards through cabin roof at along -9.48 y 73.952 normal (-0.282,0.959,-0.036)
+    parallel ray 8 cm above, slope 0.254: hits Takeoff - Leaning boards through cabin roof at along -8.64 y 74.214 normal (-0.302,0.952,-0.038)
+    parallel ray 15 cm above, slope 0.254: hits Takeoff - Leaning boards through cabin roof at along -7.59 y 74.553 normal (-0.302,0.952,-0.038)
+    parallel ray 30 cm above, slope 0.254: clear for 4.2 m
+--- visible: top surface every 2 cm from along -11.00 to -7.00 (step = height change over 2 cm minus the expected from the local slope; flagged over 1 cm, slope change over 0.05, name change, no hit)
+  lateral 0.0 (+ = right of the axis looking at the lip)
+    along -11.00 y   73.536 slope-normal 0.239 Long loose leaning board 4
+    along -10.80 y   73.586 slope-normal 0.246 Long loose leaning board 4
+    along -10.60 y   73.638 slope-normal 0.254 Long loose leaning board 4
+    along -10.40 y   73.690 slope-normal 0.262 Long loose leaning board 4
+    along -10.20 y   73.744 slope-normal 0.270 Long loose leaning board 4
+    along -10.00 y   73.800 slope-normal 0.270 Long loose leaning board 4
+    along  -9.80 y   73.857 slope-normal 0.279 Long loose leaning board 4
+    along  -9.60 y   73.915 slope-normal 0.287 Long loose leaning board 4
+    along  -9.40 y   73.976 slope-normal 0.296 Long loose leaning board 4
+    along  -9.20 y   74.037 slope-normal 0.305 Long loose leaning board 4
+    along  -9.00 y   74.100 slope-normal 0.305 Long loose leaning board 4
+    along  -8.98 y   74.187 slope-normal 0.000 Cabin weathered roof board STEP +8.0 cm NAME Long loose leaning board 4 -> Cabin weathered roof board
+    along  -8.96 y   74.187 slope-normal 0.000 Cabin weathered roof board STEP -8.7 cm
+    along  -8.80 y   74.187 slope-normal 0.000 Cabin weathered roof board
+    along  -8.72 y   74.190 slope-normal 0.310 Abandoned cabin modest shed roof SLOPE 0.000->0.143 NAME Cabin weathered roof board -> Abandoned cabin modest shed roof
+    along  -8.70 y   74.196 slope-normal 0.310 Abandoned cabin modest shed roof SLOPE 0.143->0.320
+    along  -8.60 y   74.228 slope-normal 0.310 Abandoned cabin modest shed roof
+    along  -8.42 y   74.369 slope-normal 0.000 Cabin weathered roof board STEP +8.4 cm NAME Abandoned cabin modest shed roof -> Cabin weathered roof board
+    along  -8.40 y   74.369 slope-normal 0.000 Cabin weathered roof board STEP -9.0 cm
+    along  -8.20 y   74.369 slope-normal 0.000 Cabin weathered roof board
+    along  -8.14 y   74.375 slope-normal 0.310 Abandoned cabin modest shed roof SLOPE 0.000->0.303 NAME Cabin weathered roof board -> Abandoned cabin modest shed roof
+    along  -8.00 y   74.420 slope-normal 0.310 Abandoned cabin modest shed roof
+    along  -7.84 y   74.551 slope-normal 0.000 Cabin weathered roof board STEP +8.0 cm NAME Abandoned cabin modest shed roof -> Cabin weathered roof board
+    along  -7.82 y   74.551 slope-normal 0.000 Cabin weathered roof board STEP -8.7 cm
+    along  -7.80 y   74.551 slope-normal 0.000 Cabin weathered roof board
+    along  -7.60 y   74.551 slope-normal 0.000 Cabin weathered roof board
+    along  -7.58 y   74.554 slope-normal 0.310 Abandoned cabin modest shed roof SLOPE 0.000->0.143 NAME Cabin weathered roof board -> Abandoned cabin modest shed roof
+    along  -7.56 y   74.561 slope-normal 0.310 Abandoned cabin modest shed roof SLOPE 0.143->0.320
+    along  -7.40 y   74.612 slope-normal 0.310 Abandoned cabin modest shed roof
+    along  -7.28 y   74.734 slope-normal 0.000 Cabin weathered roof board STEP +8.4 cm NAME Abandoned cabin modest shed roof -> Cabin weathered roof board
+    along  -7.26 y   74.734 slope-normal 0.000 Cabin weathered roof board STEP -9.0 cm
+    along  -7.20 y   74.734 slope-normal 0.000 Cabin weathered roof board
+    along  -7.00 y   74.740 slope-normal 0.310 Abandoned cabin modest shed roof SLOPE 0.000->0.304 NAME Cabin weathered roof board -> Abandoned cabin modest shed roof
+    summary lateral 0.0: 14 flagged, largest step -8.99 cm, slope over 2 cm 0.000..4.496
+    parallel ray 3 cm above, slope 0.251: hits Long loose leaning board 4 at along -9.55 y 73.931 normal (-0.281,0.959,-0.035); hits Cabin weathered roof board at along -8.97 y 74.077 normal (0.000,-1.000,0.000); hits Cabin weathered roof board at along -8.24 y 74.259 normal (0.000,-1.000,0.000)
+    parallel ray 8 cm above, slope 0.251: hits Cabin weathered roof board at along -8.99 y 74.120 normal (-0.992,0.000,-0.125); hits Abandoned cabin modest shed roof at along -8.73 y 74.187 normal (-0.302,0.952,-0.038); hits Cabin weathered roof board at along -8.42 y 74.263 normal (-0.992,0.000,-0.125)
+    parallel ray 15 cm above, slope 0.251: hits Cabin weathered roof board at along -8.42 y 74.333 normal (-0.992,0.000,-0.125); hits Cabin weathered roof board at along -7.85 y 74.477 normal (-0.992,0.000,-0.125); hits Abandoned cabin modest shed roof at along -7.71 y 74.514 normal (-0.302,0.952,-0.038)
+    parallel ray 30 cm above, slope 0.251: clear for 4.2 m
+  lateral -0.5 (+ = right of the axis looking at the lip)
+    along -11.00 y   73.536 slope-normal 0.239 Long loose leaning board 3
+    along -10.80 y   73.586 slope-normal 0.246 Long loose leaning board 3
+    along -10.60 y   73.638 slope-normal 0.254 Long loose leaning board 3
+    along -10.40 y   73.690 slope-normal 0.262 Long loose leaning board 3
+    along -10.20 y   73.744 slope-normal 0.270 Long loose leaning board 3
+    along -10.00 y   73.800 slope-normal 0.279 Long loose leaning board 3
+    along  -9.80 y   73.857 slope-normal 0.279 Long loose leaning board 3
+    along  -9.60 y   73.915 slope-normal 0.287 Long loose leaning board 3
+    along  -9.40 y   73.976 slope-normal 0.296 Long loose leaning board 3
+    along  -9.20 y   74.037 slope-normal 0.305 Long loose leaning board 3
+    along  -9.00 y   74.100 slope-normal 0.305 Long loose leaning board 3
+    along  -8.98 y   74.187 slope-normal 0.000 Cabin weathered roof board STEP +8.0 cm NAME Long loose leaning board 3 -> Cabin weathered roof board
+    along  -8.96 y   74.187 slope-normal 0.000 Cabin weathered roof board STEP -8.7 cm
+    along  -8.80 y   74.187 slope-normal 0.000 Cabin weathered roof board
+    along  -8.72 y   74.190 slope-normal 0.310 Abandoned cabin modest shed roof SLOPE 0.000->0.143 NAME Cabin weathered roof board -> Abandoned cabin modest shed roof
+    along  -8.70 y   74.196 slope-normal 0.310 Abandoned cabin modest shed roof SLOPE 0.143->0.320
+    along  -8.60 y   74.228 slope-normal 0.310 Abandoned cabin modest shed roof
+    along  -8.42 y   74.369 slope-normal 0.000 Cabin weathered roof board STEP +8.4 cm NAME Abandoned cabin modest shed roof -> Cabin weathered roof board
+    along  -8.40 y   74.369 slope-normal 0.000 Cabin weathered roof board STEP -9.0 cm
+    along  -8.20 y   74.369 slope-normal 0.000 Cabin weathered roof board
+    along  -8.14 y   74.375 slope-normal 0.310 Abandoned cabin modest shed roof SLOPE 0.000->0.304 NAME Cabin weathered roof board -> Abandoned cabin modest shed roof
+    along  -8.00 y   74.420 slope-normal 0.310 Abandoned cabin modest shed roof
+    along  -7.84 y   74.551 slope-normal 0.000 Cabin weathered roof board STEP +8.0 cm NAME Abandoned cabin modest shed roof -> Cabin weathered roof board
+    along  -7.82 y   74.551 slope-normal 0.000 Cabin weathered roof board STEP -8.7 cm
+    along  -7.80 y   74.551 slope-normal 0.000 Cabin weathered roof board
+    along  -7.60 y   74.551 slope-normal 0.000 Cabin weathered roof board
+    along  -7.58 y   74.554 slope-normal 0.310 Abandoned cabin modest shed roof SLOPE 0.000->0.143 NAME Cabin weathered roof board -> Abandoned cabin modest shed roof
+    along  -7.56 y   74.561 slope-normal 0.310 Abandoned cabin modest shed roof SLOPE 0.143->0.320
+    along  -7.40 y   74.612 slope-normal 0.310 Abandoned cabin modest shed roof
+    along  -7.28 y   74.734 slope-normal 0.000 Cabin weathered roof board STEP +8.4 cm NAME Abandoned cabin modest shed roof -> Cabin weathered roof board
+    along  -7.26 y   74.734 slope-normal 0.000 Cabin weathered roof board STEP -9.0 cm
+    along  -7.20 y   74.734 slope-normal 0.000 Cabin weathered roof board
+    along  -7.00 y   74.740 slope-normal 0.310 Abandoned cabin modest shed roof SLOPE 0.000->0.304 NAME Cabin weathered roof board -> Abandoned cabin modest shed roof
+    summary lateral -0.5: 14 flagged, largest step -8.99 cm, slope over 2 cm 0.000..4.496
+    parallel ray 3 cm above, slope 0.251: hits Long loose leaning board 3 at along -9.55 y 73.930 normal (-0.281,0.959,-0.035); hits Cabin weathered roof board at along -8.97 y 74.077 normal (0.000,-1.000,0.000); hits Cabin weathered roof board at along -8.24 y 74.259 normal (0.000,-1.000,0.000)
+    parallel ray 8 cm above, slope 0.251: hits Cabin weathered roof board at along -8.99 y 74.120 normal (-0.992,0.000,-0.125); hits Abandoned cabin modest shed roof at along -8.73 y 74.187 normal (-0.302,0.952,-0.038); hits Cabin weathered roof board at along -8.42 y 74.263 normal (-0.992,0.000,-0.125)
+    parallel ray 15 cm above, slope 0.251: hits Cabin weathered roof board at along -8.42 y 74.333 normal (-0.992,0.000,-0.125); hits Cabin weathered roof board at along -7.85 y 74.477 normal (-0.992,0.000,-0.125); hits Abandoned cabin modest shed roof at along -7.71 y 74.514 normal (-0.302,0.952,-0.038)
+    parallel ray 30 cm above, slope 0.251: clear for 4.2 m
+  lateral +0.5 (+ = right of the axis looking at the lip)
+    along -11.00 y   73.536 slope-normal 0.239 Long loose leaning board 5
+    along -10.80 y   73.586 slope-normal 0.246 Long loose leaning board 5
+    along -10.60 y   73.638 slope-normal 0.254 Long loose leaning board 5
+    along -10.40 y   73.690 slope-normal 0.262 Long loose leaning board 5
+    along -10.20 y   73.744 slope-normal 0.270 Long loose leaning board 5
+    along -10.00 y   73.800 slope-normal 0.270 Long loose leaning board 5
+    along  -9.80 y   73.857 slope-normal 0.279 Long loose leaning board 5
+    along  -9.60 y   73.915 slope-normal 0.287 Long loose leaning board 5
+    along  -9.40 y   73.976 slope-normal 0.296 Long loose leaning board 5
+    along  -9.20 y   74.037 slope-normal 0.305 Long loose leaning board 5
+    along  -9.00 y   74.100 slope-normal 0.305 Long loose leaning board 5
+    along  -8.98 y   74.187 slope-normal 0.000 Cabin weathered roof board STEP +8.0 cm NAME Long loose leaning board 5 -> Cabin weathered roof board
+    along  -8.96 y   74.187 slope-normal 0.000 Cabin weathered roof board STEP -8.7 cm
+    along  -8.80 y   74.187 slope-normal 0.000 Cabin weathered roof board
+    along  -8.72 y   74.190 slope-normal 0.310 Abandoned cabin modest shed roof SLOPE 0.000->0.143 NAME Cabin weathered roof board -> Abandoned cabin modest shed roof
+    along  -8.70 y   74.196 slope-normal 0.310 Abandoned cabin modest shed roof SLOPE 0.143->0.320
+    along  -8.60 y   74.228 slope-normal 0.310 Abandoned cabin modest shed roof
+    along  -8.42 y   74.369 slope-normal 0.000 Cabin weathered roof board STEP +8.4 cm NAME Abandoned cabin modest shed roof -> Cabin weathered roof board
+    along  -8.40 y   74.369 slope-normal 0.000 Cabin weathered roof board STEP -9.0 cm
+    along  -8.20 y   74.369 slope-normal 0.000 Cabin weathered roof board
+    along  -8.14 y   74.375 slope-normal 0.310 Abandoned cabin modest shed roof SLOPE 0.000->0.303 NAME Cabin weathered roof board -> Abandoned cabin modest shed roof
+    along  -8.00 y   74.420 slope-normal 0.310 Abandoned cabin modest shed roof
+    along  -7.84 y   74.551 slope-normal 0.000 Cabin weathered roof board STEP +8.0 cm NAME Abandoned cabin modest shed roof -> Cabin weathered roof board
+    along  -7.82 y   74.551 slope-normal 0.000 Cabin weathered roof board STEP -8.7 cm
+    along  -7.80 y   74.551 slope-normal 0.000 Cabin weathered roof board
+    along  -7.60 y   74.551 slope-normal 0.000 Cabin weathered roof board
+    along  -7.58 y   74.554 slope-normal 0.310 Abandoned cabin modest shed roof SLOPE 0.000->0.143 NAME Cabin weathered roof board -> Abandoned cabin modest shed roof
+    along  -7.56 y   74.561 slope-normal 0.310 Abandoned cabin modest shed roof SLOPE 0.143->0.319
+    along  -7.40 y   74.612 slope-normal 0.310 Abandoned cabin modest shed roof
+    along  -7.28 y   74.734 slope-normal 0.000 Cabin weathered roof board STEP +8.4 cm NAME Abandoned cabin modest shed roof -> Cabin weathered roof board
+    along  -7.26 y   74.734 slope-normal 0.000 Cabin weathered roof board STEP -9.0 cm
+    along  -7.20 y   74.734 slope-normal 0.000 Cabin weathered roof board
+    along  -7.00 y   74.740 slope-normal 0.310 Abandoned cabin modest shed roof SLOPE 0.000->0.304 NAME Cabin weathered roof board -> Abandoned cabin modest shed roof
+    summary lateral +0.5: 14 flagged, largest step -8.99 cm, slope over 2 cm 0.000..4.497
+    parallel ray 3 cm above, slope 0.251: hits Long loose leaning board 5 at along -9.55 y 73.930 normal (-0.281,0.959,-0.035); hits Cabin weathered roof board at along -8.97 y 74.077 normal (0.000,-1.000,0.000); hits Cabin weathered roof board at along -8.24 y 74.259 normal (0.000,-1.000,0.000)
+    parallel ray 8 cm above, slope 0.251: hits Cabin weathered roof board at along -8.99 y 74.120 normal (-0.992,0.000,-0.125); hits Abandoned cabin modest shed roof at along -8.73 y 74.187 normal (-0.302,0.952,-0.038); hits Cabin weathered roof board at along -8.42 y 74.263 normal (-0.992,0.000,-0.125)
+    parallel ray 15 cm above, slope 0.251: hits Cabin weathered roof board at along -8.42 y 74.333 normal (-0.992,0.000,-0.125); hits Cabin weathered roof board at along -7.85 y 74.477 normal (-0.992,0.000,-0.125); hits Abandoned cabin modest shed roof at along -7.71 y 74.514 normal (-0.302,0.952,-0.038)
+    parallel ray 30 cm above, slope 0.251: clear for 4.2 m
+  lateral -1.0 (+ = right of the axis looking at the lip)
+    along -11.00 y   73.536 slope-normal 0.239 Long loose leaning board 2
+    along -10.80 y   73.586 slope-normal 0.246 Long loose leaning board 2
+    along -10.60 y   73.638 slope-normal 0.254 Long loose leaning board 2
+    along -10.40 y   73.690 slope-normal 0.262 Long loose leaning board 2
+    along -10.20 y   73.744 slope-normal 0.270 Long loose leaning board 2
+    along -10.00 y   73.800 slope-normal 0.270 Long loose leaning board 2
+    along  -9.80 y   73.857 slope-normal 0.279 Long loose leaning board 2
+    along  -9.60 y   73.915 slope-normal 0.287 Long loose leaning board 2
+    along  -9.40 y   73.976 slope-normal 0.296 Long loose leaning board 2
+    along  -9.20 y   74.037 slope-normal 0.305 Long loose leaning board 2
+    along  -9.00 y   74.100 slope-normal 0.305 Long loose leaning board 2
+    along  -8.98 y   74.187 slope-normal 0.000 Cabin weathered roof board STEP +8.0 cm NAME Long loose leaning board 2 -> Cabin weathered roof board
+    along  -8.96 y   74.187 slope-normal 0.000 Cabin weathered roof board STEP -8.7 cm
+    along  -8.80 y   74.187 slope-normal 0.000 Cabin weathered roof board
+    along  -8.72 y   74.190 slope-normal 0.310 Abandoned cabin modest shed roof SLOPE 0.000->0.143 NAME Cabin weathered roof board -> Abandoned cabin modest shed roof
+    along  -8.70 y   74.196 slope-normal 0.310 Abandoned cabin modest shed roof SLOPE 0.143->0.320
+    along  -8.60 y   74.228 slope-normal 0.310 Abandoned cabin modest shed roof
+    along  -8.42 y   74.369 slope-normal 0.000 Cabin weathered roof board STEP +8.4 cm NAME Abandoned cabin modest shed roof -> Cabin weathered roof board
+    along  -8.40 y   74.369 slope-normal 0.000 Cabin weathered roof board STEP -9.0 cm
+    along  -8.20 y   74.369 slope-normal 0.000 Cabin weathered roof board
+    along  -8.14 y   74.375 slope-normal 0.310 Abandoned cabin modest shed roof SLOPE 0.000->0.303 NAME Cabin weathered roof board -> Abandoned cabin modest shed roof
+    along  -8.00 y   74.420 slope-normal 0.310 Abandoned cabin modest shed roof
+    along  -7.84 y   74.551 slope-normal 0.000 Cabin weathered roof board STEP +8.0 cm NAME Abandoned cabin modest shed roof -> Cabin weathered roof board
+    along  -7.82 y   74.551 slope-normal 0.000 Cabin weathered roof board STEP -8.7 cm
+    along  -7.80 y   74.551 slope-normal 0.000 Cabin weathered roof board
+    along  -7.60 y   74.551 slope-normal 0.000 Cabin weathered roof board
+    along  -7.58 y   74.554 slope-normal 0.310 Abandoned cabin modest shed roof SLOPE 0.000->0.143 NAME Cabin weathered roof board -> Abandoned cabin modest shed roof
+    along  -7.56 y   74.561 slope-normal 0.310 Abandoned cabin modest shed roof SLOPE 0.143->0.320
+    along  -7.40 y   74.612 slope-normal 0.310 Abandoned cabin modest shed roof
+    along  -7.28 y   74.734 slope-normal 0.000 Cabin weathered roof board STEP +8.4 cm NAME Abandoned cabin modest shed roof -> Cabin weathered roof board
+    along  -7.26 y   74.734 slope-normal 0.000 Cabin weathered roof board STEP -9.0 cm
+    along  -7.20 y   74.734 slope-normal 0.000 Cabin weathered roof board
+    along  -7.00 y   74.740 slope-normal 0.310 Abandoned cabin modest shed roof SLOPE 0.000->0.304 NAME Cabin weathered roof board -> Abandoned cabin modest shed roof
+    summary lateral -1.0: 14 flagged, largest step -8.99 cm, slope over 2 cm 0.000..4.497
+    parallel ray 3 cm above, slope 0.251: hits Long loose leaning board 2 at along -9.55 y 73.930 normal (-0.281,0.959,-0.035); hits Cabin weathered roof board at along -8.97 y 74.077 normal (0.000,-1.000,0.000); hits Cabin weathered roof board at along -8.24 y 74.259 normal (0.000,-1.000,0.000)
+    parallel ray 8 cm above, slope 0.251: hits Cabin weathered roof board at along -8.99 y 74.120 normal (-0.992,0.000,-0.125); hits Abandoned cabin modest shed roof at along -8.73 y 74.187 normal (-0.302,0.952,-0.038); hits Cabin weathered roof board at along -8.42 y 74.263 normal (-0.992,0.000,-0.125)
+    parallel ray 15 cm above, slope 0.251: hits Cabin weathered roof board at along -8.42 y 74.333 normal (-0.992,0.000,-0.125); hits Cabin weathered roof board at along -7.85 y 74.477 normal (-0.992,0.000,-0.125); hits Abandoned cabin modest shed roof at along -7.71 y 74.514 normal (-0.302,0.952,-0.038)
+    parallel ray 30 cm above, slope 0.251: clear for 4.2 m
+  lateral +1.0 (+ = right of the axis looking at the lip)
+    along -11.00 y   73.536 slope-normal 0.246 Long loose leaning board 6
+    along -10.80 y   73.586 slope-normal 0.246 Long loose leaning board 6
+    along -10.60 y   73.638 slope-normal 0.254 Long loose leaning board 6
+    along -10.40 y   73.690 slope-normal 0.262 Long loose leaning board 6
+    along -10.20 y   73.744 slope-normal 0.270 Long loose leaning board 6
+    along -10.00 y   73.800 slope-normal 0.270 Long loose leaning board 6
+    along  -9.80 y   73.857 slope-normal 0.279 Long loose leaning board 6
+    along  -9.60 y   73.916 slope-normal 0.287 Long loose leaning board 6
+    along  -9.40 y   73.976 slope-normal 0.296 Long loose leaning board 6
+    along  -9.20 y   74.037 slope-normal 0.305 Long loose leaning board 6
+    along  -9.00 y   74.100 slope-normal 0.305 Long loose leaning board 6
+    along  -8.98 y   74.187 slope-normal 0.000 Cabin weathered roof board STEP +8.0 cm NAME Long loose leaning board 6 -> Cabin weathered roof board
+    along  -8.96 y   74.187 slope-normal 0.000 Cabin weathered roof board STEP -8.7 cm
+    along  -8.80 y   74.187 slope-normal 0.000 Cabin weathered roof board
+    along  -8.72 y   74.190 slope-normal 0.310 Abandoned cabin modest shed roof SLOPE 0.000->0.143 NAME Cabin weathered roof board -> Abandoned cabin modest shed roof
+    along  -8.70 y   74.196 slope-normal 0.310 Abandoned cabin modest shed roof SLOPE 0.143->0.320
+    along  -8.60 y   74.228 slope-normal 0.310 Abandoned cabin modest shed roof
+    along  -8.42 y   74.369 slope-normal 0.000 Cabin weathered roof board STEP +8.4 cm NAME Abandoned cabin modest shed roof -> Cabin weathered roof board
+    along  -8.40 y   74.369 slope-normal 0.000 Cabin weathered roof board STEP -9.0 cm
+    along  -8.20 y   74.369 slope-normal 0.000 Cabin weathered roof board
+    along  -8.14 y   74.375 slope-normal 0.310 Abandoned cabin modest shed roof SLOPE 0.000->0.303 NAME Cabin weathered roof board -> Abandoned cabin modest shed roof
+    along  -8.00 y   74.420 slope-normal 0.310 Abandoned cabin modest shed roof
+    along  -7.84 y   74.551 slope-normal 0.000 Cabin weathered roof board STEP +8.0 cm NAME Abandoned cabin modest shed roof -> Cabin weathered roof board
+    along  -7.82 y   74.551 slope-normal 0.000 Cabin weathered roof board STEP -8.7 cm
+    along  -7.80 y   74.551 slope-normal 0.000 Cabin weathered roof board
+    along  -7.60 y   74.551 slope-normal 0.000 Cabin weathered roof board
+    along  -7.58 y   74.554 slope-normal 0.310 Abandoned cabin modest shed roof SLOPE 0.000->0.143 NAME Cabin weathered roof board -> Abandoned cabin modest shed roof
+    along  -7.56 y   74.561 slope-normal 0.310 Abandoned cabin modest shed roof SLOPE 0.143->0.320
+    along  -7.40 y   74.612 slope-normal 0.310 Abandoned cabin modest shed roof
+    along  -7.28 y   74.734 slope-normal 0.000 Cabin weathered roof board STEP +8.4 cm NAME Abandoned cabin modest shed roof -> Cabin weathered roof board
+    along  -7.26 y   74.734 slope-normal 0.000 Cabin weathered roof board STEP -9.0 cm
+    along  -7.20 y   74.734 slope-normal 0.000 Cabin weathered roof board
+    along  -7.00 y   74.740 slope-normal 0.310 Abandoned cabin modest shed roof SLOPE 0.000->0.304 NAME Cabin weathered roof board -> Abandoned cabin modest shed roof
+    summary lateral +1.0: 14 flagged, largest step -8.99 cm, slope over 2 cm 0.000..4.497
+    parallel ray 3 cm above, slope 0.251: hits Long loose leaning board 6 at along -9.55 y 73.930 normal (-0.281,0.959,-0.035); hits Cabin weathered roof board at along -8.97 y 74.077 normal (0.000,-1.000,0.000); hits Cabin weathered roof board at along -8.24 y 74.259 normal (0.000,-1.000,0.000)
+    parallel ray 8 cm above, slope 0.251: hits Cabin weathered roof board at along -8.99 y 74.120 normal (-0.992,0.000,-0.125); hits Abandoned cabin modest shed roof at along -8.73 y 74.187 normal (-0.302,0.952,-0.038); hits Cabin weathered roof board at along -8.42 y 74.263 normal (-0.992,0.000,-0.125)
+    parallel ray 15 cm above, slope 0.251: hits Cabin weathered roof board at along -8.42 y 74.333 normal (-0.992,0.000,-0.125); hits Cabin weathered roof board at along -7.85 y 74.477 normal (-0.992,0.000,-0.125); hits Abandoned cabin modest shed roof at along -7.71 y 74.514 normal (-0.302,0.952,-0.038)
+    parallel ray 30 cm above, slope 0.251: clear for 4.2 m
+  lateral -1.5 (+ = right of the axis looking at the lip)
+    along -11.00 y   73.536 slope-normal 0.239 Long loose leaning board 1
+    along -10.80 y   73.586 slope-normal 0.246 Long loose leaning board 1
+    along -10.60 y   73.638 slope-normal 0.254 Long loose leaning board 1
+    along -10.40 y   73.690 slope-normal 0.262 Long loose leaning board 1
+    along -10.20 y   73.744 slope-normal 0.270 Long loose leaning board 1
+    along -10.00 y   73.800 slope-normal 0.270 Long loose leaning board 1
+    along  -9.80 y   73.857 slope-normal 0.279 Long loose leaning board 1
+    along  -9.60 y   73.916 slope-normal 0.287 Long loose leaning board 1
+    along  -9.40 y   73.976 slope-normal 0.296 Long loose leaning board 1
+    along  -9.20 y   74.037 slope-normal 0.305 Long loose leaning board 1
+    along  -9.00 y   74.100 slope-normal 0.305 Long loose leaning board 1
+    along  -8.98 y   74.187 slope-normal 0.000 Cabin weathered roof board STEP +8.0 cm NAME Long loose leaning board 1 -> Cabin weathered roof board
+    along  -8.96 y   74.187 slope-normal 0.000 Cabin weathered roof board STEP -8.7 cm
+    along  -8.80 y   74.187 slope-normal 0.000 Cabin weathered roof board
+    along  -8.72 y   74.190 slope-normal 0.310 Abandoned cabin modest shed roof SLOPE 0.000->0.143 NAME Cabin weathered roof board -> Abandoned cabin modest shed roof
+    along  -8.70 y   74.196 slope-normal 0.310 Abandoned cabin modest shed roof SLOPE 0.143->0.320
+    along  -8.60 y   74.228 slope-normal 0.310 Abandoned cabin modest shed roof
+    along  -8.42 y   74.369 slope-normal 0.000 Cabin weathered roof board STEP +8.4 cm NAME Abandoned cabin modest shed roof -> Cabin weathered roof board
+    along  -8.40 y   74.369 slope-normal 0.000 Cabin weathered roof board STEP -9.0 cm
+    along  -8.20 y   74.369 slope-normal 0.000 Cabin weathered roof board
+    along  -8.14 y   74.375 slope-normal 0.310 Abandoned cabin modest shed roof SLOPE 0.000->0.304 NAME Cabin weathered roof board -> Abandoned cabin modest shed roof
+    along  -8.00 y   74.420 slope-normal 0.310 Abandoned cabin modest shed roof
+    along  -7.84 y   74.551 slope-normal 0.000 Cabin weathered roof board STEP +8.0 cm NAME Abandoned cabin modest shed roof -> Cabin weathered roof board
+    along  -7.82 y   74.551 slope-normal 0.000 Cabin weathered roof board STEP -8.7 cm
+    along  -7.80 y   74.551 slope-normal 0.000 Cabin weathered roof board
+    along  -7.60 y   74.551 slope-normal 0.000 Cabin weathered roof board
+    along  -7.58 y   74.554 slope-normal 0.310 Abandoned cabin modest shed roof SLOPE 0.000->0.144 NAME Cabin weathered roof board -> Abandoned cabin modest shed roof
+    along  -7.56 y   74.561 slope-normal 0.310 Abandoned cabin modest shed roof SLOPE 0.144->0.320
+    along  -7.40 y   74.612 slope-normal 0.310 Abandoned cabin modest shed roof
+    along  -7.28 y   74.734 slope-normal 0.000 Cabin weathered roof board STEP +8.4 cm NAME Abandoned cabin modest shed roof -> Cabin weathered roof board
+    along  -7.26 y   74.734 slope-normal 0.000 Cabin weathered roof board STEP -9.0 cm
+    along  -7.20 y   74.734 slope-normal 0.000 Cabin weathered roof board
+    along  -7.00 y   74.740 slope-normal 0.310 Abandoned cabin modest shed roof SLOPE 0.000->0.304 NAME Cabin weathered roof board -> Abandoned cabin modest shed roof
+    summary lateral -1.5: 14 flagged, largest step -8.99 cm, slope over 2 cm 0.000..4.496
+    parallel ray 3 cm above, slope 0.251: hits Long loose leaning board 1 at along -9.55 y 73.930 normal (-0.281,0.959,-0.035); hits Cabin weathered roof board at along -8.97 y 74.077 normal (0.000,-1.000,0.000); hits Cabin weathered roof board at along -8.24 y 74.259 normal (0.000,-1.000,0.000)
+    parallel ray 8 cm above, slope 0.251: hits Cabin weathered roof board at along -8.99 y 74.120 normal (-0.992,0.000,-0.125); hits Abandoned cabin modest shed roof at along -8.73 y 74.187 normal (-0.302,0.952,-0.038); hits Cabin weathered roof board at along -8.42 y 74.263 normal (-0.992,0.000,-0.125)
+    parallel ray 15 cm above, slope 0.251: hits Cabin weathered roof board at along -8.42 y 74.333 normal (-0.992,0.000,-0.125); hits Cabin weathered roof board at along -7.85 y 74.477 normal (-0.992,0.000,-0.125); hits Abandoned cabin modest shed roof at along -7.71 y 74.514 normal (-0.302,0.952,-0.038)
+    parallel ray 30 cm above, slope 0.251: clear for 4.2 m
+  lateral +1.5 (+ = right of the axis looking at the lip)
+    along -11.00 y   73.536 slope-normal 0.239 Long loose leaning board 7
+    along -10.80 y   73.586 slope-normal 0.246 Long loose leaning board 7
+    along -10.60 y   73.638 slope-normal 0.254 Long loose leaning board 7
+    along -10.40 y   73.690 slope-normal 0.262 Long loose leaning board 7
+    along -10.20 y   73.744 slope-normal 0.270 Long loose leaning board 7
+    along -10.00 y   73.800 slope-normal 0.270 Long loose leaning board 7
+    along  -9.80 y   73.857 slope-normal 0.279 Long loose leaning board 7
+    along  -9.60 y   73.915 slope-normal 0.287 Long loose leaning board 7
+    along  -9.40 y   73.976 slope-normal 0.296 Long loose leaning board 7
+    along  -9.20 y   74.037 slope-normal 0.305 Long loose leaning board 7
+    along  -9.00 y   74.100 slope-normal 0.305 Long loose leaning board 7
+    along  -8.98 y   74.187 slope-normal 0.000 Cabin weathered roof board STEP +8.0 cm NAME Long loose leaning board 7 -> Cabin weathered roof board
+    along  -8.96 y   74.187 slope-normal 0.000 Cabin weathered roof board STEP -8.7 cm
+    along  -8.80 y   74.187 slope-normal 0.000 Cabin weathered roof board
+    along  -8.72 y   74.190 slope-normal 0.310 Abandoned cabin modest shed roof SLOPE 0.000->0.143 NAME Cabin weathered roof board -> Abandoned cabin modest shed roof
+    along  -8.70 y   74.196 slope-normal 0.310 Abandoned cabin modest shed roof SLOPE 0.143->0.320
+    along  -8.60 y   74.228 slope-normal 0.310 Abandoned cabin modest shed roof
+    along  -8.42 y   74.369 slope-normal 0.000 Cabin weathered roof board STEP +8.4 cm NAME Abandoned cabin modest shed roof -> Cabin weathered roof board
+    along  -8.40 y   74.369 slope-normal 0.000 Cabin weathered roof board STEP -9.0 cm
+    along  -8.20 y   74.369 slope-normal 0.000 Cabin weathered roof board
+    along  -8.14 y   74.375 slope-normal 0.310 Abandoned cabin modest shed roof SLOPE 0.000->0.303 NAME Cabin weathered roof board -> Abandoned cabin modest shed roof
+    along  -8.00 y   74.420 slope-normal 0.310 Abandoned cabin modest shed roof
+    along  -7.84 y   74.551 slope-normal 0.000 Cabin weathered roof board STEP +8.0 cm NAME Abandoned cabin modest shed roof -> Cabin weathered roof board
+    along  -7.82 y   74.551 slope-normal 0.000 Cabin weathered roof board STEP -8.7 cm
+    along  -7.80 y   74.551 slope-normal 0.000 Cabin weathered roof board
+    along  -7.60 y   74.551 slope-normal 0.000 Cabin weathered roof board
+    along  -7.58 y   74.554 slope-normal 0.310 Abandoned cabin modest shed roof SLOPE 0.000->0.143 NAME Cabin weathered roof board -> Abandoned cabin modest shed roof
+    along  -7.56 y   74.561 slope-normal 0.310 Abandoned cabin modest shed roof SLOPE 0.143->0.320
+    along  -7.40 y   74.612 slope-normal 0.310 Abandoned cabin modest shed roof
+    along  -7.28 y   74.734 slope-normal 0.000 Cabin weathered roof board STEP +8.4 cm NAME Abandoned cabin modest shed roof -> Cabin weathered roof board
+    along  -7.26 y   74.734 slope-normal 0.000 Cabin weathered roof board STEP -9.0 cm
+    along  -7.20 y   74.734 slope-normal 0.000 Cabin weathered roof board
+    along  -7.00 y   74.740 slope-normal 0.310 Abandoned cabin modest shed roof SLOPE 0.000->0.304 NAME Cabin weathered roof board -> Abandoned cabin modest shed roof
+    summary lateral +1.5: 14 flagged, largest step -8.99 cm, slope over 2 cm 0.000..4.497
+    parallel ray 3 cm above, slope 0.251: hits Long loose leaning board 7 at along -9.55 y 73.931 normal (-0.281,0.959,-0.035); hits Cabin weathered roof board at along -8.97 y 74.077 normal (0.000,-1.000,0.000); hits Cabin weathered roof board at along -8.24 y 74.259 normal (0.000,-1.000,0.000)
+    parallel ray 8 cm above, slope 0.251: hits Cabin weathered roof board at along -8.99 y 74.120 normal (-0.992,0.000,-0.125); hits Abandoned cabin modest shed roof at along -8.73 y 74.187 normal (-0.302,0.952,-0.038); hits Cabin weathered roof board at along -8.42 y 74.263 normal (-0.992,0.000,-0.125)
+    parallel ray 15 cm above, slope 0.251: hits Cabin weathered roof board at along -8.42 y 74.333 normal (-0.992,0.000,-0.125); hits Cabin weathered roof board at along -7.85 y 74.477 normal (-0.992,0.000,-0.125); hits Abandoned cabin modest shed roof at along -7.71 y 74.514 normal (-0.302,0.952,-0.038)
+    parallel ray 30 cm above, slope 0.251: clear for 4.2 m

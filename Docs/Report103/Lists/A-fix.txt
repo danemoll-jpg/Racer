@@ -1,0 +1,42 @@
+===== DansBackyardForward
+takeoff collider Takeoff - Leaning boards through cabin roof (0.101) (Assets/Track/BackyardShortcuts/Takeoff - Leaning boards through cabin roof (0.101).asset): 102 vertices, 100 triangles, 4 of zero area
+rows: 49 stations from along -19.00 to 0.00; boards 5.00 m wide to the joint at along -9.00 (line s 35.72), roof 9.60 m from there to the lip
+new collider: 146 vertices, 188 triangles (188 turned face-up), 0 of zero area; the centre strip 5.00 m unbroken from the foot to the lip, eaves 2.30 m each side from the joint
+  old vertices against their row height: worst 0.00 mm
+  plank along -8.73 (line s 35.99): slope 0.320; front edge top +8.5 cm -> +0.4 cm against the roof; moved 1.7 cm
+  plank along -8.16 (line s 36.56): slope 0.320; front edge top +8.5 cm -> +0.4 cm against the roof; moved 1.7 cm
+  plank along -7.59 (line s 37.13): slope 0.320; front edge top +8.5 cm -> +0.4 cm against the roof; moved 1.7 cm
+  plank along -7.02 (line s 37.70): slope 0.320; front edge top +8.5 cm -> +0.4 cm against the roof; moved 1.7 cm
+  plank along -6.45 (line s 38.27): slope 0.320; front edge top +8.5 cm -> +0.4 cm against the roof; moved 1.7 cm
+  plank along -5.88 (line s 38.84): slope 0.320; front edge top +8.5 cm -> +0.4 cm against the roof; moved 1.7 cm
+  plank along -5.31 (line s 39.41): slope 0.320; front edge top +8.5 cm -> +0.4 cm against the roof; moved 1.7 cm
+  plank along -4.74 (line s 39.98): slope 0.320; front edge top +8.5 cm -> +0.4 cm against the roof; moved 1.7 cm
+  plank along -4.17 (line s 40.55): slope 0.320; front edge top +8.5 cm -> +0.4 cm against the roof; moved 1.7 cm
+  plank along -3.60 (line s 41.12): slope 0.320; front edge top +8.5 cm -> +0.4 cm against the roof; moved 1.7 cm
+  plank along -3.03 (line s 41.69): slope 0.320; front edge top +8.5 cm -> +0.4 cm against the roof; moved 1.7 cm
+  plank along -2.46 (line s 42.26): slope 0.320; front edge top +8.5 cm -> +0.4 cm against the roof; moved 1.7 cm
+  plank along -1.89 (line s 42.83): slope 0.320; front edge top +8.5 cm -> +0.4 cm against the roof; moved 1.7 cm
+  plank along -1.32 (line s 43.40): slope 0.320; front edge top +8.5 cm -> +0.4 cm against the roof; moved 1.7 cm
+  plank along -0.75 (line s 43.97): slope 0.320; front edge top +8.5 cm -> +0.4 cm against the roof; moved 1.7 cm
+  plank at (224.432,75.071,80.931) along -0.18: not on the roof deck (its front edge -171.2 cm against the roof surface there); left as it is
+planks: 15
+===== FreeRoamWorld
+takeoff collider Takeoff - Leaning boards through cabin roof (0.101) (Assets/Track/BackyardShortcuts/Takeoff - Leaning boards through cabin roof (0.101).asset): 102 vertices, 100 triangles, 4 of zero area
+rows: 49 stations from along -19.00 to 0.00; boards 5.00 m wide to the joint at along -9.00 (line s 35.72), roof 9.60 m from there to the lip
+  plank along -8.73 (line s 35.99): slope 0.320; front edge top +8.5 cm -> +0.4 cm against the roof; moved 1.7 cm
+  plank along -8.16 (line s 36.56): slope 0.320; front edge top +8.5 cm -> +0.4 cm against the roof; moved 1.7 cm
+  plank along -7.59 (line s 37.13): slope 0.320; front edge top +8.5 cm -> +0.4 cm against the roof; moved 1.7 cm
+  plank along -7.02 (line s 37.70): slope 0.320; front edge top +8.5 cm -> +0.4 cm against the roof; moved 1.7 cm
+  plank along -6.45 (line s 38.27): slope 0.320; front edge top +8.5 cm -> +0.4 cm against the roof; moved 1.7 cm
+  plank along -5.88 (line s 38.84): slope 0.320; front edge top +8.5 cm -> +0.4 cm against the roof; moved 1.7 cm
+  plank along -5.31 (line s 39.41): slope 0.320; front edge top +8.5 cm -> +0.4 cm against the roof; moved 1.7 cm
+  plank along -4.74 (line s 39.98): slope 0.320; front edge top +8.5 cm -> +0.4 cm against the roof; moved 1.7 cm
+  plank along -4.17 (line s 40.55): slope 0.320; front edge top +8.5 cm -> +0.4 cm against the roof; moved 1.7 cm
+  plank along -3.60 (line s 41.12): slope 0.320; front edge top +8.5 cm -> +0.4 cm against the roof; moved 1.7 cm
+  plank along -3.03 (line s 41.69): slope 0.320; front edge top +8.5 cm -> +0.4 cm against the roof; moved 1.7 cm
+  plank along -2.46 (line s 42.26): slope 0.320; front edge top +8.5 cm -> +0.4 cm against the roof; moved 1.7 cm
+  plank along -1.89 (line s 42.83): slope 0.320; front edge top +8.5 cm -> +0.4 cm against the roof; moved 1.7 cm
+  plank along -1.32 (line s 43.40): slope 0.320; front edge top +8.5 cm -> +0.4 cm against the roof; moved 1.7 cm
+  plank along -0.75 (line s 43.97): slope 0.320; front edge top +8.5 cm -> +0.4 cm against the roof; moved 1.7 cm
+  plank at (224.432,75.071,80.931) along -0.18: not on the roof deck (its front edge -171.2 cm against the roof surface there); left as it is
+planks: 15

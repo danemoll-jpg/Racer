@@ -1,0 +1,148 @@
+centre run 1 15.482 lat -0.46 v 31.98 vy 8.23 wheels 2 lift 0.7 pitch -345.1 ground 70.225 contacts Ground_480_400 0.0; Ground_Cabin run-up surface (0.101) 0.0
+centre run 1 16.104 lat -0.46 v 32.09 vy 8.07 wheels 2 lift 0.4 pitch -345.2 ground 70.366 contacts Ground_480_400 0.0; Ground_Cabin run-up surface (0.101) 0.0
+centre run 1 16.729 lat -0.45 v 32.20 vy 7.92 wheels 2 lift 0.2 pitch -345.4 ground 70.504 contacts Ground_Cabin run-up surface (0.101) 0.0
+centre run 1 17.354 lat -0.45 v 32.14 vy 7.72 wheels 1 lift 0.1 pitch -345.5 ground 70.639 contacts Ground_Cabin run-up surface (0.101) 0.0
+centre run 1 17.978 lat -0.44 v 32.08 vy 7.52 wheels 1 lift 0.0 pitch -345.7 ground 70.771 contacts Ground_Cabin run-up surface (0.101) 0.0
+centre run 1 18.603 lat -0.44 v 32.02 vy 7.32 wheels 0 lift 0.0 pitch -346.0 ground 70.900 contacts Ground_Cabin run-up surface (0.101) 0.0
+centre run 1 19.227 lat -0.43 v 31.96 vy 7.12 wheels 0 lift 0.0 pitch -346.2 ground 71.026 contacts Ground_Cabin run-up surface (0.101) 0.0
+centre run 1 19.851 lat -0.42 v 31.91 vy 6.92 wheels 0 lift 0.0 pitch -346.5 ground 71.150 contacts Ground_Cabin run-up surface (0.101) 0.0
+centre run 1 20.476 lat -0.42 v 31.85 vy 6.72 wheels 0 lift 0.0 pitch -346.8 ground 71.270 contacts Ground_Cabin run-up surface (0.101) 0.0
+centre run 1 21.100 lat -0.41 v 31.80 vy 6.52 wheels 0 lift 0.0 pitch -347.1 ground 71.387 contacts Ground_Cabin run-up surface (0.101) 0.0
+centre run 1 21.724 lat -0.40 v 31.75 vy 6.33 wheels 0 lift 0.0 pitch -347.5 ground 71.501 contacts Ground_Cabin run-up surface (0.101) 0.0
+centre run 1 22.347 lat -0.40 v 31.70 vy 6.13 wheels 0 lift 0.0 pitch -347.9 ground 71.612 contacts Ground_Cabin run-up surface (0.101) 0.0
+centre run 1 22.971 lat -0.39 v 31.65 vy 5.93 wheels 0 lift 0.0 pitch -348.3 ground 71.720 contacts Ground_Cabin run-up surface (0.101) 0.0
+centre run 1 23.595 lat -0.39 v 31.60 vy 5.73 wheels 0 lift 0.0 pitch -348.7 ground 71.825 contacts Ground_Cabin run-up surface (0.101) 0.0
+centre run 1 24.218 lat -0.38 v 31.55 vy 5.53 wheels 0 lift 0.0 pitch -349.1 ground 71.927 contacts Ground_Cabin run-up surface (0.101) 0.0
+centre run 1 24.841 lat -0.37 v 31.50 vy 5.33 wheels 0 lift 0.0 pitch -349.5 ground 72.028 contacts Ground_Cabin run-up surface (0.101) 0.0
+centre run 1 25.464 lat -0.36 v 31.46 vy 5.13 wheels 0 lift 0.0 pitch -350.0 ground 72.123 contacts Takeoff - Leaning boards through cabin roof 0.0; Ground_Cabin run-up surface (0.101) 0.0
+centre run 1 26.087 lat -0.36 v 31.42 vy 4.94 wheels 0 lift 0.0 pitch -350.4 ground 72.214 contacts Ground_Cabin run-up surface (0.101) 0.0; Takeoff - Leaning boards through cabin roof 0.0
+centre run 1 26.710 lat -0.35 v 31.37 vy 4.74 wheels 0 lift 0.0 pitch -350.9 ground 72.304 contacts Ground_Cabin run-up surface (0.101) 0.0; Takeoff - Leaning boards through cabin roof 0.0
+centre run 1 27.332 lat -0.34 v 31.33 vy 4.54 wheels 0 lift 0.0 pitch -351.4 ground 72.392 contacts Ground_Cabin run-up surface (0.101) 0.0; Takeoff - Leaning boards through cabin roof 0.0
+centre run 1 27.954 lat -0.33 v 31.29 vy 4.34 wheels 0 lift 0.0 pitch -351.8 ground 72.482 contacts Ground_Cabin run-up surface (0.101) 0.0; Takeoff - Leaning boards through cabin roof 0.0
+centre run 1 28.576 lat -0.33 v 31.25 vy 4.14 wheels 0 lift 0.0 pitch -352.3 ground 72.572 contacts Ground_Cabin run-up surface (0.101) 0.0; Takeoff - Leaning boards through cabin roof 0.0
+centre run 1 29.198 lat -0.32 v 31.21 vy 3.95 wheels 0 lift 0.0 pitch -352.8 ground 72.666 contacts Takeoff - Leaning boards through cabin roof 0.0
+centre run 1 29.819 lat -0.31 v 31.18 vy 3.75 wheels 0 lift 0.0 pitch -353.3 ground 72.763 contacts Takeoff - Leaning boards through cabin roof 0.0
+centre run 1 30.441 lat -0.30 v 31.14 vy 3.55 wheels 0 lift 0.0 pitch -353.8 ground 72.866 contacts Takeoff - Leaning boards through cabin roof 0.0
+centre run 1 31.062 lat -0.29 v 31.11 vy 3.35 wheels 0 lift 0.0 pitch -354.3 ground 72.974 contacts Takeoff - Leaning boards through cabin roof 0.0
+centre run 1 31.682 lat -0.28 v 31.07 vy 3.16 wheels 1 lift 0.4 pitch -354.7 ground 73.090 contacts Takeoff - Leaning boards through cabin roof 0.0
+centre run 1 32.303 lat -0.27 v 31.04 vy 2.99 wheels 1 lift 1.3 pitch -355.2 ground 73.214 contacts Takeoff - Leaning boards through cabin roof 0.0
+centre run 1 32.925 lat -0.26 v 31.17 fwd 31.13 vy 2.88 wheels 2 lift 2.4 pitch -355.4 ground 73.348 brush 0.00 contacts Takeoff - Leaning boards through cabin roof 0.0
+centre run 1 33.538 lat -0.22 v 31.22 fwd 31.20 vy 3.40 wheels 3 lift 4.2 pitch -354.1 ground 73.491 brush 0.00 contacts Takeoff - Leaning boards through cabin roof 469.9
+centre run 1 34.138 lat -0.18 v 31.15 fwd 31.13 vy 3.90 wheels 3 lift 4.9 pitch -351.2 ground 73.641 brush 0.00 contacts Takeoff - Leaning boards through cabin roof 471.0
+centre run 1 34.737 lat -0.12 v 31.19 fwd 31.11 vy 4.40 wheels 4 lift 21.2 pitch -348.1 ground 73.804 brush 0.00 contacts Takeoff - Leaning boards through cabin roof 197.7
+centre run 1 35.324 lat -0.08 v 30.87 fwd 30.80 vy 6.10 wheels 4 lift 32.9 pitch -345.0 ground 73.976 brush 0.00 contacts Takeoff - Leaning boards through cabin roof 1013.6
+centre run 1 35.905 lat -0.04 v 30.59 fwd 30.58 vy 7.90 wheels 4 lift 34.5 pitch -343.6 ground 74.158 brush 0.00 contacts Takeoff - Leaning boards through cabin roof 1091.5
+centre run 1 36.485 lat +0.01 v 30.60 fwd 30.60 vy 8.70 wheels 4 lift 30.1 pitch -342.8 ground 74.344 brush 0.00 contacts Takeoff - Leaning boards through cabin roof 311.3
+centre run 1 37.066 lat +0.05 v 30.69 fwd 30.69 vy 9.14 wheels 4 lift 27.3 pitch -342.4 ground 74.530 brush 0.00 contacts Takeoff - Leaning boards through cabin roof 56.5
+centre run 1 37.650 lat +0.10 v 30.80 fwd 30.80 vy 9.48 wheels 4 lift 25.5 pitch -342.3 ground 74.716 brush 0.00 contacts Takeoff - Leaning boards through cabin roof 4.2
+centre run 1 38.234 lat +0.14 v 30.91 fwd 30.91 vy 9.78 wheels 4 lift 23.4 pitch -342.1 ground 74.903 brush 0.00 contacts Takeoff - Leaning boards through cabin roof 0.0
+centre run 1 38.818 lat +0.19 v 31.02 fwd 31.01 vy 10.04 wheels 4 lift 21.2 pitch -342.0 ground 75.090 brush 0.00 contacts Takeoff - Leaning boards through cabin roof 0.0
+centre run 1 39.404 lat +0.23 v 31.12 fwd 31.11 vy 10.25 wheels 4 lift 18.9 pitch -342.0 ground 75.278 brush 0.13 contacts Takeoff - Leaning boards through cabin roof 0.0
+centre run 1 39.991 lat +0.28 v 31.23 fwd 31.21 vy 10.42 wheels 4 lift 16.5 pitch -341.9 ground 75.466 brush 0.38 contacts Takeoff - Leaning boards through cabin roof 0.0
+centre run 1 40.580 lat +0.32 v 31.33 fwd 31.31 vy 10.55 wheels 4 lift 14.3 pitch -341.9 ground 75.654 brush 0.67 contacts Takeoff - Leaning boards through cabin roof 0.0
+centre run 1 41.170 lat +0.36 v 31.43 fwd 31.40 vy 10.64 wheels 4 lift 12.2 pitch -341.9 ground 75.843 brush 0.91 contacts Takeoff - Leaning boards through cabin roof 0.0
+centre run 1 41.762 lat +0.39 v 31.53 fwd 31.49 vy 10.69 wheels 4 lift 10.3 pitch -341.9 ground 76.032 brush 1.00 contacts Takeoff - Leaning boards through cabin roof 0.0
+centre run 1 42.357 lat +0.42 v 31.62 fwd 31.59 vy 10.71 wheels 4 lift 8.6 pitch -341.9 ground 76.223 brush 1.00 contacts Takeoff - Leaning boards through cabin roof 0.0
+centre run 1 42.953 lat +0.44 v 31.71 fwd 31.68 vy 10.70 wheels 4 lift 7.2 pitch -341.9 ground 76.414 brush 1.00 contacts Takeoff - Leaning boards through cabin roof 0.0
+centre run 1 43.552 lat +0.46 v 31.80 fwd 31.77 vy 10.66 wheels 4 lift 6.0 pitch -341.9 ground 76.605 brush 1.00 contacts Takeoff - Leaning boards through cabin roof 0.0
+centre run 1 44.154 lat +0.47 v 31.89 fwd 31.86 vy 10.61 wheels 4 lift 5.1 pitch -342.0 ground 76.798 brush 1.00 contacts Takeoff - Leaning boards through cabin roof 0.0
+centre run 1 44.757 lat +0.48 v 31.98 fwd 31.95 vy 10.51 wheels 2 lift 2.3 pitch -342.0 ground 74.251 brush 1.00 contacts Takeoff - Leaning boards through cabin roof 0.0
+0.5 m left run 1 15.542 lat -0.87 v 32.19 vy 8.14 wheels 2 lift 0.1 pitch -345.4 ground 70.208 contacts Ground_480_400 0.0; Ground_Cabin run-up surface (0.101) 0.0
+0.5 m left run 1 16.165 lat -0.87 v 32.13 vy 7.94 wheels 1 lift 0.0 pitch -345.6 ground 70.347 contacts Ground_480_400 0.0; Ground_Cabin run-up surface (0.101) 0.0
+0.5 m left run 1 16.788 lat -0.88 v 32.07 vy 7.74 wheels 1 lift 0.0 pitch -345.8 ground 70.483 contacts Ground_Cabin run-up surface (0.101) 0.0
+0.5 m left run 1 17.411 lat -0.89 v 32.01 vy 7.54 wheels 0 lift 0.0 pitch -346.0 ground 70.617 contacts Ground_Cabin run-up surface (0.101) 0.0
+0.5 m left run 1 18.034 lat -0.89 v 31.95 vy 7.34 wheels 0 lift 0.0 pitch -346.2 ground 70.747 contacts Ground_Cabin run-up surface (0.101) 0.0
+0.5 m left run 1 18.657 lat -0.90 v 31.89 vy 7.14 wheels 0 lift 0.0 pitch -346.5 ground 70.876 contacts Ground_Cabin run-up surface (0.101) 0.0
+0.5 m left run 1 19.280 lat -0.90 v 31.84 vy 6.94 wheels 0 lift 0.0 pitch -346.8 ground 71.001 contacts Ground_Cabin run-up surface (0.101) 0.0
+0.5 m left run 1 19.903 lat -0.91 v 31.78 vy 6.74 wheels 0 lift 0.0 pitch -347.1 ground 71.124 contacts Ground_Cabin run-up surface (0.101) 0.0
+0.5 m left run 1 20.525 lat -0.92 v 31.73 vy 6.54 wheels 0 lift 0.0 pitch -347.5 ground 71.245 contacts Ground_Cabin run-up surface (0.101) 0.0
+0.5 m left run 1 21.148 lat -0.92 v 31.68 vy 6.34 wheels 0 lift 0.0 pitch -347.8 ground 71.363 contacts Ground_Cabin run-up surface (0.101) 0.0
+0.5 m left run 1 21.770 lat -0.93 v 31.63 vy 6.15 wheels 0 lift 0.0 pitch -348.2 ground 71.479 contacts Ground_Cabin run-up surface (0.101) 0.0
+0.5 m left run 1 22.392 lat -0.93 v 31.58 vy 5.95 wheels 0 lift 0.0 pitch -348.6 ground 71.593 contacts Ground_Cabin run-up surface (0.101) 0.0
+0.5 m left run 1 23.014 lat -0.94 v 31.53 vy 5.75 wheels 0 lift 0.0 pitch -349.0 ground 71.704 contacts Ground_Cabin run-up surface (0.101) 0.0
+0.5 m left run 1 23.636 lat -0.94 v 31.48 vy 5.55 wheels 0 lift 0.0 pitch -349.4 ground 71.813 contacts Ground_Cabin run-up surface (0.101) 0.0
+0.5 m left run 1 24.258 lat -0.95 v 31.43 vy 5.35 wheels 0 lift 0.0 pitch -349.9 ground 71.919 contacts Ground_Cabin run-up surface (0.101) 0.0
+0.5 m left run 1 24.879 lat -0.96 v 31.39 vy 5.15 wheels 0 lift 0.0 pitch -350.3 ground 72.029 contacts Ground_Cabin run-up surface (0.101) 0.0
+0.5 m left run 1 25.501 lat -0.96 v 31.34 vy 4.95 wheels 0 lift 0.0 pitch -350.8 ground 72.128 contacts Takeoff - Leaning boards through cabin roof 0.0; Ground_Cabin run-up surface (0.101) 0.0
+0.5 m left run 1 26.122 lat -0.97 v 31.30 vy 4.76 wheels 0 lift 0.0 pitch -351.2 ground 72.219 contacts Ground_Cabin run-up surface (0.101) 0.0; Takeoff - Leaning boards through cabin roof 0.0
+0.5 m left run 1 26.743 lat -0.97 v 31.26 vy 4.56 wheels 0 lift 0.0 pitch -351.7 ground 72.308 contacts Ground_Cabin run-up surface (0.101) 0.0; Takeoff - Leaning boards through cabin roof 0.0
+0.5 m left run 1 27.363 lat -0.98 v 31.22 vy 4.36 wheels 0 lift 0.0 pitch -352.1 ground 72.397 contacts Ground_Cabin run-up surface (0.101) 0.0; Takeoff - Leaning boards through cabin roof 0.0
+0.5 m left run 1 27.984 lat -0.98 v 31.18 vy 4.16 wheels 0 lift 0.0 pitch -352.6 ground 72.486 contacts Ground_Cabin run-up surface (0.101) 0.0; Takeoff - Leaning boards through cabin roof 0.0
+0.5 m left run 1 28.604 lat -0.98 v 31.14 vy 3.97 wheels 0 lift 0.0 pitch -353.1 ground 72.576 contacts Ground_Cabin run-up surface (0.101) 0.0; Takeoff - Leaning boards through cabin roof 0.0
+0.5 m left run 1 29.224 lat -0.99 v 31.10 vy 3.77 wheels 0 lift 0.0 pitch -353.6 ground 72.670 contacts Takeoff - Leaning boards through cabin roof 0.0
+0.5 m left run 1 29.844 lat -0.99 v 31.07 vy 3.57 wheels 0 lift 0.0 pitch -354.1 ground 72.767 contacts Takeoff - Leaning boards through cabin roof 0.0
+0.5 m left run 1 30.464 lat -1.00 v 31.03 vy 3.37 wheels 0 lift 0.0 pitch -354.5 ground 72.869 contacts Takeoff - Leaning boards through cabin roof 0.0
+0.5 m left run 1 31.083 lat -1.00 v 31.00 vy 3.17 wheels 0 lift 0.0 pitch -355.0 ground 72.978 contacts Takeoff - Leaning boards through cabin roof 0.0
+0.5 m left run 1 31.702 lat -1.00 v 30.97 vy 2.98 wheels 1 lift 0.0 pitch -355.5 ground 73.093 contacts Takeoff - Leaning boards through cabin roof 0.0
+0.5 m left run 1 32.320 lat -1.01 v 30.94 vy 2.80 wheels 1 lift 1.0 pitch -355.9 ground 73.218 contacts Takeoff - Leaning boards through cabin roof 0.0
+0.5 m left run 1 32.940 lat -1.00 v 31.04 fwd 30.97 vy 2.68 wheels 2 lift 2.3 pitch -356.2 ground 73.351 brush 0.00 contacts Takeoff - Leaning boards through cabin roof 0.0
+0.5 m left run 1 33.546 lat -0.97 v 30.97 fwd 30.93 vy 3.39 wheels 3 lift 4.7 pitch -354.3 ground 73.493 brush 0.00 contacts Takeoff - Leaning boards through cabin roof 631.1
+0.5 m left run 1 34.142 lat -0.93 v 30.93 fwd 30.89 vy 3.88 wheels 4 lift 7.8 pitch -351.3 ground 73.642 brush 0.00 contacts Takeoff - Leaning boards through cabin roof 406.8
+0.5 m left run 1 34.733 lat -0.88 v 30.90 fwd 30.81 vy 4.59 wheels 4 lift 22.8 pitch -347.7 ground 73.803 brush 0.00 contacts Takeoff - Leaning boards through cabin roof 349.0
+0.5 m left run 1 35.309 lat -0.85 v 30.48 fwd 30.43 vy 6.64 wheels 4 lift 33.4 pitch -344.8 ground 73.971 brush 0.00 contacts Takeoff - Leaning boards through cabin roof 1307.4
+0.5 m left run 1 35.885 lat -0.81 v 30.32 fwd 30.31 vy 8.06 wheels 4 lift 34.0 pitch -343.6 ground 74.152 brush 0.00 contacts Takeoff - Leaning boards through cabin roof 778.0
+0.5 m left run 1 36.460 lat -0.76 v 30.39 fwd 30.38 vy 8.64 wheels 4 lift 28.2 pitch -342.8 ground 74.336 brush 0.00 contacts Takeoff - Leaning boards through cabin roof 157.7
+0.5 m left run 1 37.037 lat -0.71 v 30.48 fwd 30.47 vy 9.08 wheels 4 lift 27.2 pitch -342.5 ground 74.520 brush 0.00 contacts Takeoff - Leaning boards through cabin roof 59.4
+0.5 m left run 1 37.616 lat -0.66 v 30.58 fwd 30.58 vy 9.42 wheels 4 lift 25.4 pitch -342.3 ground 74.706 brush 0.00 contacts Takeoff - Leaning boards through cabin roof 0.0
+0.5 m left run 1 38.196 lat -0.61 v 30.69 fwd 30.69 vy 9.71 wheels 4 lift 23.3 pitch -342.2 ground 74.891 brush 0.00 contacts Takeoff - Leaning boards through cabin roof 0.0
+0.5 m left run 1 38.776 lat -0.56 v 30.80 fwd 30.80 vy 9.97 wheels 4 lift 21.1 pitch -342.1 ground 75.077 brush 0.00 contacts Takeoff - Leaning boards through cabin roof 0.0
+0.5 m left run 1 39.357 lat -0.51 v 30.91 fwd 30.90 vy 10.18 wheels 4 lift 18.7 pitch -342.0 ground 75.263 brush 0.12 contacts Takeoff - Leaning boards through cabin roof 0.0
+0.5 m left run 1 39.940 lat -0.46 v 31.02 fwd 31.01 vy 10.35 wheels 4 lift 16.4 pitch -342.0 ground 75.449 brush 0.36 contacts Takeoff - Leaning boards through cabin roof 0.0
+0.5 m left run 1 40.524 lat -0.41 v 31.13 fwd 31.11 vy 10.47 wheels 4 lift 14.2 pitch -341.9 ground 75.636 brush 0.65 contacts Takeoff - Leaning boards through cabin roof 0.0
+0.5 m left run 1 41.109 lat -0.36 v 31.23 fwd 31.21 vy 10.56 wheels 4 lift 12.1 pitch -341.9 ground 75.824 brush 0.89 contacts Takeoff - Leaning boards through cabin roof 0.0
+0.5 m left run 1 41.697 lat -0.31 v 31.33 fwd 31.31 vy 10.61 wheels 4 lift 10.3 pitch -341.9 ground 76.012 brush 1.00 contacts Takeoff - Leaning boards through cabin roof 0.0
+0.5 m left run 1 42.287 lat -0.27 v 31.43 fwd 31.40 vy 10.63 wheels 4 lift 8.6 pitch -341.9 ground 76.200 brush 1.00 contacts Takeoff - Leaning boards through cabin roof 0.0
+0.5 m left run 1 42.880 lat -0.23 v 31.52 fwd 31.50 vy 10.62 wheels 4 lift 7.2 pitch -341.9 ground 76.390 brush 1.00 contacts Takeoff - Leaning boards through cabin roof 0.0
+0.5 m left run 1 43.475 lat -0.20 v 31.62 fwd 31.59 vy 10.59 wheels 4 lift 6.0 pitch -342.0 ground 76.580 brush 1.00 contacts Takeoff - Leaning boards through cabin roof 0.0
+0.5 m left run 1 44.072 lat -0.16 v 31.71 fwd 31.68 vy 10.54 wheels 4 lift 5.1 pitch -342.0 ground 76.772 brush 1.00 contacts Takeoff - Leaning boards through cabin roof 0.0
+0.5 m left run 1 44.672 lat -0.14 v 31.80 fwd 31.77 vy 10.44 wheels 2 lift 2.3 pitch -342.0 ground 76.964 brush 1.00 contacts Takeoff - Leaning boards through cabin roof 0.0
+0.5 m right run 1 15.353 lat -0.03 v 31.59 vy 7.93 wheels 3 lift 1.5 pitch -345.4 ground 70.184 contacts Ground_480_400 0.0; Ground_Cabin run-up surface (0.101) 0.0
+0.5 m right run 1 15.968 lat +0.00 v 31.70 vy 7.78 wheels 2 lift 0.6 pitch -345.5 ground 70.327 contacts Ground_Cabin run-up surface (0.101) 0.0
+0.5 m right run 1 16.585 lat +0.03 v 31.82 vy 7.63 wheels 2 lift 0.5 pitch -345.7 ground 70.465 contacts Ground_Cabin run-up surface (0.101) 0.0
+0.5 m right run 1 17.203 lat +0.07 v 31.76 vy 7.43 wheels 1 lift 0.4 pitch -345.9 ground 70.601 contacts Ground_Cabin run-up surface (0.101) 0.0
+0.5 m right run 1 17.820 lat +0.10 v 31.70 vy 7.24 wheels 1 lift 0.3 pitch -346.1 ground 70.733 contacts Ground_Cabin run-up surface (0.101) 0.0
+0.5 m right run 1 18.437 lat +0.13 v 31.64 vy 7.04 wheels 1 lift 0.1 pitch -346.3 ground 70.863 contacts Ground_Cabin run-up surface (0.101) 0.0
+0.5 m right run 1 19.054 lat +0.17 v 31.59 vy 6.84 wheels 0 lift 0.0 pitch -346.6 ground 70.989 contacts Ground_Cabin run-up surface (0.101) 0.0
+0.5 m right run 1 19.671 lat +0.20 v 31.53 vy 6.64 wheels 0 lift 0.0 pitch -346.9 ground 71.113 contacts Ground_Cabin run-up surface (0.101) 0.0
+0.5 m right run 1 20.288 lat +0.23 v 31.48 vy 6.45 wheels 0 lift 0.0 pitch -347.2 ground 71.234 contacts Ground_Cabin run-up surface (0.101) 0.0
+0.5 m right run 1 20.905 lat +0.27 v 31.43 vy 6.25 wheels 0 lift 0.0 pitch -347.6 ground 71.351 contacts Ground_Cabin run-up surface (0.101) 0.0
+0.5 m right run 1 21.522 lat +0.30 v 31.37 vy 6.05 wheels 0 lift 0.0 pitch -348.0 ground 71.464 contacts Ground_Cabin run-up surface (0.101) 0.0
+0.5 m right run 1 22.138 lat +0.33 v 31.32 vy 5.85 wheels 0 lift 0.0 pitch -348.3 ground 71.574 contacts Ground_Cabin run-up surface (0.101) 0.0
+0.5 m right run 1 22.754 lat +0.37 v 31.28 vy 5.65 wheels 0 lift 0.0 pitch -348.8 ground 71.682 contacts Ground_Cabin run-up surface (0.101) 0.0
+0.5 m right run 1 23.370 lat +0.40 v 31.23 vy 5.45 wheels 0 lift 0.0 pitch -349.2 ground 71.786 contacts Ground_Cabin run-up surface (0.101) 0.0
+0.5 m right run 1 23.986 lat +0.44 v 31.18 vy 5.25 wheels 0 lift 0.0 pitch -349.6 ground 71.888 contacts Ground_Cabin run-up surface (0.101) 0.0
+0.5 m right run 1 24.602 lat +0.47 v 31.14 vy 5.06 wheels 0 lift 0.0 pitch -350.1 ground 71.989 contacts Ground_Cabin run-up surface (0.101) 0.0
+0.5 m right run 1 25.217 lat +0.50 v 31.09 vy 4.86 wheels 0 lift 0.0 pitch -350.5 ground 72.086 contacts Takeoff - Leaning boards through cabin roof 0.0; Ground_Cabin run-up surface (0.101) 0.0
+0.5 m right run 1 25.833 lat +0.54 v 31.05 vy 4.66 wheels 0 lift 0.0 pitch -351.0 ground 72.177 contacts Ground_Cabin run-up surface (0.101) 0.0; Takeoff - Leaning boards through cabin roof 0.0
+0.5 m right run 1 26.448 lat +0.57 v 31.01 vy 4.46 wheels 0 lift 0.0 pitch -351.4 ground 72.266 contacts Ground_Cabin run-up surface (0.101) 0.0; Takeoff - Leaning boards through cabin roof 0.0
+0.5 m right run 1 27.063 lat +0.60 v 30.97 vy 4.26 wheels 0 lift 0.0 pitch -351.9 ground 72.354 contacts Ground_Cabin run-up surface (0.101) 0.0; Takeoff - Leaning boards through cabin roof 0.0
+0.5 m right run 1 27.678 lat +0.64 v 30.93 vy 4.07 wheels 0 lift 0.0 pitch -352.4 ground 72.442 contacts Ground_Cabin run-up surface (0.101) 0.0; Takeoff - Leaning boards through cabin roof 0.0
+0.5 m right run 1 28.292 lat +0.67 v 30.89 vy 3.87 wheels 0 lift 0.0 pitch -352.9 ground 72.531 contacts Ground_Cabin run-up surface (0.101) 0.0; Takeoff - Leaning boards through cabin roof 0.0
+0.5 m right run 1 28.906 lat +0.71 v 30.86 vy 3.67 wheels 0 lift 0.0 pitch -353.4 ground 72.621 contacts Takeoff - Leaning boards through cabin roof 0.0
+0.5 m right run 1 29.520 lat +0.74 v 30.82 vy 3.47 wheels 0 lift 0.0 pitch -353.9 ground 72.716 contacts Takeoff - Leaning boards through cabin roof 0.0
+0.5 m right run 1 30.134 lat +0.78 v 30.79 vy 3.29 wheels 1 lift 0.9 pitch -354.4 ground 72.814 contacts Takeoff - Leaning boards through cabin roof 0.0
+0.5 m right run 1 30.747 lat +0.81 v 30.76 vy 3.13 wheels 1 lift 1.5 pitch -354.8 ground 72.918 contacts Takeoff - Leaning boards through cabin roof 0.0
+0.5 m right run 1 31.362 lat +0.85 v 30.90 vy 3.02 wheels 2 lift 2.7 pitch -355.1 ground 73.029 contacts Takeoff - Leaning boards through cabin roof 0.0
+0.5 m right run 1 31.980 lat +0.89 v 31.05 vy 2.94 wheels 3 lift 4.3 pitch -355.2 ground 73.148 contacts Takeoff - Leaning boards through cabin roof 0.0
+0.5 m right run 1 32.595 lat +0.93 v 31.17 vy 3.14 wheels 4 lift 7.0 pitch -354.6 ground 73.276 contacts Takeoff - Leaning boards through cabin roof 174.7
+0.5 m right run 1 33.200 lat +0.98 v 31.12 fwd 31.12 vy 3.80 wheels 4 lift 11.8 pitch -352.4 ground 73.411 brush 0.00 contacts Takeoff - Leaning boards through cabin roof 482.6
+0.5 m right run 1 33.799 lat +1.03 v 31.10 fwd 31.07 vy 4.52 wheels 4 lift 19.9 pitch -349.3 ground 73.555 brush 0.00 contacts Takeoff - Leaning boards through cabin roof 392.5
+0.5 m right run 1 34.391 lat +1.07 v 30.98 fwd 30.94 vy 5.73 wheels 4 lift 30.3 pitch -346.6 ground 73.709 brush 0.00 contacts Takeoff - Leaning boards through cabin roof 642.0
+0.5 m right run 1 34.973 lat +1.11 v 30.68 fwd 30.68 vy 7.67 wheels 4 lift 34.0 pitch -345.2 ground 73.871 brush 0.00 contacts Takeoff - Leaning boards through cabin roof 1196.5
+0.5 m right run 1 35.554 lat +1.15 v 30.73 fwd 30.73 vy 8.27 wheels 4 lift 25.1 pitch -344.0 ground 74.047 brush 0.00 contacts Takeoff - Leaning boards through cabin roof 216.9
+0.5 m right run 1 36.138 lat +1.18 v 30.84 fwd 30.84 vy 8.62 wheels 4 lift 25.4 pitch -343.1 ground 74.233 brush 0.00 contacts Takeoff - Leaning boards through cabin roof 7.6
+0.5 m right run 1 36.725 lat +1.22 v 30.95 fwd 30.94 vy 8.99 wheels 4 lift 26.8 pitch -342.6 ground 74.421 brush 0.00 contacts Takeoff - Leaning boards through cabin roof 7.4
+0.5 m right run 1 37.314 lat +1.25 v 31.04 fwd 31.03 vy 9.42 wheels 4 lift 26.7 pitch -342.3 ground 74.609 brush 0.00 contacts Takeoff - Leaning boards through cabin roof 56.6
+0.5 m right run 1 37.904 lat +1.28 v 31.14 fwd 31.12 vy 9.74 wheels 4 lift 24.3 pitch -342.2 ground 74.798 brush 0.00 contacts Takeoff - Leaning boards through cabin roof 0.0
+0.5 m right run 1 38.495 lat +1.30 v 31.24 fwd 31.21 vy 10.02 wheels 4 lift 22.1 pitch -342.1 ground 74.987 brush 0.00 contacts Takeoff - Leaning boards through cabin roof 0.0
+0.5 m right run 1 39.087 lat +1.32 v 31.34 fwd 31.30 vy 10.25 wheels 4 lift 19.7 pitch -342.0 ground 75.176 brush 0.03 contacts Takeoff - Leaning boards through cabin roof 0.0
+0.5 m right run 1 39.680 lat +1.33 v 31.43 fwd 31.39 vy 10.43 wheels 4 lift 17.4 pitch -342.0 ground 75.366 brush 0.21 contacts Takeoff - Leaning boards through cabin roof 0.0
+0.5 m right run 1 40.274 lat +1.34 v 31.52 fwd 31.48 vy 10.57 wheels 4 lift 15.1 pitch -342.0 ground 75.556 brush 0.49 contacts Takeoff - Leaning boards through cabin roof 0.0
+0.5 m right run 1 40.869 lat +1.34 v 31.61 fwd 31.57 vy 10.66 wheels 4 lift 13.0 pitch -342.0 ground 75.747 brush 0.77 contacts Takeoff - Leaning boards through cabin roof 0.0
+0.5 m right run 1 41.465 lat +1.33 v 31.70 fwd 31.66 vy 10.72 wheels 4 lift 11.1 pitch -342.0 ground 75.937 brush 0.96 contacts Takeoff - Leaning boards through cabin roof 0.0
+0.5 m right run 1 42.064 lat +1.32 v 31.79 fwd 31.75 vy 10.75 wheels 4 lift 9.4 pitch -342.0 ground 76.129 brush 1.00 contacts Takeoff - Leaning boards through cabin roof 0.0
+0.5 m right run 1 42.664 lat +1.30 v 31.88 fwd 31.85 vy 10.75 wheels 4 lift 7.9 pitch -342.0 ground 76.321 brush 1.00 contacts Takeoff - Leaning boards through cabin roof 0.0
+0.5 m right run 1 43.266 lat +1.28 v 31.97 fwd 31.94 vy 10.72 wheels 4 lift 6.7 pitch -342.0 ground 76.514 brush 1.00 contacts Takeoff - Leaning boards through cabin roof 0.0
+0.5 m right run 1 43.870 lat +1.25 v 32.06 fwd 32.04 vy 10.68 wheels 4 lift 5.7 pitch -342.1 ground 76.707 brush 1.00 contacts Takeoff - Leaning boards through cabin roof 0.0
+0.5 m right run 1 44.477 lat +1.22 v 32.15 fwd 32.14 vy 10.57 wheels 2 lift 2.5 pitch -342.1 ground 76.901 brush 1.00 contacts Takeoff - Leaning boards through cabin roof 0.0
+0.5 m right run 1 45.083 lat +1.19 v 32.24 fwd 32.23 vy 10.46 wheels 2 lift 2.2 pitch -342.2 ground 74.312 brush 1.00 contacts Takeoff - Leaning boards through cabin roof 0.0
