@@ -1,0 +1,106 @@
+garage: from (398.89,79.32,24.51) yaw 91.67 to (398.40,79.32,21.00) yaw 181.67; door face centre (398.25,79.32,16.00), west end centre (389.90,79.32,21.25), east end centre (406.89,79.32,20.75)
+===== FreeRoamWorld
+paving Assets/Scenery/Report096/FreeRoamWorld-Ground_Dan beige concrete descent and parking-conformed.asset (8819 vertices), collider mesh same True
+  B: paving vertex 8815 at (404.54,80.74,12.53) stands 1.32 m above the ground (Dan's spot)
+  B: paving vertex 8816 at (404.52,80.81,11.90) stands 1.39 m above the ground (Dan's spot)
+  B: vertex 8815 80.74 -> 79.46 (the paving round it, 88 vertices)
+  B: vertex 8816 80.81 -> 79.46 (the paving round it, 102 vertices)
+  C: paving: 3611 triangles of the strip along the old door side removed (x 404.2-411.6, z 12.45-32.5); mesh Assets/Scenery/Report101/FreeRoamWorld-Ground_Dan beige concrete descent and parking-conformed (0.101).asset
+  garage triangles in the house batch Batched Shallow silver roof (Assets/Track/Discovery/StreetLoopGreybox-cr101-Batched Shallow silver roof.asset) sub 0: 44
+  garage triangles in the house batch Batched White porch trim (Assets/Track/Discovery/StreetLoopGreybox-cr101-Batched White porch trim.asset) sub 0: 192
+  garage removed from the shared house batch Assets/Track/Discovery/StreetLoopGreybox-cr101-Batched Shallow silver roof.asset
+  garage removed from the shared house batch Assets/Track/Discovery/StreetLoopGreybox-cr101-Batched White porch trim.asset
+  garage visual: 236 triangles in 2 materials (Shallow silver roof 44, White porch trim 192), local bounds (-9.25,0.00,-5.75)-(9.25,4.95,5.75)
+  garage walls collider now (389.75,79.32,15.75)-(407.04,82.92,26.24)
+  ground round the turned building: 79.32..80.05 (base 79.32: nothing floats; the back west corner sits 0.73 m into the bank)
+  parking pad x 391.4-410.75, z 11.85 to the door line (+0.3 m under the doors), 79.40..79.75; sidewalk 1.0 m along the east end, 79.52..79.52
+  ground under the removed strip: 0 holes, lowest 0.11 m below the old paving
+  fence: 28 white crossbuck segments in 'CR101 local boundary extension'
+  fence: replaced by chain-link (posts, top rail, fabric); colliders kept; 28 distinct segment meshes so far
+===== DansBackyardForward
+paving Assets/Track/YardReset/StreetLoopGreybox-concrete.asset (8773 vertices), collider mesh same True
+  C: paving: 3608 triangles of the strip along the old door side removed (x 404.2-411.6, z 12.45-32.5); mesh Assets/Scenery/Report101/1-StreetLoopGreybox-concrete (0.101).asset
+  garage walls collider now (389.75,79.32,15.75)-(407.04,82.92,26.24)
+  ground round the turned building: 79.32..80.05 (base 79.32: nothing floats; the back west corner sits 0.73 m into the bank)
+  parking pad x 391.4-410.75, z 11.85 to the door line (+0.3 m under the doors), 79.40..79.75; sidewalk 1.0 m along the east end, 79.52..79.52
+  ground under the removed strip: 0 holes, lowest 0.11 m below the old paving
+  fence: 28 white crossbuck segments in 'CR101 local boundary extension'
+  fence: replaced by chain-link (posts, top rail, fabric); colliders kept; 28 distinct segment meshes so far
+===== DansBackyardReverse
+paving Assets/Track/YardReset/StreetLoopGreybox-concrete.asset (8773 vertices), collider mesh same True
+  C: paving: the 0.101 mesh Assets/Scenery/Report101/1-StreetLoopGreybox-concrete (0.101).asset (already made)
+  garage walls collider now (389.75,79.32,15.75)-(407.04,82.92,26.24)
+  ground round the turned building: 79.32..80.05 (base 79.32: nothing floats; the back west corner sits 0.73 m into the bank)
+  parking pad x 391.4-410.75, z 11.85 to the door line (+0.3 m under the doors), 79.40..79.75; sidewalk 1.0 m along the east end, 79.52..79.52
+  ground under the removed strip: 0 holes, lowest 0.11 m below the old paving
+  fence: 28 white crossbuck segments in 'CR101 local boundary extension'
+  fence: replaced by chain-link (posts, top rail, fabric); colliders kept; 28 distinct segment meshes so far
+===== ForestLoopReverse
+paving Assets/Track/YardReset/ForestLoopReverse-concrete.asset (8773 vertices), collider mesh same True
+  C: paving: 3608 triangles of the strip along the old door side removed (x 404.2-411.6, z 12.45-32.5); mesh Assets/Scenery/Report101/2-ForestLoopReverse-concrete (0.101).asset
+  garage triangles in the house batch Batched Shallow silver roof (Assets/Track/Discovery/ForestLoopReverse-cr101-Batched Shallow silver roof.asset) sub 0: 44
+  garage triangles in the house batch Batched White porch trim (Assets/Track/Discovery/ForestLoopReverse-cr101-Batched White porch trim.asset) sub 0: 192
+  garage removed from the shared house batch Assets/Track/Discovery/ForestLoopReverse-cr101-Batched Shallow silver roof.asset
+  garage removed from the shared house batch Assets/Track/Discovery/ForestLoopReverse-cr101-Batched White porch trim.asset
+  garage visual: 236 triangles in 2 materials (Shallow silver roof 44, White porch trim 192), local bounds (-9.25,0.00,-5.75)-(9.25,4.95,5.75)
+  garage walls collider now (389.75,79.32,15.75)-(407.04,82.92,26.24)
+  ground round the turned building: 79.32..80.05 (base 79.32: nothing floats; the back west corner sits 0.73 m into the bank)
+  parking pad x 391.4-410.75, z 11.85 to the door line (+0.3 m under the doors), 79.40..79.68; sidewalk 1.0 m along the east end, 79.52..79.52
+  ground under the removed strip: 0 holes, lowest 0.09 m below the old paving
+  fence: 28 white crossbuck segments in 'CR101 local boundary extension'
+  fence: replaced by chain-link (posts, top rail, fabric); colliders kept; 56 distinct segment meshes so far
+===== LakeWoods
+paving Assets/Track/YardReset/LakeWoods-concrete.asset (8773 vertices), collider mesh same True
+  C: paving: 3608 triangles of the strip along the old door side removed (x 404.2-411.6, z 12.45-32.5); mesh Assets/Scenery/Report101/3-LakeWoods-concrete (0.101).asset
+  garage triangles in the house batch Batched Shallow silver roof (Assets/Track/Discovery/LakeWoods-cr101-Batched Shallow silver roof.asset) sub 0: 44
+  garage triangles in the house batch Batched White porch trim (Assets/Track/Discovery/LakeWoods-cr101-Batched White porch trim.asset) sub 0: 192
+  garage removed from the shared house batch Assets/Track/Discovery/LakeWoods-cr101-Batched Shallow silver roof.asset
+  garage removed from the shared house batch Assets/Track/Discovery/LakeWoods-cr101-Batched White porch trim.asset
+  garage visual: 236 triangles in 2 materials (Shallow silver roof 44, White porch trim 192), local bounds (-9.25,0.00,-5.75)-(9.25,4.95,5.75)
+  garage walls collider now (389.75,79.32,15.75)-(407.04,82.92,26.24)
+  ground round the turned building: 79.32..80.05 (base 79.32: nothing floats; the back west corner sits 0.73 m into the bank)
+  parking pad x 391.4-410.75, z 11.85 to the door line (+0.3 m under the doors), 79.40..79.68; sidewalk 1.0 m along the east end, 79.52..79.52
+  ground under the removed strip: 0 holes, lowest 0.09 m below the old paving
+  fence: 28 white crossbuck segments in 'CR101 local boundary extension'
+  fence: replaced by chain-link (posts, top rail, fabric); colliders kept; 84 distinct segment meshes so far
+===== MountainLoop
+paving Assets/Track/YardReset/MountainLoop-concrete.asset (8773 vertices), collider mesh same True
+  C: paving: 3608 triangles of the strip along the old door side removed (x 404.2-411.6, z 12.45-32.5); mesh Assets/Scenery/Report101/4-MountainLoop-concrete (0.101).asset
+  garage walls collider now (389.75,79.32,15.75)-(407.04,82.92,26.24)
+  ground round the turned building: 79.32..80.05 (base 79.32: nothing floats; the back west corner sits 0.73 m into the bank)
+  parking pad x 391.4-410.75, z 11.85 to the door line (+0.3 m under the doors), 79.40..79.68; sidewalk 1.0 m along the east end, 79.52..79.52
+  ground under the removed strip: 0 holes, lowest 0.09 m below the old paving
+  fence: 28 white crossbuck segments in 'CR101 local boundary extension'
+  fence: replaced by chain-link (posts, top rail, fabric); colliders kept; 99 distinct segment meshes so far
+===== MountainLoopReverse
+paving Assets/Track/YardReset/MountainLoopReverse-concrete.asset (8773 vertices), collider mesh same True
+  C: paving: 3608 triangles of the strip along the old door side removed (x 404.2-411.6, z 12.45-32.5); mesh Assets/Scenery/Report101/5-MountainLoopReverse-concrete (0.101).asset
+  garage walls collider now (389.75,79.32,15.75)-(407.04,82.92,26.24)
+  ground round the turned building: 79.32..80.05 (base 79.32: nothing floats; the back west corner sits 0.73 m into the bank)
+  parking pad x 391.4-410.75, z 11.85 to the door line (+0.3 m under the doors), 79.40..79.68; sidewalk 1.0 m along the east end, 79.52..79.52
+  ground under the removed strip: 0 holes, lowest 0.09 m below the old paving
+  fence: 28 white crossbuck segments in 'CR101 local boundary extension'
+  fence: replaced by chain-link (posts, top rail, fabric); colliders kept; 114 distinct segment meshes so far
+===== StreetLoopGreybox
+paving Assets/Track/YardReset/StreetLoopGreybox-concrete.asset (8773 vertices), collider mesh same True
+  C: paving: the 0.101 mesh Assets/Scenery/Report101/1-StreetLoopGreybox-concrete (0.101).asset (already made)
+  garage walls collider now (389.75,79.32,15.75)-(407.04,82.92,26.24)
+  ground round the turned building: 79.32..80.05 (base 79.32: nothing floats; the back west corner sits 0.73 m into the bank)
+  parking pad x 391.4-410.75, z 11.85 to the door line (+0.3 m under the doors), 79.40..79.75; sidewalk 1.0 m along the east end, 79.52..79.52
+  ground under the removed strip: 0 holes, lowest 0.11 m below the old paving
+  fence: 28 white crossbuck segments in 'CR101 local boundary extension'
+  fence: replaced by chain-link (posts, top rail, fabric); colliders kept; 114 distinct segment meshes so far
+===== StreetLoopReverse
+paving Assets/Track/YardReset/StreetLoopReverse-concrete.asset (8773 vertices), collider mesh same True
+  C: paving: 3608 triangles of the strip along the old door side removed (x 404.2-411.6, z 12.45-32.5); mesh Assets/Scenery/Report101/6-StreetLoopReverse-concrete (0.101).asset
+  garage triangles in the house batch Batched Shallow silver roof (Assets/Track/Discovery/StreetLoopReverse-cr101-Batched Shallow silver roof.asset) sub 0: 44
+  garage triangles in the house batch Batched White porch trim (Assets/Track/Discovery/StreetLoopReverse-cr101-Batched White porch trim.asset) sub 0: 192
+  garage removed from the shared house batch Assets/Track/Discovery/StreetLoopReverse-cr101-Batched Shallow silver roof.asset
+  garage removed from the shared house batch Assets/Track/Discovery/StreetLoopReverse-cr101-Batched White porch trim.asset
+  garage visual: 236 triangles in 2 materials (Shallow silver roof 44, White porch trim 192), local bounds (-9.25,0.00,-5.75)-(9.25,4.95,5.75)
+  garage walls collider now (389.75,79.32,15.75)-(407.04,82.92,26.24)
+  ground round the turned building: 79.32..80.05 (base 79.32: nothing floats; the back west corner sits 0.73 m into the bank)
+  parking pad x 391.4-410.75, z 11.85 to the door line (+0.3 m under the doors), 79.40..79.75; sidewalk 1.0 m along the east end, 79.52..79.52
+  ground under the removed strip: 0 holes, lowest 0.11 m below the old paving
+  fence: 28 white crossbuck segments in 'CR101 local boundary extension'
+  fence: replaced by chain-link (posts, top rail, fabric); colliders kept; 142 distinct segment meshes so far

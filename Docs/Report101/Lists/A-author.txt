@@ -1,0 +1,52 @@
+axis heading 82.82; lip (224.61,74.15,80.95); foot along -19.00; roof edge along -9.00; main crosses the axis at main s 857.39 along -44.72 (180.24,66.31,75.36) heading 50.5 (crossing angle 32.4 deg) hw 3.6
+old route: entryRoad 862.1, length 127.9, heading at s0 91.1, at s20 84.3, at the lip 82.8; main heading at the old fork 51.3; old fork to ramp foot 22 m, to the lip 41 m; boards 3.3 m wide, roof 6.4 m
+  profile along  -44.7 (new s   0.0): line 66.31, ground now 66.36 (cut +0.05)
+  profile along  -42.7 (new s   2.0): line 66.75, ground now 66.78 (cut +0.03)
+  profile along  -40.7 (new s   4.0): line 67.18, ground now 67.24 (cut +0.06)
+  profile along  -38.7 (new s   6.0): line 67.59, ground now 67.73 (cut +0.14)
+  profile along  -36.7 (new s   8.0): line 68.00, ground now 68.25 (cut +0.25)
+  profile along  -34.7 (new s  10.0): line 68.39, ground now 68.73 (cut +0.34)
+  profile along  -32.7 (new s  12.0): line 68.78, ground now 69.20 (cut +0.42)
+  profile along  -30.7 (new s  14.0): line 69.15, ground now 69.60 (cut +0.45)
+  profile along  -28.7 (new s  16.0): line 69.51, ground now 69.92 (cut +0.41)
+  profile along  -26.7 (new s  18.0): line 69.86, ground now 70.14 (cut +0.28)
+  profile along  -24.7 (new s  20.0): line 70.20, ground now 70.31 (cut +0.11)
+  profile along  -22.7 (new s  22.0): line 70.52, ground now 70.52 (cut +0.00)
+  profile along  -20.7 (new s  24.0): line 70.84, ground now 70.83 (cut -0.01)
+new route: straight 44.7 m from the main's centre line to the lip (38.0 m from its right edge on the centre line), ramp foot at new s 25.7; stations past the lip = old + 3.72; far edge 87.8 (old-station equivalent 84.1)
+===== DansBackyardForward
+shortcut root at (0.00,0.00,0.00) rot (0.00,0.00,0.00) scale (1.00,1.00,1.00)
+ground mesh Local bore mouths Ground_480_400-804 Assets/Track/ReverseCorrection/Local bore mouths Ground_480_400-804.asset verts 133713; collider mesh same True; transform (0.00,0.00,0.00) (0.00,0.00,0.00)
+ground: 4644 vertices moved, deepest cut 0.69 m, highest fill 0.34 m
+  normals recomputed on 5121 vertices of the touched triangles (flat-shaded mesh: True)
+  stands in the graded area: Tree trunk at (211.90,74.04,70.55) along -13.9 lateral -8.7 bottom 71.09 ground 71.09
+  stands in the graded area: Tree trunk at (197.62,73.44,82.75) along -26.5 lateral 5.2 bottom 70.24 ground 70.70
+  stands in the graded area: Takeoff - Leaning boards through cabin roof at (215.30,73.91,80.41) along -9.3 lateral 0.6 bottom 71.10 ground 72.50
+route: 226 points, entryRoad 857.4, exitRoad 1013.2, entrySpeed 34 over 49.7 m, inset 20
+takeoff collider: boards 5 m from along -19.0 to -9.0, roof 9.6 m to the lip; normal y 0.99
+boards: 9 leaning boards across 5 m (were 6 across 3.3 m)
+roof: 9.6 m wide (eaves 1.8 m past the walls each side), 16 planks replaced
+chevrons near the cabin: 6 (active True) at along -33, -33, -15, -15, -4, -4
+lead-in posts: a pair at along -27 (new s 17.7), 3.6 m each side, dark timber with a gold band, no collider
+sign: was at (190.62,69.63,73.61) along -34.6 lateral -3.0 (its 5.5 m board reached -0.3 m, on the new line); moved by (4.29,-0.03,-4.96) to along -31, 8.5 m right of the line (board from -11.3 to -5.8 m), base on the ground 68.36
+approach decal: 544 triangles along the run-up, 5.6 m wide, off every road (new, material Wooded earth)
+brush (original 0.43 mesh, 3272 bushes): 71 removed within 7 m of the line from the far edge (new s 87.8) to the rejoin, 3 removed from the run-up and ramp, 1508 kept in the corridor from the lip (new s 44.7) to the far edge; the last one reaches s 88.9
+undergrowth: clearRoute Abandoned Cabin Jump brushFrom 44.7 clearFrom 87.8 hw 7
+===== FreeRoamWorld
+shortcut root at (0.00,0.00,0.00) rot (0.00,0.00,0.00) scale (1.00,1.00,1.00)
+ground mesh FreeRoamWorld-Ground_480_400-conformed Assets/Scenery/Report096/FreeRoamWorld-Ground_480_400-conformed.asset verts 145239; collider mesh same True; transform (0.00,0.00,0.00) (0.00,0.00,0.00)
+ground: 4008 vertices moved, deepest cut 0.64 m, highest fill 0.34 m
+  normals recomputed on 4462 vertices of the touched triangles (flat-shaded mesh: False)
+  underlay Ground_Report098 seam underlay (FreeRoamWorld-Report098-seam-underlay): 3 vertices pushed below the new ground
+  stands in the graded area: Tree trunk at (211.90,74.04,70.55) along -13.9 lateral -8.7 bottom 71.09 ground 71.09
+  stands in the graded area: Takeoff - Leaning boards through cabin roof at (215.30,73.91,80.41) along -9.3 lateral 0.6 bottom 71.10 ground 72.50
+Free Roam: inactive reset line (not a branch; the brush's reset only)
+takeoff collider: boards 5 m from along -19.0 to -9.0, roof 9.6 m to the lip; normal y 0.99
+boards: 9 leaning boards across 5 m (were 6 across 3.3 m)
+roof: 9.6 m wide (eaves 1.8 m past the walls each side), 16 planks replaced
+chevrons near the cabin: 6 (active False) at along -33, -33, -15, -15, -4, -4
+lead-in posts: a pair at along -27 (new s 17.7), 3.6 m each side, dark timber with a gold band, no collider
+sign: was at (190.62,69.63,73.61) along -34.6 lateral -3.0 (its 5.5 m board reached -0.3 m, on the new line); moved by (4.29,-0.03,-4.96) to along -31, 8.5 m right of the line (board from -11.3 to -5.8 m), base on the ground 68.36
+approach decal: 544 triangles along the run-up, 5.6 m wide, off every road (new, material Wooded earth)
+brush: the same 0.101 mesh as the race
+undergrowth: clearRoute Abandoned Cabin Jump (Free Roam brush reset line) brushFrom 44.7 clearFrom 87.8 hw 7

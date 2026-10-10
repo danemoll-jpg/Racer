@@ -1,0 +1,6 @@
+screen=1280x720 kind=reset version=0.100.0-review1
+  to Dan's Backyard Forward (try 1): state Ready, scene StreetLoopGreybox, timeScale 0
+DansBackyardForward: Cabin line Abandoned Cabin Jump, length 131.6, lip at s 44.7, brush far edge 84.0, the last bush reaches s 85.0
+race: stopped in the brush at s 64.4 (1.5 m off the line) -> reset to s 88.0 (0.0 m off), facing 0 deg from the line, speed 0.0; 'Recovered past the brush'; far edge 84.0, last bush 85.0: past the brush, nothing solid 3 m ahead True
+FreeRoamWorld: Cabin line Abandoned Cabin Jump (Free Roam brush reset line), length 131.6, lip at s 44.7, brush far edge 84.0, the last bush reaches s 85.0
+Free Roam: stopped in the brush at s 64.4 (1.5 m off the line) -> reset to s 88.0 (0.0 m off), facing 0 deg from the line, speed 0.0; 'Recovered past the brush'; far edge 84.0, last bush 85.0: past the brush, nothing solid 3 m ahead True

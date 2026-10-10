@@ -1,0 +1,4 @@
+===== DansBackyardForward
+brush: 3272 bushes in the original; 192 removed within 7 m of the line from the far edge s 84.0 to the rejoin, 3 off the run-up and ramp, 1387 kept between the lip (s 44.7) and the far edge; the last reaches s 85.1; reset to s 88.0
+===== FreeRoamWorld
+brush: 3272 bushes in the original; 192 removed within 7 m of the line from the far edge s 84.0 to the rejoin, 3 off the run-up and ramp, 1387 kept between the lip (s 44.7) and the far edge; the last reaches s 85.1; reset to s 88.0

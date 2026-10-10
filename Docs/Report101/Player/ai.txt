@@ -1,0 +1,18 @@
+screen=1280x720 kind=ai version=0.100.0-review1
+  to Dan's Backyard Forward (try 1): state Ready, scene StreetLoopGreybox, timeScale 0
+DansBackyardForward: Cabin line Abandoned Cabin Jump, length 131.6, lip at s 44.7, brush far edge 84.0, the last bush reaches s 85.0
+  start: state Racing, timeScale 1, holding False
+  end: state Racing, game 71 s, real 35 s
+race AI in the Street Classic, from the grid: took the Cabin Jump True, take-off s 46.8, landing s 76.7 2.0 m off the line (NOT clear (-8.3 m from the last bush)), furthest s 125.6 of 131.6, resets 3; air on the branch: s 20.6-33.4 0.47 s, s 46.8-76.7 1.87 s
+  reset at 331.3,79.75,20.8 (line s 131.6, main s 141) 'route=main; nearest=149.43; selected=141.43; along=-8.00m; from=(322.67, 77.60, 24.33); to=(331.28, 79.75, 20.81); displacement=9.55m'
+  reset at 215.3,54.31,-78.3 (line s 15.5, main s 353) 'route=main; nearest=352.86; selected=352.86; along=0.00m; from=(212.94, 54.27, -74.95); to=(215.28, 54.32, -78.26); displacement=4.05m'
+  reset at 260.9,76.51,86.3 (line s 81.4, main s 949) 'route=Abandoned Cabin Jump; nearest=81.38; selected=81.38; along=0.00m; from=(262.49, 76.22, 79.76); to=(260.94, 76.51, 86.29); displacement=6.72m'
+DansBackyardForward: Cabin line Abandoned Cabin Jump, length 131.6, lip at s 44.7, brush far edge 84.0, the last bush reaches s 85.0
+  start: state Racing, timeScale 1, holding False
+  end: state Racing, game 54 s, real 27 s
+race AI in the Needle 600, from the grid: took the Cabin Jump True, take-off s 46.4, landing s 80.3 6.8 m off the line (NOT clear (-4.6 m from the last bush)), furthest s 126.6 of 131.6, resets 0; air on the branch: s 21.2-36.7 0.53 s, s 46.4-80.3 1.60 s
+DansBackyardForward: Cabin line Abandoned Cabin Jump, length 131.6, lip at s 44.7, brush far edge 84.0, the last bush reaches s 85.0
+  start: state Racing, timeScale 1, holding False
+  end: state Racing, game 55 s, real 27 s
+race AI in the Trail Four, from the grid: took the Cabin Jump True, take-off s 46.6, landing s 84.5 3.5 m off the line (NOT clear (-0.5 m from the last bush)), furthest s 125.7 of 131.6, resets 1; air on the branch: s 20.6-35.2 0.50 s, s 46.6-84.5 1.70 s
+  reset at 268.9,76.64,87.9 (line s 89.5, main s 980) 'route=Abandoned Cabin Jump; nearest=89.46; selected=89.46; along=0.00m; from=(269.59, 76.55, 85.25); to=(268.88, 76.64, 87.92); displacement=2.76m'

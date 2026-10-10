@@ -1,0 +1,9 @@
+FreeRoamWorld: pad Assets/Scenery/Report101/FreeRoamWorld-Dan parking to the garage doors.asset: 50 vertices raised to 4 cm over the old paving
+DansBackyardForward: pad Assets/Scenery/Report101/DansBackyardForward-Dan parking to the garage doors.asset: 50 vertices raised to 4 cm over the old paving
+DansBackyardReverse: pad Assets/Scenery/Report101/DansBackyardReverse-Dan parking to the garage doors.asset: 50 vertices raised to 4 cm over the old paving
+ForestLoopReverse: pad Assets/Scenery/Report101/ForestLoopReverse-Dan parking to the garage doors.asset: 50 vertices raised to 4 cm over the old paving
+LakeWoods: pad Assets/Scenery/Report101/LakeWoods-Dan parking to the garage doors.asset: 50 vertices raised to 4 cm over the old paving
+MountainLoop: pad Assets/Scenery/Report101/MountainLoop-Dan parking to the garage doors.asset: 50 vertices raised to 4 cm over the old paving
+MountainLoopReverse: pad Assets/Scenery/Report101/MountainLoopReverse-Dan parking to the garage doors.asset: 50 vertices raised to 4 cm over the old paving
+StreetLoopGreybox: pad Assets/Scenery/Report101/StreetLoopGreybox-Dan parking to the garage doors.asset: 50 vertices raised to 4 cm over the old paving
+StreetLoopReverse: pad Assets/Scenery/Report101/StreetLoopReverse-Dan parking to the garage doors.asset: 50 vertices raised to 4 cm over the old paving

@@ -1,0 +1,5 @@
+screen=1280x720 kind=views version=0.100.0-review1
+  to Dan's Backyard Forward (try 1): state Ready, scene StreetLoopGreybox, timeScale 0
+view dan003: vehicle at 269.0,76.26,78.9 heading 311.3, camera 273.9,79.36,74.6
+view runup: vehicle at 170.5,64.06,67.6 heading 62.2, camera 164.7,67.16,64.5
+view ramp: vehicle at 190.0,69.23,76.4 heading 83.9, camera 183.4,72.33,75.7

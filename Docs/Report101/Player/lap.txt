@@ -1,0 +1,4 @@
+screen=1280x720 kind=lap version=0.100.0-review1
+  to Dan's Backyard Forward (try 1): state Ready, scene StreetLoopGreybox, timeScale 0
+  recovery from 322.7,77.56,24.9 (main s 149, branch -): route=main; nearest=149.33; selected=141.33; along=-8.00m; from=(322.72, 77.56, 24.86); to=(331.38, 79.75, 20.82); displacement=9.80m
+Dan's Backyard Forward lap by the road AI (Street Classic): state Results, game time 86 s, recoveries 1, lowest up-vector 0.22, finished True

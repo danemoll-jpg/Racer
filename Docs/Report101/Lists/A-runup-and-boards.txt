@@ -1,0 +1,24 @@
+===== DansBackyardForward
+  design: each lane leaves the verge with the ground's slope +0.04 (the lift a vehicle carries off the main) and falls no faster than a 34 m/s flight: the ramp foot at 72.16 (+1.06 m)
+  lane  -2.5: verge at along -40.4 (67.01 m, slope 0.298) -> foot 72.16 slope 0.183; curvature 0.0054/m (grounded to 43 m/s)
+  lane  -1.5: verge at along -38.8 (67.42 m, slope 0.297) -> foot 72.16 slope 0.182; curvature 0.0058/m (grounded to 41 m/s)
+  lane  -0.5: verge at along -37.2 (68.00 m, slope 0.307) -> foot 72.16 slope 0.151; curvature 0.0086/m (grounded to 34 m/s)
+  lane   0.0: verge at along -36.3 (68.35 m, slope 0.294) -> foot 72.16 slope 0.147; curvature 0.0085/m (grounded to 34 m/s)
+  lane   0.5: verge at along -35.5 (68.65 m, slope 0.277) -> foot 72.16 slope 0.149; curvature 0.0078/m (grounded to 36 m/s)
+  lane   1.5: verge at along -33.9 (69.03 m, slope 0.262) -> foot 72.16 slope 0.160; curvature 0.0069/m (grounded to 38 m/s)
+  lane   2.5: verge at along -32.4 (69.34 m, slope 0.268) -> foot 72.16 slope 0.153; curvature 0.0086/m (grounded to 34 m/s)
+  boards: foot raised 0.00 m to 72.16, from slope 0.147 to 0.320 at the roof edge (74.10); the largest slope drop on the boards -0.0013 per 0.25 m (none = never convex)
+  ground: 0 more vertices kept under the surface
+  line Abandoned Cabin Jump: 0 point heights set to the new run-up and boards
+===== FreeRoamWorld
+  design: each lane leaves the verge with the ground's slope +0.04 (the lift a vehicle carries off the main) and falls no faster than a 34 m/s flight: the ramp foot at 72.16 (+1.06 m)
+  lane  -2.5: verge at along -40.4 (67.01 m, slope 0.298) -> foot 72.16 slope 0.183; curvature 0.0054/m (grounded to 43 m/s)
+  lane  -1.5: verge at along -38.8 (67.42 m, slope 0.297) -> foot 72.16 slope 0.182; curvature 0.0058/m (grounded to 41 m/s)
+  lane  -0.5: verge at along -37.2 (68.00 m, slope 0.307) -> foot 72.16 slope 0.151; curvature 0.0086/m (grounded to 34 m/s)
+  lane   0.0: verge at along -36.3 (68.35 m, slope 0.294) -> foot 72.16 slope 0.147; curvature 0.0085/m (grounded to 34 m/s)
+  lane   0.5: verge at along -35.5 (68.65 m, slope 0.277) -> foot 72.16 slope 0.149; curvature 0.0078/m (grounded to 36 m/s)
+  lane   1.5: verge at along -33.9 (69.03 m, slope 0.262) -> foot 72.16 slope 0.160; curvature 0.0069/m (grounded to 38 m/s)
+  lane   2.5: verge at along -32.4 (69.34 m, slope 0.268) -> foot 72.16 slope 0.153; curvature 0.0086/m (grounded to 34 m/s)
+  boards: foot raised 0.00 m to 72.16, from slope 0.147 to 0.320 at the roof edge (74.10); the largest slope drop on the boards -0.0013 per 0.25 m (none = never convex)
+  ground: 0 more vertices kept under the surface
+  line Abandoned Cabin Jump (Free Roam brush reset line): 0 point heights set to the new run-up and boards

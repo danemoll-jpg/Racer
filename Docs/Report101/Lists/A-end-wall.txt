@@ -1,0 +1,2 @@
+DansBackyardForward: Cabin end wall below roof at (215.88, 73.11, 79.86): collider top 73.81 -> 73.04 (the other end wall, at the lip, unchanged)
+FreeRoamWorld: Cabin end wall below roof at (215.88, 73.11, 79.86): collider top 73.81 -> 73.04 (the other end wall, at the lip, unchanged)

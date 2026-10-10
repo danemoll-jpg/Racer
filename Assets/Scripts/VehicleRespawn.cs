@@ -256,6 +256,8 @@ namespace Racer
             if(!race || !race.road)return false;
             MeasureClearance();
             // Free Roam keeps its recent-road behaviour, but can no longer wait forever.
+            // 0.101 Part A: stopped in the Abandoned Cabin Jump's brush: onto the clear ground past its far edge, as in the race
+            if(race.FreeRoam&&ShortcutUndergrowth.ResetPastAny(vehicle.Body.position,out var brushRoute,out float brushPast)&&PlaceAt(BranchTrack(brushRoute),brushPast,1,brushRoute.At(brushPast,out _),null,brushPast)){LastRecovery="Recovered past the brush";return true;}
             if(race.FreeRoam)return roamValid&&RecoverRoaming()||RecoverNearest(false);
             // 0.68 player rule (Dan): the nearest usable track point, facing the race direction.
             // 0.72: racing AI uses the same rule, so a rival that fails is restored where it failed.

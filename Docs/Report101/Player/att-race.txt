@@ -1,0 +1,8 @@
+screen=1280x720 kind=attempts version=0.100.0-review1
+  to Dan's Backyard Forward (try 1): state Ready, scene StreetLoopGreybox, timeScale 0
+DansBackyardForward: Cabin line Abandoned Cabin Jump, length 131.6, lip at s 44.7, brush far edge 84.0, the last bush reaches s 85.0
+race, Turf Rocket: start on the main road 70 m before the turn-off (Forward navigation only - no road mesh s 787) at 18 m/s, controller input; onto the run-up from 8 m before it
+attempt 1 (full throttle, aiming 0 m off the line): take-off s 45.9 at 28.5 m/s, 1.92 s in the air, landing s 96.9 (1.9 m off the line) on Ground_480_400: clear by 11.9 m; off the line at the ramp foot 0.2 m; air before the ramp: s 0.0-0.0 1.30 s; other hops 1; lowest up after landing 1.00; resets 0; struck: nothing
+attempt 2 (full throttle, aiming +1.0 m off the line): take-off s 45.9 at 27.2 m/s, 1.82 s in the air, landing s 91.9 (3.8 m off the line) on Ground_480_400: clear by 6.9 m; off the line at the ramp foot 1.8 m; air before the ramp: s 0.0-0.0 1.24 s, s 15.2-29.1 0.44 s; other hops 0; lowest up after landing 1.00; resets 0; struck: nothing
+attempt 3 (full throttle, aiming -1.0 m off the line): take-off s 46.5 at 33.6 m/s, 2.22 s in the air, landing s 115.2 (3.4 m off the line) on Ground_480_400: clear by 30.3 m; off the line at the ramp foot 1.4 m; air before the ramp: s 0.0-0.0 1.24 s; other hops 0; lowest up after landing 1.00; resets 0; struck: nothing
+eased off (held near 26 m/s, on the line): take-off s 46.0 at 25.9 m/s, 1.76 s in the air, landing s 88.6 (2.9 m off the line) on Ground_480_400: clear by 3.6 m; off the line at the ramp foot 0.4 m; air before the ramp: s 0.0-0.0 1.24 s; other hops 0; lowest up after landing 1.00; resets 0; struck: nothing

@@ -25,13 +25,25 @@ namespace Racer
         {
             station = 0; if (!route) return false;
             foreach (var u in FindObjectsByType<ShortcutUndergrowth>(FindObjectsSortMode.None))
-            {
-                if (u.clearRoute != route || u.brushFrom <= 0 || u.clearFrom <= u.brushFrom) continue;
-                float s = route.Project(position, out _); var centre = route.At(s, out _);
-                if (s < u.brushFrom || s >= u.clearFrom || new Vector2(position.x - centre.x, position.z - centre.z).magnitude > u.clearHalfWidth) continue;
-                station = Mathf.Min(route.Length, u.clearFrom + ResetPastEdge); return true;
-            }
+                if (u.clearRoute == route && u.InBrush(position, out station)) return true;
             return false;
+        }
+        // 0.101 Part A: Free Roam has no Cabin branch; its brush keeps the race's line on an inactive route object (never a
+        // registered branch), and a reset from inside that brush goes past the far edge the same way.
+        public static bool ResetPastAny(Vector3 position, out WoodlandRoute route, out float station)
+        {
+            route = null; station = 0;
+            foreach (var u in FindObjectsByType<ShortcutUndergrowth>(FindObjectsSortMode.None))
+                if (u.clearRoute && u.InBrush(position, out station)) { route = u.clearRoute; return true; }
+            return false;
+        }
+        bool InBrush(Vector3 position, out float station)
+        {
+            station = 0; var route = clearRoute;
+            if (!route || brushFrom <= 0 || clearFrom <= brushFrom) return false;
+            float s = route.Project(position, out _); var centre = route.At(s, out _);
+            if (s < brushFrom || s >= clearFrom || new Vector2(position.x - centre.x, position.z - centre.z).magnitude > clearHalfWidth) return false;
+            station = Mathf.Min(route.Length, clearFrom + ResetPastEdge); return true;
         }
         ArcadeVehicle[] vehicles;
         float nextScan;

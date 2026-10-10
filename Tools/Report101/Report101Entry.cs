@@ -1,0 +1,6 @@
+using System;using System.IO;using System.Linq;using UnityEngine;using UnityEditor;using UnityEditor.SceneManagement;
+// 0.101 Part A: the race AI starts following the Cabin run-up 12 m before the main road crosses its line (main s 845, after CP 5 at 827),
+// so it turns off from the main road's right lane in time; slows to 25 m/s for the turn (8 m), then the usual 34 to the lip.
+public static class Report101Entry { public static void Run(){var sc=EditorSceneManager.OpenScene("Assets/Scenes/DansBackyardForward.unity");
+ var b=UnityEngine.Object.FindObjectsByType<Racer.WoodlandRoute>(FindObjectsSortMode.None).First(w=>w.title=="Abandoned Cabin Jump");string before=$"{b.entryRoad:F1}";b.entryRoad=845f;b.entrySpeed=float.Parse(Environment.GetEnvironmentVariable("ENTRY_SPEED")??"25",System.Globalization.CultureInfo.InvariantCulture);b.entrySpeedDistance=8;b.recommendedSpeed=float.Parse(Environment.GetEnvironmentVariable("REC_SPEED")??"34",System.Globalization.CultureInfo.InvariantCulture);EditorUtility.SetDirty(b);
+ EditorSceneManager.MarkSceneDirty(sc);EditorSceneManager.SaveScene(sc);File.WriteAllText(Environment.GetEnvironmentVariable("PROBE_OUT")+"/entry.txt",$"entryRoad {before} -> 845, entry {b.entrySpeed}/{b.entrySpeedDistance}, recommended {b.recommendedSpeed}");EditorApplication.Exit(0);}}
