@@ -20,7 +20,7 @@ namespace Racer
             return key switch {"buttonSouth"=>"A","buttonEast"=>"B","buttonWest"=>"X","buttonNorth"=>"Y",
                 "leftShoulder"=>"LB","rightShoulder"=>"RB","leftTrigger"=>"LT","rightTrigger"=>"RT",
                 "leftStick"=>"L","rightStick"=>"R","leftStickPress"=>"L3","rightStickPress"=>"R3",
-                "start"=>"","select"=>"","dpad"=>"","arrows"=>"↑↓","leftRight"=>"← →","escape"=>"Esc","space"=>"Space","leftBracket"=>"[","rightBracket"=>"]","leftButton"=>"Click","scroll"=>"Wheel","backspace"=>"⌫",_=>key.Replace("Arrow","").ToUpperInvariant()};
+                "start"=>"","select"=>"","dpad"=>"","arrows"=>"↑↓","leftRight"=>"← →","escape"=>"Esc","space"=>"Space","leftBracket"=>"[","rightBracket"=>"]","leftButton"=>"Click","rightButton"=>"RMB","scroll"=>"Wheel","backspace"=>"⌫",_=>key.Replace("Arrow","").ToUpperInvariant()};
         }
         public void SetPath(string path){if(Path==path)return;Path=path;SetVerticesDirty();}
         protected override void OnPopulateMesh(VertexHelper vh)

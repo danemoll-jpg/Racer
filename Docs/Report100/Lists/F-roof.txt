@@ -1,0 +1,5 @@
+skirt quads on open edges: 99
+wall triangles given an outside face: 157
+wall feet carried down: 78
+ceiling triangles turned up: 269 (skipped under the ground: 24); roof bounds (137.36, 49.00, 36.80)..(168.59, 69.32, 77.87); material Damp layered concrete
+saved

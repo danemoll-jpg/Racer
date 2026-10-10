@@ -1,0 +1,53 @@
+== MountainLoopReverse rows z 240..100, cols x 1000..1280 step 4, yref 152
+  240 00cfiloqromjhda11R11aeilq##############################################
+  236 00cfiloqpnkigb01RR10bfimz##############################################
+  232 00cfiloqnljhda11RR10cgjmy########################w#####################
+  228 00cfiloomkhfb12RR11adhknz####################ytplhl####################
+  224 00cfilonkigc022RR21beiknz################zuqmjfdb0b####################
+  220 00cfilnljgea13RR220bgjloz############zvrnkheba00000####################
+  216 00cfilljhfb133RR22adhkmpz########zwsolifca000000000####################
+  212 00cfilkhfc023RRR31bfilnqy####zvspmigdba000000000000####################
+  208 00cfikigd024RRR320dgjmorwxuspmjgeca00000000000OOO00####################
+  204 00cfijgeb134RRR31afhknpstmjhecba000000000OOOOOOOOO0####################
+  200 00cfihfc134RRR430dgiloqtrdba000000000OOOOOOOO000OO0####################
+  196 00cfhfd0355RR442afhkmpruq0000000000OOOOOOOO00000O00####################
+  192 00cfgda245RRR430dgiloqtvq0000000OOOOOOOO0000000OO00####################
+  188 00cfec245RRR542behjmpruwr000OOOOOOOO00000000000OO00####################
+  184 00cec0356RRR530dgilnqsvysOOOOOO00000000000acda0OO00####################
+  180 00cca356RRR642behjmpruwztOOO0000000000abdgjlh0OO000####################
+  176 00ca1377RR6530dfiknqsvy#u0000000000acehkoswqd0OO00a####################
+  172 00a1367RR6652cehjmortwz#0000000abcfilpty###i0OO000o####################
+  168 0013588RR763Odfiknqsvx##0000abdfimpty#####qa0OO00f#####################
+  164 003579RR7752begjmortwz#00acdgimptx#######sb0OO00b######################
+  160 00879RR88640cfiknqsvx##acgilpsw########yla0OO000r######################
+  156 009++RR8752begjmortwz#bcjnruy#######xphb0OOO000k#######################
+  152 0O++RR99740cfiknpsux#cchrvy#####wqkfb00OOOO000f########################
+  148 +++RR99889bdgiloqtwy#dekqponmjheb000OOOOOO000d#########################
+  144 ++RRR+99++4fhkmpsuxzabbbbaa00000OOOOOOO00000dz#########################
+  140 ++RR+99+++8biloqtvy00000000OOOOOOOOO0000000dy##########################
+  136 +RR++99+++9hkmpruxzOOOOOOOOOOOOO0000000000fy###########################
+  132 RR++++++++5jloqtvyOOOOOOOO00000000000000ak#############################
+  128 RR+++++++7iknpsux#OOOOOO00000000000000civ##############################
+  124 R++9++++9hjmortvy#aaabbcefiklmmlkjjkns#################################
+  120 ++++++++gjlnqsvx##hjlnpsky#############################################
+  116 +O+++++fiknpruwy##moqsuwy##############################################
+  112 O+++++8egjlnpsuxz#lnprtvy##############################################
+  108 OO++++9cfhjloqtvy#lnprtvxz#############################################
+  104 OO+++++9dfhkmpruwzlnprtvxz#############################################
+  100 +OO+++++1dgilnqsvy#nprtvxz#############################################
+    723 Ground_CR117 outer ravine
+    528 Ground_Mountain_3_4
+    516 Ground_ReportCleanup MountainLoopReverse continuous solid 0
+    201 Ground_Mountain_3_3
+    116 Ground_Report069 flush shoulders
+     99 Ground_CR133 mountain driving surface
+     75 Ground_Mountain_3_5
+     56 Ground_Report070 barrier summit crest outcrop (0.70 BUG-005/006)
+     12 Ground_Report080 BUG-008 trench fill
+     10 Ground_Report068 BUG-006 shoulder
+      6 Ground_MountainCut mountain cap
+      3 Ground_MountainCut portal outcrops
+      1 Ground_Report067 edge shoulders
+      1 Ground_Report080 mountain decks embankment
+      1 Mountain trunk
+      1 Ground_MountainCut rock vault

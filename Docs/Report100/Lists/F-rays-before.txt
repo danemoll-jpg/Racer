@@ -1,0 +1,24 @@
+(139,40): 55.09 Ground_400_320 n+0.98 | 54.61 Long storm culvert walls and ceiling n-0.73 | 49.46 Ground_Culvert seamless floor n+0.96
+(141,45): 56.44 Long storm culvert walls and ceiling n-0.96 | 51.10 Ground_Culvert seamless floor n+0.95
+(142,50): 58.02 Long storm culvert walls and ceiling n-0.96 | 52.67 Ground_Culvert seamless floor n+0.96
+(144,53): 59.09 Long storm culvert walls and ceiling n-0.96 | 53.74 Ground_Culvert seamless floor n+0.95
+(146,56): 60.18 Long storm culvert walls and ceiling n-0.96 | 54.84 Ground_Culvert seamless floor n+0.95
+(147,60): 61.46 Long storm culvert walls and ceiling n-0.96 | 56.12 Ground_Culvert seamless floor n+0.95
+(149,63): 62.58 Long storm culvert walls and ceiling n-0.96 | 57.23 Ground_Culvert seamless floor n+0.95
+(152,66): 63.91 Long storm culvert walls and ceiling n-0.96 | 58.52 Ground_Culvert seamless floor n+0.96
+(155,68): 65.10 Long storm culvert walls and ceiling n-0.85 | 59.59 Ground_Culvert seamless floor n+0.93
+(158,70): 66.42 Long storm culvert walls and ceiling n-0.92 | 60.69 Ground_Culvert seamless floor n+0.96
+(161,72): 67.59 Long storm culvert walls and ceiling n-0.96 | 61.64 Ground_Culvert seamless floor n+0.97
+(164,73): 68.54 Long storm culvert walls and ceiling n-0.95 | 62.48 Ground_Culvert seamless floor n+0.97
+(166,73): 69.12 Long storm culvert walls and ceiling n-0.91 | 62.98 Ground_Culvert seamless floor n+0.97
+(168,73): 63.41 Ground_Culvert seamless floor n+0.97
+(170,73): 63.83 Ground_Culvert seamless floor n+0.98
+(172,73): 64.19 Ground_Culvert seamless floor n+0.98
+(175,74): 64.90 Ground_Culvert seamless floor n+0.98
+(150,50): 57.84 Ground_400_400 n+0.98 | 57.84 Ground_400_320 n+0.98
+(152,60): 62.21 Long storm culvert walls and ceiling n-0.95 | 56.86 Ground_Culvert seamless floor n+0.95
+(138,48): 55.33 Ground_400_320 n+0.98
+(136,60): 55.65 Ground_400_400 n+0.98
+(160,64): 61.00 Ground_480_400 n+0.97 | 61.00 Ground_400_400 n+0.97
+(163,78): 63.11 Ground_480_400 n+0.98
+(156,78): 61.56 Ground_400_400 n+0.98

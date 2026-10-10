@@ -7,7 +7,7 @@ namespace Racer
 {
     // 0.99 Part D: hidden police in single-player Free Roam. 10-14 hiding places lie beside the roads that have a speed limit (found once per
     // session from the road network: a flat, clear verge pull-off, the patrol car parked nose to the road, lights off). Each session uses two to four
-    // of them at random and moves one now and then while the player cannot see it. A hidden cop sees the player within 70 m in front of it with a
+    // of them at random and moves one now and then while the player cannot see it. A hidden cop sees the player within 70 m (either way, 0.100) with a
     // clear line of sight; if the player is on the road and over the road's limit by more than 10 mph it flashes "CLOCKED 58 in a 35", pulls out with
     // lights and siren on, and a Getaway chase starts where the player is (GetawayChase.BeginEmbedded: heat 1, the difficulty from Settings, the normal
     // escalation). Escaped: "You lost them", the cops leave; busted: "Busted", the vehicle is set at the roadside, stopped; Free Roam carries on, no money
@@ -108,7 +108,7 @@ namespace Racer
             {
                 if (!s.prop) continue; var toPlayer = me - s.prop.Body.position; toPlayer.y = 0; float d = toPlayer.magnitude;
                 if (d < 35 && Time.time - s.heardAt > 150 && Random.value < .5f) { s.heardAt = Time.time; if (mph <= limit + OverBy) RadioLine("H01"); }
-                if (d > SeeRange || Vector3.Dot(s.prop.transform.forward, toPlayer / Mathf.Max(.01f, d)) < .45f) continue; // within 70 m, in front of the cop
+                if (d > SeeRange) continue; // 0.100 Part D: within 70 m on either side, whichever way the car is parked (radar both ways; 0.99 saw only a 63-degree cone ahead of the car)
                 if (!onRoad || mph <= limit + OverBy) continue;
                 if (!Clear(s.prop.Body.position + Vector3.up * 1.3f, me + Vector3.up * 1f, car.transform)) continue;
                 Trip(s, Mathf.RoundToInt(mph), limit); return;

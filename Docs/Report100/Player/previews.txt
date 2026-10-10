@@ -1,0 +1,41 @@
+screen=3840x2160 gpu=NVIDIA GeForce GTX 1660 Ti kind=previews version=0.100.0-review1
+  garage (car): 'Garage preview panel/Vehicle preview' on screen 1800x1488 (aspect 1.210), texture 1800x1488, camera aspect 1.210: stretch +0.0%
+garage (car): 1 previews, worst stretch 0.0% OK
+  Cop vs Runner setup (car), page police: 'Preview original/Vehicle preview' on screen 750x396 (aspect 1.894), texture 750x396, camera aspect 1.894: stretch +0.0%
+  Cop vs Runner setup (car), page police: 'Preview police/Vehicle preview' on screen 750x396 (aspect 1.894), texture 750x396, camera aspect 1.894: stretch +0.0%
+Cop vs Runner setup (car), page police: 2 previews, worst stretch 0.0% OK
+  Getaway setup (car): 'Preview original/Vehicle preview' on screen 750x396 (aspect 1.894), texture 750x396, camera aspect 1.894: stretch +0.0%
+  Getaway setup (car): 'Preview police/Vehicle preview' on screen 600x396 (aspect 1.515), texture 600x396, camera aspect 1.515: stretch +0.0%
+Getaway setup (car): 2 previews, worst stretch 0.0% OK
+  Speed Patrol setup (car): 'Preview police/Vehicle preview' on screen 750x396 (aspect 1.894), texture 750x396, camera aspect 1.894: stretch +0.0%
+Speed Patrol setup (car): 1 previews, worst stretch 0.0% OK
+  split-screen setup (car), page split: 'Preview original/Vehicle preview' on screen 900x336 (aspect 2.679), texture 900x336, camera aspect 2.679: stretch +0.0%
+  split-screen setup (car), page split: 'Preview original/Vehicle preview' on screen 900x336 (aspect 2.679), texture 900x336, camera aspect 2.679: stretch +0.0%
+split-screen setup (car), page split: 2 previews, worst stretch 0.0% OK
+  split-screen garages, two halves (car), page split-garage: 'Preview/Vehicle preview' on screen 1079x526 (aspect 2.052), texture 1078x526, camera aspect 2.049: stretch +0.1%
+  split-screen garages, two halves (car), page split-garage: 'Preview/Vehicle preview' on screen 1622x526 (aspect 3.086), texture 1622x526, camera aspect 3.084: stretch +0.1%
+split-screen garages, two halves (car), page split-garage: 2 previews, worst stretch 0.1% OK
+  campaign event page 'Against the Clock' (car), page campaign-event: 'Preview original/Vehicle preview' on screen 750x336 (aspect 2.232), texture 750x336, camera aspect 2.232: stretch +0.0%
+campaign event page 'Against the Clock' (car), page campaign-event: 1 previews, worst stretch 0.0% OK
+  unlock panel (car), open True: 'Preview police/Vehicle preview' on screen 1410x636 (aspect 2.217), texture 1410x636, camera aspect 2.217: stretch +0.0%
+unlock panel (car), open True: 1 previews, worst stretch 0.0% OK
+  garage (bike): 'Garage preview panel/Vehicle preview' on screen 1800x1488 (aspect 1.210), texture 1800x1488, camera aspect 1.210: stretch +0.0%
+garage (bike): 1 previews, worst stretch 0.0% OK
+  Cop vs Runner setup (bike), page police: 'Preview moto/Vehicle preview' on screen 750x396 (aspect 1.894), texture 750x396, camera aspect 1.894: stretch +0.0%
+  Cop vs Runner setup (bike), page police: 'Preview policebike/Vehicle preview' on screen 750x396 (aspect 1.894), texture 750x396, camera aspect 1.894: stretch +0.0%
+Cop vs Runner setup (bike), page police: 2 previews, worst stretch 0.0% OK
+  Getaway setup (bike): 'Preview police/Vehicle preview' on screen 600x396 (aspect 1.515), texture 600x396, camera aspect 1.515: stretch +0.0%
+  Getaway setup (bike): 'Preview moto/Vehicle preview' on screen 750x396 (aspect 1.894), texture 750x396, camera aspect 1.894: stretch +0.0%
+Getaway setup (bike): 2 previews, worst stretch 0.0% OK
+  Speed Patrol setup (bike): 'Preview policebike/Vehicle preview' on screen 750x396 (aspect 1.894), texture 750x396, camera aspect 1.894: stretch +0.0%
+Speed Patrol setup (bike): 1 previews, worst stretch 0.0% OK
+  split-screen setup (bike), page split: 'Preview moto/Vehicle preview' on screen 900x336 (aspect 2.679), texture 900x336, camera aspect 2.679: stretch +0.0%
+  split-screen setup (bike), page split: 'Preview moto/Vehicle preview' on screen 900x336 (aspect 2.679), texture 900x336, camera aspect 2.679: stretch +0.0%
+split-screen setup (bike), page split: 2 previews, worst stretch 0.0% OK
+  split-screen garages, two halves (bike), page split-garage: 'Preview/Vehicle preview' on screen 1622x526 (aspect 3.086), texture 1622x526, camera aspect 3.084: stretch +0.1%
+  split-screen garages, two halves (bike), page split-garage: 'Preview/Vehicle preview' on screen 1079x526 (aspect 2.052), texture 1078x526, camera aspect 2.049: stretch +0.1%
+split-screen garages, two halves (bike), page split-garage: 2 previews, worst stretch 0.1% OK
+  campaign event page 'Against the Clock' (bike), page campaign-event: 'Preview moto/Vehicle preview' on screen 750x336 (aspect 2.232), texture 750x336, camera aspect 2.232: stretch +0.0%
+campaign event page 'Against the Clock' (bike), page campaign-event: 1 previews, worst stretch 0.0% OK
+  unlock panel (bike), open True: 'Preview policebike/Vehicle preview' on screen 1410x636 (aspect 2.217), texture 1410x636, camera aspect 2.217: stretch +0.0%
+unlock panel (bike), open True: 1 previews, worst stretch 0.0% OK

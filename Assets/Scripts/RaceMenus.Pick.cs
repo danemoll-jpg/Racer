@@ -18,7 +18,7 @@ namespace Racer
     public sealed partial class RaceMenus
     {
         // ---------- small previews ----------
-        sealed class Mini { public Camera cam; public RenderTexture rt; public GameObject model; public string key; public float yaw = 200, radius = 1; public Vector3 centre; }
+        sealed class Mini { public Camera cam; public RenderTexture rt; public GameObject model; public string key; public float yaw = 200, radius = 1; public Vector3 centre; public UnityEngine.UI.RawImage raw; }
         readonly List<Mini> minis = new(); int minisUsed;
         static readonly Vector3 MiniBase = new(20000, 20000, 20000);
         Vector3 MiniFocus(int i) => MiniBase + Vector3.right * 200 * i;
@@ -39,7 +39,19 @@ namespace Racer
             }
             mini.cam.enabled = true; mini.cam.aspect = width / (float)height;
             var raw = new GameObject("Vehicle preview", typeof(RectTransform)).AddComponent<UnityEngine.UI.RawImage>(); raw.transform.SetParent(parent, false);
-            raw.texture = mini.rt; raw.raycastTarget = false; return raw;
+            raw.texture = mini.rt; raw.raycastTarget = false; mini.raw = raw; return raw;
+        }
+        // 0.100 Part B: a small preview is never squished. Its texture (and so its camera's aspect) follows the size of the picture on
+        // screen in pixels, whatever the screen size, the layout or a split-screen half does to it (as the garage view's own preview does).
+        static void MatchMini(Mini m)
+        {
+            if (!m.raw || !m.raw.isActiveAndEnabled) return;
+            var canvas = m.raw.canvas ? m.raw.canvas.rootCanvas : null; float scale = canvas ? canvas.scaleFactor : 1;
+            var size = m.raw.rectTransform.rect.size * scale; if (size.x < 8 || size.y < 8) return;
+            int w = Mathf.Clamp(Mathf.RoundToInt(size.x), 32, 2400), h = Mathf.Clamp(Mathf.RoundToInt(size.y), 32, 2400);
+            if (m.rt && m.rt.width == w && m.rt.height == h) return;
+            m.cam.targetTexture = null; if (m.rt) { m.rt.Release(); Destroy(m.rt); }
+            m.rt = new RenderTexture(w, h, 16) { antiAliasing = 4, name = "Small vehicle preview" }; m.cam.targetTexture = m.rt; m.raw.texture = m.rt; m.cam.aspect = w / (float)h;
         }
         void SetMini(Mini mini, int index, VehicleProfile p, int scheme, bool silhouette)
         {
@@ -55,12 +67,12 @@ namespace Racer
         }
         void UpdateMinis()
         {
-            if (prizeMini != null) { bool on = prizeOverlay && prizeOverlay.gameObject.activeInHierarchy && flow.MenuVisible; prizeMini.cam.enabled = on; if (on) Turn(prizeMini, MiniFocus(50)); }
+            if (prizeMini != null) { bool on = prizeOverlay && prizeOverlay.gameObject.activeInHierarchy && flow.MenuVisible; prizeMini.cam.enabled = on; if (on) { MatchMini(prizeMini); Turn(prizeMini, MiniFocus(50)); } }
             for (int i = 0; i < minis.Count; i++)
             {
                 var m = minis[i]; bool on = i < minisUsed && flow.MenuVisible && m.model;
                 if (m.cam.enabled != on) m.cam.enabled = on; if (!on) continue;
-                Turn(m, MiniFocus(i));
+                MatchMini(m); Turn(m, MiniFocus(i));
             }
         }
         void Turn(Mini m, Vector3 focus)

@@ -277,6 +277,8 @@ details.gameObject.SetActive(true);
             Binding("Menus / Previous category",previousTab);Binding("Menus / Next category",tabsAction);
             Binding("Pause / Resume",flow.PauseAction);
             if(CameraViews.Current)Binding("Camera / Change view (or pause menu)",CameraViews.Current.CycleAction);
+            Binding("Camera / Look around while driving (hold the right mouse button and move the mouse)",null,"<Gamepad>/rightStick","<Mouse>/rightButton");// 0.100 Part E
+            if(MenuInput.Controller)Binding("Camera / Look behind while driving (hold)",null,"<Gamepad>/rightStickPress","");
             Binding("Trailer / Photo Mode / On or off (or pause menu)",null,"<Gamepad>/start","<Keyboard>/f8");
             if(RacingMiniMap.Instance&&RacingMiniMap.Instance.ToggleAction!=null)Binding("Minimap / On or off (Free Roam)",RacingMiniMap.Instance.ToggleAction);
             foreach(var action in flow.GetComponent<ExplorationMap>().Bindings)Binding("Map / "+action.name,action);

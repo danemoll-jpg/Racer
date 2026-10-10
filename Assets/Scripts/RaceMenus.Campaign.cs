@@ -40,7 +40,7 @@ namespace Racer
                 prizeOverlay.gameObject.AddComponent<UnityEngine.UI.Image>().color = new Color(.03f, .05f, .07f, .92f);
                 prizeMini = new Mini(); prizeMini.cam = new GameObject("Prize preview camera").AddComponent<Camera>(); prizeMini.cam.cullingMask = 1 << 31; prizeMini.cam.clearFlags = CameraClearFlags.SolidColor; prizeMini.cam.backgroundColor = new Color(.06f, .1f, .13f); prizeMini.cam.fieldOfView = 30;
                 prizeMini.rt = new RenderTexture(345, 174, 16) { antiAliasing = 4 }; prizeMini.cam.targetTexture = prizeMini.rt; prizeMini.cam.aspect = 345 / 174f;
-                var raw = Rect("Picture", prizeOverlay); raw.anchorMin = Vector2.zero; raw.anchorMax = Vector2.one; raw.offsetMin = new Vector2(4, 32); raw.offsetMax = new Vector2(-4, -4); var image = raw.gameObject.AddComponent<UnityEngine.UI.RawImage>(); image.texture = prizeMini.rt; image.raycastTarget = false;
+                var raw = Rect("Picture", prizeOverlay); raw.anchorMin = Vector2.zero; raw.anchorMax = Vector2.one; raw.offsetMin = new Vector2(4, 32); raw.offsetMax = new Vector2(-4, -4); var image = raw.gameObject.AddComponent<UnityEngine.UI.RawImage>(); image.texture = prizeMini.rt; image.raycastTarget = false; prizeMini.raw = image;
                 prizeCaption = Label("Caption", prizeOverlay, 16, 0); prizeCaption.rectTransform.anchorMin = Vector2.zero; prizeCaption.rectTransform.anchorMax = new Vector2(1, 0); prizeCaption.rectTransform.pivot = new Vector2(.5f, 0); prizeCaption.rectTransform.sizeDelta = new Vector2(-8, 32); prizeCaption.alignment = TextAnchor.MiddleCenter; prizeCaption.color = new Color(1, .82f, .35f);
             }
             var p = VehicleProfile.Find(e.Prize); bool won = Campaign.Owns(e.Prize) && !Campaign.Testing;

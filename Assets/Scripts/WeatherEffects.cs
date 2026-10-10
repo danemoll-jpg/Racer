@@ -34,6 +34,29 @@ namespace Racer
         // Evidence only: strikes every TestStrikeInterval seconds when > 0 (frame time during strikes); a fixed moon
         // (phase, elevation, azimuth) when TestMoonPhase >= 0 (moon-phase screenshots).
         public static float TestStrikeInterval, TestMoonPhase = -1, TestMoonElevation, TestMoonAzimuth, TestBoltAzimuth = float.NaN;
+        // 0.100 Part C: where the moon disc is drawn (the night light itself is unchanged). The chase camera sees up to about 15
+        // degrees above the horizon, so the disc is kept low enough to be in the driving view: races, 11 degrees up ahead of the
+        // start line; Free Roam, it rises and sets with the calendar but climbs only to about 12.6 degrees, and every phase's
+        // highest point is pulled towards midnight so a crescent is up for part of the night too. The thinnest crescents are drawn
+        // as a slim bright sliver (never thinner); only the night of new moon (9 hours either side of it) has none.
+        // Returns elevation and azimuth (as for the sun light: the disc is opposite the azimuth), the phase drawn, and 0 / 1 shown.
+        RaceDirector moonRace; float moonRaceAzimuth;
+        (float elevation, float azimuth, float phase, float shown) ShownMoon(WorldLook look)
+        {
+            float phase = look.MoonPhase;
+            if (look.Mode != "Free Roam")
+            {
+                var race = FindAnyObjectByType<RaceDirector>();
+                if (race != moonRace) { moonRace = race; moonRaceAzimuth = 0; if (race && race.road) { race.road.Initialize(); race.road.At(0, out var f); moonRaceAzimuth = Mathf.Atan2(f.x, f.z) * Mathf.Rad2Deg + 180; } }
+                return (11, moonRaceAzimuth, phase, 1);
+            }
+            float transit = Mathf.Repeat(12 + phase * 24, 24), fromMidnight = Mathf.Repeat(transit + 12, 24) - 12;
+            float d = Mathf.Repeat(look.LookHour - fromMidnight * .35f + 12, 24) - 12;
+            float e = 52 * Mathf.Cos(d / 24f * 2 * Mathf.PI) - 2, az = 180 + Mathf.Clamp(d / 6f, -1.4f, 1.4f) * 90;
+            if (e > 6) e = 6 + (e - 6) * .15f;
+            float fromNew = Mathf.Min(phase, 1 - phase);
+            return (e, az, Mathf.Clamp(phase, .088f, .912f), fromNew < .0125f ? 0 : 1);
+        }
         public int ThunderPlayed { get; private set; }
         public float FlashLevel { get; private set; }
         public float PeakFlash { get; private set; }
@@ -165,10 +188,9 @@ namespace Racer
             starRenderer2 ??= stars2.GetComponent<ParticleSystemRenderer>(); starRenderer2.enabled = starLevel > .02f; stars2.transform.position = pos;
             if (look.Mode != "Menu")
             {
-                float phase = look.MoonPhase, mElev, mAz;
-                if (look.Mode == "Free Roam") (mElev, mAz) = WorldLook.Moon(look.LookHour, phase); else { mElev = p.sunElevation; mAz = p.sunAzimuth; }
+                var (mElev, mAz, phase, shown) = ShownMoon(look);
                 float dark = Mathf.Clamp01(p.stars * 1.2f) * (1 - Mathf.Max(p.rain, p.snowfall));
-                moon2.Show(cam2, mElev, mAz, phase, dark * Mathf.SmoothStep(0, 1, Mathf.InverseLerp(-1, 4, mElev)));
+                moon2.Show(cam2, mElev, mAz, phase, shown * dark * Mathf.SmoothStep(0, 1, Mathf.InverseLerp(-1, 4, mElev)));
             }
             else moon2.Show(cam2, -10, 0, .5f, 0);
             mist2.Set(snowMat, cam2, look.Mode == "Menu" || covered2 ? 0 : p.mist * (1 - Mathf.Max(p.rain, p.snowfall) * .5f), p.fogColor);
@@ -222,11 +244,10 @@ namespace Racer
             // The moon (with its phase) where the night light comes from; visible in a clear dark sky.
             if (look.Mode != "Menu")
             {
-                float phase = look.MoonPhase, mElev, mAz;
-                if (look.Mode == "Free Roam") (mElev, mAz) = WorldLook.Moon(look.LookHour, phase); else { mElev = p.sunElevation; mAz = p.sunAzimuth; }
-                if (TestMoonPhase >= 0) { phase = TestMoonPhase; mElev = TestMoonElevation; mAz = TestMoonAzimuth; }
+                var (mElev, mAz, phase, shown) = ShownMoon(look);
+                if (TestMoonPhase >= 0) { phase = TestMoonPhase; mElev = TestMoonElevation; mAz = TestMoonAzimuth; shown = 1; }
                 float dark = Mathf.Clamp01(p.stars * 1.2f) * (1 - Mathf.Max(p.rain, p.snowfall));
-                moon.Show(cam, mElev, mAz, phase, dark * Mathf.SmoothStep(0, 1, Mathf.InverseLerp(-1, 4, mElev)));
+                moon.Show(cam, mElev, mAz, phase, shown * dark * Mathf.SmoothStep(0, 1, Mathf.InverseLerp(-1, 4, mElev)));
             }
             else moon.Show(cam, -10, 0, .5f, 0);
             mist.Set(snowMat, cam, look.Mode == "Menu" || covered ? 0 : p.mist * (1 - Mathf.Max(p.rain, p.snowfall) * .5f), p.fogColor);

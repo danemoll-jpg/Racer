@@ -1,0 +1,5 @@
+screen=3840x2160 gpu=NVIDIA GeForce GTX 1660 Ti kind=views version=0.100.0-review1
+view dan eye 1038.34,156.91,128.84 yaw 44.0 pitch 15.4
+view danwide eye 1038.34,156.91,128.84 yaw 52.0 pitch 8.0
+view back1814 eye 1213.20,155.60,181.60 yaw 241.0 pitch 15.0
+view fromleg eye 1080.29,155.60,182.96 yaw -175.9 pitch 12.0

@@ -268,7 +268,7 @@ namespace Racer
         void Resume(RacerSave.Options s)
         {
             Hour = float.IsNaN(s.roamHour) || s.roamHour < 0 || s.roamHour >= 24 ? FreeRoamStartHour : s.roamHour;
-            Day = s.roamDay < 1 || s.roamDay > CalendarDays ? 1 : s.roamDay;
+            Day = s.roamDay < 1 || s.roamDay > CalendarDays ? 12 : s.roamDay;
             s.roamHour = Hour; s.roamDay = Day;
         }
         void SaveClock()

@@ -42,7 +42,7 @@ namespace Racer
             // 0.74: race time of day also 3 = Dawn. The Free Roam clock and calendar day (1-30), saved when Free Roam ends and
             // resumed next time (a missing value is day 1, 08:00; out-of-range values fall back to that too).
             public float roamHour = 8f;
-            public int roamDay = 1;
+            public int roamDay = 12; // 0.100: a new game's Free Roam calendar starts near a full moon (a saved day is kept)
             // 0.77: the player's camera view (0 Chase, 1 Far chase, 2 First person, 3 Front); older saves = Chase.
             public int cameraView = 0;
             // 0.78: Settings > Display "Scenery" (false = New, the default; true = Classic, the original world visuals).

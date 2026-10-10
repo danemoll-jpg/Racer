@@ -1,0 +1,10 @@
+screen=1920x1080 gpu=NVIDIA GeForce GTX 1660 Ti kind=hidden version=0.100.0-review1
+   closest 68 m: limit there 30, on a road True, line of sight clear
+spot Street Loop at (-449, 6, -562) (car faces 90° from the direction of travel), pass one way at 50 in a 30: chase started = True, flash 'CLOCKED 50 in a 30'
+   closest 68 m: limit there 30, on a road True, line of sight clear
+spot Street Loop at (-449, 6, -562) (car faces -90° from the direction of travel), pass the other way at 50 in a 30: chase started = True, flash 'CLOCKED 50 in a 30'
+   closest 67 m: limit there 45, on a road True, line of sight clear
+spot Trickum Rd at (-622, 9, 158) (car faces -90° from the direction of travel), pass one way at 65 in a 45: chase started = True, flash 'CLOCKED 65 in a 45'
+   the cop car never stood
+spot Trickum Rd at (-622, 9, 158) (car faces 90° from the direction of travel), pass the other way at 65 in a 45: chase started = True, flash 'CLOCKED 65 in a 45'
+hidden police both ways: 4 trips, 4 chases (expected 4)

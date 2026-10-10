@@ -1,0 +1,2 @@
+screen=1920x1080 gpu=NVIDIA GeForce GTX 1660 Ti kind=calendar version=0.100.0-review1
+new save: Free Roam starts on day 12 at 08:02, moon phase 0.378 (0.5 = full), lit 0.86; saved roamDay 12

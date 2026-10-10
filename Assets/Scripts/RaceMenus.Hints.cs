@@ -37,7 +37,7 @@ namespace Racer
             if (!show) { if (controlsCard) controlsCard.SetActive(false); return; }
             if (!controlsCard)
             {
-                var r = Rect("Controls card", shade.transform.parent); r.anchorMin = r.anchorMax = new(.5f, .5f); r.sizeDelta = new(760, 520);
+                var r = Rect("Controls card", shade.transform.parent); r.anchorMin = r.anchorMax = new(.5f, .5f); r.sizeDelta = new(760, 582);
                 r.gameObject.AddComponent<UnityEngine.UI.Image>().color = new(.025f, .065f, .085f, .97f); controlsCard = r.gameObject;
                 var heading = Label("Heading", r, 32, 0); heading.rectTransform.anchorMin = new(0, 1); heading.rectTransform.anchorMax = new(1, 1); heading.rectTransform.pivot = new(.5f, 1); heading.rectTransform.sizeDelta = new(-48, 50); heading.rectTransform.anchoredPosition = new(0, -18); heading.text = "CONTROLS"; heading.color = new(.3f, .95f, .81f);
                 controlsRows = Rect("Rows", r); controlsRows.anchorMin = new(0, 0); controlsRows.anchorMax = new(1, 1); controlsRows.offsetMin = new(40, 70); controlsRows.offsetMax = new(-40, -80);
@@ -53,6 +53,8 @@ namespace Racer
                 ("Steer", Paths(input[2], 2)), ("Accelerate", Paths(input[0], 1)), ("Brake / reverse", Paths(input[1], 1)),
                 ("Reset to the nearest point of the track", Paths(input[3], 1)),
                 ("Camera view", CameraViews.Current ? Paths(CameraViews.Current.CycleAction, 1) : new[] { "<Keyboard>/v" }),
+                // 0.100 Part E: free look
+                (MenuInput.Controller ? "Look around (R3 held: look behind)" : "Look around (hold, move the mouse)", MenuInput.Controller ? new[] { "<Gamepad>/rightStick", "<Gamepad>/rightStickPress" } : new[] { "<Mouse>/rightButton" }),
                 ("Pause", MenuInput.Controller ? new[] { "<Gamepad>/start" } : new[] { "<Keyboard>/escape" }),
             };
             for (int i = 0; i < rows.Length; i++)

@@ -116,7 +116,8 @@ namespace Racer
                 bool own = PlayerView == View.FirstPerson || PlayerView == View.Front;
                 pose = own ? Pose.Lerp(chasePose, PlayerView == View.FirstPerson ? FirstPerson(car, chasePose) : FrontView(car, chasePose), Mathf.SmoothStep(0, 1, viewWeight)) : chasePose;
                 shown = Names[(int)PlayerView];
-                if (!own && blend >= 1 && PlayerView == View.Chase) { Hide(null, false); if (touched) Release(); last = chasePose; ShownView = shown; return; }
+                UpdateFreeLook(car); pose = DriveLook(pose, car, own && viewWeight > .5f); // 0.100 Part E
+                if (!own && blend >= 1 && PlayerView == View.Chase && !Looking) { Hide(null, false); if (touched) Release(); last = chasePose; ShownView = shown; return; }
             }
             if (blend < 1) { blend = Mathf.Min(1, blend + Time.unscaledDeltaTime / blendLength); pose = Pose.Lerp(blendFrom, pose, Mathf.SmoothStep(0, 1, blend)); }
             // 0.83 Part F: the player's head parts are hidden exactly while this frame's camera is inside the head, decided

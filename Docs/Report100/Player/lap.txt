@@ -1,0 +1,4 @@
+screen=1920x1080 gpu=NVIDIA GeForce GTX 1660 Ti kind=lap version=0.100.0-review1
+passed main 1600 m at 73 s, speed 19.0 m/s, recoveries 0
+passed main 1850 m at 84 s, speed 29.4 m/s, recoveries 0
+MountainLoop lap by the road AI (original): state Results, game time 116 s, recoveries 0, lowest up-vector 0.78, finished True

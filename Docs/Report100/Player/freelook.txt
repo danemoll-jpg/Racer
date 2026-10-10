@@ -1,0 +1,20 @@
+screen=1920x1080 gpu=NVIDIA GeForce GTX 1660 Ti kind=freelook version=0.100.0-review1
+chase-left: stick (-1.00, 0.00) R3 False: camera turned -90°, view Chase; driving input while looking: steering 0.00, throttle 0.22, speed 1.3 m/s
+   chase-left: released, back behind the vehicle (within 2°) after 0.65 s (yaw -1.9)
+chase-right: stick (1.00, 0.00) R3 False: camera turned 90°, view Chase; driving input while looking: steering 0.00, throttle 0.22, speed 3.1 m/s
+   chase-right: released, back behind the vehicle (within 2°) after 0.65 s (yaw 1.9)
+chase-behind-stick: stick (0.00, -1.00) R3 False: camera turned 180°, view Chase; driving input while looking: steering 0.00, throttle 0.22, speed 3.4 m/s
+   chase-behind-stick: released, back behind the vehicle (within 2°) after 0.75 s (yaw 1.8)
+chase-behind-r3: stick (0.00, 0.00) R3 True: camera turned 180°, view Chase; driving input while looking: steering 0.00, throttle 0.22, speed 3.3 m/s
+   chase-behind-r3: released, back behind the vehicle (within 2°) after 0.75 s (yaw 1.8)
+chase-half-left: stick (-0.55, 0.45) R3 False: camera turned -41°, view Chase; driving input while looking: steering 0.00, throttle 0.22, speed 4.5 m/s
+   chase-half-left: released, back behind the vehicle (within 2°) after 0.55 s (yaw -1.9)
+firstperson-left: stick (-1.00, 0.00) R3 False: camera turned -90°, view First person; driving input while looking: steering 0.00, throttle 0.22, speed 6.3 m/s
+   firstperson-left: released, back behind the vehicle (within 2°) after 0.65 s (yaw -1.9)
+firstperson-behind-r3: stick (0.00, 0.00) R3 True: camera turned -180°, view First person; driving input while looking: steering 0.00, throttle 0.22, speed 7.0 m/s
+   firstperson-behind-r3: released, back behind the vehicle (within 2°) after 0.75 s (yaw -1.8)
+mouse: right button held, moved right: camera turned 178°, tilted -18°
+   mouse released: back after 0.75 s
+split-screen: player 1 car PrototypeCar view yes, player 2 car PLAYER 2 view yes
+split-screen both at once: player 1 (stick left) turned -90°, player 2 (R3) turned 180°
+   split-screen released: both back after 0.75 s (-0.9°, 1.8°)

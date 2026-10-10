@@ -1,0 +1,6 @@
+screen=1920x1080 gpu=NVIDIA GeForce GTX 1660 Ti kind=drain version=0.100.0-review1
+original onto the top from the north-west, across, off the south-east side: DID NOT reach the far side in 40.1 s, 0.0 s on the roof, never inside the tunnel, resets 0, lowest up 0.97, end 144.4,58.44,65.3
+original onto the top from the south-east, across, off the north-west side: reached the far side in 3.5 s, 1.4 s on the roof, never inside the tunnel, resets 0, lowest up 0.91, end 138.4,58.75,58.2
+original onto the top at the south-west end, along it, off the north-west side: reached the far side in 5.9 s, 3.8 s on the roof, never inside the tunnel, resets 0, lowest up 0.87, end 141.6,60.50,65.3
+original down the storm drain tunnel (45 points from 179.0,66.42,80.7 to 71.0,37.96,-66.5): reached the far end in 22.1 s, resets 0, stuck 0 s, lowest up 0.68
+original up the storm drain tunnel (45 points from 71.0,37.96,-66.5 to 179.0,66.42,80.7): reached the far end in 21.4 s, resets 0, stuck 0 s, lowest up 0.95

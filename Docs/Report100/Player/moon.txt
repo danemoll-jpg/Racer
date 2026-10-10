@@ -1,0 +1,12 @@
+screen=3840x2160 gpu=NVIDIA GeForce GTX 1660 Ti kind=moon version=0.100.0-review1
+race, Night / Clear, at the start: moon drawn, elevation 11.0°, azimuth 169°, 2.58° wide = 86 px at 2160 lines, phase drawn 0.500, visibility 1.00, on screen True at (0.40,0.89); camera fov 65, camera pitch 15.4
+Free Roam day 15 23:03, phase 0.499, lit 1.00
+Free Roam full-moon-23h: moon drawn, elevation 12.4°, azimuth -14°, 2.58° wide = 86 px at 2160 lines, phase drawn 0.499, visibility 1.00, on screen True at (0.50,0.91); camera fov 65, camera pitch 15.4
+Free Roam day 15 20:33, phase 0.495, lit 1.00
+Free Roam full-moon-20h: moon drawn, elevation 9.7°, azimuth -51°, 2.58° wide = 86 px at 2160 lines, phase drawn 0.495, visibility 1.00, on screen True at (0.50,0.87); camera fov 65, camera pitch 15.4
+Free Roam day 4 20:03, phase 0.128, lit 0.15
+Free Roam crescent-day4-20h: moon drawn, elevation 12.4°, azimuth -12°, 2.58° wide = 86 px at 2160 lines, phase drawn 0.128, visibility 0.55, on screen True at (0.50,0.91); camera fov 65, camera pitch 15.4
+Free Roam day 27 04:33, phase 0.873, lit 0.15
+Free Roam crescent-day27-04h: moon drawn, elevation 12.1°, azimuth 21°, 2.58° wide = 86 px at 2160 lines, phase drawn 0.873, visibility 1.00, on screen True at (0.50,0.91); camera fov 65, camera pitch 15.4
+Free Roam day 1 00:15, phase 0.000, lit 0.00
+Free Roam new-moon-day1-00h: no moon drawn
