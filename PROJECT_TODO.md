@@ -18,7 +18,28 @@
   - **Signs (Dan, 2026-10-09):** sign text is part of the sign: one-sided (the back is plain), hidden by terrain and objects like the board, never drawn on top, sized to fit inside its board with a margin, readable at normal sign distance (about 20–30 m), not from across the map. (Mechanism: lettering uses the depth-tested, back-face-culled `Assets/Environment/Phase8/Depth tested world lettering 0.mat`, never a TextMesh's default font material.)
   - **Write-up:** the TODO results are a short list: what changed, the one check per item, decisions made, and anything Dan should look at. No separate VALIDATION.md unless a round asks. If a check would take more than a few minutes of play time, skip it and list it under "for Dan to check".
 
-## CURRENT — Dan's Backyard Forward: bump before the ramp, edge that catches on the left, the gap beside the gate (and the gate closed on Forward), Cabin reset and Cabin board transition — target 0.102.0-review1 — DELIVERED as 0.102.0-review1 (build 102000), awaiting Dan's review
+## CURRENT — Cabin Jump: the step where the run-up boards meet the roof deck still catches — target 0.103.0-review1 — NOT STARTED
+
+- **Authorized by Dan (2026-10-10, 14:15).** Written by Claude (chat) from his play of 0.102.0-review1, debug session `2026-10-10_14-13-22-504_106128` (one report). Dan: "The issue on the ramp is still not fixed. I hit something when it transitions to the roof and it slows me. Happened all 3 times I tried it." Report BUG-001: "it is still catching here on nearly every run."
+- **Starting point:** main at the "Record 0.102 delivery" commit. This TODO edit is uncommitted and belongs in the safety checkpoint.
+- Runs unattended; stop only for a real external blocker (rule 7). **Scope is exactly Part A.** World changes only at this spot. **Every check in the built Windows player.**
+
+### Part A — Make the run-up boards meet the roof deck with no edge
+
+**Where:** `DansBackyardForward`, Abandoned Cabin Jump branch at 33 m, (213.01, 73.90, 79.69), heading 80°, Turf Rocket, lap 3. Dan's screenshot shows the vehicle on the **lengthwise run-up boards**, and directly ahead the **cross-planked roof / ramp deck** starts with its front edge visibly standing up above the boards: a step across the whole width.
+
+**Why 0.102 missed it:** 0.102 Part E fixed the trail-to-boards foot (the shoulders, s 24.5–35.3) and measured speed "on the transition" at s 23–34 with a scripted driver. The catch Dan hits is the next joint: **boards to roof deck**. The 0.102 numbers do not cover it, and Dan hits it "on nearly every run".
+
+1. **Measure the joint first:** sample the drivable surface (the colliders the wheels touch, not the visible mesh) every 2 cm along the centre line and at ±0.5, ±1.0 and ±1.5 m across, from 2 m before to 2 m after where the boards meet the roof deck. Report every step, gap or reversed slope: the deck's front edge above the boards, a gap between them, two colliders overlapping with an exposed edge, a box collider's corner. Do the same for the visible meshes and say whether they match the colliders.
+2. **Fix it at the source:** the boards and the roof deck form one continuous surface at the joint: no step (under 1 cm), no gap, no exposed collider edge or corner the wheels can strike. Preferably one continuous collider across the joint (or the boards' collider carried a short way under and up onto the deck as a smooth wedge). Make the visible deck edge match (the deck's front plank flush with the boards, or a short tapered lip). Do not change the run-up's line or height before the joint, the roof's angle, the lip, the launch or the brush.
+3. Same joint in `FreeRoamWorld` (identical run-up and roof since 0.101): same fix.
+4. **Check like Dan plays, in the built player:** drive it yourself through the real input path with the Turf Rocket and the Street Classic, five runs each from the main road at racing speed, on the centre, 0.5 m left and 0.5 m right. Log speed every 0.05 s from 3 m before the joint to the lip. **Pass:** no speed drop over 0.3 m/s at the joint in any of the 30 runs (report the worst), and every run takes off clean. Report the joint's before / after surface samples, a short frame sequence of one run across the joint, and a shot from Dan's position.
+
+### Verification
+
+Light except Part A's checks. Compile, launch, release steps. Results as a short list, with "for Dan to check".
+
+## Previous delivery — Dan's Backyard Forward: bump before the ramp, edge that catches on the left, the gap beside the gate (and the gate closed on Forward), Cabin reset and Cabin board transition — target 0.102.0-review1 — DELIVERED as 0.102.0-review1 (build 102000), awaiting Dan's review — REVIEWED BY DAN (the Cabin run-up still catches where the boards meet the roof deck; 0.103)
 
 - **Authorized by Dan (2026-10-10, 10:59).** Written by Claude (chat) from his play of 0.101.0-review1, debug session `2026-10-10_10-44-32-440_a775cd` (five reports, all Dan's Backyard Loop - Forward race, Dusk / Snow, Turf Rocket mower). Dan: "the jump is vastly improved." His words are quoted in each part.
 - **Starting point:** main at the "Record 0.101 delivery" commit. This TODO edit is uncommitted and belongs in the safety checkpoint.
