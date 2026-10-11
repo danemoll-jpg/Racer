@@ -20,7 +20,46 @@
   - **Player-facing text is American English (Dan, 2026-10-10).** color, gray, center, meter, favorite, tire, canceled, and so on in everything the player reads (menus, HUD, notices, signs, the launcher, shipped documents). Code names, file names and save / settings keys stay as they are.
   - **Write-up:** the TODO results are a short list: what changed, the one check per item, decisions made, and anything Dan should look at. No separate VALIDATION.md unless a round asks. If a check would take more than a few minutes of play time, skip it and list it under "for Dan to check".
 
-## CURRENT — STUNT EVENT on the main menu next to POLICE CHASE; Top 10 on the Stunt event results; results log and balance sheet for balancing — target 0.109.0-review1 — DELIVERED as 0.109.0-review1 (build 109000), awaiting Dan's review
+## CURRENT — Three small Stunt event fixes left from 0.109 (split-screen Top 10 rank, "within 2 s" text, divider through the results); remember my vehicle from event to event; fresh-player campaign run for balancing — target 0.110.0-review1 — NOT STARTED
+
+Dan (2026-10-11, 11:39): fold in the three things Code's 0.109 delivery notes listed as "seen, not changed (outside the spec)". Change only these.
+
+### Part A — Split-screen Top 10 rank shown twice as the same number
+1. On the Stunt event results in split-screen, the "(Top 10 #n)" next to each player can show both as #5 when they should be #5 and #6. Rank both players' new entries against the list **after both are inserted**, so each shows its true place; ties ordered as the list orders them.
+- **Check:** a test save with a full list; a split-screen event where both players' scores land next to each other: #5 and #6 shown, the Records list agrees. Also one where they land far apart.
+
+### Part B — The Stunt setup page still says "within 2 s"
+1. The chain time has been 5 s since 0.107. Replace every player-facing "2 s" chain text (setup page, hints, help, anywhere else) with the real value, read from `ComboGap` so it can't drift again.
+- **Check:** shot of the setup page; search the player-facing strings for any other "2 s" combo text.
+
+### Part C — The split-screen divider line shows through the results panel
+1. On the split-screen Stunt event results, the divider between the two views draws over the results panel. Hide the divider while any full-screen results/menu panel is up (Stunt event and every other split-screen results/pause screen that has the same problem), and bring it back after.
+- **Check:** split-screen results shots for the Stunt event, a race and a police mode: no line through the panel; the divider back when driving resumes.
+
+### Part D — Remember my vehicle from event to event
+Dan (2026-10-11, 12:11): "One thing kind of annoying is it doesn't remember my vehicle from event to event." (He was going through Chapter 1 campaign events in 0.109; the results log shows him on the scrambler, then the moto for the rest.)
+1. Find why it doesn't stick. `RaceMenus.Campaign.PickVehicle` / `Campaign.DefaultVehicle` should already pick the most recently driven allowed vehicle, yet Dan (Unlock everything off, real campaign at chapter 4) still had to re-pick between events. Find the actual cause in his play and say what it was.
+2. Every event setup defaults to **the vehicle you last drove** if that event allows it: campaign events and championships (both campaign slots), Race setup, Police Chase, Stunt event, split-screen (each player their own). If the last one isn't allowed, the most recent allowed one, then the first allowed. Choosing a different vehicle and driving it makes that the new default. Saved, so it survives quitting the game.
+- **Check (built player, controller, test save):** drive event 1 on vehicle X, back out, open event 2, 3 and a championship: X is preselected each time; pick Y in one, drive it, next event shows Y; quit and restart: still Y.
+
+3. The results log (0.109) also records, for each campaign attempt, the campaign garage (owned vehicles), money, and the upgrades of the vehicle used.
+
+### Part E — A fresh-player campaign run for balancing, without touching Dan's campaign; "Unlock everything" only in dev builds
+Dan (2026-10-11, 12:15–12:25): "I have unlocked vehicles and I don't want to lock them in my game. I just want to go through the campaign as a new person would so that I get true data … if I use the Scrambler on Chapter 1, a new player won't have this so it will skew the statistics." And: "I haven't touched that setting ['Unlock everything'] … I wouldn't want that in the final game. Just in the dev version."
+
+Facts from Dan's save (checked by Claude, 2026-10-11): `unlockEverything` is **false**; his campaign is real: chapter 4, about $65k, owns original, atv, moto, pebble, scrambler (Chapter 3 prize), fastback (Chapter 4 prize); Chapter 1 events at 2 runs each. So the skew comes from replaying early events with vehicles won later, not from the setting.
+1. **Fresh run (a second campaign slot):** on the CAMPAIGN page add "FRESH RUN (new player)" next to Dan's campaign. It is its own save (`campaign-fresh-v1.json`) that starts exactly like a new player's: chapter 1, $0, the two starters, Street Loop Forward only. In it, only what was bought or won **in that run** can be used; it never sees Dan's main campaign garage, money or upgrades. Dan's main campaign, Race, Free Roam, records and unlocks are **never** changed by it.
+2. Switch between "MY CAMPAIGN" and "FRESH RUN" at any time from the CAMPAIGN page (the active one is named on the page and in the event setup). "Restart fresh run" (with a confirmation) resets only the fresh run.
+3. **Unlocks earned in the fresh run** (chapter prizes etc.) don't change anything outside it; Dan already has them.
+4. **The results log** tags every campaign attempt with the slot (`main` / `fresh`) and `firstRun` / `replay`; balancing uses fresh-run first runs.
+5. **"Unlock everything (testing)" only in development builds:** hide the setting in release builds (it stays in dev builds and the editor), and in a release build it is always off whatever an old settings file says. Dan's current builds are the dev ones he tests, so say in the notes which kind the published `game-<build>` is and where the setting appears.
+- **Check (built player, controller, a copy of Dan's real save as the test save):** main campaign still chapter 4 with its money and garage; FRESH RUN starts at chapter 1 with only the starters offered; buy a vehicle in the fresh run's Shop: it appears there, not in the main campaign; switch back: main unchanged; Race/Free Roam garage unchanged; log lines show `fresh` / `firstRun`; release build has no "Unlock everything" row.
+
+### Part F — Checks and release
+1. Built player, controller, background rule; test saves only, never Dan's real save.
+2. Version 0.110.0-review1; usual build and release; close everything started.
+
+## Previous delivery — STUNT EVENT on the main menu next to POLICE CHASE; Top 10 on the Stunt event results; results log and balance sheet for balancing — target 0.109.0-review1 — DELIVERED as 0.109.0-review1 (build 109000), awaiting Dan's review — REVIEW PENDING (Dan folded the three "seen, not changed" items into 0.110)
 
 Dan (2026-10-11, 09:57). Change only what these parts say. Code: `RaceMenus.Core.cs` (main menu), `RaceMenus.Stunt.cs`, `StuntEvent.cs`, `StuntProgress.cs`.
 
