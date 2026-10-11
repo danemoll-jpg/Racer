@@ -1,0 +1,25 @@
+screen=1920x1080 kind=event107 version=0.107.0-review1 park=on
+Stunt event: 2 player(s), round shortened to 50 s (StuntEvent.TestLimit, checks only); combo gap 5 s
+Part F: hay bale colliders in the scene: 0; park report: built in 93 ms: 39709 triangles, 135 solids, 3 lettered faces
+P2: a backflip off the floor by the south fence, out toward Hwy 92: took off at u 95, v 9, 360 degrees turned; first touch by the wheels at 0 degrees from upright (game: 0); landed at u 95, v -18 (outside the park), upright 1 degrees from level -> COUNTED, 702 pts
+    shown: BACKFLIP / 702 pts
+P1: a backflip off the floor by the south fence, out toward Hwy 92: took off at u 60, v 9, 360 degrees turned; first touch by the wheels at 0 degrees from upright (game: 0); landed at u 60, v -22 (outside the park), upright 2 degrees from level -> COUNTED, 711 pts
+    shown: BACKFLIP / 711 pts
+P2: before the reset at 84.9,9.48,587.1 (outside the park); reset (Y) -> 'Recovered in the stunt park' at 90.0,11.80,635.0 (u 100, v 30), IN the park, 0 degrees off facing the middle; event points 0 -> 702, not-counted combos 0 -> 0; last log: 7.1s +702 (BACKFLIP)
+P1: before the reset at 50.0,8.87,583.4 (outside the park); reset (Y) -> 'Recovered in the stunt park' at 20.0,11.80,639.0 (u 30, v 34), IN the park, 0 degrees off facing the middle; event points 0 -> 711, not-counted combos 0 -> 0; last log: 7.2s +711 (BACKFLIP)
+Part E dry runs: P1 hop + huge table takes off at u 54, v 46 5.6 s after its start; P2 K2 + K3 takes off 7.1 s after its start; clock 19.3 s; points 711 / 702
+Part E: P1 started at 43.4 s, took off at u 54, v 46 at 47.4 s (0:00 is 50 s); P2 started at 41.9 s, took off at 47.4 s; HUD at 0:00: '<b>STUNT EVENT</b>   0:00 left   <b>2,913</b> pts / <color=#FFC747><b>FINISH THE TRICK!</b></color> / ↑  Player Two  160 ft | <b>STUNT EVENT</b>   0:00 left   <b>2,684</b> pts / <color=#FFC747><b>FINISH THE TRICK!</b></color> / ↓  Player One  160 ft'
+finished; state Results; winner Player One
+  Player One: 5,117 pts, medal none, Top 10 #3, combos 3, best 2,204, not counted 0, tricks 3, bails 0
+      7.2s +711 (BACKFLIP)
+      22.6s +2202 (FRONTFLIP)
+      50.0s +2204 (FRONTFLIP)
+      finished the trick 1.6s after 0:00
+  Player Two: 4,682 pts, medal none, Top 10 #4, combos 3, best 1,998, not counted 0, tricks 3, bails 0
+      7.1s +702 (BACKFLIP)
+      23.5s +1982 (SKETCHY LANDING
+BACKFLIP)
+      50.0s +1998 (SKETCHY LANDING
+BACKFLIP)
+      finished the trick 1.0s after 0:00
+test save C:\Users\danmo\AppData\Local\Temp\report107\event2\save-copy; stunt file written

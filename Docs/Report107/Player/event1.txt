@@ -1,0 +1,33 @@
+screen=1920x1080 kind=event107 version=0.107.0-review1 park=on
+Stunt event: 1 player(s), round shortened to 100 s (StuntEvent.TestLimit, checks only); combo gap 5 s
+Part F: hay bale colliders in the scene: 0; park report: built in 56 ms: 39709 triangles, 135 solids, 3 lettered faces
+Part D: the circuit bot, 9 flights in 50 s; points 10,661
+    landing at u 108, v 20 -> next takeoff at u 93, v 20 after 1.0 s on the ground
+    landing at u 74, v 20 -> next takeoff at u 51, v 20 after 1.6 s on the ground
+    landing at u 31, v 20 -> next takeoff at u 9, v 58 after 3.8 s on the ground
+    landing at u 8, v 72 -> next takeoff at u 50, v 139 after 7.0 s on the ground  (over 5 s: the combo ends)
+    landing at u 71, v 141 -> next takeoff at u 88, v 140 after 0.9 s on the ground
+    landing at u 102, v 139 -> next takeoff at u 121, v 18 after 17.7 s on the ground  (over 5 s: the combo ends)
+    landing at u 107, v 18 -> next takeoff at u 93, v 20 after 1.0 s on the ground
+    landing at u 75, v 22 -> next takeoff at u 51, v 20 after 1.8 s on the ground
+    19.8s banked 6344 at u 24, v 135 (on the ground)
+    35.7s banked 3255 at u 147, v 77 (on the ground)
+    49.3s banked 1062 at u 31, v 19
+P1: a backflip off the floor by the south fence, out toward Hwy 92: took off at u 60, v 9, 360 degrees turned; first touch by the wheels at 0 degrees from upright (game: 0); landed at u 60, v -22 (outside the park), upright 2 degrees from level -> COUNTED, 709 pts
+    shown: BACKFLIP / 709 pts
+P1: before the reset at 50.0,8.87,583.4 (outside the park); reset (Y) -> 'Recovered in the stunt park' at 20.0,11.80,639.0 (u 30, v 34), IN the park, 0 degrees off facing the middle; event points 10,661 -> 11,370, not-counted combos 0 -> 0; last log: 60.3s +709 (BACKFLIP)
+Part A in the event: a backflip 60 degrees short: took off at u 112, v 57, 300 degrees turned; first touch by the body at 60 degrees from upright (game: 60); landed at u 112, v 84, upright 0 degrees from level -> COUNTED, 685 pts
+    shown: BACKFLIP / 685 pts
+Part E dry runs: P1 hop + huge table takes off at u 54, v 46 5.6 s after its start; clock 77.8 s; points 12,055
+Part E: P1 started at 93.4 s, took off at u 54, v 46 at 97.4 s (0:00 is 100 s); HUD at 0:00: '<b>STUNT EVENT</b>   0:00 left   <b>14,259</b> pts / <color=#FFC747><b>FINISH THE TRICK!</b></color>'
+finished; state Results; winner solo
+  Dan: 16,461 pts, medal none, Top 10 #3, combos 7, best 6,344, not counted 0, tricks 6, bails 1
+      19.8s +6344 (CLEAN JUMP / 47.8 ft / 0.98 s)
+      35.7s +3255 (LOOP)
+      49.3s +1062 (CLEAN JUMP / 58.1 ft / 1.24 s)
+      60.3s +709 (BACKFLIP)
+      68.4s +685 (BACKFLIP)
+      81.6s +2204 (FRONTFLIP)
+      100.0s +2202 (FRONTFLIP)
+      finished the trick 1.6s after 0:00
+test save C:\Users\danmo\AppData\Local\Temp\report107\event1\save-copy; stunt file written

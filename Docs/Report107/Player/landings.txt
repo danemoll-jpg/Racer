@@ -1,0 +1,52 @@
+screen=1920x1080 kind=landings version=0.107.0-review1 park=on
+--- Clay Hopper (stuntbuggy): launched from the floor at u 112, v 52 heading north, 10 m/s, 10 m/s up
+backflip, 60 degrees short: nose first onto the front wheels: took off at u 112, v 57, 300 degrees turned; first touch by the body at 60 degrees from upright (game: 60); landed at u 112, v 84, upright 0 degrees from level -> COUNTED, 685 pts
+    shown: BACKFLIP / 685 pts
+backflip, 60 degrees over: tail first onto the back wheels: took off at u 112, v 57, 420 degrees turned; first touch by the body at 59 degrees from upright (game: 59); landed at u 112, v 82, upright 3 degrees from level -> COUNTED, 680 pts
+    shown: BACKFLIP / 680 pts
+backflip, 75 degrees over: tail first, steeper: took off at u 112, v 57, 435 degrees turned; first touch by the body at 75 degrees from upright (game: 75); landed at u 112, v 83, upright 6 degrees from level -> COUNTED, 692 pts, sketchy
+    shown: SKETCHY LANDING | BACKFLIP / 692 pts
+frontflip, 70 degrees short: tail first onto the back wheels: took off at u 112, v 57, 290 degrees turned; first touch by the body at 68 degrees from upright (game: 68); landed at u 112, v 83, upright 6 degrees from level -> COUNTED, 688 pts, sketchy
+    shown: SKETCHY LANDING | FRONTFLIP / 688 pts
+rolled 70 degrees: onto the wheels of one side: took off at u 112, v 57, 70 degrees turned; first touch by the body at 68 degrees from upright (game: 68); landed at u 112, v 83, upright 1 degrees from level -> COUNTED, 392 pts, sketchy
+    shown: SKETCHY LANDING | JUMP / 64.9 ft / 1.94 s / 392 pts
+half backflip: onto the roof: took off at u 112, v 57, 180 degrees turned; first touch by the body at 180 degrees from upright (game: 180); landed at u 112, v 89, upright 180 degrees from level -> BAILED (Landed on the roof)
+    shown: BAILED / Landed on the roof
+rolled 95 degrees: onto the side: took off at u 112, v 57, 95 degrees turned; first touch by the body at 95 degrees from upright (game: 95); landed at u 112, v 85, upright 3 degrees from level -> COUNTED, 432 pts, sketchy
+    shown: SKETCHY LANDING | JUMP / 72.9 ft / 2.10 s / 432 pts
+rolled 115 degrees: onto the side, past the balance point: took off at u 112, v 57, 115 degrees turned; first touch by the body at 115 degrees from upright (game: 115); landed at u 112, v 84, upright 1 degrees from level -> COUNTED, 415 pts, sketchy
+    shown: SKETCHY LANDING | JUMP / 69.4 ft / 2.04 s / 415 pts
+--- Skywhip 250 (stuntbike): launched from the floor at u 112, v 52 heading north, 10 m/s, 10 m/s up
+backflip, 60 degrees short: nose first onto the front wheels: took off at u 112, v 57, 300 degrees turned; first touch by the body at 57 degrees from upright (game: 57); landed at u 112, v 83, upright 0 degrees from level -> COUNTED, 690 pts
+    shown: BACKFLIP / 690 pts
+backflip, 60 degrees over: tail first onto the back wheels: took off at u 112, v 57, 420 degrees turned; first touch by the body at 60 degrees from upright (game: 60); landed at u 112, v 83, upright 1 degrees from level -> COUNTED, 687 pts
+    shown: BACKFLIP / 687 pts
+backflip, 75 degrees over: tail first, steeper: took off at u 112, v 57, 435 degrees turned; first touch by the body at 74 degrees from upright (game: 74); landed at u 112, v 83, upright 3 degrees from level -> COUNTED, 702 pts, sketchy
+    shown: SKETCHY LANDING | BACKFLIP / 702 pts
+frontflip, 70 degrees short: tail first onto the back wheels: took off at u 112, v 57, 290 degrees turned; first touch by the body at 70 degrees from upright (game: 70); landed at u 112, v 83, upright 3 degrees from level -> COUNTED, 699 pts, sketchy
+    shown: SKETCHY LANDING | FRONTFLIP / 699 pts
+rolled 70 degrees: onto the wheels of one side: took off at u 112, v 57, 70 degrees turned; first touch by the body at 70 degrees from upright (game: 70); landed at u 112, v 85, upright 18 degrees from level -> COUNTED, 447 pts, sketchy
+    shown: SKETCHY LANDING | JUMP / 72.5 ft / 2.26 s / 447 pts
+half backflip: onto the roof: took off at u 112, v 57, 180 degrees turned; first touch by the body at 180 degrees from upright (game: 180); landed at u 112, v 88, upright 180 degrees from level -> BAILED (Landed on the roof)
+    shown: BAILED / Landed on the roof
+rolled 95 degrees: onto the side: took off at u 112, v 57, 95 degrees turned; first touch by the body at 92 degrees from upright (game: 92); landed at u 113, v 88, upright 90 degrees from level -> BAILED (Landed on the side)
+    shown: BAILED / Landed on the side
+rolled 115 degrees: onto the side, past the balance point: took off at u 112, v 57, 115 degrees turned; first touch by the body at 110 degrees from upright (game: 110); landed at u 111, v 83, upright 13 degrees from level -> COUNTED, 437 pts, sketchy
+    shown: SKETCHY LANDING | JUMP / 70.0 ft / 2.24 s / 437 pts
+--- Street Classic (original): launched from the floor at u 112, v 52 heading north, 10 m/s, 10 m/s up
+backflip, 60 degrees short: nose first onto the front wheels: took off at u 112, v 57, 300 degrees turned; first touch by the body at 58 degrees from upright (game: 58); landed at u 112, v 83, upright 0 degrees from level -> COUNTED, 688 pts
+    shown: BACKFLIP / 688 pts
+backflip, 60 degrees over: tail first onto the back wheels: took off at u 112, v 57, 420 degrees turned; first touch by the body at 57 degrees from upright (game: 57); landed at u 112, v 83, upright 2 degrees from level -> COUNTED, 684 pts
+    shown: BACKFLIP / 684 pts
+backflip, 75 degrees over: tail first, steeper: took off at u 112, v 57, 435 degrees turned; first touch by the body at 70 degrees from upright (game: 70); landed at u 112, v 84, upright 1 degrees from level -> COUNTED, 710 pts, sketchy
+    shown: SKETCHY LANDING | BACKFLIP / 710 pts
+frontflip, 70 degrees short: tail first onto the back wheels: took off at u 112, v 57, 290 degrees turned; first touch by the body at 64 degrees from upright (game: 64); landed at u 112, v 84, upright 1 degrees from level -> COUNTED, 702 pts, sketchy
+    shown: SKETCHY LANDING | FRONTFLIP / 702 pts
+rolled 70 degrees: onto the wheels of one side: took off at u 112, v 57, 70 degrees turned; first touch by the body at 65 degrees from upright (game: 65); landed at u 112, v 84, upright 5 degrees from level -> COUNTED, 384 pts, sketchy
+    shown: SKETCHY LANDING | JUMP / 63.7 ft / 1.90 s / 384 pts
+half backflip: onto the roof: took off at u 112, v 57, 180 degrees turned; first touch by the body at 180 degrees from upright (game: 180); landed at u 112, v 89, upright 180 degrees from level -> BAILED (Landed on the roof)
+    shown: BAILED / Landed on the roof
+rolled 95 degrees: onto the side: took off at u 112, v 57, 95 degrees turned; first touch by the body at 92 degrees from upright (game: 92); landed at u 112, v 84, upright 4 degrees from level -> COUNTED, 417 pts, sketchy
+    shown: SKETCHY LANDING | JUMP / 69.8 ft / 2.04 s / 417 pts
+rolled 115 degrees: onto the side, past the balance point: took off at u 112, v 57, 115 degrees turned; first touch by the body at 113 degrees from upright (game: 113); landed at u 112, v 85, upright 4 degrees from level -> COUNTED, 447 pts, sketchy
+    shown: SKETCHY LANDING | JUMP / 73.9 ft / 2.22 s / 447 pts

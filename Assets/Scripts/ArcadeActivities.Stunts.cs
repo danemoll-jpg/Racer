@@ -12,9 +12,14 @@ namespace Racer
     // and the combo ends. Combo: each scored flight (or loop) within 2 s on the ground of the last one adds a link; when 2 s pass on the ground the
     // combo is banked as its points times its links (x2, x3, ...). Works for every vehicle; the stunt vehicles can steer in the air (ArcadeVehicle).
     // Never in races, the campaign or the police games; nothing changes in them.
+    // 0.107 Part A (Dan: "far too unforgiving"): no bail on touching down at an angle. From the first touch (body or wheel) the vehicle has a
+    // recovery window (RecoverWindow): back on its wheels and driving on (wheels down and upright for 0.3 s) is a landing with the tricks turned so
+    // far ("SKETCHY LANDING" when it first touched 60 degrees or more over; full points). A bail only when the roof itself hits the ground hard (a
+    // contact on the top of the body, more than about 100 degrees over), when the vehicle is still on its roof or side as the window ends, or a
+    // wipe-out. Part B: a flight that takes off inside the park counts wherever it lands. Part D: 5 s on the ground to chain the next trick.
     public sealed partial class ArcadeActivities
     {
-        public const float ComboGap = 2f, MinStuntAir = .6f, MinStuntDistance = 4f;
+        public const float ComboGap = 5f, MinStuntAir = .6f, MinStuntDistance = 4f, RecoverWindow = 1.5f, RoofUp = -.17f, RoofHit = 3f;
         public const int FlipPoints = 300, RollPoints = 250, SpinPoints = 150, LoopPoints = 500, BarrelPoints = 300, MaxLinks = 9;
         public bool StuntsOn => race && race.FreeRoam && CampaignRun.Active == null && !(SplitScreen.Active && SplitScreen.Mode == SplitScreen.Kind.Police);
         // a combo banked: its points (after the multiplier) and whether every link of it was in the stunt park
@@ -30,8 +35,13 @@ namespace Racer
         public string LastStunt { get; private set; } = "";   // the last scored flight's line (checks)
         public int LastStuntPoints { get; private set; }
         public Vector3 LastStuntRotation { get; private set; } // pitch, yaw, roll turned in that flight (degrees)
-        // the flight
-        bool sFlying, sBarrel; float sGround, sAir, sStable, sSince; Vector3 sTurn, sTakeoff, sLanding;
+        public float LastTouchTilt { get; private set; } = -1;  // the last flight's tilt from upright at its first touch (degrees; checks)
+        public string LastBail { get; private set; } = "";
+        public bool LastSketchy { get; private set; }
+        // 0.107 Part E: in the air or going round the loop (the Stunt event waits for this at 0:00)
+        public bool StuntBusy => sFlying || InLoop;
+        // the flight; sTouch: time since its first touch (-1: not touched yet)
+        bool sFlying, sBarrel; float sGround, sAir, sStable, sSince, sTouch = -1, sTilt = -1; Vector3 sTurn, sTakeoff, sLanding;
         // the loop
         float loopAcc, loopPrev = float.NaN, loopOut = 1;
         string StuntHud
@@ -43,7 +53,7 @@ namespace Racer
                 return "";
             }
         }
-        void StuntReset() { sFlying = false; sBarrel = false; sGround = sAir = sStable = 0; sTurn = Vector3.zero; loopAcc = 0; loopPrev = float.NaN; loopOut = 1; }
+        void StuntReset() { sFlying = false; sBarrel = false; sGround = sAir = sStable = 0; sTouch = sTilt = -1; sTurn = Vector3.zero; loopAcc = 0; loopPrev = float.NaN; loopOut = 1; }
         void StuntSession() { StuntReset(); ComboLinks = ComboPoints = 0; ComboInPark = true; sSince = 0; }
 
         void StuntStep(Vector3 p, float dt, bool grounded)
@@ -59,19 +69,34 @@ namespace Racer
                 if (any) { sGround += dt; if (ComboLinks > 0 && !(StuntPark.Current && loopOut < .2f)) { sSince += dt; if (sSince >= ComboGap) EndCombo(null); } }
                 else if (sGround >= .2f && car.Body.linearVelocity.magnitude > 3 && !configuration.WipedOut)
                 {
-                    sFlying = true; sAir = 0; sStable = 0; sTurn = Vector3.zero; sTakeoff = previous;
+                    sFlying = true; sAir = 0; sStable = 0; sTouch = sTilt = -1; sTurn = Vector3.zero; sTakeoff = previous;
                     sBarrel = StuntPark.Current && Vector3.Distance(previous, StuntPark.BarrelLip) < 7 && Vector3.Dot(car.Body.linearVelocity, StuntPark.BarrelForward) > 3;
                 }
                 else sGround = 0;
                 return;
             }
             sTurn += w;
-            if (configuration.WipedOut) { Bail("Wiped out"); return; }
-            if (!grounded) { sAir += dt; sStable = 0; return; }
+            if (configuration.WipedOut) { Bail(car.transform.up.y < RoofUp ? "Landed on the roof" : "Landed on the side"); return; }
+            if (any) Touch();
+            if (sTouch >= 0) sTouch += dt;
+            // on the wheels: two or more down and upright (or every wheel down, as on a steep ramp face)
+            bool wheels = grounded && (car.transform.up.y > .5f || car.GroundedWheels >= car.suspensionPoints.Length);
+            if (!wheels)
+            {
+                if (!grounded) sAir += dt;
+                sStable = 0;
+                if (sTouch >= RecoverWindow)
+                {
+                    // the window is over: still lying on the roof or side is a bail; bounced back up into the air, the next touch starts a new window
+                    if (Lying()) { Bail(car.transform.up.y < RoofUp ? "Landed on the roof" : "Landed on the side"); return; }
+                    sTouch = -1;
+                }
+                return;
+            }
             if (sStable == 0) sLanding = p;
             sStable += dt; if (sStable < .3f) return;
             // down on the wheels
-            sFlying = false; sGround = sStable;
+            sFlying = false; sGround = sStable; LastTouchTilt = sTilt; LastSketchy = sTilt >= 60; LastBail = "";
             if (sAir < MinStuntAir || Vector3.ProjectOnPlane(sLanding - sTakeoff, Vector3.up).magnitude < MinStuntDistance && Mathf.Abs(sTurn.y) < 300) return; // a hop: no jump, and no break in the combo
             Landed();
         }
@@ -86,8 +111,9 @@ namespace Racer
             float distance = Vector3.ProjectOnPlane(sLanding - sTakeoff, Vector3.up).magnitude;
             int jump = Mathf.RoundToInt(Mathf.Min(distance, 250) * 10 + Mathf.Min(sAir, 12) * 100);
             Tricks += names.Count; LastStuntRotation = new Vector3(sTurn.x, sTurn.y, sTurn.z);
-            string line = names.Count > 0 ? string.Join(" + ", names) : $"CLEAN JUMP / {DisplayUnits.Jump(distance)} / {sAir:0.00} s";
-            Link(points + jump, line, StuntPark.OnPark(sLanding) && StuntPark.OnPark(sTakeoff));
+            string line = names.Count > 0 ? string.Join(" + ", names) : $"{(LastSketchy ? "JUMP" : "CLEAN JUMP")} / {DisplayUnits.Jump(distance)} / {sAir:0.00} s";
+            if (LastSketchy) line = "SKETCHY LANDING\n" + line;
+            Link(points + jump, line, StuntPark.OnPark(sTakeoff)); // 0.107 Part B: took off in the park: counts wherever it lands
         }
         void Link(int points, string line, bool inPark)
         {
@@ -113,15 +139,27 @@ namespace Racer
         {
             if (!sFlying) return;
             bool tried = sAir >= MinStuntAir || sTurn.magnitude > 90;
-            sFlying = false; sGround = 0; Bails++;
+            sFlying = false; sGround = 0; Bails++; LastBail = why; LastTouchTilt = sTilt;
             if (tried || ComboLinks > 0) EndCombo(why);
         }
-        // ActivityLandingContact: a hit while upside down or on the side ends the flight as a bail
+        // the first touch of a flight (a wheel or the body): its tilt from upright, and the recovery window starts
+        void Touch() { if (sTouch >= 0) return; sTouch = 0; sTilt = Vector3.Angle(car.transform.up, Vector3.up); }
+        // lying on the roof or side: tipped 60 degrees or more with the ground just below
+        bool Lying() => car.transform.up.y < .5f && car.gameObject.scene.GetPhysicsScene().Raycast(car.Body.worldCenterOfMass, Vector3.down, out _, 2.5f, car.groundMask, QueryTriggerInteraction.Ignore);
+        // ActivityLandingContact: a body contact starts the recovery window; only the roof itself hitting the ground hard is an instant bail
         bool InLoop => StuntPark.Current && loopOut < .2f && loopAcc > 60;
-        void StuntContact(Vector3 normal)
+        void StuntContact(Vector3 normal, Vector3? point, float speed)
         {
             if (!StuntsOn || !sFlying || InLoop) return;
-            if (normal.y > .4f && car.transform.up.y < .3f) Bail(car.transform.up.y < 0 ? "Landed on the roof" : "Landed on the side");
+            Touch();
+            if (normal.y > .4f && point.HasValue && speed >= RoofHit && car.transform.up.y < RoofUp && OnRoof(point.Value)) Bail("Landed on the roof");
+        }
+        // a contact on the top of the body (not its nose or tail)
+        bool OnRoof(Vector3 point)
+        {
+            var box = car.GetComponent<BoxCollider>(); var q = car.transform.InverseTransformPoint(point);
+            if (!box) return Vector3.Dot(point - car.Body.worldCenterOfMass, car.transform.up) > .3f;
+            return q.y > box.center.y + box.size.y * .3f && Mathf.Abs(q.z - box.center.z) < box.size.z * .4f;
         }
         // the loop: once round (330 degrees or more about its centre, staying in it), on the wheels
         void LoopStep(Vector3 p, float dt)

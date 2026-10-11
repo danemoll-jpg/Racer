@@ -171,6 +171,7 @@ namespace Racer
                     // 0.106 Part D: the clock, the points, the last combo banked
                     var r = stunt.Of(player); int sec = Mathf.CeilToInt(stunt.State == StuntEvent.Phase.Starting ? stunt.Limit : stunt.Left);
                     lines.Add($"<b>STUNT EVENT</b>   {sec / 60}:{sec % 60:00} left   <b>{(r != null ? r.points : 0):N0}</b> pts");
+                    if (stunt.Finishing(player)) lines.Add("<color=#FFC747><b>FINISH THE TRICK!</b></color>"); // 0.107 Part E
                     if (r != null && Time.unscaledTime < r.lineUntil) lines.Add(r.line.StartsWith("+") ? "<color=#9CFFB0>" + r.line + "</color>" : "<color=#FFC747>" + r.line + "</color>");
                 }
                 else lines.Add("<b>FREE ROAM</b>");
@@ -194,7 +195,8 @@ namespace Racer
                         }
                     }
                 }
-                ((RectTransform)h.infoPanel.transform).sizeDelta = new Vector2(330, 22 + 25 * lines.Count);
+                // 0.107 Part E: the Stunt event's line (five-figure points) no longer wraps, so "FINISH THE TRICK!" below it is not cut off
+                ((RectTransform)h.infoPanel.transform).sizeDelta = new Vector2(stunt ? Mathf.Max(330, h.info.preferredWidth + 24) : 330, 22 + 25 * lines.Count);
                 if (getaway != null && !SplitScreen.OneView && h.map) { var mp = (RectTransform)h.map.transform.parent.parent; mp.anchorMin = mp.anchorMax = mp.pivot = new Vector2(1, 0); mp.anchoredPosition = new Vector2(-14, 78); } // a half view: the map sits above the speed, clear of the chase panel
                 h.speed.text = $"{DisplayUnits.Mph(Mathf.Abs(car.ForwardSpeed)):0} <size=16>mph</size>";
                 string centre = "";

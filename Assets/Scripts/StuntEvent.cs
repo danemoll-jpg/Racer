@@ -10,6 +10,9 @@ namespace Racer
     // while driving (a pause keeps the clock and the points); at 0:00 the open combos count and the round ends. Results: each player's points and
     // medal (StuntProgress.Targets), best combo, tricks and bails; with two players the winner gets the usual winner shot and celebration; the Stunt
     // event Top 10 (every human player, under their names). Player 1's first Gold earns the stunt motorcycle.
+    // 0.107: a combo whose flights took off in the park counts wherever they land (Part B). Part E: at 0:00 a player in the air or in the loop
+    // finishes the trick ("FINISH THE TRICK!", the clock held at 0:00): the landing scores, the open combo is banked at once, then the results
+    // (both players' flights in split-screen; at most OvertimeLimit seconds). A player on the ground at 0:00 has the open combo banked at once.
     public sealed class StuntEvent : MonoBehaviour
     {
         public const float StartPause = 3;
@@ -18,14 +21,20 @@ namespace Racer
         public sealed class Rider
         {
             public int player; public ArcadeVehicle car; public ArcadeActivities acts; public string vehicle;
-            public int points, best, combos, outside, place, medal; public string line = ""; public float lineUntil;
+            public int points, best, combos, outside, place, medal; public string line = ""; public float lineUntil; public bool closed;
             public readonly List<string> log = new(); public System.Action<int, bool> banked;
         }
         public readonly List<Rider> Riders = new();
         public Phase State { get; private set; }
         public float Clock { get; private set; }
         public float Limit => StuntProgress.Minutes * 60;
-        public float Left => Mathf.Max(0, Limit - Clock);
+        public float Left => Mathf.Max(0, RoundLimit - Clock);
+        public const float OvertimeLimit = 10;
+        // 0.107 Part E: past 0:00, waiting for flights to land
+        public bool Overtime => State == Phase.Running && Clock >= RoundLimit;
+        public bool Finishing(int player) { var r = Of(player); return Overtime && r != null && !r.closed; }
+        // 0.107 Part C: a vehicle taking part in the running event (VehicleRespawn puts it back in the park)
+        public static bool InEvent(ArcadeVehicle car) => Current && Current.State != Phase.Done && Current.Riders.Any(r => r.car == car);
         RaceFlow flow; RaceDirector race; float phaseAt;
         readonly HashSet<ArcadeVehicle> held = new();
         // checks only: a shorter round (seconds); never set in play
@@ -55,7 +64,7 @@ namespace Racer
             var r = new Rider { player = player, car = car, acts = acts, vehicle = car.GetComponent<VehicleConfiguration>().profileId };
             r.banked = (points, inPark) =>
             {
-                if (State != Phase.Running) return;
+                if (State != Phase.Running || r.closed) return;
                 if (!inPark) { r.outside++; Say(r, "Outside the park: not counted"); r.log.Add($"{Clock:0.0}s outside the park {points}"); return; }
                 r.points += points; r.combos++; r.best = Mathf.Max(r.best, points); Say(r, $"+{points:N0}"); r.log.Add($"{Clock:0.0}s +{points} ({r.acts.LastStunt})");
             };
@@ -76,13 +85,17 @@ namespace Racer
             if (!flow || flow.State != RaceFlow.Stage.Racing || State == Phase.Done) return;
             foreach (var car in held) if (car && (!car.Body.isKinematic || car.enabled)) { car.Body.isKinematic = true; car.enabled = false; var input = car.GetComponent<VehicleInput>(); if (input) input.enabled = false; }
             if (State == Phase.Starting) { if (Time.time - phaseAt >= StartPause) { foreach (var r in Riders) Hold(r.car, false); State = Phase.Running; } return; }
-            Clock += Time.deltaTime;
-            if (Clock >= RoundLimit) Finish();
+            if (Clock < RoundLimit) { Clock = Mathf.Min(RoundLimit, Clock + Time.deltaTime); if (Clock < RoundLimit) return; overtime = 0; }
+            else overtime += Time.deltaTime;
+            // 0:00: each player's open combo is banked once they are down (at once if already on the ground); the results when everyone is
+            foreach (var r in Riders) if (!r.closed && (!r.acts.StuntBusy || overtime >= OvertimeLimit)) { r.acts.EndStuntCombo(); r.closed = true; if (overtime > 0) r.log.Add($"finished the trick {overtime:0.0}s after 0:00"); }
+            if (Riders.All(r => r.closed)) Finish();
         }
+        float overtime;
         public int Winner => Riders.Count < 2 ? 0 : Riders[0].points > Riders[1].points ? 1 : Riders[1].points > Riders[0].points ? 2 : 0;
         void Finish()
         {
-            foreach (var r in Riders) r.acts.EndStuntCombo(); // the open combos count
+            foreach (var r in Riders) if (!r.closed) { r.acts.EndStuntCombo(); r.closed = true; } // the open combos count
             State = Phase.Done;
             foreach (var r in Riders)
             {

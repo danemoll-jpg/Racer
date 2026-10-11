@@ -114,7 +114,7 @@ namespace Racer
         ActivitySite TargetJump=>CampaignRun.Active?.Kind==CampaignEventKind.Jump?CampaignRun.Site(race):AttemptActive&&Selected&&Selected.kind==ActivitySite.Kind.Jump?Selected:null;
         // 0.91 Part C: an ordinary jump counts if the vehicle survives it, so a hard or glancing contact no longer rejects it;
         // the two summit flights keep their own rules (a wall or steep bank in the flight rejects them).
-        public void SolidContact(Vector3 normal,float relativeSpeed){StuntContact(normal);if(!flying)return;contactImpact=Mathf.Max(contactImpact,relativeSpeed);minimumContactUp=Mathf.Min(minimumContactUp,normal.y);if(normal.y<.45f&&Summit(jumpSite))Reject("Hit a wall or a steep bank");}
+        public void SolidContact(Vector3 normal,float relativeSpeed,Vector3? point=null){StuntContact(normal,point,relativeSpeed);if(!flying)return;contactImpact=Mathf.Max(contactImpact,relativeSpeed);minimumContactUp=Mathf.Min(minimumContactUp,normal.y);if(normal.y<.45f&&Summit(jumpSite))Reject("Hit a wall or a steep bank");}
         ActivitySite SiteAt(Vector3 at)=>Sites.Where(s=>s.kind==ActivitySite.Kind.Jump&&Vector3.Distance(at,s.transform.position)<s.radius&&Vector3.Dot(car.Body.linearVelocity,s.forward.normalized)>2).OrderBy(s=>Vector3.SqrMagnitude(at-s.transform.position)).FirstOrDefault();
         void Smash(BreakableProp prop,ArcadeVehicle source)
         {
@@ -219,5 +219,5 @@ namespace Racer
         void Message(string value,float seconds){Feedback=value;feedbackUntil=Time.time+seconds;LastMedal=-1;}
         void OnDestroy(){BreakableProp.BrokenByVehicle-=Smash;if(car&&car.TryGetComponent<VehicleRespawn>(out var respawn))respawn.Respawned-=Recovered;}
     }
-    public sealed class ActivityLandingContact:MonoBehaviour {public ArcadeActivities activities;void OnCollisionEnter(Collision c){if(!activities||activities.PlayerObject!=gameObject)return;foreach(var contact in c.contacts)activities.SolidContact(contact.normal,Mathf.Abs(Vector3.Dot(c.relativeVelocity,contact.normal)));}}
+    public sealed class ActivityLandingContact:MonoBehaviour {public ArcadeActivities activities;void OnCollisionEnter(Collision c){if(!activities||activities.PlayerObject!=gameObject)return;foreach(var contact in c.contacts)activities.SolidContact(contact.normal,Mathf.Abs(Vector3.Dot(c.relativeVelocity,contact.normal)),contact.point);}}
 }

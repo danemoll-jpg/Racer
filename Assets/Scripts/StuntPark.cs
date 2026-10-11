@@ -21,7 +21,7 @@ namespace Racer
     //     east, southbound   the half-pipe (two plywood quarter-pipes, 85 m long)
     //     middle, eastbound  the huge dirt table (5 m), the barrel-roll ramp (a twisting kicker), the school-bus gap
     //   Every jump lands on a down-slope sized to its launch (ballistic sizing: Tools/Report106/py/size.py); every ramp is one mesh drawn from one
-    //   continuous profile (no seams, no joints that catch; 0.101-0.103 lessons). Hay bales, shipping containers, junk cars, light poles.
+    //   continuous profile (no seams, no joints that catch; 0.101-0.103 lessons). Shipping containers, junk cars, light poles (0.107 Part F: no hay bales).
     //   Clear() removes the trees standing where the park, its banks and the drive are; nothing else in the plot is changed.
     public sealed class StuntPark : MonoBehaviour
     {
@@ -210,7 +210,7 @@ namespace Racer
         static Color C(float r, float g, float b, float a = 1) => new(r, g, b, a);
         static readonly Color Clay = C(.58f, .35f, .22f), ClayDark = C(.49f, .29f, .18f), Dirt = C(.50f, .33f, .22f), Ply = C(.74f, .60f, .42f), PlyDark = C(.55f, .43f, .29f),
             Gravel = C(.50f, .48f, .45f), BankGrass = C(.36f, .42f, .22f), Tire = C(.07f, .07f, .075f), Steel = C(.70f, .70f, .68f), Red = C(.70f, .14f, .12f), White = C(.90f, .89f, .86f),
-            Yellow = C(.93f, .70f, .10f), Black = C(.08f, .08f, .08f), Hay = C(.80f, .68f, .38f), Lamp = C(1f, .95f, .80f, .1f);
+            Yellow = C(.93f, .70f, .10f), Black = C(.08f, .08f, .08f), Lamp = C(1f, .95f, .80f, .1f);
         static float Noise(float x, float z) { unchecked { int h = (int)(x * 73856093) ^ (int)(z * 19349663); h = (h ^ (h >> 13)) * 1274126177; return ((h & 0xffff) / 65535f) - .5f; } }
         static Color Vary(Color c, float x, float z, float amount = .07f) { float k = 1 + Noise(x, z) * amount * 2; return new Color(c.r * k, c.g * k, c.b * k, c.a); }
 
@@ -401,7 +401,6 @@ namespace Racer
             // the west quarter-pipe: up toward the wall (radius 6.5 to 65 degrees), a 1.5 m deck, then the wall
             var qp = new Prof().Arc(6.5f, 65); qp.Flat(1.4f).Drop();
             Ramp(qp, P(8, 22), west, 36, Ply, PlyDark, "west quarter-pipe");
-            HayRow(P(31, 12.5f), west, 3); HayRow(P(31, 27.5f), west, 3); HayRow(P(77, 12.5f), west, 2); HayRow(P(77, 27.5f), west, 2);
         }
         // ---------------------------------------------------------------- the west line (northbound): the junk-car gap
         void CarGap()
@@ -412,7 +411,6 @@ namespace Racer
             for (int k = 0; k < 5; k++) JunkCar(P(10, lip + 3 + k * 2.05f), Vector3.right, k);
             var land = new Prof().Up(2.0f); land.Flat(1.2f).Landing(16, 3, 10);
             Ramp(land, P(10, lip + 13.6f), north, 10, Dirt, Dirt * .85f, "car gap landing");
-            HayRow(P(3, lip + 26), north, 2); HayRow(P(17, lip + 26), north, 2);
         }
         // ---------------------------------------------------------------- the north line (eastbound): kicker up onto the deck, the drop, the loop
         void DeckAndLoop()
@@ -429,7 +427,6 @@ namespace Racer
             // the drop's landing: a ramp from 3.2 m (its front 6 m beyond the deck's edge)
             var land = new Prof().Up(3.6f); land.Flat(.5f).Landing(16, 3, 10); Ramp(land, P(d1 + 5, 138), east, 14, Dirt, Dirt * .85f, "deck drop landing");
             BuildLoop(LoopOrigin, east, Vector3.back);
-            HayRow(P(d1 + 17, 129), east, 2); HayRow(P(d1 + 17, 147), east, 2);
         }
         // the loop: a ribbon round a circle (radius 5 m) that moves 6.5 m sideways on the way round, so the way out passes beside the way in;
         // its inner face is the road (the wheels hold it all the way round: ArcadeVehicle asks Loop()), rails on both edges, two towers outside
@@ -486,7 +483,6 @@ namespace Racer
         {
             var east = Vector3.right;
             var huge = Kicker(5.0f, 34); huge.Flat(22).Landing(22, 4, 14); Ramp(huge, P(36, 46), east, 11, Dirt, Dirt * .85f, "K4 huge table");
-            HayRow(P(95, 39), east, 2); HayRow(P(95, 53), east, 2);
             // the barrel-roll ramp: a 3 m kicker (28 degrees) whose surface rolls up to 50 degrees by the lip (the left edge rises), so it throws you into a roll
             var barrel = Kicker(3.0f, 28); barrel.Drop(); float len = barrel.pts[^2].x;
             Ramp(barrel, P(44, 74), east, 6, Ply, PlyDark, "barrel-roll ramp", s => 50 * Mathf.SmoothStep(0, 1, Mathf.Clamp01((s - 1) / (len - 1))));
@@ -532,16 +528,6 @@ namespace Racer
                     m.Cyl(c + along * a + right * (s * (wid / 2 - .25f)) + Vector3.up * .5f, c + along * a + right * (s * (wid / 2 + .02f)) + Vector3.up * .5f, .5f, Tire, 10);
             SolidBox(c, along, new Vector3(wid, h, len), "Stunt park school bus");
         }
-        void HayRow(Vector3 start, Vector3 along, int count)
-        {
-            var m = Layer("props"); var right = Vector3.Cross(Vector3.up, along);
-            for (int i = 0; i < count; i++)
-            {
-                var c = start + along * (i * 1.6f) + Vector3.up * .72f;
-                m.Cyl(c - right * .6f, c + right * .6f, .72f, Vary(Hay, c.x, c.z, .1f), 10, Hay * .85f);
-                SolidBox(c - Vector3.up * .72f, along, new Vector3(1.2f, 1.44f, 1.44f), "Stunt park hay bale");
-            }
-        }
         void Container(Vector3 bottom, Vector3 along, Color col)
         {
             var m = Layer("props"); var right = Vector3.Cross(Vector3.up, along);
@@ -569,7 +555,6 @@ namespace Racer
             }
             Container(P(144, 3.2f), Vector3.right, cols[1]); Container(P(152, 3.2f), Vector3.right, cols[3]); Container(P(148, 3.2f, 2.6f), Vector3.right, cols[0]);
             JunkCar(P(6, 146), Vector3.forward, 1); JunkCar(P(10, 146), Vector3.forward, 3);
-            HayRow(P(118, 8), Vector3.left, 3);
             // lamps (their heads glow at night) and the start flag
             foreach (var (u, v) in new[] { (3f, 3f), (157f, 3f), (157f, 153f), (3f, 153f), (80f, 3f), (80f, 153f), (3f, 80f), (126f, 80f) }) LightPole(P(u, v), (Centre - P(u, v)).normalized);
             var props = Layer("props"); props.Box(P(148, 10.5f), Vector3.forward, new Vector3(.12f, 4, .12f), Steel);

@@ -39,8 +39,9 @@ namespace Racer
             if(race && race.Flow.State!=RaceFlow.Stage.Racing) return;
             // 0.68 failsafe (all scenes, player and AI): a vehicle that drops below the
             // world is placed back on the nearest course point at once, never left falling.
-            if(transform.position.y<fallResetHeight){if(Time.time>=nextFailsafe){nextFailsafe=Time.time+.25f;RecoverNearest(true);}return;}
+            if(transform.position.y<fallResetHeight){if(Time.time>=nextFailsafe){nextFailsafe=Time.time+.25f;if(!(race&&race.FreeRoam&&StuntPark.Current&&StuntEvent.InEvent(vehicle)&&RecoverInPark(haveParkSpot?parkSpot:StuntPark.StartPos)))RecoverNearest(true);}return;}
             lastAbove=vehicle.Body.position;haveAbove=true;
+            if(vehicle.GroundedWheels>=2&&StuntPark.Current&&StuntPark.OnPark(vehicle.Body.position)){parkSpot=vehicle.Body.position;haveParkSpot=true;} // 0.107 Part C
             if(!Pending)RecordSafePosition();
             // AI owns its retry/cooldown bookkeeping. A second automatic respawn
             // here could otherwise move it without clearing its stuck counters.
@@ -48,7 +49,7 @@ namespace Racer
             if(input.enabled && input.ConsumeReset()){if(!RunUp())ResetVehicle();}
             else if(Pending && Time.time>=nextAttempt) TryRecoverLocal();
         }
-        float nextFailsafe,aiFailingSince=-1;Vector3 lastAbove;bool haveAbove;
+        float nextFailsafe,aiFailingSince=-1;Vector3 lastAbove,parkSpot;bool haveAbove,haveParkSpot;
         float safeStation,safeSide,trackingStation;
         bool tracking;
         WoodlandRoute trackingBranch;
@@ -259,7 +260,9 @@ namespace Racer
             // 0.101 Part A: stopped in the Abandoned Cabin Jump's brush: onto the clear ground past its far edge, as in the race
             if(race.FreeRoam&&ShortcutUndergrowth.ResetPastAny(vehicle.Body.position,out var brushRoute,out float brushPast)&&PlaceAt(BranchTrack(brushRoute),brushPast,1,brushRoute.At(brushPast,out _),null,brushPast)){LastRecovery="Recovered past the brush";return true;}
             // 0.106 Part A: inside the stunt park: back onto its floor (the nearest clear spot, facing the middle), not out to the road
-            if(race.FreeRoam&&StuntPark.Current&&StuntPark.OnPark(vehicle.Body.position)&&RecoverInPark())return true;
+            if(race.FreeRoam&&StuntPark.Current&&StuntPark.OnPark(vehicle.Body.position)&&RecoverInPark(vehicle.Body.position))return true;
+            // 0.107 Part C: in the Stunt event any reset is back into the park (from the last spot on its floor, or the start line), never on Hwy 92
+            if(race.FreeRoam&&StuntPark.Current&&StuntEvent.InEvent(vehicle)&&RecoverInPark(haveParkSpot?parkSpot:StuntPark.StartPos))return true;
             if(race.FreeRoam)return roamValid&&RecoverRoaming()||RecoverNearest(false);
             // 0.68 player rule (Dan): the nearest usable track point, facing the race direction.
             // 0.72: racing AI uses the same rule, so a rival that fails is restored where it failed.
@@ -530,9 +533,9 @@ namespace Racer
             position.y=centreY+Mathf.Max(vehicle.suspensionLength-.12f,box.size.y*.5f-box.center.y+.12f)/normal.y;
             return true;
         }
-        bool RecoverInPark()
+        bool RecoverInPark(Vector3 from)
         {
-            foreach(var (at,facing) in StuntPark.ResetsNear(vehicle.Body.position))
+            foreach(var (at,facing) in StuntPark.ResetsNear(from))
                 if(Supported(at,facing*Vector3.forward,out var position,out var rotation)&&Clear(position,rotation))
                 {Place(position,rotation);Pending=false;history.Clear();roamHistory.Clear();awaitingLanding=false;stableSince=-1;LastRecovery="Recovered in the stunt park";Respawned?.Invoke();return true;}
             return false;
