@@ -20,7 +20,44 @@
   - **Player-facing text is American English (Dan, 2026-10-10).** color, gray, center, meter, favorite, tire, canceled, and so on in everything the player reads (menus, HUD, notices, signs, the launcher, shipped documents). Code names, file names and save / settings keys stay as they are.
   - **Write-up:** the TODO results are a short list: what changed, the one check per item, decisions made, and anything Dan should look at. No separate VALIDATION.md unless a round asks. If a check would take more than a few minutes of play time, skip it and list it under "for Dan to check".
 
-## CURRENT — Stunt park: forgiving landings, tricks that leave the park count, reset back into the park, 5 s to chain, finish the trick at the buzzer, no hay bales in the way — target 0.107.0-review1 — DELIVERED as 0.107.0-review1 (build 107000), awaiting Dan's review
+## CURRENT — Stunt park finish: a live combo keeps the event going past 0:00, goal shown during the event, a congratulations for every vehicle unlock, Top 10 best combos — target 0.108.0-review1 — NOT STARTED
+
+Dan (2026-10-11, 05:54), after 0.107: "These are the only things I have to mark the stunt course complete." Change only what these parts say. Code: `StuntEvent.cs`, `ArcadeActivities.Stunts.cs`, `StuntProgress.cs`, `AcornNotices.cs` (`UnlockNotice`), `RaceMenus.Stunt.cs`, `RaceMenus.RecordsResults.cs`.
+
+### Part A — A live combo keeps the event going past 0:00
+Dan: "It shouldn't end if you have a combo going and there is still seconds left. You should be able to continue going until either you crash or you didn't make it to another trick in time for the 5 second count down."
+1. This replaces 0.107 Part E's "open combo banked at once". When the clock reaches 0:00 and a player has a **combo going** (in the air, in the loop, or on the ground with the 5 s chain countdown still running), the event **continues for that player** ("COMBO OVERTIME" with the chain countdown big on screen). They keep chaining tricks as long as they keep making the next trick inside 5 s.
+2. It ends for that player when the combo ends: a bail/crash, or the 5 s countdown runs out on the ground. The combo is banked (points × links, as now) and then the results show. A bail ends it the same way it does before 0:00 (0.107 rules: the combo ends, its banked points as the game already handles a bail).
+3. A player with **no combo going** at 0:00 (and not in the air) is done at 0:00. Someone in the air at 0:00 with no combo yet: that flight finishes (0.107), and if it lands a trick it starts a combo that can continue under this part.
+4. Split-screen: each player continues independently; the results wait until both are done; the one who is done sees "Waiting for P2" (their final score shown).
+5. No new time limit needed: the 5 s rule ends it. Keep only a hang-safety (e.g. the vehicle stopped for 5 s ends it).
+- **Check:** at about 0:03 start a chain and keep chaining past 0:00 for at least three more tricks: all count; then miss the 5 s: banked, results. Once with a bail in overtime. Once in split-screen with one player in overtime.
+
+### Part B — Show the goal during the event
+Dan: "The event should show your goal (or how far you are away from it) during the race."
+1. On the event HUD, always show the **next medal**: its colored medal icon, its target, and **points still needed** (e.g. "SILVER 25,000 — 6,420 to go"). When it's reached, a short "SILVER!" moment and the line switches to the next medal; after gold, show "GOLD ✓" and your margin over it.
+2. Split-screen: each player's own line in their view. Same style as the other events' medal display; nothing overlapping the trick/combo text or the minimap at 3840×2160 and 1280×720.
+- **Check:** shots at the start, between bronze and silver, and after gold, solo and split-screen.
+
+### Part C — A congratulations every time you unlock a vehicle
+Dan: "When you unlock the bike there should have been a 'Congratulations, you have unlocked the bike' message. It should do this anytime you unlock a vehicle."
+1. Find out why Dan didn't see one for the stunt motorcycle: `StuntProgress` raises `UnlockNotice` "GOLD IN THE STUNT EVENT", so check whether it was suppressed, queued behind the results screen and dropped, or shown too briefly. Say which.
+2. **Every vehicle unlock** in the game (the stunt motorcycle, the patrol car, the patrol cycle, chapter/campaign vehicles, the acorn vehicle, any other) shows a clear message the moment it is earned or, if a results screen is up, right after it is dismissed: **"CONGRATULATIONS! You unlocked the <vehicle name>"**, with the vehicle's picture (never squished) and how you earned it in one line, until Dan dismisses it with A / Enter (not a timer). If several unlock together, one after another.
+3. Saved so each shows exactly once, and never lost: if the game closes before it's shown, it shows next time.
+- **Check:** with a test save, earn the stunt bike gold, the patrol car and the patrol cycle goals (test shortcuts allowed for the setup, say so): each message shows once, with the right picture, after the results screen.
+
+### Part D — Top 10 best combos
+Dan: "There should also be a Top 10 for best combo records."
+1. A **Top 10 Best Combos** list in Records next to the Stunt event Top 10: combo points, its links (×N), the tricks in it (short form), vehicle, name (as the other Top 10s: "Dan" solo, the names entered in split-screen) and date.
+2. Counts combos from the Stunt event and from Free Roam in the park (solo and split-screen; both players' combos can enter). Keep the existing single "best combo" save readable and seed the list from it.
+3. A new entry in the Top 10 shows "NEW TOP 10 COMBO — #n" when banked.
+- **Check:** with a test save, bank three combos of different sizes in the event and one in Free Roam: the list orders them, names and vehicles right; a split-screen player 2 combo enters with their name.
+
+### Part E — Checks and release
+1. All checks in the built player with the controller, background rule; test saves only, never Dan's real save.
+2. Version 0.108.0-review1; usual build and release; close everything started. Delivery notes per part with evidence and what Dan should try first.
+
+## Previous delivery — Stunt park: forgiving landings, tricks that leave the park count, reset back into the park, 5 s to chain, finish the trick at the buzzer, no hay bales in the way — target 0.107.0-review1 — DELIVERED as 0.107.0-review1 (build 107000), awaiting Dan's review — REVIEWED BY DAN (four last items to mark the stunt course complete, in 0.108)
 
 Dan (2026-10-11, 04:25–04:32), after playing 0.106: "Stunt course generally fun, but can use some improvements." His six points are quoted in each part. Change only what these parts say; the park layout, vehicles, air steering, scoring values and medals stay as 0.106 unless a part says otherwise. Code: `Assets/Scripts/ArcadeActivities.Stunts.cs`, `StuntEvent.cs`, `StuntPark*.cs`, `VehicleRespawn.cs`.
 
