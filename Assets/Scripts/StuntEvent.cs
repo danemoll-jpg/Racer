@@ -30,9 +30,11 @@ namespace Racer
             public int points, best, combos, outside, place, medal; public string line = ""; public float lineUntil; public bool closed;
             public int goalMedal; public float goalFlashUntil, still; // 0.108: the medal reached so far (its moment on the HUD); time stopped in overtime
             public readonly List<string> log = new(); public System.Action<int, bool> banked;
+            public readonly List<StuntProgress.Combo> entered = new(); // 0.109 Part B: this event's entries in the Top 10 Best Combos
         }
         public readonly List<Rider> Riders = new();
         public Phase State { get; private set; }
+        public int Round { get; private set; } // 0.109 Part B: each round's results open on the combos list
         public float Clock { get; private set; }
         public float Limit => StuntProgress.Minutes * 60;
         public float Left => Mathf.Max(0, RoundLimit - Clock);
@@ -57,7 +59,7 @@ namespace Racer
         public void ApplyPlayerOne() { var c = race.vehicle.GetComponent<VehicleConfiguration>(); c.Apply(SplitScreen.P1Vehicle); c.SetBodyColor(SplitScreen.P1Color); }
         public void BeginRound()
         {
-            Unhook(); Riders.Clear(); Clock = 0; State = Phase.Starting; phaseAt = Time.time;
+            Unhook(); Riders.Clear(); Round++; Clock = 0; State = Phase.Starting; phaseAt = Time.time;
             // to the start line, facing the kicker line (player 2 beside)
             var p1 = race.vehicle; var respawn = p1.GetComponent<VehicleRespawn>();
             if (!respawn.TryFastTravel(StuntPark.StartPos, StuntPark.StartRot)) { p1.Body.position = StuntPark.StartPos; p1.Body.rotation = StuntPark.StartRot; p1.transform.SetPositionAndRotation(StuntPark.StartPos, StuntPark.StartRot); }
@@ -75,6 +77,7 @@ namespace Racer
             {
                 if (State != Phase.Running || r.closed) return;
                 if (!inPark) { r.outside++; Say(r, "Outside the park: not counted"); r.log.Add($"{Clock:0.0}s outside the park {points}"); return; }
+                if (r.acts.LastComboPlace > 0 && StuntProgress.LastComboEntry != null) r.entered.Add(StuntProgress.LastComboEntry);
                 r.points += points; r.combos++; r.best = Mathf.Max(r.best, points); Say(r, $"+{points:N0}"); r.log.Add($"{Clock:0.0}s +{points} ({r.acts.LastStunt}; x{r.acts.LastComboLinks}: {r.acts.LastComboTricks}){(r.acts.LastComboPlace > 0 ? $" Top 10 combo #{r.acts.LastComboPlace}" : "")}");
                 int m = StuntProgress.MedalFor(r.points); if (m > r.goalMedal) { r.goalMedal = m; r.goalFlashUntil = Time.unscaledTime + MedalMoment; } // 0.108 Part B
             };

@@ -1,0 +1,20 @@
+screen=1280x720 kind=mainmenu version=0.109.0-review1 park=on
+main menu rows top to bottom: campaign, race, roam, split, police, stunt, garage, records, exploration, trailer, settings, quit; hint 'New: Stunt Event. Flips, rolls, spins and combos at Red Clay Stunt Park, alone or with a friend: main menu > STUNT EVENT.'
+focus 'stunt'
+A: page 'Ready/stunt', focus 'stunt-players', players 1
+focus 'stunt-start' (round shortened to 8 s: StuntEvent.TestLimit, checks only)
+event: scene FreeRoamWorld, state Running, players 1, from Free Roam False
+results: state Results
+focus 'menu' ('Main menu')
+back: state Ready, scene StreetLoopGreybox, in Free Roam False, page 'Ready/'
+split setup: players 2, P1 Controller 2, P2 Controller 3, ready True
+event: scene FreeRoamWorld, players 2, from Free Roam False
+back: state Ready, scene StreetLoopGreybox, in Free Roam False, page 'Ready/'
+Free Roam: vehicle at -400.0,8.25,-300.0, 1072 m from the park's start line
+pause menu rows: resume, trailer, camera-view, campaign, race, roam, split, police, stunt, garage, records, exploration, settings, quit
+A: 'Leave Free Roam and start the Stunt event at Red Clay Stunt Park? / You come back to Free Roam afterwards.'
+confirmed: page 'Ready/stunt'
+event: players 1, from Free Roam True
+focus 'menu' ('Back to Free Roam')
+back: state Racing, in Free Roam True, split-screen False
+(results log at C:\Users\danmo\AppData\Local\Temp\report109\mainmenu\save-copy\BalanceLog\results-log.jsonl: 4 lines)

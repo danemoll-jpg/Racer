@@ -56,6 +56,7 @@ namespace Racer
         // 0.97: Easy / Normal / Hard change the most cops, the seconds per heat level, the seconds unseen to escape and how fast the
         // bust meter fills; never the cops' speed (every cop has the runner's vehicle's top speed and acceleration).
         public static readonly int[] CopCap = { 4, 6, 6 }; public static readonly float[] HeatEvery = { 45, 30, 20 }; public static readonly float[] EscapeBy = { 20, 30, 40 }; public static readonly float[] BustRate = { .8f, 1f, 1.25f };
+        public int PeakCops { get; private set; } // 0.109 Part C: the most cops on the road at once (roadblocks not counted)
         public float CopSpeed => 1f; public int MaxCops => Mode == Variant.CopRunner ? 1 : CopCap[Difficulty];
         public readonly List<string> TraceLog = new(); void Trace(string s) { TraceLog.Add(s); if (TraceLog.Count > 200) TraceLog.RemoveAt(0); }
         public List<string> RadioLog = new(); public string Radio => RadioLog.Count > 0 && Time.unscaledTime - radioAt < RadioSeconds ? RadioLog[RadioLog.Count - 1] : ""; float radioAt; public const float RadioSeconds = 4, AlertSeconds = 4.5f;
@@ -325,6 +326,7 @@ namespace Racer
         void FinishEmbedded()
         {
             State = Phase.Done; var r = Runners.FirstOrDefault();
+            BalanceLog.HiddenPolice(this); // 0.109 Part C
             if (r != null && r.caught) SetAtRoadside(r);
             if (r != null) Hold(r.car, false);
             HiddenPolice.Ended(r != null && r.caught); PoliceProgress.HoldNotices(false); Destroy(this);
@@ -382,6 +384,7 @@ namespace Racer
         }
         void Tick()
         {
+            PeakCops = Mathf.Max(PeakCops, Cops.Count(c => c.car && !c.block)); // 0.109 Part C: for the results log
             // who sees whom
             foreach (var r in Runners)
             {

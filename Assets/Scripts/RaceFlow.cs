@@ -91,6 +91,7 @@ namespace Racer
             if(!string.IsNullOrEmpty(ValidationSaveRoot))root=ValidationSaveRoot;
 #endif
             Save = new RacerSave(root, "street-loop-gates-v1-laps" + Race.laps);
+            ResultsLog.Init(root, root != Path.Combine(Application.persistentDataPath, "Phase7", "street-loop-gates-v1-laps" + Race.laps)); // 0.109 Parts C and D
             VehicleUnlocks.Load(root); Campaign.Load(root); Campaign.Testing = Save.Settings.unlockEverything;
             VehicleVisual.NewModels = Save.Settings.newMotorcycle; RiderLook.Player = Save.Settings.rider;
             Scenery.Set(!Save.Settings.classicScenery); SceneryWorld.Attach(gameObject);
@@ -120,7 +121,7 @@ namespace Racer
             back = new InputAction("Back", InputActionType.Button);
             back.AddBinding("<Keyboard>/escape"); back.AddBinding("<Gamepad>/buttonEast"); back.Enable();
             menus = gameObject.AddComponent<RaceMenus>(); menus.Initialize(this);
-            Activities=gameObject.AddComponent<ArcadeActivities>();Activities.Initialize(Race,root);
+            Activities=gameObject.AddComponent<ArcadeActivities>();Activities.Initialize(Race,root);BalanceSheet.NoteScene(gameObject.scene.name,Activities.Sites); // 0.109 Part D
             CameraViews.Attach(this); TrailerMode.Attach(this); NameTags.Attach(this);
             Ghost=gameObject.AddComponent<CleanLapGhost>();Ghost.Initialize(Race,root);
             GetComponent<ExplorationCollection>()?.Initialize(Race,root);
@@ -151,6 +152,7 @@ namespace Racer
         // 0.82 Part B: every scene change goes through the loading screen: what is loading, the conditions and the vehicle
         void Go(string scene,bool roam=false)
         {
+            BalanceLog.Abandon(this,"left (another scene loaded)"); // 0.109 Part C
             Save.SaveSettings();Time.timeScale=1;AudioListener.pause=false;
             var (what,detail,course)=LoadingText(scene,roam);
             LoadingScreen.LoadScene(scene,what,detail,course);
@@ -308,7 +310,7 @@ namespace Racer
         public void NextPlaylistRace(){if(State!=Stage.Results||RacePlaylists.PendingStart||!RacePlaylists.HasNext||RacePlaylists.Championship.Events[RacePlaylists.Position]==null)return;RacePlaylists.Advance();LoadPlaylistEntry();}
         void LoadPlaylistEntry(){var entry=RacePlaylists.Current;if(!RacePlaylists.Eligible(entry,Save.Settings.vehicleId)||(Race.opponents&&System.Array.Exists(Save.Settings.opponentRoster,id=>!RacePlaylists.Eligible(entry,id)))){SetStage(Stage.PlaylistVehicle);return;}RacePlaylists.PendingStart=true;Go(RacePlaylists.Scenes[entry.course]);}
         public void ChoosePlaylistVehicle(string id){if(State!=Stage.PlaylistVehicle||!RacePlaylists.Eligible(RacePlaylists.Current,id))return;Save.Settings.vehicleId=id;for(int i=0;i<Save.Settings.opponentRoster.Length;i++)if(!RacePlaylists.Eligible(RacePlaylists.Current,Save.Settings.opponentRoster[i]))Save.Settings.opponentRoster[i]=id;LoadPlaylistEntry();}
-        public void CancelPlaylist(){callers.Clear();menus.ResetPages();RacePlaylists.Quit();PrepareRestart();Race.AbandonEvent();LockVehicle(true);Race.laps=Save.Settings.laps==0&&!Race.opponents?0:Mathf.Clamp(Save.Settings.laps,1,5);SetStage(Stage.Ready);}
+        public void CancelPlaylist(){BalanceLog.Abandon(this,"quit");callers.Clear();menus.ResetPages();RacePlaylists.Quit();PrepareRestart();Race.AbandonEvent();LockVehicle(true);Race.laps=Save.Settings.laps==0&&!Race.opponents?0:Mathf.Clamp(Save.Settings.laps,1,5);SetStage(Stage.Ready);}
         public void SelectCourse(bool lake)=>SelectCourse(lake,false);
         public void SelectCourse(bool lake,bool reverse)
         {
@@ -434,7 +436,7 @@ namespace Racer
             if(CampaignRun.Active?.Kind==CampaignEventKind.SpeedTrap||CampaignRun.Active?.Kind==CampaignEventKind.Jump||CampaignRun.Active?.Kind==CampaignEventKind.Smash){var watch=GetComponent<CampaignTrapWatch>();if(!watch)watch=gameObject.AddComponent<CampaignTrapWatch>();watch.Initialize(this);}
             Notice = null; LockVehicle(true); SetStage(Stage.Countdown); Sound(tick);
         }
-        public void StartRace() { if(!CampaignAllows())return; if(InRoamWorld){pendingRace=true;LeaveRoamWorld(null);return;} SessionStartedAt=Time.unscaledTime;RoamMenu=false;callers.Clear();menus.ResetPages(); if(RacePlaylists.Active!=null)RacePlaylists.Championship.Restart(RacePlaylists.Position);Race.FreeRoam=false;SetGateVisibility(true);Click(); if(LoadingScreen.Holding)Race.RestartRace();else StartCoroutine(RestartBehindLoadingScreen()); }
+        public void StartRace() { if(!CampaignAllows())return; BalanceLog.Abandon(this,"restarted"); /* 0.109 Part C */ if(InRoamWorld){pendingRace=true;LeaveRoamWorld(null);return;} SessionStartedAt=Time.unscaledTime;RoamMenu=false;callers.Clear();menus.ResetPages(); if(RacePlaylists.Active!=null)RacePlaylists.Championship.Restart(RacePlaylists.Position);Race.FreeRoam=false;SetGateVisibility(true);Click(); if(LoadingScreen.Holding)Race.RestartRace();else StartCoroutine(RestartBehindLoadingScreen()); }
         // 0.84 Part G: building the rivals and traffic for a race takes about half a second, then the first frame with them
         // is slow too; START RACE used to freeze the menu for that time. The loading screen now comes up at once and the
         // race is built behind it (the countdown waits for it, as after a scene load).
@@ -474,7 +476,7 @@ namespace Racer
         {
             if(e==null||!Campaign.Available(e)&&!Campaign.Testing)return;
             if(InRoamWorld){WorldLook.Current?.SaveRoamClock();GetComponent<ExplorationMap>()?.Save();}
-            CampaignRun.Begin(e,vehicle);callers.Clear();menus.ResetPages();Click();Go(RacePlaylists.Scenes[e.Course]);
+            BalanceLog.Abandon(this,"left (campaign event started)");CampaignRun.Begin(e,vehicle);callers.Clear();menus.ResetPages();Click();Go(RacePlaylists.Scenes[e.Course]);
         }
         public void RetryCampaignEvent(){if(CampaignRun.Active==null||CampaignRun.Cup!=null||State!=Stage.Results)return;CampaignRun.Retry();StartRace();}
         // 0.90: a championship: its next round (the first after Start / Restart), through the loading screen into its course.
@@ -502,6 +504,7 @@ namespace Racer
         public void StartSplit()
         {
             if(!SplitScreen.Ready)return;
+            BalanceLog.Abandon(this,"left (split-screen started)"); // 0.109 Part C
             if(InRoamWorld){WorldLook.Current?.SaveRoamClock();GetComponent<ExplorationMap>()?.Save();}
             RacePlaylists.Quit();CampaignRun.End();SplitScreen.Begin();callers.Clear();menus.ResetPages();Click();
             // 0.94 Parts B and C: Free Roam for two and Police Chase start at the chosen course's start in FreeRoamWorld
@@ -511,6 +514,7 @@ namespace Racer
         public void QuitSplit(bool setup)
         {
             if(!SplitScreen.Active)return;
+            BalanceLog.Abandon(this,"quit"); // 0.109 Part C
             // 0.95 Part B: Change setup goes to the Police Chase setup for a chase; a chase started from inside Free Roam goes back to it
             if(InRoamWorld){callers.Clear();menus.ResetPages();bool police=SplitScreen.Mode==SplitScreen.Kind.Police,stunt=SplitScreen.Mode==SplitScreen.Kind.Stunt,roam=(police||stunt)&&SplitScreen.FromRoam&&!setup;EndSplit(); // 0.106: the Stunt event likewise
                 if(roam){SplitScreen.FromRoam=false;RoamCourse=SplitScreen.RoamReturn;LoadScene(RoamScene);return;}
@@ -527,6 +531,7 @@ namespace Racer
         }
         public void QuitRace()
         {
+            BalanceLog.Abandon(this,"quit"); // 0.109 Part C (before anything is reset)
             callers.Clear();menus.ResetPages();
             if(State!=Stage.Paused && State!=Stage.Results && State!=Stage.Settings) return;
             if(InRoamWorld){if(SplitScreen.Active)EndSplit();LeaveRoamWorld("");return;}
@@ -575,7 +580,7 @@ namespace Racer
         }
         public void CompleteResults() { if(WinnerShot.Active){StartCoroutine(ResultsAfterWinnerShot());return;}
             // 0.96 Part A: a time trial's lap is its attempt: its result (the medal) shows for 3 s at the line before the results
-            if(CampaignRun.Active?.Kind==CampaignEventKind.TimeTrial&&!CampaignRun.Done&&!ttBannerShown&&!DebugMovementUsed&&Race.Progress.Finished&&Race.Progress.LapTimes.Count>0&&State==Stage.Racing){ttBannerShown=true;CampaignRun.RecordAttempt((float)Race.Progress.LapTimes[0],true);StartCoroutine(ResultsAfterBanner());return;} if(!DebugMovementUsed)RacePlaylists.Record(Race);if(CampaignRun.Active!=null)CampaignRun.Finish(this,GetComponent<CampaignTrapWatch>()?.Best??0);LockVehicle(true); SetStage(Stage.Results); }
+            if(CampaignRun.Active?.Kind==CampaignEventKind.TimeTrial&&!CampaignRun.Done&&!ttBannerShown&&!DebugMovementUsed&&Race.Progress.Finished&&Race.Progress.LapTimes.Count>0&&State==Stage.Racing){ttBannerShown=true;CampaignRun.RecordAttempt((float)Race.Progress.LapTimes[0],true);StartCoroutine(ResultsAfterBanner());return;} if(!DebugMovementUsed)RacePlaylists.Record(Race);if(CampaignRun.Active!=null)CampaignRun.Finish(this,GetComponent<CampaignTrapWatch>()?.Best??0);LockVehicle(true);BalanceLog.Finished(this); /* 0.109 Part C */ SetStage(Stage.Results); }
         // 0.91 Part C: pause menu > End event in a campaign jump event (its best scored jump counts).
         public CampaignTrapWatch JumpEvent=>CampaignRun.Active?.Kind==CampaignEventKind.Jump&&!CampaignRun.Done?GetComponent<CampaignTrapWatch>():null;
         public void EndJumpEvent(){var watch=JumpEvent;if(watch)watch.EndNow();}
@@ -604,6 +609,7 @@ namespace Racer
         }
 #endif
         void Sound(AudioClip clip) { if (feedback && clip) feedback.PlayOneShot(clip, Save.Settings.feedback * .22f); }
+        void OnApplicationQuit() => BalanceLog.Abandon(this,"game closed"); // 0.109 Part C
         public void Quit()
         {
             Save.SaveSettings();

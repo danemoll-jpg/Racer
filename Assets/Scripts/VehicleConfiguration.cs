@@ -142,9 +142,11 @@ namespace Racer
             if(overturned>1.2f && !WipedOut) Wipeout();
             if(upright>.35f && WipedOut) { Recover(); var flow=FindAnyObjectByType<RaceFlow>(); if(flow && flow.Race.vehicle==motor) flow.ClearRecoveryFeedback(); }
         }
+        public int Wipeouts { get; private set; } // 0.109 Part C: counted for the results log
         void Wipeout()
         {
             if(WipedOut) return;
+            Wipeouts++;
             crashUntil=float.PositiveInfinity;
             var flow=FindAnyObjectByType<RaceFlow>();
             if(flow && flow.Race.vehicle==motor) flow.WipeoutFeedback();

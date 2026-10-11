@@ -112,6 +112,8 @@ namespace Racer
                 // Include the final lifecycle state in both the folder and portable archive.
                 Data.closed = Data.exported = true; Data.closedAt = DateTimeOffset.Now.ToString("o");
                 Write();
+                // 0.109 Part C: the results log (and the balance sheet) travel with every report
+                try { foreach (var f in new[] { ResultsLog.FilePath, ResultsLog.Folder == null ? null : Path.Combine(ResultsLog.Folder, ResultsLog.SheetName) }) if (f != null && File.Exists(f)) File.Copy(f, Path.Combine(DirectoryPath, Path.GetFileName(f)), true); } catch (Exception) { }
                 ZipFile.CreateFromDirectory(DirectoryPath, temporary, System.IO.Compression.CompressionLevel.Optimal, true);
                 File.Move(temporary, zip);
                 return zip;

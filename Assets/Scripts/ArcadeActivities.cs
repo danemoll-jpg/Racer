@@ -34,7 +34,7 @@ namespace Racer
         static bool CampaignEventHidesHud=>CampaignRun.Active!=null&&CampaignRun.Active.Kind!=CampaignEventKind.Race&&CampaignRun.Active.Kind!=CampaignEventKind.TimeTrial;
         // 0.96 Part A: attempts that were not scored (a jump flown but not counted), for the event's attempt banner
         public int Misses{get;private set;}public string LastMiss{get;private set;}public ActivitySite LastMissSite{get;private set;}
-        void Miss(ActivitySite site,string why){Misses++;LastMiss=why;LastMissSite=site;}
+        void Miss(ActivitySite site,string why){Misses++;LastMiss=why;LastMissSite=site;if(BalanceLog.RoamActivity(race))BalanceLog.Activity(this,site,configuration.profileId,0,"",("missed: "+why).ToLowerInvariant(),AttemptActive&&Selected==site,PersonalBest(site)?.value??0);} // 0.109 Part C
         // 0.96 Part B: the medal of the last scored result in Free Roam (-1 = none), for the HUD's medal badge, and the three
         // targets of a site as the medal displays write them (gold, silver, bronze)
         public int LastMedal{get;private set;}=-1;public string ResultValue{get;private set;}="";public bool ResultShowing=>LastMedal>=0&&Time.time<feedbackUntil;
@@ -104,7 +104,7 @@ namespace Racer
         // attempts from the pause menu). Its count goes to the campaign, never to the activity records.
         public void BeginCampaignSmash(ActivitySite site,float seconds){if(!site)return;Cancel();smashed.Clear();Selected=site;AttemptActive=true;deadline=Time.time+seconds;warm=.5f;blockedUntil=0;Message(site.title+" / smash as many as you can",3);}
         public float LastSmashScore {get;private set;}
-        public void Cancel(){AttemptActive=false;smashed.Clear();warm=0;ResetFlight();}
+        public void Cancel(){if(AttemptActive&&Selected&&BalanceLog.RoamActivity(race))BalanceLog.Activity(this,Selected,configuration.profileId,0,"","canceled",true,PersonalBest(Selected)?.value??0);AttemptActive=false;smashed.Clear();warm=0;ResetFlight();}
         public void NewSession(){Cancel();armed.Clear();sampled=false;warm=0;blockedUntil=Time.time+1;Feedback=null;feedbackUntil=0;LastDistance=LastAirtime=LastSpeed=LastJumpAward=0;StuntSession();}
         void Recovered(){if(AttemptActive)Message("Attempt canceled by recovery / retry from pause menu",4);Cancel();armed.Clear();sampled=false;warm=0;blockedUntil=Time.time+2;if(ComboLinks>0)EndCombo(null);StuntReset();} // 0.106: a reset banks the open combo
         // 0.106 Part D: the Stunt event's end: the open combo counts
@@ -135,7 +135,7 @@ namespace Racer
             if(discontinuity){Recovered();previous=p;return;}
             if(Time.time<blockedUntil){previous=p;return;}
             StuntStep(p,dt,grounded); // 0.106 Part B
-            if(AttemptActive&&Time.time>=deadline){if(Selected.kind==ActivitySite.Kind.Smash)FinishSmash();else{AttemptActive=false;Message("Jump attempt expired / retry from pause menu",4);}}
+            if(AttemptActive&&Time.time>=deadline){if(Selected.kind==ActivitySite.Kind.Smash)FinishSmash();else{if(BalanceLog.RoamActivity(race))BalanceLog.Activity(this,Selected,configuration.profileId,0,"","time ran out",true,PersonalBest(Selected)?.value??0);AttemptActive=false;Message("Jump attempt expired / retry from pause menu",4);}}
             if(grounded&&!flying){bool summitRunup=Sites.Any(s=>Summit(s)&&Vector3.Distance(p,s.transform.position)<s.radius&&Vector3.Dot(car.Body.linearVelocity,s.forward)>2);warm=car.transform.up.y>(summitRunup?.65f:.8f)?warm+dt:0;}
             if(!grounded&&!flying&&warm>=.5f&&Vector3.ProjectOnPlane(car.Body.linearVelocity,Vector3.up).magnitude>4)
             {
@@ -208,6 +208,7 @@ namespace Racer
                 Message(site.title+" / "+(site.kind==ActivitySite.Kind.Jump?"SCORED: ":"")+Measurement(site,value)+award,6);return;}
             // 0.90 Part D: split-screen results are not written to the activity records either.
             if(SplitScreen.Active){Awards++;Message(site.title+" / "+Measurement(site,value),6);return;}
+            if(BalanceLog.RoamActivity(race))BalanceLog.Activity(this,site,configuration.profileId,value,units,"scored",Selected==site,best?.value??0); // 0.109 Part C
             bool improved=best==null||value>best.value;
             if(site.kind!=ActivitySite.Kind.Smash)Records.Add(new ActivityRecords.Entry{id=Guid.NewGuid().ToString("N"),key=Key(site),site=site.id,vehicle=configuration.profileId,date=DateTime.UtcNow.ToString("o"),value=value,airtime=site.kind==ActivitySite.Kind.Jump?LastAirtime:0,medal=medal});
             if(site.kind==ActivitySite.Kind.Jump)LastJumpAward=value;

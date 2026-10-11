@@ -12,6 +12,7 @@ namespace Racer
         public Transform spawnPoint;
         public float fallResetHeight=-15;
         public event Action Respawned;
+        public int Resets { get; private set; } // 0.109 Part C: counted for the results log
         public bool Pending { get; private set; }
         public string LastRecovery { get; private set; }
         struct SafeSample {public WoodlandRoute branch;public float station,side,time;public int lap;}
@@ -30,6 +31,7 @@ namespace Racer
         readonly Collider[] overlaps=new Collider[64];
         void Awake()
         {
+            Respawned += () => Resets++;
             vehicle=GetComponent<ArcadeVehicle>(); input=GetComponent<VehicleInput>(); box=GetComponent<BoxCollider>();
             initialPosition=transform.position; initialRotation=Quaternion.Euler(0,transform.eulerAngles.y,0);
         }

@@ -119,6 +119,9 @@ namespace Racer
                 case "overtime": yield return Overtime(); break; // 0.108 (Report106PlayerCheck.Round108.cs)
                 case "unlocks": yield return Unlocks(); break;
                 case "combos": yield return Combos(); break;
+                case "mainmenu": yield return MainMenuStunt(); break; // 0.109 (Report106PlayerCheck.Round109.cs)
+                case "results": yield return ResultsTop10(); break;
+                case "balance": yield return BalanceLogCheck(); break;
                 default: Note("unknown kind " + kind); break;
             }
             File.WriteAllText(Path.Combine(outDir, "done.txt"), "done"); Application.Quit();

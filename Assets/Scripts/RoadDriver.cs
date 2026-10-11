@@ -39,6 +39,8 @@ namespace Racer
         Vector3 rejoinTarget;
         bool trackingRejoin, airborne;
         static readonly float[] cornerUse={.46f,.76f,.90f}, brakeUse={.55f,.88f,.98f}, speedUse={.91f,1f,1f}, hillTargets={26,32,35};
+        // 0.109 Part C/D: read-only views for the results log and the balance sheet (values unchanged)
+        public float Pace => pace; public static (float[] corner, float[] brake, float[] speed, float[] hill) Tuning => (cornerUse, brakeUse, speedUse, hillTargets);
         float pace, stalled, safeS, lane, finishRunoff, nextRecovery;
         float departureLane,recoveryDepartureStation,recoveryDepartureUntil;
         readonly RaycastHit[] hits = new RaycastHit[24];

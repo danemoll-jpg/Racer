@@ -96,13 +96,14 @@ details.gameObject.SetActive(true);
                     // 0.95 Part B: POLICE CHASE after SPLIT SCREEN (from inside Free Roam it asks first); "New: Police Chase" once
                     Row(13,"police","POLICE CHASE",()=>OpenPoliceSetup());buttons[13].transform.SetSiblingIndex(buttons[11].transform.GetSiblingIndex()+1);
                     Hints.Show("police-new","New: Police Chase. Be the cop in a patrol car and catch the runner, alone or with a friend: main menu > POLICE CHASE (also in Free Roam's menu).",9);
+                    // 0.109 Part A: STUNT EVENT always right after POLICE CHASE (from inside Free Roam it asks first); "New: Stunt Event" once
+                    Row(14,"stunt","STUNT EVENT",()=>OpenStuntSetup());buttons[14].transform.SetSiblingIndex(buttons[13].transform.GetSiblingIndex()+1);
+                    Hints.Show("stunt-new","New: Stunt Event. Flips, rolls, spins and combos at "+StuntPark.Title+", alone or with a friend: main menu > STUNT EVENT.",9);
                     Row(3,"records","RECORDS",flow.OpenBoards);Row(4,"exploration","EXPLORATION",flow.OpenExploration);Row(5,"settings","SETTINGS",flow.OpenSettings);Row(6,"quit","QUIT GAME",ConfirmQuit);
                     if(flow.RoamMenu){Row(7,"resume","RESUME DRIVING",flow.Resume);buttons[7].transform.SetSiblingIndex(buttons[10].transform.GetSiblingIndex());
                         Row(8,"trailer",TrailerLabel,()=>Navigate("trailer"));buttons[8].transform.SetSiblingIndex(buttons[7].transform.GetSiblingIndex()+1);
                         if(CameraViews.Current){Step(9,"camera-view",CameraViewLabel,CycleCameraView);buttons[9].transform.SetSiblingIndex(buttons[8].transform.GetSiblingIndex()+1);}}
-                    else{Row(7,"trailer",TrailerLabel,()=>Navigate("trailer"));buttons[7].transform.SetSiblingIndex(buttons[5].transform.GetSiblingIndex());}
-                    // 0.106 Part D: at the stunt park, its event right under RESUME DRIVING
-                    if(flow.RoamMenu&&StuntPark.Current&&StuntPark.Inside(flow.Race.vehicle.Body.position,25)){Row(14,"stunt","STUNT EVENT   ·   "+StuntPark.Title,()=>OpenStuntSetup());buttons[14].transform.SetSiblingIndex(buttons[7].transform.GetSiblingIndex()+1);}
+                    else{Row(7,"trailer",TrailerLabel,()=>Navigate("trailer"));buttons[7].transform.SetSiblingIndex(buttons[5].transform.GetSiblingIndex());}
                 }
             }
             else if(flow.State==RaceFlow.Stage.Paused)

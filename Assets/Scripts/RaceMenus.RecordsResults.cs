@@ -101,11 +101,11 @@ namespace Racer
         }
         // the track (and vehicle) control as one row; the Top 10 as one compact block, so all ten rows fit on the screen
         void Controls(int from,int to){var group=LaterGroup("Record track",content,true,48);for(int k=from;k<to;k++){buttons[k].transform.SetParent(group,false);buttons[k].GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=48;}}
-        void Table(int from,int to)
+        void Table(int from,int to,float height=28,int font=18) // 0.109 Part B: a row height and font may be given (the Stunt event results)
         {
-            if(to<=from)return;var table=LaterGroup("Top 10",content,false,(to-from)*30-2);table.GetComponent<UnityEngine.UI.VerticalLayoutGroup>().spacing=2;
-            for(int k=from;k<to;k++){buttons[k].transform.SetParent(table,false);buttons[k].GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=28;
-                foreach(var cell in buttons[k].GetComponentsInChildren<UnityEngine.UI.Text>(true))if(cell.name=="Cell")cell.fontSize=18;}
+            if(to<=from)return;var table=LaterGroup("Top 10",content,false,(to-from)*(height+2)-2);table.GetComponent<UnityEngine.UI.VerticalLayoutGroup>().spacing=2;
+            for(int k=from;k<to;k++){buttons[k].transform.SetParent(table,false);buttons[k].GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=height;
+                foreach(var cell in buttons[k].GetComponentsInChildren<UnityEngine.UI.Text>(true))if(cell.name=="Cell")cell.fontSize=font;}
         }
         void RenderResults()
         {

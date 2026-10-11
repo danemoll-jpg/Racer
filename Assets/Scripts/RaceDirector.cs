@@ -189,6 +189,7 @@ namespace Racer
             {
                 Flow.SelectRecords(Category);
                 if(FreeRoam)Flow.BeginRoaming();else Flow.BeginCountdown();
+                BalanceLog.Begin(Flow); // 0.109 Part C: an attempt opens (races, campaign events, the split-screen events)
             }
         }
 

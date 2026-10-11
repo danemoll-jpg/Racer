@@ -1,0 +1,41 @@
+screen=1280x720 kind=results version=0.109.0-review1 park=on
+results-start: no (more) panels; state Ready, page 'Ready/'
+test save's Top 10 Best Combos before: 64,272 x0 Dan; 20,860 x4 Dan; 14,864 x4 Dan; 10,356 x3 Dan; 9,696 x3 Dan; 8,919 x3 Dan; 7,542 x0 Dan; 5,032 x2 Dan; 5,026 x2 Dan; 3,708 x0 
+Stunt event: 2 player(s), round shortened to 60 s (StuntEvent.TestLimit, checks only); running: Running
+P1 combo x3 flight 1: BACKFLIP 695 pts; combo x1 695
+P1 combo x3 flight 2: took off at 5.5 s (54.5 s before 0:00) with 4.5 s of chain time left -> BACKFLIP 688 pts; combo x2 2,766
+P1 combo x3 flight 3: took off at 8.4 s (51.6 s before 0:00) with 4.5 s of chain time left -> BACKFLIP 688 pts; combo x3 6,213
+P1 combo x3: banked x3 [BF · BF · BF] -> Top 10 combo place #8; shown 'COMBO x3 / 6,213 pts / NEW TOP 10 COMBO — #8'
+P2 combo x3 flight 1: BACKFLIP 695 pts; combo x1 695
+P2 combo x3 flight 2: took off at 21.3 s (38.7 s before 0:00) with 4.5 s of chain time left -> BACKFLIP 688 pts; combo x2 2,766
+P2 combo x3 flight 3: took off at 24.1 s (35.9 s before 0:00) with 4.5 s of chain time left -> BACKFLIP 688 pts; combo x3 6,213
+P2 combo x3: banked x3 [BF · BF · BF] -> Top 10 combo place #9; shown 'COMBO x3 / 6,213 pts / NEW TOP 10 COMBO — #9'
+results (2p, 1280x720): state Results; tabs '✓ TOP 10 BEST COMBOS  (2 new)'; this event's entries: Player One 6,213 -> #8, Player Two 6,213 -> #9
+    header: Player | Points | Medal | Best combo | Tricks | Bails
+    stunt-player-1: Player One  (Top 10 #5) | 6,213 |  | 6,213 | 3 | 0
+    stunt-player-2: Player Two  (Top 10 #6) | 6,213 |  | 6,213 | 3 | 0
+    combo-top-header: # | Points | Links | Tricks | Vehicle | Name | Date
+    combo-top-0: #1 | 64,272 | — | — | Clay Hopper | Dan | 2026-10-11
+    combo-top-1: #2 | 20,860 | ×4 | BF+2R · BF+2R · BF · 2BR | Skywhip 250 | Dan | 2026-10-11
+    combo-top-2: #3 | 14,864 | ×4 | FF · J · BF · BF+R | Skywhip 250 | Dan | 2026-10-11
+    combo-top-3: #4 | 10,356 | ×3 | BF · R · FF+2R | Skywhip 250 | Dan | 2026-10-11
+    combo-top-4: #5 | 9,696 | ×3 | BF · FF · BF+2R | Skywhip 250 | Dan | 2026-10-11
+    combo-top-5: #6 | 8,919 | ×3 | BF · R · BF+R | Skywhip 250 | Dan | 2026-10-11
+    combo-top-6: #7 | 7,542 | — | — | Clay Hopper | Dan | 2026-10-11
+    combo-top-7: NEW #8 | 6,213 | ×3 | BF · BF · BF | Clay Hopper | Player One | 2026-10-11
+    combo-top-8: NEW #9 | 6,213 | ×3 | BF · BF · BF | Clay Hopper | Player Two | 2026-10-11
+    combo-top-9: #10 | 5,032 | ×2 | R · 3R | Skywhip 250 | Dan | 2026-10-11
+RB: tabs '✓ STUNT EVENT TOP 10'
+    header: Player | Points | Medal | Best combo | Tricks | Bails
+    stunt-player-1: Player One  (Top 10 #5) | 6,213 |  | 6,213 | 3 | 0
+    stunt-player-2: Player Two  (Top 10 #6) | 6,213 |  | 6,213 | 3 | 0
+    stunt-top-header: Top 10 | Name | Points | Medal | Vehicle | Date
+    stunt-top-0: #1 | Dan | 168,066 |  | Clay Hopper | 2026-10-11
+    stunt-top-1: #2 | Dan | 103,298 |  | Skywhip 250 | 2026-10-11
+    stunt-top-2: #3 | Dan | 41,199 |  | Clay Hopper | 2026-10-11
+    stunt-top-3: #4 | Dan | 38,872 |  | Clay Hopper | 2026-10-11
+    stunt-top-4: #5 | Player One | 6,213 |  | Clay Hopper | 2026-10-11
+    stunt-top-5: #6 | Player Two | 6,213 |  | Clay Hopper | 2026-10-11
+LB: tabs '✓ TOP 10 BEST COMBOS  (2 new)'
+results-after: no (more) panels; state Ready, page 'Ready/'
+back: state Ready

@@ -19,6 +19,7 @@ namespace Racer
         public float Slip { get; private set; }
         public float RoadWeight => road;
         public int ImpactCount { get; private set; }
+        public const float BigImpact = 10; public int BigImpactCount { get; private set; }
 
         void Start()
         {
@@ -126,7 +127,7 @@ namespace Racer
         public void Impact(float strength, bool prop)
         {
             if (!Racing || voices[5] == null || Time.time < nextImpact) return;
-            nextImpact = Time.time + .22f; ImpactCount++;
+            nextImpact = Time.time + .22f; ImpactCount++; if (strength >= BigImpact) BigImpactCount++; // 0.109 Part C: big ones counted for the results log
             voices[5].Stop(); voices[5].pitch = Random.Range(.92f, 1.08f);
             voices[5].clip = clips[prop ? 6 : 5];
             impactGain = Mathf.Lerp(.09f, .22f, Mathf.InverseLerp(2, 18, strength));

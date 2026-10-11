@@ -14,7 +14,7 @@ namespace Racer
         {
             if (!keepPlayers && flow.InRoamWorld && !SplitScreen.Active)
             {
-                Confirm("STUNT EVENT", "Start the 10-minute Stunt event at " + StuntPark.Title + "?\nYou come back to Free Roam afterwards.", () => { SplitScreen.FromRoam = true; SplitScreen.RoamReturn = RaceFlow.RoamCourse; StuntPage(false); }, "STUNT EVENT");
+                Confirm("STUNT EVENT", "Leave Free Roam and start the Stunt event at " + StuntPark.Title + "?\nYou come back to Free Roam afterwards.", () => { SplitScreen.FromRoam = true; SplitScreen.RoamReturn = RaceFlow.RoamCourse; StuntPage(false); }, "STUNT EVENT");
                 return;
             }
             if (!keepPlayers) SplitScreen.FromRoam = false;
@@ -75,24 +75,51 @@ namespace Racer
             Row(n, "stunt-back", "Back", () => BackPage());
             if (devices >= 0) { DeviceGlyph(buttons[devices], SplitScreen.P1Device); DeviceGlyph(buttons[devices + 1], SplitScreen.P2Ai ? null : SplitScreen.P2Device); buttons[devices].GetComponentInChildren<UnityEngine.UI.Text>(true).color = new Color(.3f, .95f, .81f); buttons[devices + 1].GetComponentInChildren<UnityEngine.UI.Text>(true).color = SplitScreen.P2Device != null && !SplitScreen.P2Ai ? new Color(1, .74f, .25f) : new Color(.75f, .75f, .72f); }
         }
+        // 0.109 Part B: the results show the Top 10 Best Combos first (this event's entries highlighted, "NEW #n"); RB / LB or the tabs: the Stunt event Top 10
+        int stuntResultTab, stuntTabRound; StuntEvent stuntTabEvent;
+        public bool StuntResultsShown => flow.State == RaceFlow.Stage.Results && SplitScreen.Active && StuntEvent.Current && CampaignRun.Active == null;
+        public void NextStuntResultTab(int d) { stuntResultTab = (stuntResultTab + d + 2) % 2; Show(); }
         void RenderStuntResults()
         {
             var e = StuntEvent.Current; int w = e.Winner;
+            if (stuntTabEvent != e || stuntTabRound != e.Round) { stuntTabEvent = e; stuntTabRound = e.Round; stuntResultTab = 0; }
             string verdict = e.Riders.Count < 2 ? "SCORE  " + (e.Riders.Count > 0 ? e.Riders[0].points.ToString("N0") : "0") : w == 0 ? "A DRAW" : SplitScreen.NameOf(w).ToUpperInvariant() + " WINS";
             ClearCore("STUNT EVENT RESULTS", verdict + "   ·   " + StuntProgress.Minutes + " minutes at " + StuntPark.Title + "   ·   " + SplitScreen.Time + " / " + SplitScreen.Weather);
-            var medals = LaterGroup("Stunt medals", content, false, 40); medals.SetSiblingIndex(details.transform.GetSiblingIndex() + 1);
-            MedalUi.TargetsRow(medals, details.font, StuntTargetStrings, 22, 30, e.Riders.Count > 0 ? e.Riders.Max(r => r.medal) : 0, Color.white, "MEDALS");
-            int n = 0; var widths = new[] { .26f, .14f, .12f, .18f, .14f, .16f };
+            bool two = e.Riders.Count > 1; // two players: slightly shorter rows, so the whole Top 10 still fits at 1280x720
+            var medals = LaterGroup("Stunt medals", content, false, two ? 34 : 40); medals.SetSiblingIndex(details.transform.GetSiblingIndex() + 1);
+            MedalUi.TargetsRow(medals, details.font, StuntTargetStrings, two ? 20 : 22, two ? 26 : 30, e.Riders.Count > 0 ? e.Riders.Max(r => r.medal) : 0, Color.white, "MEDALS");
+            int fresh = e.Riders.Sum(r => r.entered.Count(c => StuntProgress.Combos.Contains(c)));
+            TabRow(new[] { "TOP 10 BEST COMBOS" + (fresh > 0 ? "  (" + fresh + " new)" : ""), "STUNT EVENT TOP 10" }, stuntResultTab, i => { stuntResultTab = i; Show(); });
+            int n = 2; var widths = new[] { .26f, .14f, .12f, .18f, .14f, .16f };
             TableRow(n++, "header", new[] { "Player", "Points", "Medal", "Best combo", "Tricks", "Bails" }, widths, () => { });
             foreach (var r in e.Riders)
             {
                 TableRow(n++, "stunt-player-" + r.player, new[] { SplitScreen.NameOf(r.player) + (r.place > 0 ? $"  (Top 10 #{r.place})" : ""), r.points.ToString("N0"), "", r.best > 0 ? r.best.ToString("N0") : "—", r.acts ? r.acts.Tricks.ToString() : "0", r.acts ? r.acts.Bails.ToString() : "0" }, widths, () => { }, r.player == w || e.Riders.Count == 1);
-                CellBadge(n - 1, widths, 2, r.medal);
+                CellBadge(n - 1, widths, 2, r.medal, 22);
             }
-            n = StuntTop(n, e.Riders.Where(r => r.place > 0).Select(r => r.place).ToArray());
+            Table(2, n, two ? 25 : 28, two ? 17 : 18); // compact, so the whole Top 10 fits under it at 1280x720
+            int first = n;
+            n = stuntResultTab == 0 ? EventCombos(n, e) : StuntTop(n, e.Riders.Where(r => r.place > 0).Select(r => r.place).ToArray());
+            Table(first, n, two ? 22 : 25, two ? 16 : 17);
             Row(n, "rematch", "REMATCH", e.Rematch); var colors = buttons[n].colors; colors.normalColor = new(.1f, .38f, .35f); buttons[n].colors = colors; buttons[n].GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight = 54; n++;
             Row(n++, "change-setup", "Change setup", () => flow.QuitSplit(true));
             Row(n, "menu", SplitScreen.FromRoam ? "Back to Free Roam" : "Main menu", () => flow.QuitSplit(false));
+            for (int k = n - 2; k <= n; k++) buttons[k].transform.SetAsLastSibling();
+        }
+        // 0.109 Part B: the Top 10 Best Combos on the results (rows from n): this event's entries highlighted with their place ("NEW #3"), in split-screen
+        // in that player's color (their name in the Name column)
+        int EventCombos(int n, StuntEvent e)
+        {
+            var top = StuntProgress.Combos; var w = new[] { .09f, .11f, .07f, .31f, .15f, .14f, .13f };
+            TableRow(n++, "combo-top-header", new[] { "#", "Points", "Links", "Tricks", "Vehicle", "Name", "Date" }, w, () => { });
+            for (int i = 0; i < top.Count; i++)
+            {
+                var c = top[i]; var by = e.Riders.FirstOrDefault(r => r.entered.Contains(c)); string tricks = string.IsNullOrEmpty(c.tricks) ? "—" : c.tricks.Length > 36 ? c.tricks.Substring(0, 35) + "…" : c.tricks;
+                TableRow(n++, "combo-top-" + i, new[] { (by != null ? "NEW #" : "#") + (i + 1), c.points.ToString("N0"), c.links > 0 ? "×" + c.links : "—", tricks, VehicleProfile.Find(c.vehicle).Name, string.IsNullOrEmpty(c.name) ? PlayerNames.Player : c.name, c.date ?? "—" }, w, () => { }, by != null);
+                if (by != null && e.Riders.Count > 1) foreach (var cell in buttons[n - 1].GetComponentsInChildren<UnityEngine.UI.Text>(true)) if (cell.name == "Cell") cell.color = by.player == 1 ? new Color(.3f, .95f, .81f) : new Color(1, .74f, .25f);
+            }
+            if (top.Count == 0) TableRow(n++, "combo-top-none", new[] { "", "", "", "No combos yet", "", "", "" }, w, () => { });
+            return n;
         }
         // the Stunt event Top 10 (rows from n); mine: the places to highlight
         int StuntTop(int n, int[] mine)

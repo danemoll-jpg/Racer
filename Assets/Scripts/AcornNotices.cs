@@ -82,9 +82,12 @@ namespace Racer
         public static void Raise(RacerSave save, Notice n)
         {
             if (n == null || Seen(save, n.id)) return;
+            if (!earnedForLog.Contains(n.id)) earnedForLog.Add(n.id); // 0.109 Part C: the next results-log line names it
             Queue(n);
             if (save != null && !(save.Settings.unlocksPending ?? new string[0]).Contains(n.id)) { save.Settings.unlocksPending = (save.Settings.unlocksPending ?? new string[0]).Append(n.id).ToArray(); save.SaveSettings(); }
         }
+        static readonly List<string> earnedForLog = new();
+        public static string[] TakeEarnedForLog() { var a = earnedForLog.ToArray(); earnedForLog.Clear(); return a; }
         static void Queue(Notice n) { if (n != null && !Pending.Any(p => p.id == n.id) && Showing?.id != n.id) Pending.Add(n); }
         public static Notice Acorns(int total) => new() { id = AcornMower, heading = $"Found all {total} Woodland Acorns", vehicle = "mower" };
         public static Notice For(string id)
