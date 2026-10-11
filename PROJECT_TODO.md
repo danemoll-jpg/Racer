@@ -20,7 +20,44 @@
   - **Player-facing text is American English (Dan, 2026-10-10).** color, gray, center, meter, favorite, tire, canceled, and so on in everything the player reads (menus, HUD, notices, signs, the launcher, shipped documents). Code names, file names and save / settings keys stay as they are.
   - **Write-up:** the TODO results are a short list: what changed, the one check per item, decisions made, and anything Dan should look at. No separate VALIDATION.md unless a round asks. If a check would take more than a few minutes of play time, skip it and list it under "for Dan to check".
 
-## CURRENT — Stunt park finish: a live combo keeps the event going past 0:00, goal shown during the event, a congratulations for every vehicle unlock, Top 10 best combos — target 0.108.0-review1 — DELIVERED as 0.108.0-review1 (build 108000), awaiting Dan's review
+## CURRENT — STUNT EVENT on the main menu next to POLICE CHASE; Top 10 on the Stunt event results; results log and balance sheet for balancing — target 0.109.0-review1 — NOT STARTED
+
+Dan (2026-10-11, 09:57). Change only what these parts say. Code: `RaceMenus.Core.cs` (main menu), `RaceMenus.Stunt.cs`, `StuntEvent.cs`, `StuntProgress.cs`.
+
+### Part A — STUNT EVENT on the main menu, same level as POLICE CHASE
+Dan: "The stunt course should be available on the same level as the police chase on the menu."
+1. Today the main menu shows STUNT EVENT only when paused in Free Roam within 25 m of the park (row 14); otherwise it's only under Free Roam's menu. Make **STUNT EVENT** a permanent main-menu row **right after POLICE CHASE**, always shown, styled the same.
+2. From the main menu (not in Free Roam) it opens the Stunt event setup and starts the event at the park (loading `FreeRoamWorld` as the Free Roam path does), solo or split-screen, same setup page as today. From inside Free Roam it asks first, exactly as POLICE CHASE does ("Leave Free Roam and start…? You come back to Free Roam afterwards."). After the event, return to where you came from (main menu or Free Roam).
+3. Remove the duplicate conditional row 14 (no two STUNT EVENT rows). Keep the Free Roam submenu's entry. A one-time "New: Stunt Event" hint like Police Chase's.
+- **Check (built player, controller):** main menu shows RACE … SPLIT SCREEN, POLICE CHASE, STUNT EVENT in order; start a solo and a split-screen event from the main menu; start one from Free Roam far from the park; each returns where it came from.
+
+### Part B — Top 10 on the Stunt event results screen
+Dan: "It would be nice to have the Top 10 tricks on the completion menu for the stunt event."
+1. The STUNT EVENT RESULTS screen shows, beside this run's result, the **Top 10 Best Combos** (the 0.108 list: points, ×links, tricks in short form, vehicle, name, date), with any entries from **this event highlighted** and their rank ("NEW #3"). If space allows, a tab or second column for the Stunt event Top 10 scores; the combos list is the one shown first.
+2. Split-screen: both players' new entries highlighted with their names.
+3. Readable at 3840×2160 and 1280×720; vehicle pictures never squished; no overlap with the medal/verdict line.
+- **Check:** with a test save holding a full list, finish an event that enters two combos: shots of the results screen solo and in split-screen.
+
+
+### Balancing groundwork (was queued as 0.110)
+
+Dan (2026-10-11, 10:02): folded into 0.109 because it is small. Dan (10:01) agreed to Claude's balancing plan: (1) the game logs every result while Dan plays normally; (2) Dan plays the campaign a session or two, adding a note in a report when something feels too easy or too hard; (3) Claude reads the log and proposes concrete tuning (rival pace per chapter/difficulty, medal targets, unlock goals) for Dan to approve; (4) Code applies it in a later round; repeat once or twice. **Parts C and D only add the log and the balance sheet. Change no tuning value.**
+
+### Part C — Results log (written automatically, nothing for Dan to do)
+1. Append one JSON line per finished **or abandoned** attempt to `results-log.jsonl` in the game's data folder (`C:\Users\danmo\AppData\LocalLow\DefaultCompany\Racer\BalanceLog\`), kept across sessions (roll to a new file past ~5 MB, never delete). Also copy it into every exported debug-report ZIP.
+2. Covered: campaign races and chapter events (with chapter and event id, practice laps separately marked), quick races, split-screen races, Free Roam activities (jumps, speed traps, ghost), Getaway, Speed Patrol, the Stunt event.
+3. Each line: time stamp, version, mode, course, direction, laps, difficulty, weather/time of day, player vehicle; **result** (place, total time, best lap, finished/abandoned and how far in); **each rival**: name, vehicle, finish time or gap to the player at the end, and any AI catch-up/rubber-band state the game uses; **medal** earned, all medal targets, and the margin to the next one; resets, wipe-outs and big collisions; attempt number for that event (how many tries it took) and whether it was a retry. Getaway: duration, max heat, cops at peak, escaped/busted. Speed Patrol: speeders caught/escaped. Stunt event: score, best combo, medal. Any vehicle unlock earned in that attempt.
+4. Split-screen: one line per player. Never write Dan's real save from tests; test runs write to a test log path.
+5. Cheap: no frame-time cost; written once at the end of each attempt.
+
+### Part D — Balance sheet (current values, read-only)
+1. A generated `BalanceLog\balance-sheet.md` (rewritten on each game start) listing every current tuning value in plain tables: rival pace / skill per campaign chapter and per difficulty, AI catch-up settings, medal targets for every event (races, activities, Getaway, Speed Patrol, Stunt event), practice-lap rules, unlock goals for every vehicle, police chase pacing per heat level, and where each value lives in code. This is what Claude reads to propose changes.
+
+### Part E — Checks and release
+1. Built player, controller, background rule: one campaign race finished, one quit halfway, one activity, one Getaway, one Stunt event with the test limit, one split-screen race: show the log lines; show the balance sheet. Test log path only.
+2. Parts A and B checks as written there. Test saves only, never Dan's real save. Version 0.109.0-review1; usual build and release; close everything started.
+
+## Previous delivery — Stunt park finish: a live combo keeps the event going past 0:00, goal shown during the event, a congratulations for every vehicle unlock, Top 10 best combos — target 0.108.0-review1 — DELIVERED as 0.108.0-review1 (build 108000), awaiting Dan's review — REVIEWED BY DAN (stunt course essentially complete; menu placement and results Top 10 in 0.109)
 
 Dan (2026-10-11, 05:54), after 0.107: "These are the only things I have to mark the stunt course complete." Change only what these parts say. Code: `StuntEvent.cs`, `ArcadeActivities.Stunts.cs`, `StuntProgress.cs`, `AcornNotices.cs` (`UnlockNotice`), `RaceMenus.Stunt.cs`, `RaceMenus.RecordsResults.cs`.
 
