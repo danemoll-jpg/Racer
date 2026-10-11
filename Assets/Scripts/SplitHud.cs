@@ -98,7 +98,7 @@ namespace Racer
         {
             if (!flow || !split) return;
             var race = flow.Race; bool driving = !flow.MenuVisible;
-            divider.SetActive(!SplitScreen.OneView && SplitScreen.Watching == 0); divider.transform.SetAsLastSibling();
+            divider.SetActive(driving && !SplitScreen.OneView && SplitScreen.Watching == 0); divider.transform.SetAsLastSibling(); // 0.110 Part C: never through a results / pause panel
             if (flow.State == RaceFlow.Stage.Racing && lastStage == RaceFlow.Stage.Countdown) goUntil = Time.unscaledTime + 1.5f;
             lastStage = flow.State;
             if (SplitRoam.Current) { Roam(driving); return; }
@@ -246,7 +246,7 @@ namespace Racer
                 }
                 else if (stunt)
                 {
-                    if (stunt.State == StuntEvent.Phase.Starting) centre = "<size=26>STUNT EVENT</size>\n<size=20>" + StuntProgress.Minutes + " minutes · land on your wheels · chain tricks within 2 s</size>";
+                    if (stunt.State == StuntEvent.Phase.Starting) centre = "<size=26>STUNT EVENT</size>\n<size=20>" + StuntProgress.Minutes + " minutes · land on your wheels · chain tricks within " + ArcadeActivities.ComboGap.ToString("0.#") + " s</size>";
                     else if (stunt.State == StuntEvent.Phase.Running && stunt.Clock < 1.5f) centre = "GO!";
                     else if (stunt.State == StuntEvent.Phase.Done) centre = "TIME!";
                     else if (stunt.Overtime && stunt.Of(player) is { } ov)

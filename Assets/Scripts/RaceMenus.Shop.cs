@@ -16,7 +16,7 @@ namespace Racer
         void BuildShopPreview()
         {
             var p = ShopProfile;
-            title.text = "SHOP   ·   " + Campaign.Money(Campaign.Current.money);
+            title.text = "SHOP   ·   " + (Campaign.Fresh ? Campaign.SlotName + "   ·   " : "") + Campaign.Money(Campaign.Current.money);
             if (previewRoot) { previewRoot.SetActive(false); Destroy(previewRoot); }
             previewRoot = new GameObject("Shop display model"); previewRoot.layer = 31; previewRoot.transform.position = new(10000, 10000, 10000);
             VehicleVisual.Build(previewRoot.transform, p);
@@ -40,7 +40,7 @@ namespace Racer
         void RenderShop()
         {
             var p = ShopProfile; var list = ShopList; int at = System.Array.IndexOf(list, p);
-            ClearCore("SHOP   ·   " + Campaign.Money(Campaign.Current.money), $"{p.Name} / {p.Class}\n{p.Description}\n{ShopStatus(p, out bool canBuy)}" + (Campaign.Upgraded(p.Id) ? "  ·  upgraded (gold on the bars)" : ""));
+            ClearCore("SHOP   ·   " + (Campaign.Fresh ? Campaign.SlotName + "   ·   " : "") + Campaign.Money(Campaign.Current.money), $"{p.Name} / {p.Class}\n{p.Description}\n{ShopStatus(p, out bool canBuy)}" + (Campaign.Upgraded(p.Id) ? "  ·  upgraded (gold on the bars)" : ""));
             details.fontSize = 18; details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight = 84;
             swatchRow.gameObject.SetActive(false); preview.gameObject.SetActive(true);
             void StepShop(int d) { shopVehicle = list[(at + d + list.Length) % list.Length].Id; flow.Click(); Show(); if (!Campaign.Owns(shopVehicle) && !Campaign.Testing) Hints.LockedItem(); }
@@ -48,7 +48,7 @@ namespace Racer
             buttons[0].GetComponentInChildren<UnityEngine.UI.Text>(true).alignment = TextAnchor.MiddleCenter;
             int price = Campaign.Price(p.Id);
             Row(1, "buy", Campaign.Owns(p.Id) ? "Owned" : price > 0 ? "BUY   ·   " + Campaign.Money(price) : "Not for sale", () =>
-                Confirm("BUY THE " + p.Name.ToUpperInvariant() + "?", $"{Campaign.Money(price)} of your {Campaign.Money(Campaign.Current.money)}. It is yours in the campaign, Race and Free Roam.", () =>
+                Confirm("BUY THE " + p.Name.ToUpperInvariant() + "?", $"{Campaign.Money(price)} of your {Campaign.Money(Campaign.Current.money)}. " + (Campaign.Fresh ? "It is yours in the fresh run only." : "It is yours in the campaign, Race and Free Roam."), () =>
                 {
                     if (Campaign.Buy(p)) flow.Notify("Bought: " + p.Name + "  ·  choose it in the Garage", 5);
                     else { Campaign.CanBuy(p, out string why); flow.Notify(Campaign.Error ?? why, 5); }

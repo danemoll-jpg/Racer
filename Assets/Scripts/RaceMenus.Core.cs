@@ -230,7 +230,8 @@ details.gameObject.SetActive(true);
             if(page=="settings-gameplay")Toggle(4,"estimate","Estimate AI at Your Finish",s.estimateAiFinishes,()=>Adjust(()=>s.estimateAiFinishes=!s.estimateAiFinishes));
             // 0.89: every course and vehicle in Race and Free Roam whatever the campaign has reached; the campaign save is
             // not written while it is on.
-            if(page=="settings-gameplay")Toggle(5,"unlock-everything","Unlock everything (testing)",s.unlockEverything,()=>Adjust(()=>{s.unlockEverything=!s.unlockEverything;Campaign.Testing=s.unlockEverything;}));
+            // 0.110 Part E: development builds and the editor only (RaceFlow.UnlockEverythingOffered)
+            if(page=="settings-gameplay"&&RaceFlow.UnlockEverythingOffered)Toggle(5,"unlock-everything","Unlock everything (testing)",s.unlockEverything,()=>Adjust(()=>{s.unlockEverything=!s.unlockEverything;Campaign.Testing=flow.UnlockEverything;}));
             // 0.90 Part B: the new-player hints; Part D: the split-screen layout (also on the split-screen setup screen)
             if(page=="settings-gameplay"){Toggle(6,"hints","Hints",s.hints,()=>Adjust(()=>s.hints=!s.hints));
                 Row(7,"hints-again","Show hints again",()=>{Hints.Reset();flow.Notify("Hints will be shown again",3);flow.Click();Show();});

@@ -1,0 +1,27 @@
+screen=1920x1080 kind=vehicle110 version=0.110.0-review1 park=on
+vehicle110-start: no (more) panels; state Ready, page 'Ready/'
+before (copy of Dan's save): recent P1 [], P2 [], Race vehicle 'original', campaign driven [scrambler,moto]
+campaign page: 'CAMPAIGN   ·   MY CAMPAIGN   ·   $65,230'
+A on chapter 1: focus 'cev-c1-against-clock'
+  event 'c1-first-lap': page 'Ready/campaign-event', Vehicle:   Street Classic   ·   A: garage
+X = moto, Y = atv (allowed in c1-first-lap: original,moto,atv,fastback,pebble,scrambler)
+  stepped: Vehicle:   Needle 600   ·   A: garage
+  event 1 on X: driving moto in StreetLoopGreybox; then Start and quit
+  back: page 'Ready/campaign'; recent P1 [moto], P2 [], Race vehicle 'moto', campaign driven [moto,scrambler]
+  event 'c1-night-shift': page 'Ready/campaign-event', Vehicle:   Needle 600   ·   A: garage
+  event 'c1-wrong-way': page 'Ready/campaign-event', Vehicle:   Needle 600   ·   A: garage
+  championship 'cup-street': page 'Ready/campaign-cup', Vehicle:   Needle 600   ·   A: garage
+  event 'c1-night-shift': page 'Ready/campaign-event', Vehicle:   Needle 600   ·   A: garage
+  stepped: Vehicle:   Trail Four   ·   A: garage
+  event 2 on Y: driving atv in StreetLoopGreybox; then Start and quit
+  back: page 'Ready/campaign'; recent P1 [atv,moto], P2 [], Race vehicle 'atv', campaign driven [atv,moto,scrambler]
+  event 'c1-wrong-way': page 'Ready/campaign-event', Vehicle:   Trail Four   ·   A: garage
+main menu: page 'Ready/'
+Police Chase setup: page 'Ready/police', game CopRunner, player 1's vehicle atv
+Stunt event setup: page 'Ready/stunt', Vehicle:   Trail Four (ATV) (atv)
+Split-screen setup: page 'Ready/split', player 1 atv, player 2 stuntbuggy
+Race: settings vehicle 'atv', Race uses 'atv'
+two-player Stunt event: P1 atv, P2 atv
+vehicle110-after-stunt: no (more) panels; state Ready, page 'Ready/'
+Split-screen setup again: player 1 atv, player 2 atv
+end: recent P1 [atv,moto], P2 [atv], Race vehicle 'atv', campaign driven [atv,moto,scrambler]

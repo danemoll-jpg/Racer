@@ -138,7 +138,9 @@ namespace Racer
                     j.Add("campaign", new ResultsLog.Json().Add("eventId", e.Id).Add("eventName", e.Name).Add("chapter", e.Chapter).Add("kind", e.Kind.ToString()).Add("practiceLap", e.Id.Contains("-practice-"))
                         .Add("final", e.Final).Add("championship", e.Cup?.Id).Add("round", e.Cup != null ? e.Round : 0).Add("runsBefore", Campaign.ResultOf(e.Id)?.runs ?? 0)
                         .Add("attemptsThisRun", CampaignRun.Attempts.Count).Add("passed", o?.Passed ?? false).Add("won", o?.Won ?? false).Add("pay", o?.Pay ?? 0).Add("bonus", o?.Bonus ?? 0)
-                        .Add("unlocked", o != null ? o.Unlocked : new List<string>()).Add("cupFinished", o?.CupFinished ?? false).Add("cupPosition", o?.CupPosition ?? 0));
+                        .Add("unlocked", o != null ? o.Unlocked : new List<string>()).Add("cupFinished", o?.CupFinished ?? false).Add("cupPosition", o?.CupPosition ?? 0)
+                        .Add("slot", Campaign.Fresh ? "fresh" : "main").Add("run", Replay(e, o) ? "replay" : "firstRun") // 0.110 Part E: balancing uses fresh first runs
+                        .Add("garage", Campaign.Current.owned).Add("moneyAfter", Campaign.Current.money).Add("upgrades", Upgrades(CampaignRun.Vehicle ?? VehicleOf(me.Car)))); // 0.110 Part D
                 }
                 var prog = me.Progress;
                 j.Add("result", new ResultsLog.Json().Add("place", order.IndexOf(me) + 1).Add("field", race.Racers.Count).Add("classified", me.Classified).Add("dnf", me.Dnf).Add("estimated", me.Estimated)
@@ -153,6 +155,19 @@ namespace Racer
                 j.Add("incidents", Incidents(me.Car));
                 lines.Add(j);
             }
+        }
+        // 0.110 Part E: a replay = the event (or, for a championship round, that championship) was run to a result before this attempt
+        static bool Replay(CampaignEvent e, Campaign.Outcome o)
+        {
+            if (e.Cup != null) return o != null && o.CupFinished ? o.Replay : (Campaign.CupResult(e.Cup.Id)?.runs ?? 0) > 0;
+            return o != null && !o.Debug ? o.Replay : (Campaign.ResultOf(e.Id)?.runs ?? 0) > 0;
+        }
+        // 0.110 Part D: the campaign upgrades on the vehicle used (level per stat)
+        static ResultsLog.Json Upgrades(string vehicle)
+        {
+            var j = new ResultsLog.Json().Add("vehicle", vehicle); var levels = Campaign.Levels(vehicle);
+            for (int i = 0; i < levels.Length && i < CampaignData.UpgradeNames.Length; i++) j.Add(CampaignData.UpgradeNames[i], levels[i]);
+            return j;
         }
         static ResultsLog.Json Rival(RaceDirector race, RacerState r, RacerState me, List<RacerState> order)
         {

@@ -20,6 +20,7 @@ namespace Racer
             if (!keepPlayers || SplitScreen.P1Device == null || !SplitScreen.P1Device.added) SplitScreen.P1Device = opener;
             if (SplitScreen.P2Device != null && (!SplitScreen.P2Device.added || SplitScreen.P2Device == SplitScreen.P1Device)) SplitScreen.P2Device = null;
             if (SplitScreen.P2Device == null) SplitScreen.P2Ai = true;
+            if (!keepPlayers) PreselectVehicles(SplitScreen.Vehicles); // 0.110 Part D
             if (!SplitScreen.Vehicles.Any(v => v.Id == SplitScreen.P1Vehicle)) SplitScreen.P1Vehicle = "original";
             if (!SplitScreen.Vehicles.Any(v => v.Id == SplitScreen.P2Vehicle)) SplitScreen.P2Vehicle = "atv";
             if (page != "split") Navigate("split"); else Show();
@@ -43,6 +44,12 @@ namespace Racer
         {
             if (SplitScreen.P1Device == null) SplitScreen.P1Device = d; else { SplitScreen.P2Device = d; SplitScreen.P2Ai = false; if (page == "police" || page == "stunt") SplitScreen.Solo = false; } // 0.95: a second player joining a Police Chase (0.106: or the Stunt event) makes it two players
             MenuInput.ConsumeThroughRelease(); flow.Click(); flow.Notify((SplitScreen.P1Device == d ? "Player 1" : "Player 2") + " joined: " + SplitScreen.DeviceName(d), 3); Show();
+        }
+        // 0.110 Part D: each player's newest driven vehicle the setup allows (a player who has driven nothing keeps the default)
+        static void PreselectVehicles(VehicleProfile[] allowed)
+        {
+            if (RecentVehicles.Last(1) != null) SplitScreen.P1Vehicle = RecentVehicles.Pick(1, allowed) ?? SplitScreen.P1Vehicle;
+            if (RecentVehicles.Last(2) != null) SplitScreen.P2Vehicle = RecentVehicles.Pick(2, allowed) ?? SplitScreen.P2Vehicle;
         }
         static string NextSplitVehicle(string id, int d) { var vehicles = SplitScreen.Vehicles; int i = System.Array.FindIndex(vehicles, v => v.Id == id); return vehicles[((i < 0 ? 0 : i) + d + vehicles.Length) % vehicles.Length].Id; }
         // A slot's device row: the next device it can take (player 2 also cycles through the AI driver).

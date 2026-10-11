@@ -1,0 +1,7 @@
+screen=1920x1080 kind=race110 version=0.110.0-review1 park=on
+split-screen race: state Racing, divider while driving: SHOWN
+paused: state Paused, divider: hidden
+resumed: state Racing, divider: SHOWN
+race results: state Results, divider: hidden
+Getaway (2 players): state Racing, divider while driving: SHOWN
+Getaway results: state Results, divider: hidden

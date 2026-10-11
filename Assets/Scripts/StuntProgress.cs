@@ -61,18 +61,19 @@ namespace Racer
             if (points <= data.bestCombo) return false;
             data.bestCombo = points; data.bestComboVehicle = vehicle; data.bestComboDate = DateTime.Now.ToString("yyyy-MM-dd"); Save(); return true;
         }
-        // a finished Stunt event: the Top 10 place (0 = none); player 1's Gold earns the stunt motorcycle
-        public static int Finish(int player, string name, string vehicle, int points, int bestCombo)
+        // a finished Stunt event: its entry (StuntEvent reads every player's place once all are in: PlaceOf); player 1's Gold earns the stunt motorcycle
+        public static Entry Finish(int player, string name, string vehicle, int points, int bestCombo)
         {
             var e = new Entry { name = name, vehicle = vehicle, points = points, medal = MedalFor(points), bestCombo = bestCombo, date = DateTime.Now.ToString("yyyy-MM-dd") };
             data.top.Add(e); var top = data.top.OrderByDescending(x => x.points).ThenBy(x => data.top.IndexOf(x)).Take(10).ToList(); data.top = top;
-            int place = top.IndexOf(e) + 1;
             if (player == 1 && e.medal >= 3 && !data.goldEarned)
             {
                 data.goldEarned = true;
                 UnlockNotice.Raise(Hints.Flow ? Hints.Flow.Save : null, UnlockNotice.For(UnlockNotice.StuntBike));
             }
-            Save(); return place;
+            Save(); return e;
         }
+        // 0.110 Part A: an entry's place in the Stunt event Top 10 now (0 = none, or pushed out)
+        public static int PlaceOf(Entry e) => e == null ? 0 : data.top.IndexOf(e) + 1;
     }
 }

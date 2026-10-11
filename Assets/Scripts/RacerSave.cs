@@ -57,6 +57,10 @@ namespace Racer
             public string[] hintsSeen = new string[0];
             public string[] unlocksSeen = new string[0]; // 0.95 Part F: one-off unlock panels already shown (UnlockNotice)
             public string[] unlocksPending = new string[0]; // 0.108 Part C: unlock panels raised but not yet shown (shown next time if the game closed first)
+            // 0.110 Part D: the vehicles last driven, newest first (player 1, and player 2 in split-screen): every setup preselects the newest one it allows
+            public string[] recentVehicles = new string[0], recentVehiclesP2 = new string[0];
+            // 0.110 Part E: the campaign slot in use: false = MY CAMPAIGN (campaign-v1.json), true = FRESH RUN (campaign-fresh-v1.json)
+            public bool campaignFresh = false;
             // 0.90 Part D: split-screen layout (false = top / bottom, the default; true = left / right), remembered.
             public bool splitLeftRight = false;
             // 0.94 Part A: Settings > Gameplay "Player name" (up to 12 characters; empty until set: a new player is asked with

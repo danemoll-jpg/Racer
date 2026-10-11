@@ -28,6 +28,7 @@ namespace Racer
         {
             public int player; public ArcadeVehicle car; public ArcadeActivities acts; public string vehicle;
             public int points, best, combos, outside, place, medal; public string line = ""; public float lineUntil; public bool closed;
+            public StuntProgress.Entry entry; // 0.110 Part A: its Stunt event Top 10 entry (its place read once every player's is in)
             public int goalMedal; public float goalFlashUntil, still; // 0.108: the medal reached so far (its moment on the HUD); time stopped in overtime
             public readonly List<string> log = new(); public System.Action<int, bool> banked;
             public readonly List<StuntProgress.Combo> entered = new(); // 0.109 Part B: this event's entries in the Top 10 Best Combos
@@ -124,8 +125,10 @@ namespace Racer
             {
                 r.medal = StuntProgress.MedalFor(r.points);
                 bool human = r.player == 1 || !SplitScreen.P2Ai;
-                r.place = human ? StuntProgress.Finish(r.player, SplitScreen.NameOf(r.player), r.vehicle, r.points, r.best) : 0;
+                r.entry = human ? StuntProgress.Finish(r.player, SplitScreen.NameOf(r.player), r.vehicle, r.points, r.best) : null;
             }
+            // 0.110 Part A: each place read from the list after every player's entry is in (two players next to each other: #5 and #6, not both #5)
+            foreach (var r in Riders) r.place = StuntProgress.PlaceOf(r.entry);
             int w = Winner;
             if (w > 0 && SplitScreen.Race && !SplitScreen.OneView) { SplitScreen.Race.WinnerShotFor(w); Of(w)?.car.GetComponent<RiderGestures>()?.Celebrate(); StartCoroutine(Results()); }
             else flow.CompleteResults();

@@ -122,6 +122,11 @@ namespace Racer
                 case "mainmenu": yield return MainMenuStunt(); break; // 0.109 (Report106PlayerCheck.Round109.cs)
                 case "results": yield return ResultsTop10(); break;
                 case "balance": yield return BalanceLogCheck(); break;
+                case "stunt110": yield return Stunt110(); break; // 0.110 (Report106PlayerCheck.Round110.cs)
+                case "race110": yield return Race110(); break;
+                case "vehicle110": yield return VehicleMemory(); break;
+                case "vehicle110b": yield return VehicleMemoryAfterRestart(); break;
+                case "fresh110": yield return Fresh110(); break;
                 default: Note("unknown kind " + kind); break;
             }
             File.WriteAllText(Path.Combine(outDir, "done.txt"), "done"); Application.Quit();

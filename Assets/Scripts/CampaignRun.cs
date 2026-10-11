@@ -43,7 +43,7 @@ namespace Racer
 
         public static void Begin(CampaignEvent e, string vehicle)
         {
-            NewRun(); RacePlaylists.Quit(); Active = e; Vehicle = vehicle; Last = null; PendingStart = true; Campaign.Selected = e.Id; Campaign.Drove(vehicle);
+            NewRun(); RacePlaylists.Quit(); Active = e; Vehicle = vehicle; Last = null; PendingStart = true; Campaign.Selected = e.Id; Campaign.Drove(vehicle); if (!Campaign.Fresh) RecentVehicles.Drove(1, vehicle); // 0.110 Part D
             OpenedCourse = Campaign.OpenCourse(e.Course);
         }
         // A championship round: the next one of the championship in progress (its saved vehicle).

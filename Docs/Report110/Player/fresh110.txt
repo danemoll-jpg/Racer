@@ -1,0 +1,25 @@
+screen=1280x720 kind=fresh110 version=0.110.0-review1 park=on
+fresh110-start: no (more) panels; state Ready, page 'Ready/'
+start: main file C837523CEDAA0A8E, fresh file missing; slot MY CAMPAIGN: chapter 4, $65,230, owns [original,atv,moto,pebble,scrambler,fastback], courses 8, results 25; Race locks: tourer,roadster,skyfin,drifter | courses open in Race: 8
+CAMPAIGN page: 'CAMPAIGN   ·   MY CAMPAIGN   ·   $65,230' / Chapter 4 of 4  ·  25 of 28 events passed  ·  0 of 4 trophies  ·  6 vehicles owned; slot row 'FRESH RUN / (new player)'
+A on the slot row: 'CAMPAIGN   ·   FRESH RUN   ·   $0' / Chapter 1 of 4  ·  0 of 28 events passed  ·  0 of 4 trophies  ·  2 vehicles owned; slot FRESH RUN: chapter 1, $0, owns [original,atv], courses 1, results 0
+  event 'c1-first-lap': page 'Ready/campaign-event', Vehicle:   Street Classic   ·   A: garage
+  vehicles offered in the fresh run: Vehicle:   Street Classic   ·   A: garage || Vehicle:   Trail Four   ·   A: garage
+  details: FRESH RUN  ·  Chapter 1  ·  Street Loop — Forward / Race · 2 laps · 3 rivals (Easy) / Conditions: Day / Clear / Entry: Any owned vehicle / Pays: 1st $1,200, then $720, $480, $300 · first win +$600 / Rivals: Rusty Vance (Street Classic), Mia Torres (Pebble Coupe), Big Ed Kowalski (Sundown Roadster) / Pass: finish in the top three / Not run yet / Your Street Classic: stock / LOCKED: Pass "Against the Clock" first
+Shop: 'SHOP   ·   FRESH RUN   ·   $7,000'
+  Sundown Roadster  (3 of 10); BUY   ·   $7,000
+  confirm: 'BUY THE SUNDOWN ROADSTER?' $7,000 of your $7,000. It is yours in the fresh run only.
+  bought: slot FRESH RUN: chapter 1, $0, owns [original,atv,roadster], courses 1, results 0; fresh file C71C7FAF41844B3E owns roadster: True; main file C837523CEDAA0A8E (unchanged: True)
+back: page 'Ready/campaign'
+  event 'c1-against-clock': page 'Ready/campaign-event', Vehicle:   Street Classic   ·   A: garage
+  fresh run, Against the Clock (its first event) started and quit: log line "slot":"fresh","run":"firstRun","garage":["original","atv","roadster"],"moneyAfter":0,"upgrades":{"vehicle":"original","Top speed":0,"Acceleration":0,"Grip":0,"Handling":0}},"result":{"place":1,"field":1,"classified":false,"dnf":false,"estimated":false,"totalT
+switched back: 'CAMPAIGN   ·   MY CAMPAIGN   ·   $65,230'; slot MY CAMPAIGN: chapter 4, $65,230, owns [original,atv,moto,pebble,scrambler,fastback], courses 8, results 25; main file unchanged: True; Race locks unchanged: True (tourer,roadster,skyfin,drifter | courses open in Race: 8)
+  event 'c1-first-lap': page 'Ready/campaign-event', Vehicle:   Street Classic   ·   A: garage
+  main campaign, First Lap started and quit: log line "slot":"main","run":"replay","garage":["original","atv","moto","pebble","scrambler","fastback"],"moneyAfter":65230,"upgrades":{"vehicle":"moto","Top speed":0,"Acceleration":0,"Grip":0,"Handling":0}},"result":{"place":4,"field":4,"classified":false,"dnf":false,
+  main file after its own event start: 5A4EEDB4DD851ECD (written by the main campaign itself: its driven list)
+fresh again: slot FRESH RUN: chapter 1, $0, owns [original,atv,roadster], courses 1, results 0
+  'RESTART THE FRESH RUN?' The fresh run starts again as a new player: chapter 1, $0, the two starter vehicles. / Your own campaign, Race, Free Roam and records are not touched.
+  restarted: slot FRESH RUN: chapter 1, $0, owns [original,atv], courses 1, results 0
+  back to: slot MY CAMPAIGN: chapter 4, $65,230, owns [original,atv,moto,pebble,scrambler,fastback], courses 8, results 25
+Settings (development build: False): rows Previous value, Previous value, Previous value, Previous value, Previous value, Previous value, Previous value, Next value, Next value, Next value, Next value, Next value, Next value, Next value, tab-gameplay, tab-audio, tab-display, tab-controls, estimate, hints, hints-again, split-layout, player-name, name-tags, weather-grip, hidden-police, hidden-police-difficulty, back
+settings.json unlockEverything=true, then a scene load: Campaign.Testing False, RaceFlow.UnlockEverything False; Race locks tourer,roadster,skyfin,drifter | courses open in Race: 8

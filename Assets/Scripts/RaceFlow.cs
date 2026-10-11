@@ -92,7 +92,7 @@ namespace Racer
 #endif
             Save = new RacerSave(root, "street-loop-gates-v1-laps" + Race.laps);
             ResultsLog.Init(root, root != Path.Combine(Application.persistentDataPath, "Phase7", "street-loop-gates-v1-laps" + Race.laps)); // 0.109 Parts C and D
-            VehicleUnlocks.Load(root); Campaign.Load(root); Campaign.Testing = Save.Settings.unlockEverything;
+            VehicleUnlocks.Load(root); Campaign.Load(root); Campaign.UseSlot(Save.Settings.campaignFresh); Campaign.Testing = UnlockEverything; RecentVehicles.Use(Save);
             VehicleVisual.NewModels = Save.Settings.newMotorcycle; RiderLook.Player = Save.Settings.rider;
             Scenery.Set(!Save.Settings.classicScenery); SceneryWorld.Attach(gameObject);
             Playlists=new RacePlaylists(root);
@@ -376,6 +376,7 @@ namespace Racer
             id=Race.PlayerVehicle(id);
             Race.vehicle.GetComponent<VehicleConfiguration>().Apply(id);
             Save.Settings.vehicleId=VehicleProfile.Find(id).Id; Save.SaveSettings(); SelectRecords(Race.Category); Click();
+            if(Race.FreeRoam&&!SplitScreen.Active)RecentVehicles.Drove(1,Save.Settings.vehicleId); // 0.110 Part D: in Free Roam the garage's choice is driven at once
             Race.vehicle.GetComponent<VehicleConfiguration>().SetBodyColor(SelectedColor); menus.Show();
         }
         // Garage Model Classic / New (0.73 motorcycle; 0.75 every vehicle): one setting, remembered; the AI vehicles follow
@@ -436,7 +437,7 @@ namespace Racer
             if(CampaignRun.Active?.Kind==CampaignEventKind.SpeedTrap||CampaignRun.Active?.Kind==CampaignEventKind.Jump||CampaignRun.Active?.Kind==CampaignEventKind.Smash){var watch=GetComponent<CampaignTrapWatch>();if(!watch)watch=gameObject.AddComponent<CampaignTrapWatch>();watch.Initialize(this);}
             Notice = null; LockVehicle(true); SetStage(Stage.Countdown); Sound(tick);
         }
-        public void StartRace() { if(!CampaignAllows())return; BalanceLog.Abandon(this,"restarted"); /* 0.109 Part C */ if(InRoamWorld){pendingRace=true;LeaveRoamWorld(null);return;} SessionStartedAt=Time.unscaledTime;RoamMenu=false;callers.Clear();menus.ResetPages(); if(RacePlaylists.Active!=null)RacePlaylists.Championship.Restart(RacePlaylists.Position);Race.FreeRoam=false;SetGateVisibility(true);Click(); if(LoadingScreen.Holding)Race.RestartRace();else StartCoroutine(RestartBehindLoadingScreen()); }
+        public void StartRace() { if(!CampaignAllows())return; BalanceLog.Abandon(this,"restarted"); /* 0.109 Part C */ if(CampaignRun.Active==null&&!SplitScreen.Active)RecentVehicles.Drove(1,PlayerVehicleId); /* 0.110 Part D */ if(InRoamWorld){pendingRace=true;LeaveRoamWorld(null);return;} SessionStartedAt=Time.unscaledTime;RoamMenu=false;callers.Clear();menus.ResetPages(); if(RacePlaylists.Active!=null)RacePlaylists.Championship.Restart(RacePlaylists.Position);Race.FreeRoam=false;SetGateVisibility(true);Click(); if(LoadingScreen.Holding)Race.RestartRace();else StartCoroutine(RestartBehindLoadingScreen()); }
         // 0.84 Part G: building the rivals and traffic for a race takes about half a second, then the first frame with them
         // is slow too; START RACE used to freeze the menu for that time. The loading screen now comes up at once and the
         // race is built behind it (the countdown waits for it, as after a scene load).
@@ -449,7 +450,7 @@ namespace Racer
             yield return null;yield return null; // the screen is drawn before the work starts
             restarting=false;Race.RestartRace();LoadingScreen.Started();
         }
-        public void StartFreeRoam(){int course=System.Array.IndexOf(RacePlaylists.Scenes,gameObject.scene.name);if(!InRoamWorld&&course>=0){RoamCourse=course;LoadScene(RoamScene);return;}SessionStartedAt=Time.unscaledTime;RoamMenu=false;callers.Clear();menus.ResetPages();Race.FreeRoam=true;SetGateVisibility(false);Click();Race.RestartRace();}
+        public void StartFreeRoam(){if(!SplitScreen.Active)RecentVehicles.Drove(1,PlayerVehicleId); /* 0.110 Part D */ int course=System.Array.IndexOf(RacePlaylists.Scenes,gameObject.scene.name);if(!InRoamWorld&&course>=0){RoamCourse=course;LoadScene(RoamScene);return;}SessionStartedAt=Time.unscaledTime;RoamMenu=false;callers.Clear();menus.ResetPages();Race.FreeRoam=true;SetGateVisibility(false);Click();Race.RestartRace();}
         public void BeginRoaming(){HiddenPolice.Attach(this);Hints.FreeRoam();DebugMovementUsed=false;attempt=null;CountdownRemaining=0;LapRank=RaceRank=0;NewLapRecord=NewRaceRecord=false;LockVehicle(false);Race.GetComponent<WrongWayGuidance>()?.Clear();SetStage(Stage.Racing);}
         void SetGateVisibility(bool visible){foreach(var gate in Race.gates)foreach(var renderer in gate.GetComponentsInChildren<Renderer>(true))renderer.enabled=visible;}
         // 0.90 Part D: it cannot be resumed while a player's controller is missing. 0.91 Part B: the pause menu answers
@@ -505,6 +506,8 @@ namespace Racer
         {
             if(!SplitScreen.Ready)return;
             BalanceLog.Abandon(this,"left (split-screen started)"); // 0.109 Part C
+            // 0.110 Part D: the players' own vehicles (not the cop's, nor the AI's)
+            if(SplitScreen.Mode!=SplitScreen.Kind.Police||SplitScreen.PoliceGame==SplitScreen.Game.Getaway||SplitScreen.PoliceGame==SplitScreen.Game.CopRunner&&!SplitScreen.Solo){RecentVehicles.Drove(1,SplitScreen.P1Vehicle);if(!SplitScreen.P2Ai)RecentVehicles.Drove(2,SplitScreen.P2Vehicle);}
             if(InRoamWorld){WorldLook.Current?.SaveRoamClock();GetComponent<ExplorationMap>()?.Save();}
             RacePlaylists.Quit();CampaignRun.End();SplitScreen.Begin();callers.Clear();menus.ResetPages();Click();
             // 0.94 Parts B and C: Free Roam for two and Police Chase start at the chosen course's start in FreeRoamWorld
@@ -588,6 +591,9 @@ namespace Racer
         System.Collections.IEnumerator ResultsAfterWinnerShot(){while(WinnerShot.Active)yield return null;CompleteResults();}
         public void Notify(string text, float duration) { Notice = text; noticeUntil = Time.unscaledTime + duration; }
         public void Click() => Sound(click);
+        // 0.110 Part E: "Unlock everything (testing)" exists in development builds and the editor only; a release build is always off, whatever settings.json says
+        public static bool UnlockEverythingOffered => Debug.isDebugBuild;
+        public bool UnlockEverything => UnlockEverythingOffered && Save.Settings.unlockEverything;
 #if UNITY_EDITOR
         public static string ValidationSaveRoot;
 #endif
@@ -599,7 +605,7 @@ namespace Racer
             ValidationSaveRoot=directory;
 #endif
             Save = new RacerSave(directory, "street-loop-gates-v1-laps" + Race.laps);
-            VehicleUnlocks.Load(directory); Campaign.Load(directory); Campaign.Testing = Save.Settings.unlockEverything;
+            VehicleUnlocks.Load(directory); Campaign.Load(directory); Campaign.UseSlot(Save.Settings.campaignFresh); Campaign.Testing = UnlockEverything; RecentVehicles.Use(Save);
             VehicleVisual.NewModels = Save.Settings.newMotorcycle; RiderLook.Player = Save.Settings.rider;
             Scenery.Set(!Save.Settings.classicScenery);
             Boards = new RecordBoards(directory);

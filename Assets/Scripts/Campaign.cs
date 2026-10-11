@@ -11,9 +11,17 @@ namespace Racer
     // No file = a new player: money 0, the two starters, Street Loop - Forward, chapter 1 (nothing is written until the
     // first event or purchase). Testing ("Unlock everything" in Settings) opens every course and vehicle in Race and Free
     // Roam and never writes this save (the F6 debug entries do write it: they are explicit campaign tools).
+    // 0.110 Part E: a second slot, the FRESH RUN (campaign-fresh-v1.json): a new player's campaign beside Dan's own, for balancing. Current is
+    // the active slot (the campaign pages, events, Shop, upgrades, results); Main is always the main campaign, and Race and Free Roam read only it
+    // (VehicleLocked, CourseOpen, ChampionPaint), so nothing done in the fresh run is seen outside it. The fresh run never writes the main file.
     public static class Campaign
     {
-        public const string File = "campaign-v1.json";
+        public const string File = "campaign-v1.json", FreshFile = "campaign-fresh-v1.json";
+        // 0.110 Part E: the active slot (settings.json campaignFresh) and the main campaign while the fresh run is active
+        public static bool Fresh { get; private set; }
+        public static string SlotName => Fresh ? "FRESH RUN" : "MY CAMPAIGN";
+        static State mainCopy; static string root;
+        public static State Main => Fresh && mainCopy != null ? mainCopy : Current;
         [Serializable] public sealed class Result
         {
             public string id; public int runs; public bool passed, won, bonusPaid;
@@ -58,9 +66,17 @@ namespace Racer
         static string path; static bool readFailed;
 
         static State NewState() => new() { owned = CampaignData.Starters.ToList(), courses = new() { RacePlaylists.Scenes[0] }, orderVersion = 96 };
-        public static void Load(string root)
+        public static void Load(string root) { Campaign.root = root; Fresh = false; mainCopy = null; LoadFile(File); }
+        // 0.110 Part E: switch slots (the main campaign is read again from its file when it comes back; nothing is written)
+        public static void UseSlot(bool fresh)
         {
-            path = Path.Combine(root, File); Error = null; Exists = false; readFailed = false; Current = NewState(); LoadNotice = null;
+            if (fresh == Fresh || root == null) return;
+            if (fresh) { mainCopy = Current; Fresh = true; Selected = null; LoadFile(FreshFile); }
+            else { Fresh = false; mainCopy = null; Selected = null; LoadFile(File); }
+        }
+        static void LoadFile(string file)
+        {
+            path = Path.Combine(root, file); Error = null; Exists = false; readFailed = false; Current = NewState(); LoadNotice = null;
             try
             {
                 if (!System.IO.File.Exists(path)) return;
@@ -108,8 +124,9 @@ namespace Racer
         // ---------- what is open ----------
         public static bool Owns(string id) => Current.owned.Contains(id);
         // A player vehicle locked by the campaign (the mower is governed by the acorn reward instead).
-        public static bool VehicleLocked(VehicleProfile p) => p != null && !Testing && !p.Reward && !Owns(p.Id);
-        public static bool CourseOpen(int course) => Testing || (course >= 0 && course < RacePlaylists.Scenes.Length && Current.courses.Contains(RacePlaylists.Scenes[course]));
+        // 0.110 Part E: Race and Free Roam read the main campaign only (never the fresh run)
+        public static bool VehicleLocked(VehicleProfile p) => p != null && !Testing && !p.Reward && !Main.owned.Contains(p.Id);
+        public static bool CourseOpen(int course) => Testing || (course >= 0 && course < RacePlaylists.Scenes.Length && Main.courses.Contains(RacePlaylists.Scenes[course]));
         public static bool CourseOpen(string scene) => CourseOpen(Array.IndexOf(RacePlaylists.Scenes, scene));
         public static int FirstOpenCourse => Enumerable.Range(0, RacePlaylists.Scenes.Length).FirstOrDefault(CourseOpen);
         public static bool ChapterOpen(int chapter) => chapter <= Current.chapter;
@@ -250,7 +267,7 @@ namespace Racer
             if (CampaignData.Events.Count(Available) > nextBefore) { var n = CampaignData.Events.FirstOrDefault(x => Available(x) && ResultOf(x.Id) == null); if (n != null) o.Unlocked.Add("Next event: " + n.Name); }
             if (Testing) { Current = JsonUtility.FromJson<State>(keep); return o; }
             o.Saved = Save();
-            if (o.PrizeWon != null) UnlockNotice.Raise(Hints.Flow ? Hints.Flow.Save : null, UnlockNotice.For(UnlockNotice.Prize + o.PrizeWon)); // 0.108 Part C
+            if (o.PrizeWon != null && !Fresh) UnlockNotice.Raise(Hints.Flow ? Hints.Flow.Save : null, UnlockNotice.For(UnlockNotice.Prize + o.PrizeWon)); // 0.108 Part C
             return o;
         }
         // The campaign puts the player on a course: from then on it is open in Race and the playlists.
@@ -262,11 +279,13 @@ namespace Racer
         }
 
         // ---------- 0.92 Part B: the campaign's vehicle defaults to the last one driven ----------
-        public static bool ChampionPaint => Testing || CupResult("cup-grand")?.won == true;
+        public static bool ChampionPaint => Testing || Main.cups.FirstOrDefault(c => c.id == "cup-grand")?.won == true; // 0.110 Part E: the main campaign's
+        // 0.110 Part D: saved at once (before, the course scene's load read the file again and lost it unless the event also opened a course)
         public static void Drove(string id)
         {
             if (Testing || string.IsNullOrEmpty(id)) return;
             Current.driven.Remove(id); Current.driven.Insert(0, id); if (Current.driven.Count > 12) Current.driven.RemoveRange(12, Current.driven.Count - 12);
+            Save();
         }
         // The default for an event's (or championship's) list of allowed owned vehicles: the most recently driven one in it,
         // else the first.

@@ -28,9 +28,10 @@ namespace Racer
             if (!keepPlayers || SplitScreen.P1Device == null || !SplitScreen.P1Device.added) SplitScreen.P1Device = opener;
             if (SplitScreen.P2Device != null && (!SplitScreen.P2Device.added || SplitScreen.P2Device == SplitScreen.P1Device)) SplitScreen.P2Device = null;
             SplitScreen.Mode = SplitScreen.Kind.Stunt; SplitScreen.P2Ai = SplitScreen.Solo;
-            // the stunt buggy first, until a player chooses another
-            if (!StuntVehicles.Any(v => v.Id == SplitScreen.P1Vehicle) || !keepPlayers && !VehicleProfile.Find(SplitScreen.P1Vehicle).Stunt) SplitScreen.P1Vehicle = VehicleProfile.StuntBuggy.Id;
-            if (!StuntVehicles.Any(v => v.Id == SplitScreen.P2Vehicle) || !keepPlayers && !VehicleProfile.Find(SplitScreen.P2Vehicle).Stunt) SplitScreen.P2Vehicle = VehicleProfile.StuntBuggy.Id;
+            // 0.110 Part D: each player's newest driven vehicle the event allows; the stunt buggy for a player who has driven nothing yet
+            if (!keepPlayers) { SplitScreen.P1Vehicle = VehicleProfile.StuntBuggy.Id; SplitScreen.P2Vehicle = VehicleProfile.StuntBuggy.Id; PreselectVehicles(StuntVehicles); }
+            if (!StuntVehicles.Any(v => v.Id == SplitScreen.P1Vehicle)) SplitScreen.P1Vehicle = VehicleProfile.StuntBuggy.Id;
+            if (!StuntVehicles.Any(v => v.Id == SplitScreen.P2Vehicle)) SplitScreen.P2Vehicle = VehicleProfile.StuntBuggy.Id;
             if (page != "stunt") { pageMemory[RaceFlow.Stage.Ready + "/stunt"] = ("stunt-players", 1f); Navigate("stunt"); } else Show(); // opens on its first row, scrolled to the top (the description and medals in view)
         }
         static string[] StuntTargetStrings => new[] { StuntProgress.Targets[2].ToString("N0") + " pts", StuntProgress.Targets[1].ToString("N0") + " pts", StuntProgress.Targets[0].ToString("N0") + " pts" };
@@ -38,7 +39,7 @@ namespace Racer
         {
             bool solo = SplitScreen.Solo; SplitScreen.Mode = SplitScreen.Kind.Stunt; SplitScreen.P2Ai = solo;
             ClearCore("STUNT EVENT", StuntPark.Title + ", across Hwy 92 from S Cherokee Ln: " + StuntProgress.Minutes + " minutes to score as many points as you can."
-                + " Jumps, flips, rolls, spins, the loop and the barrel roll; chain them within 2 s on the ground for a combo multiplier. Land on your wheels: a bail loses that jump's tricks."
+                + " Jumps, flips, rolls, spins, the loop and the barrel roll; chain them within " + ArcadeActivities.ComboGap.ToString("0.#") + " s on the ground for a combo multiplier. Land on your wheels: a bail loses that jump's tricks."
                 + (solo ? "" : " Two players, split-screen: the most points wins.") + (SplitScreen.FromRoam ? "  Afterwards you go back to Free Roam." : ""));
             details.fontSize = 17; details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight = 78;
             var medals = LaterGroup("Stunt medals", content, false, 40); medals.SetSiblingIndex(details.transform.GetSiblingIndex() + 1);

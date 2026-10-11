@@ -72,7 +72,7 @@ namespace Racer
                 }
                 yield return Watch(spec.Replace(':', '-').Replace(',', '-'));
                 if (Flow && Flow.State != RaceFlow.Stage.Ready) { Flow.Pause(); yield return null; if (SplitScreen.Active) Flow.QuitSplit(false); else Flow.QuitRace(); }
-                yield return Wait(1.5f); Campaign.Testing = Flow && Flow.Save.Settings.unlockEverything;
+                yield return Wait(1.5f); Campaign.Testing = Flow && Flow.UnlockEverything;
             }
             Note(failures == 0 ? "ALL PASS" : $"FAILURES {failures}");
             File.WriteAllText(Path.Combine(outDir, "done.txt"), failures.ToString());

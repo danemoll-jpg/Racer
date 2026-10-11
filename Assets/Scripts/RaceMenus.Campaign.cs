@@ -72,7 +72,7 @@ namespace Racer
             campaignVehicle = null; // 0.92 Part B: each event and championship page opens on the vehicle last driven in the campaign
             if (campaignChapter < 1 || campaignChapter > chapters.Length) campaignChapter = Mathf.Clamp(Campaign.Next?.Chapter ?? st.chapter, 1, chapters.Length);
             int passed = CampaignData.Events.Count(Campaign.Passed), trophies = st.cups.Count(c => c.won);
-            ClearCore("CAMPAIGN   ·   " + Campaign.Money(st.money), Campaign.Error ?? (Campaign.Testing
+            ClearCore("CAMPAIGN   ·   " + Campaign.SlotName + "   ·   " + Campaign.Money(st.money), Campaign.Error ?? (Campaign.Testing
                 ? "Testing mode is on (Settings): events can be run, but nothing is saved or paid."
                 : (st.complete ? "★ CHAMPION OF WOODSTOCK  ·  " : $"Chapter {st.chapter} of {chapters.Length}  ·  ") + $"{passed} of {CampaignData.Events.Length} events passed  ·  {trophies} of {CampaignData.Cups.Length} trophies  ·  {st.owned.Count} vehicles owned"));
             details.fontSize = 18; details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight = 28;
@@ -83,7 +83,10 @@ namespace Racer
             var resume = CampaignData.Cups.FirstOrDefault(c => Campaign.ActiveCup(c) != null);
             ActionButton("continue", Campaign.Exists ? "Continue" : "Start", () => { if (resume != null) { campaignChapter = resume.AfterChapter; campaignCup = resume.Id; Navigate("campaign-cup"); } else if (next != null) { campaignChapter = next.Chapter; campaignEvent = next.Id; Navigate("campaign-event"); } });
             ActionButton("shop", "Shop", OpenCampaignShop);
-            ActionButton("new-campaign", "New Campaign", () => { if (Campaign.HasProgress) Confirm("START A NEW CAMPAIGN?", "This replaces your campaign: money, vehicles bought or won, upgrades, results, trophies and opened courses.\nRecords, acorns, settings and Free Roam are not touched.", NewCampaign, "NEW CAMPAIGN"); else NewCampaign(); });
+            // 0.110 Part E: the fresh run (a new player's campaign, for balancing) beside the player's own; switched at any time
+            if (Campaign.Fresh) ActionButton("restart-fresh", "Restart fresh run…", () => Confirm("RESTART THE FRESH RUN?", "The fresh run starts again as a new player: chapter 1, $0, the two starter vehicles.\nYour own campaign, Race, Free Roam and records are not touched.", () => { Campaign.Reset(); campaignChapter = 1; campaignEvent = null; flow.Notify(Campaign.Error ?? "Fresh run restarted", 4); Show(); }, "RESTART"));
+            else ActionButton("new-campaign", "New Campaign", () => { if (Campaign.HasProgress) Confirm("START A NEW CAMPAIGN?", "This replaces your campaign: money, vehicles bought or won, upgrades, results, trophies and opened courses.\nRecords, acorns, settings and Free Roam are not touched.", NewCampaign, "NEW CAMPAIGN"); else NewCampaign(); });
+            ActionButton("campaign-slot", Campaign.Fresh ? "MY\nCAMPAIGN" : "FRESH RUN\n(new player)", SwitchCampaignSlot); // the slot it switches to
             ActionButton("back", "Back", () => BackPage());
             var split = LaterGroup("Chapters and events", content, true, 400); split.SetSiblingIndex(2);
             var left = Pane("Chapters", split, 200); var right = Pane("Events", split, 430);
@@ -129,6 +132,7 @@ namespace Racer
             get
             {
                 if (Campaign.Testing) return "TESTING: everything unlocked";
+                if (Campaign.Fresh) return "FRESH RUN (new player)  ·  chapter " + Campaign.Current.chapter + "  ·  " + Campaign.Money(Campaign.Current.money); // 0.110 Part E
                 if (Campaign.Error != null) return "Campaign save could not be read";
                 var st = Campaign.Current; var c = CampaignData.Chapters[Mathf.Clamp(st.chapter, 1, CampaignData.Chapters.Length) - 1];
                 if (st.complete) return $"★ Champion of Woodstock  ·  {Campaign.Money(st.money)}";
@@ -139,20 +143,23 @@ namespace Racer
         }
         // 0.90 Part B: a new campaign offers the new-player hints again (when some have been shown).
         void NewCampaign() { Campaign.Reset(); campaignChapter = 1; campaignEvent = null; flow.Notify(Campaign.Error ?? "New campaign started", 4); if (Hints.AnySeen) Confirm("SHOW THE HINTS AGAIN?", "The short new-player hints (controls, shortcuts, the Shop) can be shown again for this campaign.", Hints.Reset, "SHOW HINTS"); else Show(); }
+        // 0.110 Part E: MY CAMPAIGN <-> FRESH RUN (remembered in settings.json; nothing else is written)
+        void SwitchCampaignSlot()
+        {
+            bool fresh = !Campaign.Fresh; flow.Save.Settings.campaignFresh = fresh; flow.Save.SaveSettings(); Campaign.UseSlot(fresh);
+            campaignChapter = 0; campaignEvent = null; campaignCup = null; campaignVehicle = null; flow.Click();
+            flow.Notify(fresh ? "FRESH RUN: a new player's campaign (your own is kept as it is)" : "MY CAMPAIGN", 4); Show();
+        }
         void OpenCampaignShop() { shopFromCampaign = true; flow.OpenGarage(); page = "shop"; pages.Clear(); Show(); }
         // The vehicles the player may enter: owned (all of them while Testing) that the event's class rule allows, never the mower.
         VehicleProfile[] EventVehicles(CampaignEvent e) => VehicleProfile.All.Where(p => !p.Reward && (Campaign.Testing || Campaign.Owns(p.Id)) && e.Allows(p) && (CarAccess.CourseAllowsCars(RacePlaylists.Scenes[e.Course]) || p.Small)).ToArray();
         // A championship: owned vehicles allowed on every one of its courses.
         VehicleProfile[] CupVehicles(CampaignCup c) => VehicleProfile.All.Where(p => !p.Reward && (Campaign.Testing || Campaign.Owns(p.Id)) && (c.Rounds.All(r => CarAccess.CourseAllowsCars(RacePlaylists.Scenes[r.Course])) || p.Small)).ToArray();
-        // 0.92 Part B: the vehicle last driven in the campaign that the event allows (else, before any campaign driving is
-        // recorded, the Race vehicle when allowed, else the first allowed).
+        // 0.110 Part D: the vehicle last driven (anywhere) that the event allows, else the newest allowed one driven, else the first allowed. The
+        // fresh run uses only what was driven in it.
         string PickVehicle(VehicleProfile[] list)
         {
-            if (list.Length > 0 && !list.Any(p => p.Id == campaignVehicle))
-            {
-                string race = flow.Race.vehicle.GetComponent<VehicleConfiguration>().profileId;
-                campaignVehicle = Campaign.Current.driven.Any(id => list.Any(p => p.Id == id)) || !list.Any(p => p.Id == race) ? Campaign.DefaultVehicle(list) : race;
-            }
+            if (list.Length > 0 && !list.Any(p => p.Id == campaignVehicle)) campaignVehicle = Campaign.Fresh ? Campaign.DefaultVehicle(list) : RecentVehicles.Pick(1, list);
             return campaignVehicle;
         }
         // The vehicle row: left / right steps through the allowed vehicles; A opens the garage view to choose (with the
@@ -174,7 +181,7 @@ namespace Racer
             bool available = Campaign.Available(e) || Campaign.Testing;
             var list = EventVehicles(e); PickVehicle(list);
             var lines = new System.Collections.Generic.List<string> {
-                $"Chapter {e.Chapter}  ·  {e.CourseTitle}", e.KindLabel, "Conditions: " + e.Conditions, "Entry: " + e.Entry, e.Kind == CampaignEventKind.Race ? "Pays: " + Campaign.PayText(e) : "First gold bonus: " + Campaign.Money(e.Bonus) };
+                $"{Campaign.SlotName}  ·  Chapter {e.Chapter}  ·  {e.CourseTitle}", e.KindLabel, "Conditions: " + e.Conditions, "Entry: " + e.Entry, e.Kind == CampaignEventKind.Race ? "Pays: " + Campaign.PayText(e) : "First gold bonus: " + Campaign.Money(e.Bonus) };
             if (e.Kind == CampaignEventKind.Race && e.Rivals.Length > 0) lines.Add("Rivals: " + CampaignData.CastLine(e.Rivals)); // 0.94 Part A
             if (e.Kind == CampaignEventKind.SpeedTrap) lines.Add($"Standing start {DisplayUnits.Distance(e.RunUp)} before the trap; {e.TimeLimit:0} s to reach it.");
             if (e.Kind == CampaignEventKind.Jump) lines.Add($"Start {DisplayUnits.Distance(e.RunUp)} before the jump; jump as often as you like in {e.TimeLimit:0} s: your best counts. Reset takes you back to the run-up; Pause > End event keeps your best. Land it on your wheels to score.");
@@ -203,7 +210,7 @@ namespace Racer
         {
             var c = CampaignData.FindCup(campaignCup); if (c == null) { BackPage(); return; }
             bool open = Campaign.CupOpen(c); var progress = Campaign.ActiveCup(c);
-            var lines = new System.Collections.Generic.List<string> { $"Championship after chapter {c.AfterChapter}  ·  {c.Rounds.Length} races  ·  {new[] { "Easy", "Normal", "Hard" }[c.Difficulty]} rivals" };
+            var lines = new System.Collections.Generic.List<string> { $"{Campaign.SlotName}  ·  Championship after chapter {c.AfterChapter}  ·  {c.Rounds.Length} races  ·  {new[] { "Easy", "Normal", "Hard" }[c.Difficulty]} rivals" };
             for (int i = 0; i < c.Rounds.Length; i++) { var r = c.Rounds[i]; string done = progress != null && i < progress.races.Count ? $"   ✓ {(progress.races[i].places[0] > 0 ? Campaign.Ordinal(progress.races[i].places[0]) : "DNF")}" : progress != null && i == progress.races.Count ? "   ‹ next" : ""; lines.Add($"{i + 1}. {RacePlaylists.Titles[r.Course].Replace(" - ", " — ")} · {r.Laps} laps · {r.Conditions}{done}"); }
             lines.Add("Rivals: " + CampaignData.CastLine(c.Rivals));
             lines.Add("Points per race: 10 / 7 / 5 / 3 / 2 / 1; ties: most wins, then the better last race.");
