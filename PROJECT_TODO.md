@@ -20,7 +20,51 @@
   - **Player-facing text is American English (Dan, 2026-10-10).** color, gray, center, meter, favorite, tire, canceled, and so on in everything the player reads (menus, HUD, notices, signs, the launcher, shipped documents). Code names, file names and save / settings keys stay as they are.
   - **Write-up:** the TODO results are a short list: what changed, the one check per item, decisions made, and anything Dan should look at. No separate VALIDATION.md unless a round asks. If a check would take more than a few minutes of play time, skip it and list it under "for Dan to check".
 
-## CURRENT — Stunt park on the Hwy 92 lot (Rush 2-style), stunt buggy and stunt motorcycle with air steering — target 0.106.0-review1 — DELIVERED as 0.106.0-review1 (build 106000), awaiting Dan's review
+## CURRENT — Stunt park: forgiving landings, tricks that leave the park count, reset back into the park, 5 s to chain, finish the trick at the buzzer, no hay bales in the way — target 0.107.0-review1 — NOT STARTED
+
+Dan (2026-10-11, 04:25–04:32), after playing 0.106: "Stunt course generally fun, but can use some improvements." His six points are quoted in each part. Change only what these parts say; the park layout, vehicles, air steering, scoring values and medals stay as 0.106 unless a part says otherwise. Code: `Assets/Scripts/ArcadeActivities.Stunts.cs`, `StuntEvent.cs`, `StuntPark*.cs`, `VehicleRespawn.cs`.
+
+### Part A — Landings far too unforgiving
+Dan: "It is far too unforgiving. Rush would give you the opportunity to recover, but here even if I land on my back wheels or front wheels, it is claiming I land on the roof — often I hadn't come remotely close to landing on the roof."
+
+Cause seen in the code: `StuntContact` bails the instant any part of the body touches ground while `car.transform.up.y < .3` (tilted about 73° or more), and calls it "roof" as soon as `up.y < 0`. A steep landing on the back or front wheels (an under- or over-rotated flip) trips it, though the car would come down on its wheels.
+1. **No instant bail on contact.** When the vehicle touches down at any angle, give it a **recovery window (about 1.5 s)**: if it comes down onto its wheels and drives on (all wheels grounded for 0.3 s, the existing `sStable` test) within that window, the landing **counts**, with the tricks rotated so far (rounded as now). Rush-style: nose-first or tail-first slams that bounce back onto the wheels are landings.
+2. **A bail only when it really happened:** the vehicle is still on its roof or side when the window ends, or the roof itself (contact point on the top of the body, vehicle more than about 100° over) hit the ground hard, or the existing crash/wipe-out (`VehicleConfiguration.WipedOut`) fired. Check what triggers `WipedOut` on these landings for both stunt vehicles and the race cars: a hard landing on the wheels must not count as a wipe-out.
+3. **The message names what actually happened:** "Landed on the roof" only when the roof hit; "Landed on the side" only when the vehicle ended on its side; otherwise no bail message.
+4. Optional, if it feels right: a landing that needed the recovery window shows "SKETCHY LANDING" and still scores in full. No point penalty.
+- **Check (built player, controller):** with the stunt buggy, the stunt motorcycle and Dan's usual race car: land a backflip under-rotated onto the back wheels, one over-rotated onto the front wheels, and one 90° sideways onto two wheels that falls back: all **count**. A real roof landing and a real side landing: both **bail**, with the right message. Report each with the vehicle's tilt at first contact.
+
+### Part B — A trick that takes you out of the park still counts
+Dan: "If a trick takes you out of the park, I feel like it should still count."
+1. A flight that **takes off inside the park** counts wherever it lands (in the Stunt event, in Free Roam best combo, in split-screen). Remove "Outside the park: not counted" for those. A flight that takes off outside the park (e.g. a Hwy 92 bump) still doesn't count in the event.
+- **Check:** launch off the edge kicker so the landing is outside the fence: points added in the event.
+
+### Part C — Reset during the event puts you back in the park
+Dan: "If you hit reset while you are in the event but you had landed outside of the stunt park, it should reset you in the stunt park and not on the road."
+1. During the Stunt event (solo and each split-screen player), **any reset** puts you back inside the park, facing into it, at a clear spot (the last safe spot you were on in the park, or the park start if none), never on Hwy 92. In Free Roam outside the event, resets work as today.
+- **Check:** in the event, land outside the park on the Hwy 92 side and press reset: you're in the park. Same in split-screen for player 2.
+
+### Part D — 5 seconds to chain a combo
+Dan: "It is almost impossible to get to another stunt within 2 seconds. Should be at least 5 seconds."
+1. `ComboGap` 2 s → **5 s** on the ground between tricks. Keep the countdown shown on screen ("next within … s"). Report whether the park's flow lets you reach a next feature in 5 s from each landing; if a landing is too far from anything, say which (don't rebuild the park this round).
+
+### Part E — Finish the trick at the buzzer
+Dan: "If you are in the middle of a stunt and the time runs out, you should be able to complete the stunt."
+1. When the event clock reaches zero while a player is **in the air or in the loop**, the clock shows 0:00 ("FINISH THE TRICK!") and the event waits until that flight lands (or bails). The landing scores as usual, then any open combo is **banked at once** (no 5 s wait), then the results show. Grounded players at 0:00: open combo banked at once, results show.
+2. Split-screen: wait for both players' flights.
+3. A safety limit (about 10 s) so the event can't hang.
+- **Check:** take off from the biggest kicker about 1 s before 0:00 with a combo open: the trick and combo count in the final score.
+
+### Part F — No hay bales in the way
+Dan: "I don't understand the purpose of the rolls of hay, they just get in the way."
+1. Remove every hay bale from the riding area (`HayRow` calls in the park build). Where a row marked a run-up or a landing edge, nothing replaces it. If any are worth keeping as decoration, only along the outside of the perimeter fence, out of any line you can ride. List what was removed.
+
+### Part G — Checks and release
+1. All checks in the built player with the controller, background rule; test saves only, never Dan's real save.
+2. One full Stunt event solo (use the test limit if available to shorten it, and say so) showing A–F together, and one in split-screen.
+3. Version 0.107.0-review1; usual build and release; close everything started. Delivery notes per part with evidence and what Dan should try first.
+
+## Previous delivery — Stunt park on the Hwy 92 lot (Rush 2-style), stunt buggy and stunt motorcycle with air steering — target 0.106.0-review1 — DELIVERED as 0.106.0-review1 (build 106000), awaiting Dan's review — REVIEWED BY DAN ("generally fun"; six improvements in 0.107)
 
 Dan (2026-10-10, 20:11–20:15): "I was thinking something similar to the stunt course for Rush USA" (the stunt arena in *Rush 2: Extreme Racing USA*, N64: a walled area with ramps of several sizes, half-pipes, a loop and two levels, points for air and flips/rolls landed on the wheels). Claude proposed the points below; Dan: "this all sounds perfect. Let's try this. Maybe we can have special vehicles for the steering in air part."
 
