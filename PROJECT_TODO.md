@@ -20,7 +20,55 @@
   - **Player-facing text is American English (Dan, 2026-10-10).** color, gray, center, meter, favorite, tire, canceled, and so on in everything the player reads (menus, HUD, notices, signs, the launcher, shipped documents). Code names, file names and save / settings keys stay as they are.
   - **Write-up:** the TODO results are a short list: what changed, the one check per item, decisions made, and anything Dan should look at. No separate VALIDATION.md unless a round asks. If a check would take more than a few minutes of play time, skip it and list it under "for Dan to check".
 
-## CURRENT — Hwy 92 follow-ups (invisible bump, sidewalks across driveways), trees standing in two Free Roam roads, hidden police still miss one direction, the moon sets in front of the mountains — target 0.105.0-review1 — DELIVERED as 0.105.0-review1 (build 105000), awaiting Dan's review
+## CURRENT — Stunt park on the Hwy 92 lot (Rush 2-style), stunt buggy and stunt motorcycle with air steering — target 0.106.0-review1 — NOT STARTED
+
+Dan (2026-10-10, 20:11–20:15): "I was thinking something similar to the stunt course for Rush USA" (the stunt arena in *Rush 2: Extreme Racing USA*, N64: a walled area with ramps of several sizes, half-pipes, a loop and two levels, points for air and flips/rolls landed on the wheels). Claude proposed the points below; Dan: "this all sounds perfect. Let's try this. Maybe we can have special vehicles for the steering in air part."
+
+**Inspired by, not copied:** no names, layout, art, logos or sounds from Rush 2 or any other game. Our own place, our own look.
+
+### Part A — The stunt park itself
+1. **Where:** the open plot kept free in 0.104 Part B item 7 (the real subdivision's footprint across Hwy 92 from S Cherokee Ln). Stay inside it. Entrance: a driveway off Hwy 92 with a one-sided, depth-tested sign with an invented name (signs rule). Grounded, level base. Hwy 92's road surface, race lines, gates, AI and traffic lanes do not change.
+2. **Look:** a local dirt-lot stunt park, not a futuristic arena: packed-dirt floor, plywood and dirt ramps, hay bales, shipping containers, an old school bus and a row of junk cars to jump over, a low perimeter (fence / tire wall) so you can't fly onto Hwy 92 by accident.
+3. **Features (all with sloped, downhill landings sized to their launch: big jumps must land on a down-slope, never flat):**
+   - kickers from small to huge, in a sensible flow so you can chain them;
+   - a gap jump over the school bus, and one over the junk-car row;
+   - quarter-pipes / a half-pipe along the edges;
+   - a two-level deck you launch up onto and drop off;
+   - **one loop** and **one barrel-roll ramp** (corkscrew kicker) as showpieces: the loop drivable at a speed the stunt vehicles reach easily; normal vehicles may fail it.
+4. Whatever is on the ramps (seams, ramp-to-ground joints) is one smooth surface: no catches like the Cabin run-up had (0.101–0.103 lessons).
+5. Appears in `FreeRoamWorld` and in every race scene that shows that plot (as scenery there; usable only in Free Roam and the Stunt event).
+6. **Performance:** report the worst-view frame time before and after at 3840×2160 and in split-screen; no noticeable drop.
+
+### Part B — Stunt scoring (built on the existing jump scoring in `ArcadeActivities`)
+1. Keep the existing jump points (distance, air time, clean landing). Add tricks: **flip** (forward/back, each full 360°), **roll** (sideways 360°), **spin** (flat 360° turns), plus loop and barrel-roll ramp completions. Show each like the current "CLEAN JUMP / … pts" line, e.g. "BACKFLIP + 360 SPIN / 412 pts".
+2. **Landing:** points count only if you land on your wheels; landing on the roof or side loses that jump's tricks (show "BAILED").
+3. **Combo:** tricks chained with less than about 2 s on the ground between them multiply (show the multiplier); a bail ends the combo.
+4. Works for every vehicle; flips and rolls are just much easier in stunt vehicles (Part C).
+
+### Part C — Stunt vehicles with air steering (buggy and motorcycle)
+1. Two new **stunt vehicles**, our own designs: a light, high-suspension **stunt buggy** and a **stunt motorcycle** (dirt-bike style, built on the existing motorcycle handling). Dan (20:23): "I would like a motorcycle either in addition or instead of a truck" — so the bike replaces the truck in this round; no truck. Generic look, invented names, no real brands. The rider stays on the bike through flips and rolls when landed on the wheels; a bail drops the rider like any other crash in the game.
+2. **Air steering only in stunt vehicles:** while all wheels are off the ground, the left stick (and keyboard equivalents) tips the vehicle forward/back and rolls it sideways, and the right stick or bumpers spin it flat. Strong enough to do a full flip on the big kickers, gentle enough to level out a landing. All other vehicles behave exactly as today, everywhere.
+3. **Availability:** usable in Free Roam (anywhere, not only the park) and the Stunt event. **Not** in races, campaign races, Getaway or Speed Patrol. The buggy is available from the start; the stunt motorcycle unlocks with the first Gold medal in the Stunt event (unlock notice like the others; goal shown in the garage).
+4. Vehicle pictures in menus never squished (standing rule).
+
+### Part D — Two ways to play
+1. **Drop-in (Free Roam):** drive in and score freely; best single combo saved.
+2. **Stunt event:** start it from the park entrance (like the other Free Roam activities) and from the menu: **10 minutes** to score as many points as possible. Bronze / silver / gold as colored medals with their point values shown before you start (same style as the other events). Top 10 for the Stunt event in Records (split-screen included, names as the other Top 10s).
+3. **Split-screen:** both players in the park at once, both scored, a winner at the end with the usual celebration.
+4. **Acorns:** a few new acorns on the hardest-to-reach spots (the top deck, on top of the bus, the top of the loop's platform if there is one), added to the acorn count and map areas as before.
+5. Map: the park shown on the minimap and the big map with its name.
+
+### Part E — Checks (built player, controller first, background rule)
+1. Driver's-view shots of the park from the Hwy 92 entrance, and a top-down shot with the plot outline from 0.104.
+2. With each stunt vehicle: every feature driven at least once, including the loop and barrel roll; a backflip, a roll and a 360 spin landed and scored; a bail shown; a combo with multiplier. With Dan's usual race car: the kickers and gap jumps (no air steering, as today).
+3. A full 10-minute Stunt event solo and in split-screen (Dan, 20:23: "lets go with 10 minutes"); a pause and resume in the middle keeps the clock and score; medals and Top 10 written to a **test save, never Dan's real save**.
+4. A Street Loop race lap each way past the park: nothing changed on the road; Hwy 92 traffic unaffected.
+5. Report scores reached for bronze/silver/gold tuning (gold should take real effort).
+
+### Part F — Build, release
+Version 0.106.0-review1; usual build and release steps; close everything started. Delivery notes per part with evidence and what Dan should try first.
+
+## Previous delivery — Hwy 92 follow-ups (invisible bump, sidewalks across driveways), trees standing in two Free Roam roads, hidden police still miss one direction, the moon sets in front of the mountains — target 0.105.0-review1 — DELIVERED as 0.105.0-review1 (build 105000), awaiting Dan's review — REVIEW PENDING (Dan will check later; started 0.106 first, 2026-10-10 23:57)
 
 Dan's report `2026-10-10_19-35-11-659_00341f` (0.104.0-review1, Free Roam, mower; ZIP in `C:\Users\danmo\AppData\LocalLow\DefaultCompany\Racer\DebugReports`). Read its four screenshots first. Dan (2026-10-10, 19:50): "cop still seemed to ignore me one way, but got me going the other way. Also, I saw the moon set in front of a mountain instead of disappearing behind it."
 
@@ -82,54 +130,6 @@ Dan: "sidewalks shouldn't cross driveways." `FreeRoamWorld`, X=-236.68 Y=9.07 Z=
 - **Nothing else changed:** collider/route comparison of all nine scenes against the checkpoint: only the moved trail trunks, the seam ends and the Reverse apron differ ([list](Docs/Report105/Lists/scenes-nothing-else-changed.txt)).
 - **Release.** 0.105.0-review1, build 105000: source `38c6213f` (pushed), fresh Windows build (0 errors, 2m27s, [build-release.txt](Docs/Report105/build-release.txt)), published [game-105000](https://github.com/danemoll-jpg/woodstock-rush-releases/releases/tag/game-105000) (the usual draft-lookup miss, then `--resume-draft`), public download, pinned signature and startup pass for all 235 files ([hosted/result.json](Docs/Report105/hosted/result.json)), production updater at 105000, `Play-Racer.cmd` (unchanged) launched `Builds/Latest/versions/105000/Racer.exe` ([play-racer-launch.json](Docs/Report105/play-racer-launch.json)), Dan's settings.json restored byte for byte ([settings-preserved.json](Docs/Report105/settings-preserved.json)). Cleanup: Builds 12.42 GB -> 8.32 GB (4.11 GB: the build output, the zip, the check build, the public-download install), C: free 236.4 -> 242.3 GB; kept managed 105000 and 104000 ([cleanup.json](Docs/Report105/cleanup.json)); the round's scratch folders and temporary editor tools removed. Commits: `5457d4e9` checkpoint, `38c6213f` the round (released source), this record follows.
 - **For Dan to check:** Hwy 92 at your usual speed (x 230–280 by S Cherokee Ln, and the two seam ends at x −506 and x 161); an entrance or two (the bank down to the lot is the old ground); Pine Ridge at speed; a hidden cop on the lake road; the debug box's COPS line when a cop seems to ignore you (F4 records it); a moonset. **Seen, not changed:** the traffic tunnels and a roadside post hide part of the view of two Hwy 92 hiding places (they still trip); Pine Ridge cannot be driven uphill from its Trickum Rd end.
-
-## QUEUED NEXT — Stunt park on the Hwy 92 lot (Rush 2-style), stunt buggy and stunt motorcycle with air steering — target 0.106.0-review1 — NOT STARTED (do not start until Claude (chat) promotes this to CURRENT, after 0.105 is delivered)
-
-Dan (2026-10-10, 20:11–20:15): "I was thinking something similar to the stunt course for Rush USA" (the stunt arena in *Rush 2: Extreme Racing USA*, N64: a walled area with ramps of several sizes, half-pipes, a loop and two levels, points for air and flips/rolls landed on the wheels). Claude proposed the points below; Dan: "this all sounds perfect. Let's try this. Maybe we can have special vehicles for the steering in air part."
-
-**Inspired by, not copied:** no names, layout, art, logos or sounds from Rush 2 or any other game. Our own place, our own look.
-
-### Part A — The stunt park itself
-1. **Where:** the open plot kept free in 0.104 Part B item 7 (the real subdivision's footprint across Hwy 92 from S Cherokee Ln). Stay inside it. Entrance: a driveway off Hwy 92 with a one-sided, depth-tested sign with an invented name (signs rule). Grounded, level base. Hwy 92's road surface, race lines, gates, AI and traffic lanes do not change.
-2. **Look:** a local dirt-lot stunt park, not a futuristic arena: packed-dirt floor, plywood and dirt ramps, hay bales, shipping containers, an old school bus and a row of junk cars to jump over, a low perimeter (fence / tire wall) so you can't fly onto Hwy 92 by accident.
-3. **Features (all with sloped, downhill landings sized to their launch: big jumps must land on a down-slope, never flat):**
-   - kickers from small to huge, in a sensible flow so you can chain them;
-   - a gap jump over the school bus, and one over the junk-car row;
-   - quarter-pipes / a half-pipe along the edges;
-   - a two-level deck you launch up onto and drop off;
-   - **one loop** and **one barrel-roll ramp** (corkscrew kicker) as showpieces: the loop drivable at a speed the stunt vehicles reach easily; normal vehicles may fail it.
-4. Whatever is on the ramps (seams, ramp-to-ground joints) is one smooth surface: no catches like the Cabin run-up had (0.101–0.103 lessons).
-5. Appears in `FreeRoamWorld` and in every race scene that shows that plot (as scenery there; usable only in Free Roam and the Stunt event).
-6. **Performance:** report the worst-view frame time before and after at 3840×2160 and in split-screen; no noticeable drop.
-
-### Part B — Stunt scoring (built on the existing jump scoring in `ArcadeActivities`)
-1. Keep the existing jump points (distance, air time, clean landing). Add tricks: **flip** (forward/back, each full 360°), **roll** (sideways 360°), **spin** (flat 360° turns), plus loop and barrel-roll ramp completions. Show each like the current "CLEAN JUMP / … pts" line, e.g. "BACKFLIP + 360 SPIN / 412 pts".
-2. **Landing:** points count only if you land on your wheels; landing on the roof or side loses that jump's tricks (show "BAILED").
-3. **Combo:** tricks chained with less than about 2 s on the ground between them multiply (show the multiplier); a bail ends the combo.
-4. Works for every vehicle; flips and rolls are just much easier in stunt vehicles (Part C).
-
-### Part C — Stunt vehicles with air steering (buggy and motorcycle)
-1. Two new **stunt vehicles**, our own designs: a light, high-suspension **stunt buggy** and a **stunt motorcycle** (dirt-bike style, built on the existing motorcycle handling). Dan (20:23): "I would like a motorcycle either in addition or instead of a truck" — so the bike replaces the truck in this round; no truck. Generic look, invented names, no real brands. The rider stays on the bike through flips and rolls when landed on the wheels; a bail drops the rider like any other crash in the game.
-2. **Air steering only in stunt vehicles:** while all wheels are off the ground, the left stick (and keyboard equivalents) tips the vehicle forward/back and rolls it sideways, and the right stick or bumpers spin it flat. Strong enough to do a full flip on the big kickers, gentle enough to level out a landing. All other vehicles behave exactly as today, everywhere.
-3. **Availability:** usable in Free Roam (anywhere, not only the park) and the Stunt event. **Not** in races, campaign races, Getaway or Speed Patrol. The buggy is available from the start; the stunt motorcycle unlocks with the first Gold medal in the Stunt event (unlock notice like the others; goal shown in the garage).
-4. Vehicle pictures in menus never squished (standing rule).
-
-### Part D — Two ways to play
-1. **Drop-in (Free Roam):** drive in and score freely; best single combo saved.
-2. **Stunt event:** start it from the park entrance (like the other Free Roam activities) and from the menu: **10 minutes** to score as many points as possible. Bronze / silver / gold as colored medals with their point values shown before you start (same style as the other events). Top 10 for the Stunt event in Records (split-screen included, names as the other Top 10s).
-3. **Split-screen:** both players in the park at once, both scored, a winner at the end with the usual celebration.
-4. **Acorns:** a few new acorns on the hardest-to-reach spots (the top deck, on top of the bus, the top of the loop's platform if there is one), added to the acorn count and map areas as before.
-5. Map: the park shown on the minimap and the big map with its name.
-
-### Part E — Checks (built player, controller first, background rule)
-1. Driver's-view shots of the park from the Hwy 92 entrance, and a top-down shot with the plot outline from 0.104.
-2. With each stunt vehicle: every feature driven at least once, including the loop and barrel roll; a backflip, a roll and a 360 spin landed and scored; a bail shown; a combo with multiplier. With Dan's usual race car: the kickers and gap jumps (no air steering, as today).
-3. A full 10-minute Stunt event solo and in split-screen (Dan, 20:23: "lets go with 10 minutes"); a pause and resume in the middle keeps the clock and score; medals and Top 10 written to a **test save, never Dan's real save**.
-4. A Street Loop race lap each way past the park: nothing changed on the road; Hwy 92 traffic unaffected.
-5. Report scores reached for bronze/silver/gold tuning (gold should take real effort).
-
-### Part F — Build, release
-Version 0.106.0-review1; usual build and release steps; close everything started. Delivery notes per part with evidence and what Dan should try first.
 
 ## Previous delivery — American spelling in the game; Hwy 92 roadside like the real road today — target 0.104.0-review1 — DELIVERED as 0.104.0-review1 (build 104000), awaiting Dan's review — REVIEWED BY DAN (invisible bump on Hwy 92, sidewalks across driveways; plus trees in two Free Roam paths, hidden police one way, moon; follow-ups in 0.105)
 
