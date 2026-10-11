@@ -1,0 +1,26 @@
+screen=1280x720 kind=overtime version=0.108.0-review1 park=on
+Stunt event: 1 player(s), round shortened to 45 s (StuntEvent.TestLimit, checks only); running: Running
+screen 1280x720
+B at the start: goal line '<b>BRONZE</b> 20,000  —  20,000 to go'
+player 1's points set to 19,500 (a test shortcut), then a real backflip
+B bronze reached (20,195): '<b>BRONZE!</b>'
+B between bronze and silver: '<b>SILVER</b> 50,000  —  29,805 to go'
+player 1's points set to 89,500 (a test shortcut), then a real backflip
+B gold reached (90,195): '<b>GOLD!</b>'
+B after gold: '<b>GOLD ✓</b>   +195 over it'
+P1 backflip toward bronze: BACKFLIP 695 pts; combo x1 695
+P1 backflip toward gold: BACKFLIP 695 pts; combo x1 695
+Part A: chain started at 39.2 s (5.8 s left)
+HUD in overtime: '<size=28><b>COMBO OVERTIME</b></size> / <size=60><b>4.5</b></size> / <size=20>COMBO x2  ·  2,754 pts  ·  next trick within 4.5 s</size> / <size=19>BACKFLIP / 688 pts</size>'
+P1 flight 1: BACKFLIP 689 pts; combo x1 689
+P1 flight 2: took off at 44.7 s (0.3 s before 0:00) with 4.5 s of chain time left -> BACKFLIP 688 pts; combo x2 2,754
+P1 flight 3: took off at 45.0 s (after 0:00) with 4.1 s of chain time left -> BACKFLIP 688 pts; combo x3 6,195
+P1 flight 4: took off at 45.0 s (after 0:00) with 4.5 s of chain time left -> BACKFLIP 688 pts; combo x4 11,012
+event done 4.5 s after the last flight; player 1 90,195 -> 101,207
+results: state Results
+  Dan: 101,207 pts, medal 3, combos 3, best 11,012, tricks 6, bails 0
+      11.5s +695 (BACKFLIP; x1: BF) Top 10 combo #5
+      25.6s +695 (BACKFLIP; x1: BF) Top 10 combo #6
+      0:00 with a combo going (x1, 689 pts, in the air): overtime
+      45.0s +11012 (BACKFLIP; x4: BF · BF · BF · BF) Top 10 combo #2
+      done 13.1s after 0:00

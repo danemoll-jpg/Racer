@@ -65,25 +65,56 @@ namespace Racer
     // Garage", and a fanfare. Free Roam is paused (the vehicle stopped) while it is up. One that was earned but never shown
     // (Dan's mower) is shown once the next time the main menu or Free Roam opens; pressing A remembers it (settings.json
     // unlocksSeen) - loading never writes. Campaign prize reveals are unchanged.
+    // 0.108 Part C (Dan: "It should do this anytime you unlock a vehicle"): every vehicle unlock - the acorn mower, the patrol car, the patrol cycle,
+    // the stunt motorcycle and each campaign chapter prize - is "CONGRATULATIONS!  You unlocked the <vehicle>" with its picture and how it was earned
+    // (heading, one line), until A / Enter. Earned while a results screen is up, it opens as that screen is left (RaceMenus.HoldResults), then the
+    // player's choice goes ahead. Raised notices are kept in settings.json (unlocksPending) until shown, and an earned vehicle whose panel was never
+    // shown is found again at load, so none is lost when the game closes or a scene loads (0.106's stunt-bike panel was raised during the Stunt
+    // event's results, where split-screen holds the panel back, and the scene load leaving the event cleared the queue before it could show).
     public static class UnlockNotice
     {
         public sealed class Notice { public string id, heading, vehicle; }
-        public const string AcornMower = "acorn-mower";
+        public const string AcornMower = "acorn-mower", PoliceCar = "police-car", PoliceBike = "police-bike", StuntBike = "stunt-bike", Prize = "prize-";
         public static readonly List<Notice> Pending = new();
         public static Notice Showing;
         public static bool Seen(RacerSave save, string id) => save != null && save.Settings.unlocksSeen != null && save.Settings.unlocksSeen.Contains(id);
+        // the moment it is earned: queued, and kept in the settings until it has been shown
         public static void Raise(RacerSave save, Notice n)
         {
-            if (n == null || Seen(save, n.id) || Pending.Any(p => p.id == n.id) || Showing?.id == n.id) return;
-            Pending.Add(n);
+            if (n == null || Seen(save, n.id)) return;
+            Queue(n);
+            if (save != null && !(save.Settings.unlocksPending ?? new string[0]).Contains(n.id)) { save.Settings.unlocksPending = (save.Settings.unlocksPending ?? new string[0]).Append(n.id).ToArray(); save.SaveSettings(); }
         }
-        public static Notice Acorns(int total) => new() { id = AcornMower, heading = $"ALL {total} WOODLAND ACORNS FOUND", vehicle = "mower" };
-        // earned before this update (or on another run) but its panel never shown
-        public static void Missed(RacerSave save) { if (VehicleUnlocks.RewardEarned) Raise(save, Acorns(VehicleUnlocks.AcornsNeeded)); }
+        static void Queue(Notice n) { if (n != null && !Pending.Any(p => p.id == n.id) && Showing?.id != n.id) Pending.Add(n); }
+        public static Notice Acorns(int total) => new() { id = AcornMower, heading = $"Found all {total} Woodland Acorns", vehicle = "mower" };
+        public static Notice For(string id)
+        {
+            if (id == AcornMower) return Acorns(VehicleUnlocks.AcornsNeeded);
+            if (id == PoliceCar) return new() { id = id, heading = $"Escaped the police at heat {PoliceProgress.HeatNeeded}+", vehicle = VehicleProfile.Police.Id };
+            if (id == PoliceBike) return new() { id = id, heading = $"Caught {PoliceProgress.SpeedersNeeded} speeders in Speed Patrol", vehicle = VehicleProfile.PoliceBike.Id };
+            if (id == StuntBike) return new() { id = id, heading = "Won a Gold medal in the Stunt event", vehicle = VehicleProfile.StuntBike.Id };
+            if (id != null && id.StartsWith(Prize))
+            {
+                string vehicle = id.Substring(Prize.Length); var e = Campaign.PrizeEvent(vehicle); if (VehicleProfile.All.All(p => p.Id != vehicle)) return null;
+                return new() { id = id, heading = e != null ? $"Passed the {e.Name} (campaign chapter {e.Chapter})" : "A campaign prize", vehicle = vehicle };
+            }
+            return null;
+        }
+        // at load: earned but never shown (the vehicle goals), and any raised but not yet shown (settings); loading never writes
+        public static void Missed(RacerSave save)
+        {
+            void Again(string id) { if (!Seen(save, id)) Queue(For(id)); }
+            if (VehicleUnlocks.RewardEarned) Again(AcornMower);
+            if (PoliceProgress.CarEarned) Again(PoliceCar);
+            if (PoliceProgress.BikeEarned) Again(PoliceBike);
+            if (StuntProgress.GoldEarned) Again(StuntBike);
+            foreach (var id in save?.Settings.unlocksPending ?? new string[0]) Again(id);
+        }
         public static void MarkSeen(RacerSave save, string id)
         {
-            if (save == null || Seen(save, id)) return;
-            save.Settings.unlocksSeen = (save.Settings.unlocksSeen ?? new string[0]).Append(id).ToArray(); save.SaveSettings();
+            if (save == null) return;
+            if (!Seen(save, id)) save.Settings.unlocksSeen = (save.Settings.unlocksSeen ?? new string[0]).Append(id).ToArray();
+            save.Settings.unlocksPending = (save.Settings.unlocksPending ?? new string[0]).Where(p => p != id).ToArray(); save.SaveSettings();
         }
     }
 

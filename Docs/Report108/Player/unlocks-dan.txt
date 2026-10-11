@@ -1,0 +1,8 @@
+screen=1920x1080 kind=unlocks version=0.108.0-review1 park=on
+phase dan; save C:\Users\danmo\AppData\Local\Temp\report108\unlocks-dan\save-copy; seen [acorn-mower,police-car], pending in settings []; gold True, patrol car True, patrol cycle False
+main menu: state Ready, page 'Ready/', queued [stunt-bike], showing 
+dan-menu: panel 1: 'CONGRATULATIONS! | You unlocked the Skywhip 250 / Won a Gold medal in the Stunt event / Choose it in the Garage.' (stuntbike); state Ready; still waiting: 
+dan-menu: B on the panel: still open True
+dan-menu: A: open False; state Ready, page 'Ready/'; seen [acorn-mower,police-car,stunt-bike], pending in settings []
+dan-menu: no (more) panels; state Ready, page 'Ready/'
+Free Roam (a scene load, same save): panel open False, state Racing, queued []

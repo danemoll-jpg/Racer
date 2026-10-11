@@ -1,0 +1,27 @@
+screen=1920x1080 kind=unlocks version=0.108.0-review1 park=on
+phase earn; save C:\Users\danmo\AppData\Local\Temp\report108\unlocks-earn\save-copy; seen [], pending in settings []; gold False, patrol car False, patrol cycle False
+Stunt event: 1 player(s), round shortened to 14 s (StuntEvent.TestLimit, checks only); running: Running
+at 8.0 s: player 1's points set to 95,000 and the patrol car's goal met (shortcuts); queued [police-car], pending in settings [police-car]
+results: state Results, page 'Results/', panel open False, gold earned True, queued [police-car,stunt-bike]; title 'STUNT EVENT RESULTS'
+results: focus 'menu'; A
+earn-results: panel 1: 'You unlocked the Patrol Car / Escaped the police at heat 3+ / Choose it in the Garage. | CONGRATULATIONS!' (police); state Results; still waiting: stunt-bike
+earn-results: B on the panel: still open True
+earn-results: A: open True; state Results, page 'Results/unlock'; seen [police-car], pending in settings [stunt-bike]
+earn-results: panel 2: 'You unlocked the Skywhip 250 / Won a Gold medal in the Stunt event / Choose it in the Garage. | CONGRATULATIONS!' (stuntbike); state Results; still waiting: 
+earn-results: B on the panel: still open True
+earn-results: A: open False; state Results, page 'Ready/'; seen [police-car,stunt-bike], pending in settings []
+earn-results: no (more) panels; state Results, page 'Ready/'
+after the panels the results' choice went ahead: state Ready, page 'Ready/', split-screen False
+Free Roam: 20 speeders caught (shortcut); patrol cycle earned True
+earn-roam-cycle: panel 1: 'You unlocked the Patrol Cycle / Caught 20 speeders in Speed Patrol / Choose it in the Garage. | CONGRATULATIONS!' (policebike); state Ready; still waiting: 
+earn-roam-cycle: B on the panel: still open True
+earn-roam-cycle: A: open False; state Racing, page 'Racing/'; seen [police-car,stunt-bike,police-bike], pending in settings []
+earn-roam-cycle: no (more) panels; state Racing, page 'Racing/'
+after A: state Racing (driving again: True)
+campaign prize raised: Street Loop Final -> moto
+earn-roam-prize: panel 1: 'You unlocked the Needle 600 / Passed the Street Loop Final (campaign chapter 1) / Choose it in the Garage. | CONGRATULATIONS!' (moto); state Ready; still waiting: 
+earn-roam-prize: B on the panel: still open True
+earn-roam-prize: A: open False; state Racing, page 'Racing/'; seen [police-car,stunt-bike,police-bike,prize-moto], pending in settings []
+earn-roam-prize: no (more) panels; state Racing, page 'Racing/'
+Stunt event: 1 player(s), round shortened to 60 s (StuntEvent.TestLimit, checks only); running: Running
+in the event: campaign prize pebble raised; panel open False; pending in settings [prize-pebble]; settings.json on disk has it: True; closing the game now

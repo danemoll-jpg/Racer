@@ -1,0 +1,8 @@
+screen=1920x1080 kind=unlocks version=0.108.0-review1 park=on
+phase restart; save C:\Users\danmo\AppData\Local\Temp\report108\unlocks-earn-save; seen [police-car,stunt-bike,police-bike,prize-moto], pending in settings [prize-pebble]; gold True, patrol car True, patrol cycle True
+main menu: state Ready, page 'Ready/', queued [prize-pebble], showing 
+restart-menu: panel 1: 'CONGRATULATIONS! | You unlocked the Pebble Coupe / Passed the Forest Final (campaign chapter 2) / Choose it in the Garage.' (pebble); state Ready; still waiting: 
+restart-menu: B on the panel: still open True
+restart-menu: A: open False; state Ready, page 'Ready/'; seen [police-car,stunt-bike,police-bike,prize-moto,prize-pebble], pending in settings []
+restart-menu: no (more) panels; state Ready, page 'Ready/'
+Free Roam (a scene load, same save): panel open False, state Racing, queued []

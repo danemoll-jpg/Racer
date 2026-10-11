@@ -116,6 +116,9 @@ namespace Racer
                 case "lap": yield return Lap(); break;
                 case "landings": yield return Landings(); break; // 0.107 (Report106PlayerCheck.Round107.cs)
                 case "event107": yield return Event107(); break;
+                case "overtime": yield return Overtime(); break; // 0.108 (Report106PlayerCheck.Round108.cs)
+                case "unlocks": yield return Unlocks(); break;
+                case "combos": yield return Combos(); break;
                 default: Note("unknown kind " + kind); break;
             }
             File.WriteAllText(Path.Combine(outDir, "done.txt"), "done"); Application.Quit();

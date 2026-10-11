@@ -35,7 +35,7 @@ namespace Racer
             if(page==""&&(records||flow.State==RaceFlow.Stage.Results))
             {
                 int d=tabsAction.WasPressedThisFrame()?1:previousTab.WasPressedThisFrame()?-1:0;
-                if(d!=0){if(records){recordTab=(recordTab+d+6)%6;activityKey="";}else{int count=RacePlaylists.Active==null?3:4;resultTab=(resultTab+d+count)%count;}Show();MenuInput.ConsumeThroughRelease();}
+                if(d!=0){if(records){recordTab=(recordTab+d+7)%7;activityKey="";}else{int count=RacePlaylists.Active==null?3:4;resultTab=(resultTab+d+count)%count;}Show();MenuInput.ConsumeThroughRelease();}
             }
             if(flow.State==RaceFlow.Stage.Playlists&&page==""&&playlistDraft!=null)
             {
@@ -68,9 +68,10 @@ namespace Racer
             var tabs=LaterGroup("Visible tabs",content,true);tabs.SetSiblingIndex(details.gameObject.activeSelf?1:0);
             for(int i=0;i<labels.Length;i++){int n=i;Row(i,"tab-"+labels[i],(chosen==i?"✓ ":"")+labels[i],()=>choose(n));buttons[i].transform.SetParent(tabs,false);var tl=buttons[i].GetComponentInChildren<UnityEngine.UI.Text>(true);tl.alignment=TextAnchor.MiddleCenter;tl.horizontalOverflow=HorizontalWrapMode.Wrap;tl.verticalOverflow=VerticalWrapMode.Truncate;tl.resizeTextForBestFit=true;tl.resizeTextMinSize=13;tl.resizeTextMaxSize=tl.fontSize;} // 0.106: six Records tabs: a long name shrinks to fit
         }
+        bool tableRow; // 0.108 Part C: table rows are not results-screen buttons
         void TableRow(int index,string id,string[] cells,float[] widths,Action click,bool emphasis=false)
         {
-            Row(index,id,string.Join(" / ",cells),click);var b=buttons[index];b.GetComponentInChildren<UnityEngine.UI.Text>(true).gameObject.SetActive(false);
+            tableRow=true;Row(index,id,string.Join(" / ",cells),click);tableRow=false;var b=buttons[index];b.GetComponentInChildren<UnityEngine.UI.Text>(true).gameObject.SetActive(false);
             var colors=b.colors;colors.normalColor=emphasis?new(.10f,.33f,.32f):index%2==0?new(.06f,.14f,.19f):new(.10f,.20f,.25f);b.colors=colors;
             float x=0;for(int i=0;i<cells.Length;i++){var t=Label("Cell",b.transform,20,0);tableCells.Add(t.gameObject);t.supportRichText=false;t.text=cells[i];t.alignment=i==cells.Length-1?TextAnchor.MiddleRight:TextAnchor.MiddleLeft;t.rectTransform.anchorMin=new(x,0);x+=widths[i];t.rectTransform.anchorMax=new(x,1);t.rectTransform.offsetMin=new(9,0);t.rectTransform.offsetMax=new(-9,0);}
         }

@@ -1,0 +1,47 @@
+screen=1920x1080 kind=combos version=0.108.0-review1 park=on
+combos-start: panel 1: 'You unlocked the Skywhip 250 / Won a Gold medal in the Stunt event / Choose it in the Garage. | CONGRATULATIONS!' (stuntbike); state Ready; still waiting: 
+combos-start: B on the panel: still open True
+combos-start: A: open False; state Ready, page 'Ready/'; seen [acorn-mower,police-car,stunt-bike], pending in settings []
+combos-start: no (more) panels; state Ready, page 'Ready/'
+the list from the old save: 64,272 stuntbuggy Dan x0; 7,542 stuntbuggy Dan x0; 3,708 mower (no name: the player's) x0; 3,386 stuntbuggy Dan x0
+Records (seeded): COMBOS tab shown (by RB); 'TOP 10 BEST COMBOS · the Stunt event and Free Roam at Red Clay Stunt Park / BF backflip · FF frontflip · R roll · BR barrel roll · 360 spin · LOOP · J jump'
+    # | Points | Links | Tricks | Vehicle | Name | Date
+    #1 | 64,272 | — | — | Clay Hopper | Dan | 2026-10-11
+    #2 | 7,542 | — | — | Clay Hopper | Dan | 2026-10-11
+    #3 | 3,708 | — | — | Turf Rocket | Dan | 2026-10-11
+    #4 | 3,386 | — | — | Clay Hopper | Dan | 2026-10-11
+B: state Ready, page 'Ready/'
+Stunt event: 1 player(s), round shortened to 75 s (StuntEvent.TestLimit, checks only); running: Running
+event combo x1 flight 1: BACKFLIP 689 pts; combo x1 689
+event combo x1: banked x1 [BF] -> Top 10 combo place #5; shown 'BACKFLIP / 689 pts / NEW TOP 10 COMBO — #5'
+event combo x2 flight 1: BACKFLIP 695 pts; combo x1 695
+event combo x2 flight 2: took off at 15.8 s (59.2 s before 0:00) with 4.5 s of chain time left -> BACKFLIP 688 pts; combo x2 2,766
+event combo x2: banked x2 [BF · BF] -> Top 10 combo place #5; shown 'COMBO x2 / 2,766 pts / NEW TOP 10 COMBO — #5'
+event combo x3 flight 1: BACKFLIP 695 pts; combo x1 695
+event combo x3 flight 2: took off at 29.0 s (46.0 s before 0:00) with 4.5 s of chain time left -> BACKFLIP 688 pts; combo x2 2,766
+event combo x3 flight 3: took off at 31.9 s (43.1 s before 0:00) with 4.5 s of chain time left -> BACKFLIP 688 pts; combo x3 6,213
+event combo x3: banked x3 [BF · BF · BF] -> Top 10 combo place #3; shown 'COMBO x3 / 6,213 pts / NEW TOP 10 COMBO — #3'
+event over: 10.0s +689 (BACKFLIP; x1: BF) Top 10 combo #5; 23.2s +2766 (BACKFLIP; x2: BF · BF) Top 10 combo #5; 39.2s +6213 (BACKFLIP; x3: BF · BF · BF) Top 10 combo #3; 0:00: done
+after-event: no (more) panels; state Ready, page 'Ready/'
+Free Roam combo x2 flight 1: BACKFLIP 689 pts; combo x1 689
+Free Roam combo x2 flight 2: took off in Free Roam with 4.5 s of chain time left -> BACKFLIP 688 pts; combo x2 2,754
+Free Roam combo x2: banked x2 [BF · BF] -> Top 10 combo place #7; shown 'COMBO x2 / 2,754 pts / NEW TOP 10 COMBO — #7'
+Stunt event: 2 player(s), round shortened to 45 s (StuntEvent.TestLimit, checks only); running: Running
+split-screen: player 2 'Player Two' in stuntbuggy
+split player 2 combo x2 flight 1: BACKFLIP 689 pts; combo x1 689
+split player 2 combo x2 flight 2: took off at 5.5 s (39.5 s before 0:00) with 4.5 s of chain time left -> BACKFLIP 688 pts; combo x2 2,754
+split player 2 combo x2: banked x2 [BF · BF] -> Top 10 combo place #8; shown 'COMBO x2 / 2,754 pts / NEW TOP 10 COMBO — #8'
+after-split: no (more) panels; state Ready, page 'Ready/'
+Records (after): COMBOS tab shown (by RB); 'TOP 10 BEST COMBOS · the Stunt event and Free Roam at Red Clay Stunt Park / BF backflip · FF frontflip · R roll · BR barrel roll · 360 spin · LOOP · J jump'
+    # | Points | Links | Tricks | Vehicle | Name | Date
+    #1 | 64,272 | — | — | Clay Hopper | Dan | 2026-10-11
+    #2 | 7,542 | — | — | Clay Hopper | Dan | 2026-10-11
+    #3 | 6,213 | ×3 | BF · BF · BF | Clay Hopper | Dan | 2026-10-11
+    #4 | 3,708 | — | — | Turf Rocket | Dan | 2026-10-11
+    #5 | 3,386 | — | — | Clay Hopper | Dan | 2026-10-11
+    #6 | 2,766 | ×2 | BF · BF | Clay Hopper | Dan | 2026-10-11
+    #7 | 2,754 | ×2 | BF · BF | Clay Hopper | Dan | 2026-10-11
+    #8 | 2,754 | ×2 | BF · BF | Clay Hopper | Player Two | 2026-10-11
+    #9 | 689 | ×1 | BF | Clay Hopper | Dan | 2026-10-11
+B: state Ready, page 'Ready/'
+test save C:\Users\danmo\AppData\Local\Temp\report108\combos\save-copy\stunt-park-v1.json: combos in the file True; bestCombo kept 3,708

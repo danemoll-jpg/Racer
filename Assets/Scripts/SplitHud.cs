@@ -13,6 +13,7 @@ namespace Racer
         sealed class Half
         {
             public RectTransform root, captionRoot; public Text info, speed, centre, tag, gaps, grid, caption, heat, alert, radio; public RacingMiniMap map; public GameObject infoPanel, speedPanel, gapsPanel, gridPanel;
+            public GameObject goalPanel; public Image goalBadge; public Text goal; // 0.108 Part B: the Stunt event's next medal
         }
         RaceFlow flow; SplitRace split; Font font; readonly Half[] halves = new Half[2]; GameObject divider; RectTransform canvas;
         float goUntil; RaceFlow.Stage lastStage;
@@ -62,6 +63,13 @@ namespace Racer
             h.radio = Label(h.root, 24, TextAnchor.UpperCenter, new Color(.62f, .8f, 1f)); Wide(h.radio, -116, 36); h.radio.horizontalOverflow = HorizontalWrapMode.Overflow; h.radio.verticalOverflow = VerticalWrapMode.Overflow;
             h.heat.horizontalOverflow = h.alert.horizontalOverflow = HorizontalWrapMode.Overflow; h.heat.verticalOverflow = h.alert.verticalOverflow = VerticalWrapMode.Overflow;
             h.heat.gameObject.SetActive(false); h.alert.gameObject.SetActive(false); h.radio.gameObject.SetActive(false);
+            // 0.108 Part B: the Stunt event's next medal, under the info panel: the medal, its points and how many still to go
+            h.goalPanel = new GameObject("Stunt goal", typeof(RectTransform), typeof(Image)); var gp = (RectTransform)h.goalPanel.transform; gp.SetParent(h.root, false);
+            gp.anchorMin = gp.anchorMax = gp.pivot = new Vector2(0, 1); gp.sizeDelta = new Vector2(330, 40);
+            h.goalPanel.GetComponent<Image>().color = new Color(.025f, .055f, .07f, .84f); h.goalPanel.GetComponent<Image>().raycastTarget = false;
+            h.goalBadge = MedalUi.Badge(gp, 1, 32, "Goal medal"); var gb = h.goalBadge.rectTransform; gb.anchorMin = gb.anchorMax = gb.pivot = new Vector2(0, .5f); gb.anchoredPosition = new Vector2(6, 0);
+            h.goal = Label(gp, 20, TextAnchor.MiddleLeft, Color.white); h.goal.rectTransform.anchorMin = Vector2.zero; h.goal.rectTransform.anchorMax = Vector2.one; h.goal.rectTransform.offsetMin = new Vector2(44, 0); h.goal.rectTransform.offsetMax = new Vector2(-8, 0);
+            h.goal.horizontalOverflow = HorizontalWrapMode.Overflow; h.goalPanel.SetActive(false);
             h.captionRoot = new GameObject("Player " + (player + 1) + " winner caption", typeof(RectTransform)).GetComponent<RectTransform>(); h.captionRoot.SetParent(canvas, false);
             h.caption = Label(h.captionRoot, 30, TextAnchor.UpperCenter, new Color(.4f, 1, .85f)); h.caption.rectTransform.anchorMin = new Vector2(.1f, .7f); h.caption.rectTransform.anchorMax = new Vector2(.9f, .95f); h.caption.rectTransform.offsetMin = h.caption.rectTransform.offsetMax = Vector2.zero;
             h.map = RacingMiniMap.Create(h.root, flow.Race, font); h.map.Split = true;
@@ -96,7 +104,7 @@ namespace Racer
             if (SplitRoam.Current) { Roam(driving); return; }
             for (int i = 0; i < 2; i++)
             {
-                var h = halves[i]; var state = i == 0 ? race.Racers[0] : split.P2; var car = i == 0 ? race.vehicle : split.P2Car;
+                var h = halves[i]; var state = i == 0 ? race.Racers[0] : split.P2; var car = i == 0 ? race.vehicle : split.P2Car; h.goalPanel.SetActive(false);
                 h.root.gameObject.SetActive(driving && state != null && car && !split.ShotActive(i + 1)); // 0.92 Part F: not over the winner shot
                 h.captionRoot.gameObject.SetActive(driving && split.ShotActive(i + 1)); if (h.captionRoot.gameObject.activeSelf) h.caption.text = "WINNER\n" + state.Name;
                 if (!h.root.gameObject.activeSelf) continue;
@@ -171,7 +179,7 @@ namespace Racer
                     // 0.106 Part D: the clock, the points, the last combo banked
                     var r = stunt.Of(player); int sec = Mathf.CeilToInt(stunt.State == StuntEvent.Phase.Starting ? stunt.Limit : stunt.Left);
                     lines.Add($"<b>STUNT EVENT</b>   {sec / 60}:{sec % 60:00} left   <b>{(r != null ? r.points : 0):N0}</b> pts");
-                    if (stunt.Finishing(player)) lines.Add("<color=#FFC747><b>FINISH THE TRICK!</b></color>"); // 0.107 Part E
+                    if (stunt.Finishing(player)) lines.Add(r.acts.ComboLinks > 0 ? "<color=#FFC747><b>COMBO OVERTIME</b></color>" : "<color=#FFC747><b>FINISH THE TRICK!</b></color>"); // 0.107 Part E, 0.108 Part A
                     if (r != null && Time.unscaledTime < r.lineUntil) lines.Add(r.line.StartsWith("+") ? "<color=#9CFFB0>" + r.line + "</color>" : "<color=#FFC747>" + r.line + "</color>");
                 }
                 else lines.Add("<b>FREE ROAM</b>");
@@ -197,6 +205,17 @@ namespace Racer
                 }
                 // 0.107 Part E: the Stunt event's line (five-figure points) no longer wraps, so "FINISH THE TRICK!" below it is not cut off
                 ((RectTransform)h.infoPanel.transform).sizeDelta = new Vector2(stunt ? Mathf.Max(330, h.info.preferredWidth + 24) : 330, 22 + 25 * lines.Count);
+                // 0.108 Part B: the next medal and the points still needed; its name for a moment when reached; after gold, the margin over it
+                var sr = stunt ? stunt.Of(player) : null; h.goalPanel.SetActive(sr != null && stunt.State != StuntEvent.Phase.Done);
+                if (h.goalPanel.activeSelf)
+                {
+                    int have = StuntProgress.MedalFor(sr.points), shown; var t = StuntProgress.Targets;
+                    if (Time.unscaledTime < sr.goalFlashUntil) { shown = sr.goalMedal; h.goal.text = $"<b>{MedalUi.Name(shown)}!</b>"; h.goal.color = MedalUi.Tint(shown); h.goal.fontSize = 24; }
+                    else if (have < 3) { shown = have + 1; h.goal.text = $"<b>{MedalUi.Name(shown)}</b> {t[have]:N0}  —  {t[have] - sr.points:N0} to go"; h.goal.color = Color.white; h.goal.fontSize = 20; }
+                    else { shown = 3; h.goal.text = $"<b>GOLD ✓</b>   +{sr.points - t[2]:N0} over it"; h.goal.color = MedalUi.Tint(3); h.goal.fontSize = 20; }
+                    h.goalBadge.sprite = MedalUi.Sprite(shown);
+                    var gp = (RectTransform)h.goalPanel.transform; gp.anchoredPosition = new Vector2(14, -14 - (22 + 25 * lines.Count) - 6); gp.sizeDelta = new Vector2(Mathf.Max(260, h.goal.preferredWidth + 56), 40);
+                }
                 if (getaway != null && !SplitScreen.OneView && h.map) { var mp = (RectTransform)h.map.transform.parent.parent; mp.anchorMin = mp.anchorMax = mp.pivot = new Vector2(1, 0); mp.anchoredPosition = new Vector2(-14, 78); } // a half view: the map sits above the speed, clear of the chase panel
                 h.speed.text = $"{DisplayUnits.Mph(Mathf.Abs(car.ForwardSpeed)):0} <size=16>mph</size>";
                 string centre = "";
@@ -230,6 +249,18 @@ namespace Racer
                     if (stunt.State == StuntEvent.Phase.Starting) centre = "<size=26>STUNT EVENT</size>\n<size=20>" + StuntProgress.Minutes + " minutes · land on your wheels · chain tricks within 2 s</size>";
                     else if (stunt.State == StuntEvent.Phase.Running && stunt.Clock < 1.5f) centre = "GO!";
                     else if (stunt.State == StuntEvent.Phase.Done) centre = "TIME!";
+                    else if (stunt.Overtime && stunt.Of(player) is { } ov)
+                    {
+                        // 0.108 Part A: a combo going past 0:00: the time left to chain the next trick, big; done: waiting for the other player
+                        var a = ov.acts; string said = a ? a.StuntFeedback : null;
+                        if (!ov.closed && a && a.ComboLinks > 0)
+                        {
+                            string trick = string.Join("\n", (said ?? "").Split('\n').Where(l => !l.StartsWith("COMBO")));
+                            centre = "<color=#FFC747><size=28><b>COMBO OVERTIME</b></size></color>\n" + (a.StuntBusy ? "<size=40>LAND IT!</size>" : $"<size=60><b>{a.ComboLeft:0.0}</b></size>")
+                                + $"\n<size=20>COMBO x{a.ComboLinks}  ·  {a.ComboTotal:N0} pts{(a.StuntBusy ? "" : $"  ·  next trick within {a.ComboLeft:0.0} s")}</size>" + (trick == "" ? "" : "\n<size=19>" + trick + "</size>");
+                        }
+                        else if (ov.closed && stunt.Riders.Any(o => !o.closed)) centre = $"<size=28>WAITING FOR P{3 - player}</size>\n<size=22>Your final score: {ov.points:N0} pts</size>" + (string.IsNullOrEmpty(said) ? "" : "\n<size=19>" + said + "</size>");
+                    }
                 }
                 else if (roam.Car && Time.unscaledTime - roam.StartedAt < 7) centre = "<size=20>Split-screen Free Roam: nothing is recorded\n(no acorns, activity records or map discovery)</size>";
                 if (centre == "" && respawn && respawn.Pending) centre = "<size=22>Recovering…</size>";

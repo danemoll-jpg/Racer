@@ -195,7 +195,8 @@ namespace Racer
         }
         void Row(int index,string id,string label,Action callback){
             EnsureRows(index+1);var button=buttons[index];button.gameObject.SetActive(true);button.name=id;button.GetComponentInChildren<UnityEngine.UI.Text>(true).text=label;
-            var entry=registry.Register(id,label,submit,callback,()=>button.interactable);button.onClick.RemoveAllListeners();button.onClick.AddListener(()=>entry.Execute());
+            Action run=tableRow||id.StartsWith("tab-")?callback:()=>{if(!HoldResults(callback))callback();}; // 0.108 Part C: an unlock earned on a results screen shows as it is left
+            var entry=registry.Register(id,label,submit,run,()=>button.interactable);button.onClick.RemoveAllListeners();button.onClick.AddListener(()=>entry.Execute());
         }
         // 0.92 Part C: one way to choose everywhere. A row that holds a value shows it as ‹ value › and is changed with left /
         // right (D-pad or stick, A / D or the arrow keys, or the arrows clicked with the mouse), held to repeat. A never steps

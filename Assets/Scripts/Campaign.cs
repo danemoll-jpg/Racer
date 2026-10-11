@@ -250,6 +250,7 @@ namespace Racer
             if (CampaignData.Events.Count(Available) > nextBefore) { var n = CampaignData.Events.FirstOrDefault(x => Available(x) && ResultOf(x.Id) == null); if (n != null) o.Unlocked.Add("Next event: " + n.Name); }
             if (Testing) { Current = JsonUtility.FromJson<State>(keep); return o; }
             o.Saved = Save();
+            if (o.PrizeWon != null) UnlockNotice.Raise(Hints.Flow ? Hints.Flow.Save : null, UnlockNotice.For(UnlockNotice.Prize + o.PrizeWon)); // 0.108 Part C
             return o;
         }
         // The campaign puts the player on a course: from then on it is open in Race and the playlists.

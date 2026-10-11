@@ -114,5 +114,20 @@ namespace Racer
             details.text = "STUNT EVENT · " + StuntProgress.Minutes + " minutes at " + StuntPark.Title + "\nFree Roam's best single combo: " + (StuntProgress.BestCombo > 0 ? $"{StuntProgress.BestCombo:N0} pts ({VehicleProfile.Find(StuntProgress.BestComboVehicle).Name}, {StuntProgress.BestComboDate})" : "none yet");
             int first = row; row = StuntTop(row, new int[0]); Table(first, row); buttons[backRow].transform.SetAsLastSibling();
         }
+        // 0.108 Part D: Records > COMBOS, beside STUNTS: the Top 10 Best Combos (the Stunt event and Free Roam in the park, every player)
+        void RenderComboRecords(int row, int backRow)
+        {
+            details.gameObject.SetActive(true); details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight = 56;
+            details.text = "TOP 10 BEST COMBOS · the Stunt event and Free Roam at " + StuntPark.Title + "\nBF backflip · FF frontflip · R roll · BR barrel roll · 360 spin · LOOP · J jump";
+            var top = StuntProgress.Combos; var w = new[] { .06f, .11f, .07f, .33f, .15f, .14f, .14f }; int first = row;
+            TableRow(row++, "combo-top-header", new[] { "#", "Points", "Links", "Tricks", "Vehicle", "Name", "Date" }, w, () => { });
+            for (int i = 0; i < top.Count; i++)
+            {
+                var c = top[i]; string tricks = string.IsNullOrEmpty(c.tricks) ? "—" : c.tricks.Length > 38 ? c.tricks.Substring(0, 37) + "…" : c.tricks;
+                TableRow(row++, "combo-top-" + i, new[] { "#" + (i + 1), c.points.ToString("N0"), c.links > 0 ? "×" + c.links : "—", tricks, VehicleProfile.Find(c.vehicle).Name, string.IsNullOrEmpty(c.name) ? PlayerNames.Player : c.name, c.date ?? "—" }, w, () => { });
+            }
+            if (top.Count == 0) TableRow(row++, "combo-top-none", new[] { "", "", "", "No combos yet: chain tricks at the stunt park", "", "", "" }, w, () => { });
+            Table(first, row); buttons[backRow].transform.SetAsLastSibling();
+        }
     }
 }

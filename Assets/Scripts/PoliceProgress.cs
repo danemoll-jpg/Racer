@@ -28,7 +28,7 @@ namespace Racer
         static void Earn(bool car)
         {
             if (car ? data.carEarned : data.bikeEarned) return; if (car) data.carEarned = true; else data.bikeEarned = true; Save();
-            var n = new UnlockNotice.Notice { id = car ? "police-car" : "police-bike", heading = car ? "ESCAPED THE POLICE AT HEAT 3+" : $"{SpeedersNeeded} SPEEDERS CAUGHT", vehicle = car ? VehicleProfile.Police.Id : VehicleProfile.PoliceBike.Id };
+            var n = UnlockNotice.For(car ? UnlockNotice.PoliceCar : UnlockNotice.PoliceBike);
             if (holdNotices) waiting.Add(n); else UnlockNotice.Raise(SaveOf, n);
         }
         // an embedded chase holds the panel until it is over (the panel pauses Free Roam)

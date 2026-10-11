@@ -457,7 +457,7 @@ namespace Racer
         public void Resume() { if(SplitScreen.Race&&SplitScreen.Race.MissingPlayer!=0)return; if(SplitScreen.Race){SplitScreen.Race.PausedBy=null;menus.RestrictMenuDevices(null);} RoamMenu=false;SetStage(pausedStage); Click(); }
         public void OpenSettings() { PushMenu(Stage.Settings); }
         public void CloseSettings() { Save.SaveSettings(); PopMenu(); }
-        public void Back() { if(State==Stage.Results){QuitRace();return;} if(menus.BackPage())return; if(State==Stage.PlaylistVehicle)CancelPlaylist();else if(State==Stage.Paused||(State==Stage.Ready&&RoamMenu))Resume();else if(State!=Stage.Ready&&MenuVisible)PopMenu(); }
+        public void Back() { if(State==Stage.Results){if(menus.UnlockOpen||menus.HoldResults(QuitRace))return;QuitRace();return;} /* 0.108 Part C: B never closes the unlock panel; an unlock earned here shows first */ if(menus.BackPage())return; if(State==Stage.PlaylistVehicle)CancelPlaylist();else if(State==Stage.Paused||(State==Stage.Ready&&RoamMenu))Resume();else if(State!=Stage.Ready&&MenuVisible)PopMenu(); }
 
         // 0.89: outside the campaign, Race uses only courses the campaign has opened and the player's own vehicles (stock).
         bool CampaignAllows()
