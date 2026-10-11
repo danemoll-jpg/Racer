@@ -1,0 +1,23 @@
+screen=1920x1080 kind=bump version=0.104.0-review1
+Dan's spot BUG-001 (250.3, 557.1) mower eastbound at 26.0 m/s (58 mph): vertical speed over 30 m around the spot: largest change between physics steps 0.018 m/s (at -9.1 m), largest departure from its median 0.287 m/s (median -0.757); contacts 1
+    mower touched 'Traffic 16' () at (197.4, 10.0, 552.8), impulse 6609
+Dan's spot BUG-001 (250.3, 557.1) mower westbound at 26.0 m/s (58 mph): vertical speed over 30 m around the spot: largest change between physics steps 0.023 m/s (at -14.5 m), largest departure from its median 0.273 m/s (median 0.790); contacts 0
+east seam end (161, 549) mower eastbound at 26.0 m/s (58 mph): vertical speed over 30 m around the spot: largest change between physics steps 0.056 m/s (at -4.0 m), largest departure from its median 0.503 m/s (median 0.014); contacts 2
+    mower touched 'Traffic 11' () at (42.4, 9.2, 531.1), impulse 0
+    mower touched 'Traffic 11' () at (51.9, 9.2, 533.4), impulse 0
+east seam end (161, 549) mower westbound at 26.0 m/s (58 mph): vertical speed over 30 m around the spot: largest change between physics steps 0.045 m/s (at +14.5 m), largest departure from its median 0.337 m/s (median 0.012); contacts 1
+    mower touched 'Traffic 11' () at (248.0, 9.1, 554.4), impulse 0
+west seam end (-505.6, 538) mower eastbound at 22.5 m/s (50 mph): vertical speed over 30 m around the spot: largest change between physics steps 0.026 m/s (at +4.4 m), largest departure from its median 0.348 m/s (median -0.086); contacts 1
+    mower touched 'Traffic 16' () at (-532.2, 8.3, 540.7), impulse 13112
+west seam end (-505.6, 538) mower westbound at 26.0 m/s (58 mph): vertical speed over 30 m around the spot: largest change between physics steps 0.033 m/s (at +13.1 m), largest departure from its median 0.323 m/s (median 0.045); contacts 1
+    mower touched 'Traffic 19' () at (-413.0, 9.0, 533.8), impulse 1190
+Dan's spot BUG-001 (250.3, 557.1) original eastbound at 25.9 m/s (58 mph): vertical speed over 30 m around the spot: largest change between physics steps 0.015 m/s (at -12.8 m), largest departure from its median 0.273 m/s (median -0.755); contacts 1
+    original touched 'Traffic 8' () at (158.5, 10.0, 550.4), impulse 11641
+Dan's spot BUG-001 (250.3, 557.1) original westbound at 25.9 m/s (58 mph): vertical speed over 30 m around the spot: largest change between physics steps 0.017 m/s (at +13.4 m), largest departure from its median 0.288 m/s (median 0.789); contacts 0
+east seam end (161, 549) original eastbound at 25.9 m/s (58 mph): vertical speed over 30 m around the spot: largest change between physics steps 0.055 m/s (at -4.8 m), largest departure from its median 0.501 m/s (median 0.021); contacts 1
+    original touched 'Traffic 12' () at (179.1, 9.4, 551.9), impulse 8098
+east seam end (161, 549) original westbound at 26.0 m/s (58 mph): vertical speed over 30 m around the spot: largest change between physics steps 0.044 m/s (at +14.4 m), largest departure from its median 0.377 m/s (median 0.016); contacts 0
+west seam end (-505.6, 538) original eastbound at 22.4 m/s (50 mph): vertical speed over 30 m around the spot: largest change between physics steps 0.027 m/s (at +3.7 m), largest departure from its median 0.277 m/s (median -0.016); contacts 1
+    original touched 'Traffic 8' () at (-535.4, 8.3, 540.8), impulse 16791
+west seam end (-505.6, 538) original westbound at 25.9 m/s (58 mph): vertical speed over 30 m around the spot: largest change between physics steps 0.033 m/s (at +13.0 m), largest departure from its median 0.319 m/s (median 0.047); contacts 1
+    original touched 'Traffic 3' () at (-504.4, 8.9, 537.4), impulse 0

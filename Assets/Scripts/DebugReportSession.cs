@@ -19,6 +19,7 @@ namespace Racer
             public string branch, viewpoint, screenshot, comment;
             public string conditions;
             public bool debugMovementUsed;
+            public string hiddenPolice; // 0.105: the nearest hidden cop's distance, speed vs limit + 10, on road, clear view, quiet time (Free Roam)
         }
         [Serializable] public sealed class Report
         {
@@ -92,7 +93,9 @@ namespace Racer
                   .AppendLine("Road progress: " + F(b.roadProgress) + " m / Branch: " + b.branch + " / " + F(b.branchProgress) + " m")
                   .AppendLine("Version: " + b.version + " / Build: " + b.buildGuid).AppendLine("Scene: " + b.scene)
                   .AppendLine("Conditions: " + (string.IsNullOrEmpty(b.conditions) ? "not recorded" : b.conditions))
-                  .AppendLine("Debug movement used: " + b.debugMovementUsed).AppendLine("```").AppendLine()
+                  .AppendLine("Debug movement used: " + b.debugMovementUsed);
+                if (!string.IsNullOrEmpty(b.hiddenPolice)) md.AppendLine(b.hiddenPolice);
+                md.AppendLine("```").AppendLine()
                   .AppendLine("![" + b.id + "](" + b.screenshot.Replace('\\', '/') + ")").AppendLine();
             }
             AtomicSave.Write(Path.Combine(DirectoryPath, "BUG_REPORT.md"), md.ToString());

@@ -1,0 +1,175 @@
+FreeRoamWorld: roadside built, open-highway roads 2
+  road House 3 valley driveway: length 340 m, 0 stations in the stretch
+  road CR113 highway through route: length 2216 m, 32065 stations in the stretch
+== colliders other than the road on top of the drivable width: 0
+== steps over 1 cm: 170 (1 m cells)
+  (-507,534) 8.4 cm along, lane offset +4.5, Ground_80_640
+  (-507,533) 8.1 cm along, lane offset +5.0, Ground_80_640
+  (-507,532) 7.4 cm along, lane offset +6.0, Ground_80_640
+  (-507,531) 6.8 cm along, lane offset +7.0, Ground_80_640
+  (-507,530) 6.2 cm along, lane offset +8.0, Ground_80_640
+  (-506,546) 6.2 cm along, lane offset -7.5, Ground_80_640
+  (-506,545) 6.9 cm along, lane offset -6.5, Ground_80_640
+  (-506,544) 7.5 cm along, lane offset -5.5, Ground_80_640
+  (-506,543) 8.1 cm along, lane offset -4.5, Ground_80_640
+  (-506,542) 8.5 cm along, lane offset -3.5, Ground_80_640
+  (-506,541) 8.5 cm along, lane offset -2.5, Ground_80_640
+  (-506,540) 8.5 cm along, lane offset -1.5, Ground_80_640
+  (-506,539) 8.5 cm along, lane offset -0.5, Ground_80_640
+  (-506,538) 8.5 cm along, lane offset +0.5, Ground_80_640
+  (-506,537) 8.5 cm along, lane offset +1.5, Ground_80_640
+  (-506,536) 8.5 cm along, lane offset +2.5, Ground_80_640
+  (-506,535) 8.5 cm along, lane offset +3.5, Ground_80_640
+  (-506,534) 8.5 cm along, lane offset +4.0, Ground_80_640
+  (161,557) 6.4 cm along, lane offset -8.0, Ground_CR113 east four lane seam
+  (161,556) 7.0 cm along, lane offset -7.0, Ground_CR113 east four lane seam
+  (161,555) 7.6 cm along, lane offset -6.0, Ground_CR113 east four lane seam
+  (161,554) 8.2 cm along, lane offset -5.0, Ground_CR113 east four lane seam
+  (161,553) 8.7 cm along, lane offset -4.0, Ground_CR113 east four lane seam
+  (161,552) 8.7 cm along, lane offset -3.5, Ground_CR113 east four lane seam
+  (162,551) 8.6 cm along, lane offset -2.5, Ground_CR113 east four lane seam
+  (162,550) 8.6 cm along, lane offset -1.5, Ground_CR113 east four lane seam
+  (162,549) 8.6 cm along, lane offset -0.5, Ground_CR113 east four lane seam
+  (162,548) 8.5 cm along, lane offset +0.5, Ground_CR113 east four lane seam
+  (162,547) 8.5 cm along, lane offset +1.5, Ground_CR113 east four lane seam
+  (162,546) 8.5 cm along, lane offset +2.5, Ground_CR113 east four lane seam
+  (162,545) 8.5 cm along, lane offset +4.0, Ground_CR113 east four lane seam
+  (162,544) 8.2 cm along, lane offset +4.5, Ground_CR113 east four lane seam
+  (162,543) 7.6 cm along, lane offset +5.5, Ground_CR113 east four lane seam
+  (162,542) 7.0 cm along, lane offset +6.5, Ground_CR113 east four lane seam
+  (162,541) 6.4 cm along, lane offset +7.5, Ground_CR113 east four lane seam
+  (163,541) 6.1 cm along, lane offset +8.0, Ground_CR113 east four lane seam
+  (237,563) 1.0 cm along, lane offset -8.0, Ground_CR113 east four lane seam
+  (237,562) 1.0 cm along, lane offset -7.0, Ground_CR113 east four lane seam
+  (237,561) 1.0 cm along, lane offset -6.5, Ground_CR113 east four lane seam
+  (237,560) 1.0 cm along, lane offset -5.5, Ground_CR113 east four lane seam
+  (237,559) 1.0 cm along, lane offset -4.5, Ground_CR113 east four lane seam
+  (237,558) 1.0 cm along, lane offset -3.5, Ground_CR113 east four lane seam
+  (237,557) 1.0 cm along, lane offset -2.0, Ground_CR113 east four lane seam
+  (237,556) 1.0 cm along, lane offset -1.5, Ground_CR113 east four lane seam
+  (237,555) 1.0 cm along, lane offset -0.5, Ground_CR113 east four lane seam
+  (237,554) 1.0 cm along, lane offset +0.5, Ground_CR113 east four lane seam
+  (238,553) 1.0 cm along, lane offset +2.0, Ground_CR113 east four lane seam
+  (238,552) 1.0 cm along, lane offset +2.5, Ground_CR113 east four lane seam
+  (238,551) 1.0 cm along, lane offset +4.0, Ground_CR113 east four lane seam
+  (238,554) 1.0 cm along, lane offset +1.0, Ground_CR113 east four lane seam
+  (239,562) 1.9 cm along, lane offset -7.5, Ground_CR113 east four lane seam
+  (239,563) 1.9 cm along, lane offset -8.0, Ground_CR113 east four lane seam
+  (239,561) 1.9 cm along, lane offset -6.5, Ground_CR113 east four lane seam
+  (239,560) 1.9 cm along, lane offset -5.5, Ground_CR113 east four lane seam
+  (239,559) 1.9 cm along, lane offset -4.5, Ground_CR113 east four lane seam
+  (239,558) 1.9 cm along, lane offset -3.0, Ground_CR113 east four lane seam
+  (239,557) 1.9 cm along, lane offset -2.5, Ground_CR113 east four lane seam
+  (239,556) 1.9 cm along, lane offset -1.5, Ground_CR113 east four lane seam
+  (239,555) 1.9 cm along, lane offset -0.5, Ground_CR113 east four lane seam
+  (239,554) 1.8 cm along, lane offset +0.5, Ground_CR113 east four lane seam
+  (240,553) 1.5 cm along, lane offset +1.5, Ground_CR113 east four lane seam
+  (240,552) 1.2 cm along, lane offset +2.5, Ground_CR113 east four lane seam
+  (241,563) 2.9 cm along, lane offset -8.0, Ground_CR113 east four lane seam
+  (241,562) 2.9 cm along, lane offset -7.5, Ground_CR113 east four lane seam
+  (241,561) 2.7 cm along, lane offset -6.5, Ground_CR113 east four lane seam
+  (241,560) 2.5 cm along, lane offset -5.5, Ground_CR113 east four lane seam
+  (241,559) 2.3 cm along, lane offset -4.5, Ground_CR113 east four lane seam
+  (241,558) 2.2 cm along, lane offset -3.5, Ground_CR113 east four lane seam
+  (241,557) 2.0 cm along, lane offset -2.5, Ground_CR113 east four lane seam
+  (241,556) 1.8 cm along, lane offset -1.5, Ground_CR113 east four lane seam
+  (241,555) 1.6 cm along, lane offset -0.5, Ground_CR113 east four lane seam
+  (241,554) 1.4 cm along, lane offset +0.5, Ground_CR113 east four lane seam
+  (241,553) 1.3 cm along, lane offset +1.5, Ground_CR113 east four lane seam
+  (242,552) 1.7 cm along, lane offset +3.5, Ground_CR113 east four lane seam
+  (242,550) 1.4 cm along, lane offset +4.5, Ground_CR113 east four lane seam
+  (242,551) 1.5 cm along, lane offset +4.0, Ground_CR113 east four lane seam
+  (242,553) 2.1 cm along, lane offset +2.0, Ground_CR113 east four lane seam
+  (242,554) 2.5 cm along, lane offset +1.0, Ground_CR113 east four lane seam
+  (242,555) 2.0 cm along, lane offset +0.5, Ground_CR113 east four lane seam
+  (242,556) 3.2 cm along, lane offset -1.0, Ground_CR113 east four lane seam
+  (242,557) 3.2 cm along, lane offset -1.5, Ground_CR113 east four lane seam
+  (242,558) 2.0 cm along, lane offset -2.5, Ground_CR113 east four lane seam
+  (243,558) 2.7 cm along, lane offset -3.0, Ground_CR113 east four lane seam
+  (243,559) 3.6 cm along, lane offset -4.0, Ground_CR113 east four lane seam
+  (243,560) 3.2 cm along, lane offset -4.5, Ground_CR113 east four lane seam
+  (243,561) 3.7 cm along, lane offset -6.0, Ground_CR113 east four lane seam
+  (243,562) 3.7 cm along, lane offset -6.5, Ground_CR113 east four lane seam
+  (243,563) 3.4 cm along, lane offset -8.0, Ground_CR113 east four lane seam
+  (244,550) 1.0 cm along, lane offset +5.5, Ground_CR113 east four lane seam
+  (244,552) 1.5 cm along, lane offset +3.0, Ground_CR113 east four lane seam
+  (244,553) 1.5 cm along, lane offset +2.0, Ground_CR113 east four lane seam
+  (244,554) 1.5 cm along, lane offset +1.0, Ground_CR113 east four lane seam
+  (244,555) 1.5 cm along, lane offset +0.5, Ground_CR113 east four lane seam
+  (244,556) 1.5 cm along, lane offset -1.0, Ground_CR113 east four lane seam
+  (244,557) 1.6 cm along, lane offset -1.5, Ground_CR113 east four lane seam
+  (244,558) 1.6 cm along, lane offset -3.0, Ground_CR113 east four lane seam
+  (244,559) 1.6 cm along, lane offset -3.5, Ground_CR113 east four lane seam
+  (244,560) 1.2 cm along, lane offset -4.5, Ground_CR113 east four lane seam
+  (245,558) 1.1 cm along, lane offset -3.0, Ground_CR113 east four lane seam
+  (245,559) 1.6 cm along, lane offset -4.0, Ground_CR113 east four lane seam
+  (245,560) 1.6 cm along, lane offset -5.0, Ground_CR113 east four lane seam
+  (245,561) 1.7 cm along, lane offset -6.0, Ground_CR113 east four lane seam
+  (245,562) 1.8 cm along, lane offset -7.0, Ground_CR113 east four lane seam
+  (245,563) 1.8 cm along, lane offset -8.0, Ground_CR113 east four lane seam
+  (246,553) 1.0 cm along, lane offset +2.5, Ground_CR113 east four lane seam
+  (246,554) 1.0 cm along, lane offset +1.0, Ground_CR113 east four lane seam
+  (246,555) 1.0 cm along, lane offset +0.5, Ground_CR113 east four lane seam
+  (246,556) 1.0 cm along, lane offset -0.5, Ground_CR113 east four lane seam
+  (246,557) 1.0 cm along, lane offset -2.0, Ground_CR113 east four lane seam
+  (246,558) 1.0 cm along, lane offset -3.0, Ground_CR113 east four lane seam
+  (246,559) 1.0 cm along, lane offset -3.5, Ground_CR113 east four lane seam
+  (246,560) 1.0 cm along, lane offset -4.5, Ground_CR113 east four lane seam
+  (246,561) 1.2 cm along, lane offset -6.0, Ground_CR113 east four lane seam
+  (247,559) 1.0 cm along, lane offset -4.0, Ground_CR113 east four lane seam
+  (247,560) 1.0 cm along, lane offset -5.0, Ground_CR113 east four lane seam
+  (247,561) 1.2 cm along, lane offset -6.0, Ground_CR113 east four lane seam
+  (247,562) 1.3 cm along, lane offset -7.0, Ground_CR113 east four lane seam
+  (247,563) 1.3 cm along, lane offset -7.5, Ground_CR113 east four lane seam
+  (248,562) 1.0 cm along, lane offset -7.0, Ground_CR113 east four lane seam
+  (248,563) 1.0 cm along, lane offset -7.5, Ground_CR113 east four lane seam
+  (249,563) 1.0 cm along, lane offset -8.0, Ground_CR113 east four lane seam
+  (249,562) 1.0 cm along, lane offset -7.0, Ground_CR113 east four lane seam
+  (255,564) 1.1 cm along, lane offset -8.0, Ground_CR113 east four lane seam
+  (255,563) 1.1 cm along, lane offset -7.0, Ground_CR113 east four lane seam
+  (255,562) 1.1 cm along, lane offset -6.5, Ground_CR113 east four lane seam
+  (255,561) 1.4 cm along, lane offset -5.0, Ground_CR113 east four lane seam
+  (255,560) 1.4 cm along, lane offset -4.5, Ground_CR113 east four lane seam
+  (255,559) 1.4 cm along, lane offset -3.0, Ground_CR113 east four lane seam
+  (255,558) 1.4 cm along, lane offset -2.5, Ground_CR113 east four lane seam
+  (255,557) 1.4 cm along, lane offset -1.0, Ground_CR113 east four lane seam
+  (255,556) 1.4 cm along, lane offset +0.0, Ground_CR113 east four lane seam
+  (255,555) 1.4 cm along, lane offset +1.0, Ground_CR113 east four lane seam
+  (255,554) 1.4 cm along, lane offset +1.5, Ground_CR113 east four lane seam
+  (255,553) 1.4 cm along, lane offset +2.5, Ground_CR113 east four lane seam
+  (256,553) 1.4 cm along, lane offset +3.0, Ground_CR113 east four lane seam
+  (256,552) 1.4 cm along, lane offset +3.5, Ground_CR113 east four lane seam
+  (256,551) 1.3 cm along, lane offset +4.5, Ground_CR113 east four lane seam
+  (275,565) 1.3 cm along, lane offset -8.0, Ground_CR113 east four lane seam
+  (275,564) 1.3 cm along, lane offset -7.5, Ground_CR113 east four lane seam
+  (275,563) 1.3 cm along, lane offset -6.0, Ground_CR113 east four lane seam
+  (275,562) 1.3 cm along, lane offset -5.0, Ground_CR113 east four lane seam
+  (275,561) 1.3 cm along, lane offset -4.0, Ground_CR113 east four lane seam
+  (275,560) 1.3 cm along, lane offset -3.0, Ground_CR113 east four lane seam
+  (275,559) 1.3 cm along, lane offset -2.5, Ground_CR113 east four lane seam
+  (275,558) 1.3 cm along, lane offset -1.0, Ground_CR113 east four lane seam
+  (275,557) 1.3 cm along, lane offset -0.5, Ground_CR113 east four lane seam
+  (275,556) 1.3 cm along, lane offset +0.5, Ground_CR113 east four lane seam
+  (275,555) 1.2 cm along, lane offset +1.5, Ground_CR113 east four lane seam
+  (277,565) 1.5 cm along, lane offset -8.0, Ground_CR113 east four lane seam
+  (277,564) 1.4 cm along, lane offset -7.5, Ground_CR113 east four lane seam
+  (277,563) 1.3 cm along, lane offset -6.5, Ground_CR113 east four lane seam
+  (277,562) 1.3 cm along, lane offset -5.5, Ground_CR113 east four lane seam
+  (277,561) 1.2 cm along, lane offset -4.5, Ground_CR113 east four lane seam
+  (277,560) 1.2 cm along, lane offset -3.5, Ground_CR113 east four lane seam
+  (277,559) 1.1 cm along, lane offset -2.5, Ground_CR113 east four lane seam
+  (277,558) 1.1 cm along, lane offset -1.5, Ground_CR113 east four lane seam
+  (277,557) 1.0 cm along, lane offset -0.5, Ground_CR113 east four lane seam
+  (278,555) 1.1 cm along, lane offset +2.0, Ground_CR113 east four lane seam
+  (278,557) 1.5 cm along, lane offset +0.0, Ground_CR113 east four lane seam
+  (278,558) 1.4 cm along, lane offset -0.5, Ground_CR113 east four lane seam
+  (278,559) 1.5 cm along, lane offset -2.0, Ground_CR113 east four lane seam
+  (278,560) 2.0 cm along, lane offset -2.5, Ground_CR113 east four lane seam
+  (278,561) 1.4 cm along, lane offset -3.5, Ground_CR113 east four lane seam
+  (279,561) 1.2 cm along, lane offset -4.0, Ground_CR113 east four lane seam
+  (279,562) 2.1 cm along, lane offset -5.0, Ground_CR113 east four lane seam
+  (279,563) 2.0 cm along, lane offset -5.5, Ground_CR113 east four lane seam
+  (279,564) 1.9 cm along, lane offset -7.0, Ground_CR113 east four lane seam
+  (279,565) 2.1 cm along, lane offset -8.0, Ground_CR113 east four lane seam
+  (281,564) 1.0 cm along, lane offset -7.0, Ground_CR113 east four lane seam
+  (281,565) 1.0 cm along, lane offset -8.0, Ground_CR113 east four lane seam

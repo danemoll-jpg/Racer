@@ -2,7 +2,7 @@ Shader "Racer/MoonPhase"
 {
     // 0.74 the moon: a disc lit to the day's phase (_Phase 0 new, 0.5 full; waxing lit on the right, waning on the left),
     // a faint earthshine on the dark part, soft rim. Additive and fog-free, drawn after the stars and before the clouds
-    // (a cloud hides it).
+    // (a cloud hides it). 0.105: at the far plane, depth-tested, so everything in the world is in front of it.
     Properties { _Phase("Phase",Range(0,1))=.5 _Visibility("Visibility",Range(0,1))=1 _Color("Colour",Color)=(1,.97,.9,1) }
     SubShader
     {
@@ -23,7 +23,15 @@ Shader "Racer/MoonPhase"
             CBUFFER_END
             struct A {float4 p:POSITION;float2 uv:TEXCOORD0;};
             struct V {float4 p:SV_POSITION;float2 uv:TEXCOORD0;};
-            V vert(A a){V v;v.p=TransformObjectToHClip(a.p.xyz);v.uv=a.uv*2-1;return v;}
+            // 0.105: drawn as part of the sky: the disc keeps its place and size on screen (the quad stays 900 m out) but its depth is the far
+            // plane's, so terrain, mountains, trees and buildings at any distance hide it (it sets behind a ridge, never over it)
+            V vert(A a){V v;v.p=TransformObjectToHClip(a.p.xyz);
+            #if UNITY_REVERSED_Z
+                v.p.z=v.p.w*1e-6;
+            #else
+                v.p.z=v.p.w*(1-1e-6);
+            #endif
+                v.uv=a.uv*2-1;return v;}
             half4 frag(V v):SV_Target
             {
                 float r2=dot(v.uv,v.uv); if(r2>1) return 0;

@@ -1,0 +1,4 @@
+Trickum Rd: 15 real points 25-300 m south of Hwy 92 mapped into the game: distance to the Street Loop route on that road mean 23.3 m, max 47.0 m
+S Cherokee Ln: 8 real points 25-300 m south of Hwy 92 mapped into the game: distance to the Street Loop route on that road mean 9.2 m, max 14.4 m
+junctions: real Trickum [-423.8  200.2] -> game [-606.   546.5] (anchor [-606.  541.]); real S Cherokee [796.2 193.8] -> game [322.1 553.5] (anchor [322.  557.5])
+scale along Hwy 92 between the junctions: game 930.4 m / real 1227.0 m = 0.758

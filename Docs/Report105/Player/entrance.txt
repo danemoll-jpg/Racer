@@ -1,0 +1,7 @@
+screen=1920x1080 kind=entrance version=0.104.0-review1
+Dan's BUG-002 view: vehicle at -236.7,9.07,542.3 heading 198
+top-down of the entrance at -229.2,521.1 (44 m square, north up)
+top-down of the entrance at -291.5,522.2 (44 m square, north up)
+top-down of the entrance at 257.8,564.4 (44 m square, north up)
+drive in of the entrance at -229,521 at 16.0 m/s (36 mph): largest vertical speed change between physics steps 0.212 m/s, 18.2 m from the start line (the road centre side is 0; the road edge is at about 14 m), over 176 steps; top of the steps: 0.212 at 18.2 m, 0.196 at 0.9 m, 0.196 at 1.2 m, 0.196 at 0.6 m
+drive out of the entrance at -229,521 at 16.0 m/s (36 mph): largest vertical speed change between physics steps 0.192 m/s, 35.1 m from the start line (the road centre side is 0; the road edge is at about 14 m), over 175 steps; top of the steps: 0.192 at 35.1 m, 0.191 at 34.8 m, 0.189 at 35.4 m, 0.185 at 34.5 m

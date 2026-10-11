@@ -1,0 +1,7 @@
+screen=1920x1080 kind=trees version=0.104.0-review1
+BUG-003 view: vehicle at -578.6,11.51,-273.1 heading 310
+BUG-004 view: vehicle at -303.8,25.80,-524.5 heading 308
+Pine Ridge trail east to west with the mower: end to end in 27 s (top 62 mph), resets 0, tree hits 0, other contacts 0
+Pine Ridge trail west to east with the mower: stopped at point 31/306 at -614.5,7.78,-247.4 in 120 s (top 59 mph), resets 0, tree hits 0, other contacts 0
+Pine Ridge trail east to west with the original: end to end in 26 s (top 62 mph), resets 0, tree hits 0, other contacts 0
+Pine Ridge trail west to east with the original: stopped at point 30/306 at -615.3,7.93,-247.1 in 120 s (top 58 mph), resets 0, tree hits 0, other contacts 0

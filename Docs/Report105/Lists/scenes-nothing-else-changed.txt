@@ -1,0 +1,61 @@
+===== StreetLoopGreybox: 13799 colliders/routes identical, 2 lines differ
+  - C CR113 continuous highway seams/Ground_CR113 west four lane seam MeshCollider: (-1090.95,7.95,530.15)-(-505.75,8.10,549.40) True 414
+  + C CR113 continuous highway seams/Ground_CR113 west four lane seam MeshCollider: (-1090.95,7.90,530.15)-(-505.75,8.10,549.40) True 414
+===== StreetLoopReverse: 13646 colliders/routes identical, 4 lines differ
+  - C CR113 continuous highway seams/Ground_CR113 west four lane seam MeshCollider: (-1090.95,7.95,530.15)-(-505.75,8.10,549.40) True 414
+  + C CR113 continuous highway seams/Ground_CR113 west four lane seam MeshCollider: (-1090.95,7.90,530.15)-(-505.75,8.10,549.40) True 414
+  - C Reverse course authoring/Reverse flush west pavement apron MeshCollider: (-508.60,7.95,529.30)-(-491.70,8.10,546.70) True 66
+  + C Reverse course authoring/Reverse flush west pavement apron MeshCollider: (-508.60,7.90,529.30)-(-491.70,8.10,546.70) True 66
+===== LakeWoods: 13573 colliders/routes identical, 6 lines differ
+  - C CR113 continuous highway seams/Ground_CR113 west four lane seam MeshCollider: (-1090.95,7.95,530.15)-(-505.75,8.10,549.40) True 414
+  + C CR113 continuous highway seams/Ground_CR113 west four lane seam MeshCollider: (-1090.95,7.90,530.15)-(-505.75,8.10,549.40) True 414
+  - C World cleanup additional woodland/Roadside woodland trunk BoxCollider: (-255.15,24.35,-555.60)-(-254.55,33.40,-555.00) True 0
+  - C World cleanup additional woodland/Roadside woodland trunk BoxCollider: (-298.00,24.50,-537.15)-(-297.40,32.65,-536.55) True 0
+  + C World cleanup additional woodland/Roadside woodland trunk BoxCollider: (-253.70,24.35,-553.10)-(-253.10,33.40,-552.50) True 0
+  + C World cleanup additional woodland/Roadside woodland trunk BoxCollider: (-288.60,23.75,-526.75)-(-288.00,31.90,-526.15) True 0
+===== ForestLoopReverse: 13363 colliders/routes identical, 4 lines differ
+  - C CR113 continuous highway seams/Ground_CR113 west four lane seam MeshCollider: (-1090.95,7.95,530.15)-(-505.75,8.10,549.40) True 414
+  + C CR113 continuous highway seams/Ground_CR113 west four lane seam MeshCollider: (-1090.95,7.90,530.15)-(-505.75,8.10,549.40) True 414
+  - C World cleanup additional woodland/Roadside woodland trunk BoxCollider: (-571.70,11.65,-290.70)-(-571.10,21.45,-290.10) True 0
+  + C World cleanup additional woodland/Roadside woodland trunk BoxCollider: (-572.80,11.40,-292.15)-(-572.20,21.20,-291.55) True 0
+===== MountainLoop: 13400 colliders/routes identical, 2 lines differ
+  - C CR113 continuous highway seams/Ground_CR113 west four lane seam MeshCollider: (-1090.95,7.95,530.15)-(-505.75,8.10,549.40) True 414
+  + C CR113 continuous highway seams/Ground_CR113 west four lane seam MeshCollider: (-1090.95,7.90,530.15)-(-505.75,8.10,549.40) True 414
+===== MountainLoopReverse: 13328 colliders/routes identical, 2 lines differ
+  - C CR113 continuous highway seams/Ground_CR113 west four lane seam MeshCollider: (-1090.95,7.95,530.15)-(-505.75,8.10,549.40) True 414
+  + C CR113 continuous highway seams/Ground_CR113 west four lane seam MeshCollider: (-1090.95,7.90,530.15)-(-505.75,8.10,549.40) True 414
+===== DansBackyardForward: 13722 colliders/routes identical, 10 lines differ
+  - C CR113 continuous highway seams/Ground_CR113 west four lane seam MeshCollider: (-1090.95,7.95,530.15)-(-505.75,8.10,549.40) True 414
+  + C CR113 continuous highway seams/Ground_CR113 west four lane seam MeshCollider: (-1090.95,7.90,530.15)-(-505.75,8.10,549.40) True 414
+  - C World cleanup additional woodland/Roadside woodland trunk BoxCollider: (-307.25,25.10,-517.90)-(-306.65,34.75,-517.30) True 0
+  - C World cleanup additional woodland/Roadside woodland trunk BoxCollider: (-319.10,25.00,-519.25)-(-318.50,33.80,-518.65) True 0
+  - C World cleanup additional woodland/Roadside woodland trunk BoxCollider: (-593.05,9.60,-266.85)-(-592.45,19.80,-266.25) True 0
+  - C World cleanup additional woodland/Roadside woodland trunk BoxCollider: (-600.30,9.00,-267.70)-(-599.70,17.00,-267.10) True 0
+  + C World cleanup additional woodland/Roadside woodland trunk BoxCollider: (-301.30,24.75,-515.30)-(-300.70,34.40,-514.70) True 0
+  + C World cleanup additional woodland/Roadside woodland trunk BoxCollider: (-308.25,24.45,-508.35)-(-307.65,33.25,-507.75) True 0
+  + C World cleanup additional woodland/Roadside woodland trunk BoxCollider: (-598.00,9.30,-273.65)-(-597.40,19.50,-273.05) True 0
+  + C World cleanup additional woodland/Roadside woodland trunk BoxCollider: (-602.30,8.80,-270.55)-(-601.70,16.80,-269.95) True 0
+===== DansBackyardReverse: 13639 colliders/routes identical, 10 lines differ
+  - C CR113 continuous highway seams/Ground_CR113 west four lane seam MeshCollider: (-1090.95,7.95,530.15)-(-505.75,8.10,549.40) True 414
+  + C CR113 continuous highway seams/Ground_CR113 west four lane seam MeshCollider: (-1090.95,7.90,530.15)-(-505.75,8.10,549.40) True 414
+  - C World cleanup additional woodland/Roadside woodland trunk BoxCollider: (-307.25,25.10,-517.90)-(-306.65,34.75,-517.30) True 0
+  - C World cleanup additional woodland/Roadside woodland trunk BoxCollider: (-319.10,25.00,-519.25)-(-318.50,33.80,-518.65) True 0
+  - C World cleanup additional woodland/Roadside woodland trunk BoxCollider: (-593.05,9.60,-266.85)-(-592.45,19.80,-266.25) True 0
+  - C World cleanup additional woodland/Roadside woodland trunk BoxCollider: (-600.30,9.00,-267.70)-(-599.70,17.00,-267.10) True 0
+  + C World cleanup additional woodland/Roadside woodland trunk BoxCollider: (-301.30,24.75,-515.30)-(-300.70,34.40,-514.70) True 0
+  + C World cleanup additional woodland/Roadside woodland trunk BoxCollider: (-308.25,24.45,-508.35)-(-307.65,33.25,-507.75) True 0
+  + C World cleanup additional woodland/Roadside woodland trunk BoxCollider: (-598.00,9.30,-273.65)-(-597.40,19.50,-273.05) True 0
+  + C World cleanup additional woodland/Roadside woodland trunk BoxCollider: (-602.30,8.80,-270.55)-(-601.70,16.80,-269.95) True 0
+===== FreeRoamWorld: 13512 colliders/routes identical, 12 lines differ
+  - C CR113 continuous highway seams/Ground_CR113 east four lane seam MeshCollider: (160.90,7.95,540.40)-(800.85,41.80,569.60) True 965
+  + C CR113 continuous highway seams/Ground_CR113 east four lane seam MeshCollider: (160.90,8.00,540.40)-(800.85,41.80,569.60) True 965
+  - C CR113 continuous highway seams/Ground_CR113 west four lane seam MeshCollider: (-1090.95,7.95,530.15)-(-505.75,8.15,549.40) True 430
+  + C CR113 continuous highway seams/Ground_CR113 west four lane seam MeshCollider: (-1090.95,7.90,530.15)-(-505.75,8.15,549.40) True 430
+  - C World cleanup additional woodland/Roadside woodland trunk BoxCollider: (-307.25,25.10,-517.90)-(-306.65,34.75,-517.30) True 0
+  - C World cleanup additional woodland/Roadside woodland trunk BoxCollider: (-319.10,25.00,-519.25)-(-318.50,33.80,-518.65) True 0
+  - C World cleanup additional woodland/Roadside woodland trunk BoxCollider: (-593.05,9.60,-266.85)-(-592.45,19.80,-266.25) True 0
+  - C World cleanup additional woodland/Roadside woodland trunk BoxCollider: (-600.30,9.00,-267.70)-(-599.70,17.00,-267.10) True 0
+  + C World cleanup additional woodland/Roadside woodland trunk BoxCollider: (-301.30,24.75,-515.30)-(-300.70,34.40,-514.70) True 0
+  + C World cleanup additional woodland/Roadside woodland trunk BoxCollider: (-308.25,24.45,-508.35)-(-307.65,33.25,-507.75) True 0
+  + C World cleanup additional woodland/Roadside woodland trunk BoxCollider: (-598.00,9.30,-273.65)-(-597.40,19.50,-273.05) True 0
+  + C World cleanup additional woodland/Roadside woodland trunk BoxCollider: (-602.30,8.80,-270.55)-(-601.70,16.80,-269.95) True 0

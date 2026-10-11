@@ -1,0 +1,5 @@
+FreeRoamWorld: roadside built, open-highway roads 2
+  road CR113 highway through route: length 2216 m, 32065 stations in the stretch
+  road House 3 valley driveway: length 340 m, 0 stations in the stretch
+== colliders other than the road on top of the drivable width: 0
+== steps over 1 cm: 0 (1 m cells)

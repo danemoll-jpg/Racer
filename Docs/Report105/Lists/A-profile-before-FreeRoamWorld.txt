@@ -1,0 +1,1497 @@
+==== x 230..262
+-- lane offset -6.15
+  s 1483.52 (229.81,560.37) y 9.090 Ground_CR113 east four lane seam
+  s 1483.77 (230.06,560.39) y 9.091 Ground_CR113 east four lane seam
+  s 1484.02 (230.31,560.41) y 9.101 Ground_CR113 east four lane seam
+  s 1484.27 (230.56,560.42) y 9.112 Ground_CR113 east four lane seam
+  s 1484.52 (230.81,560.44) y 9.117 Ground_CR113 east four lane seam
+  s 1484.77 (231.07,560.46) y 9.105 Ground_CR113 east four lane seam
+  s 1485.02 (231.32,560.47) y 9.083 Ground_CR113 east four lane seam
+  s 1485.27 (231.57,560.49) y 9.063 Ground_CR113 east four lane seam
+  s 1485.52 (231.82,560.51) y 9.059 Ground_CR113 east four lane seam
+  s 1485.77 (232.07,560.52) y 9.059 Ground_CR113 east four lane seam
+  s 1486.02 (232.32,560.54) y 9.071 Ground_CR113 east four lane seam
+  s 1486.28 (232.57,560.56) y 9.082 Ground_CR113 east four lane seam
+  s 1486.53 (232.82,560.57) y 9.086 Ground_CR113 east four lane seam
+  s 1486.78 (233.07,560.59) y 9.071 Ground_CR113 east four lane seam
+  s 1487.03 (233.32,560.61) y 9.042 Ground_CR113 east four lane seam
+  s 1487.28 (233.57,560.62) y 9.029 Ground_CR113 east four lane seam
+  s 1487.53 (233.82,560.64) y 9.024 Ground_CR113 east four lane seam
+  s 1487.78 (234.07,560.66) y 9.025 Ground_CR113 east four lane seam
+  s 1488.03 (234.32,560.67) y 9.036 Ground_CR113 east four lane seam
+  s 1488.28 (234.57,560.69) y 9.047 Ground_CR113 east four lane seam
+  s 1488.53 (234.82,560.71) y 9.052 Ground_CR113 east four lane seam
+  s 1488.78 (235.07,560.72) y 9.031 Ground_CR113 east four lane seam
+  s 1489.03 (235.32,560.74) y 8.996 Ground_CR113 east four lane seam
+  s 1489.28 (235.57,560.76) y 8.991 Ground_CR113 east four lane seam
+  s 1489.53 (235.82,560.77) y 8.986 Ground_CR113 east four lane seam
+  s 1489.78 (236.07,560.79) y 8.986 Ground_CR113 east four lane seam
+  s 1490.03 (236.32,560.80) y 8.998 Ground_CR113 east four lane seam
+  s 1490.28 (236.57,560.82) y 9.009 Ground_CR113 east four lane seam
+  s 1490.53 (236.82,560.84) y 9.013 Ground_CR113 east four lane seam
+  s 1490.78 (237.07,560.85) y 8.983 Ground_CR113 east four lane seam
+  s 1491.03 (237.32,560.87) y 8.954 Ground_CR113 east four lane seam
+  s 1491.28 (237.57,560.88) y 8.949 Ground_CR113 east four lane seam
+  s 1491.53 (237.82,560.90) y 8.944 Ground_CR113 east four lane seam
+  s 1491.78 (238.07,560.92) y 8.944 Ground_CR113 east four lane seam
+  s 1492.03 (238.32,560.93) y 8.956 Ground_CR113 east four lane seam
+  s 1492.28 (238.57,560.95) y 8.968 Ground_CR113 east four lane seam
+  s 1492.53 (238.82,560.96) y 8.971 Ground_CR113 east four lane seam
+  s 1492.78 (239.08,560.98) y 8.918 Ground_CR113 east four lane seam
+  s 1493.03 (239.33,561.00) y 8.910 Ground_CR113 east four lane seam
+  s 1493.28 (239.58,561.01) y 8.904 Ground_CR113 east four lane seam
+  s 1493.53 (239.83,561.03) y 8.898 Ground_CR113 east four lane seam
+  s 1493.78 (240.08,561.04) y 8.899 Ground_CR113 east four lane seam
+  s 1494.03 (240.33,561.06) y 8.911 Ground_CR113 east four lane seam
+  s 1494.28 (240.58,561.08) y 8.923 Ground_CR113 east four lane seam
+  s 1494.53 (240.82,561.09) y 8.926 Ground_CR113 east four lane seam
+  s 1494.78 (241.08,561.11) y 8.891 Ground_CR113 east four lane seam
+  s 1495.03 (241.33,561.12) y 8.879 Ground_CR113 east four lane seam
+  s 1495.28 (241.58,561.14) y 8.866 Ground_CR113 east four lane seam
+  s 1495.53 (241.83,561.15) y 8.854 Ground_CR113 east four lane seam
+  s 1495.78 (242.08,561.17) y 8.844 Ground_CR113 east four lane seam
+  s 1496.03 (242.33,561.19) y 8.837 Ground_CR113 east four lane seam
+  s 1496.28 (242.58,561.20) y 8.831 Ground_CR113 east four lane seam
+  s 1496.54 (242.83,561.22) y 8.878 Ground_CR113 east four lane seam
+  s 1496.79 (243.08,561.23) y 8.864 Ground_CR113 east four lane seam
+  s 1497.04 (243.33,561.25) y 8.845 Ground_CR113 east four lane seam
+  s 1497.29 (243.58,561.26) y 8.826 Ground_CR113 east four lane seam
+  s 1497.54 (243.83,561.28) y 8.806 Ground_CR113 east four lane seam
+  s 1497.79 (244.08,561.29) y 8.792 Ground_CR113 east four lane seam
+  s 1498.04 (244.33,561.31) y 8.785 Ground_CR113 east four lane seam
+  s 1498.29 (244.58,561.32) y 8.797 Ground_CR113 east four lane seam
+  s 1498.54 (244.83,561.34) y 8.826 Ground_CR113 east four lane seam
+  s 1498.79 (245.08,561.36) y 8.812 Ground_CR113 east four lane seam
+  s 1499.04 (245.33,561.37) y 8.792 Ground_CR113 east four lane seam
+  s 1499.29 (245.58,561.39) y 8.772 Ground_CR113 east four lane seam
+  s 1499.54 (245.83,561.40) y 8.752 Ground_CR113 east four lane seam
+  s 1499.79 (246.08,561.42) y 8.738 Ground_CR113 east four lane seam
+  s 1500.04 (246.33,561.43) y 8.731 Ground_CR113 east four lane seam
+  s 1500.29 (246.58,561.45) y 8.757 Ground_CR113 east four lane seam
+  s 1500.54 (246.83,561.46) y 8.773 Ground_CR113 east four lane seam
+  s 1500.79 (247.09,561.48) y 8.758 Ground_CR113 east four lane seam
+  s 1501.04 (247.34,561.49) y 8.737 Ground_CR113 east four lane seam
+  s 1501.29 (247.59,561.51) y 8.717 Ground_CR113 east four lane seam
+  s 1501.54 (247.84,561.52) y 8.696 Ground_CR113 east four lane seam
+  s 1501.79 (248.09,561.54) y 8.681 Ground_CR113 east four lane seam
+  s 1502.04 (248.33,561.55) y 8.677 Ground_CR113 east four lane seam
+  s 1502.29 (248.58,561.57) y 8.707 Ground_CR113 east four lane seam
+  s 1502.54 (248.83,561.58) y 8.717 Ground_CR113 east four lane seam
+  s 1502.79 (249.09,561.60) y 8.701 Ground_CR113 east four lane seam
+  s 1503.04 (249.34,561.61) y 8.680 Ground_CR113 east four lane seam
+  s 1503.29 (249.59,561.63) y 8.659 Ground_CR113 east four lane seam
+  s 1503.54 (249.84,561.64) y 8.638 Ground_CR113 east four lane seam
+  s 1503.79 (250.09,561.66) y 8.623 Ground_CR113 east four lane seam
+  s 1504.04 (250.34,561.67) y 8.630 Ground_CR113 east four lane seam
+  s 1504.29 (250.59,561.69) y 8.653 Ground_CR113 east four lane seam
+  s 1504.54 (250.84,561.70) y 8.659 Ground_CR113 east four lane seam
+  s 1504.79 (251.09,561.72) y 8.643 Ground_CR113 east four lane seam
+  s 1505.04 (251.34,561.73) y 8.621 Ground_CR113 east four lane seam
+  s 1505.29 (251.59,561.75) y 8.600 Ground_CR113 east four lane seam
+  s 1505.54 (251.84,561.76) y 8.579 Ground_CR113 east four lane seam
+  s 1505.79 (252.09,561.77) y 8.564 Ground_CR113 east four lane seam
+  s 1506.04 (252.34,561.79) y 8.579 Ground_CR113 east four lane seam
+  s 1506.29 (252.59,561.80) y 8.597 Ground_CR113 east four lane seam
+  s 1506.54 (252.84,561.82) y 8.599 Ground_CR113 east four lane seam
+  s 1506.80 (253.09,561.83) y 8.583 Ground_CR113 east four lane seam
+  s 1507.05 (253.34,561.85) y 8.561 Ground_CR113 east four lane seam
+  s 1507.30 (253.59,561.86) y 8.540 Ground_CR113 east four lane seam
+  s 1507.55 (253.84,561.88) y 8.518 Ground_CR113 east four lane seam
+  s 1507.80 (254.09,561.89) y 8.510 Ground_CR113 east four lane seam
+  s 1508.05 (254.34,561.91) y 8.524 Ground_CR113 east four lane seam
+  s 1508.30 (254.59,561.92) y 8.538 Ground_CR113 east four lane seam
+  s 1508.55 (254.84,561.93) y 8.539 Ground_CR113 east four lane seam
+  s 1508.80 (255.10,561.95) y 8.487 Ground_CR113 east four lane seam
+  s 1509.05 (255.35,561.96) y 8.466 Ground_CR113 east four lane seam
+  s 1509.30 (255.60,561.98) y 8.458 Ground_CR113 east four lane seam
+  s 1509.55 (255.85,561.99) y 8.451 Ground_CR113 east four lane seam
+  s 1509.80 (256.09,562.01) y 8.453 Ground_CR113 east four lane seam
+  s 1510.05 (256.34,562.02) y 8.466 Ground_CR113 east four lane seam
+  s 1510.30 (256.59,562.03) y 8.479 Ground_CR113 east four lane seam
+  s 1510.55 (256.84,562.05) y 8.478 Ground_CR113 east four lane seam
+  s 1510.80 (257.10,562.06) y 8.466 Ground_CR113 east four lane seam
+  s 1511.05 (257.35,562.08) y 8.451 Ground_CR113 east four lane seam
+  s 1511.30 (257.60,562.09) y 8.436 Ground_CR113 east four lane seam
+  s 1511.55 (257.85,562.11) y 8.422 Ground_CR113 east four lane seam
+  s 1511.80 (258.10,562.12) y 8.419 Ground_CR113 east four lane seam
+  s 1512.05 (258.35,562.13) y 8.421 Ground_CR113 east four lane seam
+  s 1512.30 (258.60,562.15) y 8.422 Ground_CR113 east four lane seam
+  s 1512.50 (258.80,562.16) y 8.420 Ground_CR113 east four lane seam
+  s 1512.75 (259.05,562.17) y 8.408 Ground_CR113 east four lane seam
+  s 1513.00 (259.30,562.19) y 8.393 Ground_CR113 east four lane seam
+  s 1513.25 (259.55,562.20) y 8.377 Ground_CR113 east four lane seam
+  s 1513.50 (259.80,562.21) y 8.363 Ground_CR113 east four lane seam
+  s 1513.75 (260.05,562.23) y 8.359 Ground_CR113 east four lane seam
+  s 1514.00 (260.30,562.24) y 8.361 Ground_CR113 east four lane seam
+  s 1514.25 (260.55,562.26) y 8.363 Ground_CR113 east four lane seam
+  s 1514.50 (260.80,562.27) y 8.360 Ground_CR113 east four lane seam
+  s 1514.75 (261.05,562.28) y 8.348 Ground_CR113 east four lane seam
+  s 1515.00 (261.30,562.30) y 8.332 Ground_CR113 east four lane seam
+  s 1515.25 (261.55,562.31) y 8.315 Ground_CR113 east four lane seam
+-- lane offset -2.05
+  s 1483.52 (230.09,556.28) y 9.101 Ground_CR113 east four lane seam
+  s 1483.77 (230.34,556.30) y 9.112 Ground_CR113 east four lane seam
+  s 1484.02 (230.59,556.32) y 9.117 Ground_CR113 east four lane seam
+  s 1484.27 (230.84,556.33) y 9.113 Ground_CR113 east four lane seam
+  s 1484.52 (231.09,556.35) y 9.110 Ground_CR113 east four lane seam
+  s 1484.77 (231.34,556.37) y 9.098 Ground_CR113 east four lane seam
+  s 1485.02 (231.59,556.38) y 9.075 Ground_CR113 east four lane seam
+  s 1485.27 (231.84,556.40) y 9.067 Ground_CR113 east four lane seam
+  s 1485.52 (232.09,556.42) y 9.071 Ground_CR113 east four lane seam
+  s 1485.77 (232.34,556.43) y 9.082 Ground_CR113 east four lane seam
+  s 1486.02 (232.59,556.45) y 9.087 Ground_CR113 east four lane seam
+  s 1486.28 (232.84,556.47) y 9.082 Ground_CR113 east four lane seam
+  s 1486.53 (233.09,556.48) y 9.078 Ground_CR113 east four lane seam
+  s 1486.78 (233.34,556.50) y 9.063 Ground_CR113 east four lane seam
+  s 1487.03 (233.59,556.52) y 9.038 Ground_CR113 east four lane seam
+  s 1487.28 (233.84,556.53) y 9.033 Ground_CR113 east four lane seam
+  s 1487.53 (234.09,556.55) y 9.037 Ground_CR113 east four lane seam
+  s 1487.78 (234.34,556.57) y 9.048 Ground_CR113 east four lane seam
+  s 1488.03 (234.59,556.58) y 9.052 Ground_CR113 east four lane seam
+  s 1488.28 (234.84,556.60) y 9.048 Ground_CR113 east four lane seam
+  s 1488.53 (235.09,556.61) y 9.043 Ground_CR113 east four lane seam
+  s 1488.78 (235.34,556.63) y 9.023 Ground_CR113 east four lane seam
+  s 1489.03 (235.59,556.65) y 9.001 Ground_CR113 east four lane seam
+  s 1489.28 (235.84,556.66) y 8.996 Ground_CR113 east four lane seam
+  s 1489.53 (236.09,556.68) y 8.999 Ground_CR113 east four lane seam
+  s 1489.78 (236.34,556.70) y 9.011 Ground_CR113 east four lane seam
+  s 1490.03 (236.59,556.71) y 9.015 Ground_CR113 east four lane seam
+  s 1490.28 (236.84,556.73) y 9.010 Ground_CR113 east four lane seam
+  s 1490.53 (237.09,556.74) y 9.005 Ground_CR113 east four lane seam
+  s 1490.78 (237.34,556.76) y 8.975 Ground_CR113 east four lane seam
+  s 1491.03 (237.59,556.78) y 8.960 Ground_CR113 east four lane seam
+  s 1491.28 (237.84,556.79) y 8.954 Ground_CR113 east four lane seam
+  s 1491.53 (238.09,556.81) y 8.958 Ground_CR113 east four lane seam
+  s 1491.78 (238.34,556.83) y 8.970 Ground_CR113 east four lane seam
+  s 1492.03 (238.59,556.84) y 8.973 Ground_CR113 east four lane seam
+  s 1492.28 (238.83,556.86) y 8.968 Ground_CR113 east four lane seam
+  s 1492.53 (239.08,556.87) y 8.963 Ground_CR113 east four lane seam
+  s 1492.78 (239.34,556.89) y 8.921 Ground_CR113 east four lane seam
+  s 1493.03 (239.59,556.90) y 8.915 Ground_CR113 east four lane seam
+  s 1493.28 (239.84,556.92) y 8.910 Ground_CR113 east four lane seam
+  s 1493.53 (240.09,556.94) y 8.913 Ground_CR113 east four lane seam
+  s 1493.78 (240.33,556.95) y 8.925 Ground_CR113 east four lane seam
+  s 1494.03 (240.58,556.97) y 8.929 Ground_CR113 east four lane seam
+  s 1494.28 (240.83,556.98) y 8.923 Ground_CR113 east four lane seam
+  s 1494.53 (241.08,557.00) y 8.917 Ground_CR113 east four lane seam
+  s 1494.78 (241.34,557.02) y 8.890 Ground_CR113 east four lane seam
+  s 1495.03 (241.58,557.03) y 8.877 Ground_CR113 east four lane seam
+  s 1495.28 (241.83,557.05) y 8.865 Ground_CR113 east four lane seam
+  s 1495.53 (242.08,557.06) y 8.856 Ground_CR113 east four lane seam
+  s 1495.78 (242.33,557.08) y 8.849 Ground_CR113 east four lane seam
+  s 1496.03 (242.58,557.09) y 8.881 Ground_CR113 east four lane seam
+  s 1496.28 (242.83,557.11) y 8.875 Ground_CR113 east four lane seam
+  s 1496.54 (243.08,557.12) y 8.869 Ground_CR113 east four lane seam
+  s 1496.79 (243.33,557.14) y 8.855 Ground_CR113 east four lane seam
+  s 1497.04 (243.58,557.16) y 8.836 Ground_CR113 east four lane seam
+  s 1497.29 (243.83,557.17) y 8.817 Ground_CR113 east four lane seam
+  s 1497.54 (244.08,557.19) y 8.805 Ground_CR113 east four lane seam
+  s 1497.79 (244.33,557.20) y 8.800 Ground_CR113 east four lane seam
+  s 1498.04 (244.58,557.22) y 8.830 Ground_CR113 east four lane seam
+  s 1498.29 (244.83,557.23) y 8.824 Ground_CR113 east four lane seam
+  s 1498.54 (245.08,557.25) y 8.817 Ground_CR113 east four lane seam
+  s 1498.79 (245.33,557.26) y 8.803 Ground_CR113 east four lane seam
+  s 1499.04 (245.58,557.28) y 8.783 Ground_CR113 east four lane seam
+  s 1499.29 (245.83,557.29) y 8.763 Ground_CR113 east four lane seam
+  s 1499.54 (246.08,557.31) y 8.751 Ground_CR113 east four lane seam
+  s 1499.79 (246.33,557.32) y 8.761 Ground_CR113 east four lane seam
+  s 1500.04 (246.58,557.34) y 8.777 Ground_CR113 east four lane seam
+  s 1500.29 (246.83,557.35) y 8.770 Ground_CR113 east four lane seam
+  s 1500.54 (247.08,557.37) y 8.763 Ground_CR113 east four lane seam
+  s 1500.79 (247.33,557.39) y 8.749 Ground_CR113 east four lane seam
+  s 1501.04 (247.58,557.40) y 8.728 Ground_CR113 east four lane seam
+  s 1501.29 (247.83,557.42) y 8.708 Ground_CR113 east four lane seam
+  s 1501.54 (248.08,557.43) y 8.695 Ground_CR113 east four lane seam
+  s 1501.79 (248.33,557.45) y 8.712 Ground_CR113 east four lane seam
+  s 1502.04 (248.58,557.46) y 8.722 Ground_CR113 east four lane seam
+  s 1502.29 (248.83,557.48) y 8.715 Ground_CR113 east four lane seam
+  s 1502.54 (249.08,557.49) y 8.707 Ground_CR113 east four lane seam
+  s 1502.79 (249.33,557.50) y 8.692 Ground_CR113 east four lane seam
+  s 1503.04 (249.58,557.52) y 8.671 Ground_CR113 east four lane seam
+  s 1503.29 (249.83,557.53) y 8.650 Ground_CR113 east four lane seam
+  s 1503.54 (250.08,557.55) y 8.638 Ground_CR113 east four lane seam
+  s 1503.79 (250.33,557.56) y 8.659 Ground_CR113 east four lane seam
+  s 1504.04 (250.58,557.58) y 8.664 Ground_CR113 east four lane seam
+  s 1504.29 (250.83,557.59) y 8.657 Ground_CR113 east four lane seam
+  s 1504.54 (251.08,557.61) y 8.650 Ground_CR113 east four lane seam
+  s 1504.79 (251.33,557.62) y 8.634 Ground_CR113 east four lane seam
+  s 1505.04 (251.58,557.64) y 8.612 Ground_CR113 east four lane seam
+  s 1505.29 (251.83,557.65) y 8.591 Ground_CR113 east four lane seam
+  s 1505.54 (252.08,557.67) y 8.585 Ground_CR113 east four lane seam
+  s 1505.79 (252.33,557.68) y 8.602 Ground_CR113 east four lane seam
+  s 1506.04 (252.58,557.70) y 8.605 Ground_CR113 east four lane seam
+  s 1506.29 (252.83,557.71) y 8.598 Ground_CR113 east four lane seam
+  s 1506.54 (253.08,557.73) y 8.590 Ground_CR113 east four lane seam
+  s 1506.80 (253.33,557.74) y 8.574 Ground_CR113 east four lane seam
+  s 1507.05 (253.58,557.75) y 8.553 Ground_CR113 east four lane seam
+  s 1507.30 (253.83,557.77) y 8.531 Ground_CR113 east four lane seam
+  s 1507.55 (254.08,557.78) y 8.530 Ground_CR113 east four lane seam
+  s 1507.80 (254.33,557.80) y 8.544 Ground_CR113 east four lane seam
+  s 1508.05 (254.58,557.81) y 8.545 Ground_CR113 east four lane seam
+  s 1508.30 (254.83,557.83) y 8.538 Ground_CR113 east four lane seam
+  s 1508.55 (255.08,557.84) y 8.530 Ground_CR113 east four lane seam
+  s 1508.80 (255.33,557.86) y 8.481 Ground_CR113 east four lane seam
+  s 1509.05 (255.58,557.87) y 8.474 Ground_CR113 east four lane seam
+  s 1509.30 (255.83,557.88) y 8.466 Ground_CR113 east four lane seam
+  s 1509.55 (256.08,557.90) y 8.472 Ground_CR113 east four lane seam
+  s 1509.80 (256.33,557.91) y 8.485 Ground_CR113 east four lane seam
+  s 1510.05 (256.58,557.93) y 8.485 Ground_CR113 east four lane seam
+  s 1510.30 (256.83,557.94) y 8.478 Ground_CR113 east four lane seam
+  s 1510.55 (257.08,557.96) y 8.470 Ground_CR113 east four lane seam
+  s 1510.80 (257.33,557.97) y 8.458 Ground_CR113 east four lane seam
+  s 1511.05 (257.58,557.98) y 8.443 Ground_CR113 east four lane seam
+  s 1511.30 (257.83,558.00) y 8.429 Ground_CR113 east four lane seam
+  s 1511.55 (258.08,558.01) y 8.428 Ground_CR113 east four lane seam
+  s 1511.80 (258.33,558.03) y 8.429 Ground_CR113 east four lane seam
+  s 1512.05 (258.58,558.04) y 8.425 Ground_CR113 east four lane seam
+  s 1512.30 (258.83,558.05) y 8.418 Ground_CR113 east four lane seam
+  s 1512.50 (259.03,558.06) y 8.412 Ground_CR113 east four lane seam
+  s 1512.75 (259.28,558.08) y 8.400 Ground_CR113 east four lane seam
+  s 1513.00 (259.53,558.09) y 8.385 Ground_CR113 east four lane seam
+  s 1513.25 (259.78,558.11) y 8.371 Ground_CR113 east four lane seam
+  s 1513.50 (260.03,558.12) y 8.368 Ground_CR113 east four lane seam
+  s 1513.75 (260.28,558.13) y 8.370 Ground_CR113 east four lane seam
+  s 1514.00 (260.53,558.15) y 8.367 Ground_CR113 east four lane seam
+  s 1514.25 (260.78,558.16) y 8.360 Ground_CR113 east four lane seam
+  s 1514.50 (261.03,558.18) y 8.353 Ground_CR113 east four lane seam
+  s 1514.75 (261.28,558.19) y 8.341 Ground_CR113 east four lane seam
+  s 1515.00 (261.53,558.20) y 8.324 Ground_CR113 east four lane seam
+  s 1515.25 (261.78,558.22) y 8.312 Ground_CR113 east four lane seam
+-- lane offset 2.05
+  s 1483.52 (230.37,552.19) y 9.116 Ground_CR113 east four lane seam
+  s 1483.77 (230.62,552.21) y 9.113 Ground_CR113 east four lane seam
+  s 1484.02 (230.86,552.23) y 9.109 Ground_CR113 east four lane seam
+  s 1484.27 (231.11,552.24) y 9.106 Ground_CR113 east four lane seam
+  s 1484.52 (231.36,552.26) y 9.102 Ground_CR113 east four lane seam
+  s 1484.77 (231.61,552.28) y 9.090 Ground_CR113 east four lane seam
+  s 1485.02 (231.86,552.29) y 9.076 Ground_CR113 east four lane seam
+  s 1485.27 (232.11,552.31) y 9.082 Ground_CR113 east four lane seam
+  s 1485.52 (232.36,552.33) y 9.087 Ground_CR113 east four lane seam
+  s 1485.77 (232.61,552.34) y 9.083 Ground_CR113 east four lane seam
+  s 1486.02 (232.86,552.36) y 9.078 Ground_CR113 east four lane seam
+  s 1486.28 (233.11,552.38) y 9.074 Ground_CR113 east four lane seam
+  s 1486.53 (233.36,552.39) y 9.070 Ground_CR113 east four lane seam
+  s 1486.78 (233.61,552.41) y 9.055 Ground_CR113 east four lane seam
+  s 1487.03 (233.86,552.43) y 9.043 Ground_CR113 east four lane seam
+  s 1487.28 (234.11,552.44) y 9.049 Ground_CR113 east four lane seam
+  s 1487.53 (234.36,552.46) y 9.053 Ground_CR113 east four lane seam
+  s 1487.78 (234.61,552.47) y 9.049 Ground_CR113 east four lane seam
+  s 1488.03 (234.86,552.49) y 9.044 Ground_CR113 east four lane seam
+  s 1488.28 (235.11,552.51) y 9.039 Ground_CR113 east four lane seam
+  s 1488.53 (235.36,552.52) y 9.035 Ground_CR113 east four lane seam
+  s 1488.78 (235.60,552.54) y 9.015 Ground_CR113 east four lane seam
+  s 1489.03 (235.85,552.56) y 9.005 Ground_CR113 east four lane seam
+  s 1489.28 (236.10,552.57) y 9.012 Ground_CR113 east four lane seam
+  s 1489.53 (236.35,552.59) y 9.016 Ground_CR113 east four lane seam
+  s 1489.78 (236.60,552.60) y 9.011 Ground_CR113 east four lane seam
+  s 1490.03 (236.85,552.62) y 9.006 Ground_CR113 east four lane seam
+  s 1490.28 (237.10,552.64) y 9.001 Ground_CR113 east four lane seam
+  s 1490.53 (237.35,552.65) y 8.996 Ground_CR113 east four lane seam
+  s 1490.78 (237.60,552.67) y 8.970 Ground_CR113 east four lane seam
+  s 1491.03 (237.85,552.69) y 8.965 Ground_CR113 east four lane seam
+  s 1491.28 (238.10,552.70) y 8.971 Ground_CR113 east four lane seam
+  s 1491.53 (238.35,552.72) y 8.975 Ground_CR113 east four lane seam
+  s 1491.78 (238.60,552.73) y 8.970 Ground_CR113 east four lane seam
+  s 1492.03 (238.85,552.75) y 8.964 Ground_CR113 east four lane seam
+  s 1492.28 (239.10,552.77) y 8.959 Ground_CR113 east four lane seam
+  s 1492.53 (239.35,552.78) y 8.954 Ground_CR113 east four lane seam
+  s 1492.78 (239.59,552.80) y 8.927 Ground_CR113 east four lane seam
+  s 1493.03 (239.84,552.81) y 8.921 Ground_CR113 east four lane seam
+  s 1493.28 (240.09,552.83) y 8.928 Ground_CR113 east four lane seam
+  s 1493.53 (240.34,552.84) y 8.931 Ground_CR113 east four lane seam
+  s 1493.78 (240.59,552.86) y 8.925 Ground_CR113 east four lane seam
+  s 1494.03 (240.84,552.88) y 8.920 Ground_CR113 east four lane seam
+  s 1494.28 (241.09,552.89) y 8.914 Ground_CR113 east four lane seam
+  s 1494.53 (241.34,552.91) y 8.908 Ground_CR113 east four lane seam
+  s 1494.78 (241.59,552.92) y 8.888 Ground_CR113 east four lane seam
+  s 1495.03 (241.84,552.94) y 8.876 Ground_CR113 east four lane seam
+  s 1495.28 (242.09,552.95) y 8.868 Ground_CR113 east four lane seam
+  s 1495.53 (242.34,552.97) y 8.884 Ground_CR113 east four lane seam
+  s 1495.78 (242.59,552.99) y 8.878 Ground_CR113 east four lane seam
+  s 1496.03 (242.84,553.00) y 8.872 Ground_CR113 east four lane seam
+  s 1496.28 (243.09,553.02) y 8.866 Ground_CR113 east four lane seam
+  s 1496.54 (243.34,553.03) y 8.860 Ground_CR113 east four lane seam
+  s 1496.79 (243.59,553.05) y 8.846 Ground_CR113 east four lane seam
+  s 1497.04 (243.84,553.06) y 8.827 Ground_CR113 east four lane seam
+  s 1497.29 (244.09,553.08) y 8.817 Ground_CR113 east four lane seam
+  s 1497.54 (244.34,553.09) y 8.834 Ground_CR113 east four lane seam
+  s 1497.79 (244.59,553.11) y 8.828 Ground_CR113 east four lane seam
+  s 1498.04 (244.84,553.13) y 8.821 Ground_CR113 east four lane seam
+  s 1498.29 (245.08,553.14) y 8.815 Ground_CR113 east four lane seam
+  s 1498.54 (245.33,553.16) y 8.808 Ground_CR113 east four lane seam
+  s 1498.79 (245.58,553.17) y 8.794 Ground_CR113 east four lane seam
+  s 1499.04 (245.83,553.19) y 8.774 Ground_CR113 east four lane seam
+  s 1499.29 (246.08,553.20) y 8.765 Ground_CR113 east four lane seam
+  s 1499.54 (246.33,553.22) y 8.781 Ground_CR113 east four lane seam
+  s 1499.79 (246.58,553.23) y 8.775 Ground_CR113 east four lane seam
+  s 1500.04 (246.83,553.25) y 8.768 Ground_CR113 east four lane seam
+  s 1500.29 (247.08,553.26) y 8.761 Ground_CR113 east four lane seam
+  s 1500.54 (247.33,553.28) y 8.754 Ground_CR113 east four lane seam
+  s 1500.79 (247.58,553.29) y 8.740 Ground_CR113 east four lane seam
+  s 1501.04 (247.83,553.31) y 8.719 Ground_CR113 east four lane seam
+  s 1501.29 (248.08,553.32) y 8.717 Ground_CR113 east four lane seam
+  s 1501.54 (248.33,553.34) y 8.726 Ground_CR113 east four lane seam
+  s 1501.79 (248.58,553.35) y 8.719 Ground_CR113 east four lane seam
+  s 1502.04 (248.83,553.37) y 8.713 Ground_CR113 east four lane seam
+  s 1502.29 (249.08,553.38) y 8.705 Ground_CR113 east four lane seam
+  s 1502.54 (249.33,553.40) y 8.698 Ground_CR113 east four lane seam
+  s 1502.79 (249.57,553.41) y 8.683 Ground_CR113 east four lane seam
+  s 1503.04 (249.82,553.43) y 8.662 Ground_CR113 east four lane seam
+  s 1503.29 (250.07,553.44) y 8.664 Ground_CR113 east four lane seam
+  s 1503.54 (250.32,553.46) y 8.670 Ground_CR113 east four lane seam
+  s 1503.79 (250.57,553.47) y 8.662 Ground_CR113 east four lane seam
+  s 1504.04 (250.82,553.49) y 8.655 Ground_CR113 east four lane seam
+  s 1504.29 (251.07,553.50) y 8.648 Ground_CR113 east four lane seam
+  s 1504.54 (251.32,553.52) y 8.641 Ground_CR113 east four lane seam
+  s 1504.79 (251.57,553.53) y 8.625 Ground_CR113 east four lane seam
+  s 1505.04 (251.82,553.55) y 8.604 Ground_CR113 east four lane seam
+  s 1505.29 (252.07,553.56) y 8.608 Ground_CR113 east four lane seam
+  s 1505.54 (252.32,553.57) y 8.611 Ground_CR113 east four lane seam
+  s 1505.79 (252.57,553.59) y 8.604 Ground_CR113 east four lane seam
+  s 1506.04 (252.82,553.60) y 8.596 Ground_CR113 east four lane seam
+  s 1506.29 (253.07,553.62) y 8.589 Ground_CR113 east four lane seam
+  s 1506.54 (253.32,553.63) y 8.582 Ground_CR113 east four lane seam
+  s 1506.80 (253.57,553.65) y 8.566 Ground_CR113 east four lane seam
+  s 1507.05 (253.82,553.66) y 8.544 Ground_CR113 east four lane seam
+  s 1507.30 (254.07,553.68) y 8.551 Ground_CR113 east four lane seam
+  s 1507.55 (254.32,553.69) y 8.552 Ground_CR113 east four lane seam
+  s 1507.80 (254.57,553.70) y 8.544 Ground_CR113 east four lane seam
+  s 1508.05 (254.82,553.72) y 8.537 Ground_CR113 east four lane seam
+  s 1508.30 (255.06,553.73) y 8.529 Ground_CR113 east four lane seam
+  s 1508.55 (255.31,553.75) y 8.522 Ground_CR113 east four lane seam
+  s 1508.80 (255.56,553.76) y 8.490 Ground_CR113 east four lane seam
+  s 1509.05 (255.81,553.78) y 8.482 Ground_CR113 east four lane seam
+  s 1509.30 (256.06,553.79) y 8.492 Ground_CR113 east four lane seam
+  s 1509.55 (256.31,553.80) y 8.492 Ground_CR113 east four lane seam
+  s 1509.80 (256.56,553.82) y 8.484 Ground_CR113 east four lane seam
+  s 1510.05 (256.81,553.83) y 8.477 Ground_CR113 east four lane seam
+  s 1510.30 (257.06,553.85) y 8.469 Ground_CR113 east four lane seam
+  s 1510.55 (257.31,553.86) y 8.462 Ground_CR113 east four lane seam
+  s 1510.80 (257.56,553.88) y 8.450 Ground_CR113 east four lane seam
+  s 1511.05 (257.81,553.89) y 8.436 Ground_CR113 east four lane seam
+  s 1511.30 (258.06,553.90) y 8.436 Ground_CR113 east four lane seam
+  s 1511.55 (258.31,553.92) y 8.432 Ground_CR113 east four lane seam
+  s 1511.80 (258.56,553.93) y 8.424 Ground_CR113 east four lane seam
+  s 1512.05 (258.81,553.95) y 8.417 Ground_CR113 east four lane seam
+  s 1512.30 (259.06,553.96) y 8.410 Ground_CR113 east four lane seam
+  s 1512.50 (259.26,553.97) y 8.404 Ground_CR113 east four lane seam
+  s 1512.75 (259.51,553.99) y 8.393 Ground_CR113 east four lane seam
+  s 1513.00 (259.76,554.00) y 8.378 Ground_CR113 east four lane seam
+  s 1513.25 (260.00,554.01) y 8.377 Ground_CR113 east four lane seam
+  s 1513.50 (260.25,554.03) y 8.374 Ground_CR113 east four lane seam
+  s 1513.75 (260.50,554.04) y 8.367 Ground_CR113 east four lane seam
+  s 1514.00 (260.75,554.05) y 8.360 Ground_CR113 east four lane seam
+  s 1514.25 (261.00,554.07) y 8.352 Ground_CR113 east four lane seam
+  s 1514.50 (261.25,554.08) y 8.345 Ground_CR113 east four lane seam
+  s 1514.75 (261.50,554.10) y 8.333 Ground_CR113 east four lane seam
+  s 1515.00 (261.75,554.11) y 8.319 Ground_CR113 east four lane seam
+  s 1515.25 (262.00,554.12) y 8.319 Ground_CR113 east four lane seam
+-- lane offset 6.15
+  s 1483.52 (230.64,548.10) y 9.109 Ground_CR113 east four lane seam
+  s 1483.77 (230.89,548.12) y 9.105 Ground_CR113 east four lane seam
+  s 1484.02 (231.14,548.14) y 9.101 Ground_CR113 east four lane seam
+  s 1484.27 (231.39,548.15) y 9.098 Ground_CR113 east four lane seam
+  s 1484.52 (231.64,548.17) y 9.094 Ground_CR113 east four lane seam
+  s 1484.77 (231.88,548.19) y 9.084 Ground_CR113 east four lane seam
+  s 1485.02 (232.13,548.20) y 9.087 Ground_CR113 east four lane seam
+  s 1485.27 (232.38,548.22) y 9.083 Ground_CR113 east four lane seam
+  s 1485.52 (232.63,548.24) y 9.079 Ground_CR113 east four lane seam
+  s 1485.77 (232.88,548.25) y 9.075 Ground_CR113 east four lane seam
+  s 1486.02 (233.13,548.27) y 9.070 Ground_CR113 east four lane seam
+  s 1486.28 (233.38,548.28) y 9.066 Ground_CR113 east four lane seam
+  s 1486.53 (233.63,548.30) y 9.062 Ground_CR113 east four lane seam
+  s 1486.78 (233.88,548.32) y 9.052 Ground_CR113 east four lane seam
+  s 1487.03 (234.13,548.33) y 9.054 Ground_CR113 east four lane seam
+  s 1487.28 (234.38,548.35) y 9.049 Ground_CR113 east four lane seam
+  s 1487.53 (234.63,548.37) y 9.045 Ground_CR113 east four lane seam
+  s 1487.78 (234.88,548.38) y 9.040 Ground_CR113 east four lane seam
+  s 1488.03 (235.13,548.40) y 9.036 Ground_CR113 east four lane seam
+  s 1488.28 (235.37,548.42) y 9.031 Ground_CR113 east four lane seam
+  s 1488.53 (235.62,548.43) y 9.027 Ground_CR113 east four lane seam
+  s 1488.78 (235.87,548.45) y 9.015 Ground_CR113 east four lane seam
+  s 1489.03 (236.12,548.46) y 9.017 Ground_CR113 east four lane seam
+  s 1489.28 (236.37,548.48) y 9.012 Ground_CR113 east four lane seam
+  s 1489.53 (236.62,548.50) y 9.007 Ground_CR113 east four lane seam
+  s 1489.78 (236.87,548.51) y 9.002 Ground_CR113 east four lane seam
+  s 1490.03 (237.12,548.53) y 8.997 Ground_CR113 east four lane seam
+  s 1490.28 (237.37,548.55) y 8.992 Ground_CR113 east four lane seam
+  s 1490.53 (237.62,548.56) y 8.987 Ground_CR113 east four lane seam
+  s 1490.78 (237.86,548.58) y 8.975 Ground_CR113 east four lane seam
+  s 1491.03 (238.11,548.59) y 8.977 Ground_CR113 east four lane seam
+  s 1491.28 (238.36,548.61) y 8.972 Ground_CR113 east four lane seam
+  s 1491.53 (238.61,548.63) y 8.966 Ground_CR113 east four lane seam
+  s 1491.78 (238.86,548.64) y 8.961 Ground_CR113 east four lane seam
+  s 1492.03 (239.11,548.66) y 8.956 Ground_CR113 east four lane seam
+  s 1492.28 (239.36,548.67) y 8.950 Ground_CR113 east four lane seam
+  s 1492.53 (239.61,548.69) y 8.945 Ground_CR113 east four lane seam
+  s 1492.78 (239.85,548.71) y 8.932 Ground_CR113 east four lane seam
+  s 1493.03 (240.10,548.72) y 8.934 Ground_CR113 east four lane seam
+  s 1493.28 (240.35,548.74) y 8.928 Ground_CR113 east four lane seam
+  s 1493.53 (240.60,548.75) y 8.922 Ground_CR113 east four lane seam
+  s 1493.78 (240.85,548.77) y 8.917 Ground_CR113 east four lane seam
+  s 1494.03 (241.10,548.78) y 8.911 Ground_CR113 east four lane seam
+  s 1494.28 (241.35,548.80) y 8.905 Ground_CR113 east four lane seam
+  s 1494.53 (241.60,548.82) y 8.899 Ground_CR113 east four lane seam
+  s 1494.78 (241.85,548.83) y 8.887 Ground_CR113 east four lane seam
+  s 1495.03 (242.10,548.85) y 8.887 Ground_CR113 east four lane seam
+  s 1495.28 (242.35,548.86) y 8.881 Ground_CR113 east four lane seam
+  s 1495.53 (242.60,548.88) y 8.875 Ground_CR113 east four lane seam
+  s 1495.78 (242.84,548.89) y 8.869 Ground_CR113 east four lane seam
+  s 1496.03 (243.09,548.91) y 8.863 Ground_CR113 east four lane seam
+  s 1496.28 (243.34,548.92) y 8.857 Ground_CR113 east four lane seam
+  s 1496.54 (243.59,548.94) y 8.851 Ground_CR113 east four lane seam
+  s 1496.79 (243.84,548.96) y 8.838 Ground_CR113 east four lane seam
+  s 1497.04 (244.09,548.97) y 8.838 Ground_CR113 east four lane seam
+  s 1497.29 (244.34,548.99) y 8.832 Ground_CR113 east four lane seam
+  s 1497.54 (244.59,549.00) y 8.825 Ground_CR113 east four lane seam
+  s 1497.79 (244.84,549.02) y 8.819 Ground_CR113 east four lane seam
+  s 1498.04 (245.09,549.03) y 8.812 Ground_CR113 east four lane seam
+  s 1498.29 (245.34,549.05) y 8.806 Ground_CR113 east four lane seam
+  s 1498.54 (245.59,549.06) y 8.799 Ground_CR113 east four lane seam
+  s 1498.79 (245.83,549.08) y 8.785 Ground_CR113 east four lane seam
+  s 1499.04 (246.08,549.09) y 8.786 Ground_CR113 east four lane seam
+  s 1499.29 (246.33,549.11) y 8.779 Ground_CR113 east four lane seam
+  s 1499.54 (246.58,549.12) y 8.772 Ground_CR113 east four lane seam
+  s 1499.79 (246.83,549.14) y 8.765 Ground_CR113 east four lane seam
+  s 1500.04 (247.08,549.15) y 8.759 Ground_CR113 east four lane seam
+  s 1500.29 (247.33,549.17) y 8.752 Ground_CR113 east four lane seam
+  s 1500.54 (247.58,549.18) y 8.745 Ground_CR113 east four lane seam
+  s 1500.79 (247.82,549.20) y 8.731 Ground_CR113 east four lane seam
+  s 1501.04 (248.07,549.21) y 8.731 Ground_CR113 east four lane seam
+  s 1501.29 (248.32,549.23) y 8.724 Ground_CR113 east four lane seam
+  s 1501.54 (248.57,549.24) y 8.717 Ground_CR113 east four lane seam
+  s 1501.79 (248.82,549.26) y 8.711 Ground_CR113 east four lane seam
+  s 1502.04 (249.07,549.27) y 8.703 Ground_CR113 east four lane seam
+  s 1502.29 (249.32,549.29) y 8.696 Ground_CR113 east four lane seam
+  s 1502.54 (249.57,549.30) y 8.689 Ground_CR113 east four lane seam
+  s 1502.79 (249.82,549.32) y 8.674 Ground_CR113 east four lane seam
+  s 1503.04 (250.07,549.33) y 8.675 Ground_CR113 east four lane seam
+  s 1503.29 (250.32,549.35) y 8.668 Ground_CR113 east four lane seam
+  s 1503.54 (250.57,549.36) y 8.661 Ground_CR113 east four lane seam
+  s 1503.79 (250.82,549.38) y 8.653 Ground_CR113 east four lane seam
+  s 1504.04 (251.07,549.39) y 8.646 Ground_CR113 east four lane seam
+  s 1504.29 (251.32,549.41) y 8.639 Ground_CR113 east four lane seam
+  s 1504.54 (251.57,549.42) y 8.632 Ground_CR113 east four lane seam
+  s 1504.79 (251.81,549.44) y 8.616 Ground_CR113 east four lane seam
+  s 1505.04 (252.06,549.45) y 8.617 Ground_CR113 east four lane seam
+  s 1505.29 (252.31,549.47) y 8.610 Ground_CR113 east four lane seam
+  s 1505.54 (252.56,549.48) y 8.602 Ground_CR113 east four lane seam
+  s 1505.79 (252.81,549.50) y 8.595 Ground_CR113 east four lane seam
+  s 1506.04 (253.06,549.51) y 8.588 Ground_CR113 east four lane seam
+  s 1506.29 (253.31,549.53) y 8.580 Ground_CR113 east four lane seam
+  s 1506.54 (253.56,549.54) y 8.573 Ground_CR113 east four lane seam
+  s 1506.80 (253.80,549.55) y 8.557 Ground_CR113 east four lane seam
+  s 1507.05 (254.05,549.57) y 8.558 Ground_CR113 east four lane seam
+  s 1507.30 (254.30,549.58) y 8.551 Ground_CR113 east four lane seam
+  s 1507.55 (254.55,549.60) y 8.543 Ground_CR113 east four lane seam
+  s 1507.80 (254.80,549.61) y 8.536 Ground_CR113 east four lane seam
+  s 1508.05 (255.05,549.63) y 8.528 Ground_CR113 east four lane seam
+  s 1508.30 (255.30,549.64) y 8.521 Ground_CR113 east four lane seam
+  s 1508.55 (255.55,549.65) y 8.513 Ground_CR113 east four lane seam
+  s 1508.80 (255.80,549.67) y 8.498 Ground_CR113 east four lane seam
+  s 1509.05 (256.05,549.68) y 8.498 Ground_CR113 east four lane seam
+  s 1509.30 (256.30,549.70) y 8.491 Ground_CR113 east four lane seam
+  s 1509.55 (256.55,549.71) y 8.483 Ground_CR113 east four lane seam
+  s 1509.80 (256.79,549.73) y 8.476 Ground_CR113 east four lane seam
+  s 1510.05 (257.04,549.74) y 8.469 Ground_CR113 east four lane seam
+  s 1510.30 (257.29,549.75) y 8.461 Ground_CR113 east four lane seam
+  s 1510.55 (257.54,549.77) y 8.454 Ground_CR113 east four lane seam
+  s 1510.80 (257.79,549.78) y 8.443 Ground_CR113 east four lane seam
+  s 1511.05 (258.04,549.80) y 8.439 Ground_CR113 east four lane seam
+  s 1511.30 (258.29,549.81) y 8.431 Ground_CR113 east four lane seam
+  s 1511.55 (258.54,549.82) y 8.424 Ground_CR113 east four lane seam
+  s 1511.80 (258.79,549.84) y 8.416 Ground_CR113 east four lane seam
+  s 1512.05 (259.04,549.85) y 8.409 Ground_CR113 east four lane seam
+  s 1512.30 (259.29,549.87) y 8.402 Ground_CR113 east four lane seam
+  s 1512.50 (259.49,549.88) y 8.396 Ground_CR113 east four lane seam
+  s 1512.75 (259.73,549.89) y 8.385 Ground_CR113 east four lane seam
+  s 1513.00 (259.98,549.91) y 8.381 Ground_CR113 east four lane seam
+  s 1513.25 (260.23,549.92) y 8.374 Ground_CR113 east four lane seam
+  s 1513.50 (260.48,549.93) y 8.367 Ground_CR113 east four lane seam
+  s 1513.75 (260.73,549.95) y 8.359 Ground_CR113 east four lane seam
+  s 1514.00 (260.98,549.96) y 8.352 Ground_CR113 east four lane seam
+  s 1514.25 (261.23,549.97) y 8.345 Ground_CR113 east four lane seam
+  s 1514.50 (261.48,549.99) y 8.338 Ground_CR113 east four lane seam
+  s 1514.75 (261.73,550.00) y 8.327 Ground_CR113 east four lane seam
+  s 1515.00 (261.98,550.02) y 8.323 Ground_CR113 east four lane seam
+  s 1515.25 (262.23,550.03) y 8.316 Ground_CR113 east four lane seam
+collider Ground_CR113 east four lane seam mesh FreeRoamWorld-Ground_CR113 east four lane seam-conformed Assets/Scenery/Report096/FreeRoamWorld-Ground_CR113 east four lane seam-conformed.asset verts 965
+   v67 (227.95,9.142,545.86)
+   v68 (228.83,9.146,562.36)
+   v69 (229.93,9.117,546.00)
+   v70 (230.82,9.119,562.50)
+   v71 (231.92,9.088,546.13)
+   v72 (232.82,9.088,562.63)
+   v73 (233.91,9.056,546.27)
+   v74 (234.82,9.053,562.76)
+   v75 (235.89,9.020,546.40)
+   v76 (236.82,9.015,562.89)
+   v77 (237.88,8.981,546.52)
+   v78 (238.82,8.973,563.02)
+   v79 (239.86,8.938,546.65)
+   v80 (240.82,8.928,563.15)
+   v81 (241.85,8.892,546.78)
+   v82 (242.82,8.879,563.27)
+   v83 (243.84,8.843,546.90)
+   v84 (244.82,8.828,563.39)
+   v85 (245.82,8.792,547.02)
+   v86 (246.82,8.774,563.52)
+   v87 (247.81,8.738,547.15)
+   v88 (248.82,8.718,563.64)
+   v89 (249.80,8.682,547.26)
+   v90 (250.82,8.660,563.75)
+   v91 (251.78,8.624,547.38)
+   v92 (252.82,8.601,563.87)
+   v93 (253.77,8.566,547.50)
+   v94 (254.82,8.541,563.99)
+   v95 (255.76,8.506,547.61)
+   v96 (256.82,8.480,564.10)
+   v97 (257.75,8.447,547.73)
+   v98 (258.82,8.419,564.21)
+   v99 (259.73,8.388,547.84)
+   v100 (260.82,8.360,564.32)
+   v101 (261.72,8.330,547.95)
+   v102 (262.82,8.302,564.43)
+   v103 (263.71,8.274,548.06)
+   v104 (264.82,8.246,564.54)
+   v516 (227.71,9.115,562.29)
+   v517 (228.00,9.111,562.31)
+   v518 (228.12,9.140,545.88)
+   v519 (228.00,9.141,545.87)
+   v520 (229.59,9.089,562.41)
+   v521 (230.00,9.083,562.44)
+   v522 (231.87,9.089,546.13)
+   v523 (230.00,9.116,546.00)
+   v524 (230.00,9.116,546.00)
+   v525 (231.46,9.061,562.54)
+   v526 (232.00,9.051,562.57)
+   v527 (233.75,9.059,546.25)
+   v528 (232.00,9.087,546.14)
+   v529 (233.34,9.028,562.66)
+   v530 (234.00,9.016,562.71)
+   v531 (235.62,9.025,546.38)
+   v532 (234.00,9.054,546.27)
+   v533 (235.21,8.993,562.79)
+   v534 (236.00,8.977,562.84)
+   v535 (237.50,8.988,546.50)
+   v536 (236.00,9.018,546.40)
+   v537 (237.09,8.954,562.91)
+   v538 (238.00,8.934,562.97)
+   v539 (239.38,8.949,546.62)
+   v540 (238.00,8.978,546.53)
+   v541 (238.97,8.912,563.03)
+   v542 (240.00,8.888,563.09)
+   v543 (241.26,8.906,546.74)
+   v544 (240.00,8.935,546.66)
+   v545 (240.85,8.897,563.15)
+   v546 (242.00,8.839,563.22)
+   v547 (242.74,8.821,563.26)
+   v548 (243.14,8.861,546.86)
+   v549 (242.00,8.888,546.79)
+   v550 (244.00,8.788,563.34)
+   v551 (244.62,8.771,563.38)
+   v552 (245.03,8.813,546.97)
+   v553 (244.00,8.839,546.91)
+   v554 (246.00,8.733,563.47)
+   v555 (246.50,8.719,563.50)
+   v556 (246.91,8.762,547.09)
+   v557 (246.00,8.787,547.04)
+   v558 (248.00,8.677,563.59)
+   v559 (248.39,8.666,563.61)
+   v560 (248.80,8.710,547.20)
+   v561 (248.00,8.732,547.16)
+   v562 (250.00,8.619,563.71)
+   v563 (250.28,8.610,563.72)
+   v564 (250.68,8.656,547.32)
+   v565 (250.00,8.676,547.28)
+   v566 (252.00,8.559,563.82)
+   v567 (252.17,8.554,563.83)
+   v568 (252.57,8.601,547.43)
+   v569 (252.00,8.618,547.40)
+   v570 (254.00,8.499,563.94)
+   v571 (254.06,8.497,563.94)
+   v572 (254.46,8.545,547.54)
+   v573 (254.00,8.559,547.51)
+   v574 (255.06,8.467,564.00)
+   v575 (255.95,8.440,564.05)
+   v576 (256.00,8.438,564.05)
+   v577 (256.35,8.489,547.65)
+   v578 (256.00,8.499,547.63)
+   v579 (257.84,8.419,564.16)
+   v580 (258.00,8.414,564.17)
+   v581 (258.25,8.432,547.75)
+   v582 (258.00,8.439,547.74)
+   v583 (259.74,8.362,564.26)
+   v584 (260.00,8.354,564.28)
+   v585 (260.14,8.376,547.86)
+   v586 (260.00,8.380,547.85)
+   v587 (261.63,8.306,564.37)
+   v588 (262.00,8.296,564.39)
+   v589 (262.66,8.303,548.00)
+   v590 (262.03,8.321,547.97)
+   v591 (262.00,8.322,547.96)
+   v592 (263.53,8.252,564.47)
+   v593 (264.00,8.239,564.50)
+   v594 (264.00,8.266,548.07)
+   v595 (263.93,8.268,548.07)
+==== x 155..166
+-- lane offset -6.15
+  s 1408.05 (154.50,554.08) y 8.980 Ground_400_640
+  s 1408.30 (154.75,554.10) y 8.980 Ground_400_640
+  s 1408.55 (155.00,554.12) y 8.980 Ground_400_640
+  s 1408.80 (155.23,554.14) y 8.979 Ground_400_640
+  s 1409.05 (155.48,554.16) y 8.979 Ground_400_640
+  s 1409.30 (155.73,554.19) y 8.979 Ground_400_640
+  s 1409.55 (155.97,554.21) y 8.978 Ground_400_640
+  s 1409.80 (156.22,554.23) y 8.978 Ground_400_640
+  s 1410.00 (156.42,554.25) y 8.978 Ground_400_640
+  s 1410.25 (156.67,554.27) y 8.978 Ground_400_640
+  s 1410.50 (156.92,554.29) y 8.978 Ground_400_640
+  s 1410.75 (157.17,554.31) y 8.978 Ground_400_640
+  s 1411.00 (157.40,554.33) y 8.978 Ground_400_640
+  s 1411.25 (157.65,554.36) y 8.978 Ground_400_640
+  s 1411.50 (157.90,554.38) y 8.978 Ground_400_640
+  s 1411.75 (158.14,554.40) y 8.978 Ground_400_640
+  s 1412.00 (158.39,554.43) y 8.978 Ground_400_640
+  s 1412.25 (158.64,554.45) y 8.978 Ground_400_640
+  s 1412.50 (158.89,554.47) y 8.978 Ground_400_640
+  s 1412.75 (159.14,554.50) y 8.978 Ground_400_640
+  s 1413.00 (159.37,554.52) y 8.978 Ground_400_640
+  s 1413.25 (159.61,554.54) y 8.978 Ground_400_640
+  s 1413.50 (159.86,554.56) y 8.978 Ground_400_640
+  s 1413.75 (160.11,554.59) y 8.978 Ground_480_640
+  s 1414.00 (160.36,554.61) y 8.977 Ground_480_640
+  s 1414.25 (160.61,554.64) y 8.977 Ground_480_640
+  s 1414.51 (160.86,554.66) y 8.976 Ground_480_640
+  s 1414.76 (161.11,554.69) y 8.976 Ground_480_640
+  s 1415.01 (161.34,554.71) y 9.049 Ground_CR113 east four lane seam | Ground_480_640 8.975
+  s 1415.26 (161.59,554.73) y 9.048 Ground_CR113 east four lane seam | Ground_480_640 8.975
+  s 1415.51 (161.84,554.76) y 9.047 Ground_CR113 east four lane seam | Ground_480_640 8.974
+  s 1415.76 (162.09,554.78) y 9.046 Ground_CR113 east four lane seam | Ground_480_640 8.973
+  s 1416.01 (162.34,554.81) y 9.042 Ground_CR113 east four lane seam | Ground_480_640 8.972
+  s 1416.26 (162.59,554.83) y 9.037 Ground_CR113 east four lane seam | Ground_480_640 8.971
+  s 1416.51 (162.84,554.86) y 9.031 Ground_CR113 east four lane seam | Ground_480_640 8.970
+  s 1416.76 (163.09,554.88) y 9.028 Ground_CR113 east four lane seam | Ground_480_640 8.969
+  s 1417.01 (163.34,554.91) y 9.027 Ground_CR113 east four lane seam | Ground_480_640 8.967
+  s 1417.26 (163.59,554.93) y 9.026 Ground_CR113 east four lane seam | Ground_480_640 8.966
+  s 1417.51 (163.84,554.95) y 9.025 Ground_CR113 east four lane seam | Ground_480_640 8.965
+  s 1417.76 (164.09,554.98) y 9.024 Ground_CR113 east four lane seam | Ground_480_640 8.964
+  s 1418.01 (164.34,555.00) y 9.023 Ground_CR113 east four lane seam | Ground_480_640 8.963
+  s 1418.26 (164.59,555.03) y 9.022 Ground_CR113 east four lane seam | Ground_480_640 8.962
+  s 1418.51 (164.84,555.05) y 9.021 Ground_CR113 east four lane seam | Ground_480_640 8.961
+  s 1418.76 (165.09,555.08) y 9.020 Ground_CR113 east four lane seam | Ground_480_640 8.960
+  s 1419.01 (165.34,555.10) y 9.019 Ground_CR113 east four lane seam | Ground_480_640 8.960
+-- lane offset -2.05
+  s 1408.05 (154.85,549.99) y 8.978 Ground_400_640
+  s 1408.30 (155.10,550.02) y 8.978 Ground_400_640
+  s 1408.55 (155.35,550.04) y 8.978 Ground_400_640
+  s 1408.80 (155.59,550.06) y 8.978 Ground_400_640
+  s 1409.05 (155.84,550.08) y 8.978 Ground_400_640
+  s 1409.30 (156.09,550.10) y 8.978 Ground_400_640
+  s 1409.55 (156.34,550.12) y 8.978 Ground_400_640
+  s 1409.80 (156.59,550.15) y 8.978 Ground_400_640
+  s 1410.00 (156.78,550.16) y 8.978 Ground_400_640
+  s 1410.25 (157.03,550.19) y 8.978 Ground_400_640
+  s 1410.50 (157.28,550.21) y 8.978 Ground_400_640
+  s 1410.75 (157.53,550.23) y 8.978 Ground_400_640
+  s 1411.00 (157.77,550.25) y 8.978 Ground_400_640
+  s 1411.25 (158.02,550.27) y 8.978 Ground_400_640
+  s 1411.50 (158.27,550.30) y 8.978 Ground_400_640
+  s 1411.75 (158.52,550.32) y 8.978 Ground_400_640
+  s 1412.00 (158.77,550.34) y 8.978 Ground_400_640
+  s 1412.25 (159.02,550.37) y 8.978 Ground_400_640
+  s 1412.50 (159.27,550.39) y 8.978 Ground_400_640
+  s 1412.75 (159.52,550.41) y 8.978 Ground_400_640
+  s 1413.00 (159.76,550.44) y 8.978 Ground_400_640
+  s 1413.25 (160.01,550.46) y 8.978 Ground_480_640
+  s 1413.50 (160.26,550.48) y 8.978 Ground_480_640
+  s 1413.75 (160.51,550.51) y 8.977 Ground_480_640
+  s 1414.00 (160.76,550.53) y 8.977 Ground_480_640
+  s 1414.25 (161.00,550.56) y 8.977 Ground_480_640
+  s 1414.51 (161.25,550.58) y 8.977 Ground_480_640
+  s 1414.76 (161.50,550.60) y 8.976 Ground_480_640
+  s 1415.01 (161.75,550.63) y 9.059 Ground_CR113 east four lane seam | Ground_480_640 8.976
+  s 1415.26 (162.00,550.65) y 9.055 Ground_CR113 east four lane seam | Ground_480_640 8.975
+  s 1415.51 (162.25,550.68) y 9.050 Ground_CR113 east four lane seam | Ground_480_640 8.974
+  s 1415.76 (162.49,550.70) y 9.046 Ground_CR113 east four lane seam | Ground_480_640 8.973
+  s 1416.01 (162.74,550.73) y 9.033 Ground_CR113 east four lane seam | Ground_480_640 8.972
+  s 1416.26 (162.99,550.75) y 9.031 Ground_CR113 east four lane seam | Ground_480_640 8.971
+  s 1416.51 (163.24,550.78) y 9.029 Ground_CR113 east four lane seam | Ground_480_640 8.970
+  s 1416.76 (163.49,550.80) y 9.028 Ground_CR113 east four lane seam | Ground_480_640 8.968
+  s 1417.01 (163.74,550.82) y 9.027 Ground_CR113 east four lane seam | Ground_480_640 8.967
+  s 1417.26 (163.99,550.85) y 9.026 Ground_CR113 east four lane seam | Ground_480_640 8.966
+  s 1417.51 (164.24,550.87) y 9.025 Ground_CR113 east four lane seam | Ground_480_640 8.965
+  s 1417.76 (164.49,550.90) y 9.024 Ground_CR113 east four lane seam | Ground_480_640 8.964
+  s 1418.01 (164.74,550.92) y 9.023 Ground_CR113 east four lane seam | Ground_480_640 8.963
+  s 1418.26 (164.99,550.95) y 9.022 Ground_CR113 east four lane seam | Ground_480_640 8.962
+  s 1418.51 (165.24,550.97) y 9.021 Ground_CR113 east four lane seam | Ground_480_640 8.961
+  s 1418.76 (165.48,550.99) y 9.020 Ground_CR113 east four lane seam | Ground_480_640 8.960
+  s 1419.01 (165.74,551.02) y 9.019 Ground_CR113 east four lane seam | Ground_480_640 8.959
+-- lane offset 2.05
+  s 1408.05 (155.19,545.91) y 8.978 Ground_400_640
+  s 1408.30 (155.44,545.93) y 8.978 Ground_400_640
+  s 1408.55 (155.69,545.95) y 8.978 Ground_400_640
+  s 1408.80 (155.95,545.97) y 8.978 Ground_400_640
+  s 1409.05 (156.20,546.00) y 8.978 Ground_400_640
+  s 1409.30 (156.45,546.02) y 8.978 Ground_400_640
+  s 1409.55 (156.70,546.04) y 8.978 Ground_400_640
+  s 1409.80 (156.95,546.06) y 8.978 Ground_400_640
+  s 1410.00 (157.15,546.08) y 8.978 Ground_400_640
+  s 1410.25 (157.40,546.10) y 8.978 Ground_400_640
+  s 1410.50 (157.64,546.12) y 8.978 Ground_400_640
+  s 1410.75 (157.89,546.15) y 8.978 Ground_400_640
+  s 1411.00 (158.15,546.17) y 8.978 Ground_400_640
+  s 1411.25 (158.40,546.19) y 8.978 Ground_400_640
+  s 1411.50 (158.65,546.21) y 8.978 Ground_400_640
+  s 1411.75 (158.90,546.24) y 8.978 Ground_400_640
+  s 1412.00 (159.15,546.26) y 8.978 Ground_400_640
+  s 1412.25 (159.40,546.28) y 8.978 Ground_400_640
+  s 1412.50 (159.65,546.31) y 8.978 Ground_400_640
+  s 1412.75 (159.90,546.33) y 8.978 Ground_400_640
+  s 1413.00 (160.15,546.35) y 8.978 Ground_480_640
+  s 1413.25 (160.40,546.38) y 8.978 Ground_480_640
+  s 1413.50 (160.65,546.40) y 8.978 Ground_480_640
+  s 1413.75 (160.90,546.43) y 8.978 Ground_480_640
+  s 1414.00 (161.15,546.45) y 8.978 Ground_480_640
+  s 1414.25 (161.40,546.47) y 8.978 Ground_480_640
+  s 1414.51 (161.65,546.50) y 8.978 Ground_480_640
+  s 1414.76 (161.90,546.52) y 8.977 Ground_480_640
+  s 1415.01 (162.15,546.55) y 9.059 Ground_CR113 east four lane seam | Ground_480_640 8.977
+  s 1415.26 (162.40,546.57) y 9.049 Ground_CR113 east four lane seam | Ground_480_640 8.975
+  s 1415.51 (162.65,546.60) y 9.035 Ground_CR113 east four lane seam | Ground_480_640 8.974
+  s 1415.76 (162.90,546.62) y 9.033 Ground_CR113 east four lane seam | Ground_480_640 8.973
+  s 1416.01 (163.15,546.65) y 9.032 Ground_CR113 east four lane seam | Ground_480_640 8.972
+  s 1416.26 (163.39,546.67) y 9.031 Ground_CR113 east four lane seam | Ground_480_640 8.971
+  s 1416.51 (163.64,546.70) y 9.029 Ground_CR113 east four lane seam | Ground_480_640 8.969
+  s 1416.76 (163.89,546.72) y 9.028 Ground_CR113 east four lane seam | Ground_480_640 8.968
+  s 1417.01 (164.14,546.74) y 9.027 Ground_CR113 east four lane seam | Ground_480_640 8.967
+  s 1417.26 (164.39,546.77) y 9.026 Ground_CR113 east four lane seam | Ground_480_640 8.966
+  s 1417.51 (164.64,546.79) y 9.025 Ground_CR113 east four lane seam | Ground_480_640 8.965
+  s 1417.76 (164.89,546.82) y 9.024 Ground_CR113 east four lane seam | Ground_480_640 8.964
+  s 1418.01 (165.14,546.84) y 9.023 Ground_CR113 east four lane seam | Ground_480_640 8.963
+  s 1418.26 (165.39,546.87) y 9.022 Ground_CR113 east four lane seam | Ground_480_640 8.962
+  s 1418.51 (165.63,546.89) y 9.021 Ground_CR113 east four lane seam | Ground_480_640 8.961
+  s 1418.76 (165.88,546.91) y 9.020 Ground_CR113 east four lane seam | Ground_480_640 8.960
+  s 1419.01 (166.13,546.94) y 9.019 Ground_CR113 east four lane seam | Ground_480_640 8.959
+-- lane offset 6.15
+  s 1408.05 (155.54,541.82) y 8.980 Ground_400_640
+  s 1408.30 (155.79,541.84) y 8.979 Ground_400_640
+  s 1408.55 (156.04,541.87) y 8.979 Ground_400_640
+  s 1408.80 (156.31,541.89) y 8.978 Ground_400_640
+  s 1409.05 (156.56,541.91) y 8.978 Ground_400_640
+  s 1409.30 (156.81,541.93) y 8.978 Ground_400_640
+  s 1409.55 (157.06,541.96) y 8.978 Ground_400_640
+  s 1409.80 (157.31,541.98) y 8.978 Ground_400_640
+  s 1410.00 (157.51,542.00) y 8.978 Ground_400_640
+  s 1410.25 (157.76,542.02) y 8.978 Ground_400_640
+  s 1410.50 (158.01,542.04) y 8.978 Ground_400_640
+  s 1410.75 (158.26,542.06) y 8.978 Ground_400_640
+  s 1411.00 (158.53,542.09) y 8.978 Ground_400_640
+  s 1411.25 (158.78,542.11) y 8.978 Ground_400_640
+  s 1411.50 (159.03,542.13) y 8.978 Ground_400_640
+  s 1411.75 (159.28,542.16) y 8.978 Ground_400_640
+  s 1412.00 (159.52,542.18) y 8.978 Ground_400_640
+  s 1412.25 (159.77,542.20) y 8.978 Ground_400_640
+  s 1412.50 (160.02,542.22) y 8.978 Ground_480_640
+  s 1412.75 (160.27,542.25) y 8.978 Ground_480_640
+  s 1413.00 (160.55,542.27) y 8.978 Ground_480_640
+  s 1413.25 (160.80,542.30) y 8.978 Ground_480_640
+  s 1413.50 (161.04,542.32) y 8.978 Ground_480_640
+  s 1413.75 (161.29,542.35) y 8.978 Ground_480_640
+  s 1414.00 (161.54,542.37) y 8.978 Ground_480_640
+  s 1414.25 (161.79,542.39) y 8.978 Ground_480_640
+  s 1414.51 (162.04,542.42) y 8.978 Ground_480_640
+  s 1414.76 (162.29,542.44) y 8.977 Ground_480_640
+  s 1415.01 (162.55,542.47) y 9.038 Ground_CR113 east four lane seam | Ground_480_640 8.976
+  s 1415.26 (162.80,542.49) y 9.035 Ground_CR113 east four lane seam | Ground_480_640 8.975
+  s 1415.51 (163.05,542.52) y 9.034 Ground_CR113 east four lane seam | Ground_480_640 8.974
+  s 1415.76 (163.30,542.54) y 9.033 Ground_CR113 east four lane seam | Ground_480_640 8.973
+  s 1416.01 (163.55,542.57) y 9.032 Ground_CR113 east four lane seam | Ground_480_640 8.972
+  s 1416.26 (163.80,542.59) y 9.031 Ground_CR113 east four lane seam | Ground_480_640 8.971
+  s 1416.51 (164.05,542.62) y 9.029 Ground_CR113 east four lane seam | Ground_480_640 8.969
+  s 1416.76 (164.30,542.64) y 9.028 Ground_CR113 east four lane seam | Ground_480_640 8.968
+  s 1417.01 (164.54,542.66) y 9.027 Ground_CR113 east four lane seam | Ground_480_640 8.967
+  s 1417.26 (164.79,542.69) y 9.026 Ground_CR113 east four lane seam | Ground_480_640 8.966
+  s 1417.51 (165.04,542.71) y 9.025 Ground_CR113 east four lane seam | Ground_480_640 8.965
+  s 1417.76 (165.29,542.74) y 9.024 Ground_CR113 east four lane seam | Ground_480_640 8.964
+  s 1418.01 (165.53,542.76) y 9.023 Ground_CR113 east four lane seam | Ground_480_640 8.963
+  s 1418.26 (165.78,542.79) y 9.022 Ground_CR113 east four lane seam | Ground_480_640 8.962
+  s 1418.51 (166.03,542.81) y 9.021 Ground_CR113 east four lane seam | Ground_480_640 8.961
+  s 1418.76 (166.28,542.83) y 9.020 Ground_CR113 east four lane seam | Ground_480_640 8.960
+  s 1419.01 (166.52,542.86) y 9.019 Ground_CR113 east four lane seam | Ground_480_640 8.959
+collider Ground_400_640 mesh StreetLoopGreybox-CR113 east support-Ground_400_640 Assets/Track/Discovery/StreetLoopGreybox-CR113 east support-Ground_400_640.asset verts 6561
+   v319 (152.00,8.796,536.00)
+   v320 (154.00,8.810,536.00)
+   v321 (156.00,8.830,536.00)
+   v400 (152.00,8.981,538.00)
+   v401 (154.00,8.967,538.00)
+   v402 (156.00,8.962,538.00)
+   v403 (158.00,8.961,538.00)
+   v404 (160.00,8.961,538.00)
+   v481 (152.00,9.018,540.00)
+   v482 (154.00,8.998,540.00)
+   v483 (156.00,8.986,540.00)
+   v484 (158.00,8.980,540.00)
+   v485 (160.00,8.978,540.00)
+   v562 (152.00,9.002,542.00)
+   v563 (154.00,8.985,542.00)
+   v564 (156.00,8.978,542.00)
+   v565 (158.00,8.978,542.00)
+   v566 (160.00,8.978,542.00)
+   v643 (152.00,8.991,544.00)
+   v644 (154.00,8.979,544.00)
+   v645 (156.00,8.978,544.00)
+   v646 (158.00,8.978,544.00)
+   v647 (160.00,8.978,544.00)
+   v724 (152.00,8.985,546.00)
+   v725 (154.00,8.978,546.00)
+   v726 (156.00,8.978,546.00)
+   v727 (158.00,8.978,546.00)
+   v728 (160.00,8.978,546.00)
+   v805 (152.00,8.983,548.00)
+   v806 (154.00,8.978,548.00)
+   v807 (156.00,8.978,548.00)
+   v808 (158.00,8.978,548.00)
+   v809 (160.00,8.978,548.00)
+   v886 (152.00,8.983,550.00)
+   v887 (154.00,8.978,550.00)
+   v888 (156.00,8.978,550.00)
+   v889 (158.00,8.978,550.00)
+   v890 (160.00,8.978,550.00)
+   v967 (152.00,8.987,552.00)
+   v968 (154.00,8.978,552.00)
+   v969 (156.00,8.978,552.00)
+   v970 (158.00,8.978,552.00)
+   v971 (160.00,8.978,552.00)
+   v1048 (152.00,8.995,554.00)
+   v1049 (154.00,8.981,554.00)
+   v1050 (156.00,8.978,554.00)
+   v1051 (158.00,8.978,554.00)
+   v1052 (160.00,8.978,554.00)
+   v1129 (152.00,9.007,556.00)
+   v1130 (154.00,8.989,556.00)
+   v1131 (156.00,8.980,556.00)
+   v1132 (158.00,8.978,556.00)
+   v1133 (160.00,8.978,556.00)
+   v1210 (152.00,8.939,558.00)
+   v1211 (154.00,8.957,558.00)
+   v1212 (156.00,8.968,558.00)
+   v1213 (158.00,8.974,558.00)
+   v1214 (160.00,8.976,558.00)
+   v1293 (156.00,8.866,560.00)
+   v1294 (158.00,8.896,560.00)
+   v1295 (160.00,8.914,560.00)
+collider Ground_480_640 mesh FreeRoamWorld-Ground_480_640-conformed Assets/Scenery/Report096/FreeRoamWorld-Ground_480_640-conformed.asset verts 36193
+   v1441 (160.00,8.961,538.00)
+   v1444 (160.00,8.961,538.00)
+   v1445 (162.00,8.959,538.00)
+   v1447 (162.00,8.959,538.00)
+   v1450 (162.00,8.959,538.00)
+   v1451 (164.00,8.946,538.00)
+   v1453 (164.00,8.946,538.00)
+   v1456 (164.00,8.946,538.00)
+   v1457 (166.00,8.929,538.00)
+   v1459 (166.00,8.929,538.00)
+   v1462 (166.00,8.929,538.00)
+   v1463 (168.00,8.912,538.00)
+   v1465 (168.00,8.912,538.00)
+   v1468 (168.00,8.912,538.00)
+   v1920 (160.00,8.961,538.00)
+   v1921 (160.00,8.978,540.00)
+   v1922 (162.00,8.959,538.00)
+   v1923 (162.00,8.959,538.00)
+   v1924 (160.00,8.978,540.00)
+   v1925 (162.00,8.978,540.00)
+   v1926 (162.00,8.959,538.00)
+   v1927 (162.00,8.978,540.00)
+   v1928 (164.00,8.946,538.00)
+   v1929 (164.00,8.946,538.00)
+   v1930 (162.00,8.978,540.00)
+   v1931 (164.00,8.971,540.00)
+   v1932 (164.00,8.946,538.00)
+   v1933 (164.00,8.971,540.00)
+   v1934 (166.00,8.929,538.00)
+   v1935 (166.00,8.929,538.00)
+   v1936 (164.00,8.971,540.00)
+   v1937 (166.00,8.963,540.00)
+   v1938 (166.00,8.929,538.00)
+   v1939 (166.00,8.963,540.00)
+   v1940 (168.00,8.912,538.00)
+   v1941 (168.00,8.912,538.00)
+   v1942 (166.00,8.963,540.00)
+   v1943 (168.00,8.955,540.00)
+   v1944 (168.00,8.912,538.00)
+   v1945 (168.00,8.955,540.00)
+   v1948 (168.00,8.955,540.00)
+   v2400 (160.00,8.978,540.00)
+   v2401 (160.00,8.978,542.00)
+   v2402 (162.00,8.978,540.00)
+   v2403 (162.00,8.978,540.00)
+   v2404 (160.00,8.978,542.00)
+   v2405 (162.00,8.978,542.00)
+   v2406 (162.00,8.978,540.00)
+   v2407 (162.00,8.978,542.00)
+   v2408 (164.00,8.971,540.00)
+   v2409 (164.00,8.971,540.00)
+   v2410 (162.00,8.978,542.00)
+   v2411 (164.00,8.970,542.00)
+   v2412 (164.00,8.971,540.00)
+   v2413 (164.00,8.970,542.00)
+   v2414 (166.00,8.963,540.00)
+   v2415 (166.00,8.963,540.00)
+   v2416 (164.00,8.970,542.00)
+   v2417 (166.00,8.962,542.00)
+   v2418 (166.00,8.963,540.00)
+   v2419 (166.00,8.962,542.00)
+   v2420 (168.00,8.955,540.00)
+   v2421 (168.00,8.955,540.00)
+   v2422 (166.00,8.962,542.00)
+   v2423 (168.00,8.955,542.00)
+   v2424 (168.00,8.955,540.00)
+   v2425 (168.00,8.955,542.00)
+   v2428 (168.00,8.955,542.00)
+   v2880 (160.00,8.978,542.00)
+   v2881 (160.00,8.978,544.00)
+   v2882 (162.00,8.978,542.00)
+   v2883 (162.00,8.978,542.00)
+   v2884 (160.00,8.978,544.00)
+   v2885 (162.00,8.978,544.00)
+   v2886 (162.00,8.978,542.00)
+   v2887 (162.00,8.978,544.00)
+   v2888 (164.00,8.970,542.00)
+   v2889 (164.00,8.970,542.00)
+   v2890 (162.00,8.978,544.00)
+   v2891 (164.00,8.969,544.00)
+   v2892 (164.00,8.970,542.00)
+   v2893 (164.00,8.969,544.00)
+   v2894 (166.00,8.962,542.00)
+   v2895 (166.00,8.962,542.00)
+   v2896 (164.00,8.969,544.00)
+   v2897 (166.00,8.961,544.00)
+   v2898 (166.00,8.962,542.00)
+   v2899 (166.00,8.961,544.00)
+   v2900 (168.00,8.955,542.00)
+   v2901 (168.00,8.955,542.00)
+   v2902 (166.00,8.961,544.00)
+   v2903 (168.00,8.954,544.00)
+   v2904 (168.00,8.955,542.00)
+   v2905 (168.00,8.954,544.00)
+   v2908 (168.00,8.954,544.00)
+   v3360 (160.00,8.978,544.00)
+   v3361 (160.00,8.978,546.00)
+   v3362 (162.00,8.978,544.00)
+   v3363 (162.00,8.978,544.00)
+   v3364 (160.00,8.978,546.00)
+   v3365 (162.00,8.978,546.00)
+   v3366 (162.00,8.978,544.00)
+   v3367 (162.00,8.978,546.00)
+   v3368 (164.00,8.969,544.00)
+   v3369 (164.00,8.969,544.00)
+   v3370 (162.00,8.978,546.00)
+   v3371 (164.00,8.968,546.00)
+   v3372 (164.00,8.969,544.00)
+   v3373 (164.00,8.968,546.00)
+   v3374 (166.00,8.961,544.00)
+   v3375 (166.00,8.961,544.00)
+   v3376 (164.00,8.968,546.00)
+   v3377 (166.00,8.960,546.00)
+   v3378 (166.00,8.961,544.00)
+   v3379 (166.00,8.960,546.00)
+   v3380 (168.00,8.954,544.00)
+   v3381 (168.00,8.954,544.00)
+   v3382 (166.00,8.960,546.00)
+   v3383 (168.00,8.953,546.00)
+   v3384 (168.00,8.954,544.00)
+   v3385 (168.00,8.953,546.00)
+   v3388 (168.00,8.953,546.00)
+   v3854 (160.00,8.978,546.00)
+   v3855 (160.00,8.978,548.00)
+   v3856 (162.00,8.978,546.00)
+   v3857 (162.00,8.978,546.00)
+   v3858 (160.00,8.978,548.00)
+   v3859 (162.00,8.977,548.00)
+   v3860 (162.00,8.978,546.00)
+   v3861 (162.00,8.977,548.00)
+   v3862 (164.00,8.968,546.00)
+   v3863 (164.00,8.968,546.00)
+   v3864 (162.00,8.977,548.00)
+   v3865 (164.00,8.967,548.00)
+   v3866 (164.00,8.968,546.00)
+   v3867 (164.00,8.967,548.00)
+   v3868 (166.00,8.960,546.00)
+   v3869 (166.00,8.960,546.00)
+   v3870 (164.00,8.967,548.00)
+   v3871 (166.00,8.959,548.00)
+   v3872 (166.00,8.960,546.00)
+   v3873 (166.00,8.959,548.00)
+   v3874 (168.00,8.953,546.00)
+   v3875 (168.00,8.953,546.00)
+   v3876 (166.00,8.959,548.00)
+   v3877 (168.00,8.953,548.00)
+   v3878 (168.00,8.953,546.00)
+   v3879 (168.00,8.953,548.00)
+   v3882 (168.00,8.953,548.00)
+   v4287 (160.00,8.978,548.00)
+   v4288 (160.00,8.978,550.00)
+   v4289 (162.00,8.977,548.00)
+   v4290 (162.00,8.977,548.00)
+   v4291 (160.00,8.978,550.00)
+   v4292 (162.00,8.976,550.00)
+   v4293 (162.00,8.977,548.00)
+   v4294 (162.00,8.976,550.00)
+   v4295 (164.00,8.967,548.00)
+   v4296 (164.00,8.967,548.00)
+   v4297 (162.00,8.976,550.00)
+   v4298 (164.00,8.966,550.00)
+   v4299 (164.00,8.967,548.00)
+   v4300 (164.00,8.966,550.00)
+   v4301 (166.00,8.959,548.00)
+   v4302 (166.00,8.959,548.00)
+   v4303 (164.00,8.966,550.00)
+   v4304 (166.00,8.959,550.00)
+   v4305 (166.00,8.959,548.00)
+   v4306 (166.00,8.959,550.00)
+   v4307 (168.00,8.953,548.00)
+   v4308 (168.00,8.953,548.00)
+   v4309 (166.00,8.959,550.00)
+   v4310 (168.00,8.952,550.00)
+   v4311 (168.00,8.953,548.00)
+   v4312 (168.00,8.952,550.00)
+   v4315 (168.00,8.952,550.00)
+   v4622 (160.00,8.978,550.00)
+   v4623 (160.00,8.978,552.00)
+   v4624 (162.00,8.976,550.00)
+   v4625 (162.00,8.976,550.00)
+   v4626 (160.00,8.978,552.00)
+   v4627 (162.00,8.975,552.00)
+   v4628 (162.00,8.976,550.00)
+   v4629 (162.00,8.975,552.00)
+   v4630 (164.00,8.966,550.00)
+   v4631 (164.00,8.966,550.00)
+   v4632 (162.00,8.975,552.00)
+   v4633 (164.00,8.966,552.00)
+   v4634 (164.00,8.966,550.00)
+   v4635 (164.00,8.966,552.00)
+   v4636 (166.00,8.959,550.00)
+   v4637 (166.00,8.959,550.00)
+   v4638 (164.00,8.966,552.00)
+   v4639 (166.00,8.958,552.00)
+   v4640 (166.00,8.959,550.00)
+   v4641 (166.00,8.958,552.00)
+   v4642 (168.00,8.952,550.00)
+   v4643 (168.00,8.952,550.00)
+   v4644 (166.00,8.958,552.00)
+   v4645 (168.00,8.952,552.00)
+   v4646 (168.00,8.952,550.00)
+   v4647 (168.00,8.952,552.00)
+   v4650 (168.00,8.952,552.00)
+   v4816 (160.00,8.978,552.00)
+   v4817 (160.00,8.978,554.00)
+   v4818 (162.00,8.975,552.00)
+   v4819 (162.00,8.975,552.00)
+   v4820 (160.00,8.978,554.00)
+   v4821 (162.00,8.974,554.00)
+   v4822 (162.00,8.975,552.00)
+   v4823 (162.00,8.974,554.00)
+   v4824 (164.00,8.966,552.00)
+   v4825 (164.00,8.966,552.00)
+   v4826 (162.00,8.974,554.00)
+   v4827 (164.00,8.965,554.00)
+   v4828 (164.00,8.966,552.00)
+   v4829 (164.00,8.965,554.00)
+   v4830 (166.00,8.958,552.00)
+   v4831 (166.00,8.958,552.00)
+   v4832 (164.00,8.965,554.00)
+   v4833 (166.00,8.957,554.00)
+   v4834 (166.00,8.958,552.00)
+   v4835 (166.00,8.957,554.00)
+   v4836 (168.00,8.952,552.00)
+   v4837 (168.00,8.952,552.00)
+   v4838 (166.00,8.957,554.00)
+   v4839 (168.00,8.952,554.00)
+   v4840 (168.00,8.952,552.00)
+   v4841 (168.00,8.952,554.00)
+   v4844 (168.00,8.952,554.00)
+   v4955 (160.00,8.978,554.00)
+   v4956 (160.00,8.978,556.00)
+   v4957 (162.00,8.974,554.00)
+   v4958 (162.00,8.974,554.00)
+   v4959 (160.00,8.978,556.00)
+   v4960 (162.00,8.973,556.00)
+   v4961 (162.00,8.974,554.00)
+   v4962 (162.00,8.973,556.00)
+   v4963 (164.00,8.965,554.00)
+   v4964 (164.00,8.965,554.00)
+   v4965 (162.00,8.973,556.00)
+   v4966 (164.00,8.964,556.00)
+   v4967 (164.00,8.965,554.00)
+   v4968 (164.00,8.964,556.00)
+   v4969 (166.00,8.957,554.00)
+   v4970 (166.00,8.957,554.00)
+   v4971 (164.00,8.964,556.00)
+   v4972 (166.00,8.957,556.00)
+   v4973 (166.00,8.957,554.00)
+   v4974 (166.00,8.957,556.00)
+   v4975 (168.00,8.952,554.00)
+   v4976 (168.00,8.952,554.00)
+   v4977 (166.00,8.957,556.00)
+   v4978 (168.00,8.951,556.00)
+   v4979 (168.00,8.952,554.00)
+   v4980 (168.00,8.951,556.00)
+   v4983 (168.00,8.951,556.00)
+   v5094 (160.00,8.978,556.00)
+   v5095 (160.00,8.976,558.00)
+   v5096 (162.00,8.973,556.00)
+   v5097 (162.00,8.973,556.00)
+   v5098 (160.00,8.976,558.00)
+   v5099 (162.00,8.971,558.00)
+   v5100 (162.00,8.973,556.00)
+   v5101 (162.00,8.971,558.00)
+   v5102 (164.00,8.964,556.00)
+   v5103 (164.00,8.964,556.00)
+   v5104 (162.00,8.971,558.00)
+   v5105 (164.00,8.963,558.00)
+   v5106 (164.00,8.964,556.00)
+   v5107 (164.00,8.963,558.00)
+   v5108 (166.00,8.957,556.00)
+   v5109 (166.00,8.957,556.00)
+   v5110 (164.00,8.963,558.00)
+   v5111 (166.00,8.956,558.00)
+   v5112 (166.00,8.957,556.00)
+   v5113 (166.00,8.956,558.00)
+   v5114 (168.00,8.951,556.00)
+   v5115 (168.00,8.951,556.00)
+   v5116 (166.00,8.956,558.00)
+   v5117 (168.00,8.951,558.00)
+   v5118 (168.00,8.951,556.00)
+   v5119 (168.00,8.951,558.00)
+   v5122 (168.00,8.951,558.00)
+   v5233 (160.00,8.976,558.00)
+   v5234 (160.00,8.914,560.00)
+   v5235 (162.00,8.971,558.00)
+   v5236 (162.00,8.971,558.00)
+   v5237 (160.00,8.914,560.00)
+   v5238 (162.00,8.917,560.00)
+   v5239 (162.00,8.971,558.00)
+   v5240 (162.00,8.917,560.00)
+   v5241 (164.00,8.963,558.00)
+   v5242 (164.00,8.963,558.00)
+   v5243 (162.00,8.917,560.00)
+   v5244 (164.00,8.918,560.00)
+   v5245 (164.00,8.963,558.00)
+   v5246 (164.00,8.918,560.00)
+   v5247 (166.00,8.956,558.00)
+   v5248 (166.00,8.956,558.00)
+   v5249 (164.00,8.918,560.00)
+   v5250 (166.00,8.920,560.00)
+   v5251 (166.00,8.956,558.00)
+   v5252 (166.00,8.920,560.00)
+   v5253 (168.00,8.951,558.00)
+   v5254 (168.00,8.951,558.00)
+   v5255 (166.00,8.920,560.00)
+   v5256 (168.00,8.921,560.00)
+   v5257 (168.00,8.951,558.00)
+   v5258 (168.00,8.921,560.00)
+   v5261 (168.00,8.921,560.00)
+   v5372 (160.00,8.914,560.00)
+   v5374 (162.00,8.917,560.00)
+   v5375 (162.00,8.917,560.00)
+   v5378 (162.00,8.917,560.00)
+   v5380 (164.00,8.918,560.00)
+   v5381 (164.00,8.918,560.00)
+   v5384 (164.00,8.918,560.00)
+   v5386 (166.00,8.920,560.00)
+   v5387 (166.00,8.920,560.00)
+   v5390 (166.00,8.920,560.00)
+   v5392 (168.00,8.921,560.00)
+   v5393 (168.00,8.921,560.00)
+   v5396 (168.00,8.921,560.00)
+collider Ground_CR113 east four lane seam mesh FreeRoamWorld-Ground_CR113 east four lane seam-conformed Assets/Scenery/Report096/FreeRoamWorld-Ground_CR113 east four lane seam-conformed.asset verts 965
+   v0 (160.92,9.038,556.73)
+   v1 (162.53,9.038,540.41)
+   v2 (162.91,9.028,556.92)
+   v3 (164.51,9.028,540.60)
+   v4 (164.90,9.020,557.12)
+   v5 (166.49,9.020,540.79)
+   v6 (166.90,9.013,557.31)
+   v7 (168.47,9.013,540.99)
+   v8 (168.90,9.008,557.50)
+   v468 (162.13,9.063,544.41)
+   v469 (162.12,9.063,544.56)
+   v470 (161.74,9.063,548.34)
+   v471 (161.73,9.063,548.47)
+   v472 (161.33,9.063,552.57)
+   v473 (161.31,9.063,552.72)
+==== x -512..-502
+-- lane offset -6.15
+  s 739.04 (-511.61,544.84) y 7.948 Ground_CR113 west four lane seam | Ground_80_640 7.888
+  s 739.29 (-511.36,544.82) y 7.949 Ground_CR113 west four lane seam | Ground_80_640 7.889
+  s 739.54 (-511.11,544.81) y 7.949 Ground_CR113 west four lane seam | Ground_80_640 7.889
+  s 739.79 (-510.86,544.79) y 7.949 Ground_CR113 west four lane seam | Ground_80_640 7.889
+  s 740.04 (-510.61,544.78) y 7.949 Ground_CR113 west four lane seam | Ground_80_640 7.889
+  s 740.29 (-510.36,544.76) y 7.949 Ground_CR113 west four lane seam | Ground_80_640 7.889
+  s 740.54 (-510.11,544.75) y 7.950 Ground_CR113 west four lane seam | Ground_80_640 7.890
+  s 740.79 (-509.86,544.73) y 7.950 Ground_CR113 west four lane seam | Ground_80_640 7.890
+  s 741.04 (-509.60,544.72) y 7.950 Ground_CR113 west four lane seam | Ground_80_640 7.890
+  s 741.29 (-509.35,544.70) y 7.950 Ground_CR113 west four lane seam | Ground_80_640 7.890
+  s 741.54 (-509.11,544.69) y 7.950 Ground_CR113 west four lane seam | Ground_80_640 7.890
+  s 741.79 (-508.86,544.67) y 7.951 Ground_CR113 west four lane seam | Ground_80_640 7.891
+  s 742.04 (-508.61,544.66) y 7.951 Ground_CR113 west four lane seam | Ground_80_640 7.891
+  s 742.29 (-508.36,544.64) y 7.951 Ground_CR113 west four lane seam | Ground_80_640 7.891
+  s 742.54 (-508.11,544.63) y 7.951 Ground_CR113 west four lane seam | Ground_80_640 7.891
+  s 742.79 (-507.85,544.61) y 7.951 Ground_CR113 west four lane seam | Ground_80_640 7.891
+  s 743.04 (-507.60,544.60) y 7.952 Ground_CR113 west four lane seam | Ground_80_640 7.892
+  s 743.29 (-507.35,544.58) y 7.952 Ground_CR113 west four lane seam | Ground_80_640 7.892
+  s 743.54 (-507.10,544.57) y 7.952 Ground_CR113 west four lane seam | Ground_80_640 7.892
+  s 743.79 (-506.85,544.55) y 7.952 Ground_CR113 west four lane seam | Ground_80_640 7.892
+  s 744.04 (-506.60,544.54) y 7.952 Ground_CR113 west four lane seam | Ground_80_640 7.892
+  s 744.29 (-506.35,544.52) y 7.953 Ground_CR113 west four lane seam | Ground_80_640 7.893
+  s 744.54 (-506.10,544.51) y 7.953 Ground_CR113 west four lane seam | Ground_80_640 7.893
+  s 744.79 (-505.86,544.49) y 7.893 Ground_80_640
+  s 745.04 (-505.61,544.48) y 7.893 Ground_80_640
+  s 745.29 (-505.36,544.46) y 7.893 Ground_80_640
+  s 745.54 (-505.11,544.45) y 7.893 Ground_80_640
+  s 745.79 (-504.86,544.43) y 7.893 Ground_80_640
+  s 746.04 (-504.61,544.42) y 7.893 Ground_80_640
+  s 746.29 (-504.36,544.40) y 7.893 Ground_80_640
+  s 746.54 (-504.11,544.39) y 7.893 Ground_80_640
+  s 746.79 (-503.87,544.37) y 7.893 Ground_80_640
+  s 747.04 (-503.62,544.36) y 7.893 Ground_80_640
+  s 747.29 (-503.37,544.34) y 7.893 Ground_80_640
+  s 747.54 (-503.12,544.33) y 7.893 Ground_80_640
+  s 747.79 (-502.87,544.31) y 7.893 Ground_80_640
+  s 748.04 (-502.62,544.30) y 7.893 Ground_80_640
+  s 748.29 (-502.37,544.28) y 7.893 Ground_80_640
+  s 748.54 (-502.12,544.27) y 7.893 Ground_80_640
+  s 748.79 (-501.88,544.25) y 7.893 Ground_80_640
+-- lane offset -2.05
+  s 739.04 (-511.85,540.74) y 7.948 Ground_CR113 west four lane seam | Ground_80_640 7.888
+  s 739.29 (-511.60,540.73) y 7.949 Ground_CR113 west four lane seam | Ground_80_640 7.889
+  s 739.54 (-511.35,540.71) y 7.949 Ground_CR113 west four lane seam | Ground_80_640 7.889
+  s 739.79 (-511.10,540.70) y 7.949 Ground_CR113 west four lane seam | Ground_80_640 7.889
+  s 740.04 (-510.85,540.68) y 7.949 Ground_CR113 west four lane seam | Ground_80_640 7.889
+  s 740.29 (-510.60,540.67) y 7.949 Ground_CR113 west four lane seam | Ground_80_640 7.889
+  s 740.54 (-510.35,540.66) y 7.950 Ground_CR113 west four lane seam | Ground_80_640 7.890
+  s 740.79 (-510.10,540.64) y 7.950 Ground_CR113 west four lane seam | Ground_80_640 7.890
+  s 741.04 (-509.85,540.63) y 7.950 Ground_CR113 west four lane seam | Ground_80_640 7.890
+  s 741.29 (-509.60,540.61) y 7.950 Ground_CR113 west four lane seam | Ground_80_640 7.890
+  s 741.54 (-509.35,540.60) y 7.950 Ground_CR113 west four lane seam | Ground_80_640 7.890
+  s 741.79 (-509.10,540.58) y 7.951 Ground_CR113 west four lane seam | Ground_80_640 7.891
+  s 742.04 (-508.85,540.57) y 7.951 Ground_CR113 west four lane seam | Ground_80_640 7.891
+  s 742.29 (-508.60,540.55) y 7.951 Ground_CR113 west four lane seam | Ground_80_640 7.891
+  s 742.54 (-508.35,540.54) y 7.951 Ground_CR113 west four lane seam | Ground_80_640 7.891
+  s 742.79 (-508.10,540.52) y 7.951 Ground_CR113 west four lane seam | Ground_80_640 7.891
+  s 743.04 (-507.85,540.51) y 7.952 Ground_CR113 west four lane seam | Ground_80_640 7.892
+  s 743.29 (-507.60,540.49) y 7.952 Ground_CR113 west four lane seam | Ground_80_640 7.892
+  s 743.54 (-507.35,540.48) y 7.952 Ground_CR113 west four lane seam | Ground_80_640 7.892
+  s 743.79 (-507.10,540.46) y 7.952 Ground_CR113 west four lane seam | Ground_80_640 7.892
+  s 744.04 (-506.85,540.44) y 7.953 Ground_CR113 west four lane seam | Ground_80_640 7.892
+  s 744.29 (-506.60,540.43) y 7.966 Ground_CR113 west four lane seam | Ground_80_640 7.893
+  s 744.54 (-506.35,540.41) y 7.975 Ground_CR113 west four lane seam | Ground_80_640 7.893
+  s 744.79 (-506.10,540.40) y 7.893 Ground_80_640
+  s 745.04 (-505.86,540.38) y 7.893 Ground_80_640
+  s 745.29 (-505.61,540.37) y 7.893 Ground_80_640
+  s 745.54 (-505.36,540.35) y 7.893 Ground_80_640
+  s 745.79 (-505.11,540.34) y 7.893 Ground_80_640
+  s 746.04 (-504.86,540.32) y 7.893 Ground_80_640
+  s 746.29 (-504.61,540.31) y 7.893 Ground_80_640
+  s 746.54 (-504.36,540.29) y 7.893 Ground_80_640
+  s 746.79 (-504.11,540.28) y 7.893 Ground_80_640
+  s 747.04 (-503.86,540.26) y 7.893 Ground_80_640
+  s 747.29 (-503.61,540.25) y 7.893 Ground_80_640
+  s 747.54 (-503.36,540.23) y 7.893 Ground_80_640
+  s 747.79 (-503.11,540.22) y 7.893 Ground_80_640
+  s 748.04 (-502.86,540.20) y 7.893 Ground_80_640
+  s 748.29 (-502.61,540.19) y 7.893 Ground_80_640
+  s 748.54 (-502.36,540.17) y 7.893 Ground_80_640
+  s 748.79 (-502.12,540.16) y 7.893 Ground_80_640
+-- lane offset 2.05
+  s 739.04 (-512.09,536.65) y 7.948 Ground_CR113 west four lane seam | Ground_80_640 7.888
+  s 739.29 (-511.84,536.63) y 7.949 Ground_CR113 west four lane seam | Ground_80_640 7.889
+  s 739.54 (-511.59,536.62) y 7.949 Ground_CR113 west four lane seam | Ground_80_640 7.889
+  s 739.79 (-511.34,536.61) y 7.949 Ground_CR113 west four lane seam | Ground_80_640 7.889
+  s 740.04 (-511.09,536.59) y 7.949 Ground_CR113 west four lane seam | Ground_80_640 7.889
+  s 740.29 (-510.84,536.58) y 7.949 Ground_CR113 west four lane seam | Ground_80_640 7.889
+  s 740.54 (-510.59,536.56) y 7.950 Ground_CR113 west four lane seam | Ground_80_640 7.890
+  s 740.79 (-510.34,536.55) y 7.950 Ground_CR113 west four lane seam | Ground_80_640 7.890
+  s 741.04 (-510.09,536.53) y 7.950 Ground_CR113 west four lane seam | Ground_80_640 7.890
+  s 741.29 (-509.84,536.52) y 7.950 Ground_CR113 west four lane seam | Ground_80_640 7.890
+  s 741.54 (-509.59,536.50) y 7.950 Ground_CR113 west four lane seam | Ground_80_640 7.890
+  s 741.79 (-509.34,536.49) y 7.951 Ground_CR113 west four lane seam | Ground_80_640 7.891
+  s 742.04 (-509.10,536.47) y 7.951 Ground_CR113 west four lane seam | Ground_80_640 7.891
+  s 742.29 (-508.85,536.46) y 7.951 Ground_CR113 west four lane seam | Ground_80_640 7.891
+  s 742.54 (-508.60,536.44) y 7.951 Ground_CR113 west four lane seam | Ground_80_640 7.891
+  s 742.79 (-508.35,536.43) y 7.951 Ground_CR113 west four lane seam | Ground_80_640 7.891
+  s 743.04 (-508.10,536.41) y 7.952 Ground_CR113 west four lane seam | Ground_80_640 7.892
+  s 743.29 (-507.85,536.40) y 7.952 Ground_CR113 west four lane seam | Ground_80_640 7.892
+  s 743.54 (-507.60,536.38) y 7.952 Ground_CR113 west four lane seam | Ground_80_640 7.892
+  s 743.79 (-507.35,536.37) y 7.965 Ground_CR113 west four lane seam | Ground_80_640 7.892
+  s 744.04 (-507.10,536.35) y 7.968 Ground_CR113 west four lane seam | Ground_80_640 7.892
+  s 744.29 (-506.85,536.34) y 7.971 Ground_CR113 west four lane seam | Ground_80_640 7.892
+  s 744.54 (-506.60,536.32) y 7.975 Ground_CR113 west four lane seam | Ground_80_640 7.893
+  s 744.79 (-506.35,536.31) y 7.893 Ground_80_640
+  s 745.04 (-506.10,536.29) y 7.893 Ground_80_640
+  s 745.29 (-505.85,536.28) y 7.893 Ground_80_640
+  s 745.54 (-505.60,536.26) y 7.893 Ground_80_640
+  s 745.79 (-505.36,536.25) y 7.893 Ground_80_640
+  s 746.04 (-505.11,536.23) y 7.893 Ground_80_640
+  s 746.29 (-504.86,536.22) y 7.893 Ground_80_640
+  s 746.54 (-504.61,536.20) y 7.893 Ground_80_640
+  s 746.79 (-504.35,536.18) y 7.893 Ground_80_640
+  s 747.04 (-504.11,536.17) y 7.893 Ground_80_640
+  s 747.29 (-503.86,536.16) y 7.893 Ground_80_640
+  s 747.54 (-503.61,536.14) y 7.893 Ground_80_640
+  s 747.79 (-503.36,536.13) y 7.893 Ground_80_640
+  s 748.04 (-503.11,536.11) y 7.893 Ground_80_640
+  s 748.29 (-502.86,536.10) y 7.893 Ground_80_640
+  s 748.54 (-502.61,536.08) y 7.893 Ground_80_640
+  s 748.79 (-502.36,536.07) y 7.893 Ground_80_640
+-- lane offset 6.15
+  s 739.04 (-512.32,532.56) y 7.948 Ground_CR113 west four lane seam | Ground_80_640 7.888
+  s 739.29 (-512.08,532.54) y 7.949 Ground_CR113 west four lane seam | Ground_80_640 7.889
+  s 739.54 (-511.83,532.53) y 7.949 Ground_CR113 west four lane seam | Ground_80_640 7.889
+  s 739.79 (-511.58,532.51) y 7.949 Ground_CR113 west four lane seam | Ground_80_640 7.889
+  s 740.04 (-511.33,532.50) y 7.949 Ground_CR113 west four lane seam | Ground_80_640 7.889
+  s 740.29 (-511.08,532.48) y 7.949 Ground_CR113 west four lane seam | Ground_80_640 7.889
+  s 740.54 (-510.83,532.47) y 7.950 Ground_CR113 west four lane seam | Ground_80_640 7.890
+  s 740.79 (-510.58,532.45) y 7.950 Ground_CR113 west four lane seam | Ground_80_640 7.890
+  s 741.04 (-510.34,532.44) y 7.950 Ground_CR113 west four lane seam | Ground_80_640 7.890
+  s 741.29 (-510.09,532.43) y 7.950 Ground_CR113 west four lane seam | Ground_80_640 7.890
+  s 741.54 (-509.84,532.41) y 7.950 Ground_CR113 west four lane seam | Ground_80_640 7.890
+  s 741.79 (-509.59,532.40) y 7.951 Ground_CR113 west four lane seam | Ground_80_640 7.891
+  s 742.04 (-509.34,532.38) y 7.951 Ground_CR113 west four lane seam | Ground_80_640 7.891
+  s 742.29 (-509.09,532.37) y 7.951 Ground_CR113 west four lane seam | Ground_80_640 7.891
+  s 742.54 (-508.84,532.35) y 7.951 Ground_CR113 west four lane seam | Ground_80_640 7.891
+  s 742.79 (-508.60,532.34) y 7.951 Ground_CR113 west four lane seam | Ground_80_640 7.891
+  s 743.04 (-508.35,532.32) y 7.952 Ground_CR113 west four lane seam | Ground_80_640 7.892
+  s 743.29 (-508.10,532.31) y 7.958 Ground_CR113 west four lane seam | Ground_80_640 7.892
+  s 743.54 (-507.85,532.29) y 7.961 Ground_CR113 west four lane seam | Ground_80_640 7.892
+  s 743.79 (-507.60,532.28) y 7.965 Ground_CR113 west four lane seam | Ground_80_640 7.892
+  s 744.04 (-507.35,532.26) y 7.965 Ground_CR113 west four lane seam | Ground_80_640 7.892
+  s 744.29 (-507.10,532.24) y 7.965 Ground_CR113 west four lane seam | Ground_80_640 7.892
+  s 744.54 (-506.86,532.23) y 7.966 Ground_CR113 west four lane seam | Ground_80_640 7.892
+  s 744.79 (-506.60,532.21) y 7.893 Ground_80_640
+  s 745.04 (-506.35,532.20) y 7.893 Ground_80_640
+  s 745.29 (-506.10,532.18) y 7.893 Ground_80_640
+  s 745.54 (-505.85,532.17) y 7.893 Ground_80_640
+  s 745.79 (-505.60,532.15) y 7.893 Ground_80_640
+  s 746.04 (-505.35,532.14) y 7.893 Ground_80_640
+  s 746.29 (-505.10,532.12) y 7.893 Ground_80_640
+  s 746.54 (-504.86,532.11) y 7.893 Ground_80_640
+  s 746.79 (-504.60,532.09) y 7.893 Ground_80_640
+  s 747.04 (-504.35,532.08) y 7.893 Ground_80_640
+  s 747.29 (-504.10,532.06) y 7.893 Ground_80_640
+  s 747.54 (-503.85,532.05) y 7.893 Ground_80_640
+  s 747.79 (-503.60,532.03) y 7.893 Ground_80_640
+  s 748.04 (-503.35,532.02) y 7.893 Ground_80_640
+  s 748.29 (-503.10,532.00) y 7.893 Ground_80_640
+  s 748.54 (-502.85,531.99) y 7.893 Ground_80_640
+  s 748.79 (-502.59,531.97) y 7.893 Ground_80_640
+collider Ground_CR113 west four lane seam mesh FreeRoamWorld-Ground_CR113 west four lane seam-conformed Assets/Scenery/Report096/FreeRoamWorld-Ground_CR113 west four lane seam-conformed.asset verts 430
+   v0 (-506.74,7.953,530.17)
+   v1 (-505.74,7.953,546.54)
+   v2 (-508.72,7.951,530.29)
+   v3 (-507.73,7.951,546.66)
+   v4 (-510.70,7.950,530.41)
+   v5 (-509.73,7.950,546.78)
+   v6 (-512.67,7.948,530.52)
+   v7 (-511.73,7.948,546.90)
+   v8 (-514.65,7.947,530.64)
+   v9 (-513.73,7.947,547.01)
+   v414 (-505.98,7.978,542.52)
+   v415 (-505.99,7.978,542.37)
+   v416 (-506.22,7.978,538.58)
+   v417 (-506.23,7.978,538.45)
+   v418 (-506.24,7.978,538.26)
+   v419 (-506.25,7.978,538.13)
+   v420 (-506.48,7.978,534.34)
+   v421 (-506.49,7.978,534.19)
+collider Ground_80_640 mesh StreetLoopGreybox-CR113 west support-Ground_80_640 Assets/Track/Discovery/StreetLoopGreybox-CR113 west support-Ground_80_640.asset verts 6561
+   v63 (-514.00,7.888,530.00)
+   v64 (-512.00,7.889,530.00)
+   v65 (-510.00,7.890,530.00)
+   v66 (-508.00,7.892,530.00)
+   v67 (-506.00,7.893,530.00)
+   v68 (-504.00,7.893,530.00)
+   v69 (-502.00,7.895,530.00)
+   v70 (-500.00,7.899,530.00)
+   v144 (-514.00,7.887,532.00)
+   v145 (-512.00,7.889,532.00)
+   v146 (-510.00,7.890,532.00)
+   v147 (-508.00,7.892,532.00)
+   v148 (-506.00,7.893,532.00)
+   v149 (-504.00,7.893,532.00)
+   v150 (-502.00,7.893,532.00)
+   v151 (-500.00,7.894,532.00)
+   v225 (-514.00,7.887,534.00)
+   v226 (-512.00,7.889,534.00)
+   v227 (-510.00,7.890,534.00)
+   v228 (-508.00,7.892,534.00)
+   v229 (-506.00,7.893,534.00)
+   v230 (-504.00,7.893,534.00)
+   v231 (-502.00,7.893,534.00)
+   v232 (-500.00,7.893,534.00)
+   v306 (-514.00,7.887,536.00)
+   v307 (-512.00,7.889,536.00)
+   v308 (-510.00,7.890,536.00)
+   v309 (-508.00,7.892,536.00)
+   v310 (-506.00,7.893,536.00)
+   v311 (-504.00,7.893,536.00)
+   v312 (-502.00,7.893,536.00)
+   v313 (-500.00,7.893,536.00)
+   v387 (-514.00,7.887,538.00)
+   v388 (-512.00,7.888,538.00)
+   v389 (-510.00,7.890,538.00)
+   v390 (-508.00,7.892,538.00)
+   v391 (-506.00,7.893,538.00)
+   v392 (-504.00,7.893,538.00)
+   v393 (-502.00,7.893,538.00)
+   v394 (-500.00,7.893,538.00)
+   v468 (-514.00,7.887,540.00)
+   v469 (-512.00,7.888,540.00)
+   v470 (-510.00,7.890,540.00)
+   v471 (-508.00,7.891,540.00)
+   v472 (-506.00,7.893,540.00)
+   v473 (-504.00,7.893,540.00)
+   v474 (-502.00,7.893,540.00)
+   v475 (-500.00,7.893,540.00)
+   v549 (-514.00,7.887,542.00)
+   v550 (-512.00,7.888,542.00)
+   v551 (-510.00,7.890,542.00)
+   v552 (-508.00,7.891,542.00)
+   v553 (-506.00,7.893,542.00)
+   v554 (-504.00,7.893,542.00)
+   v555 (-502.00,7.893,542.00)
+   v556 (-500.00,7.893,542.00)
+   v630 (-514.00,7.887,544.00)
+   v631 (-512.00,7.888,544.00)
+   v632 (-510.00,7.890,544.00)
+   v633 (-508.00,7.891,544.00)
+   v634 (-506.00,7.893,544.00)
+   v635 (-504.00,7.893,544.00)
+   v636 (-502.00,7.893,544.00)
+   v637 (-500.00,7.893,544.00)
+   v711 (-514.00,7.887,546.00)
+   v712 (-512.00,7.888,546.00)
+   v713 (-510.00,7.890,546.00)
+   v714 (-508.00,7.891,546.00)
+   v715 (-506.00,7.893,546.00)
+   v716 (-504.00,7.893,546.00)
+   v717 (-502.00,7.893,546.00)
+   v718 (-500.00,7.896,546.00)
+   v792 (-514.00,7.887,548.00)
+   v793 (-512.00,7.888,548.00)
+   v794 (-510.00,7.889,548.00)
+   v795 (-508.00,7.890,548.00)
+   v796 (-506.00,7.891,548.00)
+   v797 (-504.00,7.889,548.00)
+   v798 (-502.00,7.884,548.00)
+   v799 (-500.00,7.874,548.00)
+   v873 (-514.00,7.843,550.00)
+   v874 (-512.00,7.839,550.00)
+   v875 (-510.00,7.834,550.00)
+   v876 (-508.00,7.829,550.00)
+   v877 (-506.00,7.823,550.00)
+   v878 (-504.00,7.813,550.00)
+   v879 (-502.00,7.790,550.00)
+   v880 (-500.00,7.754,550.00)

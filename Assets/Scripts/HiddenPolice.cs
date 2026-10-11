@@ -106,16 +106,52 @@ namespace Racer
             if (Time.time >= nextMove) { nextMove = Time.time + MoveEvery * (.75f + .5f * Random.value); MoveOne(me); }
             if (Time.unscaledTime < nextTick) return; nextTick = Time.unscaledTime + .2f;
             if (!CanTrip()) return;
-            float mps = car.Body.linearVelocity.magnitude; float mph = SpeedPatrol.Mph(mps); int limit = SpeedPatrol.LimitAt(race, me, out bool onRoad);
+            float mps = car.Body.linearVelocity.magnitude; float mph = SpeedPatrol.Mph(mps); int limit = LimitAt(me, out bool onRoad);
             foreach (var s in Active)
             {
                 if (!s.prop) continue; var toPlayer = me - s.prop.Body.position; toPlayer.y = 0; float d = toPlayer.magnitude;
                 if (d < 35 && Time.time - s.heardAt > 150 && Random.value < .5f) { s.heardAt = Time.time; if (mph <= limit + OverBy) RadioLine("H01"); }
-                if (d > SeeRange) continue; // 0.100 Part D: within 70 m on either side, whichever way the car is parked (radar both ways; 0.99 saw only a 63-degree cone ahead of the car)
-                if (!onRoad || mph <= limit + OverBy) continue;
-                if (!Clear(s.prop.Body.position + Vector3.up * 1.3f, me + Vector3.up * 1f, car.transform)) continue;
+                if (!Sees(s, me, mph, limit, onRoad, car.transform, out _)) continue;
                 Trip(s, Mathf.RoundToInt(mph), limit); return;
             }
+        }
+        // 0.105 Part D: the speed limit test (SpeedPatrol.LimitAt) knows only the Street Loop, Hwy 92 and the ambient road, so on the lake road (where two
+        // of the hiding places are) every pass read "off the road" and no cop there ever clocked anyone; any road of the network counts (30 mph there)
+        public int LimitAt(Vector3 me, out bool onRoad)
+        {
+            int limit = SpeedPatrol.LimitAt(race, me, out onRoad); if (onRoad || net == null) return limit;
+            int n = net.Nearest(me, out _, 30); if (n < 0) return limit;
+            var road = net.Roads[net.Road[n]]; float s = road.Project(me, out float lateral); if (lateral < road.HalfWidth(s) + 2.5f) onRoad = true;
+            return limit;
+        }
+        // whether a parked hidden cop clocks the player at `me`: within 70 m on either side, whichever way the car is parked (0.100 Part D; radar both
+        // ways), the player on the road and over the limit by more than 10 mph, and a clear line of sight. `why` says what failed (the debug line, checks).
+        public bool Sees(Spot s, Vector3 me, float mph, int limit, bool onRoad, Transform player, out string why)
+        {
+            why = "";
+            if (!s.prop) { why = "no car parked yet (over " + SpawnDistance.ToString("F0") + " m)"; return false; }
+            var toPlayer = me - s.prop.Body.position; toPlayer.y = 0; float d = toPlayer.magnitude;
+            if (d > SeeRange) { why = "out of range"; return false; }
+            if (!onRoad) { why = "off the road"; return false; }
+            if (mph <= limit + OverBy) { why = "not fast enough"; return false; }
+            if (!Clear(Eye(s), Target(me), player, out var blocker)) { why = "view blocked by " + blocker; return false; }
+            return true;
+        }
+        public static Vector3 Eye(Spot s) => s.prop.Body.position + Vector3.up * 1.3f;
+        public static Vector3 Target(Vector3 me) => me + Vector3.up * 1f;
+        public float QuietLeft => Mathf.Max(0, Mathf.Max(QuietStart - (Time.time - attachedAt), QuietAfter - (Time.time - lastEnd)));
+        // 0.105 Part D: the nearest hidden cop as the debug box and the bug report show it, so a pass that did not trip says why
+        public string DebugLine => Describe(false);
+        public string DebugBox => Describe(true);
+        string Describe(bool box)
+        {
+            if (!race || !race.vehicle || Active.Count == 0) return "Hidden police: none placed";
+            var car = race.vehicle; var me = car.Body.position; float mph = SpeedPatrol.Mph(car.Body.linearVelocity.magnitude); int limit = LimitAt(me, out bool onRoad);
+            var s = Active.OrderBy(x => Vector3.Distance(x.prop ? x.prop.Body.position : x.pos, me)).First(); float d = Vector3.Distance(s.prop ? s.prop.Body.position : s.pos, me);
+            string blocker = "not parked yet"; bool view = s.prop && Clear(Eye(s), Target(me), car.transform, out blocker);
+            string quiet = ChaseRunning ? "chase on" : QuietLeft.ToString("F0") + " s";
+            string a = $"nearest {d:F0} m ({s.road}) · {mph:F0} mph vs {limit + OverBy:F0} ({limit}+{OverBy:F0})", b = $"on road {(onRoad ? "yes" : "no")} · clear view {(view ? "yes" : "no (" + blocker + ")")} · quiet {quiet}" + (Enabled ? "" : " · OFF in Settings");
+            return box ? "COPS " + a + "\n" + b : "Hidden police: " + a + " · " + b;
         }
         bool CanTrip()
         {
@@ -124,10 +160,10 @@ namespace Racer
             if (UnlockNotice.Showing != null) return false;
             return Time.time - attachedAt >= QuietStart && Time.time - lastEnd >= QuietAfter;
         }
-        bool Clear(Vector3 eye, Vector3 target, Transform ignore)
+        public static bool Clear(Vector3 eye, Vector3 target, Transform ignore, out string blocker)
         {
-            var dir = target - eye; float dist = dir.magnitude; if (dist < 1) return true; var hits = Physics.RaycastAll(eye, dir / dist, dist, ~0, QueryTriggerInteraction.Ignore);
-            foreach (var h in hits) { if (ignore && h.collider.transform.IsChildOf(ignore)) continue; if (h.collider.GetComponentInParent<ArcadeVehicle>()) continue; return false; }
+            blocker = ""; var dir = target - eye; float dist = dir.magnitude; if (dist < 1) return true; var hits = Physics.RaycastAll(eye, dir / dist, dist, ~0, QueryTriggerInteraction.Ignore);
+            foreach (var h in hits) { if (ignore && h.collider.transform.IsChildOf(ignore)) continue; if (h.collider.GetComponentInParent<ArcadeVehicle>()) continue; blocker = h.collider.name; return false; }
             return true;
         }
         void Trip(Spot s, int mph, int limit)

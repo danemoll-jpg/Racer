@@ -1,0 +1,42 @@
+APPLIED
+trail: 'Pine Ridge' (CR034-039 Woodland routes/Pine Ridge), 306 points, 616 m, half width 9.0 m; Dan's spot -578.59,-273.13: s 516, 0.2 m from the centre
+trail: 'Pine Ridge' (CR034-039 Woodland routes/Pine Ridge), 306 points, 616 m, half width 9.0 m; Dan's spot -303.76,-524.46: s 143, 2.2 m from the centre
+===== FreeRoamWorld: 4 trees in the trail (4 with trunk colliders, 0 bark boxes, 0 bushes); placed beside it 4
+  s   150 trunk collider 'World cleanup additional woodland/Roadside woodland trunk' at (-307.0, 25.1, -517.6) 4.9 m from the centre, width 0.60, 7 mesh pieces -> moved 6.5 m to (-301.0, 24.8, -515.0) (10.9 m from the centre, ground -0.35 m)
+  s   157 trunk collider 'World cleanup additional woodland/Roadside woodland trunk' at (-318.8, 25.0, -518.9) 4.4 m from the centre, width 0.60, 7 mesh pieces -> moved 15.4 m to (-308.0, 24.5, -508.1) (11.0 m from the centre, ground -0.53 m)
+  s   532 trunk collider 'World cleanup additional woodland/Roadside woodland trunk' at (-592.8, 9.6, -266.5) 2.8 m from the centre, width 0.60, 7 mesh pieces -> moved 8.4 m to (-597.7, 9.3, -273.4) (11.2 m from the centre, ground -0.29 m)
+  s   537 trunk collider 'World cleanup additional woodland/Roadside woodland trunk' at (-600.0, 9.0, -267.4) 7.7 m from the centre, width 0.60, 9 mesh pieces -> moved 3.5 m to (-602.0, 8.8, -270.2) (11.2 m from the centre, ground -0.19 m)
+    World cleanup additional woodland/Roadside woodland trunk at (-600.0, 9.0, -267.4): 6 bark + 3 crown pieces
+    World cleanup additional woodland/Roadside woodland trunk at (-307.0, 25.1, -517.6): 6 bark + 1 crown pieces
+    World cleanup additional woodland/Roadside woodland trunk at (-592.8, 9.6, -266.5): 6 bark + 1 crown pieces
+    World cleanup additional woodland/Roadside woodland trunk at (-318.8, 25.0, -518.9): 6 bark + 1 crown pieces
+===== StreetLoopGreybox: 0 trees in the trail (0 with trunk colliders, 0 bark boxes, 0 bushes); placed beside it 0
+===== StreetLoopReverse: 0 trees in the trail (0 with trunk colliders, 0 bark boxes, 0 bushes); placed beside it 0
+===== LakeWoods: 2 trees in the trail (2 with trunk colliders, 0 bark boxes, 0 bushes); placed beside it 2
+  s    84 trunk collider 'World cleanup additional woodland/Roadside woodland trunk' at (-254.8, 24.3, -555.3) 8.3 m from the centre, width 0.60, 7 mesh pieces -> moved 2.9 m to (-253.4, 24.3, -552.8) (11.2 m from the centre, ground +0.00 m)
+  s   130 trunk collider 'World cleanup additional woodland/Roadside woodland trunk' at (-297.7, 24.5, -536.8) 2.7 m from the centre, width 0.60, 7 mesh pieces -> moved 14.0 m to (-288.3, 23.8, -526.5) (11.3 m from the centre, ground -0.73 m)
+    World cleanup additional woodland/Roadside woodland trunk at (-297.7, 24.5, -536.8): 6 bark + 1 crown pieces
+    World cleanup additional woodland/Roadside woodland trunk at (-254.8, 24.3, -555.3): 6 bark + 1 crown pieces
+===== ForestLoopReverse: 1 trees in the trail (1 with trunk colliders, 0 bark boxes, 0 bushes); placed beside it 1
+  s   500 trunk collider 'World cleanup additional woodland/Roadside woodland trunk' at (-571.4, 11.6, -290.4) 9.1 m from the centre, width 0.60, 7 mesh pieces -> moved 1.8 m to (-572.5, 11.4, -291.9) (10.9 m from the centre, ground -0.26 m)
+    World cleanup additional woodland/Roadside woodland trunk at (-571.4, 11.6, -290.4): 6 bark + 1 crown pieces
+===== MountainLoop: 0 trees in the trail (0 with trunk colliders, 0 bark boxes, 0 bushes); placed beside it 0
+===== MountainLoopReverse: 0 trees in the trail (0 with trunk colliders, 0 bark boxes, 0 bushes); placed beside it 0
+===== DansBackyardForward: 4 trees in the trail (4 with trunk colliders, 0 bark boxes, 0 bushes); placed beside it 4
+  s   150 trunk collider 'World cleanup additional woodland/Roadside woodland trunk' at (-307.0, 25.1, -517.6) 4.9 m from the centre, width 0.60, 7 mesh pieces -> moved 6.5 m to (-301.0, 24.8, -515.0) (10.9 m from the centre, ground -0.35 m)
+  s   157 trunk collider 'World cleanup additional woodland/Roadside woodland trunk' at (-318.8, 25.0, -518.9) 4.4 m from the centre, width 0.60, 7 mesh pieces -> moved 15.4 m to (-308.0, 24.5, -508.1) (11.0 m from the centre, ground -0.53 m)
+  s   532 trunk collider 'World cleanup additional woodland/Roadside woodland trunk' at (-592.8, 9.6, -266.5) 2.8 m from the centre, width 0.60, 7 mesh pieces -> moved 8.4 m to (-597.7, 9.3, -273.4) (11.2 m from the centre, ground -0.29 m)
+  s   537 trunk collider 'World cleanup additional woodland/Roadside woodland trunk' at (-600.0, 9.0, -267.4) 7.7 m from the centre, width 0.60, 9 mesh pieces -> moved 3.5 m to (-602.0, 8.8, -270.2) (11.2 m from the centre, ground -0.19 m)
+    World cleanup additional woodland/Roadside woodland trunk at (-307.0, 25.1, -517.6): 6 bark + 1 crown pieces
+    World cleanup additional woodland/Roadside woodland trunk at (-592.8, 9.6, -266.5): 6 bark + 1 crown pieces
+    World cleanup additional woodland/Roadside woodland trunk at (-318.8, 25.0, -518.9): 6 bark + 1 crown pieces
+    World cleanup additional woodland/Roadside woodland trunk at (-600.0, 9.0, -267.4): 6 bark + 3 crown pieces
+===== DansBackyardReverse: 4 trees in the trail (4 with trunk colliders, 0 bark boxes, 0 bushes); placed beside it 4
+  s   150 trunk collider 'World cleanup additional woodland/Roadside woodland trunk' at (-307.0, 25.1, -517.6) 4.9 m from the centre, width 0.60, 7 mesh pieces -> moved 6.5 m to (-301.0, 24.8, -515.0) (10.9 m from the centre, ground -0.35 m)
+  s   157 trunk collider 'World cleanup additional woodland/Roadside woodland trunk' at (-318.8, 25.0, -518.9) 4.4 m from the centre, width 0.60, 7 mesh pieces -> moved 15.4 m to (-308.0, 24.5, -508.1) (11.0 m from the centre, ground -0.53 m)
+  s   532 trunk collider 'World cleanup additional woodland/Roadside woodland trunk' at (-592.8, 9.6, -266.5) 2.8 m from the centre, width 0.60, 7 mesh pieces -> moved 8.4 m to (-597.7, 9.3, -273.4) (11.2 m from the centre, ground -0.29 m)
+  s   537 trunk collider 'World cleanup additional woodland/Roadside woodland trunk' at (-600.0, 9.0, -267.4) 7.7 m from the centre, width 0.60, 9 mesh pieces -> moved 3.5 m to (-602.0, 8.8, -270.2) (11.2 m from the centre, ground -0.19 m)
+    World cleanup additional woodland/Roadside woodland trunk at (-592.8, 9.6, -266.5): 6 bark + 1 crown pieces
+    World cleanup additional woodland/Roadside woodland trunk at (-318.8, 25.0, -518.9): 6 bark + 1 crown pieces
+    World cleanup additional woodland/Roadside woodland trunk at (-307.0, 25.1, -517.6): 6 bark + 1 crown pieces
+    World cleanup additional woodland/Roadside woodland trunk at (-600.0, 9.0, -267.4): 6 bark + 3 crown pieces

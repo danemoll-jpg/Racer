@@ -1,0 +1,60 @@
+FreeRoamWorld d 1.00 y 8.880 Ground_240_640 slope before 0.0% after 0.0%
+FreeRoamWorld d 2.00 y 8.880 Ground_240_640 slope before 0.0% after 0.0%
+FreeRoamWorld d 3.00 y 8.880 Ground_240_640 slope before 0.0% after 0.0%
+FreeRoamWorld d 4.00 y 8.880 Ground_240_640 slope before 0.0% after 0.0%
+FreeRoamWorld d 5.00 y 8.880 Ground_240_640 slope before 0.0% after 0.0%
+FreeRoamWorld d 6.00 y 8.880 Ground_240_560 slope before 0.0% after 0.0%
+FreeRoamWorld d 7.00 y 8.880 Ground_240_560 slope before 0.0% after 0.0%
+FreeRoamWorld d 8.00 y 8.880 Ground_240_560 slope before 0.0% after 0.0%
+FreeRoamWorld d 9.00 y 8.880 Ground_240_560 slope before 0.0% after 0.0%
+FreeRoamWorld d 10.00 y 8.880 Ground_240_560 slope before 0.0% after 0.0%
+FreeRoamWorld d 11.00 y 8.880 Ground_240_560 slope before 0.0% after 0.0%
+FreeRoamWorld d 12.00 y 8.880 Ground_240_560 slope before 0.0% after 0.0%
+FreeRoamWorld d 13.00 y 8.880 Ground_240_560 slope before 0.0% after 0.0%
+FreeRoamWorld d 14.00 y 8.863 Ground_240_560 slope before -3.3% after -3.4%
+FreeRoamWorld d 15.00 y 8.829 Ground_240_560 slope before -3.4% after -3.5%
+FreeRoamWorld d 15.30 y 8.818 Ground_240_560 slope before -3.5% after -7.7%  <-- change -4.200745%
+FreeRoamWorld d 15.35 y 8.816 Ground_240_560 slope before -3.5% after -8.4%  <-- change -4.908752%
+FreeRoamWorld d 15.40 y 8.815 Ground_240_560 slope before -3.5% after -9.1%  <-- change -5.616188%
+FreeRoamWorld d 15.45 y 8.813 Ground_240_560 slope before -3.5% after -9.8%  <-- change -6.324387%
+FreeRoamWorld d 15.50 y 8.811 Ground_240_560 slope before -3.5% after -10.5%  <-- change -7.034302%
+FreeRoamWorld d 15.55 y 8.807 Ground_240_560 slope before -4.1% after -10.7%  <-- change -6.620598%
+FreeRoamWorld d 15.60 y 8.801 Ground_240_560 slope before -4.8% after -10.7%  <-- change -5.902481%
+FreeRoamWorld d 15.65 y 8.796 Ground_240_560 slope before -5.5% after -10.7%  <-- change -5.183983%
+FreeRoamWorld d 15.70 y 8.790 Ground_240_560 slope before -6.2% after -10.7%  <-- change -4.463196%
+FreeRoamWorld d 16.00 y 8.758 Ground_240_560 slope before -10.5% after -10.7%
+FreeRoamWorld d 17.00 y 8.651 Ground_240_560 slope before -10.7% after -10.7%
+FreeRoamWorld d 17.40 y 8.609 Ground_240_560 slope before -10.7% after -6.3%  <-- change 4.362679%
+FreeRoamWorld d 17.45 y 8.603 Ground_240_560 slope before -10.7% after -5.8%  <-- change 4.921722%
+FreeRoamWorld d 17.50 y 8.598 Ground_240_560 slope before -10.7% after -5.2%  <-- change 5.47924%
+FreeRoamWorld d 17.55 y 8.595 Ground_240_560 slope before -10.2% after -5.1%  <-- change 5.162239%
+FreeRoamWorld d 17.60 y 8.592 Ground_240_560 slope before -9.7% after -5.1%  <-- change 4.602051%
+FreeRoamWorld d 17.65 y 8.590 Ground_240_560 slope before -9.1% after -5.1%  <-- change 4.041672%
+FreeRoamWorld d 18.00 y 8.572 Ground_240_560 slope before -5.2% after -5.1%
+FreeRoamWorld d 19.00 y 8.521 Ground_240_560 slope before -5.1% after -5.0%
+FreeRoamWorld d 20.00 y 8.480 Ground_240_560 slope before -3.2% after -3.1%
+FreeRoamWorld d 21.00 y 8.449 Ground_240_560 slope before -3.1% after -3.1%
+FreeRoamWorld d 22.00 y 8.432 Ground_240_560 slope before -0.2% after -0.1%
+FreeRoamWorld d 23.00 y 8.431 Ground_240_560 slope before -0.1% after -0.1%
+FreeRoamWorld d 24.00 y 8.430 Ground_240_560 slope before 0.1% after 0.1%
+FreeRoamWorld d 25.00 y 8.431 Ground_240_560 slope before 0.1% after 0.1%
+FreeRoamWorld d 26.00 y 8.433 Ground_240_560 slope before 0.2% after 0.2%
+FreeRoamWorld d 27.00 y 8.435 Ground_240_560 slope before 0.2% after 0.2%
+FreeRoamWorld d 28.00 y 8.437 Ground_240_560 slope before 0.3% after 0.3%
+FreeRoamWorld d 29.00 y 8.440 Ground_240_560 slope before 0.3% after 0.3%
+FreeRoamWorld d 30.00 y 8.444 Ground_240_560 slope before 0.4% after 0.4%
+FreeRoamWorld d 31.00 y 8.448 Ground_240_560 slope before 0.4% after 0.4%
+FreeRoamWorld d 32.00 y 8.452 Ground_240_560 slope before 0.5% after 0.5%
+FreeRoamWorld d 33.00 y 8.457 Ground_240_560 slope before 0.5% after 0.5%
+FreeRoamWorld d 34.00 y 8.463 Ground_240_560 slope before 0.6% after 0.6%
+FreeRoamWorld d 35.00 y 8.470 Ground_240_560 slope before 0.6% after 0.7%
+FreeRoamWorld d 36.00 y 8.477 Ground_240_560 slope before 0.7% after 0.7%
+FreeRoamWorld d 37.00 y 8.484 Ground_240_560 slope before 0.8% after 0.8%
+FreeRoamWorld d 38.00 y 8.492 Ground_240_560 slope before 0.9% after 0.9%
+FreeRoamWorld d 39.00 y 8.501 Ground_240_560 slope before 0.9% after 0.9%
+FreeRoamWorld d 40.00 y 8.510 Ground_240_560 slope before 1.0% after 1.0%
+FreeRoamWorld d 41.00 y 8.520 Ground_240_560 slope before 1.0% after 1.0%
+FreeRoamWorld d 42.00 y 8.530 Ground_240_560 slope before 1.0% after 1.0%
+FreeRoamWorld d 43.00 y 8.540 Ground_240_560 slope before 1.1% after 1.1%
+FreeRoamWorld d 44.00 y 8.551 Ground_240_560 slope before 1.1% after 1.1%
+FreeRoamWorld d 45.00 y 8.562 Ground_240_560 slope before 1.1% after 1.1%

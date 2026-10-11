@@ -17,6 +17,7 @@ namespace Racer
     // Paint, lots, sidewalks and streets are drawn only (no collider): the drivable surface, the race lines, gates, AI lines and traffic
     // lanes are unchanged. Buildings, canopy columns, pumps, posts and poles are solid, all at least 10 m from every race line that leaves
     // the highway and 6 m beyond its edge. The plot of the subdivision across from S Cherokee Ln is left empty for the stunt course.
+    // 0.105 (Tools/Report105/py/gen.py): the sidewalk stops on each side of every entrance; the drive's pavement runs from the road edge into the lot.
     // Clear() (before the scenery is fitted) removes the old placeholder roadside (the CR019 businesses outside the plot) and the trees
     // that stood where the lots and buildings are now.
     public sealed class Hwy92Roadside : MonoBehaviour
@@ -237,7 +238,7 @@ namespace Racer
             // flat layers (draped on the ground's own 2 m grid)
             Drape(plan.flat.asphalt, "asphalt", .05f, Color.white);
             Drape(plan.flat.street, "street", .05f, Color.white);
-            Drape(plan.flat.sidewalk, "flat", .075f, new Color(.66f, .65f, .62f));
+            Drape(plan.flat.sidewalk, "flat", .05f, new Color(.66f, .65f, .62f)); // 0.105: flush with the lots and drives (the plan never overlaps them)
             Drape(plan.flat.island, "flat", .14f, new Color(.30f, .42f, .20f));
             Drape(plan.flat.white, "flat", .095f, new Color(.86f, .86f, .84f));
             Drape(plan.flat.yellow, "flat", .095f, new Color(.86f, .66f, .16f));

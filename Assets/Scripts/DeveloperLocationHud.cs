@@ -244,7 +244,8 @@ namespace Racer
                 vehicle = race.vehicle.GetComponent<VehicleConfiguration>().profileId, speedMps = Mathf.Abs(race.vehicle.ForwardSpeed),
                 version = Application.version, buildGuid = Application.buildGUID, scene = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name,
                 viewpoint = Flying ? "Detached inspection camera" : "Vehicle", debugMovementUsed = race.Flow.DebugMovementUsed,
-                conditions = WorldLook.Current ? WorldLook.Current.Conditions : "Look off"
+                conditions = WorldLook.Current ? WorldLook.Current.Conditions : "Look off",
+                hiddenPolice = race.FreeRoam && HiddenPolice.Current ? HiddenPolice.Current.DebugLine : ""
             };
             pending.screenshot = "Screenshots/" + pending.id + ".png";
             menuOpen = false; capturing = true; shade.SetActive(false); EventSystem.current?.SetSelectedGameObject(null); SyncHold();
@@ -434,6 +435,7 @@ namespace Racer
                 + "\n" + (WorldLook.Current ? WorldLook.Current.Conditions : "Look off")
                 + "\n" + SessionText + "\nF3 mode / F4 capture / Timeout OFF\n"
                 + (GetawayChase.Current && GetawayChase.Current.State == GetawayChase.Phase.Running ? "\n" + GetawayChase.Current.DebugText : "") // 0.97: the Getaway log (F3, Getaway only)
+                + (race.FreeRoam && HiddenPolice.Current && !HiddenPolice.Current.ChaseRunning ? HiddenPolice.Current.DebugBox + "\n" : "") // 0.105: why the nearest hidden cop would or would not clock you
                 + (Flying ? "FLY: WASD · Q/E · RMB look\nShift fast / Ctrl precise · F6 return" : race.Flow.DebugMovementUsed ? "DEBUG RUN / records disabled" : "Vehicle view / records eligible");
         }
         void OnDestroy()

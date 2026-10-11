@@ -1,0 +1,6 @@
+screen=1920x1080 kind=moon version=0.104.0-review1
+moonset: free camera at -630.1,34.70,115.2 (26 m above the road, over the trees), looking 84° and 3.0° up, field of view 40°, far clip 1800 m; the ridge that way is 4.0° up, 1432 m off; the moon crosses it in about 12 minutes
+  touching: day 13 04:46: moon disc centre 4.1° up at 83°, the ridge there 2.8° up (934 m off; centre +1.3° from it, the disc 2.6° wide); screen (0.49,0.53)
+  half hidden: day 13 04:47: moon disc centre 3.8° up at 84°, the ridge there 4.0° up (1436 m off; centre -0.2° from it, the disc 2.6° wide); screen (0.50,0.52)
+  gone: day 13 04:52: moon disc centre 2.7° up at 85°, the ridge there 4.6° up (1430 m off; centre -1.9° from it, the disc 2.6° wide); screen (0.51,0.49)
+moonrise: no place found where the moon goes behind a ridge within 1.5 h (best 99.0 h)
