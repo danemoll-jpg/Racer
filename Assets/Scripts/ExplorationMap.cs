@@ -44,6 +44,8 @@ namespace Racer
         public void Initialize(RaceDirector owner,string root)
         {
             race=owner;error=null;path=Path.Combine(root,"exploration-map-"+Compatibility+".json");
+            // 0.106 Part D: the stunt park, a destination once found (its start line)
+            if(!destinations.Any(d=>d.id=="stunt-park"))destinations=destinations.Append(new Destination{id="stunt-park",title=StuntPark.Title,position=StuntPark.StartPos,yaw=270}).ToArray();
             try {if(File.Exists(path))data=JsonUtility.FromJson<Data>(File.ReadAllText(path))??new();
                 if(data.world!=Compatibility||data.version!=1)throw new IOException("Incompatible map data retained");
                 data.visited??=new();data.landmarks??=new();foreach(int cell in data.visited)if(cell>=0&&cell<Columns*Rows)visited.Add(cell);
@@ -127,6 +129,7 @@ namespace Racer
             race.ResetSampling(race.vehicle.Body.position,Time.timeAsDouble);ResetMovement();
             errorMessage="Arrived at "+d.title+". Active attempts canceled.";center=MapNormalized(race.vehicle.Body.position);Save();return true;
         }
+        RectTransform parkArea; // 0.106
         string errorMessage="";
         void TravelSelected(){RequestTravel(selected);}
         public void RequestTravel(int index)
@@ -157,6 +160,8 @@ namespace Racer
             Text("Title",panel.transform,new(0,323),new(1200,42),26).text="WOODSTOCK / EXPLORATION MAP";
             var r=RectUI("Terrain",panel.transform,new(-150,10),new(740,visual?740*visual.bounds.height/visual.bounds.width:540));picture=r.gameObject.AddComponent<UnityEngine.UI.RawImage>();r.gameObject.AddComponent<UnityEngine.UI.RectMask2D>();
             var events=r.gameObject.AddComponent<MapPointer>();events.owner=this;
+            // 0.106 Part D: the stunt park's ground (the map picture is older than the park), under the areas and names
+            parkArea=RectUI("Stunt park",r,Vector2.zero,Vector2.one);{var img=parkArea.gameObject.AddComponent<UnityEngine.UI.Image>();img.color=new(.74f,.42f,.27f,.8f);img.raycastTarget=false;}
             var areaRect=RectUI("Acorn areas",r,Vector2.zero,r.sizeDelta);areaOverlay=areaRect.gameObject.AddComponent<WorldMapAreaOverlay>();areaOverlay.raycastTarget=false;
             var overlay=RectUI("Current course overlay",r,Vector2.zero,new(740,visual?740*visual.bounds.height/visual.bounds.width:540));courseOverlay=overlay.gameObject.AddComponent<WorldMapCourseOverlay>();courseOverlay.raycastTarget=false;overlay.gameObject.SetActive(data.routesShown);
             UnityEngine.UI.Text Label(string name,string text,int size,Color color,int side)
@@ -199,7 +204,8 @@ namespace Racer
         void Marker(UnityEngine.UI.Text t,Vector3 p){var q=ScreenPoint(p);t.rectTransform.anchoredPosition=q;t.gameObject.SetActive(Mathf.Abs(q.x)<picture.rectTransform.rect.width/2-20&&Mathf.Abs(q.y)<picture.rectTransform.rect.height/2-20);}
         void Draw()
         {
-            picture.uvRect=new Rect(center-Vector2.one*.5f/zoom,Vector2.one/zoom);Marker(heading,race.vehicle.Body.position);heading.rectTransform.localRotation=Quaternion.Euler(0,0,-race.vehicle.transform.eulerAngles.y);
+            picture.uvRect=new Rect(center-Vector2.one*.5f/zoom,Vector2.one/zoom);Marker(heading,race.vehicle.Body.position);
+            {var a=ScreenPoint(StuntPark.P(0,0));var b=ScreenPoint(StuntPark.P(StuntPark.W,StuntPark.D));parkArea.anchoredPosition=(a+b)*.5f;parkArea.sizeDelta=new(Mathf.Abs(b.x-a.x),Mathf.Abs(b.y-a.y));} // 0.106heading.rectTransform.localRotation=Quaternion.Euler(0,0,-race.vehicle.transform.eulerAngles.y);
             courseOverlay.SetView(race,visual,center,zoom,RouteCourses);
             var collection=Collection;var all=Areas;areaOverlay.SetView(all,collection,visual,center,zoom,selectedArea);
             foreach(var (t,area,region) in areaLabels){bool done=area.Done(collection);t.text=(done?"✓ ":"")+area.name+"  "+area.Count(collection);t.color=done?new Color(.75f,.77f,.75f,.8f):area.tint;Marker(t,region.label);}

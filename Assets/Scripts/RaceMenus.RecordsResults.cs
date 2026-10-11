@@ -42,8 +42,9 @@ namespace Racer
         {
             if(page!="")page="";
             if(recordTrack<0||recordTrack>=RacePlaylists.Titles.Length||(flow.TrackBrowsingLocked&&RacePlaylists.Titles[recordTrack]!=TrackTitle(flow.Race.Category)))ChooseRecordTrack();
-            ClearCore("RECORDS","");TabRow(new[]{"LAP","RACE","SPEED TRAPS","JUMPS","GHOST"},recordTab,i=>{recordTab=i;activityKey="";Show();});int row=5;
+            ClearCore("RECORDS","");TabRow(new[]{"LAP","RACE","SPEED TRAPS","JUMPS","GHOST","STUNTS"},recordTab,i=>{recordTab=i;activityKey="";Show();});int row=6;
             int backRow=row;Row(row++,"back","Back",flow.CloseExtras);
+            if(recordTab==5){RenderStuntRecords(row,backRow);return;} // 0.106 Part D
             if(recordTab==4){details.gameObject.SetActive(true);details.text="Race your best compatible clean lap.\n"+flow.Ghost.Status+"\nNo resets, teleports or missed gates. Legal shortcuts qualify.";details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=120;Toggle(row,"ghost","Ghost",flow.Ghost.Enabled,flow.ToggleGhost);return;}
             if(recordTab<2)
             {
@@ -110,6 +111,7 @@ namespace Racer
             if(CampaignRun.Active!=null){RenderCampaignResults();return;}
             if(SplitScreen.Active&&GetawayChase.Current){RenderGetawayResults();return;} // 0.96 Part E
             if(SplitScreen.Active&&PoliceChase.Current){RenderPoliceResults();return;} // 0.94 Part C
+            if(SplitScreen.Active&&StuntEvent.Current){RenderStuntResults();return;} // 0.106 Part D
             if(SplitScreen.Active&&SpeedPatrol.Current){RenderPatrolResults();return;} // 0.95 Part G
             if(SplitScreen.Active){RenderSplitResults();return;}
             ClearCore("RESULTS",flow.Race.courseName);bool playlist=RacePlaylists.Active!=null;

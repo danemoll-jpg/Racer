@@ -145,7 +145,7 @@ namespace Racer
             mf.sharedMesh = copy; return removed;
         }
         // whole connected pieces (by shared position) whose middle lies in the mask
-        static int TrimPieces(MeshFilter mf, Func<float, float, bool> mask)
+        internal static int TrimPieces(MeshFilter mf, Func<float, float, bool> mask) // 0.106: also the stunt park's (StuntPark.Clear)
         {
             if (!mf || !mf.sharedMesh || !mf.sharedMesh.isReadable) return 0;
             var mesh = mf.sharedMesh; var v = mesh.vertices; var w = mf.transform.localToWorldMatrix;
@@ -245,7 +245,7 @@ namespace Racer
             foreach (var b in plan.buildings) foreach (var p in b.parts) BuildingPart(b, p);
             foreach (var c in plan.canopies) CanopyAt(c);
             for (int i = 0; i + 2 < plan.lights.Length; i += 3) Light(plan.lights[i], plan.lights[i + 1], plan.lights[i + 2]);
-            for (int i = 0; i + 3 < plan.trees.Length; i += 4) Tree(plan.trees[i], plan.trees[i + 1], plan.trees[i + 2], plan.trees[i + 3] > .5f, i);
+            for (int i = 0; i + 3 < plan.trees.Length; i += 4) if (!StuntPark.InDriveMouth(plan.trees[i], plan.trees[i + 1])) Tree(plan.trees[i], plan.trees[i + 1], plan.trees[i + 2], plan.trees[i + 3] > .5f, i); // 0.106: none in the stunt park's drive
             for (int i = 0; i + 2 < plan.shrubs.Length; i += 3) { float x = plan.shrubs[i], z = plan.shrubs[i + 1], s = plan.shrubs[i + 2]; Layer(x, "solid").Blob(new Vector3(x, Ground(x, z) + .35f * s, z), new Vector3(.75f, .5f, .75f) * s, new Color(.20f, .33f, .14f), i); }
             foreach (var p in plan.pylons) PylonAt(p);
             foreach (var s in plan.signals) SignalAt(s);
@@ -281,6 +281,7 @@ namespace Racer
                         clipA.Clear(); clipA.Add(a); clipA.Add(b); clipA.Add(c);
                         ClipAxis(clipA, clipB, 0, ci * 2f, true); ClipAxis(clipB, clipA, 0, ci * 2f + 2, false); ClipAxis(clipA, clipB, 1, cj * 2f, true); ClipAxis(clipB, clipA, 1, cj * 2f + 2, false);
                         if (clipA.Count < 3) continue;
+                        if (StuntPark.InDriveMouth(ci * 2f + 1, cj * 2f + 1)) continue; // 0.106: the stunt park's drive crosses here (the sidewalk stops at it)
                         var p0 = new Vector3(clipA[0].x, Ground(clipA[0].x, clipA[0].y) + lift, clipA[0].y);
                         for (int k = 1; k + 1 < clipA.Count; k++)
                         {

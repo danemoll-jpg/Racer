@@ -1,0 +1,43 @@
+Red Clay Stunt Park (0.106), world coordinates (x east, z north; heights above sea level as in the game). Built at load by Assets/Scripts/StuntPark.cs in every
+world scene (Free Roam and the eight race scenes); the same everywhere (the ground is the same in all nine).
+
+Floor: one level packed red-clay floor, x -10 .. 150, z 605 .. 761 (160 x 156 m) at y 11.10, inside the 0.104 plot (the plot's flattest part: the
+       ground under it is 6.7-10.9 m). Collider: one box, its top at 11.10.
+Banks: the pad's sides fall to the ground at 1 in 1.8 (a 2 m height field, grass-and-dirt), tucked under the ground where they meet it; 826 points
+       above the ground, none outside the plot (Lists/A-park-in-nine-scenes.txt).
+Drive: gravel, x 115.5 .. 124.5, from Hwy 92's north edge (z 553.85, the road's own height 9.124 there; nothing over the road) rising smoothly to the
+       floor at z 605 (2 m over 51 m, flat at both ends). Step at the road's edge on the drive: 0.6 cm.
+Sign:  one-sided board on two posts beside the drive, x 129, z 559.9, facing Hwy 92: RED CLAY / STUNT PARK / JUMPS · LOOP · HALF-PIPE
+       (depth-tested sign lettering, fitted inside the board).
+Tire wall: stacks of tyres 1.0 m high round the floor's edge, a 9 m gap at the drive (x 115.5 .. 124.5).
+
+The circuit (counter-clockwise) and its features:
+  South, westbound (z 625):
+    K1 small kicker      plywood, 1.0 m (20 degrees), lip at x 112.3; lands on the flat
+    K2 medium table      dirt, 2.0 m (25 degrees) lip at x 85.0, a 14 m table, landing 18 degrees to the floor near x 64
+    K3 big table         dirt, 3.0 m (30 degrees) lip at x 42.8, an 18 m table, landing 20 degrees to the floor near x 14
+    West quarter-pipe    plywood, radius 6.5 m to 65 degrees (3.75 m) and a 1.4 m deck, x -9.3 .. -2, z 609 .. 645
+  West, northbound (x 0):
+    Junk-car gap         plywood takeoff 2.0 m (22 degrees) lip at z 661.1; five wrecks side by side z 664 .. 673; dirt landing 2.0 m from z 674.7,
+                         16 degrees to the floor near z 685
+  North, eastbound (z 743):
+    Deck launch          plywood 3.2 m (34 degrees), lip at x 38.5
+    Two-level deck       5.0 m high, x 46.5 .. 76.5, z 735 .. 751 (plywood top on a timber frame); its far edge is the drop
+    Drop landing         dirt, 3.6 m at x 81.5, 16 degrees to the floor near x 96
+    Loop                 radius 5 m (10 m tall) starting at x 108; the ribbon moves 6.5 m south on the way round (out at z 736.5); rails on both
+                         edges; two towers outside both lanes. A vehicle on it follows its line (ArcadeVehicle).
+  East, southbound:
+    Half-pipe            two plywood quarter-pipes (radius 6 m to 65 degrees, 3.46 m, 1.5 m decks) facing across an 8 m flat, x 125.6 .. 147.4,
+                         z 645 .. 730
+  Middle, eastbound:
+    K4 huge table        dirt, 5.0 m (34 degrees) lip at x 42.4 (z 651), a 22 m table, landing 22 degrees to the floor near x 80
+    Barrel-roll ramp     plywood, 3.0 m (28 degrees), its surface rolling up to 50 degrees by the lip at x 46 (z 679); landing: a rounded step-up
+                         from x 47.2 to a 2.6 m table, then 14 degrees down to the floor (wide, 1.5 m to the right)
+    School-bus gap       plywood takeoff 3.4 m (26 degrees) lip at x 44.7 (z 705); the bus x 47 .. 59 (lengthwise, roof 3.2 m); dirt landing 3.4 m
+                         from x 61.2, 18 degrees to the floor near x 75
+  Start line: x 137.5 .. 138.5, z 618 .. 632 (the Stunt event starts at x 142, z 625 facing west); the start flag x 138, z 615.5.
+
+Props: shipping containers along the north edge (some two high) and by the entrance, junk cars in the north-west corner, hay bales beside the landings,
+       eight light poles (their lamps lit at night).
+Acorns (3 more; 27 in all): the top deck (x 62, z 743, y 17.0), the school bus's roof (x 53, z 705, y 15.3), the top of the loop (x 108, z 739.75, y 20.0).
+Map: the park's ground and name on the minimap and the world map; a travel destination once found (its start line).

@@ -36,6 +36,7 @@ namespace Racer
         public SceneryPaving Paving { get; private set; }
         public StreetSigns Signs { get; private set; }
         public Hwy92Roadside Roadside { get; private set; }
+        public StuntPark Park { get; private set; }
         public float BuildMilliseconds { get; private set; }
         public string Timings { get; private set; } = "";
         public readonly List<Renderer> Hidden = new();
@@ -61,10 +62,11 @@ namespace Racer
             LoadingScreen.Report("Clearing the old roadside", done++, steps); yield return null;
             SceneryTrees.ClearFreeRoamTrunks(gameObject.scene); RoadPosts.Clear(gameObject.scene); RoadPosts.RetireNameBoards(gameObject.scene); MountainDirt.Apply(gameObject.scene); // 0.80: before the new kit is fitted
             Hwy92Roadside.Clear(gameObject.scene); // 0.104: the old Hwy 92 placeholder roadside, and the trees where today's lots are
+            StuntPark.Clear(gameObject.scene); // 0.106: the trees where the stunt park, its banks and its drive are
             LoadingScreen.Report("People", done++, steps); yield return null;
             ScenePeople.DressCamp(gameObject.scene);
             if (Scenery.New && !built) { var e = BuildSteps(); while (e.MoveNext()) { LoadingScreen.Report(e.Current, done++, steps); yield return null; } }
-            LoadingScreen.Report("Hwy 92", done++, steps); Roadside = Hwy92Roadside.Attach(gameObject); yield return null; // 0.104 (any Scenery setting)
+            LoadingScreen.Report("Hwy 92", done++, steps); Roadside = Hwy92Roadside.Attach(gameObject); Park = StuntPark.Attach(gameObject); yield return null; // 0.104, 0.106 (any Scenery setting)
             LoadingScreen.Report("Street signs", done++, steps); Signs = StreetSigns.Attach(gameObject); yield return null;
             LoadingScreen.Report("Road paint", done++, steps); Paint = JunctionPaint.Attach(gameObject); yield return null;
             LoadingScreen.Report("World edge", done++, steps); WorldEdge.Attach(gameObject); yield return null;

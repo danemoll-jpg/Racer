@@ -1,0 +1,8 @@
+screen=3840x2160 kind=perf version=0.106.0-review1 park=on
+drive mouth, looking up the drive: 7.55 ms per frame (398 frames in 3 s)
+start line, looking west: 8.43 ms per frame (356 frames in 3 s)
+north-west corner, across the park: 9.53 ms per frame (316 frames in 3 s)
+by the loop, looking west: 5.49 ms per frame (547 frames in 3 s)
+half-pipe north end, looking south: 7.17 ms per frame (419 frames in 3 s)
+Hwy 92 west of the drive, eastbound: 7.87 ms per frame (382 frames in 3 s)
+worst view: north-west corner, across the park 9.53 ms; all views 7.67 ms (full screen 3840x2160, park on)

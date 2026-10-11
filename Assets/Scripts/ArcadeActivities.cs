@@ -6,7 +6,7 @@ using UnityEngine;
 namespace Racer
 {
     // Activity results never enter the race timer, penalty ledger or record boards.
-    public sealed class ArcadeActivities:MonoBehaviour
+    public sealed partial class ArcadeActivities:MonoBehaviour
     {
         [Serializable] public sealed class Best {public string key;public float value;public int medal;}
         [Serializable] public sealed class Archive {public int version=1;public List<Best> results=new();}
@@ -26,7 +26,9 @@ namespace Racer
         public string LastJumpDiagnostic {get;private set;}
         public int SmashCount=>smashed.Count;
         public string Location {get{if(!Selected||!car)return "";var delta=Selected.transform.position-car.Body.position;int compass=Mathf.RoundToInt(Mathf.Repeat(Mathf.Atan2(delta.x,delta.z)*Mathf.Rad2Deg,360)/45)%8;return $"{DisplayUnits.Distance(Vector3.ProjectOnPlane(delta,Vector3.up).magnitude)} {new[]{"N","NE","E","SE","S","SW","W","NW"}[compass]}";}}
-        public string Hud=>CampaignEventHidesHud?"":CampaignHud(Time.time<feedbackUntil?Feedback:AttemptActive?$"{Selected.title} / {Mathf.Max(0,deadline-Time.time):0}s / {Location}\n{(Selected.kind==ActivitySite.Kind.Smash?SmashCount+" distinct props":"Land a jump from the marked ramp")}":race.FreeRoam?AtStart:"");
+        public string Hud=>CampaignEventHidesHud?"":Stunted(CampaignHud(Time.time<feedbackUntil?Feedback:AttemptActive?$"{Selected.title} / {Mathf.Max(0,deadline-Time.time):0}s / {Location}\n{(Selected.kind==ActivitySite.Kind.Smash?SmashCount+" distinct props":"Land a jump from the marked ramp")}":race.FreeRoam?AtStart:""));
+        // 0.106 Part B: the open combo under the other lines (not while its own line is showing)
+        string Stunted(string line){var s=StuntHud;if(string.IsNullOrEmpty(s)||Time.time<feedbackUntil&&Feedback!=null&&Feedback.Contains("COMBO"))return line;return string.IsNullOrEmpty(line)?s:line+"\n"+s;}
         // 0.96 Part A: a campaign jump / speed trap / smash event shows its own panel and attempt banner (CampaignEventUi), not
         // these lines
         static bool CampaignEventHidesHud=>CampaignRun.Active!=null&&CampaignRun.Active.Kind!=CampaignEventKind.Race&&CampaignRun.Active.Kind!=CampaignEventKind.TimeTrial;
@@ -44,8 +46,11 @@ namespace Racer
         // otherwise (the nearest one and its distance stay on the map and in the pause menu).
         public ActivitySite AtSite{get{if(!car||Sites==null)return null;var p=car.Body.position;return Sites.Where(s=>s&&Vector3.Distance(p,s.transform.position)<s.radius).OrderBy(s=>Vector3.SqrMagnitude(p-s.transform.position)).FirstOrDefault();}}
         // being at a jump or smash site makes it the selected activity, so pause menu > Activities starts this one
-        string AtStart{get{var site=AtSite;if(!site)return "";if(!AttemptActive&&site.kind!=ActivitySite.Kind.Speed)Selected=site;string menu=MenuInput.Controller?"Start":"Esc";
+        string AtStart{get{var site=AtSite;if(!site)return ParkPrompt;if(!AttemptActive&&site.kind!=ActivitySite.Kind.Speed)Selected=site;string menu=MenuInput.Controller?"Start":"Esc";
             return site.title+"\n"+(site.kind==ActivitySite.Kind.Speed?"Speed trap: drive through it, either way":site.kind==ActivitySite.Kind.Jump?$"Jump: land it to score  ·  {menu} > Activities for a timed attempt":$"{menu} > Activities > Start to begin");}}
+        // 0.106 Part D: at the stunt park's entrance (single-player Free Roam): its name, how to start the Stunt event, the best combo so far
+        string ParkPrompt{get{if(SplitScreen.Active||!StuntPark.Current||car!=race.vehicle||Vector3.Distance(car.Body.position,StuntPark.Entrance)>StuntPark.EntranceRadius)return "";string menu=MenuInput.Controller?"Start":"Esc";
+            return StuntPark.Title+"\n"+$"Stunt event ({StuntProgress.Minutes} minutes): {menu} > STUNT EVENT"+(StuntProgress.BestCombo>0?$"  ·  best combo {StuntProgress.BestCombo:N0} pts":"");}}
         RaceDirector race;ArcadeVehicle car;VehicleConfiguration configuration;
         readonly HashSet<BreakableProp> smashed=new();readonly Dictionary<ActivitySite,bool> armed=new();
         string path;Vector3 previous,takeoff,landing;float warm,air,stable,feedbackUntil,deadline,blockedUntil,impactSpeed;bool sampled,flying,invalid,touchedDown;
@@ -100,14 +105,16 @@ namespace Racer
         public void BeginCampaignSmash(ActivitySite site,float seconds){if(!site)return;Cancel();smashed.Clear();Selected=site;AttemptActive=true;deadline=Time.time+seconds;warm=.5f;blockedUntil=0;Message(site.title+" / smash as many as you can",3);}
         public float LastSmashScore {get;private set;}
         public void Cancel(){AttemptActive=false;smashed.Clear();warm=0;ResetFlight();}
-        public void NewSession(){Cancel();armed.Clear();sampled=false;warm=0;blockedUntil=Time.time+1;Feedback=null;feedbackUntil=0;LastDistance=LastAirtime=LastSpeed=LastJumpAward=0;}
-        void Recovered(){if(AttemptActive)Message("Attempt canceled by recovery / retry from pause menu",4);Cancel();armed.Clear();sampled=false;warm=0;blockedUntil=Time.time+2;}
+        public void NewSession(){Cancel();armed.Clear();sampled=false;warm=0;blockedUntil=Time.time+1;Feedback=null;feedbackUntil=0;LastDistance=LastAirtime=LastSpeed=LastJumpAward=0;StuntSession();}
+        void Recovered(){if(AttemptActive)Message("Attempt canceled by recovery / retry from pause menu",4);Cancel();armed.Clear();sampled=false;warm=0;blockedUntil=Time.time+2;if(ComboLinks>0)EndCombo(null);StuntReset();} // 0.106: a reset banks the open combo
+        // 0.106 Part D: the Stunt event's end: the open combo counts
+        public void EndStuntCombo(){if(ComboLinks>0)EndCombo(null);StuntReset();}
         void ResetFlight(){flying=false;invalid=touchedDown=false;air=stable=0;jumpSite=null;rejected=null;}
         // The jump the player is going for: the campaign event's, or Free Roam's timed attempt.
         ActivitySite TargetJump=>CampaignRun.Active?.Kind==CampaignEventKind.Jump?CampaignRun.Site(race):AttemptActive&&Selected&&Selected.kind==ActivitySite.Kind.Jump?Selected:null;
         // 0.91 Part C: an ordinary jump counts if the vehicle survives it, so a hard or glancing contact no longer rejects it;
         // the two summit flights keep their own rules (a wall or steep bank in the flight rejects them).
-        public void SolidContact(Vector3 normal,float relativeSpeed){if(!flying)return;contactImpact=Mathf.Max(contactImpact,relativeSpeed);minimumContactUp=Mathf.Min(minimumContactUp,normal.y);if(normal.y<.45f&&Summit(jumpSite))Reject("Hit a wall or a steep bank");}
+        public void SolidContact(Vector3 normal,float relativeSpeed){StuntContact(normal);if(!flying)return;contactImpact=Mathf.Max(contactImpact,relativeSpeed);minimumContactUp=Mathf.Min(minimumContactUp,normal.y);if(normal.y<.45f&&Summit(jumpSite))Reject("Hit a wall or a steep bank");}
         ActivitySite SiteAt(Vector3 at)=>Sites.Where(s=>s.kind==ActivitySite.Kind.Jump&&Vector3.Distance(at,s.transform.position)<s.radius&&Vector3.Dot(car.Body.linearVelocity,s.forward.normalized)>2).OrderBy(s=>Vector3.SqrMagnitude(at-s.transform.position)).FirstOrDefault();
         void Smash(BreakableProp prop,ArcadeVehicle source)
         {
@@ -127,6 +134,7 @@ namespace Racer
             float step=Vector3.Distance(p,previous);bool discontinuity=step>Mathf.Max(3,car.Body.linearVelocity.magnitude*dt*2+.3f);
             if(discontinuity){Recovered();previous=p;return;}
             if(Time.time<blockedUntil){previous=p;return;}
+            StuntStep(p,dt,grounded); // 0.106 Part B
             if(AttemptActive&&Time.time>=deadline){if(Selected.kind==ActivitySite.Kind.Smash)FinishSmash();else{AttemptActive=false;Message("Jump attempt expired / retry from pause menu",4);}}
             if(grounded&&!flying){bool summitRunup=Sites.Any(s=>Summit(s)&&Vector3.Distance(p,s.transform.position)<s.radius&&Vector3.Dot(car.Body.linearVelocity,s.forward)>2);warm=car.transform.up.y>(summitRunup?.65f:.8f)?warm+dt:0;}
             if(!grounded&&!flying&&warm>=.5f&&Vector3.ProjectOnPlane(car.Body.linearVelocity,Vector3.up).magnitude>4)
@@ -163,7 +171,7 @@ namespace Racer
                         // The two summit giant flights are meant to go as far as possible (0.71: no 250 m cap for them).
                         if(!invalid&&!tooShort&&!tooLong)
                         {
-                            LastDistance=distance;LastAirtime=air;Message($"CLEAN JUMP / {DisplayUnits.Jump(distance)} / {air:0.00} s / {Mathf.RoundToInt(distance*10+air*100)} pts",4);
+                            LastDistance=distance;LastAirtime=air;if(!StuntsOn)Message($"CLEAN JUMP / {DisplayUnits.Jump(distance)} / {air:0.00} s / {Mathf.RoundToInt(distance*10+air*100)} pts",4); // 0.106: in Free Roam the stunt line says it
                             if(jumpSite){AttemptActive=false;Award(jumpSite,distance,"m");}
                         }
                         else if(jumpSite&&!hop){AttemptActive=false;Miss(jumpSite,rejected??(tooShort?"Too short to count":"Left the course"));Message($"{jumpSite.title} / NOT SCORED: {rejected??(tooShort?"Too short to count":"Left the course")}",5);}

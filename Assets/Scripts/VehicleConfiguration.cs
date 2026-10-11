@@ -76,7 +76,7 @@ namespace Racer
                 motor.yawResponse=p.Small?11:8; motor.lateralGrip=p.Small?11:8;
                 motor.slowSteerAngle=p.Small?29:31; motor.fastSteerAngle=p.Small?9:9.5f;
                 motor.braking=p.Small?27:24;
-                float track=p.Motorcycle?.16f:p.Class=="ATV"?.6f:p.Class=="Mower"?.5f:.9f;
+                float track=p.Motorcycle?.16f:p.Class=="ATV"?.6f:p.Class=="Mower"?.5f:p.Class=="Buggy"?.68f:.9f;
                 float axle=p.Wheelbase*.5f;
                 motor.suspensionPoints=new[]{new Vector3(-track,0,axle),new Vector3(track,0,axle),new Vector3(-track,0,-axle),new Vector3(track,0,-axle)};
                 motor.suspensionLength=p.Suspension>0?p.Suspension:p.Small?.65f:.8f;
@@ -85,6 +85,8 @@ namespace Racer
                 motor.airStability=p.Air>0?p.Air:p.Motorcycle?.1f:.18f;
                 motor.centreOfMass=new(0,p.Small?-.28f:-.35f,0);
             }
+            // 0.106 Part C: air steering for the stunt vehicles only; they may turn faster (a flip in about 1.2 s)
+            motor.airControl=p.AirControl; motor.Body.maxAngularVelocity=p.AirControl>0?8:5;
             generated=VehicleVisual.Build(transform,p,wheels,p.IsPolice&&p.Small?RiderLook.Police:riderLook,classicVisual);
             if(p.IsPolice) VehiclePaint.Apply(transform,new Color(.03f,.03f,.035f)); // 0.99: police vehicles are black and white whoever drives them
             if(!GetComponent<RiderGestures>()) gameObject.AddComponent<RiderGestures>();

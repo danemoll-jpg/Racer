@@ -512,9 +512,9 @@ namespace Racer
         {
             if(!SplitScreen.Active)return;
             // 0.95 Part B: Change setup goes to the Police Chase setup for a chase; a chase started from inside Free Roam goes back to it
-            if(InRoamWorld){callers.Clear();menus.ResetPages();bool police=SplitScreen.Mode==SplitScreen.Kind.Police,roam=police&&SplitScreen.FromRoam&&!setup;EndSplit();
+            if(InRoamWorld){callers.Clear();menus.ResetPages();bool police=SplitScreen.Mode==SplitScreen.Kind.Police,stunt=SplitScreen.Mode==SplitScreen.Kind.Stunt,roam=(police||stunt)&&SplitScreen.FromRoam&&!setup;EndSplit(); // 0.106: the Stunt event likewise
                 if(roam){SplitScreen.FromRoam=false;RoamCourse=SplitScreen.RoamReturn;LoadScene(RoamScene);return;}
-                LeaveRoamWorld(setup?(police?"police":"split"):"");return;}
+                LeaveRoamWorld(setup?(police?"police":stunt?"stunt":"split"):"");return;}
             QuitRace();if(setup)menus.OpenSplitSetup(true);
         }
         void EndSplit()

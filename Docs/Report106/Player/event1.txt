@@ -1,0 +1,18 @@
+screen=1920x1080 kind=event version=0.106.0-review1 park=on
+Stunt event: 1 player(s), Clay Hopper, round 10 minutes; medal targets 20000 / 50000 / 90000
+running: player 1 at 142.0,11.83,625.0; screen one view
+  1:00  P1 5,907 pts, 5 combos, best 3,231, tricks 1, bails 2, loops 1   resets 0
+  2:00  P1 13,775 pts, 9 combos, best 3,282, tricks 3, bails 3, loops 3   resets 0
+  3:00  P1 19,654 pts, 14 combos, best 3,282, tricks 4, bails 5, loops 4   resets 0
+  4:00  P1 27,515 pts, 18 combos, best 3,297, tricks 6, bails 6, loops 6   resets 0
+  5:00  P1 33,397 pts, 23 combos, best 3,297, tricks 7, bails 8, loops 7   resets 0
+pause at 300.01 s for 6 s (state Paused): clock after 300.01 s, points 33397 -> 33397: kept; resumed, state Racing
+  6:00  P1 41,277 pts, 27 combos, best 3,297, tricks 9, bails 9, loops 9   resets 0
+  7:00  P1 47,231 pts, 32 combos, best 3,297, tricks 10, bails 11, loops 10   resets 0
+  8:00  P1 56,109 pts, 37 combos, best 3,297, tricks 12, bails 13, loops 12   resets 0
+  9:00  P1 63,585 pts, 41 combos, best 3,656, tricks 14, bails 13, loops 14   resets 0
+  10:00  P1 75,064 pts, 46 combos, best 3,656, tricks 15, bails 14, loops 15   resets 0
+finished at 600.0 s; state Results; winner solo
+  Dan: 75,064 pts, medal Silver, Top 10 #1, combos 46, best combo 3,656, outside the park 0, tricks 15, bails 14, loops 15
+test save C:\Users\danmo\AppData\Local\Temp\report106\event1\save-copy\stunt-park-v1.json: { "version": 1, "goldEarned": false, "bestCombo": 0, "bestComboVehicle": "", "bestComboDate": "", "top": [ { "name": "Dan", "vehicle": "stuntbuggy", "date": "2026-10-11", "points": 75064, "medal": 2, "bestCombo": 3656 } ] }
+stunt motorcycle earned: False; the save is the test copy (C:\Users\danmo\AppData\Local\Temp\report106\event1\save-copy)

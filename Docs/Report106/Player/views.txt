@@ -1,0 +1,19 @@
+screen=1920x1080 kind=views version=0.106.0-review1 park=on
+park: drive meets Hwy 92's edge at z 553.85, height 9.124; built in 60 ms: 40709 triangles, 160 solids, 3 lettered faces; cleared: 0 tree trunks and 0 old vegetation pieces
+E1-hwy92-eastbound: vehicle at 60.0,9.29,537.0 heading 80
+E1-hwy92-westbound: vehicle at 190.0,9.69,552.0 heading 265
+E1-drive-mouth: vehicle at 120.0,9.77,551.0 heading 0
+E1-drive-top: vehicle at 120.0,11.64,598.0 heading 0
+E1-start-line: camera at 146.0,13.60,625.0 looking at 90.0,12.10,625.0
+E1-kicker-line: camera at 115.0,13.60,625.0 looking at 30.0,12.10,625.0
+E1-car-gap: camera at 12.0,13.60,641.0 looking at 12.0,12.10,690.0
+E1-deck-and-loop: camera at 15.0,14.10,743.0 looking at 105.0,15.10,743.0
+E1-loop: camera at 85.0,14.10,733.0 looking at 102.0,16.10,741.0
+E1-half-pipe: camera at 136.5,14.10,737.0 looking at 136.5,12.10,645.0
+E1-huge-table: camera at 12.0,14.10,651.0 looking at 80.0,14.10,651.0
+E1-barrel-roll: camera at 20.0,14.10,675.0 looking at 70.0,13.10,679.0
+E1-bus-gap: camera at 18.0,14.10,708.0 looking at 70.0,13.10,705.0
+E1-overview-south-west: camera at -30.0,36.10,590.0 looking at 60.0,11.10,685.0
+E1-overview-north-east: camera at 165.0,41.10,780.0 looking at 60.0,11.10,675.0
+Clay Hopper: config stuntbuggy, resting at 130.0,11.80,635.0 (0.70 m above the floor), grounded wheels 4
+Skywhip 250: config stuntbike, resting at 130.0,11.70,635.0 (0.60 m above the floor), grounded wheels 4

@@ -1,0 +1,13 @@
+screen=1920x1080 kind=event version=0.106.0-review1 park=on
+Stunt event: 1 player(s), Clay Hopper, round 10 minutes; medal targets 20000 / 50000 / 90000
+running: player 1 at 142.0,11.83,625.0; screen one view
+  1:00  P1 5,918 pts, 5 combos, best 3,261, tricks 1, bails 2, loops 1   resets 0
+  2:00  P1 13,761 pts, 9 combos, best 3,261, tricks 3, bails 3, loops 3   resets 0
+  3:00  P1 19,447 pts, 14 combos, best 3,276, tricks 4, bails 5, loops 4   resets 0
+  4:00  P1 27,280 pts, 18 combos, best 3,276, tricks 6, bails 6, loops 6   resets 0
+  5:00  P1 33,195 pts, 23 combos, best 3,276, tricks 7, bails 8, loops 7   resets 0
+pause at 300.01 s for 6 s (state Paused): clock after 300.01 s, points 33195 -> 33195: kept; resumed, state Racing
+  6:00  P1 38,853 pts, 27 combos, best 3,276, tricks 8, bails 9, loops 8   resets 0
+  7:00  P1 44,748 pts, 32 combos, best 3,276, tricks 9, bails 11, loops 9   resets 0
+  8:00  P1 52,648 pts, 36 combos, best 3,276, tricks 11, bails 12, loops 11   resets 0
+  9:00  P1 58,587 pts, 41 combos, best 3,276, tricks 13, bails 14, loops 13   resets 0

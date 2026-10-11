@@ -1,0 +1,19 @@
+screen=1920x1080 kind=event version=0.106.0-review1 park=on
+Stunt event: 2 player(s), Clay Hopper and Clay Hopper, round 10 minutes; medal targets 20000 / 50000 / 90000
+running: player 1 at 142.0,11.83,625.0, player 2 at 133.0,11.83,625.0; screen split
+  1:00  P1 8,307 pts, 5 combos, best 3,376, tricks 1, bails 1, loops 1   P2 1,032 pts, 1 combos, best 1,032, tricks 0, bails 0, loops 0   resets 0/8
+  2:00  P1 16,097 pts, 9 combos, best 3,376, tricks 3, bails 2, loops 3   P2 1,032 pts, 1 combos, best 1,032, tricks 0, bails 0, loops 0   resets 0/17
+  3:00  P1 21,988 pts, 14 combos, best 3,376, tricks 4, bails 4, loops 4   P2 1,032 pts, 1 combos, best 1,032, tricks 0, bails 0, loops 0   resets 0/27
+  4:00  P1 29,664 pts, 18 combos, best 3,376, tricks 6, bails 5, loops 6   P2 1,032 pts, 1 combos, best 1,032, tricks 0, bails 0, loops 0   resets 0/36
+  5:00  P1 35,540 pts, 23 combos, best 3,376, tricks 7, bails 7, loops 7   P2 1,032 pts, 1 combos, best 1,032, tricks 0, bails 0, loops 0   resets 0/46
+pause at 300.00 s for 6 s (state Paused): clock after 300.00 s, points 35540/1032 -> 35540/1032: kept; resumed, state Racing
+  6:00  P1 43,338 pts, 27 combos, best 3,376, tricks 9, bails 8, loops 9   P2 1,032 pts, 1 combos, best 1,032, tricks 0, bails 0, loops 0   resets 0/55
+  7:00  P1 49,227 pts, 32 combos, best 3,376, tricks 10, bails 10, loops 10   P2 1,032 pts, 1 combos, best 1,032, tricks 0, bails 0, loops 0   resets 0/64
+  8:00  P1 58,059 pts, 37 combos, best 3,376, tricks 12, bails 12, loops 12   P2 1,032 pts, 1 combos, best 1,032, tricks 0, bails 0, loops 0   resets 0/74
+  9:00  P1 62,889 pts, 41 combos, best 3,376, tricks 14, bails 13, loops 14   P2 1,032 pts, 1 combos, best 1,032, tricks 0, bails 0, loops 0   resets 0/83
+  10:00  P1 71,812 pts, 46 combos, best 3,376, tricks 15, bails 15, loops 15   P2 1,032 pts, 1 combos, best 1,032, tricks 0, bails 0, loops 0   resets 0/93
+finished at 600.0 s; state Results; winner Player One
+  Player One: 71,812 pts, medal Silver, Top 10 #1, combos 46, best combo 3,376, outside the park 0, tricks 15, bails 15, loops 15
+  Player Two: 1,032 pts, medal none, Top 10 #2, combos 1, best combo 1,032, outside the park 0, tricks 0, bails 0, loops 0
+test save C:\Users\danmo\AppData\Local\Temp\report106\event2\save-copy\stunt-park-v1.json: { "version": 1, "goldEarned": false, "bestCombo": 0, "bestComboVehicle": "", "bestComboDate": "", "top": [ { "name": "Player One", "vehicle": "stuntbuggy", "date": "2026-10-11", "points": 71812, "medal": 2, "bestCombo": 3376 }, { "name": "Player Two", "vehicle": "stuntbuggy", "date": "2026-10-11", "points": 1032, "medal": 0, "bestCombo": 1032 } ] }
+stunt motorcycle earned: False; the save is the test copy (C:\Users\danmo\AppData\Local\Temp\report106\event2\save-copy)

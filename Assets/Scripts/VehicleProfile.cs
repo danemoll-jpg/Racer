@@ -24,6 +24,9 @@ namespace Racer
         // 0.99 Part E: what earns a Reward vehicle: "acorn" (the mower), "police-car" or "police-bike" (PoliceProgress)
         public string Unlock = "acorn";
         public bool IsPolice => Unlock != null && Unlock.StartsWith("police");
+        // 0.106 Part C: a stunt vehicle (Unlock "stunt-..."): air steering (AirControl, ArcadeVehicle), Free Roam and the Stunt event only
+        public float AirControl;
+        public bool Stunt => Unlock != null && Unlock.StartsWith("stunt");
         static VehicleProfile[] all; public static VehicleProfile[] All => all ??= BuildAll(); // built on first use: the police profiles are defined after the list
         static VehicleProfile[] BuildAll() => new VehicleProfile[] {
             new() { Id="original", Name="Street Classic", Class="Car", Description="Balanced handling / high stability / strong contact", Speed=49, Acceleration=14.5f, Grip=25, Response=8, Mass=1200, Wheelbase=2.6f, Pitch=1, Size=new(1.85f,.65f,3.7f), Camera=new(0,3.6f,-7.5f),
@@ -54,8 +57,18 @@ namespace Racer
             new() { Id="mower", Name="Turf Rocket", Class="Mower", Description="Riding mower / the acorn reward / top speed, grip and handling, solid in contact", Speed=61, Acceleration=18, Grip=32, Response=12, Mass=760, Wheelbase=1.6f, Pitch=1.75f, Size=new(1.15f,.65f,2.1f), Camera=new(0,3.1f,-6.6f),
                 Model="TurfRocket", Seat=new(0,.22f,-.52f), Base="moto", Upright=27, Air=.24f, Reward=true, SolidContact=true },
             // 0.99 Part E: the two police vehicles, unlocked by police goals (PoliceProgress): not in the campaign, the shop or the rivals' rosters, stock only
-            Police, PoliceBike
+            Police, PoliceBike,
+            // 0.106 Part C: the two stunt vehicles (Tools/Blender/stuntbuggy.py, stuntbike.py), Free Roam and the Stunt event only (never in races, the
+            // campaign, the shop, rivals, Getaway or Speed Patrol), steered in the air (AirControl). The buggy from the start; the motorcycle with the first
+            // Gold in the Stunt event (StuntProgress).
+            StuntBuggy, StuntBike
         };
+        // a light buggy on long suspension (the ATV's family for the activity tables): open frame and roll cage, the cars' seated pose on the centre line
+        public static readonly VehicleProfile StuntBuggy = new() { Id="stuntbuggy", Name="Clay Hopper", Class="Buggy", Description="Stunt buggy / long-travel suspension / steer it in the air: flips, rolls, spins", Speed=50, Acceleration=17.5f, Grip=29, Response=10.5f, Mass=520, Wheelbase=2.1f, Pitch=1.25f, Size=new(1.5f,.7f,2.8f), Camera=new(0,3.4f,-7f),
+                Model="StuntBuggy", Seat=new(0,.06f,-.28f), Base="atv", Upright=24, Air=.16f, Suspension=.85f, Reward=true, Unlock="stunt-buggy", AirControl=1 };
+        // a freestyle dirt bike on the Ridge Scrambler's frame and handling family, the Dirt rider pose
+        public static readonly VehicleProfile StuntBike = new() { Id="stuntbike", Name="Skywhip 250", Class="Motorcycle", Description="Stunt motorcycle / freestyle dirt bike / steer it in the air: flips, rolls, spins", Speed=55, Acceleration=18, Grip=31, Response=11.5f, Mass=190, Wheelbase=1.56f, Pitch=1.35f, Size=new(.7f,.9f,2.3f), Camera=new(0,3.2f,-6.6f),
+                Model="StuntBike", Pose="Dirt", FrontPivot=new(0,-.16f,.80f), FrontAxis=new(0,.80f,-.33f), FrontGain=9, Base="moto", Upright=23, Air=.2f, Suspension=.75f, Lean=.6f, Reward=true, Unlock="stunt-gold", AirControl=1 };
         // 0.94 Part C: the patrol car (Tools/Blender/police.py), the cop's vehicle in Police Chase only: kept out of All, so it
         // is never in the garage, the shop, races, rival rosters or split-screen choices. Close to the faster vehicles so a
         // chase is fair: top speed between the cars (49-52) and the Trail Four / Ridge Scrambler (56), the Highball Fastback's

@@ -32,7 +32,7 @@ namespace Racer
         // colour (D-pad or arrow keys). Everything else on the screen answers player 1's device only.
         void UpdateSplitJoin()
         {
-            if (flow.State != RaceFlow.Stage.Ready || (page != "split" && page != "police") || modalConfirm != null) return;
+            if (flow.State != RaceFlow.Stage.Ready || (page != "split" && page != "police" && page != "stunt") || modalConfirm != null) return;
             if (SplitScreen.P1Device != null && !SplitScreen.P1Device.added) { SplitScreen.P1Device = null; Show(); return; }
             if (SplitScreen.P2Device != null && !SplitScreen.P2Device.added) { SplitScreen.P2Device = null; SplitScreen.P2Ai = true; Show(); return; }
             foreach (var pad in Gamepad.all) if (!Assigned(pad) && (pad.buttonSouth.wasPressedThisFrame || pad.startButton.wasPressedThisFrame)) { Join(pad); return; }
@@ -41,7 +41,7 @@ namespace Racer
         }
         void Join(InputDevice d)
         {
-            if (SplitScreen.P1Device == null) SplitScreen.P1Device = d; else { SplitScreen.P2Device = d; SplitScreen.P2Ai = false; if (page == "police") SplitScreen.Solo = false; } // 0.95: a second player joining a Police Chase makes it two players
+            if (SplitScreen.P1Device == null) SplitScreen.P1Device = d; else { SplitScreen.P2Device = d; SplitScreen.P2Ai = false; if (page == "police" || page == "stunt") SplitScreen.Solo = false; } // 0.95: a second player joining a Police Chase (0.106: or the Stunt event) makes it two players
             MenuInput.ConsumeThroughRelease(); flow.Click(); flow.Notify((SplitScreen.P1Device == d ? "Player 1" : "Player 2") + " joined: " + SplitScreen.DeviceName(d), 3); Show();
         }
         static string NextSplitVehicle(string id, int d) { var vehicles = SplitScreen.Vehicles; int i = System.Array.FindIndex(vehicles, v => v.Id == id); return vehicles[((i < 0 ? 0 : i) + d + vehicles.Length) % vehicles.Length].Id; }
@@ -58,17 +58,17 @@ namespace Racer
         }
         // While the setup screen is up only player 1's device (and the mouse with the keyboard) works it.
         bool splitSetupDevices;
-        public bool SplitSetupOpen => flow.State == RaceFlow.Stage.Ready && (page == "split" || page == "split-garage" || page == "police") && modalConfirm == null;
+        public bool SplitSetupOpen => flow.State == RaceFlow.Stage.Ready && (page == "split" || page == "split-garage" || page == "police" || page == "stunt") && modalConfirm == null;
         void SplitSetupDevices()
         {
-            bool setup = flow.State == RaceFlow.Stage.Ready && (page == "split" || page == "split-garage" || page == "police");
+            bool setup = flow.State == RaceFlow.Stage.Ready && (page == "split" || page == "split-garage" || page == "police" || page == "stunt");
             if (setup) { var p1 = SplitScreen.P1Device; RestrictMenuDevices(p1 != null && p1.added ? p1 : null); splitSetupDevices = true; }
             else if (splitSetupDevices) { splitSetupDevices = false; if (!SplitScreen.Race) RestrictMenuDevices(); }
         }
         void RenderSplit()
         {
             // 0.95 Part B: Police Chase has its own setup (the Mode row sends it there); back here it is Race / Free Roam
-            if (SplitScreen.Mode == SplitScreen.Kind.Police) SplitScreen.Mode = SplitScreen.Kind.Race;
+            if (SplitScreen.Mode == SplitScreen.Kind.Police || SplitScreen.Mode == SplitScreen.Kind.Stunt) SplitScreen.Mode = SplitScreen.Kind.Race;
             var mode = SplitScreen.Mode; bool race = mode == SplitScreen.Kind.Race;
             ClearCore("SPLIT SCREEN", (race ? "Two players, one race on this PC: everything is unlocked and every vehicle is stock." : "Two players in Free Roam: everything is unlocked, vehicles stock; nothing is recorded (acorns, activity records, discovery).") + "\nLeft / right on a player's row changes their device; A or Start on another controller, or Enter, joins it.");
             if (SplitScreen.P1Color > VehiclePaint.Count - 1) SplitScreen.P1Color = 2; if (SplitScreen.P2Color > VehiclePaint.Count - 1) SplitScreen.P2Color = 2;
@@ -141,21 +141,22 @@ namespace Racer
         void RenderSplitPause()
         {
             var split = SplitScreen.Race; string missing = split ? split.MissingText : null;
-            ClearCore(GetawayChase.Current ? "GETAWAY / PAUSED" : SpeedPatrol.Current ? "SPEED PATROL / PAUSED" : PoliceChase.Current ? "POLICE CHASE / PAUSED" : "SPLIT SCREEN / PAUSED", missing ?? (SplitScreen.OneView ? "" : $"Paused by {(split && split.PausedBy != null ? SplitScreen.DeviceName(split.PausedBy) : "a player")}: either player's device works this menu."));
+            ClearCore(StuntEvent.Current ? "STUNT EVENT / PAUSED" : GetawayChase.Current ? "GETAWAY / PAUSED" : SpeedPatrol.Current ? "SPEED PATROL / PAUSED" : PoliceChase.Current ? "POLICE CHASE / PAUSED" : "SPLIT SCREEN / PAUSED", missing ?? (SplitScreen.OneView ? "" : $"Paused by {(split && split.PausedBy != null ? SplitScreen.DeviceName(split.PausedBy) : "a player")}: either player's device works this menu."));
             Row(0, "resume", "RESUME", flow.Resume); buttons[0].interactable = missing == null;
             if (SplitScreen.Roaming)
             {
                 // 0.94 Parts B and C: the world map (travel brings both players), camera views, restart the chase, end
-                var police = PoliceChase.Current; var patrol = SpeedPatrol.Current; var getaway = GetawayChase.Current;
-                if (getaway) Row(1, "restart", "RESTART THE CHASE", () => Confirm("RESTART THE CHASE?", "A new round; the time so far is cleared.", getaway.Rematch));
+                var police = PoliceChase.Current; var patrol = SpeedPatrol.Current; var getaway = GetawayChase.Current; var stunt = StuntEvent.Current;
+                if (stunt) Row(1, "restart", "RESTART THE EVENT", () => Confirm("RESTART THE STUNT EVENT?", "A new round; the points so far are cleared.", stunt.Rematch));
+                else if (getaway) Row(1, "restart", "RESTART THE CHASE", () => Confirm("RESTART THE CHASE?", "A new round; the time so far is cleared.", getaway.Rematch));
                 else if (patrol) Row(1, "restart", "RESTART THE PATROL", () => Confirm("RESTART THE PATROL?", "A new round; the points so far are cleared.", patrol.Rematch));
                 else if (police) Row(1, "restart", "RESTART THE CHASE", () => Confirm("RESTART THE CHASE?", "Back to round 1; the times so far are cleared.", police.Rematch));
                 else Row(1, "map", "MAP   (travel brings both players)", () => flow.GetComponent<ExplorationMap>()?.Open());
                 Row(2, "settings", "SETTINGS", flow.OpenSettings);
-                bool chase = police || patrol || getaway;
+                bool chase = police || patrol || getaway || stunt;
                 string back = chase && SplitScreen.FromRoam ? "Back to Free Roam." : SplitScreen.OneView ? "Back to the menu." : "Both players return to the menu.";
-                Row(3, "change-setup", "Change setup", () => Confirm("END AND CHANGE THE SETUP?", chase ? "Back to the Police Chase setup." : "Both players return to the split-screen setup.", () => flow.QuitSplit(true)));
-                Row(4, "return", chase && SplitScreen.FromRoam ? "BACK TO FREE ROAM" : "RETURN TO MENU", () => Confirm(patrol ? "END THE PATROL?" : police ? "END THE CHASE?" : "END SPLIT-SCREEN FREE ROAM?", back, () => flow.QuitSplit(false)));
+                Row(3, "change-setup", "Change setup", () => Confirm("END AND CHANGE THE SETUP?", stunt ? "Back to the Stunt event setup." : chase ? "Back to the Police Chase setup." : "Both players return to the split-screen setup.", () => flow.QuitSplit(true)));
+                Row(4, "return", chase && SplitScreen.FromRoam ? "BACK TO FREE ROAM" : "RETURN TO MENU", () => Confirm(stunt ? "END THE STUNT EVENT?" : patrol ? "END THE PATROL?" : police ? "END THE CHASE?" : "END SPLIT-SCREEN FREE ROAM?", back, () => flow.QuitSplit(false)));
                 Row(5, "quit", "Quit Game", ConfirmQuit); return;
             }
             Row(1, "restart", "RESTART RACE", () => Confirm("RESTART RACE?", "Both players go back to the grid.", flow.StartRace));

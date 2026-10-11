@@ -35,7 +35,7 @@ namespace Racer
             if(page==""&&(records||flow.State==RaceFlow.Stage.Results))
             {
                 int d=tabsAction.WasPressedThisFrame()?1:previousTab.WasPressedThisFrame()?-1:0;
-                if(d!=0){if(records){recordTab=(recordTab+d+5)%5;activityKey="";}else{int count=RacePlaylists.Active==null?3:4;resultTab=(resultTab+d+count)%count;}Show();MenuInput.ConsumeThroughRelease();}
+                if(d!=0){if(records){recordTab=(recordTab+d+6)%6;activityKey="";}else{int count=RacePlaylists.Active==null?3:4;resultTab=(resultTab+d+count)%count;}Show();MenuInput.ConsumeThroughRelease();}
             }
             if(flow.State==RaceFlow.Stage.Playlists&&page==""&&playlistDraft!=null)
             {
@@ -66,7 +66,7 @@ namespace Racer
         void TabRow(string[] labels,int chosen,Action<int> choose)
         {
             var tabs=LaterGroup("Visible tabs",content,true);tabs.SetSiblingIndex(details.gameObject.activeSelf?1:0);
-            for(int i=0;i<labels.Length;i++){int n=i;Row(i,"tab-"+labels[i],(chosen==i?"✓ ":"")+labels[i],()=>choose(n));buttons[i].transform.SetParent(tabs,false);buttons[i].GetComponentInChildren<UnityEngine.UI.Text>(true).alignment=TextAnchor.MiddleCenter;}
+            for(int i=0;i<labels.Length;i++){int n=i;Row(i,"tab-"+labels[i],(chosen==i?"✓ ":"")+labels[i],()=>choose(n));buttons[i].transform.SetParent(tabs,false);var tl=buttons[i].GetComponentInChildren<UnityEngine.UI.Text>(true);tl.alignment=TextAnchor.MiddleCenter;tl.horizontalOverflow=HorizontalWrapMode.Wrap;tl.verticalOverflow=VerticalWrapMode.Truncate;tl.resizeTextForBestFit=true;tl.resizeTextMinSize=13;tl.resizeTextMaxSize=tl.fontSize;} // 0.106: six Records tabs: a long name shrinks to fit
         }
         void TableRow(int index,string id,string[] cells,float[] widths,Action click,bool emphasis=false)
         {

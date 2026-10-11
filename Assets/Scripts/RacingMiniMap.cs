@@ -33,7 +33,7 @@ namespace Racer
         public static readonly Vector2 PlayerPoint = new(0, -48);
         // 0.93 Part D: a compass on the rim. The map turns with the vehicle (heading up), so the N moves round the rim to
         // where north (world +Z) is; small ticks mark E, S and W. Drawn in race, Free Roam and each split-screen half.
-        UnityEngine.UI.Text north; Vector2 northDir = Vector2.up;
+        UnityEngine.UI.Text north, parkLabel; Vector2 northDir = Vector2.up;
         // 0.93 Part C: in Free Roam, under the minimap, the acorn area the player is in while it still has acorns
         UnityEngine.UI.Text areaLine; float nextArea;
         const float RimInset = 11;
@@ -68,6 +68,11 @@ namespace Racer
             n.color = Color.white; n.raycastTarget = false; n.text = "N"; n.rectTransform.sizeDelta = new(22, 22);
             var edge = n.gameObject.AddComponent<UnityEngine.UI.Outline>(); edge.effectColor = new(0, 0, 0, .9f); edge.effectDistance = new(1.2f, -1.2f);
             map.north = n;
+            // 0.106 Part D: the stunt park's name on its ground
+            var pk = new GameObject("Stunt park name", typeof(RectTransform)).AddComponent<UnityEngine.UI.Text>();
+            pk.transform.SetParent(cr, false); pk.font = font; pk.fontSize = 11; pk.fontStyle = FontStyle.Bold; pk.alignment = TextAnchor.MiddleCenter; pk.color = new(1, .86f, .7f); pk.raycastTarget = false;
+            pk.text = "RED CLAY\nSTUNT PARK"; pk.rectTransform.sizeDelta = new(90, 30); var pke = pk.gameObject.AddComponent<UnityEngine.UI.Outline>(); pke.effectColor = new(0, 0, 0, .9f); pke.effectDistance = new(1, -1);
+            pk.enabled = false; map.parkLabel = pk;
             var line = new GameObject("Acorn area", typeof(RectTransform)).AddComponent<UnityEngine.UI.Text>();
             line.transform.SetParent(rect, false); line.font = font; line.fontSize = 15; line.fontStyle = FontStyle.Bold; line.alignment = TextAnchor.MiddleCenter;
             line.color = new(1, .78f, .35f); line.raycastTarget = false; line.rectTransform.sizeDelta = new(236, 22); line.rectTransform.anchoredPosition = new(0, -123);
@@ -130,6 +135,7 @@ namespace Racer
             panel.GetComponent<UnityEngine.UI.Image>().enabled = visible;
             var key = panel.Find("Route key").GetComponent<UnityEngine.UI.Text>(); key.enabled = visible; key.text = roam ? RoamKey : RaceKey;
             if (north) north.enabled = visible;
+            if (parkLabel) { bool on = visible && roam && StuntPark.Current; if (on) { var q = Project(StuntPark.Centre); on = rectTransform.rect.Contains(q); parkLabel.rectTransform.anchoredPosition = q; } parkLabel.enabled = on; } // 0.106
             if (areaLine && Time.unscaledTime >= nextArea)
             {
                 nextArea = Time.unscaledTime + .25f; var collection = roam && visible && !Split ? race.GetComponent<ExplorationCollection>() : null;
@@ -156,6 +162,13 @@ namespace Racer
         {
             vh.Clear(); if (!race || !Vehicle) return;
             var bounds = rectTransform.rect; bool roam = race.FreeRoam;
+            // 0.106 Part D: the stunt park's ground (clay), under the roads
+            if (roam && StuntPark.Current)
+            {
+                var o = StuntPark.Outline; Vector2 a = Project(o[0]), b = Project(o[1]), c2 = Project(o[2]), d = Project(o[3]); var fill = new Color(.70f, .40f, .25f, .75f);
+                Triangle(vh, a, b, c2, fill); Triangle(vh, a, c2, d, fill);
+                var rim = new Color(.95f, .62f, .40f); Line(vh, a, b, 2, rim); Line(vh, b, c2, 2, rim); Line(vh, c2, d, 2, rim); Line(vh, d, a, 2, rim);
+            }
             foreach (var s in roam ? roamSegments : segments)
             {
                 var a = Project(s.a); var b = Project(s.b);

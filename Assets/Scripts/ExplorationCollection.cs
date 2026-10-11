@@ -32,6 +32,8 @@ namespace Racer
         public void Initialize(RaceDirector owner,string root)
         {
             race=owner;path=Path.Combine(root,"woodland-acorns-v1.json");
+            // 0.106 Part D: three more acorns on the stunt park's hardest spots (the top deck, the school bus's roof, the top of the loop)
+            if(!sites.Any(s=>s.id.StartsWith("stunt-")))sites=sites.Concat(Enumerable.Range(0,StuntPark.Acorns.Length).Select(i=>new Site{id=StuntPark.Acorns[i].id,title=StuntPark.Acorns[i].title,approach=StuntPark.AcornArea,position=StuntPark.AcornAt(i),access=StuntPark.AcornAt(i)})).ToArray();
             try{if(File.Exists(path))data=JsonUtility.FromJson<Save>(File.ReadAllText(path))??new();data.found??=new();}catch(Exception e){error="Collection save unavailable: "+e.Message;}
             VehicleUnlocks.Set(Found,data.rewardEarned||(sites.Length>0&&Found>=sites.Length));
             tokens=new Transform[sites.Length];

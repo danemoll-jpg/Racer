@@ -31,7 +31,8 @@ namespace Racer
         public static string P1Name = "", P2Pick = "";
         // 0.94 Parts B and C (stage 3): what the two players do: a race, Free Roam (FreeRoamWorld, starting at Course's start)
         // or Police Chase (Free Roam, cop vs runner: who is the cop first, and the round limit in minutes).
-        public enum Kind { Race, FreeRoam, Police }
+        // 0.106 Part D: Stunt = the Stunt event at the stunt park (its own setup, like Police Chase)
+        public enum Kind { Race, FreeRoam, Police, Stunt }
         public static Kind Mode = Kind.Race;
         public static int CopFirst = 1, PoliceMinutes = 5;
         // 0.95 Parts A and B: Police Chase has its own setup (main menu / Free Roam > POLICE CHASE). Solo = one player against
@@ -48,7 +49,7 @@ namespace Racer
         // 0.99 Part E: the cop's vehicle in Cop vs Runner and Speed Patrol: the Patrol Car or the Police Bike (everything is unlocked in split-screen)
         public static string CopVehicle = "police";
         public static bool Solo = true, FromRoam; public static int SoloRole = 1, RoamReturn;
-        public static bool OneView => Active && Solo && Mode == Kind.Police;
+        public static bool OneView => Active && Solo && (Mode == Kind.Police || Mode == Kind.Stunt);
         public static bool Roaming => Active && Mode != Kind.Race;
         public static string P2Name => P2Ai ? PlayerNames.Ai : string.IsNullOrEmpty(P2Pick) ? "Player 2" : P2Pick;
         public static UnityEngine.InputSystem.InputDevice DeviceOf(int player) => player == 1 ? P1Device : P2Ai ? null : P2Device;
@@ -89,7 +90,8 @@ namespace Racer
         public static SplitRace Race { get; private set; }
         public static bool LeftRight => Hints.Flow && Hints.Flow.Save != null && Hints.Flow.Save.Settings.splitLeftRight;
         // Every vehicle except the acorn reward, which joins once earned; every course.
-        public static VehicleProfile[] Vehicles => VehicleProfile.All.Where(p => !VehicleUnlocks.LockedInSplit(p)).ToArray();
+        // 0.106 Part C: the stunt vehicles in Free Roam for two and the Stunt event only
+        public static VehicleProfile[] Vehicles => VehicleProfile.All.Where(p => !VehicleUnlocks.LockedInSplit(p) && (!p.Stunt || Mode == Kind.FreeRoam || Mode == Kind.Stunt)).ToArray();
         public static string DeviceName(InputDevice d) => d == null ? "—" : d is Keyboard ? "Keyboard" : d is Gamepad g ? "Controller " + (Gamepad.all.ToList().IndexOf(g) + 1) : d.displayName;
         public static bool Ready => P1Device != null && (P2Ai || P2Device != null);
         // One of the players' own devices (the mouse goes with the keyboard).
@@ -106,6 +108,7 @@ namespace Racer
                 race.opponents = false; race.traffic = Traffic;
                 var c1 = race.vehicle.GetComponent<VehicleConfiguration>(); c1.Apply(P1Vehicle); c1.SetBodyColor(P1Color);
                 flow.gameObject.AddComponent<SplitRoam>().Initialize(flow);
+                if (Mode == Kind.Stunt) { if (Solo) P2Ai = true; race.traffic = false; flow.gameObject.AddComponent<StuntEvent>().Initialize(flow); } // 0.106 Part D
                 if (Mode == Kind.Police) { if (Solo) P2Ai = true; else if (PoliceGame == Game.Getaway && P2AiRunner) P2Ai = true; Watching = 0; if (AiCops) { race.traffic = Traffic; flow.gameObject.AddComponent<GetawayChase>().Initialize(flow); } else if (PoliceGame == Game.SpeedPatrol) { race.traffic = true; flow.gameObject.AddComponent<SpeedPatrol>().Initialize(flow); } else { if (P2Ai) CopFirst = SoloRole == 2 ? 2 : 1; flow.gameObject.AddComponent<PoliceChase>().Initialize(flow); } }
                 Race = flow.gameObject.AddComponent<SplitRace>(); Race.Initialize(flow); return;
             }
@@ -117,6 +120,7 @@ namespace Racer
         public static void End()
         {
             if (Race) { Race.Teardown(); Object.Destroy(Race); }
+            if (StuntEvent.Current) Object.Destroy(StuntEvent.Current);
             if (GetawayChase.Current) Object.Destroy(GetawayChase.Current); Watching = 0; if (PoliceChase.Current) Object.Destroy(PoliceChase.Current); if (SpeedPatrol.Current) Object.Destroy(SpeedPatrol.Current); if (SplitRoam.Current) { SplitRoam.Current.Clear(); Object.Destroy(SplitRoam.Current); }
             Race = null; Active = false; PendingStart = false; Views.Clear();
         }
@@ -161,6 +165,14 @@ namespace Racer
                 if (SplitScreen.Solo) { P2Car = null; P2 = null; hud.Layout(false); }
                 else { P2Car = SplitRoam.Current.CreatePlayerTwo(chase.VehicleFor(2), SplitScreen.P2Color); P2 = null; if (!P2Car.GetComponent<VehicleAudio>()) P2Car.gameObject.AddComponent<VehicleAudio>(); EndShot(1); EndShot(2); Cameras(); }
                 chase.BeginRound(); return;
+            }
+            if (SplitRoam.Current && race.FreeRoam && StuntEvent.Current)
+            {
+                // 0.106 Part D: the Stunt event: each player in their own vehicle, on the stunt park's start line
+                var stunt = StuntEvent.Current; stunt.ApplyPlayerOne(); finished1 = finished2 = false;
+                if (SplitScreen.Solo) { P2Car = null; P2 = null; hud.Layout(false); }
+                else { P2Car = SplitRoam.Current.CreatePlayerTwo(SplitScreen.P2Vehicle, SplitScreen.P2Color); P2 = null; if (!P2Car.GetComponent<VehicleAudio>()) P2Car.gameObject.AddComponent<VehicleAudio>(); EndShot(1); EndShot(2); Cameras(); }
+                stunt.BeginRound(); if (chase2 && P2Car) chase2.Snap(); return;
             }
             if (SplitRoam.Current && race.FreeRoam && SpeedPatrol.Current)
             {
@@ -312,6 +324,8 @@ namespace Racer
         public bool ShotActive(int player) => (player == 1 ? shotUntil1 : shotUntil2) > Time.unscaledTime;
         public int Shots { get; private set; }
         RacerState Winner() { RacerState won = null; foreach (var r in race.Racers) if (r.Progress.Finished && (won == null || r.Progress.RaceTime(race.Clock) < won.Progress.RaceTime(race.Clock))) won = r; return won; }
+        // 0.106 Part D: the Stunt event's winner (in their own half)
+        public void WinnerShotFor(int player) { if (player == 1 || P2Car) StartShot(player); }
         void StartShot(int player)
         {
             if (player == 1) { shotUntil1 = Time.unscaledTime + WinnerShot.Seconds; var c = cam1.GetComponent<ChaseCamera>(); if (c) c.enabled = false; if (CameraViews.Current) { CameraViews.Current.ShowHead(); CameraViews.Current.enabled = false; } }

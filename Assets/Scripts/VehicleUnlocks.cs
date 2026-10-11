@@ -10,22 +10,28 @@ namespace Racer
     public static class VehicleUnlocks
     {
         public const string AcornFile = "woodland-acorns-v1.json";
-        public const int AcornsNeeded = 24;
+        public const int AcornsNeeded = 27; // 0.106: 24 Woodland Acorns + 3 in the stunt park
         public static bool RewardEarned { get; private set; }
         public static int AcornsFound { get; private set; }
         // 0.99: the acorn reward and the two police vehicles (PoliceProgress); "Unlock everything (testing)" opens the police vehicles too
-        public static bool Earned(VehicleProfile p) => p.Unlock == "police-car" ? PoliceProgress.CarEarned || Campaign.Testing : p.Unlock == "police-bike" ? PoliceProgress.BikeEarned || Campaign.Testing : RewardEarned;
+        // 0.106 Part C: the stunt buggy from the start; the stunt motorcycle with the first Gold in the Stunt event (StuntProgress)
+        public static bool Earned(VehicleProfile p) => p.Unlock == "police-car" ? PoliceProgress.CarEarned || Campaign.Testing : p.Unlock == "police-bike" ? PoliceProgress.BikeEarned || Campaign.Testing
+            : p.Unlock == "stunt-buggy" ? true : p.Unlock == "stunt-gold" ? StuntProgress.GoldEarned || Campaign.Testing : RewardEarned;
         public static bool Locked(VehicleProfile p) => p != null && p.Reward && !Earned(p);
         // split-screen has everything unlocked except the acorn reward (as before)
-        public static bool LockedInSplit(VehicleProfile p) => p != null && p.Reward && !p.IsPolice && !RewardEarned;
-        public static string LockedTextFor(VehicleProfile p) => p.Unlock == "police-car" ? PoliceProgress.CarGoal : p.Unlock == "police-bike" ? PoliceProgress.BikeGoal : LockedText;
-        public static string RewardNote(VehicleProfile p) => p.Unlock == "police-car" ? "A police goal: the patrol car." : p.Unlock == "police-bike" ? "A police goal: the patrol cycle." : "The acorn reward: a riding mower.";
+        public static bool LockedInSplit(VehicleProfile p) => p != null && p.Reward && !p.IsPolice && (p.Stunt ? !Earned(p) : !RewardEarned);
+        public static string LockedTextFor(VehicleProfile p) => p.Unlock == "police-car" ? PoliceProgress.CarGoal : p.Unlock == "police-bike" ? PoliceProgress.BikeGoal
+            : p.Stunt ? (Earned(p) ? StuntOnly : StuntProgress.BikeGoal) : LockedText;
+        public static string RewardNote(VehicleProfile p) => p.Unlock == "police-car" ? "A police goal: the patrol car." : p.Unlock == "police-bike" ? "A police goal: the patrol cycle."
+            : p.Stunt ? "A stunt vehicle: steer it in the air (Free Roam and the Stunt event)." : "The acorn reward: a riding mower.";
+        // 0.106 Part C: a stunt vehicle outside Free Roam (the race garage): shown, but driven only in Free Roam and the Stunt event
+        public const string StuntOnly = "Free Roam and the Stunt event only";
         public static bool Locked(string id) => Locked(VehicleProfile.Find(id));
         public static string LockedText => $"Find all {AcornsNeeded} Woodland Acorns ({Mathf.Min(AcornsFound, AcornsNeeded)}/{AcornsNeeded})";
         public static void Set(int found, bool earned) { AcornsFound = found; RewardEarned = earned || found >= AcornsNeeded; }
         public static void Load(string root)
         {
-            PoliceProgress.Load(root);
+            PoliceProgress.Load(root); StuntProgress.Load(root); // 0.106: the stunt motorcycle's goal
             int found = 0; bool earned = false;
             try
             {

@@ -258,6 +258,8 @@ namespace Racer
             // Free Roam keeps its recent-road behaviour, but can no longer wait forever.
             // 0.101 Part A: stopped in the Abandoned Cabin Jump's brush: onto the clear ground past its far edge, as in the race
             if(race.FreeRoam&&ShortcutUndergrowth.ResetPastAny(vehicle.Body.position,out var brushRoute,out float brushPast)&&PlaceAt(BranchTrack(brushRoute),brushPast,1,brushRoute.At(brushPast,out _),null,brushPast)){LastRecovery="Recovered past the brush";return true;}
+            // 0.106 Part A: inside the stunt park: back onto its floor (the nearest clear spot, facing the middle), not out to the road
+            if(race.FreeRoam&&StuntPark.Current&&StuntPark.OnPark(vehicle.Body.position)&&RecoverInPark())return true;
             if(race.FreeRoam)return roamValid&&RecoverRoaming()||RecoverNearest(false);
             // 0.68 player rule (Dan): the nearest usable track point, facing the race direction.
             // 0.72: racing AI uses the same rule, so a rival that fails is restored where it failed.
@@ -528,7 +530,14 @@ namespace Racer
             position.y=centreY+Mathf.Max(vehicle.suspensionLength-.12f,box.size.y*.5f-box.center.y+.12f)/normal.y;
             return true;
         }
-        static bool IsCourseSupport(string support)=>support.StartsWith("Ground_")||support.StartsWith("Takeoff -")||support.StartsWith("Landing -")||support.StartsWith("Gully supported ramp")||support.StartsWith("Decorative Road pavement")||support=="Reverse supported roadworks transition"||support=="Reverse flush west pavement apron";
+        bool RecoverInPark()
+        {
+            foreach(var (at,facing) in StuntPark.ResetsNear(vehicle.Body.position))
+                if(Supported(at,facing*Vector3.forward,out var position,out var rotation)&&Clear(position,rotation))
+                {Place(position,rotation);Pending=false;history.Clear();roamHistory.Clear();awaitingLanding=false;stableSince=-1;LastRecovery="Recovered in the stunt park";Respawned?.Invoke();return true;}
+            return false;
+        }
+        static bool IsCourseSupport(string support)=>support.StartsWith("Stunt park")||support.StartsWith("Ground_")||support.StartsWith("Takeoff -")||support.StartsWith("Landing -")||support.StartsWith("Gully supported ramp")||support.StartsWith("Decorative Road pavement")||support=="Reverse supported roadworks transition"||support=="Reverse flush west pavement apron";
         void MeasureClearance()
         {
             clearance=new Bounds(box.center,box.size);

@@ -22,8 +22,10 @@ namespace Racer
         [System.NonSerialized] public string carRuleScene;
         public bool CarsRestricted => !CarAccess.CourseAllowsCars(string.IsNullOrEmpty(carRuleScene)?gameObject.scene.name:carRuleScene);
         // 0.88: a reward vehicle not yet earned (VehicleUnlocks) is not eligible for the player or the AI.
-        public VehicleProfile[] EligibleVehicles => VehicleProfile.All.Where(p=>(!CarsRestricted||p.Small)&&!VehicleUnlocks.Locked(p)).ToArray();
-        public string EligibleVehicle(string id)=>VehicleUnlocks.Locked(id)?(CarsRestricted?"moto":"original"):CarsRestricted&&!VehicleProfile.Find(id).Small?"moto":VehicleProfile.Find(id).Id;
+        // 0.106 Part C: the stunt vehicles only in Free Roam (FreeRoamWorld): never in a race, the campaign or for the AI
+        public VehicleProfile[] EligibleVehicles => VehicleProfile.All.Where(p=>(!CarsRestricted||p.Small)&&!VehicleUnlocks.Locked(p)&&(!p.Stunt||StuntHere)).ToArray();
+        public bool StuntHere=>gameObject.scene.name==RaceFlow.RoamScene;
+        public string EligibleVehicle(string id)=>VehicleUnlocks.Locked(id)||VehicleProfile.Find(id).Stunt&&!StuntHere?(CarsRestricted?"moto":"original"):CarsRestricted&&!VehicleProfile.Find(id).Small?"moto":VehicleProfile.Find(id).Id;
         // 0.89 campaign: the player may choose only the vehicles the campaign has given them (plus the earned mower); the AI
         // keeps every eligible vehicle. Testing ("Unlock everything") lifts the campaign lock.
         public VehicleProfile[] PlayerVehicles => EligibleVehicles.Where(p=>!Campaign.VehicleLocked(p)).ToArray();

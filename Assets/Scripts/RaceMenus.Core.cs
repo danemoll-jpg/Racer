@@ -54,6 +54,7 @@ details.gameObject.SetActive(true);
                 else if(page=="campaign-cup")RenderCampaignCup();
                 else if(page=="split")RenderSplit();
                 else if(page=="police")RenderPolice(); // 0.95 Part B
+                else if(page=="stunt")RenderStuntSetup(); // 0.106 Part D
                 else if(page=="vehicle-pick")RenderVehiclePick(); // 0.92 Part B
                 else if(page=="split-garage")RenderSplitPick();
                 else if(page=="race")
@@ -80,7 +81,7 @@ details.gameObject.SetActive(true);
                 {
                     ClearCore("FREE ROAM",flow.Race.courseName+"\n"+flow.Race.vehicle.GetComponent<VehicleConfiguration>().Profile.Name+"\nExplore, collect acorns and score activities.");
                     Row(0,"explore","EXPLORE",flow.StartFreeRoam);Step(1,"roam-weather","Weather:   "+flow.RoamWeatherLabel,d=>flow.CycleRoamWeather(d));Row(2,"tracks","Tracks",flow.OpenCourses);Row(3,"garage","Garage",flow.OpenGarage);
-                    Row(4,"police","POLICE CHASE…",()=>OpenPoliceSetup());Row(5,"back","Back",()=>BackPage()); // 0.95 Part B
+                    Row(4,"police","POLICE CHASE…",()=>OpenPoliceSetup());Row(5,"stunt","STUNT EVENT…   ("+StuntPark.Title+")",()=>OpenStuntSetup());Row(6,"back","Back",()=>BackPage()); // 0.95 Part B, 0.106 Part D
                 }
                 else
                 {
@@ -99,7 +100,9 @@ details.gameObject.SetActive(true);
                     if(flow.RoamMenu){Row(7,"resume","RESUME DRIVING",flow.Resume);buttons[7].transform.SetSiblingIndex(buttons[10].transform.GetSiblingIndex());
                         Row(8,"trailer",TrailerLabel,()=>Navigate("trailer"));buttons[8].transform.SetSiblingIndex(buttons[7].transform.GetSiblingIndex()+1);
                         if(CameraViews.Current){Step(9,"camera-view",CameraViewLabel,CycleCameraView);buttons[9].transform.SetSiblingIndex(buttons[8].transform.GetSiblingIndex()+1);}}
-                    else{Row(7,"trailer",TrailerLabel,()=>Navigate("trailer"));buttons[7].transform.SetSiblingIndex(buttons[5].transform.GetSiblingIndex());}
+                    else{Row(7,"trailer",TrailerLabel,()=>Navigate("trailer"));buttons[7].transform.SetSiblingIndex(buttons[5].transform.GetSiblingIndex());}
+                    // 0.106 Part D: at the stunt park, its event right under RESUME DRIVING
+                    if(flow.RoamMenu&&StuntPark.Current&&StuntPark.Inside(flow.Race.vehicle.Body.position,25)){Row(14,"stunt","STUNT EVENT   ·   "+StuntPark.Title,()=>OpenStuntSetup());buttons[14].transform.SetSiblingIndex(buttons[7].transform.GetSiblingIndex()+1);}
                 }
             }
             else if(flow.State==RaceFlow.Stage.Paused)

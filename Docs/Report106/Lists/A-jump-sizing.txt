@@ -1,0 +1,8 @@
+K1 small: ramp R=16.6 L=5.7 lip h=1.0 th=20; deck to K=8.6 (air 0.92s at 10); slope 0.1 deg to 15.2; fast 14 m/s down at 15.2 (1.15s, 26 deg); mid lands at 11.6 28 deg; total 20.8 m
+K2 medium: ramp R=21.3 L=9.0 lip h=2.0 th=25; deck to K=9.4 (air 0.95s at 11); slope 9.7 deg to 21.1; fast 15 m/s down at 21.1 (1.55s, 33 deg); mid lands at 15.1 31 deg; total 30.2 m
+K3 big: ramp R=22.4 L=11.2 lip h=3.0 th=30; deck to K=12.7 (air 1.22s at 12); slope 11.9 deg to 27.0; fast 16 m/s down at 27.0 (1.95s, 39 deg); mid lands at 19.6 36 deg; total 38.2 m
+K4 huge: ramp R=29.2 L=16.4 lip h=5.0 th=34; deck to K=18.5 (air 1.60s at 14); slope 15.3 deg to 36.8; fast 18 m/s down at 36.8 (2.47s, 43 deg); mid lands at 27.5 41 deg; total 53.1 m
+bus gap: ramp R=46.7 L=17.5 lip h=3.4 th=22; deck to K=15.9 (air 1.15s at 15); slope 11.8 deg to 32.2; fast 19 m/s down at 32.2 (1.83s, 32 deg); mid lands at 24.0 29 deg; total 49.7 m
+car gap: ramp R=33.2 L=11.3 lip h=2.0 th=20; deck to K=11.1 (air 0.91s at 13); slope 9.2 deg to 23.4; fast 17 m/s down at 23.4 (1.46s, 28 deg); mid lands at 17.1 26 deg; total 34.7 m
+barrel: ramp R=27.8 L=11.3 lip h=2.4 th=24; deck to K=14.8 (air 1.16s at 14); slope 9.6 deg to 29.1; fast 18 m/s down at 29.1 (1.77s, 31 deg); mid lands at 21.8 29 deg; total 40.4 m
+deck launch: ramp R=22.4 L=11.2 lip h=3.0 th=30; deck to K=9.5 (air 0.84s at 13); slope 15.9 deg to 27.0; fast 16 m/s down at 27.0 (1.95s, 39 deg); mid lands at 19.4 32 deg; total 38.2 m

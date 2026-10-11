@@ -1,0 +1,22 @@
+screen=1920x1080 kind=menus version=0.106.0-review1 park=on
+start: state Ready, page 'Ready/', focus 'race'
+main menu: focus 'roam'
+Free Roam page 'Ready/roam': focus 'stunt'
+after A: page 'Ready/stunt', focus 'stunt-players'
+stunt setup rows reached by D-pad down from 'stunt-players': stunt-players, stunt-p1-vehicle, split-time, split-weather, stunt-start, stunt-back; interactable rows on the page: stunt-p1-vehicle, split-time, stunt-players, stunt-back, split-weather, stunt-start; not reached: 
+Players row: right -> 2 player(s) (was 1)
+Players row: right again -> 1
+Vehicle row: right -> original (was stuntbuggy)
+Vehicle row: left -> stuntbuggy
+after B: page 'Ready/roam', focus 'stunt'
+after B: page 'Ready/', focus 'roam'
+Records: STUNTS tab shown
+after B: state Ready, page 'Ready/'
+garage: the stunt buggy -> config stuntbuggy; title 'Clay Hopper / Buggy'
+garage: right to 'Skywhip 250 / Motorcycle  (locked)': 'LOCKED: Win a Gold medal (90,000 pts) in the Stunt event. | A stunt vehicle: steer it in the air (Free Roam and the Stunt event).'
+at the entrance, the prompt: 'Red Clay Stunt Park | Stunt event (10 minutes): Start > STUNT EVENT'
+Start: state Ready, page 'Ready/', focus 'race'
+pause menu focus 'stunt'
+A: page 'Ready//modal', focus 'cancel'
+A on 'stunt-players': page 'Ready/stunt'
+B: page 'Ready/', state Ready

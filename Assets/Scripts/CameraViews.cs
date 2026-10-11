@@ -198,7 +198,7 @@ namespace Racer
         Pose FrontView(ArcadeVehicle car, Pose fallback)
         {
             var p = car.GetComponent<VehicleConfiguration>().Profile;
-            var local = p.Small ? new Vector3(0, p.Motorcycle ? (p.Id == "scrambler" ? 1.2f : .98f) : .92f, p.Size.z * .5f - .1f) : new Vector3(0, .3f, p.Size.z * .5f + .06f);
+            var local = p.Small ? new Vector3(0, p.Motorcycle ? (p.Id == "scrambler" || p.Id == "stuntbike" ? 1.2f : .98f) : .92f, p.Size.z * .5f - .1f) : new Vector3(0, .3f, p.Size.z * .5f + .06f);
             float look = Mathf.Clamp(car.Body.angularVelocity.y * Mathf.Rad2Deg * .12f, -6, 6);
             return Mounted(car, car.transform.TransformPoint(local), Quaternion.Euler(0, look, 0), baseFov + 5);
         }

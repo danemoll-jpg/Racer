@@ -1,0 +1,416 @@
+screen=1920x1080 kind=features version=0.106.0-review1 park=on
+--- Clay Hopper (stuntbuggy)
+K1 small kicker [stuntbuggy] at 14 m/s (31 mph): 1 flight(s), highest 2.3 m above the floor, loops 0, resets 0, wiped out False, contacts 2
+    flight 0.86 s, 11.7 m, up 0.5 m, turned pitch 17 yaw 0 roll 0, landed at 99.2,11.95,625.0 speed 14.5
+    shown: CLEAN JUMP / 39.2 ft / 0.84 s / 203 pts
+    combos banked: 203
+    stuntbuggy touched 'Stunt park K1 small kicker' at (116.0, 11.2, 624.3), impulse 0
+    stuntbuggy touched 'Stunt park K2 medium table' at (93.9, 11.1, 624.2), impulse 0
+K2 medium table [stuntbuggy] at 15 m/s (34 mph): 1 flight(s), highest 4.4 m above the floor, loops 0, resets 0, wiped out False, contacts 4
+    flight 1.30 s, 18.3 m, up 1.1 m, turned pitch 25 yaw 0 roll 0, landed at 64.6,12.14,625.0 speed 16.0
+    shown: CLEAN JUMP / 60.8 ft / 1.28 s / 313 pts
+    combos banked: 313
+    stuntbuggy touched 'Stunt park K1 small kicker' at (112.3, 11.5, 624.3), impulse 0
+    stuntbuggy touched 'Stunt park K2 medium table' at (92.1, 11.2, 624.3), impulse 0
+    stuntbuggy touched 'Stunt park K2 medium table' at (63.0, 11.1, 625.7), impulse 0
+    stuntbuggy touched 'Stunt park K3 big table' at (51.2, 11.3, 624.3), impulse 0
+K3 big table [stuntbuggy] at 16 m/s (36 mph): 2 flight(s), highest 6.5 m above the floor, loops 0, resets 0, wiped out False, contacts 3
+    flight 0.48 s, 7.8 m, up 0.0 m, turned pitch 7 yaw 0 roll 0, landed at 60.7,11.94,625.0 speed 16.9
+    flight 1.68 s, 23.8 m, up 2.2 m, turned pitch 29 yaw 0 roll 0, landed at 17.3,12.53,625.0 speed 17.0
+    shown: CLEAN JUMP / 79.1 ft / 1.66 s / 407 pts
+    combos banked: 407
+    stuntbuggy touched 'Stunt park K3 big table' at (53.9, 11.1, 624.3), impulse 0
+    stuntbuggy touched 'Stunt park K3 big table' at (18.8, 12.1, 624.2), impulse 0
+    stuntbuggy touched 'Stunt park west quarter-pipe' at (-3.3, 11.2, 624.2), impulse 0
+kicker line K1-K2-K3 (combo) [stuntbuggy] at 15 m/s (34 mph): 3 flight(s), highest 6.1 m above the floor, loops 0, resets 0, wiped out False, contacts 8
+    flight 0.92 s, 13.3 m, up 0.6 m, turned pitch 19 yaw 0 roll 0, landed at 97.6,11.99,625.0 speed 15.4
+    flight 1.30 s, 18.5 m, up 1.1 m, turned pitch 24 yaw 0 roll -2, landed at 64.4,12.05,622.8 speed 15.8
+    flight 1.42 s, 19.4 m, up 1.7 m, turned pitch 34 yaw 17 roll 4, landed at 21.5,13.87,620.8 speed 15.3
+    shown: CLEAN JUMP / 44.6 ft / 0.90 s / 226 pts
+    shown: CLEAN JUMP / 61.7 ft / 1.28 s / 316 pts | COMBO x2 · 1,084
+    shown: CLEAN JUMP / 64.6 ft / 1.40 s / 337 pts | COMBO x3 · 2,637
+    shown: COMBO x3 / 2,637 pts
+    combos banked: 2637
+    stuntbuggy touched 'Stunt park K1 small kicker' at (116.2, 11.2, 624.2), impulse 0
+    stuntbuggy touched 'Stunt park K2 medium table' at (94.0, 11.1, 625.7), impulse 4939
+    stuntbuggy touched 'Stunt park K2 medium table' at (90.2, 11.5, 624.0), impulse 0
+    stuntbuggy touched 'Stunt park K2 medium table' at (63.3, 11.1, 622.0), impulse 0
+    stuntbuggy touched 'Stunt park K3 big table' at (51.4, 11.3, 621.4), impulse 0
+    stuntbuggy touched 'Stunt park K3 big table' at (23.9, 14.0, 621.1), impulse 0
+west quarter-pipe [stuntbuggy] at 13 m/s (29 mph): 0 flight(s), highest 9.2 m above the floor, loops 0, resets 0, wiped out False, contacts 1
+    shown: CLEAN JUMP / 58.6 ft / 2.42 s / 421 pts
+    stuntbuggy touched 'Stunt park west quarter-pipe' at (-3.3, 11.2, 636.3), impulse 0
+junk-car gap [stuntbuggy] at 16 m/s (36 mph): 1 flight(s), highest 4.2 m above the floor, loops 0, resets 0, wiped out False, contacts 2
+    flight 1.20 s, 18.2 m, up 1.2 m, turned pitch 22 yaw 0 roll 0, landed at 0.0,12.85,680.9 speed 16.4
+    shown: CLEAN JUMP / 60.6 ft / 1.18 s / 303 pts
+    combos banked: 303
+    stuntbuggy touched 'Stunt park car gap takeoff' at (0.8, 11.2, 652.9), impulse 0
+    stuntbuggy touched 'Stunt park car gap landing' at (-0.8, 11.1, 684.0), impulse 0
+deck launch [stuntbuggy] at 15 m/s (34 mph): 1 flight(s), highest 7.0 m above the floor, loops 0, resets 0, wiped out False, contacts 4
+    flight 1.22 s, 15.7 m, up 2.6 m, turned pitch 34 yaw 0 roll 0, landed at 55.4,16.92,743.0 speed 13.6
+    shown: CLEAN JUMP / 52.4 ft / 1.20 s / 280 pts
+    combos banked: 280
+    stuntbuggy touched 'Stunt park deck launch' at (29.8, 11.2, 743.8), impulse 0
+    stuntbuggy touched 'Stunt park two-level deck' at (57.0, 16.1, 743.8), impulse 0
+    stuntbuggy touched 'Stunt park deck drop landing' at (82.5, 14.6, 743.6), impulse 0
+    stuntbuggy touched 'Stunt park deck drop landing' at (95.7, 11.1, 742.8), impulse 0
+deck drop and the loop [stuntbuggy] at 18 m/s (40 mph): 1 flight(s), highest 9.3 m above the floor, loops 1, resets 0, wiped out False, contacts 5
+    flight 0.82 s, 14.5 m, up 0.0 m, turned pitch 6 yaw 0 roll 0, landed at 92.6,12.70,743.0 speed 19.3
+    shown: CLEAN JUMP / 48.9 ft / 0.80 s / 229 pts
+    shown: LOOP / 500 pts | COMBO x2 · 1,458
+    shown: COMBO x2 / 1,458 pts
+    combos banked: 1458
+    stuntbuggy touched 'Stunt park two-level deck' at (76.5, 16.1, 743.8), impulse 0
+    stuntbuggy touched 'Stunt park deck drop landing' at (91.1, 12.2, 743.8), impulse 0
+    stuntbuggy touched 'Stunt park loop' at (108.9, 11.2, 743.7), impulse 0
+    stuntbuggy touched 'Stunt park loop rails' at (105.9, 12.4, 733.8), impulse 0
+    stuntbuggy touched 'Stunt park tire wall' at (149.2, 11.5, 749.1), impulse 1745
+half-pipe (down its middle) [stuntbuggy] at 14 m/s (31 mph): 0 flight(s), highest 0.7 m above the floor, loops 0, resets 0, wiped out False, contacts 0
+half-pipe (up the east wall) [stuntbuggy] at 13 m/s (29 mph): 0 flight(s), highest 7.9 m above the floor, loops 0, resets 0, wiped out False, contacts 1
+    shown: CLEAN JUMP / 50.3 ft / 2.14 s / 367 pts
+    stuntbuggy touched 'Stunt park half-pipe' at (141.7, 11.2, 720.2), impulse 0
+K4 huge table [stuntbuggy] at 18 m/s (40 mph): 1 flight(s), highest 10.5 m above the floor, loops 0, resets 0, wiped out False, contacts 3
+    flight 2.32 s, 34.8 m, up 4.1 m, turned pitch 27 yaw 0 roll 0, landed at 78.7,11.97,651.0 speed 19.8
+    shown: CLEAN JUMP / 115.1 ft / 2.30 s / 581 pts
+    combos banked: 581
+    stuntbuggy touched 'Stunt park K4 huge table' at (26.9, 11.1, 651.8), impulse 0
+    stuntbuggy touched 'Stunt park K4 huge table' at (77.8, 11.3, 651.8), impulse 0
+    stuntbuggy touched 'Stunt park half-pipe' at (125.6, 11.5, 649.9), impulse 421
+barrel-roll ramp [stuntbuggy] at 17 m/s (38 mph): 1 flight(s), highest 4.9 m above the floor, loops 0, resets 0, wiped out False, contacts 1
+    flight 1.36 s, 19.1 m, up 0.9 m, turned pitch 37 yaw -10 roll 46, landed at 66.6,11.83,678.5 speed 16.2
+    shown: CLEAN JUMP / 63.7 ft / 1.34 s / 328 pts
+    combos banked: 328
+    stuntbuggy touched 'Stunt park barrel-roll ramp' at (36.1, 11.2, 679.1), impulse 0
+school-bus gap [stuntbuggy] at 16 m/s (36 mph): 1 flight(s), highest 6.3 m above the floor, loops 0, resets 0, wiped out False, contacts 3
+    flight 1.44 s, 21.0 m, up 1.9 m, turned pitch 29 yaw 0 roll 0, landed at 66.9,14.12,705.0 speed 16.4
+    shown: CLEAN JUMP / 70.0 ft / 1.42 s / 355 pts
+    combos banked: 355
+    stuntbuggy touched 'Stunt park bus gap takeoff' at (32.0, 11.2, 705.8), impulse 0
+    stuntbuggy touched 'Stunt park bus gap landing' at (66.0, 13.4, 705.7), impulse 0
+    stuntbuggy touched 'Stunt park bus gap landing' at (70.5, 12.0, 705.8), impulse 0
+K3 big table [stuntbuggy, trick back] at 16 m/s (36 mph): 2 flight(s), highest 6.0 m above the floor, loops 0, resets 0, wiped out False, contacts 4
+    flight 0.48 s, 7.8 m, up 0.0 m, turned pitch 7 yaw 0 roll 0, landed at 60.7,11.94,625.0 speed 16.9
+    flight 1.64 s, 23.2 m, up 1.7 m, turned pitch -373 yaw 0 roll 0, landed at 17.9,13.21,625.0 speed 15.8
+    shown: BACKFLIP / 741 pts
+    combos banked: 741
+    stuntbuggy touched 'Stunt park K3 big table' at (53.9, 11.1, 624.3), impulse 0
+    stuntbuggy touched 'Stunt park K3 big table' at (22.0, 13.3, 624.2), impulse 0
+    stuntbuggy touched 'Stunt park K3 big table' at (14.3, 11.1, 624.2), impulse 0
+    stuntbuggy touched 'Stunt park west quarter-pipe' at (-3.2, 11.2, 624.3), impulse 0
+K4 huge table [stuntbuggy, trick back] at 18 m/s (40 mph): 1 flight(s), highest 10.0 m above the floor, loops 0, resets 0, wiped out False, contacts 2
+    flight 2.28 s, 34.0 m, up 3.5 m, turned pitch -366 yaw 0 roll -1, landed at 77.9,12.51,651.0 speed 18.4
+    shown: BACKFLIP / 869 pts
+    combos banked: 869
+    stuntbuggy touched 'Stunt park K4 huge table' at (26.9, 11.1, 651.8), impulse 0
+    stuntbuggy touched 'Stunt park K4 huge table' at (76.0, 11.8, 650.3), impulse 0
+K4 huge table [stuntbuggy, trick front] at 18 m/s (40 mph): 1 flight(s), highest 10.1 m above the floor, loops 0, resets 0, wiped out False, contacts 3
+    flight 2.30 s, 34.4 m, up 3.6 m, turned pitch 373 yaw 0 roll 0, landed at 78.3,12.23,651.0 speed 19.6
+    shown: FRONTFLIP / 875 pts
+    combos banked: 875
+    stuntbuggy touched 'Stunt park K4 huge table' at (26.9, 11.1, 651.8), impulse 0
+    stuntbuggy touched 'Stunt park K4 huge table' at (76.6, 11.6, 651.8), impulse 0
+    stuntbuggy touched 'Stunt park half-pipe' at (125.6, 11.5, 650.2), impulse 1156
+K4 huge table [stuntbuggy, trick spin] at 18 m/s (40 mph): 1 flight(s), highest 10.5 m above the floor, loops 0, resets 0, wiped out False, contacts 2
+    flight 2.32 s, 34.7 m, up 4.1 m, turned pitch 62 yaw 370 roll 4, landed at 78.6,11.98,651.0 speed 19.3
+    shown: 360 SPIN / 730 pts
+    combos banked: 730
+    stuntbuggy touched 'Stunt park K4 huge table' at (26.9, 11.1, 651.8), impulse 0
+    stuntbuggy touched 'Stunt park K4 huge table' at (76.5, 11.6, 650.7), impulse 0
+school-bus gap [stuntbuggy, trick roll] at 16 m/s (36 mph): 1 flight(s), highest 5.9 m above the floor, loops 0, resets 0, wiped out False, contacts 2
+    flight 1.56 s, 22.7 m, up 1.5 m, turned pitch 59 yaw -4 roll -413, landed at 68.6,13.54,704.9 speed 15.4
+    shown: ROLL / 634 pts
+    combos banked: 634
+    stuntbuggy touched 'Stunt park bus gap takeoff' at (32.0, 11.2, 705.8), impulse 0
+    stuntbuggy touched 'Stunt park bus gap landing' at (61.2, 14.5, 705.3), impulse 0
+barrel-roll ramp [stuntbuggy, trick roll] at 17 m/s (38 mph): 1 flight(s), highest 4.6 m above the floor, loops 0, resets 0, wiped out False, contacts 1
+    flight 1.38 s, 19.4 m, up 0.6 m, turned pitch 33 yaw -1 roll -337, landed at 66.8,11.76,678.3 speed 15.1
+    shown: BARREL ROLL / 883 pts
+    combos banked: 883
+    stuntbuggy touched 'Stunt park barrel-roll ramp' at (36.1, 11.2, 679.1), impulse 0
+K3 big table [stuntbuggy, trick halfback] at 16 m/s (36 mph): 1 flight(s), highest 6.3 m above the floor, loops 0, resets 0, wiped out False, contacts 3
+    flight 0.48 s, 7.8 m, up 0.0 m, turned pitch 7 yaw 0 roll 0, landed at 60.7,11.94,625.0 speed 16.9
+    shown: BAILED / Landed on the roof
+    stuntbuggy touched 'Stunt park K3 big table' at (53.9, 11.1, 624.3), impulse 0
+    stuntbuggy touched 'Stunt park K3 big table' at (23.4, 13.8, 624.2), impulse 0
+    stuntbuggy touched 'Stunt park west quarter-pipe' at (-2.0, 11.1, 625.1), impulse 2445
+--- Skywhip 250 (stuntbike)
+K1 small kicker [stuntbike] at 14 m/s (31 mph): 1 flight(s), highest 2.5 m above the floor, loops 0, resets 0, wiped out False, contacts 2
+    flight 0.98 s, 13.2 m, up 0.7 m, turned pitch 20 yaw 0 roll 0, landed at 97.9,11.79,625.0 speed 14.6
+    shown: CLEAN JUMP / 44.3 ft / 0.96 s / 231 pts
+    combos banked: 231
+    stuntbike touched 'Stunt park K1 small kicker' at (117.9, 11.1, 624.7), impulse 0
+    stuntbike touched 'Stunt park K2 medium table' at (93.7, 11.1, 624.7), impulse 0
+K2 medium table [stuntbike] at 15 m/s (34 mph): 1 flight(s), highest 4.4 m above the floor, loops 0, resets 0, wiped out False, contacts 6
+    flight 1.38 s, 19.4 m, up 1.3 m, turned pitch 26 yaw 0 roll 0, landed at 64.0,11.84,625.0 speed 16.2
+    shown: CLEAN JUMP / 64.7 ft / 1.36 s / 333 pts
+    combos banked: 333
+    stuntbike touched 'Stunt park K1 small kicker' at (112.3, 11.4, 624.7), impulse 0
+    stuntbike touched 'Stunt park K2 medium table' at (93.8, 11.1, 624.7), impulse 0
+    stuntbike touched 'Stunt park K2 medium table' at (84.7, 13.1, 624.6), impulse 0
+    stuntbike touched 'Stunt park K2 medium table' at (65.9, 11.6, 624.6), impulse 0
+    stuntbike touched 'Stunt park K3 big table' at (54.0, 11.1, 624.6), impulse 0
+    stuntbike touched 'Stunt park K3 big table' at (38.5, 14.1, 625.2), impulse 0
+K3 big table [stuntbike] at 16 m/s (36 mph): 2 flight(s), highest 6.6 m above the floor, loops 0, resets 0, wiped out False, contacts 5
+    flight 0.52 s, 8.3 m, up 0.0 m, turned pitch 6 yaw 0 roll 0, landed at 60.4,11.83,625.0 speed 16.7
+    flight 1.76 s, 25.2 m, up 2.3 m, turned pitch 28 yaw 0 roll 0, landed at 16.0,11.96,624.9 speed 17.5
+    shown: CLEAN JUMP / 83.7 ft / 1.74 s / 429 pts
+    combos banked: 429
+    stuntbike touched 'Stunt park K2 medium table' at (77.4, 13.1, 624.7), impulse 0
+    stuntbike touched 'Stunt park K3 big table' at (53.9, 11.1, 624.6), impulse 0
+    stuntbike touched 'Stunt park K3 big table' at (17.8, 11.7, 624.6), impulse 0
+    stuntbike touched 'Stunt park west quarter-pipe' at (-2.0, 11.1, 624.7), impulse 0
+    stuntbike touched 'Stunt park west quarter-pipe' at (-7.9, 14.9, 625.6), impulse 0
+kicker line K1-K2-K3 (combo) [stuntbike] at 15 m/s (34 mph): 3 flight(s), highest 6.2 m above the floor, loops 0, resets 0, wiped out False, contacts 7
+    flight 1.02 s, 14.8 m, up 0.8 m, turned pitch 19 yaw 1 roll 0, landed at 96.4,11.71,625.0 speed 15.6
+    flight 1.40 s, 19.7 m, up 1.3 m, turned pitch 26 yaw 0 roll 0, landed at 63.8,11.74,625.6 speed 16.1
+    flight 1.38 s, 18.5 m, up 1.9 m, turned pitch 33 yaw 0 roll 1, landed at 22.8,14.45,626.5 speed 15.1
+    shown: CLEAN JUMP / 49.4 ft / 1.00 s / 250 pts
+    shown: CLEAN JUMP / 65.5 ft / 1.38 s / 338 pts | COMBO x2 · 1,176
+    shown: CLEAN JUMP / 61.5 ft / 1.36 s / 323 pts | COMBO x3 · 2,733
+    shown: COMBO x3 / 2,733 pts
+    combos banked: 2733
+    stuntbike touched 'Stunt park K1 small kicker' at (117.9, 11.1, 624.7), impulse 0
+    stuntbike touched 'Stunt park K2 medium table' at (93.8, 11.1, 624.7), impulse 2
+    stuntbike touched 'Stunt park K2 medium table' at (65.6, 11.5, 625.2), impulse 0
+    stuntbike touched 'Stunt park K3 big table' at (54.0, 11.1, 625.4), impulse 0
+    stuntbike touched 'Stunt park K3 big table' at (24.1, 14.0, 626.1), impulse 0
+    stuntbike touched 'Stunt park west quarter-pipe' at (-2.0, 11.1, 622.6), impulse 0
+west quarter-pipe [stuntbike] at 13 m/s (29 mph): 0 flight(s), highest 7.0 m above the floor, loops 0, resets 0, wiped out False, contacts 2
+    shown: CLEAN JUMP / 33.6 ft / 2.04 s / 306 pts
+    stuntbike touched 'Stunt park west quarter-pipe' at (-2.0, 11.1, 636.7), impulse 0
+    stuntbike touched 'Stunt park ground (banks and drive)' at (-18.0, 7.4, 637.4), impulse 604
+junk-car gap [stuntbike] at 16 m/s (36 mph): 1 flight(s), highest 4.1 m above the floor, loops 0, resets 0, wiped out False, contacts 2
+    flight 1.18 s, 17.7 m, up 1.2 m, turned pitch 24 yaw 0 roll 0, landed at 0.0,12.92,680.0 speed 16.2
+    shown: CLEAN JUMP / 59.0 ft / 1.16 s / 296 pts
+    combos banked: 296
+    stuntbike touched 'Stunt park car gap takeoff' at (-0.4, 11.1, 651.1), impulse 0
+    stuntbike touched 'Stunt park car gap landing' at (-0.4, 12.7, 677.9), impulse 0
+deck launch [stuntbike] at 15 m/s (34 mph): 1 flight(s), highest 7.1 m above the floor, loops 0, resets 0, wiped out False, contacts 4
+    flight 1.28 s, 16.5 m, up 2.8 m, turned pitch 38 yaw 0 roll 0, landed at 55.9,16.78,743.1 speed 13.8
+    shown: CLEAN JUMP / 55.0 ft / 1.26 s / 294 pts
+    combos banked: 294
+    stuntbike touched 'Stunt park deck launch' at (28.0, 11.1, 743.4), impulse 0
+    stuntbike touched 'Stunt park two-level deck' at (56.5, 16.1, 743.4), impulse 0
+    stuntbike touched 'Stunt park deck drop landing' at (82.5, 14.6, 743.8), impulse 0
+    stuntbike touched 'Stunt park deck drop landing' at (88.9, 12.8, 744.2), impulse 0
+deck drop and the loop [stuntbike] at 18 m/s (40 mph): 1 flight(s), highest 9.4 m above the floor, loops 1, resets 0, wiped out False, contacts 6
+    flight 0.86 s, 15.3 m, up 0.0 m, turned pitch 3 yaw 0 roll 0, landed at 93.1,12.49,743.0 speed 19.4
+    shown: CLEAN JUMP / 51.2 ft / 0.84 s / 240 pts
+    shown: LOOP / 500 pts | COMBO x2 · 1,480
+    shown: COMBO x2 / 1,480 pts
+    combos banked: 1480
+    stuntbike touched 'Stunt park two-level deck' at (55.4, 16.1, 743.4), impulse 0
+    stuntbike touched 'Stunt park deck drop landing' at (90.7, 12.3, 743.4), impulse 0
+    stuntbike touched 'Stunt park loop' at (108.2, 11.1, 743.3), impulse 0
+    stuntbike touched 'Stunt park loop rails' at (105.2, 12.8, 733.9), impulse 0
+    stuntbike touched 'Stunt park tire wall' at (149.2, 11.3, 750.6), impulse 378
+    stuntbike touched 'Stunt park tire wall' at (149.2, 11.3, 755.5), impulse 317
+half-pipe (down its middle) [stuntbike] at 14 m/s (31 mph): 0 flight(s), highest 0.7 m above the floor, loops 0, resets 0, wiped out False, contacts 0
+half-pipe (up the east wall) [stuntbike] at 13 m/s (29 mph): 0 flight(s), highest 8.0 m above the floor, loops 0, resets 0, wiped out False, contacts 1
+    shown: CLEAN JUMP / 53.0 ft / 2.26 s / 388 pts
+    stuntbike touched 'Stunt park half-pipe' at (140.5, 11.1, 720.3), impulse 0
+K4 huge table [stuntbike] at 18 m/s (40 mph): 1 flight(s), highest 10.5 m above the floor, loops 0, resets 0, wiped out False, contacts 2
+    flight 2.36 s, 35.7 m, up 4.3 m, turned pitch 32 yaw 1 roll -1, landed at 79.2,11.66,651.1 speed 19.3
+    shown: CLEAN JUMP / 118.0 ft / 2.34 s / 594 pts
+    combos banked: 594
+    stuntbike touched 'Stunt park K4 huge table' at (26.3, 11.1, 651.4), impulse 0
+    stuntbike touched 'Stunt park K4 huge table' at (77.6, 11.4, 651.5), impulse 0
+barrel-roll ramp [stuntbike] at 17 m/s (38 mph): 1 flight(s), highest 5.4 m above the floor, loops 0, resets 0, wiped out False, contacts 3
+    flight 1.36 s, 10.8 m, up 1.0 m, turned pitch 44 yaw 12 roll 54, landed at 57.6,12.59,680.2 speed 11.2
+    shown: CLEAN JUMP / 36.1 ft / 1.34 s / 244 pts
+    combos banked: 244
+    stuntbike touched 'Stunt park barrel-roll ramp' at (34.1, 11.1, 678.7), impulse 0
+    stuntbike touched 'Stunt park barrel-roll ramp' at (40.2, 12.3, 679.2), impulse 0
+    stuntbike touched 'Stunt park barrel-roll landing' at (56.0, 12.4, 680.0), impulse 0
+school-bus gap [stuntbike] at 16 m/s (36 mph): 1 flight(s), highest 6.4 m above the floor, loops 0, resets 0, wiped out False, contacts 2
+    flight 1.54 s, 22.5 m, up 2.0 m, turned pitch 30 yaw 0 roll 0, landed at 68.4,13.49,705.0 speed 16.8
+    shown: CLEAN JUMP / 74.9 ft / 1.52 s / 380 pts
+    combos banked: 380
+    stuntbike touched 'Stunt park bus gap takeoff' at (30.1, 11.1, 705.4), impulse 0
+    stuntbike touched 'Stunt park bus gap landing' at (66.5, 13.3, 705.3), impulse 0
+K3 big table [stuntbike, trick back] at 16 m/s (36 mph): 2 flight(s), highest 6.1 m above the floor, loops 0, resets 0, wiped out False, contacts 5
+    flight 0.52 s, 8.3 m, up 0.0 m, turned pitch 6 yaw 0 roll 0, landed at 60.4,11.83,625.0 speed 16.7
+    flight 1.80 s, 25.7 m, up 1.8 m, turned pitch -361 yaw 0 roll -5, landed at 15.5,12.20,624.9 speed 15.7
+    shown: BACKFLIP / 738 pts
+    combos banked: 738
+    stuntbike touched 'Stunt park K2 medium table' at (77.4, 13.1, 624.7), impulse 0
+    stuntbike touched 'Stunt park K3 big table' at (53.9, 11.1, 624.6), impulse 0
+    stuntbike touched 'Stunt park K3 big table' at (20.0, 12.5, 624.6), impulse 0
+    stuntbike touched 'Stunt park west quarter-pipe' at (-2.1, 11.1, 626.0), impulse 0
+    stuntbike touched 'Stunt park west quarter-pipe' at (-7.9, 14.9, 630.6), impulse 0
+K4 huge table [stuntbike, trick back] at 18 m/s (40 mph): 1 flight(s), highest 10.0 m above the floor, loops 0, resets 0, wiped out False, contacts 2
+    flight 2.34 s, 35.3 m, up 3.7 m, turned pitch -353 yaw 0 roll 1, landed at 78.8,12.12,651.1 speed 17.2
+    shown: BACKFLIP / 888 pts
+    combos banked: 888
+    stuntbike touched 'Stunt park K4 huge table' at (26.3, 11.1, 651.4), impulse 0
+    stuntbike touched 'Stunt park K4 huge table' at (76.8, 11.5, 651.5), impulse 0
+K4 huge table [stuntbike, trick front] at 18 m/s (40 mph): 1 flight(s), highest 10.1 m above the floor, loops 0, resets 0, wiped out False, contacts 2
+    flight 2.34 s, 35.3 m, up 3.8 m, turned pitch 378 yaw 0 roll 1, landed at 78.9,11.96,651.1 speed 18.3
+    shown: FRONTFLIP / 888 pts
+    combos banked: 888
+    stuntbike touched 'Stunt park K4 huge table' at (26.3, 11.1, 651.4), impulse 0
+    stuntbike touched 'Stunt park K4 huge table' at (77.2, 11.4, 651.5), impulse 0
+K4 huge table [stuntbike, trick spin] at 18 m/s (40 mph): 1 flight(s), highest 10.5 m above the floor, loops 0, resets 0, wiped out False, contacts 2
+    flight 2.36 s, 35.6 m, up 4.2 m, turned pitch 72 yaw 371 roll 11, landed at 79.2,11.72,651.1 speed 18.3
+    shown: 360 SPIN / 743 pts
+    combos banked: 743
+    stuntbike touched 'Stunt park K4 huge table' at (26.3, 11.1, 651.4), impulse 0
+    stuntbike touched 'Stunt park K4 huge table' at (77.2, 11.4, 651.8), impulse 0
+school-bus gap [stuntbike, trick roll] at 16 m/s (36 mph): 1 flight(s), highest 6.0 m above the floor, loops 0, resets 0, wiped out False, contacts 2
+    flight 1.68 s, 24.6 m, up 1.6 m, turned pitch 57 yaw 2 roll -390, landed at 70.5,12.64,704.8 speed 16.3
+    shown: ROLL / 665 pts
+    combos banked: 665
+    stuntbike touched 'Stunt park bus gap takeoff' at (30.1, 11.1, 705.4), impulse 0
+    stuntbike touched 'Stunt park bus gap landing' at (62.5, 14.5, 705.2), impulse 0
+barrel-roll ramp [stuntbike, trick roll] at 17 m/s (38 mph): 1 flight(s), highest 5.0 m above the floor, loops 0, resets 0, wiped out False, contacts 3
+    flight 1.30 s, 9.9 m, up 0.7 m, turned pitch 23 yaw 23 roll -323, landed at 56.6,13.25,679.9 speed 9.5
+    shown: BARREL ROLL / 779 pts
+    combos banked: 779
+    stuntbike touched 'Stunt park barrel-roll ramp' at (34.1, 11.1, 678.7), impulse 0
+    stuntbike touched 'Stunt park barrel-roll ramp' at (41.2, 12.7, 679.3), impulse 0
+    stuntbike touched 'Stunt park barrel-roll landing' at (54.8, 12.7, 680.1), impulse 0
+K3 big table [stuntbike, trick halfback] at 16 m/s (36 mph): 1 flight(s), highest 6.2 m above the floor, loops 0, resets 0, wiped out False, contacts 4
+    flight 0.52 s, 8.3 m, up 0.0 m, turned pitch 6 yaw 0 roll 0, landed at 60.4,11.83,625.0 speed 16.7
+    shown: BAILED / Landed on the roof
+    stuntbike touched 'Stunt park K2 medium table' at (77.4, 13.1, 624.7), impulse 0
+    stuntbike touched 'Stunt park K3 big table' at (53.9, 11.1, 624.6), impulse 0
+    stuntbike touched 'Stunt park K3 big table' at (22.6, 13.5, 624.6), impulse 0
+    stuntbike touched 'Stunt park west quarter-pipe' at (-2.0, 11.1, 624.8), impulse 1333
+--- Street Classic (original)
+K1 small kicker [original] at 14 m/s (31 mph): 1 flight(s), highest 2.1 m above the floor, loops 0, resets 0, wiped out False, contacts 2
+    flight 0.76 s, 10.5 m, up 0.3 m, turned pitch 19 yaw 0 roll 0, landed at 100.3,11.97,625.0 speed 14.2
+    shown: CLEAN JUMP / 35.3 ft / 0.74 s / 182 pts
+    combos banked: 182
+    original touched 'Stunt park K1 small kicker' at (114.1, 11.6, 624.1), impulse 249
+    original touched 'Stunt park K2 medium table' at (88.3, 11.9, 624.1), impulse 0
+K2 medium table [original] at 15 m/s (34 mph): 1 flight(s), highest 4.2 m above the floor, loops 0, resets 0, wiped out False, contacts 4
+    flight 1.16 s, 16.5 m, up 0.9 m, turned pitch 25 yaw 0 roll 0, landed at 66.3,12.70,625.0 speed 15.7
+    shown: CLEAN JUMP / 55.0 ft / 1.14 s / 282 pts
+    combos banked: 282
+    original touched 'Stunt park K1 small kicker' at (112.3, 11.5, 624.1), impulse 0
+    original touched 'Stunt park K2 medium table' at (89.2, 11.7, 624.1), impulse 384
+    original touched 'Stunt park K2 medium table' at (62.8, 11.1, 624.1), impulse 0
+    original touched 'Stunt park K3 big table' at (48.8, 11.7, 625.9), impulse 56
+K3 big table [original] at 16 m/s (36 mph): 2 flight(s), highest 6.2 m above the floor, loops 0, resets 0, wiped out False, contacts 4
+    flight 0.42 s, 6.8 m, up 0.0 m, turned pitch 8 yaw 0 roll 0, landed at 61.3,12.01,625.0 speed 16.8
+    flight 1.58 s, 23.1 m, up 1.8 m, turned pitch 33 yaw 0 roll 0, landed at 17.7,12.59,625.0 speed 17.1
+    shown: CLEAN JUMP / 76.9 ft / 1.56 s / 390 pts
+    combos banked: 390
+    original touched 'Stunt park K3 big table' at (48.7, 11.8, 625.9), impulse 499
+    original touched 'Stunt park K3 big table' at (14.9, 11.1, 624.1), impulse 0
+    original touched 'Stunt park west quarter-pipe' at (-4.3, 11.5, 624.1), impulse 1525
+    original touched 'Stunt park west quarter-pipe' at (-7.9, 14.9, 624.1), impulse 260
+kicker line K1-K2-K3 (combo) [original] at 15 m/s (34 mph): 3 flight(s), highest 5.9 m above the floor, loops 0, resets 0, wiped out False, contacts 7
+    flight 0.82 s, 12.0 m, up 0.4 m, turned pitch 20 yaw 0 roll 0, landed at 98.8,11.99,625.0 speed 15.0
+    flight 1.14 s, 16.2 m, up 0.9 m, turned pitch 26 yaw 0 roll 0, landed at 66.4,12.70,625.0 speed 15.7
+    flight 1.26 s, 17.2 m, up 1.5 m, turned pitch 31 yaw 0 roll 0, landed at 23.5,14.50,625.0 speed 15.1
+    shown: CLEAN JUMP / 40.3 ft / 0.80 s / 203 pts
+    shown: CLEAN JUMP / 54.2 ft / 1.12 s / 277 pts | COMBO x2 · 960
+    shown: CLEAN JUMP / 57.4 ft / 1.24 s / 299 pts | COMBO x3 · 2,337
+    shown: COMBO x3 / 2,337 pts
+    combos banked: 2337
+    original touched 'Stunt park K1 small kicker' at (114.1, 11.6, 624.1), impulse 377
+    original touched 'Stunt park K2 medium table' at (88.9, 11.7, 624.1), impulse 0
+    original touched 'Stunt park K2 medium table' at (62.8, 11.1, 624.1), impulse 0
+    original touched 'Stunt park K3 big table' at (48.8, 11.7, 625.9), impulse 443
+    original touched 'Stunt park K3 big table' at (14.7, 11.1, 624.1), impulse 960
+    original touched 'Stunt park west quarter-pipe' at (-4.4, 11.6, 624.1), impulse 1347
+west quarter-pipe [original] at 13 m/s (29 mph): 0 flight(s), highest 9.6 m above the floor, loops 0, resets 0, wiped out False, contacts 1
+    shown: CLEAN JUMP / 69.1 ft / 2.50 s / 461 pts
+    original touched 'Stunt park west quarter-pipe' at (-4.2, 11.5, 636.1), impulse 1205
+junk-car gap [original] at 16 m/s (36 mph): 1 flight(s), highest 3.9 m above the floor, loops 0, resets 0, wiped out False, contacts 2
+    flight 0.98 s, 15.1 m, up 0.9 m, turned pitch 21 yaw 0 roll 0, landed at 0.0,13.56,678.2 speed 16.2
+    shown: CLEAN JUMP / 50.7 ft / 0.96 s / 251 pts
+    combos banked: 251
+    original touched 'Stunt park car gap takeoff' at (-0.9, 11.7, 656.6), impulse 256
+    original touched 'Stunt park car gap landing' at (-0.9, 11.1, 684.8), impulse 465
+deck launch [original] at 15 m/s (34 mph): 1 flight(s), highest 6.7 m above the floor, loops 0, resets 0, wiped out False, contacts 1
+    flight 1.10 s, 14.6 m, up 2.3 m, turned pitch 30 yaw 0 roll 0, landed at 54.4,16.88,743.0 speed 13.7
+    shown: CLEAN JUMP / 48.8 ft / 1.08 s / 257 pts
+    combos banked: 257
+    original touched 'Stunt park deck launch' at (32.4, 11.6, 743.9), impulse 474
+deck drop and the loop [original] at 18 m/s (40 mph): 1 flight(s), highest 9.1 m above the floor, loops 1, resets 0, wiped out False, contacts 3
+    flight 0.80 s, 14.2 m, up 0.0 m, turned pitch 11 yaw 0 roll 0, landed at 92.5,12.62,743.0 speed 19.4
+    shown: CLEAN JUMP / 47.8 ft / 0.78 s / 224 pts
+    shown: LOOP / 500 pts | COMBO x2 · 1,448
+    shown: COMBO x2 / 1,448 pts
+    combos banked: 1448
+    original touched 'Stunt park deck drop landing' at (96.0, 11.1, 743.9), impulse 0
+    original touched 'Stunt park loop' at (110.0, 11.5, 743.9), impulse 2393
+    original touched 'Stunt park tire wall' at (149.2, 11.5, 749.4), impulse 8936
+half-pipe (down its middle) [original] at 14 m/s (31 mph): 0 flight(s), highest 0.7 m above the floor, loops 0, resets 0, wiped out False, contacts 0
+half-pipe (up the east wall) [original] at 13 m/s (29 mph): 0 flight(s), highest 7.3 m above the floor, loops 0, resets 0, wiped out False, contacts 1
+    shown: CLEAN JUMP / 70.7 ft / 2.24 s / 439 pts
+    original touched 'Stunt park half-pipe' at (142.8, 11.6, 719.6), impulse 824
+K4 huge table [original] at 18 m/s (40 mph): 1 flight(s), highest 10.1 m above the floor, loops 0, resets 0, wiped out False, contacts 3
+    flight 2.26 s, 34.8 m, up 3.6 m, turned pitch 34 yaw 0 roll 0, landed at 79.0,11.65,651.0 speed 19.9
+    shown: CLEAN JUMP / 115.3 ft / 2.24 s / 576 pts
+    combos banked: 576
+    original touched 'Stunt park K4 huge table' at (31.6, 11.6, 651.9), impulse 159
+    original touched 'Stunt park K4 huge table' at (77.6, 11.4, 651.9), impulse 5637
+    original touched 'Stunt park half-pipe' at (125.6, 11.5, 649.9), impulse 5401
+barrel-roll ramp [original] at 17 m/s (38 mph): 1 flight(s), highest 2.6 m above the floor, loops 0, resets 0, wiped out False, contacts 3
+    flight 0.46 s, 7.7 m, up 0.0 m, turned pitch 5 yaw 12 roll 42, landed at 64.3,11.93,677.0 speed 17.1
+    shown: CLEAN JUMP / 55.1 ft / 0.84 s / 252 pts
+    combos banked: 252
+    original touched 'Stunt park barrel-roll ramp' at (37.8, 11.5, 679.2), impulse 0
+    original touched 'Stunt park barrel-roll ramp' at (36.4, 11.1, 677.4), impulse 593
+    original touched 'Stunt park barrel-roll landing' at (51.9, 12.7, 676.4), impulse 2327
+school-bus gap [original] at 16 m/s (36 mph): 1 flight(s), highest 6.0 m above the floor, loops 0, resets 0, wiped out False, contacts 2
+    flight 1.22 s, 18.1 m, up 1.6 m, turned pitch 27 yaw 0 roll 0, landed at 64.2,14.95,705.0 speed 15.9
+    shown: CLEAN JUMP / 60.3 ft / 1.20 s / 304 pts
+    combos banked: 304
+    original touched 'Stunt park bus gap takeoff' at (37.1, 11.9, 705.9), impulse 175
+    original touched 'Stunt park bus gap landing' at (74.4, 11.1, 705.9), impulse 0
+K3 big table [original, trick back] at 16 m/s (36 mph): 2 flight(s), highest 6.2 m above the floor, loops 0, resets 0, wiped out False, contacts 4
+    flight 0.42 s, 6.8 m, up 0.0 m, turned pitch 8 yaw 0 roll 0, landed at 61.3,12.01,625.0 speed 16.8
+    flight 1.58 s, 23.1 m, up 1.8 m, turned pitch 33 yaw 0 roll 0, landed at 17.7,12.59,625.0 speed 17.1
+    shown: CLEAN JUMP / 76.9 ft / 1.56 s / 390 pts
+    combos banked: 390
+    original touched 'Stunt park K3 big table' at (48.7, 11.8, 625.9), impulse 499
+    original touched 'Stunt park K3 big table' at (14.9, 11.1, 624.1), impulse 0
+    original touched 'Stunt park west quarter-pipe' at (-4.3, 11.5, 624.1), impulse 1526
+    original touched 'Stunt park west quarter-pipe' at (-7.9, 14.9, 624.1), impulse 224
+K4 huge table [original, trick back] at 18 m/s (40 mph): 1 flight(s), highest 10.1 m above the floor, loops 0, resets 0, wiped out False, contacts 3
+    flight 2.26 s, 34.8 m, up 3.6 m, turned pitch 34 yaw 0 roll 0, landed at 79.0,11.65,651.0 speed 19.9
+    shown: CLEAN JUMP / 115.3 ft / 2.24 s / 576 pts
+    combos banked: 576
+    original touched 'Stunt park K4 huge table' at (31.6, 11.6, 651.9), impulse 159
+    original touched 'Stunt park K4 huge table' at (77.6, 11.4, 651.9), impulse 5637
+    original touched 'Stunt park half-pipe' at (125.6, 11.5, 649.9), impulse 5401
+K4 huge table [original, trick front] at 18 m/s (40 mph): 1 flight(s), highest 10.1 m above the floor, loops 0, resets 0, wiped out False, contacts 3
+    flight 2.26 s, 34.8 m, up 3.6 m, turned pitch 34 yaw 0 roll 0, landed at 79.0,11.65,651.0 speed 19.8
+    shown: CLEAN JUMP / 115.2 ft / 2.24 s / 575 pts
+    combos banked: 575
+    original touched 'Stunt park K4 huge table' at (31.6, 11.6, 651.9), impulse 163
+    original touched 'Stunt park K4 huge table' at (78.2, 11.2, 651.9), impulse 5684
+    original touched 'Stunt park half-pipe' at (125.6, 11.5, 650.0), impulse 5138
+K4 huge table [original, trick spin] at 18 m/s (40 mph): 1 flight(s), highest 10.1 m above the floor, loops 0, resets 0, wiped out False, contacts 3
+    flight 2.26 s, 34.8 m, up 3.6 m, turned pitch 34 yaw 0 roll 0, landed at 79.0,11.65,651.0 speed 19.9
+    shown: CLEAN JUMP / 115.3 ft / 2.24 s / 576 pts
+    combos banked: 576
+    original touched 'Stunt park K4 huge table' at (31.6, 11.6, 651.9), impulse 159
+    original touched 'Stunt park K4 huge table' at (77.6, 11.4, 651.9), impulse 5637
+    original touched 'Stunt park half-pipe' at (125.6, 11.5, 649.9), impulse 5401
+school-bus gap [original, trick roll] at 16 m/s (36 mph): 1 flight(s), highest 6.0 m above the floor, loops 0, resets 0, wiped out False, contacts 2
+    flight 1.22 s, 18.1 m, up 1.6 m, turned pitch 27 yaw 0 roll 0, landed at 64.2,14.95,705.0 speed 15.9
+    shown: CLEAN JUMP / 60.3 ft / 1.20 s / 304 pts
+    combos banked: 304
+    original touched 'Stunt park bus gap takeoff' at (37.1, 11.9, 705.9), impulse 175
+    original touched 'Stunt park bus gap landing' at (74.4, 11.1, 705.2), impulse 149
+barrel-roll ramp [original, trick roll] at 17 m/s (38 mph): 1 flight(s), highest 2.6 m above the floor, loops 0, resets 0, wiped out False, contacts 3
+    flight 0.46 s, 7.7 m, up 0.0 m, turned pitch 5 yaw 12 roll 42, landed at 64.3,11.93,677.0 speed 17.1
+    shown: CLEAN JUMP / 55.1 ft / 0.84 s / 252 pts
+    combos banked: 252
+    original touched 'Stunt park barrel-roll ramp' at (37.8, 11.5, 679.2), impulse 0
+    original touched 'Stunt park barrel-roll ramp' at (36.4, 11.1, 677.4), impulse 593
+    original touched 'Stunt park barrel-roll landing' at (51.9, 12.7, 676.4), impulse 2327
+K3 big table [original, trick halfback] at 16 m/s (36 mph): 2 flight(s), highest 6.2 m above the floor, loops 0, resets 0, wiped out False, contacts 4
+    flight 0.42 s, 6.8 m, up 0.0 m, turned pitch 8 yaw 0 roll 0, landed at 61.3,12.01,625.0 speed 16.8
+    flight 1.58 s, 23.1 m, up 1.8 m, turned pitch 33 yaw 0 roll 0, landed at 17.7,12.59,625.0 speed 17.1
+    shown: CLEAN JUMP / 76.9 ft / 1.56 s / 390 pts
+    combos banked: 390
+    original touched 'Stunt park K3 big table' at (48.7, 11.8, 625.9), impulse 499
+    original touched 'Stunt park K3 big table' at (14.9, 11.1, 624.1), impulse 0
+    original touched 'Stunt park west quarter-pipe' at (-4.3, 11.5, 624.1), impulse 1525
+    original touched 'Stunt park west quarter-pipe' at (-7.9, 14.9, 624.1), impulse 260

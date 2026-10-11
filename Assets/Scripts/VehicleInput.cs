@@ -10,13 +10,19 @@ namespace Racer
         public float BrakeReverse { get; private set; }
         public float Steering { get; private set; }
         bool resetRequested;
-        InputAction throttle, brake, steering, reset, fist, view, look, lookBack; bool viewRequested;
+        InputAction throttle, brake, steering, reset, fist, view, look, lookBack, airPitch, airSpin; bool viewRequested;
         // 0.100 Part E: free look while driving (CameraViews): this player's right stick, R3 held = look behind; on the keyboard,
         // the right mouse button held and the mouse moved. Not part of CurrentBindings (the controls card reads those by index).
         public Vector2 Look { get; private set; }
         public bool LookBack { get; private set; }
         public bool MouseLook { get; private set; }
         public Vector2 MouseDelta { get; private set; }
+        // 0.106 Part C: air steering (stunt vehicles only, ArcadeVehicle): left stick up / down (W / S, arrows) tips the vehicle forward / back, left /
+        // right (Steering: A / D) rolls it, the right stick left / right or the bumpers (Q / E) spin it flat. AirActive: the vehicle is airborne and
+        // steerable, so the right stick and LB spin it instead of looking around or waving.
+        public float AirPitch { get; private set; }
+        public float AirSpin { get; private set; }
+        [System.NonSerialized] public bool AirActive;
         public InputAction[] CurrentBindings => new[]{throttle,brake,steering,reset,fist};
         public bool UsingGamepad { get; private set; }
         public string ResetControlLabel
@@ -36,7 +42,7 @@ namespace Racer
         public void Bind(InputDevice device)
         {
             if (device == Device && throttle != null) return;
-            bool on = isActiveAndEnabled; if (throttle != null) { OnDisable(); foreach (var a in CurrentBindings) a.Dispose(); view.Dispose(); look.Dispose(); lookBack.Dispose(); }
+            bool on = isActiveAndEnabled; if (throttle != null) { OnDisable(); foreach (var a in CurrentBindings) a.Dispose(); view.Dispose(); look.Dispose(); lookBack.Dispose(); airPitch.Dispose(); airSpin.Dispose(); }
             Create(device); if (on) OnEnable();
         }
         void Create(InputDevice device)
@@ -62,11 +68,16 @@ namespace Racer
             view = new InputAction("Change view", InputActionType.Button); Add(view, "<Gamepad>/buttonWest"); Add(view, "<Keyboard>/v");
             look = new InputAction("Look around", InputActionType.Value, expectedControlType: "Vector2"); Add(look, "<Gamepad>/rightStick", "stickDeadzone(min=0.2,max=0.95)");
             lookBack = new InputAction("Look behind", InputActionType.Button); Add(lookBack, "<Gamepad>/rightStickPress");
+            airPitch = new InputAction("Air tip", InputActionType.Value); Add(airPitch, "<Gamepad>/leftStick/y", "axisDeadzone(min=0.15,max=0.95)");
+            if (keys) { airPitch.AddCompositeBinding("1DAxis").With("Negative", "<Keyboard>/s").With("Positive", "<Keyboard>/w"); airPitch.AddCompositeBinding("1DAxis").With("Negative", "<Keyboard>/downArrow").With("Positive", "<Keyboard>/upArrow"); }
+            airSpin = new InputAction("Air spin", InputActionType.Value); Add(airSpin, "<Gamepad>/rightStick/x", "axisDeadzone(min=0.2,max=0.95)");
+            if (pad) airSpin.AddCompositeBinding("1DAxis").With("Negative", P("<Gamepad>/leftShoulder")).With("Positive", P("<Gamepad>/rightShoulder"));
+            if (keys) airSpin.AddCompositeBinding("1DAxis").With("Negative", "<Keyboard>/q").With("Positive", "<Keyboard>/e");
             if (device != null) UsingGamepad = device is Gamepad;
             throttle.performed+=Used; brake.performed+=Used; steering.performed+=Used; reset.performed+=Used; fist.performed+=Used;
         }
 
-        void OnEnable() { throttle.Enable(); brake.Enable(); steering.Enable(); reset.Enable(); fist.Enable(); view.Enable(); look.Enable(); lookBack.Enable(); }
+        void OnEnable() { throttle.Enable(); brake.Enable(); steering.Enable(); reset.Enable(); fist.Enable(); view.Enable(); look.Enable(); lookBack.Enable(); airPitch.Enable(); airSpin.Enable(); }
         void Update()
         {
             Throttle = throttle.ReadValue<float>();
@@ -74,11 +85,13 @@ namespace Racer
             Steering = steering.ReadValue<float>();
             resetRequested |= reset.WasPressedThisFrame(); viewRequested |= view.WasPressedThisFrame();
             Look = look.ReadValue<Vector2>(); LookBack = lookBack.IsPressed();
+            AirPitch = airPitch.ReadValue<float>(); AirSpin = Mathf.Clamp(airSpin.ReadValue<float>(), -1, 1);
+            if (AirActive) { Look = Vector2.zero; LookBack = false; } // 0.106: the right stick spins a stunt vehicle in the air
             var mouse = Device == null || Device is Keyboard ? Mouse.current : null; MouseLook = mouse != null && mouse.rightButton.isPressed; MouseDelta = MouseLook ? mouse.delta.ReadValue() : Vector2.zero;
-            if (LoadingScreen.Holding) { Throttle = BrakeReverse = Steering = 0; resetRequested = false; return; } // 0.82: no driving behind the loading screen
+            if (LoadingScreen.Holding) { Throttle = BrakeReverse = Steering = AirPitch = AirSpin = 0; resetRequested = false; return; } // 0.82: no driving behind the loading screen
             // Not while a menu, the debug overlay or the map has the controls (F is the map's waypoint key).
             // 0.92 Part F: in split-screen too, each player on their own device (LB, or F on the keyboard)
-            if (fist.WasPressedThisFrame() && !(TrailerMode.Active && fist.activeControl?.device is Gamepad) && !MenuInput.Blocked
+            if (fist.WasPressedThisFrame() && !AirActive && !(TrailerMode.Active && fist.activeControl?.device is Gamepad) && !MenuInput.Blocked
                 && FindAnyObjectByType<ExplorationMap>()?.OwnsInput != true)
                 GetComponent<RiderGestures>()?.Wave();
         }
@@ -86,10 +99,10 @@ namespace Racer
         public bool ConsumeView() { bool result = viewRequested; viewRequested = false; return result; }
         void OnDisable()
         {
-            throttle.Disable(); brake.Disable(); steering.Disable(); reset.Disable(); fist.Disable(); view.Disable(); look.Disable(); lookBack.Disable(); viewRequested = false;
+            throttle.Disable(); brake.Disable(); steering.Disable(); reset.Disable(); fist.Disable(); view.Disable(); look.Disable(); lookBack.Disable(); airPitch.Disable(); airSpin.Disable(); viewRequested = false; AirPitch = AirSpin = 0;
             Look = MouseDelta = Vector2.zero; LookBack = MouseLook = false;
             Throttle = BrakeReverse = Steering = 0; resetRequested = false;
         }
-        void OnDestroy() { throttle.Dispose(); brake.Dispose(); steering.Dispose(); reset.Dispose(); fist.Dispose(); view.Dispose(); look.Dispose(); lookBack.Dispose(); }
+        void OnDestroy() { throttle.Dispose(); brake.Dispose(); steering.Dispose(); reset.Dispose(); fist.Dispose(); view.Dispose(); look.Dispose(); lookBack.Dispose(); airPitch.Dispose(); airSpin.Dispose(); }
     }
 }

@@ -1,0 +1,6 @@
+screen=1920x1080 kind=lap version=0.106.0-review1 park=on
+StreetLoopReverse: park built built in 76 ms: 40709 triangles, 160 solids, 3 lettered faces; cleared 13 tree trunks and 34 old vegetation pieces
+StreetLoopReverse lap: rivals 3, traffic True (20 cars); finished True; resets 3; touches of the stunt park by racers or traffic: 0
+  reset: BLUE (AI) at 446.8,36.48,-231.1
+  reset: BLUE (AI) at 486.3,46.67,-198.8
+  reset: BLUE (AI) at 500.2,87.17,-112.8

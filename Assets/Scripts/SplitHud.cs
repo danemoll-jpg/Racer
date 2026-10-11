@@ -127,7 +127,7 @@ namespace Racer
         // results, the speed and the minimap; the centre shows the chase's start, GO and the round's end.
         void Roam(bool driving)
         {
-            var race = flow.Race; var roam = SplitRoam.Current; var police = PoliceChase.Current; var patrol = SpeedPatrol.Current; var getaway = GetawayChase.Current;
+            var race = flow.Race; var roam = SplitRoam.Current; var police = PoliceChase.Current; var patrol = SpeedPatrol.Current; var getaway = GetawayChase.Current; var stunt = StuntEvent.Current;
             for (int i = 0; i < 2; i++)
             {
                 var h = halves[i]; int player = i + 1; var car = i == 0 ? race.vehicle : split.P2Car; var other = i == 0 ? split.P2Car : race.vehicle;
@@ -165,6 +165,13 @@ namespace Racer
                         lines.Add($"LIMIT {(cop.limit > 0 ? cop.limit + " mph" : "—")}     RADAR {(cop.radar < 0 ? "—" : (cop.radarOver ? "<color=#FF4A3A>" : "<color=#9CFFB0>") + Mathf.RoundToInt(cop.radar) + "</color> mph")}");
                         float meter = patrol.MeterFor(player); if (meter > 0) { int filled = Mathf.RoundToInt(meter * 10); lines.Add("PULL OVER  <color=#FFC747>" + new string('■', filled) + "</color><color=#5A6066>" + new string('■', 10 - filled) + "</color>"); }
                     }
+                }
+                else if (stunt)
+                {
+                    // 0.106 Part D: the clock, the points, the last combo banked
+                    var r = stunt.Of(player); int sec = Mathf.CeilToInt(stunt.State == StuntEvent.Phase.Starting ? stunt.Limit : stunt.Left);
+                    lines.Add($"<b>STUNT EVENT</b>   {sec / 60}:{sec % 60:00} left   <b>{(r != null ? r.points : 0):N0}</b> pts");
+                    if (r != null && Time.unscaledTime < r.lineUntil) lines.Add(r.line.StartsWith("+") ? "<color=#9CFFB0>" + r.line + "</color>" : "<color=#FFC747>" + r.line + "</color>");
                 }
                 else lines.Add("<b>FREE ROAM</b>");
                 if (other && getaway == null) lines.Add(SplitRoam.Toward(car.transform, cam ? cam.transform : car.transform, other ? other.transform : null, SplitScreen.NameOf(3 - player)));
@@ -215,6 +222,12 @@ namespace Racer
                     if (patrol.State == SpeedPatrol.Phase.Starting) centre = "<size=26>SPEED PATROL</size>\n<size=20>point the radar at a car to clock it · " + (SplitScreen.DeviceOf(player) is UnityEngine.InputSystem.Keyboard ? "H" : "RB") + ": lights</size>";
                     else if (cop != null && Time.unscaledTime < cop.lineUntil) centre = "<size=24>" + cop.line + "</size>";
                     else if (cop != null && patrol.Holds(car)) centre = "<size=22>Reset: held for 2 s</size>";
+                }
+                else if (stunt)
+                {
+                    if (stunt.State == StuntEvent.Phase.Starting) centre = "<size=26>STUNT EVENT</size>\n<size=20>" + StuntProgress.Minutes + " minutes · land on your wheels · chain tricks within 2 s</size>";
+                    else if (stunt.State == StuntEvent.Phase.Running && stunt.Clock < 1.5f) centre = "GO!";
+                    else if (stunt.State == StuntEvent.Phase.Done) centre = "TIME!";
                 }
                 else if (roam.Car && Time.unscaledTime - roam.StartedAt < 7) centre = "<size=20>Split-screen Free Roam: nothing is recorded\n(no acorns, activity records or map discovery)</size>";
                 if (centre == "" && respawn && respawn.Pending) centre = "<size=22>Recovering…</size>";

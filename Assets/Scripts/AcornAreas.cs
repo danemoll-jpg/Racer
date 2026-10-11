@@ -41,6 +41,7 @@ namespace Racer
             { "Western gullies", "West of S Cherokee Ln, spread along Hwy 92 and Trickum Rd" },
             { "Creek pockets", "East of the lake, and two higher up the mountain" },
             { "Ridge woodland", "North-east of the lake, up the mountain toward the summit" },
+            { StuntPark.AcornArea, "In Red Clay Stunt Park, across Hwy 92 from S Cherokee Ln: up on its hardest spots" }, // 0.106
         };
         static readonly Dictionary<string, Color> Tints = new()
         {
@@ -48,6 +49,7 @@ namespace Racer
             { "Western gullies", new Color(1f, .6f, .3f) },
             { "Creek pockets", new Color(.35f, .75f, 1f) },
             { "Ridge woodland", new Color(.9f, .55f, 1f) },
+            { StuntPark.AcornArea, new Color(1f, .45f, .38f) }, // 0.106
         };
         // the places the directions refer to, labelled on the world map; side: -1 written to the left of the point, 1 to
         // its right, 0 centred on it
@@ -56,6 +58,7 @@ namespace Racer
             ("S Cherokee Ln", new Vector3(357, 0, 300), 1), ("Hwy 92", new Vector3(-150, 0, 560), 0), ("Trickum Rd", new Vector3(-623, 0, -250), 1),
             ("Dan's house", new Vector3(434, 0, -55), -1), ("Kyle's house", new Vector3(505, 0, -70), 1),
             ("The lake", new Vector3(615, 0, -20), 0), ("Mountain summit", new Vector3(1230, 0, 200), 0),
+            (StuntPark.Title, StuntPark.Centre, 0), // 0.106 Part D
         };
 
         static ExplorationCollection built; static Area[] areas = new Area[0];
