@@ -222,7 +222,10 @@ namespace Racer
             float cornerGrip = (racing ? Car.maxGripAcceleration*cornerUse[skill] : 7.5f)*Car.GripScale; // 0.97: the weather's grip
             float judgment = (racing ? Car.braking*brakeUse[skill] : 8f)*Car.GripScale;
             judgment*=Variation.Judgment;
-            TargetSpeed = (racing ? Car.topSpeed * speedUse[skill] : Mathf.Lerp(17,29,DriveRoad.HighwayBlend(s))) * pace;
+            // 0.112 Part C: a campaign race's fixed rival pace factor (CampaignRun.RivalPace; 1 elsewhere) on the road speed and the bend / hill
+            // limits below, never on the authored jump, run-up and shortcut speeds or the obstacle braking
+            float push = racing && Car != Race.vehicle ? CampaignRun.RivalPace : 1;
+            TargetSpeed = (racing ? Car.topSpeed * speedUse[skill] * push : Mathf.Lerp(17,29,DriveRoad.HighwayBlend(s))) * pace;
             if(!racing&&SpeedOverride>=0)TargetSpeed=SpeedOverride;
             // These exposed climbing connectors need a settled approach. The mandatory
             // run-ups retain full acceleration; this is AI pedal planning, not a change
@@ -264,7 +267,8 @@ namespace Racer
                 bool authoredFlight=(racing&&forestLayout&&forestLayout.IsLaunch(s+Direction*d))||mountainFlight;
                 if(mountainFlight)hillSpeed=Car.topSpeed;
                 if(!activeBranch && !authoredFlight && crest>.001f) hillSpeed=Mathf.Min(hillSpeed,Mathf.Sqrt((racing&&skill>0?(skill==2?8.2f:7.6f):6.5f)/crest));
-                TargetSpeed = Mathf.Min(TargetSpeed, Mathf.Sqrt(Mathf.Pow(Mathf.Min(curveSpeed, hillSpeed), 2) + 2 * judgment * Mathf.Max(0, d - 12)));
+                float limit = Mathf.Min(curveSpeed, hillSpeed); if (!activeBranch && !authoredFlight) limit *= push;
+                TargetSpeed = Mathf.Min(TargetSpeed, Mathf.Sqrt(limit * limit + 2 * judgment * Mathf.Max(0, d - 12)));
             }
 
             if (Mathf.Abs(angle) > .6f)
@@ -340,20 +344,26 @@ namespace Racer
         {
             if(racing && Racer!=null && !Racer.Progress.Finished && !Racer.Dnf && Direction==1 && Racer.Progress.LapActive && Racer.Progress.LapValid)
             {
+                // 0.112 Part C: a Chapter 4 campaign rival takes a Mountain shortcut (validated for the AI or not) whenever it is faster for it
+                bool campaignCuts=Car!=Race.vehicle&&CampaignRun.RivalShortcuts;
                 if(!plannedBranch && Race.Branches!=null)
                     foreach(var branch in Race.Branches)
-                        if(branch && branch.isActiveAndEnabled && branch.gameObject.scene==Race.gameObject.scene && branch.aiValidated && CarAccess.Open(branch,Car) && s>=branch.entryRoad-55 && s<branch.entryRoad-5 && Racer.Branch.Route==null && !Shortcuts.Decided(branch,Racer.Progress.CompletedLaps))
+                        if(branch && branch.isActiveAndEnabled && branch.gameObject.scene==Race.gameObject.scene && (campaignCuts?CampaignRun.RivalMayTake(branch):branch.aiValidated) && CarAccess.Open(branch,Car) && s>=branch.entryRoad-55 && s<branch.entryRoad-5 && Racer.Branch.Route==null && !Shortcuts.Decided(branch,Racer.Progress.CompletedLaps))
                         {
                             int expected=System.Array.FindIndex(Race.gates,g=>DriveRoad.Relative(DriveRoad.Project(g.transform.position,out _),Race.Origin)>DriveRoad.Relative(branch.entryRoad,Race.Origin));
                             if(expected<=0||Racer.Progress.NextGate<expected||Racer.Progress.NextGate>expected+1)continue;
                             var order=Race.Ordered(false);int place=order.IndexOf(Racer);
                             float rank=order.Count>1?(float)place/(order.Count-1):.5f;
                             var leader=order[0];float gap=Mathf.Max(0,(leader.Progress.CompletedLaps-Racer.Progress.CompletedLaps)*DriveRoad.Length+leader.RoadPosition-Racer.RoadPosition);
+                            if(campaignCuts){if(Shortcuts.TryDecideFaster(branch,Racer.Progress.CompletedLaps,ShortcutSeconds(branch),MainSeconds(branch),out bool faster)&&faster){plannedBranch=branch;break;}continue;}
                             if(Shortcuts.TryDecide(branch,Racer.Progress.CompletedLaps,rank,gap,out bool take)&&take){plannedBranch=branch;break;}
                         }
             }
         }
 
+        // 0.112 Part C: rough times for the shortcut and for the main road it bypasses, at this vehicle's road pace (the shortcut at its own speed limits)
+        float ShortcutSeconds(WoodlandRoute b){float lead=Mathf.Min(b.entrySpeedDistance,b.Length);float v=Mathf.Min(b.recommendedSpeed,Car.topSpeed);return (b.entrySpeed>0?lead/Mathf.Min(b.entrySpeed,Car.topSpeed):lead/v)+Mathf.Max(0,b.Length-lead)/Mathf.Max(1,v);}
+        float MainSeconds(WoodlandRoute b)=>Mathf.Repeat(b.exitRoad-b.entryRoad,DriveRoad.Length)/Mathf.Max(1,Car.topSpeed*.6f);
         // A projection beneath an elevated road is not meaningful route progress.
         // Off-route cars instead get credit for approaching a fixed rejoin target;
         // reversing/oscillating around the same hillside cannot keep resetting it.

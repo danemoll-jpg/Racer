@@ -19,6 +19,17 @@ namespace Racer
         public static string OpenedCourse { get; private set; }
         public static bool Done => Last != null;
         public static CampaignCup Cup => Active?.Cup;
+        // 0.112 Part C: the rivals' pace factor of the campaign race being run (1 outside the campaign, in championships and timed events)
+        public const float RivalPaceCap = 1.15f;
+        // 0.112 Part C: in a Chapter 4 race (campaign events, not championships) the rivals take a Mountain shortcut whenever it is faster for them
+        // (RoadDriver.DecideShortcut); NoRivalShortcuts is for the checks only (the before / after comparison)
+        public static bool NoRivalShortcuts;
+        // the shortcuts not validated for the AI that a Chapter 4 rival may still take: none. Tried (0.112 checks): with Mountain Forward's Climbing Ridge Cut
+        // and Summit Traverse every rival needed a reset every lap; so only the validated ones (Mountain Reverse's Summit Traverse) are taken.
+        public static string[] RivalShortcutsUnvalidated = { };
+        public static bool RivalMayTake(WoodlandRoute route) => route.aiValidated || System.Array.IndexOf(RivalShortcutsUnvalidated, route.title) >= 0;
+        public static bool RivalShortcuts => Active != null && Active.Kind == CampaignEventKind.Race && Active.Cup == null && Active.Chapter == 4 && !NoRivalShortcuts;
+        public static float RivalPace => Active == null || Active.Kind != CampaignEventKind.Race ? 1 : Mathf.Clamp(Active.Pace, .5f, RivalPaceCap);
 
         // 0.96 Part A: what this event run has scored so far, for the event panel and the attempt banner. A run is one
         // start of the event (Begin / Retry); RunSerial tells the panel a new one began.

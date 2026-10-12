@@ -20,6 +20,15 @@ namespace Racer
         public float Probability(float rank,float gap)
             => Mathf.Clamp(.12f+.34f*Mathf.Clamp01(rank)+.12f*Mathf.Clamp01(gap/200)+Risk,.06f,.65f);
         public bool Decided(WoodlandRoute route,int lap)=>decisions.TryGetValue(route,out int decidedLap)&&decidedLap==lap;
+        // 0.112 Part C (Chapter 4 campaign races): the shortcut when it is faster (no roll)
+        public bool TryDecideFaster(WoodlandRoute route,int lap,float shortcutSeconds,float mainSeconds,out bool shortcut)
+        {
+            shortcut=false;
+            if(Decided(route,lap))return false;
+            decisions[route]=lap;shortcut=shortcutSeconds<mainSeconds;Decisions++;
+            Diagnostic=$"route={route.title}; lap={lap+1}; campaign chapter 4: shortcut {shortcutSeconds:F0} s vs main {mainSeconds:F0} s; choice={(shortcut?"shortcut":"main")}";
+            return true;
+        }
         public bool TryDecide(WoodlandRoute route,int lap,float rank,float gap,out bool shortcut)
         {
             shortcut=false;

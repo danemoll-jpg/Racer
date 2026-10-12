@@ -48,7 +48,7 @@ namespace Racer
             buttons[0].GetComponentInChildren<UnityEngine.UI.Text>(true).alignment = TextAnchor.MiddleCenter;
             int price = Campaign.Price(p.Id);
             Row(1, "buy", Campaign.Owns(p.Id) ? "Owned" : price > 0 ? "BUY   ·   " + Campaign.Money(price) : "Not for sale", () =>
-                Confirm("BUY THE " + p.Name.ToUpperInvariant() + "?", $"{Campaign.Money(price)} of your {Campaign.Money(Campaign.Current.money)}. " + (Campaign.Fresh ? "It is yours in the fresh run only." : "It is yours in the campaign, Race and Free Roam."), () =>
+                Confirm("BUY THE " + p.Name.ToUpperInvariant() + "?", $"{Campaign.Money(price)} of your {Campaign.Money(Campaign.Current.money)}. " + (Campaign.Fresh ? "It is yours in the fresh run, Race and Free Roam." : "It is yours in the campaign, Race and Free Roam."), () =>
                 {
                     if (Campaign.Buy(p)) flow.Notify("Bought: " + p.Name + "  ·  choose it in the Garage", 5);
                     else { Campaign.CanBuy(p, out string why); flow.Notify(Campaign.Error ?? why, 5); }

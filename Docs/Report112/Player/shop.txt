@@ -1,0 +1,44 @@
+screen=1920x1080 kind=shop112 version=0.111.0-review1 park=on
+E-start: no (more) panels; state Ready, page 'Ready/'
+start: FRESH RUN: money $33,000, owned [original,atv,moto,pebble,scrambler,fastback,roadstercup,driftercup,scramblercup,motochampion]; Race vehicle atv; page 'Ready/'
+Race garage: page 'Garage/', state Garage
+  drifter: title 'Drifter Twin / Motorcycle  (locked)', row 'Drifter Twin  (locked)   ·   16 / 19', buy row 'BUY   ·   $16,000   (FRESH RUN: $33,000)' (can press: True)
+    confirm: 'BUY THE DRIFTER TWIN?'
+    bought: title 'Drifter Twin / Motorcycle', row 'Drifter Twin   ·   7 / 19', Race vehicle drifter, locked False; FRESH RUN: money $17,000, owned [original,atv,moto,pebble,scrambler,fastback,roadstercup,driftercup,scramblercup,motochampion,drifter]
+  roadster: title 'Sundown Roadster / Car  (locked)', row 'Sundown Roadster  (locked)   ·   15 / 19', buy row 'BUY   ·   $7,000   (FRESH RUN: $17,000)' (can press: True)
+    confirm: 'BUY THE SUNDOWN ROADSTER?'
+    bought: title 'Sundown Roadster / Car', row 'Sundown Roadster   ·   4 / 19', Race vehicle roadster, locked False; FRESH RUN: money $10,000, owned [original,atv,moto,pebble,scrambler,fastback,roadstercup,driftercup,scramblercup,motochampion,drifter,roadster]
+  skyfin: title 'Skyfin Cruiser / Car  (locked)', row 'Skyfin Cruiser  (locked)   ·   16 / 19', buy row 'BUY   ·   $8,000   (FRESH RUN: $10,000)' (can press: True)
+    confirm: 'BUY THE SKYFIN CRUISER?'
+    bought: title 'Skyfin Cruiser / Car', row 'Skyfin Cruiser   ·   7 / 19', Race vehicle skyfin, locked False; FRESH RUN: money $2,000, owned [original,atv,moto,pebble,scrambler,fastback,roadstercup,driftercup,scramblercup,motochampion,drifter,roadster,skyfin]
+  tourer: title 'Longroof GT / Car  (locked)', row 'Longroof GT  (locked)   ·   16 / 19', buy row 'Not enough money: $10,000 needed, you have $2,000' (can press: False)
+back: page 'Ready/'
+campaign: FRESH RUN: money $2,000, owned [original,atv,moto,pebble,scrambler,fastback,roadstercup,driftercup,scramblercup,motochampion,drifter,roadster,skyfin]; page 'Ready/campaign'
+  Shop: 'Drifter Twin  (6 of 14)', buy row 'Owned', status ''
+  event Into the Woods: Vehicle:   Drifter Twin   ·   A: garage
+  event Into the Woods: Vehicle:   Sundown Roadster   ·   A: garage
+  event Two Wheels Only: Vehicle:   Ridge Scrambler   ·   A: garage
+  vehicle pick on the Drifter Twin: 'Drifter Twin   ·   4 of 13', use row 'USE THIS VEHICLE'
+  vehicle pick on the Roadster: 'Sundown Roadster   ·   9 of 13   ·   not allowed', use row 'NOT ALLOWED HERE', ''
+  on switching: 'CAMPAIGN UPDATED' 'Prize for winning the Street Cup: the Sundown Roadster Cup / Prize for winning the Woodland Cup: the Drifter Twin Cup / Prize for winning the Backyard Cup: the Ridge Scrambler Cup / Prize for winning the Woodstock Grand Championship: the Needle 600 Champion / Every chapter final and every championship now awards a vehicle.'
+slot: MY CAMPAIGN; title 'CAMPAIGN   ·   MY CAMPAIGN   ·   $12,000'
+E-main-switch: no (more) panels; state Ready, page 'Ready/campaign'
+main: MY CAMPAIGN: money $12,000, owned [original,atv,moto,pebble,scrambler,fastback,roadstercup,driftercup,scramblercup,motochampion]; page 'Ready/campaign'
+  Shop: 'Longroof GT  (5 of 14)', buy row 'BUY   ·   $10,000'
+  bought: buy row 'Owned'; MY CAMPAIGN: money $2,000, owned [original,atv,moto,pebble,scrambler,fastback,roadstercup,driftercup,scramblercup,motochampion,tourer]
+  event First Lap: Vehicle:   Longroof GT   ·   A: garage
+E-main-back: panel 1: 'You unlocked the Sundown Roadster Cup / Won the Street Cup (campaign championship) / Choose it in the Garage. | CONGRATULATIONS!' (roadstercup); state Ready; still waiting: prize-driftercup,prize-scramblercup,prize-motochampion
+E-main-back: B on the panel: still open True
+E-main-back: A: open True; state Ready, page 'Ready/unlock'; seen [acorn-mower,police-car,stunt-bike,fresh-prize-roadstercup,fresh-prize-driftercup,fresh-prize-scramblercup,fresh-prize-motochampion,prize-roadstercup], pending in settings []
+E-main-back: panel 2: 'You unlocked the Drifter Twin Cup / Won the Woodland Cup (campaign championship) / Choose it in the Garage. | CONGRATULATIONS!' (driftercup); state Ready; still waiting: prize-scramblercup,prize-motochampion
+E-main-back: B on the panel: still open True
+E-main-back: A: open True; state Ready, page 'Ready/unlock'; seen [acorn-mower,police-car,stunt-bike,fresh-prize-roadstercup,fresh-prize-driftercup,fresh-prize-scramblercup,fresh-prize-motochampion,prize-roadstercup,prize-driftercup], pending in settings []
+E-main-back: panel 3: 'You unlocked the Ridge Scrambler Cup / Won the Backyard Cup (campaign championship) / Choose it in the Garage. | CONGRATULATIONS!' (scramblercup); state Ready; still waiting: prize-motochampion
+E-main-back: B on the panel: still open True
+E-main-back: A: open True; state Ready, page 'Ready/unlock'; seen [acorn-mower,police-car,stunt-bike,fresh-prize-roadstercup,fresh-prize-driftercup,fresh-prize-scramblercup,fresh-prize-motochampion,prize-roadstercup,prize-driftercup,prize-scramblercup], pending in settings []
+E-main-back: panel 4: 'You unlocked the Needle 600 Champion / Won the Woodstock Grand Championship (campaign championship) / Choose it in the Garage. | CONGRATULATIONS!' (motochampion); state Ready; still waiting: 
+E-main-back: B on the panel: still open True
+E-main-back: A: open False; state Ready, page 'Ready/'; seen [acorn-mower,police-car,stunt-bike,fresh-prize-roadstercup,fresh-prize-driftercup,fresh-prize-scramblercup,fresh-prize-motochampion,prize-roadstercup,prize-driftercup,prize-scramblercup,prize-motochampion], pending in settings []
+back: page 'Ready/'
+Race garage locked now: [] (slot MY CAMPAIGN)
+  Race garage on the Skyfin: 'Needle 600 Champion / Motorcycle', Race vehicle motochampion

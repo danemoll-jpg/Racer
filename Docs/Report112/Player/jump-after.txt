@@ -1,0 +1,10 @@
+screen=1920x1080 kind=jump112 version=0.111.0-review1 park=on
+jump: Takeoff - 40m x 6m, 6.2m rise, collider mesh Trickum continuous bevel and rollout (724 vertices, bounds (-628.24, 10.97, -75.02) size (11.48, 6.38, 90.15)); dressing yes; solid colliders under the jump 1
+  atv 78 mph: take-off at z 42.8 (77 mph), landing z 123.6, distance 80.8 m, air 2.50 s, top 4.66 m above the take-off, lateral -1.5; other contacts 0 
+  atv 87 mph: take-off at z 42.7 (87 mph), landing z 141.1, distance 98.4 m, air 2.72 s, top 5.97 m above the take-off, lateral -1.5; other contacts 0 
+  atv 96 mph: take-off at z 42.6 (95 mph), landing z 157.9, distance 115.3 m, air 2.92 s, top 7.40 m above the take-off, lateral -1.5; other contacts 0 
+  original 78 mph: take-off at z 42.8 (77 mph), landing z 123.6, distance 80.8 m, air 2.50 s, top 4.66 m above the take-off, lateral -1.5; other contacts 0 
+  original 87 mph: take-off at z 42.7 (87 mph), landing z 141.1, distance 98.4 m, air 2.72 s, top 5.97 m above the take-off, lateral -1.5; other contacts 0 
+  original 96 mph: take-off at z 42.6 (95 mph), landing z 157.9, distance 115.3 m, air 2.92 s, top 7.40 m above the take-off, lateral -1.5; other contacts 0 
+race: finished True; Dan (atv, player by road AI): highest over the jump not on it, resets 0, finished True; EMBER (tourer, AI): highest over the jump not on it, resets 0, finished True; GOLD (drifter, AI): highest over the jump not on it, resets 0, finished True; BLUE (roadster, AI): highest over the jump not on it, resets 0, finished True
+sign 'Jump approach sign (posts)' at -634.6,7.58,-146.1 heading 359.1, up 1.000, ground 7.58, active True, breakable no; text 'TRAILER JUMP / 78 - 96 mph / OPEN LANE ON RIGHT'

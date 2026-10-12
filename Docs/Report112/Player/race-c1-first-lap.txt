@@ -1,0 +1,11 @@
+screen=1920x1080 kind=race112 version=0.112.0-review1 park=on
+F-start: no (more) panels; state Ready, page 'Ready/'
+campaign FRESH RUN; event c1-first-lap: difficulty 1, rival pace 1.15, rivals original,pebble,roadster
+  page 'Ready/campaign-event': Vehicle:   Ridge Scrambler   ·   A: garage
+  racing in StreetLoopGreybox: 3 rivals, player scrambler
+  result: state Results; player 259.2 s, place 1
+    Rusty Vance (original): 270.4 s, resets 0, behind the player 11.2 s
+    Mia Torres (pebble): 269.8 s, resets 0, behind the player 10.6 s
+    Big Ed Kowalski (roadster): 264.4 s, resets 0, behind the player 5.2 s
+  nearest rival behind the player (metres, negative = ahead): 15s -49m, 30s -98m, 45s -73m, 60s -41m, 75s -320m, 90s -106m, 105s -26m, 120s 30m, 135s 63m, 150s 37m, 165s -3m, 180s 25m, 195s 13m, 210s -171m, 225s 92m, 240s 122m, 255s 199m
+F-after: no (more) panels; state Results, page 'Results/'

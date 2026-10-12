@@ -1,0 +1,38 @@
+screen=1920x1080 kind=pace112 version=0.111.0-review1 park=on
+chapter 4 rival shortcuts on: validated + none
+override c4-first-ascent: pace:1.15
+override c4-downhill: pace:1.15
+override c4-whiteout: pace:1.15
+override c4-summit-final: pace:1.15
+== c4-first-ascent 'First Ascent' course MountainLoop laps 2 Dawn / Clear difficulty 2 pace 1.150 rivals scrambler,atv,tourer
+  run 1 scrambler  213.8 resets 0 penalty 5 shortcuts [] | last decision: 
+  run 1 atv        214.3 resets 0 penalty 0 shortcuts [] | last decision: 
+  run 1 tourer     228.0 resets 0 penalty 0 shortcuts [] | last decision: 
+  run 2 atv        214.4 resets 0 penalty 0 shortcuts [] | last decision: 
+  run 2 scrambler  219.9 resets 1 penalty 0 shortcuts [] | last decision:  | resets at 1018.6,157.96,121.5 road 1708
+  run 2 tourer     228.3 resets 0 penalty 0 shortcuts [] | last decision: 
+== c4-downhill 'Downhill' course MountainLoopReverse laps 2 Day / Clear difficulty 2 pace 1.150 rivals moto,scrambler,drifter
+  run 1 drifter    199.5 resets 0 penalty 0 shortcuts [Summit Traverse lap 1; Summit Traverse lap 2] | last decision: route=Summit Traverse; lap=2; campaign chapter 4: shortcut 28 s vs main 35 s; choice=shortcut
+  run 1 scrambler  201.3 resets 0 penalty 0 shortcuts [Summit Traverse lap 1; Summit Traverse lap 2] | last decision: route=Summit Traverse; lap=2; campaign chapter 4: shortcut 28 s vs main 36 s; choice=shortcut
+  run 1 moto       205.3 resets 0 penalty 0 shortcuts [Summit Traverse lap 1; Summit Traverse lap 2] | last decision: route=Summit Traverse; lap=2; campaign chapter 4: shortcut 28 s vs main 33 s; choice=shortcut
+  run 2 drifter    199.6 resets 0 penalty 0 shortcuts [Summit Traverse lap 1; Summit Traverse lap 2] | last decision: route=Summit Traverse; lap=2; campaign chapter 4: shortcut 28 s vs main 35 s; choice=shortcut
+  run 2 scrambler  201.2 resets 0 penalty 0 shortcuts [Summit Traverse lap 1; Summit Traverse lap 2] | last decision: route=Summit Traverse; lap=2; campaign chapter 4: shortcut 28 s vs main 36 s; choice=shortcut
+  run 2 moto       205.2 resets 0 penalty 0 shortcuts [Summit Traverse lap 1; Summit Traverse lap 2] | last decision: route=Summit Traverse; lap=2; campaign chapter 4: shortcut 28 s vs main 33 s; choice=shortcut
+== c4-whiteout 'Whiteout' course MountainLoop laps 2 Night / Snow difficulty 2 pace 1.150 rivals atv,scrambler,fastback
+  run 1 scrambler  221.3 resets 0 penalty 0 shortcuts [] | last decision: 
+  run 1 atv        238.4 resets 1 penalty 0 shortcuts [] | last decision:  | resets at 1211.8,152.51,181.3 road 1898
+  run 1 fastback   240.9 resets 0 penalty 0 shortcuts [] | last decision: 
+  run 2 scrambler  220.8 resets 0 penalty 0 shortcuts [] | last decision: 
+  run 2 atv        237.5 resets 1 penalty 0 shortcuts [] | last decision:  | resets at 1212.3,152.51,181.6 road 1899
+  run 2 fastback   241.0 resets 0 penalty 0 shortcuts [] | last decision: 
+== c4-summit-final 'Summit Final' course MountainLoop laps 3 Day / Clear difficulty 2 pace 1.150 rivals moto,scrambler,drifter,fastback,atv
+  run 1 scrambler  325.7 resets 0 penalty 0 shortcuts [] | last decision: 
+  run 1 moto       331.3 resets 1 penalty 0 shortcuts [] | last decision:  | resets at 752.5,87.79,-123.9 road 100
+  run 1 atv        338.3 resets 0 penalty 0 shortcuts [] | last decision: 
+  run 1 fastback   338.4 resets 0 penalty 0 shortcuts [] | last decision: 
+  run 1 drifter    344.4 resets 0 penalty 0 shortcuts [] | last decision: 
+  run 2 moto       323.0 resets 1 penalty 0 shortcuts [] | last decision:  | resets at 752.5,87.79,-123.9 road 100
+  run 2 scrambler  327.8 resets 0 penalty 0 shortcuts [] | last decision: 
+  run 2 atv        334.9 resets 0 penalty 0 shortcuts [] | last decision: 
+  run 2 fastback   339.2 resets 0 penalty 0 shortcuts [] | last decision: 
+  run 2 drifter    344.3 resets 0 penalty 0 shortcuts [] | last decision: 

@@ -66,14 +66,24 @@ namespace Racer
         static string path; static bool readFailed;
 
         static State NewState() => new() { owned = CampaignData.Starters.ToList(), courses = new() { RacePlaylists.Scenes[0] }, orderVersion = 96 };
-        public static void Load(string root) { Campaign.root = root; Fresh = false; mainCopy = null; LoadFile(File); }
+        public static void Load(string root) { Campaign.root = root; Fresh = false; mainCopy = null; LoadFile(File); ReadFreshOwned(); }
         // 0.110 Part E: switch slots (the main campaign is read again from its file when it comes back; nothing is written)
         public static void UseSlot(bool fresh)
         {
             if (fresh == Fresh || root == null) return;
             if (fresh) { mainCopy = Current; Fresh = true; Selected = null; LoadFile(FreshFile); }
-            else { Fresh = false; mainCopy = null; Selected = null; LoadFile(File); }
+            else { Fresh = false; mainCopy = null; Selected = null; LoadFile(File); ReadFreshOwned(); }
         }
+        // 0.112 Part E: the fresh run's vehicles while MY CAMPAIGN is active (read when the main slot becomes active; the fresh file is written only while it is)
+        static List<string> freshOwned = new();
+        static void ReadFreshOwned()
+        {
+            freshOwned = new();
+            try { var file = Path.Combine(root, FreshFile); if (System.IO.File.Exists(file)) freshOwned = JsonUtility.FromJson<State>(System.IO.File.ReadAllText(file))?.owned ?? new(); }
+            catch (Exception) { freshOwned = new(); }
+        }
+        // 0.112 Part E: owned in either campaign slot (MY CAMPAIGN or the FRESH RUN)
+        public static bool OwnedInAnySlot(string id) => Main.owned.Contains(id) || Current.owned.Contains(id) || (!Fresh && freshOwned.Contains(id));
         static void LoadFile(string file)
         {
             path = Path.Combine(root, file); Error = null; Exists = false; readFailed = false; Current = NewState(); LoadNotice = null;
@@ -126,8 +136,8 @@ namespace Racer
         // ---------- what is open ----------
         public static bool Owns(string id) => Current.owned.Contains(id);
         // A player vehicle locked by the campaign (the mower is governed by the acorn reward instead).
-        // 0.110 Part E: Race and Free Roam read the main campaign only (never the fresh run)
-        public static bool VehicleLocked(VehicleProfile p) => p != null && !Testing && !p.Reward && !Main.owned.Contains(p.Id);
+        // 0.110 Part E: Race and Free Roam read the main campaign only (never the fresh run). 0.112 Part E: for vehicles, owned in either slot
+        public static bool VehicleLocked(VehicleProfile p) => p != null && !Testing && !p.Reward && !OwnedInAnySlot(p.Id);
         public static bool CourseOpen(int course) => Testing || (course >= 0 && course < RacePlaylists.Scenes.Length && Main.courses.Contains(RacePlaylists.Scenes[course]));
         public static bool CourseOpen(string scene) => CourseOpen(Array.IndexOf(RacePlaylists.Scenes, scene));
         public static int FirstOpenCourse => Enumerable.Range(0, RacePlaylists.Scenes.Length).FirstOrDefault(CourseOpen);

@@ -131,6 +131,11 @@ namespace Racer
                 case "smash111": yield return Smash111(); break;
                 case "prize111": yield return Prize111(); break;
                 case "cups111": yield return Cups111(); break;
+                case "pace112": yield return Pace112(); break; // 0.112 (Report106PlayerCheck.Round112.cs)
+                case "jump112": yield return Jump112(); break;
+                case "shots112": yield return ToStreetLoop(); yield return Shots112(); break;
+                case "shop112": yield return Shop112(); break;
+                case "race112": yield return Race112(); break;
                 default: Note("unknown kind " + kind); break;
             }
             File.WriteAllText(Path.Combine(outDir, "done.txt"), "done"); Application.Quit();

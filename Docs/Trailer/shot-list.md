@@ -1,6 +1,6 @@
 # Woodstock Rush — trailer shot list
 
-A trailer of about 60 seconds, made from 20 short clips, filmed by Dan. Updated 2026-10-11 for 0.109. Since the 0.97 list, the game has gained:
+A trailer of about 65 seconds, made from 23 short clips, filmed by Dan. Updated 2026-10-12 for 0.111, with a split-screen section. Since the 0.97 list, the game has gained:
 
 - the stunt park with the stunt buggy and stunt motorcycle (air steering, loop, barrel roll, bus gap);
 - Hwy 92 rebuilt with stores, lots and traffic lights;
@@ -41,6 +41,9 @@ A trailer of about 60 seconds, made from 20 short clips, filmed by Dan. Updated 
 | 13 | Sledders going by on a white road; broom hockey on the frozen pool | Sledding hill; Dan's pool | Fixed; Free camera slow orbit | Day, Snow | 2 s + 2 s |
 | 14 | A hidden cop lights up as you blast past, and the chase begins | A hidden-police spot beside a road | Fixed planted just past the cop, or Chase | Dusk, Clear | 2 s. Siren and the radio line |
 | 15 | Getaway at night: cruisers with lights behind you, the helicopter's searchlight sweeping over | Hwy 92 or the loop, Getaway at heat 4–5 | Chase, then Flyover | Night, Clear | 4 s. Lights, sirens, radio voices |
+| S1 | SPLIT SCREEN: two players side by side at the start line, both views pulling away together | Street Loop, a split-screen race | Normal play, HUD on (it shows it's two players) | Day, Clear | 2 s. "Bring a friend" |
+| S2 | Split-screen Cop vs Runner: one view in the patrol car with lights on, the other running for it | Hwy 92, split-screen police mode | Normal play, HUD on | Dusk, Clear | 2 s |
+| S3 | Split-screen stunt park: both players in the air at once, then the winner's celebration | Stunt park, split-screen Stunt event | Normal play, HUD on | Day, Clear | 3 s. End on the fist wave |
 | 16 | The stunt park from the entrance: the sign, ramps, school bus, junk cars, the loop | Stunt park, Hwy 92 entrance | Flyover or Free camera rising over the fence | Day, Clear | 2 s. "New place" reveal |
 | 17 | Stunt buggy backflip off the big kicker, landed clean | Stunt park, biggest kicker | Side for the run-up; Fixed below the landing for the flip | Day, Clear | 3 s. LB through the flip |
 | 18 | Stunt motorcycle around the loop, then a barrel roll off the corkscrew ramp | Stunt park | Fixed at the loop's side; Orbit for the barrel roll | Dusk, Clear | 3 s |
@@ -49,31 +52,32 @@ A trailer of about 60 seconds, made from 20 short clips, filmed by Dan. Updated 
 
 End card: the cover artwork, 2–3 seconds.
 
-Optional extras if a cut runs short:
-- A split-screen moment: two players in the stunt park, or a cop catching a runner (HUD on; it shows multiplayer).
+Optional extra if a cut runs short:
 - The moon sinking behind the ridge at night. Use a long Fixed shot and speed it up in the edit.
 
 ## Notes
 
 - **Shot 14:** hidden police don't trigger with Trailer Mode on. Record it as normal play with the chase camera (HUD visible), or set the Fixed camera first, turn Trailer Mode off, and drive past.
 - **Shot 15:** if Trailer Mode isn't available during a Getaway, record with the chase camera and keep the HUD. The heat stars read well on screen.
+- **Shots S1–S3:** split-screen uses both controllers, so you need a second player (or hold the second pad and let its car sit for S1 only). Record the whole screen with the HUD on: the two views are the point. Trailer Mode isn't used here.
 - **Shots 17–18:** use Free Roam in the park, not the Stunt event, so nothing on screen needs hiding. Stunt vehicles work anywhere in Free Roam.
 - **Shot 20:** Free Roam has only you, so film it as a race over that crest with Trailer Mode on, an AI field of ATVs, and you in the blue car. Let the pack catch up so you leave the ground together. Press R3 at the peak for a full-resolution still: with the logo over it, it makes a store or thumbnail image from the real game.
 - **Auto camera:** on a long ride it finds angles not listed here. Keep recording.
 - **Not in Free Roam:** the Forest cave and the Mountain race roads. Film those in their races with Trailer Mode on.
 
-## Structure (about 60 s)
+## Structure (about 65 s)
 
 - **0–10 s:** calm opening (1), garage (2, 3).
 - **10–22 s:** racing and the neighborhood (4–8).
 - **22–33 s:** the world in different light and weather (9–13).
 - **33–43 s:** police (14, 15).
-- **43–52 s:** the stunt park (16–18).
-- **52–60 s:** the giant jump (19), the cover shot and title (20), end card.
+- **43–50 s:** split-screen, "bring a friend" (S1–S3).
+- **50–58 s:** the stunt park (16–18).
+- **58–65 s:** the giant jump (19), the cover shot and title (20), end card.
 
 ## Music
 
-Use a track you have the right to use (royalty-free or your own). It should start calm, lift around 10 s, gain tension for the police section around 33 s, and peak on the giant jump around 52 s.
+Use a track you have the right to use (royalty-free or your own). It should start calm, lift around 10 s, gain tension for the police section around 33 s, and peak on the giant jump around 58 s.
 
 ## Editing
 

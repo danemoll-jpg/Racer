@@ -269,6 +269,12 @@ namespace Racer
                     if(locked==null&&!shownProfile.IsPolice&&!shownProfile.CupEdition){int colour=flow.SelectedColor;Step(8,"colour","Color:   "+VehiclePaint.Name(colour),d=>flow.SetColor(VehiclePaint.Next(colour,d)));}
                     Row(6,"rider","Rider…",()=>Navigate("rider"));
                     Row(7,"garage-shop","Shop…   ("+Campaign.Money(Campaign.Current.money)+")",()=>{shopVehicle=locked!=null&&!locked.Reward?locked.Id:shopVehicle;shopFromCampaign=false;Navigate("shop");});
+                    // 0.112 Part E: a locked campaign vehicle can be bought here with the active campaign's money (the Shop's purchase), or the row says why not
+                    if(locked!=null&&!locked.Reward){var buy=locked;bool canBuy=Campaign.CanBuy(buy,out string whyNot);int price=Campaign.Price(buy.Id);
+                        Row(1,"garage-buy",canBuy?$"BUY   ·   {Campaign.Money(price)}   ({Campaign.SlotName}: {Campaign.Money(Campaign.Current.money)})":whyNot,()=>
+                            Confirm("BUY THE "+buy.Name.ToUpperInvariant()+"?",$"{Campaign.Money(price)} of your {Campaign.Money(Campaign.Current.money)} ({Campaign.SlotName}). It is yours in "+(Campaign.Fresh?"the fresh run":"the campaign")+", Race and Free Roam.",()=>
+                            {if(Campaign.Buy(buy)){garageLocked=null;flow.SelectVehicle(buy.Id);flow.Notify("Bought: "+buy.Name,5);}else{Campaign.CanBuy(buy,out string no);flow.Notify(Campaign.Error??no,5);}},"BUY"));
+                        buttons[1].interactable=canBuy;}
                     if(locked==null)ShowGarageStats(profile); // 0.82 Part D
                 }
             }

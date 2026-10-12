@@ -24,6 +24,8 @@ namespace Racer
         // 0.90: vehicle classes allowed (null = any): "Two Wheels Only" takes motorcycles and the ATV.
         public string[] Classes;
         public bool Final;
+        // 0.112 Part C: the campaign rivals' pace for this race (fixed for the event, no rubber band; 1 = as before, at most RivalPaceCap)
+        public float Pace = 1;
         // 0.90: a championship round run as an event (CampaignRun builds it; never in Events).
         public CampaignCup Cup; public int Round;
         public bool Timed => Kind != CampaignEventKind.Race;
@@ -63,14 +65,15 @@ namespace Racer
         {
             // 0.96 Part C: on every course a time trial (a lap to learn it) comes before the first race there; the practice laps on
             // the reverse courses are new (pay about half a normal event, generous medal times: Docs/Report096/Lists/practice-targets.txt).
-            // Chapter 1, Street Loop
+            // Chapter 1, Street Loop. 0.112 (balancing round 1, Docs/Report112): First Lap and Night Shift Normal (were Easy), rival pace 1.15 / 1.15 / 1.12 on
+            // First Lap, Night Shift (rivals Roadster, Drifter Twin, Longroof GT; were Roadster, Longroof GT, Trail Four) and the Street Loop Final
             new() { Id = "c1-against-clock", Name = "Against the Clock", Chapter = 1, Kind = CampaignEventKind.TimeTrial, Course = 0, RunUp = 150, Targets = new[] { 150f, 140f, 134f }, Pay = 1000, Bonus = 500 },
-            new() { Id = "c1-first-lap", Name = "First Lap", Chapter = 1, Kind = CampaignEventKind.Race, Course = 0, Laps = 2, Rivals = new[] { "original", "pebble", "roadster" }, Difficulty = 0, Pay = 1200, Bonus = 600 },
+            new() { Id = "c1-first-lap", Name = "First Lap", Chapter = 1, Kind = CampaignEventKind.Race, Course = 0, Laps = 2, Rivals = new[] { "original", "pebble", "roadster" }, Difficulty = 1, Pace = 1.15f, Pay = 1200, Bonus = 600 },
             new() { Id = "c1-hwy92-trap", Name = "Hwy 92 Speed Trap", Chapter = 1, Kind = CampaignEventKind.SpeedTrap, Course = 0, Site = "speed-0", RunUp = 200, TimeLimit = 45, Targets = new[] { 34f, 39f, 44f }, Pay = 1000, Bonus = 500 },
-            new() { Id = "c1-night-shift", Name = "Night Shift", Chapter = 1, Kind = CampaignEventKind.Race, Course = 0, Laps = 3, Rivals = new[] { "roadster", "tourer", "atv" }, Difficulty = 0, Time = TimeOfDay.Night, Traffic = true, Pay = 1400, Bonus = 700 },
+            new() { Id = "c1-night-shift", Name = "Night Shift", Chapter = 1, Kind = CampaignEventKind.Race, Course = 0, Laps = 3, Rivals = new[] { "roadster", "drifter", "tourer" }, Difficulty = 1, Pace = 1.15f, Time = TimeOfDay.Night, Traffic = true, Pay = 1400, Bonus = 700 },
             new() { Id = "c1-practice-reverse", Name = "Practice: Street Loop Reverse", Chapter = 1, Kind = CampaignEventKind.TimeTrial, Course = 1, RunUp = 150, Targets = new[] { 180f, 155f, 138f }, Pay = 500, Bonus = 250 },
             new() { Id = "c1-wrong-way", Name = "Wrong Way Round", Chapter = 1, Kind = CampaignEventKind.Race, Course = 1, Laps = 2, Rivals = new[] { "pebble", "skyfin", "atv" }, Difficulty = 1, Time = TimeOfDay.Dusk, Weather = Weather.Rain, Pay = 1400, Bonus = 700 },
-            new() { Id = "c1-street-final", Name = "Street Loop Final", Chapter = 1, Kind = CampaignEventKind.Race, Course = 0, Laps = 3, Rivals = new[] { "atv", "tourer", "roadster", "pebble", "drifter" }, Difficulty = 1, Pay = 2500, Bonus = 1500, Prize = "moto", Final = true },
+            new() { Id = "c1-street-final", Name = "Street Loop Final", Chapter = 1, Kind = CampaignEventKind.Race, Course = 0, Laps = 3, Rivals = new[] { "atv", "tourer", "roadster", "pebble", "drifter" }, Difficulty = 1, Pace = 1.12f, Pay = 2500, Bonus = 1500, Prize = "moto", Final = true },
 
             // Chapter 2, Forest Loop (Normal rivals). 0.91: the jump events' targets and time limits re-set from flat-out runs now
             // that a jump counts when the vehicle survives it (several attempts per run, the best counts).
@@ -91,14 +94,15 @@ namespace Racer
             new() { Id = "c3-fence-smash", Name = "Fence Line Smash", Chapter = 3, Kind = CampaignEventKind.Smash, Course = 6, Site = "smash-01", Props = 14, RunUp = 60, TimeLimit = 45, Targets = new[] { 3f, 6f, 10f }, Pay = 1600, Bonus = 800 },
             new() { Id = "c3-backyard-final", Name = "Backyard Final", Chapter = 3, Kind = CampaignEventKind.Race, Course = 6, Laps = 3, Rivals = new[] { "moto", "drifter", "atv", "tourer", "fastback" }, Difficulty = 2, Pay = 3400, Bonus = 1700, Prize = "scrambler", Final = true },
 
-            // Chapter 4, Mountain Loop (Hard: the campaign's hardest)
+            // Chapter 4, Mountain Loop (Hard: the campaign's hardest). 0.112: rival pace 1.15 (the cap) on every race; still well short of Dan's pace, who takes
+            // the Mountain Forward shortcuts the AI cannot drive (Docs/Report112)
             new() { Id = "c4-summit-clock", Name = "Summit Clock", Chapter = 4, Kind = CampaignEventKind.TimeTrial, Course = 4, RunUp = 150, Targets = new[] { 134f, 124f, 118f }, Pay = 2000, Bonus = 1000 },
-            new() { Id = "c4-first-ascent", Name = "First Ascent", Chapter = 4, Kind = CampaignEventKind.Race, Course = 4, Laps = 2, Rivals = new[] { "scrambler", "atv", "tourer" }, Difficulty = 2, Time = TimeOfDay.Dawn, Pay = 2200, Bonus = 1100 },
+            new() { Id = "c4-first-ascent", Name = "First Ascent", Chapter = 4, Kind = CampaignEventKind.Race, Course = 4, Laps = 2, Rivals = new[] { "scrambler", "atv", "tourer" }, Difficulty = 2, Pace = 1.15f, Time = TimeOfDay.Dawn, Pay = 2200, Bonus = 1100 },
             new() { Id = "c4-practice-reverse", Name = "Practice: Mountain Loop Reverse", Chapter = 4, Kind = CampaignEventKind.TimeTrial, Course = 5, RunUp = 150, Targets = new[] { 160f, 140f, 125f }, Pay = 1000, Bonus = 500 },
-            new() { Id = "c4-downhill", Name = "Downhill", Chapter = 4, Kind = CampaignEventKind.Race, Course = 5, Laps = 2, Rivals = new[] { "moto", "scrambler", "drifter" }, Difficulty = 2, Pay = 2400, Bonus = 1200 },
-            new() { Id = "c4-whiteout", Name = "Whiteout", Chapter = 4, Kind = CampaignEventKind.Race, Course = 4, Laps = 2, Rivals = new[] { "atv", "scrambler", "fastback" }, Difficulty = 2, Time = TimeOfDay.Night, Weather = Weather.Snow, Pay = 2600, Bonus = 1300 },
+            new() { Id = "c4-downhill", Name = "Downhill", Chapter = 4, Kind = CampaignEventKind.Race, Course = 5, Laps = 2, Rivals = new[] { "moto", "scrambler", "drifter" }, Difficulty = 2, Pace = 1.15f, Pay = 2400, Bonus = 1200 },
+            new() { Id = "c4-whiteout", Name = "Whiteout", Chapter = 4, Kind = CampaignEventKind.Race, Course = 4, Laps = 2, Rivals = new[] { "atv", "scrambler", "fastback" }, Difficulty = 2, Pace = 1.15f, Time = TimeOfDay.Night, Weather = Weather.Snow, Pay = 2600, Bonus = 1300 },
             new() { Id = "c4-summit-flight", Name = "Summit Homeward Flight", Chapter = 4, Kind = CampaignEventKind.Jump, Course = 4, Site = "summit-homeward", RunUp = 250, TimeLimit = 150, Targets = new[] { 90f, 140f, 200f }, Pay = 2000, Bonus = 1000 },
-            new() { Id = "c4-summit-final", Name = "Summit Final", Chapter = 4, Kind = CampaignEventKind.Race, Course = 4, Laps = 3, Rivals = new[] { "moto", "scrambler", "drifter", "fastback", "atv" }, Difficulty = 2, Pay = 4200, Bonus = 2100, Prize = "fastback", Final = true },
+            new() { Id = "c4-summit-final", Name = "Summit Final", Chapter = 4, Kind = CampaignEventKind.Race, Course = 4, Laps = 3, Rivals = new[] { "moto", "scrambler", "drifter", "fastback", "atv" }, Difficulty = 2, Pace = 1.15f, Pay = 4200, Bonus = 2100, Prize = "fastback", Final = true },
         };
         // 0.96 Part C: the order the events had before the practice laps (0.89-0.95). A save that already had progress when
         // this order came in (Campaign.State.legacyOrder) keeps every event it could play: each event is also open when the

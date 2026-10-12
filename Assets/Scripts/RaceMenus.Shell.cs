@@ -232,7 +232,7 @@ namespace Racer
         {
             LayoutGarageBody();
             details.transform.SetSiblingIndex(0);int at=1;
-            for(int i=0;i<4;i++)if(buttons[i].gameObject.activeSelf){buttons[i].transform.SetSiblingIndex(at++);buttons[i].name="profile-"+i;}
+            for(int i=0;i<4;i++)if(buttons[i].gameObject.activeSelf){buttons[i].transform.SetSiblingIndex(at++);if(buttons[i].name!="garage-buy")buttons[i].name="profile-"+i;} /* 0.112 Part E: the BUY row keeps its id */
             if(statBlock&&statBlock.gameObject.activeSelf)statBlock.SetSiblingIndex(at++);
             if(buttons.Count>8&&buttons[8].gameObject.activeSelf)buttons[8].transform.SetSiblingIndex(at++);
             swatchRow.SetSiblingIndex(at++);
