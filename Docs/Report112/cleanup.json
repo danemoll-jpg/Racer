@@ -1,0 +1,51 @@
+{
+    "freeAfter":  218042626048,
+    "buildsAfter":  8325606952,
+    "freeBefore":  208403566592,
+    "removed":  [
+                    {
+                        "bytes":  1842588566,
+                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\Racer-0.112.0-review1-Windows"
+                    },
+                    {
+                        "bytes":  429593202,
+                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\LauncherRelease-112000\\assets\\game.zip"
+                    },
+                    {
+                        "bytes":  1839181699,
+                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\Check112"
+                    },
+                    {
+                        "bytes":  42,
+                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\Check112-build.txt"
+                    },
+                    {
+                        "bytes":  1839199107,
+                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\Check112b"
+                    },
+                    {
+                        "bytes":  42,
+                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\Check112b-build.txt"
+                    },
+                    {
+                        "bytes":  1840752419,
+                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\Check112c"
+                    },
+                    {
+                        "bytes":  42,
+                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\Check112c-build.txt"
+                    },
+                    {
+                        "bytes":  1845132276,
+                        "path":  "C:\\Users\\danmo\\Racer\\Temp\\report112-hosted-1791790321742431800"
+                    }
+                ],
+    "buildsBefore":  16116922071,
+    "buildsRecovered":  7791315119,
+    "retained":  [
+                     "Latest complete root runtime",
+                     "managed 112000",
+                     "managed 111000",
+                     "music, publisher keys/tools, launcher, metadata, source, evidence, saves"
+                 ]
+}

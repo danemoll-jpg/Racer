@@ -1,6 +1,6 @@
 # Woodstock Rush balance sheet
 
-Version 0.112.0-review1, written 2026-10-12 02:46. Every current tuning value and where it lives (paths under Assets/Scripts). Read only: nothing here changes the game.
+Version 0.112.0-review1, written 2026-10-12 03:33. Every current tuning value and where it lives (paths under Assets/Scripts). Read only: nothing here changes the game.
 "inline" = a number written inside the code at that place (copied here); the rest are read from the code's own fields.
 
 ## Rival AI pace and skill per difficulty
@@ -85,7 +85,7 @@ Version 0.112.0-review1, written 2026-10-12 02:46. Every current tuning value an
 | Woodstock Grand Championship | cup-grand | 4 | Street Loop - Forward ×2 Day / Clear; Forest Loop - Forward ×2 Day / Clear; Dan's Backyard Loop - Forward ×2 Dusk / Clear; Mountain Loop - Forward ×2 Dawn / Clear; Street Loop - Reverse ×2 Night / Rain; Forest Loop - Reverse ×2 Day / Snow; Dan's Backyard Loop - Reverse ×2 Day / Clear; Mountain Loop - Reverse ×2 Dusk / Clear | Mia Torres (Needle 600), Big Ed Kowalski (Drifter Twin), Rusty Vance (Highball Fastback), Hollis Gray (Ridge Scrambler), June Park (Trail Four) | Hard | $12000 | $6000 |
 
 - Rival pace (0.112): a fixed factor per campaign race on the rivals' road speed and bend / hill limits (not on jump, run-up or shortcut speed limits, not on obstacle braking), at most 1.15; 1 = as before; championships 1 (CampaignData.cs Pace, RoadDriver.cs push). No rubber band.
-- Chapter 4 rivals (campaign events, not championships) take a Mountain shortcut whenever it is faster for them (rough time on the shortcut at its speed limits against the bypassed road at 0.6 × top speed): the AI-validated ones plus  (CampaignRun.cs, RoadDriver.cs DecideShortcut, ShortcutStrategy.TryDecideFaster). Elsewhere the random choice above.
+- Chapter 4 rivals (campaign events, not championships) take a Mountain shortcut whenever it is faster for them (rough time on the shortcut at its speed limits against the bypassed road at 0.6 × top speed): the AI-validated ones only (Mountain Forward's Climbing Ridge Cut and Summit Traverse are not validated: rivals needed a reset every lap there) (CampaignRun.cs, RoadDriver.cs DecideShortcut, ShortcutStrategy.TryDecideFaster). Elsewhere the random choice above.
 - Pay by place: 1 / 0.6 / 0.4 / 0.25 / 0.15 / 0.1 of first; medal shares 0 / 0.4 / 0.65 / 1; replays pay 0.5; cup points per place 10 / 7 / 5 / 3 / 2 / 1 (CampaignData.cs / Campaign.cs).
 - Pass rules: a race passes in the top 3 and wins in 1st; other events pass at bronze and win at gold (Campaign.cs Commit). Time trials: lower is better.
 
@@ -133,8 +133,8 @@ Authored in the editor scripts (Assets/Editor: ArcadeReviewRelease.cs, Discovery
 | Pebble Coupe | pebble | Car | Prize: pass "Forest Final" (campaign chapter 2) | CampaignData.Events Prize (c2-forest-final) |
 | Skyfin Cruiser | skyfin | Car | Buy it in the Shop for $8,000 | CampaignData.Prices ($8,000, chapter 1) |
 | Ridge Scrambler | scrambler | Motorcycle | Prize: pass "Backyard Final" (campaign chapter 3) | CampaignData.Events Prize (c3-backyard-final) |
-| Drifter Twin | drifter | Motorcycle | Buy it in the Shop for $16,000 | CampaignData.Prices ($16,000, chapter 2) |
-| Turf Rocket | mower | Mower | Find all 27 Woodland Acorns (27/27) | VehicleUnlocks.AcornsNeeded |
+| Drifter Twin | drifter | Motorcycle | In the Shop from chapter 2: $16,000 | CampaignData.Prices ($16,000, chapter 2) |
+| Turf Rocket | mower | Mower | Find all 27 Woodland Acorns (0/27) | VehicleUnlocks.AcornsNeeded |
 | Patrol Car | police | Car | Escape the police at heat 3+ (Normal or Hard) | PoliceProgress (HeatNeeded, SpeedersNeeded) |
 | Patrol Cycle | policebike | Motorcycle | Catch 20 speeders in Speed Patrol (0 / 20) | PoliceProgress (HeatNeeded, SpeedersNeeded) |
 | Clay Hopper | stuntbuggy | Buggy | free (Free Roam and the Stunt event only) | VehicleUnlocks (always earned) |
