@@ -1,0 +1,29 @@
+screen=1920x1080 kind=stats111 version=0.111.0-review1 park=on
+stats111-start: panel 1: 'CONGRATULATIONS! | You unlocked the Sundown Roadster Cup / Won the Street Cup (campaign championship)  ·  FRESH RUN / Yours in the fresh run: choose it on its event pages.' (roadstercup); state Ready; still waiting: 
+stats111-start: B on the panel: still open True
+stats111-start: A: open False; state Ready, page 'Ready/'; seen [acorn-mower,police-car,stunt-bike,fresh-prize-roadstercup], pending in settings []
+stats111-start: no (more) panels; state Ready, page 'Ready/'
+slot: MY CAMPAIGN; title 'CAMPAIGN   ·   MY CAMPAIGN   ·   $65,230'
+[main] event page 'Ready/campaign-event': Vehicle:   Street Classic   ·   A: garage; bars of original: 0.12, 0.28, 0.25, 0.34, 0.69; card 380x150, screen 1920x1080
+   layout: Stats original x 1257-1827 y 258-483; Preview original x 861-1236 y 258-483
+[main] stepped right: Vehicle:   Needle 600   ·   A: garage; bars of moto: 0.72, 0.65, 0.69, 0.77, 0.14; card 380x150, screen 1920x1080
+[main] A: page 'Ready/vehicle-pick' (the vehicle pick); stat block shown 5 bars [0.72, 0.65, 0.69, 0.77, 0.14]
+[main] championship 'cup-street' page 'Ready/campaign-cup': Vehicle:   Street Classic   ·   A: garage; prize line ''; bars 0.12, 0.28, 0.25, 0.34, 0.69; card 236x150, screen 1920x1080
+   layout: Preview roadstercup x 1542-1827 y 252-477; Preview original x 861-1146 y 252-477; Stats original x 1167-1521 y 252-477
+[main] Shop 'SHOP   ·   $65,230': Street Classic  (1 of 14); bars [0.12, 0.28, 0.25, 0.34, 0.69]
+[main] bought: Top speed 1; Shop bars [0.72, 0.65, 0.69, 0.77, 0.14]
+[main] event page on the upgraded Needle 600: Vehicle:   Needle 600  (upgraded)   ·   A: garage; bars 0.72, +gold 0.82, 0.65, 0.69, 0.77, 0.14; card 380x150, screen 1920x1080; card heading 'Needle 600   <color=#FFBD40>■ upgrades</color>'
+slot: FRESH RUN; title 'CAMPAIGN UPDATED'
+  (row chapter-1 not shown; page 'Ready/campaign/modal')
+  (row cev-c1-first-lap not shown; page 'Ready/campaign/modal')
+[fresh] event page 'Ready/campaign/modal': (no row event-vehicle); bars of (none): (no stat card for (none))
+   layout: 
+[fresh] stepped right: (no row event-vehicle); bars of (none): (no stat card for (none))
+  (row event-vehicle not shown; page 'Ready/campaign/modal')
+[fresh] A: page 'Ready/campaign/modal' (the vehicle pick); stat block shown 5 bars [0.72, 0.65, 0.69, 0.77, 0.14]
+  (row chapter-1 not shown; page 'Ready/')
+  (row ccup-cup-street not shown; page 'Ready/')
+[fresh] championship 'cup-street' page 'Ready/': (no row event-vehicle); prize line ''; bars (no stat card for (none))
+   layout: 
+  (row shop not shown; page 'Ready/')
+[fresh] Shop 'CAMPAIGN / FRESH RUN (new player)  ·  chapter 4  ·  $80,015 | STUNT EVENT | SETTINGS | SPLIT SCREEN | POLICE CHASE': (no row shop-vehicle); bars [0.72, 0.65, 0.69, 0.77, 0.14]

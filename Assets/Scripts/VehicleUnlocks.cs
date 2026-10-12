@@ -19,7 +19,7 @@ namespace Racer
             : p.Unlock == "stunt-buggy" ? true : p.Unlock == "stunt-gold" ? StuntProgress.GoldEarned || Campaign.Testing : RewardEarned;
         public static bool Locked(VehicleProfile p) => p != null && p.Reward && !Earned(p);
         // split-screen has everything unlocked except the acorn reward (as before)
-        public static bool LockedInSplit(VehicleProfile p) => p != null && p.Reward && !p.IsPolice && (p.Stunt ? !Earned(p) : !RewardEarned);
+        public static bool LockedInSplit(VehicleProfile p) => p != null && (p.CupEdition ? Campaign.VehicleLocked(p) : p.Reward && !p.IsPolice && (p.Stunt ? !Earned(p) : !RewardEarned)); // 0.111: a Cup edition once won in MY CAMPAIGN
         public static string LockedTextFor(VehicleProfile p) => p.Unlock == "police-car" ? PoliceProgress.CarGoal : p.Unlock == "police-bike" ? PoliceProgress.BikeGoal
             : p.Stunt ? (Earned(p) ? StuntOnly : StuntProgress.BikeGoal) : LockedText;
         public static string RewardNote(VehicleProfile p) => p.Unlock == "police-car" ? "A police goal: the patrol car." : p.Unlock == "police-bike" ? "A police goal: the patrol cycle."

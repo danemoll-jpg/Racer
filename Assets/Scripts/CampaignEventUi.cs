@@ -14,7 +14,7 @@ namespace Racer
     public sealed class CampaignEventUi : MonoBehaviour
     {
         public const float BannerSeconds = 3f;
-        RaceFlow flow; RectTransform root, panel, bannerBox, targetsHolder, runHolder, recordHolder; Text title, kind, time, hint, complete, bannerTop, bannerBottom;
+        RaceFlow flow; RectTransform root, panel, bannerBox, targetsHolder, runHolder, recordHolder; Text title, kind, time, hint, complete, bannerTop, bannerBottom, popText;
         Image bannerBadge, panelBack; Font font; AudioSource source; readonly AudioClip[] clips = new AudioClip[5];
         float bannerUntil; string bannerKey, targetsKey, runKey, recordKey; int seenAttempts; string seenEvent;
         public static CampaignEventUi Current { get; private set; }
@@ -44,6 +44,7 @@ namespace Racer
             time = Line("Time left", panel, 26, FontStyle.Normal, Color.white); hint = Line("Hint", panel, 21, FontStyle.Normal, new Color(.75f, .85f, .9f));
             complete = Line("Complete", panel, 27, FontStyle.Bold, new Color(.5f, 1f, .62f)); complete.horizontalOverflow = HorizontalWrapMode.Wrap;
             recordHolder = Holder("Record", panel);
+            popText = Line("Smash pop", root, 44, FontStyle.Bold, new Color(1, .62f, .2f)); var pr = popText.rectTransform; pr.anchorMin = pr.anchorMax = new Vector2(0, 1); pr.pivot = new Vector2(0, .5f); pr.sizeDelta = new Vector2(320, 56); popText.gameObject.SetActive(false);
             // the attempt banner
             bannerBox = NewBox("Attempt banner", root, new Color(.02f, .04f, .05f, .88f));
             bannerBox.anchorMin = bannerBox.anchorMax = bannerBox.pivot = new Vector2(.5f, .5f); bannerBox.anchoredPosition = new Vector2(0, 150); bannerBox.sizeDelta = new Vector2(980, 176);
@@ -140,18 +141,23 @@ namespace Racer
             bool showBanner = inRace && Time.unscaledTime < bannerUntil && !flow.MenuVisible;
             if (bannerBox.gameObject.activeSelf != showBanner) bannerBox.gameObject.SetActive(showBanner);
             if (showBanner) { float a = Mathf.Clamp01((bannerUntil - Time.unscaledTime) / .4f); var c = bannerBox.GetComponent<Image>(); c.color = new Color(.02f, .04f, .05f, .88f * a); bannerTop.color = new Color(1, 1, 1, a); var bc = bannerBottom.color; bc.a = a; bannerBottom.color = bc; bannerBadge.color = new Color(bannerBadge.color.r, bannerBadge.color.g, bannerBadge.color.b, a); }
-            if (!showPanel) return;
+            if (!showPanel) { if (popText.gameObject.activeSelf) popText.gameObject.SetActive(false); return; }
             // the panel: TT sits at the top centre (its lap panel stays on the left)
             panel.anchorMin = panel.anchorMax = panel.pivot = tt ? new Vector2(.5f, 1) : new Vector2(0, 1); panel.anchoredPosition = tt ? new Vector2(0, -24) : new Vector2(24, -24);
             panel.sizeDelta = new Vector2(tt ? 560 : 560, 0);
             title.text = e.Name.ToUpperInvariant();
-            kind.text = e.Kind switch { CampaignEventKind.Jump => "JUMP  ·  go again as often as you like", CampaignEventKind.SpeedTrap => "SPEED TRAP  ·  hit the trap as fast as you can", CampaignEventKind.Smash => "SMASH  ·  as many different props as you can", _ => "TIME TRIAL  ·  one flying lap" };
+            kind.text = e.Kind switch { CampaignEventKind.Jump => "JUMP  ·  go again as often as you like", CampaignEventKind.SpeedTrap => "SPEED TRAP  ·  hit the trap as fast as you can", CampaignEventKind.Smash => $"SMASH  ·  {Mathf.Max(SmashArea, 0)} marked props to smash", _ => "TIME TRIAL  ·  one flying lap" };
             int shownMedal = CampaignRun.RunBestMedal; RebuildTargets(e, shownMedal);
             bool lapClock = tt; runHolder.gameObject.SetActive(!lapClock); if (!lapClock) RebuildRun(e);
             RebuildRecord(e);
             bool live = flow.State == RaceFlow.Stage.Racing;
             float left = live ? Mathf.Max(0, e.TimeLimit - (float)flow.Race.Progress.RaceTime(flow.Race.Clock)) : e.TimeLimit;
-            time.gameObject.SetActive(!lapClock); if (!lapClock) time.text = e.Kind == CampaignEventKind.SpeedTrap ? $"{left:0} s to reach the trap" : $"{left:0} s left";
+            time.gameObject.SetActive(!lapClock); if (!lapClock) time.text = e.Kind == CampaignEventKind.SpeedTrap ? $"{left:0} s to reach the trap" : e.Kind == CampaignEventKind.Smash ? SmashGoal(e, left) : $"{left:0} s left";
+            time.GetComponent<LayoutElement>().preferredHeight = e.Kind == CampaignEventKind.Smash ? 62 : 34;
+            // 0.111 Part B: each counted smash pops "+1 (7)" beside the count
+            var acts = flow.Activities; bool pop = e.Kind == CampaignEventKind.Smash && acts && Time.time - acts.SmashPop < .9f;
+            if (popText.gameObject.activeSelf != pop) popText.gameObject.SetActive(pop);
+            if (pop) { popText.text = $"+1  ({acts.SmashCount})"; float k = (Time.time - acts.SmashPop) / .9f; popText.color = new Color(1, .62f, .2f, 1 - k * k); popText.rectTransform.anchoredPosition = new Vector2(600, -150 - 40 * k); }
             // the hint line: how to go again (jump)
             bool jump = e.Kind == CampaignEventKind.Jump; hint.gameObject.SetActive(jump);
             if (jump) { var input = flow.Race.vehicle.GetComponent<VehicleInput>(); hint.text = input ? MenuGlyph.Label(MenuInput.Binding(input.CurrentBindings[3])) + ": back to the run-up" : ""; }
@@ -159,6 +165,13 @@ namespace Racer
             if (done) complete.text = $"COMPLETE — {MedalUi.Name(CampaignRun.RunBestMedal)}\n<size=21>Keep trying, or press {(MenuInput.Controller ? "START" : "Esc")} to finish</size>";
             complete.supportRichText = true;
             ((RectTransform)complete.transform).GetComponent<LayoutElement>().preferredHeight = done ? 62 : 0;
+        }
+        // 0.111 Part B: a smash event's goal line: smashed of the area, the time left and the next medal (like the Stunt event's goal line)
+        int SmashArea => flow && flow.Activities ? flow.Activities.SmashArea : 0;
+        string SmashGoal(CampaignEvent e, float left)
+        {
+            int count = CampaignRun.LiveCount; var t = e.Targets ?? new[] { 0f, 0f, 0f };
+            return $"{count} of {SmashArea} smashed  ·  {left:0} s left\n<size=22>{ArcadeActivities.NextMedal(count, t[0], t[1], t[2])}</size>";
         }
         void OnDestroy() { foreach (var c in clips) if (c) Destroy(c); if (Current == this) Current = null; }
     }

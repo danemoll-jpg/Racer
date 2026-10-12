@@ -96,10 +96,13 @@ namespace Racer
             if (id == PoliceCar) return new() { id = id, heading = $"Escaped the police at heat {PoliceProgress.HeatNeeded}+", vehicle = VehicleProfile.Police.Id };
             if (id == PoliceBike) return new() { id = id, heading = $"Caught {PoliceProgress.SpeedersNeeded} speeders in Speed Patrol", vehicle = VehicleProfile.PoliceBike.Id };
             if (id == StuntBike) return new() { id = id, heading = "Won a Gold medal in the Stunt event", vehicle = VehicleProfile.StuntBike.Id };
-            if (id != null && id.StartsWith(Prize))
+            // 0.111 Part C: "fresh-prize-<vehicle>" = the fresh run's own prize (Campaign.PrizeNotice); Part D: a championship's Cup edition
+            bool fresh = id != null && id.StartsWith(Campaign.FreshNotice + Prize);
+            if (id != null && (fresh || id.StartsWith(Prize)))
             {
-                string vehicle = id.Substring(Prize.Length); var e = Campaign.PrizeEvent(vehicle); if (VehicleProfile.All.All(p => p.Id != vehicle)) return null;
-                return new() { id = id, heading = e != null ? $"Passed the {e.Name} (campaign chapter {e.Chapter})" : "A campaign prize", vehicle = vehicle };
+                string vehicle = id.Substring((fresh ? Campaign.FreshNotice : "").Length + Prize.Length); var e = Campaign.PrizeEvent(vehicle); var cup = Campaign.PrizeCup(vehicle); if (VehicleProfile.All.All(p => p.Id != vehicle)) return null;
+                string how = e != null ? $"Passed the {e.Name} (campaign chapter {e.Chapter})" : cup != null ? $"Won the {cup.Name} (campaign championship)" : "A campaign prize";
+                return new() { id = id, heading = how + (fresh ? "  ·  FRESH RUN" : ""), vehicle = vehicle };
             }
             return null;
         }
@@ -112,6 +115,8 @@ namespace Racer
             if (PoliceProgress.BikeEarned) Again(PoliceBike);
             if (StuntProgress.GoldEarned) Again(StuntBike);
             foreach (var id in save?.Settings.unlocksPending ?? new string[0]) Again(id);
+            // 0.111 Part D: a Cup edition the active campaign slot holds whose congratulations was never shown (championships won before 0.111)
+            foreach (var c in CampaignData.Cups) if (c.Prize != null && Campaign.Owns(c.Prize) && Campaign.CupResult(c.Id)?.won == true && !Campaign.Testing) Again(Campaign.PrizeNotice(c.Prize));
         }
         public static void MarkSeen(RacerSave save, string id)
         {

@@ -177,7 +177,7 @@ namespace Racer
             UpdateFolder();UpdateKeyboard();UpdateLater();
             if(!flow.MenuVisible||modalConfirm!=null||page=="keyboard")return;
             // 0.92 Part D: what loading the campaign save granted (prize vehicles, a refund), said once
-            if(Campaign.LoadNotice!=null&&flow.State==RaceFlow.Stage.Ready&&(page==""||page=="campaign")){var notice=Campaign.LoadNotice;Campaign.LoadNotice=null;Confirm("CAMPAIGN UPDATED",notice+"\nEvery chapter final now awards a vehicle.",Campaign.NoticeSeen,null);return;}
+            if(Campaign.LoadNotice!=null&&flow.State==RaceFlow.Stage.Ready&&(page==""||page=="campaign")){var notice=Campaign.LoadNotice;Campaign.LoadNotice=null;Confirm("CAMPAIGN UPDATED",notice+"\nEvery chapter final and every championship now awards a vehicle.",Campaign.NoticeSeen,null);return;}
             if(flow.State==RaceFlow.Stage.Settings&&page.StartsWith("settings"))
             {
                 var k=Keyboard.current;var g=Gamepad.current;

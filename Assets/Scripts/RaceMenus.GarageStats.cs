@@ -18,10 +18,11 @@ namespace Racer
         };
         RectTransform statBlock; readonly List<RectTransform> statFills = new(), statUpgrades = new();
         // 0.90: the scale also covers the best vehicle fully upgraded (campaign upgrades, stats 0-3), so an upgraded bar fits.
+        // 0.111: the scale is the stock vehicles' (unchanged by the Cup editions, whose +5% fits inside it)
         public static float StatFraction(int stat, VehicleProfile p, float scale = 1)
         {
-            var values = VehicleProfile.All.Select(GarageStats[stat].value).ToArray(); float min = values.Min(), max = values.Max() * (stat < 4 ? 1 + CampaignData.UpgradeStep[stat] * CampaignData.UpgradeLevels : 1);
-            return max > min ? Mathf.Lerp(.12f, 1, (GarageStats[stat].value(p) * scale - min) / (max - min)) : 1;
+            var values = VehicleProfile.All.Where(v => !v.CupEdition).Select(GarageStats[stat].value).ToArray(); float min = values.Min(), max = values.Max() * (stat < 4 ? 1 + CampaignData.UpgradeStep[stat] * CampaignData.UpgradeLevels : 1);
+            return max > min ? Mathf.Lerp(.12f, 1, Mathf.Clamp01((GarageStats[stat].value(p) * scale - min) / (max - min))) : 1;
         }
         public float[] ShownStats => statFills.Select(f => f.anchorMax.x).ToArray();
 

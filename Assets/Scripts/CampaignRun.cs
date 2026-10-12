@@ -157,13 +157,15 @@ namespace Racer
             if (!flow || e == null || (e.Kind != CampaignEventKind.SpeedTrap && e.Kind != CampaignEventKind.Jump && e.Kind != CampaignEventKind.Smash) || CampaignRun.Done) { Destroy(this); return; }
             if (flow.State != RaceFlow.Stage.Racing) return;
             var a = flow.Activities;
-            // 0.90: a smash event: the site's attempt runs from GO for the time limit; its count (or all of them) ends it
+            // 0.90: a smash event: the site's attempt runs from GO for the time limit; its count (or all of them) ends it. 0.111 Part B: every prop of
+            // the area down ends it at once; gold does not (keep counting past it)
             if (e.Kind == CampaignEventKind.Smash)
             {
                 if (!smashStarted) { smashStarted = true; a.BeginCampaignSmash(CampaignRun.Site(flow.Race), e.TimeLimit); awards = a.Awards; }
                 if (endAt < 0) CampaignRun.LiveCount = a.SmashCount;
                 if (endAt < 0 && a.Awards != awards) { awards = a.Awards; score = a.LastSmashScore; endAt = Time.unscaledTime + CampaignEventUi.BannerSeconds; CampaignRun.RecordAttempt(score, true); }
-                if (endAt < 0 && flow.Race.Progress.RaceTime(flow.Race.Clock) > e.TimeLimit + 1) { score = 0; endAt = Time.unscaledTime + CampaignEventUi.BannerSeconds; CampaignRun.RecordAttempt(0, false, "nothing smashed"); }
+                // 0.111 Part B: the time limit records the live count (0 only when nothing was smashed)
+                if (endAt < 0 && flow.Race.Progress.RaceTime(flow.Race.Clock) > e.TimeLimit + 1) { score = a.SmashCount; endAt = Time.unscaledTime + CampaignEventUi.BannerSeconds; CampaignRun.RecordAttempt(score, score > 0, score > 0 ? null : "nothing smashed"); }
                 if (endAt >= 0 && Time.unscaledTime >= endAt) { CampaignRun.Finish(flow, score); flow.CompleteResults(); Destroy(this); }
                 return;
             }

@@ -77,7 +77,7 @@ namespace Racer
         // allows (motorcycles and ATVs on the restricted courses).
         static string[] RivalRoster(string scene)
         {
-            var pool = VehicleProfile.All.Where(p => !p.Reward && (CarAccess.CourseAllowsCars(scene) || p.Small)).Select(p => p.Id).ToList();
+            var pool = VehicleProfile.All.Where(p => !p.Reward && !p.CupEdition && (CarAccess.CourseAllowsCars(scene) || p.Small)).Select(p => p.Id).ToList();
             var list = new List<string>(); var deck = new List<string>();
             for (int i = 0; i < Mathf.Clamp(Rivals, 0, 4); i++)
             {

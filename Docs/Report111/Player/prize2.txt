@@ -1,0 +1,22 @@
+screen=1920x1080 kind=prize111 version=0.111.0-review1 park=on
+prize111-start: panel 1: 'CONGRATULATIONS! | You unlocked the Sundown Roadster Cup / Won the Street Cup (campaign championship)  ·  FRESH RUN / Yours in the fresh run: choose it on its event pages.' (roadstercup); state Ready; still waiting: fresh-prize-driftercup
+prize111-start: B on the panel: still open True
+prize111-start: A: open True; state Ready, page 'Ready/unlock'; seen [acorn-mower,police-car,stunt-bike,fresh-prize-roadstercup], pending in settings []
+prize111-start: panel 2: 'CONGRATULATIONS! | You unlocked the Drifter Twin Cup / Won the Woodland Cup (campaign championship)  ·  FRESH RUN / Yours in the fresh run: choose it on its event pages.' (driftercup); state Ready; still waiting: 
+prize111-start: B on the panel: still open True
+prize111-start: A: open False; state Ready, page 'Ready/'; seen [acorn-mower,police-car,stunt-bike,fresh-prize-roadstercup,fresh-prize-driftercup], pending in settings []
+prize111-start: no (more) panels; state Ready, page 'Ready/'
+slot: FRESH RUN; title 'CAMPAIGN   ·   FRESH RUN   ·   $89,015'
+fresh run before: slot FRESH RUN: chapter 4, $89,015, owns [original,atv,moto,pebble,fastback,roadstercup,driftercup], courses 8, results 28; final laps set to 1 (a test shortcut)
+  event page: Vehicle:   Needle 600   ·   A: garage; ''
+result: 1st of 6; passed True; prize scrambler; unlocked [Championship: Backyard Cup; Vehicle: Ridge Scrambler]; strip 'PRIZE WON: Ridge Scrambler  ·  yours in the fresh run'
+prize111-after: panel 1: 'You unlocked the Ridge Scrambler / Passed the Backyard Final (campaign chapter 3)  ·  FRESH RUN / Yours in the fresh run: choose it on its event pages. | CONGRATULATIONS!' (scrambler); state Results; still waiting: 
+prize111-after: B on the panel: still open True
+prize111-after: A: open False; state Ready, page 'Ready/campaign'; seen [acorn-mower,police-car,stunt-bike,fresh-prize-roadstercup,fresh-prize-driftercup,fresh-prize-scrambler], pending in settings []
+prize111-after: no (more) panels; state Ready, page 'Ready/campaign'
+fresh run after: slot FRESH RUN: chapter 4, $90,715, owns [original,atv,moto,pebble,fastback,roadstercup,driftercup,scrambler], courses 8, results 28; seen [acorn-mower,police-car,stunt-bike,fresh-prize-roadstercup,fresh-prize-driftercup,fresh-prize-scrambler]
+  fresh Shop/garage: Ridge Scrambler  (10 of 14); 'Ridge Scrambler / Motorcycle / Dirt bike / long suspension / best on rough ground and landings / lower top speed / OWNED'
+MY CAMPAIGN file unchanged: True
+slot: MY CAMPAIGN; title 'CAMPAIGN   ·   MY CAMPAIGN   ·   $65,230'
+  slot MY CAMPAIGN: chapter 4, $65,230, owns [original,atv,moto,pebble,scrambler,fastback], courses 8, results 25
+prize111-main: no (more) panels; state Ready, page 'Ready/campaign'

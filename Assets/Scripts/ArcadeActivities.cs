@@ -26,7 +26,7 @@ namespace Racer
         public string LastJumpDiagnostic {get;private set;}
         public int SmashCount=>smashed.Count;
         public string Location {get{if(!Selected||!car)return "";var delta=Selected.transform.position-car.Body.position;int compass=Mathf.RoundToInt(Mathf.Repeat(Mathf.Atan2(delta.x,delta.z)*Mathf.Rad2Deg,360)/45)%8;return $"{DisplayUnits.Distance(Vector3.ProjectOnPlane(delta,Vector3.up).magnitude)} {new[]{"N","NE","E","SE","S","SW","W","NW"}[compass]}";}}
-        public string Hud=>CampaignEventHidesHud?"":Stunted(CampaignHud(Time.time<feedbackUntil?Feedback:AttemptActive?$"{Selected.title} / {Mathf.Max(0,deadline-Time.time):0}s / {Location}\n{(Selected.kind==ActivitySite.Kind.Smash?SmashCount+" distinct props":"Land a jump from the marked ramp")}":race.FreeRoam?AtStart:""));
+        public string Hud=>CampaignEventHidesHud?"":Stunted(CampaignHud(Time.time<feedbackUntil?Feedback:AttemptActive?$"{Selected.title} / {Mathf.Max(0,deadline-Time.time):0}s / {Location}\n{(Selected.kind==ActivitySite.Kind.Smash?SmashLine:"Land a jump from the marked ramp")}":race.FreeRoam?AtStart:""));
         // 0.106 Part B: the open combo under the other lines (not while its own line is showing)
         string Stunted(string line){var s=StuntHud;if(string.IsNullOrEmpty(s)||Time.time<feedbackUntil&&Feedback!=null&&Feedback.Contains("COMBO"))return line;return string.IsNullOrEmpty(line)?s:line+"\n"+s;}
         // 0.96 Part A: a campaign jump / speed trap / smash event shows its own panel and attempt banner (CampaignEventUi), not
@@ -98,15 +98,16 @@ namespace Racer
         public void Cycle(int d=1){var choices=Sites.Where(s=>s.kind!=ActivitySite.Kind.Speed).ToArray();if(choices.Length==0)return;Cancel();Selected=choices[(Math.Max(0,Array.IndexOf(choices,Selected))+d+choices.Length)%choices.Length];}
         public void BeginAttempt()
         {
-            if(!race.FreeRoam||!Selected)return;Cancel();smashed.Clear();BreakableProp.RestoreRace();AttemptActive=true;deadline=Time.time+Selected.Seconds;Message(Selected.title+" / attempt started",3);
+            if(!race.FreeRoam||!Selected)return;Cancel();smashed.Clear();BreakableProp.RestoreRace();AttemptActive=true;deadline=Time.time+Selected.Seconds;Message(Selected.title+" / attempt started"+(Selected.kind==ActivitySite.Kind.Smash?$"  ·  {SmashArea} marked props in {Selected.Seconds:0} s":""),3);
         }
         // 0.90: a campaign smash event: the site's attempt runs from GO for the event's time limit (Free Roam starts its own
         // attempts from the pause menu). Its count goes to the campaign, never to the activity records.
-        public void BeginCampaignSmash(ActivitySite site,float seconds){if(!site)return;Cancel();smashed.Clear();Selected=site;AttemptActive=true;deadline=Time.time+seconds;warm=.5f;blockedUntil=0;Message(site.title+" / smash as many as you can",3);}
+        public void BeginCampaignSmash(ActivitySite site,float seconds){if(!site)return;Cancel();smashed.Clear();Selected=site;AttemptActive=true;deadline=Time.time+seconds;warm=.5f;blockedUntil=0;Message(site.title+$" / smash the {SmashArea} marked props",3);}
         public float LastSmashScore {get;private set;}
         public void Cancel(){if(AttemptActive&&Selected&&BalanceLog.RoamActivity(race))BalanceLog.Activity(this,Selected,configuration.profileId,0,"","canceled",true,PersonalBest(Selected)?.value??0);AttemptActive=false;smashed.Clear();warm=0;ResetFlight();}
         public void NewSession(){Cancel();armed.Clear();sampled=false;warm=0;blockedUntil=Time.time+1;Feedback=null;feedbackUntil=0;LastDistance=LastAirtime=LastSpeed=LastJumpAward=0;StuntSession();}
-        void Recovered(){if(AttemptActive)Message("Attempt canceled by recovery / retry from pause menu",4);Cancel();armed.Clear();sampled=false;warm=0;blockedUntil=Time.time+2;if(ComboLinks>0)EndCombo(null);StuntReset();} // 0.106: a reset banks the open combo
+        // 0.111 Part B: a reset never cancels a smash attempt (the count and the clock go on)
+        void Recovered(){bool smashing=AttemptActive&&Selected&&Selected.kind==ActivitySite.Kind.Smash;if(smashing)Message(Selected.title+" / reset: keep smashing ("+SmashCount+")",3);else{if(AttemptActive)Message("Attempt canceled by recovery / retry from pause menu",4);Cancel();}armed.Clear();sampled=false;warm=0;blockedUntil=Time.time+2;if(ComboLinks>0)EndCombo(null);StuntReset();} // 0.106: a reset banks the open combo
         // 0.106 Part D: the Stunt event's end: the open combo counts
         public void EndStuntCombo(){if(ComboLinks>0)EndCombo(null);StuntReset();}
         void ResetFlight(){flying=false;invalid=touchedDown=false;air=stable=0;jumpSite=null;rejected=null;}
@@ -118,10 +119,12 @@ namespace Racer
         ActivitySite SiteAt(Vector3 at)=>Sites.Where(s=>s.kind==ActivitySite.Kind.Jump&&Vector3.Distance(at,s.transform.position)<s.radius&&Vector3.Dot(car.Body.linearVelocity,s.forward.normalized)>2).OrderBy(s=>Vector3.SqrMagnitude(at-s.transform.position)).FirstOrDefault();
         void Smash(BreakableProp prop,ArcadeVehicle source)
         {
-            if(source!=car||!(race.FreeRoam||CampaignRun.Active?.Kind==CampaignEventKind.Smash)||!AttemptActive||Selected.kind!=ActivitySite.Kind.Smash||race.Flow.State!=RaceFlow.Stage.Racing||Time.time<blockedUntil||warm<.5f)return;
+            // 0.111 Part B: every prop of the smash area counts once whatever the vehicle is doing (airborne, tipped, sliding, just reset): no
+            // grounded warm-up or reset block for smashes (jumps keep theirs). The attempt ends when every prop is down, or at its time limit.
+            if(source!=car||!(race.FreeRoam||CampaignRun.Active?.Kind==CampaignEventKind.Smash)||!AttemptActive||Selected.kind!=ActivitySite.Kind.Smash||race.Flow.State!=RaceFlow.Stage.Racing)return;
             if(Selected.props==null||!Selected.props.Contains(prop)||!smashed.Add(prop))return;
-            Message(Selected.title+" / "+smashed.Count+" distinct props",2);
-            if(smashed.Count>=Selected.gold)FinishSmash();
+            SmashPop=Time.time;Message(Selected.title+" / +1 ("+smashed.Count+")"+(smashed.Count>=SmashArea?"  ·  ALL "+SmashArea+" DOWN":""),2);
+            if(smashed.Count>=SmashArea)FinishSmash();
         }
         void FinishSmash(){var value=smashed.Count;AttemptActive=false;Award(Selected,value,"props");}
         void FixedUpdate()

@@ -127,6 +127,10 @@ namespace Racer
                 case "vehicle110": yield return VehicleMemory(); break;
                 case "vehicle110b": yield return VehicleMemoryAfterRestart(); break;
                 case "fresh110": yield return Fresh110(); break;
+                case "stats111": yield return Stats111(); break; // 0.111 (Report106PlayerCheck.Round111.cs)
+                case "smash111": yield return Smash111(); break;
+                case "prize111": yield return Prize111(); break;
+                case "cups111": yield return Cups111(); break;
                 default: Note("unknown kind " + kind); break;
             }
             File.WriteAllText(Path.Combine(outDir, "done.txt"), "done"); Application.Quit();

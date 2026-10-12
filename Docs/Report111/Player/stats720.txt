@@ -1,0 +1,25 @@
+screen=1280x720 kind=stats111 version=0.111.0-review1 park=on
+stats111-start: panel 1: 'CONGRATULATIONS! | You unlocked the Sundown Roadster Cup / Won the Street Cup (campaign championship)  ·  FRESH RUN / Yours in the fresh run: choose it on its event pages.' (roadstercup); state Ready; still waiting: fresh-prize-driftercup
+stats111-start: B on the panel: still open True
+stats111-start: A: open True; state Ready, page 'Ready/unlock'; seen [acorn-mower,police-car,stunt-bike,fresh-prize-roadstercup], pending in settings []
+stats111-start: panel 2: 'CONGRATULATIONS! | You unlocked the Drifter Twin Cup / Won the Woodland Cup (campaign championship)  ·  FRESH RUN / Yours in the fresh run: choose it on its event pages.' (driftercup); state Ready; still waiting: 
+stats111-start: B on the panel: still open True
+stats111-start: A: open False; state Ready, page 'Ready/'; seen [acorn-mower,police-car,stunt-bike,fresh-prize-roadstercup,fresh-prize-driftercup], pending in settings []
+stats111-start: no (more) panels; state Ready, page 'Ready/'
+slot: MY CAMPAIGN; title 'CAMPAIGN   ·   MY CAMPAIGN   ·   $65,230'
+[main] event page 'Ready/campaign-event': Vehicle:   Street Classic   ·   A: garage; bars of original: 0.12, 0.28, 0.25, 0.34, 0.69; card 380x150, screen 1280x720
+   layout: Stats original x 838-1218 y 172-322; Preview original x 574-824 y 172-322
+[main] stepped right: Vehicle:   Needle 600   ·   A: garage; bars of moto: 0.72, 0.65, 0.69, 0.77, 0.14; card 380x150, screen 1280x720
+[main] A: page 'Ready/vehicle-pick' (the vehicle pick); stat block shown 5 bars [0.72, 0.65, 0.69, 0.77, 0.14]
+[main] championship 'cup-street' page 'Ready/campaign-cup': Vehicle:   Street Classic   ·   A: garage; prize line ''; bars 0.12, 0.28, 0.25, 0.34, 0.69; card 236x150, screen 1280x720
+   layout: Preview roadstercup x 1028-1218 y 168-318; Preview original x 574-764 y 168-318; Stats original x 778-1014 y 168-318
+[main] Shop 'SHOP   ·   $65,230': Street Classic  (1 of 14); bars [0.12, 0.28, 0.25, 0.34, 0.69]
+  on switching: 'CAMPAIGN UPDATED' 'Prize for winning the Street Cup: the Sundown Roadster Cup / Prize for winning the Woodland Cup: the Drifter Twin Cup / Every chapter final and every championship now awards a vehicle.'
+slot: FRESH RUN; title 'CAMPAIGN   ·   FRESH RUN   ·   $89,015'
+[fresh] event page 'Ready/campaign-event': Vehicle:   Ridge Scrambler   ·   A: garage; bars of scrambler: 0.47, 0.60, 0.63, 0.71, 0.13; card 380x150, screen 1280x720
+   layout: Stats scrambler x 838-1218 y 172-322; Preview scrambler x 574-824 y 172-322
+[fresh] stepped right: Vehicle:   Sundown Roadster Cup   ·   A: garage; bars of roadstercup: 0.30, 0.39, 0.39, 0.49, 0.61; card 380x150, screen 1280x720
+[fresh] A: page 'Ready/vehicle-pick' (the vehicle pick); stat block shown 5 bars [0.30, 0.39, 0.39, 0.49, 0.61]
+[fresh] championship 'cup-street' page 'Ready/campaign-cup': Vehicle:   Ridge Scrambler   ·   A: garage; prize line ''; bars 0.47, 0.60, 0.63, 0.71, 0.13; card 236x150, screen 1280x720
+   layout: Preview roadstercup x 1028-1218 y 168-318; Preview scrambler x 574-764 y 168-318; Stats scrambler x 778-1014 y 168-318
+[fresh] Shop 'SHOP   ·   FRESH RUN   ·   $89,015': Street Classic  (1 of 14); bars [0.12, 0.28, 0.25, 0.34, 0.69]

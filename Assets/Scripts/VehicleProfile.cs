@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 
 namespace Racer
@@ -28,7 +29,7 @@ namespace Racer
         public float AirControl;
         public bool Stunt => Unlock != null && Unlock.StartsWith("stunt");
         static VehicleProfile[] all; public static VehicleProfile[] All => all ??= BuildAll(); // built on first use: the police profiles are defined after the list
-        static VehicleProfile[] BuildAll() => new VehicleProfile[] {
+        static VehicleProfile[] BuildAll() { var stock = new VehicleProfile[] {
             new() { Id="original", Name="Street Classic", Class="Car", Description="Balanced handling / high stability / strong contact", Speed=49, Acceleration=14.5f, Grip=25, Response=8, Mass=1200, Wheelbase=2.6f, Pitch=1, Size=new(1.85f,.65f,3.7f), Camera=new(0,3.6f,-7.5f),
                 Model="StreetClassic", Seat=new(-.40f,.04f,-.15f) },
             new() { Id="tourer", Name="Longroof GT", Class="Car", Description="Long, fast cruiser / deliberate turn-in / strongest contact", Speed=52, Acceleration=13.5f, Grip=24, Response=6.5f, Mass=1500, Wheelbase=3, Pitch=.85f, Size=new(2,.8f,4.5f), Camera=new(0,3.8f,-8.2f),
@@ -63,6 +64,33 @@ namespace Racer
             // Gold in the Stunt event (StuntProgress).
             StuntBuggy, StuntBike
         };
+            foreach (var p in stock) built[p.Id] = p;
+            return stock.Concat(new[] {
+            // 0.111 Part D: the four Cup editions, won by winning each championship (appended: the list index is the saved colour slot)
+            MakeCup("roadster", "roadstercup", "Sundown Roadster Cup", "cup-street", new(.72f,.06f,.07f), "chrome", "cream"),
+            MakeCup("drifter", "driftercup", "Drifter Twin Cup", "cup-woodland", new(.06f,.33f,.15f), "chrome", "cream"),
+            MakeCup("scrambler", "scramblercup", "Ridge Scrambler Cup", "cup-backyard", new(.08f,.2f,.62f), "chrome", "cream"),
+            MakeCup("moto", "motochampion", "Needle 600 Champion", "cup-grand", new(.025f,.025f,.03f), "metal", "chrome")
+            }).ToArray();
+        }
+        // 0.111 Part D: a championship's prize: an existing vehicle's model and handling with its own livery (the cup's colour, gold trim and a gold
+        // cup on each side, VehiclePaint.Livery) and about +5% on the five garage stats (top speed, acceleration, grip, handling, weight / contact).
+        // Campaign vehicles like the others (locked in Race and Free Roam until won in MY CAMPAIGN; upgradable in the campaign), never in the Shop
+        // for sale or in an AI roster. Cup = the championship id that awards it, CupBase = the vehicle it is built on; Gold = the model slots drawn in gold.
+        public string Cup, CupBase; public Color Livery; public string[] Gold;
+        public bool CupEdition => Cup != null;
+        public const float CupBoost = 1.05f;
+        static VehicleProfile MakeCup(string baseId, string id, string name, string cup, Color livery, params string[] gold)
+        {
+            var b = All0(baseId); const float k = CupBoost;
+            return new() { Id=id, Name=name, Class=b.Class, Description=b.Description.Split('/')[0].Trim()+" / championship edition: about 5% up on every stat", Speed=b.Speed*k, Acceleration=b.Acceleration*k, Grip=b.Grip*k, Response=b.Response*k, Mass=b.Mass*k,
+                Wheelbase=b.Wheelbase, Pitch=b.Pitch, Size=b.Size, Camera=b.Camera, Model=b.Model, Pose=b.Pose, Base=b.Base??b.Id, Seat=b.Seat, FrontPivot=b.FrontPivot, FrontAxis=b.FrontAxis, FrontGain=b.FrontGain,
+                Upright=b.Upright, Air=b.Air, Suspension=b.Suspension, Lean=b.Lean, SolidContact=b.SolidContact, Cup=cup, CupBase=baseId, Livery=livery, Gold=gold };
+        }
+        // the base vehicles are built before the Cup editions in the same list
+        static readonly System.Collections.Generic.Dictionary<string, VehicleProfile> built = new();
+        static VehicleProfile All0(string id) => built[id];
+        public static VehicleProfile CupPrize(string cup) => System.Array.Find(All, p => p.Cup == cup);
         // a light buggy on long suspension (the ATV's family for the activity tables): open frame and roll cage, the cars' seated pose on the centre line
         public static readonly VehicleProfile StuntBuggy = new() { Id="stuntbuggy", Name="Clay Hopper", Class="Buggy", Description="Stunt buggy / long-travel suspension / steer it in the air: flips, rolls, spins", Speed=50, Acceleration=17.5f, Grip=29, Response=10.5f, Mass=520, Wheelbase=2.1f, Pitch=1.25f, Size=new(1.5f,.7f,2.8f), Camera=new(0,3.4f,-7f),
                 Model="StuntBuggy", Seat=new(0,.06f,-.28f), Base="atv", Upright=24, Air=.16f, Suspension=.85f, Reward=true, Unlock="stunt-buggy", AirControl=1 };

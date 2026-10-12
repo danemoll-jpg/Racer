@@ -39,7 +39,7 @@ namespace Racer
         {
             var n = UnlockNotice.Showing; if (n == null) { page = ""; Show(); return; }
             var p = VehicleProfile.Find(n.vehicle);
-            ClearCore("CONGRATULATIONS!", "You unlocked the " + p.Name + "\n" + n.heading + "\nChoose it in the Garage.");
+            ClearCore("CONGRATULATIONS!", "You unlocked the " + p.Name + "\n" + n.heading + (n.id.StartsWith(Campaign.FreshNotice) ? "\nYours in the fresh run: choose it on its event pages." : "\nChoose it in the Garage.")); // 0.111 Part C
             details.fontSize = 26; details.alignment = TextAnchor.MiddleCenter; details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight = 112; details.color = new Color(1, .84f, .35f);
             Row(0, "unlock-ok", "OK", CloseUnlock);
             var colors = buttons[0].colors; colors.normalColor = new(.1f, .38f, .35f); buttons[0].colors = colors; buttons[0].GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight = 54;

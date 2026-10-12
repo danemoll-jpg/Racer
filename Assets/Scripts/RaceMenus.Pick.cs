@@ -133,7 +133,8 @@ namespace Racer
             Step(0, "pick-vehicle", $"{p.Name}   ·   {at + 1} of {owned.Length}" + (ok ? "" : "   ·   not allowed"), StepPick);
             if (!ok) buttons[0].GetComponentInChildren<UnityEngine.UI.Text>(true).color = new Color(.62f, .66f, .66f);
             ShowGarageStats(p, Campaign.Testing ? null : p.Id);
-            Step(1, "pick-colour", "Color:   " + (scheme < 0 ? "Factory" : VehiclePaint.Name(scheme)), d => { int i = VehicleProfile.IndexOf(p.Id); if (i >= 0) { flow.Save.Settings.bodyColors[i] = VehiclePaint.Next(scheme, d); flow.Save.SaveSettings(); } flow.Click(); Show(); });
+            Step(1, "pick-colour", "Color:   " + (p.CupEdition ? "Cup livery" : scheme < 0 ? "Factory" : VehiclePaint.Name(scheme)), d => { if (p.CupEdition) return; // 0.111: a Cup edition keeps its livery
+                int i = VehicleProfile.IndexOf(p.Id); if (i >= 0) { flow.Save.Settings.bodyColors[i] = VehiclePaint.Next(scheme, d); flow.Save.SaveSettings(); } flow.Click(); Show(); });
             Row(2, "pick-use", ok ? "USE THIS VEHICLE" : "NOT ALLOWED HERE", () => { campaignVehicle = p.Id; BackPage(); });
             var colors = buttons[2].colors; colors.normalColor = new(.1f, .38f, .35f); buttons[2].colors = colors; buttons[2].GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight = 54; buttons[2].interactable = ok;
             Row(3, "pick-shop", "Shop…   (" + Campaign.Money(Campaign.Current.money) + ")", () => { shopToPick = true; shopFromCampaign = false; shopVehicle = p.Id; flow.OpenGarage(); page = "shop"; pages.Clear(); Show(); });
@@ -177,7 +178,7 @@ namespace Racer
                 var raw = MiniPreview(cell, p, colour, false, 640, 280); var rr = raw.rectTransform; rr.anchorMin = Vector2.zero; rr.anchorMax = Vector2.one; rr.offsetMin = rr.offsetMax = Vector2.zero;
                 ValueLine(half, $"{p.Name}  ({p.Class})", d => PickStep(who, d, 0));
                 StatBars(half, p);
-                ValueLine(half, "Color:   " + VehiclePaint.Name(colour), d => PickStep(who, d, 1));
+                ValueLine(half, "Color:   " + (p.CupEdition ? "Cup livery" : VehiclePaint.Name(colour)), d => PickStep(who, d, 1));
                 var state = Label("State", half, 20, 30); state.alignment = TextAnchor.MiddleCenter;
                 state.text = ready ? "READY  ✓" : focused ? "A: ready" : "waiting"; state.color = ready ? new Color(.4f, 1, .6f) : Color.white;
             }
@@ -195,16 +196,31 @@ namespace Racer
                 b.onClick.AddListener(() => change(d)); var glyph = Label("Arrow", r, 28, 0); Stretch(glyph.rectTransform, 0, 0, 0, 0); glyph.alignment = TextAnchor.MiddleCenter; glyph.text = d < 0 ? "‹" : "›"; glyph.color = new Color(.55f, 1, .9f);
             }
         }
-        // The garage's stock stat bars (split-screen vehicles are stock).
-        void StatBars(Transform parent, VehicleProfile p)
+        // The garage's stock stat bars (split-screen vehicles are stock). 0.111 Part A: upgrades = the campaign's upgrades of that vehicle drawn after
+        // the stock bar in gold (as the Shop and the garage view draw them); rowHeight / fontSize for the smaller cards.
+        void StatBars(Transform parent, VehicleProfile p, bool upgrades = false, float rowHeight = 20, int fontSize = 16, float labelShare = .4f)
         {
             for (int i = 0; i < GarageStats.Length; i++)
             {
-                var row = Rect(GarageStats[i].label, parent); row.gameObject.AddComponent<UnityEngine.UI.LayoutElement>().preferredHeight = 20;
-                var text = Label("Label", row, 16, 0); text.rectTransform.anchorMin = Vector2.zero; text.rectTransform.anchorMax = new Vector2(.4f, 1); text.rectTransform.offsetMin = text.rectTransform.offsetMax = Vector2.zero; text.text = GarageStats[i].label; text.color = new Color(.86f, .86f, .8f);
-                var track = Rect("Bar", row); track.anchorMin = new Vector2(.42f, .2f); track.anchorMax = new Vector2(1, .8f); track.offsetMin = track.offsetMax = Vector2.zero; track.gameObject.AddComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, .12f);
-                var fill = Rect("Fill", track); fill.anchorMin = Vector2.zero; fill.anchorMax = new Vector2(Mathf.Clamp01(StatFraction(i, p)), 1); fill.offsetMin = fill.offsetMax = Vector2.zero; fill.gameObject.AddComponent<UnityEngine.UI.Image>().color = new Color(.3f, 1, .88f);
+                var row = Rect(GarageStats[i].label, parent); row.gameObject.AddComponent<UnityEngine.UI.LayoutElement>().preferredHeight = rowHeight;
+                var text = Label("Label", row, fontSize, 0); text.rectTransform.anchorMin = Vector2.zero; text.rectTransform.anchorMax = new Vector2(labelShare, 1); text.rectTransform.offsetMin = text.rectTransform.offsetMax = Vector2.zero; text.text = GarageStats[i].label; text.color = new Color(.86f, .86f, .8f);
+                var track = Rect("Bar", row); track.anchorMin = new Vector2(labelShare + .02f, .2f); track.anchorMax = new Vector2(1, .8f); track.offsetMin = track.offsetMax = Vector2.zero; track.gameObject.AddComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, .12f);
+                float stock = Mathf.Clamp01(StatFraction(i, p)), up = upgrades && i < 4 ? Mathf.Clamp01(StatFraction(i, p, Campaign.Multiplier(p.Id, i))) : stock;
+                var fill = Rect("Fill", track); fill.anchorMin = Vector2.zero; fill.anchorMax = new Vector2(stock, 1); fill.offsetMin = fill.offsetMax = Vector2.zero; fill.gameObject.AddComponent<UnityEngine.UI.Image>().color = new Color(.3f, 1, .88f);
+                if (up > stock + .001f) { var gold = Rect("Upgraded", track); gold.anchorMin = new Vector2(stock, 0); gold.anchorMax = new Vector2(up, 1); gold.offsetMin = gold.offsetMax = Vector2.zero; gold.gameObject.AddComponent<UnityEngine.UI.Image>().color = new Color(1, .74f, .25f); }
             }
+        }
+        // 0.111 Part A: the five stat bars as a card beside a vehicle's small preview (campaign event and championship pages): the same bars and
+        // scale as the garage, that campaign slot's upgrades in gold for an owned vehicle, stock for one not owned. Display only (no selection).
+        void StatCard(RectTransform strip, VehicleProfile p, bool owned, float width = 300)
+        {
+            var cell = Rect("Stats " + p.Id, strip); cell.gameObject.AddComponent<UnityEngine.UI.LayoutElement>().preferredWidth = width;
+            cell.gameObject.AddComponent<UnityEngine.UI.Image>().color = new Color(.06f, .1f, .13f);
+            var v = cell.gameObject.AddComponent<UnityEngine.UI.VerticalLayoutGroup>(); v.padding = new RectOffset(10, 10, 6, 6); v.spacing = 3; v.childControlWidth = v.childControlHeight = true; v.childForceExpandHeight = false;
+            bool upgraded = owned && !Campaign.Testing && Campaign.Upgraded(p.Id);
+            var head = Label("Heading", cell, 16, 0); head.gameObject.AddComponent<UnityEngine.UI.LayoutElement>().preferredHeight = 22; head.alignment = TextAnchor.MiddleLeft; head.color = new Color(.62f, .84f, .92f);
+            head.text = p.Name + (upgraded ? "   <color=#FFBD40>■ upgrades</color>" : owned ? "   (stock)" : "   (stock: not yours yet)"); head.supportRichText = true;
+            StatBars(cell, p, upgraded, 21, 15, width < 300 ? .5f : .4f);
         }
         // what: 0 = vehicle, 1 = colour
         void PickStep(int player, int d, int what)

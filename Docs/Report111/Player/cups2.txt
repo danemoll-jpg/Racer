@@ -1,0 +1,46 @@
+screen=1920x1080 kind=cups111 version=0.111.0-review1 park=on
+start: slot FRESH RUN; Race: roadstercup:locked,driftercup:open,scramblercup:locked,motochampion:locked; load notice ''
+cups111-start: no (more) panels; state Ready, page 'Ready/'
+slot: FRESH RUN; title 'CAMPAIGN   ·   FRESH RUN   ·   $89,015'
+  slot FRESH RUN: chapter 4, $89,015, owns [original,atv,moto,pebble,scrambler,fastback], courses 8, results 28
+  [fresh] 'Woodland Cup' page: Vehicle:   Ridge Scrambler   ·   A: garage; ''; prize card 'PRIZE: Drifter Twin Cup  (win it)'
+  [fresh] racing the last round (4 of 4, 1 lap) on StreetLoopGreybox with scrambler
+  [fresh] final: 1 overall, won True; prize driftercup; unlocked [Vehicle: Drifter Twin Cup]; strip 'PRIZE WON: Drifter Twin Cup  ·  yours in the fresh run'
+cups111-fresh-cup-woodland: panel 1: 'CONGRATULATIONS! | You unlocked the Drifter Twin Cup / Won the Woodland Cup (campaign championship)  ·  FRESH RUN / Yours in the fresh run: choose it on its event pages.' (driftercup); state Results; still waiting: 
+cups111-fresh-cup-woodland: B on the panel: still open True
+cups111-fresh-cup-woodland: A: open False; state Ready, page 'Ready/campaign'; seen [acorn-mower,police-car,stunt-bike,fresh-prize-driftercup], pending in settings []
+cups111-fresh-cup-woodland: no (more) panels; state Ready, page 'Ready/campaign'
+  [fresh] garage/Shop: Drifter Twin Cup  (12 of 14); 'Drifter Twin Cup / Motorcycle / Cruiser / championship edition: about 5% up on every stat / OWNED'; bars [0.72, 0.53, 0.66, 0.55, 0.20] vs its base drifter [0.57, 0.44, 0.57, 0.50, 0.19]
+fresh: slot FRESH RUN: chapter 4, $98,015, owns [original,atv,moto,pebble,scrambler,fastback,driftercup], courses 8, results 28; MY CAMPAIGN file unchanged True; Race: roadstercup:locked,driftercup:open,scramblercup:locked,motochampion:locked
+  on switching: 'CAMPAIGN UPDATED' 'Prize for winning the Woodland Cup: the Drifter Twin Cup / Every chapter final and every championship now awards a vehicle.'
+slot: MY CAMPAIGN; title 'CAMPAIGN   ·   MY CAMPAIGN   ·   $65,230'
+MY CAMPAIGN: slot MY CAMPAIGN: chapter 4, $65,230, owns [original,atv,moto,pebble,scrambler,fastback,driftercup], courses 8, results 25; Race: roadstercup:locked,driftercup:open,scramblercup:locked,motochampion:locked
+cups111-main-retro: panel 1: 'CONGRATULATIONS! | You unlocked the Drifter Twin Cup / Won the Woodland Cup (campaign championship) / Choose it in the Garage.' (driftercup); state Ready; still waiting: 
+cups111-main-retro: B on the panel: still open True
+cups111-main-retro: A: open False; state Ready, page 'Ready/'; seen [acorn-mower,police-car,stunt-bike,fresh-prize-driftercup,prize-driftercup], pending in settings []
+cups111-main-retro: no (more) panels; state Ready, page 'Ready/'
+  [main] 'Street Cup' page: Vehicle:   Street Classic   ·   A: garage; ''; prize card 'PRIZE: Sundown Roadster Cup  (win it)'
+  [main] racing the last round (3 of 3, 1 lap) on StreetLoopGreybox with original
+  [main] final: 1 overall, won True; prize roadstercup; unlocked [Vehicle: Sundown Roadster Cup]; strip 'PRIZE WON: Sundown Roadster Cup  ·  yours in the Garage'
+cups111-main-cup-street: panel 1: 'You unlocked the Sundown Roadster Cup / Won the Street Cup (campaign championship) / Choose it in the Garage. | CONGRATULATIONS!' (roadstercup); state Results; still waiting: 
+cups111-main-cup-street: B on the panel: still open True
+cups111-main-cup-street: A: open False; state Ready, page 'Ready/campaign'; seen [acorn-mower,police-car,stunt-bike,fresh-prize-driftercup,prize-driftercup,prize-roadstercup], pending in settings []
+cups111-main-cup-street: no (more) panels; state Ready, page 'Ready/campaign'
+  [main] 'Backyard Cup' page: Vehicle:   Street Classic   ·   A: garage; ''; prize card 'PRIZE: Ridge Scrambler Cup  (win it)'
+  [main] racing the last round (6 of 6, 1 lap) on StreetLoopGreybox with original
+  [main] final: 1 overall, won True; prize scramblercup; unlocked [Vehicle: Ridge Scrambler Cup]; strip 'PRIZE WON: Ridge Scrambler Cup  ·  yours in the Garage'
+cups111-main-cup-backyard: panel 1: 'You unlocked the Ridge Scrambler Cup / Won the Backyard Cup (campaign championship) / Choose it in the Garage. | CONGRATULATIONS!' (scramblercup); state Results; still waiting: 
+cups111-main-cup-backyard: B on the panel: still open True
+cups111-main-cup-backyard: A: open False; state Ready, page 'Ready/campaign'; seen [acorn-mower,police-car,stunt-bike,fresh-prize-driftercup,prize-driftercup,prize-roadstercup,prize-scramblercup], pending in settings []
+cups111-main-cup-backyard: no (more) panels; state Ready, page 'Ready/campaign'
+  [main] 'Woodstock Grand Championship' page: Vehicle:   Street Classic   ·   A: garage; ''; prize card 'PRIZE: Needle 600 Champion  (win it)'
+  [main] racing the last round (8 of 8, 1 lap) on StreetLoopGreybox with original
+  [main] final: 1 overall, won True; prize motochampion; unlocked [The campaign: you are the Champion of Woodstock; Paint: the champion's scheme (gold with a number roundel), for any owned vehicle; Vehicle: Needle 600 Champion]; strip 'PRIZE WON: Needle 600 Champion  ·  yours in the Garage'
+cups111-main-cup-grand: panel 1: 'CONGRATULATIONS! | You unlocked the Needle 600 Champion / Won the Woodstock Grand Championship (campaign championship) / Choose it in the Garage.' (motochampion); state Results; still waiting: 
+cups111-main-cup-grand: B on the panel: still open True
+cups111-main-cup-grand: A: open False; state Ready, page 'Ready/campaign'; seen [acorn-mower,police-car,stunt-bike,fresh-prize-driftercup,prize-driftercup,prize-roadstercup,prize-scramblercup,prize-motochampion], pending in settings []
+cups111-main-cup-grand: no (more) panels; state Ready, page 'Ready/campaign'
+  [main] garage/Shop: Needle 600 Champion  (14 of 14); 'Needle 600 Champion / Motorcycle / Fastest / championship edition: about 5% up on every stat / OWNED'; bars [0.88, 0.75, 0.80, 0.83, 0.14] vs its base moto [0.72, 0.65, 0.69, 0.77, 0.14]
+  [main] garage/Shop: Drifter Twin Cup  (12 of 14); 'Drifter Twin Cup / Motorcycle / Cruiser / championship edition: about 5% up on every stat / OWNED'; bars [0.72, 0.53, 0.66, 0.55, 0.20] vs its base drifter [0.57, 0.44, 0.57, 0.50, 0.19]
+end: slot MY CAMPAIGN: chapter 4, $101,230, owns [original,atv,moto,pebble,scrambler,fastback,driftercup,roadstercup,scramblercup,motochampion], courses 8, results 25; Race: roadstercup:open,driftercup:open,scramblercup:open,motochampion:open
+Race garage: vehicle motochampion; 'Needle 600 Champion / Motorcycle | Needle 600 Champion   ·   12 / 19'

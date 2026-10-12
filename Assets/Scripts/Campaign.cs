@@ -104,6 +104,8 @@ namespace Racer
                 var notes = new List<string>();
                 if (loadedVersion < 3) foreach (var (id, price) in CampaignData.FormerlySold) if (data.owned.Contains(id)) { data.money += price; notes.Add($"{VehicleProfile.Find(id).Name} is now a prize: the {Money(price)} you paid is refunded"); }
                 foreach (var e in CampaignData.Events) if (e.Prize != null && Passed(e) && !data.owned.Contains(e.Prize)) { data.owned.Add(e.Prize); notes.Add($"Prize for passing the {e.Name}: the {VehicleProfile.Find(e.Prize).Name}"); }
+                // 0.111 Part D: a championship already won gets its Cup edition (its congratulations: UnlockNotice.Missed)
+                foreach (var c in CampaignData.Cups) if (c.Prize != null && data.cups.Any(x => x.id == c.Id && x.won) && !data.owned.Contains(c.Prize)) { data.owned.Add(c.Prize); notes.Add($"Prize for winning the {c.Name}: the {VehicleProfile.Find(c.Prize).Name}"); }
                 data.version = Version;
                 if (data.orderVersion == 0) { data.legacyOrder = data.results.Count > 0; data.orderVersion = 96; }
                 if (notes.Count > 0) LoadNotice = string.Join("\n", notes);
@@ -164,6 +166,10 @@ namespace Racer
         public static int Price(string id) => CampaignData.Prices.FirstOrDefault(p => p.id == id).price;
         public static int PriceChapter(string id) => CampaignData.Prices.FirstOrDefault(p => p.id == id).chapter;
         public static CampaignEvent PrizeEvent(string id) => CampaignData.Events.FirstOrDefault(e => e.Prize == id);
+        public static CampaignCup PrizeCup(string id) => CampaignData.Cups.FirstOrDefault(c => c.Prize != null && c.Prize == id);
+        // 0.111 Part C: the congratulations for a prize is the slot's own: the fresh run's are kept apart from MY CAMPAIGN's (seen once per fresh run)
+        public const string FreshNotice = "fresh-";
+        public static string PrizeNotice(string vehicle) => (Fresh ? FreshNotice : "") + UnlockNotice.Prize + vehicle;
         // One line: how to get a vehicle the player does not own.
         public static string HowToGet(VehicleProfile p)
         {
@@ -171,6 +177,7 @@ namespace Racer
             int price = Price(p.Id);
             if (price > 0) return ChapterOpen(PriceChapter(p.Id)) ? $"Buy it in the Shop for {Money(price)}" : $"In the Shop from chapter {PriceChapter(p.Id)}: {Money(price)}";
             var prize = PrizeEvent(p.Id); if (prize != null) return $"Prize: pass \"{prize.Name}\" (campaign chapter {prize.Chapter})";
+            var cup = PrizeCup(p.Id); if (cup != null) return $"Prize: win the {cup.Name} (campaign championship after chapter {cup.AfterChapter})"; // 0.111 Part D
             return "Campaign";
         }
         public static string Money(int dollars) => "$" + dollars.ToString("N0", System.Globalization.CultureInfo.InvariantCulture);
@@ -267,7 +274,7 @@ namespace Racer
             if (CampaignData.Events.Count(Available) > nextBefore) { var n = CampaignData.Events.FirstOrDefault(x => Available(x) && ResultOf(x.Id) == null); if (n != null) o.Unlocked.Add("Next event: " + n.Name); }
             if (Testing) { Current = JsonUtility.FromJson<State>(keep); return o; }
             o.Saved = Save();
-            if (o.PrizeWon != null && !Fresh) UnlockNotice.Raise(Hints.Flow ? Hints.Flow.Save : null, UnlockNotice.For(UnlockNotice.Prize + o.PrizeWon)); // 0.108 Part C
+            if (o.PrizeWon != null) UnlockNotice.Raise(Hints.Flow ? Hints.Flow.Save : null, UnlockNotice.For(PrizeNotice(o.PrizeWon))); // 0.108 Part C; 0.111 Part C: the fresh run's too (its own)
             return o;
         }
         // The campaign puts the player on a course: from then on it is open in Race and the playlists.
@@ -366,8 +373,11 @@ namespace Racer
                 Current.money += o.Pay + o.Bonus; Current.earned += o.Pay + o.Bonus;
                 if (cup.Grand && o.Won && !Current.complete) { Current.complete = true; o.Unlocked.Add("The campaign: you are the Champion of Woodstock"); }
                 if (cup.Grand && o.Won && !o.Replay) { o.ChampionPaint = true; o.Unlocked.Add("Paint: the champion's scheme (gold with a number roundel), for any owned vehicle"); }
+                // 0.111 Part D: winning it (1st overall) wins its Cup edition
+                if (o.Won && cup.Prize != null && !Owns(cup.Prize)) { Current.owned.Add(cup.Prize); o.Unlocked.Add("Vehicle: " + VehicleProfile.Find(cup.Prize).Name); o.PrizeWon = cup.Prize; }
             }
             o.Saved = Save();
+            if (o.PrizeWon != null) UnlockNotice.Raise(Hints.Flow ? Hints.Flow.Save : null, UnlockNotice.For(PrizeNotice(o.PrizeWon)));
             return o;
         }
 

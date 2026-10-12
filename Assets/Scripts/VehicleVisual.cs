@@ -39,6 +39,9 @@ namespace Racer
         // per-renderer emission)
         static Material white,sirenRed,sirenBlue;
         static Material White=>white?white:white=Mat("Patrol white",new(.93f,.93f,.91f),.55f);
+        // 0.111 Part D: a Cup edition's gold trim (the model slots its profile names in Gold)
+        static Material gold;
+        static Material Gold{get{if(!gold){gold=Mat("Cup gold trim",new(.93f,.69f,.16f),.78f);gold.SetFloat("_Metallic",.85f);}return gold;}}
         static Material SirenRed=>sirenRed?sirenRed:sirenRed=Lens("Light bar red",new(.75f,.05f,.05f));
         static Material SirenBlue=>sirenBlue?sirenBlue:sirenBlue=Lens("Light bar blue",new(.06f,.18f,.85f));
         static Material Lens(string name,Color c){var m=Mat(name,c,.8f);m.EnableKeyword("_EMISSION");m.SetColor("_EmissionColor",Color.black);m.globalIlluminationFlags=MaterialGlobalIlluminationFlags.None;return m;}
@@ -46,7 +49,7 @@ namespace Racer
         public static Transform Build(Transform parent,VehicleProfile p,List<Transform> wheels=null,RiderLook look=null,bool classic=false)
         {
             Materials();var root=new GameObject("Vehicle visual").transform;root.SetParent(parent,false);root.gameObject.layer=parent.gameObject.layer;
-            if(NewModels&&!classic&&NewModel(root,wheels,p,look??RiderLook.Player)){if(p.IsPolice)VehiclePaint.Apply(root,new Color(.03f,.03f,.035f));return root;} // 0.99: police vehicles are black and white in every preview too
+            if(NewModels&&!classic&&NewModel(root,wheels,p,look??RiderLook.Player)){if(p.IsPolice)VehiclePaint.Apply(root,new Color(.03f,.03f,.035f));if(p.CupEdition)VehiclePaint.Livery(root,p);return root;} // 0.99: police vehicles are black and white in every preview too; 0.111: a Cup edition in its livery
             if(p.Small) Bike(root,p);else Car(root,p);
             // Merge fixed parts before adding independently rotating wheels.
             Merge(root);
@@ -56,6 +59,7 @@ namespace Racer
                 var wheel=Part(root,"Wheel",new(x,-.2f,z),new(.66f,p.Motorcycle?.1f:.18f,.66f),rubber,PrimitiveType.Cylinder);
                 wheel.localRotation=Quaternion.Euler(0,0,90);wheels?.Add(wheel);WheelDetail(wheel);
             }
+            if(p.CupEdition)VehiclePaint.Livery(root,p);
             return root;
         }
         static void Car(Transform root,VehicleProfile p)
@@ -136,7 +140,7 @@ namespace Racer
                 var t=r.transform;var parts=t.name.Split(new[]{"__"},System.StringSplitOptions.None);if(parts.Length!=2)continue;
                 string group=parts[0],slot=parts[1];
                 if(group=="Rider"){t.gameObject.SetActive(false);Object.Destroy(t.gameObject);continue;}
-                r.sharedMaterial=slot switch{"paint"=>paint,"cream"=>cream,"driver"=>driverMat,"metal"=>metal,"engine"=>engine,"rubber"=>rubber,"lamp"=>lamps,"tail"=>tail,"glass"=>glass,"chrome"=>chrome,"interior"=>interior,"white"=>White,"sirenred"=>SirenRed,"sirenblue"=>SirenBlue,_=>metal};
+                r.sharedMaterial=p.Gold!=null&&System.Array.IndexOf(p.Gold,slot)>=0?Gold:slot switch{"paint"=>paint,"cream"=>cream,"driver"=>driverMat,"metal"=>metal,"engine"=>engine,"rubber"=>rubber,"lamp"=>lamps,"tail"=>tail,"glass"=>glass,"chrome"=>chrome,"interior"=>interior,"white"=>White,"sirenred"=>SirenRed,"sirenblue"=>SirenBlue,_=>metal};
                 if(group=="Front"&&front)t.SetParent(front,true);
                 else if(group=="Steer")
                 {

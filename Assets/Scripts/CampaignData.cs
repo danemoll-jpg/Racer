@@ -14,6 +14,8 @@ namespace Racer
         // SpeedTrap / Jump: the activity site id; SpeedTrap, Jump and TimeTrial: metres of road before the site / the start
         // line where the player starts (a flying lap), and the run's time limit after GO.
         public string Site; public float RunUp, TimeLimit;
+        // 0.111 Part B: Smash: how many props the site's area holds (its props list; smash-01: 14), said on the event page
+        public int Props;
         // Bronze / silver / gold: seconds for a time trial (lower is better), m/s for a speed trap, metres for a jump, props
         // for a smash.
         public float[] Targets;
@@ -38,6 +40,8 @@ namespace Racer
     {
         public string Id, Name; public int AfterChapter; public CampaignCupRound[] Rounds; public string[] Rivals; public int Difficulty, Pay, Bonus; public bool Grand;
         public string Opens => $"Pass the chapter {AfterChapter} final";
+        // 0.111 Part D: its Cup edition (VehicleProfile), won by winning it
+        public string Prize => VehicleProfile.CupPrize(Id)?.Id;
     }
 
     public static class CampaignData
@@ -84,7 +88,7 @@ namespace Racer
             new() { Id = "c3-practice-reverse", Name = "Practice: Backyard Reverse", Chapter = 3, Kind = CampaignEventKind.TimeTrial, Course = 7, RunUp = 150, Targets = new[] { 95f, 82f, 72f }, Pay = 800, Bonus = 400 },
             new() { Id = "c3-two-wheels", Name = "Two Wheels Only", Chapter = 3, Kind = CampaignEventKind.Race, Course = 7, Laps = 2, Rivals = new[] { "moto", "drifter", "atv" }, Difficulty = 1, Classes = TwoWheels, Entry = "Motorcycles and the ATV only", Pay = 2000, Bonus = 1000 },
             new() { Id = "c3-snow-day", Name = "Snow Day", Chapter = 3, Kind = CampaignEventKind.Race, Course = 6, Laps = 2, Rivals = new[] { "atv", "moto", "tourer" }, Difficulty = 2, Weather = Weather.Snow, Pay = 2000, Bonus = 1000 },
-            new() { Id = "c3-fence-smash", Name = "Fence Line Smash", Chapter = 3, Kind = CampaignEventKind.Smash, Course = 6, Site = "smash-01", RunUp = 60, TimeLimit = 45, Targets = new[] { 3f, 6f, 10f }, Pay = 1600, Bonus = 800 },
+            new() { Id = "c3-fence-smash", Name = "Fence Line Smash", Chapter = 3, Kind = CampaignEventKind.Smash, Course = 6, Site = "smash-01", Props = 14, RunUp = 60, TimeLimit = 45, Targets = new[] { 3f, 6f, 10f }, Pay = 1600, Bonus = 800 },
             new() { Id = "c3-backyard-final", Name = "Backyard Final", Chapter = 3, Kind = CampaignEventKind.Race, Course = 6, Laps = 3, Rivals = new[] { "moto", "drifter", "atv", "tourer", "fastback" }, Difficulty = 2, Pay = 3400, Bonus = 1700, Prize = "scrambler", Final = true },
 
             // Chapter 4, Mountain Loop (Hard: the campaign's hardest)
@@ -171,7 +175,7 @@ namespace Racer
         public static readonly float[] UpgradeCostShare = { .10f, .18f, .28f };
         public const int UpgradeLevels = 3;
         static readonly (string id, int value)[] Values = { ("original", 4000), ("atv", 5000), ("pebble", 6000), ("moto", 15000), ("scrambler", 13000), ("fastback", 14000) };
-        public static int VehicleValue(string id) { var p = Prices.FirstOrDefault(x => x.id == id); if (p.id != null) return p.price; var v = Values.FirstOrDefault(x => x.id == id); return v.id != null ? v.value : 0; }
+        public static int VehicleValue(string id) { var p = Prices.FirstOrDefault(x => x.id == id); if (p.id != null) return p.price; var v = Values.FirstOrDefault(x => x.id == id); if (v.id != null) return v.value; var cup = VehicleProfile.All.FirstOrDefault(x => x.Id == id && x.CupEdition); return cup != null ? VehicleValue(cup.CupBase) : 0; } // 0.111: a Cup edition upgrades at its base vehicle's prices
         public static int UpgradeCost(string id, int level) => level < 1 || level > UpgradeLevels ? 0 : (int)(System.Math.Round(VehicleValue(id) * UpgradeCostShare[level - 1] / 50.0) * 50);
     }
 }

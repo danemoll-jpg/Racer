@@ -1,0 +1,54 @@
+screen=1920x1080 kind=smash111 version=0.111.0-review1 park=on
+smash111-start: panel 1: 'CONGRATULATIONS! | You unlocked the Sundown Roadster Cup / Won the Street Cup (campaign championship)  ·  FRESH RUN / Yours in the fresh run: choose it on its event pages.' (roadstercup); state Ready; still waiting: fresh-prize-driftercup
+smash111-start: B on the panel: still open True
+smash111-start: A: open True; state Ready, page 'Ready/unlock'; seen [acorn-mower,police-car,stunt-bike,fresh-prize-roadstercup], pending in settings []
+smash111-start: panel 2: 'CONGRATULATIONS! | You unlocked the Drifter Twin Cup / Won the Woodland Cup (campaign championship)  ·  FRESH RUN / Yours in the fresh run: choose it on its event pages.' (driftercup); state Ready; still waiting: 
+smash111-start: B on the panel: still open True
+smash111-start: A: open False; state Ready, page 'Ready/'; seen [acorn-mower,police-car,stunt-bike,fresh-prize-roadstercup,fresh-prize-driftercup], pending in settings []
+smash111-start: no (more) panels; state Ready, page 'Ready/'
+slot FRESH RUN
+  event page: '' / ''
+  Vehicle:   Needle 600   ·   A: garage
+  running: Racing; attempt active True; area 14; panel 'FENCE LINE SMASH | SMASH  ·  14 marked props to smash | 10 props | 6 props | 3 props | THIS RUN | nothing smashed yet | 0 of 14 smashed  ·  44 s left
+<size=22>3 more for bronze</size> | RECORD (all runs of this event) | 10 props'
+site smash-01: 14 props listed; the event's targets 3/6/10
+  the marked props seen from the road side (a fixed camera)
+    through Grounded roadside chain-link at 475.4,88.44,-77.9 (on the ground): broken True; counted 1, live 0
+    through Grounded roadside chain-link at 476.2,88.44,-79.8 (on the ground): broken True; counted 2, live 1
+    through Grounded roadside chain-link at 477.1,88.44,-81.6 (on the ground): broken True; counted 3, live 2
+    through Grounded roadside chain-link at 478.0,88.43,-83.5 (airborne, wheels on the ground: 0): broken True; counted 4, live 3
+    through Grounded roadside chain-link at 478.9,88.42,-85.3 (airborne, wheels on the ground: 0): broken True; counted 5, live 4
+  RESET (the reset button's action): attempt active True; counted 5; live 5; HUD 'FENCE LINE SMASH | SMASH  ·  14 marked props to smash | 10 props | 6 props | 3 props | THIS RUN | 5 props   (no medal) | 5 of 14 smashed  ·  40 s left
+<size=22>1 more for silver</size> | RECORD (all runs of this event) | 10 props'
+    through Grounded roadside chain-link at 479.9,88.39,-87.2 (on the ground): broken True; counted 6, live 5
+    through Grounded roadside chain-link at 480.8,88.35,-89.0 (on the ground): broken True; counted 7, live 6
+    through Grounded roadside chain-link at 481.7,88.31,-90.8 (on the ground): broken True; counted 8, live 7
+  8 smashed; waiting for the time limit (45 s)
+  result: state Results; recorded 8 (medal 2: SILVER), passed True; attempts [8 scored True medal 2 ]
+smash111-after-1: no (more) panels; state Ready, page 'Ready/campaign'
+  event page: '' / ''
+  Vehicle:   Street Classic   ·   A: garage
+  running: Racing; attempt active True; area 14; panel 'FENCE LINE SMASH | SMASH  ·  14 marked props to smash | 10 props | 6 props | 3 props | THIS RUN | nothing smashed yet | 0 of 14 smashed  ·  44 s left
+<size=22>3 more for bronze</size> | RECORD (all runs of this event) | 10 props'
+    through Grounded roadside chain-link at 475.4,88.44,-77.9 (on the ground): broken True; counted 1, live 0
+    through Grounded roadside chain-link at 476.2,88.44,-79.8 (on the ground): broken True; counted 2, live 1
+    through Grounded roadside chain-link at 477.1,88.44,-81.6 (airborne, wheels on the ground: 0): broken True; counted 3, live 2
+    through Grounded roadside chain-link at 478.0,88.43,-83.5 (on the ground): broken True; counted 4, live 3
+    through Grounded roadside chain-link at 478.9,88.42,-85.3 (on the ground): broken True; counted 5, live 4
+    through Grounded roadside chain-link at 479.9,88.39,-87.2 (airborne, wheels on the ground: 0): broken True; counted 6, live 5
+    through Grounded roadside chain-link at 480.8,88.35,-89.0 (on the ground): broken True; counted 7, live 6
+    through Grounded roadside chain-link at 481.7,88.31,-90.8 (on the ground): broken True; counted 8, live 7
+    through Grounded wood crossbuck at 482.6,88.25,-92.6 (airborne, wheels on the ground: 0): broken True; counted 9, live 8
+    through Grounded wood crossbuck at 483.6,88.18,-94.4 (on the ground): broken True; counted 10, live 9
+    through Grounded wood crossbuck at 484.5,88.10,-96.2 (on the ground): broken True; counted 11, live 10
+    through Grounded wood crossbuck at 485.5,88.01,-98.0 (airborne, wheels on the ground: 0): broken True; counted 12, live 11
+    through Grounded wood crossbuck at 486.4,87.90,-99.8 (on the ground): broken True; counted 13, live 12
+    through Grounded wood crossbuck at 487.3,87.78,-101.5 (on the ground): broken True; counted 14, live 13
+  all 14 down at 5.6 s of 45 s; state Results at 8.6 s; recorded 14 (GOLD)
+smash111-after-2: no (more) panels; state Ready, page 'Ready/campaign'
+Free Roam: attempt at 'Fence line smash' (8 s): 'Fence line smash / attempt started  ·  14 marked props in 8 s'
+    through Grounded roadside chain-link at 475.4,88.44,-77.9 (on the ground): broken True; counted 1, live 0
+    through Grounded roadside chain-link at 476.2,88.44,-79.8 (airborne, wheels on the ground: 0): broken True; counted 2, live 0
+  RESET: attempt active True; counted 2; HUD 'Fence line smash / reset: keep smashing (2)'
+    through Grounded roadside chain-link at 477.1,88.44,-81.6 (on the ground): broken True; counted 3, live 0
+  HUD 'Fence line smash / +1 (3)'

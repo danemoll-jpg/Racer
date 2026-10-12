@@ -275,7 +275,7 @@ namespace Racer
         public void CycleLaps(int d=1){Race.laps=(Race.laps+d+6)%6;if(Race.opponents&&Race.laps==0)Race.laps=d>0?1:5;Save.Settings.laps=Race.laps;if(Race.laps>0)Save.Settings.lastFiniteLaps=Race.laps;Save.SaveSettings();SelectRecords(Race.Category);Click();}
         public void ToggleOpponents() { Race.opponents = !Race.opponents; if(Race.opponents&&Race.laps==0){Race.laps=Save.Settings.lastFiniteLaps;Save.Settings.laps=Race.laps;Notify("AI race: restored "+Race.laps+" finite laps",4);} Save.Settings.opponents = Race.opponents; Save.SaveSettings(); SelectRecords(Race.Category); Click(); }
         public void ToggleTraffic() { Race.traffic = !Race.traffic; Save.Settings.traffic = Race.traffic; Save.SaveSettings(); SelectRecords(Race.Category); Click(); }
-        string GoNotice=>CampaignRun.Active==null?"GO!  Shared race clock started":CampaignRun.Active.Kind==CampaignEventKind.SpeedTrap?"GO!  Hit the speed trap ahead as fast as you can":CampaignRun.Active.Kind==CampaignEventKind.Jump?"GO!  Land the jump ahead as far as you can":CampaignRun.Active.Kind==CampaignEventKind.Smash?"GO!  Smash as many fence-line props as you can":CampaignRun.Active.Kind==CampaignEventKind.TimeTrial?"GO!  Flying lap: the clock starts at the START line":"GO!  "+CampaignRun.Active.Name;
+        string GoNotice=>CampaignRun.Active==null?"GO!  Shared race clock started":CampaignRun.Active.Kind==CampaignEventKind.SpeedTrap?"GO!  Hit the speed trap ahead as fast as you can":CampaignRun.Active.Kind==CampaignEventKind.Jump?"GO!  Land the jump ahead as far as you can":CampaignRun.Active.Kind==CampaignEventKind.Smash?$"GO!  Smash the {(CampaignRun.Active.Props > 0 ? CampaignRun.Active.Props + " " : "")}marked fence props":CampaignRun.Active.Kind==CampaignEventKind.TimeTrial?"GO!  Flying lap: the clock starts at the START line":"GO!  "+CampaignRun.Active.Name;
         public string TimeOfDayLabel => ((TimeOfDay)Mathf.Clamp(Save.Settings.timeOfDay,0,3)).ToString();
         public string WeatherLabel => ((Weather)Mathf.Clamp(Save.Settings.weather,0,2)).ToString();
         public string RoamWeatherLabel => ((Weather)Mathf.Clamp(Save.Settings.roamWeather,0,2)).ToString();
@@ -361,8 +361,8 @@ namespace Racer
             {
                 string choice=Save.Settings.opponentChoices[i]; if(choice!="random" && choice!="mixed") continue;
                 var candidates=new System.Collections.Generic.List<string>();
-                foreach(var p in Race.EligibleVehicles) if(!p.IsPolice&&(choice=="random" || !used.Contains(p.Id))) candidates.Add(p.Id);
-                if(candidates.Count==0) foreach(var p in Race.EligibleVehicles) if(!p.IsPolice) candidates.Add(p.Id);
+                foreach(var p in Race.EligibleVehicles) if(!p.IsPolice&&!p.CupEdition&&(choice=="random" || !used.Contains(p.Id))) candidates.Add(p.Id);
+                if(candidates.Count==0) foreach(var p in Race.EligibleVehicles) if(!p.IsPolice&&!p.CupEdition) candidates.Add(p.Id); // 0.111: the Cup editions are never a random rival
                 // 0.88: once earned, the riding mower turns up in Random / Mixed fields only now and then
                 if(candidates.Count>1&&candidates.Contains("mower")&&Random.value<.75f) candidates.Remove("mower");
                 Race.opponentRoster[i]=candidates[Random.Range(0,candidates.Count)]; used.Add(Race.opponentRoster[i]);
