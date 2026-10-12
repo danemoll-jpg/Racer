@@ -20,7 +20,89 @@
   - **Player-facing text is American English (Dan, 2026-10-10).** color, gray, center, meter, favorite, tire, canceled, and so on in everything the player reads (menus, HUD, notices, signs, the launcher, shipped documents). Code names, file names and save / settings keys stay as they are.
   - **Write-up:** the TODO results are a short list: what changed, the one check per item, decisions made, and anything Dan should look at. No separate VALIDATION.md unless a round asks. If a check would take more than a few minutes of play time, skip it and list it under "for Dan to check".
 
-## CURRENT — Three small Stunt event fixes left from 0.109 (split-screen Top 10 rank, "within 2 s" text, divider through the results); remember my vehicle from event to event; fresh-player campaign run for balancing — target 0.110.0-review1 — DELIVERED as 0.110.0-review1 (build 110000), awaiting Dan's review
+## CURRENT — Vehicle stats on every campaign garage screen; Fence Line Smash counts what you smash; fresh-run prize congratulations; Cup edition vehicles for the championships — target 0.111.0-review1 — NOT STARTED
+
+Dan (2026-10-11, 20:22), playing 0.110: "On the campaign garage you should see the car stats." Then (20:36): "There is space beside the car to put stats without needing to go to the garage." So the main fix is the **event setup screen**: the vehicle preview card ("Your vehicle: …", with the prize card) has empty space beside it. **Put the five stat bars there, beside the card**, updating at once as Dan steps the vehicle left/right on the Vehicle row, so he can compare without opening the garage. Same on the championship setup. The other screens in item 1 are the follow-on check.
+
+The five stat bars (Top speed, Acceleration, Grip, Handling, Weight / contact; `RaceMenus.GarageStats.cs`, 0.82 Part D, upgrade marks since 0.90) show on the main garage, the campaign vehicle pick (`RaceMenus.Pick.cs`) and the Shop (`RaceMenus.Shop.cs`), but Dan didn't see them on the campaign garage he used.
+### Part A — The stat bars wherever the campaign shows a vehicle
+
+1. Find every campaign screen where a vehicle is shown or chosen, in **both** campaign slots (MY CAMPAIGN and FRESH RUN, 0.110): the event setup's vehicle row and preview card, championship setup, the vehicle pick ("A: garage"), the Shop (owned and for sale), the upgrades page, the prize preview. List which showed the bars and which didn't, and which one Dan most likely meant.
+2. Every one of them shows the same five bars for the vehicle in view, with **that campaign's upgrades** drawn on top (as the Shop does for owned vehicles), for locked or for-sale vehicles the stock bars. Same scale as the main garage, so numbers compare across screens.
+3. Never over the preview; no change to navigation (display only); fits at 3840×2160 and 1280×720; vehicle pictures never squished.
+- **Check (built player, controller, test copy of Dan's save):** shots of each campaign screen in both slots with the bars; one upgraded vehicle showing its upgrade marks.
+
+### Part B — Fence Line Smash doesn't count what Dan smashes
+Dan (2026-10-11, 20:51), Chapter 3 "Fence Line Smash" (`c3-fence-smash`, Dan's Backyard Forward, site `smash-01`, 45 s, targets 3 / 6 / 10, moto, fresh run): "Don't understand Fence Line Smash. First attempt smashed a bunch, said I smashed nothing. The second time it said I smashed 9 but I kept smashing more and nothing was working."
+His results log: attempt 1, 1 reset, recorded 0 / no medal; attempt 2, no reset, 9 / silver.
+
+What the code does today (`ArcadeActivities.Smash`, `FinishSmash`, `Recovered`; `CampaignRun` smash branch):
+- any reset/recovery calls `Cancel()`: the attempt stops and the count is cleared, but the event keeps running, so everything smashed after it is ignored, and at the time limit `CampaignRun` records **0, "nothing smashed"** instead of the live count (attempt 1);
+- a smash only counts when `warm >= .5` (the vehicle grounded and upright for half a second, a jump rule), so props hit while bouncing or tipped by the previous hit are ignored;
+- only props in the site's `props` list count; other breakables in the same fence line don't.
+1. **Every breakable prop in the smash area counts once**, whatever the vehicle is doing (airborne, tipped, sliding). Drop the `warm` gate for smashes (keep it for jumps). If some breakables in the area are deliberately not part of it, make them non-breakable or clearly outside; Dan should never smash something there that doesn't count.
+2. **A reset doesn't cancel a smash event**: count and clock keep going; you carry on smashing.
+3. **The time limit records the live count** (medal from it), never 0 when something was smashed.
+4. The event ends at the time limit, or at once when every prop in the area is down (not when gold is reached: keep counting past gold). Say what the area holds (e.g. "14 to smash").
+5. **Make it understandable:** the intro says "Smash as many fence panels, mailboxes and bins as you can in 45 s: 3 bronze, 6 silver, 10 gold"; the HUD shows the count, the time left and the next medal (like the Stunt event's goal line); each smash pops "+1 (7)". The props that count are visible as such (no hidden ones).
+6. Same fixes for Free Roam's smash activity sites.
+- **Check (built player, controller, test copy of the fresh-run save):** smash with the moto and a car: every hit counts, including while airborne; reset mid-event: the count stays and smashing continues; let time run out with 8: records 8 / silver; smash everything before time: ends at once with the full count.
+
+### Part C — The fresh run's chapter prize gets its congratulations
+Dan (2026-10-11, 21:08), fresh run, after winning the Backyard Final at 21:06: "No reward vehicle for completing Chapter 3?"
+He did win it: the log shows "Vehicle: Ridge Scrambler" unlocked and the fresh run's garage now holds the scrambler. But `Campaign.Apply` raises the 0.108 congratulations only `if (... && !Fresh)`, so in the fresh run nothing told him.
+1. In the fresh run, a chapter prize (and anything else the run unlocks: a championship, a chapter) shows the same **"CONGRATULATIONS! You unlocked the <vehicle>"** message with its picture as a new player would see, after the results screen, until dismissed. It is the fresh run's unlock: nothing outside the fresh run changes (Dan already owns it in his game), and it doesn't re-trigger in MY CAMPAIGN.
+2. The results screen of a final shows the prize revealed ("PRIZE WON: Ridge Scrambler") in both slots.
+3. Check every other `Fresh` suppression added in 0.110 for the same mistake (anything a new player would see that the fresh run hides) and list them.
+- **Check (test copy of Dan's fresh-run save at the Chapter 3 final):** win it: results show the prize; the congratulations follows; the scrambler appears in the fresh run's garage; MY CAMPAIGN unchanged.
+
+### Part D — A "Cup edition" vehicle for winning each championship
+Dan (2026-10-11, 21:40–21:44): "No vehicles on the championships?" Today the four championships (`CampaignData.Cups`: Street, Woodland, Backyard, Woodstock Grand) pay money only (+ the Grand's champion paint); only chapter finals award vehicles. Of two options Claude offered, Dan chose **new championship-only versions of existing vehicles** (nothing leaves the Shop).
+1. **Four Cup editions**, one per championship, each based on an existing vehicle that fits that point of the campaign (a step up from what a player typically has after that chapter; the Grand's on one of the best). Named "<Vehicle> Cup" (the Grand's "<Vehicle> Champion"). Say which bases you chose and why.
+2. Each has its **own livery** (the cup's colors with gold trim and a small cup emblem; original art, no real brands) and a **small stat boost over its base, about +5% across the five stats**, shown in the stat bars. They can be upgraded in the campaign like the others; in Race / Free Roam they are stock like every vehicle.
+3. **Won by winning the championship** (1st overall), not by finishing it: same as the chapter-final prizes. The championship setup shows the prize card (a silhouette until won), like a chapter final.
+4. Winning one shows the **"CONGRATULATIONS! You unlocked the <name>"** message (0.108) after the results, in both campaign slots; in the fresh run it belongs to the fresh run only (Part C). Won in MY CAMPAIGN, it is also usable in Race, Free Roam, split-screen and the other modes, like other unlocks.
+5. **Both slots, retroactively:** in MY CAMPAIGN and in the FRESH RUN, a championship already won before this build grants its Cup edition on load, with the one-time note and the congratulations (as 0.92 did for chapter prizes). Dan (21:47) is playing the fresh run's championships before 0.111 lands.
+6. Models: reuse the base model with the livery; vehicle pictures never squished; the garage, Shop, pick and stat bars handle them.
+- **Check (test copies of Dan's saves):** win each championship once (test shortcuts for the setup allowed, say so): prize card, results, congratulations, garage entry with livery and boosted bars; MY CAMPAIGN gets the ones already won on load; the fresh run's doesn't leak to MY CAMPAIGN.
+
+### Part E — Checks and release
+1. Built player, controller, background rule; test saves only, never Dan's real save.
+2. Version 0.111.0-review1; usual build and release; close everything started.
+
+## QUEUED NEXT — Campaign balancing, round 1: rival pace in Chapters 1 and 4 (numbers only, no world changes) — target 0.112.0-review1 — NOT STARTED (do not start until Claude (chat) promotes this to CURRENT, after 0.111; Claude adds the championship data first)
+
+Dan (2026-10-11, 21:51–21:59): agreed to tune with numbers only. "We just spent so much time fixing everything that I am worried about messing with things." **No change to any course geometry, shortcut, gate, jump, prop or sign.** Chapter 1 "should be easy" (Dan) but still a race. Chapter 4's Mountain shortcuts cut off a lot of track (Dan); they stay as they are.
+
+Evidence (Dan's FRESH RUN first runs in `BalanceLog/results-log.jsonl`, 0.110, 2026-10-11; Dan knows every track, so a real new player is slower than these times):
+- Ch1 races (ATV, Easy/Normal): won first try by 108 s (First Lap), 125 s (Night Shift), 22 s (Wrong Way), 52 s (Street Loop Final).
+- Ch2 (moto): 9–14 s wins; Cave Run 6 starts; Into the Woods 2nd place. **Keep.**
+- Ch3 (Pebble / moto): Backyard Dash by 0.6 s; Two Wheels 3 starts; Backyard Final 7 starts, won by 7.4 s. **Keep.**
+- Ch4 (Ridge Scrambler, Hard): won by 68.8 s (First Ascent), 66.4 s (Downhill), 65.1 s (Whiteout), 143 s (Summit Final), all but one first try.
+
+### Part A — How to measure (no guessing)
+1. Use **Dan's logged first-run times** as the player reference (his finishing time per event and vehicle). For each race event, run the AI field alone (headless/background, built player) on that event's course, laps, conditions and rival list, 5 runs each, and record each rival's finish time. The margin = best rival time − Dan's time.
+2. Report the before table (event, Dan's time, best rival mean/min/max, margin) before changing anything.
+
+### Part B — Targets (margins against Dan's times)
+| Chapter | Target: Dan wins by | Final of the chapter |
+|---|---|---|
+| 1 | 20–40 s (easy for a new player, rivals still in sight) | 12–25 s |
+| 2, 3 | unchanged | unchanged |
+| 4 | 5–15 s | 0–8 s |
+
+### Part C — Allowed knobs (campaign only; Race, Free Roam, split-screen and the police/stunt modes unchanged)
+1. Per-event difficulty (Easy/Normal/Hard) and rival vehicles from the existing list.
+2. A new **per-event rival pace factor** in `CampaignData` (default 1.0) applied to the campaign rivals' target speed, capped at 1.15. No rubber band: the factor is fixed for the event.
+3. Chapter 4 rivals may take the Mountain shortcuts whenever the shortcut is faster for them (campaign events only), using the existing `ShortcutStrategy`; say what changed.
+4. Nothing else: no gate, course, medal-target, pay or prize changes in this round.
+- Pick the smallest changes that land each event in its window; report the after table with the same 5-run method. If an event can't reach its window with these knobs, stop at the closest and say why.
+
+### Part D — Checks and release
+1. Built player: one Chapter 1 race and one Chapter 4 race driven with the controller from a test copy of the fresh-run save: rivals in sight, no AI stuck or crashing more than before (resets per rival reported).
+2. Balance sheet regenerated with the new values. Version 0.112.0-review1; usual build and release; close everything started.
+
+## Previous delivery — Three small Stunt event fixes left from 0.109 (split-screen Top 10 rank, "within 2 s" text, divider through the results); remember my vehicle from event to event; fresh-player campaign run for balancing — target 0.110.0-review1 — DELIVERED as 0.110.0-review1 (build 110000), awaiting Dan's review — REVIEW IN PROGRESS (Dan playing 0.110; first item: stats on the campaign garage, 0.111)
 
 Dan (2026-10-11, 11:39): fold in the three things Code's 0.109 delivery notes listed as "seen, not changed (outside the spec)". Change only these.
 
