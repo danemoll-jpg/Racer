@@ -20,7 +20,61 @@
   - **Player-facing text is American English (Dan, 2026-10-10).** color, gray, center, meter, favorite, tire, canceled, and so on in everything the player reads (menus, HUD, notices, signs, the launcher, shipped documents). Code names, file names and save / settings keys stay as they are.
   - **Write-up:** the TODO results are a short list: what changed, the one check per item, decisions made, and anything Dan should look at. No separate VALIDATION.md unless a round asks. If a check would take more than a few minutes of play time, skip it and list it under "for Dan to check".
 
-## CURRENT — Vehicle stats on every campaign garage screen; Fence Line Smash counts what you smash; fresh-run prize congratulations; Cup edition vehicles for the championships — target 0.111.0-review1 — DELIVERED as 0.111.0-review1 (build 111000), awaiting Dan's review
+## CURRENT — Campaign balancing, round 1: rival pace in Chapters 1 and 4 (numbers only); the floating jump sign and the trailer jump on Street Loop Forward; Shop can't select or buy — target 0.112.0-review1 — NOT STARTED
+
+Dan (2026-10-11, 21:51–21:59): agreed to tune with numbers only. "We just spent so much time fixing everything that I am worried about messing with things." **No change to any course geometry, shortcut, gate, jump, prop or sign, except Part E (Dan pointed at it).** Chapter 1 "should be easy" (Dan) but still a race. Chapter 4's Mountain shortcuts cut off a lot of track (Dan); they stay as they are.
+
+Evidence (Dan's FRESH RUN first runs in `BalanceLog/results-log.jsonl`, 0.110, 2026-10-11; Dan knows every track, so a real new player is slower than these times):
+- Ch1 races (ATV, Easy/Normal): won first try by 108 s (First Lap), 125 s (Night Shift), 22 s (Wrong Way), 52 s (Street Loop Final).
+- Ch2 (moto): 9–14 s wins; Cave Run 6 starts; Into the Woods 2nd place. **Keep.**
+- Ch3 (Pebble / moto): Backyard Dash by 0.6 s; Two Wheels 3 starts; Backyard Final 7 starts, won by 7.4 s. **Keep.**
+- Ch4 (Ridge Scrambler, Hard): won by 68.8 s (First Ascent), 66.4 s (Downhill), 65.1 s (Whiteout), 143 s (Summit Final), all but one first try.
+
+Championships (Claude, 2026-10-12): Dan won all four in the fresh run first try, all on the Ridge Scrambler, but he played them **after** Chapter 4 (0.110, 22:44–00:24), so the early cups were driven with a later vehicle; use them only as a sanity check, not for tuning. Leave championship tuning for a later round.
+
+### Part A — How to measure (no guessing)
+1. Use **Dan's logged first-run times** as the player reference (his finishing time per event and vehicle). For each race event, run the AI field alone (headless/background, built player) on that event's course, laps, conditions and rival list, 5 runs each, and record each rival's finish time. The margin = best rival time − Dan's time.
+2. Report the before table (event, Dan's time, best rival mean/min/max, margin) before changing anything.
+
+### Part B — Targets (margins against Dan's times)
+| Chapter | Target: Dan wins by | Final of the chapter |
+|---|---|---|
+| 1 | 20–40 s (easy for a new player, rivals still in sight) | 12–25 s |
+| 2, 3 | unchanged | unchanged |
+| 4 | 5–15 s | 0–8 s |
+
+### Part C — Allowed knobs (campaign only; Race, Free Roam, split-screen and the police/stunt modes unchanged)
+1. Per-event difficulty (Easy/Normal/Hard) and rival vehicles from the existing list.
+2. A new **per-event rival pace factor** in `CampaignData` (default 1.0) applied to the campaign rivals' target speed, capped at 1.15. No rubber band: the factor is fixed for the event.
+3. Chapter 4 rivals may take the Mountain shortcuts whenever the shortcut is faster for them (campaign events only), using the existing `ShortcutStrategy`; say what changed.
+4. Nothing else: no gate, course, medal-target, pay or prize changes in this round.
+- Pick the smallest changes that land each event in its window; report the after table with the same 5-run method. If an event can't reach its window with these knobs, stop at the closest and say why.
+
+### Part D — Street Loop Forward: the floating jump sign, and make the pavement jump a trailer (Dan pointed; the only world change in this round)
+Dan's report `2026-10-11_17-58-59-025_d4fa0a` (0.110, Street Loop Forward race, ATV). Read both screenshots first.
+1. **BUG-001** "Just noticed this sign is just floating in the air": `StreetLoopGreybox`, X=-637.79 Y=7.87 Z=-149.20, heading 353°. The orange "RAISED PAVEMENT WORKS / JUMP 78–96 mph / OPEN LANE ON RIGHT" sign lies tilted, nearly flat, above the verge. Stand it upright on posts, grounded (rule 4), facing the traffic it's for; one-sided, depth-tested lettering (signs rule). Same sign in every scene that has it.
+2. **BUG-002** "Can we actually make this ramp make sense? Like a trailer with the gates down on both ends or something? This always bothered me that there is just a random jump here": `StreetLoopGreybox`, X=-623.32 Y=8.94 Z=-87.67, heading 0.7°: the gray "raised pavement" ramp in the right lane past the jump-challenge sign.
+   - Dress it as a **parked flatbed / car-hauler trailer with its loading ramps (gates) down at both ends**: the deck, side rails, wheels and axles under it, a hitch tongue at the front, a couple of tie-down straps, reflectors; original design, no brands. It stays parked in the same lane spot with cones as now.
+   - **The drivable shape stays exactly the same** (same up-ramp, deck height and length, down-ramp; same collider surface and launch), so the jump, the Trickum pavement jump activity (`jump-01`) targets, the race line, AI lines and rivals' behavior don't change. Dress around the existing profile; wheels and frame sit under the deck and outside the driving surface, so nothing new can be hit while jumping. If the existing profile can't look like a trailer without changing the surface, say so and stop at the closest.
+   - Update the sign text to fit (e.g. "TRAILER JUMP / 78–96 mph / OPEN LANE ON RIGHT"), American English.
+   - In every scene with this ramp (Street Loop Forward / Reverse, Dan's Backyard, `FreeRoamWorld`, others).
+- **Check (built player, controller):** before/after shots at both spots; three runs over the trailer at 78–96 mph in the ATV and a car: same flight distance as before (report before/after), no catches on the ramp edges; a Street Loop Forward race with rivals: they still take it as before.
+
+### Part E — Shop: bought the Drifter Twin, it says Owned but can't be selected; the other Shop vehicles can't be bought
+Dan (2026-10-12, 00:46), first session on 0.111, in the **FRESH RUN** slot (settings `campaignFresh: true`): "Bought the Drifter Twin, it says owned but I can't select. I can't buy the other two vehicles now."
+Save facts (Claude): `campaign-fresh-v1.json` money $108,015 after the purchase (was $124,015), owned now `original, atv, moto, pebble, scrambler, fastback, roadstercup, driftercup, scramblercup, motochampion, drifter` (the four Cup editions were granted on load as intended). Shop list: roadster $7,000 (ch1), skyfin $8,000 (ch1), tourer $10,000 (ch1), drifter $16,000 (ch2); all chapters open; plenty of money. Note: Dan's MY CAMPAIGN was replaced with a copy of the finished fresh run on 2026-10-12 (backup `campaign-v1-original-backup-20261012.json`), so both slots are complete campaigns.
+Dan (00:49) clarified: **it's the RACE garage** (main menu > RACE, outside the campaign): "I selected race and it showed as locked, but when I click on it, it says owned. But couldn't actually select it for a race." And the other Shop vehicles: "They didn't say anything, I just didn't have the option to buy them" (no Buy option there at all). Dan (00:51): "I wasn't in campaign though. I was just in the main menu. I went there as soon as I opened the game." So the Drifter Twin was bought from the **main menu** (garage / Shop reached from there, spending the active campaign slot's money, which was the fresh run), and the other two Shop vehicles showed **no Buy option on that same main-menu path**. Reproduce exactly that path from a fresh game start.
+**Decided (Claude for Dan):** in Race / Free Roam / split-screen / the police and stunt modes, a vehicle is available if it is unlocked globally **or owned in either campaign slot** (both of Dan's slots are finished campaigns; this replaces 0.110 Part E item 3's "fresh-run unlocks stay in the fresh run" for vehicles). The "locked" picture and the "Owned" text must always agree. A locked Shop vehicle in the Race garage shows its price and a **BUY** option using the active campaign's money (same purchase as the campaign Shop), or, if it can't be bought yet, the reason ("In the Shop from chapter 2", "Not enough money", "Win the Backyard Cup").
+1. Reproduce with a **copy** of Dan's save files (never his real ones): buy the Drifter Twin in the fresh run's Shop, then try to select it in the Shop / garage / event vehicle pick, and try to buy the others. Find why an owned vehicle can't be selected (where: Shop, campaign garage, event pick, or the main Race garage) and why the remaining Shop vehicles can't be bought (the reason text shown).
+2. Fix both: anything bought or won in a campaign slot can be selected in that slot's garage, Shop and every event it is allowed in (with a clear reason when an event's class rule excludes it, e.g. "Motorcycles only"); every Shop vehicle with its chapter open and enough money can be bought. Show the reason whenever Buy is refused.
+3. Apply the decision above everywhere vehicles are listed outside the campaign; say what changed.
+- **Check (built player, controller, copies of both slots):** buy each Shop vehicle in turn and select it in the Shop, the garage and an event; same in MY CAMPAIGN.
+
+### Part F — Checks and release
+1. Built player: one Chapter 1 race and one Chapter 4 race driven with the controller from a test copy of the fresh-run save: rivals in sight, no AI stuck or crashing more than before (resets per rival reported).
+2. Balance sheet regenerated with the new values. Version 0.112.0-review1; usual build and release; close everything started.
+
+## Previous delivery — Vehicle stats on every campaign garage screen; Fence Line Smash counts what you smash; fresh-run prize congratulations; Cup edition vehicles for the championships — target 0.111.0-review1 — DELIVERED as 0.111.0-review1 (build 111000), awaiting Dan's review — REVIEW PENDING (Dan finished the fresh run on 0.110 before installing 0.111)
 
 Dan (2026-10-11, 20:22), playing 0.110: "On the campaign garage you should see the car stats." Then (20:36): "There is space beside the car to put stats without needing to go to the garage." So the main fix is the **event setup screen**: the vehicle preview card ("Your vehicle: …", with the prize card) has empty space beside it. **Put the five stat bars there, beside the card**, updating at once as Dan steps the vehicle left/right on the Vehicle row, so he can compare without opening the garage. Same on the championship setup. The other screens in item 1 are the follow-on check.
 
@@ -96,38 +150,6 @@ Dan (2026-10-11, 21:40–21:44): "No vehicles on the championships?" Today the f
   - **Check** ([cups2](Docs/Report111/Player/cups2.txt); copy of Dan's save with the Woodland Cup marked won in MY CAMPAIGN and the fresh run's cups cleared; earlier rounds filled in and 1-lap rounds: test shortcuts): FRESH RUN Woodland Cup: prize card, results, congratulations, Drifter Twin Cup in the fresh Shop with its livery and bars, MY CAMPAIGN file unchanged, Race still locked ([results](Docs/Report111/Shots/D-fresh-cup-woodland-results.jpg)); MY CAMPAIGN: on switching the note "Prize for winning the Woodland Cup: the Drifter Twin Cup" ([shot](Docs/Report111/Shots/note-main-1920.jpg)) and its congratulations; Street, Backyard and Grand won: each prize card, results ([Street](Docs/Report111/Shots/D-main-cup-street-results.jpg)) and congratulations ([Grand](Docs/Report111/Shots/D-main-cup-grand-panel-1-prize-motochampion.jpg)); garage with livery and bars ([Needle 600 Champion](Docs/Report111/Shots/D-main-motochampion-garage.jpg), [Drifter Twin Cup](Docs/Report111/Shots/D-main-driftercup-garage.jpg)); all four open in Race ([Race garage](Docs/Report111/Shots/D-race-garage-champion.jpg)).
 - **Release.** 0.111.0-review1, build 111000: source `7a7e6a0c` (pushed), fresh Windows build (0 errors, 4m18s, [build-release.txt](Docs/Report111/build-release.txt)), published [game-111000](https://github.com/danemoll-jpg/woodstock-rush-releases/releases/tag/game-111000) (no draft-lookup miss), public download, pinned signature and startup pass for all 235 files ([hosted/result.json](Docs/Report111/hosted/result.json)). Dan's 0.110 game and launcher were open from 17:51 to 00:26, so the production updater refused activation ("Another launcher is already using this installation"); the round waited for Dan to close them (nothing of his was closed), then: production updater at 111000 with nothing newer pending ([launcher-catalog-check.json](Docs/Report111/launcher-catalog-check.json)), `Play-Racer.cmd` (unchanged) launched `Builds/Latest/versions/111000/Racer.exe` ([play-racer-launch.json](Docs/Report111/play-racer-launch.json)), Dan's settings.json restored byte for byte ([settings-preserved.json](Docs/Report111/settings-preserved.json)). Cleanup: Builds 12.43 GB -> 8.32 GB (4.11 GB: the build output, the zip, the check build, the public-download install, managed 109000), C: free 215.9 -> 221.9 GB; kept managed 111000 and 110000 ([cleanup.json](Docs/Report111/cleanup.json)); the round's scratch folders and temporary editor tools removed. Commits: `f7e7af6f` checkpoint, `7a7e6a0c` the round (released source), this record follows.
 - **For Dan to look at:** Dan's own fresh run already won the Street and Woodland Cups during this round (seen in the copies): on the first start of 0.111 the fresh run gets the Roadster and Drifter Cup editions with the note and two congratulations. Fence Line Smash's 3 / 6 / 10 targets are unchanged and now easier (air hits and resets count). Free Roam's Fence line smash attempt is 8 s long (site data since the 0.7x activity round; not changed). The championship page was already tight in 0.110 (its Back row below the fold); unchanged.
-
-## QUEUED NEXT — Campaign balancing, round 1: rival pace in Chapters 1 and 4 (numbers only, no world changes) — target 0.112.0-review1 — NOT STARTED (do not start until Claude (chat) promotes this to CURRENT, after 0.111; Claude adds the championship data first)
-
-Dan (2026-10-11, 21:51–21:59): agreed to tune with numbers only. "We just spent so much time fixing everything that I am worried about messing with things." **No change to any course geometry, shortcut, gate, jump, prop or sign.** Chapter 1 "should be easy" (Dan) but still a race. Chapter 4's Mountain shortcuts cut off a lot of track (Dan); they stay as they are.
-
-Evidence (Dan's FRESH RUN first runs in `BalanceLog/results-log.jsonl`, 0.110, 2026-10-11; Dan knows every track, so a real new player is slower than these times):
-- Ch1 races (ATV, Easy/Normal): won first try by 108 s (First Lap), 125 s (Night Shift), 22 s (Wrong Way), 52 s (Street Loop Final).
-- Ch2 (moto): 9–14 s wins; Cave Run 6 starts; Into the Woods 2nd place. **Keep.**
-- Ch3 (Pebble / moto): Backyard Dash by 0.6 s; Two Wheels 3 starts; Backyard Final 7 starts, won by 7.4 s. **Keep.**
-- Ch4 (Ridge Scrambler, Hard): won by 68.8 s (First Ascent), 66.4 s (Downhill), 65.1 s (Whiteout), 143 s (Summit Final), all but one first try.
-
-### Part A — How to measure (no guessing)
-1. Use **Dan's logged first-run times** as the player reference (his finishing time per event and vehicle). For each race event, run the AI field alone (headless/background, built player) on that event's course, laps, conditions and rival list, 5 runs each, and record each rival's finish time. The margin = best rival time − Dan's time.
-2. Report the before table (event, Dan's time, best rival mean/min/max, margin) before changing anything.
-
-### Part B — Targets (margins against Dan's times)
-| Chapter | Target: Dan wins by | Final of the chapter |
-|---|---|---|
-| 1 | 20–40 s (easy for a new player, rivals still in sight) | 12–25 s |
-| 2, 3 | unchanged | unchanged |
-| 4 | 5–15 s | 0–8 s |
-
-### Part C — Allowed knobs (campaign only; Race, Free Roam, split-screen and the police/stunt modes unchanged)
-1. Per-event difficulty (Easy/Normal/Hard) and rival vehicles from the existing list.
-2. A new **per-event rival pace factor** in `CampaignData` (default 1.0) applied to the campaign rivals' target speed, capped at 1.15. No rubber band: the factor is fixed for the event.
-3. Chapter 4 rivals may take the Mountain shortcuts whenever the shortcut is faster for them (campaign events only), using the existing `ShortcutStrategy`; say what changed.
-4. Nothing else: no gate, course, medal-target, pay or prize changes in this round.
-- Pick the smallest changes that land each event in its window; report the after table with the same 5-run method. If an event can't reach its window with these knobs, stop at the closest and say why.
-
-### Part D — Checks and release
-1. Built player: one Chapter 1 race and one Chapter 4 race driven with the controller from a test copy of the fresh-run save: rivals in sight, no AI stuck or crashing more than before (resets per rival reported).
-2. Balance sheet regenerated with the new values. Version 0.112.0-review1; usual build and release; close everything started.
 
 ## Previous delivery — Three small Stunt event fixes left from 0.109 (split-screen Top 10 rank, "within 2 s" text, divider through the results); remember my vehicle from event to event; fresh-player campaign run for balancing — target 0.110.0-review1 — DELIVERED as 0.110.0-review1 (build 110000), awaiting Dan's review — REVIEW IN PROGRESS (Dan playing 0.110; first item: stats on the campaign garage, 0.111)
 
