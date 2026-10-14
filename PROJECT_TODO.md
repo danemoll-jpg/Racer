@@ -20,7 +20,42 @@
   - **Player-facing text is American English (Dan, 2026-10-10).** color, gray, center, meter, favorite, tire, canceled, and so on in everything the player reads (menus, HUD, notices, signs, the launcher, shipped documents). Code names, file names and save / settings keys stay as they are.
   - **Write-up:** the TODO results are a short list: what changed, the one check per item, decisions made, and anything Dan should look at. No separate VALIDATION.md unless a round asks. If a check would take more than a few minutes of play time, skip it and list it under "for Dan to check".
 
-## CURRENT — Leviathan: Proposal A (Street Loop + Summit Jump) as a race, Forward and Reverse, 2 laps; the Free Roam proposal markers removed — target 0.115.0-review1 — DELIVERED as 0.115.0-review1 (build 115000), awaiting Dan's review
+## CURRENT — Leviathan: show where to turn (both directions); Leviathan Reverse: new shortcuts of its own (up to three, Dan keeps the ones he likes) — target 0.116.0-review1 — NOT STARTED
+
+### Part A — Leviathan is hard to follow: show where to turn (both directions)
+Dan (2026-10-14, 16:46): "These tracks are very messy, there needs to be indicators where to turn. For example on the Forward race you see the checkpoint for where you go after the mountain before you see the CP for the mountain path. And when I tried Reverse, I didn't see where to turn to get off the mountain way."
+Leviathan drives some roads twice (the lake shore and stem both ways, the Street Loop around the J), so gates for a later part of the lap are in view before the one you need.
+1. **Only the next checkpoint is shown as a gate** (the one after it, faintly, at most). Gates for later parts of the lap are hidden until they're next, so you never see the "after the mountain" gate before the mountain one. Leviathan only.
+2. **Turn indicators at every decision point** where the course leaves the road you're on or where two of its own passes meet (the J and the stem, where it leaves the lake for the mountain, where it comes off the mountain in Reverse, Climbing Ridge Cut's entry, the lake joins): chevron boards on the outside of the turn and a big arrow sign before it, visible at racing speed, one-sided and depth-tested (signs rule), grounded, no colliders that catch a car. In the race only.
+3. **On-screen help:** the existing waypoint beacon / wrong-way guidance points to the next checkpoint, and the minimap draws the course line ahead (the next ~400 m highlighted) so the next turn shows on the map. Check the existing wrong-way warning fires correctly on Leviathan's twice-driven roads (it must not say "wrong way" on the second pass).
+4. **The maps must match the course** (Dan, 16:49: "the map screen didn't match, I don't think, because the Reverse shortcuts on the loop were still marked"). On Leviathan (both directions), the minimap and the big map show **only Leviathan's own route and its own shortcuts**: not the Street Loop Reverse shortcuts (Granite Creek Cut, Laurel Switchbacks), not the scene's Mountain Loop shortcuts or Summit Traverse, not Mountain Loop gates/routes that aren't on Leviathan. Same check for the Tracks preview map and the pause-menu map. Every other course's maps unchanged.
+5. Rivals unaffected.
+- **Check (built player, controller):** drive both directions with no prior knowledge (follow only what's on screen): driver's-view shots before/after at each decision point, especially Forward's lake/mountain split and Reverse's exit off the mountain; a short clip of each.
+
+### Part B — Leviathan Reverse: new shortcuts
+
+**First, check 0.115's claim (Dan, 16:50: "the shortcuts were still there though").** 0.115 said Granite Creek Cut and Laurel Switchbacks can't be on Leviathan Reverse because their ground exists only in `StreetLoopReverse.unity`, but Dan saw them still there in the Leviathan Reverse race. Find out exactly what is in `MountainLoopReverse.unity` at both shortcuts (ground, route objects, signs, entry markings) with driver's-view shots and a ground probe compared to `StreetLoopReverse.unity`.
+- If either shortcut **is drivable** there as it is (no reshaping): put it back on Leviathan Reverse as a proper shortcut (AI line validated, on the maps, timed, never skipping a jump), counted among the "up to three" below.
+- If it **isn't drivable** there: nothing of it may look like an open shortcut in the race (hide its entry signs/markings and map line for Leviathan Reverse only, or mark the entry clearly closed, one-sided and depth-tested), so nothing misleads Dan.
+- Say which it was, with the evidence.
+
+Dan (2026-10-14, 16:17–16:19), on 0.115's note that Leviathan Reverse has no street shortcuts (Granite Creek Cut and Laurel Switchbacks run on ground reshaped only in `StreetLoopReverse.unity`; in `MountainLoopReverse.unity` that ground differs by up to 19 m): "Why did it remove the shortcuts?" … "Can't there be an option for creating different shortcuts?" So: **new shortcuts made for Leviathan Reverse**, not copies of the old ones.
+
+Rules (Dan's, standing):
+- Only on ground and paths that already exist in `MountainLoopReverse.unity` (trails, driveways, lots, the lake shore, open grass, existing roads); **no terrain reshaping, no raised roads, no new roads**. Any world adjustment exists **in the Leviathan Reverse race only** (Dan, 0.115: "only change for race, do not change free roam or any other races"), like 0.115's gully fill: at most small things (a cleared trunk, a fill of a ditch under 1 m).
+- Each saves **a few seconds** (about 2–6 s a lap), is riskier, narrower or rougher than the road it cuts, and **never skips a jump** (the summit flight, Downhill Ridge Cut's flights) or the in-order lake and mountain gates (0.115 rule).
+- **Something to do on it** where the place allows: a jump that fits the real place (a driveway kicker, a ditch hop, a bank), not a floating ramp.
+- **The AI can drive it** (validated line; rivals use it by `ShortcutStrategy` like other shortcuts; no rival resets more than twice in a race).
+
+1. Find candidates along Leviathan Reverse's street part (the Street Loop Reverse stretch in this scene) and, if there is a good one, the lake part. **Build up to three**, each with its entry/exit markings like the other shortcuts, its name (invented, fitting the place), and on the minimap / big map like the others.
+2. **Each can be switched on or off** by Dan without a new build (a list in a settings file or a debug menu entry, say which), so he can drive them and keep the ones he likes; all on by default.
+3. Leviathan Forward and every other course unchanged.
+- **Check (built player, controller):** for each shortcut: a top-down shot, a driver's-view clip through it, the time it saves (player and AI); AI-only Leviathan Reverse races (3 × 2 laps, mixed vehicles): all finish, ≤ 2 resets each; one race driven with the controller.
+
+### Release
+Version 0.116.0-review1; usual build and release; close everything started; no background task left running at the end (0.115 left one waiting for an hour after delivery). Delivery notes: the shortcuts side by side and how to switch each off.
+
+## Previous delivery — Leviathan: Proposal A (Street Loop + Summit Jump) as a race, Forward and Reverse, 2 laps; the Free Roam proposal markers removed — target 0.115.0-review1 — DELIVERED as 0.115.0-review1 (build 115000), awaiting Dan's review — REVIEW IN PROGRESS (Dan wants new shortcuts for Leviathan Reverse: 0.116)
 
 **0. Resuming (Claude, 2026-10-14):** this section was written in a Code chat with Dan and work started before Claude (chat) reviewed it; Dan stopped it. Reviewed now, with the additions below. Start by listing what the stopped attempt changed since the commit "Safety checkpoint before 0.115" (uncommitted files, scenes, new scripts). Keep what is consistent with this section; revert anything half-done or outside it. Say what you kept and what you reverted.
 
