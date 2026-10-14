@@ -1,0 +1,99 @@
+{
+    "freeAfter":  214504828928,
+    "buildsAfter":  8327474478,
+    "freeBefore":  193814454272,
+    "removed":  [
+                    {
+                        "bytes":  1842709598,
+                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\Racer-0.113.0-review1-Windows"
+                    },
+                    {
+                        "bytes":  429634180,
+                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\LauncherRelease-113000\\assets\\game.zip"
+                    },
+                    {
+                        "bytes":  1840769116,
+                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\Check113"
+                    },
+                    {
+                        "bytes":  42,
+                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\Check113-build.txt"
+                    },
+                    {
+                        "bytes":  1840772444,
+                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\Check113b"
+                    },
+                    {
+                        "bytes":  42,
+                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\Check113b-build.txt"
+                    },
+                    {
+                        "bytes":  1840773980,
+                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\Check113c"
+                    },
+                    {
+                        "bytes":  42,
+                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\Check113c-build.txt"
+                    },
+                    {
+                        "bytes":  1845253729,
+                        "path":  "C:\\Users\\danmo\\Racer\\Temp\\report113-hosted-1791965767054543800"
+                    },
+                    {
+                        "bytes":  1840779612,
+                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\Check113d"
+                    },
+                    {
+                        "bytes":  1840863996,
+                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\Check113e"
+                    },
+                    {
+                        "bytes":  1840868620,
+                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\Check113f"
+                    },
+                    {
+                        "bytes":  1840871612,
+                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\Check113g"
+                    },
+                    {
+                        "bytes":  1840871612,
+                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\Check113h"
+                    },
+                    {
+                        "bytes":  1840872636,
+                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\Check113i"
+                    },
+                    {
+                        "bytes":  42,
+                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\Check113d-build.txt"
+                    },
+                    {
+                        "bytes":  42,
+                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\Check113e-build.txt"
+                    },
+                    {
+                        "bytes":  42,
+                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\Check113f-build.txt"
+                    },
+                    {
+                        "bytes":  42,
+                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\Check113g-build.txt"
+                    },
+                    {
+                        "bytes":  42,
+                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\Check113h-build.txt"
+                    },
+                    {
+                        "bytes":  42,
+                        "path":  "C:\\Users\\danmo\\Racer\\Builds\\Check113i-build.txt"
+                    }
+                ],
+    "buildsBefore":  27167262262,
+    "buildsRecovered":  18839787784,
+    "retained":  [
+                     "Latest complete root runtime",
+                     "managed 113000",
+                     "managed 112000",
+                     "music, publisher keys/tools, launcher, metadata, source, evidence, saves"
+                 ]
+}
