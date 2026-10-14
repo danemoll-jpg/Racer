@@ -66,6 +66,10 @@ namespace Racer
         public static bool Disabled; // evidence only (Report104PlayerCheck -p104off: the world before this round); never set in play
         public static bool TrickumOff; // evidence only (Report106PlayerCheck -p113off: without the Trickum plan, the before); never set in play
         public int Solids { get; private set; }
+        // 0.114 Part A: the editor check (Racer > Checks > Generated building faces) sets this; each building part then reports every
+        // drawn or collider triangle on its outside that faces into the building (never set in play)
+        public static List<string> FaceFailures; public static int FacesChecked, PartsChecked;
+        public static IReadOnlyList<string> Plans => All;
         static bool IsWorld(Scene scene) => scene.GetRootGameObjects().Any(g => g.name == "Remembered houses and approximate buildings");
 
         // ---------------------------------------------------------------- the ground
@@ -363,14 +367,15 @@ namespace Racer
             foreach (var q in pts) { float gy = Ground(q.x, q.y); hi = Mathf.Max(hi, gy); lo = Mathf.Min(lo, gy); min = Vector2.Min(min, q); max = Vector2.Max(max, q); }
             for (float x = min.x + 1.5f; x < max.x; x += 3) for (float z = min.y + 1.5f; z < max.y; z += 3) if (Inside(pts, new Vector2(x, z))) { float gy = Ground(x, z); hi = Mathf.Max(hi, gy); lo = Mathf.Min(lo, gy); }
             float floor = hi + .15f, h = b.h, top = floor + h; bool house = b.kind == "house";
-            string seed = b.osm + b.kind; cz = pts[0].y; var m = Layer(pts[0].x, "solid");
+            string seed = b.osm + b.kind; cz = pts[0].y; var m = Layer(pts[0].x, "solid"); int t0 = m.t.Count;
             Color wall = house ? Pick(seed, HouseWalls) : b.kind is "office" or "civic" or "senior" or "apartments" or "bank" or "church" ? Pick(seed, Brick.Concat(Stucco).ToArray()) : b.kind is "storage" or "auto" or "fitness" ? Pick(seed, Panel) : Pick(seed, Stucco.Concat(Brick).ToArray());
             Color trim = Pick(seed + "t", C(.90f, .89f, .85f), C(.30f, .28f, .26f), C(.82f, .78f, .70f)), accent = Pick(seed + "a", Accent), foundation = C(.50f, .49f, .47f), roof = C(.84f, .84f, .82f); // flat roofs light, like the real ones from above
             float parapet = house ? 0 : .8f, eave = top;
+            float turn = Turn(pts); // 0.114: the edge's right-hand side is outside only on a counter-clockwise footprint (the Trickum plan's are clockwise)
             for (int i = 0; i < n; i++)
             {
                 var a = pts[i]; var c = pts[(i + 1) % n]; var e = c - a; float len = e.magnitude; if (len < .05f) continue;
-                var outward = new Vector3(e.y, 0, -e.x) / len; Vector3 A(float y) => new(a.x, y, a.y); Vector3 B(float y) => new(c.x, y, c.y);
+                var outward = new Vector3(e.y, 0, -e.x) / len * turn; Vector3 A(float y) => new(a.x, y, a.y); Vector3 B(float y) => new(c.x, y, c.y);
                 m.Quad(A(lo - .4f), B(lo - .4f), B(floor), A(floor), foundation, outward);
                 if (house) m.Quad(A(floor), B(floor), B(top), A(top), wall, outward);
                 else
@@ -384,15 +389,33 @@ namespace Racer
             // roof
             if (house) eave = GableRoof(m, pts, top, Pick(seed + "r", HouseRoofs));
             else for (int i = 0; i + 5 < p.roof.Length; i += 6) Up(m, new Vector3(p.roof[i], top, p.roof[i + 1]), new Vector3(p.roof[i + 2], top, p.roof[i + 3]), new Vector3(p.roof[i + 4], top, p.roof[i + 5]), roof);
-            if (b.kind == "church") Steeple(m, pts, p.fronts, top);
+            if (b.kind == "church") Steeple(m, pts, p.fronts, top, turn);
             // one solid: the walls from the foundation to the roof
             var col = new Mb();
-            for (int i = 0; i < n; i++) { var a = pts[i]; var c = pts[(i + 1) % n]; var e = c - a; if (e.sqrMagnitude < .0025f) continue; col.Quad(new Vector3(a.x, lo - .4f, a.y), new Vector3(c.x, lo - .4f, c.y), new Vector3(c.x, top, c.y), new Vector3(a.x, top, a.y), Color.white, new Vector3(e.y, 0, -e.x)); }
+            for (int i = 0; i < n; i++) { var a = pts[i]; var c = pts[(i + 1) % n]; var e = c - a; if (e.sqrMagnitude < .0025f) continue; col.Quad(new Vector3(a.x, lo - .4f, a.y), new Vector3(c.x, lo - .4f, c.y), new Vector3(c.x, top, c.y), new Vector3(a.x, top, a.y), Color.white, new Vector3(e.y, 0, -e.x) * turn); }
             for (int i = 0; i + 5 < p.roof.Length; i += 6) Up(col, new Vector3(p.roof[i], top, p.roof[i + 1]), new Vector3(p.roof[i + 2], top, p.roof[i + 3]), new Vector3(p.roof[i + 4], top, p.roof[i + 5]), Color.white);
+            if (FaceFailures != null) { CheckFaces(b, pts, lo, top, m, t0, "drawn"); CheckFaces(b, pts, lo, top, col, 0, "collider"); PartsChecked++; }
             var g = new GameObject(string.IsNullOrEmpty(b.name) ? b.kind : b.name); g.transform.SetParent(solids.transform, false);
             g.AddComponent<MeshCollider>().sharedMesh = col.Mesh(g.name + " collider", true); Solids++;
             Buildings.Add((g.name, b.kind, new Bounds(new Vector3((min.x + max.x) / 2, (lo + top) / 2, (min.y + max.y) / 2), new Vector3(max.x - min.x, top - lo, max.y - min.y)), floor - hi, lo));
         }
+        // inside the building: over the footprint, from the foundation's foot to the wall top. A triangle fails when it is on the
+        // building's outside surface (just behind it is inside) and faces in (just in front of it is inside too): seen from outside it is culled
+        void CheckFaces(Building b, Vector2[] pts, float lo, float top, Mb m, int t0, string what)
+        {
+            bool In(Vector3 q) => q.y > lo - .4f && q.y < top && Inside(pts, new Vector2(q.x, q.z));
+            int bad = 0; Vector3 first = default;
+            for (int i = t0; i + 2 < m.t.Count; i += 3)
+            {
+                var c = (m.v[m.t[i]] + m.v[m.t[i + 1]] + m.v[m.t[i + 2]]) / 3; var nn = m.n[m.t[i]]; FacesChecked++;
+                if (In(c + nn * .05f) && !In(c - nn * .05f)) { if (bad++ == 0) first = c; }
+            }
+            if (bad > 0) FaceFailures.Add($"{resource} {b.kind} \"{b.name}\" osm {b.osm}: {bad} {what} triangles face inward (first at {first.x:F1}, {first.y:F1}, {first.z:F1})");
+        }
+        // +1 for a counter-clockwise footprint (x right, z up; positive area), -1 for a clockwise one
+        internal static float Turn(Vector2[] pts) { float a = 0; for (int i = 0; i < pts.Length; i++) { var p = pts[i]; var q = pts[(i + 1) % pts.Length]; a += p.x * q.y - q.x * p.y; } return a < 0 ? -1 : 1; }
+        // a triangle facing `dir` whatever order its corners come in
+        static void Facing(Mb m, Vector3 a, Vector3 b, Vector3 c, Color col, Vector3 dir) { if (Vector3.Dot(Vector3.Cross(b - a, c - a), dir) > 0) m.Tri(a, b, c, col); else m.Tri(a, c, b, col); }
         // a flat triangle facing up whatever order its corners come in
         static void Up(Mb m, Vector3 a, Vector3 b, Vector3 c, Color col) { if (Vector3.Cross(b - a, c - a).y > 0) m.Tri(a, b, c, col); else m.Tri(a, c, b, col); }
         public readonly List<(string name, string kind, Bounds bounds, float lift, float lowest)> Buildings = new();
@@ -491,20 +514,20 @@ namespace Racer
             m.Quad(W(lo.x, hi.y, eave - .1f), W(hi.x, hi.y, eave - .1f), W(hi.x, mid, eave + rise), W(lo.x, mid, eave + rise), col, vb + up);
             // gable ends in the wall colour of the roof's shade
             var gc = col * 1.6f; gc.a = 1;
-            m.Tri(W(lo.x + over, lo.y + over, eave), W(lo.x + over, hi.y - over, eave), W(lo.x + over, mid, eave + rise - .2f), gc); m.Tri(W(lo.x + over, lo.y + over, eave), W(lo.x + over, mid, eave + rise - .2f), W(lo.x + over, hi.y - over, eave), gc);
-            m.Tri(W(hi.x - over, lo.y + over, eave), W(hi.x - over, hi.y - over, eave), W(hi.x - over, mid, eave + rise - .2f), gc); m.Tri(W(hi.x - over, lo.y + over, eave), W(hi.x - over, mid, eave + rise - .2f), W(hi.x - over, hi.y - over, eave), gc);
+            Facing(m, W(lo.x + over, lo.y + over, eave), W(lo.x + over, hi.y - over, eave), W(lo.x + over, mid, eave + rise - .2f), gc, -ub); // 0.114: one side, facing out (was drawn both ways)
+            Facing(m, W(hi.x - over, lo.y + over, eave), W(hi.x - over, hi.y - over, eave), W(hi.x - over, mid, eave + rise - .2f), gc, ub);
             return eave + rise;
         }
-        void Steeple(Mb m, Vector2[] pts, int[] fronts, float top)
+        void Steeple(Mb m, Vector2[] pts, int[] fronts, float top, float turn)
         {
             int best = 0; float bl = 0;
             for (int i = 0; i < pts.Length; i++) { float l = (pts[(i + 1) % pts.Length] - pts[i]).magnitude; if ((fronts != null && i < fronts.Length && fronts[i] == 2 ? 100 : 0) + l > bl) { bl = (fronts != null && i < fronts.Length && fronts[i] == 2 ? 100 : 0) + l; best = i; } }
-            var a = pts[best]; var c = pts[(best + 1) % pts.Length]; var e = (c - a).normalized; var inward = new Vector2(-e.y, e.x); var mid = (a + c) / 2 + inward * 2.2f;
+            var a = pts[best]; var c = pts[(best + 1) % pts.Length]; var e = (c - a).normalized; var inward = new Vector2(-e.y, e.x) * turn; var mid = (a + c) / 2 + inward * 2.2f;
             var bottom = new Vector3(mid.x, top - .5f, mid.y); var f = new Vector3(e.x, 0, e.y);
             m.Box(bottom, f, new Vector3(3.2f, 6.5f, 3.2f), C(.93f, .92f, .88f));
             var apex = bottom + Vector3.up * 13.5f; var r = Vector3.Cross(Vector3.up, f);
             Vector3[] q = { bottom + Vector3.up * 6.5f + (f + r) * 1.7f, bottom + Vector3.up * 6.5f + (f - r) * 1.7f, bottom + Vector3.up * 6.5f + (-f - r) * 1.7f, bottom + Vector3.up * 6.5f + (-f + r) * 1.7f };
-            for (int i = 0; i < 4; i++) m.Tri(q[i], apex, q[(i + 1) % 4], C(.30f, .30f, .32f));
+            for (int i = 0; i < 4; i++) Facing(m, q[i], apex, q[(i + 1) % 4], C(.30f, .30f, .32f), (q[i] + q[(i + 1) % 4]) * .5f - bottom - Vector3.up * 6.5f);
             Solid(bottom, f, new Vector3(3.2f, 6.5f, 3.2f));
         }
 

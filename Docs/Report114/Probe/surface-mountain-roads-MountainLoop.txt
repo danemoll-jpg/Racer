@@ -1,0 +1,759 @@
+Forest_race_route 0 0.00 Memory loop - north is +Z/Ground_640_320
+Forest_race_route 10 0.00 Memory loop - north is +Z/Ground_640_320
+Forest_race_route 21 0.00 Memory loop - north is +Z/Ground_640_320
+Forest_race_route 31 0.00 Memory loop - north is +Z/Ground_640_320
+Forest_race_route 40 -0.01 Memory loop - north is +Z/Ground_640_320
+Forest_race_route 51 0.00 Memory loop - north is +Z/Ground_640_320
+Forest_race_route 60 0.00 Memory loop - north is +Z/Ground_640_320
+Forest_race_route 71 0.00 Memory loop - north is +Z/Ground_640_320
+Forest_race_route 80 0.00 Memory loop - north is +Z/Ground_640_320
+Forest_race_route 91 0.00 Memory loop - north is +Z/Ground_640_400
+Forest_race_route 101 -0.01 Memory loop - north is +Z/Ground_640_400
+Forest_race_route 111 0.00 Memory loop - north is +Z/Ground_640_400
+Forest_race_route 121 0.00 Memory loop - north is +Z/Ground_640_400
+Forest_race_route 131 -0.01 Memory loop - north is +Z/Ground_640_400
+Forest_race_route 141 -0.01 Memory loop - north is +Z/Ground_640_400
+Forest_race_route 150 -0.01 Memory loop - north is +Z/Ground_640_400
+Forest_race_route 161 0.00 Memory loop - north is +Z/Ground_640_400
+Forest_race_route 171 0.00 Memory loop - north is +Z/Ground_640_400
+Forest_race_route 180 0.00 Memory loop - north is +Z/Ground_640_400
+Forest_race_route 191 0.00 Memory loop - north is +Z/Ground_640_400
+Forest_race_route 201 0.00 Memory loop - north is +Z/Ground_640_400
+Forest_race_route 211 0.00 Memory loop - north is +Z/Ground_640_400
+Forest_race_route 220 0.00 Memory loop - north is +Z/Ground_640_400
+Forest_race_route 231 0.00 Memory loop - north is +Z/Ground_640_400
+Forest_race_route 241 0.00 Memory loop - north is +Z/Ground_640_400
+Forest_race_route 250 0.00 Memory loop - north is +Z/Ground_560_400
+Forest_race_route 261 0.00 Memory loop - north is +Z/Ground_560_400
+Forest_race_route 270 0.00 Memory loop - north is +Z/Ground_560_400
+Forest_race_route 280 0.00 Memory loop - north is +Z/Ground_560_400
+Forest_race_route 290 0.00 Memory loop - north is +Z/Ground_560_400
+Forest_race_route 301 0.00 Memory loop - north is +Z/Ground_560_400
+Forest_race_route 311 0.00 Memory loop - north is +Z/Ground_560_400
+Forest_race_route 320 0.00 Memory loop - north is +Z/Ground_560_400
+Forest_race_route 330 0.00 Memory loop - north is +Z/Ground_560_480
+Forest_race_route 340 0.00 Memory loop - north is +Z/Ground_560_480
+Forest_race_route 350 0.00 Memory loop - north is +Z/Ground_560_480
+Forest_race_route 360 0.01 Memory loop - north is +Z/Ground_560_480
+Forest_race_route 371 0.01 Memory loop - north is +Z/Ground_560_480
+Forest_race_route 381 1.82 Memory loop - north is +Z/Ground_560_480
+Forest_race_route 391 0.00 Memory loop - north is +Z/Ground_560_480
+Forest_race_route 400 0.00 Memory loop - north is +Z/Ground_560_480
+Forest_race_route 411 3.52 Memory loop - north is +Z/Ground_560_480
+Forest_race_route 421 3.05 Memory loop - north is +Z/Ground_560_480
+Forest_race_route 430 2.07 Memory loop - north is +Z/Ground_560_480
+Forest_race_route 440 0.40 Memory loop - north is +Z/Ground_480_480
+Forest_race_route 450 -0.01 Memory loop - north is +Z/Ground_480_480
+Forest_race_route 460 0.00 Memory loop - north is +Z/Ground_480_480
+Forest_race_route 470 0.01 Memory loop - north is +Z/Ground_480_480
+Forest_race_route 480 0.01 Memory loop - north is +Z/Ground_480_480
+Forest_race_route 491 0.00 Memory loop - north is +Z/Ground_480_480
+Forest_race_route 501 0.00 Memory loop - north is +Z/Ground_480_480
+Forest_race_route 511 0.00 Memory loop - north is +Z/Ground_480_480
+Forest_race_route 520 0.00 Memory loop - north is +Z/Ground_480_480
+Forest_race_route 531 0.00 Memory loop - north is +Z/Ground_480_480
+Forest_race_route 540 -0.04 Memory loop - north is +Z/Ground_480_480
+Forest_race_route 551 -0.21 Memory loop - north is +Z/Ground_480_480
+Forest_race_route 560 -0.01 Memory loop - north is +Z/Ground_480_480
+Forest_race_route 570 -0.08 Memory loop - north is +Z/Ground_480_480
+Forest_race_route 580 0.11 Memory loop - north is +Z/Ground_480_480
+Forest_race_route 590 0.34 Memory loop - north is +Z/Ground_480_480
+Forest_race_route 600 0.28 Memory loop - north is +Z/Ground_480_480
+Forest_race_route 611 0.02 Memory loop - north is +Z/Ground_400_480
+Forest_race_route 620 -0.01 Memory loop - north is +Z/Ground_400_480
+Forest_race_route 631 0.00 Memory loop - north is +Z/Ground_400_480
+Forest_race_route 640 -0.01 Memory loop - north is +Z/Ground_400_480
+Forest_race_route 651 0.08 Memory loop - north is +Z/Ground_400_480
+Forest_race_route 660 0.00 Memory loop - north is +Z/Ground_400_480
+Forest_race_route 671 0.00 Memory loop - north is +Z/Ground_400_480
+Forest_race_route 680 0.00 Memory loop - north is +Z/Ground_400_480
+Forest_race_route 691 -0.01 Memory loop - north is +Z/Ground_400_480
+Forest_race_route 701 -0.01 Memory loop - north is +Z/Ground_400_480
+Forest_race_route 711 -0.01 Memory loop - north is +Z/Ground_400_480
+Forest_race_route 720 0.00 Memory loop - north is +Z/Ground_400_480
+Forest_race_route 730 -0.01 Memory loop - north is +Z/Ground_400_480
+Forest_race_route 741 0.00 Memory loop - north is +Z/Ground_400_480
+Forest_race_route 751 0.00 Memory loop - north is +Z/Ground_400_480
+Forest_race_route 760 -0.01 Memory loop - north is +Z/Ground_400_480
+Forest_race_route 771 -0.01 Memory loop - north is +Z/Ground_400_480
+Forest_race_route 781 0.00 Memory loop - north is +Z/Ground_320_480
+Forest_race_route 790 0.00 Memory loop - north is +Z/Ground_320_480
+Forest_race_route 801 -0.01 Memory loop - north is +Z/Ground_320_400
+Forest_race_route 810 -0.01 Memory loop - north is +Z/Ground_320_400
+Forest_race_route 821 0.00 Memory loop - north is +Z/Ground_320_400
+Forest_race_route 831 -0.01 Memory loop - north is +Z/Ground_320_400
+Forest_race_route 840 0.00 Memory loop - north is +Z/Ground_320_400
+Forest_race_route 850 -0.01 Memory loop - north is +Z/Ground_320_400
+Forest_race_route 861 0.00 Memory loop - north is +Z/Ground_320_400
+Forest_race_route 870 0.00 Memory loop - north is +Z/Ground_320_400
+Forest_race_route 881 0.00 Memory loop - north is +Z/Ground_320_400
+Forest_race_route 891 0.00 Memory loop - north is +Z/Ground_320_400
+Forest_race_route 900 0.00 Memory loop - north is +Z/Ground_320_400
+Forest_race_route 911 0.00 Memory loop - north is +Z/Ground_320_400
+Forest_race_route 920 0.00 Memory loop - north is +Z/Ground_320_400
+Forest_race_route 931 0.00 Memory loop - north is +Z/Ground_320_400
+Forest_race_route 941 -0.01 Memory loop - north is +Z/Ground_320_400
+Forest_race_route 950 0.00 Memory loop - north is +Z/Ground_320_400
+Forest_race_route 961 -0.01 Memory loop - north is +Z/Ground_320_400
+Forest_race_route 970 0.00 Memory loop - north is +Z/Ground_320_400
+Forest_race_route 981 -0.01 Memory loop - north is +Z/Ground_320_400
+Forest_race_route 991 0.00 Memory loop - north is +Z/Ground_320_400
+Forest_race_route 1000 -0.01 Memory loop - north is +Z/Ground_320_320
+Forest_race_route 1011 -0.01 Memory loop - north is +Z/Ground_320_320
+Forest_race_route 1020 0.00 Memory loop - north is +Z/Ground_320_320
+Forest_race_route 1031 0.00 Memory loop - north is +Z/Ground_320_320
+Forest_race_route 1040 -0.14 Memory loop - north is +Z/Ground_320_320
+Forest_race_route 1050 0.00 Memory loop - north is +Z/Ground_320_320
+Forest_race_route 1060 0.00 Memory loop - north is +Z/Ground_320_320
+Forest_race_route 1071 0.00 Memory loop - north is +Z/Ground_320_320
+Forest_race_route 1081 0.00 Memory loop - north is +Z/Ground_320_320
+Forest_race_route 1090 0.00 Memory loop - north is +Z/Ground_320_320
+Forest_race_route 1101 0.00 Memory loop - north is +Z/Ground_320_320
+Forest_race_route 1111 0.00 Memory loop - north is +Z/Ground_320_320
+Forest_race_route 1120 0.00 Memory loop - north is +Z/Ground_320_320
+Forest_race_route 1131 0.00 Memory loop - north is +Z/Ground_320_320
+Forest_race_route 1141 0.00 Memory loop - north is +Z/Ground_320_320
+Forest_race_route 1151 0.00 Memory loop - north is +Z/Ground_320_320
+Forest_race_route 1160 0.00 Memory loop - north is +Z/Ground_320_320
+Forest_race_route 1170 0.00 Memory loop - north is +Z/Ground_320_320
+Forest_race_route 1181 0.00 Memory loop - north is +Z/Ground_320_240
+Forest_race_route 1190 0.00 Memory loop - north is +Z/Ground_320_240
+Forest_race_route 1201 0.00 Memory loop - north is +Z/Ground_320_240
+Forest_race_route 1211 0.00 Memory loop - north is +Z/Ground_320_240
+Forest_race_route 1221 0.00 Memory loop - north is +Z/Ground_320_240
+Forest_race_route 1230 -0.01 Memory loop - north is +Z/Ground_320_240
+Forest_race_route 1241 0.00 Memory loop - north is +Z/Ground_320_240
+Forest_race_route 1250 0.00 Memory loop - north is +Z/Ground_400_240
+Forest_race_route 1260 0.00 Memory loop - north is +Z/Ground_400_240
+Forest_race_route 1271 0.00 Memory loop - north is +Z/Ground_400_240
+Forest_race_route 1280 0.00 Memory loop - north is +Z/Ground_400_240
+Forest_race_route 1291 -0.01 Memory loop - north is +Z/Ground_400_240
+Forest_race_route 1300 0.00 Memory loop - north is +Z/Ground_400_240
+Forest_race_route 1310 0.00 Memory loop - north is +Z/Ground_400_240
+Forest_race_route 1320 0.00 Memory loop - north is +Z/Ground_400_240
+Forest_race_route 1331 0.01 Memory loop - north is +Z/Ground_400_240
+Forest_race_route 1340 -0.08 Memory loop - north is +Z/Ground_400_240
+Forest_race_route 1351 0.00 Memory loop - north is +Z/Ground_400_240
+Forest_race_route 1361 0.00 Memory loop - north is +Z/Ground_400_240
+Forest_race_route 1371 -0.01 Memory loop - north is +Z/Ground_400_240
+Forest_race_route 1380 0.00 Memory loop - north is +Z/Ground_400_240
+Forest_race_route 1390 0.00 Memory loop - north is +Z/Ground_400_240
+Forest_race_route 1401 0.00 Memory loop - north is +Z/Ground_400_240
+Forest_race_route 1410 0.00 Memory loop - north is +Z/Ground_480_240
+Forest_race_route 1421 0.00 Memory loop - north is +Z/Ground_480_240
+Forest_race_route 1430 0.00 Memory loop - north is +Z/Ground_480_240
+Forest_race_route 1440 0.00 Memory loop - north is +Z/Ground_480_240
+Forest_race_route 1450 0.00 Memory loop - north is +Z/Ground_480_240
+Forest_race_route 1461 0.00 Memory loop - north is +Z/Ground_480_240
+Forest_race_route 1471 0.00 Memory loop - north is +Z/Ground_480_240
+Forest_race_route 1481 0.00 Memory loop - north is +Z/Ground_480_240
+Forest_race_route 1491 0.00 Memory loop - north is +Z/Ground_480_240
+Forest_race_route 1500 0.00 Memory loop - north is +Z/Ground_480_240
+Forest_race_route 1511 0.00 Memory loop - north is +Z/Ground_480_240
+Forest_race_route 1521 0.00 Memory loop - north is +Z/Ground_480_240
+Forest_race_route 1530 0.00 Memory loop - north is +Z/Ground_480_240
+Forest_race_route 1540 0.00 Memory loop - north is +Z/Ground_480_240
+Forest_race_route 1550 0.00 Memory loop - north is +Z/Ground_480_240
+Forest_race_route 1561 0.00 Memory loop - north is +Z/Ground_480_240
+Forest_race_route 1570 -0.14 Memory loop - north is +Z/Ground_480_240
+Forest_race_route 1580 0.00 Memory loop - north is +Z/Ground_480_240
+Forest_race_route 1591 0.00 Memory loop - north is +Z/Ground_560_240
+Forest_race_route 1600 0.00 Memory loop - north is +Z/Ground_560_240
+Forest_race_route 1611 0.00 Memory loop - north is +Z/Ground_560_240
+Forest_race_route 1621 0.00 Memory loop - north is +Z/Ground_560_240
+Forest_race_route 1631 0.00 Memory loop - north is +Z/Ground_560_160
+Forest_race_route 1641 0.00 Memory loop - north is +Z/Ground_560_160
+Forest_race_route 1650 0.00 Memory loop - north is +Z/Ground_560_160
+Forest_race_route 1660 -0.01 Memory loop - north is +Z/Ground_560_160
+Forest_race_route 1671 0.00 Memory loop - north is +Z/Ground_560_160
+Forest_race_route 1681 0.00 Memory loop - north is +Z/Ground_560_160
+Forest_race_route 1691 -0.01 Memory loop - north is +Z/Ground_560_160
+Forest_race_route 1700 0.00 Memory loop - north is +Z/Ground_560_160
+Forest_race_route 1710 0.00 Memory loop - north is +Z/Ground_560_160
+Forest_race_route 1720 0.00 Memory loop - north is +Z/Ground_560_160
+Forest_race_route 1731 -0.01 Memory loop - north is +Z/Ground_560_160
+Forest_race_route 1740 -0.01 Memory loop - north is +Z/Ground_560_160
+Forest_race_route 1751 0.00 Memory loop - north is +Z/Ground_560_160
+Forest_race_route 1761 0.00 Memory loop - north is +Z/Ground_640_160
+Forest_race_route 1770 -0.01 Memory loop - north is +Z/Ground_640_160
+Forest_race_route 1780 0.00 Memory loop - north is +Z/Ground_640_240
+Forest_race_route 1791 -0.01 Memory loop - north is +Z/Ground_640_240
+Forest_race_route 1800 -0.01 Memory loop - north is +Z/Ground_640_240
+Forest_race_route 1811 0.01 Memory loop - north is +Z/Ground_640_240
+Forest_race_route 1820 0.00 Memory loop - north is +Z/Ground_640_240
+Forest_race_route 1830 -0.10 Memory loop - north is +Z/Ground_640_240
+Forest_race_route 1840 0.00 Memory loop - north is +Z/Ground_640_240
+Forest_race_route 1851 0.01 Memory loop - north is +Z/Ground_640_240
+Forest_race_route 1861 -0.09 Memory loop - north is +Z/Ground_640_240
+Forest_race_route 1871 -0.01 Memory loop - north is +Z/Ground_640_240
+Forest_race_route 1881 0.00 Memory loop - north is +Z/Ground_640_240
+Forest_race_route 1891 0.00 Memory loop - north is +Z/Ground_640_240
+Forest_race_route 1901 -0.01 Memory loop - north is +Z/Ground_640_240
+Forest_race_route 1911 0.00 Memory loop - north is +Z/Ground_640_240
+Forest_race_route 1921 -0.01 Memory loop - north is +Z/Ground_640_240
+Forest_race_route 1931 -0.01 Memory loop - north is +Z/Ground_640_240
+Forest_race_route 1941 0.00 Memory loop - north is +Z/Ground_640_240
+Forest_race_route 1950 -0.02 Memory loop - north is +Z/Ground_640_240
+Forest_race_route 1961 0.00 Memory loop - north is +Z/Ground_640_240
+Forest_race_route 1970 0.00 Memory loop - north is +Z/Ground_640_240
+Forest_race_route 1980 0.00 Memory loop - north is +Z/Ground_640_240
+Forest_race_route 1991 0.00 Memory loop - north is +Z/Ground_640_320
+Forest_race_route 2001 0.00 Memory loop - north is +Z/Ground_640_320
+Forest_race_route 2011 0.00 Memory loop - north is +Z/Ground_640_320
+Forest_race_route 2021 0.00 Memory loop - north is +Z/Ground_640_320
+Forest_race_route 2031 -0.01 Memory loop - north is +Z/Ground_640_320
+Forest_race_route 2041 0.00 Memory loop - north is +Z/Ground_640_320
+Forest_race_route 2051 0.00 Memory loop - north is +Z/Ground_640_320
+Forest_race_route 2060 0.00 Memory loop - north is +Z/Ground_640_320
+CR117_mandatory_two- 0 0.05 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 10 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 20 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 30 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 40 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 51 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 60 0.05 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 71 0.06 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 80 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 91 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 100 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 110 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 121 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 130 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 140 0.05 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 151 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 160 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 170 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 181 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 190 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 200 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 210 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 220 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 230 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 240 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 250 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 260 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 270 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 280 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 290 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 300 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 310 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 320 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 330 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 340 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 350 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 360 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 370 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 380 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 390 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 400 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 410 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 420 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 430 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 440 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 450 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 552 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 553 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 554 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 555 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 555 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 556 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 557 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 558 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 558 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 559 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 560 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 571 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 581 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 590 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 600 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 611 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 620 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 631 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 640 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 651 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 660 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 670 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 681 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 690 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 700 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 711 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 720 0.05 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 730 0.03 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 740 -0.22 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 750 -0.27 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 761 -0.10 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 770 -0.01 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 780 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 791 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 800 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 810 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 820 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 830 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 840 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 851 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 860 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 870 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 880 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 890 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 901 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 910 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 921 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 930 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 941 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 950 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 961 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 970 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 981 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 990 0.05 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1001 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1010 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1020 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1031 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1040 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1050 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1060 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1070 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1081 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1090 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1100 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1111 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1120 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1130 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1141 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1150 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1160 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1171 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1180 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1190 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1201 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1210 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1220 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1231 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1240 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1251 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1260 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1270 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1280 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1290 0.03 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1300 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1310 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1320 0.10 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1330 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1341 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1350 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1360 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1370 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1381 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1390 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1400 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1411 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1420 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1431 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1440 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1451 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1460 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1470 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1480 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1490 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1501 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1510 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1521 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1530 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1541 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1550 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1561 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1570 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1581 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1590 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1601 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1610 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1621 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1630 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1640 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1651 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1660 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1670 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1681 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1690 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1700 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1710 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1720 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1731 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1740 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1751 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1760 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1771 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1781 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1791 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1801 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1810 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1821 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1830 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1841 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1850 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1860 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1870 0.05 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1880 0.03 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1890 0.03 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1900 0.03 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1910 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1920 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1930 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1940 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1950 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1960 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1970 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1980 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 1990 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 2000 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 2010 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 2020 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 2030 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 2040 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 2050 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 2060 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 2070 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 2080 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 2090 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 2100 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 2110 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 2120 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 2130 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 2140 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 2150 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 2160 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 2170 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 2180 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 2292 -1.19 Ground_ReportCleanup MountainLoop continuous solid 2
+CR117_mandatory_two- 2293 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 2293 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 2294 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 2295 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 2296 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 2296 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 2297 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 2298 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 2299 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 2299 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 2300 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 2310 0.03 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 2320 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 2330 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 2340 0.03 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 2350 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 2360 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 2370 0.03 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 2380 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 2390 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 2400 0.03 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 2410 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 2420 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 2430 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 2440 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 2450 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 2461 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 2470 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 2481 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 2490 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 2500 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 2511 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 2520 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 2531 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 2540 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 2550 0.03 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 2561 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 2570 0.03 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 2580 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 2590 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 2600 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 2611 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 2620 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 2630 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 2641 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 2650 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 2660 0.09 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 2671 0.18 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 2680 0.20 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 2690 0.16 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 2701 0.07 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+CR117_mandatory_two- 2710 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+Summit_approach_and_ 0 -2.33 Ground_ReportCleanup MountainLoop continuous solid 2
+Summit_approach_and_ 11 -1.22 Ground_ReportCleanup MountainLoop continuous solid 2
+Summit_approach_and_ 21 -0.63 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+Summit_approach_and_ 31 0.07 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+Summit_approach_and_ 41 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+Summit_approach_and_ 51 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+Summit_approach_and_ 61 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+Summit_approach_and_ 71 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+Summit_approach_and_ 81 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+Summit_approach_and_ 90 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+Summit_approach_and_ 101 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+Summit_approach_and_ 111 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+Summit_approach_and_ 122 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+Summit_approach_and_ 131 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+Summit_approach_and_ 141 0.03 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+Summit_approach_and_ 150 0.01 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+Summit_approach_and_ 161 -0.01 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+Summit_approach_and_ 171 -0.03 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+Summit_approach_and_ 181 -0.03 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+Summit_approach_and_ 190 -0.03 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+Summit_approach_and_ 201 -0.03 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+Summit_approach_and_ 211 -0.06 CR133 structural mountain roads/Ground_CR133 mountain earth banks
+Summit_approach_and_ 221 -0.10 Ground_Report100 fill Channel
+Summit_approach_and_ 231 -0.11 Ground_Report100 fill Channel
+Summit_approach_and_ 240 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+Summit_approach_and_ 255 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+Summit_approach_and_ 265 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+Summit_approach_and_ 275 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+Summit_approach_and_ 285 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+Summit_approach_and_ 295 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+Summit_approach_and_ 305 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+Summit_approach_and_ 315 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+Summit_approach_and_ 325 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+Summit_approach_and_ 335 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+Summit_approach_and_ 345 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+Summit_approach_and_ 355 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+Summit_approach_and_ 365 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+Summit_approach_and_ 375 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+Summit_approach_and_ 385 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+Summit_approach_and_ 395 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+Summit_approach_and_ 405 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+Summit_approach_and_ 415 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+Summit_approach_and_ 425 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+Summit_approach_and_ 435 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+Summit_approach_and_ 445 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+Summit_approach_and_ 455 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+Summit_approach_and_ 465 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+Summit_approach_and_ 590 none
+Summit_approach_and_ 600 none
+Summit_approach_and_ 610 none
+Summit_approach_and_ 620 none
+Summit_approach_and_ 630 none
+Summit_approach_and_ 640 none
+Summit_approach_and_ 650 29.33 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+Summit_approach_and_ 660 26.34 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+Summit_approach_and_ 670 23.51 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+Summit_approach_and_ 680 0.05 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+Summit_approach_and_ 690 18.86 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+Summit_approach_and_ 700 0.05 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+Summit_approach_and_ 710 15.59 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+Summit_approach_and_ 720 0.10 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+Summit_approach_and_ 720 14.09 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+Summit_approach_and_ 721 14.02 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+Summit_approach_and_ 722 13.91 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+Summit_approach_and_ 723 13.77 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+Summit_approach_and_ 725 13.63 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+Summit_approach_and_ 726 13.48 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+Summit_approach_and_ 728 13.32 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+Summit_approach_and_ 729 13.16 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+Summit_approach_and_ 731 13.01 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+Summit_approach_and_ 732 12.87 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+Summit_approach_and_ 734 12.74 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+Summit_approach_and_ 735 12.63 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+Summit_approach_and_ 737 12.50 CR133 structural mountain roads/Ground_CR133 mountain earth banks
+Summit_approach_and_ 740 13.83 Ground_Report068 barrier Homeward Summit Flight bend
+Summit_approach_and_ 751 11.59 Memory loop - north is +Z/Ground_720_400
+Summit_approach_and_ 762 10.86 Memory loop - north is +Z/Ground_720_400
+Summit_approach_and_ 770 10.30 Memory loop - north is +Z/Ground_720_400
+Summit_approach_and_ 780 11.78 Memory loop - north is +Z/Ground_720_400
+Summit_approach_and_ 791 13.20 Memory loop - north is +Z/Ground_720_400
+Summit_approach_and_ 801 13.59 Memory loop - north is +Z/Ground_720_400
+Summit_approach_and_ 810 15.20 Ground_Report068 barrier Homeward Summit Flight bend
+Summit_approach_and_ 821 16.28 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+Summit_approach_and_ 831 17.29 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+Summit_approach_and_ 841 18.35 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+Summit_approach_and_ 851 19.65 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+Summit_approach_and_ 860 20.81 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+Summit_approach_and_ 871 10.22 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+Summit_approach_and_ 880 24.22 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+Summit_approach_and_ 891 27.24 Ground_ReportCleanup MountainLoop continuous solid 2
+Summit_approach_and_ 900 29.98 Ground_ReportCleanup MountainLoop continuous solid 2
+_exploration_only 0 -0.06 Memory loop - north is +Z/Ground_720_320
+_exploration_only 11 -0.04 Memory loop - north is +Z/Ground_720_320
+_exploration_only 21 0.22 Memory loop - north is +Z/Ground_720_320
+_exploration_only 31 -0.33 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+_exploration_only 40 -0.08 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+_exploration_only 52 0.19 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+_exploration_only 60 0.27 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+_exploration_only 72 0.18 Ground_Report071 patch BUG-001/002 Climbing Ridge Cut entrance
+_exploration_only 81 0.05 Ground_Report071 patch BUG-001/002 Climbing Ridge Cut entrance
+_exploration_only 91 -0.04 Memory loop - north is +Z/Ground_720_240
+_exploration_only 101 -0.04 Memory loop - north is +Z/Ground_720_240
+_exploration_only 111 -0.04 Memory loop - north is +Z/Ground_720_240
+_exploration_only 121 0.50 Memory loop - north is +Z/Ground_Mountain_0_1
+_exploration_only 131 0.13 Memory loop - north is +Z/Ground_Mountain_0_1
+_exploration_only 142 -0.04 Memory loop - north is +Z/Ground_Mountain_0_1
+_exploration_only 150 -0.04 Memory loop - north is +Z/Ground_Mountain_0_1
+_exploration_only 160 -0.04 Memory loop - north is +Z/Ground_Mountain_0_1
+_exploration_only 171 -0.04 Memory loop - north is +Z/Ground_Mountain_0_1
+_exploration_only 181 -0.04 Memory loop - north is +Z/Ground_Mountain_0_1
+_exploration_only 191 -0.22 Memory loop - north is +Z/Ground_Mountain_0_1
+_exploration_only 201 -1.11 Memory loop - north is +Z/Ground_Mountain_0_1
+_exploration_only 211 -2.73 Memory loop - north is +Z/Ground_Mountain_0_1
+_exploration_only 220 0.81 Memory loop - north is +Z/Ground_Mountain_0_1
+_exploration_only 231 2.96 Memory loop - north is +Z/Ground_Mountain_1_1
+_exploration_only 241 2.70 Memory loop - north is +Z/Ground_Mountain_1_1
+_exploration_only 252 1.87 Memory loop - north is +Z/Ground_Mountain_1_1
+_exploration_only 261 1.02 Memory loop - north is +Z/Ground_Mountain_1_1
+_exploration_only 272 0.16 Memory loop - north is +Z/Ground_Mountain_1_1
+_exploration_only 281 -0.04 Memory loop - north is +Z/Ground_Mountain_1_1
+_exploration_only 292 -0.04 Memory loop - north is +Z/Ground_Mountain_1_1
+_exploration_only 301 -0.04 Memory loop - north is +Z/Ground_Mountain_1_1
+_exploration_only 311 -0.04 Memory loop - north is +Z/Ground_Mountain_1_1
+_exploration_only 322 0.75 CR133 structural mountain roads/Ground_CR133 mountain earth banks
+_exploration_only 331 0.98 Ground_Report070 patch BUG-009 left gore
+_exploration_only 340 0.93 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+_exploration_only 351 0.42 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+_exploration_only 361 0.14 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+_exploration_only 371 0.05 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+_exploration_only 382 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+_exploration_only 390 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+_exploration_only 401 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+_exploration_only 411 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+_exploration_only 422 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+_exploration_only 430 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+_exploration_only 441 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+_exploration_only 450 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+_exploration_only 461 0.05 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+_exploration_only 470 0.05 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+_exploration_only 482 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+_exploration_only 490 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+_exploration_only 501 0.04 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+_exploration_only 512 -0.14 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+_exploration_only 520 -0.88 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+_exploration_only 531 -3.35 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+_exploration_only 541 -4.39 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+_exploration_only 551 -1.29 Ground_Report067 edge shoulders
+_exploration_only 562 1.93 Ground_ReportCleanup MountainLoop continuous solid 2
+_exploration_only 571 5.22 Ground_ReportCleanup MountainLoop continuous solid 2
+_exploration_only 581 4.44 Ground_ReportCleanup MountainLoop continuous solid 2
+_exploration_only 591 0.40 Ground_ReportCleanup MountainLoop continuous solid 2
+_exploration_only 601 -4.12 Ground_ReportCleanup MountainLoop continuous solid 2
+_exploration_only 611 -7.68 Ground_ReportCleanup MountainLoop continuous solid 2
+_exploration_only 621 -11.70 Ground_ReportCleanup MountainLoop continuous solid 2
+_exploration_only 631 -2.77 Ground_ReportCleanup MountainLoop continuous solid 2
+_exploration_only 640 -3.12 Ground_ReportCleanup MountainLoop continuous solid 2
+_exploration_only 651 -4.55 Ground_ReportCleanup MountainLoop continuous solid 2
+_exploration_only 661 4.76 Ground_ReportCleanup MountainLoop continuous solid 2
+_exploration_only 671 15.37 Ground_ReportCleanup MountainLoop continuous solid 2
+_exploration_only 681 25.52 Ground_ReportCleanup MountainLoop continuous solid 2
+_exploration_only 690 29.10 Ground_ReportCleanup MountainLoop continuous solid 2
+_exploration_only 702 none
+_exploration_only 711 none
+_exploration_only 722 none
+_exploration_only 731 none
+_exploration_only 741 none
+_exploration_only 750 none
+_exploration_only 761 none
+_exploration_only 771 none
+_exploration_only 781 none
+_exploration_only 791 28.60 Ground_ReportCleanup MountainLoop continuous solid 2
+_exploration_only 801 23.08 Ground_ReportCleanup MountainLoop continuous solid 2
+_exploration_only 812 18.74 Ground_ReportCleanup MountainLoop continuous solid 2
+_exploration_only 821 16.88 Ground_ReportCleanup MountainLoop continuous solid 2
+_exploration_only 831 17.41 Ground_ReportCleanup MountainLoop continuous solid 2
+_exploration_only 841 17.21 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+_exploration_only 850 16.07 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+_exploration_only 861 13.25 Ground_ReportCleanup MountainLoop continuous solid 2
+_exploration_only 871 10.22 Ground_ReportCleanup MountainLoop continuous solid 2
+_exploration_only 881 11.93 CR133 structural mountain roads/Ground_CR133 mountain earth banks
+_exploration_only 891 10.29 CR133 structural mountain roads/Ground_CR133 mountain earth banks
+_exploration_only 901 10.26 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+_exploration_only 911 10.24 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+_exploration_only 921 10.36 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+_exploration_only 931 10.51 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+_exploration_only 942 10.33 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+_exploration_only 952 11.20 CR133 structural mountain roads/Ground_CR133 mountain earth banks
+_exploration_only 961 4.88 CR133 structural mountain roads/Ground_CR133 mountain earth banks
+_exploration_only 972 0.47 CR133 structural mountain roads/Ground_CR133 mountain earth banks
+_exploration_only 981 2.65 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+_exploration_only 990 2.58 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+_exploration_only 1000 2.14 CR133 structural mountain roads/Ground_CR133 mountain earth banks
+_exploration_only 1012 0.59 CR133 structural mountain roads/Ground_CR133 mountain earth banks
+_exploration_only 1023 0.51 CR133 structural mountain roads/Ground_CR133 mountain earth banks
+_exploration_only 1032 0.14 CR133 structural mountain roads/Ground_CR133 mountain earth banks
+_exploration_only 1041 0.00 Memory loop - north is +Z/Ground_720_320
+_exploration_only 1052 0.00 Memory loop - north is +Z/Ground_720_320
+_exploration_only 1061 0.00 Memory loop - north is +Z/Ground_720_320
+_exploration_only 1070 0.03 Memory loop - north is +Z/Ground_720_320
+_exploration_only 1080 0.00 Memory loop - north is +Z/Ground_720_320
+Lake_shore_connectio 0 0.00 Memory loop - north is +Z/Ground_560_320
+Lake_shore_connectio 11 0.00 Memory loop - north is +Z/Ground_560_320
+Lake_shore_connectio 22 0.00 Memory loop - north is +Z/Ground_640_320
+Lake_shore_connectio 31 0.00 Memory loop - north is +Z/Ground_640_320
+Lake_shore_connectio 40 0.01 Memory loop - north is +Z/Ground_640_320
+Lake_shore_connectio 52 0.01 Memory loop - north is +Z/Ground_640_320
+Lake_shore_connectio 60 0.00 Memory loop - north is +Z/Ground_640_320
+Lake_shore_connectio 72 -0.01 Memory loop - north is +Z/Ground_640_320
+Lake_shore_connectio 82 0.00 Memory loop - north is +Z/Ground_640_320
+Lake_shore_connectio 92 0.00 Memory loop - north is +Z/Ground_640_320
+Lake_shore_connectio 101 0.00 Memory loop - north is +Z/Ground_640_320
+Lake_shore_connectio 112 0.05 Memory loop - north is +Z/Ground_640_320
+Lake_shore_connectio 122 0.51 Memory loop - north is +Z/Ground_640_320
+Lake_shore_connectio 130 1.00 Memory loop - north is +Z/Ground_640_320
+Lake_shore_connectio 140 1.70 Memory loop - north is +Z/Ground_640_320
+Lake_shore_connectio 152 1.40 Memory loop - north is +Z/Ground_640_320
+Lake_shore_connectio 160 0.99 Memory loop - north is +Z/Ground_640_320
+Lake_shore_connectio 171 -3.49 Memory loop - north is +Z/Ground_640_240
+Lake_shore_connectio 181 -1.12 Memory loop - north is +Z/Ground_640_240
+Lake_shore_connectio 191 0.00 Memory loop - north is +Z/Ground_640_240
+Lake_shore_connectio 201 0.00 Memory loop - north is +Z/Ground_720_240
+Lake_shore_connectio 212 0.00 Memory loop - north is +Z/Ground_720_240
+Lake_shore_connectio 220 0.00 Memory loop - north is +Z/Ground_720_240
+Lake_shore_connectio 232 0.00 Memory loop - north is +Z/Ground_720_320
+Lake_shore_connectio 241 -0.01 Memory loop - north is +Z/Ground_720_320
+Lake_shore_connectio 251 -0.06 Memory loop - north is +Z/Ground_720_320
+Lake_shore_connectio 261 -0.16 Memory loop - north is +Z/Ground_720_320
+Lake_shore_connectio 270 0.41 CR133 structural mountain roads/Ground_CR133 mountain earth banks
+Lake_shore_connectio 282 0.88 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+Lake_shore_connectio 290 0.74 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+Lake_shore_connectio 300 0.42 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+Lake_shore_connectio 310 0.17 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+Lake_shore_connectio 322 0.16 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+Lake_shore_connectio 330 -0.04 CR133 structural mountain roads/Ground_CR133 mountain earth banks
+Lake_shore_connectio 341 0.74 CR133 structural mountain roads/Ground_CR133 mountain earth banks
+Lake_shore_connectio 350 1.21 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+Lake_shore_connectio 361 1.30 CR133 structural mountain roads/Ground_CR133 mountain earth banks
+Lake_shore_connectio 371 -0.06 CR133 structural mountain roads/Ground_CR133 mountain earth banks
+Lake_shore_connectio 381 8.30 CR133 structural mountain roads/Ground_CR133 mountain earth banks
+Lake_shore_connectio 392 11.44 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+Lake_shore_connectio 401 10.09 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+Lake_shore_connectio 410 9.63 Memory loop - north is +Z/Ground_720_320
+Lake_shore_connectio 420 10.33 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+Lake_shore_connectio 431 10.30 CR133 structural mountain roads/Ground_CR133 mountain driving surface
+Lake_shore_connectio 441 7.81 CR133 structural mountain roads/Ground_CR133 mountain earth banks
+Lake_shore_connectio 450 0.24 Memory loop - north is +Z/Ground_720_400
+Lake_shore_connectio 460 0.00 Memory loop - north is +Z/Ground_720_400
+Lake_shore_connectio 471 0.00 Memory loop - north is +Z/Ground_720_400
+Lake_shore_connectio 482 0.00 Memory loop - north is +Z/Ground_720_400
+Lake_shore_connectio 492 0.00 Memory loop - north is +Z/Ground_640_400
+Lake_shore_connectio 502 0.00 Memory loop - north is +Z/Ground_640_400
+Lake_shore_connectio 510 0.00 Memory loop - north is +Z/Ground_640_400
+Lake_shore_connectio 520 0.00 Memory loop - north is +Z/Ground_640_400
+Lake_shore_connectio 531 0.00 Memory loop - north is +Z/Ground_640_400
+Lake_shore_connectio 541 0.00 Memory loop - north is +Z/Ground_640_400
+Lake_shore_connectio 551 0.90 Memory loop - north is +Z/Ground_640_400
+Lake_shore_connectio 562 0.91 Memory loop - north is +Z/Ground_640_400
+Lake_shore_connectio 572 0.58 Memory loop - north is +Z/Ground_640_320
+Lake_shore_connectio 580 -0.01 Memory loop - north is +Z/Ground_640_320
+Lake_shore_connectio 591 -0.18 Memory loop - north is +Z/Ground_640_320
+Lake_shore_connectio 602 0.00 Memory loop - north is +Z/Ground_640_320
+Lake_shore_connectio 612 0.00 Memory loop - north is +Z/Ground_640_320
+Lake_shore_connectio 621 0.00 Memory loop - north is +Z/Ground_640_320
+Lake_shore_connectio 631 0.01 Memory loop - north is +Z/Ground_640_320
+Lake_shore_connectio 640 0.00 Memory loop - north is +Z/Ground_640_320
+Lake_shore_connectio 652 0.00 Memory loop - north is +Z/Ground_640_320
+Lake_shore_connectio 660 0.00 Memory loop - north is +Z/Ground_640_320
+Lake_shore_connectio 671 0.00 Memory loop - north is +Z/Ground_640_320
+Lake_shore_connectio 681 0.00 Memory loop - north is +Z/Ground_640_320
+Lake_shore_connectio 691 0.00 Memory loop - north is +Z/Ground_640_320
+Lake_shore_connectio 702 0.00 Memory loop - north is +Z/Ground_640_320
+Lake_shore_connectio 711 0.00 Memory loop - north is +Z/Ground_640_320
+Lake_shore_connectio 720 0.00 Memory loop - north is +Z/Ground_640_320
+Lake_shore_connectio 732 0.07 Memory loop - north is +Z/Ground_640_320
+Lake_shore_connectio 741 -0.01 Memory loop - north is +Z/Ground_640_320
+Lake_shore_connectio 751 0.02 Memory loop - north is +Z/Ground_640_320
+Lake_shore_connectio 761 0.00 Memory loop - north is +Z/Ground_640_320
+Lake_shore_connectio 772 0.00 Memory loop - north is +Z/Ground_640_320
+Lake_shore_connectio 781 0.00 Memory loop - north is +Z/Ground_640_320
+Lake_shore_connectio 791 0.00 Memory loop - north is +Z/Ground_560_320

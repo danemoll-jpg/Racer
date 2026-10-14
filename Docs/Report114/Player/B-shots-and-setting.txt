@@ -1,0 +1,9 @@
+screen=1920x1080 kind=shots114b version=0.113.0-review1 park=on
+track proposals: built in 27 ms: 2 proposals, 520 posts, 43 numbered boards, shown True
+pause: state Ready, focus 'race'
+settings display: focus 'track-proposals', setting True
+right: setting False, markers shown False, settings.json says false
+B: state Ready, page 'Ready/', focus 'settings'
+B: state Racing
+right again: setting True, markers shown True
+B, B: state Racing

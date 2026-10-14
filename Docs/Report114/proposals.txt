@@ -1,0 +1,45 @@
+Proposal A: Street Loop + Summit Jump: 6621 m; street 4637 m (70%), lake 624 m (9%), mountain 1340 m (20%); 19 numbered corners
+  shortcut Creek Leap: 368 m, entrance (558, -252)
+  shortcut Fox Gully: 470 m, entrance (221, -333)
+  shortcut Pine Ridge: 608 m, entrance (-180, -583)
+  shortcut Existing Southwest Cut: 127 m, entrance (-560, -551)
+  shortcut North Arc (skips the summit): 193 m, entrance (994, 111)
+  corner 1: (351, 201) turn -42 deg
+  corner 2: (473, -8) turn -145 deg
+  corner 3: (706, -103) turn 60 deg
+  corner 4: (822, -124) turn -41 deg
+  corner 5: (1007, 121) turn 120 deg
+  corner 6: (1178, 165) turn -45 deg
+  corner 7: (851, 110) turn 48 deg
+  corner 8: (808, 65) turn 67 deg
+  corner 9: (707, 61) turn -73 deg
+  corner 10: (527, 2) turn -46 deg
+  corner 11: (536, -70) turn 126 deg
+  corner 12: (475, -44) turn -171 deg
+  corner 13: (490, -545) turn 105 deg
+  corner 14: (374, -396) turn -51 deg
+  corner 15: (45, -291) turn -45 deg
+  corner 16: (-26, -566) turn 48 deg
+  corner 17: (-615, -534) turn 83 deg
+  corner 18: (-597, 537) turn 82 deg
+  corner 19: (320, 545) turn 90 deg
+Proposal B: Street Loop Reverse + Ridge Loop: 6192 m; street 4637 m (75%), lake 624 m (10%), mountain 917 m (15%); 17 numbered corners
+  shortcut Granite Creek Cut: 774 m, entrance (-76, 529)
+  shortcut Laurel Switchbacks: 467 m, entrance (195, -318)
+  corner 1: (320, 545) turn -90 deg
+  corner 2: (-597, 537) turn -82 deg
+  corner 3: (-615, -534) turn -83 deg
+  corner 4: (-26, -566) turn -48 deg
+  corner 5: (45, -291) turn 45 deg
+  corner 6: (374, -396) turn 51 deg
+  corner 7: (490, -545) turn -105 deg
+  corner 8: (475, -44) turn 171 deg
+  corner 9: (536, -70) turn -126 deg
+  corner 10: (527, 2) turn 46 deg
+  corner 11: (682, 55) turn -120 deg
+  corner 12: (807, 65) turn -66 deg
+  corner 13: (848, 135) turn 41 deg
+  corner 14: (822, -124) turn 41 deg
+  corner 15: (706, -103) turn -60 deg
+  corner 16: (482, -38) turn -141 deg
+  corner 17: (351, 201) turn 42 deg

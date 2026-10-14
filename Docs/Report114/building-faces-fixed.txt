@@ -1,0 +1,20 @@
+Generated building faces check, 2026-10-14 05:04
+PASS StreetLoopGreybox Hwy92/Hwy92Roadside: 120 building parts, 18255 triangles, 0 parts with inward faces
+PASS StreetLoopGreybox Hwy92/TrickumRoadside: 83 building parts, 6690 triangles, 0 parts with inward faces
+PASS LakeWoods Hwy92/Hwy92Roadside: 120 building parts, 18255 triangles, 0 parts with inward faces
+PASS LakeWoods Hwy92/TrickumRoadside: 83 building parts, 6690 triangles, 0 parts with inward faces
+PASS StreetLoopReverse Hwy92/Hwy92Roadside: 120 building parts, 18255 triangles, 0 parts with inward faces
+PASS StreetLoopReverse Hwy92/TrickumRoadside: 83 building parts, 6690 triangles, 0 parts with inward faces
+PASS ForestLoopReverse Hwy92/Hwy92Roadside: 120 building parts, 18255 triangles, 0 parts with inward faces
+PASS ForestLoopReverse Hwy92/TrickumRoadside: 83 building parts, 6690 triangles, 0 parts with inward faces
+PASS MountainLoop Hwy92/Hwy92Roadside: 120 building parts, 18255 triangles, 0 parts with inward faces
+PASS MountainLoop Hwy92/TrickumRoadside: 83 building parts, 6690 triangles, 0 parts with inward faces
+PASS MountainLoopReverse Hwy92/Hwy92Roadside: 120 building parts, 18255 triangles, 0 parts with inward faces
+PASS MountainLoopReverse Hwy92/TrickumRoadside: 83 building parts, 6690 triangles, 0 parts with inward faces
+PASS DansBackyardForward Hwy92/Hwy92Roadside: 120 building parts, 18255 triangles, 0 parts with inward faces
+PASS DansBackyardForward Hwy92/TrickumRoadside: 83 building parts, 6690 triangles, 0 parts with inward faces
+PASS DansBackyardReverse Hwy92/Hwy92Roadside: 120 building parts, 18255 triangles, 0 parts with inward faces
+PASS DansBackyardReverse Hwy92/TrickumRoadside: 83 building parts, 6690 triangles, 0 parts with inward faces
+PASS FreeRoamWorld Hwy92/Hwy92Roadside: 120 building parts, 18255 triangles, 0 parts with inward faces
+PASS FreeRoamWorld Hwy92/TrickumRoadside: 83 building parts, 6690 triangles, 0 parts with inward faces
+RESULT PASS

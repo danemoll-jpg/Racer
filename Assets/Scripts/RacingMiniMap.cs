@@ -175,6 +175,15 @@ namespace Racer
                 if (Mathf.Max(a.x,b.x)<bounds.xMin-5 || Mathf.Min(a.x,b.x)>bounds.xMax+5 || Mathf.Max(a.y,b.y)<bounds.yMin-5 || Mathf.Min(a.y,b.y)>bounds.yMax+5) continue;
                 Line(vh, a, b, s.shortcut ? 3 : 5, roam ? (s.shortcut ? Trail : Road) : s.shortcut ? Optional : Main);
             }
+            // 0.114 Part B: the combined-course proposals (A orange, B cyan, shortcuts yellow) while their markers are shown
+            if (roam && TrackProposals.Showing)
+                foreach (var (pts, col, shortcut, side) in TrackProposals.Current.Lines)
+                    for (int i = 5; i < pts.Length; i += 5)
+                    {
+                        var a = Project(pts[i - 5]); var b = Project(pts[i]);
+                        if (Mathf.Max(a.x,b.x)<bounds.xMin-5 || Mathf.Min(a.x,b.x)>bounds.xMax+5 || Mathf.Max(a.y,b.y)<bounds.yMin-5 || Mathf.Min(a.y,b.y)>bounds.yMax+5) continue;
+                        var o = TrackProposals.Beside(b - a) * side * 1.6f; Line(vh, a + o, b + o, shortcut ? 2 : 2.5f, col); // A and B side by side on shared roads
+                    }
             if (roam)
             {
                 // activity sites, then the waypoint (kept at the edge of the window when it is further away)

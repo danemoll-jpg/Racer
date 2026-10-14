@@ -261,6 +261,8 @@ details.gameObject.SetActive(true);
                 Step(5,"fps","Frame cap: "+s.frameLimit+" FPS",d=>Adjust(()=>{int[] caps={30,60,120};s.frameLimit=caps[Mathf.Clamp(Array.IndexOf(caps,s.frameLimit)+d,0,2)];}));
                 Toggle(6,"lightning","Lightning flashes",s.lightningFlashes,()=>Adjust(()=>s.lightningFlashes=!s.lightningFlashes));
                 Step(7,"scenery","Scenery:   "+(s.classicScenery?"Classic":"New"),d=>Adjust(()=>{s.classicScenery=!s.classicScenery;Scenery.Set(!s.classicScenery);}));
+                // 0.114 Part B: the two combined-course proposals' markers in Free Roam (and on its maps)
+                Step(8,"track-proposals","Show track proposals:   "+(s.showTrackProposals?"On":"Off"),d=>Adjust(()=>s.showTrackProposals=!s.showTrackProposals));
             }
             if(page=="settings-controls")RenderControls();
             if(page!="settings-controls")Row(14,"back","Back",flow.CloseSettings);

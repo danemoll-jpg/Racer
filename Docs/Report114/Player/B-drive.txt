@@ -1,0 +1,33 @@
+screen=1920x1080 kind=drive114 version=0.113.0-review1 park=on
+track proposals: built in 19 ms: 2 proposals, 520 posts, 43 numbered boards, shown True
+Proposal A: Street Loop + Summit Jump: driven end to end in 245.1 s (6621 m, average 60 mph, top 75 mph), 3 assists; longest in the air 5.92 s from 979.5,179.80,144.8 to 851.1,126.64,108.4 (133 m)
+  corners: A1 12.3, A2 21.0, A3 31.9, A4 36.1, A6 59.6, A7 76.4, A8 79.1, A9 83.3, A10 92.2, A11 95.8, A13 121.2, A14 128.2, A15 140.7, A16 151.1, A17 171.6, A18 211.3, A19 243.9
+  assist: off the line at 982.2,165.12,127.2 (s 1410, 53 s) -> put back at s 1436
+  assist: off the line at 458.2,87.42,-36.5 (s 2586, 102 s) -> put back at s 2612
+  assist: off the line at 277.3,36.96,-391.3 (s 3417, 132 s) -> put back at s 3443
+  contact: A touched 'Traffic 2' at (-625.0, 7.6, -288.7), impulse 24246
+  contact: A touched 'Takeoff - 40m x 6m, 6.2m rise' at (-624.9, 8.4, -98.0), impulse 139
+  contact: A touched 'Traffic 1' at (-623.3, 8.7, -92.8), impulse 9510
+  contact: A touched 'Takeoff - 40m x 6m, 6.2m rise' at (-623.5, 8.3, -65.8), impulse 798
+  contact: A touched 'Takeoff - 40m x 6m, 6.2m rise' at (-624.3, 9.3, -59.1), impulse 150
+  contact: A touched 'Takeoff - 40m x 6m, 6.2m rise' at (-624.4, 9.5, -58.5), impulse 27
+  contact: A touched 'Takeoff - 40m x 6m, 6.2m rise' at (-628.0, 8.1, -42.7), impulse 1173
+  contact: A touched 'Takeoff - 40m x 6m, 6.2m rise' at (-627.9, 8.1, -42.3), impulse 0
+  contact: A touched 'Traffic 1' at (-625.8, 9.2, 0.5), impulse 164
+  contact: A touched 'COP 1' at (-635.7, 10.2, 320.1), impulse 0
+  contact: A touched 'Traffic 11' at (-209.6, 9.8, 526.3), impulse 2256
+Proposal B: Street Loop Reverse + Ridge Loop: driven end to end in 233.2 s (6193 m, average 59 mph, top 72 mph), 4 assists; longest in the air 3.62 s from 987.2,165.07,119.2 to 1043.3,154.80,49.2 (90 m)
+  corners: B2 42.0, B3 78.3, B4 98.6, B5 108.1, B6 120.4, B7 128.7, B8 147.2, B9 153.6, B10 156.7, B11 163.6, B12 170.1, B13 173.4, B14 198.0, B15 203.2, B16 212.3, B17 223.0
+  assist: stuck at 319.6,12.40,525.7 (s 12, 6 s) -> put back at s 38
+  assist: off the line at 488.9,83.23,-21.1 (s 4051, 150 s) -> put back at s 4077
+  assist: off the line at 1041.2,161.26,80.9 (s 4841, 186 s) -> put back at s 4867
+  assist: off the line at 835.9,124.36,-95.4 (s 5171, 198 s) -> put back at s 5197
+  contact: B touched 'COP 1' at (321.0, 12.2, 525.4), impulse 14409
+  contact: B touched 'COP 1' at (321.2, 11.8, 526.9), impulse 0
+  contact: B touched 'COP 1' at (321.2, 11.8, 526.9), impulse 6826
+  contact: B touched 'Traffic 19' at (-55.3, 8.9, 527.8), impulse 25205
+  contact: B touched 'Traffic 15' at (-298.4, 9.3, 529.5), impulse 24984
+  contact: B touched 'Traffic 15' at (-393.9, 8.8, 531.6), impulse 18860
+  contact: B touched 'Takeoff - 40m x 6m, 6.2m rise' at (-627.8, 8.5, -50.0), impulse 1874
+  contact: B touched 'Traffic 4' at (-624.2, 7.2, -362.6), impulse 8812
+  contact: B touched 'Traffic 4' at (414.9, 78.3, 163.5), impulse 9079
