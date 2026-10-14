@@ -1,5 +1,5 @@
 screen=1920x1080 kind=shots114a version=0.113.0-review1 park=on
-Trickum plan: built in 81 ms: 83 buildings, 0 canopies, 7 lights, 296 trees, 0 pylon signs, 0 signal poles, 14 entrance walls, 18 fences, 24 mailboxes; 43928 triangles, 731 solids, 17 lettered faces
-BUG-001 drive-in at 10 m/s, heading 255: went 11.3 m, first contact: BUG-001 touched 'apartments' at (-657.9, 9.5, 347.9), impulse 174; ended at -656.6,9.10,347.5, inside a building footprint: no
+Trickum plan: built in 65 ms: 83 buildings, 0 canopies, 7 lights, 296 trees, 0 pylon signs, 0 signal poles, 14 entrance walls, 18 fences, 24 mailboxes; 43928 triangles, 731 solids, 17 lettered faces
+BUG-001 drive-in at 10 m/s, heading 255: went 11.3 m, first contact: BUG-001 touched 'apartments' at (-657.9, 8.7, 347.9), impulse 1977; ended at -656.6,9.10,347.5, inside a building footprint: no
 BUG-002 drive-in at 10 m/s, heading 292: went 8.3 m, first contact: BUG-002 touched 'house' at (-685.2, 8.1, 372.7), impulse 1220; ended at -683.9,7.71,373.2, inside a building footprint: no
 BUG-003 drive-in at 10 m/s, heading 257: went 10.7 m, first contact: BUG-003 touched 'house' at (-660.4, 8.8, 273.5), impulse 1684; ended at -659.1,9.19,273.1, inside a building footprint: no
