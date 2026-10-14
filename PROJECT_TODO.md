@@ -77,6 +77,14 @@ Version 0.116.0-review1; usual build and release; close everything started; no b
   - The two shortcuts (keep / switch off), and whether Hollow Creek Hop's ~2 s is enough.
   - The turn boards' look and placement (one stands at the lake's edge before the CR117 turn on Reverse).
   - **Seen, not changed (from 0.115):** after a reset at Downhill Ridge Cut's drop on Reverse the car can be put back past CP 18 (mandatory), and the lap can then not be completed (the 0.115 pad run did the same). The pad bot also needs the reset at the Forward summit lip and passes Reverse CP 14 outside its span after a reset at the J. The "Radio Off" notice shows behind the HUD's NEXT CP line when it appears.
+- **Release.** 0.116.0-review1, build 116000:
+  - Source `f05957ef` (pushed); a fresh Windows build from it (0 errors, [build-release.txt](Docs/Report116/build-release.txt)).
+  - Published [game-116000](https://github.com/danemoll-jpg/woodstock-rush-releases/releases/tag/game-116000) (the known draft-lookup miss, completed with `--resume-draft`): Latest, 3 assets, earlier releases kept.
+  - Public download, pinned signature and startup check all pass, and every one of the 236 files matches Builds/Latest ([hosted/result.json](Docs/Report116/hosted/result.json)).
+  - The production updater is at 116000 with nothing newer pending ([launcher-catalog-check.json](Docs/Report116/launcher-catalog-check.json)). `Play-Racer.cmd` (unchanged) launched `Builds/Latest/versions/116000/Racer.exe` ([play-racer-launch.json](Docs/Report116/play-racer-launch.json)), and Dan's settings.json was restored byte for byte ([settings-preserved.json](Docs/Report116/settings-preserved.json)).
+  - Cleanup: Builds 12.45 GB -> 8.33 GB (4.12 GB: the build output, the zip, the check build, the public-download install); C: free 207.2 -> 213.1 GB. Kept managed 116000 and 115000 ([cleanup.json](Docs/Report116/cleanup.json)).
+  - The round's temporary editor tools were removed from Assets/Editor (copies in Tools/Report116), the scratch folders deleted, every editor and player started closed, no background task left running.
+  - Commits: `03d26fcc` checkpoint, `f05957ef` the round (released source), `d42ef49e` the release evidence; this record follows.
 
 ## Previous delivery — Leviathan: Proposal A (Street Loop + Summit Jump) as a race, Forward and Reverse, 2 laps; the Free Roam proposal markers removed — target 0.115.0-review1 — DELIVERED as 0.115.0-review1 (build 115000), awaiting Dan's review — REVIEW IN PROGRESS (Dan wants new shortcuts for Leviathan Reverse: 0.116)
 
