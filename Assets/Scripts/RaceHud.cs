@@ -167,6 +167,18 @@ namespace Racer
             }
             var guide=race.GetComponent<WaypointGuide>();if(!guide)guide=FindAnyObjectByType<WaypointGuide>();
             if(waypointPanel){bool show=guide&&guide.Active&&!race.Flow.MenuVisible;waypointPanel.SetActive(show);if(show){waypointText.text=guide.Hud;waypointArrow.rectTransform.localRotation=Quaternion.Euler(0,0,-guide.Bearing);}}
+            // 0.116 Part A (Leviathan only): the same line shows the next checkpoint and how far it is along the course; the arrow points the way
+            // the course goes 60 m ahead (round the next turn), so a later gate in view never reads as the way to go
+            if(waypointPanel&&race.Leviathan&&!LeviathanGuide.Disabled&&!race.FreeRoam&&!(guide&&guide.Active))
+            {
+                var me=race.Racers[0];bool show=race.Flow.State==RaceFlow.Stage.Racing&&!race.Flow.MenuVisible&&!me.Progress.Finished&&me.Car;waypointPanel.SetActive(show);
+                if(show)
+                {
+                    int next=me.Progress.NextGate;waypointText.text=(next>0?"NEXT  CP "+next:"NEXT  FINISH")+"  "+DisplayUnits.Distance(LeviathanGuide.ToNextGate(race,me));
+                    var ahead=LeviathanGuide.Ahead(race,me,60,10);var to=Vector3.ProjectOnPlane(ahead[ahead.Count-1]-me.Car.Body.position,Vector3.up);var fwd=Vector3.ProjectOnPlane(me.Car.transform.forward,Vector3.up);
+                    waypointArrow.rectTransform.localRotation=Quaternion.Euler(0,0,-Vector3.SignedAngle(fwd.sqrMagnitude>1e-4f?fwd:Vector3.forward,to.sqrMagnitude>1e-4f?to:fwd,Vector3.up));
+                }
+            }
             var guidance=race.GetComponent<WrongWayGuidance>();
             if(wrongPanel)
             {

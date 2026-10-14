@@ -33,6 +33,10 @@ namespace Racer
         IEnumerator Lev115()
         {
             Campaign.Testing = true; DriverVariation.Seed = System.Environment.TickCount; Conditions();
+            // 0.116: -p116forced "title,title": every rival takes these shortcuts (checks only; ShortcutStrategy.Forced)
+            ShortcutStrategy.Forced = Arg("-p116forced", "").Replace('_', ' ').Split(new[] { ',' }, System.StringSplitOptions.RemoveEmptyEntries);
+            // 0.116: -p116off "title,title": Leviathan Reverse shortcuts switched off (as Dan would in the F6 menu; saved in the test save's settings)
+            if (Arg("-p116off", "") != "") { var off = Arg("-p116off", "").Replace('_', ' ').Split(new[] { ',' }, System.StringSplitOptions.RemoveEmptyEntries); flow.Save.Settings.leviathanShortcutsOff = off; flow.Save.SaveSettings(); LeviathanCourse.ShortcutsOff = off; }
             int course = int.Parse(Arg("-p115course", "8")); int runs = int.Parse(Arg("-p115runs", "3")); int laps = int.Parse(Arg("-p115laps", "2")); int diff = int.Parse(Arg("-p115diff", "1"));
             var lineups = Arg("-p115rivals", "tourer+moto+atv|original+roadster+scrambler|fastback+drifter+pebble").Split('|');
             for (int run = 1; run <= runs; run++)
@@ -58,6 +62,8 @@ namespace Racer
             var watchArg = Arg("-p113watch", ""); Vector3 watch = default; float watchR = 0; if (watchArg.Length > 0) { var w3 = watchArg.Split(','); watch = new Vector3(F(w3[0]), 0, F(w3[1])); watchR = F(w3[2]); }
             var watched = ai.ToDictionary(r => r, r => new List<string>()); var nextWatch = ai.ToDictionary(r => r, r => 0f);
             float airMax = 0; string airWho = "";
+            // 0.116: each rival's time from the entry to the exit of each of the course's shortcuts (planes across the road there), on it or on the main road
+            var seg = ai.ToDictionary(r => r, r => new List<string>()); var segIn = new Dictionary<(RacerState, string), (float t, bool via)>(); var segPrev = ai.ToDictionary(r => r, r => r.Car.Body.position); var segData = race.Leviathan ? LeviathanCourse.Current?.branches : null; // the course's shortcuts, switched on or off var segPrev = ai.ToDictionary(r => r, r => r.Car.Body.position);
             Time.timeScale = 6; float t0 = Time.realtimeSinceStartup;
             while (Time.realtimeSinceStartup - t0 < 1500 && flow.State == RaceFlow.Stage.Racing && !ai.All(r => r.Progress.Finished || r.Dnf))
             {
@@ -67,6 +73,15 @@ namespace Racer
                 {
                     if (r.Recoveries - reset0[r] > resetAt[r].Count) resetAt[r].Add($"[{r.Car.GetComponent<RoadDriver>()?.LastRecoveryWhy}] {V(r.Car.Body.position)} {(r.Branch.Route ? r.Branch.Route.title : "road " + r.RoadPosition.ToString("F0"))} lap {r.Progress.CompletedLaps + 1} next CP {r.Progress.NextGate} t {clock:F0}");
                     if (r.Branch.Route != on[r]) { on[r] = r.Branch.Route; if (on[r]) shortcuts[r].Add(on[r].title + " lap " + (r.Progress.CompletedLaps + 1)); }
+                    if (segData != null) foreach (var b in segData)
+                    {
+                        var p1 = r.Car.Body.position; var p0 = segPrev[r]; var k = (r, b.title);
+                        var ea = race.road.At(b.entryRoad, out var ef); var xa = race.road.At(b.exitRoad, out var xf);
+                        if (Vector3.Dot(p1 - ea, ef) >= 0 && Vector3.Dot(p0 - ea, ef) < 0 && Vector3.Distance(p1, ea) < 25) segIn[k] = (Time.time, false);
+                        if (segIn.TryGetValue(k, out var e) && r.Branch.Route && r.Branch.Route.title == b.title && !e.via) segIn[k] = (e.t, true);
+                        if (segIn.TryGetValue(k, out e) && Vector3.Dot(p1 - xa, xf) >= 0 && Vector3.Dot(p0 - xa, xf) < 0 && Vector3.Distance(p1, xa) < 25) { seg[r].Add($"{b.title} lap {r.Progress.CompletedLaps + 1} {(e.via ? "VIA" : "main")} {Time.time - e.t:F1} s"); segIn.Remove(k); }
+                    }
+                    segPrev[r] = r.Car.Body.position;
                     if (r.Car.Body.position.y > 140 && r.Car.GroundedWheels == 0 && r.Car.Body.linearVelocity.magnitude > airMax) { airMax = r.Car.Body.linearVelocity.magnitude; airWho = Rp(r); }
                     if (watchR > 0 && Time.time >= nextWatch[r] && Vector3.Distance(Flat(r.Car.Body.position), watch) < watchR && watched[r].Count < 400)
                     {
@@ -83,6 +98,7 @@ namespace Racer
                     r.Progress.MissedGates, r.Progress.PenaltySeconds, r.Recoveries - reset0[r], string.Join("; ", shortcuts[r]),
                     resetAt[r].Count > 0 ? " | resets at " + string.Join("; ", resetAt[r].Take(12)) : ""));
                 if (r.Progress.Penalties.Count > 0) outRows.Add("      penalties " + Rp(r) + ": " + string.Join(" | ", r.Progress.Penalties.Take(12)));
+                if (seg[r].Count > 0) outRows.Add("      shortcut segments " + Rp(r) + ": " + string.Join(" | ", seg[r]));
                 if (watched[r].Count > 0) outRows.Add("      watch " + Rp(r) + ": " + string.Join(" | ", watched[r].Take(200)));
             }
             race.finishGraceSeconds = 0; float w = Time.realtimeSinceStartup; while (flow.State != RaceFlow.Stage.Results && Time.realtimeSinceStartup - w < 30) yield return null;

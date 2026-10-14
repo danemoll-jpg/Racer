@@ -146,6 +146,9 @@ namespace Racer
                 case "lev115": yield return Lev115(); break; // 0.115 (Report106PlayerCheck.Round115.cs)
                 case "drive115": yield return Drive115(); break;
                 case "split115": yield return Split115(); break;
+                case "turns116": yield return Turns116(); break; // 0.116 (Report106PlayerCheck.Round116.cs)
+                case "short116": yield return Short116(); break;
+                case "debug116": yield return Debug116(); break;
                 default: Note("unknown kind " + kind); break;
             }
             File.WriteAllText(Path.Combine(outDir, "done.txt"), "done"); Application.Quit();

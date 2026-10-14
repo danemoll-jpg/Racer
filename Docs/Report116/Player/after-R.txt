@@ -1,0 +1,62 @@
+screen=1920x1080 kind=turns116 version=0.115.0-review1 park=on
+== Leviathan - Reverse (after): Leviathan - Reverse (leviathan-reverse-v2): line 7164 m, 23 gates, 2 shortcuts, flights South Face Summit Flight 5080-5584, Downhill Ridge Cut drop 5852-5960; turn signs 32 (arrows 8, chevrons 20)
+  sign Leviathan chevron board left (Downhill Ridge Cut) at 810.4,95.61,-179.5, ground -0.03 m, colliders 0
+  sign Leviathan chevron board right (J: off the street onto the stem (hairpin)) at 475.5,88.39,-60.1, ground +0.00 m, colliders 0
+  sign Leviathan chevron board left (leaving the lake for CR117 (the mountain)) at 728.8,79.04,10.4, ground +0.00 m, colliders 0
+  sign Leviathan turn arrow board left (off the mountain: onto the strip) at 732.4,79.04,-37.9, ground +0.00 m, colliders 0
+  sign Leviathan chevron board left (back onto the north shore) at 651.3,79.15,78.4, ground +0.00 m, colliders 0
+  sign Leviathan turn arrow board right (onto the shore strip) at 601.1,81.14,65.7, ground -0.42 m, colliders 0
+  sign Leviathan shortcut board 'REJOIN  ROAD' (Rocky Way Cut rejoin) at 539.4,84.83,-94.3, ground -0.23 m, colliders 0
+  sign Leviathan chevron board left (leaving the lake for CR117 (the mountain)) at 730.7,79.12,21.0, ground -0.02 m, colliders 0
+  sign Leviathan chevron board left (off the mountain: onto the strip) at 730.5,79.04,-3.3, ground +0.00 m, colliders 0
+  sign Leviathan shortcut board 'ROCKY WAY CUT  >' (Rocky Way Cut entry) at 538.7,65.46,-164.7, ground -0.06 m, colliders 0
+  sign Leviathan chevron board left (off the mountain: onto the strip) at 722.2,79.04,6.7, ground +0.00 m, colliders 0
+  sign Leviathan chevron board left (off the mountain: the start stretch) at 727.6,79.04,-55.1, ground +0.00 m, colliders 0
+  sign Leviathan chevron board right (J: off the street onto the stem (hairpin)) at 483.0,88.24,-52.2, ground +0.00 m, colliders 0
+  sign Leviathan turn arrow board right (J: off the street onto the stem (hairpin)) at 504.3,87.65,-98.3, ground +0.00 m, colliders 0
+  sign Leviathan turn arrow board left (off the mountain: the start stretch) at 701.7,80.69,-89.0, ground -0.48 m, colliders 0
+  sign Leviathan turn arrow board left (back onto the north shore) at 685.0,81.17,40.3, ground -0.59 m, colliders 0
+  sign Leviathan chevron board right (onto the shore strip) at 644.1,79.13,77.4, ground -0.01 m, colliders 0
+  sign Leviathan chevron board left (off the mountain: the start stretch) at 731.2,79.04,-45.2, ground +0.00 m, colliders 0
+  sign Leviathan shortcut board '<  HOLLOW CREEK HOP' (Hollow Creek Hop entry) at 433.1,35.64,-452.0, ground -0.07 m, colliders 0
+  sign Leviathan turn arrow board left (Downhill Ridge Cut) at 859.9,93.69,-206.3, ground +0.00 m, colliders 0
+  sign Leviathan chevron board right (J: off the stem onto the street) at 475.7,87.62,-38.9, ground -0.01 m, colliders 0
+  sign Leviathan chevron board right (onto the shore strip) at 655.7,78.98,67.5, ground +0.00 m, colliders 0
+  sign Leviathan chevron board left (Downhill Ridge Cut) at 824.3,95.48,-181.3, ground -0.02 m, colliders 0
+  sign Leviathan shortcut board 'REJOIN  ROAD' (Hollow Creek Hop rejoin) at 506.0,27.30,-488.5, ground -0.25 m, colliders 0
+  sign Leviathan chevron board left (back onto the north shore) at 659.0,78.95,65.8, ground +0.00 m, colliders 0
+  sign Leviathan chevron board right (J: off the street onto the stem (hairpin)) at 492.1,87.87,-51.3, ground -0.05 m, colliders 0
+  sign Leviathan turn arrow board right (J: off the stem onto the street) at 511.6,83.22,-63.3, ground -0.49 m, colliders 0
+  sign Leviathan chevron board right (J: off the stem onto the street) at 471.0,86.72,-30.9, ground -0.03 m, colliders 0
+  sign Leviathan turn arrow board left (leaving the lake for CR117 (the mountain)) at 686.7,78.25,16.5, ground -0.32 m, colliders 0
+  sign Leviathan chevron board left (off the mountain: onto the strip) at 732.2,79.04,-14.1, ground +0.00 m, colliders 0
+  sign Leviathan chevron board left (leaving the lake for CR117 (the mountain)) at 731.5,79.67,29.4, ground -0.03 m, colliders 0
+  sign Leviathan chevron board right (J: off the street onto the stem (hairpin)) at 499.5,85.61,-55.8, ground -0.24 m, colliders 0
+  short-granite-mouth-after: at -46.8,8.54,527.0 37 m/s, next CP 2, gates drawn [0,2], HUD 'NEXT  CP 2  208 ft'
+  short-laurel-mouth-after: at 167.6,42.47,-308.1 36 m/s, next CP 12, gates drawn [0,12], HUD 'NEXT  CP 12  0.25 mi'
+  short-hollow-creek-hop-entry-after: at 419.2,37.47,-449.4 35 m/s, next CP 12, gates drawn [0,12], HUD 'NEXT  CP 12  347 ft'
+  short-rocky-way-cut-entry-after: at 535.4,61.55,-175.8 33 m/s, next CP 14, gates drawn [0,14], HUD 'NEXT  CP 14  0.22 mi'
+  turn-9-3998-70m-after: at 509.8,86.00,-117.5 22 m/s, next CP 14, gates drawn [0,14], HUD 'NEXT  CP 14  0.19 mi'
+  turn-9-3998-25m-after: at 489.2,89.32,-78.0 19 m/s, next CP 14, gates drawn [0,14], HUD 'NEXT  CP 14  0.16 mi'
+  assist: stuck at 502.0,85.76,-54.8 s 4011: the reset button
+  turn-9-4286-70m-after: at 578.8,82.95,68.1 25 m/s, next CP 14, gates drawn [0,14], HUD 'NEXT  CP 14  58 ft'
+  turn-9-4286-25m-after: at 624.3,79.93,78.1 17 m/s, next CP 15, gates drawn [0,15], HUD 'NEXT  CP 15  0.29 mi'
+  turn-9-4404-70m-after: at 675.8,78.77,34.0 25 m/s, next CP 15, gates drawn [0,15], HUD 'NEXT  CP 15  0.25 mi'
+  turn-9-4404-25m-after: at 709.4,78.98,6.0 15 m/s, next CP 15, gates drawn [0,15], HUD 'NEXT  CP 15  0.22 mi'
+  turn-9-5820-70m-after: at 872.8,93.53,-223.5 31 m/s, next CP 17, gates drawn [0,17], HUD 'NEXT  CP 17  92 ft'
+  turn-9-5820-25m-after: at 834.5,95.65,-200.0 23 m/s, next CP 18, gates drawn [0,18], HUD 'NEXT  CP 18  272 ft'
+  assist: stuck at 752.0,79.19,-171.3 s 5884: the reset button
+  turn-9-6043-70m-after: at 697.2,82.63,-105.0 13 m/s, next CP 18, gates drawn [0,18], HUD 'NEXT  CP 18  0 ft'
+  turn-9-6081-70m-after: at 705.5,79.59,-71.8 29 m/s, next CP 18, gates drawn [0,18], HUD 'NEXT  CP 18  0 ft'
+  turn-9-6043-25m-after: at 711.2,79.60,-63.8 24 m/s, next CP 18, gates drawn [0,18], HUD 'NEXT  CP 18  0 ft'
+  turn-9-6081-25m-after: at 725.1,79.69,-33.3 20 m/s, next CP 18, gates drawn [0,18], HUD 'NEXT  CP 18  0 ft'
+  turn-9-6195-70m-after: at 693.4,79.62,21.0 28 m/s, next CP 18, gates drawn [0,18], HUD 'NEXT  CP 18  0 ft'
+  turn-9-6195-25m-after: at 660.6,78.54,50.9 14 m/s, next CP 18, gates drawn [0,18], HUD 'NEXT  CP 18  0 ft'
+  turn-9-6512-70m-after: at 526.6,81.77,-76.5 18 m/s, next CP 18, gates drawn [0,18], HUD 'NEXT  CP 18  0 ft'
+  turn-9-6512-25m-after: at 491.2,89.66,-51.3 23 m/s, next CP 18, gates drawn [0,18], HUD 'NEXT  CP 18  0 ft'
+  the pad drove 286 s game time, 7134 m; resets 2; missed gates 1; finished False; wrong-way warnings 0
+  penalty: L1 CP14 +5s / road gate passed outside span
+  clip 9-4404: 59 frames
+  clip 9-6043: 47 frames
+  back at the menu: state Ready, page 'Ready/'
+  Tracks: focus 'course-9'

@@ -129,6 +129,16 @@ namespace Racer
                 ("Mark event won", () => CampaignDone("Campaign: marked won: " + Campaign.DebugMarkWon())),
                 ("Reset campaign", () => { Campaign.Reset(); CampaignDone("Campaign reset to a new campaign"); }) })
             { var b = Button(campaignRow, title, action); b.GetComponentInChildren<UnityEngine.UI.Text>().fontSize = 15; menuButtons.Add(b); }
+            // 0.116 Part B: Leviathan Reverse's shortcuts, each on or off (saved in settings.json "leviathanShortcutsOff"; the next Leviathan Reverse race uses it)
+            var levRow = Rect("Leviathan Reverse shortcuts (debug)", menuCard.transform, new(0, 38)); levRow.gameObject.AddComponent<UnityEngine.UI.LayoutElement>().preferredHeight = 38;
+            var levLayout = levRow.gameObject.AddComponent<UnityEngine.UI.HorizontalLayoutGroup>(); levLayout.spacing = 6; levLayout.childControlWidth = levLayout.childControlHeight = true; levLayout.childForceExpandWidth = true;
+            foreach (var b in LeviathanCourse.Load(LeviathanCourse.Reverse)?.branches ?? new LeviathanCourse.Branch[0])
+            {
+                string title = b.title; UnityEngine.UI.Button button = null;
+                string Label() => "Lev. Reverse: " + title + (LeviathanCourse.ShortcutOn(title) ? "  ON" : "  OFF");
+                button = Button(levRow, Label(), () => { ToggleLeviathanShortcut(title); button.GetComponentInChildren<UnityEngine.UI.Text>().text = Label(); });
+                button.GetComponentInChildren<UnityEngine.UI.Text>().fontSize = 15; menuButtons.Add(button);
+            }
             var controls=Rect("Debug controls",menuCard.transform,new(0,32));controls.gameObject.AddComponent<UnityEngine.UI.LayoutElement>().preferredHeight=32;
             Prompt(controls,0,"Select","buttonSouth","enter");Prompt(controls,198,"Close","buttonEast","escape");Prompt(controls,396,"Navigate","dpad","arrows");
             status = Row(menuCard.transform, "F3 mode · F4 capture · F6 menu\nRace timeout suspended while Debug Mode is on.", 16, 50);
@@ -173,6 +183,14 @@ namespace Racer
             var enabled=menuButtons.FindAll(b=>b.interactable);
             for(int i=0;i<enabled.Count;i++)enabled[i].navigation=new UnityEngine.UI.Navigation { mode=UnityEngine.UI.Navigation.Mode.Explicit, selectOnUp=enabled[(i+enabled.Count-1)%enabled.Count],selectOnDown=enabled[(i+1)%enabled.Count] };
             foreach(var p in prompts){var path=MenuInput.Controller?p.pad:p.keyboard;p.glyph.SetPath(path);p.key.text=MenuGlyph.Label(path);}
+        }
+        // 0.116 Part B: switch one of Leviathan Reverse's shortcuts on or off (saved; the next Leviathan Reverse race loads without it)
+        void ToggleLeviathanShortcut(string title)
+        {
+            var off = new System.Collections.Generic.List<string>(LeviathanCourse.ShortcutsOff ?? new string[0]); bool on = off.Remove(title); if (!on) off.Add(title);
+            LeviathanCourse.ShortcutsOff = off.ToArray();
+            if (race && race.Flow && race.Flow.Save != null) { race.Flow.Save.Settings.leviathanShortcutsOff = off.ToArray(); race.Flow.Save.SaveSettings(); }
+            status.text = $"Leviathan Reverse: {title} {(on ? "ON" : "OFF")}.\nTakes effect the next time Leviathan Reverse is loaded (Race > Tracks).";
         }
         void CampaignDone(string message) { status.text = message + (Campaign.Error != null ? "\n" + Campaign.Error : ""); race.Flow.RefreshMenu(); }
         public string LocationText() => Available ? $"Position: {race.vehicle.transform.position} | Course: {race.courseName}" : "";

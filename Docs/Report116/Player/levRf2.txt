@@ -1,0 +1,15 @@
+screen=1920x1080 kind=lev115 version=0.115.0-review1 park=on
+== AI-only quick races on Leviathan - Reverse: Leviathan - Reverse (leviathan-reverse-v2): line 7164 m, 23 gates, 2 shortcuts, flights South Face Summit Flight 5080-5584, Downhill Ridge Cut drop 5852-5960; laps 1, difficulty 1, traffic 0
+  run 1 [tourer+moto+atv] atv        274.7 laps [273.6] missed gates 0 (+0 s) resets 2 shortcuts [Ridgeback Climb lap 1; Creekbed Scramble lap 1] | resets at [stalled 5.0 route 5.0 branch 0.0 rejoin 0.0 tracking False target (339, 38, -386) best 8 planned - on - speed 0.1] 499.6,88.15,-65.4 road 4055 lap 1 next CP 14 t 133; [stalled 4.6 route 5.0 branch 0.0 rejoin 0.0 tracking False target (339, 38, -386) best 8 planned - on - speed 0.0] 691.0,82.22,-93.3 road 6025 lap 1 next CP 19 t 223
+      shortcut segments atv: Ridgeback Climb lap 1 VIA 29.1 s | Creekbed Scramble lap 1 VIA 18.8 s
+  run 1 [tourer+moto+atv] moto       275.3 laps [273.8] missed gates 3 (+15 s) resets 1 shortcuts [Creekbed Scramble lap 1] | resets at [stalled 0.9 route 0.0 branch 0.0 rejoin 5.0 tracking True target (453, 32, -346) best 15 planned Creekbed Scramble on Creekbed Scramble speed -0.4] 466.1,29.42,-348.8 Creekbed Scramble lap 1 next CP 14 t 109
+      penalties moto: L1 CP07 +5s / later gate crossed | L1 CP08 +5s / later gate crossed | L1 CP09 +5s / later gate crossed
+      shortcut segments moto: Ridgeback Climb lap 1 main 31.2 s | Creekbed Scramble lap 1 VIA 23.7 s
+  run 1 [tourer+moto+atv] tourer     277.6 laps [275.6] missed gates 0 (+0 s) resets 1 shortcuts [Ridgeback Climb lap 1; Creekbed Scramble lap 1] | resets at [stalled 2.9 route 0.0 branch 0.0 rejoin 5.0 tracking True target (421, 31, -346) best 8 planned Creekbed Scramble on Creekbed Scramble speed -0.2] 434.2,32.98,-344.0 Creekbed Scramble lap 1 next CP 14 t 116
+      shortcut segments tourer: Ridgeback Climb lap 1 VIA 29.9 s | Creekbed Scramble lap 1 VIA 26.9 s
+  run 2 [original+roadster+scrambler] scrambler  262.0 laps [260.9] missed gates 0 (+0 s) resets 1 shortcuts [Ridgeback Climb lap 1; Creekbed Scramble lap 1] | resets at [stalled 0.2 route 0.0 branch 0.0 rejoin 5.0 tracking True target (427, 32, -346) best 10 planned Creekbed Scramble on Creekbed Scramble speed 0.3] 434.0,32.86,-345.8 Creekbed Scramble lap 1 next CP 14 t 109
+      shortcut segments scrambler: Ridgeback Climb lap 1 VIA 28.6 s | Creekbed Scramble lap 1 VIA 26.2 s
+  run 2 [original+roadster+scrambler] roadster   272.0 laps [270.4] missed gates 0 (+0 s) resets 0 shortcuts [Ridgeback Climb lap 1; Creekbed Scramble lap 1]
+      shortcut segments roadster: Ridgeback Climb lap 1 VIA 29.8 s | Creekbed Scramble lap 1 VIA 18.9 s
+  run 2 [original+roadster+scrambler] original   277.2 laps [275.3] missed gates 0 (+0 s) resets 1 shortcuts [Ridgeback Climb lap 1; Creekbed Scramble lap 1] | resets at [stalled 0.0 route 0.0 branch 0.0 rejoin 5.0 tracking True target (426, 32, -346) best 8 planned Creekbed Scramble on Creekbed Scramble speed 2.5] 437.5,32.91,-345.6 Creekbed Scramble lap 1 next CP 14 t 117
+      shortcut segments original: Ridgeback Climb lap 1 VIA 29.7 s | Creekbed Scramble lap 1 VIA 25.1 s

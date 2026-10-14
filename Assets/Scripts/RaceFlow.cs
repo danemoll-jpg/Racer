@@ -93,7 +93,7 @@ namespace Racer
             Save = new RacerSave(root, "street-loop-gates-v1-laps" + Race.laps);
             ResultsLog.Init(root, root != Path.Combine(Application.persistentDataPath, "Phase7", "street-loop-gates-v1-laps" + Race.laps)); // 0.109 Parts C and D
             VehicleUnlocks.Load(root); Campaign.Load(root); Campaign.UseSlot(Save.Settings.campaignFresh); Campaign.Testing = UnlockEverything; RecentVehicles.Use(Save);
-            VehicleVisual.NewModels = Save.Settings.newMotorcycle; RiderLook.Player = Save.Settings.rider;
+            VehicleVisual.NewModels = Save.Settings.newMotorcycle; RiderLook.Player = Save.Settings.rider; LeviathanCourse.ShortcutsOff = Save.Settings.leviathanShortcutsOff ?? new string[0]; /* 0.116 */
             Scenery.Set(!Save.Settings.classicScenery); SceneryWorld.Attach(gameObject);
             Playlists=new RacePlaylists(root);
             Boards = new RecordBoards(root);
@@ -606,7 +606,7 @@ namespace Racer
 #endif
             Save = new RacerSave(directory, "street-loop-gates-v1-laps" + Race.laps);
             VehicleUnlocks.Load(directory); Campaign.Load(directory); Campaign.UseSlot(Save.Settings.campaignFresh); Campaign.Testing = UnlockEverything; RecentVehicles.Use(Save);
-            VehicleVisual.NewModels = Save.Settings.newMotorcycle; RiderLook.Player = Save.Settings.rider;
+            VehicleVisual.NewModels = Save.Settings.newMotorcycle; RiderLook.Player = Save.Settings.rider; LeviathanCourse.ShortcutsOff = Save.Settings.leviathanShortcutsOff ?? new string[0]; /* 0.116 */
             Scenery.Set(!Save.Settings.classicScenery);
             Boards = new RecordBoards(directory);
             PlayerNames.Adopt(Save, Campaign.HasProgress || Boards.Any || (Save.Settings.hintsSeen ?? new string[0]).Length > 0); Boards.Owner(Save.Settings.playerName);

@@ -1,0 +1,6 @@
+screen=1920x1080 kind=short116 version=0.115.0-review1 park=on
+== shortcuts on Leviathan - Reverse (leviathan-reverse-v2): line 7164 m, 23 gates, 2 shortcuts, flights South Face Summit Flight 5080-5584, Downhill Ridge Cut drop 5852-5960: Ridgeback Climb (entry s 1673, exit s 2454, 618 m, bypasses [6,7,8,9]), Creekbed Scramble (entry s 3174, exit s 3774, 384 m, bypasses [12,13])
+  Ridgeback Climb on the main road: entry to exit 25.2 s, resets 0, top speed 34 m/s, longest in the air 0.0 s, frames 0, contacts []
+  Ridgeback Climb via the shortcut: entry to exit 42.0 s, resets 0, top speed 34 m/s, longest in the air 0.1 s, frames 253, contacts [player touched 'CR014 trunk 01134' at (-261.0, 23.8, -542.6), impulse 20320; player touched 'CR014 trunk 01134' at (-260.5, 23.9, -542.6), impulse 1592; player touched 'CR014 trunk 01134' at (-260.5, 23.8, -543.4), impulse 140]
+  Creekbed Scramble on the main road: entry to exit 21.3 s, resets 0, top speed 34 m/s, longest in the air 2.2 s, frames 0, contacts []
+  Creekbed Scramble via the shortcut: entry to exit 22.6 s, resets 0, top speed 34 m/s, longest in the air 1.3 s, frames 214, contacts []

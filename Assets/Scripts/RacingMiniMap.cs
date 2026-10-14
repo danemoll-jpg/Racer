@@ -19,6 +19,10 @@ namespace Racer
         static readonly Color Main = new(.2f, .86f, .86f), Optional = new(1, .69f, .17f);
         static readonly Color Road = new(.84f, .86f, .88f), Trail = new(.80f, .60f, .34f), Waypoint = new(1, .84f, .2f);
         public const string RaceKey = "<color=#33DBDB>MAIN</color>   <color=#FFB02B>SHORTCUT</color>   • RIVALS";
+        // 0.116 Part A (Leviathan): the next ~400 m of the course drawn bright over the main line, so the next turn shows on the map
+        public const string LeviathanKey = "<color=#33DBDB>MAIN</color>  <color=#FFFFFF>AHEAD</color>  <color=#FFB02B>SHORTCUT</color>  • RIVALS";
+        public const float AheadMetres = 400;
+        static readonly Color Ahead = new(1, 1, 1);
         public const string RoamKey = "<color=#D6DBE0>ROADS</color>  <color=#CC9957>TRAILS</color>  <color=#FFB02B>◆</color>SITES  <color=#FFD633>◆</color>WAYPOINT";
         UnityEngine.InputSystem.InputAction toggle;
         public UnityEngine.InputSystem.InputAction ToggleAction => toggle;
@@ -133,7 +137,7 @@ namespace Racer
             bool narrow = canvasRect && canvasRect.rect.width < 680;
             if (!Split) { panel.localScale = Vector3.one * (narrow ? .72f : 1); ((RectTransform)panel).anchoredPosition = new(-18, narrow ? -174 : -18); }
             panel.GetComponent<UnityEngine.UI.Image>().enabled = visible;
-            var key = panel.Find("Route key").GetComponent<UnityEngine.UI.Text>(); key.enabled = visible; key.text = roam ? RoamKey : RaceKey;
+            var key = panel.Find("Route key").GetComponent<UnityEngine.UI.Text>(); key.enabled = visible; key.text = roam ? RoamKey : race.Leviathan && !LeviathanGuide.Disabled ? LeviathanKey : RaceKey;
             if (north) north.enabled = visible;
             if (parkLabel) { bool on = visible && roam && StuntPark.Current; if (on) { var q = Project(StuntPark.Centre); on = rectTransform.rect.Contains(q); parkLabel.rectTransform.anchoredPosition = q; } parkLabel.enabled = on; } // 0.106
             if (areaLine && Time.unscaledTime >= nextArea)
@@ -174,6 +178,16 @@ namespace Racer
                 var a = Project(s.a); var b = Project(s.b);
                 if (Mathf.Max(a.x,b.x)<bounds.xMin-5 || Mathf.Min(a.x,b.x)>bounds.xMax+5 || Mathf.Max(a.y,b.y)<bounds.yMin-5 || Mathf.Min(a.y,b.y)>bounds.yMax+5) continue;
                 Line(vh, a, b, s.shortcut ? 3 : 5, roam ? (s.shortcut ? Trail : Road) : s.shortcut ? Optional : Main);
+            }
+            // 0.116 Part A (Leviathan): the course ahead of this half's racer, bright, over the main line and its shortcuts
+            if (!roam && race.Leviathan && !LeviathanGuide.Disabled)
+            {
+                RacerState me = null; foreach (var r in race.Racers) if (r.Car == Vehicle) { me = r; break; }
+                if (me != null && me.Car)
+                {
+                    var ahead = LeviathanGuide.Ahead(race, me, AheadMetres, 6);
+                    for (int i = 1; i < ahead.Count; i++) { var a = Project(ahead[i - 1]); var b = Project(ahead[i]); if (Mathf.Max(a.x, b.x) < bounds.xMin - 5 || Mathf.Min(a.x, b.x) > bounds.xMax + 5 || Mathf.Max(a.y, b.y) < bounds.yMin - 5 || Mathf.Min(a.y, b.y) > bounds.yMax + 5) continue; Line(vh, a, b, 3, Ahead); }
+                }
             }
             if (roam)
             {

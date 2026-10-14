@@ -1,0 +1,149 @@
+== Granite Creek Cut: 539 points, 774 m, half width 4.2
+   s     x       z      route y  ground SLR  ground MLR (top 3 hits: y name)   diff   solids at wheel height in MLR
+     0   -76.4   529.1      8.0        8.0        8.0  [8.0 Ground_320_560]    0.0   Ground_320_640, Ground_320_560
+    10   -85.6   525.4      8.0        8.0        8.0  [8.0 Ground_320_560]    0.0   Ground_320_560
+    20   -91.3   517.0      8.0        7.7        7.7  [7.7 Ground_320_560]    0.0   Ground_320_560
+    31   -94.9   506.7      8.1        7.6        7.6  [7.6 Ground_320_560]    0.0   Ground_320_560
+    42   -97.2   496.4      8.4        7.6        7.5  [7.5 Ground_320_560]   -0.1   Ground_320_560
+    52   -99.3   486.0      8.6        7.6        7.3  [7.3 Ground_320_560]   -0.4   Ground_320_560
+    64  -101.5   475.2      8.8        8.2        6.9  [6.9 Ground_320_560]   -1.3   Ground_320_560
+    74  -104.5   465.5      9.2        9.1        6.6  [6.6 Ground_320_560]   -2.5   Ground_320_560
+    84  -107.6   456.0      9.5        9.5        6.3  [6.3 Ground_320_560]   -3.2   Ground_320_560
+    94  -111.1   445.8     10.0       10.0        6.0  [6.0 Ground_320_560]   -4.0   Ground_320_560
+   106  -115.1   435.2     10.5       10.5        5.7  [5.7 Ground_320_560]   -4.8   Ground_320_560
+   116  -119.3   425.7     11.0       11.0        5.5  [5.5 Ground_320_560]   -5.4   Ground_320_560
+   127  -124.1   416.0     11.4       11.4        5.5  [5.5 Ground_320_560]   -5.9   Ground_320_560
+   138  -129.8   406.3     11.9       11.9        5.6  [5.6 Ground_320_560]   -6.3   Ground_320_560, Tree trunk
+   150  -136.4   396.7     12.4       12.4        5.9  [5.9 Ground_320_560]   -6.5   Ground_320_560
+   160  -142.9   388.6     12.7       12.7        6.3  [6.3 Ground_320_560]   -6.5   Ground_320_560, CR014 trunk 05697
+   170  -149.8   381.1     13.0       13.0        6.7  [6.7 Ground_320_560]   -6.3   Ground_320_560
+   182  -158.0   373.5     13.4       13.4        7.2  [7.2 Ground_320_560]   -6.1   Ground_320_560, Tree trunk, Ground_240_560
+   192  -166.0   366.9     13.7       13.7        7.7  [7.7 Ground_240_480]   -5.9   Ground_240_480
+   203  -174.6   360.4     14.0       14.0        8.3  [8.3 Ground_240_480]   -5.7   Ground_240_480
+   214  -183.8   353.9     14.3       14.3        8.9  [8.9 Ground_240_480]   -5.4   Ground_240_480
+   224  -192.2   348.3     14.6       14.6        9.4  [9.4 Ground_240_480]   -5.2   Ground_240_480
+   235  -201.0   342.6     14.9       14.9       10.0  [10.0 Ground_240_480]   -4.9   Ground_240_480
+   245  -210.0   336.8     15.1       15.1       10.6  [10.6 Ground_240_480]   -4.5   Ground_240_480
+   256  -219.3   331.0     15.4       15.4       11.2  [11.2 Ground_240_480]   -4.2   Ground_240_480
+   267  -228.7   325.1     15.6       15.6       11.6  [11.6 Ground_240_480]   -4.0   Ground_240_480
+   279  -238.2   319.1     15.8       15.8       12.0  [12.0 Ground_240_480]   -3.8   CR014 trunk 03420, Ground_240_480
+   290  -247.9   312.9     15.9       15.9       12.1  [12.1 Ground_240_480]   -3.8   Ground_240_480
+   302  -257.5   306.5     16.0       16.0       12.1  [12.1 Ground_240_480]   -3.9   Tree trunk, Ground_240_480
+   312  -265.8   300.8     16.0       16.0       12.0  [12.0 Ground_240_480]   -4.0   Ground_240_480
+   322  -274.0   295.0     16.0       16.0       11.8  [11.8 Ground_240_480]   -4.2   Ground_240_480
+   333  -282.8   288.5     15.9       15.9       11.6  [11.6 Ground_240_480]   -4.3   Ground_240_480
+   344  -291.9   281.8     15.8       15.8       11.4  [11.4 Ground_240_480]   -4.5   Ground_240_480
+   354  -300.1   275.7     15.7       15.7       16.3  [16.3 Tree trunk; 11.2 Ground_240_480]    0.6   Tree trunk
+   365  -308.4   269.4     15.9       15.9       11.1  [11.1 Ground_240_480]   -4.8   Ground_240_480
+   375  -316.9   262.9     16.7       16.7       11.1  [11.1 Ground_240_480]   -5.5   Ground_240_480, CR014 trunk 04379
+   386  -325.5   256.4     18.1       18.1       11.3  [11.3 Ground_160_480]   -6.8   Ground_160_480
+   397  -334.1   249.8     12.1       12.1       11.6  [11.6 Ground_160_480]   -0.5   Ground_160_480
+   408  -342.8   243.1     11.9       11.9       11.9  [11.9 Ground_160_480]    0.0   Ground_160_480
+   419  -351.5   236.4     12.0       12.1       12.2  [12.2 Ground_160_480]    0.2   Ground_160_480
+   430  -360.2   229.8     12.4       12.4       12.5  [12.5 Ground_160_480]    0.1   Ground_160_480
+   441  -368.9   223.2     12.8       12.8       12.7  [12.7 Ground_160_480]   -0.2   Ground_160_480
+   452  -377.6   216.6     13.1       13.1       12.6  [12.6 Ground_160_480]   -0.5   Tree trunk, Ground_160_480
+   462  -386.1   210.2     13.2       13.2       12.3  [12.3 Ground_160_480]   -0.9   Ground_160_480, Ground_160_400
+   473  -394.6   204.0     12.9       12.9       11.8  [11.8 Ground_160_400]   -1.2   Ground_160_400
+   483  -403.0   197.9     12.7       12.7       11.0  [11.0 Ground_160_400]   -1.7   Ground_160_400
+   493  -411.2   192.0     12.4       12.4       10.1  [10.1 Ground_160_400]   -2.4   Ground_160_400
+   504  -420.3   185.6     12.2       12.2        8.9  [8.9 Ground_160_400]   -3.2   Ground_160_400
+   516  -429.8   179.1     11.9       11.9        7.9  [7.9 Ground_160_400]   -4.1   Ground_160_400
+   526  -438.2   173.6     11.7       11.7        7.0  [7.0 Ground_160_400]   -4.7   Ground_160_400
+   538  -448.0   167.3     11.5       11.5        6.4  [6.4 Ground_160_400]   -5.1   Ground_160_400
+   549  -457.7   161.3     11.2       11.2        6.0  [6.0 Ground_160_400]   -5.2   Ground_160_400
+   560  -467.4   155.4     11.0       11.0        6.0  [6.0 Ground_160_400]   -5.0   Ground_160_400
+   572  -477.0   149.7     10.8       10.8        6.2  [6.2 Ground_160_400]   -4.6   Ground_160_400, CR014 trunk 04415
+   583  -486.5   144.2     10.5       10.5        6.5  [6.5 Ground_80_400]   -4.0   Ground_80_400
+   593  -495.8   138.9     10.3       10.3        6.9  [6.9 Ground_80_400]   -3.4   Ground_80_400
+   604  -505.0   133.7     10.1       10.1        7.2  [14.7 Tree trunk; 7.2 Ground_80_400]   -2.9   Tree trunk
+   614  -513.9   128.7      9.9        9.9        7.5  [7.5 Ground_80_400]   -2.4   CR014 trunk 02333, Ground_80_400
+   625  -523.8   123.1      9.7        9.7        7.8  [7.8 Ground_80_400]   -1.9   Ground_80_400
+   636  -533.2   117.7      9.4        9.4        8.0  [8.0 Ground_80_400]   -1.5   Ground_80_400
+   647  -542.3   112.4      9.3        9.3        8.1  [8.1 Ground_80_400]   -1.2   Ground_80_400
+   657  -550.9   107.2      9.1        9.1        8.1  [8.1 Ground_80_400]   -1.0   CR014 trunk 04734, Ground_80_400
+   667  -559.4   101.9      8.9        8.9        8.1  [8.1 Ground_80_400]   -0.9   Ground_80_400
+   678  -568.8    95.9      8.8        8.8        7.9  [7.9 Ground_80_400]   -0.9   Ground_80_400
+   688  -577.4    90.4      8.7        8.7        7.9  [7.9 Ground_80_400]   -0.9   Ground_80_400
+   699  -586.0    84.6      8.6        8.6        7.8  [7.8 Ground_80_400]   -0.8   Ground_80_400
+   709  -594.5    78.4      8.6        8.6        7.9  [7.9 Ground_80_400]   -0.7   Ground_80_400
+   719  -602.5    71.8      8.5        8.5        8.0  [8.0 Ground_80_400]   -0.6   Ground_80_400
+   730  -609.8    64.9      8.5        8.5        8.0  [8.0 Ground_80_400]   -0.5   Ground_80_400
+   741  -617.1    56.5      8.5        8.5        8.2  [8.2 Ground_80_400]   -0.3   Ground_80_400
+   751  -622.8    47.6      8.4        8.4        8.4  [8.4 Ground_80_320]    0.0   Ground_80_320
+   762  -626.7    38.1      8.4        8.4        8.4  [8.4 Ground_80_320]    0.0   Ground_80_320
+   772  -628.4    28.0      8.3        8.3        8.3  [8.3 Ground_80_320]    0.0   Ground_80_320
+   774  -628.4    25.4      8.3        8.3        8.3  [8.3 Ground_80_320]    0.0   Ground_80_320
+   samples 74, ground differs >1 m at 47, max difference 6.8 m
+   near it in MountainLoopReverse (within 30 m of the route): signs, markings and lettering
+   ACTIVE    20.6 m  (-70.1,12.3,509.5)  Remembered houses and approximate buildings/CR019 S09 business/Phase 6 architecture/Fictional storefront identity  text 'CORNER MARKET'
+== Laurel Switchbacks: 959 points, 467 m, half width 4.5, rivals' line 228 points
+   s     x       z      route y  ground SLR  ground MLR (top 3 hits: y name)   diff   solids at wheel height in MLR
+     0   195.1  -317.9     45.8       45.8       45.8  [45.8 Ground_480_160]    0.0   Ground_480_160
+    10   205.1  -319.7     46.0       46.0       46.0  [46.0 Ground_480_160]    0.0   Ground_480_160
+    21   214.7  -315.7     45.6       45.6       45.7  [45.7 Ground_480_160]    0.1   Ground_480_160
+    31   223.1  -310.0     45.8       45.7       45.0  [45.0 Ground_480_160]   -0.7   Ground_480_160
+    42   231.6  -303.8     46.8       46.8       44.4  [44.4 Ground_480_160]   -2.4   Ground_480_160
+    52   240.6  -298.8     47.7       47.7       43.3  [43.3 Ground_480_160]   -4.4   Ground_480_160
+    62   249.9  -295.1     48.5       48.5       41.9  [41.9 Ground_480_160]   -6.6   Ground_480_160
+    72   259.2  -291.3     49.8       49.7       40.4  [40.4 Ground_480_160]   -9.4   CR014 trunk 04057, Ground_480_160
+    82   268.5  -287.6     51.4       51.4       38.9  [38.9 Ground_480_160]  -12.6   Ground_480_160
+    92   277.9  -284.2     53.2       53.4       37.5  [37.5 Ground_480_160]  -15.8   Ground_480_160
+   102   287.9  -281.0     54.6       54.7       36.4  [36.4 Ground_480_160]  -18.3   Ground_480_160
+   113   298.0  -278.4     53.9       54.2       35.5  [35.5 Ground_480_160]  -18.7   Ground_480_160
+   123   308.4  -277.1     45.7        NaN       34.9  [34.9 Ground_480_160]    NaN   Tree trunk, Ground_480_160
+   133   318.4  -277.4     35.5       34.8       34.5  [34.5 Ground_480_160]   -0.3   Ground_560_160, Ground_480_160
+   144   328.5  -278.2     34.2       34.2       34.3  [34.3 Ground_560_160]    0.1   Ground_560_160
+   154   338.5  -278.5     34.1       34.1       39.0  [39.0 Ground_560_160]    4.9   Ground_560_160
+   164   349.0  -277.6     34.2       34.2       48.5  [48.5 Ground_560_160]   14.3   Ground_560_160
+   174   358.8  -275.9     34.5       34.5       50.7  [50.7 Ground_560_160]   16.2   Ground_560_160
+   184   368.7  -273.9     35.0       35.0       51.4  [51.4 Ground_560_160]   16.4   Ground_560_160
+   194   378.4  -271.3     35.7       35.7       43.4  [43.4 Ground_560_160]    7.7   Ground_560_160
+   204   387.9  -268.2     36.5       36.5       36.6  [36.6 Ground_560_240]    0.1   Ground_560_240, Ground_560_160
+   215   397.6  -264.2     36.8       36.8       36.8  [36.8 Ground_560_240]    0.0   Ground_560_240
+   225   406.7  -259.2     35.8       35.9       35.9  [35.9 Ground_560_240]    0.0   Ground_560_240
+   235   414.9  -253.5     35.8       35.1       35.1  [35.1 Ground_560_240]    0.0   Ground_560_240
+   245   422.9  -247.3     41.4       41.8       41.8  [41.8 Ground_560_240]    0.0   Ground_560_240
+   256   431.0  -240.7     41.2       41.6       41.6  [41.6 Ground_560_240]    0.0   Ground_560_240
+   266   439.1  -234.4     36.0       35.8       35.8  [35.8 Ground_560_240]    0.0   Ground_560_240
+   276   447.4  -228.6     35.3       35.3       35.4  [35.4 Ground_560_240]    0.0   Ground_560_240
+   286   456.0  -223.2     35.0       35.0       35.0  [35.0 Ground_560_240]    0.0   Ground_560_240
+   296   464.5  -217.5     34.3       34.3       34.3  [34.3 Ground_560_240]    0.0   Ground_560_240
+   307   472.6  -211.2     33.9       33.8       33.8  [33.8 Ground_560_240]    0.0   Ground_560_240
+   317   479.9  -203.8     38.4       38.2       38.2  [38.2 Ground_560_240]    0.0   Ground_640_240, Ground_560_240
+   327   486.3  -196.0     46.2       46.3       46.3  [46.3 Ground_640_240]    0.0   Ground_640_240, Roadside woodland trunk
+   337   491.8  -187.6     49.8       49.5       49.5  [49.5 Ground_640_240]    0.0   Ground_640_240
+   347   496.6  -178.7     56.0       56.0       56.0  [56.0 Ground_640_240]    0.0   Ground_640_240
+   357   500.1  -169.4     64.6       62.5       62.5  [62.5 Ground_640_240]    0.0   Ground_640_240, Roadside woodland trunk
+   368   502.2  -159.3     81.8       70.6       70.5  [70.5 Ground_640_240]   -0.1   Ground_640_240
+   378   502.2  -149.3     87.5       80.8       80.3  [80.3 Ground_640_240]   -0.5   Ground_640_240
+   388   501.2  -139.4     87.5       81.5       80.9  [80.9 Ground_House3 supported valley driveway; 80.7 Ground_640_240]   -0.6   Ground_House3 supported valley driveway, Ground_640_240, Ground_House3 straight descending property driveway
+   398   500.2  -129.4     87.6       82.0       81.3  [81.3 Ground_640_240]   -0.8   Ground_640_240
+   408   499.2  -119.5     88.0       85.5       85.7  [85.7 Ground_640_240]    0.2   Ground_640_240
+   432   496.3   -94.9     88.1       88.1       88.1  [88.1 Ground_640_320]    0.0   Ground_640_320
+   443   491.4   -85.6     88.5       88.5       88.5  [88.5 Ground_640_320]    0.0   Ground_640_320
+   453   486.7   -76.2     88.7       88.7       88.7  [88.7 Ground_640_320]    0.0   Ground_640_320
+   464   482.4   -66.7     88.6       88.6       88.6  [88.6 Ground_640_320]    0.0   Ground_640_320, Ground_560_320
+   467   481.0   -63.4     88.5       88.5       88.5  [88.5 Ground_640_320]    0.0   Ground_640_320, Ground_560_320
+   samples 46, ground differs >1 m at 13, max difference 18.7 m
+   near it in MountainLoopReverse (within 30 m of the route): signs, markings and lettering
+   ACTIVE     7.8 m  (508.6,89.8,-134.5)  CR091-096 exploration world/House 3 / Rocky Way Acres entrance/Rocky Way Acres lettering  text 'Rocky Way Acres'
+   inactive  22.3 m  (215.1,44.5,-340.1)  CR034-039 Woodland routes/Breakable sign - Fox Gully  > 108 km/h
+   inactive  22.5 m  (215.3,47.0,-340.2)  CR034-039 Woodland routes/Breakable sign - Fox Gully  > 108 km/h/Road lettering  text 'Fox Gully  > / 67 mph'
+   inactive  22.6 m  (215.4,47.0,-340.3)  CR034-039 Woodland routes/Breakable sign - Fox Gully  > 108 km/h/Road lettering  text 'Fox Gully  > / 67 mph'
+== every object named with Shortcut / Granite / Laurel in MountainLoopReverse
+   ACTIVE   (0.0,0.0,0.0) CR056 Forest Loop/Echo Cave shortcut comps Transform texts []
+   inactive (0.0,0.0,0.0) CR117 main flights and alternatives/Ground_CR117 reverse ridge shortcut comps Transform;MeshFilter;MeshRenderer;MeshCollider texts []
+   ACTIVE   (0.0,0.0,0.0) CR117 main flights and alternatives/Summit Traverse / technical shortcut comps Transform;WoodlandRoute;ReverseShortcutGuidance texts []
+   inactive (802.0,90.9,-113.0) CR117 selected-direction guidance/CR121 shortcut merge / main continues comps Transform;PhysicalSign texts [SHORTCUT MERGE / MAIN ROUTE >>>]
+   ACTIVE   (1002.1,164.1,113.0) CR117 selected-direction guidance/OPTIONAL SHORTCUT SUMMIT TRAVERSE comps Transform;PhysicalSign texts [OPTIONAL SHORTCUT / SUMMIT TRAVERSE]
+   ACTIVE   (830.0,89.7,-207.4) CR121 continuous reverse guidance/CR121 <<< SHORTCUT 2 DOWNHILL RIDGE CUT comps Transform;PhysicalSign texts [<<< SHORTCUT 2 / DOWNHILL RIDGE CUT]
+   inactive (0.0,0.0,0.0) CR122 continuous mountain support/Ground_CR122 reverse shortcut far-side landing comps Transform;MeshFilter;MeshRenderer;MeshCollider texts []
+   inactive (0.0,0.0,0.0) CR122 continuous mountain support/Ground_CR122 reverse shortcut runway comps Transform;MeshFilter;MeshRenderer;MeshCollider texts []
+   ACTIVE   (0.0,0.0,0.0) Phase 5 - Southwest woodland shortcut comps Transform texts [WOODLAND CUT  > / NARROW DIRT PATH / 50 - 59 mph | REJOIN ROAD / STRAIGHTEN UP]
+   ACTIVE   (-532.1,6.6,-541.1) Phase 5 - Southwest woodland shortcut/Breakable - Shortcut direction sign comps Transform;BoxCollider;BreakableProp texts [WOODLAND CUT  > / NARROW DIRT PATH / 50 - 59 mph]
+   ACTIVE   (-611.0,6.2,-468.5) Phase 5 - Southwest woodland shortcut/Breakable - Shortcut direction sign comps Transform;BoxCollider;BreakableProp texts [REJOIN ROAD / STRAIGHTEN UP]
+   inactive (-532.1,9.6,-541.1) Phase 5 - Southwest woodland shortcut/Breakable - Shortcut direction sign/Shortcut direction sign comps Transform;MeshFilter;MeshRenderer texts [WOODLAND CUT  > / NARROW DIRT PATH / 50 - 59 mph]
+   inactive (-611.0,9.2,-468.5) Phase 5 - Southwest woodland shortcut/Breakable - Shortcut direction sign/Shortcut direction sign comps Transform;MeshFilter;MeshRenderer texts [REJOIN ROAD / STRAIGHTEN UP]
+   inactive (-611.0,9.2,-468.7) Phase 5 - Southwest woodland shortcut/Breakable - Shortcut direction sign/Shortcut direction sign/Shortcut advice comps Transform;MeshRenderer;TextMesh;PhysicalSign texts [REJOIN ROAD / STRAIGHTEN UP]
+   inactive (-532.0,9.6,-541.1) Phase 5 - Southwest woodland shortcut/Breakable - Shortcut direction sign/Shortcut direction sign/Shortcut advice comps Transform;MeshRenderer;TextMesh;PhysicalSign texts [WOODLAND CUT  > / NARROW DIRT PATH / 50 - 59 mph]

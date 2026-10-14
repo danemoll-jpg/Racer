@@ -1,0 +1,6 @@
+screen=1920x1080 kind=debug116 version=0.115.0-review1 park=on
+debug menu open: True, focus 'Resume'
+focus 'Lev. Reverse: Hollow Creek Hop  ON' label 'Lev. Reverse: Hollow Creek Hop  ON'
+after A: label 'Lev. Reverse: Hollow Creek Hop  OFF', switched off Hollow Creek Hop; settings.json leviathanShortcutsOff [Hollow Creek Hop]; on disk: True
+after A again: label 'Lev. Reverse: Hollow Creek Hop  ON', switched off []
+after B: debug menu open False

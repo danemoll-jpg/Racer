@@ -1,0 +1,42 @@
+screen=1920x1080 kind=turns116 version=0.115.0-review1 park=on
+== Leviathan - Forward (after): Leviathan - Forward (leviathan-forward-v1): line 6824 m, 25 gates, 4 shortcuts, flights Homeward Summit Flight 1769-2348; turn signs 22 (arrows 6, chevrons 16)
+  sign Leviathan turn arrow board left (onto CR117) at 977.3,133.97,-51.2, ground -0.48 m, colliders 0
+  sign Leviathan chevron board right (off the mountain onto the lake east side) at 734.3,79.47,-21.5, ground -0.01 m, colliders 0
+  sign Leviathan turn arrow board right (off the mountain onto the lake east side) at 685.1,83.08,-9.0, ground +0.00 m, colliders 0
+  sign Leviathan turn arrow board left (Climbing Ridge Cut) at 704.5,81.06,-110.3, ground -0.43 m, colliders 0
+  sign Leviathan chevron board left (J: off the street onto the stem) at 468.5,85.85,-25.1, ground -0.01 m, colliders 0
+  sign Leviathan turn arrow board left (J: off the stem onto the street (hairpin)) at 515.9,83.73,-64.5, ground -1.21 m, colliders 0
+  sign Leviathan chevron board left (J: off the stem onto the street (hairpin)) at 471.5,88.16,-52.8, ground +0.00 m, colliders 0
+  sign Leviathan chevron board left (onto CR117) at 1031.4,140.52,-60.6, ground -0.05 m, colliders 0
+  sign Leviathan chevron board left (J: off the street onto the stem) at 467.0,84.10,-14.8, ground +0.00 m, colliders 0
+  sign Leviathan chevron board left (onto CR117) at 1037.6,141.83,-53.5, ground -0.05 m, colliders 0
+  sign Leviathan chevron board left (J: off the stem onto the street (hairpin)) at 476.7,87.88,-42.7, ground -0.01 m, colliders 0
+  sign Leviathan chevron board right (off the mountain onto the lake east side) at 734.1,78.97,-31.6, ground +0.00 m, colliders 0
+  sign Leviathan chevron board left (onto CR117) at 1018.6,138.52,-67.0, ground -0.05 m, colliders 0
+  sign Leviathan chevron board left (J: off the stem onto the street (hairpin)) at 473.7,88.36,-59.8, ground +0.00 m, colliders 0
+  sign Leviathan turn arrow board right (leaving the lake shore for CR110 (the mountain)) at 651.2,79.00,-107.3, ground +0.00 m, colliders 0
+  sign Leviathan chevron board right (off the mountain onto the lake east side) at 733.3,79.00,-40.9, ground +0.00 m, colliders 0
+  sign Leviathan chevron board left (Climbing Ridge Cut) at 757.4,86.89,-122.5, ground +0.82 m, colliders 0
+  sign Leviathan chevron board left (Climbing Ridge Cut) at 746.2,86.74,-126.8, ground -0.01 m, colliders 0
+  sign Leviathan chevron board right (leaving the lake shore for CR110 (the mountain)) at 692.6,78.96,-91.6, ground +0.00 m, colliders 0
+  sign Leviathan chevron board left (J: off the stem onto the street (hairpin)) at 476.0,88.51,-65.6, ground +0.00 m, colliders 0
+  sign Leviathan chevron board right (leaving the lake shore for CR110 (the mountain)) at 704.6,80.41,-94.5, ground +0.11 m, colliders 0
+  sign Leviathan turn arrow board left (J: off the street onto the stem) at 468.0,77.16,28.1, ground +0.00 m, colliders 0
+  turn-8-640-70m-after: at 472.4,78.34,48.3 35 m/s, next CP 3, gates drawn [0,3], HUD 'NEXT  CP 3  0.15 mi'
+  turn-8-640-25m-after: at 474.9,81.09,3.6 21 m/s, next CP 3, gates drawn [0,3], HUD 'NEXT  CP 3  0.12 mi'
+  turn-8-905-70m-after: at 632.1,79.51,-118.6 27 m/s, next CP 4, gates drawn [0,4], HUD 'NEXT  CP 4  0.16 mi'
+  turn-8-905-25m-after: at 676.9,79.65,-104.2 25 m/s, next CP 4, gates drawn [0,4], HUD 'NEXT  CP 4  0.13 mi'
+  turn-8-963-70m-after: at 689.7,79.66,-100.6 16 m/s, next CP 4, gates drawn [0,4], HUD 'NEXT  CP 4  0.13 mi'
+  turn-8-963-25m-after: at 728.5,84.16,-113.8 17 m/s, next CP 4, gates drawn [0,4], HUD 'NEXT  CP 4  0.10 mi'
+  turn-8-1268-70m-after: at 960.1,132.18,-39.5 29 m/s, next CP 5, gates drawn [0,5], HUD 'NEXT  CP 5  316 ft'
+  turn-8-1268-25m-after: at 1002.7,138.87,-52.2 21 m/s, next CP 5, gates drawn [0,5], HUD 'NEXT  CP 5  178 ft'
+  turn-8-2503-70m-after: at 684.0,85.51,12.4 19 m/s, next CP 8, gates drawn [0,8], HUD 'NEXT  CP 8  74 ft'
+  turn-8-2503-25m-after: at 714.6,81.67,-11.0 11 m/s, next CP 9, gates drawn [0,9], HUD 'NEXT  CP 9  139 ft'
+  assist: off the line at 548.1,82.63,-109.3 s 2723: the reset button
+  turn-8-2822-70m-after: at 531.5,81.57,-77.8 20 m/s, next CP 10, gates drawn [0,10], HUD 'NEXT  CP 10  406 ft'
+  turn-8-2822-25m-after: at 494.2,88.76,-55.3 16 m/s, next CP 10, gates drawn [0,10], HUD 'NEXT  CP 10  263 ft'
+  the pad drove 247 s game time, 6794 m; resets 1; missed gates 0; finished False; wrong-way warnings 0
+  clip 8-905: 41 frames
+  clip 8-2503: 53 frames
+  back at the menu: state Ready, page 'Ready/'
+  Tracks: focus 'course-8'

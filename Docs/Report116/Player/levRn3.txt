@@ -1,0 +1,14 @@
+screen=1920x1080 kind=lev115 version=0.115.0-review1 park=on
+== AI-only quick races on Leviathan - Reverse: Leviathan - Reverse (leviathan-reverse-v2): line 7164 m, 23 gates, 0 shortcuts, flights South Face Summit Flight 5080-5584, Downhill Ridge Cut drop 5852-5960; laps 1, difficulty 1, traffic 0
+  run 1 [tourer+moto+atv] moto       242.1 laps [240.7] missed gates 0 (+0 s) resets 0 shortcuts []
+      shortcut segments moto: Hollow Creek Hop lap 1 main 5.7 s | Rocky Way Cut lap 1 main 9.8 s
+  run 1 [tourer+moto+atv] atv        257.9 laps [256.8] missed gates 0 (+0 s) resets 0 shortcuts []
+      shortcut segments atv: Hollow Creek Hop lap 1 main 6.0 s | Rocky Way Cut lap 1 main 9.8 s
+  run 1 [tourer+moto+atv] tourer     262.7 laps [260.8] missed gates 0 (+0 s) resets 0 shortcuts []
+      shortcut segments tourer: Hollow Creek Hop lap 1 main 6.5 s | Rocky Way Cut lap 1 main 10.1 s
+  run 2 [original+roadster+scrambler] scrambler  246.2 laps [245.1] missed gates 0 (+0 s) resets 0 shortcuts []
+      shortcut segments scrambler: Hollow Creek Hop lap 1 main 5.8 s | Rocky Way Cut lap 1 main 9.8 s
+  run 2 [original+roadster+scrambler] roadster   263.8 laps [262.2] missed gates 0 (+0 s) resets 0 shortcuts []
+      shortcut segments roadster: Hollow Creek Hop lap 1 main 6.3 s | Rocky Way Cut lap 1 main 10.1 s
+  run 2 [original+roadster+scrambler] original   265.7 laps [263.8] missed gates 0 (+0 s) resets 0 shortcuts []
+      shortcut segments original: Hollow Creek Hop lap 1 main 6.4 s | Rocky Way Cut lap 1 main 10.1 s
