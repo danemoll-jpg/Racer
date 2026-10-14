@@ -79,8 +79,11 @@ namespace Racer
             return cleanVehicle;
         }
         static Material gridPaint;
+        // 0.115: a Leviathan course replaces this scene's own (LeviathanCourse); null racing anything else
+        public LeviathanSwap Leviathan { get; private set; }
         void Awake()
         {
+            LeviathanCourse.Apply(this); Leviathan = GetComponent<LeviathanSwap>();
             if (!vehicle || gates == null || gates.Length < 2)
             {
                 enabled = false;
@@ -94,9 +97,10 @@ namespace Racer
             if (road)
             {
                 road.Initialize();
-                Branches = FindObjectsByType<WoodlandRoute>();
+                Branches = Leviathan ? Leviathan.Branches : FindObjectsByType<WoodlandRoute>();
                 origin = road.Project(gates[0].transform.position, out _);
-                gateS = gates.Select(g => road.Relative(road.Project(g.transform.position, out _), origin)).ToArray();
+                // 0.115: on a line that passes the same ground twice (Leviathan's stem and lake shore), each gate at its own pass
+                gateS = gates.Select((g, i) => road.Relative(Leviathan ? road.ProjectNear(g.transform.position, Leviathan.GateHints[i], 30, out _) : road.Project(g.transform.position, out _), origin)).ToArray();
             }
         }
 
@@ -370,7 +374,7 @@ namespace Racer
 
             if (road && !float.IsNaN(r.RecoveryStart))
             {
-                float advance = road.Relative(road.Project(position, out _), r.RecoveryStart);
+                float advance = road.Relative(Station(r, position, out _), r.RecoveryStart);
                 if (advance < 8 || advance > road.Length * .5f)
                 {
                     r.Previous = position;
@@ -383,7 +387,7 @@ namespace Racer
 
             float lateral = 0;
             if (road)
-                r.RoadPosition = road.Relative(road.Project(position, out lateral), origin);
+                r.RoadPosition = road.Relative(Station(r, position, out lateral), origin);
             if (road && p.LapActive && p.LapValid && Branches != null)
             {
                 if (!r.Branch.Route)
@@ -477,7 +481,12 @@ namespace Racer
                 if (i == 0 && p.LapActive && !r.FinishArmed)
                     continue;
                 if (p.LapActive && p.NextGate > 0 && (i == 0 || i > p.NextGate))
+                {
+                    // 0.115 Leviathan: the lake and mountain gates are not skipped by crossing a later one (turning past J would skip the
+                    // mountain and its jump): the later gate does not count until they are passed
+                    if (SkipsMandatory(p.NextGate, i == 0 ? gates.Length : i)) { if (player) Flow?.Notify("Leviathan: CP " + p.NextGate + " is still to come — round the lake and over the mountain", 4); continue; }
                     ResolveMisses(r, i == 0 ? gates.Length : i, i==0?"finish reconciliation":"later gate crossed");
+                }
                 int expected = p.NextGate;
                 int beforeLaps=p.CompletedLaps;bool beforeActive=p.LapActive;
                 double crossTime=r.PreviousTime + (now - r.PreviousTime) * fraction;
@@ -525,6 +534,19 @@ namespace Racer
             }
         }
 
+        bool SkipsMandatory(int from, int until) { if (!Leviathan) return false; for (int g = from; g < until; g++) if (Leviathan.Mandatory(g)) return true; return false; }
+        public float GateStation(int i) => gateS[i];
+        // 0.115: the station of a racer on the line. A line that passes the same ground twice (Leviathan) is followed from where the racer
+        // was (its recovery tracking, else the last station); any other course as before (the nearest point).
+        float Station(RacerState r, Vector3 position, out float lateral)
+        {
+            if (!road.tracked) return road.Project(position, out lateral);
+            var respawn = r.Car ? r.Car.GetComponent<VehicleRespawn>() : null;
+            float hint = respawn && respawn.Tracking ? respawn.TrackingStation : r.TrackedStation;
+            float s = float.IsNaN(hint) ? road.Project(position, out lateral) : road.ProjectNear(position, hint, 60, out lateral);
+            if (lateral > 30) s = road.Project(position, out lateral);
+            r.TrackedStation = s; return s;
+        }
         void Trace(RacerState r,string reason,Vector3 position,double now)
         {
             if(System.Array.IndexOf(System.Environment.GetCommandLineArgs(),"-raceTrace")>=0)

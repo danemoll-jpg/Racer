@@ -1,0 +1,7 @@
+LeviathanForward in MountainLoop: 3667 points, 324 seated, 0 not found
+length 6823.6 m, no-ground points 0, solids crossed 2
+gate Leviathan CP 3 (lake south shore) seated at 77.67 on Memory loop - north is +Z/Ground_640_240
+gate Leviathan CP 4 (Climbing Ridge Cut) seated at 118.36 on CR133 structural mountain roads/Ground_CR133 mountain driving surface
+gate Leviathan CP 9 (lake east side) seated at 80.67 on CR133 structural mountain roads/Ground_CR133 mountain driving surface
+s 677.8 SOLID at (491.05, 88.67, -54.41) (lift 0.7, side +1 m, normal 0.00): Anderson wooded frontage screening/Anderson frontage trunk
+s 5299.7 SOLID at (-625.60, 9.46, -53.47) (lift 1.4, side +1 m, normal -0.13): Phase 4 - Connector Jump/Takeoff - 40m x 6m, 6.2m rise

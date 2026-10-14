@@ -13,7 +13,7 @@ namespace Racer
         InputAction areaPrevAction,areaNextAction,mapToggle,panAction,zoomOutAction,zoomInAction,selectAction,routeAction,waypointAction,centerAction,prevAction,nextAction,helpAction,backAction,navigateAction,trackAction,clearWaypointAction;
         // 0.76: the routes of any courses chosen under Track are drawn over the one world, several at once, remembered with
         // the map data. Choosing never loads a scene, changes the world or moves the player. During a race: that race only.
-        string CurrentScene=>race.Flow.InRoamWorld?RacePlaylists.Scenes[Mathf.Clamp(RaceFlow.RoamCourse,0,RacePlaylists.Scenes.Length-1)]:gameObject.scene.name;
+        string CurrentScene=>race.Flow.InRoamWorld?RacePlaylists.Scenes[Mathf.Clamp(RaceFlow.RoamCourse,0,RacePlaylists.Scenes.Length-1)]:LeviathanCourse.KeyOf(gameObject.scene);
         List<string> ShownRoutes{get{if(!data.routesChosen)data.routes=new List<string>{CurrentScene};return data.routes??=new List<string>();}}
         List<CoursePreviewCatalog.Course> RouteCourses=>race.Flow.TrackBrowsingLocked?null:CoursePreviewCatalog.Courses.Where(c=>ShownRoutes.Contains(c.scene)).ToList();
         string RouteTitle{get{if(race.Flow.TrackBrowsingLocked)return race.courseName+"\nCurrent race\n\n";var shown=RouteCourses;return (shown.Count==0?"No race route chosen":shown.Count==1?RacePlaylists.Titles[Array.IndexOf(RacePlaylists.Scenes,shown[0].scene)]:shown.Count+" race routes")+"\nChoose routes with Track\n\n";}}

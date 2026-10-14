@@ -445,12 +445,12 @@ namespace Racer
         System.Collections.IEnumerator RestartBehindLoadingScreen()
         {
             if(restarting)yield break;restarting=true;
-            var (what,detail,course)=LoadingText(gameObject.scene.name,false);
+            var (what,detail,course)=LoadingText(RacePlaylists.Scenes.ElementAtOrDefault(RacePlaylists.CourseOf(gameObject.scene))??gameObject.scene.name,false);
             LoadingScreen.Cover(what,detail,course);
             yield return null;yield return null; // the screen is drawn before the work starts
             restarting=false;Race.RestartRace();LoadingScreen.Started();
         }
-        public void StartFreeRoam(){if(!SplitScreen.Active)RecentVehicles.Drove(1,PlayerVehicleId); /* 0.110 Part D */ int course=System.Array.IndexOf(RacePlaylists.Scenes,gameObject.scene.name);if(!InRoamWorld&&course>=0){RoamCourse=course;LoadScene(RoamScene);return;}SessionStartedAt=Time.unscaledTime;RoamMenu=false;callers.Clear();menus.ResetPages();Race.FreeRoam=true;SetGateVisibility(false);Click();Race.RestartRace();}
+        public void StartFreeRoam(){if(!SplitScreen.Active)RecentVehicles.Drove(1,PlayerVehicleId); /* 0.110 Part D */ int course=RacePlaylists.CourseOf(gameObject.scene);if(!InRoamWorld&&course>=0){RoamCourse=course;LoadScene(RoamScene);return;}SessionStartedAt=Time.unscaledTime;RoamMenu=false;callers.Clear();menus.ResetPages();Race.FreeRoam=true;SetGateVisibility(false);Click();Race.RestartRace();}
         public void BeginRoaming(){HiddenPolice.Attach(this);Hints.FreeRoam();DebugMovementUsed=false;attempt=null;CountdownRemaining=0;LapRank=RaceRank=0;NewLapRecord=NewRaceRecord=false;LockVehicle(false);Race.GetComponent<WrongWayGuidance>()?.Clear();SetStage(Stage.Racing);}
         void SetGateVisibility(bool visible){foreach(var gate in Race.gates)foreach(var renderer in gate.GetComponentsInChildren<Renderer>(true))renderer.enabled=visible;}
         // 0.90 Part D: it cannot be resumed while a player's controller is missing. 0.91 Part B: the pause menu answers
@@ -466,7 +466,7 @@ namespace Racer
         bool CampaignAllows()
         {
             if(CampaignRun.Active!=null||SplitScreen.Active)return true; // 0.90: split-screen has everything unlocked
-            int course=InRoamWorld?RoamCourse:System.Array.IndexOf(RacePlaylists.Scenes,gameObject.scene.name);
+            int course=InRoamWorld?RoamCourse:RacePlaylists.CourseOf(gameObject.scene);
             if(course>=0&&!Campaign.CourseOpen(course)){Notify("LOCKED: "+RacePlaylists.Titles[course]+" — "+Campaign.CourseHowTo(course),6);menus.Show();return false;}
             var configuration=Race.vehicle.GetComponent<VehicleConfiguration>();string allowed=Race.PlayerVehicle(configuration.profileId);
             if(allowed!=configuration.profileId){configuration.Apply(allowed);configuration.SetBodyColor(SelectedColor);}

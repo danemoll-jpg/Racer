@@ -1,0 +1,6 @@
+screen=1920x1080 kind=ai113 version=0.114.0-review1 park=on
+race quick:4:tourer+moto+atv:1:1, 1 runs, forced shortcuts [], chapter 4 unvalidated allowed []
+== quick race MountainLoop rivals tourer+moto+atv laps 1 difficulty 1
+  run 1 atv        99.9 resets 0 (first 10 s: 0) shortcuts [Summit Traverse lap 1]
+  run 1 moto       107.5 resets 0 (first 10 s: 0) shortcuts []
+  run 1 tourer     116.5 resets 0 (first 10 s: 0) shortcuts []

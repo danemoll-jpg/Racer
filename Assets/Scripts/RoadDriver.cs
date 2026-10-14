@@ -31,6 +31,7 @@ namespace Racer
         ForestLayout forestLayout;
         BackyardForwardCourse backyard;
         MountainFlights mountainFlights;
+        LeviathanSwap leviathan; float trackS = float.NaN; // 0.115
         WoodlandRoute plannedBranch, progressBranch;
         float branchBest, branchStuck;
         float routeStuck, progressStation;
@@ -49,6 +50,7 @@ namespace Racer
             Race = race;
             backyard=race.GetComponent<BackyardForwardCourse>();
             mountainFlights=race.GetComponent<MountainFlights>();
+            leviathan=race.Leviathan;
             // Mountain scenes retain the free-roam Forest layout. Its station numbers
             // belong to a different road and must not brake these mandatory flights.
             forestLayout=race.Forest&&!mountainFlights?FindAnyObjectByType<ForestLayout>():null;
@@ -57,7 +59,7 @@ namespace Racer
             Direction = direction;
             pace = variation;
             lane = racer ? 1.7f : 2.6f * direction;
-            if(racer&&mountainFlights)lane=car==race.vehicle?-1.5f:new[]{-4.5f,1.5f,4.5f}[Mathf.Clamp(race.Drivers.Count,0,2)];
+            if(racer&&mountainFlights&&!leviathan)lane=car==race.vehicle?-1.5f:new[]{-4.5f,1.5f,4.5f}[Mathf.Clamp(race.Drivers.Count,0,2)];
             Variation.Initialize(DriverVariation.Seed,race.Drivers.Count+Mathf.RoundToInt(variation*1000));
             Shortcuts.Initialize(System.Guid.NewGuid().GetHashCode());
         }
@@ -72,7 +74,7 @@ namespace Racer
             transform.SetPositionAndRotation(Car.Body.position, Car.Body.rotation);
             Car.Body.linearVelocity = Car.Body.angularVelocity = Vector3.zero;
             Car.ClearSteering();
-            safeS = s;
+            safeS = s; trackS = float.NaN;
             if(racing)Car.GetComponent<VehicleRespawn>().SeedCoursePosition(p);
             Racer?.SampleOrigin(Time.timeAsDouble);
         }
@@ -103,8 +105,10 @@ namespace Racer
                 return;
             }
 
-            float s = DriveRoad.Project(Car.Body.position, out float lateral);
-            float driveHalfWidth=racing&&mountainFlights?6:DriveRoad.HalfWidth(s);
+            float lateral; float s = racing && DriveRoad.tracked ? Tracked(out lateral) : DriveRoad.Project(Car.Body.position, out lateral);
+            // 0.115 Leviathan: the Mountain Loop's AI rules on its mountain part only (Mtn); the Street Loop's elsewhere
+            bool Mtn(float at)=>mountainFlights&&(!leviathan||leviathan.Mountain(at));
+            float driveHalfWidth=racing&&Mtn(s)?6:DriveRoad.HalfWidth(s);
             if(HighwayTraffic && (DriveRoad.openHighway?(Direction>0?s>DriveRoad.Length-75:s<75):(Direction>0?s>4680 || s<3650:s<3650 || s>4680)))
             { TryRecycleHighway(); s=DriveRoad.Project(Car.Body.position,out lateral); }
             if(HighwayTraffic&&DriveRoad.openHighway&&(Direction>0?s>DriveRoad.Length-35:s<35)){Car.Simulate(0,1,0,Time.fixedDeltaTime);return;}
@@ -114,6 +118,7 @@ namespace Racer
             float look = Mathf.Clamp(7 + speed * .48f, 8, 25);
             float desiredLane = racing ? Mathf.Lerp(lane,2.05f,DriveRoad.HighwayBlend(s)) : DriveRoad.TrafficLane(s,Direction,pace>.955f);
             if(racing&&forestLayout)desiredLane=Mathf.Sign(lane)*.55f;
+            if(racing&&leviathan&&leviathan.Narrow(s))desiredLane=Mathf.Sign(lane)*.4f; // 0.115: the stem at J is narrow (trees): keep to its middle
             if(finished) { finishRunoff += speed*Time.fixedDeltaTime; desiredLane=4.7f; }
             // The connector ramp occupies the left six metres; both traffic directions use its ground bypass.
             bool bypass = DriveRoad.InBypass(s);
@@ -131,7 +136,7 @@ namespace Racer
                         float relativeDirection=Race.reverseCourse?Vector3.Dot(other.transform.forward,tangent):other.Direction;
                         if (relativeDirection < 0 && along > -10 && along < 110)
                             oncoming = true;
-                        if (relativeDirection > 0 && along > 4 && along < 50 && side < (mountainFlights?1.8f:3.5f) && other.Car.ForwardSpeed < speed + 2)
+                        if (relativeDirection > 0 && along > 4 && along < 50 && side < (Mtn(s)?1.8f:3.5f) && other.Car.ForwardSpeed < speed + 2)
                             slowerAhead = true;
                     }
 
@@ -139,20 +144,20 @@ namespace Racer
                 {
                     var delta = Race.vehicle.transform.position - transform.position;
                     float along = Vector3.Dot(delta, tangent);
-                    if (along > 3 && along < 50 && Mathf.Abs(Vector3.Dot(delta, Vector3.Cross(Vector3.up, tangent))) < (mountainFlights?1.8f:3.5f) && Race.vehicle.ForwardSpeed < speed + 2)
+                    if (along > 3 && along < 50 && Mathf.Abs(Vector3.Dot(delta, Vector3.Cross(Vector3.up, tangent))) < (Mtn(s)?1.8f:3.5f) && Race.vehicle.ForwardSpeed < speed + 2)
                         slowerAhead = true;
                 }
 
                 if (slowerAhead && (!forestLayout || DriveRoad.HalfWidth(s)>=4.9f) && (!oncoming || DriveRoad.HighwayBlend(s)>.95f))
                     desiredLane = DriveRoad.HighwayBlend(s)>.95f ? 6.15f : -2.3f;
-                if(mountainFlights&&slowerAhead){desiredLane=lane;float nearest=100;foreach(float option in new[]{-4.5f,-1.5f,1.5f,4.5f})if(Mathf.Abs(option-lane)>1&&Mathf.Abs(option-lane)<nearest&&LaneClear(s,option,speed)){desiredLane=option;nearest=Mathf.Abs(option-lane);}}
+                if(Mtn(s)&&slowerAhead){desiredLane=lane;float nearest=100;foreach(float option in new[]{-4.5f,-1.5f,1.5f,4.5f})if(Mathf.Abs(option-lane)>1&&Mathf.Abs(option-lane)<nearest&&LaneClear(s,option,speed)){desiredLane=option;nearest=Mathf.Abs(option-lane);}}
                 // Commit to a pass only when its destination lane has room alongside and ahead.
                 float currentLane=Vector3.Dot(Car.Body.position-DriveRoad.At(s,out _),Vector3.Cross(Vector3.up,tangent).normalized);
                 if(Mathf.Abs(desiredLane-currentLane)>1 && !LaneClear(s,desiredLane,speed))
                     desiredLane=Mathf.Clamp(currentLane,-driveHalfWidth+1.2f,driveHalfWidth-1.2f);
             }
 
-            if(plannedBranch && ((s>plannedBranch.exitRoad+15&&(!mountainFlights||Racer?.Branch.Route==null)&&!(plannedBranch.GetComponent<ReverseShortcutGuidance>()&&Racer?.Branch.Route==plannedBranch)) || (plannedBranch.ProjectFor(true,Car.Body.position,out float exitLateral)>=plannedBranch.LengthFor(true)-7 && exitLateral<plannedBranch.halfWidth+7 && Racer?.Branch.Route==null))) plannedBranch=null;
+            if(plannedBranch && ((s>plannedBranch.exitRoad+15&&(!Mtn(s)||Racer?.Branch.Route==null)&&!(plannedBranch.GetComponent<ReverseShortcutGuidance>()&&Racer?.Branch.Route==plannedBranch)) || (plannedBranch.ProjectFor(true,Car.Body.position,out float exitLateral)>=plannedBranch.LengthFor(true)-7 && exitLateral<plannedBranch.halfWidth+7 && Racer?.Branch.Route==null))) plannedBranch=null;
             DecideShortcut(s);
             var activeBranch=plannedBranch && Racer?.Branch.Route==plannedBranch ? plannedBranch : null;
             if(!activeBranch && plannedBranch && s>=plannedBranch.entryRoad-((Race.reverseCourse||Race.courseId.StartsWith("mountain-"))?look:2)) activeBranch=plannedBranch;
@@ -233,12 +238,13 @@ namespace Racer
             // These exposed climbing connectors need a settled approach. The mandatory
             // run-ups retain full acceleration; this is AI pedal planning, not a change
             // to the player's vehicle or to takeoff forces.
-            if(racing&&mountainFlights&&!committedMountain){var next=mountainFlights.Ahead(DriveRoad,s,140);TargetSpeed=Mathf.Min(TargetSpeed,next!=null&&next.aiEntrySpeed>0?next.aiEntrySpeed:24);}
+            if(racing&&Mtn(s)&&!committedMountain){var next=mountainFlights.Ahead(DriveRoad,s,140);TargetSpeed=Mathf.Min(TargetSpeed,next!=null&&next.aiEntrySpeed>0?next.aiEntrySpeed:24);}
             // 0.72: per-flight take-off limit (a faster take-off overshoots onto the wrong deck).
             if(committedMountain){var flight=mountainFlights.At(DriveRoad,s);if(flight.aiTakeoffSpeed>0)TargetSpeed=Mathf.Min(TargetSpeed,flight.aiTakeoffSpeed);
                 // South Face: the run-up is driven at full throttle (no pace or consistency lift), or slower riders fall short.
                 if(flight.aiEntrySpeed>0)TargetSpeed=Car.topSpeed;}
             if(departing)TargetSpeed=Mathf.Min(TargetSpeed,26);
+            if(racing&&leviathan&&leviathan.Narrow(s))TargetSpeed=Mathf.Min(TargetSpeed,12); // 0.115: the stem at J between trees, both ways, and out of its hairpin
             if(finished) TargetSpeed=12;
             // Consistency costs time through early lifting, never extra vehicle capability.
             if (racing && skill < 2 && !(committedMountain&&mountainFlights.At(DriveRoad,s).aiEntrySpeed>0)) TargetSpeed *= 1 - (skill==0?.07f:.012f)*(.5f+.5f*Mathf.Sin(Time.time*.19f+pace*31));
@@ -263,7 +269,7 @@ namespace Racer
                 float hillSpeed = Mathf.Abs(f.y) > .14f ? (activeBranch && Race.reverseCourse ? activeBranch.SpeedAt(branchS+d) : racing?hillTargets[skill]:24) : Car.topSpeed;
                 // New mountain descent: brake before the falling bend instead of flying
                 // outside its post-rejoin checkpoint (observed in the first course run).
-                if(racing&&Race.courseId.StartsWith("mountain-")&&f.y<-.18f)hillSpeed=Mathf.Min(hillSpeed,18);
+                if(racing&&(Race.courseId.StartsWith("mountain-")||leviathan&&leviathan.Mountain(s+Direction*d))&&f.y<-.18f)hillSpeed=Mathf.Min(hillSpeed,18);
                 // Without downforce, a convex crest cannot support v²/r greater than gravity.
                 float crest=Mathf.Max(0,Mathf.Asin(f.y)-Mathf.Asin(next.y))/8;
                 bool mountainFlight=racing&&!activeBranch&&mountainFlights&&mountainFlights.Committed(DriveRoad,s+Direction*d);
@@ -343,6 +349,16 @@ namespace Racer
             Car.Simulate(throttle, brake, steering, Time.fixedDeltaTime);
         }
 
+        // 0.115: the station on a tracked line (Leviathan: it passes the stem and the lake shore twice), followed from the last one (or this
+        // vehicle's recovery tracking after a placement); far off the line (30 m), the nearest point again
+        float Tracked(out float lateral)
+        {
+            var p=Car.Body.position;var recovery=Car.GetComponent<VehicleRespawn>();
+            float hint=!float.IsNaN(trackS)?trackS:recovery&&recovery.Tracking?recovery.TrackingStation:float.NaN;
+            float s=float.IsNaN(hint)?DriveRoad.Project(p,out lateral):DriveRoad.ProjectNear(p,hint,40,out lateral);
+            if(lateral>30)s=DriveRoad.Project(p,out lateral);
+            trackS=s;return s;
+        }
         void DecideShortcut(float s)
         {
             if(racing && Racer!=null && !Racer.Progress.Finished && !Racer.Dnf && Direction==1 && Racer.Progress.LapActive && Racer.Progress.LapValid)
@@ -353,7 +369,7 @@ namespace Racer
                     foreach(var branch in Race.Branches)
                         if(branch && branch.isActiveAndEnabled && branch.gameObject.scene==Race.gameObject.scene && (campaignCuts?CampaignRun.RivalMayTake(branch):branch.aiValidated||ShortcutStrategy.IsForced(branch)) && CarAccess.Open(branch,Car) && s>=branch.entryRoad-55 && s<branch.entryRoad-5 && Racer.Branch.Route==null && !Shortcuts.Decided(branch,Racer.Progress.CompletedLaps))
                         {
-                            int expected=System.Array.FindIndex(Race.gates,g=>DriveRoad.Relative(DriveRoad.Project(g.transform.position,out _),Race.Origin)>DriveRoad.Relative(branch.entryRoad,Race.Origin));
+                            int expected=-1;for(int g=0;g<Race.gates.Length;g++)if(Race.GateStation(g)>DriveRoad.Relative(branch.entryRoad,Race.Origin)){expected=g;break;} // the race's own gate stations (the same projection; 0.115: each gate at its own pass on a tracked line)
                             if(expected<=0||Racer.Progress.NextGate<expected||Racer.Progress.NextGate>expected+1)continue;
                             var order=Race.Ordered(false);int place=order.IndexOf(Racer);
                             float rank=order.Count>1?(float)place/(order.Count-1):.5f;
@@ -418,7 +434,7 @@ namespace Racer
                 var recovery=Car.GetComponent<VehicleRespawn>();
                 nextRecovery=Time.time+1;
                 if(!recovery.TryRecoverLocal(true)) return;
-                stalled=branchStuck=routeStuck=rejoinStuck=0;trackingRejoin=false;progressStation=DriveRoad.Project(Car.Body.position,out _);progressSample=true;branchBest=Racer?.Branch.Position??0; nextRecovery=Time.time+4; RecoveryCount++;
+                stalled=branchStuck=routeStuck=rejoinStuck=0;trackingRejoin=false;trackS=float.NaN;progressStation=DriveRoad.tracked&&recovery.Tracking?recovery.TrackingStation:DriveRoad.Project(Car.Body.position,out _);progressSample=true;branchBest=Racer?.Branch.Position??0; nextRecovery=Time.time+4; RecoveryCount++;
                 recoveryDepartureStation=progressStation;recoveryDepartureUntil=Time.time+8;
                 var support=DriveRoad.At(progressStation,out var departureForward);departureLane=Vector3.Dot(Car.Body.position-support,Vector3.Cross(Vector3.up,departureForward).normalized);
                 if(Racer==null || !Racer.Branch.Route)lane=forestLayout?(lane>0?-.55f:.55f):(lane>0?-1.7f:1.7f);
@@ -461,7 +477,7 @@ namespace Racer
             {
                 Racer.Recoveries++;
                 Racer.Travel = 0;
-                Racer.RecoveryStart = DriveRoad.Project(Car.Body.position, out _);
+                Racer.RecoveryStart = DriveRoad.tracked ? safeS : DriveRoad.Project(Car.Body.position, out _);
             }
         }
         void TryRecycleHighway()

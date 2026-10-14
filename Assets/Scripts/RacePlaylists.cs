@@ -7,9 +7,12 @@ namespace Racer
 {
     public sealed class RacePlaylists
     {
-        public static readonly string[] Scenes={"StreetLoopGreybox","StreetLoopReverse","LakeWoods","ForestLoopReverse","MountainLoop","MountainLoopReverse","DansBackyardForward","DansBackyardReverse"};
+        // 0.115: course keys. Each is its scene's name, except Leviathan (8, 9), raced in the Mountain Loop scenes (LeviathanCourse).
+        public static readonly string[] Scenes={"StreetLoopGreybox","StreetLoopReverse","LakeWoods","ForestLoopReverse","MountainLoop","MountainLoopReverse","DansBackyardForward","DansBackyardReverse",LeviathanCourse.Forward,LeviathanCourse.Reverse};
         // Serialized playlist indices and scene identities stay stable; only presentation is sorted.
-        public static readonly string[] Titles={"Street Loop - Forward","Street Loop - Reverse","Forest Loop - Forward","Forest Loop - Reverse","Mountain Loop - Forward","Mountain Loop - Reverse","Dan's Backyard Loop - Forward","Dan's Backyard Loop - Reverse"};
+        public static readonly string[] Titles={"Street Loop - Forward","Street Loop - Reverse","Forest Loop - Forward","Forest Loop - Reverse","Mountain Loop - Forward","Mountain Loop - Reverse","Dan's Backyard Loop - Forward","Dan's Backyard Loop - Reverse","Leviathan - Forward","Leviathan - Reverse"};
+        // the course raced in a scene (its key: Leviathan when selected there), -1 for none
+        public static int CourseOf(UnityEngine.SceneManagement.Scene scene)=>Array.IndexOf(Scenes,LeviathanCourse.KeyOf(scene));
         public enum TrackDifficulty { Unassigned, Easy, Medium, Hard }
         public static readonly TrackDifficulty[] Difficulties=new TrackDifficulty[Scenes.Length];
         public static IEnumerable<int> DisplayOrder => Enumerable.Range(0,Scenes.Length)
@@ -28,7 +31,7 @@ namespace Racer
         public static string PositionLabel=>Active==null?"":Active.name+" · "+(Position+1)+" / "+Active.entries.Count;
         public static bool HasNext=>Active!=null&&Position+1<Active.entries.Count;
         public RacePlaylists(string root){path=Path.Combine(root,"race-playlists-v1.json");try{if(File.Exists(path)){var data=JsonUtility.FromJson<Library>(File.ReadAllText(path));if(data==null||data.version!=1||data.playlists==null||data.playlists.Any(d=>!Valid(d)))throw new IOException("Invalid playlist file retained");library=data;}}catch(Exception e){readFailed=true;Error=e.Message;}}
-        static bool Valid(Definition d)=>d!=null&&!string.IsNullOrWhiteSpace(d.name)&&d.entries!=null&&d.entries.All(e=>e!=null&&e.course>=0&&e.course<8&&e.laps>=1&&e.laps<=5);
+        static bool Valid(Definition d)=>d!=null&&!string.IsNullOrWhiteSpace(d.name)&&d.entries!=null&&d.entries.All(e=>e!=null&&e.course>=0&&e.course<Scenes.Length&&e.laps>=1&&e.laps<=5);
         public bool Save(){if(readFailed)return false;try{if(library.playlists.Any(d=>!Valid(d)))throw new IOException("Choose a name and legal finite entries");AtomicSave.Write(path,JsonUtility.ToJson(library,true));Error=null;return true;}catch(Exception e){Error=e.Message;return false;}}
         public static Definition Clone(Definition d)=>JsonUtility.FromJson<Definition>(JsonUtility.ToJson(d));
         // A failed write never replaces the loaded saved snapshot or clears the UI draft.

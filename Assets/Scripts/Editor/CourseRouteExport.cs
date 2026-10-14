@@ -22,6 +22,8 @@ namespace Racer.Editor
             var original = EditorSceneManager.GetActiveScene().path; var courses = new List<CoursePreviewCatalog.Course>();
             foreach (string name in RacePlaylists.Scenes)
             {
+                // 0.115: Leviathan is raced in a Mountain Loop scene from its own course file (LeviathanCourse), not the scene's course
+                if (LeviathanCourse.Is(name)) { courses.Add(Leviathan(name)); continue; }
                 var scene = EditorSceneManager.OpenScene("Assets/Scenes/" + name + ".unity", OpenSceneMode.Single);
                 var roots = scene.GetRootGameObjects(); var race = roots.SelectMany(g => g.GetComponentsInChildren<RaceDirector>(true)).Single();
                 var respawn = race.vehicle.GetComponent<VehicleRespawn>(); var start = respawn && respawn.spawnPoint ? respawn.spawnPoint : race.vehicle.transform;
@@ -37,5 +39,16 @@ namespace Racer.Editor
             Debug.Log("Course routes exported: " + string.Join(", ", courses.Select(c => $"{c.scene} main={c.main.Length} branches={c.branches.Length} gates={c.gates.Length} forest={c.forest} raceOnly={c.raceOnly}")));
         }
         public static void Run() { Export(); EditorApplication.Exit(0); }
+        static CoursePreviewCatalog.Course Leviathan(string key)
+        {
+            var d = LeviathanCourse.Load(key); if (d == null) throw new System.Exception("Leviathan course data missing: " + key);
+            Vector3[] V(float[] f) { var v = new Vector3[f.Length / 3]; for (int i = 0; i < v.Length; i++) v[i] = new Vector3(f[3 * i], f[3 * i + 1], f[3 * i + 2]); return v; }
+            return new CoursePreviewCatalog.Course
+            {
+                scene = key, id = d.id, main = d.Points, gates = d.gates.Select(g => new Vector3(g.pos[0], g.pos[1], g.pos[2])).ToArray(),
+                branches = (d.branches ?? new LeviathanCourse.Branch[0]).Select(b => new CoursePreviewCatalog.Path { points = V(b.pts), undergroundStart = b.undergroundStart, undergroundEnd = b.undergroundEnd }).ToArray(),
+                start = new Vector3(d.spawn[0], d.spawn[1], d.spawn[2]), startYaw = d.spawnYaw, forest = false, raceOnly = true // its mountain part is Mountain Loop race geometry (not in FreeRoamWorld)
+            };
+        }
     }
 }

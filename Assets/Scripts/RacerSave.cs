@@ -49,7 +49,6 @@ namespace Racer
             public bool classicScenery = false;
             // 0.79: the minimap in Free Roam (J / B toggles it; false = shown, the default).
             public bool roamMinimapHidden = false;
-            public bool showTrackProposals = true; // 0.114 Part B: the combined-course proposals marked in Free Roam (TrackProposals)
             // 0.89: Settings > Gameplay "Unlock everything (testing)": every course and vehicle in Race and Free Roam,
             // whatever the campaign has reached; the campaign save is not written while it is on.
             public bool unlockEverything = false;

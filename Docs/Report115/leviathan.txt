@@ -1,0 +1,75 @@
+Forward: J (472.32794189453125, 85.49067687988281, -22.743650436401367) on the street at s 642.2 (0.00 m)
+  lake meets CR110 at lake s 259.2
+  CR110 from s 0.3 (1.98 m) to s 62.8 (0.23 m: Climbing Ridge Cut start)
+  Climbing Ridge Cut ends on CR117 at s 1406.6 (1.61 m; its exitRoad 1406.6)
+  lake east side reached at lake s 349.9 (1.07 m)
+  Leviathan Forward: 3667 points, lap 6831.5 m
+  street past J: Street Loop s + 2157.5 (the spur and the hairpin)
+  gate  0 Leviathan START FINISH                   s    38.5 (1.47 m from the line)
+  gate  1 Leviathan CP 1                           s   270.4 (1.46 m from the line)
+  gate  2 Leviathan CP 2                           s   501.5 (1.50 m from the line)
+  gate  3 Leviathan CP 3 (lake south shore)        s   815.0 (1.12 m from the line) mandatory
+  gate  4 Leviathan CP 4 (Climbing Ridge Cut)      s  1114.5 (1.47 m from the line) mandatory
+  gate  5 Leviathan CP 5 (CR117 CP 3)              s  1307.6 (1.59 m from the line) mandatory reuses CR117 selected-direction guidance/CR117 CP 3
+  gate  6 Leviathan CP 6 (CR117 CP 4)              s  1438.9 (1.61 m from the line) mandatory reuses CR117 selected-direction guidance/CR117 CP 4
+  gate  7 Leviathan CP 7 (CR117 CP 5)              s  1657.9 (1.60 m from the line) mandatory reuses CR117 selected-direction guidance/CR117 CP 5
+  gate  8 Leviathan CP 8 (CR117 CP 6)              s  2470.0 (1.60 m from the line) mandatory reuses CR117 selected-direction guidance/CR117 CP 6
+  gate  9 Leviathan CP 9 (lake east side)          s  2530.8 (1.50 m from the line) mandatory
+  gate 10 Leviathan CP 10                          s  2889.9 (1.49 m from the line)
+  gate 11 Leviathan CP 11                          s  3121.8 (1.50 m from the line)
+  gate 12 Leviathan CP 12                          s  3354.0 (1.50 m from the line)
+  gate 13 Leviathan CP 13                          s  3837.7 (1.60 m from the line)
+  gate 14 Leviathan CP 14                          s  4046.7 (1.49 m from the line)
+  gate 15 Leviathan CP 15                          s  4487.3 (1.57 m from the line)
+  gate 16 Leviathan CP 16                          s  4702.6 (1.60 m from the line)
+  gate 17 Leviathan CP 17                          s  4987.6 (1.60 m from the line)
+  gate 18 Leviathan CP 18                          s  5237.6 (1.60 m from the line)
+  gate 19 Leviathan CP 19                          s  5433.0 (1.50 m from the line)
+  gate 20 Leviathan CP 20                          s  5665.0 (1.50 m from the line)
+  gate 21 Leviathan CP 21                          s  5896.0 (1.50 m from the line)
+  gate 22 Leviathan CP 22                          s  6127.6 (1.50 m from the line)
+  gate 23 Leviathan CP 23                          s  6358.0 (1.50 m from the line)
+  gate 24 Leviathan CP 24                          s  6589.6 (1.50 m from the line)
+  shortcut Creek Leap: entry 3057.5 exit 3657.5 (its ends project to 3057.7 / 3657.7), bypasses [11, 12] (Leviathan CP 11, Leviathan CP 12)
+  shortcut Existing Southwest Cut: entry 4761.4 exit 4912.6 (its ends project to 4761.5 / 4912.7), bypasses [] ()
+  shortcut Fox Gully: entry 3737.5 exit 4307.5 (its ends project to 3737.7 / 4307.6), bypasses [13, 14] (Leviathan CP 13, Leviathan CP 14)
+  shortcut Pine Ridge: entry 4377.5 exit 5157.5 (its ends project to 4377.6 / 5157.6), bypasses [15, 16, 17] (Leviathan CP 15, Leviathan CP 16, Leviathan CP 17)
+  flight Homeward Summit Flight: CR117 1908.3-2488.3 -> Leviathan 1768.6-2348.4 (projection 0.01 / 0.00 m)
+  narrow (stem) spans: [[619, 759], [2726, 2841]]
+  mountain span 808.3-2500.9, bypass (trailer lane) 5157.1-5432.1, length 6831.5 m
+  wrote Assets/Resources/Leviathan/LeviathanForward.json
+Reverse: J (472.32794189453125, 85.49067687988281, -22.743650436401367) on the Street Loop Reverse at s 4032.1 (0.00 m)
+  north shore left at lake s 479.1 (1.76 m) for the north-east strip (53 points)
+  CR117 joined at s 84.1 (0.69 m); Downhill Ridge Cut starts on CR117 at s 1492.7 (0.07 m; entryRoad 1488.6)
+  Downhill Ridge Cut ends on CR117 at s 12.4 (0.00 m); the start stretch is left at s 57.1
+  Leviathan Reverse: 3900 points, lap 7163.0 m
+  first street gate past J: Phase 3 - Race Systems/Street Loop Reverse CP 14
+  gate  0 Leviathan Reverse START FINISH                   s  7124.1 (1.56 m from the line)
+  gate  1 Leviathan Reverse CP 1                           s   241.9 (1.60 m from the line)
+  gate  2 Leviathan Reverse CP 2                           s   473.6 (1.60 m from the line)
+  gate  3 Leviathan Reverse CP 3                           s   703.9 (1.60 m from the line)
+  gate  4 Leviathan Reverse CP 4                           s   935.5 (1.60 m from the line)
+  gate  5 Leviathan Reverse CP 5                           s  1166.5 (1.60 m from the line)
+  gate  6 Leviathan Reverse CP 6                           s  1689.8 (1.60 m from the line)
+  gate  7 Leviathan Reverse CP 7                           s  1843.9 (1.60 m from the line)
+  gate  8 Leviathan Reverse CP 8                           s  2128.9 (1.60 m from the line)
+  gate  9 Leviathan Reverse CP 9                           s  2344.5 (1.57 m from the line)
+  gate 10 Leviathan Reverse CP 10                          s  2785.1 (1.59 m from the line)
+  gate 11 Leviathan Reverse CP 11                          s  2993.8 (1.60 m from the line)
+  gate 12 Leviathan Reverse CP 12                          s  3477.5 (1.60 m from the line)
+  gate 13 Leviathan Reverse CP 13                          s  3709.8 (1.60 m from the line)
+  gate 14 Leviathan Reverse CP 14 (lake north shore)       s  4242.0 (1.50 m from the line) mandatory
+  gate 15 Leviathan Reverse CP 15 (CR117 CP 1)             s  4738.3 (0.53 m from the line) mandatory reuses CR117 selected-direction guidance/CR117 CP 1
+  gate 16 Leviathan Reverse CP 16 (CR117 CP 2)             s  5049.6 (1.60 m from the line) mandatory reuses CR117 selected-direction guidance/CR117 CP 2
+  gate 17 Leviathan Reverse CP 17 (CR117 CP 3)             s  5786.4 (1.60 m from the line) mandatory reuses CR117 selected-direction guidance/CR117 CP 3
+  gate 18 Leviathan Reverse CP 18 (Downhill Ridge Cut)     s  5884.3 (1.46 m from the line) mandatory
+  gate 19 Leviathan Reverse CP 19 (lake north-east strip)  s  6145.9 (1.50 m from the line) mandatory
+  gate 20 Leviathan Reverse CP 20                          s  6532.5 (1.57 m from the line)
+  gate 21 Leviathan Reverse CP 21                          s  6661.4 (1.60 m from the line)
+  gate 22 Leviathan Reverse CP 22                          s  6892.3 (1.56 m from the line)
+  flight South Face Summit Flight: CR117 755.9-1260.8 -> Leviathan 5079.6-5584.5 (projection 0.02 / 0.00 m)
+  flight Downhill Ridge Cut drop: lip (740.5, 92.7, -146.4) landing (712.2, 84.1, -118.8) axis -0.72,0.70; Leviathan 5851.8-5960.4, take-off 28 m/s
+  shortcuts: none (Granite Creek Cut and Laurel Switchbacks run on ground reshaped only in StreetLoopReverse.unity; in MountainLoopReverse.unity it is not there)
+  narrow (stem) spans: [[3982, 4073], [6414, 6544]]
+  mountain span 4404.0-6101.6, length 7163.0 m
+  wrote Assets/Resources/Leviathan/LeviathanReverse.json

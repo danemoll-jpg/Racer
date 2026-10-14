@@ -26,6 +26,7 @@ namespace Racer
         public int Recoveries;
         public readonly BranchProgress Branch=new();
         public float RecoveryStart = float.NaN;
+        public float TrackedStation = float.NaN; // 0.115: the last station on a tracked line (Leviathan)
         public RacerState(string name, ArcadeVehicle car, int gates, int laps, bool isAi=false)
         {
             Name = name;

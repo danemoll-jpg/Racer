@@ -18,7 +18,7 @@ namespace Racer
         [Serializable] public sealed class Data { public int version=1; public string world=Compatibility; public List<int> visited=new(); public List<string> landmarks=new(); public List<string> routes=new(); public bool routesChosen,routesShown; }
         public Destination[] destinations=Array.Empty<Destination>();
         public Texture2D terrain;
-        WorldMapVisual visual;WorldMapCourseOverlay courseOverlay;TrackProposalsMapOverlay proposalOverlay;UnityEngine.UI.Text proposalKey; // 0.114 Part B
+        WorldMapVisual visual;WorldMapCourseOverlay courseOverlay;
         Vector2 MapNormalized(Vector3 p)=>visual?visual.Normalized(p):Normalized(p);
         Vector3 MapWorldPoint(Vector2 uv)=>visual?visual.WorldPoint(uv):WorldPoint(uv);
         Data data=new(); readonly HashSet<int> visited=new(); RaceDirector race; string path,error;
@@ -164,7 +164,6 @@ namespace Racer
             parkArea=RectUI("Stunt park",r,Vector2.zero,Vector2.one);{var img=parkArea.gameObject.AddComponent<UnityEngine.UI.Image>();img.color=new(.74f,.42f,.27f,.8f);img.raycastTarget=false;}
             var areaRect=RectUI("Acorn areas",r,Vector2.zero,r.sizeDelta);areaOverlay=areaRect.gameObject.AddComponent<WorldMapAreaOverlay>();areaOverlay.raycastTarget=false;
             var overlay=RectUI("Current course overlay",r,Vector2.zero,new(740,visual?740*visual.bounds.height/visual.bounds.width:540));courseOverlay=overlay.gameObject.AddComponent<WorldMapCourseOverlay>();courseOverlay.raycastTarget=false;overlay.gameObject.SetActive(data.routesShown);
-            {var pr=RectUI("Track proposals overlay",r,Vector2.zero,Vector2.zero);pr.anchorMin=Vector2.zero;pr.anchorMax=Vector2.one;pr.sizeDelta=Vector2.zero;proposalOverlay=pr.gameObject.AddComponent<TrackProposalsMapOverlay>();proposalOverlay.raycastTarget=false;} // 0.114 Part B: over the picture, whatever its size
             UnityEngine.UI.Text Label(string name,string text,int size,Color color,int side)
             {
                 var t=Text(name,r,Vector2.zero,new(230,24),size);t.text=text;t.color=color;t.supportRichText=true;
@@ -185,7 +184,6 @@ namespace Racer
             Button("Previous destination",new(460,-188),()=>SelectNext(-1));Button("Next destination",new(460,-232),()=>SelectNext(1));Button("Travel (free roam)",new(460,-276),TravelSelected);
             Button("Close map / M / B",new(-420,-316),Close);Button("Center on player",new(-150,-316),()=>center=MapNormalized(race.vehicle.Body.position));Button("Clear waypoint",new(120,-316),()=>Waypoint=null);
             Button("Show / hide course",new(460,267),()=>courseOverlay.gameObject.SetActive(!courseOverlay.gameObject.activeSelf));
-            proposalKey=Text("Track proposals key",r,Vector2.zero,new(700,22),15);proposalKey.rectTransform.anchorMin=proposalKey.rectTransform.anchorMax=new(.5f,0);proposalKey.rectTransform.pivot=new(.5f,0);proposalKey.rectTransform.anchoredPosition=new(0,6);proposalKey.supportRichText=true;{var edge=proposalKey.gameObject.AddComponent<UnityEngine.UI.Outline>();edge.effectColor=new(0,0,0,.9f);edge.effectDistance=new(1,-1);}proposalKey.text="TRACK PROPOSALS:  <color=#FF7300>A  Street Loop + Summit Jump</color>   <color=#00E6FF>B  Street Loop Reverse + Ridge Loop</color>   <color=#FFE61A>shortcuts</color>"; // 0.114 Part B
             Text("Map controls",panel.transform,new(-100,291),new(1000,25),16).text="NORTH ↑   Mouse: wheel zoom / drag pan / click waypoint or landmark";
             Text("Controller controls",panel.transform,new(0,-343),new(1200,22),15).text="Stick / WASD: pan · triggers / wheel: zoom · A / Space: waypoint · D-pad: destinations · X: travel · B / Esc: close";
             confirmation=RectUI("Confirm destination",panel.transform,Vector2.zero,new(1280,720)).gameObject;
@@ -209,7 +207,6 @@ namespace Racer
             picture.uvRect=new Rect(center-Vector2.one*.5f/zoom,Vector2.one/zoom);Marker(heading,race.vehicle.Body.position);
             {var a=ScreenPoint(StuntPark.P(0,0));var b=ScreenPoint(StuntPark.P(StuntPark.W,StuntPark.D));parkArea.anchoredPosition=(a+b)*.5f;parkArea.sizeDelta=new(Mathf.Abs(b.x-a.x),Mathf.Abs(b.y-a.y));} // 0.106heading.rectTransform.localRotation=Quaternion.Euler(0,0,-race.vehicle.transform.eulerAngles.y);
             courseOverlay.SetView(race,visual,center,zoom,RouteCourses);
-            proposalOverlay.SetView(visual,center,zoom);if(proposalKey)proposalKey.gameObject.SetActive(TrackProposals.Showing); // 0.114 Part B
             var collection=Collection;var all=Areas;areaOverlay.SetView(all,collection,visual,center,zoom,selectedArea);
             foreach(var (t,area,region) in areaLabels){bool done=area.Done(collection);t.text=(done?"✓ ":"")+area.name+"  "+area.Count(collection);t.color=done?new Color(.75f,.77f,.75f,.8f):area.tint;Marker(t,region.label);}
             foreach(var (t,at) in placeLabels)Marker(t,at);

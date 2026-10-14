@@ -138,7 +138,8 @@ namespace Racer
         // A player vehicle locked by the campaign (the mower is governed by the acorn reward instead).
         // 0.110 Part E: Race and Free Roam read the main campaign only (never the fresh run). 0.112 Part E: for vehicles, owned in either slot
         public static bool VehicleLocked(VehicleProfile p) => p != null && !Testing && !p.Reward && !OwnedInAnySlot(p.Id);
-        public static bool CourseOpen(int course) => Testing || (course >= 0 && course < RacePlaylists.Scenes.Length && Main.courses.Contains(RacePlaylists.Scenes[course]));
+        // 0.115: Leviathan is not in the campaign; it opens with the Mountain Loop of its direction (its roads)
+        public static bool CourseOpen(int course) => Testing || (course >= 0 && course < RacePlaylists.Scenes.Length && Main.courses.Contains(LeviathanCourse.BaseCourse(RacePlaylists.Scenes[course])));
         public static bool CourseOpen(string scene) => CourseOpen(Array.IndexOf(RacePlaylists.Scenes, scene));
         public static int FirstOpenCourse => Enumerable.Range(0, RacePlaylists.Scenes.Length).FirstOrDefault(CourseOpen);
         public static bool ChapterOpen(int chapter) => chapter <= Current.chapter;
@@ -168,6 +169,7 @@ namespace Racer
         }
         public static string CourseHowTo(int course)
         {
+            if (course >= 0 && course < RacePlaylists.Scenes.Length && LeviathanCourse.Is(RacePlaylists.Scenes[course])) course = Array.IndexOf(RacePlaylists.Scenes, LeviathanCourse.BaseCourse(RacePlaylists.Scenes[course])); // 0.115
             var e = CampaignData.Events.FirstOrDefault(x => x.Course == course);
             if (e != null) return $"Campaign: reach it in \"{e.Name}\" (chapter {e.Chapter})";
             var c = CampaignData.Chapters.FirstOrDefault(x => x.Courses.Contains(course));

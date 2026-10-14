@@ -1,0 +1,6 @@
+screen=1280x720 kind=ai113 version=0.114.0-review1 park=on
+race quick:1:tourer+moto+atv:1:1, 1 runs, forced shortcuts [], chapter 4 unvalidated allowed []
+== quick race StreetLoopReverse rivals tourer+moto+atv laps 1 difficulty 1
+  run 1 moto       126.2 resets 1 (first 10 s: 0) shortcuts [Laurel Switchbacks lap 1] | resets at [stalled 5.0 route 0.0 branch 0.0 rejoin 5.0 tracking True target (337, 34, -279) best 11 planned Laurel Switchbacks on Laurel Switchbacks speed -0.1] 336.6,34.76,-276.8 Laurel Switchbacks s 152 t 90
+  run 1 tourer     137.8 resets 0 (first 10 s: 0) shortcuts [Granite Creek Cut lap 1]
+  run 1 atv        139.2 resets 0 (first 10 s: 0) shortcuts [Granite Creek Cut lap 1]

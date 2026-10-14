@@ -1,0 +1,15 @@
+gully fill: grid 146x63 at 1 m over x 542-686 z -135--73; 1422 quads, 1535 vertices; 465 cells on the path (within 6 m) raised, at most 7.33 m; bounds Center: (622.53, 68.68, -112.90), Extents: (23.00, 11.25, 22.00)
+  path 564,-95: line y 80.12, Free Roam 79.67, Mountain Loop 80.17, fill level 80.12, patch -
+  path 571,-99: line y 80.31, Free Roam 79.44, Mountain Loop 80.43, fill level 80.31, patch -
+  path 578,-102: line y 80.72, Free Roam 79.25, Mountain Loop 80.58, fill level 80.72, patch -
+  path 586,-105: line y 80.82, Free Roam 79.10, Mountain Loop 80.85, fill level 80.82, patch -
+  path 593,-108: line y 80.37, Free Roam 78.97, Mountain Loop 80.39, fill level 80.37, patch -
+  path 601,-110: line y 79.88, Free Roam 78.88, Mountain Loop 79.84, fill level 79.88, patch 79.88
+  path 609,-111: line y 77.25, Free Roam 78.85, Mountain Loop 77.11, fill level 79.00, patch 79.00
+  path 618,-112: line y 73.36, Free Roam 78.86, Mountain Loop 73.32, fill level 79.00, patch 79.00
+  path 626,-113: line y 78.89, Free Roam 78.89, Mountain Loop 78.89, fill level 79.00, patch 79.00
+  path 634,-113: line y 78.94, Free Roam 78.94, Mountain Loop 78.94, fill level 79.00, patch 79.00
+  path 641,-113: line y 78.98, Free Roam 78.98, Mountain Loop 78.98, fill level 79.00, patch -
+  path 648,-112: line y 79.00, Free Roam 79.00, Mountain Loop 79.00, fill level 79.00, patch -
+  path 656,-111: line y 79.00, Free Roam 79.00, Mountain Loop 79.00, fill level 79.00, patch -
+  path 664,-109: line y 79.00, Free Roam 79.00, Mountain Loop 79.00, fill level 79.00, patch -

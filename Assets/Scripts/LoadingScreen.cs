@@ -53,7 +53,7 @@ namespace Racer
         // Loads a scene behind the loading screen (replaces SceneManager.LoadScene for the player's scene changes).
         public static void LoadScene(string scene, string what, string detail, CoursePreviewCatalog.Course course)
         {
-            Show(what, detail, course); instance.StartCoroutine(instance.Load(scene));
+            Show(what, detail, course); instance.StartCoroutine(instance.Load(LeviathanCourse.Resolve(scene))); // 0.115: a course key (Leviathan) loads its scene with the course selected
         }
         // 0.84 Part G: the screen over work in the same scene (building a race's vehicles); the caller reports Started().
         public static void Cover(string what, string detail, CoursePreviewCatalog.Course course)

@@ -1,0 +1,12 @@
+screen=1920x1080 kind=ai113 version=0.114.0-review1 park=on
+race quick:0:tourer+moto+atv|original+roadster+scrambler|fastback+drifter+pebble:2:1, 3 runs, forced shortcuts [], chapter 4 unvalidated allowed []
+== quick race StreetLoopGreybox rivals tourer+moto+atv|original+roadster+scrambler|fastback+drifter+pebble laps 2 difficulty 1
+  run 1 moto       256.1 resets 0 (first 10 s: 0) shortcuts [Creek Leap lap 1; Fox Gully lap 1; Pine Ridge lap 1; Existing Southwest Cut lap 1; Creek Leap lap 2; Fox Gully lap 2; Pine Ridge lap 2; Existing Southwest Cut lap 2]
+  run 1 tourer     287.6 resets 0 (first 10 s: 0) shortcuts [Creek Leap lap 1; Fox Gully lap 1; Pine Ridge lap 1; Existing Southwest Cut lap 1; Creek Leap lap 2; Fox Gully lap 2; Pine Ridge lap 2; Existing Southwest Cut lap 2]
+  run 1 atv        294.4 resets 0 (first 10 s: 0) shortcuts [Creek Leap lap 1; Fox Gully lap 1; Pine Ridge lap 1; Existing Southwest Cut lap 1; Creek Leap lap 2; Fox Gully lap 2; Pine Ridge lap 2; Existing Southwest Cut lap 2]
+  run 2 scrambler  262.1 resets 0 (first 10 s: 0) shortcuts [Creek Leap lap 1; Fox Gully lap 1; Pine Ridge lap 1; Existing Southwest Cut lap 1; Creek Leap lap 2; Fox Gully lap 2; Pine Ridge lap 2; Existing Southwest Cut lap 2]
+  run 2 original   284.8 resets 0 (first 10 s: 0) shortcuts [Creek Leap lap 1; Fox Gully lap 1; Pine Ridge lap 1; Existing Southwest Cut lap 1; Creek Leap lap 2; Fox Gully lap 2; Pine Ridge lap 2; Existing Southwest Cut lap 2]
+  run 2 roadster   285.5 resets 0 (first 10 s: 0) shortcuts [Creek Leap lap 1; Fox Gully lap 1; Pine Ridge lap 1; Existing Southwest Cut lap 1; Creek Leap lap 2; Fox Gully lap 2; Pine Ridge lap 2; Existing Southwest Cut lap 2]
+  run 3 drifter    268.6 resets 1 (first 10 s: 0) shortcuts [Creek Leap lap 1; Fox Gully lap 1; Pine Ridge lap 1; Existing Southwest Cut lap 1; Creek Leap lap 2; Fox Gully lap 2; Pine Ridge lap 2; Existing Southwest Cut lap 2] | resets at [stalled 2.7 route 5.0 branch 0.0 rejoin 0.0 tracking False target (0, 0, 0) best 0 planned - on - speed 0.0] -628.6,8.50,-63.0 road 3103 t 228
+  run 3 pebble     282.0 resets 0 (first 10 s: 0) shortcuts [Creek Leap lap 1; Fox Gully lap 1; Pine Ridge lap 1; Existing Southwest Cut lap 1; Creek Leap lap 2; Fox Gully lap 2; Pine Ridge lap 2; Existing Southwest Cut lap 2]
+  run 3 fastback   282.0 resets 0 (first 10 s: 0) shortcuts [Creek Leap lap 1; Fox Gully lap 1; Pine Ridge lap 1; Existing Southwest Cut lap 1; Creek Leap lap 2; Fox Gully lap 2; Pine Ridge lap 2; Existing Southwest Cut lap 2]

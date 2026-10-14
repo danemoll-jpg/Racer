@@ -67,7 +67,7 @@ details.gameObject.SetActive(true);
                     Step(8,"timeofday","Time of Day:   "+flow.TimeOfDayLabel,d=>flow.CycleTimeOfDay(d));Step(9,"weather","Weather:   "+flow.WeatherLabel,d=>flow.CycleWeather(d));
                     Row(10,"playlists","Playlists",flow.OpenPlaylists);Row(11,"back","Back",()=>BackPage());
                     // 0.89: a course the campaign has not opened is not raced (Free Roam may still start there)
-                    int here=System.Array.IndexOf(RacePlaylists.Scenes,flow.gameObject.scene.name);
+                    int here=RacePlaylists.CourseOf(flow.gameObject.scene);
                     if(here>=0&&!Campaign.CourseOpen(here)){details.text+="\nLOCKED: "+Campaign.CourseHowTo(here)+". Choose an open track in Tracks.";details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=150;buttons[0].interactable=false;}
                     if(flow.SetupFromResults&&RacePlaylists.Active!=null)
                     {
@@ -91,7 +91,7 @@ details.gameObject.SetActive(true);
                     Row(10,"campaign","CAMPAIGN\n"+CampaignStatusLine,()=>OpenCampaign());buttons[10].transform.SetSiblingIndex(buttons[0].transform.GetSiblingIndex());
                     {var t=buttons[10].GetComponentInChildren<UnityEngine.UI.Text>(true);t.alignment=TextAnchor.MiddleCenter;buttons[10].GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=62;var c=buttons[10].colors;c.normalColor=new(.1f,.38f,.35f);buttons[10].colors=c;}
                     // 0.90 Part A: Race Setup always opens on a course the campaign has opened
-                    Row(0,"race","RACE",()=>{int here=System.Array.IndexOf(RacePlaylists.Scenes,flow.gameObject.scene.name);if(flow.InRoamWorld)flow.OpenRaceSetupFromRoam();else if(here>=0&&!Campaign.CourseOpen(here))flow.OpenRaceSetupOnOpenCourse();else Navigate("race");});Row(1,"roam","FREE ROAM",()=>Navigate("roam"));
+                    Row(0,"race","RACE",()=>{int here=RacePlaylists.CourseOf(flow.gameObject.scene);if(flow.InRoamWorld)flow.OpenRaceSetupFromRoam();else if(here>=0&&!Campaign.CourseOpen(here))flow.OpenRaceSetupOnOpenCourse();else Navigate("race");});Row(1,"roam","FREE ROAM",()=>Navigate("roam"));
                     Row(11,"split","SPLIT SCREEN",()=>OpenSplitSetup());buttons[11].transform.SetSiblingIndex(buttons[1].transform.GetSiblingIndex()+1);Row(2,"garage","GARAGE",flow.OpenGarage);
                     // 0.95 Part B: POLICE CHASE after SPLIT SCREEN (from inside Free Roam it asks first); "New: Police Chase" once
                     Row(13,"police","POLICE CHASE",()=>OpenPoliceSetup());buttons[13].transform.SetSiblingIndex(buttons[11].transform.GetSiblingIndex()+1);
@@ -159,7 +159,7 @@ details.gameObject.SetActive(true);
                     if(!buttons[i-1].GetComponent<CourseRowHover>())buttons[i-1].gameObject.AddComponent<CourseRowHover>();}
                 Row(i,"back","Back",flow.CloseGarage);
                 // 0.83 Part D: the map beside the list, on the highlighted (else the last shown, else the active) course
-                details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=56;EnterCourseView();ShowCourseOnMap(previewTrack>=0?previewTrack:System.Array.IndexOf(RacePlaylists.Scenes,flow.Race.gameObject.scene.name),!roamPick);
+                details.GetComponent<UnityEngine.UI.LayoutElement>().preferredHeight=56;EnterCourseView();ShowCourseOnMap(previewTrack>=0?previewTrack:RacePlaylists.CourseOf(flow.Race.gameObject.scene),!roamPick);
             }
             else if(flow.State==RaceFlow.Stage.Garage)
             {
@@ -261,8 +261,6 @@ details.gameObject.SetActive(true);
                 Step(5,"fps","Frame cap: "+s.frameLimit+" FPS",d=>Adjust(()=>{int[] caps={30,60,120};s.frameLimit=caps[Mathf.Clamp(Array.IndexOf(caps,s.frameLimit)+d,0,2)];}));
                 Toggle(6,"lightning","Lightning flashes",s.lightningFlashes,()=>Adjust(()=>s.lightningFlashes=!s.lightningFlashes));
                 Step(7,"scenery","Scenery:   "+(s.classicScenery?"Classic":"New"),d=>Adjust(()=>{s.classicScenery=!s.classicScenery;Scenery.Set(!s.classicScenery);}));
-                // 0.114 Part B: the two combined-course proposals' markers in Free Roam (and on its maps)
-                Step(8,"track-proposals","Show track proposals:   "+(s.showTrackProposals?"On":"Off"),d=>Adjust(()=>s.showTrackProposals=!s.showTrackProposals));
             }
             if(page=="settings-controls")RenderControls();
             if(page!="settings-controls")Row(14,"back","Back",flow.CloseSettings);

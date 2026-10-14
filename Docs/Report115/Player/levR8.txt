@@ -1,0 +1,11 @@
+screen=1920x1080 kind=lev115 version=0.115.0-review1 park=on
+== AI-only quick races on Leviathan - Reverse: Leviathan - Reverse (leviathan-reverse-v1): line 7164 m, 23 gates, 0 shortcuts, flights South Face Summit Flight 5080-5584, Downhill Ridge Cut drop 5852-5960; laps 2, difficulty 1, traffic 1
+  run 1 [tourer+moto+atv] moto       489.1 laps [244.2, 243.4] missed gates 0 (+0 s) resets 0 shortcuts []
+  run 1 [tourer+moto+atv] atv        513.8 laps [256.5, 256.2] missed gates 0 (+0 s) resets 0 shortcuts []
+  run 1 [tourer+moto+atv] tourer     523.5 laps [260.6, 261.0] missed gates 0 (+0 s) resets 0 shortcuts []
+  run 2 [original+roadster+scrambler] scrambler  491.8 laps [245.3, 245.5] missed gates 0 (+0 s) resets 0 shortcuts []
+  run 2 [original+roadster+scrambler] roadster   526.5 laps [262.9, 262.1] missed gates 0 (+0 s) resets 0 shortcuts []
+  run 2 [original+roadster+scrambler] original   529.3 laps [265.5, 261.9] missed gates 0 (+0 s) resets 0 shortcuts []
+  run 3 [fastback+drifter+pebble] drifter    498.5 laps [246.3, 250.6] missed gates 0 (+0 s) resets 0 shortcuts []
+  run 3 [fastback+drifter+pebble] fastback   516.3 laps [257.5, 257.0] missed gates 0 (+0 s) resets 0 shortcuts []
+  run 3 [fastback+drifter+pebble] pebble     541.3 laps [271.3, 268.8] missed gates 0 (+0 s) resets 2 shortcuts [] | resets at [stalled 4.6 route 5.0 branch 0.0 rejoin 0.0 tracking False target (-627, 8, -64) best 6 planned - on - speed 0.0] 691.3,82.26,-91.7 road 6026 lap 1 next CP 19 t 221; [stalled 4.2 route 5.0 branch 0.0 rejoin 0.0 tracking False target (-625, 8, -161) best 13 planned - on - speed -0.1] 562.7,27.78,-284.9 road 3780 lap 2 next CP 14 t 389

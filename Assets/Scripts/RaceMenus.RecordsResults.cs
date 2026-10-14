@@ -10,6 +10,7 @@ namespace Racer
         {
             string c=category??"";bool reverse=c.Contains("reverse");
             if(c.StartsWith("backyard"))return "Dan's Backyard Loop - "+(reverse?"Reverse":"Forward");
+            if(c.StartsWith("leviathan"))return "Leviathan - "+(reverse?"Reverse":"Forward"); // 0.115
             if(c.StartsWith("mountain"))return "Mountain Loop - "+(reverse?"Reverse":"Forward");
             if(c.StartsWith("lake")||c.StartsWith("forest"))return "Forest Loop - "+(reverse?"Reverse":"Forward");
             if(c.StartsWith("street"))return "Street Loop - "+(reverse?"Reverse":"Forward");return "Historical layout";

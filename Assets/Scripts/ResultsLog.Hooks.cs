@@ -107,7 +107,7 @@ namespace Racer
             var race = flow.Race; var look = WorldLook.Current; bool split = SplitScreen.Active;
             var j = ResultsLog.Line(openMode, openKey, number, retry);
             j.Add("player", player).Add("name", name).Add("finished", finished).Add("endedBy", finished ? "result" : how).Add("secondsPlayed", Time.unscaledTime - openedAt)
-             .Add("course", race.gameObject.scene.name).Add("courseName", !race.FreeRoam ? race.courseName : openMode == "stunt-event" ? StuntPark.Title : "Free Roam world").Add("direction", race.FreeRoam ? null : race.reverseCourse ? "reverse" : "forward")
+             .Add("course", LeviathanCourse.KeyOf(race.gameObject.scene)).Add("courseName", !race.FreeRoam ? race.courseName : openMode == "stunt-event" ? StuntPark.Title : "Free Roam world").Add("direction", race.FreeRoam ? null : race.reverseCourse ? "reverse" : "forward")
              .Add("timeOfDay", split ? SplitScreen.Time.ToString() : look ? (look.Mode == "Free Roam" ? $"Free Roam {look.Hour:0.0} h" : look.RaceTime.ToString()) : null)
              .Add("weather", split ? SplitScreen.Weather.ToString() : look ? (look.Mode == "Free Roam" ? look.RoamWeather.ToString() : look.RaceWeather.ToString()) : null)
              .Add("debugMovementUsed", flow.DebugMovementUsed);

@@ -10,6 +10,9 @@ namespace Racer
         public float[] geometryStations;
         public float geometryLength;
         public float bypassStart, bypassEnd;
+        // 0.115: a line that passes the same ground twice (Leviathan's stem and lake shore): racers are followed along it (ProjectNear from
+        // where they were) instead of snapping to the nearest point, which may be the other pass
+        [System.NonSerialized] public bool tracked;
         public bool InBypass(float s) => Relative(s, bypassStart) < Relative(bypassEnd, bypassStart);
         // The northern commercial corridor, with 70 m merge zones at both ends.
         public float HighwayBlend(float s) {if(openHighway)return 1;s=GeometryStation(s);return Mathf.SmoothStep(0,1,Mathf.InverseLerp(3720,3790,s))*

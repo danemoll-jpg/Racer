@@ -54,6 +54,9 @@ namespace Racer
         float nextFailsafe,aiFailingSince=-1;Vector3 lastAbove,parkSpot;bool haveAbove,haveParkSpot;
         float safeStation,safeSide,trackingStation;
         bool tracking;
+        // 0.115: where this vehicle is being followed on the main line (a tracked line such as Leviathan's uses it as the racer's station)
+        public bool Tracking => tracking && !trackingBranch;
+        public float TrackingStation => trackingStation;
         WoodlandRoute trackingBranch;
         bool anchored;
         Vector3 observed;

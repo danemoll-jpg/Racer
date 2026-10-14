@@ -1,0 +1,52 @@
+screen=1920x1080 kind=drive115 version=0.115.0-review1 park=on
+start: state Ready, page 'Ready/', focus 'race', scene StreetLoopGreybox
+main menu: focus 'race'
+after A: page 'Ready/race', focus 'start'
+Tracks: state Courses, rows course-6=Dan's Backyard Loop - Forward, course-7=Dan's Backyard Loop - Reverse, course-2=Forest Loop - Forward, course-3=Forest Loop - Reverse, course-8=Leviathan - Forward, course-9=Leviathan - Reverse, course-4=Mountain Loop - Forward, course-5=Mountain Loop - Reverse, course-0=Street Loop - Forward, course-1=Street Loop - Reverse
+focus 'course-8': Leviathan - Forward / Lap 6.7 km (4.2 mi)   ·   Race Setup: 4 laps / Cyan: main  ·  Gold: shortcuts  ·  Arrows: direction | Leviathan - Forward | Leviathan - Reverse
+preview map 576 x 346 px (aspect 1.667), uv 0.750 x 0.750 (aspect 1.000)
+loaded: Leviathan - Forward (leviathan-forward-v1): line 6824 m, 25 gates, 4 shortcuts, flights Homeward Summit Flight 1769-2348; page 'Ready/race', focus 'tracks', menu says: RACE SETUP | Leviathan - Forward / Street Classic  ·  4 laps / 3 AI · Normal  ·  Traffic On
+laps 2, mode rivals, rivals Longroof GT / Drifter Twin / Sundown Roadster
+racing: 4 racers (Longroof GT / Drifter Twin / Sundown Roadster), the player in the Street Classic
+  t 30 s: 654.7,79.64,-114.5 line s 846, lap 1, next CP 4, 24.7 m/s, resets 0, fps 50
+  t 60 s: 1179.6,152.62,161.3 line s 1619, lap 1, next CP 7, 33.6 m/s, resets 0, fps 50
+  t 92 s: 872.3,178.46,116.0 line s 2146, lap 1, next CP 8, 0.0 m/s, resets 1, fps 60
+  t 122 s: 497.0,88.83,-94.5 line s 2817, lap 1, next CP 10, 28.9 m/s, resets 1, fps 50
+  t 152 s: 223.5,44.82,-333.7 line s 3658, lap 1, next CP 13, 31.3 m/s, resets 1, fps 50
+  t 182 s: -490.8,7.70,-548.2 line s 4608, lap 1, next CP 18, 33.7 m/s, resets 1, fps 50
+  t 212 s: -633.8,9.70,232.8 line s 5512, lap 1, next CP 20, 33.9 m/s, resets 1, fps 50
+  t 242 s: 47.4,8.89,532.5 line s 6468, lap 1, next CP 24, 33.7 m/s, resets 1, fps 50
+  t 272 s: 472.1,78.83,51.5 line s 557, lap 2, next CP 3, 33.7 m/s, resets 1, fps 50
+  t 302 s: 1051.8,150.01,16.8 line s 1330, lap 2, next CP 6, 32.1 m/s, resets 1, fps 50
+  t 332 s: 925.7,194.68,130.0 line s 2090, lap 2, next CP 8, 22.1 m/s, resets 1, fps 50
+  t 362 s: 687.0,79.58,-96.8 line s 2535, lap 2, next CP 10, 31.9 m/s, resets 2, fps 50
+  t 392 s: 477.2,24.78,-537.3 line s 3312, lap 2, next CP 13, 19.8 m/s, resets 2, fps 50
+  t 422 s: -20.6,32.73,-560.6 line s 4132, lap 2, next CP 15, 17.3 m/s, resets 2, fps 50
+  t 452 s: -526.6,7.37,-547.9 line s 4644, lap 2, next CP 18, 17.1 m/s, resets 2, fps 50
+  t 482 s: -631.8,9.68,222.2 line s 5500, lap 2, next CP 20, 33.9 m/s, resets 2, fps 50
+  t 512 s: 20.5,8.61,527.5 line s 6440, lap 2, next CP 24, 27.9 m/s, resets 2, fps 50
+the pad drove 526 s: finished True, laps [252.8, 270.8], race 526.7 s + 0 s penalties (0 missed), resets 2, longest in the air 4.4 s
+  assist: stuck at 875.5,176.16,116.9 (line s 2142, 89 s): the reset button
+  assist: stuck at 875.5,176.17,116.8 (line s 2142, 342 s): the reset button
+  contact: player touched 'Traffic 1' at (412.7, 78.2, 161.5), impulse 0
+  contact: player touched 'EMBER' at (488.1, 88.3, -46.5), impulse 0
+  contact: player touched 'GOLD' at (785.7, 91.8, -102.3), impulse 0
+  contact: player touched 'Trail sign post' at (542.1, 83.4, -92.6), impulse 0
+  contact: player touched 'Decorative Road pavement' at (-586.3, 6.2, -551.1), impulse 0
+  contact: player touched 'Profile shoulders' at (-608.3, 6.1, -545.4), impulse 0
+  contact: player touched 'Traffic 2' at (-623.8, 6.9, -419.6), impulse 17196
+  contact: player touched 'Takeoff - 40m x 6m, 6.2m rise' at (-627.0, 7.8, -120.0), impulse 0
+  contact: player touched 'Traffic 4' at (106.4, 9.5, 546.8), impulse 22874
+  contact: player touched 'EMBER' at (132.1, 10.1, 544.9), impulse 0
+  contact: player touched 'BLUE' at (321.2, 12.7, 523.8), impulse 0
+  contact: player touched 'EMBER' at (321.7, 15.1, 516.6), impulse 0
+  contact: player touched 'BLUE' at (328.4, 81.4, 248.3), impulse 0
+  contact: player touched 'EMBER' at (353.4, 82.9, 199.5), impulse 0
+  contact: player touched 'EMBER' at (422.3, 79.9, 154.3), impulse 0
+state Results; results: 1. GOLD  07:46.657  (+0.0s / 0 misses) / 2. BLUE  08:08.212  (+0.0s / 0 misses) / 3. EMBER  08:10.551  (+0.0s / 0 misses) / 4. Dan  08:46.677  (+0.0s / 0 misses)
+  rival tourer: 490.6 laps [253.4, 234.9] resets 1 missed 0
+  rival drifter: 466.7 laps [244.1, 220.8] resets 2 missed 0
+  rival roadster: 488.2 laps [254.3, 232.5] resets 1 missed 0
+records: lap rank 2, race rank 1, category leviathan-forward-v1-original-race4-d1-tourer-drifter-roadster-traffic-laps2, records track title 'Leviathan - Forward'
+ghost files for Leviathan: (no folder) (ghosts off)
+results log lines with Leviathan: 1; last: {"time":"2026-10-14T14:42:24","version":"0.115.0-review1","mode":"quick-race","eventKey":"race:leviathan-forward-v1-original-race4-d1-tourer-drifter-roadster-traffic-laps2","attempt":1,"retry":false,"player":1,"name":"Dan","finished":true,"endedBy":"result","secondsPlayed":532.645,"course":"Leviathan","courseName":"Leviathan - Forward","direction":"forward","timeOfDay":"Day","weather":"Clear","deb

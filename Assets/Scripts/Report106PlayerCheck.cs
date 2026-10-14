@@ -143,8 +143,9 @@ namespace Racer
                 case "audio113": yield return Audio113(); break;
                 case "retry113": yield return Retry113(); break;
                 case "shots114a": yield return Shots114a(); break; // 0.114 (Report106PlayerCheck.Round114.cs)
-                case "drive114": yield return Drive114(); break;
-                case "shots114b": yield return Shots114b(); break;
+                case "lev115": yield return Lev115(); break; // 0.115 (Report106PlayerCheck.Round115.cs)
+                case "drive115": yield return Drive115(); break;
+                case "split115": yield return Split115(); break;
                 default: Note("unknown kind " + kind); break;
             }
             File.WriteAllText(Path.Combine(outDir, "done.txt"), "done"); Application.Quit();
