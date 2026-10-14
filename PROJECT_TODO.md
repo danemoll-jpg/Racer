@@ -20,7 +20,9 @@
   - **Player-facing text is American English (Dan, 2026-10-10).** color, gray, center, meter, favorite, tire, canceled, and so on in everything the player reads (menus, HUD, notices, signs, the launcher, shipped documents). Code names, file names and save / settings keys stay as they are.
   - **Write-up:** the TODO results are a short list: what changed, the one check per item, decisions made, and anything Dan should look at. No separate VALIDATION.md unless a round asks. If a check would take more than a few minutes of play time, skip it and list it under "for Dan to check".
 
-## CURRENT — Leviathan: Proposal A (Street Loop + Summit Jump) as a race, Forward and Reverse, 2 laps; the Free Roam proposal markers removed — target 0.115.0-review1 — IN PROGRESS
+## CURRENT — Leviathan: Proposal A (Street Loop + Summit Jump) as a race, Forward and Reverse, 2 laps; the Free Roam proposal markers removed — target 0.115.0-review1 — NOT STARTED (a first attempt was stopped by Dan on 2026-10-14 before Claude (chat) had reviewed the section; resume per item 0 below)
+
+**0. Resuming (Claude, 2026-10-14):** this section was written in a Code chat with Dan and work started before Claude (chat) reviewed it; Dan stopped it. Reviewed now, with the additions below. Start by listing what the stopped attempt changed since the commit "Safety checkpoint before 0.115" (uncommitted files, scenes, new scripts). Keep what is consistent with this section; revert anything half-done or outside it. Say what you kept and what you reverted.
 
 Dan (2026-10-14, after testing 0.114): "everything seems fine." On the proposals: A, built on the Mountain Loop scene's own mountain roads (not Free Roam's trail ring). "It would be cool if the second jump actually landed you back on the trail down below but I am not sure that would be possible without rebuilding everything so lets just try it with A." So: **the summit jump stays as it is** (no reshaping, no new landing). Changing where the summit jump lands is **not in this round**; it stays an idea for later.
 Scope as proposed in 0.114 (details in the 0.114 results below):
@@ -30,6 +32,12 @@ Scope as proposed in 0.114 (details in the 0.114 results below):
 4. Proposed defaults (Dan to confirm or change): **2 laps**; in Quick Race / Tracks as **"Leviathan"** (Dan, 2026-10-14: "i like Leviathan"; Goliath and Colossus avoided, both Forza Horizon tracks); not in the campaign yet; the Free Roam markers stay until Dan says they can go.
 5. **Dan's go-ahead (2026-10-14): "2 laps, remove markers and create the race (Forward and Reverse)".** So: 2 laps; **Leviathan Forward** (the route above, in `MountainLoop.unity`) and **Leviathan Reverse** (the same roads the other way: Street Loop Reverse and the mountain in reverse; the summit jump flies one way only, so the reverse mountain part uses the Mountain Loop Reverse scene's own reverse line and flights, built in `MountainLoopReverse.unity`); in Quick Race / Tracks; not in the campaign; the 0.114 Free Roam proposal markers, their map lines and the "Show track proposals" setting removed.
 - **Check:** AI-only quick races (mixed vehicles): rivals finish, no rival resets more than twice in a race, no DNF; one race driven with the controller; nothing else in `MountainLoop.unity` changed (the Mountain Loop Forward course still runs as before: its colliders and routes compared and one lap).
+
+**Additions (Claude, 2026-10-14):**
+6. **Summit Traverse is NOT on Leviathan (Dan, 2026-10-14 10:15: "correct. The jumps must remain").** Every lap goes over the summit and the summit jump; no shortcut on Leviathan may bypass a jump. The Street Loop's four shortcuts and Climbing Ridge Cut stay only if none of them skips a jump (check each and report).
+7. Leviathan Forward and Reverse behave like the other courses: Quick Race / Tracks with previews (never squished), Records and Top 10 (lap / race), split-screen races, ghosts, the results log; not in the campaign; Free Roam unchanged apart from the markers' removal.
+8. Existing courses untouched: Mountain Loop Forward / Reverse and Street Loop Forward / Reverse run exactly as before (routes, gates, colliders compared, one AI lap each).
+9. **Release:** version 0.115.0-review1; usual build and release; close everything started. Delivery notes with the route top-down shots (both directions), lap times (player and AI), and anything left for Dan.
 
 ## Previous delivery — Half-built new buildings (walls missing from outside); combined course proposals (Street Loop + Mountain) marked in Free Roam — target 0.114.0-review1 — DELIVERED as 0.114.0-review1 (build 114000) — REVIEWED BY DAN ("everything seems fine"; chose Proposal A, built in the Mountain Loop scene; next round below)
 
