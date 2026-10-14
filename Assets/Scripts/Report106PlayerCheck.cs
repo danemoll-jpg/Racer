@@ -37,6 +37,7 @@ namespace Racer
             if (i < 0 || i + 1 >= a.Length || Array.IndexOf(a, "-racerTestSave") < 0 || FindAnyObjectByType<Report106PlayerCheck>()) return;
             Application.runInBackground = true; InputSystem.settings.backgroundBehavior = InputSettings.BackgroundBehavior.IgnoreFocus; // check only
             if (Array.IndexOf(a, "-p106off") >= 0) StuntPark.Disabled = true;
+            if (Array.IndexOf(a, "-p113off") >= 0) Hwy92Roadside.TrickumOff = true; // 0.113 Part C: the "before" (checks only)
             var g = new GameObject("Report106 player check"); DontDestroyOnLoad(g); g.AddComponent<Report106PlayerCheck>().outDir = a[i + 1];
         }
         static string Arg(string key, string fallback) { var a = Environment.GetCommandLineArgs(); int i = Array.IndexOf(a, key); return i >= 0 && i + 1 < a.Length ? a[i + 1] : fallback; }
@@ -136,6 +137,11 @@ namespace Racer
                 case "shots112": yield return ToStreetLoop(); yield return Shots112(); break;
                 case "shop112": yield return Shop112(); break;
                 case "race112": yield return Race112(); break;
+                case "ai113": yield return Ai113(); break; // 0.113 (Report106PlayerCheck.Round113.cs)
+                case "shots113": yield return Shots113(); break;
+                case "perf113": yield return Perf113(); break;
+                case "audio113": yield return Audio113(); break;
+                case "retry113": yield return Retry113(); break;
                 default: Note("unknown kind " + kind); break;
             }
             File.WriteAllText(Path.Combine(outDir, "done.txt"), "done"); Application.Quit();

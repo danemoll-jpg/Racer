@@ -29,7 +29,7 @@ namespace Racer
         public RacerState(string name, ArcadeVehicle car, int gates, int laps, bool isAi=false)
         {
             Name = name;
-            IsAi = isAi;
+            IsAi = isAi; Branch.Ai = isAi; // 0.113 Part A
             Car = car;
             Progress = new RaceProgress(gates, laps);
         }

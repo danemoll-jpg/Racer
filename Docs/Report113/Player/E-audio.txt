@@ -1,0 +1,218 @@
+screen=1920x1080 kind=audio113 version=0.113.0-review1 park=on
+A: Street Loop Forward race, 4 rivals (Pebble Coupe, Needle 600, Trail Four, Longroof GT), the player passing them (pace 1.25)
+  E-A1-race-passing: capture empty at listener volume 0, again at 0.03 (scaled when joined)
+    t0.0 playing 4: rival:pebble 32 m right level 1.00 vol 0.120 pitch 2.15; rival:moto 47 m right level 1.00 vol 0.097 pitch 2.46; rival:atv 58 m right level 1.00 vol 0.099 pitch 2.09; rival:tourer 54 m right level 1.00 vol 0.099 pitch 1.57
+    t0.5 playing 4: rival:pebble 33 m right level 1.00 vol 0.096 pitch 2.05; rival:moto 47 m right level 1.00 vol 0.093 pitch 2.44; rival:atv 59 m right level 1.00 vol 0.094 pitch 2.07; rival:tourer 55 m right level 1.00 vol 0.099 pitch 1.57
+    t1.0 playing 4: rival:pebble 33 m left level 1.00 vol 0.093 pitch 2.03; rival:moto 48 m left level 1.00 vol 0.099 pitch 2.49; rival:atv 58 m right level 1.00 vol 0.089 pitch 1.89; rival:tourer 56 m left level 1.00 vol 0.121 pitch 1.68
+    t1.6 playing 4: rival:pebble 34 m right level 1.00 vol 0.107 pitch 2.12; rival:moto 50 m right level 1.00 vol 0.106 pitch 2.58; rival:atv 52 m right level 1.00 vol 0.111 pitch 2.00; rival:tourer 57 m right level 1.00 vol 0.122 pitch 1.69
+    t2.1 playing 4: rival:pebble 34 m right level 1.00 vol 0.114 pitch 2.18; rival:moto 50 m right level 1.00 vol 0.089 pitch 2.41; rival:atv 45 m right level 1.00 vol 0.132 pitch 2.04; rival:tourer 57 m right level 1.00 vol 0.093 pitch 1.54
+    t2.5 playing 4: rival:pebble 33 m right level 1.00 vol 0.114 pitch 2.13; rival:moto 49 m right level 1.00 vol 0.107 pitch 2.52; rival:atv 41 m right level 1.00 vol 0.137 pitch 2.14; rival:tourer 56 m right level 1.00 vol 0.121 pitch 1.65
+    t3.1 playing 4: rival:pebble 33 m left level 1.00 vol 0.110 pitch 2.11; rival:moto 48 m left level 1.00 vol 0.105 pitch 2.51; rival:atv 37 m right level 1.00 vol 0.137 pitch 2.22; rival:tourer 55 m right level 1.00 vol 0.113 pitch 1.61
+    t3.5 playing 4: rival:pebble 33 m right level 1.00 vol 0.112 pitch 2.12; rival:moto 48 m left level 1.00 vol 0.110 pitch 2.55; rival:atv 36 m right level 1.00 vol 0.137 pitch 2.26; rival:tourer 55 m right level 1.00 vol 0.134 pitch 1.71
+    t4.0 playing 4: rival:pebble 33 m left level 1.00 vol 0.120 pitch 2.16; rival:moto 49 m left level 1.00 vol 0.133 pitch 2.74; rival:atv 36 m right level 1.00 vol 0.132 pitch 2.28; rival:tourer 56 m left level 1.00 vol 0.137 pitch 1.73
+    t4.6 playing 4: rival:pebble 33 m left level 1.00 vol 0.137 pitch 2.27; rival:moto 51 m left level 1.00 vol 0.137 pitch 2.83; rival:atv 36 m right level 1.00 vol 0.137 pitch 2.34; rival:tourer 56 m left level 1.00 vol 0.137 pitch 1.76
+    t5.1 playing 4: rival:pebble 35 m left level 1.00 vol 0.137 pitch 2.30; rival:moto 56 m left level 1.00 vol 0.137 pitch 2.88; rival:atv 38 m left level 1.00 vol 0.137 pitch 2.38; rival:tourer 58 m left level 1.00 vol 0.137 pitch 1.78
+    t5.6 playing 4: rival:pebble 37 m left level 1.00 vol 0.137 pitch 2.32; rival:moto 60 m left level 1.00 vol 0.115 pitch 2.76; rival:atv 41 m left level 1.00 vol 0.137 pitch 2.42; rival:tourer 61 m left level 1.00 vol 0.124 pitch 1.75
+    t6.0 playing 4: rival:pebble 39 m left level 1.00 vol 0.137 pitch 2.34; rival:moto 62 m left level 1.00 vol 0.089 pitch 2.58; rival:atv 44 m left level 1.00 vol 0.122 pitch 2.35; rival:tourer 62 m left level 1.00 vol 0.096 pitch 1.63
+    t6.5 playing 4: rival:pebble 40 m right level 1.00 vol 0.108 pitch 2.21; rival:moto 60 m right level 1.00 vol 0.096 pitch 2.42; rival:atv 44 m right level 1.00 vol 0.089 pitch 2.16; rival:tourer 60 m right level 1.00 vol 0.089 pitch 1.50
+    t7.1 playing 4: rival:pebble 38 m right level 1.00 vol 0.089 pitch 1.99; rival:moto 57 m right level 1.00 vol 0.103 pitch 2.50; rival:atv 42 m right level 1.00 vol 0.097 pitch 2.05; rival:tourer 57 m right level 1.00 vol 0.118 pitch 1.63
+    t7.5 playing 4: rival:pebble 35 m right level 1.00 vol 0.103 pitch 2.04; rival:moto 55 m right level 1.00 vol 0.098 pitch 2.47; rival:atv 40 m right level 1.00 vol 0.114 pitch 2.16; rival:tourer 56 m right level 1.00 vol 0.102 pitch 1.58
+    t8.1 playing 4: rival:pebble 34 m left level 1.00 vol 0.124 pitch 2.19; rival:moto 55 m left level 1.00 vol 0.099 pitch 2.47; rival:atv 39 m right level 1.00 vol 0.106 pitch 2.14; rival:tourer 55 m left level 1.00 vol 0.098 pitch 1.56
+    t8.5 playing 4: rival:pebble 35 m right level 1.00 vol 0.097 pitch 2.05; rival:moto 56 m right level 1.00 vol 0.090 pitch 2.42; rival:atv 40 m right level 1.00 vol 0.092 pitch 2.06; rival:tourer 56 m right level 1.00 vol 0.095 pitch 1.55
+    t9.0 playing 4: rival:pebble 35 m right level 1.00 vol 0.095 pitch 2.04; rival:moto 56 m right level 1.00 vol 0.090 pitch 2.42; rival:atv 40 m right level 1.00 vol 0.094 pitch 2.07; rival:tourer 57 m right level 1.00 vol 0.091 pitch 1.53
+    t9.6 playing 4: rival:pebble 35 m right level 1.00 vol 0.090 pitch 2.01; rival:moto 57 m right level 1.00 vol 0.091 pitch 2.42; rival:atv 41 m right level 1.00 vol 0.094 pitch 2.07; rival:tourer 57 m right level 1.00 vol 0.098 pitch 1.56
+    t10.1 playing 4: rival:pebble 35 m right level 1.00 vol 0.090 pitch 2.01; rival:moto 56 m right level 1.00 vol 0.100 pitch 2.48; rival:atv 41 m right level 1.00 vol 0.091 pitch 2.05; rival:tourer 56 m right level 1.00 vol 0.099 pitch 1.57
+    t10.6 playing 4: rival:pebble 35 m right level 1.00 vol 0.092 pitch 2.02; rival:moto 56 m right level 1.00 vol 0.093 pitch 2.44; rival:atv 38 m right level 1.00 vol 0.089 pitch 1.90; rival:tourer 57 m right level 1.00 vol 0.096 pitch 1.56
+    t11.1 playing 4: rival:pebble 35 m right level 1.00 vol 0.091 pitch 2.02; rival:moto 56 m left level 1.00 vol 0.089 pitch 2.38; rival:atv 31 m right level 1.00 vol 0.111 pitch 1.97; rival:tourer 56 m right level 1.00 vol 0.089 pitch 1.50
+    t11.6 playing 4: rival:pebble 35 m right level 1.00 vol 0.100 pitch 2.07; rival:moto 53 m right level 1.00 vol 0.111 pitch 2.49; rival:atv 28 m right level 1.00 vol 0.125 pitch 2.15; rival:tourer 54 m right level 1.00 vol 0.111 pitch 1.57
+    t12.1 playing 4: rival:pebble 34 m right level 1.00 vol 0.103 pitch 2.01; rival:moto 53 m right level 1.00 vol 0.137 pitch 2.75; rival:atv 24 m right level 1.00 vol 0.125 pitch 2.09; rival:tourer 53 m right level 1.00 vol 0.137 pitch 1.71
+    t12.5 playing 4: rival:pebble 33 m right level 1.00 vol 0.132 pitch 2.20; rival:moto 55 m right level 1.00 vol 0.137 pitch 2.82; rival:atv 20 m right level 1.00 vol 0.125 pitch 2.07; rival:tourer 54 m right level 1.00 vol 0.137 pitch 1.74
+    t13.1 playing 4: rival:pebble 34 m right level 1.00 vol 0.137 pitch 2.27; rival:moto 60 m right level 1.00 vol 0.137 pitch 2.88; rival:atv 18 m right level 1.00 vol 0.137 pitch 2.23; rival:tourer 58 m right level 1.00 vol 0.137 pitch 1.77
+    t13.6 playing 4: rival:pebble 37 m right level 1.00 vol 0.137 pitch 2.31; rival:moto 67 m right level 1.00 vol 0.137 pitch 2.93; rival:atv 19 m right level 1.00 vol 0.137 pitch 2.31; rival:tourer 62 m right level 1.00 vol 0.137 pitch 1.79
+    t14.0 playing 4: rival:pebble 40 m right level 1.00 vol 0.137 pitch 2.33; rival:moto 73 m right level 1.00 vol 0.137 pitch 2.96; rival:atv 21 m right level 1.00 vol 0.137 pitch 2.36; rival:tourer 66 m right level 1.00 vol 0.137 pitch 1.80
+    t14.6 playing 4: rival:pebble 43 m right level 1.00 vol 0.137 pitch 2.36; rival:moto 80 m left level 1.00 vol 0.137 pitch 2.98; rival:atv 24 m right level 1.00 vol 0.137 pitch 2.40; rival:tourer 70 m right level 1.00 vol 0.137 pitch 1.82
+    t15.1 playing 4: rival:pebble 44 m right level 1.00 vol 0.137 pitch 2.37; rival:moto 85 m left level 1.00 vol 0.137 pitch 3.00; rival:atv 26 m right level 1.00 vol 0.137 pitch 2.44; rival:tourer 72 m left level 1.00 vol 0.137 pitch 1.82
+    t15.6 playing 4: rival:pebble 45 m left level 1.00 vol 0.137 pitch 2.38; rival:moto 89 m left level 1.00 vol 0.101 pitch 2.77; rival:atv 27 m right level 1.00 vol 0.137 pitch 2.47; rival:tourer 73 m left level 1.00 vol 0.137 pitch 1.83
+    t16.0 playing 4: rival:pebble 46 m left level 1.00 vol 0.137 pitch 2.39; rival:moto 89 m left level 1.00 vol 0.089 pitch 2.59; rival:atv 27 m right level 1.00 vol 0.122 pitch 2.28; rival:tourer 74 m left level 1.00 vol 0.108 pitch 1.72
+    t16.5 playing 4: rival:pebble 46 m left level 1.00 vol 0.137 pitch 2.39; rival:moto 86 m right level 1.00 vol 0.111 pitch 2.61; rival:atv 24 m right level 1.00 vol 0.137 pitch 2.36; rival:tourer 72 m left level 1.00 vol 0.096 pitch 1.57
+    t17.0 playing 4: rival:pebble 45 m right level 1.00 vol 0.101 pitch 2.20; rival:moto 82 m right level 1.00 vol 0.089 pitch 2.43; rival:atv 22 m right level 1.00 vol 0.137 pitch 2.39; rival:tourer 68 m right level 1.00 vol 0.116 pitch 1.66
+    t17.5 playing 4: rival:pebble 42 m right level 1.00 vol 0.114 pitch 2.17; rival:moto 79 m right level 1.00 vol 0.095 pitch 2.45; rival:atv 21 m right level 1.00 vol 0.108 pitch 2.25; rival:tourer 65 m right level 1.00 vol 0.089 pitch 1.53
+    t18.1 playing 4: rival:pebble 39 m right level 1.00 vol 0.089 pitch 2.04; rival:moto 75 m right level 1.00 vol 0.093 pitch 2.44; rival:atv 19 m right level 1.00 vol 0.113 pitch 2.20; rival:tourer 61 m right level 1.00 vol 0.094 pitch 1.55
+  clip E-A1-race-passing: 18 s, listener volume 0.03, wav samples=1736704, peak=0.013578, rms=0.000895, clipped=0
+A: then slowing (pace 0.55) so they pass
+  E-A2-race-passed: capture empty at listener volume 0, again at 0.03 (scaled when joined)
+    t0.0 playing 3: rival:pebble 71 m right level 1.00 vol 0.103 pitch 2.08; rival:atv 21 m right level 1.00 vol 0.137 pitch 2.15; rival:tourer 88 m right level 1.00 vol 0.123 pitch 1.64
+    t0.6 playing 3: rival:pebble 74 m right level 1.00 vol 0.124 pitch 2.16; rival:atv 21 m right level 1.00 vol 0.137 pitch 2.23; rival:tourer 91 m right level 1.00 vol 0.137 pitch 1.72
+    t1.1 playing 3: rival:pebble 76 m left level 1.00 vol 0.137 pitch 2.25; rival:atv 23 m right level 1.00 vol 0.137 pitch 2.28; rival:tourer 93 m left level 1.00 vol 0.101 pitch 1.57
+    t1.6 playing 3: rival:pebble 79 m left level 1.00 vol 0.101 pitch 2.07; rival:atv 26 m right level 1.00 vol 0.115 pitch 2.18; rival:tourer 95 m left level 1.00 vol 0.091 pitch 1.53
+    t2.0 playing 3: rival:pebble 81 m left level 1.00 vol 0.094 pitch 2.04; rival:atv 28 m left level 1.00 vol 0.121 pitch 2.23; rival:tourer 97 m left level 1.00 vol 0.095 pitch 1.55
+    t2.5 playing 3: rival:pebble 84 m left level 1.00 vol 0.093 pitch 2.03; rival:atv 30 m left level 1.00 vol 0.100 pitch 2.08; rival:tourer 101 m left level 1.00 vol 0.131 pitch 1.73
+    t3.0 playing 3: rival:pebble 88 m left level 1.00 vol 0.128 pitch 2.25; rival:atv 33 m left level 1.00 vol 0.121 pitch 2.24; rival:tourer 106 m left level 1.00 vol 0.114 pitch 1.74
+    t3.5 playing 3: rival:pebble 92 m left level 1.00 vol 0.135 pitch 2.25; rival:atv 36 m left level 1.00 vol 0.099 pitch 2.10; rival:tourer 109 m left level 1.00 vol 0.081 pitch 1.57
+    t4.0 playing 3: rival:pebble 94 m left level 1.00 vol 0.108 pitch 2.10; rival:atv 38 m left level 1.00 vol 0.095 pitch 2.08; rival:tourer 111 m left level 1.00 vol 0.068 pitch 1.47
+    t4.6 playing 3: rival:pebble 96 m left level 1.00 vol 0.089 pitch 1.98; rival:atv 41 m left level 1.00 vol 0.106 pitch 2.16; rival:tourer 109 m left level 1.00 vol 0.071 pitch 1.38
+    t5.0 playing 3: rival:pebble 94 m right level 1.00 vol 0.096 pitch 1.87; rival:atv 39 m right level 1.00 vol 0.096 pitch 1.97; rival:tourer 106 m right level 1.00 vol 0.081 pitch 1.39
+    t5.6 playing 3: rival:pebble 91 m left level 1.00 vol 0.113 pitch 1.93; rival:atv 36 m right level 1.00 vol 0.132 pitch 2.14; rival:tourer 103 m left level 1.00 vol 0.114 pitch 1.55
+    t6.1 playing 3: rival:pebble 89 m left level 1.00 vol 0.137 pitch 2.12; rival:atv 36 m right level 1.00 vol 0.137 pitch 2.24; rival:tourer 101 m left level 1.00 vol 0.137 pitch 1.67
+    t6.5 playing 3: rival:pebble 87 m left level 1.00 vol 0.137 pitch 2.19; rival:atv 38 m left level 1.00 vol 0.129 pitch 2.24; rival:tourer 99 m left level 1.00 vol 0.130 pitch 1.68
+    t7.1 playing 3: rival:pebble 86 m left level 1.00 vol 0.122 pitch 2.16; rival:atv 38 m right level 1.00 vol 0.094 pitch 2.05; rival:tourer 98 m left level 1.00 vol 0.137 pitch 1.74
+    t7.5 playing 3: rival:pebble 85 m left level 1.00 vol 0.137 pitch 2.20; rival:atv 36 m right level 1.00 vol 0.096 pitch 1.88; rival:tourer 98 m left level 1.00 vol 0.137 pitch 1.75
+    t8.0 playing 3: rival:pebble 85 m left level 1.00 vol 0.137 pitch 2.23; rival:atv 33 m right level 1.00 vol 0.118 pitch 2.04; rival:tourer 100 m left level 1.00 vol 0.137 pitch 1.77
+    t8.6 playing 3: rival:pebble 88 m left level 1.00 vol 0.137 pitch 2.26; rival:atv 32 m left level 1.00 vol 0.137 pitch 2.24; rival:tourer 105 m left level 1.00 vol 0.108 pitch 1.67
+    t9.1 playing 3: rival:pebble 95 m left level 1.00 vol 0.129 pitch 2.23; rival:atv 36 m left level 1.00 vol 0.115 pitch 2.18; rival:tourer 115 m left level 1.00 vol 0.084 pitch 1.67
+    t9.6 playing 3: rival:pebble 102 m left level 1.00 vol 0.115 pitch 2.16; rival:atv 36 m left level 1.00 vol 0.089 pitch 2.03; rival:tourer 123 m left level 1.00 vol 0.047 pitch 1.63
+    t10.0 playing 3: rival:pebble 110 m left level 1.00 vol 0.093 pitch 2.18; rival:atv 32 m left level 1.00 vol 0.111 pitch 1.89; rival:tourer 131 m left level 1.00 vol 0.020 pitch 1.56
+    t10.5 playing 3: rival:pebble 115 m left level 1.00 vol 0.060 pitch 2.04; rival:atv 30 m left level 1.00 vol 0.137 pitch 2.13; rival:tourer 136 m left level 1.00 vol 0.005 pitch 1.57
+    t11.1 playing 2: rival:pebble 120 m left level 1.00 vol 0.048 pitch 2.04; rival:atv 30 m left level 1.00 vol 0.137 pitch 2.22; rival:tourer 141 m left level 0.88 vol 0.000 pitch 1.75
+    t11.5 playing 2: rival:pebble 123 m left level 1.00 vol 0.051 pitch 2.21; rival:atv 31 m left level 1.00 vol 0.137 pitch 2.27; rival:tourer 145 m left level 0.38 vol 0.000 pitch 1.78
+    t12.1 playing 2: rival:pebble 128 m left level 1.00 vol 0.036 pitch 2.32; rival:atv 34 m left level 1.00 vol 0.122 pitch 2.23
+    t12.5 playing 2: rival:pebble 133 m left level 1.00 vol 0.018 pitch 2.34; rival:atv 36 m left level 1.00 vol 0.126 pitch 2.27
+    t13.0 playing 1: rival:pebble 138 m left level 1.00 vol 0.000 pitch 2.36; rival:atv 40 m left level 1.00 vol 0.108 pitch 2.19
+    t13.6 playing 1: rival:pebble 144 m left level 0.63 vol 0.000 pitch 2.21; rival:atv 43 m left level 1.00 vol 0.101 pitch 2.11
+    t14.0 playing 1: rival:pebble 147 m left level 0.13 vol 0.000 pitch 2.05; rival:atv 46 m left level 1.00 vol 0.094 pitch 2.07
+    t14.6 playing 1: rival:atv 49 m left level 1.00 vol 0.115 pitch 2.24
+    t15.0 playing 1: rival:atv 49 m right level 1.00 vol 0.101 pitch 2.06
+    t15.6 playing 1: rival:atv 49 m right level 1.00 vol 0.136 pitch 2.22
+    t16.0 playing 1: rival:atv 50 m left level 1.00 vol 0.137 pitch 2.28
+    t16.6 playing 1: rival:atv 52 m left level 1.00 vol 0.137 pitch 2.33
+    t17.1 playing 1: rival:pebble 139 m right level 0.08 vol 0.000 pitch 1.00; rival:atv 56 m left level 1.00 vol 0.122 pitch 2.26
+    t17.6 playing 1: rival:pebble 138 m right level 0.45 vol 0.000 pitch 1.35; rival:atv 59 m right level 1.00 vol 0.116 pitch 2.18
+    t18.1 playing 1: rival:pebble 140 m right level 0.75 vol 0.000 pitch 1.62; rival:atv 61 m right level 1.00 vol 0.116 pitch 2.21
+  clip E-A2-race-passed: 18 s, listener volume 0.03, wav samples=1734656, peak=0.015168, rms=0.000985, clipped=0
+  frame time race, chase view (1920x1080), other engines off: 3.66 ms
+  frame time race, chase view (1920x1080), other engines on: 3.65 ms
+B: Free Roam, parked on the Hwy 92 shoulder at (-120, 548) facing east
+  E-B-traffic: capture empty at listener volume 0, again at 0.03 (scaled when joined)
+    t0.0 playing 0: 
+    t0.5 playing 0: 
+    t1.0 playing 0: 
+    t1.5 playing 0: 
+    t2.0 playing 0: 
+    t2.5 playing 0: 
+    t3.0 playing 0: 
+    t3.5 playing 0: 
+    t4.0 playing 0: 
+    t4.5 playing 0: 
+    t5.0 playing 0: 
+    t5.5 playing 0: 
+    t6.0 playing 0: 
+    t6.5 playing 0: 
+    t7.0 playing 0: 
+    t7.5 playing 0: 
+    t8.0 playing 0: 
+    t8.5 playing 0: 
+    t9.0 playing 0: 
+    t9.5 playing 0: 
+    t10.0 playing 0: 
+    t10.5 playing 0: 
+    t11.0 playing 0: 
+    t11.5 playing 0: 
+    t12.0 playing 0: 
+    t12.5 playing 0: 
+    t13.0 playing 0: 
+    t13.5 playing 0: 
+    t14.0 playing 0: 
+    t14.5 playing 0: 
+    t15.0 playing 0: 
+    t15.5 playing 0: 
+    t16.0 playing 0: 
+    t16.5 playing 0: 
+    t17.0 playing 0: 
+    t17.5 playing 0: 
+    t18.0 playing 0: 
+    t18.5 playing 0: 
+    t19.0 playing 0: 
+    t19.5 playing 0: 
+    t20.0 playing 0: 
+  clip E-B-traffic: 20 s, listener volume 0.03, wav samples=1923072, peak=0.002009, rms=0.000769, clipped=0
+C: Getaway, heat 3, 4 cops (nearest 132 m), sirens 2 sounding
+  E-C-getaway-heat3: capture empty at listener volume 0, again at 0.03 (scaled when joined)
+    t0.0 playing 0: 
+    t0.5 playing 0: 
+    t1.0 playing 0: 
+    t1.5 playing 0: 
+    t2.0 playing 0: 
+    t2.5 playing 0: 
+    t3.0 playing 0: 
+    t3.5 playing 0: 
+    t4.0 playing 0: 
+    t4.5 playing 0: 
+    t5.0 playing 0: 
+    t5.5 playing 0: 
+    t6.0 playing 0: 
+    t6.5 playing 0: 
+    t7.0 playing 0: 
+    t7.5 playing 0: 
+    t8.0 playing 0: 
+    t8.5 playing 0: 
+    t9.0 playing 0: 
+    t9.5 playing 0: 
+    t10.0 playing 0: 
+    t10.5 playing 0: 
+    t11.0 playing 0: 
+    t11.5 playing 0: 
+    t12.0 playing 0: 
+    t12.5 playing 0: 
+    t13.0 playing 0: 
+    t13.5 playing 0: 
+    t14.0 playing 0: 
+    t14.5 playing 0: 
+    t15.0 playing 0: 
+    t15.5 playing 0: 
+    t16.0 playing 0: 
+    t16.5 playing 0: 
+    t17.0 playing 0: 
+    t17.5 playing 0: 
+    t18.0 playing 0: 
+    t18.5 playing 0: 
+    t19.0 playing 0: 
+    t19.5 playing 0: 
+    t20.0 playing 0: 
+  clip E-C-getaway-heat3: 20 s, listener volume 0.03, wav samples=1921024, peak=0.033050, rms=0.017781, clipped=0
+   cops' own VehicleAudio left on clones: 0
+D: split-screen race, 3 rivals, player 2 AI (atv)
+  E-D-split-race: capture empty at listener volume 0, again at 0.03 (scaled when joined)
+    t0.0 playing 3: rival:tourer 26 m right level 1.00 vol 0.026 pitch 1.68 2D; rival:original 37 m right level 1.00 vol 0.020 pitch 2.03 2D; rival:drifter 68 m right level 1.00 vol 0.007 pitch 2.18 2D
+    t0.6 playing 3: rival:tourer 27 m right level 1.00 vol 0.019 pitch 1.60 2D; rival:original 37 m right level 1.00 vol 0.015 pitch 1.91 2D; rival:drifter 68 m right level 1.00 vol 0.007 pitch 2.18 2D
+    t1.0 playing 3: rival:tourer 26 m right level 1.00 vol 0.016 pitch 1.55 2D; rival:original 36 m right level 1.00 vol 0.013 pitch 1.92 2D; rival:drifter 68 m right level 1.00 vol 0.008 pitch 2.28 2D
+    t1.5 playing 3: rival:tourer 26 m right level 1.00 vol 0.019 pitch 1.62 2D; rival:original 37 m right level 1.00 vol 0.013 pitch 1.93 2D; rival:drifter 69 m right level 1.00 vol 0.008 pitch 2.40 2D
+    t2.1 playing 3: rival:tourer 27 m left level 1.00 vol 0.018 pitch 1.61 2D; rival:original 37 m right level 1.00 vol 0.015 pitch 2.03 2D; rival:drifter 70 m left level 1.00 vol 0.008 pitch 2.45 2D
+    t2.5 playing 3: rival:tourer 27 m left level 1.00 vol 0.020 pitch 1.68 2D; rival:original 37 m right level 1.00 vol 0.016 pitch 2.07 2D; rival:drifter 73 m left level 1.00 vol 0.008 pitch 2.48 2D
+    t3.0 playing 3: rival:tourer 28 m left level 1.00 vol 0.021 pitch 1.75 2D; rival:original 38 m left level 1.00 vol 0.015 pitch 2.10 2D; rival:drifter 77 m left level 1.00 vol 0.006 pitch 2.37 2D
+    t3.5 playing 3: rival:tourer 30 m left level 1.00 vol 0.019 pitch 1.77 2D; rival:original 40 m left level 1.00 vol 0.015 pitch 2.12 2D; rival:drifter 79 m left level 1.00 vol 0.005 pitch 2.14 2D
+    t4.1 playing 3: rival:tourer 32 m left level 1.00 vol 0.018 pitch 1.79 2D; rival:original 42 m left level 1.00 vol 0.013 pitch 2.11 2D; rival:drifter 77 m left level 1.00 vol 0.005 pitch 2.06 2D
+    t4.5 playing 3: rival:tourer 33 m right level 1.00 vol 0.015 pitch 1.71 2D; rival:original 42 m right level 1.00 vol 0.010 pitch 1.98 2D; rival:drifter 76 m right level 1.00 vol 0.007 pitch 2.23 2D
+    t5.0 playing 3: rival:tourer 31 m left level 1.00 vol 0.012 pitch 1.57 2D; rival:original 39 m right level 1.00 vol 0.010 pitch 1.83 2D; rival:drifter 73 m right level 1.00 vol 0.006 pitch 2.19 2D
+    t5.6 playing 3: rival:tourer 28 m left level 1.00 vol 0.014 pitch 1.54 2D; rival:original 36 m right level 1.00 vol 0.014 pitch 1.94 2D; rival:drifter 71 m right level 1.00 vol 0.005 pitch 2.11 2D
+    t6.0 playing 3: rival:tourer 28 m left level 1.00 vol 0.015 pitch 1.56 2D; rival:original 36 m right level 1.00 vol 0.012 pitch 1.89 2D; rival:drifter 72 m right level 1.00 vol 0.005 pitch 2.11 2D
+    t6.6 playing 3: rival:tourer 29 m left level 1.00 vol 0.013 pitch 1.53 2D; rival:original 38 m right level 1.00 vol 0.011 pitch 1.86 2D; rival:drifter 74 m right level 1.00 vol 0.005 pitch 2.11 2D
+    t7.1 playing 3: rival:tourer 29 m left level 1.00 vol 0.014 pitch 1.56 2D; rival:original 37 m right level 1.00 vol 0.010 pitch 1.84 2D; rival:drifter 74 m right level 1.00 vol 0.005 pitch 2.11 2D
+    t7.6 playing 3: rival:tourer 29 m left level 1.00 vol 0.013 pitch 1.54 2D; rival:original 37 m right level 1.00 vol 0.011 pitch 1.86 2D; rival:drifter 74 m right level 1.00 vol 0.005 pitch 2.10 2D
+    t8.0 playing 3: rival:tourer 29 m left level 1.00 vol 0.014 pitch 1.56 2D; rival:original 37 m right level 1.00 vol 0.011 pitch 1.85 2D; rival:drifter 74 m right level 1.00 vol 0.005 pitch 2.11 2D
+    t8.6 playing 3: rival:tourer 29 m left level 1.00 vol 0.014 pitch 1.57 2D; rival:original 37 m right level 1.00 vol 0.011 pitch 1.87 2D; rival:drifter 72 m right level 1.00 vol 0.005 pitch 2.03 2D
+    t9.1 playing 3: rival:tourer 29 m left level 1.00 vol 0.014 pitch 1.56 2D; rival:original 38 m right level 1.00 vol 0.011 pitch 1.85 2D; rival:drifter 70 m right level 1.00 vol 0.007 pitch 2.20 2D
+    t9.5 playing 3: rival:tourer 29 m left level 1.00 vol 0.014 pitch 1.56 2D; rival:original 37 m right level 1.00 vol 0.010 pitch 1.83 2D; rival:drifter 70 m right level 1.00 vol 0.008 pitch 2.37 2D
+    t10.0 playing 3: rival:tourer 28 m right level 1.00 vol 0.014 pitch 1.48 2D; rival:original 35 m right level 1.00 vol 0.013 pitch 1.86 2D; rival:drifter 71 m right level 1.00 vol 0.008 pitch 2.42 2D
+    t10.6 playing 3: rival:tourer 26 m right level 1.00 vol 0.021 pitch 1.63 2D; rival:original 35 m right level 1.00 vol 0.017 pitch 2.04 2D; rival:drifter 75 m right level 1.00 vol 0.008 pitch 2.47 2D
+    t11.1 playing 3: rival:tourer 27 m left level 1.00 vol 0.022 pitch 1.72 2D; rival:original 38 m right level 1.00 vol 0.015 pitch 2.08 2D; rival:drifter 82 m right level 1.00 vol 0.007 pitch 2.51 2D
+    t11.6 playing 3: rival:tourer 29 m left level 1.00 vol 0.020 pitch 1.75 2D; rival:original 40 m right level 1.00 vol 0.014 pitch 2.11 2D; rival:drifter 87 m right level 1.00 vol 0.007 pitch 2.53 2D
+    t12.0 playing 3: rival:tourer 30 m left level 1.00 vol 0.019 pitch 1.77 2D; rival:original 43 m right level 1.00 vol 0.013 pitch 2.13 2D; rival:drifter 93 m right level 1.00 vol 0.006 pitch 2.55 2D
+    t12.6 playing 3: rival:tourer 32 m left level 1.00 vol 0.018 pitch 1.79 2D; rival:original 45 m right level 1.00 vol 0.013 pitch 2.15 2D; rival:drifter 98 m left level 1.00 vol 0.006 pitch 2.57 2D
+    t13.0 playing 3: rival:tourer 33 m left level 1.00 vol 0.017 pitch 1.81 2D; rival:original 46 m left level 1.00 vol 0.012 pitch 2.16 2D; rival:drifter 102 m left level 1.00 vol 0.005 pitch 2.44 2D
+    t13.6 playing 3: rival:tourer 35 m left level 1.00 vol 0.017 pitch 1.82 2D; rival:original 48 m left level 1.00 vol 0.012 pitch 2.17 2D; rival:drifter 103 m left level 1.00 vol 0.004 pitch 2.25 2D
+    t14.1 playing 3: rival:tourer 36 m left level 1.00 vol 0.016 pitch 1.83 2D; rival:original 49 m right level 1.00 vol 0.012 pitch 2.18 2D; rival:drifter 100 m right level 1.00 vol 0.004 pitch 2.24 2D
+    t14.6 playing 3: rival:tourer 37 m right level 1.00 vol 0.016 pitch 1.83 2D; rival:original 49 m right level 1.00 vol 0.010 pitch 2.08 2D; rival:drifter 98 m right level 1.00 vol 0.004 pitch 2.11 2D
+    t15.0 playing 3: rival:tourer 37 m right level 1.00 vol 0.012 pitch 1.72 2D; rival:original 48 m right level 1.00 vol 0.008 pitch 1.92 2D; rival:drifter 94 m right level 1.00 vol 0.005 pitch 2.16 2D
+    t15.6 playing 3: rival:tourer 34 m right level 1.00 vol 0.013 pitch 1.59 2D; rival:original 44 m right level 1.00 vol 0.011 pitch 1.97 2D; rival:drifter 90 m right level 1.00 vol 0.004 pitch 2.13 2D
+    t16.0 playing 3: rival:tourer 32 m right level 1.00 vol 0.014 pitch 1.61 2D; rival:original 43 m right level 1.00 vol 0.009 pitch 1.84 2D; rival:drifter 88 m right level 1.00 vol 0.006 pitch 2.29 2D
+    t16.6 playing 3: rival:tourer 32 m right level 1.00 vol 0.013 pitch 1.54 2D; rival:original 42 m right level 1.00 vol 0.010 pitch 1.86 2D; rival:drifter 86 m right level 1.00 vol 0.004 pitch 2.09 2D
+    t17.1 playing 3: rival:tourer 30 m right level 1.00 vol 0.014 pitch 1.57 2D; rival:original 41 m right level 1.00 vol 0.011 pitch 1.88 2D; rival:drifter 80 m right level 1.00 vol 0.005 pitch 1.94 2D
+    t17.5 playing 3: rival:tourer 30 m right level 1.00 vol 0.015 pitch 1.60 2D; rival:original 41 m right level 1.00 vol 0.011 pitch 1.92 2D; rival:drifter 71 m right level 1.00 vol 0.006 pitch 1.83 2D
+    t18.1 playing 3: rival:tourer 30 m right level 1.00 vol 0.013 pitch 1.53 2D; rival:original 39 m right level 1.00 vol 0.010 pitch 1.76 2D; rival:drifter 61 m right level 1.00 vol 0.009 pitch 2.04 2D
+    t18.6 playing 3: rival:tourer 26 m right level 1.00 vol 0.015 pitch 1.42 2D; rival:original 33 m right level 1.00 vol 0.011 pitch 1.63 2D; rival:drifter 52 m right level 1.00 vol 0.011 pitch 2.18 2D
+    t19.0 playing 3: rival:tourer 19 m right level 1.00 vol 0.020 pitch 1.31 2D; rival:original 26 m right level 1.00 vol 0.016 pitch 1.54 2D; rival:drifter 46 m right level 1.00 vol 0.013 pitch 2.25 2D
+    t19.6 playing 3: rival:tourer 14 m right level 1.00 vol 0.035 pitch 1.33 2D; rival:original 22 m right level 1.00 vol 0.023 pitch 1.68 2D; rival:drifter 51 m right level 1.00 vol 0.011 pitch 2.32 2D
+    t20.0 playing 3: rival:tourer 12 m right level 1.00 vol 0.043 pitch 1.37 2D; rival:original 23 m right level 1.00 vol 0.025 pitch 1.82 2D; rival:drifter 61 m right level 1.00 vol 0.009 pitch 2.36 2D
+  clip E-D-split-race: 20 s, listener volume 0.03, wav samples=1923072, peak=0.013531, rms=0.000624, clipped=0
+  frame time split-screen race (1920x1080), other engines off: 5.35 ms
+  frame time split-screen race (1920x1080), other engines on: 5.23 ms

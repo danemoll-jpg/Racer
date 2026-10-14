@@ -96,13 +96,15 @@ namespace Racer
 
             // Chapter 4, Mountain Loop (Hard: the campaign's hardest). 0.112: rival pace 1.15 (the cap) on every race; still well short of Dan's pace, who takes
             // the Mountain Forward shortcuts the AI cannot drive (Docs/Report112)
+            // 0.113 Part D: Chapter 4's Mountain Forward races (rivals now take both Forward shortcuts every lap, at their authored speeds) re-landed with
+            // the 0.112 knobs (difficulty, rivals, pace) against Dan's first-run times: First Ascent +7, Whiteout about +10, Summit Final +4 (Docs/Report113)
             new() { Id = "c4-summit-clock", Name = "Summit Clock", Chapter = 4, Kind = CampaignEventKind.TimeTrial, Course = 4, RunUp = 150, Targets = new[] { 134f, 124f, 118f }, Pay = 2000, Bonus = 1000 },
-            new() { Id = "c4-first-ascent", Name = "First Ascent", Chapter = 4, Kind = CampaignEventKind.Race, Course = 4, Laps = 2, Rivals = new[] { "scrambler", "atv", "tourer" }, Difficulty = 2, Pace = 1.15f, Time = TimeOfDay.Dawn, Pay = 2200, Bonus = 1100 },
+            new() { Id = "c4-first-ascent", Name = "First Ascent", Chapter = 4, Kind = CampaignEventKind.Race, Course = 4, Laps = 2, Rivals = new[] { "tourer", "pebble", "skyfin" }, Difficulty = 0, Pace = .5f, Time = TimeOfDay.Dawn, Pay = 2200, Bonus = 1100 },
             new() { Id = "c4-practice-reverse", Name = "Practice: Mountain Loop Reverse", Chapter = 4, Kind = CampaignEventKind.TimeTrial, Course = 5, RunUp = 150, Targets = new[] { 160f, 140f, 125f }, Pay = 1000, Bonus = 500 },
             new() { Id = "c4-downhill", Name = "Downhill", Chapter = 4, Kind = CampaignEventKind.Race, Course = 5, Laps = 2, Rivals = new[] { "moto", "scrambler", "drifter" }, Difficulty = 2, Pace = 1.15f, Pay = 2400, Bonus = 1200 },
-            new() { Id = "c4-whiteout", Name = "Whiteout", Chapter = 4, Kind = CampaignEventKind.Race, Course = 4, Laps = 2, Rivals = new[] { "atv", "scrambler", "fastback" }, Difficulty = 2, Pace = 1.15f, Time = TimeOfDay.Night, Weather = Weather.Snow, Pay = 2600, Bonus = 1300 },
+            new() { Id = "c4-whiteout", Name = "Whiteout", Chapter = 4, Kind = CampaignEventKind.Race, Course = 4, Laps = 2, Rivals = new[] { "pebble", "tourer", "skyfin" }, Difficulty = 0, Pace = .52f, Time = TimeOfDay.Night, Weather = Weather.Snow, Pay = 2600, Bonus = 1300 },
             new() { Id = "c4-summit-flight", Name = "Summit Homeward Flight", Chapter = 4, Kind = CampaignEventKind.Jump, Course = 4, Site = "summit-homeward", RunUp = 250, TimeLimit = 150, Targets = new[] { 90f, 140f, 200f }, Pay = 2000, Bonus = 1000 },
-            new() { Id = "c4-summit-final", Name = "Summit Final", Chapter = 4, Kind = CampaignEventKind.Race, Course = 4, Laps = 3, Rivals = new[] { "moto", "scrambler", "drifter", "fastback", "atv" }, Difficulty = 2, Pace = 1.15f, Pay = 4200, Bonus = 2100, Prize = "fastback", Final = true },
+            new() { Id = "c4-summit-final", Name = "Summit Final", Chapter = 4, Kind = CampaignEventKind.Race, Course = 4, Laps = 3, Rivals = new[] { "moto", "scrambler", "drifter", "fastback", "atv" }, Difficulty = 0, Pace = .6f, Pay = 4200, Bonus = 2100, Prize = "fastback", Final = true },
         };
         // 0.96 Part C: the order the events had before the practice laps (0.89-0.95). A save that already had progress when
         // this order came in (Campaign.State.legacyOrder) keeps every event it could play: each event is also open when the

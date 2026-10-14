@@ -36,6 +36,7 @@ namespace Racer
         public SceneryPaving Paving { get; private set; }
         public StreetSigns Signs { get; private set; }
         public Hwy92Roadside Roadside { get; private set; }
+        public Hwy92Roadside TrickumRoadside { get; private set; } // 0.113 Part C
         public StuntPark Park { get; private set; }
         public float BuildMilliseconds { get; private set; }
         public string Timings { get; private set; } = "";
@@ -66,7 +67,7 @@ namespace Racer
             LoadingScreen.Report("People", done++, steps); yield return null;
             ScenePeople.DressCamp(gameObject.scene);
             if (Scenery.New && !built) { var e = BuildSteps(); while (e.MoveNext()) { LoadingScreen.Report(e.Current, done++, steps); yield return null; } }
-            LoadingScreen.Report("Hwy 92", done++, steps); Roadside = Hwy92Roadside.Attach(gameObject); Park = StuntPark.Attach(gameObject); yield return null; // 0.104, 0.106 (any Scenery setting)
+            LoadingScreen.Report("Hwy 92", done++, steps); Roadside = Hwy92Roadside.Attach(gameObject); TrickumRoadside = Hwy92Roadside.Attach(gameObject, Hwy92Roadside.Trickum); /* 0.113 Part C */ Park = StuntPark.Attach(gameObject); yield return null; // 0.104, 0.106 (any Scenery setting)
             LoadingScreen.Report("Street signs", done++, steps); Signs = StreetSigns.Attach(gameObject); yield return null;
             LoadingScreen.Report("Road paint", done++, steps); Paint = JunctionPaint.Attach(gameObject); yield return null;
             LoadingScreen.Report("World edge", done++, steps); WorldEdge.Attach(gameObject); yield return null;

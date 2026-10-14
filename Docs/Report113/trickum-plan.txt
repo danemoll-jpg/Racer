@@ -1,0 +1,1057 @@
+real Trickum Rd 1448 m from [-424.0, 200.0] to [-446.0, -1247.0]; real Jamerson + Cherokee path 3529 m
+game Trickum Rd 1138 m from [-548.0, 541.0] to [-613.0, -544.0]: K 0.786; game S Cherokee Ln 419 m to [-200.0, -582.0]
+junctions: real Trickum end [-446.0, -1247.0] -> game [-613.4, -544.1]; real Jamerson/Cherokee [-289.0, -1274.0] -> game [-490.4, -550.2]
+protected: 949 objects in the band (+4 m each), the trailer jump corridor, the two junction corners; race lines 26
+  hall (OSM 999775226) moved -18, -15 m to keep 10 m off a race line (the Pine Ridge trail) and on level ground
+  hall (OSM 999775355) moved -21, -15 m to keep 10 m off a race line (the Pine Ridge trail) and on level ground
+buildings: 83 (68 houses); left out {'hwy92 plan': 3, 'race lines': 2, 'protected': 5, 'hills': 0, 'overlap': 7}
+side streets 7, entrance walls 14, lights 7, hidden-police places 3
+drives 26, mailboxes 24, parking lots 5, sidewalk pieces 1
+yard trees 296 (295 solid), fences 18
+old placeholder houses removed: 125; cleared ground for the lots 61338 m2 (old trees there go)
+wrote C:/Users/danmo/Racer/Assets/Resources/Hwy92/TrickumRoadside.json (67 KB)
+
+buildings (game x/z centre, kind, name, height):
+   -507.6  -597.8 church     Hillside Fellowship Church   7.5
+   -591.6   223.2 office                                  6.5
+   -703.3   286.2 office                                  6.5
+   -674.3   343.8 apartments                              9.5
+   -702.8   270.9 office                                  6.5
+   -665.4   273.5 house                                   3.8
+   -702.8   250.7 office                                  6.5
+   -700.6   239.3 office                                  6.5
+   -699.3   223.6 office                                  6.5
+   -677.8   227.0 office                                  6.5
+   -656.6   231.1 office                                  6.5
+   -694.8   188.3 office                                  6.5
+   -678.1   185.5 office                                  6.5
+   -660.2   183.4 office                                  6.5
+   -348.8  -636.5 house                                   3.5
+   -667.3    80.1 house                                   6.0
+   -654.6   -19.7 house                                   5.6
+   -659.2   110.0 house                                   3.5
+   -713.0   -61.8 house                                   3.8
+   -661.8  -487.7 house                                   6.0
+   -658.1    33.3 house                                   6.0
+   -694.7  -191.5 house                                   3.5
+   -693.7  -395.5 house                                   3.4
+   -656.1  -463.4 house                                   5.6
+   -712.5   -33.4 house                                   3.2
+   -338.1  -586.4 house                                   3.2
+   -647.9  -146.3 house                                   5.6
+   -714.9   -85.5 house                                   6.0
+   -449.0  -470.4 house                                   3.5
+   -443.3  -529.3 house                                   3.2
+   -404.2  -537.2 house                                   3.5
+   -528.3  -514.9 house                                   6.0
+   -597.5  -444.0 house                                   5.6
+   -549.0  -516.3 house                                   3.2
+   -717.8    71.9 house                                   3.8
+   -710.6    16.6 house                                   3.4
+   -589.9  -486.8 house                                   3.2
+   -718.0    43.6 house                                   6.0
+   -691.8  -415.6 house                                   3.8
+   -665.4    53.8 house                                   3.2
+   -656.1  -395.4 house                                   5.6
+   -590.4  -156.1 house                                   3.8
+   -359.4  -507.3 civic      Laurel Ridge Meeting Hall    5.2
+   -717.8    95.9 house                                   3.2
+   -658.6  -209.7 house                                   3.2
+   -680.8  -506.4 house                                   6.0
+   -706.3  -244.3 house                                   3.4
+   -336.4  -538.1 civic      Laurel Ridge Meeting Hall    5.2
+   -396.5  -492.3 house                                   3.2
+   -699.4  -466.1 house                                   3.8
+   -462.2  -522.1 house                                   3.5
+   -683.3  -250.0 house                                   5.6
+   -381.8  -536.5 house                                   3.8
+   -420.2  -576.5 house                                   3.2
+   -590.8  -466.2 house                                   6.0
+   -693.8  -311.1 house                                   3.4
+   -691.3  -439.1 house                                   3.8
+   -715.7  -140.7 house                                   3.8
+   -390.3  -580.7 house                                   3.5
+   -546.5   -96.0 house                                   3.8
+   -653.4  -418.1 house                                   3.4
+   -710.9    -5.2 house                                   3.8
+   -656.2  -350.2 house                                   5.6
+   -656.9   149.2 house                                   5.6
+   -366.3  -585.1 house                                   5.6
+   -302.7  -591.6 house                                   3.2
+   -656.0  -190.0 house                                   3.2
+   -657.5     4.5 house                                   3.8
+   -698.9   123.2 house                                   3.2
+   -652.8  -372.6 house                                   3.8
+   -655.1  -441.6 house                                   6.0
+   -593.1  -180.5 house                                   3.2
+   -688.0   377.2 house                                   3.2
+   -539.8    45.2 house                                   3.5
+   -551.5    45.5 house                                   3.5
+   -540.3    14.1 house                                   3.5
+   -554.9    14.3 house                                   3.2
+   -566.6    14.6 house                                   3.2
+   -578.3    15.0 house                                   3.2
+   -578.2    46.7 house                                   3.5
+   -566.2    46.0 house                                   3.2
+   -599.5    47.7 house                                   3.5
+   -587.5    47.0 house                                   3.5
+
+entrances:
+  Maple Hollow at [np.float64(-427.47), np.float64(-538.77)]
+  Cedar Run at [np.float64(-638.83), np.float64(-320.77)]
+  Briar Glen at [np.float64(-638.95), np.float64(-313.2)]
+  Fox Hollow at [np.float64(-649.04), np.float64(316.02)]
+  Pine Knoll at [np.float64(-646.91), np.float64(197.49)]
+  Stone Creek at [np.float64(-607.2), np.float64(-306.82)]
+  Laurel Bend at [np.float64(-605.52), np.float64(-388.55)]
+
+protected objects kept clear (+4 m):
+   -596.1  -550.0 r  5.0 Decorative road continuations/Jamerson Rd west/Distant local traffic/Cab
+   -589.5  -540.3 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -532.4  -543.4 r  5.0 CR075 direction signs/Existing Southwest Cut > OPTIONAL / FORWARD
+   -622.2   150.0 r  5.0 CR091-096 exploration world/Acorn clue / woodland-11/Irregular weathered stacked stone
+   -532.3  -543.4 r  6.2 CR075 direction signs/Existing Southwest Cut > OPTIONAL / FORWARD/Mounted direction lettering
+   -596.1  -550.0 r  5.9 Decorative road continuations/Jamerson Rd west/Distant local traffic/Body
+   -628.3   -70.0 r  5.0 CR079 arcade sites/Trickum pavement jump
+   -628.3   -69.5 r  9.1 Phase 4 - Connector Jump/Takeoff - 40m x 6m, 6.2m rise/Trailer dressing/Trailer tire
+   -617.7  -107.8 r  5.0 CR079 arcade sites/JUMP CHALLENGE LAND CLEAN / PAUSE FOR TARGETS/Cube
+   -631.8  -110.1 r  5.0 CR041-045 authored correction/Jamerson raised pavement works/Breakable roadworks marker
+   -597.2  -549.2 r  5.0 Decorative road continuations/Jamerson Rd west/Distant local traffic/Wheel
+   -596.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -594.9  -549.2 r  5.0 Decorative road continuations/Jamerson Rd west/Distant local traffic/Wheel
+   -617.7  -107.9 r  6.9 CR079 arcade sites/JUMP CHALLENGE LAND CLEAN / PAUSE FOR TARGETS/Mounted direction lettering
+   -632.4   -74.1 r  5.0 CR041-045 authored correction/Jamerson raised pavement works/Breakable roadworks marker
+   -597.2  -550.9 r  5.0 Decorative road continuations/Jamerson Rd west/Distant local traffic/Wheel
+   -599.1  -563.7 r  7.4 CR034-039 Woodland routes/Breakable sign - Jamerson Rd/Board
+   -577.4  -550.3 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -676.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -637.2    95.3 r  5.0 CR079 arcade sites/SPEED CAMERA BOTH DIRECTIONS
+   -628.3   -70.0 r  8.1 Phase 4 - Connector Jump/Takeoff - 40m x 6m, 6.2m rise/Trailer dressing/Trailer strap
+   -622.2    95.5 r  7.5 CR079 arcade sites/SPEED CAMERA BOTH DIRECTIONS/Cube
+   -628.2   -75.0 r 49.1 Phase 4 - Connector Jump/Takeoff - 40m x 6m, 6.2m rise
+   -622.2    95.4 r  6.5 CR079 arcade sites/SPEED CAMERA BOTH DIRECTIONS/Mounted direction lettering
+   -632.0   -98.1 r  5.0 CR041-045 authored correction/Jamerson raised pavement works/Breakable roadworks marker
+   -600.1  -526.4 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -609.0  -242.6 r  5.0 Pine Ridge one-way exit/NO ENTRY/Cube
+   -614.8   -73.8 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -629.7    95.4 r  5.0 CR079 arcade sites/Trickum / 92 speed trap 2
+   -716.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -573.7  -544.0 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -634.6  -146.3 r  7.5 Phase 4 - Connector Jump/Jump approach sign (posts)/Jump approach sign/Recommended speed
+   -656.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -637.2    95.4 r  6.5 CR079 arcade sites/SPEED CAMERA BOTH DIRECTIONS/Mounted direction lettering
+   -615.4   -37.8 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -152.2  -575.6 r  7.5 CR075 direction signs/Pine Ridge < OPTIONAL / FORWARD/Cube
+   -639.5   -26.2 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -615.7   -13.8 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -367.3  -552.7 r  5.0 CR091-096 exploration world/Acorn clue / woodland-12/Irregular weathered stacked stone
+   -636.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -609.0  -509.6 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -532.4  -543.4 r  7.5 CR075 direction signs/Existing Southwest Cut > OPTIONAL / FORWARD/Cube
+   -615.6   -25.8 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -594.9  -550.9 r  5.0 Decorative road continuations/Jamerson Rd west/Distant local traffic/Wheel
+   -594.0  -522.5 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -631.8  -145.9 r  5.0 Phase 4 - Connector Jump/Jump approach sign (posts)/Sign post
+   -613.9  -470.9 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -179.1  -591.5 r  5.7 CR034-039 Woodland routes/Breakable sign - Pine Ridge  > 144 km/h/Road lettering
+   -584.3  -535.4 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -776.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -639.2   -50.2 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -615.2   -49.8 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -632.2   -86.1 r  5.0 CR041-045 authored correction/Jamerson raised pavement works/Breakable roadworks marker
+   -658.1  -555.5 r 15.0 Decorative road continuations/Jamerson Rd west/Traffic tunnel left
+   -639.7   -14.2 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -637.4  -146.0 r  5.0 Phase 4 - Connector Jump/Jump approach sign (posts)/Sign post
+   -634.6  -146.1 r  5.0 Phase 4 - Connector Jump/Jump approach sign (posts)
+   -606.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -616.0  -491.3 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -602.5  -506.7 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -616.1    10.2 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -628.5   -58.9 r 13.1 Phase 4 - Connector Jump/Takeoff - 40m x 6m, 6.2m rise/Trailer dressing/Trailer reflector amber
+   -179.0  -591.5 r  7.5 CR034-039 Woodland routes/Breakable sign - Pine Ridge  > 144 km/h
+   -152.1  -575.6 r  7.0 CR075 direction signs/Pine Ridge < OPTIONAL / FORWARD/Mounted direction lettering
+   -617.7  -107.8 r  5.0 CR079 arcade sites/JUMP CHALLENGE LAND CLEAN / PAUSE FOR TARGETS
+   -766.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -599.1  -563.7 r  5.0 CR034-039 Woodland routes/Breakable sign - Jamerson Rd/Post
+   -532.1  -541.1 r  7.5 Phase 5 - Southwest woodland shortcut/Breakable - Shortcut direction sign
+   -628.3   -69.5 r  9.1 Phase 4 - Connector Jump/Takeoff - 40m x 6m, 6.2m rise/Trailer dressing/Trailer hub
+   -599.1  -563.7 r  6.7 CR034-039 Woodland routes/Breakable sign - Jamerson Rd/Road lettering
+   -756.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -634.6  -146.1 r  8.0 Phase 4 - Connector Jump/Jump approach sign (posts)/Jump approach sign
+   -640.5    33.8 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -178.9  -591.5 r  5.7 CR034-039 Woodland routes/Breakable sign - Pine Ridge  > 144 km/h/Road lettering
+   -638.8   -74.2 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -616.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -179.0  -591.5 r  7.5 CR034-039 Woodland routes/Breakable sign - Pine Ridge  > 144 km/h/Board
+   -599.1  -563.7 r  7.5 CR034-039 Woodland routes/Breakable sign - Jamerson Rd
+   -686.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -620.9  -472.3 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -626.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -666.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -152.2  -575.6 r  5.0 CR075 direction signs/Pine Ridge < OPTIONAL / FORWARD
+   -615.0   -61.8 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -640.3    21.8 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -658.1  -550.0 r 15.0 Decorative road continuations/Jamerson Rd west/Traffic tunnel canopy
+   -640.1     9.8 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -658.1  -544.5 r 15.0 Decorative road continuations/Jamerson Rd west/Traffic tunnel right
+   -609.2  -489.1 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -639.0   -62.2 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -631.4  -130.1 r  5.0 CR041-045 authored correction/Jamerson raised pavement works/Breakable roadworks marker
+   -746.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -637.2    95.3 r  7.5 CR079 arcade sites/SPEED CAMERA BOTH DIRECTIONS/Cube
+   -646.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -608.3  -241.6 r  5.0 Pine Ridge one-way exit/NO ENTRY
+   -616.3    22.2 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -696.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -616.5    34.2 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -726.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -706.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -627.1  -145.0 r  6.5 Phase 4 - Connector Jump/Approach
+   -611.0  -468.6 r  7.5 Phase 5 - Southwest woodland shortcut/Breakable - Shortcut direction sign
+   -639.4   -38.2 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -628.3   -74.0 r 34.0 Phase 4 - Connector Jump/Takeoff - 40m x 6m, 6.2m rise/Trailer dressing/Trailer steel
+   -608.3  -241.6 r  5.5 Pine Ridge one-way exit/NO ENTRY/Cube
+   -179.0  -591.5 r  5.0 CR034-039 Woodland routes/Breakable sign - Pine Ridge  > 144 km/h/Post
+   -628.0   -88.9 r 19.1 Phase 4 - Connector Jump/Takeoff - 40m x 6m, 6.2m rise/Trailer dressing/Trailer reflector red
+   -736.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -628.2   -76.0 r 32.0 Phase 4 - Connector Jump/Takeoff - 40m x 6m, 6.2m rise/Trailer dressing/Trailer ramp plate
+   -622.2    95.5 r  5.0 CR079 arcade sites/SPEED CAMERA BOTH DIRECTIONS
+   -608.3  -241.6 r  5.3 Pine Ridge one-way exit/NO ENTRY/Mounted lettering
+   -607.4  -240.7 r  5.0 Pine Ridge one-way exit/NO ENTRY/Cube
+   -615.9    -1.8 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -631.6  -120.1 r  5.0 CR041-045 authored correction/Jamerson raised pavement works/Breakable roadworks marker
+   -639.9    -2.2 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -152.2  -575.6 r  5.0 CR075 direction signs/Pine Ridge < OPTIONAL / FORWARD/Cube
+   -596.1  -550.0 r  5.0 Decorative road continuations/Jamerson Rd west/Distant local traffic/Cab
+   -627.8  -374.6 r  5.0 Phase 3 - Race Systems/Street Loop CP 10/Non-colliding gate marking
+   -628.3   -74.0 r 34.0 Phase 4 - Connector Jump/Takeoff - 40m x 6m, 6.2m rise/Trailer dressing/Trailer steel
+   -658.1  -544.5 r 15.0 Decorative road continuations/Jamerson Rd west/Traffic tunnel right
+   -152.2  -575.6 r  5.0 CR075 direction signs/Pine Ridge < OPTIONAL / FORWARD
+   -620.9  -472.3 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -594.9  -549.2 r  5.0 Decorative road continuations/Jamerson Rd west/Distant local traffic/Wheel
+   -617.7  -107.8 r  7.5 CR079 arcade sites/JUMP CHALLENGE LAND CLEAN / PAUSE FOR TARGETS/Cube
+   -295.8  -534.9 r  6.4 Route atlas direction guidance/Optional gold / Pine Ridge
+   -639.4   -38.2 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -573.7  -544.0 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -287.5  -566.5 r  5.0 Phase 3 - Race Systems/Street Loop CP 8/Non-colliding gate marking
+   -640.5    33.8 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -599.1  -563.7 r  7.5 CR034-039 Woodland routes/Breakable sign - Jamerson Rd
+   -637.2    95.3 r  5.0 CR079 arcade sites/SPEED CAMERA BOTH DIRECTIONS
+   -615.7   -13.8 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -639.7   -14.2 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -596.1  -550.0 r  5.9 Decorative road continuations/Jamerson Rd west/Distant local traffic/Body
+   -155.8  -582.4 r  7.0 Route atlas direction guidance/Main teal / before Pine Ridge fork
+   -616.3    22.2 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -589.5  -540.3 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -622.2    95.5 r  7.5 CR079 arcade sites/SPEED CAMERA BOTH DIRECTIONS/Cube
+   -639.0   -62.2 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -600.1  -526.4 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -597.2  -549.2 r  5.0 Decorative road continuations/Jamerson Rd west/Distant local traffic/Wheel
+   -597.2  -550.9 r  5.0 Decorative road continuations/Jamerson Rd west/Distant local traffic/Wheel
+   -501.1  -543.6 r  5.0 Phase 3 - Race Systems/Street Loop CP 9/Non-colliding gate marking
+   -627.1  -145.0 r  6.5 Phase 4 - Connector Jump/Approach
+   -628.3   -70.0 r  8.1 Phase 4 - Connector Jump/Takeoff - 40m x 6m, 6.2m rise/Trailer dressing/Trailer strap
+   -581.6  -271.3 r  6.5 Route atlas direction guidance/Optional gold / Pine Ridge
+   -367.3  -552.7 r  5.0 CR091-096 exploration world/Acorn clue / woodland-12/Irregular weathered stacked stone
+   -637.2    95.4 r  6.5 CR079 arcade sites/SPEED CAMERA BOTH DIRECTIONS/Mounted direction lettering
+   -594.9  -550.9 r  5.0 Decorative road continuations/Jamerson Rd west/Distant local traffic/Wheel
+   -766.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -746.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -615.5  -374.4 r  5.0 Phase 3 - Race Systems/Street Loop CP 10/Non-colliding gate marking
+   -658.1  -555.5 r 15.0 Decorative road continuations/Jamerson Rd west/Traffic tunnel left
+   -599.2  -563.7 r  6.7 CR034-039 Woodland routes/Breakable sign - Jamerson Rd/Road lettering
+   -634.6  -146.1 r  5.0 Phase 4 - Connector Jump/Jump approach sign (posts)
+   -613.9  -470.9 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -179.0  -591.5 r  7.5 CR034-039 Woodland routes/Breakable sign - Pine Ridge  > 144 km/h
+   -635.4    70.7 r  5.0 Phase 3 - Race Systems/Street Loop CP 12/Non-colliding gate marking
+   -622.2    95.5 r  5.0 CR079 arcade sites/SPEED CAMERA BOTH DIRECTIONS
+   -706.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -756.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -606.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -619.8  -124.5 r  5.0 Phase 3 - Race Systems/Street Loop CP 11/Non-colliding gate marking
+   -532.5  -543.4 r  5.0 CR075 direction signs/Existing Southwest Cut > OPTIONAL / FORWARD/Cube
+   -632.1  -124.7 r  5.0 Phase 3 - Race Systems/Street Loop CP 11/Non-colliding gate marking
+   -726.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -615.4   -37.8 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -628.0   -88.9 r 19.1 Phase 4 - Connector Jump/Takeoff - 40m x 6m, 6.2m rise/Trailer dressing/Trailer reflector red
+   -638.8   -74.2 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -686.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -615.0   -61.8 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -676.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -623.1    70.9 r  5.0 Phase 3 - Race Systems/Street Loop CP 12/Non-colliding gate marking
+   -628.2   -75.0 r 49.1 Phase 4 - Connector Jump/Takeoff - 40m x 6m, 6.2m rise
+   -656.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -626.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -617.7  -107.9 r  6.9 CR079 arcade sites/JUMP CHALLENGE LAND CLEAN / PAUSE FOR TARGETS/Mounted direction lettering
+   -629.3    70.8 r 10.3 Phase 3 - Race Systems/Street Loop CP 12/Non-colliding gate marking
+   -599.1  -563.7 r  5.0 CR034-039 Woodland routes/Breakable sign - Jamerson Rd/Post
+   -532.4  -543.4 r  5.0 CR075 direction signs/Existing Southwest Cut > OPTIONAL / FORWARD
+   -637.4  -146.0 r  5.0 Phase 4 - Connector Jump/Jump approach sign (posts)/Sign post
+   -639.9    -2.2 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -288.5  -572.5 r 10.2 Phase 3 - Race Systems/Street Loop CP 8/Non-colliding gate marking
+   -622.2   150.0 r  5.0 CR091-096 exploration world/Acorn clue / woodland-11/Irregular weathered stacked stone
+   -640.3    21.8 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -634.6  -146.3 r  7.5 Phase 4 - Connector Jump/Jump approach sign (posts)/Jump approach sign/Recommended speed
+   -179.0  -591.5 r  5.0 CR034-039 Woodland routes/Breakable sign - Pine Ridge  > 144 km/h/Post
+   -637.2    95.2 r  5.0 CR079 arcade sites/SPEED CAMERA BOTH DIRECTIONS/Cube
+   -532.1  -541.1 r  7.5 Phase 5 - Southwest woodland shortcut/Breakable - Shortcut direction sign
+   -532.3  -543.4 r  6.2 CR075 direction signs/Existing Southwest Cut > OPTIONAL / FORWARD/Mounted direction lettering
+   -616.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -639.5   -26.2 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -615.2   -49.8 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -639.0   302.7 r  5.0 Phase 3 - Race Systems/Street Loop CP 13/Non-colliding gate marking
+   -621.7  -374.5 r 10.3 Phase 3 - Race Systems/Street Loop CP 10/Non-colliding gate marking
+   -607.4  -240.7 r  5.0 Pine Ridge one-way exit/NO ENTRY/Cube
+   -628.4  -226.1 r  7.0 Route atlas direction guidance/Optional gold / Pine Ridge
+   -617.7  -107.8 r  5.0 CR079 arcade sites/JUMP CHALLENGE LAND CLEAN / PAUSE FOR TARGETS
+   -179.0  -591.5 r  7.5 CR034-039 Woodland routes/Breakable sign - Pine Ridge  > 144 km/h/Board
+   -616.5    34.2 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -609.2  -489.1 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -178.9  -591.5 r  5.7 CR034-039 Woodland routes/Breakable sign - Pine Ridge  > 144 km/h/Road lettering
+   -289.5  -578.6 r  5.0 Phase 3 - Race Systems/Street Loop CP 8/Non-colliding gate marking
+   -639.2   -50.2 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -632.0   -98.1 r  5.0 CR041-045 authored correction/Jamerson raised pavement works/Breakable roadworks marker
+   -626.0  -124.6 r 10.3 Phase 3 - Race Systems/Street Loop CP 11/Non-colliding gate marking
+   -611.0  -468.6 r  7.5 Phase 5 - Southwest woodland shortcut/Breakable - Shortcut direction sign
+   -646.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -632.4   -74.1 r  5.0 CR041-045 authored correction/Jamerson raised pavement works/Breakable roadworks marker
+   -628.2   -76.0 r 32.0 Phase 4 - Connector Jump/Takeoff - 40m x 6m, 6.2m rise/Trailer dressing/Trailer ramp plate
+   -631.6  -120.1 r  5.0 CR041-045 authored correction/Jamerson raised pavement works/Breakable roadworks marker
+   -594.0  -522.5 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -596.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -634.6  -146.1 r  8.0 Phase 4 - Connector Jump/Jump approach sign (posts)/Jump approach sign
+   -736.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -628.3   -69.5 r  9.1 Phase 4 - Connector Jump/Takeoff - 40m x 6m, 6.2m rise/Trailer dressing/Trailer tire
+   -608.3  -241.6 r  5.0 Pine Ridge one-way exit/NO ENTRY
+   -625.2  -180.8 r  7.0 Route atlas direction guidance/Main teal / Pine Ridge rejoin
+   -776.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -666.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -631.8  -110.1 r  5.0 CR041-045 authored correction/Jamerson raised pavement works/Breakable roadworks marker
+   -658.1  -550.0 r 15.0 Decorative road continuations/Jamerson Rd west/Traffic tunnel canopy
+   -602.5  -506.7 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -696.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -477.7  -349.3 r  6.4 Route atlas direction guidance/Optional gold / Pine Ridge
+   -179.1  -591.5 r  5.7 CR034-039 Woodland routes/Breakable sign - Pine Ridge  > 144 km/h/Road lettering
+   -201.8  -582.1 r  7.0 Route atlas direction guidance/Main teal / main at Pine Ridge fork
+   -628.3   -69.5 r  9.1 Phase 4 - Connector Jump/Takeoff - 40m x 6m, 6.2m rise/Trailer dressing/Trailer hub
+   -629.7    95.4 r  5.0 CR079 arcade sites/Trickum / 92 speed trap 2
+   -501.2  -549.8 r 10.3 Phase 3 - Race Systems/Street Loop CP 9/Non-colliding gate marking
+   -609.0  -509.6 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -631.8  -145.9 r  5.0 Phase 4 - Connector Jump/Jump approach sign (posts)/Sign post
+   -599.1  -563.7 r  7.4 CR034-039 Woodland routes/Breakable sign - Jamerson Rd/Board
+   -608.3  -241.6 r  5.3 Pine Ridge one-way exit/NO ENTRY/Mounted lettering
+   -609.0  -242.6 r  5.0 Pine Ridge one-way exit/NO ENTRY/Cube
+   -616.0  -491.3 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -622.2    95.4 r  6.5 CR079 arcade sites/SPEED CAMERA BOTH DIRECTIONS/Mounted direction lettering
+   -631.4  -130.1 r  5.0 CR041-045 authored correction/Jamerson raised pavement works/Breakable roadworks marker
+   -615.9    -1.8 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -636.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -577.4  -550.3 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -628.5   -58.9 r 13.1 Phase 4 - Connector Jump/Takeoff - 40m x 6m, 6.2m rise/Trailer dressing/Trailer reflector amber
+   -632.9   302.8 r 10.3 Phase 3 - Race Systems/Street Loop CP 13/Non-colliding gate marking
+   -584.3  -535.4 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -614.8   -73.8 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -640.1     9.8 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -152.1  -575.6 r  7.0 CR075 direction signs/Pine Ridge < OPTIONAL / FORWARD/Mounted direction lettering
+   -632.2   -86.1 r  5.0 CR041-045 authored correction/Jamerson raised pavement works/Breakable roadworks marker
+   -626.8   302.9 r  5.0 Phase 3 - Race Systems/Street Loop CP 13/Non-colliding gate marking
+   -616.1    10.2 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -608.3  -241.6 r  5.5 Pine Ridge one-way exit/NO ENTRY/Cube
+   -716.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -501.4  -555.9 r  5.0 Phase 3 - Race Systems/Street Loop CP 9/Non-colliding gate marking
+   -615.6   -25.8 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -628.3   -70.0 r  5.0 CR079 arcade sites/Trickum pavement jump
+   -616.5    34.2 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -600.1  -526.4 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -630.7  -220.5 r  5.0 Phase 3 - Race Systems/Street Loop Reverse CP 6/Non-colliding gate marking
+   -599.1  -563.7 r  7.4 CR034-039 Woodland routes/Breakable sign - Jamerson Rd/Board
+   -639.1   -24.2 r  7.5 CR079 arcade sites/JUMP CHALLENGE LAND CLEAN / PAUSE FOR TARGETS/Cube
+   -696.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -596.1  -550.0 r  5.0 Decorative road continuations/Jamerson Rd west/Distant local traffic/Cab
+   -640.1     9.8 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -637.6   119.5 r  6.5 CR079 arcade sites/SPEED CAMERA BOTH DIRECTIONS/Mounted direction lettering
+   -596.1  -550.0 r  5.9 Decorative road continuations/Jamerson Rd west/Distant local traffic/Body
+   -616.1    10.2 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -594.9  -549.2 r  5.0 Decorative road continuations/Jamerson Rd west/Distant local traffic/Wheel
+   -609.2  -489.1 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -222.4   329.2 r  6.6 Route atlas direction guidance/Optional gold / Granite Creek Cut
+   -599.2  -563.7 r  6.7 CR034-039 Woodland routes/Breakable sign - Jamerson Rd/Road lettering
+   -594.9  -550.9 r  5.0 Decorative road continuations/Jamerson Rd west/Distant local traffic/Wheel
+   -622.6   119.6 r  6.5 CR079 arcade sites/SPEED CAMERA BOTH DIRECTIONS/Mounted direction lettering
+   -632.4   -74.1 r  5.0 CR041-045 authored correction/Jamerson raised pavement works/Breakable roadworks marker
+   -597.2  -550.9 r  5.0 Decorative road continuations/Jamerson Rd west/Distant local traffic/Wheel
+   -766.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -637.4  -146.0 r  5.0 Phase 4 - Connector Jump/Jump approach sign (posts)/Sign post
+   -594.0  -522.5 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -706.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -597.2  -549.2 r  5.0 Decorative road continuations/Jamerson Rd west/Distant local traffic/Wheel
+   -367.3  -552.7 r  5.0 CR091-096 exploration world/Acorn clue / woodland-12/Irregular weathered stacked stone
+   -630.1   119.5 r  5.0 CR079 arcade sites/Trickum / 92 speed trap 2
+   -726.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -288.2  -572.6 r 10.2 Phase 3 - Race Systems/Street Loop Reverse CP 9/Non-colliding gate marking
+   -639.2   -50.2 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -289.2  -578.6 r  5.0 Phase 3 - Race Systems/Street Loop Reverse CP 9/Non-colliding gate marking
+   -716.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -656.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -622.6   119.7 r  5.0 CR079 arcade sites/SPEED CAMERA BOTH DIRECTIONS/Cube
+   -634.6  -146.1 r  5.0 Phase 4 - Connector Jump/Jump approach sign (posts)
+   -658.1  -544.5 r 15.0 Decorative road continuations/Jamerson Rd west/Traffic tunnel right
+   -627.8  -374.6 r  5.0 Phase 3 - Race Systems/Street Loop Reverse CP 7/Non-colliding gate marking
+   -622.3   150.0 r  5.0 CR091-096 exploration world/Acorn clue / woodland-11/Irregular weathered stacked stone
+   -615.6   -25.8 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -624.6  -220.4 r 10.3 Phase 3 - Race Systems/Street Loop Reverse CP 6/Non-colliding gate marking
+   -640.3    21.8 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -632.2   -86.1 r  5.0 CR041-045 authored correction/Jamerson raised pavement works/Breakable roadworks marker
+   -631.6  -120.1 r  5.0 CR041-045 authored correction/Jamerson raised pavement works/Breakable roadworks marker
+   -611.0  -468.6 r  7.5 Phase 5 - Southwest woodland shortcut/Breakable - Shortcut direction sign
+   -658.1  -555.5 r 15.0 Decorative road continuations/Jamerson Rd west/Traffic tunnel left
+   -628.0   -90.0 r 24.0 Phase 4 - Connector Jump/Takeoff - 40m x 6m, 6.2m rise
+   -501.4  -555.9 r  5.0 Phase 3 - Race Systems/Street Loop Reverse CP 8/Non-colliding gate marking
+   -602.5  -506.7 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -606.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -639.0   302.7 r  5.0 Phase 3 - Race Systems/Street Loop Reverse CP 5/Non-colliding gate marking
+   -615.9    -1.8 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -626.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -658.1  -550.0 r 15.0 Decorative road continuations/Jamerson Rd west/Traffic tunnel canopy
+   -589.5  -540.3 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -628.5   -62.0 r  5.0 CR079 arcade sites/Trickum pavement jump
+   -640.5    33.8 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -615.5  -374.4 r  5.0 Phase 3 - Race Systems/Street Loop Reverse CP 7/Non-colliding gate marking
+   -666.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -616.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -608.3  -241.6 r  5.0 Pine Ridge one-way exit/NO ENTRY
+   -639.1   -24.2 r  5.0 CR079 arcade sites/JUMP CHALLENGE LAND CLEAN / PAUSE FOR TARGETS
+   -532.1  -541.1 r  7.5 Phase 5 - Southwest woodland shortcut/Breakable - Shortcut direction sign
+   -616.3    22.2 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -618.5  -220.3 r  5.0 Phase 3 - Race Systems/Street Loop Reverse CP 6/Non-colliding gate marking
+   -637.6   119.4 r  7.5 CR079 arcade sites/SPEED CAMERA BOTH DIRECTIONS/Cube
+   -433.0   177.0 r  6.6 Route atlas direction guidance/Optional gold / Granite Creek Cut
+   -627.1  -145.0 r  6.5 Phase 4 - Connector Jump/Approach
+   -686.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -636.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -632.0   -98.1 r  5.0 CR041-045 authored correction/Jamerson raised pavement works/Breakable roadworks marker
+   -628.0     1.4 r  7.0 Route atlas direction guidance/Main teal / Granite Creek Cut rejoin
+   -607.4  -240.7 r  5.0 Pine Ridge one-way exit/NO ENTRY/Cube
+   -615.7   -13.8 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -584.3  -535.4 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -608.3  -241.6 r  5.3 Pine Ridge one-way exit/NO ENTRY/Mounted lettering
+   -596.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -639.0   -62.2 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -639.7   -14.2 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -613.9  -470.9 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -746.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -637.6   119.4 r  5.0 CR079 arcade sites/SPEED CAMERA BOTH DIRECTIONS
+   -631.8  -145.9 r  5.0 Phase 4 - Connector Jump/Jump approach sign (posts)/Sign post
+   -621.7  -374.5 r 10.3 Phase 3 - Race Systems/Street Loop Reverse CP 7/Non-colliding gate marking
+   -616.0  -491.3 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -626.8   302.9 r  5.0 Phase 3 - Race Systems/Street Loop Reverse CP 5/Non-colliding gate marking
+   -632.9   302.8 r 10.3 Phase 3 - Race Systems/Street Loop Reverse CP 5/Non-colliding gate marking
+   -615.0   -61.8 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -620.9  -472.3 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -615.2   -49.8 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -501.2  -549.8 r 10.3 Phase 3 - Race Systems/Street Loop Reverse CP 8/Non-colliding gate marking
+   -609.0  -509.6 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -676.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -631.8  -110.1 r  5.0 CR041-045 authored correction/Jamerson raised pavement works/Breakable roadworks marker
+   -646.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -614.8   -73.8 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -622.6   119.6 r  5.0 CR079 arcade sites/SPEED CAMERA BOTH DIRECTIONS
+   -287.2  -566.5 r  5.0 Phase 3 - Race Systems/Street Loop Reverse CP 9/Non-colliding gate marking
+   -756.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -638.8   -74.2 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -639.9    -2.2 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -599.1  -563.7 r  5.0 CR034-039 Woodland routes/Breakable sign - Jamerson Rd/Post
+   -501.0  -543.6 r  5.0 Phase 3 - Race Systems/Street Loop Reverse CP 8/Non-colliding gate marking
+   -736.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -631.4  -130.1 r  5.0 CR041-045 authored correction/Jamerson raised pavement works/Breakable roadworks marker
+   -639.4   -38.2 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -639.5   -26.2 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -608.3  -241.6 r  5.5 Pine Ridge one-way exit/NO ENTRY/Cube
+   -609.0  -242.6 r  5.0 Pine Ridge one-way exit/NO ENTRY/Cube
+   -577.4  -550.3 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -599.1  -563.7 r  7.5 CR034-039 Woodland routes/Breakable sign - Jamerson Rd
+   -573.7  -544.0 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -544.9   110.9 r  6.7 Route atlas direction guidance/Optional gold / Granite Creek Cut
+   -639.1   -24.1 r  6.9 CR079 arcade sites/JUMP CHALLENGE LAND CLEAN / PAUSE FOR TARGETS/Mounted direction lettering
+   -776.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -615.4   -37.8 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -706.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -628.2   -75.0 r 49.1 Phase 4 - Connector Jump/Takeoff - 40m x 6m, 6.2m rise
+   -597.2  -549.2 r  5.0 Decorative road continuations/Jamerson Rd west/Distant local traffic/Wheel
+   -622.2    95.5 r  7.5 CR079 arcade sites/SPEED CAMERA BOTH DIRECTIONS/Cube
+   -628.0   -88.9 r 19.1 Phase 4 - Connector Jump/Takeoff - 40m x 6m, 6.2m rise/Trailer dressing/Trailer reflector red
+   -615.9    -1.8 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -622.3   150.0 r  5.0 CR091-096 exploration world/Acorn clue / woodland-11/Irregular weathered stacked stone
+   -656.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -596.1  -550.0 r  5.9 Decorative road continuations/Jamerson Rd west/Distant local traffic/Body
+   -632.0   -98.1 r  5.0 CR041-045 authored correction/Jamerson raised pavement works/Breakable roadworks marker
+   -594.9  -550.9 r  5.0 Decorative road continuations/Jamerson Rd west/Distant local traffic/Wheel
+   -686.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -766.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -636.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -634.6  -146.1 r  8.0 Phase 4 - Connector Jump/Jump approach sign (posts)/Jump approach sign
+   -609.0  -242.6 r  5.0 Pine Ridge one-way exit/NO ENTRY/Cube
+   -597.2  -550.9 r  5.0 Decorative road continuations/Jamerson Rd west/Distant local traffic/Wheel
+   -640.1     9.8 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -532.4  -543.4 r  5.0 CR075 direction signs/Existing Southwest Cut > OPTIONAL / FORWARD
+   -639.2   -50.2 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -628.3   -74.0 r 34.0 Phase 4 - Connector Jump/Takeoff - 40m x 6m, 6.2m rise/Trailer dressing/Trailer steel
+   -637.2    95.2 r  5.0 CR079 arcade sites/SPEED CAMERA BOTH DIRECTIONS/Cube
+   -608.3  -241.6 r  5.0 Pine Ridge one-way exit/NO ENTRY
+   -596.1  -550.0 r  5.0 Decorative road continuations/Jamerson Rd west/Distant local traffic/Cab
+   -599.1  -563.7 r  5.0 CR034-039 Woodland routes/Breakable sign - Jamerson Rd/Post
+   -607.4  -240.7 r  5.0 Pine Ridge one-way exit/NO ENTRY/Cube
+   -602.5  -506.7 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -626.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -631.8  -145.9 r  5.0 Phase 4 - Connector Jump/Jump approach sign (posts)/Sign post
+   -632.4   -74.1 r  5.0 CR041-045 authored correction/Jamerson raised pavement works/Breakable roadworks marker
+   -594.9  -549.2 r  5.0 Decorative road continuations/Jamerson Rd west/Distant local traffic/Wheel
+   -629.7    95.4 r  5.0 CR079 arcade sites/Trickum / 92 speed trap 2
+   -736.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -716.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -676.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -696.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -639.4   -38.2 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -631.4  -130.1 r  5.0 CR041-045 authored correction/Jamerson raised pavement works/Breakable roadworks marker
+   -615.7   -13.8 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -608.3  -241.6 r  5.3 Pine Ridge one-way exit/NO ENTRY/Mounted lettering
+   -599.1  -563.7 r  7.4 CR034-039 Woodland routes/Breakable sign - Jamerson Rd/Board
+   -615.2   -49.8 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -609.0  -509.6 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -756.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -638.8   -74.2 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -614.8   -73.8 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -617.7  -107.8 r  5.0 CR079 arcade sites/JUMP CHALLENGE LAND CLEAN / PAUSE FOR TARGETS
+   -628.3   -70.0 r  5.0 CR079 arcade sites/Trickum pavement jump
+   -608.3  -241.6 r  5.5 Pine Ridge one-way exit/NO ENTRY/Cube
+   -596.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -615.6   -25.8 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -776.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -646.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -615.0   -61.8 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -640.3    21.8 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -639.0   -62.2 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -637.4  -146.0 r  5.0 Phase 4 - Connector Jump/Jump approach sign (posts)/Sign post
+   -367.4  -552.6 r  5.0 CR091-096 exploration world/Acorn clue / woodland-12/Irregular weathered stacked stone
+   -639.7   -14.2 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -628.3   -69.5 r  9.1 Phase 4 - Connector Jump/Takeoff - 40m x 6m, 6.2m rise/Trailer dressing/Trailer tire
+   -615.4   -37.8 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -637.2    95.4 r  6.5 CR079 arcade sites/SPEED CAMERA BOTH DIRECTIONS/Mounted direction lettering
+   -658.1  -550.0 r 15.0 Decorative road continuations/Jamerson Rd west/Traffic tunnel canopy
+   -152.2  -575.6 r  5.0 CR075 direction signs/Pine Ridge < OPTIONAL / FORWARD/Cube
+   -573.7  -544.0 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -632.2   -86.1 r  5.0 CR041-045 authored correction/Jamerson raised pavement works/Breakable roadworks marker
+   -616.5    34.2 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -611.0  -468.6 r  7.5 Phase 5 - Southwest woodland shortcut/Breakable - Shortcut direction sign
+   -616.3    22.2 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -726.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -658.1  -555.5 r 15.0 Decorative road continuations/Jamerson Rd west/Traffic tunnel left
+   -622.2    95.4 r  6.5 CR079 arcade sites/SPEED CAMERA BOTH DIRECTIONS/Mounted direction lettering
+   -631.6  -120.1 r  5.0 CR041-045 authored correction/Jamerson raised pavement works/Breakable roadworks marker
+   -634.6  -146.1 r  5.0 Phase 4 - Connector Jump/Jump approach sign (posts)
+   -627.1  -145.0 r  6.5 Phase 4 - Connector Jump/Approach
+   -584.3  -535.4 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -616.1    10.2 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -666.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -628.2   -76.0 r 32.0 Phase 4 - Connector Jump/Takeoff - 40m x 6m, 6.2m rise/Trailer dressing/Trailer ramp plate
+   -617.7  -107.8 r  5.0 CR079 arcade sites/JUMP CHALLENGE LAND CLEAN / PAUSE FOR TARGETS/Cube
+   -658.1  -544.5 r 15.0 Decorative road continuations/Jamerson Rd west/Traffic tunnel right
+   -599.2  -563.7 r  6.7 CR034-039 Woodland routes/Breakable sign - Jamerson Rd/Road lettering
+   -589.5  -540.3 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -179.0  -591.5 r  5.0 CR034-039 Woodland routes/Breakable sign - Pine Ridge  > 144 km/h/Post
+   -152.2  -575.6 r  5.0 CR075 direction signs/Pine Ridge < OPTIONAL / FORWARD
+   -577.4  -550.3 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -179.0  -591.5 r  7.5 CR034-039 Woodland routes/Breakable sign - Pine Ridge  > 144 km/h
+   -613.9  -470.9 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -179.1  -591.5 r  5.7 CR034-039 Woodland routes/Breakable sign - Pine Ridge  > 144 km/h/Road lettering
+   -617.7  -107.9 r  6.9 CR079 arcade sites/JUMP CHALLENGE LAND CLEAN / PAUSE FOR TARGETS/Mounted direction lettering
+   -639.5   -26.2 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -532.4  -543.4 r  7.5 CR075 direction signs/Existing Southwest Cut > OPTIONAL / FORWARD/Cube
+   -616.0  -491.3 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -622.2    95.5 r  5.0 CR079 arcade sites/SPEED CAMERA BOTH DIRECTIONS
+   -634.6  -146.3 r  7.5 Phase 4 - Connector Jump/Jump approach sign (posts)/Jump approach sign/Recommended speed
+   -628.3   -70.0 r  8.1 Phase 4 - Connector Jump/Takeoff - 40m x 6m, 6.2m rise/Trailer dressing/Trailer strap
+   -178.9  -591.5 r  5.7 CR034-039 Woodland routes/Breakable sign - Pine Ridge  > 144 km/h/Road lettering
+   -637.2    95.3 r  5.0 CR079 arcade sites/SPEED CAMERA BOTH DIRECTIONS
+   -179.0  -591.5 r  7.5 CR034-039 Woodland routes/Breakable sign - Pine Ridge  > 144 km/h/Board
+   -599.1  -563.7 r  7.5 CR034-039 Woodland routes/Breakable sign - Jamerson Rd
+   -532.3  -543.4 r  6.2 CR075 direction signs/Existing Southwest Cut > OPTIONAL / FORWARD/Mounted direction lettering
+   -639.9    -2.2 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -600.1  -526.4 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -616.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -628.3   -69.5 r  9.1 Phase 4 - Connector Jump/Takeoff - 40m x 6m, 6.2m rise/Trailer dressing/Trailer hub
+   -594.0  -522.5 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -746.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -609.2  -489.1 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -620.9  -472.3 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -631.8  -110.1 r  5.0 CR041-045 authored correction/Jamerson raised pavement works/Breakable roadworks marker
+   -532.1  -541.1 r  7.5 Phase 5 - Southwest woodland shortcut/Breakable - Shortcut direction sign
+   -606.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -628.5   -58.9 r 13.1 Phase 4 - Connector Jump/Takeoff - 40m x 6m, 6.2m rise/Trailer dressing/Trailer reflector amber
+   -152.1  -575.6 r  7.0 CR075 direction signs/Pine Ridge < OPTIONAL / FORWARD/Mounted direction lettering
+   -640.5    33.8 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -596.1  -550.0 r  5.0 Decorative road continuations/Jamerson Rd west/Distant local traffic/Cab
+   -597.2  -550.9 r  5.0 Decorative road continuations/Jamerson Rd west/Distant local traffic/Wheel
+   -637.2    95.3 r  7.5 CR079 arcade sites/SPEED CAMERA BOTH DIRECTIONS/Cube
+   -609.2  -489.1 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -658.1  -544.5 r 15.0 Decorative road continuations/Jamerson Rd west/Traffic tunnel right
+   -597.2  -549.2 r  5.0 Decorative road continuations/Jamerson Rd west/Distant local traffic/Wheel
+   -620.9  -472.3 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -616.3    22.2 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -617.7  -107.8 r  5.0 CR079 arcade sites/JUMP CHALLENGE LAND CLEAN / PAUSE FOR TARGETS
+   -766.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -636.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -573.7  -544.0 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -599.1  -563.7 r  7.4 CR034-039 Woodland routes/Breakable sign - Jamerson Rd/Board
+   -628.0   -88.9 r 19.1 Phase 4 - Connector Jump/Takeoff - 40m x 6m, 6.2m rise/Trailer dressing/Trailer reflector red
+   -532.4  -543.4 r  5.0 CR075 direction signs/Existing Southwest Cut > OPTIONAL / FORWARD
+   -628.3   -69.5 r  9.1 Phase 4 - Connector Jump/Takeoff - 40m x 6m, 6.2m rise/Trailer dressing/Trailer tire
+   -596.1  -550.0 r  5.9 Decorative road continuations/Jamerson Rd west/Distant local traffic/Body
+   -613.9  -470.9 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -607.4  -240.7 r  5.0 Pine Ridge one-way exit/NO ENTRY/Cube
+   -617.7  -107.8 r  5.0 CR079 arcade sites/JUMP CHALLENGE LAND CLEAN / PAUSE FOR TARGETS/Cube
+   -639.9    -2.2 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -622.2    95.6 r  5.0 CR079 arcade sites/SPEED CAMERA BOTH DIRECTIONS/Cube
+   -615.6   -25.8 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -611.0  -468.6 r  7.5 Phase 5 - Southwest woodland shortcut/Breakable - Shortcut direction sign
+   -639.7   -14.2 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -614.8   -73.8 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -628.2   -76.0 r 32.0 Phase 4 - Connector Jump/Takeoff - 40m x 6m, 6.2m rise/Trailer dressing/Trailer ramp plate
+   -626.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -599.1  -563.7 r  6.7 CR034-039 Woodland routes/Breakable sign - Jamerson Rd/Road lettering
+   -628.3   -70.0 r  8.1 Phase 4 - Connector Jump/Takeoff - 40m x 6m, 6.2m rise/Trailer dressing/Trailer strap
+   -706.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -696.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -634.6  -146.1 r  8.0 Phase 4 - Connector Jump/Jump approach sign (posts)/Jump approach sign
+   -594.9  -550.9 r  5.0 Decorative road continuations/Jamerson Rd west/Distant local traffic/Wheel
+   -622.3   150.0 r  5.0 CR091-096 exploration world/Acorn clue / woodland-11/Irregular weathered stacked stone
+   -594.9  -549.2 r  5.0 Decorative road continuations/Jamerson Rd west/Distant local traffic/Wheel
+   -596.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -632.2   -86.1 r  5.0 CR041-045 authored correction/Jamerson raised pavement works/Breakable roadworks marker
+   -638.8   -74.2 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -152.1  -575.6 r  7.0 CR075 direction signs/Pine Ridge < OPTIONAL / FORWARD/Mounted direction lettering
+   -616.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -634.6  -146.3 r  7.5 Phase 4 - Connector Jump/Jump approach sign (posts)/Jump approach sign/Recommended speed
+   -616.0  -491.3 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -639.5   -26.2 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -615.9    -1.8 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -639.2   -50.2 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -637.4  -146.0 r  5.0 Phase 4 - Connector Jump/Jump approach sign (posts)/Sign post
+   -639.0   -62.2 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -617.7  -107.9 r  6.9 CR079 arcade sites/JUMP CHALLENGE LAND CLEAN / PAUSE FOR TARGETS/Mounted direction lettering
+   -666.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -631.8  -145.9 r  5.0 Phase 4 - Connector Jump/Jump approach sign (posts)/Sign post
+   -599.1  -563.7 r  5.0 CR034-039 Woodland routes/Breakable sign - Jamerson Rd/Post
+   -637.2    95.3 r  5.0 CR079 arcade sites/SPEED CAMERA BOTH DIRECTIONS
+   -577.4  -550.3 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -532.4  -543.4 r  7.5 CR075 direction signs/Existing Southwest Cut > OPTIONAL / FORWARD/Cube
+   -532.3  -543.4 r  6.2 CR075 direction signs/Existing Southwest Cut > OPTIONAL / FORWARD/Mounted direction lettering
+   -631.6  -120.1 r  5.0 CR041-045 authored correction/Jamerson raised pavement works/Breakable roadworks marker
+   -179.1  -591.5 r  5.7 CR034-039 Woodland routes/Breakable sign - Pine Ridge  > 144 km/h/Road lettering
+   -616.1    10.2 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -726.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -676.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -615.7   -13.8 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -628.3   -74.0 r 34.0 Phase 4 - Connector Jump/Takeoff - 40m x 6m, 6.2m rise/Trailer dressing/Trailer steel
+   -179.0  -591.5 r  7.5 CR034-039 Woodland routes/Breakable sign - Pine Ridge  > 144 km/h/Board
+   -736.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -628.3   -70.0 r  5.0 CR079 arcade sites/Trickum pavement jump
+   -600.1  -526.4 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -627.1  -145.0 r  6.5 Phase 4 - Connector Jump/Approach
+   -716.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -632.4   -74.1 r  5.0 CR041-045 authored correction/Jamerson raised pavement works/Breakable roadworks marker
+   -584.3  -535.4 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -634.6  -146.1 r  5.0 Phase 4 - Connector Jump/Jump approach sign (posts)
+   -608.3  -241.6 r  5.0 Pine Ridge one-way exit/NO ENTRY
+   -616.5    34.2 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -628.2   -75.0 r 49.1 Phase 4 - Connector Jump/Takeoff - 40m x 6m, 6.2m rise
+   -756.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -179.0  -591.5 r  7.5 CR034-039 Woodland routes/Breakable sign - Pine Ridge  > 144 km/h
+   -640.5    33.8 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -637.2    95.4 r  6.5 CR079 arcade sites/SPEED CAMERA BOTH DIRECTIONS/Mounted direction lettering
+   -178.9  -591.5 r  5.7 CR034-039 Woodland routes/Breakable sign - Pine Ridge  > 144 km/h/Road lettering
+   -631.4  -130.1 r  5.0 CR041-045 authored correction/Jamerson raised pavement works/Breakable roadworks marker
+   -622.2    95.5 r  5.0 CR079 arcade sites/SPEED CAMERA BOTH DIRECTIONS
+   -686.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -646.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -628.3   -69.5 r  9.1 Phase 4 - Connector Jump/Takeoff - 40m x 6m, 6.2m rise/Trailer dressing/Trailer hub
+   -179.0  -591.5 r  5.0 CR034-039 Woodland routes/Breakable sign - Pine Ridge  > 144 km/h/Post
+   -632.0   -98.1 r  5.0 CR041-045 authored correction/Jamerson raised pavement works/Breakable roadworks marker
+   -622.2    95.4 r  6.5 CR079 arcade sites/SPEED CAMERA BOTH DIRECTIONS/Mounted direction lettering
+   -746.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -615.2   -49.8 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -609.0  -509.6 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -152.2  -575.6 r  7.5 CR075 direction signs/Pine Ridge < OPTIONAL / FORWARD/Cube
+   -367.4  -552.6 r  5.0 CR091-096 exploration world/Acorn clue / woodland-12/Irregular weathered stacked stone
+   -609.0  -242.6 r  5.0 Pine Ridge one-way exit/NO ENTRY/Cube
+   -639.4   -38.2 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -658.1  -555.5 r 15.0 Decorative road continuations/Jamerson Rd west/Traffic tunnel left
+   -615.0   -61.8 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -532.1  -541.1 r  7.5 Phase 5 - Southwest woodland shortcut/Breakable - Shortcut direction sign
+   -629.7    95.4 r  5.0 CR079 arcade sites/Trickum / 92 speed trap 2
+   -608.3  -241.6 r  5.5 Pine Ridge one-way exit/NO ENTRY/Cube
+   -599.1  -563.7 r  7.5 CR034-039 Woodland routes/Breakable sign - Jamerson Rd
+   -640.3    21.8 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -606.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -640.1     9.8 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -631.8  -110.1 r  5.0 CR041-045 authored correction/Jamerson raised pavement works/Breakable roadworks marker
+   -608.3  -241.6 r  5.3 Pine Ridge one-way exit/NO ENTRY/Mounted lettering
+   -602.5  -506.7 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -776.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -656.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -589.5  -540.3 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -152.2  -575.6 r  5.0 CR075 direction signs/Pine Ridge < OPTIONAL / FORWARD
+   -658.1  -550.0 r 15.0 Decorative road continuations/Jamerson Rd west/Traffic tunnel canopy
+   -594.0  -522.5 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -615.4   -37.8 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -628.5   -58.9 r 13.1 Phase 4 - Connector Jump/Takeoff - 40m x 6m, 6.2m rise/Trailer dressing/Trailer reflector amber
+   -628.3   -70.0 r  8.1 Phase 4 - Connector Jump/Takeoff - 40m x 6m, 6.2m rise/Trailer dressing/Trailer strap
+   -726.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -628.3   -74.0 r 34.0 Phase 4 - Connector Jump/Takeoff - 40m x 6m, 6.2m rise/Trailer dressing/Trailer steel
+   -596.1  -550.0 r  5.9 Decorative road continuations/Jamerson Rd west/Distant local traffic/Body
+   -615.2   -49.8 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -584.3  -535.4 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -634.6  -146.3 r  7.5 Phase 4 - Connector Jump/Jump approach sign (posts)/Jump approach sign/Recommended speed
+   -736.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -639.9    -2.2 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -638.8   -74.2 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -634.6  -146.1 r  8.0 Phase 4 - Connector Jump/Jump approach sign (posts)/Jump approach sign
+   -706.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -597.2  -550.9 r  5.0 Decorative road continuations/Jamerson Rd west/Distant local traffic/Wheel
+   -696.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -611.0  -468.6 r  7.5 Phase 5 - Southwest woodland shortcut/Breakable - Shortcut direction sign
+   -596.1  -550.0 r  5.0 Decorative road continuations/Jamerson Rd west/Distant local traffic/Cab
+   -594.9  -550.9 r  5.0 Decorative road continuations/Jamerson Rd west/Distant local traffic/Wheel
+   -367.4  -552.6 r  5.0 CR091-096 exploration world/Acorn clue / woodland-12/Irregular weathered stacked stone
+   -615.7   -13.8 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -631.8  -110.1 r  5.0 CR041-045 authored correction/Jamerson raised pavement works/Breakable roadworks marker
+   -646.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -756.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -616.0  -491.3 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -639.7   -14.2 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -637.4  -146.0 r  5.0 Phase 4 - Connector Jump/Jump approach sign (posts)/Sign post
+   -628.0   -88.9 r 19.1 Phase 4 - Connector Jump/Takeoff - 40m x 6m, 6.2m rise/Trailer dressing/Trailer reflector red
+   -599.1  -563.7 r  7.5 CR034-039 Woodland routes/Breakable sign - Jamerson Rd
+   -658.1  -555.5 r 15.0 Decorative road continuations/Jamerson Rd west/Traffic tunnel left
+   -658.1  -544.5 r 15.0 Decorative road continuations/Jamerson Rd west/Traffic tunnel right
+   -616.1    10.2 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -631.8  -145.9 r  5.0 Phase 4 - Connector Jump/Jump approach sign (posts)/Sign post
+   -596.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -616.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -639.0   -62.2 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -599.1  -563.7 r  6.7 CR034-039 Woodland routes/Breakable sign - Jamerson Rd/Road lettering
+   -628.2   -75.0 r 49.1 Phase 4 - Connector Jump/Takeoff - 40m x 6m, 6.2m rise
+   -602.5  -506.7 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -594.9  -549.2 r  5.0 Decorative road continuations/Jamerson Rd west/Distant local traffic/Wheel
+   -776.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -532.1  -541.1 r  7.5 Phase 5 - Southwest woodland shortcut/Breakable - Shortcut direction sign
+   -620.9  -472.3 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -628.2   -76.0 r 32.0 Phase 4 - Connector Jump/Takeoff - 40m x 6m, 6.2m rise/Trailer dressing/Trailer ramp plate
+   -609.2  -489.1 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -609.0  -509.6 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -622.2   150.0 r  5.0 CR091-096 exploration world/Acorn clue / woodland-11/Irregular weathered stacked stone
+   -636.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -676.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -628.3   -69.5 r  9.1 Phase 4 - Connector Jump/Takeoff - 40m x 6m, 6.2m rise/Trailer dressing/Trailer tire
+   -615.6   -25.8 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -597.2  -549.2 r  5.0 Decorative road continuations/Jamerson Rd west/Distant local traffic/Wheel
+   -640.5    33.8 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -599.1  -563.7 r  7.4 CR034-039 Woodland routes/Breakable sign - Jamerson Rd/Board
+   -615.0   -61.8 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -577.4  -550.3 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -656.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -589.5  -540.3 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -716.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -628.5   -58.9 r 13.1 Phase 4 - Connector Jump/Takeoff - 40m x 6m, 6.2m rise/Trailer dressing/Trailer reflector amber
+   -615.4   -37.8 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -666.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -639.5   -26.2 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -606.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -615.9    -1.8 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -594.0  -522.5 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -628.3   -69.5 r  9.1 Phase 4 - Connector Jump/Takeoff - 40m x 6m, 6.2m rise/Trailer dressing/Trailer hub
+   -766.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -634.6  -146.1 r  5.0 Phase 4 - Connector Jump/Jump approach sign (posts)
+   -746.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -600.1  -526.4 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -631.6  -120.1 r  5.0 CR041-045 authored correction/Jamerson raised pavement works/Breakable roadworks marker
+   -631.4  -130.1 r  5.0 CR041-045 authored correction/Jamerson raised pavement works/Breakable roadworks marker
+   -616.3    22.2 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -658.1  -550.0 r 15.0 Decorative road continuations/Jamerson Rd west/Traffic tunnel canopy
+   -686.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -639.4   -38.2 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -639.2   -50.2 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -573.7  -544.0 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -613.9  -470.9 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -640.1     9.8 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -599.1  -563.7 r  5.0 CR034-039 Woodland routes/Breakable sign - Jamerson Rd/Post
+   -614.8   -73.8 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -632.4   -74.1 r  5.0 CR041-045 authored correction/Jamerson raised pavement works/Breakable roadworks marker
+   -626.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -632.2   -86.1 r  5.0 CR041-045 authored correction/Jamerson raised pavement works/Breakable roadworks marker
+   -632.0   -98.1 r  5.0 CR041-045 authored correction/Jamerson raised pavement works/Breakable roadworks marker
+   -640.3    21.8 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -616.5    34.2 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -627.1  -145.0 r  6.5 Phase 4 - Connector Jump/Approach
+   -367.4  -552.7 r  5.0 CR091-096 exploration world/Acorn clue / woodland-12/Irregular weathered stacked stone
+   -706.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -596.1  -550.0 r  5.0 Decorative road continuations/Jamerson Rd west/Distant local traffic/Cab
+   -594.9  -550.9 r  5.0 Decorative road continuations/Jamerson Rd west/Distant local traffic/Wheel
+   -628.3   -69.5 r  9.1 Phase 4 - Connector Jump/Takeoff - 40m x 6m, 6.2m rise/Trailer dressing/Trailer hub
+   -596.1  -550.0 r  5.9 Decorative road continuations/Jamerson Rd west/Distant local traffic/Body
+   -611.0  -468.6 r  7.5 Phase 5 - Southwest woodland shortcut/Breakable - Shortcut direction sign
+   -589.5  -540.3 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -658.1  -555.5 r 15.0 Decorative road continuations/Jamerson Rd west/Traffic tunnel left
+   -602.5  -506.7 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -616.1    10.2 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -599.1  -563.7 r  7.4 CR034-039 Woodland routes/Breakable sign - Jamerson Rd/Board
+   -573.7  -544.0 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -658.1  -544.5 r 15.0 Decorative road continuations/Jamerson Rd west/Traffic tunnel right
+   -746.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -622.2   150.0 r  5.0 CR091-096 exploration world/Acorn clue / woodland-11/Irregular weathered stacked stone
+   -756.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -640.5    33.8 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -597.2  -549.2 r  5.0 Decorative road continuations/Jamerson Rd west/Distant local traffic/Wheel
+   -613.9  -470.9 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -639.7   -14.2 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -616.0  -491.3 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -599.1  -563.7 r  7.5 CR034-039 Woodland routes/Breakable sign - Jamerson Rd
+   -616.5    34.2 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -636.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -640.3    21.8 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -620.9  -472.3 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -766.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -628.0   -88.9 r 19.1 Phase 4 - Connector Jump/Takeoff - 40m x 6m, 6.2m rise/Trailer dressing/Trailer reflector red
+   -716.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -686.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -615.6   -25.8 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -631.8  -110.1 r  5.0 CR041-045 authored correction/Jamerson raised pavement works/Breakable roadworks marker
+   -628.2   -76.0 r 32.0 Phase 4 - Connector Jump/Takeoff - 40m x 6m, 6.2m rise/Trailer dressing/Trailer ramp plate
+   -597.2  -550.9 r  5.0 Decorative road continuations/Jamerson Rd west/Distant local traffic/Wheel
+   -776.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -615.0   -61.8 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -658.1  -550.0 r 15.0 Decorative road continuations/Jamerson Rd west/Traffic tunnel canopy
+   -577.4  -550.3 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -632.4   -74.1 r  5.0 CR041-045 authored correction/Jamerson raised pavement works/Breakable roadworks marker
+   -628.5   -58.9 r 13.1 Phase 4 - Connector Jump/Takeoff - 40m x 6m, 6.2m rise/Trailer dressing/Trailer reflector amber
+   -606.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -646.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -696.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -639.2   -50.2 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -594.9  -549.2 r  5.0 Decorative road continuations/Jamerson Rd west/Distant local traffic/Wheel
+   -632.0   -98.1 r  5.0 CR041-045 authored correction/Jamerson raised pavement works/Breakable roadworks marker
+   -632.2   -86.1 r  5.0 CR041-045 authored correction/Jamerson raised pavement works/Breakable roadworks marker
+   -599.1  -563.7 r  5.0 CR034-039 Woodland routes/Breakable sign - Jamerson Rd/Post
+   -634.6  -146.1 r  5.0 Phase 4 - Connector Jump/Jump approach sign (posts)
+   -736.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -639.0   -62.2 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -594.0  -522.5 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -609.0  -509.6 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -638.8   -74.2 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -640.1     9.8 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -609.2  -489.1 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -599.2  -563.7 r  6.7 CR034-039 Woodland routes/Breakable sign - Jamerson Rd/Road lettering
+   -584.3  -535.4 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -628.3   -69.5 r  9.1 Phase 4 - Connector Jump/Takeoff - 40m x 6m, 6.2m rise/Trailer dressing/Trailer tire
+   -631.8  -145.9 r  5.0 Phase 4 - Connector Jump/Jump approach sign (posts)/Sign post
+   -628.2   -75.0 r 49.1 Phase 4 - Connector Jump/Takeoff - 40m x 6m, 6.2m rise
+   -631.6  -120.1 r  5.0 CR041-045 authored correction/Jamerson raised pavement works/Breakable roadworks marker
+   -615.4   -37.8 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -627.1  -145.0 r  6.5 Phase 4 - Connector Jump/Approach
+   -615.2   -49.8 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -600.1  -526.4 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -628.3   -70.0 r  8.1 Phase 4 - Connector Jump/Takeoff - 40m x 6m, 6.2m rise/Trailer dressing/Trailer strap
+   -639.4   -38.2 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -532.1  -541.1 r  7.5 Phase 5 - Southwest woodland shortcut/Breakable - Shortcut direction sign
+   -615.7   -13.8 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -614.8   -73.8 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -616.3    22.2 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -615.9    -1.8 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -628.3   -74.0 r 34.0 Phase 4 - Connector Jump/Takeoff - 40m x 6m, 6.2m rise/Trailer dressing/Trailer steel
+   -637.4  -146.0 r  5.0 Phase 4 - Connector Jump/Jump approach sign (posts)/Sign post
+   -666.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -656.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -626.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -616.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -596.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -639.9    -2.2 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -639.5   -26.2 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -676.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -726.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -631.4  -130.1 r  5.0 CR041-045 authored correction/Jamerson raised pavement works/Breakable roadworks marker
+   -626.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -596.1  -550.0 r  5.9 Decorative road continuations/Jamerson Rd west/Distant local traffic/Body
+   -706.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -756.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -597.2  -550.9 r  5.0 Decorative road continuations/Jamerson Rd west/Distant local traffic/Wheel
+   -676.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -638.8   -74.2 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -746.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -658.1  -544.5 r 15.0 Decorative road continuations/Jamerson Rd west/Traffic tunnel right
+   -584.3  -535.4 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -594.9  -550.9 r  5.0 Decorative road continuations/Jamerson Rd west/Distant local traffic/Wheel
+   -596.1  -550.0 r  5.0 Decorative road continuations/Jamerson Rd west/Distant local traffic/Cab
+   -596.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -602.5  -506.7 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -616.3    22.2 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -658.1  -550.0 r 15.0 Decorative road continuations/Jamerson Rd west/Traffic tunnel canopy
+   -639.0   -62.2 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -628.3   -69.5 r  9.1 Phase 4 - Connector Jump/Takeoff - 40m x 6m, 6.2m rise/Trailer dressing/Trailer tire
+   -599.1  -563.7 r  7.4 CR034-039 Woodland routes/Breakable sign - Jamerson Rd/Board
+   -597.2  -549.2 r  5.0 Decorative road continuations/Jamerson Rd west/Distant local traffic/Wheel
+   -631.4  -130.1 r  5.0 CR041-045 authored correction/Jamerson raised pavement works/Breakable roadworks marker
+   -639.5   -26.2 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -614.8   -73.8 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -716.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -631.8  -145.9 r  5.0 Phase 4 - Connector Jump/Jump approach sign (posts)/Sign post
+   -532.1  -541.1 r  7.5 Phase 5 - Southwest woodland shortcut/Breakable - Shortcut direction sign
+   -622.2   150.0 r  5.0 CR091-096 exploration world/Acorn clue / woodland-11/Irregular weathered stacked stone
+   -632.4   -74.1 r  5.0 CR041-045 authored correction/Jamerson raised pavement works/Breakable roadworks marker
+   -696.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -367.3  -552.7 r  5.0 CR091-096 exploration world/Acorn clue / woodland-12/Irregular weathered stacked stone
+   -686.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -609.2  -489.1 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -615.7   -13.8 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -639.9    -2.2 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -628.2   -76.0 r 32.0 Phase 4 - Connector Jump/Takeoff - 40m x 6m, 6.2m rise/Trailer dressing/Trailer ramp plate
+   -599.1  -563.7 r  5.0 CR034-039 Woodland routes/Breakable sign - Jamerson Rd/Post
+   -639.2   -50.2 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -599.2  -563.7 r  6.7 CR034-039 Woodland routes/Breakable sign - Jamerson Rd/Road lettering
+   -599.1  -563.7 r  7.5 CR034-039 Woodland routes/Breakable sign - Jamerson Rd
+   -631.8  -110.1 r  5.0 CR041-045 authored correction/Jamerson raised pavement works/Breakable roadworks marker
+   -634.6  -146.1 r  5.0 Phase 4 - Connector Jump/Jump approach sign (posts)
+   -640.5    33.8 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -573.7  -544.0 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -606.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -631.6  -120.1 r  5.0 CR041-045 authored correction/Jamerson raised pavement works/Breakable roadworks marker
+   -620.9  -472.3 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -639.4   -38.2 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -632.0   -98.1 r  5.0 CR041-045 authored correction/Jamerson raised pavement works/Breakable roadworks marker
+   -726.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -594.9  -549.2 r  5.0 Decorative road continuations/Jamerson Rd west/Distant local traffic/Wheel
+   -609.0  -509.6 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -632.2   -86.1 r  5.0 CR041-045 authored correction/Jamerson raised pavement works/Breakable roadworks marker
+   -616.5    34.2 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -611.0  -468.6 r  7.5 Phase 5 - Southwest woodland shortcut/Breakable - Shortcut direction sign
+   -615.4   -37.8 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -613.9  -470.9 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -639.7   -14.2 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -634.6  -146.3 r  7.5 Phase 4 - Connector Jump/Jump approach sign (posts)/Jump approach sign/Recommended speed
+   -628.0   -88.9 r 19.1 Phase 4 - Connector Jump/Takeoff - 40m x 6m, 6.2m rise/Trailer dressing/Trailer reflector red
+   -776.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -666.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -615.0   -61.8 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -656.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -766.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -628.3   -74.0 r 34.0 Phase 4 - Connector Jump/Takeoff - 40m x 6m, 6.2m rise/Trailer dressing/Trailer steel
+   -627.1  -145.0 r  6.5 Phase 4 - Connector Jump/Approach
+   -640.1     9.8 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -646.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -615.2   -49.8 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -736.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -640.3    21.8 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -616.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -637.4  -146.0 r  5.0 Phase 4 - Connector Jump/Jump approach sign (posts)/Sign post
+   -628.5   -58.9 r 13.1 Phase 4 - Connector Jump/Takeoff - 40m x 6m, 6.2m rise/Trailer dressing/Trailer reflector amber
+   -628.3   -69.5 r  9.1 Phase 4 - Connector Jump/Takeoff - 40m x 6m, 6.2m rise/Trailer dressing/Trailer hub
+   -615.9    -1.8 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -634.6  -146.1 r  8.0 Phase 4 - Connector Jump/Jump approach sign (posts)/Jump approach sign
+   -616.1    10.2 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -628.2   -75.0 r 49.1 Phase 4 - Connector Jump/Takeoff - 40m x 6m, 6.2m rise
+   -589.5  -540.3 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -636.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -658.1  -555.5 r 15.0 Decorative road continuations/Jamerson Rd west/Traffic tunnel left
+   -594.0  -522.5 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -616.0  -491.3 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -600.1  -526.4 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -615.6   -25.8 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -628.3   -70.0 r  8.1 Phase 4 - Connector Jump/Takeoff - 40m x 6m, 6.2m rise/Trailer dressing/Trailer strap
+   -577.4  -550.3 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -597.2  -550.9 r  5.0 Decorative road continuations/Jamerson Rd west/Distant local traffic/Wheel
+   -632.0   -98.1 r  5.0 CR041-045 authored correction/Jamerson raised pavement works/Breakable roadworks marker
+   -631.8  -110.1 r  5.0 CR041-045 authored correction/Jamerson raised pavement works/Breakable roadworks marker
+   -615.0   -61.8 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -622.3   150.0 r  5.0 CR091-096 exploration world/Acorn clue / woodland-11/Irregular weathered stacked stone
+   -596.1  -550.0 r  5.9 Decorative road continuations/Jamerson Rd west/Distant local traffic/Body
+   -640.5    33.8 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -639.4   -38.2 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -639.7   -14.2 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -658.1  -555.5 r 15.0 Decorative road continuations/Jamerson Rd west/Traffic tunnel left
+   -615.7   -13.8 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -577.4  -550.3 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -597.2  -549.2 r  5.0 Decorative road continuations/Jamerson Rd west/Distant local traffic/Wheel
+   -632.4   -74.1 r  5.0 CR041-045 authored correction/Jamerson raised pavement works/Breakable roadworks marker
+   -602.5  -506.7 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -639.5   -26.2 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -634.6  -146.3 r  7.5 Phase 4 - Connector Jump/Jump approach sign (posts)/Jump approach sign/Recommended speed
+   -628.5   -58.9 r 13.1 Phase 4 - Connector Jump/Takeoff - 40m x 6m, 6.2m rise/Trailer dressing/Trailer reflector amber
+   -594.0  -522.5 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -616.1    10.2 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -596.1  -550.0 r  5.0 Decorative road continuations/Jamerson Rd west/Distant local traffic/Cab
+   -594.9  -549.2 r  5.0 Decorative road continuations/Jamerson Rd west/Distant local traffic/Wheel
+   -666.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -616.5    34.2 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -636.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -367.3  -552.7 r  5.0 CR091-096 exploration world/Acorn clue / woodland-12/Irregular weathered stacked stone
+   -615.4   -37.8 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -628.2   -75.0 r 49.1 Phase 4 - Connector Jump/Takeoff - 40m x 6m, 6.2m rise
+   -631.6  -120.1 r  5.0 CR041-045 authored correction/Jamerson raised pavement works/Breakable roadworks marker
+   -596.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -676.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -706.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -639.9    -2.2 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -634.6  -146.1 r  5.0 Phase 4 - Connector Jump/Jump approach sign (posts)
+   -616.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -628.3   -69.5 r  9.1 Phase 4 - Connector Jump/Takeoff - 40m x 6m, 6.2m rise/Trailer dressing/Trailer hub
+   -756.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -646.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -599.1  -563.7 r  7.4 CR034-039 Woodland routes/Breakable sign - Jamerson Rd/Board
+   -611.0  -468.6 r  7.5 Phase 5 - Southwest woodland shortcut/Breakable - Shortcut direction sign
+   -599.1  -563.7 r  6.7 CR034-039 Woodland routes/Breakable sign - Jamerson Rd/Road lettering
+   -628.0   -88.9 r 19.1 Phase 4 - Connector Jump/Takeoff - 40m x 6m, 6.2m rise/Trailer dressing/Trailer reflector red
+   -589.5  -540.3 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -615.6   -25.8 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -638.8   -74.2 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -776.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -613.9  -470.9 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -594.9  -550.9 r  5.0 Decorative road continuations/Jamerson Rd west/Distant local traffic/Wheel
+   -615.2   -49.8 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -626.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -656.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -637.4  -146.0 r  5.0 Phase 4 - Connector Jump/Jump approach sign (posts)/Sign post
+   -628.3   -70.0 r  8.1 Phase 4 - Connector Jump/Takeoff - 40m x 6m, 6.2m rise/Trailer dressing/Trailer strap
+   -614.8   -73.8 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -599.1  -563.7 r  7.5 CR034-039 Woodland routes/Breakable sign - Jamerson Rd
+   -658.1  -544.5 r 15.0 Decorative road continuations/Jamerson Rd west/Traffic tunnel right
+   -599.1  -563.7 r  5.0 CR034-039 Woodland routes/Breakable sign - Jamerson Rd/Post
+   -573.7  -544.0 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -628.2   -76.0 r 32.0 Phase 4 - Connector Jump/Takeoff - 40m x 6m, 6.2m rise/Trailer dressing/Trailer ramp plate
+   -606.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -620.9  -472.3 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -609.2  -489.1 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -628.3   -74.0 r 34.0 Phase 4 - Connector Jump/Takeoff - 40m x 6m, 6.2m rise/Trailer dressing/Trailer steel
+   -631.8  -145.9 r  5.0 Phase 4 - Connector Jump/Jump approach sign (posts)/Sign post
+   -639.0   -62.2 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -639.2   -50.2 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -746.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -766.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -631.4  -130.1 r  5.0 CR041-045 authored correction/Jamerson raised pavement works/Breakable roadworks marker
+   -696.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -600.1  -526.4 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -532.1  -541.1 r  7.5 Phase 5 - Southwest woodland shortcut/Breakable - Shortcut direction sign
+   -726.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -627.1  -145.0 r  6.5 Phase 4 - Connector Jump/Approach
+   -616.0  -491.3 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -632.2   -86.1 r  5.0 CR041-045 authored correction/Jamerson raised pavement works/Breakable roadworks marker
+   -716.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -640.3    21.8 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -616.3    22.2 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -628.3   -69.5 r  9.1 Phase 4 - Connector Jump/Takeoff - 40m x 6m, 6.2m rise/Trailer dressing/Trailer tire
+   -736.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -686.1  -550.0 r  6.5 Decorative road continuations/Jamerson Rd west/Lane dash
+   -658.1  -550.0 r 15.0 Decorative road continuations/Jamerson Rd west/Traffic tunnel canopy
+   -640.1     9.8 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -634.6  -146.1 r  8.0 Phase 4 - Connector Jump/Jump approach sign (posts)/Jump approach sign
+   -615.9    -1.8 r  5.5 Phase 4 - Connector Jump/Landing edge
+   -584.3  -535.4 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge
+   -609.0  -509.6 r  5.0 Phase 5 - Southwest woodland shortcut/Non-colliding path edge

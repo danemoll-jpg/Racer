@@ -1,0 +1,17 @@
+screen=1920x1080 kind=perf113 version=0.113.0-review1 park=on
+T150a: 6.65 ms per frame
+T300a: 6.84 ms per frame
+T450a: 7.07 ms per frame
+T600a: 6.67 ms per frame
+T750a: 6.37 ms per frame
+T900a: 6.26 ms per frame
+T1050a: 5.80 ms per frame
+C60a: 7.24 ms per frame
+C60b: 5.90 ms per frame
+C160a: 13.28 ms per frame
+C160b: 8.78 ms per frame
+C260a: 7.12 ms per frame
+C260b: 6.71 ms per frame
+C330a: 6.91 ms per frame
+C330b: 7.25 ms per frame
+worst view: C160a 13.28 ms; all views 7.26 ms (split-screen 1920x1080, Trickum plan off (before))

@@ -180786,7 +180786,7 @@ MonoBehaviour:
   halfWidth: 3.6
   recommendedSpeed: 30
   bypassedGates: 02000000i
-  aiValidated: 0
+  aiValidated: 1
   undergroundStart: 0
   undergroundEnd: 0
   entryHeightBelow: 3
@@ -670364,7 +670364,7 @@ MonoBehaviour:
   halfWidth: 5
   recommendedSpeed: 23
   bypassedGates: 05000000i
-  aiValidated: 0
+  aiValidated: 1
   undergroundStart: 0
   undergroundEnd: 0
   entryHeightBelow: 3

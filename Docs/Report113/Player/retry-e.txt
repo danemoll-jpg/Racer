@@ -1,0 +1,23 @@
+screen=1920x1080 kind=retry113 version=0.112.0-review1 park=on
+== c1-first-lap 'First Lap' on StreetLoopGreybox, rivals original,pebble,roadster
+  run 1 fresh: player 275.7 s; colliders [on,on,on]; original 266.9 resets 0 (first 10 s 0); pebble 266.3 resets 0 (first 10 s 0); roadster 263.4 resets 0 (first 10 s 0)
+  run 1 retry: player 275.9 s; colliders [on,on,on]; original 267.3 resets 0 (first 10 s 0); pebble 266.5 resets 0 (first 10 s 0); roadster 263.7 resets 0 (first 10 s 0)
+  run 2 fresh: player 275.8 s; colliders [on,on,on]; original 267.5 resets 0 (first 10 s 0); pebble 268.4 resets 0 (first 10 s 0); roadster 263.9 resets 0 (first 10 s 0)
+  run 2 retry: player 276.2 s; colliders [on,on,on]; original 270.0 resets 0 (first 10 s 0); pebble 270.7 resets 0 (first 10 s 0); roadster 263.7 resets 0 (first 10 s 0)
+  run 3 fresh: player 275.8 s; colliders [on,on,on]; original 267.7 resets 0 (first 10 s 0); pebble 266.6 resets 0 (first 10 s 0); roadster 263.8 resets 0 (first 10 s 0)
+  run 3 retry: player 275.8 s; colliders [on,on,on]; original 266.8 resets 0 (first 10 s 0); pebble 267.7 resets 0 (first 10 s 0); roadster 263.6 resets 0 (first 10 s 0)
+  run 4 fresh: player 275.5 s; colliders [on,on,on]; original 267.2 resets 0 (first 10 s 0); pebble 266.4 resets 0 (first 10 s 0); roadster 263.7 resets 0 (first 10 s 0)
+  run 4 retry: player 275.8 s; colliders [on,on,on]; original 267.0 resets 0 (first 10 s 0); pebble 266.5 resets 0 (first 10 s 0); roadster 263.4 resets 0 (first 10 s 0)
+  run 5 fresh: player 277.7 s; colliders [on,on,on]; original 282.6 resets 1 (first 10 s 0); pebble 284.2 resets 1 (first 10 s 0); roadster 263.9 resets 0 (first 10 s 0)
+  run 5 retry: player 275.8 s; colliders [on,on,on]; original 266.2 resets 0 (first 10 s 0); pebble 266.9 resets 0 (first 10 s 0); roadster 263.6 resets 0 (first 10 s 0)
+== c4-first-ascent 'First Ascent' on MountainLoop, rivals scrambler,atv,tourer
+  run 1 fresh: player 183.4 s; colliders [on,on,on]; scrambler 110.0 resets 0 (first 10 s 0); atv 109.1 resets 0 (first 10 s 0); tourer 113.7 resets 0 (first 10 s 0)
+  run 1 retry: player 163.6 s; colliders [on,on,on]; scrambler 114.9 resets 0 (first 10 s 0); atv 109.0 resets 0 (first 10 s 0); tourer 114.0 resets 0 (first 10 s 0)
+  run 2 fresh: player 162.5 s; colliders [on,on,on]; scrambler 109.8 resets 0 (first 10 s 0); atv 109.0 resets 0 (first 10 s 0); tourer 113.7 resets 0 (first 10 s 0)
+  run 2 retry: player 111.9 s; colliders [on,on,on]; scrambler 115.0 resets 0 (first 10 s 0); atv 109.2 resets 0 (first 10 s 0); tourer 113.7 resets 0 (first 10 s 0)
+  run 3 fresh: player 177.9 s; colliders [on,on,on]; scrambler 109.9 resets 0 (first 10 s 0); atv 109.2 resets 0 (first 10 s 0); tourer 113.7 resets 0 (first 10 s 0)
+  run 3 retry: player 135.7 s; colliders [on,on,on]; scrambler 109.9 resets 0 (first 10 s 0); atv 109.1 resets 0 (first 10 s 0); tourer 113.5 resets 0 (first 10 s 0)
+  run 4 fresh: player 162.6 s; colliders [on,on,on]; scrambler 109.8 resets 0 (first 10 s 0); atv 109.0 resets 0 (first 10 s 0); tourer 113.7 resets 0 (first 10 s 0)
+  run 4 retry: player 147.2 s; colliders [on,on,on]; scrambler 109.9 resets 0 (first 10 s 0); atv 109.1 resets 0 (first 10 s 0); tourer 113.6 resets 0 (first 10 s 0)
+  run 5 fresh: player 148.3 s; colliders [on,on,on]; scrambler 114.9 resets 0 (first 10 s 0); atv 109.0 resets 0 (first 10 s 0); tourer 114.0 resets 0 (first 10 s 0)
+  run 5 retry: player 127.4 s; colliders [on,on,on]; scrambler 109.9 resets 0 (first 10 s 0); atv 109.1 resets 0 (first 10 s 0); tourer 113.6 resets 0 (first 10 s 0)

@@ -1,0 +1,2 @@
+screen=1920x1080 kind=shots113 version=0.113.0-review1 park=on
+Trickum plan on: built in 68 ms: 83 buildings, 0 canopies, 7 lights, 296 trees, 0 pylon signs, 0 signal poles, 14 entrance walls, 18 fences, 24 mailboxes; 44064 triangles, 731 solids, 17 lettered faces; removed 11 old placeholder houses

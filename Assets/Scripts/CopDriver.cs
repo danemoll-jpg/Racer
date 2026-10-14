@@ -17,6 +17,7 @@ namespace Racer
         public bool Hold;                 // stop at the end of the path and wait there
         public bool Frozen;               // held in place (before GO, a roadblock)
         public Transform Chasing; public Rigidbody ChasingBody; public float Offset; public bool Pushy;
+        public float LastThrottle { get; private set; } // 0.113 Part E: for its engine sound (OtherEngines)
         public bool Arrived { get; private set; }
         public int Recoveries { get; private set; }
         public float TargetSpeed { get; private set; } public string Limit { get; private set; } = ""; // what holds the speed down: corner / angle / lateral / obstacle / end (debug)
@@ -164,9 +165,9 @@ namespace Racer
             if (stalled > 2.5f && stalled < 4.2f) { throttle = 0; brake = .8f; steering = -steering; }
             if (stalled >= 4.2f && stalled < 4.4f) { stalled = 4.4f; }
             if (stalled > 7f && Time.time - lastTeleport > 4f) { Recover(); return; }
-            Car.Simulate(throttle, brake, steering, dt);
+            LastThrottle = throttle; Car.Simulate(throttle, brake, steering, dt);
         }
-        void Brake(float dt, float speed) { Car.Simulate(0, speed > .6f ? 1f : 0f, 0, dt); if (speed < .7f) Car.Body.linearVelocity *= .85f; }
+        void Brake(float dt, float speed) { LastThrottle = 0; Car.Simulate(0, speed > .6f ? 1f : 0f, 0, dt); if (speed < .7f) Car.Body.linearVelocity *= .85f; }
         void UpdateLane(float speed, Vector3 tangent, Vector3 right)
         {
             if (Time.time < laneUntil) return;

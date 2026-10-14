@@ -1,0 +1,10 @@
+screen=1920x1080 kind=ai113 version=0.112.0-review1 park=on
+override c4-whiteout: diff:0/pace:0.55/rivals:pebble+tourer+skyfin
+race c4-whiteout, 2 runs, forced shortcuts [], chapter 4 unvalidated allowed []
+== c4-whiteout 'Whiteout' course MountainLoop laps 2 Night / Snow difficulty 0 pace 0.550 rivals pebble,tourer,skyfin
+  run 1 pebble     166.0 resets 0 (first 10 s: 0) shortcuts [Climbing Ridge Cut lap 1; Summit Traverse lap 1; Climbing Ridge Cut lap 2; Summit Traverse lap 2]
+  run 1 tourer     171.9 resets 0 (first 10 s: 0) shortcuts [Climbing Ridge Cut lap 1; Summit Traverse lap 1; Climbing Ridge Cut lap 2; Summit Traverse lap 2]
+  run 1 skyfin     176.0 resets 0 (first 10 s: 0) shortcuts [Climbing Ridge Cut lap 1; Summit Traverse lap 1; Climbing Ridge Cut lap 2; Summit Traverse lap 2]
+  run 2 pebble     166.0 resets 0 (first 10 s: 0) shortcuts [Climbing Ridge Cut lap 1; Summit Traverse lap 1; Climbing Ridge Cut lap 2; Summit Traverse lap 2]
+  run 2 tourer     172.2 resets 0 (first 10 s: 0) shortcuts [Climbing Ridge Cut lap 1; Summit Traverse lap 1; Climbing Ridge Cut lap 2; Summit Traverse lap 2]
+  run 2 skyfin     177.3 resets 0 (first 10 s: 0) shortcuts [Climbing Ridge Cut lap 1; Summit Traverse lap 1; Climbing Ridge Cut lap 2; Summit Traverse lap 2]

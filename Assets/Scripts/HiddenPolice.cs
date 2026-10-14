@@ -56,9 +56,12 @@ namespace Racer
             // 0.104: on Hwy 92 the places are in today's lots (Hwy92Roadside), nose to the road
             var roadside = Hwy92Roadside.PoliceSpots(gameObject.scene).ToList();
             foreach (var (pos, forward) in roadside) found.Add((new Spot { pos = pos, forward = forward, road = "Hwy 92" }, "Hwy 92"));
+            // 0.113 Part C: on Trickum Rd the places are in today's driveways and lots (the Trickum plan), nose to the road
+            var trickum = Hwy92Roadside.PoliceSpots(gameObject.scene, Hwy92Roadside.Trickum).ToList();
+            foreach (var (pos, forward) in trickum) found.Add((new Spot { pos = pos, forward = forward, road = "Trickum Rd" }, "Trickum Rd"));
             for (int i = 0; i < net.Count; i += 3)
             {
-                string group = Group(net.RoadNames[net.Road[i]], net.P[i]); if (group == null || group == "Hwy 92" && roadside.Count > 0) continue;
+                string group = Group(net.RoadNames[net.Road[i]], net.P[i]); if (group == null || group == "Hwy 92" && roadside.Count > 0 || group == "Trickum Rd" && trickum.Count > 0) continue;
                 bool junction = false; foreach (int j in net.Near(net.P[i], 45)) if (net.Adj[j].Count >= 3) { junction = true; break; } if (junction) continue;
                 var t = net.Tangent(i); var right = Vector3.Cross(Vector3.up, t).normalized;
                 foreach (int side in new[] { -1, 1 })

@@ -337,7 +337,8 @@ namespace Racer
         sealed class Track
         {
             public RaceRoad road;public WoodlandRoute branch;public bool loop;public float length;
-            public Vector3 At(float s,out Vector3 f)=>branch?branch.At(s,out f):road.At(s,out f);
+            public bool ai; // 0.113 Part A: a rival on a shortcut with a rivals' line is put back on that line
+            public Vector3 At(float s,out Vector3 f)=>branch?branch.AtFor(ai,s,out f):road.At(s,out f);
             public float Width(float s)=>branch?branch.halfWidth:road.HalfWidth(s);
         }
         Track MainTrack(RaceRoad road){road.Initialize();return new Track{road=road,loop=!road.openHighway,length=road.Length};}
@@ -373,7 +374,7 @@ namespace Racer
                 var branch=state?.Branch.Route;
                 // 0.94 Part D: stopped in the Abandoned Cabin Jump's restored brush: onto the clear ground past its far edge
                 if(branch&&!fell&&ShortcutUndergrowth.ResetPast(branch,from,out float past)){var bt=BranchTrack(branch);var edge=branch.At(past,out _);if(PlaceAt(bt,past,1,edge,state,past)){LastRecovery="Recovered past the brush";return true;}}
-                if(branch)tracks.Add((BranchTrack(branch),Nearest(BranchTrack(branch),from,branch.Project(from,out _),branch.Length),0,branch.Length,1));
+                if(branch){bool ai=state.IsAi;var bt=new Track{branch=branch,loop=false,length=branch.LengthFor(ai),ai=ai};tracks.Add((bt,Nearest(bt,from,branch.ProjectFor(ai,from,out _),bt.length),0,bt.length,1));}
                 var main=MainTrack(race.road);
                 float window=tracking&&!trackingBranch?Mathf.Clamp(Mathf.Max(75,untrackedTravel*1.5f+15),75,main.length*.5f):main.length*.5f;
                 float centre=tracking&&!trackingBranch?trackingStation:race.road.Project(from,out _);

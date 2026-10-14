@@ -1,0 +1,10 @@
+screen=1920x1080 kind=ai113 version=0.112.0-review1 park=on
+override c4-first-ascent: diff:0/pace:1
+race c4-first-ascent, 2 runs, forced shortcuts [], chapter 4 unvalidated allowed []
+== c4-first-ascent 'First Ascent' course MountainLoop laps 2 Dawn / Clear difficulty 0 pace 1.000 rivals scrambler,atv,tourer
+  run 1 atv        119.1 resets 0 (first 10 s: 0) shortcuts [Climbing Ridge Cut lap 1; Summit Traverse lap 1; Climbing Ridge Cut lap 2; Summit Traverse lap 2]
+  run 1 scrambler  120.1 resets 0 (first 10 s: 0) shortcuts [Climbing Ridge Cut lap 1; Summit Traverse lap 1; Climbing Ridge Cut lap 2; Summit Traverse lap 2]
+  run 1 tourer     125.8 resets 0 (first 10 s: 0) shortcuts [Climbing Ridge Cut lap 1; Summit Traverse lap 1; Climbing Ridge Cut lap 2; Summit Traverse lap 2]
+  run 2 atv        119.2 resets 0 (first 10 s: 0) shortcuts [Climbing Ridge Cut lap 1; Summit Traverse lap 1; Climbing Ridge Cut lap 2; Summit Traverse lap 2]
+  run 2 scrambler  120.1 resets 0 (first 10 s: 0) shortcuts [Climbing Ridge Cut lap 1; Summit Traverse lap 1; Climbing Ridge Cut lap 2; Summit Traverse lap 2]
+  run 2 tourer     125.9 resets 0 (first 10 s: 0) shortcuts [Climbing Ridge Cut lap 1; Summit Traverse lap 1; Climbing Ridge Cut lap 2; Summit Traverse lap 2]

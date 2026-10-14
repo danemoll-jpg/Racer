@@ -19,13 +19,16 @@ namespace Racer
         }
         public float Probability(float rank,float gap)
             => Mathf.Clamp(.12f+.34f*Mathf.Clamp01(rank)+.12f*Mathf.Clamp01(gap/200)+Risk,.06f,.65f);
+        // 0.113 checks only (never set by the game): every racer takes these shortcuts (titles) when it reaches them
+        public static string[] Forced={};
+        public static bool IsForced(WoodlandRoute route)=>route&&Forced.Length>0&&System.Array.IndexOf(Forced,route.title)>=0;
         public bool Decided(WoodlandRoute route,int lap)=>decisions.TryGetValue(route,out int decidedLap)&&decidedLap==lap;
         // 0.112 Part C (Chapter 4 campaign races): the shortcut when it is faster (no roll)
         public bool TryDecideFaster(WoodlandRoute route,int lap,float shortcutSeconds,float mainSeconds,out bool shortcut)
         {
             shortcut=false;
             if(Decided(route,lap))return false;
-            decisions[route]=lap;shortcut=shortcutSeconds<mainSeconds;Decisions++;
+            decisions[route]=lap;shortcut=shortcutSeconds<mainSeconds||IsForced(route);Decisions++;
             Diagnostic=$"route={route.title}; lap={lap+1}; campaign chapter 4: shortcut {shortcutSeconds:F0} s vs main {mainSeconds:F0} s; choice={(shortcut?"shortcut":"main")}";
             return true;
         }
@@ -34,7 +37,7 @@ namespace Racer
             shortcut=false;
             if(Decided(route,lap))return false;
             decisions[route]=lap;float probability=Probability(rank,gap);float roll=(float)random.NextDouble();
-            shortcut=roll<probability;Decisions++;
+            shortcut=roll<probability||IsForced(route);Decisions++;
             Diagnostic=$"route={route.title}; lap={lap+1}; risk={Risk:F3}; rank={rank:F2}; gap={gap:F1}; probability={probability:F3}; roll={roll:F3}; choice={(shortcut?"shortcut":"main")}";
             return true;
         }

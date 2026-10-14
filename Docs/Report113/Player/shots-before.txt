@@ -1,0 +1,2 @@
+screen=1920x1080 kind=shots113 version=0.113.0-review1 park=on
+Trickum plan off (before): ; removed 0 old placeholder houses

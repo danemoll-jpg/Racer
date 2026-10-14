@@ -16,24 +16,35 @@ namespace Racer
         public float entrySpeed,entrySpeedDistance;
         public float SpeedAt(float station)=>entrySpeed>0&&station<entrySpeedDistance?entrySpeed:recommendedSpeed;
         public float entryInset, entryMargin=7;
-        float[] lengths;
+        // 0.113 Part A: an optional line for the rivals only (their steering, speed, progress on the shortcut and resets), where the
+        // ground no longer follows the route's own points (Laurel Switchbacks since the 0.27 ramp). Empty = the route's points. The
+        // player's progress, entry, gates and resets always use the route's own points.
+        public Vector3[] aiPoints;
+        public bool HasAiLine=>aiPoints!=null&&aiPoints.Length>1;
+        float[] lengths, aiLengths;
+        static float[] Lengths(Vector3[] p){var l=new float[p.Length];for(int i=1;i<p.Length;i++)l[i]=l[i-1]+Vector2.Distance(new(p[i-1].x,p[i-1].z),new(p[i].x,p[i].z));return l;}
+        float[] AiLengths(){if(aiLengths==null||aiLengths.Length!=aiPoints.Length)aiLengths=Lengths(aiPoints);return aiLengths;}
+        public float LengthFor(bool ai)=>ai&&HasAiLine?AiLengths()[^1]:Length;
+        public Vector3 AtFor(bool ai,float distance,out Vector3 forward)=>ai&&HasAiLine?At(aiPoints,AiLengths(),distance,out forward):At(distance,out forward);
+        public float ProjectFor(bool ai,Vector3 p,out float lateral)=>ai&&HasAiLine?Project(aiPoints,AiLengths(),p,out lateral):Project(p,out lateral);
         public float Length { get { Initialize(); return lengths[^1]; } }
         public void Initialize()
         {
             if(lengths!=null && lengths.Length==points.Length) return;
-            lengths=new float[points.Length];
-            for(int i=1;i<points.Length;i++) lengths[i]=lengths[i-1]+Vector2.Distance(new(points[i-1].x,points[i-1].z),new(points[i].x,points[i].z));
+            lengths=Lengths(points);
         }
-        public Vector3 At(float distance,out Vector3 forward)
+        public Vector3 At(float distance,out Vector3 forward){Initialize();return At(points,lengths,distance,out forward);}
+        static Vector3 At(Vector3[] points,float[] lengths,float distance,out Vector3 forward)
         {
-            Initialize(); distance=Mathf.Clamp(distance,0,lengths[^1]);
+            distance=Mathf.Clamp(distance,0,lengths[^1]);
             int i=1; while(i<lengths.Length-1 && lengths[i]<distance) i++;
             forward=(points[i]-points[i-1]).normalized;
             return Vector3.Lerp(points[i-1],points[i],Mathf.InverseLerp(lengths[i-1],lengths[i],distance));
         }
-        public float Project(Vector3 p,out float lateral)
+        public float Project(Vector3 p,out float lateral){Initialize();return Project(points,lengths,p,out lateral);}
+        static float Project(Vector3[] points,float[] lengths,Vector3 p,out float lateral)
         {
-            Initialize(); float best=float.MaxValue,s=0;
+            float best=float.MaxValue,s=0;
             for(int i=1;i<points.Length;i++)
             {
                 var v=points[i]-points[i-1]; v.y=0; var q=p-points[i-1]; q.y=0;
@@ -65,13 +76,14 @@ namespace Racer
         public float Earned { get; private set; }
         public int Exits { get; private set; }
         public float RejoinSeconds;
+        public bool Ai; // 0.113 Part A: a rival: its progress is on the route's rivals' line (WoodlandRoute.aiPoints) when it has one
         public void Clear() { Route=null; Position=Earned=RejoinSeconds=0; }
         public void Begin(WoodlandRoute route) { Route=route; Position=Earned=RejoinSeconds=0; }
         public bool Advance(Vector3 from,Vector3 to,Vector3 heading)
         {
             var route=Route; if(!route) return false;
-            float s=route.Project(to,out float lateral);
-            var support=route.At(s,out var f);
+            float s=route.ProjectFor(Ai,to,out float lateral);
+            var support=route.AtFor(Ai,s,out var f);
             float step=Vector3.Distance(from,to);
             // Jump arcs can rise above the centreline, but the projected driving corridor stays bounded.
             // A ballistic landing may briefly overhang a bend before returning to supported trail.
@@ -83,16 +95,16 @@ namespace Racer
                 Position=s;
                 if(Vector3.Dot(to-from,f)>0) Earned=Mathf.Max(Earned,s);
             }
-            if(valid && s>route.Length-5 && Vector3.Dot(to-from,f)>0)
+            if(valid && s>route.LengthFor(Ai)-5 && Vector3.Dot(to-from,f)>0)
             { Exits++; return true; }
             return false;
         }
         public void Recovered(Vector3 position)
         {
             if(!Route) return;
-            float s=Route.Project(position,out float lateral);
+            float s=Route.ProjectFor(Ai,position,out float lateral);
             if(lateral<=Route.halfWidth+1 && s<=Earned+.05f) Position=s;
         }
-        public float RoadPosition => Route ? Mathf.Lerp(Route.entryRoad,Route.exitRoad,Mathf.Clamp01(Position/Route.Length)) : 0;
+        public float RoadPosition => Route ? Mathf.Lerp(Route.entryRoad,Route.exitRoad,Mathf.Clamp01(Position/Route.LengthFor(Ai))) : 0;
     }
 }

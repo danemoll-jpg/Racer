@@ -1,0 +1,18 @@
+screen=1920x1080 kind=ai113 version=0.113.0-review1 park=on
+race c4-first-ascent, 5 runs, forced shortcuts [], chapter 4 unvalidated allowed []
+== c4-first-ascent 'First Ascent' course MountainLoop laps 2 Dawn / Clear difficulty 0 pace 0.500 rivals tourer,pebble,skyfin
+  run 1 pebble     155.3 resets 0 (first 10 s: 0) shortcuts [Climbing Ridge Cut lap 1; Summit Traverse lap 1; Climbing Ridge Cut lap 2; Summit Traverse lap 2]
+  run 1 tourer     161.2 resets 0 (first 10 s: 0) shortcuts [Climbing Ridge Cut lap 1; Summit Traverse lap 1; Climbing Ridge Cut lap 2; Summit Traverse lap 2]
+  run 1 skyfin     163.5 resets 0 (first 10 s: 0) shortcuts [Climbing Ridge Cut lap 1; Summit Traverse lap 1; Climbing Ridge Cut lap 2; Summit Traverse lap 2]
+  run 2 pebble     155.7 resets 0 (first 10 s: 0) shortcuts [Climbing Ridge Cut lap 1; Summit Traverse lap 1; Climbing Ridge Cut lap 2; Summit Traverse lap 2]
+  run 2 tourer     160.7 resets 0 (first 10 s: 0) shortcuts [Climbing Ridge Cut lap 1; Summit Traverse lap 1; Climbing Ridge Cut lap 2; Summit Traverse lap 2]
+  run 2 skyfin     163.3 resets 0 (first 10 s: 0) shortcuts [Climbing Ridge Cut lap 1; Summit Traverse lap 1; Climbing Ridge Cut lap 2; Summit Traverse lap 2]
+  run 3 pebble     155.9 resets 0 (first 10 s: 0) shortcuts [Climbing Ridge Cut lap 1; Summit Traverse lap 1; Climbing Ridge Cut lap 2; Summit Traverse lap 2]
+  run 3 tourer     160.9 resets 0 (first 10 s: 0) shortcuts [Climbing Ridge Cut lap 1; Summit Traverse lap 1; Climbing Ridge Cut lap 2; Summit Traverse lap 2]
+  run 3 skyfin     163.6 resets 0 (first 10 s: 0) shortcuts [Climbing Ridge Cut lap 1; Summit Traverse lap 1; Climbing Ridge Cut lap 2; Summit Traverse lap 2]
+  run 4 pebble     156.0 resets 0 (first 10 s: 0) shortcuts [Climbing Ridge Cut lap 1; Summit Traverse lap 1; Climbing Ridge Cut lap 2; Summit Traverse lap 2]
+  run 4 tourer     161.1 resets 0 (first 10 s: 0) shortcuts [Climbing Ridge Cut lap 1; Summit Traverse lap 1; Climbing Ridge Cut lap 2; Summit Traverse lap 2]
+  run 4 skyfin     163.7 resets 0 (first 10 s: 0) shortcuts [Climbing Ridge Cut lap 1; Summit Traverse lap 1; Climbing Ridge Cut lap 2; Summit Traverse lap 2]
+  run 5 pebble     155.9 resets 0 (first 10 s: 0) shortcuts [Climbing Ridge Cut lap 1; Summit Traverse lap 1; Climbing Ridge Cut lap 2; Summit Traverse lap 2]
+  run 5 tourer     161.6 resets 0 (first 10 s: 0) shortcuts [Climbing Ridge Cut lap 1; Summit Traverse lap 1; Climbing Ridge Cut lap 2; Summit Traverse lap 2]
+  run 5 skyfin     164.3 resets 0 (first 10 s: 0) shortcuts [Climbing Ridge Cut lap 1; Summit Traverse lap 1; Climbing Ridge Cut lap 2; Summit Traverse lap 2]

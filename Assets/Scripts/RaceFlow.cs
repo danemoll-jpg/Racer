@@ -479,7 +479,7 @@ namespace Racer
             if(InRoamWorld){WorldLook.Current?.SaveRoamClock();GetComponent<ExplorationMap>()?.Save();}
             BalanceLog.Abandon(this,"left (campaign event started)");CampaignRun.Begin(e,vehicle);callers.Clear();menus.ResetPages();Click();Go(RacePlaylists.Scenes[e.Course]);
         }
-        public void RetryCampaignEvent(){if(CampaignRun.Active==null||CampaignRun.Cup!=null||State!=Stage.Results)return;CampaignRun.Retry();StartRace();}
+        public void RetryCampaignEvent(){if(CampaignRun.Active==null||CampaignRun.Cup!=null||State!=Stage.Results)return;CampaignRun.Retry();if(!RaceDirector.LiveCopies){CampaignRun.Configure(Race);Race.vehicle.GetComponent<VehicleConfiguration>().SetBodyColor(SelectedColor);}StartRace();} // 0.113 Part B: set up as a fresh start does (StartWhenBuilt)
         // 0.90: a championship: its next round (the first after Start / Restart), through the loading screen into its course.
         public void StartCupRound(CampaignCup cup)
         {

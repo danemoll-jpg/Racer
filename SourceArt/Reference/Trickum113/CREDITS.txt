@@ -1,0 +1,9 @@
+Trickum Rd and S Cherokee Ln roadside (Woodstock Rush 0.113)
+
+The placement of the houses, the church, the meeting hall, the drives, parking lots, side streets and fences along Trickum Rd and the west end of S Cherokee Ln follows the real roads today, taken from:
+
+- OpenStreetMap: map data (c) OpenStreetMap contributors, available under the Open Database License (ODbL) 1.0,
+  https://www.openstreetmap.org/copyright
+- USGS National Agriculture Imagery Program (NAIP) aerial imagery via The National Map (U.S. Geological Survey), public domain.
+
+Neither is shown in the game; they were used for placement only. Every subdivision, church and hall name in the game is invented; no real names, symbols or trade dress are used.

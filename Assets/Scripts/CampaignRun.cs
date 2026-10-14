@@ -24,8 +24,9 @@ namespace Racer
         // 0.112 Part C: in a Chapter 4 race (campaign events, not championships) the rivals take a Mountain shortcut whenever it is faster for them
         // (RoadDriver.DecideShortcut); NoRivalShortcuts is for the checks only (the before / after comparison)
         public static bool NoRivalShortcuts;
-        // the shortcuts not validated for the AI that a Chapter 4 rival may still take: none. Tried (0.112 checks): with Mountain Forward's Climbing Ridge Cut
-        // and Summit Traverse every rival needed a reset every lap; so only the validated ones (Mountain Reverse's Summit Traverse) are taken.
+        // the shortcuts not validated for the AI that a Chapter 4 rival may still take: none (checks only). 0.112 found Mountain Forward's Climbing Ridge
+        // Cut and Summit Traverse cost every rival a reset every lap; 0.113 Part D fixed that (RoadDriver: road progress restarts at a shortcut's exit) and
+        // validated both, so every Mountain shortcut is now taken by Chapter 4 rivals when faster.
         public static string[] RivalShortcutsUnvalidated = { };
         public static bool RivalMayTake(WoodlandRoute route) => route.aiValidated || System.Array.IndexOf(RivalShortcutsUnvalidated, route.title) >= 0;
         public static bool RivalShortcuts => Active != null && Active.Kind == CampaignEventKind.Race && Active.Cup == null && Active.Chapter == 4 && !NoRivalShortcuts;

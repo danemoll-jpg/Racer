@@ -1,0 +1,18 @@
+screen=1920x1080 kind=ai113 version=0.113.0-review1 park=on
+race quick:1:pebble+skyfin+atv|moto+original+tourer|roadster+scrambler+fastback|drifter+pebble+atv|tourer+skyfin+moto:2:1, 5 runs, forced shortcuts [], chapter 4 unvalidated allowed []
+== quick race StreetLoopReverse rivals pebble+skyfin+atv|moto+original+tourer|roadster+scrambler+fastback|drifter+pebble+atv|tourer+skyfin+moto laps 2 difficulty 1
+  run 1 skyfin     262.1 resets 0 (first 10 s: 0) shortcuts [Granite Creek Cut lap 1; Laurel Switchbacks lap 1; Laurel Switchbacks lap 2]
+  run 1 pebble     263.9 resets 0 (first 10 s: 0) shortcuts [Laurel Switchbacks lap 1; Laurel Switchbacks lap 2]
+  run 1 atv        269.6 resets 0 (first 10 s: 0) shortcuts [Laurel Switchbacks lap 1]
+  run 2 moto       255.1 resets 0 (first 10 s: 0) shortcuts []
+  run 2 tourer     275.8 resets 0 (first 10 s: 0) shortcuts []
+  run 2 original   278.8 resets 0 (first 10 s: 0) shortcuts []
+  run 3 scrambler  258.7 resets 0 (first 10 s: 0) shortcuts []
+  run 3 fastback   260.4 resets 0 (first 10 s: 0) shortcuts [Granite Creek Cut lap 2; Laurel Switchbacks lap 2]
+  run 3 roadster   274.5 resets 0 (first 10 s: 0) shortcuts [Granite Creek Cut lap 2]
+  run 4 drifter    256.9 resets 0 (first 10 s: 0) shortcuts [Laurel Switchbacks lap 1]
+  run 4 pebble     265.6 resets 0 (first 10 s: 0) shortcuts [Granite Creek Cut lap 1; Granite Creek Cut lap 2; Laurel Switchbacks lap 2]
+  run 4 atv        276.5 resets 0 (first 10 s: 0) shortcuts [Granite Creek Cut lap 2]
+  run 5 moto       255.4 resets 0 (first 10 s: 0) shortcuts []
+  run 5 tourer     274.4 resets 0 (first 10 s: 0) shortcuts [Granite Creek Cut lap 2]
+  run 5 skyfin     281.0 resets 0 (first 10 s: 0) shortcuts []

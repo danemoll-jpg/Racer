@@ -30,19 +30,32 @@ namespace Racer
         [Serializable] public sealed class Signal { public float[] pole, arm, face, heads; }
         [Serializable] public sealed class Police { public float[] pos, forward; }
         [Serializable] public sealed class ClearMask { public float x0, z0; public int w, h; public string bits; }
+        // 0.113 Part C (the Trickum Rd plan only): a subdivision entrance wall (a low brick wall a -> b, h high, the name board's lettering on
+        // the face `facing`, x/z), a fence (a polyline, its height and style), mailboxes (x, z, yaw: drawn only, no collider)
+        [Serializable] public sealed class Wall { public float[] a, b, facing; public float h; public string label; }
+        [Serializable] public sealed class Fence { public float[] pts; public float h; public string style; public bool solid; }
         [Serializable] public sealed class Data
         {
             public string version, source; public Building[] buildings; public Canopy[] canopies; public Flat flat; public float[] lights, trees, shrubs, plot;
             public Pylon[] pylons; public Signal[] signals; public Police[] police; public string[] remove, keepInPlot; public ClearMask clear;
+            public Wall[] walls; public Fence[] fences; public float[] mailboxes; public string title;
+            public string[] removeNamed; public float[] removeAt; // 0.113: old sites sharing a name, matched by where their parts are (x, z pairs)
         }
 
-        static Data data;
-        public static Data Plan { get { if (data == null) { var t = Resources.Load<TextAsset>("Hwy92/Hwy92Roadside"); data = t ? JsonUtility.FromJson<Data>(t.text) : new Data(); } return data; } }
-        // the hidden-police places on Hwy 92 (in a lot, nose to the road), for HiddenPolice
-        public static IEnumerable<(Vector3 pos, Vector3 forward)> PoliceSpots(Scene scene)
+        // 0.113 Part C: the same builder for a second plan, Trickum Rd and the west end of S Cherokee Ln (Tools/Report113/py/trickum.py); the
+        // scenery adds one component per plan. The Hwy 92 plan is built exactly as before.
+        public const string Hwy = "Hwy92/Hwy92Roadside", Trickum = "Hwy92/TrickumRoadside";
+        static readonly string[] All = { Hwy, Trickum };
+        public string resource = Hwy;
+        static readonly Dictionary<string, Data> plans = new();
+        public static Data PlanOf(string resource) { if (!plans.TryGetValue(resource, out var d)) { var t = Resources.Load<TextAsset>(resource); plans[resource] = d = t ? JsonUtility.FromJson<Data>(t.text) : new Data(); } return d; }
+        public static Data Plan => PlanOf(Hwy);
+        bool trickum => resource == Trickum;
+        // the hidden-police places on Hwy 92 (in a lot, nose to the road), for HiddenPolice (0.113: Trickum Rd's with `resource`)
+        public static IEnumerable<(Vector3 pos, Vector3 forward)> PoliceSpots(Scene scene, string resource = Hwy)
         {
-            if (Disabled) yield break;
-            foreach (var p in Plan.police ?? Array.Empty<Police>())
+            if (Disabled || TrickumOff && resource == Trickum) yield break;
+            foreach (var p in PlanOf(resource).police ?? Array.Empty<Police>())
             {
                 float y = GroundY(p.pos[0], p.pos[1]); if (float.IsNaN(y)) continue;
                 yield return (new Vector3(p.pos[0], y, p.pos[1]), new Vector3(p.forward[0], 0, p.forward[1]).normalized);
@@ -51,6 +64,7 @@ namespace Racer
         public readonly List<string> Report = new();
         public static readonly List<string> Removed = new();
         public static bool Disabled; // evidence only (Report104PlayerCheck -p104off: the world before this round); never set in play
+        public static bool TrickumOff; // evidence only (Report106PlayerCheck -p113off: without the Trickum plan, the before); never set in play
         public int Solids { get; private set; }
         static bool IsWorld(Scene scene) => scene.GetRootGameObjects().Any(g => g.name == "Remembered houses and approximate buildings");
 
@@ -72,10 +86,14 @@ namespace Racer
         public static void Clear(Scene scene)
         {
             Removed.Clear(); cache.Clear();
-            var plan = Plan; if (Disabled || plan.remove == null || !IsWorld(scene)) return;
+            foreach (var resource in All) if (!(TrickumOff && resource == Trickum)) Clear(scene, PlanOf(resource));
+        }
+        static void Clear(Scene scene, Data plan)
+        {
+            if (Disabled || plan.remove == null && plan.removeNamed == null || !IsWorld(scene)) return;
             var root = scene.GetRootGameObjects().First(g => g.name == "Remembered houses and approximate buildings");
             var regions = new List<Bounds>();
-            foreach (var name in plan.remove)
+            foreach (var name in plan.remove ?? Array.Empty<string>())
             {
                 var site = root.transform.Find(name); if (!site || !site.gameObject.activeSelf) continue;
                 Bounds? b = null;
@@ -84,6 +102,18 @@ namespace Racer
                 if (b is Bounds bb) { bb.Expand(new Vector3(1, 2, 1)); regions.Add(bb); }
                 site.gameObject.SetActive(false); Removed.Add(name);
             }
+            // 0.113: sites that share a name (the Trickum Rd plan's "Approximate older residence" placeholders): those with a part where the plan says
+            if (plan.removeNamed != null && plan.removeAt != null)
+                foreach (Transform site in root.transform)
+                {
+                    if (!site.gameObject.activeSelf || Array.IndexOf(plan.removeNamed, site.name) < 0) continue;
+                    var parts = site.GetComponentsInChildren<Renderer>(true).Select(r => r.bounds).Concat(site.GetComponentsInChildren<Collider>(true).Select(c => c.bounds)).ToList();
+                    bool hit = false;
+                    foreach (var pb in parts) { for (int i = 0; i + 1 < plan.removeAt.Length && !hit; i += 2) hit = Mathf.Abs(pb.center.x - plan.removeAt[i]) < 1.5f && Mathf.Abs(pb.center.z - plan.removeAt[i + 1]) < 1.5f; if (hit) break; }
+                    if (!hit || parts.Count == 0) continue;
+                    var bb = parts[0]; foreach (var pb in parts) bb.Encapsulate(pb); bb.Expand(new Vector3(1, 2, 1)); regions.Add(bb);
+                    site.gameObject.SetActive(false); Removed.Add(site.name + $" at {bb.center.x:F0},{bb.center.z:F0}");
+                }
             // their triangles out of the town's merged render batches (the copies stay readable for SceneryBuildings)
             var batches = scene.GetRootGameObjects().FirstOrDefault(g => g.name == "Phase 6 - architectural render batches");
             if (batches && regions.Count > 0)
@@ -97,7 +127,7 @@ namespace Racer
                 var t = box.transform; var bottom = t.TransformPoint(box.center - Vector3.up * box.size.y * .5f);
                 if (!mask(bottom.x, bottom.z)) continue;
                 var size = Vector3.Scale(box.size, t.lossyScale);
-                SceneryTrees.Cleared.Add((bottom, Mathf.Min(Mathf.Abs(size.x), Mathf.Abs(size.z)), Mathf.Abs(size.y), "Hwy 92 roadside (0.104)", t.name));
+                SceneryTrees.Cleared.Add((bottom, Mathf.Min(Mathf.Abs(size.x), Mathf.Abs(size.z)), Mathf.Abs(size.y), plan.title ?? "Hwy 92 roadside (0.104)", t.name));
                 box.enabled = false; if (t.GetComponents<Component>().Length == 2 && t.childCount == 0) t.gameObject.SetActive(false); trunks++;
             }
             var st = plan.clear;
@@ -107,7 +137,7 @@ namespace Racer
                 var bd = r.bounds; if (bd.max.x < st.x0 || bd.min.x > st.x0 + st.w || bd.max.z < st.z0 || bd.min.z > st.z0 + st.h) continue;
                 pieces += TrimPieces(r.GetComponent<MeshFilter>(), mask);
             }
-            Debug.Log($"Hwy 92 roadside: removed {Removed.Count} old placeholder businesses, {trunks} tree trunks and {pieces} old vegetation pieces where the lots are");
+            Debug.Log($"{plan.title ?? "Hwy 92 roadside"}: removed {Removed.Count} old placeholder sites (all plans so far), {trunks} tree trunks and {pieces} old vegetation pieces where the lots are");
         }
         static Func<float, float, bool> Mask(ClearMask m)
         {
@@ -165,8 +195,12 @@ namespace Racer
         }
 
         // ---------------------------------------------------------------- 2. the new roadside
-        public static Hwy92Roadside Attach(GameObject host) => host.GetComponent<Hwy92Roadside>() ?? host.AddComponent<Hwy92Roadside>();
-        void Start() { if (!Disabled && IsWorld(gameObject.scene)) Build(gameObject.scene); }
+        public static Hwy92Roadside Attach(GameObject host, string resource = Hwy)
+        {
+            foreach (var c in host.GetComponents<Hwy92Roadside>()) if (c.resource == resource) return c;
+            var r = host.AddComponent<Hwy92Roadside>(); r.resource = resource; return r;
+        }
+        void Start() { if (!Disabled && !(TrickumOff && trickum) && IsWorld(gameObject.scene)) Build(gameObject.scene); }
 
         sealed class Mb
         {
@@ -211,7 +245,8 @@ namespace Racer
         }
         static Material building, asphalt, street, lettering; static Font font;
         Transform root; readonly Dictionary<(int chunk, string layer), Mb> layers = new();
-        Mb Layer(float x, string layer) { int k = Mathf.FloorToInt((x + 800) / 200); if (!layers.TryGetValue((k, layer), out var m)) layers[(k, layer)] = m = new Mb(); return m; }
+        float cz; // 0.113: the z of what is being built (the Trickum plan runs north - south: its meshes are also cut every 200 m of z)
+        Mb Layer(float x, string layer) { int k = Mathf.FloorToInt((x + 800) / 200); if (trickum) k = k * 100 + Mathf.FloorToInt((cz + 800) / 200); if (!layers.TryGetValue((k, layer), out var m)) layers[(k, layer)] = m = new Mb(); return m; }
         GameObject solids;
         void Solid(Vector3 bottom, Vector3 forward, Vector3 size)
         {
@@ -222,7 +257,8 @@ namespace Racer
 
         public void Build(Scene scene)
         {
-            var plan = Plan; if (plan.buildings == null) { Report.Add("no plan"); return; }
+            var plan = PlanOf(resource); if (plan.buildings == null) { Report.Add("no plan"); return; }
+            string title = plan.title ?? "Hwy 92 roadside";
             building ??= Resources.Load<Material>("Scenery/Building"); lettering ??= Resources.Load<Material>("Scenery/SignLettering");
             font ??= Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
             if (!asphalt)
@@ -233,8 +269,8 @@ namespace Racer
             if (!building || !asphalt || !lettering || !font) { Debug.LogWarning("Hwy 92 roadside: material or font missing"); return; }
             if (font.material && font.material.mainTexture) lettering.mainTexture = font.material.mainTexture;
             var watch = System.Diagnostics.Stopwatch.StartNew(); Physics.SyncTransforms();
-            var go = new GameObject("Hwy 92 roadside like today (0.104)"); SceneManager.MoveGameObjectToScene(go, scene); root = go.transform;
-            solids = new GameObject("Hwy 92 roadside solids"); solids.transform.SetParent(root, false);
+            var go = new GameObject(trickum ? title + " like today (0.113)" : "Hwy 92 roadside like today (0.104)"); SceneManager.MoveGameObjectToScene(go, scene); root = go.transform;
+            solids = new GameObject(trickum ? title + " solids" : "Hwy 92 roadside solids"); solids.transform.SetParent(root, false);
             // flat layers (draped on the ground's own 2 m grid)
             Drape(plan.flat.asphalt, "asphalt", .05f, Color.white);
             Drape(plan.flat.street, "street", .05f, Color.white);
@@ -246,22 +282,25 @@ namespace Racer
             foreach (var c in plan.canopies) CanopyAt(c);
             for (int i = 0; i + 2 < plan.lights.Length; i += 3) Light(plan.lights[i], plan.lights[i + 1], plan.lights[i + 2]);
             for (int i = 0; i + 3 < plan.trees.Length; i += 4) if (!StuntPark.InDriveMouth(plan.trees[i], plan.trees[i + 1])) Tree(plan.trees[i], plan.trees[i + 1], plan.trees[i + 2], plan.trees[i + 3] > .5f, i); // 0.106: none in the stunt park's drive
-            for (int i = 0; i + 2 < plan.shrubs.Length; i += 3) { float x = plan.shrubs[i], z = plan.shrubs[i + 1], s = plan.shrubs[i + 2]; Layer(x, "solid").Blob(new Vector3(x, Ground(x, z) + .35f * s, z), new Vector3(.75f, .5f, .75f) * s, new Color(.20f, .33f, .14f), i); }
+            for (int i = 0; i + 2 < plan.shrubs.Length; i += 3) { float x = plan.shrubs[i], z = plan.shrubs[i + 1], s = plan.shrubs[i + 2]; cz = z; Layer(x, "solid").Blob(new Vector3(x, Ground(x, z) + .35f * s, z), new Vector3(.75f, .5f, .75f) * s, new Color(.20f, .33f, .14f), i); }
             foreach (var p in plan.pylons) PylonAt(p);
             foreach (var s in plan.signals) SignalAt(s);
+            foreach (var w in plan.walls ?? Array.Empty<Wall>()) WallAt(w);
+            foreach (var f in plan.fences ?? Array.Empty<Fence>()) FenceAt(f);
+            if (plan.mailboxes != null) for (int i = 0; i + 2 < plan.mailboxes.Length; i += 3) Mailbox(plan.mailboxes[i], plan.mailboxes[i + 1], plan.mailboxes[i + 2], i);
             // the meshes: buildings, props and paint in the building material (props cast shadows; flat layers do not), lots and streets paved
             int tris = 0;
             foreach (var kv in layers.OrderBy(k => k.Key.chunk))
             {
                 if (kv.Value.Empty) continue; tris += kv.Value.t.Count / 3;
-                var g = new GameObject($"Hwy 92 {kv.Key.layer} {kv.Key.chunk}", typeof(MeshFilter), typeof(MeshRenderer)); g.transform.SetParent(root, false);
+                var g = new GameObject(trickum ? $"Trickum {kv.Key.layer} {kv.Key.chunk}" : $"Hwy 92 {kv.Key.layer} {kv.Key.chunk}", typeof(MeshFilter), typeof(MeshRenderer)); g.transform.SetParent(root, false);
                 g.GetComponent<MeshFilter>().sharedMesh = kv.Value.Mesh(g.name); var r = g.GetComponent<MeshRenderer>();
                 r.sharedMaterial = kv.Key.layer == "asphalt" ? asphalt : kv.Key.layer == "street" ? street : building;
                 r.shadowCastingMode = kv.Key.layer == "solid" ? ShadowCastingMode.On : ShadowCastingMode.Off;
             }
             layers.Clear();
-            Report.Add($"built in {watch.ElapsedMilliseconds} ms: {plan.buildings.Length} buildings, {plan.canopies.Length} canopies, {plan.lights.Length / 3} lights, {plan.trees.Length / 4} trees, {plan.pylons.Length} pylon signs, {plan.signals.Length} signal poles; {tris} triangles, {Solids} solids, {labels.Count} lettered faces");
-            Debug.Log("Hwy 92 roadside: " + Report[^1]);
+            Report.Add($"built in {watch.ElapsedMilliseconds} ms: {plan.buildings.Length} buildings, {plan.canopies.Length} canopies, {plan.lights.Length / 3} lights, {plan.trees.Length / 4} trees, {plan.pylons.Length} pylon signs, {plan.signals.Length} signal poles, {plan.walls?.Length ?? 0} entrance walls, {plan.fences?.Length ?? 0} fences, {(plan.mailboxes?.Length ?? 0) / 3} mailboxes; {tris} triangles, {Solids} solids, {labels.Count} lettered faces");
+            Debug.Log(title + ": " + Report[^1]);
         }
 
         // ---------------------------------------------------------------- flat layers
@@ -274,7 +313,7 @@ namespace Racer
                 var a = new Vector2(tri[i], tri[i + 1]); var b = new Vector2(tri[i + 2], tri[i + 3]); var c = new Vector2(tri[i + 4], tri[i + 5]);
                 int i0 = Mathf.FloorToInt(Mathf.Min(a.x, Mathf.Min(b.x, c.x)) / 2), i1 = Mathf.FloorToInt(Mathf.Max(a.x, Mathf.Max(b.x, c.x)) / 2);
                 int j0 = Mathf.FloorToInt(Mathf.Min(a.y, Mathf.Min(b.y, c.y)) / 2), j1 = Mathf.FloorToInt(Mathf.Max(a.y, Mathf.Max(b.y, c.y)) / 2);
-                var m = Layer((a.x + b.x + c.x) / 3, layer);
+                cz = (a.y + b.y + c.y) / 3; var m = Layer((a.x + b.x + c.x) / 3, layer);
                 for (int ci = i0; ci <= i1; ci++)
                     for (int cj = j0; cj <= j1; cj++)
                     {
@@ -324,7 +363,7 @@ namespace Racer
             foreach (var q in pts) { float gy = Ground(q.x, q.y); hi = Mathf.Max(hi, gy); lo = Mathf.Min(lo, gy); min = Vector2.Min(min, q); max = Vector2.Max(max, q); }
             for (float x = min.x + 1.5f; x < max.x; x += 3) for (float z = min.y + 1.5f; z < max.y; z += 3) if (Inside(pts, new Vector2(x, z))) { float gy = Ground(x, z); hi = Mathf.Max(hi, gy); lo = Mathf.Min(lo, gy); }
             float floor = hi + .15f, h = b.h, top = floor + h; bool house = b.kind == "house";
-            string seed = b.osm + b.kind; var m = Layer(pts[0].x, "solid");
+            string seed = b.osm + b.kind; cz = pts[0].y; var m = Layer(pts[0].x, "solid");
             Color wall = house ? Pick(seed, HouseWalls) : b.kind is "office" or "civic" or "senior" or "apartments" or "bank" or "church" ? Pick(seed, Brick.Concat(Stucco).ToArray()) : b.kind is "storage" or "auto" or "fitness" ? Pick(seed, Panel) : Pick(seed, Stucco.Concat(Brick).ToArray());
             Color trim = Pick(seed + "t", C(.90f, .89f, .85f), C(.30f, .28f, .26f), C(.82f, .78f, .70f)), accent = Pick(seed + "a", Accent), foundation = C(.50f, .49f, .47f), roof = C(.84f, .84f, .82f); // flat roofs light, like the real ones from above
             float parapet = house ? 0 : .8f, eave = top;
@@ -477,7 +516,7 @@ namespace Racer
             var centre = (p[0] + p[1] + p[2] + p[3]) / 4; var e1 = p[1] - p[0]; var e2 = p[2] - p[1]; bool longFirst = e1.magnitude >= e2.magnitude;
             var along = (longFirst ? e1 : e2).normalized; float L = (longFirst ? e1 : e2).magnitude, W = (longFirst ? e2 : e1).magnitude;
             float g = float.MinValue; foreach (var q in p) g = Mathf.Max(g, Ground(q.x, q.z)); g = Mathf.Max(g, Ground(centre.x, centre.z));
-            float y = g + c.h; var m = Layer(centre.x, "solid"); var across = Vector3.Cross(Vector3.up, along);
+            float y = g + c.h; cz = centre.z; var m = Layer(centre.x, "solid"); var across = Vector3.Cross(Vector3.up, along);
             m.Box(new Vector3(centre.x, y, centre.z), along, new Vector3(W, .85f, L), C(.92f, .92f, .90f), C(.70f, .70f, .70f));
             m.Box(new Vector3(centre.x, y + .3f, centre.z), along, new Vector3(W + .06f, .22f, L + .06f), Pick(c.name ?? "x", Accent));
             Solid(new Vector3(centre.x, y, centre.z), along, new Vector3(W, .85f, L));
@@ -506,7 +545,7 @@ namespace Racer
         }
         void Light(float x, float z, float yaw)
         {
-            var f = Quaternion.Euler(0, yaw, 0) * Vector3.forward; float g = Ground(x, z); var m = Layer(x, "solid"); var b = new Vector3(x, g, z);
+            var f = Quaternion.Euler(0, yaw, 0) * Vector3.forward; float g = Ground(x, z); cz = z; var m = Layer(x, "solid"); var b = new Vector3(x, g, z);
             var grey = C(.52f, .53f, .52f);
             m.Box(b, f, new Vector3(.24f, 9.2f, .24f), grey); m.Box(b + Vector3.up * 8.95f + f * 1.2f, f, new Vector3(.14f, .14f, 2.4f), grey);
             m.Box(b + Vector3.up * 8.75f + f * 2.55f, f, new Vector3(.38f, .22f, .85f), grey, grey); m.Box(b + Vector3.up * 8.72f + f * 2.55f, f, new Vector3(.3f, .04f, .7f), C(.95f, .92f, .80f, .05f));
@@ -514,7 +553,7 @@ namespace Racer
         }
         void Tree(float x, float z, float s, bool solid, int seed)
         {
-            float g = Ground(x, z); var m = Layer(x, "solid"); var b = new Vector3(x, g, z);
+            float g = Ground(x, z); cz = z; var m = Layer(x, "solid"); var b = new Vector3(x, g, z);
             var leaf = Pick(seed.ToString(), C(.24f, .37f, .16f), C(.20f, .33f, .14f), C(.30f, .40f, .17f), C(.18f, .30f, .16f));
             m.Box(b, Vector3.forward, new Vector3(.32f, 3.0f, .32f) * s, C(.30f, .23f, .16f));
             m.Blob(b + Vector3.up * 4.1f * s, new Vector3(2.0f, 2.2f, 2.0f) * s, leaf, seed); m.Blob(b + Vector3.up * 5.3f * s + new Vector3(.4f, 0, -.3f) * s, new Vector3(1.4f, 1.5f, 1.4f) * s, leaf * 1.08f, seed + 1);
@@ -525,7 +564,7 @@ namespace Racer
         void PylonAt(Pylon p)
         {
             var f = Quaternion.Euler(0, p.yaw, 0) * Vector3.forward; var r = Vector3.Cross(Vector3.up, f); float g = Ground(p.x, p.z); var b = new Vector3(p.x, g, p.z);
-            var m = Layer(p.x, "solid"); var body = C(.30f, .30f, .32f); var accent = Pick(p.label ?? "x", Accent);
+            cz = p.z; var m = Layer(p.x, "solid"); var body = C(.30f, .30f, .32f); var accent = Pick(p.label ?? "x", Accent);
             if (p.style == "low")
             {
                 m.Box(b - Vector3.up * .3f, f, new Vector3(3.0f, .9f, .6f), C(.58f, .52f, .46f)); m.Box(b + Vector3.up * .6f, f, new Vector3(2.7f, 1.3f, .4f), accent, body);
@@ -554,7 +593,7 @@ namespace Racer
         void SignalAt(Signal s)
         {
             var b = new Vector3(s.pole[0], Ground(s.pole[0], s.pole[1]), s.pole[1]); var arm = new Vector3(s.arm[0], 0, s.arm[1]).normalized; var face = new Vector3(s.face[0], 0, s.face[1]).normalized;
-            var m = Layer(b.x, "solid"); var grey = C(.42f, .43f, .43f); float reach = s.heads.Max() + 1.2f;
+            cz = b.z; var m = Layer(b.x, "solid"); var grey = C(.42f, .43f, .43f); float reach = s.heads.Max() + 1.2f;
             m.Box(b, arm, new Vector3(.42f, 7.6f, .42f), grey); Solid(b, arm, new Vector3(.42f, 7.6f, .42f));
             m.Box(b + Vector3.up * 6.7f + arm * (reach / 2), arm, new Vector3(.22f, .22f, reach), grey);
             foreach (var d in s.heads)
@@ -565,6 +604,51 @@ namespace Racer
                 m.Box(at + Vector3.up * .57f + face * .18f, face, new Vector3(.24f, .24f, .04f), C(.25f, .20f, .04f));
                 m.Box(at + Vector3.up * .17f + face * .18f, face, new Vector3(.24f, .24f, .04f), C(.25f, 1f, .45f, .2f)); // green: Hwy 92 has the light
             }
+        }
+
+        // ---------------------------------------------------------------- 0.113 Part C: entrance walls, fences, mailboxes
+        void WallAt(Wall w)
+        {
+            var a = new Vector3(w.a[0], 0, w.a[1]); var b = new Vector3(w.b[0], 0, w.b[1]); var along = b - a; float len = along.magnitude; if (len < .3f) return; along /= len;
+            var mid = (a + b) / 2; var face = new Vector3(w.facing[0], 0, w.facing[1]).normalized; var thick = Vector3.Cross(along, Vector3.up);
+            float g = Mathf.Max(Ground(a.x, a.z), Mathf.Max(Ground(b.x, b.z), Ground(mid.x, mid.z))), lo = Mathf.Min(Ground(a.x, a.z), Mathf.Min(Ground(b.x, b.z), Ground(mid.x, mid.z)));
+            cz = mid.z; var m = Layer(mid.x, "solid"); var brick = Pick(w.label ?? "w", Brick); var cap = C(.72f, .70f, .66f);
+            float top = g + w.h, h = top - (lo - .3f); var foot = new Vector3(mid.x, lo - .3f, mid.z);
+            // the wall (`thick` across it), a stone cap, a pier at each end: from below the lowest ground to h above the highest (never floating)
+            m.Box(foot, thick, new Vector3(len, h, .45f), brick, cap); Solid(foot, thick, new Vector3(len, h, .45f));
+            m.Box(new Vector3(mid.x, top, mid.z), thick, new Vector3(len + .1f, .12f, .55f), cap);
+            foreach (var e in new[] { a, b }) m.Box(new Vector3(e.x, lo - .3f, e.z), along, new Vector3(.7f, h + .35f, .7f), brick * .92f, cap);
+            if (string.IsNullOrEmpty(w.label)) return;
+            // the name board on the face toward the road; lettering one side only (the depth-tested lettering material), fitted inside the board
+            float bw = Mathf.Min(len - .8f, 3.6f); var bc = mid + face * .24f + Vector3.up * (g + w.h * .55f);
+            m.Box(bc - Vector3.up * .32f, thick, new Vector3(bw, .64f, .05f), C(.86f, .84f, .78f));
+            Label(w.label, bc + face * .035f, face, bw - .3f, .42f, C(.18f, .20f, .18f));
+        }
+        void FenceAt(Fence f)
+        {
+            if (f.pts == null || f.pts.Length < 4) return; bool rail = f.style == "rail";
+            var post = rail ? C(.55f, .47f, .36f) : C(.62f, .52f, .38f); var board = rail ? C(.60f, .52f, .40f) : C(.66f, .56f, .42f);
+            for (int i = 0; i + 3 < f.pts.Length; i += 2)
+            {
+                var a = new Vector3(f.pts[i], 0, f.pts[i + 1]); var b = new Vector3(f.pts[i + 2], 0, f.pts[i + 3]); float len = Vector3.Distance(a, b); if (len < .2f) continue;
+                var u = (b - a) / len; int n = Mathf.Max(1, Mathf.CeilToInt(len / 2.4f));
+                for (int k = 0; k < n; k++)
+                {
+                    var p0 = a + u * (len * k / n); var p1 = a + u * (len * (k + 1) / n); var mid = (p0 + p1) / 2;
+                    float g0 = Ground(p0.x, p0.z), g1 = Ground(p1.x, p1.z), gm = Mathf.Max(g0, g1), gl = Mathf.Min(g0, g1); cz = mid.z; var m = Layer(mid.x, "solid");
+                    m.Box(new Vector3(p0.x, g0 - .2f, p0.z), u, new Vector3(.12f, f.h + .25f, .12f), post);
+                    if (rail) { foreach (float y in new[] { .45f, .9f }) m.Box(new Vector3(mid.x, (g0 + g1) / 2 + y, mid.z), u, new Vector3(.07f, .1f, len / n), board); }
+                    else m.Box(new Vector3(mid.x, gl - .1f, mid.z), u, new Vector3(.05f, f.h + (gm - gl) + .1f, len / n), board); // a privacy fence: boards down to the ground
+                    if (f.solid) Solid(new Vector3(mid.x, gl - .2f, mid.z), u, new Vector3(.15f, f.h + (gm - gl) + .2f, len / n));
+                }
+                cz = b.z; Layer(b.x, "solid").Box(new Vector3(b.x, Ground(b.x, b.z) - .2f, b.z), u, new Vector3(.12f, f.h + .25f, .12f), post);
+            }
+        }
+        void Mailbox(float x, float z, float yaw, int seed)
+        {
+            var f = Quaternion.Euler(0, yaw, 0) * Vector3.forward; float g = Ground(x, z); cz = z; var m = Layer(x, "solid"); var b = new Vector3(x, g, z);
+            m.Box(b - Vector3.up * .2f, f, new Vector3(.1f, 1.2f, .1f), C(.30f, .27f, .24f));
+            m.Box(b + Vector3.up * .98f, f, new Vector3(.24f, .26f, .5f), Pick(seed.ToString(), C(.12f, .12f, .13f), C(.80f, .80f, .78f), C(.45f, .18f, .14f), C(.18f, .26f, .40f)));
         }
 
         // ---------------------------------------------------------------- lettering: one face, inside its board (signs rule, 0.99)

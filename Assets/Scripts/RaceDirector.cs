@@ -65,6 +65,19 @@ namespace Racer
         double startedAt, firstFinish = -1; bool winnerCelebrated;
         double debugTimeoutOffset, debugGraceOffset;
         GameObject gridVisual;
+        // 0.113 Part B: rivals and traffic are copies of the player's vehicle. A Retry (RestartRace in the same scene) used to copy it as it was
+        // after the race (whatever the race and the finish left on it); now every start copies the same clean copy, kept (inactive) from
+        // the scene's first start, so a Retry builds the same field as a fresh start from the menu.
+        GameObject cleanVehicle;
+        public static bool LiveCopies; // checks only (Report106PlayerCheck retry113 -p113live: the 0.112 way, for the before); never set in play
+        GameObject CleanVehicle()
+        {
+            if(LiveCopies)return vehicle.gameObject;
+            if(cleanVehicle)return cleanVehicle;
+            var holder=new GameObject("Clean vehicle for rivals (inactive)");holder.SetActive(false);UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(holder,gameObject.scene);
+            cleanVehicle=Instantiate(vehicle.gameObject,holder.transform);cleanVehicle.name=vehicle.gameObject.name;
+            return cleanVehicle;
+        }
         static Material gridPaint;
         void Awake()
         {
@@ -217,7 +230,7 @@ namespace Racer
             {
                 bool racing = opponents && i < rivals;
                 int n = racing ? i : i - rivals;
-                var clone = Instantiate(vehicle.gameObject);
+                var clone = Instantiate(CleanVehicle(), vehicle.transform.position, vehicle.transform.rotation);
                 clone.name = racing ? new[]{"EMBER", "GOLD", "BLUE", "JADE", "VIOLET"}[n % 5] : "Traffic " + (n + 1);
                 var car = clone.GetComponent<ArcadeVehicle>();
                 foreach(var activityContact in clone.GetComponents<ActivityLandingContact>())Destroy(activityContact);
@@ -392,7 +405,7 @@ namespace Racer
                 {
                     var branch = r.Branch.Route;
                     bool exited = r.Branch.Advance(r.Previous,position,heading);
-                    branch.Project(position,out float branchLateral);
+                    branch.ProjectFor(r.Branch.Ai,position,out float branchLateral); // 0.113 Part A: a rival against its line
                     // A brief shoulder excursion or reverse is recoverable. Only sustained
                     // forward travel on a separated road relinquishes branch tracking.
                     road.At(origin+r.RoadPosition,out var roadForward);

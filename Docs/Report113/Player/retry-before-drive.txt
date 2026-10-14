@@ -1,0 +1,7 @@
+screen=1920x1080 kind=retry113 version=0.113.0-review1 park=on
+rivals copied from the player's car as it is (the 0.112 way: before)
+== c4-first-ascent 'First Ascent' on MountainLoop, rivals scrambler,atv,tourer
+  run 1 fresh: player 147.2 s; colliders [on,on,on]; scrambler 109.8 resets 0 (first 10 s 0); atv 109.0 resets 0 (first 10 s 0); tourer 113.7 resets 0 (first 10 s 0)
+  run 1 retry: player 177.9 s; colliders [on,on,on]; scrambler 110.0 resets 0 (first 10 s 0); atv 109.4 resets 0 (first 10 s 0); tourer 113.7 resets 0 (first 10 s 0)
+  run 2 fresh: player 148.2 s; colliders [on,on,on]; scrambler 114.9 resets 0 (first 10 s 0); atv 109.1 resets 0 (first 10 s 0); tourer 114.0 resets 0 (first 10 s 0)
+  run 2 retry: player 165.5 s; colliders [on,on,on]; scrambler 115.0 resets 0 (first 10 s 0); atv 109.2 resets 0 (first 10 s 0); tourer 113.4 resets 0 (first 10 s 0)

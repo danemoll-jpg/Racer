@@ -1,0 +1,7 @@
+screen=1920x1080 kind=ai113 version=0.113.0-review1 park=on
+race quick:1:pebble+moto+atv+tourer:1:1, 1 runs, forced shortcuts [Granite Creek Cut, Laurel Switchbacks], chapter 4 unvalidated allowed []
+== quick race StreetLoopReverse rivals pebble+moto+atv+tourer laps 1 difficulty 1
+  run 1 moto       126.7 resets 0 (first 10 s: 0) shortcuts [Granite Creek Cut lap 1; Laurel Switchbacks lap 1]
+  run 1 tourer     128.7 resets 0 (first 10 s: 0) shortcuts [Granite Creek Cut lap 1; Laurel Switchbacks lap 1]
+  run 1 atv        131.3 resets 0 (first 10 s: 0) shortcuts [Granite Creek Cut lap 1; Laurel Switchbacks lap 1]
+  run 1 pebble     137.7 resets 1 (first 10 s: 0) shortcuts [Granite Creek Cut lap 1; Laurel Switchbacks lap 1] | resets at [stalled 4.4 route 0.0 branch 5.0 rejoin 0.0 tracking False target (195, 46, -318) best 9 planned Laurel Switchbacks on - speed -0.1] 195.3,46.48,-319.9 road 3104 t 92

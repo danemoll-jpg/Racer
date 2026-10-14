@@ -152,14 +152,16 @@ namespace Racer
                     desiredLane=Mathf.Clamp(currentLane,-driveHalfWidth+1.2f,driveHalfWidth-1.2f);
             }
 
-            if(plannedBranch && ((s>plannedBranch.exitRoad+15&&(!mountainFlights||Racer?.Branch.Route==null)&&!(plannedBranch.GetComponent<ReverseShortcutGuidance>()&&Racer?.Branch.Route==plannedBranch)) || (plannedBranch.Project(Car.Body.position,out float exitLateral)>=plannedBranch.Length-7 && exitLateral<plannedBranch.halfWidth+7 && Racer?.Branch.Route==null))) plannedBranch=null;
+            if(plannedBranch && ((s>plannedBranch.exitRoad+15&&(!mountainFlights||Racer?.Branch.Route==null)&&!(plannedBranch.GetComponent<ReverseShortcutGuidance>()&&Racer?.Branch.Route==plannedBranch)) || (plannedBranch.ProjectFor(true,Car.Body.position,out float exitLateral)>=plannedBranch.LengthFor(true)-7 && exitLateral<plannedBranch.halfWidth+7 && Racer?.Branch.Route==null))) plannedBranch=null;
             DecideShortcut(s);
             var activeBranch=plannedBranch && Racer?.Branch.Route==plannedBranch ? plannedBranch : null;
             if(!activeBranch && plannedBranch && s>=plannedBranch.entryRoad-((Race.reverseCourse||Race.courseId.StartsWith("mountain-"))?look:2)) activeBranch=plannedBranch;
-            float branchS=activeBranch?activeBranch.Project(Car.Body.position,out _):0;
+            float branchS=activeBranch?activeBranch.ProjectFor(true,Car.Body.position,out _):0;
             var reverseShortcut=activeBranch?activeBranch.GetComponent<ReverseShortcutGuidance>():null;
             if(reverseShortcut)look=Mathf.Min(look,reverseShortcut.lookAhead);
-            if(activeBranch!=progressBranch){progressBranch=activeBranch;branchBest=branchS;branchStuck=0;}
+            // 0.113 Part D: back on the road after a shortcut, road progress counts from where it rejoined (a shortcut that skips more than
+            // half the lap, Mountain Forward's Climbing Ridge Cut, otherwise read as going backwards: a reset at speed 8 s after the exit)
+            if(activeBranch!=progressBranch){if(!activeBranch&&progressBranch){progressStation=s;progressSample=true;routeStuck=0;}progressBranch=activeBranch;branchBest=branchS;branchStuck=0;}
             if(racing&&!finished)TrackRecoveryProgress(activeBranch,activeBranch?branchS:s);
             if(plannedBranch || activeBranch) desiredLane=0;
             float departureDistance=Mathf.Repeat(s-recoveryDepartureStation+DriveRoad.Length*.5f,DriveRoad.Length)-DriveRoad.Length*.5f;
@@ -174,15 +176,16 @@ namespace Racer
             bool jumpApproach=racing&&forestLayout&&forestLayout.Approach(s)&&!forestLayout.IsLaunch(s);
             Variation.Step(this,s,speed,!racing||finished||plannedBranch||activeBranch||bypass||lateral>2.5f||Car.transform.up.y<.9f||committedMountain|| (forestLayout&&forestLayout.IsLaunch(s)),jumpApproach);
             if(Variation.Line!=0)desiredLane=Mathf.Clamp(desiredLane+Variation.Line,-driveHalfWidth+1.6f,driveHalfWidth-1.6f);
-            var target = activeBranch ? activeBranch.At(branchS+look,out _) : DriveRoad.At(s + Direction * look, out _);
+            // 0.113 Part A: on a shortcut the rivals follow its rivals' line (WoodlandRoute.aiPoints) where it has one, else its own points
+            var target = activeBranch ? activeBranch.AtFor(true,branchS+look,out _) : DriveRoad.At(s + Direction * look, out _);
             if(reverseShortcut)target=reverseShortcut.Target(activeBranch,Car.Body.position,branchS,look);
             var ahead = tangent;
-            if(activeBranch) activeBranch.At(branchS+look,out ahead); else DriveRoad.At(s+Direction*look,out ahead);
+            if(activeBranch) activeBranch.AtFor(true,branchS+look,out ahead); else DriveRoad.At(s+Direction*look,out ahead);
             // 0.84 Part H (Dan's Backyard only): at the end of a shortcut the look-ahead used to stop at the shortcut's last
             // point, so a racer aimed back at it (looping) or cut across to the far side of the next hairpin, missing its gate
             // (Reverse CP 4 after Storm Drain / Gully Jump); now it carries on along the main from the rejoin.
             bool backyardLine=racing&&backyard;
-            if(backyardLine&&activeBranch&&!reverseShortcut&&branchS+look>activeBranch.Length){float past=branchS+look-activeBranch.Length;target=DriveRoad.At(activeBranch.exitRoad+Direction*past,out ahead);}
+            if(backyardLine&&activeBranch&&!reverseShortcut&&branchS+look>activeBranch.LengthFor(true)){float past=branchS+look-activeBranch.LengthFor(true);target=DriveRoad.At(activeBranch.exitRoad+Direction*past,out ahead);}
             target += Vector3.Cross(Vector3.up, ahead).normalized * desiredLane;
             // 0.84 Part H (Dan's Backyard only): the gates sit on the trail's centre line and span little more than the trail,
             // but on its tight bends the look-ahead cut the inside by 4-7 m and passed beside the gate (Forward CP 1, 2, 3).
@@ -253,7 +256,7 @@ namespace Racer
             for (float d = 0; d <= 100; d += 8)
             {
                 Vector3 f,next;
-                if(activeBranch) {activeBranch.At(branchS+d,out f);activeBranch.At(branchS+d+8,out next);}
+                if(activeBranch) {activeBranch.AtFor(true,branchS+d,out f);activeBranch.AtFor(true,branchS+d+8,out next);}
                 else {DriveRoad.At(s + Direction * d, out f);DriveRoad.At(s + Direction * (d + 8), out next);}
                 float curvature = Vector3.Angle(Vector3.ProjectOnPlane(f,Vector3.up),Vector3.ProjectOnPlane(next,Vector3.up)) * Mathf.Deg2Rad / 8;
                 float curveSpeed = Mathf.Sqrt(cornerGrip / Mathf.Max(.00015f, curvature));
@@ -348,7 +351,7 @@ namespace Racer
                 bool campaignCuts=Car!=Race.vehicle&&CampaignRun.RivalShortcuts;
                 if(!plannedBranch && Race.Branches!=null)
                     foreach(var branch in Race.Branches)
-                        if(branch && branch.isActiveAndEnabled && branch.gameObject.scene==Race.gameObject.scene && (campaignCuts?CampaignRun.RivalMayTake(branch):branch.aiValidated) && CarAccess.Open(branch,Car) && s>=branch.entryRoad-55 && s<branch.entryRoad-5 && Racer.Branch.Route==null && !Shortcuts.Decided(branch,Racer.Progress.CompletedLaps))
+                        if(branch && branch.isActiveAndEnabled && branch.gameObject.scene==Race.gameObject.scene && (campaignCuts?CampaignRun.RivalMayTake(branch):branch.aiValidated||ShortcutStrategy.IsForced(branch)) && CarAccess.Open(branch,Car) && s>=branch.entryRoad-55 && s<branch.entryRoad-5 && Racer.Branch.Route==null && !Shortcuts.Decided(branch,Racer.Progress.CompletedLaps))
                         {
                             int expected=System.Array.FindIndex(Race.gates,g=>DriveRoad.Relative(DriveRoad.Project(g.transform.position,out _),Race.Origin)>DriveRoad.Relative(branch.entryRoad,Race.Origin));
                             if(expected<=0||Racer.Progress.NextGate<expected||Racer.Progress.NextGate>expected+1)continue;
@@ -362,7 +365,7 @@ namespace Racer
         }
 
         // 0.112 Part C: rough times for the shortcut and for the main road it bypasses, at this vehicle's road pace (the shortcut at its own speed limits)
-        float ShortcutSeconds(WoodlandRoute b){float lead=Mathf.Min(b.entrySpeedDistance,b.Length);float v=Mathf.Min(b.recommendedSpeed,Car.topSpeed);return (b.entrySpeed>0?lead/Mathf.Min(b.entrySpeed,Car.topSpeed):lead/v)+Mathf.Max(0,b.Length-lead)/Mathf.Max(1,v);}
+        float ShortcutSeconds(WoodlandRoute b){float lead=Mathf.Min(b.entrySpeedDistance,b.LengthFor(true));float v=Mathf.Min(b.recommendedSpeed,Car.topSpeed);return (b.entrySpeed>0?lead/Mathf.Min(b.entrySpeed,Car.topSpeed):lead/v)+Mathf.Max(0,b.LengthFor(true)-lead)/Mathf.Max(1,v);}
         float MainSeconds(WoodlandRoute b)=>Mathf.Repeat(b.exitRoad-b.entryRoad,DriveRoad.Length)/Mathf.Max(1,Car.topSpeed*.6f);
         // A projection beneath an elevated road is not meaningful route progress.
         // Off-route cars instead get credit for approaching a fixed rejoin target;
@@ -372,7 +375,7 @@ namespace Racer
             var p=Car.Body.position;
             // 0.72: a rider in the air is neither progressing nor stuck (a long authored flight is far above
             // its projected route point for several seconds); on touchdown it is judged afresh from there.
-            var support=branch?branch.At(station,out _):DriveRoad.At(station,out _);
+            var support=branch?branch.AtFor(true,station,out _):DriveRoad.At(station,out _); // 0.113 Part A: the rivals' line where the route has one
             if(Car.GroundedWheels==0&&Car.Body.linearVelocity.magnitude>3&&p.y>support.y-15){airborne=true;return;}
             if(airborne){airborne=false;trackingRejoin=false;rejoinStuck=0;}
             float width=branch?branch.halfWidth:DriveRoad.HalfWidth(station);
@@ -405,10 +408,13 @@ namespace Racer
             }
         }
 
+        // 0.113: why the last racer reset was asked for (the checks)
+        public string LastRecoveryWhy { get; private set; } = "";
         void TryRecover(float current)
         {
             if(racing)
             {
+                LastRecoveryWhy=$"stalled {stalled:F1} route {routeStuck:F1} branch {branchStuck:F1} rejoin {rejoinStuck:F1} tracking {trackingRejoin} target {rejoinTarget:F0} best {rejoinBestDistance:F0} planned {(plannedBranch?plannedBranch.title:"-")} on {(Racer?.Branch.Route?Racer.Branch.Route.title:"-")} speed {Car.ForwardSpeed:F1}";
                 var recovery=Car.GetComponent<VehicleRespawn>();
                 nextRecovery=Time.time+1;
                 if(!recovery.TryRecoverLocal(true)) return;

@@ -1,0 +1,9 @@
+screen=1920x1080 kind=ai113 version=0.112.0-review1 park=on
+race c4-whiteout, 2 runs, forced shortcuts [], chapter 4 unvalidated allowed []
+== c4-whiteout 'Whiteout' course MountainLoop laps 2 Night / Snow difficulty 2 pace 1.150 rivals atv,scrambler,fastback
+  run 1 scrambler  112.0 resets 0 (first 10 s: 0) shortcuts [Climbing Ridge Cut lap 1; Summit Traverse lap 1; Climbing Ridge Cut lap 2; Summit Traverse lap 2]
+  run 1 atv        113.7 resets 0 (first 10 s: 0) shortcuts [Climbing Ridge Cut lap 1; Summit Traverse lap 1; Climbing Ridge Cut lap 2; Summit Traverse lap 2]
+  run 1 fastback   118.6 resets 0 (first 10 s: 0) shortcuts [Climbing Ridge Cut lap 1; Summit Traverse lap 1; Climbing Ridge Cut lap 2; Summit Traverse lap 2]
+  run 2 scrambler  112.0 resets 0 (first 10 s: 0) shortcuts [Climbing Ridge Cut lap 1; Summit Traverse lap 1; Climbing Ridge Cut lap 2; Summit Traverse lap 2]
+  run 2 atv        113.6 resets 0 (first 10 s: 0) shortcuts [Climbing Ridge Cut lap 1; Summit Traverse lap 1; Climbing Ridge Cut lap 2; Summit Traverse lap 2]
+  run 2 fastback   118.7 resets 0 (first 10 s: 0) shortcuts [Climbing Ridge Cut lap 1; Summit Traverse lap 1; Climbing Ridge Cut lap 2; Summit Traverse lap 2]

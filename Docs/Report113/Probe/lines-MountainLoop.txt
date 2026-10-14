@@ -1,0 +1,340 @@
+scene MountainLoop: course road 'CR117 mandatory two-flight racing line' length 0
+exclusion 'Jump run-up / no recovery checkpoint' 1120.9,151.93,139.0 -> 980.4,177.92,147.3 half 22
+exclusion 'Echo Cave partial rockfall' 89.9,39.46,158.0 -> 70.7,36.34,110.8 half 9
+exclusion 'Jump run-up / no recovery checkpoint' 771.4,102.46,-222.3 -> 1070.0,131.60,-275.0 half 22
+road 'Summit approach and safe return' (CR094 summit launch) 330 pts 990.0,164.00,115.0 .. 1192.6,152.00,206.7 .. 820.0,115.00,66.0
+road 'CR113 highway through route' (CR113 continuous highway seams) 839 pts -1250.9,8.09,538.9 .. -144.4,8.33,529.1 .. 960.8,41.78,561.4
+road 'Kyle descending driveway' () 4 pts 476.8,85.23,-21.0 .. 507.3,78.70,-23.4 .. 510.5,78.70,-22.9
+road 'Lake shore connection' (CR081 mountain exploration) 403 pts 472.3,85.49,-22.7 .. 715.1,78.52,33.6 .. 472.3,85.49,-22.7
+road 'Mountain racing line' (CR110 mountain race geometry) 700 pts 690.0,79.00,-95.0 .. 1013.7,161.25,90.7 .. 690.4,79.00,-94.4
+road 'House 3 valley driveway' (CR097 supported properties and camp) 42 pts 515.2,81.73,-132.9 .. 474.9,56.65,-142.8 .. 436.5,32.75,-152.3
+road 'Forest race route' (CR056 Forest Loop) 2057 pts 566.0,82.00,-40.0 .. -125.5,21.71,9.6 .. 566.1,82.00,-41.3
+road 'Phase 3 - Race Systems' () 2331 pts 319.0,8.00,550.0 .. -300.6,16.60,-570.6 .. 318.2,8.00,553.3
+road 'Mountain return trails / exploration only' (CR081 mountain exploration) 539 pts 690.0,79.00,-95.0 .. 1006.0,165.98,99.0 .. 690.0,79.00,-95.0
+==== route 'Summit Traverse' length 349 entry 1587 exit 2570 half 5 rec 23 entrySpeed 18/45 validated False guidance none
+  s     0 line 1011.2,161.20,98.2 ground 161.24 (line-ground -0.04) grade +0.00 normalY 1.00 sides +0.1/-0.1 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 161.2)
+  s     2 line 1009.7,161.10,99.6 ground 161.14 (line-ground -0.04) grade -0.05 normalY 1.00 sides +0.1/-0.2 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 161.1)
+  s     4 line 1008.1,161.01,100.8 ground 161.05 (line-ground -0.04) grade -0.05 normalY 0.99 sides +0.1/-0.2 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 161.0)
+  s     6 line 1006.4,160.92,101.7 ground 160.96 (line-ground -0.04) grade -0.04 normalY 0.99 sides +0.2/-0.2 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 161.0)
+  s     8 line 1004.5,160.86,102.3 ground 160.90 (line-ground -0.04) grade -0.03 normalY 1.00 sides +0.2/-0.3 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 160.9)
+  s    10 line 1002.5,160.83,102.7 ground 160.79 (line-ground +0.04) grade -0.06 normalY 1.00 sides +0.2/-0.2 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 160.8)
+  s    12 line 1000.5,160.81,102.9 ground 160.78 (line-ground +0.03) grade +0.00 normalY 1.00 sides +0.2/-0.2 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 160.8)
+  s    14 line 998.5,160.81,102.8 ground 160.80 (line-ground +0.01) grade +0.01 normalY 1.00 sides +0.2/-0.2 Ground_CR133 mountain driving surface (+2 more, top Ground_CR133 mountain driving surface 160.8)
+  s    16 line 996.5,160.80,102.6 ground 160.81 (line-ground -0.01) grade +0.00 normalY 1.00 sides +0.2/-0.2 Ground_CR133 mountain driving surface (+2 more, top Ground_CR133 mountain driving surface 160.8)
+  s    18 line 994.6,160.79,102.2 ground 160.80 (line-ground -0.01) grade +0.00 normalY 1.00 sides +0.2/-0.2 Ground_CR133 mountain driving surface (+2 more, top Ground_CR133 mountain driving surface 160.8)
+  s    20 line 992.6,160.76,101.8 ground 160.77 (line-ground -0.01) grade -0.02 normalY 1.00 sides +0.1/-0.1 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 160.8)
+  s    22 line 990.7,160.68,101.2 ground 160.70 (line-ground -0.02) grade -0.03 normalY 1.00 sides +0.1/-0.1 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 160.7)
+  s    24 line 988.8,160.53,100.6 ground 160.56 (line-ground -0.03) grade -0.07 normalY 1.00 sides +0.1/-0.1 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 160.6)
+  s    26 line 986.9,160.33,99.9 ground 160.36 (line-ground -0.03) grade -0.10 normalY 0.99 sides +0.1/-0.1 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 160.4)
+  s    28 line 985.0,160.03,99.2 ground 160.06 (line-ground -0.03) grade -0.15 normalY 0.99 sides +0.1/-0.1 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 160.1)
+  s    30 line 983.2,159.67,98.4 ground 159.70 (line-ground -0.03) grade -0.18 normalY 0.98 sides +0.1/-0.1 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 159.7)
+  s    32 line 981.4,159.23,97.6 ground 159.26 (line-ground -0.03) grade -0.22 normalY 0.98 sides +0.1/-0.1 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 159.3)
+  s    34 line 979.5,158.73,96.8 ground 158.78 (line-ground -0.04) grade -0.24 normalY 0.97 sides +0.1/-0.1 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 158.8)
+  s    36 line 977.7,158.22,95.9 ground 158.26 (line-ground -0.04) grade -0.26 normalY 0.96 sides +0.1/-0.1 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 158.3)
+  s    38 line 975.9,157.72,95.1 ground 157.76 (line-ground -0.05) grade -0.25 normalY 0.98 sides +0.1/-0.1 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 157.8)
+  s    40 line 974.1,157.27,94.2 ground 157.33 (line-ground -0.06) grade -0.22 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 157.3)
+  s    42 line 972.3,156.94,93.4 ground 156.99 (line-ground -0.05) grade -0.17 normalY 0.99 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 157.0)
+  s    44 line 970.5,156.68,92.5 ground 156.72 (line-ground -0.04) grade -0.13 normalY 0.99 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 156.7)
+  s    46 line 968.7,156.41,91.6 ground 156.45 (line-ground -0.04) grade -0.14 normalY 0.99 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 156.4)
+  s    48 line 966.9,156.13,90.8 ground 156.17 (line-ground -0.04) grade -0.14 normalY 0.99 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 156.2)
+  s    50 line 965.1,155.83,90.0 ground 155.87 (line-ground -0.04) grade -0.15 normalY 0.99 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 155.9)
+  s    52 line 963.2,155.53,89.2 ground 155.57 (line-ground -0.04) grade -0.15 normalY 0.99 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 155.6)
+  s    54 line 961.4,155.20,88.5 ground 155.24 (line-ground -0.04) grade -0.16 normalY 0.99 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 155.2)
+  s    56 line 959.5,154.86,87.8 ground 154.90 (line-ground -0.04) grade -0.17 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 154.9)
+  s    58 line 957.6,154.51,87.1 ground 154.55 (line-ground -0.04) grade -0.17 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 154.6)
+  s    60 line 955.7,154.16,86.4 ground 154.20 (line-ground -0.04) grade -0.18 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 154.2)
+  s    62 line 953.9,153.80,85.7 ground 153.84 (line-ground -0.04) grade -0.18 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 153.8)
+  s    64 line 952.0,153.44,84.9 ground 153.48 (line-ground -0.04) grade -0.18 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 153.5)
+  s    66 line 950.2,153.08,84.2 ground 153.12 (line-ground -0.04) grade -0.18 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 153.1)
+  s    68 line 948.3,152.71,83.4 ground 152.75 (line-ground -0.04) grade -0.18 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 152.7)
+  s    70 line 946.5,152.34,82.5 ground 152.38 (line-ground -0.04) grade -0.19 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 152.4)
+  s    72 line 944.7,151.96,81.7 ground 152.00 (line-ground -0.04) grade -0.19 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 152.0)
+  s    74 line 942.9,151.58,80.8 ground 151.62 (line-ground -0.04) grade -0.19 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 151.6)
+  s    76 line 941.1,151.20,80.0 ground 151.24 (line-ground -0.04) grade -0.19 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 151.2)
+  s    78 line 939.3,150.81,79.1 ground 150.85 (line-ground -0.04) grade -0.19 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 150.8)
+  s    80 line 937.5,150.42,78.2 ground 150.46 (line-ground -0.04) grade -0.20 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 150.5)
+  s    82 line 935.7,150.02,77.3 ground 150.06 (line-ground -0.04) grade -0.20 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 150.1)
+  s    84 line 933.9,149.63,76.4 ground 149.67 (line-ground -0.04) grade -0.20 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 149.7)
+  s    86 line 932.1,149.22,75.5 ground 149.26 (line-ground -0.04) grade -0.20 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 149.3)
+  s    88 line 930.4,148.82,74.6 ground 148.86 (line-ground -0.04) grade -0.20 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 148.9)
+  s    90 line 928.6,148.41,73.7 ground 148.45 (line-ground -0.04) grade -0.21 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 148.4)
+  s    92 line 926.8,147.99,72.7 ground 148.03 (line-ground -0.04) grade -0.21 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 148.0)
+  s    94 line 925.0,147.57,71.8 ground 147.61 (line-ground -0.04) grade -0.21 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 147.6)
+  s    96 line 923.3,147.15,70.9 ground 147.19 (line-ground -0.04) grade -0.21 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 147.2)
+  s    98 line 921.5,146.72,70.0 ground 146.76 (line-ground -0.04) grade -0.21 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 146.8)
+  s   100 line 919.7,146.29,69.1 ground 146.33 (line-ground -0.04) grade -0.22 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 146.3)
+  s   102 line 917.9,145.85,68.2 ground 145.89 (line-ground -0.04) grade -0.22 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 145.9)
+  s   104 line 916.1,145.41,67.3 ground 145.45 (line-ground -0.04) grade -0.22 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 145.5)
+  s   106 line 914.3,144.97,66.4 ground 145.01 (line-ground -0.04) grade -0.22 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 145.0)
+  s   108 line 912.5,144.52,65.5 ground 144.56 (line-ground -0.04) grade -0.23 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 144.6)
+  s   110 line 910.7,144.06,64.6 ground 144.10 (line-ground -0.04) grade -0.23 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 144.1)
+  s   112 line 908.9,143.60,63.8 ground 143.64 (line-ground -0.04) grade -0.23 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 143.6)
+  s   114 line 907.1,143.13,63.0 ground 143.17 (line-ground -0.04) grade -0.23 normalY 0.97 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 143.2)
+  s   116 line 905.3,142.66,62.1 ground 142.70 (line-ground -0.04) grade -0.24 normalY 0.97 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 142.7)
+  s   118 line 903.5,142.19,61.3 ground 142.23 (line-ground -0.04) grade -0.24 normalY 0.97 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 142.2)
+  s   120 line 901.6,141.71,60.6 ground 141.75 (line-ground -0.04) grade -0.24 normalY 0.97 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 141.7)
+  s   122 line 899.8,141.22,59.8 ground 141.26 (line-ground -0.04) grade -0.24 normalY 0.97 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 141.3)
+  s   124 line 897.9,140.73,59.1 ground 140.77 (line-ground -0.04) grade -0.25 normalY 0.97 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 140.8)
+  s   126 line 896.0,140.23,58.4 ground 140.27 (line-ground -0.04) grade -0.25 normalY 0.97 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 140.3)
+  s   128 line 894.1,139.73,57.7 ground 139.77 (line-ground -0.04) grade -0.25 normalY 0.97 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 139.8)
+  s   130 line 892.2,139.22,57.0 ground 139.26 (line-ground -0.04) grade -0.26 normalY 0.97 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 139.3)
+  s   132 line 890.4,138.70,56.4 ground 138.74 (line-ground -0.04) grade -0.26 normalY 0.97 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 138.7)
+  s   134 line 888.5,138.18,55.8 ground 138.22 (line-ground -0.04) grade -0.26 normalY 0.97 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 138.2)
+  s   136 line 886.6,137.65,55.2 ground 137.69 (line-ground -0.04) grade -0.27 normalY 0.97 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 137.7)
+  s   138 line 884.6,137.11,54.6 ground 137.15 (line-ground -0.04) grade -0.27 normalY 0.97 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 137.2)
+  s   140 line 882.7,136.57,54.0 ground 136.61 (line-ground -0.04) grade -0.27 normalY 0.97 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 136.6)
+  s   142 line 880.8,136.02,53.4 ground 136.06 (line-ground -0.04) grade -0.27 normalY 0.96 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 136.1)
+  s   144 line 878.9,135.46,52.8 ground 135.50 (line-ground -0.04) grade -0.28 normalY 0.96 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 135.5)
+  s   146 line 877.0,134.91,52.3 ground 134.95 (line-ground -0.04) grade -0.28 normalY 0.96 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 134.9)
+  s   148 line 875.1,134.34,51.7 ground 134.38 (line-ground -0.04) grade -0.28 normalY 0.96 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 134.4)
+  s   150 line 873.1,133.77,51.2 ground 133.81 (line-ground -0.04) grade -0.28 normalY 0.96 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 133.8)
+  s   152 line 871.2,133.20,50.7 ground 133.24 (line-ground -0.04) grade -0.29 normalY 0.96 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 133.2)
+  s   154 line 869.3,132.62,50.1 ground 132.67 (line-ground -0.04) grade -0.29 normalY 0.96 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 132.7)
+  s   156 line 867.3,132.05,49.6 ground 132.09 (line-ground -0.04) grade -0.29 normalY 0.96 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 132.1)
+  s   158 line 865.4,131.46,49.1 ground 131.50 (line-ground -0.04) grade -0.29 normalY 0.96 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 131.5)
+  s   160 line 863.5,130.88,48.6 ground 130.92 (line-ground -0.04) grade -0.29 normalY 0.96 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 130.9)
+  s   162 line 861.5,130.29,48.1 ground 130.33 (line-ground -0.04) grade -0.29 normalY 0.96 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 130.3)
+  s   164 line 859.6,129.69,47.7 ground 129.73 (line-ground -0.04) grade -0.30 normalY 0.96 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 129.7)
+  s   166 line 857.6,129.10,47.2 ground 129.14 (line-ground -0.04) grade -0.30 normalY 0.96 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 129.1)
+  s   168 line 855.7,128.50,46.7 ground 128.54 (line-ground -0.04) grade -0.30 normalY 0.96 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 128.5)
+  s   170 line 853.7,127.90,46.3 ground 127.94 (line-ground -0.04) grade -0.30 normalY 0.96 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 127.9)
+  s   172 line 851.8,127.30,45.8 ground 127.34 (line-ground -0.04) grade -0.30 normalY 0.96 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 127.3)
+  s   174 line 849.8,126.70,45.4 ground 126.74 (line-ground -0.04) grade -0.30 normalY 0.96 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 126.7)
+  s   176 line 847.9,126.09,44.9 ground 126.13 (line-ground -0.04) grade -0.30 normalY 0.96 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 126.1)
+  s   178 line 845.9,125.49,44.5 ground 125.53 (line-ground -0.04) grade -0.30 normalY 0.96 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 125.5)
+  s   180 line 844.0,124.88,44.0 ground 124.92 (line-ground -0.04) grade -0.30 normalY 0.96 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 124.9)
+  s   182 line 842.0,124.27,43.6 ground 124.31 (line-ground -0.04) grade -0.30 normalY 0.96 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 124.3)
+  s   184 line 840.1,123.66,43.2 ground 123.70 (line-ground -0.04) grade -0.30 normalY 0.96 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 123.7)
+  s   186 line 838.1,123.05,42.8 ground 123.09 (line-ground -0.04) grade -0.30 normalY 0.96 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 123.1)
+  s   188 line 836.2,122.44,42.3 ground 122.48 (line-ground -0.04) grade -0.31 normalY 0.96 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 122.5)
+  s   190 line 834.2,121.83,41.9 ground 121.87 (line-ground -0.04) grade -0.31 normalY 0.96 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 121.9)
+  s   192 line 832.3,121.22,41.5 ground 121.26 (line-ground -0.04) grade -0.31 normalY 0.96 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 121.3)
+  s   194 line 830.3,120.61,41.1 ground 120.65 (line-ground -0.04) grade -0.31 normalY 0.96 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 120.7)
+  s   196 line 828.3,120.00,40.7 ground 120.04 (line-ground -0.04) grade -0.30 normalY 0.96 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 120.0)
+  s   198 line 826.4,119.39,40.3 ground 119.43 (line-ground -0.04) grade -0.30 normalY 0.96 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 119.4)
+  s   200 line 824.4,118.78,39.9 ground 118.82 (line-ground -0.04) grade -0.30 normalY 0.96 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 118.8)
+  s   202 line 822.5,118.17,39.5 ground 118.21 (line-ground -0.04) grade -0.31 normalY 0.96 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 118.2)
+  s   204 line 820.5,117.54,39.1 ground 117.58 (line-ground -0.04) grade -0.31 normalY 0.95 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 117.6)
+  s   206 line 818.5,116.90,38.7 ground 116.94 (line-ground -0.04) grade -0.32 normalY 0.95 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 116.9)
+  s   208 line 816.6,116.26,38.3 ground 116.30 (line-ground -0.04) grade -0.32 normalY 0.95 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 116.3)
+  s   210 line 814.6,115.60,38.0 ground 115.64 (line-ground -0.04) grade -0.33 normalY 0.95 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 115.6)
+  s   212 line 812.7,114.94,37.6 ground 114.98 (line-ground -0.04) grade -0.33 normalY 0.95 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 115.0)
+  s   214 line 810.7,114.27,37.2 ground 114.31 (line-ground -0.04) grade -0.33 normalY 0.95 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 114.3)
+  s   216 line 808.7,113.60,36.9 ground 113.64 (line-ground -0.04) grade -0.34 normalY 0.95 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 113.6)
+  s   218 line 806.7,112.93,36.6 ground 112.97 (line-ground -0.04) grade -0.34 normalY 0.95 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 113.0)
+  s   220 line 804.8,112.25,36.2 ground 112.29 (line-ground -0.04) grade -0.34 normalY 0.95 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 112.3)
+  s   222 line 802.8,111.57,35.9 ground 111.61 (line-ground -0.04) grade -0.34 normalY 0.95 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 111.6)
+  s   224 line 800.8,110.88,35.5 ground 110.92 (line-ground -0.04) grade -0.34 normalY 0.95 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 110.9)
+  s   226 line 798.9,110.20,35.2 ground 110.24 (line-ground -0.04) grade -0.34 normalY 0.95 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 110.2)
+  s   228 line 796.9,109.51,34.9 ground 109.55 (line-ground -0.04) grade -0.34 normalY 0.95 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 109.6)
+  s   230 line 794.9,108.83,34.6 ground 108.87 (line-ground -0.04) grade -0.34 normalY 0.95 sides +0.0/+0.0 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 108.9)
+  s   232 line 792.9,108.14,34.3 ground 108.18 (line-ground -0.04) grade -0.34 normalY 0.95 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   234 line 791.0,107.46,34.0 ground 107.50 (line-ground -0.04) grade -0.34 normalY 0.95 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   236 line 789.0,106.78,33.7 ground 106.82 (line-ground -0.04) grade -0.34 normalY 0.95 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   238 line 787.0,106.10,33.4 ground 106.14 (line-ground -0.04) grade -0.34 normalY 0.95 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   240 line 785.0,105.43,33.1 ground 105.47 (line-ground -0.04) grade -0.34 normalY 0.95 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   242 line 783.0,104.76,32.8 ground 104.80 (line-ground -0.04) grade -0.33 normalY 0.95 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   244 line 781.1,104.09,32.5 ground 104.13 (line-ground -0.04) grade -0.33 normalY 0.95 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   246 line 779.1,103.44,32.2 ground 103.48 (line-ground -0.04) grade -0.33 normalY 0.95 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   248 line 777.1,102.79,31.9 ground 102.83 (line-ground -0.04) grade -0.33 normalY 0.95 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   250 line 775.1,102.14,31.6 ground 102.18 (line-ground -0.04) grade -0.32 normalY 0.95 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   252 line 773.2,101.51,31.3 ground 101.56 (line-ground -0.05) grade -0.31 normalY 0.95 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   254 line 771.2,100.88,31.0 ground 100.95 (line-ground -0.07) grade -0.30 normalY 0.96 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   256 line 769.2,100.27,30.7 ground 100.36 (line-ground -0.09) grade -0.29 normalY 0.96 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   258 line 767.2,99.67,30.4 ground 99.78 (line-ground -0.12) grade -0.29 normalY 0.96 sides -0.1/+0.1 Ground_CR133 mountain driving surface
+  s   260 line 765.2,99.07,30.2 ground 99.22 (line-ground -0.14) grade -0.28 normalY 0.96 sides -0.1/+0.1 Ground_CR133 mountain driving surface
+  s   262 line 763.3,98.49,29.9 ground 98.65 (line-ground -0.16) grade -0.28 normalY 0.96 sides -0.1/+0.1 Ground_CR133 mountain driving surface
+  s   264 line 761.3,97.92,29.6 ground 98.09 (line-ground -0.17) grade -0.28 normalY 0.96 sides -0.1/+0.1 Ground_CR133 mountain driving surface
+  s   266 line 759.3,97.36,29.3 ground 97.53 (line-ground -0.18) grade -0.28 normalY 0.96 sides -0.1/+0.1 Ground_CR133 mountain driving surface
+  s   268 line 757.3,96.81,29.0 ground 96.98 (line-ground -0.17) grade -0.28 normalY 0.96 sides -0.1/+0.1 Ground_CR133 mountain driving surface
+  s   270 line 755.3,96.29,28.8 ground 96.43 (line-ground -0.14) grade -0.27 normalY 0.97 sides -0.1/+0.1 Ground_CR133 mountain driving surface
+  s   272 line 753.4,95.78,28.5 ground 95.89 (line-ground -0.12) grade -0.27 normalY 0.97 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   274 line 751.4,95.29,28.2 ground 95.38 (line-ground -0.09) grade -0.26 normalY 0.97 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   276 line 749.4,94.82,27.9 ground 94.89 (line-ground -0.07) grade -0.24 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   278 line 747.4,94.38,27.7 ground 94.44 (line-ground -0.05) grade -0.23 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   280 line 745.4,93.98,27.6 ground 94.02 (line-ground -0.04) grade -0.21 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   282 line 743.4,93.60,27.6 ground 93.65 (line-ground -0.04) grade -0.19 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   284 line 741.4,93.25,27.7 ground 93.29 (line-ground -0.04) grade -0.18 normalY 0.99 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   286 line 739.4,92.92,27.7 ground 92.96 (line-ground -0.04) grade -0.17 normalY 0.99 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   288 line 737.4,92.60,27.9 ground 92.65 (line-ground -0.04) grade -0.16 normalY 0.99 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   290 line 735.4,92.30,28.0 ground 92.35 (line-ground -0.04) grade -0.15 normalY 0.99 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   292 line 733.4,92.02,28.2 ground 92.06 (line-ground -0.04) grade -0.14 normalY 0.99 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   294 line 731.4,91.74,28.4 ground 91.78 (line-ground -0.04) grade -0.14 normalY 0.99 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   296 line 729.5,91.48,28.7 ground 91.52 (line-ground -0.04) grade -0.13 normalY 0.99 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   298 line 727.5,91.22,28.9 ground 91.26 (line-ground -0.04) grade -0.13 normalY 0.99 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   300 line 725.5,90.97,29.1 ground 91.00 (line-ground -0.03) grade -0.13 normalY 0.99 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   302 line 723.5,90.69,29.4 ground 90.72 (line-ground -0.03) grade -0.14 normalY 0.99 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   304 line 721.5,90.36,29.6 ground 90.42 (line-ground -0.05) grade -0.15 normalY 0.99 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   306 line 719.5,90.00,29.9 ground 90.03 (line-ground -0.03) grade -0.19 normalY 0.93 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   308 line 717.5,89.62,30.1 ground 89.63 (line-ground +0.00) grade -0.20 normalY 0.97 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   310 line 715.6,89.25,30.4 ground 89.23 (line-ground +0.02) grade -0.20 normalY 0.97 sides -0.1/+0.1 Ground_CR133 mountain driving surface
+  s   312 line 713.6,88.88,30.6 ground 88.85 (line-ground +0.04) grade -0.19 normalY 0.99 sides -0.1/+0.1 Ground_CR133 mountain driving surface
+  s   314 line 711.6,88.54,30.8 ground 88.49 (line-ground +0.05) grade -0.18 normalY 0.99 sides -0.2/+0.2 Ground_CR133 mountain driving surface
+  s   316 line 709.6,88.23,31.0 ground 88.18 (line-ground +0.05) grade -0.16 normalY 0.99 sides -0.2/+0.2 Ground_CR133 mountain driving surface
+  s   318 line 707.6,87.94,31.1 ground 87.91 (line-ground +0.03) grade -0.14 normalY 0.99 sides -0.3/+0.3 Ground_CR133 mountain driving surface
+  s   320 line 705.6,87.71,31.3 ground 87.67 (line-ground +0.04) grade -0.12 normalY 0.98 sides -0.3/+0.3 Ground_CR133 mountain driving surface
+  s   322 line 703.6,87.50,31.3 ground 87.48 (line-ground +0.02) grade -0.10 normalY 0.99 sides -0.3/+0.3 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 87.5)
+  s   324 line 701.6,87.30,31.4 ground 87.32 (line-ground -0.02) grade -0.08 normalY 0.99 sides -0.4/+0.4 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 87.3)
+  s   326 line 699.6,87.13,31.4 ground 87.18 (line-ground -0.05) grade -0.07 normalY 0.99 sides -0.4/+0.4 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 87.2)
+  s   328 line 697.6,86.99,31.3 ground 87.06 (line-ground -0.07) grade -0.06 normalY 0.99 sides -0.4/+0.4 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 87.1)
+  s   330 line 695.6,86.87,31.1 ground 86.95 (line-ground -0.07) grade -0.06 normalY 0.99 sides -0.4/+0.4 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 86.9)
+  s   332 line 693.6,86.76,30.8 ground 86.83 (line-ground -0.07) grade -0.06 normalY 0.99 sides -0.3/+0.3 Ground_CR133 mountain driving surface
+  s   334 line 691.7,86.65,30.3 ground 86.70 (line-ground -0.05) grade -0.07 normalY 0.99 sides -0.3/+0.3 Ground_CR133 mountain driving surface
+  s   336 line 689.8,86.53,29.7 ground 86.57 (line-ground -0.04) grade -0.06 normalY 0.99 sides -0.3/+0.3 Ground_CR133 mountain driving surface
+  s   338 line 688.0,86.40,28.8 ground 86.44 (line-ground -0.04) grade -0.07 normalY 1.00 sides -0.2/+0.2 Ground_CR133 mountain driving surface
+  s   340 line 686.4,86.26,27.6 ground 86.30 (line-ground -0.04) grade -0.07 normalY 1.00 sides -0.2/+0.2 Ground_CR133 mountain driving surface
+  s   342 line 685.0,86.10,26.2 ground 86.14 (line-ground -0.04) grade -0.08 normalY 0.99 sides -0.2/+0.1 Ground_CR133 mountain driving surface
+  s   344 line 684.0,85.92,24.4 ground 85.96 (line-ground -0.04) grade -0.09 normalY 1.00 sides -0.1/+0.1 Ground_CR133 mountain driving surface
+  s   346 line 683.4,85.74,22.6 ground 85.78 (line-ground -0.04) grade -0.09 normalY 0.99 sides -0.1/+0.0 Ground_CR133 mountain driving surface
+  s   348 line 683.1,85.56,20.6 ground 85.60 (line-ground -0.04) grade -0.09 normalY 1.00 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+==== route 'Climbing Ridge Cut' length 299 entry 18 exit 1407 half 3.6 rec 30 entrySpeed 14/65 validated False guidance none
+  s     0 line 747.0,86.23,-120.0 ground 86.27 (line-ground -0.04) grade +0.00 normalY 0.99 sides -0.4/+0.4 Ground_CR133 mountain driving surface
+  s     2 line 748.8,86.37,-119.1 ground 86.41 (line-ground -0.04) grade +0.07 normalY 0.99 sides -0.4/+0.4 Ground_CR133 mountain driving surface
+  s     4 line 750.5,86.51,-118.1 ground 86.55 (line-ground -0.04) grade +0.07 normalY 0.99 sides -0.4/+0.4 Ground_CR133 mountain driving surface
+  s     6 line 752.3,86.66,-117.2 ground 86.70 (line-ground -0.04) grade +0.07 normalY 0.99 sides -0.4/+0.4 Ground_CR133 mountain driving surface
+  s     8 line 754.1,86.80,-116.3 ground 86.84 (line-ground -0.04) grade +0.07 normalY 0.99 sides -0.4/-0.4 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 86.8)
+  s    10 line 755.9,86.95,-115.4 ground 86.99 (line-ground -0.04) grade +0.07 normalY 0.99 sides -0.4/+0.4 Ground_CR133 mountain driving surface
+  s    12 line 757.7,87.09,-114.5 ground 87.13 (line-ground -0.04) grade +0.07 normalY 0.99 sides -0.4/+0.4 Ground_CR133 mountain driving surface
+  s    14 line 759.5,87.23,-113.6 ground 87.27 (line-ground -0.04) grade +0.07 normalY 0.99 sides -0.4/+0.4 Ground_CR133 mountain driving surface
+  s    16 line 761.2,87.38,-112.7 ground 87.42 (line-ground -0.04) grade +0.07 normalY 0.99 sides -0.4/+0.4 Ground_CR133 mountain driving surface
+  s    18 line 763.0,87.52,-111.8 ground 87.56 (line-ground -0.04) grade +0.07 normalY 0.99 sides -0.4/+0.1 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 87.6)
+  s    20 line 764.8,87.67,-110.9 ground 87.71 (line-ground -0.04) grade +0.07 normalY 0.99 sides -0.4/+0.2 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 87.7)
+  s    22 line 766.6,87.81,-110.0 ground 87.85 (line-ground -0.04) grade +0.07 normalY 0.99 sides -0.4/+0.3 Ground_CR133 mountain driving surface
+  s    24 line 768.4,87.96,-109.1 ground 88.00 (line-ground -0.04) grade +0.07 normalY 0.99 sides -0.4/+0.4 Ground_CR133 mountain driving surface
+  s    26 line 770.1,88.10,-108.2 ground 88.14 (line-ground -0.04) grade +0.07 normalY 0.99 sides -0.4/+0.4 Ground_CR133 mountain driving surface
+  s    28 line 771.9,88.26,-107.2 ground 88.30 (line-ground -0.04) grade +0.08 normalY 0.99 sides -0.4/+0.4 Ground_CR133 mountain driving surface
+  s    30 line 773.7,88.46,-106.3 ground 88.51 (line-ground -0.05) grade +0.10 normalY 0.99 sides -0.4/+0.4 Ground_CR133 mountain driving surface
+  s    32 line 775.5,88.74,-105.4 ground 88.80 (line-ground -0.06) grade +0.14 normalY 0.98 sides -0.4/+0.4 Ground_CR133 mountain driving surface
+  s    34 line 777.2,89.12,-104.5 ground 89.18 (line-ground -0.06) grade +0.19 normalY 0.97 sides -0.3/+0.3 Ground_CR133 mountain driving surface
+  s    36 line 779.0,89.59,-103.5 ground 89.65 (line-ground -0.07) grade +0.24 normalY 0.97 sides -0.3/+0.3 Ground_CR133 mountain driving surface
+  s    38 line 780.8,90.13,-102.6 ground 90.20 (line-ground -0.07) grade +0.27 normalY 0.96 sides -0.3/+0.3 Ground_CR133 mountain driving surface
+  s    40 line 782.5,90.69,-101.6 ground 90.76 (line-ground -0.07) grade +0.28 normalY 0.95 sides -0.3/+0.3 Ground_CR133 mountain driving surface
+  s    42 line 784.3,91.29,-100.7 ground 91.36 (line-ground -0.07) grade +0.30 normalY 0.96 sides -0.2/+0.2 Ground_CR133 mountain driving surface
+  s    44 line 786.1,91.95,-99.7 ground 92.03 (line-ground -0.07) grade +0.33 normalY 0.95 sides -0.2/+0.2 Ground_CR133 mountain driving surface
+  s    46 line 787.8,92.65,-98.8 ground 92.73 (line-ground -0.07) grade +0.35 normalY 0.93 sides -0.2/+0.2 Ground_CR133 mountain driving surface
+  s    48 line 789.6,93.39,-97.8 ground 93.46 (line-ground -0.07) grade +0.37 normalY 0.93 sides -0.2/+0.2 Ground_CR133 mountain driving surface
+  s    50 line 791.3,94.16,-96.8 ground 94.23 (line-ground -0.07) grade +0.38 normalY 0.94 sides -0.1/+0.1 Ground_CR133 mountain driving surface
+  s    52 line 793.0,94.94,-95.8 ground 95.01 (line-ground -0.07) grade +0.39 normalY 0.92 sides -0.1/+0.1 Ground_CR133 mountain driving surface
+  s    54 line 794.8,95.72,-94.9 ground 95.79 (line-ground -0.06) grade +0.39 normalY 0.93 sides -0.1/+0.1 Ground_CR133 mountain driving surface
+  s    56 line 796.5,96.49,-93.9 ground 96.56 (line-ground -0.06) grade +0.38 normalY 0.94 sides -0.1/+0.1 Ground_CR133 mountain driving surface
+  s    58 line 798.2,97.23,-92.8 ground 97.29 (line-ground -0.06) grade +0.37 normalY 0.94 sides -0.1/+0.0 Ground_CR133 mountain driving surface
+  s    60 line 800.0,97.92,-91.8 ground 97.98 (line-ground -0.05) grade +0.34 normalY 0.95 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s    62 line 801.7,98.55,-90.8 ground 98.60 (line-ground -0.05) grade +0.31 normalY 0.96 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s    64 line 803.4,99.08,-89.8 ground 99.12 (line-ground -0.05) grade +0.26 normalY 0.97 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s    66 line 805.1,99.51,-88.7 ground 99.55 (line-ground -0.04) grade +0.21 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s    68 line 806.8,99.93,-87.6 ground 99.97 (line-ground -0.04) grade +0.21 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s    70 line 808.4,100.35,-86.5 ground 100.39 (line-ground -0.04) grade +0.21 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s    72 line 810.0,100.77,-85.3 ground 100.81 (line-ground -0.04) grade +0.21 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s    74 line 811.7,101.19,-84.2 ground 101.23 (line-ground -0.04) grade +0.21 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s    76 line 813.3,101.61,-83.0 ground 101.65 (line-ground -0.04) grade +0.21 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s    78 line 814.9,102.03,-81.8 ground 102.07 (line-ground -0.04) grade +0.21 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s    80 line 816.5,102.46,-80.6 ground 102.50 (line-ground -0.04) grade +0.21 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s    82 line 818.1,102.88,-79.4 ground 102.92 (line-ground -0.04) grade +0.21 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s    84 line 819.6,103.30,-78.1 ground 103.34 (line-ground -0.04) grade +0.21 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s    86 line 821.2,103.72,-76.9 ground 103.76 (line-ground -0.04) grade +0.21 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s    88 line 822.8,104.14,-75.7 ground 104.18 (line-ground -0.04) grade +0.21 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s    90 line 824.4,104.57,-74.4 ground 104.61 (line-ground -0.04) grade +0.21 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s    92 line 825.9,104.99,-73.2 ground 105.03 (line-ground -0.04) grade +0.21 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s    94 line 827.5,105.41,-71.9 ground 105.45 (line-ground -0.04) grade +0.21 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s    96 line 829.1,105.84,-70.7 ground 105.88 (line-ground -0.04) grade +0.21 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s    98 line 830.6,106.26,-69.4 ground 106.30 (line-ground -0.04) grade +0.21 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   100 line 832.2,106.68,-68.2 ground 106.72 (line-ground -0.04) grade +0.21 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   102 line 833.8,107.11,-67.0 ground 107.15 (line-ground -0.04) grade +0.21 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   104 line 835.3,107.53,-65.7 ground 107.57 (line-ground -0.04) grade +0.21 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   106 line 836.9,107.95,-64.5 ground 107.99 (line-ground -0.04) grade +0.21 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   108 line 838.5,108.38,-63.3 ground 108.42 (line-ground -0.04) grade +0.21 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   110 line 840.1,108.80,-62.1 ground 108.84 (line-ground -0.04) grade +0.21 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   112 line 841.7,109.22,-60.9 ground 109.26 (line-ground -0.04) grade +0.21 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   114 line 843.3,109.64,-59.7 ground 109.68 (line-ground -0.04) grade +0.21 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   116 line 845.0,110.07,-58.6 ground 110.11 (line-ground -0.04) grade +0.21 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   118 line 846.6,110.49,-57.4 ground 110.53 (line-ground -0.04) grade +0.21 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   120 line 848.3,110.91,-56.3 ground 110.95 (line-ground -0.04) grade +0.21 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   122 line 849.9,111.33,-55.2 ground 111.37 (line-ground -0.04) grade +0.21 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   124 line 851.6,111.76,-54.1 ground 111.79 (line-ground -0.04) grade +0.21 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   126 line 853.3,112.18,-53.1 ground 112.22 (line-ground -0.04) grade +0.21 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   128 line 855.0,112.60,-52.1 ground 112.63 (line-ground -0.04) grade +0.21 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   130 line 856.8,113.01,-51.1 ground 113.05 (line-ground -0.04) grade +0.21 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   132 line 858.5,113.43,-50.1 ground 113.47 (line-ground -0.04) grade +0.21 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   134 line 860.3,113.85,-49.2 ground 113.88 (line-ground -0.04) grade +0.21 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   136 line 862.1,114.26,-48.3 ground 114.30 (line-ground -0.04) grade +0.21 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   138 line 863.9,114.67,-47.4 ground 114.71 (line-ground -0.04) grade +0.21 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   140 line 865.7,115.08,-46.6 ground 115.12 (line-ground -0.04) grade +0.20 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   142 line 867.6,115.49,-45.9 ground 115.52 (line-ground -0.04) grade +0.20 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   144 line 869.5,115.89,-45.2 ground 115.93 (line-ground -0.04) grade +0.20 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   146 line 871.4,116.29,-44.5 ground 116.32 (line-ground -0.04) grade +0.20 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   148 line 873.3,116.68,-43.9 ground 116.72 (line-ground -0.04) grade +0.20 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   150 line 875.2,117.07,-43.4 ground 117.11 (line-ground -0.04) grade +0.20 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   152 line 877.1,117.46,-42.8 ground 117.50 (line-ground -0.04) grade +0.19 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   154 line 879.0,117.85,-42.3 ground 117.89 (line-ground -0.04) grade +0.19 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   156 line 881.0,118.23,-41.8 ground 118.27 (line-ground -0.04) grade +0.19 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   158 line 882.9,118.61,-41.4 ground 118.65 (line-ground -0.04) grade +0.19 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   160 line 884.9,118.99,-41.0 ground 119.03 (line-ground -0.04) grade +0.19 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   162 line 886.8,119.36,-40.6 ground 119.40 (line-ground -0.04) grade +0.19 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   164 line 888.8,119.73,-40.2 ground 119.77 (line-ground -0.04) grade +0.19 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   166 line 890.8,120.10,-39.9 ground 120.14 (line-ground -0.04) grade +0.18 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   168 line 892.8,120.47,-39.6 ground 120.51 (line-ground -0.04) grade +0.18 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   170 line 894.7,120.83,-39.3 ground 120.87 (line-ground -0.04) grade +0.18 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   172 line 896.7,121.19,-39.0 ground 121.23 (line-ground -0.04) grade +0.18 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   174 line 898.7,121.55,-38.8 ground 121.59 (line-ground -0.04) grade +0.18 normalY 0.99 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   176 line 900.7,121.91,-38.6 ground 121.95 (line-ground -0.04) grade +0.18 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   178 line 902.7,122.26,-38.4 ground 122.30 (line-ground -0.04) grade +0.18 normalY 0.99 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   180 line 904.7,122.61,-38.2 ground 122.65 (line-ground -0.04) grade +0.18 normalY 0.99 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   182 line 906.7,122.96,-38.1 ground 123.00 (line-ground -0.04) grade +0.17 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   184 line 908.7,123.30,-37.9 ground 123.34 (line-ground -0.04) grade +0.17 normalY 0.99 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   186 line 910.7,123.65,-37.8 ground 123.69 (line-ground -0.04) grade +0.17 normalY 0.99 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   188 line 912.7,123.99,-37.7 ground 124.03 (line-ground -0.04) grade +0.17 normalY 0.99 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   190 line 914.7,124.33,-37.7 ground 124.37 (line-ground -0.04) grade +0.17 normalY 0.99 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   192 line 916.7,124.66,-37.6 ground 124.70 (line-ground -0.04) grade +0.17 normalY 0.99 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   194 line 918.7,125.00,-37.6 ground 125.04 (line-ground -0.04) grade +0.17 normalY 0.99 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   196 line 920.7,125.33,-37.6 ground 125.37 (line-ground -0.04) grade +0.17 normalY 0.99 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   198 line 922.7,125.66,-37.6 ground 125.70 (line-ground -0.04) grade +0.17 normalY 0.99 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   200 line 924.7,125.99,-37.6 ground 126.03 (line-ground -0.04) grade +0.16 normalY 0.99 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   202 line 926.7,126.32,-37.6 ground 126.36 (line-ground -0.04) grade +0.16 normalY 0.99 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   204 line 928.7,126.64,-37.6 ground 126.68 (line-ground -0.04) grade +0.16 normalY 0.99 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   206 line 930.7,126.96,-37.7 ground 127.00 (line-ground -0.04) grade +0.16 normalY 0.99 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   208 line 932.7,127.29,-37.8 ground 127.33 (line-ground -0.04) grade +0.16 normalY 0.99 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   210 line 934.7,127.60,-37.9 ground 127.64 (line-ground -0.04) grade +0.16 normalY 0.99 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   212 line 936.7,127.92,-38.0 ground 127.96 (line-ground -0.04) grade +0.16 normalY 0.99 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   214 line 938.7,128.24,-38.1 ground 128.28 (line-ground -0.04) grade +0.16 normalY 0.99 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   216 line 940.7,128.55,-38.2 ground 128.59 (line-ground -0.04) grade +0.16 normalY 0.99 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   218 line 942.6,128.86,-38.4 ground 128.90 (line-ground -0.04) grade +0.16 normalY 0.99 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   220 line 944.6,129.17,-38.5 ground 129.21 (line-ground -0.04) grade +0.16 normalY 0.99 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   222 line 946.6,129.48,-38.7 ground 129.52 (line-ground -0.04) grade +0.15 normalY 0.99 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   224 line 948.6,129.79,-38.9 ground 129.83 (line-ground -0.04) grade +0.15 normalY 0.99 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   226 line 950.6,130.09,-39.1 ground 130.13 (line-ground -0.04) grade +0.15 normalY 0.99 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   228 line 952.6,130.39,-39.3 ground 130.43 (line-ground -0.04) grade +0.15 normalY 0.99 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   230 line 954.6,130.69,-39.6 ground 130.73 (line-ground -0.04) grade +0.15 normalY 0.99 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   232 line 956.6,130.98,-39.9 ground 131.01 (line-ground -0.04) grade +0.14 normalY 0.99 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   234 line 958.5,131.26,-40.3 ground 131.30 (line-ground -0.04) grade +0.14 normalY 0.99 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   236 line 960.5,131.54,-40.6 ground 131.57 (line-ground -0.04) grade +0.14 normalY 0.99 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   238 line 962.4,131.81,-41.0 ground 131.85 (line-ground -0.04) grade +0.14 normalY 0.99 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   240 line 964.4,132.08,-41.5 ground 132.12 (line-ground -0.04) grade +0.13 normalY 0.99 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   242 line 966.3,132.34,-42.0 ground 132.38 (line-ground -0.04) grade +0.13 normalY 0.99 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   244 line 968.3,132.60,-42.4 ground 132.64 (line-ground -0.04) grade +0.13 normalY 0.99 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   246 line 970.2,132.86,-42.9 ground 132.90 (line-ground -0.04) grade +0.13 normalY 0.99 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   248 line 972.1,133.12,-43.5 ground 133.16 (line-ground -0.04) grade +0.13 normalY 0.99 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   250 line 974.1,133.37,-44.0 ground 133.41 (line-ground -0.04) grade +0.13 normalY 0.99 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   252 line 976.0,133.62,-44.6 ground 133.66 (line-ground -0.04) grade +0.12 normalY 0.99 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   254 line 977.9,133.86,-45.2 ground 133.90 (line-ground -0.04) grade +0.12 normalY 0.99 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   256 line 979.8,134.11,-45.7 ground 134.15 (line-ground -0.04) grade +0.12 normalY 0.99 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   258 line 981.7,134.35,-46.3 ground 134.40 (line-ground -0.05) grade +0.13 normalY 0.99 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   260 line 983.6,134.66,-47.0 ground 134.70 (line-ground -0.04) grade +0.15 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   262 line 985.5,135.03,-47.6 ground 135.07 (line-ground -0.04) grade +0.18 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   264 line 987.4,135.44,-48.2 ground 135.47 (line-ground -0.03) grade +0.20 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   266 line 989.3,135.86,-48.9 ground 135.89 (line-ground -0.03) grade +0.21 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   268 line 991.2,136.27,-49.5 ground 136.29 (line-ground -0.02) grade +0.20 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   270 line 993.1,136.66,-50.2 ground 136.67 (line-ground -0.02) grade +0.19 normalY 0.98 sides +0.0/+0.0 Ground_CR133 mountain driving surface
+  s   272 line 995.0,137.00,-50.9 ground 137.03 (line-ground -0.02) grade +0.18 normalY 0.99 sides +0.1/-0.1 Ground_CR133 mountain driving surface
+  s   274 line 996.8,137.32,-51.6 ground 137.34 (line-ground -0.02) grade +0.16 normalY 0.99 sides +0.1/-0.1 Ground_CR133 mountain driving surface
+  s   276 line 998.7,137.59,-52.3 ground 137.61 (line-ground -0.01) grade +0.13 normalY 0.99 sides +0.2/-0.2 Ground_CR133 mountain driving surface
+  s   278 line 1000.6,137.83,-53.0 ground 137.85 (line-ground -0.02) grade +0.12 normalY 0.99 sides +0.2/-0.2 Ground_CR133 mountain driving surface
+  s   280 line 1002.5,138.03,-53.6 ground 138.05 (line-ground -0.02) grade +0.10 normalY 0.99 sides +0.2/-0.3 Ground_CR133 mountain driving surface
+  s   282 line 1004.3,138.20,-54.4 ground 138.22 (line-ground -0.02) grade +0.08 normalY 0.99 sides +0.3/-0.3 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 138.2)
+  s   284 line 1006.2,138.36,-55.1 ground 138.38 (line-ground -0.03) grade +0.08 normalY 0.99 sides +0.3/-0.3 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 138.4)
+  s   286 line 1008.1,138.49,-55.8 ground 138.52 (line-ground -0.03) grade +0.07 normalY 0.99 sides +0.4/-0.4 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 138.5)
+  s   288 line 1010.0,138.62,-56.5 ground 138.65 (line-ground -0.03) grade +0.06 normalY 0.99 sides +0.4/-0.4 Ground_CR133 mountain driving surface (+1 more, top Ground_CR133 mountain driving surface 138.7)
+  s   290 line 1011.8,138.75,-57.2 ground 138.79 (line-ground -0.04) grade +0.07 normalY 0.99 sides +0.4/-0.4 Ground_CR133 mountain driving surface
+  s   292 line 1013.7,138.88,-57.8 ground 138.92 (line-ground -0.04) grade +0.06 normalY 0.99 sides +0.4/-0.4 Ground_CR133 mountain driving surface
+  s   294 line 1015.6,139.00,-58.5 ground 139.04 (line-ground -0.04) grade +0.06 normalY 0.99 sides +0.4/-0.4 Ground_CR133 mountain driving surface
+  s   296 line 1017.5,139.14,-59.2 ground 139.18 (line-ground -0.04) grade +0.07 normalY 0.99 sides +0.4/-0.4 Ground_CR133 mountain driving surface
+  s   298 line 1019.4,139.27,-59.8 ground 139.31 (line-ground -0.04) grade +0.07 normalY 0.99 sides +0.4/-0.4 Ground_CR133 mountain driving surface

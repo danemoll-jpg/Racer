@@ -157,7 +157,7 @@ namespace Racer
             foreach (var a in clone.GetComponents<AudioSource>()) DestroyImmediate(a);
             var car = clone.GetComponent<ArcadeVehicle>(); var config = clone.GetComponent<VehicleConfiguration>(); config.classicVisual = false;
             config.Apply(bike ? VehicleProfile.PoliceBike.Id : VehicleProfile.Police.Id); config.SetPaint(new Color(.03f, .03f, .035f));
-            clone.AddComponent<VehicleAudio>();
+            // 0.113 Part E: no 2D copy of the player's engine; the cop's engine plays from where it is (OtherEngines), under the siren
             var input = clone.GetComponent<VehicleInput>(); if (input) { input.Bind(null); input.enabled = false; }
             var respawn = clone.GetComponent<VehicleRespawn>(); if (respawn) respawn.enabled = false;
             car.Body.isKinematic = false; car.enabled = false;
