@@ -104,6 +104,14 @@ Scope as proposed in 0.114 (details in the 0.114 results below):
   - Reverse has no shortcuts.
   - Leviathan opens with the Mountain Loop in the campaign.
   - The bot needed the reset twice just past the summit lip on Forward.
+- **Release.** 0.115.0-review1, build 115000:
+  - Source `f1ce5437` (pushed); a fresh Windows build from it (0 errors, [build-release.txt](Docs/Report115/build-release.txt)).
+  - Published [game-115000](https://github.com/danemoll-jpg/woodstock-rush-releases/releases/tag/game-115000) (the known draft-lookup miss, completed with `--resume-draft`): Latest, 3 assets, earlier releases kept.
+  - Public download, pinned signature and startup check all pass, and every one of the 236 files matches Builds/Latest ([hosted/result.json](Docs/Report115/hosted/result.json)).
+  - The production updater is at 115000 with nothing newer pending ([launcher-catalog-check.json](Docs/Report115/launcher-catalog-check.json)). `Play-Racer.cmd` (unchanged) launched `Builds/Latest/versions/115000/Racer.exe` ([play-racer-launch.json](Docs/Report115/play-racer-launch.json)), and Dan's settings.json was restored byte for byte ([settings-preserved.json](Docs/Report115/settings-preserved.json)).
+  - Cleanup: Builds 12.45 GB -> 8.33 GB (4.12 GB: the build output, the zip, the check build, the public-download install); C: free 213.0 -> 219.0 GB. Kept managed 115000 and 114000 ([cleanup.json](Docs/Report115/cleanup.json)).
+  - The round's temporary editor tools were removed from Assets/Editor (copies in Tools/Report115), and every editor and player started was closed.
+  - Commits: `38b4f51c` checkpoint, `f1ce5437` the round (released source); this record follows.
 
 
 ## Previous delivery — Half-built new buildings (walls missing from outside); combined course proposals (Street Loop + Mountain) marked in Free Roam — target 0.114.0-review1 — DELIVERED as 0.114.0-review1 (build 114000) — REVIEWED BY DAN ("everything seems fine"; chose Proposal A, built in the Mountain Loop scene; next round below)
