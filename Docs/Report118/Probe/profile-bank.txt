@@ -1,0 +1,70 @@
+sharpest crest (grade falling) 4.7 %/m at s 673.00: a car leaves it above 32 mph
+s 669.00 (505.3,-23.2) y 78.967 (left +0.02 right -0.02) grade -19.0 % change    3.3 %/m
+s 669.50 (505.8,-23.2) y 78.860 (left +0.02 right -0.02) grade -12.8 % change    9.0 %/m
+s 670.00 (506.2,-23.3) y 78.777 (left +0.07 right -0.05) grade  -6.6 % change   12.4 %/m
+s 670.50 (506.7,-23.1) y 78.732 (left +0.22 right -0.03) grade  -3.0 % change    9.8 %/m
+s 671.00 (507.0,-22.7) y 78.711 (left +0.26 right -0.01) grade  -1.3 % change    5.3 %/m
+s 671.50 (507.3,-22.3) y 78.702 (left +0.24 right -0.01) grade  -0.5 % change    2.5 %/m
+s 672.00 (507.4,-21.9) y 78.698 (left +0.24 right +0.00) grade  -0.1 % change    1.2 %/m
+s 672.50 (507.6,-21.4) y 78.697 (left +0.15 right +0.00) grade   0.0 % change    0.5 %/m
+s 673.00 (507.8,-20.9) y 78.697 (left +0.11 right +0.00) grade  -4.7 % change   -4.7 %/m  crest: a car leaves it above 32 mph
+s 673.50 (508.0,-20.5) y 78.697 (left +0.21 right +0.00) grade  -0.7 % change   -0.7 %/m  crest: a car leaves it above 85 mph
+s 674.00 (508.4,-20.2) y 78.650 (left +0.49 right +0.05) grade   3.6 % change    8.3 %/m
+s 674.50 (508.8,-19.9) y 78.690 (left +0.48 right +0.01) grade   1.4 % change    2.1 %/m
+s 675.00 (509.2,-19.6) y 78.686 (left +0.23 right +0.01) grade   4.0 % change    0.4 %/m
+s 675.50 (509.5,-19.2) y 78.704 (left +0.14 right -0.01) grade   7.4 % change    6.0 %/m
+s 676.00 (509.8,-18.8) y 78.726 (left +0.01 right -0.03) grade  11.4 % change    7.4 %/m
+s 676.50 (510.0,-18.3) y 78.778 (left +0.00 right -0.08) grade  15.4 % change    8.0 %/m
+s 677.00 (510.2,-17.9) y 78.840 (left +0.00 right -0.08) grade  18.2 % change    6.8 %/m
+s 677.50 (510.4,-17.4) y 78.931 (left -0.02 right -0.03) grade  21.1 % change    5.7 %/m
+s 678.00 (510.5,-17.0) y 79.022 (left +0.01 right +0.00) grade  24.3 % change    6.1 %/m
+s 678.50 (510.6,-16.5) y 79.142 (left +0.00 right +0.00) grade  24.9 % change    3.8 %/m
+s 679.00 (510.8,-16.0) y 79.264 (left +0.01 right -0.01) grade  24.7 % change    0.5 %/m
+s 679.50 (510.8,-15.5) y 79.391 (left +0.00 right -0.01) grade  24.4 % change   -0.5 %/m  crest: a car leaves it above 104 mph
+s 680.00 (510.9,-15.1) y 79.512 (left +0.00 right +0.00) grade  24.6 % change   -0.2 %/m  crest: a car leaves it above 181 mph
+s 680.50 (511.0,-14.6) y 79.635 (left +0.00 right +0.01) grade  24.8 % change    0.4 %/m
+s 681.00 (511.1,-14.1) y 79.758 (left -0.01 right +0.02) grade  24.7 % change    0.2 %/m
+s 681.50 (511.2,-13.6) y 79.883 (left -0.03 right -0.02) grade  24.6 % change   -0.2 %/m  crest: a car leaves it above 143 mph
+s 682.00 (511.4,-13.2) y 80.005 (left +0.00 right +0.00) grade  25.1 % change    0.3 %/m
+s 682.50 (511.6,-12.7) y 80.129 (left +0.00 right +0.00) grade  24.7 % change    0.1 %/m
+s 683.00 (511.7,-12.3) y 80.256 (left -0.01 right -0.01) grade  24.3 % change   -0.7 %/m  crest: a car leaves it above 81 mph
+s 683.50 (512.0,-11.9) y 80.375 (left -0.01 right -0.04) grade  24.7 % change    0.0 %/m
+s 684.00 (512.3,-11.5) y 80.499 (left +0.00 right +0.00) grade  24.2 % change   -0.2 %/m  crest: a car leaves it above 178 mph
+s 684.50 (512.6,-11.1) y 80.622 (left +0.00 right +0.00) grade  24.4 % change   -0.3 %/m  crest: a car leaves it above 133 mph
+s 685.00 (512.9,-10.8) y 80.740 (left +0.03 right -0.03) grade  25.3 % change    1.1 %/m
+s 685.50 (513.3,-10.5) y 80.866 (left -0.02 right -0.07) grade  25.4 % change    1.0 %/m
+s 686.00 (513.7,-10.2) y 80.993 (left +0.00 right -0.01) grade  26.6 % change    1.3 %/m
+s 686.50 (514.1,-9.9) y 81.120 (left +0.00 right +0.04) grade  24.6 % change   -0.8 %/m  crest: a car leaves it above 78 mph
+s 687.00 (514.5,-9.7) y 81.259 (left -0.04 right -0.02) grade  22.9 % change   -3.7 %/m  crest: a car leaves it above 37 mph
+s 687.50 (515.0,-9.5) y 81.366 (left +0.00 right -0.04) grade  24.5 % change   -0.1 %/m  crest: a car leaves it above 293 mph
+s 688.00 (515.4,-9.4) y 81.488 (left +0.00 right +0.00) grade  25.2 % change    2.3 %/m
+s 688.50 (515.9,-9.3) y 81.611 (left +0.00 right +0.04) grade  24.8 % change    0.3 %/m
+s 689.00 (516.4,-9.1) y 81.739 (left -0.02 right +0.02) grade  23.9 % change   -1.3 %/m  crest: a car leaves it above 61 mph
+s 689.50 (516.8,-9.1) y 81.859 (left +0.00 right +0.00) grade  23.8 % change   -1.1 %/m  crest: a car leaves it above 68 mph
+s 690.00 (517.3,-9.0) y 81.978 (left +0.00 right +0.00) grade  22.4 % change   -1.5 %/m  crest: a car leaves it above 58 mph
+s 690.50 (517.8,-8.9) y 82.096 (left -0.01 right -0.01) grade  20.4 % change   -3.3 %/m  crest: a car leaves it above 39 mph
+s 691.00 (518.3,-8.9) y 82.202 (left +0.00 right -0.02) grade  18.9 % change   -3.5 %/m  crest: a car leaves it above 38 mph
+s 691.50 (518.8,-8.9) y 82.301 (left +0.00 right -0.01) grade  17.7 % change   -2.8 %/m  crest: a car leaves it above 42 mph
+s 692.00 (519.3,-8.9) y 82.391 (left +0.00 right +0.00) grade  16.7 % change   -2.2 %/m  crest: a car leaves it above 47 mph
+s 692.50 (519.8,-8.8) y 82.478 (left +0.00 right +0.00) grade  15.4 % change   -2.3 %/m  crest: a car leaves it above 46 mph
+s 693.00 (520.3,-8.8) y 82.558 (left +0.01 right -0.01) grade  13.9 % change   -2.8 %/m  crest: a car leaves it above 42 mph
+s 693.50 (520.8,-8.9) y 82.632 (left +0.00 right -0.01) grade  12.4 % change   -3.1 %/m  crest: a car leaves it above 40 mph
+s 694.00 (521.3,-8.9) y 82.697 (left +0.00 right +0.00) grade  11.0 % change   -2.9 %/m  crest: a car leaves it above 41 mph
+s 694.50 (521.7,-8.9) y 82.756 (left +0.00 right +0.00) grade   9.6 % change   -2.7 %/m  crest: a car leaves it above 42 mph
+s 695.00 (522.2,-8.9) y 82.807 (left +0.00 right +0.00) grade   8.2 % change   -2.8 %/m  crest: a car leaves it above 42 mph
+s 695.50 (522.7,-9.0) y 82.852 (left +0.00 right +0.00) grade   6.8 % change   -2.8 %/m  crest: a car leaves it above 42 mph
+s 696.00 (523.2,-9.0) y 82.890 (left +0.00 right +0.01) grade   5.4 % change   -2.8 %/m  crest: a car leaves it above 42 mph
+s 696.50 (523.7,-9.0) y 82.920 (left +0.01 right +0.00) grade   3.9 % change   -3.0 %/m  crest: a car leaves it above 41 mph
+s 697.00 (524.2,-9.1) y 82.943 (left +0.00 right -0.01) grade   2.6 % change   -2.8 %/m  crest: a car leaves it above 42 mph
+s 697.50 (524.7,-9.3) y 82.959 (left +0.00 right +0.00) grade   1.2 % change   -2.7 %/m  crest: a car leaves it above 43 mph
+s 698.00 (525.2,-9.4) y 82.969 (left +0.00 right +0.00) grade   0.1 % change   -2.5 %/m  crest: a car leaves it above 44 mph
+s 698.50 (525.5,-9.7) y 82.971 (left +0.01 right -0.01) grade  -0.4 % change   -1.6 %/m  crest: a car leaves it above 55 mph
+s 699.00 (525.7,-10.2) y 82.970 (left +0.01 right -0.02) grade  -0.7 % change   -0.8 %/m  crest: a car leaves it above 80 mph
+s 699.50 (525.9,-10.7) y 82.966 (left +0.00 right +0.00) grade  -0.1 % change    0.4 %/m
+s 700.00 (526.1,-11.1) y 82.964 (left +0.01 right +0.00) grade   0.2 % change    0.8 %/m
+s 700.50 (526.1,-11.6) y 82.965 (left +0.00 right +0.00) grade  -0.6 % change   -0.5 %/m  crest: a car leaves it above 95 mph
+s 701.00 (526.1,-12.1) y 82.965 (left +0.00 right +0.00) grade  -1.4 % change   -1.5 %/m  crest: a car leaves it above 57 mph
+s 701.50 (526.2,-12.6) y 82.959 (left +0.00 right +0.00) grade  -2.0 % change   -1.3 %/m  crest: a car leaves it above 60 mph
+s 702.00 (526.2,-13.1) y 82.952 (left +0.00 right +0.00) grade  -2.3 % change   -0.9 %/m  crest: a car leaves it above 74 mph
+s 702.50 (526.2,-13.6) y 82.940 (left +0.00 right +0.00) grade  -1.6 % change    0.3 %/m
+s 703.00 (526.2,-14.1) y 82.929 (left +0.00 right +0.00) grade  -1.2 % change    1.1 %/m

@@ -1,0 +1,244 @@
+{
+    "gates": [
+        {
+            "station": 356.3553771972656,
+            "pos": [
+                346.1873474121094,
+                83.60204315185547,
+                207.2830047607422
+            ],
+            "yaw": 145.59246826171875,
+            "halfWidth": 6.0,
+            "mandatory": false,
+            "reason": "the next gate in view from Leviathan CP 1"
+        },
+        {
+            "station": 716.0999755859375,
+            "pos": [
+                527.7107543945313,
+                84.22879791259766,
+                -27.067251205444336
+            ],
+            "yaw": 164.66412353515625,
+            "halfWidth": 6.0,
+            "mandatory": false,
+            "reason": "just past the turn 'off the driveway link: right onto the lake path'"
+        },
+        {
+            "station": 954.9000244140625,
+            "pos": [
+                710.1932983398438,
+                82.8159408569336,
+                -105.31285095214844
+            ],
+            "yaw": 116.83900451660156,
+            "halfWidth": 7.0,
+            "mandatory": true,
+            "reason": "just past the turn 'leaving the lake shore for CR110 (the mountain)'"
+        },
+        {
+            "station": 1540.193115234375,
+            "pos": [
+                1048.8057861328125,
+                153.7869110107422,
+                131.2202911376953
+            ],
+            "yaw": 83.94071197509766,
+            "halfWidth": 7.0,
+            "mandatory": true,
+            "reason": "the next gate in view from Leviathan CP 7 (CR117 CP 4)"
+        },
+        {
+            "station": 2532.017578125,
+            "pos": [
+                727.71630859375,
+                81.18220520019531,
+                -21.715883255004883
+            ],
+            "yaw": 170.84173583984375,
+            "halfWidth": 7.0,
+            "mandatory": true,
+            "reason": "the next gate in view from Leviathan CP 9 (CR117 CP 6)"
+        },
+        {
+            "station": 2615.0,
+            "pos": [
+                692.502197265625,
+                80.45999908447266,
+                -91.21100616455078
+            ],
+            "yaw": 234.40396118164063,
+            "halfWidth": 6.0,
+            "mandatory": false,
+            "reason": "just past the turn 'off the mountain road: right onto the lake shore'"
+        },
+        {
+            "station": 2809.800048828125,
+            "pos": [
+                537.1090087890625,
+                83.7324447631836,
+                -48.86237335205078
+            ],
+            "yaw": 346.7783203125,
+            "halfWidth": 6.0,
+            "mandatory": false,
+            "reason": "the next gate in view from "
+        },
+        {
+            "station": 2869.800048828125,
+            "pos": [
+                510.8413391113281,
+                80.7088623046875,
+                -15.727978706359863
+            ],
+            "yaw": 196.4464874267578,
+            "halfWidth": 5.0,
+            "mandatory": false,
+            "reason": "just past the turn 'off the lake path: left to the driveway'"
+        },
+        {
+            "station": 2930.89990234375,
+            "pos": [
+                474.3126220703125,
+                89.3310317993164,
+                -42.27326583862305
+            ],
+            "yaw": 168.0318145751953,
+            "halfWidth": 5.0,
+            "mandatory": false,
+            "reason": "just past the turn 'out of Kyle's driveway: left onto the street'"
+        },
+        {
+            "station": 3063.2275390625,
+            "pos": [
+                526.995361328125,
+                71.37562561035156,
+                -160.21173095703125
+            ],
+            "yaw": 156.7761688232422,
+            "halfWidth": 6.0,
+            "mandatory": false,
+            "reason": "the next gate in view from Leviathan CP 11"
+        },
+        {
+            "station": 3395.432861328125,
+            "pos": [
+                533.5,
+                32.607521057128906,
+                -475.0189208984375
+            ],
+            "yaw": 195.3356475830078,
+            "halfWidth": 6.0,
+            "mandatory": false,
+            "reason": "the next gate in view from Leviathan CP 12"
+        },
+        {
+            "station": 3524.01220703125,
+            "pos": [
+                462.6947021484375,
+                28.826391220092773,
+                -515.1860961914063
+            ],
+            "yaw": 332.0553283691406,
+            "halfWidth": 6.0,
+            "mandatory": false,
+            "reason": "the next gate in view from Leviathan CP 13"
+        },
+        {
+            "station": 3734.01220703125,
+            "pos": [
+                317.0467224121094,
+                43.42693328857422,
+                -392.4552307128906
+            ],
+            "yaw": 285.5638732910156,
+            "halfWidth": 6.0,
+            "mandatory": false,
+            "reason": "the next gate in view from "
+        },
+        {
+            "station": 3899.01220703125,
+            "pos": [
+                177.0240478515625,
+                44.93412780761719,
+                -309.6865539550781
+            ],
+            "yaw": 292.4849548339844,
+            "halfWidth": 6.0,
+            "mandatory": false,
+            "reason": "the next gate in view from "
+        },
+        {
+            "station": 4028.224609375,
+            "pos": [
+                53.02048110961914,
+                43.517662048339844,
+                -286.8645324707031
+            ],
+            "yaw": 250.67733764648438,
+            "halfWidth": 6.0,
+            "mandatory": false,
+            "reason": "the next gate in view from Leviathan CP 14"
+        },
+        {
+            "station": 4453.9892578125,
+            "pos": [
+                -144.9973907470703,
+                31.948450088500977,
+                -582.0987548828125
+            ],
+            "yaw": 268.30780029296875,
+            "halfWidth": 6.0,
+            "mandatory": false,
+            "reason": "the next gate in view from Leviathan CP 15"
+        },
+        {
+            "station": 4526.4892578125,
+            "pos": [
+                -217.43629455566406,
+                31.137617111206055,
+                -581.3506469726563
+            ],
+            "yaw": 273.51324462890625,
+            "halfWidth": 6.0,
+            "mandatory": false,
+            "reason": "the next gate in view from "
+        },
+        {
+            "station": 4956.45068359375,
+            "pos": [
+                -616.5023803710938,
+                7.521326541900635,
+                -516.8587646484375
+            ],
+            "yaw": 354.11541748046875,
+            "halfWidth": 6.0,
+            "mandatory": false,
+            "reason": "the next gate in view from Leviathan CP 17"
+        },
+        {
+            "station": 5446.623046875,
+            "pos": [
+                -627.4771728515625,
+                9.608668327331543,
+                -26.860925674438477
+            ],
+            "yaw": 358.99737548828125,
+            "halfWidth": 6.0,
+            "mandatory": false,
+            "reason": "the next gate in view from Leviathan CP 19"
+        },
+        {
+            "station": 6841.02685546875,
+            "pos": [
+                223.23873901367188,
+                10.695894241333008,
+                557.0289306640625
+            ],
+            "yaw": 81.6627426147461,
+            "halfWidth": 6.0,
+            "mandatory": false,
+            "reason": "the next gate in view from Leviathan CP 25"
+        }
+    ]
+}

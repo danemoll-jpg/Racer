@@ -7,7 +7,7 @@ Objects are named "<Pose>_<Category>_<Option>_<Body>__<slot>":
   Pose      Moto (Needle 600 vehicle space), Atv (Trail Four vehicle space), Car (relative to the driver's seat point H,
             which each car places; the steering-wheel grips are at H + (+/-0.147, 0.437, 0.396))
   Category  Base (head, face, neck, hands, shoes), Shirt (Tee / Long / Jacket / Leather), Pants (Jeans / Shorts),
-            Hair (Short / Medium / Long / Ponytail: everything BELOW the hat band), HairTop (the same styles ABOVE the band;
+            Hair (Short / Medium / Long / Ponytail / Mohawk / CrewCut / Spiky / Buzz / Curly: everything BELOW the hat band), HairTop (the same styles ABOVE the band;
             hidden under a hat, so hair and hat never pass through each other), Hat (FlatCap / Baseball / Beanie / Cowboy)
   Body      Man / Woman, or Any (hair and hats fit both: the head is the same size)
   Arm       0.78: arm parts carry a fifth key, "<Pose>_<Category>_<Option>_<Body>_<Arm>__<slot>", Arm = U / L / H (upper
@@ -61,7 +61,9 @@ BODY = {  # Man / Woman: same height class, different build
                   arm=(.050, .042, .039, .031), thigh=(.077, .056), shin=(.053, .041), hand=.9, shoe=.92, neck=.042),
 }
 SHIRTS, PANTS = ('Tee', 'Long', 'Jacket', 'Leather'), ('Jeans', 'Shorts')
-HAIRS, HATS = ('Short', 'Medium', 'Long', 'Ponytail'), ('FlatCap', 'Baseball', 'Beanie', 'Cowboy')
+# 0.118 Part C (from Chastain Rush, Round 28, commit 4e4cd51): Mohawk, CrewCut, Spiky, Buzz and Curly added after the old styles (RiderLook's
+# saved indices keep their meaning). Chastain's remodeled Short and Medium are not taken: a saved rider keeps the look it had
+HAIRS, HATS = ('Short', 'Medium', 'Long', 'Ponytail', 'Mohawk', 'CrewCut', 'Spiky', 'Buzz', 'Curly'), ('FlatCap', 'Baseball', 'Beanie', 'Cowboy')
 
 
 def V(p): return Vector(p)
@@ -236,11 +238,51 @@ def base(pose, P, bodyname):
     cyl(G + ' neck', tuple(neck0), tuple(neck1), body['neck'], G, 'skin', 10)
     k = body['hand']
     for s in (-1, 1):
-        sh, el, wr, ha = arm_points(P, body, s); d = (V(ha) - V(wr)).normalized(); Hd = arm(G, 'H', s)
-        limb(G + ' hand', wr, tuple(V(ha) + d * .02 * k), .034 * k, .04 * k, Hd, 'skin', 10)
-        blob(G + ' fist', tuple(V(ha) + d * .01), (.044 * k, .04 * k, .046 * k), Hd, 'skin', 12, 8)
-        blob(G + ' thumb', tuple(V(ha) + Vector((-s * .02, .03, .0)) * k), (.016 * k, .016 * k, .024 * k), Hd, 'skin', 8, 6)
+        sh, el, wr, ha = arm_points(P, body, s); Hd = arm(G, 'H', s)
+        hand(G, Hd, P, s, k, wr, ha)
         shoe(G, M(P['ankle'], s), P['foot'], body['shoe'], leg(G, P, s))
+
+
+# 0.118 Part C: from Chastain Rush, Round 28 (commit 4e4cd51) (C1, Dan: "can we fix the drivers' hands so they don't look so bad?"): the hand was a capsule, a ball for the
+# fist and a ball for the thumb (lumpy blocks, seen big in first person on the bike's grips). Now a closed hand round the grip: a palm
+# block from the wrist to the knuckles, four fingers curled round the grip's own axis (over the top first, round the front and under),
+# a thumb wrapped under from the inside, fingertips, the wrist joining the forearm. The grip's axis is the pose's 'grip' (a bike's bar,
+# the car's rim at ten to two); the grip (radius 16 mm) is centred on the pose's hand point. All in the hand's arm group (it turns at the
+# wrist: the fist wave and the celebrations shake this same closed hand)
+GRIP_R = .016
+
+
+def hand(G, Hd, P, s, k, wr, ha):
+    g = V(M(P['grip'], s)).normalized(); c = V(ha); W = V(wr)
+    f = (c - W).normalized(); n = (f - g * f.dot(g)).normalized()     # from the wrist toward the grip, square to it
+    u = g.cross(n)
+    if u.y < 0: u = -u                                                    # round the grip: over the top first
+    rf = .0098 * k; R = GRIP_R + rf; KN = 70                           # the knuckles over the top-front of the grip
+
+    def at(theta, along, r=R):
+        t = math.radians(theta); return tuple(c - n * (r * math.cos(t)) + u * (r * math.sin(t)) + g * along)
+    # fingers, index (inside: toward the vehicle's middle, -g) to little
+    for i, (end, rr) in enumerate(((235, 1.0), (245, 1.0), (238, .96), (222, .88))):
+        o = (-.0285 + .019 * i) * k; r = rf * rr
+        pts = [at(th, o, GRIP_R + r) for th in range(KN, end + 1, 30)] + [at(end, o, GRIP_R + r)]
+        kit.tube(G + f' finger{i}', pts, r, Hd, 'skin', 3)
+        blob(G + f' tip{i}', pts[-1], (r, r, r), Hd, 'skin', 8, 5)
+        blob(G + f' knuckle{i}', pts[0], (r * 1.12, r * 1.12, r * 1.12), Hd, 'skin', 8, 5)
+    # the palm: from the wrist to the knuckle line, its width along the grip
+    K = V(at(KN, -.0, R - .002)); t = (K - W).cross(g).normalized()
+    if t.dot(u) < 0: t = -t
+    hw, hk, th = .029 * k, .040 * k, .015 * k
+    W2 = W + f * .012
+    pts8 = [tuple(W2 - g * hw - t * th), tuple(W2 + g * hw - t * th), tuple(K + g * hk - t * th), tuple(K - g * hk - t * th),
+            tuple(W2 - g * hw + t * th), tuple(W2 + g * hw + t * th), tuple(K + g * hk + t * th), tuple(K - g * hk + t * th)]
+    kit.hull(G + ' palm', pts8, Hd, 'skin', .009, 2)
+    # the thumb: from the palm's inside edge near the wrist, round under the grip toward the fingers
+    o = -.041 * k
+    tpts = [tuple(W2 + f * .018 - g * .028 * k), at(-25, o, GRIP_R + .011 * k), at(-75, o + .006 * k, GRIP_R + .0095 * k), at(-118, o + .012 * k, GRIP_R + .009 * k)]
+    kit.tube(G + ' thumb', tpts, .0098 * k, Hd, 'skin', 3)
+    blob(G + ' thumb tip', tpts[-1], (.0098 * k,) * 3, Hd, 'skin', 8, 5)
+    # the wrist, from inside the sleeve into the palm
+    limb(G + ' wrist', tuple(W - f * .03), tuple(W + f * .016), .029 * k, .031 * k, Hd, 'skin', 10)
 
 
 # ---------------------------------------------------------------- hair and hats (head frame: origin at the head centre)
@@ -274,11 +316,57 @@ def low_cut(a, b):
     return B(0, a, 0), n
 
 
+def on_head(x, y, z, lift=0.0):
+    """the point on an ellipsoid round the head (radii a little over the head's own) in the direction of (x, y, z), lifted along its normal"""
+    d = Vector((x, y, z)).normalized(); r = (.104, .124, .115)
+    t = 1 / math.sqrt((d.x / r[0]) ** 2 + (d.y / r[1]) ** 2 + (d.z / r[2]) ** 2); p = d * t
+    nrm = Vector((p.x / r[0] ** 2, p.y / r[1] ** 2, p.z / r[2] ** 2)).normalized()
+    return p + nrm * lift, nrm
+
+
 def hair_parts(style, G):
     if style == 'Short':
         shell(G + ' shell', (0, .02, -.008), (.110, .113, .119), G, [face_cut(.052, .08, 30, .25), low_cut(-.02, .35)], .009)
     elif style == 'Medium':
         shell(G + ' shell', (0, .012, -.012), (.116, .124, .124), G, [face_cut(.045, .075, 36, .3), low_cut(-.095, .2)], .012, .35)
+    elif style == 'CrewCut':
+        # short on the sides and back, a little longer and flat on top, the front brushed up
+        shell(G + ' shell', (0, .012, -.004), (.104, .124, .114), G, [face_cut(.062, .082, 30, 0), low_cut(-.02, .42)], .006)
+        # longer on top: a second shell over the crown only, 6 mm out, its edge a soft step all round
+        shell(G + ' top', (0, .014, -.004), (.11, .13, .12), G, [face_cut(.07, .086, 30, 0), low_cut(.06, .0)], .006)
+    elif style == 'Buzz':
+        shell(G + ' shell', (0, .008, -.004), (.103, .121, .113), G, [face_cut(.06, .082, 30, 0), low_cut(-.03, .3)], .004)
+    elif style == 'Mohawk':
+        # shaved sides (a thin buzz) and a crest from the forehead over the crown to the nape
+        shell(G + ' shell', (0, .006, -.004), (.102, .12, .112), G, [face_cut(.062, .082, 30, 0), low_cut(-.02, .4)], .003)
+        # a fin: three ridges along the midline, front to back, each a little higher and narrower (one smooth crest, not beads)
+        for j, (lift, r) in enumerate(((.006, .015), (.017, .013), (.027, .009))):
+            line = []
+            for i in range(13):
+                a = math.radians(-60 + i * 14)                               # over the head, front (+z) to back
+                p, nrm = on_head(0, math.cos(a), -math.sin(a), 0.0)
+                hump = 0.6 + 0.4 * math.sin(math.pi * i / 12)
+                line.append(tuple(p + nrm * lift * hump))
+            kit.tube(G + f' crest{j}', line, r, G, 'hair', 4)
+    elif style == 'Spiky':
+        shell(G + ' shell', (0, .012, -.006), (.106, .126, .117), G, [face_cut(.058, .082, 32, 0), low_cut(-.03, .32)], .007)
+        n = 0
+        for i in range(60):
+            if n >= 18: break
+            gy = 1 - (i + .5) / 60; rad = math.sqrt(max(0, 1 - gy * gy)); ang = i * 2.39996
+            x, y, z = rad * math.cos(ang), gy, rad * math.sin(ang)
+            p, nrm = on_head(x, y, z, 0)
+            if p.y < .075 or p.z > .085: continue                            # above the hat band (a hat hides them), off the face
+            limb(G + f' spike{n}', tuple(p - nrm * .004), tuple(p + nrm * .045 + Vector((0, 0, .008))), .013, .002, G, 'hair', 6, ends=False); n += 1
+    elif style == 'Curly':
+        shell(G + ' shell', (0, .014, -.008), (.111, .13, .12), G, [face_cut(.05, .08, 34, 0), low_cut(-.05, .25)], .01)
+        n = 0
+        for i in range(140):
+            if n >= 42: break
+            gy = 1 - 2 * (i + .5) / 140; rad = math.sqrt(max(0, 1 - gy * gy)); ang = i * 2.39996
+            p, nrm = on_head(rad * math.cos(ang), gy, rad * math.sin(ang), .012)
+            if p.y < -.04 or (p.z > .06 and p.y < .075) or (p.y < -.01 and p.z > -.02): continue
+            blob(G + f' curl{n}', tuple(p), (.021, .021, .021), G, 'hair', 8, 6); n += 1
     elif style == 'Long':
         shell(G + ' shell', (0, .012, -.012), (.117, .124, .125), G, [face_cut(.045, .075, 36, -.3), low_cut(-.075, .2)], .012, .3)
         blob(G + ' fall', (0, -.15, -.072), (.108, .17, .055), G, 'hair', 14, 10, (-8, 0, 0))

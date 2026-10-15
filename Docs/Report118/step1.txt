@@ -1,0 +1,33 @@
+== Leviathan - Forward (MountainLoop), lap 6941.0 m
+  Part A: removed the closure 7.2 m ahead of Dan's spot (1185.99, 192.54): at (1189.53, 186.23) yaw 15 half 6.0, signs both ways: Summit approach and safe return, leaving Leviathan at s 1685 / Summit approach and safe return (both ways)
+  Part A: 25 other closures kept as they are
+  Part A2: the bank on this course; 33 line points on it set to the new ground
+  leaving the lake shore for CR110 (the mountain)         turn at s   939.9 (arrow s   891.9): Lake shore connection -> Mountain racing line: off a road: arrow and 2 chevrons removed, a gate in / just past the turn
+  Climbing Ridge Cut                                      turn at s   997.2 (arrow s   952.2): Mountain racing line -> Climbing Ridge Cut: ROAD CORNER: arrow removed, 2 chevrons kept
+  onto CR117                                              turn at s  1306.2 (arrow s  1255.2): Climbing Ridge Cut -> CR117 mandatory two-flight racing line: ROAD CORNER: arrow removed, 3 chevrons kept
+  off the mountain onto the lake east side                turn at s  2541.8 (arrow s  2487.8): CR117 mandatory two-flight racing line -> CR117 mandatory two-flight racing line: ROAD CORNER: arrow removed, 3 chevrons kept
+  J: left into Kyle's driveway                            turn at s   640.7 (arrow s   623.7): Phase 3 - Race Systems -> Kyle descending driveway: off a road: arrow and 3 chevrons removed, a gate in / just past the turn
+  off the driveway link: right onto the lake path         turn at s   701.1 (arrow s   682.1): Kyle descending driveway -> Lake shore connection: off a road: arrow and 3 chevrons removed, a gate in / just past the turn
+  off the lake path: left to the driveway                 turn at s  2854.8 (arrow s  2829.8): Lake shore connection -> Kyle descending driveway: off a road: arrow and 3 chevrons removed, a gate in / just past the turn
+  out of Kyle's driveway: left onto the street            turn at s  2915.9 (arrow s  2900.9): Kyle descending driveway -> Phase 3 - Race Systems: off a road: arrow and 3 chevrons removed, a gate in / just past the turn
+  off the mountain road: right onto the lake shore        turn at s  2600.0 (arrow s  2562.0): CR117 mandatory two-flight racing line -> Lake shore connection: off a road: arrow and 2 chevrons removed, a gate in / just past the turn
+  right onto Hwy 92                                       turn at s  6009.1 (arrow s  5956.1): Phase 3 - Race Systems -> Phase 3 - Race Systems: ROAD CORNER: arrow removed, 3 chevrons kept
+  right off Hwy 92 to the start                           turn at s  6909.1 (arrow s  6861.1): Phase 3 - Race Systems -> Phase 3 - Race Systems: ROAD CORNER: arrow removed, 2 chevrons kept
+  Part B: arrow boards removed: 11; chevrons kept 13 of 29
+== Leviathan - Reverse (MountainLoopReverse), lap 7036.9 m
+  Part A: removed the closure 14.8 m ahead of Dan's spot (-611.04, -492.14): at (-606.56, -506.29) yaw 157 half 4.5: Existing Southwest Cut, joining Leviathan at s 1964
+  Part A: 32 other closures kept as they are
+  Part A2: the bank on this course; 29 line points on it set to the new ground
+  onto the shore strip                                    turn at s  4254.2 (arrow s  4206.2): Lake shore connection -> Lake shore connection: off a road: arrow and 2 chevrons removed, a gate in / just past the turn
+  leaving the lake for CR117 (the mountain)               turn at s  4375.3 (arrow s  4323.3):  exploration only -> Mountain racing line: off a road: arrow and 3 chevrons removed, a gate in / just past the turn
+  Downhill Ridge Cut                                      turn at s  5787.1 (arrow s  5739.1): CR117 mandatory two-flight racing line -> Downhill Ridge Cut: ROAD CORNER: arrow removed, 2 chevrons kept
+  off the mountain: the start stretch                     turn at s  6010.7 (arrow s  5963.7): Downhill Ridge Cut -> Mountain racing line: ROAD CORNER: arrow removed, 2 chevrons kept
+  off the mountain: onto the strip                        turn at s  6053.3 (arrow s  6021.3): Mountain racing line ->  exploration only: off a road: arrow and 3 chevrons removed, a gate in / just past the turn
+  back onto the north shore                               turn at s  6162.8 (arrow s  6113.8): Lake shore connection -> Lake shore connection: off a road: arrow and 2 chevrons removed, a gate in / just past the turn
+  J: right into Kyle's driveway                           turn at s  4033.6 (arrow s  4017.6): Phase 3 - Race Systems -> Kyle descending driveway: off a road: arrow and 3 chevrons removed, a gate in / just past the turn
+  off the driveway link: left onto the lake path          turn at s  4092.5 (arrow s  4082.5): Kyle descending driveway -> Lake shore connection: off a road: arrow and 2 chevrons removed, a gate in / just past the turn
+  off the lake path: right to the driveway                turn at s  6333.0 (arrow s  6311.0): Lake shore connection -> Kyle descending driveway: off a road: arrow and 2 chevrons removed, a gate in / just past the turn
+  out of Kyle's driveway: right onto the street           turn at s  6400.6 (arrow s  6385.6): Kyle descending driveway -> Phase 3 - Race Systems: off a road: arrow and 3 chevrons removed, a gate in / just past the turn
+  left onto Hwy 92                                        turn at s    10.4 (arrow s  7015.4): Phase 3 - Race Systems -> Phase 3 - Race Systems: ROAD CORNER: arrow removed, 3 chevrons kept
+  left off Hwy 92                                         turn at s   936.4 (arrow s   883.4): Phase 3 - Race Systems -> Phase 3 - Race Systems: ROAD CORNER: arrow removed, 3 chevrons kept
+  Part B: arrow boards removed: 12; chevrons kept 10 of 30

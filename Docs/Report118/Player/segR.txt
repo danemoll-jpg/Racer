@@ -1,0 +1,65 @@
+screen=1920x1080 kind=seg118 version=0.118.0-review1 park=on
+== rec-R-cp14-cp21: Leviathan - Reverse: Leviathan - Reverse (leviathan-reverse-v4): line 7039 m, 45 gates, 2 shortcuts, flights South Face Summit Flight 5049-5554, Downhill Ridge Cut drop 5821-5929; the pad bot from s 4000 to s 6425, 0.0 m right of the line, view FirstPerson, vehicle drifter
+  driven 111 s to s 6425: missed gates 0, resets 0 (game resets 0), wrong-way warnings 0, next gate seen 68 % of the time, frames 547
+  top speed 105 mph; times off the ground over 0.15 s: 20
+  off the ground 0.66 s from 518.2,82.98,-11.4 (s 4083) to 523.4,83.45,-7.1 (s 4089) at 24 mph
+  off the ground 0.22 s from 549.3,82.42,33.2 (s 4141) to 552.7,81.77,37.0 (s 4146) at 52 mph
+  off the ground 0.56 s from 559.4,82.81,44.1 (s 4156) to 568.2,82.54,53.1 (s 4169) at 51 mph
+  off the ground 0.40 s from 577.7,82.26,60.5 (s 4181) to 585.1,80.95,65.6 (s 4190) at 51 mph
+  off the ground 0.60 s from 650.7,80.12,60.5 (s 4264) to 654.1,78.50,52.6 (s 4274) at 32 mph
+  off the ground 0.74 s from 684.9,79.81,25.0 (s 4316) to 699.3,78.73,13.3 (s 4335) at 57 mph
+  off the ground 0.22 s from 775.8,103.83,63.1 (s 4462) to 780.5,105.29,62.0 (s 4467) at 52 mph
+  off the ground 7.18 s from 994.5,179.36,63.9 (s 5277) to 994.7,115.57,-150.7 (s 5506) at 93 mph
+  off the ground 0.82 s from 788.8,97.43,-183.9 (s 5816) to 777.2,93.06,-182.2 (s 5828) at 32 mph
+  off the ground 0.28 s from 756.2,88.89,-161.4 (s 5859) to 751.7,90.02,-155.7 (s 5866) at 59 mph
+  off the ground 2.38 s from 740.2,93.91,-142.7 (s 5884) to 696.9,82.40,-98.5 (s 5948) at 61 mph
+  off the ground 0.34 s from 713.1,79.42,7.8 (s 6070) to 707.2,78.39,12.6 (s 6079) at 50 mph
+  off the ground 0.18 s from 697.5,79.81,22.4 (s 6092) to 694.6,80.11,25.1 (s 6096) at 49 mph
+  off the ground 0.82 s from 687.8,80.94,31.0 (s 6105) to 675.3,78.71,41.7 (s 6122) at 45 mph
+  off the ground 0.44 s from 652.0,80.11,63.1 (s 6156) to 649.5,79.66,68.7 (s 6162) at 31 mph
+  off the ground 0.62 s from 572.8,82.67,64.5 (s 6244) to 562.2,82.51,57.1 (s 6257) at 47 mph
+  off the ground 0.30 s from 555.0,82.37,49.2 (s 6267) to 550.8,81.68,44.2 (s 6274) at 49 mph
+  off the ground 0.48 s from 545.0,82.83,36.1 (s 6284) to 538.7,82.96,27.6 (s 6294) at 50 mph
+  off the ground 0.26 s from 516.1,81.95,-13.4 (s 6347) to 513.6,80.50,-14.9 (s 6352) at 27 mph
+  off the ground 0.28 s from 475.8,86.01,-20.8 (s 6394) to 473.3,85.58,-19.6 (s 6400) at 22 mph
+    CP 23 seen 0.0 s after the gate before
+  passed CP 23 at 475.6,86.57,-26.0 t 2.2 -> next CP 24: seen
+    CP 24 seen 0.0 s after the gate before
+  passed CP 24 at 493.5,82.19,-20.5 t 3.9 -> next CP 25: seen
+    CP 25 seen 0.7 s after the gate before
+  passed CP 25 at 533.6,83.35,5.5 t 8.7 -> next CP 26: seen
+    CP 26 seen 0.0 s after the gate before
+  passed CP 26 at 606.3,80.19,72.9 t 13.2 -> next CP 27: seen
+    CP 27 seen 0.0 s after the gate before
+  passed CP 27 at 652.7,79.63,56.0 t 16.2 -> next CP 28: seen
+    CP 28 seen 0.0 s after the gate before
+  passed CP 28 at 725.2,79.50,9.9 t 21.8 -> next CP 29: seen
+    CP 29 seen 0.0 s after the gate before
+  passed CP 29 at 729.7,80.69,35.2 t 23.0 -> next CP 30: seen
+    CP 30 seen 0.7 s after the gate before
+  passed CP 30 at 839.4,126.81,121.1 t 30.6 -> next CP 31: seen
+    CP 31 first seen 5.1 s after the gate before
+  passed CP 31 at 962.3,165.80,135.0 t 37.1 -> next CP 32: seen
+    CP 32 seen 0.0 s after the gate before
+  passed CP 32 at 1014.6,162.41,141.5 t 40.0 -> next CP 33: seen
+    CP 33 seen 0.0 s after the gate before
+  passed CP 33 at 990.7,152.54,314.8 t 50.6 -> next CP 34: seen
+    CP 34 first seen 7.0 s after the gate before
+  passed CP 34 at 842.6,95.08,-201.9 t 75.0 -> next CP 35: seen
+    CP 35 first seen 2.5 s after the gate before
+  passed CP 35 at 759.1,87.81,-165.1 t 80.4 -> next CP 36: seen
+    CP 36 seen 0.2 s after the gate before
+  passed CP 36 at 713.5,79.45,7.6 t 90.4 -> next CP 37: seen
+    CP 37 seen 0.0 s after the gate before
+  passed CP 37 at 679.9,80.28,37.8 t 92.6 -> next CP 38: seen
+    CP 38 seen 0.0 s after the gate before
+  passed CP 38 at 637.5,79.71,79.4 t 96.3 -> next CP 39: seen
+    CP 39 seen 0.0 s after the gate before
+  passed CP 39 at 557.5,82.36,52.2 t 99.9 -> next CP 40: seen
+    CP 40 seen 0.0 s after the gate before
+  passed CP 40 at 515.5,81.67,-13.8 t 104.7 -> next CP 41: seen
+    CP 41 seen 1.0 s after the gate before
+  passed CP 41 at 491.0,82.69,-23.5 t 107.1 -> next CP 42: seen
+    CP 42 seen 0.0 s after the gate before
+  passed CP 42 at 469.5,83.77,-10.3 t 109.8 -> next CP 43: seen
+    CP 43 seen 0.0 s after the gate before

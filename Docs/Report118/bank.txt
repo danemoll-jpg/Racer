@@ -1,0 +1,21 @@
+Kyle's bank (0.118): s0 675.3 (509.4, -19.4) 78.71 m -> s1 698.4 (525.5, -9.6) 82.97 m: 23.1 m long, rise 4.26 m, constant grade 24.9 % (eases 3.0 m at the foot, 9.0 m at the top: a car leaves the crest above 42 mph)
+largest step between neighbouring ground vertices (1 m) within 8.5 m of the line, the pad left out: 1.00 m at (517, -17) (the bank there before: 1.72 m)
+515 ground vertices changed: raised up to 0.96 m, lowered up to 1.41 m
+steepest along the line over 4 m: 26.0 % (0.117: 34 %); steepest across the 9 m (4.5 m either side): 7.4 %
+   s      x      z   ground  new   (across)
+ 671.3  507.1  -22.5  78.71  78.71    14 %
+ 673.3  507.9  -20.7  78.68  78.70     3 %
+ 675.3  509.4  -19.4  78.71  78.72     5 %
+ 677.3  510.4  -17.7  79.28  78.92     3 %
+ 679.3  510.8  -15.8  79.27  79.34     4 %
+ 681.3  511.1  -13.9  79.45  79.83     7 %
+ 683.3  511.8  -12.1  80.08  80.33     4 %
+ 685.3  513.1  -10.6  80.51  80.82     1 %
+ 687.3  514.7   -9.6  81.36  81.32     5 %
+ 689.3  516.6   -9.1  81.78  81.81     4 %
+ 691.3  518.5   -8.9  82.35  82.25     2 %
+ 693.3  520.5   -8.9  82.93  82.60     1 %
+ 695.3  522.5   -8.9  82.98  82.83     1 %
+ 697.3  524.5   -9.2  82.98  82.95     1 %
+ 699.3  525.8  -10.4  82.97  82.97     5 %
+ 701.3  526.2  -12.4  82.95  82.97     5 %

@@ -1,0 +1,190 @@
+{
+ "LeviathanForward": [
+  {
+   "at": "leaving the lake shore for CR110 (the mountain)",
+   "station": 939.9,
+   "arrowStation": 891.9,
+   "corner": false,
+   "before": "CR081 mountain exploration/Lake shore connection",
+   "after": "CR110 mountain race geometry/Mountain racing line"
+  },
+  {
+   "at": "Climbing Ridge Cut",
+   "station": 997.2,
+   "arrowStation": 952.2,
+   "corner": true,
+   "before": "CR110 mountain race geometry/Mountain racing line",
+   "after": "CR110 mountain race geometry/Climbing Ridge Cut"
+  },
+  {
+   "at": "onto CR117",
+   "station": 1306.2,
+   "arrowStation": 1255.2,
+   "corner": true,
+   "before": "CR110 mountain race geometry/Climbing Ridge Cut",
+   "after": "CR117 main flights and alternatives/CR117 mandatory two-flight racing line"
+  },
+  {
+   "at": "off the mountain onto the lake east side",
+   "station": 2541.8,
+   "arrowStation": 2487.8,
+   "corner": true,
+   "before": "CR117 main flights and alternatives/CR117 mandatory two-flight racing line",
+   "after": "CR117 main flights and alternatives/CR117 mandatory two-flight racing line"
+  },
+  {
+   "at": "J: left into Kyle's driveway",
+   "station": 640.7,
+   "arrowStation": 623.7,
+   "corner": false,
+   "before": "Phase 3 - Race Systems",
+   "after": "Kyle descending driveway"
+  },
+  {
+   "at": "off the driveway link: right onto the lake path",
+   "station": 701.1,
+   "arrowStation": 682.1,
+   "corner": false,
+   "before": "Kyle descending driveway",
+   "after": "CR081 mountain exploration/Lake shore connection"
+  },
+  {
+   "at": "off the lake path: left to the driveway",
+   "station": 2854.8,
+   "arrowStation": 2829.8,
+   "corner": false,
+   "before": "CR081 mountain exploration/Lake shore connection",
+   "after": "Kyle descending driveway"
+  },
+  {
+   "at": "out of Kyle's driveway: left onto the street",
+   "station": 2915.9,
+   "arrowStation": 2900.9,
+   "corner": false,
+   "before": "Kyle descending driveway",
+   "after": "Phase 3 - Race Systems"
+  },
+  {
+   "at": "off the mountain road: right onto the lake shore",
+   "station": 2600.0,
+   "arrowStation": 2562.0,
+   "corner": false,
+   "before": "CR117 main flights and alternatives/CR117 mandatory two-flight racing line",
+   "after": "CR081 mountain exploration/Lake shore connection"
+  },
+  {
+   "at": "right onto Hwy 92",
+   "station": 6009.1,
+   "arrowStation": 5956.1,
+   "corner": true,
+   "before": "Phase 3 - Race Systems",
+   "after": "Phase 3 - Race Systems"
+  },
+  {
+   "at": "right off Hwy 92 to the start",
+   "station": 6909.1,
+   "arrowStation": 6861.1,
+   "corner": true,
+   "before": "Phase 3 - Race Systems",
+   "after": "Phase 3 - Race Systems"
+  }
+ ],
+ "LeviathanReverse": [
+  {
+   "at": "onto the shore strip",
+   "station": 4254.2,
+   "arrowStation": 4206.2,
+   "corner": false,
+   "before": "CR081 mountain exploration/Lake shore connection",
+   "after": "CR081 mountain exploration/Lake shore connection"
+  },
+  {
+   "at": "leaving the lake for CR117 (the mountain)",
+   "station": 4375.3,
+   "arrowStation": 4323.3,
+   "corner": false,
+   "before": "CR081 mountain exploration/Mountain return trails / exploration only",
+   "after": "CR110 mountain race geometry/Mountain racing line"
+  },
+  {
+   "at": "Downhill Ridge Cut",
+   "station": 5787.1,
+   "arrowStation": 5739.1,
+   "corner": true,
+   "before": "CR117 main flights and alternatives/CR117 mandatory two-flight racing line",
+   "after": "CR110 mountain race geometry/Downhill Ridge Cut"
+  },
+  {
+   "at": "off the mountain: the start stretch",
+   "station": 6010.7,
+   "arrowStation": 5963.7,
+   "corner": true,
+   "before": "CR110 mountain race geometry/Downhill Ridge Cut",
+   "after": "CR110 mountain race geometry/Mountain racing line"
+  },
+  {
+   "at": "off the mountain: onto the strip",
+   "station": 6053.3,
+   "arrowStation": 6021.3,
+   "corner": false,
+   "before": "CR110 mountain race geometry/Mountain racing line",
+   "after": "CR081 mountain exploration/Mountain return trails / exploration only"
+  },
+  {
+   "at": "back onto the north shore",
+   "station": 6162.8,
+   "arrowStation": 6113.8,
+   "corner": false,
+   "before": "CR081 mountain exploration/Lake shore connection",
+   "after": "CR081 mountain exploration/Lake shore connection"
+  },
+  {
+   "at": "J: right into Kyle's driveway",
+   "station": 4033.6,
+   "arrowStation": 4017.6,
+   "corner": false,
+   "before": "Phase 3 - Race Systems",
+   "after": "Kyle descending driveway"
+  },
+  {
+   "at": "off the driveway link: left onto the lake path",
+   "station": 4092.5,
+   "arrowStation": 4082.5,
+   "corner": false,
+   "before": "Kyle descending driveway",
+   "after": "CR081 mountain exploration/Lake shore connection"
+  },
+  {
+   "at": "off the lake path: right to the driveway",
+   "station": 6333.0,
+   "arrowStation": 6311.0,
+   "corner": false,
+   "before": "CR081 mountain exploration/Lake shore connection",
+   "after": "Kyle descending driveway"
+  },
+  {
+   "at": "out of Kyle's driveway: right onto the street",
+   "station": 6400.6,
+   "arrowStation": 6385.6,
+   "corner": false,
+   "before": "Kyle descending driveway",
+   "after": "Phase 3 - Race Systems"
+  },
+  {
+   "at": "left onto Hwy 92",
+   "station": 10.4,
+   "arrowStation": 7015.4,
+   "corner": true,
+   "before": "Phase 3 - Race Systems",
+   "after": "Phase 3 - Race Systems"
+  },
+  {
+   "at": "left off Hwy 92",
+   "station": 936.4,
+   "arrowStation": 883.4,
+   "corner": true,
+   "before": "Phase 3 - Race Systems",
+   "after": "Phase 3 - Race Systems"
+  }
+ ]
+}

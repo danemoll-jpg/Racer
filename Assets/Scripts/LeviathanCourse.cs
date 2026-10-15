@@ -45,6 +45,8 @@ namespace Racer
         [Serializable] public sealed class Kicker { public string at; public float[] pos; public float yaw, width, length, height; }
         // 0.117 Part B item 4: a scene sign's words changed for this race (a TextMesh whose words contain find)
         [Serializable] public sealed class Relabel { public string find, text; }
+        // 0.118 Part A2: a scene ground tile (a MeshCollider named tile, on a 1 m vertex grid) given new heights in this race only: verts x, z, y
+        [Serializable] public sealed class Reshape { public string tile, at; public float[] verts; }
         [Serializable] public sealed class Data
         {
             public int version; public string id, title, scene; public bool reverse; public float[] pts, geometryStations, bypass, mountain, narrow, spawn; public float geometryLength, spawnYaw, length; public int highwayTraffic;
@@ -53,6 +55,7 @@ namespace Racer
             public Sign[] signs; // 0.116 Part A: turn indicators at the course's decision points (Tools/Report116/py/signs.py)
             public float[] clear; // 0.116 Part B: x, z, radius: tree trunks cleared for this race only (on its shortcut lines)
             public Block[] blocks; public Kicker[] kickers; public Relabel[] relabel; // 0.117 (Tools/Report117/py)
+            public Reshape[] reshape; // 0.118 Part A2: Kyle's bank (Tools/Report118/py/bank.py)
             public Vector3[] Points => V(pts);
             public bool In(float[] spans, float s) { if (spans == null) return false; for (int i = 0; i + 1 < spans.Length; i += 2) if (s >= spans[i] && s <= spans[i + 1]) return true; return false; }
         }
@@ -77,6 +80,7 @@ namespace Racer
             var root = new GameObject(data.title + " (course)").transform; SceneManager.MoveGameObjectToScene(root.gameObject, race.gameObject.scene);
             // Leviathan's own ground patches (Dan, 2026-10-14: for this race only, nowhere else): Forward fills the creek gully that crosses the lake
             // path's south shore in MountainLoop.unity (Free Roam has flat ground there), drawn with the scene's own ground material
+            foreach (var rs in data.reshape ?? Array.Empty<Reshape>()) ReshapeGround(rs, race.gameObject.scene); // 0.118 Part A2
             var groundMaterial = race.gameObject.scene.GetRootGameObjects().SelectMany(g => g.GetComponentsInChildren<MeshRenderer>(true)).FirstOrDefault(r => r.name == "Ground_640_240")?.sharedMaterial;
             foreach (var name in data.fills ?? Array.Empty<string>())
             {
@@ -100,9 +104,10 @@ namespace Racer
                 var at = new Vector3(g.pos[0], g.pos[1], g.pos[2]);
                 // 0.117 (BUG-003): a gate built here stands on the ground of its spot (its posts reach 1.5 m below its origin, like the Mountain
                 // Loop's): the ground nearest its height, the course's own ground patches included (Forward's lake-shore gate stood 1.3 m into the fill)
-                if (string.IsNullOrEmpty(g.reuse) && gates.Count > 0 && !Before117 && GroundTop(at, g.pos[1] - 6, g.pos[1] + 3, out float gy)) { if (Mathf.Abs(gy + 1.5f - at.y) > .05f) Debug.Log($"Leviathan: {g.name} seated on its ground: {at.y:F2} -> {gy + 1.5f:F2}"); at.y = gy + 1.5f; }
+                if (string.IsNullOrEmpty(g.reuse) && gates.Count > 0 && !Before117 && SeatGround(road, at, g.pos[1], out float gy)) { if (Mathf.Abs(gy + 1.5f - at.y) > .05f) Debug.Log($"Leviathan: {g.name} seated on its ground: {at.y:F2} -> {gy + 1.5f:F2}"); at.y = gy + 1.5f; }
                 gate.name = g.name; gate.transform.SetPositionAndRotation(at, Quaternion.Euler(g.rot[0], g.rot[1], g.rot[2]));
                 gate.halfWidth = g.halfWidth; gate.halfHeight = g.halfHeight; gate.upperHeight = g.upperHeight; gate.gameObject.SetActive(true); gates.Add(gate);
+                if (string.IsNullOrEmpty(g.reuse) && gates.Count > 1) PostsToGround(gate); // 0.118
             }
             foreach (var g in own) if (!gates.Contains(g)) g.gameObject.SetActive(false); // the Mountain Loop's gates not on this course
             // the Street Loop's shortcuts on this course (Forward); the scene's own Mountain shortcuts are not part of it (they stay in the world)
@@ -275,6 +280,51 @@ namespace Racer
             var tr = tm.GetComponent<MeshRenderer>(); tr.sharedMaterial = lettering; tr.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
             var fit = tm.gameObject.AddComponent<LeviathanLettering>(); fit.width = width; fit.height = height; fit.Fit();
         }
+        // ---------------------------------------------------------------- 0.118 Part A2: Kyle's bank, one even slope (Dan: "smooth out Kyle's hill")
+        // The tile's mesh is copied and its vertices at the listed grid points set to their new heights (drawn and collided: the same copy); the
+        // normals are recomputed around them only. The tree trunks standing on the changed ground move with it (the new scenery kit builds each
+        // tree on its trunk afterwards, so the trees stand on the new ground). The scene's own mesh is not changed: Free Roam and the other
+        // courses keep their ground.
+        static void ReshapeGround(Reshape rs, Scene scene)
+        {
+            if (rs.verts == null || rs.verts.Length < 3) return;
+            var heights = new Dictionary<(int, int), float>(); for (int i = 0; i + 2 < rs.verts.Length; i += 3) heights[(Mathf.RoundToInt(rs.verts[i]), Mathf.RoundToInt(rs.verts[i + 1]))] = rs.verts[i + 2];
+            var roots = scene.GetRootGameObjects(); var moved = new Dictionary<(int, int), float>();
+            foreach (var mc in roots.SelectMany(g => g.GetComponentsInChildren<MeshCollider>(true)).Where(c => c.name == rs.tile))
+            {
+                var src = mc.sharedMesh; if (!src || !src.isReadable) { Debug.LogWarning($"Leviathan: ground tile {rs.tile} not readable: {rs.at} left as it is"); continue; }
+                var t = mc.transform; var v = src.vertices; var hit = new bool[v.Length]; int n = 0;
+                for (int i = 0; i < v.Length; i++)
+                {
+                    var w = t.TransformPoint(v[i]); var key = (Mathf.RoundToInt(w.x), Mathf.RoundToInt(w.z));
+                    if (Mathf.Abs(w.x - key.Item1) > .01f || Mathf.Abs(w.z - key.Item2) > .01f || !heights.TryGetValue(key, out float y)) continue;
+                    moved[key] = y - w.y; w.y = y; v[i] = t.InverseTransformPoint(w); hit[i] = true; n++;
+                }
+                if (n == 0) continue;
+                var mesh = UnityEngine.Object.Instantiate(src); mesh.name = src.name + " (Leviathan: " + rs.at + ")"; var before = src.normals;
+                mesh.vertices = v; mesh.RecalculateNormals(); mesh.RecalculateBounds();
+                // the normals recomputed only on the changed ground and the ring round it (the rest of the tile is shaded as before)
+                var after = mesh.normals; var ring = new HashSet<(int, int)>(); foreach (var k in moved.Keys) for (int dx = -1; dx <= 1; dx++) for (int dz = -1; dz <= 1; dz++) ring.Add((k.Item1 + dx, k.Item2 + dz));
+                if (before.Length == after.Length) for (int i = 0; i < v.Length; i++) { var w = t.TransformPoint(v[i]); if (!ring.Contains((Mathf.RoundToInt(w.x), Mathf.RoundToInt(w.z)))) after[i] = before[i]; }
+                mesh.normals = after;
+                var mf = mc.GetComponent<MeshFilter>(); if (mf && mf.sharedMesh == src) mf.sharedMesh = mesh; mc.sharedMesh = mesh;
+                Debug.Log($"Leviathan: {rs.at}: {n} vertices of {t.name} set (raised up to {moved.Values.Max():F2} m, lowered up to {-moved.Values.Min():F2} m)");
+            }
+            if (moved.Count == 0) return;
+            float Dy(Vector3 p)
+            {
+                int x0 = Mathf.FloorToInt(p.x), z0 = Mathf.FloorToInt(p.z); float fx = p.x - x0, fz = p.z - z0;
+                float D(int x, int z) => moved.TryGetValue((x, z), out float d) ? d : 0;
+                return Mathf.Lerp(Mathf.Lerp(D(x0, z0), D(x0 + 1, z0), fx), Mathf.Lerp(D(x0, z0 + 1), D(x0 + 1, z0 + 1), fx), fz);
+            }
+            foreach (var box in roots.SelectMany(g => g.GetComponentsInChildren<BoxCollider>(true)).Where(b => b.name.IndexOf("trunk", StringComparison.OrdinalIgnoreCase) >= 0))
+            {
+                var tr = box.transform; var bottom = tr.TransformPoint(box.center - Vector3.up * box.size.y * .5f); float dy = Dy(bottom);
+                if (Mathf.Abs(dy) < .01f) continue;
+                tr.position += Vector3.up * dy; Debug.Log($"Leviathan: {rs.at}: tree trunk at {bottom.x:F1},{bottom.z:F1} set on the new ground ({dy:+0.00;-0.00} m)");
+            }
+            Physics.SyncTransforms();
+        }
         // ---------------------------------------------------------------- 0.117 Part C: kickers on the shortcuts
         // An earth wedge on the existing ground (drawn with the scene's ground material, solid), rising to its lip; the ground beyond is unchanged.
         static void BuildKickers(Data data, Transform root, Material ground)
@@ -339,6 +389,26 @@ namespace Racer
             return found;
         }
 
+        // 0.118 (0.117's seating took the top surface within 3 m above the gate: on the Street Loop's west road something stands 2.3 m over the
+        // road, and Reverse CP 8 was seated on it, too high for the cars under it to cross): the ground nearest the course line's own height
+        // there (the line runs on Forward's gully fill, so its lake-shore gate still stands on the fill)
+        static bool SeatGround(RaceRoad road, Vector3 at, float y, out float gy)
+        {
+            float lineY = road ? road.At(road.Project(at, out _), out _).y : y - 1.5f;
+            return Ground(new Vector3(at.x, 0, at.z), lineY, out gy) || GroundTop(at, y - 6, y + 3, out gy);
+        }
+        // 0.118: a built gate's posts reach down to the ground under each (on a cross slope the ground beside the road is lower than at its
+        // middle, where the gate is seated: Kyle's driveway gate's posts stood up to 0.85 m above it)
+        static void PostsToGround(RaceGate gate)
+        {
+            foreach (Transform post in gate.transform)
+            {
+                if (post.name != "Non-colliding gate marking" || Mathf.Abs(post.localScale.y - 4) > .01f) continue;
+                var foot = post.TransformPoint(Vector3.down * .5f); // the post's foot (a unit cube scaled to its height)
+                if (!GroundTop(foot, foot.y - 4, foot.y + .5f, out float gy) || foot.y - gy < .05f) continue;
+                float gap = foot.y - gy; post.localScale += new Vector3(0, gap, 0); post.localPosition -= new Vector3(0, gap * .5f, 0);
+            }
+        }
         static string Path(Transform t) { var s = t.name; while (t.parent) { t = t.parent; s = t.name + "/" + s; } return s; }
         static RaceGate Clone(RaceGate template, Transform parent) { var g = UnityEngine.Object.Instantiate(template, parent); return g; }
         // a gate like the Mountain Loop's: two posts and a bar, no collider (sized to the opening)

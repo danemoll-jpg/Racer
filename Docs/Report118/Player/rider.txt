@@ -1,0 +1,28 @@
+screen=1920x1080 kind=rider118 version=0.118.0-review1 park=on
+rider in settings.json before: {"body":0,"skin":1,"hair":1,"hairColor":0,"hat":2,"hatColor":4,"shirt":1,"shirtColor":6,"pants":0,"pantsColor":6,"emblem":0}
+main menu: page 'Ready/', focus 'race'
+  focus 'garage' (D-pad down)
+  A: page 'Garage/', focus 'profile-0'
+  focus 'rider'
+  A: page 'Garage/rider', focus 'rider-4'
+  focus 'rider-4': 'Hat: None' (the hat off for the hair shots)
+  focus 'rider-2': 'Hair: Medium'
+  D-pad right: 'Hair: Long' (focus 'rider-2')
+  D-pad right: 'Hair: Ponytail' (focus 'rider-2')
+  D-pad right: 'Hair: Bald' (focus 'rider-2')
+  D-pad right: 'Hair: Mohawk' (focus 'rider-2')
+  D-pad right: 'Hair: Crew cut' (focus 'rider-2')
+  D-pad right: 'Hair: Spiky' (focus 'rider-2')
+  D-pad right: 'Hair: Buzz' (focus 'rider-2')
+  D-pad right: 'Hair: Curly' (focus 'rider-2')
+  D-pad right: 'Hair: Short' (focus 'rider-2')
+  D-pad right: 'Hair: Medium' (focus 'rider-2')
+  focus 'rider-4': 'Hat: Baseball cap' (the hat back on)
+  B: page 'Garage/', focus 'rider'
+  B: page 'Ready/', focus 'garage'
+  B: page 'Ready/', focus 'garage'
+fastback: Highball Fastback (pose Car), rider parts Car_Hair_Medium_Any__hair Car_Hat_Baseball_Any__hat Car_Base_All_Man_HL__skin Car_Base_All_Man_HR__skin
+moto: Needle 600 (pose Moto), rider parts Moto_Hair_Medium_Any__hair Moto_Hat_Baseball_Any__hat Moto_Base_All_Man_HL__skin Moto_Base_All_Man_HR__skin
+stuntbike: Skywhip 250 (pose Dirt), rider parts Dirt_Hair_Medium_Any__hair Dirt_Hat_Baseball_Any__hat Dirt_Base_All_Man_HL__skin Dirt_Base_All_Man_HR__skin
+rider in settings.json after (every style stepped through once, back where it was): {"body":0,"skin":1,"hair":1,"hairColor":0,"hat":2,"hatColor":4,"shirt":1,"shirtColor":6,"pants":0,"pantsColor":6,"emblem":0}: UNCHANGED
+settings.json on disk: hair 1

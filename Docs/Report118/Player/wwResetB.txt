@@ -1,0 +1,17 @@
+screen=1920x1080 kind=seg118 version=0.117.0-review1 park=on
+== ww-back-resets: Leviathan - Reverse: Leviathan - Reverse (leviathan-reverse-v4): line 7039 m, 46 gates, 2 shortcuts, flights South Face Summit Flight 5049-5554, Downhill Ridge Cut drop 5821-5929; the pad bot from s 6040 to s 6200, 0.0 m right of the line, view Chase, vehicle drifter
+  the reset button at s 6075 (707.6,78.63,8.7)
+    put at 695.9,79.38,19.5, racer station 13130, next CP 38
+  the reset button at s 6095 (693.3,79.57,22.1)
+    put at 688.9,79.97,26.5, racer station 13140, next CP 38
+  driven 14 s to s 6201: missed gates 0, resets 2 (game resets 0), wrong-way warnings 0, next gate seen 97 % of the time, frames 0
+  top speed 64 mph; times off the ground over 0.15 s: 2
+  off the ground 0.16 s from 713.5,79.43,3.6 (s 6067) to 710.7,79.08,5.9 (s 6071) at 50 mph
+  off the ground 0.66 s from 653.1,80.08,62.3 (s 6155) to 648.9,79.61,71.2 (s 6165) at 34 mph
+    CP 37 seen 0.0 s after the gate before
+  passed CP 37 at 712.1,79.28,4.8 t 1.6 -> next CP 38: seen
+    CP 38 seen 0.0 s after the gate before
+  passed CP 38 at 678.7,78.91,36.8 t 9.9 -> next CP 39: seen
+    CP 39 seen 0.0 s after the gate before
+  passed CP 39 at 637.5,79.85,80.6 t 13.4 -> next CP 40: seen
+    CP 40 seen 0.0 s after the gate before

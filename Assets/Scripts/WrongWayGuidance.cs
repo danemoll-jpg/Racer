@@ -33,7 +33,16 @@ namespace Racer
         }
         // 0.115: on a tracked line (Leviathan passes its stem and lake shore twice) from the vehicle's recovery tracking, else the nearest point
         // 0.117: from the racer's own station (RaceDirector keeps it on the pass of the lap it is on, between its last and next gate)
-        float MainStation(Vector3 p,VehicleRespawn respawn,RacerState who)=>race.road.tracked&&!float.IsNaN(who.TrackedStation)?race.road.ProjectNear(p,who.TrackedStation,40,out _):race.road.tracked&&respawn&&respawn.Tracking?race.road.ProjectNear(p,respawn.TrackingStation,40,out _):race.road.Project(p,out _);
+        float MainStation(Vector3 p,VehicleRespawn respawn,RacerState who)=>OnPass(p,who,race.road.tracked&&!float.IsNaN(who.TrackedStation)?race.road.ProjectNear(p,who.TrackedStation,40,out _):race.road.tracked&&respawn&&respawn.Tracking?race.road.ProjectNear(p,respawn.TrackingStation,40,out _):race.road.Project(p,out _),out _);
+        // 0.118 Part B (BUG-003 / BUG-004, the Reverse lake out-and-back: both passes on the same road, 1.5 m apart): on Leviathan the station is
+        // always one on the pass of the lap the racer is on (RaceDirector.CourseWindow: from its last gate to its next, as the guide and the
+        // racer's place are, with 150 m either side); a station on the other pass (the same road driven the other way) would read as driving backwards
+        const float Margin=150;
+        float OnPass(Vector3 p,RacerState who,float s,out float lateral)
+        {
+            lateral=-1;if(!race.road.tracked||!race.CourseWindow(who,out float lo,out float hi)||race.road.Relative(s,lo-Margin)<=hi-lo+2*Margin)return s; // turning round and driving back past the last gate stays a wrong way
+            return race.road.ProjectNear(p,lo+(hi-lo)*.5f,(hi-lo)*.5f,out lateral);
+        }
         void FixedUpdate()
         {
             if(!race||!race.Flow||!race.road)return;
@@ -66,7 +75,7 @@ namespace Racer
                 // the separately held bypass entitlement.
                 if(lostSeconds>=.25f&&lateral>branch.halfWidth+24)
                 {
-                    float main= race.road.Project(p,out float mainLateral);
+                    float mainLateral;float main=race.road.tracked?race.road.ProjectNear(p,(branch.entryRoad+branch.exitRoad)*.5f,race.road.Relative(branch.exitRoad,branch.entryRoad)*.5f+60,out mainLateral):race.road.Project(p,out mainLateral); // 0.118: Leviathan: the stretch the shortcut cuts, not the other pass
                     if(mainLateral<=race.road.HalfWidth(main)+22)
                     {current=main;lateral=mainLateral;fallbackMain=true;}
                 }
@@ -85,6 +94,7 @@ namespace Racer
                 }
             }
             else lostSeconds=0;
+            if(!branch||fallbackMain){float onPass=OnPass(p,who,current,out float passLateral);if(passLateral>=0){current=onPass;lateral=passLateral;}} // 0.118
             bool branchSample=branch&&!fallbackMain;
             var support=branchSample?branch.At(current,out var f):race.road.At(current,out f);
             bool streetFallback=false;

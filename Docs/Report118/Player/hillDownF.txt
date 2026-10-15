@@ -1,0 +1,12 @@
+screen=1920x1080 kind=seg118 version=0.117.0-review1 park=on
+== clip-hill-down-F: Leviathan - Forward: Leviathan - Forward (leviathan-forward-v3): line 6943 m, 46 gates, 4 shortcuts, flights Homeward Summit Flight 1804-2384; the pad bot from s 2800 to s 2945, 0.0 m right of the line, view FirstPerson, vehicle drifter
+  driven 9 s to s 2945: missed gates 0, resets 0 (game resets 0), wrong-way warnings 0, next gate seen 67 % of the time, frames 81
+  top speed 53 mph; times off the ground over 0.15 s: 1
+  off the ground 0.46 s from 475.9,86.94,-26.5 (s 2914) to 471.8,87.40,-31.7 (s 2920) at 32 mph
+    CP 17 seen 0.0 s after the gate before
+  passed CP 17 at 537.4,82.72,-48.3 t 0.7 -> next CP 18: seen
+    CP 18 seen 0.0 s after the gate before
+  passed CP 18 at 508.2,79.80,-15.3 t 4.5 -> next CP 19: seen
+    CP 19 seen 1.0 s after the gate before
+  passed CP 19 at 473.2,88.41,-43.1 t 8.5 -> next CP 20: seen
+    CP 20 seen 0.0 s after the gate before

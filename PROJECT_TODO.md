@@ -27,7 +27,7 @@
     No narrative of how it was built, no tables of runs, no repeated numbers. Detail goes in the round's `Docs/ReportNNN/` folder, if anywhere.
   - **Write-up:** the TODO results are a short list: what changed, the one check per item, decisions made, and anything Dan should look at. No separate VALIDATION.md unless a round asks. If a check would take more than a few minutes of play time, skip it and list it under "for Dan to check".
 
-## CURRENT — Leviathan: remove the two ROAD CLOSED barricades Dan called out, smooth Kyle's hill, guide with more gates instead of arrow boards, the Reverse lake out-and-back; Chastain Rush's updated hands and hair styles — target 0.118.0-review1 — NOT STARTED
+## CURRENT — Leviathan: remove the two ROAD CLOSED barricades Dan called out, smooth Kyle's hill, guide with more gates instead of arrow boards, the Reverse lake out-and-back; Chastain Rush's updated hands and hair styles — target 0.118.0-review1 — DELIVERED as 0.118.0-review1 (build 118000, local build), awaiting Dan's review
 
 Dan's report `2026-10-15_10-07-01-350_18f9c1` (0.117, Leviathan Forward lap 1 and Reverse laps 1–2, Drifter Twin; in `DebugReports`). Dan (10:38): "things are mostly ok. Fix these and I want to add the updated hands and hair styles from the Chastain Rush game that was added there." **Read the 4 screenshots first.** Parts A–C apply to the Leviathan races only (Free Roam and every other course unchanged). The standing rules apply, including "World changes only where Dan pointed" and the 0.97 rule: "I would rather manage where the signs are needed than rely on it to put crap wherever."
 
@@ -87,6 +87,27 @@ Dan: "I want to add the updated hands and hair styles from the Chastain Rush gam
 
 ### Part D — Release
 Version 0.118.0-review1. Run the usual build and release; close everything you started; leave no background task running. Write a short result list, as the standing rules say.
+
+### Results (2026-10-15, Claude Code)
+- Checkpoint `12359cd3`. Evidence [Docs/Report118/](Docs/Report118/); course files made by [Tools/Report118/py/run-all.sh](Tools/Report118/py/run-all.sh). Course ids `leviathan-forward-v3` / `leviathan-reverse-v4` (records start again).
+- **A:** only Dan's two closures removed: Forward's fence and ROAD CLOSED at (1189.5, 186.2) (the gray board was its second sign's back) and Reverse's fence at (−606.6, −506.3). Every other closure kept. Shots: `Shots/spot-A-BUG-00*.jpg`.
+- **A2:** Kyle's bank is one even 25 % slope with a 3 m ease at the foot and a 9 m rounded top (a car stays on the ground to about 40 mph), 9 m wide, sides blended in ([bank.txt](Docs/Report118/bank.txt)). The steepest Street Loop stretch measured the same way is 28 %; 0.117 had 34 %. It is race only: the ground tile's vertices are set when a Leviathan race loads, so Free Roam and the other courses keep the scene's ground; the trees on the bank move with it. Checks: [first-person clips](Docs/Report118/Clips/) up and down with no hop on the bank; AI races both ways (12 rivals, fastback included) with none stuck or reset on the bank; resets on the hill land on the slope, facing the course ([Player/](Docs/Report118/Player/)).
+- **B:** arrow boards removed (11 Forward, 12 Reverse). Chevrons kept only at road-to-road corners (13 / 10). Gates 26→45 Forward, 24→45 Reverse: the next gate is in view from each one, there is a gate at every turn off a road, and none stands on a jump ([gates-and-boards.md](Docs/Report118/gates-and-boards.md)).
+- **B, wrong way:** not reproduced. Likely cause: on the lake out-and-back both passes share a road 1.5 m apart, and three code paths in `WrongWayGuidance` could take the other pass's station (after a reset or a big position jump, when finding the line again off the road, in a shortcut fallback). That reads as driving backwards. It now uses the racer's own pass, as the guide has since 0.117. Checks: [rec-R-cp14-cp21.mp4](Docs/Report118/Clips/rec-R-cp14-cp21.mp4) (0 warnings, 0 missed gates); ±3 m lanes and resets on both passes, 0 warnings.
+- Gates built for the course now stand on the ground at the course line's height, with posts reaching the ground. Kyle's driveway gate floated 0.85 m, and Reverse CP 8 sat on the trailer ramp.
+- **C:** from `chastain_rush` commit `4e4cd51` (`rider.py`). Closed hands round the grips and wheel in every pose; Mohawk, Crew cut, Spiky, Buzz and Curly added after Bald (indexes 5–9); `Rider.fbx` regenerated with 0 split errors. Checks: first-person car, moto and stunt bike, the chase view and each new style ([Shots/](Docs/Report118/Shots/)); the Rider page by controller only (Hair through every style, B back); Dan's saved look unchanged ([rider.txt](Docs/Report118/Player/rider.txt)).
+- **Decisions:**
+  - Chastain's remodeled Short and Medium were not taken, because Dan's rider wears Medium and must look the same.
+  - Random looks still draw from the old five styles, so player 2 and the rivals look as before, now with the new hands.
+  - The bank keeps 0.117's S-shaped line; the heights of the drive pad and the lake path set the 25 %.
+- **Release:** local build only (2026-10-15 rule): RELEASE-LINE
+- **For Dan to check:**
+  - The hill at speed, and the sharp turn onto the pad at its foot.
+  - The 45 gates' placement.
+  - Rivals still reset at the lake-shore → CR110 turn, as in 0.117; once an ATV looped there.
+  - BUG-002's dirt way is still closed at its other end, 49 m on.
+  - The street-to-Kyle's-driveway drop (unchanged) throws a fast car 0.8 s.
+  - A hat hides the top of the new styles.
 
 ## Previous delivery — Leviathan cleanup: every turn clear, wrong roads blocked, gates right, resets onto Leviathan, shortcuts with something on them (Dan's 14 reports) — target 0.117.0-review1 — DELIVERED as 0.117.0-review1 (build 117000), awaiting Dan's review — REVIEWED BY DAN ("mostly ok"; follow-ups in 0.118)
 

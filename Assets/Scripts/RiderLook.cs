@@ -18,14 +18,15 @@ namespace Racer
         public static readonly string[] Bodies = { "Man", "Woman" };
         public static readonly string[] SkinNames = { "Very light", "Light", "Medium", "Tan", "Brown", "Dark" };
         public static readonly Color[] Skins = { new(.95f, .79f, .67f), new(.91f, .69f, .53f), new(.78f, .52f, .36f), new(.60f, .39f, .25f), new(.39f, .22f, .15f), new(.24f, .14f, .09f) };
-        public static readonly string[] Hairs = { "Short", "Medium", "Long", "Ponytail", "Bald" };
+        // 0.118 Part C: five styles from Chastain Rush (Tools/Blender/rider.py) after the old ones: a saved look keeps its index
+        public static readonly string[] Hairs = { "Short", "Medium", "Long", "Ponytail", "Bald", "Mohawk", "Crew cut", "Spiky", "Buzz", "Curly" };
         public static readonly string[] HairColorNames = { "Black", "Dark brown", "Brown", "Auburn", "Red", "Blonde", "Gray", "White" };
         public static readonly Color[] HairColors = { new(.03f, .025f, .022f), new(.18f, .065f, .028f), new(.36f, .20f, .09f), new(.45f, .13f, .05f), new(.72f, .24f, .07f), new(.80f, .62f, .30f), new(.52f, .52f, .52f), new(.88f, .87f, .84f) };
         public static readonly string[] Hats = { "None", "Flat cap", "Baseball cap", "Beanie", "Cowboy hat" };
         public static readonly string[] Shirts = { "T-shirt", "Long sleeve", "Jacket", "Leather jacket" };
         public static readonly string[] Pants = { "Jeans", "Shorts" };
         // Part keys in the FBX object names: <Pose>_<Category>_<Option>_<Body>__<slot>.
-        static readonly string[] HairKeys = { "Short", "Medium", "Long", "Ponytail", "Bald" }, HatKeys = { "None", "FlatCap", "Baseball", "Beanie", "Cowboy" },
+        static readonly string[] HairKeys = { "Short", "Medium", "Long", "Ponytail", "Bald", "Mohawk", "CrewCut", "Spiky", "Buzz", "Curly" }, HatKeys = { "None", "FlatCap", "Baseball", "Beanie", "Cowboy" },
             ShirtKeys = { "Tee", "Long", "Jacket", "Leather" }, PantsKeys = { "Jeans", "Shorts" };
 
         // The default is the 0.73 rider's identity: man, short dark-brown hair, medium skin, flat cap, blue T-shirt, jeans.
@@ -91,9 +92,11 @@ namespace Racer
             };
         }
 
+        // 0.118: the random looks draw from the five pre-0.118 styles, so every seeded look (player 2, the rivals of a given race) is the one it was
+        const int SeededHairs = 5;
         public static RiderLook Random(System.Random r) => new()
         {
-            body = r.Next(2), skin = r.Next(Skins.Length), hair = r.Next(Hairs.Length), hairColor = r.Next(HairColors.Length), hat = r.Next(Hats.Length),
+            body = r.Next(2), skin = r.Next(Skins.Length), hair = r.Next(SeededHairs), hairColor = r.Next(HairColors.Length), hat = r.Next(Hats.Length),
             hatColor = r.Next(VehiclePaint.Colors.Length), shirt = r.Next(Shirts.Length), shirtColor = r.Next(VehiclePaint.Colors.Length),
             pants = r.Next(Pants.Length), pantsColor = r.Next(VehiclePaint.Colors.Length)
         };

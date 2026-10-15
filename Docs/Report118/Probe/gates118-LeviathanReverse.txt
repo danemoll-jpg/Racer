@@ -1,0 +1,83 @@
+== Leviathan - Reverse: line 7038.8 m, 24 gates; no gate in 5049-5554, 5821-5929
+  turn 'onto the shore strip' (s 4254): a gate added at s 4269
+  turn 'leaving the lake for CR117 (the mountain)' (s 4375): a gate added at s 4390
+  turn 'off the mountain: onto the strip' (s 6053): a gate added at s 6068
+  turn 'back onto the north shore' (s 6163): a gate added at s 6178
+  turn 'J: right into Kyle's driveway' (s 4034): Leviathan Reverse CP 14 (Kyle's driveway) at s 4049 already
+  turn 'off the driveway link: left onto the lake path' (s 4093): a gate added at s 4108
+  turn 'off the lake path: right to the driveway' (s 6333): a gate added at s 6348
+  turn 'out of Kyle's driveway: right onto the street' (s 6401): Leviathan Reverse CP 21 at s 6409 already
+  0.117 gates, each to the next:
+    Leviathan Reverse START FINISH               s    7000 -> Leviathan Reverse CP 1                         280 m: NOT in view: 86 deg off ahead
+    Leviathan Reverse CP 1                       s     242 -> Leviathan Reverse CP 2                         232 m: in view
+    Leviathan Reverse CP 2                       s     474 -> Leviathan Reverse CP 3                         230 m: in view
+    Leviathan Reverse CP 3                       s     704 -> Leviathan Reverse CP 4                         232 m: in view
+    Leviathan Reverse CP 4                       s     936 -> Leviathan Reverse CP 5                         231 m: in view
+    Leviathan Reverse CP 5                       s    1167 -> Leviathan Reverse CP 6                         523 m: NOT in view: 515 m away
+    Leviathan Reverse CP 6                       s    1690 -> Leviathan Reverse CP 7                         154 m: in view
+    Leviathan Reverse CP 7                       s    1844 -> Leviathan Reverse CP 8                         285 m: NOT in view: hidden (0/5 points seen, 206 m)
+    Leviathan Reverse CP 8                       s    2129 -> Leviathan Reverse CP 9                         215 m: in view
+    Leviathan Reverse CP 9                       s    2344 -> Leviathan Reverse CP 10                        441 m: NOT in view: 332 m away
+    Leviathan Reverse CP 10                      s    2785 -> Leviathan Reverse CP 11                        209 m: NOT in view: hidden (0/5 points seen, 160 m)
+    Leviathan Reverse CP 11                      s    2994 -> Leviathan Reverse CP 12                        484 m: NOT in view: 437 m away
+    Leviathan Reverse CP 12                      s    3477 -> Leviathan Reverse CP 13                        232 m: NOT in view: hidden (0/5 points seen, 220 m)
+    Leviathan Reverse CP 13                      s    3710 -> Leviathan Reverse CP 14 (Kyle's driveway)      339 m: NOT in view: 298 m away
+    Leviathan Reverse CP 14 (Kyle's driveway)    s    4049 -> Leviathan Reverse CP 15 (lake north shore)     163 m: NOT in view: hidden (0/5 points seen, 142 m)
+    Leviathan Reverse CP 15 (lake north shore)   s    4212 -> Leviathan Reverse CP 16 (CR117 CP 1)           496 m: NOT in view: 364 m away
+    Leviathan Reverse CP 16 (CR117 CP 1)         s    4708 -> Leviathan Reverse CP 17 (CR117 CP 2)           311 m: NOT in view: 115 deg off ahead
+    Leviathan Reverse CP 17 (CR117 CP 2)         s    5019 -> Leviathan Reverse CP 18 (CR117 CP 3)           737 m: in view
+    Leviathan Reverse CP 18 (CR117 CP 3)         s    5756 -> Leviathan Reverse CP 19 (Downhill Ridge Cut)    98 m: in view
+    Leviathan Reverse CP 19 (Downhill Ridge Cut) s    5853 -> Leviathan Reverse CP 20 (lake north-east strip)   262 m: in view
+    Leviathan Reverse CP 20 (lake north-east strip) s    6115 -> Leviathan Reverse CP 21                        293 m: in view
+    Leviathan Reverse CP 21                      s    6409 -> Leviathan Reverse CP 22                        129 m: in view
+    Leviathan Reverse CP 22                      s    6537 -> Leviathan Reverse CP 23                        231 m: NOT in view: hidden (1/5 points seen, 210 m)
+    Leviathan Reverse CP 23                      s    6768 -> Leviathan Reverse START FINISH                 232 m: in view
+  with the gates added (24), each to the next:
+    Leviathan Reverse START FINISH                               s    7000 ->    90 m: in view
+    NEW the next gate in view from Leviathan Reverse START FINISH s      52 ->   190 m: in view
+    Leviathan Reverse CP 1                                       s     242 ->   232 m: in view
+    Leviathan Reverse CP 2                                       s     474 ->   230 m: in view
+    Leviathan Reverse CP 3                                       s     704 ->   232 m: in view
+    Leviathan Reverse CP 4                                       s     936 ->   231 m: in view
+    Leviathan Reverse CP 5                                       s    1167 ->   253 m: in view
+    NEW the next gate in view from Leviathan Reverse CP 5        s    1420 ->   135 m: in view
+    NEW the next gate in view from                               s    1555 ->   135 m: in view
+    Leviathan Reverse CP 6                                       s    1690 ->   154 m: in view
+    Leviathan Reverse CP 7                                       s    1844 ->   265 m: in view
+    NEW the next gate in view from Leviathan Reverse CP 7        s    2109 ->    20 m: in view
+    Leviathan Reverse CP 8                                       s    2129 ->   215 m: in view
+    Leviathan Reverse CP 9                                       s    2344 ->   106 m: in view
+    NEW the next gate in view from Leviathan Reverse CP 9        s    2450 ->   235 m: in view
+    NEW the next gate in view from                               s    2685 ->   100 m: in view
+    Leviathan Reverse CP 10                                      s    2785 ->   164 m: in view
+    NEW the next gate in view from Leviathan Reverse CP 10       s    2949 ->    45 m: in view
+    Leviathan Reverse CP 11                                      s    2994 ->    94 m: in view
+    NEW the next gate in view from Leviathan Reverse CP 11       s    3087 ->   275 m: in view
+    NEW the next gate in view from                               s    3362 ->   115 m: in view
+    Leviathan Reverse CP 12                                      s    3477 ->   112 m: in view
+    NEW the next gate in view from Leviathan Reverse CP 12       s    3590 ->   120 m: in view
+    Leviathan Reverse CP 13                                      s    3710 ->   229 m: in view
+    NEW the next gate in view from Leviathan Reverse CP 13       s    3939 ->    90 m: in view
+    NEW the next gate in view from                               s    4029 ->    20 m: in view
+    Leviathan Reverse CP 14 (Kyle's driveway)                    s    4049 ->    59 m: in view
+    NEW just past the turn 'off the driveway link: left onto the lake path' s    4108 ->   104 m: in view
+    Leviathan Reverse CP 15 (lake north shore)                   s    4212 ->    58 m: in view
+    NEW just past the turn 'onto the shore strip'                s    4269 ->    96 m: in view
+    NEW the next gate in view from                               s    4365 ->    25 m: in view
+    NEW just past the turn 'leaving the lake for CR117 (the mountain)' s    4390 ->   173 m: in view
+    NEW the next gate in view from                               s    4563 ->   145 m: in view
+    Leviathan Reverse CP 16 (CR117 CP 1)                         s    4708 ->    61 m: in view
+    NEW the next gate in view from Leviathan Reverse CP 16 (CR117 CP 1) s    4769 ->   250 m: in view
+    Leviathan Reverse CP 17 (CR117 CP 2)                         s    5019 ->   737 m: NOT in view: 535 m away (a flight between: not checked)
+    Leviathan Reverse CP 18 (CR117 CP 3)                         s    5756 ->    98 m: NOT in view: hidden (0/5 points seen, 83 m) (a flight between: not checked)
+    Leviathan Reverse CP 19 (Downhill Ridge Cut)                 s    5853 ->   215 m: NOT in view: hidden (0/5 points seen, 170 m) (a flight between: not checked)
+    NEW just past the turn 'off the mountain: onto the strip'    s    6068 ->    47 m: in view
+    Leviathan Reverse CP 20 (lake north-east strip)              s    6115 ->    63 m: in view
+    NEW just past the turn 'back onto the north shore'           s    6178 ->    85 m: in view
+    NEW the next gate in view from                               s    6263 ->    85 m: in view
+    NEW just past the turn 'off the lake path: right to the driveway' s    6348 ->    30 m: in view
+    NEW the next gate in view from                               s    6378 ->    30 m: in view
+    Leviathan Reverse CP 21                                      s    6409 ->   129 m: in view
+    Leviathan Reverse CP 22                                      s    6537 ->   211 m: in view
+    NEW the next gate in view from Leviathan Reverse CP 22       s    6748 ->    20 m: in view
+    Leviathan Reverse CP 23                                      s    6768 ->   232 m: in view

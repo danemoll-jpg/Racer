@@ -1,0 +1,81 @@
+== Leviathan - Forward: line 6942.9 m, 26 gates; no gate in 1804-2384
+  turn 'leaving the lake shore for CR110 (the mountain)' (s 940): a gate added at s 955
+  turn 'J: left into Kyle's driveway' (s 641): Leviathan CP 3 (Kyle's driveway) at s 656 already
+  turn 'off the driveway link: right onto the lake path' (s 701): a gate added at s 716
+  turn 'off the lake path: left to the driveway' (s 2855): a gate added at s 2870
+  turn 'out of Kyle's driveway: left onto the street' (s 2916): a gate added at s 2931
+  turn 'off the mountain road: right onto the lake shore' (s 2600): a gate added at s 2615
+  0.117 gates, each to the next:
+    Leviathan START FINISH                       s      38 -> Leviathan CP 1                                 232 m: in view
+    Leviathan CP 1                               s     270 -> Leviathan CP 2                                 231 m: NOT in view: hidden (0/5 points seen, 211 m)
+    Leviathan CP 2                               s     501 -> Leviathan CP 3 (Kyle's driveway)               155 m: in view
+    Leviathan CP 3 (Kyle's driveway)             s     656 -> Leviathan CP 4 (lake south shore)              195 m: NOT in view: 71 deg off ahead
+    Leviathan CP 4 (lake south shore)            s     852 -> Leviathan CP 5 (Climbing Ridge Cut)            296 m: NOT in view: 266 m away
+    Leviathan CP 5 (Climbing Ridge Cut)          s    1147 -> Leviathan CP 6 (CR117 CP 3)                    193 m: in view
+    Leviathan CP 6 (CR117 CP 3)                  s    1340 -> Leviathan CP 7 (CR117 CP 4)                    131 m: in view
+    Leviathan CP 7 (CR117 CP 4)                  s    1471 -> Leviathan CP 8 (CR117 CP 5)                    219 m: NOT in view: 68 deg off ahead
+    Leviathan CP 8 (CR117 CP 5)                  s    1690 -> Leviathan CP 9 (CR117 CP 6)                    811 m: in view
+    Leviathan CP 9 (CR117 CP 6)                  s    2502 -> Leviathan CP 10 (lake east side)                61 m: NOT in view: 52 deg off ahead
+    Leviathan CP 10 (lake east side)             s    2562 -> Leviathan CP 11                                439 m: in view
+    Leviathan CP 11                              s    3001 -> Leviathan CP 12                                232 m: NOT in view: hidden (0/5 points seen, 217 m)
+    Leviathan CP 12                              s    3233 -> Leviathan CP 13                                232 m: NOT in view: hidden (0/5 points seen, 219 m)
+    Leviathan CP 13                              s    3465 -> Leviathan CP 14                                484 m: NOT in view: 443 m away
+    Leviathan CP 14                              s    3949 -> Leviathan CP 15                                209 m: NOT in view: 56 deg off ahead
+    Leviathan CP 15                              s    4158 -> Leviathan CP 16                                441 m: NOT in view: 334 m away
+    Leviathan CP 16                              s    4599 -> Leviathan CP 17                                215 m: in view
+    Leviathan CP 17                              s    4814 -> Leviathan CP 18                                285 m: NOT in view: 58 deg off ahead
+    Leviathan CP 18                              s    5099 -> Leviathan CP 19                                250 m: in view
+    Leviathan CP 19                              s    5349 -> Leviathan CP 20                                195 m: NOT in view: hidden (0/5 points seen, 187 m)
+    Leviathan CP 20                              s    5544 -> Leviathan CP 21                                232 m: in view
+    Leviathan CP 21                              s    5776 -> Leviathan CP 22                                231 m: in view
+    Leviathan CP 22                              s    6007 -> Leviathan CP 23                                232 m: in view
+    Leviathan CP 23                              s    6239 -> Leviathan CP 24                                230 m: in view
+    Leviathan CP 24                              s    6469 -> Leviathan CP 25                                232 m: in view
+    Leviathan CP 25                              s    6701 -> Leviathan START FINISH                         280 m: NOT in view: hidden (0/5 points seen, 230 m)
+  with the gates added (20), each to the next:
+    Leviathan START FINISH                                       s      38 ->   232 m: in view
+    Leviathan CP 1                                               s     270 ->    86 m: in view
+    NEW the next gate in view from Leviathan CP 1                s     356 ->   145 m: in view
+    Leviathan CP 2                                               s     501 ->   155 m: in view
+    Leviathan CP 3 (Kyle's driveway)                             s     656 ->    60 m: in view
+    NEW just past the turn 'off the driveway link: right onto the lake path' s     716 ->   136 m: in view
+    Leviathan CP 4 (lake south shore)                            s     852 ->   103 m: in view
+    NEW just past the turn 'leaving the lake shore for CR110 (the mountain)' s     955 ->   192 m: in view
+    Leviathan CP 5 (Climbing Ridge Cut)                          s    1147 ->   193 m: in view
+    Leviathan CP 6 (CR117 CP 3)                                  s    1340 ->   131 m: in view
+    Leviathan CP 7 (CR117 CP 4)                                  s    1471 ->    69 m: in view
+    NEW the next gate in view from Leviathan CP 7 (CR117 CP 4)   s    1540 ->   150 m: in view
+    Leviathan CP 8 (CR117 CP 5)                                  s    1690 ->   811 m: NOT in view: 534 m away (a flight between: not checked)
+    Leviathan CP 9 (CR117 CP 6)                                  s    2502 ->    30 m: in view
+    NEW the next gate in view from Leviathan CP 9 (CR117 CP 6)   s    2532 ->    30 m: in view
+    Leviathan CP 10 (lake east side)                             s    2562 ->    53 m: in view
+    NEW just past the turn 'off the mountain road: right onto the lake shore' s    2615 ->   195 m: in view
+    NEW the next gate in view from                               s    2810 ->    60 m: in view
+    NEW just past the turn 'off the lake path: left to the driveway' s    2870 ->    61 m: in view
+    NEW just past the turn 'out of Kyle's driveway: left onto the street' s    2931 ->    71 m: in view
+    Leviathan CP 11                                              s    3001 ->    62 m: in view
+    NEW the next gate in view from Leviathan CP 11               s    3063 ->   170 m: in view
+    Leviathan CP 12                                              s    3233 ->   162 m: in view
+    NEW the next gate in view from Leviathan CP 12               s    3395 ->    70 m: in view
+    Leviathan CP 13                                              s    3465 ->    59 m: in view
+    NEW the next gate in view from Leviathan CP 13               s    3524 ->   210 m: in view
+    NEW the next gate in view from                               s    3734 ->   165 m: in view
+    NEW the next gate in view from                               s    3899 ->    50 m: in view
+    Leviathan CP 14                                              s    3949 ->    79 m: in view
+    NEW the next gate in view from Leviathan CP 14               s    4028 ->   130 m: in view
+    Leviathan CP 15                                              s    4158 ->   296 m: in view
+    NEW the next gate in view from Leviathan CP 15               s    4454 ->    73 m: in view
+    NEW the next gate in view from                               s    4526 ->    73 m: in view
+    Leviathan CP 16                                              s    4599 ->   215 m: in view
+    Leviathan CP 17                                              s    4814 ->   142 m: in view
+    NEW the next gate in view from Leviathan CP 17               s    4956 ->   142 m: in view
+    Leviathan CP 18                                              s    5099 ->   250 m: in view
+    Leviathan CP 19                                              s    5349 ->    98 m: in view
+    NEW the next gate in view from Leviathan CP 19               s    5447 ->    98 m: in view
+    Leviathan CP 20                                              s    5544 ->   232 m: in view
+    Leviathan CP 21                                              s    5776 ->   231 m: in view
+    Leviathan CP 22                                              s    6007 ->   232 m: in view
+    Leviathan CP 23                                              s    6239 ->   230 m: in view
+    Leviathan CP 24                                              s    6469 ->   232 m: in view
+    Leviathan CP 25                                              s    6701 ->   140 m: in view
+    NEW the next gate in view from Leviathan CP 25               s    6841 ->   140 m: in view
