@@ -20,7 +20,68 @@
   - **Player-facing text is American English (Dan, 2026-10-10).** color, gray, center, meter, favorite, tire, canceled, and so on in everything the player reads (menus, HUD, notices, signs, the launcher, shipped documents). Code names, file names and save / settings keys stay as they are.
   - **Write-up:** the TODO results are a short list: what changed, the one check per item, decisions made, and anything Dan should look at. No separate VALIDATION.md unless a round asks. If a check would take more than a few minutes of play time, skip it and list it under "for Dan to check".
 
-## CURRENT — Leviathan cleanup: every turn clear, wrong roads blocked, gates right, resets onto Leviathan, shortcuts with something on them (Dan's 14 reports) — target 0.117.0-review1 — DELIVERED as 0.117.0-review1 (build 117000), awaiting Dan's review
+## CURRENT — Leviathan: remove the two ROAD CLOSED barricades Dan called out, smooth Kyle's hill, guide with more gates instead of arrow boards, the Reverse lake out-and-back; Chastain Rush's updated hands and hair styles — target 0.118.0-review1 — NOT STARTED
+
+Dan's report `2026-10-15_10-07-01-350_18f9c1` (0.117, Leviathan Forward lap 1 and Reverse laps 1–2, Drifter Twin; in `DebugReports`). Dan (10:38): "things are mostly ok. Fix these and I want to add the updated hands and hair styles from the Chastain Rush game that was added there." **Read the 4 screenshots first.** Parts A–C apply to the Leviathan races only (Free Roam and every other course unchanged). The standing rules apply, including "World changes only where Dan pointed" and the 0.97 rule: "I would rather manage where the signs are needed than rely on it to put crap wherever."
+
+### Part A — Remove only the two barricades Dan called out
+0.117 Part A had a script close the ways that meet the course (26 Forward, 33 Reverse). Dan (10:38): "unnecessary … why would this be blocked?" Then (10:47): "At this point just leave the road closed signs in except for the ones I specifically called out. Some of those actually kind of helped, for example the one on the forward track made it more clear which way to go."
+1. **Remove exactly two closures**, the fence and sign together at each:
+   - **BUG-001**, Forward, X=1185.99 Z=192.54, heading 170°: the fence and ROAD CLOSED sign in the open field. The gray blank board beside it also goes if it came with 0.116 or 0.117.
+   - **BUG-002**, Reverse, X=−611.04 Z=−492.14, heading 155°, near the church: the fence across the dirt way ahead.
+2. **Every other 0.117 closure stays exactly as it is.** Do not re-audit them, and do not add new ones.
+3. **Check:** one shot at each spot, after the change.
+
+### Part A2 — Smooth Kyle's hill
+Dan: "Can we smooth out Kyle's hill to make this easier to traverse. It is kind of awkward for me as well." This is the 0.117 link from Kyle's driveway up the grass bank behind the garage to the lake path's west side. It is Forward CP 3 and Reverse CP 14, and the 0.117 notes say it is steep for 4 m. One rival got stuck there.
+   **Where:** Kyle's driveway is around X≈480–500, Z≈−17 to −21 (0.117 BUG-002 / BUG-011 / BUG-014). The bank is the 30 m race-only link that 0.117's `splice.py` built from the end of the drive to the lake path, with top-downs in `Docs/Report117/Probe/`. Forward climbs it heading roughly east; Reverse comes down it.
+1. **Make the climb an even, gentle slope** from the end of Kyle's drive to the lake path:
+   - no step, lip or sudden pitch change;
+   - no steeper than the steepest stretch of the Street Loop road;
+   - wide enough for two vehicles side by side;
+   - joined smoothly at both ends.
+   Dan asked for this, so it is the one terrain change allowed this round, on this spot only. Kyle's house, garage and the rest of the yard stay unchanged.
+2. **Keep it race-only if possible**, as the 0.117 link is. If smoothing it needs the scene's terrain changed, change only that bank, and only in the scene that has it (MountainLoop / MountainLoopReverse). Say which in the results.
+3. **Nothing floats and nothing is buried:**
+   - trees, fence and garage stay on the new ground;
+   - the gate at the top stands on its new ground;
+   - resets on the hill put you on the slope, facing the course.
+4. **Check:**
+   - one first-person clip each way up/down the hill at racing speed (the Drifter Twin, as Dan drives);
+   - one AI race of that stretch with the vehicle types that use it, including the fastback that got stuck in 0.117: none stuck, no resets there.
+
+### Part B — Guide with gates, not arrow boards (Reverse lake out-and-back)
+Dan's two reports:
+- **BUG-003**, Reverse lap 2, X=696.87 Z=11.48, heading 120°, next CP 16: "this is still confusing, even got a sign telling me I was going the wrong way. Let's use more CP as opposed to adding more arrow signs. All the arrow signs are what makes it confusing."
+- **BUG-004**, Reverse lap 2, X=700.44 Z=12.79, heading 324°, next CP 20, at the same spot on the way back: "going back isn't clear either."
+
+1. **Arrow boards out, gates in.** On Leviathan (both directions), remove the 0.116 and 0.117 race-only arrow boards. Keep the chevrons only where the turn is a real road corner. Then add gates so that **from every gate, the next one is in view** as you leave it, and every turn the course makes off a road has a gate in or just past the turn. Use more gates rather than signs. Gates count in order, as now.
+2. **The Reverse lake out-and-back** (CP 16 out, CP 20 back, X≈697–700 Z≈11–13):
+   - the way out (toward CP 16) and the way back (toward CP 20) are each marked by their own gates, close enough together that you never have to guess;
+   - where the out and back lines cross or share road, the only gate drawn is the next one (the 0.116 rule), so the gate you see is always the one you need.
+3. **No wrong-way warning on the course line.** Find out why one showed near BUG-003 while Dan was driving the course. On Leviathan, wrong-way must be judged against Leviathan's own line, on the pass of the lap he is on (as 0.117 did for the guide), never against the Mountain Loop road nearest to him.
+4. **Check:** one recording, Reverse, from CP 14 to CP 21, driven along the course. It shows each next gate in view and no wrong-way warning. Add one shot at each of Dan's two spots. Forward: one list of the gates added and the boards removed (no recording needed).
+5. Gates added change the courses, so the course ids move on (`leviathan-forward-v3` / `leviathan-reverse-v4`) and records start again, as in 0.117.
+
+### Part C — Chastain Rush's updated hands and hair styles
+Dan: "I want to add the updated hands and hair styles from the Chastain Rush game that was added there." Chastain Rush is Dan's sequel project on this PC: `C:\Users\danmo\chastain_rush`, and also `chastain_rush_r7`.
+1. **Find them first.** Work out which of the two folders is current: its git log and its own TODO / CLAUDE.md. Then find the change that updated the rider **hands** and the **hair styles**: commit(s), scripts, meshes or Blender scripts, materials, textures. Write a short note in the results: where they came from (folder and commit), what the new hands are, and the list of hair styles. **Only read Chastain Rush.** Never change, build or commit anything in it, and leave its open editors alone.
+2. **Port into Woodstock Rush:**
+   - the new **hands** replace the current first-person and rider hands (the ones on the handlebars and the wheel in Dan's screenshots), for every vehicle pose: car wheel, motorcycle bars, Dirt pose, stunt vehicles, police bike;
+   - the new **hair styles** are added to the garage Rider page's **Hair** row next to the current ones (same hair colors, including Gray).
+   Use Woodstock Rush's own materials and render setup, so nothing shows pink or unlit. Only the hands and hair: nothing else from Chastain Rush.
+3. **Saves keep working.** Hair is saved by index, so existing styles keep their indexes and the new ones go on the end. Dan's saved rider (and player 2's) must look the same after the update, except for the new hands. The hands and hair also apply to the rivals and the trailer capture's rider look.
+4. **Checks:**
+   - one first-person shot each: car, motorcycle, stunt bike;
+   - one chase-view shot of the rider;
+   - the garage Rider page with the controller only (Hair row through every style, B back), and one shot per new hair style;
+   - Dan's settings and saves loaded unchanged.
+   Hands sit on the grips and wheel with no gaps or clipping at rest and at full steer.
+
+### Part D — Release
+Version 0.118.0-review1. Run the usual build and release; close everything you started; leave no background task running. Write a short result list, as the standing rules say.
+
+## Previous delivery — Leviathan cleanup: every turn clear, wrong roads blocked, gates right, resets onto Leviathan, shortcuts with something on them (Dan's 14 reports) — target 0.117.0-review1 — DELIVERED as 0.117.0-review1 (build 117000), awaiting Dan's review — REVIEWED BY DAN ("mostly ok"; follow-ups in 0.118)
 
 Dan's report `2026-10-14_20-53-07-878_2d1da6` (0.116, Leviathan Forward lap 3 of 4 and Reverse lap 1, Drifter Twin; ZIP in `DebugReports`). Dan (21:17): "A lot to clean up here. It's a little less confusing but there are places that aren't clear whatsoever." **Read all 14 screenshots first.** Everything here applies to the Leviathan races only (0.115 rule: "only change for race, do not change Free Roam or any other races"), world rules as always: no terrain reshaping, nothing floating, signs one-sided and depth-tested.
 
@@ -391,7 +452,7 @@ Version 0.113.0-review1; usual build and release; close everything started.
   - The meeting hall sits about 25 m from its real spot (the real spot is the Pine Ridge trail in the game).
   - Other vehicles' engine level (0.7 of yours) and the 140 m range are a first setting; easy to change.
 
-## QUEUED NEXT — Stunt Races (stunt vehicles only, Mountain courses, own records) and a Stunt chapter in the campaign — target 0.118.0-review1 — NOT STARTED (do not start until Claude (chat) promotes this to CURRENT, after 0.117)
+## QUEUED NEXT — Stunt Races (stunt vehicles only, Mountain courses, own records) and a Stunt chapter in the campaign — target 0.119.0-review1 — NOT STARTED (do not start until Claude (chat) promotes this to CURRENT, after 0.118)
 
 Dan (2026-10-14, 19:24–19:26): "With all the air you get on the mountain jumps, it would be a fun place to do stunts" … "or we can have special stunt-only mountain races with their own separate records and it would mix well with a stunt campaign." Stunt vehicles stay out of normal races, the existing campaign chapters and their records (fairness, balancing).
 
